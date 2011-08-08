@@ -81,39 +81,8 @@ $(function() {
     // Holds the current chart instances for each tab
     var tabChart = new Object();
 
-
     /*** Table sort tooltip ***/
-
-    var $tableSortHint = $('<div class="dHint" style="display:none;">' + 'Click to sort' + '</div>');
-    $('body').append($tableSortHint);
-
-    $('table.sortable thead th').live('mouseover mouseout',function(e) {
-        if(e.type == 'mouseover') {
-            $tableSortHint
-                .stop(true, true)
-                .css({
-                    top: e.clientY + 15,
-                    left: e.clientX + 15
-                })
-                .show('fast')
-                .data('shown',true);
-        } else {
-            $tableSortHint
-                .stop(true, true)
-                .hide(300,function() {
-                    $(this).data('shown',false);
-                });
-        }
-    });
-
-    $(document).mousemove(function(e) {
-        if($tableSortHint.data('shown') == true)
-            $tableSortHint.css({
-                top: e.clientY + 15,
-                left: e.clientX + 15
-            })
-    });
-
+    PMA_createqTip($('table.sortable thead th'), PMA_messages['strClickToSort']);
 
     // Tell highcarts not to use UTC dates (global setting)
     Highcharts.setOptions({
