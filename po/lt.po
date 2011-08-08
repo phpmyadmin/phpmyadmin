@@ -1196,7 +1196,7 @@ msgstr "Podėlio Swap"
 
 #: js/messages.php:109
 msgid "Used Swap"
-msgstr ""
+msgstr "Naudojama swap"
 
 #: js/messages.php:110
 #, fuzzy
