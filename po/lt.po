@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 17:49+0200\n"
+"PO-Revision-Date: 2011-08-08 17:50+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -10224,10 +10224,9 @@ msgid "Insecure connection"
 msgstr "Nesaugus susijungimas"
 
 #: setup/frames/index.inc.php:93
-#, fuzzy
 #| msgid "Configuration storage"
 msgid "Configuration saved."
-msgstr "Konfigūracijos laikmena"
+msgstr "Konfigūracija išsaugota."
 
 #: setup/frames/index.inc.php:94
 msgid ""
