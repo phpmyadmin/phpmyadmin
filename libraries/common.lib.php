@@ -1514,7 +1514,7 @@ function PMA_localisedDate($timestamp = -1, $format = '')
         __('Dec'));
     $day_of_week = array(
 /* l10n: Short week day name */
-        __('Sun'),
+        _pgettext('Short week day name', 'Sun'),
 /* l10n: Short week day name */
         __('Mon'),
 /* l10n: Short week day name */
