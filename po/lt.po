@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 16:45+0200\n"
+"PO-Revision-Date: 2011-08-08 16:46+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -6819,10 +6819,10 @@ msgid "The backed up query was:"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:121
-#, fuzzy, php-format
+#, php-format
 #| msgid "Column %s has been dropped"
 msgid "Event %1$s has been modified."
-msgstr "Stulpelis %s panaikintas"
+msgstr "Įvykis %1$s buvo pakeistas."
 
 #: libraries/rte/rte_events.lib.php:133
 #, fuzzy, php-format
