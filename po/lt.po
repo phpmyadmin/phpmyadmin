@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 16:51+0200\n"
+"PO-Revision-Date: 2011-08-08 16:52+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -7010,7 +7010,7 @@ msgstr "Stulpelių vardai"
 
 #: libraries/rte/rte_routines.lib.php:843
 msgid "Parameters"
-msgstr ""
+msgstr "Parametrai"
 
 #: libraries/rte/rte_routines.lib.php:848
 #, fuzzy
