@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 17:26+0200\n"
+"PO-Revision-Date: 2011-08-08 17:27+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -9446,9 +9446,8 @@ msgid "The number of pages containing data (dirty or clean)."
 msgstr ""
 
 #: server_status.php:1168
-#, fuzzy
 msgid "The number of pages currently dirty."
-msgstr "Duomenų nuskaitymų skaičius."
+msgstr ""
 
 #: server_status.php:1169
 msgid "The number of buffer pool pages that have been requested to be flushed."
