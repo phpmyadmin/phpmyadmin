@@ -3116,8 +3116,12 @@ $(document).ready(function() {
     /**
      * Theme selector.
      */
-    $('a.themeselect').live('click',function(e) {
-        window.open(e.target + '?foo=bar', 'themes','left=10,top=20,width=510,height=350,scrollbars=yes,status=yes,resizable=yes');
+    $('a.themeselect').live('click', function(e) {
+        window.open(
+            e.target,
+            'themes',
+            'left=10,top=20,width=510,height=350,scrollbars=yes,status=yes,resizable=yes'
+            );
         return false;
     });
 
