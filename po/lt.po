@@ -9952,7 +9952,7 @@ msgstr ""
 #: server_status.php:1475
 #| msgid "Usage"
 msgid "CPU Usage"
-msgstr "CPU išnaudota"
+msgstr "CPU naudojimas"
 
 #: server_status.php:1478
 msgid "Memory Usage"
