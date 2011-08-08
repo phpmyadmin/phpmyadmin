@@ -615,14 +615,14 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
     $_SESSION['Import_message']['message'] = $error_msg_output;
 
     if ($exit) {
-       /**
-        * If in an Ajax request
-        * - avoid displaying a Back link
-        * - use PMA_ajaxResponse() to transmit the message and exit
-        */
-       if ($GLOBALS['is_ajax_request'] == true) {
-           PMA_ajaxResponse($error_msg_output, false);
-       }
+        /**
+         * If in an Ajax request
+         * - avoid displaying a Back link
+         * - use PMA_ajaxResponse() to transmit the message and exit
+         */
+        if ($GLOBALS['is_ajax_request'] == true) {
+            PMA_ajaxResponse($error_msg_output, false);
+        }
         if (! empty($back_url)) {
             if (strstr($back_url, '?')) {
                 $back_url .= '&amp;no_history=true';
@@ -635,13 +635,13 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
             $error_msg_output .= '<fieldset class="tblFooters">';
             $error_msg_output .= '[ <a href="' . $back_url . '">' . __('Back') . '</a> ]';
             $error_msg_output .= '</fieldset>' . "\n\n";
-       }
+        }
 
-       echo $error_msg_output;
-       /**
-        * display footer and exit
-        */
-       require './libraries/footer.inc.php';
+        echo $error_msg_output;
+        /**
+         * display footer and exit
+         */
+        require './libraries/footer.inc.php';
     } else {
         echo $error_msg_output;
     }
@@ -866,8 +866,8 @@ if (typeof(window.parent) != 'undefined'
 }
 //]]>
 <?php
-if (!$jsonly)
-  echo '</script>' . PHP_EOL;
+    if (!$jsonly)
+        echo '</script>' . PHP_EOL;
 
         unset($GLOBALS['reload']);
     }
