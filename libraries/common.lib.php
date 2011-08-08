@@ -855,8 +855,9 @@ function PMA_reloadNavigation($jsonly=false)
         unset($_SESSION['tmp_user_values']['table_limit_offset']);
         echo "\n";
         $reload_url = './navigation.php?' . PMA_generate_common_url($GLOBALS['db'], '', '&');
-        if (!$jsonly)
-          echo '<script type="text/javascript">' . PHP_EOL;
+        if (!$jsonly) {
+            echo '<script type="text/javascript">' . PHP_EOL;
+        }
     ?>
 //<![CDATA[
 if (typeof(window.parent) != 'undefined'
@@ -866,8 +867,9 @@ if (typeof(window.parent) != 'undefined'
 }
 //]]>
 <?php
-    if (!$jsonly)
-        echo '</script>' . PHP_EOL;
+        if (!$jsonly) {
+            echo '</script>' . PHP_EOL;
+        }
 
         unset($GLOBALS['reload']);
     }
