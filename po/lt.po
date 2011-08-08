@@ -10047,13 +10047,13 @@ msgstr[1] "Sekundės"
 msgstr[2] "Sekundžių"
 
 #: server_status.php:1595
-#, fuzzy, php-format
+#, php-format
 #| msgid "Minute"
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "Minutė"
 msgstr[1] "Minutė"
-msgstr[2] "Minutė"
+msgstr[2] "Minučių"
 
 #: server_synchronize.php:92
 #, fuzzy
