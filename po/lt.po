@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 10:07+0200\n"
-"PO-Revision-Date: 2011-04-05 15:52+0200\n"
+"PO-Revision-Date: 2011-08-08 15:51+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
+"100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
@@ -415,10 +415,10 @@ msgid "You have to choose at least one column to display"
 msgstr "Pasirinkite bent vieną stulpelį išvedimui"
 
 #: db_qbe.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "vizuali daryklė"
+msgstr "Pereiti į %svizualią daryklę%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:951
@@ -567,10 +567,9 @@ msgid "Search in database"
 msgstr "Paieška duomenų bazėje"
 
 #: db_search.php:275
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Paieškos žodis(iai) arba reikšmė(ės) (pakaitos simbolis: \"%\"):"
+msgstr "Paieškos žodis(iai) arba reikšmė(ės) (pakaitos simboliui: \"%\"):"
 
 #: db_search.php:280
 msgid "Find:"
@@ -714,22 +713,19 @@ msgid "Analyze table"
 msgstr "Analizuoti lentelę"
 
 #: db_structure.php:515
-#, fuzzy
 #| msgid "Go to table"
 msgid "Add prefix to table"
-msgstr "Eiti į lentelę"
+msgstr "Pridėti priešdėlį lentelės pavadinimui"
 
 #: db_structure.php:517 libraries/mult_submits.inc.php:251
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
-msgstr "Pakeisti lentelės turinį failo duomenimis "
+msgstr "Pakeisti lentelės pavadinimo priešdėlį"
 
 #: db_structure.php:519 libraries/mult_submits.inc.php:251
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
-msgstr "Pakeisti lentelės turinį failo duomenimis "
+msgstr "Kopijuoti lentelę su pavadinimo priešdėliu"
 
 #: db_structure.php:559 libraries/schema/User_Schema.class.php:382
 msgid "Data Dictionary"
@@ -825,7 +821,7 @@ msgstr "Įveskite kiekvieną reikšmę atskirame laukelyje."
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr ""
+msgstr "+ Paleisti iš naujo įterpimą ir pridėti naują reikšmę"
 
 #: enum_editor.php:67
 msgid "Output"
@@ -975,16 +971,14 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Jūs ruošiatės SUNAIKINTI visą duomenų bazę!"
 
 #: js/messages.php:34
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to DESTROY a complete table!"
-msgstr "Jūs ruošiatės SUNAIKINTI visą duomenų bazę!"
+msgstr "Jūs ruošiatės SUNAIKINTI visą lentelę!"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "Jūs ruošiatės SUNAIKINTI visą duomenų bazę!"
+msgstr "Jūs ruošiatės SUNAIKINTI visą lentelę!"
 
 #: js/messages.php:37
 msgid "Deleting tracking data"
@@ -1017,7 +1011,6 @@ msgstr "Įveskite skaičių!"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Total"
 msgid "Total count"
 msgstr "Iš viso"
@@ -1040,10 +1033,9 @@ msgstr "Slaptažodžiai nesutampa!"
 
 #: js/messages.php:58 server_privileges.php:1766 server_privileges.php:1790
 #: server_privileges.php:2195 server_privileges.php:2389
-#, fuzzy
 #| msgid "Any user"
 msgid "Add user"
-msgstr "Bet kurį vartotoją"
+msgstr "Pridėti naudotoją"
 
 #: js/messages.php:59
 msgid "Reloading Privileges"
@@ -1067,24 +1059,22 @@ msgid "Edit"
 msgstr "Redaguoti"
 
 #: js/messages.php:66 server_status.php:667
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Pasirinkti serverį"
+msgstr "Tiesioginių duomenų srauto diagrama"
 
 #: js/messages.php:67 server_status.php:670
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "Tiesioginių prisijungimų/procesų diagrama"
 
 #: js/messages.php:68 server_status.php:688
-#, fuzzy
 #| msgid "Show query box"
 msgid "Live query chart"
-msgstr "Rodyti užklausos laukelį"
+msgstr "Tiesioginė užklausos diagrama"
 
 #: js/messages.php:70
 msgid "Static data"
-msgstr ""
+msgstr "Statiniai duomenys"
 
 #. l10n: Total number of queries
 #: js/messages.php:72 libraries/build_html_for_db.lib.php:46
@@ -1097,7 +1087,7 @@ msgstr "Iš viso"
 #. l10n: Other, small valued, queries
 #: js/messages.php:74 server_status.php:873
 msgid "Other"
-msgstr ""
+msgstr "Kita"
 
 #. l10n: Thousands separator
 #: js/messages.php:76 libraries/common.lib.php:1332
@@ -1111,31 +1101,29 @@ msgstr ","
 
 #: js/messages.php:80
 msgid "KiB sent since last refresh"
-msgstr ""
+msgstr "KiB išsiųsta nuo paskutinio naujinimo"
 
 #: js/messages.php:81
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "KiB gauta nuo paskutinio naujinimo"
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
-msgstr "Pasirinkti serverį"
+msgstr "Serverio duomenų srautas (KiB)"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "prisijungimų nuo paskutinio įkėlimo iš naujo"
 
 #: js/messages.php:84 js/messages.php:115 server_status.php:1068
 msgid "Processes"
 msgstr "Procesai"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "Prisijungimai"
+msgstr "Prisijungimai / Procesai"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
@@ -1153,15 +1141,15 @@ msgstr "Užklausų statistika"
 
 #: js/messages.php:94
 msgid "System CPU Usage"
-msgstr ""
+msgstr "Sistemos CPU naudojimas"
 
 #: js/messages.php:95
 msgid "System memory"
-msgstr ""
+msgstr "Sistemos atmintis"
 
 #: js/messages.php:96
 msgid "System swap"
-msgstr ""
+msgstr "Sistemos swap"
 
 #: js/messages.php:97 libraries/common.lib.php:1291 server_status.php:1512
 msgid "MiB"
@@ -1173,61 +1161,56 @@ msgstr "KiB"
 
 #: js/messages.php:100
 msgid "Average load"
-msgstr ""
+msgstr "Vidutinis apkrovimas"
 
 #: js/messages.php:101
-#, fuzzy
 #| msgid "Total"
 msgid "Total memory"
-msgstr "Iš viso"
+msgstr "Iš viso atminties"
 
 #: js/messages.php:102
 msgid "Cached memory"
-msgstr ""
+msgstr "Podėlio atmintis"
 
 #: js/messages.php:103
-#, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "Buferio Pool'as"
+msgstr "Buferio atmintis"
 
 #: js/messages.php:104
 msgid "Free memory"
-msgstr ""
+msgstr "Laisva atmintis"
 
 #: js/messages.php:105
 msgid "Used memory"
-msgstr ""
+msgstr "Naudojama atmintis"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "Iš viso"
+msgstr "Iš viso Swap"
 
 #: js/messages.php:108
 msgid "Cached Swap"
-msgstr ""
+msgstr "Podėlio Swap"
 
 #: js/messages.php:109
 msgid "Used Swap"
-msgstr ""
+msgstr "Naudojama swap"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "Tušti puslapiai"
+msgstr "Laisva Swap"
 
 #: js/messages.php:112
 msgid "Bytes sent"
-msgstr ""
+msgstr "Išsiųsta baitų"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "Gauta"
+msgstr "Gauta baitų"
 
 #: js/messages.php:114 server_status.php:994
 msgid "Connections"
@@ -1250,14 +1233,13 @@ msgid "Settings"
 msgstr "Nustatymai"
 
 #: js/messages.php:121
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "Pašalinti duomenų bazę"
+msgstr "Pašalinti diagramą"
 
 #: js/messages.php:122
 msgid "Edit title and labels"
-msgstr ""
+msgstr "Keisti pavadinimą ir etiketes"
 
 #: js/messages.php:123
 #, fuzzy
@@ -1267,7 +1249,7 @@ msgstr "Pritraukti prie tinklelio"
 
 #: js/messages.php:125
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "Prašome pridėti bent vieną kintamąjį į eilę"
 
 #: js/messages.php:126 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1052
@@ -1286,19 +1268,19 @@ msgstr ""
 
 #: js/messages.php:130
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "general_log ir slow_query_log yra įjungti."
 
 #: js/messages.php:131
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log įjungtas."
 
 #: js/messages.php:132
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "slow_query_log įjungtas."
 
 #: js/messages.php:133
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "slow_query_log ir general_log yra išjungti."
 
 #: js/messages.php:134
 msgid "log_output is not set to TABLE."
@@ -1326,6 +1308,8 @@ msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"Sekantys nustatymai bus pritaikyti globaliai ir nustatyti į numatytuosius po "
+"serverio pakartotino paleidimo:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:140
@@ -1336,47 +1320,46 @@ msgstr "Išsaugoti į failą"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:142
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
-msgstr "Įjungta"
+msgstr "Įjungti %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:144
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disabled"
 msgid "Disable %s"
-msgstr "Išjungta"
+msgstr "Išjungti %s"
 
 #. l10n: %d seconds
 #: js/messages.php:146
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "Nustatyti long_query_time į %ds"
 
 #: js/messages.php:147
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
+"Jūs negalite pakeisti šių kintamųjų. Prašome prisijungti kaip root arba "
+"susisiekite su Jūsų duombazės administratoriumi."
 
 #: js/messages.php:148
-#, fuzzy
 #| msgid "Manage your settings"
 msgid "Change settings"
-msgstr "Keiskite savo nustatymus"
+msgstr "Keisti nustatymus"
 
 #: js/messages.php:149
-#, fuzzy
 #| msgid "More settings"
 msgid "Current settings"
-msgstr "Daugiau nustatymų"
+msgstr "Dabartiniai nustatymai"
 
 #: js/messages.php:151 server_status.php:1472
-#, fuzzy
 #| msgid "Report title:"
 msgid "Chart Title"
-msgstr "Ataskaitos antraštė:"
+msgstr "Diagramos antraštė"
 
 #. l10n: As in differential values
 #: js/messages.php:153
