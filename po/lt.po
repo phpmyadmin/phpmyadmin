@@ -10394,7 +10394,7 @@ msgid "This %soption%s should be enabled if your web server supports it."
 msgstr "Šis %snustatymas%s turėtų būti įjungtas jeigu Jūsų serveris jį palaiko."
 
 #: setup/lib/index.lib.php:282
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and "
 #| "decompression[/a] requires functions (%s) which are unavailable on this "
@@ -10403,8 +10403,8 @@ msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]GZip suspaudimui ir "
-"išspaudimui[/a] reikalingos funkcijos (%s) neprieinamos šioje sistemoje."
+"%sGZip suspaudimui ir išspaudimui%s reikalingos funkcijos (%s) neprieinamos "
+"šioje sistemoje."
 
 #: setup/lib/index.lib.php:284
 #, php-format
