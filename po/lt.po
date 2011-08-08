@@ -7200,10 +7200,9 @@ msgid "There are no routines to display."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:30
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add trigger"
-msgstr "Pridėti naują serverį"
+msgstr ""
 
 #: libraries/rte/rte_words.lib.php:32
 #, fuzzy, php-format
