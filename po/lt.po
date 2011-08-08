@@ -11147,10 +11147,9 @@ msgid "Delete tracking data row from report"
 msgstr "Ištrinti šios lentelės sekimo duomenis"
 
 #: tbl_tracking.php:434
-#, fuzzy
 #| msgid "No databases"
 msgid "No data"
-msgstr "Nėra duomenų bazių"
+msgstr "Nėra duomenų"
 
 #: tbl_tracking.php:444 tbl_tracking.php:501
 msgid "Date"
