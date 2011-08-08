@@ -8247,10 +8247,9 @@ msgid "Create a page and export to it"
 msgstr "Sukurti puslapį ir eksportuoti į jį"
 
 #: pmd_pdf.php:111
-#, fuzzy
 #| msgid "User name"
 msgid "New page name: "
-msgstr "Naudotojo vardas"
+msgstr "Naujas puslapio vardas:"
 
 #: pmd_pdf.php:114
 msgid "Export/Import to scale"
