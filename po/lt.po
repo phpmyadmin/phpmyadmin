@@ -5518,9 +5518,8 @@ msgid "Data files"
 msgstr "Duomenų failai"
 
 #: libraries/engines/innodb.lib.php:27
-#, fuzzy
 msgid "Autoextend increment"
-msgstr "Automatiškai prasiplečiantis prieaugis"
+msgstr "Automatinis didėjimas"
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
