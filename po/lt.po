@@ -5350,10 +5350,9 @@ msgid "%d is not valid row number."
 msgstr "%d nėra galimas eilutės numeris."
 
 #: libraries/display_tbl.lib.php:436
-#, fuzzy
 #| msgid "Startup"
 msgid "Start row"
-msgstr "Paleidimas"
+msgstr "Pradėti eilute"
 
 #: libraries/display_tbl.lib.php:438
 #, fuzzy
