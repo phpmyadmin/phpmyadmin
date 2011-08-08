@@ -1280,7 +1280,7 @@ msgstr "slow_query_log įjungtas."
 
 #: js/messages.php:133
 msgid "slow_query_log and general_log are disabled."
-msgstr "slow_query_log ir general_log išjungti."
+msgstr "slow_query_log ir general_log yra išjungti."
 
 #: js/messages.php:134
 msgid "log_output is not set to TABLE."
