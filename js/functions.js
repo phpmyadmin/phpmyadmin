@@ -29,13 +29,6 @@ var codemirror_editor = false;
  */
 var chart_activeTimeouts = new Object();
 
-/*if(window.parent) {
-    $(document).ready(function() {
-        if(window.parent.currentWidth() == 0)
-            $('div#frameExpand').show();
-    });
-}*/
-
 /**
  * Add a hidden field to the form to indicate that this will be an
  * Ajax request (only if this hidden field does not exist)
@@ -3085,6 +3078,10 @@ $(document).ready(function() {
  */
 function PMA_createqTip($elements, content, options)
 {
+    if ($('#no_hint').length > 0) {
+        return;
+    }
+
     var o = {
         content: content,
         style: {
