@@ -552,7 +552,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 
                 echo '<form action="sql.php" method="post">' . "\n";
                 echo PMA_generate_common_hidden_inputs($db, $table);
-                echo __('Sort by key') . ': <select name="sql_query" onchange="this.form.submit();">' . "\n";
+                echo __('Sort by key') . ': <select name="sql_query" class="autosubmit">' . "\n";
                 $used_index = false;
                 $local_order = (isset($sort_expression) ? $sort_expression : '');
                 foreach ($indexes as $index) {

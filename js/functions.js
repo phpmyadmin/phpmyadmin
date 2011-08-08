@@ -3124,7 +3124,7 @@ $(document).ready(function() {
     /**
      * Automatic form submission on change.
      */
-    $('select.autosubmit').change(function(e) {
+    $('.autosubmit').change(function(e) {
         e.target.form.submit();
     });
 });

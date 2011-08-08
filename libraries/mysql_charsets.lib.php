@@ -104,7 +104,7 @@ function PMA_generateCharsetDropdownBox($type = PMA_CSDROPDOWN_COLLATION,
     $return_str  = '<select xml:lang="en" dir="ltr" name="'
         . htmlspecialchars($name) . '"'
         . (empty($id) ? '' : ' id="' . htmlspecialchars($id) . '"')
-        . ($submitOnChange ? ' onchange="this.form.submit();"' : '') . '>' . "\n";
+        . ($submitOnChange ? ' class="autosubmit"' : '') . '>' . "\n";
     if ($label) {
         $return_str .= '<option value="">'
             . ($type == PMA_CSDROPDOWN_COLLATION ? __('Collation') : __('Charset'))

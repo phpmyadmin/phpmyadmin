@@ -2316,7 +2316,7 @@ function PMA_externalBug($functionality, $component, $minimum_version, $bugref)
 function PMA_display_html_checkbox($html_field_name, $label, $checked, $onclick)
 {
 
-    echo '<input type="checkbox" name="' . $html_field_name . '" id="' . $html_field_name . '"' . ($checked ? ' checked="checked"' : '') . ($onclick ? ' onclick="this.form.submit();"' : '') . ' /><label for="' . $html_field_name . '">' . $label . '</label>';
+    echo '<input type="checkbox" name="' . $html_field_name . '" id="' . $html_field_name . '"' . ($checked ? ' checked="checked"' : '') . ($onclick ? ' class="autosubmit"' : '') . ' /><label for="' . $html_field_name . '">' . $label . '</label>';
 }
 
 /**
