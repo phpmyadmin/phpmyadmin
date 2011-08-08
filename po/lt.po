@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 17:41+0200\n"
+"PO-Revision-Date: 2011-08-08 17:42+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -9864,10 +9864,9 @@ msgid "Start Monitor"
 msgstr "Paleisti Monitor"
 
 #: server_status.php:1400
-#, fuzzy
 #| msgid "Introduction"
 msgid "Instructions/Setup"
-msgstr "Įvadas"
+msgstr "Instrukcijos/Diegimas"
 
 #: server_status.php:1404
 msgid "Done rearranging/editing charts"
