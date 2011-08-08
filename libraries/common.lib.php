@@ -1702,8 +1702,23 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
     if (stristr($message, '<img') && (!$strip_img || $GLOBALS['cfg']['PropertiesIconic'] === true) && strip_tags($message)==$message) {
         $displayed_message = '<span>' . htmlspecialchars(preg_replace('/^.*\salt="([^"]*)".*$/si', '\1', $message)) . '</span>';
     }
+    
+    // Suhosin: Check that each query parameter is not above maximum
+    $in_suhosin_limits = true;
+    if($url_length <= $GLOBALS['cfg']['LinkLengthLimit']) {
+        if($suhosin_get_MaxValueLength = ini_get('suhosin.get.max_value_length')) {
+            $query_parts = PMA_splitURLQuery($url);
+            foreach($query_parts as $query_pair) {
+                list($eachvar, $eachval) = explode('=', $query_pair);
+                if(strlen($eachval) > $suhosin_get_MaxValueLength) {
+                    $in_suhosin_limits = false;
+                    break;
+                }
+            }
+        }
+    }
 
-    if ($url_length <= $GLOBALS['cfg']['LinkLengthLimit']) {
+    if ($url_length <= $GLOBALS['cfg']['LinkLengthLimit'] && $in_suhosin_limits) {
         // no whitespace within an <a> else Safari will make it part of the link
         $ret = "\n" . '<a href="' . $url . '" '
             . implode(' ', $tag_params_strings) . '>'
@@ -1717,20 +1732,11 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
         if (empty($tag_params['class'])) {
             $tag_params['class'] = 'link';
         }
-
-        // decode encoded url separators
-        $separator   = PMA_get_arg_separator();
-        // on most places separator is still hard coded ...
-        if ($separator !== '&') {
-            // ... so always replace & with $separator
-            $url         = str_replace(htmlentities('&'), $separator, $url);
-            $url         = str_replace('&', $separator, $url);
-        }
-        $url         = str_replace(htmlentities($separator), $separator, $url);
-        // end decode
-
+        
+        if(!isset($query_parts)) 
+            $query_parts = PMA_splitURLQuery($url);
         $url_parts   = parse_url($url);
-        $query_parts = explode($separator, $url_parts['query']);
+        
         if ($new_form) {
             $ret = '<form action="' . $url_parts['path'] . '" class="link"'
                  . ' method="post"' . $target . ' style="display: inline;">';
@@ -1767,6 +1773,22 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
     return $ret;
 } // end of the 'PMA_linkOrButton()' function
 
+
+function PMA_splitURLQuery($url) {
+    // decode encoded url separators
+    $separator   = PMA_get_arg_separator();
+    // on most places separator is still hard coded ...
+    if ($separator !== '&') {
+        // ... so always replace & with $separator
+        $url         = str_replace(htmlentities('&'), $separator, $url);
+        $url         = str_replace('&', $separator, $url);
+    }
+    $url         = str_replace(htmlentities($separator), $separator, $url);
+    // end decode
+
+    $url_parts   = parse_url($url);
+    return explode($separator, $url_parts['query']);
+}
 
 /**
  * Returns a given timespan value in a readable format.
