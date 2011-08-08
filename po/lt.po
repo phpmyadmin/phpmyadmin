@@ -9697,9 +9697,8 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1221
-#, fuzzy
 msgid "The number of files that are open."
-msgstr "Duomenų įrašymų skaičius."
+msgstr "Failų kurie yra atidaryti skaičius."
 
 #: server_status.php:1222
 msgid "The number of streams that are open (used mainly for logging)."
