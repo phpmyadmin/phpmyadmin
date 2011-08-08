@@ -9956,7 +9956,7 @@ msgstr "CPU naudojimas"
 
 #: server_status.php:1478
 msgid "Memory Usage"
-msgstr ""
+msgstr "Atminties naudojimas"
 
 #: server_status.php:1481
 #, fuzzy
