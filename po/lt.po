@@ -7179,10 +7179,9 @@ msgid "Export of routine %s"
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:21
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "routine"
-msgstr "Keisti žurnalą(us) (indeksą)"
+msgstr ""
 
 #: libraries/rte/rte_words.lib.php:22
 #, fuzzy
