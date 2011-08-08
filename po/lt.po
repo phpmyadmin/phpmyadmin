@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 10:07+0200\n"
-"PO-Revision-Date: 2011-08-08 15:45+0200\n"
+"PO-Revision-Date: 2011-08-08 15:46+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -1249,7 +1249,7 @@ msgstr "Pritraukti prie tinklelio"
 
 #: js/messages.php:125
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "Prašome pridėti bent vieną kintamąjį į eilę"
 
 #: js/messages.php:126 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1052
