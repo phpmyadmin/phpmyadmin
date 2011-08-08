@@ -1121,10 +1121,9 @@ msgid "Processes"
 msgstr "Procesai"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "Prisijungimai"
+msgstr "Prisijungimai / Procesai"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
