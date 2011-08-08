@@ -100,7 +100,7 @@ function PMA_getIcon($icon, $alternate = '', $force_text = false, $noSprite = fa
         } else {
             $button .= '<img src="themes/dot.gif"'
                 . ' title="' . $alternate . '" alt="' . $alternate . '"'
-                . ' class="icon ic_' . str_replace(array('.gif','.png'),array('',''),$icon) . '" />';
+                . ' class="icon ic_' . str_replace(array('.gif','.png'), '', $icon) . '" />';
         }
     }
 
