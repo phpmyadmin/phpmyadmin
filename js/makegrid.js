@@ -1167,6 +1167,62 @@
                         g.hideEditCell(true);
                     }
                 }
+            },
+            
+            // initialize grid editing feature
+            initGridEdit: function() {
+                $(t).find('td.data')
+                    .click(function(e) {
+                        if (g.isCellEditActive) {
+                            g.saveOrPostEditedCell();
+                            e.stopPropagation();
+                        } else {
+                            g.showEditCell(this);
+                            e.stopPropagation();
+                        }
+                        // prevent default action when clicking on "link" in a table
+                        if ($(e.target).is('a')) {
+                            e.preventDefault();
+                        }
+                    });
+                $(g.cEdit).find('input[type=text]').focus(function(e) {
+                    g.showEditArea();
+                });
+                $(g.cEdit).find('input[type=text], select').live('keydown', function(e) {
+                    if (e.which == 13) {
+                        // post on pressing "Enter"
+                        e.preventDefault();
+                        g.saveOrPostEditedCell();
+                    }
+                });
+                $(g.cEdit).keydown(function(e) {
+                    if (!g.isEditCellTextEditable) {
+                        // prevent text editing
+                        e.preventDefault();
+                    }
+                });
+                $('html').click(function(e) {
+                    // hide edit cell if the click is not from g.cEdit
+                    if ($(e.target).parents().index(g.cEdit) == -1) {
+                        g.hideEditCell();
+                    }
+                });
+                $('html').keydown(function(e) {
+                    if (e.which == 27 && g.isCellEditActive) {
+
+                        // cancel on pressing "Esc"
+                        g.hideEditCell(true);
+                    }
+                });
+                $('.save_edited').click(function() {
+                    g.hideEditCell();
+                    g.postEditedCell();
+                });
+                $(window).bind('beforeunload', function(e) {
+                    if (g.isCellEdited) {
+                        return g.saveCellWarning;
+                    }
+                });
             }
         }
         
@@ -1413,58 +1469,9 @@
             g.hideColList();
         });
         // edit cell event
-        $(t).find('td.data')
-            .click(function(e) {
-                if (g.isCellEditActive) {
-                    g.saveOrPostEditedCell();
-                    e.stopPropagation();
-                } else {
-                    g.showEditCell(this);
-                    e.stopPropagation();
-                }
-                // prevent default action when clicking on "link" in a table
-                if ($(e.target).is('a')) {
-                    e.preventDefault();
-                }
-            });
-        $(g.cEdit).find('input[type=text]').focus(function(e) {
-            g.showEditArea();
-        });
-        $(g.cEdit).find('input[type=text], select').live('keydown', function(e) {
-            if (e.which == 13) {
-                // post on pressing "Enter"
-                e.preventDefault();
-                g.saveOrPostEditedCell();
-            }
-        });
-        $(g.cEdit).keydown(function(e) {
-            if (!g.isEditCellTextEditable) {
-                // prevent text editing
-                e.preventDefault();
-            }
-        });
-        $('html').click(function(e) {
-            // hide edit cell if the click is not from g.cEdit
-            if ($(e.target).parents().index(g.cEdit) == -1) {
-                g.hideEditCell();
-            }
-        });
-        $('html').keydown(function(e) {
-            if (e.which == 27 && g.isCellEditActive) {
-
-                // cancel on pressing "Esc"
-                g.hideEditCell(true);
-            }
-        });
-        $('.save_edited').click(function() {
-            g.hideEditCell();
-            g.postEditedCell();
-        });
-        $(window).bind('beforeunload', function(e) {
-            if (g.isCellEdited) {
-                g.saveCellWarning;
-            }
-        });
+        if ($(t).is('.ajax')) {
+            g.initGridEdit();
+        }
         
         // add table class
         $(t).addClass('pma_table');
