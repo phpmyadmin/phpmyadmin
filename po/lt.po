@@ -9891,10 +9891,9 @@ msgid "Chart columns"
 msgstr "Diagramos stulpeliai"
 
 #: server_status.php:1435
-#, fuzzy
 #| msgid "Error management:"
 msgid "Chart arrangement"
-msgstr "Klaidų valdymas:"
+msgstr "Diagramos išdėstymas"
 
 #: server_status.php:1435
 msgid ""
