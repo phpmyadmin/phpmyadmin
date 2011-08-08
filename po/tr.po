@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 19:20+0200\n"
+"PO-Revision-Date: 2011-08-08 19:21+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -10262,10 +10262,9 @@ msgid "Target database has been synchronized with source database"
 msgstr "Hedef veritabanı kaynak veritabanı ile eşitlendi"
 
 #: server_synchronize.php:951
-#, fuzzy
 #| msgid "Issued queries"
 msgid "Executed queries"
-msgstr "Sonuçlanmış sorgular"
+msgstr "Yürütülmüş sorgular"
 
 #: server_synchronize.php:1076
 msgid "Enter manually"
