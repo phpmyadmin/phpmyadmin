@@ -10709,10 +10709,9 @@ msgid "Height"
 msgstr "Aukštis"
 
 #: tbl_gis_visualization.php:165
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Label column"
-msgstr "Textarea laukeliai"
+msgstr "Etiketės stulpelis"
 
 #: tbl_gis_visualization.php:167
 msgid "-- None --"
