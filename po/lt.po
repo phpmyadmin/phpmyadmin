@@ -7253,10 +7253,10 @@ msgid "You do not have the necessary privileges to create an event"
 msgstr "Neturite pakankamai teisių sukurti įvykį"
 
 #: libraries/rte/rte_words.lib.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No event with name %1$s found in database %2$s"
-msgstr "Duomenų bazėje nerasta jokių lentelių."
+msgstr "Nėra įvykio su vardu %1$s duomenų bazėje %2$s"
 
 #: libraries/rte/rte_words.lib.php:48
 #, fuzzy
