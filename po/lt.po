@@ -4245,7 +4245,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:385
 msgid "Designer table"
-msgstr ""
+msgstr "Lentelės projektuotojas"
 
 #: libraries/config/messages.inc.php:386
 msgid ""
