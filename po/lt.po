@@ -1161,7 +1161,7 @@ msgstr "KiB"
 
 #: js/messages.php:100
 msgid "Average load"
-msgstr "Vidutinis apkrautumas"
+msgstr "Vidutinis apkrovimas"
 
 #: js/messages.php:101
 #, fuzzy
