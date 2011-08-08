@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 16:55+0200\n"
+"PO-Revision-Date: 2011-08-08 16:56+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -7126,10 +7126,10 @@ msgid "Trigger %1$s has been modified."
 msgstr "Stulpelis %s panaikintas"
 
 #: libraries/rte/rte_triggers.lib.php:106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Trigger %1$s has been created."
-msgstr "Sukurta %1$s lentelė."
+msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:157
 #| msgid "Create User"
