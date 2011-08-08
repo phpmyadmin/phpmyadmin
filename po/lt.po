@@ -7485,10 +7485,9 @@ msgid "Clear"
 msgstr "Išvalyti"
 
 #: libraries/sql_query_form.lib.php:267
-#, fuzzy
 #| msgid "Column names"
 msgid "Columns"
-msgstr "Stulpelių vardai"
+msgstr "Stulpeliai"
 
 #: libraries/sql_query_form.lib.php:302 sql.php:1016 sql.php:1033
 msgid "Bookmark this SQL query"
