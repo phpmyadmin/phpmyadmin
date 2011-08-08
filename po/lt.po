@@ -2685,10 +2685,9 @@ msgid "Left"
 msgstr "Kairė"
 
 #: libraries/config.values.php:47
-#, fuzzy
 #| msgid "Height"
 msgid "Right"
-msgstr "Aukštis"
+msgstr "Dešinė"
 
 #: libraries/config.values.php:75
 msgid "Open"
