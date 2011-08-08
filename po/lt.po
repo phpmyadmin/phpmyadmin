@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 10:07+0200\n"
-"PO-Revision-Date: 2011-08-08 16:09+0200\n"
+"PO-Revision-Date: 2011-08-08 16:10+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -1458,10 +1458,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:178
-#, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
-msgstr "Įkrauti iš naujo"
+msgstr "Puslapį įkelti iš naujo"
 
 #: js/messages.php:180
 msgid "Affected rows: "
