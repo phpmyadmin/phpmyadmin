@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-07-25 22:07+0200\n"
+"PO-Revision-Date: 2011-08-07 03:51+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -419,10 +419,10 @@ msgid "You have to choose at least one column to display"
 msgstr "عليك اختيار عمود واحد على الأقل للعرض"
 
 #: db_qbe.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "الباني المرئي"
+msgstr "التحويل إلى %sالباني المرئي%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:939
@@ -1154,32 +1154,28 @@ msgid "Average load"
 msgstr "متوسط التحميل"
 
 #: js/messages.php:101
-#, fuzzy
 #| msgid "System memory"
 msgid "Total memory"
-msgstr "ذاكرة النظام"
+msgstr "إجمالي الذاكرة"
 
 #: js/messages.php:102
-#, fuzzy
 #| msgid "System memory"
 msgid "Cached memory"
-msgstr "ذاكرة النظام"
+msgstr "الذاكرة المؤقتة"
 
 #: js/messages.php:103
 msgid "Buffered memory"
 msgstr ""
 
 #: js/messages.php:104
-#, fuzzy
 #| msgid "System memory"
 msgid "Free memory"
-msgstr "ذاكرة النظام"
+msgstr "الذاكرة الحرة"
 
 #: js/messages.php:105
-#, fuzzy
 #| msgid "System memory"
 msgid "Used memory"
-msgstr "ذاكرة النظام"
+msgstr "الذاكرة المستخدمة"
 
 #: js/messages.php:107
 #, fuzzy
@@ -1203,13 +1199,12 @@ msgstr "صفحات حرة"
 
 #: js/messages.php:112
 msgid "Bytes sent"
-msgstr ""
+msgstr "بايتات أُرسلت"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "استلم"
+msgstr "بايتات أُستلمت"
 
 #: js/messages.php:114 server_status.php:991
 msgid "Connections"
@@ -1234,10 +1229,9 @@ msgid "Remove chart"
 msgstr "حذف الرسم البياني"
 
 #: js/messages.php:122
-#, fuzzy
 #| msgid "Edit labels and series"
 msgid "Edit title and labels"
-msgstr "حذف العناوين والسلاسل"
+msgstr "تحرير العناوين"
 
 #: js/messages.php:123
 msgid "Add chart to grid"
@@ -1264,19 +1258,19 @@ msgstr ""
 
 #: js/messages.php:130
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "(general_log و slow_query_log) مفعلة."
 
 #: js/messages.php:131
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log مفعل."
 
 #: js/messages.php:132
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "slow_query_log مفعل."
 
 #: js/messages.php:133
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "(general_log و slow_query_log) معطلة."
 
 #: js/messages.php:134
 msgid "log_output is not set to TABLE."
@@ -1297,7 +1291,7 @@ msgstr ""
 #: js/messages.php:137
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time محددة بـ %d ثانية."
 
 #: js/messages.php:138
 msgid ""
@@ -1307,48 +1301,48 @@ msgstr ""
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:140
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save as file"
 msgid "Set log_output to %s"
-msgstr "حفظ كملف"
+msgstr "تعيين log_output  بـ %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:142
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
-msgstr "مفعل"
+msgstr "تفعيل %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:144
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disable"
 msgid "Disable %s"
-msgstr "عطل"
+msgstr "تعطيل %s"
 
 #. l10n: %d seconds
 #: js/messages.php:146
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "تعيين long_query_time بـ %ds"
 
 #: js/messages.php:147
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
+"لاتستطيع تغير هذه المتغيرات , فضلاً سجل دخولك كمدير أو أتصل بمدير قاعدة "
+"البيانات."
 
 #: js/messages.php:148
-#, fuzzy
 #| msgid "General relation features"
 msgid "Change settings"
-msgstr "المزايا العامّة للرابط"
+msgstr "تغيير الإعدادات"
 
 #: js/messages.php:149
-#, fuzzy
 #| msgid "General relation features"
 msgid "Current settings"
-msgstr "المزايا العامّة للرابط"
+msgstr "الإعدادات الحالية"
 
 #: js/messages.php:151 server_status.php:1467
 #, fuzzy
@@ -1358,15 +1352,14 @@ msgstr "استورد الملفات"
 
 #. l10n: As in differential values
 #: js/messages.php:153
-#, fuzzy
 #| msgid "Difference"
 msgid "Differential"
-msgstr "فرق"
+msgstr "الفارق"
 
 #: js/messages.php:154
 #, php-format
 msgid "Divided by %s:"
-msgstr ""
+msgstr "مقسوم على %s :"
 
 #: js/messages.php:156
 msgid "From slow log"
@@ -1399,10 +1392,9 @@ msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 
 #: js/messages.php:163
-#, fuzzy
 #| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr "قفز لقاعدة البيانات"
+msgstr "قفز لجدول التسجيل"
 
 #: js/messages.php:164
 msgid "Log analysed, but no data found in this time span."
