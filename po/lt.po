@@ -8288,10 +8288,9 @@ msgid "Modifications have been saved"
 msgstr "Pakeitimai išsaugoti"
 
 #: prefs_forms.php:78
-#, fuzzy
 #| msgid "Submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors"
-msgstr "Pateiktoje formoje yra klaidų"
+msgstr "Nepavyko išsaugoti nustatymų, išsiųstoje formoje yra klaidų"
 
 #: prefs_manage.php:78
 #| msgid "Could not load default configuration from: %1$s"
