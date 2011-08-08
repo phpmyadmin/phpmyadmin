@@ -10038,13 +10038,13 @@ msgid "Query analyzer"
 msgstr "Užklausos analizatorius"
 
 #: server_status.php:1593
-#, fuzzy, php-format
+#, php-format
 #| msgid "Second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "Sekundės"
+msgstr[0] "Sekundė"
 msgstr[1] "Sekundės"
-msgstr[2] "Sekundės"
+msgstr[2] "Sekundžių"
 
 #: server_status.php:1595
 #, fuzzy, php-format
