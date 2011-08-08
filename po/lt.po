@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 10:07+0200\n"
-"PO-Revision-Date: 2011-08-08 16:08+0200\n"
+"PO-Revision-Date: 2011-08-08 16:09+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -1428,7 +1428,7 @@ msgstr "Filtro užklausa pagal žodį/regexp:"
 
 #: js/messages.php:171
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
+msgstr "Sugrupuoti užklausas, nepaisant kintamųjų duomenų WHERE dalyje"
 
 #: js/messages.php:172
 #, fuzzy
