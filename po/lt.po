@@ -2113,10 +2113,9 @@ msgid "Could not save recent table"
 msgstr "Negalėjo išsaugoti paskiausios lentelės"
 
 #: libraries/RecentTable.class.php:142
-#, fuzzy
 #| msgid "Count tables"
 msgid "Recent tables"
-msgstr "Suskaičiuoti lenteles"
+msgstr "Paskiausios lentelės"
 
 #: libraries/RecentTable.class.php:148
 #, fuzzy
