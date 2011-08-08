@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-05 03:43+0200\n"
+"PO-Revision-Date: 2011-08-06 23:06+0200\n"
 "Last-Translator: Sven Strickroth <email@cs-ware.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1454,7 +1454,6 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:178
-#, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
 msgstr "Neuladen"
@@ -2316,7 +2315,7 @@ msgstr "PBMS: Infos über BLOB nicht erhalten:"
 #, fuzzy
 #| msgid "get BLOB Content-Type failed"
 msgid "PBMS get BLOB Content-Type failed"
-msgstr "Fehler beim Lesen des BLOB Content-Typs"
+msgstr "PBMS konnte den BLOB Content-Typs nicht bestimmen"
 
 #: libraries/blobstreaming.lib.php:358
 msgid "View image"
@@ -6324,10 +6323,9 @@ msgid "Stand-in structure for view"
 msgstr "Stellvertreter-Struktur des Views"
 
 #: libraries/export/sql.php:1071
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error reading data:"
-msgstr "Erlaubt das Auslesen von Daten."
+msgstr "Fehler beim Lesen der Daten:"
 
 #: libraries/export/xml.php:19 libraries/import/xml.php:21
 msgid "XML"
@@ -6394,10 +6392,10 @@ msgid "Go to database"
 msgstr "Gehe zur Datenbank"
 
 #: libraries/import.lib.php:1077 libraries/import.lib.php:1101
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
-msgstr "Fehlende Daten für %s"
+msgstr "Einstellung für %s bearbeiten"
 
 #: libraries/import.lib.php:1096
 msgid "Go to table"
@@ -6407,7 +6405,7 @@ msgstr "Gehe zur Tabelle"
 #, fuzzy, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
-msgstr "Nur Struktur"
+msgstr "Struktur von %s"
 
 #: libraries/import.lib.php:1105
 msgid "Go to view"
@@ -10120,7 +10118,6 @@ msgid "Refresh rate"
 msgstr "Aktualisierungs-Intervall"
 
 #: server_status.php:1414
-#, fuzzy
 #| msgid "Chart columns:"
 msgid "Chart columns"
 msgstr "Schaubild-Spalten"

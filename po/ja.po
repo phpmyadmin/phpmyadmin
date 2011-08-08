@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-05 12:00+0200\n"
+"PO-Revision-Date: 2011-08-06 12:16+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -417,7 +417,7 @@ msgstr "最低 1 つは表示するカラムを選択してください"
 #, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "%sビジュアル クエリ ビルダ%s に切り替える"
+msgstr "%sビジュアル・クエリ・ビルダ%sに切り替える"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:939
@@ -1150,64 +1150,56 @@ msgid "Average load"
 msgstr "平均負荷"
 
 #: js/messages.php:101
-#, fuzzy
 #| msgid "System memory"
 msgid "Total memory"
-msgstr "システムメモリ"
+msgstr "総メモリ"
 
 #: js/messages.php:102
-#, fuzzy
 #| msgid "System memory"
 msgid "Cached memory"
-msgstr "システムメモリ"
+msgstr "キャッシュ割り当てメモリ"
 
 #: js/messages.php:103
-#, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "バッファプール"
+msgstr "バッファ割り当てメモリ"
 
 #: js/messages.php:104
-#, fuzzy
 #| msgid "System memory"
 msgid "Free memory"
-msgstr "システムメモリ"
+msgstr "空きメモリ"
 
 #: js/messages.php:105
-#, fuzzy
 #| msgid "System memory"
 msgid "Used memory"
-msgstr "システムメモリ"
+msgstr "使用中メモリ"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "合計"
+msgstr "総スワップ領域"
 
 #: js/messages.php:108
 msgid "Cached Swap"
-msgstr ""
+msgstr "キャッシュ割り当てスワップ領域"
 
 #: js/messages.php:109
 msgid "Used Swap"
-msgstr ""
+msgstr "使用中スワップ領域"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "フリーページ数"
+msgstr "空きスワップ領域"
 
 #: js/messages.php:112
 msgid "Bytes sent"
-msgstr ""
+msgstr "送信"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "受信済"
+msgstr "受信"
 
 #: js/messages.php:114 server_status.php:991
 msgid "Connections"
@@ -1439,7 +1431,7 @@ msgstr "ログの読み込み"
 
 #: js/messages.php:176
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "モニタの再描画に失敗しました"
 
 #: js/messages.php:177
 msgid ""
@@ -1994,7 +1986,8 @@ msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr ""
-"アップロードされたファイルの移動に失敗しました。FAQ 1.11 をご覧ください。"
+"アップロードされたファイルの移動に失敗しました。[a@./Documentation.html#faq1_11@Documentation]FAQ "
+"1.11[/a] をご覧ください。"
 
 #: libraries/File.class.php:507
 msgid "Error while moving uploaded file."
@@ -2294,10 +2287,9 @@ msgid "PBMS get BLOB info failed:"
 msgstr "PBMS が BLOB 情報取得に失敗しました:"
 
 #: libraries/blobstreaming.lib.php:332
-#, fuzzy
 #| msgid "get BLOB Content-Type failed"
 msgid "PBMS get BLOB Content-Type failed"
-msgstr "BLOB の Content-Type の 取得に失敗しました"
+msgstr "PBMS が BLOB の Content-Type の 取得に失敗しました"
 
 #: libraries/blobstreaming.lib.php:358
 msgid "View image"
@@ -4579,7 +4571,7 @@ msgstr "パスワード変更フォームの表示"
 
 #: libraries/config/messages.inc.php:452
 msgid "Show create database form"
-msgstr "「新規データベース作成」部分を表示する"
+msgstr "「データベースを作成する」の部分を表示する"
 
 #: libraries/config/messages.inc.php:453
 msgid ""
@@ -9938,7 +9930,6 @@ msgid "Refresh rate"
 msgstr "再描画間隔"
 
 #: server_status.php:1414
-#, fuzzy
 #| msgid "Chart columns:"
 msgid "Chart columns"
 msgstr "1 段のグラフ数"
