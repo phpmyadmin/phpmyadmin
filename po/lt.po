@@ -9882,9 +9882,8 @@ msgid "Rearrange/edit charts"
 msgstr ""
 
 #: server_status.php:1416
-#, fuzzy
 msgid "Refresh rate"
-msgstr "Atnaujinti"
+msgstr "Naujinimo dažnis"
 
 #: server_status.php:1419
 #, fuzzy
