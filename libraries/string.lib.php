@@ -19,17 +19,11 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-$GLOBALS['PMA_allow_mbstr'] = @function_exists('mb_strlen');
-$GLOBALS['PMA_allow_ctype'] = @extension_loaded('ctype');
-
-if ($GLOBALS['PMA_allow_mbstr']) {
-    mb_internal_encoding('utf-8');
-}
-
 /**
  * Load proper code for handling input.
  */
-if ($GLOBALS['PMA_allow_mbstr']) {
+if (@function_exists('mb_strlen')) {
+    mb_internal_encoding('utf-8');
     require './libraries/string_mb.lib.php';
 } else {
     require './libraries/string_native.lib.php';
@@ -38,7 +32,7 @@ if ($GLOBALS['PMA_allow_mbstr']) {
 /**
  * Load ctype handler.
  */
-if ($GLOBALS['PMA_allow_ctype']) {
+if (@extension_loaded('ctype')) {
     require './libraries/string_type_ctype.lib.php';
 } else {
     require './libraries/string_type_native.lib.php';
