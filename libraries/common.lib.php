@@ -293,9 +293,13 @@ function PMA_formatSql($parsed_sql, $unparsed_sql = '')
     if (! is_array($parsed_sql)) {
         // We don't so just return the input directly
         // This is intended to be used for when the SQL Parser is turned off
-        $formatted_sql = '<pre>' . "\n"
-                        . (($cfg['SQP']['fmtType'] == 'none' && $unparsed_sql != '') ? $unparsed_sql : $parsed_sql) . "\n"
-                        . '</pre>';
+        $formatted_sql = '<pre>' . "\n";
+        if ($cfg['SQP']['fmtType'] == 'none' && $unparsed_sql != '') {
+            $formatted_sql .= $unparsed_sql;
+        } else {
+            $formatted_sql .= $parsed_sql;
+        }
+        $formatted_sql .= '</pre>';
         return $formatted_sql;
     }
 
