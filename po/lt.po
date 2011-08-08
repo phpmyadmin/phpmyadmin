@@ -1969,7 +1969,7 @@ msgstr "Šrifto dydis"
 
 #: libraries/File.class.php:220
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "Failas nebuvo įkeltasis failas."
 
 #: libraries/File.class.php:259 libraries/File.class.php:388
 #, fuzzy
