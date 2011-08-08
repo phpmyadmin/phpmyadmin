@@ -8232,10 +8232,9 @@ msgid "Page"
 msgstr "Puslapis"
 
 #: pmd_pdf.php:99
-#, fuzzy
 #| msgid "Import from file"
 msgid "Import from selected page"
-msgstr "Importuoti iš failo"
+msgstr "Importuoti iš pasirinkto puslapio"
 
 #: pmd_pdf.php:100
 #, fuzzy
