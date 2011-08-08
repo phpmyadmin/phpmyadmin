@@ -2404,10 +2404,9 @@ msgid "Check Privileges"
 msgstr "Patikrinti privilegijas"
 
 #: libraries/common.inc.php:588
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Failed to read configuration file"
-msgstr "Nepavyko išsaugoti konfigūracijos"
+msgstr "Nepavyko išsaugoti konfigūracijos failo"
 
 #: libraries/common.inc.php:589
 msgid ""
