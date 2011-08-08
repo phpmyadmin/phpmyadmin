@@ -1548,10 +1548,9 @@ msgid "Create Table"
 msgstr "Lentelės kūrimas"
 
 #: js/messages.php:209
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
-msgstr "Naudoti lenteles"
+msgstr "Įterpti lentelę"
 
 #: js/messages.php:210
 #, fuzzy
