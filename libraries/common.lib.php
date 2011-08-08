@@ -202,10 +202,7 @@ function PMA_sqlAddSlashes($a_string = '', $is_like = false, $crlf = false, $php
  */
 function PMA_escape_mysql_wildcards($name)
 {
-    $name = str_replace('_', '\\_', $name);
-    $name = str_replace('%', '\\%', $name);
-
-    return $name;
+    return strtr($name, array('_' => '\\_', '%' => '\\%'));
 } // end of the 'PMA_escape_mysql_wildcards()' function
 
 /**
@@ -220,10 +217,7 @@ function PMA_escape_mysql_wildcards($name)
  */
 function PMA_unescape_mysql_wildcards($name)
 {
-    $name = str_replace('\\_', '_', $name);
-    $name = str_replace('\\%', '%', $name);
-
-    return $name;
+    return strtr($name, array('\\_' => '_', '\\%' => '%'));
 } // end of the 'PMA_unescape_mysql_wildcards()' function
 
 /**
