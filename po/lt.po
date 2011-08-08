@@ -9592,9 +9592,8 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1199
-#, fuzzy
 msgid "The number of pages read."
-msgstr "Duomenų nuskaitymų skaičius."
+msgstr "Puslapių skaitymų skaičius."
 
 #: server_status.php:1200
 #, fuzzy
