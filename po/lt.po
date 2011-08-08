@@ -7027,10 +7027,9 @@ msgid "Add parameter"
 msgstr "Pridėti parametrą"
 
 #: libraries/rte/rte_routines.lib.php:870
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove last parameter"
-msgstr "Pašalinti duomenų bazę"
+msgstr "Pašalinti paskutinį parametrą"
 
 #: libraries/rte/rte_routines.lib.php:875
 msgid "Return type"
