@@ -6393,10 +6393,9 @@ msgid "Add table prefix"
 msgstr "Pridėti lentelės priešdėlį"
 
 #: libraries/mult_submits.inc.php:271
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add prefix"
-msgstr "Keisti žurnalą(us) (indeksą)"
+msgstr "Keisti priešdėlį"
 
 #: libraries/mult_submits.inc.php:488 tbl_replace.php:313
 msgid "No change"
