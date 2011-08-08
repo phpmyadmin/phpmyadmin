@@ -6390,7 +6390,7 @@ msgstr "Siųsti"
 
 #: libraries/mult_submits.inc.php:268
 msgid "Add table prefix"
-msgstr ""
+msgstr "Pridėti lentelės priešdėlį"
 
 #: libraries/mult_submits.inc.php:271
 #, fuzzy
