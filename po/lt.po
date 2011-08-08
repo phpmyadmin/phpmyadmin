@@ -8200,10 +8200,9 @@ msgid "Operator"
 msgstr "Operatorius"
 
 #: pmd_general.php:810
-#, fuzzy
 #| msgid "Table options"
 msgid "Active options"
-msgstr "Lentelės parinktys"
+msgstr ""
 
 #: pmd_help.php:22
 msgid "To select relation, click :"
