@@ -1651,7 +1651,6 @@ msgid "Ignore"
 msgstr "Ignoruoti"
 
 #: js/messages.php:245
-#, fuzzy
 #| msgid "Add column(s)"
 msgid "Add columns"
 msgstr "Pridėti stulpelį(-ius)"
