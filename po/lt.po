@@ -9031,10 +9031,9 @@ msgid "Stop SQL Thread only"
 msgstr "Sustabdyti tik SQL giją"
 
 #: server_replication.php:331
-#, fuzzy
 #| msgid "IO Thread %s only"
 msgid "Start IO Thread only"
-msgstr "Tik IO %s gija"
+msgstr "Pradėti tik IO giją"
 
 #: server_replication.php:333
 #, fuzzy
