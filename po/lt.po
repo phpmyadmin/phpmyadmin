@@ -10038,7 +10038,7 @@ msgid "Query analyzer"
 msgstr "Užklausos analizatorius"
 
 #: server_status.php:1593
-#, php-format
+#, php-format, fuzzy
 #| msgid "Second"
 msgid "%d second"
 msgid_plural "%d seconds"
@@ -10047,7 +10047,7 @@ msgstr[1] "Sekundės"
 msgstr[2] "Sekundžių"
 
 #: server_status.php:1595
-#, php-format
+#, php-format, fuzzy
 #| msgid "Minute"
 msgid "%d minute"
 msgid_plural "%d minutes"
