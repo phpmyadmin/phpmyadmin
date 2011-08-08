@@ -3127,4 +3127,20 @@ $(document).ready(function() {
     $('.autosubmit').change(function(e) {
         e.target.form.submit();
     });
+
+    /**
+     * Theme changer.
+     */
+    $('.take_theme').live('click', function(e) {
+        alert(e.target.nodeName);
+        var evt = $(e);
+        var what = evt.target.id;
+        if (window.opener && window.opener.document.forms['setTheme'].elements['set_theme']) {
+            window.opener.document.forms['setTheme'].elements['set_theme'].value = what;
+            window.opener.document.forms['setTheme'].submit();
+            window.close();
+            return false;
+        }
+        return true;
+    });
 });
