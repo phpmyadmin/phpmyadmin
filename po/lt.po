@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 16:32+0200\n"
+"PO-Revision-Date: 2011-08-08 16:33+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -5417,10 +5417,9 @@ msgid "Relational key"
 msgstr "Sąryšių raktas"
 
 #: libraries/display_tbl.lib.php:629
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Relational display column"
-msgstr "Ryšių schema"
+msgstr "Ryšių rodymo stulpelis"
 
 #: libraries/display_tbl.lib.php:636
 msgid "Show binary contents"
