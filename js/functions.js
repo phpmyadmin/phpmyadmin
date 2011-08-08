@@ -3135,10 +3135,8 @@ $(document).ready(function() {
     /**
      * Theme changer.
      */
-    $('.take_theme').live('click', function(e) {
-        alert(e.target.nodeName);
-        var evt = $(e);
-        var what = evt.target.id;
+    $('.take_theme').click(function(e) {
+        var what = this.name;
         if (window.opener && window.opener.document.forms['setTheme'].elements['set_theme']) {
             window.opener.document.forms['setTheme'].elements['set_theme'].value = what;
             window.opener.document.forms['setTheme'].submit();

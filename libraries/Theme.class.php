@@ -324,7 +324,7 @@ class PMA_Theme
             .' (' . htmlspecialchars($this->getVersion()) . ')</h2>';
         echo '<p>';
         echo '<a target="_top" class="take_theme" '
-            .'id="' . htmlspecialchars($this->getId()) . '" '
+            .'name="' . htmlspecialchars($this->getId()) . '" '
             . 'href="index.php'.PMA_generate_common_url(array(
                 'set_theme' => $this->getId()
                 )) . '">';
