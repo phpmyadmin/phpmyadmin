@@ -1170,7 +1170,7 @@ msgstr "Iš viso atminties"
 
 #: js/messages.php:102
 msgid "Cached memory"
-msgstr ""
+msgstr "Podėlio atmintis"
 
 #: js/messages.php:103
 #, fuzzy
