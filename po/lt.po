@@ -10138,9 +10138,8 @@ msgid "Target database has been synchronized with source database"
 msgstr ""
 
 #: server_synchronize.php:951
-#, fuzzy
 msgid "Executed queries"
-msgstr "SQL užklausos"
+msgstr "Įvykdytos užklausos"
 
 #: server_synchronize.php:1076
 msgid "Enter manually"
