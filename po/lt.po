@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 10:07+0200\n"
-"PO-Revision-Date: 2011-08-08 16:22+0200\n"
+"PO-Revision-Date: 2011-08-08 16:23+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -4099,7 +4099,7 @@ msgstr "Įrašymo varikliukas"
 
 #: libraries/config/messages.inc.php:350
 msgid "When browsing tables, the sorting of each table is remembered"
-msgstr ""
+msgstr "Kai naršomos lentelės, atsimenamas kiekvienos lentelės rikiavimas"
 
 #: libraries/config/messages.inc.php:351
 #, fuzzy
