@@ -2167,7 +2167,7 @@ msgstr "Lentelė %s pervadinta į %s"
 
 #: libraries/Table.class.php:1274
 msgid "Could not save table UI preferences"
-msgstr ""
+msgstr "Nepavyko išsaugoti lentelės naudotojo sąsajos nustatymų."
 
 #: libraries/Theme.class.php:144
 #, php-format
