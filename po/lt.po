@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 17:52+0200\n"
+"PO-Revision-Date: 2011-08-08 17:53+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -10493,11 +10493,9 @@ msgstr ""
 "reikalauja funkcijų (%s) kurių nėra Jūsų sistemoje."
 
 #: setup/lib/index.lib.php:323
-#, fuzzy
 #| msgid "You should use SSL connections if your web server supports it"
 msgid "You should use SSL connections if your web server supports it."
-msgstr ""
-"Jūs turėtumėte naudoti SSL prisijungimus jeigu Jūsų serveris juos palaiko"
+msgstr "Naudokite SSL prisijungimus, jei Jūsų serveris juos palaiko."
 
 #: setup/lib/index.lib.php:336
 #, fuzzy
