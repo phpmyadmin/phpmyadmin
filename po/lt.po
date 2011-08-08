@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 16:53+0200\n"
+"PO-Revision-Date: 2011-08-08 16:54+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -7047,7 +7047,7 @@ msgstr "Grąžinimo parametrai"
 
 #: libraries/rte/rte_routines.lib.php:918
 msgid "Is deterministic"
-msgstr ""
+msgstr "Yra apibrėžtas"
 
 #: libraries/rte/rte_routines.lib.php:927
 #, fuzzy
