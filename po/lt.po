@@ -8180,9 +8180,8 @@ msgid "subquery"
 msgstr ""
 
 #: pmd_general.php:480 pmd_general.php:576
-#, fuzzy
 msgid "Rename to"
-msgstr "Pervadinti lentelę į"
+msgstr "Pervadinti į"
 
 #: pmd_general.php:482 pmd_general.php:581
 #, fuzzy
