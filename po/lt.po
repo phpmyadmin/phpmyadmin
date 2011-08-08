@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 17:28+0200\n"
+"PO-Revision-Date: 2011-08-08 17:29+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -9520,9 +9520,8 @@ msgid "The current number of pending fsync() operations."
 msgstr "Esamu momentu laukiančių fsync() operacijų skaičius."
 
 #: server_status.php:1182
-#, fuzzy
 msgid "The current number of pending reads."
-msgstr "Duomenų nuskaitymų skaičius."
+msgstr "Esamu momentu laukiančių skaitymų skaičius."
 
 #: server_status.php:1183
 #, fuzzy
