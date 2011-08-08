@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 17:58+0200\n"
+"PO-Revision-Date: 2011-08-08 17:59+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -10960,10 +10960,9 @@ msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Vykdyti \"užklausą pagal pavyzdį\" (pakaitos simbolis: \"%\")"
 
 #: tbl_select.php:261
-#, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "Pasirinkite laukus (nors vieną)"
+msgstr "Pasirinkite stulpelius (bent vieną)"
 
 #: tbl_select.php:279
 msgid "Add search conditions (body of the \"where\" clause):"
