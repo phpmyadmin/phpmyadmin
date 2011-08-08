@@ -10985,10 +10985,9 @@ msgid "Browse distinct values"
 msgstr "Peržiūrėti skirtingas reikšmes"
 
 #: tbl_structure.php:168 tbl_structure.php:169
-#, fuzzy
 #| msgid "Adding Primary Key"
 msgid "Add primary key"
-msgstr "Pridedamas pirminis raktas"
+msgstr "Pridėti pirminį raktą"
 
 #: tbl_structure.php:170 tbl_structure.php:171
 #, fuzzy
