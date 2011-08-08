@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 16:23+0200\n"
+"PO-Revision-Date: 2011-08-08 16:32+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
+"100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:276
@@ -4192,7 +4192,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:374
 msgid "Column information table"
-msgstr ""
+msgstr "Stulpelio informacinė lentelė"
 
 #: libraries/config/messages.inc.php:375
 msgid "Compress connection to MySQL server"
@@ -4245,7 +4245,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:385
 msgid "Designer table"
-msgstr ""
+msgstr "Suprojektuoti lentelę"
 
 #: libraries/config/messages.inc.php:386
 msgid ""
@@ -4383,10 +4383,9 @@ msgstr ""
 "pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:410
-#, fuzzy
 #| msgid "Analyze table"
 msgid "Recently used table"
-msgstr "Analizuoti lentelę"
+msgstr "Paskiausiai naudota lentelė"
 
 #: libraries/config/messages.inc.php:411
 msgid ""
@@ -4471,10 +4470,9 @@ msgstr ""
 "pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:427
-#, fuzzy
 #| msgid "User preferences"
 msgid "UI preferences table"
-msgstr "Naudotojo nuostatos"
+msgstr "Naudotojo sąsajos nustatymų lentelė"
 
 #: libraries/config/messages.inc.php:428
 msgid ""
@@ -4758,7 +4756,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:489
 msgid "Textarea columns"
-msgstr "Textarea laukeliai"
+msgstr "Textarea stulpeliai"
 
 #: libraries/config/messages.inc.php:490
 msgid ""
@@ -4768,7 +4766,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:491
 msgid "Textarea rows"
-msgstr ""
+msgstr "Textarea eilutės"
 
 #: libraries/config/messages.inc.php:492
 msgid "Title of browser window when a database is selected"
@@ -4800,7 +4798,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:501
 msgid "List of trusted proxies for IP allow/deny"
-msgstr ""
+msgstr "Sąrašas patikimų proxy serverių IP leidimui/atmetimui"
 
 #: libraries/config/messages.inc.php:502
 msgid "Directory on server where you can upload files for import"
@@ -4884,7 +4882,7 @@ msgstr "HTTP autentifikacija"
 
 #: libraries/config/setup.forms.php:51
 msgid "Signon authentication"
-msgstr ""
+msgstr "Prisijungimo tapatybės nustatymas"
 
 #: libraries/config/setup.forms.php:245
 #: libraries/config/user_preferences.forms.php:147 libraries/import/ldi.php:35
@@ -5074,10 +5072,9 @@ msgstr "Suderinamas su MySQL 4.0"
 
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
-#, fuzzy
 #| msgid "Create new database"
 msgid "Create database"
-msgstr "Sukurti naują duomenų bazę"
+msgstr "Sukurti duombazę"
 
 #: libraries/display_create_database.lib.php:33
 msgid "Create"
