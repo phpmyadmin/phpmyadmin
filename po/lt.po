@@ -9158,10 +9158,9 @@ msgid "Advisor"
 msgstr ""
 
 #: server_status.php:662 server_status.php:684
-#, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate: "
-msgstr "Atnaujinti"
+msgstr "Atnaujinimo dažnis:"
 
 #: server_status.php:705
 #, fuzzy
