@@ -1192,7 +1192,7 @@ msgstr "Iš viso Swap"
 
 #: js/messages.php:108
 msgid "Cached Swap"
-msgstr ""
+msgstr "Podėlio Swap"
 
 #: js/messages.php:109
 msgid "Used Swap"
