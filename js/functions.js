@@ -605,7 +605,7 @@ $(document).ready(function() {
         var $tr = $(this);
 
         // make the table unselectable (to prevent default highlighting when shift+click)
-        $tr.parents('table').noSelect();
+        //$tr.parents('table').noSelect();
 
         if (!e.shiftKey || last_clicked_row == -1) {
             // usual click
@@ -636,6 +636,7 @@ $(document).ready(function() {
             last_shift_clicked_row = -1;
         } else {
             // handle the shift click
+            PMA_clearSelection();
             var start, end;
 
             // clear last shift click result
@@ -3090,6 +3091,19 @@ function PMA_getCellValue(td) {
         return unescape($(td).find('span').html()).replace(/<br>/g, "\n");
     } else {
         return $(td).text();
+    }
+}
+
+/**
+ * Clear text selection
+ */
+function PMA_clearSelection() {
+    if(document.selection && document.selection.empty) {
+        document.selection.empty();
+    } else if(window.getSelection) {
+        var sel = window.getSelection();
+        if(sel.empty) sel.empty();
+        if(sel.removeAllRanges) sel.removeAllRanges();
     }
 }
 
