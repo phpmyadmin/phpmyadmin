@@ -467,7 +467,7 @@
              * Show edit cell, if it can be shown or it is forced.
              */
             showEditCell: function(cell, force) {
-                if ($(cell).is('.inline_edit') &&
+                if ($(cell).is('.grid_edit') &&
                     !g.colRsz && !g.colMov)
                 {
                     if (!g.isCellEditActive || force) {
@@ -789,7 +789,7 @@
                                 'db' : g.db,
                                 'ajax_request' : true,
                                 'sql_query' : sql_query,
-                                'inline_edit' : true
+                                'grid_edit' : true
                             }, function(data) {
                                 $editArea.removeClass('edit_area_loading');
                                 if(data.success == true) {
@@ -870,7 +870,7 @@
                 /**
                  * @var is_unique   Boolean, whether the rows in this table is unique or not
                  */
-                var is_unique = $('.inline_edit_anchor').is('.nonunique') ? 0 : 1;
+                var is_unique = $('.edit_row_anchor').is('.nonunique') ? 0 : 1;
                 /**
                  * multi edit variables
                  */
@@ -882,7 +882,7 @@
                 $('.to_be_saved').parents('tr').each(function() {
                     var $tr = $(this);
                     var where_clause = $tr.find('.where_clause').val();
-                    full_where_clause.push(unescape(where_clause.replace(/[+]/g, ' ')));
+                    full_where_clause.push(PMA_urldecode(where_clause));
                     var condition_array = jQuery.parseJSON($tr.find('.condition_array').val());
                     
                     /**
@@ -1168,6 +1168,62 @@
                         g.hideEditCell(true);
                     }
                 }
+            },
+            
+            // initialize grid editing feature
+            initGridEdit: function() {
+                $(t).find('td.data')
+                    .click(function(e) {
+                        if (g.isCellEditActive) {
+                            g.saveOrPostEditedCell();
+                            e.stopPropagation();
+                        } else {
+                            g.showEditCell(this);
+                            e.stopPropagation();
+                        }
+                        // prevent default action when clicking on "link" in a table
+                        if ($(e.target).is('a')) {
+                            e.preventDefault();
+                        }
+                    });
+                $(g.cEdit).find('input[type=text]').focus(function(e) {
+                    g.showEditArea();
+                });
+                $(g.cEdit).find('input[type=text], select').live('keydown', function(e) {
+                    if (e.which == 13) {
+                        // post on pressing "Enter"
+                        e.preventDefault();
+                        g.saveOrPostEditedCell();
+                    }
+                });
+                $(g.cEdit).keydown(function(e) {
+                    if (!g.isEditCellTextEditable) {
+                        // prevent text editing
+                        e.preventDefault();
+                    }
+                });
+                $('html').click(function(e) {
+                    // hide edit cell if the click is not from g.cEdit
+                    if ($(e.target).parents().index(g.cEdit) == -1) {
+                        g.hideEditCell();
+                    }
+                });
+                $('html').keydown(function(e) {
+                    if (e.which == 27 && g.isCellEditActive) {
+
+                        // cancel on pressing "Esc"
+                        g.hideEditCell(true);
+                    }
+                });
+                $('.save_edited').click(function() {
+                    g.hideEditCell();
+                    g.postEditedCell();
+                });
+                $(window).bind('beforeunload', function(e) {
+                    if (g.isCellEdited) {
+                        return g.saveCellWarning;
+                    }
+                });
             }
         }
         
@@ -1414,58 +1470,9 @@
             g.hideColList();
         });
         // edit cell event
-        $(t).find('td.data')
-            .click(function(e) {
-                if (g.isCellEditActive) {
-                    g.saveOrPostEditedCell();
-                    e.stopPropagation();
-                } else {
-                    g.showEditCell(this);
-                    e.stopPropagation();
-                }
-                // prevent default action when clicking on "link" in a table
-                if ($(e.target).is('a')) {
-                    e.preventDefault();
-                }
-            });
-        $(g.cEdit).find('input[type=text]').focus(function(e) {
-            g.showEditArea();
-        });
-        $(g.cEdit).find('input[type=text], select').live('keydown', function(e) {
-            if (e.which == 13) {
-                // post on pressing "Enter"
-                e.preventDefault();
-                g.saveOrPostEditedCell();
-            }
-        });
-        $(g.cEdit).keydown(function(e) {
-            if (!g.isEditCellTextEditable) {
-                // prevent text editing
-                e.preventDefault();
-            }
-        });
-        $('html').click(function(e) {
-            // hide edit cell if the click is not from g.cEdit
-            if ($(e.target).parents().index(g.cEdit) == -1) {
-                g.hideEditCell();
-            }
-        });
-        $('html').keydown(function(e) {
-            if (e.which == 27 && g.isCellEditActive) {
-
-                // cancel on pressing "Esc"
-                g.hideEditCell(true);
-            }
-        });
-        $('.save_edited').click(function() {
-            g.hideEditCell();
-            g.postEditedCell();
-        });
-        $(window).bind('beforeunload', function(e) {
-            if (g.isCellEdited) {
-                return g.saveCellWarning;
-            }
-        });
+        if ($(t).is('.ajax')) {
+            g.initGridEdit();
+        }
         
         // add table class
         $(t).addClass('pma_table');

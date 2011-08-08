@@ -31,7 +31,6 @@ function loadResult(result_path , table_name , link , ajaxEnable){
                 // we assign it manually from #table-link
                 window.parent.table = $('#table-link').text().trim();
 
-                appendInlineAnchor();
                 $('#table_results').makegrid();
             }).show();
         }
