@@ -1352,10 +1352,9 @@ msgid "Change settings"
 msgstr "Keisti nustatymus"
 
 #: js/messages.php:149
-#, fuzzy
 #| msgid "More settings"
 msgid "Current settings"
-msgstr "Daugiau nustatymų"
+msgstr "Dabartiniai nustatymai"
 
 #: js/messages.php:151 server_status.php:1472
 #, fuzzy
