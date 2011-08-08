@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 17:50+0200\n"
+"PO-Revision-Date: 2011-08-08 17:51+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -10369,7 +10369,7 @@ msgstr ""
 "sugeneruotas. Jis naudojamas užšifruoti slapukus; jums nereikia jo atsiminti."
 
 #: setup/lib/index.lib.php:277
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression "
 #| "and decompression[/a] requires functions (%s) which are unavailable on "
@@ -10378,8 +10378,8 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 glaudinimas ir "
-"išskleidimas[/a] reikalauja funkcijų (%s) kurios nėra galima Jūsų sistemoje."
+"%sBzip2 glaudinimas ir išskleidimas%s reikalauja funkcijų (%s) kurios nėra "
+"galimos Jūsų sistemoje."
 
 #: setup/lib/index.lib.php:279
 msgid ""
