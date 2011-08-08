@@ -199,7 +199,6 @@ $js_messages['strImportCSV'] = __('Note: If the file contains multiple tables, t
 /* For sql.js */
 $js_messages['strHideQueryBox'] = __('Hide query box');
 $js_messages['strShowQueryBox'] = __('Show query box');
-$js_messages['strInlineEdit'] = __('Inline Edit');
 $js_messages['strEdit'] = __('Edit');
 $js_messages['strSave'] = __('Save');
 $js_messages['strHide'] = __('Hide');

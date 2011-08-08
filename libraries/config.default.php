@@ -2258,7 +2258,7 @@ $cfg['CharTextareaRows'] = 2;
 $cfg['LimitChars'] = 50;
 
 /**
- * Where to show the edit/inline_edit/delete links in browse mode
+ * Where to show the edit/copy/delete links in browse mode
  * Possible values are 'left', 'right', 'both' and 'none';
  * which will be interpreted as 'top', 'bottom', 'both' and 'none'
  * respectively for vertical display mode

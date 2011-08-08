@@ -1095,7 +1095,7 @@ function PMA_buildValueDisplay($class, $condition_field, $value) {
  * @return  string  the td
  */
 function PMA_buildNullDisplay($class, $condition_field) {
-    // the null class is needed for inline editing
+    // the null class is needed for grid editing
     return '<td align="right"' . ' class="' . $class . ($condition_field ? ' condition' : '') . ' null"><i>NULL</i></td>';
 }
 
@@ -1216,8 +1216,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
     $vertical_display['delete']     = array();
     $vertical_display['data']       = array();
     $vertical_display['row_delete'] = array();
-    // name of the class added to all inline editable elements
-    $inline_edit_class = 'inline_edit';
+    // name of the class added to all grid editable elements
+    $grid_edit_class = 'grid_edit';
 
     // prepare to get the column order, if available
     if (PMA_isSelect()) {
@@ -1315,7 +1315,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 $edit_str = PMA_getIcon('b_edit.png', __('Edit'), true);
                 $copy_str = PMA_getIcon('b_insrow.png', __('Copy'), true);
 
-                // Class definitions required for inline editing jQuery scripts
+                // Class definitions required for grid editing jQuery scripts
                 $edit_anchor_class = "edit_row_anchor";
                 if ( $clause_is_unique == 0) {
                     $edit_anchor_class .= ' nonunique';
@@ -1403,8 +1403,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             $pointer = $i;
             $is_field_truncated = false;
             //If the previous column had blob data, we need to reset the class
-            // to $inline_edit_class
-            $class = 'data ' . $inline_edit_class . ' ' . $not_null_class . ' ' . $relation_class; //' ' . $alternating_color_class .
+            // to $grid_edit_class
+            $class = 'data ' . $grid_edit_class . ' ' . $not_null_class . ' ' . $relation_class; //' ' . $alternating_color_class .
 
             //  See if this column should get highlight because it's used in the
             //  where-query.
@@ -1490,8 +1490,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 $field_flags = PMA_DBI_field_flags($dt_result, $i);
 
                 if (stristr($field_flags, 'BINARY')) {
-                    // remove 'inline_edit' from $class as we can't edit binary data.
-                    $class = str_replace('inline_edit', '', $class);
+                    // remove 'grid_edit' from $class as we can't edit binary data.
+                    $class = str_replace('grid_edit', '', $class);
 
                     if (! isset($row[$i]) || is_null($row[$i])) {
                         $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($class, $condition_field);
@@ -1533,8 +1533,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             // g e o m e t r y
             } elseif ($meta->type == 'geometry') {
 
-                // Remove 'inline_edit' from $class as we do not allow to inline-edit geometry data.
-                $class = str_replace('inline_edit', '', $class);
+                // Remove 'grid_edit' from $class as we do not allow to inline-edit geometry data.
+                $class = str_replace('grid_edit', '', $class);
 
                 // Display as [GEOMETRY - (size)]
                 if ('GEOM' == $_SESSION['tmp_user_values']['geometry_display']) {
@@ -2745,7 +2745,7 @@ function PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $wher
            . PMA_linkOrButton($edit_url, $edit_str, array(), false);
         /*
          * Where clause for selecting this row uniquely is provided as
-         * a hidden input. Used by jQuery scripts for handling inline editing
+         * a hidden input. Used by jQuery scripts for handling grid editing
          */
         if (! empty($where_clause)) {
             $ret .= '<input type="hidden" class="where_clause" value ="' . $where_clause_html . '" />';
@@ -2775,7 +2775,7 @@ function PMA_generateCopyLink($copy_url, $copy_str, $where_clause, $where_clause
            . PMA_linkOrButton($copy_url, $copy_str, array(), false);
         /*
          * Where clause for selecting this row uniquely is provided as
-         * a hidden input. Used by jQuery scripts for handling inline editing
+         * a hidden input. Used by jQuery scripts for handling grid editing
          */
         if (! empty($where_clause)) {
             $ret .= '<input type="hidden" class="where_clause" value ="' . $where_clause_html . '" />';

@@ -1003,16 +1003,16 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 }
 
 /**
- * @global  boolean $GLOBALS['inline_edit']
+ * @global  boolean $GLOBALS['grid_edit']
  *
- * Set to true if this is a request made during an inline edit process.  This
+ * Set to true if this is a request made during an grid edit process.  This
  * request is made to retrieve the non-truncated/transformed values.
  */
-if (isset($_REQUEST['inline_edit']) && $_REQUEST['inline_edit'] == true) {
-    $GLOBALS['inline_edit'] = true;
+if (isset($_REQUEST['grid_edit']) && $_REQUEST['grid_edit'] == true) {
+    $GLOBALS['grid_edit'] = true;
 }
 else {
-    $GLOBALS['inline_edit'] = false;
+    $GLOBALS['grid_edit'] = false;
 }
 
 if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {

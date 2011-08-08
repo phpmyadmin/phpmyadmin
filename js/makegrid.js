@@ -468,7 +468,7 @@
              * Show edit cell, if it can be shown or it is forced.
              */
             showEditCell: function(cell, force) {
-                if ($(cell).is('.inline_edit') &&
+                if ($(cell).is('.grid_edit') &&
                     !g.colRsz && !g.colMov)
                 {
                     if (!g.isCellEditActive || force) {
@@ -790,7 +790,7 @@
                                 'db' : g.db,
                                 'ajax_request' : true,
                                 'sql_query' : sql_query,
-                                'inline_edit' : true
+                                'grid_edit' : true
                             }, function(data) {
                                 $editArea.removeClass('edit_area_loading');
                                 if(data.success == true) {
@@ -871,7 +871,7 @@
                 /**
                  * @var is_unique   Boolean, whether the rows in this table is unique or not
                  */
-                var is_unique = $('.inline_edit_anchor').is('.nonunique') ? 0 : 1;
+                var is_unique = $('.edit_row_anchor').is('.nonunique') ? 0 : 1;
                 /**
                  * multi edit variables
                  */
