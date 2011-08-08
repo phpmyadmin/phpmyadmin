@@ -9720,9 +9720,8 @@ msgid "The amount of free memory for query cache."
 msgstr ""
 
 #: server_status.php:1226
-#, fuzzy
 msgid "The number of cache hits."
-msgstr "Įkeltų eilučių skaičius"
+msgstr "Podėlio pataikymų skaičius."
 
 #: server_status.php:1227
 msgid "The number of queries added to the cache."
