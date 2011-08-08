@@ -1033,10 +1033,9 @@ msgstr "Slaptažodžiai nesutampa!"
 
 #: js/messages.php:58 server_privileges.php:1766 server_privileges.php:1790
 #: server_privileges.php:2195 server_privileges.php:2389
-#, fuzzy
 #| msgid "Any user"
 msgid "Add user"
-msgstr "Bet kurį vartotoją"
+msgstr "Pridėti naudotoją"
 
 #: js/messages.php:59
 msgid "Reloading Privileges"
