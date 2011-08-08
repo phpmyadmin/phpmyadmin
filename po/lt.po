@@ -10715,7 +10715,7 @@ msgstr "Etiketės stulpelis"
 
 #: tbl_gis_visualization.php:167
 msgid "-- None --"
-msgstr ""
+msgstr "-- Tuščia --"
 
 #: tbl_gis_visualization.php:180
 #, fuzzy
