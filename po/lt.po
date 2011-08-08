@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 16:59+0200\n"
+"PO-Revision-Date: 2011-08-08 17:00+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -7290,10 +7290,9 @@ msgid "Schema of the %s database - Page %s"
 msgstr "Duomenų bazės %s schema - %s puslapis"
 
 #: libraries/schema/Export_Relation_Schema.class.php:170
-#, fuzzy
 #| msgid "File %s does not contain any key id"
 msgid "This page does not contain any tables!"
-msgstr "Failas %s neturi jokio raktinio id"
+msgstr "Šis puslapis neturi jokių lentelių!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:195
 msgid "SCHEMA ERROR: "
