@@ -2678,7 +2678,7 @@ msgstr "Abu"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "Niekur"
 
 #: libraries/config.values.php:47
 msgid "Left"
