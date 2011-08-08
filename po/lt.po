@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 17:54+0200\n"
+"PO-Revision-Date: 2011-08-08 17:55+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -10512,10 +10512,11 @@ msgid "Key is too short, it should have at least 8 characters."
 msgstr "Raktas per trumpas, jis privalo turėti bent 8 simbolius."
 
 #: setup/lib/index.lib.php:396
-#, fuzzy
 #| msgid "Key should contain letters, numbers [em]and[/em] special characters"
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr "Raktas turi turėti raidžių, skaičių [em]ir[/em] specialiųjų ženklų"
+msgstr ""
+"Raktas turėtų būti sudarytas iš raidžių, skaičių [em]ir[/em] specialiųjų "
+"ženklų."
 
 #: sql.php:95 tbl_change.php:257 tbl_select.php:28 tbl_select.php:29
 #: tbl_select.php:32 tbl_select.php:35
