@@ -8242,10 +8242,9 @@ msgid "Export to selected page"
 msgstr "Eksportuoti pasirinktą puslapį"
 
 #: pmd_pdf.php:102
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create a page and export to it"
-msgstr "Sukurti naują indeksą"
+msgstr "Sukurti puslapį ir eksportuoti į jį"
 
 #: pmd_pdf.php:111
 #, fuzzy
