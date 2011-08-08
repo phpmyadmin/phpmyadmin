@@ -7095,10 +7095,10 @@ msgstr[1] ""
 msgstr[2] ""
 
 #: libraries/rte/rte_routines.lib.php:1214
-#, fuzzy, php-format
+#, php-format
 #| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
-msgstr "Leisti įvykdyti saugomas programas (stored routines)."
+msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1288
 #: libraries/rte/rte_routines.lib.php:1294
