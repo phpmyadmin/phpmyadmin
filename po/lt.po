@@ -5340,10 +5340,9 @@ msgid "Language"
 msgstr "Kalba"
 
 #: libraries/display_tbl.lib.php:401
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Restore column order"
-msgstr "Textarea laukeliai"
+msgstr "Atstatyti stulpelių rikiavimą"
 
 #: libraries/display_tbl.lib.php:431
 #, php-format
