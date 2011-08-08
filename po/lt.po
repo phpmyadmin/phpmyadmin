@@ -6940,7 +6940,7 @@ msgstr "IŠJUNGTA"
 
 #: libraries/rte/rte_footer.lib.php:96
 msgid "ON"
-msgstr ""
+msgstr "ĮJUNGTA"
 
 #: libraries/rte/rte_footer.lib.php:108
 msgid "Event scheduler status"
