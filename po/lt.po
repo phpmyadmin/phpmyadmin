@@ -9177,10 +9177,9 @@ msgid "Filter by category..."
 msgstr "Filtruoti pagal kategoriją..."
 
 #: server_status.php:727
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show unformatted values"
-msgstr "Rodyti atidarytas lenteles"
+msgstr "Rodyti nesuformatuotas reikšmes"
 
 #: server_status.php:731
 #, fuzzy
