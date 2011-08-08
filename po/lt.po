@@ -1183,7 +1183,7 @@ msgstr "Laisva atmintis"
 
 #: js/messages.php:105
 msgid "Used memory"
-msgstr ""
+msgstr "Naudojama atmintis"
 
 #: js/messages.php:107
 #, fuzzy
