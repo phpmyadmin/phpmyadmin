@@ -6944,7 +6944,7 @@ msgstr "ĮJUNGTA"
 
 #: libraries/rte/rte_footer.lib.php:108
 msgid "Event scheduler status"
-msgstr ""
+msgstr "Įvykių planuotojo būsena"
 
 #: libraries/rte/rte_list.lib.php:54
 #, fuzzy
