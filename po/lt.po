@@ -9163,10 +9163,9 @@ msgid "Refresh rate: "
 msgstr "Atnaujinimo dažnis:"
 
 #: server_status.php:705
-#, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "Nekeisti slaptažodžio"
+msgstr "Turintys žodį:"
 
 #: server_status.php:710
 #, fuzzy
