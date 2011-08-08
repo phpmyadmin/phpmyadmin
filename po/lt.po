@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 17:46+0200\n"
+"PO-Revision-Date: 2011-08-08 17:47+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -10033,10 +10033,9 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1556
-#, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
-msgstr "Užklausos tipas"
+msgstr "Užklausos analizatorius"
 
 #: server_status.php:1593
 #, fuzzy, php-format
