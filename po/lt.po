@@ -10649,7 +10649,7 @@ msgstr "Diagramos antraštė:"
 
 #: tbl_chart.php:100
 msgid "X-Axis:"
-msgstr ""
+msgstr "X-ašis"
 
 #: tbl_chart.php:114
 #, fuzzy
