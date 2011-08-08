@@ -74,6 +74,7 @@ $(function() {
     var odd_row=false;
     var text=''; // Holds filter text
     var queryPieChart = null;
+    var monitorLoaded = false;
 
     /* Chart configuration */
     // Defines what the tabs are currently displaying (realtime or data)
@@ -103,12 +104,17 @@ $(function() {
             // Fixes line break in the menu bar when the page overflows and scrollbar appears
             menuResize(); 
             // Load Server status monitor
-            if(ui.tab.hash == '#statustabs_charting') {
+            if(ui.tab.hash == '#statustabs_charting' && ! monitorLoaded) {
                 $('div#statustabs_charting').append('<img class="ajaxIcon" id="loadingMonitorIcon" src="' + pmaThemeImage + 'ajax_clock_small.gif" alt="">');
-                loadJavascript(['js/jquery/timepicker.js','js/jquery/jquery.json-2.2.js',
-                                'js/jquery/jquery.sprintf.js', 'js/jquery/jquery.sortableTable.js',
-                                'js/codemirror/lib/codemirror.js', 'js/codemirror/mode/mysql/mysql.js',
-                                'js/server_status_monitor.js']);
+                // Delay loading a bit so the tab loads and the user gets to see a ajax loading icon
+                setTimeout(function() {
+                    loadJavascript(['js/jquery/timepicker.js','js/jquery/jquery.json-2.2.js',
+                                    'js/jquery/jquery.sprintf.js', 'js/jquery/jquery.sortableTable.js',
+                                    'js/codemirror/lib/codemirror.js', 'js/codemirror/mode/mysql/mysql.js',
+                                    'js/server_status_monitor.js']);
+                },50);
+                
+                monitorLoaded = true;
             }
         }
     });
