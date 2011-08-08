@@ -7232,10 +7232,9 @@ msgid "There are no triggers to display."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:42
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add event"
-msgstr "Pridėti naują serverį"
+msgstr "Pridėti įvykį"
 
 #: libraries/rte/rte_words.lib.php:44
 #, fuzzy, php-format
