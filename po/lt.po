@@ -7237,10 +7237,10 @@ msgid "Add event"
 msgstr "Pridėti įvykį"
 
 #: libraries/rte/rte_words.lib.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of event %s"
-msgstr "Eksportuoti turinį"
+msgstr "Įvykio %s eksportavimas"
 
 #: libraries/rte/rte_words.lib.php:45
 #, fuzzy
