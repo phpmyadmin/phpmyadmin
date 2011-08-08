@@ -7137,10 +7137,9 @@ msgid "Create trigger"
 msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:161
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Edit trigger"
-msgstr "Pridėti naują serverį"
+msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:301
 #, fuzzy
