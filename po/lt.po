@@ -9978,10 +9978,9 @@ msgid "Commonly monitored"
 msgstr ""
 
 #: server_status.php:1503
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "or type variable name:"
-msgstr "Neteisingas lentelės vardas"
+msgstr "arba įveskite kintamojo vardą:"
 
 #: server_status.php:1507
 msgid "Display as differential value"
