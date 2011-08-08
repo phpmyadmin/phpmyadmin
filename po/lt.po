@@ -6836,10 +6836,9 @@ msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr "<b>Viena ar daugiau klaidų įvyko vykdant Jūsų užklausą:</b>"
 
 #: libraries/rte/rte_events.lib.php:181
-#, fuzzy
 #| msgid "Create User"
 msgid "Create event"
-msgstr "Sukurti naudotoją"
+msgstr "Sukurti įvykį"
 
 #: libraries/rte/rte_events.lib.php:185
 #, fuzzy
