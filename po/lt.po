@@ -10542,10 +10542,9 @@ msgid "Showing SQL query"
 msgstr "Rodoma SQL užklausa"
 
 #: sql.php:683
-#, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
-msgstr "Patikrinti SQL užklausą"
+msgstr "Patikrintas SQL"
 
 #: sql.php:990
 #, php-format
