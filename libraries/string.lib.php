@@ -19,38 +19,22 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-$GLOBALS['PMA_allow_mbstr'] = @function_exists('mb_strlen');
-$GLOBALS['PMA_allow_ctype'] = @extension_loaded('ctype');
-
-if ($GLOBALS['PMA_allow_mbstr']) {
-    mb_internal_encoding('utf-8');
-}
-
 /**
  * Load proper code for handling input.
  */
-if ($GLOBALS['PMA_allow_mbstr']) {
-    $GLOBALS['PMA_strpos']      = 'mb_strpos';
-    $GLOBALS['PMA_substr']      = 'mb_substr';
+if (@function_exists('mb_strlen')) {
+    mb_internal_encoding('utf-8');
     require './libraries/string_mb.lib.php';
 } else {
-    $GLOBALS['PMA_strpos']      = 'strpos';
-    $GLOBALS['PMA_substr']      = 'substr';
     require './libraries/string_native.lib.php';
 }
 
 /**
  * Load ctype handler.
  */
-if ($GLOBALS['PMA_allow_ctype']) {
-    $GLOBALS['PMA_STR_isAlnum'] = 'ctype_alnum';
-    $GLOBALS['PMA_STR_isDigit'] = 'ctype_digit';
-    $GLOBALS['PMA_STR_isSpace'] = 'ctype_space';
+if (@extension_loaded('ctype')) {
     require './libraries/string_type_ctype.lib.php';
 } else {
-    $GLOBALS['PMA_STR_isAlnum'] = 'PMA_STR_isAlnum';
-    $GLOBALS['PMA_STR_isDigit'] = 'PMA_STR_isDigit';
-    $GLOBALS['PMA_STR_isSpace'] = 'PMA_STR_isSpace';
     require './libraries/string_type_native.lib.php';
 }
 
@@ -107,7 +91,7 @@ function PMA_STR_numberInRangeInclusive($num, $lower, $upper)
  */
 function PMA_STR_isSqlIdentifier($c, $dot_is_valid = false)
 {
-    return ($GLOBALS['PMA_STR_isAlnum']($c)
+    return (PMA_STR_isAlnum($c)
         || ($ord_c = ord($c)) && $ord_c >= 192 && $ord_c != 215 && $ord_c != 249
         || $c == '_'
         || $c == '$'
