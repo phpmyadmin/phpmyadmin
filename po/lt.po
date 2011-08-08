@@ -7013,10 +7013,9 @@ msgid "Parameters"
 msgstr "Parametrai"
 
 #: libraries/rte/rte_routines.lib.php:848
-#, fuzzy
 #| msgid "Direct links"
 msgid "Direction"
-msgstr "Tiesioginės nuorodos"
+msgstr "Nukreipimas"
 
 #: libraries/rte/rte_routines.lib.php:851 libraries/tbl_properties.inc.php:108
 msgid "Length/Values"
