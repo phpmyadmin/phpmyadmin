@@ -7243,10 +7243,9 @@ msgid "Export of event %s"
 msgstr "Įvykio %s eksportavimas"
 
 #: libraries/rte/rte_words.lib.php:45
-#, fuzzy
 #| msgid "Event"
 msgid "event"
-msgstr "Įvykis"
+msgstr "įvykis"
 
 #: libraries/rte/rte_words.lib.php:46
 #, fuzzy
