@@ -106,9 +106,12 @@ class PMA_Theme_Manager
 
         if (! $this->checkTheme($GLOBALS['cfg']['ThemeDefault'])) {
             trigger_error(
-                sprintf(__('Default theme %s not found!'),
-                    htmlspecialchars($GLOBALS['cfg']['ThemeDefault'])),
-                E_USER_ERROR);
+                sprintf(
+                    __('Default theme %s not found!'),
+                    htmlspecialchars($GLOBALS['cfg']['ThemeDefault'])
+                    ),
+                E_USER_ERROR
+                );
             $GLOBALS['cfg']['ThemeDefault'] = false;
         }
 
@@ -144,7 +147,10 @@ class PMA_Theme_Manager
     {
         if (! $this->checkTheme($theme)) {
             trigger_error(
-                sprintf(__('Theme %s not found!'), htmlspecialchars($theme)),
+                sprintf(
+                    __('Theme %s not found!'),
+                    htmlspecialchars($theme)
+                ),
                 E_USER_ERROR);
             return false;
         }
