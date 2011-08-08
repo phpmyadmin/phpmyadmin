@@ -1206,8 +1206,8 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         // mode because 1) it currently does not work and 2) we would
         // have two similar mechanisms on the page for the same goal
         if ($is_select || $GLOBALS['is_ajax_request'] === false && ! $query_too_big) {
-        // see in js/functions.js the jQuery code attached to id inline_edit
-        // document.write conflicts with jQuery, hence used $().append()
+            // see in js/functions.js the jQuery code attached to id inline_edit
+            // document.write conflicts with jQuery, hence used $().append()
             echo "<script type=\"text/javascript\">\n" .
                 "//<![CDATA[\n" .
                 "$('.tools form').last().after('[<a href=\"#\" title=\"" .
@@ -1499,44 +1499,44 @@ function PMA_extractValueFromFormattedSize($formatted_size)
 function PMA_localisedDate($timestamp = -1, $format = '')
 {
     $month = array(
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Jan'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Feb'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Mar'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Apr'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         _pgettext('Short month name', 'May'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Jun'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Jul'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Aug'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Sep'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Oct'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Nov'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Dec'));
     $day_of_week = array(
-/* l10n: Short week day name */
+        /* l10n: Short week day name */
         _pgettext('Short week day name', 'Sun'),
-/* l10n: Short week day name */
+        /* l10n: Short week day name */
         __('Mon'),
-/* l10n: Short week day name */
+        /* l10n: Short week day name */
         __('Tue'),
-/* l10n: Short week day name */
+        /* l10n: Short week day name */
         __('Wed'),
-/* l10n: Short week day name */
+        /* l10n: Short week day name */
         __('Thu'),
-/* l10n: Short week day name */
+        /* l10n: Short week day name */
         __('Fri'),
-/* l10n: Short week day name */
+        /* l10n: Short week day name */
         __('Sat'));
 
     if ($format == '') {
