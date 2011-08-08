@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 17:48+0200\n"
+"PO-Revision-Date: 2011-08-08 17:49+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -10060,9 +10060,8 @@ msgid "Could not connect to the source"
 msgstr "Nepavyko prisijungti prie šaltinio"
 
 #: server_synchronize.php:95
-#, fuzzy
 msgid "Could not connect to the target"
-msgstr "Nepavyko prisijungti prie MySQL serverio"
+msgstr "Nepavyko prisijungti prie adresato (angl. target)"
 
 #: server_synchronize.php:120 server_synchronize.php:123 tbl_create.php:50
 #: tbl_get_field.php:19
