@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 16:46+0200\n"
+"PO-Revision-Date: 2011-08-08 16:47+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -6833,7 +6833,7 @@ msgstr "Įvykis %1$s buvo sukurtas."
 #: libraries/rte/rte_events.lib.php:141 libraries/rte/rte_routines.lib.php:294
 #: libraries/rte/rte_triggers.lib.php:114
 msgid "<b>One or more errors have occured while processing your request:</b>"
-msgstr ""
+msgstr "<b>Viena ar daugiau klaidų įvyko vykdant Jūsų užklausą:</b>"
 
 #: libraries/rte/rte_events.lib.php:181
 #, fuzzy
