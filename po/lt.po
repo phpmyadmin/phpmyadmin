@@ -9959,10 +9959,9 @@ msgid "Memory Usage"
 msgstr "Atminties naudojimas"
 
 #: server_status.php:1481
-#, fuzzy
 #| msgid "Usage"
 msgid "Swap Usage"
-msgstr "Išnaudota"
+msgstr "Swap naudojimas"
 
 #: server_status.php:1484
 #, fuzzy
