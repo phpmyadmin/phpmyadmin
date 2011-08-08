@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 16:36+0200\n"
+"PO-Revision-Date: 2011-08-08 16:37+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -5600,7 +5600,7 @@ msgstr "Rašymas laukia"
 
 #: libraries/engines/innodb.lib.php:242
 msgid "Read misses in %"
-msgstr ""
+msgstr "Skaitymo nepataikymai %"
 
 #: libraries/engines/innodb.lib.php:250
 msgid "Write waits in %"
