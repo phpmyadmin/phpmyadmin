@@ -9969,10 +9969,9 @@ msgid "Status variable(s)"
 msgstr "Būsenos kintamasis(ieji)"
 
 #: server_status.php:1486
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
-msgstr "Pasirinkite lenteles"
+msgstr "Pasirinkite eiles:"
 
 #: server_status.php:1488
 msgid "Commonly monitored"
