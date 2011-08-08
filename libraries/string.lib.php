@@ -107,7 +107,7 @@ function PMA_STR_numberInRangeInclusive($num, $lower, $upper)
  */
 function PMA_STR_isSqlIdentifier($c, $dot_is_valid = false)
 {
-    return ($GLOBALS['PMA_STR_isAlnum']($c)
+    return (PMA_STR_isAlnum($c)
         || ($ord_c = ord($c)) && $ord_c >= 192 && $ord_c != 215 && $ord_c != 249
         || $c == '_'
         || $c == '$'
