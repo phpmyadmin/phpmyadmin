@@ -54,14 +54,14 @@ $(function() {
             title: PMA_messages['strSystemMemory'],
             nodes: [
                 { dataType: 'memory', name: PMA_messages['strTotalMemory'], dataPoint: 'MemTotal', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                { dataType: 'memory', name: PMA_messages['strUsedMemory'], dataPoint: 'MemUsed', valueDivisor: 1024, unit: PMA_messages['strMiB']  },
+                { dataType: 'memory', name: PMA_messages['strUsedMemory'], dataPoint: 'MemUsed', valueDivisor: 1024, unit: PMA_messages['strMiB']  }
             ]
         },
         'swap-WINNT': {
             title: PMA_messages['strSystemSwap'],
             nodes: [
                 { dataType: 'memory', name: PMA_messages['strTotalSwap'], dataPoint: 'SwapTotal', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                { dataType: 'memory', name: PMA_messages['strUsedSwap'], dataPoint: 'SwapUsed', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                { dataType: 'memory', name: PMA_messages['strUsedSwap'], dataPoint: 'SwapUsed', valueDivisor: 1024, unit: PMA_messages['strMiB'] }
             ]
         },
         'cpu-Linux': {
@@ -80,7 +80,7 @@ $(function() {
                 { dataType: 'memory', name: PMA_messages['strUsedMemory'], dataPoint: 'MemUsed', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
                 { dataType: 'memory', name: PMA_messages['strCachedMemory'], dataPoint: 'Cached',  valueDivisor: 1024, unit: PMA_messages['strMiB'] },
                 { dataType: 'memory', name: PMA_messages['strBufferedMemory'], dataPoint: 'Buffers', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                { dataType: 'memory', name: PMA_messages['strFreeMemory'], dataPoint:'MemFree', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                { dataType: 'memory', name: PMA_messages['strFreeMemory'], dataPoint:'MemFree', valueDivisor: 1024, unit: PMA_messages['strMiB'] }
             ],
             settings: {
                 chart: {
@@ -99,7 +99,7 @@ $(function() {
             nodes: [
                 { dataType: 'memory', name: PMA_messages['strTotalSwap'], dataPoint: 'SwapUsed',   valueDivisor: 1024, unit: PMA_messages['strMiB'] },
                 { dataType: 'memory', name: PMA_messages['strCachedSwap'], dataPoint: 'SwapCached', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                { dataType: 'memory', name: PMA_messages['strFreeSwap'], dataPoint: 'SwapFree',   valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                { dataType: 'memory', name: PMA_messages['strFreeSwap'], dataPoint: 'SwapFree',   valueDivisor: 1024, unit: PMA_messages['strMiB'] }
             ],
             settings: {
                 chart: {
@@ -974,8 +974,8 @@ $(function() {
         });
         
         if(chart == null) return;
-        
-        var htmlStr = '<p><b>Chart title: </b> <br/> <input type="text" size="35" name="chartTitle" value="' + chart.title + '" />';       
+
+        var htmlStr = '<p><b>Chart title: </b> <br/> <input type="text" size="35" name="chartTitle" value="' + chart.title + '" />';
         htmlStr += '</p><p><b>Series:</b> </p><ol>';
         for(var i=0; i<chart.nodes.length; i++) {
             htmlStr += '<li><i>' + chart.nodes[i].dataPoint  +': </i><br/><input type="text" name="chartSerie-' + i + '" value=" ' + chart.nodes[i].name + '" /></li>';
@@ -1072,8 +1072,8 @@ $(function() {
 
                     if(elem.nodes[j].transformFn) {
                         value = chartValueTransform(
-                            elem.nodes[j].transformFn, 
-                            chartData[key][j], 
+                            elem.nodes[j].transformFn,
+                            chartData[key][j],
                             (oldChartData == null ? null : oldChartData[key][j])
                         );
                     }
