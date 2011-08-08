@@ -1442,10 +1442,9 @@ msgid "Total:"
 msgstr "Iš viso:"
 
 #: js/messages.php:175
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading logs"
-msgstr "Įkeliama"
+msgstr "Įkeliami žurnalai"
 
 #: js/messages.php:176
 msgid "Monitor refresh failed"
