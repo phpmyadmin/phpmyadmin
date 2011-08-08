@@ -7259,10 +7259,9 @@ msgid "No event with name %1$s found in database %2$s"
 msgstr "Nėra įvykio su vardu %1$s duomenų bazėje %2$s"
 
 #: libraries/rte/rte_words.lib.php:48
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no events to display."
-msgstr "Nėra failų išsiuntimui"
+msgstr "Nėra įvykių rodymui."
 
 #: libraries/schema/Dia_Relation_Schema.class.php:221
 #: libraries/schema/Eps_Relation_Schema.class.php:394
