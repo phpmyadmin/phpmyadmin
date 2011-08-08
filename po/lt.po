@@ -11264,9 +11264,8 @@ msgid "VIEW name"
 msgstr "VIEW pavadinimas"
 
 #: view_operations.php:91
-#, fuzzy
 msgid "Rename view to"
-msgstr "Pervadinti lentelę į"
+msgstr "Pervadinti rodinį į"
 
 #~ msgid ""
 #~ "No themes support; please check your configuration and/or your themes in "
