@@ -7132,10 +7132,9 @@ msgid "Trigger %1$s has been created."
 msgstr "Sukurta %1$s lentelė."
 
 #: libraries/rte/rte_triggers.lib.php:157
-#, fuzzy
 #| msgid "Create User"
 msgid "Create trigger"
-msgstr "Sukurti naudotoją"
+msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:161
 #, fuzzy
