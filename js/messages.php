@@ -61,10 +61,7 @@ $js_messages['strRemovingSelectedUsers'] = __('Removing Selected Users');
 $js_messages['strClose'] = __('Close');
 
 /* for server_status.js */
-$js_messages['strClickToSort'] = __('Click to sort');
-
 $js_messages['strEdit'] = __('Edit');
-
 $js_messages['strLiveTrafficChart'] = __('Live traffic chart');
 $js_messages['strLiveConnChart'] = __('Live conn./process chart');
 $js_messages['strLiveQueryChart'] = __('Live query chart');

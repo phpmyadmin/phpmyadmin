@@ -82,7 +82,7 @@ $(function() {
     var tabChart = new Object();
 
     /*** Table sort tooltip ***/
-    PMA_createqTip($('table.sortable thead th'), PMA_messages['strClickToSort']);
+    PMA_createqTip($('table.sortable thead th'), PMA_messages['strSortHint']);
 
     // Tell highcarts not to use UTC dates (global setting)
     Highcharts.setOptions({
