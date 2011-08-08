@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 17:00+0200\n"
+"PO-Revision-Date: 2011-08-08 17:01+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -7603,7 +7603,7 @@ msgstr "Lentelė atrodo tuščia!"
 #: libraries/tbl_links.inc.php:127
 #, php-format
 msgid "Tracking of %s.%s is activated."
-msgstr ""
+msgstr "Stebėjimas %s.%s yra aktyvuotas."
 
 #: libraries/tbl_properties.inc.php:108
 msgid ""
