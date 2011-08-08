@@ -174,9 +174,10 @@ function PMA_sqlAddSlashes($a_string = '', $is_like = false, $crlf = false, $php
     }
 
     if ($crlf) {
-        $a_string = str_replace("\n", '\n', $a_string);
-        $a_string = str_replace("\r", '\r', $a_string);
-        $a_string = str_replace("\t", '\t', $a_string);
+        $a_string = strtr(
+            $a_string,
+            array("\n" => '\n', "\r" => '\r', "\t" => '\t')
+            );
     }
 
     if ($php_code) {
