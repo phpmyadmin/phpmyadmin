@@ -29,6 +29,13 @@ var codemirror_editor = false;
  */
 var chart_activeTimeouts = new Object();
 
+/*if(window.parent) {
+    $(document).ready(function() {
+        if(window.parent.currentWidth() == 0)
+            $('div#frameExpand').show();
+    });
+}*/
+
 /**
  * Add a hidden field to the form to indicate that this will be an
  * Ajax request (only if this hidden field does not exist)
@@ -3002,7 +3009,7 @@ $(document).ready(function() {
  */
 $(document).ready(function() {
     var elm = $('#sqlquery');
-    if (elm.length > 0) {
+    if (elm.length > 0 && typeof CodeMirror != 'undefined') {
         codemirror_editor = CodeMirror.fromTextArea(elm[0], {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql"});
     }
 });
@@ -3076,3 +3083,13 @@ function PMA_createqTip($elements, content, options) {
     $elements.qtip($.extend(true, o, options));
 }
 
+/* Loads a js file, an array may be passed as well */
+loadJavascript=function(file) {
+    if($.isArray(file)) {
+        for(var i=0; i<file.length; i++) {
+            $('head').append('<script type="text/javascript" src="'+file[i]+'"></script>');
+        }
+    } else {
+        $('head').append('<script type="text/javascript" src="'+file+'"></script>');
+    }
+}

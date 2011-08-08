@@ -22,7 +22,6 @@ if (isset($_SESSION['profiling'])) {
     /* Files required for chart exporting */
     $GLOBALS['js_include'][] = 'highcharts/exporting.js';
     $GLOBALS['js_include'][] = 'canvg/canvg.js';
-    $GLOBALS['js_include'][] = 'canvg/rgbcolor.js';
 }
 
 /**

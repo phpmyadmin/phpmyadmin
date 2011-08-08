@@ -333,19 +333,12 @@ $GLOBALS['js_include'][] = 'server_status.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.tablesorter.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.cookie.js'; // For tab persistence
-$GLOBALS['js_include'][] = 'jquery/jquery.json-2.2.js';
-$GLOBALS['js_include'][] = 'jquery/jquery.sprintf.js';
-$GLOBALS['js_include'][] = 'jquery/jquery.sortableTable.js';
-$GLOBALS['js_include'][] = 'jquery/timepicker.js';
 // Charting
 $GLOBALS['js_include'][] = 'highcharts/highcharts.js';
 /* Files required for chart exporting */
 $GLOBALS['js_include'][] = 'highcharts/exporting.js';
 $GLOBALS['js_include'][] = 'canvg/flashcanvas.js';
 $GLOBALS['js_include'][] = 'canvg/canvg.js';
-$GLOBALS['js_include'][] = 'canvg/rgbcolor.js';
-$GLOBALS['js_include'][] = 'codemirror/lib/codemirror.js';
-$GLOBALS['js_include'][] = 'codemirror/mode/mysql/mysql.js';
 
 /**
  * flush status variables if requested
@@ -765,7 +758,7 @@ echo __('Runtime Information');
             <div class="tabInnerContent clearfloat">
             </div>
             <div id="advisorInstructionsDialog" style="display:none;">
-            <?php echo __('The Advisor system can provide recommendations on server variables by analyzing the server status variables. <p>Do note however that this system provides recommendations based on fairly simple calculations and by rule of thumb and may not necessarily work for your system.</p> <p>Prior to changing any of the configuration, be sure to know what you are changing and how to undo the change. Wrong tuning can have a very negative effect on performance.</p> <p>The best way to tune your system would be to change only one setting at a time, observe or benchmark your database, and undo the change if there was no clearly measurable improvement.</p>'); ?>
+            <?php echo __('The Advisor system can provide recommendations on server variables by analyzing the server status variables. <p>Do note however that this system provides recommendations based on simple calculations and by rule of thumb which may not necessarily apply to your system.</p> <p>Prior to changing any of the configuration, be sure to know what you are changing (by reading the documentation) and how to undo the change. Wrong tuning can have a very negative effect on performance.</p> <p>The best way to tune your system would be to change only one setting at a time, observe or benchmark your database, and undo the change if there was no clearly measurable improvement.</p>'); ?>
             </div>
         </div>
     </div>
@@ -1378,7 +1371,7 @@ function printVariablesTable() {
 function printMonitor() {
     global $server_status, $server_db_isLocal;
 ?>
-    <div class="tabLinks">
+    <div class="tabLinks" style="display:none;">
         <a href="#pauseCharts">
             <img src="themes/dot.gif" class="icon ic_play" alt="" />
             <?php echo __('Start Monitor'); ?>
