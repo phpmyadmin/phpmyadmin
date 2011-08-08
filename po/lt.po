@@ -6256,10 +6256,10 @@ msgid "Go to database"
 msgstr "Eiti į duomenų bazę"
 
 #: libraries/import.lib.php:1085 libraries/import.lib.php:1109
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
-msgstr "Trūksta duomenų %s"
+msgstr "Keisti nustatymus %s"
 
 #: libraries/import.lib.php:1104
 msgid "Go to table"
