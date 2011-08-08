@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 18:01+0200\n"
+"PO-Revision-Date: 2011-08-08 18:02+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -10999,10 +10999,9 @@ msgid "Add unique index"
 msgstr "Pridėti unikalų indeksą"
 
 #: tbl_structure.php:174 tbl_structure.php:175
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add SPATIAL index"
-msgstr "Keisti žurnalą(us) (indeksą)"
+msgstr "Pridėti SPATIAL indeksą"
 
 #: tbl_structure.php:176 tbl_structure.php:177
 msgid "Add FULLTEXT index"
