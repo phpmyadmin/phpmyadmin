@@ -253,7 +253,10 @@ function PMA_unQuote($quoted_string, $quote = null)
          && substr($quoted_string, -1, 1) === $quote) {
              $unquoted_string = substr($quoted_string, 1, -1);
              // replace escaped quotes
-             $unquoted_string = str_replace($quote . $quote, $quote, $unquoted_string);
+             $unquoted_string = str_replace(
+                $quote . $quote,
+                $quote,
+                $unquoted_string);
              return $unquoted_string;
          }
     }
