@@ -7325,10 +7325,9 @@ msgid "Create a page"
 msgstr "Sukurti naują puslapį"
 
 #: libraries/schema/User_Schema.class.php:95
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
-msgstr "Puslapis:"
+msgstr "Puslapio vardas"
 
 #: libraries/schema/User_Schema.class.php:99
 msgid "Automatic layout based on"
