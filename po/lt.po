@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 10:07+0200\n"
-"PO-Revision-Date: 2011-08-08 15:39+0200\n"
+"PO-Revision-Date: 2011-08-08 15:40+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -1114,7 +1114,7 @@ msgstr "Serverio duomenų srautas (KiB)"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "prisijungimų nuo paskutinio įkėlimo iš naujo"
 
 #: js/messages.php:84 js/messages.php:115 server_status.php:1068
 msgid "Processes"
