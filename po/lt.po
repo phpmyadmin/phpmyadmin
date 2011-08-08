@@ -10996,7 +10996,7 @@ msgstr "Pridėti indeksą"
 
 #: tbl_structure.php:172 tbl_structure.php:173
 msgid "Add unique index"
-msgstr ""
+msgstr "Pridėti unikalų indeksą"
 
 #: tbl_structure.php:174 tbl_structure.php:175
 #, fuzzy
