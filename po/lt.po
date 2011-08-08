@@ -7713,10 +7713,9 @@ msgid "PARTITION definition"
 msgstr "SKAIDINIO (PARTITION) apibrėžimas"
 
 #: libraries/tbl_properties.inc.php:762
-#, fuzzy
 #| msgid "Add a new server"
 msgid "+ Add a value"
-msgstr "Pridėti naują serverį"
+msgstr "+ Pridėti reikšmę"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 #, fuzzy
