@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 16:01+0200\n"
+"PO-Revision-Date: 2011-08-08 16:23+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -1283,7 +1283,7 @@ msgstr ""
 #: js/messages.php:137
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time yra nustatytas į %d sekundė(-es/-žių)."
 
 #: js/messages.php:138
 msgid ""
@@ -1295,10 +1295,10 @@ msgstr ""
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:140
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save output to a file"
 msgid "Set log_output to %s"
-msgstr "Išsaugoti į failą"
+msgstr "Nustatyti log_output į %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:142
@@ -1340,7 +1340,6 @@ msgstr "Diagramos antraštė"
 
 #. l10n: As in differential values
 #: js/messages.php:153
-#, fuzzy
 #| msgid "Difference"
 msgid "Differential"
 msgstr "Skirtumas"
@@ -1348,7 +1347,7 @@ msgstr "Skirtumas"
 #: js/messages.php:154
 #, php-format
 msgid "Divided by %s:"
-msgstr ""
+msgstr "Padalintas į %s:"
 
 #: js/messages.php:156
 msgid "From slow log"
@@ -1381,10 +1380,9 @@ msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 
 #: js/messages.php:163
-#, fuzzy
 #| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr "Eiti į duomenų bazę"
+msgstr "Eiti į žurnalo lentelę"
 
 #: js/messages.php:164
 msgid "Log analysed, but no data found in this time span."
@@ -1392,10 +1390,9 @@ msgstr ""
 
 #. l10n: A collection of available filters
 #: js/messages.php:167
-#, fuzzy
 #| msgid "Filter"
 msgid "Filters"
-msgstr "Filtras"
+msgstr "Filtrai"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:169 navigation.php:270
@@ -1404,11 +1401,11 @@ msgstr "Filtras"
 
 #: js/messages.php:170
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "Filtro užklausa pagal žodį/regexp:"
 
 #: js/messages.php:171
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
+msgstr "Sugrupuoti užklausas, nepaisant kintamųjų duomenų WHERE dalyje"
 
 #: js/messages.php:172
 #, fuzzy
@@ -1417,16 +1414,14 @@ msgid "Sum of grouped rows:"
 msgstr "Įkeltų eilučių skaičius"
 
 #: js/messages.php:173
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "Iš viso"
+msgstr "Iš viso:"
 
 #: js/messages.php:175
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading logs"
-msgstr "Įkeliama"
+msgstr "Įkeliami žurnalai"
 
 #: js/messages.php:176
 msgid "Monitor refresh failed"
@@ -1440,24 +1435,27 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:178
-#, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
-msgstr "Įkrauti iš naujo"
+msgstr "Puslapį įkelti iš naujo"
 
 #: js/messages.php:180
 msgid "Affected rows: "
-msgstr ""
+msgstr "Paveiktos eilutės:"
 
 #: js/messages.php:182
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgstr ""
+"Nepavyko išnagrinėti konfigūracinio failo. Atrodo, kad tai nėra teisingas "
+"JSON kodas."
 
 #: js/messages.php:183
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr ""
+"Nepavyko sudaryti diagramos tinklelio su importuota konfigūracija. Nustatoma "
+"į numatytąją konfigūraciją..."
 
 #: js/messages.php:184 libraries/config/messages.inc.php:170
 #: libraries/db_links.inc.php:83 libraries/server_links.inc.php:69
@@ -1555,14 +1553,13 @@ msgid "Browsing"
 msgstr "Peržiūrėti"
 
 #: js/messages.php:218
-#, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
-msgstr "Šaliname: %s"
+msgstr "Šaliname"
 
 #: js/messages.php:221
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr ""
+msgstr "Apibrėžimas „stored“ funkcijos turi turėti RETURN teiginį."
 
 #: js/messages.php:224
 msgid ""
@@ -2282,7 +2279,7 @@ msgstr "Neteisingas naudotojo vardas arba slaptažodis. Priėjimas uždraustas."
 
 #: libraries/auth/signon.auth.lib.php:88
 msgid "Can not find signon authentication script:"
-msgstr ""
+msgstr "Nepavyko surasti prisijungimo tapatumo nustatymo scenarijaus:"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
@@ -2397,6 +2394,8 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
+"Tai dažniausiai reiškia, kad yra įvelta sintaksės klaida, prašome patikrinti "
+"žemiau esančias klaidas."
 
 #: libraries/common.inc.php:596
 #, php-format
@@ -2575,10 +2574,9 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s d., %s val., %s min. ir %s s"
 
 #: libraries/common.lib.php:1927
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Missing parameter:"
-msgstr "Keisti žurnalą(us) (indeksą)"
+msgstr "Trūkstamas parametras:"
 
 #: libraries/common.lib.php:2236 libraries/common.lib.php:2239
 #: libraries/display_tbl.lib.php:306
@@ -2607,10 +2605,9 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s funkcionalumas paveiktas žinomos klaidos, žiūrėti %s"
 
 #: libraries/common.lib.php:2507
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to toggle"
-msgstr "Spustelėkite pažymėjimui"
+msgstr "Spustelėkite suskleidimui/atskleidimui"
 
 #: libraries/common.lib.php:2836 libraries/common.lib.php:2843
 #: libraries/common.lib.php:3035 libraries/config/setup.forms.php:296
@@ -2665,7 +2662,7 @@ msgstr "Nėra failų išsiuntimui"
 
 #: libraries/common.lib.php:3044 libraries/common.lib.php:3045
 msgid "Execute"
-msgstr ""
+msgstr "Vykdyti"
 
 #: libraries/config.values.php:45 libraries/config.values.php:47
 #: libraries/config.values.php:51
@@ -2674,17 +2671,16 @@ msgstr "Abu"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "Niekur"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "Kairė"
 
 #: libraries/config.values.php:47
-#, fuzzy
 #| msgid "Height"
 msgid "Right"
-msgstr "Aukštis"
+msgstr "Dešinė"
 
 #: libraries/config.values.php:75
 msgid "Open"
@@ -3054,10 +3050,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "Lentelės diagnostika"
+msgstr "Išjungti daug lentelių techninę priežiūrą"
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
@@ -3805,16 +3800,15 @@ msgid "Enable highlighting"
 msgstr "Įjungti paryškinimą"
 
 #: libraries/config/messages.inc.php:288
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr "Maksimalus skaičius lentelių rodomų lentelių sąraše"
+msgstr ""
+"Didžiausias skaičius paskiausiai naudotų lentelių; nustatyti 0, kad išjungti"
 
 #: libraries/config/messages.inc.php:289
-#, fuzzy
 #| msgid "Untracked tables"
 msgid "Recently used tables"
-msgstr "Nesekamos lentelės"
+msgstr "Paskiausiai naudotos lentelės"
 
 #: libraries/config/messages.inc.php:290
 msgid "Use less graphically intense tabs"
@@ -4098,13 +4092,12 @@ msgstr "Įrašymo varikliukas"
 
 #: libraries/config/messages.inc.php:350
 msgid "When browsing tables, the sorting of each table is remembered"
-msgstr ""
+msgstr "Kai naršomos lentelės, atsimenamas kiekvienos lentelės rikiavimas"
 
 #: libraries/config/messages.inc.php:351
-#, fuzzy
 #| msgid "Rename table to"
 msgid "Remember table's sorting"
-msgstr "Pervadinti lentelę į"
+msgstr "Įsiminti lentelės rūšiavimą"
 
 #: libraries/config/messages.inc.php:352
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
