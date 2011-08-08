@@ -111,7 +111,8 @@ if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldumpfil
     foreach($entries as $entry) {
         $dump .= $entry['statement'];
     }
-    $filename = 'log_' . str_replace(';', '', htmlspecialchars($_REQUEST['table'])) . '.sql';
+    //$filename = 'log_' . str_replace(';', '', htmlspecialchars($_REQUEST['table'])) . '.sql';
+    $filename = PMA_sanitize_filename('log_' . $_REQUEST['table'] . '.sql');
     header('Content-Type: text/x-sql');
     header('Expires: ' . gmdate('D, d M Y H:i:s') . ' GMT');
     header('Content-Disposition: attachment; filename="' . $filename . '"');

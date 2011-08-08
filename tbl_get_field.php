@@ -39,7 +39,8 @@ if ($result === false) {
 
 header('Content-Type: ' . PMA_detectMIME($result));
 header('Expires: ' . gmdate('D, d M Y H:i:s') . ' GMT');
-header('Content-Disposition: attachment; filename="' . $table . '-' .  $transform_key . '.bin"');
+$filename = PMA_sanitize_filename($table . '-' .  $transform_key . '.bin');
+header('Content-Disposition: attachment; filename="' . $filename . '"');
 if (PMA_USR_BROWSER_AGENT == 'IE') {
     header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
     header('Pragma: public');

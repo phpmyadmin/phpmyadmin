@@ -173,6 +173,7 @@ class PMA_DIA extends XMLWriter
          if(ob_get_clean()){
             ob_end_clean();
         }
+        $fileName = PMA_sanitize_filename($fileName);
         header('Content-type: application/x-dia-diagram');
         header('Content-Disposition: attachment; filename="'.$fileName.'.dia"');
         $output = $this->flush();
