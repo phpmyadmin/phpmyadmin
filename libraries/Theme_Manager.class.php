@@ -203,7 +203,7 @@ class PMA_Theme_Manager
      * @param string $folder
      * @return  boolean
      */
-    /*private*/ function _checkThemeFolder($folder)
+    private function _checkThemeFolder($folder)
     {
         if (! is_dir($folder)) {
             trigger_error(
