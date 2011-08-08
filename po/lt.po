@@ -2118,10 +2118,9 @@ msgid "Recent tables"
 msgstr "Paskiausios lentelės"
 
 #: libraries/RecentTable.class.php:148
-#, fuzzy
 #| msgid "There are no configured servers"
 msgid "There are no recent tables"
-msgstr "Nėra jokių sukonfigūruotų serverių"
+msgstr "Nėra jokių paskiausių lentelių"
 
 #: libraries/StorageEngine.class.php:180
 msgid ""
