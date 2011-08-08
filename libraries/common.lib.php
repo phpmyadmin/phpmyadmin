@@ -50,21 +50,21 @@ function PMA_pow($base, $exp, $use_function = false)
         return false;
     }
     switch ($use_function) {
-        case 'bcpow' :
-            // bcscale() needed for testing PMA_pow() with base values < 1
-            bcscale(10);
-            $pow = bcpow($base, $exp);
-            break;
-        case 'gmp_pow' :
-             $pow = gmp_strval(gmp_pow($base, $exp));
-            break;
-        case 'pow' :
-            $base = (float) $base;
-            $exp = (int) $exp;
-            $pow = pow($base, $exp);
-            break;
-        default:
-            $pow = $use_function($base, $exp);
+    case 'bcpow' :
+        // bcscale() needed for testing PMA_pow() with base values < 1
+        bcscale(10);
+        $pow = bcpow($base, $exp);
+        break;
+    case 'gmp_pow' :
+         $pow = gmp_strval(gmp_pow($base, $exp));
+        break;
+    case 'pow' :
+        $base = (float) $base;
+        $exp = (int) $exp;
+        $pow = pow($base, $exp);
+        break;
+    default:
+        $pow = $use_function($base, $exp);
     }
 
     return $pow;
@@ -301,23 +301,23 @@ function PMA_formatSql($parsed_sql, $unparsed_sql = '')
     $formatted_sql        = '';
 
     switch ($cfg['SQP']['fmtType']) {
-        case 'none':
-            if ($unparsed_sql != '') {
-                $formatted_sql = '<span class="inner_sql"><pre>' . "\n"
-                    . PMA_SQP_formatNone(array('raw' => $unparsed_sql)) . "\n"
-                    . '</pre></span>';
-            } else {
-                $formatted_sql = PMA_SQP_formatNone($parsed_sql);
-            }
-            break;
-        case 'html':
-            $formatted_sql = PMA_SQP_formatHtml($parsed_sql, 'color');
-            break;
-        case 'text':
-            $formatted_sql = PMA_SQP_formatHtml($parsed_sql, 'text');
-            break;
-        default:
-            break;
+    case 'none':
+        if ($unparsed_sql != '') {
+            $formatted_sql = '<span class="inner_sql"><pre>' . "\n"
+                . PMA_SQP_formatNone(array('raw' => $unparsed_sql)) . "\n"
+                . '</pre></span>';
+        } else {
+            $formatted_sql = PMA_SQP_formatNone($parsed_sql);
+        }
+        break;
+    case 'html':
+        $formatted_sql = PMA_SQP_formatHtml($parsed_sql, 'color');
+        break;
+    case 'text':
+        $formatted_sql = PMA_SQP_formatHtml($parsed_sql, 'text');
+        break;
+    default:
+        break;
     } // end switch
 
     return $formatted_sql;
@@ -350,57 +350,57 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
     $link = str_replace('_', '-', strtolower($link));
 
     switch ($cfg['MySQLManualType']) {
-        case 'chapters':
-            if (empty($chapter)) {
-                $chapter = 'index';
+    case 'chapters':
+        if (empty($chapter)) {
+            $chapter = 'index';
+        }
+        if (empty($anchor)) {
+            $anchor = $link;
+        }
+        $url = $cfg['MySQLManualBase'] . '/' . $chapter . '.html#' . $anchor;
+        break;
+    case 'big':
+        if (empty($anchor)) {
+            $anchor = $link;
+        }
+        $url = $cfg['MySQLManualBase'] . '#' . $anchor;
+        break;
+    case 'searchable':
+        if (empty($link)) {
+            $link = 'index';
+        }
+        $url = $cfg['MySQLManualBase'] . '/' . $link . '.html';
+        if (!empty($anchor)) {
+            $url .= '#' . $anchor;
+        }
+        break;
+    case 'viewable':
+    default:
+        if (empty($link)) {
+            $link = 'index';
+        }
+        $mysql = '5.0';
+        $lang = 'en';
+        if (defined('PMA_MYSQL_INT_VERSION')) {
+            if (PMA_MYSQL_INT_VERSION >= 50500) {
+                $mysql = '5.5';
+                /* l10n: Language to use for MySQL 5.5 documentation, please use only languages which do exist in official documentation.  */
+                $lang = _pgettext('MySQL 5.5 documentation language', 'en');
+            } else if (PMA_MYSQL_INT_VERSION >= 50100) {
+                $mysql = '5.1';
+                /* l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.  */
+                $lang = _pgettext('MySQL 5.1 documentation language', 'en');
+            } else {
+                $mysql = '5.0';
+                /* l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation. */
+                $lang = _pgettext('MySQL 5.0 documentation language', 'en');
             }
-            if (empty($anchor)) {
-                $anchor = $link;
-            }
-            $url = $cfg['MySQLManualBase'] . '/' . $chapter . '.html#' . $anchor;
-            break;
-        case 'big':
-            if (empty($anchor)) {
-                $anchor = $link;
-            }
-            $url = $cfg['MySQLManualBase'] . '#' . $anchor;
-            break;
-        case 'searchable':
-            if (empty($link)) {
-                $link = 'index';
-            }
-            $url = $cfg['MySQLManualBase'] . '/' . $link . '.html';
-            if (!empty($anchor)) {
-                $url .= '#' . $anchor;
-            }
-            break;
-        case 'viewable':
-        default:
-            if (empty($link)) {
-                $link = 'index';
-            }
-            $mysql = '5.0';
-            $lang = 'en';
-            if (defined('PMA_MYSQL_INT_VERSION')) {
-                if (PMA_MYSQL_INT_VERSION >= 50500) {
-                    $mysql = '5.5';
-                    /* l10n: Language to use for MySQL 5.5 documentation, please use only languages which do exist in official documentation.  */
-                    $lang = _pgettext('MySQL 5.5 documentation language', 'en');
-                } else if (PMA_MYSQL_INT_VERSION >= 50100) {
-                    $mysql = '5.1';
-                    /* l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.  */
-                    $lang = _pgettext('MySQL 5.1 documentation language', 'en');
-                } else {
-                    $mysql = '5.0';
-                    /* l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation. */
-                    $lang = _pgettext('MySQL 5.0 documentation language', 'en');
-                }
-            }
-            $url = $cfg['MySQLManualBase'] . '/' . $mysql . '/' . $lang . '/' . $link . '.html';
-            if (!empty($anchor)) {
-                $url .= '#' . $anchor;
-            }
-            break;
+        }
+        $url = $cfg['MySQLManualBase'] . '/' . $mysql . '/' . $lang . '/' . $link . '.html';
+        if (!empty($anchor)) {
+            $url .= '#' . $anchor;
+        }
+        break;
     }
 
     $open_link = '<a href="' . PMA_linkURL($url) . '" target="mysql_doc">';
@@ -615,14 +615,14 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
     $_SESSION['Import_message']['message'] = $error_msg_output;
 
     if ($exit) {
-       /**
-        * If in an Ajax request
-        * - avoid displaying a Back link
-        * - use PMA_ajaxResponse() to transmit the message and exit
-        */
-       if ($GLOBALS['is_ajax_request'] == true) {
-           PMA_ajaxResponse($error_msg_output, false);
-       }
+        /**
+         * If in an Ajax request
+         * - avoid displaying a Back link
+         * - use PMA_ajaxResponse() to transmit the message and exit
+         */
+        if ($GLOBALS['is_ajax_request'] == true) {
+            PMA_ajaxResponse($error_msg_output, false);
+        }
         if (! empty($back_url)) {
             if (strstr($back_url, '?')) {
                 $back_url .= '&amp;no_history=true';
@@ -635,13 +635,13 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
             $error_msg_output .= '<fieldset class="tblFooters">';
             $error_msg_output .= '[ <a href="' . $back_url . '">' . __('Back') . '</a> ]';
             $error_msg_output .= '</fieldset>' . "\n\n";
-       }
+        }
 
-       echo $error_msg_output;
-       /**
-        * display footer and exit
-        */
-       require './libraries/footer.inc.php';
+        echo $error_msg_output;
+        /**
+         * display footer and exit
+         */
+        require './libraries/footer.inc.php';
     } else {
         echo $error_msg_output;
     }
@@ -855,8 +855,9 @@ function PMA_reloadNavigation($jsonly=false)
         unset($_SESSION['tmp_user_values']['table_limit_offset']);
         echo "\n";
         $reload_url = './navigation.php?' . PMA_generate_common_url($GLOBALS['db'], '', '&');
-        if (!$jsonly)
-          echo '<script type="text/javascript">' . PHP_EOL;
+        if (!$jsonly) {
+            echo '<script type="text/javascript">' . PHP_EOL;
+        }
     ?>
 //<![CDATA[
 if (typeof(window.parent) != 'undefined'
@@ -866,8 +867,9 @@ if (typeof(window.parent) != 'undefined'
 }
 //]]>
 <?php
-if (!$jsonly)
-  echo '</script>' . PHP_EOL;
+        if (!$jsonly) {
+            echo '</script>' . PHP_EOL;
+        }
 
         unset($GLOBALS['reload']);
     }
@@ -1204,8 +1206,8 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         // mode because 1) it currently does not work and 2) we would
         // have two similar mechanisms on the page for the same goal
         if ($is_select || $GLOBALS['is_ajax_request'] === false && ! $query_too_big) {
-        // see in js/functions.js the jQuery code attached to id inline_edit
-        // document.write conflicts with jQuery, hence used $().append()
+            // see in js/functions.js the jQuery code attached to id inline_edit
+            // document.write conflicts with jQuery, hence used $().append()
             echo "<script type=\"text/javascript\">\n" .
                 "//<![CDATA[\n" .
                 "$('.tools form').last().after('[<a href=\"#\" title=\"" .
@@ -1497,44 +1499,44 @@ function PMA_extractValueFromFormattedSize($formatted_size)
 function PMA_localisedDate($timestamp = -1, $format = '')
 {
     $month = array(
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Jan'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Feb'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Mar'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Apr'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         _pgettext('Short month name', 'May'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Jun'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Jul'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Aug'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Sep'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Oct'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Nov'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Dec'));
     $day_of_week = array(
-/* l10n: Short week day name */
+        /* l10n: Short week day name */
         _pgettext('Short week day name', 'Sun'),
-/* l10n: Short week day name */
+        /* l10n: Short week day name */
         __('Mon'),
-/* l10n: Short week day name */
+        /* l10n: Short week day name */
         __('Tue'),
-/* l10n: Short week day name */
+        /* l10n: Short week day name */
         __('Wed'),
-/* l10n: Short week day name */
+        /* l10n: Short week day name */
         __('Thu'),
-/* l10n: Short week day name */
+        /* l10n: Short week day name */
         __('Fri'),
-/* l10n: Short week day name */
+        /* l10n: Short week day name */
         __('Sat'));
 
     if ($format == '') {
@@ -1808,6 +1810,12 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
 } // end of the 'PMA_linkOrButton()' function
 
 
+/**
+ * Splits a URL string by parameter 
+ *
+ * @param string  $url the URL
+ * @return array  the parameter/value pairs, for example [0] db=sakila
+ */
 function PMA_splitURLQuery($url) {
     // decode encoded url separators
     $separator   = PMA_get_arg_separator();
@@ -2700,13 +2708,13 @@ function PMA_extractFieldSpec($fieldspec)
                 if (! $in_string) {
                     $in_string = true;
                     $working = "";
-                // Otherwise, it may be either an end of a string, or a 'double quote' which can be handled as-is
                 } else {
-                // Check out the next character (if possible)
+                    // Otherwise, it may be either an end of a string, or a 'double quote' which can be handled as-is
+                    // Check out the next character (if possible)
                     $has_next = isset($fieldspec[$index + 1]);
                     $next = $has_next ? $fieldspec[$index + 1] : null;
 
-                // If we have reached the end of our 'working' string (because there are no more chars, or the next char is not another quote)
+                    // If we have reached the end of our 'working' string (because there are no more chars, or the next char is not another quote)
                     if (! $has_next || $next != "'") {
                         $enum_set_values[] = $working;
                         $in_string = false;
@@ -2718,12 +2726,12 @@ function PMA_extractFieldSpec($fieldspec)
                         $index++;
                     }
                 }
-            // escaping of a quote?
             } elseif ('\\' == $char && isset($fieldspec[$index + 1]) && "'" == $fieldspec[$index + 1]) {
+                // escaping of a quote?
                 $working .= "'";
                 $index++;
-            // Otherwise, add it to our working string like normal
             } else {
+                // Otherwise, add it to our working string like normal
                 $working .= $char;
             }
             // Increment character index

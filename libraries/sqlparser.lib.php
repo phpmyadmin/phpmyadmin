@@ -645,13 +645,12 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     } elseif (($last == '-') || ($last == '+') || ($last == '!')) {
                         $count2--;
                         $punct_data = PMA_substr($sql, $count1, $count2 - $count1);
-                    /**
-                     * @todo for negation operator, split in 2 tokens ?
-                     * "select x&~1 from t"
-                     * becomes "select x & ~ 1 from t" ?
-                     */
-
                     } elseif ($last != '~') {
+                        /**
+                         * @todo for negation operator, split in 2 tokens ?
+                         * "select x&~1 from t"
+                         * becomes "select x & ~ 1 from t" ?
+                         */
                         $debugstr =  __('Unknown Punctuation String') . ' @ ' . ($count1+1) . "\n"
                                   . 'STR: ' . htmlspecialchars($punct_data);
                         PMA_SQP_throwError($debugstr, $sql);
@@ -812,16 +811,16 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         return $sql_array;
     } // end of the "PMA_SQP_parse()" function
 
-   /**
-    * Checks for token types being what we want...
-    *
-    * @param string String of type that we have
-    * @param string String of type that we want
-    *
-    * @return boolean result of check
-    *
-    * @access private
-    */
+    /**
+     * Checks for token types being what we want...
+     *
+     * @param string String of type that we have
+     * @param string String of type that we want
+     *
+     * @return boolean result of check
+     *
+     * @access private
+     */
     function PMA_SQP_typeCheck($toCheck, $whatWeWant)
     {
         $typeSeperator = '_';
@@ -890,122 +889,122 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // for GROUP_CONCAT(...)
         $in_group_concat     = false;
 
-/* Description of analyzer results
- *
- * db, table, column, alias
- * ------------------------
- *
- * Inside the $subresult array, we create ['select_expr'] and ['table_ref'] arrays.
- *
- * The SELECT syntax (simplified) is
- *
- * SELECT
- *    select_expression,...
- *    [FROM [table_references]
- *
- *
- * ['select_expr'] is filled with each expression, the key represents the
- * expression position in the list (0-based) (so we don't lose track of
- * multiple occurences of the same column).
- *
- * ['table_ref'] is filled with each table ref, same thing for the key.
- *
- * I create all sub-values empty, even if they are
- * not present (for example no select_expression alias).
- *
- * There is a debug section at the end of loop #1, if you want to
- * see the exact contents of select_expr and table_ref
- *
- * queryflags
- * ----------
- *
- * In $subresult, array 'queryflags' is filled, according to what we
- * find in the query.
- *
- * Currently, those are generated:
- *
- * ['queryflags']['need_confirm'] = 1; if the query needs confirmation
- * ['queryflags']['select_from'] = 1;  if this is a real SELECT...FROM
- * ['queryflags']['distinct'] = 1;     for a DISTINCT
- * ['queryflags']['union'] = 1;        for a UNION
- * ['queryflags']['join'] = 1;         for a JOIN
- * ['queryflags']['offset'] = 1;       for the presence of OFFSET
- * ['queryflags']['procedure'] = 1;    for the presence of PROCEDURE
- *
- * query clauses
- * -------------
- *
- * The select is splitted in those clauses:
- * ['select_expr_clause']
- * ['from_clause']
- * ['group_by_clause']
- * ['order_by_clause']
- * ['having_clause']
- * ['limit_clause']
- * ['where_clause']
- *
- * The identifiers of the WHERE clause are put into the array
- * ['where_clause_identifier']
- *
- * For a SELECT, the whole query without the ORDER BY clause is put into
- * ['unsorted_query']
- *
- * foreign keys
- * ------------
- * The CREATE TABLE may contain FOREIGN KEY clauses, so they get
- * analyzed and ['foreign_keys'] is an array filled with
- * the constraint name, the index list,
- * the REFERENCES table name and REFERENCES index list,
- * and ON UPDATE | ON DELETE clauses
- *
- * position_of_first_select
- * ------------------------
- *
- * The array index of the first SELECT we find. Will be used to
- * insert a SQL_CALC_FOUND_ROWS.
- *
- * create_table_fields
- * -------------------
- *
- * Used to detect the DEFAULT CURRENT_TIMESTAMP and
- * ON UPDATE CURRENT_TIMESTAMP clauses of the CREATE TABLE query.
- * Also used to store the default value of the field.
- * An array, each element is the identifier name.
- * Note that for now, the timestamp_not_null element is created
- * even for non-TIMESTAMP fields.
- *
- * Sub-elements: ['type'] which contains the column type
- *               optional (currently they are never false but can be absent):
- *               ['default_current_timestamp'] boolean
- *               ['on_update_current_timestamp'] boolean
- *               ['timestamp_not_null'] boolean
- *
- * section_before_limit, section_after_limit
- * -----------------------------------------
- *
- * Marks the point of the query where we can insert a LIMIT clause;
- * so the section_before_limit will contain the left part before
- * a possible LIMIT clause
- *
- *
- * End of description of analyzer results
- */
+        /* Description of analyzer results
+         *
+         * db, table, column, alias
+         * ------------------------
+         *
+         * Inside the $subresult array, we create ['select_expr'] and ['table_ref'] arrays.
+         *
+         * The SELECT syntax (simplified) is
+         *
+         * SELECT
+         *    select_expression,...
+         *    [FROM [table_references]
+         *
+         *
+         * ['select_expr'] is filled with each expression, the key represents the
+         * expression position in the list (0-based) (so we don't lose track of
+         * multiple occurences of the same column).
+         *
+         * ['table_ref'] is filled with each table ref, same thing for the key.
+         *
+         * I create all sub-values empty, even if they are
+         * not present (for example no select_expression alias).
+         *
+         * There is a debug section at the end of loop #1, if you want to
+         * see the exact contents of select_expr and table_ref
+         *
+         * queryflags
+         * ----------
+         *
+         * In $subresult, array 'queryflags' is filled, according to what we
+         * find in the query.
+         *
+         * Currently, those are generated:
+         *
+         * ['queryflags']['need_confirm'] = 1; if the query needs confirmation
+         * ['queryflags']['select_from'] = 1;  if this is a real SELECT...FROM
+         * ['queryflags']['distinct'] = 1;     for a DISTINCT
+         * ['queryflags']['union'] = 1;        for a UNION
+         * ['queryflags']['join'] = 1;         for a JOIN
+         * ['queryflags']['offset'] = 1;       for the presence of OFFSET
+         * ['queryflags']['procedure'] = 1;    for the presence of PROCEDURE
+         *
+         * query clauses
+         * -------------
+         *
+         * The select is splitted in those clauses:
+         * ['select_expr_clause']
+         * ['from_clause']
+         * ['group_by_clause']
+         * ['order_by_clause']
+         * ['having_clause']
+         * ['limit_clause']
+         * ['where_clause']
+         *
+         * The identifiers of the WHERE clause are put into the array
+         * ['where_clause_identifier']
+         *
+         * For a SELECT, the whole query without the ORDER BY clause is put into
+         * ['unsorted_query']
+         *
+         * foreign keys
+         * ------------
+         * The CREATE TABLE may contain FOREIGN KEY clauses, so they get
+         * analyzed and ['foreign_keys'] is an array filled with
+         * the constraint name, the index list,
+         * the REFERENCES table name and REFERENCES index list,
+         * and ON UPDATE | ON DELETE clauses
+         *
+         * position_of_first_select
+         * ------------------------
+         *
+         * The array index of the first SELECT we find. Will be used to
+         * insert a SQL_CALC_FOUND_ROWS.
+         *
+         * create_table_fields
+         * -------------------
+         *
+         * Used to detect the DEFAULT CURRENT_TIMESTAMP and
+         * ON UPDATE CURRENT_TIMESTAMP clauses of the CREATE TABLE query.
+         * Also used to store the default value of the field.
+         * An array, each element is the identifier name.
+         * Note that for now, the timestamp_not_null element is created
+         * even for non-TIMESTAMP fields.
+         *
+         * Sub-elements: ['type'] which contains the column type
+         *               optional (currently they are never false but can be absent):
+         *               ['default_current_timestamp'] boolean
+         *               ['on_update_current_timestamp'] boolean
+         *               ['timestamp_not_null'] boolean
+         *
+         * section_before_limit, section_after_limit
+         * -----------------------------------------
+         *
+         * Marks the point of the query where we can insert a LIMIT clause;
+         * so the section_before_limit will contain the left part before
+         * a possible LIMIT clause
+         *
+         *
+         * End of description of analyzer results
+         */
 
         // must be sorted
         // TODO: current logic checks for only one word, so I put only the
         // first word of the reserved expressions that end a table ref;
         // maybe this is not ok (the first word might mean something else)
-//        $words_ending_table_ref = array(
-//            'FOR UPDATE',
-//            'GROUP BY',
-//            'HAVING',
-//            'LIMIT',
-//            'LOCK IN SHARE MODE',
-//            'ORDER BY',
-//            'PROCEDURE',
-//            'UNION',
-//            'WHERE'
-//        );
+        //        $words_ending_table_ref = array(
+        //            'FOR UPDATE',
+        //            'GROUP BY',
+        //            'HAVING',
+        //            'LIMIT',
+        //            'LOCK IN SHARE MODE',
+        //            'ORDER BY',
+        //            'PROCEDURE',
+        //            'UNION',
+        //            'WHERE'
+        //        );
         $words_ending_table_ref = array(
             'FOR' => 1,
             'GROUP' => 1,
@@ -1047,7 +1046,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // loop #1 for each token: select_expr, table_ref for SELECT
 
         for ($i = 0; $i < $size; $i++) {
-//DEBUG echo "Loop1 <strong>"  . $arr[$i]['data'] . "</strong> (" . $arr[$i]['type'] . ")<br />";
+            //DEBUG echo "Loop1 <strong>"  . $arr[$i]['data'] . "</strong> (" . $arr[$i]['type'] . ")<br />";
 
             // High speed seek for locating the end of the current query
             if ($seek_queryend == true) {
@@ -1068,7 +1067,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 continue;
             } // end if (type == punct_queryend)
 
-// ==============================================================
+            // ==============================================================
             if ($arr[$i]['type'] == 'punct_bracket_open_round') {
                 $number_of_brackets++;
                 if ($in_extract) {
@@ -1078,7 +1077,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     $number_of_brackets_in_group_concat++;
                 }
             }
-// ==============================================================
+            // ==============================================================
             if ($arr[$i]['type'] == 'punct_bracket_close_round') {
                 $number_of_brackets--;
                 if ($number_of_brackets == 0) {
@@ -1109,7 +1108,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                  */
                 continue;
             }
-// ==============================================================
+            // ==============================================================
             if ($arr[$i]['type'] == 'alpha_functionName') {
                 $upper_data = strtoupper($arr[$i]['data']);
                 if ($upper_data =='EXTRACT') {
@@ -1122,10 +1121,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 }
             }
 
-// ==============================================================
+            // ==============================================================
             if ($arr[$i]['type'] == 'alpha_reservedWord'
-//             && $arr[$i]['forbidden'] == false) {
-            ) {
+                //&& $arr[$i]['forbidden'] == false) {
+                ) {
                 // We don't know what type of query yet, so run this
                 if ($subresult['querytype'] == '') {
                     $subresult['querytype'] = strtoupper($arr[$i]['data']);
@@ -1168,7 +1167,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 // reserved words below
             } // end if (type == alpha_reservedWord)
 
-// ==============================
+            // ==============================
             if ($arr[$i]['type'] == 'quote_backtick'
              || $arr[$i]['type'] == 'quote_double'
              || $arr[$i]['type'] == 'quote_single'
@@ -1229,7 +1228,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 } // end if (querytype SELECT)
             } // end if (quote_backtick or double quote or alpha_identifier)
 
-// ===================================
+            // ===================================
             if ($arr[$i]['type'] == 'punct_qualifier') {
                 // to be able to detect an identifier following another
                 $previous_was_identifier = false;
@@ -1498,7 +1497,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $in_subquery = false;
 
         for ($i = 0; $i < $size; $i++) {
-//DEBUG echo "Loop2 <strong>"  . $arr[$i]['data'] . "</strong> (" . $arr[$i]['type'] . ")<br />";
+            //DEBUG echo "Loop2 <strong>"  . $arr[$i]['data'] . "</strong> (" . $arr[$i]['type'] . ")<br />";
 
             // need_confirm
             //
@@ -1988,10 +1987,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 if ($seen_references) {
                     if ($seen_alter && $brackets_level > 0) {
                         $foreign[$foreign_key_number]['ref_index_list'][] = $identifier;
-                    // here, the first bracket level corresponds to the
-                    // bracket of CREATE TABLE
-                    // so if we are on level 2, it must be the index list
-                    // of the foreign key REFERENCES
+                        // here, the first bracket level corresponds to the
+                        // bracket of CREATE TABLE
+                        // so if we are on level 2, it must be the index list
+                        // of the foreign key REFERENCES
                     } elseif ($brackets_level > 1) {
                         $foreign[$foreign_key_number]['ref_index_list'][] = $identifier;
                     } elseif ($arr[$i+1]['type'] == 'punct_qualifier') {
@@ -2200,7 +2199,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         $in_priv_list = false;
         for ($i = $start_token; $i < $number_of_tokens; $i++) {
-// DEBUG echo "Loop format <strong>" . $arr[$i]['data'] . "</strong> " . $arr[$i]['type'] . "<br />";
+            // DEBUG echo "Loop format <strong>" . $arr[$i]['data'] . "</strong> " . $arr[$i]['type'] . "<br />";
             $before = '';
             $after  = '';
             // array_shift($typearr);
@@ -2307,7 +2306,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 // select 20 -9
                 // )
                 if ($typearr[3] != 'digit_integer') {
-                   $after        .= ' ';
+                    $after        .= ' ';
                 }
                 break;
             case 'punct_bracket_close_round':
@@ -2453,8 +2452,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                             $before    .= $space_alpha_reserved_word;
                         }
                     } else {
-                    // on first keyword, check if it introduces a
-                    // privilege list
+                        // on first keyword, check if it introduces a
+                        // privilege list
                         if (isset($keywords_priv_list[$arr[$i]['data']])) {
                             $in_priv_list = true;
                         }
