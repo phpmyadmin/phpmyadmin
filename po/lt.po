@@ -9455,9 +9455,8 @@ msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr ""
 
 #: server_status.php:1170
-#, fuzzy
 msgid "The number of free pages."
-msgstr "Įkeltų eilučių skaičius"
+msgstr "Tuščių puslapių skaičius."
 
 #: server_status.php:1171
 msgid ""
