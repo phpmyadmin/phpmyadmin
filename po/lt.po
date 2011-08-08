@@ -10057,7 +10057,7 @@ msgstr[2] "Minučių"
 
 #: server_synchronize.php:92
 msgid "Could not connect to the source"
-msgstr "Nepavyko prisijungti prie šaltinio"
+msgstr "Nepavyko prisijungti prie šaltinio (angl. source)"
 
 #: server_synchronize.php:95
 msgid "Could not connect to the target"
