@@ -4383,10 +4383,9 @@ msgstr ""
 "pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:410
-#, fuzzy
 #| msgid "Analyze table"
 msgid "Recently used table"
-msgstr "Analizuoti lentelę"
+msgstr "Paskiausiai naudotos lentelės"
 
 #: libraries/config/messages.inc.php:411
 msgid ""
