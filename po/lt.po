@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 16:26+0200\n"
+"PO-Revision-Date: 2011-08-08 16:27+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -4470,10 +4470,9 @@ msgstr ""
 "pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:427
-#, fuzzy
 #| msgid "User preferences"
 msgid "UI preferences table"
-msgstr "Naudotojo nuostatos"
+msgstr "Naudotojo sąsajos nustatymų lentelė"
 
 #: libraries/config/messages.inc.php:428
 msgid ""
