@@ -1186,10 +1186,9 @@ msgid "Used memory"
 msgstr "Naudojama atmintis"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "Iš viso"
+msgstr "Iš viso Swap"
 
 #: js/messages.php:108
 msgid "Cached Swap"
