@@ -11031,10 +11031,9 @@ msgid "An index has been added on %s"
 msgstr "Indeksas sukurtas %s stulpeliui"
 
 #: tbl_structure.php:464
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show more actions"
-msgstr "Rodyti versijas"
+msgstr "Rodyti daugiau veiksmų"
 
 #: tbl_structure.php:603
 #, fuzzy
