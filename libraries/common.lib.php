@@ -1705,8 +1705,8 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
     
     // Suhosin: Check that each query parameter is not above maximum
     $in_suhosin_limits = true;
-    if($url_length <= $GLOBALS['cfg']['LinkLengthLimit']) {
-        if($suhosin_get_MaxValueLength = ini_get('suhosin.get.max_value_length')) {
+    if ($url_length <= $GLOBALS['cfg']['LinkLengthLimit']) {
+        if ($suhosin_get_MaxValueLength = ini_get('suhosin.get.max_value_length')) {
             $query_parts = PMA_splitURLQuery($url);
             foreach($query_parts as $query_pair) {
                 list($eachvar, $eachval) = explode('=', $query_pair);
@@ -1733,8 +1733,9 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
             $tag_params['class'] = 'link';
         }
         
-        if(!isset($query_parts)) 
+        if (! isset($query_parts)) {
             $query_parts = PMA_splitURLQuery($url);
+        }
         $url_parts   = parse_url($url);
         
         if ($new_form) {
