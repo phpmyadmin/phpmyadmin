@@ -2669,7 +2669,7 @@ msgstr "Nėra failų išsiuntimui"
 
 #: libraries/common.lib.php:2997 libraries/common.lib.php:2998
 msgid "Execute"
-msgstr ""
+msgstr "Vykdyti"
 
 #: libraries/config.values.php:45 libraries/config.values.php:47
 #: libraries/config.values.php:51
