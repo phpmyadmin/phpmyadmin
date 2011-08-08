@@ -7173,10 +7173,10 @@ msgid "Add routine"
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:20
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export defaults"
 msgid "Export of routine %s"
-msgstr "Eksportuoti numatytąsias reikšmes"
+msgstr ""
 
 #: libraries/rte/rte_words.lib.php:21
 #, fuzzy
