@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 16:27+0200\n"
+"PO-Revision-Date: 2011-08-08 16:28+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -4756,7 +4756,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:489
 msgid "Textarea columns"
-msgstr "Textarea laukeliai"
+msgstr "Textarea stulpeliai"
 
 #: libraries/config/messages.inc.php:490
 msgid ""
