@@ -1068,10 +1068,9 @@ msgid "Live conn./process chart"
 msgstr "Tiesioginių prisijungimų/procesų diagrama"
 
 #: js/messages.php:68 server_status.php:688
-#, fuzzy
 #| msgid "Show query box"
 msgid "Live query chart"
-msgstr "Rodyti užklausos laukelį"
+msgstr "Tiesioginė užklausos diagrama"
 
 #: js/messages.php:70
 msgid "Static data"
