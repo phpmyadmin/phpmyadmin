@@ -253,7 +253,10 @@ function PMA_unQuote($quoted_string, $quote = null)
          && substr($quoted_string, -1, 1) === $quote) {
              $unquoted_string = substr($quoted_string, 1, -1);
              // replace escaped quotes
-             $unquoted_string = str_replace($quote . $quote, $quote, $unquoted_string);
+             $unquoted_string = str_replace(
+                $quote . $quote,
+                $quote,
+                $unquoted_string);
              return $unquoted_string;
          }
     }
@@ -290,9 +293,13 @@ function PMA_formatSql($parsed_sql, $unparsed_sql = '')
     if (! is_array($parsed_sql)) {
         // We don't so just return the input directly
         // This is intended to be used for when the SQL Parser is turned off
-        $formatted_sql = '<pre>' . "\n"
-                        . (($cfg['SQP']['fmtType'] == 'none' && $unparsed_sql != '') ? $unparsed_sql : $parsed_sql) . "\n"
-                        . '</pre>';
+        $formatted_sql = '<pre>' . "\n";
+        if ($cfg['SQP']['fmtType'] == 'none' && $unparsed_sql != '') {
+            $formatted_sql .= $unparsed_sql;
+        } else {
+            $formatted_sql .= $parsed_sql;
+        }
+        $formatted_sql .= '</pre>';
         return $formatted_sql;
     }
 
@@ -301,7 +308,9 @@ function PMA_formatSql($parsed_sql, $unparsed_sql = '')
     switch ($cfg['SQP']['fmtType']) {
         case 'none':
             if ($unparsed_sql != '') {
-                $formatted_sql = '<span class="inner_sql"><pre>' . "\n" . PMA_SQP_formatNone(array('raw' => $unparsed_sql)) . "\n" . '</pre></span>';
+                $formatted_sql = '<span class="inner_sql"><pre>' . "\n"
+                    . PMA_SQP_formatNone(array('raw' => $unparsed_sql)) . "\n"
+                    . '</pre></span>';
             } else {
                 $formatted_sql = PMA_SQP_formatNone($parsed_sql);
             }
@@ -399,14 +408,15 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
             break;
     }
 
+    $open_link = '<a href="' . PMA_linkURL($url) . '" target="mysql_doc">';
     if ($just_open) {
-        return '<a href="' . PMA_linkURL($url) . '" target="mysql_doc">';
+        return $open_link;
     } elseif ($big_icon) {
-        return '<a href="' . PMA_linkURL($url) . '" target="mysql_doc"><img class="icon ic_b_sqlhelp" src="themes/dot.gif" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
+        return $open_link . '<img class="icon ic_b_sqlhelp" src="themes/dot.gif" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
     } elseif ($GLOBALS['cfg']['ReplaceHelpImg']) {
-        return '<a href="' . PMA_linkURL($url) . '" target="mysql_doc"><img class="icon ic_b_help_s" src="themes/dot.gif" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
+        return $open_link . '<img class="icon ic_b_help_s" src="themes/dot.gif" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
     } else {
-        return '[<a href="' . PMA_linkURL($url) . '" target="mysql_doc">' . __('Documentation') . '</a>]';
+        return '[' . $open_link . __('Documentation') . '</a>]';
     }
 } // end of the 'PMA_showMySQLDocu()' function
 
@@ -1287,8 +1297,22 @@ function PMA_profilingCheckbox($sql_query)
  */
 function PMA_formatByteDown($value, $limes = 6, $comma = 0)
 {
-    /* l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+ */
-    $byteUnits = array(__('B'), __('KiB'), __('MiB'), __('GiB'), __('TiB'), __('PiB'), __('EiB'));
+    $byteUnits = array(
+        /* l10n: shortcuts for Byte */
+        __('B'),
+        /* l10n: shortcuts for Kilobyte */
+        __('KiB'),
+        /* l10n: shortcuts for Megabyte */
+        __('MiB'),
+        /* l10n: shortcuts for Gigabyte */
+        __('GiB'),
+        /* l10n: shortcuts for Terabyte */
+        __('TiB'),
+        /* l10n: shortcuts for Petabyte */
+        __('PiB'),
+        /* l10n: shortcuts for Exabyte */
+        __('EiB')
+        );
 
     $dh   = PMA_pow(10, $comma);
     $li   = PMA_pow(10, $limes);
@@ -1702,7 +1726,7 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
     if (stristr($message, '<img') && (!$strip_img || $GLOBALS['cfg']['PropertiesIconic'] === true) && strip_tags($message)==$message) {
         $displayed_message = '<span>' . htmlspecialchars(preg_replace('/^.*\salt="([^"]*)".*$/si', '\1', $message)) . '</span>';
     }
-    
+
     // Suhosin: Check that each query parameter is not above maximum
     $in_suhosin_limits = true;
     if ($url_length <= $GLOBALS['cfg']['LinkLengthLimit']) {
@@ -1732,12 +1756,12 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
         if (empty($tag_params['class'])) {
             $tag_params['class'] = 'link';
         }
-        
+
         if (! isset($query_parts)) {
             $query_parts = PMA_splitURLQuery($url);
         }
         $url_parts   = parse_url($url);
-        
+
         if ($new_form) {
             $ret = '<form action="' . $url_parts['path'] . '" class="link"'
                  . ' method="post"' . $target . ' style="display: inline;">';

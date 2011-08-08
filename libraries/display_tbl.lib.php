@@ -419,12 +419,6 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
                      PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], 'Create_time') . '" />';
             }
         }
-        // generate hints
-        echo '<input id="col_order_hint" type="hidden" value="' . __('Drag to reorder') . '" />';
-        echo '<input id="sort_hint" type="hidden" value="' . __('Click to sort') . '" />';
-        echo '<input id="col_mark_hint" type="hidden" value="' . __('Click to mark/unmark') . '" />';
-        echo '<input id="col_visib_hint" type="hidden" value="' . __('Click the drop-down arrow<br />to toggle column\'s visibility') . '" />';
-        echo '<input id="show_all_col_text" type="hidden" value="' . __('Show all') . '" />';
         ?>
     </td>
 
