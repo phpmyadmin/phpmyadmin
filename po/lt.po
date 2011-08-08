@@ -10014,10 +10014,9 @@ msgid "Log statistics"
 msgstr "Registruoti statistiką"
 
 #: server_status.php:1540
-#, fuzzy
 #| msgid "Select page"
 msgid "Selected time range:"
-msgstr "Pasirinkite puslapį"
+msgstr "Pasirinktas laiko tarpas:"
 
 #: server_status.php:1545
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
