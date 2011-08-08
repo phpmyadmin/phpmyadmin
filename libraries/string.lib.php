@@ -30,12 +30,8 @@ if ($GLOBALS['PMA_allow_mbstr']) {
  * Load proper code for handling input.
  */
 if ($GLOBALS['PMA_allow_mbstr']) {
-    $GLOBALS['PMA_strpos']      = 'mb_strpos';
-    $GLOBALS['PMA_substr']      = 'mb_substr';
     require './libraries/string_mb.lib.php';
 } else {
-    $GLOBALS['PMA_strpos']      = 'strpos';
-    $GLOBALS['PMA_substr']      = 'substr';
     require './libraries/string_native.lib.php';
 }
 
@@ -43,14 +39,8 @@ if ($GLOBALS['PMA_allow_mbstr']) {
  * Load ctype handler.
  */
 if ($GLOBALS['PMA_allow_ctype']) {
-    $GLOBALS['PMA_STR_isAlnum'] = 'ctype_alnum';
-    $GLOBALS['PMA_STR_isDigit'] = 'ctype_digit';
-    $GLOBALS['PMA_STR_isSpace'] = 'ctype_space';
     require './libraries/string_type_ctype.lib.php';
 } else {
-    $GLOBALS['PMA_STR_isAlnum'] = 'PMA_STR_isAlnum';
-    $GLOBALS['PMA_STR_isDigit'] = 'PMA_STR_isDigit';
-    $GLOBALS['PMA_STR_isSpace'] = 'PMA_STR_isSpace';
     require './libraries/string_type_native.lib.php';
 }
 
