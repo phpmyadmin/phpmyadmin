@@ -5579,9 +5579,8 @@ msgid "Latched pages"
 msgstr ""
 
 #: libraries/engines/innodb.lib.php:214
-#, fuzzy
 msgid "Buffer Pool Activity"
-msgstr "Buferio pool'o dydis"
+msgstr "Buferio pool'o veikla"
 
 #: libraries/engines/innodb.lib.php:218
 msgid "Read requests"
