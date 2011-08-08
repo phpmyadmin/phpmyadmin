@@ -9582,9 +9582,8 @@ msgid "The number of bytes written to the log file."
 msgstr ""
 
 #: server_status.php:1197
-#, fuzzy
 msgid "The number of pages created."
-msgstr "Duomenų nuskaitymų skaičius."
+msgstr "Sukurtų puslapių skaičius."
 
 #: server_status.php:1198
 msgid ""
