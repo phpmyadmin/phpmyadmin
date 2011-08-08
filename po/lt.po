@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 10:07+0200\n"
-"PO-Revision-Date: 2011-08-08 16:12+0200\n"
+"PO-Revision-Date: 2011-08-08 16:13+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -1469,6 +1469,8 @@ msgstr "Paveiktos eilutės:"
 #: js/messages.php:182
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgstr ""
+"Nepavyko išnagrinėti konfigūracinio failo. Atrodo, kad tai nėra teisingas "
+"JSON kodas."
 
 #: js/messages.php:183
 msgid ""
