@@ -1429,10 +1429,16 @@ function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_dow
 
     $dh = PMA_pow(10, $digits_right);
 
-    // This gives us the right SI prefix already, but $digits_left parameter not incorporated
+    /*
+     * This gives us the right SI prefix already,
+     * but $digits_left parameter not incorporated
+     */
     $d = floor(log10($value) / 3);
-    // Lowering the SI prefix by 1 gives us an additional 3 zeros
-    // So if we have 3,6,9,12.. free digits ($digits_left - $cur_digits) to use, then lower the SI prefix
+    /*
+     * Lowering the SI prefix by 1 gives us an additional 3 zeros
+     * So if we have 3,6,9,12.. free digits ($digits_left - $cur_digits)
+     * to use, then lower the SI prefix
+     */
     $cur_digits = floor(log10($value / PMA_pow(1000, $d, 'pow'))+1);
     if ($digits_left > $cur_digits) {
         $d-= floor(($digits_left - $cur_digits)/3);
@@ -1444,12 +1450,18 @@ function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_dow
     $unit = $units[$d];
 
     // If we dont want any zeros after the comma just add the thousand seperator
-    if ($noTrailingZero)
-        $value = PMA_localizeNumber(preg_replace("/(?<=\d)(?=(\d{3})+(?!\d))/",",",$value));
-    else
-        $value = PMA_localizeNumber(number_format($value, $digits_right)); //number_format is not multibyte safe, str_replace is safe
+    if ($noTrailingZero) {
+        $value = PMA_localizeNumber(
+            preg_replace('/(?<=\d)(?=(\d{3})+(?!\d))/', ',', $value)
+            );
+    } else {
+        //number_format is not multibyte safe, str_replace is safe
+        $value = PMA_localizeNumber(number_format($value, $digits_right));
+    }
 
-    if ($originalValue!=0 && floatval($value) == 0) return ' <'.(1/PMA_pow(10,$digits_right)).' '.$unit;
+    if ($originalValue!=0 && floatval($value) == 0) {
+        return ' <' . (1 / PMA_pow(10, $digits_right)) . ' ' . $unit;
+    }
 
     return $sign . $value . ' ' . $unit;
 } // end of the 'PMA_formatNumber' function
