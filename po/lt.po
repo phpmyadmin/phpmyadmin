@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 16:33+0200\n"
+"PO-Revision-Date: 2011-08-08 16:34+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -5493,10 +5493,9 @@ msgid "Visualize GIS data"
 msgstr ""
 
 #: libraries/display_tbl.lib.php:2545
-#, fuzzy
 #| msgid "Create User"
 msgid "Create view"
-msgstr "Sukurti naudotoją"
+msgstr "Sukurti rodinį"
 
 #: libraries/display_tbl.lib.php:2647
 msgid "Link not found"
