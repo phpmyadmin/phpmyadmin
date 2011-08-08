@@ -5571,9 +5571,8 @@ msgid "Pages to be flushed"
 msgstr ""
 
 #: libraries/engines/innodb.lib.php:194
-#, fuzzy
 msgid "Busy pages"
-msgstr "Tušti puslapiai"
+msgstr ""
 
 #: libraries/engines/innodb.lib.php:203
 msgid "Latched pages"
