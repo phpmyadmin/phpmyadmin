@@ -88,6 +88,13 @@ rule 'Minor Version' [! fired('Release Series')]
 	You should upgrade, as recent versions of MySQL 5.1 have improved performance and MySQL 5.5 even more so.
 	Current version: %s | value
 
+rule 'Minor Version' [! fired('Release Series')]
+	version
+	substr(value,0,1) == 5 && substr(value,2,1) == 5 && substr(value,4,2) < 8
+	Version less then 5.5.8 (the first GA release of 5.5).
+	You should upgrade, to a stable version of MySQL 5.5
+	Current version: %s | value
+
 rule 'Distribution'
 	version_comment
 	preg_match('/source/i',value)
