@@ -10962,7 +10962,7 @@ msgstr "Vykdyti \"užklausą pagal pavyzdį\" (pakaitos simbolis: \"%\")"
 #: tbl_select.php:261
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "Pasirinkite stulpelius (bent vieną)"
+msgstr "Pasirinkite stulpelius (bent vieną):"
 
 #: tbl_select.php:279
 msgid "Add search conditions (body of the \"where\" clause):"
