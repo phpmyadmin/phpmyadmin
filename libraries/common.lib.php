@@ -50,21 +50,21 @@ function PMA_pow($base, $exp, $use_function = false)
         return false;
     }
     switch ($use_function) {
-        case 'bcpow' :
-            // bcscale() needed for testing PMA_pow() with base values < 1
-            bcscale(10);
-            $pow = bcpow($base, $exp);
-            break;
-        case 'gmp_pow' :
-             $pow = gmp_strval(gmp_pow($base, $exp));
-            break;
-        case 'pow' :
-            $base = (float) $base;
-            $exp = (int) $exp;
-            $pow = pow($base, $exp);
-            break;
-        default:
-            $pow = $use_function($base, $exp);
+    case 'bcpow' :
+        // bcscale() needed for testing PMA_pow() with base values < 1
+        bcscale(10);
+        $pow = bcpow($base, $exp);
+        break;
+    case 'gmp_pow' :
+         $pow = gmp_strval(gmp_pow($base, $exp));
+        break;
+    case 'pow' :
+        $base = (float) $base;
+        $exp = (int) $exp;
+        $pow = pow($base, $exp);
+        break;
+    default:
+        $pow = $use_function($base, $exp);
     }
 
     return $pow;
@@ -301,23 +301,23 @@ function PMA_formatSql($parsed_sql, $unparsed_sql = '')
     $formatted_sql        = '';
 
     switch ($cfg['SQP']['fmtType']) {
-        case 'none':
-            if ($unparsed_sql != '') {
-                $formatted_sql = '<span class="inner_sql"><pre>' . "\n"
-                    . PMA_SQP_formatNone(array('raw' => $unparsed_sql)) . "\n"
-                    . '</pre></span>';
-            } else {
-                $formatted_sql = PMA_SQP_formatNone($parsed_sql);
-            }
-            break;
-        case 'html':
-            $formatted_sql = PMA_SQP_formatHtml($parsed_sql, 'color');
-            break;
-        case 'text':
-            $formatted_sql = PMA_SQP_formatHtml($parsed_sql, 'text');
-            break;
-        default:
-            break;
+    case 'none':
+        if ($unparsed_sql != '') {
+            $formatted_sql = '<span class="inner_sql"><pre>' . "\n"
+                . PMA_SQP_formatNone(array('raw' => $unparsed_sql)) . "\n"
+                . '</pre></span>';
+        } else {
+            $formatted_sql = PMA_SQP_formatNone($parsed_sql);
+        }
+        break;
+    case 'html':
+        $formatted_sql = PMA_SQP_formatHtml($parsed_sql, 'color');
+        break;
+    case 'text':
+        $formatted_sql = PMA_SQP_formatHtml($parsed_sql, 'text');
+        break;
+    default:
+        break;
     } // end switch
 
     return $formatted_sql;
@@ -350,57 +350,57 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
     $link = str_replace('_', '-', strtolower($link));
 
     switch ($cfg['MySQLManualType']) {
-        case 'chapters':
-            if (empty($chapter)) {
-                $chapter = 'index';
+    case 'chapters':
+        if (empty($chapter)) {
+            $chapter = 'index';
+        }
+        if (empty($anchor)) {
+            $anchor = $link;
+        }
+        $url = $cfg['MySQLManualBase'] . '/' . $chapter . '.html#' . $anchor;
+        break;
+    case 'big':
+        if (empty($anchor)) {
+            $anchor = $link;
+        }
+        $url = $cfg['MySQLManualBase'] . '#' . $anchor;
+        break;
+    case 'searchable':
+        if (empty($link)) {
+            $link = 'index';
+        }
+        $url = $cfg['MySQLManualBase'] . '/' . $link . '.html';
+        if (!empty($anchor)) {
+            $url .= '#' . $anchor;
+        }
+        break;
+    case 'viewable':
+    default:
+        if (empty($link)) {
+            $link = 'index';
+        }
+        $mysql = '5.0';
+        $lang = 'en';
+        if (defined('PMA_MYSQL_INT_VERSION')) {
+            if (PMA_MYSQL_INT_VERSION >= 50500) {
+                $mysql = '5.5';
+                /* l10n: Language to use for MySQL 5.5 documentation, please use only languages which do exist in official documentation.  */
+                $lang = _pgettext('MySQL 5.5 documentation language', 'en');
+            } else if (PMA_MYSQL_INT_VERSION >= 50100) {
+                $mysql = '5.1';
+                /* l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.  */
+                $lang = _pgettext('MySQL 5.1 documentation language', 'en');
+            } else {
+                $mysql = '5.0';
+                /* l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation. */
+                $lang = _pgettext('MySQL 5.0 documentation language', 'en');
             }
-            if (empty($anchor)) {
-                $anchor = $link;
-            }
-            $url = $cfg['MySQLManualBase'] . '/' . $chapter . '.html#' . $anchor;
-            break;
-        case 'big':
-            if (empty($anchor)) {
-                $anchor = $link;
-            }
-            $url = $cfg['MySQLManualBase'] . '#' . $anchor;
-            break;
-        case 'searchable':
-            if (empty($link)) {
-                $link = 'index';
-            }
-            $url = $cfg['MySQLManualBase'] . '/' . $link . '.html';
-            if (!empty($anchor)) {
-                $url .= '#' . $anchor;
-            }
-            break;
-        case 'viewable':
-        default:
-            if (empty($link)) {
-                $link = 'index';
-            }
-            $mysql = '5.0';
-            $lang = 'en';
-            if (defined('PMA_MYSQL_INT_VERSION')) {
-                if (PMA_MYSQL_INT_VERSION >= 50500) {
-                    $mysql = '5.5';
-                    /* l10n: Language to use for MySQL 5.5 documentation, please use only languages which do exist in official documentation.  */
-                    $lang = _pgettext('MySQL 5.5 documentation language', 'en');
-                } else if (PMA_MYSQL_INT_VERSION >= 50100) {
-                    $mysql = '5.1';
-                    /* l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.  */
-                    $lang = _pgettext('MySQL 5.1 documentation language', 'en');
-                } else {
-                    $mysql = '5.0';
-                    /* l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation. */
-                    $lang = _pgettext('MySQL 5.0 documentation language', 'en');
-                }
-            }
-            $url = $cfg['MySQLManualBase'] . '/' . $mysql . '/' . $lang . '/' . $link . '.html';
-            if (!empty($anchor)) {
-                $url .= '#' . $anchor;
-            }
-            break;
+        }
+        $url = $cfg['MySQLManualBase'] . '/' . $mysql . '/' . $lang . '/' . $link . '.html';
+        if (!empty($anchor)) {
+            $url .= '#' . $anchor;
+        }
+        break;
     }
 
     $open_link = '<a href="' . PMA_linkURL($url) . '" target="mysql_doc">';
