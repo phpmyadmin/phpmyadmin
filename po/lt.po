@@ -9021,10 +9021,9 @@ msgid "Reset slave"
 msgstr "Paleisti iš naujo pavaldųjį serverį (reset slave)"
 
 #: server_replication.php:326
-#, fuzzy
 #| msgid "SQL Thread %s only"
 msgid "Start SQL Thread only"
-msgstr "Tik SQL gija %s"
+msgstr "Pradėti tik SQL giją"
 
 #: server_replication.php:328
 #, fuzzy
