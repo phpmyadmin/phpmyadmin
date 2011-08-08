@@ -10731,10 +10731,9 @@ msgid "Redraw"
 msgstr "Perpiešti"
 
 #: tbl_gis_visualization.php:206
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save to file"
-msgstr "Išsaugoti į failą"
+msgstr "Įrašyti į failą"
 
 #: tbl_gis_visualization.php:207
 #, fuzzy
