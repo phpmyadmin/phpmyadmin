@@ -600,19 +600,13 @@ if ($tbl_is_view) {
                 'show_query' => '1',
             )
         ),
-        sprintf(
-            '<img class="icon ic_b_edit" src="themes/dot.gif" alt="%1$s"/> %1$s',
-            __('Edit view')
-            )
+        PMA_getIcon('b_edit.png', __('Edit view'))
         );
 }
 ?>
 
 <a href="tbl_printview.php?<?php echo $url_query; ?>"><?php
-if ($cfg['PropertiesIconic']) {
-    echo '<img class="icon ic_b_print" src="themes/dot.gif" alt="' . __('Print view') . '"/>';
-}
-echo __('Print view');
+echo PMA_getIcon('b_print.png', __('Print view'));
 ?></a>
 
 <?php
@@ -623,19 +617,13 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     if ($cfgRelation['relwork'] || PMA_foreignkey_supported($tbl_type)) {
         ?>
 <a href="tbl_relation.php?<?php echo $url_query; ?>"><?php
-        if ($cfg['PropertiesIconic']) {
-            echo '<img class="icon ic_b_relations" src="themes/dot.gif" alt="' . __('Relation view') . '"/>';
-        }
-        echo __('Relation view');
+        echo PMA_getIcon('b_relations.png', __('Relation view'));
         ?></a>
         <?php
     }
     ?>
 <a href="sql.php?<?php echo $url_query; ?>&amp;session_max_rows=all&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table) . ' PROCEDURE ANALYSE()'); ?>"><?php
-    if ($cfg['PropertiesIconic']) {
-        echo '<img class="icon ic_b_tblanalyse" src="themes/dot.gif" alt="' . __('Propose table structure') . '" />';
-    }
-    echo __('Propose table structure');
+    echo PMA_getIcon('b_tblanalyse.png', __('Propose table structure'));
     ?></a><?php
     echo PMA_showMySQLDocu('Extending_MySQL', 'procedure_analyse') . "\n";
 
@@ -643,12 +631,8 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     if (PMA_Tracker::isActive())
     {
         echo '<a href="tbl_tracking.php?' . $url_query . '">';
-
-        if ($cfg['PropertiesIconic'])
-        {
-            echo '<img class="icon ic_eye" src="themes/dot.gif" alt="' . __('Track table') . '" /> ';
-        }
-        echo __('Track table') . '</a>';
+        echo PMA_getIcon('eye.png', __('Track table'));
+        echo '</a>';
     }
     ?>
 
@@ -823,10 +807,7 @@ if ($cfg['ShowStats']) {
     <tr class="tblFooters">
         <td colspan="3" align="center">
             <a href="sql.php?<?php echo $url_query; ?>&pos=0&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>"><?php
-            if ($cfg['PropertiesIconic']) {
-               echo '<img class="icon ic_b_tbloptimize" src="themes/dot.gif" alt="' . __('Optimize table'). '" />';
-            }
-            echo __('Optimize table');
+            echo PMA_getIcon('b_tbloptimize.png', __('Optimize table'));
             ?></a>
         </td>
     </tr>
