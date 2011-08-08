@@ -3813,10 +3813,9 @@ msgstr ""
 "Didžiausias skaičius paskiausiai naudotų lentelių; nustatyti 0, kad išjungti"
 
 #: libraries/config/messages.inc.php:289
-#, fuzzy
 #| msgid "Untracked tables"
 msgid "Recently used tables"
-msgstr "Nesekamos lentelės"
+msgstr "Paskiausiai naudotos lentelės"
 
 #: libraries/config/messages.inc.php:290
 msgid "Use less graphically intense tabs"
