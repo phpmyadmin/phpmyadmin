@@ -3052,30 +3052,28 @@ function PMA_createqTip($elements, content, options) {
     var o = {
         content: content,
         style: {
-            background: '#333',
-            border: {
-                radius: 5
+            classes: {
+                tooltip: 'normalqTip',
+                content: 'normalqTipContent'
             },
-            fontSize: '0.8em',
-            padding: '0 0.5em',
             name: 'dark'
         },
         position: {
             target: 'mouse',
             corner: { target: 'rightMiddle', tooltip: 'leftMiddle' },
-            adjust: { x: 20 }
+            adjust: { x: 10, y: 20 }
         },
         show: {
             delay: 0,
             effect: {
                 type: 'grow',
-                length: 100
+                length: 150
             }
         },
         hide: {
             effect: {
                 type: 'grow',
-                length: 150
+                length: 200
             }
         }
     }
