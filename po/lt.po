@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 10:07+0200\n"
-"PO-Revision-Date: 2011-08-08 15:59+0200\n"
+"PO-Revision-Date: 2011-08-08 16:01+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2329,10 +2329,9 @@ msgid "PBMS get BLOB info failed:"
 msgstr "PBMS gavimas BLOB informacijos nepavyko:"
 
 #: libraries/blobstreaming.lib.php:332
-#, fuzzy
 #| msgid "get BLOB Content-Type failed"
 msgid "PBMS get BLOB Content-Type failed"
-msgstr "gavimas BLOB Content-Type nepatyko"
+msgstr "PBMS gauti BLOB Content-Type nepatyko"
 
 #: libraries/blobstreaming.lib.php:358
 msgid "View image"
