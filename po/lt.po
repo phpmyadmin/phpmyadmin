@@ -10736,10 +10736,9 @@ msgid "Save to file"
 msgstr "Įrašyti į failą"
 
 #: tbl_gis_visualization.php:207
-#, fuzzy
 #| msgid "Table name"
 msgid "File name"
-msgstr "Lentelės vardas"
+msgstr "Failo pavadinimas"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
