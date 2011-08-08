@@ -9228,7 +9228,7 @@ msgstr "Parametrai"
 #. l10n: # = Amount of queries
 #: server_status.php:830
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: server_status.php:898
 #, php-format
