@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 10:07+0200\n"
-"PO-Revision-Date: 2011-08-08 16:21+0200\n"
+"PO-Revision-Date: 2011-08-08 16:22+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -3807,10 +3807,10 @@ msgid "Enable highlighting"
 msgstr "Įjungti paryškinimą"
 
 #: libraries/config/messages.inc.php:288
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr "Maksimalus skaičius lentelių rodomų lentelių sąraše"
+msgstr ""
+"Didžiausias skaičius paskiausiai naudotų lentelių; nustatyti 0, kad išjungti"
 
 #: libraries/config/messages.inc.php:289
 #, fuzzy
