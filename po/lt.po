@@ -9907,10 +9907,9 @@ msgid "Reset to default"
 msgstr "Atstatyti numatytąsias reikšmes"
 
 #: server_status.php:1440
-#, fuzzy
 #| msgid "Introduction"
 msgid "Monitor Instructions"
-msgstr "Įvadas"
+msgstr "Monitor instrukcijos"
 
 #: server_status.php:1441
 msgid ""
