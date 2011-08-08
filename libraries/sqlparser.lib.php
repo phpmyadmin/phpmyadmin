@@ -206,7 +206,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      */
     function PMA_SQP_parse($sql)
     {
-        static $PMA_SQPdata_column_attrib, $PMA_SQPdata_reserved_word, $PMA_SQPdata_column_type;
+        static $PMA_SQPdata_column_attrib, $PMA_SQPdata_reserved_word;
+        static $PMA_SQPdata_column_type;
         static $PMA_SQPdata_function_name, $PMA_SQPdata_forbidden_word;
         global $mysql_charsets, $mysql_collations_flat;
 
@@ -221,11 +222,21 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         // Create local hashtables
         if (!isset($PMA_SQPdata_column_attrib_cnt)) {
-            $PMA_SQPdata_column_attrib  = array_flip($GLOBALS['PMA_SQPdata_column_attrib']);
-            $PMA_SQPdata_function_name  = array_flip($GLOBALS['PMA_SQPdata_function_name']);
-            $PMA_SQPdata_reserved_word  = array_flip($GLOBALS['PMA_SQPdata_reserved_word']);
-            $PMA_SQPdata_forbidden_word = array_flip($GLOBALS['PMA_SQPdata_forbidden_word']);
-            $PMA_SQPdata_column_type    = array_flip($GLOBALS['PMA_SQPdata_column_type']);
+            $PMA_SQPdata_column_attrib  = array_flip(
+                $GLOBALS['PMA_SQPdata_column_attrib']
+                );
+            $PMA_SQPdata_function_name  = array_flip(
+                $GLOBALS['PMA_SQPdata_function_name']
+                );
+            $PMA_SQPdata_reserved_word  = array_flip(
+                $GLOBALS['PMA_SQPdata_reserved_word']
+                );
+            $PMA_SQPdata_forbidden_word = array_flip(
+                $GLOBALS['PMA_SQPdata_forbidden_word']
+                );
+            $PMA_SQPdata_column_type    = array_flip(
+                $GLOBALS['PMA_SQPdata_column_type']
+                );
         }
 
         $sql_array               = array();
