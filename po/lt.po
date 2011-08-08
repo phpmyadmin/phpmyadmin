@@ -1633,10 +1633,9 @@ msgid "Change"
 msgstr "Redaguoti"
 
 #: js/messages.php:235
-#, fuzzy
 #| msgid "Maximum execution time"
 msgid "Query execution time"
-msgstr "Ilgiausias vykdymo laikas"
+msgstr "Užklausos vykdymo laikas"
 
 #: js/messages.php:238
 msgid "Hide search criteria"
