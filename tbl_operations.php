@@ -692,7 +692,7 @@ if (! $tbl_is_view && ! (isset($db_is_information_schema) && $db_is_information_
             'message_to_show' => sprintf(__('Table %s has been emptied'), htmlspecialchars($table)),
         ));
     ?>
-    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'id="truncate_tbl_anchor"' : ''); ?>>
+    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'id="truncate_tbl_anchor" class="ajax"' : ''); ?>>
             <?php echo __('Empty the table (TRUNCATE)'); ?></a>
         <?php echo PMA_showMySQLDocu('SQL-Syntax', 'TRUNCATE_TABLE'); ?>
     </li>

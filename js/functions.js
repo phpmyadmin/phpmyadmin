@@ -3012,7 +3012,7 @@ $(document).ready(function() {
     $("#drop_tbl_anchor").live('click', function(event) {
         event.preventDefault();
 
-        //context is top.frame_content, so we need to use window.parent.db to access the db var
+        //context is top.frame_content, so we need to use window.parent.table to access the table var
         /**
          * @var question    String containing the question to be asked for confirmation
          */
@@ -3040,10 +3040,10 @@ $(document).ready(function() {
  * @see $cfg['AjaxEnable']
  */
 $(document).ready(function() {
-    $("#truncate_tbl_anchor").live('click', function(event) {
+    $("#truncate_tbl_anchor.ajax").live('click', function(event) {
         event.preventDefault();
 
-        //context is top.frame_content, so we need to use window.parent.db to access the db var
+      //context is top.frame_content, so we need to use window.parent.table to access the table var
         /**
          * @var question    String containing the question to be asked for confirmation
          */
@@ -3053,13 +3053,26 @@ $(document).ready(function() {
 
             PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
             $.get(url, {'is_js_confirmed': '1', 'ajax_request': true}, function(data) {
-                //Database deleted successfully, refresh both the frames
-                window.parent.refreshNavigation();
-                window.parent.refreshMain();
+                if ($("#sqlqueryresults").length != 0) {
+                    $("#sqlqueryresults").remove();
+                }
+                if ($("#result_query").length != 0) {
+                    $("#result_query").remove();
+                }
+                if (data.success == true) {
+                    PMA_ajaxShowMessage(data.message);
+                    $("<div id='sqlqueryresults'></div>").insertAfter("#topmenucontainer");
+                    $("#sqlqueryresults").html(data.sql_query);
+                } else {
+                    var $temp_div = $("<div id='temp_div'></div>")
+                    $temp_div.html(data.error);
+                    var $error = $temp_div.find("code").addClass("error");
+                    PMA_ajaxShowMessage($error);
+                }
             }) // end $.get()
         }); // end $.PMA_confirm()
-    }); //end of Drop Table Ajax action
-}) // end of $(document).ready() for Drop Table
+    }); //end of Truncate Table Ajax action
+}) // end of $(document).ready() for Truncate Table
 
 /**
  * Attach CodeMirror2 editor to SQL edit area.
