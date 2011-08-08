@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 17:30+0200\n"
+"PO-Revision-Date: 2011-08-08 17:37+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -9596,9 +9596,8 @@ msgid "The number of pages read."
 msgstr "Puslapių skaitymų skaičius."
 
 #: server_status.php:1200
-#, fuzzy
 msgid "The number of pages written."
-msgstr "Duomenų įrašymų skaičius."
+msgstr "Įrašytų puslapių skaičius."
 
 #: server_status.php:1201
 msgid "The number of row locks currently being waited for."
