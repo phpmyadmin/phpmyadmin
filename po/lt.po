@@ -1336,7 +1336,7 @@ msgstr "Išjungti %s"
 #: js/messages.php:146
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "Nustatyti long_query_time į %ds"
 
 #: js/messages.php:147
 msgid ""
