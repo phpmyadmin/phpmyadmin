@@ -313,10 +313,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             // MySQL style #
             // C style /* */
             // ANSI style --
+            $next_c = PMA_substr($sql, $count2 + 1, 1);
             if (($c == '#')
-                || (($count2 + 1 < $len) && ($c == '/') && (PMA_substr($sql, $count2 + 1, 1) == '*'))
-                || (($count2 + 2 == $len) && ($c == '-') && (PMA_substr($sql, $count2 + 1, 1) == '-'))
-                || (($count2 + 2 < $len) && ($c == '-') && (PMA_substr($sql, $count2 + 1, 1) == '-') && ((PMA_substr($sql, $count2 + 2, 1) <= ' ')))) {
+                || (($count2 + 1 < $len) && ($c == '/') && ($next_c == '*'))
+                || (($count2 + 2 == $len) && ($c == '-') && ($next_c == '-'))
+                || (($count2 + 2 < $len) && ($c == '-') && ($next_c == '-') && ((PMA_substr($sql, $count2 + 2, 1) <= ' ')))) {
                 $count2++;
                 $pos  = 0;
                 $type = 'bad';
