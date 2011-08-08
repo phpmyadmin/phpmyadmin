@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 17:19+0200\n"
+"PO-Revision-Date: 2011-08-08 18:00+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -9100,9 +9100,8 @@ msgid "Temporary data"
 msgstr "Laikini duomenys"
 
 #: server_status.php:499
-#, fuzzy
 msgid "Delayed inserts"
-msgstr "Naudoti užlaikytus įterpimus"
+msgstr "Užlaikyti įterpimai"
 
 #: server_status.php:500
 #, fuzzy
@@ -9115,7 +9114,7 @@ msgstr ""
 
 #: server_status.php:503
 msgid "Sorting"
-msgstr "Rūšiavimas"
+msgstr "Rikiavimas"
 
 #: server_status.php:505
 msgid "Transaction coordinator"
@@ -9146,10 +9145,9 @@ msgid "Runtime Information"
 msgstr "Veikimo informacija"
 
 #: server_status.php:650
-#, fuzzy
 #| msgid "See slave status table"
 msgid "All status variables"
-msgstr "Peržiūrėti pavaldžiojo serverio būklės lentelę"
+msgstr "Visi būsenos kintamieji"
 
 #: server_status.php:651
 msgid "Monitor"
@@ -9160,38 +9158,33 @@ msgid "Advisor"
 msgstr ""
 
 #: server_status.php:662 server_status.php:684
-#, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate: "
-msgstr "Atnaujinti"
+msgstr "Atnaujinimo dažnis:"
 
 #: server_status.php:705
-#, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "Nekeisti slaptažodžio"
+msgstr "Turintys žodį:"
 
 #: server_status.php:710
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show only alert values"
-msgstr "Rodyti atidarytas lenteles"
+msgstr ""
 
 #: server_status.php:714
 msgid "Filter by category..."
-msgstr ""
+msgstr "Filtruoti pagal kategoriją..."
 
 #: server_status.php:727
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show unformatted values"
-msgstr "Rodyti atidarytas lenteles"
+msgstr "Rodyti nesuformatuotas reikšmes"
 
 #: server_status.php:731
-#, fuzzy
 #| msgid "Relations"
 msgid "Related links:"
-msgstr "Sąryšiai"
+msgstr "Susijusios nuorodos:"
 
 #: server_status.php:765
 msgid ""
@@ -9235,7 +9228,7 @@ msgstr "Parametrai"
 #. l10n: # = Amount of queries
 #: server_status.php:830
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: server_status.php:898
 #, php-format
@@ -9321,10 +9314,9 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1144
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "Nepavyko prisijungti prie MySQL serverio"
+msgstr "Skaičius nepavykusių bandymų prisijungti prie MySQL serverio."
 
 #: server_status.php:1145
 msgid ""
@@ -9443,29 +9435,27 @@ msgstr "Vidinių ROLLBACK užklausų skaičius."
 
 #: server_status.php:1165
 msgid "The number of requests to update a row in a table."
-msgstr ""
+msgstr "Skaičius užklausų, kad atnaujinti eilutę lentelėje."
 
 #: server_status.php:1166
 msgid "The number of requests to insert a row in a table."
-msgstr ""
+msgstr "Skaičius užklausų, kad įtraukti eilutę lentelėje."
 
 #: server_status.php:1167
 msgid "The number of pages containing data (dirty or clean)."
 msgstr ""
 
 #: server_status.php:1168
-#, fuzzy
 msgid "The number of pages currently dirty."
-msgstr "Duomenų nuskaitymų skaičius."
+msgstr ""
 
 #: server_status.php:1169
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr ""
 
 #: server_status.php:1170
-#, fuzzy
 msgid "The number of free pages."
-msgstr "Įkeltų eilučių skaičius"
+msgstr "Tuščių puslapių skaičius."
 
 #: server_status.php:1171
 msgid ""
@@ -9526,19 +9516,16 @@ msgid "The number of fsync() operations so far."
 msgstr ""
 
 #: server_status.php:1181
-#, fuzzy
 msgid "The current number of pending fsync() operations."
-msgstr "Duomenų nuskaitymų skaičius."
+msgstr "Esamu momentu laukiančių fsync() operacijų skaičius."
 
 #: server_status.php:1182
-#, fuzzy
 msgid "The current number of pending reads."
-msgstr "Duomenų nuskaitymų skaičius."
+msgstr "Esamu momentu laukiančių skaitymų skaičius."
 
 #: server_status.php:1183
-#, fuzzy
 msgid "The current number of pending writes."
-msgstr "Duomenų įrašymų skaičius."
+msgstr "Esamu momentu laukiančių rašymų skaičius."
 
 #: server_status.php:1184
 msgid "The amount of data read so far, in bytes."
@@ -9571,9 +9558,8 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1191
-#, fuzzy
 msgid "The number of log write requests."
-msgstr "Įkeltų eilučių skaičius"
+msgstr ""
 
 #: server_status.php:1192
 msgid "The number of physical writes to the log file."
@@ -9596,9 +9582,8 @@ msgid "The number of bytes written to the log file."
 msgstr ""
 
 #: server_status.php:1197
-#, fuzzy
 msgid "The number of pages created."
-msgstr "Duomenų nuskaitymų skaičius."
+msgstr "Sukurtų puslapių skaičius."
 
 #: server_status.php:1198
 msgid ""
@@ -9607,14 +9592,12 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1199
-#, fuzzy
 msgid "The number of pages read."
-msgstr "Duomenų nuskaitymų skaičius."
+msgstr "Puslapių skaitymų skaičius."
 
 #: server_status.php:1200
-#, fuzzy
 msgid "The number of pages written."
-msgstr "Duomenų įrašymų skaičius."
+msgstr "Įrašytų puslapių skaičius."
 
 #: server_status.php:1201
 msgid "The number of row locks currently being waited for."
@@ -9714,18 +9697,16 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1221
-#, fuzzy
 msgid "The number of files that are open."
-msgstr "Duomenų įrašymų skaičius."
+msgstr "Failų kurie yra atidaryti skaičius."
 
 #: server_status.php:1222
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr ""
 
 #: server_status.php:1223
-#, fuzzy
 msgid "The number of tables that are open."
-msgstr "Duomenų įrašymų skaičius."
+msgstr "Lentelių kurios yra atidarytos skaičius."
 
 #: server_status.php:1224
 msgid ""
@@ -9739,9 +9720,8 @@ msgid "The amount of free memory for query cache."
 msgstr ""
 
 #: server_status.php:1226
-#, fuzzy
 msgid "The number of cache hits."
-msgstr "Įkeltų eilučių skaičius"
+msgstr "Podėlio kreipimųsi skaičius."
 
 #: server_status.php:1227
 msgid "The number of queries added to the cache."
@@ -9836,13 +9816,12 @@ msgid "The number of sorts that were done with ranges."
 msgstr ""
 
 #: server_status.php:1245
-#, fuzzy
 msgid "The number of sorted rows."
-msgstr "Įkeltų eilučių skaičius"
+msgstr "Surikiuotų eilučių skaičius."
 
 #: server_status.php:1246
 msgid "The number of sorts that were done by scanning the table."
-msgstr ""
+msgstr "Rikiavimų kurie buvo atlikti skenuojant lentelę skaičius."
 
 #: server_status.php:1247
 msgid "The number of times that a table lock was acquired immediately."
@@ -9880,47 +9859,41 @@ msgid "The number of threads that are not sleeping."
 msgstr ""
 
 #: server_status.php:1392
-#, fuzzy
 #| msgid "Startup"
 msgid "Start Monitor"
-msgstr "Paleidimas"
+msgstr "Paleisti Monitor"
 
 #: server_status.php:1400
-#, fuzzy
 #| msgid "Introduction"
 msgid "Instructions/Setup"
-msgstr "Įvadas"
+msgstr "Instrukcijos/Diegimas"
 
 #: server_status.php:1404
 msgid "Done rearranging/editing charts"
 msgstr ""
 
 #: server_status.php:1411
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add chart"
-msgstr "Keisti žurnalą(us) (indeksą)"
+msgstr "Pridėti diagramą"
 
 #: server_status.php:1413
 msgid "Rearrange/edit charts"
 msgstr ""
 
 #: server_status.php:1416
-#, fuzzy
 msgid "Refresh rate"
-msgstr "Atnaujinti"
+msgstr "Naujinimo dažnis"
 
 #: server_status.php:1419
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Chart columns"
-msgstr "Textarea laukeliai"
+msgstr "Diagramos stulpeliai"
 
 #: server_status.php:1435
-#, fuzzy
 #| msgid "Error management:"
 msgid "Chart arrangement"
-msgstr "Klaidų valdymas:"
+msgstr "Diagramos išdėstymas"
 
 #: server_status.php:1435
 msgid ""
@@ -9929,16 +9902,14 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1436
-#, fuzzy
 #| msgid "Restore default value"
 msgid "Reset to default"
 msgstr "Atstatyti numatytąsias reikšmes"
 
 #: server_status.php:1440
-#, fuzzy
 #| msgid "Introduction"
 msgid "Monitor Instructions"
-msgstr "Įvadas"
+msgstr "Monitor instrukcijos"
 
 #: server_status.php:1441
 msgid ""
@@ -9979,42 +9950,37 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1475
-#, fuzzy
 #| msgid "Usage"
 msgid "CPU Usage"
-msgstr "Išnaudota"
+msgstr "CPU naudojimas"
 
 #: server_status.php:1478
 msgid "Memory Usage"
-msgstr ""
+msgstr "Atminties naudojimas"
 
 #: server_status.php:1481
-#, fuzzy
 #| msgid "Usage"
 msgid "Swap Usage"
-msgstr "Išnaudota"
+msgstr "Swap naudojimas"
 
 #: server_status.php:1484
-#, fuzzy
 #| msgid "See slave status table"
 msgid "Status variable(s)"
-msgstr "Peržiūrėti pavaldžiojo serverio būklės lentelę"
+msgstr "Būsenos kintamasis(ieji)"
 
 #: server_status.php:1486
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
-msgstr "Pasirinkite lenteles"
+msgstr "Pasirinkite eiles:"
 
 #: server_status.php:1488
 msgid "Commonly monitored"
 msgstr ""
 
 #: server_status.php:1503
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "or type variable name:"
-msgstr "Neteisingas lentelės vardas"
+msgstr "arba įveskite kintamojo vardą:"
 
 #: server_status.php:1507
 msgid "Display as differential value"
@@ -10029,32 +9995,28 @@ msgid "Append unit to data values"
 msgstr ""
 
 #: server_status.php:1522
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add this series"
-msgstr "Pridėti naują serverį"
+msgstr "Pridėti šią eilę"
 
 #: server_status.php:1524
 msgid "Clear series"
 msgstr ""
 
 #: server_status.php:1527
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Series in Chart:"
-msgstr "SQL užklausos"
+msgstr "Eilės diagramoje:"
 
 #: server_status.php:1539
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Log statistics"
-msgstr "Rodyti statistika"
+msgstr "Registruoti statistiką"
 
 #: server_status.php:1540
-#, fuzzy
 #| msgid "Select page"
 msgid "Selected time range:"
-msgstr "Pasirinkite puslapį"
+msgstr "Pasirinktas laiko tarpas:"
 
 #: server_status.php:1545
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
@@ -10071,38 +10033,35 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1556
-#, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
-msgstr "Užklausos tipas"
+msgstr "Užklausos analizatorius"
 
 #: server_status.php:1593
-#, fuzzy, php-format
+#, php-format
 #| msgid "Second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "Sekundės"
+msgstr[0] "Sekundė"
 msgstr[1] "Sekundės"
-msgstr[2] "Sekundės"
+msgstr[2] "Sekundžių"
 
 #: server_status.php:1595
-#, fuzzy, php-format
+#, php-format
 #| msgid "Minute"
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "Minutė"
 msgstr[1] "Minutė"
-msgstr[2] "Minutė"
+msgstr[2] "Minučių"
 
 #: server_synchronize.php:92
-#, fuzzy
 msgid "Could not connect to the source"
-msgstr "Nepavyko prisijungti prie MySQL serverio"
+msgstr "Nepavyko prisijungti prie šaltinio (angl. source)"
 
 #: server_synchronize.php:95
-#, fuzzy
 msgid "Could not connect to the target"
-msgstr "Nepavyko prisijungti prie MySQL serverio"
+msgstr "Nepavyko prisijungti prie adresato (angl. target)"
 
 #: server_synchronize.php:120 server_synchronize.php:123 tbl_create.php:50
 #: tbl_get_field.php:19
@@ -10179,9 +10138,8 @@ msgid "Target database has been synchronized with source database"
 msgstr ""
 
 #: server_synchronize.php:951
-#, fuzzy
 msgid "Executed queries"
-msgstr "SQL užklausos"
+msgstr "Įvykdytos užklausos"
 
 #: server_synchronize.php:1076
 msgid "Enter manually"
@@ -10266,10 +10224,9 @@ msgid "Insecure connection"
 msgstr "Nesaugus susijungimas"
 
 #: setup/frames/index.inc.php:93
-#, fuzzy
 #| msgid "Configuration storage"
 msgid "Configuration saved."
-msgstr "Konfigūracijos laikmena"
+msgstr "Konfigūracija išsaugota."
 
 #: setup/frames/index.inc.php:94
 msgid ""
@@ -10303,7 +10260,7 @@ msgstr "leisti vartotojui pasirinkti"
 
 #: setup/frames/index.inc.php:207
 msgid "- none -"
-msgstr ""
+msgstr "- tuščia -"
 
 #: setup/frames/index.inc.php:210
 msgid "Default server"
@@ -10412,7 +10369,7 @@ msgstr ""
 "sugeneruotas. Jis naudojamas užšifruoti slapukus; jums nereikia jo atsiminti."
 
 #: setup/lib/index.lib.php:277
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression "
 #| "and decompression[/a] requires functions (%s) which are unavailable on "
@@ -10421,8 +10378,8 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 glaudinimas ir "
-"išskleidimas[/a] reikalauja funkcijų (%s) kurios nėra galima Jūsų sistemoje."
+"%sBzip2 glaudinimas ir išskleidimas%s reikalauja funkcijų (%s) kurios nėra "
+"galimos Jūsų sistemoje."
 
 #: setup/lib/index.lib.php:279
 msgid ""
@@ -10431,14 +10388,13 @@ msgid ""
 msgstr ""
 
 #: setup/lib/index.lib.php:280
-#, fuzzy, php-format
+#, php-format
 #| msgid "You should use SSL connections if your web server supports it"
 msgid "This %soption%s should be enabled if your web server supports it."
-msgstr ""
-"Jūs turėtumėte naudoti SSL prisijungimus jeigu Jūsų serveris juos palaiko"
+msgstr "Šis %snustatymas%s turėtų būti įjungtas jeigu Jūsų serveris jį palaiko."
 
 #: setup/lib/index.lib.php:282
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and "
 #| "decompression[/a] requires functions (%s) which are unavailable on this "
@@ -10447,8 +10403,8 @@ msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]GZip suspaudimui ir "
-"išspaudimui[/a] reikalingos funkcijos (%s) neprieinamos šioje sistemoje."
+"%sGZip suspaudimui ir išspaudimui%s reikalingos funkcijos (%s) neprieinamos "
+"šioje sistemoje."
 
 #: setup/lib/index.lib.php:284
 #, php-format
@@ -10537,33 +10493,30 @@ msgstr ""
 "reikalauja funkcijų (%s) kurių nėra Jūsų sistemoje."
 
 #: setup/lib/index.lib.php:323
-#, fuzzy
 #| msgid "You should use SSL connections if your web server supports it"
 msgid "You should use SSL connections if your web server supports it."
-msgstr ""
-"Jūs turėtumėte naudoti SSL prisijungimus jeigu Jūsų serveris juos palaiko"
+msgstr "Naudokite SSL prisijungimus, jei Jūsų serveris juos palaiko."
 
 #: setup/lib/index.lib.php:336
-#, fuzzy
 #| msgid "You should use mysqli for performance reasons"
 msgid "You should use mysqli for performance reasons."
-msgstr "Jūs turėtumėte naudoti mysqli dėl našumo (efektyvumo) priežasčių"
+msgstr "Turėtumėte naudoti mysqli dėl našumo (efektyvumo) priežasčių."
 
 #: setup/lib/index.lib.php:367
 msgid "You allow for connecting to the server without a password."
 msgstr "Jūs leidžiate prisijungti prie serverio be slaptažodžio."
 
 #: setup/lib/index.lib.php:389
-#, fuzzy
 #| msgid "Key is too short, it should have at least 8 characters"
 msgid "Key is too short, it should have at least 8 characters."
-msgstr "Raktas per daug trumpas, jis turėtų turėti bent 8 simbolius"
+msgstr "Raktas per trumpas, jis privalo turėti bent 8 simbolius."
 
 #: setup/lib/index.lib.php:396
-#, fuzzy
 #| msgid "Key should contain letters, numbers [em]and[/em] special characters"
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr "Raktas turi turėti raidžių, skaičių [em]ir[/em] specialiųjų ženklų"
+msgstr ""
+"Raktas turėtų būti sudarytas iš raidžių, skaičių [em]ir[/em] specialiųjų "
+"ženklų."
 
 #: sql.php:95 tbl_change.php:257 tbl_select.php:28 tbl_select.php:29
 #: tbl_select.php:32 tbl_select.php:35
@@ -10589,10 +10542,9 @@ msgid "Showing SQL query"
 msgstr "Rodoma SQL užklausa"
 
 #: sql.php:683
-#, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
-msgstr "Patikrinti SQL užklausą"
+msgstr "Patikrintas SQL"
 
 #: sql.php:990
 #, php-format
@@ -10676,10 +10628,9 @@ msgid "Line"
 msgstr "Linijinė"
 
 #: tbl_chart.php:88
-#, fuzzy
 #| msgid "Inline"
 msgid "Spline"
-msgstr "Redaguoti čia"
+msgstr ""
 
 #: tbl_chart.php:89
 msgid "Pie"
@@ -10692,50 +10643,43 @@ msgid "Stacked"
 msgstr "Suspausta"
 
 #: tbl_chart.php:94
-#, fuzzy
 #| msgid "Report title:"
 msgid "Chart title"
-msgstr "Ataskaitos antraštė:"
+msgstr "Diagramos antraštė:"
 
 #: tbl_chart.php:100
 msgid "X-Axis:"
-msgstr ""
+msgstr "X-ašis:"
 
 #: tbl_chart.php:114
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Series:"
-msgstr "SQL užklausos"
+msgstr ""
 
 #: tbl_chart.php:116
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "The remaining columns"
-msgstr "Textarea laukeliai"
+msgstr ""
 
 #: tbl_chart.php:129
-#, fuzzy
 #| msgid "X Axis label"
 msgid "X-Axis label:"
-msgstr "X ašies etiketė"
+msgstr "X ašies etiketė:"
 
 #: tbl_chart.php:130
-#, fuzzy
 #| msgid "Value"
 msgid "X Values"
-msgstr "Reikšmė"
+msgstr "X Reikšmės"
 
 #: tbl_chart.php:131
-#, fuzzy
 #| msgid "Y Axis label"
 msgid "Y-Axis label:"
-msgstr "Y ašies etiketė"
+msgstr "Y ašies etiketė:"
 
 #: tbl_chart.php:131
-#, fuzzy
 #| msgid "Value"
 msgid "Y Values"
-msgstr "Reikšmė"
+msgstr "Y Reikšmės"
 
 #: tbl_create.php:30
 #, php-format
@@ -10752,10 +10696,9 @@ msgid "View dump (schema) of table"
 msgstr "Peržiūrėti lentelės struktūros atvaizdį"
 
 #: tbl_gis_visualization.php:111
-#, fuzzy
 #| msgid "Display servers selection"
 msgid "Display GIS Visualization"
-msgstr "Rodyti serverių pasirinkimą"
+msgstr "Rodyti GIS vizualizaciją"
 
 #: tbl_gis_visualization.php:157
 msgid "Width"
@@ -10766,40 +10709,36 @@ msgid "Height"
 msgstr "Aukštis"
 
 #: tbl_gis_visualization.php:165
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Label column"
-msgstr "Textarea laukeliai"
+msgstr "Etiketės stulpelis"
 
 #: tbl_gis_visualization.php:167
 msgid "-- None --"
-msgstr ""
+msgstr "-- Tuščia --"
 
 #: tbl_gis_visualization.php:180
-#, fuzzy
 #| msgid "Total"
 msgid "Spatial column"
-msgstr "Iš viso"
+msgstr ""
 
 #: tbl_gis_visualization.php:201
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "Naudoti OpenStreetMaps kaip pagrindinį sluoksnį"
 
 #: tbl_gis_visualization.php:204
 msgid "Redraw"
 msgstr "Perpiešti"
 
 #: tbl_gis_visualization.php:206
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save to file"
-msgstr "Išsaugoti į failą"
+msgstr "Įrašyti į failą"
 
 #: tbl_gis_visualization.php:207
-#, fuzzy
 #| msgid "Table name"
 msgid "File name"
-msgstr "Lentelės vardas"
+msgstr "Failo pavadinimas"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
@@ -11018,13 +10957,12 @@ msgstr ""
 
 #: tbl_select.php:111
 msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "Vykdyti \"užklausą pagal pavyzdį\" (pakaitos simbolis: \"%\")"
+msgstr "Vykdyti „užklausą pagal pavyzdį“ (pakaitos simbolis: „%“)"
 
 #: tbl_select.php:261
-#, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "Pasirinkite laukus (nors vieną)"
+msgstr "Pasirinkite stulpelius (bent vieną):"
 
 #: tbl_select.php:279
 msgid "Add search conditions (body of the \"where\" clause):"
@@ -11047,10 +10985,9 @@ msgid "Browse distinct values"
 msgstr "Peržiūrėti skirtingas reikšmes"
 
 #: tbl_structure.php:168 tbl_structure.php:169
-#, fuzzy
 #| msgid "Adding Primary Key"
 msgid "Add primary key"
-msgstr "Pridedamas pirminis raktas"
+msgstr "Pridėti pirminį raktą"
 
 #: tbl_structure.php:170 tbl_structure.php:171
 #, fuzzy
