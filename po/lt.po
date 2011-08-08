@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 10:07+0200\n"
-"PO-Revision-Date: 2011-08-08 15:51+0200\n"
+"PO-Revision-Date: 2011-08-08 15:52+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -1553,10 +1553,9 @@ msgid "Insert Table"
 msgstr "Įterpti lentelę"
 
 #: js/messages.php:210
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Hide indexes"
-msgstr "Keisti žurnalą(us) (indeksą)"
+msgstr "Nerodyti indeksų"
 
 #: js/messages.php:211
 #, fuzzy
