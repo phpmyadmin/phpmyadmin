@@ -10657,10 +10657,9 @@ msgid "Series:"
 msgstr ""
 
 #: tbl_chart.php:116
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "The remaining columns"
-msgstr "Textarea laukeliai"
+msgstr ""
 
 #: tbl_chart.php:129
 #, fuzzy
