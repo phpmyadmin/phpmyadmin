@@ -507,7 +507,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 echo '</pre>';
                  */
 
-                // Nijel: Fast skip is especially needed for huge BLOB data, requires PHP at least 4.3.0:
+                // Fast skip is especially needed for huge BLOB data
                 if ($is_hex_digit) {
                     $count2++;
                     $pos = strspn($sql, '0123456789abcdefABCDEF', $count2);
