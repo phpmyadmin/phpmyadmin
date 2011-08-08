@@ -170,7 +170,6 @@
 
                     this.colMov = false;
                 }
-                $('body').css('cursor', 'default');
                 $('body').noSelect(false);
             },
             
