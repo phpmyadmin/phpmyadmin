@@ -1709,7 +1709,7 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
     if (stristr($message, '<img') && (!$strip_img || $GLOBALS['cfg']['PropertiesIconic'] === true) && strip_tags($message)==$message) {
         $displayed_message = '<span>' . htmlspecialchars(preg_replace('/^.*\salt="([^"]*)".*$/si', '\1', $message)) . '</span>';
     }
-    
+
     // Suhosin: Check that each query parameter is not above maximum
     $in_suhosin_limits = true;
     if ($url_length <= $GLOBALS['cfg']['LinkLengthLimit']) {
@@ -1739,12 +1739,12 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
         if (empty($tag_params['class'])) {
             $tag_params['class'] = 'link';
         }
-        
+
         if (! isset($query_parts)) {
             $query_parts = PMA_splitURLQuery($url);
         }
         $url_parts   = parse_url($url);
-        
+
         if ($new_form) {
             $ret = '<form action="' . $url_parts['path'] . '" class="link"'
                  . ' method="post"' . $target . ' style="display: inline;">';
