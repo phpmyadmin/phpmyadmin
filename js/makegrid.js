@@ -489,12 +489,12 @@
         g.tableCreateTime = $('#table_create_time').val();
         
         // assign column reorder & column sort hint
-        g.reorderHint = $('#col_order_hint').val();
-        g.sortHint = $('#sort_hint').val();
-        g.markHint = $('#col_mark_hint').val();
-        g.colVisibHint = $('#col_visib_hint').val();
-        g.showAllColText = $('#show_all_col_text').val();
-        
+        g.reorderHint = PMA_messages['strColOrderHint'];
+        g.sortHint = PMA_messages['strSortHint'];
+        g.markHint = PMA_messages['strMarkHint'];
+        g.colVisibHint = PMA_messages['strVisibHint'];
+        g.showAllColText = PMA_messages['strShowAll'];
+
         // initialize column order
         $col_order = $('#col_order');
         if ($col_order.length > 0) {
