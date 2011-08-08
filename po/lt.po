@@ -10009,10 +10009,9 @@ msgid "Series in Chart:"
 msgstr "Eilės diagramoje:"
 
 #: server_status.php:1539
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Log statistics"
-msgstr "Rodyti statistika"
+msgstr "Registruoti statistiką"
 
 #: server_status.php:1540
 #, fuzzy
