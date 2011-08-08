@@ -6266,10 +6266,10 @@ msgid "Go to table"
 msgstr "Eiti į lentelę"
 
 #: libraries/import.lib.php:1107
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
-msgstr "Tik struktūra"
+msgstr "Struktūra %s"
 
 #: libraries/import.lib.php:1113
 msgid "Go to view"
