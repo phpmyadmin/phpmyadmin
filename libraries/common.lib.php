@@ -2927,7 +2927,7 @@ function PMA_expandUserString($string, $escape = null, $updates = array())
     }
 
     /* Do the replacement */
-    return str_replace(array_keys($replace), array_values($replace), strftime($string));
+    return strtr(strftime($string), $replace);
 }
 
 /**
