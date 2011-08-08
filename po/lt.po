@@ -7022,10 +7022,9 @@ msgid "Length/Values"
 msgstr "Ilgis/reikšmės*"
 
 #: libraries/rte/rte_routines.lib.php:866
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add parameter"
-msgstr "Keisti žurnalą(us) (indeksą)"
+msgstr "Pridėti parametrą"
 
 #: libraries/rte/rte_routines.lib.php:870
 #, fuzzy
