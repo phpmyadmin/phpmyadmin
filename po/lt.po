@@ -1572,10 +1572,9 @@ msgid "Hide search results"
 msgstr "Slėpti paieškos rezultatus"
 
 #: js/messages.php:216
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show search results"
-msgstr "Rodyti paieškos kriterijų"
+msgstr "Rodyti paieškos rezultatas"
 
 #: js/messages.php:217
 #, fuzzy
