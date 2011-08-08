@@ -6877,7 +6877,7 @@ msgstr "Pakeisti į %s"
 
 #: libraries/rte/rte_events.lib.php:422
 msgid "Execute at"
-msgstr ""
+msgstr "Vykdyti"
 
 #: libraries/rte/rte_events.lib.php:430
 msgid "Execute every"
