@@ -10260,7 +10260,7 @@ msgstr "leisti vartotojui pasirinkti"
 
 #: setup/frames/index.inc.php:207
 msgid "- none -"
-msgstr ""
+msgstr "- tuščia -"
 
 #: setup/frames/index.inc.php:210
 msgid "Default server"
