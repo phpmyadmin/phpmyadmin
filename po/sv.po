@@ -1848,7 +1848,7 @@ msgstr "Lördag"
 
 #. l10n: Short week day name
 #: js/messages.php:346 libraries/common.lib.php:1493
-msgctx "Short week day name"
+msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Sön"
 
