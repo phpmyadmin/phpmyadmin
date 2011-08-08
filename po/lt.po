@@ -9821,7 +9821,7 @@ msgstr "Surikiuotų eilučių skaičius."
 
 #: server_status.php:1246
 msgid "The number of sorts that were done by scanning the table."
-msgstr ""
+msgstr "Rikiavimų kurie buvo atlikti skenuojant lentelę skaičius."
 
 #: server_status.php:1247
 msgid "The number of times that a table lock was acquired immediately."
