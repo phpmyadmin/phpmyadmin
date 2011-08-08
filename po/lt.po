@@ -1149,7 +1149,7 @@ msgstr "Sistemos atmintis"
 
 #: js/messages.php:96
 msgid "System swap"
-msgstr ""
+msgstr "Sistemos swap"
 
 #: js/messages.php:97 libraries/common.lib.php:1291 server_status.php:1512
 msgid "MiB"
