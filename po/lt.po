@@ -1208,10 +1208,9 @@ msgid "Bytes sent"
 msgstr "Išsiųsta baitų"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "Gauta"
+msgstr "Gauta baitų"
 
 #: js/messages.php:114 server_status.php:994
 msgid "Connections"
