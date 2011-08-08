@@ -2702,13 +2702,13 @@ function PMA_extractFieldSpec($fieldspec)
                 if (! $in_string) {
                     $in_string = true;
                     $working = "";
-                // Otherwise, it may be either an end of a string, or a 'double quote' which can be handled as-is
                 } else {
-                // Check out the next character (if possible)
+                    // Otherwise, it may be either an end of a string, or a 'double quote' which can be handled as-is
+                    // Check out the next character (if possible)
                     $has_next = isset($fieldspec[$index + 1]);
                     $next = $has_next ? $fieldspec[$index + 1] : null;
 
-                // If we have reached the end of our 'working' string (because there are no more chars, or the next char is not another quote)
+                    // If we have reached the end of our 'working' string (because there are no more chars, or the next char is not another quote)
                     if (! $has_next || $next != "'") {
                         $enum_set_values[] = $working;
                         $in_string = false;
@@ -2720,12 +2720,12 @@ function PMA_extractFieldSpec($fieldspec)
                         $index++;
                     }
                 }
-            // escaping of a quote?
             } elseif ('\\' == $char && isset($fieldspec[$index + 1]) && "'" == $fieldspec[$index + 1]) {
+                // escaping of a quote?
                 $working .= "'";
                 $index++;
-            // Otherwise, add it to our working string like normal
             } else {
+                // Otherwise, add it to our working string like normal
                 $working .= $char;
             }
             // Increment character index
