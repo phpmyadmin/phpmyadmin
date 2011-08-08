@@ -6807,7 +6807,7 @@ msgstr "Generuoti slaiptažodį"
 #, php-format
 #| msgid "The following queries have been executed:"
 msgid "The following query has failed: \"%s\""
-msgstr "Sekančios užklausos nepavyko: %s"
+msgstr "Sekančios užklausos nepavyko: „%s“"
 
 #: libraries/rte/rte_events.lib.php:116
 msgid "Sorry, we failed to restore the dropped event."
