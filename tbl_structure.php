@@ -600,7 +600,10 @@ if ($tbl_is_view) {
                 'show_query' => '1',
             )
         ),
-        sprintf('<img class="icon ic_b_edit" src="themes/dot.gif" alt="%1$s"/> %1$s', __('Edit view'))
+        sprintf(
+            '<img class="icon ic_b_edit" src="themes/dot.gif" alt="%1$s"/> %1$s',
+            __('Edit view')
+            )
         );
 }
 ?>
