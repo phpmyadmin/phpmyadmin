@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 10:07+0200\n"
-"PO-Revision-Date: 2011-08-08 15:37+0200\n"
+"PO-Revision-Date: 2011-08-08 15:38+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -1074,7 +1074,7 @@ msgstr "Tiesioginė užklausos diagrama"
 
 #: js/messages.php:70
 msgid "Static data"
-msgstr ""
+msgstr "Statiniai duomenys"
 
 #. l10n: Total number of queries
 #: js/messages.php:72 libraries/build_html_for_db.lib.php:46
