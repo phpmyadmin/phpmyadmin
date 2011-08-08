@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 17:44+0200\n"
+"PO-Revision-Date: 2011-08-08 17:45+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -9964,10 +9964,9 @@ msgid "Swap Usage"
 msgstr "Swap naudojimas"
 
 #: server_status.php:1484
-#, fuzzy
 #| msgid "See slave status table"
 msgid "Status variable(s)"
-msgstr "Peržiūrėti pavaldžiojo serverio būklės lentelę"
+msgstr "Būsenos kintamasis(ieji)"
 
 #: server_status.php:1486
 #, fuzzy
