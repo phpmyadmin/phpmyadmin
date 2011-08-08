@@ -4102,10 +4102,9 @@ msgid "When browsing tables, the sorting of each table is remembered"
 msgstr "Kai naršomos lentelės, atsimenamas kiekvienos lentelės rikiavimas"
 
 #: libraries/config/messages.inc.php:351
-#, fuzzy
 #| msgid "Rename table to"
 msgid "Remember table's sorting"
-msgstr "Pervadinti lentelę į"
+msgstr "Įsiminti lentelės rūšiavimą"
 
 #: libraries/config/messages.inc.php:352
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
