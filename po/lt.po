@@ -7205,10 +7205,10 @@ msgid "Add trigger"
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:32
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of trigger %s"
-msgstr "Eksportuoti turinį"
+msgstr ""
 
 #: libraries/rte/rte_words.lib.php:33
 #, fuzzy
