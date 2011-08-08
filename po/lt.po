@@ -1164,10 +1164,9 @@ msgid "Average load"
 msgstr "Vidutinis apkrovimas"
 
 #: js/messages.php:101
-#, fuzzy
 #| msgid "Total"
 msgid "Total memory"
-msgstr "Iš viso"
+msgstr "Iš viso atminties"
 
 #: js/messages.php:102
 msgid "Cached memory"
