@@ -37,18 +37,10 @@ if ($result === false) {
 /* Avoid corrupting data */
 @ini_set('url_rewriter.tags', '');
 
-header('Content-Type: ' . PMA_detectMIME($result));
-header('Expires: ' . gmdate('D, d M Y H:i:s') . ' GMT');
-header('Content-Disposition: attachment; filename="' . $table . '-' .  $transform_key . '.bin"');
-if (PMA_USR_BROWSER_AGENT == 'IE') {
-    header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-    header('Pragma: public');
-} else {
-    header('Pragma: no-cache');
-    // test case: exporting a database into a .gz file with Safari
-    // would produce files not having the current time
-    // (added this header for Safari but should not harm other browsers)
-    header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
-}
+PMA_download_header(
+    $table . '-' .  $transform_key . '.bin',
+    PMA_detectMIME($result),
+    strlen($result)
+    );
 echo $result;
 ?>

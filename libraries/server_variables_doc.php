@@ -970,7 +970,8 @@ $VARIABLE_DOC_LINKS['query_alloc_block_size'] = array(
 $VARIABLE_DOC_LINKS['query_cache_limit'] = array(
     'query_cache_limit',
     'server-system-variables',
-    'sysvar');
+    'sysvar',
+    'byte');
 $VARIABLE_DOC_LINKS['query_cache_min_res_unit'] = array(
     'query_cache_min_res_unit',
     'server-system-variables',

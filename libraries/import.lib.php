@@ -381,7 +381,8 @@ function PMA_getColumnAlphaName($num)
  * @param string $name (i.e. "A", or "BC", etc.)
  * @return  int The column number
  */
-function PMA_getColumnNumberFromName($name) {
+function PMA_getColumnNumberFromName($name)
+{
     if (!empty($name)) {
         $name = strtoupper($name);
         $num_chars = strlen($name);
@@ -442,7 +443,8 @@ define("FORMATTEDSQL", 2);
  * @param string $last_cumulative_size
  * @return  int Precision of the given decimal size notation
  */
-function PMA_getM($last_cumulative_size) {
+function PMA_getM($last_cumulative_size)
+{
     return (int)substr($last_cumulative_size, 0, strpos($last_cumulative_size, ","));
 }
 
@@ -454,7 +456,8 @@ function PMA_getM($last_cumulative_size) {
  * @param string $last_cumulative_size
  * @return  int Scale of the given decimal size notation
  */
-function PMA_getD($last_cumulative_size) {
+function PMA_getD($last_cumulative_size)
+{
     return (int)substr($last_cumulative_size, (strpos($last_cumulative_size, ",") + 1), (strlen($last_cumulative_size) - strpos($last_cumulative_size, ",")));
 }
 
@@ -466,7 +469,8 @@ function PMA_getD($last_cumulative_size) {
  * @param string &$cell
  * @return  array Contains the precision, scale, and full size representation of the given decimal cell
  */
-function PMA_getDecimalSize(&$cell) {
+function PMA_getDecimalSize(&$cell)
+{
     $curr_size = strlen((string)$cell);
     $decPos = strpos($cell, ".");
     $decPrecision = ($curr_size - 1) - $decPos;
@@ -490,7 +494,8 @@ function PMA_getDecimalSize(&$cell) {
  * @param string &$cell                   The current cell
  * @return  string                          Size of the given cell in the type-appropriate format
  */
-function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type, &$cell) {
+function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type, &$cell)
+{
     $curr_size = strlen((string)$cell);
 
     /**
@@ -699,7 +704,8 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
  * @param string &$cell                 String representation of the cell for which a best-fit type is to be determined
  * @return  int                           The MySQL type representation (VARCHAR or INT or BIGINT or DECIMAL or NONE)
  */
-function PMA_detectType($last_cumulative_type, &$cell) {
+function PMA_detectType($last_cumulative_type, &$cell)
+{
     /**
      * If numeric, determine if decimal, int or bigint
      * Else, we call it varchar for simplicity
@@ -738,7 +744,8 @@ function PMA_detectType($last_cumulative_type, &$cell) {
  * @param &$table  array(string $table_name, array $col_names, array $rows)
  * @return  array    array(array $types, array $sizes)
  */
-function PMA_analyzeTable(&$table) {
+function PMA_analyzeTable(&$table)
+{
     /* Get number of rows in table */
     $numRows = count($table[ROWS]);
     /* Get number of columns */
@@ -835,7 +842,8 @@ $import_notice = null;
  * @param array   $options          Associative array of options
  * @return  void
  */
-function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = null, $options = null) {
+function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = null, $options = null)
+{
     /* Take care of the options */
     if (isset($options['db_collation'])&& ! is_null($options['db_collation'])) {
         $collation = $options['db_collation'];
@@ -1080,14 +1088,14 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
     $message = '<br /><br />';
     $message .= '<strong>' . __('The following structures have either been created or altered. Here you can:') . '</strong><br />';
     $message .= '<ul><li>' . __("View a structure's contents by clicking on its name") . '</li>';
-    $message .= '<li>' . htmlspecialchars(__('Change any of its settings by clicking the corresponding "Options" link')) . '</li>';
-    $message .= '<li>' . htmlspecialchars(__('Edit structure by following the "Structure" link')) . '</li>';
+    $message .= '<li>' . __('Change any of its settings by clicking the corresponding "Options" link') . '</li>';
+    $message .= '<li>' . __('Edit structure by following the "Structure" link') . '</li>';
     $message .= sprintf('<br /><li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">' . __('Options') . '</a>)</li>',
                         $db_url,
                         __('Go to database') . ': ' . htmlspecialchars(PMA_backquote($db_name)),
                         htmlspecialchars($db_name),
                         $db_ops_url,
-                        __('Edit') . ' ' . htmlspecialchars(PMA_backquote($db_name)) . ' ' . __('settings'));
+                        sprintf(__('Edit settings for %s'), htmlspecialchars(PMA_backquote($db_name))));
 
     $message .= '<ul>';
 
@@ -1109,9 +1117,9 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
                                 __('Go to table') . ': ' . htmlspecialchars(PMA_backquote($tables[$i][TBL_NAME])),
                                 htmlspecialchars($tables[$i][TBL_NAME]),
                                 $tbl_struct_url,
-                                htmlspecialchars(PMA_backquote($tables[$i][TBL_NAME])) . ' ' . __('structure'),
+                                sprintf(__('Structure of %s'), htmlspecialchars(PMA_backquote($tables[$i][TBL_NAME]))),
                                 $tbl_ops_url,
-                                __('Edit') . ' ' . htmlspecialchars(PMA_backquote($tables[$i][TBL_NAME])) . ' ' . __('settings'));
+                                sprintf(__('Edit settings for %s'), htmlspecialchars(PMA_backquote($db_name))));
         } else {
             $message .= sprintf('<li><a href="%s" title="%s">%s</a></li>',
                                 $tbl_url,

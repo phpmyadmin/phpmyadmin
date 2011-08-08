@@ -55,11 +55,11 @@ echo '
 ?>
     // ]]>
     </script>
-    <script src="pmd/scripts/ajax.js" type="text/javascript"></script>
-    <script src="pmd/scripts/history.js" type="text/javascript"></script>
-    <script src="pmd/scripts/move.js" type="text/javascript"></script>
+    <script src="js/pmd/ajax.js" type="text/javascript"></script>
+    <script src="js/pmd/history.js" type="text/javascript"></script>
+    <script src="js/pmd/move.js" type="text/javascript"></script>
     <!--[if IE]>
-    <script src="pmd/scripts/iecanvas.js" type="text/javascript"></script>
+    <script src="js/pmd/iecanvas.js" type="text/javascript"></script>
     <![endif]-->
 <?php
 echo $script_tabs . $script_contr . $script_display_field;

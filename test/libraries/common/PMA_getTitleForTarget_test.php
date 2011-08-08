@@ -13,7 +13,8 @@
  */
 require_once 'libraries/common.lib.php';
 
-class PMA_getTitleForTarget_test extends PHPUnit_Framework_TestCase{
+class PMA_getTitleForTarget_test extends PHPUnit_Framework_TestCase
+{
 
     function dataProvider(){
         return array(
@@ -39,5 +40,5 @@ class PMA_getTitleForTarget_test extends PHPUnit_Framework_TestCase{
     }
 
 }
- 
+
 //PMA_getTitleForTarget

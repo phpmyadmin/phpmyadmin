@@ -277,7 +277,7 @@ function PMA__getRelationsParam()
                 $cfgRelation['displaywork'] = true;
         }
     }
-    
+
     if (isset($cfgRelation['table_coords']) && isset($cfgRelation['pdf_pages'])) {
         $cfgRelation['pdfwork']     = true;
     }
@@ -513,7 +513,7 @@ function PMA_getComments($db, $table = '')
 
     if ($table != '') {
         // MySQL native column comments
-        $fields = PMA_DBI_get_columns($db, $table);
+        $fields = PMA_DBI_get_columns($db, $table, true);
         if ($fields) {
             foreach ($fields as $field) {
                 if (! empty($field['Comment'])) {
@@ -1071,7 +1071,8 @@ function PMA_REL_renameField($db, $table, $field, $new_name)
  * @param string    $query_default_option
  * @return string   $pdf_page_number
  */
-function PMA_REL_create_page($newpage, $cfgRelation, $db, $query_default_option) {
+function PMA_REL_create_page($newpage, $cfgRelation, $db, $query_default_option)
+{
     if (! isset($newpage) || $newpage == '') {
         $newpage = __('no description');
     }

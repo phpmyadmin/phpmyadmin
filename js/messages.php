@@ -98,12 +98,28 @@ $js_messages['strMiB'] = __('MiB');
 $js_messages['strKiB'] = __('KiB');
 
 $js_messages['strAverageLoad'] = __('Average load');
+$js_messages['strTotalMemory'] = __('Total memory');
+$js_messages['strCachedMemory'] = __('Cached memory');
+$js_messages['strBufferedMemory'] = __('Buffered memory');
+$js_messages['strFreeMemory'] = __('Free memory');
+$js_messages['strUsedMemory'] = __('Used memory');
+
+$js_messages['strTotalSwap'] = __('Total Swap');
+$js_messages['strCachedSwap'] = __('Cached Swap');
+$js_messages['strUsedSwap'] = __('Used Swap');
+$js_messages['strFreeSwap'] = __('Free Swap');
+
+$js_messages['strBytesSent'] = __('Bytes sent');
+$js_messages['strBytesReceived'] = __('Bytes received');
+$js_messages['strConnections'] = __('Connections');
+$js_messages['strProcesses'] = __('Processes');
+
 /* l10n: Questions is the name of a MySQL Status variable */
 $js_messages['strQuestions'] = __('Questions');
 $js_messages['strTraffic'] = __('Traffic');
 $js_messages['strSettings'] = __('Settings');
 $js_messages['strRemoveChart'] = __('Remove chart');
-$js_messages['strEditChart'] = __('Edit labels and series');
+$js_messages['strEditChart'] = __('Edit title and labels');
 $js_messages['strAddChart'] = __('Add chart to grid');
 $js_messages['strClose'] = __('Close');
 $js_messages['strAddOneSeriesWarning'] = __('Please add at least one variable to the series');
@@ -155,6 +171,17 @@ $js_messages['strFilterByWordRegexp'] = __('Filter queries by word/regexp:');
 $js_messages['strIgnoreWhereAndGroup'] = __('Group queries, ignoring variable data in WHERE clauses');
 $js_messages['strSumRows'] = __('Sum of grouped rows:');
 $js_messages['strTotal'] = __('Total:');
+
+$js_messages['strLoadingLogs'] = __('Loading logs');
+$js_messages['strRefreshFailed'] = __('Monitor refresh failed');
+$js_messages['strInvalidResponseExplanation'] = __('While requesting new chart data the server returned an invalid response. This is most likely because your session expired. Reloading the page and reentering your credentials should help.');
+$js_messages['strReloadPage'] = __('Reload page');
+
+$js_messages['strAffectedRows'] = __('Affected rows: ');
+
+$js_messages['strFailedParsingConfig'] = __('Failed parsing config file. It doesn\'t seem to be valid JSON code');
+$js_messages['strFailedBuildingGrid'] = __('Failed building chart grid with imported config. Resetting to default config...');
+$js_messages['strImport'] = __('Import');
 
 /* For inline query editing */
 $js_messages['strGo'] = __('Go');
@@ -229,14 +256,14 @@ $js_messages['strAddPolygon'] = __('Add a polygon');
 /* For tbl_structure.js */
 $js_messages['strAddColumns'] = __('Add columns');
 
-/* Designer (pmd/scripts/move.js) */
+/* Designer (js/pmd/move.js) */
 $js_messages['strSelectReferencedKey'] = __('Select referenced key');
 $js_messages['strSelectForeignKey'] = __('Select Foreign Key');
 $js_messages['strPleaseSelectPrimaryOrUniqueKey'] = __('Please select the primary key or a unique key');
 $js_messages['strChangeDisplay'] = __('Choose column to display');
 $js_messages['strLeavingDesigner'] = __('You haven\'t saved the changes in the layout. They will be lost if you don\'t save them.Do you want to continue?');
 
-/* Visual query builder (pmd/scripts/move.js) */
+/* Visual query builder (js/pmd/move.js) */
 $js_messages['strAddOption'] = __('Add an option for column ');
 
 /* password generation */

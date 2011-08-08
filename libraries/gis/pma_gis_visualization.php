@@ -133,16 +133,7 @@ class PMA_GIS_Visualization
 
         ob_clean();
 
-        header('Content-type: ' . $type);
-        header('Expires: ' . gmdate('D, d M Y H:i:s') . ' GMT');
-        header('Content-Disposition: Attachment;filename=' . $file_name);
-        if (PMA_USR_BROWSER_AGENT == 'IE') {
-            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-            header('Pragma: public');
-        } else {
-            header('Pragma: no-cache');
-            header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
-        }
+        PMA_download_header($file_name, $type);
     }
 
     /**

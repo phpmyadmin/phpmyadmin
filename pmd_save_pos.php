@@ -36,7 +36,8 @@ foreach ($t_x as $key => $value) {
 }
 //----------------------------------------------------------------------------
 
-function PMD_err_sav() {
+function PMD_err_sav()
+{
     global $die_save_pos; // if this file included
     if (! empty($die_save_pos)) {
         header("Content-Type: text/xml; charset=utf-8");

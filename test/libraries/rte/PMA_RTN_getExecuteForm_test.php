@@ -53,7 +53,7 @@ class PMA_RTN_getExecuteForm_test extends PHPUnit_Framework_TestCase
             $cfg['DefaultFunctions']['FUNC_DATE'] = '';
             $GLOBALS['tear_down']['default'] = true;
         }
-        eval(substr(file_get_contents('libraries/data_mysql.inc.php'), 5, -3)); // FIXME
+        require 'libraries/data_mysql.inc.php';
     }
 
     public function tearDown()

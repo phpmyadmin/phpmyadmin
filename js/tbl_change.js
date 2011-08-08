@@ -64,7 +64,8 @@ function nullify(theType, urlField, md5Field, multi_edit)
  * Start of validation part
  */
 //function checks the number of days in febuary
-function daysInFebruary (year){
+function daysInFebruary (year)
+{
     return (((year % 4 == 0) && ( (!(year % 100 == 0)) || (year % 400 == 0))) ? 29 : 28 );
 }
 //function to convert single digit to double digit
@@ -143,7 +144,8 @@ function isTime(val)
         return true;
 }
 
-function verificationsAfterFieldChange(urlField, multi_edit, theType){
+function verificationsAfterFieldChange(urlField, multi_edit, theType)
+{
     var evt = window.event || arguments.callee.caller.arguments[0];
     var target = evt.target || evt.srcElement;
 

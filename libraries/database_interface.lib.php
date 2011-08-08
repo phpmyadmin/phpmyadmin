@@ -24,7 +24,8 @@ define('PMA_DBI_GETVAR_GLOBAL',     2);
  *
  * @param string  $extension  mysql extension to check
  */
-function PMA_DBI_checkMysqlExtension($extension = 'mysql') {
+function PMA_DBI_checkMysqlExtension($extension = 'mysql')
+{
     if (! function_exists($extension . '_connect')) {
         return false;
     }
@@ -67,9 +68,16 @@ if (! PMA_DBI_checkMysqlExtension($GLOBALS['cfg']['Server']['extension'])) {
 require_once './libraries/dbi/' . $GLOBALS['cfg']['Server']['extension'] . '.dbi.lib.php';
 
 /**
- * Common Functions
+ * runs a query
+ *
+ * @param string $query               SQL query to execte
+ * @param mixed  $link                optional database link to use
+ * @param int    $options             optional query options
+ * @param bool   $cache_affected_rows whether to cache affected rows
+ * @return mixed
  */
-function PMA_DBI_query($query, $link = null, $options = 0, $cache_affected_rows = true) {
+function PMA_DBI_query($query, $link = null, $options = 0, $cache_affected_rows = true)
+{
     $res = PMA_DBI_try_query($query, $link, $options, $cache_affected_rows)
         or PMA_mysqlDie(PMA_DBI_getError($link), $query);
     return $res;
@@ -78,9 +86,10 @@ function PMA_DBI_query($query, $link = null, $options = 0, $cache_affected_rows 
 /**
  * runs a query and returns the result
  *
- * @param string $query query to run
+ * @param string   $query query to run
  * @param resource $link mysql link resource
- * @param integer $options
+ * @param integer  $options
+ * @param bool     $cache_affected_rows
  * @return mixed
  */
 function PMA_DBI_try_query($query, $link = null, $options = 0, $cache_affected_rows = true)
@@ -148,7 +157,8 @@ function PMA_DBI_try_query($query, $link = null, $options = 0, $cache_affected_r
  * @param string  $message
  * @return  string  $message
  */
-function PMA_DBI_convert_message($message) {
+function PMA_DBI_convert_message($message)
+{
     // latin always last!
     $encodings = array(
         'japanese'      => 'EUC-JP', //'ujis',
@@ -237,9 +247,6 @@ function PMA_DBI_get_tables($database, $link = null)
  * @return  integer  a value representing whether $a should be before $b in the
  *                   sorted array or not
  *
- * @global  string   the column the array shall be sorted by
- * @global  string   the sorting order ('ASC' or 'DESC')
- *
  * @access  private
  */
 function PMA_usort_comparison_callback($a, $b)
@@ -276,9 +283,9 @@ function PMA_usort_comparison_callback($a, $b)
  *
  * @todo    move into PMA_Table
  * @param string          $database       database
- * @param string|false    $table          table
+ * @param string|bool     $table          table or false
  * @param boolean|string  $tbl_is_group   $table is a table group
- * @param resource        $link           mysql link
+ * @param mixed           $link           mysql link
  * @param integer         $limit_offset   zero-based offset for the count
  * @param boolean|integer $limit_count    number of tables to return
  * @param string          $sort_by        table attribute to sort by
@@ -438,12 +445,12 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
                 }
 
                 if (! isset($each_tables[$table_name]['Type'])
-                  && isset($each_tables[$table_name]['Engine'])) {
+                        && isset($each_tables[$table_name]['Engine'])) {
                     // pma BC, same parts of PMA still uses 'Type'
                     $each_tables[$table_name]['Type']
                         =& $each_tables[$table_name]['Engine'];
                 } elseif (! isset($each_tables[$table_name]['Engine'])
-                  && isset($each_tables[$table_name]['Type'])) {
+                        && isset($each_tables[$table_name]['Type'])) {
                     // old MySQL reports Type, newer MySQL reports Engine
                     $each_tables[$table_name]['Engine']
                         =& $each_tables[$table_name]['Type'];
@@ -837,13 +844,13 @@ function PMA_DBI_get_columns($database, $table, $full = false, $link = null)
         'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS
         FROM ' . PMA_backquote($database) . '.' . PMA_backquote($table),
         'Field', null, $link);
-    if (! is_array($fields) || count($fields) < 1) {
-        return false;
+    if (! is_array($fields) || count($fields) == 0) {
+        return null;
     }
     return $fields;
 }
 
- /**
+/**
  * returns value of given mysql server variable
  *
  * @param string  $var    mysql server variable name
@@ -851,8 +858,6 @@ function PMA_DBI_get_columns($database, $table, $full = false, $link = null)
  * @param mixed   $link   mysql link resource|object
  * @return  mixed   value for mysql server variable
  */
-
-
 function PMA_DBI_get_variable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null)
 {
     if ($link === null) {
@@ -878,8 +883,8 @@ function PMA_DBI_get_variable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null
 }
 
 /**
- *  Function called just after a connection to the MySQL database server has been established
- *  It sets the connection collation, and determins the version of MySQL which is running.
+ * Function called just after a connection to the MySQL database server has been established
+ * It sets the connection collation, and determins the version of MySQL which is running.
  *
  * @param mixed   $link   mysql link resource|object
  * @param boolean $is_controluser
@@ -948,7 +953,8 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
  * @return  mixed               value of first field in first row from result
  *                              or false if not found
  */
-function PMA_DBI_fetch_value($result, $row_number = 0, $field = 0, $link = null, $options = 0) {
+function PMA_DBI_fetch_value($result, $row_number = 0, $field = 0, $link = null, $options = 0)
+{
     $value = false;
 
     if (is_string($result)) {
@@ -1002,7 +1008,8 @@ function PMA_DBI_fetch_value($result, $row_number = 0, $field = 0, $link = null,
  * @return  array|boolean       first row from result
  *                              or false if result is empty
  */
-function PMA_DBI_fetch_single_row($result, $type = 'ASSOC', $link = null, $options = 0) {
+function PMA_DBI_fetch_single_row($result, $type = 'ASSOC', $link = null, $options = 0)
+{
     if (is_string($result)) {
         $result = PMA_DBI_try_query($result, $link, $options | PMA_DBI_QUERY_STORE, false);
     }

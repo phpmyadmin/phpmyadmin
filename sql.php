@@ -948,7 +948,7 @@ $(document).ready(makeProfilingChart);
         echo '<div style="float: left;">';
         echo '<table>' . "\n";
         echo ' <tr>' .  "\n";
-        echo '  <th>' . __('Status') . '</th>' . "\n";
+        echo '  <th>' . __('Status') . PMA_showMySQLDocu('general-thread-states','general-thread-states') .  '</th>' . "\n";
         echo '  <th>' . __('Time') . '</th>' . "\n";
         echo ' </tr>' .  "\n";
 
