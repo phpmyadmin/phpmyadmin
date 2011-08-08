@@ -7189,10 +7189,10 @@ msgid "You do not have the necessary privileges to create a routine"
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:23
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "Duomenų bazėje nerasta jokių lentelių."
+msgstr ""
 
 #: libraries/rte/rte_words.lib.php:24
 #, fuzzy
