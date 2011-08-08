@@ -1297,8 +1297,22 @@ function PMA_profilingCheckbox($sql_query)
  */
 function PMA_formatByteDown($value, $limes = 6, $comma = 0)
 {
-    /* l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+ */
-    $byteUnits = array(__('B'), __('KiB'), __('MiB'), __('GiB'), __('TiB'), __('PiB'), __('EiB'));
+    $byteUnits = array(
+        /* l10n: shortcuts for Byte */
+        __('B'),
+        /* l10n: shortcuts for Kilobyte */
+        __('KiB'),
+        /* l10n: shortcuts for Megabyte */
+        __('MiB'),
+        /* l10n: shortcuts for Gigabyte */
+        __('GiB'),
+        /* l10n: shortcuts for Terabyte */
+        __('TiB'),
+        /* l10n: shortcuts for Petabyte */
+        __('PiB'),
+        /* l10n: shortcuts for Exabyte */
+        __('EiB')
+        );
 
     $dh   = PMA_pow(10, $comma);
     $li   = PMA_pow(10, $limes);
