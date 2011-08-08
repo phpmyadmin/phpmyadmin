@@ -11127,10 +11127,9 @@ msgid "Show more actions"
 msgstr "Daha fazla eylem göster"
 
 #: tbl_structure.php:603
-#, fuzzy
 #| msgid "Print view"
 msgid "Edit view"
-msgstr "Baskı görünümü"
+msgstr "Düzenleme görünümü"
 
 #: tbl_structure.php:620
 msgid "Relation view"
