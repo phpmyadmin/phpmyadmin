@@ -821,7 +821,7 @@ msgstr "Įveskite kiekvieną reikšmę atskirame laukelyje."
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr ""
+msgstr "+ Paleisti iš naujo įterpimą ir pridėti naują reikšmę"
 
 #: enum_editor.php:67
 msgid "Output"
