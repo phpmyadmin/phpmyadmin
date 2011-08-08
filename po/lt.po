@@ -9114,7 +9114,7 @@ msgstr ""
 
 #: server_status.php:503
 msgid "Sorting"
-msgstr "Rūšiavimas"
+msgstr "Rikiavimas"
 
 #: server_status.php:505
 msgid "Transaction coordinator"
