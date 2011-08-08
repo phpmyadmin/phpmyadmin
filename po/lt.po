@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 10:07+0200\n"
-"PO-Revision-Date: 2011-08-08 15:30+0200\n"
+"PO-Revision-Date: 2011-08-08 15:32+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -713,10 +713,9 @@ msgid "Analyze table"
 msgstr "Analizuoti lentelę"
 
 #: db_structure.php:515
-#, fuzzy
 #| msgid "Go to table"
 msgid "Add prefix to table"
-msgstr "Eiti į lentelę"
+msgstr "Pridėti priešdėlį lentelės pavadinimui"
 
 #: db_structure.php:517 libraries/mult_submits.inc.php:251
 #, fuzzy
