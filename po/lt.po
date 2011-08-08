@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 17:45+0200\n"
+"PO-Revision-Date: 2011-08-08 17:46+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -9995,10 +9995,9 @@ msgid "Append unit to data values"
 msgstr ""
 
 #: server_status.php:1522
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add this series"
-msgstr "Pridėti naują serverį"
+msgstr "Pridėti šią eilę"
 
 #: server_status.php:1524
 msgid "Clear series"
