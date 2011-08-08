@@ -2581,10 +2581,9 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s d., %s val., %s min. ir %s s"
 
 #: libraries/common.lib.php:1880
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Missing parameter:"
-msgstr "Keisti žurnalą(us) (indeksą)"
+msgstr "Trūkstamas parametras:"
 
 #: libraries/common.lib.php:2189 libraries/common.lib.php:2192
 #: libraries/display_tbl.lib.php:306
