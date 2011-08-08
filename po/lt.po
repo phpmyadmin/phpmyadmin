@@ -2199,7 +2199,7 @@ msgstr "Kelias iki temos nerastas temai %s!"
 
 #: libraries/Theme_Manager.class.php:286 themes.php:20 themes.php:41
 msgid "Theme"
-msgstr ""
+msgstr "Apipavidalinimas"
 
 #: libraries/auth/config.auth.lib.php:71
 msgid "Cannot connect: invalid settings."
