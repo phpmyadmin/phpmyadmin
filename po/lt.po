@@ -7211,10 +7211,9 @@ msgid "Export of trigger %s"
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:33
-#, fuzzy
 #| msgid "Add a new server"
 msgid "trigger"
-msgstr "Pridėti naują serverį"
+msgstr ""
 
 #: libraries/rte/rte_words.lib.php:34
 #, fuzzy
