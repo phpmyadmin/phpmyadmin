@@ -10662,10 +10662,9 @@ msgid "The remaining columns"
 msgstr ""
 
 #: tbl_chart.php:129
-#, fuzzy
 #| msgid "X Axis label"
 msgid "X-Axis label:"
-msgstr "X ašies etiketė"
+msgstr "X ašies etiketė:"
 
 #: tbl_chart.php:130
 #, fuzzy
