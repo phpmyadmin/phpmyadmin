@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 16:38+0200\n"
+"PO-Revision-Date: 2011-08-08 16:40+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -6181,9 +6181,8 @@ msgid "Structure for view"
 msgstr "Struktūra peržiūrėjimui"
 
 #: libraries/export/sql.php:1012
-#, fuzzy
 msgid "Stand-in structure for view"
-msgstr "Tik struktūra"
+msgstr "Tik struktūra rodiniui"
 
 #: libraries/export/sql.php:1071
 #, fuzzy
