@@ -9524,9 +9524,8 @@ msgid "The current number of pending reads."
 msgstr "Esamu momentu laukiančių skaitymų skaičius."
 
 #: server_status.php:1183
-#, fuzzy
 msgid "The current number of pending writes."
-msgstr "Duomenų įrašymų skaičius."
+msgstr "Esamu momentu laukiančių rašymų skaičius."
 
 #: server_status.php:1184
 msgid "The amount of data read so far, in bytes."
