@@ -1173,10 +1173,9 @@ msgid "Cached memory"
 msgstr "Podėlio atmintis"
 
 #: js/messages.php:103
-#, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "Buferio Pool'as"
+msgstr "Buferio atmintis"
 
 #: js/messages.php:104
 msgid "Free memory"
