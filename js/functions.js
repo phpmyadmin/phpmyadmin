@@ -3112,12 +3112,19 @@ function PMA_createqTip($elements, content, options)
     $elements.qtip($.extend(true, o, options));
 }
 
-/**
- * Theme selector.
- */
 $(document).ready(function() {
+    /**
+     * Theme selector.
+     */
     $('a.themeselect').live('click',function(e) {
         window.open(e.target + '?foo=bar', 'themes','left=10,top=20,width=510,height=350,scrollbars=yes,status=yes,resizable=yes');
         return false;
+    });
+
+    /**
+     * Automatic form submission on change.
+     */
+    $('select.autosubmit').change(function(e) {
+        e.target.form.submit();
     });
 });
