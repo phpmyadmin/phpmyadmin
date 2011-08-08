@@ -11123,10 +11123,9 @@ msgid "Tracking data definition successfully deleted"
 msgstr ""
 
 #: tbl_tracking.php:375 tbl_tracking.php:392
-#, fuzzy
 #| msgid "Gather errors"
 msgid "Query error"
-msgstr "Rinkti klaidas"
+msgstr "Užklausos klaida"
 
 #: tbl_tracking.php:390
 msgid "Tracking data manipulation successfully deleted"
