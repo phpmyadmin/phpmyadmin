@@ -7041,10 +7041,9 @@ msgid "Return length/values"
 msgstr "Grąžinimo Ilgis/reikšmės"
 
 #: libraries/rte/rte_routines.lib.php:887
-#, fuzzy
 #| msgid "Table options"
 msgid "Return options"
-msgstr "Lentelės parinktys"
+msgstr "Grąžinimo parametrai"
 
 #: libraries/rte/rte_routines.lib.php:918
 msgid "Is deterministic"
