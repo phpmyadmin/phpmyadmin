@@ -1387,7 +1387,9 @@ function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_dow
     //number_format is not multibyte safe, str_replace is safe
     if ($digits_left === 0) {
         $value = number_format($value, $digits_right);
-        if ($originalValue!=0 && floatval($value) == 0) $value = ' <'.(1/PMA_pow(10,$digits_right));
+        if ($originalValue != 0 && floatval($value) == 0) {
+            $value = ' <' . (1 / PMA_pow(10, $digits_right));
+        }
 
         return PMA_localizeNumber($value);
     }
