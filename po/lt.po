@@ -1558,10 +1558,9 @@ msgid "Hide indexes"
 msgstr "Nerodyti indeksų"
 
 #: js/messages.php:211
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "Rodyti tinklelį"
+msgstr "Rodyti indeksus"
 
 #: js/messages.php:214
 msgid "Searching"
