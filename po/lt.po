@@ -4385,7 +4385,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:410
 #| msgid "Analyze table"
 msgid "Recently used table"
-msgstr "Paskiausiai naudotos lentelės"
+msgstr "Paskiausiai naudota lentelė"
 
 #: libraries/config/messages.inc.php:411
 msgid ""
