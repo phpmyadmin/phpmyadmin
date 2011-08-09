@@ -591,6 +591,16 @@ if (isset($_REQUEST['show']) && isset($_REQUEST['ajax_request'])) {
     }
 }
 
+
+PMA_AddJSCode('pma_token = \'' . $_SESSION[' PMA_token '] . "';\n" .
+              'url_query = \'' . str_replace('&amp;','&',PMA_generate_common_url($db)) . "';\n" .
+              'server_time_diff = new Date().getTime() - ' . (microtime(true)*1000) . ";\n" .
+              'server_os = \'' . PHP_OS . "';\n" .
+              'is_superuser = ' . (PMA_isSuperuser() ? 'true' : 'false') . ";\n" .
+              'server_db_isLocal = '.($server_db_isLocal ? 'true' : 'false').";\n" .
+              'profiling_docu = \'' . PMA_showMySQLDocu('general-thread-states', 'general-thread-states') . "';\n" .
+              'explain_docu = \'' . PMA_showMySQLDocu('explain-output', 'explain-output') . ";'\n");
+
 /**
  * start output
  */
@@ -599,6 +609,7 @@ if (isset($_REQUEST['show']) && isset($_REQUEST['ajax_request'])) {
  * Does the common work
  */
 require './libraries/server_common.inc.php';
+
 
 
 /**
@@ -614,16 +625,6 @@ $server_db_isLocal = strtolower($cfg['Servers'][$server]['host']) == 'localhost'
                               || $cfg['Servers'][$server]['host'] == '::1';
 
 ?>
-<script type="text/javascript">
-pma_token = '<?php echo $_SESSION[' PMA_token ']; ?>';
-url_query = '<?php echo str_replace('&amp;','&',$url_query);?>';
-server_time_diff = new Date().getTime() - <?php echo microtime(true)*1000; ?>;
-server_os = '<?php echo PHP_OS; ?>';
-is_superuser = <?php echo PMA_isSuperuser()?'true':'false'; ?>;
-server_db_isLocal = <?php echo ($server_db_isLocal)?'true':'false'; ?>;
-profiling_docu = '<?php echo PMA_showMySQLDocu('general-thread-states','general-thread-states'); ?>';
-explain_docu = '<?php echo PMA_showMySQLDocu('explain-output', 'explain-output'); ?>';
-</script>
 <div id="serverstatus">
     <h2><?php
 /**
