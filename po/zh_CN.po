@@ -983,10 +983,9 @@ msgstr "这不是一个数字！"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Log file count"
 msgid "Total count"
-msgstr "日志文件总数"
+msgstr "总计"
 
 #: js/messages.php:54
 msgid "The host name is empty!"
