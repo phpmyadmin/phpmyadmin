@@ -264,7 +264,7 @@ if (! isset($param) || $param[0] == '') {
             echo '            <input type="text" name="fields[' . $i . ']"'
                 .' size="40" class="textfield" id="field_' . $i . '" />' .  "\n";
 
-            $edit_url = 'gis_data_editor.php' . PMA_generate_common_url();
+            $edit_url = 'gis_data_editor.php?' . PMA_generate_common_url();
             $edit_str = PMA_getIcon('b_edit.png', __('Edit/Insert'), true);
             echo('<span class="open_search_gis_editor">');
             echo(PMA_linkOrButton($edit_url, $edit_str, array(), false, false, '_blank'));
