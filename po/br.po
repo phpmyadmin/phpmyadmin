@@ -1276,7 +1276,7 @@ msgstr "N'eo ket bet lakaet log_output da TABLE."
 
 #: js/messages.php:135
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "Lakaet eo bet log_output da TABLE."
 
 #: js/messages.php:136
 #, php-format
