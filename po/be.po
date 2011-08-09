@@ -11779,7 +11779,6 @@ msgstr "Перайменаваць табліцу ў"
 #~ msgstr "Стварыць сувязь"
 
 #, fuzzy
-#~| msgid "Create relation"
 #~ msgid "Create routine"
 #~ msgstr "Стварыць сувязь"
 

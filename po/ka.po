@@ -12063,7 +12063,6 @@ msgstr "Rename table to"
 #~ msgstr "Create relation"
 
 #, fuzzy
-#~| msgid "Create relation"
 #~ msgid "Create routine"
 #~ msgstr "Create relation"
 

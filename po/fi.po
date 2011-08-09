@@ -11983,17 +11983,14 @@ msgid "Rename view to"
 msgstr "Nimeä taulu uudelleen"
 
 #, fuzzy
-#~| msgid "Create view"
 #~ msgid "Create event"
 #~ msgstr "Luo näkymä"
 
 #, fuzzy
-#~| msgid "Create relation"
 #~ msgid "Create routine"
 #~ msgstr "Luo relaatio"
 
 #, fuzzy
-#~| msgid "Create view"
 #~ msgid "Create trigger"
 #~ msgstr "Luo näkymä"
 

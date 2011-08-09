@@ -11558,7 +11558,6 @@ msgid "Rename view to"
 msgstr "Переименовать представление в"
 
 #, fuzzy
-#~| msgid "Create view"
 #~ msgid "Create event"
 #~ msgstr "Создать представление"
 
@@ -11566,7 +11565,6 @@ msgstr "Переименовать представление в"
 #~ msgstr "Создать процедуру"
 
 #, fuzzy
-#~| msgid "Create view"
 #~ msgid "Create trigger"
 #~ msgstr "Создать представление"
 

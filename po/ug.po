@@ -11008,17 +11008,14 @@ msgid "Rename view to"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Create version"
 #~ msgid "Create event"
 #~ msgstr "نەشىرنى قۇىماق"
 
 #, fuzzy
-#~| msgid "Create version"
 #~ msgid "Create routine"
 #~ msgstr "نەشىرنى قۇىماق"
 
 #, fuzzy
-#~| msgid "Create version"
 #~ msgid "Create trigger"
 #~ msgstr "نەشىرنى قۇىماق"
 

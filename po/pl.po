@@ -12011,7 +12011,6 @@ msgstr "Zmień nazwę perspektywy na"
 #~ msgstr "Utwórz związek"
 
 #, fuzzy
-#~| msgid "Create relation"
 #~ msgid "Create routine"
 #~ msgstr "Utwórz relację"
 

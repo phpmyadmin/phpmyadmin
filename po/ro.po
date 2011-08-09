@@ -11745,7 +11745,6 @@ msgstr "Redenumire tabel la"
 #~ msgstr "Creare relație"
 
 #, fuzzy
-#~| msgid "Create relation"
 #~ msgid "Create routine"
 #~ msgstr "Creare relație"
 

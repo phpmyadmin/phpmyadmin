@@ -11721,17 +11721,14 @@ msgid "Rename view to"
 msgstr "Endre tabellens navn"
 
 #, fuzzy
-#~| msgid "Create User"
 #~ msgid "Create event"
 #~ msgstr "Opprett bruker"
 
 #, fuzzy
-#~| msgid "Create relation"
 #~ msgid "Create routine"
 #~ msgstr "Opprett relasjon"
 
 #, fuzzy
-#~| msgid "Create User"
 #~ msgid "Create trigger"
 #~ msgstr "Opprett bruker"
 

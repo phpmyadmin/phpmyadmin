@@ -11654,7 +11654,6 @@ msgstr "Промени име табеле у "
 #~ msgstr "Направи релацију"
 
 #, fuzzy
-#~| msgid "Create relation"
 #~ msgid "Create routine"
 #~ msgstr "Направи релацију"
 

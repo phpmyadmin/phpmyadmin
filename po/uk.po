@@ -11043,17 +11043,14 @@ msgid "Rename view to"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Create User"
 #~ msgid "Create event"
 #~ msgstr "Створити користувача"
 
 #, fuzzy
-#~| msgid "Create User"
 #~ msgid "Create routine"
 #~ msgstr "Створити користувача"
 
 #, fuzzy
-#~| msgid "Create User"
 #~ msgid "Create trigger"
 #~ msgstr "Створити користувача"
 

@@ -11065,17 +11065,14 @@ msgid "Rename view to"
 msgstr "दृश्य का नाम बदलो"
 
 #, fuzzy
-#~| msgid "Create view"
 #~ msgid "Create event"
 #~ msgstr "दृश्य बनाइये"
 
 #, fuzzy
-#~| msgid "Create relation"
 #~ msgid "Create routine"
 #~ msgstr "संबंध बनायें"
 
 #, fuzzy
-#~| msgid "Create view"
 #~ msgid "Create trigger"
 #~ msgstr "दृश्य बनाइये"
 

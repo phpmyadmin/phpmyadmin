@@ -11296,7 +11296,6 @@ msgid "Rename view to"
 msgstr "දසුනේ නම වෙනස් කරන්න"
 
 #, fuzzy
-#~| msgid "Create view"
 #~ msgid "Create event"
 #~ msgstr "දසුනක් සාදන්න"
 
@@ -11305,7 +11304,6 @@ msgstr "දසුනේ නම වෙනස් කරන්න"
 #~ msgstr "සර්වරයේ සංස්කරණය"
 
 #, fuzzy
-#~| msgid "Create view"
 #~ msgid "Create trigger"
 #~ msgstr "දසුනක් සාදන්න"
 

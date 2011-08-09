@@ -11809,7 +11809,6 @@ msgstr "Nézet átnevezése"
 #~ msgstr "Kapcsolat létrehozása"
 
 #, fuzzy
-#~| msgid "Create relation"
 #~ msgid "Create routine"
 #~ msgstr "Kapcsolat létrehozása"
 

@@ -11733,7 +11733,6 @@ msgstr "Preimenuj prikaz u"
 #~ msgstr "Izradi relaciju"
 
 #, fuzzy
-#~| msgid "Create relation"
 #~ msgid "Create routine"
 #~ msgstr "Izradi relaciju"
 

@@ -11379,17 +11379,14 @@ msgid "Rename view to"
 msgstr "Ubah nama tabel menjadi "
 
 #, fuzzy
-#~| msgid "Create version"
 #~ msgid "Create event"
 #~ msgstr "Membuat versi"
 
 #, fuzzy
-#~| msgid "Create relation"
 #~ msgid "Create routine"
 #~ msgstr "Buat relasi"
 
 #, fuzzy
-#~| msgid "Create version"
 #~ msgid "Create trigger"
 #~ msgstr "Membuat versi"
 
