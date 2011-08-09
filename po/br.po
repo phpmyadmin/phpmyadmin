@@ -1161,7 +1161,7 @@ msgstr "Karg keitat"
 #, fuzzy
 #| msgid "Total count"
 msgid "Total memory"
-msgstr "Sammad hollek"
+msgstr "Memor hollek"
 
 #: js/messages.php:102
 msgid "Cached memory"
