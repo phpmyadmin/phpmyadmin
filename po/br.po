@@ -1158,7 +1158,6 @@ msgid "Average load"
 msgstr "Karg keitat"
 
 #: js/messages.php:101
-#, fuzzy
 #| msgid "Total count"
 msgid "Total memory"
 msgstr "Memor hollek"
