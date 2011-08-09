@@ -1076,7 +1076,7 @@ msgstr "自上次刷新起发送的数据 [单位: KB]"
 
 #: js/messages.php:81
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "自上次刷新起接收的数据 [单位: KB]"
 
 #: js/messages.php:82
 #| msgid "Server Choice"
