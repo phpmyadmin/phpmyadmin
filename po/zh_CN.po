@@ -1079,10 +1079,9 @@ msgid "KiB received since last refresh"
 msgstr ""
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
-msgstr "选择服务器"
+msgstr "服务器流量 (单位: KB)"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
