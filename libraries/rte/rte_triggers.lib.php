@@ -308,7 +308,9 @@ function PMA_TRI_getEditorForm($mode, $item)
     $retval .= "        <select name='item_table'>\n";
     foreach (PMA_DBI_get_tables($db) as $key => $value) {
         $selected = "";
-        if ($value == $item['item_table']) {
+        if ($mode == 'add' && $value == $table) {
+            $selected = " selected='selected'";
+        } else if ($mode == 'edit' && $value == $item['item_table']) {
             $selected = " selected='selected'";
         }
         $retval .= "            <option$selected>$value</option>\n";
