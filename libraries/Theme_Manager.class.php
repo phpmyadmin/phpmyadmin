@@ -284,7 +284,6 @@ class PMA_Theme_Manager
             $select_box .=  PMA_generate_common_hidden_inputs();
         }
 
-        $theme_selected = false;
         $theme_preview_path= './themes.php';
         $theme_preview_href = '<a href="' . $theme_preview_path . '" target="themes" class="themeselect">';
         $select_box .=  $theme_preview_href . __('Theme') . '</a>:' . "\n";
