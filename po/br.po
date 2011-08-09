@@ -1205,7 +1205,7 @@ msgstr "Oktedoù resevet"
 
 #: js/messages.php:114 server_status.php:994
 msgid "Connections"
-msgstr ""
+msgstr "Kevreadennoù"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:118
