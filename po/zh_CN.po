@@ -1324,10 +1324,9 @@ msgid ""
 msgstr "无法修改这些变量。请以 root 登录或联系数据库管理员。"
 
 #: js/messages.php:148
-#, fuzzy
 #| msgid "Manage your settings"
 msgid "Change settings"
-msgstr "管理我的设置"
+msgstr "修改设置"
 
 #: js/messages.php:149
 #, fuzzy
