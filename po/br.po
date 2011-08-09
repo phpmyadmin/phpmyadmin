@@ -1201,7 +1201,7 @@ msgstr "Oktedoù kaset"
 
 #: js/messages.php:113
 msgid "Bytes received"
-msgstr ""
+msgstr "Oktedoù resevet"
 
 #: js/messages.php:114 server_status.php:994
 msgid "Connections"
