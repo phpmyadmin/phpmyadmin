@@ -557,6 +557,13 @@ $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'update-location.js';
 
 /**
+ * holds an array of javascript code snippets to be included in the HTML header
+ * Can be used with PMA_AddJSCode() to pass on js variables to the browser.
+ * @global array $js_script
+ */
+$GLOBALS['js_script'] = array();
+
+/**
  * Add common jQuery functions script here if necessary.
  */
 
