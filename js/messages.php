@@ -182,6 +182,8 @@ $js_messages['strFailedParsingConfig'] = __('Failed parsing config file. It does
 $js_messages['strFailedBuildingGrid'] = __('Failed building chart grid with imported config. Resetting to default config...');
 $js_messages['strImport'] = __('Import');
 
+$js_messages['strAnalyzeQuery'] = __('Analyse Query');
+
 /* Server status advisor */
 
 $js_messages['strAdvisorSystem'] = __('Advisor system');

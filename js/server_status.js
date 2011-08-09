@@ -22,8 +22,8 @@ $(function() {
         },
         format: function(s) {
             var num = jQuery.tablesorter.formatFloat(
-                s.replace(PMA_messages['strThousandsSeperator'],'')
-                 .replace(PMA_messages['strDecimalSeperator'],'.')
+                s.replace(PMA_messages['strThousandsSeperator'], '')
+                 .replace(PMA_messages['strDecimalSeperator'], '.')
             );
 
             var factor = 1;
@@ -36,7 +36,7 @@ $(function() {
                 case 'T': factor = 12; break;
             }
 
-            return num * Math.pow(10,factor);
+            return num * Math.pow(10, factor);
         },
         type: "numeric"
     });
@@ -60,19 +60,24 @@ $(function() {
             var pos = $(this).offset();
 
             // Hide if the mouseclick is outside the popupcontent
-            if(event.pageX < pos.left || event.pageY < pos.top || event.pageX > pos.left + $cnt.outerWidth() || event.pageY > pos.top + $cnt.outerHeight())
+            if (event.pageX < pos.left 
+               || event.pageY < pos.top 
+               || event.pageX > pos.left + $cnt.outerWidth() 
+               || event.pageY > pos.top + $cnt.outerHeight()
+            ) {
                 $cnt.hide().removeClass('openedPopup');
+            }
         });
     });
 });
 
 $(function() {
     // Filters for status variables
-    var textFilter=null;
+    var textFilter = null;
     var alertFilter = false;
-    var categoryFilter='';
-    var odd_row=false;
-    var text=''; // Holds filter text
+    var categoryFilter = '';
+    var odd_row = false;
+    var text = ''; // Holds filter text
     var queryPieChart = null;
     var monitorLoaded = false;
 
@@ -93,7 +98,7 @@ $(function() {
     });
 
     $.ajaxSetup({
-        cache:false
+        cache: false
     });
 
     // Add tabs
@@ -104,15 +109,18 @@ $(function() {
             // Fixes line break in the menu bar when the page overflows and scrollbar appears
             menuResize(); 
             // Load Server status monitor
-            if(ui.tab.hash == '#statustabs_charting' && ! monitorLoaded) {
-                $('div#statustabs_charting').append('<img class="ajaxIcon" id="loadingMonitorIcon" src="' + pmaThemeImage + 'ajax_clock_small.gif" alt="">');
+            if (ui.tab.hash == '#statustabs_charting' && ! monitorLoaded) {
+                $('div#statustabs_charting').append(
+                    '<img class="ajaxIcon" id="loadingMonitorIcon" src="' +
+                    pmaThemeImage + 'ajax_clock_small.gif" alt="">'
+                );
                 // Delay loading a bit so the tab loads and the user gets to see a ajax loading icon
                 setTimeout(function() {
-                    loadJavascript(['js/jquery/timepicker.js','js/jquery/jquery.json-2.2.js',
+                    loadJavascript(['js/jquery/timepicker.js', 'js/jquery/jquery.json-2.2.js',
                                     'js/jquery/jquery.sprintf.js', 'js/jquery/jquery.sortableTable.js',
                                     'js/codemirror/lib/codemirror.js', 'js/codemirror/mode/mysql/mysql.js',
                                     'js/server_status_monitor.js']);
-                },50);
+                }, 50);
                 
                 monitorLoaded = true;
             }
@@ -124,7 +132,7 @@ $(function() {
 
     // Initialize each tab
     $('div.ui-tabs-panel').each(function() {
-        initTab($(this),null);
+        initTab($(this), null);
         tabStatus[$(this).attr('id')] = 'static';
     });
 
@@ -133,12 +141,13 @@ $(function() {
 
     // Handles refresh rate changing
     $('.buttonlinks select').change(function() {
-        var chart=tabChart[$(this).parents('div.ui-tabs-panel').attr('id')];
+        var chart = tabChart[$(this).parents('div.ui-tabs-panel').attr('id')];
 
         // Clear current timeout and set timeout with the new refresh rate
         clearTimeout(chart_activeTimeouts[chart.options.chart.renderTo]);
-        if(chart.options.realtime.postRequest)
+        if (chart.options.realtime.postRequest) {
             chart.options.realtime.postRequest.abort();
+        }
 
         chart.options.realtime.refreshRate = 1000*parseInt(this.value);
 
@@ -157,18 +166,18 @@ $(function() {
     // Ajax refresh of variables (always the first element in each tab)
     $('.buttonlinks a.tabRefresh').click(function() {
         // ui-tabs-panel class is added by the jquery tabs feature
-        var tab=$(this).parents('div.ui-tabs-panel');
+        var tab = $(this).parents('div.ui-tabs-panel');
         var that = this;
 
         // Show ajax load icon
         $(this).find('img').show();
 
-        $.get($(this).attr('href'),{ajax_request:1},function(data) {
+        $.get($(this).attr('href'), { ajax_request: 1 }, function(data) {
             $(that).find('img').hide();
-            initTab(tab,data);
+            initTab(tab, data);
         });
 
-        tabStatus[tab.attr('id')]='data';
+        tabStatus[tab.attr('id')] = 'data';
 
         return false;
     });
@@ -179,20 +188,22 @@ $(function() {
     // Live traffic charting
     $('.buttonlinks a.livetrafficLink').click(function() {
         // ui-tabs-panel class is added by the jquery tabs feature
-        var $tab=$(this).parents('div.ui-tabs-panel');
+        var $tab = $(this).parents('div.ui-tabs-panel');
         var tabstat = tabStatus[$tab.attr('id')];
 
-        if(tabstat=='static' || tabstat=='liveconnections') {
+        if (tabstat == 'static' || tabstat == 'liveconnections') {
             var settings = {
                 series: [
                     { name: PMA_messages['strChartKBSent'], data: [] },
                     { name: PMA_messages['strChartKBReceived'], data: [] }
                 ],
                 title: { text: PMA_messages['strChartServerTraffic'] },
-                realtime: { url:'server_status.php?' + url_query,
+                realtime: { url: 'server_status.php?' + url_query,
                            type: 'traffic',
                            callback: function(chartObj, curVal, lastVal, numLoadedPoints) {
-                               if(lastVal==null) return;
+                               if (lastVal == null) {
+                                   return;
+                                }
                                 chartObj.series[0].addPoint(
                                     { x: curVal.x, y: (curVal.y_sent - lastVal.y_sent) / 1024 },
                                     false,
@@ -208,13 +219,14 @@ $(function() {
                          }
             }
 
-            setupLiveChart($tab,this,settings);
-            if(tabstat == 'liveconnections')
+            setupLiveChart($tab, this, settings);
+            if (tabstat == 'liveconnections') {
                 $tab.find('.buttonlinks a.liveconnectionsLink').html(PMA_messages['strLiveConnChart']);
-            tabStatus[$tab.attr('id')]='livetraffic';
+            }
+            tabStatus[$tab.attr('id')] = 'livetraffic';
         } else {
             $(this).html(PMA_messages['strLiveTrafficChart']);
-            setupLiveChart($tab,this,null);
+            setupLiveChart($tab, this, null);
         }
 
         return false;
@@ -222,20 +234,22 @@ $(function() {
 
     // Live connection/process charting
     $('.buttonlinks a.liveconnectionsLink').click(function() {
-        var $tab=$(this).parents('div.ui-tabs-panel');
+        var $tab = $(this).parents('div.ui-tabs-panel');
         var tabstat = tabStatus[$tab.attr('id')];
 
-        if(tabstat == 'static' || tabstat == 'livetraffic') {
+        if (tabstat == 'static' || tabstat == 'livetraffic') {
             var settings = {
                 series: [
                     { name: PMA_messages['strChartConnections'], data: [] },
                     { name: PMA_messages['strChartProcesses'], data: [] }
                 ],
                 title: { text: PMA_messages['strChartConnectionsTitle'] },
-                realtime: { url:'server_status.php?'+url_query,
+                realtime: { url: 'server_status.php?' + url_query,
                            type: 'proc',
-                           callback: function(chartObj, curVal, lastVal,numLoadedPoints) {
-                               if(lastVal==null) return;
+                           callback: function(chartObj, curVal, lastVal, numLoadedPoints) {
+                                if (lastVal == null) {
+                                    return;
+                                }
                                 chartObj.series[0].addPoint(
                                     { x: curVal.x, y: curVal.y_conn - lastVal.y_conn },
                                     false,
@@ -251,13 +265,14 @@ $(function() {
                          }
             };
 
-            setupLiveChart($tab,this,settings);
-            if(tabstat == 'livetraffic')
+            setupLiveChart($tab, this, settings);
+            if (tabstat == 'livetraffic') {
                 $tab.find('.buttonlinks a.livetrafficLink').html(PMA_messages['strLiveTrafficChart']);
-            tabStatus[$tab.attr('id')]='liveconnections';
+            }
+            tabStatus[$tab.attr('id')] = 'liveconnections';
         } else {
             $(this).html(PMA_messages['strLiveConnChart']);
-            setupLiveChart($tab,this,null);
+            setupLiveChart($tab, this, null);
         }
 
         return false;
@@ -268,17 +283,20 @@ $(function() {
         var $tab = $(this).parents('div.ui-tabs-panel');
         var settings = null;
 
-        if(tabStatus[$tab.attr('id')] == 'static') {
+        if (tabStatus[$tab.attr('id')] == 'static') {
             settings = {
                 series: [ { name: PMA_messages['strChartIssuedQueries'], data: [] } ],
                 title: { text: PMA_messages['strChartIssuedQueriesTitle'] },
-                tooltip: { formatter:function() { return this.point.name; } },
-                realtime: { url:'server_status.php?'+url_query,
+                tooltip: { formatter: function() { return this.point.name; } },
+                realtime: { url: 'server_status.php?' + url_query,
                           type: 'queries',
-                          callback: function(chartObj, curVal, lastVal,numLoadedPoints) {
-                                if(lastVal == null) return;
-                                chartObj.series[0].addPoint(
-                                    { x: curVal.x,  y: curVal.y - lastVal.y, name: sortedQueriesPointInfo(curVal,lastVal) },
+                          callback: function(chartObj, curVal, lastVal, numLoadedPoints) {
+                                if (lastVal == null) { return; }
+                                chartObj.series[0].addPoint({
+                                        x: curVal.x,
+                                        y: curVal.y - lastVal.y,
+                                        name: sortedQueriesPointInfo(curVal, lastVal)
+                                    },
                                     true,
                                     numLoadedPoints >= chartObj.options.realtime.numMaxPoints
                                 );
@@ -290,23 +308,23 @@ $(function() {
             $(this).html(PMA_messages['strLiveQueryChart']);
         }
 
-        setupLiveChart($tab,this,settings);
+        setupLiveChart($tab, this, settings);
         tabStatus[$tab.attr('id')] = 'livequeries';
         return false;
     });
 
-    function setupLiveChart($tab,link,settings) {
-        if(settings != null) {
+    function setupLiveChart($tab, link, settings) {
+        if (settings != null) {
             // Loading a chart with existing chart => remove old chart first
-            if(tabStatus[$tab.attr('id')] != 'static') {
+            if (tabStatus[$tab.attr('id')] != 'static') {
                 clearTimeout(chart_activeTimeouts[$tab.attr('id') + "_chart_cnt"]);
-                chart_activeTimeouts[$tab.attr('id')+"_chart_cnt"] = null;
+                chart_activeTimeouts[$tab.attr('id') + "_chart_cnt"] = null;
                 tabChart[$tab.attr('id')].destroy();
                 // Also reset the select list
                 $tab.find('.buttonlinks select').get(0).selectedIndex = 2;
             }
 
-            if(! settings.chart) settings.chart = {};
+            if (! settings.chart) settings.chart = {};
             settings.chart.renderTo = $tab.attr('id') + "_chart_cnt";
 
             $tab.find('.tabInnerContent')
@@ -318,13 +336,13 @@ $(function() {
             $tab.find('.buttonlinks .refreshList').show();
         } else {
             clearTimeout(chart_activeTimeouts[$tab.attr('id') + "_chart_cnt"]);
-            chart_activeTimeouts[$tab.attr('id') + "_chart_cnt"]=null;
+            chart_activeTimeouts[$tab.attr('id') + "_chart_cnt"] = null;
             $tab.find('.tabInnerContent').show();
-            $tab.find('div#'+$tab.attr('id') + '_chart_cnt').remove();
-            tabStatus[$tab.attr('id')]='static';
+            $tab.find('div#' + $tab.attr('id') + '_chart_cnt').remove();
+            tabStatus[$tab.attr('id')] = 'static';
             tabChart[$tab.attr('id')].destroy();
             $tab.find('.buttonlinks a.tabRefresh').show();
-            $tab.find('.buttonlinks select').get(0).selectedIndex=2;
+            $tab.find('.buttonlinks select').get(0).selectedIndex = 2;
             $tab.find('.buttonlinks .refreshList').hide();
         }
     }
@@ -336,10 +354,12 @@ $(function() {
     });
 
     $('#filterText').keyup(function(e) {
-        word = $(this).val().replace(/_/g,' ');
+        word = $(this).val().replace(/_/g, ' ');
 
-        if(word.length == 0) textFilter = null;
-        else textFilter = new RegExp("(^|_)" + word,'i');
+        if (word.length == 0) {
+            textFilter = null;
+        }
+        else textFilter = new RegExp("(^|_)" + word, 'i');
 
         text = word;
 
@@ -360,22 +380,24 @@ $(function() {
     });
 
     /* Adjust DOM / Add handlers to the tabs */
-    function initTab(tab,data) {
+    function initTab(tab, data) {
         switch(tab.attr('id')) {
             case 'statustabs_traffic':
-                if(data != null) tab.find('.tabInnerContent').html(data);
+                if (data != null) {
+                    tab.find('.tabInnerContent').html(data);
+                }
                 PMA_convertFootnotesToTooltips();
                 break;
             case 'statustabs_queries':
-                if(data != null) {
+                if (data != null) {
                     queryPieChart.destroy();
                     tab.find('.tabInnerContent').html(data);
                 }
 
                 // Build query statistics chart
                 var cdata = new Array();
-                $.each(jQuery.parseJSON($('#serverstatusquerieschart span').html()),function(key,value) {
-                    cdata.push([key,parseInt(value)]);
+                $.each(jQuery.parseJSON($('#serverstatusquerieschart span').html()), function(key, value) {
+                    cdata.push([key, parseInt(value)]);
                 });
 
                 queryPieChart = PMA_createChart({
@@ -383,11 +405,11 @@ $(function() {
                         renderTo: 'serverstatusquerieschart'
                     },
                     title: {
-                        text:'',
-                        margin:0
+                        text: '',
+                        margin: 0
                     },
                     series: [{
-                        type:'pie',
+                        type: 'pie',
                         name: PMA_messages['strChartQueryPie'],
                         data: cdata
                     }],
@@ -398,21 +420,24 @@ $(function() {
                             dataLabels: {
                                 enabled: true,
                                 formatter: function() {
-                                    return '<b>'+ this.point.name +'</b><br/> ' + Highcharts.numberFormat(this.percentage, 2) + ' %';
+                                    return '<b>' + this.point.name +'</b><br/> ' + 
+                                            Highcharts.numberFormat(this.percentage, 2) + ' %';
                                }
                             }
                         }
                     },
                     tooltip: {
                         formatter: function() {
-                            return '<b>' + this.point.name + '</b><br/>' + Highcharts.numberFormat(this.y, 2) + '<br/>(' + Highcharts.numberFormat(this.percentage, 2) + ' %)';
+                            return '<b>' + this.point.name + '</b><br/>' + 
+                                    Highcharts.numberFormat(this.y, 2) + '<br/>(' + 
+                                    Highcharts.numberFormat(this.percentage, 2) + ' %)';
                         }
                     }
                 });
                 break;
 
             case 'statustabs_allvars':
-                if(data != null) {
+                if (data != null) {
                     tab.find('.tabInnerContent').html(data);
                     filterVariables();
                 }
@@ -426,7 +451,7 @@ $(function() {
         switch(tabid) {
             case 'statustabs_queries':
                 $('#serverstatusqueriesdetails').tablesorter({
-                        sortList: [[3,1]],
+                        sortList: [[3, 1]],
                         widgets: ['zebra'],
                         headers: {
                             1: { sorter: 'fancyNumber' },
@@ -441,7 +466,7 @@ $(function() {
 
             case 'statustabs_allvars':
                 $('#serverstatusvariables').tablesorter({
-                        sortList: [[0,0]],
+                        sortList: [[0, 0]],
                         widgets: ['zebra'],
                         headers: {
                             1: { sorter: 'fancyNumber' }
@@ -460,33 +485,38 @@ $(function() {
         var useful_links = 0;
         var section = text;
 
-        if(categoryFilter.length > 0) section = categoryFilter;
+        if (categoryFilter.length > 0) {
+            section = categoryFilter;
+        }
 
-        if(section.length > 1) {
+        if (section.length > 1) {
             $('#linkSuggestions span').each(function() {
-                if($(this).attr('class').indexOf('status_'+section) != -1) {
+                if ($(this).attr('class').indexOf('status_' + section) != -1) {
                     useful_links++;
-                    $(this).css('display','');
+                    $(this).css('display', '');
                 } else {
-                    $(this).css('display','none');
+                    $(this).css('display', 'none');
                 }
 
 
             });
         }
 
-        if(useful_links > 0)
-            $('#linkSuggestions').css('display','');
-        else $('#linkSuggestions').css('display','none');
+        if (useful_links > 0) {
+            $('#linkSuggestions').css('display', '');
+        } else {
+            $('#linkSuggestions').css('display', 'none');
+        }
 
-        odd_row=false;
+        odd_row = false;
         $('#serverstatusvariables th.name').each(function() {
-            if((textFilter == null || textFilter.exec($(this).text()))
+            if ((textFilter == null || textFilter.exec($(this).text()))
                 && (! alertFilter || $(this).next().find('span.attention').length>0)
-                && (categoryFilter.length == 0 || $(this).parent().hasClass('s_'+categoryFilter))) {
+                && (categoryFilter.length == 0 || $(this).parent().hasClass('s_' + categoryFilter))
+            ) {
                 odd_row = ! odd_row;
-                $(this).parent().css('display','');
-                if(odd_row) {
+                $(this).parent().css('display', '');
+                if (odd_row) {
                     $(this).parent().addClass('odd');
                     $(this).parent().removeClass('even');
                 } else {
@@ -494,22 +524,22 @@ $(function() {
                     $(this).parent().removeClass('odd');
                 }
             } else {
-                $(this).parent().css('display','none');
+                $(this).parent().css('display', 'none');
             }
         });
     }
 
     // Provides a nicely formatted and sorted tooltip of each datapoint of the query statistics
     function sortedQueriesPointInfo(queries, lastQueries){
-        var max, maxIdx, num=0;
+        var max, maxIdx, num = 0;
         var queryKeys = new Array();
         var queryValues = new Array();
-        var sumOther=0;
-        var sumTotal=0;
+        var sumOther = 0;
+        var sumTotal = 0;
 
         // Separate keys and values, then  sort them
-        $.each(queries.pointInfo, function(key,value) {
-            if(value-lastQueries.pointInfo[key] > 0) {
+        $.each(queries.pointInfo, function(key, value) {
+            if (value-lastQueries.pointInfo[key] > 0) {
                 queryKeys.push(key);
                 queryValues.push(value-lastQueries.pointInfo[key]);
                 sumTotal += value-lastQueries.pointInfo[key];
@@ -520,37 +550,40 @@ $(function() {
 
         while(queryKeys.length > 0) {
             max = 0;
-            for(var i=0; i < queryKeys.length; i++) {
-                if(queryValues[i] > max) {
+            for (var i = 0; i < queryKeys.length; i++) {
+                if (queryValues[i] > max) {
                     max = queryValues[i];
                     maxIdx = i;
                 }
             }
-            if(numQueries > 8 && num >= 6)
+            if (numQueries > 8 && num >= 6) {
                 sumOther += queryValues[maxIdx];
-            else pointInfo += queryKeys[maxIdx].substr(4).replace('_',' ') + ': ' + queryValues[maxIdx] + '<br>';
+            } else {
+                pointInfo += queryKeys[maxIdx].substr(4).replace('_', ' ') + ': ' + queryValues[maxIdx] + '<br>';
+            }
 
-            queryKeys.splice(maxIdx,1);
-            queryValues.splice(maxIdx,1);
+            queryKeys.splice(maxIdx, 1);
+            queryValues.splice(maxIdx, 1);
             num++;
         }
 
-        if(sumOther>0)
+        if (sumOther>0) {
             pointInfo += PMA_messages['strOther'] + ': ' + sumOther;
-
+        }
+        
         return pointInfo;
     }
 
     /**** Server config advisor ****/
 
     $('a[href="#openAdvisorInstructions"]').click(function() {
-        var dlgBtns = {}
+        var dlgBtns = {};
         
         dlgBtns[PMA_messages['strClose']] = function() {
             $(this).dialog('close');
         }
         
-        $('#advisorInstructionsDialog').attr('title',PMA_messages['strAdvisorSystem']);
+        $('#advisorInstructionsDialog').attr('title', PMA_messages['strAdvisorSystem']);
         $('#advisorInstructionsDialog').dialog({
             width: 700,
             buttons: dlgBtns 
@@ -561,26 +594,26 @@ $(function() {
         var $cnt = $('#statustabs_advisor .tabInnerContent');
         $cnt.html('<img class="ajaxIcon" src="' + pmaThemeImage + 'ajax_clock_small.gif" alt="">');
         
-        $.get('server_status.php?'+url_query, { ajax_request: true, advisor: true }, function(data) {
+        $.get('server_status.php?' + url_query, { ajax_request: true, advisor: true }, function(data) {
             var $tbody, $tr, str, even = true;
 
             data = $.parseJSON(data);
             
             $cnt.html('');
             
-            if(data.parse.errors.length > 0) {
+            if (data.parse.errors.length > 0) {
                 $cnt.append('<b>Rules file not well formed, following errors were found:</b><br />- ');
                 $cnt.append(data.parse.errors.join('<br/>- '));
                 $cnt.append('<p></p>');
             }
             
-            if(data.run.errors.length > 0) {
+            if (data.run.errors.length > 0) {
                 $cnt.append('<b>Errors occured while executing rule expressions:</b><br />- ');
                 $cnt.append(data.run.errors.join('<br/>- '));
                 $cnt.append('<p></p>');
             }
             
-            if(data.run.fired.length > 0) {
+            if (data.run.fired.length > 0) {
                 $cnt.append('<p><b>' + PMA_messages['strPerformanceIssues'] + '</b></p>');
                 $cnt.append('<table class="data" id="rulesFired" border="0"><thead><tr>' +
                             '<th>' + PMA_messages['strIssuse'] + '</th><th>' + PMA_messages['strRecommendation'] + 
@@ -589,17 +622,17 @@ $(function() {
                 
                 var rc_stripped;
                 
-                $.each(data.run.fired, function(key,value) {
+                $.each(data.run.fired, function(key, value) {
                     // recommendation may contain links, don't show those in overview table (clicking on them redirects the user)
                     rc_stripped = $.trim($('<div>').html(value.recommendation).text())
                     $tbody.append($tr = $('<tr class="linkElem noclick ' + (even ? 'even' : 'odd') + '"><td>' + 
                                             value.issue + '</td><td>' + rc_stripped + ' </td></tr>')); 
                     even = !even;
-                    $tr.data('rule',value);
+                    $tr.data('rule', value);
                     
                     $tr.click(function() {
                         var rule = $(this).data('rule');
-                        $('div#emptyDialog').attr('title',PMA_messages['strRuleDetails']);
+                        $('div#emptyDialog').attr('title', PMA_messages['strRuleDetails']);
                         $('div#emptyDialog').html(
                             '<p><b>' + PMA_messages['strIssuse'] + ':</b><br />' + rule.issue + '</p>' +
                             '<p><b>' + PMA_messages['strRecommendation'] + ':</b><br />' + rule.recommendation + '</p>' +
@@ -627,8 +660,11 @@ $(function() {
         btns[PMA_messages['strReloadPage']] = function() {
             window.location.reload();
         };
-        $('#emptyDialog').attr('title',PMA_messages['strRefreshFailed']);
-        $('#emptyDialog').html('<img class="icon ic_s_attention" src="themes/dot.gif" alt=""> ' + PMA_messages['strInvalidResponseExplanation'])
+        $('#emptyDialog').attr('title', PMA_messages['strRefreshFailed']);
+        $('#emptyDialog').html(
+            '<img class="icon ic_s_attention" src="themes/dot.gif" alt=""> ' + 
+            PMA_messages['strInvalidResponseExplanation']
+        );
         $('#emptyDialog').dialog({ buttons: btns });
     }
 });
