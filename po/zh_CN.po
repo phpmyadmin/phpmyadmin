@@ -1292,10 +1292,10 @@ msgstr "下列设置将被应用到整个服务器直到服务器重新启动:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:140
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save output to a file"
 msgid "Set log_output to %s"
-msgstr "保存为文件"
+msgstr "设置 log_output 为 %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:142
