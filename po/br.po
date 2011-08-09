@@ -1256,7 +1256,7 @@ msgstr "Paouez gant an evezhiañ"
 
 #: js/messages.php:130
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "Gweredekaet eo general_log ha slow_query_log."
 
 #: js/messages.php:131
 msgid "general_log is enabled."
