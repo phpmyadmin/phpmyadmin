@@ -1244,7 +1244,7 @@ msgstr "Ouzhpennit da nebeutañ unan eus an argemennoù d'an heuliad"
 #: libraries/tbl_properties.inc.php:544 pmd_general.php:510
 #: server_privileges.php:2042 server_status.php:1109 server_status.php:1529
 msgid "None"
-msgstr ""
+msgstr "Hini"
 
 #: js/messages.php:127
 msgid "Resume monitor"
