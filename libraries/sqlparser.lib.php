@@ -221,7 +221,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         // Create local hashtables
-        if (!isset($PMA_SQPdata_column_attrib_cnt)) {
+        if (!isset($PMA_SQPdata_column_attrib)) {
             $PMA_SQPdata_column_attrib  = array_flip(
                 $GLOBALS['PMA_SQPdata_column_attrib']
                 );
