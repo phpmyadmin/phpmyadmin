@@ -1229,7 +1229,7 @@ msgstr "Dilemel ar grafik"
 
 #: js/messages.php:122
 msgid "Edit title and labels"
-msgstr ""
+msgstr "Kemmañ an titl hag an tikedennoù"
 
 #: js/messages.php:123
 msgid "Add chart to grid"
