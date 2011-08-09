@@ -2013,7 +2013,7 @@ msgstr ""
 
 #: libraries/File.class.php:507
 msgid "Error while moving uploaded file."
-msgstr ""
+msgstr "移动上传的文件时发生错误。"
 
 #: libraries/File.class.php:515
 msgid "Cannot read (moved) upload file."
