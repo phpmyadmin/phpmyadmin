@@ -1120,7 +1120,7 @@ msgstr "系统内存"
 
 #: js/messages.php:96
 msgid "System swap"
-msgstr ""
+msgstr "系统交换空间"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:97 libraries/common.lib.php:1306 server_status.php:1512
