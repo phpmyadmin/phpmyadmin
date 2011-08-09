@@ -1137,7 +1137,7 @@ msgstr "Implij CPU ar reizhiad"
 
 #: js/messages.php:95
 msgid "System memory"
-msgstr ""
+msgstr "Memor reizhiad"
 
 #: js/messages.php:96
 msgid "System swap"
