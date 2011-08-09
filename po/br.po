@@ -1220,7 +1220,7 @@ msgstr "Tremenerezh"
 #: js/messages.php:120 libraries/server_links.inc.php:73
 #: server_status.php:1396
 msgid "Settings"
-msgstr ""
+msgstr "Arventennoù"
 
 #: js/messages.php:121
 #, fuzzy
