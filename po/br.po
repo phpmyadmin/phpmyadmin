@@ -1172,7 +1172,7 @@ msgstr "Memor skurzer"
 
 #: js/messages.php:104
 msgid "Free memory"
-msgstr ""
+msgstr "Memor vak"
 
 #: js/messages.php:105
 msgid "Used memory"
