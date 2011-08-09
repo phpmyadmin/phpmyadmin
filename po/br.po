@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-09 16:45+0100\n"
-"PO-Revision-Date: 2011-07-17 21:41+0200\n"
+"PO-Revision-Date: 2011-08-09 19:07+0200\n"
 "Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -1118,10 +1118,9 @@ msgstr "Kevreadennoù/Argerzhioù"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
-#, fuzzy
 #| msgid "Connections since last refresh"
 msgid "Questions since last refresh"
-msgstr "Kevreadennoù abaoe ar freskadenn ziwezhañ"
+msgstr "Goulennnoù abaoe ar freskadenn ziwezhañ"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:89
