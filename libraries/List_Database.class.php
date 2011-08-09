@@ -226,7 +226,6 @@ require_once './libraries/List.class.php';
     public function getGroupedDetails($offset, $count)
     {
         $dbgroups   = array();
-        $parts      = array();
 
         if ($GLOBALS['cfg']['ShowTooltip']
           && $GLOBALS['cfgRelation']['commwork']) {
@@ -243,7 +242,7 @@ require_once './libraries/List.class.php';
             $separators = array();
         }
 
-        foreach ($this->getLimitedItems($offset, $count) as $key => $db) {
+        foreach ($this->getLimitedItems($offset, $count) as $db) {
             // Get comments from PMA comments table
             $db_tooltip = '';
 
