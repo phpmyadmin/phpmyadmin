@@ -11082,12 +11082,10 @@ msgstr "VIEW pavadinimas"
 msgid "Rename view to"
 msgstr "Pervadinti rodinį į"
 
-#~| msgid "Create User"
 #~ msgid "Create event"
 #~ msgstr "Sukurti įvykį"
 
 #, fuzzy
-#~| msgid "Create relation"
 #~ msgid "Create routine"
 #~ msgstr "Sukurti sąryšį"
 

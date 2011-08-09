@@ -10761,7 +10761,6 @@ msgid "Rename view to"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Create Table"
 #~ msgid "Create event"
 #~ msgstr "Krouiñ un daolenn"
 
@@ -10769,7 +10768,6 @@ msgstr ""
 #~ msgstr "Krouiñ un argerzh"
 
 #, fuzzy
-#~| msgid "Create routine"
 #~ msgid "Create trigger"
 #~ msgstr "Krouiñ un argerzh"
 

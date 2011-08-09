@@ -11157,17 +11157,14 @@ msgid "Rename view to"
 msgstr "Ailenwch golwg i"
 
 #, fuzzy
-#~| msgid "Create version"
 #~ msgid "Create event"
 #~ msgstr "Crëwch fersiwn"
 
 #, fuzzy
-#~| msgid "Create relation"
 #~ msgid "Create routine"
 #~ msgstr "Crëwch berthynas"
 
 #, fuzzy
-#~| msgid "Create version"
 #~ msgid "Create trigger"
 #~ msgstr "Crëwch fersiwn"
 

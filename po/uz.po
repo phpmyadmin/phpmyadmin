@@ -12243,17 +12243,14 @@ msgid "Rename view to"
 msgstr "Кўриниш номини ўзгартириш"
 
 #, fuzzy
-#~| msgid "Create version"
 #~ msgid "Create event"
 #~ msgstr "Версиясини тузиш"
 
 #, fuzzy
-#~| msgid "Create relation"
 #~ msgid "Create routine"
 #~ msgstr "Боғлиқлик ўрнатиш"
 
 #, fuzzy
-#~| msgid "Create version"
 #~ msgid "Create trigger"
 #~ msgstr "Версиясини тузиш"
 

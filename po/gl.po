@@ -12225,17 +12225,14 @@ msgid "Rename view to"
 msgstr "Mudar o nome da táboa para"
 
 #, fuzzy
-#~| msgid "Create version"
 #~ msgid "Create event"
 #~ msgstr "Crear unha versión"
 
 #, fuzzy
-#~| msgid "Create relation"
 #~ msgid "Create routine"
 #~ msgstr "Crear relación"
 
 #, fuzzy
-#~| msgid "Create version"
 #~ msgid "Create trigger"
 #~ msgstr "Crear unha versión"
 

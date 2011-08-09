@@ -11633,7 +11633,6 @@ msgstr "Nimeta tabel ümber"
 #~ msgstr "Suhte loomine (relation)"
 
 #, fuzzy
-#~| msgid "Create relation"
 #~ msgid "Create routine"
 #~ msgstr "Suhte loomine (relation)"
 

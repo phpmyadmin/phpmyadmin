@@ -11632,17 +11632,14 @@ msgid "Rename view to"
 msgstr "Hernoem view naar"
 
 #, fuzzy
-#~| msgid "Create view"
 #~ msgid "Create event"
 #~ msgstr "VIEW aanmaken"
 
 #, fuzzy
-#~| msgid "Create relation"
 #~ msgid "Create routine"
 #~ msgstr "Maak relatie"
 
 #, fuzzy
-#~| msgid "Create view"
 #~ msgid "Create trigger"
 #~ msgstr "VIEW aanmaken"
 

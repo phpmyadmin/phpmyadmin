@@ -11741,17 +11741,14 @@ msgid "Rename view to"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Create"
 #~ msgid "Create event"
 #~ msgstr "Stvaryć"
 
 #, fuzzy
-#~| msgid "Create relation"
 #~ msgid "Create routine"
 #~ msgstr "Stvaryć suviaź"
 
 #, fuzzy
-#~| msgid "Create"
 #~ msgid "Create trigger"
 #~ msgstr "Stvaryć"
 

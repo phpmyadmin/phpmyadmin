@@ -12307,17 +12307,14 @@ msgid "Rename view to"
 msgstr "Ko‘rinish nomini o‘zgartirish"
 
 #, fuzzy
-#~| msgid "Create version"
 #~ msgid "Create event"
 #~ msgstr "Vеrsiyasini tuzish"
 
 #, fuzzy
-#~| msgid "Create relation"
 #~ msgid "Create routine"
 #~ msgstr "Bog‘liqlik o‘rnatish"
 
 #, fuzzy
-#~| msgid "Create version"
 #~ msgid "Create trigger"
 #~ msgstr "Vеrsiyasini tuzish"
 

@@ -10906,19 +10906,16 @@ msgstr ""
 
 # మొదటి అనువాదము
 #, fuzzy
-#~| msgid "Create"
 #~ msgid "Create event"
 #~ msgstr "సృష్టించు"
 
 # మొదటి అనువాదము
 #, fuzzy
-#~| msgid "Create"
 #~ msgid "Create routine"
 #~ msgstr "సృష్టించు"
 
 # మొదటి అనువాదము
 #, fuzzy
-#~| msgid "Create"
 #~ msgid "Create trigger"
 #~ msgstr "సృష్టించు"
 

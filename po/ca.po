@@ -11636,17 +11636,14 @@ msgid "Rename view to"
 msgstr "Reanomena la vista a"
 
 #, fuzzy
-#~| msgid "Create view"
 #~ msgid "Create event"
 #~ msgstr "Crea una vista"
 
 #, fuzzy
-#~| msgid "Create relation"
 #~ msgid "Create routine"
 #~ msgstr "Crea una relació"
 
 #, fuzzy
-#~| msgid "Create view"
 #~ msgid "Create trigger"
 #~ msgstr "Crea una vista"
 

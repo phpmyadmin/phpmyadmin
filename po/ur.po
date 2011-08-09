@@ -11026,17 +11026,14 @@ msgid "Rename view to"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Created"
 #~ msgid "Create event"
 #~ msgstr "تخلیق کیا گیا"
 
 #, fuzzy
-#~| msgid "Created"
 #~ msgid "Create routine"
 #~ msgstr "تخلیق کیا گیا"
 
 #, fuzzy
-#~| msgid "Created"
 #~ msgid "Create trigger"
 #~ msgstr "تخلیق کیا گیا"
 

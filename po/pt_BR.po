@@ -11503,7 +11503,6 @@ msgid "Rename view to"
 msgstr "Renomear a visão para "
 
 #, fuzzy
-#~| msgid "Create User"
 #~ msgid "Create event"
 #~ msgstr "Criar usuário"
 
@@ -11511,7 +11510,6 @@ msgstr "Renomear a visão para "
 #~ msgstr "Criar rotina"
 
 #, fuzzy
-#~| msgid "Create User"
 #~ msgid "Create trigger"
 #~ msgstr "Criar usuário"
 

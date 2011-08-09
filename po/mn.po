@@ -11457,17 +11457,14 @@ msgid "Rename view to"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Create"
 #~ msgid "Create event"
 #~ msgstr "Үүсгэх"
 
 #, fuzzy
-#~| msgid "Create relation"
 #~ msgid "Create routine"
 #~ msgstr "Холбоо үүсгэх"
 
 #, fuzzy
-#~| msgid "Create"
 #~ msgid "Create trigger"
 #~ msgstr "Үүсгэх"
 
