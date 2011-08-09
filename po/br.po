@@ -1197,7 +1197,7 @@ msgstr "Takad eskemm vak"
 
 #: js/messages.php:112
 msgid "Bytes sent"
-msgstr ""
+msgstr "Oktedoù kaset"
 
 #: js/messages.php:113
 msgid "Bytes received"
