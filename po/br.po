@@ -1133,7 +1133,7 @@ msgstr "Stadegoù war ar rekedoù"
 
 #: js/messages.php:94
 msgid "System CPU Usage"
-msgstr ""
+msgstr "Implij CPU ar reizhiad"
 
 #: js/messages.php:95
 msgid "System memory"
