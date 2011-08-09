@@ -178,7 +178,7 @@ function PMA_EVN_handleEditor()
         }
         // Get the data for the form (if any)
         if (! empty($_REQUEST['add_item'])) {
-            $title = __("Create event");
+            $title = PMA_RTE_getWord('add');
             $item = PMA_EVN_getDataFromRequest();
             $mode = 'add';
         } else if (! empty($_REQUEST['edit_item'])) {
