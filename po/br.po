@@ -1248,7 +1248,7 @@ msgstr "Hini"
 
 #: js/messages.php:127
 msgid "Resume monitor"
-msgstr ""
+msgstr "Adkregiñ gant an evezhiañ"
 
 #: js/messages.php:128
 msgid "Pause monitor"
