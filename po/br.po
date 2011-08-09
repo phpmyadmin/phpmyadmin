@@ -1193,7 +1193,7 @@ msgstr "Takad eskemm implijet"
 
 #: js/messages.php:110
 msgid "Free Swap"
-msgstr ""
+msgstr "Takad eskemm vak"
 
 #: js/messages.php:112
 msgid "Bytes sent"
