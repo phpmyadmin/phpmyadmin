@@ -1233,7 +1233,7 @@ msgstr "Kemmañ an titl hag an tikedennoù"
 
 #: js/messages.php:123
 msgid "Add chart to grid"
-msgstr ""
+msgstr "Ouzhpennañ ur grafik d'ar gael"
 
 #: js/messages.php:125
 msgid "Please add at least one variable to the series"
