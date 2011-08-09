@@ -1185,7 +1185,7 @@ msgstr "Takad eskemm klok"
 
 #: js/messages.php:108
 msgid "Cached Swap"
-msgstr ""
+msgstr "Takad eskemm krubuilhet"
 
 #: js/messages.php:109
 msgid "Used Swap"
