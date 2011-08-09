@@ -1259,7 +1259,7 @@ msgstr "slow_query_log 已启用。"
 
 #: js/messages.php:133
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "slow_query_log 和 general_log 已禁用。"
 
 #: js/messages.php:134
 msgid "log_output is not set to TABLE."
