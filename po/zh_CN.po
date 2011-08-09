@@ -1306,10 +1306,10 @@ msgstr "启用 %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:144
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disabled"
 msgid "Disable %s"
-msgstr "已禁用"
+msgstr "禁用 %s"
 
 #. l10n: %d seconds
 #: js/messages.php:146
