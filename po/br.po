@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-09 16:45+0100\n"
-"PO-Revision-Date: 2011-07-17 21:41+0200\n"
+"PO-Revision-Date: 2011-08-09 19:26+0200\n"
 "Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -1118,15 +1118,14 @@ msgstr "Kevreadennoù/Argerzhioù"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
-#, fuzzy
 #| msgid "Connections since last refresh"
 msgid "Questions since last refresh"
-msgstr "Kevreadennoù abaoe ar freskadenn ziwezhañ"
+msgstr "Goulennnoù abaoe ar freskadenn ziwezhañ"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:89
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "Goulennoù (lavarennoù sevenet gant ar servijer)"
 
 #: js/messages.php:91 server_status.php:649
 msgid "Query statistics"
@@ -1134,15 +1133,15 @@ msgstr "Stadegoù war ar rekedoù"
 
 #: js/messages.php:94
 msgid "System CPU Usage"
-msgstr ""
+msgstr "Implij CPU ar reizhiad"
 
 #: js/messages.php:95
 msgid "System memory"
-msgstr ""
+msgstr "Memor reizhiad"
 
 #: js/messages.php:96
 msgid "System swap"
-msgstr ""
+msgstr "Takad eskemm reizhiad (swap)"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:97 libraries/common.lib.php:1303 server_status.php:1512
@@ -1156,132 +1155,128 @@ msgstr "Kio"
 
 #: js/messages.php:100
 msgid "Average load"
-msgstr ""
+msgstr "Karg keitat"
 
 #: js/messages.php:101
-#, fuzzy
 #| msgid "Total count"
 msgid "Total memory"
-msgstr "Sammad hollek"
+msgstr "Memor hollek"
 
 #: js/messages.php:102
 msgid "Cached memory"
-msgstr ""
+msgstr "Memor krubuilh"
 
 #: js/messages.php:103
 msgid "Buffered memory"
-msgstr ""
+msgstr "Memor skurzer"
 
 #: js/messages.php:104
 msgid "Free memory"
-msgstr ""
+msgstr "Memor vak"
 
 #: js/messages.php:105
 msgid "Used memory"
-msgstr ""
+msgstr "Memor implijet"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "Hollad"
+msgstr "Takad eskemm klok"
 
 #: js/messages.php:108
 msgid "Cached Swap"
-msgstr ""
+msgstr "Takad eskemm krubuilhet"
 
 #: js/messages.php:109
 msgid "Used Swap"
-msgstr ""
+msgstr "Takad eskemm implijet"
 
 #: js/messages.php:110
 msgid "Free Swap"
-msgstr ""
+msgstr "Takad eskemm vak"
 
 #: js/messages.php:112
 msgid "Bytes sent"
-msgstr ""
+msgstr "Oktedoù kaset"
 
 #: js/messages.php:113
 msgid "Bytes received"
-msgstr ""
+msgstr "Oktedoù resevet"
 
 #: js/messages.php:114 server_status.php:994
 msgid "Connections"
-msgstr ""
+msgstr "Kevreadennoù"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:118
-#, fuzzy
 #| msgid "Versions"
 msgid "Questions"
-msgstr "Stummoù"
+msgstr "Goulennoù"
 
 #: js/messages.php:119 server_status.php:949
 msgid "Traffic"
-msgstr ""
+msgstr "Tremenerezh"
 
 #: js/messages.php:120 libraries/server_links.inc.php:73
 #: server_status.php:1396
 msgid "Settings"
-msgstr ""
+msgstr "Arventennoù"
 
 #: js/messages.php:121
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "Dilemel an diaz roadennoù"
+msgstr "Dilemel ar grafik"
 
 #: js/messages.php:122
 msgid "Edit title and labels"
-msgstr ""
+msgstr "Kemmañ an titl hag an tikedennoù"
 
 #: js/messages.php:123
 msgid "Add chart to grid"
-msgstr ""
+msgstr "Ouzhpennañ ur grafik d'ar gael"
 
 #: js/messages.php:125
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "Ouzhpennit da nebeutañ unan eus an argemennoù d'an heuliad"
 
 #: js/messages.php:126 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:567 libraries/export/sql.php:1052
 #: libraries/tbl_properties.inc.php:544 pmd_general.php:510
 #: server_privileges.php:2042 server_status.php:1109 server_status.php:1529
 msgid "None"
-msgstr ""
+msgstr "Hini"
 
 #: js/messages.php:127
 msgid "Resume monitor"
-msgstr ""
+msgstr "Adkregiñ gant an evezhiañ"
 
 #: js/messages.php:128
 msgid "Pause monitor"
-msgstr ""
+msgstr "Paouez gant an evezhiañ"
 
 #: js/messages.php:130
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "Gweredekaet eo general_log ha slow_query_log."
 
 #: js/messages.php:131
 msgid "general_log is enabled."
-msgstr ""
+msgstr "Gweredekaet eo general_log."
 
 #: js/messages.php:132
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "Gweredekaet eo slow_query_log."
 
 #: js/messages.php:133
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "Diweredekaet eo general_log ha slow_query_log."
 
 #: js/messages.php:134
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "N'eo ket bet lakaet log_output da TABLE."
 
 #: js/messages.php:135
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "Lakaet eo bet log_output da TABLE."
 
 #: js/messages.php:136
 #, php-format
