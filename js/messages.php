@@ -234,6 +234,7 @@ $js_messages['strSortHint'] = __('Click to sort');
 $js_messages['strColMarkHint'] = __('Click to mark/unmark');
 $js_messages['strColVisibHint'] = __('Click the drop-down arrow<br />to toggle column\'s visibility');
 $js_messages['strShowAllCol'] = __('Show all');
+$js_messages['strAlertNonUnique'] = __('This table contains no unique field. Features related to the grid edit, checkbox, Edit, Copy and Delete links may not work after saving.');
 
 /* password generation */
 $js_messages['strGeneratePassword'] = __('Generate password');

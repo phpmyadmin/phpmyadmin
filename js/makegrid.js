@@ -33,6 +33,8 @@
             isCellEdited: false,        // true if at least one cell has been edited
             saveCellWarning: '',        // string, warning text when user want to leave a page with unsaved edited data
             lastXHR : null,             // last XHR object used in AJAX request
+            isSaving: false,            // true when currently saving edited data, used to handle double posting caused by pressing ENTER in grid edit text box in Chrome browser
+            alertNonUnique: '',         // string, alert shown when saving edited nonunique table
             
             // common hidden inputs
             token: null,
@@ -685,6 +687,7 @@
                         }
 
                         g.lastXHR = $.post('sql.php', post_params, function(data) {
+                            g.lastXHR = null;
                             $editArea.removeClass('edit_area_loading');
                             // save original_data
                             var value = $(data.dropdown).val();
@@ -719,6 +722,7 @@
                                 'curr_value' : curr_value
                         }
                         g.lastXHR = $.post('sql.php', post_params, function(data) {
+                            g.lastXHR = null;
                             $editArea.removeClass('edit_area_loading');
                             $editArea.append(data.dropdown);
                             $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
@@ -748,6 +752,7 @@
                         }
 
                         g.lastXHR = $.post('sql.php', post_params, function(data) {
+                            g.lastXHR = null;
                             $editArea.removeClass('edit_area_loading');
                             $editArea.append(data.select);
                             $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
@@ -791,6 +796,7 @@
                                 'sql_query' : sql_query,
                                 'grid_edit' : true
                             }, function(data) {
+                                g.lastXHR = null;
                                 $editArea.removeClass('edit_area_loading');
                                 if(data.success == true) {
                                     if ($td.is('.truncated')) {
@@ -835,6 +841,11 @@
              * Post the content of edited cell.
              */
             postEditedCell: function() {
+                if (g.isSaving) {
+                    return;
+                }
+                g.isSaving = true;
+                
                 /**
                  * @var relation_fields Array containing the name/value pairs of relational fields
                  */
@@ -877,6 +888,11 @@
                 var me_fields_name = Array();
                 var me_fields = Array();
                 var me_fields_null = Array();
+                
+                // alert user if edited table is not unique
+                if (!is_unique) {
+                    alert(g.alertNonUnique);
+                }
                 
                 // loop each edited row
                 $('.to_be_saved').parents('tr').each(function() {
@@ -1012,6 +1028,7 @@
                     data: post_params,
                     success:
                         function(data) {
+                            g.isSaving = false;
                             if (!g.saveCellsAtOnce) {
                                 $(g.cEdit).find('*').removeAttr('disabled');
                                 $editArea.removeClass('edit_area_posting');
@@ -1290,6 +1307,7 @@
         // assign cell editing hint
         g.cellEditHint = PMA_messages['strCellEditHint'];
         g.saveCellWarning = PMA_messages['strSaveCellWarning'];
+        g.alertNonUnique = PMA_messages['strAlertNonUnique'];
         
         // initialize cell editing configuration
         g.saveCellsAtOnce = $('#save_cells_at_once').val();
