@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-09 08:42+0200\n"
+"PO-Revision-Date: 2011-08-09 08:43+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -1315,7 +1315,7 @@ msgstr "禁用 %s"
 #: js/messages.php:146
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "设置 long_query_time 为 %d 秒"
 
 #: js/messages.php:147
 msgid ""
