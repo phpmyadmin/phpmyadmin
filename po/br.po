@@ -1268,7 +1268,7 @@ msgstr "Gweredekaet eo slow_query_log."
 
 #: js/messages.php:133
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "Diweredekaet eo general_log ha slow_query_log."
 
 #: js/messages.php:134
 msgid "log_output is not set to TABLE."
