@@ -33,7 +33,7 @@ if (! isset($gis_data['gis_type'])) {
         $start = (substr($_REQUEST['value'], 0, 1) == "'") ? 1 : 0;
         $gis_data['gis_type'] = substr($_REQUEST['value'], $start, strpos($_REQUEST['value'], "(") - $start);
     }
-    if(! in_array($gis_data['gis_type'], $gis_types)) {
+    if((! isset($gis_data['gis_type'])) || (! in_array($gis_data['gis_type'], $gis_types))) {
         $gis_data['gis_type'] = $gis_types[0];
     }
 }
