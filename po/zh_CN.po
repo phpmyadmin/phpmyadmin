@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-08 16:05+0200\n"
-"PO-Revision-Date: 2011-08-08 08:33+0200\n"
+"PO-Revision-Date: 2011-08-09 08:05+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -1038,7 +1038,7 @@ msgstr "选择服务器"
 
 #: js/messages.php:67 server_status.php:670
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "实时连接/进程图"
 
 #: js/messages.php:68 server_status.php:688
 #, fuzzy
