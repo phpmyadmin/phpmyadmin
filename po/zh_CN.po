@@ -1334,10 +1334,9 @@ msgid "Current settings"
 msgstr "当前设置"
 
 #: js/messages.php:151 server_status.php:1472
-#, fuzzy
 #| msgid "Report title:"
 msgid "Chart Title"
-msgstr "报告标题："
+msgstr "图表标题"
 
 #. l10n: As in differential values
 #: js/messages.php:153
