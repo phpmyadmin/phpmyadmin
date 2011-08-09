@@ -348,7 +348,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 $quotetype       = $c;
                 $count2++;
                 $escaped         = false;
-                $escaped_escaped = false;
                 $pos             = $count2;
                 $oldpos          = 0;
                 do {
