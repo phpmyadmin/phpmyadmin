@@ -286,6 +286,10 @@ function PMA_TRI_getEditorForm($mode, $item)
         $original_data = "<input name='item_original_name' "
                        . "type='hidden' value='{$item['item_original_name']}'/>\n";
     }
+    $query  = "SELECT `TABLE_NAME` FROM `INFORMATION_SCHEMA`.`TABLES` ";
+    $query .= "WHERE `TABLE_SCHEMA`='" . PMA_sqlAddSlashes($db) . "' ";
+    $query .= "AND `TABLE_TYPE`='BASE TABLE'";
+    $tables = PMA_DBI_fetch_result($query);
 
     // Create the output
     $retval  = "";
@@ -306,16 +310,14 @@ function PMA_TRI_getEditorForm($mode, $item)
     $retval .= "    <td>" . __('Table') . "</td>\n";
     $retval .= "    <td>\n";
     $retval .= "        <select name='item_table'>\n";
-    foreach (PMA_DBI_get_tables($db) as $key => $value) {
+    foreach ($tables as $key => $value) {
         $selected = "";
-        if (! PMA_Table::isView($db, $value)) {
-            if ($mode == 'add' && $value == $table) {
-                $selected = " selected='selected'";
-            } else if ($mode == 'edit' && $value == $item['item_table']) {
-                $selected = " selected='selected'";
-            }
-            $retval .= "            <option$selected>$value</option>\n";
+        if ($mode == 'add' && $value == $table) {
+            $selected = " selected='selected'";
+        } else if ($mode == 'edit' && $value == $item['item_table']) {
+            $selected = " selected='selected'";
         }
+        $retval .= "            <option$selected>$value</option>\n";
     }
     $retval .= "        </select>\n";
     $retval .= "    </td>\n";
