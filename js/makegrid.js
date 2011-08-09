@@ -686,6 +686,7 @@
                         }
 
                         g.lastXHR = $.post('sql.php', post_params, function(data) {
+                            g.lastXHR = null;
                             $editArea.removeClass('edit_area_loading');
                             // save original_data
                             var value = $(data.dropdown).val();
@@ -720,6 +721,7 @@
                                 'curr_value' : curr_value
                         }
                         g.lastXHR = $.post('sql.php', post_params, function(data) {
+                            g.lastXHR = null;
                             $editArea.removeClass('edit_area_loading');
                             $editArea.append(data.dropdown);
                             $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
@@ -749,6 +751,7 @@
                         }
 
                         g.lastXHR = $.post('sql.php', post_params, function(data) {
+                            g.lastXHR = null;
                             $editArea.removeClass('edit_area_loading');
                             $editArea.append(data.select);
                             $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
@@ -792,6 +795,7 @@
                                 'sql_query' : sql_query,
                                 'grid_edit' : true
                             }, function(data) {
+                                g.lastXHR = null;
                                 $editArea.removeClass('edit_area_loading');
                                 if(data.success == true) {
                                     if ($td.is('.truncated')) {
