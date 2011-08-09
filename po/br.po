@@ -1260,7 +1260,7 @@ msgstr "Gweredekaet eo general_log ha slow_query_log."
 
 #: js/messages.php:131
 msgid "general_log is enabled."
-msgstr ""
+msgstr "Gweredekaet eo general_log."
 
 #: js/messages.php:132
 msgid "slow_query_log is enabled."
