@@ -679,8 +679,6 @@ class PMA_File
     function advanceFilePointer($length)
     {
         while ($length > 0) {
-            // Disable read progresivity, otherwise we eat all memory!
-            $read_multiply = 1; // required?
             $this->getNextChunk($length);
             $length -= $this->getChunkSize();
         }
