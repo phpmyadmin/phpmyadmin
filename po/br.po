@@ -1176,7 +1176,7 @@ msgstr "Memor vak"
 
 #: js/messages.php:105
 msgid "Used memory"
-msgstr ""
+msgstr "Memor implijet"
 
 #: js/messages.php:107
 #, fuzzy
