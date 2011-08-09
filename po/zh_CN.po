@@ -1243,7 +1243,7 @@ msgstr "继续监控"
 
 #: js/messages.php:128
 msgid "Pause monitor"
-msgstr ""
+msgstr "暂停监控"
 
 #: js/messages.php:130
 msgid "general_log and slow_query_log are enabled."
