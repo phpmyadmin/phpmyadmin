@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-08 16:05+0200\n"
+"POT-Creation-Date: 2011-08-09 16:45+0100\n"
 "PO-Revision-Date: 2011-08-01 18:53+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 msgid "Show all"
 msgstr "Mostrar todo"
 
-#: browse_foreigners.php:70 libraries/common.lib.php:2227
+#: browse_foreigners.php:70 libraries/common.lib.php:2244
 #: libraries/export/pdf.php:135
 #: libraries/schema/Pdf_Relation_Schema.class.php:247
 #: libraries/schema/Pdf_Relation_Schema.class.php:1098
@@ -38,19 +38,19 @@ msgstr ""
 "principal o su navegador está bloqueando las actualizaciones en ventanas "
 "múltiples debido a sus parámetros de seguridad."
 
-#: browse_foreigners.php:151 libraries/common.lib.php:2838
-#: libraries/common.lib.php:2845 libraries/common.lib.php:3031
-#: libraries/common.lib.php:3032 libraries/db_links.inc.php:60
+#: browse_foreigners.php:151 libraries/common.lib.php:2855
+#: libraries/common.lib.php:2862 libraries/common.lib.php:3048
+#: libraries/common.lib.php:3049 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "Buscar"
 
 #: browse_foreigners.php:154 db_operations.php:369 db_operations.php:409
-#: db_operations.php:517 db_operations.php:544 db_search.php:335
+#: db_operations.php:517 db_operations.php:544 db_search.php:329
 #: db_structure.php:529 enum_editor.php:63 js/messages.php:187
-#: libraries/Config.class.php:1182 libraries/Theme_Manager.class.php:297
-#: libraries/auth/cookie.auth.lib.php:246 libraries/common.lib.php:1282
-#: libraries/common.lib.php:2203 libraries/core.lib.php:508
+#: libraries/Config.class.php:1182 libraries/Theme_Manager.class.php:302
+#: libraries/auth/cookie.auth.lib.php:246 libraries/common.lib.php:1279
+#: libraries/common.lib.php:2220 libraries/core.lib.php:508
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:349 libraries/display_import.lib.php:267
@@ -58,7 +58,7 @@ msgstr "Buscar"
 #: libraries/replication_gui.lib.php:76 libraries/replication_gui.lib.php:375
 #: libraries/rte/rte_events.lib.php:493 libraries/rte/rte_routines.lib.php:959
 #: libraries/rte/rte_routines.lib.php:1435
-#: libraries/rte/rte_triggers.lib.php:367
+#: libraries/rte/rte_triggers.lib.php:371
 #: libraries/schema/User_Schema.class.php:120
 #: libraries/schema/User_Schema.class.php:172
 #: libraries/schema/User_Schema.class.php:405
@@ -92,8 +92,8 @@ msgstr "Nombre de la clave"
 msgid "Description"
 msgstr "Descripción"
 
-#: browse_foreigners.php:248 browse_foreigners.php:257
-#: browse_foreigners.php:269 browse_foreigners.php:277
+#: browse_foreigners.php:249 browse_foreigners.php:258
+#: browse_foreigners.php:270 browse_foreigners.php:278
 msgid "Use this value"
 msgstr "Use este valor"
 
@@ -252,11 +252,11 @@ msgstr "Ver el volcado (esquema) de la base de datos"
 msgid "No tables found in database."
 msgstr "No se han encontrado tablas en la base de datos."
 
-#: db_export.php:40 db_search.php:317 server_export.php:26
+#: db_export.php:40 db_search.php:311 server_export.php:26
 msgid "Select All"
 msgstr "Seleccionar todo"
 
-#: db_export.php:42 db_search.php:320 server_export.php:28
+#: db_export.php:42 db_search.php:314 server_export.php:28
 msgid "Unselect All"
 msgstr "Deseleccionar todo"
 
@@ -492,7 +492,7 @@ msgstr "Usar tablas"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "Consulta a la base de datos <b>%s</b>:"
 
-#: db_qbe.php:955 libraries/common.lib.php:1140
+#: db_qbe.php:955 libraries/common.lib.php:1137
 msgid "Submit Query"
 msgstr "Ejecutar la consulta"
 
@@ -503,48 +503,48 @@ msgstr "Ejecutar la consulta"
 msgid "Access denied"
 msgstr "Acceso denegado"
 
-#: db_search.php:42 db_search.php:284
+#: db_search.php:42 db_search.php:278
 msgid "at least one of the words"
 msgstr "al menos una de estas palabras"
 
-#: db_search.php:43 db_search.php:285
+#: db_search.php:43 db_search.php:279
 msgid "all words"
 msgstr "Todas las palabras"
 
-#: db_search.php:44 db_search.php:286
+#: db_search.php:44 db_search.php:280
 msgid "the exact phrase"
 msgstr "La frase exacta"
 
-#: db_search.php:45 db_search.php:287
+#: db_search.php:45 db_search.php:281
 msgid "as regular expression"
 msgstr "como expresión regular"
 
-#: db_search.php:206
+#: db_search.php:200
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Resultados de la búsqueda para \"<i>%s</i>\" %s:"
 
 # singular: %s resultado en la tabla <i>%s</i>
 # plural: %s resultados en la tabla <i>%s</i>
-#: db_search.php:224
+#: db_search.php:218
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s resultado en la tabla <i>%s</i>"
 msgstr[1] "%s resultados en la tabla <i>%s</i>"
 
-#: db_search.php:231 libraries/common.lib.php:2840
-#: libraries/common.lib.php:3029 libraries/common.lib.php:3030
+#: db_search.php:225 libraries/common.lib.php:2857
+#: libraries/common.lib.php:3046 libraries/common.lib.php:3047
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:566
 msgid "Browse"
 msgstr "Examinar"
 
-#: db_search.php:236
+#: db_search.php:230
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "¿Eliminar las coincidencias para la tabla %s?"
 
-#: db_search.php:236 libraries/display_tbl.lib.php:1352
+#: db_search.php:230 libraries/display_tbl.lib.php:1352
 #: libraries/display_tbl.lib.php:2328
 #: libraries/schema/User_Schema.class.php:165
 #: libraries/schema/User_Schema.class.php:234
@@ -556,34 +556,34 @@ msgstr "¿Eliminar las coincidencias para la tabla %s?"
 msgid "Delete"
 msgstr "Borrar"
 
-#: db_search.php:249
+#: db_search.php:243
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>Total:</b> <i>%s</i> resultado"
 msgstr[1] "<b>Total:</b> <i>%s</i> resultados"
 
-#: db_search.php:272
+#: db_search.php:266
 msgid "Search in database"
 msgstr "Buscar en la base de datos"
 
-#: db_search.php:275
+#: db_search.php:269
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Palabras o valores a buscar (comodín: \"%\"):"
 
-#: db_search.php:280
+#: db_search.php:274
 msgid "Find:"
 msgstr "Encontrado:"
 
-#: db_search.php:284 db_search.php:285
+#: db_search.php:278 db_search.php:279
 msgid "Words are separated by a space character (\" \")."
 msgstr "Las palabras están separadas por un espacio (\" \")."
 
-#: db_search.php:298
+#: db_search.php:292
 msgid "Inside tables:"
 msgstr "Dentro de las tablas:"
 
-#: db_search.php:328
+#: db_search.php:322
 msgid "Inside column:"
 msgstr "Dentro de la columna:"
 
@@ -668,8 +668,8 @@ msgstr "Desmarcar todos"
 msgid "Check tables having overhead"
 msgstr "Marcar las tablas con residuo a depurar"
 
-#: db_structure.php:497 libraries/common.lib.php:3042
-#: libraries/common.lib.php:3043 libraries/config/messages.inc.php:164
+#: db_structure.php:497 libraries/common.lib.php:3059
+#: libraries/common.lib.php:3060 libraries/config/messages.inc.php:164
 #: libraries/db_links.inc.php:56 libraries/display_tbl.lib.php:2366
 #: libraries/display_tbl.lib.php:2504 libraries/server_links.inc.php:65
 #: libraries/tbl_links.inc.php:80 prefs_manage.php:286
@@ -683,13 +683,13 @@ msgstr "Exportar"
 msgid "Print view"
 msgstr "Vista de impresión"
 
-#: db_structure.php:503 libraries/common.lib.php:3038
-#: libraries/common.lib.php:3039
+#: db_structure.php:503 libraries/common.lib.php:3055
+#: libraries/common.lib.php:3056
 msgid "Empty"
 msgstr "Vaciar"
 
 #: db_structure.php:505 db_tracking.php:104 libraries/Index.class.php:482
-#: libraries/common.lib.php:3036 libraries/common.lib.php:3037
+#: libraries/common.lib.php:3053 libraries/common.lib.php:3054
 #: server_databases.php:265 tbl_structure.php:151 tbl_structure.php:152
 #: tbl_structure.php:570
 msgid "Drop"
@@ -939,7 +939,7 @@ msgstr ""
 msgid "Your SQL query has been executed successfully"
 msgstr "Su consulta se ejecutó con éxito"
 
-#: import_status.php:29 libraries/common.lib.php:641
+#: import_status.php:29 libraries/common.lib.php:636
 #: libraries/schema/Export_Relation_Schema.class.php:203 user_password.php:109
 msgid "Back"
 msgstr "Volver"
@@ -1048,8 +1048,8 @@ msgid "Close"
 msgstr "Cerrar"
 
 #: js/messages.php:64 js/messages.php:230 libraries/Index.class.php:460
-#: libraries/common.lib.php:585 libraries/common.lib.php:1116
-#: libraries/common.lib.php:3040 libraries/common.lib.php:3041
+#: libraries/common.lib.php:580 libraries/common.lib.php:1113
+#: libraries/common.lib.php:3057 libraries/common.lib.php:3058
 #: libraries/config/messages.inc.php:473 libraries/display_tbl.lib.php:1316
 #: libraries/schema/User_Schema.class.php:164 setup/frames/index.inc.php:138
 msgid "Edit"
@@ -1085,12 +1085,12 @@ msgid "Other"
 msgstr "Otro"
 
 #. l10n: Thousands separator
-#: js/messages.php:76 libraries/common.lib.php:1356
+#: js/messages.php:76 libraries/common.lib.php:1353
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:78 libraries/common.lib.php:1358
+#: js/messages.php:78 libraries/common.lib.php:1355
 msgid "."
 msgstr "."
 
@@ -1145,12 +1145,12 @@ msgid "System swap"
 msgstr "Intercambio de sistema"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:97 libraries/common.lib.php:1306 server_status.php:1512
+#: js/messages.php:97 libraries/common.lib.php:1303 server_status.php:1512
 msgid "MiB"
 msgstr "MB"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:98 libraries/common.lib.php:1304 server_status.php:1512
+#: js/messages.php:98 libraries/common.lib.php:1301 server_status.php:1512
 msgid "KiB"
 msgstr "KB"
 
@@ -1617,7 +1617,7 @@ msgstr "Ocultar"
 msgid "No rows selected"
 msgstr "No se seleccionaron filas"
 
-#: js/messages.php:234 libraries/common.lib.php:2500
+#: js/messages.php:234 libraries/common.lib.php:2517
 #: libraries/display_tbl.lib.php:2361 querywindow.php:90 querywindow.php:94
 #: querywindow.php:97 tbl_structure.php:150 tbl_structure.php:569
 msgid "Change"
@@ -1735,8 +1735,8 @@ msgid "Prev"
 msgstr "Previo"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:298 libraries/common.lib.php:2266
-#: libraries/common.lib.php:2269 libraries/display_tbl.lib.php:370
+#: js/messages.php:298 libraries/common.lib.php:2283
+#: libraries/common.lib.php:2286 libraries/display_tbl.lib.php:370
 #: server_binlog.php:170 server_binlog.php:172 tbl_printview.php:388
 #: tbl_structure.php:900
 msgid "Next"
@@ -1796,63 +1796,63 @@ msgid "December"
 msgstr "Diciembre"
 
 #. l10n: Short month name
-#: js/messages.php:318 libraries/common.lib.php:1492
+#: js/messages.php:318 libraries/common.lib.php:1503
 msgid "Jan"
 msgstr "Ene"
 
 #. l10n: Short month name
-#: js/messages.php:320 libraries/common.lib.php:1494
+#: js/messages.php:320 libraries/common.lib.php:1505
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name
-#: js/messages.php:322 libraries/common.lib.php:1496
+#: js/messages.php:322 libraries/common.lib.php:1507
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:324 libraries/common.lib.php:1498
+#: js/messages.php:324 libraries/common.lib.php:1509
 msgid "Apr"
 msgstr "Abr"
 
 #. l10n: Short month name
-#: js/messages.php:326 libraries/common.lib.php:1500
+#: js/messages.php:326 libraries/common.lib.php:1511
 msgctxt "Short month name"
 msgid "May"
 msgstr "May"
 
 #. l10n: Short month name
-#: js/messages.php:328 libraries/common.lib.php:1502
+#: js/messages.php:328 libraries/common.lib.php:1513
 msgid "Jun"
 msgstr "Jun"
 
 #. l10n: Short month name
-#: js/messages.php:330 libraries/common.lib.php:1504
+#: js/messages.php:330 libraries/common.lib.php:1515
 msgid "Jul"
 msgstr "Jul"
 
 #. l10n: Short month name
-#: js/messages.php:332 libraries/common.lib.php:1506
+#: js/messages.php:332 libraries/common.lib.php:1517
 msgid "Aug"
 msgstr "Ago"
 
 #. l10n: Short month name
-#: js/messages.php:334 libraries/common.lib.php:1508
+#: js/messages.php:334 libraries/common.lib.php:1519
 msgid "Sep"
 msgstr "Sep"
 
 #. l10n: Short month name
-#: js/messages.php:336 libraries/common.lib.php:1510
+#: js/messages.php:336 libraries/common.lib.php:1521
 msgid "Oct"
 msgstr "Oct"
 
 #. l10n: Short month name
-#: js/messages.php:338 libraries/common.lib.php:1512
+#: js/messages.php:338 libraries/common.lib.php:1523
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:340 libraries/common.lib.php:1514
+#: js/messages.php:340 libraries/common.lib.php:1525
 msgid "Dec"
 msgstr "Dic"
 
@@ -1893,32 +1893,32 @@ msgid "Sun"
 msgstr "Dom"
 
 #. l10n: Short week day name
-#: js/messages.php:355 libraries/common.lib.php:1519
+#: js/messages.php:355 libraries/common.lib.php:1530
 msgid "Mon"
 msgstr "Lun"
 
 #. l10n: Short week day name
-#: js/messages.php:357 libraries/common.lib.php:1521
+#: js/messages.php:357 libraries/common.lib.php:1532
 msgid "Tue"
 msgstr "Mar"
 
 #. l10n: Short week day name
-#: js/messages.php:359 libraries/common.lib.php:1523
+#: js/messages.php:359 libraries/common.lib.php:1534
 msgid "Wed"
 msgstr "Mie"
 
 #. l10n: Short week day name
-#: js/messages.php:361 libraries/common.lib.php:1525
+#: js/messages.php:361 libraries/common.lib.php:1536
 msgid "Thu"
 msgstr "Jue"
 
 #. l10n: Short week day name
-#: js/messages.php:363 libraries/common.lib.php:1527
+#: js/messages.php:363 libraries/common.lib.php:1538
 msgid "Fri"
 msgstr "Vie"
 
 #. l10n: Short week day name
-#: js/messages.php:365 libraries/common.lib.php:1529
+#: js/messages.php:365 libraries/common.lib.php:1540
 msgid "Sat"
 msgstr "Sab"
 
@@ -2083,14 +2083,14 @@ msgstr ""
 "Los índices %1$s y %2$s parecen ser iguales y posiblemente se puede eliminar "
 "uno."
 
-#: libraries/List_Database.class.php:379 libraries/config/messages.inc.php:177
+#: libraries/List_Database.class.php:378 libraries/config/messages.inc.php:177
 #: libraries/server_links.inc.php:43 server_databases.php:99
 #: server_privileges.php:1827
 msgid "Databases"
 msgstr "Bases de datos"
 
 #: libraries/Message.class.php:193 libraries/blobstreaming.lib.php:320
-#: libraries/blobstreaming.lib.php:326 libraries/common.lib.php:552
+#: libraries/blobstreaming.lib.php:326 libraries/common.lib.php:547
 #: libraries/core.lib.php:210 libraries/import.lib.php:135 tbl_change.php:886
 #: tbl_operations.php:229 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
@@ -2193,22 +2193,22 @@ msgstr "No existe una previsualización disponible."
 msgid "take it"
 msgstr "tómelo"
 
-#: libraries/Theme_Manager.class.php:109
+#: libraries/Theme_Manager.class.php:110
 #, php-format
 msgid "Default theme %s not found!"
 msgstr "¡No se halló el tema predeterminado %s!"
 
-#: libraries/Theme_Manager.class.php:147
+#: libraries/Theme_Manager.class.php:151
 #, php-format
 msgid "Theme %s not found!"
 msgstr "¡No se halló el tema %s!"
 
-#: libraries/Theme_Manager.class.php:210
+#: libraries/Theme_Manager.class.php:216
 #, php-format
 msgid "Theme path not found for theme %s!"
 msgstr "¡No se halló la ruta del tema %s!"
 
-#: libraries/Theme_Manager.class.php:284 themes.php:20 themes.php:27
+#: libraries/Theme_Manager.class.php:289 themes.php:20 themes.php:27
 msgid "Theme"
 msgstr "Tema"
 
@@ -2476,27 +2476,27 @@ msgid "Max: %s%s"
 msgstr "Máximo: %s%s"
 
 #. l10n: Language to use for MySQL 5.5 documentation, please use only languages which do exist in official documentation.
-#: libraries/common.lib.php:393
+#: libraries/common.lib.php:388
 msgctxt "MySQL 5.5 documentation language"
 msgid "en"
 msgstr "en"
 
 #. l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.
-#: libraries/common.lib.php:397
+#: libraries/common.lib.php:392
 msgctxt "MySQL 5.1 documentation language"
 msgid "en"
 msgstr "en"
 
 #. l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation.
-#: libraries/common.lib.php:401
+#: libraries/common.lib.php:396
 msgctxt "MySQL 5.0 documentation language"
 msgid "en"
 msgstr "es"
 
-#: libraries/common.lib.php:415 libraries/common.lib.php:417
-#: libraries/common.lib.php:419 libraries/common.lib.php:436
-#: libraries/common.lib.php:438 libraries/common.lib.php:456
-#: libraries/common.lib.php:458 libraries/config/FormDisplay.tpl.php:162
+#: libraries/common.lib.php:410 libraries/common.lib.php:412
+#: libraries/common.lib.php:414 libraries/common.lib.php:431
+#: libraries/common.lib.php:433 libraries/common.lib.php:451
+#: libraries/common.lib.php:453 libraries/config/FormDisplay.tpl.php:162
 #: libraries/display_export.lib.php:234 libraries/engines/pbms.lib.php:71
 #: libraries/engines/pbxt.lib.php:106 libraries/relation.lib.php:74
 #: libraries/sql_query_form.lib.php:387 libraries/sql_query_form.lib.php:390
@@ -2504,12 +2504,12 @@ msgstr "es"
 msgid "Documentation"
 msgstr "Documentación"
 
-#: libraries/common.lib.php:564 libraries/header_printview.inc.php:60
+#: libraries/common.lib.php:559 libraries/header_printview.inc.php:60
 #: server_status.php:491 server_status.php:1077
 msgid "SQL query"
 msgstr "consulta SQL"
 
-#: libraries/common.lib.php:600 libraries/rte/rte_events.lib.php:103
+#: libraries/common.lib.php:595 libraries/rte/rte_events.lib.php:103
 #: libraries/rte/rte_events.lib.php:108 libraries/rte/rte_events.lib.php:118
 #: libraries/rte/rte_events.lib.php:131 libraries/rte/rte_routines.lib.php:255
 #: libraries/rte/rte_routines.lib.php:260
@@ -2522,129 +2522,129 @@ msgstr "consulta SQL"
 msgid "MySQL said: "
 msgstr "MySQL ha dicho: "
 
-#: libraries/common.lib.php:1050
+#: libraries/common.lib.php:1047
 msgid "Failed to connect to SQL validator!"
 msgstr "No pudo conectarse a un validador de SQL!"
 
-#: libraries/common.lib.php:1091 libraries/config/messages.inc.php:474
+#: libraries/common.lib.php:1088 libraries/config/messages.inc.php:474
 msgid "Explain SQL"
 msgstr "Explicar SQL"
 
-#: libraries/common.lib.php:1095
+#: libraries/common.lib.php:1092
 msgid "Skip Explain SQL"
 msgstr "Omitir la explicación del SQL"
 
-#: libraries/common.lib.php:1129
+#: libraries/common.lib.php:1126
 msgid "Without PHP Code"
 msgstr "Sin código PHP"
 
-#: libraries/common.lib.php:1132 libraries/config/messages.inc.php:476
+#: libraries/common.lib.php:1129 libraries/config/messages.inc.php:476
 msgid "Create PHP Code"
 msgstr "Crear código PHP"
 
-#: libraries/common.lib.php:1150 libraries/config/messages.inc.php:475
+#: libraries/common.lib.php:1147 libraries/config/messages.inc.php:475
 #: server_status.php:659 server_status.php:681 server_status.php:700
 msgid "Refresh"
 msgstr "Actualizar"
 
-#: libraries/common.lib.php:1159
+#: libraries/common.lib.php:1156
 msgid "Skip Validate SQL"
 msgstr "Saltar la validación de SQL"
 
-#: libraries/common.lib.php:1162 libraries/config/messages.inc.php:478
+#: libraries/common.lib.php:1159 libraries/config/messages.inc.php:478
 msgid "Validate SQL"
 msgstr "Validar SQL"
 
-#: libraries/common.lib.php:1217
+#: libraries/common.lib.php:1214
 msgid "Inline edit of this query"
 msgstr "Edición en linea de esta consulta"
 
-#: libraries/common.lib.php:1219
+#: libraries/common.lib.php:1216
 msgid "Inline"
 msgstr "En línea"
 
-#: libraries/common.lib.php:1281 sql.php:938
+#: libraries/common.lib.php:1278 sql.php:938
 msgid "Profiling"
 msgstr "Perfilando"
 
 #. l10n: shortcuts for Byte
-#: libraries/common.lib.php:1302
+#: libraries/common.lib.php:1299
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Gigabyte
-#: libraries/common.lib.php:1308
+#: libraries/common.lib.php:1305
 msgid "GiB"
 msgstr "GB"
 
 #. l10n: shortcuts for Terabyte
-#: libraries/common.lib.php:1310
+#: libraries/common.lib.php:1307
 msgid "TiB"
 msgstr "TB"
 
 #. l10n: shortcuts for Petabyte
-#: libraries/common.lib.php:1312
+#: libraries/common.lib.php:1309
 msgid "PiB"
 msgstr "PB"
 
 #. l10n: shortcuts for Exabyte
-#: libraries/common.lib.php:1314
+#: libraries/common.lib.php:1311
 msgid "EiB"
 msgstr "EB"
 
 #. l10n: Short week day name
-#: libraries/common.lib.php:1517
+#: libraries/common.lib.php:1528
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Dom"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
-#: libraries/common.lib.php:1533
+#: libraries/common.lib.php:1544
 #: libraries/transformations/text_plain__dateformat.inc.php:35
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d-%m-%Y a las %H:%M:%S"
 
-#: libraries/common.lib.php:1839
+#: libraries/common.lib.php:1856
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s días, %s horas, %s minutos y %s segundos"
 
-#: libraries/common.lib.php:1927
+#: libraries/common.lib.php:1944
 msgid "Missing parameter:"
 msgstr "Parámetro faltante:"
 
-#: libraries/common.lib.php:2236 libraries/common.lib.php:2239
+#: libraries/common.lib.php:2253 libraries/common.lib.php:2256
 #: libraries/display_tbl.lib.php:306
 msgid "Begin"
 msgstr "Empezar"
 
-#: libraries/common.lib.php:2237 libraries/common.lib.php:2240
+#: libraries/common.lib.php:2254 libraries/common.lib.php:2257
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
 msgid "Previous"
 msgstr "Previo"
 
-#: libraries/common.lib.php:2267 libraries/common.lib.php:2270
+#: libraries/common.lib.php:2284 libraries/common.lib.php:2287
 #: libraries/display_tbl.lib.php:385 libraries/rte/rte_events.lib.php:457
 msgid "End"
 msgstr "Fin"
 
-#: libraries/common.lib.php:2335
+#: libraries/common.lib.php:2352
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "Saltar a la base de datos &quot;%s&quot;."
 
-#: libraries/common.lib.php:2351
+#: libraries/common.lib.php:2368
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "La funcionalidad %s está afectada por un fallo conocido, vea %s"
 
-#: libraries/common.lib.php:2507
+#: libraries/common.lib.php:2524
 msgid "Click to toggle"
 msgstr "Pulse para conmutar"
 
-#: libraries/common.lib.php:2836 libraries/common.lib.php:2843
-#: libraries/common.lib.php:3035 libraries/config/setup.forms.php:296
+#: libraries/common.lib.php:2853 libraries/common.lib.php:2860
+#: libraries/common.lib.php:3052 libraries/config/setup.forms.php:296
 #: libraries/config/setup.forms.php:333 libraries/config/setup.forms.php:367
 #: libraries/config/user_preferences.forms.php:196
 #: libraries/config/user_preferences.forms.php:233
@@ -2656,7 +2656,7 @@ msgstr "Pulse para conmutar"
 msgid "Structure"
 msgstr "Estructura"
 
-#: libraries/common.lib.php:2837 libraries/common.lib.php:2844
+#: libraries/common.lib.php:2854 libraries/common.lib.php:2861
 #: libraries/config/messages.inc.php:214 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
@@ -2664,39 +2664,39 @@ msgstr "Estructura"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:2839 libraries/common.lib.php:3033
-#: libraries/common.lib.php:3034 libraries/sql_query_form.lib.php:284
+#: libraries/common.lib.php:2856 libraries/common.lib.php:3050
+#: libraries/common.lib.php:3051 libraries/sql_query_form.lib.php:284
 #: libraries/sql_query_form.lib.php:287 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "Insertar"
 
-#: libraries/common.lib.php:2846 libraries/db_links.inc.php:86
+#: libraries/common.lib.php:2863 libraries/db_links.inc.php:86
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:114
 #: view_operations.php:87
 msgid "Operations"
 msgstr "Operaciones"
 
-#: libraries/common.lib.php:2979
+#: libraries/common.lib.php:2996
 msgid "Browse your computer:"
 msgstr "Buscar en su ordenador:"
 
-#: libraries/common.lib.php:2996
+#: libraries/common.lib.php:3013
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr ""
 "Seleccionar directorio en el servidor web para subir los archivos <b>%s</b>:"
 
-#: libraries/common.lib.php:3008 libraries/sql_query_form.lib.php:447
+#: libraries/common.lib.php:3025 libraries/sql_query_form.lib.php:447
 #: tbl_change.php:887
 msgid "The directory you set for upload work cannot be reached"
 msgstr ""
 "No se puede acceder al directorio que seleccionó para subir los archivos"
 
-#: libraries/common.lib.php:3016
+#: libraries/common.lib.php:3033
 msgid "There are no files to upload"
 msgstr "No hay archivos para subir"
 
-#: libraries/common.lib.php:3044 libraries/common.lib.php:3045
+#: libraries/common.lib.php:3061 libraries/common.lib.php:3062
 msgid "Execute"
 msgstr "Ejecutar"
 
@@ -7049,10 +7049,6 @@ msgstr "Se creó el evento %1$s."
 msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr "<b>Ocurrieron uno o más errores al procesar el pedido:</n>"
 
-#: libraries/rte/rte_events.lib.php:181
-msgid "Create event"
-msgstr "Crear evento"
-
 #: libraries/rte/rte_events.lib.php:185
 msgid "Edit event"
 msgstr "Editar evento"
@@ -7095,7 +7091,7 @@ msgid "Start"
 msgstr "Iniciar"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:912
-#: libraries/rte/rte_triggers.lib.php:348
+#: libraries/rte/rte_triggers.lib.php:352
 msgid "Definition"
 msgstr "Definición"
 
@@ -7104,12 +7100,12 @@ msgid "On completion preserve"
 msgstr "Preservar al completar"
 
 #: libraries/rte/rte_events.lib.php:475 libraries/rte/rte_routines.lib.php:922
-#: libraries/rte/rte_triggers.lib.php:354
+#: libraries/rte/rte_triggers.lib.php:358
 msgid "Definer"
 msgstr "Definidor"
 
 #: libraries/rte/rte_events.lib.php:518 libraries/rte/rte_routines.lib.php:986
-#: libraries/rte/rte_triggers.lib.php:392
+#: libraries/rte/rte_triggers.lib.php:396
 msgid "The definer must be in the \"username@hostname\" format"
 msgstr "El definidor tiene que ser en el formato \"usuario@sistema\""
 
@@ -7153,12 +7149,12 @@ msgstr "Estado del planificador de eventos"
 msgid "Returns"
 msgstr "Retorna"
 
-#: libraries/rte/rte_list.lib.php:62 libraries/rte/rte_triggers.lib.php:320
+#: libraries/rte/rte_list.lib.php:62 libraries/rte/rte_triggers.lib.php:324
 #: server_status.php:1074 sql.php:943
 msgid "Time"
 msgstr "Tiempo"
 
-#: libraries/rte/rte_list.lib.php:63 libraries/rte/rte_triggers.lib.php:334
+#: libraries/rte/rte_list.lib.php:63 libraries/rte/rte_triggers.lib.php:338
 msgid "Event"
 msgstr "Evento"
 
@@ -7192,10 +7188,6 @@ msgstr "Se modificó la rutina %1$s."
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "Se creó la rutina %1$s."
-
-#: libraries/rte/rte_routines.lib.php:340
-msgid "Create routine"
-msgstr "Crear rutina"
 
 #: libraries/rte/rte_routines.lib.php:344
 msgid "Edit routine"
@@ -7321,10 +7313,6 @@ msgstr "Se modificó el disparador %1$s."
 msgid "Trigger %1$s has been created."
 msgstr "Disparador %1$s creado."
 
-#: libraries/rte/rte_triggers.lib.php:157
-msgid "Create trigger"
-msgstr "Crear disparador"
-
 #: libraries/rte/rte_triggers.lib.php:161
 msgid "Edit trigger"
 msgstr "Editar disparador"
@@ -7333,23 +7321,23 @@ msgstr "Editar disparador"
 msgid "Trigger name"
 msgstr "Nombre del disparador"
 
-#: libraries/rte/rte_triggers.lib.php:399
+#: libraries/rte/rte_triggers.lib.php:403
 msgid "You must provide a trigger name"
 msgstr "Debe proveer un nombre de disparador"
 
-#: libraries/rte/rte_triggers.lib.php:404
+#: libraries/rte/rte_triggers.lib.php:408
 msgid "You must provide a valid timing for the trigger"
 msgstr "Debe proveer una sincronización válida para el disparador"
 
-#: libraries/rte/rte_triggers.lib.php:409
+#: libraries/rte/rte_triggers.lib.php:413
 msgid "You must provide a valid event for the trigger"
 msgstr "Debe proveer un evento válido para el disparador"
 
-#: libraries/rte/rte_triggers.lib.php:415
+#: libraries/rte/rte_triggers.lib.php:419
 msgid "You must provide a valid table name"
 msgstr "Debe proveer un nombre de tabla válido"
 
-#: libraries/rte/rte_triggers.lib.php:421
+#: libraries/rte/rte_triggers.lib.php:425
 msgid "You must provide a trigger definition."
 msgstr "Debe proveer una definición del disparador."
 
@@ -7739,19 +7727,19 @@ msgstr "INICIO DEL VOLCADO"
 msgid "END RAW"
 msgstr "FIN DEL VOLCADO"
 
-#: libraries/sqlparser.lib.php:371
+#: libraries/sqlparser.lib.php:382
 msgid "Automatically appended backtick to the end of query!"
 msgstr "Agregar comilla invertida al final de la consulta automáticamente"
 
-#: libraries/sqlparser.lib.php:374
+#: libraries/sqlparser.lib.php:385
 msgid "Unclosed quote"
 msgstr "Comillas sin cerrar"
 
-#: libraries/sqlparser.lib.php:526
+#: libraries/sqlparser.lib.php:537
 msgid "Invalid Identifer"
 msgstr "El identificador no es válido"
 
-#: libraries/sqlparser.lib.php:643
+#: libraries/sqlparser.lib.php:653
 msgid "Unknown Punctuation String"
 msgstr "Signo de puntuación desconocido"
 
@@ -11567,6 +11555,15 @@ msgstr "VER nombre"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Cambiar el nombre de la vista a"
+
+#~ msgid "Create event"
+#~ msgstr "Crear evento"
+
+#~ msgid "Create routine"
+#~ msgstr "Crear rutina"
+
+#~ msgid "Create trigger"
+#~ msgstr "Crear disparador"
 
 #~ msgid ""
 #~ "No themes support; please check your configuration and/or your themes in "
