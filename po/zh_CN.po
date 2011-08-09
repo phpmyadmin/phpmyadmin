@@ -1299,10 +1299,10 @@ msgstr "保存为文件"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:142
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
-msgstr "已启用"
+msgstr "启用 %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:144
