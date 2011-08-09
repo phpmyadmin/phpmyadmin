@@ -280,6 +280,13 @@ $js_messages['strNewerVersion'] = __('A newer version of phpMyAdmin is available
 $js_messages['strLatestAvailable'] = __(', latest stable version:');
 $js_messages['strUpToDate'] = __('up to date');
 
+/* Browsing grid */
+$js_messages['strColOrderHint'] = __('Drag to reorder');
+$js_messages['strSortHint'] = __('Click to sort');
+$js_messages['strMarkHint'] = __('Click to mark/unmark');
+$js_messages['strVisibHint'] = __('Click the drop-down arrow<br />to toggle column\'s visibility');
+$js_messages['strShowAll'] = __('Show all');
+
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {
     PMA_printJsValue("PMA_messages['" . $name . "']", $js_message);

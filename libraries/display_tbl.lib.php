@@ -419,12 +419,6 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
                      PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], 'Create_time') . '" />';
             }
         }
-        // generate hints
-        echo '<input id="col_order_hint" type="hidden" value="' . __('Drag to reorder') . '" />';
-        echo '<input id="sort_hint" type="hidden" value="' . __('Click to sort') . '" />';
-        echo '<input id="col_mark_hint" type="hidden" value="' . __('Click to mark/unmark') . '" />';
-        echo '<input id="col_visib_hint" type="hidden" value="' . __('Click the drop-down arrow<br />to toggle column\'s visibility') . '" />';
-        echo '<input id="show_all_col_text" type="hidden" value="' . __('Show all') . '" />';
         ?>
     </td>
 
@@ -552,7 +546,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 
                 echo '<form action="sql.php" method="post">' . "\n";
                 echo PMA_generate_common_hidden_inputs($db, $table);
-                echo __('Sort by key') . ': <select name="sql_query" onchange="this.form.submit();">' . "\n";
+                echo __('Sort by key') . ': <select name="sql_query" class="autosubmit">' . "\n";
                 $used_index = false;
                 $local_order = (isset($sort_expression) ? $sort_expression : '');
                 foreach ($indexes as $index) {

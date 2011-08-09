@@ -2091,7 +2091,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
 
                 echo '    <label for="text_dbname">' . __('Add privileges on the following database') . ':</label>' . "\n";
                 if (!empty($pred_db_array)) {
-                    echo '    <select name="pred_dbname" onchange="this.form.submit();">' . "\n"
+                    echo '    <select name="pred_dbname" class="autosubmit">' . "\n"
                        . '        <option value="" selected="selected">' . __('Use text field') . ':</option>' . "\n";
                     foreach ($pred_db_array as $current_db) {
                         $current_db = PMA_escape_mysql_wildcards($current_db);
@@ -2121,7 +2121,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                     PMA_DBI_free_result($res);
                     unset($res, $row);
                     if (!empty($pred_tbl_array)) {
-                        echo '    <select name="pred_tablename" onchange="this.form.submit();">' . "\n"
+                        echo '    <select name="pred_tablename" class="autosubmit">' . "\n"
                            . '        <option value="" selected="selected">' . __('Use text field') . ':</option>' . "\n";
                         foreach ($pred_tbl_array as $current_table) {
                             echo '        <option value="' . htmlspecialchars($current_table) . '">' . htmlspecialchars($current_table) . '</option>' . "\n";
