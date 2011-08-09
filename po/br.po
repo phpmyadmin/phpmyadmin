@@ -1164,7 +1164,7 @@ msgstr "Memor hollek"
 
 #: js/messages.php:102
 msgid "Cached memory"
-msgstr ""
+msgstr "Memor krubuilh"
 
 #: js/messages.php:103
 msgid "Buffered memory"
