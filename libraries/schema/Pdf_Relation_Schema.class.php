@@ -74,14 +74,6 @@ class PMA_Schema_PDF extends PMA_PDF
     }
 
     /**
-     * Getter for protected state.
-     */
-    public function getState()
-    {
-        return $this->state;
-    }
-
-    /**
      * Sets the scaling factor, defines minimum coordinates and margins
      *
      * @param float scale The scaling factor
