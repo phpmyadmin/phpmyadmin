@@ -2635,7 +2635,7 @@ msgstr "没有可上传的文件"
 
 #: libraries/common.lib.php:3061 libraries/common.lib.php:3062
 msgid "Execute"
-msgstr ""
+msgstr "执行"
 
 #: libraries/config.values.php:45 libraries/config.values.php:47
 #: libraries/config.values.php:51
