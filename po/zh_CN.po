@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-09 16:45+0100\n"
-"PO-Revision-Date: 2011-08-10 09:15+0200\n"
+"PO-Revision-Date: 2011-08-10 09:17+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -7645,7 +7645,6 @@ msgid "PARTITION definition"
 msgstr "分区定义"
 
 #: libraries/tbl_properties.inc.php:762
-#, fuzzy
 #| msgid "+ Add a new value"
 msgid "+ Add a value"
 msgstr "+ 添加"
