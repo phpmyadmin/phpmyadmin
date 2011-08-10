@@ -1661,10 +1661,9 @@ msgid ", latest stable version:"
 msgstr "，最新稳定版本: "
 
 #: js/messages.php:269
-#, fuzzy
 #| msgid "Jump to database"
 msgid "up to date"
-msgstr "转到数据库"
+msgstr "已更新"
 
 #: js/messages.php:272
 msgid "Drag to reorder"
