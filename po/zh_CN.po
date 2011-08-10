@@ -6940,10 +6940,9 @@ msgid "Return length/values"
 msgstr "返回长度/值"
 
 #: libraries/rte/rte_routines.lib.php:887
-#, fuzzy
 #| msgid "Table options"
 msgid "Return options"
-msgstr "表选项"
+msgstr "返回选项"
 
 #: libraries/rte/rte_routines.lib.php:918
 msgid "Is deterministic"
