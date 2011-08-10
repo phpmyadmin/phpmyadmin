@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-10 10:14-0400\n"
-"PO-Revision-Date: 2011-08-10 16:44+0200\n"
+"PO-Revision-Date: 2011-08-10 16:45+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -11404,10 +11404,9 @@ msgid "Show more actions"
 msgstr "Mostrar más acciones"
 
 #: tbl_structure.php:603
-#, fuzzy
 #| msgid "Print view"
 msgid "Edit view"
-msgstr "Vista de impresión"
+msgstr "Editar vista"
 
 #: tbl_structure.php:620
 msgid "Relation view"
