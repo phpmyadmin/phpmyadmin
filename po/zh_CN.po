@@ -9016,10 +9016,9 @@ msgid "Show unformatted values"
 msgstr "显示原始值"
 
 #: server_status.php:731
-#, fuzzy
 #| msgid "Related Links"
 msgid "Related links:"
-msgstr "相关链接"
+msgstr "相关链接:"
 
 #: server_status.php:765
 msgid ""
