@@ -2586,7 +2586,6 @@ msgstr "Önceki"
 #: libraries/common.lib.php:2283 libraries/common.lib.php:2286
 #: libraries/display_tbl.lib.php:370 server_binlog.php:170
 #: server_binlog.php:172
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
