@@ -1676,7 +1676,7 @@ msgstr "点击以排序"
 
 #: js/messages.php:274
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "点击以标记/取消标记"
 
 #: js/messages.php:275
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
