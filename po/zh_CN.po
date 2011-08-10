@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-09 16:45+0100\n"
-"PO-Revision-Date: 2011-08-10 10:30+0200\n"
+"PO-Revision-Date: 2011-08-10 10:31+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -2369,7 +2369,7 @@ msgstr "读取配置文件失败"
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
-msgstr ""
+msgstr "这通常意味着文件中有语法错误，请检查下面显示出的错误。"
 
 #: libraries/common.inc.php:596
 #, php-format
