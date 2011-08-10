@@ -903,10 +903,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         if (empty($filename)) {
             $filename = $pageNumber . '.pdf';
         }
-        // instead of $pdf->Output():
-        $pdfData = $pdf->getPDFData();
-        PMA_download_header($filename, 'application/pdf', strlen($pdfData));
-        echo $pdfData;
+        $pdf->Download($filename);
     }
 
     public function dataDictionaryDoc($alltables)
