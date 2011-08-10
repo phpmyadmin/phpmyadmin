@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-09 16:45+0100\n"
-"PO-Revision-Date: 2011-08-10 09:21+0200\n"
+"PO-Revision-Date: 2011-08-10 09:22+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -1211,10 +1211,9 @@ msgid "Edit title and labels"
 msgstr "编辑标题和标签"
 
 #: js/messages.php:123
-#, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "对齐网格"
+msgstr "添加图表"
 
 #: js/messages.php:125
 msgid "Please add at least one variable to the series"
