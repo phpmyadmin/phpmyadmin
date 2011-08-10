@@ -83,4 +83,14 @@ class PMA_PDF extends TCPDF
         PMA_Message::error(__('Error while creating PDF:') . ' ' . $error_message)->display();
         include('./libraries/footer.inc.php');
     }
+
+    /**
+     * Sends file as a download to user.
+     */
+    function Download($filename)
+    {
+        $pdfData = $this->getPDFData();
+        PMA_download_header($filename, 'application/pdf', strlen($pdfData));
+        echo $pdfData;
+    }
 }

@@ -889,9 +889,6 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     {
         global $pdf, $db, $cfgRelation;
 
-        $pdf->SetFontSize(14);
-        $pdf->SetLineWidth(0.2);
-        $pdf->SetDisplayMode('fullpage');
         // Get the name of this pdfpage to use as filename
         $_name_sql = 'SELECT page_descr FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
                     . ' WHERE page_nr = ' . $pageNumber;
@@ -903,10 +900,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         if (empty($filename)) {
             $filename = $pageNumber . '.pdf';
         }
-        // instead of $pdf->Output():
-        $pdfData = $pdf->getPDFData();
-        PMA_download_header($filename, 'application/pdf', strlen($pdfData));
-        echo $pdfData;
+        $pdf->Download($filename);
     }
 
     public function dataDictionaryDoc($alltables)
@@ -921,7 +915,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             $pdf->PMA_links['doc'][$table]['-'] = $pdf->AddLink();
             $pdf->SetX(10);
             // $pdf->Ln(1);
-            $pdf->Cell(0, 6, __('Page number:') . ' {' . sprintf("%02d", $i + 1) . '}', 0, 0, 'R', 0, $pdf->PMA_links['doc'][$table]['-']);
+            $pdf->Cell(0, 6, __('Page number:') . ' {' . sprintf("%02d", $i) . '}', 0, 0, 'R', 0, $pdf->PMA_links['doc'][$table]['-']);
             $pdf->SetX(10);
             $pdf->Cell(0, 6, $i . ' ' . $table, 0, 1, 'L', 0, $pdf->PMA_links['doc'][$table]['-']);
             // $pdf->Ln(1);
@@ -937,7 +931,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         }
         $pdf->PMA_links['RT']['-'] = $pdf->AddLink();
         $pdf->SetX(10);
-        $pdf->Cell(0, 6, __('Page number:') . ' {' . sprintf("%02d", $i + 1) . '}', 0, 0, 'R', 0, $pdf->PMA_links['RT']['-']);
+        $pdf->Cell(0, 6, __('Page number:') . ' {00}', 0, 0, 'R', 0, $pdf->PMA_links['RT']['-']);
         $pdf->SetX(10);
         $pdf->Cell(0, 6, $i . ' ' . __('Relational schema'), 0, 1, 'L', 0, $pdf->PMA_links['RT']['-']);
         $z = 0;
