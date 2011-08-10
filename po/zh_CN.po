@@ -10575,10 +10575,9 @@ msgid "Label column"
 msgstr "名称字段"
 
 #: tbl_gis_visualization.php:167
-#, fuzzy
 #| msgid "- none -"
 msgid "-- None --"
-msgstr "- 无 -"
+msgstr "-- 无 --"
 
 #: tbl_gis_visualization.php:180
 #, fuzzy
