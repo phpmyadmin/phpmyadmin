@@ -66,14 +66,6 @@ class PMA_Schema_PDF extends PMA_PDF
     }
 
     /**
-     * Getter for protected buffer.
-     */
-    public function getBuffer()
-    {
-        return $this->buffer;
-    }
-
-    /**
      * Sets the scaling factor, defines minimum coordinates and margins
      *
      * @param float scale The scaling factor
