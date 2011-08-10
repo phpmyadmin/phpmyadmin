@@ -6723,7 +6723,7 @@ msgstr "下列查询失败了: \"%s\""
 
 #: libraries/rte/rte_events.lib.php:116
 msgid "Sorry, we failed to restore the dropped event."
-msgstr "抱歉，恢复删除的事件失败。"
+msgstr "抱歉，恢复已删除的事件失败。"
 
 #: libraries/rte/rte_events.lib.php:117 libraries/rte/rte_routines.lib.php:269
 #: libraries/rte/rte_triggers.lib.php:90
