@@ -7,13 +7,7 @@
 
 include_once("Export_Relation_Schema.class.php");
 
-/**
- * Font used in PDF.
- *
- * @todo Make this configuratble (at least Sans/Serif).
- */
-define('PMA_PDF_FONT', 'DejaVuSans');
-require_once './libraries/tcpdf/tcpdf.php';
+require_once './libraries/PDF.class.php';
 
 /**
  * Extends the "TCPDF" class and helps
@@ -22,7 +16,7 @@ require_once './libraries/tcpdf/tcpdf.php';
  * @access public
  * @see TCPDF
  */
-class PMA_PDF extends TCPDF
+class PMA_Schema_PDF extends PMA_PDF
 {
     /**
      * Defines properties
@@ -449,7 +443,7 @@ class PMA_PDF extends TCPDF
  * and helps in drawing/generating the Tables in PDF document.
  *
  * @name Table_Stats
- * @see PMA_PDF
+ * @see PMA_Schema_PDF
  */
 class Table_Stats
 {
@@ -481,7 +475,7 @@ class Table_Stats
      * @global object    The current PDF document
      * @global array     The relations settings
      * @global string    The current db name
-     * @see PMA_PDF, Table_Stats::Table_Stats_setWidth,
+     * @see PMA_Schema_PDF, Table_Stats::Table_Stats_setWidth,
           Table_Stats::Table_Stats_setHeight
      */
     function __construct($tableName, $fontSize, $pageNumber, &$sameWideWidth, $showKeys = false, $showInfo = false)
@@ -565,7 +559,7 @@ class Table_Stats
      * @param integer fontSize The font size
      * @global object    The current PDF document
      * @access private
-     * @see PMA_PDF
+     * @see PMA_Schema_PDF
      */
     function _setWidth($fontSize)
     {
@@ -603,7 +597,7 @@ class Table_Stats
      * @param boolean setColor Whether to display color
      * @global object    The current PDF document
      * @access public
-     * @see PMA_PDF
+     * @see PMA_Schema_PDF
      */
     public function tableDraw($fontSize, $withDoc, $setColor = 0)
     {
@@ -661,7 +655,7 @@ class Table_Stats
  * in PDF document.
  *
  * @name Relation_Stats
- * @see PMA_PDF::SetDrawColor,PMA_PDF::PMA_PDF_setLineWidthScale,PMA_PDF::PMA_PDF_lineScale
+ * @see PMA_Schema_PDF::SetDrawColor,PMA_Schema_PDF::PMA_PDF_setLineWidthScale,PMA_Schema_PDF::PMA_PDF_lineScale
  */
 class Relation_Stats
 {
@@ -751,7 +745,7 @@ class Relation_Stats
      * @param integer i The id of the link to draw
      * @global object    The current PDF document
      * @access public
-     * @see PMA_PDF
+     * @see PMA_Schema_PDF
      */
     public function relationDraw($changeColor, $i)
     {
@@ -831,7 +825,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      * @global string   The current db name
      * @global array    The relations settings
      * @access private
-     * @see PMA_PDF
+     * @see PMA_Schema_PDF
      */
     function __construct()
     {
@@ -849,18 +843,10 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         $this->setExportType($_POST['export_type']);
 
          // Initializes a new document
-        $pdf = new PMA_PDF($this->orientation, 'mm', $this->paper);
+        $pdf = new PMA_Schema_PDF($this->orientation, 'mm', $this->paper);
         $pdf->SetTitle(sprintf(__('Schema of the %s database - Page %s'), $GLOBALS['db'], $this->pageNumber));
         $pdf->setCMargin(0);
         $pdf->Open();
-        $pdf->SetAuthor('phpMyAdmin ' . PMA_VERSION);
-        $pdf->AliasNbPages();
-        $pdf->AddFont('DejaVuSans', '', 'dejavusans.php');
-        $pdf->AddFont('DejaVuSans', 'B', 'dejavusansb.php');
-        $pdf->AddFont('DejaVuSerif', '', 'dejavuserif.php');
-        $pdf->AddFont('DejaVuSerif', 'B', 'dejavuserifb.php');
-        $pdf->SetFont($this->_ff, '', 14);
-        $pdf->setFooterFont(array($this->_ff, '', 14));
         $pdf->SetAutoPageBreak('auto');
         $alltables = $this->getAllTables($db,$this->pageNumber);
 
@@ -978,9 +964,9 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     /**
      * Draws the grid
      *
-     * @global object  the current PMA_PDF instance
+     * @global object  the current PMA_Schema_PDF instance
      * @access private
-     * @see PMA_PDF
+     * @see PMA_Schema_PDF
      */
     private function _strokeGrid()
     {
@@ -1057,7 +1043,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      * @global integer  The current page number (from the
      *                    $cfg['Servers'][$i]['table_coords'] table)
      * @access private
-     * @see PMA_PDF
+     * @see PMA_Schema_PDF
      */
     private function _showOutput($pageNumber)
     {
