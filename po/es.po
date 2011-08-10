@@ -1738,11 +1738,10 @@ msgid "Done"
 msgstr "Terminado"
 
 #: js/messages.php:302
-#, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
-msgstr "Previo"
+msgstr "Anterior"
 
 #: js/messages.php:307
 #, fuzzy
