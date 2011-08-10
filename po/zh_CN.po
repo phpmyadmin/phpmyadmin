@@ -1670,10 +1670,9 @@ msgid "Drag to reorder"
 msgstr "拖拽以调整顺序"
 
 #: js/messages.php:273
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to sort"
-msgstr "点击选中"
+msgstr "点击以排序"
 
 #: js/messages.php:274
 msgid "Click to mark/unmark"
