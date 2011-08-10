@@ -2075,7 +2075,7 @@ msgstr "最近使用的表"
 #: libraries/RecentTable.class.php:148
 #| msgid "There are no configured servers"
 msgid "There are no recent tables"
-msgstr "没有最近访问的表"
+msgstr "没有最近使用的表"
 
 #: libraries/StorageEngine.class.php:180
 msgid ""
