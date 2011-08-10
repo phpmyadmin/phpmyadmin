@@ -2651,10 +2651,9 @@ msgid "Left"
 msgstr "左侧"
 
 #: libraries/config.values.php:47
-#, fuzzy
 #| msgid "Height"
 msgid "Right"
-msgstr "高"
+msgstr "右侧"
 
 #: libraries/config.values.php:75
 msgid "Open"
