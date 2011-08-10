@@ -10254,10 +10254,9 @@ msgid "Chart columns"
 msgstr "Columnas del gráfico"
 
 #: server_status.php:1435
-#, fuzzy
 #| msgid "Error management:"
 msgid "Chart arrangement"
-msgstr "Manejo de errores:"
+msgstr "Ordenación de los gráficos"
 
 #: server_status.php:1435
 msgid ""
