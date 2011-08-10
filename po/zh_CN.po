@@ -7130,10 +7130,10 @@ msgid "Add event"
 msgstr "添加事件"
 
 #: libraries/rte/rte_words.lib.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of event %s"
-msgstr "导出内容"
+msgstr "导出事件 %s"
 
 #: libraries/rte/rte_words.lib.php:45
 #, fuzzy
