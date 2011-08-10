@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-09 16:45+0100\n"
-"PO-Revision-Date: 2011-08-10 07:23+0200\n"
+"PO-Revision-Date: 2011-08-10 07:24+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -10513,10 +10513,9 @@ msgid "X-Axis:"
 msgstr "横坐标:"
 
 #: tbl_chart.php:114
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Series:"
-msgstr "SQL 查询"
+msgstr "数据:"
 
 #: tbl_chart.php:116
 #, fuzzy
