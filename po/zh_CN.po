@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-09 16:45+0100\n"
-"PO-Revision-Date: 2011-08-10 11:34+0200\n"
+"PO-Revision-Date: 2011-08-10 11:54+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -7088,10 +7088,9 @@ msgid "No routine with name %1$s found in database %2$s"
 msgstr "在数据库 %2$s 中找不到名为 %1$s 的程序"
 
 #: libraries/rte/rte_words.lib.php:24
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no routines to display."
-msgstr "没有可上传的文件"
+msgstr "没有程序。"
 
 #: libraries/rte/rte_words.lib.php:30
 #, fuzzy
