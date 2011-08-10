@@ -11032,10 +11032,9 @@ msgid "Show more actions"
 msgstr "Zobrazit více operací"
 
 #: tbl_structure.php:603
-#, fuzzy
 #| msgid "Print view"
 msgid "Edit view"
-msgstr "Náhled pro tisk"
+msgstr "Upravit pohled"
 
 #: tbl_structure.php:620
 msgid "Relation view"
