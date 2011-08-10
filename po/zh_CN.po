@@ -2074,10 +2074,9 @@ msgid "Could not save recent table"
 msgstr "无法保存最近访问的表"
 
 #: libraries/RecentTable.class.php:142
-#, fuzzy
 #| msgid "Count tables"
 msgid "Recent tables"
-msgstr "统计数据表"
+msgstr "最近访问的表"
 
 #: libraries/RecentTable.class.php:148
 #, fuzzy
