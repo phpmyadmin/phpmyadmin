@@ -8734,10 +8734,9 @@ msgid "wildcard"
 msgstr "通配符"
 
 #: server_privileges.php:2382
-#, fuzzy
 #| msgid "View %s has been dropped"
 msgid "User has been added."
-msgstr "已删除视图 %s"
+msgstr "用户已添加。"
 
 #: server_replication.php:49
 msgid "Unknown error"
