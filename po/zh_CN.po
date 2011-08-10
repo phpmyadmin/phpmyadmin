@@ -3011,10 +3011,9 @@ msgid ""
 msgstr "禁止大量表维护操作，例如优化或修复一个数据库中的选中表。"
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "表维护"
+msgstr "禁止多表维护"
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
