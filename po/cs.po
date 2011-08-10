@@ -2587,11 +2587,10 @@ msgstr "Následující"
 
 #: libraries/common.lib.php:2284 libraries/common.lib.php:2287
 #: libraries/display_tbl.lib.php:385
-#, fuzzy
 #| msgid "End"
 msgctxt "Last page"
 msgid "End"
-msgstr "Konec"
+msgstr "Poslední"
 
 #: libraries/common.lib.php:2352
 #, php-format
