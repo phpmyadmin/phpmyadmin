@@ -6909,7 +6909,7 @@ msgstr "程序名称"
 
 #: libraries/rte/rte_routines.lib.php:843
 msgid "Parameters"
-msgstr ""
+msgstr "参数"
 
 #: libraries/rte/rte_routines.lib.php:848
 #, fuzzy
