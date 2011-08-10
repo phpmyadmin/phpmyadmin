@@ -32,16 +32,6 @@ class PMA_Schema_PDF extends PMA_PDF
     var $widths;
     private $_ff = PMA_PDF_FONT;
 
-    public function getH()
-    {
-        return $this->h;
-    }
-
-    public function getW()
-    {
-        return $this->w;
-    }
-
     public function setCMargin($c_margin)
     {
         $this->cMargin = $c_margin;
@@ -744,8 +734,8 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         // Defines the scale factor
         $this->scale = ceil(
             max(
-                ($this->_xMax - $this->_xMin) / ($pdf->getW() - $this->rightMargin - $this->leftMargin),
-                ($this->_yMax - $this->_yMin) / ($pdf->getH() - $this->topMargin - $this->bottomMargin))
+                ($this->_xMax - $this->_xMin) / ($pdf->getPageWidth() - $this->rightMargin - $this->leftMargin),
+                ($this->_yMax - $this->_yMin) / ($pdf->getPageHeight() - $this->topMargin - $this->bottomMargin))
              * 100) / 100;
 
         $pdf->PMA_PDF_setScale($this->scale, $this->_xMin, $this->_yMin, $this->leftMargin, $this->topMargin);
@@ -848,18 +838,18 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         $pdf->SetMargins(0, 0);
         $pdf->SetDrawColor(200, 200, 200);
         // Draws horizontal lines
-        for ($l = 0; $l <= intval(($pdf->getH() - $topSpace - $bottomSpace) / $gridSize); $l++) {
-            $pdf->line(0, $l * $gridSize + $topSpace, $pdf->getW(), $l * $gridSize + $topSpace);
+        for ($l = 0; $l <= intval(($pdf->getPageHeight() - $topSpace - $bottomSpace) / $gridSize); $l++) {
+            $pdf->line(0, $l * $gridSize + $topSpace, $pdf->getPageWidth(), $l * $gridSize + $topSpace);
             // Avoid duplicates
-            if ($l > 0 && $l <= intval(($pdf->getH() - $topSpace - $bottomSpace - $labelHeight) / $gridSize)) {
+            if ($l > 0 && $l <= intval(($pdf->getPageHeight() - $topSpace - $bottomSpace - $labelHeight) / $gridSize)) {
                 $pdf->SetXY(0, $l * $gridSize + $topSpace);
                 $label = (string) sprintf('%.0f', ($l * $gridSize + $topSpace - $this->topMargin) * $this->scale + $this->_yMin);
                 $pdf->Cell($labelWidth, $labelHeight, ' ' . $label);
             } // end if
         } // end for
         // Draws vertical lines
-        for ($j = 0; $j <= intval($pdf->getW() / $gridSize); $j++) {
-            $pdf->line($j * $gridSize, $topSpace, $j * $gridSize, $pdf->getH() - $bottomSpace);
+        for ($j = 0; $j <= intval($pdf->getPageWidth() / $gridSize); $j++) {
+            $pdf->line($j * $gridSize, $topSpace, $j * $gridSize, $pdf->getPageHeight() - $bottomSpace);
             $pdf->SetXY($j * $gridSize, $topSpace);
             $label = (string) sprintf('%.0f', ($j * $gridSize - $this->leftMargin) * $this->scale + $this->_xMin);
             $pdf->Cell($labelWidth, $labelHeight, $label);
