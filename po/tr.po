@@ -4687,10 +4687,9 @@ msgid "Whether to show hint or not"
 msgstr "İpucunun gösterilip gösterilmeyeceği"
 
 #: libraries/config/messages.inc.php:461
-#, fuzzy
 #| msgid "Show indexes"
 msgid "Show hint"
-msgstr "İndeksleri göster"
+msgstr "İpucunu göster"
 
 #: libraries/config/messages.inc.php:462
 msgid ""
