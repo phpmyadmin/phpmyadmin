@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-10 10:14-0400\n"
-"PO-Revision-Date: 2011-08-10 21:09+0200\n"
+"PO-Revision-Date: 2011-08-10 21:13+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -4147,7 +4147,7 @@ msgstr "Yardım düğmesi göster"
 
 #: libraries/config/messages.inc.php:357
 msgid "Save all edited cells at once"
-msgstr ""
+msgstr "Bir defada tüm düzenlenen hücreleri kaydet"
 
 #: libraries/config/messages.inc.php:358
 msgid "Directory where exports can be saved on server"
