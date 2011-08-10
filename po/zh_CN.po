@@ -6898,10 +6898,9 @@ msgid "Routine %1$s has been created."
 msgstr "已创建程序 %1$s 。"
 
 #: libraries/rte/rte_routines.lib.php:344
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit routine"
-msgstr "编辑模式"
+msgstr "编辑程序"
 
 #: libraries/rte/rte_routines.lib.php:820
 #, fuzzy
