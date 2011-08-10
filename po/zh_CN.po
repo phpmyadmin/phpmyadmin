@@ -1541,7 +1541,7 @@ msgstr "正在删除"
 
 #: js/messages.php:221
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr ""
+msgstr "函数定义中必须包含 RETURN 语句！"
 
 #: js/messages.php:224
 msgid ""
