@@ -6841,7 +6841,7 @@ msgstr "请设置有效的运行周期。"
 
 #: libraries/rte/rte_events.lib.php:549
 msgid "You must provide a valid execution time for the event."
-msgstr ""
+msgstr "请设置有效的运行时间。"
 
 #: libraries/rte/rte_events.lib.php:553
 msgid "You must provide a valid type for the event."
