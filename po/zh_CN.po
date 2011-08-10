@@ -9800,10 +9800,9 @@ msgid "Reset to default"
 msgstr "恢复默认"
 
 #: server_status.php:1440
-#, fuzzy
 #| msgid "Introduction"
 msgid "Monitor Instructions"
-msgstr "介绍"
+msgstr "监控说明"
 
 #: server_status.php:1441
 msgid ""
