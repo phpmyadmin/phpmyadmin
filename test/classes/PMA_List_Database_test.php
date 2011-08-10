@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA_List class
+ * tests for PMA_List_Database class
  *
  * @package phpMyAdmin-test
  */
