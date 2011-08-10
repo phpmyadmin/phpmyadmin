@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-09 16:45+0100\n"
-"PO-Revision-Date: 2011-08-10 10:26+0200\n"
+"PO-Revision-Date: 2011-08-10 10:29+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -2128,7 +2128,7 @@ msgstr "已将数据表 %s 改名为 %s"
 
 #: libraries/Table.class.php:1274
 msgid "Could not save table UI preferences"
-msgstr ""
+msgstr "无法保存表界面设置"
 
 #: libraries/Theme.class.php:144
 #, php-format
