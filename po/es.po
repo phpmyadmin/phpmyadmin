@@ -1661,7 +1661,7 @@ msgstr "Añadir una opción para la columna"
 
 #: js/messages.php:258
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "Presion la tecla de escape para cancelar la edición"
 
 #: js/messages.php:259
 msgid ""
