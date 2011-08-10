@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-10 13:16+0200\n"
-"PO-Revision-Date: 2011-08-05 11:16+0200\n"
+"PO-Revision-Date: 2011-08-10 13:22+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1691,7 +1691,6 @@ msgstr "Hotovo"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:296
-#, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
@@ -1699,11 +1698,10 @@ msgstr "Předchozí"
 
 #. l10n: Display text for next month link in calendar
 #: js/messages.php:298
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
-msgstr "Další"
+msgstr "Následující"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:300
@@ -1849,7 +1847,6 @@ msgstr "Sobota"
 
 #. l10n: Short week day name
 #: js/messages.php:353
-#, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
 msgid "Sun"
@@ -2115,10 +2112,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Tento MySQL server nepodporuje úložiště %s."
 
 #: libraries/Table.class.php:303
-#, fuzzy
 #| msgid "Show slave status"
 msgid "unknown table status: "
-msgstr "Zobrazit stav podřízených serverů"
+msgstr "neznámý stav tabulky: "
 
 #: libraries/Table.class.php:1034
 msgid "Invalid database"
