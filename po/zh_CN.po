@@ -1136,7 +1136,7 @@ msgstr "内存总数"
 
 #: js/messages.php:102
 msgid "Cached memory"
-msgstr ""
+msgstr "已缓存的内存"
 
 #: js/messages.php:103
 #, fuzzy
