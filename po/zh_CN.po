@@ -10530,7 +10530,7 @@ msgstr "横坐标名称:"
 #: tbl_chart.php:130
 #| msgid "Value"
 msgid "X Values"
-msgstr "横坐标值"
+msgstr "横值"
 
 #: tbl_chart.php:131
 #| msgid "Y Axis label"
