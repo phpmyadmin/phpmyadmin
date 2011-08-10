@@ -11031,7 +11031,7 @@ msgstr "Tablica %1$s była paśpiachova źmienienaja"
 #: tbl_change.php:683
 #, fuzzy
 #| msgid "Because of its length,<br /> this field might not be editable "
-msgid "Because of its length,<br /> this column might not be editable "
+msgid "Because of its length,<br /> this column might not be editable"
 msgstr "Z-za vialikaj daŭžyni, hetaje pole nia moža być adredagavanaje "
 
 #: tbl_change.php:800

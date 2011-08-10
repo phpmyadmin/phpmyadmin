@@ -10902,7 +10902,7 @@ msgid "Table %1$s has been altered successfully"
 msgstr "Таблица %1$s была успешно изменена"
 
 #: tbl_change.php:683
-msgid "Because of its length,<br /> this column might not be editable "
+msgid "Because of its length,<br /> this column might not be editable"
 msgstr "Из-за большого количества данных<br />изменение поля невозможно"
 
 #: tbl_change.php:800

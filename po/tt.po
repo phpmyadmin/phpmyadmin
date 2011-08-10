@@ -10749,7 +10749,7 @@ msgstr "Saylanğan qullanuçını beterü uñışlı uzdı."
 #: tbl_change.php:683
 #, fuzzy
 #| msgid "Because of its length,<br /> this field might not be editable "
-msgid "Because of its length,<br /> this column might not be editable "
+msgid "Because of its length,<br /> this column might not be editable"
 msgstr "Because of its length,<br /> this field might not be editable"
 
 #: tbl_change.php:800

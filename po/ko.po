@@ -10456,7 +10456,7 @@ msgstr "선택한 사용자들을 삭제했습니다."
 #: tbl_change.php:683
 #, fuzzy
 #| msgid "Because of its length,<br /> this field might not be editable "
-msgid "Because of its length,<br /> this column might not be editable "
+msgid "Because of its length,<br /> this column might not be editable"
 msgstr "필드의 길이 때문에,<br />이 필드를 편집할 수 없습니다 "
 
 #: tbl_change.php:800

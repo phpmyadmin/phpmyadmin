@@ -10668,7 +10668,7 @@ msgstr "Sukses menghapus Pengguna yang dipilih."
 #: tbl_change.php:683
 #, fuzzy
 #| msgid "Because of its length,<br /> this field might not be editable "
-msgid "Because of its length,<br /> this column might not be editable "
+msgid "Because of its length,<br /> this column might not be editable"
 msgstr ""
 " Disebabkan ukuran panjangnya,<br /> field ini tidak dapat di-edit ulang. "
 

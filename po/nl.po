@@ -10939,7 +10939,7 @@ msgid "Table %1$s has been altered successfully"
 msgstr "Tabel %1$s is bijgewerkt"
 
 #: tbl_change.php:683
-msgid "Because of its length,<br /> this column might not be editable "
+msgid "Because of its length,<br /> this column might not be editable"
 msgstr "Vanwege z'n lengte,<br /> is dit veld misschien niet te wijzigen "
 
 #: tbl_change.php:800

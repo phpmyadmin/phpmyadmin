@@ -11580,7 +11580,7 @@ msgstr "%1$s jadvali muvaffaqiyatli o‘zgartirildi"
 #: tbl_change.php:683
 #, fuzzy
 #| msgid "Because of its length,<br /> this field might not be editable "
-msgid "Because of its length,<br /> this column might not be editable "
+msgid "Because of its length,<br /> this column might not be editable"
 msgstr "Ma`lumotlar ko‘pligi sabali<br />o‘zgartirish qiyishlashishi mumkin"
 
 #: tbl_change.php:800

@@ -11031,7 +11031,7 @@ msgstr "Tabelul %1$s a fost alterat cu succes"
 #: tbl_change.php:683
 #, fuzzy
 #| msgid "Because of its length,<br /> this field might not be editable "
-msgid "Because of its length,<br /> this column might not be editable "
+msgid "Because of its length,<br /> this column might not be editable"
 msgstr ""
 "Datorită lungimii sale, <br /> acest cîmp s-ar putea să nu fie editabil"
 

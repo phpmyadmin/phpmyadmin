@@ -11018,7 +11018,7 @@ msgstr "Tablica %1$s uspješno je izmijenjena."
 #: tbl_change.php:683
 #, fuzzy
 #| msgid "Because of its length,<br /> this field might not be editable "
-msgid "Because of its length,<br /> this column might not be editable "
+msgid "Because of its length,<br /> this column might not be editable"
 msgstr ""
 " Zbog svoje duljine,<br /> uređivanje ovog polja možda neće biti moguće "
 

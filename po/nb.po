@@ -11008,7 +11008,7 @@ msgid "Table %1$s has been altered successfully"
 msgstr "Tabellen %1$s har blitt endrett"
 
 #: tbl_change.php:683
-msgid "Because of its length,<br /> this column might not be editable "
+msgid "Because of its length,<br /> this column might not be editable"
 msgstr ""
 " På grunn av sin lengde,<br /> så vil muligens denne kolonnen ikke være "
 "redigerbar"

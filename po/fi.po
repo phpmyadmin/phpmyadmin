@@ -11256,7 +11256,7 @@ msgstr "Taulun %1$s muuttaminen onnistui."
 #: tbl_change.php:683
 #, fuzzy
 #| msgid "Because of its length,<br /> this field might not be editable "
-msgid "Because of its length,<br /> this column might not be editable "
+msgid "Because of its length,<br /> this column might not be editable"
 msgstr "Pituudestaan johtuen<br /> tätä saraketta ei voine muokata "
 
 #: tbl_change.php:800

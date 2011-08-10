@@ -10916,7 +10916,7 @@ msgstr "Valitud kasutajad on õnnestunult kustutatud."
 #: tbl_change.php:683
 #, fuzzy
 #| msgid "Because of its length,<br /> this field might not be editable "
-msgid "Because of its length,<br /> this column might not be editable "
+msgid "Because of its length,<br /> this column might not be editable"
 msgstr "Oma suuruse tõttu<br /> võib see väli olla mittemuudetav "
 
 #: tbl_change.php:800

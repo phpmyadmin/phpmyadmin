@@ -11499,7 +11499,7 @@ msgstr "Alterouse a táboa %1$s sen problemas"
 #: tbl_change.php:683
 #, fuzzy
 #| msgid "Because of its length,<br /> this field might not be editable "
-msgid "Because of its length,<br /> this column might not be editable "
+msgid "Because of its length,<br /> this column might not be editable"
 msgstr "Por causa da sua lonxitude,<br /> este campo pode non ser editábel "
 
 #: tbl_change.php:800

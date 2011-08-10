@@ -10442,7 +10442,7 @@ msgstr ""
 #: tbl_change.php:683
 #, fuzzy
 #| msgid "Because of its length,<br /> this field might not be editable "
-msgid "Because of its length,<br /> this column might not be editable "
+msgid "Because of its length,<br /> this column might not be editable"
 msgstr ""
 " Omrede sy lengte,<br /> is hierdie veld moontlik nie veranderbaar nie "
 

@@ -10669,7 +10669,7 @@ msgstr "Izvēlētie lietotāji tika veiksmīgi dzēsti."
 #: tbl_change.php:683
 #, fuzzy
 #| msgid "Because of its length,<br /> this field might not be editable "
-msgid "Because of its length,<br /> this column might not be editable "
+msgid "Because of its length,<br /> this column might not be editable"
 msgstr "Sava garuma dēļ,<br /> šis lauks var būt nerediģējams "
 
 #: tbl_change.php:800

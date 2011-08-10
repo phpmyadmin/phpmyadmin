@@ -11117,7 +11117,7 @@ msgstr "A(z) %1$s tábla módosítása sikerült"
 #: tbl_change.php:683
 #, fuzzy
 #| msgid "Because of its length,<br /> this field might not be editable "
-msgid "Because of its length,<br /> this column might not be editable "
+msgid "Because of its length,<br /> this column might not be editable"
 msgstr "A hossza miatt<br /> lehet, hogy ez a mező nem szerkeszthető "
 
 #: tbl_change.php:800

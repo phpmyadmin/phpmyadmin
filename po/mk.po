@@ -10737,7 +10737,7 @@ msgstr "Изабраните корисници успешно се избриш
 #: tbl_change.php:683
 #, fuzzy
 #| msgid "Because of its length,<br /> this field might not be editable "
-msgid "Because of its length,<br /> this column might not be editable "
+msgid "Because of its length,<br /> this column might not be editable"
 msgstr ""
 "Поради големина на полето<br />можеби нема да може да ја менувате неговата "
 "содржина"

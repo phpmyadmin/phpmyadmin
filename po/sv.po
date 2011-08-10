@@ -10681,7 +10681,7 @@ msgid "Table %1$s has been altered successfully"
 msgstr "Tabell %1$s har ändrats"
 
 #: tbl_change.php:683
-msgid "Because of its length,<br /> this column might not be editable "
+msgid "Because of its length,<br /> this column might not be editable"
 msgstr "På grund av sin längd,<br /> är denna kolumn kanske inte redigerbar"
 
 #: tbl_change.php:800

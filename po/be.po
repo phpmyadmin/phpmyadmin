@@ -11060,7 +11060,7 @@ msgstr "Табліца %1$s была пасьпяхова зьмененая"
 #: tbl_change.php:683
 #, fuzzy
 #| msgid "Because of its length,<br /> this field might not be editable "
-msgid "Because of its length,<br /> this column might not be editable "
+msgid "Because of its length,<br /> this column might not be editable"
 msgstr "З-за вялікай даўжыні,<br /> гэтае поле ня можа быць адрэдагаванае "
 
 #: tbl_change.php:800
