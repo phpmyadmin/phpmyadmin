@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-09 16:45+0100\n"
-"PO-Revision-Date: 2011-08-10 11:04+0200\n"
+"PO-Revision-Date: 2011-08-10 11:05+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -6935,10 +6935,9 @@ msgid "Return type"
 msgstr "返回类型"
 
 #: libraries/rte/rte_routines.lib.php:881
-#, fuzzy
 #| msgid "Length/Values"
 msgid "Return length/values"
-msgstr "长度/值"
+msgstr "返回长度/值"
 
 #: libraries/rte/rte_routines.lib.php:887
 #, fuzzy
