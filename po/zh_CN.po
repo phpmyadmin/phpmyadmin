@@ -7109,10 +7109,9 @@ msgid "trigger"
 msgstr "触发器"
 
 #: libraries/rte/rte_words.lib.php:34
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a trigger"
-msgstr "权限不足！"
+msgstr "你不具有创建触发器的必要权限"
 
 #: libraries/rte/rte_words.lib.php:35
 #, fuzzy, php-format
