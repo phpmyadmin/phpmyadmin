@@ -1150,7 +1150,7 @@ msgstr "空闲内存"
 
 #: js/messages.php:105
 msgid "Used memory"
-msgstr ""
+msgstr "已用内存"
 
 #: js/messages.php:107
 #, fuzzy
