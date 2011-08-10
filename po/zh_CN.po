@@ -7024,10 +7024,10 @@ msgid "Trigger %1$s has been modified."
 msgstr "已修改触发器 %1$s 。"
 
 #: libraries/rte/rte_triggers.lib.php:106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Trigger %1$s has been created."
-msgstr "创建数据表 %1$s 成功。"
+msgstr "已创建触发器 %1$s 。"
 
 #: libraries/rte/rte_triggers.lib.php:161
 #, fuzzy
