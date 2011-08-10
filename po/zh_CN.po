@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-09 16:45+0100\n"
-"PO-Revision-Date: 2011-08-09 09:37+0200\n"
+"PO-Revision-Date: 2011-08-10 04:27+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -555,10 +555,9 @@ msgid "Search in database"
 msgstr "在数据库中搜索"
 
 #: db_search.php:269
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "要查找的文字或数值 (通配符：“%”)："
+msgstr "要查找的内容 (通配符: \"%\"):"
 
 #: db_search.php:274
 msgid "Find:"
