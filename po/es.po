@@ -11304,7 +11304,7 @@ msgstr "Tamaño de la fila "
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"
-msgstr ""
+msgstr "Índice automático siguiente"
 
 #: tbl_relation.php:276
 #, php-format
