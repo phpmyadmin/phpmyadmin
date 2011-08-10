@@ -1698,11 +1698,10 @@ msgstr "Předchozí"
 
 #. l10n: Display text for next month link in calendar
 #: js/messages.php:298
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
-msgstr "Další"
+msgstr "Následující"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:300
