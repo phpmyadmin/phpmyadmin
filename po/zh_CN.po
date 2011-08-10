@@ -6743,7 +6743,7 @@ msgstr "抱歉，恢复删除的事件失败。"
 #: libraries/rte/rte_events.lib.php:117 libraries/rte/rte_routines.lib.php:269
 #: libraries/rte/rte_triggers.lib.php:90
 msgid "The backed up query was:"
-msgstr ""
+msgstr "已备份的查询为:"
 
 #: libraries/rte/rte_events.lib.php:121
 #, fuzzy, php-format
