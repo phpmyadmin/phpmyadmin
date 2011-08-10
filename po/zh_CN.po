@@ -1374,10 +1374,9 @@ msgstr "日志已分析，时间段内没有数据。"
 
 #. l10n: A collection of available filters
 #: js/messages.php:167
-#, fuzzy
 #| msgid "Filter"
 msgid "Filters"
-msgstr "快速搜索"
+msgstr "过滤器"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:169 navigation.php:270
