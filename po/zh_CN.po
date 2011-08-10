@@ -4029,10 +4029,9 @@ msgid "When browsing tables, the sorting of each table is remembered"
 msgstr "当浏览表时，会记住每个表的排序方式"
 
 #: libraries/config/messages.inc.php:351
-#, fuzzy
 #| msgid "Rename table to"
 msgid "Remember table's sorting"
-msgstr "将表改名为"
+msgstr "记录表排序"
 
 #: libraries/config/messages.inc.php:352
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
