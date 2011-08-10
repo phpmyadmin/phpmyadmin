@@ -2648,7 +2648,7 @@ msgstr "无"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "左侧"
 
 #: libraries/config.values.php:47
 #, fuzzy
