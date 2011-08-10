@@ -98,8 +98,8 @@ rule 'Minor Version' [! fired('Release Series')]
 rule 'Distribution'
 	version_comment
 	preg_match('/source/i',value)
-	Version is compiled from source, not a MySQL official binary. If you did not compile from source, you may be using a package modified by a distribution.  
-	The MySQL manual only is accurate for official MySQL binaries, not any package distributions (such as RedHat, Debian/Ubuntu etc).
+	Version is compiled from source, not a MySQL official binary.
+	If you did not compile from source, you may be using a package modified by a distribution. The MySQL manual only is accurate for official MySQL binaries, not any package distributions (such as RedHat, Debian/Ubuntu etc).
 	'source' found in version_comment
 
 rule 'Distribution'
@@ -111,10 +111,10 @@ rule 'Distribution'
 
 rule 'MySQL Architecture'
 	system_memory
-	value > 3072 && !preg_match('/64/',version_compile_machine)
-	MySQL is not compiled as a 64-bit package, though your memory capacity is above 3 GiB. 
-	MySQL might not be able to access all of your memory. You might want to consider installing the 64-bit version of MySQL.
-	Available memory on this host: %s | implode(' ',PMA_formatByteDown(value*1024*1024, 2, 2))
+	value > 3072*1024 && !preg_match('/64/',version_compile_machine)
+	MySQL is not compiled as a 64-bit package. 
+	Your memory capacity is above 3 GiB (assuming the Server is on localhost), so MySQL might not be able to access all of your memory. You might want to consider installing the 64-bit version of MySQL.
+	Available memory on this host: %s | implode(' ',PMA_formatByteDown(value*1024, 2, 2))
 
 #
 # Query cache

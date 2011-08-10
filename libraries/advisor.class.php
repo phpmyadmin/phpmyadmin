@@ -21,6 +21,12 @@ class Advisor
             PMA_DBI_fetch_result('SHOW GLOBAL STATUS', 0, 1), 
             PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES', 0, 1)
         );
+        // Add total memory to variables as well
+        require_once('libraries/sysinfo.lib.php');
+        $sysinfo = getSysInfo();
+        $memory  = $sysinfo->memory();
+        $this->variables['system_memory'] = $memory['MemTotal'];
+        
         // Step 2: Read and parse the list of rules
         $this->parseResult = $this->parseRulesFile();
         // Step 3: Feed the variables to the rules and let them fire. Sets $runResult
