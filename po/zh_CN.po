@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-09 16:45+0100\n"
-"PO-Revision-Date: 2011-08-10 07:42+0200\n"
+"PO-Revision-Date: 2011-08-10 07:43+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -10047,9 +10047,8 @@ msgid "Target database has been synchronized with source database"
 msgstr "已根据源数据库同步目标数据库"
 
 #: server_synchronize.php:951
-#, fuzzy
 msgid "Executed queries"
-msgstr "SQL 查询"
+msgstr "已执行的查询"
 
 #: server_synchronize.php:1076
 msgid "Enter manually"
