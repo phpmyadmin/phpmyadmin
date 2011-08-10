@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-09 16:45+0100\n"
-"PO-Revision-Date: 2011-08-10 10:19+0200\n"
+"PO-Revision-Date: 2011-08-10 10:20+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -6833,7 +6833,7 @@ msgstr "用户必须是 \"用户名@主机名\" 格式"
 
 #: libraries/rte/rte_events.lib.php:525
 msgid "You must provide an event name"
-msgstr ""
+msgstr "请输入事件名称"
 
 #: libraries/rte/rte_events.lib.php:537
 msgid "You must provide a valid interval value for the event."
