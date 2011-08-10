@@ -10528,10 +10528,9 @@ msgid "X-Axis label:"
 msgstr "横坐标名称:"
 
 #: tbl_chart.php:130
-#, fuzzy
 #| msgid "Value"
 msgid "X Values"
-msgstr "值"
+msgstr "横坐标值"
 
 #: tbl_chart.php:131
 #, fuzzy
