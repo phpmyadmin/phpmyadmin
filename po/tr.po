@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-10 10:14-0400\n"
-"PO-Revision-Date: 2011-08-08 19:21+0200\n"
+"PO-Revision-Date: 2011-08-10 15:54+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1704,16 +1704,14 @@ msgstr "güncel"
 msgid "Done"
 msgstr "Bitti"
 
-#: js/messages.php:302
-#, fuzzy
-#| msgid "Prev"
+#. l10n: Display text for previous month link in calendar
+#: js/messages.php:296
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Önceki"
 
-#: js/messages.php:307
-#, fuzzy
-#| msgid "Next"
+#. l10n: Display text for next month link in calendar
+#: js/messages.php:298
 msgctxt "Next month"
 msgid "Next"
 msgstr "Sonraki"
@@ -2580,16 +2578,14 @@ msgstr "Eksik parametreler:"
 
 #: libraries/common.lib.php:2267 libraries/common.lib.php:2270
 #: libraries/display_tbl.lib.php:306
-#, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
-msgstr "Yukarı"
+msgstr "Başlangıç"
 
 #: libraries/common.lib.php:2268 libraries/common.lib.php:2271
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
-#, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
@@ -2598,7 +2594,6 @@ msgstr "Önceki"
 #: libraries/common.lib.php:2297 libraries/common.lib.php:2300
 #: libraries/display_tbl.lib.php:370 server_binlog.php:170
 #: server_binlog.php:172
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
@@ -2606,7 +2601,6 @@ msgstr "Sonraki"
 
 #: libraries/common.lib.php:2298 libraries/common.lib.php:2301
 #: libraries/display_tbl.lib.php:385
-#, fuzzy
 #| msgid "End"
 msgctxt "Last page"
 msgid "End"
@@ -7030,18 +7024,16 @@ msgid "Execute every"
 msgstr "Çalıştır; her"
 
 #: libraries/rte/rte_events.lib.php:449
-#, fuzzy
 #| msgid "Start"
 msgctxt "Start of recurring event"
 msgid "Start"
 msgstr "Başlama"
 
 #: libraries/rte/rte_events.lib.php:457
-#, fuzzy
 #| msgid "End"
 msgctxt "End of recurring event"
 msgid "End"
-msgstr "Son"
+msgstr "Bitiş"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:912
 #: libraries/rte/rte_triggers.lib.php:354
@@ -11093,7 +11085,7 @@ msgstr "Satır boyutu "
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"
-msgstr ""
+msgstr "Sonraki otoindeks"
 
 #: tbl_relation.php:276
 #, php-format
