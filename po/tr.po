@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-10 10:14-0400\n"
-"PO-Revision-Date: 2011-08-10 21:13+0200\n"
+"PO-Revision-Date: 2011-08-10 21:14+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2090,10 +2090,9 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d satır eklendi."
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Error reading data:"
 msgid "Error while creating PDF:"
-msgstr "Veri okunması hatası:"
+msgstr "PDF oluşturulurken hata:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
