@@ -1441,7 +1441,7 @@ msgstr "Cargando registros"
 
 #: js/messages.php:176
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "Falló la actualización del monitorizador"
 
 #: js/messages.php:177
 msgid ""
