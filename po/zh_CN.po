@@ -6861,7 +6861,7 @@ msgstr "关"
 
 #: libraries/rte/rte_footer.lib.php:96
 msgid "ON"
-msgstr ""
+msgstr "开"
 
 #: libraries/rte/rte_footer.lib.php:108
 msgid "Event scheduler status"
