@@ -9775,9 +9775,8 @@ msgid "Rearrange/edit charts"
 msgstr "排列/编辑图表"
 
 #: server_status.php:1416
-#, fuzzy
 msgid "Refresh rate"
-msgstr "刷新"
+msgstr "刷新频率"
 
 #: server_status.php:1419
 #, fuzzy
