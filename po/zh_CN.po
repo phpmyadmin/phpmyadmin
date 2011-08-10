@@ -9874,10 +9874,9 @@ msgid "Commonly monitored"
 msgstr ""
 
 #: server_status.php:1503
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "or type variable name:"
-msgstr "无效的数据表名"
+msgstr "或输入变量名:"
 
 #: server_status.php:1507
 msgid "Display as differential value"
