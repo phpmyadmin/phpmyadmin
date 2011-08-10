@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-09 16:45+0100\n"
-"PO-Revision-Date: 2011-08-10 08:01+0200\n"
+"PO-Revision-Date: 2011-08-10 08:09+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -9880,7 +9880,7 @@ msgstr "或输入变量名:"
 
 #: server_status.php:1507
 msgid "Display as differential value"
-msgstr ""
+msgstr "独立显示"
 
 #: server_status.php:1509
 msgid "Apply a divisor"
