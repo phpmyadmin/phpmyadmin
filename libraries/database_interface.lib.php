@@ -24,7 +24,8 @@ define('PMA_DBI_GETVAR_GLOBAL',     2);
  *
  * @param string  $extension  mysql extension to check
  */
-function PMA_DBI_checkMysqlExtension($extension = 'mysql') {
+function PMA_DBI_checkMysqlExtension($extension = 'mysql')
+{
     if (! function_exists($extension . '_connect')) {
         return false;
     }
@@ -69,13 +70,14 @@ require_once './libraries/dbi/' . $GLOBALS['cfg']['Server']['extension'] . '.dbi
 /**
  * runs a query
  *
- * @param string $query
- * @param mixed  $link
- * @param int    $options
- * @param bool   $cache_affected_rows
+ * @param string $query               SQL query to execte
+ * @param mixed  $link                optional database link to use
+ * @param int    $options             optional query options
+ * @param bool   $cache_affected_rows whether to cache affected rows
  * @return mixed
  */
-function PMA_DBI_query($query, $link = null, $options = 0, $cache_affected_rows = true) {
+function PMA_DBI_query($query, $link = null, $options = 0, $cache_affected_rows = true)
+{
     $res = PMA_DBI_try_query($query, $link, $options, $cache_affected_rows)
         or PMA_mysqlDie(PMA_DBI_getError($link), $query);
     return $res;
@@ -155,7 +157,8 @@ function PMA_DBI_try_query($query, $link = null, $options = 0, $cache_affected_r
  * @param string  $message
  * @return  string  $message
  */
-function PMA_DBI_convert_message($message) {
+function PMA_DBI_convert_message($message)
+{
     // latin always last!
     $encodings = array(
         'japanese'      => 'EUC-JP', //'ujis',
@@ -841,13 +844,13 @@ function PMA_DBI_get_columns($database, $table, $full = false, $link = null)
         'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS
         FROM ' . PMA_backquote($database) . '.' . PMA_backquote($table),
         'Field', null, $link);
-    if (! is_array($fields) || count($fields) < 1) {
-        return false;
+    if (! is_array($fields) || count($fields) == 0) {
+        return null;
     }
     return $fields;
 }
 
- /**
+/**
  * returns value of given mysql server variable
  *
  * @param string  $var    mysql server variable name
@@ -950,7 +953,8 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
  * @return  mixed               value of first field in first row from result
  *                              or false if not found
  */
-function PMA_DBI_fetch_value($result, $row_number = 0, $field = 0, $link = null, $options = 0) {
+function PMA_DBI_fetch_value($result, $row_number = 0, $field = 0, $link = null, $options = 0)
+{
     $value = false;
 
     if (is_string($result)) {
@@ -1004,7 +1008,8 @@ function PMA_DBI_fetch_value($result, $row_number = 0, $field = 0, $link = null,
  * @return  array|boolean       first row from result
  *                              or false if result is empty
  */
-function PMA_DBI_fetch_single_row($result, $type = 'ASSOC', $link = null, $options = 0) {
+function PMA_DBI_fetch_single_row($result, $type = 'ASSOC', $link = null, $options = 0)
+{
     if (is_string($result)) {
         $result = PMA_DBI_try_query($result, $link, $options | PMA_DBI_QUERY_STORE, false);
     }
@@ -1266,11 +1271,11 @@ function PMA_DBI_get_procedures_or_functions($db, $which, $link = null)
 }
 
 /**
- * returns the definition of a specific PROCEDURE, FUNCTION or EVENT
+ * returns the definition of a specific PROCEDURE, FUNCTION, EVENT or VIEW
  *
  * @param string              $db     db name
- * @param string              $which  PROCEDURE | FUNCTION | EVENT
- * @param string              $name  the procedure|function|event name
+ * @param string              $which  PROCEDURE | FUNCTION | EVENT | VIEW
+ * @param string              $name  the procedure|function|event|view name
  * @param resource            $link   mysql link
  *
  * @return  string              the definition
@@ -1280,7 +1285,8 @@ function PMA_DBI_get_definition($db, $which, $name, $link = null)
     $returned_field = array(
         'PROCEDURE' => 'Create Procedure',
         'FUNCTION'  => 'Create Function',
-        'EVENT'     => 'Create Event'
+        'EVENT'     => 'Create Event',
+        'VIEW'      => 'Create View'
     );
     $query = 'SHOW CREATE ' . $which . ' ' . PMA_backquote($db) . '.' . PMA_backquote($name);
     return(PMA_DBI_fetch_value($query, 0, $returned_field[$which]));

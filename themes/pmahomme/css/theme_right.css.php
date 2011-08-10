@@ -466,6 +466,19 @@ th.headerSortDown img.sortableIcon { background-position: 0 0; }
 
 /******************************************************************************/
 /* classes */
+.clearfloat {
+    clear: both;
+}
+
+.floatleft {
+    float: <?php echo $left; ?>;
+    margin-<?php echo $right; ?>: 1em;
+}
+
+.paddingtop {
+    padding-top: 1em;
+}
+
 div.tools {
    /* border: 1px solid #000000; */
     padding: 0.2em;
@@ -598,7 +611,7 @@ table [class=value] {
     font-family:        <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
 }
 <?php } ?>
-.value .attention {
+.attention {
     color:              red;
     font-weight:        bold;
 }
@@ -1308,7 +1321,7 @@ div#tablestatistics table {
 
 /* serverstatus */
 
-div#logTable table td.analyzableQuery:hover {
+.linkElem:hover {
     text-decoration:    underline;
     color:              #235a81;
     cursor: pointer;
@@ -1359,9 +1372,6 @@ table#serverstatusqueriesdetails th {
     min-width: 35px;
 }
 
-.clearfloat {
-    clear: both;
-}
 table#serverstatusvariables {
     width: 100%;
     margin-bottom: 1em;
@@ -2667,38 +2677,37 @@ span.CodeMirror-selected {
 .CodeMirror-matchingbracket {color: #0f0 !important;}
 .CodeMirror-nonmatchingbracket {color: #f22 !important;}
 
-
-span.mysql-keyword {
+span.cm-keyword {
     color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_reservedWord']; ?>;
 }
-span.mysql-var {
+span.cm-variable {
     color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_identifier']; ?>;
 }
-span.mysql-comment {
+span.cm-comment {
     color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['comment']; ?>;
 }
-span.mysql-string {
+span.cm-mysql-string {
     color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['quote']; ?>;
 }
-span.mysql-operator {
+span.cm-operator {
     color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['punct']; ?>;
 }
-span.mysql-word {
+span.cm-mysql-word {
     color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha']; ?>;
 }
-span.mysql-function {
+span.cm-builtin {
     color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_functionName']; ?>;
 }
-span.mysql-type {
+span.cm-variable-2 {
     color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_columnType']; ?>;
 }
-span.mysql-attribute {
+span.cm-variable-3 {
     color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_columnAttrib']; ?>;
 }
-span.mysql-separator {
+span.cm-separator {
     color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['punct']; ?>;
 }
-span.mysql-number {
+span.cm-number {
     color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['digit_integer']; ?>;
 }
 

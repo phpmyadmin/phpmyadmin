@@ -14,7 +14,8 @@
 require_once 'libraries/common.lib.php';
 require_once 'libraries/sqlparser.lib.php';
 
-class PMA_formatSql_test extends PHPUnit_Framework_TestCase{
+class PMA_formatSql_test extends PHPUnit_Framework_TestCase
+{
 
     /**
      * temporary variable for globals array

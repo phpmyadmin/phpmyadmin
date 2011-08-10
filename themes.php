@@ -19,21 +19,8 @@ require './libraries/header_http.inc.php';
 /* HTML header */
 $page_title = 'phpMyAdmin - ' . __('Theme');
 require './libraries/header_meta_style.inc.php';
+require './libraries/header_scripts.inc.php';
 ?>
-<script type="text/javascript" language="javascript">
-// <![CDATA[
-function takeThis(what) {
-    if (window.opener && window.opener.document.forms['setTheme'].elements['set_theme']) {
-        window.opener.document.forms['setTheme'].elements['set_theme'].value = what;
-        window.opener.document.forms['setTheme'].submit();
-        self.close();
-    } else {
-        alert('<?php echo sprintf(__('No themes support; please check your configuration and/or your themes in directory %s.'), $cfg['ThemePath']); ?>');
-        self.close();
-    }
-}
-// ]]>
-</script>
 </head>
 
 <body id="bodythemes">

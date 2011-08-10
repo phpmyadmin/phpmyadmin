@@ -333,9 +333,8 @@ class PMA_EPS
         // if(ob_get_clean()){
             //ob_end_clean();
         //}
-        header('Content-type: image/x-eps');
-        header('Content-Disposition: attachment; filename="'.$fileName.'.eps"');
         $output = $this->stringCommands;
+        PMA_download_header($fileName . '.eps', 'image/x-eps', strlen($output));
         print $output;
     }
 }

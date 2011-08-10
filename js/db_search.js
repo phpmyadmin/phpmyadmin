@@ -15,7 +15,8 @@
  */
 
 /** Loads the database search results */
-function loadResult(result_path , table_name , link , ajaxEnable){
+function loadResult(result_path , table_name , link , ajaxEnable)
+{
     $(document).ready(function() {
         if(ajaxEnable)
         {
@@ -42,7 +43,8 @@ function loadResult(result_path , table_name , link , ajaxEnable){
 }
 
 /**  Delete the selected search results */
-function deleteResult(result_path , msg , ajaxEnable){
+function deleteResult(result_path , msg , ajaxEnable)
+{
     $(document).ready(function() {
         /**  Hides the results shown by the browse criteria */
         $("#table-info").hide();

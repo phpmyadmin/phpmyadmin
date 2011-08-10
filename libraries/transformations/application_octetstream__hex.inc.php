@@ -4,7 +4,8 @@
  * @package phpMyAdmin-Transformation
  */
 
-function PMA_transformation_application_octetstream__hex_info() {
+function PMA_transformation_application_octetstream__hex_info()
+{
     return array(
         'info' =>  __('Displays hexadecimal representation of data. Optional first parameter specifies how often space will be added (defaults to 2 nibbles).'),
         );
@@ -13,7 +14,8 @@ function PMA_transformation_application_octetstream__hex_info() {
 /**
  *
  */
-function PMA_transformation_application_octetstream__hex($buffer, $options = array(), $meta = '') {
+function PMA_transformation_application_octetstream__hex($buffer, $options = array(), $meta = '')
+{
     // possibly use a global transform and feed it with special options:
     // include './libraries/transformations/global.inc.php';
     if (!isset($options[0])) {

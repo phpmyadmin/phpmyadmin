@@ -300,7 +300,7 @@ class PMA_Table
 
         if (! isset(PMA_Table::$cache[$db][$table][$info])) {
             if (! $disable_error) {
-                trigger_error('unknown table status: ' . $info, E_USER_WARNING);
+                trigger_error(__('unknown table status: ') . $info, E_USER_WARNING);
             }
             return false;
         }
@@ -1338,7 +1338,7 @@ class PMA_Table
             }
         } else if ($property == self::PROP_COLUMN_ORDER ||
                    $property == self::PROP_COLUMN_VISIB) {
-            if (isset($this->uiprefs[$property])) {
+            if (! PMA_Table::isView($this->db_name, $this->name) && isset($this->uiprefs[$property])) {
                 // check if the table has not been modified
                 if (self::sGetStatusInfo($this->db_name, $this->name, 'Create_time') ==
                         $this->uiprefs['CREATE_TIME']) {
@@ -1376,8 +1376,8 @@ class PMA_Table
             $this->loadUiPrefs();
         }
         // we want to save the create time if the property is PROP_COLUMN_ORDER
-        if ($property == self::PROP_COLUMN_ORDER ||
-                $property == self::PROP_COLUMN_VISIB) {
+        if (! PMA_Table::isView($this->db_name, $this->name) && ($property == self::PROP_COLUMN_ORDER ||
+                $property == self::PROP_COLUMN_VISIB)) {
 
             $curr_create_time = self::sGetStatusInfo($this->db_name, $this->name, 'CREATE_TIME');
             if (isset($table_create_time) &&

@@ -25,9 +25,8 @@ function PMA_jsFormat($a_string = '', $add_backquotes = true)
     if (is_string($a_string)) {
         $a_string = htmlspecialchars($a_string);
         $a_string = PMA_escapeJsString($a_string);
-        /**
-         * @todo what is this good for?
-         */
+        // Needed for inline javascript to prevent some browsers
+        // treating it as a anchor
         $a_string = str_replace('#', '\\#', $a_string);
     }
 
@@ -64,7 +63,8 @@ function PMA_escapeJsString($string)
  * @param string $key Name of value to set
  * @param mixed $value Value to set, can be either string or array of strings
  */
-function PMA_printJsValue($key, $value) {
+function PMA_printJsValue($key, $value)
+{
     echo $key . ' = ';
     if (is_array($value)) {
         echo '[';

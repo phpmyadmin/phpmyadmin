@@ -98,7 +98,7 @@ if (PMA_Tracker::isActive()) {
     $tabs['tracking']['link'] = 'tbl_tracking.php';
 }
 if (!$db_is_information_schema && !PMA_DRIZZLE) {
-    if (PMA_currentUserHasPrivilege('TRIGGER', $db, $table)) {
+    if (PMA_currentUserHasPrivilege('TRIGGER', $db, $table) && ! PMA_Table::isView($db, $table)) {
         $tabs['triggers']['link'] = 'tbl_triggers.php';
         $tabs['triggers']['text'] = __('Triggers');
         $tabs['triggers']['icon'] = 'ic_b_triggers';

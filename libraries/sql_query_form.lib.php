@@ -110,7 +110,7 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
         .'<input type="hidden" name="goto" value="'
         .htmlspecialchars($goto) . '" />' . "\n"
         .'<input type="hidden" name="message_to_show" value="'
-        . htmlspecialchars(__('Your SQL query has been executed successfully')) . '" />' . "\n"
+        . __('Your SQL query has been executed successfully') . '" />' . "\n"
         .'<input type="hidden" name="prev_sql_query" value="'
         . htmlspecialchars($query) . '" />' . "\n";
 
@@ -343,7 +343,7 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
 
     echo '<input type="checkbox" name="show_query" value="1" '
         .'id="checkbox_show_query" tabindex="132" checked="checked" />' . "\n"
-        .'<label for="checkbox_show_query">' . __(' Show this query here again ')
+        .'<label for="checkbox_show_query">' . __('Show this query here again')
         .'</label>' . "\n";
 
     echo '</div>' . "\n";
@@ -420,7 +420,8 @@ function PMA_sqlQueryFormBookmark()
  *
  * @usedby  PMA_sqlQueryForm()
  */
-function PMA_sqlQueryFormUpload() {
+function PMA_sqlQueryFormUpload()
+{
     $errors = array ();
 
     $matcher = '@\.sql(\.(' . PMA_supportedDecompressions() . '))?$@'; // we allow only SQL here

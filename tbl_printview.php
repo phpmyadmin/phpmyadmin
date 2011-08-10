@@ -51,7 +51,7 @@ PMA_DBI_select_db($db);
 
 
 /**
- * Multi-tables printview 
+ * Multi-tables printview
  */
 if (isset($selected_tbl) && is_array($selected_tbl)) {
     $the_tables   = $selected_tbl;
@@ -98,16 +98,13 @@ foreach ($the_tables as $key => $table) {
     /**
      * Gets fields properties
      */
-    $result      = PMA_DBI_query(
-        'SHOW FIELDS FROM ' . PMA_backquote($table) . ';', null,
-        PMA_DBI_QUERY_STORE);
-    $fields_cnt  = PMA_DBI_num_rows($result);
+    $columns = PMA_DBI_get_columns($db, $table);
 
 
-// We need this to correctly learn if a TIMESTAMP is NOT NULL, since
-// SHOW FULL FIELDS or INFORMATION_SCHEMA incorrectly says NULL
-// and SHOW CREATE TABLE says NOT NULL (tested
-// in MySQL 4.0.25 and 5.0.21, http://bugs.mysql.com/20910).
+    // We need this to correctly learn if a TIMESTAMP is NOT NULL, since
+    // SHOW FULL FIELDS or INFORMATION_SCHEMA incorrectly says NULL
+    // and SHOW CREATE TABLE says NOT NULL (tested
+    // in MySQL 4.0.25 and 5.0.21, http://bugs.mysql.com/20910).
 
     $show_create_table = PMA_DBI_fetch_value(
         'SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table),
@@ -155,40 +152,11 @@ foreach ($the_tables as $key => $table) {
 </thead>
 <tbody>
     <?php
-    while ($row = PMA_DBI_fetch_assoc($result)) {
-        $type             = $row['Type'];
-        // reformat mysql query output
-        // set or enum types: slashes single quotes inside options
-        if (preg_match('@^(set|enum)\((.+)\)$@i', $type, $tmp)) {
-            $tmp[2]       = substr(preg_replace('@([^,])\'\'@', '\\1\\\'',
-                                    ',' . $tmp[2]), 1);
-            $type         = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
+    foreach ($columns as $row) {
+        $extracted_fieldspec = PMA_extractFieldSpec($row['Type']);
+        $type             = $extracted_fieldspec['print_type'];
+        $attribute     = $extracted_fieldspec['attribute'];
 
-            $binary       = 0;
-            $unsigned     = 0;
-            $zerofill     = 0;
-        } else {
-            $type         = preg_replace('@BINARY@i', '', $type);
-            $type         = preg_replace('@ZEROFILL@i', '', $type);
-            $type         = preg_replace('@UNSIGNED@i', '', $type);
-            if (empty($type)) {
-                $type     = '&nbsp;';
-            }
-
-            $binary       = stristr($row['Type'], 'binary');
-            $unsigned     = stristr($row['Type'], 'unsigned');
-            $zerofill     = stristr($row['Type'], 'zerofill');
-        }
-        $attribute     = '&nbsp;';
-        if ($binary) {
-            $attribute = 'BINARY';
-        }
-        if ($unsigned) {
-            $attribute = 'UNSIGNED';
-        }
-        if ($zerofill) {
-            $attribute = 'UNSIGNED ZEROFILL';
-        }
         if (! isset($row['Default'])) {
             if ($row['Null'] != ''  && $row['Null'] != 'NO') {
                 $row['Default'] = '<i>NULL</i>';
@@ -252,8 +220,7 @@ foreach ($the_tables as $key => $table) {
     ?>
 </tr>
         <?php
-    } // end while
-    PMA_DBI_free_result($result);
+    } // end foreach
     ?>
 </tbody>
 </table>
@@ -370,7 +337,7 @@ foreach ($the_tables as $key => $table) {
                 if (isset($showtable['Row_format'])) {
                     ?>
             <tr>
-                <td><?php echo ucfirst(__('Format')); ?></td>
+                <td><?php echo __('Format'); ?></td>
                 <td align="<?php echo $cell_align_left; ?>">
                     <?php
                     if ($showtable['Row_format'] == 'Fixed') {
@@ -388,7 +355,7 @@ foreach ($the_tables as $key => $table) {
                 if (isset($showtable['Rows'])) {
                     ?>
             <tr>
-                <td><?php echo ucfirst(__('Rows')); ?></td>
+                <td><?php echo __('Rows'); ?></td>
                 <td align="right">
                     <?php echo PMA_formatNumber($showtable['Rows'], 0) . "\n"; ?>
                 </td>
@@ -398,7 +365,7 @@ foreach ($the_tables as $key => $table) {
                 if (isset($showtable['Avg_row_length']) && $showtable['Avg_row_length'] > 0) {
                     ?>
             <tr>
-                <td><?php echo ucfirst(__('Row length')); ?>&nbsp;&oslash;</td>
+                <td><?php echo __('Row length'); ?>&nbsp;&oslash;</td>
                 <td>
                     <?php echo PMA_formatNumber($showtable['Avg_row_length'], 0) . "\n"; ?>
                 </td>
@@ -408,7 +375,7 @@ foreach ($the_tables as $key => $table) {
                 if (isset($showtable['Data_length']) && $showtable['Rows'] > 0 && $mergetable == false) {
                     ?>
             <tr>
-                <td><?php echo ucfirst(__(' Row size ')); ?>&nbsp;&oslash;</td>
+                <td><?php echo __('Row size'); ?>&nbsp;&oslash;</td>
                 <td align="right">
                     <?php echo $avg_size . ' ' . $avg_unit . "\n"; ?>
                 </td>
@@ -418,7 +385,7 @@ foreach ($the_tables as $key => $table) {
                 if (isset($showtable['Auto_increment'])) {
                     ?>
             <tr>
-                <td><?php echo ucfirst(__('Next')); ?>&nbsp;Autoindex</td>
+                <td><?php echo __('Next autoindex'); ?></td>
                 <td align="right">
                     <?php echo PMA_formatNumber($showtable['Auto_increment'], 0) . "\n"; ?>
                 </td>

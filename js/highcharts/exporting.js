@@ -5,6 +5,9 @@
  * (c) 2010 Torstein Hønsi
  * 
  * License: www.highcharts.com/license
+ *
+ * Please Note: This file has been adjusted for use in phpMyAdmin, 
+ * to allow chart exporting without the batik library
  */
 
 // JSLint options:
@@ -104,7 +107,7 @@ defaultOptions.exporting = {
     //enabled: true,
     //filename: 'chart',
     type: 'image/png',
-    url: 'chart_export.php',
+    url: 'file_echo.php',
     width: 800,
     buttons:  {
         exportButton: {

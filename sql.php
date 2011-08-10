@@ -939,7 +939,7 @@ $(document).ready(makeProfilingChart);
         echo '<div style="float: left;">';
         echo '<table>' . "\n";
         echo ' <tr>' .  "\n";
-        echo '  <th>' . __('Status') . '</th>' . "\n";
+        echo '  <th>' . __('Status') . PMA_showMySQLDocu('general-thread-states','general-thread-states') .  '</th>' . "\n";
         echo '  <th>' . __('Time') . '</th>' . "\n";
         echo ' </tr>' .  "\n";
 
@@ -1013,8 +1013,7 @@ $(document).ready(makeProfilingChart);
 <input type="hidden" name="fields[query]" value="<?php echo urlencode(isset($complete_query) ? $complete_query : $sql_query); ?>" />
 <fieldset>
     <legend><?php
-     echo ($cfg['PropertiesIconic'] ? '<img class="icon ic_b_bookmark" src="themes/dot.gif" alt="' . __('Bookmark this SQL query') . '" />' : '')
-        . __('Bookmark this SQL query');
+    echo PMA_getIcon('b_bookmark.png', __('Bookmark this SQL query'));
 ?>
     </legend>
 

@@ -3,7 +3,7 @@
  * Functions used in the export tab
  *
  */
- 
+
  /**
   * Toggles the hiding and showing of each plugin's options
   * according to the currently selected plugin from the dropdown list
@@ -19,7 +19,7 @@
 });
 
 /**
- * Toggles the enabling and disabling of the SQL plugin's comment options that apply only when exporting structure 
+ * Toggles the enabling and disabling of the SQL plugin's comment options that apply only when exporting structure
  */
 $(document).ready(function() {
     $("input[type='radio'][name$='sql_structure_or_data']").change(function() {
@@ -50,7 +50,8 @@ $(document).ready(function() {
  * options
  */
 
-function toggle_structure_data_opts(pluginName) {
+function toggle_structure_data_opts(pluginName)
+{
     var radioFormName = pluginName + "_structure_or_data";
     var dataDiv = "#" + pluginName + "_data";
     var structureDiv = "#" + pluginName + "_structure";
@@ -89,7 +90,8 @@ $(document).ready(function() {
 /**
  * Toggles the disabling of the "save to file" options
  */
-function toggle_save_to_file() {
+function toggle_save_to_file()
+{
     if($("#radio_dump_asfile:checked").length == 0) {
         $("#ul_save_asfile > li").fadeTo('fast', 0.4);
         $("#ul_save_asfile > li > input").attr('disabled', 'disabled');
@@ -111,7 +113,8 @@ $(document).ready(function() {
 /**
  * For SQL plugin, toggles the disabling of the "display comments" options
  */
-function toggle_sql_include_comments() {
+function toggle_sql_include_comments()
+{
     $("#checkbox_sql_include_comments").change(function() {
         if($("#checkbox_sql_include_comments:checked").length == 0) {
             $("#ul_include_comments > li").fadeTo('fast', 0.4);
@@ -130,8 +133,8 @@ function toggle_sql_include_comments() {
 }
 
 /**
- * For SQL plugin, if "CREATE TABLE options" is checked/unchecked, check/uncheck each of its sub-options 
- */ 
+ * For SQL plugin, if "CREATE TABLE options" is checked/unchecked, check/uncheck each of its sub-options
+ */
 $(document).ready(function() {
      $("#checkbox_sql_create_table_statements").change(function() {
          if($("#checkbox_sql_create_table_statements:checked").length == 0) {
@@ -144,7 +147,7 @@ $(document).ready(function() {
     });
 });
 
-/** 
+/**
  * Disables the view output as text option if the output must be saved as a file
  */
 $(document).ready(function() {
@@ -164,7 +167,8 @@ $(document).ready(function() {
 /**
  * Toggles display of options when quick and custom export are selected
  */
-function toggle_quick_or_custom() {
+function toggle_quick_or_custom()
+{
     if($("$(this):checked").attr("value") == "custom") {
         $("#databases_and_tables").show();
         $("#rows").show();

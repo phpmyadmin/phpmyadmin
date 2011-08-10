@@ -132,9 +132,9 @@ if ($pos > 0) {
 
     echo '<a href="./server_binlog.php' . PMA_generate_common_url($this_url_params) . '"';
     if ($GLOBALS['cfg']['NavigationBarIconic']) {
-        echo ' title="' . __('Previous') . '">';
+        echo ' title="' . _pgettext('Previous page', 'Previous') . '">';
     } else {
-        echo '>' . __('Previous');
+        echo '>' . _pgettext('Previous page', 'Previous');
     } // end if... else...
     echo ' &lt; </a> - ';
 }
@@ -167,9 +167,9 @@ if ($num_rows >= $GLOBALS['cfg']['MaxRows']) {
     $this_url_params['pos'] = $pos + $GLOBALS['cfg']['MaxRows'];
     echo ' - <a href="./server_binlog.php' . PMA_generate_common_url($this_url_params) . '"';
     if ($GLOBALS['cfg']['NavigationBarIconic']) {
-        echo ' title="' . __('Next') . '">';
+        echo ' title="' . _pgettext('Next page', 'Next') . '">';
     } else {
-        echo '>' . __('Next');
+        echo '>' . _pgettext('Next page', 'Next');
     } // end if... else...
     echo ' &gt; </a>';
 }

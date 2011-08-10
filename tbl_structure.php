@@ -123,10 +123,8 @@ foreach (PMA_Index::getFromTable($table, $db) as $index) {
 unset($index, $columns, $column_name, $dummy);
 
 // 3. Get fields
-$fields_rs   = PMA_DRIZZLE
-            ? PMA_DBI_query('SHOW COLUMNS FROM ' . PMA_backquote($table) . ';', null, PMA_DBI_QUERY_STORE)
-            : PMA_DBI_query('SHOW FULL FIELDS FROM ' . PMA_backquote($table) . ';', null, PMA_DBI_QUERY_STORE);
-$fields_cnt  = PMA_DBI_num_rows($fields_rs);
+$fields = PMA_DBI_get_columns($db, $table, true);
+$fields_cnt  = count($fields);
 
 // Get more complete field information
 // For now, this is done just for MySQL 4.1.2+ new TIMESTAMP options
@@ -149,34 +147,34 @@ $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
  */
 // action titles (image or string)
 $titles = array();
-$titles['Change']               = PMA_getIcon('b_edit.png', __('Change'), true);
-$titles['Drop']                 = PMA_getIcon('b_drop.png', __('Drop'), true);
-$titles['NoDrop']               = PMA_getIcon('b_drop.png', __('Drop'), true);
-$titles['Primary']              = PMA_getIcon('b_primary.png', __('Primary'), true);
-$titles['Index']                = PMA_getIcon('b_index.png', __('Index'), true);
-$titles['Unique']               = PMA_getIcon('b_unique.png', __('Unique'), true);
-$titles['Spatial']              = PMA_getIcon('b_spatial.png', __('Spatial'), true);
-$titles['IdxFulltext']          = PMA_getIcon('b_ftext.png', __('Fulltext'), true);
-$titles['NoPrimary']            = PMA_getIcon('bd_primary.png', __('Primary'), true);
-$titles['NoIndex']              = PMA_getIcon('bd_index.png', __('Index'), true);
-$titles['NoUnique']             = PMA_getIcon('bd_unique.png', __('Unique'), true);
-$titles['NoSpatial']            = PMA_getIcon('bd_spatial.png', __('Spatial'), true);
-$titles['NoIdxFulltext']        = PMA_getIcon('bd_ftext.png', __('Fulltext'), true);
-$titles['BrowseDistinctValues'] = PMA_getIcon('b_browse.png', __('Browse distinct values'), true);
+$titles['Change']               = PMA_getIcon('b_edit.png', __('Change'));
+$titles['Drop']                 = PMA_getIcon('b_drop.png', __('Drop'));
+$titles['NoDrop']               = PMA_getIcon('b_drop.png', __('Drop'));
+$titles['Primary']              = PMA_getIcon('b_primary.png', __('Primary'));
+$titles['Index']                = PMA_getIcon('b_index.png', __('Index'));
+$titles['Unique']               = PMA_getIcon('b_unique.png', __('Unique'));
+$titles['Spatial']              = PMA_getIcon('b_spatial.png', __('Spatial'));
+$titles['IdxFulltext']          = PMA_getIcon('b_ftext.png', __('Fulltext'));
+$titles['NoPrimary']            = PMA_getIcon('bd_primary.png', __('Primary'));
+$titles['NoIndex']              = PMA_getIcon('bd_index.png', __('Index'));
+$titles['NoUnique']             = PMA_getIcon('bd_unique.png', __('Unique'));
+$titles['NoSpatial']            = PMA_getIcon('bd_spatial.png', __('Spatial'));
+$titles['NoIdxFulltext']        = PMA_getIcon('bd_ftext.png', __('Fulltext'));
+$titles['BrowseDistinctValues'] = PMA_getIcon('b_browse.png', __('Browse distinct values'));
 
 // hidden action titles (image and string)
 $hidden_titles = array();
-$hidden_titles['BrowseDistinctValues'] = PMA_getIcon('b_browse.png', __('Browse distinct values'), false, true);
-$hidden_titles['Primary']              = PMA_getIcon('b_primary.png', __('Add primary key'), false, true);
-$hidden_titles['NoPrimary']            = PMA_getIcon('bd_primary.png', __('Add primary key'), false, true);
-$hidden_titles['Index']                = PMA_getIcon('b_index.png', __('Add index'), false, true);
-$hidden_titles['NoIndex']              = PMA_getIcon('bd_index.png', __('Add index'), false, true);
-$hidden_titles['Unique']               = PMA_getIcon('b_unique.png', __('Add unique index'), false, true);
-$hidden_titles['NoUnique']             = PMA_getIcon('bd_unique.png', __('Add unique index'), false, true);
-$hidden_titles['Spatial']              = PMA_getIcon('b_spatial.png', __('Add SPATIAL index'), false, true);
-$hidden_titles['NoSpatial']            = PMA_getIcon('bd_spatial.png', __('Add SPATIAL index'), false, true);
-$hidden_titles['IdxFulltext']          = PMA_getIcon('b_ftext.png', __('Add FULLTEXT index'), false, true);
-$hidden_titles['NoIdxFulltext']        = PMA_getIcon('bd_ftext.png', __('Add FULLTEXT index'), false, true);
+$hidden_titles['BrowseDistinctValues'] = PMA_getIcon('b_browse.png', __('Browse distinct values'), true);
+$hidden_titles['Primary']              = PMA_getIcon('b_primary.png', __('Add primary key'), true);
+$hidden_titles['NoPrimary']            = PMA_getIcon('bd_primary.png', __('Add primary key'), true);
+$hidden_titles['Index']                = PMA_getIcon('b_index.png', __('Add index'), true);
+$hidden_titles['NoIndex']              = PMA_getIcon('bd_index.png', __('Add index'), true);
+$hidden_titles['Unique']               = PMA_getIcon('b_unique.png', __('Add unique index'), true);
+$hidden_titles['NoUnique']             = PMA_getIcon('bd_unique.png', __('Add unique index'), true);
+$hidden_titles['Spatial']              = PMA_getIcon('b_spatial.png', __('Add SPATIAL index'), true);
+$hidden_titles['NoSpatial']            = PMA_getIcon('bd_spatial.png', __('Add SPATIAL index'), true);
+$hidden_titles['IdxFulltext']          = PMA_getIcon('b_ftext.png', __('Add FULLTEXT index'), true);
+$hidden_titles['NoIdxFulltext']        = PMA_getIcon('bd_ftext.png', __('Add FULLTEXT index'), true);
 
 /**
  * Displays the table structure ('show table' works correct since 3.23.03)
@@ -243,7 +241,7 @@ $aryFields = array();
 $checked   = (!empty($checkall) ? ' checked="checked"' : '');
 $save_row  = array();
 $odd_row   = true;
-while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
+foreach ($fields as $row) {
     $save_row[] = $row;
     $rownum++;
     $aryFields[]      = $row['Field'];
@@ -252,41 +250,19 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     $extracted_fieldspec = PMA_extractFieldSpec($row['Type']);
 
     if ('set' == $extracted_fieldspec['type'] || 'enum' == $extracted_fieldspec['type']) {
-        $type         = $extracted_fieldspec['type'] . '(' .
-            str_replace("','", "', '", $extracted_fieldspec['spec_in_brackets']) . ')';
-
-        // for the case ENUM('&#8211;','&ldquo;')
-        $type         = htmlspecialchars($type);
-        if (strlen($type) > $GLOBALS['cfg']['LimitChars']) {
-            $type = '<abbr title="' . $type . '">' . substr($type, 0, $GLOBALS['cfg']['LimitChars']) . '</abbr>';
-        }
-
         $type_nowrap  = '';
-
-        $binary       = 0;
-        $unsigned     = 0;
-        $zerofill     = 0;
     } else {
         $type_nowrap  = ' nowrap="nowrap"';
-        // strip the "BINARY" attribute, except if we find "BINARY(" because
-        // this would be a BINARY or VARBINARY field type
-        if (!preg_match('@BINARY[\(]@i', $type)) {
-            $type         = preg_replace('@BINARY@i', '', $type);
-        }
-        $type         = preg_replace('@ZEROFILL@i', '', $type);
-        $type         = preg_replace('@UNSIGNED@i', '', $type);
-        if (empty($type)) {
-            $type     = ' ';
-        }
-
-        if (!preg_match('@BINARY[\(]@i', $row['Type'])) {
-            $binary           = stristr($row['Type'], 'blob') || stristr($row['Type'], 'binary');
-        } else {
-            $binary           = false;
-        }
-
-        $unsigned     = stristr($row['Type'], 'unsigned');
-        $zerofill     = stristr($row['Type'], 'zerofill');
+    }
+    $type         = $extracted_fieldspec['print_type'];
+    if (empty($type)) {
+        $type     = ' ';
+    }
+    // for the case ENUM('&#8211;','&ldquo;')
+    $type         = htmlspecialchars($type);
+    // in case it is too long
+    if (strlen($type) > $GLOBALS['cfg']['LimitChars']) {
+        $type = '<abbr title="' . $type . '">' . substr($type, 0, $GLOBALS['cfg']['LimitChars']) . '</abbr>';
     }
 
     unset($field_charset);
@@ -298,7 +274,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         || substr($type, 0, 8) == 'longtext'
         || substr($type, 0, 3) == 'set'
         || substr($type, 0, 4) == 'enum'
-        ) && !$binary) {
+        ) && !$extracted_fieldspec['binary']) {
         if (strpos($type, ' character set ')) {
             $type = substr($type, 0, strpos($type, ' character set '));
         }
@@ -318,16 +294,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         $type_mime = '';
     }
 
-    $attribute     = ' ';
-    if ($binary) {
-        $attribute = 'BINARY';
-    }
-    if ($unsigned) {
-        $attribute = 'UNSIGNED';
-    }
-    if ($zerofill) {
-        $attribute = 'UNSIGNED ZEROFILL';
-    }
+    $attribute     = $extracted_fieldspec['attribute'];
 
     // MySQL 4.1.2+ TIMESTAMP options
     // (if on_update_current_timestamp is set, then it's TRUE)
@@ -575,7 +542,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
 </tr>
     <?php
     unset($field_charset);
-} // end while
+} // end foreach
 
 echo '</tbody>' . "\n"
     .'</table>' . "\n";
@@ -622,12 +589,24 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
 /**
  * Work on the table
  */
-?>
-<a href="tbl_printview.php?<?php echo $url_query; ?>"><?php
-if ($cfg['PropertiesIconic']) {
-    echo '<img class="icon ic_b_print" src="themes/dot.gif" alt="' . __('Print view') . '"/>';
+
+if ($tbl_is_view) {
+    $create_view = PMA_DBI_get_definition($db, 'VIEW', $table);
+    echo PMA_linkOrButton(
+        'tbl_sql.php' . PMA_generate_common_url(
+            $url_params +
+            array(
+                'sql_query' => $create_view,
+                'show_query' => '1',
+            )
+        ),
+        PMA_getIcon('b_edit.png', __('Edit view'))
+        );
 }
-echo __('Print view');
+?>
+
+<a href="tbl_printview.php?<?php echo $url_query; ?>"><?php
+echo PMA_getIcon('b_print.png', __('Print view'));
 ?></a>
 
 <?php
@@ -638,19 +617,13 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     if ($cfgRelation['relwork'] || PMA_foreignkey_supported($tbl_type)) {
         ?>
 <a href="tbl_relation.php?<?php echo $url_query; ?>"><?php
-        if ($cfg['PropertiesIconic']) {
-            echo '<img class="icon ic_b_relations" src="themes/dot.gif" alt="' . __('Relation view') . '"/>';
-        }
-        echo __('Relation view');
+        echo PMA_getIcon('b_relations.png', __('Relation view'));
         ?></a>
         <?php
     }
     ?>
 <a href="sql.php?<?php echo $url_query; ?>&amp;session_max_rows=all&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table) . ' PROCEDURE ANALYSE()'); ?>"><?php
-    if ($cfg['PropertiesIconic']) {
-        echo '<img class="icon ic_b_tblanalyse" src="themes/dot.gif" alt="' . __('Propose table structure') . '" />';
-    }
-    echo __('Propose table structure');
+    echo PMA_getIcon('b_tblanalyse.png', __('Propose table structure'));
     ?></a><?php
     echo PMA_showMySQLDocu('Extending_MySQL', 'procedure_analyse') . "\n";
 
@@ -658,12 +631,8 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     if (PMA_Tracker::isActive())
     {
         echo '<a href="tbl_tracking.php?' . $url_query . '">';
-
-        if ($cfg['PropertiesIconic'])
-        {
-            echo '<img class="icon ic_eye" src="themes/dot.gif" alt="' . __('Track table') . '" /> ';
-        }
-        echo __('Track table') . '</a>';
+        echo PMA_getIcon('eye.png', __('Track table'));
+        echo '</a>';
     }
     ?>
 
@@ -838,10 +807,7 @@ if ($cfg['ShowStats']) {
     <tr class="tblFooters">
         <td colspan="3" align="center">
             <a href="sql.php?<?php echo $url_query; ?>&pos=0&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>"><?php
-            if ($cfg['PropertiesIconic']) {
-               echo '<img class="icon ic_b_tbloptimize" src="themes/dot.gif" alt="' . __('Optimize table'). '" />';
-            }
-            echo __('Optimize table');
+            echo PMA_getIcon('b_tbloptimize.png', __('Optimize table'));
             ?></a>
         </td>
     </tr>
@@ -923,7 +889,7 @@ if ($cfg['ShowStats']) {
     if (!$is_innodb && isset($showtable['Data_length']) && $showtable['Rows'] > 0 && $mergetable == false) {
         ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __(' Row size '); ?> &oslash;</th>
+        <th class="name"><?php echo __('Row size'); ?> &oslash;</th>
         <td class="value"><?php echo $avg_size . ' ' . $avg_unit; ?></td>
     </tr>
         <?php
@@ -931,7 +897,7 @@ if ($cfg['ShowStats']) {
     if (isset($showtable['Auto_increment'])) {
         ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Next'); ?> Autoindex</th>
+        <th class="name"><?php echo __('Next autoindex'); ?></th>
         <td class="value"><?php echo PMA_formatNumber($showtable['Auto_increment'], 0); ?></td>
     </tr>
         <?php

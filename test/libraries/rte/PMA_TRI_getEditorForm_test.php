@@ -17,8 +17,8 @@ class PMA_TRI_getEditorForm_test extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        if (! function_exists('PMA_DBI_get_tables')) {
-            function PMA_DBI_get_tables($db)
+        if (! function_exists('PMA_DBI_fetch_result')) {
+            function PMA_DBI_fetch_result($query)
             {
                 return array('table1', 'table`2');
             }

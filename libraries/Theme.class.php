@@ -16,7 +16,8 @@
  *
  * @package phpMyAdmin
  */
-class PMA_Theme {
+class PMA_Theme
+{
     /**
      * @var string theme version
      * @access  protected
@@ -320,12 +321,13 @@ class PMA_Theme {
     {
         echo '<div class="theme_preview">';
         echo '<h2>' . htmlspecialchars($this->getName())
-            .' (' . htmlspecialchars($this->getVersion()) . ')</h2>'
-            .'<p>'
-            .'<a target="_top" href="index.php'
-            .PMA_generate_common_url(array('set_theme' => $this->getId())) . '"'
-            .' onclick="takeThis(\'' . addslashes($this->getId()) . '\');'
-            .' return false;">';
+            .' (' . htmlspecialchars($this->getVersion()) . ')</h2>';
+        echo '<p>';
+        echo '<a target="_top" class="take_theme" '
+            .'name="' . htmlspecialchars($this->getId()) . '" '
+            . 'href="index.php'.PMA_generate_common_url(array(
+                'set_theme' => $this->getId()
+                )) . '">';
         if (@file_exists($this->getPath() . '/screen.png')) {
             // if screen exists then output
 

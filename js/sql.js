@@ -15,11 +15,13 @@ var $data_a;
  * @param string str
  * @return string the URL-decoded string
  */
-function PMA_urldecode(str) {
+function PMA_urldecode(str)
+{
     return decodeURIComponent(str.replace(/\+/g, '%20'));
 }
 
-function PMA_urlencode(str) {
+function PMA_urlencode(str)
+{
     return encodeURIComponent(str).replace(/\%20/g, '+');
 }
 
@@ -29,7 +31,8 @@ function PMA_urlencode(str) {
  *
  * @param   $this_field  jQuery object that points to the current field's tr
  */
-function getFieldName($this_field) {
+function getFieldName($this_field)
+{
 
     var this_field_index = $this_field.index();
     // ltr or rtl direction does not impact how the DOM was generated
@@ -483,7 +486,8 @@ $(document).ready(function() {
  * Starting from some th, change the class of all td under it.
  * If isAddClass is specified, it will be used to determine whether to add or remove the class.
  */
-function PMA_changeClassForColumn($this_th, newclass, isAddClass) {
+function PMA_changeClassForColumn($this_th, newclass, isAddClass)
+{
     // index 0 is the th containing the big T
     var th_index = $this_th.index();
     var has_big_t = !$this_th.closest('tr').children(':first').hasClass('column_heading');
@@ -532,7 +536,8 @@ $(document).ready(function() {
 /*
  * Profiling Chart
  */
-function makeProfilingChart() {
+function makeProfilingChart()
+{
     if ($('#profilingchart').length == 0) {
         return;
     }

@@ -4,7 +4,7 @@
         var g = {
             // constant
             minColWidth: 15,
-            
+
             // variables, assigned with default value, changed later
             actionSpan: 5,
             colOrder: new Array(),      // array of column order
@@ -58,7 +58,7 @@
                     g.hideEditCell();
                 }
             },
-            
+
             dragStartMove: function(e, obj) {   // start column move
                 // prepare the cCpy and cPointer from the dragged column
                 $(this.cCpy).text($(obj).text());
@@ -72,10 +72,10 @@
                 $(this.cPointer).css({
                     top: objPos.top
                 });
-                
+
                 // get the column index, zero-based
                 var n = this.getHeaderIdx(obj);
-                
+
                 this.colMov = {
                     x0: e.pageX,
                     y0: e.pageY,
@@ -92,7 +92,7 @@
                     g.hideEditCell();
                 }
             },
-            
+
             dragMove: function(e) {
                 if (this.colRsz) {
                     var dx = e.pageX - this.colRsz.x0;
@@ -105,7 +105,7 @@
                     $(this.cCpy)
                         .css('left', this.colMov.objLeft + dx)
                         .show();
-                    
+
                     // pointer animation
                     var hoveredCol = this.getHoveredCol(e);
                     if (hoveredCol) {
@@ -129,7 +129,7 @@
                     }
                 }
             },
-            
+
             dragEnd: function(e) {
                 if (this.colRsz) {
                     var dx = e.pageX - this.colRsz.x0;
@@ -140,7 +140,7 @@
                     var n = this.colRsz.n;
                     // do the resizing
                     this.resize(n, nw);
-                    
+
                     $('body').css('cursor', 'default');
                     this.reposRsz();
                     this.reposDrop();
@@ -160,7 +160,7 @@
                         }
                         this.refreshRestoreButton();
                     }
-                    
+
                     // animate new column position
                     $(this.cCpy).stop(true, true)
                         .animate({
@@ -174,7 +174,7 @@
                 }
                 $('body').noSelect(false);
             },
-            
+
             /**
              * Resize column n to new width "nw"
              */
@@ -185,7 +185,7 @@
                            .css('width', nw);
                 });
             },
-            
+
             /**
              * Reposition column resize bars.
              */
@@ -200,7 +200,7 @@
                 }
                 $(this.cRsz).css('height', $(this.t).height());
             },
-            
+
             /**
              * Shift column from index oldn to newn.
              */
@@ -220,7 +220,7 @@
                 });
                 // reposition the column resize bars
                 this.reposRsz();
-                    
+
                 // adjust the column visibility list
                 if (newn < oldn) {
                     $(g.cList).find('.lDiv div:eq(' + newn + ')')
@@ -238,7 +238,7 @@
                 this.colVisib.splice(oldn, 1);
                 this.colVisib.splice(newn, 0, tmp);
             },
-            
+
             /**
              * Find currently hovered table column's header (excluding actions column).
              * @return the hovered column's th object or undefined if no hovered column found.
@@ -255,14 +255,14 @@
                 });
                 return hoveredCol;
             },
-            
+
             /**
              * Get a zero-based index from a <th class="draggable"> tag in a table.
              */
             getHeaderIdx: function(obj) {
                 return $(obj).parents('tr').find('th.draggable').index(obj);
             },
-            
+
             /**
              * Reposition the table back to normal order.
              */
@@ -284,7 +284,7 @@
                 }
                 this.refreshRestoreButton();
             },
-            
+
             /**
              * Send column preferences (column order and visibility) to the server.
              */
@@ -301,7 +301,7 @@
                     table_create_time: this.tableCreateTime
                 });
             },
-            
+
             /**
              * Refresh restore button state.
              * Make restore button disabled if the table is similar with initial state.
@@ -324,7 +324,7 @@
                     $('.restore_column').show();
                 }
             },
-            
+
             /**
              * Update current hint using the boolean values (showReorderHint, showSortHint, etc.).
              * It will hide the hint if all the boolean values is false.
@@ -349,16 +349,16 @@
                         text += text.length > 0 ? '<br />' : '';
                         text += this.colVisibHint;
                     }
-                    
+
                     // hide the hint if no text
                     this.qtip.disable(!text && e.type == 'mouseenter');
-                    
+
                     this.qtip.updateContent(text, false);
                 } else {
                     this.qtip.disable(true);
                 }
             },
-            
+
             /**
              * Toggle column's visibility.
              * After calling this function and it returns true, afterToggleCol() must be called.
@@ -392,7 +392,7 @@
                 }
                 return true;
             },
-            
+
             /**
              * This must be called after calling toggleCol() and the return value is true.
              *
@@ -404,12 +404,12 @@
                 this.reposRsz();
                 this.reposDrop();
                 this.sendColPrefs();
-                
+
                 // check visible first row headers count
                 this.visibleHeadersCount = $(this.t).find('tr:first th.draggable:visible').length;
                 this.refreshRestoreButton();
             },
-            
+
             /**
              * Show columns' visibility list.
              */
@@ -429,7 +429,7 @@
                     $(obj).addClass('coldrop-hover');
                 }
             },
-            
+
             /**
              * Hide columns' visibility list.
              */
@@ -437,7 +437,7 @@
                 $(this.cList).hide();
                 $(g.cDrop).find('.coldrop-hover').removeClass('coldrop-hover');
             },
-            
+
             /**
              * Reposition the column visibility drop-down arrow.
              */
@@ -452,7 +452,7 @@
                         });
                 }
             },
-            
+
             /**
              * Show all hidden columns.
              */
@@ -1243,11 +1243,11 @@
                 });
             }
         }
-        
+
         // wrap all data cells, except actions cell, with span
         $(t).find('th, td:not(:has(span))')
             .wrapInner('<span />');
-        
+
         g.gDiv = document.createElement('div');     // create global div
         g.cRsz = document.createElement('div');     // column resizer
         g.cCpy = document.createElement('div');     // column copy, to store copy of dragged column header
@@ -1259,14 +1259,14 @@
         // adjust g.cCpy
         g.cCpy.className = 'cCpy';
         $(g.cCpy).hide();
-        
+
         // adjust g.cPoint
         g.cPointer.className = 'cPointer';
         $(g.cPointer).css('visibility', 'hidden');
-        
+
         // adjust g.cDrop
         g.cDrop.className = 'cDrop';
-        
+
         // adjust g.cList
         g.cList.className = 'cList';
         $(g.cList).hide();
@@ -1279,24 +1279,24 @@
         // chain table and grid together
         t.grid = g;
         g.t = t;
-        
+
         // get first row data columns
         var $firstRowCols = $(t).find('tr:first th.draggable');
-        
+
         // initialize g.visibleHeadersCount
         g.visibleHeadersCount = $firstRowCols.filter(':visible').length;
-        
+
         // assign first column (actions) span
         if (! $(t).find('tr:first th:first').hasClass('draggable')) {  // action header exist
             g.actionSpan = $(t).find('tr:first th:first').prop('colspan');
         } else {
             g.actionSpan = 0;
         }
-        
+
         // assign table create time
         // #table_create_time will only available if we are in "Browse" tab
         g.tableCreateTime = $('#table_create_time').val();
-        
+
         // assign column reorder & column sort hint
         g.reorderHint = PMA_messages['strColOrderHint'];
         g.sortHint = PMA_messages['strSortHint'];
@@ -1332,7 +1332,7 @@
                 g.colOrder.push(i);
             }
         }
-        
+
         // initialize column visibility
         $col_visib = $('#col_visib');
         if ($col_visib.length > 0) {
@@ -1346,7 +1346,7 @@
                 g.colVisib.push(1);
             }
         }
-        
+
         if ($firstRowCols.length > 1) {
             // create column drop-down arrow(s)
             $(t).find('th:not(.draggable)').each(function() {
@@ -1366,7 +1366,7 @@
                     });
                 $(g.cDrop).append(cd);
             });
-            
+
             // add column visibility control
             g.cList.innerHTML = '<div class="lDiv"></div>';
             var $listDiv = $(g.cList).find('div');
@@ -1400,7 +1400,7 @@
                 });
             }
         }
-        
+
         // create column borders
         $firstRowCols.each(function() {
             $this = $(this);
@@ -1412,15 +1412,15 @@
             $(g.cRsz).append(cb);
         });
         g.reposRsz();
-        
+
         // bind event to update currently hovered qtip API
         $(t).find('th').mouseenter(function(e) {
             g.qtip = $(this).qtip('api');
         });
-        
+
         // create qtip for each <th> with draggable class
         PMA_createqTip($(t).find('th.draggable'));
-        
+
         // register events
         if (g.reorderHint) {    // make sure columns is reorderable
             $(t).find('th.draggable')
@@ -1445,7 +1445,7 @@
         }
         if ($firstRowCols.length > 1) {
             var $colVisibTh = $(t).find('th:not(.draggable)');
-            
+
             PMA_createqTip($colVisibTh);
             $colVisibTh.mouseenter(function(e) {
                     g.showColVisibHint = true;
@@ -1494,7 +1494,7 @@
         
         // add table class
         $(t).addClass('pma_table');
-        
+
         // link all divs
         $(t).before(g.gDiv);
         $(g.gDiv).append(t);
@@ -1515,13 +1515,13 @@
             return false;
         });
     };
-    
+
     // document ready checking
     var docready = false;
     $(document).ready(function() {
         docready = true;
     });
-    
+
     // Additional jQuery functions
     /**
      * Make resizable, reorderable grid.
@@ -1561,6 +1561,6 @@
             }
         });
     }
-    
+
 })(jQuery);
 

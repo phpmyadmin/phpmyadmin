@@ -15,13 +15,15 @@ $cfgRelation = PMA_getRelationsParam();
 require_once './libraries/file_listing.php';
 require_once './libraries/plugin_interface.lib.php';
 
-function PMA_exportCheckboxCheck($str) {
+function PMA_exportCheckboxCheck($str)
+{
     if (isset($GLOBALS['cfg']['Export'][$str]) && $GLOBALS['cfg']['Export'][$str]) {
         echo ' checked="checked"';
     }
 }
 
-function PMA_exportIsActive($what, $val) {
+function PMA_exportIsActive($what, $val)
+{
     if (isset($GLOBALS['cfg']['Export'][$what]) &&  $GLOBALS['cfg']['Export'][$what] == $val) {
         echo ' checked="checked"';
     }

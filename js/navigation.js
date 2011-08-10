@@ -17,7 +17,8 @@ var pma_saveframesize_timeout = null;
  * @param   string  id          id of the element in the DOM
  * @param   boolean only_open   do not close/hide element
  */
-function toggle(id, only_open) {
+function toggle(id, only_open)
+{
     var el = document.getElementById('subel' + id);
     if (! el) {
         return false;
@@ -104,7 +105,8 @@ function PMA_setFrameSize()
  * @param   string  name    name of the value to retrieve
  * @return  string  value   value for the given name from cookie
  */
-function PMA_getCookie(name) {
+function PMA_getCookie(name)
+{
     var start = document.cookie.indexOf(name + "=");
     var len = start + name.length + 1;
     if ((!start) && (name != document.cookie.substring(0, name.length))) {
@@ -130,7 +132,8 @@ function PMA_getCookie(name) {
  * @param   string  domain
  * @param   boolean secure
  */
-function PMA_setCookie(name, value, expires, path, domain, secure) {
+function PMA_setCookie(name, value, expires, path, domain, secure)
+{
     document.cookie = name + "=" + escape(value) +
         ( (expires) ? ";expires=" + expires.toGMTString() : "") +
         ( (path)    ? ";path=" + path : "") +
@@ -144,7 +147,8 @@ function PMA_setCookie(name, value, expires, path, domain, secure) {
  * @param   string  value    requested value
  *
  */
-function fast_filter(value){
+function fast_filter(value)
+{
     lowercase_value = value.toLowerCase();
     $("#subel0 a[class!='tableicon']").each(function(idx,elem){
         $elem = $(elem);
@@ -160,7 +164,8 @@ function fast_filter(value){
 /**
  * Clears fast filter.
  */
-function clear_fast_filter() {
+function clear_fast_filter()
+{
     var elm = $('#NavFilter input');
     elm.val('');
     fast_filter('');
@@ -170,7 +175,8 @@ function clear_fast_filter() {
 /**
  * Reloads the recent tables list.
  */
-function PMA_reloadRecentTable() {
+function PMA_reloadRecentTable()
+{
     $.get('navigation.php', {
             'token': window.parent.token,
             'server': window.parent.server,

@@ -30,24 +30,17 @@ if (isset($plugin_list)) {
         );
 } else {
 
-    /**
-     * Font used in PDF.
-     *
-     * @todo Make this configuratble (at least Sans/Serif).
-     */
-    define('PMA_PDF_FONT', 'DejaVuSans');
-    require_once './libraries/tcpdf/tcpdf.php';
+    require_once './libraries/PDF.class.php';
 
     /**
      * Adapted from a LGPL script by Philip Clarke
      * @package phpMyAdmin-Export
      * @subpackage PDF
      */
-    class PMA_PDF extends TCPDF
+    class PMA_Export_PDF extends PMA_PDF
     {
         var $tablewidths;
         var $headerset;
-        var $footerset;
 
         function checkPageBreak($h=0, $y='', $addpage=true) {
             if ($this->empty_string($y)) {
@@ -123,20 +116,6 @@ if (isset($plugin_list)) {
             }
 
             $this->dataY = $maxY;
-        }
-
-        function Footer()
-        {
-            // Check if footer for this page already exists
-            if (!isset($this->footerset[$this->page])) {
-                $this->SetY(-15);
-                //Page number
-                $this->setFooterFont(PMA_PDF_FONT, '', 14);
-                $this->Cell(0, 6, __('Page number:') . ' ' . $this->getAliasNumPage() . '/' .  $this->getAliasNbPages(), 'T', 0, 'C');
-
-                // set footerset
-                $this->footerset[$this->page] = 1;
-            }
         }
 
         function morepagestable($lineheight=8)
@@ -354,9 +333,9 @@ if (isset($plugin_list)) {
 
         } // end of mysql_report function
 
-    } // end of PMA_PDF class
+    } // end of PMA_Export_PDF class
 
-    $pdf = new PMA_PDF('L', 'pt', 'A3');
+    $pdf = new PMA_Export_PDF('L', 'pt', 'A3');
 
     /**
      * Finalize the pdf.
@@ -389,13 +368,6 @@ if (isset($plugin_list)) {
         global $pdf_report_title;
         global $pdf;
 
-        $pdf->AddFont('DejaVuSans', '', 'dejavusans.php');
-        $pdf->AddFont('DejaVuSans', 'B', 'dejavusansb.php');
-        $pdf->AddFont('DejaVuSerif', '', 'dejavuserif.php');
-        $pdf->AddFont('DejaVuSerif', 'B', 'dejavuserifb.php');
-        $pdf->SetFont(PMA_PDF_FONT, '', 11.5);
-        $pdf->setFooterFont(array(PMA_PDF_FONT, '', 11.5));
-        $pdf->AliasNbPages();
         $pdf->Open();
 
         $attr=array('titleFontSize' => 18, 'titleText' => $pdf_report_title);
