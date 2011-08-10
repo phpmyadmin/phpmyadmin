@@ -7134,11 +7134,10 @@ msgid "Execute every"
 msgstr "Ejecutar cada"
 
 #: libraries/rte/rte_events.lib.php:449
-#, fuzzy
 #| msgid "Start"
 msgctxt "Start of recurring event"
 msgid "Start"
-msgstr "Iniciar"
+msgstr "Inicio"
 
 #: libraries/rte/rte_events.lib.php:457
 #, fuzzy
