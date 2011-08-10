@@ -11039,7 +11039,7 @@ msgstr "Satır boyutu "
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"
-msgstr ""
+msgstr "Sonraki otoindeks"
 
 #: tbl_relation.php:276
 #, php-format
