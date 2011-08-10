@@ -7004,10 +7004,9 @@ msgstr "运行程序"
 
 #: libraries/rte/rte_routines.lib.php:1345
 #: libraries/rte/rte_routines.lib.php:1348
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine parameters"
-msgstr "常规"
+msgstr "程序参数"
 
 #: libraries/rte/rte_routines.lib.php:1355 tbl_change.php:287
 #: tbl_change.php:325
