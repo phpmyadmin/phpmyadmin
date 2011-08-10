@@ -6578,7 +6578,7 @@ msgstr "持久最近访问的表"
 
 #: libraries/relation.lib.php:136
 msgid "Persistent tables' UI preferences"
-msgstr ""
+msgstr "持久表界面设置"
 
 #: libraries/relation.lib.php:144
 msgid "User preferences"
