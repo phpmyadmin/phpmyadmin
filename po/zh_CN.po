@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-09 16:45+0100\n"
-"PO-Revision-Date: 2011-08-10 10:13+0200\n"
+"PO-Revision-Date: 2011-08-10 10:14+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -6771,10 +6771,9 @@ msgstr "编辑事件"
 #: libraries/rte/rte_routines.lib.php:1264
 #: libraries/rte/rte_routines.lib.php:1300
 #: libraries/rte/rte_triggers.lib.php:187
-#, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing request"
-msgstr "处理请求时发生错误"
+msgstr "处理请求时的错误"
 
 #: libraries/rte/rte_events.lib.php:371 libraries/rte/rte_routines.lib.php:817
 #: libraries/rte/rte_triggers.lib.php:298
