@@ -1744,7 +1744,6 @@ msgid "Prev"
 msgstr "Anterior"
 
 #: js/messages.php:307
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
