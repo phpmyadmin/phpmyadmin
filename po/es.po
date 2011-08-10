@@ -10268,7 +10268,6 @@ msgstr ""
 "complicada."
 
 #: server_status.php:1436
-#, fuzzy
 #| msgid "Restore default value"
 msgid "Reset to default"
 msgstr "Restaurar valor predeterminado"
