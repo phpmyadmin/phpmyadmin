@@ -2112,10 +2112,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Tento MySQL server nepodporuje úložiště %s."
 
 #: libraries/Table.class.php:303
-#, fuzzy
 #| msgid "Show slave status"
 msgid "unknown table status: "
-msgstr "Zobrazit stav podřízených serverů"
+msgstr "neznámý stav tabulky: "
 
 #: libraries/Table.class.php:1034
 msgid "Invalid database"
