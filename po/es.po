@@ -4047,10 +4047,9 @@ msgid "Memory limit"
 msgstr "Límite de la memoria"
 
 #: libraries/config/messages.inc.php:319
-#, fuzzy
 #| msgid "These are Edit, Inline edit, Copy and Delete links"
 msgid "These are Edit, Copy and Delete links"
-msgstr "Estos son los enlaces para Editar, Editar en el lugar, Copiar y Borrar"
+msgstr "Estos son los enlaces para Editar, Copiar y Borrar"
 
 #: libraries/config/messages.inc.php:320
 msgid "Where to show the table row links"
