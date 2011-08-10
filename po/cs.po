@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-10 13:16+0200\n"
-"PO-Revision-Date: 2011-08-10 13:51+0200\n"
+"PO-Revision-Date: 2011-08-10 13:52+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -2564,11 +2564,10 @@ msgstr "Chybějící parametr:"
 
 #: libraries/common.lib.php:2253 libraries/common.lib.php:2256
 #: libraries/display_tbl.lib.php:306
-#, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
-msgstr "Začátek"
+msgstr "První"
 
 #: libraries/common.lib.php:2254 libraries/common.lib.php:2257
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
