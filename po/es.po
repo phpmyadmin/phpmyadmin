@@ -1193,7 +1193,7 @@ msgstr "Intercambio en caché"
 
 #: js/messages.php:109
 msgid "Used Swap"
-msgstr ""
+msgstr "Intercambio utilizado"
 
 #: js/messages.php:110
 #, fuzzy
