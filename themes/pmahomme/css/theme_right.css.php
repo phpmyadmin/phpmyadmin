@@ -18,6 +18,11 @@ function PMA_ieFilter($start_color, $end_color)
         ? 'filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr="' . $start_color . '", endColorstr="' . $end_color . '");'
         : '';
 }
+function PMA_ieClearFilter() {
+    return PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 6 && PMA_USR_BROWSER_VER <= 8
+        ? 'filter: none'
+        : '';
+}
 ?>
 /******************************************************************************/
 
@@ -528,12 +533,14 @@ button.mult_submit {
 table tr.odd th,
 .odd {
     background: #fff;
+    <?php echo PMA_ieClearFilter(); ?>
 }
 
 /* even items 2,4,6,8,... */
 table tr.even th,
 .even {
     background: #f3f3f3;
+    <?php echo PMA_ieClearFilter(); ?>
 }
 
 /* odd table rows 1,3,5,7,... */
