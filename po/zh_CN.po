@@ -7104,7 +7104,6 @@ msgid "Export of trigger %s"
 msgstr "导出触发器 %s"
 
 #: libraries/rte/rte_words.lib.php:33
-#, fuzzy
 #| msgid "Triggers"
 msgid "trigger"
 msgstr "触发器"
