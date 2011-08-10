@@ -88,7 +88,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                         switch ($node['dataType']) {
                             case 'statusvar':
                                 // Some white list filtering
-                                if (!preg_match('/[^a-zA-Z_]+/',$node['dataPoint']))
+                                if (!preg_match('/[^a-zA-Z_]+/', $node['dataPoint']))
                                     $statusVars[] = $node['dataPoint'];
                                 break;
 
@@ -153,8 +153,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
         if ($_REQUEST['type'] == 'slow') {
             $q = 'SELECT start_time, user_host, Sec_to_Time(Sum(Time_to_Sec(query_time))) as query_time, Sec_to_Time(Sum(Time_to_Sec(lock_time))) as lock_time, '.
                  'SUM(rows_sent) AS rows_sent, SUM(rows_examined) AS rows_examined, db, sql_text, COUNT(sql_text) AS \'#\' '.
-                 'FROM `mysql`.`slow_log` WHERE start_time > FROM_UNIXTIME('.$start.') '.
-                 'AND start_time < FROM_UNIXTIME('.$end.') GROUP BY sql_text';
+                 'FROM `mysql`.`slow_log` WHERE start_time > FROM_UNIXTIME(' . $start . ') '.
+                 'AND start_time < FROM_UNIXTIME(' . $end . ') GROUP BY sql_text';
 
             $result = PMA_DBI_try_query($q);
 
@@ -162,15 +162,15 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $type = '';
 
             while ($row = PMA_DBI_fetch_assoc($result)) {
-                $type = strtolower(substr($row['sql_text'],0,strpos($row['sql_text'],' ')));
+                $type = strtolower(substr($row['sql_text'], 0, strpos($row['sql_text'], ' ')));
 
                 switch($type) {
                     case 'insert':
                     case 'update':
                         // Cut off big inserts and updates, but append byte count therefor
                         if(strlen($row['sql_text']) > 220)
-                            $row['sql_text'] = substr($row['sql_text'],0,200) . '... [' .
-                                                implode(' ',PMA_formatByteDown(strlen($row['sql_text']), 2, 2)).']';
+                            $row['sql_text'] = substr($row['sql_text'], 0, 200) . '... [' .
+                                                implode(' ', PMA_formatByteDown(strlen($row['sql_text']), 2, 2)) . ']';
 
                         break;
                     default:
@@ -196,7 +196,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
             $q = 'SELECT TIME(event_time) as event_time, user_host, thread_id, server_id, argument, count(argument) as \'#\' '.
                  'FROM `mysql`.`general_log` WHERE command_type=\'Query\' '.
-                 'AND event_time > FROM_UNIXTIME('.$start.') AND event_time < FROM_UNIXTIME('.$end.') '.
+                 'AND event_time > FROM_UNIXTIME(' . $start . ') AND event_time < FROM_UNIXTIME(' . $end . ') '.
                  $limitTypes . 'GROUP by argument'; // HAVING count > 1';
 
             $result = PMA_DBI_try_query($q);
@@ -209,7 +209,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $removeVars = isset($_REQUEST['removeVariables']) && $_REQUEST['removeVariables'];
 
             while ($row = PMA_DBI_fetch_assoc($result)) {
-                preg_match('/^(\w+)\s/',$row['argument'],$match);
+                preg_match('/^(\w+)\s/', $row['argument'], $match);
                 $type = strtolower($match[1]);
 
                 if(!isset($return['sum'][$type])) $return['sum'][$type] = 0;
@@ -218,7 +218,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 switch($type) {
                     case 'insert':
                         // Group inserts if selected
-                        if($removeVars && preg_match('/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i',$row['argument'],$matches)) {
+                        if($removeVars && preg_match('/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i', $row['argument'], $matches)) {
                             $insertTables[$matches[2]]++;
                             if ($insertTables[$matches[2]] > 1) {
                                 $return['rows'][$insertTablesFirst]['#'] = $insertTables[$matches[2]];
@@ -239,8 +239,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                     case 'update':
                         // Cut off big inserts and updates, but append byte count therefor
                         if(strlen($row['argument']) > 220)
-                            $row['argument'] = substr($row['argument'],0,200) . '... [' .
-                                                implode(' ',PMA_formatByteDown(strlen($row['argument'])), 2, 2).']';
+                            $row['argument'] = substr($row['argument'], 0, 200) . '... [' .
+                                                implode(' ', PMA_formatByteDown(strlen($row['argument'])), 2, 2) . ']';
 
                         break;
 
@@ -263,10 +263,10 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     if (isset($_REQUEST['logging_vars'])) {
         if(isset($_REQUEST['varName']) && isset($_REQUEST['varValue'])) {
             $value = PMA_sqlAddslashes($_REQUEST['varValue']);
-            if(!is_numeric($value)) $value="'".$value."'";
+            if(!is_numeric($value)) $value="'" . $value . "'";
 
-            if(! preg_match("/[^a-zA-Z0-9_]+/",$_REQUEST['varName']))
-                PMA_DBI_query('SET GLOBAL '.$_REQUEST['varName'].' = '.$value);
+            if(! preg_match("/[^a-zA-Z0-9_]+/", $_REQUEST['varName']))
+                PMA_DBI_query('SET GLOBAL ' . $_REQUEST['varName'] . ' = ' . $value);
 
         }
 
@@ -284,7 +284,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             PMA_DBI_query('SET PROFILING=1;');
 
         // Do not cache query
-        $query = preg_replace('/^(\s*SELECT)/i','\\1 SQL_NO_CACHE',$_REQUEST['query']);
+        $query = preg_replace('/^(\s*SELECT)/i', '\\1 SQL_NO_CACHE', $_REQUEST['query']);
 
         $result = PMA_DBI_try_query($query);
         $return['affectedRows'] = $GLOBALS['cached_affected_rows'];
@@ -596,11 +596,11 @@ if (isset($_REQUEST['show']) && isset($_REQUEST['ajax_request'])) {
 
 
 PMA_AddJSCode('pma_token = \'' . $_SESSION[' PMA_token '] . "';\n" .
-              'url_query = \'' . str_replace('&amp;','&',PMA_generate_common_url($db)) . "';\n" .
+              'url_query = \'' . str_replace('&amp;', '&', PMA_generate_common_url($db)) . "';\n" .
               'server_time_diff = new Date().getTime() - ' . (microtime(true)*1000) . ";\n" .
               'server_os = \'' . PHP_OS . "';\n" .
               'is_superuser = ' . (PMA_isSuperuser() ? 'true' : 'false') . ";\n" .
-              'server_db_isLocal = '.($server_db_isLocal ? 'true' : 'false').";\n" .
+              'server_db_isLocal = ' . ($server_db_isLocal ? 'true' : 'false') . ";\n" .
               'profiling_docu = \'' . PMA_showMySQLDocu('general-thread-states', 'general-thread-states') . "';\n" .
               'explain_docu = \'' . PMA_showMySQLDocu('explain-output', 'explain-output') . ";'\n");
 
@@ -728,7 +728,7 @@ echo __('Runtime Information');
                 <p class="notice"><?php echo __('Related links:'); ?>
                 <?php
                 foreach ($links as $section_name => $section_links) {
-                    echo '<span class="status_'.$section_name.'"> ';
+                    echo '<span class="status_' . $section_name . '"> ';
                     $i=0;
                     foreach ($section_links as $link_name => $link_url) {
                         if ($i > 0) echo ', ';
@@ -782,22 +782,22 @@ function printQueryStatistics()
     <h3 id="serverstatusqueries">
         <?php
         /* l10n: Questions is the name of a MySQL Status variable */
-        echo sprintf(__('Questions since startup: %s'),PMA_formatNumber($total_queries, 0)) . ' ';
+        echo sprintf(__('Questions since startup: %s'), PMA_formatNumber($total_queries, 0)) . ' ';
         echo PMA_showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_Questions');
         ?>
         <br>
         <span>
         <?php
-        echo '&oslash; '.__('per hour').': ';
+        echo '&oslash; ' . __('per hour') . ': ';
         echo PMA_formatNumber($total_queries * $hour_factor, 0);
         echo '<br>';
 
-        echo '&oslash; '.__('per minute').': ';
+        echo '&oslash; ' . __('per minute') . ': ';
         echo PMA_formatNumber( $total_queries * 60 / $server_status['Uptime'], 0);
         echo '<br>';
 
         if ($total_queries / $server_status['Uptime'] >= 1) {
-            echo '&oslash; '.__('per second').': ';
+            echo '&oslash; ' . __('per second') . ': ';
             echo PMA_formatNumber( $total_queries / $server_status['Uptime'], 0);
         }
         ?>
@@ -875,7 +875,7 @@ function printQueryStatistics()
 
 function printServerTraffic()
 {
-    global $server_status,$PMA_PHP_SELF;
+    global $server_status, $PMA_PHP_SELF;
     global $server_master_status, $server_slave_status, $replication_types;
 
     $hour_factor    = 3600 / $server_status['Uptime'];
@@ -1319,8 +1319,8 @@ function printVariablesTable()
     foreach ($server_status as $name => $value) {
             $odd_row = !$odd_row;
 ?>
-        <tr class="<?php echo $odd_row ? 'odd' : 'even'; echo isset($allocationMap[$name])?' s_'.$allocationMap[$name]:''; ?>">
-            <th class="name"><?php echo htmlspecialchars(str_replace('_',' ',$name)) . PMA_showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_' . $name); ?>
+        <tr class="<?php echo $odd_row ? 'odd' : 'even'; echo isset($allocationMap[$name])?' s_' . $allocationMap[$name]:''; ?>">
+            <th class="name"><?php echo htmlspecialchars(str_replace('_', ' ', $name)) . PMA_showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_' . $name); ?>
             </th>
             <td class="value"><span class="formatted"><?php
             if (isset($alerts[$name])) {
@@ -1332,7 +1332,7 @@ function printVariablesTable()
             }
             if ('%' === substr($name, -1, 1)) {
                 echo PMA_formatNumber($value, 0, 2) . ' %';
-            } elseif (strpos($name,'Uptime')!==FALSE) {
+            } elseif (strpos($name, 'Uptime')!==FALSE) {
                 echo PMA_timespanFormat($value);
             } elseif (is_numeric($value) && $value == (int) $value && $value > 1000) {
                 echo PMA_formatNumber($value, 3, 1);
@@ -1407,7 +1407,10 @@ function printMonitor()
         <a href="#rearrangeCharts"><img class="icon ic_b_tblops" src="themes/dot.gif" width="16" height="16" alt=""> <?php echo __('Rearrange/edit charts'); ?></a>
         <div class="clearfloat paddingtop"></div>
         <div class="floatleft">
-            <?php echo __('Refresh rate').'<br />'; refreshList('gridChartRefresh', 5, Array(2,3,4,5,10,20,40,60,120,300,600,1200)); ?><br>
+            <?php 
+            echo __('Refresh rate') . '<br />'; 
+            refreshList('gridChartRefresh', 5, Array(2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200)); 
+        ?><br>
         </div>
         <div class="floatleft">
             <?php echo __('Chart columns'); ?> <br />
@@ -1566,7 +1569,7 @@ function printMonitor()
             foreach ($server_status as $name=>$value) {
                 if (is_numeric($value)) {
                     if ($i++ > 0) echo ", ";
-                    echo "'".$name."'";
+                    echo "'" . $name . "'";
                 }
             }
             ?> ];
@@ -1575,7 +1578,7 @@ function printMonitor()
 }
 
 /* Builds a <select> list for refresh rates */
-function refreshList($name,$defaultRate=5, $refreshRates=Array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600))
+function refreshList($name, $defaultRate=5, $refreshRates=Array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600))
 {
 ?>
     <select name="<?php echo $name; ?>">
@@ -1584,9 +1587,9 @@ function refreshList($name,$defaultRate=5, $refreshRates=Array(1, 2, 5, 10, 20, 
                 $selected = ($rate == $defaultRate)?' selected="selected"':'';
 
                 if ($rate<60)
-                    echo '<option value="'.$rate.'"'.$selected.'>'.sprintf(_ngettext('%d second', '%d seconds', $rate), $rate).'</option>';
+                    echo '<option value="' . $rate . '"' . $selected . '>' . sprintf(_ngettext('%d second', '%d seconds', $rate), $rate) . '</option>';
                 else
-                    echo '<option value="'.$rate.'"'.$selected.'>'.sprintf(_ngettext('%d minute', '%d minutes', $rate/60), $rate/60).'</option>';
+                    echo '<option value="' . $rate . '"' . $selected . '>' . sprintf(_ngettext('%d minute', '%d minutes', $rate/60), $rate/60) . '</option>';
             }
         ?>
     </select>
