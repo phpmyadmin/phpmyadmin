@@ -7098,10 +7098,10 @@ msgid "Add trigger"
 msgstr "添加触发器"
 
 #: libraries/rte/rte_words.lib.php:32
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of trigger %s"
-msgstr "导出内容"
+msgstr "导出触发器 %s"
 
 #: libraries/rte/rte_words.lib.php:33
 #, fuzzy
