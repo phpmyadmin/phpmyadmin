@@ -6822,7 +6822,7 @@ msgstr "请输入事件名称"
 
 #: libraries/rte/rte_events.lib.php:537
 msgid "You must provide a valid interval value for the event."
-msgstr "请设置有效的运行周期。"
+msgstr "请设置一个有效的运行周期。"
 
 #: libraries/rte/rte_events.lib.php:549
 msgid "You must provide a valid execution time for the event."
