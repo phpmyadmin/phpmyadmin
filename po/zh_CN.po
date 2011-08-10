@@ -9772,7 +9772,7 @@ msgstr "添加图表"
 
 #: server_status.php:1413
 msgid "Rearrange/edit charts"
-msgstr ""
+msgstr "排列/编辑图表"
 
 #: server_status.php:1416
 #, fuzzy
