@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-10 13:16+0200\n"
-"PO-Revision-Date: 2011-08-10 15:53+0200\n"
+"PO-Revision-Date: 2011-08-10 15:54+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1707,7 +1707,6 @@ msgstr "Önceki"
 
 #. l10n: Display text for next month link in calendar
 #: js/messages.php:298
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
