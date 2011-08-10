@@ -2164,10 +2164,9 @@ msgstr ""
 "Este servidor MySQL no es compatible con el motor de almacenamiento %s."
 
 #: libraries/Table.class.php:303
-#, fuzzy
 #| msgid "Show slave status"
 msgid "unknown table status: "
-msgstr "Mostrar el estado del esclavo"
+msgstr "estado de tabla desconocido:"
 
 #: libraries/Table.class.php:1034
 msgid "Invalid database"
