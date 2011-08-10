@@ -131,7 +131,7 @@ msgstr "डाटाबेस टिप्पणि: "
 #: libraries/tbl_properties.inc.php:700 tbl_operations.php:366
 #: tbl_printview.php:124
 msgid "Table comments"
-msgstr " टेबल टिप्पणि:"
+msgstr "टेबल टिप्पणि:"
 
 #: db_datadict.php:166 db_qbe.php:196 libraries/Index.class.php:436
 #: libraries/export/htmlword.php:251 libraries/export/latex.php:361
@@ -266,12 +266,12 @@ msgstr "डेटाबेस का नाम खाली है"
 #: db_operations.php:272
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr " डेटाबेस  %s का नाम बदल कर %s रखा गया है"
+msgstr "डेटाबेस  %s का नाम बदल कर %s रखा गया है"
 
 #: db_operations.php:276
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr " डेटाबेस %s से %s में  नकल किया गया है"
+msgstr "डेटाबेस %s से %s में  नकल किया गया है"
 
 #: db_operations.php:403
 msgid "Rename database to"
@@ -576,7 +576,7 @@ msgstr "शब्द स्पेस(\" \") करक्टेर से अल�
 
 #: db_search.php:292
 msgid "Inside tables:"
-msgstr " टेबल में:"
+msgstr "टेबल में:"
 
 #: db_search.php:322
 msgid "Inside column:"
@@ -589,7 +589,7 @@ msgstr "डाटाबेस में कोई टेबल नहीं।"
 #: db_structure.php:271 tbl_operations.php:692
 #, php-format
 msgid "Table %s has been emptied"
-msgstr " टेबल %s को खाली किया गया है."
+msgstr "टेबल %s को खाली किया गया है."
 
 #: db_structure.php:280 tbl_operations.php:709
 #, php-format
@@ -599,7 +599,7 @@ msgstr "द्रश्य %s रद्द किया गया है."
 #: db_structure.php:280 tbl_operations.php:709
 #, php-format
 msgid "Table %s has been dropped"
-msgstr " टेबल %s को रद्द किया गया है."
+msgstr "टेबल %s को रद्द किया गया है."
 
 #: db_structure.php:287 tbl_create.php:269
 msgid "Tracking is active."
@@ -658,7 +658,7 @@ msgstr "सभी को अनचेक करें"
 
 #: db_structure.php:489
 msgid "Check tables having overhead"
-msgstr " ओवर्हेअद वाली तालुकाओं को चेक करें."
+msgstr "ओवर्हेअद वाली तालुकाओं को चेक करें."
 
 #: db_structure.php:497 libraries/common.lib.php:3059
 #: libraries/common.lib.php:3060 libraries/config/messages.inc.php:164
@@ -734,7 +734,7 @@ msgstr "ट्रैक की गयी टेबलएं"
 #: server_synchronize.php:1140 server_synchronize.php:1144
 #: tbl_tracking.php:633
 msgid "Database"
-msgstr " डाटाबेस"
+msgstr "डाटाबेस"
 
 #: db_tracking.php:86
 msgid "Last version"
@@ -1123,7 +1123,7 @@ msgstr ""
 
 #: js/messages.php:91 server_status.php:649
 msgid "Query statistics"
-msgstr " डाटाबेसों के सांख्यिकी"
+msgstr "डाटाबेसों के सांख्यिकी"
 
 #: js/messages.php:94
 msgid "System CPU Usage"
@@ -1753,7 +1753,7 @@ msgstr "पिछला"
 #| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
-msgstr " अगला"
+msgstr "अगला"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:300
@@ -2096,7 +2096,7 @@ msgstr "सूचकांक %1s और %2s बराबर लगने के
 #: libraries/server_links.inc.php:43 server_databases.php:99
 #: server_privileges.php:1827
 msgid "Databases"
-msgstr " डाटाबेस"
+msgstr "डाटाबेस"
 
 #: libraries/Message.class.php:193 libraries/blobstreaming.lib.php:320
 #: libraries/blobstreaming.lib.php:326 libraries/common.lib.php:547
@@ -2232,7 +2232,7 @@ msgstr "अमान्य सेटिंग्स: कनेक्ट नह�
 #: libraries/auth/cookie.auth.lib.php:173 libraries/auth/http.auth.lib.php:64
 #, php-format
 msgid "Welcome to %s"
-msgstr " %s मे स्वागत है"
+msgstr "%s मे स्वागत है"
 
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
@@ -2573,7 +2573,7 @@ msgstr "रूपरेखा"
 #. l10n: shortcuts for Byte
 #: libraries/common.lib.php:1299
 msgid "B"
-msgstr " बैट्स"
+msgstr "बैट्स"
 
 #. l10n: shortcuts for Gigabyte
 #: libraries/common.lib.php:1305
@@ -2642,7 +2642,7 @@ msgstr "पिछला"
 #| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
-msgstr " अगला"
+msgstr "अगला"
 
 #: libraries/common.lib.php:2284 libraries/common.lib.php:2287
 #: libraries/display_tbl.lib.php:385
@@ -3102,7 +3102,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr " टेबल  रख-रखाव"
+msgstr "टेबल  रख-रखाव"
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
@@ -5003,7 +5003,7 @@ msgstr "डिजाइनर"
 #: server_privileges.php:119 server_privileges.php:1889
 #: server_privileges.php:2239
 msgid "Privileges"
-msgstr " प्रिविलेज"
+msgstr "प्रिविलेज"
 
 #: libraries/db_links.inc.php:97 libraries/rte/rte_words.lib.php:25
 msgid "Routines"
@@ -5073,7 +5073,7 @@ msgstr "MySQL 4.0 संगत"
 #, fuzzy
 #| msgid "Create new database"
 msgid "Create database"
-msgstr " नया डाटाबेस बनाओ"
+msgstr "नया डाटाबेस बनाओ"
 
 #: libraries/display_create_database.lib.php:33
 msgid "Create"
@@ -5087,7 +5087,7 @@ msgstr "कोइ प्रिविलेज नहीं"
 #: libraries/display_create_table.lib.php:46
 #, php-format
 msgid "Create table on database %s"
-msgstr " %s डाटाबेस मे नया टेबल बनाओ"
+msgstr "%s डाटाबेस मे नया टेबल बनाओ"
 
 #: libraries/display_create_table.lib.php:51 libraries/rte/rte_list.lib.php:51
 #: libraries/rte/rte_list.lib.php:57 libraries/rte/rte_list.lib.php:66
@@ -5134,11 +5134,11 @@ msgstr "कस्टम - कॉन्फ़िगर करने के लि
 
 #: libraries/display_export.lib.php:132
 msgid "Database(s):"
-msgstr " डाटाबेस(s)"
+msgstr "डाटाबेस(s)"
 
 #: libraries/display_export.lib.php:134
 msgid "Table(s):"
-msgstr "  टेबल(s) "
+msgstr " टेबल(s) "
 
 #: libraries/display_export.lib.php:144
 msgid "Rows:"
@@ -5460,7 +5460,7 @@ msgstr "रौ देखिये"
 
 #: libraries/display_tbl.lib.php:2230
 msgid "total"
-msgstr " कुल"
+msgstr "कुल"
 
 #: libraries/display_tbl.lib.php:2238 sql.php:689
 #, php-format
@@ -5515,7 +5515,7 @@ msgstr "वृद्धि का स्वचालित रूप से व�
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
 
@@ -6562,7 +6562,7 @@ msgstr "जॉर्जियाई"
 
 #: libraries/mysql_charsets.lib.php:381
 msgid "Greek"
-msgstr " ग्रीक"
+msgstr "ग्रीक"
 
 #: libraries/mysql_charsets.lib.php:384
 msgid "Czech-Slovak"
@@ -6792,7 +6792,7 @@ msgstr ""
 #, fuzzy, php-format
 #| msgid "Column %s has been dropped"
 msgid "Event %1$s has been modified."
-msgstr " टेबल %s को रद्द किया गया है."
+msgstr "टेबल %s को रद्द किया गया है."
 
 #: libraries/rte/rte_events.lib.php:133
 #, fuzzy, php-format
@@ -6961,7 +6961,7 @@ msgstr ""
 #, fuzzy, php-format
 #| msgid "Column %s has been dropped"
 msgid "Routine %1$s has been modified."
-msgstr " टेबल %s को रद्द किया गया है."
+msgstr "टेबल %s को रद्द किया गया है."
 
 #: libraries/rte/rte_routines.lib.php:286
 #, fuzzy, php-format
@@ -7103,7 +7103,7 @@ msgstr ""
 #, fuzzy, php-format
 #| msgid "Column %s has been dropped"
 msgid "Trigger %1$s has been modified."
-msgstr " टेबल %s को रद्द किया गया है."
+msgstr "टेबल %s को रद्द किया गया है."
 
 #: libraries/rte/rte_triggers.lib.php:106
 #, fuzzy, php-format
@@ -7261,7 +7261,7 @@ msgstr "अपलोड करने के लिए फाइल उपलब�
 #, fuzzy, php-format
 #| msgid "%s table(s)"
 msgid "The %s table doesn't exist!"
-msgstr " %s  टेबल(s) मौजूद नहीं है"
+msgstr "%s  टेबल(s) मौजूद नहीं है"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:247
 #: libraries/schema/Eps_Relation_Schema.class.php:435
@@ -7310,7 +7310,7 @@ msgstr "विशेषता"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1264 tbl_printview.php:141
 #: tbl_structure.php:208 tbl_tracking.php:262
 msgid "Extra"
-msgstr " अतिरिक्त"
+msgstr "अतिरिक्त"
 
 #: libraries/schema/User_Schema.class.php:89
 msgid "Create a page"
@@ -7338,17 +7338,17 @@ msgstr "विदेशी कुंजी"
 
 #: libraries/schema/User_Schema.class.php:144
 msgid "Please choose a page to edit"
-msgstr " एडिट करने के लिये पेज़ चुने"
+msgstr "एडिट करने के लिये पेज़ चुने"
 
 #: libraries/schema/User_Schema.class.php:149
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select page"
-msgstr " पेज चुनिये"
+msgstr "पेज चुनिये"
 
 #: libraries/schema/User_Schema.class.php:207
 msgid "Select Tables"
-msgstr " टेबल चुनिये"
+msgstr "टेबल चुनिये"
 
 #: libraries/schema/User_Schema.class.php:341
 #, fuzzy
@@ -7370,7 +7370,7 @@ msgstr "रंग दिखाओ"
 
 #: libraries/schema/User_Schema.class.php:376
 msgid "Show dimension of tables"
-msgstr " टेबल के परिमाण दिखाओ"
+msgstr "टेबल के परिमाण दिखाओ"
 
 #: libraries/schema/User_Schema.class.php:379
 msgid "Display all tables with the same width"
@@ -7510,8 +7510,8 @@ msgid "Delimiter"
 msgstr "सीमांकक"
 
 #: libraries/sql_query_form.lib.php:346
-msgid " Show this query here again "
-msgstr " यह query वापस यहीं दिखायें "
+msgid "Show this query here again"
+msgstr "यह query वापस यहीं दिखायें "
 
 #: libraries/sql_query_form.lib.php:402
 msgid "View only"
@@ -8328,7 +8328,7 @@ msgstr ""
 
 #: server_databases.php:64
 msgid "No databases selected."
-msgstr " कोइ डाटाबेस नहीं चुना गया है।"
+msgstr "कोइ डाटाबेस नहीं चुना गया है।"
 
 #: server_databases.php:75
 #, php-format
@@ -8337,7 +8337,7 @@ msgstr "%s डाटाबेस को सफलता से डिलीट �
 
 #: server_databases.php:99
 msgid "Databases statistics"
-msgstr " डाटाबेसों के आँकडे"
+msgstr "डाटाबेसों के आँकडे"
 
 #: server_databases.php:182 server_replication.php:179
 #: server_replication.php:207
@@ -8566,8 +8566,8 @@ msgstr "केवल टेबल के प्रिविलेज"
 
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
-msgid " Note: MySQL privilege names are expressed in English "
-msgstr " नोट: MySQL प्रिविलेज नामों को अंग्रेजी  मे लिखा गया है "
+msgid "Note: MySQL privilege names are expressed in English"
+msgstr "नोट: MySQL प्रिविलेज नामों को अंग्रेजी  मे लिखा गया है "
 
 #: server_privileges.php:600
 msgid "Administration"
@@ -8579,7 +8579,7 @@ msgstr "वैश्विक प्रिविलेज"
 
 #: server_privileges.php:666 server_privileges.php:1885
 msgid "Database-specific privileges"
-msgstr " केवल डाटाबेस के प्रिविलेज"
+msgstr "केवल डाटाबेस के प्रिविलेज"
 
 #: server_privileges.php:699
 msgid "Resource limits"
@@ -8650,7 +8650,7 @@ msgstr "चयनित यूसर को सफलतापूर्वक �
 
 #: server_privileges.php:1424 server_privileges.php:1816
 msgid "Edit Privileges"
-msgstr " प्रिविलेज एडिट करें"
+msgstr "प्रिविलेज एडिट करें"
 
 #: server_privileges.php:1433
 msgid "Revoke"
@@ -8698,7 +8698,7 @@ msgstr ""
 
 #: server_privileges.php:1891
 msgid "Column-specific privileges"
-msgstr " केवल कोलम के प्रिविलेज"
+msgstr "केवल कोलम के प्रिविलेज"
 
 #: server_privileges.php:2092
 msgid "Add privileges on the following database"
@@ -8725,17 +8725,17 @@ msgid "... keep the old one."
 msgstr "... पुराने रखना"
 
 #: server_privileges.php:2176
-msgid " ... delete the old one from the user tables."
+msgid "... delete the old one from the user tables."
 msgstr "पुराने यूसर को टेबल से हटाना"
 
 #: server_privileges.php:2177
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
+"... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
 
 #: server_privileges.php:2178
 msgid ""
-" ... delete the old one from the user tables and reload the privileges "
+"... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 
@@ -9849,7 +9849,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
-msgstr " टेबल चुनिये"
+msgstr "टेबल चुनिये"
 
 #: server_status.php:1488
 msgid "Commonly monitored"
@@ -9899,7 +9899,7 @@ msgstr "आँकड़े दिखाएँ"
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Selected time range:"
-msgstr " पेज चुनिये"
+msgstr "पेज चुनिये"
 
 #: server_status.php:1545
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
@@ -10375,7 +10375,7 @@ msgid "Table %1$s has been altered successfully"
 msgstr "%1$s टेबल को सफलतापूर्वक बदल दिया गया है"
 
 #: tbl_change.php:683
-msgid " Because of its length,<br /> this column might not be editable "
+msgid "Because of its length,<br /> this column might not be editable "
 msgstr ""
 
 #: tbl_change.php:800
@@ -10619,16 +10619,16 @@ msgstr "एक ही टेबल में प्रतिलिपि नह�
 #: tbl_move_copy.php:54
 #, php-format
 msgid "Table %s has been moved to %s."
-msgstr " %s टेबल को %s में मूव कर दिया."
+msgstr "%s टेबल को %s में मूव कर दिया."
 
 #: tbl_move_copy.php:56
 #, php-format
 msgid "Table %s has been copied to %s."
-msgstr " %s टेबल को %s में कापी कर दिया."
+msgstr "%s टेबल को %s में कापी कर दिया."
 
 #: tbl_move_copy.php:81
 msgid "The table name is empty!"
-msgstr " टेबल का नाम खाली है!"
+msgstr "टेबल का नाम खाली है!"
 
 #: tbl_operations.php:268
 msgid "Alter table order by"
@@ -10640,7 +10640,7 @@ msgstr "(अकेले)"
 
 #: tbl_operations.php:297
 msgid "Move table to (database<b>.</b>table):"
-msgstr " टेबल को (database<b>.</b>table) में  मूव करें:"
+msgstr "टेबल को (database<b>.</b>table) में  मूव करें:"
 
 #: tbl_operations.php:355
 msgid "Table options"
@@ -10652,7 +10652,7 @@ msgstr "टेबल का नाम बदलें"
 
 #: tbl_operations.php:535
 msgid "Copy table to (database<b>.</b>table):"
-msgstr " (database<b>.</b>table) में टेबल को कापी करें:"
+msgstr "(database<b>.</b>table) में टेबल को कापी करें:"
 
 #: tbl_operations.php:582
 msgid "Switch to copied table"
@@ -10660,7 +10660,7 @@ msgstr "नकल की टेबल पर स्विच करें"
 
 #: tbl_operations.php:594
 msgid "Table maintenance"
-msgstr " टेबल  रख-रखाव"
+msgstr "टेबल  रख-रखाव"
 
 #: tbl_operations.php:618
 msgid "Defragment table"
@@ -10669,11 +10669,11 @@ msgstr "देफ्रागमेंट टेबल"
 #: tbl_operations.php:666
 #, php-format
 msgid "Table %s has been flushed"
-msgstr " टेबल %s को flush किया"
+msgstr "टेबल %s को flush किया"
 
 #: tbl_operations.php:672
 msgid "Flush the table (FLUSH)"
-msgstr " टेबल को Flush करें (\"FLUSH\")"
+msgstr "टेबल को Flush करें (\"FLUSH\")"
 
 #: tbl_operations.php:681
 msgid "Delete data or table"
@@ -10757,7 +10757,7 @@ msgid "Row length"
 msgstr "रौ की लंबाई"
 
 #: tbl_printview.php:378 tbl_structure.php:892
-msgid " Row size "
+msgid "Row size"
 msgstr "रौ का आकार"
 
 #: tbl_printview.php:388 tbl_structure.php:900
@@ -10841,12 +10841,12 @@ msgstr "कोई नहीं"
 #: tbl_structure.php:371
 #, php-format
 msgid "Column %s has been dropped"
-msgstr " टेबल %s को रद्द किया गया है."
+msgstr "टेबल %s को रद्द किया गया है."
 
 #: tbl_structure.php:382 tbl_structure.php:476
 #, php-format
 msgid "A primary key has been added on %s"
-msgstr " %s  पर एक प्राईमरी की जड़ी गयी है"
+msgstr "%s  पर एक प्राईमरी की जड़ी गयी है"
 
 #: tbl_structure.php:397 tbl_structure.php:412 tbl_structure.php:432
 #: tbl_structure.php:447 tbl_structure.php:489 tbl_structure.php:502
@@ -10893,7 +10893,7 @@ msgstr "%s के बाद"
 #: tbl_structure.php:701
 #, php-format
 msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr " &nbsp;%s&nbsp; कोलम पर इन्डेक्स बनाऐं "
+msgstr "&nbsp;%s&nbsp; कोलम पर इन्डेक्स बनाऐं "
 
 #: tbl_structure.php:855
 msgid "partitioned"
@@ -11104,7 +11104,7 @@ msgstr "दृश्य का नाम बदलो"
 #~ msgstr "पिछला"
 
 #~ msgid "Next"
-#~ msgstr " अगला"
+#~ msgstr "अगला"
 
 #, fuzzy
 #~ msgid "Create event"
@@ -11164,7 +11164,7 @@ msgstr "दृश्य का नाम बदलो"
 #~ msgstr "रो से शुरू #"
 
 #~ msgid "in %s mode and repeat headers after %s cells"
-#~ msgstr " %s रूप में और %s सेल के बाद शीर्षक को दोहराईये"
+#~ msgstr "%s रूप में और %s सेल के बाद शीर्षक को दोहराईये"
 
 #~ msgid ""
 #~ "phpMyAdmin was unable to read your configuration file!<br />This might "

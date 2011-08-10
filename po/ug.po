@@ -595,7 +595,7 @@ msgstr "سانداندا جەدۋەل يوق"
 #: db_structure.php:271 tbl_operations.php:692
 #, php-format
 msgid "Table %s has been emptied"
-msgstr " %s جەدۋەل تازىلاندى"
+msgstr "%s جەدۋەل تازىلاندى"
 
 #: db_structure.php:280 tbl_operations.php:709
 #, php-format
@@ -1629,7 +1629,7 @@ msgstr "SQL سورىقى"
 #, fuzzy
 #| msgid "Inline"
 msgid "Inline Edit"
-msgstr " ئىچكى بىرلىشىش"
+msgstr "ئىچكى بىرلىشىش"
 
 #: js/messages.php:231 libraries/config/FormDisplay.tpl.php:323
 #: libraries/schema/User_Schema.class.php:313
@@ -2472,7 +2472,7 @@ msgstr "تەڭشەك ئەندىزى %1$s كىرگۈزىلمىدى."
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
-msgstr " <tt>$cfg['PmaAbsoluteUri']</tt> نى تەڭشەڭ !تەڭشەك ھۆججىتى ئىچىدىكى"
+msgstr "<tt>$cfg['PmaAbsoluteUri']</tt> نى تەڭشەڭ !تەڭشەك ھۆججىتى ئىچىدىكى"
 
 #: libraries/common.inc.php:631
 #, php-format
@@ -2590,7 +2590,7 @@ msgstr "Inline edit of this query"
 
 #: libraries/common.lib.php:1216
 msgid "Inline"
-msgstr " ئىچكى بىرلىشىش"
+msgstr "ئىچكى بىرلىشىش"
 
 #: libraries/common.lib.php:1278 sql.php:938
 msgid "Profiling"
@@ -5556,7 +5556,7 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
 
@@ -7513,7 +7513,7 @@ msgid "Delimiter"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:346
-msgid " Show this query here again "
+msgid "Show this query here again"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:402
@@ -8550,7 +8550,7 @@ msgstr ""
 
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
-msgid " Note: MySQL privilege names are expressed in English "
+msgid "Note: MySQL privilege names are expressed in English"
 msgstr ""
 
 #: server_privileges.php:600
@@ -8707,17 +8707,17 @@ msgid "... keep the old one."
 msgstr ""
 
 #: server_privileges.php:2176
-msgid " ... delete the old one from the user tables."
+msgid "... delete the old one from the user tables."
 msgstr ""
 
 #: server_privileges.php:2177
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
+"... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
 
 #: server_privileges.php:2178
 msgid ""
-" ... delete the old one from the user tables and reload the privileges "
+"... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 
@@ -10332,7 +10332,7 @@ msgid "Table %1$s has been altered successfully"
 msgstr ""
 
 #: tbl_change.php:683
-msgid " Because of its length,<br /> this column might not be editable "
+msgid "Because of its length,<br /> this column might not be editable "
 msgstr ""
 
 #: tbl_change.php:800
@@ -10403,7 +10403,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Inline"
 msgid "Spline"
-msgstr " ئىچكى بىرلىشىش"
+msgstr "ئىچكى بىرلىشىش"
 
 #: tbl_chart.php:89
 #, fuzzy
@@ -10710,7 +10710,7 @@ msgid "Row length"
 msgstr ""
 
 #: tbl_printview.php:378 tbl_structure.php:892
-msgid " Row size "
+msgid "Row size"
 msgstr ""
 
 #: tbl_printview.php:388 tbl_structure.php:900
@@ -11064,7 +11064,7 @@ msgstr ""
 #~ msgid ""
 #~ "No themes support; please check your configuration and/or your themes in "
 #~ "directory %s."
-#~ msgstr " %sتېمىنى قوللىمايدۇ،تەڭشەك ۋە تېما ھۆججەت قىسقۇچنى تەكشۈرۈڭ"
+#~ msgstr "%sتېمىنى قوللىمايدۇ،تەڭشەك ۋە تېما ھۆججەت قىسقۇچنى تەكشۈرۈڭ"
 
 #, fuzzy
 #~ msgid "Refresh rate:"

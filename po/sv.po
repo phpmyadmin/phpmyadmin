@@ -2960,7 +2960,7 @@ msgstr "Antal rader för CHAR/VARCHAR textfält"
 
 #: libraries/config/messages.inc.php:37
 msgid "CHAR textarea rows"
-msgstr " CHAR textarea rader"
+msgstr "CHAR textarea rader"
 
 #: libraries/config/messages.inc.php:38
 msgid "Check config file permissions"
@@ -4331,7 +4331,7 @@ msgstr "Serverns värdnamn"
 
 #: libraries/config/messages.inc.php:396
 msgid "Logout URL"
-msgstr " URL för utloggning"
+msgstr "URL för utloggning"
 
 #: libraries/config/messages.inc.php:397
 msgid "Try to connect without password"
@@ -5243,7 +5243,7 @@ msgstr "@Server@ blir servernamnet"
 
 #: libraries/display_export.lib.php:226
 msgid ", @DATABASE@ will become the database name"
-msgstr " , @DATABASE@ kommer att bli namnet på databasen"
+msgstr ", @DATABASE@ kommer att bli namnet på databasen"
 
 #: libraries/display_export.lib.php:228
 msgid ", @TABLE@ will become the table name"
@@ -5580,7 +5580,7 @@ msgstr "Automatisk utökningsstorlek"
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
 "Tillökningsstorleken vid automatisk utökning av tabellutrymme när det blir "
@@ -7558,8 +7558,8 @@ msgid "Delimiter"
 msgstr "Avgränsare"
 
 #: libraries/sql_query_form.lib.php:346
-msgid " Show this query here again "
-msgstr " Visa frågan här igen "
+msgid "Show this query here again"
+msgstr "Visa frågan här igen "
 
 #: libraries/sql_query_form.lib.php:402
 msgid "View only"
@@ -8673,8 +8673,8 @@ msgstr "Tabellspecifika privilegier"
 
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
-msgid " Note: MySQL privilege names are expressed in English "
-msgstr " Notera: MySQL privilegie benämningar uttrycks på engelska"
+msgid "Note: MySQL privilege names are expressed in English"
+msgstr "Notera: MySQL privilegie benämningar uttrycks på engelska"
 
 #: server_privileges.php:600
 msgid "Administration"
@@ -8838,18 +8838,18 @@ msgid "... keep the old one."
 msgstr "... behåll den gamla."
 
 #: server_privileges.php:2176
-msgid " ... delete the old one from the user tables."
-msgstr " ... ta bort den gamla från användartabellerna."
+msgid "... delete the old one from the user tables."
+msgstr "... ta bort den gamla från användartabellerna."
 
 #: server_privileges.php:2177
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
+"... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
 " ... upphäv alla aktiva privilegier från dan gamla och ta bort den efteråt."
 
 #: server_privileges.php:2178
 msgid ""
-" ... delete the old one from the user tables and reload the privileges "
+"... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 " ... ta bort den gamla från användartabellerna och ladda om privilegierna "
@@ -10681,7 +10681,7 @@ msgid "Table %1$s has been altered successfully"
 msgstr "Tabell %1$s har ändrats"
 
 #: tbl_change.php:683
-msgid " Because of its length,<br /> this column might not be editable "
+msgid "Because of its length,<br /> this column might not be editable "
 msgstr "På grund av sin längd,<br /> är denna kolumn kanske inte redigerbar"
 
 #: tbl_change.php:800
@@ -10824,7 +10824,7 @@ msgstr "Etikett kolumn"
 
 #: tbl_gis_visualization.php:167
 msgid "-- None --"
-msgstr " - Inget -"
+msgstr "- Inget -"
 
 #: tbl_gis_visualization.php:180
 msgid "Spatial column"
@@ -11039,7 +11039,7 @@ msgid "Row length"
 msgstr "Radlängd"
 
 #: tbl_printview.php:378 tbl_structure.php:892
-msgid " Row size "
+msgid "Row size"
 msgstr "Radstorlek"
 
 #: tbl_printview.php:388 tbl_structure.php:900

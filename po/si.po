@@ -5512,10 +5512,10 @@ msgstr "Autoextend increment"
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 
 #: libraries/engines/innodb.lib.php:32
@@ -7522,8 +7522,8 @@ msgid "Delimiter"
 msgstr "පරිසීමකය"
 
 #: libraries/sql_query_form.lib.php:346
-msgid " Show this query here again "
-msgstr " මෙම විමසුම මෙහි නැවත පෙන්වන්න "
+msgid "Show this query here again"
+msgstr "මෙම විමසුම මෙහි නැවත පෙන්වන්න "
 
 #: libraries/sql_query_form.lib.php:402
 msgid "View only"
@@ -8663,7 +8663,7 @@ msgstr "වගු-විශේෂී වරප්‍රසාද"
 
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
-msgid " Note: MySQL privilege names are expressed in English "
+msgid "Note: MySQL privilege names are expressed in English"
 msgstr "සටහන: MySQL වරප්‍රසාද නම් සඳහන් වනුයේ ඉංග්‍රීසියෙනි"
 
 #: server_privileges.php:600
@@ -8823,19 +8823,19 @@ msgid "... keep the old one."
 msgstr "... පැරණි එක තබා ගන්න."
 
 #: server_privileges.php:2176
-msgid " ... delete the old one from the user tables."
-msgstr " ... භාවිතා කරන්නන්ගේ වගුවෙන් පැරණි එක ඉවත් කරන්න."
+msgid "... delete the old one from the user tables."
+msgstr "... භාවිතා කරන්නන්ගේ වගුවෙන් පැරණි එක ඉවත් කරන්න."
 
 #: server_privileges.php:2177
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
-msgstr " ... පැරැන්නෙන් සියලුම සක්‍රීය වරප්‍රසාද අහෝසි කර අනතුරුව එය ඉවත් කරන්න."
+"... revoke all active privileges from the old one and delete it afterwards."
+msgstr "... පැරැන්නෙන් සියලුම සක්‍රීය වරප්‍රසාද අහෝසි කර අනතුරුව එය ඉවත් කරන්න."
 
 #: server_privileges.php:2178
 msgid ""
-" ... delete the old one from the user tables and reload the privileges "
+"... delete the old one from the user tables and reload the privileges "
 "afterwards."
-msgstr " ... භාවිතා කරන්නන්ගේ වගුවෙන් පැරණි එක ඉවත් කර වරප්‍රසාද නැවත අලුත් කරන්න."
+msgstr "... භාවිතා කරන්නන්ගේ වගුවෙන් පැරණි එක ඉවත් කර වරප්‍රසාද නැවත අලුත් කරන්න."
 
 #: server_privileges.php:2201
 msgid "Database for user"
@@ -10609,8 +10609,8 @@ msgid "Table %1$s has been altered successfully"
 msgstr "%1$s වගුව සාර්ථකව වෙනස් කරන ලදි"
 
 #: tbl_change.php:683
-msgid " Because of its length,<br /> this column might not be editable "
-msgstr " මෙහි දිග නිසා,<br /> මෙම තීරුව සංස්කරණය කල නොහැකි විය හැකිය "
+msgid "Because of its length,<br /> this column might not be editable "
+msgstr "මෙහි දිග නිසා,<br /> මෙම තීරුව සංස්කරණය කල නොහැකි විය හැකිය "
 
 #: tbl_change.php:800
 msgid "Remove BLOB Repository Reference"
@@ -10993,8 +10993,8 @@ msgid "Row length"
 msgstr "පේළියේ දිග"
 
 #: tbl_printview.php:378 tbl_structure.php:892
-msgid " Row size "
-msgstr " පේළියේ ප්‍රමාණය "
+msgid "Row size"
+msgstr "පේළියේ ප්‍රමාණය "
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"

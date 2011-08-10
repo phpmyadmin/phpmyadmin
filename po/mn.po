@@ -1825,7 +1825,7 @@ msgstr "Нийт"
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
-msgstr " Хоёртын "
+msgstr "Хоёртын "
 
 #: js/messages.php:304
 msgid "February"
@@ -5704,10 +5704,10 @@ msgstr "Авто нэмэгдэлт"
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 
 #: libraries/engines/innodb.lib.php:32
@@ -6605,7 +6605,7 @@ msgstr "Кодлол"
 #: libraries/mysql_charsets.lib.php:202 libraries/mysql_charsets.lib.php:403
 #: tbl_change.php:556
 msgid "Binary"
-msgstr " Хоёртын "
+msgstr "Хоёртын "
 
 #: libraries/mysql_charsets.lib.php:214
 msgid "Bulgarian"
@@ -7716,8 +7716,8 @@ msgid "Delimiter"
 msgstr "Зааглагч"
 
 #: libraries/sql_query_form.lib.php:346
-msgid " Show this query here again "
-msgstr " Уг асуултыг энд дахин харуулах "
+msgid "Show this query here again"
+msgstr "Уг асуултыг энд дахин харуулах "
 
 #: libraries/sql_query_form.lib.php:402
 msgid "View only"
@@ -8880,12 +8880,12 @@ msgstr "Байхгүй"
 #: server_privileges.php:530 server_privileges.php:667
 #: server_privileges.php:1885 server_privileges.php:1891
 msgid "Table-specific privileges"
-msgstr " Хүснэгтийн тусгай онцгой эрхүүд"
+msgstr "Хүснэгтийн тусгай онцгой эрхүүд"
 
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
-msgid " Note: MySQL privilege names are expressed in English "
-msgstr " Тэмдэглэл: MySQL онцгой эрхийн нэр нь англиар илэрхийлэгдсэн "
+msgid "Note: MySQL privilege names are expressed in English"
+msgstr "Тэмдэглэл: MySQL онцгой эрхийн нэр нь англиар илэрхийлэгдсэн "
 
 #: server_privileges.php:600
 msgid "Administration"
@@ -8897,7 +8897,7 @@ msgstr "Глобал онцгой эрх"
 
 #: server_privileges.php:666 server_privileges.php:1885
 msgid "Database-specific privileges"
-msgstr " Онцгой эрх, өгөгдлийн сангийн эрх"
+msgstr "Онцгой эрх, өгөгдлийн сангийн эрх"
 
 #: server_privileges.php:699
 msgid "Resource limits"
@@ -9049,17 +9049,17 @@ msgid "... keep the old one."
 msgstr "... хуучныг үлдээх."
 
 #: server_privileges.php:2176
-msgid " ... delete the old one from the user tables."
-msgstr " ... хэрэглэгчийн хүснэгтүүдээс устгах."
+msgid "... delete the old one from the user tables."
+msgstr "... хэрэглэгчийн хүснэгтүүдээс устгах."
 
 #: server_privileges.php:2177
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
-msgstr " ... хуучнаас бүх онцгой эрхийг хүчингүй болгоод дараа нь устга."
+"... revoke all active privileges from the old one and delete it afterwards."
+msgstr "... хуучнаас бүх онцгой эрхийг хүчингүй болгоод дараа нь устга."
 
 #: server_privileges.php:2178
 msgid ""
-" ... delete the old one from the user tables and reload the privileges "
+"... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 " ... хэрэглэгчийн хүснэгтүүдээс нэгийг устгаад дараа нь онцгой эрхийг дахин "
@@ -10750,9 +10750,9 @@ msgstr ""
 
 #: tbl_change.php:683
 #, fuzzy
-#| msgid " Because of its length,<br /> this field might not be editable "
-msgid " Because of its length,<br /> this column might not be editable "
-msgstr " Яагаад гэвэл урт нь их,<br /> энэ талбар засагдахгүй "
+#| msgid "Because of its length,<br /> this field might not be editable "
+msgid "Because of its length,<br /> this column might not be editable "
+msgstr "Яагаад гэвэл урт нь их,<br /> энэ талбар засагдахгүй "
 
 #: tbl_change.php:800
 msgid "Remove BLOB Repository Reference"
@@ -10760,7 +10760,7 @@ msgstr ""
 
 #: tbl_change.php:806
 msgid "Binary - do not edit"
-msgstr " Хоёртын өгөгдөл - засагдахгүй "
+msgstr "Хоёртын өгөгдөл - засагдахгүй "
 
 #: tbl_change.php:854
 msgid "Upload to BLOB repository"
@@ -10987,7 +10987,7 @@ msgstr "Адил нэр байсан тул хүснэгтийг зөөсөнг�
 
 #: tbl_move_copy.php:46
 msgid "Can't copy table to same one!"
-msgstr " Адил нэртэй хүснэгт рүү хуулж чадсангүй!"
+msgstr "Адил нэртэй хүснэгт рүү хуулж чадсангүй!"
 
 #: tbl_move_copy.php:54
 #, php-format
@@ -11136,8 +11136,8 @@ msgid "Row length"
 msgstr "Мөрийн урт"
 
 #: tbl_printview.php:378 tbl_structure.php:892
-msgid " Row size "
-msgstr " Мөрийн хэмжээ "
+msgid "Row size"
+msgstr "Мөрийн хэмжээ "
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"

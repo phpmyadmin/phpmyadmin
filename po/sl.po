@@ -5627,7 +5627,7 @@ msgstr "Povečevanje pri samorazširitvi"
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
 " Velikost povečevanja pri razširjanju velikosti samorazširitvenega prostora "
@@ -7618,8 +7618,8 @@ msgid "Delimiter"
 msgstr "Ločilo"
 
 #: libraries/sql_query_form.lib.php:346
-msgid " Show this query here again "
-msgstr " Ponovno pokaži poizvedbo v tem oknu "
+msgid "Show this query here again"
+msgstr "Ponovno pokaži poizvedbo v tem oknu "
 
 #: libraries/sql_query_form.lib.php:402
 msgid "View only"
@@ -8736,8 +8736,8 @@ msgstr "Privilegiji tipični za tabelo"
 
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
-msgid " Note: MySQL privilege names are expressed in English "
-msgstr " Opomba: Imena privilegijev MySQL so zapisana v angleščini "
+msgid "Note: MySQL privilege names are expressed in English"
+msgstr "Opomba: Imena privilegijev MySQL so zapisana v angleščini "
 
 #: server_privileges.php:600
 msgid "Administration"
@@ -8900,17 +8900,17 @@ msgid "... keep the old one."
 msgstr "... obdrži starega."
 
 #: server_privileges.php:2176
-msgid " ... delete the old one from the user tables."
-msgstr " ... izbriši starega s seznama uporabnikov."
+msgid "... delete the old one from the user tables."
+msgstr "... izbriši starega s seznama uporabnikov."
 
 #: server_privileges.php:2177
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
-msgstr " ... prekliči vse aktivne pravice starega uporabnika ter jih izbriši."
+"... revoke all active privileges from the old one and delete it afterwards."
+msgstr "... prekliči vse aktivne pravice starega uporabnika ter jih izbriši."
 
 #: server_privileges.php:2178
 msgid ""
-" ... delete the old one from the user tables and reload the privileges "
+"... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 " ... izbriši starega uporabnika s seznama uporabnikov ter ponovno naloži "
@@ -10771,8 +10771,8 @@ msgid "Table %1$s has been altered successfully"
 msgstr "Tabela %1$s je bila uspešno spremenjena"
 
 #: tbl_change.php:683
-msgid " Because of its length,<br /> this column might not be editable "
-msgstr " Zaradi njegove dolžine<br /> stolpca morda ne bo mogoče urejati "
+msgid "Because of its length,<br /> this column might not be editable "
+msgstr "Zaradi njegove dolžine<br /> stolpca morda ne bo mogoče urejati "
 
 #: tbl_change.php:800
 msgid "Remove BLOB Repository Reference"
@@ -11127,8 +11127,8 @@ msgid "Row length"
 msgstr "Dolžina vrstice"
 
 #: tbl_printview.php:378 tbl_structure.php:892
-msgid " Row size "
-msgstr " Velikost vrstice "
+msgid "Row size"
+msgstr "Velikost vrstice "
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"

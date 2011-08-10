@@ -5652,7 +5652,7 @@ msgstr "Cynyddiad awtoestyn"
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
 
@@ -7626,8 +7626,8 @@ msgid "Delimiter"
 msgstr "Cyfyngydd"
 
 #: libraries/sql_query_form.lib.php:346
-msgid " Show this query here again "
-msgstr " Dangoswch  yr ymholiad hwn yma eto"
+msgid "Show this query here again"
+msgstr "Dangoswch  yr ymholiad hwn yma eto"
 
 #: libraries/sql_query_form.lib.php:402
 msgid "View only"
@@ -8669,7 +8669,7 @@ msgstr ""
 
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
-msgid " Note: MySQL privilege names are expressed in English "
+msgid "Note: MySQL privilege names are expressed in English"
 msgstr ""
 
 #: server_privileges.php:600
@@ -8826,17 +8826,17 @@ msgid "... keep the old one."
 msgstr ""
 
 #: server_privileges.php:2176
-msgid " ... delete the old one from the user tables."
+msgid "... delete the old one from the user tables."
 msgstr ""
 
 #: server_privileges.php:2177
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
+"... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
 
 #: server_privileges.php:2178
 msgid ""
-" ... delete the old one from the user tables and reload the privileges "
+"... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 
@@ -10465,7 +10465,7 @@ msgid "Table %1$s has been altered successfully"
 msgstr ""
 
 #: tbl_change.php:683
-msgid " Because of its length,<br /> this column might not be editable "
+msgid "Because of its length,<br /> this column might not be editable "
 msgstr ""
 
 #: tbl_change.php:800
@@ -10851,7 +10851,7 @@ msgid "Row length"
 msgstr ""
 
 #: tbl_printview.php:378 tbl_structure.php:892
-msgid " Row size "
+msgid "Row size"
 msgstr ""
 
 #: tbl_printview.php:388 tbl_structure.php:900

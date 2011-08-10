@@ -829,7 +829,7 @@ msgstr "keluaran"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
-msgstr " jenis ekspor yang diipilih harus disimpan dalam file!"
+msgstr "jenis ekspor yang diipilih harus disimpan dalam file!"
 
 #: export.php:167 export.php:192 export.php:656
 #, php-format
@@ -1517,7 +1517,7 @@ msgstr "Menghapus Kolom"
 
 #: js/messages.php:195
 msgid "Adding Primary Key"
-msgstr " Tambahkan Primary Key"
+msgstr "Tambahkan Primary Key"
 
 #: js/messages.php:196 libraries/relation.lib.php:76 pmd_general.php:386
 #: pmd_general.php:543 pmd_general.php:591 pmd_general.php:667
@@ -5609,7 +5609,7 @@ msgstr "Pembesaran otomatis"
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
 " Ukuran bertahap dari pembesaran ruang tabel otomatis bila ia mempenuh."
@@ -7634,8 +7634,8 @@ msgid "Delimiter"
 msgstr "Pembatas"
 
 #: libraries/sql_query_form.lib.php:346
-msgid " Show this query here again "
-msgstr " Tampilkan ulang perintah SQL "
+msgid "Show this query here again"
+msgstr "Tampilkan ulang perintah SQL "
 
 #: libraries/sql_query_form.lib.php:402
 msgid "View only"
@@ -8834,8 +8834,8 @@ msgstr "Hak (privileges) khusus terhadap tabel"
 
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
-msgid " Note: MySQL privilege names are expressed in English "
-msgstr " Catatan: Nama privilege MySQL dalam bahasa Ingris "
+msgid "Note: MySQL privilege names are expressed in English"
+msgstr "Catatan: Nama privilege MySQL dalam bahasa Ingris "
 
 #: server_privileges.php:600
 msgid "Administration"
@@ -9005,19 +9005,19 @@ msgid "... keep the old one."
 msgstr "... mempertahankan yang lama."
 
 #: server_privileges.php:2176
-msgid " ... delete the old one from the user tables."
-msgstr " ... hapus yang lama dari User Table."
+msgid "... delete the old one from the user tables."
+msgstr "... hapus yang lama dari User Table."
 
 #: server_privileges.php:2177
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
-msgstr " ... cabut seluruh hak yang aktif, kemudian hapuskan yang lama."
+"... revoke all active privileges from the old one and delete it afterwards."
+msgstr "... cabut seluruh hak yang aktif, kemudian hapuskan yang lama."
 
 #: server_privileges.php:2178
 msgid ""
-" ... delete the old one from the user tables and reload the privileges "
+"... delete the old one from the user tables and reload the privileges "
 "afterwards."
-msgstr " ... hapuskan yang lama dari User Table, kemudian reload hak-hak."
+msgstr "... hapuskan yang lama dari User Table, kemudian reload hak-hak."
 
 #: server_privileges.php:2201
 msgid "Database for user"
@@ -10667,8 +10667,8 @@ msgstr "Sukses menghapus Pengguna yang dipilih."
 
 #: tbl_change.php:683
 #, fuzzy
-#| msgid " Because of its length,<br /> this field might not be editable "
-msgid " Because of its length,<br /> this column might not be editable "
+#| msgid "Because of its length,<br /> this field might not be editable "
+msgid "Because of its length,<br /> this column might not be editable "
 msgstr ""
 " Disebabkan ukuran panjangnya,<br /> field ini tidak dapat di-edit ulang. "
 
@@ -11058,8 +11058,8 @@ msgid "Row length"
 msgstr "Panjangnya baris"
 
 #: tbl_printview.php:378 tbl_structure.php:892
-msgid " Row size "
-msgstr " Besarnya baris "
+msgid "Row size"
+msgstr "Besarnya baris "
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"

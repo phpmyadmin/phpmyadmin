@@ -5259,7 +5259,7 @@ msgstr "Більше"
 
 #: libraries/display_tbl.lib.php:445
 msgid "horizontal"
-msgstr " горизонтальному"
+msgstr "горизонтальному"
 
 #: libraries/display_tbl.lib.php:446
 msgid "horizontal (rotated headers)"
@@ -5424,7 +5424,7 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
 
@@ -6291,7 +6291,7 @@ msgstr "Набір символів"
 #: libraries/mysql_charsets.lib.php:202 libraries/mysql_charsets.lib.php:403
 #: tbl_change.php:556
 msgid "Binary"
-msgstr " Двійковий "
+msgstr "Двійковий "
 
 #: libraries/mysql_charsets.lib.php:214
 msgid "Bulgarian"
@@ -7397,8 +7397,8 @@ msgid "Delimiter"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:346
-msgid " Show this query here again "
-msgstr " Показати даний запит знову "
+msgid "Show this query here again"
+msgstr "Показати даний запит знову "
 
 #: libraries/sql_query_form.lib.php:402
 msgid "View only"
@@ -8534,8 +8534,8 @@ msgstr "Права, які стосуються таблиці"
 
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
-msgid " Note: MySQL privilege names are expressed in English "
-msgstr " Зауваження: привілеї MySQL задаються по-англійськи "
+msgid "Note: MySQL privilege names are expressed in English"
+msgstr "Зауваження: привілеї MySQL задаються по-англійськи "
 
 #: server_privileges.php:600
 msgid "Administration"
@@ -8697,19 +8697,19 @@ msgid "... keep the old one."
 msgstr "... залишити старого."
 
 #: server_privileges.php:2176
-msgid " ... delete the old one from the user tables."
-msgstr " ... знищити старого з таблиці користувачів."
+msgid "... delete the old one from the user tables."
+msgstr "... знищити старого з таблиці користувачів."
 
 #: server_privileges.php:2177
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
+"... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
 " ... анулювати всі активні права старого користувача, знищивши його після "
 "того."
 
 #: server_privileges.php:2178
 msgid ""
-" ... delete the old one from the user tables and reload the privileges "
+"... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 " ... знищити старого з таблиці користувачів та перевантажити права після "
@@ -10352,9 +10352,9 @@ msgstr ""
 
 #: tbl_change.php:683
 #, fuzzy
-#| msgid " Because of its length,<br /> this field might not be editable "
-msgid " Because of its length,<br /> this column might not be editable "
-msgstr " Через велику довжину,<br /> це поле не може бути відредаговано "
+#| msgid "Because of its length,<br /> this field might not be editable "
+msgid "Because of its length,<br /> this column might not be editable "
+msgstr "Через велику довжину,<br /> це поле не може бути відредаговано "
 
 #: tbl_change.php:800
 msgid "Remove BLOB Repository Reference"
@@ -10362,7 +10362,7 @@ msgstr ""
 
 #: tbl_change.php:806
 msgid "Binary - do not edit"
-msgstr " Двійкові дані - не редагуються "
+msgstr "Двійкові дані - не редагуються "
 
 #: tbl_change.php:854
 msgid "Upload to BLOB repository"
@@ -10729,8 +10729,8 @@ msgid "Row length"
 msgstr "Довжина рядка"
 
 #: tbl_printview.php:378 tbl_structure.php:892
-msgid " Row size "
-msgstr " Розмір рядка "
+msgid "Row size"
+msgstr "Розмір рядка "
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"

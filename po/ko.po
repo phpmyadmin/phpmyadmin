@@ -216,7 +216,7 @@ msgstr "설명(코멘트)"
 #: server_privileges.php:2355 sql.php:264 sql.php:325 tbl_printview.php:194
 #: tbl_structure.php:347 tbl_tracking.php:321 tbl_tracking.php:326
 msgid "No"
-msgstr " 아니오 "
+msgstr "아니오 "
 
 #: db_datadict.php:237 js/messages.php:205 libraries/Index.class.php:350
 #: libraries/Index.class.php:375 libraries/Index.class.php:674
@@ -758,7 +758,7 @@ msgstr ""
 #: db_tracking.php:87 tbl_tracking.php:636
 #, fuzzy
 msgid "Created"
-msgstr " 만들기 "
+msgstr "만들기 "
 
 #: db_tracking.php:88 tbl_tracking.php:637
 msgid "Updated"
@@ -1245,7 +1245,7 @@ msgstr "소통량"
 #, fuzzy
 #| msgid "Deleting %s"
 msgid "Settings"
-msgstr " %s 을 삭제합니다"
+msgstr "%s 을 삭제합니다"
 
 #: js/messages.php:121
 #, fuzzy
@@ -1611,7 +1611,7 @@ msgstr "보기"
 #, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
-msgstr " %s 을 삭제합니다"
+msgstr "%s 을 삭제합니다"
 
 #: js/messages.php:221
 msgid "The definition of a stored function must contain a RETURN statement!"
@@ -5135,7 +5135,7 @@ msgstr "새 데이터베이스 만들기"
 
 #: libraries/display_create_database.lib.php:33
 msgid "Create"
-msgstr " 만들기 "
+msgstr "만들기 "
 
 #: libraries/display_create_database.lib.php:43 server_privileges.php:121
 #: server_privileges.php:1580 server_replication.php:33
@@ -5616,7 +5616,7 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
 
@@ -7571,8 +7571,8 @@ msgid "Delimiter"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:346
-msgid " Show this query here again "
-msgstr " 이 질의를 다시 보여줌 "
+msgid "Show this query here again"
+msgstr "이 질의를 다시 보여줌 "
 
 #: libraries/sql_query_form.lib.php:402
 msgid "View only"
@@ -8180,7 +8180,7 @@ msgstr "사용자명"
 #, fuzzy
 #| msgid "Create"
 msgid "Aggregate"
-msgstr " 만들기 "
+msgstr "만들기 "
 
 #: pmd_general.php:487 pmd_general.php:507 pmd_general.php:629
 #: pmd_general.php:642 pmd_general.php:705 pmd_general.php:759
@@ -8651,8 +8651,8 @@ msgstr "테이블에 관한 권한"
 
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
-msgid " Note: MySQL privilege names are expressed in English "
-msgstr " 주의: MySQL 권한 이름은 영어로 표기되어야 합니다. "
+msgid "Note: MySQL privilege names are expressed in English"
+msgstr "주의: MySQL 권한 이름은 영어로 표기되어야 합니다. "
 
 #: server_privileges.php:600
 msgid "Administration"
@@ -8715,7 +8715,7 @@ msgstr "%s 의 암호가 바뀌었습니다."
 #: server_privileges.php:1343
 #, php-format
 msgid "Deleting %s"
-msgstr " %s 을 삭제합니다"
+msgstr "%s 을 삭제합니다"
 
 #: server_privileges.php:1357
 msgid "No users selected for deleting!"
@@ -8812,19 +8812,19 @@ msgstr ""
 
 #: server_privileges.php:2176
 #, fuzzy
-msgid " ... delete the old one from the user tables."
+msgid "... delete the old one from the user tables."
 msgstr "권한 테이블에서 사용자를 삭제하기만 함."
 
 #: server_privileges.php:2177
 #, fuzzy
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
+"... revoke all active privileges from the old one and delete it afterwards."
 msgstr "모든 활성화된 권한을 박탈하고 사용자를 삭제함."
 
 #: server_privileges.php:2178
 #, fuzzy
 msgid ""
-" ... delete the old one from the user tables and reload the privileges "
+"... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr "사용자를 삭제하고 사용권한을 갱신함."
 
@@ -10455,9 +10455,9 @@ msgstr "선택한 사용자들을 삭제했습니다."
 
 #: tbl_change.php:683
 #, fuzzy
-#| msgid " Because of its length,<br /> this field might not be editable "
-msgid " Because of its length,<br /> this column might not be editable "
-msgstr " 필드의 길이 때문에,<br />이 필드를 편집할 수 없습니다 "
+#| msgid "Because of its length,<br /> this field might not be editable "
+msgid "Because of its length,<br /> this column might not be editable "
+msgstr "필드의 길이 때문에,<br />이 필드를 편집할 수 없습니다 "
 
 #: tbl_change.php:800
 msgid "Remove BLOB Repository Reference"
@@ -10465,7 +10465,7 @@ msgstr ""
 
 #: tbl_change.php:806
 msgid "Binary - do not edit"
-msgstr " 바이너리 - 편집 금지 "
+msgstr "바이너리 - 편집 금지 "
 
 #: tbl_change.php:854
 msgid "Upload to BLOB repository"
@@ -10838,8 +10838,8 @@ msgid "Row length"
 msgstr "행 길이"
 
 #: tbl_printview.php:378 tbl_structure.php:892
-msgid " Row size "
-msgstr " Row size "
+msgid "Row size"
+msgstr "Row size"
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"
@@ -10930,7 +10930,7 @@ msgstr "테이블 %s 을 제거했습니다."
 #: tbl_structure.php:382 tbl_structure.php:476
 #, php-format
 msgid "A primary key has been added on %s"
-msgstr " %s에 기본 키가 추가되었습니다"
+msgstr "%s에 기본 키가 추가되었습니다"
 
 #: tbl_structure.php:397 tbl_structure.php:412 tbl_structure.php:432
 #: tbl_structure.php:447 tbl_structure.php:489 tbl_structure.php:502
@@ -11220,7 +11220,7 @@ msgstr "테이블 이름 바꾸기"
 #~ msgstr "행. 시작(행)위치"
 
 #~ msgid "in %s mode and repeat headers after %s cells"
-#~ msgstr " %s 정렬 (%s 칸이 넘으면 헤더 반복)"
+#~ msgstr "%s 정렬 (%s 칸이 넘으면 헤더 반복)"
 
 #~ msgid ""
 #~ "phpMyAdmin was unable to read your configuration file!<br />This might "
@@ -11295,7 +11295,7 @@ msgstr "테이블 이름 바꾸기"
 #~ msgstr "테이블의 덤프 데이터"
 
 #~ msgid "yes"
-#~ msgstr " 예 "
+#~ msgstr "예 "
 
 #~ msgid "Disable Statistics"
 #~ msgstr "통계 숨기기"

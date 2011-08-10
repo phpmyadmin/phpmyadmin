@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-10 13:16+0200\n"
+"POT-Creation-Date: 2011-08-10 13:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5294,7 +5294,7 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
 
@@ -7148,7 +7148,7 @@ msgid "Delimiter"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:346
-msgid " Show this query here again "
+msgid "Show this query here again"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:402
@@ -8146,7 +8146,7 @@ msgstr ""
 
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
-msgid " Note: MySQL privilege names are expressed in English "
+msgid "Note: MySQL privilege names are expressed in English"
 msgstr ""
 
 #: server_privileges.php:600
@@ -8303,17 +8303,17 @@ msgid "... keep the old one."
 msgstr ""
 
 #: server_privileges.php:2176
-msgid " ... delete the old one from the user tables."
+msgid "... delete the old one from the user tables."
 msgstr ""
 
 #: server_privileges.php:2177
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
+"... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
 
 #: server_privileges.php:2178
 msgid ""
-" ... delete the old one from the user tables and reload the privileges "
+"... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 
@@ -10253,7 +10253,7 @@ msgid "Row length"
 msgstr ""
 
 #: tbl_printview.php:378 tbl_structure.php:892
-msgid " Row size "
+msgid "Row size"
 msgstr ""
 
 #: tbl_printview.php:388 tbl_structure.php:900

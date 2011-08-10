@@ -5594,7 +5594,7 @@ msgstr "Artış miktarını otomatik genişlet"
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
 " Tablo dolduğunda otomatik genişleyen tablo alanının genişlemesi için artış "
@@ -7575,8 +7575,8 @@ msgid "Delimiter"
 msgstr "Sınırlayıcı"
 
 #: libraries/sql_query_form.lib.php:346
-msgid " Show this query here again "
-msgstr " Bu sorguyu burada tekrar göster "
+msgid "Show this query here again"
+msgstr "Bu sorguyu burada tekrar göster "
 
 #: libraries/sql_query_form.lib.php:402
 msgid "View only"
@@ -8700,8 +8700,8 @@ msgstr "Tabloya özgü yetkiler"
 
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
-msgid " Note: MySQL privilege names are expressed in English "
-msgstr " Not: MySQL yetki adları İngilizce olarak belirtilir "
+msgid "Note: MySQL privilege names are expressed in English"
+msgstr "Not: MySQL yetki adları İngilizce olarak belirtilir "
 
 #: server_privileges.php:600
 msgid "Administration"
@@ -8861,17 +8861,17 @@ msgid "... keep the old one."
 msgstr "... eski olanı sakla."
 
 #: server_privileges.php:2176
-msgid " ... delete the old one from the user tables."
-msgstr " ... eski olanı kullanıcı tablolarından sil."
+msgid "... delete the old one from the user tables."
+msgstr "... eski olanı kullanıcı tablolarından sil."
 
 #: server_privileges.php:2177
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
-msgstr " ... eski olandan bütün aktif yetkileri iptal et ve sonra da sil."
+"... revoke all active privileges from the old one and delete it afterwards."
+msgstr "... eski olandan bütün aktif yetkileri iptal et ve sonra da sil."
 
 #: server_privileges.php:2178
 msgid ""
-" ... delete the old one from the user tables and reload the privileges "
+"... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 " ... eski olanı kullanıcı tablolarından sil ve sonra da yetkileri yeniden "
@@ -10684,8 +10684,8 @@ msgid "Table %1$s has been altered successfully"
 msgstr "Tablo %1$s başarılı olarak değiştirldi"
 
 #: tbl_change.php:683
-msgid " Because of its length,<br /> this column might not be editable "
-msgstr " Uzunluğu nedeniyle,<br /> bu sütun düzenlenebilir olmayabilir "
+msgid "Because of its length,<br /> this column might not be editable "
+msgstr "Uzunluğu nedeniyle,<br /> bu sütun düzenlenebilir olmayabilir "
 
 #: tbl_change.php:800
 msgid "Remove BLOB Repository Reference"
@@ -11042,8 +11042,8 @@ msgid "Row length"
 msgstr "Satır uzunluğu"
 
 #: tbl_printview.php:378 tbl_structure.php:892
-msgid " Row size "
-msgstr " Satır boyutu "
+msgid "Row size"
+msgstr "Satır boyutu "
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"

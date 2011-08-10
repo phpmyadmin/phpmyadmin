@@ -5674,7 +5674,7 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
 
@@ -7657,8 +7657,8 @@ msgid "Delimiter"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:346
-msgid " Show this query here again "
-msgstr " הראה את שאילתה כאן שוב "
+msgid "Show this query here again"
+msgstr "הראה את שאילתה כאן שוב "
 
 #: libraries/sql_query_form.lib.php:402
 msgid "View only"
@@ -8752,8 +8752,8 @@ msgstr "הרשאות ספציפיות-לטבלאות"
 
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
-msgid " Note: MySQL privilege names are expressed in English "
-msgstr " הערה: שמות הרשאות MySQL מובטאות באנגלית "
+msgid "Note: MySQL privilege names are expressed in English"
+msgstr "הערה: שמות הרשאות MySQL מובטאות באנגלית "
 
 #: server_privileges.php:600
 msgid "Administration"
@@ -8915,19 +8915,19 @@ msgid "... keep the old one."
 msgstr "... שמירת הישן."
 
 #: server_privileges.php:2176
-msgid " ... delete the old one from the user tables."
-msgstr " ... מחיקת הישן מטבלאות המשתמשים."
+msgid "... delete the old one from the user tables."
+msgstr "... מחיקת הישן מטבלאות המשתמשים."
 
 #: server_privileges.php:2177
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
-msgstr " ... בטל את כל ההרשאות הפעילות מהישן ומחק אותו לאחר מכן."
+"... revoke all active privileges from the old one and delete it afterwards."
+msgstr "... בטל את כל ההרשאות הפעילות מהישן ומחק אותו לאחר מכן."
 
 #: server_privileges.php:2178
 msgid ""
-" ... delete the old one from the user tables and reload the privileges "
+"... delete the old one from the user tables and reload the privileges "
 "afterwards."
-msgstr " ... מחיקת הישן מטבלאות המשתמשים וטען מחדש את ההרשאות לאחר מכן."
+msgstr "... מחיקת הישן מטבלאות המשתמשים וטען מחדש את ההרשאות לאחר מכן."
 
 #: server_privileges.php:2201
 msgid "Database for user"
@@ -10567,9 +10567,9 @@ msgstr ""
 
 #: tbl_change.php:683
 #, fuzzy
-#| msgid " Because of its length,<br /> this field might not be editable "
-msgid " Because of its length,<br /> this column might not be editable "
-msgstr " משום אורכם, <br /> השדה הזה יכול להיות בלתי עריך "
+#| msgid "Because of its length,<br /> this field might not be editable "
+msgid "Because of its length,<br /> this column might not be editable "
+msgstr "משום אורכם, <br /> השדה הזה יכול להיות בלתי עריך "
 
 #: tbl_change.php:800
 msgid "Remove BLOB Repository Reference"
@@ -10954,8 +10954,8 @@ msgid "Row length"
 msgstr "אורך שורה"
 
 #: tbl_printview.php:378 tbl_structure.php:892
-msgid " Row size "
-msgstr " גודל שורה "
+msgid "Row size"
+msgstr "גודל שורה "
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"

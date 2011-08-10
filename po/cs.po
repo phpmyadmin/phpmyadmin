@@ -5562,9 +5562,9 @@ msgstr "Krok automatického zvětšování"
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
-msgstr " Velikost o kterou je zvětšen soubor s daty, pokud je zaplněný."
+msgstr "Velikost o kterou je zvětšen soubor s daty, pokud je zaplněný."
 
 #: libraries/engines/innodb.lib.php:32
 msgid "Buffer pool size"
@@ -7531,8 +7531,8 @@ msgid "Delimiter"
 msgstr "Oddělovač"
 
 #: libraries/sql_query_form.lib.php:346
-msgid " Show this query here again "
-msgstr " Zobrazit zde tento dotaz znovu "
+msgid "Show this query here again"
+msgstr "Zobrazit zde tento dotaz znovu "
 
 #: libraries/sql_query_form.lib.php:402
 msgid "View only"
@@ -8642,8 +8642,8 @@ msgstr "Oprávnění pro jednotlivé tabulky"
 
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
-msgid " Note: MySQL privilege names are expressed in English "
-msgstr " Poznámka: názvy oprávnění v MySQL jsou uváděny anglicky "
+msgid "Note: MySQL privilege names are expressed in English"
+msgstr "Poznámka: názvy oprávnění v MySQL jsou uváděny anglicky "
 
 #: server_privileges.php:600
 msgid "Administration"
@@ -8805,19 +8805,19 @@ msgid "... keep the old one."
 msgstr "... zachovat původního uživatele."
 
 #: server_privileges.php:2176
-msgid " ... delete the old one from the user tables."
-msgstr " ... smazat původního uživatele ze všech tabulek."
+msgid "... delete the old one from the user tables."
+msgstr "... smazat původního uživatele ze všech tabulek."
 
 #: server_privileges.php:2177
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
-msgstr " ... odebrat všechna oprávnění původnímu uživateli a poté ho smazat."
+"... revoke all active privileges from the old one and delete it afterwards."
+msgstr "... odebrat všechna oprávnění původnímu uživateli a poté ho smazat."
 
 #: server_privileges.php:2178
 msgid ""
-" ... delete the old one from the user tables and reload the privileges "
+"... delete the old one from the user tables and reload the privileges "
 "afterwards."
-msgstr " ... smazat uživatele a poté znovu načíst oprávnění."
+msgstr "... smazat uživatele a poté znovu načíst oprávnění."
 
 #: server_privileges.php:2201
 msgid "Database for user"
@@ -10586,8 +10586,8 @@ msgid "Table %1$s has been altered successfully"
 msgstr "Tabulka %1$s byla úspěšně změněna"
 
 #: tbl_change.php:683
-msgid " Because of its length,<br /> this column might not be editable "
-msgstr " Toto pole možná nepůjde <br />kvůli délce upravit "
+msgid "Because of its length,<br /> this column might not be editable "
+msgstr "Toto pole možná nepůjde <br />kvůli délce upravit "
 
 #: tbl_change.php:800
 msgid "Remove BLOB Repository Reference"
@@ -10942,8 +10942,8 @@ msgid "Row length"
 msgstr "Délka řádku"
 
 #: tbl_printview.php:378 tbl_structure.php:892
-msgid " Row size "
-msgstr " Velikost řádku "
+msgid "Row size"
+msgstr "Velikost řádku "
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"

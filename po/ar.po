@@ -5494,7 +5494,7 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
 
@@ -5999,7 +5999,7 @@ msgstr "إصدارة المزود"
 #: libraries/export/latex.php:136 libraries/export/sql.php:477
 #: libraries/export/xml.php:132
 msgid "PHP Version"
-msgstr " PHP إصدارة"
+msgstr "PHP إصدارة"
 
 #: libraries/export/mediawiki.php:15
 msgid "MediaWiki Table"
@@ -7486,8 +7486,8 @@ msgid "Delimiter"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:346
-msgid " Show this query here again "
-msgstr " عرض هذا الاستعلام هنا مرة أخرى "
+msgid "Show this query here again"
+msgstr "عرض هذا الاستعلام هنا مرة أخرى "
 
 #: libraries/sql_query_form.lib.php:402
 msgid "View only"
@@ -8621,8 +8621,8 @@ msgstr "صلاحيات خاصة بالجدول"
 
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
-msgid " Note: MySQL privilege names are expressed in English "
-msgstr " ملاحظه: اسم الامتياز لـMySQL يظهر ويقرأ باللغة الإنجليزية فقط "
+msgid "Note: MySQL privilege names are expressed in English"
+msgstr "ملاحظه: اسم الامتياز لـMySQL يظهر ويقرأ باللغة الإنجليزية فقط "
 
 #: server_privileges.php:600
 msgid "Administration"
@@ -8781,22 +8781,22 @@ msgstr "أضف اسم مستخدم جديد بنفس الصلاحيات و..."
 
 #: server_privileges.php:2175
 msgid "... keep the old one."
-msgstr " ... أبق القديم."
+msgstr "... أبق القديم."
 
 #: server_privileges.php:2176
-msgid " ... delete the old one from the user tables."
-msgstr " ... احذف القديم من جداول المستخدمين."
+msgid "... delete the old one from the user tables."
+msgstr "... احذف القديم من جداول المستخدمين."
 
 #: server_privileges.php:2177
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
-msgstr " ... استعد كل الصلاحيات الفعالة من القديم واحذهم بعد ذلك."
+"... revoke all active privileges from the old one and delete it afterwards."
+msgstr "... استعد كل الصلاحيات الفعالة من القديم واحذهم بعد ذلك."
 
 #: server_privileges.php:2178
 msgid ""
-" ... delete the old one from the user tables and reload the privileges "
+"... delete the old one from the user tables and reload the privileges "
 "afterwards."
-msgstr " ... احذف القديم من جداول المستخدمين وأعد قراءة الصلاحيات بعد ذلك."
+msgstr "... احذف القديم من جداول المستخدمين وأعد قراءة الصلاحيات بعد ذلك."
 
 #: server_privileges.php:2201
 msgid "Database for user"
@@ -10445,9 +10445,9 @@ msgstr ""
 
 #: tbl_change.php:683
 #, fuzzy
-#| msgid " Because of its length,<br /> this field might not be editable "
-msgid " Because of its length,<br /> this column might not be editable "
-msgstr " بسبب طوله,<br /> فمن المحتمل أن هذا الحقل غير قابل للتحرير "
+#| msgid "Because of its length,<br /> this field might not be editable "
+msgid "Because of its length,<br /> this column might not be editable "
+msgstr "بسبب طوله,<br /> فمن المحتمل أن هذا الحقل غير قابل للتحرير "
 
 #: tbl_change.php:800
 msgid "Remove BLOB Repository Reference"
@@ -10823,8 +10823,8 @@ msgid "Row length"
 msgstr "طول الصف"
 
 #: tbl_printview.php:378 tbl_structure.php:892
-msgid " Row size "
-msgstr " مقاس الصف "
+msgid "Row size"
+msgstr "مقاس الصف "
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"
@@ -11204,7 +11204,7 @@ msgstr "أعد تسمية العرض الـ"
 #~ msgstr "صفوف تبدأ من"
 
 #~ msgid "in %s mode and repeat headers after %s cells"
-#~ msgstr " %s و إعادة الرؤوس بعد %s حقل"
+#~ msgstr "%s و إعادة الرؤوس بعد %s حقل"
 
 #~ msgid ""
 #~ "phpMyAdmin was unable to read your configuration file!<br />This might "
@@ -11384,7 +11384,7 @@ msgstr "أعد تسمية العرض الـ"
 #~ msgstr "حقل مفصول بـ"
 
 #~ msgid "Fields"
-#~ msgstr " عدد الحقول"
+#~ msgstr "عدد الحقول"
 
 #~ msgid "Field %s has been dropped"
 #~ msgstr "حقل محذوف %s"

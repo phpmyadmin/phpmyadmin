@@ -1781,7 +1781,7 @@ msgstr "รวม"
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
-msgstr " ข้อมูลไบนารี "
+msgstr "ข้อมูลไบนารี "
 
 #: js/messages.php:304
 msgid "February"
@@ -5640,7 +5640,7 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
 
@@ -6516,7 +6516,7 @@ msgstr "ชุดตัวอักษร"
 #: libraries/mysql_charsets.lib.php:202 libraries/mysql_charsets.lib.php:403
 #: tbl_change.php:556
 msgid "Binary"
-msgstr " ข้อมูลไบนารี "
+msgstr "ข้อมูลไบนารี "
 
 #: libraries/mysql_charsets.lib.php:214
 msgid "Bulgarian"
@@ -7543,7 +7543,7 @@ msgstr ""
 #: server_status.php:497
 #, fuzzy
 msgid "Binary log"
-msgstr " ข้อมูลไบนารี "
+msgstr "ข้อมูลไบนารี "
 
 #: libraries/server_links.inc.php:95 server_engines.php:123
 #: server_engines.php:127 server_status.php:549
@@ -7625,8 +7625,8 @@ msgid "Delimiter"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:346
-msgid " Show this query here again "
-msgstr " แสดงคำค้นนี้อีกที "
+msgid "Show this query here again"
+msgstr "แสดงคำค้นนี้อีกที "
 
 #: libraries/sql_query_form.lib.php:402
 msgid "View only"
@@ -8729,8 +8729,8 @@ msgstr "สิทธิเจาะจงเฉพาะตาราง"
 
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
-msgid " Note: MySQL privilege names are expressed in English "
-msgstr " โปรดทราบ: ชื่อของสิทธิใน MySQL จะแสดงเป็นภาษาอังกฤษ "
+msgid "Note: MySQL privilege names are expressed in English"
+msgstr "โปรดทราบ: ชื่อของสิทธิใน MySQL จะแสดงเป็นภาษาอังกฤษ "
 
 #: server_privileges.php:600
 msgid "Administration"
@@ -8888,19 +8888,19 @@ msgid "... keep the old one."
 msgstr "... เก็บของเก่าไว้."
 
 #: server_privileges.php:2176
-msgid " ... delete the old one from the user tables."
-msgstr " ... ลบของเก่าทิ้งไปจากตารางผู้ใช้."
+msgid "... delete the old one from the user tables."
+msgstr "... ลบของเก่าทิ้งไปจากตารางผู้ใช้."
 
 #: server_privileges.php:2177
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
-msgstr " ... เรียกคืนสิทธิ์ทั้งหมดจากเดิม แล้วลบมันหลังจากนั้น."
+"... revoke all active privileges from the old one and delete it afterwards."
+msgstr "... เรียกคืนสิทธิ์ทั้งหมดจากเดิม แล้วลบมันหลังจากนั้น."
 
 #: server_privileges.php:2178
 msgid ""
-" ... delete the old one from the user tables and reload the privileges "
+"... delete the old one from the user tables and reload the privileges "
 "afterwards."
-msgstr " ... ลบของเก่าจากตารางผู้ใช้ แล้วเรียกใช้รายการสิทธิ์ใหม่หลังจากนั้น."
+msgstr "... ลบของเก่าจากตารางผู้ใช้ แล้วเรียกใช้รายการสิทธิ์ใหม่หลังจากนั้น."
 
 #: server_privileges.php:2201
 msgid "Database for user"
@@ -10542,8 +10542,8 @@ msgstr "ลบผู้ใช้ที่เลือกไว้เรียบ
 
 #: tbl_change.php:683
 #, fuzzy
-#| msgid " Because of its length,<br /> this field might not be editable "
-msgid " Because of its length,<br /> this column might not be editable "
+#| msgid "Because of its length,<br /> this field might not be editable "
+msgid "Because of its length,<br /> this column might not be editable "
 msgstr "เนื่องจากความยาวของมัน <br />ฟิลด์นี้ ไม่อาจแก้ไขได้"
 
 #: tbl_change.php:800
@@ -10552,7 +10552,7 @@ msgstr ""
 
 #: tbl_change.php:806
 msgid "Binary - do not edit"
-msgstr " ข้อมูลไบนารี - ห้ามแก้ไข "
+msgstr "ข้อมูลไบนารี - ห้ามแก้ไข "
 
 #: tbl_change.php:854
 msgid "Upload to BLOB repository"
@@ -10927,8 +10927,8 @@ msgid "Row length"
 msgstr "ความยาวแถว"
 
 #: tbl_printview.php:378 tbl_structure.php:892
-msgid " Row size "
-msgstr " ขนาดแถว "
+msgid "Row size"
+msgstr "ขนาดแถว "
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"

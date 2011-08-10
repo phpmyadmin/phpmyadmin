@@ -5704,7 +5704,7 @@ msgstr "Autoforstørrende økning"
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
 "Økningen som brukes for å forstørre et autoforstørrende tabellager når den "
@@ -6641,7 +6641,7 @@ msgstr "Tegnsett"
 #: libraries/mysql_charsets.lib.php:202 libraries/mysql_charsets.lib.php:403
 #: tbl_change.php:556
 msgid "Binary"
-msgstr " Binær "
+msgstr "Binær "
 
 #: libraries/mysql_charsets.lib.php:214
 msgid "Bulgarian"
@@ -7767,8 +7767,8 @@ msgid "Delimiter"
 msgstr "Skilletegn"
 
 #: libraries/sql_query_form.lib.php:346
-msgid " Show this query here again "
-msgstr " Vis denne spørring her igjen "
+msgid "Show this query here again"
+msgstr "Vis denne spørring her igjen "
 
 #: libraries/sql_query_form.lib.php:402
 msgid "View only"
@@ -8940,7 +8940,7 @@ msgstr "Tabell-spesifikke privilegier"
 
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
-msgid " Note: MySQL privilege names are expressed in English "
+msgid "Note: MySQL privilege names are expressed in English"
 msgstr "OBS: MySQL privilegiumnavn er på engelsk"
 
 #: server_privileges.php:600
@@ -9101,18 +9101,18 @@ msgid "... keep the old one."
 msgstr "... behold den gamle."
 
 #: server_privileges.php:2176
-msgid " ... delete the old one from the user tables."
-msgstr " ... slett den gamle fra brukertabellene."
+msgid "... delete the old one from the user tables."
+msgstr "... slett den gamle fra brukertabellene."
 
 #: server_privileges.php:2177
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
+"... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
 " ... tilbakekall alle aktive privilegier fra den gamle og slett den etterpå."
 
 #: server_privileges.php:2178
 msgid ""
-" ... delete the old one from the user tables and reload the privileges "
+"... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 " ... slett den gamle fra brukertabellene og deretter oppfrisk privilegiene."
@@ -11008,7 +11008,7 @@ msgid "Table %1$s has been altered successfully"
 msgstr "Tabellen %1$s har blitt endrett"
 
 #: tbl_change.php:683
-msgid " Because of its length,<br /> this column might not be editable "
+msgid "Because of its length,<br /> this column might not be editable "
 msgstr ""
 " På grunn av sin lengde,<br /> så vil muligens denne kolonnen ikke være "
 "redigerbar"
@@ -11019,7 +11019,7 @@ msgstr "Fjern BLOB lager referanse"
 
 #: tbl_change.php:806
 msgid "Binary - do not edit"
-msgstr " Binær - må ikke redigeres "
+msgstr "Binær - må ikke redigeres "
 
 #: tbl_change.php:854
 msgid "Upload to BLOB repository"
@@ -11402,8 +11402,8 @@ msgid "Row length"
 msgstr "Radlengde"
 
 #: tbl_printview.php:378 tbl_structure.php:892
-msgid " Row size "
-msgstr " Radstørrelse "
+msgid "Row size"
+msgstr "Radstørrelse "
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"

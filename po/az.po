@@ -5678,7 +5678,7 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
 
@@ -7662,8 +7662,8 @@ msgid "Delimiter"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:346
-msgid " Show this query here again "
-msgstr " Bu sorğunu burada yene göster "
+msgid "Show this query here again"
+msgstr "Bu sorğunu burada yene göster "
 
 #: libraries/sql_query_form.lib.php:402
 msgid "View only"
@@ -8819,8 +8819,8 @@ msgstr "Cedvelexas selahiyyetler"
 
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
-msgid " Note: MySQL privilege names are expressed in English "
-msgstr " Qeyd: MySQL selahiyyet adları ingilis dilinde ifade edilmişdir "
+msgid "Note: MySQL privilege names are expressed in English"
+msgstr "Qeyd: MySQL selahiyyet adları ingilis dilinde ifade edilmişdir "
 
 #: server_privileges.php:600
 msgid "Administration"
@@ -8983,17 +8983,17 @@ msgid "... keep the old one."
 msgstr "... köhnesini saxla."
 
 #: server_privileges.php:2176
-msgid " ... delete the old one from the user tables."
-msgstr " ... istifadeçi cedvellerinden köhnesini sil."
+msgid "... delete the old one from the user tables."
+msgstr "... istifadeçi cedvellerinden köhnesini sil."
 
 #: server_privileges.php:2177
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
-msgstr " ... köhne istifadeçinin selahiyyetlerini elinden alaraq onu sil."
+"... revoke all active privileges from the old one and delete it afterwards."
+msgstr "... köhne istifadeçinin selahiyyetlerini elinden alaraq onu sil."
 
 #: server_privileges.php:2178
 msgid ""
-" ... delete the old one from the user tables and reload the privileges "
+"... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 " ... istifadeçi cedvellerinden köhnesini sil ve ardından selahiyyetleri "
@@ -10639,8 +10639,8 @@ msgstr "The selected users have been deleted successfully."
 
 #: tbl_change.php:683
 #, fuzzy
-#| msgid " Because of its length,<br /> this field might not be editable "
-msgid " Because of its length,<br /> this column might not be editable "
+#| msgid "Because of its length,<br /> this field might not be editable "
+msgid "Because of its length,<br /> this column might not be editable "
 msgstr ""
 " Uzun olduğuna göre,<br /> bu sahedeki me'lumatlar deyişdirilmeye biler "
 
@@ -11026,8 +11026,8 @@ msgid "Row length"
 msgstr "Sıra uzunluğu"
 
 #: tbl_printview.php:378 tbl_structure.php:892
-msgid " Row size "
-msgstr " Sıra boyu "
+msgid "Row size"
+msgstr "Sıra boyu "
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"

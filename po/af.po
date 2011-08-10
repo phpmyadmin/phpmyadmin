@@ -5603,7 +5603,7 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
 
@@ -7545,8 +7545,8 @@ msgid "Delimiter"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:346
-msgid " Show this query here again "
-msgstr " Wys hierdie navraag weer hier "
+msgid "Show this query here again"
+msgstr "Wys hierdie navraag weer hier "
 
 #: libraries/sql_query_form.lib.php:402
 msgid "View only"
@@ -8634,8 +8634,8 @@ msgstr ""
 
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
-msgid " Note: MySQL privilege names are expressed in English "
-msgstr " Nota: MySQL regte name word in Engels vertoon "
+msgid "Note: MySQL privilege names are expressed in English"
+msgstr "Nota: MySQL regte name word in Engels vertoon "
 
 #: server_privileges.php:600
 msgid "Administration"
@@ -8795,17 +8795,17 @@ msgid "... keep the old one."
 msgstr ""
 
 #: server_privileges.php:2176
-msgid " ... delete the old one from the user tables."
+msgid "... delete the old one from the user tables."
 msgstr ""
 
 #: server_privileges.php:2177
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
+"... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
 
 #: server_privileges.php:2178
 msgid ""
-" ... delete the old one from the user tables and reload the privileges "
+"... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 
@@ -10441,8 +10441,8 @@ msgstr ""
 
 #: tbl_change.php:683
 #, fuzzy
-#| msgid " Because of its length,<br /> this field might not be editable "
-msgid " Because of its length,<br /> this column might not be editable "
+#| msgid "Because of its length,<br /> this field might not be editable "
+msgid "Because of its length,<br /> this column might not be editable "
 msgstr ""
 " Omrede sy lengte,<br /> is hierdie veld moontlik nie veranderbaar nie "
 
@@ -10826,8 +10826,8 @@ msgid "Row length"
 msgstr "Ry lengte"
 
 #: tbl_printview.php:378 tbl_structure.php:892
-msgid " Row size "
-msgstr " Ry grootte "
+msgid "Row size"
+msgstr "Ry grootte "
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"

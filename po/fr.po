@@ -5314,11 +5314,11 @@ msgstr "«zippé »"
 
 #: libraries/display_export.lib.php:312
 msgid "gzipped"
-msgstr " «gzippé »"
+msgstr "«gzippé »"
 
 #: libraries/display_export.lib.php:314
 msgid "bzipped"
-msgstr " «bzippé »"
+msgstr "«bzippé »"
 
 #: libraries/display_export.lib.php:323
 msgid "View output as text"
@@ -5616,7 +5616,7 @@ msgstr "Auto-croissant: taille de l'incrément"
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
 "La valeur de l'incrément lors de l'agrandissement du fichier auto-croissant "
@@ -7618,7 +7618,7 @@ msgid "Delimiter"
 msgstr "Délimiteur"
 
 #: libraries/sql_query_form.lib.php:346
-msgid " Show this query here again "
+msgid "Show this query here again"
 msgstr "Afficher à nouveau la requête après exécution"
 
 #: libraries/sql_query_form.lib.php:402
@@ -8762,8 +8762,8 @@ msgstr "Privilèges spécifiques à une table"
 
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
-msgid " Note: MySQL privilege names are expressed in English "
-msgstr " Veuillez noter que les noms de privilèges sont exprimés en anglais"
+msgid "Note: MySQL privilege names are expressed in English"
+msgstr "Veuillez noter que les noms de privilèges sont exprimés en anglais"
 
 #: server_privileges.php:600
 msgid "Administration"
@@ -8862,7 +8862,7 @@ msgstr "Vue d'ensemble des utilisateurs"
 #: server_privileges.php:1698 server_privileges.php:1890
 #: server_privileges.php:2240
 msgid "Grant"
-msgstr " «Grant »"
+msgstr "«Grant »"
 
 #: server_privileges.php:1771
 msgid "Remove selected users"
@@ -8924,18 +8924,18 @@ msgid "... keep the old one."
 msgstr "... conserver intact l'ancien utilisateur."
 
 #: server_privileges.php:2176
-msgid " ... delete the old one from the user tables."
-msgstr " ... supprimer l'ancien utilisateur."
+msgid "... delete the old one from the user tables."
+msgstr "... supprimer l'ancien utilisateur."
 
 #: server_privileges.php:2177
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
+"... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
 " ... effacer tous les privilèges de l'ancien utilisateur, puis l'effacer."
 
 #: server_privileges.php:2178
 msgid ""
-" ... delete the old one from the user tables and reload the privileges "
+"... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 " ... supprimer l'ancien utilisateur, puis recharger les privilèges au "
@@ -10783,7 +10783,7 @@ msgid "Table %1$s has been altered successfully"
 msgstr "La table %1$s a été modifiée avec succès."
 
 #: tbl_change.php:683
-msgid " Because of its length,<br /> this column might not be editable "
+msgid "Because of its length,<br /> this column might not be editable "
 msgstr ""
 "Il est possible que cette colonne<br />ne soit pas éditable<br />en raison "
 "de sa longueur"
@@ -11141,8 +11141,8 @@ msgid "Row length"
 msgstr "Longueur enr."
 
 #: tbl_printview.php:378 tbl_structure.php:892
-msgid " Row size "
-msgstr " Taille enr. "
+msgid "Row size"
+msgstr "Taille enr. "
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"

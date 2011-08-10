@@ -5417,9 +5417,9 @@ msgstr "自动增加"
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
-msgstr " 数据表空间不足时自动增加的大小。"
+msgstr "数据表空间不足时自动增加的大小。"
 
 #: libraries/engines/innodb.lib.php:32
 msgid "Buffer pool size"
@@ -7328,8 +7328,8 @@ msgid "Delimiter"
 msgstr "语句定界符"
 
 #: libraries/sql_query_form.lib.php:346
-msgid " Show this query here again "
-msgstr " 在此再次显示此查询 "
+msgid "Show this query here again"
+msgstr "在此再次显示此查询 "
 
 #: libraries/sql_query_form.lib.php:402
 msgid "View only"
@@ -8388,8 +8388,8 @@ msgstr "按表指定权限"
 
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
-msgid " Note: MySQL privilege names are expressed in English "
-msgstr " 注意：MySQL 权限名称会以英文显示 "
+msgid "Note: MySQL privilege names are expressed in English"
+msgstr "注意：MySQL 权限名称会以英文显示 "
 
 #: server_privileges.php:600
 msgid "Administration"
@@ -8548,19 +8548,19 @@ msgid "... keep the old one."
 msgstr "... 保留旧用户。"
 
 #: server_privileges.php:2176
-msgid " ... delete the old one from the user tables."
-msgstr " ... 从用户表中删除旧用户。"
+msgid "... delete the old one from the user tables."
+msgstr "... 从用户表中删除旧用户。"
 
 #: server_privileges.php:2177
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
-msgstr " ... 撤销旧用户的所有权限，然后删除旧用户。"
+"... revoke all active privileges from the old one and delete it afterwards."
+msgstr "... 撤销旧用户的所有权限，然后删除旧用户。"
 
 #: server_privileges.php:2178
 msgid ""
-" ... delete the old one from the user tables and reload the privileges "
+"... delete the old one from the user tables and reload the privileges "
 "afterwards."
-msgstr " ... 从用户表中删除旧用户，然后重新载入权限。"
+msgstr "... 从用户表中删除旧用户，然后重新载入权限。"
 
 #: server_privileges.php:2201
 msgid "Database for user"
@@ -10257,8 +10257,8 @@ msgid "Table %1$s has been altered successfully"
 msgstr "已成功修改表 %1$s "
 
 #: tbl_change.php:683
-msgid " Because of its length,<br /> this column might not be editable "
-msgstr " 因长度问题，<br /> 该字段可能无法编辑 "
+msgid "Because of its length,<br /> this column might not be editable "
+msgstr "因长度问题，<br /> 该字段可能无法编辑 "
 
 #: tbl_change.php:800
 msgid "Remove BLOB Repository Reference"
@@ -10611,8 +10611,8 @@ msgid "Row length"
 msgstr "行长度"
 
 #: tbl_printview.php:378 tbl_structure.php:892
-msgid " Row size "
-msgstr " 行大小 "
+msgid "Row size"
+msgstr "行大小 "
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"

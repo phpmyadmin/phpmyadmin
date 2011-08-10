@@ -5687,7 +5687,7 @@ msgstr "Incremente el valor AUTOEXTEND"
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
 "El tamaño a incrementar para que se extienda el ancho de una tabla capaz de "
@@ -6646,7 +6646,7 @@ msgstr "Juego de caracteres"
 #: libraries/mysql_charsets.lib.php:202 libraries/mysql_charsets.lib.php:403
 #: tbl_change.php:556
 msgid "Binary"
-msgstr " Binario"
+msgstr "Binario"
 
 #: libraries/mysql_charsets.lib.php:214
 msgid "Bulgarian"
@@ -7694,8 +7694,8 @@ msgid "Delimiter"
 msgstr "Delimitador"
 
 #: libraries/sql_query_form.lib.php:346
-msgid " Show this query here again "
-msgstr " Mostrar esta consulta otra vez "
+msgid "Show this query here again"
+msgstr "Mostrar esta consulta otra vez "
 
 #: libraries/sql_query_form.lib.php:402
 msgid "View only"
@@ -8840,7 +8840,7 @@ msgstr "Privilegios específicos para la tabla"
 
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
-msgid " Note: MySQL privilege names are expressed in English "
+msgid "Note: MySQL privilege names are expressed in English"
 msgstr ""
 " Nota: Los nombres de los privilegios de MySQL están expresados en inglés "
 
@@ -9011,18 +9011,18 @@ msgid "... keep the old one."
 msgstr "...mantener el anterior."
 
 #: server_privileges.php:2176
-msgid " ... delete the old one from the user tables."
-msgstr " ...borrar el viejo de las tablas de usuario."
+msgid "... delete the old one from the user tables."
+msgstr "...borrar el viejo de las tablas de usuario."
 
 #: server_privileges.php:2177
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
+"... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
 " ...revocar todos los privilegios activos del viejo y eliminarlo después."
 
 #: server_privileges.php:2178
 msgid ""
-" ... delete the old one from the user tables and reload the privileges "
+"... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 " ...borrar el viejo de las tablas de usuario y luego volver a cargar los "
@@ -10899,7 +10899,7 @@ msgid "Table %1$s has been altered successfully"
 msgstr "Los cambios en la Tabla %1$s se hicieron exitosamente"
 
 #: tbl_change.php:683
-msgid " Because of its length,<br /> this column might not be editable "
+msgid "Because of its length,<br /> this column might not be editable "
 msgstr "Debido a su longitud,<br /> esta columna podría no ser editable"
 
 #: tbl_change.php:800
@@ -10908,7 +10908,7 @@ msgstr "Eliminar referencia al repositorio BLOB"
 
 #: tbl_change.php:806
 msgid "Binary - do not edit"
-msgstr " Binario - no editar"
+msgstr "Binario - no editar"
 
 #: tbl_change.php:854
 msgid "Upload to BLOB repository"
@@ -11257,8 +11257,8 @@ msgid "Row length"
 msgstr "Longitud de la fila"
 
 #: tbl_printview.php:378 tbl_structure.php:892
-msgid " Row size "
-msgstr " Tamaño de la fila "
+msgid "Row size"
+msgstr "Tamaño de la fila "
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"

@@ -215,7 +215,7 @@ msgstr "Komente"
 #: server_privileges.php:2355 sql.php:264 sql.php:325 tbl_printview.php:194
 #: tbl_structure.php:347 tbl_tracking.php:321 tbl_tracking.php:326
 msgid "No"
-msgstr " Jo "
+msgstr "Jo "
 
 #: db_datadict.php:237 js/messages.php:205 libraries/Index.class.php:350
 #: libraries/Index.class.php:375 libraries/Index.class.php:674
@@ -237,7 +237,7 @@ msgstr " Jo "
 #: tbl_printview.php:194 tbl_structure.php:41 tbl_structure.php:347
 #: tbl_tracking.php:319 tbl_tracking.php:324
 msgid "Yes"
-msgstr " Po "
+msgstr "Po "
 
 #: db_datadict.php:291 db_printview.php:264 tbl_printview.php:462
 msgid "Print"
@@ -5512,7 +5512,7 @@ msgstr "Hën"
 
 #: libraries/display_tbl.lib.php:445
 msgid "horizontal"
-msgstr " horizontal "
+msgstr "horizontal "
 
 #: libraries/display_tbl.lib.php:446
 msgid "horizontal (rotated headers)"
@@ -5520,7 +5520,7 @@ msgstr "horizontal (headers të rrotulluar)"
 
 #: libraries/display_tbl.lib.php:447
 msgid "vertical"
-msgstr " vertikal "
+msgstr "vertikal "
 
 #: libraries/display_tbl.lib.php:452
 #, php-format
@@ -5680,7 +5680,7 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
 
@@ -7662,7 +7662,7 @@ msgid "Delimiter"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:346
-msgid " Show this query here again "
+msgid "Show this query here again"
 msgstr "Tregoje përsëri këtë query"
 
 #: libraries/sql_query_form.lib.php:402
@@ -8845,7 +8845,7 @@ msgstr "Të drejta relative me tabelat"
 
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
-msgid " Note: MySQL privilege names are expressed in English "
+msgid "Note: MySQL privilege names are expressed in English"
 msgstr "Shënim: emrat e të drejtave të MySQL janë në Anglisht"
 
 #: server_privileges.php:600
@@ -9009,17 +9009,17 @@ msgid "... keep the old one."
 msgstr "... mbaj të vjetrin."
 
 #: server_privileges.php:2176
-msgid " ... delete the old one from the user tables."
-msgstr " ... elemino të vjetrin nga tabela e përdoruesve."
+msgid "... delete the old one from the user tables."
+msgstr "... elemino të vjetrin nga tabela e përdoruesve."
 
 #: server_privileges.php:2177
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
-msgstr " ... hiq të gjitha të drejtat nga i vjetri e pastaj eleminoje."
+"... revoke all active privileges from the old one and delete it afterwards."
+msgstr "... hiq të gjitha të drejtat nga i vjetri e pastaj eleminoje."
 
 #: server_privileges.php:2178
 msgid ""
-" ... delete the old one from the user tables and reload the privileges "
+"... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 " ... elemino të vjetrin nga tabela e përdoruesve e pastaj rilexo të drejtat."
@@ -10666,9 +10666,9 @@ msgstr "Përdoruesit e zgjedhur u hoqën me sukses."
 
 #: tbl_change.php:683
 #, fuzzy
-#| msgid " Because of its length,<br /> this field might not be editable "
-msgid " Because of its length,<br /> this column might not be editable "
-msgstr " Për shkak të gjatësisë saj,<br /> kjo fushë nuk mund të ndryshohet "
+#| msgid "Because of its length,<br /> this field might not be editable "
+msgid "Because of its length,<br /> this column might not be editable "
+msgstr "Për shkak të gjatësisë saj,<br /> kjo fushë nuk mund të ndryshohet "
 
 #: tbl_change.php:800
 msgid "Remove BLOB Repository Reference"
@@ -11052,7 +11052,7 @@ msgid "Row length"
 msgstr "Gjatësia e rreshtit"
 
 #: tbl_printview.php:378 tbl_structure.php:892
-msgid " Row size "
+msgid "Row size"
 msgstr "Madhësia e rreshtit"
 
 #: tbl_printview.php:388 tbl_structure.php:900
@@ -11450,7 +11450,7 @@ msgstr "Riemërto tabelën në"
 #~ msgstr "rreshta duke filluar nga"
 
 #~ msgid "in %s mode and repeat headers after %s cells"
-#~ msgstr " në modalitetin %s dhe përsërit headers mbas %s qelish "
+#~ msgstr "në modalitetin %s dhe përsërit headers mbas %s qelish "
 
 #~ msgid ""
 #~ "phpMyAdmin was unable to read your configuration file!<br />This might "
@@ -11534,7 +11534,7 @@ msgstr "Riemërto tabelën në"
 #~ msgstr "Dump i të dhënave për tabelën"
 
 #~ msgid "yes"
-#~ msgstr " Po "
+#~ msgstr "Po "
 
 #~ msgid "Disable Statistics"
 #~ msgstr "Disaktivo Statistikat"

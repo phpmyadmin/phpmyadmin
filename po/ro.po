@@ -5796,10 +5796,10 @@ msgstr "Auto-extinde incrementarea"
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 
 #: libraries/engines/innodb.lib.php:32
@@ -7863,8 +7863,8 @@ msgid "Delimiter"
 msgstr "Delimitator"
 
 #: libraries/sql_query_form.lib.php:346
-msgid " Show this query here again "
-msgstr " Afișează această comandă din nou aici "
+msgid "Show this query here again"
+msgstr "Afișează această comandă din nou aici "
 
 #: libraries/sql_query_form.lib.php:402
 msgid "View only"
@@ -9078,8 +9078,8 @@ msgstr "Drepturi specifice de tabele"
 
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
-msgid " Note: MySQL privilege names are expressed in English "
-msgstr " Important: numele drepturilor de acces MySQL apar în engleză"
+msgid "Note: MySQL privilege names are expressed in English"
+msgstr "Important: numele drepturilor de acces MySQL apar în engleză"
 
 #: server_privileges.php:600
 msgid "Administration"
@@ -9245,19 +9245,19 @@ msgid "... keep the old one."
 msgstr "... menține cel vechi."
 
 #: server_privileges.php:2176
-msgid " ... delete the old one from the user tables."
-msgstr " ... șterge cel vechi din tabelul de utilizatori."
+msgid "... delete the old one from the user tables."
+msgstr "... șterge cel vechi din tabelul de utilizatori."
 
 #: server_privileges.php:2177
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
+"... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
 " ...revocă toate privilegiile active de la utilizatorul vechi și șterge-l "
 "după aceea."
 
 #: server_privileges.php:2178
 msgid ""
-" ... delete the old one from the user tables and reload the privileges "
+"... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 " ... șterge cel vechi din tabelul de utilizatori și reîncarcă privilegiile."
@@ -11030,8 +11030,8 @@ msgstr "Tabelul %1$s a fost alterat cu succes"
 
 #: tbl_change.php:683
 #, fuzzy
-#| msgid " Because of its length,<br /> this field might not be editable "
-msgid " Because of its length,<br /> this column might not be editable "
+#| msgid "Because of its length,<br /> this field might not be editable "
+msgid "Because of its length,<br /> this column might not be editable "
 msgstr ""
 "Datorită lungimii sale, <br /> acest cîmp s-ar putea să nu fie editabil"
 
@@ -11420,8 +11420,8 @@ msgid "Row length"
 msgstr "Lungime linie"
 
 #: tbl_printview.php:378 tbl_structure.php:892
-msgid " Row size "
-msgstr " Mărime linie "
+msgid "Row size"
+msgstr "Mărime linie "
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"

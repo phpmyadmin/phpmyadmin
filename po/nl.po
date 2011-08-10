@@ -5688,7 +5688,7 @@ msgstr "Zelfgroei stapgrootte"
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
 " De hoeveelheid waarmee een zelfgroeiende tabelruimte groeit wanneer deze "
@@ -7757,8 +7757,8 @@ msgid "Delimiter"
 msgstr "Scheidingsteken"
 
 #: libraries/sql_query_form.lib.php:346
-msgid " Show this query here again "
-msgstr " Laat deze query hier zien "
+msgid "Show this query here again"
+msgstr "Laat deze query hier zien "
 
 #: libraries/sql_query_form.lib.php:402
 msgid "View only"
@@ -8898,7 +8898,7 @@ msgstr "Tabel-specifieke privileges"
 
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
-msgid " Note: MySQL privilege names are expressed in English "
+msgid "Note: MySQL privilege names are expressed in English"
 msgstr ""
 " Aantekening: de namen van de MySQL rechten zijn uitgedrukt in het Engels "
 
@@ -9067,18 +9067,18 @@ msgid "... keep the old one."
 msgstr "... behoud de oude."
 
 #: server_privileges.php:2176
-msgid " ... delete the old one from the user tables."
-msgstr " ... verwijder de oude van de user tabellen."
+msgid "... delete the old one from the user tables."
+msgstr "... verwijder de oude van de user tabellen."
 
 #: server_privileges.php:2177
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
+"... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
 " ... herstel alle actieve privileges van de oude en verwijder deze daarna."
 
 #: server_privileges.php:2178
 msgid ""
-" ... delete the old one from the user tables and reload the privileges "
+"... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 " ... verwijder de oude van de gebruikerstabellen en vernieuw de privileges "
@@ -10939,8 +10939,8 @@ msgid "Table %1$s has been altered successfully"
 msgstr "Tabel %1$s is bijgewerkt"
 
 #: tbl_change.php:683
-msgid " Because of its length,<br /> this column might not be editable "
-msgstr " Vanwege z'n lengte,<br /> is dit veld misschien niet te wijzigen "
+msgid "Because of its length,<br /> this column might not be editable "
+msgstr "Vanwege z'n lengte,<br /> is dit veld misschien niet te wijzigen "
 
 #: tbl_change.php:800
 msgid "Remove BLOB Repository Reference"
@@ -11327,8 +11327,8 @@ msgid "Row length"
 msgstr "Lengte van de rij"
 
 #: tbl_printview.php:378 tbl_structure.php:892
-msgid " Row size "
-msgstr " Grootte van de rij "
+msgid "Row size"
+msgstr "Grootte van de rij "
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"

@@ -616,7 +616,7 @@ msgstr "這個檢視至少需包含這個數目的資料，請參考%sdocumentat
 #: db_structure.php:387 db_structure.php:401 libraries/header.inc.php:152
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:210
 msgid "View"
-msgstr " view"
+msgstr "view"
 
 #: db_structure.php:438 libraries/db_structure.lib.php:35
 #: libraries/server_links.inc.php:90 server_replication.php:31
@@ -5484,9 +5484,9 @@ msgstr "自動增加"
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
-msgstr " 資料表空間不足時自動增加的大小"
+msgstr "資料表空間不足時自動增加的大小"
 
 #: libraries/engines/innodb.lib.php:32
 msgid "Buffer pool size"
@@ -6143,7 +6143,7 @@ msgstr "表的關聯"
 
 #: libraries/export/sql.php:1003
 msgid "Structure for view"
-msgstr " view結構"
+msgstr "view結構"
 
 #: libraries/export/sql.php:1012
 msgid "Stand-in structure for view"
@@ -6165,7 +6165,7 @@ msgstr "物件建立選項 (推薦全選)"
 
 #: libraries/export/xml.php:59
 msgid "Views"
-msgstr " view"
+msgstr "view"
 
 #: libraries/export/xml.php:74
 msgid "Export contents"
@@ -7476,8 +7476,8 @@ msgid "Delimiter"
 msgstr "指令定界符"
 
 #: libraries/sql_query_form.lib.php:346
-msgid " Show this query here again "
-msgstr " 在此再次顯示此查詢 "
+msgid "Show this query here again"
+msgstr "在此再次顯示此查詢 "
 
 #: libraries/sql_query_form.lib.php:402
 msgid "View only"
@@ -8538,8 +8538,8 @@ msgstr "按表指定權限"
 
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
-msgid " Note: MySQL privilege names are expressed in English "
-msgstr " 注意：MySQL 權限名稱會以英文顯示 "
+msgid "Note: MySQL privilege names are expressed in English"
+msgstr "注意：MySQL 權限名稱會以英文顯示 "
 
 #: server_privileges.php:600
 msgid "Administration"
@@ -8698,19 +8698,19 @@ msgid "... keep the old one."
 msgstr "... 保留舊使用者"
 
 #: server_privileges.php:2176
-msgid " ... delete the old one from the user tables."
-msgstr " ... 從使用者資料表中刪除舊使用者"
+msgid "... delete the old one from the user tables."
+msgstr "... 從使用者資料表中刪除舊使用者"
 
 #: server_privileges.php:2177
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
-msgstr " ... 移除舊使用者的所有權限，然後刪除舊使用者"
+"... revoke all active privileges from the old one and delete it afterwards."
+msgstr "... 移除舊使用者的所有權限，然後刪除舊使用者"
 
 #: server_privileges.php:2178
 msgid ""
-" ... delete the old one from the user tables and reload the privileges "
+"... delete the old one from the user tables and reload the privileges "
 "afterwards."
-msgstr " ... 從使用者資料表中刪除舊使用者，然後重新載入權限"
+msgstr "... 從使用者資料表中刪除舊使用者，然後重新載入權限"
 
 #: server_privileges.php:2201
 msgid "Database for user"
@@ -10435,8 +10435,8 @@ msgid "Table %1$s has been altered successfully"
 msgstr "已成功修改表 %1$s "
 
 #: tbl_change.php:683
-msgid " Because of its length,<br /> this column might not be editable "
-msgstr " 因長度問題，<br /> 該欄位可能無法編輯 "
+msgid "Because of its length,<br /> this column might not be editable "
+msgstr "因長度問題，<br /> 該欄位可能無法編輯 "
 
 #: tbl_change.php:800
 msgid "Remove BLOB Repository Reference"
@@ -10817,8 +10817,8 @@ msgid "Row length"
 msgstr "行長度"
 
 #: tbl_printview.php:378 tbl_structure.php:892
-msgid " Row size "
-msgstr " 行大小 "
+msgid "Row size"
+msgstr "行大小 "
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"
@@ -11149,7 +11149,7 @@ msgstr "設定檔案己更新"
 
 #: view_create.php:141
 msgid "VIEW name"
-msgstr " view名"
+msgstr "view名"
 
 #: view_operations.php:91
 msgid "Rename view to"

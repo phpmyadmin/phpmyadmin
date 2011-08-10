@@ -5717,7 +5717,7 @@ msgstr "Increment d'autoextensió"
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
 " La quantitat a incrementar per ampliar el tamany d'una taula autoextensible "
@@ -7790,8 +7790,8 @@ msgid "Delimiter"
 msgstr "Separador"
 
 #: libraries/sql_query_form.lib.php:346
-msgid " Show this query here again "
-msgstr " Mostra aquesta consulta de nou "
+msgid "Show this query here again"
+msgstr "Mostra aquesta consulta de nou "
 
 #: libraries/sql_query_form.lib.php:402
 msgid "View only"
@@ -8917,8 +8917,8 @@ msgstr "Permisos especifics de taula"
 
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
-msgid " Note: MySQL privilege names are expressed in English "
-msgstr " Nota: Els noms dels privilegis del MySQL són en idioma anglès "
+msgid "Note: MySQL privilege names are expressed in English"
+msgstr "Nota: Els noms dels privilegis del MySQL són en idioma anglès "
 
 #: server_privileges.php:600
 msgid "Administration"
@@ -9080,17 +9080,17 @@ msgid "... keep the old one."
 msgstr "... respecta l'antic."
 
 #: server_privileges.php:2176
-msgid " ... delete the old one from the user tables."
-msgstr " ... esborra l'antic de les taules d'usuaris."
+msgid "... delete the old one from the user tables."
+msgstr "... esborra l'antic de les taules d'usuaris."
 
 #: server_privileges.php:2177
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
-msgstr " ... treu tots els permisos actius de l'antic i esborra'l després."
+"... revoke all active privileges from the old one and delete it afterwards."
+msgstr "... treu tots els permisos actius de l'antic i esborra'l després."
 
 #: server_privileges.php:2178
 msgid ""
-" ... delete the old one from the user tables and reload the privileges "
+"... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 " ... esborra l'antic de les taules d'usuaris i recarrega els permisos "
@@ -10938,7 +10938,7 @@ msgid "Table %1$s has been altered successfully"
 msgstr "S'ha modificat la taula %1$s correctament"
 
 #: tbl_change.php:683
-msgid " Because of its length,<br /> this column might not be editable "
+msgid "Because of its length,<br /> this column might not be editable "
 msgstr ""
 " A causa de la seva longitud,<br /> aquesta columna no pot ser editable "
 
@@ -10948,7 +10948,7 @@ msgstr "Treure Referència a Repositori BLOB"
 
 #: tbl_change.php:806
 msgid "Binary - do not edit"
-msgstr " Binari - no editeu "
+msgstr "Binari - no editeu "
 
 #: tbl_change.php:854
 msgid "Upload to BLOB repository"
@@ -11325,7 +11325,7 @@ msgid "Row length"
 msgstr "Tamany de fila"
 
 #: tbl_printview.php:378 tbl_structure.php:892
-msgid " Row size "
+msgid "Row size"
 msgstr "Mida de fila "
 
 #: tbl_printview.php:388 tbl_structure.php:900

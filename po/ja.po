@@ -5567,7 +5567,7 @@ msgstr "自動拡張時に追加されるテーブルの大きさ"
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
 "スペースがいっぱいになったときに自動的にテーブルを拡張する場合に追加される"
@@ -6490,7 +6490,7 @@ msgstr "文字セット"
 #: libraries/mysql_charsets.lib.php:202 libraries/mysql_charsets.lib.php:403
 #: tbl_change.php:556
 msgid "Binary"
-msgstr " バイナリ"
+msgstr "バイナリ"
 
 #: libraries/mysql_charsets.lib.php:214
 msgid "Bulgarian"
@@ -7543,8 +7543,8 @@ msgid "Delimiter"
 msgstr "デリミタ"
 
 #: libraries/sql_query_form.lib.php:346
-msgid " Show this query here again "
-msgstr " 実行したクエリをここに表示する"
+msgid "Show this query here again"
+msgstr "実行したクエリをここに表示する"
 
 #: libraries/sql_query_form.lib.php:402
 msgid "View only"
@@ -8655,7 +8655,7 @@ msgstr "テーブル固有の特権"
 
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
-msgid " Note: MySQL privilege names are expressed in English "
+msgid "Note: MySQL privilege names are expressed in English"
 msgstr "注意: MySQL の特権名は英語で表示されます"
 
 #: server_privileges.php:600
@@ -8818,17 +8818,17 @@ msgid "... keep the old one."
 msgstr "元のユーザも残す"
 
 #: server_privileges.php:2176
-msgid " ... delete the old one from the user tables."
+msgid "... delete the old one from the user tables."
 msgstr "ユーザテーブルから元のユーザを削除する"
 
 #: server_privileges.php:2177
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
+"... revoke all active privileges from the old one and delete it afterwards."
 msgstr "元のユーザの特権をすべて無効にしてから削除する"
 
 #: server_privileges.php:2178
 msgid ""
-" ... delete the old one from the user tables and reload the privileges "
+"... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr "ユーザテーブルから元のユーザを削除し、特権の再読み込みをする"
 
@@ -10628,8 +10628,8 @@ msgid "Table %1$s has been altered successfully"
 msgstr "テーブル %1$s を変更しました"
 
 #: tbl_change.php:683
-msgid " Because of its length,<br /> this column might not be editable "
-msgstr " 長さによってはこのカラムを<br /> 修正できなくなる場合もあります。"
+msgid "Because of its length,<br /> this column might not be editable "
+msgstr "長さによってはこのカラムを<br /> 修正できなくなる場合もあります。"
 
 #: tbl_change.php:800
 msgid "Remove BLOB Repository Reference"
@@ -10637,7 +10637,7 @@ msgstr "BLOB 格納への参照を削除する"
 
 #: tbl_change.php:806
 msgid "Binary - do not edit"
-msgstr " バイナリ - 編集不可"
+msgstr "バイナリ - 編集不可"
 
 #: tbl_change.php:854
 msgid "Upload to BLOB repository"
@@ -10990,8 +10990,8 @@ msgid "Row length"
 msgstr "行の長さ"
 
 #: tbl_printview.php:378 tbl_structure.php:892
-msgid " Row size "
-msgstr " 行のサイズ "
+msgid "Row size"
+msgstr "行のサイズ "
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"

@@ -5607,7 +5607,7 @@ msgstr "Navýšenie pri automatickom zväčšovaní"
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
-" The increment size for extending the size of an autoextending tablespace "
+"The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
 " Veľkosť, o ktorú je zväčšený automaticky sa zväčšujúci priestor tabuľky pri "
@@ -7577,8 +7577,8 @@ msgid "Delimiter"
 msgstr "Oddeľovač"
 
 #: libraries/sql_query_form.lib.php:346
-msgid " Show this query here again "
-msgstr " Zobraziť tento dopyt znovu "
+msgid "Show this query here again"
+msgstr "Zobraziť tento dopyt znovu "
 
 #: libraries/sql_query_form.lib.php:402
 msgid "View only"
@@ -8672,8 +8672,8 @@ msgstr "Oprávnenia pre jednotlivé tabuľky"
 
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
-msgid " Note: MySQL privilege names are expressed in English "
-msgstr " Poznámka: názvy MySQL oprávnení sú uvádzané po anglicky "
+msgid "Note: MySQL privilege names are expressed in English"
+msgstr "Poznámka: názvy MySQL oprávnení sú uvádzané po anglicky "
 
 #: server_privileges.php:600
 msgid "Administration"
@@ -8837,18 +8837,18 @@ msgid "... keep the old one."
 msgstr "... zachovať pôvodného používateľa."
 
 #: server_privileges.php:2176
-msgid " ... delete the old one from the user tables."
-msgstr " ... zmazať pôvodného používateľa z tabuliek používateľov."
+msgid "... delete the old one from the user tables."
+msgstr "... zmazať pôvodného používateľa z tabuliek používateľov."
 
 #: server_privileges.php:2177
 msgid ""
-" ... revoke all active privileges from the old one and delete it afterwards."
+"... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
 " ... odobrať všetky oprávnenia pôvodnému používateľovi a následne ho zmazať."
 
 #: server_privileges.php:2178
 msgid ""
-" ... delete the old one from the user tables and reload the privileges "
+"... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 " ... zmazať pôvodného používateľa z tabuliek používateľov a potom "
@@ -10615,8 +10615,8 @@ msgid "Table %1$s has been altered successfully"
 msgstr "Tabuľka %1$s bola úspešné upravená"
 
 #: tbl_change.php:683
-msgid " Because of its length,<br /> this column might not be editable "
-msgstr " Kvôli dĺžke poľa,<br /> toto pole sa nemusí dať upraviť "
+msgid "Because of its length,<br /> this column might not be editable "
+msgstr "Kvôli dĺžke poľa,<br /> toto pole sa nemusí dať upraviť "
 
 #: tbl_change.php:800
 msgid "Remove BLOB Repository Reference"
@@ -10991,8 +10991,8 @@ msgid "Row length"
 msgstr "Dĺžka riadku"
 
 #: tbl_printview.php:378 tbl_structure.php:892
-msgid " Row size "
-msgstr " Veľkosť riadku "
+msgid "Row size"
+msgstr "Veľkosť riadku "
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"
