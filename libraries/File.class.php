@@ -737,12 +737,6 @@ class PMA_File
                 return false;
         }
 
-        echo $size . ' - ';
-        echo strlen($result) . ' - ';
-        echo (@$GLOBALS['__len__'] += strlen($result)) . ' - ';
-        echo $this->_error_message;
-        echo '<hr />';
-
         if ($GLOBALS['charset_conversion']) {
             $result = PMA_convert_string($this->getCharset(), 'utf-8', $result);
         } else {
