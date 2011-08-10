@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-10 10:14-0400\n"
-"PO-Revision-Date: 2011-08-10 16:32+0200\n"
+"PO-Revision-Date: 2011-08-10 16:33+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -4751,10 +4751,9 @@ msgid "Show function fields"
 msgstr "Mostrar los campos de función"
 
 #: libraries/config/messages.inc.php:460
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Whether to show hint or not"
-msgstr "Donde mostrar los enlaces de filas de tabla"
+msgstr "Si mostrar ayudas o no"
 
 #: libraries/config/messages.inc.php:461
 #, fuzzy
