@@ -9766,10 +9766,9 @@ msgid "Done rearranging/editing charts"
 msgstr "完成排列/编辑图表"
 
 #: server_status.php:1411
-#, fuzzy
 #| msgid "Add prefix"
 msgid "Add chart"
-msgstr "添加前缀"
+msgstr "添加图表"
 
 #: server_status.php:1413
 msgid "Rearrange/edit charts"
