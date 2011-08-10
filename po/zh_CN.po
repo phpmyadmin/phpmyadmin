@@ -10518,10 +10518,9 @@ msgid "Series:"
 msgstr "数据:"
 
 #: tbl_chart.php:116
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "The remaining columns"
-msgstr "文本框列"
+msgstr "其余字段"
 
 #: tbl_chart.php:129
 #, fuzzy
