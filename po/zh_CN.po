@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-09 16:45+0100\n"
-"PO-Revision-Date: 2011-08-10 08:57+0200\n"
+"PO-Revision-Date: 2011-08-10 08:58+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -9002,10 +9002,9 @@ msgid "Containing the word:"
 msgstr "包含文字:"
 
 #: server_status.php:710
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show only alert values"
-msgstr "显示打开的表"
+msgstr "仅显示报警值"
 
 #: server_status.php:714
 msgid "Filter by category..."
