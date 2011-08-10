@@ -7000,7 +7000,7 @@ msgstr "程序 %s 的运行结果"
 #: libraries/rte/rte_routines.lib.php:1288
 #: libraries/rte/rte_routines.lib.php:1294
 msgid "Execute routine"
-msgstr ""
+msgstr "运行程序"
 
 #: libraries/rte/rte_routines.lib.php:1345
 #: libraries/rte/rte_routines.lib.php:1348
