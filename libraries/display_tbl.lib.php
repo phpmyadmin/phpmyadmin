@@ -303,8 +303,8 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
     <?php
     // Move to the beginning or to the previous page
     if ($_SESSION['tmp_user_values']['pos'] && $_SESSION['tmp_user_values']['max_rows'] != 'all') {
-        PMA_displayTableNavigationOneButton('&lt;&lt;', __('Begin'), 0, $html_sql_query);
-        PMA_displayTableNavigationOneButton('&lt;', __('Previous'), $pos_prev, $html_sql_query);
+        PMA_displayTableNavigationOneButton('&lt;&lt;', _pgettext('First page', 'Begin'), 0, $html_sql_query);
+        PMA_displayTableNavigationOneButton('&lt;', _pgettext('Previous page', 'Previous'), $pos_prev, $html_sql_query);
 
     } // end move back
 
@@ -367,7 +367,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
 
         // display the Next button
         PMA_displayTableNavigationOneButton('&gt;',
-            __('Next'),
+            _pgettext('Next page', 'Next'),
             $pos_next,
             $html_sql_query);
 
@@ -382,7 +382,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
 
         // display the End button
         PMA_displayTableNavigationOneButton('&gt;&gt;',
-            __('End'),
+            _pgettext('Last page', 'End'),
             @((ceil($unlim_num_rows / $_SESSION['tmp_user_values']['max_rows'])- 1) * $_SESSION['tmp_user_values']['max_rows']),
             $html_sql_query,
             'onsubmit="return ' . (($_SESSION['tmp_user_values']['pos'] + $_SESSION['tmp_user_values']['max_rows'] < $unlim_num_rows && $num_rows >= $_SESSION['tmp_user_values']['max_rows']) ? 'true' : 'false') . '"',

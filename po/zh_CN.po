@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-09 16:45+0100\n"
+"POT-Creation-Date: 2011-08-10 13:11+0200\n"
 "PO-Revision-Date: 2011-08-10 12:19+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -57,7 +57,7 @@ msgstr "搜索"
 #: libraries/replication_gui.lib.php:76 libraries/replication_gui.lib.php:375
 #: libraries/rte/rte_events.lib.php:493 libraries/rte/rte_routines.lib.php:959
 #: libraries/rte/rte_routines.lib.php:1435
-#: libraries/rte/rte_triggers.lib.php:371
+#: libraries/rte/rte_triggers.lib.php:373
 #: libraries/schema/User_Schema.class.php:120
 #: libraries/schema/User_Schema.class.php:172
 #: libraries/schema/User_Schema.class.php:405
@@ -353,7 +353,7 @@ msgstr "编辑或导出关系大纲"
 #: libraries/config/messages.inc.php:499 libraries/db_structure.lib.php:32
 #: libraries/export/pdf.php:102 libraries/export/xml.php:344
 #: libraries/header.inc.php:152 libraries/rte/rte_list.lib.php:59
-#: libraries/rte/rte_triggers.lib.php:306
+#: libraries/rte/rte_triggers.lib.php:310
 #: libraries/schema/User_Schema.class.php:233 server_privileges.php:1832
 #: server_privileges.php:1888 server_privileges.php:2152
 #: server_synchronize.php:399 server_synchronize.php:826 tbl_tracking.php:634
@@ -555,7 +555,6 @@ msgid "Search in database"
 msgstr "在数据库中搜索"
 
 #: db_search.php:269
-#| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "要查找的内容 (通配符: \"%\"):"
 
@@ -568,7 +567,6 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "每个单词用空格 (\" \") 分隔。"
 
 #: db_search.php:292
-#| msgid "Inside table(s):"
 msgid "Inside tables:"
 msgstr "于下列表:"
 
@@ -1130,7 +1128,6 @@ msgid "Average load"
 msgstr "平均负载"
 
 #: js/messages.php:101
-#| msgid "Log file count"
 msgid "Total memory"
 msgstr "内存总数"
 
@@ -1139,7 +1136,6 @@ msgid "Cached memory"
 msgstr "已缓存的内存"
 
 #: js/messages.php:103
-#| msgid "Buffer Pool"
 msgid "Buffered memory"
 msgstr "已缓冲的内存"
 
@@ -1152,7 +1148,6 @@ msgid "Used memory"
 msgstr "已用内存"
 
 #: js/messages.php:107
-#| msgid "Total"
 msgid "Total Swap"
 msgstr "交换空间总数"
 
@@ -1165,7 +1160,6 @@ msgid "Used Swap"
 msgstr "已用交换空间"
 
 #: js/messages.php:110
-#| msgid "Free pages"
 msgid "Free Swap"
 msgstr "空闲交换空间"
 
@@ -1174,7 +1168,6 @@ msgid "Bytes sent"
 msgstr "已发送字节数"
 
 #: js/messages.php:113
-#| msgid "Received"
 msgid "Bytes received"
 msgstr "已接收字节数"
 
@@ -1184,7 +1177,6 @@ msgstr "连接"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:118
-#| msgid "Versions"
 msgid "Questions"
 msgstr "内部查询"
 
@@ -1198,7 +1190,6 @@ msgid "Settings"
 msgstr "设置"
 
 #: js/messages.php:121
-#| msgid "Remove database"
 msgid "Remove chart"
 msgstr "删除图表"
 
@@ -1207,7 +1198,6 @@ msgid "Edit title and labels"
 msgstr "编辑标题和标签"
 
 #: js/messages.php:123
-#| msgid "Snap to grid"
 msgid "Add chart to grid"
 msgstr "添加图表"
 
@@ -1360,7 +1350,6 @@ msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 
 #: js/messages.php:163
-#| msgid "Jump to database"
 msgid "Jump to Log table"
 msgstr "转到日志表"
 
@@ -1370,7 +1359,6 @@ msgstr "日志已分析，时间段内没有数据。"
 
 #. l10n: A collection of available filters
 #: js/messages.php:167
-#| msgid "Filter"
 msgid "Filters"
 msgstr "过滤器"
 
@@ -1388,17 +1376,14 @@ msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr "忽略 WHERE 语句中的变量值对查询分组"
 
 #: js/messages.php:172
-#| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
 msgstr "分组后的行数:"
 
 #: js/messages.php:173
-#| msgid "Total"
 msgid "Total:"
 msgstr "总数:"
 
 #: js/messages.php:175
-#| msgid "Loading"
 msgid "Loading logs"
 msgstr "正在加载日志"
 
@@ -1416,7 +1401,6 @@ msgstr ""
 "面。"
 
 #: js/messages.php:178
-#| msgid "Reload"
 msgid "Reload page"
 msgstr "重新载入页面"
 
@@ -1506,12 +1490,10 @@ msgid "Insert Table"
 msgstr "使用表"
 
 #: js/messages.php:210
-#| msgid "Add index"
 msgid "Hide indexes"
 msgstr "隐藏索引"
 
 #: js/messages.php:211
-#| msgid "Show grid"
 msgid "Show indexes"
 msgstr "显示索引"
 
@@ -1580,7 +1562,6 @@ msgid "Change"
 msgstr "修改"
 
 #: js/messages.php:235
-#| msgid "Maximum execution time"
 msgid "Query execution time"
 msgstr "查询执行时间"
 
@@ -1598,7 +1579,6 @@ msgid "Ignore"
 msgstr "忽略"
 
 #: js/messages.php:245
-#| msgid "Add column"
 msgid "Add columns"
 msgstr "添加字段"
 
@@ -1657,7 +1637,6 @@ msgid ", latest stable version:"
 msgstr "，最新稳定版本: "
 
 #: js/messages.php:269
-#| msgid "Jump to database"
 msgid "up to date"
 msgstr "已更新"
 
@@ -1666,7 +1645,6 @@ msgid "Drag to reorder"
 msgstr "拖拽以调整顺序"
 
 #: js/messages.php:273
-#| msgid "Click to select"
 msgid "Click to sort"
 msgstr "点击以排序"
 
@@ -1685,14 +1663,17 @@ msgstr "完成"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:296
+#, fuzzy
+#| msgid "Prev"
+msgctxt "Previous month"
 msgid "Prev"
 msgstr "上个月"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:298 libraries/common.lib.php:2283
-#: libraries/common.lib.php:2286 libraries/display_tbl.lib.php:370
-#: server_binlog.php:170 server_binlog.php:172 tbl_printview.php:388
-#: tbl_structure.php:900
+#: js/messages.php:298
+#, fuzzy
+#| msgid "Next"
+msgctxt "Next month"
 msgid "Next"
 msgstr "下个月"
 
@@ -1840,8 +1821,6 @@ msgstr "星期六"
 
 #. l10n: Short week day name
 #: js/messages.php:353
-#| msgctxt "Short week day name"
-#| msgid "Sun"
 msgid "Sun"
 msgstr "周日"
 
@@ -1936,7 +1915,6 @@ msgid "File was not an uploaded file."
 msgstr "文件不是上传的文件。"
 
 #: libraries/File.class.php:259 libraries/File.class.php:388
-#| msgid "Unknown error in file upload."
 msgid "Unknown error while uploading."
 msgstr "上传时发生未知错误。"
 
@@ -2063,17 +2041,14 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "插入了 %1$d 行。"
 
 #: libraries/RecentTable.class.php:107
-#| msgid "Could not save configuration"
 msgid "Could not save recent table"
 msgstr "无法保存最近使用的表"
 
 #: libraries/RecentTable.class.php:142
-#| msgid "Count tables"
 msgid "Recent tables"
 msgstr "最近使用的表"
 
 #: libraries/RecentTable.class.php:148
-#| msgid "There are no configured servers"
 msgid "There are no recent tables"
 msgstr "没有最近使用的表"
 
@@ -2098,7 +2073,6 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "此 MySQL 服务器不支持 %s 存储引擎。"
 
 #: libraries/Table.class.php:303
-#| msgid "Show slave status"
 msgid "unknown table status: "
 msgstr "未知表状态: "
 
@@ -2243,7 +2217,6 @@ msgid "Wrong username/password. Access denied."
 msgstr "用户名/密码错误。拒绝访问。"
 
 #: libraries/auth/signon.auth.lib.php:88
-#| msgid "Config authentication"
 msgid "Can not find signon authentication script:"
 msgstr "找不到 signon 认证脚本:"
 
@@ -2278,7 +2251,6 @@ msgid "PBMS get BLOB info failed:"
 msgstr "PBMS 获取 BLOB 信息失败："
 
 #: libraries/blobstreaming.lib.php:332
-#| msgid "get BLOB Content-Type failed"
 msgid "PBMS get BLOB Content-Type failed"
 msgstr "PBMS 获取 BLOB 内容类型失败"
 
@@ -2353,7 +2325,6 @@ msgid "Check Privileges"
 msgstr "检查权限"
 
 #: libraries/common.inc.php:588
-#| msgid "Could not save configuration"
 msgid "Failed to read configuration file"
 msgstr "读取配置文件失败"
 
@@ -2539,23 +2510,36 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s 天 %s 小时，%s 分 %s 秒"
 
 #: libraries/common.lib.php:1944
-#| msgid "Routines"
 msgid "Missing parameter:"
 msgstr "缺少参数:"
 
 #: libraries/common.lib.php:2253 libraries/common.lib.php:2256
-#: libraries/display_tbl.lib.php:306
+#, fuzzy
+#| msgid "Begin"
+msgctxt "First page"
 msgid "Begin"
 msgstr "开始"
 
 #: libraries/common.lib.php:2254 libraries/common.lib.php:2257
-#: libraries/display_tbl.lib.php:307 server_binlog.php:135
-#: server_binlog.php:137
+#: server_binlog.php:135 server_binlog.php:137
+#, fuzzy
+#| msgid "Previous"
+msgctxt "Previous page"
 msgid "Previous"
 msgstr "上一个"
 
+#: libraries/common.lib.php:2283 libraries/common.lib.php:2286
+#: server_binlog.php:170 server_binlog.php:172
+#, fuzzy
+#| msgid "Next"
+msgctxt "Next page"
+msgid "Next"
+msgstr "下个月"
+
 #: libraries/common.lib.php:2284 libraries/common.lib.php:2287
-#: libraries/display_tbl.lib.php:385 libraries/rte/rte_events.lib.php:457
+#, fuzzy
+#| msgid "End"
+msgctxt "Last page"
 msgid "End"
 msgstr "结束"
 
@@ -2570,7 +2554,6 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s 功能受到一个已知的缺陷 (bug) 影响，参见 %s"
 
 #: libraries/common.lib.php:2524
-#| msgid "Click to select"
 msgid "Click to toggle"
 msgstr "点击切换"
 
@@ -2643,7 +2626,6 @@ msgid "Left"
 msgstr "左侧"
 
 #: libraries/config.values.php:47
-#| msgid "Height"
 msgid "Right"
 msgstr "右侧"
 
@@ -3003,7 +2985,6 @@ msgid ""
 msgstr "禁止大量表维护操作，例如优化或修复一个数据库中的选中表。"
 
 #: libraries/config/messages.inc.php:61
-#| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
 msgstr "禁止多表维护"
 
@@ -3750,7 +3731,6 @@ msgid "Maximum number of recently used tables; set 0 to disable"
 msgstr "在数据表列表中最多显示的数据表个数"
 
 #: libraries/config/messages.inc.php:289
-#| msgid "Currently opened table"
 msgid "Recently used tables"
 msgstr "最近使用的表"
 
@@ -4024,7 +4004,6 @@ msgid "When browsing tables, the sorting of each table is remembered"
 msgstr "当浏览表时，会记住每个表的排序方式"
 
 #: libraries/config/messages.inc.php:351
-#| msgid "Rename table to"
 msgid "Remember table's sorting"
 msgstr "记录表排序"
 
@@ -4301,7 +4280,6 @@ msgid ""
 msgstr "不在数据库中保存用户偏好请留空，默认：[kbd]pma_config[/kbd]"
 
 #: libraries/config/messages.inc.php:410
-#| msgid "Currently opened table"
 msgid "Recently used table"
 msgstr "最近使用的表"
 
@@ -5251,8 +5229,23 @@ msgstr "格式特定选项："
 msgid "Language"
 msgstr "Language"
 
+#: libraries/display_tbl.lib.php:306
+msgid "Begin"
+msgstr "开始"
+
+#: libraries/display_tbl.lib.php:307
+msgid "Previous"
+msgstr "上一个"
+
+#: libraries/display_tbl.lib.php:370
+msgid "Next"
+msgstr "下个月"
+
+#: libraries/display_tbl.lib.php:385 libraries/rte/rte_events.lib.php:457
+msgid "End"
+msgstr "结束"
+
 #: libraries/display_tbl.lib.php:401
-#| msgid "Textarea columns"
 msgid "Restore column order"
 msgstr "恢复字段顺序"
 
@@ -6102,7 +6095,6 @@ msgid "Stand-in structure for view"
 msgstr "替换视图以便查看"
 
 #: libraries/export/sql.php:1071
-#| msgid "Allows reading data."
 msgid "Error reading data:"
 msgstr "读取数据时发生错误:"
 
@@ -6128,7 +6120,6 @@ msgid "Open new phpMyAdmin window"
 msgstr "打开新 phpMyAdmin 窗口"
 
 #: libraries/gis_visualization.lib.php:129
-#| msgid "No data found for the chart."
 msgid "No data found for GIS visualization."
 msgstr "未找到用于 GIS 可视化的数据。"
 
@@ -6151,7 +6142,6 @@ msgid ""
 msgstr "下列结构被创建或修改。你可以:"
 
 #: libraries/import.lib.php:1077
-#| msgid "View a structure`s contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name"
 msgstr "请通过点击结构的名称来查看它的内容"
 
@@ -6161,7 +6151,6 @@ msgid ""
 msgstr "点击相应的“选项”链接修改它的设置"
 
 #: libraries/import.lib.php:1079
-#| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link"
 msgstr "请通过点击 \"结构\" 链接来编辑结构"
 
@@ -6171,7 +6160,6 @@ msgstr "转到数据库"
 
 #: libraries/import.lib.php:1085 libraries/import.lib.php:1109
 #, php-format
-#| msgid "Missing data for %s"
 msgid "Edit settings for %s"
 msgstr "编辑 %s 的设置"
 
@@ -6181,7 +6169,6 @@ msgstr "转到数据表"
 
 #: libraries/import.lib.php:1107
 #, php-format
-#| msgid "Structure only"
 msgid "Structure of %s"
 msgstr "%s 的结构"
 
@@ -6561,7 +6548,6 @@ msgid "SQL history"
 msgstr "SQL 历史"
 
 #: libraries/relation.lib.php:132
-#| msgid "Persistent connections"
 msgid "Persistent recently used tables"
 msgstr "持久最近使用的表"
 
@@ -6706,7 +6692,6 @@ msgstr "生成密码"
 #: libraries/rte/rte_triggers.lib.php:75 libraries/rte/rte_triggers.lib.php:80
 #: libraries/rte/rte_triggers.lib.php:103
 #, php-format
-#| msgid "The following queries have been executed:"
 msgid "The following query has failed: \"%s\""
 msgstr "下列查询失败了: \"%s\""
 
@@ -6721,13 +6706,11 @@ msgstr "已备份的查询为:"
 
 #: libraries/rte/rte_events.lib.php:121
 #, php-format
-#| msgid "Column %s has been dropped"
 msgid "Event %1$s has been modified."
 msgstr "已修改事件 %1$s 。"
 
 #: libraries/rte/rte_events.lib.php:133
 #, php-format
-#| msgid "Table %1$s has been created."
 msgid "Event %1$s has been created."
 msgstr "已创建事件 %1$s 。"
 
@@ -6737,7 +6720,6 @@ msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr "<b>处理请求时发生错误:</b>"
 
 #: libraries/rte/rte_events.lib.php:185
-#| msgid "Edit server"
 msgid "Edit event"
 msgstr "编辑事件"
 
@@ -6745,18 +6727,15 @@ msgstr "编辑事件"
 #: libraries/rte/rte_routines.lib.php:1264
 #: libraries/rte/rte_routines.lib.php:1300
 #: libraries/rte/rte_triggers.lib.php:187
-#| msgid "Error in Processing Request"
 msgid "Error in processing request"
 msgstr "处理请求时的错误"
 
 #: libraries/rte/rte_events.lib.php:371 libraries/rte/rte_routines.lib.php:817
-#: libraries/rte/rte_triggers.lib.php:298
-#| msgid "Details..."
+#: libraries/rte/rte_triggers.lib.php:302
 msgid "Details"
 msgstr "详细"
 
 #: libraries/rte/rte_events.lib.php:374
-#| msgid "Event type"
 msgid "Event name"
 msgstr "事件名称"
 
@@ -6779,13 +6758,11 @@ msgid "Execute every"
 msgstr "运行周期"
 
 #: libraries/rte/rte_events.lib.php:449
-#| msgid "Startup"
 msgid "Start"
 msgstr "开始"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:912
-#: libraries/rte/rte_triggers.lib.php:352
-#| msgid "Description"
+#: libraries/rte/rte_triggers.lib.php:354
 msgid "Definition"
 msgstr "定义"
 
@@ -6796,12 +6773,12 @@ msgid "On completion preserve"
 msgstr "完整插入"
 
 #: libraries/rte/rte_events.lib.php:475 libraries/rte/rte_routines.lib.php:922
-#: libraries/rte/rte_triggers.lib.php:358
+#: libraries/rte/rte_triggers.lib.php:360
 msgid "Definer"
 msgstr "用户"
 
 #: libraries/rte/rte_events.lib.php:518 libraries/rte/rte_routines.lib.php:986
-#: libraries/rte/rte_triggers.lib.php:396
+#: libraries/rte/rte_triggers.lib.php:398
 msgid "The definer must be in the \"username@hostname\" format"
 msgstr "用户必须是 \"用户名@主机名\" 格式"
 
@@ -6847,12 +6824,12 @@ msgstr "事件计划状态"
 msgid "Returns"
 msgstr "返回类型"
 
-#: libraries/rte/rte_list.lib.php:62 libraries/rte/rte_triggers.lib.php:324
+#: libraries/rte/rte_list.lib.php:62 libraries/rte/rte_triggers.lib.php:326
 #: server_status.php:1074 sql.php:943
 msgid "Time"
 msgstr "时间"
 
-#: libraries/rte/rte_list.lib.php:63 libraries/rte/rte_triggers.lib.php:338
+#: libraries/rte/rte_list.lib.php:63 libraries/rte/rte_triggers.lib.php:340
 msgid "Event"
 msgstr "事件"
 
@@ -6862,13 +6839,12 @@ msgid ""
 "handling multi queries. <b>The execution of some stored routines may fail!</"
 "b> Please use the improved 'mysqli' extension to avoid any problems."
 msgstr ""
-"你正在使用 PHP 所不推荐的 'mysql' 扩展，不支持多语句查询。<b>运行部分存储程序时可能会失败！</b>请使用改进的 'mysqli' "
-"扩展避免此类问题发生。"
+"你正在使用 PHP 所不推荐的 'mysql' 扩展，不支持多语句查询。<b>运行部分存储程序"
+"时可能会失败！</b>请使用改进的 'mysqli' 扩展避免此类问题发生。"
 
 #: libraries/rte/rte_routines.lib.php:247
 #: libraries/rte/rte_routines.lib.php:994
 #, php-format
-#| msgid "Invalid server index: %s"
 msgid "Invalid routine type: \"%s\""
 msgstr "无效的程序类型: \"%s\""
 
@@ -6878,23 +6854,19 @@ msgstr "抱歉，恢复已删除的程序失败。"
 
 #: libraries/rte/rte_routines.lib.php:273
 #, php-format
-#| msgid "Column %s has been dropped"
 msgid "Routine %1$s has been modified."
 msgstr "已修改程序 %1$s 。"
 
 #: libraries/rte/rte_routines.lib.php:286
 #, php-format
-#| msgid "Table %1$s has been created."
 msgid "Routine %1$s has been created."
 msgstr "已创建程序 %1$s 。"
 
 #: libraries/rte/rte_routines.lib.php:344
-#| msgid "Edit mode"
 msgid "Edit routine"
 msgstr "编辑程序"
 
 #: libraries/rte/rte_routines.lib.php:820
-#| msgid "Routines"
 msgid "Routine name"
 msgstr "程序名称"
 
@@ -6903,7 +6875,6 @@ msgid "Parameters"
 msgstr "参数"
 
 #: libraries/rte/rte_routines.lib.php:848
-#| msgid "Direct links"
 msgid "Direction"
 msgstr "方向"
 
@@ -6912,12 +6883,10 @@ msgid "Length/Values"
 msgstr "长度/值"
 
 #: libraries/rte/rte_routines.lib.php:866
-#| msgid "Add prefix"
 msgid "Add parameter"
 msgstr "添加参数"
 
 #: libraries/rte/rte_routines.lib.php:870
-#| msgid "Remove database"
 msgid "Remove last parameter"
 msgstr "删除最后一个参数"
 
@@ -6926,12 +6895,10 @@ msgid "Return type"
 msgstr "返回类型"
 
 #: libraries/rte/rte_routines.lib.php:881
-#| msgid "Length/Values"
 msgid "Return length/values"
 msgstr "返回长度/值"
 
 #: libraries/rte/rte_routines.lib.php:887
-#| msgid "Table options"
 msgid "Return options"
 msgstr "返回选项"
 
@@ -6940,7 +6907,6 @@ msgid "Is deterministic"
 msgstr "是否固定"
 
 #: libraries/rte/rte_routines.lib.php:927
-#| msgid "Security"
 msgid "Security type"
 msgstr "安全类型"
 
@@ -6984,7 +6950,6 @@ msgstr[0] "存储过程中最后一条语句影响了 %d 行"
 
 #: libraries/rte/rte_routines.lib.php:1214
 #, php-format
-#| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
 msgstr "程序 %s 的运行结果"
 
@@ -6995,7 +6960,6 @@ msgstr "运行程序"
 
 #: libraries/rte/rte_routines.lib.php:1345
 #: libraries/rte/rte_routines.lib.php:1348
-#| msgid "Routines"
 msgid "Routine parameters"
 msgstr "程序参数"
 
@@ -7010,140 +6974,117 @@ msgstr "抱歉，恢复已删除的触发器失败。"
 
 #: libraries/rte/rte_triggers.lib.php:94
 #, php-format
-#| msgid "Column %s has been dropped"
 msgid "Trigger %1$s has been modified."
 msgstr "已修改触发器 %1$s 。"
 
 #: libraries/rte/rte_triggers.lib.php:106
 #, php-format
-#| msgid "Table %1$s has been created."
 msgid "Trigger %1$s has been created."
 msgstr "已创建触发器 %1$s 。"
 
 #: libraries/rte/rte_triggers.lib.php:161
-#| msgid "Add a new server"
 msgid "Edit trigger"
 msgstr "编辑触发器"
 
-#: libraries/rte/rte_triggers.lib.php:301
-#| msgid "Triggers"
+#: libraries/rte/rte_triggers.lib.php:305
 msgid "Trigger name"
 msgstr "触发器名称"
 
-#: libraries/rte/rte_triggers.lib.php:403
+#: libraries/rte/rte_triggers.lib.php:405
 msgid "You must provide a trigger name"
 msgstr "请输入触发器名称"
 
-#: libraries/rte/rte_triggers.lib.php:408
+#: libraries/rte/rte_triggers.lib.php:410
 msgid "You must provide a valid timing for the trigger"
 msgstr "请选择一个有效的触发时机"
 
-#: libraries/rte/rte_triggers.lib.php:413
+#: libraries/rte/rte_triggers.lib.php:415
 msgid "You must provide a valid event for the trigger"
 msgstr "请选择一个有效的触发事件"
 
-#: libraries/rte/rte_triggers.lib.php:419
-#| msgid "Invalid table name"
+#: libraries/rte/rte_triggers.lib.php:421
 msgid "You must provide a valid table name"
 msgstr "请选择一个有效的表"
 
-#: libraries/rte/rte_triggers.lib.php:425
+#: libraries/rte/rte_triggers.lib.php:427
 msgid "You must provide a trigger definition."
 msgstr "请输入触发器定义。"
 
 #: libraries/rte/rte_words.lib.php:18
-#| msgid "Add index"
 msgid "Add routine"
 msgstr "添加程序"
 
 #: libraries/rte/rte_words.lib.php:20
 #, php-format
-#| msgid "Export defaults"
 msgid "Export of routine %s"
 msgstr "导出程序 %s"
 
 #: libraries/rte/rte_words.lib.php:21
-#| msgid "Routines"
 msgid "routine"
 msgstr "程序"
 
 #: libraries/rte/rte_words.lib.php:22
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a routine"
 msgstr "你不具有创建程序的必要权限"
 
 #: libraries/rte/rte_words.lib.php:23
 #, php-format
-#| msgid "No tables found in database"
 msgid "No routine with name %1$s found in database %2$s"
 msgstr "在数据库 %2$s 中找不到名为 %1$s 的程序"
 
 #: libraries/rte/rte_words.lib.php:24
-#| msgid "There are no files to upload"
 msgid "There are no routines to display."
 msgstr "没有程序。"
 
 #: libraries/rte/rte_words.lib.php:30
-#| msgid "Add a new server"
 msgid "Add trigger"
 msgstr "添加触发器"
 
 #: libraries/rte/rte_words.lib.php:32
 #, php-format
-#| msgid "Export contents"
 msgid "Export of trigger %s"
 msgstr "导出触发器 %s"
 
 #: libraries/rte/rte_words.lib.php:33
-#| msgid "Triggers"
 msgid "trigger"
 msgstr "触发器"
 
 #: libraries/rte/rte_words.lib.php:34
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a trigger"
 msgstr "你不具有创建触发器的必要权限"
 
 #: libraries/rte/rte_words.lib.php:35
 #, php-format
-#| msgid "No tables found in database"
 msgid "No trigger with name %1$s found in database %2$s"
 msgstr "在数据库 %2$s 中找不到名为 %1$s 的触发器 "
 
 #: libraries/rte/rte_words.lib.php:36
-#| msgid "There are no files to upload"
 msgid "There are no triggers to display."
 msgstr "没有触发器。"
 
 #: libraries/rte/rte_words.lib.php:42
-#| msgid "Add a new server"
 msgid "Add event"
 msgstr "添加事件"
 
 #: libraries/rte/rte_words.lib.php:44
 #, php-format
-#| msgid "Export contents"
 msgid "Export of event %s"
 msgstr "导出事件 %s"
 
 #: libraries/rte/rte_words.lib.php:45
-#| msgid "Event"
 msgid "event"
 msgstr "事件"
 
 #: libraries/rte/rte_words.lib.php:46
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create an event"
 msgstr "你不具有创建事件的必要权限"
 
 #: libraries/rte/rte_words.lib.php:47
 #, php-format
-#| msgid "No tables found in database"
 msgid "No event with name %1$s found in database %2$s"
 msgstr "在数据库 %2$s 中找不到名为 %1$s 的事件"
 
 #: libraries/rte/rte_words.lib.php:48
-#| msgid "There are no files to upload"
 msgid "There are no events to display."
 msgstr "没有事件。"
 
@@ -7576,7 +7517,6 @@ msgid "PARTITION definition"
 msgstr "分区定义"
 
 #: libraries/tbl_properties.inc.php:762
-#| msgid "+ Add a new value"
 msgid "+ Add a value"
 msgstr "+ 添加"
 
@@ -8664,7 +8604,6 @@ msgid "wildcard"
 msgstr "通配符"
 
 #: server_privileges.php:2382
-#| msgid "View %s has been dropped"
 msgid "User has been added."
 msgstr "用户已添加。"
 
@@ -8908,7 +8847,6 @@ msgid "Runtime Information"
 msgstr "运行信息"
 
 #: server_status.php:650
-#| msgid "See slave status table"
 msgid "All status variables"
 msgstr "所有状态变量"
 
@@ -8921,17 +8859,14 @@ msgid "Advisor"
 msgstr "建议"
 
 #: server_status.php:662 server_status.php:684
-#| msgid "Refresh"
 msgid "Refresh rate: "
 msgstr "刷新频率: "
 
 #: server_status.php:705
-#| msgid "Do not change the password"
 msgid "Containing the word:"
 msgstr "包含文字:"
 
 #: server_status.php:710
-#| msgid "Show open tables"
 msgid "Show only alert values"
 msgstr "仅显示报警值"
 
@@ -8940,12 +8875,10 @@ msgid "Filter by category..."
 msgstr "按分类显示"
 
 #: server_status.php:727
-#| msgid "Show open tables"
 msgid "Show unformatted values"
 msgstr "显示原始值"
 
 #: server_status.php:731
-#| msgid "Related Links"
 msgid "Related links:"
 msgstr "相关链接:"
 
@@ -8965,13 +8898,14 @@ msgid ""
 msgstr ""
 "建议系统可以通过分析服务器状态变量来提供建议。\n"
 "        请注意本系统的建议基于相当简单的规则和计算且可能不适用于你的系统。\n"
-"        在修改任何设置前，请确保你知道你在修改什么以及如何恢复。错误的修改可能导致截然相反的结果。\n"
-"        调整系统的最佳方式为一次只修改一个设置，然后检查并测试你的数据库，若没有显著的性能提升则恢复设置。"
+"        在修改任何设置前，请确保你知道你在修改什么以及如何恢复。错误的修改可"
+"能导致截然相反的结果。\n"
+"        调整系统的最佳方式为一次只修改一个设置，然后检查并测试你的数据库，若"
+"没有显著的性能提升则恢复设置。"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:791
 #, php-format
-#| msgid "Customize startup page"
 msgid "Questions since startup: %s"
 msgstr "自启动以来的内部查询: %s"
 
@@ -9004,7 +8938,6 @@ msgstr "自启动以来的网络流量: %s"
 
 #: server_status.php:906
 #, php-format
-#| msgid "This MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
 msgstr "此 MySQL 服务器已运行 %s。启动时间为 %s 。"
 
@@ -9077,7 +9010,6 @@ msgid ""
 msgstr "因客户端没有关闭连接而中止的连接数。"
 
 #: server_status.php:1144
-#| msgid "Whether to enable SSL for connection to MySQL server."
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "尝试连接到 MySQL 服务器但失败的连接数。"
 
@@ -9513,7 +9445,9 @@ msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
-msgstr "查询缓存中的空闲内存块。过多的空闲内存块可能产生碎片，可通过执行 FLUSH QUERY CACHE 语句解决。"
+msgstr ""
+"查询缓存中的空闲内存块。过多的空闲内存块可能产生碎片，可通过执行 FLUSH QUERY "
+"CACHE 语句解决。"
 
 #: server_status.php:1225
 msgid "The amount of free memory for query cache."
@@ -9678,12 +9612,10 @@ msgid "The number of threads that are not sleeping."
 msgstr "非睡眠状态的线程数量。"
 
 #: server_status.php:1392
-#| msgid "Textarea rows"
 msgid "Start Monitor"
 msgstr "启动监控"
 
 #: server_status.php:1400
-#| msgid "Introduction"
 msgid "Instructions/Setup"
 msgstr "说明/设置"
 
@@ -9692,7 +9624,6 @@ msgid "Done rearranging/editing charts"
 msgstr "完成排列/编辑图表"
 
 #: server_status.php:1411
-#| msgid "Add prefix"
 msgid "Add chart"
 msgstr "添加图表"
 
@@ -9705,12 +9636,10 @@ msgid "Refresh rate"
 msgstr "刷新频率"
 
 #: server_status.php:1419
-#| msgid "Textarea columns"
 msgid "Chart columns"
 msgstr "每行图表个数"
 
 #: server_status.php:1435
-#| msgid "Error management:"
 msgid "Chart arrangement"
 msgstr "图表排列"
 
@@ -9718,15 +9647,14 @@ msgstr "图表排列"
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
-msgstr "图表排列存储在浏览器本地存储。如果你设置了一个复杂的排列，请导出该设置。"
+msgstr ""
+"图表排列存储在浏览器本地存储。如果你设置了一个复杂的排列，请导出该设置。"
 
 #: server_status.php:1436
-#| msgid "Restore default value"
 msgid "Reset to default"
 msgstr "恢复默认"
 
 #: server_status.php:1440
-#| msgid "Introduction"
 msgid "Monitor Instructions"
 msgstr "监控说明"
 
@@ -9738,8 +9666,9 @@ msgid ""
 "enabled. Note however, that the general_log produces a lot of data and "
 "increases server load by up to 15%"
 msgstr ""
-"phpMyAdmin 监控可以帮助你优化服务期配置并追踪特定查询。要实现追踪查询功能，你需要将 log_output 设置为 'TABLE' 并启用 "
-"slow_query_log 或 general_log 功能。请注意，general_log 会产生很多数据并可能增加服务器负载多达 15%"
+"phpMyAdmin 监控可以帮助你优化服务期配置并追踪特定查询。要实现追踪查询功能，你"
+"需要将 log_output 设置为 'TABLE' 并启用 slow_query_log 或 general_log 功能。"
+"请注意，general_log 会产生很多数据并可能增加服务器负载多达 15%"
 
 #: server_status.php:1446
 msgid ""
@@ -9748,8 +9677,8 @@ msgid ""
 "table is supported by MySQL 5.1.6 and onwards. You may still use the server "
 "charting features however."
 msgstr ""
-"很遗憾你的数据库服务器不支持日志记录到表，这是使用 phpMyAdmin 分析数据库日志的必要功能。MySQL 自 5.1.6 "
-"起有该功能。但你仍然可以使用服务器图表功能。"
+"很遗憾你的数据库服务器不支持日志记录到表，这是使用 phpMyAdmin 分析数据库日志"
+"的必要功能。MySQL 自 5.1.6 起有该功能。但你仍然可以使用服务器图表功能。"
 
 #: server_status.php:1458
 msgid ""
@@ -9762,9 +9691,11 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occuring SELECT statements to further analyze them.</p>"
 msgstr ""
-"<b>使用监控:</b><br/> 现在我们可以开始了！当你点击 '开始监控' 时你的浏览器会以一定间隔时间刷新所有的图表。你可以通过 '设置' 添加图"
-"表或修改刷新频率，或通过图表各自的齿轮图标来移除图表。<p>要想显示日志所记录的查询，请在图表上通过按住鼠标左键的拖拽操作选择相应的时间段。确认后即可显"
-"示出分组后的查询，你可以通过点击其中的 SELECT 语句获得进一步分析。</p>"
+"<b>使用监控:</b><br/> 现在我们可以开始了！当你点击 '开始监控' 时你的浏览器会"
+"以一定间隔时间刷新所有的图表。你可以通过 '设置' 添加图表或修改刷新频率，或通"
+"过图表各自的齿轮图标来移除图表。<p>要想显示日志所记录的查询，请在图表上通过按"
+"住鼠标左键的拖拽操作选择相应的时间段。确认后即可显示出分组后的查询，你可以通"
+"过点击其中的 SELECT 语句获得进一步分析。</p>"
 
 #: server_status.php:1463
 msgid ""
@@ -9774,31 +9705,27 @@ msgid ""
 "disable the general_log and empty its table once monitoring is not required "
 "any more."
 msgstr ""
-"<b>请注意:</b> 启用 general_log 可能会增加5-15% "
-"的服务器负载。从日志中统计数据同样也是高负载的任务，建议选择一段小范围的时间并在用完监控后禁止 general_log 并清空它的表。"
+"<b>请注意:</b> 启用 general_log 可能会增加5-15% 的服务器负载。从日志中统计数"
+"据同样也是高负载的任务，建议选择一段小范围的时间并在用完监控后禁止 "
+"general_log 并清空它的表。"
 
 #: server_status.php:1475
-#| msgid "Usage"
 msgid "CPU Usage"
 msgstr "CPU 使用"
 
 #: server_status.php:1478
-#| msgid "2. Usage"
 msgid "Memory Usage"
 msgstr "内存使用"
 
 #: server_status.php:1481
-#| msgid "Usage"
 msgid "Swap Usage"
 msgstr "交换空间使用"
 
 #: server_status.php:1484
-#| msgid "See slave status table"
 msgid "Status variable(s)"
 msgstr "状态变量"
 
 #: server_status.php:1486
-#| msgid "Select Tables"
 msgid "Select series:"
 msgstr "选择数据:"
 
@@ -9807,7 +9734,6 @@ msgid "Commonly monitored"
 msgstr "常用监控"
 
 #: server_status.php:1503
-#| msgid "Invalid table name"
 msgid "or type variable name:"
 msgstr "或输入变量名:"
 
@@ -9824,7 +9750,6 @@ msgid "Append unit to data values"
 msgstr "在值后附加单位"
 
 #: server_status.php:1522
-#| msgid "Add a new server"
 msgid "Add this series"
 msgstr "添加该数据"
 
@@ -9833,17 +9758,14 @@ msgid "Clear series"
 msgstr "清除所有数据"
 
 #: server_status.php:1527
-#| msgid "SQL queries"
 msgid "Series in Chart:"
 msgstr "图表中的数据:"
 
 #: server_status.php:1539
-#| msgid "Show statistics"
 msgid "Log statistics"
 msgstr "日志统计"
 
 #: server_status.php:1540
-#| msgid "Select page"
 msgid "Selected time range:"
 msgstr "选择时间范围:"
 
@@ -9862,20 +9784,17 @@ msgid ""
 msgstr "<p>请选择生成统计的来源日志。</p>结果将根据查询语句分组。"
 
 #: server_status.php:1556
-#| msgid "Query type"
 msgid "Query analyzer"
 msgstr "查询分析器"
 
 #: server_status.php:1593
 #, php-format
-#| msgid "Second"
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d 秒"
 
 #: server_status.php:1595
 #, php-format
-#| msgid "Minute"
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d 分"
@@ -10406,7 +10325,6 @@ msgid "Line"
 msgstr "折线图"
 
 #: tbl_chart.php:88
-#| msgid "Inline"
 msgid "Spline"
 msgstr "曲线图"
 
@@ -10419,7 +10337,6 @@ msgid "Stacked"
 msgstr "堆叠"
 
 #: tbl_chart.php:94
-#| msgid "Report title:"
 msgid "Chart title"
 msgstr "图表标题"
 
@@ -10428,32 +10345,26 @@ msgid "X-Axis:"
 msgstr "横坐标:"
 
 #: tbl_chart.php:114
-#| msgid "SQL queries"
 msgid "Series:"
 msgstr "数据:"
 
 #: tbl_chart.php:116
-#| msgid "Textarea columns"
 msgid "The remaining columns"
 msgstr "其余字段"
 
 #: tbl_chart.php:129
-#| msgid "X Axis label"
 msgid "X-Axis label:"
 msgstr "横坐标名称:"
 
 #: tbl_chart.php:130
-#| msgid "Value"
 msgid "X Values"
 msgstr "横值"
 
 #: tbl_chart.php:131
-#| msgid "Y Axis label"
 msgid "Y-Axis label:"
 msgstr "纵坐标名称:"
 
 #: tbl_chart.php:131
-#| msgid "Value"
 msgid "Y Values"
 msgstr "纵值"
 
@@ -10472,7 +10383,6 @@ msgid "View dump (schema) of table"
 msgstr "查看数据表的转存(大纲)。"
 
 #: tbl_gis_visualization.php:111
-#| msgid "Display servers selection"
 msgid "Display GIS Visualization"
 msgstr "显示可视化 GIS"
 
@@ -10485,17 +10395,14 @@ msgid "Height"
 msgstr "高"
 
 #: tbl_gis_visualization.php:165
-#| msgid "Textarea columns"
 msgid "Label column"
 msgstr "名称字段"
 
 #: tbl_gis_visualization.php:167
-#| msgid "- none -"
 msgid "-- None --"
 msgstr "-- 无 --"
 
 #: tbl_gis_visualization.php:180
-#| msgid "Log file count"
 msgid "Spatial column"
 msgstr "空间字段"
 
@@ -10508,12 +10415,10 @@ msgid "Redraw"
 msgstr "重绘"
 
 #: tbl_gis_visualization.php:206
-#| msgid "Save as file"
 msgid "Save to file"
 msgstr "保存文件"
 
 #: tbl_gis_visualization.php:207
-#| msgid "Table name"
 msgid "File name"
 msgstr "文件名"
 
@@ -10711,6 +10616,10 @@ msgstr "行长度"
 msgid " Row size "
 msgstr " 行大小 "
 
+#: tbl_printview.php:388 tbl_structure.php:900
+msgid "Next autoindex"
+msgstr ""
+
 #: tbl_relation.php:276
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
@@ -10771,7 +10680,6 @@ msgid "Add unique index"
 msgstr "添加唯一键"
 
 #: tbl_structure.php:174 tbl_structure.php:175
-#| msgid "Add index"
 msgid "Add SPATIAL index"
 msgstr "添加空间索引"
 
@@ -10806,7 +10714,6 @@ msgid "Show more actions"
 msgstr "显示更多操作"
 
 #: tbl_structure.php:603
-#| msgid "Print view"
 msgid "Edit view"
 msgstr "编辑视图"
 

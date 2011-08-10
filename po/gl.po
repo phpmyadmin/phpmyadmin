@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-09 16:45+0100\n"
+"POT-Creation-Date: 2011-08-10 13:11+0200\n"
 "PO-Revision-Date: 2010-07-21 14:50+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: galician <gl@li.org>\n"
@@ -59,7 +59,7 @@ msgstr "Procurar"
 #: libraries/replication_gui.lib.php:76 libraries/replication_gui.lib.php:375
 #: libraries/rte/rte_events.lib.php:493 libraries/rte/rte_routines.lib.php:959
 #: libraries/rte/rte_routines.lib.php:1435
-#: libraries/rte/rte_triggers.lib.php:371
+#: libraries/rte/rte_triggers.lib.php:373
 #: libraries/schema/User_Schema.class.php:120
 #: libraries/schema/User_Schema.class.php:172
 #: libraries/schema/User_Schema.class.php:405
@@ -370,7 +370,7 @@ msgstr "Esquema relacional"
 #: libraries/config/messages.inc.php:499 libraries/db_structure.lib.php:32
 #: libraries/export/pdf.php:102 libraries/export/xml.php:344
 #: libraries/header.inc.php:152 libraries/rte/rte_list.lib.php:59
-#: libraries/rte/rte_triggers.lib.php:306
+#: libraries/rte/rte_triggers.lib.php:310
 #: libraries/schema/User_Schema.class.php:233 server_privileges.php:1832
 #: server_privileges.php:1888 server_privileges.php:2152
 #: server_synchronize.php:399 server_synchronize.php:826 tbl_tracking.php:634
@@ -1840,14 +1840,15 @@ msgstr "Doar"
 #: js/messages.php:296
 #, fuzzy
 #| msgid "Previous"
+msgctxt "Previous month"
 msgid "Prev"
 msgstr "Anterior"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:298 libraries/common.lib.php:2283
-#: libraries/common.lib.php:2286 libraries/display_tbl.lib.php:370
-#: server_binlog.php:170 server_binlog.php:172 tbl_printview.php:388
-#: tbl_structure.php:900
+#: js/messages.php:298
+#, fuzzy
+#| msgid "Next"
+msgctxt "Next month"
 msgid "Next"
 msgstr "Seguinte"
 
@@ -2792,18 +2793,32 @@ msgid "Missing parameter:"
 msgstr "Rutinas"
 
 #: libraries/common.lib.php:2253 libraries/common.lib.php:2256
-#: libraries/display_tbl.lib.php:306
+#, fuzzy
+#| msgid "Begin"
+msgctxt "First page"
 msgid "Begin"
 msgstr "Inicio"
 
 #: libraries/common.lib.php:2254 libraries/common.lib.php:2257
-#: libraries/display_tbl.lib.php:307 server_binlog.php:135
-#: server_binlog.php:137
+#: server_binlog.php:135 server_binlog.php:137
+#, fuzzy
+#| msgid "Previous"
+msgctxt "Previous page"
 msgid "Previous"
 msgstr "Anterior"
 
+#: libraries/common.lib.php:2283 libraries/common.lib.php:2286
+#: server_binlog.php:170 server_binlog.php:172
+#, fuzzy
+#| msgid "Next"
+msgctxt "Next page"
+msgid "Next"
+msgstr "Seguinte"
+
 #: libraries/common.lib.php:2284 libraries/common.lib.php:2287
-#: libraries/display_tbl.lib.php:385 libraries/rte/rte_events.lib.php:457
+#, fuzzy
+#| msgid "End"
+msgctxt "Last page"
 msgid "End"
 msgstr "Fin"
 
@@ -5835,6 +5850,22 @@ msgstr ""
 msgid "Language"
 msgstr "Lingua"
 
+#: libraries/display_tbl.lib.php:306
+msgid "Begin"
+msgstr "Inicio"
+
+#: libraries/display_tbl.lib.php:307
+msgid "Previous"
+msgstr "Anterior"
+
+#: libraries/display_tbl.lib.php:370
+msgid "Next"
+msgstr "Seguinte"
+
+#: libraries/display_tbl.lib.php:385 libraries/rte/rte_events.lib.php:457
+msgid "End"
+msgstr "Fin"
+
 #: libraries/display_tbl.lib.php:401
 #, fuzzy
 #| msgid "CHAR textarea columns"
@@ -7432,7 +7463,7 @@ msgid "Error in processing request"
 msgstr "Procesos"
 
 #: libraries/rte/rte_events.lib.php:371 libraries/rte/rte_routines.lib.php:817
-#: libraries/rte/rte_triggers.lib.php:298
+#: libraries/rte/rte_triggers.lib.php:302
 #, fuzzy
 #| msgid "Details..."
 msgid "Details"
@@ -7471,7 +7502,7 @@ msgid "Start"
 msgstr "Inicio"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:912
-#: libraries/rte/rte_triggers.lib.php:352
+#: libraries/rte/rte_triggers.lib.php:354
 #, fuzzy
 #| msgid "Description"
 msgid "Definition"
@@ -7484,12 +7515,12 @@ msgid "On completion preserve"
 msgstr "Insercións completas"
 
 #: libraries/rte/rte_events.lib.php:475 libraries/rte/rte_routines.lib.php:922
-#: libraries/rte/rte_triggers.lib.php:358
+#: libraries/rte/rte_triggers.lib.php:360
 msgid "Definer"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:518 libraries/rte/rte_routines.lib.php:986
-#: libraries/rte/rte_triggers.lib.php:396
+#: libraries/rte/rte_triggers.lib.php:398
 msgid "The definer must be in the \"username@hostname\" format"
 msgstr ""
 
@@ -7535,12 +7566,12 @@ msgstr ""
 msgid "Returns"
 msgstr "Tipo de retorno"
 
-#: libraries/rte/rte_list.lib.php:62 libraries/rte/rte_triggers.lib.php:324
+#: libraries/rte/rte_list.lib.php:62 libraries/rte/rte_triggers.lib.php:326
 #: server_status.php:1074 sql.php:943
 msgid "Time"
 msgstr "Tempo"
 
-#: libraries/rte/rte_list.lib.php:63 libraries/rte/rte_triggers.lib.php:338
+#: libraries/rte/rte_list.lib.php:63 libraries/rte/rte_triggers.lib.php:340
 msgid "Event"
 msgstr "Evento"
 
@@ -7722,31 +7753,31 @@ msgstr "Creouse a táboa %1$s."
 msgid "Edit trigger"
 msgstr "Engadir un servidor novo"
 
-#: libraries/rte/rte_triggers.lib.php:301
+#: libraries/rte/rte_triggers.lib.php:305
 #, fuzzy
 #| msgid "Triggers"
 msgid "Trigger name"
 msgstr "Lanza"
 
-#: libraries/rte/rte_triggers.lib.php:403
+#: libraries/rte/rte_triggers.lib.php:405
 msgid "You must provide a trigger name"
 msgstr ""
 
-#: libraries/rte/rte_triggers.lib.php:408
+#: libraries/rte/rte_triggers.lib.php:410
 msgid "You must provide a valid timing for the trigger"
 msgstr ""
 
-#: libraries/rte/rte_triggers.lib.php:413
+#: libraries/rte/rte_triggers.lib.php:415
 msgid "You must provide a valid event for the trigger"
 msgstr ""
 
-#: libraries/rte/rte_triggers.lib.php:419
+#: libraries/rte/rte_triggers.lib.php:421
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "You must provide a valid table name"
 msgstr "Non se admite este nome de táboa."
 
-#: libraries/rte/rte_triggers.lib.php:425
+#: libraries/rte/rte_triggers.lib.php:427
 msgid "You must provide a trigger definition."
 msgstr ""
 
@@ -11869,6 +11900,10 @@ msgstr "Lonxitude da fileira"
 #: tbl_printview.php:378 tbl_structure.php:892
 msgid " Row size "
 msgstr " Tamaño da fileira "
+
+#: tbl_printview.php:388 tbl_structure.php:900
+msgid "Next autoindex"
+msgstr ""
 
 #: tbl_relation.php:276
 #, php-format

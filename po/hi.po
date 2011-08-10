@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-09 16:45+0100\n"
+"POT-Creation-Date: 2011-08-10 13:11+0200\n"
 "PO-Revision-Date: 2011-07-24 19:04+0200\n"
 "Last-Translator:  <deadefy@nepalimail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
@@ -57,7 +57,7 @@ msgstr "ढूंढें"
 #: libraries/replication_gui.lib.php:76 libraries/replication_gui.lib.php:375
 #: libraries/rte/rte_events.lib.php:493 libraries/rte/rte_routines.lib.php:959
 #: libraries/rte/rte_routines.lib.php:1435
-#: libraries/rte/rte_triggers.lib.php:371
+#: libraries/rte/rte_triggers.lib.php:373
 #: libraries/schema/User_Schema.class.php:120
 #: libraries/schema/User_Schema.class.php:172
 #: libraries/schema/User_Schema.class.php:405
@@ -357,7 +357,7 @@ msgstr "संबंधपरक स्कीमा को संपादित
 #: libraries/config/messages.inc.php:499 libraries/db_structure.lib.php:32
 #: libraries/export/pdf.php:102 libraries/export/xml.php:344
 #: libraries/header.inc.php:152 libraries/rte/rte_list.lib.php:59
-#: libraries/rte/rte_triggers.lib.php:306
+#: libraries/rte/rte_triggers.lib.php:310
 #: libraries/schema/User_Schema.class.php:233 server_privileges.php:1832
 #: server_privileges.php:1888 server_privileges.php:2152
 #: server_synchronize.php:399 server_synchronize.php:826 tbl_tracking.php:634
@@ -1741,14 +1741,17 @@ msgstr "किया"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:296
+#, fuzzy
+#| msgid "Prev"
+msgctxt "Previous month"
 msgid "Prev"
 msgstr "पिछला"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:298 libraries/common.lib.php:2283
-#: libraries/common.lib.php:2286 libraries/display_tbl.lib.php:370
-#: server_binlog.php:170 server_binlog.php:172 tbl_printview.php:388
-#: tbl_structure.php:900
+#: js/messages.php:298
+#, fuzzy
+#| msgid "Next"
+msgctxt "Next month"
 msgid "Next"
 msgstr " अगला"
 
@@ -2616,18 +2619,32 @@ msgid "Missing parameter:"
 msgstr "नियमित कार्य"
 
 #: libraries/common.lib.php:2253 libraries/common.lib.php:2256
-#: libraries/display_tbl.lib.php:306
+#, fuzzy
+#| msgid "Begin"
+msgctxt "First page"
 msgid "Begin"
 msgstr "प्रारंभ"
 
 #: libraries/common.lib.php:2254 libraries/common.lib.php:2257
-#: libraries/display_tbl.lib.php:307 server_binlog.php:135
-#: server_binlog.php:137
+#: server_binlog.php:135 server_binlog.php:137
+#, fuzzy
+#| msgid "Previous"
+msgctxt "Previous page"
 msgid "Previous"
 msgstr "पिछला"
 
+#: libraries/common.lib.php:2283 libraries/common.lib.php:2286
+#: server_binlog.php:170 server_binlog.php:172
+#, fuzzy
+#| msgid "Next"
+msgctxt "Next page"
+msgid "Next"
+msgstr " अगला"
+
 #: libraries/common.lib.php:2284 libraries/common.lib.php:2287
-#: libraries/display_tbl.lib.php:385 libraries/rte/rte_events.lib.php:457
+#, fuzzy
+#| msgid "End"
+msgctxt "Last page"
 msgid "End"
 msgstr "आखरी"
 
@@ -5306,6 +5323,22 @@ msgstr "प्रारूप निर्दिष्ट विकल्पो�
 msgid "Language"
 msgstr "भाषा"
 
+#: libraries/display_tbl.lib.php:306
+msgid "Begin"
+msgstr "प्रारंभ"
+
+#: libraries/display_tbl.lib.php:307
+msgid "Previous"
+msgstr "पिछला"
+
+#: libraries/display_tbl.lib.php:370
+msgid "Next"
+msgstr " अगला"
+
+#: libraries/display_tbl.lib.php:385 libraries/rte/rte_events.lib.php:457
+msgid "End"
+msgstr "आखरी"
+
 #: libraries/display_tbl.lib.php:401
 #, fuzzy
 #| msgid "Textarea columns"
@@ -6800,7 +6833,7 @@ msgid "Error in processing request"
 msgstr "याचिका प्रसंस्करणमें त्रुटि"
 
 #: libraries/rte/rte_events.lib.php:371 libraries/rte/rte_routines.lib.php:817
-#: libraries/rte/rte_triggers.lib.php:298
+#: libraries/rte/rte_triggers.lib.php:302
 #, fuzzy
 #| msgid "Details..."
 msgid "Details"
@@ -6837,7 +6870,7 @@ msgid "Start"
 msgstr "स्टार्टअप"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:912
-#: libraries/rte/rte_triggers.lib.php:352
+#: libraries/rte/rte_triggers.lib.php:354
 #, fuzzy
 #| msgid "Description"
 msgid "Definition"
@@ -6850,12 +6883,12 @@ msgid "On completion preserve"
 msgstr "पूरा इनसर्टस"
 
 #: libraries/rte/rte_events.lib.php:475 libraries/rte/rte_routines.lib.php:922
-#: libraries/rte/rte_triggers.lib.php:358
+#: libraries/rte/rte_triggers.lib.php:360
 msgid "Definer"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:518 libraries/rte/rte_routines.lib.php:986
-#: libraries/rte/rte_triggers.lib.php:396
+#: libraries/rte/rte_triggers.lib.php:398
 msgid "The definer must be in the \"username@hostname\" format"
 msgstr ""
 
@@ -6901,12 +6934,12 @@ msgstr ""
 msgid "Returns"
 msgstr "रिटर्न प्रकार"
 
-#: libraries/rte/rte_list.lib.php:62 libraries/rte/rte_triggers.lib.php:324
+#: libraries/rte/rte_list.lib.php:62 libraries/rte/rte_triggers.lib.php:326
 #: server_status.php:1074 sql.php:943
 msgid "Time"
 msgstr "समय"
 
-#: libraries/rte/rte_list.lib.php:63 libraries/rte/rte_triggers.lib.php:338
+#: libraries/rte/rte_list.lib.php:63 libraries/rte/rte_triggers.lib.php:340
 msgid "Event"
 msgstr "घटना"
 
@@ -7088,31 +7121,31 @@ msgstr "%1$s टेबल बना दिया गया है"
 msgid "Edit trigger"
 msgstr "एक नया सर्वर जोडें"
 
-#: libraries/rte/rte_triggers.lib.php:301
+#: libraries/rte/rte_triggers.lib.php:305
 #, fuzzy
 #| msgid "Triggers"
 msgid "Trigger name"
 msgstr "ट्रिगर"
 
-#: libraries/rte/rte_triggers.lib.php:403
+#: libraries/rte/rte_triggers.lib.php:405
 msgid "You must provide a trigger name"
 msgstr ""
 
-#: libraries/rte/rte_triggers.lib.php:408
+#: libraries/rte/rte_triggers.lib.php:410
 msgid "You must provide a valid timing for the trigger"
 msgstr ""
 
-#: libraries/rte/rte_triggers.lib.php:413
+#: libraries/rte/rte_triggers.lib.php:415
 msgid "You must provide a valid event for the trigger"
 msgstr ""
 
-#: libraries/rte/rte_triggers.lib.php:419
+#: libraries/rte/rte_triggers.lib.php:421
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "You must provide a valid table name"
 msgstr "अवैध टेबल नाम"
 
-#: libraries/rte/rte_triggers.lib.php:425
+#: libraries/rte/rte_triggers.lib.php:427
 msgid "You must provide a trigger definition."
 msgstr ""
 
@@ -10730,6 +10763,10 @@ msgstr "रौ की लंबाई"
 #: tbl_printview.php:378 tbl_structure.php:892
 msgid " Row size "
 msgstr "रौ का आकार"
+
+#: tbl_printview.php:388 tbl_structure.php:900
+msgid "Next autoindex"
+msgstr ""
 
 #: tbl_relation.php:276
 #, php-format
