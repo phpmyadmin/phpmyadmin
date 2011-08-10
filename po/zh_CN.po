@@ -561,7 +561,7 @@ msgstr "要查找的内容 (通配符: \"%\"):"
 
 #: db_search.php:274
 msgid "Find:"
-msgstr "查找："
+msgstr "查找:"
 
 #: db_search.php:278 db_search.php:279
 msgid "Words are separated by a space character (\" \")."
