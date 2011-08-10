@@ -6181,10 +6181,10 @@ msgid "Go to database"
 msgstr "转到数据库"
 
 #: libraries/import.lib.php:1085 libraries/import.lib.php:1109
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
-msgstr "在 %s 中丢失数据"
+msgstr "编辑 %s 的设置"
 
 #: libraries/import.lib.php:1104
 msgid "Go to table"
