@@ -574,7 +574,7 @@ msgstr "于下列表:"
 
 #: db_search.php:322
 msgid "Inside column:"
-msgstr "包含字段："
+msgstr "包含字段:"
 
 #: db_structure.php:61
 msgid "No tables found in database"
