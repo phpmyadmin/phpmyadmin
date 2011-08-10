@@ -337,7 +337,10 @@ $GLOBALS['js_include'][] = 'jquery/jquery.cookie.js'; // For tab persistence
 $GLOBALS['js_include'][] = 'highcharts/highcharts.js';
 /* Files required for chart exporting */
 $GLOBALS['js_include'][] = 'highcharts/exporting.js';
-$GLOBALS['js_include'][] = 'canvg/flashcanvas.js';
+/* < IE 9 doesn't support canvas natively */
+if(PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
+    $GLOBALS['js_include'][] = 'canvg/flashcanvas.js';
+}
 $GLOBALS['js_include'][] = 'canvg/canvg.js';
 
 /**
