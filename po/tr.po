@@ -6987,7 +6987,6 @@ msgid "Execute every"
 msgstr "Çalıştır; her"
 
 #: libraries/rte/rte_events.lib.php:449
-#, fuzzy
 #| msgid "Start"
 msgctxt "Start of recurring event"
 msgid "Start"
