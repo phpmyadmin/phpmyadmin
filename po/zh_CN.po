@@ -6989,7 +6989,7 @@ msgstr "请输入程序定义。"
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] ""
+msgstr[0] "存储过程中最后一条语句影响了 %d 行"
 
 #: libraries/rte/rte_routines.lib.php:1214
 #, fuzzy, php-format
