@@ -8997,10 +8997,9 @@ msgid "Refresh rate: "
 msgstr "刷新频率: "
 
 #: server_status.php:705
-#, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "保持原密码"
+msgstr "包含文字:"
 
 #: server_status.php:710
 #, fuzzy
