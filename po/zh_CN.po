@@ -1139,10 +1139,9 @@ msgid "Cached memory"
 msgstr "已缓存的内存"
 
 #: js/messages.php:103
-#, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "缓冲池"
+msgstr "已缓冲的内存"
 
 #: js/messages.php:104
 msgid "Free memory"
