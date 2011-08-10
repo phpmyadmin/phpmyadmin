@@ -226,7 +226,6 @@ $js_messages['strImportCSV'] = __('Note: If the file contains multiple tables, t
 /* For sql.js */
 $js_messages['strHideQueryBox'] = __('Hide query box');
 $js_messages['strShowQueryBox'] = __('Show query box');
-$js_messages['strInlineEdit'] = __('Inline Edit');
 $js_messages['strEdit'] = __('Edit');
 $js_messages['strSave'] = __('Save');
 $js_messages['strHide'] = __('Hide');
@@ -254,6 +253,16 @@ $js_messages['strLeavingDesigner'] = __('You haven\'t saved the changes in the l
 /* Visual query builder (js/pmd/move.js) */
 $js_messages['strAddOption'] = __('Add an option for column ');
 
+/* For makegrid.js (column reordering, show/hide column, grid editing) */
+$js_messages['strCellEditHint'] = __('Press escape to cancel editing');
+$js_messages['strSaveCellWarning'] = __('You have edited some data and they have not been saved. Are you sure you want to leave this page before saving the data?');
+$js_messages['strColOrderHint'] = __('Drag to reorder');
+$js_messages['strSortHint'] = __('Click to sort');
+$js_messages['strColMarkHint'] = __('Click to mark/unmark');
+$js_messages['strColVisibHint'] = __('Click the drop-down arrow<br />to toggle column\'s visibility');
+$js_messages['strShowAllCol'] = __('Show all');
+$js_messages['strAlertNonUnique'] = __('This table contains no unique field. Features related to the grid edit, checkbox, Edit, Copy and Delete links may not work after saving.');
+
 /* password generation */
 $js_messages['strGeneratePassword'] = __('Generate password');
 $js_messages['strGenerate'] = __('Generate');
@@ -268,12 +277,6 @@ $js_messages['strNewerVersion'] = __('A newer version of phpMyAdmin is available
 $js_messages['strLatestAvailable'] = __(', latest stable version:');
 $js_messages['strUpToDate'] = __('up to date');
 
-/* Browsing grid */
-$js_messages['strColOrderHint'] = __('Drag to reorder');
-$js_messages['strSortHint'] = __('Click to sort');
-$js_messages['strMarkHint'] = __('Click to mark/unmark');
-$js_messages['strVisibHint'] = __('Click the drop-down arrow<br />to toggle column\'s visibility');
-$js_messages['strShowAll'] = __('Show all');
 
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {

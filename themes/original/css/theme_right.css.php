@@ -2456,7 +2456,7 @@ span.cm-number {
     font-weight: bold;
 }
 
-.navigation input[type=submit]:hover {
+.navigation input[type=submit]:hover, .navigation input.edit_mode_active {
     background: #333;
     color: white;
     cursor: pointer;
@@ -2465,3 +2465,56 @@ span.cm-number {
 .navigation select {
     margin: 0 0.8em;
 }
+
+.cEdit {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+}
+
+.cEdit input[type=text] {
+    background: #FFF;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.cEdit .edit_area {
+    background: #FFF;
+    border: 1px solid #999;
+    min-width: 10em;
+    padding: 0.3em 0.5em;
+}
+
+.cEdit .edit_area select, .cEdit .edit_area textarea {
+    width: 97%;
+}
+
+.cEdit .cell_edit_hint {
+    color: #555;
+    font-size: 0.8em;
+    margin: 0.3em 0.2em;
+}
+
+.cEdit .edit_area_loading {
+    background: #FFF url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>ajax_clock_small.gif) no-repeat center;
+    height: 10em;
+}
+
+
+.cEdit .edit_area_posting {
+    background: #FFF url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>ajax_clock_small.gif) no-repeat center top;
+    padding-top: 1.5em;
+}
+
+.cEdit .goto_link {
+    background: #EEE;
+    color: #555;
+    padding: 0.2em 0.3em;
+}
+
+.saving_edited_data {
+    background: url(./themes/pmahomme/img/ajax_clock_small.gif) no-repeat left;
+    padding-left: 20px;
+}
+

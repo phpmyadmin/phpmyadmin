@@ -1979,9 +1979,15 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
     $unique_key           = '';
     $nonprimary_condition = '';
     $preferred_condition = '';
+    $primary_key_array    = array();
+    $unique_key_array     = array();
+    $nonprimary_condition_array = array();
+    $condition_array = array();
 
     for ($i = 0; $i < $fields_cnt; ++$i) {
         $condition   = '';
+        $con_key     = '';
+        $con_val     = '';
         $field_flags = PMA_DBI_field_flags($handle, $i);
         $meta        = $fields_meta[$i];
 
@@ -2023,20 +2029,21 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
         // (also, the syntax "CONCAT(field) IS NULL"
         // that we need on the next "if" will work)
         if ($meta->type == 'real') {
-            $condition = ' CONCAT(' . PMA_backquote($meta->table) . '.'
-                . PMA_backquote($meta->orgname) . ') ';
+            $con_key = 'CONCAT(' . PMA_backquote($meta->table) . '.'
+                . PMA_backquote($meta->orgname) . ')';
         } else {
-            $condition = ' ' . PMA_backquote($meta->table) . '.'
-                . PMA_backquote($meta->orgname) . ' ';
+            $con_key = PMA_backquote($meta->table) . '.'
+                . PMA_backquote($meta->orgname);
         } // end if... else...
+        $condition = ' ' . $con_key . ' ';
 
         if (! isset($row[$i]) || is_null($row[$i])) {
-            $condition .= 'IS NULL AND';
+            $con_val = 'IS NULL';
         } else {
             // timestamp is numeric on some MySQL 4.1
             // for real we use CONCAT above and it should compare to string
             if ($meta->numeric && $meta->type != 'timestamp' && $meta->type != 'real') {
-                $condition .= '= ' . $row[$i] . ' AND';
+                $con_val = '= ' . $row[$i];
             } elseif (($meta->type == 'blob' || $meta->type == 'string')
                 // hexify only if this is a true not empty BLOB or a BINARY
                     && stristr($field_flags, 'BINARY')
@@ -2045,25 +2052,29 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
                 if (strlen($row[$i]) < 1000) {
                     // use a CAST if possible, to avoid problems
                     // if the field contains wildcard characters % or _
-                    $condition .= '= CAST(0x' . bin2hex($row[$i])
-                        . ' AS BINARY) AND';
+                    $con_val = '= CAST(0x' . bin2hex($row[$i]) . ' AS BINARY)';
                 } else {
                     // this blob won't be part of the final condition
-                    $condition = '';
+                    $con_val = null;
                 }
             } elseif ($meta->type == 'bit') {
-                $condition .= "= b'" . PMA_printable_bit_value($row[$i], $meta->length) . "' AND";
+                $con_val = "= b'" . PMA_printable_bit_value($row[$i], $meta->length) . "'";
             } else {
-                $condition .= '= \''
-                    . PMA_sqlAddSlashes($row[$i], false, true) . '\' AND';
+                $con_val = '= \'' . PMA_sqlAddSlashes($row[$i], false, true) . '\'';
             }
         }
-        if ($meta->primary_key > 0) {
-            $primary_key .= $condition;
-        } elseif ($meta->unique_key > 0) {
-            $unique_key  .= $condition;
+        if ($con_val != null) {
+            $condition .= $con_val . ' AND';
+            if ($meta->primary_key > 0) {
+                $primary_key .= $condition;
+                $primary_key_array[$con_key] = $con_val;
+            } elseif ($meta->unique_key > 0) {
+                $unique_key  .= $condition;
+                $unique_key_array[$con_key] = $con_val;
+            }
+            $nonprimary_condition .= $condition;
+            $nonprimary_condition_array[$con_key] = $con_val;
         }
-        $nonprimary_condition .= $condition;
     } // end for
 
     // Correction University of Virginia 19991216:
@@ -2072,15 +2083,18 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
     $clause_is_unique = true;
     if ($primary_key) {
         $preferred_condition = $primary_key;
+        $condition_array = $primary_key_array;
     } elseif ($unique_key) {
         $preferred_condition = $unique_key;
+        $condition_array = $unique_key_array;
     } elseif (! $force_unique) {
         $preferred_condition = $nonprimary_condition;
+        $condition_array = $nonprimary_condition_array;
         $clause_is_unique = false;
     }
 
     $where_clause = trim(preg_replace('|\s?AND$|', '', $preferred_condition));
-    return(array($where_clause, $clause_is_unique));
+    return(array($where_clause, $clause_is_unique, $condition_array));
 } // end function
 
 /**

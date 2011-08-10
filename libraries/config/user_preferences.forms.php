@@ -34,7 +34,8 @@ $forms['Features']['General'] = array(
     'SkipLockedTables',
     'DisableMultiTableMaintenance',
     'MaxDbList',
-    'MaxTableList');
+    'MaxTableList',
+    'ShowHint');
 $forms['Features']['Text_fields'] = array(
     'CharEditing',
     'CharTextareaCols',
@@ -108,6 +109,7 @@ $forms['Main_frame']['Browse'] = array(
     'DisplayBinaryAsHex',
     'BrowsePointerEnable',
     'BrowseMarkerEnable',
+    'SaveCellsAtOnce',
     'ShowDisplayDirection',
     'RepeatCells',
     'LimitChars',

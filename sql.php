@@ -58,7 +58,7 @@ if (isset($fields['dbase'])) {
 }
 
 /**
- * During inline edit, if we have a relational field, show the dropdown for it
+ * During grid edit, if we have a relational field, show the dropdown for it
  *
  * Logic taken from libraries/display_tbl_lib.php
  *
@@ -104,7 +104,7 @@ if (isset($_REQUEST['get_relational_values']) && $_REQUEST['get_relational_value
 }
 
 /**
- * Just like above, find possible values for enum fields during inline edit.
+ * Just like above, find possible values for enum fields during grid edit.
  *
  * Logic taken from libraries/display_tbl_lib.php
  */
@@ -133,7 +133,7 @@ if (isset($_REQUEST['get_enum_values']) && $_REQUEST['get_enum_values'] == true)
 }
 
 /**
- * Find possible values for set fields during inline edit.
+ * Find possible values for set fields during grid edit.
  */
 if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
     $field_info_query = 'SHOW FIELDS FROM `' . $db . '`.`' . $table . '` LIKE \'' . $_REQUEST['column'] . '\' ;';
@@ -696,7 +696,7 @@ if (0 == $num_rows || $is_affected) {
     if ($GLOBALS['is_ajax_request'] == true) {
 
         /**
-         * If we are in inline editing, we need to process the relational and
+         * If we are in grid editing, we need to process the relational and
          * transformed fields, if they were edited. After that, output the correct
          * link/transformed value and exit
          *
@@ -859,7 +859,7 @@ if (0 == $num_rows || $is_affected) {
 else {
     //If we are retrieving the full value of a truncated field or the original
     // value of a transformed field, show it here and exit
-    if ($GLOBALS['inline_edit'] == true && $GLOBALS['cfg']['AjaxEnable']) {
+    if ($GLOBALS['grid_edit'] == true && $GLOBALS['cfg']['AjaxEnable']) {
         $row = PMA_DBI_fetch_row($result);
         $extra_data = array();
         $extra_data['value'] = $row[0];

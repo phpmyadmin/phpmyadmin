@@ -3078,6 +3078,9 @@ $(document).ready(function() {
  */
 function PMA_createqTip($elements, content, options)
 {
+    if ($('#no_hint').length > 0) {
+        return;
+    }
     var o = {
         content: content,
         style: {
@@ -3110,6 +3113,21 @@ function PMA_createqTip($elements, content, options)
     }
 
     $elements.qtip($.extend(true, o, options));
+}
+
+/**
+ * Return value of a cell in a table.
+ */
+function PMA_getCellValue(td) {
+    if ($(td).is('.null')) {
+        return '';
+    } else if (! $(td).is('.to_be_saved') && $(td).data('original_data')) {
+        return $(td).data('original_data');
+    } else if ($(td).is(':not(.transformed, .relation, .enum, .set, .null)')) {
+        return unescape($(td).find('span').html()).replace(/<br>/g, "\n");
+    } else {
+        return $(td).text();
+    }
 }
 
 $(document).ready(function() {

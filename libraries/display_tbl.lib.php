@@ -397,29 +397,16 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
     }
     ?>
     <td>
+        <div class="save_edited hide">
+            <input type="submit" value="<?php echo __('Save edited data'); ?>" />
+            <div class="navigation_separator">|</div>
+        </div>
+    </td>
+    <td>
         <div class="restore_column hide">
             <input type="submit" value="<?php echo __('Restore column order'); ?>" />
             <div class="navigation_separator">|</div>
         </div>
-        <?php
-        if (PMA_isSelect()) {
-            // generate the column order, if it is set
-            $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
-            $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
-            if ($col_order) {
-                echo '<input id="col_order" type="hidden" value="' . implode(',', $col_order) . '" />';
-            }
-            $col_visib = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_VISIB);
-            if ($col_visib) {
-                echo '<input id="col_visib" type="hidden" value="' . implode(',', $col_visib) . '" />';
-            }
-            // generate table create time
-            if (! PMA_Table::isView($GLOBALS['table'], $GLOBALS['db'])) {
-                echo '<input id="table_create_time" type="hidden" value="' .
-                     PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], 'Create_time') . '" />';
-            }
-        }
-        ?>
     </td>
 
 <?php // if displaying a VIEW, $unlim_num_rows could be zero because
@@ -570,6 +557,29 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 echo '</form>' . "\n";
             }
         }
+    }
+
+
+    // Output data needed for grid editing
+    echo '<input id="save_cells_at_once" type="hidden" value="' . $GLOBALS['cfg']['SaveCellsAtOnce'] . '" />';
+    echo '<div class="common_hidden_inputs">';
+    echo PMA_generate_common_hidden_inputs($db, $table);
+    echo '</div>';
+    // Output data needed for column reordering and show/hide column
+    if (PMA_isSelect()) {
+        // generate the column order, if it is set
+        $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+        $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
+        if ($col_order) {
+            echo '<input id="col_order" type="hidden" value="' . implode(',', $col_order) . '" />';
+        }
+        $col_visib = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_VISIB);
+        if ($col_visib) {
+            echo '<input id="col_visib" type="hidden" value="' . implode(',', $col_visib) . '" />';
+        }
+        // generate table create time
+        echo '<input id="table_create_time" type="hidden" value="' .
+             PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], 'Create_time') . '" />';
     }
 
 
@@ -1092,7 +1102,7 @@ function PMA_buildValueDisplay($class, $condition_field, $value)
  */
 function PMA_buildNullDisplay($class, $condition_field)
 {
-    // the null class is needed for inline editing
+    // the null class is needed for grid editing
     return '<td align="right"' . ' class="' . $class . ($condition_field ? ' condition' : '') . ' null"><i>NULL</i></td>';
 }
 
@@ -1217,8 +1227,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
     $vertical_display['delete']     = array();
     $vertical_display['data']       = array();
     $vertical_display['row_delete'] = array();
-    // name of the class added to all inline editable elements
-    $inline_edit_class = 'inline_edit';
+    // name of the class added to all grid editable elements
+    $grid_edit_class = 'grid_edit';
 
     // prepare to get the column order, if available
     if (PMA_isSelect()) {
@@ -1286,7 +1296,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
          *       with only one field and it's a BLOB; in this case,
          *       avoid to display the delete and edit links
          */
-        list($where_clause, $clause_is_unique) = PMA_getUniqueCondition($dt_result, $fields_cnt, $fields_meta, $row);
+        list($where_clause, $clause_is_unique, $condition_array) = PMA_getUniqueCondition($dt_result, $fields_cnt, $fields_meta, $row);
         $where_clause_html = urlencode($where_clause);
 
         // 1.2 Defines the URLs for the modify/delete link(s)
@@ -1316,7 +1326,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 $edit_str = PMA_getIcon('b_edit.png', __('Edit'));
                 $copy_str = PMA_getIcon('b_insrow.png', __('Copy'));
 
-                // Class definitions required for inline editing jQuery scripts
+                // Class definitions required for grid editing jQuery scripts
                 $edit_anchor_class = "edit_row_anchor";
                 if ( $clause_is_unique == 0) {
                     $edit_anchor_class .= ' nonunique';
@@ -1378,14 +1388,14 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 if (! isset($js_conf)) {
                     $js_conf = '';
                 }
-                echo PMA_generateCheckboxAndLinks('left', $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $del_query, 'l', $edit_url, $copy_url, $edit_anchor_class, $edit_str, $copy_str, $del_str, $js_conf);
+                echo PMA_generateCheckboxAndLinks('left', $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $condition_array, $del_query, 'l', $edit_url, $copy_url, $edit_anchor_class, $edit_str, $copy_str, $del_str, $js_conf);
             } else if (($GLOBALS['cfg']['RowActionLinks'] == 'none')
                         && ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
                         || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped')) {
                 if (! isset($js_conf)) {
                     $js_conf = '';
                 }
-                echo PMA_generateCheckboxAndLinks('none', $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $del_query, 'l', $edit_url, $copy_url, $edit_anchor_class, $edit_str, $copy_str, $del_str, $js_conf);
+                echo PMA_generateCheckboxAndLinks('none', $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $condition_array, $del_query, 'l', $edit_url, $copy_url, $edit_anchor_class, $edit_str, $copy_str, $del_str, $js_conf);
             } // end if (1.3)
         } // end if (1)
 
@@ -1405,7 +1415,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             $is_field_truncated = false;
             //If the previous column had blob data, we need to reset the class
             // to $inline_edit_class
-            $class = 'data ' . $inline_edit_class . ' ' . $not_null_class . ' ' . $relation_class; //' ' . $alternating_color_class .
+            $class = 'data ' . $grid_edit_class . ' ' . $not_null_class . ' ' . $relation_class . ' ' . $hide_class; //' ' . $alternating_color_class .
 
             //  See if this column should get highlight because it's used in the
             //  where-query.
@@ -1490,10 +1500,10 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 // TEXT fields type so we have to ensure it's really a BLOB
                 $field_flags = PMA_DBI_field_flags($dt_result, $i);
 
-                // remove 'inline_edit' from $class as we can't edit binary data.
-                $class = str_replace('inline_edit', '', $class);
-
                 if (stristr($field_flags, 'BINARY')) {
+                    // remove 'grid_edit' from $class as we can't edit binary data.
+                    $class = str_replace('grid_edit', '', $class);
+
                     if (! isset($row[$i]) || is_null($row[$i])) {
                         $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($class, $condition_field);
                     } else {
@@ -1522,7 +1532,11 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                         // characters for tabulations and <cr>/<lf>
                         $row[$i]     = ($default_function != $transform_function ? $transform_function($row[$i], $transform_options, $meta) : $default_function($row[$i], array(), $meta));
 
-                        $vertical_display['data'][$row_no][$i]     =  PMA_buildValueDisplay($class, $condition_field, $row[$i]);
+                        if ($is_field_truncated) {
+                            $class .= ' truncated';
+                        }
+
+                        $vertical_display['data'][$row_no][$i]     = PMA_buildValueDisplay($class, $condition_field, $row[$i]);
                     } else {
                         $vertical_display['data'][$row_no][$i]     = PMA_buildEmptyDisplay($class, $condition_field, $meta);
                     }
@@ -1530,8 +1544,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             // g e o m e t r y
             } elseif ($meta->type == 'geometry') {
 
-                // Remove 'inline_edit' from $class as we do not allow to inline-edit geometry data.
-                $class = str_replace('inline_edit', '', $class);
+                // Remove 'grid_edit' from $class as we do not allow to inline-edit geometry data.
+                $class = str_replace('grid_edit', '', $class);
 
                 // Display as [GEOMETRY - (size)]
                 if ('GEOM' == $_SESSION['tmp_user_values']['geometry_display']) {
@@ -1666,7 +1680,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             if (! isset($js_conf)) {
                 $js_conf = '';
             }
-            echo PMA_generateCheckboxAndLinks('right', $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $del_query, 'r', $edit_url, $copy_url, $edit_anchor_class, $edit_str, $copy_str, $del_str, $js_conf);
+            echo PMA_generateCheckboxAndLinks('right', $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $condition_array, $del_query, 'r', $edit_url, $copy_url, $edit_anchor_class, $edit_str, $copy_str, $del_str, $js_conf);
         } // end if (3)
 
         if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
@@ -1693,7 +1707,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
         }
 
         if (!empty($del_url) && $is_display['del_lnk'] != 'kp') {
-            $vertical_display['row_delete'][$row_no] .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $del_query, '[%_PMA_CHECKBOX_DIR_%]', $alternating_color_class . $vertical_class);
+            $vertical_display['row_delete'][$row_no] .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $condition_array, $del_query, '[%_PMA_CHECKBOX_DIR_%]', $alternating_color_class . $vertical_class);
         } else {
             unset($vertical_display['row_delete'][$row_no]);
         }
@@ -2712,7 +2726,7 @@ function PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $m
  * @return  string  the generated HTML
  */
 
-function PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $del_query, $id_suffix, $class)
+function PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $condition_array, $del_query, $id_suffix, $class)
 {
     $ret = '';
     if (! empty($del_url) && $is_display['del_lnk'] != 'kp') {
@@ -2724,6 +2738,7 @@ function PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_cla
            . '<input type="checkbox" id="id_rows_to_delete' . $row_no . $id_suffix . '" name="rows_to_delete[' . $where_clause_html . ']"'
            . ' class="multi_checkbox"'
            . ' value="' . htmlspecialchars($del_query) . '" ' . (isset($GLOBALS['checkall']) ? 'checked="checked"' : '') . ' />'
+           . '<input type="hidden" class="condition_array" value="' . htmlspecialchars(json_encode($condition_array)) . '" />'
            . '    </td>';
     }
     return $ret;
@@ -2747,7 +2762,7 @@ function PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $wher
            . PMA_linkOrButton($edit_url, $edit_str, array(), false);
         /*
          * Where clause for selecting this row uniquely is provided as
-         * a hidden input. Used by jQuery scripts for handling inline editing
+         * a hidden input. Used by jQuery scripts for handling grid editing
          */
         if (! empty($where_clause)) {
             $ret .= '<input type="hidden" class="where_clause" value ="' . $where_clause_html . '" />';
@@ -2778,7 +2793,7 @@ function PMA_generateCopyLink($copy_url, $copy_str, $where_clause, $where_clause
            . PMA_linkOrButton($copy_url, $copy_str, array(), false);
         /*
          * Where clause for selecting this row uniquely is provided as
-         * a hidden input. Used by jQuery scripts for handling inline editing
+         * a hidden input. Used by jQuery scripts for handling grid editing
          */
         if (! empty($where_clause)) {
             $ret .= '<input type="hidden" class="where_clause" value ="' . $where_clause_html . '" />';
@@ -2832,12 +2847,12 @@ function PMA_generateDeleteLink($del_url, $del_str, $js_conf, $class)
  * @param string $js_conf
  * @return  string  the generated HTML
  */
-function PMA_generateCheckboxAndLinks($position, $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $del_query, $id_suffix, $edit_url, $copy_url, $class, $edit_str, $copy_str, $del_str, $js_conf)
+function PMA_generateCheckboxAndLinks($position, $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $condition_array, $del_query, $id_suffix, $edit_url, $copy_url, $class, $edit_str, $copy_str, $del_str, $js_conf)
 {
     $ret = '';
 
     if ($position == 'left') {
-        $ret .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $del_query, $id_suffix='_left', '', '', '');
+        $ret .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $condition_array, $del_query, $id_suffix='_left', '', '', '');
 
         $ret .= PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $where_clause_html, '');
 
@@ -2852,9 +2867,9 @@ function PMA_generateCheckboxAndLinks($position, $del_url, $is_display, $row_no,
 
         $ret .= PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $where_clause_html, '');
 
-        $ret .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $del_query, $id_suffix='_right', '', '', '');
+        $ret .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $condition_array, $del_query, $id_suffix='_right', '', '', '');
     } else { // $position == 'none'
-        $ret .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $del_query, $id_suffix='_left', '', '', '');
+        $ret .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $condition_array, $del_query, $id_suffix='_left', '', '', '');
     }
     return $ret;
 }
