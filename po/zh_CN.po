@@ -9752,10 +9752,9 @@ msgid "The number of threads that are not sleeping."
 msgstr "非睡眠状态的线程数量。"
 
 #: server_status.php:1392
-#, fuzzy
 #| msgid "Textarea rows"
 msgid "Start Monitor"
-msgstr "文本框行"
+msgstr "启动监控"
 
 #: server_status.php:1400
 #, fuzzy
