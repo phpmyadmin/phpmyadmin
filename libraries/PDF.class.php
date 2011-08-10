@@ -71,4 +71,16 @@ class PMA_PDF extends TCPDF
         }
         parent::_putpages();
     }
+
+    /**
+     * Displays an error message
+     *
+     * @param string $error_message the error mesage
+     */
+    function Error($error_message = '')
+    {
+        include('./libraries/header.inc.php');
+        PMA_Message::error(__('Error while creating PDF:') . ' ' . $error_message)->display();
+        include('./libraries/footer.inc.php');
+    }
 }

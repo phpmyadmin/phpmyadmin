@@ -154,18 +154,6 @@ class PMA_Schema_PDF extends PMA_PDF
         $this->SetLineWidth($width);
     }
 
-    /**
-     * Displays an error message
-     *
-     * @param string error_message the error mesage
-     * @access public
-     * @see PMA_Export_Relation_Schema::dieSchema
-     */
-    function Error($error_message = '')
-    {
-       PMA_Export_Relation_Schema::dieSchema($error_message);
-    }
-
     function Header()
     {
         // We only show this if we find something in the new pdf_pages table
