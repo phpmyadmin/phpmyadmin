@@ -6886,10 +6886,10 @@ msgid "Sorry, we failed to restore the dropped routine."
 msgstr "抱歉，恢复已删除的程序失败。"
 
 #: libraries/rte/rte_routines.lib.php:273
-#, fuzzy, php-format
+#, php-format
 #| msgid "Column %s has been dropped"
 msgid "Routine %1$s has been modified."
-msgstr "已删除字段 %s "
+msgstr "已修改程序 %1$s 。"
 
 #: libraries/rte/rte_routines.lib.php:286
 #, fuzzy, php-format
