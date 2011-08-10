@@ -1217,7 +1217,7 @@ msgstr "添加图表"
 
 #: js/messages.php:125
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "请至少添加一个数据"
 
 #: js/messages.php:126 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:567 libraries/export/sql.php:1052
