@@ -9071,7 +9071,7 @@ msgstr "查询数量"
 #: server_status.php:898
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr ""
+msgstr "自启动以来的网络流量: %s"
 
 #: server_status.php:906
 #, fuzzy, php-format
