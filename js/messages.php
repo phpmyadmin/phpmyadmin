@@ -227,11 +227,12 @@ $js_messages['strImportCSV'] = __('Note: If the file contains multiple tables, t
 $js_messages['strHideQueryBox'] = __('Hide query box');
 $js_messages['strShowQueryBox'] = __('Show query box');
 $js_messages['strEdit'] = __('Edit');
-$js_messages['strSave'] = __('Save');
-$js_messages['strHide'] = __('Hide');
 $js_messages['strNoRowSelected'] = __('No rows selected');
 $js_messages['strChangeTbl'] = __('Change');
 $js_messages['strQueryExecutionTime'] = __('Query execution time');
+
+/* For server_variables.js */
+$js_messages['strSave'] = __('Save');
 
 /* For tbl_select.js */
 $js_messages['strHideSearchCriteria'] = __('Hide search criteria');
