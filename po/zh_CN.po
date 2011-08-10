@@ -6113,10 +6113,9 @@ msgid "Stand-in structure for view"
 msgstr "替换视图以便查看"
 
 #: libraries/export/sql.php:1071
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error reading data:"
-msgstr "允许读取数据。"
+msgstr "读取数据时发生错误:"
 
 #: libraries/export/xml.php:19 libraries/import/xml.php:21
 msgid "XML"
