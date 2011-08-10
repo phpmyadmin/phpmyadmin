@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-09 16:45+0100\n"
-"PO-Revision-Date: 2011-08-10 10:38+0200\n"
+"PO-Revision-Date: 2011-08-10 12:19+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -1136,51 +1136,47 @@ msgstr "内存总数"
 
 #: js/messages.php:102
 msgid "Cached memory"
-msgstr ""
+msgstr "已缓存的内存"
 
 #: js/messages.php:103
-#, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "缓冲池"
+msgstr "已缓冲的内存"
 
 #: js/messages.php:104
 msgid "Free memory"
-msgstr ""
+msgstr "空闲内存"
 
 #: js/messages.php:105
 msgid "Used memory"
-msgstr ""
+msgstr "已用内存"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "总计"
+msgstr "交换空间总数"
 
 #: js/messages.php:108
 msgid "Cached Swap"
-msgstr ""
+msgstr "已缓存的交换空间"
 
 #: js/messages.php:109
 msgid "Used Swap"
-msgstr ""
+msgstr "已用交换空间"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "空闲页"
+msgstr "空闲交换空间"
 
 #: js/messages.php:112
 msgid "Bytes sent"
-msgstr ""
+msgstr "已发送字节数"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "已接收"
+msgstr "已接收字节数"
 
 #: js/messages.php:114 server_status.php:994
 msgid "Connections"
@@ -1844,7 +1840,6 @@ msgstr "星期六"
 
 #. l10n: Short week day name
 #: js/messages.php:353
-#, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
 msgid "Sun"
@@ -1941,10 +1936,9 @@ msgid "File was not an uploaded file."
 msgstr "文件不是上传的文件。"
 
 #: libraries/File.class.php:259 libraries/File.class.php:388
-#, fuzzy
 #| msgid "Unknown error in file upload."
 msgid "Unknown error while uploading."
-msgstr "上传文件时发生未知错误。"
+msgstr "上传时发生未知错误。"
 
 #: libraries/File.class.php:277
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
@@ -2071,17 +2065,17 @@ msgstr[0] "插入了 %1$d 行。"
 #: libraries/RecentTable.class.php:107
 #| msgid "Could not save configuration"
 msgid "Could not save recent table"
-msgstr "无法保存最近访问的表"
+msgstr "无法保存最近使用的表"
 
 #: libraries/RecentTable.class.php:142
 #| msgid "Count tables"
 msgid "Recent tables"
-msgstr "最近访问的表"
+msgstr "最近使用的表"
 
 #: libraries/RecentTable.class.php:148
 #| msgid "There are no configured servers"
 msgid "There are no recent tables"
-msgstr "没有最近访问的表"
+msgstr "没有最近使用的表"
 
 #: libraries/StorageEngine.class.php:180
 msgid ""
@@ -2249,10 +2243,9 @@ msgid "Wrong username/password. Access denied."
 msgstr "用户名/密码错误。拒绝访问。"
 
 #: libraries/auth/signon.auth.lib.php:88
-#, fuzzy
 #| msgid "Config authentication"
 msgid "Can not find signon authentication script:"
-msgstr "Config 认证"
+msgstr "找不到 signon 认证脚本:"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
@@ -2285,10 +2278,9 @@ msgid "PBMS get BLOB info failed:"
 msgstr "PBMS 获取 BLOB 信息失败："
 
 #: libraries/blobstreaming.lib.php:332
-#, fuzzy
 #| msgid "get BLOB Content-Type failed"
 msgid "PBMS get BLOB Content-Type failed"
-msgstr "获取 BLOB 内容类型失败"
+msgstr "PBMS 获取 BLOB 内容类型失败"
 
 #: libraries/blobstreaming.lib.php:358
 msgid "View image"
@@ -3758,10 +3750,9 @@ msgid "Maximum number of recently used tables; set 0 to disable"
 msgstr "在数据表列表中最多显示的数据表个数"
 
 #: libraries/config/messages.inc.php:289
-#, fuzzy
 #| msgid "Currently opened table"
 msgid "Recently used tables"
-msgstr "当前打开的数据表"
+msgstr "最近使用的表"
 
 #: libraries/config/messages.inc.php:290
 msgid "Use less graphically intense tabs"
@@ -4030,13 +4021,12 @@ msgstr "记录引擎"
 
 #: libraries/config/messages.inc.php:350
 msgid "When browsing tables, the sorting of each table is remembered"
-msgstr ""
+msgstr "当浏览表时，会记住每个表的排序方式"
 
 #: libraries/config/messages.inc.php:351
-#, fuzzy
 #| msgid "Rename table to"
 msgid "Remember table's sorting"
-msgstr "将表改名为"
+msgstr "记录表排序"
 
 #: libraries/config/messages.inc.php:352
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
@@ -4311,10 +4301,9 @@ msgid ""
 msgstr "不在数据库中保存用户偏好请留空，默认：[kbd]pma_config[/kbd]"
 
 #: libraries/config/messages.inc.php:410
-#, fuzzy
 #| msgid "Currently opened table"
 msgid "Recently used table"
-msgstr "当前打开的数据表"
+msgstr "最近使用的表"
 
 #: libraries/config/messages.inc.php:411
 msgid ""
@@ -4940,7 +4929,7 @@ msgstr "权限"
 
 #: libraries/db_links.inc.php:97 libraries/rte/rte_words.lib.php:25
 msgid "Routines"
-msgstr "常规"
+msgstr "程序"
 
 #: libraries/db_links.inc.php:101 libraries/export/sql.php:622
 #: libraries/rte/rte_words.lib.php:49
@@ -5263,10 +5252,9 @@ msgid "Language"
 msgstr "Language"
 
 #: libraries/display_tbl.lib.php:401
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Restore column order"
-msgstr "文本框列"
+msgstr "恢复字段顺序"
 
 #: libraries/display_tbl.lib.php:431
 #, php-format
@@ -5416,7 +5404,7 @@ msgstr "显示图表"
 
 #: libraries/display_tbl.lib.php:2525
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "可视化 GIS 数据"
 
 #: libraries/display_tbl.lib.php:2545
 msgid "Create view"
@@ -6114,10 +6102,9 @@ msgid "Stand-in structure for view"
 msgstr "替换视图以便查看"
 
 #: libraries/export/sql.php:1071
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error reading data:"
-msgstr "允许读取数据。"
+msgstr "读取数据时发生错误:"
 
 #: libraries/export/xml.php:19 libraries/import/xml.php:21
 msgid "XML"
@@ -6141,10 +6128,9 @@ msgid "Open new phpMyAdmin window"
 msgstr "打开新 phpMyAdmin 窗口"
 
 #: libraries/gis_visualization.lib.php:129
-#, fuzzy
 #| msgid "No data found for the chart."
 msgid "No data found for GIS visualization."
-msgstr "未找到图表所需数据。"
+msgstr "未找到用于 GIS 可视化的数据。"
 
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:54
 msgid "SQL result"
@@ -6165,10 +6151,9 @@ msgid ""
 msgstr "下列结构被创建或修改。你可以:"
 
 #: libraries/import.lib.php:1077
-#, fuzzy
 #| msgid "View a structure`s contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name"
-msgstr "点击它的名字查看内容"
+msgstr "请通过点击结构的名称来查看它的内容"
 
 #: libraries/import.lib.php:1078
 msgid ""
@@ -6176,30 +6161,29 @@ msgid ""
 msgstr "点击相应的“选项”链接修改它的设置"
 
 #: libraries/import.lib.php:1079
-#, fuzzy
 #| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link"
-msgstr "点击“结构”链接编辑它的结构"
+msgstr "请通过点击 \"结构\" 链接来编辑结构"
 
 #: libraries/import.lib.php:1082
 msgid "Go to database"
 msgstr "转到数据库"
 
 #: libraries/import.lib.php:1085 libraries/import.lib.php:1109
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
-msgstr "在 %s 中丢失数据"
+msgstr "编辑 %s 的设置"
 
 #: libraries/import.lib.php:1104
 msgid "Go to table"
 msgstr "转到数据表"
 
 #: libraries/import.lib.php:1107
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
-msgstr "仅结构"
+msgstr "%s 的结构"
 
 #: libraries/import.lib.php:1113
 msgid "Go to view"
@@ -6577,14 +6561,13 @@ msgid "SQL history"
 msgstr "SQL 历史"
 
 #: libraries/relation.lib.php:132
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Persistent recently used tables"
-msgstr "持久连接"
+msgstr "持久最近使用的表"
 
 #: libraries/relation.lib.php:136
 msgid "Persistent tables' UI preferences"
-msgstr ""
+msgstr "持久表界面设置"
 
 #: libraries/relation.lib.php:144
 msgid "User preferences"
@@ -6729,7 +6712,7 @@ msgstr "下列查询失败了: \"%s\""
 
 #: libraries/rte/rte_events.lib.php:116
 msgid "Sorry, we failed to restore the dropped event."
-msgstr "抱歉，恢复删除的事件失败。"
+msgstr "抱歉，恢复已删除的事件失败。"
 
 #: libraries/rte/rte_events.lib.php:117 libraries/rte/rte_routines.lib.php:269
 #: libraries/rte/rte_triggers.lib.php:90
@@ -6828,11 +6811,11 @@ msgstr "请输入事件名称"
 
 #: libraries/rte/rte_events.lib.php:537
 msgid "You must provide a valid interval value for the event."
-msgstr "请设置有效的运行周期。"
+msgstr "请设置一个有效的运行周期。"
 
 #: libraries/rte/rte_events.lib.php:549
 msgid "You must provide a valid execution time for the event."
-msgstr "请设置有效的运行时间。"
+msgstr "请设置一个有效的运行时间。"
 
 #: libraries/rte/rte_events.lib.php:553
 msgid "You must provide a valid type for the event."
@@ -6879,149 +6862,142 @@ msgid ""
 "handling multi queries. <b>The execution of some stored routines may fail!</"
 "b> Please use the improved 'mysqli' extension to avoid any problems."
 msgstr ""
+"你正在使用 PHP 所不推荐的 'mysql' 扩展，不支持多语句查询。<b>运行部分存储程序时可能会失败！</b>请使用改进的 'mysqli' "
+"扩展避免此类问题发生。"
 
 #: libraries/rte/rte_routines.lib.php:247
 #: libraries/rte/rte_routines.lib.php:994
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: %s"
 msgid "Invalid routine type: \"%s\""
-msgstr "无效的服务器索引: %s"
+msgstr "无效的程序类型: \"%s\""
 
 #: libraries/rte/rte_routines.lib.php:268
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr ""
+msgstr "抱歉，恢复已删除的程序失败。"
 
 #: libraries/rte/rte_routines.lib.php:273
-#, fuzzy, php-format
+#, php-format
 #| msgid "Column %s has been dropped"
 msgid "Routine %1$s has been modified."
-msgstr "已删除字段 %s "
+msgstr "已修改程序 %1$s 。"
 
 #: libraries/rte/rte_routines.lib.php:286
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Routine %1$s has been created."
-msgstr "创建数据表 %1$s 成功。"
+msgstr "已创建程序 %1$s 。"
 
 #: libraries/rte/rte_routines.lib.php:344
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit routine"
-msgstr "编辑模式"
+msgstr "编辑程序"
 
 #: libraries/rte/rte_routines.lib.php:820
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine name"
-msgstr "常规"
+msgstr "程序名称"
 
 #: libraries/rte/rte_routines.lib.php:843
 msgid "Parameters"
-msgstr ""
+msgstr "参数"
 
 #: libraries/rte/rte_routines.lib.php:848
-#, fuzzy
 #| msgid "Direct links"
 msgid "Direction"
-msgstr "直接连接"
+msgstr "方向"
 
 #: libraries/rte/rte_routines.lib.php:851 libraries/tbl_properties.inc.php:108
 msgid "Length/Values"
 msgstr "长度/值"
 
 #: libraries/rte/rte_routines.lib.php:866
-#, fuzzy
 #| msgid "Add prefix"
 msgid "Add parameter"
-msgstr "添加前缀"
+msgstr "添加参数"
 
 #: libraries/rte/rte_routines.lib.php:870
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove last parameter"
-msgstr "删除数据库"
+msgstr "删除最后一个参数"
 
 #: libraries/rte/rte_routines.lib.php:875
 msgid "Return type"
 msgstr "返回类型"
 
 #: libraries/rte/rte_routines.lib.php:881
-#, fuzzy
 #| msgid "Length/Values"
 msgid "Return length/values"
-msgstr "长度/值"
+msgstr "返回长度/值"
 
 #: libraries/rte/rte_routines.lib.php:887
-#, fuzzy
 #| msgid "Table options"
 msgid "Return options"
-msgstr "表选项"
+msgstr "返回选项"
 
 #: libraries/rte/rte_routines.lib.php:918
 msgid "Is deterministic"
-msgstr ""
+msgstr "是否固定"
 
 #: libraries/rte/rte_routines.lib.php:927
-#, fuzzy
 #| msgid "Security"
 msgid "Security type"
-msgstr "安全"
+msgstr "安全类型"
 
 #: libraries/rte/rte_routines.lib.php:934
 msgid "SQL data access"
-msgstr ""
+msgstr "SQL 数据访问"
 
 #: libraries/rte/rte_routines.lib.php:999
 msgid "You must provide a routine name"
-msgstr ""
+msgstr "请输入程序名称"
 
 #: libraries/rte/rte_routines.lib.php:1025
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
-msgstr ""
+msgstr "参数方向 \"%s\" 无效。"
 
 #: libraries/rte/rte_routines.lib.php:1037
 #: libraries/rte/rte_routines.lib.php:1075
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
-msgstr ""
+msgstr "请设置 ENUM、SET、VARCHAR 和 VARBINARY 类型参数的长度/值。"
 
 #: libraries/rte/rte_routines.lib.php:1055
 msgid "You must provide a name and a type for each routine parameter."
-msgstr ""
+msgstr "请输入每一个参数的名称并设置其类型。"
 
 #: libraries/rte/rte_routines.lib.php:1065
 msgid "You must provide a valid return type for the routine."
-msgstr ""
+msgstr "请设置一个有效的返回类型。"
 
 #: libraries/rte/rte_routines.lib.php:1109
 msgid "You must provide a routine definition."
-msgstr ""
+msgstr "请输入程序定义。"
 
 #: libraries/rte/rte_routines.lib.php:1198
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] ""
+msgstr[0] "存储过程中最后一条语句影响了 %d 行"
 
 #: libraries/rte/rte_routines.lib.php:1214
-#, fuzzy, php-format
+#, php-format
 #| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
-msgstr "允许运行存储过程。"
+msgstr "程序 %s 的运行结果"
 
 #: libraries/rte/rte_routines.lib.php:1288
 #: libraries/rte/rte_routines.lib.php:1294
 msgid "Execute routine"
-msgstr ""
+msgstr "运行程序"
 
 #: libraries/rte/rte_routines.lib.php:1345
 #: libraries/rte/rte_routines.lib.php:1348
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine parameters"
-msgstr "常规"
+msgstr "程序参数"
 
 #: libraries/rte/rte_routines.lib.php:1355 tbl_change.php:287
 #: tbl_change.php:325
@@ -7030,161 +7006,146 @@ msgstr "函数"
 
 #: libraries/rte/rte_triggers.lib.php:89
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr ""
+msgstr "抱歉，恢复已删除的触发器失败。"
 
 #: libraries/rte/rte_triggers.lib.php:94
-#, fuzzy, php-format
+#, php-format
 #| msgid "Column %s has been dropped"
 msgid "Trigger %1$s has been modified."
-msgstr "已删除字段 %s "
+msgstr "已修改触发器 %1$s 。"
 
 #: libraries/rte/rte_triggers.lib.php:106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Trigger %1$s has been created."
-msgstr "创建数据表 %1$s 成功。"
+msgstr "已创建触发器 %1$s 。"
 
 #: libraries/rte/rte_triggers.lib.php:161
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Edit trigger"
-msgstr "添加服务器"
+msgstr "编辑触发器"
 
 #: libraries/rte/rte_triggers.lib.php:301
-#, fuzzy
 #| msgid "Triggers"
 msgid "Trigger name"
-msgstr "触发器"
+msgstr "触发器名称"
 
 #: libraries/rte/rte_triggers.lib.php:403
 msgid "You must provide a trigger name"
-msgstr ""
+msgstr "请输入触发器名称"
 
 #: libraries/rte/rte_triggers.lib.php:408
 msgid "You must provide a valid timing for the trigger"
-msgstr ""
+msgstr "请选择一个有效的触发时机"
 
 #: libraries/rte/rte_triggers.lib.php:413
 msgid "You must provide a valid event for the trigger"
-msgstr ""
+msgstr "请选择一个有效的触发事件"
 
 #: libraries/rte/rte_triggers.lib.php:419
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "You must provide a valid table name"
-msgstr "无效的数据表名"
+msgstr "请选择一个有效的表"
 
 #: libraries/rte/rte_triggers.lib.php:425
 msgid "You must provide a trigger definition."
-msgstr ""
+msgstr "请输入触发器定义。"
 
 #: libraries/rte/rte_words.lib.php:18
-#, fuzzy
 #| msgid "Add index"
 msgid "Add routine"
-msgstr "添加索引"
+msgstr "添加程序"
 
 #: libraries/rte/rte_words.lib.php:20
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export defaults"
 msgid "Export of routine %s"
-msgstr "导出选项"
+msgstr "导出程序 %s"
 
 #: libraries/rte/rte_words.lib.php:21
-#, fuzzy
 #| msgid "Routines"
 msgid "routine"
-msgstr "常规"
+msgstr "程序"
 
 #: libraries/rte/rte_words.lib.php:22
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a routine"
-msgstr "权限不足！"
+msgstr "你不具有创建程序的必要权限"
 
 #: libraries/rte/rte_words.lib.php:23
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "没有在数据库中找到表"
+msgstr "在数据库 %2$s 中找不到名为 %1$s 的程序"
 
 #: libraries/rte/rte_words.lib.php:24
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no routines to display."
-msgstr "没有可上传的文件"
+msgstr "没有程序。"
 
 #: libraries/rte/rte_words.lib.php:30
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add trigger"
-msgstr "添加服务器"
+msgstr "添加触发器"
 
 #: libraries/rte/rte_words.lib.php:32
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of trigger %s"
-msgstr "导出内容"
+msgstr "导出触发器 %s"
 
 #: libraries/rte/rte_words.lib.php:33
-#, fuzzy
 #| msgid "Triggers"
 msgid "trigger"
 msgstr "触发器"
 
 #: libraries/rte/rte_words.lib.php:34
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a trigger"
-msgstr "权限不足！"
+msgstr "你不具有创建触发器的必要权限"
 
 #: libraries/rte/rte_words.lib.php:35
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No trigger with name %1$s found in database %2$s"
-msgstr "没有在数据库中找到表"
+msgstr "在数据库 %2$s 中找不到名为 %1$s 的触发器 "
 
 #: libraries/rte/rte_words.lib.php:36
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no triggers to display."
-msgstr "没有可上传的文件"
+msgstr "没有触发器。"
 
 #: libraries/rte/rte_words.lib.php:42
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add event"
-msgstr "添加服务器"
+msgstr "添加事件"
 
 #: libraries/rte/rte_words.lib.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of event %s"
-msgstr "导出内容"
+msgstr "导出事件 %s"
 
 #: libraries/rte/rte_words.lib.php:45
-#, fuzzy
 #| msgid "Event"
 msgid "event"
 msgstr "事件"
 
 #: libraries/rte/rte_words.lib.php:46
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create an event"
-msgstr "权限不足！"
+msgstr "你不具有创建事件的必要权限"
 
 #: libraries/rte/rte_words.lib.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No event with name %1$s found in database %2$s"
-msgstr "没有在数据库中找到表"
+msgstr "在数据库 %2$s 中找不到名为 %1$s 的事件"
 
 #: libraries/rte/rte_words.lib.php:48
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no events to display."
-msgstr "没有可上传的文件"
+msgstr "没有事件。"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:221
 #: libraries/schema/Eps_Relation_Schema.class.php:394
