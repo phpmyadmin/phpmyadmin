@@ -7122,7 +7122,7 @@ msgstr "在数据库 %2$s 中找不到名为 %1$s 的触发器 "
 #: libraries/rte/rte_words.lib.php:36
 #| msgid "There are no files to upload"
 msgid "There are no triggers to display."
-msgstr "没有触发器"
+msgstr "没有触发器。"
 
 #: libraries/rte/rte_words.lib.php:42
 #, fuzzy
