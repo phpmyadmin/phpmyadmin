@@ -9905,10 +9905,9 @@ msgid "Series in Chart:"
 msgstr "图表中的数据:"
 
 #: server_status.php:1539
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Log statistics"
-msgstr "显示统计"
+msgstr "日志统计"
 
 #: server_status.php:1540
 #, fuzzy
