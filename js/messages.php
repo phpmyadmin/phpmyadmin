@@ -293,9 +293,15 @@ echo "if ($.datepicker) {\n";
 /* l10n: Display text for calendar close link */
 PMA_printJsValue("$.datepicker.regional['']['closeText']", __('Done'));
 /* l10n: Display text for previous month link in calendar */
-PMA_printJsValue("$.datepicker.regional['']['prevText']", _pgettext('Previous month', 'Prev'));
+PMA_printJsValue(
+    "$.datepicker.regional['']['prevText']",
+    _pgettext('Previous month', 'Prev')
+);
 /* l10n: Display text for next month link in calendar */
-PMA_printJsValue("$.datepicker.regional['']['nextText']", _pgettext('Next month', 'Next'));
+PMA_printJsValue(
+    "$.datepicker.regional['']['nextText']",
+    _pgettext('Next month', 'Next')
+);
 /* l10n: Display text for current month link in calendar */
 PMA_printJsValue("$.datepicker.regional['']['currentText']", __('Today'));
 PMA_printJsValue("$.datepicker.regional['']['monthNames']",
