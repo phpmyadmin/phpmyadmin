@@ -2250,11 +2250,11 @@ function PMA_listNavigator($count, $pos, $_url_params, $script, $frame, $max_cou
             if ($GLOBALS['cfg']['NavigationBarIconic']) {
                 $caption1 = '&lt;&lt;';
                 $caption2 = ' &lt; ';
-                $title1   = ' title="' . __('Begin') . '"';
-                $title2   = ' title="' . __('Previous') . '"';
+                $title1   = ' title="' . _pgettext('First page', 'Begin') . '"';
+                $title2   = ' title="' . _pgettext('Previous page', 'Previous') . '"';
             } else {
-                $caption1 = __('Begin') . ' &lt;&lt;';
-                $caption2 = __('Previous') . ' &lt;';
+                $caption1 = _pgettext('First page', 'Begin') . ' &lt;&lt;';
+                $caption2 = _pgettext('Previous page', 'Previous') . ' &lt;';
                 $title1   = '';
                 $title2   = '';
             } // end if... else...
@@ -2280,11 +2280,11 @@ function PMA_listNavigator($count, $pos, $_url_params, $script, $frame, $max_cou
             if ($GLOBALS['cfg']['NavigationBarIconic']) {
                 $caption3 = ' &gt; ';
                 $caption4 = '&gt;&gt;';
-                $title3   = ' title="' . __('Next') . '"';
-                $title4   = ' title="' . __('End') . '"';
+                $title3   = ' title="' . _pgettext('Next page', 'Next') . '"';
+                $title4   = ' title="' . _pgettext('Last page', 'End') . '"';
             } else {
-                $caption3 = '&gt; ' . __('Next');
-                $caption4 = '&gt;&gt; ' . __('End');
+                $caption3 = '&gt; ' . _pgettext('Next page', 'Next');
+                $caption4 = '&gt;&gt; ' . _pgettext('Last page', 'End');
                 $title3   = '';
                 $title4   = '';
             } // end if... else...
