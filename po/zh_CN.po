@@ -2065,7 +2065,7 @@ msgstr[0] "插入了 %1$d 行。"
 #: libraries/RecentTable.class.php:107
 #| msgid "Could not save configuration"
 msgid "Could not save recent table"
-msgstr "无法保存最近访问的表"
+msgstr "无法保存最近使用的表"
 
 #: libraries/RecentTable.class.php:142
 #| msgid "Count tables"
