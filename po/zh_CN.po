@@ -1370,7 +1370,7 @@ msgstr "转到日志表"
 
 #: js/messages.php:164
 msgid "Log analysed, but no data found in this time span."
-msgstr ""
+msgstr "日志已分析，时间段内没有数据。"
 
 #. l10n: A collection of available filters
 #: js/messages.php:167
