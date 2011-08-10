@@ -643,7 +643,7 @@ class PMA_File
                 break;
         }
 
-
+        return true;
     }
 
     function getCharset()

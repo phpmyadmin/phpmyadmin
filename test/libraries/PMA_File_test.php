@@ -17,25 +17,43 @@ class PMA_File_test extends PHPUnit_Framework_TestCase
 {
     public function setup()
     {
-        $GLOBALS['cfg']['Server']['only_db'] = array('single\\_db');
+        $GLOBALS['cfg']['BZipDump'] = true;
+        $GLOBALS['cfg']['GZipDump'] = true;
+        $GLOBALS['cfg']['ZipDump'] = true;
+        $GLOBALS['charset_conversion'] = false;
     }
 
-    public function testGzip()
+    /**
+     * @dataProvider compressedFiles
+     */
+    public function testMIME($file, $mime)
     {
-        $arr = new PMA_File('./test/test_data/test.gz');
-        $this->assertEquals('application/gzip', $arr->getCompression());
+        $arr = new PMA_File($file);
+        $this->assertEquals($mime, $arr->getCompression());
     }
 
-    public function testZip()
+    /**
+     * @dataProvider compressedFiles
+     */
+    public function testContent($file, $mime)
     {
-        $arr = new PMA_File('./test/test_data/test.zip');
-        $this->assertEquals('application/zip', $arr->getCompression());
+        $orig = file_get_contents('./test/test_data/test.file');
+        $file = new PMA_File($file);
+        $file->setDecompressContent(true);
+        $this->assertTrue($file->open());
+        if ($mime == 'application/zip') {
+            $this->assertEquals($orig, $file->content_uncompressed);
+        } else {
+            $this->assertEquals($orig, $file->getNextChunk());
+        }
     }
 
-    public function testBzip()
-    {
-        $arr = new PMA_File('./test/test_data/test.bz2');
-        $this->assertEquals('application/bzip2', $arr->getCompression());
+    public function compressedFiles() {
+        return array(
+            array('./test/test_data/test.gz', 'application/gzip'),
+            array('./test/test_data/test.bz2', 'application/bzip2'),
+            array('./test/test_data/test.zip', 'application/zip'),
+            );
     }
 }
 ?>
