@@ -50,16 +50,15 @@ class PMA_Schema_PDF extends PMA_PDF
 
     function SetAlias($name, $value)
     {
-        $this->Alias[$name] = $value ;
+        $this->Alias[$this->UTF8ToUTF16BE($name)] = $this->UTF8ToUTF16BE($value);
     }
 
     function _putpages()
     {
         if (count($this->Alias) > 0) {
-            $nb = $this->page;
-            foreach ($this->Alias as $alias => $value) {
-                for ($n = 1;$n <= $nb;$n++)
-                    $this->pages[$n]=str_replace($alias, $value, $this->pages[$n]);
+            $nb = count($this->pages);
+            for ($n = 1;$n <= $nb;$n++) {
+                $this->pages[$n] = strtr($this->pages[$n], $this->Alias);
             }
         }
         parent::_putpages();
