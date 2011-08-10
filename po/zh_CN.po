@@ -9008,7 +9008,7 @@ msgstr "仅显示报警值"
 
 #: server_status.php:714
 msgid "Filter by category..."
-msgstr ""
+msgstr "按分类显示"
 
 #: server_status.php:727
 #, fuzzy
