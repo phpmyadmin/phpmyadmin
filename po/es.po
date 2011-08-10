@@ -7140,7 +7140,6 @@ msgid "Start"
 msgstr "Inicio"
 
 #: libraries/rte/rte_events.lib.php:457
-#, fuzzy
 #| msgid "End"
 msgctxt "End of recurring event"
 msgid "End"
