@@ -503,5 +503,5 @@ if ($GLOBALS['lang_failed_request']) {
 }
 
 unset($line, $fall_back_lang,
-    $GLOBALS['lang_failed_cfg'], $GLOBALS['lang_failed_cookie'], $GLOBALS['ang_failed_request']);
+    $GLOBALS['lang_failed_cfg'], $GLOBALS['lang_failed_cookie'], $GLOBALS['lang_failed_request']);
 ?>
