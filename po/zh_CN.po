@@ -6746,10 +6746,10 @@ msgid "The backed up query was:"
 msgstr "已备份的查询为:"
 
 #: libraries/rte/rte_events.lib.php:121
-#, fuzzy, php-format
+#, php-format
 #| msgid "Column %s has been dropped"
 msgid "Event %1$s has been modified."
-msgstr "已删除字段 %s "
+msgstr "已修改事件 %1$s 。"
 
 #: libraries/rte/rte_events.lib.php:133
 #, fuzzy, php-format
