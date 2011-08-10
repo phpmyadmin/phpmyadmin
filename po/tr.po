@@ -7512,7 +7512,6 @@ msgid "ltr"
 msgstr "ltr"
 
 #: libraries/select_lang.lib.php:482
-#, fuzzy
 #| msgid "pages"
 msgctxt "PDF"
 msgid "page"
