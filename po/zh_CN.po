@@ -9795,10 +9795,9 @@ msgid ""
 msgstr "图表排列存储在浏览器本地存储。如果你设置了一个复杂的排列，请导出该设置。"
 
 #: server_status.php:1436
-#, fuzzy
 #| msgid "Restore default value"
 msgid "Reset to default"
-msgstr "还原默认值"
+msgstr "恢复默认"
 
 #: server_status.php:1440
 #, fuzzy
