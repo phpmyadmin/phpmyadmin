@@ -1481,7 +1481,7 @@ msgid "Reload page"
 msgstr "שינוי שם מאגר נתונים אל"
 
 #: js/messages.php:180
-msgid "Affected rows: "
+msgid "Affected rows:"
 msgstr ""
 
 #: js/messages.php:182

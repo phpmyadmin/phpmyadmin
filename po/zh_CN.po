@@ -1405,7 +1405,7 @@ msgid "Reload page"
 msgstr "重新载入页面"
 
 #: js/messages.php:180
-msgid "Affected rows: "
+msgid "Affected rows:"
 msgstr "影响的行数: "
 
 #: js/messages.php:182

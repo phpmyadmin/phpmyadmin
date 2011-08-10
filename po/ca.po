@@ -1487,7 +1487,7 @@ msgid "Reload page"
 msgstr "Recarrega"
 
 #: js/messages.php:180
-msgid "Affected rows: "
+msgid "Affected rows:"
 msgstr ""
 
 #: js/messages.php:182

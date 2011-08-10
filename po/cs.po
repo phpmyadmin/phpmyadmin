@@ -1430,7 +1430,7 @@ msgid "Reload page"
 msgstr "Znovu načíst stránku"
 
 #: js/messages.php:180
-msgid "Affected rows: "
+msgid "Affected rows:"
 msgstr "Ovlivněné záznamy: "
 
 #: js/messages.php:182

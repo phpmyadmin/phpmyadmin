@@ -1488,7 +1488,7 @@ msgid "Reload page"
 msgstr "Taula berrizendatu izen honetara: "
 
 #: js/messages.php:180
-msgid "Affected rows: "
+msgid "Affected rows:"
 msgstr ""
 
 #: js/messages.php:182

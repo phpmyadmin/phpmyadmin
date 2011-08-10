@@ -1481,7 +1481,7 @@ msgid "Reload page"
 msgstr "Lataa uudelleen"
 
 #: js/messages.php:180
-msgid "Affected rows: "
+msgid "Affected rows:"
 msgstr ""
 
 #: js/messages.php:182

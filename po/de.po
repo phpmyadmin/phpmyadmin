@@ -1455,7 +1455,7 @@ msgid "Reload page"
 msgstr "Neuladen"
 
 #: js/messages.php:180
-msgid "Affected rows: "
+msgid "Affected rows:"
 msgstr "Betroffene Zeilen: "
 
 #: js/messages.php:182

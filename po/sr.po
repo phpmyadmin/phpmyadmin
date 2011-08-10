@@ -1508,7 +1508,7 @@ msgid "Reload page"
 msgstr "Поново учитај"
 
 #: js/messages.php:180
-msgid "Affected rows: "
+msgid "Affected rows:"
 msgstr ""
 
 #: js/messages.php:182

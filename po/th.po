@@ -1455,7 +1455,7 @@ msgid "Reload page"
 msgstr "เปลี่ยนชื่อฐานข้อมูลเป็น"
 
 #: js/messages.php:180
-msgid "Affected rows: "
+msgid "Affected rows:"
 msgstr ""
 
 #: js/messages.php:182

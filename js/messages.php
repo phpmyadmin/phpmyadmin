@@ -177,7 +177,7 @@ $js_messages['strRefreshFailed'] = __('Monitor refresh failed');
 $js_messages['strInvalidResponseExplanation'] = __('While requesting new chart data the server returned an invalid response. This is most likely because your session expired. Reloading the page and reentering your credentials should help.');
 $js_messages['strReloadPage'] = __('Reload page');
 
-$js_messages['strAffectedRows'] = __('Affected rows: ');
+$js_messages['strAffectedRows'] = __('Affected rows:');
 
 $js_messages['strFailedParsingConfig'] = __('Failed parsing config file. It doesn\'t seem to be valid JSON code');
 $js_messages['strFailedBuildingGrid'] = __('Failed building chart grid with imported config. Resetting to default config...');

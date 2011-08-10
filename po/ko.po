@@ -1476,7 +1476,7 @@ msgid "Reload page"
 msgstr "데이터베이스 이름 변경"
 
 #: js/messages.php:180
-msgid "Affected rows: "
+msgid "Affected rows:"
 msgstr ""
 
 #: js/messages.php:182
