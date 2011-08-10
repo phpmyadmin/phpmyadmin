@@ -10249,10 +10249,9 @@ msgid "Refresh rate"
 msgstr "Velocidad de actualización"
 
 #: server_status.php:1419
-#, fuzzy
 #| msgid "Chart columns:"
 msgid "Chart columns"
-msgstr "Columnas del gráfico:"
+msgstr "Columnas del gráfico"
 
 #: server_status.php:1435
 #, fuzzy
