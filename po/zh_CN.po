@@ -6979,7 +6979,7 @@ msgstr "请输入每一个参数的名称并设置其类型。"
 
 #: libraries/rte/rte_routines.lib.php:1065
 msgid "You must provide a valid return type for the routine."
-msgstr ""
+msgstr "请设置一个有效的返回类型。"
 
 #: libraries/rte/rte_routines.lib.php:1109
 msgid "You must provide a routine definition."
