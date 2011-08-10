@@ -6949,10 +6949,9 @@ msgid "Is deterministic"
 msgstr "是否固定"
 
 #: libraries/rte/rte_routines.lib.php:927
-#, fuzzy
 #| msgid "Security"
 msgid "Security type"
-msgstr "安全"
+msgstr "安全类型"
 
 #: libraries/rte/rte_routines.lib.php:934
 msgid "SQL data access"
