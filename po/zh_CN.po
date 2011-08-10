@@ -9850,10 +9850,9 @@ msgid "CPU Usage"
 msgstr "CPU 使用"
 
 #: server_status.php:1478
-#, fuzzy
 #| msgid "2. Usage"
 msgid "Memory Usage"
-msgstr "2. 使用"
+msgstr "内存使用"
 
 #: server_status.php:1481
 #, fuzzy
