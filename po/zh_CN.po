@@ -1936,10 +1936,9 @@ msgid "File was not an uploaded file."
 msgstr "文件不是上传的文件。"
 
 #: libraries/File.class.php:259 libraries/File.class.php:388
-#, fuzzy
 #| msgid "Unknown error in file upload."
 msgid "Unknown error while uploading."
-msgstr "上传文件时发生未知错误。"
+msgstr "上传时发生未知错误。"
 
 #: libraries/File.class.php:277
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
