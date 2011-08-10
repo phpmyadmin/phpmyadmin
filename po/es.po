@@ -1158,10 +1158,9 @@ msgid "Average load"
 msgstr "Carga promedio"
 
 #: js/messages.php:101
-#, fuzzy
 #| msgid "System memory"
 msgid "Total memory"
-msgstr "Memoria de sistema"
+msgstr "Memoria total"
 
 #: js/messages.php:102
 #, fuzzy
