@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-09 16:45+0100\n"
-"PO-Revision-Date: 2011-08-10 12:15+0200\n"
+"PO-Revision-Date: 2011-08-10 12:17+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -3750,10 +3750,9 @@ msgid "Maximum number of recently used tables; set 0 to disable"
 msgstr "在数据表列表中最多显示的数据表个数"
 
 #: libraries/config/messages.inc.php:289
-#, fuzzy
 #| msgid "Currently opened table"
 msgid "Recently used tables"
-msgstr "当前打开的数据表"
+msgstr "最近使用的表"
 
 #: libraries/config/messages.inc.php:290
 msgid "Use less graphically intense tabs"
