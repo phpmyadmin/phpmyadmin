@@ -18,7 +18,7 @@ class PMA_PDF extends TCPDF
 {
     var $footerset;
 
-	public function __construct($orientation='P', $unit='mm', $format='A4', $unicode=true, $encoding='UTF-8', $diskcache=false)
+    public function __construct($orientation='P', $unit='mm', $format='A4', $unicode=true, $encoding='UTF-8', $diskcache=false)
     {
         parent::__construct();
         $this->SetAuthor('phpMyAdmin ' . PMA_VERSION);
