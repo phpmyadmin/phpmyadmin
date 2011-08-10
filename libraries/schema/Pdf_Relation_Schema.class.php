@@ -236,11 +236,7 @@ class PMA_Schema_PDF extends PMA_PDF
     {
         global $with_doc;
         if ($with_doc) {
-            $this->SetY(-15);
-            $this->SetFont($this->_ff, '', 14);
-            $this->Cell(0, 6, __('Page number:') . ' ' . $this->getAliasNumPage() . '/' .  $this->getAliasNbPages(), 'T', 0, 'C');
-            $this->Cell(0, 6, PMA_localisedDate(), 0, 1, 'R');
-            $this->SetY(20);
+            parent::Footer();
         }
     }
 

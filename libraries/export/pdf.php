@@ -41,7 +41,6 @@ if (isset($plugin_list)) {
     {
         var $tablewidths;
         var $headerset;
-        var $footerset;
 
         function checkPageBreak($h=0, $y='', $addpage=true) {
             if ($this->empty_string($y)) {
@@ -117,20 +116,6 @@ if (isset($plugin_list)) {
             }
 
             $this->dataY = $maxY;
-        }
-
-        function Footer()
-        {
-            // Check if footer for this page already exists
-            if (!isset($this->footerset[$this->page])) {
-                $this->SetY(-15);
-                //Page number
-                $this->setFooterFont(PMA_PDF_FONT, '', 14);
-                $this->Cell(0, 6, __('Page number:') . ' ' . $this->getAliasNumPage() . '/' .  $this->getAliasNbPages(), 'T', 0, 'C');
-
-                // set footerset
-                $this->footerset[$this->page] = 1;
-            }
         }
 
         function morepagestable($lineheight=8)
