@@ -9148,10 +9148,9 @@ msgid ""
 msgstr "因客户端没有关闭连接而中止的连接数。"
 
 #: server_status.php:1144
-#, fuzzy
 #| msgid "Whether to enable SSL for connection to MySQL server."
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "设置连接到 MySQL 服务器时是否使用 SSL 安全连接。"
+msgstr "尝试连接到 MySQL 服务器但失败的连接数。"
 
 #: server_status.php:1145
 msgid ""
