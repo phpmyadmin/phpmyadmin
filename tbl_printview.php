@@ -385,7 +385,7 @@ foreach ($the_tables as $key => $table) {
                 if (isset($showtable['Auto_increment'])) {
                     ?>
             <tr>
-                <td><?php echo ucfirst(__('Next')); ?>&nbsp;Autoindex</td>
+                <td><?php echo ucfirst(__('Next autoindex')); ?></td>
                 <td align="right">
                     <?php echo PMA_formatNumber($showtable['Auto_increment'], 0) . "\n"; ?>
                 </td>

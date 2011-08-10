@@ -897,7 +897,7 @@ if ($cfg['ShowStats']) {
     if (isset($showtable['Auto_increment'])) {
         ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Next'); ?> Autoindex</th>
+        <th class="name"><?php echo __('Next autoindex'); ?></th>
         <td class="value"><?php echo PMA_formatNumber($showtable['Auto_increment'], 0); ?></td>
     </tr>
         <?php
