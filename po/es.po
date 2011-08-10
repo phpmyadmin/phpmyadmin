@@ -1189,7 +1189,7 @@ msgstr "Intercambio total"
 
 #: js/messages.php:108
 msgid "Cached Swap"
-msgstr ""
+msgstr "Intercambio en caché"
 
 #: js/messages.php:109
 msgid "Used Swap"
