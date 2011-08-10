@@ -1515,10 +1515,9 @@ msgid "Hide indexes"
 msgstr "隐藏索引"
 
 #: js/messages.php:211
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "显示网格"
+msgstr "显示索引"
 
 #: js/messages.php:214
 msgid "Searching"
