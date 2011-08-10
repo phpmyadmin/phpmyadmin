@@ -1130,10 +1130,9 @@ msgid "Average load"
 msgstr "平均负载"
 
 #: js/messages.php:101
-#, fuzzy
 #| msgid "Log file count"
 msgid "Total memory"
-msgstr "日志文件总数"
+msgstr "内存总数"
 
 #: js/messages.php:102
 msgid "Cached memory"
