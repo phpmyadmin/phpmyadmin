@@ -3,7 +3,7 @@ $(function() {
     $('div#statustabs_charting div.tabLinks').show();
     $('div#statustabs_charting img#loadingMonitorIcon').remove();
     // Codemirror is loaded on demand so we might need to initialize it
-    if(! codemirror_editor) {
+    if (! codemirror_editor) {
         var elm = $('#sqlquery');
         if (elm.length > 0 && typeof CodeMirror != 'undefined') {
             codemirror_editor = CodeMirror.fromTextArea(elm[0], { lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql" });
