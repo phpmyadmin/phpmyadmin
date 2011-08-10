@@ -1256,7 +1256,7 @@ msgstr "log_output 未设置到 TABLE 。"
 
 #: js/messages.php:135
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output 已设置到 TABLE 。"
 
 #: js/messages.php:136
 #, php-format
