@@ -9891,10 +9891,9 @@ msgid "Append unit to data values"
 msgstr "在值后附加单位"
 
 #: server_status.php:1522
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add this series"
-msgstr "添加服务器"
+msgstr "添加该数据"
 
 #: server_status.php:1524
 msgid "Clear series"
