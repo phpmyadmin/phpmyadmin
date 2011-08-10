@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-10 13:16+0200\n"
-"PO-Revision-Date: 2011-08-05 11:16+0200\n"
+"PO-Revision-Date: 2011-08-10 13:22+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1691,7 +1691,6 @@ msgstr "Hotovo"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:296
-#, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
