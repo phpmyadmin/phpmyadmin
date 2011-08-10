@@ -6926,10 +6926,9 @@ msgid "Add parameter"
 msgstr "添加参数"
 
 #: libraries/rte/rte_routines.lib.php:870
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove last parameter"
-msgstr "删除数据库"
+msgstr "删除最后一个参数"
 
 #: libraries/rte/rte_routines.lib.php:875
 msgid "Return type"
