@@ -2578,10 +2578,9 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s 功能受到一个已知的缺陷 (bug) 影响，参见 %s"
 
 #: libraries/common.lib.php:2524
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to toggle"
-msgstr "点击选中"
+msgstr "点击切换"
 
 #: libraries/common.lib.php:2853 libraries/common.lib.php:2860
 #: libraries/common.lib.php:3052 libraries/config/setup.forms.php:296
