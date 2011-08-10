@@ -7052,10 +7052,9 @@ msgid "You must provide a valid event for the trigger"
 msgstr "请选择一个有效的触发事件"
 
 #: libraries/rte/rte_triggers.lib.php:419
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "You must provide a valid table name"
-msgstr "无效的数据表名"
+msgstr "请选择一个有效的表"
 
 #: libraries/rte/rte_triggers.lib.php:425
 msgid "You must provide a trigger definition."
