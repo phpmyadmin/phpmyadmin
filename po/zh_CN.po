@@ -7035,10 +7035,9 @@ msgid "Edit trigger"
 msgstr "编辑触发器"
 
 #: libraries/rte/rte_triggers.lib.php:301
-#, fuzzy
 #| msgid "Triggers"
 msgid "Trigger name"
-msgstr "触发器"
+msgstr "触发器名称"
 
 #: libraries/rte/rte_triggers.lib.php:403
 msgid "You must provide a trigger name"
