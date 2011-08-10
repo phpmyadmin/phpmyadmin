@@ -2160,7 +2160,7 @@ msgstr "找不到主题 %s 的路径"
 
 #: libraries/Theme_Manager.class.php:289 themes.php:20 themes.php:27
 msgid "Theme"
-msgstr ""
+msgstr "主题"
 
 #: libraries/auth/config.auth.lib.php:71
 msgid "Cannot connect: invalid settings."
