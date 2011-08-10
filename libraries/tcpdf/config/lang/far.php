@@ -1,12 +1,12 @@
 <?php
 //============================================================+
-// File name   : nld.php
+// File name   : far.php
 // Begin       : 2010-10-26
 // Last Update : 2010-10-26
 //
 // Description : Language module for TCPDF
 //               (contains translated texts)
-//               Dutch
+//               Farsi
 //
 // Author: Nicola Asuni
 //
@@ -23,12 +23,12 @@
 /**
  * TCPDF language file (contains translated texts).
  * @package com.tecnick.tcpdf
- * @brief TCPDF language file: Dutch
- * @author Nicola Asuni
- * @since 2010-10-26
+ * @brief TCPDF language file: Farsi
+ * @author Sina Saeedi
+ * @since 2011-04-12
  */
 
-// Dutch
+// Farsi
 
 global $l;
 $l = Array();
@@ -36,11 +36,11 @@ $l = Array();
 // PAGE META DESCRIPTORS --------------------------------------
 
 $l['a_meta_charset'] = 'UTF-8';
-$l['a_meta_dir'] = 'ltr';
-$l['a_meta_language'] = 'nl';
+$l['a_meta_dir'] = 'rtl';
+$l['a_meta_language'] = 'fa';
 
 // TRANSLATIONS --------------------------------------
-$l['w_page'] = 'pagina';
+$l['w_page'] = 'صفحه';
 
 //============================================================+
 // END OF FILE
