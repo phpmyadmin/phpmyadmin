@@ -89,7 +89,7 @@ class PMA_PDF extends TCPDF
      */
     function Download($filename)
     {
-        $pdfData = $pdf->getPDFData();
+        $pdfData = $this->getPDFData();
         PMA_download_header($filename, 'application/pdf', strlen($pdfData));
         echo $pdfData;
     }
