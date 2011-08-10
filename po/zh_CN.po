@@ -1177,10 +1177,9 @@ msgid "Bytes sent"
 msgstr "已发送字节数"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "已接收"
+msgstr "已接收字节数"
 
 #: js/messages.php:114 server_status.php:994
 msgid "Connections"
