@@ -565,7 +565,7 @@ msgstr "查找:"
 
 #: db_search.php:278 db_search.php:279
 msgid "Words are separated by a space character (\" \")."
-msgstr "每个单词用空格 (“ ”) 分隔。"
+msgstr "每个单词用空格 (\" \") 分隔。"
 
 #: db_search.php:292
 #| msgid "Inside table(s):"
