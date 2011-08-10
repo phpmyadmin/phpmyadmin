@@ -7141,10 +7141,9 @@ msgid "event"
 msgstr "事件"
 
 #: libraries/rte/rte_words.lib.php:46
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create an event"
-msgstr "权限不足！"
+msgstr "你不具有创建事件的必要权限"
 
 #: libraries/rte/rte_words.lib.php:47
 #, fuzzy, php-format
