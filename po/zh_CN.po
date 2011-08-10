@@ -1339,7 +1339,7 @@ msgstr "从慢查询日志"
 
 #: js/messages.php:157
 msgid "From general log"
-msgstr ""
+msgstr "从通用日志"
 
 #: js/messages.php:158
 msgid "Analysing & loading logs. This may take a while."
