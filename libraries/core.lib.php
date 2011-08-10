@@ -576,6 +576,8 @@ function PMA_download_header($filename, $mimetype, $length = 0, $no_cache = true
     if ($no_cache) {
         PMA_no_cache_header();
     }
+    /* Replace all possibly dangerous chars in filename */
+    $filename = str_replace(array(';', '"', "\n", "\r"), '-', $filename);
     header('Content-Description: File Transfer');
     header('Content-Disposition: attachment; filename="' . $filename . '"');
     header('Content-Type: ' . $mimetype);
