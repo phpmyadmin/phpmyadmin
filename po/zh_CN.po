@@ -1389,7 +1389,7 @@ msgstr "根据内容/正则表达式搜索:"
 
 #: js/messages.php:171
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
+msgstr "忽略 WHERE 语句中的变量值对查询分组"
 
 #: js/messages.php:172
 #, fuzzy
