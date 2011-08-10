@@ -9934,11 +9934,11 @@ msgid "Query analyzer"
 msgstr "查询分析器"
 
 #: server_status.php:1593
-#, fuzzy, php-format
+#, php-format
 #| msgid "Second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "秒"
+msgstr[0] "%d 秒"
 
 #: server_status.php:1595
 #, fuzzy, php-format
