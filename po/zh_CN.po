@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-09 16:45+0100\n"
-"PO-Revision-Date: 2011-08-10 11:16+0200\n"
+"PO-Revision-Date: 2011-08-10 11:17+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -7018,10 +7018,10 @@ msgid "Sorry, we failed to restore the dropped trigger."
 msgstr "抱歉，恢复已删除的触发器失败。"
 
 #: libraries/rte/rte_triggers.lib.php:94
-#, fuzzy, php-format
+#, php-format
 #| msgid "Column %s has been dropped"
 msgid "Trigger %1$s has been modified."
-msgstr "已删除字段 %s "
+msgstr "已修改触发器 %1$s 。"
 
 #: libraries/rte/rte_triggers.lib.php:106
 #, fuzzy, php-format
