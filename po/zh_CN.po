@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-09 16:45+0100\n"
-"PO-Revision-Date: 2011-08-10 08:23+0200\n"
+"PO-Revision-Date: 2011-08-10 10:38+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -1092,12 +1092,12 @@ msgstr "连接 / 进程"
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
 msgid "Questions since last refresh"
-msgstr ""
+msgstr "自上次刷新起的内部查询"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:89
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "内部查询 (服务器执行的查询)"
 
 #: js/messages.php:91 server_status.php:649
 msgid "Query statistics"
@@ -1188,10 +1188,9 @@ msgstr "连接"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:118
-#, fuzzy
 #| msgid "Versions"
 msgid "Questions"
-msgstr "版本"
+msgstr "内部查询"
 
 #: js/messages.php:119 server_status.php:949
 msgid "Traffic"
@@ -1203,24 +1202,22 @@ msgid "Settings"
 msgstr "设置"
 
 #: js/messages.php:121
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "删除数据库"
+msgstr "删除图表"
 
 #: js/messages.php:122
 msgid "Edit title and labels"
-msgstr ""
+msgstr "编辑标题和标签"
 
 #: js/messages.php:123
-#, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "对齐网格"
+msgstr "添加图表"
 
 #: js/messages.php:125
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "请至少添加一个数据"
 
 #: js/messages.php:126 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:567 libraries/export/sql.php:1052
@@ -1255,11 +1252,11 @@ msgstr "slow_query_log 和 general_log 已禁用。"
 
 #: js/messages.php:134
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output 未设置到 TABLE 。"
 
 #: js/messages.php:135
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output 已设置到 TABLE 。"
 
 #: js/messages.php:136
 #, php-format
@@ -1334,19 +1331,19 @@ msgstr "差异"
 #: js/messages.php:154
 #, php-format
 msgid "Divided by %s:"
-msgstr ""
+msgstr "除以 %s:"
 
 #: js/messages.php:156
 msgid "From slow log"
-msgstr ""
+msgstr "从慢查询日志"
 
 #: js/messages.php:157
 msgid "From general log"
-msgstr ""
+msgstr "从通用日志"
 
 #: js/messages.php:158
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "正在加载并分析日志。请稍候。"
 
 #: js/messages.php:159
 msgid ""
@@ -1360,28 +1357,26 @@ msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
 "data."
-msgstr ""
+msgstr "因选择了分组 INSERT 查询，相同表的 INSERT 查询将被分为一组，忽略数据。"
 
 #: js/messages.php:161
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 
 #: js/messages.php:163
-#, fuzzy
 #| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr "转到数据库"
+msgstr "转到日志表"
 
 #: js/messages.php:164
 msgid "Log analysed, but no data found in this time span."
-msgstr ""
+msgstr "日志已分析，时间段内没有数据。"
 
 #. l10n: A collection of available filters
 #: js/messages.php:167
-#, fuzzy
 #| msgid "Filter"
 msgid "Filters"
-msgstr "快速搜索"
+msgstr "过滤器"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:169 navigation.php:270
@@ -1390,29 +1385,26 @@ msgstr "快速搜索"
 
 #: js/messages.php:170
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "根据内容/正则表达式搜索:"
 
 #: js/messages.php:171
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
+msgstr "忽略 WHERE 语句中的变量值对查询分组"
 
 #: js/messages.php:172
-#, fuzzy
 #| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
-msgstr "插入的行数"
+msgstr "分组后的行数:"
 
 #: js/messages.php:173
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "总计"
+msgstr "总数:"
 
 #: js/messages.php:175
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading logs"
-msgstr "正在加载"
+msgstr "正在加载日志"
 
 #: js/messages.php:176
 msgid "Monitor refresh failed"
@@ -1428,24 +1420,23 @@ msgstr ""
 "面。"
 
 #: js/messages.php:178
-#, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
-msgstr "重新载入"
+msgstr "重新载入页面"
 
 #: js/messages.php:180
 msgid "Affected rows: "
-msgstr ""
+msgstr "影响的行数: "
 
 #: js/messages.php:182
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
-msgstr ""
+msgstr "解析配置文件失败。它看上去不像有效的 JSON 代码"
 
 #: js/messages.php:183
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
-msgstr ""
+msgstr "导入配置失败。正在重设为默认设置..."
 
 #: js/messages.php:184 libraries/config/messages.inc.php:170
 #: libraries/db_links.inc.php:83 libraries/server_links.inc.php:69
@@ -1519,16 +1510,14 @@ msgid "Insert Table"
 msgstr "使用表"
 
 #: js/messages.php:210
-#, fuzzy
 #| msgid "Add index"
 msgid "Hide indexes"
-msgstr "添加索引"
+msgstr "隐藏索引"
 
 #: js/messages.php:211
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "显示网格"
+msgstr "显示索引"
 
 #: js/messages.php:214
 msgid "Searching"
@@ -1552,7 +1541,7 @@ msgstr "正在删除"
 
 #: js/messages.php:221
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr ""
+msgstr "函数定义中必须包含 RETURN 语句！"
 
 #: js/messages.php:224
 msgid ""
@@ -1595,10 +1584,9 @@ msgid "Change"
 msgstr "修改"
 
 #: js/messages.php:235
-#, fuzzy
 #| msgid "Maximum execution time"
 msgid "Query execution time"
-msgstr "最长执行时间"
+msgstr "查询执行时间"
 
 #: js/messages.php:238
 msgid "Hide search criteria"
@@ -1614,7 +1602,6 @@ msgid "Ignore"
 msgstr "忽略"
 
 #: js/messages.php:245
-#, fuzzy
 #| msgid "Add column"
 msgid "Add columns"
 msgstr "添加字段"
@@ -1674,28 +1661,26 @@ msgid ", latest stable version:"
 msgstr "，最新稳定版本: "
 
 #: js/messages.php:269
-#, fuzzy
 #| msgid "Jump to database"
 msgid "up to date"
-msgstr "转到数据库"
+msgstr "已更新"
 
 #: js/messages.php:272
 msgid "Drag to reorder"
-msgstr ""
+msgstr "拖拽以调整顺序"
 
 #: js/messages.php:273
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to sort"
-msgstr "点击选中"
+msgstr "点击以排序"
 
 #: js/messages.php:274
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "点击以标记/取消标记"
 
 #: js/messages.php:275
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
-msgstr ""
+msgstr "点击下箭头以设置显示的字段"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:294
@@ -2084,22 +2069,19 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "插入了 %1$d 行。"
 
 #: libraries/RecentTable.class.php:107
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not save recent table"
-msgstr "无法保存设置"
+msgstr "无法保存最近访问的表"
 
 #: libraries/RecentTable.class.php:142
-#, fuzzy
 #| msgid "Count tables"
 msgid "Recent tables"
-msgstr "统计数据表"
+msgstr "最近访问的表"
 
 #: libraries/RecentTable.class.php:148
-#, fuzzy
 #| msgid "There are no configured servers"
 msgid "There are no recent tables"
-msgstr "没有配置好的服务器"
+msgstr "没有最近访问的表"
 
 #: libraries/StorageEngine.class.php:180
 msgid ""
@@ -2122,10 +2104,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "此 MySQL 服务器不支持 %s 存储引擎。"
 
 #: libraries/Table.class.php:303
-#, fuzzy
 #| msgid "Show slave status"
 msgid "unknown table status: "
-msgstr "显示从服务器状态"
+msgstr "未知表状态: "
 
 #: libraries/Table.class.php:1034
 msgid "Invalid database"
@@ -2147,7 +2128,7 @@ msgstr "已将数据表 %s 改名为 %s"
 
 #: libraries/Table.class.php:1274
 msgid "Could not save table UI preferences"
-msgstr ""
+msgstr "无法保存表界面设置"
 
 #: libraries/Theme.class.php:144
 #, php-format
@@ -2179,7 +2160,7 @@ msgstr "找不到主题 %s 的路径"
 
 #: libraries/Theme_Manager.class.php:289 themes.php:20 themes.php:27
 msgid "Theme"
-msgstr ""
+msgstr "主题"
 
 #: libraries/auth/config.auth.lib.php:71
 msgid "Cannot connect: invalid settings."
@@ -2380,16 +2361,15 @@ msgid "Check Privileges"
 msgstr "检查权限"
 
 #: libraries/common.inc.php:588
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Failed to read configuration file"
-msgstr "无法保存设置"
+msgstr "读取配置文件失败"
 
 #: libraries/common.inc.php:589
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
-msgstr ""
+msgstr "这通常意味着文件中有语法错误，请检查下面显示出的错误。"
 
 #: libraries/common.inc.php:596
 #, php-format
@@ -2567,10 +2547,9 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s 天 %s 小时，%s 分 %s 秒"
 
 #: libraries/common.lib.php:1944
-#, fuzzy
 #| msgid "Routines"
 msgid "Missing parameter:"
-msgstr "常规"
+msgstr "缺少参数:"
 
 #: libraries/common.lib.php:2253 libraries/common.lib.php:2256
 #: libraries/display_tbl.lib.php:306
@@ -2599,10 +2578,9 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s 功能受到一个已知的缺陷 (bug) 影响，参见 %s"
 
 #: libraries/common.lib.php:2524
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to toggle"
-msgstr "点击选中"
+msgstr "点击切换"
 
 #: libraries/common.lib.php:2853 libraries/common.lib.php:2860
 #: libraries/common.lib.php:3052 libraries/config/setup.forms.php:296
@@ -2657,7 +2635,7 @@ msgstr "没有可上传的文件"
 
 #: libraries/common.lib.php:3061 libraries/common.lib.php:3062
 msgid "Execute"
-msgstr ""
+msgstr "执行"
 
 #: libraries/config.values.php:45 libraries/config.values.php:47
 #: libraries/config.values.php:51
@@ -2666,17 +2644,16 @@ msgstr "全部"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "无"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "左侧"
 
 #: libraries/config.values.php:47
-#, fuzzy
 #| msgid "Height"
 msgid "Right"
-msgstr "高"
+msgstr "右侧"
 
 #: libraries/config.values.php:75
 msgid "Open"
@@ -3031,13 +3008,12 @@ msgstr "显示服务器为列表"
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
-msgstr ""
+msgstr "禁止大量表维护操作，例如优化或修复一个数据库中的选中表。"
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "表维护"
+msgstr "禁止多表维护"
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
@@ -3930,7 +3906,7 @@ msgstr "它们是编辑、快速编辑、复制和删除链接"
 
 #: libraries/config/messages.inc.php:320
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "表中每行数据操作链接位置"
 
 #: libraries/config/messages.inc.php:321
 msgid "Use natural order for sorting table and database names"
@@ -6746,64 +6722,60 @@ msgstr "生成密码"
 #: libraries/rte/rte_routines.lib.php:1242
 #: libraries/rte/rte_triggers.lib.php:75 libraries/rte/rte_triggers.lib.php:80
 #: libraries/rte/rte_triggers.lib.php:103
-#, fuzzy, php-format
+#, php-format
 #| msgid "The following queries have been executed:"
 msgid "The following query has failed: \"%s\""
-msgstr "下列查询被执行:"
+msgstr "下列查询失败了: \"%s\""
 
 #: libraries/rte/rte_events.lib.php:116
 msgid "Sorry, we failed to restore the dropped event."
-msgstr ""
+msgstr "抱歉，恢复删除的事件失败。"
 
 #: libraries/rte/rte_events.lib.php:117 libraries/rte/rte_routines.lib.php:269
 #: libraries/rte/rte_triggers.lib.php:90
 msgid "The backed up query was:"
-msgstr ""
+msgstr "已备份的查询为:"
 
 #: libraries/rte/rte_events.lib.php:121
-#, fuzzy, php-format
+#, php-format
 #| msgid "Column %s has been dropped"
 msgid "Event %1$s has been modified."
-msgstr "已删除字段 %s "
+msgstr "已修改事件 %1$s 。"
 
 #: libraries/rte/rte_events.lib.php:133
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Event %1$s has been created."
-msgstr "创建数据表 %1$s 成功。"
+msgstr "已创建事件 %1$s 。"
 
 #: libraries/rte/rte_events.lib.php:141 libraries/rte/rte_routines.lib.php:294
 #: libraries/rte/rte_triggers.lib.php:114
 msgid "<b>One or more errors have occured while processing your request:</b>"
-msgstr ""
+msgstr "<b>处理请求时发生错误:</b>"
 
 #: libraries/rte/rte_events.lib.php:185
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit event"
-msgstr "编辑服务器"
+msgstr "编辑事件"
 
 #: libraries/rte/rte_events.lib.php:212 libraries/rte/rte_routines.lib.php:370
 #: libraries/rte/rte_routines.lib.php:1264
 #: libraries/rte/rte_routines.lib.php:1300
 #: libraries/rte/rte_triggers.lib.php:187
-#, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing request"
-msgstr "处理请求时发生错误"
+msgstr "处理请求时的错误"
 
 #: libraries/rte/rte_events.lib.php:371 libraries/rte/rte_routines.lib.php:817
 #: libraries/rte/rte_triggers.lib.php:298
-#, fuzzy
 #| msgid "Details..."
 msgid "Details"
-msgstr "详细..."
+msgstr "详细"
 
 #: libraries/rte/rte_events.lib.php:374
-#, fuzzy
 #| msgid "Event type"
 msgid "Event name"
-msgstr "事件类型"
+msgstr "事件名称"
 
 #: libraries/rte/rte_events.lib.php:395 server_binlog.php:182
 msgid "Event type"
@@ -6817,24 +6789,22 @@ msgstr "修改"
 
 #: libraries/rte/rte_events.lib.php:422
 msgid "Execute at"
-msgstr ""
+msgstr "运行时间"
 
 #: libraries/rte/rte_events.lib.php:430
 msgid "Execute every"
-msgstr ""
+msgstr "运行周期"
 
 #: libraries/rte/rte_events.lib.php:449
-#, fuzzy
 #| msgid "Startup"
 msgid "Start"
-msgstr "起始页"
+msgstr "开始"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:912
 #: libraries/rte/rte_triggers.lib.php:352
-#, fuzzy
 #| msgid "Description"
 msgid "Definition"
-msgstr "说明"
+msgstr "定义"
 
 #: libraries/rte/rte_events.lib.php:471
 #, fuzzy
@@ -6845,48 +6815,48 @@ msgstr "完整插入"
 #: libraries/rte/rte_events.lib.php:475 libraries/rte/rte_routines.lib.php:922
 #: libraries/rte/rte_triggers.lib.php:358
 msgid "Definer"
-msgstr ""
+msgstr "用户"
 
 #: libraries/rte/rte_events.lib.php:518 libraries/rte/rte_routines.lib.php:986
 #: libraries/rte/rte_triggers.lib.php:396
 msgid "The definer must be in the \"username@hostname\" format"
-msgstr ""
+msgstr "用户必须是 \"用户名@主机名\" 格式"
 
 #: libraries/rte/rte_events.lib.php:525
 msgid "You must provide an event name"
-msgstr ""
+msgstr "请输入事件名称"
 
 #: libraries/rte/rte_events.lib.php:537
 msgid "You must provide a valid interval value for the event."
-msgstr ""
+msgstr "请设置有效的运行周期。"
 
 #: libraries/rte/rte_events.lib.php:549
 msgid "You must provide a valid execution time for the event."
-msgstr ""
+msgstr "请设置有效的运行时间。"
 
 #: libraries/rte/rte_events.lib.php:553
 msgid "You must provide a valid type for the event."
-msgstr ""
+msgstr "请选择一个有效的事件类型。"
 
 #: libraries/rte/rte_events.lib.php:572
 msgid "You must provide an event definition."
-msgstr ""
+msgstr "请输入事件定义。"
 
 #: libraries/rte/rte_footer.lib.php:29
 msgid "New"
-msgstr ""
+msgstr "新建"
 
 #: libraries/rte/rte_footer.lib.php:91
 msgid "OFF"
-msgstr ""
+msgstr "关"
 
 #: libraries/rte/rte_footer.lib.php:96
 msgid "ON"
-msgstr ""
+msgstr "开"
 
 #: libraries/rte/rte_footer.lib.php:108
 msgid "Event scheduler status"
-msgstr ""
+msgstr "事件计划状态"
 
 #: libraries/rte/rte_list.lib.php:54
 #, fuzzy
@@ -7645,7 +7615,6 @@ msgid "PARTITION definition"
 msgstr "分区定义"
 
 #: libraries/tbl_properties.inc.php:762
-#, fuzzy
 #| msgid "+ Add a new value"
 msgid "+ Add a value"
 msgstr "+ 添加"
@@ -8734,10 +8703,9 @@ msgid "wildcard"
 msgstr "通配符"
 
 #: server_privileges.php:2382
-#, fuzzy
 #| msgid "View %s has been dropped"
 msgid "User has been added."
-msgstr "已删除视图 %s"
+msgstr "用户已添加。"
 
 #: server_replication.php:49
 msgid "Unknown error"
@@ -8979,52 +8947,46 @@ msgid "Runtime Information"
 msgstr "运行信息"
 
 #: server_status.php:650
-#, fuzzy
 #| msgid "See slave status table"
 msgid "All status variables"
-msgstr "查看从服务器状态"
+msgstr "所有状态变量"
 
 #: server_status.php:651
 msgid "Monitor"
-msgstr ""
+msgstr "监控"
 
 #: server_status.php:652
 msgid "Advisor"
-msgstr ""
+msgstr "建议"
 
 #: server_status.php:662 server_status.php:684
-#, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate: "
-msgstr "刷新"
+msgstr "刷新频率: "
 
 #: server_status.php:705
-#, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "保持原密码"
+msgstr "包含文字:"
 
 #: server_status.php:710
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show only alert values"
-msgstr "显示打开的表"
+msgstr "仅显示报警值"
 
 #: server_status.php:714
 msgid "Filter by category..."
-msgstr ""
+msgstr "按分类显示"
 
 #: server_status.php:727
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show unformatted values"
-msgstr "显示打开的表"
+msgstr "显示原始值"
 
 #: server_status.php:731
-#, fuzzy
 #| msgid "Related Links"
 msgid "Related links:"
-msgstr "相关链接"
+msgstr "相关链接:"
 
 #: server_status.php:765
 msgid ""
@@ -9040,13 +9002,17 @@ msgid ""
 "at a time, observe or benchmark your database, and\n"
 "        undo the change if there was no clearly measurable improvement."
 msgstr ""
+"建议系统可以通过分析服务器状态变量来提供建议。\n"
+"        请注意本系统的建议基于相当简单的规则和计算且可能不适用于你的系统。\n"
+"        在修改任何设置前，请确保你知道你在修改什么以及如何恢复。错误的修改可能导致截然相反的结果。\n"
+"        调整系统的最佳方式为一次只修改一个设置，然后检查并测试你的数据库，若没有显著的性能提升则恢复设置。"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:791
-#, fuzzy, php-format
+#, php-format
 #| msgid "Customize startup page"
 msgid "Questions since startup: %s"
-msgstr "自定义起始页"
+msgstr "自启动以来的内部查询: %s"
 
 #: server_status.php:797 server_status.php:832 server_status.php:950
 #: server_status.php:995
@@ -9068,18 +9034,18 @@ msgstr "说明"
 #. l10n: # = Amount of queries
 #: server_status.php:830
 msgid "#"
-msgstr ""
+msgstr "查询数量"
 
 #: server_status.php:898
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr ""
+msgstr "自启动以来的网络流量: %s"
 
 #: server_status.php:906
-#, fuzzy, php-format
+#, php-format
 #| msgid "This MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "此 MySQL 服务器已经运行了 %s，启动时间为 %s。"
+msgstr "此 MySQL 服务器已运行 %s。启动时间为 %s 。"
 
 #: server_status.php:916
 msgid ""
@@ -9147,13 +9113,12 @@ msgstr "命令"
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
-msgstr ""
+msgstr "因客户端没有关闭连接而中止的连接数。"
 
 #: server_status.php:1144
-#, fuzzy
 #| msgid "Whether to enable SSL for connection to MySQL server."
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "设置连接到 MySQL 服务器时是否使用 SSL 安全连接。"
+msgstr "尝试连接到 MySQL 服务器但失败的连接数。"
 
 #: server_status.php:1145
 msgid ""
@@ -9171,7 +9136,7 @@ msgstr "事务所用的临时二进制日志缓存的数量。"
 #: server_status.php:1147
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
-msgstr ""
+msgstr "尝试连接到 MySQL 服务器的连接数 (不论成功或失败) 。"
 
 #: server_status.php:1148
 msgid ""
@@ -9558,7 +9523,7 @@ msgstr ""
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
-msgstr ""
+msgstr "自服务器启动以来的最高并发连接数。"
 
 #: server_status.php:1219
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
@@ -9587,7 +9552,7 @@ msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
-msgstr ""
+msgstr "查询缓存中的空闲内存块。过多的空闲内存块可能产生碎片，可通过执行 FLUSH QUERY CACHE 语句解决。"
 
 #: server_status.php:1225
 msgid "The amount of free memory for query cache."
@@ -9822,6 +9787,8 @@ msgid ""
 "table is supported by MySQL 5.1.6 and onwards. You may still use the server "
 "charting features however."
 msgstr ""
+"很遗憾你的数据库服务器不支持日志记录到表，这是使用 phpMyAdmin 分析数据库日志的必要功能。MySQL 自 5.1.6 "
+"起有该功能。但你仍然可以使用服务器图表功能。"
 
 #: server_status.php:1458
 msgid ""
@@ -9834,6 +9801,9 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occuring SELECT statements to further analyze them.</p>"
 msgstr ""
+"<b>使用监控:</b><br/> 现在我们可以开始了！当你点击 '开始监控' 时你的浏览器会以一定间隔时间刷新所有的图表。你可以通过 '设置' 添加图"
+"表或修改刷新频率，或通过图表各自的齿轮图标来移除图表。<p>要想显示日志所记录的查询，请在图表上通过按住鼠标左键的拖拽操作选择相应的时间段。确认后即可显"
+"示出分组后的查询，你可以通过点击其中的 SELECT 语句获得进一步分析。</p>"
 
 #: server_status.php:1463
 msgid ""
@@ -9843,6 +9813,8 @@ msgid ""
 "disable the general_log and empty its table once monitoring is not required "
 "any more."
 msgstr ""
+"<b>请注意:</b> 启用 general_log 可能会增加5-15% "
+"的服务器负载。从日志中统计数据同样也是高负载的任务，建议选择一段小范围的时间并在用完监控后禁止 general_log 并清空它的表。"
 
 #: server_status.php:1475
 #| msgid "Usage"
@@ -9871,7 +9843,7 @@ msgstr "选择数据:"
 
 #: server_status.php:1488
 msgid "Commonly monitored"
-msgstr ""
+msgstr "常用监控"
 
 #: server_status.php:1503
 #| msgid "Invalid table name"
