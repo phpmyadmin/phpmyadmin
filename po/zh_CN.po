@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-09 16:45+0100\n"
-"PO-Revision-Date: 2011-08-10 12:08+0200\n"
+"PO-Revision-Date: 2011-08-10 12:11+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -6868,6 +6868,8 @@ msgid ""
 "handling multi queries. <b>The execution of some stored routines may fail!</"
 "b> Please use the improved 'mysqli' extension to avoid any problems."
 msgstr ""
+"你正在使用 PHP 所不推荐的 'mysql' 扩展，不支持多语句查询。<b>运行部分存储程序时可能会失败！</b>请使用改进的 'mysqli' "
+"扩展避免此类问题发生。"
 
 #: libraries/rte/rte_routines.lib.php:247
 #: libraries/rte/rte_routines.lib.php:994
