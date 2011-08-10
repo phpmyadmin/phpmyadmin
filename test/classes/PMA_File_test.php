@@ -48,6 +48,16 @@ class PMA_File_test extends PHPUnit_Framework_TestCase
         }
     }
 
+    /**
+     * @dataProvider compressedFiles
+     */
+    public function testBinaryContent($file, $mime)
+    {
+        $data = '0x' . bin2hex(file_get_contents($file));
+        $file = new PMA_File($file);
+        $this->assertEquals($data, $file->getContent());
+    }
+
     public function compressedFiles() {
         return array(
             array('./test/test_data/test.gz', 'application/gzip'),
