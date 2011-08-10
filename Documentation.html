@@ -118,9 +118,9 @@ vim: expandtab ts=4 sw=4 sts=4 tw=78
     title="International Electrotechnical Commission">IEC</abbr> 26300 -
     OpenDocument Text and Spreadsheet,
     <abbr title="Microsoft Word 2000">Word</abbr>,
-    <abbr title="Microsoft Excel 97-2003 and Excel 2007">Excel</abbr> and L<sup>A</sup>T<sub><big>E</big></sub>X formats
+    and L<sup>A</sup>T<sub><big>E</big></sub>X formats
         </li>
-    <li>import data and MySQL structures from <abbr title="Microsoft Excel 97-2003 and Excel 2007">Microsoft Excel</abbr> and OpenDocument spreadsheets, as well as <abbr title="Extensible Markup Language">XML</abbr>, <abbr title="Comma Separated Values">CSV</abbr>, and <abbr title="Server Query Language">SQL</abbr> files</li>
+    <li>import data and MySQL structures from OpenDocument spreadsheets, as well as <abbr title="Extensible Markup Language">XML</abbr>, <abbr title="Comma Separated Values">CSV</abbr>, and <abbr title="Server Query Language">SQL</abbr> files</li>
     <li>administer multiple servers</li>
     <li>manage MySQL users and privileges</li>
     <li>check referential integrity in MyISAM tables</li>
@@ -3434,27 +3434,13 @@ have either the <a href="http://pecl.php.net/package/APC">APC</a> extension
 <!-- Begin: Excel import limitations -->
 
 <h4 id="faq3_15">
-    <a href="#faq3_15">3.15 When I import an Excel spreadsheet, some cells with calculations do not display correctly.</a></h4>
-<p>
-    phpMyAdmin uses the <a href="http://www.codeplex.com/PHPExcel/">PHPExcel</a> library to parse Excel XLS and XLSX spreadsheets. 
-    Therefore, any limitations that are listed on their page regarding Excel calculations will also apply here.
-    <br /><br />
-    PHPExcel will be kept up to date so as to make all improvements available to phpMyAdmin users.
-</p>
+    <a href="#faq3_15">3.15 (withdrawn).</a></h4>
 
 <h4 id="faq3_16">
-    <a href="#faq3_16">3.16 When I compress (gzip, bzip2, zip) an Excel workbook and attempt to import it, nothing happens.</a></h4>
-<p>
-    Since Excel XLSX workbooks are already compressed, there is often times only a small benefit from compressing them yet again. 
-    Support for compressed Excel XLSX and XLS workbooks may be added in the future.
-</p>
+    <a href="#faq3_16">3.16 (withdrawn).</a></h4>
 
 <h4 id="faq3_17">
-    <a href="#faq3_17">3.17 When I import an Excel spreadsheet, my custom cell types are not represented as they are in Excel.</a></h4>
-<p>
-    Excel's internal representation of custom cell types is rather muddled (especially in Excel 97-2003 binary XLS files). If possible,
-    consider using a built-in type. These are almost always guarenteed to import correctly.
-</p>
+    <a href="#faq3_17">3.17 (withdrawn).</a></h4>
 
 <!-- End: Excel import limitations -->
 <!-- Begin: CSV import limitations -->
@@ -4207,22 +4193,14 @@ INSERT INTO REL_towns VALUES ('M', 'Montr&eacute;al');
 </p>
 
 <h4 id="faq6_23">
-    <a href="#faq6_23">6.23 Export: I heard phpMyAdmin can export Microsoft
-    Excel files, how can I enable that?</a></h4>
+    <a href="#faq6_23">6.23 Export: I heard phpMyAdmin can export Microsoft Excel files?</a></h4>
 
 <p> You can use
     <abbr title="comma separated values">CSV</abbr> for Microsoft Excel,
-    which works out of the box, but phpMyAdmin supports direct export 
-    to Microsoft Excel version 97 and newer.  For this to work, you need to set
-    <a href="#cfg_TempDir" class="configrule">$cfg['TempDir']</a> to a
-    place where the web server user can write (for example <tt>'./tmp'</tt>).</p>
-<p> To create the temporary directory on a UNIX-based system, you can do:</p>
-
-<pre>
-cd phpMyAdmin
-mkdir tmp
-chmod o+rwx tmp
-</pre>
+    which works out of the box.<br />
+    Since phpMyAdmin 3.4.5 support for direct export to Microsoft Excel 
+    version 97 and newer was dropped.
+</p>
 
 <h4 id="faq6_24">
     <a href="#faq6_24">6.24 Now that phpMyAdmin supports native MySQL 4.1.x column comments,

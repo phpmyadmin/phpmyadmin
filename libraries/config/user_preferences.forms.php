@@ -148,12 +148,6 @@ $forms['Import']['Csv'] = array(
         'Import/ldi_enclosed',
         'Import/ldi_escaped',
         'Import/ldi_local_option');
-$forms['Import']['Microsoft_Office'] = array(
-    ':group:' . __('Excel 97-2003 XLS Workbook'),
-        'Import/xls_col_names',
-        ':group:end',
-    ':group:' . __('Excel 2007 XLSX Workbook'),
-        'Import/xlsx_col_names');
 $forms['Import']['Open_Document'] = array(
     ':group:' . __('Open Document Spreadsheet'),
         'Import/ods_col_names',
@@ -242,14 +236,6 @@ $forms['Export']['Latex'] = array(
         'Export/latex_data_label',
         'Export/latex_null');
 $forms['Export']['Microsoft_Office'] = array(
-    ':group:' . __('Excel 97-2003 XLS Workbook'),
-        'Export/xls_null',
-        'Export/xls_columns',
-        ':group:end',
-    ':group:' . __('Excel 2007 XLSX Workbook'),
-        'Export/xlsx_null',
-        'Export/xlsx_columns',
-        ':group:end',
     ':group:' . __('Microsoft Word 2000'),
         'Export/htmlword_structure_or_data',
         'Export/htmlword_null',
