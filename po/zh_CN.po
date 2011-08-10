@@ -7093,10 +7093,9 @@ msgid "There are no routines to display."
 msgstr "没有程序。"
 
 #: libraries/rte/rte_words.lib.php:30
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add trigger"
-msgstr "添加服务器"
+msgstr "添加触发器"
 
 #: libraries/rte/rte_words.lib.php:32
 #, fuzzy, php-format
