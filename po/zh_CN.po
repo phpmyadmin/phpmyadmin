@@ -6921,10 +6921,9 @@ msgid "Length/Values"
 msgstr "长度/值"
 
 #: libraries/rte/rte_routines.lib.php:866
-#, fuzzy
 #| msgid "Add prefix"
 msgid "Add parameter"
-msgstr "添加前缀"
+msgstr "添加参数"
 
 #: libraries/rte/rte_routines.lib.php:870
 #, fuzzy
