@@ -24,11 +24,11 @@ CodeMirror.defineMode("mysql", function(config, parserConfig) {
       return chain(stream, state, tokenString(ch));
     // is it one of the special signs []{}().,;? Seperator?
     else if (/[\[\]{}\(\),;\.]/.test(ch))
-      return ret(ch);
+      return ret(ch, "separator");
     // start of a number value?
     else if (/\d/.test(ch)) {
-      stream.eatWhile(/[\w\.]/)
-      return ret("number", "mysql-number");
+      stream.eatWhile(/[\w\.]/);
+      return ret("number", "number");
     }
     // multi line comment or simple operator?
     else if (ch == "/") {
@@ -37,41 +37,41 @@ CodeMirror.defineMode("mysql", function(config, parserConfig) {
       }
       else {
         stream.eatWhile(isOperatorChar);
-        return ret("operator", "mysql-operator");
+        return ret("operator", "operator");
       }
     }
     // single line comment or simple operator?
     else if (ch == "-") {
       if (stream.eat("-")) {
         stream.skipToEnd();
-        return ret("comment", "mysql-comment");
+        return ret("comment", "comment");
       }
       else {
         stream.eatWhile(isOperatorChar);
-        return ret("operator", "mysql-operator");
+        return ret("operator", "operator");
       }
     }
     // pl/sql variable?
     else if (ch == "@" || ch == "$") {
       stream.eatWhile(/[\w\d\$_]/);
-      return ret("word", "mysql-var");
+      return ret("word", "variable");
     }
     // is it a operator?
     else if (isOperatorChar.test(ch)) {
       stream.eatWhile(isOperatorChar);
-      return ret("operator", "mysql-operator");
+      return ret("operator", "operator");
     }
     else {
       // get the whole word
       stream.eatWhile(/[\w\$_]/);
       // is it one of the listed keywords?
-      if (keywords && keywords.propertyIsEnumerable(stream.current().toLowerCase())) return ret("keyword", "mysql-keyword");
+      if (keywords && keywords.propertyIsEnumerable(stream.current().toLowerCase())) return ret("keyword", "keyword");
       // is it one of the listed functions?
-      if (functions && functions.propertyIsEnumerable(stream.current().toLowerCase())) return ret("keyword", "mysql-function");
+      if (functions && functions.propertyIsEnumerable(stream.current().toLowerCase())) return ret("keyword", "builtin");
       // is it one of the listed types?
-      if (types && types.propertyIsEnumerable(stream.current().toLowerCase())) return ret("keyword", "mysql-type");
+      if (types && types.propertyIsEnumerable(stream.current().toLowerCase())) return ret("keyword", "variable-2");
       // is it one of the listed attributes?
-      if (attributes && attributes.propertyIsEnumerable(stream.current().toLowerCase())) return ret("keyword", "mysql-attribute");
+      if (attributes && attributes.propertyIsEnumerable(stream.current().toLowerCase())) return ret("keyword", "variable-3");
       // default: just a "word"
       return ret("word", "mysql-word");
     }
@@ -108,7 +108,6 @@ CodeMirror.defineMode("mysql", function(config, parserConfig) {
     startState: function(basecolumn) {
       return {
         tokenize: tokenBase,
-        indented: 0,
         startOfLine: true
       };
     },
