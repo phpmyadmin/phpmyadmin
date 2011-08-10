@@ -10594,10 +10594,9 @@ msgid "Redraw"
 msgstr "重绘"
 
 #: tbl_gis_visualization.php:206
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save to file"
-msgstr "另存为文件"
+msgstr "保存文件"
 
 #: tbl_gis_visualization.php:207
 #, fuzzy
