@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-10 13:11+0200\n"
+"POT-Creation-Date: 2011-08-10 13:16+0200\n"
 "PO-Revision-Date: 2010-07-21 14:51+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: albanian <sq@li.org>\n"
@@ -2703,6 +2703,7 @@ msgid "Missing parameter:"
 msgstr ""
 
 #: libraries/common.lib.php:2253 libraries/common.lib.php:2256
+#: libraries/display_tbl.lib.php:306
 #, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
@@ -2710,7 +2711,8 @@ msgid "Begin"
 msgstr "Fillim"
 
 #: libraries/common.lib.php:2254 libraries/common.lib.php:2257
-#: server_binlog.php:135 server_binlog.php:137
+#: libraries/display_tbl.lib.php:307 server_binlog.php:135
+#: server_binlog.php:137
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
@@ -2718,7 +2720,8 @@ msgid "Previous"
 msgstr "Paraardhësi"
 
 #: libraries/common.lib.php:2283 libraries/common.lib.php:2286
-#: server_binlog.php:170 server_binlog.php:172
+#: libraries/display_tbl.lib.php:370 server_binlog.php:170
+#: server_binlog.php:172
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
@@ -2726,6 +2729,7 @@ msgid "Next"
 msgstr "Në vazhdim"
 
 #: libraries/common.lib.php:2284 libraries/common.lib.php:2287
+#: libraries/display_tbl.lib.php:385
 #, fuzzy
 #| msgid "End"
 msgctxt "Last page"
@@ -5477,22 +5481,6 @@ msgstr ""
 msgid "Language"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:306
-msgid "Begin"
-msgstr "Fillim"
-
-#: libraries/display_tbl.lib.php:307
-msgid "Previous"
-msgstr "Paraardhësi"
-
-#: libraries/display_tbl.lib.php:370
-msgid "Next"
-msgstr "Në vazhdim"
-
-#: libraries/display_tbl.lib.php:385 libraries/rte/rte_events.lib.php:457
-msgid "End"
-msgstr "Fund"
-
 #: libraries/display_tbl.lib.php:401
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
@@ -7037,8 +7025,16 @@ msgstr "Zbaton query nga libërshënuesi"
 
 #: libraries/rte/rte_events.lib.php:449
 #, fuzzy
+msgctxt "Start of recurring event"
 msgid "Start"
 msgstr "Gjendja"
+
+#: libraries/rte/rte_events.lib.php:457
+#, fuzzy
+#| msgid "End"
+msgctxt "End of recurring event"
+msgid "End"
+msgstr "Fund"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:912
 #: libraries/rte/rte_triggers.lib.php:354
@@ -11407,6 +11403,15 @@ msgstr ""
 #, fuzzy
 msgid "Rename view to"
 msgstr "Riemërto tabelën në"
+
+#~ msgid "Begin"
+#~ msgstr "Fillim"
+
+#~ msgid "Previous"
+#~ msgstr "Paraardhësi"
+
+#~ msgid "Next"
+#~ msgstr "Në vazhdim"
 
 #, fuzzy
 #~ msgid "Create event"

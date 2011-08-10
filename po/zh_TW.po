@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-10 13:11+0200\n"
+"POT-Creation-Date: 2011-08-10 13:16+0200\n"
 "PO-Revision-Date: 2011-06-19 09:59+0200\n"
 "Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
@@ -2580,6 +2580,7 @@ msgid "Missing parameter:"
 msgstr "一般"
 
 #: libraries/common.lib.php:2253 libraries/common.lib.php:2256
+#: libraries/display_tbl.lib.php:306
 #, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
@@ -2587,7 +2588,8 @@ msgid "Begin"
 msgstr "開始"
 
 #: libraries/common.lib.php:2254 libraries/common.lib.php:2257
-#: server_binlog.php:135 server_binlog.php:137
+#: libraries/display_tbl.lib.php:307 server_binlog.php:135
+#: server_binlog.php:137
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
@@ -2596,7 +2598,8 @@ msgstr "上一個"
 
 # 這應該使用於選擇日期的小月曆
 #: libraries/common.lib.php:2283 libraries/common.lib.php:2286
-#: server_binlog.php:170 server_binlog.php:172
+#: libraries/display_tbl.lib.php:370 server_binlog.php:170
+#: server_binlog.php:172
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
@@ -2604,6 +2607,7 @@ msgid "Next"
 msgstr "下個月"
 
 #: libraries/common.lib.php:2284 libraries/common.lib.php:2287
+#: libraries/display_tbl.lib.php:385
 #, fuzzy
 #| msgid "End"
 msgctxt "Last page"
@@ -5294,23 +5298,6 @@ msgstr "格式特定選項："
 msgid "Language"
 msgstr "Language"
 
-#: libraries/display_tbl.lib.php:306
-msgid "Begin"
-msgstr "開始"
-
-#: libraries/display_tbl.lib.php:307
-msgid "Previous"
-msgstr "上一個"
-
-# 這應該使用於選擇日期的小月曆
-#: libraries/display_tbl.lib.php:370
-msgid "Next"
-msgstr "下個月"
-
-#: libraries/display_tbl.lib.php:385 libraries/rte/rte_events.lib.php:457
-msgid "End"
-msgstr "結束"
-
 #: libraries/display_tbl.lib.php:401
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
@@ -6851,8 +6838,16 @@ msgstr ""
 #: libraries/rte/rte_events.lib.php:449
 #, fuzzy
 #| msgid "Startup"
+msgctxt "Start of recurring event"
 msgid "Start"
 msgstr "起始頁"
+
+#: libraries/rte/rte_events.lib.php:457
+#, fuzzy
+#| msgid "End"
+msgctxt "End of recurring event"
+msgid "End"
+msgstr "結束"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:912
 #: libraries/rte/rte_triggers.lib.php:354
@@ -11159,6 +11154,16 @@ msgstr " view名"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "將 view改名爲"
+
+#~ msgid "Begin"
+#~ msgstr "開始"
+
+#~ msgid "Previous"
+#~ msgstr "上一個"
+
+# 這應該使用於選擇日期的小月曆
+#~ msgid "Next"
+#~ msgstr "下個月"
 
 #, fuzzy
 #~ msgid "Create event"

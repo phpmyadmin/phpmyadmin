@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-10 13:11+0200\n"
+"POT-Creation-Date: 2011-08-10 13:16+0200\n"
 "PO-Revision-Date: 2011-03-26 03:23+0200\n"
 "Last-Translator: <efgpinto@gmail.com>\n"
 "Language-Team: portuguese <pt@li.org>\n"
@@ -2677,6 +2677,7 @@ msgid "Missing parameter:"
 msgstr ""
 
 #: libraries/common.lib.php:2253 libraries/common.lib.php:2256
+#: libraries/display_tbl.lib.php:306
 #, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
@@ -2684,7 +2685,8 @@ msgid "Begin"
 msgstr "Inicio"
 
 #: libraries/common.lib.php:2254 libraries/common.lib.php:2257
-#: server_binlog.php:135 server_binlog.php:137
+#: libraries/display_tbl.lib.php:307 server_binlog.php:135
+#: server_binlog.php:137
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
@@ -2692,7 +2694,8 @@ msgid "Previous"
 msgstr "Anterior"
 
 #: libraries/common.lib.php:2283 libraries/common.lib.php:2286
-#: server_binlog.php:170 server_binlog.php:172
+#: libraries/display_tbl.lib.php:370 server_binlog.php:170
+#: server_binlog.php:172
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
@@ -2700,6 +2703,7 @@ msgid "Next"
 msgstr "Próximo"
 
 #: libraries/common.lib.php:2284 libraries/common.lib.php:2287
+#: libraries/display_tbl.lib.php:385
 #, fuzzy
 #| msgid "End"
 msgctxt "Last page"
@@ -5463,22 +5467,6 @@ msgstr ""
 msgid "Language"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:306
-msgid "Begin"
-msgstr "Inicio"
-
-#: libraries/display_tbl.lib.php:307
-msgid "Previous"
-msgstr "Anterior"
-
-#: libraries/display_tbl.lib.php:370
-msgid "Next"
-msgstr "Próximo"
-
-#: libraries/display_tbl.lib.php:385 libraries/rte/rte_events.lib.php:457
-msgid "End"
-msgstr "Fim"
-
 #: libraries/display_tbl.lib.php:401
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
@@ -7020,8 +7008,16 @@ msgstr ""
 
 #: libraries/rte/rte_events.lib.php:449
 #, fuzzy
+msgctxt "Start of recurring event"
 msgid "Start"
 msgstr "Estado"
+
+#: libraries/rte/rte_events.lib.php:457
+#, fuzzy
+#| msgid "End"
+msgctxt "End of recurring event"
+msgid "End"
+msgstr "Fim"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:912
 #: libraries/rte/rte_triggers.lib.php:354
@@ -11325,6 +11321,15 @@ msgstr ""
 #, fuzzy
 msgid "Rename view to"
 msgstr "Renomeia a vista para "
+
+#~ msgid "Begin"
+#~ msgstr "Inicio"
+
+#~ msgid "Previous"
+#~ msgstr "Anterior"
+
+#~ msgid "Next"
+#~ msgstr "Próximo"
 
 #, fuzzy
 #~ msgid "Create event"

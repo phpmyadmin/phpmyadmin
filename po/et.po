@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-10 13:11+0200\n"
+"POT-Creation-Date: 2011-08-10 13:16+0200\n"
 "PO-Revision-Date: 2010-03-12 09:14+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: estonian <et@li.org>\n"
@@ -2739,6 +2739,7 @@ msgid "Missing parameter:"
 msgstr "Lisa uus väli"
 
 #: libraries/common.lib.php:2253 libraries/common.lib.php:2256
+#: libraries/display_tbl.lib.php:306
 #, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
@@ -2746,7 +2747,8 @@ msgid "Begin"
 msgstr "Algus"
 
 #: libraries/common.lib.php:2254 libraries/common.lib.php:2257
-#: server_binlog.php:135 server_binlog.php:137
+#: libraries/display_tbl.lib.php:307 server_binlog.php:135
+#: server_binlog.php:137
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
@@ -2754,7 +2756,8 @@ msgid "Previous"
 msgstr "Eelmine"
 
 #: libraries/common.lib.php:2283 libraries/common.lib.php:2286
-#: server_binlog.php:170 server_binlog.php:172
+#: libraries/display_tbl.lib.php:370 server_binlog.php:170
+#: server_binlog.php:172
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
@@ -2762,6 +2765,7 @@ msgid "Next"
 msgstr "Järgmine"
 
 #: libraries/common.lib.php:2284 libraries/common.lib.php:2287
+#: libraries/display_tbl.lib.php:385
 #, fuzzy
 #| msgid "End"
 msgctxt "Last page"
@@ -5566,22 +5570,6 @@ msgstr ""
 msgid "Language"
 msgstr "Keel"
 
-#: libraries/display_tbl.lib.php:306
-msgid "Begin"
-msgstr "Algus"
-
-#: libraries/display_tbl.lib.php:307
-msgid "Previous"
-msgstr "Eelmine"
-
-#: libraries/display_tbl.lib.php:370
-msgid "Next"
-msgstr "Järgmine"
-
-#: libraries/display_tbl.lib.php:385 libraries/rte/rte_events.lib.php:457
-msgid "End"
-msgstr "Lõpp"
-
 #: libraries/display_tbl.lib.php:401
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
@@ -7150,8 +7138,16 @@ msgstr "Käivita salvestatud päring"
 
 #: libraries/rte/rte_events.lib.php:449
 #, fuzzy
+msgctxt "Start of recurring event"
 msgid "Start"
 msgstr "Staatus"
+
+#: libraries/rte/rte_events.lib.php:457
+#, fuzzy
+#| msgid "End"
+msgctxt "End of recurring event"
+msgid "End"
+msgstr "Lõpp"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:912
 #: libraries/rte/rte_triggers.lib.php:354
@@ -11662,6 +11658,15 @@ msgstr ""
 #, fuzzy
 msgid "Rename view to"
 msgstr "Nimeta tabel ümber"
+
+#~ msgid "Begin"
+#~ msgstr "Algus"
+
+#~ msgid "Previous"
+#~ msgstr "Eelmine"
+
+#~ msgid "Next"
+#~ msgstr "Järgmine"
 
 #, fuzzy
 #~ msgid "Create event"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-10 13:11+0200\n"
+"POT-Creation-Date: 2011-08-10 13:16+0200\n"
 "PO-Revision-Date: 2011-07-24 19:04+0200\n"
 "Last-Translator:  <deadefy@nepalimail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
@@ -2619,6 +2619,7 @@ msgid "Missing parameter:"
 msgstr "नियमित कार्य"
 
 #: libraries/common.lib.php:2253 libraries/common.lib.php:2256
+#: libraries/display_tbl.lib.php:306
 #, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
@@ -2626,7 +2627,8 @@ msgid "Begin"
 msgstr "प्रारंभ"
 
 #: libraries/common.lib.php:2254 libraries/common.lib.php:2257
-#: server_binlog.php:135 server_binlog.php:137
+#: libraries/display_tbl.lib.php:307 server_binlog.php:135
+#: server_binlog.php:137
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
@@ -2634,7 +2636,8 @@ msgid "Previous"
 msgstr "पिछला"
 
 #: libraries/common.lib.php:2283 libraries/common.lib.php:2286
-#: server_binlog.php:170 server_binlog.php:172
+#: libraries/display_tbl.lib.php:370 server_binlog.php:170
+#: server_binlog.php:172
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
@@ -2642,6 +2645,7 @@ msgid "Next"
 msgstr " अगला"
 
 #: libraries/common.lib.php:2284 libraries/common.lib.php:2287
+#: libraries/display_tbl.lib.php:385
 #, fuzzy
 #| msgid "End"
 msgctxt "Last page"
@@ -5323,22 +5327,6 @@ msgstr "प्रारूप निर्दिष्ट विकल्पो�
 msgid "Language"
 msgstr "भाषा"
 
-#: libraries/display_tbl.lib.php:306
-msgid "Begin"
-msgstr "प्रारंभ"
-
-#: libraries/display_tbl.lib.php:307
-msgid "Previous"
-msgstr "पिछला"
-
-#: libraries/display_tbl.lib.php:370
-msgid "Next"
-msgstr " अगला"
-
-#: libraries/display_tbl.lib.php:385 libraries/rte/rte_events.lib.php:457
-msgid "End"
-msgstr "आखरी"
-
 #: libraries/display_tbl.lib.php:401
 #, fuzzy
 #| msgid "Textarea columns"
@@ -6866,8 +6854,16 @@ msgstr ""
 #: libraries/rte/rte_events.lib.php:449
 #, fuzzy
 #| msgid "Startup"
+msgctxt "Start of recurring event"
 msgid "Start"
 msgstr "स्टार्टअप"
+
+#: libraries/rte/rte_events.lib.php:457
+#, fuzzy
+#| msgid "End"
+msgctxt "End of recurring event"
+msgid "End"
+msgstr "आखरी"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:912
 #: libraries/rte/rte_triggers.lib.php:354
@@ -11100,6 +11096,15 @@ msgstr "दृश्य का नाम"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "दृश्य का नाम बदलो"
+
+#~ msgid "Begin"
+#~ msgstr "प्रारंभ"
+
+#~ msgid "Previous"
+#~ msgstr "पिछला"
+
+#~ msgid "Next"
+#~ msgstr " अगला"
 
 #, fuzzy
 #~ msgid "Create event"

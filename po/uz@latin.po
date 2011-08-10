@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-10 13:11+0200\n"
+"POT-Creation-Date: 2011-08-10 13:16+0200\n"
 "PO-Revision-Date: 2010-07-22 02:30+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: uzbek_latin <uz@latin@li.org>\n"
@@ -2804,6 +2804,7 @@ msgid "Missing parameter:"
 msgstr "Muolajalar"
 
 #: libraries/common.lib.php:2253 libraries/common.lib.php:2256
+#: libraries/display_tbl.lib.php:306
 #, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
@@ -2811,7 +2812,8 @@ msgid "Begin"
 msgstr "Boshi"
 
 #: libraries/common.lib.php:2254 libraries/common.lib.php:2257
-#: server_binlog.php:135 server_binlog.php:137
+#: libraries/display_tbl.lib.php:307 server_binlog.php:135
+#: server_binlog.php:137
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
@@ -2819,7 +2821,8 @@ msgid "Previous"
 msgstr "Orqaga"
 
 #: libraries/common.lib.php:2283 libraries/common.lib.php:2286
-#: server_binlog.php:170 server_binlog.php:172
+#: libraries/display_tbl.lib.php:370 server_binlog.php:170
+#: server_binlog.php:172
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
@@ -2827,6 +2830,7 @@ msgid "Next"
 msgstr "Keyingi"
 
 #: libraries/common.lib.php:2284 libraries/common.lib.php:2287
+#: libraries/display_tbl.lib.php:385
 #, fuzzy
 #| msgid "End"
 msgctxt "Last page"
@@ -5876,22 +5880,6 @@ msgstr ""
 msgid "Language"
 msgstr "Til"
 
-#: libraries/display_tbl.lib.php:306
-msgid "Begin"
-msgstr "Boshi"
-
-#: libraries/display_tbl.lib.php:307
-msgid "Previous"
-msgstr "Orqaga"
-
-#: libraries/display_tbl.lib.php:370
-msgid "Next"
-msgstr "Keyingi"
-
-#: libraries/display_tbl.lib.php:385 libraries/rte/rte_events.lib.php:457
-msgid "End"
-msgstr "Oxiri"
-
 #: libraries/display_tbl.lib.php:401
 #, fuzzy
 #| msgid "CHAR textarea columns"
@@ -7536,8 +7524,16 @@ msgstr "Belgilangan so‘rovni bajarish"
 #: libraries/rte/rte_events.lib.php:449
 #, fuzzy
 #| msgid "Startup"
+msgctxt "Start of recurring event"
 msgid "Start"
 msgstr "Boshlang‘ich"
+
+#: libraries/rte/rte_events.lib.php:457
+#, fuzzy
+#| msgid "End"
+msgctxt "End of recurring event"
+msgid "End"
+msgstr "Oxiri"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:912
 #: libraries/rte/rte_triggers.lib.php:354
@@ -12340,6 +12336,15 @@ msgstr "Nom ko‘rinishi"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Ko‘rinish nomini o‘zgartirish"
+
+#~ msgid "Begin"
+#~ msgstr "Boshi"
+
+#~ msgid "Previous"
+#~ msgstr "Orqaga"
+
+#~ msgid "Next"
+#~ msgstr "Keyingi"
 
 #, fuzzy
 #~ msgid "Create event"

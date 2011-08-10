@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-10 13:11+0200\n"
+"POT-Creation-Date: 2011-08-10 13:16+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2500,23 +2500,27 @@ msgid "Missing parameter:"
 msgstr ""
 
 #: libraries/common.lib.php:2253 libraries/common.lib.php:2256
+#: libraries/display_tbl.lib.php:306
 msgctxt "First page"
 msgid "Begin"
 msgstr ""
 
 #: libraries/common.lib.php:2254 libraries/common.lib.php:2257
-#: server_binlog.php:135 server_binlog.php:137
+#: libraries/display_tbl.lib.php:307 server_binlog.php:135
+#: server_binlog.php:137
 msgctxt "Previous page"
 msgid "Previous"
 msgstr ""
 
 #: libraries/common.lib.php:2283 libraries/common.lib.php:2286
-#: server_binlog.php:170 server_binlog.php:172
+#: libraries/display_tbl.lib.php:370 server_binlog.php:170
+#: server_binlog.php:172
 msgctxt "Next page"
 msgid "Next"
 msgstr ""
 
 #: libraries/common.lib.php:2284 libraries/common.lib.php:2287
+#: libraries/display_tbl.lib.php:385
 msgctxt "Last page"
 msgid "End"
 msgstr ""
@@ -5112,22 +5116,6 @@ msgstr ""
 msgid "Language"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:306
-msgid "Begin"
-msgstr ""
-
-#: libraries/display_tbl.lib.php:307
-msgid "Previous"
-msgstr ""
-
-#: libraries/display_tbl.lib.php:370
-msgid "Next"
-msgstr ""
-
-#: libraries/display_tbl.lib.php:385 libraries/rte/rte_events.lib.php:457
-msgid "End"
-msgstr ""
-
 #: libraries/display_tbl.lib.php:401
 msgid "Restore column order"
 msgstr ""
@@ -6587,7 +6575,13 @@ msgid "Execute every"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:449
+msgctxt "Start of recurring event"
 msgid "Start"
+msgstr ""
+
+#: libraries/rte/rte_events.lib.php:457
+msgctxt "End of recurring event"
+msgid "End"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:912

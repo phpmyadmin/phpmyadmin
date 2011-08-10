@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-10 13:11+0200\n"
+"POT-Creation-Date: 2011-08-10 13:16+0200\n"
 "PO-Revision-Date: 2011-08-08 18:05+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
@@ -2573,6 +2573,7 @@ msgid "Missing parameter:"
 msgstr "Trūkstamas parametras:"
 
 #: libraries/common.lib.php:2253 libraries/common.lib.php:2256
+#: libraries/display_tbl.lib.php:306
 #, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
@@ -2580,7 +2581,8 @@ msgid "Begin"
 msgstr "Pradžia"
 
 #: libraries/common.lib.php:2254 libraries/common.lib.php:2257
-#: server_binlog.php:135 server_binlog.php:137
+#: libraries/display_tbl.lib.php:307 server_binlog.php:135
+#: server_binlog.php:137
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
@@ -2588,7 +2590,8 @@ msgid "Previous"
 msgstr "Ankstesnis"
 
 #: libraries/common.lib.php:2283 libraries/common.lib.php:2286
-#: server_binlog.php:170 server_binlog.php:172
+#: libraries/display_tbl.lib.php:370 server_binlog.php:170
+#: server_binlog.php:172
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
@@ -2596,6 +2599,7 @@ msgid "Next"
 msgstr "Kitas"
 
 #: libraries/common.lib.php:2284 libraries/common.lib.php:2287
+#: libraries/display_tbl.lib.php:385
 #, fuzzy
 #| msgid "End"
 msgctxt "Last page"
@@ -5338,22 +5342,6 @@ msgstr "Formato specifiniai nustatymai:"
 msgid "Language"
 msgstr "Kalba"
 
-#: libraries/display_tbl.lib.php:306
-msgid "Begin"
-msgstr "Pradžia"
-
-#: libraries/display_tbl.lib.php:307
-msgid "Previous"
-msgstr "Ankstesnis"
-
-#: libraries/display_tbl.lib.php:370
-msgid "Next"
-msgstr "Kitas"
-
-#: libraries/display_tbl.lib.php:385 libraries/rte/rte_events.lib.php:457
-msgid "End"
-msgstr "Pabaiga"
-
 #: libraries/display_tbl.lib.php:401
 msgid "Restore column order"
 msgstr "Atstatyti stulpelių rikiavimą"
@@ -6873,8 +6861,18 @@ msgid "Execute every"
 msgstr "Vykdyti kas"
 
 #: libraries/rte/rte_events.lib.php:449
+#, fuzzy
+#| msgid "Start"
+msgctxt "Start of recurring event"
 msgid "Start"
 msgstr "Paleisti"
+
+#: libraries/rte/rte_events.lib.php:457
+#, fuzzy
+#| msgid "End"
+msgctxt "End of recurring event"
+msgid "End"
+msgstr "Pabaiga"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:912
 #: libraries/rte/rte_triggers.lib.php:354
@@ -11118,6 +11116,15 @@ msgstr "VIEW pavadinimas"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Pervadinti rodinį į"
+
+#~ msgid "Begin"
+#~ msgstr "Pradžia"
+
+#~ msgid "Previous"
+#~ msgstr "Ankstesnis"
+
+#~ msgid "Next"
+#~ msgstr "Kitas"
 
 #~ msgid "Create event"
 #~ msgstr "Sukurti įvykį"
