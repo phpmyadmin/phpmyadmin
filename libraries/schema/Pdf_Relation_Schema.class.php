@@ -889,9 +889,6 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     {
         global $pdf, $db, $cfgRelation;
 
-        $pdf->SetFontSize(14);
-        $pdf->SetLineWidth(0.2);
-        $pdf->SetDisplayMode('fullpage');
         // Get the name of this pdfpage to use as filename
         $_name_sql = 'SELECT page_descr FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
                     . ' WHERE page_nr = ' . $pageNumber;
