@@ -29,7 +29,6 @@ class PMA_Schema_PDF extends PMA_PDF
     var $PMA_links;
     var $Outlines = array();
     var $def_outlines;
-    var $Alias = array();
     var $widths;
     private $_ff = PMA_PDF_FONT;
 
@@ -46,22 +45,6 @@ class PMA_Schema_PDF extends PMA_PDF
     public function setCMargin($c_margin)
     {
         $this->cMargin = $c_margin;
-    }
-
-    function SetAlias($name, $value)
-    {
-        $this->Alias[$this->UTF8ToUTF16BE($name)] = $this->UTF8ToUTF16BE($value);
-    }
-
-    function _putpages()
-    {
-        if (count($this->Alias) > 0) {
-            $nb = count($this->pages);
-            for ($n = 1;$n <= $nb;$n++) {
-                $this->pages[$n] = strtr($this->pages[$n], $this->Alias);
-            }
-        }
-        parent::_putpages();
     }
 
     /**

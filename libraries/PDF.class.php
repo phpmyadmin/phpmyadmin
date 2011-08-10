@@ -17,6 +17,7 @@ define('PMA_PDF_FONT', 'DejaVuSans');
 class PMA_PDF extends TCPDF
 {
     var $footerset;
+    var $Alias = array();
 
     public function __construct($orientation='P', $unit='mm', $format='A4', $unicode=true, $encoding='UTF-8', $diskcache=false)
     {
@@ -47,5 +48,27 @@ class PMA_PDF extends TCPDF
             // set footerset
             $this->footerset[$this->page] = 1;
         }
+    }
+
+    /**
+     * Function to set alias which will be expanded on page rendering.
+     */
+    function SetAlias($name, $value)
+    {
+        $this->Alias[$this->UTF8ToUTF16BE($name)] = $this->UTF8ToUTF16BE($value);
+    }
+
+    /**
+     * Improved with alias expading.
+     */
+    function _putpages()
+    {
+        if (count($this->Alias) > 0) {
+            $nb = count($this->pages);
+            for ($n = 1;$n <= $nb;$n++) {
+                $this->pages[$n] = strtr($this->pages[$n], $this->Alias);
+            }
+        }
+        parent::_putpages();
     }
 }
