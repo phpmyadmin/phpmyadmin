@@ -1205,10 +1205,9 @@ msgid "Bytes sent"
 msgstr "Bytes enviados"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "Recibido"
+msgstr "Bytes recibidos"
 
 #: js/messages.php:114 server_status.php:994
 msgid "Connections"
