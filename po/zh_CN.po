@@ -6811,10 +6811,9 @@ msgstr "开始"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:912
 #: libraries/rte/rte_triggers.lib.php:352
-#, fuzzy
 #| msgid "Description"
 msgid "Definition"
-msgstr "说明"
+msgstr "定义"
 
 #: libraries/rte/rte_events.lib.php:471
 #, fuzzy
