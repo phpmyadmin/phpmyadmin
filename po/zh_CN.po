@@ -2070,7 +2070,7 @@ msgstr "无法保存最近使用的表"
 #: libraries/RecentTable.class.php:142
 #| msgid "Count tables"
 msgid "Recent tables"
-msgstr "最近访问的表"
+msgstr "最近使用的表"
 
 #: libraries/RecentTable.class.php:148
 #| msgid "There are no configured servers"
