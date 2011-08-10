@@ -375,7 +375,7 @@ foreach ($the_tables as $key => $table) {
                 if (isset($showtable['Data_length']) && $showtable['Rows'] > 0 && $mergetable == false) {
                     ?>
             <tr>
-                <td><?php echo __(' Row size '); ?>&nbsp;&oslash;</td>
+                <td><?php echo __('Row size'); ?>&nbsp;&oslash;</td>
                 <td align="right">
                     <?php echo $avg_size . ' ' . $avg_unit . "\n"; ?>
                 </td>

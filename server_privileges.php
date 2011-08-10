@@ -528,7 +528,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
            . '<input type="hidden" name="column_count" value="' . count($columns) . '" />' . "\n"
            . '<fieldset id="fieldset_user_priv">' . "\n"
            . '    <legend>' . __('Table-specific privileges')
-           . PMA_showHint(__(' Note: MySQL privilege names are expressed in English '))
+           . PMA_showHint(__('Note: MySQL privilege names are expressed in English'))
            . '</legend>' . "\n";
 
 
@@ -672,7 +672,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
             . $GLOBALS['url_query'] . '" onclick="setCheckboxes(\'addUsersForm_' . $random_n . '\', false); return false;">'
             . __('Uncheck All') . '</a>)' . "\n"
            . '    </legend>' . "\n"
-           . '    <p><small><i>' . __(' Note: MySQL privilege names are expressed in English ') . '</i></small></p>' . "\n";
+           . '    <p><small><i>' . __('Note: MySQL privilege names are expressed in English') . '</i></small></p>' . "\n";
 
         // Output the Global privilege tables with checkboxes
         foreach ($privTable as $i => $table) {
@@ -1694,7 +1694,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                    . '            <th>' . __('Host') . '</th>' . "\n"
                    . '            <th>' . __('Password') . '</th>' . "\n"
                    . '            <th>' . __('Global privileges') . ' '
-                   . PMA_showHint(__(' Note: MySQL privilege names are expressed in English ')) . '</th>' . "\n"
+                   . PMA_showHint(__('Note: MySQL privilege names are expressed in English')) . '</th>' . "\n"
                    . '            <th>' . __('Grant') . '</th>' . "\n"
                    . '            <th colspan="2">' . __('Action') . '</th>' . "\n";
                 echo '        </tr>' . "\n";
@@ -2173,9 +2173,9 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                 . '        <legend>' . __('Create a new user with the same privileges and ...') . '</legend>' . "\n";
             $choices = array(
                 '4' => __('... keep the old one.'),
-                '1' => __(' ... delete the old one from the user tables.'),
-                '2' => __(' ... revoke all active privileges from the old one and delete it afterwards.'),
-                '3' => __(' ... delete the old one from the user tables and reload the privileges afterwards.'));
+                '1' => __('... delete the old one from the user tables.'),
+                '2' => __('... revoke all active privileges from the old one and delete it afterwards.'),
+                '3' => __('... delete the old one from the user tables and reload the privileges afterwards.'));
             PMA_display_html_radio('mode', $choices, '4', true);
             unset($choices);
 

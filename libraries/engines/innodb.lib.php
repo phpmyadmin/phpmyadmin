@@ -25,7 +25,7 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
             ),
             'innodb_autoextend_increment' => array(
                 'title' => __('Autoextend increment'),
-                'desc'  => __(' The increment size for extending the size of an autoextending tablespace when it becomes full.'),
+                'desc'  => __('The increment size for extending the size of an autoextending tablespace when it becomes full.'),
                 'type'  => PMA_ENGINE_DETAILS_TYPE_NUMERIC,
             ),
             'innodb_buffer_pool_size' => array(

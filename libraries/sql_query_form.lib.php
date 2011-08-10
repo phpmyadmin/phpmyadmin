@@ -343,7 +343,7 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
 
     echo '<input type="checkbox" name="show_query" value="1" '
         .'id="checkbox_show_query" tabindex="132" checked="checked" />' . "\n"
-        .'<label for="checkbox_show_query">' . __(' Show this query here again ')
+        .'<label for="checkbox_show_query">' . __('Show this query here again')
         .'</label>' . "\n";
 
     echo '</div>' . "\n";
