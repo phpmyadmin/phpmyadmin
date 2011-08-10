@@ -470,6 +470,18 @@ if (! function_exists('__')) {
 /* l10n: Text direction, use either ltr or rtl */
 $GLOBALS['text_dir'] = __('ltr');
 
+/* TCPDF */
+$GLOBALS['l'] = array();
+
+/* TCPDF settings */
+$GLOBALS['l']['a_meta_charset'] = 'UTF-8';
+$GLOBALS['l']['a_meta_dir'] = $GLOBALS['text_dir'];
+$GLOBALS['l']['a_meta_language'] = $GLOBALS['lang'];
+
+/* TCPDF translations */
+$GLOBALS['l']['w_page'] = _pgettext('PDF', 'page');
+
+
 // now, that we have loaded the language strings we can send the errors
 if ($GLOBALS['lang_failed_cfg']) {
     trigger_error(
