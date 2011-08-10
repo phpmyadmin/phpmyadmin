@@ -1073,13 +1073,13 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
 
             $pdf->SetFont($this->_ff, 'B');
             if (isset($orientation) && $orientation == 'L') {
-                $pdf->Cell(25, 8, ucfirst(__('Column')), 1, 0, 'C');
-                $pdf->Cell(20, 8, ucfirst(__('Type')), 1, 0, 'C');
-                $pdf->Cell(20, 8, ucfirst(__('Attributes')), 1, 0, 'C');
-                $pdf->Cell(10, 8, ucfirst(__('Null')), 1, 0, 'C');
-                $pdf->Cell(20, 8, ucfirst(__('Default')), 1, 0, 'C');
-                $pdf->Cell(25, 8, ucfirst(__('Extra')), 1, 0, 'C');
-                $pdf->Cell(45, 8, ucfirst(__('Links to')), 1, 0, 'C');
+                $pdf->Cell(25, 8, __('Column'), 1, 0, 'C');
+                $pdf->Cell(20, 8, __('Type'), 1, 0, 'C');
+                $pdf->Cell(20, 8, __('Attributes'), 1, 0, 'C');
+                $pdf->Cell(10, 8, __('Null'), 1, 0, 'C');
+                $pdf->Cell(20, 8, __('Default'), 1, 0, 'C');
+                $pdf->Cell(25, 8, __('Extra'), 1, 0, 'C');
+                $pdf->Cell(45, 8, __('Links to'), 1, 0, 'C');
 
                 if ($paper == 'A4') {
                     $comments_width = 67;
@@ -1090,18 +1090,18 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                      */
                     $comments_width = 50;
                 }
-                $pdf->Cell($comments_width, 8, ucfirst(__('Comments')), 1, 0, 'C');
+                $pdf->Cell($comments_width, 8, __('Comments'), 1, 0, 'C');
                 $pdf->Cell(45, 8, 'MIME', 1, 1, 'C');
                 $pdf->SetWidths(array(25, 20, 20, 10, 20, 25, 45, $comments_width, 45));
             } else {
-                $pdf->Cell(20, 8, ucfirst(__('Column')), 1, 0, 'C');
-                $pdf->Cell(20, 8, ucfirst(__('Type')), 1, 0, 'C');
-                $pdf->Cell(20, 8, ucfirst(__('Attributes')), 1, 0, 'C');
-                $pdf->Cell(10, 8, ucfirst(__('Null')), 1, 0, 'C');
-                $pdf->Cell(15, 8, ucfirst(__('Default')), 1, 0, 'C');
-                $pdf->Cell(15, 8, ucfirst(__('Extra')), 1, 0, 'C');
-                $pdf->Cell(30, 8, ucfirst(__('Links to')), 1, 0, 'C');
-                $pdf->Cell(30, 8, ucfirst(__('Comments')), 1, 0, 'C');
+                $pdf->Cell(20, 8, __('Column'), 1, 0, 'C');
+                $pdf->Cell(20, 8, __('Type'), 1, 0, 'C');
+                $pdf->Cell(20, 8, __('Attributes'), 1, 0, 'C');
+                $pdf->Cell(10, 8, __('Null'), 1, 0, 'C');
+                $pdf->Cell(15, 8, __('Default'), 1, 0, 'C');
+                $pdf->Cell(15, 8, __('Extra'), 1, 0, 'C');
+                $pdf->Cell(30, 8, __('Links to'), 1, 0, 'C');
+                $pdf->Cell(30, 8, __('Comments'), 1, 0, 'C');
                 $pdf->Cell(30, 8, 'MIME', 1, 1, 'C');
                 $pdf->SetWidths(array(20, 20, 20, 10, 15, 15, 30, 30, 30));
             }
