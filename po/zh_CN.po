@@ -10504,10 +10504,9 @@ msgid "Stacked"
 msgstr "堆叠"
 
 #: tbl_chart.php:94
-#, fuzzy
 #| msgid "Report title:"
 msgid "Chart title"
-msgstr "报告标题："
+msgstr "图表标题"
 
 #: tbl_chart.php:100
 msgid "X-Axis:"
