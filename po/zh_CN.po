@@ -6760,7 +6760,7 @@ msgstr "已创建事件 %1$s 。"
 #: libraries/rte/rte_events.lib.php:141 libraries/rte/rte_routines.lib.php:294
 #: libraries/rte/rte_triggers.lib.php:114
 msgid "<b>One or more errors have occured while processing your request:</b>"
-msgstr ""
+msgstr "<b>处理请求时发生错误:</b>"
 
 #: libraries/rte/rte_events.lib.php:185
 #, fuzzy
