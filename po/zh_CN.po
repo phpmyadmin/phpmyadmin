@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-09 16:45+0100\n"
-"PO-Revision-Date: 2011-08-09 09:37+0200\n"
+"PO-Revision-Date: 2011-08-10 08:23+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -555,28 +555,26 @@ msgid "Search in database"
 msgstr "在数据库中搜索"
 
 #: db_search.php:269
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "要查找的文字或数值 (通配符：“%”)："
+msgstr "要查找的内容 (通配符: \"%\"):"
 
 #: db_search.php:274
 msgid "Find:"
-msgstr "查找："
+msgstr "查找:"
 
 #: db_search.php:278 db_search.php:279
 msgid "Words are separated by a space character (\" \")."
-msgstr "每个单词用空格 (“ ”) 分隔。"
+msgstr "每个单词用空格 (\" \") 分隔。"
 
 #: db_search.php:292
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
-msgstr "于以下表："
+msgstr "于下列表:"
 
 #: db_search.php:322
 msgid "Inside column:"
-msgstr "包含字段："
+msgstr "包含字段:"
 
 #: db_structure.php:61
 msgid "No tables found in database"
@@ -1132,10 +1130,9 @@ msgid "Average load"
 msgstr "平均负载"
 
 #: js/messages.php:101
-#, fuzzy
 #| msgid "Log file count"
 msgid "Total memory"
-msgstr "日志文件总数"
+msgstr "内存总数"
 
 #: js/messages.php:102
 msgid "Cached memory"
@@ -9755,65 +9752,57 @@ msgid "The number of threads that are not sleeping."
 msgstr "非睡眠状态的线程数量。"
 
 #: server_status.php:1392
-#, fuzzy
 #| msgid "Textarea rows"
 msgid "Start Monitor"
-msgstr "文本框行"
+msgstr "启动监控"
 
 #: server_status.php:1400
-#, fuzzy
 #| msgid "Introduction"
 msgid "Instructions/Setup"
-msgstr "介绍"
+msgstr "说明/设置"
 
 #: server_status.php:1404
 msgid "Done rearranging/editing charts"
-msgstr ""
+msgstr "完成排列/编辑图表"
 
 #: server_status.php:1411
-#, fuzzy
 #| msgid "Add prefix"
 msgid "Add chart"
-msgstr "添加前缀"
+msgstr "添加图表"
 
 #: server_status.php:1413
 msgid "Rearrange/edit charts"
-msgstr ""
+msgstr "排列/编辑图表"
 
 #: server_status.php:1416
-#, fuzzy
 msgid "Refresh rate"
-msgstr "刷新"
+msgstr "刷新频率"
 
 #: server_status.php:1419
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Chart columns"
-msgstr "文本框列"
+msgstr "每行图表个数"
 
 #: server_status.php:1435
-#, fuzzy
 #| msgid "Error management:"
 msgid "Chart arrangement"
-msgstr "错误管理:"
+msgstr "图表排列"
 
 #: server_status.php:1435
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
-msgstr ""
+msgstr "图表排列存储在浏览器本地存储。如果你设置了一个复杂的排列，请导出该设置。"
 
 #: server_status.php:1436
-#, fuzzy
 #| msgid "Restore default value"
 msgid "Reset to default"
-msgstr "还原默认值"
+msgstr "恢复默认"
 
 #: server_status.php:1440
-#, fuzzy
 #| msgid "Introduction"
 msgid "Monitor Instructions"
-msgstr "介绍"
+msgstr "监控说明"
 
 #: server_status.php:1441
 msgid ""
@@ -9823,6 +9812,8 @@ msgid ""
 "enabled. Note however, that the general_log produces a lot of data and "
 "increases server load by up to 15%"
 msgstr ""
+"phpMyAdmin 监控可以帮助你优化服务期配置并追踪特定查询。要实现追踪查询功能，你需要将 log_output 设置为 'TABLE' 并启用 "
+"slow_query_log 或 general_log 功能。请注意，general_log 会产生很多数据并可能增加服务器负载多达 15%"
 
 #: server_status.php:1446
 msgid ""
@@ -9854,118 +9845,107 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1475
-#, fuzzy
 #| msgid "Usage"
 msgid "CPU Usage"
-msgstr "已用"
+msgstr "CPU 使用"
 
 #: server_status.php:1478
-#, fuzzy
 #| msgid "2. Usage"
 msgid "Memory Usage"
-msgstr "2. 使用"
+msgstr "内存使用"
 
 #: server_status.php:1481
-#, fuzzy
 #| msgid "Usage"
 msgid "Swap Usage"
-msgstr "已用"
+msgstr "交换空间使用"
 
 #: server_status.php:1484
-#, fuzzy
 #| msgid "See slave status table"
 msgid "Status variable(s)"
-msgstr "查看从服务器状态"
+msgstr "状态变量"
 
 #: server_status.php:1486
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
-msgstr "选择表"
+msgstr "选择数据:"
 
 #: server_status.php:1488
 msgid "Commonly monitored"
 msgstr ""
 
 #: server_status.php:1503
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "or type variable name:"
-msgstr "无效的数据表名"
+msgstr "或输入变量名:"
 
 #: server_status.php:1507
 msgid "Display as differential value"
-msgstr ""
+msgstr "独立显示"
 
 #: server_status.php:1509
 msgid "Apply a divisor"
-msgstr ""
+msgstr "应用除数"
 
 #: server_status.php:1516
 msgid "Append unit to data values"
-msgstr ""
+msgstr "在值后附加单位"
 
 #: server_status.php:1522
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add this series"
-msgstr "添加服务器"
+msgstr "添加该数据"
 
 #: server_status.php:1524
 msgid "Clear series"
-msgstr ""
+msgstr "清除所有数据"
 
 #: server_status.php:1527
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Series in Chart:"
-msgstr "SQL 查询"
+msgstr "图表中的数据:"
 
 #: server_status.php:1539
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Log statistics"
-msgstr "显示统计"
+msgstr "日志统计"
 
 #: server_status.php:1540
-#, fuzzy
 #| msgid "Select page"
 msgid "Selected time range:"
-msgstr "选择页"
+msgstr "选择时间范围:"
 
 #: server_status.php:1545
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr ""
+msgstr "仅统计 SELECT、INSERT、UPDATE 和 DELETE 语句"
 
 #: server_status.php:1550
 msgid "Remove variable data in INSERT statements for better grouping"
-msgstr ""
+msgstr "去除 INSERT 语句中的变量值以获得更好的分组"
 
 #: server_status.php:1553
 msgid ""
 "<p>Choose from which log you want the statistics to be generated from.</p> "
 "Results are grouped by query text."
-msgstr ""
+msgstr "<p>请选择生成统计的来源日志。</p>结果将根据查询语句分组。"
 
 #: server_status.php:1556
-#, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
-msgstr "查询方式"
+msgstr "查询分析器"
 
 #: server_status.php:1593
-#, fuzzy, php-format
+#, php-format
 #| msgid "Second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "秒"
+msgstr[0] "%d 秒"
 
 #: server_status.php:1595
-#, fuzzy, php-format
+#, php-format
 #| msgid "Minute"
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "分"
+msgstr[0] "%d 分"
 
 #: server_synchronize.php:92
 msgid "Could not connect to the source"
@@ -10050,9 +10030,8 @@ msgid "Target database has been synchronized with source database"
 msgstr "已根据源数据库同步目标数据库"
 
 #: server_synchronize.php:951
-#, fuzzy
 msgid "Executed queries"
-msgstr "SQL 查询"
+msgstr "已执行的查询"
 
 #: server_synchronize.php:1076
 msgid "Enter manually"
@@ -10079,7 +10058,7 @@ msgstr "目标数据库将完全根据源数据库同步。源数据库将保持
 
 #: server_variables.php:58
 msgid "Setting variable failed"
-msgstr ""
+msgstr "设置变量失败"
 
 #: server_variables.php:77
 msgid "Server variables and settings"
@@ -10494,10 +10473,9 @@ msgid "Line"
 msgstr "折线图"
 
 #: tbl_chart.php:88
-#, fuzzy
 #| msgid "Inline"
 msgid "Spline"
-msgstr "内联"
+msgstr "曲线图"
 
 #: tbl_chart.php:89
 msgid "Pie"
@@ -10508,50 +10486,43 @@ msgid "Stacked"
 msgstr "堆叠"
 
 #: tbl_chart.php:94
-#, fuzzy
 #| msgid "Report title:"
 msgid "Chart title"
-msgstr "报告标题："
+msgstr "图表标题"
 
 #: tbl_chart.php:100
 msgid "X-Axis:"
-msgstr ""
+msgstr "横坐标:"
 
 #: tbl_chart.php:114
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Series:"
-msgstr "SQL 查询"
+msgstr "数据:"
 
 #: tbl_chart.php:116
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "The remaining columns"
-msgstr "文本框列"
+msgstr "其余字段"
 
 #: tbl_chart.php:129
-#, fuzzy
 #| msgid "X Axis label"
 msgid "X-Axis label:"
-msgstr "水平轴标签"
+msgstr "横坐标名称:"
 
 #: tbl_chart.php:130
-#, fuzzy
 #| msgid "Value"
 msgid "X Values"
-msgstr "值"
+msgstr "横值"
 
 #: tbl_chart.php:131
-#, fuzzy
 #| msgid "Y Axis label"
 msgid "Y-Axis label:"
-msgstr "竖直轴标签"
+msgstr "纵坐标名称:"
 
 #: tbl_chart.php:131
-#, fuzzy
 #| msgid "Value"
 msgid "Y Values"
-msgstr "值"
+msgstr "纵值"
 
 #: tbl_create.php:30
 #, php-format
@@ -10568,10 +10539,9 @@ msgid "View dump (schema) of table"
 msgstr "查看数据表的转存(大纲)。"
 
 #: tbl_gis_visualization.php:111
-#, fuzzy
 #| msgid "Display servers selection"
 msgid "Display GIS Visualization"
-msgstr "显示服务器选择"
+msgstr "显示可视化 GIS"
 
 #: tbl_gis_visualization.php:157
 msgid "Width"
@@ -10582,42 +10552,37 @@ msgid "Height"
 msgstr "高"
 
 #: tbl_gis_visualization.php:165
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Label column"
-msgstr "文本框列"
+msgstr "名称字段"
 
 #: tbl_gis_visualization.php:167
-#, fuzzy
 #| msgid "- none -"
 msgid "-- None --"
-msgstr "- 无 -"
+msgstr "-- 无 --"
 
 #: tbl_gis_visualization.php:180
-#, fuzzy
 #| msgid "Log file count"
 msgid "Spatial column"
-msgstr "日志文件总数"
+msgstr "空间字段"
 
 #: tbl_gis_visualization.php:201
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "以 OpenStreetMaps 为背景"
 
 #: tbl_gis_visualization.php:204
 msgid "Redraw"
 msgstr "重绘"
 
 #: tbl_gis_visualization.php:206
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save to file"
-msgstr "另存为文件"
+msgstr "保存文件"
 
 #: tbl_gis_visualization.php:207
-#, fuzzy
 #| msgid "Table name"
 msgid "File name"
-msgstr "数据表名"
+msgstr "文件名"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
@@ -10854,7 +10819,7 @@ msgstr "显示顺序："
 
 #: tbl_structure.php:156 tbl_structure.php:161 tbl_structure.php:578
 msgid "Spatial"
-msgstr ""
+msgstr "空间"
 
 #: tbl_structure.php:163 tbl_structure.php:167
 msgid "Browse distinct values"
@@ -10873,10 +10838,9 @@ msgid "Add unique index"
 msgstr "添加唯一键"
 
 #: tbl_structure.php:174 tbl_structure.php:175
-#, fuzzy
 #| msgid "Add index"
 msgid "Add SPATIAL index"
-msgstr "添加索引"
+msgstr "添加空间索引"
 
 #: tbl_structure.php:176 tbl_structure.php:177
 msgid "Add FULLTEXT index"
@@ -10909,10 +10873,9 @@ msgid "Show more actions"
 msgstr "显示更多操作"
 
 #: tbl_structure.php:603
-#, fuzzy
 #| msgid "Print view"
 msgid "Edit view"
-msgstr "打印预览"
+msgstr "编辑视图"
 
 #: tbl_structure.php:620
 msgid "Relation view"
