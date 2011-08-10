@@ -2079,10 +2079,9 @@ msgid "Recent tables"
 msgstr "最近访问的表"
 
 #: libraries/RecentTable.class.php:148
-#, fuzzy
 #| msgid "There are no configured servers"
 msgid "There are no recent tables"
-msgstr "没有配置好的服务器"
+msgstr "没有最近访问的表"
 
 #: libraries/StorageEngine.class.php:180
 msgid ""
