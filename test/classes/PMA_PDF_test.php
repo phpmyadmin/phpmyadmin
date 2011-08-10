@@ -24,5 +24,12 @@ class PMA_PDF_test extends PHPUnit_Framework_TestCase
         $arr = new PMA_PDF();
         $this->assertContains('PDF', $arr->getPDFData());
     }
+
+    public function testAlias()
+    {
+        $arr = new PMA_PDF();
+        $arr->SetAlias('{00}', '32');
+        $this->assertContains('PDF', $arr->getPDFData());
+    }
 }
 ?>
