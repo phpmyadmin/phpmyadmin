@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-09 16:45+0100\n"
-"PO-Revision-Date: 2011-08-10 08:22+0200\n"
+"PO-Revision-Date: 2011-08-10 08:23+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -9920,7 +9920,7 @@ msgstr "仅统计 SELECT、INSERT、UPDATE 和 DELETE 语句"
 
 #: server_status.php:1550
 msgid "Remove variable data in INSERT statements for better grouping"
-msgstr ""
+msgstr "去除 INSERT 语句中的变量值以获得更好的分组"
 
 #: server_status.php:1553
 msgid ""
