@@ -1402,10 +1402,9 @@ msgid "Total:"
 msgstr "总数:"
 
 #: js/messages.php:175
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading logs"
-msgstr "正在加载"
+msgstr "正在加载日志"
 
 #: js/messages.php:176
 msgid "Monitor refresh failed"
