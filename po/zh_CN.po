@@ -1397,10 +1397,9 @@ msgid "Sum of grouped rows:"
 msgstr "分组后的行数:"
 
 #: js/messages.php:173
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "总计"
+msgstr "总数:"
 
 #: js/messages.php:175
 #, fuzzy
