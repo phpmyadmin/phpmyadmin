@@ -10935,7 +10935,7 @@ msgstr "Velikost řádku "
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"
-msgstr ""
+msgstr "Další automatický index"
 
 #: tbl_relation.php:276
 #, php-format
