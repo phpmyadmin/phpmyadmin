@@ -321,13 +321,16 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
      *
      * @return the area of a closed simple polygon.
      */
-    public static function area($ring) {
+    public static function area($ring)
+    {
 
         $no_of_points = count($ring);
 
         // If the last point is same as the first point ignore it
         $last = count($ring) - 1;
-        if (($ring[0]['x'] == $ring[$last]['x']) && ($ring[0]['y'] == $ring[$last]['y'])) {
+        if (($ring[0]['x'] == $ring[$last]['x'])
+            && ($ring[0]['y'] == $ring[$last]['y'])
+        ) {
             $no_of_points--;
         }
 
@@ -356,7 +359,8 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
      */
     public static function isOuterRing($ring)
     {
-        // If area is negative then it's in clockwise orientation, i.e. it's an outer ring
+        // If area is negative then it's in clockwise orientation,
+        // i.e. it's an outer ring
         if (PMA_GIS_Polygon::area($ring) < 0) {
             return true;
         }
@@ -366,8 +370,8 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
     /**
      * Determines whether a given point is inside a given polygon.
      *
-     * @param array $point x, y coordinates of the point
-     * @param array $ring  array of points forming the ring
+     * @param array $point   x, y coordinates of the point
+     * @param array $polygon array of points forming the ring
      *
      * @return whether a given point is inside a given polygon
      */
@@ -375,7 +379,9 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
     {
         // If first point is repeated at the end remove it
         $last = count($polygon) - 1;
-        if (($polygon[0]['x'] == $polygon[$last]['x']) && ($polygon[0]['y'] == $polygon[$last]['y'])) {
+        if (($polygon[0]['x'] == $polygon[$last]['x'])
+            && ($polygon[0]['y'] == $polygon[$last]['y'])
+        ) {
             $polygon = array_slice($polygon, 0, $last);
         }
 
@@ -390,7 +396,9 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
                 if ($point['y'] <= max(array($p1['y'], $p2['y']))) {
                     if ($point['x'] <= max(array($p1['x'], $p2['x']))) {
                         if ($p1['y'] != $p2['y']) {
-                            $xinters = ($point['y'] - $p1['y']) * ($p2['x'] - $p1['x']) / ($p2['y'] - $p1['y']) + $p1['x'];
+                            $xinters = ($point['y'] - $p1['y'])
+                                * ($p2['x'] - $p1['x'])
+                                / ($p2['y'] - $p1['y']) + $p1['x'];
                             if ($p1['x'] == $p2['x'] || $point['x'] <= $xinters) {
                                 $counter++;
                             }
@@ -413,6 +421,8 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
      * (for simple closed rings)
      *
      * @param array $ring array of points forming the ring
+     *
+     * @return a point on the surface of the ring
      */
     public static function getPointOnSurface($ring)
     {
@@ -435,29 +445,29 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
         $x2 = ($x0 + $x1) / 2;
         $y2 = ($y0 + $y1) / 2;
 
-        // Always keep $epsilon < 1 to go with the reduction logic found later in this method
+        // Always keep $epsilon < 1 to go with the reduction logic down here
         $epsilon = 0.1;
         $denominator = sqrt(pow(($y1 - $y0), 2) + pow(($x0 - $x1), 2));
         $pointA = array(); $pointB = array();
 
         while (true) {
-            // Get the points on either sides of the line with a distance of epsilon to the mid point
+            // Get the points on either sides of the line
+            // with a distance of epsilon to the mid point
             $pointA['x'] = $x2 + ($epsilon * ($y1 - $y0)) / $denominator;
             $pointA['y'] = $y2 + ($pointA['x'] - $x2) * ($x0 - $x1) / ($y1 - $y0);
 
             $pointB['x'] = $x2 + ($epsilon * ($y1 - $y0)) / (0 - $denominator);
             $pointB['y'] = $y2 + ($pointB['x'] - $x2) * ($x0 - $x1) / ($y1 - $y0);
 
-            // One of the points should be inside the polygon, unless epcilon chosen is too large
+            // One of the points should be inside the polygon,
+            // unless epcilon chosen is too large
             if (PMA_GIS_Polygon::isPointInsidePolygon($pointA, $ring)) {
                 return $pointA;
             } elseif (PMA_GIS_Polygon::isPointInsidePolygon($pointB, $ring)) {
                 return $pointB;
-            }
-
-            // If both are outside the polygon reduce the epsilon and recalculate the points
-            // (reduce exponentially for faster convergance)
-            else {
+            } else {
+                //If both are outside the polygon reduce the epsilon and
+                //recalculate the points(reduce exponentially for faster convergance)
                 $epsilon = pow($epsilon, 2);
                 if ($epsilon == 0) {
                     return false;
