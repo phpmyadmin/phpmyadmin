@@ -1487,10 +1487,9 @@ msgid "Analyse Query"
 msgstr "Analiziraj poizvedbo"
 
 #: js/messages.php:189
-#, fuzzy
 #| msgid "Apply a divisor"
 msgid "Advisor system"
-msgstr "Uporabi delitelja"
+msgstr "Svetovalni sistem"
 
 #: js/messages.php:190
 msgid "Possible performance issues"
