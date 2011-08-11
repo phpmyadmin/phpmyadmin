@@ -9188,10 +9188,9 @@ msgid "Related links:"
 msgstr "Související odkazy:"
 
 #: server_status.php:759
-#, fuzzy
 #| msgid "Query analyzer"
 msgid "Run analyzer"
-msgstr "Analýza dotazu"
+msgstr "Spustit analýzu"
 
 #: server_status.php:760
 #, fuzzy
