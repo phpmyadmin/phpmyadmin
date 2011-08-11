@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-11 15:11+0200\n"
-"PO-Revision-Date: 2011-08-10 21:18+0200\n"
+"PO-Revision-Date: 2011-08-11 17:00+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1458,10 +1458,9 @@ msgid "Import"
 msgstr "İçe Aktar"
 
 #: js/messages.php:185
-#, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
-msgstr "Sorguyu Güncelle"
+msgstr "Sorguyu Çözümle"
 
 #: js/messages.php:189
 #, fuzzy
