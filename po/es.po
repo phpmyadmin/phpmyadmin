@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-10 10:14-0400\n"
-"PO-Revision-Date: 2011-08-01 18:53+0200\n"
+"PO-Revision-Date: 2011-08-10 16:45+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -415,10 +415,10 @@ msgid "You have to choose at least one column to display"
 msgstr "Debe elegir al menos una columna para mostrar"
 
 #: db_qbe.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "editor visual"
+msgstr "Cambiar al %sconstructor visual%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:955
@@ -1158,64 +1158,56 @@ msgid "Average load"
 msgstr "Carga promedio"
 
 #: js/messages.php:101
-#, fuzzy
 #| msgid "System memory"
 msgid "Total memory"
-msgstr "Memoria de sistema"
+msgstr "Memoria total"
 
 #: js/messages.php:102
-#, fuzzy
 #| msgid "System memory"
 msgid "Cached memory"
-msgstr "Memoria de sistema"
+msgstr "Memoria caché"
 
 #: js/messages.php:103
-#, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "Reserva de búfers"
+msgstr "Memoria de búfers"
 
 #: js/messages.php:104
-#, fuzzy
 #| msgid "System memory"
 msgid "Free memory"
-msgstr "Memoria de sistema"
+msgstr "Memoria libre"
 
 #: js/messages.php:105
-#, fuzzy
 #| msgid "System memory"
 msgid "Used memory"
-msgstr "Memoria de sistema"
+msgstr "Memoria utilizada"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "Total"
+msgstr "Intercambio total"
 
 #: js/messages.php:108
 msgid "Cached Swap"
-msgstr ""
+msgstr "Intercambio en caché"
 
 #: js/messages.php:109
 msgid "Used Swap"
-msgstr ""
+msgstr "Intercambio utilizado"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "Páginas libres"
+msgstr "Intercambio libre"
 
 #: js/messages.php:112
 msgid "Bytes sent"
-msgstr ""
+msgstr "Bytes enviados"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "Recibido"
+msgstr "Bytes recibidos"
 
 #: js/messages.php:114 server_status.php:994
 msgid "Connections"
@@ -1241,10 +1233,9 @@ msgid "Remove chart"
 msgstr "Eliminar gráfico"
 
 #: js/messages.php:122
-#, fuzzy
 #| msgid "Edit labels and series"
 msgid "Edit title and labels"
-msgstr "Editar etiquetas y series"
+msgstr "Editar título y etiquetas"
 
 #: js/messages.php:123
 msgid "Add chart to grid"
@@ -1450,7 +1441,7 @@ msgstr "Cargando registros"
 
 #: js/messages.php:176
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "Falló la actualización del monitorizador"
 
 #: js/messages.php:177
 msgid ""
@@ -1458,26 +1449,32 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"Al pedir un nuevo gráfico el servidor devolvió una respuesta inválida. Esto "
+"es probablemente porque expiró la sesión. Cargar la página nuevamente y "
+"volver a ingresar sus credenciales debería ayudar."
 
 #: js/messages.php:178
-#, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
-msgstr "Cargar nuevamente"
+msgstr "Cargar página nuevamente"
 
 #: js/messages.php:180
 msgid "Affected rows:"
-msgstr ""
+msgstr "Filas afectadas:"
 
 #: js/messages.php:182
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgstr ""
+"No se pudo analizar el archivo de configuración. No parece ser código JSON "
+"válido"
 
 #: js/messages.php:183
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr ""
+"No se pudo crear la grilla de gráficos con la configuración importada. "
+"Reiniciando a configuración predeterminada..."
 
 #: js/messages.php:184 libraries/config/messages.inc.php:170
 #: libraries/db_links.inc.php:83 libraries/server_links.inc.php:69
@@ -1664,13 +1661,15 @@ msgstr "Añadir una opción para la columna"
 
 #: js/messages.php:258
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "Presion la tecla de escape para cancelar la edición"
 
 #: js/messages.php:259
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
+"Editó datos que no fueron guardados. ¿Está seguro que desea abandonar esta "
+"página sin guardar los datos?"
 
 #: js/messages.php:260
 msgid "Drag to reorder"
@@ -1695,6 +1694,9 @@ msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
+"Esta tabla no contiene una columna única. Funcionalidades relacionadas con "
+"la edición de la grilla y los enlaces de copiado, eliminación y edición "
+"pueden no funcionar luego de guardar."
 
 #: js/messages.php:268
 msgid "Generate password"
@@ -1736,14 +1738,12 @@ msgid "Done"
 msgstr "Terminado"
 
 #: js/messages.php:302
-#, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
-msgstr "Previo"
+msgstr "Anterior"
 
 #: js/messages.php:307
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
@@ -1893,7 +1893,6 @@ msgstr "Sábado"
 
 #. l10n: Short week day name
 #: js/messages.php:363
-#, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
 msgid "Sun"
@@ -2125,10 +2124,9 @@ msgstr[0] "%1$d fila insertada."
 msgstr[1] "%1$d filas insertadas."
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Permite leer los datos."
+msgstr "Error al crear PDF:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
@@ -2166,10 +2164,9 @@ msgstr ""
 "Este servidor MySQL no es compatible con el motor de almacenamiento %s."
 
 #: libraries/Table.class.php:303
-#, fuzzy
 #| msgid "Show slave status"
 msgid "unknown table status: "
-msgstr "Mostrar el estado del esclavo"
+msgstr "estado de tabla desconocido:"
 
 #: libraries/Table.class.php:1034
 msgid "Invalid database"
@@ -2356,10 +2353,9 @@ msgid "PBMS get BLOB info failed:"
 msgstr "Fallo al obtener la información del BLOB PBMS:"
 
 #: libraries/blobstreaming.lib.php:332
-#, fuzzy
 #| msgid "get BLOB Content-Type failed"
 msgid "PBMS get BLOB Content-Type failed"
-msgstr "Fallo en get BLOB Content-Type"
+msgstr "Fallo al obtener Content-Type del BLOB PBMS"
 
 #: libraries/blobstreaming.lib.php:358
 msgid "View image"
@@ -2629,25 +2625,22 @@ msgstr "Parámetro faltante:"
 
 #: libraries/common.lib.php:2267 libraries/common.lib.php:2270
 #: libraries/display_tbl.lib.php:306
-#, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
-msgstr "Empezar"
+msgstr "Comenzar"
 
 #: libraries/common.lib.php:2268 libraries/common.lib.php:2271
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
-#, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
-msgstr "Previo"
+msgstr "Anterior"
 
 #: libraries/common.lib.php:2297 libraries/common.lib.php:2300
 #: libraries/display_tbl.lib.php:370 server_binlog.php:170
 #: server_binlog.php:172
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
@@ -2655,7 +2648,6 @@ msgstr "Siguiente"
 
 #: libraries/common.lib.php:2298 libraries/common.lib.php:2301
 #: libraries/display_tbl.lib.php:385
-#, fuzzy
 #| msgid "End"
 msgctxt "Last page"
 msgid "End"
@@ -4056,10 +4048,9 @@ msgid "Memory limit"
 msgstr "Límite de la memoria"
 
 #: libraries/config/messages.inc.php:319
-#, fuzzy
 #| msgid "These are Edit, Inline edit, Copy and Delete links"
 msgid "These are Edit, Copy and Delete links"
-msgstr "Estos son los enlaces para Editar, Editar en el lugar, Copiar y Borrar"
+msgstr "Estos son los enlaces para Editar, Copiar y Borrar"
 
 #: libraries/config/messages.inc.php:320
 msgid "Where to show the table row links"
@@ -4220,7 +4211,7 @@ msgstr "Mostrar el botón de ayuda"
 
 #: libraries/config/messages.inc.php:357
 msgid "Save all edited cells at once"
-msgstr ""
+msgstr "Guardar todas las celdas editadas simultáneamente"
 
 #: libraries/config/messages.inc.php:358
 msgid "Directory where exports can be saved on server"
@@ -4761,16 +4752,14 @@ msgid "Show function fields"
 msgstr "Mostrar los campos de función"
 
 #: libraries/config/messages.inc.php:460
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Whether to show hint or not"
-msgstr "Donde mostrar los enlaces de filas de tabla"
+msgstr "Si mostrar ayudas o no"
 
 #: libraries/config/messages.inc.php:461
-#, fuzzy
 #| msgid "Show indexes"
 msgid "Show hint"
-msgstr "Mostrar índices"
+msgstr "Mostrar ayudas"
 
 #: libraries/config/messages.inc.php:462
 msgid ""
@@ -5535,10 +5524,9 @@ msgid "Language"
 msgstr "Idioma"
 
 #: libraries/display_tbl.lib.php:401
-#, fuzzy
 #| msgid "Save directory"
 msgid "Save edited data"
-msgstr "Directorio de almacenamiento"
+msgstr "Guardar datos editados"
 
 #: libraries/display_tbl.lib.php:407
 msgid "Restore column order"
@@ -6459,10 +6447,9 @@ msgid "Stand-in structure for view"
 msgstr "Estructura Stand-in para la vista"
 
 #: libraries/export/sql.php:1071
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error reading data:"
-msgstr "Permite leer los datos."
+msgstr "Error leyendo datos:"
 
 #: libraries/export/xml.php:19 libraries/import/xml.php:21
 msgid "XML"
@@ -6528,20 +6515,20 @@ msgid "Go to database"
 msgstr "Ir a la base de datos"
 
 #: libraries/import.lib.php:1085 libraries/import.lib.php:1109
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
-msgstr "Faltan datos para %s"
+msgstr "Editar configuración de %s"
 
 #: libraries/import.lib.php:1104
 msgid "Go to table"
 msgstr "Ir a la tabla"
 
 #: libraries/import.lib.php:1107
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
-msgstr "Únicamente la estructura"
+msgstr "Estructura de %s"
 
 #: libraries/import.lib.php:1113
 msgid "Go to view"
@@ -7148,14 +7135,12 @@ msgid "Execute every"
 msgstr "Ejecutar cada"
 
 #: libraries/rte/rte_events.lib.php:449
-#, fuzzy
 #| msgid "Start"
 msgctxt "Start of recurring event"
 msgid "Start"
-msgstr "Iniciar"
+msgstr "Inicio"
 
 #: libraries/rte/rte_events.lib.php:457
-#, fuzzy
 #| msgid "End"
 msgctxt "End of recurring event"
 msgid "End"
@@ -7640,11 +7625,10 @@ msgid "ltr"
 msgstr "ltr"
 
 #: libraries/select_lang.lib.php:482
-#, fuzzy
 #| msgid "pages"
 msgctxt "PDF"
 msgid "page"
-msgstr "páginas"
+msgstr "página"
 
 #: libraries/select_lang.lib.php:488 libraries/select_lang.lib.php:494
 #: libraries/select_lang.lib.php:500
@@ -9384,10 +9368,9 @@ msgid "Monitor"
 msgstr "Monitorizar"
 
 #: server_status.php:652
-#, fuzzy
 #| msgid "Apply a divisor"
 msgid "Advisor"
-msgstr "Aplicar una división"
+msgstr "Consejero"
 
 #: server_status.php:662 server_status.php:684
 msgid "Refresh rate: "
@@ -9406,10 +9389,9 @@ msgid "Filter by category..."
 msgstr "Filtrar por categoría..."
 
 #: server_status.php:727
-#, fuzzy
 #| msgid "Show only alert values"
 msgid "Show unformatted values"
-msgstr "Mostrar sólo valores de alerta"
+msgstr "Mostrar valores sin formato"
 
 #: server_status.php:731
 msgid "Related links:"
@@ -9429,6 +9411,17 @@ msgid ""
 "at a time, observe or benchmark your database, and\n"
 "        undo the change if there was no clearly measurable improvement."
 msgstr ""
+"El sistema Consejero puede proveer recomendaciones para los valores de las "
+"variables del servidor analizando las variables de estado del servidor.\n"
+"Note, sin embargo, que este sistema provee recomendaciones basándose en "
+"cálculos relativamente simples y por regla general por lo que podrían no "
+"funcioanr para su sistema.\n"
+"Antes de cambiar cualquier configuración asegúrese de saber qué es lo que "
+"está cambiando y cómo deshacer el cambio. Ajustes incorrectos pueden tener "
+"un efecto negativo en la performance.\n"
+"La mejor forma de ajustar el sistema sería sólo cambiar una configuración "
+"por vez, observar o medir la base de datos y deshacer el cambio si no hubo "
+"una mejora conmensurable."
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:791
@@ -10257,25 +10250,25 @@ msgid "Refresh rate"
 msgstr "Velocidad de actualización"
 
 #: server_status.php:1419
-#, fuzzy
 #| msgid "Chart columns:"
 msgid "Chart columns"
-msgstr "Columnas del gráfico:"
+msgstr "Columnas del gráfico"
 
 #: server_status.php:1435
-#, fuzzy
 #| msgid "Error management:"
 msgid "Chart arrangement"
-msgstr "Manejo de errores:"
+msgstr "Ordenación de los gráficos"
 
 #: server_status.php:1435
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
+"La ordenación de los gráficos es almacenada en el almacenamiento local del "
+"navegador. Sería recomendable exportarla si tiene una configuración "
+"complicada."
 
 #: server_status.php:1436
-#, fuzzy
 #| msgid "Restore default value"
 msgid "Reset to default"
 msgstr "Restaurar valor predeterminado"
@@ -10305,9 +10298,13 @@ msgid ""
 "table is supported by MySQL 5.1.6 and onwards. You may still use the server "
 "charting features however."
 msgstr ""
+"Desafortunadamente, su servidor de base de datos no soporta almacenar "
+"registros a una base de datos, lo que es un requisito para analizar "
+"registros de la base de datos con phpMyAdmin. Almacenar registros a una "
+"tabla está disponible desde MySQL versión 5.1.6 y posterior. Si puede "
+"utilizar las funcionalidades para graficación del servidor."
 
 #: server_status.php:1458
-#, fuzzy
 #| msgid ""
 #| "<b>Using the monitor:</b><br/> Ok, you are good to go! Once you click "
 #| "'Start monitor' your browser will refresh all displayed charts in a "
@@ -10331,11 +10328,12 @@ msgstr ""
 "en 'Iniciar monitorización' el navegador actualizará a intervalos regulares "
 "todos los gráficos mostrados. Puede agregar gráficos y cambiar la velocidad "
 "de actualización en la sección 'Configuración' o eliminar cualquier gráfico "
-"utilizando el icono de rueda dentada en cada gráfico. <p>Cuando vea un pico "
-"repentino de actividad, seleccione el intervalo de tiempo relevante en el "
-"gráfico manteniendo pulsado el botón izquierdo y arrastrando sobre el "
-"gráfico. Esto cargará las estadísticas de los registros, lo que lo ayudará a "
-"encontrar la causa del pico de actividad.</p>"
+"utilizando el icono de rueda dentada en cada gráfico. <p>Para mostrar las "
+"consultas de los registros, seleccione el intervalo de tiempo "
+"correspondiente en cualquier gráfico manteniendo pulsado el botón izquierdo "
+"y arrastrando sobre el gráfico. Una vez confirmado, esto cargará una tabla "
+"de consultas agrupadas donde podrá pulsar en cualquier sentencia SELECT para "
+"analizarla.</p>"
 
 #: server_status.php:1463
 msgid ""
@@ -10530,7 +10528,6 @@ msgid "Target database has been synchronized with source database"
 msgstr "La base de datos objetivo fue sincronizada con la base de datos fuente"
 
 #: server_synchronize.php:951
-#, fuzzy
 #| msgid "Issued queries"
 msgid "Executed queries"
 msgstr "Consultas ejecutadas"
@@ -11308,7 +11305,7 @@ msgstr "Tamaño de la fila "
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"
-msgstr ""
+msgstr "Índice automático siguiente"
 
 #: tbl_relation.php:276
 #, php-format
@@ -11408,10 +11405,9 @@ msgid "Show more actions"
 msgstr "Mostrar más acciones"
 
 #: tbl_structure.php:603
-#, fuzzy
 #| msgid "Print view"
 msgid "Edit view"
-msgstr "Vista de impresión"
+msgstr "Editar vista"
 
 #: tbl_structure.php:620
 msgid "Relation view"

@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-10 10:14-0400\n"
-"PO-Revision-Date: 2011-08-10 12:19+0200\n"
+"PO-Revision-Date: 2011-08-11 04:40+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -1600,13 +1600,13 @@ msgstr "给字段添加选项 "
 
 #: js/messages.php:258
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "按 Esc 键取消编辑"
 
 #: js/messages.php:259
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
-msgstr ""
+msgstr "已有数据被修改但尚未保存。你真的要不保存修改就离开本页吗？"
 
 #: js/messages.php:260
 msgid "Drag to reorder"
@@ -1668,14 +1668,12 @@ msgid "Done"
 msgstr "完成"
 
 #: js/messages.php:302
-#, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "上个月"
 
 #: js/messages.php:307
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
@@ -2045,10 +2043,9 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "插入了 %1$d 行。"
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Error reading data:"
 msgid "Error while creating PDF:"
-msgstr "读取数据时发生错误:"
+msgstr "创建 PDF 时发生错误:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
@@ -2472,7 +2469,7 @@ msgstr "在本页面编辑此查询"
 #: libraries/common.lib.php:1216
 msgctxt "Inline edit query"
 msgid "Inline"
-msgstr "内联"
+msgstr "快速编辑"
 
 #: libraries/common.lib.php:1278 sql.php:938
 msgid "Profiling"
@@ -2526,37 +2523,33 @@ msgstr "缺少参数:"
 
 #: libraries/common.lib.php:2267 libraries/common.lib.php:2270
 #: libraries/display_tbl.lib.php:306
-#, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
-msgstr "开始"
+msgstr "首页"
 
 #: libraries/common.lib.php:2268 libraries/common.lib.php:2271
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
-#, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
-msgstr "上一个"
+msgstr "上一页"
 
 #: libraries/common.lib.php:2297 libraries/common.lib.php:2300
 #: libraries/display_tbl.lib.php:370 server_binlog.php:170
 #: server_binlog.php:172
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
-msgstr "下个月"
+msgstr "下一页"
 
 #: libraries/common.lib.php:2298 libraries/common.lib.php:2301
 #: libraries/display_tbl.lib.php:385
-#, fuzzy
 #| msgid "End"
 msgctxt "Last page"
 msgid "End"
-msgstr "结束"
+msgstr "尾页"
 
 #: libraries/common.lib.php:2366
 #, php-format
@@ -3887,10 +3880,9 @@ msgid "Memory limit"
 msgstr "内存限制"
 
 #: libraries/config/messages.inc.php:319
-#, fuzzy
 #| msgid "These are Edit, Inline edit, Copy and Delete links"
 msgid "These are Edit, Copy and Delete links"
-msgstr "它们是编辑、快速编辑、复制和删除链接"
+msgstr "它们是编辑、复制和删除链接"
 
 #: libraries/config/messages.inc.php:320
 msgid "Where to show the table row links"
@@ -4110,8 +4102,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma_bookmark[/kbd]"
 msgstr ""
-"不使用[a@http://wiki.phpmyadmin.net/pma/bookmark]书签 (外链，英文)[/a]功能请"
-"留空，默认：[kbd]pma_bookmark[/kbd]"
+"不使用[a@http://wiki.phpmyadmin.net/pma/bookmark]书签 (外链，英文)[/a]功能请留空，推荐: "
+"[kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:373
 msgid "Bookmark table"
@@ -4121,7 +4113,7 @@ msgstr "书签表"
 msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma_column_info[/kbd]"
-msgstr "留空则不使用列信息和MIME类型。默认值：[kbd]pma_column_info[/kbd]"
+msgstr "留空则不使用列信息和MIME类型。推荐: [kbd]pma_column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:375
 msgid "Column information table"
@@ -4171,7 +4163,7 @@ msgstr "统计数据表"
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
-msgstr "不使用设计功能请留空，默认：[kbd]pma_designer_coords[/kbd]"
+msgstr "不使用设计功能请留空，推荐: [kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:386
 msgid "Designer table"
@@ -4210,7 +4202,7 @@ msgstr "隐藏数据库"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
-msgstr "不使用 SQL 查询历史功能请留空，默认：[kbd]pma_history[/kbd]"
+msgstr "不使用 SQL 查询历史功能请留空，推荐: [kbd]pma_history[/kbd]"
 
 #: libraries/config/messages.inc.php:394
 msgid "SQL query history table"
@@ -4263,7 +4255,7 @@ msgstr "config 认证方式的密码"
 #: libraries/config/messages.inc.php:404
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
-msgstr "不使用 PDF 大纲功能请留空，默认：[kbd]pma_pdf_pages[/kbd]"
+msgstr "不使用 PDF 大纲功能请留空，推荐: [kbd]pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:405
 msgid "PDF schema: pages table"
@@ -4275,8 +4267,8 @@ msgid ""
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgstr ""
-"关系、书签、PDF 功能所用的数据库。参见 [a@http://wiki.phpmyadmin.net/pma/"
-"pmadb]pmadb (外链，英文)[/a]。不使用请留空。默认： [kbd]phpmyadmin[/kbd]"
+"关系、书签、PDF 功能所用的数据库。参见 [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb "
+"(外链，英文)[/a]。不使用请留空。推荐:  [kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:407
 msgid "Database name"
@@ -4291,14 +4283,13 @@ msgid "Server port"
 msgstr "服务器端口"
 
 #: libraries/config/messages.inc.php:410
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma_recent[/kbd]"
-msgstr "不在数据库中保存用户偏好请留空，默认：[kbd]pma_config[/kbd]"
+msgstr "不需要 \"持久\" 最近使用的表请留空，推荐: [kbd]pma_recent[/kbd]"
 
 #: libraries/config/messages.inc.php:411
 msgid "Recently used table"
@@ -4309,8 +4300,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgstr ""
-"不使用[a@http://wiki.phpmyadmin.net/pma/relation]关系链接 (外链，英文)[/a]功"
-"能请留空，默认：[kbd]pma_relation[/kbd]"
+"不使用[a@http://wiki.phpmyadmin.net/pma/relation]关系链接 (外链，英文)[/a]功能请留空，推荐: "
+"[kbd]pma_relation[/kbd]"
 
 #: libraries/config/messages.inc.php:413
 msgid "Relation table"
@@ -4359,7 +4350,7 @@ msgstr "使用 SSL"
 #: libraries/config/messages.inc.php:423
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
-msgstr "不使用 PDF 大纲功能请留空，默认：[kbd]pma_table_coords[/kbd]"
+msgstr "不使用 PDF 大纲功能请留空，推荐: [kbd]pma_table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:424
 msgid "PDF schema: table coordinates"
@@ -4369,27 +4360,25 @@ msgstr "PDF 大纲: 数据表并发"
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
-msgstr "描述显示字段的表，不使用请留空，默认：[kbd]pma_table_info[/kbd]"
+msgstr "描述显示字段的表，不使用请留空，推荐: [kbd]pma_table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:426
 msgid "Display columns table"
 msgstr "显示字段表"
 
 #: libraries/config/messages.inc.php:427
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
-msgstr "不在数据库中保存用户偏好请留空，默认：[kbd]pma_config[/kbd]"
+msgstr "不需要 \"持久\" 表界面设置请留空，推荐: [kbd]pma_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:428
-#, fuzzy
 #| msgid "User preferences storage table"
 msgid "UI preferences table"
-msgstr "用户偏好表"
+msgstr "界面设置表"
 
 #: libraries/config/messages.inc.php:429
 msgid ""
@@ -4433,7 +4422,7 @@ msgstr "要追踪的命令"
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
-msgstr "不使用 SQL 查询追踪功能请留空，默认：[kbd]pma_tracking[/kbd]"
+msgstr "不使用 SQL 查询追踪功能请留空，推荐: [kbd]pma_tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:438
 msgid "SQL query tracking table"
@@ -4453,7 +4442,7 @@ msgstr "自动创建版本"
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_config[/kbd]"
-msgstr "不在数据库中保存用户偏好请留空，默认：[kbd]pma_config[/kbd]"
+msgstr "不在数据库中保存用户偏好请留空，推荐: [kbd]pma_config[/kbd]"
 
 #: libraries/config/messages.inc.php:442
 msgid "User preferences storage table"
@@ -5301,7 +5290,7 @@ msgstr "水平"
 
 #: libraries/display_tbl.lib.php:433
 msgid "horizontal (rotated headers)"
-msgstr "水平 (旋转标题)"
+msgstr "水平 (旋转表头)"
 
 #: libraries/display_tbl.lib.php:434
 msgid "vertical"
@@ -5310,7 +5299,7 @@ msgstr "垂直"
 #: libraries/display_tbl.lib.php:439
 #, php-format
 msgid "Headers every %s rows"
-msgstr ""
+msgstr "每 %s 行重复表头"
 
 #: libraries/display_tbl.lib.php:536
 msgid "Sort by key"
@@ -10663,7 +10652,7 @@ msgstr "行大小 "
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"
-msgstr ""
+msgstr "下一个自增值"
 
 #: tbl_relation.php:276
 #, php-format
