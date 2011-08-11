@@ -1175,10 +1175,9 @@ msgid "Free memory"
 msgstr "Prost pomnilnik"
 
 #: js/messages.php:104
-#, fuzzy
 #| msgid "System memory"
 msgid "Used memory"
-msgstr "Sistemski pomnilnik"
+msgstr "Uporabljen pomnilnik"
 
 #: js/messages.php:106
 #, fuzzy
