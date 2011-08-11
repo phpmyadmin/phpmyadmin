@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-11 15:11+0200\n"
-"PO-Revision-Date: 2011-08-11 17:18+0200\n"
+"PO-Revision-Date: 2011-08-11 17:44+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -11769,12 +11769,13 @@ msgid "Query cache low memory prunes"
 msgstr ""
 
 #: po/advisory_rules.php:91
-#, fuzzy
 #| msgid "The amount of free memory for query cache."
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
-msgstr "Sorgu önbelleği için boş bellek miktarıdır."
+msgstr ""
+"Önbelleklenen sorgular, sorgu önbellek belleğinin sorgu önbelleğinden düşük "
+"olmasından dolayı kaldırıldı."
 
 #: po/advisory_rules.php:92
 msgid ""
