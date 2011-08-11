@@ -4299,8 +4299,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgstr ""
-"不使用[a@http://wiki.phpmyadmin.net/pma/relation]关系链接 (外链，英文)[/a]功"
-"能请留空，默认：[kbd]pma_relation[/kbd]"
+"不使用[a@http://wiki.phpmyadmin.net/pma/relation]关系链接 (外链，英文)[/a]功能请留空，推荐: "
+"[kbd]pma_relation[/kbd]"
 
 #: libraries/config/messages.inc.php:413
 msgid "Relation table"
