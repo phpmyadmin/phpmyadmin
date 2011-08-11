@@ -2162,10 +2162,9 @@ msgstr[2] "Vstavljene so %1$d vrstice."
 msgstr[3] "Vstavljenih je %1$d vrstic."
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Omogoča branje podatkov."
+msgstr "Napaka med ustvarjanjem PDF:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
