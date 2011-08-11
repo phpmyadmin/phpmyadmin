@@ -4282,14 +4282,13 @@ msgid "Server port"
 msgstr "服务器端口"
 
 #: libraries/config/messages.inc.php:410
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma_recent[/kbd]"
-msgstr "不在数据库中保存用户偏好请留空，默认：[kbd]pma_config[/kbd]"
+msgstr "不需要 \"持久\" 最近使用的表请留空，推荐: [kbd]pma_recent[/kbd]"
 
 #: libraries/config/messages.inc.php:411
 msgid "Recently used table"
