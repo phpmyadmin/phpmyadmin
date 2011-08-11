@@ -843,7 +843,7 @@ $(function() {
             $('a[href="#clearMonitorConfig"]').toggle(runtime.charts != null);
         }
         
-        if (window.localStorage && monitorProtocolVersion != window.localStorage['monitorVersion']) {
+        if (window.localStorage && window.localStorage['monitorCharts'] && monitorProtocolVersion != window.localStorage['monitorVersion']) {
             $('div#emptyDialog').attr('title',PMA_messages['strIncompatibleMonitorConfig']);
             $('div#emptyDialog').html(PMA_messages['strIncompatibleMonitorConfigDescription']);
             
