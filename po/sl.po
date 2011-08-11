@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-11 15:11+0200\n"
-"PO-Revision-Date: 2011-08-11 18:29+0200\n"
+"PO-Revision-Date: 2011-08-11 18:30+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1640,10 +1640,9 @@ msgid "Change"
 msgstr "Spremeni"
 
 #: js/messages.php:245
-#, fuzzy
 #| msgid "Maximum execution time"
 msgid "Query execution time"
-msgstr "Najdaljši čas izvajanja"
+msgstr "Čas izvajanja poizvedbe"
 
 #: js/messages.php:248 libraries/config/FormDisplay.tpl.php:323
 #: libraries/schema/User_Schema.class.php:313
