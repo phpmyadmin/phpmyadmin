@@ -12126,10 +12126,9 @@ msgid "rate of table open"
 msgstr "açık tablo oranı"
 
 #: po/advisory_rules.php:176
-#, fuzzy
 #| msgid "The current number of pending writes."
 msgid "The rate of opening tables is high."
-msgstr "Şu anki bekleyen yazma sayısıdır."
+msgstr "Açılan tabloların oranı yüksek."
 
 #: po/advisory_rules.php:177
 msgid ""
