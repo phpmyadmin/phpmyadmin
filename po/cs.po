@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-11 11:31+0200\n"
-"PO-Revision-Date: 2011-08-11 11:35+0200\n"
+"PO-Revision-Date: 2011-08-11 11:36+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1488,7 +1488,7 @@ msgstr "Zdůvodnění"
 
 #: js/messages.php:195
 msgid "Used variable / formula"
-msgstr ""
+msgstr "Použitá proměnná / vzorec"
 
 #: js/messages.php:196
 msgid "Test"
