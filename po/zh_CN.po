@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-10 10:14-0400\n"
-"PO-Revision-Date: 2011-08-11 04:35+0200\n"
+"PO-Revision-Date: 2011-08-11 04:36+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -4366,14 +4366,13 @@ msgid "Display columns table"
 msgstr "显示字段表"
 
 #: libraries/config/messages.inc.php:427
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
-msgstr "不在数据库中保存用户偏好请留空，默认：[kbd]pma_config[/kbd]"
+msgstr "不需要 \"持久\" 表界面设置请留空，推荐: [kbd]pma_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:428
 #, fuzzy
