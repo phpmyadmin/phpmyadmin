@@ -1473,7 +1473,7 @@ msgstr "Olası performans sorunları"
 
 #: js/messages.php:191
 msgid "Issue"
-msgstr ""
+msgstr "Sorun"
 
 #: js/messages.php:192
 #| msgid "Documentation"
