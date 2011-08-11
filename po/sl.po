@@ -1199,7 +1199,7 @@ msgstr "Prosta izmenjava"
 
 #: js/messages.php:111
 msgid "Bytes sent"
-msgstr ""
+msgstr "Poslanih bajtov"
 
 #: js/messages.php:112
 #, fuzzy
