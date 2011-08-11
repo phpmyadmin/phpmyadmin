@@ -2645,7 +2645,6 @@ msgstr "前へ"
 #: libraries/common.lib.php:2297 libraries/common.lib.php:2300
 #: libraries/display_tbl.lib.php:370 server_binlog.php:170
 #: server_binlog.php:172
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
