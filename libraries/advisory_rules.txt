@@ -124,8 +124,15 @@ rule 'Query cache disabled'
 	query_cache_size
 	value == 0 || query_cache_type == 'OFF' || query_cache_type == '0'
 	The query cache is not enabled. 
-	The query cache is known to greatly improve performance if configured correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value and setting {query_cache_type} to 'ON'
+	The query cache is known to greatly improve performance if configured correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using memcached, ignore this recommendation.
 	query_cache_size is set to 0 or query_cache_type is set to 'OFF'
+
+rule 'memcached usage' [!fired('Query cache disabled')]
+	Questions / Uptime
+	value > 100
+	Suboptimal caching method.
+	You are using the MySQL Query cache with a fairly high traffic database. It might be worth considering to use <a href="http://dev.mysql.com/doc/refman/5.1/en/ha-memcached.html">memcached</a> instead of the MySQL Query cache, especially if you have multiple slaves.
+	The query cache is enabled and the server receives %d queries per second. This rule fires if there is more than 100 queries per second. | round(value,1)
 
 rule 'Query cache efficiency (%)' [Com_select + Qcache_hits > 0 && !fired('Query cache disabled')]
 	Qcache_hits / (Com_select + Qcache_hits) * 100
