@@ -106,9 +106,12 @@ class PMA_Theme_Manager
 
         if (! $this->checkTheme($GLOBALS['cfg']['ThemeDefault'])) {
             trigger_error(
-                sprintf(__('Default theme %s not found!'),
-                    htmlspecialchars($GLOBALS['cfg']['ThemeDefault'])),
-                E_USER_ERROR);
+                sprintf(
+                    __('Default theme %s not found!'),
+                    htmlspecialchars($GLOBALS['cfg']['ThemeDefault'])
+                    ),
+                E_USER_ERROR
+                );
             $GLOBALS['cfg']['ThemeDefault'] = false;
         }
 
@@ -144,7 +147,10 @@ class PMA_Theme_Manager
     {
         if (! $this->checkTheme($theme)) {
             trigger_error(
-                sprintf(__('Theme %s not found!'), htmlspecialchars($theme)),
+                sprintf(
+                    __('Theme %s not found!'),
+                    htmlspecialchars($theme)
+                ),
                 E_USER_ERROR);
             return false;
         }
@@ -203,7 +209,7 @@ class PMA_Theme_Manager
      * @param string $folder
      * @return  boolean
      */
-    /*private*/ function _checkThemeFolder($folder)
+    private function _checkThemeFolder($folder)
     {
         if (! is_dir($folder)) {
             trigger_error(
@@ -278,7 +284,6 @@ class PMA_Theme_Manager
             $select_box .=  PMA_generate_common_hidden_inputs();
         }
 
-        $theme_selected = false;
         $theme_preview_path= './themes.php';
         $theme_preview_href = '<a href="' . $theme_preview_path . '" target="themes" class="themeselect">';
         $select_box .=  $theme_preview_href . __('Theme') . '</a>:' . "\n";

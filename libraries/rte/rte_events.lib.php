@@ -178,7 +178,7 @@ function PMA_EVN_handleEditor()
         }
         // Get the data for the form (if any)
         if (! empty($_REQUEST['add_item'])) {
-            $title = __("Create event");
+            $title = PMA_RTE_getWord('add');
             $item = PMA_EVN_getDataFromRequest();
             $mode = 'add';
         } else if (! empty($_REQUEST['edit_item'])) {
@@ -446,7 +446,7 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
     $retval .= "    </td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr class='recurring_event_row$isrecurring_class'>\n";
-    $retval .= "    <td>" . __('Start') . "</td>\n";
+    $retval .= "    <td>" . _pgettext('Start of recurring event', 'Start') . "</td>\n";
     $retval .= "    <td class='nowrap'>\n";
     $retval .= "        <input type='text'\n name='item_starts'\n";
     $retval .= "               value='{$item['item_starts']}'\n";
@@ -454,7 +454,7 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
     $retval .= "    </td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr class='recurring_event_row$isrecurring_class'>\n";
-    $retval .= "    <td>" . __('End') . "</td>\n";
+    $retval .= "    <td>" . _pgettext('End of recurring event', 'End') . "</td>\n";
     $retval .= "    <td class='nowrap'>\n";
     $retval .= "        <input type='text' name='item_ends'\n";
     $retval .= "               value='{$item['item_ends']}'\n";

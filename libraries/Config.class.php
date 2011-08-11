@@ -284,7 +284,7 @@ class PMA_Config
         $match = array();
         if (! preg_match('@([0-9]{1,2}).([0-9]{1,2}).([0-9]{1,2})@',
                 phpversion(), $match)) {
-            $result = preg_match('@([0-9]{1,2}).([0-9]{1,2})@',
+            preg_match('@([0-9]{1,2}).([0-9]{1,2})@',
                 phpversion(), $match);
         }
         if (isset($match) && ! empty($match[1])) {

@@ -643,7 +643,7 @@ class PMA_File
                 break;
         }
 
-
+        return true;
     }
 
     function getCharset()
@@ -679,8 +679,6 @@ class PMA_File
     function advanceFilePointer($length)
     {
         while ($length > 0) {
-            // Disable read progresivity, otherwise we eat all memory!
-            $read_multiply = 1; // required?
             $this->getNextChunk($length);
             $length -= $this->getChunkSize();
         }
@@ -738,12 +736,6 @@ class PMA_File
             default:
                 return false;
         }
-
-        echo $size . ' - ';
-        echo strlen($result) . ' - ';
-        echo (@$GLOBALS['__len__'] += strlen($result)) . ' - ';
-        echo $this->_error_message;
-        echo '<hr />';
 
         if ($GLOBALS['charset_conversion']) {
             $result = PMA_convert_string($this->getCharset(), 'utf-8', $result);

@@ -206,7 +206,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      */
     function PMA_SQP_parse($sql)
     {
-        static $PMA_SQPdata_column_attrib, $PMA_SQPdata_reserved_word, $PMA_SQPdata_column_type;
+        static $PMA_SQPdata_column_attrib, $PMA_SQPdata_reserved_word;
+        static $PMA_SQPdata_column_type;
         static $PMA_SQPdata_function_name, $PMA_SQPdata_forbidden_word;
         global $mysql_charsets, $mysql_collations_flat;
 
@@ -220,12 +221,22 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         // Create local hashtables
-        if (!isset($PMA_SQPdata_column_attrib_cnt)) {
-            $PMA_SQPdata_column_attrib  = array_flip($GLOBALS['PMA_SQPdata_column_attrib']);
-            $PMA_SQPdata_function_name  = array_flip($GLOBALS['PMA_SQPdata_function_name']);
-            $PMA_SQPdata_reserved_word  = array_flip($GLOBALS['PMA_SQPdata_reserved_word']);
-            $PMA_SQPdata_forbidden_word = array_flip($GLOBALS['PMA_SQPdata_forbidden_word']);
-            $PMA_SQPdata_column_type    = array_flip($GLOBALS['PMA_SQPdata_column_type']);
+        if (!isset($PMA_SQPdata_column_attrib)) {
+            $PMA_SQPdata_column_attrib  = array_flip(
+                $GLOBALS['PMA_SQPdata_column_attrib']
+                );
+            $PMA_SQPdata_function_name  = array_flip(
+                $GLOBALS['PMA_SQPdata_function_name']
+                );
+            $PMA_SQPdata_reserved_word  = array_flip(
+                $GLOBALS['PMA_SQPdata_reserved_word']
+                );
+            $PMA_SQPdata_forbidden_word = array_flip(
+                $GLOBALS['PMA_SQPdata_forbidden_word']
+                );
+            $PMA_SQPdata_column_type    = array_flip(
+                $GLOBALS['PMA_SQPdata_column_type']
+                );
         }
 
         $sql_array               = array();
@@ -270,7 +281,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $this_was_quote       = false;
 
         while ($count2 < $len) {
-            $c      = $GLOBALS['PMA_substr']($sql, $count2, 1);
+            $c      = PMA_substr($sql, $count2, 1);
             $count1 = $count2;
 
             $previous_was_space = $this_was_space;
@@ -292,7 +303,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             }
 
             // Checks for white space
-            if ($GLOBALS['PMA_STR_isSpace']($c)) {
+            if (PMA_STR_isSpace($c)) {
                 $this_was_space = true;
                 $count2++;
                 continue;
@@ -302,46 +313,46 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             // MySQL style #
             // C style /* */
             // ANSI style --
+            $next_c = PMA_substr($sql, $count2 + 1, 1);
             if (($c == '#')
-                || (($count2 + 1 < $len) && ($c == '/') && ($GLOBALS['PMA_substr']($sql, $count2 + 1, 1) == '*'))
-                || (($count2 + 2 == $len) && ($c == '-') && ($GLOBALS['PMA_substr']($sql, $count2 + 1, 1) == '-'))
-                || (($count2 + 2 < $len) && ($c == '-') && ($GLOBALS['PMA_substr']($sql, $count2 + 1, 1) == '-') && (($GLOBALS['PMA_substr']($sql, $count2 + 2, 1) <= ' ')))) {
+                || (($count2 + 1 < $len) && ($c == '/') && ($next_c == '*'))
+                || (($count2 + 2 == $len) && ($c == '-') && ($next_c == '-'))
+                || (($count2 + 2 < $len) && ($c == '-') && ($next_c == '-') && ((PMA_substr($sql, $count2 + 2, 1) <= ' ')))) {
                 $count2++;
                 $pos  = 0;
                 $type = 'bad';
                 switch ($c) {
-                    case '#':
-                        $type = 'mysql';
-                    case '-':
-                        $type = 'ansi';
-                        $pos  = $GLOBALS['PMA_strpos']($sql, "\n", $count2);
-                        break;
-                    case '/':
-                        $type = 'c';
-                        $pos  = $GLOBALS['PMA_strpos']($sql, '*/', $count2);
-                        $pos  += 2;
-                        break;
-                    default:
-                        break;
+                case '#':
+                    $type = 'mysql';
+                case '-':
+                    $type = 'ansi';
+                    $pos  = PMA_strpos($sql, "\n", $count2);
+                    break;
+                case '/':
+                    $type = 'c';
+                    $pos  = PMA_strpos($sql, '*/', $count2);
+                    $pos  += 2;
+                    break;
+                default:
+                    break;
                 } // end switch
                 $count2 = ($pos < $count2) ? $len : $pos;
-                $str    = $GLOBALS['PMA_substr']($sql, $count1, $count2 - $count1);
+                $str    = PMA_substr($sql, $count1, $count2 - $count1);
                 PMA_SQP_arrayAdd($sql_array, 'comment_' . $type, $str, $arraysize);
                 continue;
             } // end if
 
             // Checks for something inside quotation marks
-            if ($GLOBALS['PMA_strpos']($quote_list, $c) !== false) {
+            if (PMA_strpos($quote_list, $c) !== false) {
                 $startquotepos   = $count2;
                 $quotetype       = $c;
                 $count2++;
                 $escaped         = false;
-                $escaped_escaped = false;
                 $pos             = $count2;
                 $oldpos          = 0;
                 do {
                     $oldpos = $pos;
-                    $pos    = $GLOBALS['PMA_strpos'](' ' . $sql, $quotetype, $oldpos + 1) - 1;
+                    $pos    = PMA_strpos(' ' . $sql, $quotetype, $oldpos + 1) - 1;
                     // ($pos === false)
                     if ($pos < 0) {
                         if ($c == '`') {
@@ -355,7 +366,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                              *
                              * SELECT * FROM `table`
                              */
-                            $pos_quote_separator = $GLOBALS['PMA_strpos'](' ' . $sql, $GLOBALS['sql_delimiter'], $oldpos + 1) - 1;
+                            $pos_quote_separator = PMA_strpos(' ' . $sql, $GLOBALS['sql_delimiter'], $oldpos + 1) - 1;
                             if ($pos_quote_separator < 0) {
                                 $len += 1;
                                 $sql .= '`';
@@ -363,7 +374,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                                 $pos = $len;
                             } else {
                                 $len += 1;
-                                $sql = $GLOBALS['PMA_substr']($sql, 0, $pos_quote_separator) . '`' . $GLOBALS['PMA_substr']($sql, $pos_quote_separator);
+                                $sql = PMA_substr($sql, 0, $pos_quote_separator) . '`' . PMA_substr($sql, $pos_quote_separator);
                                 $sql_array['raw'] = $sql;
                                 $pos = $pos_quote_separator;
                             }
@@ -389,7 +400,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     if (($pos < $len) && PMA_STR_charIsEscaped($sql, $pos) && $c != '`') {
                         $pos ++;
                         continue;
-                    } elseif (($pos + 1 < $len) && ($GLOBALS['PMA_substr']($sql, $pos, 1) == $quotetype) && ($GLOBALS['PMA_substr']($sql, $pos + 1, 1) == $quotetype)) {
+                    } elseif (($pos + 1 < $len) && (PMA_substr($sql, $pos, 1) == $quotetype) && (PMA_substr($sql, $pos + 1, 1) == $quotetype)) {
                         $pos = $pos + 2;
                         continue;
                     } else {
@@ -401,42 +412,42 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 $count2++;
                 $type         = 'quote_';
                 switch ($quotetype) {
-                    case '\'':
-                        $type .= 'single';
-                        $this_was_quote = true;
-                        break;
-                    case '"':
-                        $type .= 'double';
-                        $this_was_quote = true;
-                        break;
-                    case '`':
-                        $type .= 'backtick';
-                        $this_was_quote = true;
-                        break;
-                    default:
-                        break;
+                case '\'':
+                    $type .= 'single';
+                    $this_was_quote = true;
+                    break;
+                case '"':
+                    $type .= 'double';
+                    $this_was_quote = true;
+                    break;
+                case '`':
+                    $type .= 'backtick';
+                    $this_was_quote = true;
+                    break;
+                default:
+                    break;
                 } // end switch
-                $data = $GLOBALS['PMA_substr']($sql, $count1, $count2 - $count1);
+                $data = PMA_substr($sql, $count1, $count2 - $count1);
                 PMA_SQP_arrayAdd($sql_array, $type, $data, $arraysize);
                 continue;
             }
 
             // Checks for brackets
-            if ($GLOBALS['PMA_strpos']($bracket_list, $c) !== false) {
+            if (PMA_strpos($bracket_list, $c) !== false) {
                 // All bracket tokens are only one item long
                 $this_was_bracket = true;
                 $count2++;
                 $type_type     = '';
-                if ($GLOBALS['PMA_strpos']('([{', $c) !== false) {
+                if (PMA_strpos('([{', $c) !== false) {
                     $type_type = 'open';
                 } else {
                     $type_type = 'close';
                 }
 
                 $type_style     = '';
-                if ($GLOBALS['PMA_strpos']('()', $c) !== false) {
+                if (PMA_strpos('()', $c) !== false) {
                     $type_style = 'round';
-                } elseif ($GLOBALS['PMA_strpos']('[]', $c) !== false) {
+                } elseif (PMA_strpos('[]', $c) !== false) {
                     $type_style = 'square';
                 } else {
                     $type_style = 'curly';
@@ -463,7 +474,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             if (PMA_STR_isSqlIdentifier($c, false)
              || $c == '@'
              || ($c == '.'
-              && $GLOBALS['PMA_STR_isDigit']($GLOBALS['PMA_substr']($sql, $count2 + 1, 1))
+              && PMA_STR_isDigit(PMA_substr($sql, $count2 + 1, 1))
               && ($previous_was_space || $previous_was_bracket || $previous_was_listsep))) {
 
                 /* DEBUG
@@ -481,8 +492,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 $is_identifier           = $previous_was_punct;
                 $is_sql_variable         = $c == '@' && ! $previous_was_quote;
                 $is_user                 = $c == '@' && $previous_was_quote;
-                $is_digit                = !$is_identifier && !$is_sql_variable && $GLOBALS['PMA_STR_isDigit']($c);
-                $is_hex_digit            = $is_digit && $c == '0' && $count2 < $len && $GLOBALS['PMA_substr']($sql, $count2, 1) == 'x';
+                $is_digit                = !$is_identifier && !$is_sql_variable && PMA_STR_isDigit($c);
+                $is_hex_digit            = $is_digit && $c == '0' && $count2 < $len && PMA_substr($sql, $count2, 1) == 'x';
                 $is_float_digit          = $c == '.';
                 $is_float_digit_exponent = false;
 
@@ -495,7 +506,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 echo '</pre>';
                  */
 
-                // Nijel: Fast skip is especially needed for huge BLOB data, requires PHP at least 4.3.0:
+                // Fast skip is especially needed for huge BLOB data
                 if ($is_hex_digit) {
                     $count2++;
                     $pos = strspn($sql, '0123456789abcdefABCDEF', $count2);
@@ -511,8 +522,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     unset($pos);
                 }
 
-                while (($count2 < $len) && PMA_STR_isSqlIdentifier($GLOBALS['PMA_substr']($sql, $count2, 1), ($is_sql_variable || $is_digit))) {
-                    $c2 = $GLOBALS['PMA_substr']($sql, $count2, 1);
+                while (($count2 < $len) && PMA_STR_isSqlIdentifier(PMA_substr($sql, $count2, 1), ($is_sql_variable || $is_digit))) {
+                    $c2 = PMA_substr($sql, $count2, 1);
                     if ($is_sql_variable && ($c2 == '.')) {
                         $count2++;
                         continue;
@@ -540,7 +551,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                             $is_float_digit          = false;
                         }
                     }
-                    if (($is_hex_digit && PMA_STR_isHexDigit($c2)) || ($is_digit && $GLOBALS['PMA_STR_isDigit']($c2))) {
+                    if (($is_hex_digit && PMA_STR_isHexDigit($c2)) || ($is_digit && PMA_STR_isDigit($c2))) {
                         $count2++;
                         continue;
                     } else {
@@ -552,7 +563,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 } // end while
 
                 $l    = $count2 - $count1;
-                $str  = $GLOBALS['PMA_substr']($sql, $count1, $l);
+                $str  = PMA_substr($sql, $count1, $l);
 
                 $type = '';
                 if ($is_digit || $is_float_digit || $is_hex_digit) {
@@ -577,15 +588,15 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             }
 
             // Checks for punct
-            if ($GLOBALS['PMA_strpos']($allpunct_list, $c) !== false) {
-                while (($count2 < $len) && $GLOBALS['PMA_strpos']($allpunct_list, $GLOBALS['PMA_substr']($sql, $count2, 1)) !== false) {
+            if (PMA_strpos($allpunct_list, $c) !== false) {
+                while (($count2 < $len) && PMA_strpos($allpunct_list, PMA_substr($sql, $count2, 1)) !== false) {
                     $count2++;
                 }
                 $l = $count2 - $count1;
                 if ($l == 1) {
                     $punct_data = $c;
                 } else {
-                    $punct_data = $GLOBALS['PMA_substr']($sql, $count1, $l);
+                    $punct_data = PMA_substr($sql, $count1, $l);
                 }
 
                 // Special case, sometimes, althought two characters are
@@ -600,19 +611,19 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 if ($l == 1) {
                     $t_suffix         = '';
                     switch ($punct_data) {
-                        case $punct_queryend:
-                            $t_suffix = '_queryend';
-                            break;
-                        case $punct_qualifier:
-                            $t_suffix = '_qualifier';
-                            $this_was_punct = true;
-                            break;
-                        case $punct_listsep:
-                            $this_was_listsep = true;
-                            $t_suffix = '_listsep';
-                            break;
-                        default:
-                            break;
+                    case $punct_queryend:
+                        $t_suffix = '_queryend';
+                        break;
+                    case $punct_qualifier:
+                        $t_suffix = '_qualifier';
+                        $this_was_punct = true;
+                        break;
+                    case $punct_listsep:
+                        $this_was_listsep = true;
+                        $t_suffix = '_listsep';
+                        break;
+                    default:
+                        break;
                     }
                     PMA_SQP_arrayAdd($sql_array, 'punct' . $t_suffix, $punct_data, $arraysize);
                 } elseif ($punct_data == $GLOBALS['sql_delimiter'] || isset($allpunct_list_pair[$punct_data])) {
@@ -627,19 +638,18 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     if (($first == ',') || ($first == ';') || ($first == '.') || ($first == '*')) {
                         $count2     = $count1 + 1;
                         $punct_data = $first;
-                    } elseif (($last2 == '/*') || (($last2 == '--') && ($count2 == $len || $GLOBALS['PMA_substr']($sql, $count2, 1) <= ' '))) {
+                    } elseif (($last2 == '/*') || (($last2 == '--') && ($count2 == $len || PMA_substr($sql, $count2, 1) <= ' '))) {
                         $count2     -= 2;
-                        $punct_data = $GLOBALS['PMA_substr']($sql, $count1, $count2 - $count1);
+                        $punct_data = PMA_substr($sql, $count1, $count2 - $count1);
                     } elseif (($last == '-') || ($last == '+') || ($last == '!')) {
                         $count2--;
-                        $punct_data = $GLOBALS['PMA_substr']($sql, $count1, $count2 - $count1);
-                    /**
-                     * @todo for negation operator, split in 2 tokens ?
-                     * "select x&~1 from t"
-                     * becomes "select x & ~ 1 from t" ?
-                     */
-
+                        $punct_data = PMA_substr($sql, $count1, $count2 - $count1);
                     } elseif ($last != '~') {
+                        /**
+                         * @todo for negation operator, split in 2 tokens ?
+                         * "select x&~1 from t"
+                         * becomes "select x & ~ 1 from t" ?
+                         */
                         $debugstr =  __('Unknown Punctuation String') . ' @ ' . ($count1+1) . "\n"
                                   . 'STR: ' . htmlspecialchars($punct_data);
                         PMA_SQP_throwError($debugstr, $sql);
@@ -655,7 +665,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             $count2++;
 
             $debugstr = 'C1 C2 LEN: ' . $count1 . ' ' . $count2 . ' ' . $len .  "\n"
-                      . 'STR: ' . $GLOBALS['PMA_substr']($sql, $count1, $count2 - $count1) . "\n";
+                      . 'STR: ' . PMA_substr($sql, $count1, $count2 - $count1) . "\n";
             PMA_SQP_bug($debugstr, $sql);
             return $sql_array;
 
@@ -800,16 +810,16 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         return $sql_array;
     } // end of the "PMA_SQP_parse()" function
 
-   /**
-    * Checks for token types being what we want...
-    *
-    * @param string String of type that we have
-    * @param string String of type that we want
-    *
-    * @return boolean result of check
-    *
-    * @access private
-    */
+    /**
+     * Checks for token types being what we want...
+     *
+     * @param string String of type that we have
+     * @param string String of type that we want
+     *
+     * @return boolean result of check
+     *
+     * @access private
+     */
     function PMA_SQP_typeCheck($toCheck, $whatWeWant)
     {
         $typeSeperator = '_';
@@ -878,122 +888,122 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // for GROUP_CONCAT(...)
         $in_group_concat     = false;
 
-/* Description of analyzer results
- *
- * db, table, column, alias
- * ------------------------
- *
- * Inside the $subresult array, we create ['select_expr'] and ['table_ref'] arrays.
- *
- * The SELECT syntax (simplified) is
- *
- * SELECT
- *    select_expression,...
- *    [FROM [table_references]
- *
- *
- * ['select_expr'] is filled with each expression, the key represents the
- * expression position in the list (0-based) (so we don't lose track of
- * multiple occurences of the same column).
- *
- * ['table_ref'] is filled with each table ref, same thing for the key.
- *
- * I create all sub-values empty, even if they are
- * not present (for example no select_expression alias).
- *
- * There is a debug section at the end of loop #1, if you want to
- * see the exact contents of select_expr and table_ref
- *
- * queryflags
- * ----------
- *
- * In $subresult, array 'queryflags' is filled, according to what we
- * find in the query.
- *
- * Currently, those are generated:
- *
- * ['queryflags']['need_confirm'] = 1; if the query needs confirmation
- * ['queryflags']['select_from'] = 1;  if this is a real SELECT...FROM
- * ['queryflags']['distinct'] = 1;     for a DISTINCT
- * ['queryflags']['union'] = 1;        for a UNION
- * ['queryflags']['join'] = 1;         for a JOIN
- * ['queryflags']['offset'] = 1;       for the presence of OFFSET
- * ['queryflags']['procedure'] = 1;    for the presence of PROCEDURE
- *
- * query clauses
- * -------------
- *
- * The select is splitted in those clauses:
- * ['select_expr_clause']
- * ['from_clause']
- * ['group_by_clause']
- * ['order_by_clause']
- * ['having_clause']
- * ['limit_clause']
- * ['where_clause']
- *
- * The identifiers of the WHERE clause are put into the array
- * ['where_clause_identifier']
- *
- * For a SELECT, the whole query without the ORDER BY clause is put into
- * ['unsorted_query']
- *
- * foreign keys
- * ------------
- * The CREATE TABLE may contain FOREIGN KEY clauses, so they get
- * analyzed and ['foreign_keys'] is an array filled with
- * the constraint name, the index list,
- * the REFERENCES table name and REFERENCES index list,
- * and ON UPDATE | ON DELETE clauses
- *
- * position_of_first_select
- * ------------------------
- *
- * The array index of the first SELECT we find. Will be used to
- * insert a SQL_CALC_FOUND_ROWS.
- *
- * create_table_fields
- * -------------------
- *
- * Used to detect the DEFAULT CURRENT_TIMESTAMP and
- * ON UPDATE CURRENT_TIMESTAMP clauses of the CREATE TABLE query.
- * Also used to store the default value of the field.
- * An array, each element is the identifier name.
- * Note that for now, the timestamp_not_null element is created
- * even for non-TIMESTAMP fields.
- *
- * Sub-elements: ['type'] which contains the column type
- *               optional (currently they are never false but can be absent):
- *               ['default_current_timestamp'] boolean
- *               ['on_update_current_timestamp'] boolean
- *               ['timestamp_not_null'] boolean
- *
- * section_before_limit, section_after_limit
- * -----------------------------------------
- *
- * Marks the point of the query where we can insert a LIMIT clause;
- * so the section_before_limit will contain the left part before
- * a possible LIMIT clause
- *
- *
- * End of description of analyzer results
- */
+        /* Description of analyzer results
+         *
+         * db, table, column, alias
+         * ------------------------
+         *
+         * Inside the $subresult array, we create ['select_expr'] and ['table_ref'] arrays.
+         *
+         * The SELECT syntax (simplified) is
+         *
+         * SELECT
+         *    select_expression,...
+         *    [FROM [table_references]
+         *
+         *
+         * ['select_expr'] is filled with each expression, the key represents the
+         * expression position in the list (0-based) (so we don't lose track of
+         * multiple occurences of the same column).
+         *
+         * ['table_ref'] is filled with each table ref, same thing for the key.
+         *
+         * I create all sub-values empty, even if they are
+         * not present (for example no select_expression alias).
+         *
+         * There is a debug section at the end of loop #1, if you want to
+         * see the exact contents of select_expr and table_ref
+         *
+         * queryflags
+         * ----------
+         *
+         * In $subresult, array 'queryflags' is filled, according to what we
+         * find in the query.
+         *
+         * Currently, those are generated:
+         *
+         * ['queryflags']['need_confirm'] = 1; if the query needs confirmation
+         * ['queryflags']['select_from'] = 1;  if this is a real SELECT...FROM
+         * ['queryflags']['distinct'] = 1;     for a DISTINCT
+         * ['queryflags']['union'] = 1;        for a UNION
+         * ['queryflags']['join'] = 1;         for a JOIN
+         * ['queryflags']['offset'] = 1;       for the presence of OFFSET
+         * ['queryflags']['procedure'] = 1;    for the presence of PROCEDURE
+         *
+         * query clauses
+         * -------------
+         *
+         * The select is splitted in those clauses:
+         * ['select_expr_clause']
+         * ['from_clause']
+         * ['group_by_clause']
+         * ['order_by_clause']
+         * ['having_clause']
+         * ['limit_clause']
+         * ['where_clause']
+         *
+         * The identifiers of the WHERE clause are put into the array
+         * ['where_clause_identifier']
+         *
+         * For a SELECT, the whole query without the ORDER BY clause is put into
+         * ['unsorted_query']
+         *
+         * foreign keys
+         * ------------
+         * The CREATE TABLE may contain FOREIGN KEY clauses, so they get
+         * analyzed and ['foreign_keys'] is an array filled with
+         * the constraint name, the index list,
+         * the REFERENCES table name and REFERENCES index list,
+         * and ON UPDATE | ON DELETE clauses
+         *
+         * position_of_first_select
+         * ------------------------
+         *
+         * The array index of the first SELECT we find. Will be used to
+         * insert a SQL_CALC_FOUND_ROWS.
+         *
+         * create_table_fields
+         * -------------------
+         *
+         * Used to detect the DEFAULT CURRENT_TIMESTAMP and
+         * ON UPDATE CURRENT_TIMESTAMP clauses of the CREATE TABLE query.
+         * Also used to store the default value of the field.
+         * An array, each element is the identifier name.
+         * Note that for now, the timestamp_not_null element is created
+         * even for non-TIMESTAMP fields.
+         *
+         * Sub-elements: ['type'] which contains the column type
+         *               optional (currently they are never false but can be absent):
+         *               ['default_current_timestamp'] boolean
+         *               ['on_update_current_timestamp'] boolean
+         *               ['timestamp_not_null'] boolean
+         *
+         * section_before_limit, section_after_limit
+         * -----------------------------------------
+         *
+         * Marks the point of the query where we can insert a LIMIT clause;
+         * so the section_before_limit will contain the left part before
+         * a possible LIMIT clause
+         *
+         *
+         * End of description of analyzer results
+         */
 
         // must be sorted
         // TODO: current logic checks for only one word, so I put only the
         // first word of the reserved expressions that end a table ref;
         // maybe this is not ok (the first word might mean something else)
-//        $words_ending_table_ref = array(
-//            'FOR UPDATE',
-//            'GROUP BY',
-//            'HAVING',
-//            'LIMIT',
-//            'LOCK IN SHARE MODE',
-//            'ORDER BY',
-//            'PROCEDURE',
-//            'UNION',
-//            'WHERE'
-//        );
+        //        $words_ending_table_ref = array(
+        //            'FOR UPDATE',
+        //            'GROUP BY',
+        //            'HAVING',
+        //            'LIMIT',
+        //            'LOCK IN SHARE MODE',
+        //            'ORDER BY',
+        //            'PROCEDURE',
+        //            'UNION',
+        //            'WHERE'
+        //        );
         $words_ending_table_ref = array(
             'FOR' => 1,
             'GROUP' => 1,
@@ -1035,7 +1045,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // loop #1 for each token: select_expr, table_ref for SELECT
 
         for ($i = 0; $i < $size; $i++) {
-//DEBUG echo "Loop1 <strong>"  . $arr[$i]['data'] . "</strong> (" . $arr[$i]['type'] . ")<br />";
+            //DEBUG echo "Loop1 <strong>"  . $arr[$i]['data'] . "</strong> (" . $arr[$i]['type'] . ")<br />";
 
             // High speed seek for locating the end of the current query
             if ($seek_queryend == true) {
@@ -1056,7 +1066,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 continue;
             } // end if (type == punct_queryend)
 
-// ==============================================================
+            // ==============================================================
             if ($arr[$i]['type'] == 'punct_bracket_open_round') {
                 $number_of_brackets++;
                 if ($in_extract) {
@@ -1066,7 +1076,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     $number_of_brackets_in_group_concat++;
                 }
             }
-// ==============================================================
+            // ==============================================================
             if ($arr[$i]['type'] == 'punct_bracket_close_round') {
                 $number_of_brackets--;
                 if ($number_of_brackets == 0) {
@@ -1097,7 +1107,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                  */
                 continue;
             }
-// ==============================================================
+            // ==============================================================
             if ($arr[$i]['type'] == 'alpha_functionName') {
                 $upper_data = strtoupper($arr[$i]['data']);
                 if ($upper_data =='EXTRACT') {
@@ -1110,10 +1120,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 }
             }
 
-// ==============================================================
+            // ==============================================================
             if ($arr[$i]['type'] == 'alpha_reservedWord'
-//             && $arr[$i]['forbidden'] == false) {
-            ) {
+                //&& $arr[$i]['forbidden'] == false) {
+                ) {
                 // We don't know what type of query yet, so run this
                 if ($subresult['querytype'] == '') {
                     $subresult['querytype'] = strtoupper($arr[$i]['data']);
@@ -1156,7 +1166,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 // reserved words below
             } // end if (type == alpha_reservedWord)
 
-// ==============================
+            // ==============================
             if ($arr[$i]['type'] == 'quote_backtick'
              || $arr[$i]['type'] == 'quote_double'
              || $arr[$i]['type'] == 'quote_single'
@@ -1165,23 +1175,23 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 && $arr[$i]['forbidden'] == false)) {
 
                 switch ($arr[$i]['type']) {
-                    case 'alpha_identifier':
-                    case 'alpha_reservedWord':
-                        /**
-                         * this is not a real reservedWord, because it's not
-                         * present in the list of forbidden words, for example
-                         * "storage" which can be used as an identifier
-                         *
-                         * @todo avoid the pretty printing in color in this case
-                         */
-                        $identifier = $arr[$i]['data'];
-                        break;
+                case 'alpha_identifier':
+                case 'alpha_reservedWord':
+                    /**
+                     * this is not a real reservedWord, because it's not
+                     * present in the list of forbidden words, for example
+                     * "storage" which can be used as an identifier
+                     *
+                     * @todo avoid the pretty printing in color in this case
+                     */
+                    $identifier = $arr[$i]['data'];
+                    break;
 
-                    case 'quote_backtick':
-                    case 'quote_double':
-                    case 'quote_single':
-                        $identifier = PMA_unQuote($arr[$i]['data']);
-                        break;
+                case 'quote_backtick':
+                case 'quote_double':
+                case 'quote_single':
+                    $identifier = PMA_unQuote($arr[$i]['data']);
+                    break;
                 } // end switch
 
                 if ($subresult['querytype'] == 'SELECT'
@@ -1217,7 +1227,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 } // end if (querytype SELECT)
             } // end if (quote_backtick or double quote or alpha_identifier)
 
-// ===================================
+            // ===================================
             if ($arr[$i]['type'] == 'punct_qualifier') {
                 // to be able to detect an identifier following another
                 $previous_was_identifier = false;
@@ -1486,7 +1496,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $in_subquery = false;
 
         for ($i = 0; $i < $size; $i++) {
-//DEBUG echo "Loop2 <strong>"  . $arr[$i]['data'] . "</strong> (" . $arr[$i]['type'] . ")<br />";
+            //DEBUG echo "Loop2 <strong>"  . $arr[$i]['data'] . "</strong> (" . $arr[$i]['type'] . ")<br />";
 
             // need_confirm
             //
@@ -1976,10 +1986,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 if ($seen_references) {
                     if ($seen_alter && $brackets_level > 0) {
                         $foreign[$foreign_key_number]['ref_index_list'][] = $identifier;
-                    // here, the first bracket level corresponds to the
-                    // bracket of CREATE TABLE
-                    // so if we are on level 2, it must be the index list
-                    // of the foreign key REFERENCES
+                        // here, the first bracket level corresponds to the
+                        // bracket of CREATE TABLE
+                        // so if we are on level 2, it must be the index list
+                        // of the foreign key REFERENCES
                     } elseif ($brackets_level > 1) {
                         $foreign[$foreign_key_number]['ref_index_list'][] = $identifier;
                     } elseif ($arr[$i+1]['type'] == 'punct_qualifier') {
@@ -2062,7 +2072,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      */
     function PMA_SQP_formatHtml_colorize($arr)
     {
-        $i         = $GLOBALS['PMA_strpos']($arr['type'], '_');
+        $i         = PMA_strpos($arr['type'], '_');
         $class     = '';
         if ($i > 0) {
             $class = 'syntax_' . PMA_substr($arr['type'], 0, $i) . ' ';
@@ -2101,21 +2111,21 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
         // else do it properly
         switch ($mode) {
-            case 'color':
-                $str                                = '<span class="syntax">';
-                $html_line_break                    = '<br />';
-                $docu                               = true;
-                break;
-            case 'query_only':
-                $str                                = '';
-                $html_line_break                    = "\n";
-                $docu                               = false;
-                break;
-            case 'text':
-                $str                                = '';
-                $html_line_break                    = '<br />';
-                $docu                               = true;
-                break;
+        case 'color':
+            $str                                = '<span class="syntax">';
+            $html_line_break                    = '<br />';
+            $docu                               = true;
+            break;
+        case 'query_only':
+            $str                                = '';
+            $html_line_break                    = "\n";
+            $docu                               = false;
+            break;
+        case 'text':
+            $str                                = '';
+            $html_line_break                    = '<br />';
+            $docu                               = true;
+            break;
         } // end switch
         // inner_sql is a span that exists for all cases, except query_only
         // of $cfg['SQP']['fmtType'] to make possible a replacement
@@ -2188,7 +2198,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         $in_priv_list = false;
         for ($i = $start_token; $i < $number_of_tokens; $i++) {
-// DEBUG echo "Loop format <strong>" . $arr[$i]['data'] . "</strong> " . $arr[$i]['type'] . "<br />";
+            // DEBUG echo "Loop format <strong>" . $arr[$i]['data'] . "</strong> " . $arr[$i]['type'] . "<br />";
             $before = '';
             $after  = '';
             // array_shift($typearr);
@@ -2209,424 +2219,424 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             }
 
             switch ($typearr[2]) {
-                case 'alpha_bitfield_constant_introducer':
-                    $before     = ' ';
+            case 'alpha_bitfield_constant_introducer':
+                $before     = ' ';
+                $after      = '';
+                break;
+            case 'white_newline':
+                $before     = '';
+                break;
+            case 'punct_bracket_open_round':
+                $bracketlevel++;
+                $infunction = false;
+                // Make sure this array is sorted!
+                if (($typearr[1] == 'alpha_functionName') || ($typearr[1] == 'alpha_columnType') || ($typearr[1] == 'punct')
+                    || ($typearr[3] == 'digit_integer') || ($typearr[3] == 'digit_hex') || ($typearr[3] == 'digit_float')
+                    || (($typearr[0] == 'alpha_reservedWord')
+                        && isset($keywords_with_brackets_2before[strtoupper($arr[$i - 2]['data'])]))
+                    || (($typearr[1] == 'alpha_reservedWord')
+                        && isset($keywords_with_brackets_1before[strtoupper($arr[$i - 1]['data'])]))
+                    ) {
+                    $functionlevel++;
+                    $infunction = true;
+                    $after      .= ' ';
+                } else {
+                    $indent++;
+                    $after      .= ($mode != 'query_only' ? '<div class="syntax_indent' . $indent . '">' : ' ');
+                }
+                break;
+            case 'alpha_identifier':
+                if (($typearr[1] == 'punct_qualifier') || ($typearr[3] == 'punct_qualifier')) {
                     $after      = '';
-                    break;
-                case 'white_newline':
                     $before     = '';
-                    break;
-                case 'punct_bracket_open_round':
-                    $bracketlevel++;
-                    $infunction = false;
-                    // Make sure this array is sorted!
-                    if (($typearr[1] == 'alpha_functionName') || ($typearr[1] == 'alpha_columnType') || ($typearr[1] == 'punct')
-                        || ($typearr[3] == 'digit_integer') || ($typearr[3] == 'digit_hex') || ($typearr[3] == 'digit_float')
-                        || (($typearr[0] == 'alpha_reservedWord')
-                            && isset($keywords_with_brackets_2before[strtoupper($arr[$i - 2]['data'])]))
-                        || (($typearr[1] == 'alpha_reservedWord')
-                            && isset($keywords_with_brackets_1before[strtoupper($arr[$i - 1]['data'])]))
-                        ) {
-                        $functionlevel++;
-                        $infunction = true;
-                        $after      .= ' ';
-                    } else {
-                        $indent++;
-                        $after      .= ($mode != 'query_only' ? '<div class="syntax_indent' . $indent . '">' : ' ');
-                    }
-                    break;
-                case 'alpha_identifier':
-                    if (($typearr[1] == 'punct_qualifier') || ($typearr[3] == 'punct_qualifier')) {
-                        $after      = '';
-                        $before     = '';
-                    }
-                    // for example SELECT 1 somealias
-                    if ($typearr[1] == 'digit_integer') {
-                        $before     = ' ';
-                    }
-                    if (($typearr[3] == 'alpha_columnType') || ($typearr[3] == 'alpha_identifier')) {
-                        $after      .= ' ';
-                    }
-                    break;
-                case 'punct_user':
-                case 'punct_qualifier':
-                    $before         = '';
-                    $after          = '';
-                    break;
-                case 'punct_listsep':
+                }
+                // for example SELECT 1 somealias
+                if ($typearr[1] == 'digit_integer') {
+                    $before     = ' ';
+                }
+                if (($typearr[3] == 'alpha_columnType') || ($typearr[3] == 'alpha_identifier')) {
+                    $after      .= ' ';
+                }
+                break;
+            case 'punct_user':
+            case 'punct_qualifier':
+                $before         = '';
+                $after          = '';
+                break;
+            case 'punct_listsep':
+                if ($infunction == true) {
+                    $after      .= $space_punct_listsep_function_name;
+                } else {
+                    $after      .= $space_punct_listsep;
+                }
+                break;
+            case 'punct_queryend':
+                if (($typearr[3] != 'comment_mysql') && ($typearr[3] != 'comment_ansi') && $typearr[3] != 'comment_c') {
+                    $after     .= $html_line_break;
+                    $after     .= $html_line_break;
+                }
+                $space_punct_listsep               = ' ';
+                $space_punct_listsep_function_name = ' ';
+                $space_alpha_reserved_word         = ' ';
+                $in_priv_list                      = false;
+                break;
+            case 'comment_mysql':
+            case 'comment_ansi':
+                $after         .= $html_line_break;
+                break;
+            case 'punct':
+                $before         .= ' ';
+                if ($docu && isset($PMA_SQPdata_operators_docs[$arr[$i]['data']]) &&
+                        ($arr[$i]['data'] != '*' || in_array($arr[$i]['type'], array('digit_integer','digit_float','digit_hex')))) {
+                    $before .= PMA_showMySQLDocu(
+                        'functions',
+                        $PMA_SQPdata_operators_docs[$arr[$i]['data']]['link'],
+                        false,
+                        $PMA_SQPdata_operators_docs[$arr[$i]['data']]['anchor'],
+                        true);
+                    $after .= '</a>';
+                }
+
+                // workaround for
+                // select * from mytable limit 0,-1
+                // (a side effect of this workaround is that
+                // select 20 - 9
+                // becomes
+                // select 20 -9
+                // )
+                if ($typearr[3] != 'digit_integer') {
+                    $after        .= ' ';
+                }
+                break;
+            case 'punct_bracket_close_round':
+                // only close bracket level when it was opened before
+                if ($bracketlevel > 0) {
+                    $bracketlevel--;
                     if ($infunction == true) {
-                        $after      .= $space_punct_listsep_function_name;
-                    } else {
-                        $after      .= $space_punct_listsep;
-                    }
-                    break;
-                case 'punct_queryend':
-                    if (($typearr[3] != 'comment_mysql') && ($typearr[3] != 'comment_ansi') && $typearr[3] != 'comment_c') {
-                        $after     .= $html_line_break;
-                        $after     .= $html_line_break;
-                    }
-                    $space_punct_listsep               = ' ';
-                    $space_punct_listsep_function_name = ' ';
-                    $space_alpha_reserved_word         = ' ';
-                    $in_priv_list                      = false;
-                    break;
-                case 'comment_mysql':
-                case 'comment_ansi':
-                    $after         .= $html_line_break;
-                    break;
-                case 'punct':
-                    $before         .= ' ';
-                    if ($docu && isset($PMA_SQPdata_operators_docs[$arr[$i]['data']]) &&
-                            ($arr[$i]['data'] != '*' || in_array($arr[$i]['type'], array('digit_integer','digit_float','digit_hex')))) {
-                        $before .= PMA_showMySQLDocu(
-                            'functions',
-                            $PMA_SQPdata_operators_docs[$arr[$i]['data']]['link'],
-                            false,
-                            $PMA_SQPdata_operators_docs[$arr[$i]['data']]['anchor'],
-                            true);
-                        $after .= '</a>';
-                    }
-
-                    // workaround for
-                    // select * from mytable limit 0,-1
-                    // (a side effect of this workaround is that
-                    // select 20 - 9
-                    // becomes
-                    // select 20 -9
-                    // )
-                    if ($typearr[3] != 'digit_integer') {
-                       $after        .= ' ';
-                    }
-                    break;
-                case 'punct_bracket_close_round':
-                    // only close bracket level when it was opened before
-                    if ($bracketlevel > 0) {
-                        $bracketlevel--;
-                        if ($infunction == true) {
-                            $functionlevel--;
-                            $after     .= ' ';
-                            $before    .= ' ';
-                        } else {
-                            $indent--;
-                            $before    .= ($mode != 'query_only' ? '</div>' : ' ');
-                        }
-                        $infunction    = ($functionlevel > 0) ? true : false;
-                    }
-                    break;
-                case 'alpha_columnType':
-                    if ($docu) {
-                        switch ($arr[$i]['data']) {
-                            case 'tinyint':
-                            case 'smallint':
-                            case 'mediumint':
-                            case 'int':
-                            case 'bigint':
-                            case 'decimal':
-                            case 'float':
-                            case 'double':
-                            case 'real':
-                            case 'bit':
-                            case 'boolean':
-                            case 'serial':
-                                $before .= PMA_showMySQLDocu('data-types', 'numeric-types', false, '', true);
-                                $after = '</a>' . $after;
-                                break;
-                            case 'date':
-                            case 'datetime':
-                            case 'timestamp':
-                            case 'time':
-                            case 'year':
-                                $before .= PMA_showMySQLDocu('data-types', 'date-and-time-types', false, '', true);
-                                $after = '</a>' . $after;
-                                break;
-                            case 'char':
-                            case 'varchar':
-                            case 'tinytext':
-                            case 'text':
-                            case 'mediumtext':
-                            case 'longtext':
-                            case 'binary':
-                            case 'varbinary':
-                            case 'tinyblob':
-                            case 'mediumblob':
-                            case 'blob':
-                            case 'longblob':
-                            case 'enum':
-                            case 'set':
-                                $before .= PMA_showMySQLDocu('data-types', 'string-types', false, '', true);
-                                $after = '</a>' . $after;
-                                break;
-                        }
-                    }
-                    if ($typearr[3] == 'alpha_columnAttrib') {
+                        $functionlevel--;
                         $after     .= ' ';
-                    }
-                    if ($typearr[1] == 'alpha_columnType') {
                         $before    .= ' ';
+                    } else {
+                        $indent--;
+                        $before    .= ($mode != 'query_only' ? '</div>' : ' ');
                     }
-                    break;
-                case 'alpha_columnAttrib':
+                    $infunction    = ($functionlevel > 0) ? true : false;
+                }
+                break;
+            case 'alpha_columnType':
+                if ($docu) {
+                    switch ($arr[$i]['data']) {
+                    case 'tinyint':
+                    case 'smallint':
+                    case 'mediumint':
+                    case 'int':
+                    case 'bigint':
+                    case 'decimal':
+                    case 'float':
+                    case 'double':
+                    case 'real':
+                    case 'bit':
+                    case 'boolean':
+                    case 'serial':
+                        $before .= PMA_showMySQLDocu('data-types', 'numeric-types', false, '', true);
+                        $after = '</a>' . $after;
+                        break;
+                    case 'date':
+                    case 'datetime':
+                    case 'timestamp':
+                    case 'time':
+                    case 'year':
+                        $before .= PMA_showMySQLDocu('data-types', 'date-and-time-types', false, '', true);
+                        $after = '</a>' . $after;
+                        break;
+                    case 'char':
+                    case 'varchar':
+                    case 'tinytext':
+                    case 'text':
+                    case 'mediumtext':
+                    case 'longtext':
+                    case 'binary':
+                    case 'varbinary':
+                    case 'tinyblob':
+                    case 'mediumblob':
+                    case 'blob':
+                    case 'longblob':
+                    case 'enum':
+                    case 'set':
+                        $before .= PMA_showMySQLDocu('data-types', 'string-types', false, '', true);
+                        $after = '</a>' . $after;
+                        break;
+                    }
+                }
+                if ($typearr[3] == 'alpha_columnAttrib') {
+                    $after     .= ' ';
+                }
+                if ($typearr[1] == 'alpha_columnType') {
+                    $before    .= ' ';
+                }
+                break;
+            case 'alpha_columnAttrib':
 
-                    // ALTER TABLE tbl_name AUTO_INCREMENT = 1
-                    // COLLATE LATIN1_GENERAL_CI DEFAULT
-                    if ($typearr[1] == 'alpha_identifier' || $typearr[1] == 'alpha_charset') {
-                        $before .= ' ';
-                    }
-                    if (($typearr[3] == 'alpha_columnAttrib') || ($typearr[3] == 'quote_single') || ($typearr[3] == 'digit_integer')) {
-                        $after     .= ' ';
-                    }
-                    // workaround for
-                    // AUTO_INCREMENT = 31DEFAULT_CHARSET = utf-8
+                // ALTER TABLE tbl_name AUTO_INCREMENT = 1
+                // COLLATE LATIN1_GENERAL_CI DEFAULT
+                if ($typearr[1] == 'alpha_identifier' || $typearr[1] == 'alpha_charset') {
+                    $before .= ' ';
+                }
+                if (($typearr[3] == 'alpha_columnAttrib') || ($typearr[3] == 'quote_single') || ($typearr[3] == 'digit_integer')) {
+                    $after     .= ' ';
+                }
+                // workaround for
+                // AUTO_INCREMENT = 31DEFAULT_CHARSET = utf-8
 
-                    if ($typearr[2] == 'alpha_columnAttrib' && $typearr[3] == 'alpha_reservedWord') {
-                        $before .= ' ';
-                    }
-                    // workaround for
-                    // select * from mysql.user where binary user="root"
-                    // binary is marked as alpha_columnAttrib
-                    // but should be marked as a reserved word
-                    if (strtoupper($arr[$i]['data']) == 'BINARY'
-                      && $typearr[3] == 'alpha_identifier') {
-                        $after     .= ' ';
-                    }
-                    break;
-                case 'alpha_functionName':
-                    $funcname = strtoupper($arr[$i]['data']);
-                    if ($docu && isset($PMA_SQPdata_functions_docs[$funcname])) {
-                        $before .= PMA_showMySQLDocu(
-                            'functions',
-                            $PMA_SQPdata_functions_docs[$funcname]['link'],
-                            false,
-                            $PMA_SQPdata_functions_docs[$funcname]['anchor'],
-                            true);
-                        $after .= '</a>';
-                    }
-                    break;
-                case 'alpha_reservedWord':
-                    // do not uppercase the reserved word if we are calling
-                    // this function in query_only mode, because we need
-                    // the original query (otherwise we get problems with
-                    // semi-reserved words like "storage" which is legal
-                    // as an identifier name)
+                if ($typearr[2] == 'alpha_columnAttrib' && $typearr[3] == 'alpha_reservedWord') {
+                    $before .= ' ';
+                }
+                // workaround for
+                // select * from mysql.user where binary user="root"
+                // binary is marked as alpha_columnAttrib
+                // but should be marked as a reserved word
+                if (strtoupper($arr[$i]['data']) == 'BINARY'
+                  && $typearr[3] == 'alpha_identifier') {
+                    $after     .= ' ';
+                }
+                break;
+            case 'alpha_functionName':
+                $funcname = strtoupper($arr[$i]['data']);
+                if ($docu && isset($PMA_SQPdata_functions_docs[$funcname])) {
+                    $before .= PMA_showMySQLDocu(
+                        'functions',
+                        $PMA_SQPdata_functions_docs[$funcname]['link'],
+                        false,
+                        $PMA_SQPdata_functions_docs[$funcname]['anchor'],
+                        true);
+                    $after .= '</a>';
+                }
+                break;
+            case 'alpha_reservedWord':
+                // do not uppercase the reserved word if we are calling
+                // this function in query_only mode, because we need
+                // the original query (otherwise we get problems with
+                // semi-reserved words like "storage" which is legal
+                // as an identifier name)
 
-                    if ($mode != 'query_only') {
-                        $arr[$i]['data'] = strtoupper($arr[$i]['data']);
-                    }
+                if ($mode != 'query_only') {
+                    $arr[$i]['data'] = strtoupper($arr[$i]['data']);
+                }
 
-                    if ((($typearr[1] != 'alpha_reservedWord')
-                        || (($typearr[1] == 'alpha_reservedWord')
-                            && isset($keywords_no_newline[strtoupper($arr[$i - 1]['data'])])))
-                        && ($typearr[1] != 'punct_level_plus')
-                        && (!isset($keywords_no_newline[$arr[$i]['data']]))) {
-                        // do not put a space before the first token, because
-                        // we use a lot of pattern matching checking for the
-                        // first reserved word at beginning of query
-                        // so do not put a newline before
+                if ((($typearr[1] != 'alpha_reservedWord')
+                    || (($typearr[1] == 'alpha_reservedWord')
+                        && isset($keywords_no_newline[strtoupper($arr[$i - 1]['data'])])))
+                    && ($typearr[1] != 'punct_level_plus')
+                    && (!isset($keywords_no_newline[$arr[$i]['data']]))) {
+                    // do not put a space before the first token, because
+                    // we use a lot of pattern matching checking for the
+                    // first reserved word at beginning of query
+                    // so do not put a newline before
+                    //
+                    // also we must not be inside a privilege list
+                    if ($i > 0) {
+                        // the alpha_identifier exception is there to
+                        // catch cases like
+                        // GRANT SELECT ON mydb.mytable TO myuser@localhost
+                        // (else, we get mydb.mytableTO)
                         //
-                        // also we must not be inside a privilege list
-                        if ($i > 0) {
-                            // the alpha_identifier exception is there to
-                            // catch cases like
-                            // GRANT SELECT ON mydb.mytable TO myuser@localhost
-                            // (else, we get mydb.mytableTO)
-                            //
-                            // the quote_single exception is there to
-                            // catch cases like
-                            // GRANT ... TO 'marc'@'domain.com' IDENTIFIED...
-                            /**
-                             * @todo fix all cases and find why this happens
-                             */
+                        // the quote_single exception is there to
+                        // catch cases like
+                        // GRANT ... TO 'marc'@'domain.com' IDENTIFIED...
+                        /**
+                         * @todo fix all cases and find why this happens
+                         */
 
-                            if (!$in_priv_list || $typearr[1] == 'alpha_identifier' || $typearr[1] == 'quote_single' || $typearr[1] == 'white_newline') {
-                                $before    .= $space_alpha_reserved_word;
-                            }
-                        } else {
+                        if (!$in_priv_list || $typearr[1] == 'alpha_identifier' || $typearr[1] == 'quote_single' || $typearr[1] == 'white_newline') {
+                            $before    .= $space_alpha_reserved_word;
+                        }
+                    } else {
                         // on first keyword, check if it introduces a
                         // privilege list
-                            if (isset($keywords_priv_list[$arr[$i]['data']])) {
-                                $in_priv_list = true;
-                            }
+                        if (isset($keywords_priv_list[$arr[$i]['data']])) {
+                            $in_priv_list = true;
                         }
-                    } else {
-                        $before    .= ' ';
                     }
+                } else {
+                    $before    .= ' ';
+                }
 
-                    switch ($arr[$i]['data']) {
-                        case 'CREATE':
-                        case 'ALTER':
-                        case 'DROP':
-                        case 'RENAME';
-                        case 'TRUNCATE':
-                        case 'ANALYZE':
-                        case 'ANALYSE':
-                        case 'OPTIMIZE':
-                            if ($docu) {
-                                switch ($arr[$i + 1]['data']) {
-                                    case 'EVENT':
-                                    case 'TABLE':
-                                    case 'TABLESPACE':
-                                    case 'FUNCTION':
-                                    case 'INDEX':
-                                    case 'PROCEDURE':
-                                    case 'TRIGGER':
-                                    case 'SERVER':
-                                    case 'DATABASE':
-                                    case 'VIEW':
-                                        $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'] . '_' . $arr[$i + 1]['data'], false, '', true);
-                                        $close_docu_link = true;
-                                        break;
-                                }
-                                if ($arr[$i + 1]['data'] == 'LOGFILE' && $arr[$i + 2]['data'] == 'GROUP') {
-                                    $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'] . '_LOGFILE_GROUP', false, '', true);
-                                    $close_docu_link = true;
-                                }
-                            }
-                            if (!$in_priv_list) {
-                                $space_punct_listsep       = $html_line_break;
-                                $space_alpha_reserved_word = ' ';
-                            }
-                            break;
+                switch ($arr[$i]['data']) {
+                case 'CREATE':
+                case 'ALTER':
+                case 'DROP':
+                case 'RENAME';
+                case 'TRUNCATE':
+                case 'ANALYZE':
+                case 'ANALYSE':
+                case 'OPTIMIZE':
+                    if ($docu) {
+                        switch ($arr[$i + 1]['data']) {
                         case 'EVENT':
-                        case 'TABLESPACE':
                         case 'TABLE':
+                        case 'TABLESPACE':
                         case 'FUNCTION':
                         case 'INDEX':
                         case 'PROCEDURE':
-                        case 'SERVER':
                         case 'TRIGGER':
+                        case 'SERVER':
                         case 'DATABASE':
                         case 'VIEW':
-                        case 'GROUP':
-                            if ($close_docu_link) {
-                                $after = '</a>' . $after;
-                                $close_docu_link = false;
-                            }
+                            $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'] . '_' . $arr[$i + 1]['data'], false, '', true);
+                            $close_docu_link = true;
                             break;
-                        case 'SET':
-                            if ($docu && ($i == 0 || $arr[$i - 1]['data'] != 'CHARACTER')) {
-                                $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'], false, '', true);
-                                $after = '</a>' . $after;
-                            }
-                            if (!$in_priv_list) {
-                                $space_punct_listsep       = $html_line_break;
-                                $space_alpha_reserved_word = ' ';
-                            }
-                            break;
-                        case 'EXPLAIN':
-                        case 'DESCRIBE':
-                        case 'DELETE':
-                        case 'SHOW':
-                        case 'UPDATE':
-                            if ($docu) {
-                                $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'], false, '', true);
-                                $after = '</a>' . $after;
-                            }
-                            if (!$in_priv_list) {
-                                $space_punct_listsep       = $html_line_break;
-                                $space_alpha_reserved_word = ' ';
-                            }
-                            break;
-                        case 'INSERT':
-                        case 'REPLACE':
-                            if ($docu) {
-                                $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'], false, '', true);
-                                $after = '</a>' . $after;
-                            }
-                            if (!$in_priv_list) {
-                                $space_punct_listsep       = $html_line_break;
-                                $space_alpha_reserved_word = $html_line_break;
-                            }
-                            break;
-                        case 'VALUES':
-                            $space_punct_listsep       = ' ';
-                            $space_alpha_reserved_word = $html_line_break;
-                            break;
-                        case 'SELECT':
-                            if ($docu) {
-                                $before .= PMA_showMySQLDocu('SQL-Syntax', 'SELECT', false, '', true);
-                                $after = '</a>' . $after;
-                            }
-                            $space_punct_listsep       = ' ';
-                            $space_alpha_reserved_word = $html_line_break;
-                            break;
-                        case 'CALL':
-                        case 'DO':
-                        case 'HANDLER':
-                            if ($docu) {
-                                $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'], false, '', true);
-                                $after = '</a>' . $after;
-                            }
-                            break;
-                        default:
-                            if ($close_docu_link && in_array($arr[$i]['data'], array('LIKE', 'NOT', 'IN', 'REGEXP', 'NULL'))) {
-                                $after .= '</a>';
-                                $close_docu_link = false;
-                            } else if ($docu && isset($PMA_SQPdata_functions_docs[$arr[$i]['data']])) {
-                                /* Handle multi word statements first */
-                                if (isset($typearr[4]) && $typearr[4] == 'alpha_reservedWord' && $typearr[3] == 'alpha_reservedWord' && isset($PMA_SQPdata_functions_docs[strtoupper($arr[$i]['data'] . '_' . $arr[$i + 1]['data'] . '_' . $arr[$i + 2]['data'])])) {
-                                    $tempname = strtoupper($arr[$i]['data'] . '_' . $arr[$i + 1]['data'] . '_' . $arr[$i + 2]['data']);
-                                    $before .= PMA_showMySQLDocu('functions', $PMA_SQPdata_functions_docs[$tempname]['link'], false, $PMA_SQPdata_functions_docs[$tempname]['anchor'], true);
-                                    $close_docu_link = true;
-                                } else if (isset($typearr[3]) && $typearr[3] == 'alpha_reservedWord' && isset($PMA_SQPdata_functions_docs[strtoupper($arr[$i]['data'] . '_' . $arr[$i + 1]['data'])])) {
-                                    $tempname = strtoupper($arr[$i]['data'] . '_' . $arr[$i + 1]['data']);
-                                    $before .= PMA_showMySQLDocu('functions', $PMA_SQPdata_functions_docs[$tempname]['link'], false, $PMA_SQPdata_functions_docs[$tempname]['anchor'], true);
-                                    $close_docu_link = true;
-                                } else {
-                                    $before .= PMA_showMySQLDocu('functions', $PMA_SQPdata_functions_docs[$arr[$i]['data']]['link'], false, $PMA_SQPdata_functions_docs[$arr[$i]['data']]['anchor'], true);
-                                    $after .= '</a>';
-                                }
-                            }
-                            break;
-                    } // end switch ($arr[$i]['data'])
-
-                    $after         .= ' ';
-                    break;
-                case 'digit_integer':
-                case 'digit_float':
-                case 'digit_hex':
-                    /**
-                     * @todo could there be other types preceding a digit?
-                     */
-                    if ($typearr[1] == 'alpha_reservedWord') {
-                        $after .= ' ';
+                        }
+                        if ($arr[$i + 1]['data'] == 'LOGFILE' && $arr[$i + 2]['data'] == 'GROUP') {
+                            $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'] . '_LOGFILE_GROUP', false, '', true);
+                            $close_docu_link = true;
+                        }
                     }
-                    if ($infunction && $typearr[3] == 'punct_bracket_close_round') {
-                        $after     .= ' ';
-                    }
-                    if ($typearr[1] == 'alpha_columnAttrib') {
-                        $before .= ' ';
+                    if (!$in_priv_list) {
+                        $space_punct_listsep       = $html_line_break;
+                        $space_alpha_reserved_word = ' ';
                     }
                     break;
-                case 'alpha_variable':
-                    $after      = ' ';
+                case 'EVENT':
+                case 'TABLESPACE':
+                case 'TABLE':
+                case 'FUNCTION':
+                case 'INDEX':
+                case 'PROCEDURE':
+                case 'SERVER':
+                case 'TRIGGER':
+                case 'DATABASE':
+                case 'VIEW':
+                case 'GROUP':
+                    if ($close_docu_link) {
+                        $after = '</a>' . $after;
+                        $close_docu_link = false;
+                    }
                     break;
-                case 'quote_double':
-                case 'quote_single':
-                    // workaround: for the query
-                    // REVOKE SELECT ON `base2\_db`.* FROM 'user'@'%'
-                    // the @ is incorrectly marked as alpha_variable
-                    // in the parser, and here, the '%' gets a blank before,
-                    // which is a syntax error
-                    if ($typearr[1] != 'punct_user' && $typearr[1] != 'alpha_bitfield_constant_introducer') {
-                        $before        .= ' ';
+                case 'SET':
+                    if ($docu && ($i == 0 || $arr[$i - 1]['data'] != 'CHARACTER')) {
+                        $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'], false, '', true);
+                        $after = '</a>' . $after;
                     }
-                    if ($infunction && $typearr[3] == 'punct_bracket_close_round') {
-                        $after     .= ' ';
+                    if (!$in_priv_list) {
+                        $space_punct_listsep       = $html_line_break;
+                        $space_alpha_reserved_word = ' ';
                     }
                     break;
-                case 'quote_backtick':
-                    // here we check for punct_user to handle correctly
-                    // DEFINER = `username`@`%`
-                    // where @ is the punct_user and `%` is the quote_backtick
-                    if ($typearr[3] != 'punct_qualifier' && $typearr[3] != 'alpha_variable' && $typearr[3] != 'punct_user') {
-                        $after     .= ' ';
+                case 'EXPLAIN':
+                case 'DESCRIBE':
+                case 'DELETE':
+                case 'SHOW':
+                case 'UPDATE':
+                    if ($docu) {
+                        $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'], false, '', true);
+                        $after = '</a>' . $after;
                     }
-                    if ($typearr[1] != 'punct_qualifier' && $typearr[1] != 'alpha_variable' && $typearr[1] != 'punct_user') {
-                        $before    .= ' ';
+                    if (!$in_priv_list) {
+                        $space_punct_listsep       = $html_line_break;
+                        $space_alpha_reserved_word = ' ';
+                    }
+                    break;
+                case 'INSERT':
+                case 'REPLACE':
+                    if ($docu) {
+                        $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'], false, '', true);
+                        $after = '</a>' . $after;
+                    }
+                    if (!$in_priv_list) {
+                        $space_punct_listsep       = $html_line_break;
+                        $space_alpha_reserved_word = $html_line_break;
+                    }
+                    break;
+                case 'VALUES':
+                    $space_punct_listsep       = ' ';
+                    $space_alpha_reserved_word = $html_line_break;
+                    break;
+                case 'SELECT':
+                    if ($docu) {
+                        $before .= PMA_showMySQLDocu('SQL-Syntax', 'SELECT', false, '', true);
+                        $after = '</a>' . $after;
+                    }
+                    $space_punct_listsep       = ' ';
+                    $space_alpha_reserved_word = $html_line_break;
+                    break;
+                case 'CALL':
+                case 'DO':
+                case 'HANDLER':
+                    if ($docu) {
+                        $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'], false, '', true);
+                        $after = '</a>' . $after;
                     }
                     break;
                 default:
+                    if ($close_docu_link && in_array($arr[$i]['data'], array('LIKE', 'NOT', 'IN', 'REGEXP', 'NULL'))) {
+                        $after .= '</a>';
+                        $close_docu_link = false;
+                    } else if ($docu && isset($PMA_SQPdata_functions_docs[$arr[$i]['data']])) {
+                        /* Handle multi word statements first */
+                        if (isset($typearr[4]) && $typearr[4] == 'alpha_reservedWord' && $typearr[3] == 'alpha_reservedWord' && isset($PMA_SQPdata_functions_docs[strtoupper($arr[$i]['data'] . '_' . $arr[$i + 1]['data'] . '_' . $arr[$i + 2]['data'])])) {
+                            $tempname = strtoupper($arr[$i]['data'] . '_' . $arr[$i + 1]['data'] . '_' . $arr[$i + 2]['data']);
+                            $before .= PMA_showMySQLDocu('functions', $PMA_SQPdata_functions_docs[$tempname]['link'], false, $PMA_SQPdata_functions_docs[$tempname]['anchor'], true);
+                            $close_docu_link = true;
+                        } else if (isset($typearr[3]) && $typearr[3] == 'alpha_reservedWord' && isset($PMA_SQPdata_functions_docs[strtoupper($arr[$i]['data'] . '_' . $arr[$i + 1]['data'])])) {
+                            $tempname = strtoupper($arr[$i]['data'] . '_' . $arr[$i + 1]['data']);
+                            $before .= PMA_showMySQLDocu('functions', $PMA_SQPdata_functions_docs[$tempname]['link'], false, $PMA_SQPdata_functions_docs[$tempname]['anchor'], true);
+                            $close_docu_link = true;
+                        } else {
+                            $before .= PMA_showMySQLDocu('functions', $PMA_SQPdata_functions_docs[$arr[$i]['data']]['link'], false, $PMA_SQPdata_functions_docs[$arr[$i]['data']]['anchor'], true);
+                            $after .= '</a>';
+                        }
+                    }
                     break;
+                } // end switch ($arr[$i]['data'])
+
+                $after         .= ' ';
+                break;
+            case 'digit_integer':
+            case 'digit_float':
+            case 'digit_hex':
+                /**
+                 * @todo could there be other types preceding a digit?
+                 */
+                if ($typearr[1] == 'alpha_reservedWord') {
+                    $after .= ' ';
+                }
+                if ($infunction && $typearr[3] == 'punct_bracket_close_round') {
+                    $after     .= ' ';
+                }
+                if ($typearr[1] == 'alpha_columnAttrib') {
+                    $before .= ' ';
+                }
+                break;
+            case 'alpha_variable':
+                $after      = ' ';
+                break;
+            case 'quote_double':
+            case 'quote_single':
+                // workaround: for the query
+                // REVOKE SELECT ON `base2\_db`.* FROM 'user'@'%'
+                // the @ is incorrectly marked as alpha_variable
+                // in the parser, and here, the '%' gets a blank before,
+                // which is a syntax error
+                if ($typearr[1] != 'punct_user' && $typearr[1] != 'alpha_bitfield_constant_introducer') {
+                    $before        .= ' ';
+                }
+                if ($infunction && $typearr[3] == 'punct_bracket_close_round') {
+                    $after     .= ' ';
+                }
+                break;
+            case 'quote_backtick':
+                // here we check for punct_user to handle correctly
+                // DEFINER = `username`@`%`
+                // where @ is the punct_user and `%` is the quote_backtick
+                if ($typearr[3] != 'punct_qualifier' && $typearr[3] != 'alpha_variable' && $typearr[3] != 'punct_user') {
+                    $after     .= ' ';
+                }
+                if ($typearr[1] != 'punct_qualifier' && $typearr[1] != 'alpha_variable' && $typearr[1] != 'punct_user') {
+                    $before    .= ' ';
+                }
+                break;
+            default:
+                break;
             } // end switch ($typearr[2])
 
             /*

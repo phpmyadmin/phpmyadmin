@@ -337,7 +337,7 @@ function PMA_RTN_handleEditor()
         }
         // Get the data for the form (if any)
         if (! empty($_REQUEST['add_item'])) {
-            $title = __("Create routine");
+            $title = PMA_RTE_getWord('add');
             $routine = PMA_RTN_getDataFromRequest();
             $mode = 'add';
         } else if (! empty($_REQUEST['edit_item'])) {

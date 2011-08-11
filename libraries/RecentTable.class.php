@@ -82,7 +82,7 @@ class PMA_RecentTable
 
         $row = PMA_DBI_fetch_array(PMA_query_as_controluser($sql_query));
         if (isset($row[0])) {
-            return json_decode($row[0]);
+            return json_decode($row[0], true);
         } else {
             return array();
         }
@@ -142,7 +142,8 @@ class PMA_RecentTable
         $html = '<option value="">(' . __('Recent tables') . ') ...</option>';
         if (count($this->tables)) {
             foreach ($this->tables as $table) {
-                $html .= '<option value="' . htmlspecialchars($table) . '">' . htmlspecialchars($table) . '</option>';
+                $html .= '<option value="' . htmlspecialchars(json_encode($table)) . '">' .
+                         htmlspecialchars('`' . $table['db'] . '`.`' . $table['table'] . '`') . '</option>';
             }
         } else {
             $html .= '<option value="">' . __('There are no recent tables') . '</option>';
@@ -159,7 +160,7 @@ class PMA_RecentTable
     {
         $html  = '<input type="hidden" name="goto" id="LeftDefaultTabTable" value="' .
                          htmlspecialchars($GLOBALS['cfg']['LeftDefaultTabTable']) . '" />';
-        $html .= '<select name="table" id="recentTable">';
+        $html .= '<select name="selected_recent_table" id="recentTable">';
         $html .= $this->getHtmlSelectOption();
         $html .= '</select>';
         
@@ -176,12 +177,14 @@ class PMA_RecentTable
      */
     public function add($db, $table)
     {
-        $table_str = $db . '.' . $table;
+        $table_arr = array();
+        $table_arr['db'] = $db;
+        $table_arr['table'] = $table;
 
         // add only if this is new table
-        if (! isset($this->tables[0]) || $this->tables[0] != $table_str) {
-            array_unshift($this->tables, $table_str);
-            $this->tables = array_merge(array_unique($this->tables));
+        if (! isset($this->tables[0]) || $this->tables[0] != $table_arr) {
+            array_unshift($this->tables, $table_arr);
+            $this->tables = array_merge(array_unique($this->tables, SORT_REGULAR));
             $this->trim();
             if (isset($this->pma_table)) {
                 return $this->saveToDb();

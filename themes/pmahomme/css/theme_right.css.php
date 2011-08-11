@@ -2685,38 +2685,37 @@ span.CodeMirror-selected {
 .CodeMirror-matchingbracket {color: #0f0 !important;}
 .CodeMirror-nonmatchingbracket {color: #f22 !important;}
 
-
-span.mysql-keyword {
+span.cm-keyword {
     color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_reservedWord']; ?>;
 }
-span.mysql-var {
+span.cm-variable {
     color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_identifier']; ?>;
 }
-span.mysql-comment {
+span.cm-comment {
     color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['comment']; ?>;
 }
-span.mysql-string {
+span.cm-mysql-string {
     color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['quote']; ?>;
 }
-span.mysql-operator {
+span.cm-operator {
     color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['punct']; ?>;
 }
-span.mysql-word {
+span.cm-mysql-word {
     color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha']; ?>;
 }
-span.mysql-function {
+span.cm-builtin {
     color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_functionName']; ?>;
 }
-span.mysql-type {
+span.cm-variable-2 {
     color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_columnType']; ?>;
 }
-span.mysql-attribute {
+span.cm-variable-3 {
     color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_columnAttrib']; ?>;
 }
-span.mysql-separator {
+span.cm-separator {
     color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['punct']; ?>;
 }
-span.mysql-number {
+span.cm-number {
     color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['digit_integer']; ?>;
 }
 
@@ -2904,7 +2903,7 @@ span.mysql-number {
     -moz-border-radius: 0;
 }
 
-.navigation input[type=submit]:hover {
+.navigation input[type=submit]:hover, .navigation input.edit_mode_active {
     color: white;
     cursor: pointer;
     text-shadow: none;
@@ -2920,3 +2919,55 @@ span.mysql-number {
 .navigation select {
     margin: 0 0.8em;
 }
+
+.cEdit {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+}
+
+.cEdit input[type=text] {
+    background: #FFF;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.cEdit .edit_area {
+    background: #FFF;
+    border: 1px solid #999;
+    min-width: 10em;
+    padding: 0.3em 0.5em;
+}
+
+.cEdit .edit_area select, .cEdit .edit_area textarea {
+    width: 97%;
+}
+
+.cEdit .cell_edit_hint {
+    color: #555;
+    font-size: 0.8em;
+    margin: 0.3em 0.2em;
+}
+
+.cEdit .edit_area_loading {
+    background: #FFF url(./themes/pmahomme/img/ajax_clock_small.gif) no-repeat center;
+    height: 10em;
+}
+
+.cEdit .edit_area_posting {
+    background: #FFF url(./themes/pmahomme/img/ajax_clock_small.gif) no-repeat center top;
+    padding-top: 1.5em;
+}
+
+.cEdit .goto_link {
+    background: #EEE;
+    color: #555;
+    padding: 0.2em 0.3em;
+}
+
+.saving_edited_data {
+    background: url(./themes/pmahomme/img/ajax_clock_small.gif) no-repeat left;
+    padding-left: 20px;
+}
+

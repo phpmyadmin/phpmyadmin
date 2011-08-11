@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * A simple rules engine, that parses and executes the rules in advisory_rules.txt. Adjusted to phpMyAdmin 
+ * A simple rules engine, that parses and executes the rules in advisory_rules.txt. Adjusted to phpMyAdmin
  *
  *
  * @package phpMyAdmin
@@ -18,7 +18,7 @@ class Advisor
 
         // Step 1: Get some variables to evaluate on
         $this->variables = array_merge(
-            PMA_DBI_fetch_result('SHOW GLOBAL STATUS', 0, 1), 
+            PMA_DBI_fetch_result('SHOW GLOBAL STATUS', 0, 1),
             PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES', 0, 1)
         );
         // Add total memory to variables as well
@@ -26,7 +26,7 @@ class Advisor
         $sysinfo = getSysInfo();
         $memory  = $sysinfo->memory();
         $this->variables['system_memory'] = $memory['MemTotal'];
-        
+
         // Step 2: Read and parse the list of rules
         $this->parseResult = $this->parseRulesFile();
         // Step 3: Feed the variables to the rules and let them fire. Sets $runResult
@@ -36,7 +36,7 @@ class Advisor
     }
 
     function runRules() {
-        $this->runResult = array( 
+        $this->runResult = array(
             'fired' => array(),
             'notfired' => array(),
             'unchecked'=> array(),
@@ -81,15 +81,29 @@ class Advisor
         return true;
     }
 
+    /**
+     * Splits justification to text and formula.
+     */
+    function splitJustification($rule)
+    {
+        $jst = preg_split('/\s*\|\s*/', $rule['justification'], 2);
+        if(count($jst) > 1) {
+            $jst[0] = preg_replace('/%( |,|\.|$)/','%%\1',$jst[0]);
+            return array($jst[0], $jst[1]);
+       }
+        return array($rule['justification']);
+    }
+
     // Adds a rule to the result list
     function addRule($type, $rule) {
         switch($type) {
             case 'notfired':
             case 'fired':
-                    $jst = preg_split('/\s*\|\s*/',$rule['justification'],2);
+                    $jst = Advisor::splitJustification($rule);
                     if(count($jst) > 1) {
-                        $jst[0] = preg_replace('/%( |,|\.|$)/','%%\1',$jst[0]);
                         try {
+                            /* Translate */
+                            $jst[0] = _gettext($jst[0]);
                             $str = $this->ruleExprEvaluate(
                                 'sprintf("'.$jst[0].'",'.$jst[1].')',
                                 strlen('sprintf("'.$jst[0].'"')
@@ -100,10 +114,17 @@ class Advisor
                         }
 
                         $rule['justification'] = $str;
+                    } else {
+                        $rule['justification'] = _gettext($rule['justification']);
                     }
-                    
-                    $rule['recommendation'] = preg_replace('/\{([a-z_0-9]+)\}/Ui','<a href="server_variables.php?'.$GLOBALS['url_query'].'#filter=\1">\1</a>',$rule['recommendation']);
-                    
+                    $rule['name'] = _gettext($rule['name']);
+                    $rule['issue'] = _gettext($rule['issue']);
+
+                    $rule['recommendation'] = preg_replace(
+                        '/\{([a-z_0-9]+)\}/Ui',
+                        '<a href="server_variables.php' . PMA_generate_common_url() . '#filter=\1">\1</a>',
+                        _gettext($rule['recommendation']));
+
                     break;
         }
 
@@ -112,7 +133,7 @@ class Advisor
 
     // Runs a code expression, replacing variable names with their respective values
     // ignoreUntil: if > 0, it doesn't replace any variables until that string position, but still evaluates the whole expr
-    function ruleExprEvaluate($expr, $ignoreUntil) {
+    function ruleExprEvaluate($expr, $ignoreUntil = 0) {
         if($ignoreUntil > 0) {
             $exprIgnore = substr($expr,0,$ignoreUntil);
             $expr = substr($expr,$ignoreUntil);
@@ -131,7 +152,7 @@ class Advisor
         if($err) throw new Exception(strip_tags($err) . '<br />Executed code: $value = '.$expr.';');
         return $value;
     }
-    
+
     // Reads the rule file into an array, throwing errors messages on syntax errors
     function parseRulesFile() {
         $file = file('libraries/advisory_rules.txt');
@@ -149,9 +170,9 @@ class Advisor
 
             // Reading new rule
             if(substr($line, 0, 4) == 'rule') {
-                if($ruleLine > 0) { 
-                    $errors[] = 'Invalid rule declaration on line '.($i+1). ', expected line '.$ruleSyntax[$ruleLine++].' of previous rule' ; 
-                    continue; 
+                if($ruleLine > 0) {
+                    $errors[] = 'Invalid rule declaration on line '.($i+1). ', expected line '.$ruleSyntax[$ruleLine++].' of previous rule' ;
+                    continue;
                 }
                 if(preg_match("/rule\s'(.*)'( \[(.*)\])?$/",$line,$match)) {
                     $ruleLine = 1;
