@@ -240,14 +240,14 @@ rule '% temp disk tables' [Created_tmp_tables + Created_tmp_disk_tables > 0]
 	Created_tmp_disk_tables / (Created_tmp_tables + Created_tmp_disk_tables) * 100
 	value > 25
 	Many temporary tables are being written to disk instead of being kept in memory.
-	Increasing {max_heap_table_size} and {tmp_table_size} might help. However some temporary tables are always being written to disk, independent of the value of these variables. To elminiate these you will have to rewrite your queries to avoid those conditions (Within a temporary table: Presence of a BLOB or TEXT column or presence of a column bigger than 512 bytes) as mentioned in the beginning of an <a href="http://www.facebook.com/note.php?note_id=10150111255065841&comments">Article by the Pythian Group</a>
+	Increasing {max_heap_table_size} and {tmp_table_size} might help. However some temporary tables are always being written to disk, independent of the value of these variables. To eliminate these you will have to rewrite your queries to avoid those conditions (Within a temporary table: Presence of a BLOB or TEXT column or presence of a column bigger than 512 bytes) as mentioned in the beginning of an <a href="http://www.facebook.com/note.php?note_id=10150111255065841&comments">Article by the Pythian Group</a>
 	%s% of all temporary tables are being written to disk, this value should be below 25% | round(value,1)
 
 rule 'temp disk rate'
 	Created_tmp_disk_tables / Uptime
 	value * 60 * 60 > 1
 	Many temporary tables are being written to disk instead of being kept in memory.
-	Increasing {max_heap_table_size} and {tmp_table_size} might help. However some temporary tables are always being written to disk, independent of the value of these variables. To elminiate these you will have to rewrite your queries to avoid those conditions (Within a temprorary table: Presence of a BLOB or TEXT column or presence of a column bigger than 512 bytes) as mentioned in in the <a href="http://dev.mysql.com/doc/refman/5.0/en/internal-temporary-tables.html">MySQL Documentation</a>
+	Increasing {max_heap_table_size} and {tmp_table_size} might help. However some temporary tables are always being written to disk, independent of the value of these variables. To eliminate these you will have to rewrite your queries to avoid those conditions (Within a temprorary table: Presence of a BLOB or TEXT column or presence of a column bigger than 512 bytes) as mentioned in in the <a href="http://dev.mysql.com/doc/refman/5.0/en/internal-temporary-tables.html">MySQL Documentation</a>
 	Rate of temporay tables being written to disk: %s, this value should be less than 1 per hour | PMA_bytime(value,2)
 
 # I couldn't find any source on the internet that suggests a direct relation between high counts of temporary tables and any of these variables.
