@@ -54,14 +54,48 @@ function isEmpty(obj) {
 }
 
 /**
+ ** Converts a timestamp into the format of its field type
+ ** @param val  Integer Timestamp
+ ** @param type String  Field type(datetime/timestamp/time/date)
+ **/
+function getDate(val,type) {
+    if(type.toString().search(/datetime/i) != -1 || type.toString().search(/timestamp/i) != -1) {
+	return Highcharts.dateFormat('%Y-%m-%e %H:%M:%S', val)
+    }	
+    else if(type.toString().search(/time/i) != -1) {
+        return Highcharts.dateFormat('%H:%M:%S', val)
+    }	
+    else if (type.toString().search(/date/i) != -1) {
+        return Highcharts.dateFormat('%Y-%m-%e', val)
+    }	
+}
+
+/**
+ ** Converts a date/time into timestamp
+ ** @param val  String Date
+ ** @param type Sring  Field type(datetime/timestamp/time/date)
+ **/
+function getTimeStamp(val,type) {
+    if(type.toString().search(/datetime/i) != -1 || type.toString().search(/timestamp/i) != -1) {
+	return getDateFromFormat(val,'yyyy-MM-dd HH:mm:ss', val)
+    }	
+    else if(type.toString().search(/time/i) != -1) {
+        return Highcharts.dateFormat('HH:mm:ss', val)
+    }	
+    else if (type.toString().search(/date/i) != -1) {
+        return Highcharts.dateFormat('yyyy-mm-dd', val)
+    }	
+}
+
+/**
  ** Classifies the field type into numeric,timeseries or text
  ** @param field: field type (as in database structure)
  **/ 
 function getType(field) {
 	if(field.toString().search(/int/i) != -1 || field.toString().search(/decimal/i) != -1 || field.toString().search(/year/i) != -1)
 	    return 'numeric';
-	else if(field.toString().search(/time/i) != -1)
-	    return 'text';
+	else if(field.toString().search(/time/i) != -1 || field.toString().search(/date/i) != -1)
+	    return 'time';
 	else
 	    return 'text';
 }
@@ -193,10 +227,14 @@ $(document).ready(function() {
 		if (oldVal != newVal){
 		    selectedRow[key] = newVal;
 		    newValues[key] = newVal;
-		    if(key == xLabel)
+		    if(key == xLabel) {
 			xChange = true;
-		    else if(key == yLabel)
+		   	data[currentData][xLabel] = newVal;
+		    }
+		    else if(key == yLabel) {
 			yChange = true;
+		   	data[currentData][yLabel] = newVal;
+		    }
 		}
 	    }
 	    it++    
@@ -214,8 +252,11 @@ $(document).ready(function() {
   	        xCord[currentData] = selectedRow[xLabel];
 		if(xType == 'numeric') {
 		    currentChart.series[0].data[currentData].update({ x : selectedRow[xLabel] });
-		    currentChart.xAxis[0].setExtremes(Array.min(xCord) - 2,Array.max(xCord) + 2);
+		    currentChart.xAxis[0].setExtremes(Array.min(xCord) - 6,Array.max(xCord) + 6);
                 }
+		else if(xType == 'time') {
+		    currentChart.series[0].data[currentData].update({ x : getTimeStamp(selectedRow[xLabel],$('#types_0').val())});
+		}
 		else {
 		    var tempX = getCord(xCord);
 		    var tempY = getCord(yCord);
@@ -225,7 +266,7 @@ $(document).ready(function() {
 		    yCord = tempY[2];
 
 	    	    $.each(data,function(key,value) {
-                        if(yType == 'numeric')
+                        if(yType != 'text')
  			    newSeries[0].data.push({ name: value[dataLabel], x: tempX[0][i], y: value[yLabel], marker: {fillColor: colorCodes[i % 8]} , id: i } );
 			else
                             newSeries[0].data.push({ name: value[dataLabel], x: tempX[0][i], y: tempY[0][i], marker: {fillColor: colorCodes[i % 8]} , id: i } );
@@ -244,11 +285,15 @@ $(document).ready(function() {
 
 	    }
             if(yChange) {
+
   	        yCord[currentData] = selectedRow[yLabel];
 		if(yType == 'numeric') {
 		    currentChart.series[0].data[currentData].update({ y : selectedRow[yLabel] });
-		    currentChart.yAxis[0].setExtremes(Array.min(yCord) - 2,Array.max(yCord) + 2);
+		    currentChart.yAxis[0].setExtremes(Array.min(yCord) - 6,Array.max(yCord) + 6);
                 }
+		else if(yType =='time') {
+		    currentChart.series[0].data[currentData].update({ y : getTimeStamp(selectedRow[yLabel],$('#types_1').val())});
+		}
 		else {
 		    var tempX = getCord(xCord);
 		    var tempY = getCord(yCord);
@@ -258,7 +303,7 @@ $(document).ready(function() {
 		    yCord = tempY[2];
 
 	    	    $.each(data,function(key,value) {
-			if(xType == 'numeric')
+			if(xType != 'text' )
                             newSeries[0].data.push({ name: value[dataLabel], x: value[xLabel], y: tempY[0][i], marker: {fillColor: colorCodes[i % 8]} , id: i } );
 			else
                             newSeries[0].data.push({ name: value[dataLabel], x: tempX[0][i], y: tempY[0][i], marker: {fillColor: colorCodes[i % 8]} , id: i } );
@@ -325,7 +370,6 @@ $(document).ready(function() {
         $('#togglesearchformlink')
          .text(PMA_messages['strShowSearchCriteria'])
 	$('#togglesearchformdiv').show();
-        
         var selectedRow;
     	var columnNames = new Array();
     	var colorCodes = ['#FF0000','#00FFFF','#0000FF','#0000A0','#FF0080','#800080','#FFFF00','#00FF00','#FF00FF'];
@@ -400,7 +444,6 @@ $(document).ready(function() {
 	    },
             title: { text: 'Query Results' },
 	    xAxis: {
-		type: 'linear',
 	        title: { text: $('#tableid_0').val() },
             },
             yAxis: {
@@ -418,8 +461,13 @@ $(document).ready(function() {
             }
         });
         
+	// Classify types as either numeric,time,text
 	xType = getType(xType);
 	yType = getType(yType);
+
+	//Set the axis type based on the field
+	currentSettings.xAxis.type = (xType == 'time') ? 'datetime' : 'linear';
+	currentSettings.yAxis.type = (yType == 'time') ? 'datetime' : 'linear';
 
         // Formulate series data for plot
         series[0] = new Object();
@@ -427,31 +475,49 @@ $(document).ready(function() {
 	series[0].marker = {
             symbol: 'circle'
         };
-	if (xType == 'numeric' && yType == 'numeric') {
+	if (xType != 'text' && yType != 'text') {
 	    $.each(data,function(key,value) {
-                series[0].data.push({ name: value[dataLabel], x: value[xLabel], y: value[yLabel], marker: {fillColor: colorCodes[it % 8]} , id: it } );
+		var xVal = (xType == 'numeric') ? value[xLabel] : getTimeStamp(value[xLabel],$('#types_0').val());
+		var yVal = (yType == 'numeric') ? value[yLabel] : getTimeStamp(value[yLabel],$('#types_1').val());
+                series[0].data.push({ name: value[dataLabel], x: xVal, y: yVal, marker: {fillColor: colorCodes[it % 8]} , id: it } );
 		xCord.push(value[xLabel]);
 		yCord.push(value[yLabel]);
 	        it++;   
             });
-	    currentSettings.xAxis.max = Array.max(xCord) + 2
-	    currentSettings.xAxis.min = Array.min(xCord) - 2
-	    currentSettings.yAxis.max = Array.max(yCord) + 3
-	    currentSettings.yAxis.min = Array.min(yCord) - 2
+	    if(xType == 'numeric') {
+	        currentSettings.xAxis.max = Array.max(xCord) + 6
+	        currentSettings.xAxis.min = Array.min(xCord) - 6
+	    }
+	    else {
+	        currentSettings.xAxis.labels = { formatter : function() {
+		    return getDate(this.value, $('#types_0').val());
+		}}
+            }
+	    if(yType == 'numeric') {
+	        currentSettings.yAxis.max = Array.max(yCord) + 6
+	        currentSettings.yAxis.min = Array.min(yCord) - 6
+	    }
+	    else {
+	        currentSettings.yAxis.labels = { formatter : function() {
+		    return getDate(this.value, $('#types_1').val());
+		}}
+            }
+
         }
 	
-	else if (xType =='text' && yType =='numeric') {
+	else if (xType =='text' && yType !='text') {
 	    $.each(data,function(key,value) {
 		xCord.push(value[xLabel]);
 		yCord.push(value[yLabel]);
 	    });
+	    
 	    tempX = getCord(xCord);	
 	    $.each(data,function(key,value) {
-                series[0].data.push({ name: value[dataLabel], x: tempX[0][it], y: value[yLabel], marker: {fillColor: colorCodes[it % 8]} , id: it } );
+		var yVal = (yType == 'numeric') ? value[yLabel] : getTimeStamp(value[yLabel],$('#types_1').val());
+                series[0].data.push({ name: value[dataLabel], x: tempX[0][it], y: yVal, marker: {fillColor: colorCodes[it % 8]} , id: it } );
 	        it++;   
             });
-	    currentSettings.yAxis.max = Array.max(yCord) + 3
-	    currentSettings.yAxis.min = Array.min(yCord) - 2
+	    
 	    currentSettings.xAxis.labels = { formatter : function() {
 		    if(tempX[1][this.value] && tempX[1][this.value].length > 10)
 		        return tempX[1][this.value].substring(0,10)
@@ -459,21 +525,38 @@ $(document).ready(function() {
 			return tempX[1][this.value];
                 } 
             }
+	    if(yType == 'numeric') {
+	        currentSettings.yAxis.max = Array.max(yCord) + 6
+	        currentSettings.yAxis.min = Array.min(yCord) - 6
+	    }
+	    else {
+	        currentSettings.yAxis.labels = { formatter : function() {
+		    return getDate(this.value, $('#types_1').val());
+		}}
+            }
 	    xCord = tempX[2];
 	}
 	 
-	else if (xType =='numeric' && yType =='text') {
+	else if (xType !='text' && yType =='text') {
 	    $.each(data,function(key,value) {
 		xCord.push(value[xLabel]);
 		yCord.push(value[yLabel]);
 	    });
 	    tempY = getCord(yCord);	
 	    $.each(data,function(key,value) {
-                series[0].data.push({ name: value[dataLabel], y: tempY[0][it], x: value[xLabel], marker: {fillColor: colorCodes[it % 8]} , id: it } );
+		var xVal = (xType == 'numeric') ? value[xLabel] : getTimeStamp(value[xLabel],$('#types_0').val());
+                series[0].data.push({ name: value[dataLabel], y: tempY[0][it], x: xVal, marker: {fillColor: colorCodes[it % 8]} , id: it } );
 	        it++;   
             });
-	    currentSettings.xAxis.max = Array.max(xCord) + 3
-	    currentSettings.xAxis.min = Array.min(xCord) - 2
+	    if(xType == 'numeric') {
+	        currentSettings.xAxis.max = Array.max(xCord) + 6
+	        currentSettings.xAxis.min = Array.min(xCord) - 6
+	    }
+	    else {
+	        currentSettings.xAxis.labels = { formatter : function() {
+		    return getDate(this.value, $('#types_0').val());
+		}}
+            }
 	    currentSettings.yAxis.labels = { formatter : function() {
 		    if(tempY[1][this.value] && tempY[1][this.value].length > 10)
 		        return tempY[1][this.value].substring(0,10)

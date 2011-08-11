@@ -20,6 +20,7 @@ $GLOBALS['js_include'][] = 'makegrid.js';
 $GLOBALS['js_include'][] = 'sql.js';
 $GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'tbl_zoom_plot.js';
+$GLOBALS['js_include'][] = 'date.js';
 $GLOBALS['js_include'][] = 'highcharts/highcharts.js';
 /* Files required for chart exporting */
 $GLOBALS['js_include'][] = 'highcharts/exporting.js';
@@ -363,6 +364,7 @@ if(isset($zoom_submit) && $inputs[0] != __('pma_null') && $inputs[1] != __('pma_
 	    $tmpRow[] = $val;
         //Get unique conditon on each row (will be needed for row update)
 	$uniqueCondition = PMA_getUniqueCondition($result, $fields_cnt, $fields_meta, $tmpRow, true);
+
 	//Append it to row array as where_clause
 	$row['where_clause'] = $uniqueCondition[0];
 	if($dataLabel == $inputs[0] || $dataLabel == $inputs[1])
