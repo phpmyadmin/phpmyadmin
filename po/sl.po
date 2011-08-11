@@ -1772,11 +1772,10 @@ msgid "Done"
 msgstr "Končano"
 
 #: js/messages.php:315
-#, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
-msgstr "Prejšnji"
+msgstr "Prej"
 
 #: js/messages.php:320
 #, fuzzy
