@@ -45,7 +45,7 @@ rule 'Questions below 1,000'
 	Current amount of Questions: %s | Questions
 
 rule '% slow queries' [Questions > 0]
-	Slow_queries / Questions * 100 
+	Slow_queries / Questions * 100
 	value >= 5
 	There is a lot of slow queries compared to the overall amount of Queries.
 	You might want to increase {long_query_time} or optimize the queries listed in the slow query log
@@ -112,7 +112,7 @@ rule 'Distribution'
 rule 'MySQL Architecture'
 	system_memory
 	value > 3072*1024 && !preg_match('/64/',version_compile_machine)
-	MySQL is not compiled as a 64-bit package. 
+	MySQL is not compiled as a 64-bit package.
 	Your memory capacity is above 3 GiB (assuming the Server is on localhost), so MySQL might not be able to access all of your memory. You might want to consider installing the 64-bit version of MySQL.
 	Available memory on this host: %s | implode(' ',PMA_formatByteDown(value*1024, 2, 2))
 
@@ -123,7 +123,7 @@ rule 'MySQL Architecture'
 rule 'Query cache disabled'
 	query_cache_size
 	value == 0 || query_cache_type == 'OFF' || query_cache_type == '0'
-	The query cache is not enabled. 
+	The query cache is not enabled.
 	The query cache is known to greatly improve performance if configured correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using memcached, ignore this recommendation.
 	query_cache_size is set to 0 or query_cache_type is set to 'OFF'
 
@@ -158,7 +158,7 @@ rule 'Query cache fragmentation' [!fired('Query cache disabled')]
 rule 'Query cache low memory prunes' [Qcache_inserts > 0 && !fired('Query cache disabled')]
 	Qcache_lowmem_prunes / Qcache_inserts * 100
 	value > 0.1
-	Cached queries are removed due to low query cache memory from the query cache. 
+	Cached queries are removed due to low query cache memory from the query cache.
 	You might want to increase {query_cache_size}, however keep in mind that the overhead of maintaining the cache is likely to increase with its size, so do this in small increments and monitor the results.
 	The ratio of removed queries to inserted queries is %s%. The lower this value is, the better (This rules firing limit: 0.1%) | round(value,1)
 
@@ -172,7 +172,7 @@ rule 'Query cache max size' [!fired('Query cache disabled')]
 rule 'Query cache min result size' [!fired('Query cache disabled')]
 	value == 1024*1024
 	query_cache_limit
-	The max size of the result set in the query cache is the default of 1 MiB.  
+	The max size of the result set in the query cache is the default of 1 MiB.
 	Changing {query_cache_limit} (usually by increasing) may increase efficiency. This variable determines the maximum size a query result may have to be inserted into the query cache. If there are many query results above 1 MiB that are well cacheable (many reads, little writes) then increasing {query_cache_limit} will increase efficiency. Whereas in the case of many query results being above 1 MiB that are not very well cacheable (often invalidated due to table updates) increasing {query_cache_limit} might reduce efficiency.
 	query_cache_limit is set to 1 MiB
 
@@ -188,14 +188,14 @@ rule '% sorts that cause temporary tales' [Sort_scan + Sort_range > 0]
 rule 'rate of sorts that cause temporary tables'
 	Sort_merge_passes / Uptime
 	value * 60 * 60 > 1
-	Too many sorts are causing temporary tables.  
+	Too many sorts are causing temporary tables.
 	Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending on your system memory limits
 	Temporary tables average: %s, this value should be less than 1 per hour. | PMA_bytime(value,2)
 
 rule 'Sort rows'
 	Sort_rows / Uptime
 	value * 60 >= 1
-	There are lots of rows being sorted. 
+	There are lots of rows being sorted.
 	While there is nothing wrong with a high amount of row sorting, you might want to make sure that the queries which require a lot of sorting use indexed fields in the ORDER BY clause, as this will result in much faster sorting
 	Sorted rows average: %s | PMA_bytime(value,2)
 
@@ -217,7 +217,7 @@ rule 'rate of reading first index entry'
 rule 'rate of reading fixed position'
 	Handler_read_rnd / Uptime
 	value * 60 * 60 > 1
-	The rate of reading data from a fixed position is high. 
+	The rate of reading data from a fixed position is high.
 	This indicates many queries need to sort results and/or do a full table scan, including join queries that do not use indexes. Add indexes where applicable.
 	Rate of reading fixed position average: %s, this value should be less than 1 per hour | PMA_bytime(value,2)
 
@@ -239,33 +239,33 @@ rule 'tmp_table_size vs. max_heap_table_size'
 rule '% temp disk tables' [Created_tmp_tables + Created_tmp_disk_tables > 0]
 	Created_tmp_disk_tables / (Created_tmp_tables + Created_tmp_disk_tables) * 100
 	value > 25
-	Many temporary tables are being written to disk instead of being kept in memory. 
+	Many temporary tables are being written to disk instead of being kept in memory.
 	Increasing {max_heap_table_size} and {tmp_table_size} might help. However some temporary tables are always being written to disk, independent of the value of these variables. To elminiate these you will have to rewrite your queries to avoid those conditions (Within a temporary table: Presence of a BLOB or TEXT column or presence of a column bigger than 512 bytes) as mentioned in the beginning of an <a href="http://www.facebook.com/note.php?note_id=10150111255065841&comments">Article by the Pythian Group</a>
-	%s% of all temporary tables are being written to disk, this value should be below 25% | round(value,1) 
+	%s% of all temporary tables are being written to disk, this value should be below 25% | round(value,1)
 
 rule 'temp disk rate'
 	Created_tmp_disk_tables / Uptime
 	value * 60 * 60 > 1
-	Many temporary tables are being written to disk instead of being kept in memory. 
+	Many temporary tables are being written to disk instead of being kept in memory.
 	Increasing {max_heap_table_size} and {tmp_table_size} might help. However some temporary tables are always being written to disk, independent of the value of these variables. To elminiate these you will have to rewrite your queries to avoid those conditions (Within a temprorary table: Presence of a BLOB or TEXT column or presence of a column bigger than 512 bytes) as mentioned in in the <a href="http://dev.mysql.com/doc/refman/5.0/en/internal-temporary-tables.html">MySQL Documentation</a>
 	Rate of temporay tables being written to disk: %s, this value should be less than 1 per hour | PMA_bytime(value,2)
 
-# I couldn't find any source on the internet that suggests a direct relation between high counts of temporary tables and any of these variables. 
-# Several independent Blog entries suggest (http://ronaldbradford.com/blog/more-on-understanding-sort_buffer_size-2010-05-10/ and http://www.xaprb.com/blog/2010/05/09/how-to-tune-mysqls-sort_buffer_size/) 
-# that sort_buffer_size should be left as it is. And increasing read_buffer_size is only suggested when there are a lot of 
-# table scans (http://dev.mysql.com/doc/refman/5.1/en/server-system-variables.html#sysvar_read_buffer_size and other sources) though 
+# I couldn't find any source on the internet that suggests a direct relation between high counts of temporary tables and any of these variables.
+# Several independent Blog entries suggest (http://ronaldbradford.com/blog/more-on-understanding-sort_buffer_size-2010-05-10/ and http://www.xaprb.com/blog/2010/05/09/how-to-tune-mysqls-sort_buffer_size/)
+# that sort_buffer_size should be left as it is. And increasing read_buffer_size is only suggested when there are a lot of
+# table scans (http://dev.mysql.com/doc/refman/5.1/en/server-system-variables.html#sysvar_read_buffer_size and other sources) though
 # setting it too high is bad too (http://www.mysqlperformanceblog.com/2007/09/17/mysql-what-read_buffer_size-value-is-optimal/).
 #rule 'temp table rate'
 #	Created_tmp_tables / Uptime
 #	value * 60 * 60 > 1
-#	Many intermediate temporary tables are being created. 
+#	Many intermediate temporary tables are being created.
 #	This may be caused by queries under certain conditions as mentioned in the <a href="http://dev.mysql.com/doc/refman/5.0/en/internal-temporary-tables.html">MySQL Documentation</a>. Consider increasing {sort_buffer_size} (sorting), {read_rnd_buffer_size} (random read buffer, ie, post-sort), {read_buffer_size} (sequential scan).
 
 #
 # MyISAM index cache
 rule 'MyISAM key buffer size'
 	key_buffer_size
-	value == 0 
+	value == 0
 	Key buffer is not initialized. No MyISAM indexes will be cached.
 	Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a good start.
 	key_buffer_size is 0
@@ -288,7 +288,7 @@ rule '% MyISAM key buffer used' [key_buffer_size > 0 && !fired('max % MyISAM key
 rule '% index reads from memory' [Key_read_requests > 0]
 	100 - (Key_reads / Key_read_requests * 100)
 	value < 95
-	The % of indexes that use the MyISAM key buffer is low. 
+	The % of indexes that use the MyISAM key buffer is low.
 	You may need to increase {key_buffer_size}.
 	Index reads from memory: %s%, this value should be above 95% | round(value,1)
 
@@ -318,14 +318,14 @@ rule 'rate of open files'
 rule 'Immediate table locks %' [Table_locks_waited + Table_locks_immediate > 0]
 	Table_locks_immediate / (Table_locks_waited + Table_locks_immediate) * 100
 	value < 95
-	Too many table locks were not granted immediately. 
+	Too many table locks were not granted immediately.
 	Optimize queries and/or use InnoDB to reduce lock wait.
-	Immediate table locks: %s%, this value should be above 95% | round(value,1) 
+	Immediate table locks: %s%, this value should be above 95% | round(value,1)
 
 rule 'Table lock wait rate'
 	Table_locks_waited / Uptime
 	value * 60 * 60 > 1
-	Too many table locks were not granted immediately. 
+	Too many table locks were not granted immediately.
 	Optimize queries and/or use InnoDB to reduce lock wait.
 	Table lock wait rate: %s, this value should be less than 1 per hour | PMA_bytime(value,2)
 
@@ -341,7 +341,7 @@ rule 'thread cache hit rate %' [thread_cache_size > 0]
 	value < 80
 	Thread cache is not efficient.
 	Increase {thread_cache_size}.
-	Thread cache hitrate: %s%, this value should be above 80% | round(value,1) 
+	Thread cache hitrate: %s%, this value should be above 80% | round(value,1)
 
 rule 'Threads that are slow to launch' [slow_launch_time > 0]
 	Slow_launch_threads
@@ -362,16 +362,16 @@ rule 'Slow launch time'
 rule '% connections used'
 	Max_used_connections / max_connections * 100
 	value > 80
-	The maximum amount of used connections is getting close to the value of max_connections.  
+	The maximum amount of used connections is getting close to the value of max_connections.
 	Increase max_connections, or decrease wait_timeout so that connections that do not close database handlers properly get killed sooner. Make sure the code closes database handlers properly.
-	Max_used_connections is at %s% of max_connections, it should be below 80% | round(value,1) 
+	Max_used_connections is at %s% of max_connections, it should be below 80% | round(value,1)
 
 rule '% aborted connections'
 	Aborted_connects / Connections * 100
 	value > 1
 	Too many connections are aborted.
 	Connections are usually aborted when they cannot be authorized. <a href="http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-source-of-aborted_connects/">This article</a> might help you track down the source.
-	%s% of all connections are aborted. This value should be below 1% | round(value,1) 
+	%s% of all connections are aborted. This value should be below 1% | round(value,1)
 
 rule 'rate of aborted connections'
 	Aborted_connects / Uptime
@@ -383,14 +383,14 @@ rule 'rate of aborted connections'
 rule '% aborted clients'
 	Aborted_clients / Connections * 100
 	value > 2
-	Too many clients are aborted. 
+	Too many clients are aborted.
 	Clients are usually aborted when they did not close their connection to MySQL properly. This can be due to network issues or code not closing a database handler properly. Check your network and code.
-	%s% of all clients are aborted. This value should be below 2% | round(value,1) 
+	%s% of all clients are aborted. This value should be below 2% | round(value,1)
 
 rule 'rate of aborted clients'
 	Aborted_clients / Uptime
 	value * 60 * 60 > 1
-	Too many clients are aborted. 
+	Too many clients are aborted.
 	Clients are usually aborted when they did not close their connection to MySQL properly. This can be due to network issues or code not closing a database handler properly. Check your network and code.
 	Aborted client rate is at %s, this value should be less than 1 per hour | PMA_bytime(value,2)
 
@@ -400,15 +400,15 @@ rule 'Is InnoDB disabled?'
 	have_innodb
 	value != "YES"
 	You do not have InnoDB enabled.
-	InnoDB is usually the better choice for table engines. 
+	InnoDB is usually the better choice for table engines.
 	have_innodb is set to 'value'
 
 rule '% InnoDB log size' [innodb_buffer_pool_size > 0]
 	innodb_log_file_size / innodb_buffer_pool_size * 100
 	value < 20
-	The InnoDB log file size is not an appropriate size, in relation to the InnoDB buffer pool. 
-	Especially one a system with a lot of writes to InnoDB tables you should set innodb_log_file_size to 25% of {innodb_buffer_pool_size}. However the bigger this value, the longer the recovery time will be when database crashes, so this value should not be set much higher than 256 MiB. Please note however that you cannot simply change the value of this variable. You need to shutdown the server, remove the InnoDB log files, set the new value in my.cnf, start the server, then check the error logs if everything went fine. See also <a href="http://mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html">this blog entry</a> 
-	Your InnoDB log size is at %s% in relation to the InnoDB buffer pool size, it should not be below 20% | round(value,1) 
+	The InnoDB log file size is not an appropriate size, in relation to the InnoDB buffer pool.
+	Especially one a system with a lot of writes to InnoDB tables you should set innodb_log_file_size to 25% of {innodb_buffer_pool_size}. However the bigger this value, the longer the recovery time will be when database crashes, so this value should not be set much higher than 256 MiB. Please note however that you cannot simply change the value of this variable. You need to shutdown the server, remove the InnoDB log files, set the new value in my.cnf, start the server, then check the error logs if everything went fine. See also <a href="http://mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html">this blog entry</a>
+	Your InnoDB log size is at %s% in relation to the InnoDB buffer pool size, it should not be below 20% | round(value,1)
 
 rule 'Max InnoDB log size' [innodb_buffer_pool_size > 0 && innodb_log_file_size / innodb_buffer_pool_size * 100 < 30]
 	innodb_log_file_size / (1024 * 1024)
