@@ -9284,10 +9284,9 @@ msgid "Run analyzer"
 msgstr "Zaženi analitik"
 
 #: server_status.php:759
-#, fuzzy
 #| msgid "Introduction"
 msgid "Instructions"
-msgstr "Uvod"
+msgstr "Navodila"
 
 #: server_status.php:764
 msgid ""
