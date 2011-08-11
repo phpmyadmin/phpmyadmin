@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-11 15:11+0200\n"
-"PO-Revision-Date: 2011-08-11 17:01+0200\n"
+"PO-Revision-Date: 2011-08-11 17:02+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1486,10 +1486,9 @@ msgid "Rule details"
 msgstr "Kural ayrıntıları"
 
 #: js/messages.php:194
-#, fuzzy
 #| msgid "Authentication"
 msgid "Justification"
-msgstr "Kimlik doğrulama"
+msgstr "Gerekçe"
 
 #: js/messages.php:195
 msgid "Used variable / formula"
