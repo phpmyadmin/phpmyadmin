@@ -9254,10 +9254,9 @@ msgid "Run analyzer"
 msgstr "Çözümleyiciyi çalıştır"
 
 #: server_status.php:759
-#, fuzzy
 #| msgid "Introduction"
 msgid "Instructions"
-msgstr "Başlangıç"
+msgstr "Talimatlar"
 
 #: server_status.php:764
 msgid ""
