@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-10 10:14-0400\n"
-"PO-Revision-Date: 2011-08-11 04:03+0200\n"
+"PO-Revision-Date: 2011-08-11 04:12+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -5301,7 +5301,7 @@ msgstr "垂直"
 #: libraries/display_tbl.lib.php:439
 #, php-format
 msgid "Headers every %s rows"
-msgstr ""
+msgstr "每 %s 行重复表头"
 
 #: libraries/display_tbl.lib.php:536
 msgid "Sort by key"
