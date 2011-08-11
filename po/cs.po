@@ -11404,8 +11404,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:28
-#, fuzzy, php-format
-#| msgid "long_query_time is set to %d second(s)."
+#, php-format
 msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time je nastaven na %d sekund."
 
