@@ -1428,7 +1428,7 @@ msgstr "Filtriraj poizvedbe po besedi/regexp:"
 
 #: js/messages.php:170
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
+msgstr "Združi poizvedbe, neupoštevajoč spremenljive podatke v stavkih WHERE"
 
 #: js/messages.php:171
 #, fuzzy
