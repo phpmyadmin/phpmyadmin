@@ -1465,7 +1465,7 @@ msgstr "Poradce"
 
 #: js/messages.php:190
 msgid "Possible performance issues"
-msgstr ""
+msgstr "Možné výkonostní problémy"
 
 #: js/messages.php:191
 msgid "Issue"
