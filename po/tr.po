@@ -12339,7 +12339,7 @@ msgstr "durdurulan bağlantıların oranı"
 
 #: po/advisory_rules.php:231
 msgid "Too many connections are aborted"
-msgstr ""
+msgstr "Çok fazla bağlantı durduruldu"
 
 #: po/advisory_rules.php:233
 #, php-format
