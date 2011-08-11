@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-11 15:11+0200\n"
-"PO-Revision-Date: 2011-08-11 17:48+0200\n"
+"PO-Revision-Date: 2011-08-11 17:49+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -8567,7 +8567,7 @@ msgstr "Yeni tabloların oluşturulmasına izin verir."
 #: server_privileges.php:38 server_privileges.php:253
 #: server_privileges.php:619
 msgid "Allows creating temporary tables."
-msgstr "Geçici tablolara oluşturulmasına izin verir."
+msgstr "Geçici tablolar oluşturulmasına izin verir."
 
 #: server_privileges.php:39 server_privileges.php:303
 #: server_privileges.php:655
