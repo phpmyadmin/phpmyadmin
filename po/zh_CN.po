@@ -4162,7 +4162,7 @@ msgstr "统计数据表"
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
-msgstr "不使用设计功能请留空，默认：[kbd]pma_designer_coords[/kbd]"
+msgstr "不使用设计功能请留空，推荐: [kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:386
 msgid "Designer table"
