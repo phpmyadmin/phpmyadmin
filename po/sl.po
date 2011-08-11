@@ -1700,7 +1700,7 @@ msgstr "Dodaj možnost za stolpec "
 
 #: js/messages.php:271
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "Pritisnite ubežnico (escape) za prekinitev urejanja"
 
 #: js/messages.php:272
 msgid ""
