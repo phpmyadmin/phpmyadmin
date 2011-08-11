@@ -9270,10 +9270,9 @@ msgid "Filter by category..."
 msgstr "Filtriraj po kategoriji ..."
 
 #: server_status.php:723
-#, fuzzy
 #| msgid "Show only alert values"
 msgid "Show unformatted values"
-msgstr "Prikaži samo opozorilne vrednosti"
+msgstr "Prikaži neoblikovane vrednosti"
 
 #: server_status.php:727
 msgid "Related links:"
