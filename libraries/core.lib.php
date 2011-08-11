@@ -576,6 +576,8 @@ function PMA_download_header($filename, $mimetype, $length = 0, $no_cache = true
     if ($no_cache) {
         PMA_no_cache_header();
     }
+    /* Replace all possibly dangerous chars in filename */
+    $filename = str_replace(array(';', '"', "\n", "\r"), '-', $filename);
     header('Content-Description: File Transfer');
     header('Content-Disposition: attachment; filename="' . $filename . '"');
     header('Content-Type: ' . $mimetype);
@@ -704,4 +706,15 @@ function PMA_includeJS($url)
         return '<script src="./js/' . $url . '" type="text/javascript"></script>' . "\n";
     }
 }
+
+/**
+ * Adds JS code snippets to be displayed by header.inc.php. Adds a newline to each snippet.
+ *
+ * @param string $str Js code to be added (e.g. "token=1234;")
+ *
+ */
+function PMA_AddJSCode($str) {
+    $GLOBALS['js_script'][] = $str;
+}
+
 ?>

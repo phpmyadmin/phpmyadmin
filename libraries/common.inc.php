@@ -511,21 +511,22 @@ if (PMA_isValid($_REQUEST['db'])) {
  */
 $GLOBALS['table'] = '';
 if (PMA_isValid($_REQUEST['table'])) {
-    // check if specified table contain db name
-    if (strpos($_REQUEST['table'], '.')) {
-        $splitted = explode('.', $_REQUEST['table']);
-        if (count($splitted) == 2) {    // make sure the format is "db.table"
-            $GLOBALS['db'] = $splitted[0];
-            $GLOBALS['url_params']['db'] = $GLOBALS['db'];
-            $GLOBALS['table'] = $splitted[1];
-            $GLOBALS['url_params']['table'] = $GLOBALS['table'];
-        }
-    } else {
-        // can we strip tags from this?
-        // only \ and / is not allowed in table names for MySQL
-        $GLOBALS['table'] = $_REQUEST['table'];
-        $GLOBALS['url_params']['table'] = $GLOBALS['table'];
-    }
+    // can we strip tags from this?
+    // only \ and / is not allowed in table names for MySQL
+    $GLOBALS['table'] = $_REQUEST['table'];
+    $GLOBALS['url_params']['table'] = $GLOBALS['table'];
+}
+
+/**
+ * Store currently selected recent table.
+ * Affect $GLOBALS['db'] and $GLOBALS['table']
+ */
+if (PMA_isValid($_REQUEST['selected_recent_table'])) {
+    $recent_table = json_decode($_REQUEST['selected_recent_table'], true);
+    $GLOBALS['db'] = $recent_table['db'];
+    $GLOBALS['url_params']['db'] = $GLOBALS['db'];
+    $GLOBALS['table'] = $recent_table['table'];
+    $GLOBALS['url_params']['table'] = $GLOBALS['table'];
 }
 
 /**
@@ -556,6 +557,13 @@ $GLOBALS['js_include'] = array();
 $GLOBALS['js_include'][] = 'jquery/jquery-1.6.2.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'update-location.js';
+
+/**
+ * holds an array of javascript code snippets to be included in the HTML header
+ * Can be used with PMA_AddJSCode() to pass on js variables to the browser.
+ * @global array $js_script
+ */
+$GLOBALS['js_script'] = array();
 
 /**
  * Add common jQuery functions script here if necessary.
@@ -1009,16 +1017,16 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 }
 
 /**
- * @global  boolean $GLOBALS['inline_edit']
+ * @global  boolean $GLOBALS['grid_edit']
  *
- * Set to true if this is a request made during an inline edit process.  This
+ * Set to true if this is a request made during an grid edit process.  This
  * request is made to retrieve the non-truncated/transformed values.
  */
-if (isset($_REQUEST['inline_edit']) && $_REQUEST['inline_edit'] == true) {
-    $GLOBALS['inline_edit'] = true;
+if (isset($_REQUEST['grid_edit']) && $_REQUEST['grid_edit'] == true) {
+    $GLOBALS['grid_edit'] = true;
 }
 else {
-    $GLOBALS['inline_edit'] = false;
+    $GLOBALS['grid_edit'] = false;
 }
 
 if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {

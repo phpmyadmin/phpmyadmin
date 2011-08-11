@@ -544,6 +544,13 @@ $cfg['MaxDbList'] = 100;
 $cfg['MaxTableList'] = 250;
 
 /**
+ * whether to show hint or not
+ *
+ * @global boolean $cfg['ShowHint']
+ */
+$cfg['ShowHint'] = true;
+
+/**
  * maximum number of characters when a SQL query is displayed
  *
  * @global integer $cfg['MaxCharactersInDisplayedSQL']
@@ -2256,7 +2263,7 @@ $cfg['CharTextareaRows'] = 2;
 $cfg['LimitChars'] = 50;
 
 /**
- * Where to show the edit/inline_edit/delete links in browse mode
+ * Where to show the edit/copy/delete links in browse mode
  * Possible values are 'left', 'right', 'both' and 'none';
  * which will be interpreted as 'top', 'bottom', 'both' and 'none'
  * respectively for vertical display mode
@@ -2309,6 +2316,11 @@ $cfg['ShowBrowseComments'] = true;
  * @global boolean $cfg['ShowPropertyComments']
  */
 $cfg['ShowPropertyComments']= true;
+
+/**
+ * save edited cell(s) in browse-mode at once.
+ */
+$cfg['SaveCellsAtOnce'] = false;
 
 /**
  * shows table display direction.

@@ -130,6 +130,7 @@ $forms['Features']['Other_core_settings'] = array(
     'ReplaceHelpImg',
     'MaxDbList',
     'MaxTableList',
+    'ShowHint',
     'OBGzip',
     'PersistentConnections',
     'ExecTimeLimit',
@@ -198,6 +199,7 @@ $forms['Main_frame']['Browse'] = array(
     'Order',
     'BrowsePointerEnable',
     'BrowseMarkerEnable',
+    'SaveCellsAtOnce',
     'ShowDisplayDirection',
     'RepeatCells',
     'LimitChars',
@@ -250,12 +252,6 @@ $forms['Import']['Csv'] = array('Import' => array(
         'ldi_escaped',
         'ldi_local_option',
         ':group:end'));
-$forms['Import']['Microsoft_Office'] = array('Import' => array(
-    ':group:' . __('Excel 97-2003 XLS Workbook'),
-        'xls_col_names',
-        ':group:end',
-    ':group:' . __('Excel 2007 XLSX Workbook'),
-        'xlsx_col_names'));
 $forms['Import']['Open_Document'] = array('Import' => array(
     ':group:' . __('Open Document Spreadsheet'),
         'ods_col_names',
@@ -345,14 +341,6 @@ $forms['Export']['Latex'] = array('Export' => array(
         'latex_data_label',
         'latex_null'));
 $forms['Export']['Microsoft_Office'] = array('Export' => array(
-    ':group:' . __('Excel 97-2003 XLS Workbook'),
-        'xls_null',
-        'xls_columns',
-        ':group:end',
-    ':group:' . __('Excel 2007 XLSX Workbook'),
-        'xlsx_null',
-        'xlsx_columns',
-        ':group:end',
     ':group:' . __('Microsoft Word 2000'),
         'htmlword_structure_or_data',
         'htmlword_null',

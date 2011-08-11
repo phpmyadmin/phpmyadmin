@@ -3037,7 +3037,7 @@ $(document).ready(function() {
  */
 $(document).ready(function() {
     var elm = $('#sqlquery');
-    if (elm.length > 0) {
+    if (elm.length > 0 && typeof CodeMirror != 'undefined') {
         codemirror_editor = CodeMirror.fromTextArea(elm[0], {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql"});
     }
 });
@@ -3078,33 +3078,35 @@ $(document).ready(function() {
  */
 function PMA_createqTip($elements, content, options)
 {
+    if ($('#no_hint').length > 0) {
+        return;
+    }
+
     var o = {
         content: content,
         style: {
-            background: '#333',
-            border: {
-                radius: 5
+            classes: {
+                tooltip: 'normalqTip',
+                content: 'normalqTipContent'
             },
-            fontSize: '0.8em',
-            padding: '0 0.5em',
             name: 'dark'
         },
         position: {
             target: 'mouse',
             corner: { target: 'rightMiddle', tooltip: 'leftMiddle' },
-            adjust: { x: 20 }
+            adjust: { x: 10, y: 20 }
         },
         show: {
             delay: 0,
             effect: {
                 type: 'grow',
-                length: 100
+                length: 150
             }
         },
         hide: {
             effect: {
                 type: 'grow',
-                length: 150
+                length: 200
             }
         }
     }
@@ -3112,3 +3114,63 @@ function PMA_createqTip($elements, content, options)
     $elements.qtip($.extend(true, o, options));
 }
 
+/**
+ * Return value of a cell in a table.
+ */
+function PMA_getCellValue(td) {
+    if ($(td).is('.null')) {
+        return '';
+    } else if (! $(td).is('.to_be_saved') && $(td).data('original_data')) {
+        return $(td).data('original_data');
+    } else if ($(td).is(':not(.transformed, .relation, .enum, .set, .null)')) {
+        return unescape($(td).find('span').html()).replace(/<br>/g, "\n");
+    } else {
+        return $(td).text();
+    }
+}
+
+/* Loads a js file, an array may be passed as well */
+loadJavascript=function(file) {
+    if($.isArray(file)) {
+        for(var i=0; i<file.length; i++) {
+            $('head').append('<script type="text/javascript" src="'+file[i]+'"></script>');
+        }
+    } else {
+        $('head').append('<script type="text/javascript" src="'+file+'"></script>');
+    }
+}
+
+$(document).ready(function() {
+    /**
+     * Theme selector.
+     */
+    $('a.themeselect').live('click', function(e) {
+        window.open(
+            e.target,
+            'themes',
+            'left=10,top=20,width=510,height=350,scrollbars=yes,status=yes,resizable=yes'
+            );
+        return false;
+    });
+
+    /**
+     * Automatic form submission on change.
+     */
+    $('.autosubmit').change(function(e) {
+        e.target.form.submit();
+    });
+
+    /**
+     * Theme changer.
+     */
+    $('.take_theme').click(function(e) {
+        var what = this.name;
+        if (window.opener && window.opener.document.forms['setTheme'].elements['set_theme']) {
+            window.opener.document.forms['setTheme'].elements['set_theme'].value = what;
+            window.opener.document.forms['setTheme'].submit();
+            window.close();
+            return false;
+        }
+        return true;
+    });
+});

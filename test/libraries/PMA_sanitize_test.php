@@ -15,6 +15,11 @@ require_once 'libraries/core.lib.php';
 
 class PMA_sanitize_test extends PHPUnit_Framework_TestCase
 {
+    function setUp()
+    {
+        $_SESSION[' PMA_token '] = 'token';
+    }
+
     /**
      * Tests for proper escaping of XSS.
      */
@@ -31,7 +36,7 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
     {
         unset($GLOBALS['server']);
         unset($GLOBALS['lang']);
-        $this->assertEquals('<a href="./url.php?url=http%3A%2F%2Fwww.phpmyadmin.net%2F" target="target">link</a>',
+        $this->assertEquals('<a href="./url.php?url=http%3A%2F%2Fwww.phpmyadmin.net%2F&amp;token=token" target="target">link</a>',
             PMA_sanitize('[a@http://www.phpmyadmin.net/@target]link[/a]'));
     }
 
