@@ -62,7 +62,7 @@ rule 'Long query time'
 	long_query_time
 	value >= 10
 	long_query_time is set to 10 seconds or more, thus only slow queries that take above 10 seconds are logged.
-	It is suggested to set {long_query_time} to a lower value, depending on your enviroment. Usually a value of 1-5 seconds is suggested.
+	It is suggested to set {long_query_time} to a lower value, depending on your environment. Usually a value of 1-5 seconds is suggested.
 	long_query_time is currently set to %ds. | value
 
 rule 'Slow query logging'
@@ -166,7 +166,7 @@ rule 'Query cache max size' [!fired('Query cache disabled')]
 	query_cache_size
 	value > 1024 * 128
 	The query cache size is above 128 MiB. Big query caches may cause significant overhead that is required to maintain the cache.
-	Depending on your enviroment, it might be performance increasing to reduce this value.
+	Depending on your environment, it might be performance increasing to reduce this value.
 	Current query cache size: %s | implode(' ',PMA_formatByteDown(value, 2, 2))
 
 rule 'Query cache min result size' [!fired('Query cache disabled')]
@@ -421,7 +421,7 @@ rule 'InnoDB buffer pool size' [system_memory > 0]
 	innodb_buffer_pool_size / system_memory * 100
 	value < 60
 	Your InnoDB buffer pool is fairly small.
-	The InnoDB buffer pool has a profound impact on perfomance for InnoDB tables. Assign all your remaining memory to this buffer. For database servers that use solely InnoDB as storage engine and have no other services (e.g. a web server) running, you may set this as high as 80% of your available memory. If that is not the case, you need to carefully assess the memory consumption of your other services and non-InnoDB-Tables and set this variable accordingly. If it is set too high, your system will start swapping, which decreases performance significantly. See also <a href="http://www.mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/">this article</a>
+	The InnoDB buffer pool has a profound impact on performance for InnoDB tables. Assign all your remaining memory to this buffer. For database servers that use solely InnoDB as storage engine and have no other services (e.g. a web server) running, you may set this as high as 80% of your available memory. If that is not the case, you need to carefully assess the memory consumption of your other services and non-InnoDB-Tables and set this variable accordingly. If it is set too high, your system will start swapping, which decreases performance significantly. See also <a href="http://www.mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/">this article</a>
 	You are currently using %s% of your memory for the InnoDB buffer pool. This rule fires if you are assigning less than 60%, however this might be perfectly adequate for your system if you don't have much InnoDB tables or other services running on the same machine.
 
 #
