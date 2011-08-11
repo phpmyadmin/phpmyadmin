@@ -1436,10 +1436,9 @@ msgid "Sum of grouped rows:"
 msgstr "Seštevek združenih vrstic:"
 
 #: js/messages.php:172
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "Skupaj"
+msgstr "Skupaj:"
 
 #: js/messages.php:174
 msgid "Loading logs"
