@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * A simple rules engine, that parses and executes the rules in advisory_rules.txt. Adjusted to phpMyAdmin 
+ * A simple rules engine, that parses and executes the rules in advisory_rules.txt. Adjusted to phpMyAdmin
  *
  *
  * @package phpMyAdmin
@@ -18,7 +18,7 @@ class Advisor
 
         // Step 1: Get some variables to evaluate on
         $this->variables = array_merge(
-            PMA_DBI_fetch_result('SHOW GLOBAL STATUS', 0, 1), 
+            PMA_DBI_fetch_result('SHOW GLOBAL STATUS', 0, 1),
             PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES', 0, 1)
         );
         // Add total memory to variables as well
@@ -26,7 +26,7 @@ class Advisor
         $sysinfo = getSysInfo();
         $memory  = $sysinfo->memory();
         $this->variables['system_memory'] = $memory['MemTotal'];
-        
+
         // Step 2: Read and parse the list of rules
         $this->parseResult = $this->parseRulesFile();
         // Step 3: Feed the variables to the rules and let them fire. Sets $runResult
@@ -36,7 +36,7 @@ class Advisor
     }
 
     function runRules() {
-        $this->runResult = array( 
+        $this->runResult = array(
             'fired' => array(),
             'notfired' => array(),
             'unchecked'=> array(),
@@ -119,12 +119,12 @@ class Advisor
                     }
                     $rule['name'] = _gettext($rule['name']);
                     $rule['issue'] = _gettext($rule['issue']);
-                    
+
                     $rule['recommendation'] = preg_replace(
                         '/\{([a-z_0-9]+)\}/Ui',
                         '<a href="server_variables.php?'.$GLOBALS['url_query'].'#filter=\1">\1</a>',
                         _gettext($rule['recommendation']));
-                    
+
                     break;
         }
 
@@ -152,7 +152,7 @@ class Advisor
         if($err) throw new Exception(strip_tags($err) . '<br />Executed code: $value = '.$expr.';');
         return $value;
     }
-    
+
     // Reads the rule file into an array, throwing errors messages on syntax errors
     function parseRulesFile() {
         $file = file('libraries/advisory_rules.txt');
@@ -170,9 +170,9 @@ class Advisor
 
             // Reading new rule
             if(substr($line, 0, 4) == 'rule') {
-                if($ruleLine > 0) { 
-                    $errors[] = 'Invalid rule declaration on line '.($i+1). ', expected line '.$ruleSyntax[$ruleLine++].' of previous rule' ; 
-                    continue; 
+                if($ruleLine > 0) {
+                    $errors[] = 'Invalid rule declaration on line '.($i+1). ', expected line '.$ruleSyntax[$ruleLine++].' of previous rule' ;
+                    continue;
                 }
                 if(preg_match("/rule\s'(.*)'( \[(.*)\])?$/",$line,$match)) {
                     $ruleLine = 1;
