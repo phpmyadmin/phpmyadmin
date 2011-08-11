@@ -43,11 +43,11 @@ class Advisor
             'errors' => array()
         );
 
-        foreach($this->parseResult['rules'] as $rule) {
+        foreach ($this->parseResult['rules'] as $rule) {
             $this->variables['value'] = 0;
             $precond = true;
 
-            if(isset($rule['precondition'])) {
+            if (isset($rule['precondition'])) {
                 try {
                      $precond = $this->ruleExprEvaluate($rule['precondition']);
                 } catch (Exception $e) {
@@ -56,9 +56,9 @@ class Advisor
                 }
             }
 
-            if(! $precond)
+            if (! $precond) {
                 $this->addRule('unchecked', $rule);
-            else {
+            } else {
                 try {
                     $value = $this->ruleExprEvaluate($rule['formula']);
                 } catch(Exception $e) {
@@ -87,7 +87,7 @@ class Advisor
     function splitJustification($rule)
     {
         $jst = preg_split('/\s*\|\s*/', $rule['justification'], 2);
-        if(count($jst) > 1) {
+        if (count($jst) > 1) {
             $jst[0] = preg_replace('/%( |,|\.|$)/','%%\1',$jst[0]);
             return array($jst[0], $jst[1]);
        }
@@ -95,12 +95,13 @@ class Advisor
     }
 
     // Adds a rule to the result list
-    function addRule($type, $rule) {
+    function addRule($type, $rule)
+    {
         switch($type) {
             case 'notfired':
             case 'fired':
                     $jst = Advisor::splitJustification($rule);
-                    if(count($jst) > 1) {
+                    if (count($jst) > 1) {
                         try {
                             /* Translate */
                             $jst[0] = _gettext($jst[0]);
@@ -133,14 +134,15 @@ class Advisor
 
     // Runs a code expression, replacing variable names with their respective values
     // ignoreUntil: if > 0, it doesn't replace any variables until that string position, but still evaluates the whole expr
-    function ruleExprEvaluate($expr, $ignoreUntil = 0) {
-        if($ignoreUntil > 0) {
+    function ruleExprEvaluate($expr, $ignoreUntil = 0)
+    {
+        if ($ignoreUntil > 0) {
             $exprIgnore = substr($expr,0,$ignoreUntil);
             $expr = substr($expr,$ignoreUntil);
         }
         $expr = preg_replace('/fired\s*\(\s*(\'|")(.*)\1\s*\)/Uie','1',$expr); //isset($this->runResult[\'fired\']
         $expr = preg_replace('/\b(\w+)\b/e','isset($this->variables[\'\1\']) ? (!is_numeric($this->variables[\'\1\']) ? \'"\'.$this->variables[\'\1\'].\'"\' : $this->variables[\'\1\']) : \'\1\'', $expr);
-        if($ignoreUntil > 0){
+        if ($ignoreUntil > 0) {
             $expr = $exprIgnore . $expr;
         }
         $value = 0;
@@ -149,12 +151,15 @@ class Advisor
         eval('$value = '.$expr.';');
         $err = ob_get_contents();
         ob_end_clean();
-        if($err) throw new Exception(strip_tags($err) . '<br />Executed code: $value = '.$expr.';');
+        if ($err) {
+            throw new Exception(strip_tags($err) . '<br />Executed code: $value = '.$expr.';');
+        }
         return $value;
     }
 
     // Reads the rule file into an array, throwing errors messages on syntax errors
-    function parseRulesFile() {
+    function parseRulesFile()
+    {
         $file = file('libraries/advisory_rules.txt');
         $errors = array();
         $rules = array();
@@ -166,15 +171,17 @@ class Advisor
 
         for ($i = 0; $i<$numLines; $i++) {
             $line = $file[$i];
-            if($line[0] == '#' || $line[0] == "\n") continue;
+            if ($line[0] == '#' || $line[0] == "\n") {
+                continue;
+            }
 
             // Reading new rule
-            if(substr($line, 0, 4) == 'rule') {
-                if($ruleLine > 0) {
+            if (substr($line, 0, 4) == 'rule') {
+                if ($ruleLine > 0) {
                     $errors[] = 'Invalid rule declaration on line '.($i+1). ', expected line '.$ruleSyntax[$ruleLine++].' of previous rule' ;
                     continue;
                 }
-                if(preg_match("/rule\s'(.*)'( \[(.*)\])?$/",$line,$match)) {
+                if (preg_match("/rule\s'(.*)'( \[(.*)\])?$/",$line,$match)) {
                     $ruleLine = 1;
                     $j++;
                     $rules[$j] = array( 'name' => $match[1]);
@@ -184,19 +191,27 @@ class Advisor
                 }
                 continue;
             } else {
-                if($ruleLine == -1) $errors[] = 'Unexpected characters on line '.($i+1);
+                if ($ruleLine == -1) {
+                    $errors[] = 'Unexpected characters on line '.($i+1);
+                }
             }
 
             // Reading rule lines
-            if($ruleLine > 0) {
-                if(!isset($line[0])) continue; // Empty lines are ok
+            if ($ruleLine > 0) {
+                if (!isset($line[0])) {
+                    continue; // Empty lines are ok
+                }
                 // Non tabbed lines are not
-                if($line[0] != "\t") { $errors[] = 'Unexpected character on line '.($i+1).'. Expected tab, but found \''.$line[0].'\''; continue; }
+                if ($line[0] != "\t") {
+                    $errors[] = 'Unexpected character on line '.($i+1).'
+                        . Expected tab, but found \''.$line[0].'\'';
+                    continue;
+                }
                 $rules[$j][$ruleSyntax[$ruleLine++]] = chop(substr($line,1));
             }
 
             // Rule complete
-            if($ruleLine == $numRules) {
+            if ($ruleLine == $numRules) {
                 $ruleLine = -1;
             }
         }
@@ -210,23 +225,22 @@ function PMA_bytime($num, $precision)
     $per = '';
     if ($num >= 1) { # per second
         $per = "per second";
-    }
-    elseif ($num*60 >= 1) { # per minute
+    } elseif ($num*60 >= 1) { # per minute
         $num = $num*60;
         $per = "per minute";
-    }
-    elseif ($num*60*60 >=1 ) { # per hour
+    } elseif ($num*60*60 >=1 ) { # per hour
         $num = $num*60*60;
         $per = "per hour";
-    }
-    else {
+    } else {
         $num = $num*60*60*24;
         $per = "per day";
     }
 
     $num = round($num, $precision);
 
-    if($num == 0) $num = '<'.pow(10,-$precision);
+    if ($num == 0) {
+        $num = '<'.pow(10,-$precision);
+    }
 
     return "$num $per";
 }

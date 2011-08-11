@@ -22,7 +22,7 @@ if (isset($_SESSION['profiling'])) {
     /* Files required for chart exporting */
     $GLOBALS['js_include'][] = 'highcharts/exporting.js';
     /* < IE 9 doesn't support canvas natively */
-    if(PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
+    if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
         $GLOBALS['js_include'][] = 'canvg/flashcanvas.js';
     }	
     $GLOBALS['js_include'][] = 'canvg/canvg.js';
@@ -96,8 +96,7 @@ if (isset($_REQUEST['get_relational_values']) && $_REQUEST['get_relational_value
         $dropdown = '<span class="curr_value">' . htmlspecialchars($_REQUEST['curr_value']) . '</span> <a href="browse_foreigners.php' . PMA_generate_common_url($_url_params) . '"'
                     . ' target="_blank" class="browse_foreign" '
                     .'>' . __('Browse foreign values') . '</a>';
-    }
-    else {
+    } else {
         $dropdown = PMA_foreignDropdown($foreignData['disp_row'], $foreignData['foreign_field'], $foreignData['foreign_display'], $curr_value, $cfg['ForeignKeyMaxLimit']);
         $dropdown = '<select>' . $dropdown . '</select>';
     }
@@ -788,8 +787,7 @@ else {
                 require './libraries/server_common.inc.php';
                 require './libraries/server_links.inc.php';
             }
-        }
-        else {
+        } else {
             require_once './libraries/header.inc.php';
             //we don't need to buffer the output in PMA_showMessage here.
             //set a global variable and check against it in the function

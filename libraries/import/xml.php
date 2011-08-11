@@ -200,8 +200,7 @@ if (@count($xml->children())) {
 
         foreach ($v1 as $k2 => $v2) {
             $row_attr = $v2->attributes();
-            if (! array_search((string)$row_attr['name'], $tempRow))
-            {
+            if (! array_search((string)$row_attr['name'], $tempRow)) {
                 $tempRow[] = (string)$row_attr['name'];
             }
             $tempCells[] = (string)$v2;
