@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-11 15:11+0200\n"
-"PO-Revision-Date: 2011-08-11 18:31+0200\n"
+"PO-Revision-Date: 2011-08-11 18:39+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -12399,12 +12399,13 @@ msgid "% InnoDB log size"
 msgstr ""
 
 #: po/advisory_rules.php:251
-#, fuzzy
 #| msgid "The number writes done to the InnoDB buffer pool."
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
-msgstr "InnoDB arabellek havuzuna bitti yazma sayısıdır."
+msgstr ""
+"InnoDB arabellek havuzu ile ilgili olarak InnoDB günlük dosyası boyutu uygun "
+"bir boyut değil."
 
 #: po/advisory_rules.php:252
 #, php-format
