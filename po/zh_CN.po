@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-10 10:14-0400\n"
-"PO-Revision-Date: 2011-08-11 03:29+0200\n"
+"PO-Revision-Date: 2011-08-11 03:30+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -1674,7 +1674,6 @@ msgid "Prev"
 msgstr "上个月"
 
 #: js/messages.php:307
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
