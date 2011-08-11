@@ -11736,10 +11736,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:85
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache fragmentation"
-msgstr "Sorgu önbelleği"
+msgstr "Sorgu önbelleği parçalama"
 
 #: po/advisory_rules.php:86
 msgid "The query cache is considerably fragmented."
