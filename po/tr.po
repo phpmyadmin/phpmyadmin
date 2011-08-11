@@ -11470,10 +11470,10 @@ msgid "Current amount of Questions: %s"
 msgstr "Şu anki Soru miktarı: %s"
 
 #: po/advisory_rules.php:15
-#, fuzzy, php-format
+#, php-format
 #| msgid "Show SQL queries"
 msgid "% slow queries"
-msgstr "SQL sorgularını göster"
+msgstr "% yavaş sorgular"
 
 #: po/advisory_rules.php:16
 msgid ""
