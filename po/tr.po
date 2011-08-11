@@ -11509,10 +11509,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:25
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Long query time"
-msgstr "SQL sorguları"
+msgstr "Uzun sorgu süresi"
 
 #: po/advisory_rules.php:26
 msgid ""
