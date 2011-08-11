@@ -1510,10 +1510,9 @@ msgid "Rule details"
 msgstr "Podrobnosti pravila"
 
 #: js/messages.php:194
-#, fuzzy
 #| msgid "Authentication"
 msgid "Justification"
-msgstr "Overovitev"
+msgstr "Utemeljitev"
 
 #: js/messages.php:195
 msgid "Used variable / formula"
