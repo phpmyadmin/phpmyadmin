@@ -90,6 +90,13 @@ $js_messages['strChartIssuedQueriesTitle'] = __('Questions (executed statements 
 $js_messages['strChartQueryPie'] = __('Query statistics');
 
 /* server status monitor */
+$js_messages['strIncompatibleMonitorConfig'] = __('Local monitor configuration icompatible');
+$js_messages['strIncompatibleMonitorConfigDescription'] = __('The chart arrangement configuration in your browsers local storage is not compatible anymore to the newer version of the monitor dialog. It is very likely that your current configuration will not work anymore. Please reset your configuration to default in the <i>Settings</i> menu.');
+
+$js_messages['strQueryCacheEfficiency'] = __('Query cache efficiency');
+$js_messages['strQueryCacheUsage'] = __('Query cache usage');
+$js_messages['strQueryCacheUsed'] = __('Query cache used');
+
 $js_messages['strSystemCPUUsage'] = __('System CPU Usage');
 $js_messages['strSystemMemory'] = __('System memory');
 $js_messages['strSystemSwap'] = __('System swap');

@@ -31,6 +31,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     // real-time charting data
     if (isset($_REQUEST['chart_data'])) {
         switch($_REQUEST['type']) {
+            // Process and Connections realtime chart
             case 'proc':
                 $c = PMA_DBI_fetch_result("SHOW GLOBAL STATUS WHERE Variable_name = 'Connections'", 0, 1);
                 $result = PMA_DBI_query('SHOW PROCESSLIST');
@@ -44,6 +45,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
                 exit(json_encode($ret));
 
+            // Query realtime chart
             case 'queries':
                 $queries = PMA_DBI_fetch_result(
                     "SHOW GLOBAL STATUS
@@ -64,6 +66,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
                 exit(json_encode($ret));
 
+            // Traffic realtime chart
             case 'traffic':
                 $traffic = PMA_DBI_fetch_result(
                     "SHOW GLOBAL STATUS
@@ -78,63 +81,105 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
                 exit(json_encode($ret));
 
+            // Data for the monitor 
             case 'chartgrid':
                 $ret = json_decode($_REQUEST['requiredData'], true);
                 $statusVars = array();
+                $serverVars = array();
                 $sysinfo = $cpuload = $memory = 0;
+                $pName = '';
 
+                /* Accumulate all required variables and data */
+                // For each chart
                 foreach ($ret as $chart_id => $chartNodes) {
-                    foreach ($chartNodes as $node_id => $node) {
-                        switch ($node['dataType']) {
-                            case 'statusvar':
-                                // Some white list filtering
-                                if (!preg_match('/[^a-zA-Z_]+/', $node['dataPoint']))
-                                    $statusVars[] = $node['dataPoint'];
-                                break;
+                    // For each data series 
+                    foreach ($chartNodes as $node_id => $nodeDataPoints) {
+                        // For each data point in the series (usually just 1)
+                        foreach ($nodeDataPoints as $point_id => $dataPoint) {
+                            $pName = $dataPoint['name'];
+                            
+                            switch ($dataPoint['type']) {
+                                /* We only collect the status and server variables here to
+                                 * read them all in one query, and only afterwards assign them.
+                                 * Also do some white list filtering on the names
+                                */
+                                case 'servervar':
+                                    if (!preg_match('/[^a-zA-Z_]+/', $pName))
+                                        $serverVars[] = $pName;                  
+                                    break;
 
-                            case 'proc':
-                                $result = PMA_DBI_query('SHOW PROCESSLIST');
-                                $ret[$chart_id][$node_id]['y'] = PMA_DBI_num_rows($result);
-                                break;
+                                case 'statusvar':
+                                    if (!preg_match('/[^a-zA-Z_]+/', $pName))
+                                        $statusVars[] = $pName;
+                                    break;
 
-                            case 'cpu':
-                                if (!$sysinfo) {
-                                    require_once('libraries/sysinfo.lib.php');
-                                    $sysinfo = getSysInfo();
-                                }
-                                if (!$cpuload)
-                                    $cpuload = $sysinfo->loadavg();
+                                case 'proc':
+                                    $result = PMA_DBI_query('SHOW PROCESSLIST');
+                                    $ret[$chart_id][$node_id][$point_id]['value'] = PMA_DBI_num_rows($result);
+                                    break;
 
-                                if (PHP_OS == 'Linux') {
-                                    $ret[$chart_id][$node_id]['idle'] = $cpuload['idle'];
-                                    $ret[$chart_id][$node_id]['busy'] = $cpuload['busy'];
-                                } else
-                                    $ret[$chart_id][$node_id]['y'] = $cpuload['loadavg'];
+                                case 'cpu':
+                                    if (!$sysinfo) {
+                                        require_once('libraries/sysinfo.lib.php');
+                                        $sysinfo = getSysInfo();
+                                    }
+                                    if (!$cpuload)
+                                        $cpuload = $sysinfo->loadavg();
 
-                                break;
+                                    if (PHP_OS == 'Linux') {
+                                        $ret[$chart_id][$node_id][$point_id]['idle'] = $cpuload['idle'];
+                                        $ret[$chart_id][$node_id][$point_id]['busy'] = $cpuload['busy'];
+                                    } else
+                                        $ret[$chart_id][$node_id][$point_id]['value'] = $cpuload['loadavg'];
 
-                            case 'memory':
-                                if (!$sysinfo) {
-                                    require_once('libraries/sysinfo.lib.php');
-                                    $sysinfo = getSysInfo();
-                                }
-                                if (!$memory)
-                                    $memory  = $sysinfo->memory();
+                                    break;
 
-                                $ret[$chart_id][$node_id]['y'] = $memory[$node['dataPoint']];
-                                break;
+                                case 'memory':
+                                    if (!$sysinfo) {
+                                        require_once('libraries/sysinfo.lib.php');
+                                        $sysinfo = getSysInfo();
+                                    }
+                                    if (!$memory)
+                                        $memory  = $sysinfo->memory();
+
+                                    $ret[$chart_id][$node_id][$point_id]['value'] = $memory[$pName];
+                                    break;
+                            }
                         }
                     }
                 }
 
-                $vars = PMA_DBI_fetch_result(
-                    "SHOW GLOBAL STATUS
-                    WHERE Variable_name='" . implode("' OR Variable_name='", $statusVars) . "'", 0, 1);
+                // Retrieve all required status variables
+                if (count($statusVars)) {
+                    $statusVarValues = PMA_DBI_fetch_result(
+                        "SHOW GLOBAL STATUS
+                        WHERE Variable_name='" . implode("' OR Variable_name='", $statusVars) . "'", 0, 1);
+                } else {
+                    $statusVarValues = array();
+                }
+                
+                // Retrieve all required server variables
+                if (count($serverVars)) {
+                    $serverVarValues = PMA_DBI_fetch_result(
+                        "SHOW GLOBAL VARIABLES
+                        WHERE Variable_name='" . implode("' OR Variable_name='", $serverVars) . "'", 0, 1);
+                } else {
+                    $serverVarValues = array();
+                }
 
+                // ...and now assign them
                 foreach ($ret as $chart_id => $chartNodes) {
-                    foreach ($chartNodes as $node_id => $node) {
-                        if ($node['dataType'] == 'statusvar')
-                            $ret[$chart_id][$node_id]['y'] = $vars[$node['dataPoint']];
+                    foreach ($chartNodes as $node_id => $nodeDataPoints) {
+                        foreach ($nodeDataPoints as $point_id => $dataPoint) {
+                            switch($dataPoint['type']) {
+                            case 'statusvar':
+                                $ret[$chart_id][$node_id][$point_id]['value'] = $statusVarValues[$dataPoint['name']];
+                                break;
+                            case 'servervar':
+                                $ret[$chart_id][$node_id][$point_id]['value'] = $serverVarValues[$dataPoint['name']];
+                                break;
+                            }
+                        }
                     }
                 }
 
@@ -594,12 +639,9 @@ if (isset($_REQUEST['show']) && isset($_REQUEST['ajax_request'])) {
     }
 }
 
-$server = 1;
-if (isset($_REQUEST['server']) && intval($_REQUEST['server'])) $server = intval($_REQUEST['server']);
-
-$server_db_isLocal = strtolower($cfg['Servers'][$server]['host']) == 'localhost'
-                              || $cfg['Servers'][$server]['host'] == '127.0.0.1'
-                              || $cfg['Servers'][$server]['host'] == '::1';
+$server_db_isLocal = strtolower($cfg['Server']['host']) == 'localhost'
+                              || $cfg['Server']['host'] == '127.0.0.1'
+                              || $cfg['Server']['host'] == '::1';
 
 PMA_AddJSCode('pma_token = \'' . $_SESSION[' PMA_token '] . "';\n" .
               'url_query = \'' . str_replace('&amp;', '&', PMA_generate_common_url($db)) . "';\n" .
@@ -1466,16 +1508,11 @@ function printMonitor()
     <div id="addChartDialog" title="Add chart" style="display:none;">
         <div id="tabGridVariables">
             <p><input type="text" name="chartTitle" value="<?php echo __('Chart Title'); ?>" /></p>
-            <?php if ($server_db_isLocal) { ?>
-            <input type="radio" name="chartType" value="cpu" id="chartCPU">
-            <label for="chartCPU"><?php echo __('CPU Usage'); ?></label><br/>
+            
+            <input type="radio" name="chartType" value="preset" id="chartPreset">
+            <label for="chartPreset"><?php echo __('Preset chart'); ?></label>
+            <select name="presetCharts"></select><br/>
 
-            <input type="radio" name="chartType" value="memory" id="chartMemory">
-            <label for="chartMemory"><?php echo __('Memory Usage'); ?></label><br/>
-
-            <input type="radio" name="chartType" value="swap" id="chartSwap">
-            <label for="chartSwap"><?php echo __('Swap Usage'); ?></label><br/>
-            <?php } ?>
             <input type="radio" name="chartType" value="variable" id="chartStatusVar" checked="checked">
             <label for="chartStatusVar"><?php echo __('Status variable(s)'); ?></label><br/>
             <div id="chartVariableSettings">
