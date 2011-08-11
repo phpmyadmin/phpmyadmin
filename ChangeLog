@@ -50,6 +50,9 @@ phpMyAdmin - ChangeLog
 - bug #3374802 [interface] Comment on a column breaks inline editing
 - patch #3383711 [display] Order by a column in a view doesn't work in some cases
 - bug #3386434 [interface] Add missing space to server status
+- [core] Remove library PHPExcel, due to license issues
+- [export] Remove native Excel export modules (xls and xlsx formats)
+- [import] Remove native Excel import modules (xls and xlsx formats)
 
 3.4.4.0 (not yet released)
 - bug #3323060 [parser] SQL parser breaks AJAX requests if query has unclosed quotes

@@ -29,8 +29,6 @@ js/jquery
 js/colorpicker 
     jQuery based color picker
 
-libarries/PHPExcel 
-    PHPExcel library for handling Excel files
 libraries/php-gettext 
     php-gettext library
 libraries/tcpdf 
