@@ -594,6 +594,12 @@ if (isset($_REQUEST['show']) && isset($_REQUEST['ajax_request'])) {
     }
 }
 
+$server = 1;
+if (isset($_REQUEST['server']) && intval($_REQUEST['server'])) $server = intval($_REQUEST['server']);
+
+$server_db_isLocal = strtolower($cfg['Servers'][$server]['host']) == 'localhost'
+                              || $cfg['Servers'][$server]['host'] == '127.0.0.1'
+                              || $cfg['Servers'][$server]['host'] == '::1';
 
 PMA_AddJSCode('pma_token = \'' . $_SESSION[' PMA_token '] . "';\n" .
               'url_query = \'' . str_replace('&amp;', '&', PMA_generate_common_url($db)) . "';\n" .
@@ -619,13 +625,6 @@ require './libraries/server_common.inc.php';
  * Displays the links
  */
 require './libraries/server_links.inc.php';
-
-$server = 1;
-if (isset($_REQUEST['server']) && intval($_REQUEST['server'])) $server = intval($_REQUEST['server']);
-
-$server_db_isLocal = strtolower($cfg['Servers'][$server]['host']) == 'localhost'
-                              || $cfg['Servers'][$server]['host'] == '127.0.0.1'
-                              || $cfg['Servers'][$server]['host'] == '::1';
 
 ?>
 <div id="serverstatus">
