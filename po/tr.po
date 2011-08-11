@@ -1476,10 +1476,9 @@ msgid "Issue"
 msgstr ""
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
-msgstr "Belgeler"
+msgstr "Tavsiye"
 
 #: js/messages.php:193
 #, fuzzy
