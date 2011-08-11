@@ -25,7 +25,7 @@ printf(__('You have a slow query rate of %s per hour, you should have less than 
 echo __('Long query time');
 echo __('long_query_time is set to 10 seconds or more, thus only slow queries that take above 10 seconds are logged.');
 echo __('It is suggested to set {long_query_time} to a lower value, depending on your enviroment. Usually a value of 1-5 seconds is suggested.');
-printf(__('long_query_time is currently set to %ss.'), 0);
+printf(__('long_query_time is currently set to %ds.'), 0);
 
 echo __('Slow query logging');
 echo __('The slow query log is disabled.');

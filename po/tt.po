@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-11 13:46+0200\n"
+"POT-Creation-Date: 2011-08-11 13:55+0200\n"
 "PO-Revision-Date: 2010-07-22 02:25+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: tatarish <tt@li.org>\n"
@@ -11654,7 +11654,7 @@ msgstr ""
 
 #: po/advisory_rules.php:28
 #, php-format
-msgid "long_query_time is currently set to %ss."
+msgid "long_query_time is currently set to %ds."
 msgstr ""
 
 #: po/advisory_rules.php:30
