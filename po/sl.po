@@ -1446,7 +1446,7 @@ msgstr "Dnevniki nalaganja"
 
 #: js/messages.php:175
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "Osvežitev nadziranja je spodletela"
 
 #: js/messages.php:176
 msgid ""
