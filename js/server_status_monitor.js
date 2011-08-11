@@ -806,7 +806,7 @@ $(function() {
         var str = serie.display == 'differential' ? ', ' + PMA_messages['strDifferential'] : '';
         str += serie.valueDivisor ? (', ' + $.sprintf(PMA_messages['strDividedBy'], serie.valueDivisor)) : '';
 
-        $('#seriesPreview').append('- ' + serie.dataPoint + str + '<br>');
+        $('#seriesPreview').append('- ' + serie.name + str + '<br>');
 
         newChart.nodes.push(serie);
 
@@ -1119,7 +1119,7 @@ $(function() {
         var htmlStr = '<p><b>Chart title: </b> <br/> <input type="text" size="35" name="chartTitle" value="' + chart.title + '" />';
         htmlStr += '</p><p><b>Series:</b> </p><ol>';
         for (var i = 0; i<chart.nodes.length; i++) {
-            htmlStr += '<li><i>' + chart.nodes[i].dataPoint  + ': </i><br/><input type="text" name="chartSerie-' + i + '" value=" ' + chart.nodes[i].name + '" /></li>';
+            htmlStr += '<li><i>' + chart.nodes[i].dataPoints[0].name  + ': </i><br/><input type="text" name="chartSerie-' + i + '" value="' + chart.nodes[i].name + '" /></li>';
         }
         
         dlgBtns = {};
