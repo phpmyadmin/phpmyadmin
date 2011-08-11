@@ -12166,10 +12166,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:185
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "rate of open files"
-msgstr "İçe aktarılmış dosyanın biçimi"
+msgstr "açık dosyaların oranı"
 
 #: po/advisory_rules.php:186
 #, fuzzy
