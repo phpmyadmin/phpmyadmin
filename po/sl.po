@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-11 15:11+0200\n"
-"PO-Revision-Date: 2011-08-11 18:36+0200\n"
+"PO-Revision-Date: 2011-08-11 18:37+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -6428,10 +6428,9 @@ msgstr ""
 "Naslednje strukture so bile ali ustvarjene ali spremenjene: Tukaj lahko:"
 
 #: libraries/import.lib.php:1077
-#, fuzzy
 #| msgid "View a structure`s contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name"
-msgstr "Oglejte si vsebino strukture s klikom na njeno ime"
+msgstr "Oglejte si vsebine strukture s klikom na njeno ime"
 
 #: libraries/import.lib.php:1078
 msgid ""
