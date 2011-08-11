@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-11 13:55+0200\n"
+"POT-Creation-Date: 2011-08-11 09:06-0400\n"
 "PO-Revision-Date: 2010-11-26 21:29+0200\n"
 "Last-Translator: <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
-"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -212,7 +212,7 @@ msgstr "Kommentit"
 #: server_privileges.php:1468 server_privileges.php:1479
 #: server_privileges.php:1725 server_privileges.php:1736
 #: server_privileges.php:2056 server_privileges.php:2061
-#: server_privileges.php:2355 sql.php:267 sql.php:328 tbl_printview.php:194
+#: server_privileges.php:2355 sql.php:272 sql.php:333 tbl_printview.php:194
 #: tbl_structure.php:347 tbl_tracking.php:321 tbl_tracking.php:326
 msgid "No"
 msgstr "Ei"
@@ -233,7 +233,7 @@ msgstr "Ei"
 #: server_databases.php:76 server_privileges.php:1465
 #: server_privileges.php:1476 server_privileges.php:1722
 #: server_privileges.php:1736 server_privileges.php:2056
-#: server_privileges.php:2059 server_privileges.php:2355 sql.php:327
+#: server_privileges.php:2059 server_privileges.php:2355 sql.php:332
 #: tbl_printview.php:194 tbl_structure.php:41 tbl_structure.php:347
 #: tbl_tracking.php:319 tbl_tracking.php:324
 msgid "Yes"
@@ -617,11 +617,11 @@ msgstr "Seuranta ei ole käytössä."
 #: db_structure.php:373 libraries/display_tbl.lib.php:2226
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Tässä näkymässä on vähintään tämän luvun verran rivejä. Katso lisätietoja "
-"%sohjeista%s."
+"Tässä näkymässä on vähintään tämän luvun verran rivejä. Katso lisätietoja %"
+"sohjeista%s."
 
 #: db_structure.php:387 db_structure.php:401 libraries/header.inc.php:158
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:210
@@ -763,7 +763,7 @@ msgstr "Päivitetty"
 
 #: db_tracking.php:89 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
-#: server_status.php:1068 sql.php:945 tbl_tracking.php:638
+#: server_status.php:1068 sql.php:837 tbl_tracking.php:638
 msgid "Status"
 msgstr "Tila"
 
@@ -862,8 +862,8 @@ msgstr "Vedos tallennettiin tiedostoon %s."
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Yritit todennäköisesti lähettää palvelimelle liian suurta tiedostoa. Katso "
 "tämän rajoituksen muuttamisesta lisätietoja %sohjeista%s."
@@ -906,7 +906,7 @@ msgstr "Kirjanmerkki on poistettu."
 msgid "Showing bookmark"
 msgstr "Näytetään kirjanmerkki"
 
-#: import.php:401 sql.php:980
+#: import.php:401 sql.php:872
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Kirjanmerkki %s luotu"
@@ -958,15 +958,15 @@ msgstr "Valitse painamalla"
 msgid "Click to unselect"
 msgstr "Poista valinta painamalla"
 
-#: js/messages.php:29 libraries/import.lib.php:102 sql.php:224
+#: js/messages.php:29 libraries/import.lib.php:102 sql.php:229
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" -kyselyjen käyttö on estetty."
 
-#: js/messages.php:32 libraries/mult_submits.inc.php:282 sql.php:322
+#: js/messages.php:32 libraries/mult_submits.inc.php:282 sql.php:327
 msgid "Do you really want to "
 msgstr "Haluatko varmasti "
 
-#: js/messages.php:33 libraries/mult_submits.inc.php:282 sql.php:307
+#: js/messages.php:33 libraries/mult_submits.inc.php:282 sql.php:312
 msgid "You are about to DESTROY a complete database!"
 msgstr "Olet aikeissasi HÄVITTÄÄ kokonaisen tietokannan!"
 
@@ -2317,11 +2317,11 @@ msgstr "Tervetuloa, toivottaa %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
-"Et liene luonut asetustiedostoa. Voit luoda asetustiedoston "
-"%1$sasetusskriptillä%2$s."
+"Et liene luonut asetustiedostoa. Voit luoda asetustiedoston %1"
+"$sasetusskriptillä%2$s."
 
 #: libraries/auth/config.auth.lib.php:109
 msgid ""
@@ -2652,7 +2652,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Muokkaus"
 
-#: libraries/common.lib.php:1278 sql.php:941
+#: libraries/common.lib.php:1278 sql.php:833
 msgid "Profiling"
 msgstr "Profilointi"
 
@@ -5533,8 +5533,8 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Tämä arvo on %1$sstrftime%2$s-funktion mukainen, joten "
 "ajanmuodostostusmerkkijonoja voi käyttää. Lisäksi tapahtuu seuraavat "
@@ -5853,7 +5853,7 @@ msgstr "Näkyvillä rivit "
 msgid "total"
 msgstr "yhteensä"
 
-#: libraries/display_tbl.lib.php:2252 sql.php:692
+#: libraries/display_tbl.lib.php:2252 sql.php:697
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "kysely kesti %01.4f sek."
@@ -6318,8 +6318,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -6661,7 +6661,7 @@ msgid "Generated by"
 msgstr "Luontiympäristö"
 
 #: libraries/import.lib.php:152 libraries/rte/rte_routines.lib.php:1237
-#: sql.php:688 tbl_change.php:183 tbl_get_field.php:34
+#: sql.php:693 tbl_change.php:183 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL palautti tyhjän tulosjoukon (siis nolla riviä)."
 
@@ -7407,7 +7407,7 @@ msgid "Returns"
 msgstr "Paluutyyppi"
 
 #: libraries/rte/rte_list.lib.php:62 libraries/rte/rte_triggers.lib.php:326
-#: server_status.php:1067 sql.php:946
+#: server_status.php:1067 sql.php:838
 msgid "Time"
 msgstr "Aika"
 
@@ -7964,11 +7964,11 @@ msgstr "Tyhjennä"
 msgid "Columns"
 msgstr "Sarakkeet"
 
-#: libraries/sql_query_form.lib.php:302 sql.php:1019 sql.php:1036
+#: libraries/sql_query_form.lib.php:302 sql.php:911 sql.php:928
 msgid "Bookmark this SQL query"
 msgstr "Tallenna SQL-kysely"
 
-#: libraries/sql_query_form.lib.php:309 sql.php:1030
+#: libraries/sql_query_form.lib.php:309 sql.php:922
 msgid "Let every user access this bookmark"
 msgstr "Anna kaikkien käyttäjien käyttää tätä kirjanmerkkiä"
 
@@ -9335,8 +9335,8 @@ msgstr "Poista tietokannat, joilla on sama nimi kuin käyttäjillä."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Huom: PhpMyAdmin hakee käyttäjien käyttöoikeudet suoraan MySQL-palvelimen "
 "käyttöoikeustauluista. Näiden taulujen sisältö saattaa poiketa palvelimen "
@@ -11210,9 +11210,9 @@ msgstr ""
 #| "You set the [kbd]config[/kbd] authentication type and included username "
 #| "and password for auto-login, which is not a desirable option for live "
 #| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id="
-#| "%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http"
-#| "[/kbd]."
+#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1"
+#| "$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/"
+#| "kbd]."
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -11287,36 +11287,36 @@ msgstr ""
 msgid "Browse foreign values"
 msgstr "Selaa viitearvoja"
 
-#: sql.php:192
+#: sql.php:197
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: sql.php:664 tbl_replace.php:369
+#: sql.php:669 tbl_replace.php:369
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Lisätyn rivin tunnus: %1$d"
 
-#: sql.php:681
+#: sql.php:686
 msgid "Showing as PHP code"
 msgstr "Näytetään PHP-koodina"
 
-#: sql.php:684 tbl_replace.php:343
+#: sql.php:689 tbl_replace.php:343
 msgid "Showing SQL query"
 msgstr "Näytetään SQL-kysely"
 
-#: sql.php:686
+#: sql.php:691
 #, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
 msgstr "Tarkista SQL-lause"
 
-#: sql.php:993
+#: sql.php:885
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Taulun \"%s\" indeksien kanssa on ongelmia"
 
-#: sql.php:1024
+#: sql.php:916
 msgid "Label"
 msgstr "Tunniste"
 
@@ -12185,7 +12185,7 @@ msgstr ""
 #: po/advisory_rules.php:27
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
-"enviroment. Usually a value of 1-5 seconds is suggested."
+"environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
 
 #: po/advisory_rules.php:28
@@ -12402,8 +12402,8 @@ msgstr ""
 #: po/advisory_rules.php:83
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:85
@@ -12475,7 +12475,7 @@ msgstr ""
 
 #: po/advisory_rules.php:97
 msgid ""
-"Depending on your enviroment, it might be performance increasing to reduce "
+"Depending on your environment, it might be performance increasing to reduce "
 "this value."
 msgstr ""
 
@@ -12532,8 +12532,8 @@ msgstr ""
 #: po/advisory_rules.php:108
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: po/advisory_rules.php:110
@@ -13156,7 +13156,7 @@ msgstr ""
 #: po/advisory_rules.php:262
 #, php-format
 msgid ""
-"The InnoDB buffer pool has a profound impact on perfomance for InnoDB "
+"The InnoDB buffer pool has a profound impact on performance for InnoDB "
 "tables. Assign all your remaining memory to this buffer. For database "
 "servers that use solely InnoDB as storage engine and have no other services "
 "(e.g. a web server) running, you may set this as high as 80% of your "
