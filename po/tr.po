@@ -11650,10 +11650,9 @@ msgid "Available memory on this host: %s"
 msgstr ""
 
 #: po/advisory_rules.php:65
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache disabled"
-msgstr "Sorgu önbelleği"
+msgstr "Sorgu önbelleği etkisizleştirildi"
 
 #: po/advisory_rules.php:66
 #, fuzzy
