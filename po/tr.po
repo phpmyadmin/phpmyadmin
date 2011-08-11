@@ -9249,10 +9249,9 @@ msgid "Related links:"
 msgstr "İlgili bağlantılar:"
 
 #: server_status.php:758
-#, fuzzy
 #| msgid "Query analyzer"
 msgid "Run analyzer"
-msgstr "Sorgu çözümleyici"
+msgstr "Çözümleyiciyi çalıştır"
 
 #: server_status.php:759
 #, fuzzy
