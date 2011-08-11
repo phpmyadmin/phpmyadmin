@@ -94,16 +94,7 @@ $(document).ready(function() {
      * @memberOf    jQuery
      */
     $("#sqlqueryresults").live('makegrid', function() {
-        $('#table_results').makegrid();
-    })
-
-    /**
-     * Attach the {@link refreshgrid} function to a custom event, which will be
-     * triggered manually everytime the table of results is manipulated
-     * @memberOf    jQuery
-     */
-    $("#sqlqueryresults").live('refreshgrid', function() {
-        $('#table_results').refreshgrid();
+        PMA_makegrid($('#table_results')[0]);
     })
 
     /**
