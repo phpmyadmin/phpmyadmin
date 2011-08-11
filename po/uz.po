@@ -12296,13 +12296,11 @@ msgstr "Кўриниш номини ўзгартириш"
 #~ msgstr "Excel 2007 XLSX иш китоби"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "саҳифалар сони "
 
 #, fuzzy
-#~| msgid "Engines"
 #~ msgid "Inline Edit"
 #~ msgstr "Жадвал турлари"
 

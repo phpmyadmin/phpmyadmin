@@ -11400,7 +11400,6 @@ msgstr "Ändra namn till"
 #~ msgstr "Excel 2007 XLSX arbetsbok"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "sidor"

@@ -11821,13 +11821,11 @@ msgid "Rename view to"
 msgstr "Перайменаваць табліцу ў"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "старонак"
 
 #, fuzzy
-#~| msgid "Engines"
 #~ msgid "Inline Edit"
 #~ msgstr "Машыны"
 

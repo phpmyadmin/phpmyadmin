@@ -11675,13 +11675,11 @@ msgid "Rename view to"
 msgstr "Nimeta tabel ümber"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "lehti"
 
 #, fuzzy
-#~| msgid "Engines"
 #~ msgid "Inline Edit"
 #~ msgstr "Mootor"
 

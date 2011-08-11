@@ -11276,7 +11276,6 @@ msgstr "Přejmenovat pohled na"
 #~ msgstr "Excel 2007 XLSX"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "stránek"

@@ -11697,7 +11697,6 @@ msgstr "Reanomena la vista a"
 #~ msgstr "Llibre d'Excel 2007 XLSX"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "pàgines"

@@ -11402,7 +11402,6 @@ msgid "Rename view to"
 msgstr "Taula berrizendatu izen honetara: "
 
 #, fuzzy
-#~| msgid "Usage"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "Erabilpena"

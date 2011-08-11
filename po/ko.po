@@ -11199,7 +11199,6 @@ msgid "Rename view to"
 msgstr "테이블 이름 바꾸기"
 
 #, fuzzy
-#~| msgid "Usage"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "사용법(량)"

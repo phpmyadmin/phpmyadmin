@@ -11421,7 +11421,6 @@ msgid "Rename view to"
 msgstr "Riemërto tabelën në"
 
 #, fuzzy
-#~| msgid "Usage"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "Përdorimi"

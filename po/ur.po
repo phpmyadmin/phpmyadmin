@@ -11079,7 +11079,6 @@ msgid "Rename view to"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Page number:"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "صفحہ نمبر"

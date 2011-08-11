@@ -11394,13 +11394,11 @@ msgid "Rename view to"
 msgstr "Cedveli yeniden adlandır"
 
 #, fuzzy
-#~| msgid "Usage"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "Miqdar"
 
 #, fuzzy
-#~| msgid "Engines"
 #~ msgid "Inline Edit"
 #~ msgstr "Motorlar"
 

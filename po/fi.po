@@ -12040,7 +12040,6 @@ msgstr "Nimeä taulu uudelleen"
 #~ msgstr "Excel 2007 XLSX -työkirja"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "sivua"

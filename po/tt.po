@@ -11503,13 +11503,11 @@ msgid "Rename view to"
 msgstr "Tüşämä adın üzgärtü"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "bit"
 
 #, fuzzy
-#~| msgid "Engines"
 #~ msgid "Inline Edit"
 #~ msgstr "Engine"
 

@@ -11693,7 +11693,6 @@ msgstr "Hernoem view naar"
 #~ msgstr "Excel 2007 XLSX Werkboek"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "pagina's"

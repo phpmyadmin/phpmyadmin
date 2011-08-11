@@ -11429,7 +11429,6 @@ msgid "Rename view to"
 msgstr "Ubah nama tabel menjadi "
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "halaman"

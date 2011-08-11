@@ -12106,13 +12106,11 @@ msgid "Rename view to"
 msgstr "Rename table to"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "pages"
 
 #, fuzzy
-#~| msgid "Engines"
 #~ msgid "Inline Edit"
 #~ msgstr "ძრავები"
 

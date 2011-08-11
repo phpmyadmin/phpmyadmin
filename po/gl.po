@@ -12278,13 +12278,11 @@ msgstr "Mudar o nome da táboa para"
 #~ msgstr "Libro de traballo XLSX do Excel 2007"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "páxinas"
 
 #, fuzzy
-#~| msgid "Engines"
 #~ msgid "Inline Edit"
 #~ msgstr "Motores"
 

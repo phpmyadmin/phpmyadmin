@@ -11502,13 +11502,11 @@ msgid "Rename view to"
 msgstr ""
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "хуудсууд"
 
 #, fuzzy
-#~| msgid "Engines"
 #~ msgid "Inline Edit"
 #~ msgstr "Хөдөлгүүрүүд"
 

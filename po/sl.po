@@ -11489,7 +11489,6 @@ msgstr "Preimenuj pogled v"
 #~ msgstr "Excelov delovni zvezek 2007 XLSX"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "strani"

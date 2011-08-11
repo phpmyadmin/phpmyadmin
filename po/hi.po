@@ -11121,7 +11121,6 @@ msgstr "दृश्य का नाम बदलो"
 #~ msgstr "Excel 97-2003 XLS Workbook"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "पृष्ठों"

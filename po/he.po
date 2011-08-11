@@ -11321,13 +11321,11 @@ msgid "Rename view to"
 msgstr "שינוי שם טבלה אל"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "דפים"
 
 #, fuzzy
-#~| msgid "Engines"
 #~ msgid "Inline Edit"
 #~ msgstr "מנועים"
 

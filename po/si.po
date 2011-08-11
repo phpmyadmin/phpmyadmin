@@ -11347,7 +11347,6 @@ msgid "Rename view to"
 msgstr "දසුනේ නම වෙනස් කරන්න"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "පිටු"

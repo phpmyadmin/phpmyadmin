@@ -10892,7 +10892,6 @@ msgid "Rename view to"
 msgstr "Преименуване на изгледа на"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "страници"

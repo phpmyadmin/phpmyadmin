@@ -10957,7 +10957,6 @@ msgstr ""
 
 # మొదటి అనువాదము
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "పుటలు"

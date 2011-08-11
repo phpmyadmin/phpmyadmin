@@ -12062,13 +12062,11 @@ msgstr "Zmień nazwę perspektywy na"
 #~ msgstr "Skoroszyt Excel 2007 XLSX"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "stron"
 
 #, fuzzy
-#~| msgid "Engines"
 #~ msgid "Inline Edit"
 #~ msgstr "Mechanizmy"
 

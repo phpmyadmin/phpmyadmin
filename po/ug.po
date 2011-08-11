@@ -11053,13 +11053,11 @@ msgid "Rename view to"
 msgstr ""
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "بەت سانى"
 
 #, fuzzy
-#~| msgid "Inline"
 #~ msgid "Inline Edit"
 #~ msgstr "ئىچكى بىرلىشىش"
 

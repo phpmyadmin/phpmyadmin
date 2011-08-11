@@ -11350,7 +11350,6 @@ msgstr "Premenovať pohľad na"
 #~ msgstr "Excel 2007 XLSX pracovný zošit"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "stránok"

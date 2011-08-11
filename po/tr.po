@@ -11384,7 +11384,6 @@ msgstr "Görünümü yeniden şuna adlandır"
 #~ msgid "Excel 2007 XLSX Workbook"
 #~ msgstr "Excel 2007 XLSX Kitabı"
 
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "sayfa"

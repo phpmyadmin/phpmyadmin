@@ -11571,7 +11571,6 @@ msgstr "Cambiar el nombre de la vista a"
 #~ msgid "Excel 2007 XLSX Workbook"
 #~ msgstr "Cuaderno XLSX Excel 2007"
 
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "página"

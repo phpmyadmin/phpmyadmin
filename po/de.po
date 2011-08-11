@@ -11576,7 +11576,6 @@ msgstr "View umbenennen in"
 #~ msgstr "XLSX Mappe für Excel 2007 und neuer"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "Seiten"

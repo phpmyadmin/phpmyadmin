@@ -10728,7 +10728,6 @@ msgid "Rename view to"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Inline"
 #~ msgid "Inline Edit"
 #~ msgstr "உள்வரிசை"
 

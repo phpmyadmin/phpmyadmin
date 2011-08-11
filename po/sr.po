@@ -11696,13 +11696,11 @@ msgid "Rename view to"
 msgstr "Промени име табеле у "
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "страна"
 
 #, fuzzy
-#~| msgid "Engines"
 #~ msgid "Inline Edit"
 #~ msgstr "Складиштења"
 

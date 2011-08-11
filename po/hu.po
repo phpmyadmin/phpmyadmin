@@ -11864,7 +11864,6 @@ msgstr "Nézet átnevezése"
 #~ msgstr "Excel 2007 XLSX Workbook"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "lapok"

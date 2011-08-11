@@ -11786,13 +11786,11 @@ msgid "Rename view to"
 msgstr ""
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "staronak"
 
 #, fuzzy
-#~| msgid "Engines"
 #~ msgid "Inline Edit"
 #~ msgstr "Mašyny"
 

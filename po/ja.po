@@ -11357,7 +11357,6 @@ msgstr "リネーム後のビューの名前"
 #~ msgstr "Excel 2007 XLSX ワークブック"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "ページ"

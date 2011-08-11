@@ -11684,13 +11684,11 @@ msgid "Rename view to"
 msgstr "Promeni ime tabele u "
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "strana"
 
 #, fuzzy
-#~| msgid "Engines"
 #~ msgid "Inline Edit"
 #~ msgstr "Skladištenja"
 

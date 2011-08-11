@@ -11378,7 +11378,6 @@ msgid "Rename view to"
 msgstr "Promjeni ime tabele u "
 
 #, fuzzy
-#~| msgid "Usage"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "Zauzeće"

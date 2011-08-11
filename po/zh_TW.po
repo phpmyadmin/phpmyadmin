@@ -11184,7 +11184,6 @@ msgstr "將 view改名爲"
 #~ msgstr "Excel 2007 XLSX 工作簿"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "頁數"

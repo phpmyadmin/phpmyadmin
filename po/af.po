@@ -11186,7 +11186,6 @@ msgid "Rename view to"
 msgstr "Hernoem tabel na"
 
 #, fuzzy
-#~| msgid "Usage"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "Gebruik"

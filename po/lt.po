@@ -11142,7 +11142,6 @@ msgstr "Pervadinti rodinį į"
 #~ msgstr "Excel 2007 XLSX darbaknygė"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "puslapiai"

@@ -11232,7 +11232,6 @@ msgid "Rename view to"
 msgstr "Tukarnama jadual ke"
 
 #, fuzzy
-#~| msgid "Usage"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "Penggunaan"

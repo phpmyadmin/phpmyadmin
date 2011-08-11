@@ -11677,13 +11677,11 @@ msgid "Rename view to"
 msgstr "টেবিল রিনেম করুন"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "পাতাসমুহ"
 
 #, fuzzy
-#~| msgid "Engines"
 #~ msgid "Inline Edit"
 #~ msgstr "ইঞ্জিনসমূহ"
 

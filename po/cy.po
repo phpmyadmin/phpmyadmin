@@ -11202,13 +11202,11 @@ msgid "Rename view to"
 msgstr "Ailenwch golwg i"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "tudalennau"
 
 #, fuzzy
-#~| msgid "Inline"
 #~ msgid "Inline Edit"
 #~ msgstr "Mewnol"
 

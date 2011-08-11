@@ -12360,13 +12360,11 @@ msgstr "Ko‘rinish nomini o‘zgartirish"
 #~ msgstr "Excel 2007 XLSX ish kitobi"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "sahifalar soni "
 
 #, fuzzy
-#~| msgid "Engines"
 #~ msgid "Inline Edit"
 #~ msgstr "Jadval turlari"
 

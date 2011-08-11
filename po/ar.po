@@ -11170,7 +11170,6 @@ msgid "Rename view to"
 msgstr "أعد تسمية العرض الـ"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "صفحات"

@@ -11430,7 +11430,6 @@ msgid "Rename view to"
 msgstr "Pārsaukt tabulu uz"
 
 #, fuzzy
-#~| msgid "Usage"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "Aizņem"

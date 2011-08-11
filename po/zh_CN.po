@@ -10940,7 +10940,6 @@ msgstr "将视图改名为"
 #~ msgstr "Excel 2007 XLSX 工作簿"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "页数"

@@ -11507,7 +11507,6 @@ msgstr "Changer le nom de la vue pour"
 #~ msgstr "Excel 2007 XLSX Workbook"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "pages"

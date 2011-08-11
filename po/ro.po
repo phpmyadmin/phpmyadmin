@@ -11787,13 +11787,11 @@ msgid "Rename view to"
 msgstr "Redenumire tabel la"
 
 #, fuzzy
-#~| msgid "pages"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "pagini"
 
 #, fuzzy
-#~| msgid "Engines"
 #~ msgid "Inline Edit"
 #~ msgstr "Motoare"
 

@@ -11092,7 +11092,6 @@ msgid "Rename view to"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Usage"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "Використання"

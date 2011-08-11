@@ -11297,7 +11297,6 @@ msgid "Rename view to"
 msgstr "เปลี่ยนชื่อตารางเป็น"
 
 #, fuzzy
-#~| msgid "Usage"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "ใช้งาน"

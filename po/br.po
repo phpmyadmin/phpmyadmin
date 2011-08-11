@@ -10805,7 +10805,6 @@ msgid "Rename view to"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Change"
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "Kemmañ"
