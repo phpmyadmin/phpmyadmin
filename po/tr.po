@@ -12311,10 +12311,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:225
-#, fuzzy
 #| msgid "Compress connection"
 msgid "% aborted connections"
-msgstr "Bağlantıyı sıkıştır"
+msgstr "% durdurulmuş bağlantılar"
 
 #: po/advisory_rules.php:226
 msgid "Too many connections are aborted."
