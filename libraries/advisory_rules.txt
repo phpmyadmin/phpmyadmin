@@ -63,7 +63,7 @@ rule 'Long query time'
 	value >= 10
 	long_query_time is set to 10 seconds or more, thus only slow queries that take above 10 seconds are logged.
 	It is suggested to set {long_query_time} to a lower value, depending on your enviroment. Usually a value of 1-5 seconds is suggested.
-	long_query_time is currently set to %ss. | value
+	long_query_time is currently set to %ds. | value
 
 rule 'Slow query logging'
 	log_slow_queries
