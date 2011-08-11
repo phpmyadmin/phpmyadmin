@@ -18,6 +18,11 @@ function PMA_ieFilter($start_color, $end_color)
         ? 'filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr="' . $start_color . '", endColorstr="' . $end_color . '");'
         : '';
 }
+function PMA_ieClearFilter() {
+    return PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 6 && PMA_USR_BROWSER_VER <= 8
+        ? 'filter: none'
+        : '';
+}
 ?>
 /******************************************************************************/
 
@@ -528,12 +533,14 @@ button.mult_submit {
 table tr.odd th,
 .odd {
     background: #fff;
+    <?php echo PMA_ieClearFilter(); ?>
 }
 
 /* even items 2,4,6,8,... */
 table tr.even th,
 .even {
     background: #f3f3f3;
+    <?php echo PMA_ieClearFilter(); ?>
 }
 
 /* odd table rows 1,3,5,7,... */
@@ -1415,8 +1422,9 @@ table#chartGrid div.monitorChart {
     background: #EBEBEB;
 }
 
-div#statustabs_charting div.monitorLinks {
+div#serverstatus div.tabLinks {
     float:<?php echo $left; ?>;
+    padding-bottom: 10px;
 }
 
 .popupContent {
@@ -2759,20 +2767,25 @@ span.cm-number {
     width: 10px;
 }
 
-.dHint {
-    background: #333;
-    border:1px solid #000;
-    color: #FFF;
-    font-size: 0.8em;
-    font-weight: bold;
-    margin-top: -1em;
-    opacity: 0.8;
-    padding: 0.5em 1em;
-    position: fixed;
-    text-shadow: -1px -1px #000;
-    -moz-border-radius: 0.3em;
-    -webkit-border-radius: 0.3em;
-    border-radius: 0.3em;
+.normalqTip {
+    background: #333 !important;
+    opacity: 0.8 !important;
+    border:1px solid #000 !important;
+    -moz-border-radius: 0.3em !important;
+    -webkit-border-radius: 0.3em !important;
+    border-radius: 0.3em !important;
+    text-shadow: -1px -1px #000 !important;
+    font-size: 0.8em !important;
+    font-weight: bold !important;
+}
+
+.normalqTip * {
+    background: none !important;
+    color: #FFF !important;
+}
+
+.normalqTipContent {
+    padding: 1px 3px !important;
 }
 
 .cHide {

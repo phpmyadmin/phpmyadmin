@@ -706,4 +706,15 @@ function PMA_includeJS($url)
         return '<script src="./js/' . $url . '" type="text/javascript"></script>' . "\n";
     }
 }
+
+/**
+ * Adds JS code snippets to be displayed by header.inc.php. Adds a newline to each snippet.
+ *
+ * @param string $str Js code to be added (e.g. "token=1234;")
+ *
+ */
+function PMA_AddJSCode($str) {
+    $GLOBALS['js_script'][] = $str;
+}
+
 ?>

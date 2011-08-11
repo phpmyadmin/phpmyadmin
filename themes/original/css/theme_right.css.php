@@ -1106,6 +1106,12 @@ div#tablestatistics table {
 
 /* serverstatus */
 
+.linkElem:hover {
+    text-decoration:    underline;
+    color:              #235a81;
+    cursor: pointer;
+}
+
 h3#serverstatusqueries span {
     font-size:60%;
     display:inline;
@@ -1198,8 +1204,9 @@ table#chartGrid div.monitorChart {
     background: #EBEBEB;
 }
 
-div#statustabs_charting div.monitorLinks {
+div#serverstatus div.tabLinks {
     float:<?php echo $left; ?>;
+    padding-bottom: 10px;
 }
 
 .popupContent {
@@ -2338,20 +2345,25 @@ span.cm-number {
     width: 10px;
 }
 
-.dHint {
-    background: #333;
-    border:1px solid #000;
-    color: #FFF;
-    font-size: 0.8em;
-    font-weight: bold;
-    margin-top: -1em;
-    opacity: 0.8;
-    padding: 0.5em 1em;
-    position: fixed;
-    text-shadow: -1px -1px #000;
-    -moz-border-radius: 0.3em;
-    -webkit-border-radius: 0.3em;
-    border-radius: 0.3em;
+.normalqTip {
+    background: #333 !important;
+    opacity: 0.8 !important;
+    border:1px solid #000 !important;
+    -moz-border-radius: 0.3em !important;
+    -webkit-border-radius: 0.3em !important;
+    border-radius: 0.3em !important;
+    text-shadow: -1px -1px #000 !important;
+    font-size: 0.8em !important;
+    font-weight: bold !important;
+}
+
+.normalqTip * {
+    background: none !important;
+    color: #FFF !important;
+}
+
+.normalqTipContent {
+    padding: 1px 3px !important;
 }
 
 .data {

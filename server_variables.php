@@ -16,6 +16,11 @@ require_once './libraries/common.inc.php';
 
 $GLOBALS['js_include'][] = 'server_variables.js';
 
+PMA_AddJSCode('pma_token = \'' . $_SESSION[' PMA_token '] . "';\n" .
+              'is_superuser = ' . (PMA_isSuperuser() ? 'true' : 'false') . ";\n" .
+              'url_query = \'' . str_replace('&amp;', '&', PMA_generate_common_url($db)) . "';\n");
+
+
 /**
  * Does the common work
  */
@@ -37,22 +42,24 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     if (isset($_REQUEST['type'])) {
         switch($_REQUEST['type']) {
             case 'getval':
-                $varValue = PMA_DBI_fetch_single_row('SHOW GLOBAL VARIABLES WHERE Variable_name="'.PMA_sqlAddslashes($_REQUEST['varName']).'";','NUM');
+                $varValue = PMA_DBI_fetch_single_row('SHOW GLOBAL VARIABLES WHERE Variable_name="' . PMA_sqlAddslashes($_REQUEST['varName']) . '";', 'NUM');
                 exit($varValue[1]);
                 break;
             case 'setval':
                 $value = PMA_sqlAddslashes($_REQUEST['varValue']);
-                if (!is_numeric($value)) $value="'".$value."'";
+                if (!is_numeric($value)) $value="'" . $value . "'";
 
-                if (! preg_match("/[^a-zA-Z0-9_]+/",$_REQUEST['varName']) && PMA_DBI_query('SET GLOBAL '.$_REQUEST['varName'].' = '.$value))
+                if (! preg_match("/[^a-zA-Z0-9_]+/", $_REQUEST['varName']) && PMA_DBI_query('SET GLOBAL ' . $_REQUEST['varName'] . ' = ' . $value)) {
                     // Some values are rounded down etc.
-                    $varValue = PMA_DBI_fetch_single_row('SHOW GLOBAL VARIABLES WHERE Variable_name="'.PMA_sqlAddslashes($_REQUEST['varName']).'";','NUM');
+                    $varValue = PMA_DBI_fetch_single_row('SHOW GLOBAL VARIABLES WHERE Variable_name="' . PMA_sqlAddslashes($_REQUEST['varName']) . '";', 'NUM');
 
                     exit(json_encode(array(
                         'success' => true,
-                        'variable' => formatVariable($_REQUEST['varName'],$varValue[1])
+                        'variable' => formatVariable($_REQUEST['varName'], $varValue[1])
                         ))
                     );
+                }
+
                 exit(json_encode(array(
                     'success' => false,
                     'error' => __('Setting variable failed')
@@ -89,12 +96,6 @@ $serverVars = PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES;', 0, 1);
  * Displays the page
  */
 ?>
-<script type="text/javascript">
-pma_token = '<?php echo $_SESSION[' PMA_token ']; ?>';
-url_query = '<?php echo str_replace('&amp;','&',$url_query);?>';
-isSuperuser = <?php echo PMA_isSuperuser()?'true':'false'; ?>;
-</script>
-
 <fieldset id="tableFilter" style="display:none;">
 <legend>Filters</legend>
 <div class="formelement">
@@ -117,16 +118,19 @@ echo __('Session value') . ' / ' . __('Global value');
 <?php
 $odd_row = true;
 foreach ($serverVars as $name => $value) {
+    $has_session_value = isset($serverVarsSession[$name]) && $serverVarsSession[$name] != $value;
+    $row_class = ($odd_row ? 'odd' : 'even') . ' ' . ($has_session_value ? 'diffSession' : '');
     ?>
-<tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
+<tr class="<?php echo $row_class; ?>">
     <th nowrap="nowrap"><?php echo htmlspecialchars(str_replace('_', ' ', $name)); ?></th>
     <td class="value"><?php echo formatVariable($name,$value); ?></td>
     <td class="value"><?php
-    if (isset($VARIABLE_DOC_LINKS[$name]))    // To display variable documentation link
+    // To display variable documentation link
+    if (isset($VARIABLE_DOC_LINKS[$name]))
         echo PMA_showMySQLDocu($VARIABLE_DOC_LINKS[$name][1], $VARIABLE_DOC_LINKS[$name][1], false, $VARIABLE_DOC_LINKS[$name][2] . '_' . $VARIABLE_DOC_LINKS[$name][0]);
     ?></td>
     <?php
-    if (isset($serverVarsSession[$name]) && $serverVarsSession[$name] != $value) {
+    if ($has_session_value) {
         ?>
 </tr>
 <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?> ">
@@ -136,18 +140,12 @@ foreach ($serverVars as $name => $value) {
     <?php } ?>
 </tr>
     <?php
-    $odd_row = !$odd_row;
+    $odd_row = ! $odd_row;
 }
 ?>
 </tbody>
 </table>
 <?php
-
-
-/**
- * Sends the footer
- */
-require './libraries/footer.inc.php';
 
 function formatVariable($name,$value)
 {
@@ -160,5 +158,10 @@ function formatVariable($name,$value)
     }
     return htmlspecialchars($value);
 }
+
+/**
+ * Sends the footer
+ */
+require './libraries/footer.inc.php';
 
 ?>
