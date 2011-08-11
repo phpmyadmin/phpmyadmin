@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-11 15:11+0200\n"
-"PO-Revision-Date: 2011-08-11 18:24+0200\n"
+"PO-Revision-Date: 2011-08-11 18:25+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -12232,10 +12232,9 @@ msgid "thread cache hit rate %"
 msgstr ""
 
 #: po/advisory_rules.php:206
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "Thread cache is not efficient."
-msgstr "İzleme aktif değil."
+msgstr "İşlem önbelleği etkin değil."
 
 #: po/advisory_rules.php:207
 msgid "Increase {thread_cache_size}."
