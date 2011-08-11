@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-11 15:11+0200\n"
-"PO-Revision-Date: 2011-08-11 17:02+0200\n"
+"PO-Revision-Date: 2011-08-11 17:03+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -8169,10 +8169,9 @@ msgid "No databases"
 msgstr "Veritabanı yok"
 
 #: navigation.php:270
-#, fuzzy
 #| msgid "filter tables by name"
 msgid "Filter tables by name"
-msgstr "tabloları adına göre süz"
+msgstr "Tabloları adına göre süz"
 
 #: navigation.php:303 navigation.php:304
 msgctxt "short form"
