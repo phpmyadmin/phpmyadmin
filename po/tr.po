@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-11 15:11+0200\n"
-"PO-Revision-Date: 2011-08-11 18:29+0200\n"
+"PO-Revision-Date: 2011-08-11 18:30+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -12368,10 +12368,9 @@ msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 
 #: po/advisory_rules.php:240
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "rate of aborted clients"
-msgstr "İçe aktarılmış dosyanın biçimi"
+msgstr "durdurulan istemcilerin oranı"
 
 #: po/advisory_rules.php:243
 #, php-format
