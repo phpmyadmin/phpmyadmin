@@ -1500,10 +1500,9 @@ msgid "Issue"
 msgstr "Spor"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
-msgstr "Dokumentacija"
+msgstr "Priporočilo"
 
 #: js/messages.php:193
 #, fuzzy
