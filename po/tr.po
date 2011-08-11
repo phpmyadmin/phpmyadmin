@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-11 15:11+0200\n"
-"PO-Revision-Date: 2011-08-11 17:16+0200\n"
+"PO-Revision-Date: 2011-08-11 17:17+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -11655,10 +11655,9 @@ msgid "Query cache disabled"
 msgstr "Sorgu önbelleği etkisizleştirildi"
 
 #: po/advisory_rules.php:66
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "Sunucu yanıt vermiyor"
+msgstr "Sorgu önbelleği etkinleştirilmedi."
 
 #: po/advisory_rules.php:67
 msgid ""
