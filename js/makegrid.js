@@ -1,5 +1,11 @@
 /**
- * Create advanced table (resize, reorder, and show/hide columns; and also grid editing)
+ * Create advanced table (resize, reorder, and show/hide columns; and also grid editing).
+ * This function is designed mainly for table DOM generated from browsing a table in the database.
+ * For using this function in other table DOM, you may need to:
+ * - add "draggable" class in the table header <th>, in order to make it resizable, sortable or hidable
+ * - have at least one non-"draggable" header in the table DOM for placing column visibility drop-down arrow
+ * - pass the value "false" for the parameter "enableGridEdit"
+ * - adjust other parameter value, to select which features that will be enabled
  *
  * @param t the table DOM element
  * @param enableResize Optional, if false, column resizing feature will be disabled
