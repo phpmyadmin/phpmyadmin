@@ -1469,7 +1469,7 @@ msgstr "Možné výkonostní problémy"
 
 #: js/messages.php:191
 msgid "Issue"
-msgstr ""
+msgstr "Problém"
 
 #: js/messages.php:192
 #, fuzzy
