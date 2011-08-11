@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-11 15:11+0200\n"
-"PO-Revision-Date: 2011-08-11 18:18+0200\n"
+"PO-Revision-Date: 2011-08-11 18:21+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1180,10 +1180,9 @@ msgid "Used memory"
 msgstr "Uporabljen pomnilnik"
 
 #: js/messages.php:106
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "Skupaj"
+msgstr "Skupna izmenjava"
 
 #: js/messages.php:107
 msgid "Cached Swap"
