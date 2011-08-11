@@ -124,6 +124,14 @@ $(function() {
                 
                 monitorLoaded = true;
             }
+
+            // Run the advisor immediately when the user clicks the tab, but only when this is the first time
+            if (ui.tab.hash == '#statustabs_advisor' && $('table#rulesFired').length == 0) {
+                // Start with a small delay because the click event hasn't been setup yet
+                setTimeout(function() {
+                    $('a[href="#startAnalyzer"]').trigger('click');
+                }, 25);
+            }
         }
     });
 
