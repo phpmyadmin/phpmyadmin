@@ -4685,10 +4685,9 @@ msgid "Show function fields"
 msgstr "Zobrazit seznam fukncí"
 
 #: libraries/config/messages.inc.php:460
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Whether to show hint or not"
-msgstr "Kde zobrazit odkazy s akcemi při procházení"
+msgstr "Zda zobrazit nápovědu nebo ne"
 
 #: libraries/config/messages.inc.php:461
 #, fuzzy
