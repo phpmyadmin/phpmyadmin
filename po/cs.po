@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-11 11:31+0200\n"
-"PO-Revision-Date: 2011-08-11 11:37+0200\n"
+"PO-Revision-Date: 2011-08-11 11:38+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -9193,10 +9193,9 @@ msgid "Run analyzer"
 msgstr "Spustit analýzu"
 
 #: server_status.php:760
-#, fuzzy
 #| msgid "Introduction"
 msgid "Instructions"
-msgstr "Úvod"
+msgstr "Návod"
 
 #: server_status.php:765
 msgid ""
