@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-11 15:11+0200\n"
-"PO-Revision-Date: 2011-08-11 18:25+0200\n"
+"PO-Revision-Date: 2011-08-11 18:26+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1431,10 +1431,9 @@ msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr "Združi poizvedbe, neupoštevajoč spremenljive podatke v stavkih WHERE"
 
 #: js/messages.php:171
-#, fuzzy
 #| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
-msgstr "Število vstavljenih vrstic"
+msgstr "Seštevek združenih vrstic:"
 
 #: js/messages.php:172
 #, fuzzy
