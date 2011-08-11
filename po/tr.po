@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-11 15:11+0200\n"
-"PO-Revision-Date: 2011-08-11 17:58+0200\n"
+"PO-Revision-Date: 2011-08-11 18:09+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -12181,10 +12181,9 @@ msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:190
-#, fuzzy
 #| msgid "Create table on database %s"
 msgid "Immediate table locks %"
-msgstr "%s veritabanında yeni tablo oluştur"
+msgstr "Acil tablo kilitleri %"
 
 #: po/advisory_rules.php:191 po/advisory_rules.php:196
 #, fuzzy
