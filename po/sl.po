@@ -6440,10 +6440,9 @@ msgstr ""
 "\"Možnosti\""
 
 #: libraries/import.lib.php:1079
-#, fuzzy
 #| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link"
-msgstr "Uredite njeno strukturo s sledenjem povezavi \"Struktura\""
+msgstr "Uredite strukturo s sledenjem povezavi \"Struktura\""
 
 #: libraries/import.lib.php:1082
 msgid "Go to database"
