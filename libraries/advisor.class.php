@@ -122,7 +122,7 @@ class Advisor
 
                     $rule['recommendation'] = preg_replace(
                         '/\{([a-z_0-9]+)\}/Ui',
-                        '<a href="server_variables.php?'.$GLOBALS['url_query'].'#filter=\1">\1</a>',
+                        '<a href="server_variables.php' . PMA_generate_common_url() . '#filter=\1">\1</a>',
                         _gettext($rule['recommendation']));
 
                     break;
