@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-10 10:14-0400\n"
+"POT-Creation-Date: 2011-08-11 09:35+0200\n"
 "PO-Revision-Date: 2011-02-24 16:21+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: polish <pl@li.org>\n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pl\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.5\n"
@@ -25,6 +25,7 @@ msgstr "Pokaż wszystko"
 #: libraries/schema/Pdf_Relation_Schema.class.php:918
 #: libraries/schema/Pdf_Relation_Schema.class.php:934
 #: libraries/schema/User_Schema.class.php:355
+#: libraries/select_lang.lib.php:482
 msgid "Page number:"
 msgstr "Numer strony:"
 
@@ -625,11 +626,11 @@ msgstr "Monitorowanie nie jest aktywne."
 #: db_structure.php:373 libraries/display_tbl.lib.php:2226
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Ta perspektywa ma przynajmniej tyle wierszy. Więcej informacji w %"
-"sdocumentation%s."
+"Ta perspektywa ma przynajmniej tyle wierszy. Więcej informacji w "
+"%sdocumentation%s."
 
 #: db_structure.php:387 db_structure.php:401 libraries/header.inc.php:158
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:210
@@ -866,8 +867,8 @@ msgstr "Zrzut został zapisany do pliku %s."
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Prawdopodobnie próbowano wrzucić duży plik. Aby poznać sposoby obejścia tego "
 "limitu, proszę zapoznać się z %sdokumenacją%s."
@@ -1446,7 +1447,7 @@ msgid "Filters"
 msgstr "Filtr"
 
 #. l10n: Filter as in "Start Filtering"
-#: js/messages.php:169 navigation.php:270
+#: js/messages.php:169
 msgid "Filter"
 msgstr "Filtr"
 
@@ -2315,8 +2316,8 @@ msgstr "Witamy w %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Prawdopodobnie powodem jest brak utworzonego pliku konfiguracyjnego. Do jego "
 "stworzenia można użyć %1$sskryptu instalacyjnego%2$s."
@@ -2465,13 +2466,13 @@ msgstr "współdzielone"
 msgid "Tables"
 msgstr "Tabele"
 
-#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:307
-#: libraries/config/setup.forms.php:343 libraries/config/setup.forms.php:374
-#: libraries/config/setup.forms.php:379
-#: libraries/config/user_preferences.forms.php:207
-#: libraries/config/user_preferences.forms.php:243
-#: libraries/config/user_preferences.forms.php:274
-#: libraries/config/user_preferences.forms.php:279
+#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:301
+#: libraries/config/setup.forms.php:337 libraries/config/setup.forms.php:360
+#: libraries/config/setup.forms.php:365
+#: libraries/config/user_preferences.forms.php:201
+#: libraries/config/user_preferences.forms.php:237
+#: libraries/config/user_preferences.forms.php:260
+#: libraries/config/user_preferences.forms.php:265
 #: libraries/export/latex.php:201 libraries/export/sql.php:1052
 #: server_privileges.php:600 server_replication.php:314 tbl_printview.php:281
 #: tbl_structure.php:767
@@ -2760,11 +2761,11 @@ msgid "Click to toggle"
 msgstr "Kliknij, aby zaznaczyć"
 
 #: libraries/common.lib.php:2867 libraries/common.lib.php:2874
-#: libraries/common.lib.php:3066 libraries/config/setup.forms.php:298
-#: libraries/config/setup.forms.php:335 libraries/config/setup.forms.php:369
-#: libraries/config/user_preferences.forms.php:198
-#: libraries/config/user_preferences.forms.php:235
-#: libraries/config/user_preferences.forms.php:269
+#: libraries/common.lib.php:3066 libraries/config/setup.forms.php:292
+#: libraries/config/setup.forms.php:329 libraries/config/setup.forms.php:355
+#: libraries/config/user_preferences.forms.php:192
+#: libraries/config/user_preferences.forms.php:229
+#: libraries/config/user_preferences.forms.php:255
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:338
 #: libraries/import.lib.php:1102 libraries/tbl_links.inc.php:61
 #: libraries/tbl_properties.inc.php:608 pmd_general.php:151
@@ -3273,7 +3274,6 @@ msgstr "Typ kompresji"
 #: libraries/export/excel.php:25 libraries/export/htmlword.php:30
 #: libraries/export/latex.php:72 libraries/export/ods.php:25
 #: libraries/export/odt.php:58 libraries/export/texytext.php:28
-#: libraries/export/xls.php:25 libraries/export/xlsx.php:25
 #, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
@@ -3496,9 +3496,9 @@ msgid "Customize default options"
 msgstr "Indywidualizacja opcji eksportu"
 
 #: libraries/config/messages.inc.php:158 libraries/config/setup.forms.php:239
-#: libraries/config/setup.forms.php:318
+#: libraries/config/setup.forms.php:312
 #: libraries/config/user_preferences.forms.php:141
-#: libraries/config/user_preferences.forms.php:218 libraries/export/csv.php:19
+#: libraries/config/user_preferences.forms.php:212 libraries/export/csv.php:19
 #: libraries/import/csv.php:22
 msgid "CSV"
 msgstr "CSV"
@@ -5166,58 +5166,44 @@ msgstr "Typ uwierzytelniania"
 msgid "CSV using LOAD DATA"
 msgstr "CSV przy użyciu LOAD DATA"
 
-#: libraries/config/setup.forms.php:256 libraries/config/setup.forms.php:350
+#: libraries/config/setup.forms.php:256 libraries/config/setup.forms.php:349
 #: libraries/config/user_preferences.forms.php:157
-#: libraries/config/user_preferences.forms.php:250 libraries/export/xls.php:18
-#: libraries/import/xls.php:21
-msgid "Excel 97-2003 XLS Workbook"
-msgstr "Skoroszyt Excel 97-2003 XLS"
-
-#: libraries/config/setup.forms.php:259 libraries/config/setup.forms.php:354
-#: libraries/config/user_preferences.forms.php:160
-#: libraries/config/user_preferences.forms.php:254
-#: libraries/export/xlsx.php:18 libraries/import/xlsx.php:21
-msgid "Excel 2007 XLSX Workbook"
-msgstr "Skoroszyt Excel 2007 XLSX"
-
-#: libraries/config/setup.forms.php:262 libraries/config/setup.forms.php:363
-#: libraries/config/user_preferences.forms.php:163
-#: libraries/config/user_preferences.forms.php:263 libraries/export/ods.php:18
+#: libraries/config/user_preferences.forms.php:249 libraries/export/ods.php:18
 #: libraries/import/ods.php:22
 msgid "Open Document Spreadsheet"
 msgstr "Arkusz kalkulacyjny OpenDocument"
 
-#: libraries/config/setup.forms.php:269
-#: libraries/config/user_preferences.forms.php:170
+#: libraries/config/setup.forms.php:263
+#: libraries/config/user_preferences.forms.php:164
 msgid "Quick"
 msgstr "Szybko"
 
-#: libraries/config/setup.forms.php:273
-#: libraries/config/user_preferences.forms.php:174
+#: libraries/config/setup.forms.php:267
+#: libraries/config/user_preferences.forms.php:168
 #, fuzzy
 #| msgid "Custom color"
 msgid "Custom"
 msgstr "Własny kolor"
 
-#: libraries/config/setup.forms.php:294
-#: libraries/config/user_preferences.forms.php:194
+#: libraries/config/setup.forms.php:288
+#: libraries/config/user_preferences.forms.php:188
 msgid "Database export options"
 msgstr "Opcje eksportu bazy danych"
 
-#: libraries/config/setup.forms.php:327
-#: libraries/config/user_preferences.forms.php:227
+#: libraries/config/setup.forms.php:321
+#: libraries/config/user_preferences.forms.php:221
 #: libraries/export/excel.php:18
 msgid "CSV for MS Excel"
 msgstr "CSV dla MS Excel"
 
-#: libraries/config/setup.forms.php:358
-#: libraries/config/user_preferences.forms.php:258
+#: libraries/config/setup.forms.php:344
+#: libraries/config/user_preferences.forms.php:244
 #: libraries/export/htmlword.php:18
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/config/setup.forms.php:367
-#: libraries/config/user_preferences.forms.php:267 libraries/export/odt.php:22
+#: libraries/config/setup.forms.php:353
+#: libraries/config/user_preferences.forms.php:253 libraries/export/odt.php:22
 msgid "Open Document Text"
 msgstr "Tekst w formacie Open Document"
 
@@ -5513,8 +5499,8 @@ msgstr ", @TABLE@ zostanie zastąpione nazwą wybranej tabeli"
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Interpretacja tej wartości należy do funkcji %1$sstrftime%2$s i można użyć "
 "jej napisów formatujących. Dodatkowo zostaną zastosowane następujące "
@@ -5752,13 +5738,11 @@ msgstr "Sortuj wg klucza"
 #: libraries/export/ods.php:29 libraries/export/odt.php:27
 #: libraries/export/pdf.php:29 libraries/export/php_array.php:29
 #: libraries/export/sql.php:88 libraries/export/texytext.php:31
-#: libraries/export/xls.php:29 libraries/export/xlsx.php:29
 #: libraries/export/xml.php:27 libraries/export/yaml.php:30
 #: libraries/import.lib.php:1080 libraries/import.lib.php:1102
 #: libraries/import/csv.php:33 libraries/import/docsql.php:35
 #: libraries/import/ldi.php:49 libraries/import/ods.php:32
-#: libraries/import/sql.php:20 libraries/import/xls.php:28
-#: libraries/import/xlsx.php:28 libraries/import/xml.php:25
+#: libraries/import/sql.php:20 libraries/import/xml.php:25
 #: libraries/rte/rte_routines.lib.php:852 tbl_select.php:258
 #: tbl_structure.php:852
 msgid "Options"
@@ -6313,8 +6297,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -6352,7 +6336,6 @@ msgstr "Linie zakończone przez"
 #: libraries/export/csv.php:28 libraries/export/excel.php:23
 #: libraries/export/htmlword.php:29 libraries/export/latex.php:80
 #: libraries/export/ods.php:24 libraries/export/odt.php:60
-#: libraries/export/xls.php:24 libraries/export/xlsx.php:24
 #, fuzzy
 #| msgid "Replace NULL by"
 msgid "Replace NULL with:"
@@ -6712,7 +6695,6 @@ msgid "Go to view"
 msgstr "Przejdź do widoku"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:26
-#: libraries/import/xls.php:25 libraries/import/xlsx.php:25
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -7892,13 +7874,6 @@ msgstr "włącz / wyłącz scratchboard"
 msgid "ltr"
 msgstr "ltr"
 
-#: libraries/select_lang.lib.php:482
-#, fuzzy
-#| msgid "pages"
-msgctxt "PDF"
-msgid "page"
-msgstr "stron"
-
 #: libraries/select_lang.lib.php:488 libraries/select_lang.lib.php:494
 #: libraries/select_lang.lib.php:500
 #, php-format
@@ -8084,8 +8059,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "Analizator składni SQL nie mógł zostać zainicjowany. Sprawdź, czy "
-"zainstalowane są niezbędne rozszerzenia PHP, tak jak zostało to opisane w %"
-"sdokumentacji%s."
+"zainstalowane są niezbędne rozszerzenia PHP, tak jak zostało to opisane w "
+"%sdokumentacji%s."
 
 #: libraries/tbl_links.inc.php:118 libraries/tbl_links.inc.php:119
 msgid "Table seems to be empty!"
@@ -8135,8 +8110,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Aby uzyskać listę dostępnych opcji transformacji i ich typów MIME, kliknij %"
-"sopisy transformacji%s"
+"Aby uzyskać listę dostępnych opcji transformacji i ich typów MIME, kliknij "
+"%sopisy transformacji%s"
 
 #: libraries/tbl_properties.inc.php:147
 msgid "Transformation options"
@@ -8616,8 +8591,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Serwer działa pod ochroną Suhosina. Możliwe problemy opisuje %sdokumentacja%"
-"s."
+"Serwer działa pod ochroną Suhosina. Możliwe problemy opisuje %sdokumentacja"
+"%s."
 
 #: navigation.php:180 server_databases.php:280 server_synchronize.php:1152
 msgid "No databases"
@@ -8626,7 +8601,7 @@ msgstr "Brak baz danych"
 #: navigation.php:270
 #, fuzzy
 #| msgid "Alter table order by"
-msgid "filter tables by name"
+msgid "Filter tables by name"
 msgstr "Sortowanie tabeli wg"
 
 #: navigation.php:303 navigation.php:304
@@ -9356,8 +9331,8 @@ msgstr "Usuń bazy danych o takich samych nazwach jak użytkownicy."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Uwaga: phpMyAdmin pobiera uprawnienia użytkowników wprost z tabeli uprawnień "
 "MySQL-a. Zawartość tej tabeli, jeśli zostały w niej dokonane ręczne zmiany, "
@@ -11198,8 +11173,8 @@ msgid ""
 "of users, including you, are connected to."
 msgstr ""
 "Jeżeli wydaje się to konieczne, można użyć dodatkowych ustawień "
-"bezpieczeństwa — [a@?page=servers&amp;mode=edit&amp;id=%1"
-"$d#tab_Server_config]uwierzytelniania na podstawie hosta[/a] i [a@?"
+"bezpieczeństwa — [a@?page=servers&amp;mode=edit&amp;id="
+"%1$d#tab_Server_config]uwierzytelniania na podstawie hosta[/a] i [a@?"
 "page=form&amp;formset=features#tab_Security]listy zaufanych serwerów proxy[/"
 "a]. Jednakże ochrona oparta na adresy IP może nie być wiarygodna, jeżeli "
 "używany IP należy do ISP, do którego podłączonych jest tysiące użytkowników."
@@ -11210,9 +11185,9 @@ msgstr ""
 #| "You set the [kbd]config[/kbd] authentication type and included username "
 #| "and password for auto-login, which is not a desirable option for live "
 #| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1"
-#| "$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/"
-#| "kbd]."
+#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id="
+#| "%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http"
+#| "[/kbd]."
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -12079,6 +12054,18 @@ msgstr "Nazwa widoku"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Zmień nazwę perspektywy na"
+
+#~ msgid "Excel 97-2003 XLS Workbook"
+#~ msgstr "Skoroszyt Excel 97-2003 XLS"
+
+#~ msgid "Excel 2007 XLSX Workbook"
+#~ msgstr "Skoroszyt Excel 2007 XLSX"
+
+#, fuzzy
+#~| msgid "pages"
+#~ msgctxt "PDF"
+#~ msgid "page"
+#~ msgstr "stron"
 
 #, fuzzy
 #~| msgid "Engines"

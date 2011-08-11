@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-10 10:14-0400\n"
+"POT-Creation-Date: 2011-08-11 09:35+0200\n"
 "PO-Revision-Date: 2011-08-10 16:45+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
@@ -24,6 +24,7 @@ msgstr "Mostrar todo"
 #: libraries/schema/Pdf_Relation_Schema.class.php:918
 #: libraries/schema/Pdf_Relation_Schema.class.php:934
 #: libraries/schema/User_Schema.class.php:355
+#: libraries/select_lang.lib.php:482
 msgid "Page number:"
 msgstr "Número de página:"
 
@@ -416,7 +417,6 @@ msgstr "Debe elegir al menos una columna para mostrar"
 
 #: db_qbe.php:186
 #, php-format
-#| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
 msgstr "Cambiar al %sconstructor visual%s"
 
@@ -616,11 +616,11 @@ msgstr "El seguimiento no está activo."
 #: db_structure.php:373 libraries/display_tbl.lib.php:2226
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Esta vista tiene al menos este número de filas. Por favor refiérase a la %"
-"sdocumentation%s."
+"Esta vista tiene al menos este número de filas. Por favor refiérase a la "
+"%sdocumentation%s."
 
 #: db_structure.php:387 db_structure.php:401 libraries/header.inc.php:158
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:210
@@ -856,8 +856,8 @@ msgstr "El volcado ha sido guardado al archivo %s."
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Usted probablemente intentó cargar un archivo demasiado grande. Por favor, "
 "refiérase a %sla documentation%s para hallar modos de superar esta "
@@ -1158,32 +1158,26 @@ msgid "Average load"
 msgstr "Carga promedio"
 
 #: js/messages.php:101
-#| msgid "System memory"
 msgid "Total memory"
 msgstr "Memoria total"
 
 #: js/messages.php:102
-#| msgid "System memory"
 msgid "Cached memory"
 msgstr "Memoria caché"
 
 #: js/messages.php:103
-#| msgid "Buffer Pool"
 msgid "Buffered memory"
 msgstr "Memoria de búfers"
 
 #: js/messages.php:104
-#| msgid "System memory"
 msgid "Free memory"
 msgstr "Memoria libre"
 
 #: js/messages.php:105
-#| msgid "System memory"
 msgid "Used memory"
 msgstr "Memoria utilizada"
 
 #: js/messages.php:107
-#| msgid "Total"
 msgid "Total Swap"
 msgstr "Intercambio total"
 
@@ -1196,7 +1190,6 @@ msgid "Used Swap"
 msgstr "Intercambio utilizado"
 
 #: js/messages.php:110
-#| msgid "Free pages"
 msgid "Free Swap"
 msgstr "Intercambio libre"
 
@@ -1205,7 +1198,6 @@ msgid "Bytes sent"
 msgstr "Bytes enviados"
 
 #: js/messages.php:113
-#| msgid "Received"
 msgid "Bytes received"
 msgstr "Bytes recibidos"
 
@@ -1233,7 +1225,6 @@ msgid "Remove chart"
 msgstr "Eliminar gráfico"
 
 #: js/messages.php:122
-#| msgid "Edit labels and series"
 msgid "Edit title and labels"
 msgstr "Editar título y etiquetas"
 
@@ -1415,7 +1406,7 @@ msgid "Filters"
 msgstr "Filtros"
 
 #. l10n: Filter as in "Start Filtering"
-#: js/messages.php:169 navigation.php:270
+#: js/messages.php:169
 msgid "Filter"
 msgstr "Filtrar"
 
@@ -1454,7 +1445,6 @@ msgstr ""
 "volver a ingresar sus credenciales debería ayudar."
 
 #: js/messages.php:178
-#| msgid "Reload"
 msgid "Reload page"
 msgstr "Cargar página nuevamente"
 
@@ -1738,13 +1728,11 @@ msgid "Done"
 msgstr "Terminado"
 
 #: js/messages.php:302
-#| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Anterior"
 
 #: js/messages.php:307
-#| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
 msgstr "Siguiente"
@@ -1893,8 +1881,6 @@ msgstr "Sábado"
 
 #. l10n: Short week day name
 #: js/messages.php:363
-#| msgctxt "Short week day name"
-#| msgid "Sun"
 msgid "Sun"
 msgstr "Dom"
 
@@ -2124,7 +2110,6 @@ msgstr[0] "%1$d fila insertada."
 msgstr[1] "%1$d filas insertadas."
 
 #: libraries/PDF.class.php:81
-#| msgid "Allows reading data."
 msgid "Error while creating PDF:"
 msgstr "Error al crear PDF:"
 
@@ -2164,7 +2149,6 @@ msgstr ""
 "Este servidor MySQL no es compatible con el motor de almacenamiento %s."
 
 #: libraries/Table.class.php:303
-#| msgid "Show slave status"
 msgid "unknown table status: "
 msgstr "estado de tabla desconocido:"
 
@@ -2235,8 +2219,8 @@ msgstr "Bienvenido a %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "La razón más probable es que usted no haya creado un archivo de "
 "configuración. Utilice el %1$sscript de configuración%2$s para crear uno."
@@ -2353,7 +2337,6 @@ msgid "PBMS get BLOB info failed:"
 msgstr "Fallo al obtener la información del BLOB PBMS:"
 
 #: libraries/blobstreaming.lib.php:332
-#| msgid "get BLOB Content-Type failed"
 msgid "PBMS get BLOB Content-Type failed"
 msgstr "Fallo al obtener Content-Type del BLOB PBMS"
 
@@ -2388,13 +2371,13 @@ msgstr "compartido"
 msgid "Tables"
 msgstr "Tablas"
 
-#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:307
-#: libraries/config/setup.forms.php:343 libraries/config/setup.forms.php:374
-#: libraries/config/setup.forms.php:379
-#: libraries/config/user_preferences.forms.php:207
-#: libraries/config/user_preferences.forms.php:243
-#: libraries/config/user_preferences.forms.php:274
-#: libraries/config/user_preferences.forms.php:279
+#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:301
+#: libraries/config/setup.forms.php:337 libraries/config/setup.forms.php:360
+#: libraries/config/setup.forms.php:365
+#: libraries/config/user_preferences.forms.php:201
+#: libraries/config/user_preferences.forms.php:237
+#: libraries/config/user_preferences.forms.php:260
+#: libraries/config/user_preferences.forms.php:265
 #: libraries/export/latex.php:201 libraries/export/sql.php:1052
 #: server_privileges.php:600 server_replication.php:314 tbl_printview.php:281
 #: tbl_structure.php:767
@@ -2625,7 +2608,6 @@ msgstr "Parámetro faltante:"
 
 #: libraries/common.lib.php:2267 libraries/common.lib.php:2270
 #: libraries/display_tbl.lib.php:306
-#| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
 msgstr "Comenzar"
@@ -2633,7 +2615,6 @@ msgstr "Comenzar"
 #: libraries/common.lib.php:2268 libraries/common.lib.php:2271
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
-#| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Anterior"
@@ -2641,14 +2622,12 @@ msgstr "Anterior"
 #: libraries/common.lib.php:2297 libraries/common.lib.php:2300
 #: libraries/display_tbl.lib.php:370 server_binlog.php:170
 #: server_binlog.php:172
-#| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
 msgstr "Siguiente"
 
 #: libraries/common.lib.php:2298 libraries/common.lib.php:2301
 #: libraries/display_tbl.lib.php:385
-#| msgid "End"
 msgctxt "Last page"
 msgid "End"
 msgstr "Fin"
@@ -2668,11 +2647,11 @@ msgid "Click to toggle"
 msgstr "Pulse para conmutar"
 
 #: libraries/common.lib.php:2867 libraries/common.lib.php:2874
-#: libraries/common.lib.php:3066 libraries/config/setup.forms.php:298
-#: libraries/config/setup.forms.php:335 libraries/config/setup.forms.php:369
-#: libraries/config/user_preferences.forms.php:198
-#: libraries/config/user_preferences.forms.php:235
-#: libraries/config/user_preferences.forms.php:269
+#: libraries/common.lib.php:3066 libraries/config/setup.forms.php:292
+#: libraries/config/setup.forms.php:329 libraries/config/setup.forms.php:355
+#: libraries/config/user_preferences.forms.php:192
+#: libraries/config/user_preferences.forms.php:229
+#: libraries/config/user_preferences.forms.php:255
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:338
 #: libraries/import.lib.php:1102 libraries/tbl_links.inc.php:61
 #: libraries/tbl_properties.inc.php:608 pmd_general.php:151
@@ -3182,7 +3161,6 @@ msgstr "Compresión"
 #: libraries/export/excel.php:25 libraries/export/htmlword.php:30
 #: libraries/export/latex.php:72 libraries/export/ods.php:25
 #: libraries/export/odt.php:58 libraries/export/texytext.php:28
-#: libraries/export/xls.php:25 libraries/export/xlsx.php:25
 msgid "Put columns names in the first row"
 msgstr "Poner los nombres de campo en la primera fila"
 
@@ -3393,9 +3371,9 @@ msgid "Customize default options"
 msgstr "Personalizar las opciones predeteminadas"
 
 #: libraries/config/messages.inc.php:158 libraries/config/setup.forms.php:239
-#: libraries/config/setup.forms.php:318
+#: libraries/config/setup.forms.php:312
 #: libraries/config/user_preferences.forms.php:141
-#: libraries/config/user_preferences.forms.php:218 libraries/export/csv.php:19
+#: libraries/config/user_preferences.forms.php:212 libraries/export/csv.php:19
 #: libraries/import/csv.php:22
 msgid "CSV"
 msgstr "CSV"
@@ -4048,7 +4026,6 @@ msgid "Memory limit"
 msgstr "Límite de la memoria"
 
 #: libraries/config/messages.inc.php:319
-#| msgid "These are Edit, Inline edit, Copy and Delete links"
 msgid "These are Edit, Copy and Delete links"
 msgstr "Estos son los enlaces para Editar, Copiar y Borrar"
 
@@ -4752,12 +4729,10 @@ msgid "Show function fields"
 msgstr "Mostrar los campos de función"
 
 #: libraries/config/messages.inc.php:460
-#| msgid "Where to show the table row links"
 msgid "Whether to show hint or not"
 msgstr "Si mostrar ayudas o no"
 
 #: libraries/config/messages.inc.php:461
-#| msgid "Show indexes"
 msgid "Show hint"
 msgstr "Mostrar ayudas"
 
@@ -5056,56 +5031,42 @@ msgstr "Autenticación por sesión"
 msgid "CSV using LOAD DATA"
 msgstr "CSV usando LOAD DATA"
 
-#: libraries/config/setup.forms.php:256 libraries/config/setup.forms.php:350
+#: libraries/config/setup.forms.php:256 libraries/config/setup.forms.php:349
 #: libraries/config/user_preferences.forms.php:157
-#: libraries/config/user_preferences.forms.php:250 libraries/export/xls.php:18
-#: libraries/import/xls.php:21
-msgid "Excel 97-2003 XLS Workbook"
-msgstr "Cuaderno XLS Excel 97-2003"
-
-#: libraries/config/setup.forms.php:259 libraries/config/setup.forms.php:354
-#: libraries/config/user_preferences.forms.php:160
-#: libraries/config/user_preferences.forms.php:254
-#: libraries/export/xlsx.php:18 libraries/import/xlsx.php:21
-msgid "Excel 2007 XLSX Workbook"
-msgstr "Cuaderno XLSX Excel 2007"
-
-#: libraries/config/setup.forms.php:262 libraries/config/setup.forms.php:363
-#: libraries/config/user_preferences.forms.php:163
-#: libraries/config/user_preferences.forms.php:263 libraries/export/ods.php:18
+#: libraries/config/user_preferences.forms.php:249 libraries/export/ods.php:18
 #: libraries/import/ods.php:22
 msgid "Open Document Spreadsheet"
 msgstr "Hoja de cálculo Open Document"
 
-#: libraries/config/setup.forms.php:269
-#: libraries/config/user_preferences.forms.php:170
+#: libraries/config/setup.forms.php:263
+#: libraries/config/user_preferences.forms.php:164
 msgid "Quick"
 msgstr "Rápido"
 
-#: libraries/config/setup.forms.php:273
-#: libraries/config/user_preferences.forms.php:174
+#: libraries/config/setup.forms.php:267
+#: libraries/config/user_preferences.forms.php:168
 msgid "Custom"
 msgstr "Personalizado"
 
-#: libraries/config/setup.forms.php:294
-#: libraries/config/user_preferences.forms.php:194
+#: libraries/config/setup.forms.php:288
+#: libraries/config/user_preferences.forms.php:188
 msgid "Database export options"
 msgstr "Opciones de exportación de la base de datos"
 
-#: libraries/config/setup.forms.php:327
-#: libraries/config/user_preferences.forms.php:227
+#: libraries/config/setup.forms.php:321
+#: libraries/config/user_preferences.forms.php:221
 #: libraries/export/excel.php:18
 msgid "CSV for MS Excel"
 msgstr "CSV para datos de MS Excel"
 
-#: libraries/config/setup.forms.php:358
-#: libraries/config/user_preferences.forms.php:258
+#: libraries/config/setup.forms.php:344
+#: libraries/config/user_preferences.forms.php:244
 #: libraries/export/htmlword.php:18
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/config/setup.forms.php:367
-#: libraries/config/user_preferences.forms.php:267 libraries/export/odt.php:22
+#: libraries/config/setup.forms.php:353
+#: libraries/config/user_preferences.forms.php:253 libraries/export/odt.php:22
 msgid "Open Document Text"
 msgstr "Texto Open Document"
 
@@ -5371,8 +5332,8 @@ msgstr ", @TABLE@ se convertirá en el nombre de la tabla"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Este valor es interpretado usando %1$sstrftime%2$s por lo que se pueden usar "
 "cadenas para formatear el tiempo. Además sucederán las siguientes "
@@ -5524,7 +5485,6 @@ msgid "Language"
 msgstr "Idioma"
 
 #: libraries/display_tbl.lib.php:401
-#| msgid "Save directory"
 msgid "Save edited data"
 msgstr "Guardar datos editados"
 
@@ -5577,13 +5537,11 @@ msgstr "Ordenar según la clave"
 #: libraries/export/ods.php:29 libraries/export/odt.php:27
 #: libraries/export/pdf.php:29 libraries/export/php_array.php:29
 #: libraries/export/sql.php:88 libraries/export/texytext.php:31
-#: libraries/export/xls.php:29 libraries/export/xlsx.php:29
 #: libraries/export/xml.php:27 libraries/export/yaml.php:30
 #: libraries/import.lib.php:1080 libraries/import.lib.php:1102
 #: libraries/import/csv.php:33 libraries/import/docsql.php:35
 #: libraries/import/ldi.php:49 libraries/import/ods.php:32
-#: libraries/import/sql.php:20 libraries/import/xls.php:28
-#: libraries/import/xlsx.php:28 libraries/import/xml.php:25
+#: libraries/import/sql.php:20 libraries/import/xml.php:25
 #: libraries/rte/rte_routines.lib.php:852 tbl_select.php:258
 #: tbl_structure.php:852
 msgid "Options"
@@ -6151,8 +6109,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "Se puede encontrar documentación y más información sobre PBXT en la %spágina "
 "inicial de PrimeBase XT%s."
@@ -6184,7 +6142,6 @@ msgstr "Líneas terminadas en:"
 #: libraries/export/csv.php:28 libraries/export/excel.php:23
 #: libraries/export/htmlword.php:29 libraries/export/latex.php:80
 #: libraries/export/ods.php:24 libraries/export/odt.php:60
-#: libraries/export/xls.php:24 libraries/export/xlsx.php:24
 msgid "Replace NULL with:"
 msgstr "Reemplazar NULL con:"
 
@@ -6447,7 +6404,6 @@ msgid "Stand-in structure for view"
 msgstr "Estructura Stand-in para la vista"
 
 #: libraries/export/sql.php:1071
-#| msgid "Allows reading data."
 msgid "Error reading data:"
 msgstr "Error leyendo datos:"
 
@@ -6516,7 +6472,6 @@ msgstr "Ir a la base de datos"
 
 #: libraries/import.lib.php:1085 libraries/import.lib.php:1109
 #, php-format
-#| msgid "Missing data for %s"
 msgid "Edit settings for %s"
 msgstr "Editar configuración de %s"
 
@@ -6526,7 +6481,6 @@ msgstr "Ir a la tabla"
 
 #: libraries/import.lib.php:1107
 #, php-format
-#| msgid "Structure only"
 msgid "Structure of %s"
 msgstr "Estructura de %s"
 
@@ -6535,7 +6489,6 @@ msgid "Go to view"
 msgstr "Ir a la vista"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:26
-#: libraries/import/xls.php:25 libraries/import/xlsx.php:25
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -7135,13 +7088,11 @@ msgid "Execute every"
 msgstr "Ejecutar cada"
 
 #: libraries/rte/rte_events.lib.php:449
-#| msgid "Start"
 msgctxt "Start of recurring event"
 msgid "Start"
 msgstr "Inicio"
 
 #: libraries/rte/rte_events.lib.php:457
-#| msgid "End"
 msgctxt "End of recurring event"
 msgid "End"
 msgstr "Fin"
@@ -7623,12 +7574,6 @@ msgstr "cambiar el estado del scratchboard"
 #: libraries/select_lang.lib.php:471
 msgid "ltr"
 msgstr "ltr"
-
-#: libraries/select_lang.lib.php:482
-#| msgid "pages"
-msgctxt "PDF"
-msgid "page"
-msgstr "página"
 
 #: libraries/select_lang.lib.php:488 libraries/select_lang.lib.php:494
 #: libraries/select_lang.lib.php:500
@@ -8254,8 +8199,8 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "El almacenamiento de configuración phpMyAdmin no está completamente "
-"configurado, algunas funcionalidades extendidas fueron deshabilitadas. %"
-"sPulsa aquí para averiguar por qué%s."
+"configurado, algunas funcionalidades extendidas fueron deshabilitadas. "
+"%sPulsa aquí para averiguar por qué%s."
 
 #: main.php:314
 msgid ""
@@ -8290,7 +8235,9 @@ msgid "No databases"
 msgstr "No hay bases de datos"
 
 #: navigation.php:270
-msgid "filter tables by name"
+#, fuzzy
+#| msgid "filter tables by name"
+msgid "Filter tables by name"
 msgstr "filtar tablas por nombre"
 
 #: navigation.php:303 navigation.php:304
@@ -8997,8 +8944,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Nota: phpMyAdmin obtiene los privilegios de los usuarios 'directamente de "
 "las tablas de privilegios MySQL'. El contenido de estas tablas puede diferir "
@@ -9368,7 +9315,6 @@ msgid "Monitor"
 msgstr "Monitorizar"
 
 #: server_status.php:652
-#| msgid "Apply a divisor"
 msgid "Advisor"
 msgstr "Consejero"
 
@@ -9389,7 +9335,6 @@ msgid "Filter by category..."
 msgstr "Filtrar por categoría..."
 
 #: server_status.php:727
-#| msgid "Show only alert values"
 msgid "Show unformatted values"
 msgstr "Mostrar valores sin formato"
 
@@ -10250,12 +10195,10 @@ msgid "Refresh rate"
 msgstr "Velocidad de actualización"
 
 #: server_status.php:1419
-#| msgid "Chart columns:"
 msgid "Chart columns"
 msgstr "Columnas del gráfico"
 
 #: server_status.php:1435
-#| msgid "Error management:"
 msgid "Chart arrangement"
 msgstr "Ordenación de los gráficos"
 
@@ -10269,7 +10212,6 @@ msgstr ""
 "complicada."
 
 #: server_status.php:1436
-#| msgid "Restore default value"
 msgid "Reset to default"
 msgstr "Restaurar valor predeterminado"
 
@@ -10288,8 +10230,9 @@ msgstr ""
 "El Monitorizador de phpMyAdmin puede asistir en la optimización de la "
 "configuración del servidor y rastrear consultas que toman mucho tiempo. Para "
 "esto último necesitará que «log_output» esté definido como 'TABLE' y tener "
-"activado «slow_query_log» o «general_log». Note, sin embargo, que «general_log» "
-"produce mucha información y aumenta la carga en el servidor hasta en un 15%"
+"activado «slow_query_log» o «general_log». Note, sin embargo, que "
+"«general_log» produce mucha información y aumenta la carga en el servidor "
+"hasta en un 15%"
 
 #: server_status.php:1446
 msgid ""
@@ -10305,15 +10248,6 @@ msgstr ""
 "utilizar las funcionalidades para graficación del servidor."
 
 #: server_status.php:1458
-#| msgid ""
-#| "<b>Using the monitor:</b><br/> Ok, you are good to go! Once you click "
-#| "'Start monitor' your browser will refresh all displayed charts in a "
-#| "regular interval. You may add charts and change the refresh rate under "
-#| "'Settings', or remove any chart using the cog icon on each respective "
-#| "chart.<p>When you get to see a sudden spike in activity, select the "
-#| "relevant time span on any chart by holding down the left mouse button and "
-#| "panning over the chart. This will load statistics from the logs helping "
-#| "you find what caused the activity spike.</p>"
 msgid ""
 "<b>Using the monitor:</b><br/> Ok, you are good to go! Once you click 'Start "
 "monitor' your browser will refresh all displayed charts in a regular "
@@ -10528,7 +10462,6 @@ msgid "Target database has been synchronized with source database"
 msgstr "La base de datos objetivo fue sincronizada con la base de datos fuente"
 
 #: server_synchronize.php:951
-#| msgid "Issued queries"
 msgid "Executed queries"
 msgstr "Consultas ejecutadas"
 
@@ -11405,7 +11338,6 @@ msgid "Show more actions"
 msgstr "Mostrar más acciones"
 
 #: tbl_structure.php:603
-#| msgid "Print view"
 msgid "Edit view"
 msgstr "Editar vista"
 
@@ -11632,6 +11564,17 @@ msgstr "VER nombre"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Cambiar el nombre de la vista a"
+
+#~ msgid "Excel 97-2003 XLS Workbook"
+#~ msgstr "Cuaderno XLS Excel 97-2003"
+
+#~ msgid "Excel 2007 XLSX Workbook"
+#~ msgstr "Cuaderno XLSX Excel 2007"
+
+#~| msgid "pages"
+#~ msgctxt "PDF"
+#~ msgid "page"
+#~ msgstr "página"
 
 #~ msgid "Inline Edit"
 #~ msgstr "Editar en línea"

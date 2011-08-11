@@ -3,16 +3,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-10 10:14-0400\n"
+"POT-Creation-Date: 2011-08-11 09:35+0200\n"
 "PO-Revision-Date: 2010-07-21 14:54+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: croatian <hr@li.org>\n"
+"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hr\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.1\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:264
@@ -25,6 +25,7 @@ msgstr "Prikaži sve"
 #: libraries/schema/Pdf_Relation_Schema.class.php:918
 #: libraries/schema/Pdf_Relation_Schema.class.php:934
 #: libraries/schema/User_Schema.class.php:355
+#: libraries/select_lang.lib.php:482
 msgid "Page number:"
 msgstr "Broj stranice:"
 
@@ -639,8 +640,8 @@ msgstr ""
 #: db_structure.php:373 libraries/display_tbl.lib.php:2226
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Ovaj prikaz sadrži najmanje ovoliko redaka. Proučite %sdokumentaciju%s."
 
@@ -890,11 +891,11 @@ msgstr "Izbacivanje je spremljeno u datoteku %s."
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
-"Vjerojatno ste pokušali s učitavanjem prevelike datoteke. Pogledajte %"
-"sdokumentaciju%s radi uputa o načinima rješavanja ovog ograničenja."
+"Vjerojatno ste pokušali s učitavanjem prevelike datoteke. Pogledajte "
+"%sdokumentaciju%s radi uputa o načinima rješavanja ovog ograničenja."
 
 #: import.php:277 import.php:330 libraries/File.class.php:456
 #: libraries/File.class.php:539
@@ -1470,7 +1471,7 @@ msgid "Filters"
 msgstr "Datoteke"
 
 #. l10n: Filter as in "Start Filtering"
-#: js/messages.php:169 navigation.php:270
+#: js/messages.php:169
 #, fuzzy
 msgid "Filter"
 msgstr "Datoteke"
@@ -2376,8 +2377,8 @@ msgstr "Dobro došli u %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Vjerojatan razlog je nepostojeća konfiguracijska datoteka. Za izradu možete "
 "upotrijebiti naredbu %1$ssetup script%2$s"
@@ -2523,13 +2524,13 @@ msgstr ""
 msgid "Tables"
 msgstr "Tablice"
 
-#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:307
-#: libraries/config/setup.forms.php:343 libraries/config/setup.forms.php:374
-#: libraries/config/setup.forms.php:379
-#: libraries/config/user_preferences.forms.php:207
-#: libraries/config/user_preferences.forms.php:243
-#: libraries/config/user_preferences.forms.php:274
-#: libraries/config/user_preferences.forms.php:279
+#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:301
+#: libraries/config/setup.forms.php:337 libraries/config/setup.forms.php:360
+#: libraries/config/setup.forms.php:365
+#: libraries/config/user_preferences.forms.php:201
+#: libraries/config/user_preferences.forms.php:237
+#: libraries/config/user_preferences.forms.php:260
+#: libraries/config/user_preferences.forms.php:265
 #: libraries/export/latex.php:201 libraries/export/sql.php:1052
 #: server_privileges.php:600 server_replication.php:314 tbl_printview.php:281
 #: tbl_structure.php:767
@@ -2816,11 +2817,11 @@ msgid "Click to toggle"
 msgstr ""
 
 #: libraries/common.lib.php:2867 libraries/common.lib.php:2874
-#: libraries/common.lib.php:3066 libraries/config/setup.forms.php:298
-#: libraries/config/setup.forms.php:335 libraries/config/setup.forms.php:369
-#: libraries/config/user_preferences.forms.php:198
-#: libraries/config/user_preferences.forms.php:235
-#: libraries/config/user_preferences.forms.php:269
+#: libraries/common.lib.php:3066 libraries/config/setup.forms.php:292
+#: libraries/config/setup.forms.php:329 libraries/config/setup.forms.php:355
+#: libraries/config/user_preferences.forms.php:192
+#: libraries/config/user_preferences.forms.php:229
+#: libraries/config/user_preferences.forms.php:255
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:338
 #: libraries/import.lib.php:1102 libraries/tbl_links.inc.php:61
 #: libraries/tbl_properties.inc.php:608 pmd_general.php:151
@@ -3321,7 +3322,6 @@ msgstr "Kompresija"
 #: libraries/export/excel.php:25 libraries/export/htmlword.php:30
 #: libraries/export/latex.php:72 libraries/export/ods.php:25
 #: libraries/export/odt.php:58 libraries/export/texytext.php:28
-#: libraries/export/xls.php:25 libraries/export/xlsx.php:25
 #, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
@@ -3548,9 +3548,9 @@ msgid "Customize default options"
 msgstr "Opcije izvoza baze podataka"
 
 #: libraries/config/messages.inc.php:158 libraries/config/setup.forms.php:239
-#: libraries/config/setup.forms.php:318
+#: libraries/config/setup.forms.php:312
 #: libraries/config/user_preferences.forms.php:141
-#: libraries/config/user_preferences.forms.php:218 libraries/export/csv.php:19
+#: libraries/config/user_preferences.forms.php:212 libraries/export/csv.php:19
 #: libraries/import/csv.php:22
 msgid "CSV"
 msgstr "CSV"
@@ -5112,58 +5112,44 @@ msgstr ""
 msgid "CSV using LOAD DATA"
 msgstr "CSV upotrebom LOAD DATA"
 
-#: libraries/config/setup.forms.php:256 libraries/config/setup.forms.php:350
+#: libraries/config/setup.forms.php:256 libraries/config/setup.forms.php:349
 #: libraries/config/user_preferences.forms.php:157
-#: libraries/config/user_preferences.forms.php:250 libraries/export/xls.php:18
-#: libraries/import/xls.php:21
-msgid "Excel 97-2003 XLS Workbook"
-msgstr ""
-
-#: libraries/config/setup.forms.php:259 libraries/config/setup.forms.php:354
-#: libraries/config/user_preferences.forms.php:160
-#: libraries/config/user_preferences.forms.php:254
-#: libraries/export/xlsx.php:18 libraries/import/xlsx.php:21
-msgid "Excel 2007 XLSX Workbook"
-msgstr ""
-
-#: libraries/config/setup.forms.php:262 libraries/config/setup.forms.php:363
-#: libraries/config/user_preferences.forms.php:163
-#: libraries/config/user_preferences.forms.php:263 libraries/export/ods.php:18
+#: libraries/config/user_preferences.forms.php:249 libraries/export/ods.php:18
 #: libraries/import/ods.php:22
 msgid "Open Document Spreadsheet"
 msgstr "Otvori izračunsku tablicu dokumenta"
 
-#: libraries/config/setup.forms.php:269
-#: libraries/config/user_preferences.forms.php:170
+#: libraries/config/setup.forms.php:263
+#: libraries/config/user_preferences.forms.php:164
 msgid "Quick"
 msgstr ""
 
-#: libraries/config/setup.forms.php:273
-#: libraries/config/user_preferences.forms.php:174
+#: libraries/config/setup.forms.php:267
+#: libraries/config/user_preferences.forms.php:168
 #, fuzzy
 #| msgid "Custom color"
 msgid "Custom"
 msgstr "Prilagođena boja"
 
-#: libraries/config/setup.forms.php:294
-#: libraries/config/user_preferences.forms.php:194
+#: libraries/config/setup.forms.php:288
+#: libraries/config/user_preferences.forms.php:188
 msgid "Database export options"
 msgstr "Opcije izvoza baze podataka"
 
-#: libraries/config/setup.forms.php:327
-#: libraries/config/user_preferences.forms.php:227
+#: libraries/config/setup.forms.php:321
+#: libraries/config/user_preferences.forms.php:221
 #: libraries/export/excel.php:18
 msgid "CSV for MS Excel"
 msgstr "CSV za MS Excel"
 
-#: libraries/config/setup.forms.php:358
-#: libraries/config/user_preferences.forms.php:258
+#: libraries/config/setup.forms.php:344
+#: libraries/config/user_preferences.forms.php:244
 #: libraries/export/htmlword.php:18
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/config/setup.forms.php:367
-#: libraries/config/user_preferences.forms.php:267 libraries/export/odt.php:22
+#: libraries/config/setup.forms.php:353
+#: libraries/config/user_preferences.forms.php:253 libraries/export/odt.php:22
 msgid "Open Document Text"
 msgstr "Otvori tekst dokumenta"
 
@@ -5449,8 +5435,8 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Vrijednost se interpretira pomoću %1$sstrftime%2$s, pa možete upotrijebiti "
 "naredbe oblikovanja vremena. Dodatno se mogu dogoditi sljedeća "
@@ -5679,13 +5665,11 @@ msgstr "Presloži po ključu"
 #: libraries/export/ods.php:29 libraries/export/odt.php:27
 #: libraries/export/pdf.php:29 libraries/export/php_array.php:29
 #: libraries/export/sql.php:88 libraries/export/texytext.php:31
-#: libraries/export/xls.php:29 libraries/export/xlsx.php:29
 #: libraries/export/xml.php:27 libraries/export/yaml.php:30
 #: libraries/import.lib.php:1080 libraries/import.lib.php:1102
 #: libraries/import/csv.php:33 libraries/import/docsql.php:35
 #: libraries/import/ldi.php:49 libraries/import/ods.php:32
-#: libraries/import/sql.php:20 libraries/import/xls.php:28
-#: libraries/import/xlsx.php:28 libraries/import/xml.php:25
+#: libraries/import/sql.php:20 libraries/import/xml.php:25
 #: libraries/rte/rte_routines.lib.php:852 tbl_select.php:258
 #: tbl_structure.php:852
 msgid "Options"
@@ -6242,8 +6226,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -6281,7 +6265,6 @@ msgstr "Redovi završeni s"
 #: libraries/export/csv.php:28 libraries/export/excel.php:23
 #: libraries/export/htmlword.php:29 libraries/export/latex.php:80
 #: libraries/export/ods.php:24 libraries/export/odt.php:60
-#: libraries/export/xls.php:24 libraries/export/xlsx.php:24
 #, fuzzy
 #| msgid "Replace NULL by"
 msgid "Replace NULL with:"
@@ -6630,7 +6613,6 @@ msgid "Go to view"
 msgstr ""
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:26
-#: libraries/import/xls.php:25 libraries/import/xlsx.php:25
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -7779,13 +7761,6 @@ msgstr "Uključi bilješke"
 msgid "ltr"
 msgstr "ltr"
 
-#: libraries/select_lang.lib.php:482
-#, fuzzy
-#| msgid "pages"
-msgctxt "PDF"
-msgid "page"
-msgstr "stranice"
-
 #: libraries/select_lang.lib.php:488 libraries/select_lang.lib.php:494
 #: libraries/select_lang.lib.php:500
 #, php-format
@@ -8492,7 +8467,7 @@ msgstr "Nema baza podataka"
 #: navigation.php:270
 #, fuzzy
 #| msgid "table name"
-msgid "filter tables by name"
+msgid "Filter tables by name"
 msgstr "naziv tablice"
 
 #: navigation.php:303 navigation.php:304
@@ -9224,8 +9199,8 @@ msgstr "Ispusti baze podataka koje imaju iste nazive i korisnike."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Napomena: phpMyAdmin preuzima korisničke privilegije izravno iz MySQL "
 "tablica privilegija. U slučaju da su ručno mijenjane, sadržaj ovih tablica "
@@ -11800,6 +11775,12 @@ msgid "Rename view to"
 msgstr "Preimenuj prikaz u"
 
 #, fuzzy
+#~| msgid "pages"
+#~ msgctxt "PDF"
+#~ msgid "page"
+#~ msgstr "stranice"
+
+#, fuzzy
 #~| msgid "Engines"
 #~ msgid "Inline Edit"
 #~ msgstr "Pogoni"
@@ -12061,8 +12042,8 @@ msgstr "Preimenuj prikaz u"
 #~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 #~ "extension. Please check your PHP configuration."
 #~ msgstr ""
-#~ "Nije moguće učitati proširenje [a@http://php.net/%1$s@Documentation][em]%1"
-#~ "$s[/em][/a] . Provjerite svoju PHP konfiguraciju."
+#~ "Nije moguće učitati proširenje [a@http://php.net/%1$s@Documentation]"
+#~ "[em]%1$s[/em][/a] . Provjerite svoju PHP konfiguraciju."
 
 #~ msgid ""
 #~ "Couldn't load the iconv or recode extension needed for charset "

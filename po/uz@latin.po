@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-10 10:14-0400\n"
+"POT-Creation-Date: 2011-08-11 09:35+0200\n"
 "PO-Revision-Date: 2010-07-22 02:30+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: uzbek_latin <uz@latin@li.org>\n"
+"Language: uz@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uz@latin\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -24,6 +24,7 @@ msgstr "Barchasini ko‘rsatish"
 #: libraries/schema/Pdf_Relation_Schema.class.php:918
 #: libraries/schema/Pdf_Relation_Schema.class.php:934
 #: libraries/schema/User_Schema.class.php:355
+#: libraries/select_lang.lib.php:482
 msgid "Page number:"
 msgstr "Sahifa raqami: "
 
@@ -640,8 +641,8 @@ msgstr "Kuzatish faol emas."
 #: db_structure.php:373 libraries/display_tbl.lib.php:2226
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Ushbu namoyish kamida ko‘rsatilgan miqdorda qatorlarga ega. Batafsil "
 "ma`lumot uchun %sdokumentatsiyaga%s qarang."
@@ -885,8 +886,8 @@ msgstr "Damp \"%s\" faylida saqlandi."
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Ehtimol, yuklanayotgan fayl hajmi juda katta. Bu muammoni yechishning "
 "usullari %sdokumentatsiyada%s keltirilgan."
@@ -1480,7 +1481,7 @@ msgid "Filters"
 msgstr "Filtr"
 
 #. l10n: Filter as in "Start Filtering"
-#: js/messages.php:169 navigation.php:270
+#: js/messages.php:169
 msgid "Filter"
 msgstr "Filtr"
 
@@ -2409,8 +2410,8 @@ msgstr "\"%s\" dasturiga xush kelibsiz"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Ehtimol, konfiguratsiya fayli tuzilmagan. Uni tuzish uchun %1$sso‘rnatish "
 "ssenariysidan%2$s foydalanishingiz mumkin."
@@ -2561,13 +2562,13 @@ msgstr ""
 msgid "Tables"
 msgstr "Jadvallar"
 
-#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:307
-#: libraries/config/setup.forms.php:343 libraries/config/setup.forms.php:374
-#: libraries/config/setup.forms.php:379
-#: libraries/config/user_preferences.forms.php:207
-#: libraries/config/user_preferences.forms.php:243
-#: libraries/config/user_preferences.forms.php:274
-#: libraries/config/user_preferences.forms.php:279
+#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:301
+#: libraries/config/setup.forms.php:337 libraries/config/setup.forms.php:360
+#: libraries/config/setup.forms.php:365
+#: libraries/config/user_preferences.forms.php:201
+#: libraries/config/user_preferences.forms.php:237
+#: libraries/config/user_preferences.forms.php:260
+#: libraries/config/user_preferences.forms.php:265
 #: libraries/export/latex.php:201 libraries/export/sql.php:1052
 #: server_privileges.php:600 server_replication.php:314 tbl_printview.php:281
 #: tbl_structure.php:767
@@ -2865,11 +2866,11 @@ msgid "Click to toggle"
 msgstr "Tanlash uchun sichqoncha tugmasini bosing"
 
 #: libraries/common.lib.php:2867 libraries/common.lib.php:2874
-#: libraries/common.lib.php:3066 libraries/config/setup.forms.php:298
-#: libraries/config/setup.forms.php:335 libraries/config/setup.forms.php:369
-#: libraries/config/user_preferences.forms.php:198
-#: libraries/config/user_preferences.forms.php:235
-#: libraries/config/user_preferences.forms.php:269
+#: libraries/common.lib.php:3066 libraries/config/setup.forms.php:292
+#: libraries/config/setup.forms.php:329 libraries/config/setup.forms.php:355
+#: libraries/config/user_preferences.forms.php:192
+#: libraries/config/user_preferences.forms.php:229
+#: libraries/config/user_preferences.forms.php:255
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:338
 #: libraries/import.lib.php:1102 libraries/tbl_links.inc.php:61
 #: libraries/tbl_properties.inc.php:608 pmd_general.php:151
@@ -3403,7 +3404,6 @@ msgstr "Siqish"
 #: libraries/export/excel.php:25 libraries/export/htmlword.php:30
 #: libraries/export/latex.php:72 libraries/export/ods.php:25
 #: libraries/export/odt.php:58 libraries/export/texytext.php:28
-#: libraries/export/xls.php:25 libraries/export/xlsx.php:25
 #, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
@@ -3631,9 +3631,9 @@ msgid "Customize default options"
 msgstr "Eksport afzalliklarini sozlash"
 
 #: libraries/config/messages.inc.php:158 libraries/config/setup.forms.php:239
-#: libraries/config/setup.forms.php:318
+#: libraries/config/setup.forms.php:312
 #: libraries/config/user_preferences.forms.php:141
-#: libraries/config/user_preferences.forms.php:218 libraries/export/csv.php:19
+#: libraries/config/user_preferences.forms.php:212 libraries/export/csv.php:19
 #: libraries/import/csv.php:22
 msgid "CSV"
 msgstr "CSV"
@@ -4647,9 +4647,9 @@ msgid ""
 "More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
 "tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Ko‘proq ma`lumot uchun [a@http://sf.net/support/tracker.php?aid=1849494]"
-"\"PMA bug tracker\"[/a] va [a@http://bugs.mysql.com/19588]\"MySQL Bugs\"[/a]"
-"larga qarang"
+"Ko‘proq ma`lumot uchun [a@http://sf.net/support/tracker.php?"
+"aid=1849494]\"PMA bug tracker\"[/a] va [a@http://bugs.mysql."
+"com/19588]\"MySQL Bugs\"[/a]larga qarang"
 
 #: libraries/config/messages.inc.php:388
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -4739,8 +4739,8 @@ msgstr "\"config\" autentifikatsiya usuli paroli"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
-"Agar PDF-sxema ishlatmasangiz, bo‘sh qoldiring, asl qiymati: [kbd]"
-"\"pma_pdf_pages\"[/kbd]"
+"Agar PDF-sxema ishlatmasangiz, bo‘sh qoldiring, asl qiymati: "
+"[kbd]\"pma_pdf_pages\"[/kbd]"
 
 #: libraries/config/messages.inc.php:405
 msgid "PDF schema: pages table"
@@ -4754,8 +4754,8 @@ msgid ""
 msgstr ""
 "Aloqalar, xatcho‘plar va PDF imkoniyatlari uchun ishlatiladigan baza.  "
 "Batafsil ma`lumot uchun [a@http://wiki.phpmyadmin.net/pma/pmadb]\"pmadb\"[/a]"
-"ga qarang. Agar foydalanmasangiz, bo‘sh qoldiring. Asl qiymati: [kbd]"
-"\"phpmyadmin\"[/kbd]"
+"ga qarang. Agar foydalanmasangiz, bo‘sh qoldiring. Asl qiymati: "
+"[kbd]\"phpmyadmin\"[/kbd]"
 
 #: libraries/config/messages.inc.php:407
 #, fuzzy
@@ -4848,8 +4848,8 @@ msgstr "SSL ulanishdan foydalanish"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
-"PDF-sxemadan foydalanmaslik uchun bo‘sh qoldiring, asl qiymati: [kbd]"
-"\"pma_table_coords\"[/kbd]"
+"PDF-sxemadan foydalanmaslik uchun bo‘sh qoldiring, asl qiymati: "
+"[kbd]\"pma_table_coords\"[/kbd]"
 
 #: libraries/config/messages.inc.php:424
 msgid "PDF schema: table coordinates"
@@ -5373,58 +5373,44 @@ msgstr "Autentifikatsiya tartibi"
 msgid "CSV using LOAD DATA"
 msgstr "\"LOAD DATA\" ishlatilgan CSV"
 
-#: libraries/config/setup.forms.php:256 libraries/config/setup.forms.php:350
+#: libraries/config/setup.forms.php:256 libraries/config/setup.forms.php:349
 #: libraries/config/user_preferences.forms.php:157
-#: libraries/config/user_preferences.forms.php:250 libraries/export/xls.php:18
-#: libraries/import/xls.php:21
-msgid "Excel 97-2003 XLS Workbook"
-msgstr "Excel 97-2003 XLS ish kitobi"
-
-#: libraries/config/setup.forms.php:259 libraries/config/setup.forms.php:354
-#: libraries/config/user_preferences.forms.php:160
-#: libraries/config/user_preferences.forms.php:254
-#: libraries/export/xlsx.php:18 libraries/import/xlsx.php:21
-msgid "Excel 2007 XLSX Workbook"
-msgstr "Excel 2007 XLSX ish kitobi"
-
-#: libraries/config/setup.forms.php:262 libraries/config/setup.forms.php:363
-#: libraries/config/user_preferences.forms.php:163
-#: libraries/config/user_preferences.forms.php:263 libraries/export/ods.php:18
+#: libraries/config/user_preferences.forms.php:249 libraries/export/ods.php:18
 #: libraries/import/ods.php:22
 msgid "Open Document Spreadsheet"
 msgstr "Open Document jadvali"
 
-#: libraries/config/setup.forms.php:269
-#: libraries/config/user_preferences.forms.php:170
+#: libraries/config/setup.forms.php:263
+#: libraries/config/user_preferences.forms.php:164
 msgid "Quick"
 msgstr ""
 
-#: libraries/config/setup.forms.php:273
-#: libraries/config/user_preferences.forms.php:174
+#: libraries/config/setup.forms.php:267
+#: libraries/config/user_preferences.forms.php:168
 #, fuzzy
 #| msgid "Custom color"
 msgid "Custom"
 msgstr "Rangni tanlash"
 
-#: libraries/config/setup.forms.php:294
-#: libraries/config/user_preferences.forms.php:194
+#: libraries/config/setup.forms.php:288
+#: libraries/config/user_preferences.forms.php:188
 msgid "Database export options"
 msgstr "Ma`lumotlar bazasi eksport parametrlari"
 
-#: libraries/config/setup.forms.php:327
-#: libraries/config/user_preferences.forms.php:227
+#: libraries/config/setup.forms.php:321
+#: libraries/config/user_preferences.forms.php:221
 #: libraries/export/excel.php:18
 msgid "CSV for MS Excel"
 msgstr "MS Excel uchun CSV"
 
-#: libraries/config/setup.forms.php:358
-#: libraries/config/user_preferences.forms.php:258
+#: libraries/config/setup.forms.php:344
+#: libraries/config/user_preferences.forms.php:244
 #: libraries/export/htmlword.php:18
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/config/setup.forms.php:367
-#: libraries/config/user_preferences.forms.php:267 libraries/export/odt.php:22
+#: libraries/config/setup.forms.php:353
+#: libraries/config/user_preferences.forms.php:253 libraries/export/odt.php:22
 msgid "Open Document Text"
 msgstr "OpenDocument matn"
 
@@ -5522,8 +5508,8 @@ msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
 msgstr ""
-"Taxminiy bo‘lishi mumkin. [a@./Documentation.html#faq3_11@Documentation]"
-"\"FAQ 3.11\"[/a]ga qarang"
+"Taxminiy bo‘lishi mumkin. [a@./Documentation."
+"html#faq3_11@Documentation]\"FAQ 3.11\"[/a]ga qarang"
 
 #: libraries/dbi/mysql.dbi.lib.php:117 libraries/dbi/mysqli.dbi.lib.php:137
 msgid "Connection for controluser as defined in your configuration failed."
@@ -5726,8 +5712,8 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Qiymat %1$sstrftime%2$s funksiyasi bilan qayta ishlangan, shuning uchun "
 "hozirgi vaqt va sanani qo‘yish mumkin. Qo‘shimcha ravishda quyidagilar "
@@ -5966,13 +5952,11 @@ msgstr "Indeks bo‘yicha sortirovka qilish"
 #: libraries/export/ods.php:29 libraries/export/odt.php:27
 #: libraries/export/pdf.php:29 libraries/export/php_array.php:29
 #: libraries/export/sql.php:88 libraries/export/texytext.php:31
-#: libraries/export/xls.php:29 libraries/export/xlsx.php:29
 #: libraries/export/xml.php:27 libraries/export/yaml.php:30
 #: libraries/import.lib.php:1080 libraries/import.lib.php:1102
 #: libraries/import/csv.php:33 libraries/import/docsql.php:35
 #: libraries/import/ldi.php:49 libraries/import/ods.php:32
-#: libraries/import/sql.php:20 libraries/import/xls.php:28
-#: libraries/import/xlsx.php:28 libraries/import/xml.php:25
+#: libraries/import/sql.php:20 libraries/import/xml.php:25
 #: libraries/rte/rte_routines.lib.php:852 tbl_select.php:258
 #: tbl_structure.php:852
 msgid "Options"
@@ -6531,8 +6515,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -6570,7 +6554,6 @@ msgstr "Qatorlar bo‘luvchisi"
 #: libraries/export/csv.php:28 libraries/export/excel.php:23
 #: libraries/export/htmlword.php:29 libraries/export/latex.php:80
 #: libraries/export/ods.php:24 libraries/export/odt.php:60
-#: libraries/export/xls.php:24 libraries/export/xlsx.php:24
 #, fuzzy
 #| msgid "Replace NULL by"
 msgid "Replace NULL with:"
@@ -6927,7 +6910,6 @@ msgid "Go to view"
 msgstr "Ushbu ko‘rinishga o‘tish"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:26
-#: libraries/import/xls.php:25 libraries/import/xlsx.php:25
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -8119,13 +8101,6 @@ msgstr "Ko‘rsatish"
 msgid "ltr"
 msgstr "ltr"
 
-#: libraries/select_lang.lib.php:482
-#, fuzzy
-#| msgid "pages"
-msgctxt "PDF"
-msgid "page"
-msgstr "sahifalar soni "
-
 #: libraries/select_lang.lib.php:488 libraries/select_lang.lib.php:494
 #: libraries/select_lang.lib.php:500
 #, php-format
@@ -8863,7 +8838,7 @@ msgstr "Ma`lumotlar bazasi mavjud emas"
 #: navigation.php:270
 #, fuzzy
 #| msgid "table name"
-msgid "filter tables by name"
+msgid "Filter tables by name"
 msgstr "jadval nomi"
 
 #: navigation.php:303 navigation.php:304
@@ -9615,8 +9590,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "IZOH: phpMyAdmin foydalanuvchilar privilegiyalari haqidagi ma`lumotlarni "
 "to‘g‘ridan-to‘g‘ri MySQL privilegiyalari jadvalidan oladi. Ushbu jadvaldagi "
@@ -11503,9 +11478,9 @@ msgstr ""
 #| "You set the [kbd]config[/kbd] authentication type and included username "
 #| "and password for auto-login, which is not a desirable option for live "
 #| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1"
-#| "$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/"
-#| "kbd]."
+#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id="
+#| "%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http"
+#| "[/kbd]."
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -11519,9 +11494,9 @@ msgstr ""
 "real xostlar uchun tavsiya etilmaydi. Serverdagi phpMyAdmin turgan katalog "
 "adresini bilgan yoki taxmin qilgan har kim ushbu dasturga bemalol kirib, "
 "serverdagi ma`lumotlar bazalari bilan istalgan operatsiyalarni amalga "
-"oshirishi mumkin. Server [a@?page=servers&amp;mode=edit&amp;id=%1"
-"$d#tab_Server]autentifikatsiya usuli[/a]ni [kbd]cookie[/kbd] yoki [kbd]http[/"
-"kbd] deb belgilash tavsiya etiladi."
+"oshirishi mumkin. Server [a@?page=servers&amp;mode=edit&amp;id="
+"%1$d#tab_Server]autentifikatsiya usuli[/a]ni [kbd]cookie[/kbd] yoki [kbd]http"
+"[/kbd] deb belgilash tavsiya etiladi."
 
 #: setup/lib/index.lib.php:294
 #, fuzzy, php-format
@@ -12378,6 +12353,18 @@ msgstr "Nom ko‘rinishi"
 msgid "Rename view to"
 msgstr "Ko‘rinish nomini o‘zgartirish"
 
+#~ msgid "Excel 97-2003 XLS Workbook"
+#~ msgstr "Excel 97-2003 XLS ish kitobi"
+
+#~ msgid "Excel 2007 XLSX Workbook"
+#~ msgstr "Excel 2007 XLSX ish kitobi"
+
+#, fuzzy
+#~| msgid "pages"
+#~ msgctxt "PDF"
+#~ msgid "page"
+#~ msgstr "sahifalar soni "
+
 #, fuzzy
 #~| msgid "Engines"
 #~ msgid "Inline Edit"
@@ -12520,8 +12507,8 @@ msgstr "Ko‘rinish nomini o‘zgartirish"
 #~ "The result of this query can't be used for a chart. See [a@./"
 #~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
 #~ msgstr ""
-#~ "Taxminiy bo‘lishi mumkin. [a@./Documentation.html#faq3_11@Documentation]"
-#~ "\"FAQ 3.11\"[/a]ga qarang"
+#~ "Taxminiy bo‘lishi mumkin. [a@./Documentation."
+#~ "html#faq3_11@Documentation]\"FAQ 3.11\"[/a]ga qarang"
 
 #~ msgid "Bar type"
 #~ msgstr "So‘rov turi"

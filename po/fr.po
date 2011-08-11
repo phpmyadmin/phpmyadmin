@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-10 10:14-0400\n"
+"POT-Creation-Date: 2011-08-11 09:35+0200\n"
 "PO-Revision-Date: 2011-08-04 21:49+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -24,6 +24,7 @@ msgstr "Tout afficher"
 #: libraries/schema/Pdf_Relation_Schema.class.php:918
 #: libraries/schema/Pdf_Relation_Schema.class.php:934
 #: libraries/schema/User_Schema.class.php:355
+#: libraries/select_lang.lib.php:482
 msgid "Page number:"
 msgstr "Page n° : "
 
@@ -613,11 +614,11 @@ msgstr "Le suivi n'est pas activé."
 #: db_structure.php:373 libraries/display_tbl.lib.php:2226
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Cette vue contient au moins ce nombre de lignes. Veuillez référer à %"
-"sdocumentation%s."
+"Cette vue contient au moins ce nombre de lignes. Veuillez référer à "
+"%sdocumentation%s."
 
 #: db_structure.php:387 db_structure.php:401 libraries/header.inc.php:158
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:210
@@ -854,8 +855,8 @@ msgstr "Le fichier d'exportation a été sauvegardé sous %s."
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Vous avez probablement tenté de télécharger un fichier trop volumineux. "
 "Veuillez vous référer à la %sdocumentation%s pour des façons de contourner "
@@ -1404,7 +1405,7 @@ msgid "Filters"
 msgstr "Filtres"
 
 #. l10n: Filter as in "Start Filtering"
-#: js/messages.php:169 navigation.php:270
+#: js/messages.php:169
 msgid "Filter"
 msgstr "Filtre"
 
@@ -2213,8 +2214,8 @@ msgstr "Bienvenue dans %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "La raison probable est que vous n'avez pas créé de fichier de configuration. "
 "Vous pouvez utiliser le %1$sscript de configuration%2$s dans ce but."
@@ -2364,13 +2365,13 @@ msgstr "partagé"
 msgid "Tables"
 msgstr "Tables"
 
-#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:307
-#: libraries/config/setup.forms.php:343 libraries/config/setup.forms.php:374
-#: libraries/config/setup.forms.php:379
-#: libraries/config/user_preferences.forms.php:207
-#: libraries/config/user_preferences.forms.php:243
-#: libraries/config/user_preferences.forms.php:274
-#: libraries/config/user_preferences.forms.php:279
+#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:301
+#: libraries/config/setup.forms.php:337 libraries/config/setup.forms.php:360
+#: libraries/config/setup.forms.php:365
+#: libraries/config/user_preferences.forms.php:201
+#: libraries/config/user_preferences.forms.php:237
+#: libraries/config/user_preferences.forms.php:260
+#: libraries/config/user_preferences.forms.php:265
 #: libraries/export/latex.php:201 libraries/export/sql.php:1052
 #: server_privileges.php:600 server_replication.php:314 tbl_printview.php:281
 #: tbl_structure.php:767
@@ -2650,11 +2651,11 @@ msgid "Click to toggle"
 msgstr "Cliquer pour basculer"
 
 #: libraries/common.lib.php:2867 libraries/common.lib.php:2874
-#: libraries/common.lib.php:3066 libraries/config/setup.forms.php:298
-#: libraries/config/setup.forms.php:335 libraries/config/setup.forms.php:369
-#: libraries/config/user_preferences.forms.php:198
-#: libraries/config/user_preferences.forms.php:235
-#: libraries/config/user_preferences.forms.php:269
+#: libraries/common.lib.php:3066 libraries/config/setup.forms.php:292
+#: libraries/config/setup.forms.php:329 libraries/config/setup.forms.php:355
+#: libraries/config/user_preferences.forms.php:192
+#: libraries/config/user_preferences.forms.php:229
+#: libraries/config/user_preferences.forms.php:255
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:338
 #: libraries/import.lib.php:1102 libraries/tbl_links.inc.php:61
 #: libraries/tbl_properties.inc.php:608 pmd_general.php:151
@@ -3155,7 +3156,6 @@ msgstr "Compression"
 #: libraries/export/excel.php:25 libraries/export/htmlword.php:30
 #: libraries/export/latex.php:72 libraries/export/ods.php:25
 #: libraries/export/odt.php:58 libraries/export/texytext.php:28
-#: libraries/export/xls.php:25 libraries/export/xlsx.php:25
 msgid "Put columns names in the first row"
 msgstr "Afficher les noms de colonnes en première ligne"
 
@@ -3363,9 +3363,9 @@ msgid "Customize default options"
 msgstr "Personnaliser les options par défaut"
 
 #: libraries/config/messages.inc.php:158 libraries/config/setup.forms.php:239
-#: libraries/config/setup.forms.php:318
+#: libraries/config/setup.forms.php:312
 #: libraries/config/user_preferences.forms.php:141
-#: libraries/config/user_preferences.forms.php:218 libraries/export/csv.php:19
+#: libraries/config/user_preferences.forms.php:212 libraries/export/csv.php:19
 #: libraries/import/csv.php:22
 msgid "CSV"
 msgstr "CSV"
@@ -5008,56 +5008,42 @@ msgstr "Mode d'authentification « signon »"
 msgid "CSV using LOAD DATA"
 msgstr "CSV via LOAD DATA"
 
-#: libraries/config/setup.forms.php:256 libraries/config/setup.forms.php:350
+#: libraries/config/setup.forms.php:256 libraries/config/setup.forms.php:349
 #: libraries/config/user_preferences.forms.php:157
-#: libraries/config/user_preferences.forms.php:250 libraries/export/xls.php:18
-#: libraries/import/xls.php:21
-msgid "Excel 97-2003 XLS Workbook"
-msgstr "Excel 97-2003 XLS Workbook"
-
-#: libraries/config/setup.forms.php:259 libraries/config/setup.forms.php:354
-#: libraries/config/user_preferences.forms.php:160
-#: libraries/config/user_preferences.forms.php:254
-#: libraries/export/xlsx.php:18 libraries/import/xlsx.php:21
-msgid "Excel 2007 XLSX Workbook"
-msgstr "Excel 2007 XLSX Workbook"
-
-#: libraries/config/setup.forms.php:262 libraries/config/setup.forms.php:363
-#: libraries/config/user_preferences.forms.php:163
-#: libraries/config/user_preferences.forms.php:263 libraries/export/ods.php:18
+#: libraries/config/user_preferences.forms.php:249 libraries/export/ods.php:18
 #: libraries/import/ods.php:22
 msgid "Open Document Spreadsheet"
 msgstr "Open Document Spreadsheet"
 
-#: libraries/config/setup.forms.php:269
-#: libraries/config/user_preferences.forms.php:170
+#: libraries/config/setup.forms.php:263
+#: libraries/config/user_preferences.forms.php:164
 msgid "Quick"
 msgstr "Rapide"
 
-#: libraries/config/setup.forms.php:273
-#: libraries/config/user_preferences.forms.php:174
+#: libraries/config/setup.forms.php:267
+#: libraries/config/user_preferences.forms.php:168
 msgid "Custom"
 msgstr "Personnalisé"
 
-#: libraries/config/setup.forms.php:294
-#: libraries/config/user_preferences.forms.php:194
+#: libraries/config/setup.forms.php:288
+#: libraries/config/user_preferences.forms.php:188
 msgid "Database export options"
 msgstr "Options d'exportation des bases de données"
 
-#: libraries/config/setup.forms.php:327
-#: libraries/config/user_preferences.forms.php:227
+#: libraries/config/setup.forms.php:321
+#: libraries/config/user_preferences.forms.php:221
 #: libraries/export/excel.php:18
 msgid "CSV for MS Excel"
 msgstr "CSV pour MS Excel"
 
-#: libraries/config/setup.forms.php:358
-#: libraries/config/user_preferences.forms.php:258
+#: libraries/config/setup.forms.php:344
+#: libraries/config/user_preferences.forms.php:244
 #: libraries/export/htmlword.php:18
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/config/setup.forms.php:367
-#: libraries/config/user_preferences.forms.php:267 libraries/export/odt.php:22
+#: libraries/config/setup.forms.php:353
+#: libraries/config/user_preferences.forms.php:253 libraries/export/odt.php:22
 msgid "Open Document Text"
 msgstr "Texte Open Document"
 
@@ -5316,8 +5302,8 @@ msgstr ", @TABLE@ sera remplacé par le nom de la table"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Cette valeur est interprétée avec %1$sstrftime%2$s, vous pouvez donc "
 "utiliser des chaînes de format d'heure. Ces transformations additionnelles "
@@ -5522,13 +5508,11 @@ msgstr "Trier sur l'index"
 #: libraries/export/ods.php:29 libraries/export/odt.php:27
 #: libraries/export/pdf.php:29 libraries/export/php_array.php:29
 #: libraries/export/sql.php:88 libraries/export/texytext.php:31
-#: libraries/export/xls.php:29 libraries/export/xlsx.php:29
 #: libraries/export/xml.php:27 libraries/export/yaml.php:30
 #: libraries/import.lib.php:1080 libraries/import.lib.php:1102
 #: libraries/import/csv.php:33 libraries/import/docsql.php:35
 #: libraries/import/ldi.php:49 libraries/import/ods.php:32
-#: libraries/import/sql.php:20 libraries/import/xls.php:28
-#: libraries/import/xlsx.php:28 libraries/import/xml.php:25
+#: libraries/import/sql.php:20 libraries/import/xml.php:25
 #: libraries/rte/rte_routines.lib.php:852 tbl_select.php:258
 #: tbl_structure.php:852
 msgid "Options"
@@ -6088,8 +6072,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "La documentation de PBXT et des informations additionnelles sont disponibles "
 "sur %sle site de PrimeBase XT%s."
@@ -6121,7 +6105,6 @@ msgstr "Lignes terminées par :"
 #: libraries/export/csv.php:28 libraries/export/excel.php:23
 #: libraries/export/htmlword.php:29 libraries/export/latex.php:80
 #: libraries/export/ods.php:24 libraries/export/odt.php:60
-#: libraries/export/xls.php:24 libraries/export/xlsx.php:24
 msgid "Replace NULL with:"
 msgstr "Remplacer NULL par :"
 
@@ -6240,7 +6223,8 @@ msgstr ""
 
 #: libraries/export/sql.php:45
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "Commentaires mis en en-tête (séparer les lignes par «\\» suivi de «n») :"
+msgstr ""
+"Commentaires mis en en-tête (séparer les lignes par «\\» suivi de «n») :"
 
 #: libraries/export/sql.php:50
 msgid ""
@@ -6471,7 +6455,6 @@ msgid "Go to view"
 msgstr "Aller à la vue"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:26
-#: libraries/import/xls.php:25 libraries/import/xlsx.php:25
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -7562,13 +7545,6 @@ msgstr "Éditeur visuel"
 msgid "ltr"
 msgstr "ltr"
 
-#: libraries/select_lang.lib.php:482
-#, fuzzy
-#| msgid "pages"
-msgctxt "PDF"
-msgid "page"
-msgstr "pages"
-
 #: libraries/select_lang.lib.php:488 libraries/select_lang.lib.php:494
 #: libraries/select_lang.lib.php:500
 #, php-format
@@ -7748,8 +7724,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "Le validateur SQL n'a pas pu être initialisé. Vérifiez que les extensions "
-"PHP nécessaires ont bien été installées tel que décrit dans la %"
-"sdocumentation%s."
+"PHP nécessaires ont bien été installées tel que décrit dans la "
+"%sdocumentation%s."
 
 #: libraries/tbl_links.inc.php:118 libraries/tbl_links.inc.php:119
 msgid "Table seems to be empty!"
@@ -8221,7 +8197,9 @@ msgid "No databases"
 msgstr "Aucune base de données"
 
 #: navigation.php:270
-msgid "filter tables by name"
+#, fuzzy
+#| msgid "filter tables by name"
+msgid "Filter tables by name"
 msgstr "filtrer par nom de table"
 
 #: navigation.php:303 navigation.php:304
@@ -8929,8 +8907,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Note: phpMyAdmin obtient la liste des privilèges directement à partir des "
 "tables MySQL. Le contenu de ces tables peut être différent des privilèges "
@@ -10642,8 +10620,8 @@ msgid ""
 msgstr ""
 "Cette %soption%s ne devrait pas être activée car elle permet à un attaquant "
 "de tenter de forcer l'entrée sur tout serveur MySQL. Si vous en avez "
-"réellement besoin, utilisez la %sliste des serveurs mandataires de confiance%"
-"s."
+"réellement besoin, utilisez la %sliste des serveurs mandataires de confiance"
+"%s."
 
 #: setup/lib/index.lib.php:276
 msgid ""
@@ -10695,8 +10673,8 @@ msgid ""
 msgstr ""
 "Le paramètre %sLogin cookie validity%s avec une valeur de plus de 1440 "
 "secondes peut causer des interruptions de la session de travail si le "
-"paramètre %ssession.gc_maxlifetime%s a une plus petite valeur (actuellement %"
-"d)."
+"paramètre %ssession.gc_maxlifetime%s a une plus petite valeur (actuellement "
+"%d)."
 
 #: setup/lib/index.lib.php:286
 #, php-format
@@ -10715,8 +10693,8 @@ msgid ""
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
 "Si vous utilisez l'authentification cookie et que le paramètre %sLogin "
-"cookie store%s n'a pas une valeur de 0, le paramètre %sLogin cookie validity%"
-"s doit avoir une valeur plus petite ou égale à celui-ci."
+"cookie store%s n'a pas une valeur de 0, le paramètre %sLogin cookie validity"
+"%s doit avoir une valeur plus petite ou égale à celui-ci."
 
 #: setup/lib/index.lib.php:290
 #, php-format
@@ -10726,8 +10704,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Si vous l'estimez nécessaire, utilisez des paramètres de protection - %"
-"sauthentification du serveur%s et %sserveurs mandataires de confiance%s. "
+"Si vous l'estimez nécessaire, utilisez des paramètres de protection - "
+"%sauthentification du serveur%s et %sserveurs mandataires de confiance%s. "
 "Cependant, la protection par adresse IP peut ne pas être fiable si votre IP "
 "appartient à un fournisseur via lequel des milliers d'utilisateurs, vous y "
 "compris, sont connectés."
@@ -11521,6 +11499,18 @@ msgstr "Nom de la vue"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Changer le nom de la vue pour"
+
+#~ msgid "Excel 97-2003 XLS Workbook"
+#~ msgstr "Excel 97-2003 XLS Workbook"
+
+#~ msgid "Excel 2007 XLSX Workbook"
+#~ msgstr "Excel 2007 XLSX Workbook"
+
+#, fuzzy
+#~| msgid "pages"
+#~ msgctxt "PDF"
+#~ msgid "page"
+#~ msgstr "pages"
 
 #~ msgid "Inline Edit"
 #~ msgstr "Éditer en place"
