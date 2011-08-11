@@ -12313,7 +12313,7 @@ msgstr ""
 #: po/advisory_rules.php:225
 #| msgid "Compress connection"
 msgid "% aborted connections"
-msgstr "% durdurulmuş bağlantılar"
+msgstr "% durdurulan bağlantılar"
 
 #: po/advisory_rules.php:226
 msgid "Too many connections are aborted."
