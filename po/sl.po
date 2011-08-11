@@ -1167,7 +1167,7 @@ msgstr "Predpomnjen pomnilnik"
 #: js/messages.php:102
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "Medpomnljen pomnilnik"
+msgstr "Medpomnjen pomnilnik"
 
 #: js/messages.php:103
 #| msgid "System memory"
