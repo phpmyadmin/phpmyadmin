@@ -166,14 +166,19 @@ if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
  */
 if (isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
     $pmatable = new PMA_Table($table, $db);
+    $retval = false;
 
     // set column order
-    $col_order = explode(',', $_REQUEST['col_order']);
-    $retval = $pmatable->setUiProp(PMA_Table::PROP_COLUMN_ORDER, $col_order, $_REQUEST['table_create_time']);
+    if (isset($_REQUEST['col_order'])) {
+        $col_order = explode(',', $_REQUEST['col_order']);
+        $retval = $pmatable->setUiProp(PMA_Table::PROP_COLUMN_ORDER, $col_order, $_REQUEST['table_create_time']);
+    }
 
     // set column visibility
-    $col_visib = explode(',', $_REQUEST['col_visib']);
-    $retval &= $pmatable->setUiProp(PMA_Table::PROP_COLUMN_VISIB, $col_visib, $_REQUEST['table_create_time']);
+    if (isset($_REQUEST['col_visib'])) {
+        $col_visib = explode(',', $_REQUEST['col_visib']);
+        $retval &= $pmatable->setUiProp(PMA_Table::PROP_COLUMN_VISIB, $col_visib, $_REQUEST['table_create_time']);
+    }
 
     PMA_ajaxResponse(NULL, ($retval == true));
 }
