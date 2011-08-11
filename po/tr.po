@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-11 15:11+0200\n"
-"PO-Revision-Date: 2011-08-11 18:13+0200\n"
+"PO-Revision-Date: 2011-08-11 18:23+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -12188,7 +12188,7 @@ msgstr "Acil tablo kilitleri %"
 #: po/advisory_rules.php:191 po/advisory_rules.php:196
 #| msgid "The number of times that a table lock was acquired immediately."
 msgid "Too many table locks were not granted immediately."
-msgstr "Çok fazla tablo kilidi hemen tanınmadı."
+msgstr "Çok fazla tablo kilidi acilen onaylanmadı."
 
 #: po/advisory_rules.php:192 po/advisory_rules.php:197
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
