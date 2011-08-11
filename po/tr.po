@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-11 15:11+0200\n"
-"PO-Revision-Date: 2011-08-11 20:49+0200\n"
+"PO-Revision-Date: 2011-08-11 20:50+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1496,7 +1496,7 @@ msgstr "Kullanılan değişken / formül"
 
 #: js/messages.php:196
 msgid "Test"
-msgstr ""
+msgstr "Sınama"
 
 #: js/messages.php:201 libraries/tbl_properties.inc.php:763
 #: pmd_general.php:388 pmd_general.php:425 pmd_general.php:545
