@@ -1289,8 +1289,6 @@ $(function() {
             }
             // cur[0].value is Qcache_hits, cur[1].value is Com_select
             var diffQHits = cur[0].value - prev[0].value;
-			console.log(cur);
-			console.log(diffQHits / (cur[1].value - prev[1].value + diffQHits) * 100);
             return diffQHits / (cur[1].value - prev[1].value + diffQHits) * 100;
             
         // Query cache usage (%)
