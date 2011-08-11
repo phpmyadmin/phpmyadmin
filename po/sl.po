@@ -1482,10 +1482,9 @@ msgid "Import"
 msgstr "Uvozi"
 
 #: js/messages.php:185
-#, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
-msgstr "Osveži poizvedbo"
+msgstr "Analiziraj poizvedbo"
 
 #: js/messages.php:189
 #, fuzzy
