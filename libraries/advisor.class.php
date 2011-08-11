@@ -133,7 +133,7 @@ class Advisor
 
     // Runs a code expression, replacing variable names with their respective values
     // ignoreUntil: if > 0, it doesn't replace any variables until that string position, but still evaluates the whole expr
-    function ruleExprEvaluate($expr, $ignoreUntil) {
+    function ruleExprEvaluate($expr, $ignoreUntil = 0) {
         if($ignoreUntil > 0) {
             $exprIgnore = substr($expr,0,$ignoreUntil);
             $expr = substr($expr,$ignoreUntil);
