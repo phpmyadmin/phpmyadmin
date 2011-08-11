@@ -4375,10 +4375,9 @@ msgid ""
 msgstr "不需要 \"持久\" 表界面设置请留空，推荐: [kbd]pma_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:428
-#, fuzzy
 #| msgid "User preferences storage table"
 msgid "UI preferences table"
-msgstr "用户偏好表"
+msgstr "界面设置表"
 
 #: libraries/config/messages.inc.php:429
 msgid ""
