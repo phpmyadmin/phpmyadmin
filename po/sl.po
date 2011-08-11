@@ -1666,10 +1666,9 @@ msgid "Ignore"
 msgstr "Prezri"
 
 #: js/messages.php:258
-#, fuzzy
 #| msgid "Add column"
 msgid "Add columns"
-msgstr "Dodaj stolpec"
+msgstr "Dodaj stolpce"
 
 #: js/messages.php:261
 msgid "Select referenced key"
