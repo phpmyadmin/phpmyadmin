@@ -573,6 +573,7 @@ $(function() {
     $('a[href="#clearMonitorConfig"]').click(function() {
         window.localStorage.removeItem('monitorCharts');
         window.localStorage.removeItem('monitorSettings');
+        window.localStorage.removeItem('monitorVersion');
         $(this).hide();
         rebuildGrid();
     });
@@ -832,7 +833,7 @@ $(function() {
         var series;
 
         /* Apply default values & config */
-        if (window.localStorage && monitorProtocolVersion == window.localStorage['monitorVersion']) {
+        if (window.localStorage) {
             if (window.localStorage['monitorCharts']) {
                 runtime.charts = $.parseJSON(window.localStorage['monitorCharts']);
             }
@@ -841,19 +842,19 @@ $(function() {
             }
 
             $('a[href="#clearMonitorConfig"]').toggle(runtime.charts != null);
-        }
-        
-        if (window.localStorage && window.localStorage['monitorCharts'] && monitorProtocolVersion != window.localStorage['monitorVersion']) {
-            $('div#emptyDialog').attr('title',PMA_messages['strIncompatibleMonitorConfig']);
-            $('div#emptyDialog').html(PMA_messages['strIncompatibleMonitorConfigDescription']);
-            
-            var dlgBtns = {};
-            dlgBtns[PMA_messages['strClose']] = function() { $(this).dialog('close'); };
-            
-            $('div#emptyDialog').dialog({ 
-                width: 400,
-                buttons: dlgBtns 
-            });
+
+            if (runtime.charts != null && monitorProtocolVersion != window.localStorage['monitorVersion']) {
+                $('div#emptyDialog').attr('title',PMA_messages['strIncompatibleMonitorConfig']);
+                $('div#emptyDialog').html(PMA_messages['strIncompatibleMonitorConfigDescription']);
+
+                var dlgBtns = {};
+                dlgBtns[PMA_messages['strClose']] = function() { $(this).dialog('close'); };
+
+                $('div#emptyDialog').dialog({ 
+                    width: 400,
+                    buttons: dlgBtns 
+                });
+            }            
         }
 
         if (runtime.charts == null) {
