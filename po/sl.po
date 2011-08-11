@@ -4054,10 +4054,9 @@ msgid "Memory limit"
 msgstr "Omejitev spomina"
 
 #: libraries/config/messages.inc.php:319
-#, fuzzy
 #| msgid "These are Edit, Inline edit, Copy and Delete links"
 msgid "These are Edit, Copy and Delete links"
-msgstr "To so povezave Uredi, Uredi v vrstici, Kopiraj in Izbriši"
+msgstr "To so povezave Uredi, Kopiraj in Izbriši"
 
 #: libraries/config/messages.inc.php:320
 msgid "Where to show the table row links"
