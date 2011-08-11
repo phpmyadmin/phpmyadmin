@@ -12002,11 +12002,10 @@ msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr ""
 
 #: po/advisory_rules.php:145
-#, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "% temp disk tables"
-msgstr "%s tablo"
+msgstr "% geçici disk tabloları"
 
 #: po/advisory_rules.php:146 po/advisory_rules.php:151
 msgid ""
