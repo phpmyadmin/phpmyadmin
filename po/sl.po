@@ -1497,7 +1497,7 @@ msgstr "Morebitni spori zmogljivosti"
 
 #: js/messages.php:191
 msgid "Issue"
-msgstr ""
+msgstr "Spor"
 
 #: js/messages.php:192
 #, fuzzy
