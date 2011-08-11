@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-11 11:31+0200\n"
+"POT-Creation-Date: 2011-08-11 13:41+0200\n"
 "PO-Revision-Date: 2011-07-22 19:13+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
@@ -89,7 +89,7 @@ msgstr "Chiave"
 
 #: browse_foreigners.php:170 browse_foreigners.php:172
 #: server_collations.php:54 server_collations.php:66 server_engines.php:56
-#: server_status.php:1312
+#: server_status.php:1311
 msgid "Description"
 msgstr "Descrizione"
 
@@ -669,7 +669,7 @@ msgstr "Controllo addizionale"
 #: libraries/db_links.inc.php:56 libraries/display_tbl.lib.php:2380
 #: libraries/display_tbl.lib.php:2518 libraries/server_links.inc.php:65
 #: libraries/tbl_links.inc.php:80 prefs_manage.php:286
-#: server_privileges.php:1441 server_status.php:1433
+#: server_privileges.php:1441 server_status.php:1432
 #: setup/frames/menu.inc.php:21
 msgid "Export"
 msgstr "Esporta"
@@ -734,7 +734,7 @@ msgstr "Tabelle monitorate"
 #: libraries/export/xml.php:276 libraries/header.inc.php:146
 #: libraries/header_printview.inc.php:57 server_databases.php:156
 #: server_privileges.php:1827 server_privileges.php:1888
-#: server_privileges.php:2146 server_status.php:1066
+#: server_privileges.php:2146 server_status.php:1065
 #: server_synchronize.php:1140 server_synchronize.php:1144
 #: tbl_tracking.php:633
 msgid "Database"
@@ -754,7 +754,7 @@ msgstr "Aggiornato"
 
 #: db_tracking.php:89 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
-#: server_status.php:1069 sql.php:945 tbl_tracking.php:638
+#: server_status.php:1068 sql.php:945 tbl_tracking.php:638
 msgid "Status"
 msgstr "Stato"
 
@@ -1052,15 +1052,15 @@ msgstr "Chiudi"
 msgid "Edit"
 msgstr "Modifica"
 
-#: js/messages.php:65 server_status.php:664
+#: js/messages.php:65 server_status.php:663
 msgid "Live traffic chart"
 msgstr "Grafico del traffico in tempo reale"
 
-#: js/messages.php:66 server_status.php:667
+#: js/messages.php:66 server_status.php:666
 msgid "Live conn./process chart"
 msgstr "Grafico delle connessioni e processi in tempo reale"
 
-#: js/messages.php:67 server_status.php:685
+#: js/messages.php:67 server_status.php:684
 msgid "Live query chart"
 msgstr "Grafico delle query in tempo reale"
 
@@ -1071,13 +1071,13 @@ msgstr "Dati statici"
 #. l10n: Total number of queries
 #: js/messages.php:71 libraries/build_html_for_db.lib.php:46
 #: libraries/engines/innodb.lib.php:158 server_databases.php:218
-#: server_status.php:969 server_status.php:1030 tbl_printview.php:315
+#: server_status.php:968 server_status.php:1029 tbl_printview.php:315
 #: tbl_structure.php:798
 msgid "Total"
 msgstr "Totale"
 
 #. l10n: Other, small valued, queries
-#: js/messages.php:73 server_status.php:867
+#: js/messages.php:73 server_status.php:866
 msgid "Other"
 msgstr "Altre"
 
@@ -1107,7 +1107,7 @@ msgstr "Traffico del server (in KiB)"
 msgid "Connections since last refresh"
 msgstr "Numero di connessioni dall'ultimo aggiornamento"
 
-#: js/messages.php:83 js/messages.php:114 server_status.php:1062
+#: js/messages.php:83 js/messages.php:114 server_status.php:1061
 msgid "Processes"
 msgstr "Processi"
 
@@ -1125,7 +1125,7 @@ msgstr "Numero di 'questions' dall'ultimo aggiornamento"
 msgid "Questions (executed statements by the server)"
 msgstr "Questions (instruzioni eseguiti dal server)"
 
-#: js/messages.php:90 server_status.php:646
+#: js/messages.php:90 server_status.php:645
 msgid "Query statistics"
 msgstr "Statistiche query"
 
@@ -1142,12 +1142,12 @@ msgid "System swap"
 msgstr "Swap"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:96 libraries/common.lib.php:1303 server_status.php:1509
+#: js/messages.php:96 libraries/common.lib.php:1303 server_status.php:1508
 msgid "MiB"
 msgstr "MiB"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:97 libraries/common.lib.php:1301 server_status.php:1509
+#: js/messages.php:97 libraries/common.lib.php:1301 server_status.php:1508
 msgid "KiB"
 msgstr "KiB"
 
@@ -1215,7 +1215,7 @@ msgstr ""
 msgid "Bytes received"
 msgstr "Ricevuti"
 
-#: js/messages.php:113 server_status.php:988
+#: js/messages.php:113 server_status.php:987
 msgid "Connections"
 msgstr "Connessioni"
 
@@ -1224,12 +1224,12 @@ msgstr "Connessioni"
 msgid "Questions"
 msgstr "Questions"
 
-#: js/messages.php:118 server_status.php:943
+#: js/messages.php:118 server_status.php:942
 msgid "Traffic"
 msgstr "Traffico"
 
 #: js/messages.php:119 libraries/server_links.inc.php:73
-#: server_status.php:1390
+#: server_status.php:1389
 msgid "Settings"
 msgstr "Impostazioni"
 
@@ -1254,7 +1254,7 @@ msgstr "Aggiungi almeno una variabile alla serie"
 #: js/messages.php:125 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:554 libraries/export/sql.php:1052
 #: libraries/tbl_properties.inc.php:544 pmd_general.php:510
-#: server_privileges.php:2042 server_status.php:1103 server_status.php:1526
+#: server_privileges.php:2042 server_status.php:1102 server_status.php:1525
 msgid "None"
 msgstr "Nessuno"
 
@@ -1358,7 +1358,7 @@ msgstr "Modifica impostazioni"
 msgid "Current settings"
 msgstr "Impostazioni attuali"
 
-#: js/messages.php:150 server_status.php:1469
+#: js/messages.php:150 server_status.php:1468
 msgid "Chart Title"
 msgstr "Titolo del diagramma"
 
@@ -1496,7 +1496,7 @@ msgstr ""
 
 #: js/messages.php:183 libraries/config/messages.inc.php:170
 #: libraries/db_links.inc.php:83 libraries/server_links.inc.php:69
-#: libraries/tbl_links.inc.php:89 prefs_manage.php:229 server_status.php:1433
+#: libraries/tbl_links.inc.php:89 prefs_manage.php:229 server_status.php:1432
 #: setup/frames/menu.inc.php:20
 msgid "Import"
 msgstr "Importa"
@@ -2528,7 +2528,7 @@ msgstr ""
 "Nome host per il server %1$s non valido. Controlla la tua configurazione."
 
 #: libraries/common.inc.php:655 libraries/config/messages.inc.php:500
-#: libraries/header.inc.php:136 main.php:161 server_status.php:645
+#: libraries/header.inc.php:136 main.php:161 server_status.php:644
 #: server_synchronize.php:1120
 msgid "Server"
 msgstr "Server"
@@ -2577,7 +2577,7 @@ msgid "Documentation"
 msgstr "Documentazione"
 
 #: libraries/common.lib.php:559 libraries/header_printview.inc.php:60
-#: server_status.php:487 server_status.php:1071
+#: server_status.php:487 server_status.php:1070
 msgid "SQL query"
 msgstr "Query SQL"
 
@@ -2615,7 +2615,7 @@ msgid "Create PHP Code"
 msgstr "Crea il codice PHP"
 
 #: libraries/common.lib.php:1147 libraries/config/messages.inc.php:478
-#: server_status.php:656 server_status.php:678 server_status.php:697
+#: server_status.php:655 server_status.php:677 server_status.php:696
 msgid "Refresh"
 msgstr "Aggiorna"
 
@@ -5693,7 +5693,7 @@ msgid "The row has been deleted"
 msgstr "La riga è stata cancellata"
 
 #: libraries/display_tbl.lib.php:1381 libraries/display_tbl.lib.php:2342
-#: server_status.php:1099
+#: server_status.php:1098
 msgid "Kill"
 msgstr "Rimuovi"
 
@@ -6294,7 +6294,7 @@ msgstr "Mostra tipi MIME"
 #: libraries/replication_gui.lib.php:335 server_privileges.php:800
 #: server_privileges.php:803 server_privileges.php:859
 #: server_privileges.php:1694 server_privileges.php:2237
-#: server_status.php:1065
+#: server_status.php:1064
 msgid "Host"
 msgstr "Host"
 
@@ -7032,14 +7032,14 @@ msgid "Slave status"
 msgstr "Stato slave"
 
 #: libraries/replication_gui.lib.php:118 libraries/sql_query_form.lib.php:382
-#: server_status.php:1310 server_variables.php:108
+#: server_status.php:1309 server_variables.php:108
 msgid "Variable"
 msgstr "Variabile"
 
 #: libraries/replication_gui.lib.php:119
 #: libraries/rte/rte_routines.lib.php:1357 pmd_general.php:476
 #: pmd_general.php:535 pmd_general.php:658 pmd_general.php:775
-#: server_status.php:1311 tbl_change.php:329 tbl_printview.php:334
+#: server_status.php:1310 tbl_change.php:329 tbl_printview.php:334
 #: tbl_select.php:118 tbl_structure.php:828
 msgid "Value"
 msgstr "Valore"
@@ -7248,7 +7248,7 @@ msgid "Returns"
 msgstr "Ritorna"
 
 #: libraries/rte/rte_list.lib.php:62 libraries/rte/rte_triggers.lib.php:326
-#: server_status.php:1068 sql.php:946
+#: server_status.php:1067 sql.php:946
 msgid "Time"
 msgstr "Tempo"
 
@@ -8173,7 +8173,7 @@ msgstr "Versione protocollo"
 
 #: main.php:165 server_privileges.php:1539 server_privileges.php:1693
 #: server_privileges.php:1817 server_privileges.php:2236
-#: server_status.php:1064
+#: server_status.php:1063
 msgid "User"
 msgstr "Utente"
 
@@ -8628,13 +8628,13 @@ msgstr "Selezionare il log binario da visualizzare"
 msgid "Files"
 msgstr "File"
 
-#: server_binlog.php:150 server_binlog.php:152 server_status.php:1074
-#: server_status.php:1076
+#: server_binlog.php:150 server_binlog.php:152 server_status.php:1073
+#: server_status.php:1075
 msgid "Truncate Shown Queries"
 msgstr "Tronca le Query Mostrate"
 
-#: server_binlog.php:158 server_binlog.php:160 server_status.php:1074
-#: server_status.php:1076
+#: server_binlog.php:158 server_binlog.php:160 server_status.php:1073
+#: server_status.php:1075
 msgid "Show Full Queries"
 msgstr "Mostra query complete"
 
@@ -9378,65 +9378,65 @@ msgstr "Mostra lo stato degli slave"
 msgid "Flush query cache"
 msgstr "Rinfresca la cache delle query"
 
-#: server_status.php:640
+#: server_status.php:639
 msgid "Runtime Information"
 msgstr "Informazioni di Runtime"
 
-#: server_status.php:647
+#: server_status.php:646
 msgid "All status variables"
 msgstr "Tutte le variabili di stato"
 
-#: server_status.php:648
+#: server_status.php:647
 msgid "Monitor"
 msgstr "Monitoraggio"
 
-#: server_status.php:649
+#: server_status.php:648
 #, fuzzy
 #| msgid "Apply a divisor"
 msgid "Advisor"
 msgstr "Applica un divisore"
 
-#: server_status.php:659 server_status.php:681
+#: server_status.php:658 server_status.php:680
 msgid "Refresh rate: "
 msgstr "Ritmo dell'aggiornamento: "
 
-#: server_status.php:702
+#: server_status.php:701
 msgid "Containing the word:"
 msgstr "Contenente la parola:"
 
-#: server_status.php:707
+#: server_status.php:706
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show only alert values"
 msgstr "Mostra solo i valori di allarme"
 
-#: server_status.php:711
+#: server_status.php:710
 msgid "Filter by category..."
 msgstr "Filtra per categoria..."
 
-#: server_status.php:724
+#: server_status.php:723
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show unformatted values"
 msgstr "Mostra solo i valori di allarme"
 
-#: server_status.php:728
+#: server_status.php:727
 msgid "Related links:"
 msgstr "Collegamenti associati:"
 
-#: server_status.php:759
+#: server_status.php:758
 #, fuzzy
 #| msgid "Query type"
 msgid "Run analyzer"
 msgstr "Tipo di query"
 
-#: server_status.php:760
+#: server_status.php:759
 #, fuzzy
 #| msgid "Introduction"
 msgid "Instructions"
 msgstr "Introduzione"
 
-#: server_status.php:765
+#: server_status.php:764
 msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables. <p>Do note however that this system "
@@ -9451,44 +9451,44 @@ msgid ""
 msgstr ""
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: server_status.php:785
+#: server_status.php:784
 #, php-format
 msgid "Questions since startup: %s"
 msgstr "Questions eseguiti dall'avvio: %s"
 
-#: server_status.php:791 server_status.php:826 server_status.php:944
-#: server_status.php:989
+#: server_status.php:790 server_status.php:825 server_status.php:943
+#: server_status.php:988
 msgid "per hour"
 msgstr "all'ora"
 
-#: server_status.php:795
+#: server_status.php:794
 msgid "per minute"
 msgstr "al minuto"
 
-#: server_status.php:800
+#: server_status.php:799
 msgid "per second"
 msgstr "al secondo"
 
-#: server_status.php:821 tbl_printview.php:333 tbl_structure.php:827
+#: server_status.php:820 tbl_printview.php:333 tbl_structure.php:827
 msgid "Statements"
 msgstr "Istruzioni"
 
 #. l10n: # = Amount of queries
-#: server_status.php:824
+#: server_status.php:823
 msgid "#"
 msgstr "#"
 
-#: server_status.php:892
+#: server_status.php:891
 #, php-format
 msgid "Network traffic since startup: %s"
 msgstr "Traffico rete dall'avvio: %s"
 
-#: server_status.php:900
+#: server_status.php:899
 #, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
 msgstr "Questo server MySQL sta girando da %1$s. É stato avviato il %2$s."
 
-#: server_status.php:910
+#: server_status.php:909
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
@@ -9496,19 +9496,19 @@ msgstr ""
 "Questo server MySQL funziona come un <b>master</b> e <b>slave</b> nel "
 "processo di <b>replicazione</b>."
 
-#: server_status.php:912
+#: server_status.php:911
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
 "Questo server MySQL funziona come un <b>master</b> nel processo di "
 "<b>replicazione</b>."
 
-#: server_status.php:914
+#: server_status.php:913
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
 "Questo server MySQL funziona come un <b>slave</b> nel processo di "
 "<b>replicazione</b>."
 
-#: server_status.php:917
+#: server_status.php:916
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=\"#replication\">replication section</a>."
@@ -9517,11 +9517,11 @@ msgstr ""
 "server, prego vedi la <a href=\"#replication\">seztione sulla replicazione</"
 "a>."
 
-#: server_status.php:927
+#: server_status.php:926
 msgid "Replication status"
 msgstr "Stato di replicazione"
 
-#: server_status.php:943
+#: server_status.php:942
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
@@ -9530,35 +9530,35 @@ msgstr ""
 "e per questa ragione le statistiche riportate dal server MySQL potrebbero "
 "non essere corrette."
 
-#: server_status.php:949
+#: server_status.php:948
 msgid "Received"
 msgstr "Ricevuti"
 
-#: server_status.php:959
+#: server_status.php:958
 msgid "Sent"
 msgstr "Spediti"
 
-#: server_status.php:995
+#: server_status.php:994
 msgid "max. concurrent connections"
 msgstr "max. connessioni contemporanee"
 
-#: server_status.php:1002
+#: server_status.php:1001
 msgid "Failed attempts"
 msgstr "Tentativi falliti"
 
-#: server_status.php:1016
+#: server_status.php:1015
 msgid "Aborted"
 msgstr "Fallito"
 
-#: server_status.php:1063
+#: server_status.php:1062
 msgid "ID"
 msgstr "ID"
 
-#: server_status.php:1067
+#: server_status.php:1066
 msgid "Command"
 msgstr "Comando"
 
-#: server_status.php:1137
+#: server_status.php:1136
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
@@ -9566,11 +9566,11 @@ msgstr ""
 "Il numero di connessioni fallite perché il cliente é morto senza chiudere la "
 "connessione correttemente."
 
-#: server_status.php:1138
+#: server_status.php:1137
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "Il numero di tentativi falliti di connettere al server MySQL."
 
-#: server_status.php:1139
+#: server_status.php:1138
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -9580,19 +9580,19 @@ msgstr ""
 "ma che oltrepassano il valore di binlog_cache_size e usano un file "
 "temporaneo per salvare gli statements dalle transazioni."
 
-#: server_status.php:1140
+#: server_status.php:1139
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr ""
 "Il numero delle transazioni che usano la cache temporanea del log binario."
 
-#: server_status.php:1141
+#: server_status.php:1140
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr ""
 "Il numero di tentativi di connesione al server MySQL (completati con "
 "successo o no)."
 
-#: server_status.php:1142
+#: server_status.php:1141
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -9604,11 +9604,11 @@ msgstr ""
 "grande, potresti voler aumentare il valore  tmp_table_size, per fare im modo "
 "che le tabelle temporanee siano memory-based anzichè disk-based."
 
-#: server_status.php:1143
+#: server_status.php:1142
 msgid "How many temporary files mysqld has created."
 msgstr "Numero di file temporanei che mysqld ha creato."
 
-#: server_status.php:1144
+#: server_status.php:1143
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
@@ -9616,7 +9616,7 @@ msgstr ""
 "Il numero di tabelle temporanee create automaticamente in memoria dal server "
 "durante l'esecuzione dei comandi."
 
-#: server_status.php:1145
+#: server_status.php:1144
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -9624,7 +9624,7 @@ msgstr ""
 "Numero di righe scritte con INSERT DELAYED in cui ci sono stati degli errori "
 "(probabilmete chiave dublicata)."
 
-#: server_status.php:1146
+#: server_status.php:1145
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -9632,23 +9632,23 @@ msgstr ""
 "Il numero di processi INSERT DELAYED in uso. Ciascuna tabella su cui è usato "
 "INSERT DELAYED occupa un thread."
 
-#: server_status.php:1147
+#: server_status.php:1146
 msgid "The number of INSERT DELAYED rows written."
 msgstr "Il numero di righe INSERT DELAYED scritte."
 
-#: server_status.php:1148
+#: server_status.php:1147
 msgid "The number of executed FLUSH statements."
 msgstr "Il numero di comandi FLUSH eseguiti."
 
-#: server_status.php:1149
+#: server_status.php:1148
 msgid "The number of internal COMMIT statements."
 msgstr "Il numero di comandi interni COMMIT eseguiti."
 
-#: server_status.php:1150
+#: server_status.php:1149
 msgid "The number of times a row was deleted from a table."
 msgstr "Il numero di volte in cui una riga è stata cancellata da una tabella."
 
-#: server_status.php:1151
+#: server_status.php:1150
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -9658,7 +9658,7 @@ msgstr ""
 "tabella sulla base di un nome dato. Questo è chaiamto discovery. "
 "Handler_discover indica il numero di volte che una tabella è stata trovata."
 
-#: server_status.php:1152
+#: server_status.php:1151
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -9669,7 +9669,7 @@ msgstr ""
 "degli indici; per esempio, SELECT col1 FROM foo, assumento che col1 sia "
 "indicizzata."
 
-#: server_status.php:1153
+#: server_status.php:1152
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -9678,7 +9678,7 @@ msgstr ""
 "alta, è un buon indice che le tue query e le tue tabelle sono correttamente "
 "indicizzate."
 
-#: server_status.php:1154
+#: server_status.php:1153
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -9689,7 +9689,7 @@ msgstr ""
 "colonna indice con un range costante, oppure se stai facendo una scansione "
 "degli indici."
 
-#: server_status.php:1155
+#: server_status.php:1154
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
@@ -9698,7 +9698,7 @@ msgstr ""
 "chiavi. Questo metodo di lettura è principalmente utilizzato per ottimizzare "
 "ORDER BY ... DESC."
 
-#: server_status.php:1156
+#: server_status.php:1155
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -9711,7 +9711,7 @@ msgstr ""
 "MySQL di leggere l'intera tabella oppure ci sono dei joins che non usano le "
 "chiavi correttamente."
 
-#: server_status.php:1157
+#: server_status.php:1156
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -9724,37 +9724,37 @@ msgstr ""
 "indicizzate, o che le query non sono state scritte per trarre vantaggi dagli "
 "indici che hai."
 
-#: server_status.php:1158
+#: server_status.php:1157
 msgid "The number of internal ROLLBACK statements."
 msgstr "Il numero di comandi ROLLBACK interni."
 
-#: server_status.php:1159
+#: server_status.php:1158
 msgid "The number of requests to update a row in a table."
 msgstr "Il numero di richieste per aggiornare una riga in una tabella."
 
-#: server_status.php:1160
+#: server_status.php:1159
 msgid "The number of requests to insert a row in a table."
 msgstr "Il numero di richieste per inserire una riga in una tabella."
 
-#: server_status.php:1161
+#: server_status.php:1160
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "Il numero di pagine che contengono dati (sporchi o puliti)."
 
-#: server_status.php:1162
+#: server_status.php:1161
 msgid "The number of pages currently dirty."
 msgstr "Il numero di pagine attualmente sporche."
 
-#: server_status.php:1163
+#: server_status.php:1162
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr ""
 "Il numero di buffer pool pages che hanno avuto richiesta di essere "
 "aggiornate."
 
-#: server_status.php:1164
+#: server_status.php:1163
 msgid "The number of free pages."
 msgstr "Il numero di pagine libere."
 
-#: server_status.php:1165
+#: server_status.php:1164
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -9764,7 +9764,7 @@ msgstr ""
 "attualmente in lettura o in scittura e non possono essere aggiornate o "
 "rimosse per altre ragioni."
 
-#: server_status.php:1166
+#: server_status.php:1165
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -9776,11 +9776,11 @@ msgstr ""
 "come Innodb_buffer_pool_pages_total - Innodb_buffer_pool_pages_free - "
 "Innodb_buffer_pool_pages_data."
 
-#: server_status.php:1167
+#: server_status.php:1166
 msgid "Total size of buffer pool, in pages."
 msgstr "Il numero totale di buffer pool, in pagine."
 
-#: server_status.php:1168
+#: server_status.php:1167
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -9788,7 +9788,7 @@ msgstr ""
 "Il numero di read-aheads \"random\" InnoDB iniziate. Questo accade quando "
 "una query legge una porzione di una tabella, ma in ordine casuale."
 
-#: server_status.php:1169
+#: server_status.php:1168
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
@@ -9796,11 +9796,11 @@ msgstr ""
 "Il numero di read-aheads InnoDB sequanziali. Questo accade quando InnoDB "
 "esegue una scansione completa sequenziale di una tabella."
 
-#: server_status.php:1170
+#: server_status.php:1169
 msgid "The number of logical read requests InnoDB has done."
 msgstr "Il numero di richieste logiche che InnoDb ha fatto."
 
-#: server_status.php:1171
+#: server_status.php:1170
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
@@ -9808,7 +9808,7 @@ msgstr ""
 "Il numero di richieste logiche che InnoDB non può soddisfare dal buffer pool "
 "e che devono fare una lettura di una pagina singola."
 
-#: server_status.php:1172
+#: server_status.php:1171
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -9823,55 +9823,55 @@ msgstr ""
 "dimesione del buffer pool è stata settata correttamente questo valore "
 "dovrebbe essere basso."
 
-#: server_status.php:1173
+#: server_status.php:1172
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "Il numero di scritture effettuate nel buffer pool InnoDB."
 
-#: server_status.php:1174
+#: server_status.php:1173
 msgid "The number of fsync() operations so far."
 msgstr "Il numero delle operazioni fsync() fino ad ora."
 
-#: server_status.php:1175
+#: server_status.php:1174
 msgid "The current number of pending fsync() operations."
 msgstr "Il numero di operazioni fsync() in attesa."
 
-#: server_status.php:1176
+#: server_status.php:1175
 msgid "The current number of pending reads."
 msgstr "Il numero di letture in attesa."
 
-#: server_status.php:1177
+#: server_status.php:1176
 msgid "The current number of pending writes."
 msgstr "Il numero di scritture in attesa."
 
-#: server_status.php:1178
+#: server_status.php:1177
 msgid "The amount of data read so far, in bytes."
 msgstr "La quantità di dati letti fino ad ora, in bytes."
 
-#: server_status.php:1179
+#: server_status.php:1178
 msgid "The total number of data reads."
 msgstr "Il numero totale di dati letti."
 
-#: server_status.php:1180
+#: server_status.php:1179
 msgid "The total number of data writes."
 msgstr "Il numero totale di dati scritti."
 
-#: server_status.php:1181
+#: server_status.php:1180
 msgid "The amount of data written so far, in bytes."
 msgstr "La quantità di dati scritti fino ad ora, in bytes."
 
-#: server_status.php:1182
+#: server_status.php:1181
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
 "Il numero di scritture doublewrite che sono state eseguite ed il numero che "
 "sono state scritte a questo scopo."
 
-#: server_status.php:1183
+#: server_status.php:1182
 msgid "The number of doublewrite operations that have been performed."
 msgstr ""
 "Il numero di scritture doublewrite che sono state eseguite ed il numero che "
 "sono state scritte a questo scopo."
 
-#: server_status.php:1184
+#: server_status.php:1183
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
@@ -9879,35 +9879,35 @@ msgstr ""
 "Il numero di attese che abbiamo avuto perchè il buffer di log era troppo "
 "piccolo e abbiamo duvuto attendere che fosse aggiornato prima di continuare."
 
-#: server_status.php:1185
+#: server_status.php:1184
 msgid "The number of log write requests."
 msgstr "Il numero di richieste di scrittura dei log."
 
-#: server_status.php:1186
+#: server_status.php:1185
 msgid "The number of physical writes to the log file."
 msgstr "Il numero scritture fisiche del log file."
 
-#: server_status.php:1187
+#: server_status.php:1186
 msgid "The number of fsync() writes done to the log file."
 msgstr "Il numero di scritture effettuate da fsync() sul log file."
 
-#: server_status.php:1188
+#: server_status.php:1187
 msgid "The number of pending log file fsyncs."
 msgstr "Il numero degli fsyncs in sospeso sul log file."
 
-#: server_status.php:1189
+#: server_status.php:1188
 msgid "Pending log file writes."
 msgstr "Il numero di scritture in sospeso sul log file."
 
-#: server_status.php:1190
+#: server_status.php:1189
 msgid "The number of bytes written to the log file."
 msgstr "Il numero di bytes scritti sul log file."
 
-#: server_status.php:1191
+#: server_status.php:1190
 msgid "The number of pages created."
 msgstr "Il numero di pagine create."
 
-#: server_status.php:1192
+#: server_status.php:1191
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -9916,51 +9916,51 @@ msgstr ""
 "valori sono conteggiati nelle pagine; la dimesione delle pagine permette di "
 "convertirli facilmente in bytes."
 
-#: server_status.php:1193
+#: server_status.php:1192
 msgid "The number of pages read."
 msgstr "Il numero di pagine lette."
 
-#: server_status.php:1194
+#: server_status.php:1193
 msgid "The number of pages written."
 msgstr "Il numero di pagine scritte."
 
-#: server_status.php:1195
+#: server_status.php:1194
 msgid "The number of row locks currently being waited for."
 msgstr "Il numero di row locks attualmente in attesa."
 
-#: server_status.php:1196
+#: server_status.php:1195
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr "Il tempo medio per l'acquisizione di un row lock, in millisecondi."
 
-#: server_status.php:1197
+#: server_status.php:1196
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr "Il tempo totale per l'acquisizione di un row locks, in millisecondi."
 
-#: server_status.php:1198
+#: server_status.php:1197
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr "Il tempo massimo per l'acquisizione di un row lock, in millisecondi."
 
-#: server_status.php:1199
+#: server_status.php:1198
 msgid "The number of times a row lock had to be waited for."
 msgstr "Il numero di volte che un row lock ha dovuto attendere."
 
-#: server_status.php:1200
+#: server_status.php:1199
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "Il numero di righe cancellate da una tabella InnoDB."
 
-#: server_status.php:1201
+#: server_status.php:1200
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "Il numero di righe inserite da una tabella InnoDB."
 
-#: server_status.php:1202
+#: server_status.php:1201
 msgid "The number of rows read from InnoDB tables."
 msgstr "Il numero di righe lette da una tabella InnoDB."
 
-#: server_status.php:1203
+#: server_status.php:1202
 msgid "The number of rows updated in InnoDB tables."
 msgstr "Il numero di righe aggiornate da una tabella InnoDB."
 
-#: server_status.php:1204
+#: server_status.php:1203
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
@@ -9969,7 +9969,7 @@ msgstr ""
 "cambiati, ma che non sono stai aggiornati su disco. É conosciuto con il nome "
 "di Not_flushed_key_blocks."
 
-#: server_status.php:1205
+#: server_status.php:1204
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
@@ -9977,7 +9977,7 @@ msgstr ""
 "Il numero di blocchi non usati nella cache chiave. Puoi usare questo valore "
 "per determinare quanta cache chiave è in uso."
 
-#: server_status.php:1206
+#: server_status.php:1205
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
@@ -9987,11 +9987,11 @@ msgstr ""
 "segnale che indica il numero massimo di blocchi che sono stati in uso "
 "contemporaneamente."
 
-#: server_status.php:1207
+#: server_status.php:1206
 msgid "The number of requests to read a key block from the cache."
 msgstr "Il numero di richieste per le ggere un blocco chiave dalla cache."
 
-#: server_status.php:1208
+#: server_status.php:1207
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -10002,15 +10002,15 @@ msgstr ""
 "rapporto di cache miss rate può essere calcolato come Key_reads/"
 "Key_read_requests."
 
-#: server_status.php:1209
+#: server_status.php:1208
 msgid "The number of requests to write a key block to the cache."
 msgstr "Il numero di richieste per scrivere una blocco chiave nella cache."
 
-#: server_status.php:1210
+#: server_status.php:1209
 msgid "The number of physical writes of a key block to disk."
 msgstr "Il numero di scritture fisiche di un blocco chiave sul disco."
 
-#: server_status.php:1211
+#: server_status.php:1210
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -10021,7 +10021,7 @@ msgstr ""
 "query per la stessa operazione di query. Il valore di default è 0, che "
 "significa che nessuna query è stata ancora compilata."
 
-#: server_status.php:1212
+#: server_status.php:1211
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
@@ -10029,12 +10029,12 @@ msgstr ""
 "Il massimo numero di connessioni che sono state utilizzate "
 "contemporaneamente dall'avvio del server."
 
-#: server_status.php:1213
+#: server_status.php:1212
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr ""
 "In numero di righe in attesa di essere scritte nella coda INSERT DELAYED."
 
-#: server_status.php:1214
+#: server_status.php:1213
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
@@ -10042,20 +10042,20 @@ msgstr ""
 "Il numero di tabelle che sono state aperte. Se il valore opened_tables è "
 "grande, probabilmente il valore di table cache è troppo piccolo."
 
-#: server_status.php:1215
+#: server_status.php:1214
 msgid "The number of files that are open."
 msgstr "Il numero di file che sono aperti."
 
-#: server_status.php:1216
+#: server_status.php:1215
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr ""
 "Il numero di stream che sono aperti (usato principalmente per il logging)."
 
-#: server_status.php:1217
+#: server_status.php:1216
 msgid "The number of tables that are open."
 msgstr "Il numero di tabelle che sono aperte."
 
-#: server_status.php:1218
+#: server_status.php:1217
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
@@ -10065,19 +10065,19 @@ msgstr ""
 "potrebbero indicare problemi di fragmentazione che possono essere risolti "
 "con l'esecuzione dell'istruzione FLUSH QUERY CACHE."
 
-#: server_status.php:1219
+#: server_status.php:1218
 msgid "The amount of free memory for query cache."
 msgstr "L'ammontare di memoria libera nella cache delle query."
 
-#: server_status.php:1220
+#: server_status.php:1219
 msgid "The number of cache hits."
 msgstr "Il numero di cache hits."
 
-#: server_status.php:1221
+#: server_status.php:1220
 msgid "The number of queries added to the cache."
 msgstr "Il numero di query aggiunte alla cache."
 
-#: server_status.php:1222
+#: server_status.php:1221
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -10090,7 +10090,7 @@ msgstr ""
 "una strategia di \"meno usate recentemente\" (LRU - least recently used) per "
 "decidere quali query rimuovere dalla cache."
 
-#: server_status.php:1223
+#: server_status.php:1222
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -10098,19 +10098,19 @@ msgstr ""
 "Il numero di query non in cache (impossibilità di inserirle nella cache "
 "oppure non inserite per i settaggi del parametro query_cache_type)."
 
-#: server_status.php:1224
+#: server_status.php:1223
 msgid "The number of queries registered in the cache."
 msgstr "Il numero di query registrate nella cache."
 
-#: server_status.php:1225
+#: server_status.php:1224
 msgid "The total number of blocks in the query cache."
 msgstr "Il numero totale di blocchi nella cache delle query."
 
-#: server_status.php:1226
+#: server_status.php:1225
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "Lo sato delle repliche failsafe (non ancora implementato)."
 
-#: server_status.php:1227
+#: server_status.php:1226
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -10118,13 +10118,13 @@ msgstr ""
 "Il numero di joins che non usano gli indici. Se questo valore non è 0, "
 "dovresti controllare attentamente gli indici delle tue tabelle."
 
-#: server_status.php:1228
+#: server_status.php:1227
 msgid "The number of joins that used a range search on a reference table."
 msgstr ""
 "Il numero di joins che usano una ricerca limitata su di una tabella di "
 "riferimento."
 
-#: server_status.php:1229
+#: server_status.php:1228
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -10133,7 +10133,7 @@ msgstr ""
 "ogni riga. (Se questo valore non è 0, dovresti controllare attentamente gli "
 "indici delle tue tabelle.)"
 
-#: server_status.php:1230
+#: server_status.php:1229
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -10141,17 +10141,17 @@ msgstr ""
 "Il numero di joins che usano un range sulla prima tabella. (Non è, "
 "solitamente, un valore critico anche se è grande.)"
 
-#: server_status.php:1231
+#: server_status.php:1230
 msgid "The number of joins that did a full scan of the first table."
 msgstr ""
 "Il numero di join che hanno effettuato una scansione completa della prima "
 "tabella."
 
-#: server_status.php:1232
+#: server_status.php:1231
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr "Il numero di tabelle temporaneamente aperte da processi SQL slave."
 
-#: server_status.php:1233
+#: server_status.php:1232
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
@@ -10159,12 +10159,12 @@ msgstr ""
 "Numero totale di volte (dalla partenza) in cui la replica slave SQL ha "
 "ritentato una transazione."
 
-#: server_status.php:1234
+#: server_status.php:1233
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr ""
 "Questa chiave è ON se questo è un server slave connesso ad un server master."
 
-#: server_status.php:1235
+#: server_status.php:1234
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
@@ -10172,12 +10172,12 @@ msgstr ""
 "Numero di processi che hanno impiegato più di slow_launch_time secondi per "
 "partire."
 
-#: server_status.php:1236
+#: server_status.php:1235
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr "Numero di query che hanno impiegato più di long_query_time secondi."
 
-#: server_status.php:1237
+#: server_status.php:1236
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -10187,23 +10187,23 @@ msgstr ""
 "fatte. Se questo valore è grande, dovresti incrementare la variabile di "
 "sistema sort_buffer_size."
 
-#: server_status.php:1238
+#: server_status.php:1237
 msgid "The number of sorts that were done with ranges."
 msgstr "Il numero di ordinamenti che sono stati eseguiti in un intervallo."
 
-#: server_status.php:1239
+#: server_status.php:1238
 msgid "The number of sorted rows."
 msgstr "Il numero di righe ordinate."
 
-#: server_status.php:1240
+#: server_status.php:1239
 msgid "The number of sorts that were done by scanning the table."
 msgstr "Il numero di ordinamenti che sono stati fatti leggendo la tabella."
 
-#: server_status.php:1241
+#: server_status.php:1240
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "Il numero di volte che un table lock è stato eseguito immediatamente."
 
-#: server_status.php:1242
+#: server_status.php:1241
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -10215,7 +10215,7 @@ msgstr ""
 "performance, dovresti prima ottimizzare le query, oppure sia utilizzare le "
 "repliche, sia dividere le tabelle."
 
-#: server_status.php:1243
+#: server_status.php:1242
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -10225,11 +10225,11 @@ msgstr ""
 "essere calcolato come processi_creati/connessioni. Se questo valore è rosso "
 "devi aumentare la tua thread_cache_size."
 
-#: server_status.php:1244
+#: server_status.php:1243
 msgid "The number of currently open connections."
 msgstr "Il numero di connessioni correntemente aperte."
 
-#: server_status.php:1245
+#: server_status.php:1244
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -10241,63 +10241,63 @@ msgstr ""
 "(Normalmente questo non fornisce un significatico incremento delle "
 "performace se hai una buona implementazione dei processi.)"
 
-#: server_status.php:1246
+#: server_status.php:1245
 msgid "The number of threads that are not sleeping."
 msgstr "Il numero di processi non in attesa."
 
-#: server_status.php:1386
+#: server_status.php:1385
 msgid "Start Monitor"
 msgstr "Avvia monitoraggio"
 
-#: server_status.php:1394
+#: server_status.php:1393
 msgid "Instructions/Setup"
 msgstr "Istruzioni/Configurazione"
 
-#: server_status.php:1398
+#: server_status.php:1397
 msgid "Done rearranging/editing charts"
 msgstr "Ho finito di modificare/muovere i grafici"
 
-#: server_status.php:1405
+#: server_status.php:1404
 msgid "Add chart"
 msgstr "Aggiungi grafico"
 
-#: server_status.php:1407
+#: server_status.php:1406
 msgid "Rearrange/edit charts"
 msgstr "Muovi/modifica i grafici"
 
-#: server_status.php:1411
+#: server_status.php:1410
 msgid "Refresh rate"
 msgstr "Ritmo di aggiornamenti"
 
-#: server_status.php:1416
+#: server_status.php:1415
 #, fuzzy
 #| msgid "Chart columns:"
 msgid "Chart columns"
 msgstr "Campi del grafico:"
 
-#: server_status.php:1432
+#: server_status.php:1431
 #, fuzzy
 #| msgid "Error management:"
 msgid "Chart arrangement"
 msgstr "Gestione degli errori:"
 
-#: server_status.php:1432
+#: server_status.php:1431
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
 
-#: server_status.php:1433
+#: server_status.php:1432
 #, fuzzy
 #| msgid "Restore default value"
 msgid "Reset to default"
 msgstr "Ripristinare valori predefiniti"
 
-#: server_status.php:1437
+#: server_status.php:1436
 msgid "Monitor Instructions"
 msgstr "Istruzioni per monitoraggio"
 
-#: server_status.php:1438
+#: server_status.php:1437
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -10306,7 +10306,7 @@ msgid ""
 "increases server load by up to 15%"
 msgstr ""
 
-#: server_status.php:1443
+#: server_status.php:1442
 msgid ""
 "Unfortunately your Database server does not support logging to table, which "
 "is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
@@ -10314,7 +10314,7 @@ msgid ""
 "charting features however."
 msgstr ""
 
-#: server_status.php:1455
+#: server_status.php:1454
 msgid ""
 "<b>Using the monitor:</b><br/> Ok, you are good to go! Once you click 'Start "
 "monitor' your browser will refresh all displayed charts in a regular "
@@ -10326,7 +10326,7 @@ msgid ""
 "any occuring SELECT statements to further analyze them.</p>"
 msgstr ""
 
-#: server_status.php:1460
+#: server_status.php:1459
 msgid ""
 "<b>Please note:</b> Enabling the general_log may increase the server load by "
 "5-15%. Also be aware that generating statistics from the logs is a load "
@@ -10335,75 +10335,75 @@ msgid ""
 "any more."
 msgstr ""
 
-#: server_status.php:1472
+#: server_status.php:1471
 msgid "CPU Usage"
 msgstr "Utilizzo della CPU"
 
-#: server_status.php:1475
+#: server_status.php:1474
 msgid "Memory Usage"
 msgstr "Utilizzo della memoria"
 
-#: server_status.php:1478
+#: server_status.php:1477
 msgid "Swap Usage"
 msgstr "Utilizzo dello swap"
 
-#: server_status.php:1481
+#: server_status.php:1480
 msgid "Status variable(s)"
 msgstr "Variabili di stato"
 
-#: server_status.php:1483
+#: server_status.php:1482
 msgid "Select series:"
 msgstr "Seleziona serie:"
 
-#: server_status.php:1485
+#: server_status.php:1484
 msgid "Commonly monitored"
 msgstr "Monitorate di solito"
 
-#: server_status.php:1500
+#: server_status.php:1499
 msgid "or type variable name:"
 msgstr "or scrivi il nome di una variabile:"
 
-#: server_status.php:1504
+#: server_status.php:1503
 msgid "Display as differential value"
 msgstr "Visualizzare come valore differenziale"
 
-#: server_status.php:1506
+#: server_status.php:1505
 msgid "Apply a divisor"
 msgstr "Applica un divisore"
 
-#: server_status.php:1513
+#: server_status.php:1512
 msgid "Append unit to data values"
 msgstr "Aggiungi un unitá ai valori dei dati"
 
-#: server_status.php:1519
+#: server_status.php:1518
 msgid "Add this series"
 msgstr "Aggiungi questa serie"
 
-#: server_status.php:1521
+#: server_status.php:1520
 msgid "Clear series"
 msgstr "Cancella la serie"
 
-#: server_status.php:1524
+#: server_status.php:1523
 msgid "Series in Chart:"
 msgstr "Serie del grafico:"
 
-#: server_status.php:1536
+#: server_status.php:1535
 msgid "Log statistics"
 msgstr "Registra statistiche"
 
-#: server_status.php:1537
+#: server_status.php:1536
 msgid "Selected time range:"
 msgstr "Intervallo di tempo selezionato:"
 
-#: server_status.php:1542
+#: server_status.php:1541
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr ""
 
-#: server_status.php:1547
+#: server_status.php:1546
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 
-#: server_status.php:1550
+#: server_status.php:1549
 msgid ""
 "<p>Choose from which log you want the statistics to be generated from.</p> "
 "Results are grouped by query text."
@@ -10411,20 +10411,20 @@ msgstr ""
 "<p>Scegli il log dal quale generare le statistiche.</p> I risultati verranno "
 "raggruppati secondo il testo di query."
 
-#: server_status.php:1553
+#: server_status.php:1552
 #, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
 msgstr "Tipo di query"
 
-#: server_status.php:1590
+#: server_status.php:1589
 #, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d secondo"
 msgstr[1] "%d secondi"
 
-#: server_status.php:1592
+#: server_status.php:1591
 #, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
