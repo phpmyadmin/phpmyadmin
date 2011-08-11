@@ -1186,7 +1186,7 @@ msgstr "Skupna izmenjava"
 
 #: js/messages.php:107
 msgid "Cached Swap"
-msgstr ""
+msgstr "Predpomnjena izmenjava"
 
 #: js/messages.php:108
 msgid "Used Swap"
