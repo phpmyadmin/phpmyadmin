@@ -1424,7 +1424,7 @@ msgstr "Filtriranje"
 
 #: js/messages.php:169
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "Filtriraj poizvedbe po besedi/regexp:"
 
 #: js/messages.php:170
 msgid "Group queries, ignoring variable data in WHERE clauses"
