@@ -801,7 +801,7 @@ msgstr "Įveskite kiekvieną reikšmę atskirame laukelyje."
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr ""
+msgstr "+ Paleisti iš naujo įterpimą ir pridėti naują reikšmę"
 
 #: enum_editor.php:67
 msgid "Output"
@@ -3617,7 +3617,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:369
 msgid "Column information table"
-msgstr ""
+msgstr "Stulpelio informacinė lentelė"
 
 #: libraries/config/messages.inc.php:370
 msgid "Compress connection to MySQL server"
@@ -3670,7 +3670,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:380
 msgid "Designer table"
-msgstr ""
+msgstr "Suprojektuoti lentelę"
 
 #: libraries/config/messages.inc.php:381
 msgid ""
@@ -4146,7 +4146,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:480
 msgid "Textarea rows"
-msgstr ""
+msgstr "Textarea eilutės"
 
 #: libraries/config/messages.inc.php:481
 msgid "Title of browser window when a database is selected"
@@ -4178,7 +4178,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:490
 msgid "List of trusted proxies for IP allow/deny"
-msgstr ""
+msgstr "Sąrašas patikimų proxy serverių IP leidimui/atmetimui"
 
 #: libraries/config/messages.inc.php:491
 msgid "Directory on server where you can upload files for import"
@@ -4262,7 +4262,7 @@ msgstr "HTTP autentifikacija"
 
 #: libraries/config/setup.forms.php:51
 msgid "Signon authentication"
-msgstr ""
+msgstr "Prisijungimo tapatybės nustatymas"
 
 #: libraries/config/setup.forms.php:240
 #: libraries/config/user_preferences.forms.php:144 libraries/import/ldi.php:34
@@ -4950,7 +4950,7 @@ msgstr "Įrašymo užklausos"
 
 #: libraries/engines/innodb.lib.php:240
 msgid "Read misses"
-msgstr ""
+msgstr "Skaitymo nepataikymai"
 
 #: libraries/engines/innodb.lib.php:246
 msgid "Write waits"
@@ -4958,7 +4958,7 @@ msgstr "Rašymas laukia"
 
 #: libraries/engines/innodb.lib.php:252
 msgid "Read misses in %"
-msgstr ""
+msgstr "Skaitymo nepataikymai %"
 
 #: libraries/engines/innodb.lib.php:260
 msgid "Write waits in %"
@@ -6466,7 +6466,7 @@ msgstr "Lentelė atrodo tuščia!"
 #: libraries/tbl_links.inc.php:115
 #, php-format
 msgid "Tracking of %s.%s is activated."
-msgstr ""
+msgstr "Stebėjimas %s.%s yra aktyvuotas."
 
 #: libraries/tbl_properties.inc.php:104
 msgid "Length/Values"
@@ -7191,7 +7191,7 @@ msgstr "Nepavyko užkrauti numatytų nustatymų failo iš: %1$s"
 
 #: prefs_manage.php:112
 msgid "Configuration contains incorrect data for some fields."
-msgstr ""
+msgstr "Konfigūracijoje yra neteisingų duomenų tam tikruose laukeliuose."
 
 #: prefs_manage.php:128
 msgid "Do you want to import remaining settings?"
@@ -8100,11 +8100,11 @@ msgstr "Vidinių ROLLBACK užklausų skaičius."
 
 #: server_status.php:65
 msgid "The number of requests to update a row in a table."
-msgstr ""
+msgstr "Skaičius užklausų, kad atnaujinti eilutę lentelėje."
 
 #: server_status.php:66
 msgid "The number of requests to insert a row in a table."
-msgstr ""
+msgstr "Skaičius užklausų, kad įtraukti eilutę lentelėje."
 
 #: server_status.php:67
 msgid "The number of pages containing data (dirty or clean)."
@@ -8495,7 +8495,7 @@ msgstr "Įkeltų eilučių skaičius"
 
 #: server_status.php:146
 msgid "The number of sorts that were done by scanning the table."
-msgstr ""
+msgstr "Rikiavimų kurie buvo atlikti skenuojant lentelę skaičius."
 
 #: server_status.php:147
 msgid "The number of times that a table lock was acquired immediately."
@@ -8910,7 +8910,7 @@ msgstr "leisti vartotojui pasirinkti"
 
 #: setup/frames/index.inc.php:194
 msgid "- none -"
-msgstr ""
+msgstr "- tuščia -"
 
 #: setup/frames/index.inc.php:197
 msgid "Default server"
@@ -9657,11 +9657,11 @@ msgstr "Keisti žurnalą(us) (indeksą)"
 
 #: tbl_structure.php:170 tbl_structure.php:171
 msgid "Add unique index"
-msgstr ""
+msgstr "Pridėti unikalų indeksą"
 
 #: tbl_structure.php:172 tbl_structure.php:173
 msgid "Add FULLTEXT index"
-msgstr ""
+msgstr "Pridėti FULLTEXT indeksą"
 
 #: tbl_structure.php:385
 #, fuzzy

@@ -8622,11 +8622,11 @@ msgstr ""
 
 #: server_synchronize.php:92
 msgid "Could not connect to the source"
-msgstr ""
+msgstr "소스에 접속할 수 없음"
 
 #: server_synchronize.php:95
 msgid "Could not connect to the target"
-msgstr ""
+msgstr "타겟에 접속할 수 없음"
 
 #: server_synchronize.php:120 server_synchronize.php:123 tbl_create.php:76
 #: tbl_get_field.php:19
@@ -8652,47 +8652,47 @@ msgstr ""
 
 #: server_synchronize.php:424 server_synchronize.php:867
 msgid "Data Difference"
-msgstr ""
+msgstr "차이나는 데이터"
 
 #: server_synchronize.php:429 server_synchronize.php:872
 msgid "Add column(s)"
-msgstr ""
+msgstr "컬럼 추가"
 
 #: server_synchronize.php:430 server_synchronize.php:873
 msgid "Remove column(s)"
-msgstr ""
+msgstr "컬럼 제거"
 
 #: server_synchronize.php:431 server_synchronize.php:874
 msgid "Alter column(s)"
-msgstr ""
+msgstr "컬럼 뒤에"
 
 #: server_synchronize.php:432 server_synchronize.php:875
 msgid "Remove index(s)"
-msgstr ""
+msgstr "인덱스 제거"
 
 #: server_synchronize.php:433 server_synchronize.php:876
 msgid "Apply index(s)"
-msgstr ""
+msgstr "인덱스 적용"
 
 #: server_synchronize.php:434 server_synchronize.php:877
 msgid "Update row(s)"
-msgstr ""
+msgstr "행 업데이트"
 
 #: server_synchronize.php:435 server_synchronize.php:878
 msgid "Insert row(s)"
-msgstr ""
+msgstr "행 삽입"
 
 #: server_synchronize.php:445 server_synchronize.php:889
 msgid "Would you like to delete all the previous rows from target tables?"
-msgstr ""
+msgstr "대상 테이블에서 이전 행들을 모두 삭제하시겠습니까?"
 
 #: server_synchronize.php:448 server_synchronize.php:893
 msgid "Apply Selected Changes"
-msgstr ""
+msgstr "선택한 변경내용 적용"
 
 #: server_synchronize.php:450 server_synchronize.php:895
 msgid "Synchronize Databases"
-msgstr ""
+msgstr "데이터베이스 동기화"
 
 #: server_synchronize.php:463
 msgid "Selected target tables have been synchronized with source tables."
@@ -8745,7 +8745,7 @@ msgstr ""
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:213
 msgid "Download"
-msgstr ""
+msgstr "다운로드"
 
 #: setup/frames/index.inc.php:49
 msgid "Cannot load or save configuration"
@@ -8789,31 +8789,31 @@ msgstr ""
 
 #: setup/frames/index.inc.php:144
 msgid "New server"
-msgstr ""
+msgstr "새 서버"
 
 #: setup/frames/index.inc.php:173
 msgid "Default language"
-msgstr ""
+msgstr "기본 언어"
 
 #: setup/frames/index.inc.php:183
 msgid "let the user choose"
-msgstr ""
+msgstr "사용자 선택"
 
 #: setup/frames/index.inc.php:194
 msgid "- none -"
-msgstr ""
+msgstr "-없음-"
 
 #: setup/frames/index.inc.php:197
 msgid "Default server"
-msgstr ""
+msgstr "기본 서버"
 
 #: setup/frames/index.inc.php:207
 msgid "End of line"
-msgstr ""
+msgstr "줄 끝"
 
 #: setup/frames/index.inc.php:212
 msgid "Display"
-msgstr ""
+msgstr "보기"
 
 #: setup/frames/index.inc.php:216
 #, fuzzy
@@ -8827,11 +8827,11 @@ msgstr "phpMyAdmin 설명서"
 
 #: setup/frames/index.inc.php:228
 msgid "Donate"
-msgstr ""
+msgstr "기부"
 
 #: setup/frames/servers.inc.php:28
 msgid "Edit server"
-msgstr ""
+msgstr "서버 수정"
 
 #: setup/frames/servers.inc.php:37
 #, fuzzy
@@ -8840,7 +8840,7 @@ msgstr "새 사용자 추가"
 
 #: setup/lib/form_processing.lib.php:42
 msgid "Warning"
-msgstr ""
+msgstr "경고"
 
 #: setup/lib/form_processing.lib.php:43
 msgid "Submitted form contains errors"
@@ -8921,7 +8921,7 @@ msgstr ""
 #: setup/lib/index.lib.php:256
 #, php-format
 msgid "This %soption%s should be enabled if your web server supports it."
-msgstr ""
+msgstr "웹 서버가 지원한다면 이 %s 옵션 %s 허용"
 
 #: setup/lib/index.lib.php:258
 #, php-format
@@ -8987,23 +8987,23 @@ msgstr ""
 
 #: setup/lib/index.lib.php:296
 msgid "You should use SSL connections if your web server supports it."
-msgstr ""
+msgstr "웹 서버가 지원한다면 SSL 연결 사용"
 
 #: setup/lib/index.lib.php:306
 msgid "You should use mysqli for performance reasons."
-msgstr ""
+msgstr "효율적 이유로 mysqli 사용"
 
 #: setup/lib/index.lib.php:331
 msgid "You allow for connecting to the server without a password."
-msgstr ""
+msgstr "암호 없이 서버 접속 허용"
 
 #: setup/lib/index.lib.php:351
 msgid "Key is too short, it should have at least 8 characters."
-msgstr ""
+msgstr "키가 너무 짧다. 8글자 이상 사용"
 
 #: setup/lib/index.lib.php:358
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr ""
+msgstr "키는 문자, 숫자 [em]그리고[/em] 특수문자 포함"
 
 #: sql.php:87 tbl_change.php:253 tbl_select.php:26 tbl_select.php:27
 #: tbl_select.php:30 tbl_select.php:33
@@ -9022,11 +9022,11 @@ msgstr ""
 
 #: sql.php:617
 msgid "Showing as PHP code"
-msgstr ""
+msgstr "PHP 코드 보기"
 
 #: sql.php:620 tbl_replace.php:361
 msgid "Showing SQL query"
-msgstr ""
+msgstr "SQL 쿼리 보기"
 
 #: sql.php:622
 #, fuzzy
@@ -9080,7 +9080,7 @@ msgstr ""
 
 #: tbl_change.php:1060
 msgid "Show insert query"
-msgstr ""
+msgstr "삽입 쿼리 보기"
 
 #: tbl_change.php:1071
 msgid "and then"
@@ -9101,12 +9101,12 @@ msgstr "되돌아가기"
 
 #: tbl_change.php:1088
 msgid "Edit next row"
-msgstr ""
+msgstr "다음 행 수정"
 
 #: tbl_change.php:1099
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
-msgstr ""
+msgstr "탭 키를 이용해 이동하거나 CTRL+화살표로 이동할 수 있다"
 
 #: tbl_change.php:1137
 #, php-format
@@ -9133,11 +9133,11 @@ msgstr ""
 
 #: tbl_chart.php:90
 msgid "Width"
-msgstr ""
+msgstr "너비"
 
 #: tbl_chart.php:94
 msgid "Height"
-msgstr ""
+msgstr "높이"
 
 #: tbl_chart.php:98
 msgid "Title"
@@ -9167,7 +9167,7 @@ msgstr "3월"
 
 #: tbl_chart.php:135
 msgid "Line"
-msgstr ""
+msgstr "줄"
 
 #: tbl_chart.php:136
 msgid "Radar"
@@ -9276,11 +9276,11 @@ msgstr ""
 
 #: tbl_move_copy.php:44
 msgid "Can't move table to same one!"
-msgstr ""
+msgstr "같은 테이블이 있어 옮길 수 없음!"
 
 #: tbl_move_copy.php:46
 msgid "Can't copy table to same one!"
-msgstr ""
+msgstr "같은 테이블이 있어 복사할 수 없음!"
 
 #: tbl_move_copy.php:54
 #, php-format
@@ -9310,7 +9310,7 @@ msgstr "테이블 이동 (데이터베이스명<b>.</b>테이블명):"
 
 #: tbl_operations.php:347
 msgid "Table options"
-msgstr ""
+msgstr "테이블 옵션"
 
 #: tbl_operations.php:351
 msgid "Rename table to"
@@ -9330,7 +9330,7 @@ msgstr "테이블 유지보수"
 
 #: tbl_operations.php:610
 msgid "Defragment table"
-msgstr ""
+msgstr "테이블 단편화 제거"
 
 #: tbl_operations.php:658
 #, php-format
@@ -9351,7 +9351,7 @@ msgstr "테이블의 덤프 데이터"
 
 #: tbl_operations.php:688
 msgid "Empty the table (TRUNCATE)"
-msgstr ""
+msgstr "테이블 내용 비우기(TRUNCATE)"
 
 #: tbl_operations.php:708
 #, fuzzy
@@ -9370,7 +9370,7 @@ msgstr ""
 
 #: tbl_operations.php:740
 msgid "Analyze"
-msgstr ""
+msgstr "분석"
 
 #: tbl_operations.php:741
 msgid "Check"

@@ -4540,7 +4540,7 @@ msgstr ""
 #: libraries/export/sql.php:945 libraries/tbl_properties.inc.php:578
 #: pmd_general.php:510 server_privileges.php:1955 server_processlist.php:96
 msgid "None"
-msgstr ""
+msgstr "Hini"
 
 #: libraries/display_export.lib.php:315
 msgid "zipped"
@@ -6170,7 +6170,7 @@ msgstr ""
 
 #: libraries/server_links.inc.php:99
 msgid "Settings"
-msgstr ""
+msgstr "Arventennoù"
 
 #: libraries/server_synchronize.lib.php:1337 server_synchronize.php:1115
 msgid "Source database"
@@ -8283,7 +8283,7 @@ msgstr ""
 
 #: server_status.php:514
 msgid "Traffic"
-msgstr ""
+msgstr "Tremenerezh"
 
 #: server_status.php:514
 msgid ""
@@ -8306,7 +8306,7 @@ msgstr ""
 
 #: server_status.php:559
 msgid "Connections"
-msgstr ""
+msgstr "Kevreadennoù"
 
 #: server_status.php:566
 msgid "max. concurrent connections"
