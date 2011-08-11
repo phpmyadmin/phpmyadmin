@@ -99,9 +99,11 @@ class Advisor
         switch($type) {
             case 'notfired':
             case 'fired':
-                    $jst = Advisor::splitJustification($rule['justification']);
+                    $jst = Advisor::splitJustification($rule);
                     if(count($jst) > 1) {
                         try {
+                            /* Translate */
+                            $jst[0] = _gettext($jst[0]);
                             $str = $this->ruleExprEvaluate(
                                 'sprintf("'.$jst[0].'",'.$jst[1].')',
                                 strlen('sprintf("'.$jst[0].'"')
@@ -112,9 +114,16 @@ class Advisor
                         }
 
                         $rule['justification'] = $str;
+                    } else {
+                        $rule['justification'] = _gettext($rule['justification']);
                     }
+                    $rule['name'] = _gettext($rule['name']);
+                    $rule['issue'] = _gettext($rule['issue']);
                     
-                    $rule['recommendation'] = preg_replace('/\{([a-z_0-9]+)\}/Ui','<a href="server_variables.php?'.$GLOBALS['url_query'].'#filter=\1">\1</a>',$rule['recommendation']);
+                    $rule['recommendation'] = preg_replace(
+                        '/\{([a-z_0-9]+)\}/Ui',
+                        '<a href="server_variables.php?'.$GLOBALS['url_query'].'#filter=\1">\1</a>',
+                        _gettext($rule['recommendation']));
                     
                     break;
         }
