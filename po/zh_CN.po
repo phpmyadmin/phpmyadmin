@@ -4441,7 +4441,7 @@ msgstr "自动创建版本"
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_config[/kbd]"
-msgstr "不在数据库中保存用户偏好请留空，默认：[kbd]pma_config[/kbd]"
+msgstr "不在数据库中保存用户偏好请留空，推荐: [kbd]pma_config[/kbd]"
 
 #: libraries/config/messages.inc.php:442
 msgid "User preferences storage table"
