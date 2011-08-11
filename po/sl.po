@@ -1520,7 +1520,7 @@ msgstr "Uporabljena spremenljivka/formula"
 
 #: js/messages.php:196
 msgid "Test"
-msgstr ""
+msgstr "Preizkus"
 
 #: js/messages.php:201 libraries/tbl_properties.inc.php:763
 #: pmd_general.php:388 pmd_general.php:425 pmd_general.php:545
