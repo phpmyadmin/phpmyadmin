@@ -1289,10 +1289,14 @@ $(function() {
             }
             // cur[0].value is Qcache_hits, cur[1].value is Com_select
             var diffQHits = cur[0].value - prev[0].value;
+            // No NaN please :-)
+            if (cur[1].value - prev[1].value == 0) return 0;
+
             return diffQHits / (cur[1].value - prev[1].value + diffQHits) * 100;
-            
+
         // Query cache usage (%)
         case 'qcu':
+            if (cur[1].value == 0) return 0;
             // cur[0].value is Qcache_free_memory, cur[1].value is query_cache_size
             return 100 - cur[0].value / cur[1].value * 100;
 
