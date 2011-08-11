@@ -6379,10 +6379,9 @@ msgid "Stand-in structure for view"
 msgstr "Nadomestna struktura pogleda"
 
 #: libraries/export/sql.php:1071
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error reading data:"
-msgstr "Omogoča branje podatkov."
+msgstr "Napaka med branjem podatkov:"
 
 #: libraries/export/xml.php:19 libraries/import/xml.php:21
 msgid "XML"
