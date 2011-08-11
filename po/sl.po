@@ -9249,10 +9249,9 @@ msgid "Monitor"
 msgstr "Nadziranje"
 
 #: server_status.php:648
-#, fuzzy
 #| msgid "Apply a divisor"
 msgid "Advisor"
-msgstr "Uporabi delitelja"
+msgstr "Svetovalec"
 
 #: server_status.php:658 server_status.php:680
 msgid "Refresh rate: "
