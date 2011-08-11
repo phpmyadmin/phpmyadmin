@@ -5477,10 +5477,9 @@ msgid "Language"
 msgstr "Jezik"
 
 #: libraries/display_tbl.lib.php:401
-#, fuzzy
 #| msgid "Save directory"
 msgid "Save edited data"
-msgstr "Mapa za shranjevanje"
+msgstr "Shrani urejene podatke"
 
 #: libraries/display_tbl.lib.php:407
 msgid "Restore column order"
