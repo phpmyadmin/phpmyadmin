@@ -4690,10 +4690,9 @@ msgid "Whether to show hint or not"
 msgstr "Zda zobrazit nápovědu nebo ne"
 
 #: libraries/config/messages.inc.php:461
-#, fuzzy
 #| msgid "Show indexes"
 msgid "Show hint"
-msgstr "Zobrazit indexy"
+msgstr "Zobrazit nápovědu"
 
 #: libraries/config/messages.inc.php:462
 msgid ""
