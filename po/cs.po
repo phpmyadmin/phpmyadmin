@@ -1670,7 +1670,7 @@ msgstr "Přidat paramer pro sloupec "
 
 #: js/messages.php:271
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "Klávesou Esc ukončíte editaci"
 
 #: js/messages.php:272
 msgid ""
