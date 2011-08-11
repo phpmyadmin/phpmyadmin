@@ -1413,10 +1413,9 @@ msgstr ""
 
 #. l10n: A collection of available filters
 #: js/messages.php:166
-#, fuzzy
 #| msgid "Filter"
 msgid "Filters"
-msgstr "Filtriranje"
+msgstr "Filtri"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:168
