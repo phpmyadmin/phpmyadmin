@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-11 15:11+0200\n"
-"PO-Revision-Date: 2011-08-11 18:28+0200\n"
+"PO-Revision-Date: 2011-08-11 18:29+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -12333,10 +12333,9 @@ msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 
 #: po/advisory_rules.php:230
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "rate of aborted connections"
-msgstr "Sürekli bağlantılar"
+msgstr "durdurulmuş bağlantıların oranı"
 
 #: po/advisory_rules.php:231
 msgid "Too many connections are aborted"
