@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-10 10:14-0400\n"
-"PO-Revision-Date: 2011-08-11 04:32+0200\n"
+"PO-Revision-Date: 2011-08-11 04:34+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -4349,7 +4349,7 @@ msgstr "使用 SSL"
 #: libraries/config/messages.inc.php:423
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
-msgstr "不使用 PDF 大纲功能请留空，默认：[kbd]pma_table_coords[/kbd]"
+msgstr "不使用 PDF 大纲功能请留空，推荐: [kbd]pma_table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:424
 msgid "PDF schema: table coordinates"
