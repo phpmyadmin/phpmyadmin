@@ -2575,6 +2575,7 @@ msgid "Inline edit of this query"
 msgstr "Åben linje til redigering af forespørgslen"
 
 #: libraries/common.lib.php:1216
+msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "I linje"
 

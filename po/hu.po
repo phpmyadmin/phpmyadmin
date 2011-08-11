@@ -2601,6 +2601,7 @@ msgid "Inline edit of this query"
 msgstr "lekérdezés inline szerkesztése"
 
 #: libraries/common.lib.php:1216
+msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Belső"
 

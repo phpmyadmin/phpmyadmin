@@ -2527,6 +2527,7 @@ msgid "Inline edit of this query"
 msgstr "このクエリをインライン編集する"
 
 #: libraries/common.lib.php:1216
+msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "インライン"
 

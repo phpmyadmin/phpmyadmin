@@ -2634,6 +2634,7 @@ msgid "Inline edit of this query"
 msgstr "Golygu mewnol yr ymholiad hwn"
 
 #: libraries/common.lib.php:1216
+msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Mewnol"
 

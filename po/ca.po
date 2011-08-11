@@ -2612,6 +2612,7 @@ msgid "Inline edit of this query"
 msgstr "Editar aquesta consulta en línia"
 
 #: libraries/common.lib.php:1216
+msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "En línia"
 

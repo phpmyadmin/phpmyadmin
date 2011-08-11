@@ -2573,6 +2573,7 @@ msgid "Inline edit of this query"
 msgstr "इस कुएरी की इनलाइन एडिट"
 
 #: libraries/common.lib.php:1216
+msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "इनलाइन"
 

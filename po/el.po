@@ -2575,6 +2575,7 @@ msgid "Inline edit of this query"
 msgstr "Εσωτερική επεξεργασία αυτού του ερωτήματος"
 
 #: libraries/common.lib.php:1216
+msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Εσωτερικό"
 

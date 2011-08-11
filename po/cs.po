@@ -2514,6 +2514,7 @@ msgid "Inline edit of this query"
 msgstr "Upravit tento dotaz na této stránce"
 
 #: libraries/common.lib.php:1216
+msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Upravit zde"
 

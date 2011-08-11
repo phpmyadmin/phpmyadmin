@@ -2529,6 +2529,7 @@ msgid "Inline edit of this query"
 msgstr "Greitas užklausos redagavimas"
 
 #: libraries/common.lib.php:1216
+msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Redaguoti čia"
 

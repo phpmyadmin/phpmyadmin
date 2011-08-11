@@ -2603,6 +2603,7 @@ msgid "Inline edit of this query"
 msgstr "Tämän kyselyn muokkaus"
 
 #: libraries/common.lib.php:1216
+msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Muokkaus"
 

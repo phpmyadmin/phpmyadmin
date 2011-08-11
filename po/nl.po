@@ -2591,6 +2591,7 @@ msgstr "Rechtstreekse bewerking van deze query"
 # "Inline" vertaalt naar "rechtstreeks in het document", als het ware binnen
 # iets anders.
 #: libraries/common.lib.php:1216
+msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Rechtstreeks"
 

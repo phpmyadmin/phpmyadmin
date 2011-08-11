@@ -2756,6 +2756,7 @@ msgstr ""
 #: libraries/common.lib.php:1216
 #, fuzzy
 #| msgid "Engines"
+msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Jadval turlari"
 

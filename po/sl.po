@@ -2578,6 +2578,7 @@ msgid "Inline edit of this query"
 msgstr "Urejanje te poizvedbe v vrstici"
 
 #: libraries/common.lib.php:1216
+msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "V vrstici"
 

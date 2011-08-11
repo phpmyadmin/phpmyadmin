@@ -2470,6 +2470,7 @@ msgid "Inline edit of this query"
 msgstr "在本页面编辑此查询"
 
 #: libraries/common.lib.php:1216
+msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "内联"
 

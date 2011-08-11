@@ -2604,6 +2604,7 @@ msgid "Inline edit of this query"
 msgstr "Inline redigering av denne spørringa"
 
 #: libraries/common.lib.php:1216
+msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Inline"
 

@@ -2538,6 +2538,7 @@ msgid "Inline edit of this query"
 msgstr "تعديل سريع لهذا الإستعلام"
 
 #: libraries/common.lib.php:1216
+msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "مضمن"
 

@@ -2566,6 +2566,7 @@ msgid "Inline edit of this query"
 msgstr "Upraviť dopyt na tejto stránke"
 
 #: libraries/common.lib.php:1216
+msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Upraviť tu"
 

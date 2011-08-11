@@ -2534,6 +2534,7 @@ msgid "Inline edit of this query"
 msgstr "在本頁面編輯此查詢"
 
 #: libraries/common.lib.php:1216
+msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "行間"
 

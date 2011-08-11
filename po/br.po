@@ -2541,6 +2541,7 @@ msgid "Inline edit of this query"
 msgstr "Kemmañ ar reked-mañ enlinenn"
 
 #: libraries/common.lib.php:1216
+msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Enlinenn"
 

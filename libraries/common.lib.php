@@ -1213,7 +1213,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
                 "$('.tools form').last().after('[<a href=\"#\" title=\"" .
                 PMA_escapeJsString(__('Inline edit of this query')) .
                 "\" class=\"inline_edit_sql\">" .
-                PMA_escapeJsString(__('Inline')) .
+                PMA_escapeJsString(_pgettext('Inline edit query', 'Inline')) .
                 "</a>]');\n" .
                 "//]]>\n" .
                 "</script>";
@@ -1811,7 +1811,7 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
 
 
 /**
- * Splits a URL string by parameter 
+ * Splits a URL string by parameter
  *
  * @param string  $url the URL
  * @return array  the parameter/value pairs, for example [0] db=sakila

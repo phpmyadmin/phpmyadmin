@@ -2550,6 +2550,7 @@ msgid "Inline edit of this query"
 msgstr "Редакция на заявката на място"
 
 #: libraries/common.lib.php:1216
+msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "На място"
 

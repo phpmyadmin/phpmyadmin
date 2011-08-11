@@ -2517,6 +2517,7 @@ msgid "Inline edit of this query"
 msgstr "வினாவிற்கான உன்வரிசை மாற்றப்பகுதி "
 
 #: libraries/common.lib.php:1216
+msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "உள்வரிசை"
 
