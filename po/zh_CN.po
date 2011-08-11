@@ -4201,7 +4201,7 @@ msgstr "隐藏数据库"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
-msgstr "不使用 SQL 查询历史功能请留空，默认：[kbd]pma_history[/kbd]"
+msgstr "不使用 SQL 查询历史功能请留空，推荐: [kbd]pma_history[/kbd]"
 
 #: libraries/config/messages.inc.php:394
 msgid "SQL query history table"
