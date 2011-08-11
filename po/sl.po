@@ -1456,10 +1456,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:177
-#, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
-msgstr "Osveži"
+msgstr "Ponovno naloži stran"
 
 #: js/messages.php:179
 msgid "Affected rows:"
