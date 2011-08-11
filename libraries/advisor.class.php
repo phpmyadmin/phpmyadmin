@@ -81,14 +81,26 @@ class Advisor
         return true;
     }
 
+    /**
+     * Splits justification to text and formula.
+     */
+    function splitJustification($rule)
+    {
+        $jst = preg_split('/\s*\|\s*/', $rule['justification'], 2);
+        if(count($jst) > 1) {
+            $jst[0] = preg_replace('/%( |,|\.|$)/','%%\1',$jst[0]);
+            return array($jst[0], $jst[1]);
+       }
+        return array($rule['justification']);
+    }
+
     // Adds a rule to the result list
     function addRule($type, $rule) {
         switch($type) {
             case 'notfired':
             case 'fired':
-                    $jst = preg_split('/\s*\|\s*/',$rule['justification'],2);
+                    $jst = Advisor::splitJustification($rule['justification']);
                     if(count($jst) > 1) {
-                        $jst[0] = preg_replace('/%( |,|\.|$)/','%%\1',$jst[0]);
                         try {
                             $str = $this->ruleExprEvaluate(
                                 'sprintf("'.$jst[0].'",'.$jst[1].')',
