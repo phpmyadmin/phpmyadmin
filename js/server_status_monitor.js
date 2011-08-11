@@ -161,7 +161,7 @@ $(function() {
             'swap': {
                 title: PMA_messages['strSystemSwap'],
                 nodes: [
-                    { name: PMA_messages['strTotalSwap'], dataPoints: [{ type: 'memory', name: 'SwapUsed' }], valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                    { name: PMA_messages['strUsedSwap'], dataPoints: [{ type: 'memory', name: 'SwapUsed' }], valueDivisor: 1024, unit: PMA_messages['strMiB'] },
                     { name: PMA_messages['strCachedSwap'], dataPoints: [{ type: 'memory', name: 'SwapCached' }], valueDivisor: 1024, unit: PMA_messages['strMiB'] },
                     { name: PMA_messages['strFreeSwap'], dataPoints: [{ type: 'memory', name: 'SwapFree' }], valueDivisor: 1024, unit: PMA_messages['strMiB'] }
                 ],
@@ -1289,6 +1289,8 @@ $(function() {
             }
             // cur[0].value is Qcache_hits, cur[1].value is Com_select
             var diffQHits = cur[0].value - prev[0].value;
+			console.log(cur);
+			console.log(diffQHits / (cur[1].value - prev[1].value + diffQHits) * 100);
             return diffQHits / (cur[1].value - prev[1].value + diffQHits) * 100;
             
         // Query cache usage (%)
