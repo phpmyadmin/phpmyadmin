@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-11 15:11+0200\n"
-"PO-Revision-Date: 2011-08-11 18:35+0200\n"
+"PO-Revision-Date: 2011-08-11 18:36+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -4739,10 +4739,9 @@ msgid "Show function fields"
 msgstr "Prikaži polja funkcij"
 
 #: libraries/config/messages.inc.php:460
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Whether to show hint or not"
-msgstr "Kje naj prikažem povezave vrstic tabel"
+msgstr "Naj prikažem namig ali ne"
 
 #: libraries/config/messages.inc.php:461
 #, fuzzy
