@@ -124,7 +124,7 @@ printf(__('Table joins average: %s, this value should be less than 1 per hour'),
 
 echo __('rate of reading first index entry');
 echo __('The rate of reading the first index entry is high.');
-echo __('This usually indicates frequent full index scans. Full index scans are faster than table scans but require lots of cpu cycles in big tables, if those tables that have or had high volumes of UPDATEs and DELETEs, running \'OPTIMIZE TABLE\' might reduce the amount of and/or speed up full index scans. Other than that full index scans can only be reduced by rewriting queries.');
+echo __('This usually indicates frequent full index scans. Full index scans are faster than table scans but require lots of CPU cycles in big tables, if those tables that have or had high volumes of UPDATEs and DELETEs, running \'OPTIMIZE TABLE\' might reduce the amount of and/or speed up full index scans. Other than that full index scans can only be reduced by rewriting queries.');
 printf(__('Index scans average: %s, this value should be less than 1 per hour'), 0);
 
 echo __('rate of reading fixed position');
@@ -139,12 +139,12 @@ printf(__('Rate of reading next table row: %s, this value should be less than 1 
 
 echo __('tmp_table_size vs. max_heap_table_size');
 echo __('tmp_table_size and max_heap_table_size are not the same.');
-echo __('If you have deliberatly changed one of either: The server uses the lower value of either to determine the maximum size of in-memory tables. So if you wish to increse the in-memory table limit you will have to increase the other value as well.');
+echo __('If you have deliberately changed one of either: The server uses the lower value of either to determine the maximum size of in-memory tables. So if you wish to increase the in-memory table limit you will have to increase the other value as well.');
 printf(__('Current values are tmp_table_size: %s, max_heap_table_size: %s'), 0);
 
 echo __('% temp disk tables');
 echo __('Many temporary tables are being written to disk instead of being kept in memory.');
-echo __('Increasing {max_heap_table_size} and {tmp_table_size} might help. However some temporary tables are always being written to disk, independent of the value of these variables. To elminiate these you will have to rewrite your queries to avoid those conditions (Within a temprorary table: Presence of a BLOB or TEXT column or presence of a column bigger than 512 bytes) as mentioned in the beginning of an <a href=\"http://www.facebook.com/note.php?note_id=10150111255065841&comments\">Article by the Pythian Group</a>');
+echo __('Increasing {max_heap_table_size} and {tmp_table_size} might help. However some temporary tables are always being written to disk, independent of the value of these variables. To elminiate these you will have to rewrite your queries to avoid those conditions (Within a temporary table: Presence of a BLOB or TEXT column or presence of a column bigger than 512 bytes) as mentioned in the beginning of an <a href=\"http://www.facebook.com/note.php?note_id=10150111255065841&comments\">Article by the Pythian Group</a>');
 printf(__('%s%% of all temporary tables are being written to disk, this value should be below 25%%'), 0);
 
 echo __('temp disk rate');
@@ -218,7 +218,7 @@ echo __('Set slow_launch_time to 1s or 2s to correctly count threads that are sl
 printf(__('slow_launch_time is set to %s'), 0);
 
 echo __('% connections used');
-echo __('The maximum amount of used connnections is getting close to the value of max_connections.');
+echo __('The maximum amount of used connections is getting close to the value of max_connections.');
 echo __('Increase max_connections, or decrease wait_timeout so that connections that do not close database handlers properly get killed sooner. Make sure the code closes database handlers properly.');
 printf(__('Max_used_connections is at %s%% of max_connections, it should be below 80%%'), 0);
 
@@ -249,7 +249,7 @@ echo __('have_innodb is set to \'value\'');
 
 echo __('% InnoDB log size');
 echo __('The InnoDB log file size is not an appropriate size, in relation to the InnoDB buffer pool.');
-echo __('Especiallay one a system with a lot of writes to InnoDB tables you shoud set innodb_log_file_size to 25% of {innodb_buffer_pool_size}. However the bigger this value, the longer the recovery time will be when database crashes, so this value should not be set much higher than 256 MiB. Please note however that you cannot simply change the value of this variable. You need to shutdown the server, remove the InnoDB log files, set the new value in my.cnf, start the server, then check the error logs if everything went fine. See also <a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>');
+echo __('Especially one a system with a lot of writes to InnoDB tables you should set innodb_log_file_size to 25% of {innodb_buffer_pool_size}. However the bigger this value, the longer the recovery time will be when database crashes, so this value should not be set much higher than 256 MiB. Please note however that you cannot simply change the value of this variable. You need to shutdown the server, remove the InnoDB log files, set the new value in my.cnf, start the server, then check the error logs if everything went fine. See also <a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>');
 printf(__('Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, it should not be below 20%%'), 0);
 
 echo __('Max InnoDB log size');
