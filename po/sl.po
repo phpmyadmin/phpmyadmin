@@ -1778,11 +1778,10 @@ msgid "Prev"
 msgstr "Prej"
 
 #: js/messages.php:320
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
-msgstr "Naslednji"
+msgstr "Nasl"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:323
