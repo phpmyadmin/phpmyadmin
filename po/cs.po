@@ -2124,10 +2124,9 @@ msgstr[1] "Vloženy %1$d řádky."
 msgstr[2] "Vloženo %1$d řádek."
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Error reading data:"
 msgid "Error while creating PDF:"
-msgstr "Chyba při čtení dat:"
+msgstr "Chyba při vytváření PDF::"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
