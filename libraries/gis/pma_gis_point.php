@@ -220,7 +220,8 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
      *
      * @return the WKT for the data from ESRI shape files
      */
-    public function getShape($row_data) {
+    public function getShape($row_data)
+    {
         return 'POINT(' . (isset($row_data['x']) ? $row_data['x'] : '')
              . ' ' . (isset($row_data['y']) ? $row_data['y'] : '') . ')';
     }

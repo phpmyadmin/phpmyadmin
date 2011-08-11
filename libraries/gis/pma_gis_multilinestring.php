@@ -244,8 +244,8 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
     /**
      * Generate the WKT with the set of parameters passed by the GIS editor.
      *
-     * @param array $gis_data GIS data
-     * @param int   $index    Index into the parameter object
+     * @param array  $gis_data GIS data
+     * @param int    $index    Index into the parameter object
      * @param string $empty    Value for empty points
      *
      * @return WKT with the set of parameters passed by the GIS editor
@@ -288,11 +288,12 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
      *
      * @return the WKT for the data from ESRI shape files
      */
-    public function getShape($row_data) {
+    public function getShape($row_data)
+    {
         $wkt = 'MULTILINESTRING(';
         for ($i = 0; $i < $row_data['numparts']; $i++) {
             $wkt .= '(';
-            foreach($row_data['parts'][$i]['points'] as $point) {
+            foreach ($row_data['parts'][$i]['points'] as $point) {
                 $wkt .= $point['x'] . ' ' . $point['y'] . ',';
             }
             $wkt = substr($wkt, 0, strlen($wkt) - 1);
