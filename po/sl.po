@@ -4744,10 +4744,9 @@ msgid "Whether to show hint or not"
 msgstr "Naj prikažem namig ali ne"
 
 #: libraries/config/messages.inc.php:461
-#, fuzzy
 #| msgid "Show indexes"
 msgid "Show hint"
-msgstr "Pokaži indekse"
+msgstr "Prikaži namig"
 
 #: libraries/config/messages.inc.php:462
 msgid ""
