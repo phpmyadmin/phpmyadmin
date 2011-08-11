@@ -1516,7 +1516,7 @@ msgstr "Utemeljitev"
 
 #: js/messages.php:195
 msgid "Used variable / formula"
-msgstr ""
+msgstr "Uporabljena spremenljivka/formula"
 
 #: js/messages.php:196
 msgid "Test"
