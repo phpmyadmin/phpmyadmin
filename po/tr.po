@@ -12335,7 +12335,7 @@ msgstr ""
 #: po/advisory_rules.php:230
 #| msgid "Persistent connections"
 msgid "rate of aborted connections"
-msgstr "durdurulmuş bağlantıların oranı"
+msgstr "durdurulan bağlantıların oranı"
 
 #: po/advisory_rules.php:231
 msgid "Too many connections are aborted"
