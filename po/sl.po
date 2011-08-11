@@ -1165,10 +1165,9 @@ msgid "Cached memory"
 msgstr "Predpomnjen pomnilnik"
 
 #: js/messages.php:102
-#, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "Zaloga medpomnilnika"
+msgstr "Medpomnljen pomnilnik"
 
 #: js/messages.php:103
 #, fuzzy
