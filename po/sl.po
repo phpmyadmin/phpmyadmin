@@ -1190,7 +1190,7 @@ msgstr "Predpomnjena izmenjava"
 
 #: js/messages.php:108
 msgid "Used Swap"
-msgstr ""
+msgstr "Medpomnjena izmenjava"
 
 #: js/messages.php:109
 #, fuzzy
