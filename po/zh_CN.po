@@ -2545,11 +2545,10 @@ msgstr "下一页"
 
 #: libraries/common.lib.php:2298 libraries/common.lib.php:2301
 #: libraries/display_tbl.lib.php:385
-#, fuzzy
 #| msgid "End"
 msgctxt "Last page"
 msgid "End"
-msgstr "结束"
+msgstr "尾页"
 
 #: libraries/common.lib.php:2366
 #, php-format
