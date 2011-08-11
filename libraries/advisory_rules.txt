@@ -218,14 +218,14 @@ rule 'rate of reading fixed position'
 	Handler_read_rnd / Uptime
 	value * 60 * 60 > 1
 	The rate of reading data from a fixed position is high.
-	This indicates many queries need to sort results and/or do a full table scan, including join queries that do not use indexes. Add indexes where applicable.
+	This indicates that many queries need to sort results and/or do a full table scan, including join queries that do not use indexes. Add indexes where applicable.
 	Rate of reading fixed position average: %s, this value should be less than 1 per hour | PMA_bytime(value,2)
 
 rule 'rate of reading next table row'
 	Handler_read_rnd_next / Uptime
 	value * 60 * 60 > 1
 	The rate of reading the next table row is high.
-	This indicates many queries are doing full table scans. Add indexes where applicable.
+	This indicates that many queries are doing full table scans. Add indexes where applicable.
 	Rate of reading next table row: %s, this value should be less than 1 per hour | PMA_bytime(value,2)
 
 # temp tables
