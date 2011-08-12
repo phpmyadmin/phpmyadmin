@@ -479,7 +479,6 @@ $(document).ready(function() {
 	if (xType != 'text' && yType != 'text') {
 	    $.each(data,function(key,value) {
 		var xVal = (xType == 'numeric') ? value[xLabel] : getTimeStamp(value[xLabel],$('#types_0').val());
-		alert(xVal);
 		var yVal = (yType == 'numeric') ? value[yLabel] : getTimeStamp(value[yLabel],$('#types_1').val());
                 series[0].data.push({ name: value[dataLabel], x: xVal, y: yVal, marker: {fillColor: colorCodes[it % 8]} , id: it } );
 		xCord.push(value[xLabel]);
