@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-11 15:11+0200\n"
-"PO-Revision-Date: 2011-08-12 11:43+0200\n"
+"PO-Revision-Date: 2011-08-12 11:44+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9190,10 +9190,9 @@ msgid "Monitor"
 msgstr "モニタ"
 
 #: server_status.php:648
-#, fuzzy
 #| msgid "Apply a divisor"
 msgid "Advisor"
-msgstr "除数を適用する"
+msgstr "アドバイザ"
 
 #: server_status.php:658 server_status.php:680
 msgid "Refresh rate: "
