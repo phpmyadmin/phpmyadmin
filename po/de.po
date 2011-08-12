@@ -1188,7 +1188,7 @@ msgstr "Durchschnittliche Auslastung"
 #, fuzzy
 #| msgid "System memory"
 msgid "Total memory"
-msgstr "Arbeitsspeicher"
+msgstr "Gesamter Speicher"
 
 #: js/messages.php:108
 #, fuzzy
