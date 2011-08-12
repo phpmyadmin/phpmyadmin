@@ -8044,7 +8044,7 @@ msgid ""
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
-"Zeigt einen Link an; die Spalte enthlt den Dateinamen. Die erste Option ist "
+"Zeigt einen Link an; die Spalte enthält den Dateinamen. Die erste Option ist "
 "ein Präfix, wie \"http://www.example.com/\". Die zweite Option ist der "
 "darzustellende Titel des Links."
 
