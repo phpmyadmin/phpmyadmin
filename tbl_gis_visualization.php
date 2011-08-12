@@ -64,7 +64,7 @@ if (! isset($visualizationSettings['spatialColumn'])) {
 }
 
 // Convert geometric columns from bytes to text.
-$modified_query = PMA_GIS_modify_query($sql_query, $visualizationSettings);
+$modified_query = PMA_GIS_modifyQuery($sql_query, $visualizationSettings);
 $modified_result = PMA_DBI_try_query($modified_query);
 
 $data = array();
@@ -90,7 +90,7 @@ if (isset($_REQUEST['saveToFile'])) {
     }
 
     $save_format = $_REQUEST['fileFormat'];
-    PMA_GIS_save_to_file($data, $visualizationSettings, $save_format, $file_name);
+    PMA_GIS_saveToFile($data, $visualizationSettings, $save_format, $file_name);
     exit();
 }
 
@@ -98,7 +98,7 @@ $svg_support = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER <= 8) ? fal
 $format = $svg_support ? 'svg' : 'png';
 
 // get the chart and settings after chart generation
-$visualization = PMA_GIS_visualization_results($data, $visualizationSettings, $format);
+$visualization = PMA_GIS_visualizationResults($data, $visualizationSettings, $format);
 
 /**
  * Displays the page
@@ -118,7 +118,7 @@ $visualization = PMA_GIS_visualization_results($data, $visualizationSettings, $f
 
     <script language="javascript" type="text/javascript">
         function drawOpenLayers() {
-            <?php echo (PMA_GIS_visualization_results($data, $visualizationSettings, 'ol')); ?>
+            <?php echo (PMA_GIS_visualizationResults($data, $visualizationSettings, 'ol')); ?>
         }
     </script>
 

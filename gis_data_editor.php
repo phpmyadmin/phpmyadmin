@@ -55,8 +55,8 @@ $result = "'" . $wkt . "'," . $srid;
 $format = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER <= 8) ? 'png' : 'svg';
 $visualizationSettings = array('width' => 450, 'height' => 300, 'spatialColumn' => 'wkt');
 $data = array(array('wkt' => $wkt_with_zero, 'srid' => $srid));
-$visualization = PMA_GIS_visualization_results($data, $visualizationSettings, $format);
-$open_layers = PMA_GIS_visualization_results($data, $visualizationSettings, 'ol');
+$visualization = PMA_GIS_visualizationResults($data, $visualizationSettings, $format);
+$open_layers = PMA_GIS_visualizationResults($data, $visualizationSettings, 'ol');
 
 // If the call is to update the WKT and visualization make an AJAX response
 if(isset($_REQUEST['generate']) && $_REQUEST['generate'] == true) {

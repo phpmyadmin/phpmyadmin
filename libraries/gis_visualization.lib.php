@@ -16,7 +16,7 @@
  *
  * @return the modified sql query.
  */
-function PMA_GIS_modify_query($sql_query, $visualizationSettings)
+function PMA_GIS_modifyQuery($sql_query, $visualizationSettings)
 {
     $modified_query = 'SELECT ';
 
@@ -121,7 +121,7 @@ function sanitize($select)
  *
  * @return string HTML and JS code for the GIS visualization
  */
-function PMA_GIS_visualization_results($data, &$visualizationSettings, $format)
+function PMA_GIS_visualizationResults($data, &$visualizationSettings, $format)
 {
     include_once './libraries/gis/pma_gis_visualization.php';
     include_once './libraries/gis/pma_gis_factory.php';
@@ -158,7 +158,7 @@ function PMA_GIS_visualization_results($data, &$visualizationSettings, $format)
  *
  * @return file File containing the visualization
  */
-function PMA_GIS_save_to_file($data, $visualizationSettings, $format, $fileName)
+function PMA_GIS_saveToFile($data, $visualizationSettings, $format, $fileName)
 {
     include_once './libraries/gis/pma_gis_visualization.php';
     include_once './libraries/gis/pma_gis_factory.php';
