@@ -12199,12 +12199,10 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Latched pages"
 #~ msgid "memcached usage"
 #~ msgstr "قۇلۇپلانغان بەت"
 
 #, fuzzy
-#~| msgid "PBMS connection failed:"
 #~ msgid "% connections used"
 #~ msgstr "PBMS ئۇلىنالمىدى:"
 

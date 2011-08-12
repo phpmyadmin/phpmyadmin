@@ -12329,32 +12329,26 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Space usage"
 #~ msgid "memcached usage"
 #~ msgstr "المساحة المستخدمة"
 
 #, fuzzy
-#~| msgid "Could not open file: %s"
 #~ msgid "% open files"
 #~ msgstr "لايمكن فتح الملف : %s"
 
 #, fuzzy
-#~| msgid "Connections"
 #~ msgid "% connections used"
 #~ msgstr "اتصالات"
 
 #, fuzzy
-#~| msgid "Force SSL connection"
 #~ msgid "% aborted connections"
 #~ msgstr "فرض إتصال SSL"
 
 #, fuzzy
-#~| msgid "Usage"
 #~ msgid "CPU Usage"
 #~ msgstr "المساحة"
 
 #, fuzzy
-#~| msgid "Usage"
 #~ msgid "Swap Usage"
 #~ msgstr "المساحة"
 

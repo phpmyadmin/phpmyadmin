@@ -12751,37 +12751,30 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Space usage"
 #~ msgid "memcached usage"
 #~ msgstr "Uso do espaço"
 
 #, fuzzy
-#~| msgid "Show open tables"
 #~ msgid "% open files"
 #~ msgstr "Exibir tabelas abertas"
 
 #, fuzzy
-#~| msgid "Connections"
 #~ msgid "% connections used"
 #~ msgstr "Conexões"
 
 #, fuzzy
-#~| msgid "Persistent connections"
 #~ msgid "% aborted connections"
 #~ msgstr "Conexões persistentes"
 
 #, fuzzy
-#~| msgid "Usage"
 #~ msgid "CPU Usage"
 #~ msgstr "Uso"
 
 #, fuzzy
-#~| msgid "2. Usage"
 #~ msgid "Memory Usage"
 #~ msgstr "2. Utilização"
 
 #, fuzzy
-#~| msgid "Usage"
 #~ msgid "Swap Usage"
 #~ msgstr "Uso"
 

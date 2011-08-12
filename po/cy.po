@@ -12372,12 +12372,10 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Latched pages"
 #~ msgid "memcached usage"
 #~ msgstr "Tudalennau "
 
 #, fuzzy
-#~| msgid "MySQL connection collation"
 #~ msgid "% connections used"
 #~ msgstr "Coladiad cysylltiad MySQL"
 

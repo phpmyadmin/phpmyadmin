@@ -11945,12 +11945,10 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Could not open file: %s"
 #~ msgid "% open files"
 #~ msgstr "N'eus ket bet gallet digeriñ ar restr : %s"
 
 #, fuzzy
-#~| msgid "Connections"
 #~ msgid "% connections used"
 #~ msgstr "Kevreadennoù"
 
