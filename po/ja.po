@@ -1758,11 +1758,10 @@ msgid "Prev"
 msgstr "前月"
 
 #: js/messages.php:320
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
-msgstr "次へ"
+msgstr "翌月"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:323
