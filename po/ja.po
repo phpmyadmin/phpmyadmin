@@ -11529,7 +11529,7 @@ msgstr "MySQL サーバのバージョンが 5.1 未満です。"
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
-msgstr "アップグレード推奨。MySQL 5.1 はパフォーマンスが向上していますし、MySQL 5.5 であれば更に向上しています。"
+msgstr "アップグレードを推奨します。MySQL 5.1 はパフォーマンスが向上していますし、MySQL 5.5 であれば更に向上しています。"
 
 #: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
 #, fuzzy, php-format
