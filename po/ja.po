@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-11 15:11+0200\n"
-"PO-Revision-Date: 2011-08-12 11:37+0200\n"
+"PO-Revision-Date: 2011-08-12 11:39+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6376,7 +6376,6 @@ msgid ""
 msgstr "下に示す構成が、作成もしくは変更されました。ここで次のことが行えます。"
 
 #: libraries/import.lib.php:1077
-#, fuzzy
 #| msgid "View a structure`s contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name"
 msgstr "名前をクリックすることで構造内容を表示します。"
