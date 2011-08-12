@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-13 01:50+0200\n"
+"PO-Revision-Date: 2011-08-13 01:51+0200\n"
 "Last-Translator: Sven Strickroth <email@cs-ware.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1216,8 +1216,9 @@ msgid "Total Swap"
 msgstr "Gesamt Swap"
 
 #: js/messages.php:114
+#, fuzzy
 msgid "Cached Swap"
-msgstr ""
+msgstr "Cached Swap"
 
 #: js/messages.php:115
 msgid "Used Swap"
