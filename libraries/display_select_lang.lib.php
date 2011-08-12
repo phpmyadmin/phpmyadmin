@@ -55,7 +55,7 @@ function PMA_select_language($use_fieldset = false, $show_doc = true)
     }
     ?>
 
-    <select name="lang" onchange="this.form.submit();" xml:lang="en" dir="ltr">
+    <select name="lang" class="autosubmit" xml:lang="en" dir="ltr">
     <?php
 
     uasort($GLOBALS['available_languages'], 'PMA_language_cmp');

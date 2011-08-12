@@ -180,7 +180,6 @@ function markDbTable(db, table)
  */
 function setAll( new_lang, new_collation_connection, new_server, new_db, new_table, new_token )
 {
-    //alert('setAll( ' + new_lang + ', ' + new_collation_connection + ', ' + new_server + ', ' + new_db + ', ' + new_table + ', ' + new_token + ' )');
     if (new_server != server || new_lang != lang
       || new_collation_connection != collation_connection) {
         // something important has changed
@@ -240,7 +239,6 @@ function focus_querywindow(sql_query)
     if ( !querywindow || querywindow.closed || !querywindow.location) {
         // we need first to open the window and cannot pass the query with it
         // as we dont know if the query exceeds max url length
-        /* url = 'querywindow.php?' + common_query + '&db=' + db + '&table=' + table + '&sql_query=SELECT * FROM'; */
         query_to_load = sql_query;
         open_querywindow();
         insertQuery(0);

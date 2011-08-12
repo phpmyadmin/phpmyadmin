@@ -38,7 +38,7 @@ class PMA_display_html_checkbox_test extends PHPUnit_Extensions_OutputTestCase
         $name = "test_display_html_checkbox";
         $label = "text_label_for_checkbox";
 
-        $this->expectOutputString('<input type="checkbox" name="' . $name . '" id="' . $name . '" onclick="this.form.submit();" /><label for="' . $name . '">' . $label . '</label>');
+        $this->expectOutputString('<input type="checkbox" name="' . $name . '" id="' . $name . '" class="autosubmit" /><label for="' . $name . '">' . $label . '</label>');
         PMA_display_html_checkbox($name,$label,false,true);
     }
 
@@ -47,9 +47,9 @@ class PMA_display_html_checkbox_test extends PHPUnit_Extensions_OutputTestCase
         $name = "test_display_html_checkbox";
         $label = "text_label_for_checkbox";
 
-        $this->expectOutputString('<input type="checkbox" name="' . $name . '" id="' . $name . '" checked="checked" onclick="this.form.submit();" /><label for="' . $name . '">' . $label . '</label>');
+        $this->expectOutputString('<input type="checkbox" name="' . $name . '" id="' . $name . '" checked="checked" class="autosubmit" /><label for="' . $name . '">' . $label . '</label>');
         PMA_display_html_checkbox($name,$label,true,true);
     }
 }
- 
+
 //PMA_display_html_checkbox

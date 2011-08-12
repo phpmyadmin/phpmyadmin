@@ -378,6 +378,19 @@ $cfg['Servers'][$i]['tracking'] = '';
 $cfg['Servers'][$i]['userconfig'] = '';
 
 /**
+ * Maximum number of records saved in $cfg['Servers'][$i]['table_uiprefs'] table.
+ *
+ * In case where tables in databases is modified (e.g. dropped or renamed),
+ * table_uiprefs may contains invalid data (referring to tables which are not
+ * exist anymore).
+ * This configuration make sure that we only keep N (N = MaxTableUiprefs)
+ * newest record in table_uiprefs and automatically delete older records.
+ *
+ * @global integer $cfg['Servers'][$i]['userconfig'] = '';
+ */
+$cfg['Servers'][$i]['MaxTableUiprefs'] = 100;
+
+/**
  * set to false if you know that your pma_* tables are up to date.
  * This prevents compatibility checks and thereby increases performance.
  *
@@ -542,6 +555,13 @@ $cfg['MaxDbList'] = 100;
  * @global integer $cfg['MaxTableList']
  */
 $cfg['MaxTableList'] = 250;
+
+/**
+ * whether to show hint or not
+ *
+ * @global boolean $cfg['ShowHint']
+ */
+$cfg['ShowHint'] = true;
 
 /**
  * maximum number of characters when a SQL query is displayed
@@ -2258,7 +2278,7 @@ $cfg['CharTextareaRows'] = 2;
 $cfg['LimitChars'] = 50;
 
 /**
- * Where to show the edit/inline_edit/delete links in browse mode
+ * Where to show the edit/copy/delete links in browse mode
  * Possible values are 'left', 'right', 'both' and 'none';
  * which will be interpreted as 'top', 'bottom', 'both' and 'none'
  * respectively for vertical display mode
@@ -2311,6 +2331,11 @@ $cfg['ShowBrowseComments'] = true;
  * @global boolean $cfg['ShowPropertyComments']
  */
 $cfg['ShowPropertyComments']= true;
+
+/**
+ * save edited cell(s) in browse-mode at once.
+ */
+$cfg['SaveCellsAtOnce'] = false;
 
 /**
  * shows table display direction.

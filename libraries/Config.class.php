@@ -284,7 +284,7 @@ class PMA_Config
         $match = array();
         if (! preg_match('@([0-9]{1,2}).([0-9]{1,2}).([0-9]{1,2})@',
                 phpversion(), $match)) {
-            $result = preg_match('@([0-9]{1,2}).([0-9]{1,2})@',
+            preg_match('@([0-9]{1,2}).([0-9]{1,2})@',
                 phpversion(), $match);
         }
         if (isset($match) && ! empty($match[1])) {
@@ -1152,7 +1152,7 @@ class PMA_Config
         $options = PMA_Config::_getFontsizeOptions($current_size);
 
         $return = '<label for="select_fontsize">' . __('Font size') . ':</label>' . "\n";
-        $return .= '<select name="set_fontsize" id="select_fontsize" onchange="this.form.submit();">' . "\n";
+        $return .= '<select name="set_fontsize" id="select_fontsize" class="autosubmit">' . "\n";
         foreach ($options as $option) {
             $return .= '<option value="' . $option . '"';
             if ($option == $current_size) {

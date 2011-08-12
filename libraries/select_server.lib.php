@@ -31,8 +31,7 @@ function PMA_select_server($not_only_options, $ommit_fieldset)
         }
         echo '<label for="select_server">' . __('Current Server') . ':</label> ';
 
-        echo '<select name="server" id="select_server"'
-            . ' onchange="if (this.value != \'\') this.form.submit();">';
+        echo '<select name="server" id="select_server" class="autosubmit">';
         echo '<option value="">(' . __('Servers') . ') ...</option>' . "\n";
     } elseif ($list) {
         echo __('Current Server') . ':<br />';
