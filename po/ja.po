@@ -9207,7 +9207,7 @@ msgstr "モニタ"
 
 #: server_status.php:690
 msgid "Advisor"
-msgstr "生の値（書式化なし）で表示する"
+msgstr "アドバイザ"
 
 #: server_status.php:700 server_status.php:722
 msgid "Refresh rate: "
