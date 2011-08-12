@@ -1500,6 +1500,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             g.cellEditHint = PMA_messages['strCellEditHint'];
             g.saveCellWarning = PMA_messages['strSaveCellWarning'];
             g.alertNonUnique = PMA_messages['strAlertNonUnique'];
+            g.gotoLinkText = PMA_messages['strGoToLink'];
             
             // initialize cell editing configuration
             g.saveCellsAtOnce = $('#save_cells_at_once').val();

@@ -263,6 +263,7 @@ $js_messages['strColVisibHint'] = __('Click the drop-down arrow<br />to toggle c
 $js_messages['strShowAllCol'] = __('Show all');
 $js_messages['strAlertNonUnique'] = __('This table contains no unique field. Features related to the grid edit, checkbox, Edit, Copy and Delete links may not work after saving.');
 $js_messages['strGridEditFeatureHint'] = __('You can also edit most columns<br />by clicking directly on their content.');
+$js_messages['strGoToLink'] = __('Go to link');
 
 /* password generation */
 $js_messages['strGeneratePassword'] = __('Generate password');
