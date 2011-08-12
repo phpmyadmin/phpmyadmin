@@ -10387,7 +10387,7 @@ msgstr "Divisor hinzufügen"
 
 #: server_status.php:1549
 msgid "Append unit to data values"
-msgstr "Einheiten an Datenwerte anfügen."
+msgstr "Einheiten an Datenwerte anfügen"
 
 #: server_status.php:1555
 msgid "Add this series"
