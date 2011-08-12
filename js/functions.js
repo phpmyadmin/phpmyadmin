@@ -2069,20 +2069,29 @@ $(document).ready(function() {
         var $link = $(this);
         var href = $link.find("a").first().attr("href");
         href = href.split('?');
+        if ($("#sqlqueryresults").length != 0) {
+            $("#sqlqueryresults").remove();
+        }
+        if ($("#result_query").length != 0) {
+            $("#result_query").remove();
+        }
         //variables which stores the common attributes
         $.post(href[0], href[1]+"&ajax_request=true", function(data) {
-            if ($("#sqlqueryresults").length != 0) {
-                $("#sqlqueryresults").remove();
-            }
-            if ($("#result_query").length != 0) {
-                $("#result_query").remove();
-            }
-            if (data.success == true) {
+            if (data.success == undefined) {
+                var $temp_div = $("<div id='temp_div'></div>");
+                $temp_div.html(data);
+                var $success = $temp_div.find("#result_query .success");
+                PMA_ajaxShowMessage($success);
+                $("<div id='sqlqueryresults' class='ajax'></div>").insertAfter("#topmenucontainer");
+                $("#sqlqueryresults").html(data);
+                PMA_init_slider();
+                $("#sqlqueryresults").children("fieldset").remove();
+            } else if (data.success == true ) {
                 PMA_ajaxShowMessage(data.message);
-                $("<div id='sqlqueryresults'></div>").insertAfter("#topmenucontainer");
+                $("<div id='sqlqueryresults' class='ajax'></div>").insertAfter("#topmenucontainer");
                 $("#sqlqueryresults").html(data.sql_query);
             } else {
-                var $temp_div = $("<div id='temp_div'></div>")
+                var $temp_div = $("<div id='temp_div'></div>");
                 $temp_div.html(data.error);
                 var $error = $temp_div.find("code").addClass("error");
                 PMA_ajaxShowMessage($error);
