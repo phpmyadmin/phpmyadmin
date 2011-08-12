@@ -447,6 +447,7 @@ $(document).ready(function() {
 	        title: { text: $('#tableid_0').val() },
             },
             yAxis: {
+		min: null,
 	        title: { text: $('#tableid_1').val() },
 	    },
         }
