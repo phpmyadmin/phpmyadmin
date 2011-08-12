@@ -63,7 +63,7 @@ function getDate(val,type) {
 	return Highcharts.dateFormat('%Y-%m-%e %H:%M:%S', val)
     }	
     else if(type.toString().search(/time/i) != -1) {
-        return Highcharts.dateFormat('%H:%M:%S', val)
+        return Highcharts.dateFormat('%H:%M:%S', val + 19800000)
     }	
     else if (type.toString().search(/date/i) != -1) {
         return Highcharts.dateFormat('%Y-%m-%e', val)
@@ -80,7 +80,7 @@ function getTimeStamp(val,type) {
 	return getDateFromFormat(val,'yyyy-MM-dd HH:mm:ss', val)
     }	
     else if(type.toString().search(/time/i) != -1) {
-	return getDateFromFormat(val,'HH:mm:ss')
+	return getDateFromFormat('1970-01-01 ' + val,'yyyy-MM-dd HH:mm:ss')
     }	
     else if (type.toString().search(/date/i) != -1) {
 	return getDateFromFormat(val,'yyyy-MM-dd')
