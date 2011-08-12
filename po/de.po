@@ -7393,7 +7393,7 @@ msgstr "Sie müssen einen Trigger-Namen angeben"
 #: libraries/rte/rte_triggers.lib.php:415
 msgid "You must provide a valid event for the trigger"
 msgstr ""
-"Sie müssen einen Namen und einen Typ für jeden Trugger-Parameter angeben."
+"Sie müssen einen Namen und einen Typ für jeden Trigger-Parameter angeben"
 
 #: libraries/rte/rte_triggers.lib.php:421
 msgid "You must provide a valid table name"
