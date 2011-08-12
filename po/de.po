@@ -1730,7 +1730,7 @@ msgstr "Option hinzufügen zu Spalte "
 
 #: js/messages.php:278
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "Drücken Sie ESC um das Bearbeiten abzubrechen"
 
 #: js/messages.php:279
 msgid ""
