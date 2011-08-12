@@ -11544,7 +11544,7 @@ msgstr "マイナーバージョン"
 
 #: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr "バージョン 5.1.30 (5.1 の 最初の安定版) 未満"
+msgstr "バージョン 5.1.30 (5.1 の 最初の安定版) 未満です。"
 
 #: po/advisory_rules.php:42
 msgid ""
