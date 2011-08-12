@@ -353,22 +353,31 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
          * Send column preferences (column order and visibility) to the server.
          */
         sendColPrefs: function() {
-            var post_params = {
-                ajax_request: true,
-                db: g.db,
-                table: g.table,
-                token: g.token,
-                server: g.server,
-                set_col_prefs: true,
-                table_create_time: g.tableCreateTime
-            };
-            if (g.colOrder.length > 0) {
-                $.extend(post_params, { col_order: g.colOrder.toString() });
+            if ($(g.t).is('.ajax')) {   // only send preferences if AjaxEnable is true
+                var post_params = {
+                    ajax_request: true,
+                    db: g.db,
+                    table: g.table,
+                    token: g.token,
+                    server: g.server,
+                    set_col_prefs: true,
+                    table_create_time: g.tableCreateTime
+                };
+                if (g.colOrder.length > 0) {
+                    $.extend(post_params, { col_order: g.colOrder.toString() });
+                }
+                if (g.colVisib.length > 0) {
+                    $.extend(post_params, { col_visib: g.colVisib.toString() });
+                }
+                $.post('sql.php', post_params, function(data) {
+                    if (data.success != true) {
+                        var $temp_div = $(document.createElement('div'));
+                        $temp_div.html(data.error);
+                        $temp_div.addClass("error");
+                        PMA_ajaxShowMessage($temp_div);
+                    }
+                });
             }
-            if (g.colVisib.length > 0) {
-                $.extend(post_params, { col_visib: g.colVisib.toString() });
-            }
-            $.post('sql.php', post_params);
         },
         
         /**
@@ -1500,6 +1509,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             g.cellEditHint = PMA_messages['strCellEditHint'];
             g.saveCellWarning = PMA_messages['strSaveCellWarning'];
             g.alertNonUnique = PMA_messages['strAlertNonUnique'];
+            g.gotoLinkText = PMA_messages['strGoToLink'];
             
             // initialize cell editing configuration
             g.saveCellsAtOnce = $('#save_cells_at_once').val();
@@ -1560,6 +1570,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             
             // attach to global div
             $(g.gDiv).append(g.cEdit);
+            
+            // add hint for grid editing feature when hovering "Edit" link in each table row
+            PMA_createqTip($(g.t).find('.edit_row_anchor a'), PMA_messages['strGridEditFeatureHint']);
         }
     }
     

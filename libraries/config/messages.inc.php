@@ -395,6 +395,8 @@ $strConfigServers_history_name = __('SQL query history table');
 $strConfigServers_host_desc = __('Hostname where MySQL server is running');
 $strConfigServers_host_name = __('Server hostname');
 $strConfigServers_LogoutURL_name = __('Logout URL');
+$strConfigServers_MaxTableUiprefs_desc = __('This configuration make sure that we only keep N (N = MaxTableUiprefs) newest record in "table_uiprefs" and automatically delete older records');
+$strConfigServers_MaxTableUiprefs_name = __('Maximum number of records saved in "table_uiprefs" table');
 $strConfigServers_nopassword_desc = __('Try to connect without password');
 $strConfigServers_nopassword_name = __('Connect without password');
 $strConfigServers_only_db_desc = __('You can use MySQL wildcard characters (% and _), escape them if you want to use their literal instances, i.e. use [kbd]\'my\_db\'[/kbd] and not [kbd]\'my_db\'[/kbd]. Using this option you can sort database list, just enter their names in order and use [kbd]*[/kbd] at the end to show the rest in alphabetical order.');
