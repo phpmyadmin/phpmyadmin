@@ -154,7 +154,7 @@ function PMA_TRI_handleEditor()
     ) {
         // Get the data for the form (if any)
         if (! empty($_REQUEST['add_item'])) {
-            $title = __("Create trigger");
+            $title = PMA_RTE_getWord('add');
             $item = PMA_TRI_getDataFromRequest();
             $mode = 'add';
         } else if (! empty($_REQUEST['edit_item'])) {
@@ -286,6 +286,10 @@ function PMA_TRI_getEditorForm($mode, $item)
         $original_data = "<input name='item_original_name' "
                        . "type='hidden' value='{$item['item_original_name']}'/>\n";
     }
+    $query  = "SELECT `TABLE_NAME` FROM `INFORMATION_SCHEMA`.`TABLES` ";
+    $query .= "WHERE `TABLE_SCHEMA`='" . PMA_sqlAddSlashes($db) . "' ";
+    $query .= "AND `TABLE_TYPE`='BASE TABLE'";
+    $tables = PMA_DBI_fetch_result($query);
 
     // Create the output
     $retval  = "";
@@ -306,9 +310,11 @@ function PMA_TRI_getEditorForm($mode, $item)
     $retval .= "    <td>" . __('Table') . "</td>\n";
     $retval .= "    <td>\n";
     $retval .= "        <select name='item_table'>\n";
-    foreach (PMA_DBI_get_tables($db) as $key => $value) {
+    foreach ($tables as $key => $value) {
         $selected = "";
-        if ($value == $item['item_table']) {
+        if ($mode == 'add' && $value == $table) {
+            $selected = " selected='selected'";
+        } else if ($mode == 'edit' && $value == $item['item_table']) {
             $selected = " selected='selected'";
         }
         $retval .= "            <option$selected>$value</option>\n";

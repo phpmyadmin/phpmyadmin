@@ -1,0 +1,33 @@
+<?php
+/* vim: set expandtab sw=4 ts=4 sts=4 ft=php: */
+/**
+ * Script to parse advisor rules and output them as PHP code which can be used 
+ * by gettext for generating po(t) files.
+ */
+
+if (!file_exists('./libraries/advisor.class.php')) {
+    chdir('..');
+}
+include './libraries/advisor.class.php';
+
+$rules = Advisor::parseRulesFile();
+
+echo "<?php\n";
+echo "/* DO NOT EDIT! */\n";
+echo "/* This is automatically generated file from libraries/advisory_rules.txt */\n";
+
+foreach($rules['rules'] as $rule) {
+    echo "\n";
+    echo "echo __('" . addslashes($rule['name']) . "');\n";
+    echo "echo __('" . addslashes($rule['issue']) . "');\n";
+    echo "echo __('" . addslashes($rule['recommendation']) . "');\n";
+    $jst = Advisor::splitJustification($rule);
+    if (count($jst) > 1) {
+        /* printf is used here just to ensure proper type of string */
+        echo "printf(__('" . addslashes($jst[0]) . "'), 0);\n";
+    } else {
+        echo "echo __('" . addslashes($jst[0]) . "');\n";
+    }
+}
+
+?>

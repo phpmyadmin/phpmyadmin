@@ -61,6 +61,7 @@ require_once './libraries/db_structure.lib.php';
 $titles = PMA_buildActionTitles();
 
 // 1. No tables
+
 if ($num_tables == 0) {
     echo '<p>' . __('No tables found in database') . '</p>' . "\n";
 
@@ -498,7 +499,7 @@ $checkall_url = 'db_structure.php?' . PMA_generate_common_url($db);
     <?php echo __('Check tables having overhead'); ?></a>
 <?php } ?>
 
-<select name="submit_mult" onchange="this.form.submit();" style="margin: 0 3em 0 3em;">
+<select name="submit_mult" class="autosubmit" style="margin: 0 3em 0 3em;">
 <?php
 echo '    <option value="' . __('With selected:') . '" selected="selected">'
      . __('With selected:') . '</option>' . "\n";

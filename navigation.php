@@ -267,7 +267,7 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
         ?>
         <span id="NavFilter">
         <span id="clear_fast_filter" title="<?php echo __('Clear'); ?>">X</span>
-            <input type="text" name="fast_filter" id="fast_filter" title="<?php echo __('Filter'); ?>" value="<?php echo __('filter tables by name'); ?>" />
+            <input type="text" name="fast_filter" id="fast_filter" title="<?php echo __('Filter tables by name'); ?>" value="<?php echo __('Filter tables by name'); ?>" />
         </span>
         <?php
     }

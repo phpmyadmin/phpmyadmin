@@ -12,6 +12,7 @@ if(!window.console) {
 	window.console.dir = function(str) {};
 }
 
+// <3 IE
 if(!Array.indexOf){
 	Array.prototype.indexOf = function(obj){
 		for(var i=0; i<this.length; i++){
@@ -27,7 +28,7 @@ if(!Array.indexOf){
 	// canvg(target, s)
 	// empty parameters: replace all 'svg' elements on page with 'canvas' elements
 	// target: canvas element or the id of a canvas element
-	// s: svg string, url to svg file, or xml document
+	// s: svg string or url to svg file
 	// opts: optional hash of options
 	//		 ignoreMouse: true => ignore mouse events
 	//		 ignoreAnimation: true => ignore animations
@@ -74,11 +75,7 @@ if(!Array.indexOf){
 		svg.opts = opts;
 		
 		var ctx = target.getContext('2d');
-		if (typeof(s.documentElement) != 'undefined') {
-			// load from xml doc
-			svg.loadXmlDoc(ctx, s);
-		}
-		else if (s.substr(0,1) == '<') {
+		if (s.substr(0,1) == '<') {
 			// load from xml string
 			svg.loadXml(ctx, s);
 		}
@@ -92,7 +89,6 @@ if(!Array.indexOf){
 		var svg = { };
 		
 		svg.FRAMERATE = 30;
-		svg.MAX_VIRTUAL_PIXELS = 30000;
 		
 		// globals
 		svg.init = function(ctx) {
@@ -103,7 +99,6 @@ if(!Array.indexOf){
 			svg.ctx = ctx;
 			svg.ViewPort = new (function () {
 				this.viewPorts = [];
-				this.Clear = function() { this.viewPorts = []; }
 				this.SetCurrent = function(width, height) { this.viewPorts.push({ width: width, height: height }); }
 				this.RemoveCurrent = function() { this.viewPorts.pop(); }
 				this.Current = function() { return this.viewPorts[this.viewPorts.length - 1]; }
@@ -556,7 +551,7 @@ if(!Array.indexOf){
 				}
 			}
 			
-			var data = svg.trim(svg.compressSpaces(v)).split(/\s(?=[a-z])/);
+			var data = v.split(/\s(?=[a-z])/);
 			for (var i=0; i<data.length; i++) {
 				var type = data[i].split('(')[0];
 				var s = data[i].split('(')[1].replace(')','');
@@ -621,7 +616,7 @@ if(!Array.indexOf){
 				return a;
 			}
 			
-			// get or create style, crawls up node tree
+			// get or create style
 			this.style = function(name, createIfNotExists) {
 				var s = this.styles[name];
 				if (s != null) return s;
@@ -629,14 +624,6 @@ if(!Array.indexOf){
 				var a = this.attribute(name);
 				if (a != null && a.hasValue()) {
 					return a;
-				}
-				
-				var p = this.parent;
-				if (p != null) {
-					var ps = p.style(name);
-					if (ps != null && ps.hasValue()) {
-						return ps;
-					}
 				}
 					
 				s = new svg.Property(name, '');
@@ -648,9 +635,6 @@ if(!Array.indexOf){
 			this.render = function(ctx) {
 				// don't render display=none
 				if (this.attribute('display').value == 'none') return;
-				
-				// don't render visibility=hidden
-				if (this.attribute('visibility').value == 'hidden') return;
 			
 				ctx.save();
 				this.setContext(ctx);
@@ -697,7 +681,7 @@ if(!Array.indexOf){
 				}
 										
 				// add tag styles
-				var styles = svg.Styles[node.nodeName];
+				var styles = svg.Styles[this.type];
 				if (styles != null) {
 					for (var name in styles) {
 						this.styles[name] = styles[name];
@@ -709,12 +693,6 @@ if(!Array.indexOf){
 					var classes = svg.compressSpaces(this.attribute('class').value).split(' ');
 					for (var j=0; j<classes.length; j++) {
 						styles = svg.Styles['.'+classes[j]];
-						if (styles != null) {
-							for (var name in styles) {
-								this.styles[name] = styles[name];
-							}
-						}
-						styles = svg.Styles[node.nodeName+'.'+classes[j]];
 						if (styles != null) {
 							for (var name in styles) {
 								this.styles[name] = styles[name];
@@ -878,7 +856,7 @@ if(!Array.indexOf){
 				
 				var width = svg.ViewPort.width();
 				var height = svg.ViewPort.height();
-				if (typeof(this.root) == 'undefined' && this.attribute('width').hasValue() && this.attribute('height').hasValue()) {
+				if (this.attribute('width').hasValue() && this.attribute('height').hasValue()) {
 					width = this.attribute('width').Length.toPixels('x');
 					height = this.attribute('height').Length.toPixels('y');
 					
@@ -1208,6 +1186,9 @@ if(!Array.indexOf){
 				pp.reset();
 
 				var bb = new svg.BoundingBox();
+				
+				if(this.attribute('visibility').value=='hidden') return;
+				
 				if (ctx != null) ctx.beginPath();
 				while (!pp.isEnd()) {
 					pp.nextCommand();
@@ -1488,37 +1469,6 @@ if(!Array.indexOf){
 				for (var i=0; i<stopsContainer.stops.length; i++) {
 					g.addColorStop(stopsContainer.stops[i].offset, stopsContainer.stops[i].color);
 				}
-				
-				if (this.attribute('gradientTransform').hasValue()) {
-					// render as transformed pattern on temporary canvas
-					var rootView = svg.ViewPort.viewPorts[0];
-					
-					var rect = new svg.Element.rect();
-					rect.attributes['x'] = new svg.Property('x', -svg.MAX_VIRTUAL_PIXELS/3.0);
-					rect.attributes['y'] = new svg.Property('y', -svg.MAX_VIRTUAL_PIXELS/3.0);
-					rect.attributes['width'] = new svg.Property('width', svg.MAX_VIRTUAL_PIXELS);
-					rect.attributes['height'] = new svg.Property('height', svg.MAX_VIRTUAL_PIXELS);
-					
-					var group = new svg.Element.g();
-					group.attributes['transform'] = new svg.Property('transform', this.attribute('gradientTransform').value);
-					group.children = [ rect ];
-					
-					var tempSvg = new svg.Element.svg();
-					tempSvg.attributes['x'] = new svg.Property('x', 0);
-					tempSvg.attributes['y'] = new svg.Property('y', 0);
-					tempSvg.attributes['width'] = new svg.Property('width', rootView.width);
-					tempSvg.attributes['height'] = new svg.Property('height', rootView.height);
-					tempSvg.children = [ group ];
-					
-					var c = document.createElement('canvas');
-					c.width = rootView.width;
-					c.height = rootView.height;
-					var tempCtx = c.getContext('2d');
-					tempCtx.fillStyle = g;
-					tempSvg.render(tempCtx);		
-					return tempCtx.createPattern(c, 'no-repeat');
-				}
-				
 				return g;				
 			}
 		}
@@ -1544,8 +1494,16 @@ if(!Array.indexOf){
 				var y2 = (this.gradientUnits == 'objectBoundingBox' 
 					? bb.y() + bb.height() * this.attribute('y2').numValue()
 					: this.attribute('y2').Length.toPixels('y'));
-
-				return ctx.createLinearGradient(x1, y1, x2, y2);
+				
+				var p1 = new svg.Point(x1, y1);
+				var p2 = new svg.Point(x2, y2);
+				if (this.attribute('gradientTransform').hasValue()) { 
+					var transform = new svg.Transform(this.attribute('gradientTransform').value);
+					transform.applyToPoint(p1);
+					transform.applyToPoint(p2);
+				}
+				
+				return ctx.createLinearGradient(p1.x, p1.y, p2.x, p2.y);
 			}
 		}
 		svg.Element.linearGradient.prototype = new svg.Element.GradientBase;
@@ -1582,7 +1540,22 @@ if(!Array.indexOf){
 					? (bb.width() + bb.height()) / 2.0 * this.attribute('r').numValue()
 					: this.attribute('r').Length.toPixels());
 				
-				return ctx.createRadialGradient(fx, fy, 0, cx, cy, r);
+				var c = new svg.Point(cx, cy);
+				var f = new svg.Point(fx, fy);
+				if (this.attribute('gradientTransform').hasValue()) { 
+					var transform = new svg.Transform(this.attribute('gradientTransform').value);
+					transform.applyToPoint(c);
+					transform.applyToPoint(f);
+					
+					for (var i=0; i<transform.transforms.length; i++) {
+						// average the scaling part of the transform, apply to radius
+						var scale1 = transform.transforms[i].m[0];
+						var scale2 = transform.transforms[i].m[3];
+						r = r * ((scale1 + scale2) / 2.0);
+					}
+				}				
+				
+				return ctx.createRadialGradient(f.x, f.y, 0, c.x, c.y, r);
 			}
 		}
 		svg.Element.radialGradient.prototype = new svg.Element.GradientBase;
@@ -1720,73 +1693,6 @@ if(!Array.indexOf){
 		}
 		svg.Element.animateTransform.prototype = new svg.Element.animate;
 		
-		// font element
-		svg.Element.font = function(node) {
-			this.base = svg.Element.ElementBase;
-			this.base(node);
-
-			this.horizAdvX = this.attribute('horiz-adv-x').numValue();			
-			
-			this.isRTL = false;
-			this.isArabic = false;
-			this.fontFace = null;
-			this.missingGlyph = null;
-			this.glyphs = [];			
-			for (var i=0; i<this.children.length; i++) {
-				var child = this.children[i];
-				if (child.type == 'font-face') {
-					this.fontFace = child;
-					if (child.style('font-family').hasValue()) {
-						svg.Definitions[child.style('font-family').value] = this;
-					}
-				}
-				else if (child.type == 'missing-glyph') this.missingGlyph = child;
-				else if (child.type == 'glyph') {
-					if (child.arabicForm != '') {
-						this.isRTL = true;
-						this.isArabic = true;
-						if (typeof(this.glyphs[child.unicode]) == 'undefined') this.glyphs[child.unicode] = [];
-						this.glyphs[child.unicode][child.arabicForm] = child;
-					}
-					else {
-						this.glyphs[child.unicode] = child;
-					}
-				}
-			}	
-		}
-		svg.Element.font.prototype = new svg.Element.ElementBase;
-		
-		// font-face element
-		svg.Element.fontface = function(node) {
-			this.base = svg.Element.ElementBase;
-			this.base(node);	
-			
-			this.ascent = this.attribute('ascent').value;
-			this.descent = this.attribute('descent').value;
-			this.unitsPerEm = this.attribute('units-per-em').numValue();				
-		}
-		svg.Element.fontface.prototype = new svg.Element.ElementBase;
-		
-		// missing-glyph element
-		svg.Element.missingglyph = function(node) {
-			this.base = svg.Element.path;
-			this.base(node);	
-			
-			this.horizAdvX = 0;
-		}
-		svg.Element.missingglyph.prototype = new svg.Element.path;
-		
-		// glyph element
-		svg.Element.glyph = function(node) {
-			this.base = svg.Element.path;
-			this.base(node);	
-			
-			this.horizAdvX = this.attribute('horiz-adv-x').numValue();
-			this.unicode = this.attribute('unicode').value;
-			this.arabicForm = this.attribute('arabic-form').value;
-		}
-		svg.Element.glyph.prototype = new svg.Element.path;
-		
 		// text element
 		svg.Element.text = function(node) {
 			this.base = svg.Element.RenderedElementBase;
@@ -1809,16 +1715,19 @@ if(!Array.indexOf){
 			this.baseSetContext = this.setContext;
 			this.setContext = function(ctx) {
 				this.baseSetContext(ctx);
-				if (this.style('text-anchor').hasValue()) {
-					var textAnchor = this.style('text-anchor').value;
+				if (this.attribute('text-anchor').hasValue()) {
+					var textAnchor = this.attribute('text-anchor').value;
 					ctx.textAlign = textAnchor == 'middle' ? 'center' : textAnchor;
 				}
 				if (this.attribute('alignment-baseline').hasValue()) ctx.textBaseline = this.attribute('alignment-baseline').value;
 			}
 			
 			this.renderChildren = function(ctx) {
+				if(this.attribute('visibility').value=='hidden') return;
+				
 				var x = this.attribute('x').Length.toPixels('x');
 				var y = this.attribute('y').Length.toPixels('y');
+				
 				for (var i=0; i<this.children.length; i++) {
 					var child = this.children[i];
 				
@@ -1850,63 +1759,8 @@ if(!Array.indexOf){
 			this.base = svg.Element.RenderedElementBase;
 			this.base(node);
 			
-			this.getGlyph = function(font, text, i) {
-				var c = text[i];
-				var glyph = null;
-				if (font.isArabic) {
-					var arabicForm = 'isolated';
-					if ((i==0 || text[i-1]==' ') && i<text.length-2 && text[i+1]!=' ') arabicForm = 'terminal'; 
-					if (i>0 && text[i-1]!=' ' && i<text.length-2 && text[i+1]!=' ') arabicForm = 'medial';
-					if (i>0 && text[i-1]!=' ' && (i == text.length-1 || text[i+1]==' ')) arabicForm = 'initial';
-					if (typeof(font.glyphs[c]) != 'undefined') {
-						glyph = font.glyphs[c][arabicForm];
-						if (glyph == null && font.glyphs[c].type == 'glyph') glyph = font.glyphs[c];
-					}
-				}
-				else {
-					glyph = font.glyphs[c];
-				}
-				if (glyph == null) glyph = font.missingGlyph;
-				return glyph;
-			}
-			
 			this.renderChildren = function(ctx) {
-				var customFont = this.parent.style('font-family').Definition.getDefinition();
-				if (customFont != null) {
-					var fontSize = this.parent.style('font-size').numValueOrDefault(svg.Font.Parse(svg.ctx.font).fontSize);
-					var fontStyle = this.parent.style('font-style').valueOrDefault(svg.Font.Parse(svg.ctx.font).fontStyle);
-					var text = this.getText();
-					if (customFont.isRTL) text = text.split("").reverse().join("");
-					
-					if (this.parent.style('text-anchor').value == 'middle') {
-						this.x = this.x - this.measureText(ctx) / 2.0;
-					}
-					
-					var dx = svg.ToNumberArray(this.parent.attribute('dx').value);
-					for (var i=0; i<text.length; i++) {
-						var glyph = this.getGlyph(customFont, text, i);
-						var scale = fontSize / customFont.fontFace.unitsPerEm;
-						ctx.translate(this.x, this.y);
-						ctx.scale(scale, -scale);
-						var lw = ctx.lineWidth;
-						ctx.lineWidth = ctx.lineWidth * customFont.fontFace.unitsPerEm / fontSize;
-						if (fontStyle == 'italic') ctx.transform(1, 0, .4, 1, 0, 0);
-						glyph.render(ctx);
-						if (fontStyle == 'italic') ctx.transform(1, 0, -.4, 1, 0, 0);
-						ctx.lineWidth = lw;
-						ctx.scale(1/scale, -1/scale);
-						ctx.translate(-this.x, -this.y);	
-						
-						this.x += fontSize * (glyph.horizAdvX || customFont.horizAdvX) / customFont.fontFace.unitsPerEm;
-						if (typeof(dx[i]) != 'undefined' && !isNaN(dx[i])) {
-							this.x += dx[i];
-						}
-					}
-					return;
-				}
-			
-				if (ctx.strokeStyle != '') ctx.strokeText(svg.compressSpaces(this.getText()), this.x, this.y);
-				if (ctx.fillStyle != '') ctx.fillText(svg.compressSpaces(this.getText()), this.x, this.y);
+				ctx.fillText(svg.compressSpaces(this.getText()), this.x, this.y);
 			}
 			
 			this.getText = function() {
@@ -1914,23 +1768,6 @@ if(!Array.indexOf){
 			}
 			
 			this.measureText = function(ctx) {
-				var customFont = this.parent.style('font-family').Definition.getDefinition();
-				if (customFont != null) {
-					var fontSize = this.parent.style('font-size').numValueOrDefault(svg.Font.Parse(svg.ctx.font).fontSize);
-					var measure = 0;
-					var text = this.getText();
-					if (customFont.isRTL) text = text.split("").reverse().join("");
-					var dx = svg.ToNumberArray(this.parent.attribute('dx').value);
-					for (var i=0; i<text.length; i++) {
-						var glyph = this.getGlyph(customFont, text, i);
-						measure += (glyph.horizAdvX || customFont.horizAdvX) * fontSize / customFont.fontFace.unitsPerEm;
-						if (typeof(dx[i]) != 'undefined' && !isNaN(dx[i])) {
-							measure += dx[i];
-						}
-					}
-					return measure;
-				}
-			
 				var textToMeasure = svg.compressSpaces(this.getText());
 				if (!ctx.measureText) return textToMeasure.length * 10;
 				return ctx.measureText(textToMeasure).width;
@@ -1943,9 +1780,8 @@ if(!Array.indexOf){
 			this.base = svg.Element.TextElementBase;
 			this.base(node);
 			
-			this.text = node.nodeType == 3 ? node.nodeValue : // text
-						node.childNodes.length > 0 ? node.childNodes[0].nodeValue : // element
-						node.text;
+			//								 TEXT			  ELEMENT
+			this.text = node.nodeType == 3 ? node.nodeValue : node.childNodes[0].nodeValue;
 			this.getText = function() {
 				return this.text;
 			}
@@ -2095,9 +1931,8 @@ if(!Array.indexOf){
 			this.base = svg.Element.ElementBase;
 			this.base(node);
 			
-			// text, or spaces then CDATA
-			var css = node.childNodes[0].nodeValue + (node.childNodes.length > 1 ? node.childNodes[1].nodeValue : '');
-			css = css.replace(/(\/\*([^*]|[\r\n]|(\*+([^*\/]|[\r\n])))*\*+\/)|(^[\s]*\/\/.*)/gm, ''); // remove comments
+			var css = node.childNodes[0].nodeValue;
+			css = css.replace(/(\/\*([^*]|[\r\n]|(\*+([^*\/]|[\r\n])))*\*+\/)|(\/\/.*)/gm, ''); // remove comments
 			css = svg.compressSpaces(css); // replace whitespace
 			var cssDefs = css.split('}');
 			for (var i=0; i<cssDefs.length; i++) {
@@ -2110,31 +1945,14 @@ if(!Array.indexOf){
 						if (cssClass != '') {
 							var props = {};
 							for (var k=0; k<cssProps.length; k++) {
-								var prop = cssProps[k].indexOf(':');
-								var name = cssProps[k].substr(0, prop);
-								var value = cssProps[k].substr(prop + 1, cssProps[k].length - prop);
+								var prop = cssProps[k].split(':');
+								var name = prop[0];
+								var value = prop[1];
 								if (name != null && value != null) {
-									props[svg.trim(name)] = new svg.Property(svg.trim(name), svg.trim(value));
+									props[svg.trim(prop[0])] = new svg.Property(svg.trim(prop[0]), svg.trim(prop[1]));
 								}
 							}
 							svg.Styles[cssClass] = props;
-							if (cssClass == '@font-face') {
-								var fontFamily = props['font-family'].value.replace(/"/g,'');
-								var srcs = props['src'].value.split(',');
-								for (var s=0; s<srcs.length; s++) {
-									if (srcs[s].indexOf('format("svg")') > 0) {
-										var urlStart = srcs[s].indexOf('url');
-										var urlEnd = srcs[s].indexOf(')', urlStart);
-										var url = srcs[s].substr(urlStart + 5, urlEnd - urlStart - 6);
-										var doc = svg.parseXml(svg.ajax(url));
-										var fonts = doc.getElementsByTagName('font');
-										for (var f=0; f<fonts.length; f++) {
-											var font = svg.CreateElement(fonts[f]);
-											svg.Definitions[fontFamily] = font;
-										}
-									}
-								}
-							}
 						}
 					}
 				}
@@ -2186,10 +2004,6 @@ if(!Array.indexOf){
 					}
 				}
 			}
-			
-			this.render = function(ctx) {
-				// NO RENDER
-			}
 		}
 		svg.Element.clipPath.prototype = new svg.Element.ElementBase;
 
@@ -2210,8 +2024,7 @@ if(!Array.indexOf){
 		
 		// element factory
 		svg.CreateElement = function(node) {	
-			var className = node.nodeName.replace(/^[^:]+:/,''); // remove namespace
-			className = className.replace(/\-/g,''); // remove dashes
+			var className = node.nodeName.replace(/^[^:]+:/,'');
 			var e = null;
 			if (typeof(svg.Element[className]) != 'undefined') {
 				e = new svg.Element[className](node);
@@ -2231,10 +2044,6 @@ if(!Array.indexOf){
 		
 		// load from xml
 		svg.loadXml = function(ctx, xml) {
-			svg.loadXmlDoc(ctx, svg.parseXml(xml));
-		}
-		
-		svg.loadXmlDoc = function(ctx, dom) {
 			svg.init(ctx);
 			
 			var mapXY = function(p) {
@@ -2261,24 +2070,19 @@ if(!Array.indexOf){
 				};
 			}
 		
+			var dom = svg.parseXml(xml);
 			var e = svg.CreateElement(dom.documentElement);
-			e.root = true;
 					
 			// render loop
 			var isFirstRender = true;
 			var draw = function() {
-				svg.ViewPort.Clear();
-				if (ctx.canvas.parentNode) svg.ViewPort.SetCurrent(ctx.canvas.parentNode.clientWidth, ctx.canvas.parentNode.clientHeight);
-			
 				if (svg.opts == null || svg.opts['ignoreDimensions'] != true) {
 					// set canvas size
 					if (e.style('width').hasValue()) {
-						ctx.canvas.width = e.style('width').Length.toPixels('x');
-						ctx.canvas.style.width = ctx.canvas.width + 'px';
+						ctx.canvas.width = e.style('width').Length.toPixels(ctx.canvas.parentNode.clientWidth);
 					}
 					if (e.style('height').hasValue()) {
-						ctx.canvas.height = e.style('height').Length.toPixels('y');
-						ctx.canvas.style.height = ctx.canvas.height + 'px';
+						ctx.canvas.height = e.style('height').Length.toPixels(ctx.canvas.parentNode.clientHeight);
 					}
 				}
 				svg.ViewPort.SetCurrent(ctx.canvas.clientWidth, ctx.canvas.clientHeight);		
@@ -2414,4 +2218,292 @@ if (CanvasRenderingContext2D) {
 			scaleHeight: dh
 		});
 	}
+}
+
+/**
+ * A class to parse color values
+ * @author Stoyan Stefanov <sstoo@gmail.com>
+ * @link   http://www.phpied.com/rgb-color-parser-in-javascript/
+ * @license Use it if you like it
+ */
+function RGBColor(color_string)
+{
+    this.ok = false;
+
+    // strip any leading #
+    if (color_string.charAt(0) == '#') { // remove # if any
+        color_string = color_string.substr(1,6);
+    }
+
+    color_string = color_string.replace(/ /g,'');
+    color_string = color_string.toLowerCase();
+
+    // before getting into regexps, try simple matches
+    // and overwrite the input
+    var simple_colors = {
+        aliceblue: 'f0f8ff',
+        antiquewhite: 'faebd7',
+        aqua: '00ffff',
+        aquamarine: '7fffd4',
+        azure: 'f0ffff',
+        beige: 'f5f5dc',
+        bisque: 'ffe4c4',
+        black: '000000',
+        blanchedalmond: 'ffebcd',
+        blue: '0000ff',
+        blueviolet: '8a2be2',
+        brown: 'a52a2a',
+        burlywood: 'deb887',
+        cadetblue: '5f9ea0',
+        chartreuse: '7fff00',
+        chocolate: 'd2691e',
+        coral: 'ff7f50',
+        cornflowerblue: '6495ed',
+        cornsilk: 'fff8dc',
+        crimson: 'dc143c',
+        cyan: '00ffff',
+        darkblue: '00008b',
+        darkcyan: '008b8b',
+        darkgoldenrod: 'b8860b',
+        darkgray: 'a9a9a9',
+        darkgreen: '006400',
+        darkkhaki: 'bdb76b',
+        darkmagenta: '8b008b',
+        darkolivegreen: '556b2f',
+        darkorange: 'ff8c00',
+        darkorchid: '9932cc',
+        darkred: '8b0000',
+        darksalmon: 'e9967a',
+        darkseagreen: '8fbc8f',
+        darkslateblue: '483d8b',
+        darkslategray: '2f4f4f',
+        darkturquoise: '00ced1',
+        darkviolet: '9400d3',
+        deeppink: 'ff1493',
+        deepskyblue: '00bfff',
+        dimgray: '696969',
+        dodgerblue: '1e90ff',
+        feldspar: 'd19275',
+        firebrick: 'b22222',
+        floralwhite: 'fffaf0',
+        forestgreen: '228b22',
+        fuchsia: 'ff00ff',
+        gainsboro: 'dcdcdc',
+        ghostwhite: 'f8f8ff',
+        gold: 'ffd700',
+        goldenrod: 'daa520',
+        gray: '808080',
+        green: '008000',
+        greenyellow: 'adff2f',
+        honeydew: 'f0fff0',
+        hotpink: 'ff69b4',
+        indianred : 'cd5c5c',
+        indigo : '4b0082',
+        ivory: 'fffff0',
+        khaki: 'f0e68c',
+        lavender: 'e6e6fa',
+        lavenderblush: 'fff0f5',
+        lawngreen: '7cfc00',
+        lemonchiffon: 'fffacd',
+        lightblue: 'add8e6',
+        lightcoral: 'f08080',
+        lightcyan: 'e0ffff',
+        lightgoldenrodyellow: 'fafad2',
+        lightgrey: 'd3d3d3',
+        lightgreen: '90ee90',
+        lightpink: 'ffb6c1',
+        lightsalmon: 'ffa07a',
+        lightseagreen: '20b2aa',
+        lightskyblue: '87cefa',
+        lightslateblue: '8470ff',
+        lightslategray: '778899',
+        lightsteelblue: 'b0c4de',
+        lightyellow: 'ffffe0',
+        lime: '00ff00',
+        limegreen: '32cd32',
+        linen: 'faf0e6',
+        magenta: 'ff00ff',
+        maroon: '800000',
+        mediumaquamarine: '66cdaa',
+        mediumblue: '0000cd',
+        mediumorchid: 'ba55d3',
+        mediumpurple: '9370d8',
+        mediumseagreen: '3cb371',
+        mediumslateblue: '7b68ee',
+        mediumspringgreen: '00fa9a',
+        mediumturquoise: '48d1cc',
+        mediumvioletred: 'c71585',
+        midnightblue: '191970',
+        mintcream: 'f5fffa',
+        mistyrose: 'ffe4e1',
+        moccasin: 'ffe4b5',
+        navajowhite: 'ffdead',
+        navy: '000080',
+        oldlace: 'fdf5e6',
+        olive: '808000',
+        olivedrab: '6b8e23',
+        orange: 'ffa500',
+        orangered: 'ff4500',
+        orchid: 'da70d6',
+        palegoldenrod: 'eee8aa',
+        palegreen: '98fb98',
+        paleturquoise: 'afeeee',
+        palevioletred: 'd87093',
+        papayawhip: 'ffefd5',
+        peachpuff: 'ffdab9',
+        peru: 'cd853f',
+        pink: 'ffc0cb',
+        plum: 'dda0dd',
+        powderblue: 'b0e0e6',
+        purple: '800080',
+        red: 'ff0000',
+        rosybrown: 'bc8f8f',
+        royalblue: '4169e1',
+        saddlebrown: '8b4513',
+        salmon: 'fa8072',
+        sandybrown: 'f4a460',
+        seagreen: '2e8b57',
+        seashell: 'fff5ee',
+        sienna: 'a0522d',
+        silver: 'c0c0c0',
+        skyblue: '87ceeb',
+        slateblue: '6a5acd',
+        slategray: '708090',
+        snow: 'fffafa',
+        springgreen: '00ff7f',
+        steelblue: '4682b4',
+        tan: 'd2b48c',
+        teal: '008080',
+        thistle: 'd8bfd8',
+        tomato: 'ff6347',
+        turquoise: '40e0d0',
+        violet: 'ee82ee',
+        violetred: 'd02090',
+        wheat: 'f5deb3',
+        white: 'ffffff',
+        whitesmoke: 'f5f5f5',
+        yellow: 'ffff00',
+        yellowgreen: '9acd32'
+    };
+    for (var key in simple_colors) {
+        if (color_string == key) {
+            color_string = simple_colors[key];
+        }
+    }
+    // emd of simple type-in colors
+
+    // array of color definition objects
+    var color_defs = [
+        {
+            re: /^rgb\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3})\)$/,
+            example: ['rgb(123, 234, 45)', 'rgb(255,234,245)'],
+            process: function (bits){
+                return [
+                    parseInt(bits[1]),
+                    parseInt(bits[2]),
+                    parseInt(bits[3])
+                ];
+            }
+        },
+        {
+            re: /^(\w{2})(\w{2})(\w{2})$/,
+            example: ['#00ff00', '336699'],
+            process: function (bits){
+                return [
+                    parseInt(bits[1], 16),
+                    parseInt(bits[2], 16),
+                    parseInt(bits[3], 16)
+                ];
+            }
+        },
+        {
+            re: /^(\w{1})(\w{1})(\w{1})$/,
+            example: ['#fb0', 'f0f'],
+            process: function (bits){
+                return [
+                    parseInt(bits[1] + bits[1], 16),
+                    parseInt(bits[2] + bits[2], 16),
+                    parseInt(bits[3] + bits[3], 16)
+                ];
+            }
+        }
+    ];
+
+    // search through the definitions to find a match
+    for (var i = 0; i < color_defs.length; i++) {
+        var re = color_defs[i].re;
+        var processor = color_defs[i].process;
+        var bits = re.exec(color_string);
+        if (bits) {
+            channels = processor(bits);
+            this.r = channels[0];
+            this.g = channels[1];
+            this.b = channels[2];
+            this.ok = true;
+        }
+
+    }
+
+    // validate/cleanup values
+    this.r = (this.r < 0 || isNaN(this.r)) ? 0 : ((this.r > 255) ? 255 : this.r);
+    this.g = (this.g < 0 || isNaN(this.g)) ? 0 : ((this.g > 255) ? 255 : this.g);
+    this.b = (this.b < 0 || isNaN(this.b)) ? 0 : ((this.b > 255) ? 255 : this.b);
+
+    // some getters
+    this.toRGB = function () {
+        return 'rgb(' + this.r + ', ' + this.g + ', ' + this.b + ')';
+    }
+    this.toHex = function () {
+        var r = this.r.toString(16);
+        var g = this.g.toString(16);
+        var b = this.b.toString(16);
+        if (r.length == 1) r = '0' + r;
+        if (g.length == 1) g = '0' + g;
+        if (b.length == 1) b = '0' + b;
+        return '#' + r + g + b;
+    }
+
+    // help
+    this.getHelpXML = function () {
+
+        var examples = new Array();
+        // add regexps
+        for (var i = 0; i < color_defs.length; i++) {
+            var example = color_defs[i].example;
+            for (var j = 0; j < example.length; j++) {
+                examples[examples.length] = example[j];
+            }
+        }
+        // add type-in colors
+        for (var sc in simple_colors) {
+            examples[examples.length] = sc;
+        }
+
+        var xml = document.createElement('ul');
+        xml.setAttribute('id', 'rgbcolor-examples');
+        for (var i = 0; i < examples.length; i++) {
+            try {
+                var list_item = document.createElement('li');
+                var list_color = new RGBColor(examples[i]);
+                var example_div = document.createElement('div');
+                example_div.style.cssText =
+                        'margin: 3px; '
+                        + 'border: 1px solid black; '
+                        + 'background:' + list_color.toHex() + '; '
+                        + 'color:' + list_color.toHex()
+                ;
+                example_div.appendChild(document.createTextNode('test'));
+                var list_item_value = document.createTextNode(
+                    ' ' + examples[i] + ' -> ' + list_color.toRGB() + ' -> ' + list_color.toHex()
+                );
+                list_item.appendChild(example_div);
+                list_item.appendChild(list_item_value);
+                xml.appendChild(list_item);
+
+            } catch(e){}
+        }
+        return xml;
+
+    }
+
 }

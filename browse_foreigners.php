@@ -59,16 +59,16 @@ if (is_array($foreignData['disp_row'])) {
 
     if ($foreignData['the_total'] > $GLOBALS['cfg']['MaxRows']) {
         $gotopage = PMA_pageselector(
-                      $session_max_rows,
-                      $pageNow,
-                      $nbTotalPage,
-                      200,
-                      5,
-                      5,
-                      20,
-                      10,
-                      __('Page number:')
-                    );
+            $session_max_rows,
+            $pageNow,
+            $nbTotalPage,
+            200,
+            5,
+            5,
+            20,
+            10,
+            __('Page number:')
+            );
     }
 }
 ?>
@@ -220,9 +220,10 @@ if (is_array($foreignData['disp_row'])) {
         } else {
             $val_ordered_current_val_title =
                 htmlspecialchars($val_ordered_current_val);
-            $val_ordered_current_val =
-                htmlspecialchars(PMA_substr($val_ordered_current_val, 0,
-                    $cfg['LimitChars']) . '...');
+            $val_ordered_current_val = htmlspecialchars(
+                PMA_substr($val_ordered_current_val, 0, $cfg['LimitChars'])
+                . '...'
+                );
         }
         if (PMA_strlen($key_ordered_current_val) <= $cfg['LimitChars']) {
             $key_ordered_current_val = htmlspecialchars($key_ordered_current_val);

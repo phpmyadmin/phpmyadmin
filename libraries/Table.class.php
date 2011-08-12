@@ -301,7 +301,7 @@ class PMA_Table
         // array_key_exists allows for null values
         if (!array_key_exists($info, PMA_Table::$cache[$db][$table])) {
             if (! $disable_error) {
-                trigger_error('unknown table status: ' . $info, E_USER_WARNING);
+                trigger_error(__('unknown table status: ') . $info, E_USER_WARNING);
             }
             return false;
         }
@@ -1282,7 +1282,7 @@ class PMA_Table
         " REPLACE INTO " . $pma_table .
         " VALUES ('" . $username . "', '" . PMA_sqlAddSlashes($this->db_name) . "', '" .
                        PMA_sqlAddSlashes($this->name) . "', '" .
-                       PMA_sqlAddSlashes(json_encode($this->uiprefs)) . "')";
+                       PMA_sqlAddSlashes(json_encode($this->uiprefs)) . "', NULL)";
 
         $success = PMA_DBI_try_query($sql_query, $GLOBALS['controllink']);
 
@@ -1292,6 +1292,28 @@ class PMA_Table
             $message->addMessage(PMA_Message::rawError(PMA_DBI_getError($GLOBALS['controllink'])));
             return $message;
         }
+
+        // Remove some old rows in table_uiprefs if it exceeds the configured maximum rows
+        $sql_query = 'SELECT COUNT(*) FROM ' . $pma_table;
+        $rows_count = PMA_DBI_fetch_value($sql_query);
+        $max_rows = $GLOBALS['cfg']['Server']['MaxTableUiprefs'];
+        if ($rows_count > $max_rows) {
+            $num_rows_to_delete = $rows_count - $max_rows;
+            $sql_query =
+                ' DELETE FROM ' . $pma_table .
+                ' ORDER BY last_update ASC' .
+                ' LIMIT ' . $num_rows_to_delete;
+            $success = PMA_DBI_try_query($sql_query, $GLOBALS['controllink']);
+
+            if (!$success) {
+                $message = PMA_Message::error(__('Failed to cleanup table UI preferences (see cfg["Server"]["MaxTableUiprefs"] documentation)'));
+                $message->addMessage('<br /><br />');
+                $message->addMessage(PMA_Message::rawError(PMA_DBI_getError($GLOBALS['controllink'])));
+            print_r($message);
+                return $message;
+            }
+        }
+
         return true;
     }
 
@@ -1354,7 +1376,7 @@ class PMA_Table
             }
         } else if ($property == self::PROP_COLUMN_ORDER ||
                    $property == self::PROP_COLUMN_VISIB) {
-            if (isset($this->uiprefs[$property])) {
+            if (! PMA_Table::isView($this->db_name, $this->name) && isset($this->uiprefs[$property])) {
                 // check if the table has not been modified
                 if (self::sGetStatusInfo($this->db_name, $this->name, 'Create_time') ==
                         $this->uiprefs['CREATE_TIME']) {
@@ -1392,8 +1414,8 @@ class PMA_Table
             $this->loadUiPrefs();
         }
         // we want to save the create time if the property is PROP_COLUMN_ORDER
-        if ($property == self::PROP_COLUMN_ORDER ||
-                $property == self::PROP_COLUMN_VISIB) {
+        if (! PMA_Table::isView($this->db_name, $this->name) && ($property == self::PROP_COLUMN_ORDER ||
+                $property == self::PROP_COLUMN_VISIB)) {
 
             $curr_create_time = self::sGetStatusInfo($this->db_name, $this->name, 'CREATE_TIME');
             if (isset($table_create_time) &&

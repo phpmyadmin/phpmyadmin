@@ -378,6 +378,19 @@ $cfg['Servers'][$i]['tracking'] = '';
 $cfg['Servers'][$i]['userconfig'] = '';
 
 /**
+ * Maximum number of records saved in $cfg['Servers'][$i]['table_uiprefs'] table.
+ *
+ * In case where tables in databases is modified (e.g. dropped or renamed),
+ * table_uiprefs may contains invalid data (referring to tables which are not
+ * exist anymore).
+ * This configuration make sure that we only keep N (N = MaxTableUiprefs)
+ * newest record in table_uiprefs and automatically delete older records.
+ *
+ * @global integer $cfg['Servers'][$i]['userconfig'] = '';
+ */
+$cfg['Servers'][$i]['MaxTableUiprefs'] = 100;
+
+/**
  * set to false if you know that your pma_* tables are up to date.
  * This prevents compatibility checks and thereby increases performance.
  *
@@ -542,6 +555,13 @@ $cfg['MaxDbList'] = 100;
  * @global integer $cfg['MaxTableList']
  */
 $cfg['MaxTableList'] = 250;
+
+/**
+ * whether to show hint or not
+ *
+ * @global boolean $cfg['ShowHint']
+ */
+$cfg['ShowHint'] = true;
 
 /**
  * maximum number of characters when a SQL query is displayed
@@ -1117,7 +1137,6 @@ $cfg['DefaultTabDatabase'] = 'db_structure.php';
  * @global string $cfg['DefaultTabTable']
  */
 $cfg['DefaultTabTable'] = 'sql.php';
-
 
 /*******************************************************************************
  * Export defaults
@@ -1826,7 +1845,6 @@ $cfg['Export']['xml_export_contents'] = true;
  */
 $cfg['Export']['yaml_structure_or_data'] = 'data';
 
-
 /*******************************************************************************
  * Import defaults
  */
@@ -2259,7 +2277,7 @@ $cfg['CharTextareaRows'] = 2;
 $cfg['LimitChars'] = 50;
 
 /**
- * Where to show the edit/inline_edit/delete links in browse mode
+ * Where to show the edit/copy/delete links in browse mode
  * Possible values are 'left', 'right', 'both' and 'none';
  * which will be interpreted as 'top', 'bottom', 'both' and 'none'
  * respectively for vertical display mode
@@ -2312,6 +2330,11 @@ $cfg['ShowBrowseComments'] = true;
  * @global boolean $cfg['ShowPropertyComments']
  */
 $cfg['ShowPropertyComments']= true;
+
+/**
+ * save edited cell(s) in browse-mode at once.
+ */
+$cfg['SaveCellsAtOnce'] = false;
 
 /**
  * shows table display direction.
@@ -2418,7 +2441,6 @@ $cfg['UserprefsDisallow'] = array();
  * User preferences: enable the Developer tab
  */
 $cfg['UserprefsDeveloperTab'] = false;
-
 
 /*******************************************************************************
  * Window title settings
@@ -2530,9 +2552,7 @@ $cfg['DefaultQueryDatabase'] = '';
 /*******************************************************************************
  * SQL Query box settings
  * These are the links display in all of the SQL Query boxes
- */
-
-/**
+ *
  * @global array $cfg['SQLQuery']
  */
 $cfg['SQLQuery'] = array();
@@ -2604,7 +2624,7 @@ $cfg['SaveDir'] = '';
 $cfg['TempDir'] = '';
 
 
-/*******************************************************************************
+/**
  * Misc. settings
  */
 
@@ -2649,12 +2669,7 @@ $cfg['LinkLengthLimit'] = 1000;
  */
 $cfg['DisableMultiTableMaintenance'] = false;
 
-
 /*******************************************************************************
- * SQL Parser
- */
-
-/**
  * SQL Parser Settings
  *
  * @global array $cfg['SQP']
@@ -2684,10 +2699,6 @@ $cfg['SQP']['fmtIndUnit'] = 'em';
 
 
 /*******************************************************************************
- * SQL Validator
- */
-
-/**
  * If you wish to use the SQL Validator service, you should be aware of the
  * following:
  * All SQL statements are stored anonymously for statistical purposes.
@@ -2722,10 +2733,6 @@ $cfg['SQLValidator']['password'] = '';
 
 /*******************************************************************************
  * Developers ONLY!
- */
-
-/**
- * Debugging settings
  *
  * @global array $cfg['DBG']
  */
@@ -2744,50 +2751,328 @@ $cfg['DBG']['sql'] = false;
  */
 
 /**
- * Column types
- *
- * Fill in this array to overwrite data from data_*.inc.php files
+ * Column types;
+ * VARCHAR, TINYINT, TEXT and DATE are listed first, based on estimated popularity
  *
  * @global array $cfg['ColumnTypes']
  */
-$cfg['ColumnTypes'] = array();
+$cfg['ColumnTypes'] = array(
+    // most used
+    'INT',
+    'VARCHAR',
+    'TEXT',
+    'DATE',
+
+    // numeric
+    'NUMERIC' => array(
+        'TINYINT',
+        'SMALLINT',
+        'MEDIUMINT',
+        'INT',
+        'BIGINT',
+        '-',
+        'DECIMAL',
+        'FLOAT',
+        'DOUBLE',
+        'REAL',
+        '-',
+        'BIT',
+        'BOOLEAN',
+        'SERIAL',
+    ),
+
+
+    // Date/Time
+    'DATE and TIME' => array(
+        'DATE',
+        'DATETIME',
+        'TIMESTAMP',
+        'TIME',
+        'YEAR',
+    ),
+
+    // Text
+    'STRING' => array(
+        'CHAR',
+        'VARCHAR',
+        '-',
+        'TINYTEXT',
+        'TEXT',
+        'MEDIUMTEXT',
+        'LONGTEXT',
+        '-',
+        'BINARY',
+        'VARBINARY',
+        '-',
+        'TINYBLOB',
+        'MEDIUMBLOB',
+        'BLOB',
+        'LONGBLOB',
+        '-',
+        'ENUM',
+        'SET',
+    ),
+
+    'SPATIAL' => array(
+        'GEOMETRY',
+        'POINT',
+        'LINESTRING',
+        'POLYGON',
+        'MULTIPOINT',
+        'MULTILINESTRING',
+        'MULTIPOLYGON',
+        'GEOMETRYCOLLECTION',
+    ),
+);
 
 /**
  * Attributes
  *
- * Fill in this array to overwrite data from data_*.inc.php files
- *
  * @global array $cfg['AttributeTypes']
  */
-$cfg['AttributeTypes'] = array();
+$cfg['AttributeTypes'] = array(
+   '',
+   'BINARY',
+   'UNSIGNED',
+   'UNSIGNED ZEROFILL',
+   'on update CURRENT_TIMESTAMP',
+);
+
 
 if ($cfg['ShowFunctionFields']) {
     /**
      * Available functions
      *
-     * Fill in this array to overwrite data from data_*.inc.php files
-     *
      * @global array $cfg['Functions']
      */
-    $cfg['Functions'] = array();
+    $cfg['Functions'] = array(
+        'ABS',
+        'ACOS',
+        'ASCII',
+        'ASIN',
+        'ATAN',
+        'BIN',
+        'BIT_COUNT',
+        'BIT_LENGTH',
+        'CEILING',
+        'CHAR',
+        'CHAR_LENGTH',
+        'COMPRESS',
+        'COS',
+        'COT',
+        'CRC32',
+        'CURDATE',
+        'CURRENT_USER',
+        'CURTIME',
+        'DATE',
+        'DAYNAME',
+        'DEGREES',
+        'DES_DECRYPT',
+        'DES_ENCRYPT',
+        'ENCRYPT',
+        'EXP',
+        'FLOOR',
+        'FROM_DAYS',
+        'FROM_UNIXTIME',
+        'HEX',
+        'INET_ATON',
+        'INET_NTOA',
+        'LENGTH',
+        'LN',
+        'LOG',
+        'LOG10',
+        'LOG2',
+        'LOWER',
+        'MD5',
+        'NOW',
+        'OCT',
+        'OLD_PASSWORD',
+        'ORD',
+        'PASSWORD',
+        'RADIANS',
+        'RAND',
+        'REVERSE',
+        'ROUND',
+        'SEC_TO_TIME',
+        'SHA1',
+        'SOUNDEX',
+        'SPACE',
+        'SQRT',
+        'STDDEV_POP',
+        'STDDEV_SAMP',
+        'TAN',
+        'TIMESTAMP',
+        'TIME_TO_SEC',
+        'UNCOMPRESS',
+        'UNHEX',
+        'UNIX_TIMESTAMP',
+        'UPPER',
+        'USER',
+        'UTC_DATE',
+        'UTC_TIME',
+        'UTC_TIMESTAMP',
+        'UUID',
+        'VAR_POP',
+        'VAR_SAMP',
+        'YEAR',
+    );
 
     /**
      * Which column types will be mapped to which Group?
      *
-     * Fill in this array to overwrite data from data_*.inc.php files
-     *
      * @global array $cfg['RestrictColumnTypes']
      */
-    $cfg['RestrictColumnTypes'] = array();
+    $cfg['RestrictColumnTypes'] = array(
+        'TINYINT'   => 'FUNC_NUMBER',
+        'SMALLINT'  => 'FUNC_NUMBER',
+        'MEDIUMINT' => 'FUNC_NUMBER',
+        'INT'       => 'FUNC_NUMBER',
+        'BIGINT'    => 'FUNC_NUMBER',
+        'DECIMAL'   => 'FUNC_NUMBER',
+        'FLOAT'     => 'FUNC_NUMBER',
+        'DOUBLE'    => 'FUNC_NUMBER',
+        'REAL'      => 'FUNC_NUMBER',
+        'BIT'       => 'FUNC_NUMBER',
+        'BOOLEAN'   => 'FUNC_NUMBER',
+        'SERIAL'    => 'FUNC_NUMBER',
+
+        'DATE'      => 'FUNC_DATE',
+        'DATETIME'  => 'FUNC_DATE',
+        'TIMESTAMP' => 'FUNC_DATE',
+        'TIME'      => 'FUNC_DATE',
+        'YEAR'      => 'FUNC_DATE',
+
+        'CHAR'          => 'FUNC_CHAR',
+        'VARCHAR'       => 'FUNC_CHAR',
+        'TINYTEXT'      => 'FUNC_CHAR',
+        'TEXT'          => 'FUNC_CHAR',
+        'MEDIUMTEXT'    => 'FUNC_CHAR',
+        'LONGTEXT'      => 'FUNC_CHAR',
+        'BINARY'        => 'FUNC_CHAR',
+        'VARBINARY'     => 'FUNC_CHAR',
+        'TINYBLOB'      => 'FUNC_CHAR',
+        'MEDIUMBLOB'    => 'FUNC_CHAR',
+        'BLOB'          => 'FUNC_CHAR',
+        'LONGBLOB'      => 'FUNC_CHAR',
+        'ENUM'          => '',
+        'SET'           => '',
+
+        'GEOMETRY'              => 'FUNC_SPATIAL',
+        'POINT'                 => 'FUNC_SPATIAL',
+        'LINESTRING'            => 'FUNC_SPATIAL',
+        'POLYGON'               => 'FUNC_SPATIAL',
+        'MULTIPOINT'            => 'FUNC_SPATIAL',
+        'MULTILINESTRING'       => 'FUNC_SPATIAL',
+        'MULTIPOLYGON'          => 'FUNC_SPATIAL',
+        'GEOMETRYCOLLECTION'    => 'FUNC_SPATIAL',
+
+    );
 
     /**
      * Map above defined groups to any function
      *
-     * Fill in this array to overwrite data from data_*.inc.php files
-     *
      * @global array $cfg['RestrictFunctions']
      */
-    $cfg['RestrictFunctions'] = array();
+    $cfg['RestrictFunctions'] = array(
+        'FUNC_CHAR' => array(
+            'BIN',
+            'CHAR',
+            'CURRENT_USER',
+            'COMPRESS',
+            'DAYNAME',
+            'DES_DECRYPT',
+            'DES_ENCRYPT',
+            'ENCRYPT',
+            'HEX',
+            'INET_NTOA',
+            'LOWER',
+            'MD5',
+            'OLD_PASSWORD',
+            'PASSWORD',
+            'REVERSE',
+            'SHA1',
+            'SOUNDEX',
+            'SPACE',
+            'UNCOMPRESS',
+            'UNHEX',
+            'UPPER',
+            'USER',
+            'UUID',
+        ),
+
+        'FUNC_DATE' => array(
+            'CURDATE',
+            'CURTIME',
+            'DATE',
+            'FROM_DAYS',
+            'FROM_UNIXTIME',
+            'NOW',
+            'SEC_TO_TIME',
+            'TIMESTAMP',
+            'UTC_DATE',
+            'UTC_TIME',
+            'UTC_TIMESTAMP',
+            'YEAR',
+        ),
+
+        'FUNC_NUMBER' => array(
+            'ABS',
+            'ACOS',
+            'ASCII',
+            'ASIN',
+            'ATAN',
+            'BIT_LENGTH',
+            'BIT_COUNT',
+            'CEILING',
+            'CHAR_LENGTH',
+            'COS',
+            'COT',
+            'CRC32',
+            'DEGREES',
+            'EXP',
+            'FLOOR',
+            'INET_ATON',
+            'LENGTH',
+            'LN',
+            'LOG',
+            'LOG2',
+            'LOG10',
+            'OCT',
+            'ORD',
+            'RADIANS',
+            'RAND',
+            'ROUND',
+            'SQRT',
+            'STDDEV_POP',
+            'STDDEV_SAMP',
+            'TAN',
+            'TIME_TO_SEC',
+            'UNIX_TIMESTAMP',
+            'VAR_POP',
+            'VAR_SAMP',
+        ),
+
+        'FUNC_SPATIAL' => array(
+            'GeomFromText',
+            'GeomFromWKB',
+
+            'GeomCollFromText',
+            'LineFromText',
+            'MLineFromText',
+            'PointFromText',
+            'MPointFromText',
+            'PolyFromText',
+            'MPolyFromText',
+
+            'GeomCollFromWKB',
+            'LineFromWKB',
+            'MLineFromWKB',
+            'PointFromWKB',
+            'MPointFromWKB',
+            'PolyFromWKB',
+            'MPolyFromWKB',
+        ),
+    );
 
     /**
      * Default functions for above defined groups
@@ -2801,6 +3086,97 @@ if ($cfg['ShowFunctionFields']) {
         'FUNC_UUID' => 'UUID',
         'first_timestamp' => 'NOW',
     );
-}
+
+
+} // end if
+
+/**
+ * Search operators
+ *
+ * @global array $cfg['NumOperators']
+ */
+$cfg['NumOperators'] = array(
+   '=',
+   '>',
+   '>=',
+   '<',
+   '<=',
+   '!=',
+   'LIKE',
+   'NOT LIKE',
+   'IN (...)',
+   'NOT IN (...)',
+   'BETWEEN',
+   'NOT BETWEEN',
+);
+
+/**
+ * Search operators
+ *
+ * @global array $cfg['TextOperators']
+ */
+$cfg['TextOperators'] = array(
+   'LIKE',
+   'LIKE %...%',
+   'NOT LIKE',
+   '=',
+   '!=',
+   'REGEXP',
+   'REGEXP ^...$',
+   'NOT REGEXP',
+   "= ''",
+   "!= ''",
+   'IN (...)',
+   'NOT IN (...)',
+   'BETWEEN',
+   'NOT BETWEEN',
+);
+
+/**
+ * Search operators
+ *
+ * @global array $cfg['EnumOperators']
+ */
+$cfg['EnumOperators'] = array(
+   '=',
+   '!=',
+);
+
+/**
+ * Search operators
+ *
+ * @global array $cfg['SetOperators']
+ */
+$cfg['SetOperators'] = array(
+   'IN',
+   'NOT IN',
+);
+
+/**
+ * Search operators
+ *
+ * @global array $cfg['NullOperators']
+ */
+$cfg['NullOperators'] = array(
+   'IS NULL',
+   'IS NOT NULL',
+);
+
+/**
+ * Search operators
+ *
+ * @global array $cfg['UnaryOperators']
+ */
+$cfg['UnaryOperators'] = array(
+   'IS NULL' => 1,
+   'IS NOT NULL' => 1,
+   "= ''" => 1,
+   "!= ''" => 1
+);
+
+/**
+ * Max rows retreived for zoom search
+ */
+$cfg['maxRowPlotLimit'] = 500;
 
 ?>

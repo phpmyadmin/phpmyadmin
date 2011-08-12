@@ -633,6 +633,7 @@
                {
                   // Set width to auto initally to determine new width and hide other elements
                   self.elements.tooltip.css({ width: 'auto' });
+                  self.elements.wrapper.css({ width: 'auto' });
                   hidden.hide();
 
                   // Set position and zoom to defaults to prevent IE hasLayout bug

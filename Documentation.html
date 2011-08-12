@@ -118,9 +118,9 @@ vim: expandtab ts=4 sw=4 sts=4 tw=78
     title="International Electrotechnical Commission">IEC</abbr> 26300 -
     OpenDocument Text and Spreadsheet,
     <abbr title="Microsoft Word 2000">Word</abbr>,
-    <abbr title="Microsoft Excel 97-2003 and Excel 2007">Excel</abbr> and L<sup>A</sup>T<sub><big>E</big></sub>X formats
+    and L<sup>A</sup>T<sub><big>E</big></sub>X formats
         </li>
-    <li>import data and MySQL structures from <abbr title="Microsoft Excel 97-2003 and Excel 2007">Microsoft Excel</abbr> and OpenDocument spreadsheets, as well as <abbr title="Extensible Markup Language">XML</abbr>, <abbr title="Comma Separated Values">CSV</abbr>, and <abbr title="Server Query Language">SQL</abbr> files</li>
+    <li>import data and MySQL structures from OpenDocument spreadsheets, as well as <abbr title="Extensible Markup Language">XML</abbr>, <abbr title="Comma Separated Values">CSV</abbr>, and <abbr title="Server Query Language">SQL</abbr> files</li>
     <li>administer multiple servers</li>
     <li>manage MySQL users and privileges</li>
     <li>check referential integrity in MyISAM tables</li>
@@ -1086,9 +1086,9 @@ ALTER TABLE `pma_column_comments`
     </dt>
     <dd>
         Since release 3.5.0 phpMyAdmin can be configured to remember several things
-        (table sorting
+        (sorted column
         <a href="#cfg_RememberSorting" class="configrule">$cfg['RememberSorting']</a>
-        , etc.) for browsing tables.
+        , column order, and column visibility from a database table) for browsing tables.
         Without configuring the storage, these features still can be used,
         but the values will disappear after you logout.<br/><br/>
 
@@ -1222,6 +1222,15 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
                 </li>
         </ul>
     </dd>
+
+    <dt><span id="cfg_Servers_MaxTableUiprefs">$cfg['Servers'][$i]['MaxTableUiprefs']</span> integer
+    </dt>
+    <dd>Maximum number of rows saved in <a
+        href="#cfg_Servers_table_uiprefs">$cfg['Servers'][$i]['table_uiprefs']</a> table.<br /><br />
+
+        When tables are dropped or renamed, table_uiprefs may contain invalid 
+        data (referring to tables which no longer exist).<br />
+        We only keep this number of newest rows in table_uiprefs and automatically delete older rows.</dd>
 
     <dt><span id="cfg_Servers_verbose_check">$cfg['Servers'][$i]['verbose_check']</span> boolean
     </dt>
@@ -1372,6 +1381,9 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dd>The maximum number of table names to be displayed in the
     main panel's list (except on the Export page). This limit is also enforced in the navigation panel
     when in Light mode.</dd>
+
+    <dt id="cfg_ShowHint">$cfg['ShowHint'] boolean</dt>
+    <dd>Whether to show the hints or not (for example, hints when hovering table header)</dd>
 
     <dt id="cfg_MaxCharactersInDisplayedSQL">$cfg['MaxCharactersInDisplayedSQL'] integer</dt>
     <dd>The maximum number of characters when a SQL query is displayed. The
@@ -1633,7 +1645,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
 
     <dt id="cfg_ShowAll">$cfg['ShowAll'] boolean</dt>
     <dd>Defines whether a user should be displayed a
-        &quot;show all (records)&quot; button in browse mode or not.</dd>
+        &quot;show all (rows)&quot; button in browse mode or not.</dd>
 
     <dt id="cfg_MaxRows">$cfg['MaxRows'] integer</dt>
     <dd>Number of rows displayed when browsing a result set. If the result set
@@ -1962,7 +1974,7 @@ $cfg['TrustedProxies'] =
 
     <dt><span id="cfg_RowActionLinks">$cfg['RowActionLinks'] </span>string
     </dt>
-    <dd>Defines the place where table row links (Edit, Inline edit, Copy,
+    <dd>Defines the place where table row links (Edit, Copy,
         Delete) would be put when tables contents are displayed (you may
         have them displayed at the left side, right side, both sides or nowhere).
         &quot;left&quot; and &quot;right&quot; are parsed as &quot;top&quot;
@@ -2077,11 +2089,9 @@ $cfg['TrustedProxies'] =
         The name of the directory where temporary files can be stored. 
         <br /><br />
 
-        This is needed for native MS Excel export, see
-        <a href="#faq6_23"><abbr title="Frequently Asked Questions">FAQ</abbr>
-        6.23</a> and to work around limitations of 
-    <tt>open_basedir</tt> for uploaded
-        files, see <a href="#faq1_11"><abbr title="Frequently Asked Questions">FAQ</abbr>
+        This is needed to work around limitations of <tt>open_basedir</tt> 
+        for uploaded files, see
+        <a href="#faq1_11"><abbr title="Frequently Asked Questions">FAQ</abbr>
         1.11</a>.
         <br /><br />
 
@@ -2142,6 +2152,11 @@ setfacl -d -m "g:www-data:rwx" tmp
         In this array are defined default parameters for import, names of
         items are similar to texts seen on import page, so you can easily
         identify what they mean.
+    </dd>
+
+    <dt id="cfg_SaveCellsAtOnce">$cfg['SaveCellsAtOnce'] boolean</dt>
+    <dd>
+        Defines whether or not to save all edited cells at once in browse-mode.
     </dd>
 
     <dt id="cfg_ShowDisplayDirection">$cfg['ShowDisplayDirection'] boolean</dt>
@@ -3096,6 +3111,7 @@ RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
     <li><a href="http://www.hardened-php.net/suhosin/configuration.html#suhosin.post.max_array_index_length">suhosin.post.max_array_index_length</a> should be increased (eg. 256)</li>
     <li><a href="http://www.hardened-php.net/suhosin/configuration.html#suhosin.request.max_totalname_length">suhosin.request.max_totalname_length</a> should be increased (eg. 8192)</li>
     <li><a href="http://www.hardened-php.net/suhosin/configuration.html#suhosin.post.max_totalname_length">suhosin.post.max_totalname_length</a> should be increased (eg. 8192)</li>
+    <li><a href="http://www.hardened-php.net/suhosin/configuration.html#suhosin.get.max_value_length">suhosin.get.max_value_length</a> should be increased (eg. 1024)</li>
     <li><a href="http://www.hardened-php.net/suhosin/configuration.html#suhosin.sql.bailout_on_error">suhosin.sql.bailout_on_error</a> needs to be disabled (the default)</li>
     <li><a href="http://www.hardened-php.net/suhosin/configuration.html#logging_configuration">suhosin.log.*</a> should not include SQL, otherwise you get big slowdown</li>
 </ul>
@@ -3224,7 +3240,7 @@ the <tt>mysql_upgrade</tt> command on the server.</p>
     please upgrade to a plain revision.</p>
 
 <h4 id="faq2_5">
-    <a href="#faq2_5">2.5 Each time I want to insert or change a record or drop a database
+    <a href="#faq2_5">2.5 Each time I want to insert or change a row or drop a database
     or a table, an error 404 (page not found) is displayed or, with <abbr title="HyperText Transfer Protocol">HTTP</abbr> or
     cookie authentication, I'm asked to log in again. What's wrong?</a></h4>
 
@@ -3463,7 +3479,7 @@ have either the <a href="http://pecl.php.net/package/APC">APC</a> extension
     can use it for the Edit and Delete links.</p>
 
 <h4 id="faq3_11">
-    <a href="#faq3_11">3.11 The number of records for InnoDB tables is not correct.</a></h4>
+    <a href="#faq3_11">3.11 The number of rows for InnoDB tables is not correct.</a></h4>
 
 <p> phpMyAdmin uses a quick method to get the row count, and this method
     only returns an approximate count in the case of InnoDB tables. See
@@ -3493,27 +3509,13 @@ have either the <a href="http://pecl.php.net/package/APC">APC</a> extension
 <!-- Begin: Excel import limitations -->
 
 <h4 id="faq3_15">
-    <a href="#faq3_15">3.15 When I import an Excel spreadsheet, some cells with calculations do not display correctly.</a></h4>
-<p>
-    phpMyAdmin uses the <a href="http://www.codeplex.com/PHPExcel/">PHPExcel</a> library to parse Excel XLS and XLSX spreadsheets. 
-    Therefore, any limitations that are listed on their page regarding Excel calculations will also apply here.
-    <br /><br />
-    PHPExcel will be kept up to date so as to make all improvements available to phpMyAdmin users.
-</p>
+    <a href="#faq3_15">3.15 (withdrawn).</a></h4>
 
 <h4 id="faq3_16">
-    <a href="#faq3_16">3.16 When I compress (gzip, bzip2, zip) an Excel workbook and attempt to import it, nothing happens.</a></h4>
-<p>
-    Since Excel XLSX workbooks are already compressed, there is often times only a small benefit from compressing them yet again. 
-    Support for compressed Excel XLSX and XLS workbooks may be added in the future.
-</p>
+    <a href="#faq3_16">3.16 (withdrawn).</a></h4>
 
 <h4 id="faq3_17">
-    <a href="#faq3_17">3.17 When I import an Excel spreadsheet, my custom cell types are not represented as they are in Excel.</a></h4>
-<p>
-    Excel's internal representation of custom cell types is rather muddled (especially in Excel 97-2003 binary XLS files). If possible,
-    consider using a built-in type. These are almost always guarenteed to import correctly.
-</p>
+    <a href="#faq3_17">3.17 (withdrawn).</a></h4>
 
 <!-- End: Excel import limitations -->
 <!-- Begin: CSV import limitations -->
@@ -4266,22 +4268,14 @@ INSERT INTO REL_towns VALUES ('M', 'Montr&eacute;al');
 </p>
 
 <h4 id="faq6_23">
-    <a href="#faq6_23">6.23 Export: I heard phpMyAdmin can export Microsoft
-    Excel files, how can I enable that?</a></h4>
+    <a href="#faq6_23">6.23 Export: I heard phpMyAdmin can export Microsoft Excel files?</a></h4>
 
 <p> You can use
     <abbr title="comma separated values">CSV</abbr> for Microsoft Excel,
-    which works out of the box, but phpMyAdmin supports direct export 
-    to Microsoft Excel version 97 and newer.  For this to work, you need to set
-    <a href="#cfg_TempDir" class="configrule">$cfg['TempDir']</a> to a
-    place where the web server user can write (for example <tt>'./tmp'</tt>).</p>
-<p> To create the temporary directory on a UNIX-based system, you can do:</p>
-
-<pre>
-cd phpMyAdmin
-mkdir tmp
-chmod o+rwx tmp
-</pre>
+    which works out of the box.<br />
+    Since phpMyAdmin 3.4.5 support for direct export to Microsoft Excel 
+    version 97 and newer was dropped.
+</p>
 
 <h4 id="faq6_24">
     <a href="#faq6_24">6.24 Now that phpMyAdmin supports native MySQL 4.1.x column comments,
@@ -5036,8 +5030,8 @@ Jakub Wilk, Thomas Michael Winningham, Vilius Zigmantas, &quot;Manuzhai&quot;.
     <li><a href="http://www.wikipedia.org/wiki/Field_%28computer_science%29">Field</a>
          - one part of divided data/columns.</li>
     <li><a href="http://www.wikipedia.org/wiki/Foreign_key">foreign key</a>
-         - a field or group of fields in a database record that point to a key
-         field or group of fields forming a key of another database record in some
+         - a column or group of columns in a database row that point to a key
+         column or group of columns forming a key of another database row in some
          (usually different) table.</li>
     <li><a href="http://www.fpdf.org/">FPDF (FreePDF)</a>
         - the free PDF library</li>
@@ -5128,7 +5122,7 @@ Jakub Wilk, Thomas Michael Winningham, Vilius Zigmantas, &quot;Manuzhai&quot;.
          Internet technologies.</li>
     <li><a href="http://www.ietf.org/rfc/rfc1952.txt">RFC 1952</a>
          - GZIP file format specification version 4.3</li>
-    <li><a href="http://www.wikipedia.org/wiki/Row_%28database%29">Row (record, tulpel)</a>
+    <li><a href="http://www.wikipedia.org/wiki/Row_%28database%29">Row (record, tuple)</a>
         - represents a single, implicitly structured data item in a table.</li>
     <li><a href="http://www.wikipedia.org/wiki/Server_%28computing%29">Server</a>
          - a computer system that provides services to other computing

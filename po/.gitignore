@@ -1,3 +1,5 @@
 # pootle cache
 .translation_index
 *.pending
+# generated file for advisory translations
+advisory_rules.php

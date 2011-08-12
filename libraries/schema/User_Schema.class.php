@@ -145,7 +145,7 @@ class PMA_User_Schema
             </legend>
             <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
             <input type="hidden" name="do" value="selectpage" />
-            <select name="chpage" id="chpage" onchange="this.form.submit()">
+            <select name="chpage" id="chpage" class="autosubmit">
             <option value="0"><?php echo __('Select page'); ?></option>
             <?php
             while ($curr_page = PMA_DBI_fetch_assoc($page_rs)) {

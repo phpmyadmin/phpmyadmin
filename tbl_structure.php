@@ -590,12 +590,24 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
 /**
  * Work on the table
  */
-?>
-<a href="tbl_printview.php?<?php echo $url_query; ?>"><?php
-if ($cfg['PropertiesIconic']) {
-    echo '<img class="icon ic_b_print" src="themes/dot.gif" alt="' . __('Print view') . '"/>';
+
+if ($tbl_is_view) {
+    $create_view = PMA_DBI_get_definition($db, 'VIEW', $table);
+    echo PMA_linkOrButton(
+        'tbl_sql.php' . PMA_generate_common_url(
+            $url_params +
+            array(
+                'sql_query' => $create_view,
+                'show_query' => '1',
+            )
+        ),
+        PMA_getIcon('b_edit.png', __('Edit view'))
+        );
 }
-echo __('Print view');
+?>
+
+<a href="tbl_printview.php?<?php echo $url_query; ?>"><?php
+echo PMA_getIcon('b_print.png', __('Print view'));
 ?></a>
 
 <?php
@@ -606,10 +618,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     if ($cfgRelation['relwork'] || PMA_foreignkey_supported($tbl_type)) {
         ?>
 <a href="tbl_relation.php?<?php echo $url_query; ?>"><?php
-        if ($cfg['PropertiesIconic']) {
-            echo '<img class="icon ic_b_relations" src="themes/dot.gif" alt="' . __('Relation view') . '"/>';
-        }
-        echo __('Relation view');
+        echo PMA_getIcon('b_relations.png', __('Relation view'));
         ?></a>
         <?php
     }
@@ -617,24 +626,16 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     if (!PMA_DRIZZLE) {
         ?>
 <a href="sql.php?<?php echo $url_query; ?>&amp;session_max_rows=all&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table) . ' PROCEDURE ANALYSE()'); ?>"><?php
-        if ($cfg['PropertiesIconic']) {
-            echo '<img class="icon ic_b_tblanalyse" src="themes/dot.gif" alt="' . __('Propose table structure') . '" />';
-        }
-        echo __('Propose table structure');
-        ?></a>
-        <?php
+        echo PMA_getIcon('b_tblanalyse.png', __('Propose table structure'));
+        ?></a><?php
         echo PMA_showMySQLDocu('Extending_MySQL', 'procedure_analyse') . "\n";
     }
 
     if (PMA_Tracker::isActive())
     {
         echo '<a href="tbl_tracking.php?' . $url_query . '">';
-
-        if ($cfg['PropertiesIconic'])
-        {
-            echo '<img class="icon ic_eye" src="themes/dot.gif" alt="' . __('Track table') . '" /> ';
-        }
-        echo __('Track table') . '</a>';
+        echo PMA_getIcon('eye.png', __('Track table'));
+        echo '</a>';
     }
     ?>
 
@@ -809,10 +810,7 @@ if ($cfg['ShowStats']) {
     <tr class="tblFooters">
         <td colspan="3" align="center">
             <a href="sql.php?<?php echo $url_query; ?>&pos=0&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>"><?php
-            if ($cfg['PropertiesIconic']) {
-               echo '<img class="icon ic_b_tbloptimize" src="themes/dot.gif" alt="' . __('Optimize table'). '" />';
-            }
-            echo __('Optimize table');
+            echo PMA_getIcon('b_tbloptimize.png', __('Optimize table'));
             ?></a>
         </td>
     </tr>
@@ -894,7 +892,7 @@ if ($cfg['ShowStats']) {
     if (!$is_innodb && isset($showtable['Data_length']) && $showtable['Rows'] > 0 && $mergetable == false) {
         ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __(' Row size '); ?> &oslash;</th>
+        <th class="name"><?php echo __('Row size'); ?> &oslash;</th>
         <td class="value"><?php echo $avg_size . ' ' . $avg_unit; ?></td>
     </tr>
         <?php
@@ -902,7 +900,7 @@ if ($cfg['ShowStats']) {
     if (isset($showtable['Auto_increment'])) {
         ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Next'); ?> Autoindex</th>
+        <th class="name"><?php echo __('Next autoindex'); ?></th>
         <td class="value"><?php echo PMA_formatNumber($showtable['Auto_increment'], 0); ?></td>
     </tr>
         <?php

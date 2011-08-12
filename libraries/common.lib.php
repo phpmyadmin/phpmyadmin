@@ -50,21 +50,21 @@ function PMA_pow($base, $exp, $use_function = false)
         return false;
     }
     switch ($use_function) {
-        case 'bcpow' :
-            // bcscale() needed for testing PMA_pow() with base values < 1
-            bcscale(10);
-            $pow = bcpow($base, $exp);
-            break;
-        case 'gmp_pow' :
-             $pow = gmp_strval(gmp_pow($base, $exp));
-            break;
-        case 'pow' :
-            $base = (float) $base;
-            $exp = (int) $exp;
-            $pow = pow($base, $exp);
-            break;
-        default:
-            $pow = $use_function($base, $exp);
+    case 'bcpow' :
+        // bcscale() needed for testing PMA_pow() with base values < 1
+        bcscale(10);
+        $pow = bcpow($base, $exp);
+        break;
+    case 'gmp_pow' :
+         $pow = gmp_strval(gmp_pow($base, $exp));
+        break;
+    case 'pow' :
+        $base = (float) $base;
+        $exp = (int) $exp;
+        $pow = pow($base, $exp);
+        break;
+    default:
+        $pow = $use_function($base, $exp);
     }
 
     return $pow;
@@ -100,7 +100,7 @@ function PMA_getIcon($icon, $alternate = '', $force_text = false, $noSprite = fa
         } else {
             $button .= '<img src="themes/dot.gif"'
                 . ' title="' . $alternate . '" alt="' . $alternate . '"'
-                . ' class="icon ic_' . str_replace(array('.gif','.png'),array('',''),$icon) . '" />';
+                . ' class="icon ic_' . str_replace(array('.gif','.png'), '', $icon) . '" />';
         }
     }
 
@@ -174,9 +174,10 @@ function PMA_sqlAddSlashes($a_string = '', $is_like = false, $crlf = false, $php
     }
 
     if ($crlf) {
-        $a_string = str_replace("\n", '\n', $a_string);
-        $a_string = str_replace("\r", '\r', $a_string);
-        $a_string = str_replace("\t", '\t', $a_string);
+        $a_string = strtr(
+            $a_string,
+            array("\n" => '\n', "\r" => '\r', "\t" => '\t')
+            );
     }
 
     if ($php_code) {
@@ -202,10 +203,7 @@ function PMA_sqlAddSlashes($a_string = '', $is_like = false, $crlf = false, $php
  */
 function PMA_escape_mysql_wildcards($name)
 {
-    $name = str_replace('_', '\\_', $name);
-    $name = str_replace('%', '\\%', $name);
-
-    return $name;
+    return strtr($name, array('_' => '\\_', '%' => '\\%'));
 } // end of the 'PMA_escape_mysql_wildcards()' function
 
 /**
@@ -220,10 +218,7 @@ function PMA_escape_mysql_wildcards($name)
  */
 function PMA_unescape_mysql_wildcards($name)
 {
-    $name = str_replace('\\_', '_', $name);
-    $name = str_replace('\\%', '%', $name);
-
-    return $name;
+    return strtr($name, array('\\_' => '_', '\\%' => '%'));
 } // end of the 'PMA_unescape_mysql_wildcards()' function
 
 /**
@@ -253,7 +248,10 @@ function PMA_unQuote($quoted_string, $quote = null)
          && substr($quoted_string, -1, 1) === $quote) {
              $unquoted_string = substr($quoted_string, 1, -1);
              // replace escaped quotes
-             $unquoted_string = str_replace($quote . $quote, $quote, $unquoted_string);
+             $unquoted_string = str_replace(
+                $quote . $quote,
+                $quote,
+                $unquoted_string);
              return $unquoted_string;
          }
     }
@@ -290,30 +288,36 @@ function PMA_formatSql($parsed_sql, $unparsed_sql = '')
     if (! is_array($parsed_sql)) {
         // We don't so just return the input directly
         // This is intended to be used for when the SQL Parser is turned off
-        $formatted_sql = '<pre>' . "\n"
-                        . (($cfg['SQP']['fmtType'] == 'none' && $unparsed_sql != '') ? $unparsed_sql : $parsed_sql) . "\n"
-                        . '</pre>';
+        $formatted_sql = "<pre>\n";
+        if ($cfg['SQP']['fmtType'] == 'none' && $unparsed_sql != '') {
+            $formatted_sql .= $unparsed_sql;
+        } else {
+            $formatted_sql .= $parsed_sql;
+        }
+        $formatted_sql .= "\n</pre>";
         return $formatted_sql;
     }
 
     $formatted_sql        = '';
 
     switch ($cfg['SQP']['fmtType']) {
-        case 'none':
-            if ($unparsed_sql != '') {
-                $formatted_sql = '<span class="inner_sql"><pre>' . "\n" . PMA_SQP_formatNone(array('raw' => $unparsed_sql)) . "\n" . '</pre></span>';
-            } else {
-                $formatted_sql = PMA_SQP_formatNone($parsed_sql);
-            }
-            break;
-        case 'html':
-            $formatted_sql = PMA_SQP_formatHtml($parsed_sql, 'color');
-            break;
-        case 'text':
-            $formatted_sql = PMA_SQP_formatHtml($parsed_sql, 'text');
-            break;
-        default:
-            break;
+    case 'none':
+        if ($unparsed_sql != '') {
+            $formatted_sql = '<span class="inner_sql"><pre>' . "\n"
+                . PMA_SQP_formatNone(array('raw' => $unparsed_sql)) . "\n"
+                . '</pre></span>';
+        } else {
+            $formatted_sql = PMA_SQP_formatNone($parsed_sql);
+        }
+        break;
+    case 'html':
+        $formatted_sql = PMA_SQP_formatHtml($parsed_sql, 'color');
+        break;
+    case 'text':
+        $formatted_sql = PMA_SQP_formatHtml($parsed_sql, 'text');
+        break;
+    default:
+        break;
     } // end switch
 
     return $formatted_sql;
@@ -346,67 +350,68 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
     $link = str_replace('_', '-', strtolower($link));
 
     switch ($cfg['MySQLManualType']) {
-        case 'chapters':
-            if (empty($chapter)) {
-                $chapter = 'index';
+    case 'chapters':
+        if (empty($chapter)) {
+            $chapter = 'index';
+        }
+        if (empty($anchor)) {
+            $anchor = $link;
+        }
+        $url = $cfg['MySQLManualBase'] . '/' . $chapter . '.html#' . $anchor;
+        break;
+    case 'big':
+        if (empty($anchor)) {
+            $anchor = $link;
+        }
+        $url = $cfg['MySQLManualBase'] . '#' . $anchor;
+        break;
+    case 'searchable':
+        if (empty($link)) {
+            $link = 'index';
+        }
+        $url = $cfg['MySQLManualBase'] . '/' . $link . '.html';
+        if (!empty($anchor)) {
+            $url .= '#' . $anchor;
+        }
+        break;
+    case 'viewable':
+    default:
+        if (empty($link)) {
+            $link = 'index';
+        }
+        $mysql = '5.0';
+        $lang = 'en';
+        if (defined('PMA_MYSQL_INT_VERSION')) {
+            if (PMA_MYSQL_INT_VERSION >= 50500) {
+                $mysql = '5.5';
+                /* l10n: Language to use for MySQL 5.5 documentation, please use only languages which do exist in official documentation.  */
+                $lang = _pgettext('MySQL 5.5 documentation language', 'en');
+            } else if (PMA_MYSQL_INT_VERSION >= 50100) {
+                $mysql = '5.1';
+                /* l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.  */
+                $lang = _pgettext('MySQL 5.1 documentation language', 'en');
+            } else {
+                $mysql = '5.0';
+                /* l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation. */
+                $lang = _pgettext('MySQL 5.0 documentation language', 'en');
             }
-            if (empty($anchor)) {
-                $anchor = $link;
-            }
-            $url = $cfg['MySQLManualBase'] . '/' . $chapter . '.html#' . $anchor;
-            break;
-        case 'big':
-            if (empty($anchor)) {
-                $anchor = $link;
-            }
-            $url = $cfg['MySQLManualBase'] . '#' . $anchor;
-            break;
-        case 'searchable':
-            if (empty($link)) {
-                $link = 'index';
-            }
-            $url = $cfg['MySQLManualBase'] . '/' . $link . '.html';
-            if (!empty($anchor)) {
-                $url .= '#' . $anchor;
-            }
-            break;
-        case 'viewable':
-        default:
-            if (empty($link)) {
-                $link = 'index';
-            }
-            $mysql = '5.0';
-            $lang = 'en';
-            if (defined('PMA_MYSQL_INT_VERSION')) {
-                if (PMA_MYSQL_INT_VERSION >= 50500) {
-                    $mysql = '5.5';
-                    /* l10n: Language to use for MySQL 5.5 documentation, please use only languages which do exist in official documentation.  */
-                    $lang = _pgettext('MySQL 5.5 documentation language', 'en');
-                } else if (PMA_MYSQL_INT_VERSION >= 50100) {
-                    $mysql = '5.1';
-                    /* l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.  */
-                    $lang = _pgettext('MySQL 5.1 documentation language', 'en');
-                } else {
-                    $mysql = '5.0';
-                    /* l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation. */
-                    $lang = _pgettext('MySQL 5.0 documentation language', 'en');
-                }
-            }
-            $url = $cfg['MySQLManualBase'] . '/' . $mysql . '/' . $lang . '/' . $link . '.html';
-            if (!empty($anchor)) {
-                $url .= '#' . $anchor;
-            }
-            break;
+        }
+        $url = $cfg['MySQLManualBase'] . '/' . $mysql . '/' . $lang . '/' . $link . '.html';
+        if (!empty($anchor)) {
+            $url .= '#' . $anchor;
+        }
+        break;
     }
 
+    $open_link = '<a href="' . PMA_linkURL($url) . '" target="mysql_doc">';
     if ($just_open) {
-        return '<a href="' . PMA_linkURL($url) . '" target="mysql_doc">';
+        return $open_link;
     } elseif ($big_icon) {
-        return '<a href="' . PMA_linkURL($url) . '" target="mysql_doc"><img class="icon ic_b_sqlhelp" src="themes/dot.gif" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
+        return $open_link . '<img class="icon ic_b_sqlhelp" src="themes/dot.gif" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
     } elseif ($GLOBALS['cfg']['ReplaceHelpImg']) {
-        return '<a href="' . PMA_linkURL($url) . '" target="mysql_doc"><img class="icon ic_b_help_s" src="themes/dot.gif" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
+        return $open_link . '<img class="icon ic_b_help_s" src="themes/dot.gif" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
     } else {
-        return '[<a href="' . PMA_linkURL($url) . '" target="mysql_doc">' . __('Documentation') . '</a>]';
+        return '[' . $open_link . __('Documentation') . '</a>]';
     }
 } // end of the 'PMA_showMySQLDocu()' function
 
@@ -610,14 +615,14 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
     $_SESSION['Import_message']['message'] = $error_msg_output;
 
     if ($exit) {
-       /**
-        * If in an Ajax request
-        * - avoid displaying a Back link
-        * - use PMA_ajaxResponse() to transmit the message and exit
-        */
-       if ($GLOBALS['is_ajax_request'] == true) {
-           PMA_ajaxResponse($error_msg_output, false);
-       }
+        /**
+         * If in an Ajax request
+         * - avoid displaying a Back link
+         * - use PMA_ajaxResponse() to transmit the message and exit
+         */
+        if ($GLOBALS['is_ajax_request'] == true) {
+            PMA_ajaxResponse($error_msg_output, false);
+        }
         if (! empty($back_url)) {
             if (strstr($back_url, '?')) {
                 $back_url .= '&amp;no_history=true';
@@ -630,13 +635,13 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
             $error_msg_output .= '<fieldset class="tblFooters">';
             $error_msg_output .= '[ <a href="' . $back_url . '">' . __('Back') . '</a> ]';
             $error_msg_output .= '</fieldset>' . "\n\n";
-       }
+        }
 
-       echo $error_msg_output;
-       /**
-        * display footer and exit
-        */
-       require './libraries/footer.inc.php';
+        echo $error_msg_output;
+        /**
+         * display footer and exit
+         */
+        require './libraries/footer.inc.php';
     } else {
         echo $error_msg_output;
     }
@@ -851,8 +856,9 @@ function PMA_reloadNavigation($jsonly=false)
         unset($_SESSION['tmp_user_values']['table_limit_offset']);
         echo "\n";
         $reload_url = './navigation.php?' . PMA_generate_common_url($GLOBALS['db'], '', '&');
-        if (!$jsonly)
-          echo '<script type="text/javascript">' . PHP_EOL;
+        if (!$jsonly) {
+            echo '<script type="text/javascript">' . PHP_EOL;
+        }
     ?>
 //<![CDATA[
 if (typeof(window.parent) != 'undefined'
@@ -862,8 +868,9 @@ if (typeof(window.parent) != 'undefined'
 }
 //]]>
 <?php
-if (!$jsonly)
-  echo '</script>' . PHP_EOL;
+        if (!$jsonly) {
+            echo '</script>' . PHP_EOL;
+        }
 
         unset($GLOBALS['reload']);
     }
@@ -1200,14 +1207,14 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         // mode because 1) it currently does not work and 2) we would
         // have two similar mechanisms on the page for the same goal
         if ($is_select || $GLOBALS['is_ajax_request'] === false && ! $query_too_big) {
-        // see in js/functions.js the jQuery code attached to id inline_edit
-        // document.write conflicts with jQuery, hence used $().append()
+            // see in js/functions.js the jQuery code attached to id inline_edit
+            // document.write conflicts with jQuery, hence used $().append()
             echo "<script type=\"text/javascript\">\n" .
                 "//<![CDATA[\n" .
                 "$('.tools form').last().after('[<a href=\"#\" title=\"" .
                 PMA_escapeJsString(__('Inline edit of this query')) .
                 "\" class=\"inline_edit_sql\">" .
-                PMA_escapeJsString(__('Inline')) .
+                PMA_escapeJsString(_pgettext('Inline edit query', 'Inline')) .
                 "</a>]');\n" .
                 "//]]>\n" .
                 "</script>";
@@ -1292,8 +1299,22 @@ function PMA_formatByteDown($value, $limes = 6, $comma = 0)
         return null;
     }
 
-    /* l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+ */
-    $byteUnits = array(__('B'), __('KiB'), __('MiB'), __('GiB'), __('TiB'), __('PiB'), __('EiB'));
+    $byteUnits = array(
+        /* l10n: shortcuts for Byte */
+        __('B'),
+        /* l10n: shortcuts for Kilobyte */
+        __('KiB'),
+        /* l10n: shortcuts for Megabyte */
+        __('MiB'),
+        /* l10n: shortcuts for Gigabyte */
+        __('GiB'),
+        /* l10n: shortcuts for Terabyte */
+        __('TiB'),
+        /* l10n: shortcuts for Petabyte */
+        __('PiB'),
+        /* l10n: shortcuts for Exabyte */
+        __('EiB')
+        );
 
     $dh   = PMA_pow(10, $comma);
     $li   = PMA_pow(10, $limes);
@@ -1374,7 +1395,9 @@ function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_dow
     //number_format is not multibyte safe, str_replace is safe
     if ($digits_left === 0) {
         $value = number_format($value, $digits_right);
-        if ($originalValue!=0 && floatval($value) == 0) $value = ' <'.(1/PMA_pow(10,$digits_right));
+        if ($originalValue != 0 && floatval($value) == 0) {
+            $value = ' <' . (1 / PMA_pow(10, $digits_right));
+        }
 
         return PMA_localizeNumber($value);
     }
@@ -1410,10 +1433,16 @@ function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_dow
 
     $dh = PMA_pow(10, $digits_right);
 
-    // This gives us the right SI prefix already, but $digits_left parameter not incorporated
+    /*
+     * This gives us the right SI prefix already,
+     * but $digits_left parameter not incorporated
+     */
     $d = floor(log10($value) / 3);
-    // Lowering the SI prefix by 1 gives us an additional 3 zeros
-    // So if we have 3,6,9,12.. free digits ($digits_left - $cur_digits) to use, then lower the SI prefix
+    /*
+     * Lowering the SI prefix by 1 gives us an additional 3 zeros
+     * So if we have 3,6,9,12.. free digits ($digits_left - $cur_digits)
+     * to use, then lower the SI prefix
+     */
     $cur_digits = floor(log10($value / PMA_pow(1000, $d, 'pow'))+1);
     if ($digits_left > $cur_digits) {
         $d-= floor(($digits_left - $cur_digits)/3);
@@ -1425,12 +1454,18 @@ function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_dow
     $unit = $units[$d];
 
     // If we dont want any zeros after the comma just add the thousand seperator
-    if ($noTrailingZero)
-        $value = PMA_localizeNumber(preg_replace("/(?<=\d)(?=(\d{3})+(?!\d))/",",",$value));
-    else
-        $value = PMA_localizeNumber(number_format($value, $digits_right)); //number_format is not multibyte safe, str_replace is safe
+    if ($noTrailingZero) {
+        $value = PMA_localizeNumber(
+            preg_replace('/(?<=\d)(?=(\d{3})+(?!\d))/', ',', $value)
+            );
+    } else {
+        //number_format is not multibyte safe, str_replace is safe
+        $value = PMA_localizeNumber(number_format($value, $digits_right));
+    }
 
-    if ($originalValue!=0 && floatval($value) == 0) return ' <'.(1/PMA_pow(10,$digits_right)).' '.$unit;
+    if ($originalValue!=0 && floatval($value) == 0) {
+        return ' <' . (1 / PMA_pow(10, $digits_right)) . ' ' . $unit;
+    }
 
     return $sign . $value . ' ' . $unit;
 } // end of the 'PMA_formatNumber' function
@@ -1469,44 +1504,44 @@ function PMA_extractValueFromFormattedSize($formatted_size)
 function PMA_localisedDate($timestamp = -1, $format = '')
 {
     $month = array(
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Jan'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Feb'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Mar'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Apr'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         _pgettext('Short month name', 'May'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Jun'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Jul'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Aug'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Sep'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Oct'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Nov'),
-/* l10n: Short month name */
+        /* l10n: Short month name */
         __('Dec'));
     $day_of_week = array(
-/* l10n: Short week day name */
-        __('Sun'),
-/* l10n: Short week day name */
+        /* l10n: Short week day name */
+        _pgettext('Short week day name', 'Sun'),
+        /* l10n: Short week day name */
         __('Mon'),
-/* l10n: Short week day name */
+        /* l10n: Short week day name */
         __('Tue'),
-/* l10n: Short week day name */
+        /* l10n: Short week day name */
         __('Wed'),
-/* l10n: Short week day name */
+        /* l10n: Short week day name */
         __('Thu'),
-/* l10n: Short week day name */
+        /* l10n: Short week day name */
         __('Fri'),
-/* l10n: Short week day name */
+        /* l10n: Short week day name */
         __('Sat'));
 
     if ($format == '') {
@@ -1708,7 +1743,22 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
         $displayed_message = '<span>' . htmlspecialchars(preg_replace('/^.*\salt="([^"]*)".*$/si', '\1', $message)) . '</span>';
     }
 
+    // Suhosin: Check that each query parameter is not above maximum
+    $in_suhosin_limits = true;
     if ($url_length <= $GLOBALS['cfg']['LinkLengthLimit']) {
+        if ($suhosin_get_MaxValueLength = ini_get('suhosin.get.max_value_length')) {
+            $query_parts = PMA_splitURLQuery($url);
+            foreach($query_parts as $query_pair) {
+                list($eachvar, $eachval) = explode('=', $query_pair);
+                if(strlen($eachval) > $suhosin_get_MaxValueLength) {
+                    $in_suhosin_limits = false;
+                    break;
+                }
+            }
+        }
+    }
+
+    if ($url_length <= $GLOBALS['cfg']['LinkLengthLimit'] && $in_suhosin_limits) {
         // no whitespace within an <a> else Safari will make it part of the link
         $ret = "\n" . '<a href="' . $url . '" '
             . implode(' ', $tag_params_strings) . '>'
@@ -1723,19 +1773,11 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
             $tag_params['class'] = 'link';
         }
 
-        // decode encoded url separators
-        $separator   = PMA_get_arg_separator();
-        // on most places separator is still hard coded ...
-        if ($separator !== '&') {
-            // ... so always replace & with $separator
-            $url         = str_replace(htmlentities('&'), $separator, $url);
-            $url         = str_replace('&', $separator, $url);
+        if (! isset($query_parts)) {
+            $query_parts = PMA_splitURLQuery($url);
         }
-        $url         = str_replace(htmlentities($separator), $separator, $url);
-        // end decode
-
         $url_parts   = parse_url($url);
-        $query_parts = explode($separator, $url_parts['query']);
+
         if ($new_form) {
             $ret = '<form action="' . $url_parts['path'] . '" class="link"'
                  . ' method="post"' . $target . ' style="display: inline;">';
@@ -1772,6 +1814,28 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
     return $ret;
 } // end of the 'PMA_linkOrButton()' function
 
+
+/**
+ * Splits a URL string by parameter
+ *
+ * @param string  $url the URL
+ * @return array  the parameter/value pairs, for example [0] db=sakila
+ */
+function PMA_splitURLQuery($url) {
+    // decode encoded url separators
+    $separator   = PMA_get_arg_separator();
+    // on most places separator is still hard coded ...
+    if ($separator !== '&') {
+        // ... so always replace & with $separator
+        $url         = str_replace(htmlentities('&'), $separator, $url);
+        $url         = str_replace('&', $separator, $url);
+    }
+    $url         = str_replace(htmlentities($separator), $separator, $url);
+    // end decode
+
+    $url_parts   = parse_url($url);
+    return explode($separator, $url_parts['query']);
+}
 
 /**
  * Returns a given timespan value in a readable format.
@@ -1920,9 +1984,15 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
     $unique_key           = '';
     $nonprimary_condition = '';
     $preferred_condition = '';
+    $primary_key_array    = array();
+    $unique_key_array     = array();
+    $nonprimary_condition_array = array();
+    $condition_array = array();
 
     for ($i = 0; $i < $fields_cnt; ++$i) {
         $condition   = '';
+        $con_key     = '';
+        $con_val     = '';
         $field_flags = PMA_DBI_field_flags($handle, $i);
         $meta        = $fields_meta[$i];
 
@@ -1964,20 +2034,21 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
         // (also, the syntax "CONCAT(field) IS NULL"
         // that we need on the next "if" will work)
         if ($meta->type == 'real') {
-            $condition = ' CONCAT(' . PMA_backquote($meta->table) . '.'
-                . PMA_backquote($meta->orgname) . ') ';
+            $con_key = 'CONCAT(' . PMA_backquote($meta->table) . '.'
+                . PMA_backquote($meta->orgname) . ')';
         } else {
-            $condition = ' ' . PMA_backquote($meta->table) . '.'
-                . PMA_backquote($meta->orgname) . ' ';
+            $con_key = PMA_backquote($meta->table) . '.'
+                . PMA_backquote($meta->orgname);
         } // end if... else...
+        $condition = ' ' . $con_key . ' ';
 
         if (! isset($row[$i]) || is_null($row[$i])) {
-            $condition .= 'IS NULL AND';
+            $con_val = 'IS NULL';
         } else {
             // timestamp is numeric on some MySQL 4.1
             // for real we use CONCAT above and it should compare to string
             if ($meta->numeric && $meta->type != 'timestamp' && $meta->type != 'real') {
-                $condition .= '= ' . $row[$i] . ' AND';
+                $con_val = '= ' . $row[$i];
             } elseif (($meta->type == 'blob' || $meta->type == 'string')
                 // hexify only if this is a true not empty BLOB or a BINARY
                     && stristr($field_flags, 'BINARY')
@@ -1986,25 +2057,29 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
                 if (strlen($row[$i]) < 1000) {
                     // use a CAST if possible, to avoid problems
                     // if the field contains wildcard characters % or _
-                    $condition .= '= CAST(0x' . bin2hex($row[$i])
-                        . ' AS BINARY) AND';
+                    $con_val = '= CAST(0x' . bin2hex($row[$i]) . ' AS BINARY)';
                 } else {
                     // this blob won't be part of the final condition
-                    $condition = '';
+                    $con_val = null;
                 }
             } elseif ($meta->type == 'bit') {
-                $condition .= "= b'" . PMA_printable_bit_value($row[$i], $meta->length) . "' AND";
+                $con_val = "= b'" . PMA_printable_bit_value($row[$i], $meta->length) . "'";
             } else {
-                $condition .= '= \''
-                    . PMA_sqlAddSlashes($row[$i], false, true) . '\' AND';
+                $con_val = '= \'' . PMA_sqlAddSlashes($row[$i], false, true) . '\'';
             }
         }
-        if ($meta->primary_key > 0) {
-            $primary_key .= $condition;
-        } elseif ($meta->unique_key > 0) {
-            $unique_key  .= $condition;
+        if ($con_val != null) {
+            $condition .= $con_val . ' AND';
+            if ($meta->primary_key > 0) {
+                $primary_key .= $condition;
+                $primary_key_array[$con_key] = $con_val;
+            } elseif ($meta->unique_key > 0) {
+                $unique_key  .= $condition;
+                $unique_key_array[$con_key] = $con_val;
+            }
+            $nonprimary_condition .= $condition;
+            $nonprimary_condition_array[$con_key] = $con_val;
         }
-        $nonprimary_condition .= $condition;
     } // end for
 
     // Correction University of Virginia 19991216:
@@ -2013,15 +2088,18 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
     $clause_is_unique = true;
     if ($primary_key) {
         $preferred_condition = $primary_key;
+        $condition_array = $primary_key_array;
     } elseif ($unique_key) {
         $preferred_condition = $unique_key;
+        $condition_array = $unique_key_array;
     } elseif (! $force_unique) {
         $preferred_condition = $nonprimary_condition;
+        $condition_array = $nonprimary_condition_array;
         $clause_is_unique = false;
     }
 
     $where_clause = trim(preg_replace('|\s?AND$|', '', $preferred_condition));
-    return(array($where_clause, $clause_is_unique));
+    return(array($where_clause, $clause_is_unique, $condition_array));
 } // end function
 
 /**
@@ -2191,11 +2269,11 @@ function PMA_listNavigator($count, $pos, $_url_params, $script, $frame, $max_cou
             if ($GLOBALS['cfg']['NavigationBarIconic']) {
                 $caption1 = '&lt;&lt;';
                 $caption2 = ' &lt; ';
-                $title1   = ' title="' . __('Begin') . '"';
-                $title2   = ' title="' . __('Previous') . '"';
+                $title1   = ' title="' . _pgettext('First page', 'Begin') . '"';
+                $title2   = ' title="' . _pgettext('Previous page', 'Previous') . '"';
             } else {
-                $caption1 = __('Begin') . ' &lt;&lt;';
-                $caption2 = __('Previous') . ' &lt;';
+                $caption1 = _pgettext('First page', 'Begin') . ' &lt;&lt;';
+                $caption2 = _pgettext('Previous page', 'Previous') . ' &lt;';
                 $title1   = '';
                 $title2   = '';
             } // end if... else...
@@ -2221,11 +2299,11 @@ function PMA_listNavigator($count, $pos, $_url_params, $script, $frame, $max_cou
             if ($GLOBALS['cfg']['NavigationBarIconic']) {
                 $caption3 = ' &gt; ';
                 $caption4 = '&gt;&gt;';
-                $title3   = ' title="' . __('Next') . '"';
-                $title4   = ' title="' . __('End') . '"';
+                $title3   = ' title="' . _pgettext('Next page', 'Next') . '"';
+                $title4   = ' title="' . _pgettext('Last page', 'End') . '"';
             } else {
-                $caption3 = '&gt; ' . __('Next');
-                $caption4 = '&gt;&gt; ' . __('End');
+                $caption3 = '&gt; ' . _pgettext('Next page', 'Next');
+                $caption4 = '&gt;&gt; ' . _pgettext('Last page', 'End');
                 $title3   = '';
                 $title4   = '';
             } // end if... else...
@@ -2321,7 +2399,7 @@ function PMA_externalBug($functionality, $component, $minimum_version, $bugref)
 function PMA_display_html_checkbox($html_field_name, $label, $checked, $onclick)
 {
 
-    echo '<input type="checkbox" name="' . $html_field_name . '" id="' . $html_field_name . '"' . ($checked ? ' checked="checked"' : '') . ($onclick ? ' onclick="this.form.submit();"' : '') . ' /><label for="' . $html_field_name . '">' . $label . '</label>';
+    echo '<input type="checkbox" name="' . $html_field_name . '" id="' . $html_field_name . '"' . ($checked ? ' checked="checked"' : '') . ($onclick ? ' class="autosubmit"' : '') . ' /><label for="' . $html_field_name . '">' . $label . '</label>';
 }
 
 /**
@@ -2649,13 +2727,13 @@ function PMA_extractFieldSpec($fieldspec)
                 if (! $in_string) {
                     $in_string = true;
                     $working = "";
-                // Otherwise, it may be either an end of a string, or a 'double quote' which can be handled as-is
                 } else {
-                // Check out the next character (if possible)
+                    // Otherwise, it may be either an end of a string, or a 'double quote' which can be handled as-is
+                    // Check out the next character (if possible)
                     $has_next = isset($fieldspec[$index + 1]);
                     $next = $has_next ? $fieldspec[$index + 1] : null;
 
-                // If we have reached the end of our 'working' string (because there are no more chars, or the next char is not another quote)
+                    // If we have reached the end of our 'working' string (because there are no more chars, or the next char is not another quote)
                     if (! $has_next || $next != "'") {
                         $enum_set_values[] = $working;
                         $in_string = false;
@@ -2667,12 +2745,12 @@ function PMA_extractFieldSpec($fieldspec)
                         $index++;
                     }
                 }
-            // escaping of a quote?
             } elseif ('\\' == $char && isset($fieldspec[$index + 1]) && "'" == $fieldspec[$index + 1]) {
+                // escaping of a quote?
                 $working .= "'";
                 $index++;
-            // Otherwise, add it to our working string like normal
             } else {
+                // Otherwise, add it to our working string like normal
                 $working .= $char;
             }
             // Increment character index
@@ -2873,7 +2951,7 @@ function PMA_expandUserString($string, $escape = null, $updates = array())
     }
 
     /* Do the replacement */
-    return str_replace(array_keys($replace), array_values($replace), strftime($string));
+    return strtr(strftime($string), $replace);
 }
 
 /**

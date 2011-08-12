@@ -811,9 +811,7 @@ function PMA_analyzeTable(&$table)
         }
 
         return array($types, $sizes);
-    }
-    else
-    {
+    } else {
         /**
          * TODO: Handle this better
          */
@@ -1095,8 +1093,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
     unset($params);
 
     $num_tables = count($tables);
-    for ($i = 0; $i < $num_tables; ++$i)
-    {
+    for ($i = 0; $i < $num_tables; ++$i) {
         $params = array('db' => (string)$db_name, 'table' => (string)$tables[$i][TBL_NAME]);
         $tbl_url = 'sql.php' . PMA_generate_common_url($params);
         $tbl_struct_url = 'tbl_structure.php' . PMA_generate_common_url($params);

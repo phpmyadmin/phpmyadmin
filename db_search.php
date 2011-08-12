@@ -120,14 +120,9 @@ if (isset($_REQUEST['submit_search'])) {
      *                                   3 -> exact string, 4 -> regexp)
      *
      * @return  array    3 SQL querys (for count, display and delete results)
-     *
-     * @global  string   the url to return to in case of errors
-     * @global  string   charset connection
      */
     function PMA_getSearchSqls($table, $field, $search_str, $search_option)
     {
-        global $err_url;
-
         // Statement types
         $sqlstr_select = 'SELECT';
         $sqlstr_delete = 'DELETE';
@@ -139,7 +134,6 @@ if (isset($_REQUEST['submit_search'])) {
         $sqlstr_from = ' FROM ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($table);
 
         $search_words    = (($search_option > 2) ? array($search_str) : explode(' ', $search_str));
-        $search_wds_cnt  = count($search_words);
 
         $like_or_regex   = (($search_option == 4) ? 'REGEXP' : 'LIKE');
         $automatic_wildcard   = (($search_option < 3) ? '%' : '');

@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Set of functions used to build HTML dumps of tables
+ * Set of functions used to export a set of queries to a MS Word document
  *
  * @package phpMyAdmin-Export
  * @subpackage HTMLWord

@@ -237,7 +237,7 @@ if (!empty($local_import_file) && !empty($cfg['UploadDir'])) {
     $local_import_file = PMA_securePath($local_import_file);
 
     $import_file  = PMA_userDir($cfg['UploadDir']) . $local_import_file;
-} elseif (empty($import_file) || !is_uploaded_file($import_file))  {
+} elseif (empty($import_file) || !is_uploaded_file($import_file)) {
     $import_file  = 'none';
 }
 
