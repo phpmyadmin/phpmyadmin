@@ -4257,7 +4257,7 @@ msgstr "Hilfe-Button anzeigen"
 
 #: libraries/config/messages.inc.php:357
 msgid "Save all edited cells at once"
-msgstr ""
+msgstr "Speichere alle bearbeiteten Zellen auf einmal"
 
 #: libraries/config/messages.inc.php:358
 msgid "Directory where exports can be saved on server"
