@@ -12276,7 +12276,6 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Space usage"
 #~ msgid "memcached usage"
 #~ msgstr "فضاي استفاده‌شده"
 
@@ -12285,12 +12284,10 @@ msgstr ""
 #~ msgstr "نمايش جدولها"
 
 #, fuzzy
-#~| msgid "Usage"
 #~ msgid "CPU Usage"
 #~ msgstr "استفاده"
 
 #, fuzzy
-#~| msgid "Usage"
 #~ msgid "Swap Usage"
 #~ msgstr "استفاده"
 

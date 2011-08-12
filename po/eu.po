@@ -12537,7 +12537,6 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Space usage"
 #~ msgid "memcached usage"
 #~ msgstr "Erabilitako lekua"
 
@@ -12546,22 +12545,18 @@ msgstr ""
 #~ msgstr "Taulak erakutsi"
 
 #, fuzzy
-#~| msgid "Connections"
 #~ msgid "% connections used"
 #~ msgstr "Konexioak"
 
 #, fuzzy
-#~| msgid "Connections"
 #~ msgid "% aborted connections"
 #~ msgstr "Konexioak"
 
 #, fuzzy
-#~| msgid "Usage"
 #~ msgid "CPU Usage"
 #~ msgstr "Erabilpena"
 
 #, fuzzy
-#~| msgid "Usage"
 #~ msgid "Swap Usage"
 #~ msgstr "Erabilpena"
 

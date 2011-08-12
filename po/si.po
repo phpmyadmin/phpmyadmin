@@ -12542,32 +12542,26 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Space usage"
 #~ msgid "memcached usage"
 #~ msgstr "අවකාශ භාවිතය"
 
 #, fuzzy
-#~| msgid "Show open tables"
 #~ msgid "% open files"
 #~ msgstr "විවෘත වගු පෙන්වන්න"
 
 #, fuzzy
-#~| msgid "Connections"
 #~ msgid "% connections used"
 #~ msgstr "සම්බන්ධතා"
 
 #, fuzzy
-#~| msgid "Force SSL connection"
 #~ msgid "% aborted connections"
 #~ msgstr "SSL සම්බන්දතාවක් යොදා ගැනීමට බල කරන්න"
 
 #, fuzzy
-#~| msgid "Usage"
 #~ msgid "CPU Usage"
 #~ msgstr "භාවිතය"
 
 #, fuzzy
-#~| msgid "Usage"
 #~ msgid "Swap Usage"
 #~ msgstr "භාවිතය"
 

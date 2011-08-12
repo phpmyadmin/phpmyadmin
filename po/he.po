@@ -12459,7 +12459,6 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Space usage"
 #~ msgid "memcached usage"
 #~ msgstr "שימוש מקום"
 
@@ -12468,22 +12467,18 @@ msgstr ""
 #~ msgstr "ראיית טבלאות"
 
 #, fuzzy
-#~| msgid "Connections"
 #~ msgid "% connections used"
 #~ msgstr "חיבורים"
 
 #, fuzzy
-#~| msgid "Connections"
 #~ msgid "% aborted connections"
 #~ msgstr "חיבורים"
 
 #, fuzzy
-#~| msgid "Usage"
 #~ msgid "CPU Usage"
 #~ msgstr "שימוש"
 
 #, fuzzy
-#~| msgid "Usage"
 #~ msgid "Swap Usage"
 #~ msgstr "שימוש"
 

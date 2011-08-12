@@ -12770,22 +12770,18 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Space usage"
 #~ msgid "memcached usage"
 #~ msgstr "Speicherplatzverbrauch"
 
 #, fuzzy
-#~| msgid "Show open tables"
 #~ msgid "% open files"
 #~ msgstr "Zeige alle offenen Tabellen"
 
 #, fuzzy
-#~| msgid "Connections"
 #~ msgid "% connections used"
 #~ msgstr "Verbindungen"
 
 #, fuzzy
-#~| msgid "Compress connection"
 #~ msgid "% aborted connections"
 #~ msgstr "Verbindung komprimieren"
 

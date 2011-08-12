@@ -12567,7 +12567,6 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Space usage"
 #~ msgid "memcached usage"
 #~ msgstr "Diska vietas lietošana"
 
@@ -12576,22 +12575,18 @@ msgstr ""
 #~ msgstr "Rādīt tabulas"
 
 #, fuzzy
-#~| msgid "Connections"
 #~ msgid "% connections used"
 #~ msgstr "Konekcijas"
 
 #, fuzzy
-#~| msgid "Connections"
 #~ msgid "% aborted connections"
 #~ msgstr "Konekcijas"
 
 #, fuzzy
-#~| msgid "Usage"
 #~ msgid "CPU Usage"
 #~ msgstr "Aizņem"
 
 #, fuzzy
-#~| msgid "Usage"
 #~ msgid "Swap Usage"
 #~ msgstr "Aizņem"
 

@@ -12359,7 +12359,6 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Space usage"
 #~ msgid "memcached usage"
 #~ msgstr "Penggunaan ruang"
 
@@ -12368,22 +12367,18 @@ msgstr ""
 #~ msgstr "Papar jadual"
 
 #, fuzzy
-#~| msgid "Connections"
 #~ msgid "% connections used"
 #~ msgstr "Hubungan"
 
 #, fuzzy
-#~| msgid "Connections"
 #~ msgid "% aborted connections"
 #~ msgstr "Hubungan"
 
 #, fuzzy
-#~| msgid "Usage"
 #~ msgid "CPU Usage"
 #~ msgstr "Penggunaan"
 
 #, fuzzy
-#~| msgid "Usage"
 #~ msgid "Swap Usage"
 #~ msgstr "Penggunaan"
 

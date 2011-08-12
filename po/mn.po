@@ -12678,32 +12678,26 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Space usage"
 #~ msgid "memcached usage"
 #~ msgstr "Ашиглалтын зай"
 
 #, fuzzy
-#~| msgid "Show open tables"
 #~ msgid "% open files"
 #~ msgstr "Нээлттэй хүснэгтүүдийг харуулах"
 
 #, fuzzy
-#~| msgid "Connections"
 #~ msgid "% connections used"
 #~ msgstr "Холболт"
 
 #, fuzzy
-#~| msgid "max. concurrent connections"
 #~ msgid "% aborted connections"
 #~ msgstr "ХИ. давхацсан холболтууд"
 
 #, fuzzy
-#~| msgid "Usage"
 #~ msgid "CPU Usage"
 #~ msgstr "Ашиглалт"
 
 #, fuzzy
-#~| msgid "Usage"
 #~ msgid "Swap Usage"
 #~ msgstr "Ашиглалт"
 

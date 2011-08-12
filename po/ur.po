@@ -12231,17 +12231,14 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Could not open file: %s"
 #~ msgid "% open files"
 #~ msgstr "مسل نہیں کھول سکتا: %s"
 
 #, fuzzy
-#~| msgid "PBMS connection failed:"
 #~ msgid "% connections used"
 #~ msgstr "PBMS جڑت ناکام ہوا:"
 
 #, fuzzy
-#~| msgid "Compress connection"
 #~ msgid "% aborted connections"
 #~ msgstr "جڑنے کو سکیڑیں"
 
