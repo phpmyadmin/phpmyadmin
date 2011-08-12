@@ -2190,10 +2190,9 @@ msgstr[0] "%1$d Datensatz eingefügt."
 msgstr[1] "%1$d Datensätze eingefügt."
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Error reading data:"
 msgid "Error while creating PDF:"
-msgstr "Fehler beim Lesen der Daten:"
+msgstr "Fehler beim Erstellen der PDF:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
