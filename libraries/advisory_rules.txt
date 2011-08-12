@@ -44,14 +44,14 @@ rule 'Questions below 1,000'
 	Let the server run for a longer time until it has executed a greater amount of queries.
 	Current amount of Questions: %s | Questions
 
-rule '% slow queries' [Questions > 0]
+rule 'Percentage of slow queries' [Questions > 0]
 	Slow_queries / Questions * 100
 	value >= 5
 	There is a lot of slow queries compared to the overall amount of Queries.
 	You might want to increase {long_query_time} or optimize the queries listed in the slow query log
 	The slow query rate should be below 5%, your value is %s%. | round(value,2)
 
-rule 'slow query rate' [Questions > 0]
+rule 'Slow query rate' [Questions > 0]
 	(Slow_queries / Questions * 100) / Uptime
 	value * 60 * 60 > 1
 	There is a high percentage of slow queries compared to the server uptime.
@@ -127,7 +127,7 @@ rule 'Query cache disabled'
 	The query cache is known to greatly improve performance if configured correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using memcached, ignore this recommendation.
 	query_cache_size is set to 0 or query_cache_type is set to 'OFF'
 
-rule 'memcached usage' [!fired('Query cache disabled')]
+rule 'Query cache usage' [!fired('Query cache disabled')]
 	Questions / Uptime
 	value > 100
 	Suboptimal caching method.
@@ -178,14 +178,14 @@ rule 'Query cache min result size' [!fired('Query cache disabled')]
 
 #
 # Sorts
-rule '% sorts that cause temporary tales' [Sort_scan + Sort_range > 0]
+rule 'Percentage of sorts that cause temporary tables' [Sort_scan + Sort_range > 0]
 	Sort_merge_passes / (Sort_scan + Sort_range) * 100
 	value > 10
 	Too many sorts are causing temporary tables.
 	Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending on your system memory limits
 	%s% of all sorts cause temporary tables, this value should be lower than 10%. | round(value,1)
 
-rule 'rate of sorts that cause temporary tables'
+rule 'Rate of sorts that cause temporary tables'
 	Sort_merge_passes / Uptime
 	value * 60 * 60 > 1
 	Too many sorts are causing temporary tables.
@@ -200,28 +200,28 @@ rule 'Sort rows'
 	Sorted rows average: %s | PMA_bytime(value,2)
 
 # Joins, scans
-rule 'rate of joins without indexes'
+rule 'Rate of joins without indexes'
 	(Select_range_check + Select_scan + Select_full_join) / Uptime
 	value * 60 * 60 > 1
 	There are too many joins without indexes.
 	This means that joins are doing full table scans. Adding indexes for the fields being used in the join conditions will greatly speed up table joins
 	Table joins average: %s, this value should be less than 1 per hour | PMA_bytime(value,2)
 
-rule 'rate of reading first index entry'
+rule 'Rate of reading first index entry'
 	Handler_read_first / Uptime
 	value * 60 * 60 > 1
 	The rate of reading the first index entry is high.
 	This usually indicates frequent full index scans. Full index scans are faster than table scans but require lots of CPU cycles in big tables, if those tables that have or had high volumes of UPDATEs and DELETEs, running 'OPTIMIZE TABLE' might reduce the amount of and/or speed up full index scans. Other than that full index scans can only be reduced by rewriting queries.
 	Index scans average: %s, this value should be less than 1 per hour | PMA_bytime(value,2)
 
-rule 'rate of reading fixed position'
+rule 'Rate of reading fixed position'
 	Handler_read_rnd / Uptime
 	value * 60 * 60 > 1
 	The rate of reading data from a fixed position is high.
 	This indicates that many queries need to sort results and/or do a full table scan, including join queries that do not use indexes. Add indexes where applicable.
 	Rate of reading fixed position average: %s, this value should be less than 1 per hour | PMA_bytime(value,2)
 
-rule 'rate of reading next table row'
+rule 'Rate of reading next table row'
 	Handler_read_rnd_next / Uptime
 	value * 60 * 60 > 1
 	The rate of reading the next table row is high.
@@ -236,14 +236,14 @@ rule 'tmp_table_size vs. max_heap_table_size'
 	If you have deliberately changed one of either: The server uses the lower value of either to determine the maximum size of in-memory tables. So if you wish to increase the in-memory table limit you will have to increase the other value as well.
 	Current values are tmp_table_size: %s, max_heap_table_size: %s | implode(' ',PMA_formatByteDown(tmp_table_size, 2, 2)), implode(' ',PMA_formatByteDown(max_heap_table_size, 2, 2))
 
-rule '% temp disk tables' [Created_tmp_tables + Created_tmp_disk_tables > 0]
+rule 'Percentage of temp tables on disk' [Created_tmp_tables + Created_tmp_disk_tables > 0]
 	Created_tmp_disk_tables / (Created_tmp_tables + Created_tmp_disk_tables) * 100
 	value > 25
 	Many temporary tables are being written to disk instead of being kept in memory.
 	Increasing {max_heap_table_size} and {tmp_table_size} might help. However some temporary tables are always being written to disk, independent of the value of these variables. To eliminate these you will have to rewrite your queries to avoid those conditions (Within a temporary table: Presence of a BLOB or TEXT column or presence of a column bigger than 512 bytes) as mentioned in the beginning of an <a href="http://www.facebook.com/note.php?note_id=10150111255065841&comments">Article by the Pythian Group</a>
 	%s% of all temporary tables are being written to disk, this value should be below 25% | round(value,1)
 
-rule 'temp disk rate'
+rule 'Temp disk rate'
 	Created_tmp_disk_tables / Uptime
 	value * 60 * 60 > 1
 	Many temporary tables are being written to disk instead of being kept in memory.
@@ -255,7 +255,7 @@ rule 'temp disk rate'
 # that sort_buffer_size should be left as it is. And increasing read_buffer_size is only suggested when there are a lot of
 # table scans (http://dev.mysql.com/doc/refman/5.1/en/server-system-variables.html#sysvar_read_buffer_size and other sources) though
 # setting it too high is bad too (http://www.mysqlperformanceblog.com/2007/09/17/mysql-what-read_buffer_size-value-is-optimal/).
-#rule 'temp table rate'
+#rule 'Temp table rate'
 #	Created_tmp_tables / Uptime
 #	value * 60 * 60 > 1
 #	Many intermediate temporary tables are being created.
@@ -270,7 +270,7 @@ rule 'MyISAM key buffer size'
 	Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a good start.
 	key_buffer_size is 0
 
-rule 'max % MyISAM key buffer ever used' [key_buffer_size > 0]
+rule 'Max % MyISAM key buffer ever used' [key_buffer_size > 0]
 	Key_blocks_used * key_cache_block_size / key_buffer_size * 100
 	value < 95
 	MyISAM key buffer (index cache) % used is low.
@@ -278,14 +278,14 @@ rule 'max % MyISAM key buffer ever used' [key_buffer_size > 0]
 	max % MyISAM key buffer ever used: %s, this value should be above 95% | round(value,1)
 
 # Don't fire if above rule fired - we don't need the same advice twice
-rule '% MyISAM key buffer used' [key_buffer_size > 0 && !fired('max % MyISAM key buffer ever used')]
+rule 'Percentage of MyISAM key buffer used' [key_buffer_size > 0 && !fired('max % MyISAM key buffer ever used')]
 	( 1 - Key_blocks_unused * key_cache_block_size / key_buffer_size) * 100
 	value < 95
 	MyISAM key buffer (index cache) % used is low.
 	You may need to decrease the size of {key_buffer_size}, re-examine your tables to see if indexes have been removed, or examine queries and expectations about what indexes are being used.
 	% MyISAM key buffer used: %s, this value should be above 95% | round(value,1)
 
-rule '% index reads from memory' [Key_read_requests > 0]
+rule 'Percentage of index reads from memory' [Key_read_requests > 0]
 	100 - (Key_reads / Key_read_requests * 100)
 	value < 95
 	The % of indexes that use the MyISAM key buffer is low.
@@ -294,21 +294,21 @@ rule '% index reads from memory' [Key_read_requests > 0]
 
 #
 # other caches
-rule 'rate of table open'
+rule 'Rate of table open'
 	Opened_tables / Uptime
 	value*60*60 > 10
 	The rate of opening tables is high.
 	Opening tables requires disk I/O which is costly. Increasing {table_open_cache} might avoid this.
 	Opened table rate: %s, this value should be less than 10 per hour | PMA_bytime(value,2)
 
-rule '% open files'
+rule 'Percentage of used open files limit'
 	Open_files / open_files_limit * 100
 	value > 85
 	The number of open files is approaching the max number of open files.  You may get a "Too many open files" error.
 	Consider increasing {open_files_limit}, and check the error log when restarting after changing open_files_limit.
 	The number of opened files is at %s% of the limit. It should be below 85% | round(value,1)
 
-rule 'rate of open files'
+rule 'Rate of open files'
 	Open_files / Uptime
 	value * 60 * 60 > 5
 	The rate of opening files is high.
@@ -329,14 +329,14 @@ rule 'Table lock wait rate'
 	Optimize queries and/or use InnoDB to reduce lock wait.
 	Table lock wait rate: %s, this value should be less than 1 per hour | PMA_bytime(value,2)
 
-rule 'thread cache'
+rule 'Thread cache'
 	thread_cache_size
 	value < 1
 	Thread cache is disabled, resulting in more overhead from new connections to MySQL.
 	Enable the thread cache by setting {thread_cache_size} > 0.
 	The thread cache is set to 0
 
-rule 'thread cache hit rate %' [thread_cache_size > 0]
+rule 'Thread cache hit rate %' [thread_cache_size > 0]
 	100 - Threads_created / Connections
 	value < 80
 	Thread cache is not efficient.
@@ -359,35 +359,35 @@ rule 'Slow launch time'
 
 #
 #Connections
-rule '% connections used'
+rule 'Percentage of used connections'
 	Max_used_connections / max_connections * 100
 	value > 80
 	The maximum amount of used connections is getting close to the value of max_connections.
 	Increase max_connections, or decrease wait_timeout so that connections that do not close database handlers properly get killed sooner. Make sure the code closes database handlers properly.
 	Max_used_connections is at %s% of max_connections, it should be below 80% | round(value,1)
 
-rule '% aborted connections'
+rule 'Percentage of aborted connections'
 	Aborted_connects / Connections * 100
 	value > 1
 	Too many connections are aborted.
 	Connections are usually aborted when they cannot be authorized. <a href="http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-source-of-aborted_connects/">This article</a> might help you track down the source.
 	%s% of all connections are aborted. This value should be below 1% | round(value,1)
 
-rule 'rate of aborted connections'
+rule 'Rate of aborted connections'
 	Aborted_connects / Uptime
 	value * 60 * 60 > 1
 	Too many connections are aborted
 	Connections are usually aborted when they cannot be authorized. <a href="http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-source-of-aborted_connects/">This article</a> might help you track down the source.
 	Aborted connections rate is at %s, this value should be less than 1 per hour | PMA_bytime(value,2)
 
-rule '% aborted clients'
+rule 'Percentage of aborted clients'
 	Aborted_clients / Connections * 100
 	value > 2
 	Too many clients are aborted.
 	Clients are usually aborted when they did not close their connection to MySQL properly. This can be due to network issues or code not closing a database handler properly. Check your network and code.
 	%s% of all clients are aborted. This value should be below 2% | round(value,1)
 
-rule 'rate of aborted clients'
+rule 'Rate of aborted clients'
 	Aborted_clients / Uptime
 	value * 60 * 60 > 1
 	Too many clients are aborted.
@@ -403,7 +403,7 @@ rule 'Is InnoDB disabled?'
 	InnoDB is usually the better choice for table engines.
 	have_innodb is set to 'value'
 
-rule '% InnoDB log size' [innodb_buffer_pool_size > 0]
+rule 'InnoDB log size' [innodb_buffer_pool_size > 0]
 	innodb_log_file_size / innodb_buffer_pool_size * 100
 	value < 20
 	The InnoDB log file size is not an appropriate size, in relation to the InnoDB buffer pool.
