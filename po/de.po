@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-12 15:05+0200\n"
+"PO-Revision-Date: 2011-08-12 15:06+0200\n"
 "Last-Translator: Sven Strickroth <email@cs-ware.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -5541,10 +5541,9 @@ msgid "Language"
 msgstr "Sprache"
 
 #: libraries/display_tbl.lib.php:401
-#, fuzzy
 #| msgid "Save directory"
 msgid "Save edited data"
-msgstr "Speicher Verzeichnis"
+msgstr "Speichere bearbeitete Daten"
 
 #: libraries/display_tbl.lib.php:407
 msgid "Restore column order"
