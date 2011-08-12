@@ -1149,10 +1149,9 @@ msgid "Query cache efficiency"
 msgstr "Abfragen-Cache Effizienz"
 
 #: js/messages.php:97 po/advisory_rules.php:70
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
-msgstr "Abfragen-Cache"
+msgstr "Abfragen-Cache Ausnutzung"
 
 #: js/messages.php:98
 #, fuzzy
