@@ -90,6 +90,13 @@ $js_messages['strChartIssuedQueriesTitle'] = __('Questions (executed statements 
 $js_messages['strChartQueryPie'] = __('Query statistics');
 
 /* server status monitor */
+$js_messages['strIncompatibleMonitorConfig'] = __('Local monitor configuration icompatible');
+$js_messages['strIncompatibleMonitorConfigDescription'] = __('The chart arrangement configuration in your browsers local storage is not compatible anymore to the newer version of the monitor dialog. It is very likely that your current configuration will not work anymore. Please reset your configuration to default in the <i>Settings</i> menu.');
+
+$js_messages['strQueryCacheEfficiency'] = __('Query cache efficiency');
+$js_messages['strQueryCacheUsage'] = __('Query cache usage');
+$js_messages['strQueryCacheUsed'] = __('Query cache used');
+
 $js_messages['strSystemCPUUsage'] = __('System CPU Usage');
 $js_messages['strSystemMemory'] = __('System memory');
 $js_messages['strSystemSwap'] = __('System swap');
@@ -282,6 +289,8 @@ $js_messages['strColMarkHint'] = __('Click to mark/unmark');
 $js_messages['strColVisibHint'] = __('Click the drop-down arrow<br />to toggle column\'s visibility');
 $js_messages['strShowAllCol'] = __('Show all');
 $js_messages['strAlertNonUnique'] = __('This table does not contain a unique column. Features related to the grid edit, checkbox, Edit, Copy and Delete links may not work after saving.');
+$js_messages['strGridEditFeatureHint'] = __('You can also edit most columns<br />by clicking directly on their content.');
+$js_messages['strGoToLink'] = __('Go to link');
 
 /* password generation */
 $js_messages['strGeneratePassword'] = __('Generate password');

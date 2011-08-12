@@ -1266,7 +1266,7 @@ class PMA_Table
         " REPLACE INTO " . $pma_table .
         " VALUES ('" . $username . "', '" . PMA_sqlAddSlashes($this->db_name) . "', '" .
                        PMA_sqlAddSlashes($this->name) . "', '" .
-                       PMA_sqlAddSlashes(json_encode($this->uiprefs)) . "')";
+                       PMA_sqlAddSlashes(json_encode($this->uiprefs)) . "', NULL)";
 
         $success = PMA_DBI_try_query($sql_query, $GLOBALS['controllink']);
 
@@ -1276,6 +1276,28 @@ class PMA_Table
             $message->addMessage(PMA_Message::rawError(PMA_DBI_getError($GLOBALS['controllink'])));
             return $message;
         }
+
+        // Remove some old rows in table_uiprefs if it exceeds the configured maximum rows
+        $sql_query = 'SELECT COUNT(*) FROM ' . $pma_table;
+        $rows_count = PMA_DBI_fetch_value($sql_query);
+        $max_rows = $GLOBALS['cfg']['Server']['MaxTableUiprefs'];
+        if ($rows_count > $max_rows) {
+            $num_rows_to_delete = $rows_count - $max_rows;
+            $sql_query =
+                ' DELETE FROM ' . $pma_table .
+                ' ORDER BY last_update ASC' .
+                ' LIMIT ' . $num_rows_to_delete;
+            $success = PMA_DBI_try_query($sql_query, $GLOBALS['controllink']);
+
+            if (!$success) {
+                $message = PMA_Message::error(__('Failed to cleanup table UI preferences (see cfg["Server"]["MaxTableUiprefs"] documentation)'));
+                $message->addMessage('<br /><br />');
+                $message->addMessage(PMA_Message::rawError(PMA_DBI_getError($GLOBALS['controllink'])));
+            print_r($message);
+                return $message;
+            }
+        }
+
         return true;
     }
 

@@ -662,17 +662,19 @@ $(function() {
                 
         return false;
     });
-
-    function serverResponseError() {
-        var btns = {};
-        btns[PMA_messages['strReloadPage']] = function() {
-            window.location.reload();
-        };
-        $('#emptyDialog').attr('title', PMA_messages['strRefreshFailed']);
-        $('#emptyDialog').html(
-            '<img class="icon ic_s_attention" src="themes/dot.gif" alt=""> ' + 
-            PMA_messages['strInvalidResponseExplanation']
-        );
-        $('#emptyDialog').dialog({ buttons: btns });
-    }
 });
+
+
+// Needs to be global as server_status_monitor.js uses it too
+function serverResponseError() {
+    var btns = {};
+    btns[PMA_messages['strReloadPage']] = function() {
+        window.location.reload();
+    };
+    $('#emptyDialog').attr('title', PMA_messages['strRefreshFailed']);
+    $('#emptyDialog').html(
+        '<img class="icon ic_s_attention" src="themes/dot.gif" alt=""> ' + 
+        PMA_messages['strInvalidResponseExplanation']
+    );
+    $('#emptyDialog').dialog({ buttons: btns });
+}
