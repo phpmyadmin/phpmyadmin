@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-12 12:22+0200\n"
+"POT-Creation-Date: 2011-08-12 12:32+0200\n"
 "PO-Revision-Date: 2011-08-11 22:58+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
@@ -1139,7 +1139,7 @@ msgstr ""
 msgid "Query cache efficiency"
 msgstr "Sorgu önbelleği etkisizleştirildi"
 
-#: js/messages.php:97
+#: js/messages.php:97 po/advisory_rules.php:70
 #, fuzzy
 #| msgid "Query Cache usage"
 msgid "Query cache usage"
@@ -11496,8 +11496,9 @@ msgid "Current amount of Questions: %s"
 msgstr "Şu anki Soru miktarı: %s"
 
 #: po/advisory_rules.php:15
-#, php-format
-msgid "% slow queries"
+#, fuzzy
+#| msgid "% slow queries"
+msgid "Percentage of slow queries"
 msgstr "% yavaş sorgular"
 
 #: po/advisory_rules.php:16
@@ -11517,7 +11518,9 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 
 #: po/advisory_rules.php:20
-msgid "slow query rate"
+#, fuzzy
+#| msgid "slow query rate"
+msgid "Slow query rate"
 msgstr "yavaş sorgu oranı"
 
 #: po/advisory_rules.php:21
@@ -11683,10 +11686,6 @@ msgstr ""
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 
-#: po/advisory_rules.php:70
-msgid "memcached usage"
-msgstr "bellek önbelleklemesi kullanımı"
-
 #: po/advisory_rules.php:71
 msgid "Suboptimal caching method."
 msgstr ""
@@ -11845,8 +11844,9 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
 
 #: po/advisory_rules.php:105
-#, php-format
-msgid "% sorts that cause temporary tales"
+#, fuzzy
+#| msgid "% sorts that cause temporary tales"
+msgid "Percentage of sorts that cause temporary tables"
 msgstr "%, geçici tablolara sebep olanı sıralar"
 
 #: po/advisory_rules.php:106 po/advisory_rules.php:111
@@ -11867,8 +11867,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:110
-msgid "rate of sorts that cause temporary tables"
-msgstr ""
+#, fuzzy
+#| msgid "% sorts that cause temporary tales"
+msgid "Rate of sorts that cause temporary tables"
+msgstr "%, geçici tablolara sebep olanı sıralar"
 
 #: po/advisory_rules.php:113
 #, php-format
@@ -11898,8 +11900,10 @@ msgid "Sorted rows average: %s"
 msgstr ""
 
 #: po/advisory_rules.php:120
-msgid "rate of joins without indexes"
-msgstr ""
+#, fuzzy
+#| msgid "There are too many joins without indexes."
+msgid "Rate of joins without indexes"
+msgstr "İndeksler olmadan çok fazla katılım var."
 
 #: po/advisory_rules.php:121
 msgid "There are too many joins without indexes."
@@ -11917,7 +11921,7 @@ msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:125
-msgid "rate of reading first index entry"
+msgid "Rate of reading first index entry"
 msgstr ""
 
 #: po/advisory_rules.php:126
@@ -11940,7 +11944,7 @@ msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:130
-msgid "rate of reading fixed position"
+msgid "Rate of reading fixed position"
 msgstr ""
 
 #: po/advisory_rules.php:131
@@ -11962,8 +11966,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:135
-msgid "rate of reading next table row"
-msgstr ""
+#, fuzzy
+#| msgid "The rate of reading the next table row is high."
+msgid "Rate of reading next table row"
+msgstr "Sonraki tablo satırını okuma oranı yüksek."
 
 #: po/advisory_rules.php:136
 msgid "The rate of reading the next table row is high."
@@ -12003,8 +12009,10 @@ msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr ""
 
 #: po/advisory_rules.php:145
-msgid "% temp disk tables"
-msgstr "% geçici disk tabloları"
+#, fuzzy
+#| msgid "Where to show the table row links"
+msgid "Percentage of temp tables on disk"
+msgstr "Tablo satır bağlantılarının nerede gösterileceği"
 
 #: po/advisory_rules.php:146 po/advisory_rules.php:151
 msgid ""
@@ -12031,8 +12039,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:150
-msgid "temp disk rate"
-msgstr ""
+#, fuzzy
+#| msgid "% temp disk tables"
+msgid "Temp disk rate"
+msgstr "% geçici disk tabloları"
 
 #: po/advisory_rules.php:152
 msgid ""
@@ -12071,8 +12081,10 @@ msgid "key_buffer_size is 0"
 msgstr ""
 
 #: po/advisory_rules.php:160
-msgid "max % MyISAM key buffer ever used"
-msgstr ""
+#, fuzzy
+#| msgid "MyISAM key buffer size"
+msgid "Max % MyISAM key buffer ever used"
+msgstr "MyISAM anahtar arabellek boyutu"
 
 #: po/advisory_rules.php:161 po/advisory_rules.php:166
 #, php-format
@@ -12092,8 +12104,10 @@ msgid "max %% MyISAM key buffer ever used: %s, this value should be above 95%%"
 msgstr ""
 
 #: po/advisory_rules.php:165
-msgid "% MyISAM key buffer used"
-msgstr ""
+#, fuzzy
+#| msgid "MyISAM key buffer size"
+msgid "Percentage of MyISAM key buffer used"
+msgstr "MyISAM anahtar arabellek boyutu"
 
 #: po/advisory_rules.php:168
 #, php-format
@@ -12101,7 +12115,7 @@ msgid "%% MyISAM key buffer used: %s, this value should be above 95%%"
 msgstr ""
 
 #: po/advisory_rules.php:170
-msgid "% index reads from memory"
+msgid "Percentage of index reads from memory"
 msgstr ""
 
 #: po/advisory_rules.php:171
@@ -12119,7 +12133,9 @@ msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
 
 #: po/advisory_rules.php:175
-msgid "rate of table open"
+#, fuzzy
+#| msgid "rate of table open"
+msgid "Rate of table open"
 msgstr "açık tablo oranı"
 
 #: po/advisory_rules.php:176
@@ -12138,9 +12154,10 @@ msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:180
-#, php-format
-msgid "% open files"
-msgstr "% açık dosyalar"
+#, fuzzy
+#| msgid "rate of open files"
+msgid "Percentage of used open files limit"
+msgstr "açık dosyaların oranı"
 
 #: po/advisory_rules.php:181
 msgid ""
@@ -12161,7 +12178,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:185
-msgid "rate of open files"
+#, fuzzy
+#| msgid "rate of open files"
+msgid "Rate of open files"
 msgstr "açık dosyaların oranı"
 
 #: po/advisory_rules.php:186
@@ -12200,7 +12219,9 @@ msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:200
-msgid "thread cache"
+#, fuzzy
+#| msgid "thread cache"
+msgid "Thread cache"
 msgstr "işlem önbelleği"
 
 #: po/advisory_rules.php:201
@@ -12218,8 +12239,10 @@ msgid "The thread cache is set to 0"
 msgstr ""
 
 #: po/advisory_rules.php:205
-msgid "thread cache hit rate %"
-msgstr ""
+#, fuzzy
+#| msgid "Thread cache is not efficient."
+msgid "Thread cache hit rate %"
+msgstr "İşlem önbelleği etkin değil."
 
 #: po/advisory_rules.php:206
 msgid "Thread cache is not efficient."
@@ -12273,9 +12296,10 @@ msgid "slow_launch_time is set to %s"
 msgstr "slow_launch_time %d'e ayarlı"
 
 #: po/advisory_rules.php:220
-#, php-format
-msgid "% connections used"
-msgstr "% bağlantı kullanıldı"
+#, fuzzy
+#| msgid "rate of aborted connections"
+msgid "Percentage of used connections"
+msgstr "durdurulan bağlantıların oranı"
 
 #: po/advisory_rules.php:221
 msgid ""
@@ -12297,8 +12321,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:225
-msgid "% aborted connections"
-msgstr "% durdurulan bağlantılar"
+#, fuzzy
+#| msgid "rate of aborted connections"
+msgid "Percentage of aborted connections"
+msgstr "durdurulan bağlantıların oranı"
 
 #: po/advisory_rules.php:226
 msgid "Too many connections are aborted."
@@ -12318,7 +12344,9 @@ msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 
 #: po/advisory_rules.php:230
-msgid "rate of aborted connections"
+#, fuzzy
+#| msgid "rate of aborted connections"
+msgid "Rate of aborted connections"
 msgstr "durdurulan bağlantıların oranı"
 
 #: po/advisory_rules.php:231
@@ -12332,8 +12360,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:235
-msgid "% aborted clients"
-msgstr ""
+#, fuzzy
+#| msgid "rate of aborted clients"
+msgid "Percentage of aborted clients"
+msgstr "durdurulan istemcilerin oranı"
 
 #: po/advisory_rules.php:236 po/advisory_rules.php:241
 msgid "Too many clients are aborted."
@@ -12352,7 +12382,9 @@ msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 
 #: po/advisory_rules.php:240
-msgid "rate of aborted clients"
+#, fuzzy
+#| msgid "rate of aborted clients"
+msgid "Rate of aborted clients"
 msgstr "durdurulan istemcilerin oranı"
 
 #: po/advisory_rules.php:243
@@ -12377,8 +12409,10 @@ msgid "have_innodb is set to 'value'"
 msgstr ""
 
 #: po/advisory_rules.php:250
-msgid "% InnoDB log size"
-msgstr ""
+#, fuzzy
+#| msgid "InnoDB buffer pool size"
+msgid "InnoDB log size"
+msgstr "InnoDB arabellek havuzu boyutu"
 
 #: po/advisory_rules.php:251
 msgid ""
@@ -12485,6 +12519,18 @@ msgstr ""
 #: po/advisory_rules.php:268
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#~ msgid "memcached usage"
+#~ msgstr "bellek önbelleklemesi kullanımı"
+
+#~ msgid "% open files"
+#~ msgstr "% açık dosyalar"
+
+#~ msgid "% connections used"
+#~ msgstr "% bağlantı kullanıldı"
+
+#~ msgid "% aborted connections"
+#~ msgstr "% durdurulan bağlantılar"
 
 #~ msgid "CPU Usage"
 #~ msgstr "İşlemci Kullanımı"

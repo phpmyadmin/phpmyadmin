@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-12 12:22+0200\n"
+"POT-Creation-Date: 2011-08-12 12:32+0200\n"
 "PO-Revision-Date: 2011-08-10 16:45+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
@@ -1151,7 +1151,7 @@ msgstr ""
 msgid "Query cache efficiency"
 msgstr "Cache de consultas"
 
-#: js/messages.php:97
+#: js/messages.php:97 po/advisory_rules.php:70
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
@@ -11705,9 +11705,9 @@ msgid "Current amount of Questions: %s"
 msgstr "Conexión actual"
 
 #: po/advisory_rules.php:15
-#, fuzzy, php-format
+#, fuzzy
 #| msgid "Show SQL queries"
-msgid "% slow queries"
+msgid "Percentage of slow queries"
 msgstr "Mostrar las consultas SQL"
 
 #: po/advisory_rules.php:16
@@ -11729,7 +11729,7 @@ msgstr ""
 #: po/advisory_rules.php:20
 #, fuzzy
 #| msgid "Flush query cache"
-msgid "slow query rate"
+msgid "Slow query rate"
 msgstr "Vaciar el cache de consultas"
 
 #: po/advisory_rules.php:21
@@ -11917,12 +11917,6 @@ msgstr ""
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 
-#: po/advisory_rules.php:70
-#, fuzzy
-#| msgid "Space usage"
-msgid "memcached usage"
-msgstr "Espacio utilizado"
-
 #: po/advisory_rules.php:71
 msgid "Suboptimal caching method."
 msgstr ""
@@ -12089,9 +12083,9 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
 
 #: po/advisory_rules.php:105
-#, fuzzy, php-format
+#, fuzzy
 #| msgid "Allows creating temporary tables."
-msgid "% sorts that cause temporary tales"
+msgid "Percentage of sorts that cause temporary tables"
 msgstr "Permite la creación de tablas temporales."
 
 #: po/advisory_rules.php:106 po/advisory_rules.php:111
@@ -12114,8 +12108,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:110
-msgid "rate of sorts that cause temporary tables"
-msgstr ""
+#, fuzzy
+#| msgid "Allows creating temporary tables."
+msgid "Rate of sorts that cause temporary tables"
+msgstr "Permite la creación de tablas temporales."
 
 #: po/advisory_rules.php:113
 #, php-format
@@ -12147,8 +12143,10 @@ msgid "Sorted rows average: %s"
 msgstr ""
 
 #: po/advisory_rules.php:120
-msgid "rate of joins without indexes"
-msgstr ""
+#, fuzzy
+#| msgid "There are no routines to display."
+msgid "Rate of joins without indexes"
+msgstr "No hay rutinas para mostrar."
 
 #: po/advisory_rules.php:121
 #, fuzzy
@@ -12168,7 +12166,7 @@ msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:125
-msgid "rate of reading first index entry"
+msgid "Rate of reading first index entry"
 msgstr ""
 
 #: po/advisory_rules.php:126
@@ -12191,7 +12189,7 @@ msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:130
-msgid "rate of reading fixed position"
+msgid "Rate of reading fixed position"
 msgstr ""
 
 #: po/advisory_rules.php:131
@@ -12213,8 +12211,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:135
-msgid "rate of reading next table row"
-msgstr ""
+#, fuzzy
+#| msgid "Where to show the table row links"
+msgid "Rate of reading next table row"
+msgstr "Donde mostrar los enlaces de filas de tabla"
 
 #: po/advisory_rules.php:136
 #, fuzzy
@@ -12255,14 +12255,11 @@ msgstr ""
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr ""
 
-# singular: tabla
-# plural: tablas
 #: po/advisory_rules.php:145
 #, fuzzy
-#| msgid "%s table"
-#| msgid_plural "%s tables"
-msgid "% temp disk tables"
-msgstr "%s tabla"
+#| msgid "Where to show the table row links"
+msgid "Percentage of temp tables on disk"
+msgstr "Donde mostrar los enlaces de filas de tabla"
 
 #: po/advisory_rules.php:146 po/advisory_rules.php:151
 msgid ""
@@ -12288,9 +12285,14 @@ msgid ""
 "below 25%%"
 msgstr ""
 
+# singular: tabla
+# plural: tablas
 #: po/advisory_rules.php:150
-msgid "temp disk rate"
-msgstr ""
+#, fuzzy
+#| msgid "%s table"
+#| msgid_plural "%s tables"
+msgid "Temp disk rate"
+msgstr "%s tabla"
 
 #: po/advisory_rules.php:152
 msgid ""
@@ -12331,8 +12333,10 @@ msgid "key_buffer_size is 0"
 msgstr ""
 
 #: po/advisory_rules.php:160
-msgid "max % MyISAM key buffer ever used"
-msgstr ""
+#, fuzzy
+#| msgid "Sort buffer size"
+msgid "Max % MyISAM key buffer ever used"
+msgstr "Organizar el tamaño del búfer de memoria"
 
 #: po/advisory_rules.php:161 po/advisory_rules.php:166
 #, php-format
@@ -12352,8 +12356,10 @@ msgid "max %% MyISAM key buffer ever used: %s, this value should be above 95%%"
 msgstr ""
 
 #: po/advisory_rules.php:165
-msgid "% MyISAM key buffer used"
-msgstr ""
+#, fuzzy
+#| msgid "Sort buffer size"
+msgid "Percentage of MyISAM key buffer used"
+msgstr "Organizar el tamaño del búfer de memoria"
 
 #: po/advisory_rules.php:168
 #, php-format
@@ -12361,7 +12367,7 @@ msgid "%% MyISAM key buffer used: %s, this value should be above 95%%"
 msgstr ""
 
 #: po/advisory_rules.php:170
-msgid "% index reads from memory"
+msgid "Percentage of index reads from memory"
 msgstr ""
 
 #: po/advisory_rules.php:171
@@ -12381,7 +12387,7 @@ msgstr ""
 #: po/advisory_rules.php:175
 #, fuzzy
 #| msgid "Create table"
-msgid "rate of table open"
+msgid "Rate of table open"
 msgstr "Crear tabla"
 
 #: po/advisory_rules.php:176
@@ -12402,10 +12408,10 @@ msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:180
-#, fuzzy, php-format
-#| msgid "Show open tables"
-msgid "% open files"
-msgstr "Mostrar las tablas que están abiertas"
+#, fuzzy
+#| msgid "Format of imported file"
+msgid "Percentage of used open files limit"
+msgstr "Formato del archivo importado"
 
 #: po/advisory_rules.php:181
 msgid ""
@@ -12428,7 +12434,7 @@ msgstr ""
 #: po/advisory_rules.php:185
 #, fuzzy
 #| msgid "Format of imported file"
-msgid "rate of open files"
+msgid "Rate of open files"
 msgstr "Formato del archivo importado"
 
 #: po/advisory_rules.php:186
@@ -12475,7 +12481,7 @@ msgstr ""
 #: po/advisory_rules.php:200
 #, fuzzy
 #| msgid "Key cache"
-msgid "thread cache"
+msgid "Thread cache"
 msgstr "Caché de claves"
 
 #: po/advisory_rules.php:201
@@ -12493,8 +12499,10 @@ msgid "The thread cache is set to 0"
 msgstr ""
 
 #: po/advisory_rules.php:205
-msgid "thread cache hit rate %"
-msgstr ""
+#, fuzzy
+#| msgid "Tracking is not active."
+msgid "Thread cache hit rate %"
+msgstr "El seguimiento no está activo."
 
 #: po/advisory_rules.php:206
 #, fuzzy
@@ -12553,10 +12561,10 @@ msgid "slow_launch_time is set to %s"
 msgstr "«long_query_time» está configurado a %d segundo(s)."
 
 #: po/advisory_rules.php:220
-#, fuzzy, php-format
-#| msgid "Connections"
-msgid "% connections used"
-msgstr "Conexiones"
+#, fuzzy
+#| msgid "Persistent connections"
+msgid "Percentage of used connections"
+msgstr "Conexiones persistentes"
 
 #: po/advisory_rules.php:221
 msgid ""
@@ -12579,9 +12587,9 @@ msgstr ""
 
 #: po/advisory_rules.php:225
 #, fuzzy
-#| msgid "Compress connection"
-msgid "% aborted connections"
-msgstr "Conexión de compresión"
+#| msgid "Persistent connections"
+msgid "Percentage of aborted connections"
+msgstr "Conexiones persistentes"
 
 #: po/advisory_rules.php:226
 msgid "Too many connections are aborted."
@@ -12603,7 +12611,7 @@ msgstr ""
 #: po/advisory_rules.php:230
 #, fuzzy
 #| msgid "Persistent connections"
-msgid "rate of aborted connections"
+msgid "Rate of aborted connections"
 msgstr "Conexiones persistentes"
 
 #: po/advisory_rules.php:231
@@ -12617,8 +12625,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:235
-msgid "% aborted clients"
-msgstr ""
+#, fuzzy
+#| msgid "Format of imported file"
+msgid "Percentage of aborted clients"
+msgstr "Formato del archivo importado"
 
 #: po/advisory_rules.php:236 po/advisory_rules.php:241
 msgid "Too many clients are aborted."
@@ -12639,7 +12649,7 @@ msgstr ""
 #: po/advisory_rules.php:240
 #, fuzzy
 #| msgid "Format of imported file"
-msgid "rate of aborted clients"
+msgid "Rate of aborted clients"
 msgstr "Formato del archivo importado"
 
 #: po/advisory_rules.php:243
@@ -12666,8 +12676,10 @@ msgid "have_innodb is set to 'value'"
 msgstr ""
 
 #: po/advisory_rules.php:250
-msgid "% InnoDB log size"
-msgstr ""
+#, fuzzy
+#| msgid "Buffer pool size"
+msgid "InnoDB log size"
+msgstr "Tamaño de la reserva de búfers"
 
 #: po/advisory_rules.php:251
 #, fuzzy
@@ -12778,6 +12790,26 @@ msgstr ""
 #: po/advisory_rules.php:268
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Space usage"
+#~ msgid "memcached usage"
+#~ msgstr "Espacio utilizado"
+
+#, fuzzy
+#~| msgid "Show open tables"
+#~ msgid "% open files"
+#~ msgstr "Mostrar las tablas que están abiertas"
+
+#, fuzzy
+#~| msgid "Connections"
+#~ msgid "% connections used"
+#~ msgstr "Conexiones"
+
+#, fuzzy
+#~| msgid "Compress connection"
+#~ msgid "% aborted connections"
+#~ msgstr "Conexión de compresión"
 
 #~ msgid "CPU Usage"
 #~ msgstr "Uso de CPU"
