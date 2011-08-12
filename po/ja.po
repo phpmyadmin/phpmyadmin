@@ -4703,10 +4703,9 @@ msgid "Show function fields"
 msgstr "関数フィールドの表示"
 
 #: libraries/config/messages.inc.php:460
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Whether to show hint or not"
-msgstr "テーブルの行リンクを表示する場所"
+msgstr "操作ヒントを表示するかどうか。"
 
 #: libraries/config/messages.inc.php:461
 #| msgid "Show indexes"
