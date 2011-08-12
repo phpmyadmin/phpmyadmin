@@ -1197,10 +1197,9 @@ msgid "Cached memory"
 msgstr "Cached Speicher"
 
 #: js/messages.php:109
-#, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "Puffer-Pool"
+msgstr "Gepufferter Speicher"
 
 #: js/messages.php:110
 msgid "Free memory"
