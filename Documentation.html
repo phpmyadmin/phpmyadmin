@@ -1225,14 +1225,12 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
 
     <dt><span id="cfg_Servers_MaxTableUiprefs">$cfg['Servers'][$i]['MaxTableUiprefs']</span> integer
     </dt>
-    <dd>Maximum number of records saved in <a
+    <dd>Maximum number of rows saved in <a
         href="#cfg_Servers_table_uiprefs">$cfg['Servers'][$i]['table_uiprefs']</a> table.<br /><br />
 
-        In case where tables in databases is modified (e.g. dropped or renamed),
-        table_uiprefs may contains invalid data (referring to tables which are not
-        exist anymore).<br />
-        This configuration make sure that we only keep N (N = MaxTableUiprefs)
-        newest record in table_uiprefs and automatically delete older records.</dd>
+        When tables are dropped or renamed, table_uiprefs may contain invalid 
+        data (referring to tables which no longer exist).<br />
+        We only keep this number of newest rows in table_uiprefs and automatically delete older rows.</dd>
 
     <dt><span id="cfg_Servers_verbose_check">$cfg['Servers'][$i]['verbose_check']</span> boolean
     </dt>
