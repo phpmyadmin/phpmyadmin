@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-13 01:51+0200\n"
+"PO-Revision-Date: 2011-08-13 01:52+0200\n"
 "Last-Translator: Sven Strickroth <email@cs-ware.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1498,6 +1498,8 @@ msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr ""
+"Aufbau der Diagramme mit der importierten Konfiguration ist fehlgeschlagen. "
+"Falle auf Standardeinstellungen zurück..."
 
 #: js/messages.php:190 libraries/config/messages.inc.php:170
 #: libraries/db_links.inc.php:83 libraries/server_links.inc.php:69
