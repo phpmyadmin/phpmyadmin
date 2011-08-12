@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-12 15:06+0200\n"
+"PO-Revision-Date: 2011-08-13 01:49+0200\n"
 "Last-Translator: Sven Strickroth <email@cs-ware.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1131,10 +1131,9 @@ msgid "Query statistics"
 msgstr "Abfrage-Statistiken"
 
 #: js/messages.php:93
-#, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Local monitor configuration icompatible"
-msgstr "Fehler beim Lesen der Konfigurationsdatei"
+msgstr "Lokale Monitor-Konfiguration ist inkompatibel"
 
 #: js/messages.php:94
 msgid ""
