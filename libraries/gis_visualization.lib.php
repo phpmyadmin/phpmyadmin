@@ -86,7 +86,8 @@ function PMA_GIS_modifyQuery($sql_query, $visualizationSettings)
             . '`) AS `' . $visualizationSettings['spatialColumn'] . '`, ';
 
         // Get the SRID
-        $modified_query .= 'SRID(`' . $visualizationSettings['spatialColumn'] . '`) AS `srid` ';
+        $modified_query .= 'SRID(`' . $visualizationSettings['spatialColumn']
+            . '`) AS `srid` ';
     }
 
     // Append the rest of the query
@@ -100,14 +101,16 @@ function PMA_GIS_modifyQuery($sql_query, $visualizationSettings)
 function sanitize($select)
 {
     $table_col = $select['table_name'] . "." . $select['column'];
-    $db_table_col = $select['db'] . "." . $select['table_name'] . "." . $select['column'];
+    $db_table_col = $select['db'] . "." . $select['table_name']
+        . "." . $select['column'];
 
     if ($select['expr'] == $select['column']) {
         return "`" . $select['column'] . "`";
     } elseif ($select['expr'] == $table_col) {
         return "`" . $select['table_name'] . "`.`" . $select['column'] . "`";
     } elseif ($select['expr'] == $db_table_col) {
-        return "`" . $select['db'] . "`.`" . $select['table_name'] . "`.`" . $select['column'] . "`";
+        return "`" . $select['db'] . "`.`" . $select['table_name']
+            . "`.`" . $select['column'] . "`";
     }
     return $select['expr'];
 }
