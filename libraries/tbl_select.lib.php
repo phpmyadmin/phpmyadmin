@@ -58,9 +58,7 @@ function PMA_tbl_setTitle($propertiesIconic,$pmaThemeImage){
 function PMA_tbl_getFields($table,$db) {
     
     // Gets the list and number of fields
-
-    $result     = PMA_DBI_query('SHOW FULL FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . ';', null, PMA_DBI_QUERY_STORE);
-    $fields_cnt = PMA_DBI_num_rows($result);
+    $result = PMA_DBI_query(PMA_DBI_get_columns_sql($db, $table), null, PMA_DBI_QUERY_STORE);
     $fields_list = $fields_null = $fields_type = $fields_collation = array();
     while ($row = PMA_DBI_fetch_assoc($result)) {
         $fields_list[] = $row['Field'];
