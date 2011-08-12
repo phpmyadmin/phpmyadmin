@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-11 15:11+0200\n"
-"PO-Revision-Date: 2011-08-12 11:44+0200\n"
+"PO-Revision-Date: 2011-08-12 11:48+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -10037,10 +10037,9 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1432
-#, fuzzy
 #| msgid "Restore default value"
 msgid "Reset to default"
-msgstr "デフォルト値に戻す"
+msgstr "デフォルトに戻す"
 
 #: server_status.php:1436
 msgid "Monitor Instructions"
