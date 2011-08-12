@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-11 15:11+0200\n"
-"PO-Revision-Date: 2011-08-12 11:27+0200\n"
+"PO-Revision-Date: 2011-08-12 11:28+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -4016,10 +4016,9 @@ msgid "Memory limit"
 msgstr "メモリ制限"
 
 #: libraries/config/messages.inc.php:319
-#, fuzzy
 #| msgid "These are Edit, Inline edit, Copy and Delete links"
 msgid "These are Edit, Copy and Delete links"
-msgstr "編集、インライン編集、コピー、削除のリンクことです。"
+msgstr "編集、コピー、削除のリンクことです。"
 
 #: libraries/config/messages.inc.php:320
 msgid "Where to show the table row links"
