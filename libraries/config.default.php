@@ -388,7 +388,7 @@ $cfg['Servers'][$i]['userconfig'] = '';
  *
  * @global integer $cfg['Servers'][$i]['userconfig'] = '';
  */
-$cfg['Servers'][$i]['MaxTableUiprefs'] = 5;
+$cfg['Servers'][$i]['MaxTableUiprefs'] = 100;
 
 /**
  * set to false if you know that your pma_* tables are up to date.
