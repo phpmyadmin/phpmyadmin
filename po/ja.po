@@ -11496,10 +11496,9 @@ msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time は %d 秒に設定されています。"
 
 #: po/advisory_rules.php:30
-#, fuzzy
 #| msgid "Show query box"
 msgid "Slow query logging"
-msgstr "クエリボックスを表示"
+msgstr "遅いクエリのログへの記録"
 
 #: po/advisory_rules.php:31
 #| msgid "slow_query_log is enabled."
