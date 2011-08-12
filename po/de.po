@@ -10247,7 +10247,7 @@ msgstr "Einführung/Einrichtung"
 
 #: server_status.php:1439
 msgid "Done rearranging/editing charts"
-msgstr "Umordnen/bearbeiten der Schaubilder beendet."
+msgstr "Umordnen/bearbeiten der Schaubilder beendet"
 
 #: server_status.php:1446
 msgid "Add chart"
