@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-11 09:15-0400\n"
-"PO-Revision-Date: 2011-07-22 11:14+0200\n"
+"PO-Revision-Date: 2011-08-11 18:40+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -416,10 +416,10 @@ msgid "You have to choose at least one column to display"
 msgstr "Za prikaz morate izbrati morate vsaj en stolpec"
 
 #: db_qbe.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "vidni graditelj"
+msgstr "Preklopi na %svidni graditelj%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:955
@@ -1155,64 +1155,56 @@ msgid "Average load"
 msgstr "Povprečna obremenitev"
 
 #: js/messages.php:100
-#, fuzzy
 #| msgid "System memory"
 msgid "Total memory"
-msgstr "Sistemski pomnilnik"
+msgstr "Skupni pomnilnik"
 
 #: js/messages.php:101
-#, fuzzy
 #| msgid "System memory"
 msgid "Cached memory"
-msgstr "Sistemski pomnilnik"
+msgstr "Predpomnjen pomnilnik"
 
 #: js/messages.php:102
-#, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "Zaloga medpomnilnika"
+msgstr "Medpomnjen pomnilnik"
 
 #: js/messages.php:103
-#, fuzzy
 #| msgid "System memory"
 msgid "Free memory"
-msgstr "Sistemski pomnilnik"
+msgstr "Prost pomnilnik"
 
 #: js/messages.php:104
-#, fuzzy
 #| msgid "System memory"
 msgid "Used memory"
-msgstr "Sistemski pomnilnik"
+msgstr "Uporabljen pomnilnik"
 
 #: js/messages.php:106
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "Skupaj"
+msgstr "Skupna izmenjava"
 
 #: js/messages.php:107
 msgid "Cached Swap"
-msgstr ""
+msgstr "Predpomnjena izmenjava"
 
 #: js/messages.php:108
 msgid "Used Swap"
-msgstr ""
+msgstr "Medpomnjena izmenjava"
 
 #: js/messages.php:109
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "Proste strani"
+msgstr "Prosta izmenjava"
 
 #: js/messages.php:111
 msgid "Bytes sent"
-msgstr ""
+msgstr "Poslanih bajtov"
 
 #: js/messages.php:112
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "Prejeto"
+msgstr "Prejetih bajtov"
 
 #: js/messages.php:113 server_status.php:987
 msgid "Connections"
@@ -1237,10 +1229,9 @@ msgid "Remove chart"
 msgstr "Odstrani grafikon"
 
 #: js/messages.php:121
-#, fuzzy
 #| msgid "Edit labels and series"
 msgid "Edit title and labels"
-msgstr "Uredi oznake in serije"
+msgstr "Uredi naslov in oznake"
 
 #: js/messages.php:122
 msgid "Add chart to grid"
@@ -1266,7 +1257,6 @@ msgid "Pause monitor"
 msgstr "Postoj nadziranje"
 
 #: js/messages.php:129
-#, fuzzy
 #| msgid "general_log and slow_query_log is enabled."
 msgid "general_log and slow_query_log are enabled."
 msgstr "general_log in slow_query_log sta omogočena."
@@ -1280,7 +1270,6 @@ msgid "slow_query_log is enabled."
 msgstr "slow_query_log je omogočen."
 
 #: js/messages.php:132
-#, fuzzy
 #| msgid "slow_query_log and general_log is disabled."
 msgid "slow_query_log and general_log are disabled."
 msgstr "slow_query_log in general_log sta onemogočena."
@@ -1417,7 +1406,6 @@ msgid "Jump to Log table"
 msgstr "Pojdi v dnevniško tabelo"
 
 #: js/messages.php:163
-#, fuzzy
 #| msgid "Log analysed, but not data found in this time span."
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
@@ -1425,10 +1413,9 @@ msgstr ""
 
 #. l10n: A collection of available filters
 #: js/messages.php:166
-#, fuzzy
 #| msgid "Filter"
 msgid "Filters"
-msgstr "Filtriranje"
+msgstr "Filtri"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:168
@@ -1437,23 +1424,21 @@ msgstr "Filtriranje"
 
 #: js/messages.php:169
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "Filtriraj poizvedbe po besedi/regexp:"
 
 #: js/messages.php:170
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
+msgstr "Združi poizvedbe, neupoštevajoč spremenljive podatke v stavkih WHERE"
 
 #: js/messages.php:171
-#, fuzzy
 #| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
-msgstr "Število vstavljenih vrstic"
+msgstr "Seštevek združenih vrstic:"
 
 #: js/messages.php:172
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "Skupaj"
+msgstr "Skupaj:"
 
 #: js/messages.php:174
 msgid "Loading logs"
@@ -1461,7 +1446,7 @@ msgstr "Dnevniki nalaganja"
 
 #: js/messages.php:175
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "Osvežitev nadziranja je spodletela"
 
 #: js/messages.php:176
 msgid ""
@@ -1471,14 +1456,13 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:177
-#, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
-msgstr "Osveži"
+msgstr "Ponovno naloži stran"
 
 #: js/messages.php:179
 msgid "Affected rows:"
-msgstr ""
+msgstr "Spremenjene vrstice:"
 
 #: js/messages.php:181
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
@@ -1498,50 +1482,45 @@ msgid "Import"
 msgstr "Uvozi"
 
 #: js/messages.php:185
-#, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
-msgstr "Osveži poizvedbo"
+msgstr "Analiziraj poizvedbo"
 
 #: js/messages.php:189
-#, fuzzy
 #| msgid "Apply a divisor"
 msgid "Advisor system"
-msgstr "Uporabi delitelja"
+msgstr "Svetovalni sistem"
 
 #: js/messages.php:190
 msgid "Possible performance issues"
-msgstr ""
+msgstr "Morebitni spori zmogljivosti"
 
 #: js/messages.php:191
 msgid "Issue"
-msgstr ""
+msgstr "Spor"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
-msgstr "Dokumentacija"
+msgstr "Priporočilo"
 
 #: js/messages.php:193
-#, fuzzy
 #| msgid "Details"
 msgid "Rule details"
-msgstr "Podrobnosti"
+msgstr "Podrobnosti pravila"
 
 #: js/messages.php:194
-#, fuzzy
 #| msgid "Authentication"
 msgid "Justification"
-msgstr "Overovitev"
+msgstr "Utemeljitev"
 
 #: js/messages.php:195
 msgid "Used variable / formula"
-msgstr ""
+msgstr "Uporabljena spremenljivka/formula"
 
 #: js/messages.php:196
 msgid "Test"
-msgstr ""
+msgstr "Preizkus"
 
 #: js/messages.php:201 libraries/tbl_properties.inc.php:763
 #: pmd_general.php:388 pmd_general.php:425 pmd_general.php:545
@@ -1661,10 +1640,9 @@ msgid "Change"
 msgstr "Spremeni"
 
 #: js/messages.php:245
-#, fuzzy
 #| msgid "Maximum execution time"
 msgid "Query execution time"
-msgstr "Najdaljši čas izvajanja"
+msgstr "Čas izvajanja poizvedbe"
 
 #: js/messages.php:248 libraries/config/FormDisplay.tpl.php:323
 #: libraries/schema/User_Schema.class.php:313
@@ -1688,10 +1666,9 @@ msgid "Ignore"
 msgstr "Prezri"
 
 #: js/messages.php:258
-#, fuzzy
 #| msgid "Add column"
 msgid "Add columns"
-msgstr "Dodaj stolpec"
+msgstr "Dodaj stolpce"
 
 #: js/messages.php:261
 msgid "Select referenced key"
@@ -1723,13 +1700,15 @@ msgstr "Dodaj možnost za stolpec "
 
 #: js/messages.php:271
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "Pritisnite ubežnico (escape) za prekinitev urejanja"
 
 #: js/messages.php:272
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
+"Uredili ste nekatere podatke, vendar jih niste shranili. Ste prepričani, da "
+"želite zapustiti stran, preden shranite podatke?"
 
 #: js/messages.php:273
 msgid "Drag to reorder"
@@ -1793,18 +1772,16 @@ msgid "Done"
 msgstr "Končano"
 
 #: js/messages.php:315
-#, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
-msgstr "Prejšnji"
+msgstr "Prej"
 
 #: js/messages.php:320
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
-msgstr "Naslednji"
+msgstr "Nasl"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:323
@@ -1950,7 +1927,6 @@ msgstr "sobota"
 
 #. l10n: Short week day name
 #: js/messages.php:376
-#, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
 msgid "Sun"
@@ -2186,10 +2162,9 @@ msgstr[2] "Vstavljene so %1$d vrstice."
 msgstr[3] "Vstavljenih je %1$d vrstic."
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Omogoča branje podatkov."
+msgstr "Napaka med ustvarjanjem PDF:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
@@ -2225,10 +2200,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Ta strežnik MySQL ne podpira skladiščnega pogona %s."
 
 #: libraries/Table.class.php:303
-#, fuzzy
 #| msgid "Show slave status"
 msgid "unknown table status: "
-msgstr "Prikaži stanje podrejencev"
+msgstr "neznano stanje tabele: "
 
 #: libraries/Table.class.php:1034
 msgid "Invalid database"
@@ -2408,10 +2382,9 @@ msgid "PBMS get BLOB info failed:"
 msgstr "Pridobivanje informacij BLOB PBMS je spodletelo:"
 
 #: libraries/blobstreaming.lib.php:332
-#, fuzzy
 #| msgid "get BLOB Content-Type failed"
 msgid "PBMS get BLOB Content-Type failed"
-msgstr "pridobivanje Content-Type BLOB je spodletelo"
+msgstr "Pridobivanje Content-Type BLOB PBMS je spodletelo"
 
 #: libraries/blobstreaming.lib.php:358
 msgid "View image"
@@ -2681,7 +2654,6 @@ msgstr "Manjkajoč parameter:"
 
 #: libraries/common.lib.php:2267 libraries/common.lib.php:2270
 #: libraries/display_tbl.lib.php:306
-#, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
@@ -2690,24 +2662,21 @@ msgstr "Začetek"
 #: libraries/common.lib.php:2268 libraries/common.lib.php:2271
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
-#, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
-msgstr "Prejšnji"
+msgstr "Prejšnja"
 
 #: libraries/common.lib.php:2297 libraries/common.lib.php:2300
 #: libraries/display_tbl.lib.php:370 server_binlog.php:170
 #: server_binlog.php:172
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
-msgstr "Naslednji"
+msgstr "Naslednja"
 
 #: libraries/common.lib.php:2298 libraries/common.lib.php:2301
 #: libraries/display_tbl.lib.php:385
-#, fuzzy
 #| msgid "End"
 msgctxt "Last page"
 msgid "End"
@@ -4085,10 +4054,9 @@ msgid "Memory limit"
 msgstr "Omejitev spomina"
 
 #: libraries/config/messages.inc.php:319
-#, fuzzy
 #| msgid "These are Edit, Inline edit, Copy and Delete links"
 msgid "These are Edit, Copy and Delete links"
-msgstr "To so povezave Uredi, Uredi v vrstici, Kopiraj in Izbriši"
+msgstr "To so povezave Uredi, Kopiraj in Izbriši"
 
 #: libraries/config/messages.inc.php:320
 msgid "Where to show the table row links"
@@ -4244,7 +4212,7 @@ msgstr "Prikaži gumb za pomoč"
 
 #: libraries/config/messages.inc.php:357
 msgid "Save all edited cells at once"
-msgstr ""
+msgstr "Shrani vse urejene celice naenkrat"
 
 #: libraries/config/messages.inc.php:358
 msgid "Directory where exports can be saved on server"
@@ -4771,16 +4739,14 @@ msgid "Show function fields"
 msgstr "Prikaži polja funkcij"
 
 #: libraries/config/messages.inc.php:460
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Whether to show hint or not"
-msgstr "Kje naj prikažem povezave vrstic tabel"
+msgstr "Naj prikažem namig ali ne"
 
 #: libraries/config/messages.inc.php:461
-#, fuzzy
 #| msgid "Show indexes"
 msgid "Show hint"
-msgstr "Pokaži indekse"
+msgstr "Prikaži namig"
 
 #: libraries/config/messages.inc.php:462
 msgid ""
@@ -5511,10 +5477,9 @@ msgid "Language"
 msgstr "Jezik"
 
 #: libraries/display_tbl.lib.php:401
-#, fuzzy
 #| msgid "Save directory"
 msgid "Save edited data"
-msgstr "Mapa za shranjevanje"
+msgstr "Shrani urejene podatke"
 
 #: libraries/display_tbl.lib.php:407
 msgid "Restore column order"
@@ -6414,10 +6379,9 @@ msgid "Stand-in structure for view"
 msgstr "Nadomestna struktura pogleda"
 
 #: libraries/export/sql.php:1071
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error reading data:"
-msgstr "Omogoča branje podatkov."
+msgstr "Napaka med branjem podatkov:"
 
 #: libraries/export/xml.php:19 libraries/import/xml.php:21
 msgid "XML"
@@ -6464,10 +6428,9 @@ msgstr ""
 "Naslednje strukture so bile ali ustvarjene ali spremenjene: Tukaj lahko:"
 
 #: libraries/import.lib.php:1077
-#, fuzzy
 #| msgid "View a structure`s contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name"
-msgstr "Oglejte si vsebino strukture s klikom na njeno ime"
+msgstr "Oglejte si vsebine strukture s klikom na njeno ime"
 
 #: libraries/import.lib.php:1078
 msgid ""
@@ -6477,30 +6440,29 @@ msgstr ""
 "\"Možnosti\""
 
 #: libraries/import.lib.php:1079
-#, fuzzy
 #| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link"
-msgstr "Uredite njeno strukturo s sledenjem povezavi \"Struktura\""
+msgstr "Uredite strukturo s sledenjem povezavi \"Struktura\""
 
 #: libraries/import.lib.php:1082
 msgid "Go to database"
 msgstr "Pojdi v zbirko podatkov"
 
 #: libraries/import.lib.php:1085 libraries/import.lib.php:1109
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
-msgstr "Manjkajoči podatki za %s"
+msgstr "Uredi nastavitve za %s"
 
 #: libraries/import.lib.php:1104
 msgid "Go to table"
 msgstr "Pojdi v tabelo"
 
 #: libraries/import.lib.php:1107
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
-msgstr "Samo struktura"
+msgstr "Struktura %s"
 
 #: libraries/import.lib.php:1113
 msgid "Go to view"
@@ -7099,14 +7061,12 @@ msgid "Execute every"
 msgstr "Izvedi vsakih"
 
 #: libraries/rte/rte_events.lib.php:449
-#, fuzzy
 #| msgid "Start"
 msgctxt "Start of recurring event"
 msgid "Start"
 msgstr "Začetek"
 
 #: libraries/rte/rte_events.lib.php:457
-#, fuzzy
 #| msgid "End"
 msgctxt "End of recurring event"
 msgid "End"
@@ -8233,10 +8193,9 @@ msgid "No databases"
 msgstr "Brez zbirk podatkov"
 
 #: navigation.php:270
-#, fuzzy
 #| msgid "filter tables by name"
 msgid "Filter tables by name"
-msgstr "filtriraj tabele po imenu"
+msgstr "Filtriraj tabele po imenu"
 
 #: navigation.php:303 navigation.php:304
 msgctxt "short form"
@@ -9290,10 +9249,9 @@ msgid "Monitor"
 msgstr "Nadziranje"
 
 #: server_status.php:648
-#, fuzzy
 #| msgid "Apply a divisor"
 msgid "Advisor"
-msgstr "Uporabi delitelja"
+msgstr "Svetovalec"
 
 #: server_status.php:658 server_status.php:680
 msgid "Refresh rate: "
@@ -9312,26 +9270,23 @@ msgid "Filter by category..."
 msgstr "Filtriraj po kategoriji ..."
 
 #: server_status.php:723
-#, fuzzy
 #| msgid "Show only alert values"
 msgid "Show unformatted values"
-msgstr "Prikaži samo opozorilne vrednosti"
+msgstr "Prikaži neoblikovane vrednosti"
 
 #: server_status.php:727
 msgid "Related links:"
 msgstr "Sorodne povezave:"
 
 #: server_status.php:758
-#, fuzzy
 #| msgid "Query type"
 msgid "Run analyzer"
-msgstr "Vrsta poizvedbe"
+msgstr "Zaženi analitik"
 
 #: server_status.php:759
-#, fuzzy
 #| msgid "Introduction"
 msgid "Instructions"
-msgstr "Uvod"
+msgstr "Navodila"
 
 #: server_status.php:764
 msgid ""
@@ -10141,10 +10096,9 @@ msgid "Refresh rate"
 msgstr "Hitrost osveževanja"
 
 #: server_status.php:1415
-#, fuzzy
 #| msgid "Chart columns:"
 msgid "Chart columns"
-msgstr "Stolpci grafikona:"
+msgstr "Stolpci grafikona"
 
 #: server_status.php:1431
 #, fuzzy

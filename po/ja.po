@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-11 09:15-0400\n"
-"PO-Revision-Date: 2011-08-06 12:16+0200\n"
+"PO-Revision-Date: 2011-08-12 11:48+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1752,18 +1752,16 @@ msgid "Done"
 msgstr "決定"
 
 #: js/messages.php:315
-#, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
-msgstr "前へ"
+msgstr "前月"
 
 #: js/messages.php:320
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
-msgstr "次へ"
+msgstr "翌月"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:323
@@ -1909,7 +1907,6 @@ msgstr "土"
 
 #. l10n: Short week day name
 #: js/messages.php:376
-#, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
 msgid "Sun"
@@ -2630,7 +2627,6 @@ msgstr "パラメータがありません："
 
 #: libraries/common.lib.php:2267 libraries/common.lib.php:2270
 #: libraries/display_tbl.lib.php:306
-#, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
@@ -2639,7 +2635,6 @@ msgstr "先頭"
 #: libraries/common.lib.php:2268 libraries/common.lib.php:2271
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
-#, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
@@ -2648,7 +2643,6 @@ msgstr "前へ"
 #: libraries/common.lib.php:2297 libraries/common.lib.php:2300
 #: libraries/display_tbl.lib.php:370 server_binlog.php:170
 #: server_binlog.php:172
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
@@ -2656,7 +2650,6 @@ msgstr "次へ"
 
 #: libraries/common.lib.php:2298 libraries/common.lib.php:2301
 #: libraries/display_tbl.lib.php:385
-#, fuzzy
 #| msgid "End"
 msgctxt "Last page"
 msgid "End"
@@ -4023,10 +4016,9 @@ msgid "Memory limit"
 msgstr "メモリ制限"
 
 #: libraries/config/messages.inc.php:319
-#, fuzzy
 #| msgid "These are Edit, Inline edit, Copy and Delete links"
 msgid "These are Edit, Copy and Delete links"
-msgstr "編集、インライン編集、コピー、削除のリンクことです。"
+msgstr "編集、コピー、削除のリンクことです。"
 
 #: libraries/config/messages.inc.php:320
 msgid "Where to show the table row links"
@@ -4711,16 +4703,14 @@ msgid "Show function fields"
 msgstr "関数フィールドの表示"
 
 #: libraries/config/messages.inc.php:460
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Whether to show hint or not"
-msgstr "テーブルの行リンクを表示する場所"
+msgstr "操作ヒントを表示するかどうか。"
 
 #: libraries/config/messages.inc.php:461
-#, fuzzy
 #| msgid "Show indexes"
 msgid "Show hint"
-msgstr "インデックスを表示する"
+msgstr "操作ヒントを表示する"
 
 #: libraries/config/messages.inc.php:462
 msgid ""
@@ -6306,7 +6296,7 @@ msgstr ""
 
 #: libraries/export/sql.php:329 libraries/export/xml.php:44
 msgid "Procedures"
-msgstr "プロシジャ"
+msgstr "プロシージャ"
 
 #: libraries/export/sql.php:346 libraries/export/xml.php:39
 msgid "Functions"
@@ -6386,7 +6376,6 @@ msgid ""
 msgstr "下に示す構成が、作成もしくは変更されました。ここで次のことが行えます。"
 
 #: libraries/import.lib.php:1077
-#, fuzzy
 #| msgid "View a structure`s contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name"
 msgstr "名前をクリックすることで構造内容を表示します。"
@@ -6398,7 +6387,6 @@ msgstr ""
 "「オプション」のリンクをクリックすることで対応する設定の変更が行えます。"
 
 #: libraries/import.lib.php:1079
-#, fuzzy
 #| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link"
 msgstr "名前の後ろにある「構造」のリンクより構造の編集が行えます。"
@@ -7017,18 +7005,16 @@ msgid "Execute every"
 msgstr "実行間隔"
 
 #: libraries/rte/rte_events.lib.php:449
-#, fuzzy
 #| msgid "Start"
 msgctxt "Start of recurring event"
 msgid "Start"
 msgstr "開始"
 
 #: libraries/rte/rte_events.lib.php:457
-#, fuzzy
 #| msgid "End"
 msgctxt "End of recurring event"
 msgid "End"
-msgstr "最後"
+msgstr "終了"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:912
 #: libraries/rte/rte_triggers.lib.php:354
@@ -8155,7 +8141,6 @@ msgid "No databases"
 msgstr "データベースが存在しません"
 
 #: navigation.php:270
-#, fuzzy
 #| msgid "filter tables by name"
 msgid "Filter tables by name"
 msgstr "名前でテーブルをフィルタする"
@@ -9205,10 +9190,9 @@ msgid "Monitor"
 msgstr "モニタ"
 
 #: server_status.php:648
-#, fuzzy
 #| msgid "Apply a divisor"
 msgid "Advisor"
-msgstr "除数を適用する"
+msgstr "アドバイザ"
 
 #: server_status.php:658 server_status.php:680
 msgid "Refresh rate: "
@@ -10053,10 +10037,9 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1432
-#, fuzzy
 #| msgid "Restore default value"
 msgid "Reset to default"
-msgstr "デフォルト値に戻す"
+msgstr "デフォルトに戻す"
 
 #: server_status.php:1436
 msgid "Monitor Instructions"
