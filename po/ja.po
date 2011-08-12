@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-12 16:18+0200\n"
+"PO-Revision-Date: 2011-08-12 16:24+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -11523,7 +11523,7 @@ msgstr "系列をクリアする"
 
 #: po/advisory_rules.php:36
 msgid "The MySQL server version less then 5.1."
-msgstr "MySQL サーバのバージョンが 5.1 未満"
+msgstr "MySQL サーバのバージョンが 5.1 未満です。"
 
 #: po/advisory_rules.php:37
 msgid ""
