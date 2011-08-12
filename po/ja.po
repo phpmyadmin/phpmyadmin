@@ -11555,7 +11555,7 @@ msgstr ""
 
 #: po/advisory_rules.php:46
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr "バージョン 5.5.8 (5.5 の 最初の安定版) 未満"
+msgstr "バージョン 5.5.8 (5.5 の 最初の安定版) 未満です。"
 
 #: po/advisory_rules.php:47
 #| msgid "You should upgrade to %s %s or later."
