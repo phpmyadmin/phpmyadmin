@@ -152,7 +152,7 @@ class PMA_GIS_Visualization
         $output .= '<g id="groupPanel">';
 
         $scale_data = $this->_scaleDataSet($this->_data);
-        $output .= $this->_prepareDataSet($this->_data, 0, $scale_data, 'svg', '');
+        $output .= $this->_prepareDataSet($this->_data, $scale_data, 'svg', '');
 
         $output .= '</g>';
         $output .= '</svg>';
@@ -205,7 +205,7 @@ class PMA_GIS_Visualization
         );
 
         $scale_data = $this->_scaleDataSet($this->_data);
-        $image = $this->_prepareDataSet($this->_data, 0, $scale_data, 'png', $image);
+        $image = $this->_prepareDataSet($this->_data, $scale_data, 'png', $image);
 
         return $image;
     }
@@ -273,7 +273,7 @@ class PMA_GIS_Visualization
             . 'map.addLayers([layerMapnik, layerOsmarender, layerCycleMap, layerNone]);'
             . 'var vectorLayer = new OpenLayers.Layer.Vector("Data");'
             . 'var bound;';
-        $output .= $this->_prepareDataSet($this->_data, 0, $scale_data, 'ol', '');
+        $output .= $this->_prepareDataSet($this->_data, $scale_data, 'ol', '');
         $output .=
               'map.addLayer(vectorLayer);'
             . 'map.zoomToExtent(bound);'
@@ -312,7 +312,7 @@ class PMA_GIS_Visualization
         $pdf->AddPage();
 
         $scale_data = $this->_scaleDataSet($this->_data);
-        $pdf = $this->_prepareDataSet($this->_data, 0, $scale_data, 'pdf', $pdf);
+        $pdf = $this->_prepareDataSet($this->_data, $scale_data, 'pdf', $pdf);
 
         // sanitize file name
         $file_name = $this->_sanitizeName($file_name, 'pdf');
@@ -405,19 +405,19 @@ class PMA_GIS_Visualization
     /**
      * Prepares and return the dataset as needed by the visualization.
      *
-     * @param array  $data         Raw data
-     * @param int    $color_number Start index to the color array
-     * @param array  $scale_data   Data related to scaling
-     * @param string $format       Format of the visulaization
-     * @param image  $results      Image object in the case of png
+     * @param array  $data       Raw data
+     * @param array  $scale_data Data related to scaling
+     * @param string $format     Format of the visulaization
+     * @param image  $results    Image object in the case of png
      *
      * @return the formatted array of data.
      */
-    private function _prepareDataSet($data, $color_number, $scale_data, $format, $results)
+    private function _prepareDataSet($data, $scale_data, $format, $results)
     {
+        $color_number = 0;
+
         // loop through the rows
         foreach ($data as $row) {
-
             $index = $color_number % sizeof($this->_settings['colors']);
 
             // Figure out the data type
