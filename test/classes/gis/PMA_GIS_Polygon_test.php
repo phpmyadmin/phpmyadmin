@@ -13,7 +13,7 @@ require_once 'libraries/gis/pma_gis_polygon.php';
  */
 class PMA_GIS_PolygonTest extends PHPUnit_Framework_TestCase
 {
-	/**
+    /**
      * @var    PMA_GIS_Polygon
      * @access protected
      */
@@ -48,20 +48,20 @@ class PMA_GIS_PolygonTest extends PHPUnit_Framework_TestCase
         return array(
             'POLYGON' => array(
                 'no_of_lines' => 2,
-            	0 => array(
-            	    'no_of_points' => 5,
-            	    0 => array('x' => 35, 'y' => 10),
-            	    1 => array('x' => 10, 'y' => 20),
-            	    2 => array('x' => 15, 'y' => 40),
-            	    3 => array('x' => 45, 'y' => 45),
-            	    4 => array('x' => 35, 'y' => 10),
-            	),
-            	1 => array(
-            		'no_of_points' => 4,
-            	    0 => array('x' => 20, 'y' => 30),
-            	    1 => array('x' => 35, 'y' => 32),
-            	    2 => array('x' => 30, 'y' => 20),
-            	    3 => array('x' => 20, 'y' => 30),
+                0 => array(
+                    'no_of_points' => 5,
+                    0 => array('x' => 35, 'y' => 10),
+                    1 => array('x' => 10, 'y' => 20),
+                    2 => array('x' => 15, 'y' => 40),
+                    3 => array('x' => 45, 'y' => 45),
+                    4 => array('x' => 35, 'y' => 10),
+                ),
+                1 => array(
+                    'no_of_points' => 4,
+                    0 => array('x' => 20, 'y' => 30),
+                    1 => array('x' => 35, 'y' => 32),
+                    2 => array('x' => 30, 'y' => 20),
+                    3 => array('x' => 20, 'y' => 30),
                 )
             )
         );
@@ -184,6 +184,158 @@ class PMA_GIS_PolygonTest extends PHPUnit_Framework_TestCase
                 array(
                     2 => $temp1
                 )
+            )
+        );
+    }
+
+    /**
+     * test for Area
+     *
+     * @param array $ring array of points forming the ring
+     * @param fload $area area of the ring
+     *
+     * @dataProvider providerForTestArea
+     * @return nothing
+     */
+    public function testArea($ring, $area)
+    {
+        $this->assertEquals($this->object->area($ring), $area);
+    }
+
+    /**
+     * data provider for testArea
+     *
+     * @return data for testArea
+     */
+    public function providerForTestArea()
+    {
+        return array(
+            array(
+                array(
+                    0 => array('x' => 35, 'y' => 10),
+                    1 => array('x' => 10, 'y' => 10),
+                    2 => array('x' => 15, 'y' => 40)
+                ),
+                -375.00
+            ),
+            // first point of the ring repeated as the last point
+            array(
+                array(
+                    0 => array('x' => 35, 'y' => 10),
+                    1 => array('x' => 10, 'y' => 10),
+                    2 => array('x' => 15, 'y' => 40),
+                    3 => array('x' => 35, 'y' => 10)
+                ),
+                -375.00
+            ),
+            // anticlockwise gives positive area
+            array(
+                array(
+                    0 => array('x' => 15, 'y' => 40),
+                    1 => array('x' => 10, 'y' => 10),
+                    2 => array('x' => 35, 'y' => 10)
+                ),
+                375.00
+            )
+        );
+    }
+
+    /**
+     * test for isPointInsidePolygon
+     *
+     * @param array $point    x, y coordinates of the point
+     * @param array $polygon  array of points forming the ring
+     * @param bool  $isInside output
+     *
+     * @dataProvider providerForTestIsPointInsidePolygon
+     * @return nothing
+     */
+    public function testIsPointInsidePolygon($point, $polygon, $isInside)
+    {
+        $this->assertEquals(
+            $this->object->isPointInsidePolygon($point, $polygon),
+            $isInside
+        );
+    }
+
+    /**
+     * data provider for testIsPointInsidePolygon
+     *
+     * @return data for testIsPointInsidePolygon
+     */
+    public function providerForTestIsPointInsidePolygon()
+    {
+        $ring = array(
+            0 => array('x' => 35, 'y' => 10),
+            1 => array('x' => 10, 'y' => 10),
+            2 => array('x' => 15, 'y' => 40),
+            3 => array('x' => 35, 'y' => 10)
+        );
+
+        return array(
+            // point inside the ring
+            array(
+                array('x' => 20, 'y' => 15),
+                $ring,
+                true
+            ),
+            // point on an edge of the ring
+            array(
+                array('x' => 20, 'y' => 10),
+                $ring,
+                false
+            ),
+            // point on a vertex of the ring
+            array(
+                array('x' => 10, 'y' => 10),
+                $ring,
+                false
+            ),
+            // point outside the ring
+            array(
+                array('x' => 5, 'y' => 10),
+                $ring,
+                false
+            ),
+        );
+    }
+
+    /**
+     * test for getPointOnSurface
+     *
+     * @param array $ring array of points forming the ring
+     *
+     * @dataProvider providerForTestGetPointOnSurface
+     * @return nothing
+     */
+    public function testGetPointOnSurface($ring)
+    {
+        $this->assertEquals(
+            $this->object->isPointInsidePolygon(
+                $this->object->getPointOnSurface($ring),
+                $ring
+            ),
+            true
+        );
+    }
+
+    /**
+     * data provider for testGetPointOnSurface
+     *
+     * @return data for testGetPointOnSurface
+     */
+    public function providerForTestGetPointOnSurface()
+    {
+        $temp = $this->_getData();
+        unset($temp['POLYGON'][0]['no_of_points']);
+        unset($temp['POLYGON'][1]['no_of_points']);
+
+        return array(
+            array(
+                $temp['POLYGON'][0]
+            ),
+            array(
+                $temp['POLYGON'][1]
             )
         );
     }
