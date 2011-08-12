@@ -80,10 +80,10 @@ function getTimeStamp(val,type) {
 	return getDateFromFormat(val,'yyyy-MM-dd HH:mm:ss', val)
     }	
     else if(type.toString().search(/time/i) != -1) {
-        return Highcharts.dateFormat('HH:mm:ss', val)
+	return getDateFromFormat(val,'HH:mm:ss')
     }	
     else if (type.toString().search(/date/i) != -1) {
-        return Highcharts.dateFormat('yyyy-mm-dd', val)
+	return getDateFromFormat(val,'yyyy-MM-dd')
     }	
 }
 
@@ -479,6 +479,7 @@ $(document).ready(function() {
 	if (xType != 'text' && yType != 'text') {
 	    $.each(data,function(key,value) {
 		var xVal = (xType == 'numeric') ? value[xLabel] : getTimeStamp(value[xLabel],$('#types_0').val());
+		alert(xVal);
 		var yVal = (yType == 'numeric') ? value[yLabel] : getTimeStamp(value[yLabel],$('#types_1').val());
                 series[0].data.push({ name: value[dataLabel], x: xVal, y: yVal, marker: {fillColor: colorCodes[it % 8]} , id: it } );
 		xCord.push(value[xLabel]);
