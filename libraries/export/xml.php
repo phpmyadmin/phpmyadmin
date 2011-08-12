@@ -85,7 +85,8 @@ if (isset($plugin_list)) {
      *
      * @access  public
      */
-    function PMA_exportFooter() {
+    function PMA_exportFooter()
+    {
         $foot = '</pma_xml_export>';
 
         return PMA_exportOutputHandler($foot);
@@ -98,7 +99,8 @@ if (isset($plugin_list)) {
      *
      * @access  public
      */
-    function PMA_exportHeader() {
+    function PMA_exportHeader()
+    {
         global $crlf;
         global $cfg;
         global $db;
@@ -268,7 +270,8 @@ if (isset($plugin_list)) {
      *
      * @access  public
      */
-    function PMA_exportDBHeader($db) {
+    function PMA_exportDBHeader($db)
+    {
         global $crlf;
 
         if (isset($GLOBALS['xml_export_contents']) && $GLOBALS['xml_export_contents']) {
@@ -278,9 +281,7 @@ if (isset($plugin_list)) {
                   . '    <database name="' . htmlspecialchars($db) . '">' . $crlf;
 
             return PMA_exportOutputHandler($head);
-        }
-        else
-        {
+        } else {
             return true;
         }
     }
@@ -293,14 +294,13 @@ if (isset($plugin_list)) {
      *
      * @access  public
      */
-    function PMA_exportDBFooter($db) {
+    function PMA_exportDBFooter($db)
+    {
         global $crlf;
 
         if (isset($GLOBALS['xml_export_contents']) && $GLOBALS['xml_export_contents']) {
             return PMA_exportOutputHandler('    </database>' . $crlf);
-        }
-        else
-        {
+        } else {
             return true;
         }
     }
@@ -313,7 +313,8 @@ if (isset($plugin_list)) {
      *
      * @access  public
      */
-    function PMA_exportDBCreate($db) {
+    function PMA_exportDBCreate($db)
+    {
         return true;
     }
 
@@ -329,7 +330,8 @@ if (isset($plugin_list)) {
      *
      * @access  public
      */
-    function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
+    function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
+    {
 
         if (isset($GLOBALS['xml_export_contents']) && $GLOBALS['xml_export_contents']) {
             $result      = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);

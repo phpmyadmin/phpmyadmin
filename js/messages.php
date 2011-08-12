@@ -62,7 +62,6 @@ $js_messages['strClose'] = __('Close');
 
 /* for server_status.js */
 $js_messages['strEdit'] = __('Edit');
-
 $js_messages['strLiveTrafficChart'] = __('Live traffic chart');
 $js_messages['strLiveConnChart'] = __('Live conn./process chart');
 $js_messages['strLiveQueryChart'] = __('Live query chart');
@@ -183,6 +182,20 @@ $js_messages['strFailedParsingConfig'] = __('Failed parsing config file. It does
 $js_messages['strFailedBuildingGrid'] = __('Failed building chart grid with imported config. Resetting to default config...');
 $js_messages['strImport'] = __('Import');
 
+$js_messages['strAnalyzeQuery'] = __('Analyse Query');
+
+/* Server status advisor */
+
+$js_messages['strAdvisorSystem'] = __('Advisor system');
+$js_messages['strPerformanceIssues'] = __('Possible performance issues');
+$js_messages['strIssuse'] = __('Issue');
+$js_messages['strRecommendation'] = __('Recommendation');
+$js_messages['strRuleDetails'] = __('Rule details');
+$js_messages['strJustification'] = __('Justification');
+$js_messages['strFormula'] = __('Used variable / formula');
+$js_messages['strTest'] = __('Test');
+
+
 /* For inline query editing */
 $js_messages['strGo'] = __('Go');
 $js_messages['strCancel'] = __('Cancel');
@@ -227,11 +240,12 @@ $js_messages['strImportCSV'] = __('Note: If the file contains multiple tables, t
 $js_messages['strHideQueryBox'] = __('Hide query box');
 $js_messages['strShowQueryBox'] = __('Show query box');
 $js_messages['strEdit'] = __('Edit');
-$js_messages['strSave'] = __('Save');
-$js_messages['strHide'] = __('Hide');
 $js_messages['strNoRowSelected'] = __('No rows selected');
 $js_messages['strChangeTbl'] = __('Change');
 $js_messages['strQueryExecutionTime'] = __('Query execution time');
+
+/* For server_variables.js */
+$js_messages['strSave'] = __('Save');
 
 /* For tbl_select.js */
 $js_messages['strHideSearchCriteria'] = __('Hide search criteria');
@@ -261,7 +275,7 @@ $js_messages['strSortHint'] = __('Click to sort');
 $js_messages['strColMarkHint'] = __('Click to mark/unmark');
 $js_messages['strColVisibHint'] = __('Click the drop-down arrow<br />to toggle column\'s visibility');
 $js_messages['strShowAllCol'] = __('Show all');
-$js_messages['strAlertNonUnique'] = __('This table contains no unique field. Features related to the grid edit, checkbox, Edit, Copy and Delete links may not work after saving.');
+$js_messages['strAlertNonUnique'] = __('This table does not contain a unique column. Features related to the grid edit, checkbox, Edit, Copy and Delete links may not work after saving.');
 $js_messages['strGridEditFeatureHint'] = __('You can also edit most columns<br />by clicking directly on their content.');
 $js_messages['strGoToLink'] = __('Go to link');
 

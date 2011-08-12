@@ -29,56 +29,12 @@ class PMA_Schema_PDF extends PMA_PDF
     var $PMA_links;
     var $Outlines = array();
     var $def_outlines;
-    var $Alias = array();
     var $widths;
     private $_ff = PMA_PDF_FONT;
-
-    public function getH()
-    {
-        return $this->h;
-    }
-
-    public function getW()
-    {
-        return $this->w;
-    }
 
     public function setCMargin($c_margin)
     {
         $this->cMargin = $c_margin;
-    }
-
-    function SetAlias($name, $value)
-    {
-        $this->Alias[$name] = $value ;
-    }
-
-    function _putpages()
-    {
-        if (count($this->Alias) > 0) {
-            $nb = $this->page;
-            foreach ($this->Alias as $alias => $value) {
-                for ($n = 1;$n <= $nb;$n++)
-                    $this->pages[$n]=str_replace($alias, $value, $this->pages[$n]);
-            }
-        }
-        parent::_putpages();
-    }
-
-    /**
-     * Getter for protected buffer.
-     */
-    public function getBuffer()
-    {
-        return $this->buffer;
-    }
-
-    /**
-     * Getter for protected state.
-     */
-    public function getState()
-    {
-        return $this->state;
     }
 
     /**
@@ -196,18 +152,6 @@ class PMA_Schema_PDF extends PMA_PDF
     {
         $width = $width / $this->scale;
         $this->SetLineWidth($width);
-    }
-
-    /**
-     * Displays an error message
-     *
-     * @param string error_message the error mesage
-     * @access public
-     * @see PMA_Export_Relation_Schema::dieSchema
-     */
-    function Error($error_message = '')
-    {
-       PMA_Export_Relation_Schema::dieSchema($error_message);
     }
 
     function Header()
@@ -778,8 +722,8 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         // Defines the scale factor
         $this->scale = ceil(
             max(
-                ($this->_xMax - $this->_xMin) / ($pdf->getW() - $this->rightMargin - $this->leftMargin),
-                ($this->_yMax - $this->_yMin) / ($pdf->getH() - $this->topMargin - $this->bottomMargin))
+                ($this->_xMax - $this->_xMin) / ($pdf->getPageWidth() - $this->rightMargin - $this->leftMargin),
+                ($this->_yMax - $this->_yMin) / ($pdf->getPageHeight() - $this->topMargin - $this->bottomMargin))
              * 100) / 100;
 
         $pdf->PMA_PDF_setScale($this->scale, $this->_xMin, $this->_yMin, $this->leftMargin, $this->topMargin);
@@ -882,18 +826,18 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         $pdf->SetMargins(0, 0);
         $pdf->SetDrawColor(200, 200, 200);
         // Draws horizontal lines
-        for ($l = 0; $l <= intval(($pdf->getH() - $topSpace - $bottomSpace) / $gridSize); $l++) {
-            $pdf->line(0, $l * $gridSize + $topSpace, $pdf->getW(), $l * $gridSize + $topSpace);
+        for ($l = 0; $l <= intval(($pdf->getPageHeight() - $topSpace - $bottomSpace) / $gridSize); $l++) {
+            $pdf->line(0, $l * $gridSize + $topSpace, $pdf->getPageWidth(), $l * $gridSize + $topSpace);
             // Avoid duplicates
-            if ($l > 0 && $l <= intval(($pdf->getH() - $topSpace - $bottomSpace - $labelHeight) / $gridSize)) {
+            if ($l > 0 && $l <= intval(($pdf->getPageHeight() - $topSpace - $bottomSpace - $labelHeight) / $gridSize)) {
                 $pdf->SetXY(0, $l * $gridSize + $topSpace);
                 $label = (string) sprintf('%.0f', ($l * $gridSize + $topSpace - $this->topMargin) * $this->scale + $this->_yMin);
                 $pdf->Cell($labelWidth, $labelHeight, ' ' . $label);
             } // end if
         } // end for
         // Draws vertical lines
-        for ($j = 0; $j <= intval($pdf->getW() / $gridSize); $j++) {
-            $pdf->line($j * $gridSize, $topSpace, $j * $gridSize, $pdf->getH() - $bottomSpace);
+        for ($j = 0; $j <= intval($pdf->getPageWidth() / $gridSize); $j++) {
+            $pdf->line($j * $gridSize, $topSpace, $j * $gridSize, $pdf->getPageHeight() - $bottomSpace);
             $pdf->SetXY($j * $gridSize, $topSpace);
             $label = (string) sprintf('%.0f', ($j * $gridSize - $this->leftMargin) * $this->scale + $this->_xMin);
             $pdf->Cell($labelWidth, $labelHeight, $label);
@@ -945,9 +889,6 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     {
         global $pdf, $db, $cfgRelation;
 
-        $pdf->SetFontSize(14);
-        $pdf->SetLineWidth(0.2);
-        $pdf->SetDisplayMode('fullpage');
         // Get the name of this pdfpage to use as filename
         $_name_sql = 'SELECT page_descr FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
                     . ' WHERE page_nr = ' . $pageNumber;
@@ -959,10 +900,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         if (empty($filename)) {
             $filename = $pageNumber . '.pdf';
         }
-        // instead of $pdf->Output():
-        $pdfData = $pdf->getPDFData();
-        PMA_download_header($filename, 'application/pdf', strlen($pdfData));
-        echo $pdfData;
+        $pdf->Download($filename);
     }
 
     public function dataDictionaryDoc($alltables)
@@ -977,7 +915,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             $pdf->PMA_links['doc'][$table]['-'] = $pdf->AddLink();
             $pdf->SetX(10);
             // $pdf->Ln(1);
-            $pdf->Cell(0, 6, __('Page number:') . ' {' . sprintf("%02d", $i + 1) . '}', 0, 0, 'R', 0, $pdf->PMA_links['doc'][$table]['-']);
+            $pdf->Cell(0, 6, __('Page number:') . ' {' . sprintf("%02d", $i) . '}', 0, 0, 'R', 0, $pdf->PMA_links['doc'][$table]['-']);
             $pdf->SetX(10);
             $pdf->Cell(0, 6, $i . ' ' . $table, 0, 1, 'L', 0, $pdf->PMA_links['doc'][$table]['-']);
             // $pdf->Ln(1);
@@ -993,7 +931,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         }
         $pdf->PMA_links['RT']['-'] = $pdf->AddLink();
         $pdf->SetX(10);
-        $pdf->Cell(0, 6, __('Page number:') . ' {' . sprintf("%02d", $i + 1) . '}', 0, 0, 'R', 0, $pdf->PMA_links['RT']['-']);
+        $pdf->Cell(0, 6, __('Page number:') . ' {00}', 0, 0, 'R', 0, $pdf->PMA_links['RT']['-']);
         $pdf->SetX(10);
         $pdf->Cell(0, 6, $i . ' ' . __('Relational schema'), 0, 1, 'L', 0, $pdf->PMA_links['RT']['-']);
         $z = 0;
@@ -1117,13 +1055,13 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
 
             $pdf->SetFont($this->_ff, 'B');
             if (isset($orientation) && $orientation == 'L') {
-                $pdf->Cell(25, 8, ucfirst(__('Column')), 1, 0, 'C');
-                $pdf->Cell(20, 8, ucfirst(__('Type')), 1, 0, 'C');
-                $pdf->Cell(20, 8, ucfirst(__('Attributes')), 1, 0, 'C');
-                $pdf->Cell(10, 8, ucfirst(__('Null')), 1, 0, 'C');
-                $pdf->Cell(20, 8, ucfirst(__('Default')), 1, 0, 'C');
-                $pdf->Cell(25, 8, ucfirst(__('Extra')), 1, 0, 'C');
-                $pdf->Cell(45, 8, ucfirst(__('Links to')), 1, 0, 'C');
+                $pdf->Cell(25, 8, __('Column'), 1, 0, 'C');
+                $pdf->Cell(20, 8, __('Type'), 1, 0, 'C');
+                $pdf->Cell(20, 8, __('Attributes'), 1, 0, 'C');
+                $pdf->Cell(10, 8, __('Null'), 1, 0, 'C');
+                $pdf->Cell(20, 8, __('Default'), 1, 0, 'C');
+                $pdf->Cell(25, 8, __('Extra'), 1, 0, 'C');
+                $pdf->Cell(45, 8, __('Links to'), 1, 0, 'C');
 
                 if ($paper == 'A4') {
                     $comments_width = 67;
@@ -1134,18 +1072,18 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                      */
                     $comments_width = 50;
                 }
-                $pdf->Cell($comments_width, 8, ucfirst(__('Comments')), 1, 0, 'C');
+                $pdf->Cell($comments_width, 8, __('Comments'), 1, 0, 'C');
                 $pdf->Cell(45, 8, 'MIME', 1, 1, 'C');
                 $pdf->SetWidths(array(25, 20, 20, 10, 20, 25, 45, $comments_width, 45));
             } else {
-                $pdf->Cell(20, 8, ucfirst(__('Column')), 1, 0, 'C');
-                $pdf->Cell(20, 8, ucfirst(__('Type')), 1, 0, 'C');
-                $pdf->Cell(20, 8, ucfirst(__('Attributes')), 1, 0, 'C');
-                $pdf->Cell(10, 8, ucfirst(__('Null')), 1, 0, 'C');
-                $pdf->Cell(15, 8, ucfirst(__('Default')), 1, 0, 'C');
-                $pdf->Cell(15, 8, ucfirst(__('Extra')), 1, 0, 'C');
-                $pdf->Cell(30, 8, ucfirst(__('Links to')), 1, 0, 'C');
-                $pdf->Cell(30, 8, ucfirst(__('Comments')), 1, 0, 'C');
+                $pdf->Cell(20, 8, __('Column'), 1, 0, 'C');
+                $pdf->Cell(20, 8, __('Type'), 1, 0, 'C');
+                $pdf->Cell(20, 8, __('Attributes'), 1, 0, 'C');
+                $pdf->Cell(10, 8, __('Null'), 1, 0, 'C');
+                $pdf->Cell(15, 8, __('Default'), 1, 0, 'C');
+                $pdf->Cell(15, 8, __('Extra'), 1, 0, 'C');
+                $pdf->Cell(30, 8, __('Links to'), 1, 0, 'C');
+                $pdf->Cell(30, 8, __('Comments'), 1, 0, 'C');
                 $pdf->Cell(30, 8, 'MIME', 1, 1, 'C');
                 $pdf->SetWidths(array(20, 20, 20, 10, 15, 15, 30, 30, 30));
             }

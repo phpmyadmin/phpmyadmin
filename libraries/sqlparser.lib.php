@@ -1388,7 +1388,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
             // however, if we are on AS, we must keep the $previous_was_identifier
             if (($arr[$i]['type'] == 'alpha_reservedWord')
-             && ($upper_data == 'AS'))  {
+             && ($upper_data == 'AS')) {
                 $previous_was_identifier = true;
             }
 

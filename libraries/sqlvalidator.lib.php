@@ -38,7 +38,7 @@ if (! defined('PHPMYADMIN')) {
  * I'm not sure if PEAR was available before this point
  * For now we actually use a configuration flag
  */
-if ($cfg['SQLValidator']['use'] == true)  {
+if ($cfg['SQLValidator']['use'] == true) {
     require_once './libraries/sqlvalidator.class.php';
 } // if ($cfg['SQLValidator']['use'] == true)
 

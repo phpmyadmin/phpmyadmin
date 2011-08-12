@@ -17,6 +17,7 @@ define('PMA_PDF_FONT', 'DejaVuSans');
 class PMA_PDF extends TCPDF
 {
     var $footerset;
+    var $Alias = array();
 
     public function __construct($orientation='P', $unit='mm', $format='A4', $unicode=true, $encoding='UTF-8', $diskcache=false)
     {
@@ -25,8 +26,6 @@ class PMA_PDF extends TCPDF
         $this->AliasNbPages();
         $this->AddFont('DejaVuSans', '', 'dejavusans.php');
         $this->AddFont('DejaVuSans', 'B', 'dejavusansb.php');
-        $this->AddFont('DejaVuSerif', '', 'dejavuserif.php');
-        $this->AddFont('DejaVuSerif', 'B', 'dejavuserifb.php');
         $this->SetFont(PMA_PDF_FONT, '', 14);
         $this->setFooterFont(array(PMA_PDF_FONT, '', 14));
     }
@@ -47,5 +46,49 @@ class PMA_PDF extends TCPDF
             // set footerset
             $this->footerset[$this->page] = 1;
         }
+    }
+
+    /**
+     * Function to set alias which will be expanded on page rendering.
+     */
+    function SetAlias($name, $value)
+    {
+        $this->Alias[$this->UTF8ToUTF16BE($name)] = $this->UTF8ToUTF16BE($value);
+    }
+
+    /**
+     * Improved with alias expading.
+     */
+    function _putpages()
+    {
+        if (count($this->Alias) > 0) {
+            $nb = count($this->pages);
+            for ($n = 1;$n <= $nb;$n++) {
+                $this->pages[$n] = strtr($this->pages[$n], $this->Alias);
+            }
+        }
+        parent::_putpages();
+    }
+
+    /**
+     * Displays an error message
+     *
+     * @param string $error_message the error mesage
+     */
+    function Error($error_message = '')
+    {
+        include('./libraries/header.inc.php');
+        PMA_Message::error(__('Error while creating PDF:') . ' ' . $error_message)->display();
+        include('./libraries/footer.inc.php');
+    }
+
+    /**
+     * Sends file as a download to user.
+     */
+    function Download($filename)
+    {
+        $pdfData = $this->getPDFData();
+        PMA_download_header($filename, 'application/pdf', strlen($pdfData));
+        echo $pdfData;
     }
 }

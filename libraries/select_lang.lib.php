@@ -479,7 +479,7 @@ $GLOBALS['l']['a_meta_dir'] = $GLOBALS['text_dir'];
 $GLOBALS['l']['a_meta_language'] = $GLOBALS['lang'];
 
 /* TCPDF translations */
-$GLOBALS['l']['w_page'] = _pgettext('PDF', 'page');
+$GLOBALS['l']['w_page'] = __('Page number:');
 
 
 // now, that we have loaded the language strings we can send the errors
