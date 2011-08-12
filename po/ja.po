@@ -11560,7 +11560,7 @@ msgstr "バージョン 5.5.8 (5.5 の 最初の安定版) 未満です。"
 #: po/advisory_rules.php:47
 #| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5"
-msgstr "安定版 MySQL 5.5 へのアップグレード推奨。"
+msgstr "安定版 MySQL 5.5 へのアップグレードを推奨します。"
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55
 #, fuzzy
