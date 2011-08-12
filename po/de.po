@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-13 01:49+0200\n"
+"PO-Revision-Date: 2011-08-13 01:50+0200\n"
 "Last-Translator: Sven Strickroth <email@cs-ware.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1154,10 +1154,9 @@ msgid "Query cache usage"
 msgstr "Abfragen-Cache Ausnutzung"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
-msgstr "Abfragen-Cache"
+msgstr "Abfragen-Cache benutzt"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
