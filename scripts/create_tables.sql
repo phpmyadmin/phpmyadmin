@@ -128,6 +128,7 @@ CREATE TABLE IF NOT EXISTS `pma_table_uiprefs` (
   `db_name` varchar(64) NOT NULL,
   `table_name` varchar(64) NOT NULL,
   `prefs` text NOT NULL,
+  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`username`,`db_name`,`table_name`)
 )
   ENGINE=MyISAM COMMENT='Tables'' UI preferences'
