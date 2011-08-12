@@ -1544,7 +1544,7 @@ msgstr "Justierung"
 
 #: js/messages.php:202
 msgid "Used variable / formula"
-msgstr ""
+msgstr "Benutzte Variable/Formel"
 
 #: js/messages.php:203
 msgid "Test"
