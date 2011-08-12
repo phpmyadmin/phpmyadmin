@@ -368,7 +368,14 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             if (g.colVisib.length > 0) {
                 $.extend(post_params, { col_visib: g.colVisib.toString() });
             }
-            $.post('sql.php', post_params);
+            $.post('sql.php', post_params, function(data) {
+                if (data.success != true) {
+                    var $temp_div = $(document.createElement('div'));
+                    $temp_div.html(data.error);
+                    $temp_div.addClass("error");
+                    PMA_ajaxShowMessage($temp_div);
+                }
+            });
         },
         
         /**

@@ -378,6 +378,19 @@ $cfg['Servers'][$i]['tracking'] = '';
 $cfg['Servers'][$i]['userconfig'] = '';
 
 /**
+ * Maximum number of records saved in $cfg['Servers'][$i]['table_uiprefs'] table.
+ *
+ * In case where tables in databases is modified (e.g. dropped or renamed),
+ * table_uiprefs may contains invalid data (referring to tables which are not
+ * exist anymore).
+ * This configuration make sure that we only keep N (N = MaxTableUiprefs)
+ * newest record in table_uiprefs and automatically delete older records.
+ *
+ * @global integer $cfg['Servers'][$i]['userconfig'] = '';
+ */
+$cfg['Servers'][$i]['MaxTableUiprefs'] = 5;
+
+/**
  * set to false if you know that your pma_* tables are up to date.
  * This prevents compatibility checks and thereby increases performance.
  *
