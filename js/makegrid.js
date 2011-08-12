@@ -1560,6 +1560,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             
             // attach to global div
             $(g.gDiv).append(g.cEdit);
+            
+            // add hint for grid editing feature when hovering "Edit" link in each table row
+            PMA_createqTip($(g.t).find('.edit_row_anchor a'), PMA_messages['strGridEditFeatureHint']);
         }
     }
     
