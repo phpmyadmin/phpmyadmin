@@ -1229,7 +1229,7 @@ msgstr "Benutzer Swap"
 #, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "Unbenutzte Seiten"
+msgstr "Freier Swap"
 
 #: js/messages.php:118
 msgid "Bytes sent"
