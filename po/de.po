@@ -10399,7 +10399,7 @@ msgstr "Serien löschen"
 
 #: server_status.php:1560
 msgid "Series in Chart:"
-msgstr "Serien im Schaubild"
+msgstr "Serien im Schaubild:"
 
 #: server_status.php:1572
 msgid "Log statistics"
