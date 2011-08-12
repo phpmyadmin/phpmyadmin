@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-11 15:11+0200\n"
-"PO-Revision-Date: 2011-08-12 11:28+0200\n"
+"PO-Revision-Date: 2011-08-12 11:37+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -4709,10 +4709,9 @@ msgid "Whether to show hint or not"
 msgstr "テーブルの行リンクを表示する場所"
 
 #: libraries/config/messages.inc.php:461
-#, fuzzy
 #| msgid "Show indexes"
 msgid "Show hint"
-msgstr "インデックスを表示する"
+msgstr "操作ヒントを表示する"
 
 #: libraries/config/messages.inc.php:462
 msgid ""
