@@ -1213,7 +1213,7 @@ msgstr "Verwendeter Speicher"
 #, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "Insgesamt ausgelagert"
+msgstr "Gesamt Swap"
 
 #: js/messages.php:114
 msgid "Cached Swap"
