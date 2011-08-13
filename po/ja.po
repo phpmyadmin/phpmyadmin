@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-13 12:39+0200\n"
+"PO-Revision-Date: 2011-08-13 12:41+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -11787,7 +11787,7 @@ msgstr "クエリの結果"
 #: po/advisory_rules.php:101
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
-msgstr ""
+msgstr "クエリキャッシュ内の結果セットの最大サイズは、デフォルトの 1 MiB です。"
 
 #: po/advisory_rules.php:102
 msgid ""
