@@ -12027,10 +12027,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:150
-#, fuzzy
 #| msgid "% temp disk tables"
 msgid "Temp disk rate"
-msgstr "% geçici disk tabloları"
+msgstr "Geçici disk oranı"
 
 #: po/advisory_rules.php:152
 msgid ""
