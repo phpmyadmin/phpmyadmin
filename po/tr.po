@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-13 23:33+0200\n"
+"PO-Revision-Date: 2011-08-13 23:34+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -12138,10 +12138,9 @@ msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:180
-#, fuzzy
 #| msgid "rate of open files"
 msgid "Percentage of used open files limit"
-msgstr "açık dosyaların oranı"
+msgstr "Kullanılan açık dosya sınırları yüzdesi"
 
 #: po/advisory_rules.php:181
 msgid ""
