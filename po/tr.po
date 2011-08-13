@@ -11897,7 +11897,7 @@ msgstr "İndeksler olmaksızın katılım oranı"
 
 #: po/advisory_rules.php:121
 msgid "There are too many joins without indexes."
-msgstr "İndeksler olmadan çok fazla katılım var."
+msgstr "İndeksler olmaksızın çok fazla katılım var."
 
 #: po/advisory_rules.php:122
 msgid ""
