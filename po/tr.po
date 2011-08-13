@@ -11491,10 +11491,9 @@ msgid "Current amount of Questions: %s"
 msgstr "Şu anki Soru miktarı: %s"
 
 #: po/advisory_rules.php:15
-#, fuzzy
 #| msgid "% slow queries"
 msgid "Percentage of slow queries"
-msgstr "% yavaş sorgular"
+msgstr "Yavaş sorguların yüzdesi"
 
 #: po/advisory_rules.php:16
 msgid ""
