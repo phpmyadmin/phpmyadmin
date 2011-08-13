@@ -67,7 +67,6 @@ $(document).ready(function() {
                 // found results
                 $("#sqlqueryresults").html(response);
                 $("#sqlqueryresults").trigger('appendAnchor');
-                $("#sqlqueryresults").trigger('makegrid');
                 $('#tbl_search_form')
                 // workaround for bug #3168569 - Issue on toggling the "Hide search criteria" in chrome.
                  .slideToggle()    
@@ -90,20 +89,11 @@ $(document).ready(function() {
     })
 
     // Following section is related to the 'function based search' for geometry data types.
-    // Initialy hide all the switch spans and open_gis_editor spans
-    $('.switch').hide();
+    // Initialy hide all the open_gis_editor spans
     $('.open_search_gis_editor').hide();
 
     $('.geom_func').bind('change', function() {
         var $geomFuncSelector = $(this);
-        var switchableFunctions = [
-          'MBRContains', 
-          'MBRWithin', 
-          'Contains', 
-          'Within', 
-          'ST_Contains', 
-          'ST_Within'
-        ];
 
         var binaryFunctions = [
           'Contains',
@@ -140,14 +130,6 @@ $(document).ready(function() {
            'PointOnSurface'
         ];
         var outputGeomFunctions = binaryFunctions.concat(tempArray);
-
-        // If the chosen function needs to switch the two geom objects
-        var $switchSpan = $geomFuncSelector.parents('tr').find('.switch');
-        if ($.inArray($geomFuncSelector.val(), switchableFunctions) >= 0){
-            $switchSpan.show();
-        } else {
-            $switchSpan.hide();
-        }
 
         // If the chosen function takes two geomerty objects as parameters
         var $operator = $geomFuncSelector.parents('tr').find('td:nth-child(5)').find('select');

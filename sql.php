@@ -30,8 +30,11 @@ if (isset($_SESSION['profiling'])) {
     $GLOBALS['js_include'][] = 'highcharts/highcharts.js';
     /* Files required for chart exporting */
     $GLOBALS['js_include'][] = 'highcharts/exporting.js';
+    /* < IE 9 doesn't support canvas natively */
+    if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
+        $GLOBALS['js_include'][] = 'canvg/flashcanvas.js';
+    }	
     $GLOBALS['js_include'][] = 'canvg/canvg.js';
-    $GLOBALS['js_include'][] = 'canvg/rgbcolor.js';
 }
 
 /**
@@ -67,7 +70,7 @@ if (isset($fields['dbase'])) {
 }
 
 /**
- * During inline edit, if we have a relational field, show the dropdown for it
+ * During grid edit, if we have a relational field, show the dropdown for it
  *
  * Logic taken from libraries/display_tbl_lib.php
  *
@@ -102,8 +105,7 @@ if (isset($_REQUEST['get_relational_values']) && $_REQUEST['get_relational_value
         $dropdown = '<span class="curr_value">' . htmlspecialchars($_REQUEST['curr_value']) . '</span> <a href="browse_foreigners.php' . PMA_generate_common_url($_url_params) . '"'
                     . ' target="_blank" class="browse_foreign" '
                     .'>' . __('Browse foreign values') . '</a>';
-    }
-    else {
+    } else {
         $dropdown = PMA_foreignDropdown($foreignData['disp_row'], $foreignData['foreign_field'], $foreignData['foreign_display'], $curr_value, $cfg['ForeignKeyMaxLimit']);
         $dropdown = '<select>' . $dropdown . '</select>';
     }
@@ -113,7 +115,7 @@ if (isset($_REQUEST['get_relational_values']) && $_REQUEST['get_relational_value
 }
 
 /**
- * Just like above, find possible values for enum fields during inline edit.
+ * Just like above, find possible values for enum fields during grid edit.
  *
  * Logic taken from libraries/display_tbl_lib.php
  */
@@ -142,7 +144,7 @@ if (isset($_REQUEST['get_enum_values']) && $_REQUEST['get_enum_values'] == true)
 }
 
 /**
- * Find possible values for set fields during inline edit.
+ * Find possible values for set fields during grid edit.
  */
 if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
     $field_info_query = 'SHOW FIELDS FROM `' . $db . '`.`' . $table . '` LIKE \'' . $_REQUEST['column'] . '\' ;';
@@ -175,14 +177,26 @@ if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
  */
 if (isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
     $pmatable = new PMA_Table($table, $db);
+    $retval = false;
 
     // set column order
-    $col_order = explode(',', $_REQUEST['col_order']);
-    $retval = $pmatable->setUiProp(PMA_Table::PROP_COLUMN_ORDER, $col_order, $_REQUEST['table_create_time']);
+    if (isset($_REQUEST['col_order'])) {
+        $col_order = explode(',', $_REQUEST['col_order']);
+        $retval = $pmatable->setUiProp(PMA_Table::PROP_COLUMN_ORDER, $col_order, $_REQUEST['table_create_time']);
+        if ($retval !== true) {
+            PMA_ajaxResponse($retval->getString(), false);
+        }
+    }
+
 
     // set column visibility
-    $col_visib = explode(',', $_REQUEST['col_visib']);
-    $retval &= $pmatable->setUiProp(PMA_Table::PROP_COLUMN_VISIB, $col_visib, $_REQUEST['table_create_time']);
+    if (isset($_REQUEST['col_visib'])) {
+        $col_visib = explode(',', $_REQUEST['col_visib']);
+        $retval = $pmatable->setUiProp(PMA_Table::PROP_COLUMN_VISIB, $col_visib, $_REQUEST['table_create_time']);
+        if ($retval !== true) {
+            PMA_ajaxResponse($retval->getString(), false);
+        }
+    }
 
     PMA_ajaxResponse(NULL, ($retval == true));
 }
@@ -703,119 +717,6 @@ if (0 == $num_rows || $is_affected) {
     }
 
     if ($GLOBALS['is_ajax_request'] == true) {
-
-        /**
-         * If we are in inline editing, we need to process the relational and
-         * transformed fields, if they were edited. After that, output the correct
-         * link/transformed value and exit
-         *
-         * Logic taken from libraries/display_tbl.lib.php
-         */
-
-        if (isset($_REQUEST['rel_fields_list']) && $_REQUEST['rel_fields_list'] != '') {
-            //handle relations work here for updated row.
-            require_once './libraries/relation.lib.php';
-
-            $map = PMA_getForeigners($db, $table, '', 'both');
-
-            $rel_fields = array();
-            parse_str($_REQUEST['rel_fields_list'], $rel_fields);
-
-            foreach ( $rel_fields as $rel_field => $rel_field_value) {
-
-                $where_comparison = "='" . $rel_field_value . "'";
-                $display_field = PMA_getDisplayField($map[$rel_field]['foreign_db'], $map[$rel_field]['foreign_table']);
-
-                // Field to display from the foreign table?
-                if (isset($display_field) && strlen($display_field)) {
-                    $dispsql     = 'SELECT ' . PMA_backquote($display_field)
-                        . ' FROM ' . PMA_backquote($map[$rel_field]['foreign_db'])
-                        . '.' . PMA_backquote($map[$rel_field]['foreign_table'])
-                        . ' WHERE ' . PMA_backquote($map[$rel_field]['foreign_field'])
-                        . $where_comparison;
-                    $dispresult  = PMA_DBI_try_query($dispsql, null, PMA_DBI_QUERY_STORE);
-                    if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
-                        list($dispval) = PMA_DBI_fetch_row($dispresult, 0);
-                    } else {
-                        //$dispval = __('Link not found');
-                    }
-                    @PMA_DBI_free_result($dispresult);
-                } else {
-                    $dispval     = '';
-                } // end if... else...
-
-                if ('K' == $_SESSION['tmp_user_values']['relational_display']) {
-                    // user chose "relational key" in the display options, so
-                    // the title contains the display field
-                    $title = (! empty($dispval))? ' title="' . htmlspecialchars($dispval) . '"' : '';
-                } else {
-                    $title = ' title="' . htmlspecialchars($rel_field_value) . '"';
-                }
-
-                $_url_params = array(
-                    'db'    => $map[$rel_field]['foreign_db'],
-                    'table' => $map[$rel_field]['foreign_table'],
-                    'pos'   => '0',
-                    'sql_query' => 'SELECT * FROM '
-                                        . PMA_backquote($map[$rel_field]['foreign_db']) . '.' . PMA_backquote($map[$rel_field]['foreign_table'])
-                                        . ' WHERE ' . PMA_backquote($map[$rel_field]['foreign_field'])
-                                        . $where_comparison
-                );
-                $output = '<a href="sql.php' . PMA_generate_common_url($_url_params) . '"' . $title . '>';
-
-                if ('D' == $_SESSION['tmp_user_values']['relational_display']) {
-                    // user chose "relational display field" in the
-                    // display options, so show display field in the cell
-                    $output .= (!empty($dispval)) ? htmlspecialchars($dispval) : '';
-                } else {
-                    // otherwise display data in the cell
-                    $output .= htmlspecialchars($rel_field_value);
-                }
-                $output .= '</a>';
-                $extra_data['relations'][$rel_field] = $output;
-            }
-        }
-
-        if (isset($_REQUEST['do_transformations']) && $_REQUEST['do_transformations'] == true ) {
-            require_once './libraries/transformations.lib.php';
-            //if some posted fields need to be transformed, generate them here.
-            $mime_map = PMA_getMIME($db, $table);
-
-            if ($mime_map === false) {
-                $mime_map = array();
-            }
-
-            $edited_values = array();
-            parse_str($_REQUEST['transform_fields_list'], $edited_values);
-
-            foreach($mime_map as $transformation) {
-                $include_file = PMA_securePath($transformation['transformation']);
-                $column_name = $transformation['column_name'];
-                $column_data = $edited_values[$column_name];
-
-                $_url_params = array(
-                    'db'            => $db,
-                    'table'         => $table,
-                    'where_clause'  => $_REQUEST['where_clause'],
-                    'transform_key' => $column_name,
-                );
-
-                if (file_exists('./libraries/transformations/' . $include_file)) {
-                    $transformfunction_name = str_replace('.inc.php', '', $transformation['transformation']);
-
-                    require_once './libraries/transformations/' . $include_file;
-
-                    if (function_exists('PMA_transformation_' . $transformfunction_name)) {
-                        $transform_function = 'PMA_transformation_' . $transformfunction_name;
-                        $transform_options  = PMA_transformation_getOptions((isset($transformation['transformation_options']) ? $transformation['transformation_options'] : ''));
-                        $transform_options['wrapper_link'] = PMA_generate_common_url($_url_params);
-                    }
-                }
-
-                $extra_data['transformations'][$column_name] = $transform_function($column_data, $transform_options);
-            }
-        }
-
         if ($cfg['ShowSQL']) {
             $extra_data['sql_query'] = PMA_showMessage($message, $GLOBALS['sql_query'], 'success');
         }
@@ -868,7 +769,7 @@ if (0 == $num_rows || $is_affected) {
 else {
     //If we are retrieving the full value of a truncated field or the original
     // value of a transformed field, show it here and exit
-    if ($GLOBALS['inline_edit'] == true && $GLOBALS['cfg']['AjaxEnable']) {
+    if ($GLOBALS['grid_edit'] == true && $GLOBALS['cfg']['AjaxEnable']) {
         $row = PMA_DBI_fetch_row($result);
         $extra_data = array();
         $extra_data['value'] = $row[0];
@@ -902,8 +803,7 @@ else {
                 require './libraries/server_common.inc.php';
                 require './libraries/server_links.inc.php';
             }
-        }
-        else {
+        } else {
             require_once './libraries/header.inc.php';
             //we don't need to buffer the output in PMA_showMessage here.
             //set a global variable and check against it in the function

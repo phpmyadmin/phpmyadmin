@@ -2,7 +2,7 @@
 //============================================================+
 // File name   : tcpdf_config.php
 // Begin       : 2004-06-11
-// Last Update : 2010-12-16
+// Last Update : 2011-04-15
 //
 // Description : Configuration file for TCPDF.
 //
@@ -36,9 +36,9 @@ if (!defined('K_TCPDF_EXTERNAL_CONFIG')) {
 			$_SERVER['DOCUMENT_ROOT'] = str_replace( '\\', '/', substr($_SERVER['SCRIPT_FILENAME'], 0, 0-strlen($_SERVER['PHP_SELF'])));
 		} elseif(isset($_SERVER['PATH_TRANSLATED'])) {
 			$_SERVER['DOCUMENT_ROOT'] = str_replace( '\\', '/', substr(str_replace('\\\\', '\\', $_SERVER['PATH_TRANSLATED']), 0, 0-strlen($_SERVER['PHP_SELF'])));
-		}	else {
-			// define here your DOCUMENT_ROOT path if the previous fails
-			$_SERVER['DOCUMENT_ROOT'] = '/var/www';
+		} else {
+			// define here your DOCUMENT_ROOT path if the previous fails (e.g. '/var/www')
+			$_SERVER['DOCUMENT_ROOT'] = '/';
 		}
 	}
 

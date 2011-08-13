@@ -51,16 +51,19 @@ $GLOBALS['js_include'] = array_unique($GLOBALS['js_include']);
 foreach ($GLOBALS['js_include'] as $js_script_file) {
     echo PMA_includeJS($js_script_file);
 }
+// Below javascript Updates the title of the frameset if possible
 ?>
 <script type="text/javascript">
 // <![CDATA[
-// Updates the title of the frameset if possible (ns4 does not allow this)
 if (typeof(parent.document) != 'undefined' && typeof(parent.document) != 'unknown'
     && typeof(parent.document.title) == 'string') {
     parent.document.title = '<?php echo PMA_sanitize(PMA_escapeJsString(htmlspecialchars($title))); ?>';
 }
-
 <?php
+if(count($GLOBALS['js_script']) > 0) {
+    echo implode("\n",$GLOBALS['js_script'])."\n";
+}
+
 foreach ($GLOBALS['js_events'] as $js_event) {
     echo "$(window.parent).bind('" . $js_event['event'] . "', "
         . $js_event['function'] . ");\n";

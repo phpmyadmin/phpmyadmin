@@ -889,7 +889,7 @@ if ($cfg['ShowStats']) {
     if (!$is_innodb && isset($showtable['Data_length']) && $showtable['Rows'] > 0 && $mergetable == false) {
         ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __(' Row size '); ?> &oslash;</th>
+        <th class="name"><?php echo __('Row size'); ?> &oslash;</th>
         <td class="value"><?php echo $avg_size . ' ' . $avg_unit; ?></td>
     </tr>
         <?php
@@ -897,7 +897,7 @@ if ($cfg['ShowStats']) {
     if (isset($showtable['Auto_increment'])) {
         ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Next'); ?> Autoindex</th>
+        <th class="name"><?php echo __('Next autoindex'); ?></th>
         <td class="value"><?php echo PMA_formatNumber($showtable['Auto_increment'], 0); ?></td>
     </tr>
         <?php

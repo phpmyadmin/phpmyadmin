@@ -337,7 +337,7 @@ foreach ($the_tables as $key => $table) {
                 if (isset($showtable['Row_format'])) {
                     ?>
             <tr>
-                <td><?php echo ucfirst(__('Format')); ?></td>
+                <td><?php echo __('Format'); ?></td>
                 <td align="<?php echo $cell_align_left; ?>">
                     <?php
                     if ($showtable['Row_format'] == 'Fixed') {
@@ -355,7 +355,7 @@ foreach ($the_tables as $key => $table) {
                 if (isset($showtable['Rows'])) {
                     ?>
             <tr>
-                <td><?php echo ucfirst(__('Rows')); ?></td>
+                <td><?php echo __('Rows'); ?></td>
                 <td align="right">
                     <?php echo PMA_formatNumber($showtable['Rows'], 0) . "\n"; ?>
                 </td>
@@ -365,7 +365,7 @@ foreach ($the_tables as $key => $table) {
                 if (isset($showtable['Avg_row_length']) && $showtable['Avg_row_length'] > 0) {
                     ?>
             <tr>
-                <td><?php echo ucfirst(__('Row length')); ?>&nbsp;&oslash;</td>
+                <td><?php echo __('Row length'); ?>&nbsp;&oslash;</td>
                 <td>
                     <?php echo PMA_formatNumber($showtable['Avg_row_length'], 0) . "\n"; ?>
                 </td>
@@ -375,7 +375,7 @@ foreach ($the_tables as $key => $table) {
                 if (isset($showtable['Data_length']) && $showtable['Rows'] > 0 && $mergetable == false) {
                     ?>
             <tr>
-                <td><?php echo ucfirst(__(' Row size ')); ?>&nbsp;&oslash;</td>
+                <td><?php echo __('Row size'); ?>&nbsp;&oslash;</td>
                 <td align="right">
                     <?php echo $avg_size . ' ' . $avg_unit . "\n"; ?>
                 </td>
@@ -385,7 +385,7 @@ foreach ($the_tables as $key => $table) {
                 if (isset($showtable['Auto_increment'])) {
                     ?>
             <tr>
-                <td><?php echo ucfirst(__('Next')); ?>&nbsp;Autoindex</td>
+                <td><?php echo __('Next autoindex'); ?></td>
                 <td align="right">
                     <?php echo PMA_formatNumber($showtable['Auto_increment'], 0) . "\n"; ?>
                 </td>

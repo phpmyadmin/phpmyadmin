@@ -221,7 +221,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         // Create local hashtables
-        if (!isset($PMA_SQPdata_column_attrib_cnt)) {
+        if (!isset($PMA_SQPdata_column_attrib)) {
             $PMA_SQPdata_column_attrib  = array_flip(
                 $GLOBALS['PMA_SQPdata_column_attrib']
                 );
@@ -348,7 +348,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 $quotetype       = $c;
                 $count2++;
                 $escaped         = false;
-                $escaped_escaped = false;
                 $pos             = $count2;
                 $oldpos          = 0;
                 do {
@@ -1389,7 +1388,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
             // however, if we are on AS, we must keep the $previous_was_identifier
             if (($arr[$i]['type'] == 'alpha_reservedWord')
-             && ($upper_data == 'AS'))  {
+             && ($upper_data == 'AS')) {
                 $previous_was_identifier = true;
             }
 
