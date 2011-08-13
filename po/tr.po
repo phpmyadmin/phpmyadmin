@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-13 23:40+0200\n"
+"PO-Revision-Date: 2011-08-13 23:41+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -12339,7 +12339,7 @@ msgstr ""
 #: po/advisory_rules.php:235
 #| msgid "rate of aborted clients"
 msgid "Percentage of aborted clients"
-msgstr "Durdurulan istemcilerin oranı"
+msgstr "Durdurulan istemcilerin yüzdesi"
 
 #: po/advisory_rules.php:236 po/advisory_rules.php:241
 msgid "Too many clients are aborted."
