@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-13 12:11+0200\n"
+"PO-Revision-Date: 2011-08-13 12:12+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -11624,10 +11624,9 @@ msgid "Query cache disabled"
 msgstr "クエリキャッシュ"
 
 #: po/advisory_rules.php:66
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "サーバが応答しません"
+msgstr "クエリキャッシュが有効になっていません。"
 
 #: po/advisory_rules.php:67
 msgid ""
