@@ -25,23 +25,22 @@ $GLOBALS['js_include'][] = 'highcharts/highcharts.js';
 /* Files required for chart exporting */
 $GLOBALS['js_include'][] = 'highcharts/exporting.js';
 $GLOBALS['js_include'][] = 'canvg/canvg.js';
-$GLOBALS['js_include'][] = 'canvg/rgbcolor.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'jquery/timepicker.js';
 
 
-/** 
+/**
  * Handle AJAX request for data row on point select
  * @var post_params Object containing parameters for the POST request
  */
 
 if (isset($_REQUEST['get_data_row']) && $_REQUEST['get_data_row'] == true) {
-    
-    $extra_data = array(); 
-    $row_info_query = 'SELECT * FROM `' . $_REQUEST['db'] . '`.`' . $_REQUEST['table'] . '` WHERE ' .  $_REQUEST['where_clause'];	
+
+    $extra_data = array();
+    $row_info_query = 'SELECT * FROM `' . $_REQUEST['db'] . '`.`' . $_REQUEST['table'] . '` WHERE ' .  $_REQUEST['where_clause'];
     $result     = PMA_DBI_query( $row_info_query . ";" , null, PMA_DBI_QUERY_STORE);
     $fields_meta = PMA_DBI_get_fields_meta($result);
-    while ($row = PMA_DBI_fetch_assoc($result)) 
+    while ($row = PMA_DBI_fetch_assoc($result))
 	$extra_data['row_info'] = $row;
 
     PMA_ajaxResponse(NULL, true, $extra_data);
@@ -121,7 +120,7 @@ if(isset($inputs) && ($inputs[0] != __('pma_null') || $inputs[1] != __('pma_null
 ?>
 
 <?php
-  
+
 /*
  * Form for input criteria
  */
@@ -144,14 +143,14 @@ if(isset($inputs) && ($inputs[0] != __('pma_null') || $inputs[1] != __('pma_null
 <tbody>
 <?php
     $odd_row = true;
-   
+
 for($i = 0 ; $i < 4 ; $i++){
-    
+
     if($i == 2){
 	echo "<tr><td>";
         echo __("Additional search criteria");
 	echo "</td><tr>";
-    }               
+    }
 
 ?>
     <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
@@ -171,7 +170,7 @@ for($i = 0 ; $i < 4 ; $i++){
         </select></th>
         <td><?php if(isset($tbl_fields_type[$i]))echo $tbl_fields_type[$i]; ?></td>
         <td><?php if(isset($tbl_fields_collation[$i]))echo $tbl_fields_collation[$i]; ?></td>
-	
+
 	<td>
 	<?php if(isset($inputs) && $inputs[$i] != __('pma_null')){ ?>
 	    <select name="zoomFunc[]">
@@ -217,7 +216,7 @@ for($i = 0 ; $i < 4 ; $i++){
 			}
 		    }
 	        } // end if... else...
-	    
+
                 if ($tbl_fields_null[$i]) {
 	            foreach ($GLOBALS['cfg']['NullOperators'] as $fc) {
 			if(isset($zoomFunc[$i]) && $zoomFunc[$i] == $fc){
@@ -238,16 +237,16 @@ for($i = 0 ; $i < 4 ; $i++){
             <td>
 	    <?php
 	    $field = $inputs[$i];
-	
+
             $foreignData = PMA_getForeignData($foreigners, $field, false, '', '');
 	    if (isset($fields))
 	        echo PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fields_type, $i ,$db, $table, $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], $fields);
 	    else
 	        echo PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fields_type, $i ,$db, $table, $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], '');
-	
+
         }
         else{ ?>
- 
+
        </td><td></td>
 
         <?php } ?>
@@ -274,7 +273,7 @@ for($i = 0 ; $i < 4 ; $i++){
 
     //Set default datalabel if not selected
     if(isset($zoom_submit) && $inputs[0] != __('pma_null') && $inputs[1] != __('pma_null')) {
-        if ($dataLabel == '') 
+        if ($dataLabel == '')
 	    $dataLabel = PMA_getDisplayField($db,$table);
     }
     ?>
@@ -304,7 +303,7 @@ for($i = 0 ; $i < 4 ; $i++){
       else { ?>
 	<input type="text" name="maxPlotLimit" value="<?php echo $GLOBALS['cfg']['maxRowPlotLimit']; ?>" /></td></tr>
     <?php
-	} ?> 
+	} ?>
     </table>
 
 </fieldset>
@@ -315,7 +314,7 @@ for($i = 0 ; $i < 4 ; $i++){
 </fieldset>
 </form>
 
-<?php 
+<?php
 
 /*
  * Handle the input criteria and gerate the query result
@@ -326,11 +325,11 @@ if(isset($zoom_submit) && $inputs[0] != __('pma_null') && $inputs[1] != __('pma_
     /*
      * Query generation part
      */
-    $w = $data = array(); 
+    $w = $data = array();
     $sql_query = 'SELECT *';
 
     //Add the table
-	
+
     $sql_query .= ' FROM ' . PMA_backquote($table);
     for($i = 0 ; $i < 4 ; $i++){
         if($inputs[$i] == __('pma_null'))
@@ -371,7 +370,7 @@ if(isset($zoom_submit) && $inputs[0] != __('pma_null') && $inputs[1] != __('pma_
             $data[] = array($inputs[0] => $row[$inputs[0]], $inputs[1] => $row[$inputs[1]], 'where_clause' => $uniqueCondition[0]);
 	else
             $data[] = array($inputs[0] => $row[$inputs[0]], $inputs[1] => $row[$inputs[1]], $dataLabel => $row[$dataLabel], 'where_clause' => $uniqueCondition[0]);
-    }	
+    }
 
 ?>
 
@@ -379,7 +378,7 @@ if(isset($zoom_submit) && $inputs[0] != __('pma_null') && $inputs[1] != __('pma_
     /*
      * Form for displaying point data and also the scatter plot
      */
-?>   
+?>
     <form method="post" action="tbl_zoom_select.php" name="displayResultForm" id="zoom_display_form" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?>>
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
@@ -398,7 +397,7 @@ if(isset($zoom_submit) && $inputs[0] != __('pma_null') && $inputs[1] != __('pma_
                 </div>
 	        <div id="querychart" style="float:right"></div>
                 </div>
-                <?php 
+                <?php
 	    } ?>
         </center>
     <fieldset id='dataDisplay' style="display:none">
@@ -424,7 +423,7 @@ if(isset($zoom_submit) && $inputs[0] != __('pma_null') && $inputs[1] != __('pma_
 		    	<th><?php echo '<input type="checkbox" class="checkbox_null" name="fields_null[ ' . $i . ' ]" id="fields_null_id_' . $i . '" />'; ?></th>
                         <th><?php echo PMA_getForeignFields_Values($foreigners, $foreignData, $fieldpopup, $tbl_fields_type, $i, $db, $table, $titles,$GLOBALS['cfg']['ForeignKeyMaxLimit'], '' ); ?> </th>
                     </tr>
-                    <?php 
+                    <?php
 		} ?>
             </tbody>
         </table>
@@ -438,7 +437,7 @@ if(isset($zoom_submit) && $inputs[0] != __('pma_null') && $inputs[1] != __('pma_
     <input type="hidden" id="queryID" name="sql_query" />
     </form>
     </fieldset>
-    <?php 
+    <?php
 }
 ?>
 
