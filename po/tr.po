@@ -12118,10 +12118,9 @@ msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
 
 #: po/advisory_rules.php:175
-#, fuzzy
 #| msgid "rate of table open"
 msgid "Rate of table open"
-msgstr "açık tablo oranı"
+msgstr "Açık tablo oranı"
 
 #: po/advisory_rules.php:176
 msgid "The rate of opening tables is high."
