@@ -12276,10 +12276,9 @@ msgid "slow_launch_time is set to %s"
 msgstr "slow_launch_time %s'e ayarlı"
 
 #: po/advisory_rules.php:220
-#, fuzzy
 #| msgid "rate of aborted connections"
 msgid "Percentage of used connections"
-msgstr "durdurulan bağlantıların oranı"
+msgstr "Kullanılan bağlantıların yüzdesi"
 
 #: po/advisory_rules.php:221
 msgid ""
