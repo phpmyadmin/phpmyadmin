@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-13 11:48+0200\n"
+"PO-Revision-Date: 2011-08-13 11:55+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -11470,7 +11470,7 @@ msgstr "遅いクエリの割合が高い場合は、サーバの稼働時間と
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
-msgstr ""
+msgstr "現在の遅いクエリの割合は 1 時間当たり %s です。推奨値は 1 時間当たり 1%% 未満です。"
 
 #: po/advisory_rules.php:25
 #| msgid "SQL queries"
