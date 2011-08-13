@@ -11956,10 +11956,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:135
-#, fuzzy
 #| msgid "The rate of reading the next table row is high."
 msgid "Rate of reading next table row"
-msgstr "Sonraki tablo satırını okuma oranı yüksek."
+msgstr "Sonraki tablo satırını okuma oranı"
 
 #: po/advisory_rules.php:136
 msgid "The rate of reading the next table row is high."
