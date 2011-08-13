@@ -11618,10 +11618,9 @@ msgid "Available memory on this host: %s"
 msgstr ""
 
 #: po/advisory_rules.php:65
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache disabled"
-msgstr "クエリキャッシュ"
+msgstr "クエリキャッシュが無効"
 
 #: po/advisory_rules.php:66
 #| msgid "The server is not responding"
