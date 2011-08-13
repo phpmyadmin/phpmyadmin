@@ -1138,10 +1138,9 @@ msgid "Query cache efficiency"
 msgstr "Sorgu önbelleği verimi"
 
 #: js/messages.php:97 po/advisory_rules.php:70
-#, fuzzy
 #| msgid "Query Cache usage"
 msgid "Query cache usage"
-msgstr "Sorgu Önbelleği kullanımı"
+msgstr "Sorgu önbelleği kullanımı"
 
 #: js/messages.php:98
 #, fuzzy
