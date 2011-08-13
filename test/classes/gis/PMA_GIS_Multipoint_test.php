@@ -5,13 +5,14 @@
  * @package phpMyAdmin-test
  */
 
+require_once 'PMA_GIS_Geometry_test.php';
 require_once 'libraries/gis/pma_gis_geometry.php';
 require_once 'libraries/gis/pma_gis_multipoint.php';
 
 /**
  * Tests for PMA_GIS_Multipoint class
  */
-class PMA_GIS_MultipointTest extends PHPUnit_Framework_TestCase
+class PMA_GIS_MultipointTest extends PMA_GIS_GeometryTest
 {
     /**
      * @var    PMA_GIS_Multipoint
@@ -44,21 +45,6 @@ class PMA_GIS_MultipointTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * test generateWkt method
-     *
-     * @param array  $gis_data array of GIS data
-     * @param int    $index    index
-     * @param string $wkt      expected WKT
-     *
-     * @dataProvider providerForTestGenerateWkt
-     * @return nothing
-     */
-    public function testGenerateWkt($gis_data, $index, $wkt)
-    {
-        $this->assertEquals($this->object->generateWkt($gis_data, $index), $wkt);
-    }
-
-    /**
      * data provider for testGenerateWkt
      *
      * @return data for testGenerateWkt
@@ -67,15 +53,15 @@ class PMA_GIS_MultipointTest extends PHPUnit_Framework_TestCase
     {
         $gis_data1 = array(
             0 => array(
-            	'MULTIPOINT' => array(
+                'MULTIPOINT' => array(
                     'no_of_points' => 2,
-        			0 => array(
-        				'x' => 5.02,
-        				'y' => 8.45
+                    0 => array(
+                        'x' => 5.02,
+                        'y' => 8.45
                     ),
                     1 => array(
-                    	'x' => 1.56,
-                    	'y' => 4.36
+                        'x' => 1.56,
+                        'y' => 4.36
                     )
                 )
             )
@@ -88,11 +74,13 @@ class PMA_GIS_MultipointTest extends PHPUnit_Framework_TestCase
             array(
                 $gis_data1,
                 0,
+                null,
                 'MULTIPOINT(5.02 8.45,1.56 4.36)'
             ),
             array(
                 $gis_data2,
                 0,
+                null,
                 'MULTIPOINT(5.02 8.45)'
             )
         );
@@ -106,7 +94,7 @@ class PMA_GIS_MultipointTest extends PHPUnit_Framework_TestCase
     public function testGetShape()
     {
         $gis_data = array(
-        	'numpoints' => 2,
+            'numpoints' => 2,
             'points' => array(
                 0 => array('x' => 5.02, 'y' => 8.45),
                 1 => array('x' => 6.14, 'y' => 0.15)
@@ -117,28 +105,6 @@ class PMA_GIS_MultipointTest extends PHPUnit_Framework_TestCase
             $this->object->getShape($gis_data),
             'MULTIPOINT(5.02 8.45,6.14 0.15)'
         );
-    }
-
-    /**
-     * test generateParams method
-     *
-     * @param string $wkt    point in WKT form
-     * @param index  $index  index
-     * @param array  $params expected output array
-     *
-     * @dataProvider providerForTestGenerateParams
-     * @return nothing
-     */
-    public function testGenerateParams($wkt, $index, $params)
-    {
-        if ($index == 0) {
-            $this->assertEquals($this->object->generateParams($wkt), $params);
-        } else {
-             $this->assertEquals(
-                 $this->object->generateParams($wkt, $index),
-                 $params
-             );
-        }
     }
 
     /**
@@ -161,7 +127,7 @@ class PMA_GIS_MultipointTest extends PHPUnit_Framework_TestCase
         return array(
             array(
                 "'MULTIPOINT(5.02 8.45,6.14 0.15)',124",
-                0,
+                null,
                 array(
                     'srid' => '124',
                     0 => $temp1

@@ -5,13 +5,14 @@
  * @package phpMyAdmin-test
  */
 
+require_once 'PMA_GIS_Geometry_test.php';
 require_once 'libraries/gis/pma_gis_geometry.php';
 require_once 'libraries/gis/pma_gis_point.php';
 
 /**
  * Tests for PMA_GIS_Point class.
  */
-class PMA_GIS_PointTest extends PHPUnit_Framework_TestCase
+class PMA_GIS_PointTest extends PMA_GIS_GeometryTest
 {
     /**
      * @var    PMA_GIS_Point
@@ -44,21 +45,6 @@ class PMA_GIS_PointTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * test generateWkt method
-     *
-     * @param array  $gis_data array containing the GIS data
-     * @param int    $index    index to the array
-     * @param string $wkt      expected Well Known Text
-     *
-     * @dataProvider providerForTestGenerateWkt
-     * @return nothing
-     */
-    public function testGenerateWkt($gis_data, $index, $wkt)
-    {
-        $this->assertEquals($this->object->generateWkt($gis_data, $index), $wkt);
-    }
-
-    /**
      * data provider for testGenerateWkt
      *
      * @return data for testGenerateWkt
@@ -69,26 +55,31 @@ class PMA_GIS_PointTest extends PHPUnit_Framework_TestCase
             array(
                 array(0 => array('POINT' => array('x' => 5.02, 'y' => 8.45))),
                 0,
+                null,
                 'POINT(5.02 8.45)'
             ),
             array(
                 array(0 => array('POINT' => array('x' => 5.02, 'y' => 8.45))),
                 1,
+                null,
                 'POINT( )'
             ),
             array(
                 array(0 => array('POINT' => array('x' => 5.02))),
                 0,
+                null,
                 'POINT(5.02 )'
             ),
             array(
                 array(0 => array('POINT' => array('y' => 8.45))),
                 0,
+                null,
                 'POINT( 8.45)'
             ),
             array(
                 array(0 => array('POINT' => array())),
                 0,
+                null,
                 'POINT( )'
             ),
         );
@@ -124,28 +115,6 @@ class PMA_GIS_PointTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * test generateParams method
-     *
-     * @param string $wkt    point in WKT form
-     * @param array  $params expected output array
-     * @param index  $index  index
-     *
-     * @dataProvider providerForTestGenerateParams
-     * @return nothing
-     */
-    public function testGenerateParams($wkt, $params, $index)
-    {
-        if ($index == 0) {
-            $this->assertEquals($this->object->generateParams($wkt), $params);
-        } else {
-            $this->assertEquals(
-                $this->object->generateParams($wkt, $index),
-                $params
-            );
-        }
-    }
-
-    /**
      * data provider for testGenerateParams
      *
      * @return data for testGenerateParams
@@ -155,23 +124,23 @@ class PMA_GIS_PointTest extends PHPUnit_Framework_TestCase
         return array(
             array(
                 "'POINT(5.02 8.45)',124",
+                null,
                 array(
                     'srid' => '124',
                     0      => array(
-                    	'POINT'    => array('x' => '5.02', 'y' => '8.45')
-                    ),
-                ),
-                0
-            ),
-            array(
-            	'POINT(5.02 8.45)',
-                array(
-                    2 => array(
-                    	'gis_type' => 'POINT',
                         'POINT'    => array('x' => '5.02', 'y' => '8.45')
                     ),
-                ),
-                2
+                )
+            ),
+            array(
+                'POINT(5.02 8.45)',
+                2,
+                array(
+                    2 => array(
+                        'gis_type' => 'POINT',
+                        'POINT'    => array('x' => '5.02', 'y' => '8.45')
+                    ),
+                )
             )
         );
     }

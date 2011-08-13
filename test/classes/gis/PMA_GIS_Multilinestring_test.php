@@ -5,15 +5,16 @@
  * @package phpMyAdmin-test
  */
 
+require_once 'PMA_GIS_Geometry_test.php';
 require_once 'libraries/gis/pma_gis_geometry.php';
 require_once 'libraries/gis/pma_gis_multilinestring.php';
 
 /**
  * Tests for PMA_GIS_Multilinestring class
  */
-class PMA_GIS_MultilinestringTest extends PHPUnit_Framework_TestCase
+class PMA_GIS_MultilinestringTest extends PMA_GIS_GeometryTest
 {
-	/**
+    /**
      * @var    PMA_GIS_Multilinestring
      * @access protected
      */
@@ -44,29 +45,6 @@ class PMA_GIS_MultilinestringTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * test generateWkt method
-     *
-     * @param array  $gis_data array of GIS data
-     * @param int    $index    index
-     * @param string $empty    string to be insterted in place of missing values
-     * @param string $wkt      expected WKT
-     *
-     * @return nothing
-     * @dataProvider providerForTestGenerateWkt
-     */
-    public function testGenerateWkt($gis_data, $index, $empty, $wkt)
-    {
-        if ($empty == null) {
-            $this->assertEquals($this->object->generateWkt($gis_data, $index), $wkt);
-        } else {
-            $this->assertEquals(
-                $this->object->generateWkt($gis_data, $index, $empty),
-                $wkt
-            );
-        }
-    }
-
-    /**
      * data provider for testGenerateWkt
      *
      * @return data for testGenerateWkt
@@ -75,18 +53,18 @@ class PMA_GIS_MultilinestringTest extends PHPUnit_Framework_TestCase
     {
         $temp = array(
             0 => array(
-            	'MULTILINESTRING' => array(
+                'MULTILINESTRING' => array(
                     'no_of_lines' => 2,
-        			0 => array(
-        			    'no_of_points' => 2,
-        				0 => array('x' => 5.02, 'y' => 8.45),
-        			    1 => array('x' => 6.14, 'y' => 0.15)
-        			),
-        			1 => array(
-        			    'no_of_points' => 2,
-        				0 => array('x' => 1.23, 'y' => 4.25),
-        			    1 => array('x' => 9.15, 'y' => 0.47)
-        			)
+                    0 => array(
+                        'no_of_points' => 2,
+                        0 => array('x' => 5.02, 'y' => 8.45),
+                        1 => array('x' => 6.14, 'y' => 0.15)
+                    ),
+                    1 => array(
+                        'no_of_points' => 2,
+                        0 => array('x' => 1.23, 'y' => 4.25),
+                        1 => array('x' => 9.15, 'y' => 0.47)
+                    )
                 )
             )
         );
@@ -154,28 +132,6 @@ class PMA_GIS_MultilinestringTest extends PHPUnit_Framework_TestCase
             $this->object->getShape($row_data),
             'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 0.47))'
         );
-    }
-
-    /**
-     * test generateParams method
-     *
-     * @param string $wkt    point in WKT form
-     * @param index  $index  index
-     * @param array  $params expected output array
-     *
-     * @dataProvider providerForTestGenerateParams
-     * @return nothing
-     */
-    public function testGenerateParams($wkt, $index, $params)
-    {
-        if ($index == null) {
-            $this->assertEquals($this->object->generateParams($wkt), $params);
-        } else {
-            $this->assertEquals(
-                $this->object->generateParams($wkt, $index),
-                $params
-            );
-        }
     }
 
     /**
