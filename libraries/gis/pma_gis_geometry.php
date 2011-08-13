@@ -134,13 +134,15 @@ abstract class PMA_GIS_Geometry
 
     /**
      * Generate parameters for the GIS data editor from the value of the GIS column.
-     * This method performs common work. More specific work is performed by each of the geom classes.
+     * This method performs common work.
+     * More specific work is performed by each of the geom classes.
      *
      * @param $gis_string $value of the GIS column
      *
-     * @return  array parameters for the GIS data editor from the value of the GIS column
+     * @return array parameters for the GIS editor from the value of the GIS column
      */
-    protected function generateParams($value) {
+    protected function generateParams($value)
+    {
         $geom_types = '(POINT|MULTIPOINT|LINESTRING|MULTILINESTRING|POLYGON|MULTIPOLYGON|GEOMETRYCOLLECTION)';
         $srid = 0;
         $wkt = '';
