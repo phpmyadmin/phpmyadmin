@@ -12161,10 +12161,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:185
-#, fuzzy
 #| msgid "rate of open files"
 msgid "Rate of open files"
-msgstr "açık dosyaların oranı"
+msgstr "Açık dosyaların oranı"
 
 #: po/advisory_rules.php:186
 msgid "The rate of opening files is high."
