@@ -12358,10 +12358,9 @@ msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 
 #: po/advisory_rules.php:240
-#, fuzzy
 #| msgid "rate of aborted clients"
 msgid "Rate of aborted clients"
-msgstr "durdurulan istemcilerin oranı"
+msgstr "Durdurulan istemcilerin oranı"
 
 #: po/advisory_rules.php:243
 #, php-format
