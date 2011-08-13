@@ -8766,7 +8766,7 @@ msgstr "Tabloya özgü yetkiler"
 #: server_privileges.php:531 server_privileges.php:675
 #: server_privileges.php:1697
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "Not: MySQL yetki adları İngilizce olarak belirtilir "
+msgstr "Not: MySQL yetki adları İngilizce olarak belirtilir"
 
 #: server_privileges.php:600
 msgid "Administration"
