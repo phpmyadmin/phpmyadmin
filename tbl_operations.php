@@ -604,7 +604,7 @@ if ($is_myisam_or_aria || $is_innodb || $is_berkeleydb) {
                 'table_maintenance' => 'Go',
                 ));
         ?>
-    <li><a href="tbl_operations.php<?php echo PMA_generate_common_url($this_url_params); ?>">
+    <li><a class='maintain_action' href="tbl_operations.php<?php echo PMA_generate_common_url($this_url_params); ?>">
             <?php echo __('Check table'); ?></a>
         <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'CHECK_TABLE'); ?>
     </li>
@@ -614,7 +614,7 @@ if ($is_myisam_or_aria || $is_innodb || $is_berkeleydb) {
         $this_url_params = array_merge($url_params,
             array('sql_query' => 'ALTER TABLE ' . PMA_backquote($GLOBALS['table']) . ' ENGINE = InnoDB'));
         ?>
-    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>">
+    <li><a class='maintain_action' href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>">
             <?php echo __('Defragment table'); ?></a>
         <?php echo PMA_showMySQLDocu('Table_types', 'InnoDB_File_Defragmenting'); ?>
     </li>
@@ -627,7 +627,7 @@ if ($is_myisam_or_aria || $is_innodb || $is_berkeleydb) {
                 'table_maintenance' => 'Go',
                 ));
         ?>
-    <li><a href="tbl_operations.php<?php echo PMA_generate_common_url($this_url_params); ?>">
+    <li><a class='maintain_action' href="tbl_operations.php<?php echo PMA_generate_common_url($this_url_params); ?>">
             <?php echo __('Analyze table'); ?></a>
         <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'ANALYZE_TABLE');?>
     </li>
@@ -640,7 +640,7 @@ if ($is_myisam_or_aria || $is_innodb || $is_berkeleydb) {
                 'table_maintenance' => 'Go',
                 ));
         ?>
-    <li><a href="tbl_operations.php<?php echo PMA_generate_common_url($this_url_params); ?>">
+    <li><a class='maintain_action' href="tbl_operations.php<?php echo PMA_generate_common_url($this_url_params); ?>">
             <?php echo __('Repair table'); ?></a>
         <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'REPAIR_TABLE'); ?>
     </li>
@@ -653,7 +653,7 @@ if ($is_myisam_or_aria || $is_innodb || $is_berkeleydb) {
                 'table_maintenance' => 'Go',
                 ));
         ?>
-    <li><a href="tbl_operations.php<?php echo PMA_generate_common_url($this_url_params); ?>">
+    <li><a class='maintain_action' href="tbl_operations.php<?php echo PMA_generate_common_url($this_url_params); ?>">
             <?php echo __('Optimize table'); ?></a>
         <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'OPTIMIZE_TABLE'); ?>
     </li>
@@ -668,7 +668,7 @@ $this_url_params = array_merge($url_params,
         'reload'    => 1,
         ));
 ?>
-    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>">
+    <li><a class='maintain_action' href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>">
             <?php echo __('Flush the table (FLUSH)'); ?></a>
         <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'FLUSH'); ?>
     </li>

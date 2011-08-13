@@ -2064,10 +2064,10 @@ $(document).ready(function() {
     /**
      *Ajax events for actions in the "Table maintenance"
     **/
-    $("#tbl_maintenance.ajax li").live('click', function(event) {
+    $("#tbl_maintenance.ajax li a.maintain_action").live('click', function(event) {
         event.preventDefault();
         var $link = $(this);
-        var href = $link.find("a").first().attr("href");
+        var href = $link.attr("href");
         href = href.split('?');
         if ($("#sqlqueryresults").length != 0) {
             $("#sqlqueryresults").remove();
