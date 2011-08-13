@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-13 23:27+0200\n"
+"PO-Revision-Date: 2011-08-13 23:28+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -11859,10 +11859,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:110
-#, fuzzy
 #| msgid "% sorts that cause temporary tales"
 msgid "Rate of sorts that cause temporary tables"
-msgstr "%, geçici tablolara sebep olanı sıralar"
+msgstr "Geçici tablolara sebep olan sıralamaların oranı"
 
 #: po/advisory_rules.php:113
 #, php-format
