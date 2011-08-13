@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-13 23:24+0200\n"
+"PO-Revision-Date: 2011-08-13 23:25+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1143,10 +1143,9 @@ msgid "Query cache usage"
 msgstr "Sorgu önbelleği kullanımı"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Query Cache usage"
 msgid "Query cache used"
-msgstr "Sorgu Önbelleği kullanımı"
+msgstr "Kullanılan sorgu önbelleği"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
