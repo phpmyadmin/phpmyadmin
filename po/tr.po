@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-13 23:31+0200\n"
+"PO-Revision-Date: 2011-08-13 23:32+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -12068,10 +12068,9 @@ msgid "key_buffer_size is 0"
 msgstr ""
 
 #: po/advisory_rules.php:160
-#, fuzzy
 #| msgid "MyISAM key buffer size"
 msgid "Max % MyISAM key buffer ever used"
-msgstr "MyISAM anahtar arabellek boyutu"
+msgstr "Şimdiye kadar kullanılan en fazla MyISAM anahtar arabelleği"
 
 #: po/advisory_rules.php:161 po/advisory_rules.php:166
 #, php-format
