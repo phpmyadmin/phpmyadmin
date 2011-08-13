@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-13 23:41+0200\n"
+"PO-Revision-Date: 2011-08-13 23:42+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -10760,7 +10760,7 @@ msgstr "Tablo %1$s başarılı olarak değiştirldi"
 
 #: tbl_change.php:683
 msgid "Because of its length,<br /> this column might not be editable"
-msgstr "Uzunluğu nedeniyle,<br /> bu sütun düzenlenebilir olmayabilir "
+msgstr "Uzunluğu nedeniyle,<br /> bu sütun düzenlenebilir olmayabilir"
 
 #: tbl_change.php:800
 msgid "Remove BLOB Repository Reference"
