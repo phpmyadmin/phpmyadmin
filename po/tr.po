@@ -7641,7 +7641,7 @@ msgstr "Sınırlayıcı"
 
 #: libraries/sql_query_form.lib.php:346
 msgid "Show this query here again"
-msgstr "Bu sorguyu burada tekrar göster "
+msgstr "Bu sorguyu burada tekrar göster"
 
 #: libraries/sql_query_form.lib.php:402
 msgid "View only"
