@@ -254,7 +254,7 @@ msgstr "அட்டவணைகள் எதுவும் தரவுத்�
 
 #: db_export.php:40 db_search.php:311 server_export.php:26
 msgid "Select All"
-msgstr ""
+msgstr "அனைத்தையும் தெரிவுசெய்"
 
 #: db_export.php:42 db_search.php:314 server_export.php:28
 msgid "Unselect All"
