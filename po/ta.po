@@ -90,7 +90,7 @@ msgstr "முக்கியபெயர்"
 #: server_collations.php:54 server_collations.php:66 server_engines.php:56
 #: server_status.php:1353
 msgid "Description"
-msgstr ""
+msgstr "விளக்கம்"
 
 #: browse_foreigners.php:249 browse_foreigners.php:258
 #: browse_foreigners.php:270 browse_foreigners.php:278
