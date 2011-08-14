@@ -511,7 +511,7 @@ msgstr "குறைந்தபட்சம் ஒரு சொல்லைய�
 
 #: db_search.php:43 db_search.php:279
 msgid "all words"
-msgstr ""
+msgstr "அனைத்து சொற்களும்"
 
 #: db_search.php:44 db_search.php:280
 msgid "the exact phrase"
