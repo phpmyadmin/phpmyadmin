@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-14 22:09+0200\n"
+"PO-Revision-Date: 2011-08-14 22:10+0200\n"
 "Last-Translator: சுரேஸ்குமார் செல்வநாயகம் <saskumar@hotmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -472,10 +472,9 @@ msgid "Modify"
 msgstr "மாற்று"
 
 #: db_qbe.php:606
-#, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
-msgstr "விதி நிரைகளை சேர்க்க/ நீக்குக"
+msgstr "விதி நிரைகளை சேர்க்க/ நீக்க"
 
 #: db_qbe.php:618
 #, fuzzy
