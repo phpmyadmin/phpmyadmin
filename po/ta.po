@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-14 21:26+0200\n"
+"PO-Revision-Date: 2011-08-14 21:27+0200\n"
 "Last-Translator:  <saskumar@hotmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -250,7 +250,7 @@ msgstr "தரவுத்தளத்தின் திட்ட வடிவ�
 #: db_export.php:30 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
 #: export.php:356 navigation.php:296
 msgid "No tables found in database."
-msgstr ""
+msgstr "அட்டவணைகள் எதுவும் தரவுத்தளத்தில் காணப்படவில்லை"
 
 #: db_export.php:40 db_search.php:311 server_export.php:26
 msgid "Select All"
