@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-14 18:23+0200\n"
+"PO-Revision-Date: 2011-08-14 18:24+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -11473,7 +11473,7 @@ msgstr ""
 #: po/advisory_rules.php:8
 #, php-format
 msgid "The uptime is only %s"
-msgstr "Çalışma süresi sadece %s"
+msgstr "Çalışma zamanı sadece %s"
 
 #: po/advisory_rules.php:10
 msgid "Questions below 1,000"
