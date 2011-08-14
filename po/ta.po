@@ -537,7 +537,7 @@ msgstr[1] "%s அட்டவணையில் பொருந்தியவ�
 #: libraries/common.lib.php:3060 libraries/common.lib.php:3061
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:566
 msgid "Browse"
-msgstr ""
+msgstr "உலாவு"
 
 #: db_search.php:230
 #, php-format
