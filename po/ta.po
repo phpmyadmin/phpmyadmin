@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-14 21:42+0200\n"
+"PO-Revision-Date: 2011-08-14 21:43+0200\n"
 "Last-Translator:  <saskumar@hotmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -329,7 +329,7 @@ msgstr "கட்டுப்பாடுகளை சேர்க்க"
 
 #: db_operations.php:514
 msgid "Switch to copied database"
-msgstr ""
+msgstr "பிரதியான தரவுதளத்துக்கு மாறு"
 
 #: db_operations.php:537 libraries/Index.class.php:438
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
