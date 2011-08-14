@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-14 22:08+0200\n"
+"PO-Revision-Date: 2011-08-14 22:09+0200\n"
 "Last-Translator: சுரேஸ்குமார் செல்வநாயகம் <saskumar@hotmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -465,7 +465,7 @@ msgstr "அழி"
 #: server_privileges.php:394 tbl_change.php:890 tbl_indexes.php:264
 #: tbl_select.php:279
 msgid "Or"
-msgstr ""
+msgstr "அல்லது"
 
 #: db_qbe.php:529
 msgid "Modify"
