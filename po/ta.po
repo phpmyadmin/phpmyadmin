@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-14 21:06+0200\n"
+"PO-Revision-Date: 2011-08-14 21:07+0200\n"
 "Last-Translator:  <saskumar@hotmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -95,7 +95,7 @@ msgstr "விளக்கம்"
 #: browse_foreigners.php:249 browse_foreigners.php:258
 #: browse_foreigners.php:270 browse_foreigners.php:278
 msgid "Use this value"
-msgstr ""
+msgstr "இந்த மதிப்பை பயன்படுத்துக"
 
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:343
