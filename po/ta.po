@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-14 21:33+0200\n"
+"PO-Revision-Date: 2011-08-14 21:35+0200\n"
 "Last-Translator:  <saskumar@hotmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -285,7 +285,7 @@ msgstr "தரவுத்தளத்தை நீக்கு"
 #: db_operations.php:439
 #, php-format
 msgid "Database %s has been dropped."
-msgstr ""
+msgstr "%s தரவுத்தளம் இரத்துசெய்யப்பட்டது"
 
 #: db_operations.php:444
 msgid "Drop the database (DROP)"
