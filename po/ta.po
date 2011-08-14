@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-14 22:34+0200\n"
+"PO-Revision-Date: 2011-08-14 22:35+0200\n"
 "Last-Translator: சுரேஸ்குமார் செல்வநாயகம் <saskumar@hotmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -594,7 +594,7 @@ msgstr "தரவுத்தளத்தில் அட்டவணைகள�
 #: db_structure.php:271 tbl_operations.php:692
 #, php-format
 msgid "Table %s has been emptied"
-msgstr ""
+msgstr "%s அட்டவணை வெறுமை செய்யப்பட்டது"
 
 #: db_structure.php:280 tbl_operations.php:709
 #, php-format
