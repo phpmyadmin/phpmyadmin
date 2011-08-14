@@ -554,7 +554,7 @@ msgstr "%s அட்டவணையில் பொருத்தப்பா�
 #: setup/frames/index.inc.php:139 setup/frames/index.inc.php:230
 #: tbl_tracking.php:426 tbl_tracking.php:447 tbl_tracking.php:504
 msgid "Delete"
-msgstr ""
+msgstr "அழி"
 
 #: db_search.php:243
 #, php-format
