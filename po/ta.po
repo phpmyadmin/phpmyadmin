@@ -573,7 +573,7 @@ msgstr "தேட வார்த்தைகள் அல்லது மதி
 
 #: db_search.php:274
 msgid "Find:"
-msgstr ""
+msgstr "கண்டறி:"
 
 #: db_search.php:278 db_search.php:279
 msgid "Words are separated by a space character (\" \")."
