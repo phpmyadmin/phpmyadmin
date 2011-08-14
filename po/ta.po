@@ -459,7 +459,7 @@ msgstr "மற்றும்"
 
 #: db_qbe.php:388 db_qbe.php:469 db_qbe.php:551 db_qbe.php:582
 msgid "Del"
-msgstr ""
+msgstr "அழி"
 
 #: db_qbe.php:392 db_qbe.php:473 db_qbe.php:544 db_qbe.php:575
 #: server_privileges.php:394 tbl_change.php:890 tbl_indexes.php:264
