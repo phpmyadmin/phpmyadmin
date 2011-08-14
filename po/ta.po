@@ -29,7 +29,7 @@ msgstr ""
 #: libraries/schema/User_Schema.class.php:355
 #: libraries/select_lang.lib.php:482
 msgid "Page number:"
-msgstr "ஓலை என்"
+msgstr "பக்க எண்"
 
 #: browse_foreigners.php:133
 msgid ""
