@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-14 21:28+0200\n"
+"PO-Revision-Date: 2011-08-14 21:29+0200\n"
 "Last-Translator:  <saskumar@hotmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -262,7 +262,7 @@ msgstr "அனைத்து தெரிவுகளையும் நீக�
 
 #: db_operations.php:41 tbl_create.php:22
 msgid "The database name is empty!"
-msgstr ""
+msgstr "தரவுத்தளப் பெயர் வெறுமையாக உள்ளது"
 
 #: db_operations.php:272
 #, php-format
