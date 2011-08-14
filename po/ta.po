@@ -366,7 +366,7 @@ msgstr "தொடர்புசார் திட்டத்தை திர�
 #: server_privileges.php:1888 server_privileges.php:2152
 #: server_synchronize.php:399 server_synchronize.php:826 tbl_tracking.php:634
 msgid "Table"
-msgstr ""
+msgstr "அட்டவணை"
 
 #: db_printview.php:103 libraries/build_html_for_db.lib.php:31
 #: libraries/db_structure.lib.php:42 libraries/header_printview.inc.php:62
