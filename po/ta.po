@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-14 21:30+0200\n"
+"PO-Revision-Date: 2011-08-14 21:31+0200\n"
 "Last-Translator:  <saskumar@hotmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -272,7 +272,7 @@ msgstr "%s தரவுத்தளமானது %s ஆக பெயர் ம
 #: db_operations.php:276
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr ""
+msgstr "%s தரவுத்தளமானது %s இற்கு பிரதி செய்யப்பட்டது"
 
 #: db_operations.php:403
 msgid "Rename database to"
