@@ -159,7 +159,7 @@ msgstr "நிரல்"
 #: tbl_printview.php:277 tbl_select.php:115 tbl_structure.php:203
 #: tbl_structure.php:761 tbl_tracking.php:258 tbl_tracking.php:305
 msgid "Type"
-msgstr ""
+msgstr "வகை"
 
 #: db_datadict.php:169 libraries/Index.class.php:439
 #: libraries/export/htmlword.php:253 libraries/export/latex.php:361
