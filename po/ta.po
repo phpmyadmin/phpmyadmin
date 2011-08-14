@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-14 22:33+0200\n"
+"PO-Revision-Date: 2011-08-14 22:34+0200\n"
 "Last-Translator: சுரேஸ்குமார் செல்வநாயகம் <saskumar@hotmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -589,7 +589,7 @@ msgstr "நிரல் உள்ளே:"
 
 #: db_structure.php:61
 msgid "No tables found in database"
-msgstr ""
+msgstr "தரவுத்தளத்தில் அட்டவணைகள் எதுவுமில்லை"
 
 #: db_structure.php:271 tbl_operations.php:692
 #, php-format
