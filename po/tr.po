@@ -11666,7 +11666,7 @@ msgstr "Percona belgeleri http://www.percona.com/docs/wiki/ adresinde"
 
 #: po/advisory_rules.php:58
 msgid "'percona' found in version_comment"
-msgstr ""
+msgstr "'percona', version_comment içinde bulundu"
 
 #: po/advisory_rules.php:60
 msgid "MySQL Architecture"
