@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-14 21:27+0200\n"
+"PO-Revision-Date: 2011-08-14 21:28+0200\n"
 "Last-Translator:  <saskumar@hotmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -258,7 +258,7 @@ msgstr "அனைத்தையும் தெரிவுசெய்"
 
 #: db_export.php:42 db_search.php:314 server_export.php:28
 msgid "Unselect All"
-msgstr ""
+msgstr "அனைத்து தெரிவுகளையும் நீக்கு"
 
 #: db_operations.php:41 tbl_create.php:22
 msgid "The database name is empty!"
