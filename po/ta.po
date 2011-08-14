@@ -443,7 +443,7 @@ msgstr "இறங்குவரிசை"
 #: db_qbe.php:286 db_tracking.php:91 libraries/display_tbl.lib.php:422
 #: tbl_change.php:282 tbl_tracking.php:639
 msgid "Show"
-msgstr ""
+msgstr "காண்பி"
 
 #: db_qbe.php:322
 msgid "Criteria"
