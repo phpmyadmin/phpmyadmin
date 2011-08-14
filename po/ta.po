@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-14 21:22+0200\n"
+"PO-Revision-Date: 2011-08-14 21:26+0200\n"
 "Last-Translator:  <saskumar@hotmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -245,7 +245,7 @@ msgstr "அச்சிடு"
 
 #: db_export.php:26
 msgid "View dump (schema) of database"
-msgstr ""
+msgstr "தரவுத்தளத்தின் திட்ட வடிவத்தைப் பார்"
 
 #: db_export.php:30 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
 #: export.php:356 navigation.php:296
