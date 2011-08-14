@@ -297,7 +297,7 @@ msgstr "தரவுத்தளத்தை பிரதிசெய்"
 
 #: db_operations.php:480 tbl_operations.php:552 tbl_tracking.php:409
 msgid "Structure only"
-msgstr ""
+msgstr "கட்டமைப்பை மட்டும்"
 
 #: db_operations.php:481 tbl_operations.php:553 tbl_tracking.php:411
 msgid "Structure and data"
