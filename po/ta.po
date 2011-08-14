@@ -438,7 +438,7 @@ msgstr "ஏறுவரிசை"
 #: server_databases.php:157 server_databases.php:174 tbl_operations.php:280
 #: tbl_select.php:306
 msgid "Descending"
-msgstr ""
+msgstr "இறங்குவரிசை"
 
 #: db_qbe.php:286 db_tracking.php:91 libraries/display_tbl.lib.php:422
 #: tbl_change.php:282 tbl_tracking.php:639
