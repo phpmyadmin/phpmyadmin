@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-07-31 21:19+0200\n"
+"PO-Revision-Date: 2011-08-15 01:22+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -413,10 +413,10 @@ msgid "You have to choose at least one column to display"
 msgstr "Du måste välja minst en kolumn som ska visas"
 
 #: db_qbe.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "grafisk modellerare"
+msgstr "Växla till %sgrafisk modellerare%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:955
