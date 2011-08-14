@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-14 21:15+0200\n"
+"PO-Revision-Date: 2011-08-14 21:16+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -11654,7 +11654,7 @@ msgstr ""
 
 #: po/advisory_rules.php:53
 msgid "'source' found in version_comment"
-msgstr ""
+msgstr "'source', version_comment içinde bulundu"
 
 #: po/advisory_rules.php:56
 msgid "The MySQL manual only is accurate for official MySQL binaries."
