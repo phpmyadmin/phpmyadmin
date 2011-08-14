@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-14 22:19+0200\n"
+"PO-Revision-Date: 2011-08-14 22:21+0200\n"
 "Last-Translator: சுரேஸ்குமார் செல்வநாயகம் <saskumar@hotmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -530,8 +530,8 @@ msgstr "\"<i>%s</i>\" %s இற்கான தேடல் முடிவு�
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s அட்டவணையில் பொருந்தியவை <i>%s</i>"
+msgstr[1] "%s அட்டவணையில் பொருந்தியவைகள் <i>%s</i>"
 
 #: db_search.php:225 libraries/common.lib.php:2871
 #: libraries/common.lib.php:3060 libraries/common.lib.php:3061
