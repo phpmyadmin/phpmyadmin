@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-14 22:28+0200\n"
+"PO-Revision-Date: 2011-08-14 22:29+0200\n"
 "Last-Translator: சுரேஸ்குமார் செல்வநாயகம் <saskumar@hotmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -565,7 +565,7 @@ msgstr[1] "<b>மொத்த:</b> <i>%s</i> பொருத்தங்கள�
 
 #: db_search.php:266
 msgid "Search in database"
-msgstr ""
+msgstr "தரவுத்தளத்தில் தேடு"
 
 #: db_search.php:269
 msgid "Words or values to search for (wildcard: \"%\"):"
