@@ -451,7 +451,7 @@ msgstr "தேர்வளவை"
 
 #: db_qbe.php:375 db_qbe.php:457 db_qbe.php:549 db_qbe.php:580
 msgid "Ins"
-msgstr ""
+msgstr "துணைநிரல்கள்"
 
 #: db_qbe.php:379 db_qbe.php:461 db_qbe.php:546 db_qbe.php:577
 msgid "And"
