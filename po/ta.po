@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-14 21:32+0200\n"
+"PO-Revision-Date: 2011-08-14 21:33+0200\n"
 "Last-Translator:  <saskumar@hotmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -280,7 +280,7 @@ msgstr "தரவுத்தளத்தைப் பெயர் மாற்�
 
 #: db_operations.php:427
 msgid "Remove database"
-msgstr ""
+msgstr "தரவுத்தளத்தை நீக்கு"
 
 #: db_operations.php:439
 #, php-format
