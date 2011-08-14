@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-14 21:35+0200\n"
+"PO-Revision-Date: 2011-08-14 21:36+0200\n"
 "Last-Translator:  <saskumar@hotmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -289,7 +289,7 @@ msgstr "%s தரவுத்தளம் இரத்துசெய்யப�
 
 #: db_operations.php:444
 msgid "Drop the database (DROP)"
-msgstr ""
+msgstr "தரவுத்தளத்தை இரத்து செய் (DROP)"
 
 #: db_operations.php:473
 msgid "Copy database to"
