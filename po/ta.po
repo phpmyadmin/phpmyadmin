@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-14 21:20+0200\n"
+"PO-Revision-Date: 2011-08-14 21:21+0200\n"
 "Last-Translator:  <saskumar@hotmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -188,7 +188,7 @@ msgstr "முன்னிருப்பு"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1064
 #: libraries/schema/Pdf_Relation_Schema.class.php:1085 tbl_printview.php:144
 msgid "Links to"
-msgstr ""
+msgstr "இணைப்பு"
 
 #: db_datadict.php:176 db_printview.php:110
 #: libraries/config/messages.inc.php:94 libraries/config/messages.inc.php:109
