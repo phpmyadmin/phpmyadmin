@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-14 21:36+0200\n"
+"PO-Revision-Date: 2011-08-14 21:38+0200\n"
 "Last-Translator:  <saskumar@hotmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -293,7 +293,7 @@ msgstr "தரவுத்தளத்தை இரத்து செய் (DR
 
 #: db_operations.php:473
 msgid "Copy database to"
-msgstr ""
+msgstr "தரவுத்தளத்தை பிரதிசெய்"
 
 #: db_operations.php:480 tbl_operations.php:552 tbl_tracking.php:409
 msgid "Structure only"
