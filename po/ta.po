@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-14 21:39+0200\n"
+"PO-Revision-Date: 2011-08-14 21:41+0200\n"
 "Last-Translator:  <saskumar@hotmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -309,7 +309,7 @@ msgstr "தரவுகளை மட்டும்"
 
 #: db_operations.php:490
 msgid "CREATE DATABASE before copying"
-msgstr ""
+msgstr "பிரதிசெய்யமுன் தரவுத்தளத்தை உருவாக்கு"
 
 #: db_operations.php:493 libraries/config/messages.inc.php:126
 #: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:129
