@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-14 22:15+0200\n"
+"PO-Revision-Date: 2011-08-14 22:16+0200\n"
 "Last-Translator: சுரேஸ்குமார் செல்வநாயகம் <saskumar@hotmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -507,7 +507,7 @@ msgstr "அனுமதி நிராகரிக்கப்பட்டு�
 
 #: db_search.php:42 db_search.php:278
 msgid "at least one of the words"
-msgstr ""
+msgstr "குறைந்தபட்சம் ஒரு சொல்லையாவது"
 
 #: db_search.php:43 db_search.php:279
 msgid "all words"
