@@ -11615,7 +11615,7 @@ msgstr "İkincil Sürüm"
 
 #: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr "Sürüm 5.1.30'dan az (5.1'in ilk GA yayımı)."
+msgstr "Sürüm, 5.1.30'dan az (5.1'in ilk GA yayımı)."
 
 #: po/advisory_rules.php:42
 msgid ""
