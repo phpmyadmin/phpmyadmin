@@ -305,7 +305,7 @@ msgstr "கட்டமைப்பு மற்றும் தரவுகள�
 
 #: db_operations.php:482 tbl_operations.php:554 tbl_tracking.php:410
 msgid "Data only"
-msgstr ""
+msgstr "தரவுகளை மட்டும்"
 
 #: db_operations.php:490
 msgid "CREATE DATABASE before copying"
