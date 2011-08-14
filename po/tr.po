@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-14 21:06+0200\n"
+"PO-Revision-Date: 2011-08-14 21:07+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -11615,7 +11615,7 @@ msgstr "İkincil Sürüm"
 
 #: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
+msgstr "Sürüm 5.1.30'dan az (5.1'in ilk GA yayımı)."
 
 #: po/advisory_rules.php:42
 msgid ""
