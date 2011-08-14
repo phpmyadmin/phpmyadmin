@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-14 21:57+0200\n"
+"PO-Revision-Date: 2011-08-14 21:58+0200\n"
 "Last-Translator: சுரேஸ்குமார் செல்வநாயகம் <saskumar@hotmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -396,7 +396,7 @@ msgstr "உருவாக்கம்"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1042 tbl_printview.php:408
 #: tbl_structure.php:916
 msgid "Last update"
-msgstr ""
+msgstr "இறுதி இற்றைப்படுத்தல்"
 
 #: db_printview.php:203 libraries/db_info.inc.php:71
 #: libraries/export/sql.php:721
