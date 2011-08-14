@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-14 22:05+0200\n"
+"PO-Revision-Date: 2011-08-14 22:06+0200\n"
 "Last-Translator: சுரேஸ்குமார் செல்வநாயகம் <saskumar@hotmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -431,7 +431,7 @@ msgstr "வரிசைப்படுத்து"
 #: server_databases.php:157 server_databases.php:174 tbl_operations.php:279
 #: tbl_select.php:305
 msgid "Ascending"
-msgstr ""
+msgstr "ஏறுவரிசை"
 
 #: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:105
 #: libraries/display_tbl.lib.php:552 libraries/display_tbl.lib.php:913
