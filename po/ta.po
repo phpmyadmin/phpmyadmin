@@ -199,7 +199,7 @@ msgstr "இணைப்பு"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1086
 #: libraries/tbl_properties.inc.php:132 tbl_printview.php:146
 msgid "Comments"
-msgstr ""
+msgstr "கருத்துரைகள்"
 
 #: db_datadict.php:237 js/messages.php:226 libraries/Index.class.php:349
 #: libraries/Index.class.php:376 libraries/Index.class.php:674
