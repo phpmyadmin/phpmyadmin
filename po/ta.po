@@ -469,7 +469,7 @@ msgstr "அல்லது"
 
 #: db_qbe.php:529
 msgid "Modify"
-msgstr ""
+msgstr "மாற்று"
 
 #: db_qbe.php:606
 #, fuzzy
