@@ -11658,7 +11658,7 @@ msgstr "'source', version_comment içinde bulundu"
 
 #: po/advisory_rules.php:56
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr ""
+msgstr "MySQL kılavuzu sadece resmi MySQL binarileri için doğrudur."
 
 #: po/advisory_rules.php:57
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
