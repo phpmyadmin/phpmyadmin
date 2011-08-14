@@ -378,7 +378,7 @@ msgstr "வரிசைகள்"
 
 #: db_printview.php:107 libraries/db_structure.lib.php:53 tbl_indexes.php:197
 msgid "Size"
-msgstr ""
+msgstr "அளவு"
 
 #: db_printview.php:160 db_structure.php:410 libraries/export/sql.php:756
 msgid "in use"
