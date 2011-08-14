@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-14 21:17+0200\n"
+"PO-Revision-Date: 2011-08-14 21:19+0200\n"
 "Last-Translator:  <saskumar@hotmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -143,7 +143,7 @@ msgstr "அட்டவணைக் கருத்துரைகள்"
 #: tbl_indexes.php:196 tbl_printview.php:136 tbl_relation.php:399
 #: tbl_select.php:114 tbl_tracking.php:257 tbl_tracking.php:308
 msgid "Column"
-msgstr ""
+msgstr "நிரல்"
 
 #: db_datadict.php:167 db_printview.php:104 libraries/Index.class.php:433
 #: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:252
