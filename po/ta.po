@@ -581,7 +581,7 @@ msgstr "சொற்கள் ஓர் இடைவெளி எழுத்த
 
 #: db_search.php:292
 msgid "Inside tables:"
-msgstr ""
+msgstr "அட்டவணைகளில்:"
 
 #: db_search.php:322
 msgid "Inside column:"
