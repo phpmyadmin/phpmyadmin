@@ -519,7 +519,7 @@ msgstr "சரியான சொற்றொடர்"
 
 #: db_search.php:45 db_search.php:281
 msgid "as regular expression"
-msgstr ""
+msgstr "வழக்கமான வெளிப்பாடு"
 
 #: db_search.php:200
 #, php-format
