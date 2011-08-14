@@ -403,7 +403,7 @@ msgstr "இறுதி இற்றைப்படுத்தல்"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1047 tbl_printview.php:418
 #: tbl_structure.php:924
 msgid "Last check"
-msgstr ""
+msgstr "கடைசி சோதனை"
 
 #: db_printview.php:220 db_structure.php:433
 #, php-format
