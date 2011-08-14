@@ -325,7 +325,7 @@ msgstr "தானாக அதிகரிக்கும் பெறுமத�
 
 #: db_operations.php:501 tbl_operations.php:569
 msgid "Add constraints"
-msgstr "தடைகளை சேர்க்க"
+msgstr "கட்டுப்பாடுகளை சேர்க்க"
 
 #: db_operations.php:514
 msgid "Switch to copied database"
