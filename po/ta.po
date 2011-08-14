@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-14 22:12+0200\n"
+"PO-Revision-Date: 2011-08-14 22:14+0200\n"
 "Last-Translator: சுரேஸ்குமார் செல்வநாயகம் <saskumar@hotmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -492,7 +492,7 @@ msgstr "அட்டவணைகளை பயன்படுத்துக"
 #: db_qbe.php:662
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr ""
+msgstr "தரவுத்தளம் மீது <b>%s</b SQL வினவல்:"
 
 #: db_qbe.php:955 libraries/common.lib.php:1137
 msgid "Submit Query"
