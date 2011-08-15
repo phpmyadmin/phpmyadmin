@@ -38,31 +38,52 @@ class PMA_User_Schema
 
     public function processUserChoice()
     {
-        global $action_choose,$db,$cfgRelation,$cfg,$query_default_option;
+        global $action_choose,$db,$cfgRelation,$cfg;
 
         if (isset($this->action)) {
             switch ($this->action) {
             case 'selectpage':
                 $this->chosenPage = $_REQUEST['chpage'];
                 if ($action_choose=="1") {
-                    $this->deleteCoordinates($db, $cfgRelation, $this->chosenPage, $query_default_option);
-                    $this->deletePages($db, $cfgRelation, $this->chosenPage, $query_default_option);
+                    $this->deleteCoordinates(
+                        $db,
+                        $cfgRelation,
+                        $this->chosenPage
+                    );
+                    $this->deletePages(
+                        $db,
+                        $cfgRelation,
+                        $this->chosenPage
+                    );
                     $this->chosenPage = 0;
                 }
                 break;
             case 'createpage':
-                $this->pageNumber = PMA_REL_create_page($_POST['newpage'], $cfgRelation, $db, $query_default_option);
+                $this->pageNumber = PMA_REL_create_page(
+                    $_POST['newpage'],
+                    $cfgRelation,
+                    $db
+                );
                 $this->autoLayoutForeign = isset($_POST['auto_layout_foreign']) ? "1":NULL;
                 $this->autoLayoutInternal = isset($_POST['auto_layout_internal']) ? "1":NULL;
-                $this->processRelations($db, $this->pageNumber,$cfgRelation,$query_default_option);
+                $this->processRelations(
+                    $db,
+                    $this->pageNumber,
+                    $cfgRelation
+                    );
                 break;
             case 'edcoord':
                 $this->chosenPage = $_POST['chpage'];
                 $this->c_table_rows = $_POST['c_table_rows'];
-                $this->_editCoordinates($db, $cfgRelation,$query_default_option);
+                $this->_editCoordinates($db, $cfgRelation);
                 break;
             case 'delete_old_references':
-                $this->_deleteTableRows($delrow,$cfgRelation,$db,$this->chosenPage);
+                $this->_deleteTableRows(
+                    $delrow,
+                    $cfgRelation,
+                    $db,
+                    $this->chosenPage
+                );
                 break;
             case 'process_export':
                 $this->_processExportSchema();
@@ -132,10 +153,10 @@ class PMA_User_Schema
      */
     public function selectPage()
     {
-        global $db,$table,$query_default_option,$cfgRelation;
+        global $db,$table,$cfgRelation;
         $page_query = 'SELECT * FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
                 . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\'';
-        $page_rs    = PMA_query_as_controluser($page_query, false, $query_default_option);
+        $page_rs    = PMA_query_as_controluser($page_query, false, PMA_DBI_QUERY_STORE);
         if ($page_rs && PMA_DBI_num_rows($page_rs) > 0) {
             ?>
             <form method="get" action="schema_edit.php" name="frm_select_page">
@@ -186,7 +207,7 @@ class PMA_User_Schema
      */
     public function showTableDashBoard()
     {
-        global $db,$cfgRelation,$table,$cfg,$with_field_names,$query_default_option;
+        global $db,$cfgRelation,$table,$cfg,$with_field_names;
         /*
          * We will need an array of all tables in this db
          */
@@ -209,7 +230,7 @@ class PMA_User_Schema
             $page_query = 'SELECT * FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
                         . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
                         . ' AND pdf_page_number = \'' . PMA_sqlAddSlashes($this->chosenPage) . '\'';
-            $page_rs    = PMA_query_as_controluser($page_query, false, $query_default_option);
+            $page_rs    = PMA_query_as_controluser($page_query, false);
             $array_sh_page = array();
             while ($temp_sh_page = @PMA_DBI_fetch_assoc($page_rs)) {
                    $array_sh_page[] = $temp_sh_page;
@@ -543,7 +564,7 @@ class PMA_User_Schema
                          .   ' AND   table_name = \'' . PMA_sqlAddSlashes($current_row) . '\'' . "\n"
                          .   ' AND   pdf_page_number = \'' . PMA_sqlAddSlashes($chpage) . '\'';
                          echo $del_query;
-                PMA_query_as_controluser($del_query, false, $query_default_option);
+                PMA_query_as_controluser($del_query, false);
         }
     }
 
@@ -584,12 +605,12 @@ class PMA_User_Schema
      * @return void
      * @access private
      */
-    public function deleteCoordinates($db, $cfgRelation, $choosePage, $query_default_option)
+    public function deleteCoordinates($db, $cfgRelation, $choosePage)
     {
         $query = 'DELETE FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
                                 .   ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
                                 .   ' AND   pdf_page_number = \'' . PMA_sqlAddSlashes($choosePage) . '\'';
-        PMA_query_as_controluser($query, false, $query_default_option);
+        PMA_query_as_controluser($query, false);
     }
 
     /**
@@ -601,12 +622,12 @@ class PMA_User_Schema
      * @return void
      * @access private
      */
-    public function deletePages($db, $cfgRelation, $choosePage, $query_default_option)
+    public function deletePages($db, $cfgRelation, $choosePage)
     {
         $query = 'DELETE FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
                                 .   ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
                                 .   ' AND   page_nr = \'' . PMA_sqlAddSlashes($choosePage) . '\'';
-        PMA_query_as_controluser($query, false, $query_default_option);
+        PMA_query_as_controluser($query, false);
     }
 
     /**
@@ -618,7 +639,7 @@ class PMA_User_Schema
      * @return void
      * @access private
      */
-    public function processRelations($db, $pageNumber, $cfgRelation, $query_default_option)
+    public function processRelations($db, $pageNumber, $cfgRelation)
     {
         /*
          * A u t o m a t i c    l a y o u t
@@ -665,7 +686,7 @@ class PMA_User_Schema
                            . ' WHERE master_db = \'' . $db . '\''
                            . ' GROUP BY master_table'
                            . ' ORDER BY ' . PMA_backquote('COUNT(master_table)') . ' DESC ';
-            $master_tables_rs = PMA_query_as_controluser($master_tables, false, $query_default_option);
+            $master_tables_rs = PMA_query_as_controluser($master_tables, false, PMA_DBI_QUERY_STORE);
             if ($master_tables_rs && PMA_DBI_num_rows($master_tables_rs) > 0) {
                 /* first put all the master tables at beginning
                  * of the list, so they are near the center of
@@ -703,7 +724,7 @@ class PMA_User_Schema
         }
 
         if (isset($this->autoLayoutInternal) || isset($this->autoLayoutForeign)) {
-            $this->addRelationCoordinates($all_tables,$pageNumber,$db, $cfgRelation,$query_default_option);
+            $this->addRelationCoordinates($all_tables,$pageNumber,$db, $cfgRelation);
         }
 
         $this->chosenPage = $pageNumber;
@@ -719,7 +740,7 @@ class PMA_User_Schema
      * @return void
      * @access private
      */
-    public function addRelationCoordinates($all_tables,$pageNumber,$db, $cfgRelation,$query_default_option)
+    public function addRelationCoordinates($all_tables,$pageNumber,$db, $cfgRelation)
     {
         /*
          * Now generate the coordinates for the schema
@@ -737,7 +758,7 @@ class PMA_User_Schema
             $insert_query = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords']) . ' '
                           . '(db_name, table_name, pdf_page_number, x, y) '
                           . 'VALUES (\'' . PMA_sqlAddSlashes($db) . '\', \'' . PMA_sqlAddSlashes($current_table) . '\',' . $pageNumber . ',' . $pos_x . ',' . $pos_y . ')';
-            PMA_query_as_controluser($insert_query, false, $query_default_option);
+            PMA_query_as_controluser($insert_query, false);
 
             /*
              * compute for the next table
@@ -775,7 +796,7 @@ class PMA_User_Schema
      * @return void
      * @access private
      */
-    private function _editCoordinates($db, $cfgRelation,$query_default_option)
+    private function _editCoordinates($db, $cfgRelation)
     {
         for ($i = 0; $i < $this->c_table_rows; $i++) {
             $arrvalue = 'c_table_' . $i;
@@ -792,7 +813,7 @@ class PMA_User_Schema
                             .   ' WHERE db_name = \'' .  PMA_sqlAddSlashes($db) . '\''
                             .   ' AND   table_name = \'' . PMA_sqlAddSlashes($arrvalue['name']) . '\''
                             .   ' AND   pdf_page_number = \'' . PMA_sqlAddSlashes($this->chosenPage) . '\'';
-                $test_rs    = PMA_query_as_controluser($test_query, false, $query_default_option);
+                $test_rs    = PMA_query_as_controluser($test_query, false, PMA_DBI_QUERY_STORE);
                 //echo $test_query;
                 if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
                     if (isset($arrvalue['delete']) && $arrvalue['delete'] == 'y') {
@@ -813,7 +834,7 @@ class PMA_User_Schema
                                   . 'VALUES (\'' . PMA_sqlAddSlashes($db) . '\', \'' . PMA_sqlAddSlashes($arrvalue['name']) . '\', \'' . PMA_sqlAddSlashes($this->chosenPage) . '\',' . $arrvalue['x'] . ',' . $arrvalue['y'] . ')';
                 }
                 //echo $ch_query;
-                PMA_query_as_controluser($ch_query, false, $query_default_option);
+                PMA_query_as_controluser($ch_query, false);
             } // end if
         } // end for
     }

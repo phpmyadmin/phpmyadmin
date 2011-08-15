@@ -2753,325 +2753,49 @@ $cfg['DBG']['sql'] = false;
  * Column types;
  * VARCHAR, TINYINT, TEXT and DATE are listed first, based on estimated popularity
  *
+ * This variable is filled in data_*.inc.php
+ *
  * @global array $cfg['ColumnTypes']
  */
-$cfg['ColumnTypes'] = array(
-    // most used
-    'INT',
-    'VARCHAR',
-    'TEXT',
-    'DATE',
-
-    // numeric
-    'NUMERIC' => array(
-        'TINYINT',
-        'SMALLINT',
-        'MEDIUMINT',
-        'INT',
-        'BIGINT',
-        '-',
-        'DECIMAL',
-        'FLOAT',
-        'DOUBLE',
-        'REAL',
-        '-',
-        'BIT',
-        'BOOLEAN',
-        'SERIAL',
-    ),
-
-
-    // Date/Time
-    'DATE and TIME' => array(
-        'DATE',
-        'DATETIME',
-        'TIMESTAMP',
-        'TIME',
-        'YEAR',
-    ),
-
-    // Text
-    'STRING' => array(
-        'CHAR',
-        'VARCHAR',
-        '-',
-        'TINYTEXT',
-        'TEXT',
-        'MEDIUMTEXT',
-        'LONGTEXT',
-        '-',
-        'BINARY',
-        'VARBINARY',
-        '-',
-        'TINYBLOB',
-        'MEDIUMBLOB',
-        'BLOB',
-        'LONGBLOB',
-        '-',
-        'ENUM',
-        'SET',
-    ),
-
-    'SPATIAL' => array(
-        'GEOMETRY',
-        'POINT',
-        'LINESTRING',
-        'POLYGON',
-        'MULTIPOINT',
-        'MULTILINESTRING',
-        'MULTIPOLYGON',
-        'GEOMETRYCOLLECTION',
-    ),
-);
+$cfg['ColumnTypes'] = array();
 
 /**
  * Attributes
  *
+ * This variable is filled in data_*.inc.php
+ *
  * @global array $cfg['AttributeTypes']
  */
-$cfg['AttributeTypes'] = array(
-   '',
-   'BINARY',
-   'UNSIGNED',
-   'UNSIGNED ZEROFILL',
-   'on update CURRENT_TIMESTAMP',
-);
+$cfg['AttributeTypes'] = array();
 
 
 if ($cfg['ShowFunctionFields']) {
     /**
      * Available functions
      *
+     * This variable is filled in data_*.inc.php
+     *
      * @global array $cfg['Functions']
      */
-    $cfg['Functions'] = array(
-        'ABS',
-        'ACOS',
-        'ASCII',
-        'ASIN',
-        'ATAN',
-        'BIN',
-        'BIT_COUNT',
-        'BIT_LENGTH',
-        'CEILING',
-        'CHAR',
-        'CHAR_LENGTH',
-        'COMPRESS',
-        'COS',
-        'COT',
-        'CRC32',
-        'CURDATE',
-        'CURRENT_USER',
-        'CURTIME',
-        'DATE',
-        'DAYNAME',
-        'DEGREES',
-        'DES_DECRYPT',
-        'DES_ENCRYPT',
-        'ENCRYPT',
-        'EXP',
-        'FLOOR',
-        'FROM_DAYS',
-        'FROM_UNIXTIME',
-        'HEX',
-        'INET_ATON',
-        'INET_NTOA',
-        'LENGTH',
-        'LN',
-        'LOG',
-        'LOG10',
-        'LOG2',
-        'LOWER',
-        'MD5',
-        'NOW',
-        'OCT',
-        'OLD_PASSWORD',
-        'ORD',
-        'PASSWORD',
-        'RADIANS',
-        'RAND',
-        'REVERSE',
-        'ROUND',
-        'SEC_TO_TIME',
-        'SHA1',
-        'SOUNDEX',
-        'SPACE',
-        'SQRT',
-        'STDDEV_POP',
-        'STDDEV_SAMP',
-        'TAN',
-        'TIMESTAMP',
-        'TIME_TO_SEC',
-        'UNCOMPRESS',
-        'UNHEX',
-        'UNIX_TIMESTAMP',
-        'UPPER',
-        'USER',
-        'UTC_DATE',
-        'UTC_TIME',
-        'UTC_TIMESTAMP',
-        'UUID',
-        'VAR_POP',
-        'VAR_SAMP',
-        'YEAR',
-    );
+    $cfg['Functions'] = array();
 
     /**
      * Which column types will be mapped to which Group?
      *
+     * This variable is filled in data_*.inc.php
+     *
      * @global array $cfg['RestrictColumnTypes']
      */
-    $cfg['RestrictColumnTypes'] = array(
-        'TINYINT'   => 'FUNC_NUMBER',
-        'SMALLINT'  => 'FUNC_NUMBER',
-        'MEDIUMINT' => 'FUNC_NUMBER',
-        'INT'       => 'FUNC_NUMBER',
-        'BIGINT'    => 'FUNC_NUMBER',
-        'DECIMAL'   => 'FUNC_NUMBER',
-        'FLOAT'     => 'FUNC_NUMBER',
-        'DOUBLE'    => 'FUNC_NUMBER',
-        'REAL'      => 'FUNC_NUMBER',
-        'BIT'       => 'FUNC_NUMBER',
-        'BOOLEAN'   => 'FUNC_NUMBER',
-        'SERIAL'    => 'FUNC_NUMBER',
-
-        'DATE'      => 'FUNC_DATE',
-        'DATETIME'  => 'FUNC_DATE',
-        'TIMESTAMP' => 'FUNC_DATE',
-        'TIME'      => 'FUNC_DATE',
-        'YEAR'      => 'FUNC_DATE',
-
-        'CHAR'          => 'FUNC_CHAR',
-        'VARCHAR'       => 'FUNC_CHAR',
-        'TINYTEXT'      => 'FUNC_CHAR',
-        'TEXT'          => 'FUNC_CHAR',
-        'MEDIUMTEXT'    => 'FUNC_CHAR',
-        'LONGTEXT'      => 'FUNC_CHAR',
-        'BINARY'        => 'FUNC_CHAR',
-        'VARBINARY'     => 'FUNC_CHAR',
-        'TINYBLOB'      => 'FUNC_CHAR',
-        'MEDIUMBLOB'    => 'FUNC_CHAR',
-        'BLOB'          => 'FUNC_CHAR',
-        'LONGBLOB'      => 'FUNC_CHAR',
-        'ENUM'          => '',
-        'SET'           => '',
-
-        'GEOMETRY'              => 'FUNC_SPATIAL',
-        'POINT'                 => 'FUNC_SPATIAL',
-        'LINESTRING'            => 'FUNC_SPATIAL',
-        'POLYGON'               => 'FUNC_SPATIAL',
-        'MULTIPOINT'            => 'FUNC_SPATIAL',
-        'MULTILINESTRING'       => 'FUNC_SPATIAL',
-        'MULTIPOLYGON'          => 'FUNC_SPATIAL',
-        'GEOMETRYCOLLECTION'    => 'FUNC_SPATIAL',
-
-    );
+    $cfg['RestrictColumnTypes'] = array();
 
     /**
      * Map above defined groups to any function
      *
+     * This variable is filled in data_*.inc.php
+     *
      * @global array $cfg['RestrictFunctions']
      */
-    $cfg['RestrictFunctions'] = array(
-        'FUNC_CHAR' => array(
-            'BIN',
-            'CHAR',
-            'CURRENT_USER',
-            'COMPRESS',
-            'DAYNAME',
-            'DES_DECRYPT',
-            'DES_ENCRYPT',
-            'ENCRYPT',
-            'HEX',
-            'INET_NTOA',
-            'LOWER',
-            'MD5',
-            'OLD_PASSWORD',
-            'PASSWORD',
-            'REVERSE',
-            'SHA1',
-            'SOUNDEX',
-            'SPACE',
-            'UNCOMPRESS',
-            'UNHEX',
-            'UPPER',
-            'USER',
-            'UUID',
-        ),
-
-        'FUNC_DATE' => array(
-            'CURDATE',
-            'CURTIME',
-            'DATE',
-            'FROM_DAYS',
-            'FROM_UNIXTIME',
-            'NOW',
-            'SEC_TO_TIME',
-            'TIMESTAMP',
-            'UTC_DATE',
-            'UTC_TIME',
-            'UTC_TIMESTAMP',
-            'YEAR',
-        ),
-
-        'FUNC_NUMBER' => array(
-            'ABS',
-            'ACOS',
-            'ASCII',
-            'ASIN',
-            'ATAN',
-            'BIT_LENGTH',
-            'BIT_COUNT',
-            'CEILING',
-            'CHAR_LENGTH',
-            'COS',
-            'COT',
-            'CRC32',
-            'DEGREES',
-            'EXP',
-            'FLOOR',
-            'INET_ATON',
-            'LENGTH',
-            'LN',
-            'LOG',
-            'LOG2',
-            'LOG10',
-            'OCT',
-            'ORD',
-            'RADIANS',
-            'RAND',
-            'ROUND',
-            'SQRT',
-            'STDDEV_POP',
-            'STDDEV_SAMP',
-            'TAN',
-            'TIME_TO_SEC',
-            'UNIX_TIMESTAMP',
-            'VAR_POP',
-            'VAR_SAMP',
-        ),
-
-        'FUNC_SPATIAL' => array(
-            'GeomFromText',
-            'GeomFromWKB',
-
-            'GeomCollFromText',
-            'LineFromText',
-            'MLineFromText',
-            'PointFromText',
-            'MPointFromText',
-            'PolyFromText',
-            'MPolyFromText',
-
-            'GeomCollFromWKB',
-            'LineFromWKB',
-            'MLineFromWKB',
-            'PointFromWKB',
-            'MPointFromWKB',
-            'PolyFromWKB',
-            'MPolyFromWKB',
-        ),
-    );
+    $cfg['RestrictFunctions'] = array();
 
     /**
      * Default functions for above defined groups
@@ -3085,8 +2809,6 @@ if ($cfg['ShowFunctionFields']) {
         'first_timestamp' => 'NOW',
         'pk_char36' => 'UUID',
     );
-
-
 } // end if
 
 /**
