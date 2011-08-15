@@ -98,7 +98,11 @@ class Advisor
             return sprintf(_gettext(Advisor::escapePercent($str)));
         } else {
             $value = $this->ruleExprEvaluate($param);
-            return sprintf(_gettext(Advisor::escapePercent($str)), $value);
+            $printf = 'sprintf("' . _gettext(Advisor::escapePercent($str)) . '",';
+            return $this->ruleExprEvaluate(
+                $printf . $param . ')',
+                strlen($printf)
+            );
         }
     }
 
