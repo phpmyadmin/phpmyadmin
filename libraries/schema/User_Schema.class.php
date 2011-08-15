@@ -45,24 +45,49 @@ class PMA_User_Schema
             case 'selectpage':
                 $this->chosenPage = $_REQUEST['chpage'];
                 if ($action_choose=="1") {
-                    $this->deleteCoordinates($db, $cfgRelation, $this->chosenPage, $query_default_option);
-                    $this->deletePages($db, $cfgRelation, $this->chosenPage, $query_default_option);
+                    $this->deleteCoordinates(
+                        $db,
+                        $cfgRelation,
+                        $this->chosenPage,
+                        $query_default_option
+                    );
+                    $this->deletePages(
+                        $db,
+                        $cfgRelation,
+                        $this->chosenPage,
+                        $query_default_option
+                    );
                     $this->chosenPage = 0;
                 }
                 break;
             case 'createpage':
-                $this->pageNumber = PMA_REL_create_page($_POST['newpage'], $cfgRelation, $db, $query_default_option);
+                $this->pageNumber = PMA_REL_create_page(
+                    $_POST['newpage'],
+                    $cfgRelation,
+                    $db,
+                    $query_default_option
+                );
                 $this->autoLayoutForeign = isset($_POST['auto_layout_foreign']) ? "1":NULL;
                 $this->autoLayoutInternal = isset($_POST['auto_layout_internal']) ? "1":NULL;
-                $this->processRelations($db, $this->pageNumber,$cfgRelation,$query_default_option);
+                $this->processRelations(
+                    $db,
+                    $this->pageNumber,
+                    $cfgRelation,
+                    $query_default_option
+                    );
                 break;
             case 'edcoord':
                 $this->chosenPage = $_POST['chpage'];
                 $this->c_table_rows = $_POST['c_table_rows'];
-                $this->_editCoordinates($db, $cfgRelation,$query_default_option);
+                $this->_editCoordinates($db, $cfgRelation, $query_default_option);
                 break;
             case 'delete_old_references':
-                $this->_deleteTableRows($delrow,$cfgRelation,$db,$this->chosenPage);
+                $this->_deleteTableRows(
+                    $delrow,
+                    $cfgRelation,
+                    $db,
+                    $this->chosenPage
+                );
                 break;
             case 'process_export':
                 $this->_processExportSchema();
