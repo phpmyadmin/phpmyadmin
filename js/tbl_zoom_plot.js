@@ -401,7 +401,7 @@ $(document).ready(function() {
                     cursor: 'pointer',
                     showInLegend: false,
                     dataLabels: {
-                        enabled: false,
+                        enabled: false
                     },
                     point: {
                         events: {
@@ -416,7 +416,7 @@ $(document).ready(function() {
                                     'db' : window.parent.db,
                                     'table' : window.parent.table,
                                     'where_clause' : data[id]['where_clause'],
-                                    'token' : window.parent.token,
+                                    'token' : window.parent.token
                                 }
                                 $.post('tbl_zoom_select.php', post_params, function(data) {
                                     // Row is contained in data.row_info, now fill the displayResultForm with row values
@@ -432,7 +432,7 @@ $(document).ready(function() {
                                 });
 
                                 $("#dataDisplay").dialog("open");
-                            },
+                            }
                         }
                     }
                 }
@@ -444,12 +444,12 @@ $(document).ready(function() {
             },
             title: { text: 'Query Results' },
             xAxis: {
-                title: { text: $('#tableid_0').val() },
+                title: { text: $('#tableid_0').val() }
             },
             yAxis: {
                 min: null,
-                title: { text: $('#tableid_1').val() },
-            },
+                title: { text: $('#tableid_1').val() }
+            }
         }
 
         $('#resizer').resizable({
@@ -585,14 +585,14 @@ $(document).ready(function() {
                 } else {
                     return tempX[1][this.value];
                 }
-            }
+            }};
             currentSettings.yAxis.labels = { formatter : function() {
                 if (tempY[1][this.value] && tempY[1][this.value].length > 10) {
-                    return tempY[1][this.value].substring(0,10)
+                    return tempY[1][this.value].substring(0,10);
                 } else {
                     return tempY[1][this.value];
                 }
-            }
+            }};
             xCord = tempX[2];
             yCord = tempY[2];
 
