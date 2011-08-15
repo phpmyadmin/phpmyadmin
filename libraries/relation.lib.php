@@ -1078,7 +1078,7 @@ function PMA_REL_create_page($newpage, $cfgRelation, $db)
     $ins_query   = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
                  . ' (db_name, page_descr)'
                  . ' VALUES (\'' . PMA_sqlAddSlashes($db) . '\', \'' . PMA_sqlAddSlashes($newpage) . '\')';
-    PMA_query_as_controluser($ins_query, false, $query_default_option);
+    PMA_query_as_controluser($ins_query, false);
     return PMA_DBI_insert_id(isset($GLOBALS['controllink']) ? $GLOBALS['controllink'] : '');
 }
 ?>
