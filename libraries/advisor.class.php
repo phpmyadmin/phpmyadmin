@@ -112,7 +112,6 @@ class Advisor
     {
         $jst = preg_split('/\s*\|\s*/', $rule['justification'], 2);
         if (count($jst) > 1) {
-            $jst[0] = Advisor::escapePercent($jst[0]);
             return array($jst[0], $jst[1]);
        }
         return array($rule['justification']);
