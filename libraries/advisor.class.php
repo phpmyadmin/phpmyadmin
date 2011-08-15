@@ -97,7 +97,7 @@ class Advisor
         if (is_null($param)) {
             return sprintf(_gettext(Advisor::escapePercent($str)));
         } else {
-            $value = $this->ruleExprEvaluate($jst[1]);
+            $value = $this->ruleExprEvaluate($param);
             return sprintf(_gettext(Advisor::escapePercent($str)), $value);
         }
     }
