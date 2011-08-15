@@ -1068,10 +1068,9 @@ function PMA_REL_renameField($db, $table, $field, $new_name)
  * @param string    $newpage
  * @param array     $cfgRelation
  * @param string    $db
- * @param string    $query_default_option
  * @return string   $pdf_page_number
  */
-function PMA_REL_create_page($newpage, $cfgRelation, $db, $query_default_option)
+function PMA_REL_create_page($newpage, $cfgRelation, $db)
 {
     if (! isset($newpage) || $newpage == '') {
         $newpage = __('no description');

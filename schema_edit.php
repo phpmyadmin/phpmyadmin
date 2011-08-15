@@ -20,18 +20,11 @@ require_once './libraries/db_info.inc.php';
 
 /**
  * Includ settings for relation stuff
- * get all variables needed for exporting relational schema 
+ * get all variables needed for exporting relational schema
  * in $cfgRelation
  */
 require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
-
-/** 
- * This is to avoid "Command out of sync" errors. Before switching this to
- * a value of 0 (for MYSQLI_USE_RESULT), please check the logic
- * to free results wherever needed.
- */
-$query_default_option = PMA_DBI_QUERY_STORE;
 
 /**
  * Now in ./libraries/relation.lib.php we check for all tables
@@ -79,14 +72,14 @@ if ($cfgRelation['pdfwork']) {
      * and tables which will be exported as Relational schema
      * you can set the table positions on the paper via scratchboard
      * for table positions, put the x,y co-ordinates
-     * 
+     *
      * @param string $do It tells what the Schema is supposed to do
-     *                  create and select a page, generate schema etc             
+     *                  create and select a page, generate schema etc
      */
     if (isset($_REQUEST['do'])) {
         $user_schema->setAction($_REQUEST['do']);
         $user_schema->processUserChoice();
-    }    
+    }
 
     /**
      * Show some possibility to select a page for the export of relation schema
@@ -96,14 +89,14 @@ if ($cfgRelation['pdfwork']) {
     $user_schema->selectPage();
 
     /**
-     * Create a new page where relations will be drawn 
+     * Create a new page where relations will be drawn
      */
 
     $user_schema->showCreatePageDialog($db);
 
     /**
-     * After selection of page or creating a page 
-     * It will show you the list of tables 
+     * After selection of page or creating a page
+     * It will show you the list of tables
      * A dashboard will also be shown where you can position the tables
      */
 
@@ -114,7 +107,7 @@ if ($cfgRelation['pdfwork']) {
        || ($_REQUEST['do']== 'selectpage' && isset($user_schema->chosenPage) && $user_schema->chosenPage != 0)
        || ($_REQUEST['do'] == 'createpage' && isset($user_schema->chosenPage) && $user_schema->chosenPage != 0))) {
 
-      /** 
+      /**
        * show Export schema generation options
        */
        $user_schema->displaySchemaGenerationOptions();

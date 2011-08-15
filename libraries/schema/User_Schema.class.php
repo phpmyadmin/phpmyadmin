@@ -64,8 +64,7 @@ class PMA_User_Schema
                 $this->pageNumber = PMA_REL_create_page(
                     $_POST['newpage'],
                     $cfgRelation,
-                    $db,
-                    $query_default_option
+                    $db
                 );
                 $this->autoLayoutForeign = isset($_POST['auto_layout_foreign']) ? "1":NULL;
                 $this->autoLayoutInternal = isset($_POST['auto_layout_internal']) ? "1":NULL;
