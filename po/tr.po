@@ -1696,7 +1696,6 @@ msgid "Strings are converted into integer for plotting"
 msgstr ""
 
 #: js/messages.php:278
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
 msgstr "İki sütun seçin"
