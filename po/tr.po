@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-15 23:26+0200\n"
+"PO-Revision-Date: 2011-08-15 23:30+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1678,6 +1678,8 @@ msgstr "Noktanın üzerinde durmak etiketini gösterecektir."
 #: js/messages.php:268
 msgid "Drag and select an area in the plot to zoom into it."
 msgstr ""
+"Grafiği çizilen yerin içinde yakınlaştırmak için sürükleyin ve bir alan "
+"seçin."
 
 #: js/messages.php:270
 msgid "Click reset zoom link to come back to original state."
