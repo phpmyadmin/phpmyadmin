@@ -8048,10 +8048,9 @@ msgid "Operator"
 msgstr "Operador"
 
 #: libraries/tbl_select.lib.php:131
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "Buscar"
+msgstr "Búsqueda de tablas"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 msgid ""
