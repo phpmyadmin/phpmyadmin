@@ -1145,10 +1145,9 @@ msgid "Query cache efficiency"
 msgstr "Úspěšnost vyrovnávací paměti dotazů"
 
 #: js/messages.php:97 po/advisory_rules.php:70
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
-msgstr "Vyrovnávací paměť dotazů"
+msgstr "Využití vyrovnávací paměti dotazů"
 
 #: js/messages.php:98
 #, fuzzy
