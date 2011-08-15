@@ -11890,7 +11890,7 @@ msgstr ""
 #: po/advisory_rules.php:20
 #| msgid "Flush query cache"
 msgid "Slow query rate"
-msgstr "Porcentaje de consultas lentas"
+msgstr "Frecuencia de consultas lentas"
 
 #: po/advisory_rules.php:21
 msgid ""
