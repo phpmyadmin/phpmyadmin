@@ -260,7 +260,21 @@ $js_messages['strShowSearchCriteria'] = __('Show search criteria');
 
 /* For tbl_zoom_plot.js */
 $js_messages['strZoomSearch'] = __('Zoom Search');
-$js_messages['strDisplayHelp'] =  __('* Each point represents a data row.<br>* Hovering over a point will show its label.<br>* Drag and select an area in the plot to zoom into it.<br>* Click reset zoom link to come back to original state.<br>*  Click a data point to view and possibly edit the data row.<br>* The plot can be resized by dragging it along the bottom right corner.<br>* Strings are converted into integer for plotting');
+$js_messages['strDisplayHelp'] = '<ul><li>'
+    . __('Each point represents a data row.')
+    . '</li><li>'
+    . __('Hovering over a point will show its label.')
+    . '</li><li>'
+    . __('Drag and select an area in the plot to zoom into it.')
+    . '</li><li>'
+    . __('Click reset zoom link to come back to original state.')
+    . '</li><li>'
+    . __('Click a data point to view and possibly edit the data row.')
+    . '</li><li>'
+    . __('The plot can be resized by dragging it along the bottom right corner.')
+    . '</li><li>'
+    . __('Strings are converted into integer for plotting')
+    . '</li></ul>';
 $js_messages['strInputNull'] = __('<b>Select two columns</b>');
 $js_messages['strSameInputs'] = __('<b>Select two different columns</b>');
 
