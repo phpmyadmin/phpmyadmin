@@ -69,9 +69,11 @@ class Advisor
                 $this->variables['value'] = $value;
 
                 try {
-                    if($this->ruleExprEvaluate($rule['test']))
+                    if ($this->ruleExprEvaluate($rule['test'])) {
                         $this->addRule('fired', $rule);
-                    else $this->addRule('notfired', $rule);
+                    } else {
+                        $this->addRule('notfired', $rule);
+                    }
                 }  catch(Exception $e) {
                     $this->runResult['errors'][] = 'Failed running test for rule \''.$rule['name'].'\'. PHP threw following error: '.$e->getMessage();
                 }
