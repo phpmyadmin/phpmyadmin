@@ -422,7 +422,7 @@ rule 'InnoDB buffer pool size' [system_memory > 0]
 	value < 60
 	Your InnoDB buffer pool is fairly small.
 	The InnoDB buffer pool has a profound impact on performance for InnoDB tables. Assign all your remaining memory to this buffer. For database servers that use solely InnoDB as storage engine and have no other services (e.g. a web server) running, you may set this as high as 80% of your available memory. If that is not the case, you need to carefully assess the memory consumption of your other services and non-InnoDB-Tables and set this variable accordingly. If it is set too high, your system will start swapping, which decreases performance significantly. See also <a href="http://www.mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/">this article</a>
-	You are currently using %s% of your memory for the InnoDB buffer pool. This rule fires if you are assigning less than 60%, however this might be perfectly adequate for your system if you don't have much InnoDB tables or other services running on the same machine.
+	You are currently using %s% of your memory for the InnoDB buffer pool. This rule fires if you are assigning less than 60%, however this might be perfectly adequate for your system if you don't have much InnoDB tables or other services running on the same machine. | value
 
 #
 # other
