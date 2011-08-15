@@ -275,8 +275,8 @@ $js_messages['strDisplayHelp'] = '<ul><li>'
     . '</li><li>'
     . __('Strings are converted into integer for plotting')
     . '</li></ul>';
-$js_messages['strInputNull'] = __('<b>Select two columns</b>');
-$js_messages['strSameInputs'] = __('<b>Select two different columns</b>');
+$js_messages['strInputNull'] = '<strong>' . __('Select two columns') . '</strong>';
+$js_messages['strSameInputs'] = '<strong>' . __('Select two different columns') . '</strong>';
 
 /* For tbl_change.js */
 $js_messages['strIgnore'] = __('Ignore');
