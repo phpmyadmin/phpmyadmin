@@ -254,7 +254,7 @@ class PMA_Tracker
      * @param string $tablename    name of table
      * @param string $version      version
      * @param string $tracking_set set of tracking statements
-     * @param string $is_view      if table is a view
+     * @param bool   $is_view      if table is a view
      *
      * @return int result of version insertion
      */
@@ -469,11 +469,11 @@ class PMA_Tracker
      *
      * @static
      *
-     * @param string $dbname       name of database
-     * @param string $tablename    name of table
-     * @param string $version      version
-     * @param string $type          type of data(DDL || DML)
-     * @param string || array $new_data   the new tracking data
+     * @param string       $dbname       name of database
+     * @param string       $tablename    name of table
+     * @param string       $version      version
+     * @param string       $type         type of data(DDL || DML)
+     * @param string|array $new_data     the new tracking data
      *
      * @return bool result of change
      */
@@ -890,7 +890,6 @@ class PMA_Tracker
     /**
      * Analyzes a given SQL statement and saves tracking data.
      *
-     *
      * @static
      * @param string $query a SQL query
      */
@@ -898,7 +897,7 @@ class PMA_Tracker
     {
         // If query is marked as untouchable, leave
         if (strstr($query, "/*NOTRACK*/")) {
-            return false;
+            return;
         }
 
         if (! (substr($query, -1) == ';')) {
@@ -912,7 +911,7 @@ class PMA_Tracker
         // $dbname can be empty, for example when coming from Synchronize
         // and this is a query for the remote server
         if (empty($dbname)) {
-            return false;
+            return;
         }
 
         // If we found a valid statement
