@@ -81,7 +81,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
                 exit(json_encode($ret));
 
-            // Data for the monitor 
+            // Data for the monitor
             case 'chartgrid':
                 $ret = json_decode($_REQUEST['requiredData'], true);
                 $statusVars = array();
@@ -92,12 +92,12 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 /* Accumulate all required variables and data */
                 // For each chart
                 foreach ($ret as $chart_id => $chartNodes) {
-                    // For each data series 
+                    // For each data series
                     foreach ($chartNodes as $node_id => $nodeDataPoints) {
                         // For each data point in the series (usually just 1)
                         foreach ($nodeDataPoints as $point_id => $dataPoint) {
                             $pName = $dataPoint['name'];
-                            
+
                             switch ($dataPoint['type']) {
                                 /* We only collect the status and server variables here to
                                  * read them all in one query, and only afterwards assign them.
@@ -105,7 +105,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                                 */
                                 case 'servervar':
                                     if (!preg_match('/[^a-zA-Z_]+/', $pName))
-                                        $serverVars[] = $pName;                  
+                                        $serverVars[] = $pName;
                                     break;
 
                                 case 'statusvar':
@@ -157,7 +157,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 } else {
                     $statusVarValues = array();
                 }
-                
+
                 // Retrieve all required server variables
                 if (count($serverVars)) {
                     $serverVarValues = PMA_DBI_fetch_result(
@@ -1448,9 +1448,9 @@ function printMonitor()
         <a href="#rearrangeCharts"><img class="icon ic_b_tblops" src="themes/dot.gif" width="16" height="16" alt=""> <?php echo __('Rearrange/edit charts'); ?></a>
         <div class="clearfloat paddingtop"></div>
         <div class="floatleft">
-            <?php 
-            echo __('Refresh rate') . '<br />'; 
-            refreshList('gridChartRefresh', 5, Array(2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200)); 
+            <?php
+            echo __('Refresh rate') . '<br />';
+            refreshList('gridChartRefresh', 5, Array(2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200));
         ?><br>
         </div>
         <div class="floatleft">
@@ -1508,7 +1508,7 @@ function printMonitor()
     <div id="addChartDialog" title="Add chart" style="display:none;">
         <div id="tabGridVariables">
             <p><input type="text" name="chartTitle" value="<?php echo __('Chart Title'); ?>" /></p>
-            
+
             <input type="radio" name="chartType" value="preset" id="chartPreset">
             <label for="chartPreset"><?php echo __('Preset chart'); ?></label>
             <select name="presetCharts"></select><br/>
