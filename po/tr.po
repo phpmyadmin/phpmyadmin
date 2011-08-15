@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-15 23:18+0200\n"
+"PO-Revision-Date: 2011-08-15 23:19+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -11538,10 +11538,9 @@ msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr "İki farklı sütun için \"örneğe göre sorgu\" (joker: \"%\") yap"
 
 #: tbl_zoom_select.php:151
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Additional search criteria"
-msgstr "Arama kriterini gizle"
+msgstr "İlave arama kriteri"
 
 #: tbl_zoom_select.php:281
 #, fuzzy
