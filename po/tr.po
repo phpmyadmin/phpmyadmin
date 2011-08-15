@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-15 23:22+0200\n"
+"PO-Revision-Date: 2011-08-15 23:23+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -12399,10 +12399,10 @@ msgid "The thread cache is set to 0"
 msgstr ""
 
 #: po/advisory_rules.php:205
-#, fuzzy, php-format
+#, php-format
 #| msgid "Thread cache hit rate %"
 msgid "Thread cache hit rate %%"
-msgstr "İşlem önbelleği tavan oranı %"
+msgstr "İşlem önbelleği tavan oranı %%"
 
 #: po/advisory_rules.php:206
 msgid "Thread cache is not efficient."
