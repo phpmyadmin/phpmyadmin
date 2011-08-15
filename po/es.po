@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-15 23:57+0200\n"
+"PO-Revision-Date: 2011-08-15 23:58+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -11836,10 +11836,9 @@ msgid "The uptime is only %s"
 msgstr "El tiempo de actividad es sólo %s"
 
 #: po/advisory_rules.php:10
-#, fuzzy
 #| msgid "Questions"
 msgid "Questions below 1,000"
-msgstr "Preguntas"
+msgstr "Menos de 1000 consultas"
 
 #: po/advisory_rules.php:11
 msgid ""
