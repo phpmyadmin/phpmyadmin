@@ -441,6 +441,7 @@ class PMA_User_Schema
     */
     private function _deleteTables($db, $chpage, $tabExist)
     {
+        global $table;
         $_strtrans  = '';
         $_strname   = '';
         $shoot      = false;
