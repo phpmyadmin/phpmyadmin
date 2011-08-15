@@ -1812,6 +1812,8 @@ msgstr ""
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
+"Puede editar la mayoría de las columnas pulsando directamente en su "
+"contenido."
 
 #: js/messages.php:307
 #, fuzzy
