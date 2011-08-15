@@ -1530,11 +1530,11 @@ function printMonitor()
         <div id="tabGridVariables">
             <p><input type="text" name="chartTitle" value="<?php echo __('Chart Title'); ?>" /></p>
 
-            <input type="radio" name="chartType" value="preset" id="chartPreset">
+            <input type="radio" name="chartType" value="preset" id="chartPreset" />
             <label for="chartPreset"><?php echo __('Preset chart'); ?></label>
             <select name="presetCharts"></select><br/>
 
-            <input type="radio" name="chartType" value="variable" id="chartStatusVar" checked="checked">
+            <input type="radio" name="chartType" value="variable" id="chartStatusVar" checked="checked" />
             <label for="chartStatusVar"><?php echo __('Status variable(s)'); ?></label><br/>
             <div id="chartVariableSettings">
                 <label for="chartSeries"><?php echo __('Select series:'); ?></label><br />
