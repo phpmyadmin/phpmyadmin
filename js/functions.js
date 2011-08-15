@@ -903,26 +903,6 @@ function goToUrl(selObj, goToLocation)
 }
 
 /**
- * getElement
- */
-function getElement(e,f)
-{
-    if(document.layers){
-        f=(f)?f:self;
-        if(f.document.layers[e]) {
-            return f.document.layers[e];
-        }
-        for(W=0;W<f.document.layers.length;W++) {
-            return(getElement(e,f.document.layers[W]));
-        }
-    }
-    if(document.all) {
-        return document.all[e];
-    }
-    return document.getElementById(e);
-}
-
-/**
   * Refresh the WYSIWYG scratchboard after changes have been made
   */
 function refreshDragOption(e)

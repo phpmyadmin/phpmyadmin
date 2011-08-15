@@ -219,8 +219,8 @@ class PMA_Tracker
 
         $sql_query =
         " SELECT tracking_active FROM " . self::$pma_table .
-        " WHERE " . PMA_backquote('db_name') . " = '" . PMA_sqlAddSlashes($dbname) . "' " .
-        " AND " . PMA_backquote('table_name') . " = '" . PMA_sqlAddSlashes($tablename) . "' " .
+        " WHERE db_name = '" . PMA_sqlAddSlashes($dbname) . "' " .
+        " AND table_name = '" . PMA_sqlAddSlashes($tablename) . "' " .
         " ORDER BY version DESC";
 
         $row = PMA_DBI_fetch_array(PMA_query_as_controluser($sql_query));
