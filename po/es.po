@@ -11888,10 +11888,9 @@ msgstr ""
 "actual es %s%%."
 
 #: po/advisory_rules.php:20
-#, fuzzy
 #| msgid "Flush query cache"
 msgid "Slow query rate"
-msgstr "Vaciar el cache de consultas"
+msgstr "Porcentaje de consultas lentas"
 
 #: po/advisory_rules.php:21
 msgid ""
