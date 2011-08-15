@@ -10579,7 +10579,7 @@ msgstr "Elegir el registro del que desea generar estadísticas."
 
 #: server_status.php:1610
 msgid "Results are grouped by query text."
-msgstr ""
+msgstr "Los resultados se agruparán por el texto de la consulta."
 
 #: server_status.php:1615
 msgid "Query analyzer"
