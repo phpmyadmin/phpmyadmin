@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-15 23:25+0200\n"
+"PO-Revision-Date: 2011-08-15 23:26+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -1514,10 +1514,9 @@ msgid "Analyse Query"
 msgstr "Analizar consulta"
 
 #: js/messages.php:196
-#, fuzzy
 #| msgid "Advisor"
 msgid "Advisor system"
-msgstr "Consejero"
+msgstr "Sistema de consejos"
 
 #: js/messages.php:197
 msgid "Possible performance issues"
