@@ -744,7 +744,7 @@ echo __('Runtime Information');
                     <input name="filterText" type="text" id="filterText" style="vertical-align: baseline;" />
                 </div>
                 <div class="formelement">
-                    <input type="checkbox" name="filterAlert" id="filterAlert">
+                    <input type="checkbox" name="filterAlert" id="filterAlert" />
                     <label for="filterAlert"><?php echo __('Show only alert values'); ?></label>
                 </div>
                 <div class="formelement">
@@ -761,7 +761,7 @@ echo __('Runtime Information');
                     </select>
                 </div>
                 <div class="formelement">
-                    <input type="checkbox" name="dontFormat" id="dontFormat">
+                    <input type="checkbox" name="dontFormat" id="dontFormat" />
                     <label for="dontFormat"><?php echo __('Show unformatted values'); ?></label>
                 </div>
             </fieldset>
