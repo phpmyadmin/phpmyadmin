@@ -129,7 +129,7 @@ class Advisor
                     if (count($jst) > 1) {
                         try {
                             /* Translate */
-                            $str = Advisor::translate($jst[0], $jst[1]);
+                            $str = $this->translate($jst[0], $jst[1]);
                         } catch (Exception $e) {
                             $this->runResult['errors'][] = 'Failed formattingstring for rule \''.$rule['name'].'\'. PHP threw following error: '.$e->getMessage();
                             return;
@@ -137,15 +137,15 @@ class Advisor
 
                         $rule['justification'] = $str;
                     } else {
-                        $rule['justification'] = Advisor::translate($rule['justification']);
+                        $rule['justification'] = $this->translate($rule['justification']);
                     }
-                    $rule['name'] = Advisor::translate($rule['name']);
-                    $rule['issue'] = Advisor::translate($rule['issue']);
+                    $rule['name'] = $this->translate($rule['name']);
+                    $rule['issue'] = $this->translate($rule['issue']);
 
                     $rule['recommendation'] = preg_replace(
                         '/\{([a-z_0-9]+)\}/Ui',
                         '<a href="server_variables.php' . PMA_generate_common_url() . '#filter=\1">\1</a>',
-                        Advisor::translate($rule['recommendation']));
+                        $this->translate($rule['recommendation']));
 
                     break;
         }
