@@ -140,11 +140,18 @@ class Advisor
                     $rule['name'] = $this->translate($rule['name']);
                     $rule['issue'] = $this->translate($rule['issue']);
 
+                    // Replaces {server_variable} with 'server_variable' linking to server_variables.php
                     $rule['recommendation'] = preg_replace(
                         '/\{([a-z_0-9]+)\}/Ui',
-                        '<a href="server_variables.php' . PMA_generate_common_url() . '#filter=\1">\1</a>',
+                        '<a href="server_variables.php?' . PMA_generate_common_url() . '#filter=\1">\1</a>',
                         $this->translate($rule['recommendation']));
 
+                    // Replaces external Links with PMA_linkURL() generated links
+                    $rule['recommendation'] = preg_replace(
+                        '#href=("|\')(https?://[^\1]+)\1#ie',
+                        '\'href="\' . PMA_linkURL("\2") . \'"\'',
+                        $rule['recommendation']
+                    );
                     break;
         }
 

@@ -357,7 +357,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     }
 
     if(isset($_REQUEST['advisor'])) {
-        include('libraries/advisor.class.php');
+        include('libraries/Advisor.class.php');
         $advisor = new Advisor();
         exit(json_encode($advisor->run()));
     }

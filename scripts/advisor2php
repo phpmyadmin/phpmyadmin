@@ -5,10 +5,10 @@
  * by gettext for generating po(t) files.
  */
 
-if (!file_exists('./libraries/advisor.class.php')) {
+if (!file_exists('./libraries/Advisor.class.php')) {
     chdir('..');
 }
-include './libraries/advisor.class.php';
+include './libraries/Advisor.class.php';
 
 $rules = Advisor::parseRulesFile();
 
