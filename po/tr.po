@@ -10240,7 +10240,7 @@ msgstr ""
 #: server_status.php:1507
 #| msgid "Pause monitor"
 msgid "Using the monitor:"
-msgstr "Kullanılan izleyici:"
+msgstr "İzleyici kullanımı:"
 
 #: server_status.php:1509
 #, fuzzy
