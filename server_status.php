@@ -1490,7 +1490,7 @@ function printMonitor()
         <?php echo __('The phpMyAdmin Monitor can assist you in optimizing the server configuration and track down time intensive queries. For the latter you will need to set log_output to \'TABLE\' and have either the slow_query_log or general_log enabled. Note however, that the general_log produces a lot of data and increases server load by up to 15%'); ?>
     <?php if(PMA_MYSQL_INT_VERSION < 50106) { ?>
         <p>
-        <img class="icon ic_s_attention" src="themes/dot.gif" alt="">
+        <img class="icon ic_s_attention" src="themes/dot.gif" alt="" />
         <?php
             echo __('Unfortunately your Database server does not support logging to table, which is a requirement for analyzing the database logs with phpMyAdmin. Logging to table is supported by MySQL 5.1.6 and onwards. You may still use the server charting features however.');
         ?>
@@ -1513,7 +1513,7 @@ function printMonitor()
                 echo '</p>';
             ?>
             <p>
-            <img class="icon ic_s_attention" src="themes/dot.gif" alt="">
+            <img class="icon ic_s_attention" src="themes/dot.gif" alt="" />
             <?php
                 echo '<strong>';
                 echo __('Please note:');
