@@ -10437,7 +10437,7 @@ msgstr ""
 #: server_status.php:1507
 #| msgid "Pause monitor"
 msgid "Using the monitor:"
-msgstr "Usando el monitorizador:"
+msgstr "Utilizando el monitorizador:"
 
 #: server_status.php:1509
 #, fuzzy
