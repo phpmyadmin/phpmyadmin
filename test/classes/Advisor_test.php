@@ -29,5 +29,12 @@ class Advisor_test extends PHPUnit_Framework_TestCase
             array('%s% foo', '%s%% foo'),
             );
     }
+
+    public function testParse()
+    {
+        $advisor = new Advisor();
+        $parseResult = $this->parseRulesFile();
+        $this->assertEquals($parseResult['errors'], array());
+    }
 }
 ?>
