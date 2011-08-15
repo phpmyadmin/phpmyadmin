@@ -1703,7 +1703,7 @@ msgstr "Ubicar el cursor sobre un punto mostrará su etiqueta."
 
 #: js/messages.php:268
 msgid "Drag and select an area in the plot to zoom into it."
-msgstr ""
+msgstr "Arrastre y seleccione un área en el gráfico para ampliarla."
 
 #: js/messages.php:270
 msgid "Click reset zoom link to come back to original state."
