@@ -697,7 +697,7 @@ echo __('Runtime Information');
                     <?php echo __('Refresh'); ?>
                 </a>
                 <span class="refreshList" style="display:none;">
-                    <label for="trafficChartRefresh"><?php echo __('Refresh rate: '); ?></label>
+                    <label for="id_trafficChartRefresh"><?php echo __('Refresh rate: '); ?></label>
                     <?php refreshList('trafficChartRefresh'); ?>
                 </span>
 
@@ -719,7 +719,7 @@ echo __('Runtime Information');
                     <?php echo __('Refresh'); ?>
                 </a>
                 <span class="refreshList" style="display:none;">
-                    <label for="queryChartRefresh"><?php echo __('Refresh rate: '); ?></label>
+                    <label for="id_queryChartRefresh"><?php echo __('Refresh rate: '); ?></label>
                        <?php refreshList('queryChartRefresh'); ?>
                 </span>
                 <a class="tabChart livequeriesLink" href="#">
@@ -1644,7 +1644,7 @@ function printMonitor()
 function refreshList($name, $defaultRate=5, $refreshRates=Array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600))
 {
 ?>
-    <select name="<?php echo $name; ?>">
+    <select name="<?php echo $name; ?>" id="id_<?php echo $name; ?>">
         <?php
             foreach ($refreshRates as $rate) {
                 $selected = ($rate == $defaultRate)?' selected="selected"':'';
