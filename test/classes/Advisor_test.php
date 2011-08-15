@@ -16,6 +16,11 @@ require_once 'libraries/core.lib.php';
 
 class Advisor_test extends PHPUnit_Framework_TestCase
 {
+    public function setup()
+    {
+        $_SESSION[' PMA_token '] = 'token';
+    }
+
     /**
      * @dataProvider escapeStrings
      */
@@ -49,8 +54,11 @@ class Advisor_test extends PHPUnit_Framework_TestCase
         $advisor = new Advisor();
         $parseResult = $advisor->parseRulesFile();
         $this->assertEquals($parseResult['errors'], array());
-        $this->variables['value'] = 0;
+        $advisor->variables['value'] = 0;
         $advisor->addRule('fired', $rule);
+        if (isset($advisor->runResult['errors'])) {
+            $this->assertEquals($advisor->runResult['errors'], array());
+        }
         $this->assertEquals($advisor->runResult['fired'], array($expected));
     }
 
@@ -58,8 +66,20 @@ class Advisor_test extends PHPUnit_Framework_TestCase
     {
         return array(
             array(
-                array('justification' => 'foo', 'name' => 'name', 'issue' => 'issue', 'recommendation' => 'Recommend'),
-                array('justification' => 'foo', 'name' => 'name', 'issue' => 'issue', 'recommendation' => 'Recommend'),
+                array('justification' => 'foo', 'name' => 'Basic', 'issue' => 'issue', 'recommendation' => 'Recommend'),
+                array('justification' => 'foo', 'name' => 'Basic', 'issue' => 'issue', 'recommendation' => 'Recommend'),
+            ),
+            array(
+                array('justification' => 'foo', 'name' => 'Variable', 'issue' => 'issue', 'recommendation' => 'Recommend {status_var}'),
+                array('justification' => 'foo', 'name' => 'Variable', 'issue' => 'issue', 'recommendation' => 'Recommend <a href="server_variables.php?token=token#filter=status_var">status_var</a>'),
+            ),
+            array(
+                array('justification' => '%s foo | value', 'name' => 'Format', 'issue' => 'issue', 'recommendation' => 'Recommend'),
+                array('justification' => '0 foo', 'name' => 'Format', 'issue' => 'issue', 'recommendation' => 'Recommend'),
+            ),
+            array(
+                array('justification' => '%s% foo | value', 'name' => 'Percent', 'issue' => 'issue', 'recommendation' => 'Recommend'),
+                array('justification' => '0% foo', 'name' => 'Percent', 'issue' => 'issue', 'recommendation' => 'Recommend'),
             ),
         );
     }
