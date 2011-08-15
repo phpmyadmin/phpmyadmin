@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-15 23:52+0200\n"
+"PO-Revision-Date: 2011-08-15 23:53+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -10571,14 +10571,11 @@ msgid "Remove variable data in INSERT statements for better grouping"
 msgstr "Eliminar datos variables en sentencias INSERT para mejor agrupación"
 
 #: server_status.php:1608
-#, fuzzy
 #| msgid ""
 #| "<p>Choose from which log you want the statistics to be generated from.</"
 #| "p> Results are grouped by query text."
 msgid "Choose from which log you want the statistics to be generated from."
-msgstr ""
-"<p>Elegir el registro del que deseagenerar estadísticas.</p> Los resultados "
-"se agruparán por el texto de la consulta."
+msgstr "Elegir el registro del que desea generar estadísticas."
 
 #: server_status.php:1610
 msgid "Results are grouped by query text."
