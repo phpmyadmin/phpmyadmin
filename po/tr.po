@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-15 23:10+0200\n"
+"PO-Revision-Date: 2011-08-15 23:11+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -10238,10 +10238,9 @@ msgstr ""
 "sunucu çizelgeleme özelliklerini kullanabilirsiniz."
 
 #: server_status.php:1507
-#, fuzzy
 #| msgid "Pause monitor"
 msgid "Using the monitor:"
-msgstr "İzlemeyi duraklat"
+msgstr "Kullanılan izleyici:"
 
 #: server_status.php:1509
 #, fuzzy
