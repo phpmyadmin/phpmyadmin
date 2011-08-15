@@ -683,7 +683,7 @@ class PMA_User_Schema
              */
             $master_tables = 'SELECT COUNT(master_table), master_table'
                            . ' FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['relation'])
-                           . ' WHERE master_db = \'' . $db . '\''
+                           . ' WHERE master_db = \'' . PMA_sqlAddSlashes($db) . '\''
                            . ' GROUP BY master_table'
                            . ' ORDER BY COUNT(master_table) DESC';
             $master_tables_rs = PMA_query_as_controluser($master_tables, false, PMA_DBI_QUERY_STORE);
