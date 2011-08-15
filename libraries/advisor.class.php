@@ -82,13 +82,21 @@ class Advisor
     }
 
     /**
+     * Escapes percent string to be used in format string.
+     */
+    function escapePercent($str)
+    {
+        return preg_replace('/%( |,|\.|$)/','%%\1', $str);
+    }
+
+    /**
      * Splits justification to text and formula.
      */
     function splitJustification($rule)
     {
         $jst = preg_split('/\s*\|\s*/', $rule['justification'], 2);
         if (count($jst) > 1) {
-            $jst[0] = preg_replace('/%( |,|\.|$)/','%%\1',$jst[0]);
+            $jst[0] = Advisor::escapePercent($jst[0]);
             return array($jst[0], $jst[1]);
        }
         return array($rule['justification']);
