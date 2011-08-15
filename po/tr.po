@@ -11557,10 +11557,9 @@ msgid "Browse/Edit the points"
 msgstr ""
 
 #: tbl_zoom_select.php:394
-#, fuzzy
 #| msgid "Control user"
 msgid "How to use"
-msgstr "Denetim kullanıcısı"
+msgstr "Nasıl kullanılır"
 
 #: themes.php:28
 msgid "Get more themes!"
