@@ -1547,7 +1547,7 @@ msgstr "Variable/fórmula utilizada"
 
 #: js/messages.php:203
 msgid "Test"
-msgstr ""
+msgstr "Prueba"
 
 #: js/messages.php:208 libraries/tbl_properties.inc.php:763
 #: pmd_general.php:388 pmd_general.php:425 pmd_general.php:545
