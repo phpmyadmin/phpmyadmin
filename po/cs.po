@@ -1150,10 +1150,9 @@ msgid "Query cache usage"
 msgstr "Využití vyrovnávací paměti dotazů"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
-msgstr "Vyrovnávací paměť dotazů"
+msgstr "Využito vyrovnávací paměti dotazů"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
