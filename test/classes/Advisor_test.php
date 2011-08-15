@@ -81,6 +81,10 @@ class Advisor_test extends PHPUnit_Framework_TestCase
                 array('justification' => '%s% foo | value', 'name' => 'Percent', 'issue' => 'issue', 'recommendation' => 'Recommend'),
                 array('justification' => '0% foo', 'name' => 'Percent', 'issue' => 'issue', 'recommendation' => 'Recommend'),
             ),
+            array(
+                array('justification' => '"\'foo', 'name' => 'Quotes', 'issue' => 'issue', 'recommendation' => 'Recommend"\''),
+                array('justification' => '"\'foo', 'name' => 'Quotes', 'issue' => 'issue', 'recommendation' => 'Recommend"\''),
+            ),
         );
     }
 }
