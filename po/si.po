@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-15 09:40+0200\n"
+"POT-Creation-Date: 2011-08-15 09:43+0200\n"
 "PO-Revision-Date: 2011-06-04 15:35+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
@@ -11444,12 +11444,6 @@ msgstr ""
 #: tbl_tracking.php:731
 msgid "Create version"
 msgstr "අනුවාදය සාදන්න"
-
-#: tbl_zoom_select.php:103 tbl_zoom_select.php:108 tbl_zoom_select.php:158
-#: tbl_zoom_select.php:175 tbl_zoom_select.php:275 tbl_zoom_select.php:323
-#: tbl_zoom_select.php:335
-msgid "pma_null"
-msgstr ""
 
 #: tbl_zoom_select.php:140
 #, fuzzy
