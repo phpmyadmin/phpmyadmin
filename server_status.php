@@ -1517,9 +1517,8 @@ function printMonitor()
             <?php
                 echo '<strong>';
                 echo __('Please note:');
-                echo '</strong><p>';
+                echo '</strong><br />';
                 echo __('Enabling the general_log may increase the server load by 5-15%. Also be aware that generating statistics from the logs is a load intensive task, so it is advisable to select only a small time span and to disable the general_log and empty its table once monitoring is not required any more.');
-                echo '</p>';
             ?>
             </p>
         </div>
