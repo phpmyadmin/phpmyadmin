@@ -1700,7 +1700,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
-msgstr "İki sütun seç"
+msgstr "İki sütun seçin"
 
 #: js/messages.php:279
 msgid "Select two different columns"
