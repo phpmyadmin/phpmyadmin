@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-16 00:00+0200\n"
+"PO-Revision-Date: 2011-08-16 00:01+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -11877,6 +11877,8 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
+"Podría aumentar «{long_query_time}» u optimizar las consultas que aparecen "
+"en el registro de consultas lentas."
 
 #: po/advisory_rules.php:18
 #, php-format
