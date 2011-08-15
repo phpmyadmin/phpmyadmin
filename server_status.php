@@ -836,16 +836,16 @@ function printQueryStatistics()
         echo sprintf(__('Questions since startup: %s'), PMA_formatNumber($total_queries, 0)) . ' ';
         echo PMA_showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_Questions');
         ?>
-        <br>
+        <br />
         <span>
         <?php
         echo '&oslash; ' . __('per hour') . ': ';
         echo PMA_formatNumber($total_queries * $hour_factor, 0);
-        echo '<br>';
+        echo '<br />';
 
         echo '&oslash; ' . __('per minute') . ': ';
         echo PMA_formatNumber( $total_queries * 60 / $server_status['Uptime'], 0);
-        echo '<br>';
+        echo '<br />';
 
         if ($total_queries / $server_status['Uptime'] >= 1) {
             echo '&oslash; ' . __('per second') . ': ';
@@ -1461,7 +1461,7 @@ function printMonitor()
             <?php
             echo __('Refresh rate') . '<br />';
             refreshList('gridChartRefresh', 5, Array(2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200));
-        ?><br>
+        ?><br />
         </div>
         <div class="floatleft">
             <?php echo __('Chart columns'); ?> <br />
@@ -1536,7 +1536,7 @@ function printMonitor()
             <input type="radio" name="chartType" value="variable" id="chartStatusVar" checked="checked">
             <label for="chartStatusVar"><?php echo __('Status variable(s)'); ?></label><br/>
             <div id="chartVariableSettings">
-                <label for="chartSeries"><?php echo __('Select series:'); ?></label><br>
+                <label for="chartSeries"><?php echo __('Select series:'); ?></label><br />
                 <select id="chartSeries" name="varChartList" size="1">
                     <option><?php echo __('Commonly monitored'); ?></option>
                     <option>Processes</option>
@@ -1552,18 +1552,18 @@ function printMonitor()
                     <option>Open_tables</option>
                     <option>Select_full_join</option>
                     <option>Slow_queries</option>
-                </select><br>
+                </select><br />
                 <label for="variableInput"><?php echo __('or type variable name:'); ?> </label>
                 <input type="text" name="variableInput" id="variableInput" />
                 <p></p>
                 <input type="checkbox" name="differentialValue" id="differentialValue" value="differential" checked="checked" />
-                <label for="differentialValue"><?php echo __('Display as differential value'); ?></label><br>
+                <label for="differentialValue"><?php echo __('Display as differential value'); ?></label><br />
                 <input type="checkbox" id="useDivisor" name="useDivisor" value="1" />
                 <label for="useDivisor"><?php echo __('Apply a divisor'); ?></label>
                 <span class="divisorInput" style="display:none;">
                     <input type="text" name="valueDivisor" size="4" value="1">
                     (<a href="#kibDivisor"><?php echo __('KiB'); ?></a>, <a href="#mibDivisor"><?php echo __('MiB'); ?></a>)
-                </span><br>
+                </span><br />
 
                 <input type="checkbox" id="useUnit" name="useUnit" value="1" />
                 <label for="useUnit"><?php echo __('Append unit to data values'); ?></label>
