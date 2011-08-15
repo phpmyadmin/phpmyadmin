@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-15 23:39+0200\n"
+"PO-Revision-Date: 2011-08-15 23:40+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1697,7 +1697,7 @@ msgstr "Çizim en alt sağ köşe boyunca sürüklenerek yeniden boyutlandırıl
 
 #: js/messages.php:276
 msgid "Strings are converted into integer for plotting"
-msgstr ""
+msgstr "Satırlar çizim yapmak için tam sayıya dönüştürülür"
 
 #: js/messages.php:278
 #| msgid "Add/Delete columns"
