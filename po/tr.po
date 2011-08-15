@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-12 12:32+0200\n"
-"PO-Revision-Date: 2011-08-14 22:02+0200\n"
+"PO-Revision-Date: 2011-08-15 09:28+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -11717,7 +11717,7 @@ msgstr "query_cache_size 0'a ayarlı veya query_cache_type 'OFF'a ayarlı"
 
 #: po/advisory_rules.php:71
 msgid "Suboptimal caching method."
-msgstr ""
+msgstr "Yetersiz önbellekleme yöntemi."
 
 #: po/advisory_rules.php:72
 msgid ""
