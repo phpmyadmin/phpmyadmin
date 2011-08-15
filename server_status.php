@@ -803,7 +803,17 @@ echo __('Runtime Information');
             <div class="tabInnerContent clearfloat">
             </div>
             <div id="advisorInstructionsDialog" style="display:none;">
-            <?php echo __('The Advisor system can provide recommendations on server variables by analyzing the server status variables. <p>Do note however that this system provides recommendations based on simple calculations and by rule of thumb which may not necessarily apply to your system.</p> <p>Prior to changing any of the configuration, be sure to know what you are changing (by reading the documentation) and how to undo the change. Wrong tuning can have a very negative effect on performance.</p> <p>The best way to tune your system would be to change only one setting at a time, observe or benchmark your database, and undo the change if there was no clearly measurable improvement.</p>'); ?>
+            <?php
+            echo '<p>';
+            echo __('The Advisor system can provide recommendations on server variables by analyzing the server status variables.');
+            echo '</p> <p>';
+            echo __('Do note however that this system provides recommendations based on simple calculations and by rule of thumb which may not necessarily apply to your system.');
+            echo '</p> <p>';
+            echo __('Prior to changing any of the configuration, be sure to know what you are changing (by reading the documentation) and how to undo the change. Wrong tuning can have a very negative effect on performance.');
+            echo '</p> <p>';
+            echo __('The best way to tune your system would be to change only one setting at a time, observe or benchmark your database, and undo the change if there was no clearly measurable improvement.');
+            echo '</p>';
+            ?>
             </div>
         </div>
     </div>
