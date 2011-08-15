@@ -63,7 +63,7 @@ function getDate(val,type) {
 	return Highcharts.dateFormat('%Y-%m-%e %H:%M:%S', val)
     }	
     else if(type.toString().search(/time/i) != -1) {
-        return Highcharts.dateFormat('%H:%M:%S', val + 19800000)
+        return Highcharts.dateFormat('%H:%M:%S', val)
     }	
     else if (type.toString().search(/date/i) != -1) {
         return Highcharts.dateFormat('%Y-%m-%e', val)
@@ -121,6 +121,50 @@ function scrollToChart() {
    $('html,body').animate({scrollTop: x}, 500);
 }
 
+/**
+ ** Handlers for panning feature
+ **/
+function includePan(currentChart) {
+    var mouseDown;
+    var lastX;
+    var lastY;
+    $('#querychart').mousedown(function() {
+        mouseDown = 1;
+    });
+
+    $('#querychart').mouseup(function() {
+        mouseDown = 0;
+    });
+
+    $('#querychart').mousemove(function(e) {
+        if (mouseDown == 1) {
+            if (e.pageX > lastX) {
+                var diff = e.pageX - lastX;
+                var xExtremes = currentChart.xAxis[0].getExtremes();
+                currentChart.xAxis[0].setExtremes(xExtremes.min - diff, xExtremes.max - diff);
+            }
+            else if (e.pageX < lastX) {
+            	var diff = lastX - e.pageX;
+            	var xExtremes = currentChart.xAxis[0].getExtremes();
+            	currentChart.xAxis[0].setExtremes(xExtremes.min + diff, xExtremes.max + diff);
+            }
+
+            if (e.pageY > lastY) {
+            	var ydiff = 1 * (e.pageY - lastY);
+            	var yExtremes = currentChart.yAxis[0].getExtremes();
+            	currentChart.yAxis[0].setExtremes(yExtremes.min + ydiff, yExtremes.max + ydiff);
+            }
+            else if (e.pageY < lastY) {
+            	var ydiff = 1 * (lastY - e.pageY);
+            	var yExtremes = currentChart.yAxis[0].getExtremes();
+            	currentChart.yAxis[0].setExtremes(yExtremes.min - ydiff, yExtremes.max - ydiff);
+            }
+        }
+    	lastX = e.pageX;
+    	lastY = e.pageY;
+    });
+}
+
 $(document).ready(function() {
 
    /**
@@ -139,6 +183,10 @@ $(document).ready(function() {
     var xType = $('#types_0').val();
     var yType = $('#types_1').val();
     var dataLabel = $('#dataLabel').val();
+    var lastX;
+    var lastY;
+    var zoomRatio = 1;
+
 
     // Get query result 
     var data = jQuery.parseJSON($('#querydata').html());
@@ -371,22 +419,23 @@ $(document).ready(function() {
          .text(PMA_messages['strShowSearchCriteria'])
 	$('#togglesearchformdiv').show();
         var selectedRow;
-    	var columnNames = new Array();
     	var colorCodes = ['#FF0000','#00FFFF','#0000FF','#0000A0','#FF0080','#800080','#FFFF00','#00FF00','#FF00FF'];
     	var series = new Array();
     	var xCord = new Array();
     	var yCord = new Array();
-    	var xCat = new Array();
-    	var yCat = new Array();
 	var tempX, tempY;
     	var it = 0;
+        var xMax; // xAxis extreme max 
+        var xMin; // xAxis extreme min 
+        var yMax; // yAxis extreme max 
+        var yMin; // yAxis extreme min 
 
         // Set the basic plot settings
         var currentSettings = {
             chart: {
             	renderTo: 'querychart',
             	type: 'scatter',
-	    	zoomType: 'xy',
+	    	//zoomType: 'xy',
 	    	width:$('#resizer').width() -3,
             	height:$('#resizer').height()-20 
 	    },
@@ -600,6 +649,33 @@ $(document).ready(function() {
 
 	currentSettings.series = series;
         currentChart = PMA_createChart(currentSettings);
+	xMin = currentChart.xAxis[0].getExtremes().min;
+    	xMax = currentChart.xAxis[0].getExtremes().max;
+    	yMin = currentChart.yAxis[0].getExtremes().min;
+    	yMax = currentChart.yAxis[0].getExtremes().max;
+	includePan(currentChart);
+        var setZoom = function() {
+	    var newxm = xMin + (xMax - xMin) * (1 - zoomRatio) / 2;
+	    var newxM = xMax - (xMax - xMin) * (1 - zoomRatio) / 2;
+	    var newym = yMin + (yMax - yMin) * (1 - zoomRatio) / 2;
+	    var newyM = yMax - (yMax - yMin) * (1 - zoomRatio) / 2;
+            currentChart.xAxis[0].setExtremes(newxm,newxM);
+            currentChart.yAxis[0].setExtremes(newym,newyM);
+	};
+	 $("#querychart").mousewheel(function(objEvent, intDelta) {
+            if (intDelta > 0) {
+                if (zoomRatio > 0.1) {
+                    zoomRatio = zoomRatio - 0.1;
+
+                    setZoom();
+                }
+            }
+            else if (intDelta < 0) {
+                zoomRatio = zoomRatio + 0.1;
+                setZoom();
+            }
+        });
 	scrollToChart();
+
     }
 });
