@@ -116,8 +116,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"%s dosyası bu sistemde mevcut değil, lütfen daha fazla bilgi için www."
-"phpmyadmin.net adresini ziyaret edin."
+"Bu sistemde %s dosyası mevcut değil, lütfen daha fazla bilgi için "
+"www.phpmyadmin.net adresini ziyaret edin."
 
 #: db_create.php:58
 #, php-format
