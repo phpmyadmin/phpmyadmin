@@ -9522,6 +9522,8 @@ msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
 msgstr ""
+"El sistema de consejos puede proveer recomendaciones para las variables del "
+"servidor analizando las variables de estado del servidor."
 
 #: server_status.php:810
 msgid ""
