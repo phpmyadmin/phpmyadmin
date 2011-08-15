@@ -1185,7 +1185,7 @@ class PMA_Table
      *
      * returns an array with all columns make use of an index, in fact only
      * first columns in an index
-     * 
+     *
      * e.g. index(col1, col2) would only return col1
      *
      * @param bool  $backquoted  whether to quote name with backticks ``
@@ -1290,7 +1290,10 @@ class PMA_Table
             $success = PMA_DBI_try_query($sql_query, $GLOBALS['controllink']);
 
             if (!$success) {
-                $message = PMA_Message::error(__('Failed to cleanup table UI preferences (see cfg["Server"]["MaxTableUiprefs"] documentation)'));
+                $message = PMA_Message::error(sprintf(
+                    __('Failed to cleanup table UI preferences (see $cfg[\'Servers\'][$i][\'MaxTableUiprefs\'] %s)'),
+                    PMA_showDocu('cfg_Servers_MaxTableUiprefs')
+                ));
                 $message->addMessage('<br /><br />');
                 $message->addMessage(PMA_Message::rawError(PMA_DBI_getError($GLOBALS['controllink'])));
             print_r($message);
