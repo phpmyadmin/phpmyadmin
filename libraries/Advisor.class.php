@@ -69,9 +69,11 @@ class Advisor
                 $this->variables['value'] = $value;
 
                 try {
-                    if($this->ruleExprEvaluate($rule['test']))
+                    if ($this->ruleExprEvaluate($rule['test'])) {
                         $this->addRule('fired', $rule);
-                    else $this->addRule('notfired', $rule);
+                    } else {
+                        $this->addRule('notfired', $rule);
+                    }
                 }  catch(Exception $e) {
                     $this->runResult['errors'][] = 'Failed running test for rule \''.$rule['name'].'\'. PHP threw following error: '.$e->getMessage();
                 }
@@ -82,13 +84,36 @@ class Advisor
     }
 
     /**
+     * Escapes percent string to be used in format string.
+     */
+    function escapePercent($str)
+    {
+        return preg_replace('/%( |,|\.|$)/','%%\1', $str);
+    }
+
+    /**
+     * Wrapper function for translating.
+     */
+    function translate($str, $param = null)
+    {
+        if (is_null($param)) {
+            return sprintf(_gettext(Advisor::escapePercent($str)));
+        } else {
+            $printf = 'sprintf("' . _gettext(Advisor::escapePercent($str)) . '",';
+            return $this->ruleExprEvaluate(
+                $printf . $param . ')',
+                strlen($printf)
+            );
+        }
+    }
+
+    /**
      * Splits justification to text and formula.
      */
     function splitJustification($rule)
     {
         $jst = preg_split('/\s*\|\s*/', $rule['justification'], 2);
         if (count($jst) > 1) {
-            $jst[0] = preg_replace('/%( |,|\.|$)/','%%\1',$jst[0]);
             return array($jst[0], $jst[1]);
        }
         return array($rule['justification']);
@@ -104,11 +129,7 @@ class Advisor
                     if (count($jst) > 1) {
                         try {
                             /* Translate */
-                            $jst[0] = _gettext($jst[0]);
-                            $str = $this->ruleExprEvaluate(
-                                'sprintf("'.$jst[0].'",'.$jst[1].')',
-                                strlen('sprintf("'.$jst[0].'"')
-                            );
+                            $str = $this->translate($jst[0], $jst[1]);
                         } catch (Exception $e) {
                             $this->runResult['errors'][] = 'Failed formattingstring for rule \''.$rule['name'].'\'. PHP threw following error: '.$e->getMessage();
                             return;
@@ -116,16 +137,23 @@ class Advisor
 
                         $rule['justification'] = $str;
                     } else {
-                        $rule['justification'] = _gettext($rule['justification']);
+                        $rule['justification'] = $this->translate($rule['justification']);
                     }
-                    $rule['name'] = _gettext($rule['name']);
-                    $rule['issue'] = _gettext($rule['issue']);
+                    $rule['name'] = $this->translate($rule['name']);
+                    $rule['issue'] = $this->translate($rule['issue']);
 
+                    // Replaces {server_variable} with 'server_variable' linking to server_variables.php
                     $rule['recommendation'] = preg_replace(
                         '/\{([a-z_0-9]+)\}/Ui',
-                        '<a href="server_variables.php' . PMA_generate_common_url() . '#filter=\1">\1</a>',
-                        _gettext($rule['recommendation']));
+                        '<a href="server_variables.php?' . PMA_generate_common_url() . '#filter=\1">\1</a>',
+                        $this->translate($rule['recommendation']));
 
+                    // Replaces external Links with PMA_linkURL() generated links
+                    $rule['recommendation'] = preg_replace(
+                        '#href=("|\')(https?://[^\1]+)\1#ie',
+                        '\'href="\' . PMA_linkURL("\2") . \'"\'',
+                        $rule['recommendation']
+                    );
                     break;
         }
 

@@ -92,7 +92,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
                 exit(json_encode($ret));
 
-            // Data for the monitor 
+            // Data for the monitor
             case 'chartgrid':
                 $ret = json_decode($_REQUEST['requiredData'], true);
                 $statusVars = array();
@@ -103,12 +103,12 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 /* Accumulate all required variables and data */
                 // For each chart
                 foreach ($ret as $chart_id => $chartNodes) {
-                    // For each data series 
+                    // For each data series
                     foreach ($chartNodes as $node_id => $nodeDataPoints) {
                         // For each data point in the series (usually just 1)
                         foreach ($nodeDataPoints as $point_id => $dataPoint) {
                             $pName = $dataPoint['name'];
-                            
+
                             switch ($dataPoint['type']) {
                                 /* We only collect the status and server variables here to
                                  * read them all in one query, and only afterwards assign them.
@@ -116,7 +116,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                                 */
                                 case 'servervar':
                                     if (!preg_match('/[^a-zA-Z_]+/', $pName))
-                                        $serverVars[] = $pName;                  
+                                        $serverVars[] = $pName;
                                     break;
 
                                 case 'statusvar':
@@ -168,7 +168,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 } else {
                     $statusVarValues = array();
                 }
-                
+
                 // Retrieve all required server variables
                 if (count($serverVars)) {
                     $serverVarValues = PMA_DBI_fetch_result(
@@ -368,7 +368,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     }
 
     if(isset($_REQUEST['advisor'])) {
-        include('libraries/advisor.class.php');
+        include('libraries/Advisor.class.php');
         $advisor = new Advisor();
         exit(json_encode($advisor->run()));
     }
@@ -838,7 +838,17 @@ echo __('Runtime Information');
             <div class="tabInnerContent clearfloat">
             </div>
             <div id="advisorInstructionsDialog" style="display:none;">
-            <?php echo __('The Advisor system can provide recommendations on server variables by analyzing the server status variables. <p>Do note however that this system provides recommendations based on simple calculations and by rule of thumb which may not necessarily apply to your system.</p> <p>Prior to changing any of the configuration, be sure to know what you are changing (by reading the documentation) and how to undo the change. Wrong tuning can have a very negative effect on performance.</p> <p>The best way to tune your system would be to change only one setting at a time, observe or benchmark your database, and undo the change if there was no clearly measurable improvement.</p>'); ?>
+            <?php
+            echo '<p>';
+            echo __('The Advisor system can provide recommendations on server variables by analyzing the server status variables.');
+            echo '</p> <p>';
+            echo __('Do note however that this system provides recommendations based on simple calculations and by rule of thumb which may not necessarily apply to your system.');
+            echo '</p> <p>';
+            echo __('Prior to changing any of the configuration, be sure to know what you are changing (by reading the documentation) and how to undo the change. Wrong tuning can have a very negative effect on performance.');
+            echo '</p> <p>';
+            echo __('The best way to tune your system would be to change only one setting at a time, observe or benchmark your database, and undo the change if there was no clearly measurable improvement.');
+            echo '</p>';
+            ?>
             </div>
         </div>
     </div>
@@ -1489,9 +1499,9 @@ function printMonitor()
         <a href="#rearrangeCharts"><img class="icon ic_b_tblops" src="themes/dot.gif" width="16" height="16" alt=""> <?php echo __('Rearrange/edit charts'); ?></a>
         <div class="clearfloat paddingtop"></div>
         <div class="floatleft">
-            <?php 
-            echo __('Refresh rate') . '<br />'; 
-            refreshList('gridChartRefresh', 5, Array(2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200)); 
+            <?php
+            echo __('Refresh rate') . '<br />';
+            refreshList('gridChartRefresh', 5, Array(2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200));
         ?><br>
         </div>
         <div class="floatleft">
@@ -1534,12 +1544,22 @@ function printMonitor()
         <div class="monitorUse" style="display:none;">
             <p></p>
             <?php
-                echo __('<b>Using the monitor:</b><br/> Ok, you are good to go! Once you click \'Start monitor\' your browser will refresh all displayed charts in a regular interval. You may add charts and change the refresh rate under \'Settings\', or remove any chart using the cog icon on each respective chart. <p>To display queries from the logs, select the relevant time span on any chart by holding down the left mouse button and panning over the chart. Once confirmed, this will load a table of grouped queries, there you may click on any occuring SELECT statements to further analyze them.</p>');
+                echo '<strong>';
+                echo __('Using the monitor:');
+                echo '</strong><p>';
+                echo __('Ok, you are good to go! Once you click \'Start monitor\' your browser will refresh all displayed charts in a regular interval. You may add charts and change the refresh rate under \'Settings\', or remove any chart using the cog icon on each respective chart.');
+                echo '</p><p>';
+                echo __('To display queries from the logs, select the relevant time span on any chart by holding down the left mouse button and panning over the chart. Once confirmed, this will load a table of grouped queries, there you may click on any occuring SELECT statements to further analyze them.');
+                echo '</p>';
             ?>
             <p>
             <img class="icon ic_s_attention" src="themes/dot.gif" alt="">
             <?php
-                echo __('<b>Please note:</b> Enabling the general_log may increase the server load by 5-15%. Also be aware that generating statistics from the logs is a load intensive task, so it is advisable to select only a small time span and to disable the general_log and empty its table once monitoring is not required any more.');
+                echo '<strong>';
+                echo __('Please note:');
+                echo '</strong><p>';
+                echo __('Enabling the general_log may increase the server load by 5-15%. Also be aware that generating statistics from the logs is a load intensive task, so it is advisable to select only a small time span and to disable the general_log and empty its table once monitoring is not required any more.');
+                echo '</p>';
             ?>
             </p>
         </div>
@@ -1549,7 +1569,7 @@ function printMonitor()
     <div id="addChartDialog" title="Add chart" style="display:none;">
         <div id="tabGridVariables">
             <p><input type="text" name="chartTitle" value="<?php echo __('Chart Title'); ?>" /></p>
-            
+
             <input type="radio" name="chartType" value="preset" id="chartPreset">
             <label for="chartPreset"><?php echo __('Preset chart'); ?></label>
             <select name="presetCharts"></select><br/>
@@ -1625,7 +1645,13 @@ function printMonitor()
             <?php echo __('Remove variable data in INSERT statements for better grouping'); ?>
         </label>
 
-        <?php echo __('<p>Choose from which log you want the statistics to be generated from.</p> Results are grouped by query text.'); ?>
+        <?php
+        echo '<p>';
+        echo __('Choose from which log you want the statistics to be generated from.');
+        echo '</p><p>';
+        echo __('Results are grouped by query text.');
+        echo '</p>';
+        ?>
     </div>
 
     <div id="queryAnalyzerDialog" title="<?php echo __('Query analyzer'); ?>" style="display:none;">
