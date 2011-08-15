@@ -10,6 +10,9 @@
  * Include to test.
  */
 require_once 'libraries/Advisor.class.php';
+require_once 'libraries/php-gettext/gettext.inc';
+require_once 'libraries/url_generating.lib.php';
+require_once 'libraries/core.lib.php';
 
 class Advisor_test extends PHPUnit_Framework_TestCase
 {
@@ -35,6 +38,30 @@ class Advisor_test extends PHPUnit_Framework_TestCase
         $advisor = new Advisor();
         $parseResult = $advisor->parseRulesFile();
         $this->assertEquals($parseResult['errors'], array());
+    }
+
+    /**
+     * @depends testParse
+     * @dataProvider rulesProvider
+     */
+    public function testAddRule($rule, $expected)
+    {
+        $advisor = new Advisor();
+        $parseResult = $advisor->parseRulesFile();
+        $this->assertEquals($parseResult['errors'], array());
+        $this->variables['value'] = 0;
+        $advisor->addRule('fired', $rule);
+        $this->assertEquals($advisor->runResult['fired'], array($expected));
+    }
+
+    public function rulesProvider()
+    {
+        return array(
+            array(
+                array('justification' => 'foo', 'name' => 'name', 'issue' => 'issue', 'recommendation' => 'Recommend'),
+                array('justification' => 'foo', 'name' => 'name', 'issue' => 'issue', 'recommendation' => 'Recommend'),
+            ),
+        );
     }
 }
 ?>
