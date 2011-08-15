@@ -9541,6 +9541,9 @@ msgid ""
 "changing (by reading the documentation) and how to undo the change. Wrong "
 "tuning can have a very negative effect on performance."
 msgstr ""
+"Antes de cambiar una configuración asegúrese de entender lo que está "
+"cambiando (leyendo la documentación) y cómo revertir el cambio. Ajustes "
+"incorrectos pueden tener un gran efecto negativo en performance."
 
 #: server_status.php:814
 msgid ""
