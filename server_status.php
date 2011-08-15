@@ -1456,7 +1456,7 @@ function printMonitor()
             <img src="themes/dot.gif" class="icon ic_b_chart" alt="" />
             <?php echo __('Add chart'); ?>
         </a>
-        <a href="#rearrangeCharts"><img class="icon ic_b_tblops" src="themes/dot.gif" width="16" height="16" alt=""> <?php echo __('Rearrange/edit charts'); ?></a>
+        <a href="#rearrangeCharts"><img class="icon ic_b_tblops" src="themes/dot.gif" width="16" height="16" alt="" /><?php echo __('Rearrange/edit charts'); ?></a>
         <div class="clearfloat paddingtop"></div>
         <div class="floatleft">
             <?php
@@ -1499,7 +1499,7 @@ function printMonitor()
     } else {
     ?>
         <p></p>
-        <img class="ajaxIcon" src="<?php echo $GLOBALS['pmaThemeImage']; ?>ajax_clock_small.gif" alt="Loading">
+        <img class="ajaxIcon" src="<?php echo $GLOBALS['pmaThemeImage']; ?>ajax_clock_small.gif" alt="Loading" />
         <div class="ajaxContent"></div>
         <div class="monitorUse" style="display:none;">
             <p></p>
