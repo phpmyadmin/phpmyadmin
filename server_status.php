@@ -1562,7 +1562,7 @@ function printMonitor()
                 <input type="checkbox" id="useDivisor" name="useDivisor" value="1" />
                 <label for="useDivisor"><?php echo __('Apply a divisor'); ?></label>
                 <span class="divisorInput" style="display:none;">
-                    <input type="text" name="valueDivisor" size="4" value="1">
+                    <input type="text" name="valueDivisor" size="4" value="1" />
                     (<a href="#kibDivisor"><?php echo __('KiB'); ?></a>, <a href="#mibDivisor"><?php echo __('MiB'); ?></a>)
                 </span><br />
 
@@ -1570,7 +1570,7 @@ function printMonitor()
                 <label for="useUnit"><?php echo __('Append unit to data values'); ?></label>
 
                 <span class="unitInput" style="display:none;">
-                    <input type="text" name="valueUnit" size="4" value="">
+                    <input type="text" name="valueUnit" size="4" value="" />
                 </span>
                 <p>
                     <a href="#submitAddSeries"><b><?php echo __('Add this series'); ?></b></a>
