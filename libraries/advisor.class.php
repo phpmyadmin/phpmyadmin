@@ -90,6 +90,19 @@ class Advisor
     }
 
     /**
+     * Wrapper function for translating.
+     */
+    function translate($str, $param = null)
+    {
+        if (is_null($param)) {
+            return sprintf(_gettext(Advisor::escapePercent($str)));
+        } else {
+            $value = $this->ruleExprEvaluate($jst[1]);
+            return sprintf(_gettext(Advisor::escapePercent($str)), $value);
+        }
+    }
+
+    /**
      * Splits justification to text and formula.
      */
     function splitJustification($rule)
@@ -112,11 +125,7 @@ class Advisor
                     if (count($jst) > 1) {
                         try {
                             /* Translate */
-                            $jst[0] = _gettext($jst[0]);
-                            $str = $this->ruleExprEvaluate(
-                                'sprintf("'.$jst[0].'",'.$jst[1].')',
-                                strlen('sprintf("'.$jst[0].'"')
-                            );
+                            $str = Advisor::translate($jst[0], $jst[1]);
                         } catch (Exception $e) {
                             $this->runResult['errors'][] = 'Failed formattingstring for rule \''.$rule['name'].'\'. PHP threw following error: '.$e->getMessage();
                             return;
@@ -124,15 +133,15 @@ class Advisor
 
                         $rule['justification'] = $str;
                     } else {
-                        $rule['justification'] = _gettext($rule['justification']);
+                        $rule['justification'] = Advisor::translate($rule['justification']);
                     }
-                    $rule['name'] = _gettext($rule['name']);
-                    $rule['issue'] = _gettext($rule['issue']);
+                    $rule['name'] = Advisor::translate($rule['name']);
+                    $rule['issue'] = Advisor::translate($rule['issue']);
 
                     $rule['recommendation'] = preg_replace(
                         '/\{([a-z_0-9]+)\}/Ui',
                         '<a href="server_variables.php' . PMA_generate_common_url() . '#filter=\1">\1</a>',
-                        _gettext($rule['recommendation']));
+                        Advisor::translate($rule['recommendation']));
 
                     break;
         }

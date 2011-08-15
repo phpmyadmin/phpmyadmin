@@ -18,16 +18,11 @@ echo "/* This is automatically generated file from libraries/advisory_rules.txt 
 
 foreach($rules['rules'] as $rule) {
     echo "\n";
-    echo "echo __('" . addslashes($rule['name']) . "');\n";
-    echo "echo __('" . addslashes($rule['issue']) . "');\n";
-    echo "echo __('" . addslashes($rule['recommendation']) . "');\n";
+    echo "printf(__('" . addslashes(Advisor::escapePercent($rule['name'])) . "'));\n";
+    echo "printf(__('" . addslashes(Advisor::escapePercent($rule['issue'])) . "'));\n";
+    echo "printf(__('" . addslashes(Advisor::escapePercent($rule['recommendation'])) . "'));\n";
     $jst = Advisor::splitJustification($rule);
-    if (count($jst) > 1) {
-        /* printf is used here just to ensure proper type of string */
-        echo "printf(__('" . addslashes($jst[0]) . "'), 0);\n";
-    } else {
-        echo "echo __('" . addslashes($jst[0]) . "');\n";
-    }
+    echo "printf(__('" . addslashes(Advisor::escapePercent($jst[0])) . "'));\n";
 }
 
 ?>
