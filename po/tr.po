@@ -12353,10 +12353,10 @@ msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:190
-#, fuzzy, php-format
+#, php-format
 #| msgid "Immediate table locks %"
 msgid "Immediate table locks %%"
-msgstr "Acil tablo kilitleri %"
+msgstr "Acil tablo kilitleri %%"
 
 #: po/advisory_rules.php:191 po/advisory_rules.php:196
 msgid "Too many table locks were not granted immediately."
