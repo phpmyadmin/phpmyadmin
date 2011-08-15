@@ -11814,7 +11814,7 @@ msgstr "Cambiar el nombre de la vista a"
 
 #: po/advisory_rules.php:5
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Tiempo de actividad menor a un día"
 
 #: po/advisory_rules.php:6
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
