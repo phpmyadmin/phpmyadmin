@@ -874,6 +874,7 @@ function printQueryStatistics()
                     /* l10n: # = Amount of queries */
                     echo __('#');
                     ?>
+                </th>
                 <th>&oslash; <?php echo __('per hour'); ?></th>
                 <th>%</th>
             </tr>
