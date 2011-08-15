@@ -1503,12 +1503,22 @@ function printMonitor()
         <div class="monitorUse" style="display:none;">
             <p></p>
             <?php
-                echo __('<b>Using the monitor:</b><br/> Ok, you are good to go! Once you click \'Start monitor\' your browser will refresh all displayed charts in a regular interval. You may add charts and change the refresh rate under \'Settings\', or remove any chart using the cog icon on each respective chart. <p>To display queries from the logs, select the relevant time span on any chart by holding down the left mouse button and panning over the chart. Once confirmed, this will load a table of grouped queries, there you may click on any occuring SELECT statements to further analyze them.</p>');
+                echo '<strong>';
+                echo __('Using the monitor:');
+                echo '</strong><p>';
+                echo __('Ok, you are good to go! Once you click \'Start monitor\' your browser will refresh all displayed charts in a regular interval. You may add charts and change the refresh rate under \'Settings\', or remove any chart using the cog icon on each respective chart.');
+                echo '</p><p>';
+                echo __('To display queries from the logs, select the relevant time span on any chart by holding down the left mouse button and panning over the chart. Once confirmed, this will load a table of grouped queries, there you may click on any occuring SELECT statements to further analyze them.');
+                echo '</p>';
             ?>
             <p>
             <img class="icon ic_s_attention" src="themes/dot.gif" alt="">
             <?php
-                echo __('<b>Please note:</b> Enabling the general_log may increase the server load by 5-15%. Also be aware that generating statistics from the logs is a load intensive task, so it is advisable to select only a small time span and to disable the general_log and empty its table once monitoring is not required any more.');
+                echo '<strong>';
+                echo __('Please note:');
+                echo '</strong><p>';
+                echo __('Enabling the general_log may increase the server load by 5-15%. Also be aware that generating statistics from the logs is a load intensive task, so it is advisable to select only a small time span and to disable the general_log and empty its table once monitoring is not required any more.');
+                echo '</p>';
             ?>
             </p>
         </div>
@@ -1593,7 +1603,13 @@ function printMonitor()
             <?php echo __('Remove variable data in INSERT statements for better grouping'); ?>
         </label>
 
-        <?php echo __('<p>Choose from which log you want the statistics to be generated from.</p> Results are grouped by query text.'); ?>
+        <?php
+        echo '<p>';
+        echo __('Choose from which log you want the statistics to be generated from.');
+        echo '</p><p>';
+        echo __('Results are grouped by query text.');
+        echo '</p>';
+        ?>
     </div>
 
     <div id="queryAnalyzerDialog" title="<?php echo __('Query analyzer'); ?>" style="display:none;">
