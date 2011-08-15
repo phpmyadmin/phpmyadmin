@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-15 23:59+0200\n"
+"PO-Revision-Date: 2011-08-16 00:00+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -11870,7 +11870,7 @@ msgstr "Porcentajes de consultas lentas"
 #: po/advisory_rules.php:16
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr ""
+msgstr "Hay muchas consultas lentas en comparación con el total de consultas."
 
 #: po/advisory_rules.php:17 po/advisory_rules.php:22
 msgid ""
