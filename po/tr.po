@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-15 23:35+0200\n"
+"PO-Revision-Date: 2011-08-15 23:36+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -11554,7 +11554,7 @@ msgstr "Veri Etiketi"
 #: tbl_zoom_select.php:297
 #| msgid "Maximum number of rows to display"
 msgid "Maximum rows to plot"
-msgstr "Grafiğini çizmek için en fazla satır"
+msgstr "Çizim için en fazla satır"
 
 #: tbl_zoom_select.php:388
 msgid "Browse/Edit the points"
