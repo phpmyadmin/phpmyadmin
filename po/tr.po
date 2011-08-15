@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-15 23:17+0200\n"
+"PO-Revision-Date: 2011-08-15 23:18+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -11533,10 +11533,9 @@ msgid "Create version"
 msgstr "Sürüm oluştur"
 
 #: tbl_zoom_select.php:140
-#, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "\"Örnek sorgu\" yap. (joker: \"%\")"
+msgstr "İki farklı sütun için \"örneğe göre sorgu\" (joker: \"%\") yap"
 
 #: tbl_zoom_select.php:151
 #, fuzzy
