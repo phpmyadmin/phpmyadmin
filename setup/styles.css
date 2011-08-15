@@ -123,7 +123,7 @@ div.notice[id^=version_check] h4 {
 div.warning {
     border-color: #C00;
     background-color: #FFC;
-    background-image: url(../themes/original/img/s_warn.png);
+    background-image: url(../themes/original/img/s_notice.png);
 }
 
 div.warning h4 {
