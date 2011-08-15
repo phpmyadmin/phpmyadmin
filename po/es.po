@@ -1524,7 +1524,7 @@ msgstr "Posibles problemas de performance"
 
 #: js/messages.php:198
 msgid "Issue"
-msgstr ""
+msgstr "Problema"
 
 #: js/messages.php:199
 #, fuzzy
