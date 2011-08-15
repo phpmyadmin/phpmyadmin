@@ -1724,10 +1724,9 @@ msgid "Strings are converted into integer for plotting"
 msgstr "Las cadenas son conventidas a enteros para graficarlas"
 
 #: js/messages.php:278
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
-msgstr "Añadir/borrar columnas"
+msgstr "Seleccionar dos columnas"
 
 #: js/messages.php:279
 msgid "Select two different columns"
