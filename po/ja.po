@@ -11681,7 +11681,6 @@ msgid "Query Cache usage"
 msgstr "クエリキャッシュの使用状況"
 
 #: po/advisory_rules.php:81
-#, php-format
 msgid "Less than 80% of the query cache is being utilized."
 msgstr "クエリキャッシュの利用率が 80% 未満です。"
 
