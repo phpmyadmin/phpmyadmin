@@ -10290,7 +10290,7 @@ msgstr ""
 
 #: server_status.php:1518
 msgid "Please note:"
-msgstr ""
+msgstr "Lütfen unutmayın:"
 
 #: server_status.php:1520
 #, fuzzy
