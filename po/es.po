@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-15 23:53+0200\n"
+"PO-Revision-Date: 2011-08-15 23:54+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -11749,10 +11749,9 @@ msgstr ""
 "distintas"
 
 #: tbl_zoom_select.php:151
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Additional search criteria"
-msgstr "Ocultar criterio de búsqueda"
+msgstr "Criterios de búsqueda adicionales"
 
 #: tbl_zoom_select.php:281
 #, fuzzy
