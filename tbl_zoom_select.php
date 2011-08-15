@@ -100,12 +100,12 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params);
 /**
  *  Set the field name,type,collation and whether null on select of a coulmn
  */
-if(isset($inputs) && ($inputs[0] != __('pma_null') || $inputs[1] != __('pma_null')))
+if(isset($inputs) && ($inputs[0] != 'pma_null' || $inputs[1] != 'pma_null'))
 {
     $flag = 2;
     for($i = 0 ; $i < 4 ; $i++)
     {
-        if($inputs[$i] != __('pma_null'))
+        if($inputs[$i] != 'pma_null')
         {
 	    $key = array_search($inputs[$i],$fields_list);
 	    $tbl_fields_type[$i] = $fields_type[$key];
@@ -155,7 +155,7 @@ for($i = 0 ; $i < 4 ; $i++){
 ?>
     <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
         <th><select name="inputs[]" id=<?php echo 'tableid_' . $i?> >
-        <option value= <?php echo __('pma_null')?>><?php echo __('None');  ?> </option>
+        <option value= <?php echo 'pma_null'?>><?php echo __('None');  ?> </option>
         <?php
         for ($j = 0 ; $j < $fields_cnt ; $j++){
             if(isset($inputs[$i]) && $inputs[$i] == htmlspecialchars($fields_list[$j])){?>
@@ -172,7 +172,7 @@ for($i = 0 ; $i < 4 ; $i++){
         <td><?php if(isset($tbl_fields_collation[$i]))echo $tbl_fields_collation[$i]; ?></td>
 
 	<td>
-	<?php if(isset($inputs) && $inputs[$i] != __('pma_null')){ ?>
+	<?php if(isset($inputs) && $inputs[$i] != 'pma_null'){ ?>
 	    <select name="zoomFunc[]">
             <?php
 
@@ -272,7 +272,7 @@ for($i = 0 ; $i < 4 ; $i++){
      */
 
     //Set default datalabel if not selected
-    if(isset($zoom_submit) && $inputs[0] != __('pma_null') && $inputs[1] != __('pma_null')) {
+    if(isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null') {
         if ($dataLabel == '')
 	    $dataLabel = PMA_getDisplayField($db,$table);
     }
@@ -320,7 +320,7 @@ for($i = 0 ; $i < 4 ; $i++){
  * Handle the input criteria and gerate the query result
  * Form for displaying query results
  */
-if(isset($zoom_submit) && $inputs[0] != __('pma_null') && $inputs[1] != __('pma_null') && $inputs[0] != $inputs[1]) {
+if(isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null' && $inputs[0] != $inputs[1]) {
 
     /*
      * Query generation part
@@ -332,7 +332,7 @@ if(isset($zoom_submit) && $inputs[0] != __('pma_null') && $inputs[1] != __('pma_
 
     $sql_query .= ' FROM ' . PMA_backquote($table);
     for($i = 0 ; $i < 4 ; $i++){
-        if($inputs[$i] == __('pma_null'))
+        if($inputs[$i] == 'pma_null')
 	    continue;
         $tmp = array();
         // The where clause
