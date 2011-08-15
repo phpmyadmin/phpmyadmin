@@ -11754,10 +11754,9 @@ msgid "Additional search criteria"
 msgstr "Criterios de búsqueda adicionales"
 
 #: tbl_zoom_select.php:281
-#, fuzzy
 #| msgid "Label"
 msgid "Data Label"
-msgstr "Etiqueta"
+msgstr "Etiqueta de datos"
 
 #: tbl_zoom_select.php:297
 #, fuzzy
