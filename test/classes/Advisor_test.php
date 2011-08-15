@@ -19,6 +19,7 @@ class Advisor_test extends PHPUnit_Framework_TestCase
     public function setup()
     {
         $_SESSION[' PMA_token '] = 'token';
+        $GLOBALS['lang'] = 'en';
     }
 
     /**
@@ -71,7 +72,7 @@ class Advisor_test extends PHPUnit_Framework_TestCase
             ),
             array(
                 array('justification' => 'foo', 'name' => 'Variable', 'issue' => 'issue', 'recommendation' => 'Recommend {status_var}'),
-                array('justification' => 'foo', 'name' => 'Variable', 'issue' => 'issue', 'recommendation' => 'Recommend <a href="server_variables.php?token=token#filter=status_var">status_var</a>'),
+                array('justification' => 'foo', 'name' => 'Variable', 'issue' => 'issue', 'recommendation' => 'Recommend <a href="server_variables.php?lang=en&amp;token=token#filter=status_var">status_var</a>'),
             ),
             array(
                 array('justification' => '%s foo | value', 'name' => 'Format', 'issue' => 'issue', 'recommendation' => 'Recommend'),
