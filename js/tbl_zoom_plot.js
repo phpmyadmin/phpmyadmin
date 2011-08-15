@@ -59,10 +59,10 @@ function isEmpty(obj) {
  ** @param type String  Field type(datetime/timestamp/time/date)
  **/
 function getDate(val,type) {
-    if(type.toString().search(/datetime/i) != -1 || type.toString().search(/timestamp/i) != -1) {
+    if (type.toString().search(/datetime/i) != -1 || type.toString().search(/timestamp/i) != -1) {
         return Highcharts.dateFormat('%Y-%m-%e %H:%M:%S', val)
     }
-    else if(type.toString().search(/time/i) != -1) {
+    else if (type.toString().search(/time/i) != -1) {
         return Highcharts.dateFormat('%H:%M:%S', val + 19800000)
     }
     else if (type.toString().search(/date/i) != -1) {
@@ -76,10 +76,10 @@ function getDate(val,type) {
  ** @param type Sring  Field type(datetime/timestamp/time/date)
  **/
 function getTimeStamp(val,type) {
-    if(type.toString().search(/datetime/i) != -1 || type.toString().search(/timestamp/i) != -1) {
+    if (type.toString().search(/datetime/i) != -1 || type.toString().search(/timestamp/i) != -1) {
         return getDateFromFormat(val,'yyyy-MM-dd HH:mm:ss', val)
     }
-    else if(type.toString().search(/time/i) != -1) {
+    else if (type.toString().search(/time/i) != -1) {
         return getDateFromFormat('1970-01-01 ' + val,'yyyy-MM-dd HH:mm:ss')
     }
     else if (type.toString().search(/date/i) != -1) {
@@ -92,9 +92,9 @@ function getTimeStamp(val,type) {
  ** @param field: field type (as in database structure)
  **/
 function getType(field) {
-        if(field.toString().search(/int/i) != -1 || field.toString().search(/decimal/i) != -1 || field.toString().search(/year/i) != -1)
+        if (field.toString().search(/int/i) != -1 || field.toString().search(/decimal/i) != -1 || field.toString().search(/year/i) != -1)
             return 'numeric';
-        else if(field.toString().search(/time/i) != -1 || field.toString().search(/date/i) != -1)
+        else if (field.toString().search(/time/i) != -1 || field.toString().search(/date/i) != -1)
             return 'time';
         else
             return 'text';
@@ -227,11 +227,11 @@ $(document).ready(function() {
                 if (oldVal != newVal){
                     selectedRow[key] = newVal;
                     newValues[key] = newVal;
-                    if(key == xLabel) {
+                    if (key == xLabel) {
                         xChange = true;
                            data[currentData][xLabel] = newVal;
                     }
-                    else if(key == yLabel) {
+                    else if (key == yLabel) {
                         yChange = true;
                            data[currentData][yLabel] = newVal;
                     }
@@ -248,13 +248,13 @@ $(document).ready(function() {
                 symbol: 'circle'
             };
             //Logic similar to plot generation, replot only if xAxis changes or yAxis changes. Code includes a lot of checks so as to replot only when necessary
-            if(xChange) {
+            if (xChange) {
                   xCord[currentData] = selectedRow[xLabel];
-                if(xType == 'numeric') {
+                if (xType == 'numeric') {
                     currentChart.series[0].data[currentData].update({ x : selectedRow[xLabel] });
                     currentChart.xAxis[0].setExtremes(Array.min(xCord) - 6,Array.max(xCord) + 6);
                 }
-                else if(xType == 'time') {
+                else if (xType == 'time') {
                     currentChart.series[0].data[currentData].update({ x : getTimeStamp(selectedRow[xLabel],$('#types_0').val())});
                 }
                 else {
@@ -266,14 +266,14 @@ $(document).ready(function() {
                     yCord = tempY[2];
 
                         $.each(data,function(key,value) {
-                        if(yType != 'text')
+                        if (yType != 'text')
                              newSeries[0].data.push({ name: value[dataLabel], x: tempX[0][i], y: value[yLabel], marker: {fillColor: colorCodes[i % 8]} , id: i } );
                         else
                             newSeries[0].data.push({ name: value[dataLabel], x: tempX[0][i], y: tempY[0][i], marker: {fillColor: colorCodes[i % 8]} , id: i } );
                         i++;
                     });
                     currentSettings.xAxis.labels = { formatter : function() {
-                        if(tempX[1][this.value] && tempX[1][this.value].length > 10)
+                        if (tempX[1][this.value] && tempX[1][this.value].length > 10)
                             return tempX[1][this.value].substring(0,10)
                         else
                             return tempX[1][this.value];
@@ -284,14 +284,14 @@ $(document).ready(function() {
                 }
 
             }
-            if(yChange) {
+            if (yChange) {
 
                   yCord[currentData] = selectedRow[yLabel];
-                if(yType == 'numeric') {
+                if (yType == 'numeric') {
                     currentChart.series[0].data[currentData].update({ y : selectedRow[yLabel] });
                     currentChart.yAxis[0].setExtremes(Array.min(yCord) - 6,Array.max(yCord) + 6);
                 }
-                else if(yType =='time') {
+                else if (yType =='time') {
                     currentChart.series[0].data[currentData].update({ y : getTimeStamp(selectedRow[yLabel],$('#types_1').val())});
                 }
                 else {
@@ -303,14 +303,14 @@ $(document).ready(function() {
                     yCord = tempY[2];
 
                         $.each(data,function(key,value) {
-                        if(xType != 'text' )
+                        if (xType != 'text' )
                             newSeries[0].data.push({ name: value[dataLabel], x: value[xLabel], y: tempY[0][i], marker: {fillColor: colorCodes[i % 8]} , id: i } );
                         else
                             newSeries[0].data.push({ name: value[dataLabel], x: tempX[0][i], y: tempY[0][i], marker: {fillColor: colorCodes[i % 8]} , id: i } );
                         i++;
                     });
                     currentSettings.yAxis.labels = { formatter : function() {
-                        if(tempY[1][this.value] && tempY[1][this.value].length > 10)
+                        if (tempY[1][this.value] && tempY[1][this.value].length > 10)
                             return tempY[1][this.value].substring(0,10)
                         else
                             return tempY[1][this.value];
@@ -328,10 +328,10 @@ $(document).ready(function() {
         if (!isEmpty(newValues)) {
             var sql_query = 'UPDATE `' + window.parent.table + '` SET ';
             for (key in newValues) {
-                if(key != 'where_clause') {
+                if (key != 'where_clause') {
                     sql_query += '`' + key + '`=' ;
                     var value = newValues[key];
-                    if(!isNumeric(value) && value != null)
+                    if (!isNumeric(value) && value != null)
                         sql_query += '\'' + value + '\' ,';
                     else
                         sql_query += value + ' ,';
@@ -348,7 +348,7 @@ $(document).ready(function() {
                 'sql_query' : sql_query,
                 'inline_edit' : false
                 }, function(data) {
-                    if(data.success == true) {
+                    if (data.success == true) {
                         $('#sqlqueryresults').html(data.sql_query);
                         $("#sqlqueryresults").trigger('appendAnchor');
                     }
@@ -485,7 +485,7 @@ $(document).ready(function() {
                 yCord.push(value[yLabel]);
                 it++;
             });
-            if(xType == 'numeric') {
+            if (xType == 'numeric') {
                 currentSettings.xAxis.max = Array.max(xCord) + 6
                 currentSettings.xAxis.min = Array.min(xCord) - 6
             }
@@ -494,7 +494,7 @@ $(document).ready(function() {
                     return getDate(this.value, $('#types_0').val());
                 }}
             }
-            if(yType == 'numeric') {
+            if (yType == 'numeric') {
                 currentSettings.yAxis.max = Array.max(yCord) + 6
                 currentSettings.yAxis.min = Array.min(yCord) - 6
             }
@@ -520,13 +520,13 @@ $(document).ready(function() {
             });
 
             currentSettings.xAxis.labels = { formatter : function() {
-                    if(tempX[1][this.value] && tempX[1][this.value].length > 10)
+                    if (tempX[1][this.value] && tempX[1][this.value].length > 10)
                         return tempX[1][this.value].substring(0,10)
                     else
                         return tempX[1][this.value];
                 }
             }
-            if(yType == 'numeric') {
+            if (yType == 'numeric') {
                 currentSettings.yAxis.max = Array.max(yCord) + 6
                 currentSettings.yAxis.min = Array.min(yCord) - 6
             }
@@ -549,7 +549,7 @@ $(document).ready(function() {
                 series[0].data.push({ name: value[dataLabel], y: tempY[0][it], x: xVal, marker: {fillColor: colorCodes[it % 8]} , id: it } );
                 it++;
             });
-            if(xType == 'numeric') {
+            if (xType == 'numeric') {
                 currentSettings.xAxis.max = Array.max(xCord) + 6
                 currentSettings.xAxis.min = Array.min(xCord) - 6
             }
@@ -559,7 +559,7 @@ $(document).ready(function() {
                 }}
             }
             currentSettings.yAxis.labels = { formatter : function() {
-                    if(tempY[1][this.value] && tempY[1][this.value].length > 10)
+                    if (tempY[1][this.value] && tempY[1][this.value].length > 10)
                         return tempY[1][this.value].substring(0,10)
                     else
                         return tempY[1][this.value];
@@ -580,17 +580,17 @@ $(document).ready(function() {
                 it++;
             });
             currentSettings.xAxis.labels = { formatter : function() {
-                    if(tempX[1][this.value] && tempX[1][this.value].length > 10)
-                        return tempX[1][this.value].substring(0,10)
-                    else
-                        return tempX[1][this.value];
+                if (tempX[1][this.value] && tempX[1][this.value].length > 10) {
+                    return tempX[1][this.value].substring(0,10)
+                } else {
+                    return tempX[1][this.value];
                 }
             }
             currentSettings.yAxis.labels = { formatter : function() {
-                    if(tempY[1][this.value] && tempY[1][this.value].length > 10)
-                        return tempY[1][this.value].substring(0,10)
-                    else
-                        return tempY[1][this.value];
+                if (tempY[1][this.value] && tempY[1][this.value].length > 10) {
+                    return tempY[1][this.value].substring(0,10)
+                } else {
+                    return tempY[1][this.value];
                 }
             }
             xCord = tempX[2];
