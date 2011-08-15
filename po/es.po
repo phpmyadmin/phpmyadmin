@@ -1695,7 +1695,7 @@ msgstr "Ampliar búsqueda"
 
 #: js/messages.php:264
 msgid "Each point represents a data row."
-msgstr ""
+msgstr "Cada punto representa una fila de datos"
 
 #: js/messages.php:266
 msgid "Hovering over a point will show its label."
