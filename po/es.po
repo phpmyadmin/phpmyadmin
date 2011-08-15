@@ -1520,7 +1520,7 @@ msgstr "Sistema de consejos"
 
 #: js/messages.php:197
 msgid "Possible performance issues"
-msgstr ""
+msgstr "Posibles problemas de performance"
 
 #: js/messages.php:198
 msgid "Issue"
