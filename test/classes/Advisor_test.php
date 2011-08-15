@@ -9,7 +9,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/advisor.class.php';
+require_once 'libraries/Advisor.class.php';
 
 class Advisor_test extends PHPUnit_Framework_TestCase
 {
