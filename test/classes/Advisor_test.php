@@ -33,7 +33,7 @@ class Advisor_test extends PHPUnit_Framework_TestCase
     public function testParse()
     {
         $advisor = new Advisor();
-        $parseResult = $this->parseRulesFile();
+        $parseResult = $advisor->parseRulesFile();
         $this->assertEquals($parseResult['errors'], array());
     }
 }
