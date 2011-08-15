@@ -1677,9 +1677,7 @@ msgstr "Noktanın üzerinde durmak etiketini gösterecektir."
 
 #: js/messages.php:268
 msgid "Drag and select an area in the plot to zoom into it."
-msgstr ""
-"Grafiği çizilen yerin içinde yakınlaştırmak için sürükleyin ve bir alan "
-"seçin."
+msgstr "Çizim içinde yakınlaştırmak için sürükleyin ve bir alan seçin."
 
 #: js/messages.php:270
 msgid "Click reset zoom link to come back to original state."
