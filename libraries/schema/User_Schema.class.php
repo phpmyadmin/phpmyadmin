@@ -685,7 +685,7 @@ class PMA_User_Schema
                            . ' FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['relation'])
                            . ' WHERE master_db = \'' . $db . '\''
                            . ' GROUP BY master_table'
-                           . ' ORDER BY ' . PMA_backquote('COUNT(master_table)') . ' DESC ';
+                           . ' ORDER BY COUNT(master_table) DESC';
             $master_tables_rs = PMA_query_as_controluser($master_tables, false, PMA_DBI_QUERY_STORE);
             if ($master_tables_rs && PMA_DBI_num_rows($master_tables_rs) > 0) {
                 /* first put all the master tables at beginning
