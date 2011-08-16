@@ -11558,10 +11558,9 @@ msgstr ""
 "Izvedi \"query by example\" (nadomestni znak: \"%\") za dva različna stolpca"
 
 #: tbl_zoom_select.php:151
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Additional search criteria"
-msgstr "Skrij iskalne pogoje"
+msgstr "Dodatni iskalni pogoji"
 
 #: tbl_zoom_select.php:281
 #, fuzzy
