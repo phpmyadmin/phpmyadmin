@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-15 10:09+0200\n"
+"POT-Creation-Date: 2011-08-16 19:11+0200\n"
 "PO-Revision-Date: 2010-11-26 21:29+0200\n"
 "Last-Translator: <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
@@ -21,10 +21,10 @@ msgstr "Näytä kaikki"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:42
 #: libraries/common.lib.php:2258
-#: libraries/schema/Pdf_Relation_Schema.class.php:918
-#: libraries/schema/Pdf_Relation_Schema.class.php:934
-#: libraries/schema/User_Schema.class.php:355
-#: libraries/select_lang.lib.php:482
+#: libraries/schema/Pdf_Relation_Schema.class.php:922
+#: libraries/schema/Pdf_Relation_Schema.class.php:938
+#: libraries/schema/User_Schema.class.php:376
+#: libraries/select_lang.lib.php:487
 msgid "Page number:"
 msgstr "Sivunumero:"
 
@@ -39,8 +39,8 @@ msgstr ""
 "ikkunoiden väliset päivitystoiminnot."
 
 #: browse_foreigners.php:151 libraries/common.lib.php:2869
-#: libraries/common.lib.php:2876 libraries/common.lib.php:3062
-#: libraries/common.lib.php:3063 libraries/db_links.inc.php:60
+#: libraries/common.lib.php:2876 libraries/common.lib.php:3061
+#: libraries/common.lib.php:3062 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "Etsi"
@@ -48,25 +48,25 @@ msgstr "Etsi"
 #: browse_foreigners.php:154 db_operations.php:369 db_operations.php:409
 #: db_operations.php:517 db_operations.php:544 db_search.php:329
 #: db_structure.php:530 enum_editor.php:63 js/messages.php:207
-#: libraries/Config.class.php:1182 libraries/Theme_Manager.class.php:302
-#: libraries/auth/cookie.auth.lib.php:246 libraries/common.lib.php:1279
+#: libraries/Config.class.php:1187 libraries/Theme_Manager.class.php:307
+#: libraries/auth/cookie.auth.lib.php:247 libraries/common.lib.php:1279
 #: libraries/common.lib.php:2234 libraries/core.lib.php:508
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:349 libraries/display_import.lib.php:267
 #: libraries/display_tbl.lib.php:556 libraries/display_tbl.lib.php:674
 #: libraries/replication_gui.lib.php:76 libraries/replication_gui.lib.php:375
-#: libraries/rte/rte_events.lib.php:493 libraries/rte/rte_routines.lib.php:959
-#: libraries/rte/rte_routines.lib.php:1435
+#: libraries/rte/rte_events.lib.php:493 libraries/rte/rte_routines.lib.php:963
+#: libraries/rte/rte_routines.lib.php:1441
 #: libraries/rte/rte_triggers.lib.php:373
-#: libraries/schema/User_Schema.class.php:120
-#: libraries/schema/User_Schema.class.php:172
-#: libraries/schema/User_Schema.class.php:405
-#: libraries/schema/User_Schema.class.php:444
+#: libraries/schema/User_Schema.class.php:141
+#: libraries/schema/User_Schema.class.php:193
+#: libraries/schema/User_Schema.class.php:426
+#: libraries/schema/User_Schema.class.php:466
 #: libraries/select_server.lib.php:93 libraries/sql_query_form.lib.php:350
 #: libraries/sql_query_form.lib.php:413 libraries/sql_query_form.lib.php:466
 #: libraries/tbl_properties.inc.php:592 libraries/tbl_properties.inc.php:763
-#: main.php:109 navigation.php:169 navigation.php:207 pmd_pdf.php:124
+#: main.php:109 navigation.php:169 navigation.php:207 pmd_pdf.php:120
 #: prefs_manage.php:263 prefs_manage.php:314 server_binlog.php:109
 #: server_privileges.php:733 server_privileges.php:1781
 #: server_privileges.php:2138 server_privileges.php:2185
@@ -88,7 +88,7 @@ msgstr "Avaimen nimi"
 
 #: browse_foreigners.php:170 browse_foreigners.php:172
 #: server_collations.php:54 server_collations.php:66 server_engines.php:56
-#: server_status.php:1363
+#: server_status.php:1364
 msgid "Description"
 msgstr "Kuvaus"
 
@@ -98,7 +98,7 @@ msgid "Use this value"
 msgstr "Käytä tätä arvoa"
 
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
-#: libraries/blobstreaming.lib.php:343
+#: libraries/blobstreaming.lib.php:348
 msgid "No blob streaming server configured!"
 msgstr "BLOB-suoratoistopalvelinta ei ole määritelty."
 
@@ -128,7 +128,7 @@ msgstr "Tietokanta %1$s on luotu."
 msgid "Database comment: "
 msgstr "Tietokannan kommentti: "
 
-#: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1032
+#: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1036
 #: libraries/tbl_properties.inc.php:700 tbl_operations.php:366
 #: tbl_printview.php:124
 msgid "Table comments"
@@ -137,8 +137,8 @@ msgstr "Taulun kommentit"
 #: db_datadict.php:166 db_qbe.php:196 libraries/Index.class.php:436
 #: libraries/export/htmlword.php:251 libraries/export/latex.php:361
 #: libraries/export/odt.php:288 libraries/export/texytext.php:230
-#: libraries/schema/Pdf_Relation_Schema.class.php:1058
-#: libraries/schema/Pdf_Relation_Schema.class.php:1079
+#: libraries/schema/Pdf_Relation_Schema.class.php:1062
+#: libraries/schema/Pdf_Relation_Schema.class.php:1083
 #: libraries/tbl_properties.inc.php:277 libraries/tbl_select.lib.php:109
 #: tbl_change.php:313 tbl_chart.php:89 tbl_indexes.php:196
 #: tbl_printview.php:136 tbl_relation.php:399 tbl_tracking.php:257
@@ -150,11 +150,11 @@ msgstr "Sarake"
 #: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:252
 #: libraries/export/latex.php:361 libraries/export/odt.php:291
 #: libraries/export/texytext.php:231 libraries/rte/rte_list.lib.php:53
-#: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_routines.lib.php:825
-#: libraries/rte/rte_routines.lib.php:850
-#: libraries/rte/rte_routines.lib.php:1353
-#: libraries/schema/Pdf_Relation_Schema.class.php:1059
-#: libraries/schema/Pdf_Relation_Schema.class.php:1080
+#: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_routines.lib.php:829
+#: libraries/rte/rte_routines.lib.php:854
+#: libraries/rte/rte_routines.lib.php:1359
+#: libraries/schema/Pdf_Relation_Schema.class.php:1063
+#: libraries/schema/Pdf_Relation_Schema.class.php:1084
 #: libraries/tbl_properties.inc.php:103 libraries/tbl_select.lib.php:110
 #: server_privileges.php:2238 tbl_change.php:292 tbl_change.php:319
 #: tbl_printview.php:137 tbl_printview.php:277 tbl_structure.php:203
@@ -165,8 +165,8 @@ msgstr "Tyyppi"
 #: db_datadict.php:169 libraries/Index.class.php:439
 #: libraries/export/htmlword.php:253 libraries/export/latex.php:361
 #: libraries/export/odt.php:294 libraries/export/texytext.php:232
-#: libraries/schema/Pdf_Relation_Schema.class.php:1061
-#: libraries/schema/Pdf_Relation_Schema.class.php:1082
+#: libraries/schema/Pdf_Relation_Schema.class.php:1065
+#: libraries/schema/Pdf_Relation_Schema.class.php:1086
 #: libraries/tbl_properties.inc.php:112 tbl_change.php:328
 #: tbl_printview.php:139 tbl_structure.php:206 tbl_tracking.php:260
 #: tbl_tracking.php:311 tbl_zoom_select.php:409
@@ -176,8 +176,8 @@ msgstr "Tyhjä"
 #: db_datadict.php:170 db_structure.php:455 libraries/export/htmlword.php:254
 #: libraries/export/latex.php:361 libraries/export/odt.php:297
 #: libraries/export/texytext.php:233
-#: libraries/schema/Pdf_Relation_Schema.class.php:1062
-#: libraries/schema/Pdf_Relation_Schema.class.php:1083
+#: libraries/schema/Pdf_Relation_Schema.class.php:1066
+#: libraries/schema/Pdf_Relation_Schema.class.php:1087
 #: libraries/tbl_properties.inc.php:109 tbl_printview.php:140
 #: tbl_structure.php:207 tbl_tracking.php:261
 msgid "Default"
@@ -186,8 +186,8 @@ msgstr "Oletusarvo"
 #: db_datadict.php:174 libraries/export/htmlword.php:256
 #: libraries/export/latex.php:363 libraries/export/odt.php:301
 #: libraries/export/texytext.php:235
-#: libraries/schema/Pdf_Relation_Schema.class.php:1064
-#: libraries/schema/Pdf_Relation_Schema.class.php:1085 tbl_printview.php:144
+#: libraries/schema/Pdf_Relation_Schema.class.php:1068
+#: libraries/schema/Pdf_Relation_Schema.class.php:1089 tbl_printview.php:144
 msgid "Links to"
 msgstr "Linkitys sarakkeeseen:"
 
@@ -196,8 +196,8 @@ msgstr "Linkitys sarakkeeseen:"
 #: libraries/config/messages.inc.php:131 libraries/export/htmlword.php:259
 #: libraries/export/latex.php:366 libraries/export/odt.php:306
 #: libraries/export/texytext.php:238
-#: libraries/schema/Pdf_Relation_Schema.class.php:1075
-#: libraries/schema/Pdf_Relation_Schema.class.php:1086
+#: libraries/schema/Pdf_Relation_Schema.class.php:1079
+#: libraries/schema/Pdf_Relation_Schema.class.php:1090
 #: libraries/tbl_properties.inc.php:132 tbl_printview.php:146
 msgid "Comments"
 msgstr "Kommentit"
@@ -208,7 +208,7 @@ msgstr "Kommentit"
 #: libraries/config/FormDisplay.tpl.php:198 libraries/export/htmlword.php:301
 #: libraries/export/latex.php:409 libraries/export/odt.php:345
 #: libraries/export/texytext.php:280 libraries/mult_submits.inc.php:287
-#: libraries/schema/Pdf_Relation_Schema.class.php:1109
+#: libraries/schema/Pdf_Relation_Schema.class.php:1113
 #: libraries/user_preferences.lib.php:270 prefs_manage.php:128
 #: server_privileges.php:1468 server_privileges.php:1479
 #: server_privileges.php:1725 server_privileges.php:1736
@@ -229,7 +229,7 @@ msgstr "Ei"
 #: libraries/mult_submits.inc.php:102 libraries/mult_submits.inc.php:262
 #: libraries/mult_submits.inc.php:276 libraries/mult_submits.inc.php:286
 #: libraries/mult_submits.inc.php:299
-#: libraries/schema/Pdf_Relation_Schema.class.php:1109
+#: libraries/schema/Pdf_Relation_Schema.class.php:1113
 #: libraries/user_preferences.lib.php:270 prefs_manage.php:127
 #: server_databases.php:76 server_privileges.php:1465
 #: server_privileges.php:1476 server_privileges.php:1722
@@ -360,7 +360,7 @@ msgstr "Relaatioskeeman muokkaus tai vienti"
 #: libraries/export/pdf.php:95 libraries/export/xml.php:346
 #: libraries/header.inc.php:158 libraries/rte/rte_list.lib.php:59
 #: libraries/rte/rte_triggers.lib.php:310
-#: libraries/schema/User_Schema.class.php:233 server_privileges.php:1832
+#: libraries/schema/User_Schema.class.php:254 server_privileges.php:1832
 #: server_privileges.php:1888 server_privileges.php:2152
 #: server_synchronize.php:399 server_synchronize.php:826 tbl_tracking.php:634
 msgid "Table"
@@ -384,21 +384,21 @@ msgstr "käytössä"
 
 #: db_printview.php:185 libraries/db_info.inc.php:61
 #: libraries/export/sql.php:711
-#: libraries/schema/Pdf_Relation_Schema.class.php:1037 tbl_printview.php:398
+#: libraries/schema/Pdf_Relation_Schema.class.php:1041 tbl_printview.php:398
 #: tbl_structure.php:908
 msgid "Creation"
 msgstr "Luotu"
 
 #: db_printview.php:194 libraries/db_info.inc.php:66
 #: libraries/export/sql.php:716
-#: libraries/schema/Pdf_Relation_Schema.class.php:1042 tbl_printview.php:408
+#: libraries/schema/Pdf_Relation_Schema.class.php:1046 tbl_printview.php:408
 #: tbl_structure.php:916
 msgid "Last update"
 msgstr "Viimeksi päivitetty"
 
 #: db_printview.php:203 libraries/db_info.inc.php:71
 #: libraries/export/sql.php:721
-#: libraries/schema/Pdf_Relation_Schema.class.php:1047 tbl_printview.php:418
+#: libraries/schema/Pdf_Relation_Schema.class.php:1051 tbl_printview.php:418
 #: tbl_structure.php:924
 msgid "Last check"
 msgstr "Viimeksi tarkistettu"
@@ -497,7 +497,7 @@ msgstr "Suorita"
 
 #: db_search.php:30 libraries/auth/config.auth.lib.php:77
 #: libraries/auth/config.auth.lib.php:96
-#: libraries/auth/cookie.auth.lib.php:567 libraries/auth/http.auth.lib.php:51
+#: libraries/auth/cookie.auth.lib.php:568 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:237
 msgid "Access denied"
 msgstr "Käyttö estetty"
@@ -531,7 +531,7 @@ msgstr[0] "%s hakutulosta taulussa <i>%s</i>"
 msgstr[1] "%s hakutulosta taulussa <i>%s</i>"
 
 #: db_search.php:225 libraries/common.lib.php:2871
-#: libraries/common.lib.php:3060 libraries/common.lib.php:3061
+#: libraries/common.lib.php:3059 libraries/common.lib.php:3060
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:566
 msgid "Browse"
 msgstr "Selaa"
@@ -543,10 +543,10 @@ msgstr "Poista taulusta %s löytyneet tulokset?"
 
 #: db_search.php:230 libraries/display_tbl.lib.php:1362
 #: libraries/display_tbl.lib.php:2342
-#: libraries/schema/User_Schema.class.php:165
-#: libraries/schema/User_Schema.class.php:234
-#: libraries/schema/User_Schema.class.php:269
-#: libraries/schema/User_Schema.class.php:299
+#: libraries/schema/User_Schema.class.php:186
+#: libraries/schema/User_Schema.class.php:255
+#: libraries/schema/User_Schema.class.php:290
+#: libraries/schema/User_Schema.class.php:320
 #: libraries/sql_query_form.lib.php:406 pmd_general.php:423
 #: setup/frames/index.inc.php:139 setup/frames/index.inc.php:230
 #: tbl_tracking.php:426 tbl_tracking.php:447 tbl_tracking.php:504
@@ -668,12 +668,12 @@ msgstr "Poista valinta kaikista"
 msgid "Check tables having overhead"
 msgstr "Valitse taulut, joissa on ylijäämää"
 
-#: db_structure.php:498 libraries/common.lib.php:3073
-#: libraries/common.lib.php:3074 libraries/config/messages.inc.php:164
+#: db_structure.php:498 libraries/common.lib.php:3072
+#: libraries/common.lib.php:3073 libraries/config/messages.inc.php:164
 #: libraries/db_links.inc.php:56 libraries/display_tbl.lib.php:2380
 #: libraries/display_tbl.lib.php:2518 libraries/server_links.inc.php:65
 #: libraries/tbl_links.inc.php:80 prefs_manage.php:286
-#: server_privileges.php:1441 server_status.php:1484
+#: server_privileges.php:1441 server_status.php:1485
 #: setup/frames/menu.inc.php:21
 msgid "Export"
 msgstr "Vienti"
@@ -683,13 +683,13 @@ msgstr "Vienti"
 msgid "Print view"
 msgstr "Tulostusversio"
 
-#: db_structure.php:504 libraries/common.lib.php:3069
-#: libraries/common.lib.php:3070
+#: db_structure.php:504 libraries/common.lib.php:3068
+#: libraries/common.lib.php:3069
 msgid "Empty"
 msgstr "Tyhjennä"
 
 #: db_structure.php:506 db_tracking.php:104 libraries/Index.class.php:482
-#: libraries/common.lib.php:3067 libraries/common.lib.php:3068
+#: libraries/common.lib.php:3066 libraries/common.lib.php:3067
 #: server_databases.php:265 tbl_structure.php:151 tbl_structure.php:152
 #: tbl_structure.php:570
 msgid "Drop"
@@ -729,7 +729,7 @@ msgstr "Korvaa taulun nykyiset rivit tiedostolla"
 msgid "Copy table with prefix"
 msgstr "Korvaa taulun nykyiset rivit tiedostolla"
 
-#: db_structure.php:560 libraries/schema/User_Schema.class.php:382
+#: db_structure.php:560 libraries/schema/User_Schema.class.php:403
 msgid "Data Dictionary"
 msgstr "Tietosanasto"
 
@@ -744,7 +744,7 @@ msgstr "Seurattavat taulut"
 #: libraries/export/xml.php:279 libraries/header.inc.php:146
 #: libraries/header_printview.inc.php:57 server_databases.php:156
 #: server_privileges.php:1827 server_privileges.php:1888
-#: server_privileges.php:2146 server_status.php:1117
+#: server_privileges.php:2146 server_status.php:1118
 #: server_synchronize.php:1140 server_synchronize.php:1144
 #: tbl_tracking.php:633
 msgid "Database"
@@ -764,7 +764,7 @@ msgstr "Päivitetty"
 
 #: db_tracking.php:89 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
-#: server_status.php:1120 sql.php:842 tbl_tracking.php:638
+#: server_status.php:1121 sql.php:870 tbl_tracking.php:638
 msgid "Status"
 msgstr "Tila"
 
@@ -869,14 +869,14 @@ msgstr ""
 "Yritit todennäköisesti lähettää palvelimelle liian suurta tiedostoa. Katso "
 "tämän rajoituksen muuttamisesta lisätietoja %sohjeista%s."
 
-#: import.php:277 import.php:330 libraries/File.class.php:456
-#: libraries/File.class.php:539
+#: import.php:277 import.php:330 libraries/File.class.php:457
+#: libraries/File.class.php:540
 msgid "File could not be read"
 msgstr "Tiedostoa ei voi lukea"
 
 #: import.php:285 import.php:294 import.php:313 import.php:322
-#: libraries/File.class.php:609 libraries/File.class.php:617
-#: libraries/File.class.php:633 libraries/File.class.php:641
+#: libraries/File.class.php:610 libraries/File.class.php:618
+#: libraries/File.class.php:634 libraries/File.class.php:642
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -907,7 +907,7 @@ msgstr "Kirjanmerkki on poistettu."
 msgid "Showing bookmark"
 msgstr "Näytetään kirjanmerkki"
 
-#: import.php:401 sql.php:877
+#: import.php:401 sql.php:905
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Kirjanmerkki %s luotu"
@@ -935,7 +935,7 @@ msgstr ""
 "asti ellei PHP:n suoritusaikarajaa nosteta."
 
 #: import.php:452 libraries/Message.class.php:175
-#: libraries/display_tbl.lib.php:2263 libraries/rte/rte_routines.lib.php:1193
+#: libraries/display_tbl.lib.php:2263 libraries/rte/rte_routines.lib.php:1197
 #: libraries/sql_query_form.lib.php:113 tbl_operations.php:229
 #: tbl_relation.php:289 tbl_row_action.php:126 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
@@ -1054,9 +1054,9 @@ msgstr "Sulje"
 
 #: js/messages.php:64 js/messages.php:249 libraries/Index.class.php:460
 #: libraries/common.lib.php:580 libraries/common.lib.php:1113
-#: libraries/common.lib.php:3071 libraries/common.lib.php:3072
+#: libraries/common.lib.php:3070 libraries/common.lib.php:3071
 #: libraries/config/messages.inc.php:478 libraries/display_tbl.lib.php:1326
-#: libraries/schema/User_Schema.class.php:164 setup/frames/index.inc.php:138
+#: libraries/schema/User_Schema.class.php:185 setup/frames/index.inc.php:138
 msgid "Edit"
 msgstr "Muokkaa"
 
@@ -1083,13 +1083,13 @@ msgstr ""
 #. l10n: Total number of queries
 #: js/messages.php:71 libraries/build_html_for_db.lib.php:46
 #: libraries/engines/innodb.lib.php:158 server_databases.php:218
-#: server_status.php:1020 server_status.php:1081 tbl_printview.php:315
+#: server_status.php:1021 server_status.php:1082 tbl_printview.php:315
 #: tbl_structure.php:798
 msgid "Total"
 msgstr "Yhteensä"
 
 #. l10n: Other, small valued, queries
-#: js/messages.php:73 server_status.php:918
+#: js/messages.php:73 server_status.php:919
 msgid "Other"
 msgstr ""
 
@@ -1121,7 +1121,7 @@ msgstr "Valitse palvelin"
 msgid "Connections since last refresh"
 msgstr ""
 
-#: js/messages.php:83 js/messages.php:121 server_status.php:1113
+#: js/messages.php:83 js/messages.php:121 server_status.php:1114
 msgid "Processes"
 msgstr "Prosessit"
 
@@ -1148,7 +1148,7 @@ msgstr "Kyselyn ominaisuuksia"
 #: js/messages.php:93
 #, fuzzy
 #| msgid "Cannot load or save configuration"
-msgid "Local monitor configuration icompatible"
+msgid "Local monitor configuration incompatible"
 msgstr "Asetuksia ei voi ladata tai tallentaa"
 
 #: js/messages.php:94
@@ -1257,7 +1257,7 @@ msgstr ""
 msgid "Bytes received"
 msgstr "Vastaanotettu"
 
-#: js/messages.php:120 server_status.php:1039
+#: js/messages.php:120 server_status.php:1040
 msgid "Connections"
 msgstr "Yhteydet"
 
@@ -1268,12 +1268,12 @@ msgstr "Yhteydet"
 msgid "Questions"
 msgstr "Versiot"
 
-#: js/messages.php:125 server_status.php:994
+#: js/messages.php:125 server_status.php:995
 msgid "Traffic"
 msgstr "Liikenne"
 
 #: js/messages.php:126 libraries/server_links.inc.php:73
-#: server_status.php:1441
+#: server_status.php:1442
 msgid "Settings"
 msgstr "Asetukset"
 
@@ -1300,7 +1300,7 @@ msgstr ""
 #: js/messages.php:132 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:554 libraries/export/sql.php:1052
 #: libraries/tbl_properties.inc.php:544 pmd_general.php:510
-#: server_privileges.php:2042 server_status.php:1154 server_status.php:1582
+#: server_privileges.php:2042 server_status.php:1155 server_status.php:1582
 #: tbl_zoom_select.php:158 tbl_zoom_select.php:283
 msgid "None"
 msgstr "Ei mitään"
@@ -1530,7 +1530,7 @@ msgstr ""
 
 #: js/messages.php:190 libraries/config/messages.inc.php:170
 #: libraries/db_links.inc.php:83 libraries/server_links.inc.php:69
-#: libraries/tbl_links.inc.php:89 prefs_manage.php:229 server_status.php:1484
+#: libraries/tbl_links.inc.php:89 prefs_manage.php:229 server_status.php:1485
 #: setup/frames/menu.inc.php:20
 msgid "Import"
 msgstr "Tuonti"
@@ -1717,7 +1717,7 @@ msgid "Query execution time"
 msgstr "Suorituksen enimmäiskesto"
 
 #: js/messages.php:255 libraries/config/FormDisplay.tpl.php:323
-#: libraries/schema/User_Schema.class.php:313
+#: libraries/schema/User_Schema.class.php:334
 #: libraries/tbl_properties.inc.php:752 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:228 tbl_change.php:979
 #: tbl_gis_visualization.php:222 tbl_indexes.php:261 tbl_relation.php:563
@@ -2145,27 +2145,27 @@ msgstr "Minuutti"
 msgid "Second"
 msgstr "Sekunti"
 
-#: libraries/Config.class.php:1154
+#: libraries/Config.class.php:1159
 msgid "Font size"
 msgstr "Fonttikoko"
 
-#: libraries/File.class.php:220
+#: libraries/File.class.php:221
 msgid "File was not an uploaded file."
 msgstr ""
 
-#: libraries/File.class.php:259 libraries/File.class.php:388
+#: libraries/File.class.php:260 libraries/File.class.php:389
 #, fuzzy
 #| msgid "Unknown error in file upload."
 msgid "Unknown error while uploading."
 msgstr "Tuntematon virhe tiedostoa lähetettäessä."
 
-#: libraries/File.class.php:277
+#: libraries/File.class.php:278
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
 "Lähetyn tidoston koko ylittää php.ini-tiedoston upload_max_filesize-"
 "asetuksen arvon."
 
-#: libraries/File.class.php:280
+#: libraries/File.class.php:281
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
@@ -2173,37 +2173,37 @@ msgstr ""
 "Lähetetyn tiedoston koko ylittää HTML-lomakkeessa määritetyn MAX_FILE_SIZE-"
 "asetuksen arvon."
 
-#: libraries/File.class.php:283
+#: libraries/File.class.php:284
 msgid "The uploaded file was only partially uploaded."
 msgstr "Tiedosto lähetettiin vain osittain."
 
-#: libraries/File.class.php:286
+#: libraries/File.class.php:287
 msgid "Missing a temporary folder."
 msgstr "Tilapäiskansio puuttuu."
 
-#: libraries/File.class.php:289
+#: libraries/File.class.php:290
 msgid "Failed to write file to disk."
 msgstr "Tiedoston kirjoitus levylle epäonnistui."
 
-#: libraries/File.class.php:292
+#: libraries/File.class.php:293
 msgid "File upload stopped by extension."
 msgstr "Laajennus keskeytti tiedoston lähetyksen."
 
-#: libraries/File.class.php:295
+#: libraries/File.class.php:296
 msgid "Unknown error in file upload."
 msgstr "Tuntematon virhe tiedostoa lähetettäessä."
 
-#: libraries/File.class.php:495
+#: libraries/File.class.php:496
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr "Virhe lähetettäessä tiedostoa, katso FAQ 1.11"
 
-#: libraries/File.class.php:507
+#: libraries/File.class.php:508
 msgid "Error while moving uploaded file."
 msgstr ""
 
-#: libraries/File.class.php:515
+#: libraries/File.class.php:516
 msgid "Cannot read (moved) upload file."
 msgstr ""
 
@@ -2231,7 +2231,7 @@ msgid "Cardinality"
 msgstr "Kardinaliteetti"
 
 #: libraries/Index.class.php:440 libraries/rte/rte_events.lib.php:480
-#: libraries/rte/rte_routines.lib.php:946 tbl_tracking.php:263
+#: libraries/rte/rte_routines.lib.php:950 tbl_tracking.php:263
 #: tbl_tracking.php:312
 msgid "Comment"
 msgstr "Kommentti"
@@ -2254,14 +2254,14 @@ msgstr ""
 "Indeksit %1$s ja %2$s ovat ehkä samoja, ja niistä jompikumpi kannattanee "
 "poistaa."
 
-#: libraries/List_Database.class.php:378 libraries/config/messages.inc.php:177
+#: libraries/List_Database.class.php:379 libraries/config/messages.inc.php:177
 #: libraries/server_links.inc.php:43 server_databases.php:99
 #: server_privileges.php:1827
 msgid "Databases"
 msgstr "Tietokannat"
 
-#: libraries/Message.class.php:193 libraries/blobstreaming.lib.php:320
-#: libraries/blobstreaming.lib.php:326 libraries/common.lib.php:547
+#: libraries/Message.class.php:193 libraries/blobstreaming.lib.php:325
+#: libraries/blobstreaming.lib.php:331 libraries/common.lib.php:547
 #: libraries/core.lib.php:210 libraries/import.lib.php:135 tbl_change.php:886
 #: tbl_operations.php:229 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
@@ -2368,16 +2368,16 @@ msgid ""
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: libraries/Theme.class.php:144
+#: libraries/Theme.class.php:145
 #, php-format
 msgid "No valid image path for theme %s found!"
 msgstr "Kelvollista polkua teemalle %s ei löytynyt."
 
-#: libraries/Theme.class.php:338
+#: libraries/Theme.class.php:340
 msgid "No preview available."
 msgstr "Esikatselu ei ole saatavilla."
 
-#: libraries/Theme.class.php:341
+#: libraries/Theme.class.php:343
 msgid "take it"
 msgstr "käytä tätä"
 
@@ -2391,12 +2391,12 @@ msgstr "Oletusteemaa %s ei löydy!"
 msgid "Theme %s not found!"
 msgstr "Teemaa %s ei löydy!"
 
-#: libraries/Theme_Manager.class.php:216
+#: libraries/Theme_Manager.class.php:217
 #, php-format
 msgid "Theme path not found for theme %s!"
 msgstr "Teeman %s polkua ei löydy!"
 
-#: libraries/Theme_Manager.class.php:289 themes.php:20 themes.php:27
+#: libraries/Theme_Manager.class.php:294 themes.php:20 themes.php:27
 msgid "Theme"
 msgstr ""
 
@@ -2405,7 +2405,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "Yhteyttä ei voitu muodostaa: virheelliset asetukset."
 
 #: libraries/auth/config.auth.lib.php:85
-#: libraries/auth/cookie.auth.lib.php:173 libraries/auth/http.auth.lib.php:64
+#: libraries/auth/cookie.auth.lib.php:174 libraries/auth/http.auth.lib.php:64
 #, php-format
 msgid "Welcome to %s"
 msgstr "Tervetuloa, toivottaa %s"
@@ -2431,44 +2431,44 @@ msgstr ""
 "php-tiedostosta ja varmista, että ne vastaavat MySQL-palvelimen "
 "järjestelmänvalvojan antamia tietoja."
 
-#: libraries/auth/cookie.auth.lib.php:198
+#: libraries/auth/cookie.auth.lib.php:199
 msgid "Log in"
 msgstr "Kirjaudu sisään"
 
-#: libraries/auth/cookie.auth.lib.php:200
-#: libraries/auth/cookie.auth.lib.php:202
+#: libraries/auth/cookie.auth.lib.php:201
+#: libraries/auth/cookie.auth.lib.php:203
 #: libraries/navigation_header.inc.php:92
 #: libraries/navigation_header.inc.php:96
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdminin ohjeet"
 
-#: libraries/auth/cookie.auth.lib.php:212
 #: libraries/auth/cookie.auth.lib.php:213
+#: libraries/auth/cookie.auth.lib.php:214
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 "Voit syöttää verkkotunnuksen/IP-osoitteen ja portin välilyönnillä erotettuna."
 
-#: libraries/auth/cookie.auth.lib.php:212
+#: libraries/auth/cookie.auth.lib.php:213
 msgid "Server:"
 msgstr "Palvelin"
 
-#: libraries/auth/cookie.auth.lib.php:217
+#: libraries/auth/cookie.auth.lib.php:218
 msgid "Username:"
 msgstr "Käyttäjätunnus:"
 
-#: libraries/auth/cookie.auth.lib.php:221
+#: libraries/auth/cookie.auth.lib.php:222
 msgid "Password:"
 msgstr "Salasana:"
 
-#: libraries/auth/cookie.auth.lib.php:228
+#: libraries/auth/cookie.auth.lib.php:229
 msgid "Server Choice"
 msgstr "Valitse palvelin"
 
-#: libraries/auth/cookie.auth.lib.php:274 libraries/header.inc.php:87
+#: libraries/auth/cookie.auth.lib.php:275 libraries/header.inc.php:87
 msgid "Cookies must be enabled past this point."
 msgstr "Selaimessa on oltava evästeet päällä tästä lähtien."
 
-#: libraries/auth/cookie.auth.lib.php:565
+#: libraries/auth/cookie.auth.lib.php:566
 #: libraries/auth/signon.auth.lib.php:235
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
@@ -2476,7 +2476,7 @@ msgstr ""
 "Kirjautuminen ilman salasanaa on kielletty asetuksissa (katso "
 "AllowNoPassword)"
 
-#: libraries/auth/cookie.auth.lib.php:569
+#: libraries/auth/cookie.auth.lib.php:570
 #: libraries/auth/signon.auth.lib.php:239
 #, php-format
 msgid "No activity within %s seconds; please log in again"
@@ -2484,8 +2484,8 @@ msgstr ""
 "Yhteys on ollut toimettomana %s sekuntia tai kauemmin. Kirjaudu sisään "
 "uudestaan."
 
-#: libraries/auth/cookie.auth.lib.php:579
-#: libraries/auth/cookie.auth.lib.php:581
+#: libraries/auth/cookie.auth.lib.php:580
+#: libraries/auth/cookie.auth.lib.php:582
 #: libraries/auth/signon.auth.lib.php:243
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL-palvelimelle ei voitu kirjautua"
@@ -2518,41 +2518,41 @@ msgstr "Kelvollista todennusavainta ei ole asetettu"
 msgid "Authenticating..."
 msgstr "Todennetaan..."
 
-#: libraries/blobstreaming.lib.php:239
+#: libraries/blobstreaming.lib.php:244
 msgid "PBMS error"
 msgstr "PBMS-virhe"
 
-#: libraries/blobstreaming.lib.php:272
+#: libraries/blobstreaming.lib.php:277
 msgid "PBMS connection failed:"
 msgstr "PBMS-yhteys epäonnistui:"
 
-#: libraries/blobstreaming.lib.php:324
+#: libraries/blobstreaming.lib.php:329
 msgid "PBMS get BLOB info failed:"
 msgstr "PBMS:n BLOB-tietojen haku epäonnistui:"
 
-#: libraries/blobstreaming.lib.php:332
+#: libraries/blobstreaming.lib.php:337
 #, fuzzy
 #| msgid "get BLOB Content-Type failed"
 msgid "PBMS get BLOB Content-Type failed"
 msgstr "BLOB Content-Typen haku epäonnistui"
 
-#: libraries/blobstreaming.lib.php:358
+#: libraries/blobstreaming.lib.php:363
 msgid "View image"
 msgstr "Näytä kuva"
 
-#: libraries/blobstreaming.lib.php:362
+#: libraries/blobstreaming.lib.php:367
 msgid "Play audio"
 msgstr "Toista ääni"
 
-#: libraries/blobstreaming.lib.php:367
+#: libraries/blobstreaming.lib.php:372
 msgid "View video"
 msgstr "Näytä video"
 
-#: libraries/blobstreaming.lib.php:371
+#: libraries/blobstreaming.lib.php:376
 msgid "Download file"
 msgstr "Lataa tiedosto"
 
-#: libraries/blobstreaming.lib.php:433
+#: libraries/blobstreaming.lib.php:443
 #, php-format
 msgid "Could not open file: %s"
 msgstr "Tiedostoa ei voida avata: %s"
@@ -2689,7 +2689,7 @@ msgid "Documentation"
 msgstr "Ohjeet"
 
 #: libraries/common.lib.php:559 libraries/header_printview.inc.php:60
-#: server_status.php:532 server_status.php:1122
+#: server_status.php:532 server_status.php:1123
 msgid "SQL query"
 msgstr "SQL-kysely"
 
@@ -2699,7 +2699,7 @@ msgstr "SQL-kysely"
 #: libraries/rte/rte_routines.lib.php:260
 #: libraries/rte/rte_routines.lib.php:270
 #: libraries/rte/rte_routines.lib.php:284
-#: libraries/rte/rte_routines.lib.php:1243
+#: libraries/rte/rte_routines.lib.php:1247
 #: libraries/rte/rte_triggers.lib.php:76 libraries/rte/rte_triggers.lib.php:81
 #: libraries/rte/rte_triggers.lib.php:91
 #: libraries/rte/rte_triggers.lib.php:104
@@ -2748,7 +2748,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Muokkaus"
 
-#: libraries/common.lib.php:1278 sql.php:838
+#: libraries/common.lib.php:1278 sql.php:866
 msgid "Profiling"
 msgstr "Profilointi"
 
@@ -2851,7 +2851,7 @@ msgid "Click to toggle"
 msgstr "Valitse painamalla"
 
 #: libraries/common.lib.php:2867 libraries/common.lib.php:2874
-#: libraries/common.lib.php:3066 libraries/config/setup.forms.php:293
+#: libraries/common.lib.php:3065 libraries/config/setup.forms.php:293
 #: libraries/config/setup.forms.php:330 libraries/config/setup.forms.php:356
 #: libraries/config/user_preferences.forms.php:192
 #: libraries/config/user_preferences.forms.php:229
@@ -2871,8 +2871,8 @@ msgstr "Rakenne"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:2870 libraries/common.lib.php:3064
-#: libraries/common.lib.php:3065 libraries/sql_query_form.lib.php:284
+#: libraries/common.lib.php:2870 libraries/common.lib.php:3063
+#: libraries/common.lib.php:3064 libraries/sql_query_form.lib.php:284
 #: libraries/sql_query_form.lib.php:287 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "Lisää rivi"
@@ -2883,25 +2883,25 @@ msgstr "Lisää rivi"
 msgid "Operations"
 msgstr "Toiminnot"
 
-#: libraries/common.lib.php:3010
+#: libraries/common.lib.php:3009
 msgid "Browse your computer:"
 msgstr "Selaa tietokonettasi:"
 
-#: libraries/common.lib.php:3027
+#: libraries/common.lib.php:3026
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Valitse verkkopalvelimen lähetyskansiosta <b>%s</b>:"
 
-#: libraries/common.lib.php:3039 libraries/sql_query_form.lib.php:447
+#: libraries/common.lib.php:3038 libraries/sql_query_form.lib.php:447
 #: tbl_change.php:887
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Tiedostojen lähetykseen valittua hakemistoa ei voida käyttää"
 
-#: libraries/common.lib.php:3047
+#: libraries/common.lib.php:3046
 msgid "There are no files to upload"
 msgstr "Lähetettäviä tiedostoja ei ole"
 
-#: libraries/common.lib.php:3075 libraries/common.lib.php:3076
+#: libraries/common.lib.php:3074 libraries/common.lib.php:3075
 msgid "Execute"
 msgstr ""
 
@@ -3066,7 +3066,7 @@ msgid "Allow users to customize this value"
 msgstr "Anna käyttäjien mukauttaa tätä arvoa"
 
 #: libraries/config/FormDisplay.tpl.php:324
-#: libraries/schema/User_Schema.class.php:465 prefs_manage.php:318
+#: libraries/schema/User_Schema.class.php:487 prefs_manage.php:318
 #: prefs_manage.php:323 tbl_change.php:1028
 msgid "Reset"
 msgstr "Nollaa"
@@ -5508,8 +5508,8 @@ msgstr "Luo uusi taulu tietokantaan %s"
 
 #: libraries/display_create_table.lib.php:51 libraries/rte/rte_list.lib.php:51
 #: libraries/rte/rte_list.lib.php:57 libraries/rte/rte_list.lib.php:66
-#: libraries/rte/rte_routines.lib.php:849
-#: libraries/rte/rte_routines.lib.php:1352
+#: libraries/rte/rte_routines.lib.php:853
+#: libraries/rte/rte_routines.lib.php:1358
 #: libraries/tbl_properties.inc.php:102 setup/frames/index.inc.php:126
 #: tbl_structure.php:202
 msgid "Name"
@@ -5879,7 +5879,7 @@ msgstr "Lajittele avaimen mukaan"
 #: libraries/import/csv.php:33 libraries/import/docsql.php:35
 #: libraries/import/ldi.php:49 libraries/import/ods.php:32
 #: libraries/import/sql.php:20 libraries/import/xml.php:25
-#: libraries/rte/rte_routines.lib.php:852 tbl_select.php:152
+#: libraries/rte/rte_routines.lib.php:856 tbl_select.php:152
 #: tbl_structure.php:852
 msgid "Options"
 msgstr "Valinnat"
@@ -5945,7 +5945,7 @@ msgid "The row has been deleted"
 msgstr "Rivi on poistettu"
 
 #: libraries/display_tbl.lib.php:1381 libraries/display_tbl.lib.php:2342
-#: server_status.php:1150
+#: server_status.php:1151
 msgid "Kill"
 msgstr "Lopeta"
 
@@ -6554,7 +6554,7 @@ msgstr "Näytä MIME-tyypit"
 #: libraries/replication_gui.lib.php:335 server_privileges.php:800
 #: server_privileges.php:803 server_privileges.php:859
 #: server_privileges.php:1694 server_privileges.php:2237
-#: server_status.php:1116
+#: server_status.php:1117
 msgid "Host"
 msgstr "Palvelin"
 
@@ -6768,7 +6768,7 @@ msgstr "SQL-kyselyn tulos"
 msgid "Generated by"
 msgstr "Luontiympäristö"
 
-#: libraries/import.lib.php:152 libraries/rte/rte_routines.lib.php:1237
+#: libraries/import.lib.php:152 libraries/rte/rte_routines.lib.php:1241
 #: sql.php:699 tbl_change.php:183 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL palautti tyhjän tulosjoukon (siis nolla riviä)."
@@ -6872,7 +6872,7 @@ msgstr "DocSQL"
 msgid "Table name"
 msgstr "Taulun nimi"
 
-#: libraries/import/ldi.php:45 libraries/schema/User_Schema.class.php:312
+#: libraries/import/ldi.php:45 libraries/schema/User_Schema.class.php:333
 #: view_create.php:147
 msgid "Column names"
 msgstr "Sarakkeiden nimet"
@@ -7245,7 +7245,7 @@ msgstr ""
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
-#: libraries/relation.lib.php:1077
+#: libraries/relation.lib.php:1076
 msgid "no description"
 msgstr "ei kuvausta"
 
@@ -7282,14 +7282,14 @@ msgid "Slave status"
 msgstr "Alipalvelimen tila"
 
 #: libraries/replication_gui.lib.php:118 libraries/sql_query_form.lib.php:382
-#: server_status.php:1361 server_variables.php:108
+#: server_status.php:1362 server_variables.php:108
 msgid "Variable"
 msgstr "Muuttuja"
 
 #: libraries/replication_gui.lib.php:119
-#: libraries/rte/rte_routines.lib.php:1357 libraries/tbl_select.lib.php:113
+#: libraries/rte/rte_routines.lib.php:1363 libraries/tbl_select.lib.php:113
 #: pmd_general.php:476 pmd_general.php:535 pmd_general.php:658
-#: pmd_general.php:775 server_status.php:1362 tbl_change.php:329
+#: pmd_general.php:775 server_status.php:1363 tbl_change.php:329
 #: tbl_printview.php:334 tbl_structure.php:828 tbl_zoom_select.php:410
 msgid "Value"
 msgstr "Arvo"
@@ -7353,7 +7353,7 @@ msgstr "Keksi salasana"
 #: libraries/rte/rte_events.lib.php:130 libraries/rte/rte_routines.lib.php:254
 #: libraries/rte/rte_routines.lib.php:259
 #: libraries/rte/rte_routines.lib.php:283
-#: libraries/rte/rte_routines.lib.php:1242
+#: libraries/rte/rte_routines.lib.php:1246
 #: libraries/rte/rte_triggers.lib.php:75 libraries/rte/rte_triggers.lib.php:80
 #: libraries/rte/rte_triggers.lib.php:103
 #, fuzzy, php-format
@@ -7393,16 +7393,16 @@ msgstr ""
 msgid "Edit event"
 msgstr "Muokkaa palvelinta"
 
-#: libraries/rte/rte_events.lib.php:212 libraries/rte/rte_routines.lib.php:370
-#: libraries/rte/rte_routines.lib.php:1264
-#: libraries/rte/rte_routines.lib.php:1300
+#: libraries/rte/rte_events.lib.php:212 libraries/rte/rte_routines.lib.php:372
+#: libraries/rte/rte_routines.lib.php:1268
+#: libraries/rte/rte_routines.lib.php:1304
 #: libraries/rte/rte_triggers.lib.php:187
 #, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing request"
 msgstr "Virhe pyynnön käsittelyssä"
 
-#: libraries/rte/rte_events.lib.php:371 libraries/rte/rte_routines.lib.php:817
+#: libraries/rte/rte_events.lib.php:371 libraries/rte/rte_routines.lib.php:821
 #: libraries/rte/rte_triggers.lib.php:302
 #, fuzzy
 #| msgid "Details..."
@@ -7419,7 +7419,7 @@ msgstr "Tapahtuman tyyppi"
 msgid "Event type"
 msgstr "Tapahtuman tyyppi"
 
-#: libraries/rte/rte_events.lib.php:416 libraries/rte/rte_routines.lib.php:838
+#: libraries/rte/rte_events.lib.php:416 libraries/rte/rte_routines.lib.php:842
 #, fuzzy, php-format
 #| msgid "Change"
 msgid "Change to %s"
@@ -7449,7 +7449,7 @@ msgctxt "End of recurring event"
 msgid "End"
 msgstr "Loppu"
 
-#: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:912
+#: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:916
 #: libraries/rte/rte_triggers.lib.php:354
 #, fuzzy
 #| msgid "Description"
@@ -7462,12 +7462,12 @@ msgstr "Kuvaus"
 msgid "On completion preserve"
 msgstr "Kokonaiset lisäyslauseet"
 
-#: libraries/rte/rte_events.lib.php:475 libraries/rte/rte_routines.lib.php:922
+#: libraries/rte/rte_events.lib.php:475 libraries/rte/rte_routines.lib.php:926
 #: libraries/rte/rte_triggers.lib.php:360
 msgid "Definer"
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:518 libraries/rte/rte_routines.lib.php:986
+#: libraries/rte/rte_events.lib.php:518 libraries/rte/rte_routines.lib.php:990
 #: libraries/rte/rte_triggers.lib.php:398
 msgid "The definer must be in the \"username@hostname\" format"
 msgstr ""
@@ -7515,7 +7515,7 @@ msgid "Returns"
 msgstr "Paluutyyppi"
 
 #: libraries/rte/rte_list.lib.php:62 libraries/rte/rte_triggers.lib.php:326
-#: server_status.php:1119 sql.php:843
+#: server_status.php:1120 sql.php:871
 msgid "Time"
 msgstr "Aika"
 
@@ -7531,7 +7531,7 @@ msgid ""
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:247
-#: libraries/rte/rte_routines.lib.php:994
+#: libraries/rte/rte_routines.lib.php:998
 #, fuzzy, php-format
 #| msgid "Invalid server index: %s"
 msgid "Invalid routine type: \"%s\""
@@ -7553,128 +7553,128 @@ msgstr "Taulu %s on poistettu"
 msgid "Routine %1$s has been created."
 msgstr "Taulu %1$s on luotu."
 
-#: libraries/rte/rte_routines.lib.php:344
+#: libraries/rte/rte_routines.lib.php:346
 #, fuzzy
 #| msgid "Edit mode"
 msgid "Edit routine"
 msgstr "Muokkaustila"
 
-#: libraries/rte/rte_routines.lib.php:820
+#: libraries/rte/rte_routines.lib.php:824
 #, fuzzy
 #| msgid "Routines"
 msgid "Routine name"
 msgstr "Rutiinit"
 
-#: libraries/rte/rte_routines.lib.php:843
+#: libraries/rte/rte_routines.lib.php:847
 msgid "Parameters"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:848
+#: libraries/rte/rte_routines.lib.php:852
 #, fuzzy
 #| msgid "Direct links"
 msgid "Direction"
 msgstr "Suorat linkit"
 
-#: libraries/rte/rte_routines.lib.php:851 libraries/tbl_properties.inc.php:108
+#: libraries/rte/rte_routines.lib.php:855 libraries/tbl_properties.inc.php:108
 msgid "Length/Values"
 msgstr "Pituus/Arvot*"
 
-#: libraries/rte/rte_routines.lib.php:866
+#: libraries/rte/rte_routines.lib.php:870
 #, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add parameter"
 msgstr "Käytä indeksiä/indeksejä"
 
-#: libraries/rte/rte_routines.lib.php:870
+#: libraries/rte/rte_routines.lib.php:874
 #, fuzzy
 #| msgid "Remove database"
 msgid "Remove last parameter"
 msgstr "Tuhoa tietokanta"
 
-#: libraries/rte/rte_routines.lib.php:875
+#: libraries/rte/rte_routines.lib.php:879
 msgid "Return type"
 msgstr "Paluutyyppi"
 
-#: libraries/rte/rte_routines.lib.php:881
+#: libraries/rte/rte_routines.lib.php:885
 #, fuzzy
 #| msgid "Length/Values"
 msgid "Return length/values"
 msgstr "Pituus/Arvot*"
 
-#: libraries/rte/rte_routines.lib.php:887
+#: libraries/rte/rte_routines.lib.php:891
 #, fuzzy
 #| msgid "Table options"
 msgid "Return options"
 msgstr "Taulun valinnat"
 
-#: libraries/rte/rte_routines.lib.php:918
+#: libraries/rte/rte_routines.lib.php:922
 msgid "Is deterministic"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:927
+#: libraries/rte/rte_routines.lib.php:931
 #, fuzzy
 #| msgid "Security"
 msgid "Security type"
 msgstr "Turvallisuus"
 
-#: libraries/rte/rte_routines.lib.php:934
+#: libraries/rte/rte_routines.lib.php:938
 msgid "SQL data access"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:999
+#: libraries/rte/rte_routines.lib.php:1003
 msgid "You must provide a routine name"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1025
+#: libraries/rte/rte_routines.lib.php:1029
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1037
-#: libraries/rte/rte_routines.lib.php:1075
+#: libraries/rte/rte_routines.lib.php:1041
+#: libraries/rte/rte_routines.lib.php:1079
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1055
+#: libraries/rte/rte_routines.lib.php:1059
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1065
+#: libraries/rte/rte_routines.lib.php:1069
 msgid "You must provide a valid return type for the routine."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1109
+#: libraries/rte/rte_routines.lib.php:1113
 msgid "You must provide a routine definition."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1198
+#: libraries/rte/rte_routines.lib.php:1202
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libraries/rte/rte_routines.lib.php:1214
+#: libraries/rte/rte_routines.lib.php:1218
 #, fuzzy, php-format
 #| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
 msgstr "Sallii talletettujen rutiinien suorittamisen."
 
-#: libraries/rte/rte_routines.lib.php:1288
-#: libraries/rte/rte_routines.lib.php:1294
+#: libraries/rte/rte_routines.lib.php:1292
+#: libraries/rte/rte_routines.lib.php:1298
 msgid "Execute routine"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1345
-#: libraries/rte/rte_routines.lib.php:1348
+#: libraries/rte/rte_routines.lib.php:1351
+#: libraries/rte/rte_routines.lib.php:1354
 #, fuzzy
 #| msgid "Routines"
 msgid "Routine parameters"
 msgstr "Rutiinit"
 
-#: libraries/rte/rte_routines.lib.php:1355 tbl_change.php:287
+#: libraries/rte/rte_routines.lib.php:1361 tbl_change.php:287
 #: tbl_change.php:325
 msgid "Function"
 msgstr "Funktio"
@@ -7839,7 +7839,7 @@ msgstr "Lähetettäviä tiedostoja ei ole"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:221
 #: libraries/schema/Eps_Relation_Schema.class.php:394
-#: libraries/schema/Pdf_Relation_Schema.class.php:329
+#: libraries/schema/Pdf_Relation_Schema.class.php:333
 #: libraries/schema/Svg_Relation_Schema.class.php:363
 #: libraries/schema/Visio_Relation_Schema.class.php:209
 #, fuzzy, php-format
@@ -7849,7 +7849,7 @@ msgstr "Taulua \"%s\" ei ole!"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:247
 #: libraries/schema/Eps_Relation_Schema.class.php:435
-#: libraries/schema/Pdf_Relation_Schema.class.php:363
+#: libraries/schema/Pdf_Relation_Schema.class.php:367
 #: libraries/schema/Svg_Relation_Schema.class.php:405
 #: libraries/schema/Visio_Relation_Schema.class.php:251
 #, php-format
@@ -7857,9 +7857,9 @@ msgid "Please configure the coordinates for table %s"
 msgstr "Määrittele koordinaatit taululle %s"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:741
-#: libraries/schema/Pdf_Relation_Schema.class.php:687
+#: libraries/schema/Pdf_Relation_Schema.class.php:691
 #: libraries/schema/Svg_Relation_Schema.class.php:727
-#: libraries/schema/Visio_Relation_Schema.class.php:496
+#: libraries/schema/Visio_Relation_Schema.class.php:495
 #, fuzzy, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
@@ -7875,111 +7875,111 @@ msgstr "Tiedosto %s ei sisällä avaintunnusta"
 msgid "SCHEMA ERROR: "
 msgstr ""
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:705
-#: libraries/schema/Pdf_Relation_Schema.class.php:936
+#: libraries/schema/Pdf_Relation_Schema.class.php:709
+#: libraries/schema/Pdf_Relation_Schema.class.php:940
 msgid "Relational schema"
 msgstr "Relaatioskeema"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:911
+#: libraries/schema/Pdf_Relation_Schema.class.php:915
 msgid "Table of contents"
 msgstr "Sisällysluettelo"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1060
-#: libraries/schema/Pdf_Relation_Schema.class.php:1081
+#: libraries/schema/Pdf_Relation_Schema.class.php:1064
+#: libraries/schema/Pdf_Relation_Schema.class.php:1085
 #: libraries/tbl_properties.inc.php:111 tbl_printview.php:138
 #: tbl_structure.php:205
 msgid "Attributes"
 msgstr "Attribuutit"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1063
-#: libraries/schema/Pdf_Relation_Schema.class.php:1084 tbl_printview.php:141
+#: libraries/schema/Pdf_Relation_Schema.class.php:1067
+#: libraries/schema/Pdf_Relation_Schema.class.php:1088 tbl_printview.php:141
 #: tbl_structure.php:208 tbl_tracking.php:262
 msgid "Extra"
 msgstr "Lisätiedot"
 
-#: libraries/schema/User_Schema.class.php:89
+#: libraries/schema/User_Schema.class.php:110
 msgid "Create a page"
 msgstr "Luo uusi sivu"
 
-#: libraries/schema/User_Schema.class.php:95
+#: libraries/schema/User_Schema.class.php:116
 msgid "Page name"
 msgstr "Sivun nimi"
 
-#: libraries/schema/User_Schema.class.php:99
+#: libraries/schema/User_Schema.class.php:120
 #, fuzzy
 #| msgid "Automatic layout"
 msgid "Automatic layout based on"
 msgstr "Automaattinen ulkoasu"
 
-#: libraries/schema/User_Schema.class.php:102
+#: libraries/schema/User_Schema.class.php:123
 msgid "Internal relations"
 msgstr "Sisäiset relaatiot"
 
-#: libraries/schema/User_Schema.class.php:112
+#: libraries/schema/User_Schema.class.php:133
 msgid "FOREIGN KEY"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:144
+#: libraries/schema/User_Schema.class.php:165
 msgid "Please choose a page to edit"
 msgstr "Valitse muokattava sivu"
 
-#: libraries/schema/User_Schema.class.php:149
+#: libraries/schema/User_Schema.class.php:170
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select page"
 msgstr "Valitse taulut"
 
-#: libraries/schema/User_Schema.class.php:207
+#: libraries/schema/User_Schema.class.php:228
 msgid "Select Tables"
 msgstr "Valitse taulut"
 
-#: libraries/schema/User_Schema.class.php:341
+#: libraries/schema/User_Schema.class.php:362
 #, fuzzy
 #| msgid "Relational schema"
 msgid "Display relational schema"
 msgstr "Relaatioskeema"
 
-#: libraries/schema/User_Schema.class.php:351
+#: libraries/schema/User_Schema.class.php:372
 msgid "Select Export Relational Type"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:372
+#: libraries/schema/User_Schema.class.php:393
 msgid "Show grid"
 msgstr "Näytä ruudukko"
 
-#: libraries/schema/User_Schema.class.php:374
+#: libraries/schema/User_Schema.class.php:395
 msgid "Show color"
 msgstr "Näytä värit"
 
-#: libraries/schema/User_Schema.class.php:376
+#: libraries/schema/User_Schema.class.php:397
 msgid "Show dimension of tables"
 msgstr "Näytä taulujen ulottuvuus"
 
-#: libraries/schema/User_Schema.class.php:379
+#: libraries/schema/User_Schema.class.php:400
 msgid "Display all tables with the same width"
 msgstr "Näytä kaikki taulut samanlevyisinä?"
 
-#: libraries/schema/User_Schema.class.php:384
+#: libraries/schema/User_Schema.class.php:405
 msgid "Only show keys"
 msgstr "Näytä vain avaimet"
 
-#: libraries/schema/User_Schema.class.php:386
+#: libraries/schema/User_Schema.class.php:407
 msgid "Landscape"
 msgstr "Vaakatasossa"
 
-#: libraries/schema/User_Schema.class.php:387
+#: libraries/schema/User_Schema.class.php:408
 msgid "Portrait"
 msgstr "Pystytasossa"
 
-#: libraries/schema/User_Schema.class.php:389
+#: libraries/schema/User_Schema.class.php:410
 msgid "Orientation"
 msgstr "Suunta"
 
-#: libraries/schema/User_Schema.class.php:402
+#: libraries/schema/User_Schema.class.php:423
 msgid "Paper size"
 msgstr "Paperin koko"
 
-#: libraries/schema/User_Schema.class.php:439
+#: libraries/schema/User_Schema.class.php:461
 msgid ""
 "The current page has references to tables that no longer exist. Would you "
 "like to delete those references?"
@@ -7987,17 +7987,17 @@ msgstr ""
 "Nykyisellä sivulla on viittauksia tauluihin, joita ei enää ole olemassa. "
 "Haluatko poistaa nuo viittaukset?"
 
-#: libraries/schema/User_Schema.class.php:464
+#: libraries/schema/User_Schema.class.php:486
 msgid "Toggle scratchboard"
 msgstr "Näytä/kätke luonnospöytä"
 
 #. l10n: Text direction, use either ltr or rtl
-#: libraries/select_lang.lib.php:471
+#: libraries/select_lang.lib.php:476
 msgid "ltr"
 msgstr "ltr"
 
-#: libraries/select_lang.lib.php:488 libraries/select_lang.lib.php:494
-#: libraries/select_lang.lib.php:500
+#: libraries/select_lang.lib.php:493 libraries/select_lang.lib.php:499
+#: libraries/select_lang.lib.php:505
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "Tuntematon kieli: %1$s."
@@ -8072,11 +8072,11 @@ msgstr "Tyhjennä"
 msgid "Columns"
 msgstr "Sarakkeet"
 
-#: libraries/sql_query_form.lib.php:302 sql.php:916 sql.php:933
+#: libraries/sql_query_form.lib.php:302 sql.php:944 sql.php:961
 msgid "Bookmark this SQL query"
 msgstr "Tallenna SQL-kysely"
 
-#: libraries/sql_query_form.lib.php:309 sql.php:927
+#: libraries/sql_query_form.lib.php:309 sql.php:955
 msgid "Let every user access this bookmark"
 msgstr "Anna kaikkien käyttäjien käyttää tätä kirjanmerkkiä"
 
@@ -8567,7 +8567,7 @@ msgstr "Protokollan versio"
 
 #: main.php:165 server_privileges.php:1539 server_privileges.php:1693
 #: server_privileges.php:1817 server_privileges.php:2236
-#: server_status.php:1115
+#: server_status.php:1116
 msgid "User"
 msgstr "Käyttäjä"
 
@@ -8786,7 +8786,7 @@ msgstr "Kaikki pienenä/suurena"
 msgid "Toggle small/big"
 msgstr "Vaihda pieneksi/suureksi"
 
-#: pmd_general.php:114 pmd_pdf.php:80
+#: pmd_general.php:114 pmd_pdf.php:76
 msgid "Import/Export coordinates for PDF schema"
 msgstr "Tuo/vie PDF-skeeman koordinaatit"
 
@@ -8876,50 +8876,50 @@ msgstr ""
 "paina \"Valitse näytettävä kenttä\" -kuvaketta ja napsauta sitten sopivaa "
 "kenttänimeä."
 
-#: pmd_pdf.php:34
+#: pmd_pdf.php:30
 #, fuzzy
 msgid "Page has been created"
 msgstr "Taulu %1$s on luotu."
 
-#: pmd_pdf.php:37
+#: pmd_pdf.php:33
 msgid "Page creation failed"
 msgstr ""
 
-#: pmd_pdf.php:89
+#: pmd_pdf.php:85
 #, fuzzy
 #| msgid "pages"
 msgid "Page"
 msgstr "sivua"
 
-#: pmd_pdf.php:99
+#: pmd_pdf.php:95
 #, fuzzy
 #| msgid "Import files"
 msgid "Import from selected page"
 msgstr "Tuo tiedostoja"
 
-#: pmd_pdf.php:100
+#: pmd_pdf.php:96
 #, fuzzy
 #| msgid "Export/Import to scale"
 msgid "Export to selected page"
 msgstr "Vie/tuo skaalaan"
 
-#: pmd_pdf.php:102
+#: pmd_pdf.php:98
 #, fuzzy
 #| msgid "Create a new index"
 msgid "Create a page and export to it"
 msgstr "Luo uusi indeksi"
 
-#: pmd_pdf.php:111
+#: pmd_pdf.php:107
 #, fuzzy
 #| msgid "User name"
 msgid "New page name: "
 msgstr "Käyttäjänimi"
 
-#: pmd_pdf.php:114
+#: pmd_pdf.php:110
 msgid "Export/Import to scale"
 msgstr "Vie/tuo skaalaan"
 
-#: pmd_pdf.php:119
+#: pmd_pdf.php:115
 msgid "recommended"
 msgstr "suositus"
 
@@ -9035,12 +9035,12 @@ msgstr "Tuo tiedostoja"
 msgid "All"
 msgstr "Kaikki"
 
-#: schema_edit.php:45 schema_edit.php:51 schema_edit.php:57 schema_edit.php:62
+#: schema_edit.php:38 schema_edit.php:44 schema_edit.php:50 schema_edit.php:55
 #, php-format
 msgid "<b>%s</b> table not found or not set in %s"
 msgstr "Taulua <b>%s</b> ei löytynyt tai sitä ei ole määritelty tiedostossa %s"
 
-#: schema_export.php:47
+#: schema_export.php:39
 #, fuzzy
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "File doesn't exist"
@@ -9054,13 +9054,13 @@ msgstr "Valitse näytettävä binääriloki"
 msgid "Files"
 msgstr "Tiedostot"
 
-#: server_binlog.php:150 server_binlog.php:152 server_status.php:1125
-#: server_status.php:1127
+#: server_binlog.php:150 server_binlog.php:152 server_status.php:1126
+#: server_status.php:1128
 msgid "Truncate Shown Queries"
 msgstr "Näytä katkaistut kyselyt"
 
-#: server_binlog.php:158 server_binlog.php:160 server_status.php:1125
-#: server_status.php:1127
+#: server_binlog.php:158 server_binlog.php:160 server_status.php:1126
+#: server_status.php:1128
 msgid "Show Full Queries"
 msgstr "Näytä kyselyt kokonaisuudessaan"
 
@@ -9917,8 +9917,8 @@ msgstr ""
 msgid "Questions since startup: %s"
 msgstr "Mukauta käynnistyssivua"
 
-#: server_status.php:842 server_status.php:877 server_status.php:995
-#: server_status.php:1040
+#: server_status.php:842 server_status.php:878 server_status.php:996
+#: server_status.php:1041
 msgid "per hour"
 msgstr "tunnissa"
 
@@ -9939,18 +9939,18 @@ msgstr "Tieto"
 msgid "#"
 msgstr ""
 
-#: server_status.php:943
+#: server_status.php:944
 #, php-format
 msgid "Network traffic since startup: %s"
 msgstr ""
 
-#: server_status.php:951
+#: server_status.php:952
 #, fuzzy, php-format
 #| msgid "This MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
 msgstr "Tämä MySQL-palvelin on ollut käynnissä %s. Se käynnistettiin %s."
 
-#: server_status.php:961
+#: server_status.php:962
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
@@ -9958,18 +9958,18 @@ msgstr ""
 "Tämä MySQL-palvelin toimii <b>kahdennustoiminnossa</b> <b>pää-</b> ja "
 "<b>alipalvelimena</b>."
 
-#: server_status.php:963
+#: server_status.php:964
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
 "Tämä MySQL-palvelin toimii <b>kahdennustoiminnossa</b> <b>pääpalvelimena</b>."
 
-#: server_status.php:965
+#: server_status.php:966
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
 "Tämä MySQL-palvelin toimii <b>kahdennustoiminnossa</b> ja <b>alipalvelimena</"
 "b>."
 
-#: server_status.php:968
+#: server_status.php:969
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=\"#replication\">replication section</a>."
@@ -9977,11 +9977,11 @@ msgstr ""
 "Hae lisätietoja palvelimen kahdennustilasta kohdasta <a href=\"#replication"
 "\">Replication</a>."
 
-#: server_status.php:978
+#: server_status.php:979
 msgid "Replication status"
 msgstr "Kahdennuksen tila"
 
-#: server_status.php:994
+#: server_status.php:995
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
@@ -9989,47 +9989,47 @@ msgstr ""
 "Ruuhkaisten palvelinten tavulaskurit saattavat ylivuotaa, joten MySQL-"
 "palvelimen ilmoittamat tilastotiedot saattavat olla virheellisiä."
 
-#: server_status.php:1000
+#: server_status.php:1001
 msgid "Received"
 msgstr "Vastaanotettu"
 
-#: server_status.php:1010
+#: server_status.php:1011
 msgid "Sent"
 msgstr "Lähetetty"
 
-#: server_status.php:1046
+#: server_status.php:1047
 msgid "max. concurrent connections"
 msgstr "Enim. yhtäaikaisia yhteyksiä"
 
-#: server_status.php:1053
+#: server_status.php:1054
 msgid "Failed attempts"
 msgstr "Epäonnistuneet yritykset"
 
-#: server_status.php:1067
+#: server_status.php:1068
 msgid "Aborted"
 msgstr "Keskeytetty"
 
-#: server_status.php:1114
+#: server_status.php:1115
 msgid "ID"
 msgstr "Tunnus"
 
-#: server_status.php:1118
+#: server_status.php:1119
 msgid "Command"
 msgstr "Komento"
 
-#: server_status.php:1188
+#: server_status.php:1189
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr ""
 
-#: server_status.php:1189
+#: server_status.php:1190
 #, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "MySQL-palvelimeen ei voitu yhdistää"
 
-#: server_status.php:1190
+#: server_status.php:1191
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -10040,16 +10040,16 @@ msgstr ""
 "\"binlog_cache_size\"-muuttujan arvon ja käyttäneet tilapäistiedostoa "
 "transaktiokyselyjen tallentamiseen."
 
-#: server_status.php:1191
+#: server_status.php:1192
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr "Binäärilokin tilapäistä välimuistia käyttäneiden transaktioiden määrä."
 
-#: server_status.php:1192
+#: server_status.php:1193
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr ""
 
-#: server_status.php:1193
+#: server_status.php:1194
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -10061,11 +10061,11 @@ msgstr ""
 "nosta tmp_table_size:n arvoa, jotta tilapäisiä tauluja säilytettäisiin "
 "muistissa eikä levyllä."
 
-#: server_status.php:1194
+#: server_status.php:1195
 msgid "How many temporary files mysqld has created."
 msgstr "Mysqld-palvelun luomien tilapäistiedostojen määrä."
 
-#: server_status.php:1195
+#: server_status.php:1196
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
@@ -10073,7 +10073,7 @@ msgstr ""
 "Kertoo, kuinka monta tilapäistaulua palvelin on automaattisesti luonut "
 "kyselyjä suorittaessaan."
 
-#: server_status.php:1196
+#: server_status.php:1197
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -10081,7 +10081,7 @@ msgstr ""
 "Virheen aiheuttaneiden, INSERT DELAYED -kyselyllä kirjoitettujen rivien "
 "määrä (virheenä todennäköisesti päällekkäinen avain)."
 
-#: server_status.php:1197
+#: server_status.php:1198
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -10089,23 +10089,23 @@ msgstr ""
 "Käytössä olevien INSERT DELAYED -käsittelijäsäikeiden määrä. Jokainen INSERT "
 "DELAYED -kyselyä käyttävä taulu saa käyttöönsä oman säikeensä."
 
-#: server_status.php:1198
+#: server_status.php:1199
 msgid "The number of INSERT DELAYED rows written."
 msgstr "INSERT DELAYED -rivien kirjoituksia."
 
-#: server_status.php:1199
+#: server_status.php:1200
 msgid "The number of executed FLUSH statements."
 msgstr "FLUSH-kyselyjä suoritettu."
 
-#: server_status.php:1200
+#: server_status.php:1201
 msgid "The number of internal COMMIT statements."
 msgstr "Sisäisten COMMIT-kyselyjen määrä."
 
-#: server_status.php:1201
+#: server_status.php:1202
 msgid "The number of times a row was deleted from a table."
 msgstr "Kertoo, kuinka monta kertaa taulusta on poistettu rivi."
 
-#: server_status.php:1202
+#: server_status.php:1203
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -10115,7 +10115,7 @@ msgstr ""
 "tietyn nimisen taulun. Tätä toimintoa kutsutaan selvittämiseksi (engl. "
 "discovery). Handler_discover ilmaisee selvitettyjen taulujen määrän."
 
-#: server_status.php:1203
+#: server_status.php:1204
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -10126,7 +10126,7 @@ msgstr ""
 "läpikäyntejä; näin käy esimerkiksi lauseessa SELECT col1 FROM foo, olettaen "
 "col1:sen olevan indeksoitu sarake."
 
-#: server_status.php:1204
+#: server_status.php:1205
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -10134,7 +10134,7 @@ msgstr ""
 "Kertoo, kuinka monta kertaa rivejä on luettu avaimen perusteella. Jos tämä "
 "on suuri, kyselyjen ja taulujen indeksointi suoritetaan oikein."
 
-#: server_status.php:1205
+#: server_status.php:1206
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -10144,7 +10144,7 @@ msgstr ""
 "avainjärjestyksessä. Tämä arvo kasvaa, jos haetaan indeksisarakkeita "
 "käyttämällä rajauksia tai jos suoritetaan indeksihaku."
 
-#: server_status.php:1206
+#: server_status.php:1207
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
@@ -10153,7 +10153,7 @@ msgstr ""
 "avainjärjestyksessä. Tätä lukumenetelmää käytetään lähinnä ORDER BY ... DESC "
 "-kyselyllä optimoimiseen."
 
-#: server_status.php:1207
+#: server_status.php:1208
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -10166,7 +10166,7 @@ msgstr ""
 "pakottavat MySQL-palvelimen käymään läpi kaikki taulut, tai käytät "
 "liitoksia, jotka käyttävät avaimia virheellisesti."
 
-#: server_status.php:1208
+#: server_status.php:1209
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -10178,35 +10178,35 @@ msgstr ""
 "yleensä siitä, että tauluja ei ole indeksoitu hyvin, tai että kyselyjä ei "
 "ole kirjoitettu siten, että ne hyödyntäisivät luomiasi indeksejä."
 
-#: server_status.php:1209
+#: server_status.php:1210
 msgid "The number of internal ROLLBACK statements."
 msgstr "Sisäisten ROLLBACK-kyselyjen määrä."
 
-#: server_status.php:1210
+#: server_status.php:1211
 msgid "The number of requests to update a row in a table."
 msgstr "Taulun rivien päivityspyyntöjen määrä."
 
-#: server_status.php:1211
+#: server_status.php:1212
 msgid "The number of requests to insert a row in a table."
 msgstr "Kertoo tauluihin lisättyjen rivien määrän."
 
-#: server_status.php:1212
+#: server_status.php:1213
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "Tietoa (epäsiistiä tai siistiä) sisältävien sivujen määrä"
 
-#: server_status.php:1213
+#: server_status.php:1214
 msgid "The number of pages currently dirty."
 msgstr "Tällä hetkellä epäsiistinä olevien sivujen määrä."
 
-#: server_status.php:1214
+#: server_status.php:1215
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr "Siistittäviksi pyydettyjen, puskurivarannossa olevien sivujen määrä."
 
-#: server_status.php:1215
+#: server_status.php:1216
 msgid "The number of free pages."
 msgstr "Vapaiden sivujen määrä."
 
-#: server_status.php:1216
+#: server_status.php:1217
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -10216,7 +10216,7 @@ msgstr ""
 "parhaillaan luetaan tai kirjoitetaan tai joita ei voida poistaa tai joiden "
 "välimuistia ei voida tyhjentää syystä tai toisesta."
 
-#: server_status.php:1217
+#: server_status.php:1218
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -10228,11 +10228,11 @@ msgstr ""
 "takia. Tämä arvo voidaan laskea näinkin: Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 
-#: server_status.php:1218
+#: server_status.php:1219
 msgid "Total size of buffer pool, in pages."
 msgstr "Puskurivarannon kokonaiskoko sivuina."
 
-#: server_status.php:1219
+#: server_status.php:1220
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -10240,7 +10240,7 @@ msgstr ""
 "InnoDB:n käynnistämien umpimähkäisten ennakkolukujen määrä. Näin käy kyselyn "
 "lukiessa satunnaisessa järjestyksessä läpi laajoja alueita taulusta."
 
-#: server_status.php:1220
+#: server_status.php:1221
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
@@ -10248,11 +10248,11 @@ msgstr ""
 "InnoDB:n käynnistämien perättäisten ennakkolukujen määrä. Näin käy kun "
 "InnoDB lukee läpi kokonaisen taulun tavallisessa järjestyksessä."
 
-#: server_status.php:1221
+#: server_status.php:1222
 msgid "The number of logical read requests InnoDB has done."
 msgstr "InnoDB:n suorittamien loogisten lukupyyntöjen määrä."
 
-#: server_status.php:1222
+#: server_status.php:1223
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
@@ -10260,7 +10260,7 @@ msgstr ""
 "Sellaisten loogisten lukujen määrä, joita InnoDB ei voinut toteuttaa "
 "puskurivarannon avulla vaan joutui lukemaan yksittäisen sivun."
 
-#: server_status.php:1223
+#: server_status.php:1224
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -10274,55 +10274,55 @@ msgstr ""
 "kertoo tällaisten odotusten määrän. Jos puskurivarannon koko on asetettu "
 "sopivaksi, tämän arvon pitäisi olla alhainen."
 
-#: server_status.php:1224
+#: server_status.php:1225
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "InnoDB:n puskurivarannon kirjoituspyyntöjen määrä."
 
-#: server_status.php:1225
+#: server_status.php:1226
 msgid "The number of fsync() operations so far."
 msgstr "Fsync()-toimenpiteitä tähän mennessä."
 
-#: server_status.php:1226
+#: server_status.php:1227
 msgid "The current number of pending fsync() operations."
 msgstr "Tällä hetkellä käynnissä olevien fsync()-toimenpiteiden määrä."
 
-#: server_status.php:1227
+#: server_status.php:1228
 msgid "The current number of pending reads."
 msgstr "Tällä hetkellä käynnissä olevien lukutoimenpiteiden määrä."
 
-#: server_status.php:1228
+#: server_status.php:1229
 msgid "The current number of pending writes."
 msgstr "Tällä hetkellä käynnissä olevien kirjoitustoimenpiteiden määrä."
 
-#: server_status.php:1229
+#: server_status.php:1230
 msgid "The amount of data read so far, in bytes."
 msgstr "Tähän mennessä luetun tiedon määrä tavuina."
 
-#: server_status.php:1230
+#: server_status.php:1231
 msgid "The total number of data reads."
 msgstr "Kertoo, kuinka monta kertaa tietoja on luettu kaikkiaan."
 
-#: server_status.php:1231
+#: server_status.php:1232
 msgid "The total number of data writes."
 msgstr "Kertoo, kuinka monta kertaa tietoja on kirjoitettu kaikkiaan."
 
-#: server_status.php:1232
+#: server_status.php:1233
 msgid "The amount of data written so far, in bytes."
 msgstr "Kertoo, kuinka paljon on tähän mennessä tietoja kirjoitettu (tavuina)."
 
-#: server_status.php:1233
+#: server_status.php:1234
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
 "Suoritettujen päällekkäisten kirjoitustoimenpiteiden määrä ja tätä varten "
 "kirjoitettujen sivujen määrä."
 
-#: server_status.php:1234
+#: server_status.php:1235
 msgid "The number of doublewrite operations that have been performed."
 msgstr ""
 "Suoritettujen päällekkäisten kirjoitustoimenpiteiden määrä ja tätä varten "
 "kirjoitettujen sivujen määrä."
 
-#: server_status.php:1235
+#: server_status.php:1236
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
@@ -10330,35 +10330,35 @@ msgstr ""
 "Liian pienestä lokipuskurista johtuneiden odotusten määrä, jolloin puskurin "
 "tyhjentymistä jouduttiin odottamaan ennen jatkamista."
 
-#: server_status.php:1236
+#: server_status.php:1237
 msgid "The number of log write requests."
 msgstr "Kertoo, kuinka monta kertaa lokitiedostoon on pyydetty kirjoittaa."
 
-#: server_status.php:1237
+#: server_status.php:1238
 msgid "The number of physical writes to the log file."
 msgstr "Kertoo, kuinka monta kertaa lokitiedostoon on fyysisesti kirjoitettu."
 
-#: server_status.php:1238
+#: server_status.php:1239
 msgid "The number of fsync() writes done to the log file."
 msgstr "Lokitiedostojen fsync()-kirjoitusten määrä."
 
-#: server_status.php:1239
+#: server_status.php:1240
 msgid "The number of pending log file fsyncs."
 msgstr "Lokitiedoston avointen fsync-synkronointien määrä."
 
-#: server_status.php:1240
+#: server_status.php:1241
 msgid "Pending log file writes."
 msgstr "Avoimet lokitiedostokirjoitukset."
 
-#: server_status.php:1241
+#: server_status.php:1242
 msgid "The number of bytes written to the log file."
 msgstr "Lokitiedostoon kirjoitettujen tavujen määrä."
 
-#: server_status.php:1242
+#: server_status.php:1243
 msgid "The number of pages created."
 msgstr "Luotujen sivujen määrä."
 
-#: server_status.php:1243
+#: server_status.php:1244
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -10367,52 +10367,52 @@ msgstr ""
 "arvoja lasketaan sivuina; sivukoon avulla voidaan helposti laskea sivujen "
 "koko tavuina."
 
-#: server_status.php:1244
+#: server_status.php:1245
 msgid "The number of pages read."
 msgstr "Luettujen rivien määrä."
 
-#: server_status.php:1245
+#: server_status.php:1246
 msgid "The number of pages written."
 msgstr "Kirjoitettujen sivujen määrä."
 
-#: server_status.php:1246
+#: server_status.php:1247
 msgid "The number of row locks currently being waited for."
 msgstr "Tällä hetkellä odotettavien rivilukitusten määrä."
 
-#: server_status.php:1247
+#: server_status.php:1248
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr ""
 "Rivilukituksen valmistumiseen kuluva aika keskimäärin, millisekunteina."
 
-#: server_status.php:1248
+#: server_status.php:1249
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr "Rivilukitusten valmistumiseen kuluva aika yhteensä, millisekunteina."
 
-#: server_status.php:1249
+#: server_status.php:1250
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr "Rivilukituksen noutamiseen kulunut aika enimmillään, millisekunteina."
 
-#: server_status.php:1250
+#: server_status.php:1251
 msgid "The number of times a row lock had to be waited for."
 msgstr "Kertoo, kuinka monta kertaa rivilukitusta on jouduttu odottamaan."
 
-#: server_status.php:1251
+#: server_status.php:1252
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "InnoDB-tauluista poistettujen rivien määrä."
 
-#: server_status.php:1252
+#: server_status.php:1253
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "InnoDB-tauluihin lisättyjen rivien määrä."
 
-#: server_status.php:1253
+#: server_status.php:1254
 msgid "The number of rows read from InnoDB tables."
 msgstr "InnoDB-taulusta luettujen rivien määrä."
 
-#: server_status.php:1254
+#: server_status.php:1255
 msgid "The number of rows updated in InnoDB tables."
 msgstr "InnoDB-taulun päivitettyjen rivien määrä."
 
-#: server_status.php:1255
+#: server_status.php:1256
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
@@ -10421,7 +10421,7 @@ msgstr ""
 "muutoksia, mutta joita ei vielä ole tallennettu levylle. Tämä toiminto "
 "tunnetaan yleisesti nimellä Not_flushed_key_blocks."
 
-#: server_status.php:1256
+#: server_status.php:1257
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
@@ -10430,20 +10430,20 @@ msgstr ""
 "avulla voi määrittää, kuinka paljon avainvälimuistia halutaan olevan "
 "käytössä."
 
-#: server_status.php:1257
+#: server_status.php:1258
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
 "one time."
 msgstr "Samaan aikaan avainvälimuistissa olleiden lohkojen määrä enimmillään."
 
-#: server_status.php:1258
+#: server_status.php:1259
 msgid "The number of requests to read a key block from the cache."
 msgstr ""
 "Kertoo, kuinka monta pyyntöä on suoritettu avainlohkon hakemiseksi "
 "välimuistista."
 
-#: server_status.php:1259
+#: server_status.php:1260
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -10454,16 +10454,16 @@ msgstr ""
 "asetettu liian alhainen arvo. Välimuistin käyttötahti voidaan laskea "
 "lausekkeella Key_reads / Key_read_requests."
 
-#: server_status.php:1260
+#: server_status.php:1261
 msgid "The number of requests to write a key block to the cache."
 msgstr "Kertoo, kuinka monta kertaa välimuistiin on kirjoitettu avainlohko."
 
-#: server_status.php:1261
+#: server_status.php:1262
 msgid "The number of physical writes of a key block to disk."
 msgstr ""
 "Kertoo, kuinka monta kertaa levylle on fyysisesti kirjoitettu avainlohko."
 
-#: server_status.php:1262
+#: server_status.php:1263
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -10474,18 +10474,18 @@ msgstr ""
 "kyselytapausta varten. Oletusarvo 0 tarkoittaa, että yhtään kyselyä ei ole "
 "vielä koottu."
 
-#: server_status.php:1263
+#: server_status.php:1264
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
 
-#: server_status.php:1264
+#: server_status.php:1265
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr ""
 "Kertoo, kuinka monta riviä INSERT DELAYED -jonoissa odottaa kirjoittamista."
 
-#: server_status.php:1265
+#: server_status.php:1266
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
@@ -10493,39 +10493,39 @@ msgstr ""
 "Avattujen taulujen määrä. Jos määrä on suuri, tauluvälimuistin arvo saattaa "
 "olla liian alhainen."
 
-#: server_status.php:1266
+#: server_status.php:1267
 msgid "The number of files that are open."
 msgstr "Avoinna olevien tiedostojen määrä."
 
-#: server_status.php:1267
+#: server_status.php:1268
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr ""
 "Avoinna olevien tietovirtojen määrä (käytetään pääasiassa kirjauksessa)."
 
-#: server_status.php:1268
+#: server_status.php:1269
 msgid "The number of tables that are open."
 msgstr "Avoinna olevien taulujen määrä."
 
-#: server_status.php:1269
+#: server_status.php:1270
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
 
-#: server_status.php:1270
+#: server_status.php:1271
 msgid "The amount of free memory for query cache."
 msgstr "Kyselyvälimuistin vapaan muistin määrä."
 
-#: server_status.php:1271
+#: server_status.php:1272
 msgid "The number of cache hits."
 msgstr "Välimuistiosumien määrä."
 
-#: server_status.php:1272
+#: server_status.php:1273
 msgid "The number of queries added to the cache."
 msgstr "Välimuistiin lisättyjen kyselyjen määrä."
 
-#: server_status.php:1273
+#: server_status.php:1274
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -10538,7 +10538,7 @@ msgstr ""
 "Kyselyvälimuisti päättää välimuistista poistettavat kyselyt LRU-käytännön "
 "avulla (\"least recently used\" eli \"äskettäin vähiten käytetyt kyselyt\")."
 
-#: server_status.php:1274
+#: server_status.php:1275
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -10547,19 +10547,19 @@ msgstr ""
 "tallentaa välimuistiin tai ei muuten vain ole tallennettu sinne "
 "query_cache_type-asetuksen takia)."
 
-#: server_status.php:1275
+#: server_status.php:1276
 msgid "The number of queries registered in the cache."
 msgstr "Rekisteröityjen kyselyjen määrä välimuistissa."
 
-#: server_status.php:1276
+#: server_status.php:1277
 msgid "The total number of blocks in the query cache."
 msgstr "Lohkojen kokonaismäärä kyselyvälimuistissa."
 
-#: server_status.php:1277
+#: server_status.php:1278
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "Kahdennuksen vikasietotila (ei vielä toteutettu)."
 
-#: server_status.php:1278
+#: server_status.php:1279
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -10567,11 +10567,11 @@ msgstr ""
 "Kertoo, kuinka moni liitos ei käytä indeksejä. Jos tämä arvo ei ole 0, "
 "taulujen indeksit olisi hyvä tarkistaa tarkkaan."
 
-#: server_status.php:1279
+#: server_status.php:1280
 msgid "The number of joins that used a range search on a reference table."
 msgstr "Niiden liitosten määrä, jotka käyttivät viitetaulussa aluehakua."
 
-#: server_status.php:1280
+#: server_status.php:1281
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -10580,7 +10580,7 @@ msgstr ""
 "rivin jälkeen. (Jos tämä ei ole 0, taulujen indeksit tulisi tarkistaa "
 "huolella.)"
 
-#: server_status.php:1281
+#: server_status.php:1282
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -10588,17 +10588,17 @@ msgstr ""
 "Kertoo niiden liitosten määrän, jotka käyttävät rajausta ensimmäisessä "
 "taulussa. (Yleensä ei ole vakavaa, vaikka tämä arvo olisi suuri.)"
 
-#: server_status.php:1282
+#: server_status.php:1283
 msgid "The number of joins that did a full scan of the first table."
 msgstr ""
 "Kertoo niiden liitosten määrän, jotka suorittivat ensimmäisestä taulusta "
 "täydellisen tarkistuksen."
 
-#: server_status.php:1283
+#: server_status.php:1284
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr "SQL-alisäikeen avointen tilapäistaulujen määrä tällä hetkellä."
 
-#: server_status.php:1284
+#: server_status.php:1285
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
@@ -10606,13 +10606,13 @@ msgstr ""
 "Kertoo, kuinka monta kertaa kahdennusalipalvelimen SQL-säie on "
 "käynnistyksestään lähtien yrittänut suorittaa transaktioita."
 
-#: server_status.php:1285
+#: server_status.php:1286
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr ""
 "Tämän on päällä (ON), mikäli kyseinen palvelin on pääpalvelimeen kytketty "
 "alipalvelin."
 
-#: server_status.php:1286
+#: server_status.php:1287
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
@@ -10620,14 +10620,14 @@ msgstr ""
 "Niiden säikeiden määrä, joiden luomiseen on kulunut aikaa enemmän kuin "
 "slow_launch_time sekuntia."
 
-#: server_status.php:1287
+#: server_status.php:1288
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr ""
 "Niiden kyselyjen määrä, joiden suorittamiseen on kulunut aikaa enemmän kuin "
 "long_query_time sekuntia."
 
-#: server_status.php:1288
+#: server_status.php:1289
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -10636,25 +10636,25 @@ msgstr ""
 "Lajittelualgoritmiin tarvittavien lomitusten määrä. Jos tämä arvo on suuri, "
 "sort_buffer-muuttujan arvoa voi suurentaa."
 
-#: server_status.php:1289
+#: server_status.php:1290
 msgid "The number of sorts that were done with ranges."
 msgstr "Arvolillä suoritettujen lajittelutoimenpiteiden määrä."
 
-#: server_status.php:1290
+#: server_status.php:1291
 msgid "The number of sorted rows."
 msgstr "Lajiteltujen rivien määrä."
 
-#: server_status.php:1291
+#: server_status.php:1292
 msgid "The number of sorts that were done by scanning the table."
 msgstr ""
 "Niiden lajittelutoimenpiteiden määrä, jotka on suoritettu lukemalla taulu "
 "läpi."
 
-#: server_status.php:1292
+#: server_status.php:1293
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "Kertoo, kuinka usein taulu on saatu lukittua heti."
 
-#: server_status.php:1293
+#: server_status.php:1294
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -10666,7 +10666,7 @@ msgstr ""
 "hyvä ensin optimoida kyselyjä ja sitten joko jakaa taulu useampaan osaan tai "
 "käyttää hyödyksi kahdennusta."
 
-#: server_status.php:1294
+#: server_status.php:1295
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -10676,11 +10676,11 @@ msgstr ""
 "voidaan laskea täten kaavalla Threads_created / yhteyksien lkm. Jos tämä "
 "arvo on punainen, thread_cache_size-muuttujan arvoa tulisi nostaa."
 
-#: server_status.php:1295
+#: server_status.php:1296
 msgid "The number of currently open connections."
 msgstr "Tällä hetkellä avoinna olevien yhteyksien määrä."
 
-#: server_status.php:1296
+#: server_status.php:1297
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -10692,69 +10692,69 @@ msgstr ""
 "säikeet on toteutettu hyvin, tällä ei ole kovin suurta vaikutusta "
 "suorituskykyyn.)"
 
-#: server_status.php:1297
+#: server_status.php:1298
 msgid "The number of threads that are not sleeping."
 msgstr "Hereillä olevien säikeiden määrä."
 
-#: server_status.php:1437
+#: server_status.php:1438
 #, fuzzy
 #| msgid "Start"
 msgid "Start Monitor"
 msgstr "Käynnistä"
 
-#: server_status.php:1445
+#: server_status.php:1446
 msgid "Instructions/Setup"
 msgstr ""
 
-#: server_status.php:1449
+#: server_status.php:1450
 msgid "Done rearranging/editing charts"
 msgstr ""
 
-#: server_status.php:1456
+#: server_status.php:1457
 #, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add chart"
 msgstr "Käytä indeksiä/indeksejä"
 
-#: server_status.php:1458
+#: server_status.php:1459
 msgid "Rearrange/edit charts"
 msgstr ""
 
-#: server_status.php:1462
+#: server_status.php:1463
 #, fuzzy
 msgid "Refresh rate"
 msgstr "Päivitä"
 
-#: server_status.php:1467
+#: server_status.php:1468
 #, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Chart columns"
 msgstr "CHAR-tekstikentän sarakkeet"
 
-#: server_status.php:1483
+#: server_status.php:1484
 #, fuzzy
 #| msgid "Error management:"
 msgid "Chart arrangement"
 msgstr "Virheiden hallinta:"
 
-#: server_status.php:1483
+#: server_status.php:1484
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
 
-#: server_status.php:1484
+#: server_status.php:1485
 #, fuzzy
 #| msgid "Restore default value"
 msgid "Reset to default"
 msgstr "Palauta oletusarvo"
 
-#: server_status.php:1488
+#: server_status.php:1489
 #, fuzzy
 msgid "Monitor Instructions"
 msgstr "Tiedot"
 
-#: server_status.php:1489
+#: server_status.php:1490
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -10763,7 +10763,7 @@ msgid ""
 "increases server load by up to 15%"
 msgstr ""
 
-#: server_status.php:1494
+#: server_status.php:1495
 msgid ""
 "Unfortunately your Database server does not support logging to table, which "
 "is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
@@ -10771,11 +10771,11 @@ msgid ""
 "charting features however."
 msgstr ""
 
-#: server_status.php:1507
+#: server_status.php:1508
 msgid "Using the monitor:"
 msgstr ""
 
-#: server_status.php:1509
+#: server_status.php:1510
 msgid ""
 "Ok, you are good to go! Once you click 'Start monitor' your browser will "
 "refresh all displayed charts in a regular interval. You may add charts and "
@@ -10783,7 +10783,7 @@ msgid ""
 "icon on each respective chart."
 msgstr ""
 
-#: server_status.php:1511
+#: server_status.php:1512
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -10791,11 +10791,11 @@ msgid ""
 "any occuring SELECT statements to further analyze them."
 msgstr ""
 
-#: server_status.php:1518
+#: server_status.php:1519
 msgid "Please note:"
 msgstr ""
 
-#: server_status.php:1520
+#: server_status.php:1521
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -11442,12 +11442,12 @@ msgstr "Näytetään SQL-kysely"
 msgid "Validated SQL"
 msgstr "Tarkista SQL-lause"
 
-#: sql.php:890
+#: sql.php:918
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Taulun \"%s\" indeksien kanssa on ongelmia"
 
-#: sql.php:921
+#: sql.php:949
 msgid "Label"
 msgstr "Tunniste"
 
