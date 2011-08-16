@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-16 11:21+0200\n"
+"PO-Revision-Date: 2011-08-16 15:42+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -11583,9 +11583,7 @@ msgstr "稼働時間が 1 日未満"
 
 #: po/advisory_rules.php:6
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr ""
-"稼働時間は 1 日未満です。パフォーマンスチューニングが正確でない可能性がありま"
-"す。"
+msgstr "稼働時間が 1 日未満です。パフォーマンスチューニングが正確でない可能性があります。"
 
 #: po/advisory_rules.php:7
 msgid ""
