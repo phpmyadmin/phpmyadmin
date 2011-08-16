@@ -12139,7 +12139,7 @@ msgstr ""
 
 #: po/advisory_rules.php:77
 msgid "Consider increasing {query_cache_limit}."
-msgstr ""
+msgstr "Considere aumentando «query_cache_limit»."
 
 #: po/advisory_rules.php:78
 #, php-format
