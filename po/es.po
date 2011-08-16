@@ -12049,10 +12049,9 @@ msgstr ""
 "se encontró 'percona' en el comentario de la versión («version_comment»)"
 
 #: po/advisory_rules.php:60
-#, fuzzy
 #| msgid "MySQL charset"
 msgid "MySQL Architecture"
-msgstr "Juegos de caracteres de MySQL"
+msgstr "Arquitectura MySQL"
 
 #: po/advisory_rules.php:61
 msgid "MySQL is not compiled as a 64-bit package."
