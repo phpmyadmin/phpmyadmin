@@ -12004,10 +12004,9 @@ msgid "Current query cache size: %s"
 msgstr "Trenutna velikost predpomnilnika poizvedb: %s"
 
 #: po/advisory_rules.php:100
-#, fuzzy
 #| msgid "Query results"
 msgid "Query cache min result size"
-msgstr "Rezultati poizvedbe"
+msgstr "Velikost najmanjšega rezultata predpomnilnika poizvedb"
 
 #: po/advisory_rules.php:101
 msgid ""
