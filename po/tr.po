@@ -9387,7 +9387,7 @@ msgid ""
 "system."
 msgstr ""
 "Yine de not edin bu sistem basit hesaplamalar üzerine kurulu ve sisteminize "
-"zorunlu olarak uygulanamayabilir başlıca kurallara göre öneriler sağlar. "
+"zorunlu olarak uygulanamayabilir başlıca kurallara göre öneriler sağlar."
 
 #: server_status.php:812
 msgid ""
