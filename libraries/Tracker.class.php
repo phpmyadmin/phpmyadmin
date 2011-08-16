@@ -563,7 +563,7 @@ class PMA_Tracker
             $sql_query .= " AND `table_name` = '" . PMA_sqlAddSlashes($tablename) ."' ";
         }
         $sql_query .= " AND `version` = '" . PMA_sqlAddSlashes($version) ."' ".
-                     " ORDER BY `version` DESC ";
+                     " ORDER BY `version` DESC LIMIT 1";
 
         $mixed = PMA_DBI_fetch_array(PMA_query_as_controluser($sql_query));
 
