@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-16 21:58+0200\n"
+"PO-Revision-Date: 2011-08-16 21:59+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -4473,6 +4473,8 @@ msgid ""
 "This configuration make sure that we only keep N (N = MaxTableUiprefs) "
 "newest record in \"table_uiprefs\" and automatically delete older records"
 msgstr ""
+"Ta konfiguracija zagotavlja, da v \"table_uiprefs\" hranimo samo N (N = "
+"MaxTableUiprefs) najnovejših zapisov in da samodejno brišemo starejše zapise"
 
 #: libraries/config/messages.inc.php:399
 #, fuzzy
