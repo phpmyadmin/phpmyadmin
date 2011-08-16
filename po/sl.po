@@ -12587,6 +12587,8 @@ msgstr "Delež prekinjenih objemalcev"
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"Delež prekinjenih objemalcev je %s; ta vrednost bit morala biti manj kot 1 "
+"na uro"
 
 #: po/advisory_rules.php:245
 msgid "Is InnoDB disabled?"
