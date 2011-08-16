@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-16 22:12+0200\n"
+"PO-Revision-Date: 2011-08-16 22:13+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -11575,7 +11575,7 @@ msgstr "Največje število vrstic za prikaz"
 
 #: tbl_zoom_select.php:388
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "Prebrskaj/Uredi točke"
 
 #: tbl_zoom_select.php:394
 #, fuzzy
