@@ -12074,10 +12074,9 @@ msgid "Available memory on this host: %s"
 msgstr "Memoria disponible en este equipo: %s"
 
 #: po/advisory_rules.php:65
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache disabled"
-msgstr "Cache de consultas"
+msgstr "Caché de consultas desactivado"
 
 #: po/advisory_rules.php:66
 #, fuzzy
