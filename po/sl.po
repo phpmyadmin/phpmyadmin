@@ -12576,6 +12576,7 @@ msgstr ""
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
+"%s %% vseh odjemalcev je prekinjenih. Ta vrednost bi morala biti pod 2 %%"
 
 #: po/advisory_rules.php:240
 #| msgid "Format of imported file"
