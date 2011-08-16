@@ -12415,10 +12415,9 @@ msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:200
-#, fuzzy
 #| msgid "Key cache"
 msgid "Thread cache"
-msgstr "Predpomnilnik ključev"
+msgstr "Predpomnilnik niti"
 
 #: po/advisory_rules.php:201
 msgid ""
