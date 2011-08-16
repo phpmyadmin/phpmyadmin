@@ -12127,10 +12127,9 @@ msgid ""
 msgstr "決まった位置を読み込む割合の平均：%s。推奨値は、1 時間当たり 1 未満です。"
 
 #: po/advisory_rules.php:135
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Rate of reading next table row"
-msgstr "テーブルの行リンクを表示する場所"
+msgstr "テーブルの次行を読み込む割合"
 
 #: po/advisory_rules.php:136
 #| msgid "Where to show the table row links"
