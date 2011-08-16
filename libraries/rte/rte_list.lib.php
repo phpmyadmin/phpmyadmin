@@ -117,7 +117,7 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
     $sql_drop = sprintf('DROP %s IF EXISTS %s',
                          $routine['ROUTINE_TYPE'],
                          PMA_backquote($routine['SPECIFIC_NAME']));
-
+    $type_link = "item_type={$routine['ROUTINE_TYPE']}";
 
     $retval  = "        <tr class='noclick $rowclass'>\n";
     $retval .= "            <td>\n";
@@ -136,6 +136,7 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
                                          . $url_query
                                          . '&amp;edit_item=1'
                                          . '&amp;item_name=' . urlencode($routine['SPECIFIC_NAME'])
+                                         . '&amp;' . $type_link
                                          . '">' . $titles['Edit'] . "</a>\n";
     } else {
         $retval .= "                {$titles['NoEdit']}\n";
@@ -150,6 +151,7 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
         // otherwise we can execute it directly.
         $routine_details = PMA_RTN_getDataFromName(
             $routine['SPECIFIC_NAME'],
+            $routine['ROUTINE_TYPE'],
             false
         );
         if ($routine !== false) {
@@ -168,6 +170,7 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
                                              . $url_query
                                              . '&amp;' . $execute_action . '=1'
                                              . '&amp;item_name=' . urlencode($routine['SPECIFIC_NAME'])
+                                             . '&amp;' . $type_link
                                              . '">' . $titles['Execute'] . "</a>\n";
         }
     } else {
@@ -180,15 +183,16 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
                                      . $url_query
                                      . '&amp;export_item=1'
                                      . '&amp;item_name=' . urlencode($routine['SPECIFIC_NAME'])
+                                     . '&amp;' . $type_link
                                      . '">' . $titles['Export'] . "</a>\n";
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
-    if (PMA_currentUserHasPrivilege('EVENT', $db)) {
+    if (PMA_currentUserHasPrivilege('ALTER ROUTINE', $db)) {
         $retval .= '                <a ' . $ajax_class['drop']
                                          . ' href="sql.php?'
                                          . $url_query
                                          . '&amp;sql_query=' . urlencode($sql_drop)
-                                         . '&amp;goto=db_events.php' . urlencode("?db={$db}")
+                                         . '&amp;goto=db_routines.php' . urlencode("?db={$db}")
                                          . '" >' . $titles['Drop'] . "</a>\n";
     } else {
         $retval .= "                {$titles['NoDrop']}\n";

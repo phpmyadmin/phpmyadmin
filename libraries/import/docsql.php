@@ -66,7 +66,7 @@ if ($data === true && !$error && !$timeout_passed) {
             $qry = '
                  INSERT INTO
                         ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['column_info']) . '
-                      (db_name, table_name, column_name, ' . PMA_backquote('comment') . ')
+                      (db_name, table_name, column_name, comment)
                  VALUES (
                         \'' . PMA_sqlAddSlashes($GLOBALS['db']) . '\',
                         \'' . PMA_sqlAddSlashes(trim($tab)) . '\',

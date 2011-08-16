@@ -258,6 +258,26 @@ $js_messages['strSave'] = __('Save');
 $js_messages['strHideSearchCriteria'] = __('Hide search criteria');
 $js_messages['strShowSearchCriteria'] = __('Show search criteria');
 
+/* For tbl_zoom_plot.js */
+$js_messages['strZoomSearch'] = __('Zoom Search');
+$js_messages['strDisplayHelp'] = '<ul><li>'
+    . __('Each point represents a data row.')
+    . '</li><li>'
+    . __('Hovering over a point will show its label.')
+    . '</li><li>'
+    . __('Drag and select an area in the plot to zoom into it.')
+    . '</li><li>'
+    . __('Click reset zoom link to come back to original state.')
+    . '</li><li>'
+    . __('Click a data point to view and possibly edit the data row.')
+    . '</li><li>'
+    . __('The plot can be resized by dragging it along the bottom right corner.')
+    . '</li><li>'
+    . __('Strings are converted into integer for plotting')
+    . '</li></ul>';
+$js_messages['strInputNull'] = '<strong>' . __('Select two columns') . '</strong>';
+$js_messages['strSameInputs'] = '<strong>' . __('Select two different columns') . '</strong>';
+
 /* For tbl_change.js */
 $js_messages['strIgnore'] = __('Ignore');
 
@@ -283,6 +303,8 @@ $js_messages['strColMarkHint'] = __('Click to mark/unmark');
 $js_messages['strColVisibHint'] = __('Click the drop-down arrow<br />to toggle column\'s visibility');
 $js_messages['strShowAllCol'] = __('Show all');
 $js_messages['strAlertNonUnique'] = __('This table does not contain a unique column. Features related to the grid edit, checkbox, Edit, Copy and Delete links may not work after saving.');
+$js_messages['strGridEditFeatureHint'] = __('You can also edit most columns<br />by clicking directly on their content.');
+$js_messages['strGoToLink'] = __('Go to link');
 
 /* password generation */
 $js_messages['strGeneratePassword'] = __('Generate password');

@@ -67,9 +67,9 @@ require_once './libraries/db_links.inc.php';
 $all_tables_query = ' SELECT table_name, MAX(version) as version FROM ' .
              PMA_backquote($GLOBALS['cfg']['Server']['pmadb']) . '.' .
              PMA_backquote($GLOBALS['cfg']['Server']['tracking']) .
-             ' WHERE ' . PMA_backquote('db_name')    . ' = \'' . PMA_sqlAddSlashes($_REQUEST['db']) . '\' ' .
-             ' GROUP BY '. PMA_backquote('table_name') .
-             ' ORDER BY '. PMA_backquote('table_name') .' ASC';
+             ' WHERE db_name = \'' . PMA_sqlAddSlashes($_REQUEST['db']) . '\' ' .
+             ' GROUP BY table_name' .
+             ' ORDER BY table_name ASC';
 
 $all_tables_result = PMA_query_as_controluser($all_tables_query);
 

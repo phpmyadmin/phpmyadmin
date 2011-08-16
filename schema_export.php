@@ -13,7 +13,7 @@ require './libraries/StorageEngine.class.php';
 
 /**
  * Include settings for relation stuff
- * get all variables needed for exporting relational schema 
+ * get all variables needed for exporting relational schema
  * in $cfgRelation
  */
 require_once './libraries/relation.lib.php';
@@ -21,14 +21,6 @@ $cfgRelation = PMA_getRelationsParam();
 
 require_once './libraries/transformations.lib.php';
 require_once './libraries/Index.class.php';
-
-/** 
- * This is to avoid "Command out of sync" errors. Before switching this to
- * a value of 0 (for MYSQLI_USE_RESULT), please check the logic
- * to free results wherever needed.
- */
-$query_default_option = PMA_DBI_QUERY_STORE;
-
 include_once("./libraries/schema/Export_Relation_Schema.class.php");
 
 /**

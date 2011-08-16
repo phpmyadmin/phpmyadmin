@@ -66,7 +66,7 @@ $(document).ready(function() {
             if (typeof response == 'string') {
                 // found results
                 $("#sqlqueryresults").html(response);
-                $("#sqlqueryresults").trigger('makegrid');
+                $("#sqlqueryresults").trigger('appendAnchor');
                 $('#tbl_search_form')
                 // work around for bug #3168569 - Issue on toggling the "Hide search criteria" in chrome.
                  .slideToggle()    

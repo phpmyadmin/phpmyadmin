@@ -3,19 +3,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-11 09:15-0400\n"
+"POT-Creation-Date: 2011-08-15 10:09+0200\n"
 "PO-Revision-Date: 2010-07-22 02:28+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: romanian <ro@li.org>\n"
+"Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ro\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2);;\n"
 "X-Generator: Pootle 2.0.1\n"
 
-#: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:277
+#: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:304
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1670
 msgid "Show all"
 msgstr "Arată toate"
@@ -48,7 +48,7 @@ msgstr "Caută"
 
 #: browse_foreigners.php:154 db_operations.php:369 db_operations.php:409
 #: db_operations.php:517 db_operations.php:544 db_search.php:329
-#: db_structure.php:529 enum_editor.php:63 js/messages.php:200
+#: db_structure.php:530 enum_editor.php:63 js/messages.php:207
 #: libraries/Config.class.php:1182 libraries/Theme_Manager.class.php:302
 #: libraries/auth/cookie.auth.lib.php:246 libraries/common.lib.php:1279
 #: libraries/common.lib.php:2234 libraries/core.lib.php:508
@@ -76,9 +76,9 @@ msgstr "Caută"
 #: server_synchronize.php:1170 tbl_change.php:335 tbl_change.php:1027
 #: tbl_change.php:1064 tbl_indexes.php:268 tbl_operations.php:284
 #: tbl_operations.php:321 tbl_operations.php:523 tbl_operations.php:585
-#: tbl_operations.php:767 tbl_select.php:318 tbl_structure.php:667
+#: tbl_operations.php:767 tbl_select.php:212 tbl_structure.php:667
 #: tbl_structure.php:704 tbl_tracking.php:416 tbl_tracking.php:554
-#: view_create.php:181 view_operations.php:99
+#: tbl_zoom_select.php:313 view_create.php:181 view_operations.php:99
 msgid "Go"
 msgstr "Execută"
 
@@ -89,7 +89,7 @@ msgstr "Nume cheie"
 
 #: browse_foreigners.php:170 browse_foreigners.php:172
 #: server_collations.php:54 server_collations.php:66 server_engines.php:56
-#: server_status.php:1311
+#: server_status.php:1363
 msgid "Description"
 msgstr "Descriere"
 
@@ -140,9 +140,10 @@ msgstr "Comentarii tabel"
 #: libraries/export/odt.php:288 libraries/export/texytext.php:230
 #: libraries/schema/Pdf_Relation_Schema.class.php:1058
 #: libraries/schema/Pdf_Relation_Schema.class.php:1079
-#: libraries/tbl_properties.inc.php:277 tbl_change.php:313 tbl_chart.php:89
-#: tbl_indexes.php:196 tbl_printview.php:136 tbl_relation.php:399
-#: tbl_select.php:114 tbl_tracking.php:257 tbl_tracking.php:308
+#: libraries/tbl_properties.inc.php:277 libraries/tbl_select.lib.php:109
+#: tbl_change.php:313 tbl_chart.php:89 tbl_indexes.php:196
+#: tbl_printview.php:136 tbl_relation.php:399 tbl_tracking.php:257
+#: tbl_tracking.php:308 tbl_zoom_select.php:408
 #, fuzzy
 #| msgid "Column names"
 msgid "Column"
@@ -157,9 +158,9 @@ msgstr "Denumirile coloanelor"
 #: libraries/rte/rte_routines.lib.php:1353
 #: libraries/schema/Pdf_Relation_Schema.class.php:1059
 #: libraries/schema/Pdf_Relation_Schema.class.php:1080
-#: libraries/tbl_properties.inc.php:103 server_privileges.php:2238
-#: tbl_change.php:292 tbl_change.php:319 tbl_printview.php:137
-#: tbl_printview.php:277 tbl_select.php:115 tbl_structure.php:203
+#: libraries/tbl_properties.inc.php:103 libraries/tbl_select.lib.php:110
+#: server_privileges.php:2238 tbl_change.php:292 tbl_change.php:319
+#: tbl_printview.php:137 tbl_printview.php:277 tbl_structure.php:203
 #: tbl_structure.php:761 tbl_tracking.php:258 tbl_tracking.php:305
 msgid "Type"
 msgstr "Tip"
@@ -171,11 +172,11 @@ msgstr "Tip"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1082
 #: libraries/tbl_properties.inc.php:112 tbl_change.php:328
 #: tbl_printview.php:139 tbl_structure.php:206 tbl_tracking.php:260
-#: tbl_tracking.php:311
+#: tbl_tracking.php:311 tbl_zoom_select.php:409
 msgid "Null"
 msgstr "Nul"
 
-#: db_datadict.php:170 db_structure.php:454 libraries/export/htmlword.php:254
+#: db_datadict.php:170 db_structure.php:455 libraries/export/htmlword.php:254
 #: libraries/export/latex.php:361 libraries/export/odt.php:297
 #: libraries/export/texytext.php:233
 #: libraries/schema/Pdf_Relation_Schema.class.php:1062
@@ -204,7 +205,7 @@ msgstr "Trimitere la"
 msgid "Comments"
 msgstr "Comentarii"
 
-#: db_datadict.php:237 js/messages.php:219 libraries/Index.class.php:349
+#: db_datadict.php:237 js/messages.php:226 libraries/Index.class.php:349
 #: libraries/Index.class.php:376 libraries/Index.class.php:674
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:198 libraries/export/htmlword.php:301
@@ -215,12 +216,12 @@ msgstr "Comentarii"
 #: server_privileges.php:1468 server_privileges.php:1479
 #: server_privileges.php:1725 server_privileges.php:1736
 #: server_privileges.php:2056 server_privileges.php:2061
-#: server_privileges.php:2355 sql.php:272 sql.php:333 tbl_printview.php:194
+#: server_privileges.php:2355 sql.php:278 sql.php:339 tbl_printview.php:194
 #: tbl_structure.php:347 tbl_tracking.php:321 tbl_tracking.php:326
 msgid "No"
 msgstr "Nu"
 
-#: db_datadict.php:237 js/messages.php:218 libraries/Index.class.php:350
+#: db_datadict.php:237 js/messages.php:225 libraries/Index.class.php:350
 #: libraries/Index.class.php:375 libraries/Index.class.php:674
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:198 libraries/export/htmlword.php:301
@@ -236,7 +237,7 @@ msgstr "Nu"
 #: server_databases.php:76 server_privileges.php:1465
 #: server_privileges.php:1476 server_privileges.php:1722
 #: server_privileges.php:1736 server_privileges.php:2056
-#: server_privileges.php:2059 server_privileges.php:2355 sql.php:332
+#: server_privileges.php:2059 server_privileges.php:2355 sql.php:338
 #: tbl_printview.php:194 tbl_structure.php:41 tbl_structure.php:347
 #: tbl_tracking.php:319 tbl_tracking.php:324
 msgid "Yes"
@@ -340,8 +341,8 @@ msgstr "Schimbă la tabela copiată"
 #: db_operations.php:537 libraries/Index.class.php:438
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:110 libraries/tbl_properties.inc.php:110
-#: libraries/tbl_properties.inc.php:706 server_collations.php:53
-#: server_collations.php:65 tbl_operations.php:382 tbl_select.php:116
+#: libraries/tbl_properties.inc.php:706 libraries/tbl_select.lib.php:111
+#: server_collations.php:53 server_collations.php:65 tbl_operations.php:382
 #: tbl_structure.php:204 tbl_structure.php:866 tbl_tracking.php:259
 #: tbl_tracking.php:310
 msgid "Collation"
@@ -366,8 +367,8 @@ msgid "Edit or export relational schema"
 msgstr "Schema relațională"
 
 #: db_printview.php:102 db_tracking.php:85 db_tracking.php:186
-#: libraries/config/messages.inc.php:502 libraries/db_structure.lib.php:32
-#: libraries/export/pdf.php:95 libraries/export/xml.php:344
+#: libraries/config/messages.inc.php:504 libraries/db_structure.lib.php:32
+#: libraries/export/pdf.php:95 libraries/export/xml.php:346
 #: libraries/header.inc.php:158 libraries/rte/rte_list.lib.php:59
 #: libraries/rte/rte_triggers.lib.php:310
 #: libraries/schema/User_Schema.class.php:233 server_privileges.php:1832
@@ -388,7 +389,7 @@ msgstr "Linie"
 msgid "Size"
 msgstr "Mărime"
 
-#: db_printview.php:160 db_structure.php:410 libraries/export/sql.php:756
+#: db_printview.php:160 db_structure.php:411 libraries/export/sql.php:756
 msgid "in use"
 msgstr "în folosință"
 
@@ -413,7 +414,7 @@ msgstr "Ultima actualizare"
 msgid "Last check"
 msgstr "Ultima verficare"
 
-#: db_printview.php:220 db_structure.php:433
+#: db_printview.php:220 db_structure.php:434
 #, fuzzy, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
@@ -440,14 +441,14 @@ msgstr "Sortare"
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:97
 #: libraries/display_tbl.lib.php:547 libraries/display_tbl.lib.php:916
 #: server_databases.php:157 server_databases.php:174 tbl_operations.php:279
-#: tbl_select.php:305
+#: tbl_select.php:199
 msgid "Ascending"
 msgstr "Crescătoare"
 
 #: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:105
 #: libraries/display_tbl.lib.php:552 libraries/display_tbl.lib.php:913
 #: server_databases.php:157 server_databases.php:174 tbl_operations.php:280
-#: tbl_select.php:306
+#: tbl_select.php:200
 msgid "Descending"
 msgstr "Descrescător"
 
@@ -474,7 +475,7 @@ msgstr "Del"
 
 #: db_qbe.php:392 db_qbe.php:473 db_qbe.php:544 db_qbe.php:575
 #: server_privileges.php:394 tbl_change.php:890 tbl_indexes.php:264
-#: tbl_select.php:279
+#: tbl_select.php:173
 msgid "Or"
 msgstr "Sau"
 
@@ -608,64 +609,64 @@ msgstr "În interiorul tabelei(lor):"
 msgid "Inside column:"
 msgstr "In interiorul coloanei::"
 
-#: db_structure.php:61
+#: db_structure.php:62
 #, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
 msgstr "Nu s-a găsit nici un tabel în baza de date."
 
-#: db_structure.php:271 tbl_operations.php:692
+#: db_structure.php:272 tbl_operations.php:692
 #, php-format
 msgid "Table %s has been emptied"
 msgstr "Tabelul %s a fost golit"
 
-#: db_structure.php:280 tbl_operations.php:709
+#: db_structure.php:281 tbl_operations.php:709
 #, php-format
 msgid "View %s has been dropped"
 msgstr "Vizualizarea %s a fost eliminată"
 
-#: db_structure.php:280 tbl_operations.php:709
+#: db_structure.php:281 tbl_operations.php:709
 #, php-format
 msgid "Table %s has been dropped"
 msgstr "Tabelul %s a fost aruncat"
 
-#: db_structure.php:287 tbl_create.php:269
+#: db_structure.php:288 tbl_create.php:269
 msgid "Tracking is active."
 msgstr "Monitorizarea este activată"
 
-#: db_structure.php:289 tbl_create.php:271
+#: db_structure.php:290 tbl_create.php:271
 msgid "Tracking is not active."
 msgstr "Monitorizarea nu este activată"
 
-#: db_structure.php:373 libraries/display_tbl.lib.php:2226
+#: db_structure.php:374 libraries/display_tbl.lib.php:2226
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Această vedere are minim acest număr de rânduri. Vedeți %sdocumentation%s."
 
-#: db_structure.php:387 db_structure.php:401 libraries/header.inc.php:158
+#: db_structure.php:388 db_structure.php:402 libraries/header.inc.php:158
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:210
 msgid "View"
 msgstr "Vizualizare"
 
-#: db_structure.php:438 libraries/db_structure.lib.php:35
+#: db_structure.php:439 libraries/db_structure.lib.php:35
 #: libraries/server_links.inc.php:90 server_replication.php:31
-#: server_replication.php:162 server_status.php:498
+#: server_replication.php:162 server_status.php:543
 msgid "Replication"
 msgstr "Replicare"
 
-#: db_structure.php:442
+#: db_structure.php:443
 msgid "Sum"
 msgstr "Sumă"
 
-#: db_structure.php:449 libraries/StorageEngine.class.php:313
+#: db_structure.php:450 libraries/StorageEngine.class.php:313
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s este motorul de stocare stabilit implicit pe acest server MySQL."
 
-#: db_structure.php:477 db_structure.php:494 db_structure.php:495
+#: db_structure.php:478 db_structure.php:495 db_structure.php:496
 #: libraries/display_tbl.lib.php:2367 libraries/display_tbl.lib.php:2372
 #: libraries/mult_submits.inc.php:15 server_databases.php:259
 #: server_databases.php:264 server_privileges.php:1753 tbl_structure.php:554
@@ -673,83 +674,83 @@ msgstr "%s este motorul de stocare stabilit implicit pe acest server MySQL."
 msgid "With selected:"
 msgstr "Cele bifate:"
 
-#: db_structure.php:480 libraries/display_tbl.lib.php:2362
+#: db_structure.php:481 libraries/display_tbl.lib.php:2362
 #: server_databases.php:261 server_privileges.php:670
 #: server_privileges.php:1756 tbl_structure.php:557
 msgid "Check All"
 msgstr "Marchează toate"
 
-#: db_structure.php:484 libraries/display_tbl.lib.php:2363
+#: db_structure.php:485 libraries/display_tbl.lib.php:2363
 #: libraries/replication_gui.lib.php:35 server_databases.php:263
 #: server_privileges.php:673 server_privileges.php:1760 tbl_structure.php:561
 msgid "Uncheck All"
 msgstr "Demarchează toate"
 
-#: db_structure.php:489
+#: db_structure.php:490
 msgid "Check tables having overhead"
 msgstr "Verificare depășit"
 
-#: db_structure.php:497 libraries/common.lib.php:3073
+#: db_structure.php:498 libraries/common.lib.php:3073
 #: libraries/common.lib.php:3074 libraries/config/messages.inc.php:164
 #: libraries/db_links.inc.php:56 libraries/display_tbl.lib.php:2380
 #: libraries/display_tbl.lib.php:2518 libraries/server_links.inc.php:65
 #: libraries/tbl_links.inc.php:80 prefs_manage.php:286
-#: server_privileges.php:1441 server_status.php:1432
+#: server_privileges.php:1441 server_status.php:1484
 #: setup/frames/menu.inc.php:21
 msgid "Export"
 msgstr "Exportă"
 
-#: db_structure.php:499 db_structure.php:553
+#: db_structure.php:500 db_structure.php:554
 #: libraries/display_tbl.lib.php:2469 tbl_structure.php:609
 msgid "Print view"
 msgstr "Vizualizare imprimare"
 
-#: db_structure.php:503 libraries/common.lib.php:3069
+#: db_structure.php:504 libraries/common.lib.php:3069
 #: libraries/common.lib.php:3070
 msgid "Empty"
 msgstr "Golește"
 
-#: db_structure.php:505 db_tracking.php:104 libraries/Index.class.php:482
+#: db_structure.php:506 db_tracking.php:104 libraries/Index.class.php:482
 #: libraries/common.lib.php:3067 libraries/common.lib.php:3068
 #: server_databases.php:265 tbl_structure.php:151 tbl_structure.php:152
 #: tbl_structure.php:570
 msgid "Drop"
 msgstr "Aruncă"
 
-#: db_structure.php:507 tbl_operations.php:608
+#: db_structure.php:508 tbl_operations.php:608
 msgid "Check table"
 msgstr "Verificare tabel"
 
-#: db_structure.php:509 tbl_operations.php:657 tbl_structure.php:810
+#: db_structure.php:510 tbl_operations.php:657 tbl_structure.php:810
 msgid "Optimize table"
 msgstr "Optimizare tabel"
 
-#: db_structure.php:511 tbl_operations.php:644
+#: db_structure.php:512 tbl_operations.php:644
 msgid "Repair table"
 msgstr "Reparare tabel"
 
-#: db_structure.php:513 tbl_operations.php:631
+#: db_structure.php:514 tbl_operations.php:631
 msgid "Analyze table"
 msgstr "Analizare tabel"
 
-#: db_structure.php:515
+#: db_structure.php:516
 #, fuzzy
 msgid "Add prefix to table"
 msgstr "Nu sînt baze de date"
 
-#: db_structure.php:517 libraries/mult_submits.inc.php:251
+#: db_structure.php:518 libraries/mult_submits.inc.php:251
 #, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
 msgstr "Înlocuiește datele tabelului cu fișier"
 
-#: db_structure.php:519 libraries/mult_submits.inc.php:251
+#: db_structure.php:520 libraries/mult_submits.inc.php:251
 #, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
 msgstr "Înlocuiește datele tabelului cu fișier"
 
-#: db_structure.php:559 libraries/schema/User_Schema.class.php:382
+#: db_structure.php:560 libraries/schema/User_Schema.class.php:382
 msgid "Data Dictionary"
 msgstr "Dicționar de date"
 
@@ -758,14 +759,14 @@ msgstr "Dicționar de date"
 msgid "Tracked tables"
 msgstr "Tabelele urmărite"
 
-#: db_tracking.php:84 libraries/config/messages.inc.php:496
+#: db_tracking.php:84 libraries/config/messages.inc.php:498
 #: libraries/export/htmlword.php:78 libraries/export/latex.php:151
 #: libraries/export/odt.php:109 libraries/export/pdf.php:95
 #: libraries/export/sql.php:583 libraries/export/texytext.php:66
-#: libraries/export/xml.php:276 libraries/header.inc.php:146
+#: libraries/export/xml.php:279 libraries/header.inc.php:146
 #: libraries/header_printview.inc.php:57 server_databases.php:156
 #: server_privileges.php:1827 server_privileges.php:1888
-#: server_privileges.php:2146 server_status.php:1065
+#: server_privileges.php:2146 server_status.php:1117
 #: server_synchronize.php:1140 server_synchronize.php:1144
 #: tbl_tracking.php:633
 msgid "Database"
@@ -785,7 +786,7 @@ msgstr "Actualizat(ă)"
 
 #: db_tracking.php:89 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
-#: server_status.php:1068 sql.php:837 tbl_tracking.php:638
+#: server_status.php:1120 sql.php:842 tbl_tracking.php:638
 msgid "Status"
 msgstr "Stare"
 
@@ -891,11 +892,11 @@ msgstr "Copia a fost salvată în fișierul %s."
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
-"Probabil ați încercat să încărcați un fișier prea mare. Faceți referire la %"
-"sdocumentație%s pentru căi de ocolire a acestei limite."
+"Probabil ați încercat să încărcați un fișier prea mare. Faceți referire la "
+"%sdocumentație%s pentru căi de ocolire a acestei limite."
 
 #: import.php:277 import.php:330 libraries/File.class.php:456
 #: libraries/File.class.php:539
@@ -938,7 +939,7 @@ msgstr "Eticheta a fost ștearsă."
 msgid "Showing bookmark"
 msgstr "Afișînd semn de carte"
 
-#: import.php:401 sql.php:872
+#: import.php:401 sql.php:877
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Semnul de carte %s a fost creat"
@@ -991,15 +992,15 @@ msgstr "Click pentru a selecta"
 msgid "Click to unselect"
 msgstr "Click pentru a deselecta"
 
-#: js/messages.php:29 libraries/import.lib.php:102 sql.php:229
+#: js/messages.php:29 libraries/import.lib.php:102 sql.php:235
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Comenzile \"DROP DATABASE\" sînt dezactivate."
 
-#: js/messages.php:32 libraries/mult_submits.inc.php:282 sql.php:327
+#: js/messages.php:32 libraries/mult_submits.inc.php:282 sql.php:333
 msgid "Do you really want to "
 msgstr "Sigur doriți să "
 
-#: js/messages.php:33 libraries/mult_submits.inc.php:282 sql.php:312
+#: js/messages.php:33 libraries/mult_submits.inc.php:282 sql.php:318
 msgid "You are about to DESTROY a complete database!"
 msgstr "Sînteți pe cale să DISTRUGEȚI o întreagă bază de date!"
 
@@ -1087,30 +1088,30 @@ msgstr "Reîncărcarea drepturilor"
 msgid "Removing Selected Users"
 msgstr "Eliminarea utilizatorilor selectați"
 
-#: js/messages.php:61 js/messages.php:123 libraries/tbl_properties.inc.php:758
+#: js/messages.php:61 js/messages.php:130 libraries/tbl_properties.inc.php:758
 #: tbl_tracking.php:235 tbl_tracking.php:400
 msgid "Close"
 msgstr ""
 
-#: js/messages.php:64 js/messages.php:242 libraries/Index.class.php:460
+#: js/messages.php:64 js/messages.php:249 libraries/Index.class.php:460
 #: libraries/common.lib.php:580 libraries/common.lib.php:1113
 #: libraries/common.lib.php:3071 libraries/common.lib.php:3072
-#: libraries/config/messages.inc.php:476 libraries/display_tbl.lib.php:1326
+#: libraries/config/messages.inc.php:478 libraries/display_tbl.lib.php:1326
 #: libraries/schema/User_Schema.class.php:164 setup/frames/index.inc.php:138
 msgid "Edit"
 msgstr "Editare"
 
-#: js/messages.php:65 server_status.php:663
+#: js/messages.php:65 server_status.php:705
 #, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
 msgstr "Alegerea serverului"
 
-#: js/messages.php:66 server_status.php:666
+#: js/messages.php:66 server_status.php:708
 msgid "Live conn./process chart"
 msgstr ""
 
-#: js/messages.php:67 server_status.php:684
+#: js/messages.php:67 server_status.php:726
 #, fuzzy
 msgid "Live query chart"
 msgstr "Comanda SQL"
@@ -1122,13 +1123,13 @@ msgstr ""
 #. l10n: Total number of queries
 #: js/messages.php:71 libraries/build_html_for_db.lib.php:46
 #: libraries/engines/innodb.lib.php:158 server_databases.php:218
-#: server_status.php:968 server_status.php:1029 tbl_printview.php:315
+#: server_status.php:1020 server_status.php:1081 tbl_printview.php:315
 #: tbl_structure.php:798
 msgid "Total"
 msgstr "Total"
 
 #. l10n: Other, small valued, queries
-#: js/messages.php:73 server_status.php:866
+#: js/messages.php:73 server_status.php:918
 msgid "Other"
 msgstr ""
 
@@ -1160,7 +1161,7 @@ msgstr "Alegerea serverului"
 msgid "Connections since last refresh"
 msgstr ""
 
-#: js/messages.php:83 js/messages.php:114 server_status.php:1061
+#: js/messages.php:83 js/messages.php:121 server_status.php:1113
 msgid "Processes"
 msgstr "Procese"
 
@@ -1180,173 +1181,206 @@ msgstr ""
 msgid "Questions (executed statements by the server)"
 msgstr ""
 
-#: js/messages.php:90 server_status.php:645
+#: js/messages.php:90 server_status.php:687
 #, fuzzy
 msgid "Query statistics"
 msgstr "Statisticile rîndului"
 
 #: js/messages.php:93
+#, fuzzy
+#| msgid "Could not load default configuration from: \"%1$s\""
+msgid "Local monitor configuration icompatible"
+msgstr "Nu s-a putut încărca configurația implicită din: „%1$s”"
+
+#: js/messages.php:94
+msgid ""
+"The chart arrangement configuration in your browsers local storage is not "
+"compatible anymore to the newer version of the monitor dialog. It is very "
+"likely that your current configuration will not work anymore. Please reset "
+"your configuration to default in the <i>Settings</i> menu."
+msgstr ""
+
+#: js/messages.php:96
+#, fuzzy
+#| msgid "Query cache"
+msgid "Query cache efficiency"
+msgstr "Cache interogări"
+
+#: js/messages.php:97 po/advisory_rules.php:70
+#, fuzzy
+#| msgid "Query cache"
+msgid "Query cache usage"
+msgstr "Cache interogări"
+
+#: js/messages.php:98
+#, fuzzy
+#| msgid "Query cache"
+msgid "Query cache used"
+msgstr "Cache interogări"
+
+#: js/messages.php:100
 msgid "System CPU Usage"
 msgstr ""
 
-#: js/messages.php:94
+#: js/messages.php:101
 msgid "System memory"
 msgstr ""
 
-#: js/messages.php:95
+#: js/messages.php:102
 msgid "System swap"
 msgstr ""
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:96 libraries/common.lib.php:1303 server_status.php:1508
+#: js/messages.php:103 libraries/common.lib.php:1303 server_status.php:1565
 msgid "MiB"
 msgstr "MiO"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:97 libraries/common.lib.php:1301 server_status.php:1508
+#: js/messages.php:104 libraries/common.lib.php:1301 server_status.php:1565
 msgid "KiB"
 msgstr "KiO"
 
-#: js/messages.php:99
+#: js/messages.php:106
 msgid "Average load"
 msgstr ""
 
-#: js/messages.php:100
+#: js/messages.php:107
 #, fuzzy
 #| msgid "Log file count"
 msgid "Total memory"
 msgstr "Număr de fișiere-jurnal"
 
-#: js/messages.php:101
+#: js/messages.php:108
 msgid "Cached memory"
 msgstr ""
 
-#: js/messages.php:102
+#: js/messages.php:109
 #, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
 msgstr "Buffer Pool"
 
-#: js/messages.php:103
+#: js/messages.php:110
 msgid "Free memory"
 msgstr ""
 
-#: js/messages.php:104
+#: js/messages.php:111
 msgid "Used memory"
 msgstr ""
 
-#: js/messages.php:106
+#: js/messages.php:113
 #, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
 msgstr "Total"
 
-#: js/messages.php:107
+#: js/messages.php:114
 msgid "Cached Swap"
 msgstr ""
 
-#: js/messages.php:108
+#: js/messages.php:115
 msgid "Used Swap"
 msgstr ""
 
-#: js/messages.php:109
+#: js/messages.php:116
 #, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
 msgstr "Pagini libere"
 
-#: js/messages.php:111
+#: js/messages.php:118
 msgid "Bytes sent"
 msgstr ""
 
-#: js/messages.php:112
+#: js/messages.php:119
 #, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
 msgstr "Recepționat"
 
-#: js/messages.php:113 server_status.php:987
+#: js/messages.php:120 server_status.php:1039
 msgid "Connections"
 msgstr "Conexiuni"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: js/messages.php:117
+#: js/messages.php:124
 #, fuzzy
 #| msgid "Versions"
 msgid "Questions"
 msgstr "Versiuni"
 
-#: js/messages.php:118 server_status.php:942
+#: js/messages.php:125 server_status.php:994
 msgid "Traffic"
 msgstr "Trafic"
 
-#: js/messages.php:119 libraries/server_links.inc.php:73
-#: server_status.php:1389
+#: js/messages.php:126 libraries/server_links.inc.php:73
+#: server_status.php:1441
 #, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
 msgstr "Facilități generale"
 
-#: js/messages.php:120
+#: js/messages.php:127
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Remove chart"
 msgstr "Redenumire bază de date în"
 
-#: js/messages.php:121
+#: js/messages.php:128
 msgid "Edit title and labels"
 msgstr ""
 
-#: js/messages.php:122
+#: js/messages.php:129
 #, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
 msgstr "Aliniere la grilă"
 
-#: js/messages.php:124
+#: js/messages.php:131
 msgid "Please add at least one variable to the series"
 msgstr ""
 
-#: js/messages.php:125 libraries/display_export.lib.php:308
+#: js/messages.php:132 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:554 libraries/export/sql.php:1052
 #: libraries/tbl_properties.inc.php:544 pmd_general.php:510
-#: server_privileges.php:2042 server_status.php:1102 server_status.php:1525
+#: server_privileges.php:2042 server_status.php:1154 server_status.php:1582
+#: tbl_zoom_select.php:158 tbl_zoom_select.php:283
 msgid "None"
 msgstr "Nici unul(a)"
 
-#: js/messages.php:126
+#: js/messages.php:133
 msgid "Resume monitor"
 msgstr ""
 
-#: js/messages.php:127
+#: js/messages.php:134
 msgid "Pause monitor"
 msgstr ""
 
-#: js/messages.php:129
+#: js/messages.php:136
 msgid "general_log and slow_query_log are enabled."
 msgstr ""
 
-#: js/messages.php:130
+#: js/messages.php:137
 msgid "general_log is enabled."
 msgstr ""
 
-#: js/messages.php:131
+#: js/messages.php:138
 msgid "slow_query_log is enabled."
 msgstr ""
 
-#: js/messages.php:132
+#: js/messages.php:139
 msgid "slow_query_log and general_log are disabled."
 msgstr ""
 
-#: js/messages.php:133
+#: js/messages.php:140
 msgid "log_output is not set to TABLE."
 msgstr ""
 
-#: js/messages.php:134
+#: js/messages.php:141
 msgid "log_output is set to TABLE."
 msgstr ""
 
-#: js/messages.php:135
+#: js/messages.php:142
 #, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
@@ -1354,388 +1388,388 @@ msgid ""
 "depending on your system."
 msgstr ""
 
-#: js/messages.php:136
+#: js/messages.php:143
 #, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr ""
 
-#: js/messages.php:137
+#: js/messages.php:144
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
 
 #. l10n: %s is FILE or TABLE
-#: js/messages.php:139
+#: js/messages.php:146
 #, fuzzy, php-format
 #| msgid "Save as file"
 msgid "Set log_output to %s"
 msgstr "Trimite"
 
 #. l10n: Enable in this context means setting a status variable to ON
-#: js/messages.php:141
+#: js/messages.php:148
 #, fuzzy, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
 msgstr "Activat"
 
 #. l10n: Disable in this context means setting a status variable to OFF
-#: js/messages.php:143
+#: js/messages.php:150
 #, fuzzy, php-format
 #| msgid "Disable"
 msgid "Disable %s"
 msgstr "Dezactivează"
 
 #. l10n: %d seconds
-#: js/messages.php:145
+#: js/messages.php:152
 #, php-format
 msgid "Set long_query_time to %ds"
 msgstr ""
 
-#: js/messages.php:146
+#: js/messages.php:153
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
 
-#: js/messages.php:147
+#: js/messages.php:154
 #, fuzzy
 #| msgid "General relation features"
 msgid "Change settings"
 msgstr "Facilități generale"
 
-#: js/messages.php:148
+#: js/messages.php:155
 #, fuzzy
 #| msgid "General relation features"
 msgid "Current settings"
 msgstr "Facilități generale"
 
-#: js/messages.php:150 server_status.php:1468
+#: js/messages.php:157 server_status.php:1530
 #, fuzzy
 #| msgid "Report title"
 msgid "Chart Title"
 msgstr "Titlu raport"
 
 #. l10n: As in differential values
-#: js/messages.php:152
+#: js/messages.php:159
 msgid "Differential"
 msgstr ""
 
-#: js/messages.php:153
+#: js/messages.php:160
 #, php-format
 msgid "Divided by %s:"
 msgstr ""
 
-#: js/messages.php:155
+#: js/messages.php:162
 msgid "From slow log"
 msgstr ""
 
-#: js/messages.php:156
+#: js/messages.php:163
 msgid "From general log"
 msgstr ""
 
-#: js/messages.php:157
+#: js/messages.php:164
 msgid "Analysing & loading logs. This may take a while."
 msgstr ""
 
-#: js/messages.php:158
+#: js/messages.php:165
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
 
-#: js/messages.php:159
+#: js/messages.php:166
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
 
-#: js/messages.php:160
+#: js/messages.php:167
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 
-#: js/messages.php:162
+#: js/messages.php:169
 #, fuzzy
 msgid "Jump to Log table"
 msgstr "Nu sînt baze de date"
 
-#: js/messages.php:163
+#: js/messages.php:170
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
 
 #. l10n: A collection of available filters
-#: js/messages.php:166
+#: js/messages.php:173
 #, fuzzy
 msgid "Filters"
 msgstr "Fișiere"
 
 #. l10n: Filter as in "Start Filtering"
-#: js/messages.php:168
+#: js/messages.php:175
 #, fuzzy
 msgid "Filter"
 msgstr "Fișiere"
 
-#: js/messages.php:169
+#: js/messages.php:176
 msgid "Filter queries by word/regexp:"
 msgstr ""
 
-#: js/messages.php:170
+#: js/messages.php:177
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 
-#: js/messages.php:171
+#: js/messages.php:178
 #, fuzzy
 msgid "Sum of grouped rows:"
 msgstr "Numărul de rînduri sortate."
 
-#: js/messages.php:172
+#: js/messages.php:179
 #, fuzzy
 #| msgid "Total"
 msgid "Total:"
 msgstr "Total"
 
-#: js/messages.php:174
+#: js/messages.php:181
 #, fuzzy
 msgid "Loading logs"
 msgstr "Local"
 
-#: js/messages.php:175
+#: js/messages.php:182
 msgid "Monitor refresh failed"
 msgstr ""
 
-#: js/messages.php:176
+#: js/messages.php:183
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
 
-#: js/messages.php:177
+#: js/messages.php:184
 #, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
 msgstr "Reîncarcă"
 
-#: js/messages.php:179
+#: js/messages.php:186
 msgid "Affected rows:"
 msgstr ""
 
-#: js/messages.php:181
+#: js/messages.php:188
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgstr ""
 
-#: js/messages.php:182
+#: js/messages.php:189
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr ""
 
-#: js/messages.php:183 libraries/config/messages.inc.php:170
+#: js/messages.php:190 libraries/config/messages.inc.php:170
 #: libraries/db_links.inc.php:83 libraries/server_links.inc.php:69
-#: libraries/tbl_links.inc.php:89 prefs_manage.php:229 server_status.php:1432
+#: libraries/tbl_links.inc.php:89 prefs_manage.php:229 server_status.php:1484
 #: setup/frames/menu.inc.php:20
 msgid "Import"
 msgstr "Importă"
 
-#: js/messages.php:185
+#: js/messages.php:192
 #, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
 msgstr "Reînnoire comandă"
 
-#: js/messages.php:189
+#: js/messages.php:196
 msgid "Advisor system"
 msgstr ""
 
-#: js/messages.php:190
+#: js/messages.php:197
 msgid "Possible performance issues"
 msgstr ""
 
-#: js/messages.php:191
+#: js/messages.php:198
 msgid "Issue"
 msgstr ""
 
-#: js/messages.php:192
+#: js/messages.php:199
 #, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
 msgstr "Documentație"
 
-#: js/messages.php:193
+#: js/messages.php:200
 #, fuzzy
 #| msgid "Details..."
 msgid "Rule details"
 msgstr "Detalii..."
 
-#: js/messages.php:194
+#: js/messages.php:201
 #, fuzzy
 #| msgid "Customization"
 msgid "Justification"
 msgstr "Personalizare"
 
-#: js/messages.php:195
+#: js/messages.php:202
 msgid "Used variable / formula"
 msgstr ""
 
-#: js/messages.php:196
+#: js/messages.php:203
 msgid "Test"
 msgstr ""
 
-#: js/messages.php:201 libraries/tbl_properties.inc.php:763
+#: js/messages.php:208 libraries/tbl_properties.inc.php:763
 #: pmd_general.php:388 pmd_general.php:425 pmd_general.php:545
 #: pmd_general.php:593 pmd_general.php:669 pmd_general.php:723
 #: pmd_general.php:786
 msgid "Cancel"
 msgstr "Renunță"
 
-#: js/messages.php:204
+#: js/messages.php:211
 #, fuzzy
 msgid "Loading"
 msgstr "Local"
 
-#: js/messages.php:205
+#: js/messages.php:212
 #, fuzzy
 #| msgid "Processes"
 msgid "Processing Request"
 msgstr "Procese"
 
-#: js/messages.php:206 libraries/import/ods.php:80
+#: js/messages.php:213 libraries/import/ods.php:80
 #: libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
 msgstr ""
 
-#: js/messages.php:207
+#: js/messages.php:214
 msgid "Dropping Column"
 msgstr ""
 
-#: js/messages.php:208
+#: js/messages.php:215
 msgid "Adding Primary Key"
 msgstr ""
 
-#: js/messages.php:209 libraries/relation.lib.php:76 pmd_general.php:386
+#: js/messages.php:216 libraries/relation.lib.php:76 pmd_general.php:386
 #: pmd_general.php:543 pmd_general.php:591 pmd_general.php:667
 #: pmd_general.php:721 pmd_general.php:784
 msgid "OK"
 msgstr "E bine"
 
-#: js/messages.php:212
+#: js/messages.php:219
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
 msgstr "Redenumire bază de date în"
 
-#: js/messages.php:213
+#: js/messages.php:220
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Reload Database"
 msgstr "Redenumire bază de date în"
 
-#: js/messages.php:214
+#: js/messages.php:221
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
 msgstr "Copiază baza de date"
 
-#: js/messages.php:215
+#: js/messages.php:222
 #, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
 msgstr "Set de caractere"
 
-#: js/messages.php:216
+#: js/messages.php:223
 #, fuzzy
 #| msgid "Table must have at least one field."
 msgid "Table must have at least one column"
 msgstr "Tabelul trebuie să conțină cel puțin un cîmp."
 
-#: js/messages.php:217
+#: js/messages.php:224
 #, fuzzy
 #| msgid "Create table"
 msgid "Create Table"
 msgstr "Creare tabel"
 
-#: js/messages.php:222
+#: js/messages.php:229
 #, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
 msgstr "Utilizare tabele"
 
-#: js/messages.php:223
+#: js/messages.php:230
 #, fuzzy
 #| msgid "Indexes"
 msgid "Hide indexes"
 msgstr "Indexuri"
 
-#: js/messages.php:224
+#: js/messages.php:231
 #, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
 msgstr "Arată grila"
 
-#: js/messages.php:227
+#: js/messages.php:234
 #, fuzzy
 #| msgid "Search"
 msgid "Searching"
 msgstr "Caută"
 
-#: js/messages.php:228
+#: js/messages.php:235
 #, fuzzy
 msgid "Hide search results"
 msgstr "Comanda SQL"
 
-#: js/messages.php:229
+#: js/messages.php:236
 #, fuzzy
 msgid "Show search results"
 msgstr "Comanda SQL"
 
-#: js/messages.php:230
+#: js/messages.php:237
 #, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
 msgstr "Navigare"
 
-#: js/messages.php:231
+#: js/messages.php:238
 #, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
 msgstr "Șterge %s"
 
-#: js/messages.php:234
+#: js/messages.php:241
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
-#: js/messages.php:237
+#: js/messages.php:244
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr ""
 
-#: js/messages.php:240
+#: js/messages.php:247
 #, fuzzy
 msgid "Hide query box"
 msgstr "Comanda SQL"
 
-#: js/messages.php:241
+#: js/messages.php:248
 #, fuzzy
 msgid "Show query box"
 msgstr "Comanda SQL"
 
-#: js/messages.php:243 tbl_row_action.php:28
+#: js/messages.php:250 tbl_row_action.php:28
 msgid "No rows selected"
 msgstr "Nu e nici un rînd selectat"
 
-#: js/messages.php:244 libraries/common.lib.php:2531
+#: js/messages.php:251 libraries/common.lib.php:2531
 #: libraries/display_tbl.lib.php:2375 querywindow.php:90 querywindow.php:94
 #: querywindow.php:97 tbl_structure.php:150 tbl_structure.php:569
 msgid "Change"
 msgstr "Schimbare"
 
-#: js/messages.php:245
+#: js/messages.php:252
 msgid "Query execution time"
 msgstr ""
 
-#: js/messages.php:248 libraries/config/FormDisplay.tpl.php:323
+#: js/messages.php:255 libraries/config/FormDisplay.tpl.php:323
 #: libraries/schema/User_Schema.class.php:313
 #: libraries/tbl_properties.inc.php:752 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:228 tbl_change.php:979
@@ -1743,112 +1777,166 @@ msgstr ""
 msgid "Save"
 msgstr "Salveaza"
 
-#: js/messages.php:251
+#: js/messages.php:258
 #, fuzzy
 msgid "Hide search criteria"
 msgstr "Comanda SQL"
 
-#: js/messages.php:252
+#: js/messages.php:259
 #, fuzzy
 msgid "Show search criteria"
 msgstr "Comanda SQL"
 
-#: js/messages.php:255 tbl_change.php:307 tbl_indexes.php:211
+#: js/messages.php:262 libraries/tbl_select.lib.php:138
+#, fuzzy
+#| msgid "Search"
+msgid "Zoom Search"
+msgstr "Caută"
+
+#: js/messages.php:264
+msgid "Each point represents a data row."
+msgstr ""
+
+#: js/messages.php:266
+msgid "Hovering over a point will show its label."
+msgstr ""
+
+#: js/messages.php:268
+msgid "Drag and select an area in the plot to zoom into it."
+msgstr ""
+
+#: js/messages.php:270
+msgid "Click reset zoom link to come back to original state."
+msgstr ""
+
+#: js/messages.php:272
+msgid "Click a data point to view and possibly edit the data row."
+msgstr ""
+
+#: js/messages.php:274
+msgid "The plot can be resized by dragging it along the bottom right corner."
+msgstr ""
+
+#: js/messages.php:276
+msgid "Strings are converted into integer for plotting"
+msgstr ""
+
+#: js/messages.php:278
+#, fuzzy
+#| msgid "Add/Delete Field Columns"
+msgid "Select two columns"
+msgstr "Adaugă/șterge coloane"
+
+#: js/messages.php:279
+msgid "Select two different columns"
+msgstr ""
+
+#: js/messages.php:282 tbl_change.php:307 tbl_indexes.php:211
 #: tbl_indexes.php:238
 msgid "Ignore"
 msgstr "Ignoră"
 
-#: js/messages.php:258
+#: js/messages.php:285
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add columns"
 msgstr "Adaugă %s cîmp(uri)"
 
-#: js/messages.php:261
+#: js/messages.php:288
 msgid "Select referenced key"
 msgstr "Alegere cheie referențiată"
 
-#: js/messages.php:262
+#: js/messages.php:289
 msgid "Select Foreign Key"
 msgstr "Alegeți cheia străină"
 
-#: js/messages.php:263
+#: js/messages.php:290
 msgid "Please select the primary key or a unique key"
 msgstr "Vă rugăm să alegeți cheia primară sau o cheie unică"
 
-#: js/messages.php:264 pmd_general.php:87 tbl_relation.php:545
+#: js/messages.php:291 pmd_general.php:87 tbl_relation.php:545
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Selectează un cîmp"
 
-#: js/messages.php:265
+#: js/messages.php:292
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them.Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:268
+#: js/messages.php:295
 msgid "Add an option for column "
 msgstr ""
 
-#: js/messages.php:271
+#: js/messages.php:298
 msgid "Press escape to cancel editing"
 msgstr ""
 
-#: js/messages.php:272
+#: js/messages.php:299
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
 
-#: js/messages.php:273
+#: js/messages.php:300
 msgid "Drag to reorder"
 msgstr ""
 
-#: js/messages.php:274
+#: js/messages.php:301
 #, fuzzy
 #| msgid "Click to select"
 msgid "Click to sort"
 msgstr "Click pentru a selecta"
 
-#: js/messages.php:275
+#: js/messages.php:302
 msgid "Click to mark/unmark"
 msgstr ""
 
-#: js/messages.php:276
+#: js/messages.php:303
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr ""
 
-#: js/messages.php:278
+#: js/messages.php:305
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: js/messages.php:281
+#: js/messages.php:306
+msgid ""
+"You can also edit most columns<br />by clicking directly on their content."
+msgstr ""
+
+#: js/messages.php:307
+#, fuzzy
+msgid "Go to link"
+msgstr "Nu sînt baze de date"
+
+#: js/messages.php:310
 #, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Generează parolă"
 
-#: js/messages.php:282 libraries/replication_gui.lib.php:369
+#: js/messages.php:311 libraries/replication_gui.lib.php:369
 msgid "Generate"
 msgstr "Generează"
 
-#: js/messages.php:283
+#: js/messages.php:312
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Schimbare parolă"
 
-#: js/messages.php:286 tbl_structure.php:464
+#: js/messages.php:315 tbl_structure.php:464
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "Lun"
 
-#: js/messages.php:289 setup/lib/index.lib.php:173
+#: js/messages.php:318 setup/lib/index.lib.php:173
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1858,30 +1946,30 @@ msgstr ""
 "procesul de actualizare. Noua versiune este %s, publicată în data de %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:291
+#: js/messages.php:320
 #, fuzzy
 #| msgid "Last version"
 msgid ", latest stable version:"
 msgstr "Ultima versiune"
 
-#: js/messages.php:292
+#: js/messages.php:321
 #, fuzzy
 msgid "up to date"
 msgstr "Nu sînt baze de date"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:311
+#: js/messages.php:340
 msgid "Done"
 msgstr "Gata"
 
-#: js/messages.php:315
+#: js/messages.php:344
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Anterior"
 
-#: js/messages.php:320
+#: js/messages.php:349
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -1889,84 +1977,84 @@ msgid "Next"
 msgstr "Următorul"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:323
+#: js/messages.php:352
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Total"
 
-#: js/messages.php:326
+#: js/messages.php:355
 msgid "January"
 msgstr "Ianuarie"
 
-#: js/messages.php:327
+#: js/messages.php:356
 msgid "February"
 msgstr "Februarie"
 
-#: js/messages.php:328
+#: js/messages.php:357
 msgid "March"
 msgstr "Martie"
 
-#: js/messages.php:329
+#: js/messages.php:358
 msgid "April"
 msgstr "Aprilie"
 
-#: js/messages.php:330
+#: js/messages.php:359
 msgid "May"
 msgstr "Mai"
 
-#: js/messages.php:331
+#: js/messages.php:360
 msgid "June"
 msgstr "Iunie"
 
-#: js/messages.php:332
+#: js/messages.php:361
 msgid "July"
 msgstr "Iulie"
 
-#: js/messages.php:333
+#: js/messages.php:362
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Aug"
 
-#: js/messages.php:334
+#: js/messages.php:363
 msgid "September"
 msgstr "Septembrie"
 
-#: js/messages.php:335
+#: js/messages.php:364
 msgid "October"
 msgstr "Octombrie"
 
-#: js/messages.php:336
+#: js/messages.php:365
 msgid "November"
 msgstr "Noiembrie"
 
-#: js/messages.php:337
+#: js/messages.php:366
 msgid "December"
 msgstr "Decembrie"
 
 #. l10n: Short month name
-#: js/messages.php:341 libraries/common.lib.php:1503
+#: js/messages.php:370 libraries/common.lib.php:1503
 msgid "Jan"
 msgstr "Ian"
 
 #. l10n: Short month name
-#: js/messages.php:343 libraries/common.lib.php:1505
+#: js/messages.php:372 libraries/common.lib.php:1505
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name
-#: js/messages.php:345 libraries/common.lib.php:1507
+#: js/messages.php:374 libraries/common.lib.php:1507
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:347 libraries/common.lib.php:1509
+#: js/messages.php:376 libraries/common.lib.php:1509
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name
-#: js/messages.php:349 libraries/common.lib.php:1511
+#: js/messages.php:378 libraries/common.lib.php:1511
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -1974,78 +2062,78 @@ msgid "May"
 msgstr "Mai"
 
 #. l10n: Short month name
-#: js/messages.php:351 libraries/common.lib.php:1513
+#: js/messages.php:380 libraries/common.lib.php:1513
 msgid "Jun"
 msgstr "Iun"
 
 #. l10n: Short month name
-#: js/messages.php:353 libraries/common.lib.php:1515
+#: js/messages.php:382 libraries/common.lib.php:1515
 msgid "Jul"
 msgstr "Iul"
 
 #. l10n: Short month name
-#: js/messages.php:355 libraries/common.lib.php:1517
+#: js/messages.php:384 libraries/common.lib.php:1517
 msgid "Aug"
 msgstr "Aug"
 
 #. l10n: Short month name
-#: js/messages.php:357 libraries/common.lib.php:1519
+#: js/messages.php:386 libraries/common.lib.php:1519
 msgid "Sep"
 msgstr "Sep"
 
 #. l10n: Short month name
-#: js/messages.php:359 libraries/common.lib.php:1521
+#: js/messages.php:388 libraries/common.lib.php:1521
 msgid "Oct"
 msgstr "Oct"
 
 #. l10n: Short month name
-#: js/messages.php:361 libraries/common.lib.php:1523
+#: js/messages.php:390 libraries/common.lib.php:1523
 msgid "Nov"
 msgstr "Noi"
 
 #. l10n: Short month name
-#: js/messages.php:363 libraries/common.lib.php:1525
+#: js/messages.php:392 libraries/common.lib.php:1525
 msgid "Dec"
 msgstr "Dec"
 
-#: js/messages.php:366
+#: js/messages.php:395
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Dum"
 
-#: js/messages.php:367
+#: js/messages.php:396
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Lun"
 
-#: js/messages.php:368
+#: js/messages.php:397
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Mar"
 
-#: js/messages.php:369
+#: js/messages.php:398
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:370
+#: js/messages.php:399
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:371
+#: js/messages.php:400
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Vin"
 
-#: js/messages.php:372
+#: js/messages.php:401
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:376
+#: js/messages.php:405
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -2053,102 +2141,102 @@ msgid "Sun"
 msgstr "Dum"
 
 #. l10n: Short week day name
-#: js/messages.php:378 libraries/common.lib.php:1530
+#: js/messages.php:407 libraries/common.lib.php:1530
 msgid "Mon"
 msgstr "Lun"
 
 #. l10n: Short week day name
-#: js/messages.php:380 libraries/common.lib.php:1532
+#: js/messages.php:409 libraries/common.lib.php:1532
 msgid "Tue"
 msgstr "Mar"
 
 #. l10n: Short week day name
-#: js/messages.php:382 libraries/common.lib.php:1534
+#: js/messages.php:411 libraries/common.lib.php:1534
 msgid "Wed"
 msgstr "Mie"
 
 #. l10n: Short week day name
-#: js/messages.php:384 libraries/common.lib.php:1536
+#: js/messages.php:413 libraries/common.lib.php:1536
 msgid "Thu"
 msgstr "Joi"
 
 #. l10n: Short week day name
-#: js/messages.php:386 libraries/common.lib.php:1538
+#: js/messages.php:415 libraries/common.lib.php:1538
 msgid "Fri"
 msgstr "Vin"
 
 #. l10n: Short week day name
-#: js/messages.php:388 libraries/common.lib.php:1540
+#: js/messages.php:417 libraries/common.lib.php:1540
 msgid "Sat"
 msgstr "Sâm"
 
 #. l10n: Minimal week day name
-#: js/messages.php:392
+#: js/messages.php:421
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Dum"
 
 #. l10n: Minimal week day name
-#: js/messages.php:394
+#: js/messages.php:423
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Lun"
 
 #. l10n: Minimal week day name
-#: js/messages.php:396
+#: js/messages.php:425
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Mar"
 
 #. l10n: Minimal week day name
-#: js/messages.php:398
+#: js/messages.php:427
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Mie"
 
 #. l10n: Minimal week day name
-#: js/messages.php:400
+#: js/messages.php:429
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Joi"
 
 #. l10n: Minimal week day name
-#: js/messages.php:402
+#: js/messages.php:431
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Vin"
 
 #. l10n: Minimal week day name
-#: js/messages.php:404
+#: js/messages.php:433
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Sâm"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:406
+#: js/messages.php:435
 #, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
 msgstr "Wiki"
 
-#: js/messages.php:408
+#: js/messages.php:437
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:409
+#: js/messages.php:438
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "în folosință"
 
-#: js/messages.php:410
+#: js/messages.php:439
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -2371,6 +2459,13 @@ msgstr "Tabelului %s i s-a dat un numele de %s"
 msgid "Could not save table UI preferences"
 msgstr ""
 
+#: libraries/Table.class.php:1294
+#, php-format
+msgid ""
+"Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
+"['MaxTableUiprefs'] %s)"
+msgstr ""
+
 #: libraries/Theme.class.php:144
 #, php-format
 msgid "No valid image path for theme %s found!"
@@ -2416,8 +2511,8 @@ msgstr "Bine ați venit la %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Motivul probabil pentru aceasta este că nu ați creat un fișier de "
 "configurare. Puteți folosi %1$s vrăjitorul de setări %2$s pentru a crea un "
@@ -2563,13 +2658,13 @@ msgstr ""
 
 #: libraries/build_html_for_db.lib.php:26
 #: libraries/config/messages.inc.php:183 libraries/export/xml.php:49
-#: server_status.php:500
+#: server_status.php:545
 msgid "Tables"
 msgstr "Tabele"
 
-#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:301
-#: libraries/config/setup.forms.php:337 libraries/config/setup.forms.php:360
-#: libraries/config/setup.forms.php:365
+#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:302
+#: libraries/config/setup.forms.php:338 libraries/config/setup.forms.php:361
+#: libraries/config/setup.forms.php:366
 #: libraries/config/user_preferences.forms.php:201
 #: libraries/config/user_preferences.forms.php:237
 #: libraries/config/user_preferences.forms.php:260
@@ -2609,25 +2704,25 @@ msgstr "Verifică privilegiile pentru baza de date &quot;%s&quot;."
 msgid "Check Privileges"
 msgstr "Verifică privilegiile"
 
-#: libraries/common.inc.php:596
+#: libraries/common.inc.php:597
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Failed to read configuration file"
 msgstr "Nu s-a putut încărca configurația implicită din: „%1$s”"
 
-#: libraries/common.inc.php:597
+#: libraries/common.inc.php:598
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
 
-#: libraries/common.inc.php:604
+#: libraries/common.inc.php:605
 #, fuzzy, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
 msgstr "Nu s-a putut încărca configurația implicită din: „%1$s”"
 
-#: libraries/common.inc.php:609
+#: libraries/common.inc.php:610
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -2635,30 +2730,30 @@ msgstr ""
 "Directiva <tt>$cfg['PmaAbsoluteUri']</tt> TREBUIE să fie stabilită în "
 "fișierul de configurare!"
 
-#: libraries/common.inc.php:639
+#: libraries/common.inc.php:640
 #, fuzzy, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "Index de server nevalid: „%s”"
 
-#: libraries/common.inc.php:646
+#: libraries/common.inc.php:647
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Gazdă nevalidă pentru serverul %1$s. Vă rugăm să revizuiți configurația "
 "dumneavoastră."
 
-#: libraries/common.inc.php:655 libraries/config/messages.inc.php:500
-#: libraries/header.inc.php:136 main.php:161 server_status.php:644
+#: libraries/common.inc.php:656 libraries/config/messages.inc.php:502
+#: libraries/header.inc.php:136 main.php:161 server_status.php:686
 #: server_synchronize.php:1120
 msgid "Server"
 msgstr "Server"
 
-#: libraries/common.inc.php:834
+#: libraries/common.inc.php:835
 msgid "Invalid authentication method set in configuration:"
 msgstr "Metodă de autentificare nevalidă stabilită în configurație:"
 
-#: libraries/common.inc.php:942
+#: libraries/common.inc.php:943
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Ar trebui sa reactualizati serverul %s %s la o versiune mai noua."
@@ -2698,7 +2793,7 @@ msgid "Documentation"
 msgstr "Documentație"
 
 #: libraries/common.lib.php:559 libraries/header_printview.inc.php:60
-#: server_status.php:487 server_status.php:1070
+#: server_status.php:532 server_status.php:1122
 msgid "SQL query"
 msgstr "Comanda SQL"
 
@@ -2720,7 +2815,7 @@ msgstr "MySQL zice: "
 msgid "Failed to connect to SQL validator!"
 msgstr "Comprimă conexiunea la serverul MySQL"
 
-#: libraries/common.lib.php:1088 libraries/config/messages.inc.php:477
+#: libraries/common.lib.php:1088 libraries/config/messages.inc.php:479
 msgid "Explain SQL"
 msgstr "Explică SQL"
 
@@ -2732,12 +2827,12 @@ msgstr "Sari peste explicarea SQL"
 msgid "Without PHP Code"
 msgstr "fără cod PHP"
 
-#: libraries/common.lib.php:1129 libraries/config/messages.inc.php:479
+#: libraries/common.lib.php:1129 libraries/config/messages.inc.php:481
 msgid "Create PHP Code"
 msgstr "Creează cod PHP"
 
-#: libraries/common.lib.php:1147 libraries/config/messages.inc.php:478
-#: server_status.php:655 server_status.php:677 server_status.php:696
+#: libraries/common.lib.php:1147 libraries/config/messages.inc.php:480
+#: server_status.php:697 server_status.php:719 server_status.php:738
 msgid "Refresh"
 msgstr "Reîncarcă"
 
@@ -2745,7 +2840,7 @@ msgstr "Reîncarcă"
 msgid "Skip Validate SQL"
 msgstr "Sari peste validarea SQL"
 
-#: libraries/common.lib.php:1159 libraries/config/messages.inc.php:481
+#: libraries/common.lib.php:1159 libraries/config/messages.inc.php:483
 msgid "Validate SQL"
 msgstr "Validează SQL"
 
@@ -2760,7 +2855,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Motoare"
 
-#: libraries/common.lib.php:1278 sql.php:833
+#: libraries/common.lib.php:1278 sql.php:838
 msgid "Profiling"
 msgstr "Creare profil"
 
@@ -2863,13 +2958,13 @@ msgid "Click to toggle"
 msgstr "Click pentru a selecta"
 
 #: libraries/common.lib.php:2867 libraries/common.lib.php:2874
-#: libraries/common.lib.php:3066 libraries/config/setup.forms.php:292
-#: libraries/config/setup.forms.php:329 libraries/config/setup.forms.php:355
+#: libraries/common.lib.php:3066 libraries/config/setup.forms.php:293
+#: libraries/config/setup.forms.php:330 libraries/config/setup.forms.php:356
 #: libraries/config/user_preferences.forms.php:192
 #: libraries/config/user_preferences.forms.php:229
 #: libraries/config/user_preferences.forms.php:255
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:338
-#: libraries/import.lib.php:1102 libraries/tbl_links.inc.php:61
+#: libraries/import.lib.php:1099 libraries/tbl_links.inc.php:61
 #: libraries/tbl_properties.inc.php:608 pmd_general.php:151
 #: server_privileges.php:600 server_replication.php:313 tbl_tracking.php:253
 msgid "Structure"
@@ -3596,8 +3691,8 @@ msgstr "Personalizează regimul de navigare"
 msgid "Customize default options"
 msgstr "Opțiuni de exportare a bazei de date"
 
-#: libraries/config/messages.inc.php:158 libraries/config/setup.forms.php:239
-#: libraries/config/setup.forms.php:312
+#: libraries/config/messages.inc.php:158 libraries/config/setup.forms.php:240
+#: libraries/config/setup.forms.php:313
 #: libraries/config/user_preferences.forms.php:141
 #: libraries/config/user_preferences.forms.php:212 libraries/export/csv.php:19
 #: libraries/import/csv.php:22
@@ -4583,14 +4678,24 @@ msgid "Logout URL"
 msgstr ""
 
 #: libraries/config/messages.inc.php:398
+msgid ""
+"This configuration make sure that we only keep N (N = MaxTableUiprefs) "
+"newest record in \"table_uiprefs\" and automatically delete older records"
+msgstr ""
+
+#: libraries/config/messages.inc.php:399
+msgid "Maximum number of records saved in \"table_uiprefs\" table"
+msgstr ""
+
+#: libraries/config/messages.inc.php:400
 msgid "Try to connect without password"
 msgstr "Încearcă conectarea fără parolă"
 
-#: libraries/config/messages.inc.php:399
+#: libraries/config/messages.inc.php:401
 msgid "Connect without password"
 msgstr "Conectează fără parolă"
 
-#: libraries/config/messages.inc.php:400
+#: libraries/config/messages.inc.php:402
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -4599,348 +4704,348 @@ msgid ""
 "alphabetical order."
 msgstr ""
 
-#: libraries/config/messages.inc.php:401
+#: libraries/config/messages.inc.php:403
 msgid "Show only listed databases"
 msgstr ""
 
-#: libraries/config/messages.inc.php:402 libraries/config/messages.inc.php:443
+#: libraries/config/messages.inc.php:404 libraries/config/messages.inc.php:445
 msgid "Leave empty if not using config auth"
 msgstr "Lăsați gol dacă nu utilizați „config auth”"
 
-#: libraries/config/messages.inc.php:403
+#: libraries/config/messages.inc.php:405
 msgid "Password for config auth"
 msgstr "Parola pentru „config auth”"
 
-#: libraries/config/messages.inc.php:404
+#: libraries/config/messages.inc.php:406
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:405
+#: libraries/config/messages.inc.php:407
 msgid "PDF schema: pages table"
 msgstr ""
 
-#: libraries/config/messages.inc.php:406
+#: libraries/config/messages.inc.php:408
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:407
+#: libraries/config/messages.inc.php:409
 #, fuzzy
 #| msgid "database name"
 msgid "Database name"
 msgstr "nume bază de date"
 
-#: libraries/config/messages.inc.php:408
+#: libraries/config/messages.inc.php:410
 msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr "Portul la care ascultă serverul MySQL, lăsați gol pentru implicit"
 
-#: libraries/config/messages.inc.php:409
+#: libraries/config/messages.inc.php:411
 msgid "Server port"
 msgstr "Portul serverului"
 
-#: libraries/config/messages.inc.php:410
+#: libraries/config/messages.inc.php:412
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma_recent[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:411
+#: libraries/config/messages.inc.php:413
 #, fuzzy
 #| msgid "Analyze table"
 msgid "Recently used table"
 msgstr "Analizare tabel"
 
-#: libraries/config/messages.inc.php:412
+#: libraries/config/messages.inc.php:414
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:413
+#: libraries/config/messages.inc.php:415
 #, fuzzy
 msgid "Relation table"
 msgstr "Reparare tabel"
 
-#: libraries/config/messages.inc.php:414
+#: libraries/config/messages.inc.php:416
 msgid "SQL command to fetch available databases"
 msgstr ""
 
-#: libraries/config/messages.inc.php:415
+#: libraries/config/messages.inc.php:417
 msgid "SHOW DATABASES command"
 msgstr ""
 
-#: libraries/config/messages.inc.php:416
+#: libraries/config/messages.inc.php:418
 msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
 msgstr ""
 
-#: libraries/config/messages.inc.php:417
+#: libraries/config/messages.inc.php:419
 msgid "Signon session name"
 msgstr ""
 
-#: libraries/config/messages.inc.php:418
+#: libraries/config/messages.inc.php:420
 msgid "Signon URL"
 msgstr ""
 
-#: libraries/config/messages.inc.php:419
+#: libraries/config/messages.inc.php:421
 #, fuzzy
 msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr "Portul la care ascultă serverul MySQL, lăsați gol pentru implicit"
 
-#: libraries/config/messages.inc.php:420
+#: libraries/config/messages.inc.php:422
 msgid "Server socket"
 msgstr "Soclul serverului"
 
-#: libraries/config/messages.inc.php:421
+#: libraries/config/messages.inc.php:423
 #, fuzzy
 msgid "Enable SSL for connection to MySQL server"
 msgstr "Comprimă conexiunea la serverul MySQL"
 
-#: libraries/config/messages.inc.php:422
+#: libraries/config/messages.inc.php:424
 msgid "Use SSL"
 msgstr "Utilizează SSL"
 
-#: libraries/config/messages.inc.php:423
+#: libraries/config/messages.inc.php:425
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:424
+#: libraries/config/messages.inc.php:426
 msgid "PDF schema: table coordinates"
 msgstr ""
 
-#: libraries/config/messages.inc.php:425
+#: libraries/config/messages.inc.php:427
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:426
+#: libraries/config/messages.inc.php:428
 #, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display columns table"
 msgstr "Arată comentariile coloanei"
 
-#: libraries/config/messages.inc.php:427
+#: libraries/config/messages.inc.php:429
 msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:428
+#: libraries/config/messages.inc.php:430
 #, fuzzy
 #| msgid "Defragment table"
 msgid "UI preferences table"
 msgstr "Defragmentare tabel"
 
-#: libraries/config/messages.inc.php:429
+#: libraries/config/messages.inc.php:431
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
 
-#: libraries/config/messages.inc.php:430
+#: libraries/config/messages.inc.php:432
 msgid "Add DROP DATABASE"
 msgstr ""
 
-#: libraries/config/messages.inc.php:431
+#: libraries/config/messages.inc.php:433
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
 
-#: libraries/config/messages.inc.php:432
+#: libraries/config/messages.inc.php:434
 msgid "Add DROP TABLE"
 msgstr ""
 
-#: libraries/config/messages.inc.php:433
+#: libraries/config/messages.inc.php:435
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
 
-#: libraries/config/messages.inc.php:434
+#: libraries/config/messages.inc.php:436
 msgid "Add DROP VIEW"
 msgstr ""
 
-#: libraries/config/messages.inc.php:435
+#: libraries/config/messages.inc.php:437
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
-#: libraries/config/messages.inc.php:436
+#: libraries/config/messages.inc.php:438
 #, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
 msgstr "Comenzi"
 
-#: libraries/config/messages.inc.php:437
+#: libraries/config/messages.inc.php:439
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:438
+#: libraries/config/messages.inc.php:440
 msgid "SQL query tracking table"
 msgstr ""
 
-#: libraries/config/messages.inc.php:439
+#: libraries/config/messages.inc.php:441
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
 
-#: libraries/config/messages.inc.php:440
+#: libraries/config/messages.inc.php:442
 #, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
 msgstr "Regim de recuperare automată"
 
-#: libraries/config/messages.inc.php:441
+#: libraries/config/messages.inc.php:443
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_config[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:442
+#: libraries/config/messages.inc.php:444
 msgid "User preferences storage table"
 msgstr ""
 
-#: libraries/config/messages.inc.php:444
+#: libraries/config/messages.inc.php:446
 msgid "User for config auth"
 msgstr "Utilizator pentru „config auth”"
 
-#: libraries/config/messages.inc.php:445
+#: libraries/config/messages.inc.php:447
 msgid ""
 "Disable if you know that your pma_* tables are up to date. This prevents "
 "compatibility checks and thereby increases performance"
 msgstr ""
 
-#: libraries/config/messages.inc.php:446
+#: libraries/config/messages.inc.php:448
 msgid "Verbose check"
 msgstr ""
 
-#: libraries/config/messages.inc.php:447
+#: libraries/config/messages.inc.php:449
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr ""
 
-#: libraries/config/messages.inc.php:448
+#: libraries/config/messages.inc.php:450
 msgid "Verbose name of this server"
 msgstr ""
 
-#: libraries/config/messages.inc.php:449
+#: libraries/config/messages.inc.php:451
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr ""
 
-#: libraries/config/messages.inc.php:450
+#: libraries/config/messages.inc.php:452
 msgid "Allow to display all the rows"
 msgstr ""
 
-#: libraries/config/messages.inc.php:451
+#: libraries/config/messages.inc.php:453
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly"
 msgstr ""
 
-#: libraries/config/messages.inc.php:452
+#: libraries/config/messages.inc.php:454
 msgid "Show password change form"
 msgstr ""
 
-#: libraries/config/messages.inc.php:453
+#: libraries/config/messages.inc.php:455
 msgid "Show create database form"
 msgstr ""
 
-#: libraries/config/messages.inc.php:454
+#: libraries/config/messages.inc.php:456
 msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table"
 msgstr ""
 
-#: libraries/config/messages.inc.php:455
+#: libraries/config/messages.inc.php:457
 #, fuzzy
 #| msgid "Databases display options"
 msgid "Show display direction"
 msgstr "Opțiuni de afișare a bazelor de date"
 
-#: libraries/config/messages.inc.php:456
+#: libraries/config/messages.inc.php:458
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr ""
 
-#: libraries/config/messages.inc.php:457
+#: libraries/config/messages.inc.php:459
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show field types"
 msgstr "Afișează tabele deschise"
 
-#: libraries/config/messages.inc.php:458
+#: libraries/config/messages.inc.php:460
 msgid "Display the function fields in edit/insert mode"
 msgstr ""
 
-#: libraries/config/messages.inc.php:459
+#: libraries/config/messages.inc.php:461
 msgid "Show function fields"
 msgstr ""
 
-#: libraries/config/messages.inc.php:460
+#: libraries/config/messages.inc.php:462
 msgid "Whether to show hint or not"
 msgstr ""
 
-#: libraries/config/messages.inc.php:461
+#: libraries/config/messages.inc.php:463
 #, fuzzy
 #| msgid "Show grid"
 msgid "Show hint"
 msgstr "Arată grila"
 
-#: libraries/config/messages.inc.php:462
+#: libraries/config/messages.inc.php:464
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
 
-#: libraries/config/messages.inc.php:463
+#: libraries/config/messages.inc.php:465
 msgid "Show phpinfo() link"
 msgstr ""
 
-#: libraries/config/messages.inc.php:464
+#: libraries/config/messages.inc.php:466
 msgid "Show detailed MySQL server information"
 msgstr ""
 
-#: libraries/config/messages.inc.php:465
-msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
-msgstr ""
-
-#: libraries/config/messages.inc.php:466
-#, fuzzy
-msgid "Show SQL queries"
-msgstr "Afișare comandă întreagă"
-
 #: libraries/config/messages.inc.php:467
-msgid "Allow to display database and table statistics (eg. space usage)"
+msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
 msgstr ""
 
 #: libraries/config/messages.inc.php:468
 #, fuzzy
+msgid "Show SQL queries"
+msgstr "Afișare comandă întreagă"
+
+#: libraries/config/messages.inc.php:469
+msgid "Allow to display database and table statistics (eg. space usage)"
+msgstr ""
+
+#: libraries/config/messages.inc.php:470
+#, fuzzy
 msgid "Show statistics"
 msgstr "Statisticile rîndului"
 
-#: libraries/config/messages.inc.php:469
+#: libraries/config/messages.inc.php:471
 msgid ""
 "If tooltips are enabled and a database comment is set, this will flip the "
 "comment and the real name"
 msgstr ""
 
-#: libraries/config/messages.inc.php:470
+#: libraries/config/messages.inc.php:472
 msgid "Display database comment instead of its name"
 msgstr ""
 
-#: libraries/config/messages.inc.php:471
+#: libraries/config/messages.inc.php:473
 msgid ""
 "When setting this to [kbd]nested[/kbd], the alias of the table name is only "
 "used to split/nest the tables according to the $cfg"
@@ -4948,29 +5053,29 @@ msgid ""
 "alias, the table name itself stays unchanged"
 msgstr ""
 
-#: libraries/config/messages.inc.php:472
+#: libraries/config/messages.inc.php:474
 msgid "Display table comment instead of its name"
 msgstr ""
 
-#: libraries/config/messages.inc.php:473
+#: libraries/config/messages.inc.php:475
 msgid "Display table comments in tooltips"
 msgstr ""
 
-#: libraries/config/messages.inc.php:474
+#: libraries/config/messages.inc.php:476
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables"
 msgstr ""
 
-#: libraries/config/messages.inc.php:475
+#: libraries/config/messages.inc.php:477
 #, fuzzy
 msgid "Skip locked tables"
 msgstr "Afișează tabele deschise"
 
-#: libraries/config/messages.inc.php:480
+#: libraries/config/messages.inc.php:482
 msgid "Requires SQL Validator to be enabled"
 msgstr ""
 
-#: libraries/config/messages.inc.php:482
+#: libraries/config/messages.inc.php:484
 #: libraries/display_change_password.lib.php:40
 #: libraries/replication_gui.lib.php:62 libraries/replication_gui.lib.php:63
 #: libraries/replication_gui.lib.php:341 libraries/replication_gui.lib.php:345
@@ -4980,90 +5085,90 @@ msgstr ""
 msgid "Password"
 msgstr "Parola"
 
-#: libraries/config/messages.inc.php:483
+#: libraries/config/messages.inc.php:485
 msgid ""
 "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 "installed"
 msgstr ""
 
-#: libraries/config/messages.inc.php:484
+#: libraries/config/messages.inc.php:486
 msgid "Enable SQL Validator"
 msgstr ""
 
-#: libraries/config/messages.inc.php:485
+#: libraries/config/messages.inc.php:487
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
 msgstr ""
 
-#: libraries/config/messages.inc.php:486 tbl_tracking.php:445
+#: libraries/config/messages.inc.php:488 tbl_tracking.php:445
 #: tbl_tracking.php:502
 #, fuzzy
 msgid "Username"
 msgstr "Nume utilizator:"
 
-#: libraries/config/messages.inc.php:487
+#: libraries/config/messages.inc.php:489
 msgid ""
 "Suggest a database name on the &quot;Create Database&quot; form (if "
 "possible) or keep the text field empty"
 msgstr ""
 
-#: libraries/config/messages.inc.php:488
+#: libraries/config/messages.inc.php:490
 msgid "Suggest new database name"
 msgstr ""
 
-#: libraries/config/messages.inc.php:489
+#: libraries/config/messages.inc.php:491
 msgid "A warning is displayed on the main page if Suhosin is detected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:490
+#: libraries/config/messages.inc.php:492
 msgid "Suhosin warning"
 msgstr ""
 
-#: libraries/config/messages.inc.php:491
+#: libraries/config/messages.inc.php:493
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:492
+#: libraries/config/messages.inc.php:494
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Textarea columns"
 msgstr "Adaugă/șterge coloane"
 
-#: libraries/config/messages.inc.php:493
+#: libraries/config/messages.inc.php:495
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:494
+#: libraries/config/messages.inc.php:496
 msgid "Textarea rows"
 msgstr ""
 
-#: libraries/config/messages.inc.php:495
+#: libraries/config/messages.inc.php:497
 msgid "Title of browser window when a database is selected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:497
+#: libraries/config/messages.inc.php:499
 msgid "Title of browser window when nothing is selected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:498
+#: libraries/config/messages.inc.php:500
 #, fuzzy
 msgid "Default title"
 msgstr "Redenumire bază de date în"
 
-#: libraries/config/messages.inc.php:499
+#: libraries/config/messages.inc.php:501
 msgid "Title of browser window when a server is selected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:501
+#: libraries/config/messages.inc.php:503
 msgid "Title of browser window when a table is selected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:503
+#: libraries/config/messages.inc.php:505
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -5071,57 +5176,57 @@ msgid ""
 "HTTP_X_FORWARDED_FOR[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:504
+#: libraries/config/messages.inc.php:506
 msgid "List of trusted proxies for IP allow/deny"
 msgstr ""
 
-#: libraries/config/messages.inc.php:505
+#: libraries/config/messages.inc.php:507
 msgid "Directory on server where you can upload files for import"
 msgstr ""
 
-#: libraries/config/messages.inc.php:506
+#: libraries/config/messages.inc.php:508
 #, fuzzy
 msgid "Upload directory"
 msgstr "Directorul de bază pentru date"
 
-#: libraries/config/messages.inc.php:507
+#: libraries/config/messages.inc.php:509
 msgid "Allow for searching inside the entire database"
 msgstr ""
 
-#: libraries/config/messages.inc.php:508
+#: libraries/config/messages.inc.php:510
 msgid "Use database search"
 msgstr ""
 
-#: libraries/config/messages.inc.php:509
+#: libraries/config/messages.inc.php:511
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right"
 msgstr ""
 
-#: libraries/config/messages.inc.php:510
+#: libraries/config/messages.inc.php:512
 msgid "Enable the Developer tab in settings"
 msgstr ""
 
-#: libraries/config/messages.inc.php:511
+#: libraries/config/messages.inc.php:513
 msgid ""
 "Show affected rows of each statement on multiple-statement queries. See "
 "libraries/import.lib.php for defaults on how many queries a statement may "
 "contain."
 msgstr ""
 
-#: libraries/config/messages.inc.php:512
+#: libraries/config/messages.inc.php:514
 msgid "Verbose multiple statements"
 msgstr ""
 
-#: libraries/config/messages.inc.php:513 setup/frames/index.inc.php:242
+#: libraries/config/messages.inc.php:515 setup/frames/index.inc.php:242
 msgid "Check for latest version"
 msgstr ""
 
-#: libraries/config/messages.inc.php:514
+#: libraries/config/messages.inc.php:516
 msgid "Enables check for latest version on main phpMyAdmin page"
 msgstr ""
 
-#: libraries/config/messages.inc.php:515 setup/lib/index.lib.php:121
+#: libraries/config/messages.inc.php:517 setup/lib/index.lib.php:121
 #: setup/lib/index.lib.php:131 setup/lib/index.lib.php:151
 #: setup/lib/index.lib.php:161 setup/lib/index.lib.php:172
 #: setup/lib/index.lib.php:179 setup/lib/index.lib.php:185
@@ -5129,13 +5234,13 @@ msgstr ""
 msgid "Version check"
 msgstr "Verificarea versiunii"
 
-#: libraries/config/messages.inc.php:516
+#: libraries/config/messages.inc.php:518
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
 
-#: libraries/config/messages.inc.php:517
+#: libraries/config/messages.inc.php:519
 msgid "ZIP"
 msgstr "ZIP"
 
@@ -5159,48 +5264,48 @@ msgstr "Tipul autentificării"
 msgid "Signon authentication"
 msgstr "Tipul autentificării"
 
-#: libraries/config/setup.forms.php:247
+#: libraries/config/setup.forms.php:248
 #: libraries/config/user_preferences.forms.php:149 libraries/import/ldi.php:35
 msgid "CSV using LOAD DATA"
 msgstr "CSV folosind LOAD DATA"
 
-#: libraries/config/setup.forms.php:256 libraries/config/setup.forms.php:349
+#: libraries/config/setup.forms.php:257 libraries/config/setup.forms.php:350
 #: libraries/config/user_preferences.forms.php:157
 #: libraries/config/user_preferences.forms.php:249 libraries/export/ods.php:18
 #: libraries/import/ods.php:22
 msgid "Open Document Spreadsheet"
 msgstr "Foaie de calcul Open Document"
 
-#: libraries/config/setup.forms.php:263
+#: libraries/config/setup.forms.php:264
 #: libraries/config/user_preferences.forms.php:164
 msgid "Quick"
 msgstr ""
 
-#: libraries/config/setup.forms.php:267
+#: libraries/config/setup.forms.php:268
 #: libraries/config/user_preferences.forms.php:168
 #, fuzzy
 #| msgid "Custom color"
 msgid "Custom"
 msgstr "Culoare personalizată"
 
-#: libraries/config/setup.forms.php:288
+#: libraries/config/setup.forms.php:289
 #: libraries/config/user_preferences.forms.php:188
 msgid "Database export options"
 msgstr "Opțiuni de exportare a bazei de date"
 
-#: libraries/config/setup.forms.php:321
+#: libraries/config/setup.forms.php:322
 #: libraries/config/user_preferences.forms.php:221
 #: libraries/export/excel.php:18
 msgid "CSV for MS Excel"
 msgstr "Date CSV pentru MS Excel"
 
-#: libraries/config/setup.forms.php:344
+#: libraries/config/setup.forms.php:345
 #: libraries/config/user_preferences.forms.php:244
 #: libraries/export/htmlword.php:18
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/config/setup.forms.php:353
+#: libraries/config/setup.forms.php:354
 #: libraries/config/user_preferences.forms.php:253 libraries/export/odt.php:22
 msgid "Open Document Text"
 msgstr "Text Open Document"
@@ -5487,12 +5592,12 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is."
 
 #: libraries/display_export.lib.php:270
 msgid "use this for future exports"
@@ -5717,11 +5822,11 @@ msgstr "Sortare după cheie"
 #: libraries/export/pdf.php:29 libraries/export/php_array.php:29
 #: libraries/export/sql.php:88 libraries/export/texytext.php:31
 #: libraries/export/xml.php:27 libraries/export/yaml.php:30
-#: libraries/import.lib.php:1080 libraries/import.lib.php:1102
+#: libraries/import.lib.php:1078 libraries/import.lib.php:1099
 #: libraries/import/csv.php:33 libraries/import/docsql.php:35
 #: libraries/import/ldi.php:49 libraries/import/ods.php:32
 #: libraries/import/sql.php:20 libraries/import/xml.php:25
-#: libraries/rte/rte_routines.lib.php:852 tbl_select.php:258
+#: libraries/rte/rte_routines.lib.php:852 tbl_select.php:152
 #: tbl_structure.php:852
 msgid "Options"
 msgstr "Opțiuni"
@@ -5787,7 +5892,7 @@ msgid "The row has been deleted"
 msgstr "Linia a fost ștearsă"
 
 #: libraries/display_tbl.lib.php:1381 libraries/display_tbl.lib.php:2342
-#: server_status.php:1098
+#: server_status.php:1150
 msgid "Kill"
 msgstr "Oprește"
 
@@ -5803,7 +5908,7 @@ msgstr "Afișează înregistrări"
 msgid "total"
 msgstr "total"
 
-#: libraries/display_tbl.lib.php:2252 sql.php:697
+#: libraries/display_tbl.lib.php:2252 sql.php:703
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "comanda a durat %01.4f sec"
@@ -5879,7 +5984,7 @@ msgstr ""
 msgid "Buffer Pool"
 msgstr "Buffer Pool"
 
-#: libraries/engines/innodb.lib.php:131 server_status.php:547
+#: libraries/engines/innodb.lib.php:131 server_status.php:592
 msgid "InnoDB Status"
 msgstr "Stare InnoDB"
 
@@ -6275,8 +6380,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -6393,28 +6498,28 @@ msgid "Display MIME types"
 msgstr "Tipuri MIME disponibile"
 
 #: libraries/export/latex.php:129 libraries/export/sql.php:469
-#: libraries/export/xml.php:125 libraries/header_printview.inc.php:56
+#: libraries/export/xml.php:127 libraries/header_printview.inc.php:56
 #: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:179
 #: libraries/replication_gui.lib.php:275 libraries/replication_gui.lib.php:278
 #: libraries/replication_gui.lib.php:335 server_privileges.php:800
 #: server_privileges.php:803 server_privileges.php:859
 #: server_privileges.php:1694 server_privileges.php:2237
-#: server_status.php:1064
+#: server_status.php:1116
 msgid "Host"
 msgstr "Gazda"
 
 #: libraries/export/latex.php:134 libraries/export/sql.php:474
-#: libraries/export/xml.php:130 libraries/header_printview.inc.php:58
+#: libraries/export/xml.php:132 libraries/header_printview.inc.php:58
 msgid "Generation Time"
 msgstr "Timp de generare"
 
 #: libraries/export/latex.php:135 libraries/export/sql.php:476
-#: libraries/export/xml.php:131 main.php:162
+#: libraries/export/xml.php:133 main.php:162
 msgid "Server version"
 msgstr "Versiune server"
 
 #: libraries/export/latex.php:136 libraries/export/sql.php:477
-#: libraries/export/xml.php:132
+#: libraries/export/xml.php:134
 msgid "PHP Version"
 msgstr "Versiune PHP"
 
@@ -6615,50 +6720,50 @@ msgid "Generated by"
 msgstr "Generat de"
 
 #: libraries/import.lib.php:152 libraries/rte/rte_routines.lib.php:1237
-#: sql.php:693 tbl_change.php:183 tbl_get_field.php:34
+#: sql.php:699 tbl_change.php:183 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL a dat un set de rezultate gol (zero linii)."
 
-#: libraries/import.lib.php:1076
+#: libraries/import.lib.php:1074
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: libraries/import.lib.php:1077
+#: libraries/import.lib.php:1075
 msgid "View a structure's contents by clicking on its name"
 msgstr ""
 
-#: libraries/import.lib.php:1078
+#: libraries/import.lib.php:1076
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr ""
 
-#: libraries/import.lib.php:1079
+#: libraries/import.lib.php:1077
 msgid "Edit structure by following the \"Structure\" link"
 msgstr ""
 
-#: libraries/import.lib.php:1082
+#: libraries/import.lib.php:1080
 #, fuzzy
 msgid "Go to database"
 msgstr "Nu sînt baze de date"
 
-#: libraries/import.lib.php:1085 libraries/import.lib.php:1109
+#: libraries/import.lib.php:1083 libraries/import.lib.php:1106
 #, php-format
 msgid "Edit settings for %s"
 msgstr ""
 
-#: libraries/import.lib.php:1104
+#: libraries/import.lib.php:1101
 #, fuzzy
 msgid "Go to table"
 msgstr "Nu sînt baze de date"
 
-#: libraries/import.lib.php:1107
+#: libraries/import.lib.php:1104
 #, fuzzy, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
 msgstr "Numai structura"
 
-#: libraries/import.lib.php:1113
+#: libraries/import.lib.php:1110
 msgid "Go to view"
 msgstr ""
 
@@ -6770,7 +6875,7 @@ msgid "To"
 msgstr ""
 
 #: libraries/mult_submits.inc.php:262 libraries/mult_submits.inc.php:276
-#: libraries/sql_query_form.lib.php:398
+#: libraries/sql_query_form.lib.php:398 tbl_zoom_select.php:432
 msgid "Submit"
 msgstr "Trimite"
 
@@ -7113,15 +7218,15 @@ msgid "Slave status"
 msgstr "Afișează stare sclav"
 
 #: libraries/replication_gui.lib.php:118 libraries/sql_query_form.lib.php:382
-#: server_status.php:1309 server_variables.php:108
+#: server_status.php:1361 server_variables.php:108
 msgid "Variable"
 msgstr "Variabil"
 
 #: libraries/replication_gui.lib.php:119
-#: libraries/rte/rte_routines.lib.php:1357 pmd_general.php:476
-#: pmd_general.php:535 pmd_general.php:658 pmd_general.php:775
-#: server_status.php:1310 tbl_change.php:329 tbl_printview.php:334
-#: tbl_select.php:118 tbl_structure.php:828
+#: libraries/rte/rte_routines.lib.php:1357 libraries/tbl_select.lib.php:113
+#: pmd_general.php:476 pmd_general.php:535 pmd_general.php:658
+#: pmd_general.php:775 server_status.php:1362 tbl_change.php:329
+#: tbl_printview.php:334 tbl_structure.php:828 tbl_zoom_select.php:410
 msgid "Value"
 msgstr "Valoare"
 
@@ -7340,7 +7445,7 @@ msgid "Returns"
 msgstr "Tipul întors"
 
 #: libraries/rte/rte_list.lib.php:62 libraries/rte/rte_triggers.lib.php:326
-#: server_status.php:1067 sql.php:838
+#: server_status.php:1119 sql.php:843
 msgid "Time"
 msgstr "Timp"
 
@@ -7837,12 +7942,12 @@ msgid "Synchronize"
 msgstr ""
 
 #: libraries/server_links.inc.php:84 server_binlog.php:77
-#: server_status.php:493
+#: server_status.php:538
 msgid "Binary log"
 msgstr "Jurnal binar"
 
 #: libraries/server_links.inc.php:95 server_engines.php:123
-#: server_engines.php:127 server_status.php:545
+#: server_engines.php:127 server_status.php:590
 msgid "Variables"
 msgstr "Variabile"
 
@@ -7901,11 +8006,11 @@ msgstr "Calendar"
 msgid "Columns"
 msgstr "Denumirile coloanelor"
 
-#: libraries/sql_query_form.lib.php:302 sql.php:911 sql.php:928
+#: libraries/sql_query_form.lib.php:302 sql.php:916 sql.php:933
 msgid "Bookmark this SQL query"
 msgstr "Pune semn de carte la această comandă SQL"
 
-#: libraries/sql_query_form.lib.php:309 sql.php:922
+#: libraries/sql_query_form.lib.php:309 sql.php:927
 msgid "Let every user access this bookmark"
 msgstr "Permite tuturor utilizatorilor să acceseze acest semn de carte"
 
@@ -8137,6 +8242,24 @@ msgstr "Definiție PARTIȚIE"
 #| msgid "Add a new server"
 msgid "+ Add a value"
 msgstr "Adaugă un server nou"
+
+#: libraries/tbl_select.lib.php:26 libraries/tbl_select.lib.php:27
+#: libraries/tbl_select.lib.php:30 libraries/tbl_select.lib.php:34 sql.php:98
+#: tbl_change.php:257
+msgid "Browse foreign values"
+msgstr "Caută printre valori necunoscute"
+
+#: libraries/tbl_select.lib.php:112 pmd_general.php:487 pmd_general.php:507
+#: pmd_general.php:629 pmd_general.php:642 pmd_general.php:705
+#: pmd_general.php:759
+msgid "Operator"
+msgstr "Operand"
+
+#: libraries/tbl_select.lib.php:131
+#, fuzzy
+#| msgid "Search"
+msgid "Table Search"
+msgstr "Caută"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 #, fuzzy
@@ -8374,7 +8497,7 @@ msgstr "Versiune protocol"
 
 #: main.php:165 server_privileges.php:1539 server_privileges.php:1693
 #: server_privileges.php:1817 server_privileges.php:2236
-#: server_status.php:1063
+#: server_status.php:1115
 msgid "User"
 msgstr "Utilizator"
 
@@ -8650,12 +8773,6 @@ msgstr "Nume utilizator"
 msgid "Aggregate"
 msgstr "Creează"
 
-#: pmd_general.php:487 pmd_general.php:507 pmd_general.php:629
-#: pmd_general.php:642 pmd_general.php:705 pmd_general.php:759
-#: tbl_select.php:117
-msgid "Operator"
-msgstr "Operand"
-
 #: pmd_general.php:810
 #, fuzzy
 #| msgid "Table options"
@@ -8850,17 +8967,17 @@ msgstr "Tabelul „%s” nu există!"
 msgid "Select binary log to view"
 msgstr "Selectați jurnalul binar pentru vizualizare"
 
-#: server_binlog.php:103 server_status.php:502
+#: server_binlog.php:103 server_status.php:547
 msgid "Files"
 msgstr "Fișiere"
 
-#: server_binlog.php:150 server_binlog.php:152 server_status.php:1073
-#: server_status.php:1075
+#: server_binlog.php:150 server_binlog.php:152 server_status.php:1125
+#: server_status.php:1127
 msgid "Truncate Shown Queries"
 msgstr "Truncare comenzi afișate"
 
-#: server_binlog.php:158 server_binlog.php:160 server_status.php:1073
-#: server_status.php:1075
+#: server_binlog.php:158 server_binlog.php:160 server_status.php:1125
+#: server_status.php:1127
 msgid "Show Full Queries"
 msgstr "Afișare comandă întreagă"
 
@@ -9263,8 +9380,8 @@ msgstr "Aruncă baza de date care are același nume ca utilizatorul."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Notă: phpMyAdmin folosește privilegiile utilizatorilor direct din tabelul de "
 "privilegii din MySQL. Conținutul acestui tabel poate diferi de cel original. "
@@ -9396,7 +9513,7 @@ msgstr "Drepturile au fost reîncarcate cu succes."
 msgid "This server is configured as master in a replication process."
 msgstr ""
 
-#: server_replication.php:182 server_status.php:522
+#: server_replication.php:182 server_status.php:567
 #, fuzzy
 msgid "Show master status"
 msgstr "Afișează stare sclav"
@@ -9537,12 +9654,12 @@ msgid ""
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
 
-#: server_status.php:367
+#: server_status.php:412
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr "Firul de execuție %s a fost oprit cu succes."
 
-#: server_status.php:369
+#: server_status.php:414
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
@@ -9550,203 +9667,216 @@ msgstr ""
 "phpMyAdmin n-a reusit sa opreasca firul de executie %s.  Probabil a fost "
 "deja oprit."
 
-#: server_status.php:490
+#: server_status.php:535
 msgid "Handler"
 msgstr "Gestionar"
 
-#: server_status.php:491
+#: server_status.php:536
 msgid "Query cache"
 msgstr "Cache interogări"
 
-#: server_status.php:492
+#: server_status.php:537
 msgid "Threads"
 msgstr "Fire"
 
-#: server_status.php:494
+#: server_status.php:539
 msgid "Temporary data"
 msgstr "Date temporare"
 
-#: server_status.php:495
+#: server_status.php:540
 msgid "Delayed inserts"
 msgstr "Inserări întîrziate"
 
-#: server_status.php:496
+#: server_status.php:541
 msgid "Key cache"
 msgstr "Key cache"
 
-#: server_status.php:497
+#: server_status.php:542
 msgid "Joins"
 msgstr "Joncțiuni"
 
-#: server_status.php:499
+#: server_status.php:544
 msgid "Sorting"
 msgstr "Sortare"
 
-#: server_status.php:501
+#: server_status.php:546
 msgid "Transaction coordinator"
 msgstr "Coordonator tranzacție"
 
-#: server_status.php:512
+#: server_status.php:557
 msgid "Flush (close) all tables"
 msgstr "Flush (close) all tables"
 
-#: server_status.php:514
+#: server_status.php:559
 msgid "Show open tables"
 msgstr "Afișează tabele deschise"
 
-#: server_status.php:519
+#: server_status.php:564
 msgid "Show slave hosts"
 msgstr "Afișează gazde sclavi"
 
-#: server_status.php:525
+#: server_status.php:570
 msgid "Show slave status"
 msgstr "Afișează stare sclav"
 
-#: server_status.php:530
+#: server_status.php:575
 msgid "Flush query cache"
 msgstr "Reinițializare cache interogare"
 
-#: server_status.php:639
+#: server_status.php:681
 msgid "Runtime Information"
 msgstr "Informații rulare"
 
-#: server_status.php:646
+#: server_status.php:688
 msgid "All status variables"
 msgstr ""
 
-#: server_status.php:647
+#: server_status.php:689
 msgid "Monitor"
 msgstr ""
 
-#: server_status.php:648
+#: server_status.php:690
 msgid "Advisor"
 msgstr ""
 
-#: server_status.php:658 server_status.php:680
+#: server_status.php:700 server_status.php:722
 #, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate: "
 msgstr "Reîncarcă"
 
-#: server_status.php:701
+#: server_status.php:743
 #, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
 msgstr "Nu schimbați parola"
 
-#: server_status.php:706
+#: server_status.php:748
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show only alert values"
 msgstr "Afișează tabele deschise"
 
-#: server_status.php:710
+#: server_status.php:752
 msgid "Filter by category..."
 msgstr ""
 
-#: server_status.php:723
+#: server_status.php:765
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show unformatted values"
 msgstr "Afișează tabele deschise"
 
-#: server_status.php:727
+#: server_status.php:769
 #, fuzzy
 #| msgid "Relations"
 msgid "Related links:"
 msgstr "Legături"
 
-#: server_status.php:758
+#: server_status.php:800
 #, fuzzy
 #| msgid "Query type"
 msgid "Run analyzer"
 msgstr "Tip interogare"
 
-#: server_status.php:759
+#: server_status.php:801
 #, fuzzy
 #| msgid "Introduction"
 msgid "Instructions"
 msgstr "Introducere"
 
-#: server_status.php:764
+#: server_status.php:808
 msgid ""
 "The Advisor system can provide recommendations on server variables by "
-"analyzing the server status variables. <p>Do note however that this system "
-"provides recommendations based on simple calculations and by rule of thumb "
-"which may not necessarily apply to your system.</p> <p>Prior to changing any "
-"of the configuration, be sure to know what you are changing (by reading the "
-"documentation) and how to undo the change. Wrong tuning can have a very "
-"negative effect on performance.</p> <p>The best way to tune your system "
-"would be to change only one setting at a time, observe or benchmark your "
-"database, and undo the change if there was no clearly measurable improvement."
-"</p>"
+"analyzing the server status variables."
+msgstr ""
+
+#: server_status.php:810
+msgid ""
+"Do note however that this system provides recommendations based on simple "
+"calculations and by rule of thumb which may not necessarily apply to your "
+"system."
+msgstr ""
+
+#: server_status.php:812
+msgid ""
+"Prior to changing any of the configuration, be sure to know what you are "
+"changing (by reading the documentation) and how to undo the change. Wrong "
+"tuning can have a very negative effect on performance."
+msgstr ""
+
+#: server_status.php:814
+msgid ""
+"The best way to tune your system would be to change only one setting at a "
+"time, observe or benchmark your database, and undo the change if there was "
+"no clearly measurable improvement."
 msgstr ""
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: server_status.php:784
+#: server_status.php:836
 #, php-format
 msgid "Questions since startup: %s"
 msgstr ""
 
-#: server_status.php:790 server_status.php:825 server_status.php:943
-#: server_status.php:988
+#: server_status.php:842 server_status.php:877 server_status.php:995
+#: server_status.php:1040
 msgid "per hour"
 msgstr "pe oră"
 
-#: server_status.php:794
+#: server_status.php:846
 msgid "per minute"
 msgstr "pe minut"
 
-#: server_status.php:799
+#: server_status.php:851
 msgid "per second"
 msgstr "pe secundă"
 
-#: server_status.php:820 tbl_printview.php:333 tbl_structure.php:827
+#: server_status.php:872 tbl_printview.php:333 tbl_structure.php:827
 msgid "Statements"
 msgstr "Comenzi"
 
 #. l10n: # = Amount of queries
-#: server_status.php:823
+#: server_status.php:875
 msgid "#"
 msgstr ""
 
-#: server_status.php:891
+#: server_status.php:943
 #, php-format
 msgid "Network traffic since startup: %s"
 msgstr ""
 
-#: server_status.php:899
+#: server_status.php:951
 #, fuzzy, php-format
 #| msgid "This MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
 msgstr "Acest server MySQL rulează de %s. S-a lansat la %s."
 
-#: server_status.php:909
+#: server_status.php:961
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
 msgstr ""
 
-#: server_status.php:911
+#: server_status.php:963
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
 
-#: server_status.php:913
+#: server_status.php:965
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
 
-#: server_status.php:916
+#: server_status.php:968
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=\"#replication\">replication section</a>."
 msgstr ""
 
-#: server_status.php:926
+#: server_status.php:978
 #, fuzzy
 msgid "Replication status"
 msgstr "Replicare"
 
-#: server_status.php:942
+#: server_status.php:994
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
@@ -9754,46 +9884,46 @@ msgstr ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
 
-#: server_status.php:948
+#: server_status.php:1000
 msgid "Received"
 msgstr "Recepționat"
 
-#: server_status.php:958
+#: server_status.php:1010
 msgid "Sent"
 msgstr "Trimis"
 
-#: server_status.php:994
+#: server_status.php:1046
 msgid "max. concurrent connections"
 msgstr "conexiuni concurente (maxim)"
 
-#: server_status.php:1001
+#: server_status.php:1053
 msgid "Failed attempts"
 msgstr "Încercări nereușite"
 
-#: server_status.php:1015
+#: server_status.php:1067
 msgid "Aborted"
 msgstr "Întrerupt"
 
-#: server_status.php:1062
+#: server_status.php:1114
 msgid "ID"
 msgstr "ID"
 
-#: server_status.php:1066
+#: server_status.php:1118
 msgid "Command"
 msgstr "Comanda"
 
-#: server_status.php:1136
+#: server_status.php:1188
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr ""
 
-#: server_status.php:1137
+#: server_status.php:1189
 #, fuzzy
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "Comprimă conexiunea la serverul MySQL"
 
-#: server_status.php:1138
+#: server_status.php:1190
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -9803,16 +9933,16 @@ msgstr ""
 "exceeded the value of binlog_cache_size and used a temporary file to store "
 "statements from the transaction."
 
-#: server_status.php:1139
+#: server_status.php:1191
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr "The number of transactions that used the temporary binary log cache."
 
-#: server_status.php:1140
+#: server_status.php:1192
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr ""
 
-#: server_status.php:1141
+#: server_status.php:1193
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -9824,11 +9954,11 @@ msgstr ""
 "to increase the tmp_table_size  value to cause temporary tables to be memory-"
 "based instead of disk-based."
 
-#: server_status.php:1142
+#: server_status.php:1194
 msgid "How many temporary files mysqld has created."
 msgstr "Cîte fișiere temporare a creat mysqld."
 
-#: server_status.php:1143
+#: server_status.php:1195
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
@@ -9836,7 +9966,7 @@ msgstr ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
 
-#: server_status.php:1144
+#: server_status.php:1196
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -9844,7 +9974,7 @@ msgstr ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
 
-#: server_status.php:1145
+#: server_status.php:1197
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -9852,23 +9982,23 @@ msgstr ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
 
-#: server_status.php:1146
+#: server_status.php:1198
 msgid "The number of INSERT DELAYED rows written."
 msgstr "The number of INSERT DELAYED rows written."
 
-#: server_status.php:1147
+#: server_status.php:1199
 msgid "The number of executed FLUSH statements."
 msgstr "The number of executed FLUSH statements."
 
-#: server_status.php:1148
+#: server_status.php:1200
 msgid "The number of internal COMMIT statements."
 msgstr "The number of internal COMMIT statements."
 
-#: server_status.php:1149
+#: server_status.php:1201
 msgid "The number of times a row was deleted from a table."
 msgstr "The number of times a row was deleted from a table."
 
-#: server_status.php:1150
+#: server_status.php:1202
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -9878,7 +10008,7 @@ msgstr ""
 "table with a given name. This is called discovery. Handler_discover "
 "indicates the number of time tables have been discovered."
 
-#: server_status.php:1151
+#: server_status.php:1203
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -9888,7 +10018,7 @@ msgstr ""
 "it suggests that the server is doing a lot of full index scans; for example, "
 "SELECT col1 FROM foo, assuming that col1 is indexed."
 
-#: server_status.php:1152
+#: server_status.php:1204
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -9896,7 +10026,7 @@ msgstr ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
 
-#: server_status.php:1153
+#: server_status.php:1205
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -9906,7 +10036,7 @@ msgstr ""
 "incremented if you are querying an index column with a range constraint or "
 "if you are doing an index scan."
 
-#: server_status.php:1154
+#: server_status.php:1206
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
@@ -9914,7 +10044,7 @@ msgstr ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
 
-#: server_status.php:1155
+#: server_status.php:1207
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -9926,7 +10056,7 @@ msgstr ""
 "probably have a lot of queries that require MySQL to scan whole tables or "
 "you have joins that don't use keys properly."
 
-#: server_status.php:1156
+#: server_status.php:1208
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -9938,36 +10068,36 @@ msgstr ""
 "tables are not properly indexed or that your queries are not written to take "
 "advantage of the indexes you have."
 
-#: server_status.php:1157
+#: server_status.php:1209
 msgid "The number of internal ROLLBACK statements."
 msgstr "The number of internal ROLLBACK statements."
 
-#: server_status.php:1158
+#: server_status.php:1210
 msgid "The number of requests to update a row in a table."
 msgstr "The number of requests to update a row in a table."
 
-#: server_status.php:1159
+#: server_status.php:1211
 msgid "The number of requests to insert a row in a table."
 msgstr "Numărul de cereri de a insera un rînd într-un tabel."
 
-#: server_status.php:1160
+#: server_status.php:1212
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "Numărul de pagini conținînd date (curate sau murdare)."
 
-#: server_status.php:1161
+#: server_status.php:1213
 msgid "The number of pages currently dirty."
 msgstr "Numărul de pagini actualmente murdare."
 
-#: server_status.php:1162
+#: server_status.php:1214
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr ""
 "The number of buffer pool pages that have been requested to be flushed."
 
-#: server_status.php:1163
+#: server_status.php:1215
 msgid "The number of free pages."
 msgstr "Numărul de pagini libere."
 
-#: server_status.php:1164
+#: server_status.php:1216
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -9977,7 +10107,7 @@ msgstr ""
 "being read or written or that can't be flushed or removed for some other "
 "reason."
 
-#: server_status.php:1165
+#: server_status.php:1217
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -9989,11 +10119,11 @@ msgstr ""
 "be calculated as Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 
-#: server_status.php:1166
+#: server_status.php:1218
 msgid "Total size of buffer pool, in pages."
 msgstr "Total size of buffer pool, in pages."
 
-#: server_status.php:1167
+#: server_status.php:1219
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -10001,7 +10131,7 @@ msgstr ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
 
-#: server_status.php:1168
+#: server_status.php:1220
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
@@ -10009,11 +10139,11 @@ msgstr ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
 
-#: server_status.php:1169
+#: server_status.php:1221
 msgid "The number of logical read requests InnoDB has done."
 msgstr "The number of logical read requests InnoDB has done."
 
-#: server_status.php:1170
+#: server_status.php:1222
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
@@ -10021,7 +10151,7 @@ msgstr ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
 
-#: server_status.php:1171
+#: server_status.php:1223
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -10035,55 +10165,55 @@ msgstr ""
 "counter counts instances of these waits. If the buffer pool size was set "
 "properly, this value should be small."
 
-#: server_status.php:1172
+#: server_status.php:1224
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "The number writes done to the InnoDB buffer pool."
 
-#: server_status.php:1173
+#: server_status.php:1225
 msgid "The number of fsync() operations so far."
 msgstr "The number of fsync() operations so far."
 
-#: server_status.php:1174
+#: server_status.php:1226
 msgid "The current number of pending fsync() operations."
 msgstr "The current number of pending fsync() operations."
 
-#: server_status.php:1175
+#: server_status.php:1227
 msgid "The current number of pending reads."
 msgstr "The current number of pending reads."
 
-#: server_status.php:1176
+#: server_status.php:1228
 msgid "The current number of pending writes."
 msgstr "The current number of pending writes."
 
-#: server_status.php:1177
+#: server_status.php:1229
 msgid "The amount of data read so far, in bytes."
 msgstr "The amount of data read so far, in bytes."
 
-#: server_status.php:1178
+#: server_status.php:1230
 msgid "The total number of data reads."
 msgstr "The total number of data reads."
 
-#: server_status.php:1179
+#: server_status.php:1231
 msgid "The total number of data writes."
 msgstr "The total number of data writes."
 
-#: server_status.php:1180
+#: server_status.php:1232
 msgid "The amount of data written so far, in bytes."
 msgstr "The amount of data written so far, in bytes."
 
-#: server_status.php:1181
+#: server_status.php:1233
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
 "The number of doublewrite writes that have been performed and the number of "
 "pages that have been written for this purpose."
 
-#: server_status.php:1182
+#: server_status.php:1234
 msgid "The number of doublewrite operations that have been performed."
 msgstr ""
 "The number of doublewrite writes that have been performed and the number of "
 "pages that have been written for this purpose."
 
-#: server_status.php:1183
+#: server_status.php:1235
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
@@ -10091,35 +10221,35 @@ msgstr ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
 
-#: server_status.php:1184
+#: server_status.php:1236
 msgid "The number of log write requests."
 msgstr "The number of log write requests."
 
-#: server_status.php:1185
+#: server_status.php:1237
 msgid "The number of physical writes to the log file."
 msgstr "The number of physical writes to the log file."
 
-#: server_status.php:1186
+#: server_status.php:1238
 msgid "The number of fsync() writes done to the log file."
 msgstr "The number of fsyncs writes done to the log file."
 
-#: server_status.php:1187
+#: server_status.php:1239
 msgid "The number of pending log file fsyncs."
 msgstr "The number of pending log file fsyncs."
 
-#: server_status.php:1188
+#: server_status.php:1240
 msgid "Pending log file writes."
 msgstr "Pending log file writes."
 
-#: server_status.php:1189
+#: server_status.php:1241
 msgid "The number of bytes written to the log file."
 msgstr "The number of bytes written to the log file."
 
-#: server_status.php:1190
+#: server_status.php:1242
 msgid "The number of pages created."
 msgstr "Numărul de pagini create."
 
-#: server_status.php:1191
+#: server_status.php:1243
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -10127,51 +10257,51 @@ msgstr ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
 
-#: server_status.php:1192
+#: server_status.php:1244
 msgid "The number of pages read."
 msgstr "Numărul de pagini citite."
 
-#: server_status.php:1193
+#: server_status.php:1245
 msgid "The number of pages written."
 msgstr "Numărul de pagini scrise."
 
-#: server_status.php:1194
+#: server_status.php:1246
 msgid "The number of row locks currently being waited for."
 msgstr "The number of row locks currently being waited for."
 
-#: server_status.php:1195
+#: server_status.php:1247
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr "The average time to acquire a row lock, in milliseconds."
 
-#: server_status.php:1196
+#: server_status.php:1248
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr "The total time spent in acquiring row locks, in milliseconds."
 
-#: server_status.php:1197
+#: server_status.php:1249
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr "The maximum time to acquire a row lock, in milliseconds."
 
-#: server_status.php:1198
+#: server_status.php:1250
 msgid "The number of times a row lock had to be waited for."
 msgstr "The number of times a row lock had to be waited for."
 
-#: server_status.php:1199
+#: server_status.php:1251
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "The number of rows deleted from InnoDB tables."
 
-#: server_status.php:1200
+#: server_status.php:1252
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "The number of rows inserted in InnoDB tables."
 
-#: server_status.php:1201
+#: server_status.php:1253
 msgid "The number of rows read from InnoDB tables."
 msgstr "Numărul de rînduri citite din tabelele InnoDB."
 
-#: server_status.php:1202
+#: server_status.php:1254
 msgid "The number of rows updated in InnoDB tables."
 msgstr "Numărul de rînduri actualizate în tabelele InnoDB."
 
-#: server_status.php:1203
+#: server_status.php:1255
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
@@ -10179,7 +10309,7 @@ msgstr ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
 
-#: server_status.php:1204
+#: server_status.php:1256
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
@@ -10187,7 +10317,7 @@ msgstr ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
 
-#: server_status.php:1205
+#: server_status.php:1257
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
@@ -10197,11 +10327,11 @@ msgstr ""
 "that indicates the maximum number of blocks that have ever been in use at "
 "one time."
 
-#: server_status.php:1206
+#: server_status.php:1258
 msgid "The number of requests to read a key block from the cache."
 msgstr "The number of requests to read a key block from the cache."
 
-#: server_status.php:1207
+#: server_status.php:1259
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -10211,15 +10341,15 @@ msgstr ""
 "then your key_buffer_size value is probably too small. The cache miss rate "
 "can be calculated as Key_reads/Key_read_requests."
 
-#: server_status.php:1208
+#: server_status.php:1260
 msgid "The number of requests to write a key block to the cache."
 msgstr "The number of requests to write a key block to the cache."
 
-#: server_status.php:1209
+#: server_status.php:1261
 msgid "The number of physical writes of a key block to disk."
 msgstr "The number of physical writes of a key block to disk."
 
-#: server_status.php:1210
+#: server_status.php:1262
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -10229,17 +10359,17 @@ msgstr ""
 "optimizer. Useful for comparing the cost of different query plans for the "
 "same query. The default value of 0 means that no query has been compiled yet."
 
-#: server_status.php:1211
+#: server_status.php:1263
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
 
-#: server_status.php:1212
+#: server_status.php:1264
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr "The number of rows waiting to be written in INSERT DELAYED queues."
 
-#: server_status.php:1213
+#: server_status.php:1265
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
@@ -10247,38 +10377,38 @@ msgstr ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
 
-#: server_status.php:1214
+#: server_status.php:1266
 msgid "The number of files that are open."
 msgstr "The number of files that are open."
 
-#: server_status.php:1215
+#: server_status.php:1267
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr "The number of streams that are open (used mainly for logging)."
 
-#: server_status.php:1216
+#: server_status.php:1268
 msgid "The number of tables that are open."
 msgstr "Numărul de tabele ce sînt deschise."
 
-#: server_status.php:1217
+#: server_status.php:1269
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
 
-#: server_status.php:1218
+#: server_status.php:1270
 msgid "The amount of free memory for query cache."
 msgstr "The amount of free memory for query cache."
 
-#: server_status.php:1219
+#: server_status.php:1271
 msgid "The number of cache hits."
 msgstr "Numărul de nimeriri în cache."
 
-#: server_status.php:1220
+#: server_status.php:1272
 msgid "The number of queries added to the cache."
 msgstr "Numărul de interogări adăugate la cache."
 
-#: server_status.php:1221
+#: server_status.php:1273
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -10290,7 +10420,7 @@ msgstr ""
 "cache size. The query cache uses a least recently used (LRU) strategy to "
 "decide which queries to remove from the cache."
 
-#: server_status.php:1222
+#: server_status.php:1274
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -10298,19 +10428,19 @@ msgstr ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
 
-#: server_status.php:1223
+#: server_status.php:1275
 msgid "The number of queries registered in the cache."
 msgstr "Numărul de interogări înregistrate în cache."
 
-#: server_status.php:1224
+#: server_status.php:1276
 msgid "The total number of blocks in the query cache."
 msgstr "Numărul total de blocuri în cache-ul interogării."
 
-#: server_status.php:1225
+#: server_status.php:1277
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "The status of failsafe replication (not yet implemented)."
 
-#: server_status.php:1226
+#: server_status.php:1278
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -10318,11 +10448,11 @@ msgstr ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
 
-#: server_status.php:1227
+#: server_status.php:1279
 msgid "The number of joins that used a range search on a reference table."
 msgstr "The number of joins that used a range search on a reference table."
 
-#: server_status.php:1228
+#: server_status.php:1280
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -10330,7 +10460,7 @@ msgstr ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 
-#: server_status.php:1229
+#: server_status.php:1281
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -10338,15 +10468,15 @@ msgstr ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
 
-#: server_status.php:1230
+#: server_status.php:1282
 msgid "The number of joins that did a full scan of the first table."
 msgstr "The number of joins that did a full scan of the first table."
 
-#: server_status.php:1231
+#: server_status.php:1283
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr "The number of temporary tables currently open by the slave SQL thread."
 
-#: server_status.php:1232
+#: server_status.php:1284
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
@@ -10354,11 +10484,11 @@ msgstr ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
 
-#: server_status.php:1233
+#: server_status.php:1285
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr "This is ON if this server is a slave that is connected to a master."
 
-#: server_status.php:1234
+#: server_status.php:1286
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
@@ -10366,13 +10496,13 @@ msgstr ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
 
-#: server_status.php:1235
+#: server_status.php:1287
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr ""
 "The number of queries that have taken more than long_query_time seconds."
 
-#: server_status.php:1236
+#: server_status.php:1288
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -10382,23 +10512,23 @@ msgstr ""
 "is large, you should consider increasing the value of the sort_buffer_size "
 "system variable."
 
-#: server_status.php:1237
+#: server_status.php:1289
 msgid "The number of sorts that were done with ranges."
 msgstr "The number of sorts that were done with ranges."
 
-#: server_status.php:1238
+#: server_status.php:1290
 msgid "The number of sorted rows."
 msgstr "Numărul de rînduri sortate."
 
-#: server_status.php:1239
+#: server_status.php:1291
 msgid "The number of sorts that were done by scanning the table."
 msgstr "The number of sorts that were done by scanning the table."
 
-#: server_status.php:1240
+#: server_status.php:1292
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "The number of times that a table lock was acquired immediately."
 
-#: server_status.php:1241
+#: server_status.php:1293
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -10410,7 +10540,7 @@ msgstr ""
 "should first optimize your queries, and then either split your table or "
 "tables or use replication."
 
-#: server_status.php:1242
+#: server_status.php:1294
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -10420,11 +10550,11 @@ msgstr ""
 "calculated as Threads_created/Connections. If this value is red you should "
 "raise your thread_cache_size."
 
-#: server_status.php:1243
+#: server_status.php:1295
 msgid "The number of currently open connections."
 msgstr "Numărul de conexiuni deschise momentan."
 
-#: server_status.php:1244
+#: server_status.php:1296
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -10436,68 +10566,68 @@ msgstr ""
 "doesn't give a notable performance improvement if you have a good thread "
 "implementation.)"
 
-#: server_status.php:1245
+#: server_status.php:1297
 msgid "The number of threads that are not sleeping."
 msgstr "The number of threads that are not sleeping."
 
-#: server_status.php:1385
+#: server_status.php:1437
 #, fuzzy
 #| msgid "Start"
 msgid "Start Monitor"
 msgstr "Dum"
 
-#: server_status.php:1393
+#: server_status.php:1445
 #, fuzzy
 #| msgid "Introduction"
 msgid "Instructions/Setup"
 msgstr "Introducere"
 
-#: server_status.php:1397
+#: server_status.php:1449
 msgid "Done rearranging/editing charts"
 msgstr ""
 
-#: server_status.php:1404
+#: server_status.php:1456
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add chart"
 msgstr "Adaugă %s cîmp(uri)"
 
-#: server_status.php:1406
+#: server_status.php:1458
 msgid "Rearrange/edit charts"
 msgstr ""
 
-#: server_status.php:1410
+#: server_status.php:1462
 #, fuzzy
 msgid "Refresh rate"
 msgstr "Reîncarcă"
 
-#: server_status.php:1415
+#: server_status.php:1467
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Chart columns"
 msgstr "Adaugă/șterge coloane"
 
-#: server_status.php:1431
+#: server_status.php:1483
 msgid "Chart arrangement"
 msgstr ""
 
-#: server_status.php:1431
+#: server_status.php:1483
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
 
-#: server_status.php:1432
+#: server_status.php:1484
 msgid "Reset to default"
 msgstr ""
 
-#: server_status.php:1436
+#: server_status.php:1488
 #, fuzzy
 #| msgid "Introduction"
 msgid "Monitor Instructions"
 msgstr "Introducere"
 
-#: server_status.php:1437
+#: server_status.php:1489
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -10506,7 +10636,7 @@ msgid ""
 "increases server load by up to 15%"
 msgstr ""
 
-#: server_status.php:1442
+#: server_status.php:1494
 msgid ""
 "Unfortunately your Database server does not support logging to table, which "
 "is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
@@ -10514,122 +10644,125 @@ msgid ""
 "charting features however."
 msgstr ""
 
-#: server_status.php:1454
+#: server_status.php:1507
+msgid "Using the monitor:"
+msgstr ""
+
+#: server_status.php:1509
 msgid ""
-"<b>Using the monitor:</b><br/> Ok, you are good to go! Once you click 'Start "
-"monitor' your browser will refresh all displayed charts in a regular "
-"interval. You may add charts and change the refresh rate under 'Settings', "
-"or remove any chart using the cog icon on each respective chart. <p>To "
-"display queries from the logs, select the relevant time span on any chart by "
-"holding down the left mouse button and panning over the chart. Once "
+"Ok, you are good to go! Once you click 'Start monitor' your browser will "
+"refresh all displayed charts in a regular interval. You may add charts and "
+"change the refresh rate under 'Settings', or remove any chart using the cog "
+"icon on each respective chart."
+msgstr ""
+
+#: server_status.php:1511
+msgid ""
+"To display queries from the logs, select the relevant time span on any chart "
+"by holding down the left mouse button and panning over the chart. Once "
 "confirmed, this will load a table of grouped queries, there you may click on "
-"any occuring SELECT statements to further analyze them.</p>"
+"any occuring SELECT statements to further analyze them."
 msgstr ""
 
-#: server_status.php:1459
+#: server_status.php:1518
+msgid "Please note:"
+msgstr ""
+
+#: server_status.php:1520
 msgid ""
-"<b>Please note:</b> Enabling the general_log may increase the server load by "
-"5-15%. Also be aware that generating statistics from the logs is a load "
-"intensive task, so it is advisable to select only a small time span and to "
-"disable the general_log and empty its table once monitoring is not required "
-"any more."
+"Enabling the general_log may increase the server load by 5-15%. Also be "
+"aware that generating statistics from the logs is a load intensive task, so "
+"it is advisable to select only a small time span and to disable the "
+"general_log and empty its table once monitoring is not required any more."
 msgstr ""
 
-#: server_status.php:1471
+#: server_status.php:1533
 #, fuzzy
-#| msgid "Usage"
-msgid "CPU Usage"
-msgstr "Utilizare"
+#| msgid "Rename database to"
+msgid "Preset chart"
+msgstr "Redenumire bază de date în"
 
-#: server_status.php:1474
-msgid "Memory Usage"
-msgstr ""
-
-#: server_status.php:1477
-#, fuzzy
-#| msgid "Usage"
-msgid "Swap Usage"
-msgstr "Utilizare"
-
-#: server_status.php:1480
+#: server_status.php:1537
 msgid "Status variable(s)"
 msgstr ""
 
-#: server_status.php:1482
+#: server_status.php:1539
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
 msgstr "Selectează tabele"
 
-#: server_status.php:1484
+#: server_status.php:1541
 msgid "Commonly monitored"
 msgstr ""
 
-#: server_status.php:1499
+#: server_status.php:1556
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "or type variable name:"
 msgstr "Denumire de tabel nevalidă"
 
-#: server_status.php:1503
+#: server_status.php:1560
 msgid "Display as differential value"
 msgstr ""
 
-#: server_status.php:1505
+#: server_status.php:1562
 msgid "Apply a divisor"
 msgstr ""
 
-#: server_status.php:1512
+#: server_status.php:1569
 msgid "Append unit to data values"
 msgstr ""
 
-#: server_status.php:1518
+#: server_status.php:1575
 #, fuzzy
 #| msgid "Add a new server"
 msgid "Add this series"
 msgstr "Adaugă un server nou"
 
-#: server_status.php:1520
+#: server_status.php:1577
 msgid "Clear series"
 msgstr ""
 
-#: server_status.php:1523
+#: server_status.php:1580
 #, fuzzy
 msgid "Series in Chart:"
 msgstr "Comanda SQL"
 
-#: server_status.php:1535
+#: server_status.php:1592
 #, fuzzy
 msgid "Log statistics"
 msgstr "Statisticile rîndului"
 
-#: server_status.php:1536
+#: server_status.php:1593
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Selected time range:"
 msgstr "Selectează tabele"
 
-#: server_status.php:1541
+#: server_status.php:1598
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr ""
 
-#: server_status.php:1546
+#: server_status.php:1603
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 
-#: server_status.php:1549
-msgid ""
-"<p>Choose from which log you want the statistics to be generated from.</p> "
-"Results are grouped by query text."
+#: server_status.php:1608
+msgid "Choose from which log you want the statistics to be generated from."
 msgstr ""
 
-#: server_status.php:1552
+#: server_status.php:1610
+msgid "Results are grouped by query text."
+msgstr ""
+
+#: server_status.php:1615
 #, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
 msgstr "Tip interogare"
 
-#: server_status.php:1589
+#: server_status.php:1652
 #, fuzzy, php-format
 #| msgid "per second"
 msgid "%d second"
@@ -10638,7 +10771,7 @@ msgstr[0] "pe secundă"
 msgstr[1] "pe secundă"
 msgstr[2] "pe secundă"
 
-#: server_status.php:1591
+#: server_status.php:1654
 #, fuzzy, php-format
 #| msgid "in use"
 msgid "%d minute"
@@ -11055,41 +11188,36 @@ msgstr ""
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr ""
 
-#: sql.php:98 tbl_change.php:257 tbl_select.php:28 tbl_select.php:29
-#: tbl_select.php:32 tbl_select.php:35
-msgid "Browse foreign values"
-msgstr "Caută printre valori necunoscute"
-
-#: sql.php:197
+#: sql.php:203
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: sql.php:669 tbl_replace.php:369
+#: sql.php:675 tbl_replace.php:369
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID rînd inserat: %1$d"
 
-#: sql.php:686
+#: sql.php:692
 msgid "Showing as PHP code"
 msgstr "Afișare ca și cod PHP"
 
-#: sql.php:689 tbl_replace.php:343
+#: sql.php:695 tbl_replace.php:343
 msgid "Showing SQL query"
 msgstr "Afișare interogare SQL"
 
-#: sql.php:691
+#: sql.php:697
 #, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
 msgstr "Validează SQL"
 
-#: sql.php:885
+#: sql.php:890
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Probleme cu indexul tabelului `%s`"
 
-#: sql.php:916
+#: sql.php:921
 msgid "Label"
 msgstr "Etichetă"
 
@@ -11521,25 +11649,25 @@ msgstr ""
 msgid "Foreign key constraint"
 msgstr "Constrângeri ale cheii străine"
 
-#: tbl_select.php:111
+#: tbl_select.php:83
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Execută o interogare prin exemplu (metacaracter: \"%\")"
 
-#: tbl_select.php:261
+#: tbl_select.php:155
 #, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
 msgstr "Selectează cîmpurile (cel puțin unul):"
 
-#: tbl_select.php:279
+#: tbl_select.php:173
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "Adaugă condiție de căutare (parte a comenzii \"where\"):"
 
-#: tbl_select.php:286
+#: tbl_select.php:180
 msgid "Number of rows per page"
 msgstr "Numărul de înregistrări pe pagină"
 
-#: tbl_select.php:292
+#: tbl_select.php:186
 msgid "Display order:"
 msgstr "Ordine de afișare:"
 
@@ -11801,6 +11929,37 @@ msgstr ""
 msgid "Create version"
 msgstr "Creare relație"
 
+#: tbl_zoom_select.php:140
+#, fuzzy
+#| msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
+msgstr "Execută o interogare prin exemplu (metacaracter: \"%\")"
+
+#: tbl_zoom_select.php:151
+#, fuzzy
+msgid "Additional search criteria"
+msgstr "Comanda SQL"
+
+#: tbl_zoom_select.php:281
+#, fuzzy
+#| msgid "Label"
+msgid "Data Label"
+msgstr "Etichetă"
+
+#: tbl_zoom_select.php:297
+msgid "Maximum rows to plot"
+msgstr ""
+
+#: tbl_zoom_select.php:388
+msgid "Browse/Edit the points"
+msgstr ""
+
+#: tbl_zoom_select.php:394
+#, fuzzy
+#| msgid "PHP extension to use"
+msgid "How to use"
+msgstr "Extensia PHP de utilizat"
+
 #: themes.php:28
 msgid "Get more themes!"
 msgstr ""
@@ -11884,8 +12043,8 @@ msgid "Current amount of Questions: %s"
 msgstr "Comprimă conexiunea"
 
 #: po/advisory_rules.php:15
-#, fuzzy, php-format
-msgid "% slow queries"
+#, fuzzy
+msgid "Percentage of slow queries"
 msgstr "Afișare comandă întreagă"
 
 #: po/advisory_rules.php:16
@@ -11907,7 +12066,7 @@ msgstr ""
 #: po/advisory_rules.php:20
 #, fuzzy
 #| msgid "Flush query cache"
-msgid "slow query rate"
+msgid "Slow query rate"
 msgstr "Reinițializare cache interogare"
 
 #: po/advisory_rules.php:21
@@ -12088,12 +12247,6 @@ msgstr ""
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 
-#: po/advisory_rules.php:70
-#, fuzzy
-#| msgid "Space usage"
-msgid "memcached usage"
-msgstr "Utilizare spațiu"
-
 #: po/advisory_rules.php:71
 msgid "Suboptimal caching method."
 msgstr ""
@@ -12138,7 +12291,7 @@ msgstr "Cache interogări"
 
 #: po/advisory_rules.php:81
 #, php-format
-msgid "Less than 80% of the query cache is being utilized."
+msgid "Less than 80%% of the query cache is being utilized."
 msgstr ""
 
 #: po/advisory_rules.php:82
@@ -12150,8 +12303,8 @@ msgstr ""
 #: po/advisory_rules.php:83
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:85
@@ -12260,9 +12413,9 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
 
 #: po/advisory_rules.php:105
-#, fuzzy, php-format
+#, fuzzy
 #| msgid "Allows creating temporary tables."
-msgid "% sorts that cause temporary tales"
+msgid "Percentage of sorts that cause temporary tables"
 msgstr "Permite crearea de tabele temporare."
 
 #: po/advisory_rules.php:106 po/advisory_rules.php:111
@@ -12280,13 +12433,15 @@ msgstr ""
 #: po/advisory_rules.php:108
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: po/advisory_rules.php:110
-msgid "rate of sorts that cause temporary tables"
-msgstr ""
+#, fuzzy
+#| msgid "Allows creating temporary tables."
+msgid "Rate of sorts that cause temporary tables"
+msgstr "Permite crearea de tabele temporare."
 
 #: po/advisory_rules.php:113
 #, php-format
@@ -12318,8 +12473,9 @@ msgid "Sorted rows average: %s"
 msgstr ""
 
 #: po/advisory_rules.php:120
-msgid "rate of joins without indexes"
-msgstr ""
+#, fuzzy
+msgid "Rate of joins without indexes"
+msgstr "Tabelele urmărite"
 
 #: po/advisory_rules.php:121
 #, fuzzy
@@ -12338,7 +12494,7 @@ msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:125
-msgid "rate of reading first index entry"
+msgid "Rate of reading first index entry"
 msgstr ""
 
 #: po/advisory_rules.php:126
@@ -12361,7 +12517,7 @@ msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:130
-msgid "rate of reading fixed position"
+msgid "Rate of reading fixed position"
 msgstr ""
 
 #: po/advisory_rules.php:131
@@ -12370,7 +12526,7 @@ msgstr ""
 
 #: po/advisory_rules.php:132
 msgid ""
-"This indicates many queries need to sort results and/or do a full table "
+"This indicates that many queries need to sort results and/or do a full table "
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
@@ -12383,7 +12539,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:135
-msgid "rate of reading next table row"
+msgid "Rate of reading next table row"
 msgstr ""
 
 #: po/advisory_rules.php:136
@@ -12392,8 +12548,8 @@ msgstr ""
 
 #: po/advisory_rules.php:137
 msgid ""
-"This indicates many queries are doing full table scans. Add indexes where "
-"applicable."
+"This indicates that many queries are doing full table scans. Add indexes "
+"where applicable."
 msgstr ""
 
 #: po/advisory_rules.php:138
@@ -12424,10 +12580,8 @@ msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr ""
 
 #: po/advisory_rules.php:145
-#, fuzzy
-#| msgid "%s table(s)"
-msgid "% temp disk tables"
-msgstr "%s tabele"
+msgid "Percentage of temp tables on disk"
+msgstr ""
 
 #: po/advisory_rules.php:146 po/advisory_rules.php:151
 msgid ""
@@ -12454,8 +12608,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:150
-msgid "temp disk rate"
-msgstr ""
+#, fuzzy
+#| msgid "%s table(s)"
+msgid "Temp disk rate"
+msgstr "%s tabele"
 
 #: po/advisory_rules.php:152
 msgid ""
@@ -12496,13 +12652,16 @@ msgid "key_buffer_size is 0"
 msgstr ""
 
 #: po/advisory_rules.php:160
-msgid "max % MyISAM key buffer ever used"
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Sort buffer size"
+msgid "Max %% MyISAM key buffer ever used"
+msgstr "Sortare Mărime tampon"
 
 #: po/advisory_rules.php:161 po/advisory_rules.php:166
-#, php-format
-msgid "MyISAM key buffer (index cache) % used is low."
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Sort buffer size"
+msgid "MyISAM key buffer (index cache) %% used is low."
+msgstr "Sortare Mărime tampon"
 
 #: po/advisory_rules.php:162 po/advisory_rules.php:167
 msgid ""
@@ -12517,8 +12676,10 @@ msgid "max %% MyISAM key buffer ever used: %s, this value should be above 95%%"
 msgstr ""
 
 #: po/advisory_rules.php:165
-msgid "% MyISAM key buffer used"
-msgstr ""
+#, fuzzy
+#| msgid "Sort buffer size"
+msgid "Percentage of MyISAM key buffer used"
+msgstr "Sortare Mărime tampon"
 
 #: po/advisory_rules.php:168
 #, php-format
@@ -12526,12 +12687,12 @@ msgid "%% MyISAM key buffer used: %s, this value should be above 95%%"
 msgstr ""
 
 #: po/advisory_rules.php:170
-msgid "% index reads from memory"
+msgid "Percentage of index reads from memory"
 msgstr ""
 
 #: po/advisory_rules.php:171
 #, php-format
-msgid "The % of indexes that use the MyISAM key buffer is low."
+msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgstr ""
 
 #: po/advisory_rules.php:172
@@ -12546,7 +12707,7 @@ msgstr ""
 #: po/advisory_rules.php:175
 #, fuzzy
 #| msgid "Create table"
-msgid "rate of table open"
+msgid "Rate of table open"
 msgstr "Creare tabel"
 
 #: po/advisory_rules.php:176
@@ -12567,10 +12728,10 @@ msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:180
-#, fuzzy, php-format
-#| msgid "Show open tables"
-msgid "% open files"
-msgstr "Afișează tabele deschise"
+#, fuzzy
+#| msgid "Format of imported file"
+msgid "Percentage of used open files limit"
+msgstr "Formatul fișierului importat"
 
 #: po/advisory_rules.php:181
 msgid ""
@@ -12593,7 +12754,7 @@ msgstr ""
 #: po/advisory_rules.php:185
 #, fuzzy
 #| msgid "Format of imported file"
-msgid "rate of open files"
+msgid "Rate of open files"
 msgstr "Formatul fișierului importat"
 
 #: po/advisory_rules.php:186
@@ -12608,9 +12769,9 @@ msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:190
-#, fuzzy
+#, fuzzy, php-format
 #| msgid "Create table on database %s"
-msgid "Immediate table locks %"
+msgid "Immediate table locks %%"
 msgstr "Creează tabel nou în baza de date %s"
 
 #: po/advisory_rules.php:191 po/advisory_rules.php:196
@@ -12640,7 +12801,7 @@ msgstr ""
 #: po/advisory_rules.php:200
 #, fuzzy
 #| msgid "Key cache"
-msgid "thread cache"
+msgid "Thread cache"
 msgstr "Key cache"
 
 #: po/advisory_rules.php:201
@@ -12658,8 +12819,10 @@ msgid "The thread cache is set to 0"
 msgstr ""
 
 #: po/advisory_rules.php:205
-msgid "thread cache hit rate %"
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Tracking is not active."
+msgid "Thread cache hit rate %%"
+msgstr "Monitorizarea nu este activată"
 
 #: po/advisory_rules.php:206
 #, fuzzy
@@ -12717,10 +12880,10 @@ msgid "slow_launch_time is set to %s"
 msgstr ""
 
 #: po/advisory_rules.php:220
-#, fuzzy, php-format
-#| msgid "Connections"
-msgid "% connections used"
-msgstr "Conexiuni"
+#, fuzzy
+#| msgid "max. concurrent connections"
+msgid "Percentage of used connections"
+msgstr "conexiuni concurente (maxim)"
 
 #: po/advisory_rules.php:221
 msgid ""
@@ -12743,9 +12906,9 @@ msgstr ""
 
 #: po/advisory_rules.php:225
 #, fuzzy
-#| msgid "Compress connection"
-msgid "% aborted connections"
-msgstr "Comprimă conexiunea"
+#| msgid "max. concurrent connections"
+msgid "Percentage of aborted connections"
+msgstr "conexiuni concurente (maxim)"
 
 #: po/advisory_rules.php:226
 msgid "Too many connections are aborted."
@@ -12767,7 +12930,7 @@ msgstr ""
 #: po/advisory_rules.php:230
 #, fuzzy
 #| msgid "max. concurrent connections"
-msgid "rate of aborted connections"
+msgid "Rate of aborted connections"
 msgstr "conexiuni concurente (maxim)"
 
 #: po/advisory_rules.php:231
@@ -12781,8 +12944,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:235
-msgid "% aborted clients"
-msgstr ""
+#, fuzzy
+#| msgid "Format of imported file"
+msgid "Percentage of aborted clients"
+msgstr "Formatul fișierului importat"
 
 #: po/advisory_rules.php:236 po/advisory_rules.php:241
 msgid "Too many clients are aborted."
@@ -12803,7 +12968,7 @@ msgstr ""
 #: po/advisory_rules.php:240
 #, fuzzy
 #| msgid "Format of imported file"
-msgid "rate of aborted clients"
+msgid "Rate of aborted clients"
 msgstr "Formatul fișierului importat"
 
 #: po/advisory_rules.php:243
@@ -12830,8 +12995,10 @@ msgid "have_innodb is set to 'value'"
 msgstr ""
 
 #: po/advisory_rules.php:250
-msgid "% InnoDB log size"
-msgstr ""
+#, fuzzy
+#| msgid "Buffer pool size"
+msgid "InnoDB log size"
+msgstr "Buffer pool size"
 
 #: po/advisory_rules.php:251
 #, fuzzy
@@ -12845,14 +13012,15 @@ msgstr "The number writes done to the InnoDB buffer pool."
 #, php-format
 msgid ""
 "Especially one a system with a lot of writes to InnoDB tables you should set "
-"innodb_log_file_size to 25% of {innodb_buffer_pool_size}. However the bigger "
-"this value, the longer the recovery time will be when database crashes, so "
-"this value should not be set much higher than 256 MiB. Please note however "
-"that you cannot simply change the value of this variable. You need to "
-"shutdown the server, remove the InnoDB log files, set the new value in my."
-"cnf, start the server, then check the error logs if everything went fine. "
-"See also <a href=\\\"http://mysqldatabaseadministration.blogspot.com/2007/01/"
-"increase-innodblogfilesize-proper-way.html\\\">this blog entry</a>"
+"innodb_log_file_size to 25%% of {innodb_buffer_pool_size}. However the "
+"bigger this value, the longer the recovery time will be when database "
+"crashes, so this value should not be set much higher than 256 MiB. Please "
+"note however that you cannot simply change the value of this variable. You "
+"need to shutdown the server, remove the InnoDB log files, set the new value "
+"in my.cnf, start the server, then check the error logs if everything went "
+"fine. See also <a href=\\\"http://mysqldatabaseadministration.blogspot."
+"com/2007/01/increase-innodblogfilesize-proper-way.html\\\">this blog entry</"
+"a>"
 msgstr ""
 
 #: po/advisory_rules.php:253
@@ -12873,7 +13041,7 @@ msgstr ""
 #: po/advisory_rules.php:257
 #, php-format
 msgid ""
-"It is usually sufficient to set innodb_log_file_size to 25% of the size of "
+"It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
 "{innodb_buffer_pool_size}. A very innodb_log_file_size slows down the "
 "recovery time after a database crash considerably. See also <a href=\\"
 "\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
@@ -12905,7 +13073,7 @@ msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 "tables. Assign all your remaining memory to this buffer. For database "
 "servers that use solely InnoDB as storage engine and have no other services "
-"(e.g. a web server) running, you may set this as high as 80% of your "
+"(e.g. a web server) running, you may set this as high as 80%% of your "
 "available memory. If that is not the case, you need to carefully assess the "
 "memory consumption of your other services and non-InnoDB-Tables and set this "
 "variable accordingly. If it is set too high, your system will start "
@@ -12915,9 +13083,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:263
+#, php-format
 msgid ""
-"You are currently using %s% of your memory for the InnoDB buffer pool. This "
-"rule fires if you are assigning less than 60%, however this might be "
+"You are currently using %s%% of your memory for the InnoDB buffer pool. This "
+"rule fires if you are assigning less than 60%%, however this might be "
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
@@ -12942,6 +13111,30 @@ msgstr ""
 #: po/advisory_rules.php:268
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~ msgid "memcached usage"
+#~ msgstr "Utilizare spațiu"
+
+#, fuzzy
+#~ msgid "% open files"
+#~ msgstr "Afișează tabele deschise"
+
+#, fuzzy
+#~ msgid "% connections used"
+#~ msgstr "Conexiuni"
+
+#, fuzzy
+#~ msgid "% aborted connections"
+#~ msgstr "Comprimă conexiunea"
+
+#, fuzzy
+#~ msgid "CPU Usage"
+#~ msgstr "Utilizare"
+
+#, fuzzy
+#~ msgid "Swap Usage"
+#~ msgstr "Utilizare"
 
 #, fuzzy
 #~ msgctxt "PDF"

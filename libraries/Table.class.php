@@ -910,7 +910,7 @@ class PMA_Table
                 if ($GLOBALS['cfgRelation']['commwork']) {
                     // Get all comments and MIME-Types for current table
                     $comments_copy_query = 'SELECT
-                                                column_name, ' . PMA_backquote('comment') . ($GLOBALS['cfgRelation']['mimework'] ? ', mimetype, transformation, transformation_options' : '') . '
+                                                column_name, comment' . ($GLOBALS['cfgRelation']['mimework'] ? ', mimetype, transformation, transformation_options' : '') . '
                                             FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['column_info']) . '
                                             WHERE
                                                 db_name = \'' . PMA_sqlAddSlashes($source_db) . '\' AND
@@ -920,7 +920,7 @@ class PMA_Table
                     // Write every comment as new copied entry. [MIME]
                     while ($comments_copy_row = PMA_DBI_fetch_assoc($comments_copy_rs)) {
                         $new_comment_query = 'REPLACE INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['column_info'])
-                                    . ' (db_name, table_name, column_name, ' . PMA_backquote('comment') . ($GLOBALS['cfgRelation']['mimework'] ? ', mimetype, transformation, transformation_options' : '') . ') '
+                                    . ' (db_name, table_name, column_name, comment' . ($GLOBALS['cfgRelation']['mimework'] ? ', mimetype, transformation, transformation_options' : '') . ') '
                                     . ' VALUES('
                                     . '\'' . PMA_sqlAddSlashes($target_db) . '\','
                                     . '\'' . PMA_sqlAddSlashes($target_table) . '\','
@@ -1185,7 +1185,7 @@ class PMA_Table
      *
      * returns an array with all columns make use of an index, in fact only
      * first columns in an index
-     * 
+     *
      * e.g. index(col1, col2) would only return col1
      *
      * @param bool  $backquoted  whether to quote name with backticks ``
@@ -1266,7 +1266,7 @@ class PMA_Table
         " REPLACE INTO " . $pma_table .
         " VALUES ('" . $username . "', '" . PMA_sqlAddSlashes($this->db_name) . "', '" .
                        PMA_sqlAddSlashes($this->name) . "', '" .
-                       PMA_sqlAddSlashes(json_encode($this->uiprefs)) . "')";
+                       PMA_sqlAddSlashes(json_encode($this->uiprefs)) . "', NULL)";
 
         $success = PMA_DBI_try_query($sql_query, $GLOBALS['controllink']);
 
@@ -1276,6 +1276,31 @@ class PMA_Table
             $message->addMessage(PMA_Message::rawError(PMA_DBI_getError($GLOBALS['controllink'])));
             return $message;
         }
+
+        // Remove some old rows in table_uiprefs if it exceeds the configured maximum rows
+        $sql_query = 'SELECT COUNT(*) FROM ' . $pma_table;
+        $rows_count = PMA_DBI_fetch_value($sql_query);
+        $max_rows = $GLOBALS['cfg']['Server']['MaxTableUiprefs'];
+        if ($rows_count > $max_rows) {
+            $num_rows_to_delete = $rows_count - $max_rows;
+            $sql_query =
+                ' DELETE FROM ' . $pma_table .
+                ' ORDER BY last_update ASC' .
+                ' LIMIT ' . $num_rows_to_delete;
+            $success = PMA_DBI_try_query($sql_query, $GLOBALS['controllink']);
+
+            if (!$success) {
+                $message = PMA_Message::error(sprintf(
+                    __('Failed to cleanup table UI preferences (see $cfg[\'Servers\'][$i][\'MaxTableUiprefs\'] %s)'),
+                    PMA_showDocu('cfg_Servers_MaxTableUiprefs')
+                ));
+                $message->addMessage('<br /><br />');
+                $message->addMessage(PMA_Message::rawError(PMA_DBI_getError($GLOBALS['controllink'])));
+            print_r($message);
+                return $message;
+            }
+        }
+
         return true;
     }
 

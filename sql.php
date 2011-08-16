@@ -22,7 +22,7 @@ if (isset($_SESSION['profiling'])) {
     /* Files required for chart exporting */
     $GLOBALS['js_include'][] = 'highcharts/exporting.js';
     /* < IE 9 doesn't support canvas natively */
-    if(PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
+    if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
         $GLOBALS['js_include'][] = 'canvg/flashcanvas.js';
     }	
     $GLOBALS['js_include'][] = 'canvg/canvg.js';
@@ -96,8 +96,7 @@ if (isset($_REQUEST['get_relational_values']) && $_REQUEST['get_relational_value
         $dropdown = '<span class="curr_value">' . htmlspecialchars($_REQUEST['curr_value']) . '</span> <a href="browse_foreigners.php' . PMA_generate_common_url($_url_params) . '"'
                     . ' target="_blank" class="browse_foreign" '
                     .'>' . __('Browse foreign values') . '</a>';
-    }
-    else {
+    } else {
         $dropdown = PMA_foreignDropdown($foreignData['disp_row'], $foreignData['foreign_field'], $foreignData['foreign_display'], $curr_value, $cfg['ForeignKeyMaxLimit']);
         $dropdown = '<select>' . $dropdown . '</select>';
     }
@@ -175,12 +174,19 @@ if (isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
     if (isset($_REQUEST['col_order'])) {
         $col_order = explode(',', $_REQUEST['col_order']);
         $retval = $pmatable->setUiProp(PMA_Table::PROP_COLUMN_ORDER, $col_order, $_REQUEST['table_create_time']);
+        if ($retval !== true) {
+            PMA_ajaxResponse($retval->getString(), false);
+        }
     }
+
 
     // set column visibility
     if (isset($_REQUEST['col_visib'])) {
         $col_visib = explode(',', $_REQUEST['col_visib']);
-        $retval &= $pmatable->setUiProp(PMA_Table::PROP_COLUMN_VISIB, $col_visib, $_REQUEST['table_create_time']);
+        $retval = $pmatable->setUiProp(PMA_Table::PROP_COLUMN_VISIB, $col_visib, $_REQUEST['table_create_time']);
+        if ($retval !== true) {
+            PMA_ajaxResponse($retval->getString(), false);
+        }
     }
 
     PMA_ajaxResponse(NULL, ($retval == true));
@@ -761,6 +767,34 @@ else {
         PMA_ajaxResponse(NULL, true, $extra_data);
     }
 
+    if (isset($_REQUEST['ajax_request']) && isset($_REQUEST['table_maintenance'])) {
+        $GLOBALS['js_include'][] = 'functions.js';
+        $GLOBALS['js_include'][] = 'makegrid.js';
+        $GLOBALS['js_include'][] = 'sql.js';
+        
+        // Gets the list of fields properties
+        if (isset($result) && $result) {
+            $fields_meta = PMA_DBI_get_fields_meta($result);
+            $fields_cnt  = count($fields_meta);
+        }
+
+        if (empty($disp_mode)) {
+            // see the "PMA_setDisplayMode()" function in
+            // libraries/display_tbl.lib.php
+            $disp_mode = 'urdr111101';
+        }
+
+        // hide edit and delete links for information_schema
+        if ($db == 'information_schema') {
+            $disp_mode = 'nnnn110111';
+        }
+        
+        $message = PMA_Message::success($message);
+        echo PMA_showMessage($message, $GLOBALS['sql_query'], 'success');
+        PMA_displayTable($result, $disp_mode, $analyzed_sql);
+        exit();
+    }
+
     // Displays the headers
     if (isset($show_query)) {
         unset($show_query);
@@ -788,8 +822,7 @@ else {
                 require './libraries/server_common.inc.php';
                 require './libraries/server_links.inc.php';
             }
-        }
-        else {
+        } else {
             require_once './libraries/header.inc.php';
             //we don't need to buffer the output in PMA_showMessage here.
             //set a global variable and check against it in the function
