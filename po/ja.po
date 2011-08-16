@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-16 10:42+0200\n"
+"PO-Revision-Date: 2011-08-16 11:21+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -11650,7 +11650,7 @@ msgstr "遅いクエリの割合"
 #: po/advisory_rules.php:21
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
-msgstr "遅いクエリの割合が高い場合は、サーバの稼働時間と比較してあります。"
+msgstr "遅いクエリの割合が高いので、サーバの稼働時間と比較してあります。"
 
 #: po/advisory_rules.php:23
 #, php-format
