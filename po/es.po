@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-16 21:39+0200\n"
+"PO-Revision-Date: 2011-08-16 21:40+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -12174,10 +12174,9 @@ msgstr ""
 "total es %s%%. Debería de ser mayor al 80%%"
 
 #: po/advisory_rules.php:85
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache fragmentation"
-msgstr "Cache de consultas"
+msgstr "Fragmentación del caché de consultas"
 
 #: po/advisory_rules.php:86
 msgid "The query cache is considerably fragmented."
