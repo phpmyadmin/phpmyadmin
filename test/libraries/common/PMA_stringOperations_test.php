@@ -41,8 +41,9 @@ class PMA_stringOperations_test extends PHPUnit_Framework_TestCase
 
     /**
      * data provider for flipstring test
+     *
+     * @return array
      */
-
     public function flipStringDataProvider() {
         return array(
             array('test', "t<br />\ne<br />\ns<br />\nt"),
@@ -61,8 +62,9 @@ class PMA_stringOperations_test extends PHPUnit_Framework_TestCase
 
     /**
      * data provider for userDir test
+     *
+     * @return array
      */
-
     public function userDirDataProvider() {
         return array(
             array('/var/pma_tmp/%u/', "/var/pma_tmp/root/"),
@@ -83,8 +85,9 @@ class PMA_stringOperations_test extends PHPUnit_Framework_TestCase
 
     /**
      * data provider for replace binary content test
+     *
+     * @return array
      */
-
     public function replaceBinaryContentsDataProvider() {
         return array(
             array("\x000", '\00'),
@@ -104,8 +107,9 @@ class PMA_stringOperations_test extends PHPUnit_Framework_TestCase
 
     /**
      * data provider for duplicate first newline test
+     *
+     * @return array
      */
-
     public function duplicateFirstNewlineDataProvider() {
         return array(
             array('test', 'test'),
