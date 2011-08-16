@@ -11930,10 +11930,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:85
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache fragmentation"
-msgstr "Predpomnilnik poizvedb"
+msgstr "Razdrobljenost predpomnilnika poizvedb"
 
 #: po/advisory_rules.php:86
 msgid "The query cache is considerably fragmented."
