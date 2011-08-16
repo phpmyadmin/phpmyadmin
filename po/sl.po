@@ -12595,10 +12595,9 @@ msgid "Is InnoDB disabled?"
 msgstr "Je InnoDB onemogočen?"
 
 #: po/advisory_rules.php:246
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "You do not have InnoDB enabled."
-msgstr "Ne morem shraniti nedavne tabele"
+msgstr "Nimate omogočenega InnoDB."
 
 #: po/advisory_rules.php:247
 msgid "InnoDB is usually the better choice for table engines."
