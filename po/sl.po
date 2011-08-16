@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-16 22:06+0200\n"
+"PO-Revision-Date: 2011-08-16 22:08+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -10194,6 +10194,8 @@ msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
+"Razvrstitev grafikonov je shranjena v lokalni shrambi brskalnika. Če imate "
+"zapleteno nastavitev, jo boste morda želeli izvoziti."
 
 #: server_status.php:1484
 #, fuzzy
