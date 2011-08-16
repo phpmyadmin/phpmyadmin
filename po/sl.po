@@ -11821,7 +11821,7 @@ msgstr "Priročnik MySQL je točen samo za uradne izdaje MySQL."
 
 #: po/advisory_rules.php:57
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
-msgstr ""
+msgstr "Dokumentacija Percona se nahaja na http://www.percona.com/docs/wiki/"
 
 #: po/advisory_rules.php:58
 msgid "'percona' found in version_comment"
