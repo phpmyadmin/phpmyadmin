@@ -131,39 +131,6 @@ class PMA_Tracker
     }
 
     /**
-     * Returns a simple DROP TABLE statement.
-     *
-     * @param string $tablename
-     * @return string
-     */
-    static public function getStatementDropTable($tablename)
-    {
-        return 'DROP TABLE IF EXISTS ' . $tablename;
-    }
-
-    /**
-     * Returns a simple DROP VIEW statement.
-     *
-     * @param string $viewname
-     * @return string
-     */
-    static public function getStatementDropView($viewname)
-    {
-        return 'DROP VIEW IF EXISTS ' . $viewname;
-    }
-
-    /**
-     * Returns a simple DROP DATABASE statement.
-     *
-     * @param string $dbname
-     * @return string
-     */
-    static public function getStatementDropDatabase($dbname)
-    {
-        return 'DROP DATABASE IF EXISTS ' . $dbname;
-    }
-
-    /**
      * Parses the name of a table from a SQL statement substring.
      *
      * @static
@@ -303,13 +270,13 @@ class PMA_Tracker
 
         if (self::$add_drop_table == true && $is_view == false) {
             $create_sql .= self::getLogComment() .
-                           self::getStatementDropTable(PMA_backquote($tablename)) . ";\n";
+                           'DROP TABLE IF EXISTS ' . PMA_backquote($tablename) . ";\n";
 
         }
 
         if (self::$add_drop_view == true && $is_view == true) {
             $create_sql .= self::getLogComment() .
-                           self::getStatementDropView(PMA_backquote($tablename)) . ";\n";
+                           'DROP VIEW IF EXISTS ' . PMA_backquote($tablename) . ";\n";
         }
 
         $create_sql .= self::getLogComment() .
@@ -399,7 +366,7 @@ class PMA_Tracker
 
         if (self::$add_drop_database == true) {
             $create_sql .= self::getLogComment() .
-                           self::getStatementDropDatabase(PMA_backquote($dbname)) . ";\n";
+                           'DROP DATABASE IF EXISTS ' . PMA_backquote($dbname) . ";\n";
         }
 
         $create_sql .= self::getLogComment() . $query;
@@ -564,13 +531,9 @@ class PMA_Tracker
             $sql_query .= " AND FIND_IN_SET('" . $statement . "',tracking) > 0" ;
         }
         $row = PMA_DBI_fetch_array(PMA_query_as_controluser($sql_query));
-        if (isset($row[0])) {
-            $version = $row[0];
-        }
-        if (! isset($version)) {
-            $version = -1;
-        }
-        return $version;
+        return isset($row[0])
+            ? $row[0]
+            : -1;
     }
 
 
@@ -596,9 +559,9 @@ class PMA_Tracker
             $sql_query .= " AND `table_name` = '" . PMA_sqlAddSlashes($tablename) ."' ";
         }
         $sql_query .= " AND `version` = '" . PMA_sqlAddSlashes($version) ."' ".
-                     " ORDER BY `version` DESC ";
+                     " ORDER BY `version` DESC LIMIT 1";
 
-        $mixed = PMA_DBI_fetch_array(PMA_query_as_controluser($sql_query));
+        $mixed = PMA_DBI_fetch_assoc(PMA_query_as_controluser($sql_query));
 
         // Parse log
         $log_schema_entries = explode('# log ',  $mixed['schema_sql']);
