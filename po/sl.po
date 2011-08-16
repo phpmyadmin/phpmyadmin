@@ -12185,7 +12185,7 @@ msgstr "tmp_table_size proti max_heap_table_size"
 
 #: po/advisory_rules.php:141
 msgid "tmp_table_size and max_heap_table_size are not the same."
-msgstr ""
+msgstr "tmp_table_size in max_heap_table_size nista enaki."
 
 #: po/advisory_rules.php:142
 msgid ""
