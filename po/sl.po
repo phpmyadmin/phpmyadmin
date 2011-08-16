@@ -11567,10 +11567,9 @@ msgid "Data Label"
 msgstr "Podatkovna oznaka"
 
 #: tbl_zoom_select.php:297
-#, fuzzy
 #| msgid "Maximum number of rows to display"
 msgid "Maximum rows to plot"
-msgstr "Največje število vrstic za prikaz"
+msgstr "Največje število vrstic za izris"
 
 #: tbl_zoom_select.php:388
 msgid "Browse/Edit the points"
