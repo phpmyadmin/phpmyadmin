@@ -12494,10 +12494,9 @@ msgid "slow_launch_time is set to %s"
 msgstr "slow_launch_time je nastavljen na %s"
 
 #: po/advisory_rules.php:220
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of used connections"
-msgstr "Vztrajne povezave"
+msgstr "Odstotek uporabljenih povezav"
 
 #: po/advisory_rules.php:221
 msgid ""
