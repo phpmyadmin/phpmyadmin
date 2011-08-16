@@ -131,39 +131,6 @@ class PMA_Tracker
     }
 
     /**
-     * Returns a simple DROP TABLE statement.
-     *
-     * @param string $tablename
-     * @return string
-     */
-    static public function getStatementDropTable($tablename)
-    {
-        return 'DROP TABLE IF EXISTS ' . $tablename;
-    }
-
-    /**
-     * Returns a simple DROP VIEW statement.
-     *
-     * @param string $viewname
-     * @return string
-     */
-    static public function getStatementDropView($viewname)
-    {
-        return 'DROP VIEW IF EXISTS ' . $viewname;
-    }
-
-    /**
-     * Returns a simple DROP DATABASE statement.
-     *
-     * @param string $dbname
-     * @return string
-     */
-    static public function getStatementDropDatabase($dbname)
-    {
-        return 'DROP DATABASE IF EXISTS ' . $dbname;
-    }
-
-    /**
      * Parses the name of a table from a SQL statement substring.
      *
      * @static
@@ -303,13 +270,13 @@ class PMA_Tracker
 
         if (self::$add_drop_table == true && $is_view == false) {
             $create_sql .= self::getLogComment() .
-                           self::getStatementDropTable(PMA_backquote($tablename)) . ";\n";
+                           'DROP TABLE IF EXISTS ' . PMA_backquote($tablename) . ";\n";
 
         }
 
         if (self::$add_drop_view == true && $is_view == true) {
             $create_sql .= self::getLogComment() .
-                           self::getStatementDropView(PMA_backquote($tablename)) . ";\n";
+                           'DROP VIEW IF EXISTS ' . PMA_backquote($tablename) . ";\n";
         }
 
         $create_sql .= self::getLogComment() .
@@ -399,7 +366,7 @@ class PMA_Tracker
 
         if (self::$add_drop_database == true) {
             $create_sql .= self::getLogComment() .
-                           self::getStatementDropDatabase(PMA_backquote($dbname)) . ";\n";
+                           'DROP DATABASE IF EXISTS ' . PMA_backquote($dbname) . ";\n";
         }
 
         $create_sql .= self::getLogComment() . $query;
