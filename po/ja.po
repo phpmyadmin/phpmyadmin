@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-16 10:22+0200\n"
+"PO-Revision-Date: 2011-08-16 10:24+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -11826,7 +11826,7 @@ msgstr ""
 
 #: po/advisory_rules.php:68
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
-msgstr ""
+msgstr "query_cache_size が 0 に設定されているか、query_cache_type が「OFF」に設定されています。"
 
 #: po/advisory_rules.php:71
 msgid "Suboptimal caching method."
