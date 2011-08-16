@@ -12553,6 +12553,8 @@ msgstr "Preveč povezav je prekinjenih"
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"Delež prekinjenih povezav je %s; ta vrednost bi morala biti manj kot 1 na "
+"uro"
 
 #: po/advisory_rules.php:235
 #, fuzzy
