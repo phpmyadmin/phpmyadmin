@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-16 22:19+0200\n"
+"PO-Revision-Date: 2011-08-16 22:20+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -11803,6 +11803,8 @@ msgstr "Distribucija"
 #: po/advisory_rules.php:51
 msgid "Version is compiled from source, not a MySQL official binary."
 msgstr ""
+"Različica je prevedena iz izvorne kode, in ni uradna dvojiška datoteka "
+"MySQL."
 
 #: po/advisory_rules.php:52
 msgid ""
