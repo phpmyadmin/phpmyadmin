@@ -10503,10 +10503,9 @@ msgstr ""
 "Ciljna zbirka podatkov je bila sinhronizirana z izvorno zbirko podatkov"
 
 #: server_synchronize.php:951
-#, fuzzy
 #| msgid "Issued queries"
 msgid "Executed queries"
-msgstr "Izdane poizvedbe"
+msgstr "Izvedene poizvedbe"
 
 #: server_synchronize.php:1076
 msgid "Enter manually"
