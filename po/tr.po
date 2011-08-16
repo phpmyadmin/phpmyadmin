@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-16 16:06+0200\n"
+"PO-Revision-Date: 2011-08-16 16:08+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -11930,7 +11930,7 @@ msgstr "Sorgu Önbelleği kullanımı"
 #: po/advisory_rules.php:81
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
-msgstr ""
+msgstr "Sorgu önbelleğinin %%80'den azı değerlendirilmekte."
 
 #: po/advisory_rules.php:82
 msgid ""
