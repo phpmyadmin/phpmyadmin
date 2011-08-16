@@ -12001,7 +12001,7 @@ msgstr ""
 #: po/advisory_rules.php:98
 #, php-format
 msgid "Current query cache size: %s"
-msgstr ""
+msgstr "Trenutna velikost predpomnilnika poizvedb: %s"
 
 #: po/advisory_rules.php:100
 #, fuzzy
