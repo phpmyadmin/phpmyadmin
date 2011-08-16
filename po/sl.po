@@ -12316,7 +12316,7 @@ msgstr ""
 
 #: po/advisory_rules.php:170
 msgid "Percentage of index reads from memory"
-msgstr ""
+msgstr "Odstotek branj indeksov iz pomnilnika"
 
 #: po/advisory_rules.php:171
 #, php-format
