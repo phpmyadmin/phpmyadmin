@@ -12298,10 +12298,9 @@ msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
 
 #: po/advisory_rules.php:175
-#, fuzzy
 #| msgid "Create table"
 msgid "Rate of table open"
-msgstr "テーブルを作成"
+msgstr "テーブルを開く割合"
 
 #: po/advisory_rules.php:176
 #| msgid "The current number of pending writes."
