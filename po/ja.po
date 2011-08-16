@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-16 09:48+0200\n"
+"PO-Revision-Date: 2011-08-16 09:51+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12133,10 +12133,9 @@ msgid "Rate of reading next table row"
 msgstr "テーブルの行リンクを表示する場所"
 
 #: po/advisory_rules.php:136
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "The rate of reading the next table row is high."
-msgstr "テーブルの行リンクを表示する場所"
+msgstr "テーブルの次行を読み込む割合が高いです。"
 
 #: po/advisory_rules.php:137
 msgid ""
