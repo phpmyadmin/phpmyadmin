@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-16 22:25+0200\n"
+"PO-Revision-Date: 2011-08-16 22:26+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1129,10 +1129,9 @@ msgid "Query statistics"
 msgstr "Statistika poizvedb"
 
 #: js/messages.php:93
-#, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Local monitor configuration icompatible"
-msgstr "Ne morem prebrati konfiguracijske datoteke"
+msgstr "Konfiguracija lokalnega nadziranja ni združljiva"
 
 #: js/messages.php:94
 msgid ""
