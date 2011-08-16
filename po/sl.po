@@ -12305,7 +12305,7 @@ msgstr ""
 #: po/advisory_rules.php:165
 #| msgid "Sort buffer size"
 msgid "Percentage of MyISAM key buffer used"
-msgstr "Odstotek uporabljenega medpomnilnika ključev"
+msgstr "Odstotek uporabljenega medpomnilnika ključev MyISAM"
 
 #: po/advisory_rules.php:168
 #, php-format
