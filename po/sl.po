@@ -11731,10 +11731,9 @@ msgid "Slow query logging"
 msgstr "Beleženje počasnih poizvedb"
 
 #: po/advisory_rules.php:31
-#, fuzzy
 #| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
-msgstr "slow_query_log je omogočen."
+msgstr "Dnevnik počasnih poizvedb je onemogočen."
 
 #: po/advisory_rules.php:32
 msgid ""
