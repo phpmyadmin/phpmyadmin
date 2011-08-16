@@ -282,15 +282,7 @@ class PMA_Tracker
             unset($columns[$i]['Privileges']);
         }
 
-        $sql_query = PMA_DBI_get_table_indexes_sql($dbname, $tablename);
-
-        $sql_result = PMA_DBI_query($sql_query);
-
-        $indexes = array();
-
-        while($row = PMA_DBI_fetch_assoc($sql_result)) {
-            $indexes[] = $row;
-        }
+        $indexes = PMA_DBI_get_table_indexes($dbname, $tablename);
 
         $snapshot = array('COLUMNS' => $columns, 'INDEXES' => $indexes);
         $snapshot = serialize($snapshot);
