@@ -11813,7 +11813,7 @@ msgstr ""
 
 #: po/advisory_rules.php:53
 msgid "'source' found in version_comment"
-msgstr ""
+msgstr "našel sem 'source' v version_comment"
 
 #: po/advisory_rules.php:56
 msgid "The MySQL manual only is accurate for official MySQL binaries."
