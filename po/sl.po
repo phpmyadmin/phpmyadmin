@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-16 22:13+0200\n"
+"PO-Revision-Date: 2011-08-16 22:14+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -11670,7 +11670,7 @@ msgstr "Odstotek počasnih poizvedb"
 #: po/advisory_rules.php:16
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr ""
+msgstr "V primerjavi s skupnim številom poizvedb je počasnih poizvedb veliko."
 
 #: po/advisory_rules.php:17 po/advisory_rules.php:22
 msgid ""
