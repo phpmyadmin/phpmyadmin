@@ -11680,10 +11680,9 @@ msgid "Current amount of Questions: %s"
 msgstr "Trenutna povezava"
 
 #: po/advisory_rules.php:15
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
-msgstr "Pokaži poizvedbe SQL"
+msgstr "Odstotek počasnih poizvedb"
 
 #: po/advisory_rules.php:16
 msgid ""
