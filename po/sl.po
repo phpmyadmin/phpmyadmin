@@ -12053,6 +12053,8 @@ msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr ""
+"%s %% vseh razvrščanj povzroča začasne tabele; ta vrednost bi morala biti "
+"nižja od 10 %%."
 
 #: po/advisory_rules.php:110
 #, fuzzy
