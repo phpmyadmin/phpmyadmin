@@ -12066,6 +12066,7 @@ msgstr "Delež razvrščanj, ki povzroča začasne tabele"
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
+"Povprečje začasnih tabel: %s; ta vrednost bi morala biti manj kot 1 na uro."
 
 #: po/advisory_rules.php:115
 #, fuzzy
