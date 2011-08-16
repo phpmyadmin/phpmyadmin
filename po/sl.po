@@ -11796,10 +11796,9 @@ msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgstr "Morali bi nadgraditi, na ustaljeno različico MySQL 5.5"
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55
-#, fuzzy
 #| msgid "Description"
 msgid "Distribution"
-msgstr "Opis"
+msgstr "Distribucija"
 
 #: po/advisory_rules.php:51
 msgid "Version is compiled from source, not a MySQL official binary."
