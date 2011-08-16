@@ -1148,10 +1148,9 @@ msgid "Query cache efficiency"
 msgstr "Učinkovitost predpomnilnika poizvedb"
 
 #: js/messages.php:97 po/advisory_rules.php:70
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
-msgstr "Predpomnilnik poizvedb"
+msgstr "Uporaba predpomnilnika poizvedb"
 
 #: js/messages.php:98
 #, fuzzy
