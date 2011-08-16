@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-16 22:51+0200\n"
+"PO-Revision-Date: 2011-08-16 22:52+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -12225,11 +12225,10 @@ msgstr ""
 "pod 25 %%"
 
 #: po/advisory_rules.php:150
-#, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Temp disk rate"
-msgstr "%s tabela"
+msgstr "Delež začasnih tabel na disku"
 
 #: po/advisory_rules.php:152
 msgid ""
