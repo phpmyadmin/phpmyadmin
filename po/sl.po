@@ -11854,10 +11854,9 @@ msgid "Query cache disabled"
 msgstr "Predpomnjenje poizvedb je onemogočeno"
 
 #: po/advisory_rules.php:66
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "Strežnik se ne odziva"
+msgstr "Predpomnjenje poizvedb ni omogočeno."
 
 #: po/advisory_rules.php:67
 msgid ""
