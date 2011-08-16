@@ -12098,6 +12098,8 @@ msgstr ""
 #: po/advisory_rules.php:68
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
+"«query_cache_size» está definido como 0 o «query_cache_type» está definido "
+"como 'OFF'"
 
 #: po/advisory_rules.php:71
 msgid "Suboptimal caching method."
