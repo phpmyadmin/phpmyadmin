@@ -11834,7 +11834,7 @@ msgstr "Arhitektura MySQL"
 
 #: po/advisory_rules.php:61
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "MySQL ni preveden kot 64-bitni paket."
 
 #: po/advisory_rules.php:62
 msgid ""
