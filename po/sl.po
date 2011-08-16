@@ -12608,10 +12608,9 @@ msgid "have_innodb is set to 'value'"
 msgstr "have_innodb je nastavljeno na 'value'"
 
 #: po/advisory_rules.php:250
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB log size"
-msgstr "Velikost zaloge medpomnilnika"
+msgstr "Velikost dnevnika InnoDB"
 
 #: po/advisory_rules.php:251
 #, fuzzy
