@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-16 00:04+0200\n"
+"PO-Revision-Date: 2011-08-16 21:12+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -10509,10 +10509,9 @@ msgstr ""
 "una vez que ya no se necesite monitorizar.        "
 
 #: server_status.php:1533
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Preset chart"
-msgstr "Eliminar gráfico"
+msgstr "Gráfico predefinido"
 
 #: server_status.php:1537
 msgid "Status variable(s)"
