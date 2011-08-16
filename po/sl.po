@@ -10395,7 +10395,7 @@ msgstr "Pridobi samo stavke SELECT, INSERT, UPDATE in DELETE"
 
 #: server_status.php:1603
 msgid "Remove variable data in INSERT statements for better grouping"
-msgstr ""
+msgstr "Odstrani spremenljive podatke v stavkih INSERT za boljše združevanje"
 
 #: server_status.php:1608
 #, fuzzy
