@@ -12488,10 +12488,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:218
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "slow_launch_time is set to %s"
-msgstr "long_query_time je nastavljen na %d sekund(o)."
+msgstr "slow_launch_time je nastavljen na %s"
 
 #: po/advisory_rules.php:220
 #, fuzzy
