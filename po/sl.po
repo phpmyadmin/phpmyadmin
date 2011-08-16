@@ -12563,7 +12563,7 @@ msgstr "Odstotek prekinjenih odjemalcev"
 
 #: po/advisory_rules.php:236 po/advisory_rules.php:241
 msgid "Too many clients are aborted."
-msgstr ""
+msgstr "Preveč odjemalcev je prekinjenih."
 
 #: po/advisory_rules.php:237 po/advisory_rules.php:242
 msgid ""
