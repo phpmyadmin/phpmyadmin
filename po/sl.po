@@ -11788,7 +11788,7 @@ msgstr ""
 
 #: po/advisory_rules.php:46
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr ""
+msgstr "Različica nižja od 5.5.8 (prvi izid GA 5.5)."
 
 #: po/advisory_rules.php:47
 #, fuzzy
