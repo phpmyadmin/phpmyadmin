@@ -11260,7 +11260,7 @@ msgstr "Dolžina vrstice"
 
 #: tbl_printview.php:378 tbl_structure.php:892
 msgid "Row size"
-msgstr "Velikost vrstice "
+msgstr "Velikost vrstice"
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"
