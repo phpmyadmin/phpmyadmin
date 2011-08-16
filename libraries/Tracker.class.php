@@ -273,13 +273,13 @@ class PMA_Tracker
         $date = date('Y-m-d H:i:s');
 
         // Get data definition snapshot of table
-        $sql_query = '
-        SHOW FULL COLUMNS FROM ' . PMA_backquote($dbname) . '.' . PMA_backquote($tablename);
 
-        $sql_result = PMA_DBI_query($sql_query);
-
-        while ($row = PMA_DBI_fetch_array($sql_result)) {
-            $columns[] = $row;
+        $columns = PMA_DBI_get_columns($dbname, $tablename, true);
+        // int indices to reduce size
+        $columns = array_values($columns);
+        // remove Privileges to reduce size
+        for ($i = 0; $i < count($columns); $i++) {
+            unset($columns[$i]['Privileges']);
         }
 
         $sql_query = '
