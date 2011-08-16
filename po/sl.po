@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-16 22:11+0200\n"
+"PO-Revision-Date: 2011-08-16 22:12+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -11563,10 +11563,9 @@ msgid "Additional search criteria"
 msgstr "Dodatni iskalni pogoji"
 
 #: tbl_zoom_select.php:281
-#, fuzzy
 #| msgid "Label"
 msgid "Data Label"
-msgstr "Oznaka"
+msgstr "Podatkovna oznaka"
 
 #: tbl_zoom_select.php:297
 #, fuzzy
