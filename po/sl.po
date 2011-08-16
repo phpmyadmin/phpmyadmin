@@ -12605,7 +12605,7 @@ msgstr "InnoDB je po navadi boljša izbira za pogone tabel."
 
 #: po/advisory_rules.php:248
 msgid "have_innodb is set to 'value'"
-msgstr ""
+msgstr "have_innodb je nastavljeno na 'value'"
 
 #: po/advisory_rules.php:250
 #, fuzzy
