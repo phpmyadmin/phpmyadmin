@@ -565,7 +565,7 @@ class PMA_Tracker
         $sql_query .= " AND `version` = '" . PMA_sqlAddSlashes($version) ."' ".
                      " ORDER BY `version` DESC LIMIT 1";
 
-        $mixed = PMA_DBI_fetch_array(PMA_query_as_controluser($sql_query));
+        $mixed = PMA_DBI_fetch_assoc(PMA_query_as_controluser($sql_query));
 
         // Parse log
         $log_schema_entries = explode('# log ',  $mixed['schema_sql']);
