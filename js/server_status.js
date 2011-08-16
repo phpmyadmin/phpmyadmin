@@ -15,6 +15,9 @@
 
 // Add a tablesorter parser to properly handle thousands seperated numbers and SI prefixes
 $(function() {
+    // Show all javascript related parts of the page
+    $('.jsfeature').show();
+
     jQuery.tablesorter.addParser({
         id: "fancyNumber",
         is: function(s) {
@@ -110,7 +113,7 @@ $(function() {
             menuResize(); 
             // Load Server status monitor
             if (ui.tab.hash == '#statustabs_charting' && ! monitorLoaded) {
-                $('div#statustabs_charting').append(
+                $('div#statustabs_charting').append( //PMA_messages['strLoadingMonitor'] + ' ' +
                     '<img class="ajaxIcon" id="loadingMonitorIcon" src="' +
                     pmaThemeImage + 'ajax_clock_small.gif" alt="">'
                 );
@@ -143,9 +146,6 @@ $(function() {
         initTab($(this), null);
         tabStatus[$(this).attr('id')] = 'static';
     });
-
-    // Display button links
-    $('div.buttonlinks').show();
 
     // Handles refresh rate changing
     $('.buttonlinks select').change(function() {
