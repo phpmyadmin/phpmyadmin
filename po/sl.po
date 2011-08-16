@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-16 22:01+0200\n"
+"PO-Revision-Date: 2011-08-16 22:02+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -10185,10 +10185,9 @@ msgid "Chart columns"
 msgstr "Stolpci grafikona"
 
 #: server_status.php:1483
-#, fuzzy
 #| msgid "Error management:"
 msgid "Chart arrangement"
-msgstr "Upravljanje napak:"
+msgstr "Razvrstitev grafikonov"
 
 #: server_status.php:1483
 msgid ""
