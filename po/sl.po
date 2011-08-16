@@ -11828,10 +11828,9 @@ msgid "'percona' found in version_comment"
 msgstr "našel sem 'percona' v version_comment"
 
 #: po/advisory_rules.php:60
-#, fuzzy
 #| msgid "MySQL charset"
 msgid "MySQL Architecture"
-msgstr "Kodna tabela MySQL"
+msgstr "Arhitektura MySQL"
 
 #: po/advisory_rules.php:61
 msgid "MySQL is not compiled as a 64-bit package."
