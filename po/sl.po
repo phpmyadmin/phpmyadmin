@@ -1714,7 +1714,7 @@ msgstr "Izberite dva stolpca"
 
 #: js/messages.php:279
 msgid "Select two different columns"
-msgstr ""
+msgstr "Izberite dva različna stolpca"
 
 #: js/messages.php:282 tbl_change.php:307 tbl_indexes.php:211
 #: tbl_indexes.php:238
