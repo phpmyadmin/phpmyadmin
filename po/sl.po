@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-16 22:18+0200\n"
+"PO-Revision-Date: 2011-08-16 22:19+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -11791,10 +11791,9 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "Različica nižja od 5.5.8 (prvi izid GA 5.5)."
 
 #: po/advisory_rules.php:47
-#, fuzzy
 #| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5"
-msgstr "%s bi morali nadgraditi na različico %s ali novejšo."
+msgstr "Morali bi nadgraditi, na ustaljeno različico MySQL 5.5"
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55
 #, fuzzy
