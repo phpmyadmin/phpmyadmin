@@ -188,7 +188,7 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
                                          . ' href="sql.php?'
                                          . $url_query
                                          . '&amp;sql_query=' . urlencode($sql_drop)
-                                         . '&amp;goto=db_events.php' . urlencode("?db={$db}")
+                                         . '&amp;goto=db_routines.php' . urlencode("?db={$db}")
                                          . '" >' . $titles['Drop'] . "</a>\n";
     } else {
         $retval .= "                {$titles['NoDrop']}\n";
