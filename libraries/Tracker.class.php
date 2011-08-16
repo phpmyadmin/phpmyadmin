@@ -289,7 +289,7 @@ class PMA_Tracker
 
         $indexes = array();
 
-        while($row = PMA_DBI_fetch_array($sql_result)) {
+        while($row = PMA_DBI_fetch_assoc($sql_result)) {
             $indexes[] = $row;
         }
 
