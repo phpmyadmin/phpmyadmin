@@ -12091,10 +12091,9 @@ msgid "Sorted rows average: %s"
 msgstr "Povprečje razvrščenih vrstic: %s"
 
 #: po/advisory_rules.php:120
-#, fuzzy
 #| msgid "There are no routines to display."
 msgid "Rate of joins without indexes"
-msgstr "Ni rutin za prikaz."
+msgstr "Delež stikov brez indeksov"
 
 #: po/advisory_rules.php:121
 #, fuzzy
