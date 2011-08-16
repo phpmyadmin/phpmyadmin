@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-16 22:52+0200\n"
+"PO-Revision-Date: 2011-08-16 22:53+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -12392,10 +12392,9 @@ msgid "Immediate table locks %%"
 msgstr "%% takojšnjih zaklepov tabel"
 
 #: po/advisory_rules.php:191 po/advisory_rules.php:196
-#, fuzzy
 #| msgid "The number of times that a table lock was acquired immediately."
 msgid "Too many table locks were not granted immediately."
-msgstr "Koliko krat je bil zaklep tabele pridobljen takoj."
+msgstr "Preveč zaklepov tabel ni bilo dodeljenih nenudoma."
 
 #: po/advisory_rules.php:192 po/advisory_rules.php:197
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
