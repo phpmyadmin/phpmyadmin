@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-16 21:36+0200\n"
+"PO-Revision-Date: 2011-08-16 21:37+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -12144,7 +12144,7 @@ msgstr "Considere aumentando «query_cache_limit»."
 #: po/advisory_rules.php:78
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr ""
+msgstr "La tasa de aciertos actual del caché de consultas %s%% es menor a 20%%"
 
 #: po/advisory_rules.php:80
 #, fuzzy
