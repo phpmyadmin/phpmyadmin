@@ -11940,10 +11940,9 @@ msgid "Slow query logging"
 msgstr "Registros de consultas lentas"
 
 #: po/advisory_rules.php:31
-#, fuzzy
 #| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
-msgstr "«slow_query_log» activo."
+msgstr "«slow_query_log» está desactivado."
 
 #: po/advisory_rules.php:32
 msgid ""
