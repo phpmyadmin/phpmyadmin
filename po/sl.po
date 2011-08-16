@@ -12201,10 +12201,9 @@ msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr "Trenutni vrednosti sta tmp_table_size: %s, max_heap_table_size: %s"
 
 #: po/advisory_rules.php:145
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Percentage of temp tables on disk"
-msgstr "Kje naj prikažem povezave vrstic tabel"
+msgstr "Odstotek začasnih tabel na disku"
 
 #: po/advisory_rules.php:146 po/advisory_rules.php:151
 msgid ""
