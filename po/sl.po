@@ -10398,14 +10398,11 @@ msgid "Remove variable data in INSERT statements for better grouping"
 msgstr "Odstrani spremenljive podatke v stavkih INSERT za boljše združevanje"
 
 #: server_status.php:1608
-#, fuzzy
 #| msgid ""
 #| "<p>Choose from which log you want the statistics to be generated from.</"
 #| "p> Results are grouped by query text."
 msgid "Choose from which log you want the statistics to be generated from."
-msgstr ""
-"<p>Izberite dnevnike, iz katerih želite ustvariti statistiko.</p> Rezultati "
-"so zbrani po besedilu poizvedbe."
+msgstr "Izberite dnevnike, iz katerih želite ustvariti statistiko."
 
 #: server_status.php:1610
 msgid "Results are grouped by query text."
