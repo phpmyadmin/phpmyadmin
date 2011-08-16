@@ -11849,10 +11849,9 @@ msgid "Available memory on this host: %s"
 msgstr "Razpoložljiv pomnilnik na tem gostitelju: %s"
 
 #: po/advisory_rules.php:65
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache disabled"
-msgstr "Predpomnilnik poizvedb"
+msgstr "Predpomnjenje poizvedb je onemogočeno"
 
 #: po/advisory_rules.php:66
 #, fuzzy
