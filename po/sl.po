@@ -4477,10 +4477,9 @@ msgstr ""
 "MaxTableUiprefs) najnovejših zapisov in da samodejno brišemo starejše zapise"
 
 #: libraries/config/messages.inc.php:399
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of records saved in \"table_uiprefs\" table"
-msgstr "Največje število tabel prikazanih na seznamu tabel"
+msgstr "Največje število zapisov, shranjenih v tabeli \"table_uiprefs\""
 
 #: libraries/config/messages.inc.php:400
 msgid "Try to connect without password"
