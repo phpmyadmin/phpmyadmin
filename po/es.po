@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-16 21:31+0200\n"
+"PO-Revision-Date: 2011-08-16 21:32+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -12103,7 +12103,7 @@ msgstr ""
 
 #: po/advisory_rules.php:71
 msgid "Suboptimal caching method."
-msgstr ""
+msgstr "Método de cacheo sub-óptimo."
 
 #: po/advisory_rules.php:72
 msgid ""
