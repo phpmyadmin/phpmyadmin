@@ -11907,10 +11907,9 @@ msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr ""
 
 #: po/advisory_rules.php:80
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query Cache usage"
-msgstr "Predpomnilnik poizvedb"
+msgstr "Uporaba predpomnilnika poizvedb"
 
 #: po/advisory_rules.php:81
 #, php-format
