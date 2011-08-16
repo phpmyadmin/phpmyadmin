@@ -12557,10 +12557,9 @@ msgstr ""
 "uro"
 
 #: po/advisory_rules.php:235
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of aborted clients"
-msgstr "Oblika uvožene datoteke"
+msgstr "Odstotek prekinjenih odjemalcev"
 
 #: po/advisory_rules.php:236 po/advisory_rules.php:241
 msgid "Too many clients are aborted."
