@@ -183,7 +183,7 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
                                      . '">' . $titles['Export'] . "</a>\n";
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
-    if (PMA_currentUserHasPrivilege('EVENT', $db)) {
+    if (PMA_currentUserHasPrivilege('ALTER ROUTINE', $db)) {
         $retval .= '                <a ' . $ajax_class['drop']
                                          . ' href="sql.php?'
                                          . $url_query
