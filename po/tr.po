@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-16 16:08+0200\n"
+"PO-Revision-Date: 2011-08-16 16:49+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -11937,6 +11937,8 @@ msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
 msgstr ""
+"Buna {query_cache_limit} çok düşük olması sebep oluyor olabilir. Sorgu "
+"önbelleğinin temizlenmesi de yardımcı olabilir."
 
 #: po/advisory_rules.php:83
 #, php-format
