@@ -11935,10 +11935,9 @@ msgid "long_query_time is currently set to %ds."
 msgstr "«long_query_time» está configurado a %ds."
 
 #: po/advisory_rules.php:30
-#, fuzzy
 #| msgid "Show query box"
 msgid "Slow query logging"
-msgstr "Mostrar ventana de consultas SQL"
+msgstr "Registros de consultas lentas"
 
 #: po/advisory_rules.php:31
 #, fuzzy
