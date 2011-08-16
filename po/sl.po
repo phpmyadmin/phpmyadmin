@@ -1794,10 +1794,9 @@ msgstr ""
 "Večino stolpcev lahko urejate<br />neposredno s klikom na njihovo vsebino."
 
 #: js/messages.php:307
-#, fuzzy
 #| msgid "Go to view"
 msgid "Go to link"
-msgstr "Pojdi na pogled"
+msgstr "Pojdi na povezavo"
 
 #: js/messages.php:310
 msgid "Generate password"
