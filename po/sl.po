@@ -12540,10 +12540,9 @@ msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 
 #: po/advisory_rules.php:230
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Rate of aborted connections"
-msgstr "Vztrajne povezave"
+msgstr "Delež prekinjenih povezav"
 
 #: po/advisory_rules.php:231
 msgid "Too many connections are aborted"
