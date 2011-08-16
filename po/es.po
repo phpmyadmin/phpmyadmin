@@ -12147,10 +12147,9 @@ msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr "La tasa de aciertos actual del caché de consultas %s%% es menor a 20%%"
 
 #: po/advisory_rules.php:80
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query Cache usage"
-msgstr "Cache de consultas"
+msgstr "Uso del caché de consultas"
 
 #: po/advisory_rules.php:81
 #, php-format
