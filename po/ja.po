@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-16 10:07+0200\n"
+"PO-Revision-Date: 2011-08-16 10:08+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12350,10 +12350,9 @@ msgid "Rate of open files"
 msgstr "ファイルを開く割合"
 
 #: po/advisory_rules.php:186
-#, fuzzy
 #| msgid "The number of pending log file fsyncs."
 msgid "The rate of opening files is high."
-msgstr "保留中のログファイルへの fsync 回数"
+msgstr "ファイルを開く割合が高いです。"
 
 #: po/advisory_rules.php:188
 #, php-format
