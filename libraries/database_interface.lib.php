@@ -23,6 +23,7 @@ define('PMA_DBI_GETVAR_GLOBAL',     2);
  * Checks one of the mysql extensions
  *
  * @param string  $extension  mysql extension to check
+ * @return bool
  */
 function PMA_DBI_checkMysqlExtension($extension = 'mysql')
 {

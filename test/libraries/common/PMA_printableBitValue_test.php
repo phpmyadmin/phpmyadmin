@@ -18,8 +18,9 @@ class PMA_printableBitValue_test extends PHPUnit_Framework_TestCase
 
     /**
      * data provider for printable bit value test
+     *
+     * @return array
      */
-    
     public function printableBitValueDataProvider() {
         return array(
             array('testtest', 64, '0111010001100101011100110111010001110100011001010111001101110100'),

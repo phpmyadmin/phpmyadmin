@@ -2953,10 +2953,9 @@ function PMA_expandUserString($string, $escape = null, $updates = array())
  * function that generates a json output for an ajax request and ends script
  * execution
  *
- * @param bool   $message     message string containing the html of the message
- * @param bool   $success success whether the ajax request was successfull
- * @param array  $extra_data  extra_data  optional - any other data as part of the json request
- *
+ * @param PMA_Message|string  $message     message string containing the html of the message
+ * @param bool                $success success whether the ajax request was successfull
+ * @param array               $extra_data  extra_data  optional - any other data as part of the json request
  */
 function PMA_ajaxResponse($message, $success = true, $extra_data = array())
 {
