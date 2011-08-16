@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-16 09:04+0200\n"
+"PO-Revision-Date: 2011-08-16 09:21+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12116,6 +12116,8 @@ msgid ""
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
+"多くのクエリがインデックスを使用しない結合クエリを含んでいるために、結果のソート、テーブルの全スキャン、のいずれかもしくは両方を必要としていることを示し"
+"ています。該当箇所にインデックスを追加してください。"
 
 #: po/advisory_rules.php:133
 #, php-format
