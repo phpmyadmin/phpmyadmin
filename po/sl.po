@@ -10198,10 +10198,9 @@ msgstr ""
 "zapleteno nastavitev, jo boste morda želeli izvoziti."
 
 #: server_status.php:1484
-#, fuzzy
 #| msgid "Restore default value"
 msgid "Reset to default"
-msgstr "Povrni privzeto vrednost"
+msgstr "Povrni na privzeto"
 
 #: server_status.php:1488
 msgid "Monitor Instructions"
