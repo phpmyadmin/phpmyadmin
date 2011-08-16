@@ -151,7 +151,7 @@ class Advisor
                     // Replaces external Links with PMA_linkURL() generated links
                     $rule['recommendation'] = preg_replace(
                         '#href=("|\')(https?://[^\1]+)\1#ie',
-                        '\'href="url.php?url=\' . urlencode("\2") . \'&token='.$_SESSION[' PMA_token '].'"\'',
+                        '\'href="\' . PMA_linkURL("\2") . \'"\'',
                         $rule['recommendation']
                     );
                     break;
