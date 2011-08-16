@@ -12376,10 +12376,9 @@ msgid "Rate of open files"
 msgstr "Delež odprtih datotek"
 
 #: po/advisory_rules.php:186
-#, fuzzy
 #| msgid "The number of pending log file fsyncs."
 msgid "The rate of opening files is high."
-msgstr "Število čakajoče dnevniške datoteke fsyncs."
+msgstr "Delež odprtih datotek je visok."
 
 #: po/advisory_rules.php:188
 #, php-format
