@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-16 22:38+0200\n"
+"PO-Revision-Date: 2011-08-16 22:39+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -12338,10 +12338,9 @@ msgid "Rate of table open"
 msgstr "Delež odpiranj tabel"
 
 #: po/advisory_rules.php:176
-#, fuzzy
 #| msgid "The current number of pending writes."
 msgid "The rate of opening tables is high."
-msgstr "Trenutno število čakajočih pisanj."
+msgstr "Delež odpiranj tabel je visok."
 
 #: po/advisory_rules.php:177
 msgid ""
