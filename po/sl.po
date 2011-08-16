@@ -12163,10 +12163,9 @@ msgid "Rate of reading next table row"
 msgstr "Delež branja naslednje vrstice v tabeli"
 
 #: po/advisory_rules.php:136
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "The rate of reading the next table row is high."
-msgstr "Kje naj prikažem povezave vrstic tabel"
+msgstr "Delež branja naslednje vrstice v tabeli je visok."
 
 #: po/advisory_rules.php:137
 msgid ""
