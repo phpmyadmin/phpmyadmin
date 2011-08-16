@@ -11677,6 +11677,8 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
+"Morda boste želeli povečati {long_query_time} ali optimizirati poizvedbe, "
+"navedene v dnevniku počasnih poizvedb"
 
 #: po/advisory_rules.php:18
 #, php-format
