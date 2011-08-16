@@ -12217,7 +12217,7 @@ msgstr ""
 
 #: po/advisory_rules.php:90
 msgid "Query cache low memory prunes"
-msgstr ""
+msgstr "Reducciones al caché de consultas por falta de memoria"
 
 #: po/advisory_rules.php:91
 #, fuzzy
