@@ -10409,10 +10409,9 @@ msgid "Results are grouped by query text."
 msgstr "Rezultati so združeni po besedilu poizvedbe."
 
 #: server_status.php:1615
-#, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
-msgstr "Vrsta poizvedbe"
+msgstr "Analitik poizvedb"
 
 #: server_status.php:1652
 #, php-format
