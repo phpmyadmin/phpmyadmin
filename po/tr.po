@@ -12033,7 +12033,7 @@ msgstr ""
 
 #: po/advisory_rules.php:103
 msgid "query_cache_limit is set to 1 MiB"
-msgstr ""
+msgstr "query_cache_limit 1 MiB'a ayarlı"
 
 #: po/advisory_rules.php:105
 msgid "Percentage of sorts that cause temporary tables"
