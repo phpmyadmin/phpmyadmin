@@ -1153,10 +1153,9 @@ msgid "Query cache usage"
 msgstr "Uporaba predpomnilnika poizvedb"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
-msgstr "Predpomnilnik poizvedb"
+msgstr "Uporabljenega predpomnilnika poizvedb"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
