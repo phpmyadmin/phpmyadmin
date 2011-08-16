@@ -273,13 +273,13 @@ class PMA_Tracker
         $date = date('Y-m-d H:i:s');
 
         // Get data definition snapshot of table
-        $sql_query = '
-        SHOW FULL COLUMNS FROM ' . PMA_backquote($dbname) . '.' . PMA_backquote($tablename);
 
-        $sql_result = PMA_DBI_query($sql_query);
-
-        while ($row = PMA_DBI_fetch_array($sql_result)) {
-            $columns[] = $row;
+        $columns = PMA_DBI_get_columns($dbname, $tablename, true);
+        // int indices to reduce size
+        $columns = array_values($columns);
+        // remove Privileges to reduce size
+        for ($i = 0; $i < count($columns); $i++) {
+            unset($columns[$i]['Privileges']);
         }
 
         $sql_query = PMA_DBI_get_table_indexes_sql($dbname, $tablename);
@@ -288,7 +288,7 @@ class PMA_Tracker
 
         $indexes = array();
 
-        while($row = PMA_DBI_fetch_array($sql_result)) {
+        while($row = PMA_DBI_fetch_assoc($sql_result)) {
             $indexes[] = $row;
         }
 
@@ -386,8 +386,6 @@ class PMA_Tracker
      */
     static public function createDatabaseVersion($dbname, $version, $query, $tracking_set = 'CREATE DATABASE,ALTER DATABASE,DROP DATABASE')
     {
-        global $sql_backquotes;
-
         $date = date('Y-m-d H:i:s');
 
         if ($tracking_set == '') {
