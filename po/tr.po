@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-16 08:19+0200\n"
+"PO-Revision-Date: 2011-08-16 08:21+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -12072,7 +12072,7 @@ msgstr "Satırları sırala"
 
 #: po/advisory_rules.php:116
 msgid "There are lots of rows being sorted."
-msgstr ""
+msgstr "Birçok sıralanmış satır var."
 
 #: po/advisory_rules.php:117
 msgid ""
