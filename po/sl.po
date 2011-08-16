@@ -12110,6 +12110,7 @@ msgstr ""
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
+"Povprečje stikov tabel: %s; ta vrednost bi morala biti manj kot 1 na uro"
 
 #: po/advisory_rules.php:125
 msgid "Rate of reading first index entry"
