@@ -11753,7 +11753,7 @@ msgstr "Počisti serije"
 
 #: po/advisory_rules.php:36
 msgid "The MySQL server version less then 5.1."
-msgstr ""
+msgstr "Strežnik MySQL različice nižje od 5.1."
 
 #: po/advisory_rules.php:37
 msgid ""
