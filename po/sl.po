@@ -12258,10 +12258,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:155
-#, fuzzy
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer size"
-msgstr "Velikost medpomnilnika razvrščanja"
+msgstr "Velikost medpomnilnika ključev MyISAM"
 
 #: po/advisory_rules.php:156
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
