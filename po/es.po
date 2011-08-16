@@ -12180,7 +12180,7 @@ msgstr "Fragmentación del caché de consultas"
 
 #: po/advisory_rules.php:86
 msgid "The query cache is considerably fragmented."
-msgstr ""
+msgstr "El caché de consultas está fragmentado considerablemente."
 
 #: po/advisory_rules.php:87
 msgid ""
