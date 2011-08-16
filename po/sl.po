@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-16 22:29+0200\n"
+"PO-Revision-Date: 2011-08-16 22:30+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -12057,10 +12057,9 @@ msgstr ""
 "nižja od 10 %%."
 
 #: po/advisory_rules.php:110
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
-msgstr "Omogoča ustvarjanje začasnih tabel."
+msgstr "Delež razvrščanj, ki povzroča začasne tabele"
 
 #: po/advisory_rules.php:113
 #, php-format
