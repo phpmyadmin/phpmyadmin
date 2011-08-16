@@ -440,7 +440,7 @@ class Table_Stats
      * @access private
      * @see PMA_SVG
      */
-    function _setWidthTable($font,$fontSize)
+    private function _setWidthTable($font,$fontSize)
     {
         global $svg;
 

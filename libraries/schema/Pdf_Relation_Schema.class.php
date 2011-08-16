@@ -144,7 +144,7 @@ class PMA_Schema_PDF extends PMA_PDF
     /**
      * Sets the scaled line width
      *
-     * @param float width The line width
+     * @param float $width The line width
      * @access public
      * @see TCPDF::SetLineWidth()
      */
@@ -224,6 +224,10 @@ class PMA_Schema_PDF extends PMA_PDF
 
     /**
      * Compute number of lines used by a multicell of width w
+     *
+     * @param int    $w
+     * @param string $txt
+     * @return int
      */
     function NbLines($w, $txt)
     {
@@ -386,7 +390,7 @@ class Table_Stats
      * Returns title of the current table,
      * title can have the dimensions of the table
      *
-     * @access private
+     * @return string
      */
     private function _getTitle()
     {
@@ -401,7 +405,7 @@ class Table_Stats
      * @access private
      * @see PMA_Schema_PDF
      */
-    function _setWidth($fontSize)
+    private function _setWidth($fontSize)
     {
         global $pdf;
 

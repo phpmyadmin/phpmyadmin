@@ -1353,6 +1353,9 @@ img.sortableIcon {
 .buttonlinks {
     float: <?php echo $right; ?>;
     white-space: nowrap;
+}
+
+.jsfeature {
     display: none; /* Made visible with js */
 }
 

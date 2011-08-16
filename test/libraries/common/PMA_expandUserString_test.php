@@ -59,6 +59,8 @@ class PMA_expandUserString_test extends PHPUnit_Extensions_OutputTestCase
 
     /**
      * Data provider
+     *
+     * @return array
      */
     public function provider()
     {

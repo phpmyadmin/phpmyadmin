@@ -90,6 +90,7 @@ require_once './libraries/List.class.php';
      *
      * @todo    we could also search mysql tables if all fail?
      * @param string  $like_db_name   usally a db_name containing wildcards
+     * @return array
      */
     protected function _retrieve($like_db_name = null)
     {

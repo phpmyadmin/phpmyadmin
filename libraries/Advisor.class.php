@@ -85,6 +85,9 @@ class Advisor
 
     /**
      * Escapes percent string to be used in format string.
+     *
+     * @param string $str
+     * @return string
      */
     function escapePercent($str)
     {
@@ -93,6 +96,10 @@ class Advisor
 
     /**
      * Wrapper function for translating.
+     *
+     * @param string $str
+     * @param mixed  $param
+     * @return string
      */
     function translate($str, $param = null)
     {
@@ -109,6 +116,9 @@ class Advisor
 
     /**
      * Splits justification to text and formula.
+     *
+     * @param string $rule
+     * @return array
      */
     function splitJustification($rule)
     {

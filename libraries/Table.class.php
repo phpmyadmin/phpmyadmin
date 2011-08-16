@@ -926,7 +926,7 @@ class PMA_Table
                 if ($GLOBALS['cfgRelation']['commwork']) {
                     // Get all comments and MIME-Types for current table
                     $comments_copy_query = 'SELECT
-                                                column_name, ' . PMA_backquote('comment') . ($GLOBALS['cfgRelation']['mimework'] ? ', mimetype, transformation, transformation_options' : '') . '
+                                                column_name, comment' . ($GLOBALS['cfgRelation']['mimework'] ? ', mimetype, transformation, transformation_options' : '') . '
                                             FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['column_info']) . '
                                             WHERE
                                                 db_name = \'' . PMA_sqlAddSlashes($source_db) . '\' AND
@@ -936,7 +936,7 @@ class PMA_Table
                     // Write every comment as new copied entry. [MIME]
                     while ($comments_copy_row = PMA_DBI_fetch_assoc($comments_copy_rs)) {
                         $new_comment_query = 'REPLACE INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['column_info'])
-                                    . ' (db_name, table_name, column_name, ' . PMA_backquote('comment') . ($GLOBALS['cfgRelation']['mimework'] ? ', mimetype, transformation, transformation_options' : '') . ') '
+                                    . ' (db_name, table_name, column_name, comment' . ($GLOBALS['cfgRelation']['mimework'] ? ', mimetype, transformation, transformation_options' : '') . ') '
                                     . ' VALUES('
                                     . '\'' . PMA_sqlAddSlashes($target_db) . '\','
                                     . '\'' . PMA_sqlAddSlashes($target_table) . '\','

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-15 09:36+0200\n"
+"PO-Revision-Date: 2011-08-16 08:21+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -116,8 +116,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"%s dosyası bu sistemde mevcut değil, lütfen daha fazla bilgi için www."
-"phpmyadmin.net adresini ziyaret edin."
+"Bu sistemde %s dosyası mevcut değil, lütfen daha fazla bilgi için "
+"www.phpmyadmin.net adresini ziyaret edin."
 
 #: db_create.php:58
 #, php-format
@@ -1663,48 +1663,50 @@ msgid "Show search criteria"
 msgstr "Arama kriterini göster"
 
 #: js/messages.php:262 libraries/tbl_select.lib.php:138
-#, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
-msgstr "Ara"
+msgstr "Yakınlaştırma Arama"
 
 #: js/messages.php:264
 msgid "Each point represents a data row."
-msgstr ""
+msgstr "Her nokta bir veri satırını temsil eder."
 
 #: js/messages.php:266
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "Noktanın üzerinde durmak etiketini gösterecektir."
 
 #: js/messages.php:268
 msgid "Drag and select an area in the plot to zoom into it."
-msgstr ""
+msgstr "Çizim içinde yakınlaştırmak için sürükleyin ve bir alan seçin."
 
 #: js/messages.php:270
 msgid "Click reset zoom link to come back to original state."
 msgstr ""
+"Orijinal durumuna geri gelmek için yakınlaştırmayı sıfırla bağlantısına "
+"tıklayın."
 
 #: js/messages.php:272
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
+"Veri satırını mümkün olduğunca düzenlemek ve görmek için veri noktasına "
+"tıklayın."
 
 #: js/messages.php:274
 msgid "The plot can be resized by dragging it along the bottom right corner."
-msgstr ""
+msgstr "Çizim en alt sağ köşe boyunca sürüklenerek yeniden boyutlandırılabilir."
 
 #: js/messages.php:276
 msgid "Strings are converted into integer for plotting"
-msgstr ""
+msgstr "Satırlar çizim yapmak için tam sayıya dönüştürülür"
 
 #: js/messages.php:278
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
-msgstr "Sütun Ekle/Sil"
+msgstr "İki sütun seçin"
 
 #: js/messages.php:279
 msgid "Select two different columns"
-msgstr ""
+msgstr "İki farklı sütun seçin"
 
 #: js/messages.php:282 tbl_change.php:307 tbl_indexes.php:211
 #: tbl_indexes.php:238
@@ -1785,12 +1787,13 @@ msgstr ""
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
+"Aynı zamanda çoğu sütunu içeriğine<br />doğrudan tıklayarak "
+"düzenleyebilirsiniz."
 
 #: js/messages.php:307
-#, fuzzy
 #| msgid "Go to view"
 msgid "Go to link"
-msgstr "Görünüme git"
+msgstr "Bağlantıya git"
 
 #: js/messages.php:310
 msgid "Generate password"
@@ -2277,6 +2280,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
+"Tablo KA tercihlerini temizleme başarısız "
+"($cfg['Servers'][$i]['MaxTableUiprefs'] %s bakın)"
 
 #: libraries/Theme.class.php:144
 #, php-format
@@ -4468,12 +4473,14 @@ msgid ""
 "This configuration make sure that we only keep N (N = MaxTableUiprefs) "
 "newest record in \"table_uiprefs\" and automatically delete older records"
 msgstr ""
+"Bu yapılandırma \"table_uiprefs\" içinde sadece N (N = MaxTableUiprefs) en "
+"yeni kayıtları tutuğumuzdan ve otomatik olarak eski kayıtları sildiğimizden "
+"emin olur"
 
 #: libraries/config/messages.inc.php:399
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of records saved in \"table_uiprefs\" table"
-msgstr "Tablo listesinde görüntülenecek olan en fazla tablo sayısıdır"
+msgstr "En fazla kayıt sayısı \"table_uiprefs\" tablosuna kaydedildi"
 
 #: libraries/config/messages.inc.php:400
 msgid "Try to connect without password"
@@ -7934,10 +7941,9 @@ msgid "Operator"
 msgstr "İşletici"
 
 #: libraries/tbl_select.lib.php:131
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "Ara"
+msgstr "Tablo Arama"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 msgid ""
@@ -9371,6 +9377,8 @@ msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
 msgstr ""
+"Danışman sistemi sunucu durumu değişkenlerini çözümleyerek sunucu "
+"değişkenlerinde öneriler sağlayabilir."
 
 #: server_status.php:810
 msgid ""
@@ -10241,13 +10249,11 @@ msgstr ""
 "sunucu çizelgeleme özelliklerini kullanabilirsiniz."
 
 #: server_status.php:1507
-#, fuzzy
 #| msgid "Pause monitor"
 msgid "Using the monitor:"
-msgstr "İzlemeyi duraklat"
+msgstr "İzleyici kullanımı:"
 
 #: server_status.php:1509
-#, fuzzy
 #| msgid ""
 #| "<b>Using the monitor:</b><br/> Ok, you are good to go! Once you click "
 #| "'Start monitor' your browser will refresh all displayed charts in a "
@@ -10264,19 +10270,13 @@ msgid ""
 "change the refresh rate under 'Settings', or remove any chart using the cog "
 "icon on each respective chart."
 msgstr ""
-"<b>İzleyici kullanımı:</b><br/> Tamam, ilerlemeye hazırsınız! Bir kere "
-"'İzlemeyi başlat'a tıkladığınızda tarayıcınız tüm görüntülenen çizelgeleri "
-"düzenli aralıklarla yenileyecek. 'Ayarlar' altında çizelgeleri ekleyebilir "
-"ve yenileme oranını değiştirebilirsiniz veya her çizelgenin kendi dişli çark "
-"simgesini kullanarak herhangi bir çizelgeyi kaldırabilirsiniz. "
-"<p>Günlüklerden sorguları görüntülemek için herhangi bir çizelgede sol fare "
-"tuşunu basılı tutarak ve çizelge üzerinde kaydırarak ilgili zaman aralığını "
-"seçin. Bir kere onaylandı mı bu, gruplanmış sorguların tablolarını "
-"yükleyecek. Daha fazla çözümlemesi için herhangi bir meydana gelen SELECT "
-"ifadesine tıklayabilirsiniz.</p>"
+"Tamam, ilerlemeye hazırsınız! Bir kere 'İzlemeyi başlat'a tıkladığınızda "
+"tarayıcınız tüm görüntülenen çizelgeleri düzenli aralıklarla yenileyecek. "
+"'Ayarlar' altında çizelgeleri ekleyebilir ve yenileme oranını "
+"değiştirebilirsiniz veya her çizelgenin kendi dişli çark simgesini "
+"kullanarak herhangi bir çizelgeyi kaldırabilirsiniz."
 
 #: server_status.php:1511
-#, fuzzy
 #| msgid ""
 #| "<b>Using the monitor:</b><br/> Ok, you are good to go! Once you click "
 #| "'Start monitor' your browser will refresh all displayed charts in a "
@@ -10293,23 +10293,17 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occuring SELECT statements to further analyze them."
 msgstr ""
-"<b>İzleyici kullanımı:</b><br/> Tamam, ilerlemeye hazırsınız! Bir kere "
-"'İzlemeyi başlat'a tıkladığınızda tarayıcınız tüm görüntülenen çizelgeleri "
-"düzenli aralıklarla yenileyecek. 'Ayarlar' altında çizelgeleri ekleyebilir "
-"ve yenileme oranını değiştirebilirsiniz veya her çizelgenin kendi dişli çark "
-"simgesini kullanarak herhangi bir çizelgeyi kaldırabilirsiniz. "
-"<p>Günlüklerden sorguları görüntülemek için herhangi bir çizelgede sol fare "
+"Günlüklerden sorguları görüntülemek için herhangi bir çizelgede sol fare "
 "tuşunu basılı tutarak ve çizelge üzerinde kaydırarak ilgili zaman aralığını "
 "seçin. Bir kere onaylandı mı bu, gruplanmış sorguların tablolarını "
 "yükleyecek. Daha fazla çözümlemesi için herhangi bir meydana gelen SELECT "
-"ifadesine tıklayabilirsiniz.</p>"
+"ifadesine tıklayabilirsiniz."
 
 #: server_status.php:1518
 msgid "Please note:"
-msgstr ""
+msgstr "Lütfen unutmayın:"
 
 #: server_status.php:1520
-#, fuzzy
 #| msgid ""
 #| "<b>Please note:</b> Enabling the general_log may increase the server load "
 #| "by 5-15%. Also be aware that generating statistics from the logs is a "
@@ -10322,11 +10316,11 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
-"<b>Lütfen unutmayın:</b> general_log'u etkinleştirmek sunucu yükünü %5-15 "
-"arttırabilir. Aynı zamanda günlükten oluşturulan istatistiklerin yoğun görev "
-"yükü olduğundan haberiniz olsun bu yüzden sadece küçük zaman aralıkları "
-"seçmek ve general_log'u etkisizleştirmek tavsiye edilir ve tablolarını bir "
-"defa boşaltmak daha fazla izlemeyi gerektirmez."
+"general_log'u etkinleştirmek sunucu yükünü %5-15 arttırabilir. Aynı zamanda "
+"günlükten oluşturulan istatistiklerin yoğun görev yükü olduğundan haberiniz "
+"olsun bu yüzden sadece küçük zaman aralıkları seçmek ve general_log'u "
+"etkisizleştirmek tavsiye edilir ve tablolarını bir defa boşaltmak daha fazla "
+"izlemeyi gerektirmez."
 
 #: server_status.php:1533
 msgid "Preset chart"
@@ -10389,18 +10383,15 @@ msgid "Remove variable data in INSERT statements for better grouping"
 msgstr "Daha iyi gruplama için INSERT ifadelerindeki değişken veriyi kaldır"
 
 #: server_status.php:1608
-#, fuzzy
 #| msgid ""
 #| "<p>Choose from which log you want the statistics to be generated from.</"
 #| "p> Results are grouped by query text."
 msgid "Choose from which log you want the statistics to be generated from."
-msgstr ""
-"<p>İstatistiklerin oluşturulmasını istediğinizden seçin.</p> Sonuçlar sorgu "
-"metnine göre gruplandırılır."
+msgstr "İstatistiklerin oluşturulmasını istediğiniz yerden günlüğü seçin."
 
 #: server_status.php:1610
 msgid "Results are grouped by query text."
-msgstr ""
+msgstr "Sonuçlar sorgu metnine göre gruplandırılır."
 
 #: server_status.php:1615
 msgid "Query analyzer"
@@ -11555,38 +11546,33 @@ msgid "Create version"
 msgstr "Sürüm oluştur"
 
 #: tbl_zoom_select.php:140
-#, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "\"Örnek sorgu\" yap. (joker: \"%\")"
+msgstr "İki farklı sütun için \"örneğe göre sorgu\" (joker: \"%\") yap"
 
 #: tbl_zoom_select.php:151
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Additional search criteria"
-msgstr "Arama kriterini gizle"
+msgstr "İlave arama kriteri"
 
 #: tbl_zoom_select.php:281
-#, fuzzy
 #| msgid "Label"
 msgid "Data Label"
-msgstr "Etiket"
+msgstr "Veri Etiketi"
 
 #: tbl_zoom_select.php:297
-#, fuzzy
 #| msgid "Maximum number of rows to display"
 msgid "Maximum rows to plot"
-msgstr "Görüntülemek için en fazla satır sayısı"
+msgstr "Çizim için en fazla satır"
 
 #: tbl_zoom_select.php:388
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "Noktalara gözat/düzenle"
 
 #: tbl_zoom_select.php:394
-#, fuzzy
 #| msgid "Control user"
 msgid "How to use"
-msgstr "Denetim kullanıcısı"
+msgstr "Nasıl kullanılır"
 
 #: themes.php:28
 msgid "Get more themes!"
@@ -11917,7 +11903,7 @@ msgstr "Sorgu önbelleği verimi (%)"
 
 #: po/advisory_rules.php:76
 msgid "Query cache not running efficiently, it has a low hit rate."
-msgstr ""
+msgstr "Sorgu önbelleği verimli çalışmıyor, düşük tavan oranına sahip."
 
 #: po/advisory_rules.php:77
 msgid "Consider increasing {query_cache_limit}."
@@ -12022,7 +12008,7 @@ msgstr ""
 #: po/advisory_rules.php:98
 #, php-format
 msgid "Current query cache size: %s"
-msgstr ""
+msgstr "Şu anki sorgu önbelleği boyutu: %s"
 
 #: po/advisory_rules.php:100
 msgid "Query cache min result size"
@@ -12047,7 +12033,7 @@ msgstr ""
 
 #: po/advisory_rules.php:103
 msgid "query_cache_limit is set to 1 MiB"
-msgstr ""
+msgstr "query_cache_limit 1 MiB'a ayarlı"
 
 #: po/advisory_rules.php:105
 msgid "Percentage of sorts that cause temporary tables"
@@ -12086,7 +12072,7 @@ msgstr "Satırları sırala"
 
 #: po/advisory_rules.php:116
 msgid "There are lots of rows being sorted."
-msgstr ""
+msgstr "Birçok sıralanmış satır var."
 
 #: po/advisory_rules.php:117
 msgid ""
@@ -12275,16 +12261,16 @@ msgid "key_buffer_size is 0"
 msgstr ""
 
 #: po/advisory_rules.php:160
-#, fuzzy, php-format
+#, php-format
 #| msgid "Max % MyISAM key buffer ever used"
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "Şimdiye kadar kullanılan en fazla MyISAM anahtar arabelleği"
+msgstr "Şimdiye kadar kullanılan en fazla %% MyISAM anahtar arabelleği"
 
 #: po/advisory_rules.php:161 po/advisory_rules.php:166
-#, fuzzy, php-format
+#, php-format
 #| msgid "Max % MyISAM key buffer ever used"
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr "Şimdiye kadar kullanılan en fazla MyISAM anahtar arabelleği"
+msgstr "Kullanılan MyISAM anahtar arabelleği (indeks önbelleği) %% düşük."
 
 #: po/advisory_rules.php:162 po/advisory_rules.php:167
 msgid ""
@@ -12380,10 +12366,10 @@ msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:190
-#, fuzzy, php-format
+#, php-format
 #| msgid "Immediate table locks %"
 msgid "Immediate table locks %%"
-msgstr "Acil tablo kilitleri %"
+msgstr "Acil tablo kilitleri %%"
 
 #: po/advisory_rules.php:191 po/advisory_rules.php:196
 msgid "Too many table locks were not granted immediately."
@@ -12426,10 +12412,10 @@ msgid "The thread cache is set to 0"
 msgstr ""
 
 #: po/advisory_rules.php:205
-#, fuzzy, php-format
+#, php-format
 #| msgid "Thread cache hit rate %"
 msgid "Thread cache hit rate %%"
-msgstr "İşlem önbelleği tavan oranı %"
+msgstr "İşlem önbelleği tavan oranı %%"
 
 #: po/advisory_rules.php:206
 msgid "Thread cache is not efficient."

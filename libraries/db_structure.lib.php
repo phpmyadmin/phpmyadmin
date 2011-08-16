@@ -65,10 +65,10 @@ function PMA_TableHeader($db_is_information_schema = false, $replication = false
 /**
  * Creates a clickable column header for table information
  *
- * @param string  title to use for the link
- * @param string  corresponds to sortable data name mapped in libraries/db_info.inc.php  
- * @param string  initial sort order
- * @returns string  link to be displayed in the table header
+ * @param string  $title title to use for the link
+ * @param string  $sort  corresponds to sortable data name mapped in libraries/db_info.inc.php
+ * @param string  $initial_sort_order
+ * @return string  link to be displayed in the table header
  */
 function PMA_SortableTableHeader($title, $sort, $initial_sort_order = 'ASC')
 {

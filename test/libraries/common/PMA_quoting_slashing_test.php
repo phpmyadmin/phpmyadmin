@@ -35,6 +35,8 @@ class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
 
     /**
      * data provider for unQuote test
+     *
+     * @return array
      */
     public function unQuoteProvider() {
         return array(
@@ -55,6 +57,8 @@ class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
 
     /**
      * data provider for unQuote test with chosen quote
+     *
+     * @return array
      */
     public function unQuoteSelectedProvider() {
         return array(
@@ -75,6 +79,8 @@ class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
 
     /**
      * data provider for backquote test
+     *
+     * @return array
      */
     public function backquoteDataProvider() {
         return array(

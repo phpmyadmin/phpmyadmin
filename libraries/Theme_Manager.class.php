@@ -38,7 +38,7 @@ class PMA_Theme_Manager
     var $active_theme = '';
 
     /**
-     * @var object PMA_Theme active theme
+     * @var PMA_Theme PMA_Theme active theme
      */
     var $theme = null;
 
@@ -193,6 +193,7 @@ class PMA_Theme_Manager
     /**
      * save theme in cookie
      *
+     * @return bool true
      */
     function setThemeCookie()
     {
@@ -224,6 +225,8 @@ class PMA_Theme_Manager
 
     /**
      * read all themes
+     *
+     * @return bool true
      */
     function loadThemes()
     {
@@ -259,6 +262,7 @@ class PMA_Theme_Manager
      * checks if given theme name is a known theme
      *
      * @param string  $theme  name fo theme to check for
+     * @return bool
      */
     function checkTheme($theme)
     {
@@ -273,6 +277,7 @@ class PMA_Theme_Manager
      * returns HTML selectbox, with or without form enclosed
      *
      * @param boolean $form   whether enclosed by from tags or not
+     * @return string
      */
     function getHtmlSelectBox($form = true)
     {
@@ -351,6 +356,9 @@ class PMA_Theme_Manager
 
     /**
      * prints css data
+     *
+     * @param string $type
+     * @return bool
      */
     function printCss($type)
     {

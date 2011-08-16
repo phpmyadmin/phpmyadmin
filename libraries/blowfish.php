@@ -321,6 +321,7 @@ class Horde_Cipher_blowfish
      * Set the key to be used for en/decryption.
      *
      * @param string $key  The key to use.
+     * @return bool
      */
     public function setKey($key)
     {

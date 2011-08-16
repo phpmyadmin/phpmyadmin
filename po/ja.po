@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-13 12:52+0200\n"
+"PO-Revision-Date: 2011-08-16 11:21+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -11596,7 +11596,7 @@ msgstr ""
 #: po/advisory_rules.php:8
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "%s しか稼動していません。"
 
 #: po/advisory_rules.php:10
 msgid "Questions below 1,000"
@@ -11614,7 +11614,7 @@ msgstr ""
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
-msgstr ""
+msgstr "実行されたクエリが十分な量になるまで、長時間サーバを稼動させたほうがいいでしょう。"
 
 #: po/advisory_rules.php:13
 #, php-format
@@ -11650,7 +11650,7 @@ msgstr "遅いクエリの割合"
 #: po/advisory_rules.php:21
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
-msgstr "遅いクエリの割合が高い場合は、サーバの稼働時間と比較してあります。"
+msgstr "遅いクエリの割合が高いので、サーバの稼働時間と比較してあります。"
 
 #: po/advisory_rules.php:23
 #, php-format
@@ -11699,10 +11699,12 @@ msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"{log_slow_queries} "
+"を「ON」に設定することで、遅いクエリのログへの記録が有効になります。これは、パフォーマンスの悪いクエリの切り分けに役立つでしょう。"
 
 #: po/advisory_rules.php:33
 msgid "log_slow_queries is set to 'OFF'"
-msgstr ""
+msgstr "log_slow_queries が「OFF」に設定されています。"
 
 #: po/advisory_rules.php:35
 #, fuzzy
@@ -11824,7 +11826,7 @@ msgstr ""
 
 #: po/advisory_rules.php:68
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
-msgstr ""
+msgstr "query_cache_size が 0 に設定されているか、query_cache_type が「OFF」に設定されています。"
 
 #: po/advisory_rules.php:71
 msgid "Suboptimal caching method."
@@ -11992,7 +11994,7 @@ msgstr ""
 
 #: po/advisory_rules.php:103
 msgid "query_cache_limit is set to 1 MiB"
-msgstr ""
+msgstr "query_cache_limit は 1 MiB に設定されています。"
 
 #: po/advisory_rules.php:105
 #, fuzzy
@@ -12102,11 +12104,11 @@ msgstr ""
 
 #: po/advisory_rules.php:130
 msgid "Rate of reading fixed position"
-msgstr ""
+msgstr "決まった位置を読み込む割合"
 
 #: po/advisory_rules.php:131
 msgid "The rate of reading data from a fixed position is high."
-msgstr ""
+msgstr "決まった位置のデータを読み込む割合が高いです。"
 
 #: po/advisory_rules.php:132
 msgid ""
@@ -12114,37 +12116,37 @@ msgid ""
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
+"多くのクエリがインデックスを使用しない結合クエリを含んでいるために、結果のソート、テーブルの全スキャン、のいずれかもしくは両方を必要としていることを示し"
+"ています。該当箇所にインデックスを追加してください。"
 
 #: po/advisory_rules.php:133
 #, php-format
 msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
-msgstr ""
+msgstr "決まった位置を読み込む割合の平均：%s。推奨値は、1 時間当たり 1 未満です。"
 
 #: po/advisory_rules.php:135
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Rate of reading next table row"
-msgstr "テーブルの行リンクを表示する場所"
+msgstr "テーブルの次行を読み込む割合"
 
 #: po/advisory_rules.php:136
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "The rate of reading the next table row is high."
-msgstr "テーブルの行リンクを表示する場所"
+msgstr "テーブルの次行を読み込む割合が高いです。"
 
 #: po/advisory_rules.php:137
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
-msgstr ""
+msgstr "多くのクエリがテーブルの全スキャンを行っていることを示しています。該当箇所にインデックスを追加してください。"
 
 #: po/advisory_rules.php:138
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
-msgstr ""
+msgstr "テーブルの次行を読み込む割合：%s。推奨値は、1 時間当たり 1 未満です。"
 
 #: po/advisory_rules.php:140
 msgid "tmp_table_size vs. max_heap_table_size"
@@ -12240,7 +12242,7 @@ msgstr ""
 
 #: po/advisory_rules.php:158
 msgid "key_buffer_size is 0"
-msgstr ""
+msgstr "key_buffer_size は 0 です。"
 
 #: po/advisory_rules.php:160
 #, fuzzy, php-format
@@ -12296,27 +12298,27 @@ msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
 
 #: po/advisory_rules.php:175
-#, fuzzy
 #| msgid "Create table"
 msgid "Rate of table open"
-msgstr "テーブルを作成"
+msgstr "テーブルを開く割合"
 
 #: po/advisory_rules.php:176
-#, fuzzy
 #| msgid "The current number of pending writes."
 msgid "The rate of opening tables is high."
-msgstr "現在保留されている書き込みの数"
+msgstr "テーブルを開く割合が高いです。"
 
 #: po/advisory_rules.php:177
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
+"テーブルを開くことは、コストがかかるディスクへの入出力を必要とします。{table_open_cache} "
+"大きくすることで、これを緩和できることがあります。"
 
 #: po/advisory_rules.php:178
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
-msgstr ""
+msgstr "テーブルを開く割合: %s。推奨値は 1 時間当たり 10 未満です。"
 
 #: po/advisory_rules.php:180
 #, fuzzy
@@ -12335,6 +12337,8 @@ msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing open_files_limit."
 msgstr ""
+"{open_files_limit} 増やすことを検討してください。open_files_limit "
+"を変更して再起動した場合は、エラーログを確認するようにしてください。"
 
 #: po/advisory_rules.php:183
 #, php-format
@@ -12343,21 +12347,19 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:185
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of open files"
-msgstr "インポートするファイルの形式"
+msgstr "ファイルを開く割合"
 
 #: po/advisory_rules.php:186
-#, fuzzy
 #| msgid "The number of pending log file fsyncs."
 msgid "The rate of opening files is high."
-msgstr "保留中のログファイルへの fsync 回数"
+msgstr "ファイルを開く割合が高いです。"
 
 #: po/advisory_rules.php:188
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr ""
+msgstr "ファイルを開く割合: %s。推奨値は 1 時間当たり 5 未満です。"
 
 #: po/advisory_rules.php:190
 #, fuzzy, php-format
@@ -12390,10 +12392,9 @@ msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:200
-#, fuzzy
 #| msgid "Key cache"
 msgid "Thread cache"
-msgstr "キーキャッシュ"
+msgstr "スレッドキャッシュ"
 
 #: po/advisory_rules.php:201
 msgid ""
@@ -12407,7 +12408,7 @@ msgstr ""
 
 #: po/advisory_rules.php:203
 msgid "The thread cache is set to 0"
-msgstr ""
+msgstr "スレッドキャッシュは 0 に設定されています。"
 
 #: po/advisory_rules.php:205
 #, fuzzy, php-format

@@ -1870,3 +1870,8 @@ $(function() {
         $('a[href="#clearMonitorConfig"]').show();
     }
 });
+
+// Run the monitor once loaded
+$(function() {
+    $('a[href="#pauseCharts"]').trigger('click');
+});
