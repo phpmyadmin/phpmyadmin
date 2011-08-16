@@ -531,13 +531,9 @@ class PMA_Tracker
             $sql_query .= " AND FIND_IN_SET('" . $statement . "',tracking) > 0" ;
         }
         $row = PMA_DBI_fetch_array(PMA_query_as_controluser($sql_query));
-        if (isset($row[0])) {
-            $version = $row[0];
-        }
-        if (! isset($version)) {
-            $version = -1;
-        }
-        return $version;
+        return isset($row[0])
+            ? $row[0]
+            : -1;
     }
 
 
