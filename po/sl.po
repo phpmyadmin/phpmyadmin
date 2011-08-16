@@ -12198,7 +12198,7 @@ msgstr ""
 #: po/advisory_rules.php:143
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr ""
+msgstr "Trenutni vrednosti sta tmp_table_size: %s, max_heap_table_size: %s"
 
 #: po/advisory_rules.php:145
 #, fuzzy
