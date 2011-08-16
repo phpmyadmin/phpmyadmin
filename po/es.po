@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-15 10:09+0200\n"
-"PO-Revision-Date: 2011-08-16 21:16+0200\n"
+"PO-Revision-Date: 2011-08-16 21:18+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -11987,6 +11987,7 @@ msgstr "Versión menor:"
 #: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
 msgstr ""
+"Versión menor a 5.1.30 (la primer versión de 5.1 disponible públicamente)"
 
 #: po/advisory_rules.php:42
 msgid ""
