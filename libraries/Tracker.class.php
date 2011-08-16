@@ -387,8 +387,6 @@ class PMA_Tracker
      */
     static public function createDatabaseVersion($dbname, $version, $query, $tracking_set = 'CREATE DATABASE,ALTER DATABASE,DROP DATABASE')
     {
-        global $sql_backquotes;
-
         $date = date('Y-m-d H:i:s');
 
         if ($tracking_set == '') {
