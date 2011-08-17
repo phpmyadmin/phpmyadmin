@@ -6718,10 +6718,9 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "Prostorska razširitev MySQL ne podpira ESRI vrste \"%s\"."
 
 #: libraries/import/shp.php:350
-#, fuzzy
 #| msgid "This page does not contain any tables!"
 msgid "The imported file does not contain any data"
-msgstr "Ta stran ne vsebuje nobenih tabel!"
+msgstr "Uvožena datoteka ne vsebuje nobenih podatkov"
 
 #: libraries/import/sql.php:33
 msgid "SQL compatibility mode:"
