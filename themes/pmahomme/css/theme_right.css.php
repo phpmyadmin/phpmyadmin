@@ -72,7 +72,6 @@ h2 a img{display:inline;}
 
 .data{
     margin: 0 0 12px 0;
-    position: relative;
 }
 
 h3 {

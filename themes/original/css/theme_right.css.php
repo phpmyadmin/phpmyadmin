@@ -2410,10 +2410,6 @@ span.cm-number {
     padding: 1px 3px !important;
 }
 
-.data {
-    position: relative;
-}
-
 .cHide {
     background: #D3DCE3 url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>col_hide.png);
     color: #CCC;
