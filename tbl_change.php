@@ -118,6 +118,16 @@ $GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'tbl_change.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'jquery/timepicker.js';
+
+// required for GIS editor
+$GLOBALS['js_include'][] = 'gis_data_editor.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.svg.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.mousewheel.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.event.drag-2.0.min.js';
+$GLOBALS['js_include'][] = 'tbl_gis_visualization.js';
+$GLOBALS['js_include'][] = 'openlayers/OpenLayers.js';
+$GLOBALS['js_include'][] = 'OpenStreetMap.js';
+
 /**
  * HTTP and HTML headers
  */
@@ -472,6 +482,9 @@ foreach ($rows as $row_id => $vrow) {
 
          <?php } //End if
 
+        // Get a list of GIS data types.
+        $gis_data_types = PMA_getGISDatatypes();
+
         // Prepares the field value
         $real_null_value = false;
         $special_chars_encoded = '';
@@ -484,6 +497,10 @@ foreach ($rows as $row_id => $vrow) {
                 $data            = $vrow[$field['Field']];
             } elseif ($field['True_Type'] == 'bit') {
                 $special_chars = PMA_printable_bit_value($vrow[$field['Field']], $extracted_fieldspec['spec_in_brackets']);
+            } elseif (in_array($field['True_Type'], $gis_data_types)) {
+                // Convert gis data to Well Know Text format
+                $vrow[$field['Field']] = PMA_asWKT($vrow[$field['Field']], true);
+                $special_chars = htmlspecialchars($vrow[$field['Field']]);
             } else {
                 // special binary "characters"
                 if ($field['is_binary'] || ($field['is_blob'] && ! $cfg['ProtectBinary'])) {
@@ -897,7 +914,6 @@ foreach ($rows as $row_id => $vrow) {
                 }
             } // end if (web-server upload directory)
         } // end elseif (binary or blob)
-
         elseif (in_array($field['pma_type'], $no_support_types)) {
             // ignore this column to avoid changing it
         } else {
@@ -965,6 +981,21 @@ foreach ($rows as $row_id => $vrow) {
                 }
             }
         }
+        if (in_array($field['pma_type'], $gis_data_types)) {
+            $data_val = isset($vrow[$field['Field']]) ? $vrow[$field['Field']] : '';
+            $_url_params = array(
+                'field' => $field['Field_title'],
+                'value' => $data_val,
+             );
+            if ($field['pma_type'] != 'geometry') {
+                $_url_params = $_url_params + array('gis_data[gis_type]' => strtoupper($field['pma_type']));
+            }
+            $edit_url = 'gis_data_editor.php' . PMA_generate_common_url($_url_params);
+            $edit_str = PMA_getIcon('b_edit.png', __('Edit/Insert'), true);
+            echo('<span class="open_gis_editor">');
+            echo(PMA_linkOrButton($edit_url, $edit_str, array(), false, false, '_blank'));
+            echo('</span>');
+        }
         ?>
             </td>
         </tr>
@@ -975,8 +1006,8 @@ foreach ($rows as $row_id => $vrow) {
     echo '  </tbody></table><br />';
 } // end foreach on multi-edit
 ?>
+    <div id="gis_editor"></div><div id="popup_background"></div>
     <br />
-
     <fieldset id="actions_panel">
     <table border="0" cellpadding="5" cellspacing="0">
     <tr>

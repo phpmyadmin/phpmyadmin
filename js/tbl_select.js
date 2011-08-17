@@ -68,7 +68,7 @@ $(document).ready(function() {
                 $("#sqlqueryresults").html(response);
                 $("#sqlqueryresults").trigger('appendAnchor');
                 $('#tbl_search_form')
-                // work around for bug #3168569 - Issue on toggling the "Hide search criteria" in chrome.
+                // workaround for bug #3168569 - Issue on toggling the "Hide search criteria" in chrome.
                  .slideToggle()    
                  .hide();
                 $('#togglesearchformlink')
@@ -87,4 +87,91 @@ $(document).ready(function() {
             });
         }) // end $.post()
     })
+
+    // Following section is related to the 'function based search' for geometry data types.
+    // Initialy hide all the open_gis_editor spans
+    $('.open_search_gis_editor').hide();
+
+    $('.geom_func').bind('change', function() {
+        var $geomFuncSelector = $(this);
+
+        var binaryFunctions = [
+          'Contains',
+          'Crosses',
+          'Disjoint',
+          'Equals',
+          'Intersects',
+          'Overlaps',
+          'Touches',
+          'Within',
+          'MBRContains',
+          'MBRDisjoint',
+          'MBREquals',
+          'MBRIntersects',
+          'MBROverlaps',
+          'MBRTouches',
+          'MBRWithin',
+          'ST_Contains',
+          'ST_Crosses',
+          'ST_Disjoint',
+          'ST_Equals',
+          'ST_Intersects',
+          'ST_Overlaps',
+          'ST_Touches',
+          'ST_Within',
+        ];
+
+        var tempArray = [
+           'Envelope',
+           'EndPoint',
+           'StartPoint',
+           'ExteriorRing',
+           'Centroid',
+           'PointOnSurface'
+        ];
+        var outputGeomFunctions = binaryFunctions.concat(tempArray);
+
+        // If the chosen function takes two geomerty objects as parameters
+        var $operator = $geomFuncSelector.parents('tr').find('td:nth-child(5)').find('select');
+        if ($.inArray($geomFuncSelector.val(), binaryFunctions) >= 0){
+            $operator.attr('readonly', true);
+        } else {
+            $operator.attr('readonly', false);
+        }
+
+        // if the chosen function's output is a geometry, enable GIS editor
+        var $editorSpan = $geomFuncSelector.parents('tr').find('.open_search_gis_editor');
+        if ($.inArray($geomFuncSelector.val(), outputGeomFunctions) >= 0){
+            $editorSpan.show();
+        } else {
+            $editorSpan.hide();
+        }
+        
+    });
+
+    $('.open_search_gis_editor').live('click', function(event) {
+        event.preventDefault();
+
+        var $span = $(this);
+        // Current value
+        var value = $span.parent('td').children("input[type='text']").val();
+        // Field name
+        var field = 'Parameter';
+        // Column type
+        var geom_func = $span.parents('tr').find('.geom_func').val();
+        if (geom_func == 'Envelope') {
+            var type = 'polygon';
+        } else if (geom_func == 'ExteriorRing') {
+            var type = 'linestring';
+        } else {
+            var type = 'point';
+        }
+        // Names of input field and null checkbox
+        var input_name = $span.parent('td').children("input[type='text']").attr('name');
+        //Token
+        var token = $("input[name='token']").val();
+
+        openGISEditor(value, field, type, input_name, token);
+    });
+
 }, 'top.frame_content'); // end $(document).ready()

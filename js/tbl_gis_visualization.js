@@ -8,7 +8,9 @@
  */
 
 var x = 0;
+var default_x = 0;
 var y = 0;
+var default_y = 0;
 var scale = 1;
 var svg;
 
@@ -51,56 +53,52 @@ function zoomAndPan()
 }
 
 /**
- * Ajax handlers for GIS visualization page
- *
- * Actions Ajaxified here:
- *
- * Zooming in and zooming out on mousewheel movement.
- * Panning the visualization on dragging.
- * Zooming in on double clicking.
- * Zooming out on clicking the zoom out button.
- * Panning on clicking the arrow buttons.
- * Displaying tooltips for GIS objects.
+ * Initially loads either SVG or OSM visualization based on the choice.
  */
-$(document).ready(function() {
-    var $placeholder = $('#placeholder');
-    var $openlayersmap = $('#openlayersmap');
-
-   if ($('#choice').prop('checked') != true) {
-        $openlayersmap.hide();
+function selectVisualization() {
+    if ($('#choice').prop('checked') != true) {
+        $('#openlayersmap').hide();
     } else {
-        $placeholder.hide();
+        $('#placeholder').hide();
     }
+    $('.choice').show();
+}
 
+/**
+ * Adds necessary styles to the div that coontains the openStreetMap.
+ */
+function styleOSM() {
+    var $placeholder = $('#placeholder');
     var cssObj = {
         'border' : '1px solid #aaa',
         'width' : $placeholder.width(),
         'height' : $placeholder.height(),
         'float' : 'right'
     };
-    $openlayersmap.css(cssObj);
-    drawOpenLayers();
+    $('#openlayersmap').css(cssObj);
+}
 
-    $('.choice').show();
-    $('#choice').bind('click', function() {
-        if ($(this).prop('checked') == false) {
-            $placeholder.show();
-            $openlayersmap.hide();
-        } else {
-            $placeholder.hide();
-            $openlayersmap.show();
-        }
-    });
+/**
+ * Loads the SVG element and make a reference to it.
+ */
+function loadSVG() {
+    var $placeholder = $('#placeholder');
 
-    $('#placeholder').svg({
+    $placeholder.svg({
         onLoad: function(svg_ref) {
             svg = svg_ref;
         }
     });
 
-    // Removes the second SVG element unnecessarily added due to the above command.
-    $('#placeholder').find('svg:nth-child(2)').remove();
+    // Removes the second SVG element unnecessarily added due to the above command
+    $placeholder.find('svg:nth-child(2)').remove();
+}
 
+/**
+ * Adds controllers for zooming and panning.
+ */
+function addZoomPanControllers() {
+    var $placeholder = $('#placeholder');
     if ($("#placeholder svg").length > 0) {
         var pmaThemeImage = $('#pmaThemeImage').attr('value');
         // add panning arrows
@@ -113,7 +111,81 @@ $(document).ready(function() {
         $('<img class="button" id="zoom_world" src="' + pmaThemeImage + 'zoom-world-mini.png">').appendTo($placeholder);
         $('<img class="button" id="zoom_out" src="' + pmaThemeImage + 'zoom-minus-mini.png">').appendTo($placeholder);
     }
+}
 
+/**
+ * Resizes the GIS visualization to fit into the space available.
+ */
+function resizeGISVisualization() {
+    var $placeholder = $('#placeholder');
+
+    // Hide inputs for width and height
+    $("input[name='visualizationSettings[width]']").parents('tr').remove();
+    $("input[name='visualizationSettings[height]']").parents('tr').remove();
+
+    var old_width = $placeholder.width();
+    var extraPadding = 100;
+    var leftWidth = $('.gis_table').width();
+    var windowWidth = document.documentElement.clientWidth;
+    var visWidth = windowWidth - extraPadding - leftWidth;
+
+    // Assign new value for width
+    $placeholder.width(visWidth);
+    $('svg').attr('width', visWidth);
+
+    // Assign the offset created due to resizing to default_x and center the svg.
+    default_x = (visWidth - old_width) / 2;
+    x = default_x;
+}
+
+/**
+ * Initialize the GIS visualization.
+ */
+function initGISVisualization() {
+    // Loads either SVG or OSM visualization based on the choice
+    selectVisualization();
+    // Resizes the GIS visualization to fit into the space available
+    resizeGISVisualization();
+    // Adds necessary styles to the div that coontains the openStreetMap
+    styleOSM();
+    // Draws openStreetMap with openLayers
+    drawOpenLayers();
+    // Loads the SVG element and make a reference to it
+    loadSVG();
+    // Adds controllers for zooming and panning
+    addZoomPanControllers();
+    zoomAndPan();
+}
+
+/**
+ * Ajax handlers for GIS visualization page
+ *
+ * Actions Ajaxified here:
+ *
+ * Zooming in and zooming out on mousewheel movement.
+ * Panning the visualization on dragging.
+ * Zooming in on double clicking.
+ * Zooming out on clicking the zoom out button.
+ * Panning on clicking the arrow buttons.
+ * Displaying tooltips for GIS objects.
+ */
+$(document).ready(function() {
+
+    // If we are in GIS visualization, initialize it
+    if ($('.gis_table').length > 0) {
+        initGISVisualization();
+    }
+    
+    $('#choice').live('click', function() {
+        if ($(this).prop('checked') == false) {
+            $('#placeholder').show();
+            $('#openlayersmap').hide();
+        } else {
+            $('#placeholder').hide();
+            $('#openlayersmap').show();
+        }
+    });
+    
     $('#placeholder').live('mousewheel', function(event, delta) {
         if (delta > 0) {
             //zoom in
@@ -135,13 +207,13 @@ $(document).ready(function() {
 
     var dragX = 0; var dragY = 0;
     $('svg').live('dragstart', function(event, dd) {
-        $placeholder.addClass('placeholderDrag');
+        $('#placeholder').addClass('placeholderDrag');
         dragX = Math.round(dd.offsetX);
         dragY = Math.round(dd.offsetY);
     });
 
     $('svg').live('mouseup', function(event) {
-        $placeholder.removeClass('placeholderDrag');
+        $('#placeholder').removeClass('placeholderDrag');
     });
 
     $('svg').live('drag', function(event, dd) {
@@ -178,8 +250,8 @@ $(document).ready(function() {
     $('#zoom_world').live('click', function(e) {
         e.preventDefault();
         scale = 1;
-        x = 0;
-        y = 0;
+        x = default_x;
+        y = default_y;
         zoomAndPan();
     });
 
@@ -225,7 +297,7 @@ $(document).ready(function() {
      */
     $('.polygon, .multipolygon, .point, .multipoint, .linestring, .multilinestring, '
             + '.geometrycollection').live('mousemove', function(event) {
-        contents = $(this).attr('name');
+        contents = $.trim($(this).attr('name'));
         $("#tooltip").remove();
         if (contents != '') {
             $('<div id="tooltip">' + contents + '</div>').css({
