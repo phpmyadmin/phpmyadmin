@@ -323,8 +323,8 @@ class PMA_Theme_Manager
         /**
          * load layout file if exists
          */
-        if (@file_exists($GLOBALS['pmaThemePath'] . 'layout.inc.php')) {
-            include $GLOBALS['pmaThemePath'] . 'layout.inc.php';
+        if (file_exists($this->theme->getLayoutFile())) {
+            include $this->theme->getLayoutFile();
         }
 
 
