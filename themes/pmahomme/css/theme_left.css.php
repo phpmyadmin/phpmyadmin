@@ -142,9 +142,10 @@ ul#databaseList span {
 
 ul#databaseList a {
     color: #333;
-    background: url(./themes/pmahomme/img/database.png) no-repeat 0% 50% transparent;
+    background: url(./themes/pmahomme/img/database.png) no-repeat 0 5px transparent;
     display: block;
-    padding: 5px;
+    text-indent: 0;
+    padding: 5px 5px 5px 25px;
     font-style: normal;
 }
 
@@ -163,11 +164,16 @@ ul#databaseList ul {
     margin:0px;
     padding:0px;
 }
-ul#databaseList li{    list-style:none;text-indent:20px;    margin:0px;
-    padding:0px;}
+
+ul#databaseList li {
+    list-style: none;
+    text-indent: 20px;
+    margin: 0px;
+    padding: 0px;
+}
 
 ul#databaseList a:hover {
-    background:url(./themes/pmahomme/img/database.png) no-repeat 0% 50% #e4e4e4;
+    background-color: #e4e4e4;
 }
 
 ul#databaseList li.selected a {
