@@ -895,10 +895,9 @@ msgid "Add a point"
 msgstr "Dodaj točko"
 
 #: gis_data_editor.php:218 js/messages.php:287
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Vrstice zaključene z"
+msgstr "Daljica"
 
 #: gis_data_editor.php:221 gis_data_editor.php:275
 msgid "Outer Ring:"
