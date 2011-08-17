@@ -2088,9 +2088,10 @@ $cfg['TrustedProxies'] =
         The name of the directory where temporary files can be stored. 
         <br /><br />
 
-        This is needed to work around limitations of <tt>open_basedir</tt> 
-        for uploaded files, see
-        <a href="#faq1_11"><abbr title="Frequently Asked Questions">FAQ</abbr>
+        This is needed for importing ESRI Shapefiles, see
+        <a href="#faq6_30"><abbr title="Frequently Asked Questions">FAQ</abbr>
+        6.30</a> and to work around limitations of <tt>open_basedir</tt> for uploaded
+        files, see <a href="#faq1_11"><abbr title="Frequently Asked Questions">FAQ</abbr>
         1.11</a>.
         <br /><br />
 
@@ -4372,6 +4373,41 @@ INSERT INTO REL_towns VALUES ('M', 'Montr&eacute;al');
     <a href="#faq6_29">6.29 Why can't I get a chart from my query result table?</a></h4>
 
 <p> Not every table can be put to the chart. Only tables with one, two or three columns can be visualised as a chart. Moreover the table must be in a special format for chart script to understand it. Currently supported formats can be found in the <a href="http://wiki.phpmyadmin.net/pma/Charts#Data_formats_for_query_results_chart">wiki</a>.</p>
+
+<h4 id="faq6_30">
+    <a href="#faq6_30">6.30 Import: How can I import ESRI Shapefiles</a></h4>
+
+    <p> 
+        An ESRI Shapefile is actually a set of several files, where .shp file contains 
+        geometry data and .dbf file contains data related to those geometry data. 
+        To read data from .dbf file you need to have PHP compiled with the dBase extension 
+        (--enable-dbase). Otherwise only geometry data will be imported.
+    </p>
+
+    <p>To upload these set of files you can use either of the following methods:</p>
+    <ul>
+        <li>
+            <p>
+            Configure upload directory with 
+            <a href="#cfg_UploadDir" class="configrule">$cfg['UploadDir']</a>, upload both 
+            .shp and .dbf files with the same filename and chose the .shp file from the import page.
+            </p>
+        </li>
+        <li>
+            <p>
+            Create a Zip archive with .shp and .dbf files and import it. For this to work, 
+            you need to set <a href="#cfg_TempDir" class="configrule">$cfg['TempDir']</a> to a
+            place where the web server user can write (for example <tt>'./tmp'</tt>).
+            </p>
+
+            <p> To create the temporary directory on a UNIX-based system, you can do:</p>
+<pre>
+cd phpMyAdmin
+mkdir tmp
+chmod o+rwx tmp
+</pre>
+        </li>
+    </ul>
 
 <h3 id="faqproject">phpMyAdmin project</h3>
 

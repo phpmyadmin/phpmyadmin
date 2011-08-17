@@ -18,15 +18,14 @@ class PMA_GIS_Visualization
 
         // Array of colors to be used for GIS visualizations.
         'colors' => array(
-            '#BCE02E',
+            '#B02EE0',
             '#E0642E',
             '#E0D62E',
             '#2E97E0',
-            '#B02EE0',
+            '#BCE02E',
             '#E02E75',
             '#5CE02E',
             '#E0B02E',
-            '#000000',
             '#0022E0',
             '#726CB1',
             '#481A36',
@@ -153,7 +152,7 @@ class PMA_GIS_Visualization
         $output .= '<g id="groupPanel">';
 
         $scale_data = $this->_scaleDataSet($this->_data);
-        $output .= $this->_prepareDataSet($this->_data, 0, $scale_data, 'svg', '');
+        $output .= $this->_prepareDataSet($this->_data, $scale_data, 'svg', '');
 
         $output .= '</g>';
         $output .= '</svg>';
@@ -206,7 +205,7 @@ class PMA_GIS_Visualization
         );
 
         $scale_data = $this->_scaleDataSet($this->_data);
-        $image = $this->_prepareDataSet($this->_data, 0, $scale_data, 'png', $image);
+        $image = $this->_prepareDataSet($this->_data, $scale_data, 'png', $image);
 
         return $image;
     }
@@ -256,7 +255,33 @@ class PMA_GIS_Visualization
     {
         $this->init();
         $scale_data = $this->_scaleDataSet($this->_data);
-        $output = $this->_prepareDataSet($this->_data, 0, $scale_data, 'ol', '');
+        $output =
+            'var options = {'
+                . 'projection: new OpenLayers.Projection("EPSG:900913"),'
+                . 'displayProjection: new OpenLayers.Projection("EPSG:4326"),'
+                . 'units: "m",'
+                . 'numZoomLevels: 18,'
+                . 'maxResolution: 156543.0339,'
+                . 'maxExtent: new OpenLayers.Bounds(-20037508, -20037508, 20037508, 20037508),'
+                . 'restrictedExtent: new OpenLayers.Bounds(-20037508, -20037508, 20037508, 20037508)'
+            . '};'
+            . 'var map = new OpenLayers.Map("openlayersmap", options);'
+            . 'var layerNone = new OpenLayers.Layer.Boxes("None", {isBaseLayer: true});'
+            . 'var layerMapnik = new OpenLayers.Layer.OSM.Mapnik("Mapnik");'
+            . 'var layerOsmarender = new OpenLayers.Layer.OSM.Osmarender("Osmarender");'
+            . 'var layerCycleMap = new OpenLayers.Layer.OSM.CycleMap("CycleMap");'
+            . 'map.addLayers([layerMapnik, layerOsmarender, layerCycleMap, layerNone]);'
+            . 'var vectorLayer = new OpenLayers.Layer.Vector("Data");'
+            . 'var bound;';
+        $output .= $this->_prepareDataSet($this->_data, $scale_data, 'ol', '');
+        $output .=
+              'map.addLayer(vectorLayer);'
+            . 'map.zoomToExtent(bound);'
+            . 'if (map.getZoom() < 2) {'
+                . 'map.zoomTo(2);'
+            . '}'
+            . 'map.addControl(new OpenLayers.Control.LayerSwitcher());'
+            . 'map.addControl(new OpenLayers.Control.MousePosition());';
         return $output;
     }
 
@@ -274,7 +299,7 @@ class PMA_GIS_Visualization
         include_once './libraries/tcpdf/tcpdf.php';
 
         // create pdf
-        $pdf = new TCPDF('', 'pt', 'A4', true, 'UTF-8', false);
+        $pdf = new TCPDF('', 'pt', $GLOBALS['cfg']['PDFDefaultPageSize'], true, 'UTF-8', false);
 
         // disable header and footer
         $pdf->setPrintHeader(false);
@@ -287,7 +312,7 @@ class PMA_GIS_Visualization
         $pdf->AddPage();
 
         $scale_data = $this->_scaleDataSet($this->_data);
-        $pdf = $this->_prepareDataSet($this->_data, 0, $scale_data, 'pdf', $pdf);
+        $pdf = $this->_prepareDataSet($this->_data, $scale_data, 'pdf', $pdf);
 
         // sanitize file name
         $file_name = $this->_sanitizeName($file_name, 'pdf');
@@ -319,6 +344,9 @@ class PMA_GIS_Visualization
             $type = substr($ref_data, 0, $type_pos);
 
             $gis_obj = PMA_GIS_Factory::factory($type);
+            if (! $gis_obj) {
+                continue;
+            }
             $scale_data = $gis_obj->scaleRow($row[$this->_settings['spatialColumn']]);
 
             // Upadate minimum/maximum values for x and y cordinates.
@@ -377,19 +405,19 @@ class PMA_GIS_Visualization
     /**
      * Prepares and return the dataset as needed by the visualization.
      *
-     * @param array  $data         Raw data
-     * @param int    $color_number Start index to the color array
-     * @param array  $scale_data   Data related to scaling
-     * @param string $format       Format of the visulaization
-     * @param image  $results      Image object in the case of png
+     * @param array  $data       Raw data
+     * @param array  $scale_data Data related to scaling
+     * @param string $format     Format of the visulaization
+     * @param image  $results    Image object in the case of png
      *
      * @return the formatted array of data.
      */
-    private function _prepareDataSet($data, $color_number, $scale_data, $format, $results)
+    private function _prepareDataSet($data, $scale_data, $format, $results)
     {
+        $color_number = 0;
+
         // loop through the rows
         foreach ($data as $row) {
-
             $index = $color_number % sizeof($this->_settings['colors']);
 
             // Figure out the data type
@@ -398,6 +426,9 @@ class PMA_GIS_Visualization
             $type = substr($ref_data, 0, $type_pos);
 
             $gis_obj = PMA_GIS_Factory::factory($type);
+            if (! $gis_obj) {
+                continue;
+            }
             $label = '';
             if (isset($this->_settings['labelColumn'])
                 && isset($row[$this->_settings['labelColumn']])
@@ -432,4 +463,3 @@ class PMA_GIS_Visualization
     }
 }
 ?>
-

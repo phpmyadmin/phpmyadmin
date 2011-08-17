@@ -153,6 +153,28 @@ $func_optional_param = array(
     'UNIX_TIMESTAMP',
 );
 
+$gis_from_text_functions = array(
+    'GeomFromText',
+    'GeomCollFromText',
+    'LineFromText',
+    'MLineFromText',
+    'PointFromText',
+    'MPointFromText',
+    'PolyFromText',
+    'MPolyFromText',
+);
+
+$gis_from_wkb_functions = array(
+    'GeomFromWKB',
+    'GeomCollFromWKB',
+    'LineFromWKB',
+    'MLineFromWKB',
+    'PointFromWKB',
+    'MPointFromWKB',
+    'PolyFromWKB',
+    'MPolyFromWKB',
+);
+
 foreach ($loop_array as $rownumber => $where_clause) {
     // skip fields to be ignored
     if (! $using_key && isset($_REQUEST['insert_ignore_' . $where_clause])) {
@@ -238,10 +260,19 @@ foreach ($loop_array as $rownumber => $where_clause) {
             /* This way user will know what UUID new row has */
             $uuid = PMA_DBI_fetch_value('SELECT UUID()');
             $cur_value = "'" . $uuid . "'";
-        } elseif (!in_array($me_funcs[$key], $func_no_param)
+        } elseif ((in_array($me_funcs[$key], $gis_from_text_functions)
+            && substr($val, 0, 3) == "'''")
+            || in_array($me_funcs[$key], $gis_from_wkb_functions)
+        ) {
+            // Remove enclosing apostrophes
+            $val = substr($val, 1, strlen($val) - 2);
+            // Remove escaping apostrophes
+            $val = str_replace("''", "'", $val);
+            $cur_value = $me_funcs[$key] . '(' . $val . ')';
+        } elseif (! in_array($me_funcs[$key], $func_no_param)
                   || ($val != "''" && in_array($me_funcs[$key], $func_optional_param))) {
             $cur_value = $me_funcs[$key] . '(' . $val . ')';
-        } else {
+        }  else {
             $cur_value = $me_funcs[$key] . '()';
         }
 

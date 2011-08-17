@@ -2806,6 +2806,7 @@ if ($cfg['ShowFunctionFields']) {
         'FUNC_CHAR' => '',
         'FUNC_DATE' => '',
         'FUNC_NUMBER' => '',
+        'FUNC_SPATIAL' => 'GeomFromText',
         'first_timestamp' => 'NOW',
         'pk_char36' => 'UUID',
     );

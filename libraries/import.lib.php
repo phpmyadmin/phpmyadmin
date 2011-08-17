@@ -425,6 +425,7 @@ define("VARCHAR",   1);
 define("INT",       2);
 define("DECIMAL",   3);
 define("BIGINT",    4);
+define("GEOMETRY",  5);
 
 /* Decimal size defs */
 define("M",         0);
@@ -437,8 +438,9 @@ define("COL_NAMES", 1);
 define("ROWS",      2);
 
 /* Analysis array defs */
-define("TYPES",     0);
-define("SIZES",     1);
+define("TYPES",        0);
+define("SIZES",        1);
+define("FORMATTEDSQL", 2);
 
 /**
  * Obtains the precision (total # of digits) from a size of type decimal
@@ -916,7 +918,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
     }
 
     if ($analyses != null) {
-        $type_array = array(NONE => "NULL", VARCHAR => "varchar", INT => "int", DECIMAL => "decimal", BIGINT => "bigint");
+        $type_array = array(NONE => "NULL", VARCHAR => "varchar", INT => "int", DECIMAL => "decimal", BIGINT => "bigint", GEOMETRY => 'geometry');
 
         /* TODO: Do more checking here to make sure they really are matched */
         if (count($tables) != count($analyses)) {
@@ -935,7 +937,10 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
                     $size = 10;
                 }
 
-                $tempSQLStr .= PMA_backquote($tables[$i][COL_NAMES][$j]) . " " . $type_array[$analyses[$i][TYPES][$j]] . "(" . $size . ")";
+                $tempSQLStr .= PMA_backquote($tables[$i][COL_NAMES][$j]) . " " . $type_array[$analyses[$i][TYPES][$j]];
+                if ($analyses[$i][TYPES][$j] != GEOMETRY) {
+                    $tempSQLStr .= "(" . $size . ")";
+                }
 
                 if ($j != (count($tables[$i][COL_NAMES]) - 1)) {
                     $tempSQLStr .= ", ";
@@ -980,20 +985,28 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
             $tempSQLStr .= "(";
 
             for ($k = 0; $k < $num_cols; ++$k) {
-                if ($analyses != null) {
-                    $is_varchar = ($analyses[$i][TYPES][$col_count] === VARCHAR);
+                // If fully formatted SQL, no need to enclose with aphostrophes, add shalshes etc.
+                if ($analyses != null
+                    && isset($analyses[$i][FORMATTEDSQL][$col_count])
+                    && $analyses[$i][FORMATTEDSQL][$col_count] == true
+                ) {
+                    $tempSQLStr .= (string) $tables[$i][ROWS][$j][$k];
                 } else {
-                    $is_varchar = !is_numeric($tables[$i][ROWS][$j][$k]);
-                }
+                    if ($analyses != null) {
+                        $is_varchar = ($analyses[$i][TYPES][$col_count] === VARCHAR);
+                    } else {
+                        $is_varchar = !is_numeric($tables[$i][ROWS][$j][$k]);
+                    }
 
-                /* Don't put quotes around NULL fields */
-                if (! strcmp($tables[$i][ROWS][$j][$k], 'NULL')) {
-                    $is_varchar = false;
-                }
+                    /* Don't put quotes around NULL fields */
+                    if (! strcmp($tables[$i][ROWS][$j][$k], 'NULL')) {
+                        $is_varchar = false;
+                    }
 
-                $tempSQLStr .= (($is_varchar) ? "'" : "");
-                $tempSQLStr .= PMA_sqlAddSlashes((string)$tables[$i][ROWS][$j][$k]);
-                $tempSQLStr .= (($is_varchar) ? "'" : "");
+                    $tempSQLStr .= (($is_varchar) ? "'" : "");
+                    $tempSQLStr .= PMA_sqlAddSlashes((string)$tables[$i][ROWS][$j][$k]);
+                    $tempSQLStr .= (($is_varchar) ? "'" : "");
+                }
 
                 if ($k != ($num_cols - 1)) {
                     $tempSQLStr .= ", ";

@@ -3,8 +3,8 @@
 /**
  * Functions for the table-search page and zoom-search page
  *
- * Funtion PMA_tbl_getFields : Returns the fields of a table 
- * Funtion PMA_tbl_search_getWhereClause : Returns the where clause for query generation 
+ * Funtion PMA_tbl_getFields : Returns the fields of a table
+ * Funtion PMA_tbl_search_getWhereClause : Returns the where clause for query generation
  *
  * @package phpMyAdmin
  */
@@ -13,7 +13,7 @@ require_once 'url_generating.lib.php';
 
  /**
  * PMA_tbl_setTitle() sets the title for foreign keys display link
- * 
+ *
  * @param    $propertiesIconic    Type of icon property
  * @param    $themeImage          Icon Image
  * @return   string $str          Value of the Title
@@ -51,20 +51,26 @@ function PMA_tbl_setTitle($propertiesIconic,$pmaThemeImage){
  * @param    $db    								Selected database
  * @param    $table    								Selected table
  *
- * @return   array($fields_list,$fields_type,$fields_collation,$fields_null)    Array containing the field list, field types, collations and null constatint       
+ * @return   array($fields_list,$fields_type,$fields_collation,$fields_null)    Array containing the field list, field types, collations and null constatint
  *
  */
 
 function PMA_tbl_getFields($table,$db) {
-    
+
     // Gets the list and number of fields
 
     $result     = PMA_DBI_query('SHOW FULL FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . ';', null, PMA_DBI_QUERY_STORE);
     $fields_cnt = PMA_DBI_num_rows($result);
     $fields_list = $fields_null = $fields_type = $fields_collation = array();
+    $geom_column_present = false;
+    $geom_types = PMA_getGISDatatypes();
     while ($row = PMA_DBI_fetch_assoc($result)) {
         $fields_list[] = $row['Field'];
         $type          = $row['Type'];
+        // check whether table contains geometric columns
+        if (in_array($type, $geom_types)) {
+            $geom_column_present = true;
+        }
         // reformat mysql query output
         if (strncasecmp($type, 'set', 3) == 0
             || strncasecmp($type, 'enum', 4) == 0) {
@@ -93,20 +99,26 @@ function PMA_tbl_getFields($table,$db) {
     PMA_DBI_free_result($result);
     unset($result, $type);
 
-    return array($fields_list,$fields_type,$fields_collation,$fields_null);
-   
+    return array($fields_list,$fields_type,$fields_collation,$fields_null, $geom_column_present);
+
 }
 
 /* PMA_tbl_setTableHeader() sets the table header for displaying a table in query-by-example format
  *
- * @return   HTML content, the tags and content for table header       
+ * @return   HTML content, the tags and content for table header
  *
  */
 
-function PMA_tbl_setTableHeader(){
+function PMA_tbl_setTableHeader($geom_column_present = false){
+
+    // Display the Function column only if there is alteast one geomety colum
+    $func = '';
+    if ($geom_column_present) {
+        $func = '<th>' . __('Function') . '</th>';
+    }
 
 return '<thead>
-        <tr><th>' .  __('Column') . '</th>
+        <tr>' . $func . '<th>' .  __('Column') . '</th>
         <th>' .  __('Type') . '</th>
         <th>' .  __('Collation') . '</th>
         <th>' .  __('Operator') . '</th>
@@ -117,9 +129,9 @@ return '<thead>
 
 }
 
-/* PMA_tbl_getSubTabs() returns an array with necessary configrations to create sub-tabs(Table Search and Zoom Search) in the table_select page 
+/* PMA_tbl_getSubTabs() returns an array with necessary configrations to create sub-tabs(Table Search and Zoom Search) in the table_select page
  *
- * @return   array $subtabs    Array containing configuration (icon,text,link,id,args) of sub-tabs for Table Search and Zoom search       
+ * @return   array $subtabs    Array containing configuration (icon,text,link,id,args) of sub-tabs for Table Search and Zoom search
  *
  */
 
@@ -137,7 +149,7 @@ function PMA_tbl_getSubTabs(){
     $subtabs['zoom']['link'] = 'tbl_zoom_select.php';
     $subtabs['zoom']['text'] = __('Zoom Search');
     $subtabs['zoom']['id'] = 'zoom_search_id';
-	
+
     return $subtabs;
 
 }
@@ -164,12 +176,13 @@ function PMA_tbl_getSubTabs(){
  * @param    $titles              Selected title
  * @param    $foreignMaxLimit     Max limit of displaying foreign elements
  * @param    $fields              Array of search criteria inputs
+ * @param    $in_fbs              In function based search
  *
- * @return   string $str    HTML content for viewing foreing data and elements for search criteria input.       
+ * @return   string $str    HTML content for viewing foreing data and elements for search criteria input.
  *
  */
 
-function PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fields_type, $i, $db, $table,$titles,$foreignMaxLimit, $fields){
+function PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fields_type, $i, $db, $table, $titles, $foreignMaxLimit, $fields, $in_fbs = false){
 
     $str = '';
 
@@ -185,29 +198,40 @@ function PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fie
                 $foreignData['foreign_display'],
                 '', $foreignMaxLimit);
         $str .= '            </select>' . "\n";
-    } 
+    }
     elseif ($foreignData['foreign_link'] == true) {
         if(isset($fields[$i]) && is_string($fields[$i])){
  	    $str .= '<input type="text" id="fieldID_' . $i .'"name="fields[' . $i . '] " value="' . $fields[$i] . '"';
-		     'id="field_' . md5($field) . '[' . $i .']" 
-		     class="textfield"/>' ; 
+		     'id="field_' . md5($field) . '[' . $i .']"
+		     class="textfield"/>' ;
         }
         else{
  	    $str .= '<input type="text" id="fieldID_' . $i .'"name="fields[' . $i . '] "';
-		     'id="field_' . md5($field) . '[' . $i .']" 
-		     class="textfield" />' ; 
+		     'id="field_' . md5($field) . '[' . $i .']"
+		     class="textfield" />' ;
         }
  ?>
 	<?php $str .= '<script type="text/javascript">';
         // <![CDATA[
 	$str .=  <<<EOT
-<a target="_blank" onclick="window.open(this.href, 'foreigners', 'width=640,height=240,scrollbars=yes'); return false" href="browse_foreigners.php? 
+<a target="_blank" onclick="window.open(this.href, 'foreigners', 'width=640,height=240,scrollbars=yes'); return false" href="browse_foreigners.php?
 EOT;
         $str .= '' . PMA_generate_common_url($db, $table) .  '&amp;field=' . urlencode($field) . '&amp;fieldkey=' . $i . '">' . str_replace("'", "\'", $titles['Browse']) . '</a>';
         // ]]
         $str .= '</script>';
-        } 
-    elseif (strncasecmp($tbl_fields_type[$i], 'enum', 4) == 0) {
+    } elseif (in_array($tbl_fields_type[$i], PMA_getGISDatatypes())) {
+        // g e o m e t r y
+        $str .= '<input type="text" name="fields[' . $i . ']"'
+        .' size="40" class="textfield" id="field_' . $i . '" />' .  "\n";
+
+        if ($in_fbs) {
+            $edit_url = 'gis_data_editor.php?' . PMA_generate_common_url();
+            $edit_str = PMA_getIcon('b_edit.png', __('Edit/Insert'), true);
+            $str .= '<span class="open_search_gis_editor">';
+            $str .= PMA_linkOrButton($edit_url, $edit_str, array(), false, false, '_blank');
+            $str .= '</span>';
+        }
+    } elseif (strncasecmp($tbl_fields_type[$i], 'enum', 4) == 0) {
         // e n u m s
         $enum_value=explode(', ', str_replace("'", '', substr($tbl_fields_type[$i], 5, -1)));
         $cnt_enum_value = count($enum_value);
@@ -224,7 +248,7 @@ EOT;
                         }
                 } // end for
         $str .= '            </select>' . "\n";
-    } 
+    }
     else {
         // o t h e r   c a s e s
         $the_class = 'textfield';
@@ -267,17 +291,61 @@ EOT;
  * @param    $func_type     Search fucntion/operator
  * @param    $unaryFlag     Whether operator unary or not
  *
- * @return   string $str    HTML content for viewing foreing data and elements for search criteria input.       
+ * @return   string $str    HTML content for viewing foreing data and elements for search criteria input.
  *
  */
 
-function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations, $func_type, $unaryFlag){
-	
+function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations, $func_type, $unaryFlag, $geom_func = null){
 
-    $w = ''; 
+    /**
+     * @todo move this to a more apropriate place
+     */
+    $geom_unary_functions = array(
+        'IsEmpty' => 1,
+        'IsSimple' => 1,
+        'IsRing' => 1,
+        'IsClosed' => 1,
+    );
+
+    $w = '';
+
+    // If geometry function is set apply it to the field name
+    if ($geom_func != null && trim($geom_func) != '') {
+        // Get details about the geometry fucntions
+        $geom_funcs = PMA_getGISFunctions($types, true, false);
+
+        // If the function takes a single parameter
+        if ($geom_funcs[$geom_func]['params'] == 1) {
+            $backquoted_name = $geom_func . '(' . PMA_backquote($names) . ')';
+            // If the function takes two parameters
+        } else {
+            // create gis data from the string
+            $gis_data = PMA_createGISData($fields);
+
+            $w = $geom_func . '(' . PMA_backquote($names) . ',' . $gis_data . ')';
+            return $w;
+        }
+
+        // New output type is the output type of the function being applied
+        $types = $geom_funcs[$geom_func]['type'];
+
+        // If the intended where clause is something like 'IsEmpty(`spatial_col_name`)'
+        if (isset($geom_unary_functions[$geom_func]) && trim($fields) == '') {
+            $w = $backquoted_name;
+            return $w;
+        }
+    } else {
+        $backquoted_name = PMA_backquote($names);
+    }
+
     if($unaryFlag){
         $fields = '';
-            $w = PMA_backquote($names) . ' ' . $func_type;
+            $w = $backquoted_name . ' ' . $func_type;
+
+    } elseif (in_array($types, PMA_getGISDatatypes())) {
+        // create gis data from the string
+        $gis_data = PMA_createGISData($fields);
+        $w = $backquoted_name . ' ' . $func_type . ' ' . $gis_data;
 
     } elseif (strncasecmp($types, 'enum', 4) == 0) {
         if (!empty($fields)) {
@@ -304,7 +372,7 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations, $fu
                    $enum_where .= ', \'' . PMA_sqlAddslashes($fields[$e]) . '\'';
                }
 
-               $w = PMA_backquote($names) . ' ' . $func_type . ' ' . $parens_open . $enum_where . $parens_close;
+               $w = $backquoted_name . ' ' . $func_type . ' ' . $parens_open . $enum_where . $parens_close;
         }
 
     } elseif ($fields != '') {
@@ -336,12 +404,12 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations, $fu
             $value = $quot . PMA_sqlAddslashes(trim($value)) . $quot;
 
             if ($func_type == 'BETWEEN' || $func_type == 'NOT BETWEEN')
-                $w = PMA_backquote($names) . ' ' . $func_type . ' ' . (isset($values[0]) ? $values[0] : '')  . ' AND ' . (isset($values[1]) ? $values[1] : '');
+                $w = $backquoted_name . ' ' . $func_type . ' ' . (isset($values[0]) ? $values[0] : '')  . ' AND ' . (isset($values[1]) ? $values[1] : '');
             else
-                $w = PMA_backquote($names) . ' ' . $func_type . ' (' . implode(',', $values) . ')';
+                $w = $backquoted_name . ' ' . $func_type . ' (' . implode(',', $values) . ')';
         }
         else {
-            $w = PMA_backquote($names) . ' ' . $func_type . ' ' . $quot . PMA_sqlAddslashes($fields) . $quot;;
+            $w = $backquoted_name . ' ' . $func_type . ' ' . $quot . PMA_sqlAddslashes($fields) . $quot;;
         }
 
     } // end if

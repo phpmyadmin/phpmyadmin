@@ -68,6 +68,7 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
     public function prepareRowAsPng($spatial, $label, $line_color, $scale_data, $image)
     {
         // allocate colors
+        $black = imagecolorallocate($image, 0, 0, 0);
         $red   = hexdec(substr($line_color, 1, 2));
         $green = hexdec(substr($line_color, 3, 2));
         $blue  = hexdec(substr($line_color, 4, 2));
@@ -78,6 +79,7 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
         // Seperate each linestring
         $linestirngs = explode("),(", $multilinestirng);
 
+        $first_line = true;
         foreach ($linestirngs as $linestring) {
             $points_arr = $this->extractPoints($linestring, $scale_data);
             foreach ($points_arr as $point) {
@@ -90,6 +92,11 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
                 }
             }
             unset($temp_point);
+            // print label if applicable
+            if (isset($label) && trim($label) != '' && $first_line) {
+                imagestring($image, 1, $points_arr[1][0], $points_arr[1][1], trim($label), $black);
+            }
+            $first_line = false;
         }
         return $image;
     }
@@ -118,6 +125,7 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
         // Seperate each linestring
         $linestirngs = explode("),(", $multilinestirng);
 
+        $first_line = true;
         foreach ($linestirngs as $linestring) {
             $points_arr = $this->extractPoints($linestring, $scale_data);
             foreach ($points_arr as $point) {
@@ -130,6 +138,13 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
                 }
             }
             unset($temp_point);
+            // print label
+            if (isset($label) && trim($label) != '' && $first_line) {
+                $pdf->SetXY($points_arr[1][0], $points_arr[1][1]);
+                $pdf->SetFontSize(5);
+                $pdf->Cell(0, 0, trim($label));
+            }
+            $first_line = false;
         }
         return $pdf;
     }
@@ -224,6 +239,110 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
         $row = substr($row, 0, strlen($row) - 2);
         $row .= ')), null, ' . json_encode($style_options) . '));';
         return $row;
+    }
+
+    /**
+     * Generate the WKT with the set of parameters passed by the GIS editor.
+     *
+     * @param array  $gis_data GIS data
+     * @param int    $index    Index into the parameter object
+     * @param string $empty    Value for empty points
+     *
+     * @return WKT with the set of parameters passed by the GIS editor
+     */
+    public function generateWkt($gis_data, $index, $empty = '')
+    {
+        $no_of_lines = isset($gis_data[$index]['MULTILINESTRING']['no_of_lines'])
+            ? $gis_data[$index]['MULTILINESTRING']['no_of_lines'] : 1;
+        if ($no_of_lines < 1) {
+            $no_of_lines = 1;
+        }
+        $wkt = 'MULTILINESTRING(';
+        for ($i = 0; $i < $no_of_lines; $i++) {
+            $no_of_points = isset($gis_data[$index]['MULTILINESTRING'][$i]['no_of_points'])
+                ? $gis_data[$index]['MULTILINESTRING'][$i]['no_of_points'] : 2;
+            if ($no_of_points < 2) {
+                $no_of_points = 2;
+            }
+            $wkt .= '(';
+            for ($j = 0; $j < $no_of_points; $j++) {
+                $wkt .= ((isset($gis_data[$index]['MULTILINESTRING'][$i][$j]['x'])
+                    && trim($gis_data[$index]['MULTILINESTRING'][$i][$j]['x']) != '')
+                    ? $gis_data[$index]['MULTILINESTRING'][$i][$j]['x'] : $empty)
+                    . ' ' . ((isset($gis_data[$index]['MULTILINESTRING'][$i][$j]['y'])
+                    && trim($gis_data[$index]['MULTILINESTRING'][$i][$j]['y']) != '')
+                    ? $gis_data[$index]['MULTILINESTRING'][$i][$j]['y'] : $empty) . ',';
+            }
+            $wkt = substr($wkt, 0, strlen($wkt) - 1);
+            $wkt .= '),';
+        }
+        $wkt = substr($wkt, 0, strlen($wkt) - 1);
+        $wkt .= ')';
+        return $wkt;
+    }
+
+    /**
+     * Generate the WKT for the data from ESRI shape files.
+     *
+     * @param array $row_data GIS data
+     *
+     * @return the WKT for the data from ESRI shape files
+     */
+    public function getShape($row_data)
+    {
+        $wkt = 'MULTILINESTRING(';
+        for ($i = 0; $i < $row_data['numparts']; $i++) {
+            $wkt .= '(';
+            foreach ($row_data['parts'][$i]['points'] as $point) {
+                $wkt .= $point['x'] . ' ' . $point['y'] . ',';
+            }
+            $wkt = substr($wkt, 0, strlen($wkt) - 1);
+            $wkt .= '),';
+        }
+        $wkt = substr($wkt, 0, strlen($wkt) - 1);
+        $wkt .= ')';
+        return $wkt;
+    }
+
+    /**
+     * Generate parameters for the GIS data editor from the value of the GIS column.
+     *
+     * @param string $value of the GIS column
+     * @param index  $index of the geometry
+     *
+     * @return  parameters for the GIS data editor from the value of the GIS column
+     */
+    public function generateParams($value, $index = -1)
+    {
+        if ($index == -1) {
+            $index = 0;
+            $params = array();
+            $data = PMA_GIS_Geometry::generateParams($value);
+            $params['srid'] = $data['srid'];
+            $wkt = $data['wkt'];
+        } else {
+            $params[$index]['gis_type'] = 'MULTILINESTRING';
+            $wkt = $value;
+        }
+
+        // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
+        $multilinestirng = substr($wkt, 17, (strlen($wkt) - 19));
+        // Seperate each linestring
+        $linestirngs = explode("),(", $multilinestirng);
+        $params[$index]['MULTILINESTRING']['no_of_lines'] = count($linestirngs);
+
+        $j = 0;
+        foreach ($linestirngs as $linestring) {
+            $points_arr = $this->extractPoints($linestring, null);
+            $no_of_points = count($points_arr);
+            $params[$index]['MULTILINESTRING'][$j]['no_of_points'] = $no_of_points;
+            for ($i = 0; $i < $no_of_points; $i++) {
+                $params[$index]['MULTILINESTRING'][$j][$i]['x'] = $points_arr[$i][0];
+                $params[$index]['MULTILINESTRING'][$j][$i]['y'] = $points_arr[$i][1];
+            }
+            $j++;
+        }
+        return $params;
     }
 }
 ?>

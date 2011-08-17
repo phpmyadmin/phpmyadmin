@@ -2073,6 +2073,13 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
                     // this blob won't be part of the final condition
                     $con_val = null;
                 }
+            } elseif (in_array($meta->type, PMA_getGISDatatypes()) && ! empty($row[$i])) {
+                // do not build a too big condition
+                if (strlen($row[$i]) < 5000) {
+                    $condition .= '=0x' . bin2hex($row[$i]) . ' AND';
+                } else {
+                    $condition = '';
+                }
             } elseif ($meta->type == 'bit') {
                 $con_val = "= b'" . PMA_printable_bit_value($row[$i], $meta->length) . "'";
             } else {
@@ -2855,6 +2862,31 @@ function PMA_replace_binary_contents($content)
 }
 
 /**
+ * Converts GIS data to Well Known Text format
+ *
+ * @param  $data     GIS data
+ * @param  $includeSRID  Add SRID to the WKT
+ * @return GIS data in Well Know Text format
+ */
+function PMA_asWKT($data, $includeSRID = false) {
+    // Convert to WKT format
+    $hex = bin2hex($data);
+    $wktsql     = "SELECT ASTEXT(x'" . $hex . "')";
+    if ($includeSRID) {
+        $wktsql .= ", SRID(x'" . $hex . "')";
+    }
+    $wktresult  = PMA_DBI_try_query($wktsql, null, PMA_DBI_QUERY_STORE);
+    $wktarr     = PMA_DBI_fetch_row($wktresult, 0);
+    $wktval     = $wktarr[0];
+    if ($includeSRID) {
+        $srid = $wktarr[1];
+        $wktval = "'" . $wktval . "'," . $srid;
+    }
+    @PMA_DBI_free_result($wktresult);
+    return $wktval;
+}
+
+/**
  * If the string starts with a \r\n pair (0x0d0a) add an extra \n
  *
  * @param string $string
@@ -3166,20 +3198,155 @@ function PMA_getSupportedDatatypes($html = false, $selected = '')
  * @return   array   list of datatypes
  */
 
-function PMA_unsupportedDatatypes()
-{
-    // These GIS data types are not yet supported.
-    $no_support_types = array('geometry',
-                              'point',
-                              'linestring',
-                              'polygon',
-                              'multipoint',
-                              'multilinestring',
-                              'multipolygon',
-                              'geometrycollection'
-                        );
-
+function PMA_unsupportedDatatypes() {
+    $no_support_types = array();
     return $no_support_types;
+}
+
+function PMA_getGISDatatypes($upper_case = false) {
+    $gis_data_types = array('geometry',
+                            'point',
+                            'linestring',
+                            'polygon',
+                            'multipoint',
+                            'multilinestring',
+                            'multipolygon',
+                            'geometrycollection'
+                      );
+    if ($upper_case) {
+        for ($i = 0; $i < count($gis_data_types); $i++) {
+            $gis_data_types[$i] = strtoupper($gis_data_types[$i]);
+        }
+    }
+
+    return $gis_data_types;
+}
+
+/**
+ * Generates GIS data based on the string passed.
+ *
+ * @param string $gis_string GIS string
+ */
+function PMA_createGISData($gis_string) {
+    $gis_string =  trim($gis_string);
+    $geom_types = '(POINT|MULTIPOINT|LINESTRING|MULTILINESTRING|POLYGON|MULTIPOLYGON|GEOMETRYCOLLECTION)';
+    if (preg_match("/^'" . $geom_types . "\(.*\)',[0-9]*$/i", $gis_string)) {
+        return 'GeomFromText(' . $gis_string . ')';
+    } elseif (preg_match("/^" . $geom_types . "\(.*\)$/i", $gis_string)) {
+        return "GeomFromText('" . $gis_string . "')";
+    } else {
+        return $gis_string;
+    }
+}
+
+/**
+ * Returns the names and details of the functions
+ * that can be applied on geometry data typess.
+ *
+ * @param string $geom_type if provided the output is limited to the functions
+ *                          that are applicable to the provided geometry type.
+ * @param bool   $binary    if set to false functions that take two geometries
+ *                          as arguments will not be included.
+ * @param bool   $display   if set to true seperators will be added to the
+ *                          output array.
+ *
+ * @return array names and details of the functions that can be applied on
+ *               geometry data typess.
+ */
+function PMA_getGISFunctions($geom_type = null, $binary = true, $display = false) {
+
+    $funcs = array();
+    if ($display) {
+        $funcs[] = array('display' => ' ');
+    }
+
+    // Unary functions common to all geomety types
+    $funcs['Dimension']    = array('params' => 1, 'type' => 'int');
+    $funcs['Envelope']     = array('params' => 1, 'type' => 'Polygon');
+    $funcs['GeometryType'] = array('params' => 1, 'type' => 'text');
+    $funcs['SRID']         = array('params' => 1, 'type' => 'int');
+    $funcs['IsEmpty']      = array('params' => 1, 'type' => 'int');
+    $funcs['IsSimple']     = array('params' => 1, 'type' => 'int');
+
+    $geom_type = trim(strtolower($geom_type));
+    if ($display && $geom_type != 'geometry' && $geom_type != 'multipoint') {
+        $funcs[] = array('display' => '--------');
+    }
+
+    // Unary functions that are specific to each geomety type
+    if ($geom_type == 'point') {
+        $funcs['X'] = array('params' => 1, 'type' => 'float');
+        $funcs['Y'] = array('params' => 1, 'type' => 'float');
+
+    } elseif ($geom_type == 'multipoint') {
+        // no fucntions here
+    } elseif ($geom_type == 'linestring') {
+        $funcs['EndPoint']   = array('params' => 1, 'type' => 'point');
+        $funcs['GLength']    = array('params' => 1, 'type' => 'float');
+        $funcs['NumPoints']  = array('params' => 1, 'type' => 'int');
+        $funcs['StartPoint'] = array('params' => 1, 'type' => 'point');
+        $funcs['IsRing']     = array('params' => 1, 'type' => 'int');
+
+    } elseif ($geom_type == 'multilinestring') {
+        $funcs['GLength']  = array('params' => 1, 'type' => 'float');
+        $funcs['IsClosed'] = array('params' => 1, 'type' => 'int');
+
+    } elseif ($geom_type == 'polygon') {
+        $funcs['Area']             = array('params' => 1, 'type' => 'float');
+        $funcs['ExteriorRing']     = array('params' => 1, 'type' => 'linestring');
+        $funcs['NumInteriorRings'] = array('params' => 1, 'type' => 'int');
+
+    } elseif ($geom_type == 'multipolygon') {
+        $funcs['Area']     = array('params' => 1, 'type' => 'float');
+        $funcs['Centroid'] = array('params' => 1, 'type' => 'point');
+        // Not yet implemented in MySQL
+        //$funcs['PointOnSurface'] = array('params' => 1, 'type' => 'point');
+
+    } elseif ($geom_type == 'geometrycollection') {
+        $funcs['NumGeometries'] = array('params' => 1, 'type' => 'int');
+    }
+
+    // If we are asked for binary functions as well
+    if ($binary) {
+        // section seperator
+        if ($display) {
+            $funcs[] = array('display' => '--------');
+        }
+        if (PMA_MYSQL_INT_VERSION < 50601) {
+            $funcs['Crosses']    = array('params' => 2, 'type' => 'int');
+            $funcs['Contains']   = array('params' => 2, 'type' => 'int');
+            $funcs['Disjoint']   = array('params' => 2, 'type' => 'int');
+            $funcs['Equals']     = array('params' => 2, 'type' => 'int');
+            $funcs['Intersects'] = array('params' => 2, 'type' => 'int');
+            $funcs['Overlaps']   = array('params' => 2, 'type' => 'int');
+            $funcs['Touches']    = array('params' => 2, 'type' => 'int');
+            $funcs['Within']     = array('params' => 2, 'type' => 'int');
+        } else {
+            // If MySQl version is greaeter than or equal 5.6.1, use the ST_ prefix.
+            $funcs['ST_Crosses']    = array('params' => 2, 'type' => 'int');
+            $funcs['ST_Contains']   = array('params' => 2, 'type' => 'int');
+            $funcs['ST_Disjoint']   = array('params' => 2, 'type' => 'int');
+            $funcs['ST_Equals']     = array('params' => 2, 'type' => 'int');
+            $funcs['ST_Intersects'] = array('params' => 2, 'type' => 'int');
+            $funcs['ST_Overlaps']   = array('params' => 2, 'type' => 'int');
+            $funcs['ST_Touches']    = array('params' => 2, 'type' => 'int');
+            $funcs['ST_Within']     = array('params' => 2, 'type' => 'int');
+
+        }
+
+        if ($display) {
+            $funcs[] = array('display' => '--------');
+        }
+        // Minimum bounding rectangle functions
+        $funcs['MBRContains']   = array('params' => 2, 'type' => 'int');
+        $funcs['MBRDisjoint']   = array('params' => 2, 'type' => 'int');
+        $funcs['MBREquals']     = array('params' => 2, 'type' => 'int');
+        $funcs['MBRIntersects'] = array('params' => 2, 'type' => 'int');
+        $funcs['MBROverlaps']   = array('params' => 2, 'type' => 'int');
+        $funcs['MBRTouches']    = array('params' => 2, 'type' => 'int');
+        $funcs['MBRWithin']     = array('params' => 2, 'type' => 'int');
+    }
+    return $funcs;
 }
 
 /**

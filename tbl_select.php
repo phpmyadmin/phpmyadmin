@@ -24,8 +24,18 @@ $GLOBALS['js_include'][] = 'tbl_change.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'jquery/timepicker.js';
 
+// required for GIS editor loaded via AJAX
+$GLOBALS['js_include'][] = 'gis_data_editor.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.svg.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.mousewheel.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.event.drag-2.0.min.js';
+$GLOBALS['js_include'][] = 'tbl_gis_visualization.js';
+$GLOBALS['js_include'][] = 'openlayers/OpenLayers.js';
+$GLOBALS['js_include'][] = 'OpenStreetMap.js';
+
 $titles['Browse'] = PMA_tbl_setTitle($GLOBALS['cfg']['PropertiesIconic'], $pmaThemeImage);
 
+$geom_types = PMA_getGISDatatypes();
 /**
  * Not selection yet required -> displays the selection form
  */
@@ -52,8 +62,7 @@ if (! isset($param) || $param[0] == '') {
     $err_url   = $goto . '?' . PMA_generate_common_url($db, $table);
 
     // Gets the list and number of fields
-
-    list($fields_list, $fields_type, $fields_collation, $fields_null) = PMA_tbl_getFields($table,$db);
+    list($fields_list, $fields_type, $fields_collation, $fields_null, $geom_column_present) = PMA_tbl_getFields($table,$db);
     $fields_cnt = count($fields_list);
 
     // retrieve keys into foreign fields, if any
@@ -82,7 +91,7 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params);
 <fieldset id="fieldset_table_qbe">
     <legend><?php echo __('Do a "query by example" (wildcard: "%")') ?></legend>
     <table class="data">
-    <?php echo PMA_tbl_setTableHeader(); ?>
+    <?php echo PMA_tbl_setTableHeader($geom_column_present); ?>
     <tbody>
     <?php
     $odd_row = true;
@@ -90,6 +99,27 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params);
     for ($i = 0; $i < $fields_cnt; $i++) {
         ?>
         <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
+            <?php
+            // if 'Function' column is present
+            if ($geom_column_present) {
+                echo('<td>');
+                // if a geometry column
+                if (in_array($fields_type[$i], $geom_types)) {
+                    echo('<select class="geom_func" name="geom_func['. $i .']">');
+                        // get the relevant list of functions
+                        $funcs = PMA_getGISFunctions($fields_type[$i], true, true);
+                        foreach ($funcs as $func_name => $func) {
+                            $name =  isset($func['display']) ? $func['display'] : $func_name;
+                            echo('<option value="' . htmlspecialchars($name) . '">'
+                                . htmlspecialchars($name) . '</option>');
+                        }
+                    echo('</select>');
+                } else {
+                    echo('&nbsp;');
+                }
+                echo('</td>');
+            }
+            ?>
             <th><?php echo htmlspecialchars($fields_list[$i]); ?></th>
             <td><?php echo $fields_type[$i]; ?></td>
             <td><?php echo $fields_collation[$i]; ?></td>
@@ -131,8 +161,8 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params);
 
         $foreignData = PMA_getForeignData($foreigners, $field, false, '', '');
 
-	echo PMA_getForeignFields_Values($foreigners, $foreignData, $field, $fields_type, $i, $db, $table, $titles,$GLOBALS['cfg']['ForeignKeyMaxLimit'], '' );
-        
+	echo PMA_getForeignFields_Values($foreigners, $foreignData, $field, $fields_type, $i, $db, $table, $titles,$GLOBALS['cfg']['ForeignKeyMaxLimit'], '', true);
+
 	?>
             <input type="hidden" name="names[<?php echo $i; ?>]"
                 value="<?php echo htmlspecialchars($fields_list[$i]); ?>" />
@@ -147,6 +177,7 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params);
     ?>
     </tbody>
     </table>
+<div id="gis_editor"></div><div id="popup_background"></div>
 </fieldset>
 <?php
     PMA_generate_slider_effect('searchoptions', __('Options'));
@@ -228,7 +259,6 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params);
  * Selection criteria have been submitted -> do the work
  */
 else {
-    echo "ZZ";
     // Builds the query
 
     $sql_query = 'SELECT ' . (isset($distinct) ? 'DISTINCT ' : '');
@@ -258,14 +288,16 @@ else {
         $cnt_func = count($func);
         reset($func);
         while (list($i, $func_type) = each($func)) {
-            
-	    list($charsets[$i]) = explode('_', $collations[$i]);
+
+	        list($charsets[$i]) = explode('_', $collations[$i]);
             $unaryFlag =  (isset($GLOBALS['cfg']['UnaryOperators'][$func_type]) && $GLOBALS['cfg']['UnaryOperators'][$func_type] == 1) ? true : false;
-	    $whereClause = PMA_tbl_search_getWhereClause($fields[$i],$names[$i], $types[$i], $collations[$i], $func_type, $unaryFlag);
-	    if($whereClause)
-		$w[] = $whereClause;
-	
-        } // end for
+
+            $tmp_geom_func = isset($geom_func[$i]) ? $geom_func[$i] : null;
+	        $whereClause = PMA_tbl_search_getWhereClause($fields[$i],$names[$i], $types[$i], $collations[$i], $func_type, $unaryFlag, $tmp_geom_func);
+
+	        if($whereClause)
+		        $w[] = $whereClause;
+            } // end for
 	//print_r($w);
         if ($w) {
             $sql_query .= ' WHERE ' . implode(' AND ', $w);
