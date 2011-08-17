@@ -468,6 +468,8 @@ th.headerSortUp img.sortableIcon { background-position: -1516px 0; }
 /* Same as s_desc */
 th.headerSortDown img.sortableIcon { background-position: 0 0; }
 
+/* Fix position */
+.ic_more { vertical-align: middle; }
 
 /******************************************************************************/
 /* classes */
