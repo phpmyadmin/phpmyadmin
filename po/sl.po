@@ -8045,10 +8045,9 @@ msgid "Table Search"
 msgstr "Iskanje po tabeli"
 
 #: libraries/tbl_select.lib.php:229 tbl_change.php:994
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "Vstavi"
+msgstr "Uredi/Vstavi"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 msgid ""
