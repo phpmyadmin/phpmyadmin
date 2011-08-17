@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-18 00:40+0200\n"
+"PO-Revision-Date: 2011-08-18 00:41+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -11678,6 +11678,8 @@ msgstr "Neprekinjeno delovanje krajše od enega dneva"
 #: po/advisory_rules.php:6
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
+"Neprekinjeno delovanje je krajše od enega dneva; nastavitev zmogljivosti "
+"morda ni točna."
 
 #: po/advisory_rules.php:7
 msgid ""
