@@ -1807,7 +1807,7 @@ msgstr "Kopiraj"
 
 #: js/messages.php:291
 msgid "Outer Ring"
-msgstr ""
+msgstr "Zunanji obroč"
 
 #: js/messages.php:297
 msgid "Add columns"
