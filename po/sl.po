@@ -6697,7 +6697,7 @@ msgstr "Uvozi denarne enote <i>(npr. $5.00 v 5.00)</i>"
 
 #: libraries/import/shp.php:14
 msgid "ESRI Shape File"
-msgstr ""
+msgstr "Datoteka oblik ESRI"
 
 #: libraries/import/shp.php:254
 #, php-format
