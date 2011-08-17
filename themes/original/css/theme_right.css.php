@@ -1196,7 +1196,7 @@ div.liveChart {
 }
 
 #addChartDialog input[type="text"] {
-    margin:0px;
+    margin: 0;
     padding:3px;
 }
 
@@ -1592,7 +1592,7 @@ div.upload_progress_bar_outer
 div.upload_progress_bar_inner
 {
     background-color: <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
-    width: 0px;
+    width: 0;
     height: 12px;
     margin: 1px;
 }
@@ -1613,7 +1613,7 @@ table#serverconnection_trg_local  {
   *  Ajax notification styling
   */
  .ajax_notification {
-    top: 0px;           /** The notification needs to be shown on the top of the page */
+    top: 0;           /** The notification needs to be shown on the top of the page */
     position: fixed;
     margin-top: 0;
     margin-right: auto;
@@ -1684,13 +1684,13 @@ table#serverconnection_trg_local  {
 }
 
 .format_specific_options h3 {
-    margin: 10px 0px 0px 10px;
-    border: 0px;
+    margin: 10px 0 0 10px;
+    border: 0;
 }
 
 .format_specific_options {
     border: 1px solid #999999;
-    margin: 7px 0px;
+    margin: 7px 0;
     padding: 3px;
 }
 
@@ -1706,7 +1706,7 @@ select#db_select, select#table_select {
 }
 
 .export_sub_options {
-    margin: 20px 0px 0px 30px;
+    margin: 20px 0 0 30px;
 }
 
 .export_sub_options h4 {
@@ -1730,7 +1730,7 @@ select#db_select, select#table_select {
  */
 
 .importoptions #import_notification {
-    margin: 10px 0px;
+    margin: 10px 0;
     font-style: italic;
 }
 
@@ -1739,7 +1739,7 @@ input#input_import_file {
 }
 
 .formelementrow {
-    margin: 5px 0px 5px 0px;
+    margin: 5px 0 5px 0;
 }
 
 /**
@@ -1824,12 +1824,12 @@ a.close_enum_editor {
 }
 
 #enum_editor #values, #enum_editor_no_js #values {
-    margin: 15px 0px;
+    margin: 15px 0;
     width: 100%;
 }
 
 #enum_editor #values input, #enum_editor_no_js #values input {
-    margin: 5px 0px;
+    margin: 5px 0;
     float: top;
     width: 100%;
 }
