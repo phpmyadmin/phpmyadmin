@@ -368,7 +368,7 @@ foreach ($query as $single_query) {
     }
 
     if (! $result) {
-        $error_messages[] = PMA_DBI_getError();
+        $error_messages[] = PMA_Message::sanitize(PMA_DBI_getError());
     } else {
         // The next line contains a real assignment, it's not a typo
         if ($tmp = @PMA_DBI_affected_rows()) {
@@ -392,8 +392,8 @@ foreach ($query as $single_query) {
     } // end if
 
     foreach (PMA_DBI_get_warnings() as $warning) {
-        $warning_messages[] = $warning['Level'] . ': #' . $warning['Code']
-            . ' ' . $warning['Message'];
+        $warning_messages[] = PMA_Message::sanitize($warning['Level'] . ': #' . $warning['Code']
+            . ' ' . $warning['Message']);
     }
 
     unset($result);
