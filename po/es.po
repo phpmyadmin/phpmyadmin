@@ -12157,7 +12157,7 @@ msgid ""
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
-"El caché está  %s%% fragmentado actualmente. Una fragmentación del 100% "
+"El caché está  %s%% fragmentado actualmente. Una fragmentación del 100%% "
 "significa que el caché de consulta es un patrón alternante de bloques "
 "utilizados y libres. Este valor debería ser menor al 20%%."
 
