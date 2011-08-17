@@ -19,9 +19,9 @@ if (isset($plugin_list)) {
 } else {
 
     if ((int) ini_get('memory_limit') < 512) {
-        ini_set('memory_limit', '512M');
+        @ini_set('memory_limit', '512M');
     }
-    set_time_limit(300);
+    @set_time_limit(300);
 
 
     // Append the bfShapeFiles directory to the include path variable
