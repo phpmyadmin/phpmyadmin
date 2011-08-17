@@ -1411,11 +1411,19 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             $hide_class = ($col_visib && !$col_visib[$j] &&
                            // hide per <td> only if the display direction is not vertical
                            $_SESSION['tmp_user_values']['disp_direction'] != 'vertical') ? 'hide' : '';
+            // handle datetime-related class, for grid editing
+            if (substr($meta->type, 0, 9) == 'timestamp' || $meta->type == 'datetime') {
+                $field_type_class = 'datetimefield';
+            } else if ($meta->type == 'date') {
+                $field_type_class = 'datefield';
+            } else {
+                $field_type_class = '';
+            }
             $pointer = $i;
             $is_field_truncated = false;
             //If the previous column had blob data, we need to reset the class
             // to $inline_edit_class
-            $class = 'data ' . $grid_edit_class . ' ' . $not_null_class . ' ' . $relation_class . ' ' . $hide_class; //' ' . $alternating_color_class .
+            $class = 'data ' . $grid_edit_class . ' ' . $not_null_class . ' ' . $relation_class . ' ' . $hide_class . ' ' . $field_type_class; //' ' . $alternating_color_class .
 
             //  See if this column should get highlight because it's used in the
             //  where-query.

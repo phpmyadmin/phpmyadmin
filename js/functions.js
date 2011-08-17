@@ -150,13 +150,15 @@ function PMA_addDatepicker($this_element, options)
         showOn: 'button',
         buttonImage: themeCalendarImage, // defined in js/messages.php
         buttonImageOnly: true,
-        duration: '',
-        time24h: true,
         stepMinutes: 1,
         stepHours: 1,
-        showTime: showTimeOption,
+        showSecond: true,
+        showTimepicker: showTimeOption,
+        showButtonPanel: false,
         dateFormat: 'yy-mm-dd', // yy means year with four digits
-        altTimeField: '',
+        timeFormat: 'hh:mm:ss',
+        altFieldTimeOnly: false,
+        showAnim: '',
         beforeShow: function(input, inst) {
             // Remember that we came from the datepicker; this is used
             // in tbl_change.js by verificationsAfterFieldChange()
@@ -166,11 +168,10 @@ function PMA_addDatepicker($this_element, options)
             setTimeout(function() {
                 $('#ui-timepicker-div').css('z-index',$('#ui-datepicker-div').css('z-index'))
             },0);
-        },
-        constrainInput: false
+        }
     };
 
-    $this_element.datepicker($.extend(defaultOptions, options));
+    $this_element.datetimepicker($.extend(defaultOptions, options));
 }
 
 /**
@@ -611,7 +612,7 @@ $(document).ready(function() {
         var $tr = $(this);
 
         // make the table unselectable (to prevent default highlighting when shift+click)
-        $tr.parents('table').noSelect();
+        //$tr.parents('table').noSelect();
 
         if (!e.shiftKey || last_clicked_row == -1) {
             // usual click
@@ -642,6 +643,7 @@ $(document).ready(function() {
             last_shift_clicked_row = -1;
         } else {
             // handle the shift click
+            PMA_clearSelection();
             var start, end;
 
             // clear last shift click result
@@ -3205,3 +3207,16 @@ $(document).ready(function() {
         return true;
     });
 });
+
+/**
+ * Clear text selection
+ */
+function PMA_clearSelection() {
+    if(document.selection && document.selection.empty) {
+        document.selection.empty();
+    } else if(window.getSelection) {
+        var sel = window.getSelection();
+        if(sel.empty) sel.empty();
+        if(sel.removeAllRanges) sel.removeAllRanges();
+    }
+}
