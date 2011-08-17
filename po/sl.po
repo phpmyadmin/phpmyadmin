@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-18 00:44+0200\n"
+"PO-Revision-Date: 2011-08-18 00:45+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -12355,6 +12355,7 @@ msgstr "Mord boste morali povečati {key_buffer_size}."
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
+"Branj indeksov iz pomnilnika: %s %%; ta vrednost bi morala biti nad 95 %%"
 
 #: po/advisory_rules.php:175
 msgid "Rate of table open"
