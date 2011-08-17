@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-18 00:45+0200\n"
+"PO-Revision-Date: 2011-08-18 00:47+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -12590,6 +12590,9 @@ msgid ""
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
+"Odjemalci so ponavadi prekinjeni, ker niso pravilno zaprli svoje povezave z "
+"MySQL. To je lahko zaradi omrežnih težav ali pa koda ne zapira pravilno "
+"upravljavca zbirk podatkov. Preverite svoje omrežje in kodo."
 
 #: po/advisory_rules.php:238
 #, php-format
