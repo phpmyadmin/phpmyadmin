@@ -150,13 +150,15 @@ function PMA_addDatepicker($this_element, options)
         showOn: 'button',
         buttonImage: themeCalendarImage, // defined in js/messages.php
         buttonImageOnly: true,
-        duration: '',
-        time24h: true,
         stepMinutes: 1,
         stepHours: 1,
-        showTime: showTimeOption,
+        showSecond: true,
+        showTimepicker: showTimeOption,
+        showButtonPanel: false,
         dateFormat: 'yy-mm-dd', // yy means year with four digits
-        altTimeField: '',
+        timeFormat: 'hh:mm:ss',
+        altFieldTimeOnly: false,
+        showAnim: '',
         beforeShow: function(input, inst) {
             // Remember that we came from the datepicker; this is used
             // in tbl_change.js by verificationsAfterFieldChange()
@@ -166,11 +168,10 @@ function PMA_addDatepicker($this_element, options)
             setTimeout(function() {
                 $('#ui-timepicker-div').css('z-index',$('#ui-datepicker-div').css('z-index'))
             },0);
-        },
-        constrainInput: false
+        }
     };
 
-    $this_element.datepicker($.extend(defaultOptions, options));
+    $this_element.datetimepicker($.extend(defaultOptions, options));
 }
 
 /**

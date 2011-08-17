@@ -660,6 +660,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             $(g.cEdit).find('input[type=text]').blur();
             g.isCellEditActive = false;
             g.currentEditCell = null;
+            // destroy datepicker in edit area, if exist
+            $(g.cEdit).find('.hasDatepicker').datepicker('destroy');
         },
         
         /**
@@ -914,6 +916,21 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         }) // end $.post()
                     }
                     g.isEditCellTextEditable = true;
+                } else if ($td.is('.datefield, .datetimefield, .timestampfield')) {
+                    var $input_field = $(g.cEdit).find('input[type=text]');
+                    
+                    // remember current datetime value in $input_field
+                    var current_datetime_value = $input_field.val();
+                    
+                    var showTimeOption = true;
+                    if ($td.is('.datefield')) {
+                        showTimeOption = false;
+                    }
+                    PMA_addDatepicker($editArea, { altField: $input_field, showTimepicker: showTimeOption });
+                    
+                    // force to restore modified $input_field value after adding datepicker
+                    // (after adding a datepicker, the input field doesn't display the time anymore, only the date)
+                    $editArea.datetimepicker('setDate', current_datetime_value);
                 } else {
                     $editArea.append('<textarea>' + PMA_getCellValue(g.currentEditCell) + '</textarea>');
                     $editArea.find('textarea').live('keyup', function(e) {
@@ -925,7 +942,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
                     g.isEditCellTextEditable = true;
                 }
-                
                 $editArea.show();
             }
         },
@@ -1225,16 +1241,14 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     need_to_post = true;
                 }
             } else {
-                if($this_field.is(":not(.relation, .enum, .set, .bit)")) {
-                    this_field_params[field_name] = $(g.cEdit).find('textarea').val();
-                } else if ($this_field.is('.bit')) {
+                if ($this_field.is('.bit')) {
                     this_field_params[field_name] = '0b' + $(g.cEdit).find('textarea').val();
                 } else if ($this_field.is('.set')) {
                     $test_element = $(g.cEdit).find('select');
                     this_field_params[field_name] = $test_element.map(function(){
                         return $(this).val();
                     }).get().join(",");
-                } else {
+                } else if ($this_field.is('.relation, .enum')) {
                     // results from a drop-down
                     $test_element = $(g.cEdit).find('select');
                     if ($test_element.length != 0) {
@@ -1246,6 +1260,10 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     if ($test_element.length != 0) {
                         this_field_params[field_name] = $test_element.text();
                     }
+                } else if ($this_field.is('.datefield, .datetimefield, .timestampfield')) {
+                    this_field_params[field_name] = $(g.cEdit).find('input[type=text]').val();
+                } else {
+                    this_field_params[field_name] = $(g.cEdit).find('textarea').val();
                 }
                 if (g.wasEditedCellNull || this_field_params[field_name] != PMA_getCellValue(g.currentEditCell)) {
                     need_to_post = true;
@@ -1544,6 +1562,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     // prevent text editing
                     e.preventDefault();
                 }
+            });
+            $(g.cEdit).find('.edit_area').click(function(e) {
+                e.stopPropagation();
             });
             $('html').click(function(e) {
                 // hide edit cell if the click is not from g.cEdit
