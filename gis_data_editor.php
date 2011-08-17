@@ -33,7 +33,7 @@ if (! isset($gis_data['gis_type'])) {
         $start = (substr($_REQUEST['value'], 0, 1) == "'") ? 1 : 0;
         $gis_data['gis_type'] = substr($_REQUEST['value'], $start, strpos($_REQUEST['value'], "(") - $start);
     }
-    if((! isset($gis_data['gis_type'])) || (! in_array($gis_data['gis_type'], $gis_types))) {
+    if ((! isset($gis_data['gis_type'])) || (! in_array($gis_data['gis_type'], $gis_types))) {
         $gis_data['gis_type'] = $gis_types[0];
     }
 }
@@ -59,7 +59,7 @@ $visualization = PMA_GIS_visualizationResults($data, $visualizationSettings, $fo
 $open_layers = PMA_GIS_visualizationResults($data, $visualizationSettings, 'ol');
 
 // If the call is to update the WKT and visualization make an AJAX response
-if(isset($_REQUEST['generate']) && $_REQUEST['generate'] == true) {
+if (isset($_REQUEST['generate']) && $_REQUEST['generate'] == true) {
     $extra_data = array(
         'result'        => $result,
         'visualization' => $visualization,
@@ -69,7 +69,7 @@ if(isset($_REQUEST['generate']) && $_REQUEST['generate'] == true) {
 }
 
 // If the call is to get the whole content, start buffering, skipping </head> and <body> tags
-if(isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
+if (isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
     ob_start();
 } else {
 ?>
@@ -319,9 +319,9 @@ if(isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
 <?php
 
 // If the call is to get the whole content, get the content in the buffer and make and AJAX response.
-if(isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
+if (isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
     $extra_data['gis_editor'] = ob_get_contents();
-    PMA_ajaxResponse(NULL, ob_end_clean(), $extra_data);
+    PMA_ajaxResponse(null, ob_end_clean(), $extra_data);
 }
 ?>
 </body>
