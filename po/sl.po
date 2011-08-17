@@ -1765,7 +1765,7 @@ msgstr "Vsaka točka predstavlja podatkovno vrstico."
 
 #: js/messages.php:266
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "Prehod z miško čez točko bo pokazalo njeno oznako."
 
 #: js/messages.php:268
 msgid "Drag and select an area in the plot to zoom into it."
