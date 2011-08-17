@@ -94,7 +94,7 @@ function PMA_getIcon($icon, $alternate = '', $force_text = false, $noSprite = fa
     $button .= '<span class="nowrap">';
 
     if ($include_icon) {
-        if($noSprite) {
+        if ($noSprite) {
             $button .= '<img src="' . $GLOBALS['pmaThemeImage'] . $icon . '"'
                     . ' class="icon" width="16" height="16" />';
         } else {
@@ -713,8 +713,8 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count =
         // in $group we save the reference to the place in $table_groups
         // where to store the table info
         if ($GLOBALS['cfg']['LeftFrameDBTree']
-            && $sep && strstr($table_name, $sep))
-        {
+            && $sep && strstr($table_name, $sep)
+        ) {
             $parts = explode($sep, $table_name);
 
             $group =& $table_groups;
@@ -754,7 +754,8 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count =
 
 
         if ($GLOBALS['cfg']['ShowTooltipAliasTB']
-                && $GLOBALS['cfg']['ShowTooltipAliasTB'] !== 'nested') {
+            && $GLOBALS['cfg']['ShowTooltipAliasTB'] !== 'nested'
+        ) {
             // switch tooltip and name
             $table['Comment'] = $table['Name'];
             $table['disp_name'] = $table['Comment'];
@@ -935,7 +936,8 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
     // @todo what about $GLOBALS['display_query']???
     // @todo this is REALLY the wrong place to do this - very unexpected here
     if (strlen($GLOBALS['table'])
-     && $GLOBALS['sql_query'] == 'TRUNCATE TABLE ' . PMA_backquote($GLOBALS['table'])) {
+        && $GLOBALS['sql_query'] == 'TRUNCATE TABLE ' . PMA_backquote($GLOBALS['table'])
+    ) {
         if (PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], 'Index_length') > 1024) {
             PMA_DBI_try_query('REPAIR TABLE ' . PMA_backquote($GLOBALS['table']));
         }
@@ -1029,7 +1031,8 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
              */
 
             if (isset($analyzed_display_query[0]['queryflags']['select_from'])
-             && isset($GLOBALS['sql_limit_to_append'])) {
+                && isset($GLOBALS['sql_limit_to_append'])
+            ) {
                 $query_base = $analyzed_display_query[0]['section_before_limit']
                     . "\n" . $GLOBALS['sql_limit_to_append']
                     . $analyzed_display_query[0]['section_after_limit'];
@@ -1142,7 +1145,8 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
 
         // Refresh query
         if (! empty($cfg['SQLQuery']['Refresh'])
-         && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sql_query)) {
+            && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sql_query)
+        ) {
             $refresh_link = 'import.php' . PMA_generate_common_url($url_params);
             $refresh_link = ' [' . PMA_linkOrButton($refresh_link, __('Refresh')) . ']';
         } else {
@@ -1150,7 +1154,8 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         } //show as php
 
         if (! empty($cfg['SQLValidator']['use'])
-         && ! empty($cfg['SQLQuery']['Validate'])) {
+            && ! empty($cfg['SQLQuery']['Validate'])
+        ) {
             $validate_params = $url_params;
             if (!empty($GLOBALS['validatequery'])) {
                 $validate_message = __('Skip Validate SQL') ;
@@ -1251,8 +1256,9 @@ function PMA_profilingSupported()
         // (avoid a trip to the server for MySQL before 5.0.37)
         // and do not set a constant as we might be switching servers
         if (defined('PMA_MYSQL_INT_VERSION')
-         && PMA_MYSQL_INT_VERSION >= 50037
-         && PMA_DBI_fetch_value("SHOW VARIABLES LIKE 'profiling'")) {
+            && PMA_MYSQL_INT_VERSION >= 50037
+            && PMA_DBI_fetch_value("SHOW VARIABLES LIKE 'profiling'")
+        ) {
             PMA_cacheSet('profiling_supported', true, true);
         } else {
             PMA_cacheSet('profiling_supported', false, true);
@@ -1734,7 +1740,10 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
 
     $displayed_message = '';
     // Add text if not already added
-    if (stristr($message, '<img') && (!$strip_img || $GLOBALS['cfg']['PropertiesIconic'] === true) && strip_tags($message)==$message) {
+    if (stristr($message, '<img')
+        && (!$strip_img || $GLOBALS['cfg']['PropertiesIconic'] === true)
+        && strip_tags($message)==$message
+    ) {
         $displayed_message = '<span>' . htmlspecialchars(preg_replace('/^.*\salt="([^"]*)".*$/si', '\1', $message)) . '</span>';
     }
 
@@ -1996,7 +2005,8 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
             $meta->orgname = $meta->name;
 
             if (isset($GLOBALS['analyzed_sql'][0]['select_expr'])
-                    && is_array($GLOBALS['analyzed_sql'][0]['select_expr'])) {
+                && is_array($GLOBALS['analyzed_sql'][0]['select_expr'])
+            ) {
                 foreach ($GLOBALS['analyzed_sql'][0]['select_expr'] as $select_expr) {
                     // need (string) === (string)
                     // '' !== 0 but '' == 0
@@ -2019,7 +2029,10 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
         // a view because this view might be updatable.
         // (The isView() verification should not be costly in most cases
         // because there is some caching in the function).
-        if (isset($meta->orgtable) && $meta->table != $meta->orgtable && ! PMA_Table::isView($GLOBALS['db'], $meta->table)) {
+        if (isset($meta->orgtable)
+            && $meta->table != $meta->orgtable
+            && ! PMA_Table::isView($GLOBALS['db'], $meta->table)
+        ) {
             $meta->table = $meta->orgtable;
         }
 
@@ -2042,7 +2055,10 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
         } else {
             // timestamp is numeric on some MySQL 4.1
             // for real we use CONCAT above and it should compare to string
-            if ($meta->numeric && $meta->type != 'timestamp' && $meta->type != 'real') {
+            if ($meta->numeric
+                && $meta->type != 'timestamp'
+                && $meta->type != 'real'
+            ) {
                 $con_val = '= ' . $row[$i];
             } elseif (($meta->type == 'blob' || $meta->type == 'string')
                 // hexify only if this is a true not empty BLOB or a BINARY
@@ -2131,10 +2147,13 @@ function PMA_buttonOrImage($button_name, $button_class, $image_name, $text,
             . PMA_getIcon($image, $text)
             .'</button>' . "\n";
     } else {
-        echo '<input type="image" name="' . $image_name . '" value="'
-            . htmlspecialchars($value) . '" title="' . htmlspecialchars($text) . '" src="' . $GLOBALS['pmaThemeImage']
-            . $image . '" />'
-            . ($GLOBALS['cfg']['PropertiesIconic'] === 'both' ? '&nbsp;' . htmlspecialchars($text) : '') . "\n";
+        echo '<input type="image" name="' . $image_name
+            . '" value="' . htmlspecialchars($value)
+            . '" title="' . htmlspecialchars($text)
+            . '" src="' . $GLOBALS['pmaThemeImage']. $image . '" />'
+            . ($GLOBALS['cfg']['PropertiesIconic'] === 'both'
+                ? '&nbsp;' . htmlspecialchars($text)
+                : '') . "\n";
     }
 } // end function
 
@@ -2228,7 +2247,8 @@ function PMA_pageselector($rows, $pageNow = 1, $nbTotalPage = 1,
         } else {
             $selected = '';
         }
-        $gotopage .= '                <option ' . $selected . ' value="' . (($i - 1) * $rows) . '">' . $i . '</option>' . "\n";
+        $gotopage .= '                <option ' . $selected 
+            . ' value="' . (($i - 1) * $rows) . '">' . $i . '</option>' . "\n";
     }
 
     $gotopage .= ' </select><noscript><input type="submit" value="' . __('Go') . '" /></noscript>';
@@ -2363,8 +2383,8 @@ function PMA_getDbLink($database = null)
     }
 
     return '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url($database) . '"'
-        .' title="' . sprintf(__('Jump to database &quot;%s&quot;.'), htmlspecialchars($database)) . '">'
-        .htmlspecialchars($database) . '</a>';
+        . ' title="' . sprintf(__('Jump to database &quot;%s&quot;.'), htmlspecialchars($database)) . '">'
+        . htmlspecialchars($database) . '</a>';
 }
 
 /**
@@ -2953,10 +2973,9 @@ function PMA_expandUserString($string, $escape = null, $updates = array())
  * function that generates a json output for an ajax request and ends script
  * execution
  *
- * @param bool   $message     message string containing the html of the message
- * @param bool   $success success whether the ajax request was successfull
- * @param array  $extra_data  extra_data  optional - any other data as part of the json request
- *
+ * @param PMA_Message|string  $message     message string containing the html of the message
+ * @param bool                $success success whether the ajax request was successfull
+ * @param array               $extra_data  extra_data  optional - any other data as part of the json request
  */
 function PMA_ajaxResponse($message, $success = true, $extra_data = array())
 {
@@ -3186,7 +3205,8 @@ function PMA_getFunctionsForField($field, $insert_mode)
     // or something similar. Then directly look up the entry in the RestrictFunctions array,
     // which will then reveal the available dropdown options
     if (isset($cfg['RestrictColumnTypes'][strtoupper($field['True_Type'])])
-     && isset($cfg['RestrictFunctions'][$cfg['RestrictColumnTypes'][strtoupper($field['True_Type'])]])) {
+        && isset($cfg['RestrictFunctions'][$cfg['RestrictColumnTypes'][strtoupper($field['True_Type'])]])
+    ) {
         $current_func_type  = $cfg['RestrictColumnTypes'][strtoupper($field['True_Type'])];
         $dropdown           = $cfg['RestrictFunctions'][$current_func_type];
         $default_function   = $cfg['DefaultFunctions'][$current_func_type];
@@ -3203,9 +3223,10 @@ function PMA_getFunctionsForField($field, $insert_mode)
     // and the column does not have the
     // ON UPDATE DEFAULT TIMESTAMP attribute.
     if ($field['True_Type'] == 'timestamp'
-      && empty($field['Default'])
-      && empty($data)
-      && ! isset($analyzed_sql[0]['create_table_fields'][$field['Field']]['on_update_current_timestamp'])) {
+        && empty($field['Default'])
+        && empty($data)
+        && ! isset($analyzed_sql[0]['create_table_fields'][$field['Field']]['on_update_current_timestamp'])
+    ) {
         $default_function = $cfg['DefaultFunctions']['first_timestamp'];
     }
     // For primary keys of type char(36) or varchar(36) UUID if the default function

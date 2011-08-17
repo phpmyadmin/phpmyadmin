@@ -73,15 +73,22 @@ if ((isset($_REQUEST['submit_connect']))) {
             ${"{$con}_server"}['socket'] = ${"{$con}_socket"};
         } else {
             ${"{$con}_server"}['host'] = ${"{$con}_host"};
-            if (isset(${"{$con}_port"}) && ! empty(${"{$con}_port"}) && ((int)${"{$con}_port"} * 1) > 0) {
+            if (isset(${"{$con}_port"})
+                && ! empty(${"{$con}_port"})
+                && ((int)${"{$con}_port"} * 1) > 0
+            ) {
                 ${"{$con}_server"}['port'] = (int)${"{$con}_port"};
             }
         }
 
-        ${"{$con}_connection"} = PMA_DBI_connect(${"{$con}_username"}, ${"{$con}_password"}, $is_controluser = false, ${"{$con}_server"}, $auxiliary_connection = true);
+        ${"{$con}_connection"} = PMA_DBI_connect(${"{$con}_username"},
+            ${"{$con}_password"}, $is_controluser = false,
+            ${"{$con}_server"}, $auxiliary_connection = true);
     } // end foreach ($cons as $con)
 
-    if ((! $src_connection && $src_type != 'cur') || (! $trg_connection && $trg_type != 'cur')) {
+    if ((! $src_connection && $src_type != 'cur')
+        || (! $trg_connection && $trg_type != 'cur')
+    ) {
         /**
         * Displays the connection error string if
         * connections are not established
@@ -104,7 +111,8 @@ if ((isset($_REQUEST['submit_connect']))) {
         */
         foreach ($cons as $con) {
             if (${"{$con}_connection"} != null) {
-                ${"{$con}_link"} = PMA_DBI_connect(${"{$con}_username"}, ${"{$con}_password"}, $is_controluser = false, ${"{$con}_server"});
+                ${"{$con}_link"} = PMA_DBI_connect(${"{$con}_username"},
+                    ${"{$con}_password"}, $is_controluser = false, ${"{$con}_server"});
             } else {
                 ${"{$con}_link"} = null;
             }
@@ -192,27 +200,36 @@ if ((isset($_REQUEST['submit_connect']))) {
 
             for ($i = 0; $i < sizeof($matching_tables); $i++) {
                 /**
-                * Finding out all the differences structure, data and index diff for all the matching tables only
+                * Finding out all the differences structure, data and index diff
+                * for all the matching tables only
                 */
-                PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link, $matching_tables, $matching_tables_fields, $update_array, $insert_array,
-                $delete_array, $fields_num, $i, $matching_tables_keys);
+                PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link,
+                    $matching_tables, $matching_tables_fields, $update_array,
+                    $insert_array, $delete_array, $fields_num, $i,
+                    $matching_tables_keys);
 
-                PMA_structureDiffInTables($src_db, $trg_db, $src_link, $trg_link, $matching_tables, $source_columns,
-                $target_columns, $alter_str_array, $add_column_array, $uncommon_columns, $criteria, $target_tables_keys, $i);
+                PMA_structureDiffInTables($src_db, $trg_db, $src_link, $trg_link,
+                    $matching_tables, $source_columns, $target_columns,
+                    $alter_str_array, $add_column_array, $uncommon_columns,
+                    $criteria, $target_tables_keys, $i);
 
-                PMA_indexesDiffInTables($src_db, $trg_db, $src_link, $trg_link, $matching_tables, $source_indexes, $target_indexes,
-                $add_indexes_array, $alter_indexes_array, $remove_indexes_array, $i);
+                PMA_indexesDiffInTables($src_db, $trg_db, $src_link, $trg_link,
+                    $matching_tables, $source_indexes, $target_indexes,
+                    $add_indexes_array, $alter_indexes_array, $remove_indexes_array, $i);
             }
 
             for ($j = 0; $j < sizeof($source_tables_uncommon); $j++) {
                 /**
-                * Finding out the number of rows to be added in tables that need to be added in target database
+                * Finding out the number of rows to be added in tables
+                * that need to be added in target database
                 */
-                PMA_dataDiffInUncommonTables($source_tables_uncommon, $src_db, $src_link, $j, $row_count);
+                PMA_dataDiffInUncommonTables($source_tables_uncommon, $src_db,
+                    $src_link, $j, $row_count);
             }
 
             /**
-            * Storing all arrays in session for use when page is reloaded for each button press
+            * Storing all arrays in session for use when page is reloaded
+            * for each button press
             */
             $_SESSION['matching_tables'] = $matching_tables;
             $_SESSION['update_array'] = $update_array;
@@ -250,7 +267,8 @@ if ((isset($_REQUEST['submit_connect']))) {
             $_SESSION['target_indexes'] = $target_indexes;
 
             /**
-            * Displays the sub-heading and icons showing Structure Synchronization and Data Synchronization
+            * Displays the sub-heading and icons showing Structure Synchronization
+            * and Data Synchronization
             */
             ?>
             <form name="synchronize_form" id="synchronize_form" method="post" action="server_synchronize.php">
@@ -269,7 +287,8 @@ if ((isset($_REQUEST['submit_connect']))) {
             </table>
             <?php
             /**
-            * Displays the tables containing the source tables names, their difference with the target tables and target tables names
+            * Displays the tables containing the source tables names,
+            * their difference with the target tables and target tables names.
             */
             PMA_syncDisplayHeaderCompare($src_db, $trg_db);
             $rows = array();
@@ -300,7 +319,8 @@ if ((isset($_REQUEST['submit_connect']))) {
                 }
 
                 /**
-                * Calculating the number of alter columns, number of columns to be added, number of columns to be removed,
+                * Calculating the number of alter columns, number of columns to be
+                * added, number of columns to be removed,
                 * number of index to be added and removed.
                 */
                 $num_alter_cols  = 0;
@@ -333,19 +353,32 @@ if ((isset($_REQUEST['submit_connect']))) {
                 $btn_data_params = null;
 
                 /**
-                * Display the red button of structure synchronization if there exists any structure difference or index difference.
+                * Display the red button of structure synchronization if there
+                * exists any structure difference or index difference.
                 */
-                if (($num_alter_cols > 0) || ($num_insert_cols > 0) || ($num_remove_cols > 0) || ($num_add_index > 0) || ($num_remove_index > 0)) {
+                if (($num_alter_cols > 0)
+                    || ($num_insert_cols > 0)
+                    || ($num_remove_cols > 0)
+                    || ($num_add_index > 0)
+                    || ($num_remove_index > 0)
+                ) {
                     $btn_structure_params = array($i, $num_alter_cols, $num_insert_cols,
                         $num_remove_cols, $num_add_index, $num_remove_index);
                 }
 
                 /**
-                * Display the green button of data synchronization if there exists any data difference.
+                * Display the green button of data synchronization if there exists
+                * any data difference.
                 */
-                if ((isset($update_array[$i]) || isset($insert_array[$i])) && !empty($matching_tables_keys[$i])) {
-                    if (isset($update_array[$i][0][$matching_tables_keys[$i][0]]) || isset($insert_array[$i][0][$matching_tables_keys[$i][0]])) {
-                        $btn_data_params = array($i, $num_of_updates, $num_of_insertions, null, null, null);
+                if ((isset($update_array[$i])
+                    || isset($insert_array[$i]))
+                    && !empty($matching_tables_keys[$i])
+                ) {
+                    if (isset($update_array[$i][0][$matching_tables_keys[$i][0]])
+                        || isset($insert_array[$i][0][$matching_tables_keys[$i][0]])
+                    ) {
+                        $btn_data_params = array($i, $num_of_updates,
+                            $num_of_insertions, null, null, null);
                     }
                 }
 
@@ -387,8 +420,10 @@ if ((isset($_REQUEST['submit_connect']))) {
                 </fieldset>';
 
             /**
-            * This "list" div will contain a table and each row will depict information about structure/data diffrence in tables.
-            * Rows will be generated dynamically as soon as the colored  buttons "D" or "S"  are clicked.
+            * This "list" div will contain a table and each row will depict
+            * information about structure/data difference in tables.
+            * Rows will be generated dynamically as soon as the colored
+            * buttons "D" or "S"  are clicked.
             */
 
             echo '<fieldset style="padding:0"><div id="list" style="overflow:auto; height:140px; padding:1em">
@@ -419,12 +454,17 @@ if ((isset($_REQUEST['submit_connect']))) {
             *  This fieldset displays the checkbox to confirm deletion of previous rows from target tables
             */
             echo '<fieldset>
-            <p><input type= "checkbox" name="delete_rows" id ="delete_rows" /><label for="delete_rows">' . __('Would you like to delete all the previous rows from target tables?') . '</label> </p>
+            <p><input type= "checkbox" name="delete_rows" id ="delete_rows" /><label for="delete_rows">'
+                . __('Would you like to delete all the previous rows from target tables?')
+                . '</label> </p>
             </fieldset>
             <fieldset class="tblFooters">';
-            echo '<input type="button" name="apply_changes" value="' . __('Apply Selected Changes')
-             . '" onclick ="ApplySelectedChanges(' . "'" . htmlspecialchars($_SESSION['token']) . "'" . ')" />';
-            echo '<input type="submit" name="synchronize_db" value="' . __('Synchronize Databases') . '" />' . '</fieldset>';
+            echo '<input type="button" name="apply_changes" value="'
+                . __('Apply Selected Changes')
+                . '" onclick ="ApplySelectedChanges('
+                . "'" . htmlspecialchars($_SESSION['token']) . "'" . ')" />';
+            echo '<input type="submit" name="synchronize_db" value="'
+                . __('Synchronize Databases') . '" />' . '</fieldset>';
             echo '</form>';
         }
     }
@@ -437,7 +477,9 @@ if (isset($_REQUEST['Table_ids'])) {
     /**
     * Displays success message
     */
-    echo '<div class="success">' . __('Selected target tables have been synchronized with source tables.') . '</div>';
+    echo '<div class="success">'
+        . __('Selected target tables have been synchronized with source tables.')
+        . '</div>';
 
     $src_db = $_SESSION['src_db'];
     $trg_db = $_SESSION['trg_db'];
@@ -480,7 +522,8 @@ if (isset($_REQUEST['Table_ids'])) {
     */
     foreach ($cons as $con) {
         if (${"{$con}_type"} != "cur") {
-            ${"{$con}_link"} = PMA_DBI_connect(${"{$con}_username"}, ${"{$con}_password"}, $is_controluser = false, ${"{$con}_server"});
+            ${"{$con}_link"} = PMA_DBI_connect(${"{$con}_username"},
+                ${"{$con}_password"}, $is_controluser = false, ${"{$con}_server"});
         } else {
             ${"{$con}_link"} = null;
             // working on current server, so initialize this for tracking
@@ -521,42 +564,49 @@ if (isset($_REQUEST['Table_ids'])) {
     /**
     * Applying the structure difference on selected matching tables
     */
-    for ($q = 0; $q < sizeof($matching_table_structure_diff); $q++)
-    {
+    for ($q = 0; $q < sizeof($matching_table_structure_diff); $q++) {
         if (isset($alter_str_array[$matching_table_structure_diff[$q]])) {
-
-            PMA_alterTargetTableStructure($trg_db, $trg_link, $matching_tables, $source_columns, $alter_str_array, $matching_tables_fields,
-            $criteria, $matching_tables_keys, $target_tables_keys, $matching_table_structure_diff[$q], false);
+            PMA_alterTargetTableStructure($trg_db, $trg_link, $matching_tables,
+                $source_columns, $alter_str_array, $matching_tables_fields,
+                $criteria, $matching_tables_keys, $target_tables_keys,
+                $matching_table_structure_diff[$q], false);
 
             unset($alter_str_array[$matching_table_structure_diff[$q]]);
         }
         if (isset($add_column_array[$matching_table_structure_diff[$q]])) {
-
-            PMA_findDeleteRowsFromTargetTables($delete_array, $matching_tables, $matching_table_structure_diff[$q], $target_tables_keys,
-            $matching_tables_keys, $trg_db, $trg_link, $src_db, $src_link);
+            PMA_findDeleteRowsFromTargetTables($delete_array, $matching_tables,
+                $matching_table_structure_diff[$q], $target_tables_keys,
+                $matching_tables_keys, $trg_db, $trg_link, $src_db, $src_link);
 
             if (isset($delete_array[$matching_table_structure_diff[$q]])) {
-
-                PMA_deleteFromTargetTable($trg_db, $trg_link, $matching_tables, $matching_table_structure_diff[$q], $target_tables_keys, $delete_array, false);
+                PMA_deleteFromTargetTable($trg_db, $trg_link, $matching_tables,
+                    $matching_table_structure_diff[$q], $target_tables_keys,
+                    $delete_array, false);
 
                 unset($delete_array[$matching_table_structure_diff[$q]]);
             }
-            PMA_addColumnsInTargetTable($src_db, $trg_db,$src_link, $trg_link, $matching_tables, $source_columns, $add_column_array, $matching_tables_fields,
-            $criteria, $matching_tables_keys, $target_tables_keys, $uncommon_tables,$uncommon_tables_fields, $matching_table_structure_diff[$q], $uncommon_cols, false);
+            PMA_addColumnsInTargetTable($src_db, $trg_db,$src_link, $trg_link,
+                $matching_tables, $source_columns, $add_column_array,
+                $matching_tables_fields, $criteria, $matching_tables_keys,
+                $target_tables_keys, $uncommon_tables,$uncommon_tables_fields,
+                $matching_table_structure_diff[$q], $uncommon_cols, false);
 
             unset($add_column_array[$matching_table_structure_diff[$q]]);
         }
         if (isset($uncommon_columns[$matching_table_structure_diff[$q]])) {
-
-            PMA_removeColumnsFromTargetTable($trg_db, $trg_link, $matching_tables, $uncommon_columns, $matching_table_structure_diff[$q], false);
+            PMA_removeColumnsFromTargetTable($trg_db, $trg_link, $matching_tables,
+                $uncommon_columns, $matching_table_structure_diff[$q], false);
 
             unset($uncommon_columns[$matching_table_structure_diff[$q]]);
         }
-        if (isset($add_indexes_array[$matching_table_structure_diff[$q]]) || isset($remove_indexes_array[$matching_table_structure_diff[$q]])
-            || isset($alter_indexes_array[$matching_table_structure_diff[$q]])) {
-
-            PMA_applyIndexesDiff ($trg_db, $trg_link, $matching_tables, $source_indexes, $target_indexes, $add_indexes_array, $alter_indexes_array,
-            $remove_indexes_array, $matching_table_structure_diff[$q], false);
+        if (isset($add_indexes_array[$matching_table_structure_diff[$q]])
+            || isset($remove_indexes_array[$matching_table_structure_diff[$q]])
+            || isset($alter_indexes_array[$matching_table_structure_diff[$q]])
+        ) {
+            PMA_applyIndexesDiff ($trg_db, $trg_link, $matching_tables,
+                $source_indexes, $target_indexes, $add_indexes_array,
+                $alter_indexes_array, $remove_indexes_array,
+                $matching_table_structure_diff[$q], false);
 
             unset($add_indexes_array[$matching_table_structure_diff[$q]]);
             unset($alter_indexes_array[$matching_table_structure_diff[$q]]);
@@ -567,55 +617,65 @@ if (isset($_REQUEST['Table_ids'])) {
     * Applying the data difference. First checks if structure diff is applied or not.
     * If not, then apply structure difference first then apply data difference.
     */
-    for ($p = 0; $p < sizeof($matching_table_data_diff); $p++)
-    {
+    for ($p = 0; $p < sizeof($matching_table_data_diff); $p++) {
         if ($_REQUEST['checked'] == 'true') {
-
-            PMA_findDeleteRowsFromTargetTables($delete_array, $matching_tables, $matching_table_data_diff[$p], $target_tables_keys,
-            $matching_tables_keys, $trg_db, $trg_link, $src_db, $src_link);
+            PMA_findDeleteRowsFromTargetTables($delete_array, $matching_tables,
+                $matching_table_data_diff[$p], $target_tables_keys,
+                $matching_tables_keys, $trg_db, $trg_link, $src_db, $src_link);
 
             if (isset($delete_array[$matching_table_data_diff[$p]])) {
-
-                PMA_deleteFromTargetTable($trg_db, $trg_link, $matching_tables, $matching_table_data_diff[$p], $target_tables_keys, $delete_array, false);
+                PMA_deleteFromTargetTable($trg_db, $trg_link, $matching_tables,
+                    $matching_table_data_diff[$p], $target_tables_keys,
+                    $delete_array, false);
 
                 unset($delete_array[$matching_table_data_diff[$p]]);
             }
         }
         if (isset($alter_str_array[$matching_table_data_diff[$p]])) {
-
-            PMA_alterTargetTableStructure($trg_db, $trg_link, $matching_tables, $source_columns, $alter_str_array, $matching_tables_fields,
-            $criteria, $matching_tables_keys, $target_tables_keys, $matching_table_data_diff[$p], false);
+            PMA_alterTargetTableStructure($trg_db, $trg_link, $matching_tables,
+                $source_columns, $alter_str_array, $matching_tables_fields,
+                $criteria, $matching_tables_keys, $target_tables_keys,
+                $matching_table_data_diff[$p], false);
 
             unset($alter_str_array[$matching_table_data_diff[$p]]);
         }
         if (isset($add_column_array[$matching_table_data_diff[$p]])) {
-
-            PMA_findDeleteRowsFromTargetTables($delete_array, $matching_tables, $matching_table_data_diff[$p], $target_tables_keys,
-            $matching_tables_keys, $trg_db, $trg_link, $src_db, $src_link);
+            PMA_findDeleteRowsFromTargetTables($delete_array, $matching_tables,
+                $matching_table_data_diff[$p], $target_tables_keys,
+                $matching_tables_keys, $trg_db, $trg_link, $src_db, $src_link);
 
             if (isset($delete_array[$matching_table_data_diff[$p]])) {
-
-                PMA_deleteFromTargetTable($trg_db, $trg_link, $matching_tables, $matching_table_data_diff[$p], $target_tables_keys, $delete_array, false);
+                PMA_deleteFromTargetTable($trg_db, $trg_link, $matching_tables,
+                    $matching_table_data_diff[$p], $target_tables_keys,
+                    $delete_array, false);
 
                 unset($delete_array[$matching_table_data_diff[$p]]);
             }
-            PMA_addColumnsInTargetTable($src_db, $trg_db,$src_link, $trg_link, $matching_tables, $source_columns, $add_column_array, $matching_tables_fields,
-            $criteria, $matching_tables_keys, $target_tables_keys, $uncommon_tables, $uncommon_tables_fields, $matching_table_data_diff[$p], $uncommon_cols, false);
+            PMA_addColumnsInTargetTable($src_db, $trg_db,$src_link, $trg_link,
+                $matching_tables, $source_columns, $add_column_array,
+                $matching_tables_fields, $criteria, $matching_tables_keys,
+                $target_tables_keys, $uncommon_tables, $uncommon_tables_fields,
+                $matching_table_data_diff[$p], $uncommon_cols, false);
 
             unset($add_column_array[$matching_table_data_diff[$p]]);
         }
         if (isset($uncommon_columns[$matching_table_data_diff[$p]])) {
-
-            PMA_removeColumnsFromTargetTable($trg_db, $trg_link, $matching_tables, $uncommon_columns, $matching_table_data_diff[$p], false);
+            PMA_removeColumnsFromTargetTable($trg_db, $trg_link, $matching_tables,
+                $uncommon_columns, $matching_table_data_diff[$p], false);
 
             unset($uncommon_columns[$matching_table_data_diff[$p]]);
         }
-        if ((isset($matching_table_structure_diff[$q]) && isset($add_indexes_array[$matching_table_structure_diff[$q]]))
-            || (isset($matching_table_structure_diff[$q]) && isset($remove_indexes_array[$matching_table_structure_diff[$q]]))
-            || (isset($matching_table_structure_diff[$q]) && isset($alter_indexes_array[$matching_table_structure_diff[$q]]))) {
-
-            PMA_applyIndexesDiff ($trg_db, $trg_link, $matching_tables, $source_indexes, $target_indexes, $add_indexes_array, $alter_indexes_array,
-            $remove_indexes_array, $matching_table_structure_diff[$q], false);
+        if ((isset($matching_table_structure_diff[$q])
+            && isset($add_indexes_array[$matching_table_structure_diff[$q]]))
+            || (isset($matching_table_structure_diff[$q])
+            && isset($remove_indexes_array[$matching_table_structure_diff[$q]]))
+            || (isset($matching_table_structure_diff[$q])
+            && isset($alter_indexes_array[$matching_table_structure_diff[$q]]))
+        ) {
+            PMA_applyIndexesDiff ($trg_db, $trg_link, $matching_tables,
+                $source_indexes, $target_indexes, $add_indexes_array,
+                $alter_indexes_array, $remove_indexes_array,
+                $matching_table_structure_diff[$q], false);
 
             unset($add_indexes_array[$matching_table_structure_diff[$q]]);
             unset($alter_indexes_array[$matching_table_structure_diff[$q]]);
@@ -624,12 +684,16 @@ if (isset($_REQUEST['Table_ids'])) {
         /**
         * Applying the data difference.
         */
-        PMA_updateTargetTables($matching_tables, $update_array, $src_db, $trg_db, $trg_link, $matching_table_data_diff[$p], $matching_tables_keys, false);
+        PMA_updateTargetTables($matching_tables, $update_array, $src_db, $trg_db,
+            $trg_link, $matching_table_data_diff[$p], $matching_tables_keys, false);
 
-        PMA_insertIntoTargetTable($matching_tables, $src_db, $trg_db, $src_link, $trg_link , $matching_tables_fields, $insert_array,
-        $matching_table_data_diff[$p], $matching_tables_keys, $source_columns, $add_column_array, $criteria, $target_tables_keys,
-        $uncommon_tables, $uncommon_tables_fields, $uncommon_cols, $alter_str_array, $source_indexes, $target_indexes, $add_indexes_array,
-        $alter_indexes_array, $delete_array, $update_array, false);
+        PMA_insertIntoTargetTable($matching_tables, $src_db, $trg_db, $src_link,
+            $trg_link, $matching_tables_fields, $insert_array,
+            $matching_table_data_diff[$p], $matching_tables_keys, $source_columns,
+            $add_column_array, $criteria, $target_tables_keys, $uncommon_tables,
+            $uncommon_tables_fields, $uncommon_cols, $alter_str_array,
+            $source_indexes, $target_indexes, $add_indexes_array,
+            $alter_indexes_array, $delete_array, $update_array, false);
     }
     /**
     * Updating the session variables to the latest values of the arrays.
@@ -644,32 +708,35 @@ if (isset($_REQUEST['Table_ids'])) {
     $_SESSION['update_array'] = $update_array;
 
     /**
-    * Applying structure difference to selected non-matching tables (present in Source but absent from Target).
+    * Applying structure difference to selected non-matching tables
+    * (present in Source but absent from Target).
     */
-    for ($s = 0; $s < sizeof($uncommon_table_structure_diff); $s++)
-    {
-        PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link, $uncommon_tables, $uncommon_table_structure_diff[$s], $uncommon_tables_fields, false);
+    for ($s = 0; $s < sizeof($uncommon_table_structure_diff); $s++) {
+        PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link,
+            $uncommon_tables, $uncommon_table_structure_diff[$s],
+            $uncommon_tables_fields, false);
         $_SESSION['uncommon_tables_fields'] = $uncommon_tables_fields;
 
         unset($uncommon_tables[$uncommon_table_structure_diff[$s]]);
     }
     /**
-    * Applying data difference to selected non-matching tables (present in Source but absent from Target).
+    * Applying data difference to selected non-matching tables
+    * (present in Source but absent from Target).
     * Before data synchronization, structure synchronization is confirmed.
     */
-    for ($r = 0; $r < sizeof($uncommon_table_data_diff); $r++)
-    {
+    for ($r = 0; $r < sizeof($uncommon_table_data_diff); $r++) {
         if (!(in_array($uncommon_table_data_diff[$r], $uncommon_table_structure_diff))) {
             if (isset($uncommon_tables[$uncommon_table_data_diff[$r]])) {
-
-                PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link, $uncommon_tables, $uncommon_table_data_diff[$r],
+                PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link,
+                    $uncommon_tables, $uncommon_table_data_diff[$r],
                     $uncommon_tables_fields, false);
                 $_SESSION['uncommon_tables_fields'] = $uncommon_tables_fields;
 
                 unset($uncommon_tables[$uncommon_table_data_diff[$r]]);
             }
         }
-        PMA_populateTargetTables($src_db, $trg_db, $src_link, $trg_link, $source_tables_uncommon, $uncommon_table_data_diff[$r],
+        PMA_populateTargetTables($src_db, $trg_db, $src_link, $trg_link,
+            $source_tables_uncommon, $uncommon_table_data_diff[$r],
             $_SESSION['uncommon_tables_fields'], false);
 
         unset($row_count[$uncommon_table_data_diff[$r]]);
@@ -709,13 +776,19 @@ if (isset($_REQUEST['Table_ids'])) {
         $btn_structure_params = null;
         $btn_data_params = null;
 
-        if (($num_alter_cols > 0) || ($num_insert_cols > 0) || ($num_remove_cols > 0) || ($num_add_index > 0) || ($num_remove_index > 0)) {
+        if (($num_alter_cols > 0)
+            || ($num_insert_cols > 0)
+            || ($num_remove_cols > 0)
+            || ($num_add_index > 0)
+            || ($num_remove_index > 0)
+        ) {
             $btn_structure_params = array($i, $num_alter_cols, $num_insert_cols,
                 $num_remove_cols, $num_add_index, $num_remove_index);
         }
         if (!(in_array($i, $matching_table_data_diff))) {
-
-            if (isset($matching_tables_keys[$i][0]) && isset($update_array[$i][0][$matching_tables_keys[$i][0]])) {
+            if (isset($matching_tables_keys[$i][0])
+                && isset($update_array[$i][0][$matching_tables_keys[$i][0]])
+            ) {
                 if (isset($update_array[$i])) {
                     $num_of_updates = sizeof($update_array[$i]);
                 } else {
@@ -724,7 +797,9 @@ if (isset($_REQUEST['Table_ids'])) {
             } else {
                 $num_of_updates = 0;
             }
-            if (isset($matching_tables_keys[$i][0]) && isset($insert_array[$i][0][$matching_tables_keys[$i][0]])) {
+            if (isset($matching_tables_keys[$i][0])
+                && isset($insert_array[$i][0][$matching_tables_keys[$i][0]])
+            ) {
                 if (isset($insert_array[$i])) {
                     $num_of_insertions = sizeof($insert_array[$i]);
                 } else {
@@ -734,8 +809,11 @@ if (isset($_REQUEST['Table_ids'])) {
                 $num_of_insertions = 0;
             }
 
-            if ((isset($matching_tables_keys[$i][0]) && isset($update_array[$i][0][$matching_tables_keys[$i][0]]))
-                    || (isset($matching_tables_keys[$i][0]) && isset($insert_array[$i][0][$matching_tables_keys[$i][0]]))) {
+            if ((isset($matching_tables_keys[$i][0])
+                && isset($update_array[$i][0][$matching_tables_keys[$i][0]]))
+                || (isset($matching_tables_keys[$i][0])
+                && isset($insert_array[$i][0][$matching_tables_keys[$i][0]]))
+            ) {
                 $btn_data_params = array($i, $num_of_updates, $num_of_insertions,
                     null, null, null);
             }
@@ -815,8 +893,10 @@ if (isset($_REQUEST['Table_ids'])) {
         </fieldset>';
 
     /**
-    * This "list" div will contain a table and each row will depict information about structure/data diffrence in tables.
-    * Rows will be generated dynamically as soon as the colored  buttons "D" or "S"  are clicked.
+    * This "list" div will contain a table and each row will depict information about
+    * structure/data difference in tables.
+    * Rows will be generated dynamically as soon as the colored buttons "D" or "S"
+    * are clicked.
     */
 
     echo '<fieldset style="padding:0"><div id="list" style = "overflow:auto; height:140px; padding:1em">';
@@ -847,14 +927,17 @@ if (isset($_REQUEST['Table_ids'])) {
     *  This fieldset displays the checkbox to confirm deletion of previous rows from target tables
     */
     echo '<fieldset>
-    <p><input type="checkbox" name="delete_rows" id ="delete_rows" /><label for="delete_rows">' . __('Would you like to delete all the previous rows from target tables?') . '</label> </p>
-    </fieldset>';
+        <p><input type="checkbox" name="delete_rows" id ="delete_rows" /><label for="delete_rows">'
+        . __('Would you like to delete all the previous rows from target tables?') . '</label> </p>
+        </fieldset>';
 
     echo '<fieldset class="tblFooters">';
-    echo '<input type="button" name="apply_changes" value="' . __('Apply Selected Changes') . '"
-          onclick ="ApplySelectedChanges(' . "'" . htmlspecialchars($_SESSION['token']) . "'" .')" />';
-    echo '<input type="submit" name="synchronize_db" value="' . __('Synchronize Databases') . '" />'
-          . '</fieldset>';
+    echo '<input type="button" name="apply_changes" value="'
+        . __('Apply Selected Changes') . '" onclick ="ApplySelectedChanges('
+        . "'" . htmlspecialchars($_SESSION['token']) . "'" .')" />';
+    echo '<input type="submit" name="synchronize_db" value="'
+        . __('Synchronize Databases') . '" />'
+        . '</fieldset>';
     echo '</form>';
 }
 
@@ -899,14 +982,16 @@ if (isset($_REQUEST['synchronize_db'])) {
    /**
    * Display success message.
    */
-    echo '<div class="success">' . __('Target database has been synchronized with source database') . '</div>';
+    echo '<div class="success">'
+        . __('Target database has been synchronized with source database')
+        . '</div>';
     /**
-    * Displaying all the tables of source and target database and now no difference is there.
+    * Displaying all the tables of source and target database
+    * and now no difference is there.
     */
     PMA_syncDisplayHeaderCompare($src_db, $trg_db);
     $rows = array();
-    for ($i = 0; $i < count($matching_tables); $i++)
-    {
+    for ($i = 0; $i < count($matching_tables); $i++) {
         $rows[] = array(
             'src_table_name' => $matching_tables[$i],
             'dst_table_name' => $matching_tables[$i]);
@@ -930,7 +1015,8 @@ if (isset($_REQUEST['synchronize_db'])) {
     * connecting the source and target servers
     */
     if ('cur' != $_SESSION['src_type']) {
-        $src_link = PMA_DBI_connect($src_username, $src_password, $is_controluser = false, $_SESSION['src_server']);
+        $src_link = PMA_DBI_connect($src_username, $src_password,
+            $is_controluser = false, $_SESSION['src_server']);
     } else {
         $src_link = $GLOBALS['userlink'];
         // working on current server, so initialize this for tracking
@@ -938,7 +1024,8 @@ if (isset($_REQUEST['synchronize_db'])) {
         $GLOBALS['db'] = $_SESSION['src_db'];
     }
     if ('cur' != $_SESSION['trg_type']) {
-        $trg_link = PMA_DBI_connect($trg_username, $trg_password, $is_controluser = false, $_SESSION['trg_server']);
+        $trg_link = PMA_DBI_connect($trg_username, $trg_password,
+            $is_controluser = false, $_SESSION['trg_server']);
     } else {
         $trg_link = $GLOBALS['userlink'];
         // working on current server, so initialize this for tracking
@@ -958,65 +1045,83 @@ if (isset($_REQUEST['synchronize_db'])) {
         *  first find out rows to be deleted and then delete the rows.
         */
         if (isset($_REQUEST['delete_rows'])) {
-            PMA_findDeleteRowsFromTargetTables($delete_array, $matching_tables, $p, $target_tables_keys, $matching_tables_keys,
+            PMA_findDeleteRowsFromTargetTables($delete_array, $matching_tables, $p,
+                $target_tables_keys, $matching_tables_keys,
                 $trg_db, $trg_link, $src_db, $src_link);
 
             if (isset($delete_array[$p])) {
-                PMA_deleteFromTargetTable($trg_db, $trg_link, $matching_tables, $p, $target_tables_keys, $delete_array, true);
+                PMA_deleteFromTargetTable($trg_db, $trg_link, $matching_tables, $p,
+                    $target_tables_keys, $delete_array, true);
                 unset($delete_array[$p]);
             }
         }
         if (isset($alter_str_array[$p])) {
-            PMA_alterTargetTableStructure($trg_db, $trg_link, $matching_tables, $source_columns, $alter_str_array, $matching_tables_fields,
-            $criteria, $matching_tables_keys, $target_tables_keys, $p, true);
+            PMA_alterTargetTableStructure($trg_db, $trg_link, $matching_tables,
+                $source_columns, $alter_str_array, $matching_tables_fields,
+                $criteria, $matching_tables_keys, $target_tables_keys, $p, true);
             unset($alter_str_array[$p]);
         }
         if (! empty($add_column_array[$p])) {
-            PMA_findDeleteRowsFromTargetTables($delete_array, $matching_tables, $p, $target_tables_keys, $matching_tables_keys,
-            $trg_db, $trg_link, $src_db, $src_link);
+            PMA_findDeleteRowsFromTargetTables($delete_array, $matching_tables, $p,
+                $target_tables_keys, $matching_tables_keys,
+                $trg_db, $trg_link, $src_db, $src_link);
 
             if (isset($delete_array[$p])) {
-                PMA_deleteFromTargetTable($trg_db, $trg_link, $matching_tables, $p, $target_tables_keys, $delete_array, true);
+                PMA_deleteFromTargetTable($trg_db, $trg_link, $matching_tables, $p,
+                    $target_tables_keys, $delete_array, true);
                 unset($delete_array[$p]);
             }
-            PMA_addColumnsInTargetTable($src_db, $trg_db, $src_link, $trg_link, $matching_tables, $source_columns, $add_column_array,
-                $matching_tables_fields, $criteria, $matching_tables_keys, $target_tables_keys, $uncommon_tables, $uncommon_tables_fields,
+            PMA_addColumnsInTargetTable($src_db, $trg_db, $src_link, $trg_link,
+                $matching_tables, $source_columns, $add_column_array,
+                $matching_tables_fields, $criteria, $matching_tables_keys,
+                $target_tables_keys, $uncommon_tables, $uncommon_tables_fields,
                 $p, $uncommon_cols, true);
             unset($add_column_array[$p]);
         }
         if (isset($uncommon_columns[$p])) {
-            PMA_removeColumnsFromTargetTable($trg_db, $trg_link, $matching_tables, $uncommon_columns, $p, true);
+            PMA_removeColumnsFromTargetTable($trg_db, $trg_link, $matching_tables,
+                $uncommon_columns, $p, true);
             unset($uncommon_columns[$p]);
         }
-        if (isset($matching_table_structure_diff) &&
-            (isset($add_indexes_array[$matching_table_structure_diff[$p]])
+        if (isset($matching_table_structure_diff)
+            && (isset($add_indexes_array[$matching_table_structure_diff[$p]])
             || isset($remove_indexes_array[$matching_table_structure_diff[$p]])
-            || isset($alter_indexes_array[$matching_table_structure_diff[$p]]))) {
-            PMA_applyIndexesDiff ($trg_db, $trg_link, $matching_tables, $source_indexes, $target_indexes, $add_indexes_array, $alter_indexes_array,
-            $remove_indexes_array, $matching_table_structure_diff[$p], true);
+            || isset($alter_indexes_array[$matching_table_structure_diff[$p]]))
+        ) {
+            PMA_applyIndexesDiff ($trg_db, $trg_link, $matching_tables,
+                $source_indexes, $target_indexes, $add_indexes_array,
+                $alter_indexes_array, $remove_indexes_array,
+                $matching_table_structure_diff[$p], true);
 
             unset($add_indexes_array[$matching_table_structure_diff[$p]]);
             unset($alter_indexes_array[$matching_table_structure_diff[$p]]);
             unset($remove_indexes_array[$matching_table_structure_diff[$p]]);
         }
 
-        PMA_updateTargetTables($matching_tables, $update_array, $src_db, $trg_db, $trg_link, $p, $matching_tables_keys, true);
+        PMA_updateTargetTables($matching_tables, $update_array, $src_db, $trg_db,
+            $trg_link, $p, $matching_tables_keys, true);
 
-        PMA_insertIntoTargetTable($matching_tables, $src_db, $trg_db, $src_link, $trg_link , $matching_tables_fields, $insert_array, $p,
-            $matching_tables_keys, $matching_tables_keys, $source_columns, $add_column_array, $criteria, $target_tables_keys, $uncommon_tables,
-            $uncommon_tables_fields,$uncommon_cols, $alter_str_array,$source_indexes, $target_indexes, $add_indexes_array,
+        PMA_insertIntoTargetTable($matching_tables, $src_db, $trg_db, $src_link,
+            $trg_link , $matching_tables_fields, $insert_array, $p,
+            $matching_tables_keys, $matching_tables_keys, $source_columns,
+            $add_column_array, $criteria, $target_tables_keys, $uncommon_tables,
+            $uncommon_tables_fields,$uncommon_cols, $alter_str_array,$source_indexes,
+            $target_indexes, $add_indexes_array,
             $alter_indexes_array, $delete_array, $update_array, true);
     }
 
     /**
-    *  Creating and populating tables present in source but absent from target database.
+    *  Creating and populating tables present in source but absent
+    *  from target database.
     */
     for ($q = 0; $q < sizeof($source_tables_uncommon); $q++) {
         if (isset($uncommon_tables[$q])) {
-            PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link, $source_tables_uncommon, $q, $uncommon_tables_fields, true);
+            PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link,
+                $source_tables_uncommon, $q, $uncommon_tables_fields, true);
         }
         if (isset($row_count[$q])) {
-            PMA_populateTargetTables($src_db, $trg_db, $src_link, $trg_link, $source_tables_uncommon, $q, $uncommon_tables_fields, true);
+            PMA_populateTargetTables($src_db, $trg_db, $src_link, $trg_link,
+                $source_tables_uncommon, $q, $uncommon_tables_fields, true);
         }
     }
     echo "</fieldset>";
@@ -1026,8 +1131,10 @@ if (isset($_REQUEST['synchronize_db'])) {
  * Displays the main page when none of the following buttons is pressed
  */
 
- if (! isset($_REQUEST['submit_connect']) && ! isset($_REQUEST['synchronize_db']) && ! isset($_REQUEST['Table_ids']) )
-{
+if (! isset($_REQUEST['submit_connect'])
+    && ! isset($_REQUEST['synchronize_db'])
+    && ! isset($_REQUEST['Table_ids'])
+) {
 /**
 * Displays the sub-page heading
 */
@@ -1063,7 +1170,8 @@ if (isset($_REQUEST['synchronize_db'])) {
             $database_header = __('Target database');
         }
 
-        $database_header .= PMA_showHint(PMA_sanitize(sprintf('%sAllowArbitraryServer%s', '[a@./Documentation.html#AllowArbitraryServer@_blank]', '[/a]')));
+        $database_header .= PMA_showHint(PMA_sanitize(sprintf('%sAllowArbitraryServer%s',
+            '[a@./Documentation.html#AllowArbitraryServer@_blank]', '[/a]')));
 ?>
       <table id="serverconnection_<?php echo $type; ?>_remote" class="data noclick">
       <caption class="tblHeaders"><?php echo $database_header; ?></caption>

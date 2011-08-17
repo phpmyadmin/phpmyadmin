@@ -43,6 +43,7 @@ phpMyAdmin - ChangeLog
 + AJAX for table Operations copy table
 - bug #3380946 [export] no uid Query result export (Suhosin limit)
 + Grid editing in browse mode (replaces row inline edit)
++ Zoom-search in table Search
 
 3.4.5.0 (not yet released)
 - bug #3375325 [interface] Page list in navigation frame looks odd

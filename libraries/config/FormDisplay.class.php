@@ -467,10 +467,10 @@ class FormDisplay
         }
 
         $this->errors = array();
-        foreach ($forms as $form) {
+        foreach ($forms as $form_name) {
             /* @var $form Form */
-            if (isset($this->forms[$form])) {
-                $form = $this->forms[$form];
+            if (isset($this->forms[$form_name])) {
+                $form = $this->forms[$form_name];
             } else {
                 continue;
             }

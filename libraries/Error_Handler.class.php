@@ -127,6 +127,7 @@ class PMA_Error_Handler
      *
      * @todo    finish!
      * @param PMA_Error $error
+     * @return bool
      */
     protected function _logError($error)
     {

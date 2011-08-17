@@ -1137,7 +1137,6 @@ $cfg['DefaultTabDatabase'] = 'db_structure.php';
  */
 $cfg['DefaultTabTable'] = 'sql.php';
 
-
 /*******************************************************************************
  * Export defaults
  */
@@ -1845,7 +1844,6 @@ $cfg['Export']['xml_export_contents'] = true;
  */
 $cfg['Export']['yaml_structure_or_data'] = 'data';
 
-
 /*******************************************************************************
  * Import defaults
  */
@@ -2443,7 +2441,6 @@ $cfg['UserprefsDisallow'] = array();
  */
 $cfg['UserprefsDeveloperTab'] = false;
 
-
 /*******************************************************************************
  * Window title settings
  */
@@ -2554,9 +2551,7 @@ $cfg['DefaultQueryDatabase'] = '';
 /*******************************************************************************
  * SQL Query box settings
  * These are the links display in all of the SQL Query boxes
- */
-
-/**
+ *
  * @global array $cfg['SQLQuery']
  */
 $cfg['SQLQuery'] = array();
@@ -2628,7 +2623,7 @@ $cfg['SaveDir'] = '';
 $cfg['TempDir'] = '';
 
 
-/*******************************************************************************
+/**
  * Misc. settings
  */
 
@@ -2673,12 +2668,7 @@ $cfg['LinkLengthLimit'] = 1000;
  */
 $cfg['DisableMultiTableMaintenance'] = false;
 
-
 /*******************************************************************************
- * SQL Parser
- */
-
-/**
  * SQL Parser Settings
  *
  * @global array $cfg['SQP']
@@ -2708,10 +2698,6 @@ $cfg['SQP']['fmtIndUnit'] = 'em';
 
 
 /*******************************************************************************
- * SQL Validator
- */
-
-/**
  * If you wish to use the SQL Validator service, you should be aware of the
  * following:
  * All SQL statements are stored anonymously for statistical purposes.
@@ -2746,10 +2732,6 @@ $cfg['SQLValidator']['password'] = '';
 
 /*******************************************************************************
  * Developers ONLY!
- */
-
-/**
- * Debugging settings
  *
  * @global array $cfg['DBG']
  */
@@ -2768,9 +2750,10 @@ $cfg['DBG']['sql'] = false;
  */
 
 /**
- * Column types
+ * Column types;
+ * VARCHAR, TINYINT, TEXT and DATE are listed first, based on estimated popularity
  *
- * Fill in this array to overwrite data from data_*.inc.php files
+ * This variable is filled in data_*.inc.php
  *
  * @global array $cfg['ColumnTypes']
  */
@@ -2779,17 +2762,18 @@ $cfg['ColumnTypes'] = array();
 /**
  * Attributes
  *
- * Fill in this array to overwrite data from data_*.inc.php files
+ * This variable is filled in data_*.inc.php
  *
  * @global array $cfg['AttributeTypes']
  */
 $cfg['AttributeTypes'] = array();
 
+
 if ($cfg['ShowFunctionFields']) {
     /**
      * Available functions
      *
-     * Fill in this array to overwrite data from data_*.inc.php files
+     * This variable is filled in data_*.inc.php
      *
      * @global array $cfg['Functions']
      */
@@ -2798,7 +2782,7 @@ if ($cfg['ShowFunctionFields']) {
     /**
      * Which column types will be mapped to which Group?
      *
-     * Fill in this array to overwrite data from data_*.inc.php files
+     * This variable is filled in data_*.inc.php
      *
      * @global array $cfg['RestrictColumnTypes']
      */
@@ -2807,7 +2791,7 @@ if ($cfg['ShowFunctionFields']) {
     /**
      * Map above defined groups to any function
      *
-     * Fill in this array to overwrite data from data_*.inc.php files
+     * This variable is filled in data_*.inc.php
      *
      * @global array $cfg['RestrictFunctions']
      */
@@ -2825,6 +2809,95 @@ if ($cfg['ShowFunctionFields']) {
         'first_timestamp' => 'NOW',
         'pk_char36' => 'UUID',
     );
-}
+} // end if
+
+/**
+ * Search operators
+ *
+ * @global array $cfg['NumOperators']
+ */
+$cfg['NumOperators'] = array(
+   '=',
+   '>',
+   '>=',
+   '<',
+   '<=',
+   '!=',
+   'LIKE',
+   'NOT LIKE',
+   'IN (...)',
+   'NOT IN (...)',
+   'BETWEEN',
+   'NOT BETWEEN',
+);
+
+/**
+ * Search operators
+ *
+ * @global array $cfg['TextOperators']
+ */
+$cfg['TextOperators'] = array(
+   'LIKE',
+   'LIKE %...%',
+   'NOT LIKE',
+   '=',
+   '!=',
+   'REGEXP',
+   'REGEXP ^...$',
+   'NOT REGEXP',
+   "= ''",
+   "!= ''",
+   'IN (...)',
+   'NOT IN (...)',
+   'BETWEEN',
+   'NOT BETWEEN',
+);
+
+/**
+ * Search operators
+ *
+ * @global array $cfg['EnumOperators']
+ */
+$cfg['EnumOperators'] = array(
+   '=',
+   '!=',
+);
+
+/**
+ * Search operators
+ *
+ * @global array $cfg['SetOperators']
+ */
+$cfg['SetOperators'] = array(
+   'IN',
+   'NOT IN',
+);
+
+/**
+ * Search operators
+ *
+ * @global array $cfg['NullOperators']
+ */
+$cfg['NullOperators'] = array(
+   'IS NULL',
+   'IS NOT NULL',
+);
+
+/**
+ * Search operators
+ *
+ * @global array $cfg['UnaryOperators']
+ */
+$cfg['UnaryOperators'] = array(
+   'IS NULL' => 1,
+   'IS NOT NULL' => 1,
+   "= ''" => 1,
+   "!= ''" => 1
+);
+
+/**
+ * Max rows retreived for zoom search
+ */
+$cfg['maxRowPlotLimit'] = 500;
 
 ?>

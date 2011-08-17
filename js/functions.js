@@ -904,26 +904,6 @@ function goToUrl(selObj, goToLocation)
 }
 
 /**
- * getElement
- */
-function getElement(e,f)
-{
-    if(document.layers){
-        f=(f)?f:self;
-        if(f.document.layers[e]) {
-            return f.document.layers[e];
-        }
-        for(W=0;W<f.document.layers.length;W++) {
-            return(getElement(e,f.document.layers[W]));
-        }
-    }
-    if(document.all) {
-        return document.all[e];
-    }
-    return document.getElementById(e);
-}
-
-/**
   * Refresh the WYSIWYG scratchboard after changes have been made
   */
 function refreshDragOption(e)
@@ -1993,7 +1973,7 @@ $(document).ready(function() {
     **/
     $("#alterTableOrderby.ajax").live('submit', function(event) {
         event.preventDefault();
-        $form = $(this);
+        var $form = $(this);
 
         PMA_prepareForAjaxRequest($form);
         /*variables which stores the common attributes*/
@@ -2011,9 +1991,9 @@ $(document).ready(function() {
                 $("#result_query .notice").remove();
                 $("#result_query").prepend((data.message));
             } else {
-                $temp_div = $("<div id='temp_div'></div>")
+                var $temp_div = $("<div id='temp_div'></div>")
                 $temp_div.html(data.error);
-                $error = $temp_div.find("code").addClass("error");
+                var $error = $temp_div.find("code").addClass("error");
                 PMA_ajaxShowMessage($error);
             }
         }) // end $.post()
@@ -2024,7 +2004,7 @@ $(document).ready(function() {
     **/
     $("#copyTable.ajax input[name='submit_copy']").live('click', function(event) {
         event.preventDefault();
-        $form = $("#copyTable");
+        var $form = $("#copyTable");
         if($form.find("input[name='switch_to_new']").attr('checked')) {
             $form.append('<input type="hidden" name="submit_copy" value="Go" />');
             $form.removeClass('ajax');
@@ -2053,14 +2033,52 @@ $(document).ready(function() {
                         window.parent.frame_navigation.location.reload();
                     }
                 } else {
-                    $temp_div = $("<div id='temp_div'></div>")
+                    var $temp_div = $("<div id='temp_div'></div>");
                     $temp_div.html(data.error);
-                    $error = $temp_div.find("code").addClass("error");
+                    var $error = $temp_div.find("code").addClass("error");
                     PMA_ajaxShowMessage($error);
                 }
             }) // end $.post()
         }
     });//end of copyTable ajax submit
+
+    /**
+     *Ajax events for actions in the "Table maintenance"
+    **/
+    $("#tbl_maintenance.ajax li a.maintain_action").live('click', function(event) {
+        event.preventDefault();
+        var $link = $(this);
+        var href = $link.attr("href");
+        href = href.split('?');
+        if ($("#sqlqueryresults").length != 0) {
+            $("#sqlqueryresults").remove();
+        }
+        if ($("#result_query").length != 0) {
+            $("#result_query").remove();
+        }
+        //variables which stores the common attributes
+        $.post(href[0], href[1]+"&ajax_request=true", function(data) {
+            if (data.success == undefined) {
+                var $temp_div = $("<div id='temp_div'></div>");
+                $temp_div.html(data);
+                var $success = $temp_div.find("#result_query .success");
+                PMA_ajaxShowMessage($success);
+                $("<div id='sqlqueryresults' class='ajax'></div>").insertAfter("#topmenucontainer");
+                $("#sqlqueryresults").html(data);
+                PMA_init_slider();
+                $("#sqlqueryresults").children("fieldset").remove();
+            } else if (data.success == true ) {
+                PMA_ajaxShowMessage(data.message);
+                $("<div id='sqlqueryresults' class='ajax'></div>").insertAfter("#topmenucontainer");
+                $("#sqlqueryresults").html(data.sql_query);
+            } else {
+                var $temp_div = $("<div id='temp_div'></div>");
+                $temp_div.html(data.error);
+                var $error = $temp_div.find("code").addClass("error");
+                PMA_ajaxShowMessage($error);
+            }
+        }) // end $.post()
+    });//end of table maintanance ajax click
 
 }, 'top.frame_content'); //end $(document).ready for 'Table operations'
 
@@ -2984,7 +3002,7 @@ $(document).ready(function() {
     $("#drop_tbl_anchor").live('click', function(event) {
         event.preventDefault();
 
-        //context is top.frame_content, so we need to use window.parent.db to access the db var
+        //context is top.frame_content, so we need to use window.parent.table to access the table var
         /**
          * @var question    String containing the question to be asked for confirmation
          */
@@ -3012,10 +3030,10 @@ $(document).ready(function() {
  * @see $cfg['AjaxEnable']
  */
 $(document).ready(function() {
-    $("#truncate_tbl_anchor").live('click', function(event) {
+    $("#truncate_tbl_anchor.ajax").live('click', function(event) {
         event.preventDefault();
 
-        //context is top.frame_content, so we need to use window.parent.db to access the db var
+      //context is top.frame_content, so we need to use window.parent.table to access the table var
         /**
          * @var question    String containing the question to be asked for confirmation
          */
@@ -3025,13 +3043,26 @@ $(document).ready(function() {
 
             PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
             $.get(url, {'is_js_confirmed': '1', 'ajax_request': true}, function(data) {
-                //Database deleted successfully, refresh both the frames
-                window.parent.refreshNavigation();
-                window.parent.refreshMain();
+                if ($("#sqlqueryresults").length != 0) {
+                    $("#sqlqueryresults").remove();
+                }
+                if ($("#result_query").length != 0) {
+                    $("#result_query").remove();
+                }
+                if (data.success == true) {
+                    PMA_ajaxShowMessage(data.message);
+                    $("<div id='sqlqueryresults'></div>").insertAfter("#topmenucontainer");
+                    $("#sqlqueryresults").html(data.sql_query);
+                } else {
+                    var $temp_div = $("<div id='temp_div'></div>")
+                    $temp_div.html(data.error);
+                    var $error = $temp_div.find("code").addClass("error");
+                    PMA_ajaxShowMessage($error);
+                }
             }) // end $.get()
         }); // end $.PMA_confirm()
-    }); //end of Drop Table Ajax action
-}) // end of $(document).ready() for Drop Table
+    }); //end of Truncate Table Ajax action
+}) // end of $(document).ready() for Truncate Table
 
 /**
  * Attach CodeMirror2 editor to SQL edit area.

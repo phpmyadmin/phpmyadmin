@@ -97,16 +97,21 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                     $sql_query .= $import_run_buffer['full'];
                 }
                 if (!$cfg['AllowUserDropDatabase']
-                 && !$is_superuser
-                 && preg_match('@^[[:space:]]*DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE @i', $import_run_buffer['sql'])) {
+                    && !$is_superuser
+                    && preg_match('@^[[:space:]]*DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE @i', $import_run_buffer['sql'])
+                ) {
                     $GLOBALS['message'] = PMA_Message::error(__('"DROP DATABASE" statements are disabled.'));
                     $error = true;
                 } else {
                     $executed_queries++;
-                    if ($run_query && $GLOBALS['finished'] && empty($sql) && !$error && (
-                            (!empty($import_run_buffer['sql']) && preg_match('/^[\s]*(SELECT|SHOW|HANDLER)/i', $import_run_buffer['sql'])) ||
-                            ($executed_queries == 1)
-                            )) {
+                    if ($run_query
+                        && $GLOBALS['finished']
+                        && empty($sql)
+                        && !$error
+                        && ((!empty($import_run_buffer['sql'])
+                        && preg_match('/^[\s]*(SELECT|SHOW|HANDLER)/i', $import_run_buffer['sql']))
+                        || ($executed_queries == 1))
+                    ) {
                         $go_sql = true;
                         if (!$sql_query_disabled) {
                             $complete_query = $sql_query;
@@ -161,13 +166,15 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                             list($db, $reload) = PMA_lookForUse($import_run_buffer['sql'], $db, $reload);
                         }
 
-                        if ($result != false && preg_match('@^[\s]*(DROP|CREATE)[\s]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@im', $import_run_buffer['sql'])) {
+                        if ($result != false
+                            && preg_match('@^[\s]*(DROP|CREATE)[\s]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@im', $import_run_buffer['sql'])
+                        ) {
                             $reload = true;
                         }
                     } // end run query
                 } // end if not DROP DATABASE
-            } // end non empty query
-            elseif (!empty($import_run_buffer['full'])) {
+            // end non empty query
+            } elseif (!empty($import_run_buffer['full'])) {
                 if ($go_sql) {
                     $complete_query .= $import_run_buffer['full'];
                     $display_query .= $import_run_buffer['full'];

@@ -54,6 +54,8 @@ class PMA_localisedDateTimespan_test extends PHPUnit_Framework_TestCase
 
     /**
      * data provider for localised date test
+     *
+     * @return array
      */
     public function localisedDateDataProvider() {
         return array(
@@ -72,8 +74,9 @@ class PMA_localisedDateTimespan_test extends PHPUnit_Framework_TestCase
 
     /**
      * data provider for localised timestamp test
+     *
+     * @return array
      */
-
     public function timespanFormatDataProvider() {
         return array(
             array(1258, '0 days, 0 hours, 20 minutes and 58 seconds'),

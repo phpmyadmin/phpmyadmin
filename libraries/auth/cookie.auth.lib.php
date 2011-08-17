@@ -80,6 +80,7 @@ if (function_exists('mcrypt_encrypt')) {
  * Returns blowfish secret or generates one if needed.
  *
  * @access  public
+ * @return string
  */
 function PMA_get_blowfish_secret()
 {

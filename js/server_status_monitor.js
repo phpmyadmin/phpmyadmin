@@ -16,6 +16,11 @@ $(function() {
     // Holds about to created chart
     var newChart = null;
     var chartSpacing;
+    
+    // Whenever the monitor object (runtime.charts) or the settings object (monitorSettings) 
+    // changes in a way incompatible to the previous version, increase this number
+    // It will reset the users monitor and settings object in his localStorage to the default configuration
+    var monitorProtocolVersion = '1.0';
 
     // Runtime parameter of the monitor, is being fully set in initGrid()
     var runtime = {
@@ -51,103 +56,158 @@ $(function() {
 
     // Allows drag and drop rearrange and print/edit icons on charts
     var editMode = false;
-
+    
+    /* List of preconfigured charts that the user may select */
     var presetCharts = {
-        'cpu-WINNT': {
-            title: PMA_messages['strSystemCPUUsage'],
-            nodes: [{ dataType: 'cpu', name: PMA_messages['strAverageLoad'], dataPoint: 'loadavg', unit: '%'}]
+        // Query cache efficiency
+        'qce': {
+            title: PMA_messages['strQueryCacheEfficiency'],
+            nodes: [ {
+                name: PMA_messages['strQueryCacheEfficiency'],
+                dataPoints: [{type: 'statusvar', name: 'Qcache_hits'}, {type: 'statusvar', name: 'Com_select'}],
+                unit: '%',
+                transformFn: 'qce'
+            } ]
         },
-        'memory-WINNT': {
-            title: PMA_messages['strSystemMemory'],
-            nodes: [
-                { dataType: 'memory', name: PMA_messages['strTotalMemory'], dataPoint: 'MemTotal', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                { dataType: 'memory', name: PMA_messages['strUsedMemory'], dataPoint: 'MemUsed', valueDivisor: 1024, unit: PMA_messages['strMiB']  }
-            ]
-        },
-        'swap-WINNT': {
-            title: PMA_messages['strSystemSwap'],
-            nodes: [
-                { dataType: 'memory', name: PMA_messages['strTotalSwap'], dataPoint: 'SwapTotal', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                { dataType: 'memory', name: PMA_messages['strUsedSwap'], dataPoint: 'SwapUsed', valueDivisor: 1024, unit: PMA_messages['strMiB'] }
-            ]
-        },
-        'cpu-Linux': {
-            title: PMA_messages['strSystemCPUUsage'],
-            nodes: [
-                { dataType: 'cpu',
-                  name: PMA_messages['strAverageLoad'],
-                  unit: '%',
-                  transformFn: 'cpu-linux'
-                }
-            ]
-        },
-        'memory-Linux': {
-            title: PMA_messages['strSystemMemory'],
-            nodes: [
-                { dataType: 'memory', name: PMA_messages['strUsedMemory'], dataPoint: 'MemUsed', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                { dataType: 'memory', name: PMA_messages['strCachedMemory'], dataPoint: 'Cached',  valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                { dataType: 'memory', name: PMA_messages['strBufferedMemory'], dataPoint: 'Buffers', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                { dataType: 'memory', name: PMA_messages['strFreeMemory'], dataPoint: 'MemFree', valueDivisor: 1024, unit: PMA_messages['strMiB'] }
-            ],
-            settings: {
-                chart: {
-                    type: 'area',
-                    animation: false
-                },
-                plotOptions: {
-                    area: {
-                        stacking: 'percent'
-                    }
-                }
-            }
-        },
-        'swap-Linux': {
-            title: PMA_messages['strSystemSwap'],
-            nodes: [
-                { dataType: 'memory', name: PMA_messages['strTotalSwap'], dataPoint: 'SwapUsed',   valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                { dataType: 'memory', name: PMA_messages['strCachedSwap'], dataPoint: 'SwapCached', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                { dataType: 'memory', name: PMA_messages['strFreeSwap'], dataPoint: 'SwapFree',   valueDivisor: 1024, unit: PMA_messages['strMiB'] }
-            ],
-            settings: {
-                chart: {
-                    type: 'area',
-                    animation: false
-                },
-                plotOptions: {
-                    area: {
-                        stacking: 'percent'
-                    }
-                }
-            }
+        // Query cache usage
+        'qcu': {
+            title: PMA_messages['strQueryCacheUsage'],
+            nodes: [ {
+                name: PMA_messages['strQueryCacheUsed'],
+                dataPoints: [{type: 'statusvar', name: 'Qcache_free_memory'}, {type: 'servervar', name: 'query_cache_size'}],
+                unit: '%',
+                transformFn: 'qcu'
+            } ]
         }
     };
+    
+    /* Add OS specific system info charts to the preset chart list */
+    switch(server_os) {
+    case 'WINNT': 
+        $.extend(presetCharts, { 
+            'cpu': {
+                title: PMA_messages['strSystemCPUUsage'],
+                nodes: [ { 
+                    name: PMA_messages['strAverageLoad'], 
+                    dataPoints: [{ type: 'cpu', name: 'loadavg'}], 
+                    unit: '%'
+                } ]
+            },
+            
+            'memory': {
+                title: PMA_messages['strSystemMemory'],
+                nodes: [ {
+                    name: PMA_messages['strTotalMemory'],
+                    dataPoints: [{ type: 'memory', name: 'MemTotal' }],
+                    valueDivisor: 1024,
+                    unit: PMA_messages['strMiB']
+                }, {
+                    dataType: 'memory',
+                      name: PMA_messages['strUsedMemory'],
+                      dataPoints: [{ type: 'memory', name: 'MemUsed' }],
+                      valueDivisor: 1024,
+                      unit: PMA_messages['strMiB']
+                } ]
+            },
+            
+            'swap': {
+                title: PMA_messages['strSystemSwap'],
+                nodes: [ {
+                    name: PMA_messages['strTotalSwap'],
+                    dataPoints: [{ type: 'memory', name: 'SwapTotal' }],
+                    valueDivisor: 1024,
+                    unit: PMA_messages['strMiB']
+                }, {
+                    name: PMA_messages['strUsedSwap'],
+                    dataPoints: [{ type: 'memory', name: 'SwapUsed' }],
+                    valueDivisor: 1024,
+                    unit: PMA_messages['strMiB']
+                } ]
+            }
+        });
+        break;
+        
+    case 'Linux':
+        $.extend(presetCharts, {
+            'cpu': {
+                title: PMA_messages['strSystemCPUUsage'],
+                nodes: [ {
+                    name: PMA_messages['strAverageLoad'],
+                    dataPoints: [{ type: 'cpu', name: 'irrelevant' }],
+                    unit: '%',
+                    transformFn: 'cpu-linux'
+                } ]
+            },
+            'memory': {
+                title: PMA_messages['strSystemMemory'],
+                nodes: [
+                    { name: PMA_messages['strUsedMemory'], dataPoints: [{ type: 'memory', name: 'MemUsed' }], valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                    { name: PMA_messages['strCachedMemory'], dataPoints: [{ type: 'memory', name: 'Cached' }],  valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                    { name: PMA_messages['strBufferedMemory'], dataPoints: [{ type: 'memory', name: 'Buffers' }], valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                    { name: PMA_messages['strFreeMemory'], dataPoints: [{ type: 'memory', name: 'MemFree' }], valueDivisor: 1024, unit: PMA_messages['strMiB'] }
+                ],
+                settings: {
+                    chart: {
+                        type: 'area',
+                        animation: false
+                    },
+                    plotOptions: {
+                        area: {
+                            stacking: 'percent'
+                        }
+                    }
+                }
+            },
+            'swap': {
+                title: PMA_messages['strSystemSwap'],
+                nodes: [
+                    { name: PMA_messages['strUsedSwap'], dataPoints: [{ type: 'memory', name: 'SwapUsed' }], valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                    { name: PMA_messages['strCachedSwap'], dataPoints: [{ type: 'memory', name: 'SwapCached' }], valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                    { name: PMA_messages['strFreeSwap'], dataPoints: [{ type: 'memory', name: 'SwapFree' }], valueDivisor: 1024, unit: PMA_messages['strMiB'] }
+                ],
+                settings: {
+                    chart: {
+                        type: 'area',
+                        animation: false
+                    },
+                    plotOptions: {
+                        area: {
+                            stacking: 'percent'
+                        }
+                    }
+                }
+            }
+        });
+        break;
+    }
 
-    // Default setting
+    // Default setting for the chart grid
     defaultChartGrid = {
         'c0': {  title: PMA_messages['strQuestions'],
-                 nodes: [{ dataType: 'statusvar', name: PMA_messages['strQuestions'], dataPoint: 'Questions', display: 'differential' }]
+                 nodes: [{name: PMA_messages['strQuestions'], dataPoints: [{ type: 'statusvar', name: 'Questions' }], display: 'differential' }]
         },
         'c1': {
                  title: PMA_messages['strChartConnectionsTitle'],
-                 nodes: [ { dataType: 'statusvar', name: PMA_messages['strConnections'], dataPoint: 'Connections', display: 'differential' },
-                          { dataType: 'proc', name: PMA_messages['strProcesses'], dataPoint: 'processes'} ]
+                 nodes: [ { name: PMA_messages['strConnections'], dataPoints: [{ type: 'statusvar', name: 'Connections' }], display: 'differential' },
+                          { name: PMA_messages['strProcesses'], dataPoints: [{ type: 'proc', name: 'processes' }] } ]
         },
         'c2': {
                  title: PMA_messages['strTraffic'],
                  nodes: [
-                    { dataType: 'statusvar', name: PMA_messages['strBytesSent'], dataPoint: 'Bytes_sent', display: 'differential', valueDivisor: 1024, unit: PMA_messages['strKiB'] },
-                    { dataType: 'statusvar', name: PMA_messages['strBytesReceived'], dataPoint: 'Bytes_received', display: 'differential', valueDivisor: 1024, unit: PMA_messages['strKiB'] }
+                    { name: PMA_messages['strBytesSent'], dataPoints: [{ type: 'statusvar', name: 'Bytes_sent' }], display: 'differential', valueDivisor: 1024, unit: PMA_messages['strKiB'] },
+                    { name: PMA_messages['strBytesReceived'], dataPoints: [{ type: 'statusvar', name: 'Bytes_received' }], display: 'differential', valueDivisor: 1024, unit: PMA_messages['strKiB'] }
                  ]
          }
     };
 
-    // Server is localhost => We can add cpu/memory/swap
+    // Server is localhost => We can add cpu/memory/swap to the default chart
     if (server_db_isLocal) {
-        defaultChartGrid['c3'] = presetCharts['cpu-' + server_os];
-        defaultChartGrid['c4'] = presetCharts['memory-' + server_os];
-        defaultChartGrid['c5'] = presetCharts['swap-' + server_os];
+        defaultChartGrid['c3'] = presetCharts['cpu'];
+        defaultChartGrid['c4'] = presetCharts['memory'];
+        defaultChartGrid['c5'] = presetCharts['swap'];
     }
 
+    /* Buttons that are on the top right corner of each chart */
     var gridbuttons = {
         cogButton: {
             //enabled: true,
@@ -368,9 +428,11 @@ $(function() {
         dlgButtons[PMA_messages['strAddChart']] = function() {
             var type = $('input[name="chartType"]:checked').val();
 
-            if (type == 'cpu' || type == 'memory' || type == 'swap') {
-                newChart = presetCharts[type + '-' + server_os];
+            if (type == 'preset') {
+                newChart = presetCharts[$('div#addChartDialog select[name="presetCharts"]').prop('value')];
             } else {
+                // If user builds his own chart, it's being set/updated each time he adds a series
+                // So here we only warn if he didn't add a series yet
                 if (! newChart || ! newChart.nodes || newChart.nodes.length == 0) {
                     alert(PMA_messages['strAddOneSeriesWarning']);
                     return;
@@ -394,6 +456,17 @@ $(function() {
             $('#seriesPreview').html('');
             $(this).dialog("close");
         };
+        
+        var $presetList = $('div#addChartDialog select[name="presetCharts"]');
+        if ($presetList.html().length == 0) {
+            $.each(presetCharts, function(key, value) {
+                $presetList.append('<option value="' + key + '">' + value.title + '</option>');
+            });
+            $presetList.change(function() {
+                $('input#chartPreset').trigger('click');
+                $('input[name="chartTitle"]').attr('value', presetCharts[$(this).prop('value')].title);
+            });
+        }
         
         $('div#addChartDialog').dialog({
             width: 'auto',
@@ -500,6 +573,7 @@ $(function() {
     $('a[href="#clearMonitorConfig"]').click(function() {
         window.localStorage.removeItem('monitorCharts');
         window.localStorage.removeItem('monitorSettings');
+        window.localStorage.removeItem('monitorVersion');
         $(this).hide();
         rebuildGrid();
     });
@@ -712,8 +786,7 @@ $(function() {
         }
 
         var serie = {
-            dataType: 'statusvar',
-            dataPoint: $('input#variableInput').attr('value'),
+            dataPoints: [{ type: 'statusvar', name: $('input#variableInput').attr('value') }],
             name: $('input#variableInput').attr('value'),
             display: $('input[name="differentialValue"]').attr('checked') ? 'differential' : ''
         };
@@ -733,7 +806,7 @@ $(function() {
         var str = serie.display == 'differential' ? ', ' + PMA_messages['strDifferential'] : '';
         str += serie.valueDivisor ? (', ' + $.sprintf(PMA_messages['strDividedBy'], serie.valueDivisor)) : '';
 
-        $('#seriesPreview').append('- ' + serie.dataPoint + str + '<br>');
+        $('#seriesPreview').append('- ' + serie.name + str + '<br>');
 
         newChart.nodes.push(serie);
 
@@ -769,6 +842,19 @@ $(function() {
             }
 
             $('a[href="#clearMonitorConfig"]').toggle(runtime.charts != null);
+
+            if (runtime.charts != null && monitorProtocolVersion != window.localStorage['monitorVersion']) {
+                $('div#emptyDialog').attr('title',PMA_messages['strIncompatibleMonitorConfig']);
+                $('div#emptyDialog').html(PMA_messages['strIncompatibleMonitorConfigDescription']);
+
+                var dlgBtns = {};
+                dlgBtns[PMA_messages['strClose']] = function() { $(this).dialog('close'); };
+
+                $('div#emptyDialog').dialog({ 
+                    width: 400,
+                    buttons: dlgBtns 
+                });
+            }            
         }
 
         if (runtime.charts == null) {
@@ -1033,7 +1119,7 @@ $(function() {
         var htmlStr = '<p><b>Chart title: </b> <br/> <input type="text" size="35" name="chartTitle" value="' + chart.title + '" />';
         htmlStr += '</p><p><b>Series:</b> </p><ol>';
         for (var i = 0; i<chart.nodes.length; i++) {
-            htmlStr += '<li><i>' + chart.nodes[i].dataPoint  + ': </i><br/><input type="text" name="chartSerie-' + i + '" value=" ' + chart.nodes[i].name + '" /></li>';
+            htmlStr += '<li><i>' + chart.nodes[i].dataPoints[0].name  + ': </i><br/><input type="text" name="chartSerie-' + i + '" value="' + chart.nodes[i].name + '" /></li>';
         }
         
         dlgBtns = {};
@@ -1114,10 +1200,8 @@ $(function() {
                 if (! chartData[key]) {
                     return;
                 }
-                // Draw all points
+                // Draw all series
                 for (var j = 0; j < elem.nodes.length; j++) {
-                    value = chartData[key][j].y;
-                    
                     // Update x-axis
                     if (i == 0 && j == 0) {
                         if (oldChartData == null) {
@@ -1132,24 +1216,32 @@ $(function() {
 
                     elem.chart.xAxis[0].setExtremes(runtime.xmin, runtime.xmax, false);
 
-                    // Calculate y value
-                    if (elem.nodes[j].display == 'differential') {
-                        if (oldChartData == null || oldChartData[key] == null) { 
-                            continue;
-                        }
-                        value -= oldChartData[key][j].y;
-                    }
-
-                    if (elem.nodes[j].valueDivisor) {
-                        value = value / elem.nodes[j].valueDivisor;
-                    }
-
+                    /* Calculate y value */
+                    
+                    // If transform function given, use it
                     if (elem.nodes[j].transformFn) {
                         value = chartValueTransform(
                             elem.nodes[j].transformFn,
                             chartData[key][j],
-                            (oldChartData == null ? null : oldChartData[key][j])
+                            // Check if first iteration (oldChartData==null), or if newly added chart oldChartData[key]==null
+                            (oldChartData == null || oldChartData[key] == null ? null : oldChartData[key][j])
                         );
+
+                    // Otherwise use original value and apply differential and divisor if given,
+                    // in this case we have only one data point per series - located at chartData[key][j][0]
+                    } else {
+                        value = parseFloat(chartData[key][j][0].value);
+
+                        if (elem.nodes[j].display == 'differential') {
+                            if (oldChartData == null || oldChartData[key] == null) { 
+                                continue;
+                            }
+                            value -= oldChartData[key][j][0].value;
+                        }
+
+                        if (elem.nodes[j].valueDivisor) {
+                            value = value / elem.nodes[j].valueDivisor;
+                        }
                     }
                     
                     // Set y value, if defined
@@ -1177,28 +1269,54 @@ $(function() {
     }
     
     /* Function that supplies special value transform functions for chart values */
-    function chartValueTransform(name, cur, prev) {
+    function chartValueTransform(name, cur, prev) {        
         switch(name) {
-            case 'cpu-linux':
-                if (prev == null) {
-                    return undefined;
-                }
-                
-                var diff_total = cur.busy + cur.idle - (prev.busy + prev.idle);
-                var diff_idle = cur.idle - prev.idle;
-                return 100*(diff_total - diff_idle) / diff_total;
+        case 'cpu-linux':
+            if (prev == null) {
+                return undefined;
+            }
+            // cur and prev are datapoint arrays, but containing only 1 element for cpu-linux
+            cur = cur[0], prev = prev[0];
+
+            var diff_total = cur.busy + cur.idle - (prev.busy + prev.idle);
+            var diff_idle = cur.idle - prev.idle;
+            return 100 * (diff_total - diff_idle) / diff_total;
+
+        // Query cache efficiency (%)
+        case 'qce':
+            if (prev == null) {
+                return undefined;
+            }
+            // cur[0].value is Qcache_hits, cur[1].value is Com_select
+            var diffQHits = cur[0].value - prev[0].value;
+            // No NaN please :-)
+            if (cur[1].value - prev[1].value == 0) return 0;
+
+            return diffQHits / (cur[1].value - prev[1].value + diffQHits) * 100;
+
+        // Query cache usage (%)
+        case 'qcu':
+            if (cur[1].value == 0) return 0;
+            // cur[0].value is Qcache_free_memory, cur[1].value is query_cache_size
+            return 100 - cur[0].value / cur[1].value * 100;
+
         }
         return undefined;
     }
 
-    /* Build list of nodes that need to be retrieved from server */
+    /* Build list of nodes that need to be retrieved from server.
+     * It creates something like a stripped down version of the runtime.charts object.
+     */
     function buildRequiredDataList() {
         runtime.dataList = {};
         // Store an own id, because the property name is subject of reordering, 
         // thus destroying our mapping with runtime.charts <=> runtime.dataList
         var chartID = 0;
         $.each(runtime.charts, function(key, chart) {
-            runtime.dataList[chartID] = chart.nodes;
+            runtime.dataList[chartID] = [];
+            for(var i=0; i < chart.nodes.length; i++) {
+                runtime.dataList[chartID][i] = chart.nodes[i].dataPoints;
+            }
             runtime.charts[key].chartID = chartID;
             chartID++;
         });
@@ -1746,8 +1864,14 @@ $(function() {
         if (window.localStorage) {
             window.localStorage['monitorCharts'] = $.toJSON(gridCopy);
             window.localStorage['monitorSettings'] = $.toJSON(monitorSettings);
+            window.localStorage['monitorVersion'] = monitorProtocolVersion;
         }
 
         $('a[href="#clearMonitorConfig"]').show();
     }
+});
+
+// Run the monitor once loaded
+$(function() {
+    $('a[href="#pauseCharts"]').trigger('click');
 });

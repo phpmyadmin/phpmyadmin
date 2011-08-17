@@ -90,6 +90,13 @@ $js_messages['strChartIssuedQueriesTitle'] = __('Questions (executed statements 
 $js_messages['strChartQueryPie'] = __('Query statistics');
 
 /* server status monitor */
+$js_messages['strIncompatibleMonitorConfig'] = __('Local monitor configuration incompatible');
+$js_messages['strIncompatibleMonitorConfigDescription'] = __('The chart arrangement configuration in your browsers local storage is not compatible anymore to the newer version of the monitor dialog. It is very likely that your current configuration will not work anymore. Please reset your configuration to default in the <i>Settings</i> menu.');
+
+$js_messages['strQueryCacheEfficiency'] = __('Query cache efficiency');
+$js_messages['strQueryCacheUsage'] = __('Query cache usage');
+$js_messages['strQueryCacheUsed'] = __('Query cache used');
+
 $js_messages['strSystemCPUUsage'] = __('System CPU Usage');
 $js_messages['strSystemMemory'] = __('System memory');
 $js_messages['strSystemSwap'] = __('System swap');
@@ -250,6 +257,26 @@ $js_messages['strSave'] = __('Save');
 /* For tbl_select.js */
 $js_messages['strHideSearchCriteria'] = __('Hide search criteria');
 $js_messages['strShowSearchCriteria'] = __('Show search criteria');
+
+/* For tbl_zoom_plot.js */
+$js_messages['strZoomSearch'] = __('Zoom Search');
+$js_messages['strDisplayHelp'] = '<ul><li>'
+    . __('Each point represents a data row.')
+    . '</li><li>'
+    . __('Hovering over a point will show its label.')
+    . '</li><li>'
+    . __('Drag and select an area in the plot to zoom into it.')
+    . '</li><li>'
+    . __('Click reset zoom link to come back to original state.')
+    . '</li><li>'
+    . __('Click a data point to view and possibly edit the data row.')
+    . '</li><li>'
+    . __('The plot can be resized by dragging it along the bottom right corner.')
+    . '</li><li>'
+    . __('Strings are converted into integer for plotting')
+    . '</li></ul>';
+$js_messages['strInputNull'] = '<strong>' . __('Select two columns') . '</strong>';
+$js_messages['strSameInputs'] = '<strong>' . __('Select two different columns') . '</strong>';
 
 /* For tbl_change.js */
 $js_messages['strIgnore'] = __('Ignore');

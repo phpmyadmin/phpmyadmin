@@ -189,6 +189,7 @@ class PMA_File
 
     /**
      * @access  public
+     * @return bool
      */
     function isUploaded()
     {
@@ -591,7 +592,7 @@ class PMA_File
     }
 
     /**
-     *
+     * @return bool
      */
     function open()
     {
@@ -688,6 +689,8 @@ class PMA_File
      * http://bugs.php.net/bug.php?id=29532
      * bzip reads a maximum of 8192 bytes on windows systems
      * @todo this function is unused
+     * @param int $max_size
+     * @return bool|string
      */
     function getNextChunk($max_size = null)
     {
