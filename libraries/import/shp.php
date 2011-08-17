@@ -124,24 +124,24 @@ if (isset($plugin_list)) {
             $this->_loadHeaders();
 
             switch ($this->shapeType) {
-                case 0:
-                    $this->_loadNullRecord();
-                    break;
-                case 1:
-                    $this->_loadPointRecord();
-                    break;
-                case 3:
-                    $this->_loadPolyLineRecord();
-                    break;
-                case 5:
-                    $this->_loadPolygonRecord();
-                    break;
-                case 8:
-                    $this->_loadMultiPointRecord();
-                    break;
-                default:
-                    $this->setError(sprintf("The Shape Type '%s' is not supported.", $this->shapeType));
-                    break;
+            case 0:
+                $this->_loadNullRecord();
+                break;
+            case 1:
+                $this->_loadPointRecord();
+                break;
+            case 3:
+                $this->_loadPolyLineRecord();
+                break;
+            case 5:
+                $this->_loadPolygonRecord();
+                break;
+            case 8:
+                $this->_loadMultiPointRecord();
+                break;
+            default:
+                $this->setError(sprintf("The Shape Type '%s' is not supported.", $this->shapeType));
+                break;
             }
             if (extension_loaded('dbase') && isset($this->DBFFile)) {
                 $this->_loadDBFData();
@@ -287,39 +287,39 @@ if (isset($plugin_list)) {
 
     require_once './libraries/gis/pma_gis_geometry.php';
     switch ($shp->shapeType) {
-        // ESRI Null Shape
-        case 0:
-            $gis_obj = null;
-            break;
-        // ESRI Point
-        case 1:
-            require_once './libraries/gis/pma_gis_point.php';
-            $gis_obj = PMA_GIS_Point::singleton();
-            break;
-        // ESRI PolyLine
-        case 3:
-            require_once './libraries/gis/pma_gis_multilinestring.php';
-            $gis_obj = PMA_GIS_Multilinestring::singleton();
-            break;
-        // ESRI Polygon
-        case 5:
-            require_once './libraries/gis/pma_gis_multipolygon.php';
-            $gis_obj = PMA_GIS_Multipolygon::singleton();
-            break;
-        // ESRI MultiPoint
-        case 8:
-            require_once './libraries/gis/pma_gis_multipoint.php';
-            $gis_obj = PMA_GIS_Multipoint::singleton();
-            break;
-        default:
-            $error = true;
-            if (! isset($esri_types[$shp->shapeType])) {
-                $message = PMA_Message::error(__('You tried to import an invalid file or the imported file contains invalid data'));
-            } else {
-                $message = PMA_Message::error(__('MySQL Spatial Extension does not support ESRI type "%s".'));
-                $message->addParam($param);
-            }
-            return;
+    // ESRI Null Shape
+    case 0:
+        $gis_obj = null;
+        break;
+    // ESRI Point
+    case 1:
+        require_once './libraries/gis/pma_gis_point.php';
+        $gis_obj = PMA_GIS_Point::singleton();
+        break;
+    // ESRI PolyLine
+    case 3:
+        require_once './libraries/gis/pma_gis_multilinestring.php';
+        $gis_obj = PMA_GIS_Multilinestring::singleton();
+        break;
+    // ESRI Polygon
+    case 5:
+        require_once './libraries/gis/pma_gis_multipolygon.php';
+        $gis_obj = PMA_GIS_Multipolygon::singleton();
+        break;
+    // ESRI MultiPoint
+    case 8:
+        require_once './libraries/gis/pma_gis_multipoint.php';
+        $gis_obj = PMA_GIS_Multipoint::singleton();
+        break;
+    default:
+        $error = true;
+        if (! isset($esri_types[$shp->shapeType])) {
+            $message = PMA_Message::error(__('You tried to import an invalid file or the imported file contains invalid data'));
+        } else {
+            $message = PMA_Message::error(__('MySQL Spatial Extension does not support ESRI type "%s".'));
+            $message->addParam($param);
+        }
+        return;
     }
 
     $num_rows = count($shp->records);
