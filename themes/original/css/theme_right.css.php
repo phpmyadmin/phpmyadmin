@@ -284,6 +284,9 @@ th.headerSortUp img.sortableIcon { background-position: 0 -1445px; width: 11px; 
 /* Same as s_desc */
 th.headerSortDown img.sortableIcon { background-position: 0 -1528px; width: 11px; height: 9px; }
 
+/* Fix position */
+.ic_more { vertical-align: middle; }
+
 /******************************************************************************/
 /* classes */
 .clearfloat {
@@ -2405,10 +2408,6 @@ span.cm-number {
 
 .normalqTipContent {
     padding: 1px 3px !important;
-}
-
-.data {
-    position: relative;
 }
 
 .cHide {
