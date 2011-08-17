@@ -135,40 +135,40 @@ class Advisor
         switch($type) {
             case 'notfired':
             case 'fired':
-                    $jst = Advisor::splitJustification($rule);
-                    if (count($jst) > 1) {
-                        try {
-                            /* Translate */
-                            $str = $this->translate($jst[0], $jst[1]);
-                        } catch (Exception $e) {
-                            $this->runResult['errors'][] = sprintf(
-                                __('Failed formatting string for rule \'%s\'. PHP threw following error: %s'),
-                                $rule['name'],
-                                $e->getMessage()
-                            );
-                            return;
-                        }
-
-                        $rule['justification'] = $str;
-                    } else {
-                        $rule['justification'] = $this->translate($rule['justification']);
+                $jst = Advisor::splitJustification($rule);
+                if (count($jst) > 1) {
+                    try {
+                        /* Translate */
+                        $str = $this->translate($jst[0], $jst[1]);
+                    } catch (Exception $e) {
+                        $this->runResult['errors'][] = sprintf(
+                            __('Failed formatting string for rule \'%s\'. PHP threw following error: %s'),
+                            $rule['name'],
+                            $e->getMessage()
+                        );
+                        return;
                     }
-                    $rule['name'] = $this->translate($rule['name']);
-                    $rule['issue'] = $this->translate($rule['issue']);
 
-                    // Replaces {server_variable} with 'server_variable' linking to server_variables.php
-                    $rule['recommendation'] = preg_replace(
-                        '/\{([a-z_0-9]+)\}/Ui',
-                        '<a href="server_variables.php?' . PMA_generate_common_url() . '#filter=\1">\1</a>',
-                        $this->translate($rule['recommendation']));
+                    $rule['justification'] = $str;
+                } else {
+                    $rule['justification'] = $this->translate($rule['justification']);
+                }
+                $rule['name'] = $this->translate($rule['name']);
+                $rule['issue'] = $this->translate($rule['issue']);
 
-                    // Replaces external Links with PMA_linkURL() generated links
-                    $rule['recommendation'] = preg_replace(
-                        '#href=("|\')(https?://[^\1]+)\1#ie',
-                        '\'href="\' . PMA_linkURL("\2") . \'"\'',
-                        $rule['recommendation']
-                    );
-                    break;
+                // Replaces {server_variable} with 'server_variable' linking to server_variables.php
+                $rule['recommendation'] = preg_replace(
+                    '/\{([a-z_0-9]+)\}/Ui',
+                    '<a href="server_variables.php?' . PMA_generate_common_url() . '#filter=\1">\1</a>',
+                    $this->translate($rule['recommendation']));
+
+                // Replaces external Links with PMA_linkURL() generated links
+                $rule['recommendation'] = preg_replace(
+                    '#href=("|\')(https?://[^\1]+)\1#ie',
+                    '\'href="\' . PMA_linkURL("\2") . \'"\'',
+                    $rule['recommendation']
+                );
+                break;
         }
 
         $this->runResult[$type][] = $rule;
