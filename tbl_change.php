@@ -808,26 +808,26 @@ foreach ($rows as $row_id => $vrow) {
         // We don't want binary data destroyed
         elseif ($field['is_binary'] || $field['is_blob']) {
             if (($cfg['ProtectBinary'] && $field['is_blob'])
-                || ($cfg['ProtectBinary'] == 'all' && $field['is_binary'])) {
+                || ($cfg['ProtectBinary'] == 'all' && $field['is_binary'])
+            ) {
                 echo "\n";
                     // for blobstreaming
-                if (PMA_BS_IsTablePBMSEnabled($db, $table, $tbl_type) && PMA_BS_IsPBMSReference($data, $db))
-                    {
-                        echo '<input type="hidden" name="remove_blob_ref_' . $field['Field_md5'] . $vkey . '" value="' . $data . '" />';
-                        echo '<input type="checkbox" name="remove_blob_repo_' . $field['Field_md5'] . $vkey . '" /> ' . __('Remove BLOB Repository Reference') . "<br />";
-                        echo PMA_BS_CreateReferenceLink($data, $db);
-                        echo "<br />";
+                if (PMA_BS_IsTablePBMSEnabled($db, $table, $tbl_type)
+                    && PMA_BS_IsPBMSReference($data, $db)
+                ) {
+                    echo '<input type="hidden" name="remove_blob_ref_' . $field['Field_md5'] . $vkey . '" value="' . $data . '" />';
+                    echo '<input type="checkbox" name="remove_blob_repo_' . $field['Field_md5'] . $vkey . '" /> ' . __('Remove BLOB Repository Reference') . "<br />";
+                    echo PMA_BS_CreateReferenceLink($data, $db);
+                    echo "<br />";
+                } else {
+                    echo __('Binary - do not edit');
+                    if (isset($data)) {
+                        $data_size = PMA_formatByteDown(strlen(stripslashes($data)), 3, 1);
+                        echo ' ('. $data_size [0] . ' ' . $data_size[1] . ')';
+                        unset($data_size);
                     }
-                    else
-                    {
-                        echo __('Binary - do not edit');
-                        if (isset($data)) {
-                            $data_size = PMA_formatByteDown(strlen(stripslashes($data)), 3, 1);
-                            echo ' ('. $data_size [0] . ' ' . $data_size[1] . ')';
-                                    unset($data_size);
-                        }
-                        echo "\n";
-                    }   // end if (PMA_BS_IsTablePBMSEnabled($db, $table, $tbl_type) && PMA_BS_IsPBMSReference($data, $db))
+                    echo "\n";
+                }   // end if (PMA_BS_IsTablePBMSEnabled($db, $table, $tbl_type) && PMA_BS_IsPBMSReference($data, $db))
                 ?>
                 <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>" value="protected" />
                 <input type="hidden" name="fields<?php echo $field_name_appendix; ?>" value="" />
@@ -866,7 +866,9 @@ foreach ($rows as $row_id => $vrow) {
 
             if ($is_upload && $field['is_blob']) {
                 // check if field type is of longblob and  if the table is PBMS enabled.
-                if (($field['pma_type'] == "longblob") && PMA_BS_IsTablePBMSEnabled($db, $table, $tbl_type)) {
+                if (($field['pma_type'] == "longblob")
+                    && PMA_BS_IsTablePBMSEnabled($db, $table, $tbl_type)
+                ) {
                     echo '<br />';
                     echo '<input type="checkbox" name="upload_blob_repo' . $vkey . '[' . $field['Field_md5'] . ']" /> ' .  __('Upload to BLOB repository');
                 }
@@ -914,12 +916,14 @@ foreach ($rows as $row_id => $vrow) {
         } // end elseif (binary or blob)
         elseif (in_array($field['pma_type'], $no_support_types)) {
             // ignore this column to avoid changing it
-        }
-        else {
+        } else {
             // field size should be at least 4 and max 40
             $fieldsize = min(max($field['len'], 4), 40);
             echo $backup_field . "\n";
-            if ($field['is_char'] && ($cfg['CharEditing'] == 'textarea' || strpos($data, "\n") !== false)) {
+            if ($field['is_char']
+                && ($cfg['CharEditing'] == 'textarea'
+                || strpos($data, "\n") !== false)
+            ) {
                 echo "\n";
                 ?>
                 <textarea name="fields<?php echo $field_name_appendix; ?>"
@@ -935,7 +939,9 @@ foreach ($rows as $row_id => $vrow) {
                 $the_class = 'textfield';
                 if ($field['pma_type'] == 'date') {
                     $the_class .= ' datefield';
-                } elseif ($field['pma_type'] == 'datetime' || substr($field['pma_type'], 0, 9) == 'timestamp') {
+                } elseif ($field['pma_type'] == 'datetime'
+                    || substr($field['pma_type'], 0, 9) == 'timestamp'
+                ) {
                     $the_class .= ' datetimefield';
                 }
                 ?>
@@ -965,7 +971,10 @@ foreach ($rows as $row_id => $vrow) {
                     <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>" value="bit" />
                     <?php
                 }
-                if ($field['pma_type'] == 'date' || $field['pma_type'] == 'datetime' || substr($field['pma_type'], 0, 9) == 'timestamp') {
+                if ($field['pma_type'] == 'date'
+                    || $field['pma_type'] == 'datetime'
+                    || substr($field['pma_type'], 0, 9) == 'timestamp'
+                ) {
                     // the _3 suffix points to the date field
                     // the _2 suffix points to the corresponding NULL checkbox
                     // in dateFormat, 'yy' means the year with 4 digits

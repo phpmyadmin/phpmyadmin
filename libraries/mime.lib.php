@@ -9,6 +9,9 @@
 
 /**
  * Tries to detect MIME type of content.
+ *
+ * @param string &$test
+ * @return string
  */
 function PMA_detectMIME(&$test)
 {

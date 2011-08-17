@@ -70,16 +70,17 @@ function PMA_RTN_handleExport()
 {
     global $_GET, $db;
 
-    if (! empty($_GET['export_item']) && ! empty($_GET['item_name'])) {
-        $item_name = $_GET['item_name'];
-        $type = PMA_DBI_fetch_value(
-            "SELECT ROUTINE_TYPE " .
-            "FROM INFORMATION_SCHEMA.ROUTINES " .
-            "WHERE ROUTINE_SCHEMA='" . PMA_sqlAddSlashes($db) . "' " .
-            "AND SPECIFIC_NAME='" . PMA_sqlAddSlashes($item_name) . "';"
-        );
-        $export_data = PMA_DBI_get_definition($db, $type, $item_name);
-        PMA_RTE_handleExport($item_name, $export_data);
+    if (   ! empty($_GET['export_item'])
+        && ! empty($_GET['item_name'])
+        && ! empty($_GET['item_type'])
+    ) {
+        if ($_GET['item_type'] == 'FUNCTION' || $_GET['item_type'] == 'PROCEDURE') {
+            $export_data = PMA_DBI_get_definition(
+                $db,
+                $_GET['item_type'],
+                $_GET['item_name']);
+            PMA_RTE_handleExport($_GET['item_name'], $export_data);
+        }
     }
 } // end PMA_RTN_handleExport()
 
