@@ -141,7 +141,7 @@ class Advisor
                             /* Translate */
                             $str = $this->translate($jst[0], $jst[1]);
                         } catch (Exception $e) {
-                            $this->runResult['errors'][] = 'Failed formattingstring for rule \''.$rule['name'].'\'. PHP threw following error: '.$e->getMessage();
+                            $this->runResult['errors'][] = 'Failed formatting string for rule \''.$rule['name'].'\'. PHP threw following error: '.$e->getMessage();
                             return;
                         }
 
