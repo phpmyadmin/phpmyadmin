@@ -6702,7 +6702,7 @@ msgstr "Datoteka oblik ESRI"
 #: libraries/import/shp.php:254
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr ""
+msgstr "Med uvažanjem datoteke oblik ESRI je prišlo do napake: \"%s\"."
 
 #: libraries/import/shp.php:310
 msgid ""
