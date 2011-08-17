@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-16 19:11+0200\n"
-"PO-Revision-Date: 2011-08-13 02:00+0200\n"
-"Last-Translator: Sven Strickroth <email@cs-ware.de>\n"
+"PO-Revision-Date: 2011-08-17 13:24+0200\n"
+"Last-Translator:  <franz.georg@neurieser.eu>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -415,10 +415,10 @@ msgid "You have to choose at least one column to display"
 msgstr "Bitte wählen Sie mindestens eine anzuzeigende Spalte"
 
 #: db_qbe.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "Wechseln zu %svisual builder%s"
+msgstr "Zu %svisual builder%s wechseln"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:955
@@ -1132,10 +1132,9 @@ msgid "Query statistics"
 msgstr "Abfrage-Statistiken"
 
 #: js/messages.php:93
-#, fuzzy
 #| msgid "Local monitor configuration icompatible"
 msgid "Local monitor configuration incompatible"
-msgstr "Lokale Monitor-Konfiguration ist inkompatibel"
+msgstr "Die lokale Bildschirmkonfiguration ist nicht kompatibel."
 
 #: js/messages.php:94
 msgid ""
@@ -1694,7 +1693,7 @@ msgstr "Suche"
 
 #: js/messages.php:264
 msgid "Each point represents a data row."
-msgstr ""
+msgstr "Jeder Punkt stellt eine Datenreihe dar"
 
 #: js/messages.php:266
 msgid "Hovering over a point will show its label."
@@ -1711,10 +1710,14 @@ msgstr ""
 #: js/messages.php:272
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
+"Auf einen Datenpunkt klicken, um eine Datenzeile anzuzeigen bzw. zu "
+"editieren."
 
 #: js/messages.php:274
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
+"Die Größe der Darstellung kann durch Ziehen in die rechte untere Ecke "
+"verändert werden."
 
 #: js/messages.php:276
 msgid "Strings are converted into integer for plotting"
@@ -1728,7 +1731,7 @@ msgstr "Spalten hinzufügen/entfernen"
 
 #: js/messages.php:279
 msgid "Select two different columns"
-msgstr ""
+msgstr "2 unterschiedliche Spalten auswählen"
 
 #: js/messages.php:282 tbl_change.php:307 tbl_indexes.php:211
 #: tbl_indexes.php:238
