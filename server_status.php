@@ -720,12 +720,12 @@ echo __('Runtime Information');
             <li><a href="#statustabs_traffic"><?php echo __('Server'); ?></a></li>
             <li><a href="#statustabs_queries"><?php echo __('Query statistics'); ?></a></li>
             <li><a href="#statustabs_allvars"><?php echo __('All status variables'); ?></a></li>
-            <li><a href="#statustabs_charting"><?php echo __('Monitor'); ?></a></li>
-            <li><a href="#statustabs_advisor"><?php echo __('Advisor'); ?></a></li>
+            <li class="jsfeature"><a href="#statustabs_charting"><?php echo __('Monitor'); ?></a></li>
+            <li class="jsfeature"><a href="#statustabs_advisor"><?php echo __('Advisor'); ?></a></li>
         </ul>
 
-        <div id="statustabs_traffic">
-            <div class="buttonlinks">
+        <div id="statustabs_traffic" class="clearfloat">
+            <div class="buttonlinks jsfeature">
                 <a class="tabRefresh" href="<?php echo $PMA_PHP_SELF . '?show=server_traffic&amp;' . PMA_generate_common_url(); ?>" >
                     <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
                     <?php echo __('Refresh'); ?>
@@ -746,8 +746,8 @@ echo __('Runtime Information');
                 <?php printServerTraffic(); ?>
             </div>
         </div>
-        <div id="statustabs_queries">
-            <div class="buttonlinks">
+        <div id="statustabs_queries" class="clearfloat">
+            <div class="buttonlinks jsfeature">
                 <a class="tabRefresh"  href="<?php echo $PMA_PHP_SELF . '?show=query_statistics&amp;' . PMA_generate_common_url(); ?>" >
                     <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
                     <?php echo __('Refresh'); ?>
@@ -764,8 +764,8 @@ echo __('Runtime Information');
                 <?php printQueryStatistics(); ?>
             </div>
         </div>
-        <div id="statustabs_allvars">
-            <fieldset id="tableFilter">
+        <div id="statustabs_allvars" class="clearfloat">
+            <fieldset id="tableFilter" class="jsfeature">
                 <div class="buttonlinks">
                     <a class="tabRefresh" href="<?php echo $PMA_PHP_SELF . '?show=variables_table&amp;' . PMA_generate_common_url(); ?>" >
                         <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
@@ -826,11 +826,11 @@ echo __('Runtime Information');
             </div>
         </div>
 
-        <div id="statustabs_charting">
+        <div id="statustabs_charting" class="jsfeature">
             <?php printMonitor(); ?>
         </div>
 
-        <div id="statustabs_advisor">
+        <div id="statustabs_advisor" class="jsfeature">
             <div class="tabLinks">
                 <img src="themes/dot.gif" class="icon ic_play" alt="" /> <a href="#startAnalyzer"><?php echo __('Run analyzer'); ?></a>
                 <img src="themes/dot.gif" class="icon ic_b_help" alt="" /> <a href="#openAdvisorInstructions"><?php echo __('Instructions'); ?></a>

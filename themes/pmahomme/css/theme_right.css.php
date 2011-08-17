@@ -2140,6 +2140,44 @@ input#input_import_file {
 }
 
 /**
+ * GIS data editor styles
+ */
+a.close_gis_editor {
+    float: right;
+}
+
+#gis_editor {
+    display: none;
+    position: fixed;
+    _position: absolute; /* hack for IE */
+    z-index: 101;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#gis_data {
+    min-height: 230px;
+}
+
+#gis_data_textarea {
+    height: 6em;
+}
+
+#gis_data_editor {
+    background: #D0DCE0;
+    padding: 15px;
+    min-height: 500px;
+}
+
+#gis_data_editor .choice {
+    display: none;
+}
+
+#gis_data_editor input[type="text"] {
+    width: 75px;
+}
+
+/**
  * ENUM/SET editor styles
  */
 p.enum_notice {
@@ -2979,3 +3017,9 @@ span.cm-number {
     padding-left: 20px;
 }
 
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header{ margin-bottom: 8px; }
+.ui-timepicker-div dl{ text-align: left; }
+.ui-timepicker-div dl dt{ height: 25px; }
+.ui-timepicker-div dl dd{ margin: -25px 0 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
