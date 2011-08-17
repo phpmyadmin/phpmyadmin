@@ -231,6 +231,10 @@ class PMA_Theme_Manager
         if ($handleThemes = opendir($this->getThemesPath())) {
             // check for themes directory
             while (false !== ($PMA_Theme = readdir($handleThemes))) {
+                // Skip non dirs, . and ..
+                if ($PMA_Theme == '.' || $PMA_Theme == '..' || ! is_dir($this->getThemesPath() . '/' . $PMA_Theme)) {
+                    continue;
+                }
                 if (array_key_exists($PMA_Theme, $this->themes)) {
                     // this does nothing!
                     //$this->themes[$PMA_Theme] = $this->themes[$PMA_Theme];
