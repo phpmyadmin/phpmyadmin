@@ -919,7 +919,7 @@ msgstr "Dodaj notranji obroč"
 
 #: gis_data_editor.php:262 js/messages.php:288
 msgid "Polygon"
-msgstr ""
+msgstr "Večkotnik"
 
 #: gis_data_editor.php:300 js/messages.php:294
 #, fuzzy
