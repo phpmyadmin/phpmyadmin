@@ -38,7 +38,7 @@
    <arg line="${source_comma_sep}
               xml
               codesize,design,naming,unusedcode
-              --exclude test,build,tcpdf,php-gettext
+              --exclude test,build,tcpdf,php-gettext,bfShapeFiles
               --reportfile ${basedir}/build/logs/pmd.xml" />
   </exec>
  </target>
@@ -50,6 +50,7 @@
               --exclude build
               --exclude libraries/tcpdf
               --exclude libraries/php-gettext
+              --exclude libraries/bfShapeFiles
               ${source}" />
   </exec>
  </target>
@@ -61,6 +62,7 @@
               --exclude build
               --exclude libraries/tcpdf
               --exclude libraries/php-gettext
+              --exclude libraries/bfShapeFiles
               ${source}" />
   </exec>
  </target>
@@ -68,7 +70,7 @@
  <target name="phpcs" description="Generate checkstyle.xml using PHP_CodeSniffer excluding test, tcpdf directories">
   <exec executable="phpcs">
    <arg line="
-              --ignore=*/php-gettext/*,*/tcpdf/*,*/canvg/*,*/codemirror/*,*/highcharts/*,*/openlayers/*,*/jquery/*,*/build/*
+              --ignore=*/php-gettext/*,*/tcpdf/*,*/canvg/*,*/codemirror/*,*/highcharts/*,*/openlayers/*,*/jquery/*,*/build/*,*/bfShapeFiles/*
               --report=checkstyle
               --report-file=${basedir}/build/logs/checkstyle.xml
               --standard=PEAR
