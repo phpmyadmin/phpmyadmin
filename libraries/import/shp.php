@@ -116,8 +116,8 @@ if (isset($plugin_list)) {
      * 2) To use PMA_importGetNextChunk() functionality to read data, rather than reading directly from a file.
      *    Using readFromBuffer() in place of fread(). This makes it possible to use compressions.
      */
-    class PMA_ShapeRecord extends ShapeRecord {
-
+    class PMA_ShapeRecord extends ShapeRecord
+    {
         function loadFromFile(&$SHPFile, &$DBFFile)
         {
             $this->DBFFile = $DBFFile;
@@ -211,7 +211,8 @@ if (isset($plugin_list)) {
     }
 
     $shp = new PMA_ShapeFile(1);
-    // If the zip archive has more than one file, get the correct content to the buffer from .shp file.
+    // If the zip archive has more than one file,
+    // get the correct content to the buffer from .shp file.
     if ($compression == 'application/zip' && PMA_getNoOfFilesInZip($import_file) > 1) {
         $zip_content =  PMA_getZipContents($import_file, '/^.*\.shp$/i');
         $GLOBALS['import_text'] = $zip_content['data'];
@@ -220,7 +221,8 @@ if (isset($plugin_list)) {
     $temp_dbf_file = false;
     // We need dbase extension to handle .dbf file
     if (extension_loaded('dbase')) {
-        // If we can extract the zip archive to 'TempDir' and use the files in it for import
+        // If we can extract the zip archive to 'TempDir'
+        // and use the files in it for import
         if ($compression == 'application/zip'
             && ! empty($cfg['TempDir'])
             && is_writable($cfg['TempDir'])
@@ -229,9 +231,14 @@ if (isset($plugin_list)) {
             // If the corresponding .dbf file is in the zip archive
             if ($dbf_file_name) {
                 // Extract the .dbf file and point to it.
-                $extracted =  PMA_zipExtract($import_file, realpath($cfg['TempDir']), array($dbf_file_name));
+                $extracted =  PMA_zipExtract(
+                    $import_file,
+                    realpath($cfg['TempDir']),
+                    array($dbf_file_name)
+                );
                 if ($extracted) {
-                    $dbf_file_path = realpath($cfg['TempDir']) . (PMA_IS_WINDOWS ? '\\' : '/') . $dbf_file_name;
+                    $dbf_file_path = realpath($cfg['TempDir'])
+                        . (PMA_IS_WINDOWS ? '\\' : '/') . $dbf_file_name;
                     $temp_dbf_file = true;
                     // Replace the .dbf with .*, as required by the bsShapeFiles library.
                     $file_name = substr($dbf_file_path, 0, strlen($dbf_file_path) - 4) . '.*';
