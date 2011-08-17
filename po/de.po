@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-16 19:11+0200\n"
-"PO-Revision-Date: 2011-08-17 13:23+0200\n"
+"PO-Revision-Date: 2011-08-17 13:24+0200\n"
 "Last-Translator:  <franz.georg@neurieser.eu>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1731,7 +1731,7 @@ msgstr "Spalten hinzufügen/entfernen"
 
 #: js/messages.php:279
 msgid "Select two different columns"
-msgstr ""
+msgstr "2 unterschiedliche Spalten auswählen"
 
 #: js/messages.php:282 tbl_change.php:307 tbl_indexes.php:211
 #: tbl_indexes.php:238
