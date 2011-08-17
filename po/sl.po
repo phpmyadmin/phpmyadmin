@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-18 00:35+0200\n"
+"PO-Revision-Date: 2011-08-18 00:36+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -2167,6 +2167,8 @@ msgstr "Sekunda"
 #, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr ""
+"Oblikovanje niza za pravilo '%s' je spodletelo. PHP je vrnil naslednjo "
+"napako: %s"
 
 #: libraries/Config.class.php:1159
 msgid "Font size"
