@@ -729,7 +729,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             $checkbox.attr('checked', false);
                         })
                     } else {
-                        $(g.cEdit).find('input[type=text]').live('change', function(e) {
+                        $(g.cEdit).find('input[type=text]').live('keypress change', function(e) {
                             $checkbox.attr('checked', false);
                         })
                         $editArea.find('textarea').live('keydown', function(e) {
@@ -919,18 +919,30 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 } else if ($td.is('.datefield, .datetimefield, .timestampfield')) {
                     var $input_field = $(g.cEdit).find('input[type=text]');
                     
-                    // remember current datetime value in $input_field
-                    var current_datetime_value = $input_field.val();
+                    // remember current datetime value in $input_field, if it is not null
+                    var is_null = $td.is('.null');
+                    var current_datetime_value = !is_null ? $input_field.val() : '';
                     
                     var showTimeOption = true;
                     if ($td.is('.datefield')) {
                         showTimeOption = false;
                     }
-                    PMA_addDatepicker($editArea, { altField: $input_field, showTimepicker: showTimeOption });
+                    PMA_addDatepicker($editArea, {
+                        altField: $input_field,
+                        showTimepicker: showTimeOption,
+                        onSelect: function(dateText, inst) {
+                            // remove null checkbox if it exists
+                            $(g.cEdit).find('.null_div input[type=checkbox]').attr('checked', false);
+                        }
+                    });
                     
                     // force to restore modified $input_field value after adding datepicker
                     // (after adding a datepicker, the input field doesn't display the time anymore, only the date)
-                    $editArea.datetimepicker('setDate', current_datetime_value);
+                    if (!is_null) {
+                        $editArea.datetimepicker('setDate', current_datetime_value);
+                    } else {
+                        $input_field.val('');
+                    }
                 } else {
                     $editArea.append('<textarea>' + PMA_getCellValue(g.currentEditCell) + '</textarea>');
                     $editArea.find('textarea').live('keyup', function(e) {
