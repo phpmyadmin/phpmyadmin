@@ -51,10 +51,12 @@ if (isset($plugin_list)) {
     }
 
     /**
-     * This class extends ShapeFile class to cater following phpMyAdmin specific requirements.
+     * This class extends ShapeFile class to cater the following phpMyAdmin
+     * specific requirements.
      * 1) To load data from .dbf file only when the dBase extension is available.
-     * 2) To use PMA_importGetNextChunk() functionality to read data, rather than reading directly from a file.
-     *    Using readFromBuffer() in place of fread(). This makes it possible to use compressions.
+     * 2) To use PMA_importGetNextChunk() functionality to read data, rather than
+     *    reading directly from a file. Using readFromBuffer() in place of fread().
+     *    This makes it possible to use compressions.
      */
     class PMA_ShapeFile extends ShapeFile {
 
@@ -111,10 +113,12 @@ if (isset($plugin_list)) {
     }
 
     /**
-     * This class extends ShapeRecord class to cater following phpMyAdmin specific requirements.
+     * This class extends ShapeRecord class to cater the following phpMyAdmin
+     * specific requirements.
      * 1) To load data from .dbf file only when the dBase extension is available.
-     * 2) To use PMA_importGetNextChunk() functionality to read data, rather than reading directly from a file.
-     *    Using readFromBuffer() in place of fread(). This makes it possible to use compressions.
+     * 2) To use PMA_importGetNextChunk() functionality to read data, rather than
+     *    reading directly from a file. Using readFromBuffer() in place of fread().
+     *    This makes it possible to use compressions.
      */
     class PMA_ShapeRecord extends ShapeRecord
     {
@@ -151,7 +155,8 @@ if (isset($plugin_list)) {
         function _loadHeaders()
         {
             $this->recordNumber = loadData("N", readFromBuffer(4));
-            $tmp = loadData("N", readFromBuffer(4)); //We read the length of the record
+            //We read the length of the record
+            $tmp = loadData("N", readFromBuffer(4));
             $this->shapeType = loadData("V", readFromBuffer(4));
         }
 
@@ -198,11 +203,15 @@ if (isset($plugin_list)) {
             $readPoints = 0;
             reset($this->SHPData["parts"]);
             while (list($partIndex, $partData) = each($this->SHPData["parts"])) {
-                if (!isset($this->SHPData["parts"][$partIndex]["points"]) || !is_array($this->SHPData["parts"][$partIndex]["points"])) {
+                if (! isset($this->SHPData["parts"][$partIndex]["points"])
+                    || !is_array($this->SHPData["parts"][$partIndex]["points"])
+                ) {
                     $this->SHPData["parts"][$partIndex] = array();
                     $this->SHPData["parts"][$partIndex]["points"] = array();
                 }
-                while (!in_array($readPoints, $this->SHPData["parts"]) && ($readPoints < ($this->SHPData["numpoints"]))) {
+                while (! in_array($readPoints, $this->SHPData["parts"])
+                && ($readPoints < ($this->SHPData["numpoints"]))
+                ) {
                     $this->SHPData["parts"][$partIndex]["points"][] = $this->_loadPoint();
                     $readPoints++;
                 }
@@ -246,9 +255,14 @@ if (isset($plugin_list)) {
                 }
             }
         }
-        // If file is in UploadDir, use .dbf file in the same UploadDir to load extra data.
-        elseif (! empty($local_import_file) && ! empty($cfg['UploadDir']) && $compression == 'none') {
-            // Replace the .shp with .*, so the bsShapeFiles library correctly locates .dbf file.
+        // If file is in UploadDir, use .dbf file in the same UploadDir
+        // to load extra data.
+        elseif (! empty($local_import_file)
+            && ! empty($cfg['UploadDir'])
+            && $compression == 'none'
+        ) {
+            // Replace the .shp with .*,
+            // so the bsShapeFiles library correctly locates .dbf file.
             $file_name = substr($import_file, 0, strlen($import_file) - 4) . '.*';
             $shp->FileName = $file_name;
         }
@@ -329,7 +343,7 @@ if (isset($plugin_list)) {
     $rows = array();
     $col_names = array();
     if ($num_rows != 0) {
-        foreach($shp->records as $record){
+        foreach ($shp->records as $record) {
             $tempRow = array();
             if ($gis_obj == null) {
                 $tempRow[] = null;
@@ -352,13 +366,14 @@ if (isset($plugin_list)) {
         }
     }
 
-    if(count($rows) == 0) {
+    if (count($rows) == 0) {
         $error = true;
         $message = PMA_Message::error(__('The imported file does not contain any data'));
         return;
     }
 
-    // Column names for spatial column and the rest of the columns, if they are available
+    // Column names for spatial column and the rest of the columns,
+    // if they are available
     $col_names[] = 'SPATIAL';
     for ($n = 0; $n < $num_data_cols; $n++) {
         $col_names[] = $shp->DBFHeader[$n][0];
