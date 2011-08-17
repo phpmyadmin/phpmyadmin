@@ -307,7 +307,7 @@ class PMA_Tracker
         '" . PMA_sqlAddSlashes($snapshot) . "',
         '" . PMA_sqlAddSlashes($create_sql) . "',
         '" . PMA_sqlAddSlashes("\n") . "',
-        '" . PMA_sqlAddSlashes($tracking_set) . "' )";
+        '" . PMA_sqlAddSlashes(self::transformTrackingSet($tracking_set)) . "' )";
 
         $result = PMA_query_as_controluser($sql_query);
 
@@ -988,6 +988,9 @@ class PMA_Tracker
             // string > int conversion
             $flags = 0;
             foreach (explode(',', $tracking_set) as $strflag) {
+                if ($strflag == '') {
+                    continue;
+                }
                 $flags |= self::$tracking_set_flags[$strflag];
             }
         }
