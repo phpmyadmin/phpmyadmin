@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-16 19:11+0200\n"
-"PO-Revision-Date: 2011-08-16 16:10+0200\n"
+"PO-Revision-Date: 2011-08-17 02:56+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9356,6 +9356,8 @@ msgid ""
 "changing (by reading the documentation) and how to undo the change. Wrong "
 "tuning can have a very negative effect on performance."
 msgstr ""
+"設定を変更する前に、（ドキュメントを読んで）変更内容と変更箇所を元に戻す方法を確認しておいてください。間違ったチューニングは、パフォーマンスに非常に悪影"
+"響を与える可能性があります。"
 
 #: server_status.php:814
 msgid ""
@@ -9363,6 +9365,8 @@ msgid ""
 "time, observe or benchmark your database, and undo the change if there was "
 "no clearly measurable improvement."
 msgstr ""
+"お使いのシステムをチューニングする最善の方法は、一度に行う変更は 1 "
+"箇所のみにすることです。変更の度に、監視やベンチマークを行い、明確な改善が測定されなかった場合は変更を元に戻します。"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:836

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-16 19:11+0200\n"
-"PO-Revision-Date: 2011-08-16 00:04+0200\n"
+"PO-Revision-Date: 2011-08-16 21:46+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -10468,10 +10468,9 @@ msgstr ""
 "que ya no se necesite monitorizar.        "
 
 #: server_status.php:1533
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Preset chart"
-msgstr "Eliminar gráfico"
+msgstr "Gráfico predefinido"
 
 #: server_status.php:1537
 msgid "Status variable(s)"
@@ -11872,92 +11871,96 @@ msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"Se sugiere configurar «long_query_time» a un valor menor dependiendo de su "
+"entorno. Usualmente, un valor entre 1 y 5 segundos es el sugerido."
 
 #: po/advisory_rules.php:28
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "long_query_time is currently set to %ds."
-msgstr "«long_query_time» está configurado a %d segundo(s)."
+msgstr "«long_query_time» está configurado a %ds."
 
 #: po/advisory_rules.php:30
-#, fuzzy
 #| msgid "Show query box"
 msgid "Slow query logging"
-msgstr "Mostrar ventana de consultas SQL"
+msgstr "Registros de consultas lentas"
 
 #: po/advisory_rules.php:31
-#, fuzzy
 #| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
-msgstr "«slow_query_log» activo."
+msgstr "El registro de consultas lentas está desactivado."
 
 #: po/advisory_rules.php:32
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"Active el registro de consultas lenta configurando «log_slow_queries» a "
+"'ON'. Esto ayudará a analizar consultas con mala performance."
 
 #: po/advisory_rules.php:33
 msgid "log_slow_queries is set to 'OFF'"
-msgstr ""
+msgstr "«slow_query_log» está definido como 'OFF'"
 
 #: po/advisory_rules.php:35
-#, fuzzy
 #| msgid "Clear series"
 msgid "Release Series"
-msgstr "Vaciar serie"
+msgstr "Serie de versiones"
 
 #: po/advisory_rules.php:36
 msgid "The MySQL server version less then 5.1."
-msgstr ""
+msgstr "La versión del servidor MySQL es menor a 5.1."
 
 #: po/advisory_rules.php:37
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
+"Debería actualizar ya que MySQL 5.1 tiene mejor performance, y ésta es aún "
+"mejor en MySQL 5.5."
 
 #: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Current version: %s"
-msgstr "Crear versión"
+msgstr "Versión actual: %s"
 
 #: po/advisory_rules.php:40 po/advisory_rules.php:45
-#, fuzzy
 #| msgid "Version"
 msgid "Minor Version"
-msgstr "Versión"
+msgstr "Versión menor:"
 
 #: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
 msgstr ""
+"Versión menor a 5.1.30 (la primer versión de 5.1 disponible públicamente)."
 
 #: po/advisory_rules.php:42
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
+"Debería actualizar ya que versiones más recientes de MySQL 5.1 tienen mejor "
+"performance, y ésta es aún mejor en MySQL 5.5."
 
 #: po/advisory_rules.php:46
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr ""
+"Versión menor a 5.5.8 (la primer versión de 5.5 disponible públicamente)."
 
 #: po/advisory_rules.php:47
-#, fuzzy
 #| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5"
-msgstr "Usted debería actualizar su %s a la versión %s o más reciente."
+msgstr "Debería actualizar a una versión estable de MySQL 5.5"
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55
-#, fuzzy
 #| msgid "Description"
 msgid "Distribution"
-msgstr "Descripción"
+msgstr "Distribución"
 
 #: po/advisory_rules.php:51
 msgid "Version is compiled from source, not a MySQL official binary."
-msgstr ""
+msgstr "Versión compilada de código fuente, no un ejecutable MySQL oficial."
 
 #: po/advisory_rules.php:52
 msgid ""
@@ -11965,32 +11968,40 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
+"Si no compiló de código fuente puede estar utilizando un paquete modificado "
+"por una distribución. El manual MySQL sólo es preciso para los ejecutables "
+"MySQL oficiales, no para los paquetes de las distribuciones (como RedHat, "
+"Debian/Ubuntu, etc.)."
 
 #: po/advisory_rules.php:53
 msgid "'source' found in version_comment"
 msgstr ""
+"se encontró 'fuente' («source») en el comentario de la versión "
+"(«version_comment»)"
 
 #: po/advisory_rules.php:56
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr ""
+msgstr "El manual MySQL sólo es preciso para los ejecutables MySQL oficiales."
 
 #: po/advisory_rules.php:57
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgstr ""
+"La documentación de Percona se encuentra en "
+"http://www.percona.com/docs/wiki/"
 
 #: po/advisory_rules.php:58
 msgid "'percona' found in version_comment"
 msgstr ""
+"se encontró 'percona' en el comentario de la versión («version_comment»)"
 
 #: po/advisory_rules.php:60
-#, fuzzy
 #| msgid "MySQL charset"
 msgid "MySQL Architecture"
-msgstr "Juegos de caracteres de MySQL"
+msgstr "Arquitectura MySQL"
 
 #: po/advisory_rules.php:61
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "MySQL no fue compilado como un paquete de 64-bits."
 
 #: po/advisory_rules.php:62
 msgid ""
@@ -11998,23 +12009,25 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
+"Tiene uan capacidad de memoria por sobre 3 GiB (asumiendo que el servidor "
+"MySQL está en el mismo equipo que el servidor phpMyAdmin), es posible que "
+"MySQL no pueda acceder a toda la memoria. Podría llegar a desear instalar la "
+"versión de 64-bits de MySQL."
 
 #: po/advisory_rules.php:63
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "Memoria disponible en este equipo: %s"
 
 #: po/advisory_rules.php:65
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache disabled"
-msgstr "Cache de consultas"
+msgstr "Caché de consultas desactivado"
 
 #: po/advisory_rules.php:66
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "El servidor no está respondiendo"
+msgstr "El caché de consultas no está habilitado."
 
 #: po/advisory_rules.php:67
 msgid ""
@@ -12023,14 +12036,20 @@ msgid ""
 "and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
 "memcached, ignore this recommendation."
 msgstr ""
+"Se sabe que el caché de consultas puede mejorar la performance enormemente "
+"si está correctamente configurado. Actívelo definiendo «query_cache_size» a "
+"un valor en MiB de 2 dígitos y definiendo «query_cache_type» a 'ON'. "
+"<b>Notar que: </b> si está utilizando memcached ignore esta recomendación."
 
 #: po/advisory_rules.php:68
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
+"«query_cache_size» está definido como 0 o «query_cache_type» está definido "
+"como 'OFF'"
 
 #: po/advisory_rules.php:71
 msgid "Suboptimal caching method."
-msgstr ""
+msgstr "Método de cacheo sub-óptimo."
 
 #: po/advisory_rules.php:72
 msgid ""
@@ -12039,6 +12058,11 @@ msgid ""
 "refman/5.1/en/ha-memcached.html\\\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
+"Está utilizando el caché de consultas MySQL en una base de datos de bastante "
+"tráfico. Probablemente quiera considerar utilizar <a "
+"href=\\\"http://dev.mysql.com/doc/refman/5.1/en/ha-"
+"memcached.html\\\">memcached</a> en lugar del caché de consultas de MySQL, "
+"especialmente si tiene muchos esclavos."
 
 #: po/advisory_rules.php:73
 #, php-format
@@ -12046,40 +12070,45 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
+"El caché de consultas está activado y el servidor recibe %d consultas por "
+"segundo. Esta regla se dispara si hay más de 100 consultas por segundo."
 
 #: po/advisory_rules.php:75
 msgid "Query cache efficiency (%)"
-msgstr ""
+msgstr "Eficiencia del caché de consultas (%)"
 
 #: po/advisory_rules.php:76
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr ""
+"El caché de consultas no está ejecutando eficientemente, tiene una baja tasa "
+"de aciertos."
 
 #: po/advisory_rules.php:77
 msgid "Consider increasing {query_cache_limit}."
-msgstr ""
+msgstr "Considere aumentando «query_cache_limit»."
 
 #: po/advisory_rules.php:78
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr ""
+msgstr "La tasa de aciertos actual del caché de consultas %s%% es menor a 20%%"
 
 #: po/advisory_rules.php:80
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query Cache usage"
-msgstr "Cache de consultas"
+msgstr "Uso del caché de consultas"
 
 #: po/advisory_rules.php:81
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
-msgstr ""
+msgstr "Menos del 80%% del caché de consultas está siendo utilizado."
 
 #: po/advisory_rules.php:82
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
 msgstr ""
+"Esto puede ser porque el valor de «query_cache_limit» es muy pequeño. Vaciar "
+"el caché de consultas podría ayudar también."
 
 #: po/advisory_rules.php:83
 #, php-format
@@ -12087,16 +12116,17 @@ msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
 "%%. It should be above 80%%"
 msgstr ""
+"La tasa actual de memoria libre del caché de consultas respecto del tamaño "
+"total es %s%%. Debería ser mayor al 80%%"
 
 #: po/advisory_rules.php:85
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache fragmentation"
-msgstr "Cache de consultas"
+msgstr "Fragmentación del caché de consultas"
 
 #: po/advisory_rules.php:86
 msgid "The query cache is considerably fragmented."
-msgstr ""
+msgstr "El caché de consultas está fragmentado considerablemente."
 
 #: po/advisory_rules.php:87
 msgid ""
@@ -12109,6 +12139,16 @@ msgid ""
 "using this formula: (query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 msgstr ""
+"Alta fragmentación probablemente aumente (más) «Qcache_lowmem_prunes». Esto "
+"puede ser causado por la cantidad de reducciones realizadas al caché de "
+"consultas por falta de memoria debido a que «query_cache_size» es muy "
+"pequeño. Una solución inmediata pero a corto plazo debería de vaciar el "
+"caché de consultas (puede bloquear el caché de consultas por un largo "
+"tiempo). Ajustar cuidadosamente «query_cache_min_res_unit» a un valor menor "
+"podría ayudar también; por ejemplo, podría definirlo como el tamaño promedio "
+"de las consultas en el caché utilizando la siguiente fórmula: "
+"(«query_cache_size» - «qcache_free_memory») / «qcache_queries_in_cache» "
+"((tamaño_caché - memoria_libre_caché) / cantidad_consultas_en_caché)."
 
 #: po/advisory_rules.php:88
 #, php-format
@@ -12117,10 +12157,13 @@ msgid ""
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
+"El caché está  %s%% fragmentado actualmente. Una fragmentación del 100% "
+"significa que el caché de consulta es un patrón alternante de bloques "
+"utilizados y libres. Este valor debería ser menor al 20%%."
 
 #: po/advisory_rules.php:90
 msgid "Query cache low memory prunes"
-msgstr ""
+msgstr "Reducciones al caché de consultas por falta de memoria"
 
 #: po/advisory_rules.php:91
 #, fuzzy
