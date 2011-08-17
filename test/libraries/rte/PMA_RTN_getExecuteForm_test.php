@@ -51,6 +51,7 @@ class PMA_RTN_getExecuteForm_test extends PHPUnit_Framework_TestCase
         if (! isset($GLOBALS['cfg']['DefaultFunctions'])) {
             $cfg['DefaultFunctions']['FUNC_NUMBER'] = '';
             $cfg['DefaultFunctions']['FUNC_DATE'] = '';
+            $cfg['DefaultFunctions']['FUNC_SPATIAL'] = 'GeomFromText';
             $GLOBALS['tear_down']['default'] = true;
         }
         require 'libraries/data_mysql.inc.php';
