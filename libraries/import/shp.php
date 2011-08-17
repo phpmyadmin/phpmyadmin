@@ -26,7 +26,7 @@ if (isset($plugin_list)) {
 
     // Append the bfShapeFiles directory to the include path variable
     set_include_path(get_include_path() . PATH_SEPARATOR . getcwd() . '/libraries/bfShapeFiles/');
-    require_once './libraries/bfShapeFiles/ShapeFile.lib.php';
+    include_once './libraries/bfShapeFiles/ShapeFile.lib.php';
 
     $GLOBALS['finished'] = false;
     $buffer = '';
@@ -285,7 +285,7 @@ if (isset($plugin_list)) {
         31 => 'MultiPatch',
     );
 
-    require_once './libraries/gis/pma_gis_geometry.php';
+    include_once './libraries/gis/pma_gis_geometry.php';
     switch ($shp->shapeType) {
     // ESRI Null Shape
     case 0:
@@ -293,22 +293,22 @@ if (isset($plugin_list)) {
         break;
     // ESRI Point
     case 1:
-        require_once './libraries/gis/pma_gis_point.php';
+        include_once './libraries/gis/pma_gis_point.php';
         $gis_obj = PMA_GIS_Point::singleton();
         break;
     // ESRI PolyLine
     case 3:
-        require_once './libraries/gis/pma_gis_multilinestring.php';
+        include_once './libraries/gis/pma_gis_multilinestring.php';
         $gis_obj = PMA_GIS_Multilinestring::singleton();
         break;
     // ESRI Polygon
     case 5:
-        require_once './libraries/gis/pma_gis_multipolygon.php';
+        include_once './libraries/gis/pma_gis_multipolygon.php';
         $gis_obj = PMA_GIS_Multipolygon::singleton();
         break;
     // ESRI MultiPoint
     case 8:
-        require_once './libraries/gis/pma_gis_multipoint.php';
+        include_once './libraries/gis/pma_gis_multipoint.php';
         $gis_obj = PMA_GIS_Multipoint::singleton();
         break;
     default:
