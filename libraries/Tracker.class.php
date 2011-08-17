@@ -251,7 +251,7 @@ class PMA_Tracker
 
         // Get data definition snapshot of table
 
-        $columns = PMA_DBI_get_columns($dbname, $tablename, true);
+        $columns = PMA_DBI_get_columns($dbname, $tablename, null, true);
         // int indices to reduce size
         $columns = array_values($columns);
         // remove Privileges to reduce size
@@ -260,6 +260,9 @@ class PMA_Tracker
         }
 
         $indexes = PMA_DBI_get_table_indexes($dbname, $tablename);
+        if (!$indexes) {
+            $indexes = array();
+        }
 
         $snapshot = array('COLUMNS' => $columns, 'INDEXES' => $indexes);
         $snapshot = serialize($snapshot);
