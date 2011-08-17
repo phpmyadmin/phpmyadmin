@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-18 00:33+0200\n"
+"PO-Revision-Date: 2011-08-18 00:34+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1769,7 +1769,7 @@ msgstr "Prehod z miško čez točko bo pokazalo njeno oznako."
 
 #: js/messages.php:268
 msgid "Drag and select an area in the plot to zoom into it."
-msgstr ""
+msgstr "Povlecite in izberite območje na izrisu, ki ga želite povečati."
 
 #: js/messages.php:270
 msgid "Click reset zoom link to come back to original state."
