@@ -1786,7 +1786,7 @@ msgstr "Izris lahko povečate tako, da ga vlečete ob spodnjem desnem kotu."
 
 #: js/messages.php:276
 msgid "Strings are converted into integer for plotting"
-msgstr ""
+msgstr "Nizi so pri izrisovanju pretvorjeni v cela števila"
 
 #: js/messages.php:278
 msgid "Select two columns"
