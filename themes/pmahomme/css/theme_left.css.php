@@ -161,15 +161,15 @@ div#navidbpageselector select{
 }
 
 ul#databaseList ul {
-    margin:0px;
-    padding:0px;
+    margin: 0;
+    padding: 0;
 }
 
 ul#databaseList li {
     list-style: none;
     text-indent: 20px;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 ul#databaseList a:hover {
@@ -190,7 +190,7 @@ div#reloadlink a img,
 div#leftframelinks a img.icon {
     margin:        0.3em;
     margin-top:    0.7em;
-    border:        0px;
+    border:        0;
 }
 
 div#leftframelinks a:hover img {

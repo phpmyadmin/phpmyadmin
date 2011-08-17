@@ -271,7 +271,7 @@ div#left_tableList ul ul {
 
 #fast_filter {
     width: 100%;
-    padding:2px 0px;
-    margin:0;
-    border:0;
+    padding: 2px 0;
+    margin: 0;
+    border: 0;
 }
