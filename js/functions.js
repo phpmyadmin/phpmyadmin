@@ -685,10 +685,12 @@ $(document).ready(function() {
     /**
      * Add a date/time picker to each element that needs it
      */
-    $('.datefield, .datetimefield').each(function() {
-        PMA_addDatepicker($(this));
-        });
-})
+    if ($.datetimepicker != undefined) {
+        $('.datefield, .datetimefield').each(function() {
+            PMA_addDatepicker($(this));
+            });
+    }
+});
 
 /**
  * True if last click is to check a row.
