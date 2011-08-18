@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-18 07:11+0200\n"
+"PO-Revision-Date: 2011-08-18 07:13+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -6733,7 +6733,7 @@ msgstr ""
 #: libraries/import/shp.php:312
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
-msgstr ""
+msgstr "MySQL Uzaysal Uzantısı ESRI türü \"%s\" desteklemiyor."
 
 #: libraries/import/shp.php:350
 #| msgid "This page does not contain any tables!"
