@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-18 18:23+0200\n"
+"PO-Revision-Date: 2011-08-18 18:24+0200\n"
 "Last-Translator: Sven Strickroth <email@cs-ware.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -900,7 +900,7 @@ msgstr "Punkt hinzufügen"
 msgid "Linestring"
 msgstr "Linestring"
 
-# ist hiermit der Um-kreis gemeint?
+# ist hiermit der Umkreis gemeint? http://de.wikipedia.org/wiki/Umkreis
 #: gis_data_editor.php:221 gis_data_editor.php:275
 #, fuzzy
 msgid "Outer Ring:"
