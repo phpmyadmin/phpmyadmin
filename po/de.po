@@ -1815,10 +1815,9 @@ msgid "Strings are converted into integer for plotting"
 msgstr "Zeichenketten werden für die Zeichnung in Integerwerte umgewandelt."
 
 #: js/messages.php:278
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
-msgstr "Spalten hinzufügen/entfernen"
+msgstr "2 Spalten auswählen"
 
 #: js/messages.php:279
 msgid "Select two different columns"
