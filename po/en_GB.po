@@ -901,7 +901,7 @@ msgstr "Outer Ring:"
 
 #: gis_data_editor.php:223 gis_data_editor.php:277 js/messages.php:290
 msgid "Inner Ring"
-msgstr ""
+msgstr "Inner Ring"
 
 #: gis_data_editor.php:248
 #, fuzzy
