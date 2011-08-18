@@ -1792,7 +1792,7 @@ msgstr "Das Überfliegen eines Punktes zeigt seine Bezeichnung."
 
 #: js/messages.php:268
 msgid "Drag and select an area in the plot to zoom into it."
-msgstr ""
+msgstr "Mit gedrückter Maustaste eine Fläche aufziehen um hineinzuzoomen."
 
 #: js/messages.php:270
 msgid "Click reset zoom link to come back to original state."
