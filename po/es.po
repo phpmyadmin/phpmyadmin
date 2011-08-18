@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 01:06+0200\n"
+"PO-Revision-Date: 2011-08-19 01:07+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -6804,7 +6804,7 @@ msgstr "Importar monedas <i>(por ejemplo: $5.00 como 5.00)</i>"
 
 #: libraries/import/shp.php:14
 msgid "ESRI Shape File"
-msgstr ""
+msgstr "Archivo de forma ESRI"
 
 #: libraries/import/shp.php:254
 #, php-format
