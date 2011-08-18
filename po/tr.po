@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-18 07:04+0200\n"
+"PO-Revision-Date: 2011-08-18 07:07+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2170,6 +2170,8 @@ msgstr "Saniye"
 #, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr ""
+"'%s' kuralı için dizgi biçimlendirme başarısız. PHP aşağıdaki hatayı "
+"yöneltti: %s"
 
 #: libraries/Config.class.php:1159
 msgid "Font size"
