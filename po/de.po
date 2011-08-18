@@ -871,7 +871,7 @@ msgstr "SRID"
 #: gis_data_editor.php:151 js/messages.php:289
 #: libraries/display_tbl.lib.php:663
 msgid "Geometry"
-msgstr "Gestaltung"
+msgstr "Geometrie"
 
 #: gis_data_editor.php:172 gis_data_editor.php:194 gis_data_editor.php:240
 #: gis_data_editor.php:290 js/messages.php:286
