@@ -1725,7 +1725,7 @@ function PMA_SQLPrettyPrint(string)
         // A subquery is starting
         if (i > 0 && newBlock == 'statement') {
             indentLevel++;
-            output += "\n" + tabs(indentLevel) + tokens[i][1] + ' ' + tokens[i+1][1] + "\n" + tabs(indentLevel + 1);
+            output += "\n" + tabs(indentLevel) + tokens[i][1] + ' ' + tokens[i+1][1].toUpperCase() + "\n" + tabs(indentLevel + 1);
             currentStatement = tokens[i+1][1];
             i++;
             continue;
@@ -1741,7 +1741,7 @@ function PMA_SQLPrettyPrint(string)
         statementPart = statements[currentStatement].indexOf(tokens[i][1]);
         if (statementPart != -1) {
             if (i > 0) output += "\n";
-            output += tabs(indentLevel) + tokens[i][1];
+            output += tabs(indentLevel) + tokens[i][1].toUpperCase();
             output += "\n" + tabs(indentLevel + 1);
             lastStatementPart = tokens[i][1];
         }
@@ -1752,7 +1752,11 @@ function PMA_SQLPrettyPrint(string)
                && output.charAt(output.length -1) != ' ' ) {
                     output += " ";
             }
-            output += tokens[i][1];
+            if (tokens[i][0] == 'keyword') {
+                output += tokens[i][1].toUpperCase();
+            } else {
+                output += tokens[i][1];
+            }
         }
 
         // split columns in select and 'update set' clauses, but only inside statements blocks
