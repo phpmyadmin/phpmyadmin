@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-16 21:46+0200\n"
+"PO-Revision-Date: 2011-08-19 00:55+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -856,10 +856,10 @@ msgid "Dump has been saved to file %s."
 msgstr "El volcado ha sido guardado al archivo %s."
 
 #: gis_data_editor.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
-msgstr "Valores para la columna \"%s\""
+msgstr "Valor para la columna \"%s\""
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
