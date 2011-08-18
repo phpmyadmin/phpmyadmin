@@ -1680,7 +1680,7 @@ $(function() {
 
         $('div#logTable table').tablesorter({
             sortList: [[cols.length - 1, 1]],
-            widgets: ['zebra']
+            widgets: ['fast-zebra']
         });
 
         $('div#logTable table thead th')
