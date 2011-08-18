@@ -1390,7 +1390,7 @@ $(function() {
                     if (logData.numRows > 12) {
                         $('div#logTable').prepend(
                             '<fieldset id="logDataFilter">' +
-                            '	<legend>' + PMA_messages['strFilters'] + '</legend>' +
+                            '	<legend>' + PMA_messages['strFiltersForLogTable'] + '</legend>' +
                             '	<div class="formelement">' +
                             '		<label for="filterQueryText">' + PMA_messages['strFilterByWordRegexp'] + '</label>' +
                             '		<input name="filterQueryText" type="text" id="filterQueryText" style="vertical-align: baseline;" />' +
