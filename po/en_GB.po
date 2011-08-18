@@ -1207,10 +1207,9 @@ msgid "Query statistics"
 msgstr "Query statistics"
 
 #: js/messages.php:93
-#, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Local monitor configuration incompatible"
-msgstr "Failed to read configuration file"
+msgstr "Local monitor configuration incompatible"
 
 #: js/messages.php:94
 msgid ""
