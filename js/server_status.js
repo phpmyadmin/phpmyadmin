@@ -43,6 +43,19 @@ $(function() {
         },
         type: "numeric"
     });
+
+    jQuery.tablesorter.addParser({
+        id: "withinSpanNumber",
+        is: function(s) {
+            return /<span class="original"/.test(s);
+        },
+        format: function(s, table, html) {
+            var res = html.innerHTML.match(/<span(\s*style="display:none;"\s*)?\s*class="original">(.*)?<\/span>/);
+            return (res && res.length >= 3) ? res[2] : 0;
+        },
+        type: "numeric"
+    });
+
     // faster zebra widget: no row visibility check, faster css class switching, no cssChildRow check
     jQuery.tablesorter.addWidget({
         id: "fast-zebra",
@@ -507,7 +520,7 @@ $(function() {
                     sortList: [[0, 0]],
                     widgets: ['fast-zebra'],
                     headers: {
-                        1: { sorter: 'fancyNumber' }
+                        1: { sorter: 'withinSpanNumber' }
                     }
                 };
                 break;
