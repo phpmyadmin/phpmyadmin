@@ -1418,10 +1418,10 @@ msgstr "Reizhañ log_output da %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:148
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enable Ajax"
 msgid "Enable %s"
-msgstr "Gweredekaat Ajax"
+msgstr "Gweredekaat %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:150
