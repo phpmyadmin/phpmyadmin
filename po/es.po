@@ -12271,12 +12271,13 @@ msgid "Query cache low memory prunes"
 msgstr "Reducciones al caché de consultas por falta de memoria"
 
 #: po/advisory_rules.php:91
-#, fuzzy
 #| msgid "The amount of free memory for query cache."
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
-msgstr "La cantidad de memoria libre para el cache de consultas."
+msgstr ""
+"Las consultas en caché son eliminadas debido a la poca cantidad de memoria "
+"de caché para el caché de consultas."
 
 #: po/advisory_rules.php:92
 msgid ""
