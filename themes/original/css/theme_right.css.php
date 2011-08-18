@@ -2270,7 +2270,7 @@ span.CodeMirror-selected {
 .CodeMirror-matchingbracket {color: #0f0 !important;}
 .CodeMirror-nonmatchingbracket {color: #f22 !important;}
 
-span.cm-keyword {
+span.cm-keyword, span.cm-statement-verb {
     color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_reservedWord']; ?>;
 }
 span.cm-variable {

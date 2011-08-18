@@ -1688,33 +1688,18 @@ $(function() {
 
         return cols;
     }
-    
+        
     /* Opens the query analyzer dialog */
     function openQueryAnalyzer() {
         var rowData = $(this).parent().data('query');
         var query = rowData.argument || rowData.sql_text;
 
-        /* A very basic SQL Formatter. Totally fails in the cases of
-           - Any string appearance containing a MySQL Keyword, surrounded by whitespaces, e.g. WHERE bar = "This where the formatter fails"
-           - Subqueries too probably
-        */
-        
-        // Matches the columns to be selected
-        // .* selector doesn't include whitespace and we have no PCRE_DOTALL modifier, (.|\s)+ crashes Chrome (reported and confirmed), 
-        // [^]+ results in JS error in IE8, thus we use [^\0]+ for matching each column since the zero-byte char (hopefully) doesn't appear in column names ;)
-        var sLists = query.match(/SELECT\s+[^\0]+\s+FROM\s+/gi);
-        if (sLists) {
-            for (var i = 0; i < sLists.length; i++) {
-                query = query.replace(sLists[i], sLists[i].replace(/\s*((`|'|"|).*?\1,)\s*/gi, '$1\n\t'));
-            }
-            query = query
-              .replace(/(\s+|^)(SELECT|FROM|WHERE|GROUP BY|HAVING|ORDER BY|LIMIT)(\s+|$)/gi, '\n$2\n\t')
-              .replace(/\s+UNION\s+/gi, '\n\nUNION\n\n')
-              .replace(/\s+(AND)\s+/gi, ' $1\n\t')
-              .trim();
-        }
-
+        query = PMA_SQLPrettyPrint(query);
         codemirror_editor.setValue(query);
+        // Codemirror is bugged, it doesn't refresh properly sometimes. Following lines seem to fix that
+        setTimeout(function() {
+            codemirror_editor.refresh()
+        },50);
 
         var profilingChart = null;
         var dlgBtns = {};
