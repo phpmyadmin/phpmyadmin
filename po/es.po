@@ -920,7 +920,7 @@ msgstr "Agregar un círculo interior"
 
 #: gis_data_editor.php:262 js/messages.php:288
 msgid "Polygon"
-msgstr ""
+msgstr "Polígono"
 
 #: gis_data_editor.php:300 js/messages.php:294
 #, fuzzy
