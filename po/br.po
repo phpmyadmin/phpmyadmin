@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-18 20:06+0200\n"
+"PO-Revision-Date: 2011-08-18 20:08+0200\n"
 "Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -1407,6 +1407,8 @@ msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"Lakaet e vo e pleustr dre-vras ar reizhadurioù da-heul hag adlakaet e vint "
+"d'an talvoud dre ziouer pa adloc'ho ar servijer :"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:146
