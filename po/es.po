@@ -12299,10 +12299,9 @@ msgstr ""
 "mientras menor sea este valor (el límite de disparo de la regla es: 0.1%)"
 
 #: po/advisory_rules.php:95
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache max size"
-msgstr "Cache de consultas"
+msgstr "Tamaño máximo del caché de consultas."
 
 #: po/advisory_rules.php:96
 msgid ""
