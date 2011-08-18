@@ -928,10 +928,9 @@ msgid "Add a polygon"
 msgstr "Ouzhpennañ ul lieskorneg"
 
 #: gis_data_editor.php:304
-#, fuzzy
 #| msgid "Add user"
 msgid "Add geometry"
-msgstr "Ouzhpennañ un implijer"
+msgstr "Ouzhpennañ mentoniezh"
 
 #: gis_data_editor.php:312
 msgid ""
