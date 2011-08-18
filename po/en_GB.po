@@ -897,7 +897,7 @@ msgstr "Linestring"
 
 #: gis_data_editor.php:221 gis_data_editor.php:275
 msgid "Outer Ring:"
-msgstr ""
+msgstr "Outer Ring:"
 
 #: gis_data_editor.php:223 gis_data_editor.php:277 js/messages.php:290
 msgid "Inner Ring"
