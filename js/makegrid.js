@@ -1614,9 +1614,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
      * Initialize grid
      ******************/
 
-    // add relative position to table so that resize handlers are correctly positioned
-    $(t).css('position', 'relative');
-
     // wrap all data cells, except actions cell, with span
     $(t).find('th, td:not(:has(span))')
         .wrapInner('<span />');
@@ -1657,6 +1654,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
     // add table class
     $(t).addClass('pma_table');
+
+    // add relative position to global div so that resize handlers are correctly positioned
+    $(g.gDiv).css('position', 'relative');
 
     // link the global div
     $(t).before(g.gDiv);
