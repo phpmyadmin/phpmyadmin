@@ -1240,7 +1240,7 @@ msgstr "Implij ar grubuilh rekedoù"
 
 #: js/messages.php:98
 msgid "Query cache used"
-msgstr ""
+msgstr "Krubuilh rekedoù implijet"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
