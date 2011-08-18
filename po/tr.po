@@ -1805,7 +1805,7 @@ msgstr "Kopyala"
 
 #: js/messages.php:291
 msgid "Outer Ring"
-msgstr ""
+msgstr "Dış Halka"
 
 #: js/messages.php:297
 msgid "Add columns"
