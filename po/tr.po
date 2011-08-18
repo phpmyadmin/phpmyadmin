@@ -8057,10 +8057,9 @@ msgid "Table Search"
 msgstr "Tablo Arama"
 
 #: libraries/tbl_select.lib.php:229 tbl_change.php:994
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "Ekle"
+msgstr "Düzenle/Ekle"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 msgid ""
