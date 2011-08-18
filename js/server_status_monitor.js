@@ -9,6 +9,10 @@ $(function() {
             codemirror_editor = CodeMirror.fromTextArea(elm[0], { lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql" });
         }
     }
+    // Timepicker is loaded on demand so we need to initialize datetime fields from the 'load log' dialog
+    $('div#logAnalyseDialog .datetimefield').each(function() {
+        PMA_addDatepicker($(this));
+    });
     
     /**** Monitor charting implementation ****/
     /* Saves the previous ajax response for differential values */
@@ -1022,8 +1026,6 @@ $(function() {
                                 removeVariables: $('input#removeVariables').prop('checked'),
                                 limitTypes: $('input#limitTypes').prop('checked')
                             });
-
-                            $('#logAnalyseDialog').find('dateStart,dateEnd').datepicker('destroy');
                         }
                         
                         $('#logAnalyseDialog').dialog({
