@@ -12110,7 +12110,7 @@ msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
-"Sorgu önbelleği boyutu 128MiB'ın üzerinde. Büyük sorgu önbellekleri, "
+"Sorgu önbelleği boyutu 128 MiB'ın üzerinde. Büyük sorgu önbellekleri, "
 "önbelleği korumak için gereken önemli ölçüde ek yüke sebep olabilir."
 
 #: po/advisory_rules.php:97
