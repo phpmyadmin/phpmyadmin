@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-18 07:07+0200\n"
+"PO-Revision-Date: 2011-08-18 07:08+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -6715,7 +6715,7 @@ msgstr "Parasalları içe aktar <i>(örn. $5.00'ı 5.00'a)</i>"
 
 #: libraries/import/shp.php:14
 msgid "ESRI Shape File"
-msgstr ""
+msgstr "ESRI Şekil Dosyası"
 
 #: libraries/import/shp.php:254
 #, php-format
