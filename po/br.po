@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-18 20:03+0200\n"
+"PO-Revision-Date: 2011-08-18 20:04+0200\n"
 "Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -1170,7 +1170,7 @@ msgstr "Udb all"
 #. l10n: Thousands separator
 #: js/messages.php:75 libraries/common.lib.php:1359
 msgid ","
-msgstr ""
+msgstr " "
 
 #. l10n: Decimal separator
 #: js/messages.php:77 libraries/common.lib.php:1361
