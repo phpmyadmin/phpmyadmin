@@ -59,6 +59,7 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
     public function prepareRowAsPng($spatial, $label, $line_color, $scale_data, $image)
     {
         // allocate colors
+        $black = imagecolorallocate($image, 0, 0, 0);
         $red   = hexdec(substr($line_color, 1, 2));
         $green = hexdec(substr($line_color, 3, 2));
         $blue  = hexdec(substr($line_color, 4, 2));
@@ -76,6 +77,10 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
                 imageline($image, $temp_point[0], $temp_point[1], $point[0], $point[1], $color);
                 $temp_point = $point;
             }
+        }
+        // print label if applicable
+        if (isset($label) && trim($label) != '') {
+            imagestring($image, 1, $points_arr[1][0], $points_arr[1][1], trim($label), $black);
         }
         return $image;
     }
@@ -111,6 +116,12 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
                 $pdf->Line($temp_point[0], $temp_point[1], $point[0], $point[1], $line);
                 $temp_point = $point;
             }
+        }
+        // print label
+        if (isset($label) && trim($label) != '') {
+            $pdf->SetXY($points_arr[1][0], $points_arr[1][1]);
+            $pdf->SetFontSize(5);
+            $pdf->Cell(0, 0, trim($label));
         }
         return $pdf;
     }
@@ -195,6 +206,71 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
             . 'new OpenLayers.Geometry.LineString(' . $row . '), null, '
             . json_encode($style_options) . '));';
         return $result;
+    }
+
+    /**
+     * Generate the WKT with the set of parameters passed by the GIS editor.
+     *
+     * @param array  $gis_data GIS data
+     * @param int    $index    Index into the parameter object
+     * @param string $empty    Value for empty points
+     *
+     * @return WKT with the set of parameters passed by the GIS editor
+     */
+    public function generateWkt($gis_data, $index, $empty = '')
+    {
+        $no_of_points = isset($gis_data[$index]['LINESTRING']['no_of_points'])
+            ? $gis_data[$index]['LINESTRING']['no_of_points'] : 2;
+        if ($no_of_points < 2) {
+            $no_of_points = 2;
+        }
+        $wkt = 'LINESTRING(';
+        for ($i = 0; $i < $no_of_points; $i++) {
+            $wkt .= ((isset($gis_data[$index]['LINESTRING'][$i]['x'])
+                && trim($gis_data[$index]['LINESTRING'][$i]['x']) != '')
+                ? $gis_data[$index]['LINESTRING'][$i]['x'] : $empty)
+                . ' ' . ((isset($gis_data[$index]['LINESTRING'][$i]['y'])
+                && trim($gis_data[$index]['LINESTRING'][$i]['y']) != '')
+                ? $gis_data[$index]['LINESTRING'][$i]['y'] : $empty) .',';
+        }
+        $wkt = substr($wkt, 0, strlen($wkt) - 1);
+        $wkt .= ')';
+        return $wkt;
+    }
+
+    /**
+     * Generate parameters for the GIS data editor from the value of the GIS column.
+     *
+     * @param string $value of the GIS column
+     * @param index  $index of the geometry
+     *
+     * @return  parameters for the GIS data editor from the value of the GIS column
+     */
+    public function generateParams($value, $index = -1)
+    {
+        if ($index == -1) {
+            $index = 0;
+            $params = array();
+            $data = PMA_GIS_Geometry::generateParams($value);
+            $params['srid'] = $data['srid'];
+            $wkt = $data['wkt'];
+        } else {
+            $params[$index]['gis_type'] = 'LINESTRING';
+            $wkt = $value;
+        }
+
+        // Trim to remove leading 'LINESTRING(' and trailing ')'
+        $linestring = substr($wkt, 11, (strlen($wkt) - 12));
+        $points_arr = $this->extractPoints($linestring, null);
+
+        $no_of_points = count($points_arr);
+        $params[$index]['LINESTRING']['no_of_points'] = $no_of_points;
+        for ($i = 0; $i < $no_of_points; $i++) {
+            $params[$index]['LINESTRING'][$i]['x'] = $points_arr[$i][0];
+            $params[$index]['LINESTRING'][$i]['y'] = $points_arr[$i][1];
+        }
+
+        return $params;
     }
 }
 ?>

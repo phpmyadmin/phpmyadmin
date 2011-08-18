@@ -90,7 +90,7 @@ $js_messages['strChartIssuedQueriesTitle'] = __('Questions (executed statements 
 $js_messages['strChartQueryPie'] = __('Query statistics');
 
 /* server status monitor */
-$js_messages['strIncompatibleMonitorConfig'] = __('Local monitor configuration icompatible');
+$js_messages['strIncompatibleMonitorConfig'] = __('Local monitor configuration incompatible');
 $js_messages['strIncompatibleMonitorConfigDescription'] = __('The chart arrangement configuration in your browsers local storage is not compatible anymore to the newer version of the monitor dialog. It is very likely that your current configuration will not work anymore. Please reset your configuration to default in the <i>Settings</i> menu.');
 
 $js_messages['strQueryCacheEfficiency'] = __('Query cache efficiency');
@@ -280,6 +280,18 @@ $js_messages['strSameInputs'] = '<strong>' . __('Select two different columns') 
 
 /* For tbl_change.js */
 $js_messages['strIgnore'] = __('Ignore');
+$js_messages['strCopy'] = __('Copy');
+$js_messages['strX'] = __('X');
+$js_messages['strY'] = __('Y');
+$js_messages['strPoint'] = __('Point');
+$js_messages['strLineString'] = __('Linestring');
+$js_messages['strPolygon'] = __('Polygon');
+$js_messages['strGeometry'] = __('Geometry');
+$js_messages['strInnerRing'] = __('Inner Ring');
+$js_messages['strOuterRing'] = __('Outer Ring');
+$js_messages['strAddPoint'] = __('Add a point');
+$js_messages['strAddInnerRing'] = __('Add an inner ring');
+$js_messages['strAddPolygon'] = __('Add a polygon');
 
 /* For tbl_structure.js */
 $js_messages['strAddColumns'] = __('Add columns');

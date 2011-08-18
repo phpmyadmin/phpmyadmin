@@ -110,7 +110,13 @@ $(function() {
         cookie: { name: 'pma_serverStatusTabs', expires: 1 },
         show: function(event, ui) { 
             // Fixes line break in the menu bar when the page overflows and scrollbar appears
-            menuResize(); 
+            menuResize();
+
+            // Initialize selected tab
+            if (!$(ui.tab.hash).data('init-done')) {
+                initTab($(ui.tab.hash), null);
+            }
+
             // Load Server status monitor
             if (ui.tab.hash == '#statustabs_charting' && ! monitorLoaded) {
                 $('div#statustabs_charting').append( //PMA_messages['strLoadingMonitor'] + ' ' +
@@ -143,8 +149,12 @@ $(function() {
 
     // Initialize each tab
     $('div.ui-tabs-panel').each(function() {
-        initTab($(this), null);
-        tabStatus[$(this).attr('id')] = 'static';
+        var $tab = $(this);
+        tabStatus[$tab.attr('id')] = 'static';
+        // Initialize tabs after browser catches up with previous changes and displays tabs
+        setTimeout(function() {
+            initTab($tab, null);
+        }, 0.5);
     });
 
     // Handles refresh rate changing
@@ -362,7 +372,7 @@ $(function() {
     });
 
     $('#filterText').keyup(function(e) {
-        word = $(this).val().replace(/_/g, ' ');
+        var word = $(this).val().replace(/_/g, ' ');
 
         if (word.length == 0) {
             textFilter = null;
@@ -389,6 +399,10 @@ $(function() {
 
     /* Adjust DOM / Add handlers to the tabs */
     function initTab(tab, data) {
+        if ($(tab).data('init-done') && !data) {
+            return;
+        }
+        $(tab).data('init-done', true);
         switch(tab.attr('id')) {
             case 'statustabs_traffic':
                 if (data != null) {

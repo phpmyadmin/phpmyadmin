@@ -153,6 +153,28 @@ $func_optional_param = array(
     'UNIX_TIMESTAMP',
 );
 
+$gis_from_text_functions = array(
+    'GeomFromText',
+    'GeomCollFromText',
+    'LineFromText',
+    'MLineFromText',
+    'PointFromText',
+    'MPointFromText',
+    'PolyFromText',
+    'MPolyFromText',
+);
+
+$gis_from_wkb_functions = array(
+    'GeomFromWKB',
+    'GeomCollFromWKB',
+    'LineFromWKB',
+    'MLineFromWKB',
+    'PointFromWKB',
+    'MPointFromWKB',
+    'PolyFromWKB',
+    'MPolyFromWKB',
+);
+
 foreach ($loop_array as $rownumber => $where_clause) {
     // skip fields to be ignored
     if (! $using_key && isset($_REQUEST['insert_ignore_' . $where_clause])) {
@@ -238,10 +260,19 @@ foreach ($loop_array as $rownumber => $where_clause) {
             /* This way user will know what UUID new row has */
             $uuid = PMA_DBI_fetch_value('SELECT UUID()');
             $cur_value = "'" . $uuid . "'";
-        } elseif (!in_array($me_funcs[$key], $func_no_param)
+        } elseif ((in_array($me_funcs[$key], $gis_from_text_functions)
+            && substr($val, 0, 3) == "'''")
+            || in_array($me_funcs[$key], $gis_from_wkb_functions)
+        ) {
+            // Remove enclosing apostrophes
+            $val = substr($val, 1, strlen($val) - 2);
+            // Remove escaping apostrophes
+            $val = str_replace("''", "'", $val);
+            $cur_value = $me_funcs[$key] . '(' . $val . ')';
+        } elseif (! in_array($me_funcs[$key], $func_no_param)
                   || ($val != "''" && in_array($me_funcs[$key], $func_optional_param))) {
             $cur_value = $me_funcs[$key] . '(' . $val . ')';
-        } else {
+        }  else {
             $cur_value = $me_funcs[$key] . '()';
         }
 
@@ -350,7 +381,7 @@ foreach ($query as $single_query) {
     }
 
     if (! $result) {
-        $error_messages[] = PMA_DBI_getError();
+        $error_messages[] = PMA_Message::sanitize(PMA_DBI_getError());
     } else {
         // The next line contains a real assignment, it's not a typo
         if ($tmp = @PMA_DBI_affected_rows()) {
@@ -374,8 +405,8 @@ foreach ($query as $single_query) {
     } // end if
 
     foreach (PMA_DBI_get_warnings() as $warning) {
-        $warning_messages[] = $warning['Level'] . ': #' . $warning['Code']
-            . ' ' . $warning['Message'];
+        $warning_messages[] = PMA_Message::sanitize($warning['Level'] . ': #' . $warning['Code']
+            . ' ' . $warning['Message']);
     }
 
     unset($result);
@@ -391,10 +422,6 @@ if ($is_insert && count($value_sets) > 0) {
 $message->addMessages($last_messages, '<br />');
 
 if (! empty($warning_messages)) {
-    /**
-     * @todo use a <div class="error"> in PMA_showMessage() for this part of
-     * the message
-     */
     $message->addMessages($warning_messages, '<br />');
     $message->isError(true);
 }

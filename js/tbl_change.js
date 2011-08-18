@@ -218,10 +218,37 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
  * Ajax handlers for Change Table page
  *
  * Actions Ajaxified here:
- * Submit Data to be inserted into the table
+ * Submit Data to be inserted into the table.
  * Restart insertion with 'N' rows.
  */
 $(document).ready(function() {
+
+    $('.open_gis_editor').live('click', function(event) {
+        event.preventDefault();
+
+        var $span = $(this);
+        // Current value
+        var value = $span.parent('td').children("input[type='text']").val();
+        // Field name
+        var field = $span.parents('tr').children('td:first').find("input[type='hidden']").val();
+        // Column type
+        var type = $span.parents('tr').find('span.column_type').text();
+        // Names of input field and null checkbox
+        var input_name = $span.parent('td').children("input[type='text']").attr('name');
+        //Token
+        var token = $("input[name='token']").val();
+
+        openGISEditor(value, field, type, input_name, token);
+    });
+
+    /**
+     * Uncheck the null checkbox as geometry data is placed on the input field
+     */
+    $("input[name='gis_data[save]']").live('click', function(event) {
+        var input_name = $('form#gis_data_editor_form').find("input[name='input_name']").val();   
+        var $null_checkbox = $("input[name='" + input_name + "']").parents('tr').find('.checkbox_null');
+        $null_checkbox.attr('checked', false);
+    });
 
     // these were hidden via the "hide" class
     $('.foreign_values_anchor').show();

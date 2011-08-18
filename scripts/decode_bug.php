@@ -4,7 +4,7 @@
  * Parser bug report decoder
  *
  * This is the parser bug decoder system
- * Throw the bug data in teh query box, and hit submit for output.
+ * Throw the bug data in the query box, and hit submit for output.
  *
  * Copyright 2002 Robin Johnson <robbat2@users.sourceforge.net>
  *

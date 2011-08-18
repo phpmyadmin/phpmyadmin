@@ -18,15 +18,7 @@ class PMA_unsupportedDatatypes_test extends PHPUnit_Framework_TestCase
 
     function testNotSupportedDataTypes()
     {
-        $no_support_types = array('geometry',
-                                  'point',
-                                  'linestring',
-                                  'polygon',
-                                  'multipoint',
-                                  'multilinestring',
-                                  'multipolygon',
-                                  'geometrycollection'
-        );
+        $no_support_types = array();
         $this->assertEquals($no_support_types, PMA_unsupportedDatatypes());
     }
 }
