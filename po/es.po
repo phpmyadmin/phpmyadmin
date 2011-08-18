@@ -1820,7 +1820,7 @@ msgstr "Copiar"
 
 #: js/messages.php:291
 msgid "Outer Ring"
-msgstr ""
+msgstr "Círculo exterior"
 
 #: js/messages.php:297
 msgid "Add columns"
