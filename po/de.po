@@ -1817,7 +1817,7 @@ msgstr "Zeichenketten werden für die Zeichnung in Integerwerte umgewandelt."
 #: js/messages.php:278
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
-msgstr "2 Spalten auswählen"
+msgstr "Zwei Spalten auswählen"
 
 #: js/messages.php:279
 msgid "Select two different columns"
