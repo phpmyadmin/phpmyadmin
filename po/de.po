@@ -1812,7 +1812,7 @@ msgstr ""
 
 #: js/messages.php:276
 msgid "Strings are converted into integer for plotting"
-msgstr ""
+msgstr "Zeichenketten werden für die Zeichnung in Integerwerte umgewandelt."
 
 #: js/messages.php:278
 #, fuzzy
