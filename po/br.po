@@ -1425,10 +1425,10 @@ msgstr "Gweredekaat %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:150
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disabled"
 msgid "Disable %s"
-msgstr "Diweredekaet"
+msgstr "Diweredekaat %s"
 
 #. l10n: %d seconds
 #: js/messages.php:152
