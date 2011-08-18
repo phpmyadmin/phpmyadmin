@@ -43,7 +43,24 @@ $(function() {
         },
         type: "numeric"
     });
-
+    // faster zebra widget: no row visibility check, faster css class switching, no cssChildRow check
+    jQuery.tablesorter.addWidget({
+        id: "fast-zebra",
+        format: function (table) {
+            if (table.config.debug) {
+                var time = new Date();
+            }
+            $("tr:even", table.tBodies[0])
+                .removeClass(table.config.widgetZebra.css[0])
+                .addClass(table.config.widgetZebra.css[1]);
+            $("tr:odd", table.tBodies[0])
+                .removeClass(table.config.widgetZebra.css[1])
+                .addClass(table.config.widgetZebra.css[0]);
+            if (table.config.debug) {
+                $.tablesorter.benchmark("Applying Fast-Zebra widget", time);
+            }
+        }
+    });
 
     // Popup behaviour
     $('a[rel="popupLink"]').click( function() {
@@ -474,7 +491,7 @@ $(function() {
             case 'statustabs_queries':
                 $('#serverstatusqueriesdetails').tablesorter({
                         sortList: [[3, 1]],
-                        widgets: ['zebra'],
+                        widgets: ['fast-zebra'],
                         headers: {
                             1: { sorter: 'fancyNumber' },
                             2: { sorter: 'fancyNumber' }
@@ -489,7 +506,7 @@ $(function() {
             case 'statustabs_allvars':
                 $('#serverstatusvariables').tablesorter({
                         sortList: [[0, 0]],
-                        widgets: ['zebra'],
+                        widgets: ['fast-zebra'],
                         headers: {
                             1: { sorter: 'fancyNumber' }
                         }
