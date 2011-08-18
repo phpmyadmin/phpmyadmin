@@ -826,9 +826,11 @@
                     // if user has supplied a sort list to constructor.
                     if (config.sortList.length > 0) {
                         $this.trigger("sorton", [config.sortList]);
+                    } else {
+                        // appendToTable used in sorton event already calls applyWidget
+                        // apply widgets
+                        applyWidget(this);
                     }
-                    // apply widgets
-                    applyWidget(this);
                 });
             };
             this.addParser = function (parser) {
