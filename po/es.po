@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 00:57+0200\n"
+"PO-Revision-Date: 2011-08-19 00:58+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -937,6 +937,8 @@ msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
+"Selecciones «GeomFromText» de la columna \"Función\" y pague la cadena ubicada "
+"debajo en el campo \"Valor\""
 
 #: import.php:57
 #, php-format
