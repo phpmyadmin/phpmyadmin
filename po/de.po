@@ -1912,10 +1912,9 @@ msgstr ""
 "klicken."
 
 #: js/messages.php:319
-#, fuzzy
 #| msgid "Go to view"
 msgid "Go to link"
-msgstr "Gehe zum View"
+msgstr "Gehe zur Verknüpfung"
 
 #: js/messages.php:322
 msgid "Generate password"
