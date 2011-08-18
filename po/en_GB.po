@@ -904,10 +904,9 @@ msgid "Inner Ring"
 msgstr "Inner Ring"
 
 #: gis_data_editor.php:248
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Add a new User"
+msgstr "Add a linestring"
 
 #: gis_data_editor.php:248 gis_data_editor.php:298 js/messages.php:293
 #, fuzzy
