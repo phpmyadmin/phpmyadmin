@@ -12301,7 +12301,7 @@ msgstr ""
 #: po/advisory_rules.php:95
 #| msgid "Query cache"
 msgid "Query cache max size"
-msgstr "Tamaño máximo del caché de consultas."
+msgstr "Tamaño máximo del caché de consultas"
 
 #: po/advisory_rules.php:96
 msgid ""
