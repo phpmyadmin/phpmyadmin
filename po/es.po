@@ -12325,10 +12325,9 @@ msgid "Current query cache size: %s"
 msgstr "Tamaño del caché de consultas: %s"
 
 #: po/advisory_rules.php:100
-#, fuzzy
 #| msgid "Query results"
 msgid "Query cache min result size"
-msgstr "Resultados de la Consulta"
+msgstr "Tamaño mínimo de resultado en caché de consultas"
 
 #: po/advisory_rules.php:101
 msgid ""
