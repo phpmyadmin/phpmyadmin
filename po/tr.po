@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-18 07:18+0200\n"
+"PO-Revision-Date: 2011-08-18 07:19+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -12038,7 +12038,7 @@ msgstr "Sorgu önbelleği parçalama"
 
 #: po/advisory_rules.php:86
 msgid "The query cache is considerably fragmented."
-msgstr ""
+msgstr "Sorgu önbelleği oldukça parçalanmış."
 
 #: po/advisory_rules.php:87
 msgid ""
