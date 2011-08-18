@@ -1796,7 +1796,7 @@ msgstr "Mit gedrückter Maustaste eine Fläche aufziehen um hineinzuzoomen."
 
 #: js/messages.php:270
 msgid "Click reset zoom link to come back to original state."
-msgstr ""
+msgstr "Auf \"Zoom zurücksetzen\" klicken um zum Original zurückzukehren."
 
 #: js/messages.php:272
 msgid "Click a data point to view and possibly edit the data row."
