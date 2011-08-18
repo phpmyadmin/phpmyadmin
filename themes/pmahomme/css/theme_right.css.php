@@ -462,10 +462,10 @@ select[multiple] {
 img.sortableIcon { background-position: -1812px 0; }
 
 /* Same as s_asc */
-th.headerSortUp img.sortableIcon { background-position: -1516px 0; }
+th.headerSortUp img.sortableIcon { background-position: 0 0; }
 
 /* Same as s_desc */
-th.headerSortDown img.sortableIcon { background-position: 0 0; }
+th.headerSortDown img.sortableIcon { background-position: -1516px 0; }
 
 /* Fix position */
 .ic_more { vertical-align: middle; }
