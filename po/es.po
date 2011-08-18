@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 00:58+0200\n"
+"PO-Revision-Date: 2011-08-19 01:06+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -2186,6 +2186,8 @@ msgstr "Segundo"
 #, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr ""
+"No se pudo dar formato a una cadena para la regla '%s'. PHP devolvió el "
+"siguiente error: %s"
 
 #: libraries/Config.class.php:1159
 msgid "Font size"
