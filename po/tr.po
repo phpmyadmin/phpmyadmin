@@ -6727,6 +6727,8 @@ msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data"
 msgstr ""
+"Geçersiz bir dosyayı içe aktarmayı deniyorsunuz ya da içe aktarılan dosya "
+"geçersiz veri içeriyor"
 
 #: libraries/import/shp.php:312
 #, php-format
