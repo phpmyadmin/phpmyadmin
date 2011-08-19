@@ -117,6 +117,9 @@ echo $script_tabs . $script_contr . $script_display_field;
 </div>
 
 <form action="" method="post" name="form1">
+<div id="osn_tab">
+  <canvas class="pmd" id="canvas" width="100" height="100" onclick="Canvas_click(this)"></canvas>
+</div>
 <div id="layer_menu" style="visibility:<?php echo $hidden ?>;">
 <div align="center" style="padding-top:5px;">
     <a href="javascript:Hide_tab_all(document.getElementById('key_HS_all'));"
@@ -173,9 +176,6 @@ for ($i = 0; $i < $name_cnt; $i++) {
 </div>
 </div>
 
-<div id="osn_tab">
-  <canvas class="pmd" id="canvas" width="100" height="100" onclick="Canvas_click(this)"></canvas>
-</div>
 
 <?php
 for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
