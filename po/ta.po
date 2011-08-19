@@ -2528,7 +2528,7 @@ msgstr "கேட்பொலியை ஒலிக்கச்செய்"
 
 #: libraries/blobstreaming.lib.php:372
 msgid "View video"
-msgstr ""
+msgstr "காணொலி பார்"
 
 #: libraries/blobstreaming.lib.php:376
 msgid "Download file"
