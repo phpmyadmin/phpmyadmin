@@ -1644,7 +1644,7 @@ msgstr "சுட்டுகளை மறை"
 
 #: js/messages.php:231
 msgid "Show indexes"
-msgstr ""
+msgstr "சுட்டுகளை காட்டு"
 
 #: js/messages.php:234
 msgid "Searching"
