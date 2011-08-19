@@ -429,8 +429,8 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
         ?>
                 <tr class="<?php echo $style; ?>">
                     <td><small><?php echo $i;?></small></td>
-                    <td><small><?php echo $entry['date'];?></small></td>
-                    <td><small><?php echo $entry['username']; ?></small></td>
+                    <td><small><?php echo htmlspecialchars($entry['date']);?></small></td>
+                    <td><small><?php echo htmlspecialchars($entry['username']); ?></small></td>
                     <td><?php echo $statement; ?></td>
                 </tr>
         <?php
@@ -618,9 +618,9 @@ if ($last_version > 0) {
         <tr class="<?php echo $style;?>">
             <td><?php echo htmlspecialchars($version['db_name']);?></td>
             <td><?php echo htmlspecialchars($version['table_name']);?></td>
-            <td><?php echo $version['version'];?></td>
-            <td><?php echo $version['date_created'];?></td>
-            <td><?php echo $version['date_updated'];?></td>
+            <td><?php echo htmlspecialchars($version['version']);?></td>
+            <td><?php echo htmlspecialchars($version['date_created']);?></td>
+            <td><?php echo htmlspecialchars($version['date_updated']);?></td>
             <td><?php echo $version_status;?></td>
             <td> <a href="tbl_tracking.php<?php echo PMA_generate_common_url($url_params + array('report' => 'true', 'version' => $version['version'])
 );?>"><?php echo $strTrackingReport;?></a> 
