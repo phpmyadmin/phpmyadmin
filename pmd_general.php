@@ -8,6 +8,8 @@
  *
  */
 require_once './libraries/pmd_common.php';
+require './libraries/db_common.inc.php';
+require './libraries/db_info.inc.php';
 
 $tab_column       = get_tab_info();
 $script_tabs      = get_script_tabs();
@@ -17,17 +19,6 @@ $tables_pk_or_unique_keys = get_pk_or_unique_keys();
 $tables_all_keys  = get_all_keys();
 $hidden           = "hidden";
 
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $GLOBALS['available_languages'][$GLOBALS['lang']][1]; ?>" lang="<?php echo $GLOBALS['available_languages'][$GLOBALS['lang']][1]; ?>" dir="<?php echo $GLOBALS['text_dir']; ?>">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="icon" href="pmd/images/favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="pmd/images/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" type="text/css" href="pmd/styles/<?php echo $GLOBALS['PMD']['STYLE'] ?>/style1.css" />
-    <title>Designer</title>
-<?php
 $params = array('lang' => $GLOBALS['lang']);
 if (isset($GLOBALS['db'])) {
     $params['db'] = $GLOBALS['db'];
@@ -125,10 +116,6 @@ echo $script_tabs . $script_contr . $script_display_field;
                 title="<?php echo __('Move Menu'); ?>" /></a>
 </div>
 
-<div id="osn_tab">
-  <CANVAS id="canvas" width="100" height="100" onclick="Canvas_click(this)"></CANVAS>
-</div>
-
 <form action="" method="post" name="form1">
 <div id="layer_menu" style="visibility:<?php echo $hidden ?>;">
 <div align="center" style="padding-top:5px;">
@@ -166,8 +153,8 @@ for ($i = 0; $i < $name_cnt; $i++) {
                     echo 'checked="checked"';
                 }
                 ?> /></td>
-        <td class="Tabs" onmouseover="this.className='Tabs2'"
-            onmouseout="this.className='Tabs'"
+        <td class="pmd_Tabs" onmouseover="this.className='pmd_Tabs2'"
+            onmouseout="this.className='pmd_Tabs'"
             onclick="Select_tab('<?php echo $GLOBALS['PMD_URL']["TABLE_NAME"][$i]; ?>');">
             <?php echo $GLOBALS['PMD_OUT']["TABLE_NAME"][$i]; ?></td>
     </tr>
@@ -185,6 +172,11 @@ for ($i = 0; $i < $name_cnt; $i++) {
     </div>
 </div>
 </div>
+
+<div id="osn_tab">
+  <canvas class="pmd" id="canvas" width="100" height="100" onclick="Canvas_click(this)"></canvas>
+</div>
+
 <?php
 for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
     $t_n = $GLOBALS['PMD']["TABLE_NAME"][$i];
@@ -196,7 +188,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 <input name="t_v[<?php echo $t_n_url ?>]" type="hidden" id="t_v_<?php echo $t_n_url ?>_" />
 <input name="t_h[<?php echo $t_n_url ?>]" type="hidden" id="t_h_<?php echo $t_n_url ?>_" />
 
-<table id="<?php echo $t_n_url ?>" cellpadding="0" cellspacing="0" class="tab"
+<table id="<?php echo $t_n_url ?>" cellpadding="0" cellspacing="0" class="pmd_tab"
    style="position: absolute;
           left: <?php if (isset($tab_pos[$t_n])) echo $tab_pos[$t_n]["X"]; else echo rand(180, 800); ?>px;
           top: <?php if (isset($tab_pos[$t_n])) echo $tab_pos[$t_n]["Y"]; else echo rand(30, 500); ?>px;
@@ -332,7 +324,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 }
 ?>
 </form>
-<div id="hint"></div>
+<div id="pmd_hint"></div>
 <div id='layer_action' style="visibility:<?php echo $hidden ?>;">Load...</div>
 
 <table id="layer_new_relation" style="visibility:<?php echo $hidden ?>;"
