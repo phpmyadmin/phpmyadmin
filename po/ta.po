@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 08:42+0200\n"
+"PO-Revision-Date: 2011-08-19 08:43+0200\n"
 "Last-Translator:  <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -2218,7 +2218,7 @@ msgstr ""
 #: libraries/Index.class.php:423 libraries/build_html_for_db.lib.php:41
 #: tbl_tracking.php:300
 msgid "Indexes"
-msgstr ""
+msgstr "சுட்டுகள்"
 
 #: libraries/Index.class.php:434 libraries/tbl_properties.inc.php:488
 #: tbl_structure.php:155 tbl_structure.php:160 tbl_structure.php:573
