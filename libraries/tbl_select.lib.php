@@ -19,7 +19,7 @@ require_once 'url_generating.lib.php';
  *
  * @return string $str Value of the Title
  */
-function PMA_tbl_setTitle($propertiesIconic,$pmaThemeImage)
+function PMA_tbl_setTitle($propertiesIconic, $pmaThemeImage)
 {
     if ($propertiesIconic == true) {
         $str = '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
@@ -28,8 +28,9 @@ function PMA_tbl_setTitle($propertiesIconic,$pmaThemeImage)
 
         if ($propertiesIconic === 'both') {
             $str .= __('Browse foreign values');
-            return $str;
         }
+
+        return $str;
     } else {
         return __('Browse foreign values');
     }
