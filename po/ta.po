@@ -2157,7 +2157,7 @@ msgstr ""
 
 #: libraries/Config.class.php:1159
 msgid "Font size"
-msgstr ""
+msgstr "எழுத்துரு அளவு"
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."
