@@ -11920,7 +11920,8 @@ msgid ""
 msgstr ""
 "Zmogljivost vašega pomnilnika je nad 3 GiB (predpostavljeno, da strežnik "
 "teče na localhost), zato MySQL morda ne bo zmožen dostopati do celotnega "
-"vašega pomnilnika. Razmislite o namestitvi 64-bitne različice MySQL."
+"vašega pomnilnika. Morda boste želeli razmisliti o namestitvi 64-bitne "
+"različice MySQL."
 
 #: po/advisory_rules.php:63
 #, php-format
