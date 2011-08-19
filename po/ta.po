@@ -1855,10 +1855,9 @@ msgid "Change Password"
 msgstr "கடவுச்சொல்லை மாற்று"
 
 #: js/messages.php:327 tbl_structure.php:464
-#, fuzzy
 #| msgid "Mon"
 msgid "More"
-msgstr "திங்கள்"
+msgstr "மேலும்"
 
 #: js/messages.php:330 setup/lib/index.lib.php:173
 #, php-format
