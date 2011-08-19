@@ -12433,10 +12433,9 @@ msgid "Rate of joins without indexes"
 msgstr "Tasa de uniones («JOIN») sin índices"
 
 #: po/advisory_rules.php:121
-#, fuzzy
 #| msgid "There are no routines to display."
 msgid "There are too many joins without indexes."
-msgstr "No hay rutinas para mostrar."
+msgstr "Hay demasiadas uniones («JOIN») sin índices."
 
 #: po/advisory_rules.php:122
 msgid ""
