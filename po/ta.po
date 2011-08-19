@@ -2837,7 +2837,7 @@ msgstr "கட்டமைப்பு"
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
 #: querywindow.php:64
 msgid "SQL"
-msgstr ""
+msgstr "SQL"
 
 #: libraries/common.lib.php:2922 libraries/common.lib.php:3115
 #: libraries/common.lib.php:3116 libraries/sql_query_form.lib.php:284
