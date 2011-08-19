@@ -435,9 +435,9 @@ rule 'InnoDB buffer pool size' [system_memory > 0]
 # other
 rule 'MyISAM concurrent inserts'
 	concurrent_insert
-	value == 0
+	value === 0 || value === 'NEVER'
 	Enable concurrent_insert by setting it to 1
-	Setting {concurrent_insert} to 1 reduces contention between readers and writers for a given table. See also <a href="http://dev.mysql.com/doc/refman/5.0/en/concurrent-inserts.html">MySQL Documentation</a>
+	Setting {concurrent_insert} to 1 reduces contention between readers and writers for a given table. See also <a href="http://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html">MySQL Documentation</a>
 	concurrent_insert is set to 0
 
 # INSERT DELAYED USAGE

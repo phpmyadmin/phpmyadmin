@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-14 22:35+0200\n"
-"Last-Translator: சுரேஸ்குமார் செல்வநாயகம் <saskumar@hotmail.com>\n"
+"PO-Revision-Date: 2011-08-19 09:21+0200\n"
+"Last-Translator:  <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
@@ -622,17 +622,17 @@ msgstr ""
 #: db_structure.php:388 db_structure.php:402 libraries/header.inc.php:158
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:210
 msgid "View"
-msgstr ""
+msgstr "நோக்கு"
 
 #: db_structure.php:439 libraries/db_structure.lib.php:35
 #: libraries/server_links.inc.php:90 server_replication.php:31
 #: server_replication.php:162 server_status.php:543
 msgid "Replication"
-msgstr ""
+msgstr "படியெடுத்தல்"
 
 #: db_structure.php:443
 msgid "Sum"
-msgstr ""
+msgstr "கூட்டுத்தொகை"
 
 #: db_structure.php:450 libraries/StorageEngine.class.php:313
 #, php-format
@@ -645,13 +645,13 @@ msgstr ""
 #: server_databases.php:264 server_privileges.php:1751 tbl_structure.php:554
 #: tbl_structure.php:563
 msgid "With selected:"
-msgstr ""
+msgstr "உடன் தெரிவுசெய்யப்பட்டது"
 
 #: db_structure.php:481 libraries/display_tbl.lib.php:2372
 #: server_databases.php:261 server_privileges.php:671
 #: server_privileges.php:1754 tbl_structure.php:557
 msgid "Check All"
-msgstr ""
+msgstr "அனைத்தையும் தெரி"
 
 #: db_structure.php:485 libraries/display_tbl.lib.php:2373
 #: libraries/replication_gui.lib.php:35 server_databases.php:263
@@ -671,40 +671,40 @@ msgstr ""
 #: server_privileges.php:1441 server_status.php:1485
 #: setup/frames/menu.inc.php:21
 msgid "Export"
-msgstr ""
+msgstr "ஏற்றுமதி"
 
 #: db_structure.php:500 db_structure.php:554
 #: libraries/display_tbl.lib.php:2479 tbl_structure.php:609
 msgid "Print view"
-msgstr ""
+msgstr "அச்சுப் பார்வை"
 
 #: db_structure.php:504 libraries/common.lib.php:3120
 #: libraries/common.lib.php:3121
 msgid "Empty"
-msgstr ""
+msgstr "வெறுமை"
 
 #: db_structure.php:506 db_tracking.php:104 libraries/Index.class.php:482
 #: libraries/common.lib.php:3118 libraries/common.lib.php:3119
 #: server_databases.php:265 tbl_structure.php:151 tbl_structure.php:152
 #: tbl_structure.php:570
 msgid "Drop"
-msgstr ""
+msgstr "அழி"
 
 #: db_structure.php:508 tbl_operations.php:608
 msgid "Check table"
-msgstr ""
+msgstr "அட்டவணையை சரிபார்"
 
 #: db_structure.php:510 tbl_operations.php:657 tbl_structure.php:810
 msgid "Optimize table"
-msgstr ""
+msgstr "அட்டவணையை உகப்பாக்கு"
 
 #: db_structure.php:512 tbl_operations.php:644
 msgid "Repair table"
-msgstr ""
+msgstr "அட்டவணையை திருத்து"
 
 #: db_structure.php:514 tbl_operations.php:631
 msgid "Analyze table"
-msgstr ""
+msgstr "அட்டவணையை பகுப்பாய்"
 
 #: db_structure.php:516
 msgid "Add prefix to table"
@@ -722,7 +722,7 @@ msgstr ""
 
 #: db_structure.php:560 libraries/schema/User_Schema.class.php:403
 msgid "Data Dictionary"
-msgstr ""
+msgstr "தரவு அகராதி"
 
 #: db_tracking.php:79
 msgid "Tracked tables"
@@ -739,25 +739,25 @@ msgstr ""
 #: server_synchronize.php:1248 server_synchronize.php:1252
 #: tbl_tracking.php:633
 msgid "Database"
-msgstr ""
+msgstr "தரவுத்தளம்"
 
 #: db_tracking.php:86
 msgid "Last version"
-msgstr ""
+msgstr "இறுதி பதிப்பு"
 
 #: db_tracking.php:87 tbl_tracking.php:636
 msgid "Created"
-msgstr ""
+msgstr "உருவாக்கப்பட்டது"
 
 #: db_tracking.php:88 tbl_tracking.php:637
 msgid "Updated"
-msgstr ""
+msgstr "புதுப்பிக்கப்பட்டது"
 
 #: db_tracking.php:89 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
 #: server_status.php:1121 sql.php:880 tbl_tracking.php:638
 msgid "Status"
-msgstr ""
+msgstr "தகுநிலை"
 
 #: db_tracking.php:90 libraries/Index.class.php:430
 #: libraries/db_structure.lib.php:39 libraries/rte/rte_list.lib.php:52
@@ -773,15 +773,15 @@ msgstr ""
 
 #: db_tracking.php:119 tbl_tracking.php:590 tbl_tracking.php:648
 msgid "active"
-msgstr ""
+msgstr "செயற்படு"
 
 #: db_tracking.php:121 tbl_tracking.php:592 tbl_tracking.php:650
 msgid "not active"
-msgstr ""
+msgstr "செயற்பாடற்ற"
 
 #: db_tracking.php:134
 msgid "Versions"
-msgstr ""
+msgstr "பதிப்புக்கள்"
 
 #: db_tracking.php:135 tbl_tracking.php:400 tbl_tracking.php:667
 msgid "Tracking report"
@@ -818,7 +818,7 @@ msgstr ""
 
 #: enum_editor.php:67 gis_data_editor.php:311
 msgid "Output"
-msgstr ""
+msgstr "வெளியீடு"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
@@ -865,12 +865,12 @@ msgstr ""
 #: gis_data_editor.php:151 js/messages.php:289
 #: libraries/display_tbl.lib.php:663
 msgid "Geometry"
-msgstr ""
+msgstr "கேத்திர கணிதம்"
 
 #: gis_data_editor.php:172 gis_data_editor.php:194 gis_data_editor.php:240
 #: gis_data_editor.php:290 js/messages.php:286
 msgid "Point"
-msgstr ""
+msgstr "புள்ளி"
 
 #: gis_data_editor.php:173 gis_data_editor.php:195 gis_data_editor.php:241
 #: gis_data_editor.php:291 js/messages.php:284
@@ -884,10 +884,9 @@ msgstr ""
 
 #: gis_data_editor.php:202 gis_data_editor.php:246 gis_data_editor.php:296
 #: js/messages.php:292
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add a point"
-msgstr "%s களத்தை சேர்க்க"
+msgstr "ஒரு புள்ளியை சேர்"
 
 #: gis_data_editor.php:218 js/messages.php:287
 msgid "Linestring"
@@ -913,13 +912,12 @@ msgstr ""
 
 #: gis_data_editor.php:262 js/messages.php:288
 msgid "Polygon"
-msgstr ""
+msgstr "பல்கோணி"
 
 #: gis_data_editor.php:300 js/messages.php:294
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add a polygon"
-msgstr "%s களத்தை சேர்க்க"
+msgstr "ஒரு பல்கோணியை சேர்"
 
 #: gis_data_editor.php:304
 #, fuzzy
@@ -1005,7 +1003,7 @@ msgstr ""
 #: import_status.php:29 libraries/common.lib.php:636
 #: libraries/schema/Export_Relation_Schema.class.php:203 user_password.php:109
 msgid "Back"
-msgstr ""
+msgstr "திரும்பி"
 
 #: index.php:164
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
@@ -1072,7 +1070,7 @@ msgstr ""
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:51
 msgid "Total count"
-msgstr ""
+msgstr "மொத்தம் எண்ணல்"
 
 #: js/messages.php:54
 msgid "The host name is empty!"
@@ -1108,7 +1106,7 @@ msgstr ""
 #: js/messages.php:61 js/messages.php:130 libraries/tbl_properties.inc.php:758
 #: tbl_tracking.php:235 tbl_tracking.php:400
 msgid "Close"
-msgstr ""
+msgstr "மூடு"
 
 #: js/messages.php:64 js/messages.php:249 libraries/Index.class.php:460
 #: libraries/common.lib.php:580 libraries/common.lib.php:1116
@@ -1116,7 +1114,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:478 libraries/display_tbl.lib.php:1326
 #: libraries/schema/User_Schema.class.php:185 setup/frames/index.inc.php:138
 msgid "Edit"
-msgstr ""
+msgstr "தொகு"
 
 #: js/messages.php:65 server_status.php:705
 msgid "Live traffic chart"
@@ -1140,12 +1138,12 @@ msgstr ""
 #: server_status.php:1021 server_status.php:1082 tbl_printview.php:315
 #: tbl_structure.php:798
 msgid "Total"
-msgstr ""
+msgstr "மொத்தம்"
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:73 server_status.php:919
 msgid "Other"
-msgstr ""
+msgstr "ஏனையது"
 
 #. l10n: Thousands separator
 #: js/messages.php:75 libraries/common.lib.php:1359
@@ -1225,7 +1223,7 @@ msgstr ""
 
 #: js/messages.php:101
 msgid "System memory"
-msgstr ""
+msgstr "முறைமை நினைவகம்"
 
 #: js/messages.php:102
 msgid "System swap"
@@ -1247,11 +1245,11 @@ msgstr ""
 
 #: js/messages.php:107
 msgid "Total memory"
-msgstr ""
+msgstr "மொத்த நினைவகம்"
 
 #: js/messages.php:108
 msgid "Cached memory"
-msgstr ""
+msgstr "இடைமாற்று நினைவகம்"
 
 #: js/messages.php:109
 msgid "Buffered memory"
@@ -1259,11 +1257,11 @@ msgstr ""
 
 #: js/messages.php:110
 msgid "Free memory"
-msgstr ""
+msgstr "விடுபட்ட நினைவகம்"
 
 #: js/messages.php:111
 msgid "Used memory"
-msgstr ""
+msgstr "பாவிக்கப்பட்ட  நினைவகம்"
 
 #: js/messages.php:113
 msgid "Total Swap"
@@ -1291,25 +1289,25 @@ msgstr ""
 
 #: js/messages.php:120 server_status.php:1040
 msgid "Connections"
-msgstr ""
+msgstr "இணைப்புகள்"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:124
 msgid "Questions"
-msgstr ""
+msgstr "வினாக்கள்"
 
 #: js/messages.php:125 server_status.php:995
 msgid "Traffic"
-msgstr ""
+msgstr "போக்குவரத்து"
 
 #: js/messages.php:126 libraries/server_links.inc.php:73
 #: server_status.php:1442
 msgid "Settings"
-msgstr ""
+msgstr "அமைப்புகள்"
 
 #: js/messages.php:127
 msgid "Remove chart"
-msgstr ""
+msgstr "வரைபடத்தை நீக்கு"
 
 #: js/messages.php:128
 msgid "Edit title and labels"
@@ -1329,7 +1327,7 @@ msgstr ""
 #: server_privileges.php:2040 server_status.php:1155 server_status.php:1582
 #: tbl_zoom_select.php:158 tbl_zoom_select.php:283
 msgid "None"
-msgstr ""
+msgstr "எதுவுமில்லை"
 
 #: js/messages.php:133
 msgid "Resume monitor"
@@ -1392,13 +1390,13 @@ msgstr ""
 #: js/messages.php:148
 #, php-format
 msgid "Enable %s"
-msgstr ""
+msgstr "இயலச்செய் %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:150
 #, php-format
 msgid "Disable %s"
-msgstr ""
+msgstr "முடக்கு %s"
 
 #. l10n: %d seconds
 #: js/messages.php:152
@@ -1414,25 +1412,25 @@ msgstr ""
 
 #: js/messages.php:154
 msgid "Change settings"
-msgstr ""
+msgstr "அமைப்புக்களை மாற்று"
 
 #: js/messages.php:155
 msgid "Current settings"
-msgstr ""
+msgstr "நடப்பு அமைப்புக்கள்"
 
 #: js/messages.php:157 server_status.php:1530
 msgid "Chart Title"
-msgstr ""
+msgstr "வரைபடத் தலைப்பு"
 
 #. l10n: As in differential values
 #: js/messages.php:159
 msgid "Differential"
-msgstr ""
+msgstr "வேற்றுமை"
 
 #: js/messages.php:160
 #, php-format
 msgid "Divided by %s:"
-msgstr ""
+msgstr "வகுக்கப்பட்ட %s"
 
 #: js/messages.php:162
 msgid "From slow log"
@@ -1475,12 +1473,12 @@ msgstr ""
 #. l10n: A collection of available filters
 #: js/messages.php:173
 msgid "Filters"
-msgstr ""
+msgstr "வடிகட்டிகள்"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:175
 msgid "Filter"
-msgstr ""
+msgstr "வடிகட்டி"
 
 #: js/messages.php:176
 msgid "Filter queries by word/regexp:"
@@ -1496,7 +1494,7 @@ msgstr ""
 
 #: js/messages.php:179
 msgid "Total:"
-msgstr ""
+msgstr "மொத்த:"
 
 #: js/messages.php:181
 msgid "Loading logs"
@@ -1515,11 +1513,11 @@ msgstr ""
 
 #: js/messages.php:184
 msgid "Reload page"
-msgstr ""
+msgstr "பக்கத்தை திரும்ப ஏற்று"
 
 #: js/messages.php:186
 msgid "Affected rows:"
-msgstr ""
+msgstr "பாவனையான வரிசைகள்"
 
 #: js/messages.php:188
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
@@ -1536,7 +1534,7 @@ msgstr ""
 #: libraries/tbl_links.inc.php:89 prefs_manage.php:229 server_status.php:1485
 #: setup/frames/menu.inc.php:20
 msgid "Import"
-msgstr ""
+msgstr "இறக்குமதி"
 
 #: js/messages.php:192
 msgid "Analyse Query"
@@ -1552,15 +1550,15 @@ msgstr ""
 
 #: js/messages.php:198
 msgid "Issue"
-msgstr ""
+msgstr "பிரச்சினை"
 
 #: js/messages.php:199
 msgid "Recommendation"
-msgstr ""
+msgstr "பரிந்துரை"
 
 #: js/messages.php:200
 msgid "Rule details"
-msgstr ""
+msgstr "ஆளுகை விபரங்கள்"
 
 #: js/messages.php:201
 #, fuzzy
@@ -1574,7 +1572,7 @@ msgstr ""
 
 #: js/messages.php:203
 msgid "Test"
-msgstr ""
+msgstr "சோதனை"
 
 #: js/messages.php:208 libraries/tbl_properties.inc.php:763
 #: pmd_general.php:388 pmd_general.php:425 pmd_general.php:545
@@ -1585,7 +1583,7 @@ msgstr "விலக்கு"
 
 #: js/messages.php:211
 msgid "Loading"
-msgstr ""
+msgstr "ஏற்றப்படுகிறது"
 
 #: js/messages.php:212
 msgid "Processing Request"
@@ -1608,7 +1606,7 @@ msgstr ""
 #: pmd_general.php:543 pmd_general.php:591 pmd_general.php:667
 #: pmd_general.php:721 pmd_general.php:784
 msgid "OK"
-msgstr ""
+msgstr "சரி"
 
 #: js/messages.php:219
 msgid "Renaming Databases"
@@ -1634,39 +1632,39 @@ msgstr "நீங்கள் புதிய பயனாளரை சேர்
 
 #: js/messages.php:224
 msgid "Create Table"
-msgstr ""
+msgstr "அட்டவணையை உருவாக்கு"
 
 #: js/messages.php:229
 msgid "Insert Table"
-msgstr ""
+msgstr "அட்டவணையை செருகு"
 
 #: js/messages.php:230
 msgid "Hide indexes"
-msgstr ""
+msgstr "சுட்டுகளை மறை"
 
 #: js/messages.php:231
 msgid "Show indexes"
-msgstr ""
+msgstr "சுட்டுகளை காட்டு"
 
 #: js/messages.php:234
 msgid "Searching"
-msgstr ""
+msgstr "தேடுதல்"
 
 #: js/messages.php:235
 msgid "Hide search results"
-msgstr ""
+msgstr "தேடல் முடிவுகளை மறை"
 
 #: js/messages.php:236
 msgid "Show search results"
-msgstr ""
+msgstr "தேடல் முடிவுகளை காட்டு"
 
 #: js/messages.php:237
 msgid "Browsing"
-msgstr ""
+msgstr "உலாவுதல்"
 
 #: js/messages.php:238
 msgid "Deleting"
-msgstr ""
+msgstr "அழித்தல்"
 
 #: js/messages.php:241
 msgid "The definition of a stored function must contain a RETURN statement!"
@@ -1693,7 +1691,7 @@ msgstr ""
 #: libraries/display_tbl.lib.php:2385 querywindow.php:90 querywindow.php:94
 #: querywindow.php:97 tbl_structure.php:150 tbl_structure.php:569
 msgid "Change"
-msgstr ""
+msgstr "மாற்று"
 
 #: js/messages.php:252
 msgid "Query execution time"
@@ -1705,7 +1703,7 @@ msgstr ""
 #: setup/frames/index.inc.php:228 tbl_change.php:1019
 #: tbl_gis_visualization.php:193 tbl_indexes.php:261 tbl_relation.php:563
 msgid "Save"
-msgstr ""
+msgstr "சேமி"
 
 #: js/messages.php:258
 msgid "Hide search criteria"
@@ -1762,21 +1760,20 @@ msgstr ""
 #: js/messages.php:282 tbl_change.php:317 tbl_indexes.php:211
 #: tbl_indexes.php:238
 msgid "Ignore"
-msgstr ""
+msgstr "புறக்கணி"
 
 #: js/messages.php:283 libraries/display_tbl.lib.php:1327
 msgid "Copy"
-msgstr ""
+msgstr "நகல்"
 
 #: js/messages.php:291
 msgid "Outer Ring"
 msgstr ""
 
 #: js/messages.php:297
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add columns"
-msgstr "%s களத்தை சேர்க்க"
+msgstr "வரிசைகளை சேர்"
 
 #: js/messages.php:300
 msgid "Select referenced key"
@@ -1843,25 +1840,24 @@ msgstr ""
 
 #: js/messages.php:319
 msgid "Go to link"
-msgstr ""
+msgstr "இணைப்புக்கு செல்"
 
 #: js/messages.php:322
 msgid "Generate password"
-msgstr ""
+msgstr "கடவுச்சொல்லை இயற்று"
 
 #: js/messages.php:323 libraries/replication_gui.lib.php:369
 msgid "Generate"
-msgstr ""
+msgstr "இயற்று"
 
 #: js/messages.php:324
 msgid "Change Password"
-msgstr ""
+msgstr "கடவுச்சொல்லை மாற்று"
 
 #: js/messages.php:327 tbl_structure.php:464
-#, fuzzy
 #| msgid "Mon"
 msgid "More"
-msgstr "திங்கள்"
+msgstr "மேலும்"
 
 #: js/messages.php:330 setup/lib/index.lib.php:173
 #, php-format
@@ -1884,35 +1880,33 @@ msgstr ""
 #. l10n: Display text for calendar close link
 #: js/messages.php:352
 msgid "Done"
-msgstr ""
+msgstr "முடிந்த"
 
 #: js/messages.php:356
 msgctxt "Previous month"
 msgid "Prev"
-msgstr ""
+msgstr "பின்"
 
 #: js/messages.php:361
 msgctxt "Next month"
 msgid "Next"
-msgstr ""
+msgstr "அடுத்த"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:364
 msgid "Today"
-msgstr ""
+msgstr "இன்று"
 
 #: js/messages.php:367
-#, fuzzy
 #| msgid "Jan"
 msgid "January"
 msgstr "தை"
 
 #: js/messages.php:368
 msgid "February"
-msgstr ""
+msgstr "மாசி"
 
 #: js/messages.php:369
-#, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "பங்குனி"
@@ -1928,26 +1922,23 @@ msgid "May"
 msgstr "வைகாசி"
 
 #: js/messages.php:372
-#, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "ஆணி"
 
 #: js/messages.php:373
-#, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "ஆடி"
 
 #: js/messages.php:374
-#, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "ஆவணி"
 
 #: js/messages.php:375
 msgid "September"
-msgstr ""
+msgstr "புரட்டாதி"
 
 #: js/messages.php:376
 #, fuzzy
@@ -1957,11 +1948,11 @@ msgstr "ஐப்பசி"
 
 #: js/messages.php:377
 msgid "November"
-msgstr ""
+msgstr "கார்த்திகை"
 
 #: js/messages.php:378
 msgid "December"
-msgstr ""
+msgstr "மார்கழி"
 
 #. l10n: Short month name
 #: js/messages.php:382 libraries/common.lib.php:1509
@@ -2046,11 +2037,11 @@ msgstr "செவ்வாய்"
 
 #: js/messages.php:410
 msgid "Wednesday"
-msgstr ""
+msgstr "புதன்"
 
 #: js/messages.php:411
 msgid "Thursday"
-msgstr ""
+msgstr "வியாழன்"
 
 #: js/messages.php:412
 #, fuzzy
@@ -2060,7 +2051,7 @@ msgstr "வெள்ளி"
 
 #: js/messages.php:413
 msgid "Saturday"
-msgstr ""
+msgstr "சனி"
 
 #. l10n: Short week day name
 #: js/messages.php:417
@@ -2068,32 +2059,32 @@ msgstr ""
 #| msgctxt "Short week day name"
 #| msgid "Sun"
 msgid "Sun"
-msgstr "ஞாயிறு"
+msgstr "ஞாயி"
 
 #. l10n: Short week day name
 #: js/messages.php:419 libraries/common.lib.php:1536
 msgid "Mon"
-msgstr "திங்கள்"
+msgstr "திங்"
 
 #. l10n: Short week day name
 #: js/messages.php:421 libraries/common.lib.php:1538
 msgid "Tue"
-msgstr "செவ்வாய்"
+msgstr "செவ்"
 
 #. l10n: Short week day name
 #: js/messages.php:423 libraries/common.lib.php:1540
 msgid "Wed"
-msgstr "புதன்"
+msgstr "புத"
 
 #. l10n: Short week day name
 #: js/messages.php:425 libraries/common.lib.php:1542
 msgid "Thu"
-msgstr "வியாழன்"
+msgstr "வியா"
 
 #. l10n: Short week day name
 #: js/messages.php:427 libraries/common.lib.php:1544
 msgid "Fri"
-msgstr "வெள்ளி"
+msgstr "வெள்"
 
 #. l10n: Short week day name
 #: js/messages.php:429 libraries/common.lib.php:1546
@@ -2102,49 +2093,42 @@ msgstr "சனி"
 
 #. l10n: Minimal week day name
 #: js/messages.php:433
-#, fuzzy
 #| msgid "Sun"
 msgid "Su"
-msgstr "ஞாயிறு"
+msgstr "ஞாயி"
 
 #. l10n: Minimal week day name
 #: js/messages.php:435
-#, fuzzy
 #| msgid "Mon"
 msgid "Mo"
-msgstr "திங்கள்"
+msgstr "திங்"
 
 #. l10n: Minimal week day name
 #: js/messages.php:437
-#, fuzzy
 #| msgid "Tue"
 msgid "Tu"
-msgstr "செவ்வாய்"
+msgstr "செவ்"
 
 #. l10n: Minimal week day name
 #: js/messages.php:439
-#, fuzzy
 #| msgid "Wed"
 msgid "We"
-msgstr "புதன்"
+msgstr "புத"
 
 #. l10n: Minimal week day name
 #: js/messages.php:441
-#, fuzzy
 #| msgid "Thu"
 msgid "Th"
-msgstr "வியாழன்"
+msgstr "வியா"
 
 #. l10n: Minimal week day name
 #: js/messages.php:443
-#, fuzzy
 #| msgid "Fri"
 msgid "Fr"
-msgstr "வெள்ளி"
+msgstr "வெள்"
 
 #. l10n: Minimal week day name
 #: js/messages.php:445
-#, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "சனி"
@@ -2152,19 +2136,19 @@ msgstr "சனி"
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:447
 msgid "Wk"
-msgstr ""
+msgstr "கிழமை"
 
 #: js/messages.php:449
 msgid "Hour"
-msgstr ""
+msgstr "மணித்தியாலம்"
 
 #: js/messages.php:450
 msgid "Minute"
-msgstr ""
+msgstr "நிமிடம்"
 
 #: js/messages.php:451
 msgid "Second"
-msgstr ""
+msgstr "வினாடிகள்"
 
 #: libraries/Advisor.class.php:145
 #, php-format
@@ -2173,7 +2157,7 @@ msgstr ""
 
 #: libraries/Config.class.php:1159
 msgid "Font size"
-msgstr ""
+msgstr "எழுத்துரு அளவு"
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."
@@ -2199,7 +2183,7 @@ msgstr ""
 
 #: libraries/File.class.php:287
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "ஒரு தற்காலிய உறையை காணவில்லை"
 
 #: libraries/File.class.php:290
 msgid "Failed to write file to disk."
@@ -2234,17 +2218,17 @@ msgstr ""
 #: libraries/Index.class.php:423 libraries/build_html_for_db.lib.php:41
 #: tbl_tracking.php:300
 msgid "Indexes"
-msgstr ""
+msgstr "சுட்டுகள்"
 
 #: libraries/Index.class.php:434 libraries/tbl_properties.inc.php:488
 #: tbl_structure.php:155 tbl_structure.php:160 tbl_structure.php:573
 #: tbl_tracking.php:306
 msgid "Unique"
-msgstr ""
+msgstr "தனித்தன்மை"
 
 #: libraries/Index.class.php:435 tbl_tracking.php:307
 msgid "Packed"
-msgstr ""
+msgstr "பொதிக்கப்பட்டது"
 
 #: libraries/Index.class.php:437 tbl_tracking.php:309
 msgid "Cardinality"
@@ -2254,7 +2238,7 @@ msgstr ""
 #: libraries/rte/rte_routines.lib.php:950 tbl_tracking.php:263
 #: tbl_tracking.php:312
 msgid "Comment"
-msgstr ""
+msgstr "கருத்துரை"
 
 #: libraries/Index.class.php:466
 msgid "The primary key has been dropped"
@@ -2276,14 +2260,14 @@ msgstr ""
 #: libraries/server_links.inc.php:43 server_databases.php:99
 #: server_privileges.php:1825
 msgid "Databases"
-msgstr ""
+msgstr "தரவுத்தளங்கள்"
 
 #: libraries/Message.class.php:193 libraries/blobstreaming.lib.php:325
 #: libraries/blobstreaming.lib.php:331 libraries/common.lib.php:547
 #: libraries/core.lib.php:210 libraries/import.lib.php:140 tbl_change.php:905
 #: tbl_operations.php:229 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
-msgstr ""
+msgstr "வலு"
 
 #: libraries/Message.class.php:241
 #, php-format
@@ -2315,10 +2299,9 @@ msgid "Could not save recent table"
 msgstr ""
 
 #: libraries/RecentTable.class.php:142
-#, fuzzy
 #| msgid "Display table filter"
 msgid "Recent tables"
-msgstr "கருதிட்குள் சேர்க்க"
+msgstr "சமீபத்திய அட்டவணைகள்"
 
 #: libraries/RecentTable.class.php:149
 msgid "There are no recent tables"
@@ -2350,11 +2333,11 @@ msgstr ""
 
 #: libraries/Table.class.php:1034
 msgid "Invalid database"
-msgstr ""
+msgstr "தகுதியற்ற தரவுத்தளம்"
 
 #: libraries/Table.class.php:1048 tbl_get_field.php:25
 msgid "Invalid table name"
-msgstr ""
+msgstr "தகுதியற்ற அட்டவணைப் பெயர்"
 
 #: libraries/Table.class.php:1063
 #, php-format
@@ -2388,7 +2371,7 @@ msgstr ""
 
 #: libraries/Theme.class.php:343
 msgid "take it"
-msgstr ""
+msgstr "அதை ஏற்றுக்கொள்"
 
 #: libraries/Theme_Manager.class.php:110
 #, php-format
@@ -2417,7 +2400,7 @@ msgstr ""
 #: libraries/auth/cookie.auth.lib.php:174 libraries/auth/http.auth.lib.php:64
 #, php-format
 msgid "Welcome to %s"
-msgstr ""
+msgstr "வரவேற்கிறது %s"
 
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
@@ -2441,14 +2424,14 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:199
 msgid "Log in"
-msgstr ""
+msgstr "உள்நுழையா"
 
 #: libraries/auth/cookie.auth.lib.php:201
 #: libraries/auth/cookie.auth.lib.php:203
 #: libraries/navigation_header.inc.php:92
 #: libraries/navigation_header.inc.php:96
 msgid "phpMyAdmin documentation"
-msgstr ""
+msgstr "phpMyAdmin ஆவணச்சான்று"
 
 #: libraries/auth/cookie.auth.lib.php:213
 #: libraries/auth/cookie.auth.lib.php:214
@@ -2457,19 +2440,19 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:213
 msgid "Server:"
-msgstr ""
+msgstr "சேவையன்:"
 
 #: libraries/auth/cookie.auth.lib.php:218
 msgid "Username:"
-msgstr ""
+msgstr "பயனாளர்:"
 
 #: libraries/auth/cookie.auth.lib.php:222
 msgid "Password:"
-msgstr ""
+msgstr "கடவுச்சொல்"
 
 #: libraries/auth/cookie.auth.lib.php:229
 msgid "Server Choice"
-msgstr ""
+msgstr "சேவையன் தேர்வு"
 
 #: libraries/auth/cookie.auth.lib.php:275 libraries/header.inc.php:87
 msgid "Cookies must be enabled past this point."
@@ -2521,7 +2504,7 @@ msgstr ""
 
 #: libraries/blobstreaming.lib.php:244
 msgid "PBMS error"
-msgstr ""
+msgstr "PBMS வழு"
 
 #: libraries/blobstreaming.lib.php:277
 msgid "PBMS connection failed:"
@@ -2537,19 +2520,19 @@ msgstr ""
 
 #: libraries/blobstreaming.lib.php:363
 msgid "View image"
-msgstr ""
+msgstr "படத்தை பார்"
 
 #: libraries/blobstreaming.lib.php:367
 msgid "Play audio"
-msgstr ""
+msgstr "கேட்பொலியை ஒலிக்கச்செய்"
 
 #: libraries/blobstreaming.lib.php:372
 msgid "View video"
-msgstr ""
+msgstr "காணொலி பார்"
 
 #: libraries/blobstreaming.lib.php:376
 msgid "Download file"
-msgstr ""
+msgstr "கோப்பை பதிவிறக்கு"
 
 #: libraries/blobstreaming.lib.php:443
 #, php-format
@@ -2558,13 +2541,13 @@ msgstr ""
 
 #: libraries/bookmark.lib.php:73
 msgid "shared"
-msgstr ""
+msgstr "பகிரப்பட்டது"
 
 #: libraries/build_html_for_db.lib.php:26
 #: libraries/config/messages.inc.php:183 libraries/export/xml.php:49
 #: server_status.php:545
 msgid "Tables"
-msgstr ""
+msgstr "அட்டவணைகள்"
 
 #: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:302
 #: libraries/config/setup.forms.php:338 libraries/config/setup.forms.php:361
@@ -2577,7 +2560,7 @@ msgstr ""
 #: server_privileges.php:601 server_replication.php:314 tbl_printview.php:281
 #: tbl_structure.php:767
 msgid "Data"
-msgstr ""
+msgstr "தரவு"
 
 #: libraries/build_html_for_db.lib.php:51 libraries/db_structure.lib.php:55
 #: tbl_printview.php:300 tbl_structure.php:784
@@ -2640,7 +2623,7 @@ msgstr ""
 #: libraries/header.inc.php:136 main.php:161 server_status.php:686
 #: server_synchronize.php:1228
 msgid "Server"
-msgstr ""
+msgstr "சேவையன்"
 
 #: libraries/common.inc.php:835
 msgid "Invalid authentication method set in configuration:"
@@ -2660,19 +2643,19 @@ msgstr ""
 #: libraries/common.lib.php:388
 msgctxt "MySQL 5.5 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "ஆங்"
 
 #. l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:392
 msgctxt "MySQL 5.1 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "ஆங்"
 
 #. l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:396
 msgctxt "MySQL 5.0 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "ஆங்"
 
 #: libraries/common.lib.php:410 libraries/common.lib.php:412
 #: libraries/common.lib.php:414 libraries/common.lib.php:431
@@ -2683,12 +2666,12 @@ msgstr "en"
 #: libraries/sql_query_form.lib.php:387 libraries/sql_query_form.lib.php:390
 #: main.php:212 server_variables.php:114
 msgid "Documentation"
-msgstr ""
+msgstr "ஆவணச்சான்று"
 
 #: libraries/common.lib.php:559 libraries/header_printview.inc.php:60
 #: server_status.php:532 server_status.php:1123
 msgid "SQL query"
-msgstr ""
+msgstr "SQL வினவல்"
 
 #: libraries/common.lib.php:595 libraries/rte/rte_events.lib.php:103
 #: libraries/rte/rte_events.lib.php:108 libraries/rte/rte_events.lib.php:118
@@ -2701,7 +2684,7 @@ msgstr ""
 #: libraries/rte/rte_triggers.lib.php:91
 #: libraries/rte/rte_triggers.lib.php:104
 msgid "MySQL said: "
-msgstr ""
+msgstr "MySQL சொன்னது:"
 
 #: libraries/common.lib.php:1050
 msgid "Failed to connect to SQL validator!"
@@ -2721,12 +2704,12 @@ msgstr ""
 
 #: libraries/common.lib.php:1132 libraries/config/messages.inc.php:481
 msgid "Create PHP Code"
-msgstr ""
+msgstr "PHP குறிமுறை உருவாக்கு"
 
 #: libraries/common.lib.php:1151 libraries/config/messages.inc.php:480
 #: server_status.php:697 server_status.php:719 server_status.php:738
 msgid "Refresh"
-msgstr ""
+msgstr "புதுப்பி"
 
 #: libraries/common.lib.php:1161
 msgid "Skip Validate SQL"
@@ -2799,27 +2782,27 @@ msgstr ""
 #: libraries/display_tbl.lib.php:306
 msgctxt "First page"
 msgid "Begin"
-msgstr ""
+msgstr "ஆரம்பம்"
 
 #: libraries/common.lib.php:2295 libraries/common.lib.php:2298
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
 msgctxt "Previous page"
 msgid "Previous"
-msgstr ""
+msgstr "முந்தைய"
 
 #: libraries/common.lib.php:2324 libraries/common.lib.php:2327
 #: libraries/display_tbl.lib.php:370 server_binlog.php:170
 #: server_binlog.php:172
 msgctxt "Next page"
 msgid "Next"
-msgstr ""
+msgstr "அடுத்து"
 
 #: libraries/common.lib.php:2325 libraries/common.lib.php:2328
 #: libraries/display_tbl.lib.php:385
 msgctxt "Last page"
 msgid "End"
-msgstr ""
+msgstr "முடிவு"
 
 #: libraries/common.lib.php:2393
 #, php-format
@@ -2846,7 +2829,7 @@ msgstr ""
 #: libraries/tbl_properties.inc.php:608 pmd_general.php:151
 #: server_privileges.php:601 server_replication.php:313 tbl_tracking.php:253
 msgid "Structure"
-msgstr ""
+msgstr "கட்டமைப்பு"
 
 #: libraries/common.lib.php:2920 libraries/common.lib.php:2927
 #: libraries/config/messages.inc.php:214 libraries/db_links.inc.php:53
@@ -2854,23 +2837,23 @@ msgstr ""
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
 #: querywindow.php:64
 msgid "SQL"
-msgstr ""
+msgstr "SQL"
 
 #: libraries/common.lib.php:2922 libraries/common.lib.php:3115
 #: libraries/common.lib.php:3116 libraries/sql_query_form.lib.php:284
 #: libraries/sql_query_form.lib.php:287 libraries/tbl_links.inc.php:74
 msgid "Insert"
-msgstr ""
+msgstr "செருகு"
 
 #: libraries/common.lib.php:2929 libraries/db_links.inc.php:86
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:114
 #: view_operations.php:87
 msgid "Operations"
-msgstr ""
+msgstr "செயல்பாடுகள்"
 
 #: libraries/common.lib.php:3061
 msgid "Browse your computer:"
-msgstr ""
+msgstr "உனது கணினியை உலாவு"
 
 #: libraries/common.lib.php:3078
 #, php-format
@@ -2888,12 +2871,12 @@ msgstr ""
 
 #: libraries/common.lib.php:3126 libraries/common.lib.php:3127
 msgid "Execute"
-msgstr ""
+msgstr "நிறைவேற்று"
 
 #: libraries/config.values.php:45 libraries/config.values.php:47
 #: libraries/config.values.php:51
 msgid "Both"
-msgstr ""
+msgstr "இரு சார்பிலும்"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
@@ -2901,37 +2884,37 @@ msgstr ""
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "இடது"
 
 #: libraries/config.values.php:47
 msgid "Right"
-msgstr ""
+msgstr "வலது"
 
 #: libraries/config.values.php:75
 msgid "Open"
-msgstr ""
+msgstr "திற"
 
 #: libraries/config.values.php:75
 msgid "Closed"
-msgstr ""
+msgstr "மூடப்பட்டது"
 
 #: libraries/config.values.php:96 libraries/export/htmlword.php:25
 #: libraries/export/latex.php:42 libraries/export/odt.php:34
 #: libraries/export/sql.php:129 libraries/export/texytext.php:24
 msgid "structure"
-msgstr ""
+msgstr "கட்டமைப்பு"
 
 #: libraries/config.values.php:97 libraries/export/htmlword.php:25
 #: libraries/export/latex.php:42 libraries/export/odt.php:34
 #: libraries/export/sql.php:130 libraries/export/texytext.php:24
 msgid "data"
-msgstr ""
+msgstr "தரவு"
 
 #: libraries/config.values.php:98 libraries/export/htmlword.php:25
 #: libraries/export/latex.php:42 libraries/export/odt.php:34
 #: libraries/export/sql.php:131 libraries/export/texytext.php:24
 msgid "structure and data"
-msgstr ""
+msgstr "கட்டமைப்பும் தரவும்"
 
 #: libraries/config.values.php:100
 msgid "Quick - display only the minimal options to configure"
@@ -10649,7 +10632,7 @@ msgstr ""
 
 #: tbl_printview.php:72
 msgid "Show tables"
-msgstr ""
+msgstr "அட்டவணைகளை காட்டு"
 
 #: tbl_printview.php:274 tbl_structure.php:758
 msgid "Space usage"
@@ -10657,7 +10640,7 @@ msgstr ""
 
 #: tbl_printview.php:278 tbl_structure.php:762
 msgid "Usage"
-msgstr ""
+msgstr "பாவனையளவு"
 
 #: tbl_printview.php:305 tbl_structure.php:789
 msgid "Effective"
@@ -10669,19 +10652,19 @@ msgstr ""
 
 #: tbl_printview.php:344 tbl_structure.php:839
 msgid "static"
-msgstr ""
+msgstr "மாறா"
 
 #: tbl_printview.php:346 tbl_structure.php:841
 msgid "dynamic"
-msgstr ""
+msgstr "இறக்காற்றல்"
 
 #: tbl_printview.php:368 tbl_structure.php:884
 msgid "Row length"
-msgstr ""
+msgstr "நிரல் நீளம்"
 
 #: tbl_printview.php:378 tbl_structure.php:892
 msgid "Row size"
-msgstr ""
+msgstr "நிரல் அளவு"
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"
@@ -10757,7 +10740,7 @@ msgstr ""
 #: tbl_structure.php:358
 msgctxt "None for default"
 msgid "None"
-msgstr ""
+msgstr "ஒன்றுமில்லாத"
 
 #: tbl_structure.php:371
 #, php-format
@@ -10781,14 +10764,13 @@ msgid "Show more actions"
 msgstr ""
 
 #: tbl_structure.php:603
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Edit view"
-msgstr "புதிய பயனாளரை சேர்க்க"
+msgstr "தொகுப்பு பார்வை"
 
 #: tbl_structure.php:620
 msgid "Relation view"
-msgstr ""
+msgstr "தொடர்பு பார்வை"
 
 #: tbl_structure.php:626
 msgid "Propose table structure"
@@ -10871,7 +10853,7 @@ msgstr ""
 
 #: tbl_tracking.php:375 tbl_tracking.php:392
 msgid "Query error"
-msgstr ""
+msgstr "வினவல் வழு"
 
 #: tbl_tracking.php:390
 msgid "Tracking data manipulation successfully deleted"
@@ -10892,11 +10874,11 @@ msgstr ""
 
 #: tbl_tracking.php:434
 msgid "No data"
-msgstr ""
+msgstr "தரவு இல்லை"
 
 #: tbl_tracking.php:444 tbl_tracking.php:501
 msgid "Date"
-msgstr ""
+msgstr "திகதி"
 
 #: tbl_tracking.php:446
 msgid "Data definition statement"
@@ -10929,11 +10911,11 @@ msgstr ""
 
 #: tbl_tracking.php:603
 msgid "Show versions"
-msgstr ""
+msgstr "பதிப்புகளை காட்டு"
 
 #: tbl_tracking.php:635
 msgid "Version"
-msgstr ""
+msgstr "பதிப்பு"
 
 #: tbl_tracking.php:683
 #, php-format
@@ -10951,7 +10933,7 @@ msgstr ""
 
 #: tbl_tracking.php:698
 msgid "Activate now"
-msgstr ""
+msgstr "இப்போது செயற்படுத்து"
 
 #: tbl_tracking.php:711
 #, php-format
@@ -10968,7 +10950,7 @@ msgstr ""
 
 #: tbl_tracking.php:731
 msgid "Create version"
-msgstr ""
+msgstr "பதிப்பை உருவாக்கு"
 
 #: tbl_zoom_select.php:140
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
@@ -10994,7 +10976,7 @@ msgstr ""
 
 #: tbl_zoom_select.php:394
 msgid "How to use"
-msgstr ""
+msgstr "எப்படி பயன்படுத்துவது"
 
 #: themes.php:28
 msgid "Get more themes!"
@@ -11016,7 +10998,7 @@ msgstr ""
 #: transformation_overview.php:47
 msgctxt "for MIME transformation"
 msgid "Description"
-msgstr ""
+msgstr "விவரிப்பு"
 
 #: user_password.php:34
 msgid "You don't have sufficient privileges to be here right now!"
@@ -11028,7 +11010,7 @@ msgstr ""
 
 #: view_create.php:141
 msgid "VIEW name"
-msgstr ""
+msgstr "பெயரை பார்"
 
 #: view_operations.php:91
 msgid "Rename view to"
@@ -11166,11 +11148,11 @@ msgstr ""
 #: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
 #, php-format
 msgid "Current version: %s"
-msgstr ""
+msgstr "நடப்பு பதிப்பு: %s"
 
 #: po/advisory_rules.php:40 po/advisory_rules.php:45
 msgid "Minor Version"
-msgstr ""
+msgstr "சிறுய பதிப்பு"
 
 #: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
@@ -11191,10 +11173,9 @@ msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgstr ""
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55
-#, fuzzy
 #| msgid "Action"
 msgid "Distribution"
-msgstr "செயல்"
+msgstr "பரம்பல்"
 
 #: po/advisory_rules.php:51
 msgid "Version is compiled from source, not a MySQL official binary."

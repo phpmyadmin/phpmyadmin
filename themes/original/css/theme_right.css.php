@@ -2552,15 +2552,19 @@ span.cm-number {
     margin: 0.3em 0.2em;
 }
 
+.cEdit .edit_box {
+    overflow: hidden;
+    padding: 0;
+}
+
+.cEdit .edit_box_posting {
+    background: #FFF url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>ajax_clock_small.gif) no-repeat right center;
+    padding-right: 1.5em;
+}
+
 .cEdit .edit_area_loading {
     background: #FFF url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>ajax_clock_small.gif) no-repeat center;
     height: 10em;
-}
-
-
-.cEdit .edit_area_posting {
-    background: #FFF url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>ajax_clock_small.gif) no-repeat center top;
-    padding-top: 1.5em;
 }
 
 .cEdit .goto_link {

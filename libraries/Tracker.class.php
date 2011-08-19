@@ -81,6 +81,7 @@ class PMA_Tracker
      *
      * @static
      *
+     * @return nothing
      */
     static protected function init()
     {
@@ -96,15 +97,15 @@ class PMA_Tracker
         self::$default_tracking_set = $GLOBALS['cfg']['Server']['tracking_default_statements'];
 
         self::$version_auto_create = $GLOBALS['cfg']['Server']['tracking_version_auto_create'];
-
     }
 
     /**
-     * Actually enables tracking. This needs to be done after all 
+     * Actually enables tracking. This needs to be done after all
      * underlaying code is initialized.
      *
      * @static
      *
+     * @return nothing
      */
     static public function enable()
     {
@@ -143,9 +144,9 @@ class PMA_Tracker
     /**
      * Parses the name of a table from a SQL statement substring.
      *
-     * @static
+     * @param string $string part of SQL statement
      *
-     * @param string $string      part of SQL statement
+     * @static
      *
      * @return string the name of table
      */
@@ -154,8 +155,7 @@ class PMA_Tracker
         if (strstr($string, '.')) {
             $temp = explode('.', $string);
             $tablename = $temp[1];
-        }
-        else {
+        } else {
             $tablename = $string;
         }
 
@@ -173,10 +173,10 @@ class PMA_Tracker
     /**
      * Gets the tracking status of a table, is it active or deactive ?
      *
-     * @static
+     * @param string $dbname    name of database
+     * @param string $tablename name of table
      *
-     * @param string $dbname      name of database
-     * @param string $tablename   name of table
+     * @static
      *
      * @return boolean true or false
      */
@@ -194,8 +194,7 @@ class PMA_Tracker
             return false;
         }
 
-        $sql_query =
-        " SELECT tracking_active FROM " . self::$pma_table .
+        $sql_query = " SELECT tracking_active FROM " . self::$pma_table .
         " WHERE db_name = '" . PMA_sqlAddSlashes($dbname) . "' " .
         " AND table_name = '" . PMA_sqlAddSlashes($tablename) . "' " .
         " ORDER BY version DESC";
@@ -225,13 +224,13 @@ class PMA_Tracker
      * Creates tracking version of a table / view
      * (in other words: create a job to track future changes on the table).
      *
-     * @static
-     *
      * @param string $dbname       name of database
      * @param string $tablename    name of table
      * @param string $version      version
      * @param string $tracking_set set of tracking statements
      * @param bool   $is_view      if table is a view
+     *
+     * @static
      *
      * @return int result of version insertion
      */
@@ -243,7 +242,7 @@ class PMA_Tracker
             $tracking_set = self::$default_tracking_set;
         }
 
-        require_once './libraries/export/sql.php';
+        include_once './libraries/export/sql.php';
 
         $sql_backquotes = true;
 
@@ -288,8 +287,7 @@ class PMA_Tracker
 
         // Save version
 
-        $sql_query =
-        "/*NOTRACK*/\n" .
+        $sql_query = "/*NOTRACK*/\n" .
         "INSERT INTO" . self::$pma_table . " (" .
         "db_name, " .
         "table_name, " .
@@ -324,19 +322,18 @@ class PMA_Tracker
 
 
     /**
-     * Removes all tracking data for a table 
+     * Removes all tracking data for a table
+     *
+     * @param string $dbname    name of database
+     * @param string $tablename name of table
      *
      * @static
-     *
-     * @param string $dbname       name of database
-     * @param string $tablename    name of table 
      *
      * @return int result of version insertion
      */
     static public function deleteTracking($dbname, $tablename)
     {
-        $sql_query =
-        "/*NOTRACK*/\n" .
+        $sql_query = "/*NOTRACK*/\n" .
         "DELETE FROM " . self::$pma_table . " WHERE `db_name` = '" . PMA_sqlAddSlashes($dbname) . "' AND `table_name` = '" . PMA_sqlAddSlashes($tablename) . "'";
         $result = PMA_query_as_controluser($sql_query);
 
@@ -347,12 +344,12 @@ class PMA_Tracker
      * Creates tracking version of a database
      * (in other words: create a job to track future changes on the database).
      *
-     * @static
-     *
      * @param string $dbname       name of database
      * @param string $version      version
      * @param string $query        query
      * @param string $tracking_set set of tracking statements
+     *
+     * @static
      *
      * @return int result of version insertion
      */
@@ -364,7 +361,7 @@ class PMA_Tracker
             $tracking_set = self::$default_tracking_set;
         }
 
-        require_once './libraries/export/sql.php';
+        include_once './libraries/export/sql.php';
 
         $create_sql  = "";
 
@@ -376,8 +373,7 @@ class PMA_Tracker
         $create_sql .= self::getLogComment() . $query;
 
         // Save version
-        $sql_query =
-        "/*NOTRACK*/\n" .
+        $sql_query = "/*NOTRACK*/\n" .
         "INSERT INTO" . self::$pma_table . " (" .
         "db_name, " .
         "table_name, " .
@@ -410,19 +406,18 @@ class PMA_Tracker
     /**
      * Changes tracking of a table.
      *
-     * @static
+     * @param string  $dbname    name of database
+     * @param string  $tablename name of table
+     * @param string  $version   version
+     * @param integer $new_state the new state of tracking
      *
-     * @param string $dbname       name of database
-     * @param string $tablename    name of table
-     * @param string $version      version
-     * @param integer $new_state   the new state of tracking 
+     * @static
      *
      * @return int result of SQL query
      */
-    static private function changeTracking($dbname, $tablename, $version, $new_state)
+    static private function _changeTracking($dbname, $tablename, $version, $new_state)
     {
-        $sql_query =
-        " UPDATE " . self::$pma_table .
+        $sql_query = " UPDATE " . self::$pma_table .
         " SET `tracking_active` = '" . $new_state . "' " .
         " WHERE `db_name` = '" . PMA_sqlAddSlashes($dbname) . "' " .
         " AND `table_name` = '" . PMA_sqlAddSlashes($tablename) . "' " .
@@ -436,38 +431,38 @@ class PMA_Tracker
     /**
      * Changes tracking data of a table.
      *
-     * @static
+     * @param string       $dbname    name of database
+     * @param string       $tablename name of table
+     * @param string       $version   version
+     * @param string       $type      type of data(DDL || DML)
+     * @param string|array $new_data  the new tracking data
      *
-     * @param string       $dbname       name of database
-     * @param string       $tablename    name of table
-     * @param string       $version      version
-     * @param string       $type         type of data(DDL || DML)
-     * @param string|array $new_data     the new tracking data
+     * @static
      *
      * @return bool result of change
      */
     static public function changeTrackingData($dbname, $tablename, $version, $type, $new_data)
     {
-        if ($type == 'DDL')
+        if ($type == 'DDL') {
             $save_to = 'schema_sql';
-        elseif ($type == 'DML')
+        } elseif ($type == 'DML') {
             $save_to = 'data_sql';
-        else
+        } else {
             return false;
-        
+        }
         $date  = date('Y-m-d H:i:s');
 
         $new_data_processed = '';
         if (is_array($new_data)) {
             foreach ($new_data as $data) {
-                $new_data_processed .= '# log ' . $date . ' ' . $data['username'] . PMA_sqlAddSlashes($data['statement']) . "\n";
+                $new_data_processed .= '# log ' . $date . ' ' . $data['username']
+                    . PMA_sqlAddSlashes($data['statement']) . "\n";
             }
         } else {
             $new_data_processed = $new_data;
         }
 
-        $sql_query =
-        " UPDATE " . self::$pma_table .
+        $sql_query = " UPDATE " . self::$pma_table .
         " SET `" . $save_to . "` = '" . $new_data_processed . "' " .
         " WHERE `db_name` = '" . PMA_sqlAddSlashes($dbname) . "' " .
         " AND `table_name` = '" . PMA_sqlAddSlashes($tablename) . "' " .
@@ -481,34 +476,34 @@ class PMA_Tracker
     /**
      * Activates tracking of a table.
      *
-     * @static
+     * @param string $dbname    name of database
+     * @param string $tablename name of table
+     * @param string $version   version
      *
-     * @param string $dbname       name of database
-     * @param string $tablename    name of table
-     * @param string $version      version
+     * @static
      *
      * @return int result of SQL query
      */
     static public function activateTracking($dbname, $tablename, $version)
     {
-        return self::changeTracking($dbname, $tablename, $version, 1); 
+        return self::_changeTracking($dbname, $tablename, $version, 1);
     }
 
 
     /**
      * Deactivates tracking of a table.
      *
-     * @static
+     * @param string $dbname    name of database
+     * @param string $tablename name of table
+     * @param string $version   version
      *
-     * @param string $dbname       name of database
-     * @param string $tablename    name of table
-     * @param string $version      version
+     * @static
      *
      * @return int result of SQL query
      */
     static public function deactivateTracking($dbname, $tablename, $version)
     {
-        return self::changeTracking($dbname, $tablename, $version, 0); 
+        return self::_changeTracking($dbname, $tablename, $version, 0);
     }
 
 
@@ -516,18 +511,17 @@ class PMA_Tracker
      * Gets the newest version of a tracking job
      * (in other words: gets the HEAD version).
      *
-     * @static
+     * @param string $dbname    name of database
+     * @param string $tablename name of table
+     * @param string $statement tracked statement
      *
-     * @param string $dbname      name of database
-     * @param string $tablename   name of table
-     * @param string $statement   tracked statement
+     * @static
      *
      * @return int (-1 if no version exists | >  0 if a version exists)
      */
     static public function getVersion($dbname, $tablename, $statement = null)
     {
-        $sql_query =
-        " SELECT MAX(version) FROM " . self::$pma_table .
+        $sql_query = " SELECT MAX(version) FROM " . self::$pma_table .
         " WHERE `db_name` = '" . PMA_sqlAddSlashes($dbname) . "' " .
         " AND `table_name` = '" . PMA_sqlAddSlashes($tablename) . "' ";
 
@@ -546,11 +540,11 @@ class PMA_Tracker
     /**
      * Gets the record of a tracking job.
      *
-     * @static
+     * @param string $dbname    name of database
+     * @param string $tablename name of table
+     * @param string $version   version number
      *
-     * @param string $dbname      name of database
-     * @param string $tablename   name of table
-     * @param string $version     version number
+     * @static
      *
      * @return mixed record DDM log, DDL log, structure snapshot, tracked statements.
      */
@@ -650,11 +644,11 @@ class PMA_Tracker
      *  - type of statement, is it part of DDL or DML ?
      *  - tablename
      *
+     * @param string $query query
+     *
      * @static
      * @todo: using PMA SQL Parser when possible
      * @todo: support multi-table/view drops
-     *
-     * @param string $query
      *
      * @return mixed Array containing identifier, type and tablename.
      *
@@ -690,9 +684,10 @@ class PMA_Tracker
         $result['type']         = 'DDL';
 
         // Parse CREATE VIEW statement
-        if (in_array('CREATE', $tokens) == true && 
-           in_array('VIEW', $tokens) == true && 
-           in_array('AS', $tokens) == true) {
+        if (in_array('CREATE', $tokens) == true
+            && in_array('VIEW', $tokens) == true
+            && in_array('AS', $tokens) == true
+        ) {
             $result['identifier'] = 'CREATE VIEW';
 
             $index = array_search('VIEW', $tokens);
@@ -701,10 +696,11 @@ class PMA_Tracker
         }
 
         // Parse ALTER VIEW statement
-        if (in_array('ALTER', $tokens) == true && 
-           in_array('VIEW', $tokens) == true && 
-           in_array('AS', $tokens) == true && 
-           ! isset($result['identifier'])) {
+        if (in_array('ALTER', $tokens) == true
+            && in_array('VIEW', $tokens) == true
+            && in_array('AS', $tokens) == true
+            && ! isset($result['identifier'])
+        ) {
             $result['identifier'] = 'ALTER VIEW';
 
             $index = array_search('VIEW', $tokens);
@@ -784,11 +780,10 @@ class PMA_Tracker
         }
 
         // Parse CREATE INDEX statement
-        if (! isset($result['identifier']) && 
-            (   substr($query, 0, 12) == 'CREATE INDEX' || 
-                substr($query, 0, 19) == 'CREATE UNIQUE INDEX' || 
-                substr($query, 0, 20) == 'CREATE SPATIAL INDEX'
-            )
+        if (! isset($result['identifier'])
+            && (substr($query, 0, 12) == 'CREATE INDEX'
+            || substr($query, 0, 19) == 'CREATE UNIQUE INDEX'
+            || substr($query, 0, 20) == 'CREATE SPATIAL INDEX')
         ) {
              $result['identifier'] = 'CREATE INDEX';
              $prefix = explode('ON ', $query);
@@ -828,7 +823,7 @@ class PMA_Tracker
         }
 
         // Parse INSERT INTO statement
-        if (! isset($result['identifier']) && substr($query, 0, 11 ) == 'INSERT INTO') {
+        if (! isset($result['identifier']) && substr($query, 0, 11) == 'INSERT INTO') {
             $result['identifier'] = 'INSERT';
             $prefix  = explode('INSERT INTO', $query);
             $suffix  = explode('(', $prefix[1]);
@@ -836,7 +831,7 @@ class PMA_Tracker
         }
 
         // Parse DELETE statement
-        if (! isset($result['identifier']) && substr($query, 0, 6 ) == 'DELETE') {
+        if (! isset($result['identifier']) && substr($query, 0, 6) == 'DELETE') {
             $result['identifier'] = 'DELETE';
             $prefix  = explode('FROM ', $query);
             $suffix  = explode(' ', $prefix[1]);
@@ -844,7 +839,7 @@ class PMA_Tracker
         }
 
         // Parse TRUNCATE statement
-        if (! isset($result['identifier']) && substr($query, 0, 8 ) == 'TRUNCATE') {
+        if (! isset($result['identifier']) && substr($query, 0, 8) == 'TRUNCATE') {
             $result['identifier'] = 'TRUNCATE';
             $prefix  = explode('TRUNCATE', $query);
             $result['tablename'] = self::getTableName($prefix[1]);
@@ -857,8 +852,11 @@ class PMA_Tracker
     /**
      * Analyzes a given SQL statement and saves tracking data.
      *
-     * @static
      * @param string $query a SQL query
+     *
+     * @static
+     *
+     * @return nothing
      */
     static public function handleQuery($query)
     {
@@ -887,8 +885,9 @@ class PMA_Tracker
 
             // If version not exists and auto-creation is enabled
             if (self::$version_auto_create == true
-                && self::isTracked($dbname, $result['tablename']) == false 
-                && $version == -1) {
+                && self::isTracked($dbname, $result['tablename']) == false
+                && $version == -1
+            ) {
                 // Create the version
 
                 switch ($result['identifier']) {
@@ -922,11 +921,10 @@ class PMA_Tracker
                 $query = self::getLogComment() . $query ;
 
                 // Mark it as untouchable
-                $sql_query =
-                " /*NOTRACK*/\n" .
+                $sql_query = " /*NOTRACK*/\n" .
                 " UPDATE " . self::$pma_table .
-                " SET " . PMA_backquote($save_to) ." = CONCAT( " . PMA_backquote($save_to) . ",'\n" . PMA_sqlAddSlashes($query) . "') ," .
-                " `date_updated` = '" . $date . "' ";
+                " SET " . PMA_backquote($save_to) ." = CONCAT( " . PMA_backquote($save_to) . ",'\n"
+                . PMA_sqlAddSlashes($query) . "') ," . " `date_updated` = '" . $date . "' ";
 
                 // If table was renamed we have to change the tablename attribute in pma_tracking too
                 if ($result['identifier'] == 'RENAME TABLE') {
