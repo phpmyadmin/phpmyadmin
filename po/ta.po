@@ -2853,7 +2853,7 @@ msgstr "செயல்பாடுகள்"
 
 #: libraries/common.lib.php:3061
 msgid "Browse your computer:"
-msgstr ""
+msgstr "உனது கணினியை உலாவு"
 
 #: libraries/common.lib.php:3078
 #, php-format
