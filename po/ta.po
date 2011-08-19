@@ -2649,7 +2649,7 @@ msgstr "ஆங்"
 #: libraries/common.lib.php:392
 msgctxt "MySQL 5.1 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "ஆங்"
 
 #. l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:396
