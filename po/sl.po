@@ -1565,7 +1565,7 @@ msgstr "Spremenjene vrstice:"
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgstr ""
 "Razčlenjevalne konfiguracijske datoteke je spodletelo. Kot kaže, ni veljavna "
-"koda JSON."
+"koda JSON"
 
 #: js/messages.php:189
 msgid ""
