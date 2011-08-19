@@ -119,7 +119,7 @@ echo $script_tabs . $script_contr . $script_display_field;
 <div id="osn_tab">
   <canvas class="pmd" id="canvas" width="100" height="100" onclick="Canvas_click(this)"></canvas>
 </div>
-<div id="layer_menu" style="visibility:hidden;">
+<div id="layer_menu" style="display:none;">
 <div align="center" style="padding-top:5px;">
     <a href="javascript:Hide_tab_all(document.getElementById('key_HS_all'));"
         onmousedown="return false;" class="M_butt" target="_self">
@@ -327,9 +327,9 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 ?>
 </form>
 <div id="pmd_hint"></div>
-<div id='layer_action' style="visibility:hidden;">Load...</div>
+<div id='layer_action' style="display:none;">Load...</div>
 
-<table id="layer_new_relation" style="visibility:hidden;"
+<table id="layer_new_relation" style="display:none;"
     width="5%" border="0" cellpadding="0" cellspacing="0">
 <tbody>
 <tr>
@@ -380,7 +380,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
                     value="<?php echo __('OK'); ?>" onclick="New_relation()" />
                 <input type="button" class="butt" name="Button"
                     value="<?php echo __('Cancel'); ?>"
-                    onclick="document.getElementById('layer_new_relation').style.visibility = 'hidden';" />
+                    onclick="document.getElementById('layer_new_relation').style.display = 'none';" />
             </td>
         </tr>
         </tbody>
@@ -396,7 +396,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 </tbody>
 </table>
 
-<table id="layer_upd_relation" style="visibility:<?PHP echo $hidden ?>;"
+<table id="layer_upd_relation" style="display:none;"
     width="5%" border="0" cellpadding="0" cellspacing="0">
 <tbody>
 <tr>
@@ -417,7 +417,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
                     onclick="Upd_relation()" value="<?php echo __('Delete'); ?>" />
                 <input type="button" class="butt" name="Button"
                     value="<?php echo __('Cancel'); ?>"
-                    onclick="document.getElementById('layer_upd_relation').style.visibility = 'hidden'; Re_load();" />
+                    onclick="document.getElementById('layer_upd_relation').style.display = 'none'; Re_load();" />
             </td>
         </tr>
     </table></td>
@@ -431,7 +431,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 </tbody>
 </table>
 
-<table id="pmd_optionse" style="visibility:hidden;"
+<table id="pmd_optionse" style="display:none;"
     width="5%" border="0" cellpadding="0" cellspacing="0">
 <tbody>
 <tr>
@@ -553,7 +553,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 </tbody>
 </table>
 
-<table id="query_rename_to" style="visibility:hidden;"
+<table id="query_rename_to" style="display:none;"
     width="5%" border="0" cellpadding="0" cellspacing="0">
 <tbody>
 <tr>
@@ -585,7 +585,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
                     value="<?php echo __('OK'); ?>" onclick="edit('Rename')" />
                 <input type="button" class="butt" name="Button"
                     value="<?php echo __('Cancel'); ?>"
-                    onclick="document.getElementById('query_rename_to').style.visibility = 'hidden';" />
+                    onclick="document.getElementById('query_rename_to').style.display = 'none';" />
             </td>
         </tr>
         </tbody>
@@ -601,7 +601,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 </tbody>
 </table>
 
-<table id="query_having" style="visibility:hidden;"
+<table id="query_having" style="display:none;"
     width="5%" border="0" cellpadding="0" cellspacing="0">
 <tbody>
     <tr>
@@ -661,7 +661,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
                     value="<?php echo __('OK'); ?>" onclick="edit('Having')" />
                 <input type="button" class="butt" name="Button"
                     value="<?php echo __('Cancel'); ?>"
-                    onclick="document.getElementById('query_having').style.visibility = 'hidden';" />
+                    onclick="document.getElementById('query_having').style.display = 'none';" />
             </td>
         </tr>
         </tbody>
@@ -677,7 +677,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 </tbody>
 </table>
 
-<table id="query_Aggregate" style="visibility:hidden;"
+<table id="query_Aggregate" style="display:none;"
     width="5%" border="0" cellpadding="0" cellspacing="0">
 <tbody>
 <tr>
@@ -715,7 +715,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
                     value="<?php echo __('OK'); ?>" onclick="edit('Aggregate')" />
                 <input type="button" class="butt" name="Button"
                     value="<?php echo __('Cancel'); ?>"
-                    onclick="document.getElementById('query_Aggregate').style.visibility = 'hidden';" />
+                    onclick="document.getElementById('query_Aggregate').style.display = 'none';" />
             </td>
         </tr>
         </tbody>
@@ -731,7 +731,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 </tbody>
 </table>
 
-<table id="query_where" style="visibility:hidden;"
+<table id="query_where" style="display:none;"
     width="5%" border="0" cellpadding="0" cellspacing="0">
 <tbody>
     <tr>
@@ -778,7 +778,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
                     value="<?php echo __('OK'); ?>" onclick="edit('Where')" />
                 <input type="button" class="butt" name="Button"
                     value="<?php echo __('Cancel'); ?>"
-                    onclick="document.getElementById('query_where').style.visibility = 'hidden';" />
+                    onclick="document.getElementById('query_where').style.display = 'none';" />
             </td>
         </tr>
         </tbody>
