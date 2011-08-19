@@ -3046,8 +3046,6 @@ canvas.pmd * {
     color: #000000;
     border-collapse: collapse;
     border: 1px solid #AAAAAA;
-    font-family: Tahoma, sans-serif;
-    font-size: 10px;
     z-index: 1;
     -moz-user-select: none;
 }
@@ -3109,8 +3107,6 @@ canvas.pmd * {
 
 .pmd_Tabs {
     cursor: default;
-    font-family: Tahoma, sans-serif;
-    font-size: 10px;
     color: #0055bb;
     white-space: nowrap;
     text-decoration: none;
@@ -3125,8 +3121,6 @@ canvas.pmd * {
 
 .pmd_Tabs2 {
     cursor: default;
-    font-family: Tahoma, sans-serif;
-    font-size: 10px;
     color: #0055bb;
     background: #FFEE99;
     text-indent: 3px;
@@ -3138,10 +3132,7 @@ canvas.pmd * {
 }
 
 .owner {
-    font-family: Tahoma, sans-serif;
-    font-size: 9px;
     font-weight: normal;
-/*    background-color: #ffffff;*/
     color: #888888;
 }
 
@@ -3209,7 +3200,6 @@ canvas.pmd * {
 
 .butt {
     border: #4477aa solid 1px;
-    font-size: 11px;
     font-weight: bold;
     height: 19px;
     width: 70px;
@@ -3219,7 +3209,6 @@ canvas.pmd * {
 }
 
 .L_butt2_1 {
-    font-size: 12px;
     padding: 1px;
     text-decoration: none;
     background-color: #ffffff;
@@ -3229,7 +3218,6 @@ canvas.pmd * {
 }
 
 .L_butt2_2 {
-    font-size: 12px;
     padding: 0;
     border: #0099CC solid 1px;
     background: #FFEE99;
@@ -3404,11 +3392,8 @@ a.trigger{
 position: fixed;
 text-decoration: none;
 top: 60px; right: 0;
-font-size: 16px;
-font-family: verdana, helvetica, arial, sans-serif;
 color:#fff;
 padding: 10px 40px 10px 15px;
-font-weight: 700;
 background:#333333 url(images/plus.png) 85% 55% no-repeat;
 border:1px solid #444444;
 display: block;
@@ -3418,11 +3403,8 @@ a.trigger:hover{
 position: fixed;
 text-decoration: none;
 top: 60px; right: 0;
-font-size: 16px;
-font-family: verdana, helvetica, arial, sans-serif;
 color:#080808;
 padding: 10px 40px 10px 15px;
-font-weight: 700;
 background:#fff696 url(images/plus.png) 85% 55% no-repeat;
 border:1px solid #999;
 display: block;
@@ -3442,7 +3424,6 @@ h2.tiger{
     background-repeat: repeat-x;
     padding: 1px;
     font-weight: bold;
-    font-size:14px;
     padding: 50 20 50 20px;
     margin: 0 0 5px 0;
     width: 250px;
@@ -3543,8 +3524,6 @@ h2.active {
     color:black;
     font-weight:bold;
     padding-left: 2px;
-    font-family:"Times New Roman", Times, serif;
-    font-size:16px;
     text-align:left;
 }
 
