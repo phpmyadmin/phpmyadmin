@@ -1473,7 +1473,7 @@ msgstr ""
 #. l10n: A collection of available filters
 #: js/messages.php:173
 msgid "Filters"
-msgstr ""
+msgstr "வடிகட்டிகள்"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:175
