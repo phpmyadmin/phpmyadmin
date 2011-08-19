@@ -391,8 +391,10 @@ class PMA_Table
             if ($extra == 'AUTO_INCREMENT') {
                 $primary_cnt = count($field_primary);
                 if (1 == $primary_cnt) {
-                    for ($j = 0; $j < $primary_cnt && $field_primary[$j] != $index; $j++) {
-                        //void
+                    for ($j = 0; $j < $primary_cnt; $j++) {
+                        if ($field_primary[$j] == $index) {
+                            break;
+                        }
                     }
                     if (isset($field_primary[$j]) && $field_primary[$j] == $index) {
                         $query .= ' PRIMARY KEY';
