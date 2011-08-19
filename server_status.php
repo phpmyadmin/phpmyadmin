@@ -673,14 +673,38 @@ $server_db_isLocal = strtolower($cfg['Server']['host']) == 'localhost'
                               || $cfg['Server']['host'] == '127.0.0.1'
                               || $cfg['Server']['host'] == '::1';
 
-PMA_AddJSVar('pma_token', $_SESSION[' PMA_token ']);
-PMA_AddJSVar('url_query', str_replace('&amp;', '&', PMA_generate_common_url($db)));
-PMA_AddJSVar('server_time_diff', 'new Date().getTime() - ' . (microtime(true) * 1000));
-PMA_AddJSVar('server_os', PHP_OS);
-PMA_AddJSVar('is_superuser', PMA_isSuperuser() ? true : false);
-PMA_AddJSVar('server_db_isLocal', $server_db_isLocal ? true : false);
-PMA_AddJSVar('profiling_docu', PMA_showMySQLDocu('general-thread-states', 'general-thread-states'));
-PMA_AddJSVar('explain_docu', PMA_showMySQLDocu('explain-output', 'explain-output'));
+PMA_AddJSVar(
+    'pma_token',
+    $_SESSION[' PMA_token ']
+);
+PMA_AddJSVar(
+    'url_query',
+    str_replace('&amp;', '&', PMA_generate_common_url($db))
+);
+PMA_AddJSVar(
+    'server_time_diff',
+    'new Date().getTime() - ' . (microtime(true) * 1000)
+);
+PMA_AddJSVar(
+    'server_os',
+    PHP_OS
+);
+PMA_AddJSVar(
+    'is_superuser',
+    PMA_isSuperuser()
+);
+PMA_AddJSVar(
+    'server_db_isLocal',
+    $server_db_isLocal
+);
+PMA_AddJSVar(
+    'profiling_docu',
+    PMA_showMySQLDocu('general-thread-states', 'general-thread-states')
+);
+PMA_AddJSVar(
+    'explain_docu',
+    PMA_showMySQLDocu('explain-output', 'explain-output')
+);
 
 /**
  * start output
