@@ -362,24 +362,26 @@ class PMA_Table
         }
 
         switch ($default_type) {
-            case 'USER_DEFINED' :
-                if ($is_timestamp && $default_value === '0') {
-                    // a TIMESTAMP does not accept DEFAULT '0'
-                    // but DEFAULT 0 works
-                    $query .= ' DEFAULT 0';
-                } elseif ($type == 'BIT') {
-                    $query .= ' DEFAULT b\'' . preg_replace('/[^01]/', '0', $default_value) . '\'';
-                } else {
-                    $query .= ' DEFAULT \'' . PMA_sqlAddSlashes($default_value) . '\'';
-                }
-                break;
-            case 'NULL' :
-            case 'CURRENT_TIMESTAMP' :
-                $query .= ' DEFAULT ' . $default_type;
-                break;
-            case 'NONE' :
-            default :
-                break;
+        case 'USER_DEFINED' :
+            if ($is_timestamp && $default_value === '0') {
+                // a TIMESTAMP does not accept DEFAULT '0'
+                // but DEFAULT 0 works
+                $query .= ' DEFAULT 0';
+            } elseif ($type == 'BIT') {
+                $query .= ' DEFAULT b\''
+                        . preg_replace('/[^01]/', '0', $default_value)
+                        . '\'';
+            } else {
+                $query .= ' DEFAULT \'' . PMA_sqlAddSlashes($default_value) . '\'';
+            }
+            break;
+        case 'NULL' :
+        case 'CURRENT_TIMESTAMP' :
+            $query .= ' DEFAULT ' . $default_type;
+            break;
+        case 'NONE' :
+        default :
+            break;
         }
 
         if (!empty($extra)) {
@@ -389,8 +391,10 @@ class PMA_Table
             if ($extra == 'AUTO_INCREMENT') {
                 $primary_cnt = count($field_primary);
                 if (1 == $primary_cnt) {
-                    for ($j = 0; $j < $primary_cnt && $field_primary[$j] != $index; $j++) {
-                        //void
+                    for ($j = 0; $j < $primary_cnt; $j++) {
+                        if ($field_primary[$j] == $index) {
+                            break;
+                        }
                     }
                     if (isset($field_primary[$j]) && $field_primary[$j] == $index) {
                         $query .= ' PRIMARY KEY';

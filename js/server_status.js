@@ -44,6 +44,36 @@ $(function() {
         type: "numeric"
     });
 
+    jQuery.tablesorter.addParser({
+        id: "withinSpanNumber",
+        is: function(s) {
+            return /<span class="original"/.test(s);
+        },
+        format: function(s, table, html) {
+            var res = html.innerHTML.match(/<span(\s*style="display:none;"\s*)?\s*class="original">(.*)?<\/span>/);
+            return (res && res.length >= 3) ? res[2] : 0;
+        },
+        type: "numeric"
+    });
+
+    // faster zebra widget: no row visibility check, faster css class switching, no cssChildRow check
+    jQuery.tablesorter.addWidget({
+        id: "fast-zebra",
+        format: function (table) {
+            if (table.config.debug) {
+                var time = new Date();
+            }
+            $("tr:even", table.tBodies[0])
+                .removeClass(table.config.widgetZebra.css[0])
+                .addClass(table.config.widgetZebra.css[1]);
+            $("tr:odd", table.tBodies[0])
+                .removeClass(table.config.widgetZebra.css[1])
+                .addClass(table.config.widgetZebra.css[0]);
+            if (table.config.debug) {
+                $.tablesorter.benchmark("Applying Fast-Zebra widget", time);
+            }
+        }
+    });
 
     // Popup behaviour
     $('a[rel="popupLink"]').click( function() {
@@ -377,7 +407,7 @@ $(function() {
         if (word.length == 0) {
             textFilter = null;
         }
-        else textFilter = new RegExp("(^|_)" + word, 'i');
+        else textFilter = new RegExp("(^| )" + word, 'i');
 
         text = word;
 
@@ -456,6 +486,7 @@ $(function() {
                         }
                     }
                 });
+                initTableSorter(tab.attr('id'));
                 break;
 
             case 'statustabs_allvars':
@@ -463,43 +494,40 @@ $(function() {
                     tab.find('.tabInnerContent').html(data);
                     filterVariables();
                 }
+                initTableSorter(tab.attr('id'));
                 break;
         }
-
-        initTableSorter(tab.attr('id'));
     }
 
+    // TODO: tablesorter shouldn't sort already sorted columns
     function initTableSorter(tabid) {
+        var $table, opts;
         switch(tabid) {
             case 'statustabs_queries':
-                $('#serverstatusqueriesdetails').tablesorter({
-                        sortList: [[3, 1]],
-                        widgets: ['zebra'],
-                        headers: {
-                            1: { sorter: 'fancyNumber' },
-                            2: { sorter: 'fancyNumber' }
-                        }
-                    });
-
-                $('#serverstatusqueriesdetails tr:first th')
-                    .append('<img class="icon sortableIcon" src="themes/dot.gif" alt="">');
-
+                $table = $('#serverstatusqueriesdetails');
+                opts = {
+                    sortList: [[3, 1]],
+                    widgets: ['fast-zebra'],
+                    headers: {
+                        1: { sorter: 'fancyNumber' },
+                        2: { sorter: 'fancyNumber' }
+                    }
+                };
                 break;
-
             case 'statustabs_allvars':
-                $('#serverstatusvariables').tablesorter({
-                        sortList: [[0, 0]],
-                        widgets: ['zebra'],
-                        headers: {
-                            1: { sorter: 'fancyNumber' }
-                        }
-                    });
-
-                $('#serverstatusvariables tr:first th')
-                    .append('<img class="icon sortableIcon" src="themes/dot.gif" alt="">');
-
+                $table = $('#serverstatusvariables');
+                opts = {
+                    sortList: [[0, 0]],
+                    widgets: ['fast-zebra'],
+                    headers: {
+                        1: { sorter: 'withinSpanNumber' }
+                    }
+                };
                 break;
         }
+        $table.tablesorter(opts);
+        $table.find('tr:first th')
+            .append('<img class="icon sortableIcon" src="themes/dot.gif" alt="">');
     }
 
     /* Filters the status variables by name/category/alert in the variables tab */

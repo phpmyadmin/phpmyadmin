@@ -128,8 +128,7 @@ if (isset($_REQUEST['submit_search'])) {
         $sqlstr_delete = 'DELETE';
 
         // Fields to select
-        $tblfields = PMA_DBI_fetch_result('SHOW FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($GLOBALS['db']),
-            null, 'Field');
+        $tblfields = PMA_DBI_get_columns($GLOBALS['db'], $table);
 
         // Table to use
         $sqlstr_from = ' FROM ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($table);
@@ -148,8 +147,8 @@ if (isset($_REQUEST['submit_search'])) {
 
             $thefieldlikevalue = array();
             foreach ($tblfields as $tblfield) {
-                if (! isset($field) || strlen($field) == 0 || $tblfield == $field) {
-                    $thefieldlikevalue[] = 'CONVERT(' . PMA_backquote($tblfield) . ' USING utf8)'
+                if (! isset($field) || strlen($field) == 0 || $tblfield['Field'] == $field) {
+                    $thefieldlikevalue[] = 'CONVERT(' . PMA_backquote($tblfield['Field']) . ' USING utf8)'
                                          . ' ' . $like_or_regex . ' '
                                          . "'" . $automatic_wildcard
                                          . $search_word

@@ -16,9 +16,9 @@ require_once './libraries/common.inc.php';
 
 $GLOBALS['js_include'][] = 'server_variables.js';
 
-PMA_AddJSCode('pma_token = \'' . $_SESSION[' PMA_token '] . "';\n" .
-              'is_superuser = ' . (PMA_isSuperuser() ? 'true' : 'false') . ";\n" .
-              'url_query = \'' . str_replace('&amp;', '&', PMA_generate_common_url($db)) . "';\n");
+PMA_AddJSVar('pma_token', $_SESSION[' PMA_token ']);
+PMA_AddJSVar('url_query', str_replace('&amp;', '&', PMA_generate_common_url($db)));
+PMA_AddJSVar('is_superuser', PMA_isSuperuser() ? true : false);
 
 
 /**
@@ -43,11 +43,26 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
         switch($_REQUEST['type']) {
             case 'getval':
                 $varValue = PMA_DBI_fetch_single_row('SHOW GLOBAL VARIABLES WHERE Variable_name="' . PMA_sqlAddslashes($_REQUEST['varName']) . '";', 'NUM');
+                if (isset($VARIABLE_DOC_LINKS[$_REQUEST['varName']][3])
+                    && $VARIABLE_DOC_LINKS[$_REQUEST['varName']][3] == 'byte') {
+                    exit(implode(' ', PMA_formatByteDown($varValue[1],3,3)));
+                }
                 exit($varValue[1]);
                 break;
+
             case 'setval':
-                $value = PMA_sqlAddslashes($_REQUEST['varValue']);
-                if (!is_numeric($value)) $value="'" . $value . "'";
+                $value = $_REQUEST['varValue'];
+
+                if (isset($VARIABLE_DOC_LINKS[$_REQUEST['varName']][3])
+                   && $VARIABLE_DOC_LINKS[$_REQUEST['varName']][3] == 'byte'
+                   && preg_match('/^\s*(\d+(\.\d+)?)\s*(mb|kb|mib|kib|gb|gib)\s*$/i',$value,$matches)) {
+                    $exp = array('kb' => 1, 'kib' => 1, 'mb' => 2, 'mib' => 2, 'gb' => 3, 'gib' => 3);
+                    $value = floatval($matches[1]) * pow(1024, $exp[strtolower($matches[3])]);
+                } else {
+                    $value = PMA_sqlAddslashes($value);
+                }
+
+                if (! is_numeric($value)) $value="'" . $value . "'";
 
                 if (! preg_match("/[^a-zA-Z0-9_]+/", $_REQUEST['varName']) && PMA_DBI_query('SET GLOBAL ' . $_REQUEST['varName'] . ' = ' . $value)) {
                     // Some values are rounded down etc.

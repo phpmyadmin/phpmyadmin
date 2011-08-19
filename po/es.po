@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-16 21:46+0200\n"
+"PO-Revision-Date: 2011-08-19 01:20+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -856,10 +856,10 @@ msgid "Dump has been saved to file %s."
 msgstr "El volcado ha sido guardado al archivo %s."
 
 #: gis_data_editor.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
-msgstr "Valores para la columna \"%s\""
+msgstr "Valor para la columna \"%s\""
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
@@ -867,7 +867,7 @@ msgstr "Utilizar OpenStreetMaps como capa base"
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:289
 #: libraries/display_tbl.lib.php:663
@@ -877,72 +877,68 @@ msgstr "Geometría"
 #: gis_data_editor.php:172 gis_data_editor.php:194 gis_data_editor.php:240
 #: gis_data_editor.php:290 js/messages.php:286
 msgid "Point"
-msgstr ""
+msgstr "Punto"
 
 #: gis_data_editor.php:173 gis_data_editor.php:195 gis_data_editor.php:241
 #: gis_data_editor.php:291 js/messages.php:284
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:197 gis_data_editor.php:243
 #: gis_data_editor.php:293 js/messages.php:285
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:202 gis_data_editor.php:246 gis_data_editor.php:296
 #: js/messages.php:292
-#, fuzzy
 #| msgid "Add routine"
 msgid "Add a point"
-msgstr "Agregar rutina"
+msgstr "Agregar un punto"
 
 #: gis_data_editor.php:218 js/messages.php:287
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Líneas terminadas en"
+msgstr "Cadena de líneas"
 
 #: gis_data_editor.php:221 gis_data_editor.php:275
 msgid "Outer Ring:"
-msgstr ""
+msgstr "Círculo exterior:"
 
 #: gis_data_editor.php:223 gis_data_editor.php:277 js/messages.php:290
 msgid "Inner Ring"
-msgstr ""
+msgstr "Círculo interior"
 
 #: gis_data_editor.php:248
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Agregar un nuevo usuario"
+msgstr "Agregar una cadena de líneas"
 
 #: gis_data_editor.php:248 gis_data_editor.php:298 js/messages.php:293
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Agregar un nuevo usuario"
+msgstr "Agregar un círculo interior"
 
 #: gis_data_editor.php:262 js/messages.php:288
 msgid "Polygon"
-msgstr ""
+msgstr "Polígono"
 
 #: gis_data_editor.php:300 js/messages.php:294
-#, fuzzy
 #| msgid "Add column"
 msgid "Add a polygon"
-msgstr "Añadir columna"
+msgstr "Agregar un polígono"
 
 #: gis_data_editor.php:304
-#, fuzzy
 #| msgid "Geometry"
 msgid "Add geometry"
-msgstr "Geometría"
+msgstr "Agregar geometría"
 
 #: gis_data_editor.php:312
 msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
+"Selecciones «GeomFromText» de la columna \"Función\" y pague la cadena ubicada "
+"debajo en el campo \"Valor\""
 
 #: import.php:57
 #, php-format
@@ -1223,10 +1219,9 @@ msgid "Query statistics"
 msgstr "Estadísticas de Consulta"
 
 #: js/messages.php:93
-#, fuzzy
 #| msgid "Local monitor configuration icompatible"
 msgid "Local monitor configuration incompatible"
-msgstr "Configuración de monitorización local incompatible"
+msgstr "Configuración local de monitorización incompatible"
 
 #: js/messages.php:94
 msgid ""
@@ -1825,7 +1820,7 @@ msgstr "Copiar"
 
 #: js/messages.php:291
 msgid "Outer Ring"
-msgstr ""
+msgstr "Círculo exterior"
 
 #: js/messages.php:297
 msgid "Add columns"
@@ -2191,6 +2186,8 @@ msgstr "Segundo"
 #, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr ""
+"No se pudo dar formato a una cadena para la regla '%s'. PHP devolvió el "
+"siguiente error: %s"
 
 #: libraries/Config.class.php:1159
 msgid "Font size"
@@ -6807,29 +6804,30 @@ msgstr "Importar monedas <i>(por ejemplo: $5.00 como 5.00)</i>"
 
 #: libraries/import/shp.php:14
 msgid "ESRI Shape File"
-msgstr ""
+msgstr "Archivo de forma ESRI"
 
 #: libraries/import/shp.php:254
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr ""
+msgstr "Hubo un error importando el archivo de forma ESRI: \"%s\"."
 
 #: libraries/import/shp.php:310
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data"
 msgstr ""
+"Intentó importar un archivo no válido o el archivo importado contiene datos "
+"inválidos"
 
 #: libraries/import/shp.php:312
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
-msgstr ""
+msgstr "La extensión espacial MySQL no soporta el tipo ESRI \"%s\"."
 
 #: libraries/import/shp.php:350
-#, fuzzy
 #| msgid "This page does not contain any tables!"
 msgid "The imported file does not contain any data"
-msgstr "Esta página no contiene ninguna tabla"
+msgstr "El archivo importado no contiene datos"
 
 #: libraries/import/sql.php:33
 msgid "SQL compatibility mode:"
@@ -8163,10 +8161,9 @@ msgid "Table Search"
 msgstr "Búsqueda de tablas"
 
 #: libraries/tbl_select.lib.php:229 tbl_change.php:994
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "Insertar"
+msgstr "Editar/Insertar"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 msgid ""
@@ -12274,12 +12271,13 @@ msgid "Query cache low memory prunes"
 msgstr "Reducciones al caché de consultas por falta de memoria"
 
 #: po/advisory_rules.php:91
-#, fuzzy
 #| msgid "The amount of free memory for query cache."
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
-msgstr "La cantidad de memoria libre para el cache de consultas."
+msgstr ""
+"Las consultas en caché son eliminadas debido a la poca cantidad de memoria "
+"de caché para el caché de consultas."
 
 #: po/advisory_rules.php:92
 msgid ""
@@ -12287,46 +12285,56 @@ msgid ""
 "overhead of maintaining the cache is likely to increase with its size, so do "
 "this in small increments and monitor the results."
 msgstr ""
+"Podría llegar a querer aumentar «query_cache_size». Recuerde sin embargo que "
+"la sobrecarga de mantener el caché es probable que aumente con su tamaño, "
+"por lo que se recomienda hacerlo en pequeñas cantidades y monitorizar los "
+"resultados."
 
 #: po/advisory_rules.php:93
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%)"
 msgstr ""
+"La tasa de consultas eliminadas respecto de las agregadas es %s%%. Mejor es "
+"mientras menor sea este valor (el límite de disparo de la regla es: 0.1%)"
 
 #: po/advisory_rules.php:95
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache max size"
-msgstr "Cache de consultas"
+msgstr "Tamaño máximo del caché de consultas"
 
 #: po/advisory_rules.php:96
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
+"El tamaño del caché de consultas es mayor a 128 MiB. Grandes cachés pueden "
+"causar grandes sobrecargas para manterlo."
 
 #: po/advisory_rules.php:97
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
 msgstr ""
+"Dependiendo de su entorno, podría aumentar la performance reducir este "
+"valor."
 
 #: po/advisory_rules.php:98
 #, php-format
 msgid "Current query cache size: %s"
-msgstr ""
+msgstr "Tamaño del caché de consultas: %s"
 
 #: po/advisory_rules.php:100
-#, fuzzy
 #| msgid "Query results"
 msgid "Query cache min result size"
-msgstr "Resultados de la Consulta"
+msgstr "Tamaño mínimo de resultado en caché de consultas"
 
 #: po/advisory_rules.php:101
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
+"El tamaño máximo del conjunto de resultados en el caché de consultas es el "
+"valor predeterminado de 1 MiB."
 
 #: po/advisory_rules.php:102
 msgid ""

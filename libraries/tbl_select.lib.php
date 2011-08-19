@@ -49,16 +49,12 @@ function PMA_tbl_setTitle($propertiesIconic, $pmaThemeImage)
 function PMA_tbl_getFields($table,$db)
 {
     // Gets the list and number of fields
-    $result = PMA_DBI_query(
-        'SHOW FULL FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . ';',
-        null, PMA_DBI_QUERY_STORE
-    );
-    $fields_cnt = PMA_DBI_num_rows($result);
+    $fields = PMA_DBI_get_columns($db, $table, true);
     $fields_list = $fields_null = $fields_type = $fields_collation = array();
     $geom_column_present = false;
     $geom_types = PMA_getGISDatatypes();
 
-    while ($row = PMA_DBI_fetch_assoc($result)) {
+    foreach ($fields as $row) {
         $fields_list[] = $row['Field'];
         $type          = $row['Type'];
 
@@ -92,8 +88,6 @@ function PMA_tbl_getFields($table,$db)
             ? $row['Collation']
             : '';
     } // end while
-    PMA_DBI_free_result($result);
-    unset($result, $type);
 
     return array($fields_list, $fields_type, $fields_collation, $fields_null, $geom_column_present);
 }
