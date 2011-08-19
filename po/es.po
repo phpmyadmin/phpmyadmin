@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 21:24+0200\n"
+"PO-Revision-Date: 2011-08-19 21:25+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -12518,10 +12518,9 @@ msgid "Rate of reading next table row"
 msgstr "Tasa de lectura de la siguiente fila de una tabla"
 
 #: po/advisory_rules.php:136
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "The rate of reading the next table row is high."
-msgstr "Donde mostrar los enlaces de filas de tabla"
+msgstr "La tasa de lecutra de la siguiente fila de una tabla es alta."
 
 #: po/advisory_rules.php:137
 msgid ""
