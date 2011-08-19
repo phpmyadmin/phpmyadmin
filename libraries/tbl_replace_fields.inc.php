@@ -110,7 +110,7 @@ if (false !== $possibly_uploaded_val) {
     }
 
     // The Null checkbox was unchecked for this field
-    if (empty($val) && isset($me_fields_null_prev[$key]) && ! isset($me_fields_null[$key])) {
+    if (empty($val) && ! empty($me_fields_null_prev[$key]) && ! isset($me_fields_null[$key])) {
         $val = "''";
     }
 }  // end else (field value in the form)

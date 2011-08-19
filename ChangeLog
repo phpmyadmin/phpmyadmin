@@ -10,6 +10,7 @@ phpMyAdmin - ChangeLog
 - [core] Remove library PHPExcel, due to license issues
 - [export] Remove native Excel export modules (xls and xlsx formats)
 - [import] Remove native Excel import modules (xls and xlsx formats)
+- bug #3392920 [edit] BLOB emptied after editing another column
 
 3.4.4.0 (not yet released)
 - bug #3323060 [parser] SQL parser breaks AJAX requests if query has unclosed quotes
