@@ -70,7 +70,8 @@ function PMA_formatJsVal($value)
             return 'true';
         } else {
             return 'false';
-    } else if (is_int($value)) {
+        }
+    } elseif (is_int($value)) {
         return int($value);
     } else {
         return '"' . PMA_escapeJsString($value) . '"';
