@@ -692,7 +692,7 @@ msgstr "அழி"
 
 #: db_structure.php:508 tbl_operations.php:608
 msgid "Check table"
-msgstr ""
+msgstr "அட்டவணையை சரிபார்"
 
 #: db_structure.php:510 tbl_operations.php:657 tbl_structure.php:810
 msgid "Optimize table"
