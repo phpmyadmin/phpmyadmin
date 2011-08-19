@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 23:25+0200\n"
+"PO-Revision-Date: 2011-08-19 23:26+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -12173,7 +12173,7 @@ msgid ""
 "on your system memory limits"
 msgstr ""
 "Dikkate değer sort_buffer_size ve/veya read_rnd_buffer_size artışı, sistem "
-"bellek sınırlarınıza bağlıdır."
+"bellek sınırlarınıza bağlıdır"
 
 #: po/advisory_rules.php:108
 #, php-format
