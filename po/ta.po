@@ -1327,7 +1327,7 @@ msgstr ""
 #: server_privileges.php:2040 server_status.php:1155 server_status.php:1582
 #: tbl_zoom_select.php:158 tbl_zoom_select.php:283
 msgid "None"
-msgstr ""
+msgstr "எதுவுமில்லை"
 
 #: js/messages.php:133
 msgid "Resume monitor"
