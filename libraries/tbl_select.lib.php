@@ -342,7 +342,7 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations, $fu
         $fields = '';
             $w = $backquoted_name . ' ' . $func_type;
 
-    } elseif (in_array($types, PMA_getGISDatatypes())) {
+    } elseif (in_array($types, PMA_getGISDatatypes()) && ! empty($fields)) {
         // create gis data from the string
         $gis_data = PMA_createGISData($fields);
         $w = $backquoted_name . ' ' . $func_type . ' ' . $gis_data;
