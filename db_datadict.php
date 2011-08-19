@@ -226,9 +226,9 @@ while ($row = PMA_DBI_fetch_row($rowset)) {
     <td nowrap="nowrap">
         <?php
         if (isset($pk_array[$row['Field']])) {
-            echo '<u>' . $field_name . '</u>';
+            echo '<u>' . htmlspecialchars($field_name) . '</u>';
         } else {
-            echo $field_name;
+            echo htmlspecialchars($field_name);
         }
         ?>
     </td>
