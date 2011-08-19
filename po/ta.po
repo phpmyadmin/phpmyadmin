@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 08:51+0200\n"
+"PO-Revision-Date: 2011-08-19 08:52+0200\n"
 "Last-Translator:  <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -2448,7 +2448,7 @@ msgstr "பயனாளர்:"
 
 #: libraries/auth/cookie.auth.lib.php:222
 msgid "Password:"
-msgstr ""
+msgstr "கடவுச்சொல்"
 
 #: libraries/auth/cookie.auth.lib.php:229
 msgid "Server Choice"
