@@ -12747,10 +12747,9 @@ msgstr ""
 "Tasa de apertura de tablas: %s, este valor debería ser menor a 10 por hora"
 
 #: po/advisory_rules.php:180
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of used open files limit"
-msgstr "Formato del archivo importado"
+msgstr "Porcentaje de uso del límite de archivos de abiertos"
 
 #: po/advisory_rules.php:181
 msgid ""
