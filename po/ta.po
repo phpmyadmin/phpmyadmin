@@ -10632,7 +10632,7 @@ msgstr ""
 
 #: tbl_printview.php:72
 msgid "Show tables"
-msgstr ""
+msgstr "அட்டவணைகளை காட்டு"
 
 #: tbl_printview.php:274 tbl_structure.php:758
 msgid "Space usage"
