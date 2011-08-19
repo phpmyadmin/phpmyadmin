@@ -227,7 +227,7 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
         } else {
             $row['Default'] = htmlspecialchars($row['Default']);
         }
-        $field_name = htmlspecialchars($row['Field']);
+        $field_name = $row['Field'];
 
         if (PMA_MYSQL_INT_VERSION < 50025
          && ! empty($analyzed_sql[0]['create_table_fields'][$field_name]['type'])
