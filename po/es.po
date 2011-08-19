@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 21:31+0200\n"
+"PO-Revision-Date: 2011-08-19 21:32+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -12605,14 +12605,11 @@ msgstr ""
 "%s%% de todas las tablas temporales son escritas al disco, este valor "
 "debería de ser menor a 25%%"
 
-# singular: tabla
-# plural: tablas
 #: po/advisory_rules.php:150
-#, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Temp disk rate"
-msgstr "%s tabla"
+msgstr "Tasa de tablas temporales en el disco"
 
 #: po/advisory_rules.php:152
 msgid ""
