@@ -12720,7 +12720,7 @@ msgstr "Podría necesitar aumentar «key_buffer_size»."
 #: po/advisory_rules.php:173
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr ""
+msgstr "Índices leídos desde memoria: %s%%, este valor debería ser mayor a 95%%"
 
 #: po/advisory_rules.php:175
 #, fuzzy
