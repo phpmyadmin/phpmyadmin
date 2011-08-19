@@ -2051,7 +2051,7 @@ msgstr "வெள்ளி"
 
 #: js/messages.php:413
 msgid "Saturday"
-msgstr ""
+msgstr "சனி"
 
 #. l10n: Short week day name
 #: js/messages.php:417
