@@ -8,7 +8,7 @@
 /**
  *
  */
-require_once 'pmd_common.php';
+require_once './libraries/pmd_common.php';
 ?>
 <html>
 <head>

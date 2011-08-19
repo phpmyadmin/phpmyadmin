@@ -7,7 +7,7 @@
 /**
  *
  */
-require_once "./pmd_common.php";
+require_once './libraries/pmd_common.php';
 
 $tab_column       = get_tab_info();
 $script_tabs      = get_script_tabs();
