@@ -1583,7 +1583,7 @@ msgstr "விலக்கு"
 
 #: js/messages.php:211
 msgid "Loading"
-msgstr ""
+msgstr "ஏற்றப்படுகிறது"
 
 #: js/messages.php:212
 msgid "Processing Request"
