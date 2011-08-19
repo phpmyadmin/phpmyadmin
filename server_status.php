@@ -31,161 +31,161 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     // real-time charting data
     if (isset($_REQUEST['chart_data'])) {
         switch($_REQUEST['type']) {
-            // Process and Connections realtime chart
-            case 'proc':
-                $c = PMA_DBI_fetch_result("SHOW GLOBAL STATUS WHERE Variable_name = 'Connections'", 0, 1);
-                $result = PMA_DBI_query('SHOW PROCESSLIST');
-                $num_procs = PMA_DBI_num_rows($result);
+        // Process and Connections realtime chart
+        case 'proc':
+            $c = PMA_DBI_fetch_result("SHOW GLOBAL STATUS WHERE Variable_name = 'Connections'", 0, 1);
+            $result = PMA_DBI_query('SHOW PROCESSLIST');
+            $num_procs = PMA_DBI_num_rows($result);
 
-                $ret = array(
-                    'x'      => microtime(true)*1000,
-                    'y_proc' => $num_procs,
-                    'y_conn' => $c['Connections']
-                );
+            $ret = array(
+                'x'      => microtime(true)*1000,
+                'y_proc' => $num_procs,
+                'y_conn' => $c['Connections']
+            );
 
-                exit(json_encode($ret));
+            exit(json_encode($ret));
 
-            // Query realtime chart
-            case 'queries':
-                $queries = PMA_DBI_fetch_result(
-                    "SHOW GLOBAL STATUS
-                    WHERE (Variable_name LIKE 'Com_%' OR Variable_name = 'Questions')
-                        AND Value > 0'", 0, 1);
-                cleanDeprecated($queries);
-                // admin commands are not queries
-                unset($queries['Com_admin_commands']);
-                $questions = $queries['Questions'];
-                unset($queries['Questions']);
+        // Query realtime chart
+        case 'queries':
+            $queries = PMA_DBI_fetch_result(
+                "SHOW GLOBAL STATUS
+                WHERE (Variable_name LIKE 'Com_%' OR Variable_name = 'Questions')
+                    AND Value > 0'", 0, 1);
+            cleanDeprecated($queries);
+            // admin commands are not queries
+            unset($queries['Com_admin_commands']);
+            $questions = $queries['Questions'];
+            unset($queries['Questions']);
 
-                //$sum=array_sum($queries);
-                $ret = array(
-                    'x'         => microtime(true)*1000,
-                    'y'         => $questions,
-                    'pointInfo' => $queries
-                );
+            //$sum=array_sum($queries);
+            $ret = array(
+                'x'         => microtime(true)*1000,
+                'y'         => $questions,
+                'pointInfo' => $queries
+            );
 
-                exit(json_encode($ret));
+            exit(json_encode($ret));
 
-            // Traffic realtime chart
-            case 'traffic':
-                $traffic = PMA_DBI_fetch_result(
-                    "SHOW GLOBAL STATUS
-                    WHERE Variable_name = 'Bytes_received'
-                        OR Variable_name = 'Bytes_sent'", 0, 1);
+        // Traffic realtime chart
+        case 'traffic':
+            $traffic = PMA_DBI_fetch_result(
+                "SHOW GLOBAL STATUS
+                WHERE Variable_name = 'Bytes_received'
+                    OR Variable_name = 'Bytes_sent'", 0, 1);
 
-                $ret = array(
-                    'x'          => microtime(true)*1000,
-                    'y_sent'     => $traffic['Bytes_sent'],
-                    'y_received' => $traffic['Bytes_received']
-                );
+            $ret = array(
+                'x'          => microtime(true)*1000,
+                'y_sent'     => $traffic['Bytes_sent'],
+                'y_received' => $traffic['Bytes_received']
+            );
 
-                exit(json_encode($ret));
+            exit(json_encode($ret));
 
-            // Data for the monitor
-            case 'chartgrid':
-                $ret = json_decode($_REQUEST['requiredData'], true);
-                $statusVars = array();
-                $serverVars = array();
-                $sysinfo = $cpuload = $memory = 0;
-                $pName = '';
+        // Data for the monitor
+        case 'chartgrid':
+            $ret = json_decode($_REQUEST['requiredData'], true);
+            $statusVars = array();
+            $serverVars = array();
+            $sysinfo = $cpuload = $memory = 0;
+            $pName = '';
 
-                /* Accumulate all required variables and data */
-                // For each chart
-                foreach ($ret as $chart_id => $chartNodes) {
-                    // For each data series
-                    foreach ($chartNodes as $node_id => $nodeDataPoints) {
-                        // For each data point in the series (usually just 1)
-                        foreach ($nodeDataPoints as $point_id => $dataPoint) {
-                            $pName = $dataPoint['name'];
+            /* Accumulate all required variables and data */
+            // For each chart
+            foreach ($ret as $chart_id => $chartNodes) {
+                // For each data series
+                foreach ($chartNodes as $node_id => $nodeDataPoints) {
+                    // For each data point in the series (usually just 1)
+                    foreach ($nodeDataPoints as $point_id => $dataPoint) {
+                        $pName = $dataPoint['name'];
 
-                            switch ($dataPoint['type']) {
-                                /* We only collect the status and server variables here to
-                                 * read them all in one query, and only afterwards assign them.
-                                 * Also do some white list filtering on the names
-                                */
-                                case 'servervar':
-                                    if (!preg_match('/[^a-zA-Z_]+/', $pName))
-                                        $serverVars[] = $pName;
-                                    break;
+                        switch ($dataPoint['type']) {
+                        /* We only collect the status and server variables here to
+                         * read them all in one query, and only afterwards assign them.
+                         * Also do some white list filtering on the names
+                        */
+                        case 'servervar':
+                            if (!preg_match('/[^a-zA-Z_]+/', $pName))
+                                $serverVars[] = $pName;
+                            break;
 
-                                case 'statusvar':
-                                    if (!preg_match('/[^a-zA-Z_]+/', $pName))
-                                        $statusVars[] = $pName;
-                                    break;
+                        case 'statusvar':
+                            if (!preg_match('/[^a-zA-Z_]+/', $pName))
+                                $statusVars[] = $pName;
+                            break;
 
-                                case 'proc':
-                                    $result = PMA_DBI_query('SHOW PROCESSLIST');
-                                    $ret[$chart_id][$node_id][$point_id]['value'] = PMA_DBI_num_rows($result);
-                                    break;
+                        case 'proc':
+                            $result = PMA_DBI_query('SHOW PROCESSLIST');
+                            $ret[$chart_id][$node_id][$point_id]['value'] = PMA_DBI_num_rows($result);
+                            break;
 
-                                case 'cpu':
-                                    if (!$sysinfo) {
-                                        require_once('libraries/sysinfo.lib.php');
-                                        $sysinfo = getSysInfo();
-                                    }
-                                    if (!$cpuload)
-                                        $cpuload = $sysinfo->loadavg();
-
-                                    if (PHP_OS == 'Linux') {
-                                        $ret[$chart_id][$node_id][$point_id]['idle'] = $cpuload['idle'];
-                                        $ret[$chart_id][$node_id][$point_id]['busy'] = $cpuload['busy'];
-                                    } else
-                                        $ret[$chart_id][$node_id][$point_id]['value'] = $cpuload['loadavg'];
-
-                                    break;
-
-                                case 'memory':
-                                    if (!$sysinfo) {
-                                        require_once('libraries/sysinfo.lib.php');
-                                        $sysinfo = getSysInfo();
-                                    }
-                                    if (!$memory)
-                                        $memory  = $sysinfo->memory();
-
-                                    $ret[$chart_id][$node_id][$point_id]['value'] = $memory[$pName];
-                                    break;
+                        case 'cpu':
+                            if (!$sysinfo) {
+                                require_once('libraries/sysinfo.lib.php');
+                                $sysinfo = getSysInfo();
                             }
+                            if (!$cpuload)
+                                $cpuload = $sysinfo->loadavg();
+
+                            if (PHP_OS == 'Linux') {
+                                $ret[$chart_id][$node_id][$point_id]['idle'] = $cpuload['idle'];
+                                $ret[$chart_id][$node_id][$point_id]['busy'] = $cpuload['busy'];
+                            } else
+                                $ret[$chart_id][$node_id][$point_id]['value'] = $cpuload['loadavg'];
+
+                            break;
+
+                        case 'memory':
+                            if (!$sysinfo) {
+                                require_once('libraries/sysinfo.lib.php');
+                                $sysinfo = getSysInfo();
+                            }
+                            if (!$memory)
+                                $memory  = $sysinfo->memory();
+
+                            $ret[$chart_id][$node_id][$point_id]['value'] = $memory[$pName];
+                            break;
+                        } /* switch */
+                    } /* foreach */
+                } /* foreach */
+            } /* foreach */
+
+            // Retrieve all required status variables
+            if (count($statusVars)) {
+                $statusVarValues = PMA_DBI_fetch_result(
+                    "SHOW GLOBAL STATUS
+                    WHERE Variable_name='" . implode("' OR Variable_name='", $statusVars) . "'", 0, 1);
+            } else {
+                $statusVarValues = array();
+            }
+
+            // Retrieve all required server variables
+            if (count($serverVars)) {
+                $serverVarValues = PMA_DBI_fetch_result(
+                    "SHOW GLOBAL VARIABLES
+                    WHERE Variable_name='" . implode("' OR Variable_name='", $serverVars) . "'", 0, 1);
+            } else {
+                $serverVarValues = array();
+            }
+
+            // ...and now assign them
+            foreach ($ret as $chart_id => $chartNodes) {
+                foreach ($chartNodes as $node_id => $nodeDataPoints) {
+                    foreach ($nodeDataPoints as $point_id => $dataPoint) {
+                        switch($dataPoint['type']) {
+                        case 'statusvar':
+                            $ret[$chart_id][$node_id][$point_id]['value'] = $statusVarValues[$dataPoint['name']];
+                            break;
+                        case 'servervar':
+                            $ret[$chart_id][$node_id][$point_id]['value'] = $serverVarValues[$dataPoint['name']];
+                            break;
                         }
                     }
                 }
+            }
 
-                // Retrieve all required status variables
-                if (count($statusVars)) {
-                    $statusVarValues = PMA_DBI_fetch_result(
-                        "SHOW GLOBAL STATUS
-                        WHERE Variable_name='" . implode("' OR Variable_name='", $statusVars) . "'", 0, 1);
-                } else {
-                    $statusVarValues = array();
-                }
+            $ret['x'] = microtime(true)*1000;
 
-                // Retrieve all required server variables
-                if (count($serverVars)) {
-                    $serverVarValues = PMA_DBI_fetch_result(
-                        "SHOW GLOBAL VARIABLES
-                        WHERE Variable_name='" . implode("' OR Variable_name='", $serverVars) . "'", 0, 1);
-                } else {
-                    $serverVarValues = array();
-                }
-
-                // ...and now assign them
-                foreach ($ret as $chart_id => $chartNodes) {
-                    foreach ($chartNodes as $node_id => $nodeDataPoints) {
-                        foreach ($nodeDataPoints as $point_id => $dataPoint) {
-                            switch($dataPoint['type']) {
-                            case 'statusvar':
-                                $ret[$chart_id][$node_id][$point_id]['value'] = $statusVarValues[$dataPoint['name']];
-                                break;
-                            case 'servervar':
-                                $ret[$chart_id][$node_id][$point_id]['value'] = $serverVarValues[$dataPoint['name']];
-                                break;
-                            }
-                        }
-                    }
-                }
-
-                $ret['x'] = microtime(true)*1000;
-
-                exit(json_encode($ret));
+            exit(json_encode($ret));
         }
     }
 
@@ -210,16 +210,18 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 $type = strtolower(substr($row['sql_text'], 0, strpos($row['sql_text'], ' ')));
 
                 switch($type) {
-                    case 'insert':
-                    case 'update':
-                        // Cut off big inserts and updates, but append byte count therefor
-                        if(strlen($row['sql_text']) > 220)
-                            $row['sql_text'] = substr($row['sql_text'], 0, 200) . '... [' .
-                                                implode(' ', PMA_formatByteDown(strlen($row['sql_text']), 2, 2)) . ']';
-
-                        break;
-                    default:
-                        break;
+                case 'insert':
+                case 'update':
+                    // Cut off big inserts and updates, but append byte count therefor
+                    if (strlen($row['sql_text']) > 220) {
+                        $row['sql_text'] = substr($row['sql_text'], 0, 200)
+                            . '... ['
+                            .  implode(' ', PMA_formatByteDown(strlen($row['sql_text']), 2, 2))
+                            . ']';
+                    }
+                    break;
+                default:
+                    break;
                 }
 
                 if(!isset($return['sum'][$type])) $return['sum'][$type] = 0;
@@ -261,35 +263,37 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 $return['sum'][$type] += $row['#'];
 
                 switch($type) {
-                    case 'insert':
-                        // Group inserts if selected
-                        if($removeVars && preg_match('/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i', $row['argument'], $matches)) {
-                            $insertTables[$matches[2]]++;
-                            if ($insertTables[$matches[2]] > 1) {
-                                $return['rows'][$insertTablesFirst]['#'] = $insertTables[$matches[2]];
+                case 'insert':
+                    // Group inserts if selected
+                    if($removeVars && preg_match('/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i', $row['argument'], $matches)) {
+                        $insertTables[$matches[2]]++;
+                        if ($insertTables[$matches[2]] > 1) {
+                            $return['rows'][$insertTablesFirst]['#'] = $insertTables[$matches[2]];
 
-                                // Add a ... to the end of this query to indicate that there's been other queries
-                                if($return['rows'][$insertTablesFirst]['argument'][strlen($return['rows'][$insertTablesFirst]['argument'])-1] != '.')
-                                    $return['rows'][$insertTablesFirst]['argument'] .= '<br/>...';
+                            // Add a ... to the end of this query to indicate that there's been other queries
+                            if($return['rows'][$insertTablesFirst]['argument'][strlen($return['rows'][$insertTablesFirst]['argument'])-1] != '.')
+                                $return['rows'][$insertTablesFirst]['argument'] .= '<br/>...';
 
-                                // Group this value, thus do not add to the result list
-                                continue 2;
-                            } else {
-                                $insertTablesFirst = $i;
-                                $insertTables[$matches[2]] += $row['#'] - 1;
-                            }
+                            // Group this value, thus do not add to the result list
+                            continue 2;
+                        } else {
+                            $insertTablesFirst = $i;
+                            $insertTables[$matches[2]] += $row['#'] - 1;
                         }
-                        // No break here
+                    }
+                    // No break here
 
-                    case 'update':
-                        // Cut off big inserts and updates, but append byte count therefor
-                        if(strlen($row['argument']) > 220)
-                            $row['argument'] = substr($row['argument'], 0, 200) . '... [' .
-                                                implode(' ', PMA_formatByteDown(strlen($row['argument'])), 2, 2) . ']';
+                case 'update':
+                    // Cut off big inserts and updates, but append byte count therefor
+                    if(strlen($row['argument']) > 220) {
+                        $row['argument'] = substr($row['argument'], 0, 200)
+                            . '... ['
+                            .  implode(' ', PMA_formatByteDown(strlen($row['argument'])), 2, 2)
+                            . ']';
+                    }
+                    break;
 
-                        break;
-
-                    default: break;
+                default: break;
                 }
 
                 $return['rows'][] = $row;
@@ -623,19 +627,19 @@ if(PMA_DRIZZLE) {
 /* Ajax request refresh */
 if (isset($_REQUEST['show']) && isset($_REQUEST['ajax_request'])) {
     switch($_REQUEST['show']) {
-        case 'query_statistics':
-            printQueryStatistics();
-            exit();
-        case 'server_traffic':
-            printServerTraffic();
-            exit();
-        case 'variables_table':
-            // Prints the variables table
-            printVariablesTable();
-            exit();
+    case 'query_statistics':
+        printQueryStatistics();
+        exit();
+    case 'server_traffic':
+        printServerTraffic();
+        exit();
+    case 'variables_table':
+        // Prints the variables table
+        printVariablesTable();
+        exit();
 
-        default:
-            break;
+    default:
+        break;
     }
 }
 
