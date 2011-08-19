@@ -3375,49 +3375,49 @@ a.M_butt:hover {
 }
 
 .panel {
-position: fixed;
-top: 50px;
-right: 0;
-display: none;
-background: #FFF;
-border:1px solid #F5F5F5;
-width: 350 px;
-height: auto;
-padding: 30px 170px 30px 30px;
-color:#FFF;
-z-index:99;
+    position: fixed;
+    top: 50px;
+    right: 0;
+    display: none;
+    background: #FFF;
+    border:1px solid #F5F5F5;
+    width: 350 px;
+    height: auto;
+    padding: 30px 170px 30px 30px;
+    color:#FFF;
+    z-index:99;
 }
 
 a.trigger{
-position: fixed;
-text-decoration: none;
-top: 60px; right: 0;
-color:#fff;
-padding: 10px 40px 10px 15px;
-background:#333333 url(images/plus.png) 85% 55% no-repeat;
-border:1px solid #444444;
-display: block;
+    position: fixed;
+    text-decoration: none;
+    top: 60px; right: 0;
+    color:#fff;
+    padding: 10px 40px 10px 15px;
+    background:#333333 url(images/plus.png) 85% 55% no-repeat;
+    border:1px solid #444444;
+    display: block;
 }
 
 a.trigger:hover{
-position: fixed;
-text-decoration: none;
-top: 60px; right: 0;
-color:#080808;
-padding: 10px 40px 10px 15px;
-background:#fff696 url(images/plus.png) 85% 55% no-repeat;
-border:1px solid #999;
-display: block;
+    position: fixed;
+    text-decoration: none;
+    top: 60px; right: 0;
+    color:#080808;
+    padding: 10px 40px 10px 15px;
+    background:#fff696 url(images/plus.png) 85% 55% no-repeat;
+    border:1px solid #999;
+    display: block;
 }
 
 a.active.trigger {
-background:#222222 url(images/minus.png) 85% 55% no-repeat;
-z-index:999;
+    background:#222222 url(images/minus.png) 85% 55% no-repeat;
+    z-index:999;
 }
 
 a.active.trigger:hover {
-background:#fff696 url(images/minus.png) 85% 55% no-repeat;
-z-index:999;
+    background:#fff696 url(images/minus.png) 85% 55% no-repeat;
+    z-index:999;
 }
 
 h2.tiger{
