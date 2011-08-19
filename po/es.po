@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 21:43+0200\n"
+"PO-Revision-Date: 2011-08-19 21:44+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -12751,11 +12751,14 @@ msgstr ""
 msgid "Percentage of used open files limit"
 msgstr "Porcentaje de uso del límite de archivos de abiertos"
 
+# El mensaje de error llegará de PHP o MySQL por lo que no me parece correcto traducirlo
 #: po/advisory_rules.php:181
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \\\"Too many open files\\\" error."
 msgstr ""
+"La cantidad de archivos abiertos se acerca al máximo permitido. Podría "
+"llegar a obtener un error al respecto («Too many open files»)."
 
 #: po/advisory_rules.php:182 po/advisory_rules.php:187
 msgid ""
