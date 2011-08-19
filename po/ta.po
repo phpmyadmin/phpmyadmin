@@ -2796,7 +2796,7 @@ msgstr "முந்தைய"
 #: server_binlog.php:172
 msgctxt "Next page"
 msgid "Next"
-msgstr ""
+msgstr "அடுத்து"
 
 #: libraries/common.lib.php:2325 libraries/common.lib.php:2328
 #: libraries/display_tbl.lib.php:385
