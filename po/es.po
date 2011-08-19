@@ -12450,6 +12450,8 @@ msgstr ""
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
+"Promedio de uniones («JOIN») de tablas: %s, este promedio debería ser menor "
+"a 1 por hora"
 
 #: po/advisory_rules.php:125
 msgid "Rate of reading first index entry"
