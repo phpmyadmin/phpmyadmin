@@ -2532,7 +2532,7 @@ msgstr "காணொலி பார்"
 
 #: libraries/blobstreaming.lib.php:376
 msgid "Download file"
-msgstr ""
+msgstr "கோப்பை பதிவிறக்கு"
 
 #: libraries/blobstreaming.lib.php:443
 #, php-format
