@@ -12773,6 +12773,8 @@ msgstr ""
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
+"La cantidad de archivos abiertos es %s%% del límite. Debería ser menor a 85%"
+"%"
 
 #: po/advisory_rules.php:185
 #, fuzzy
