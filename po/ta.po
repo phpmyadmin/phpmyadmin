@@ -1664,7 +1664,7 @@ msgstr "உலாவுதல்"
 
 #: js/messages.php:238
 msgid "Deleting"
-msgstr ""
+msgstr "அழித்தல்"
 
 #: js/messages.php:241
 msgid "The definition of a stored function must contain a RETURN statement!"
