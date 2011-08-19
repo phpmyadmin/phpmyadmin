@@ -38,7 +38,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $num_procs = PMA_DBI_num_rows($result);
 
             $ret = array(
-                'x'      => microtime(true)*1000,
+                'x'      => microtime(true) * 1000,
                 'y_proc' => $num_procs,
                 'y_conn' => $c['Connections']
             );
@@ -59,7 +59,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
             //$sum=array_sum($queries);
             $ret = array(
-                'x'         => microtime(true)*1000,
+                'x'         => microtime(true) * 1000,
                 'y'         => $questions,
                 'pointInfo' => $queries
             );
@@ -74,7 +74,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                     OR Variable_name = 'Bytes_sent'", 0, 1);
 
             $ret = array(
-                'x'          => microtime(true)*1000,
+                'x'          => microtime(true) * 1000,
                 'y_sent'     => $traffic['Bytes_sent'],
                 'y_received' => $traffic['Bytes_received']
             );
@@ -183,7 +183,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 }
             }
 
-            $ret['x'] = microtime(true)*1000;
+            $ret['x'] = microtime(true) * 1000;
 
             exit(json_encode($ret));
         }
@@ -649,7 +649,7 @@ $server_db_isLocal = strtolower($cfg['Server']['host']) == 'localhost'
 
 PMA_AddJSCode('pma_token = \'' . $_SESSION[' PMA_token '] . "';\n" .
               'url_query = \'' . str_replace('&amp;', '&', PMA_generate_common_url($db)) . "';\n" .
-              'server_time_diff = new Date().getTime() - ' . (microtime(true)*1000) . ";\n" .
+              'server_time_diff = new Date().getTime() - ' . (microtime(true) * 1000) . ";\n" .
               'server_os = \'' . PHP_OS . "';\n" .
               'is_superuser = ' . (PMA_isSuperuser() ? 'true' : 'false') . ";\n" .
               'server_db_isLocal = ' . ($server_db_isLocal ? 'true' : 'false') . ";\n" .
