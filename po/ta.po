@@ -1907,7 +1907,6 @@ msgid "February"
 msgstr "மாசி"
 
 #: js/messages.php:369
-#, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "பங்குனி"
