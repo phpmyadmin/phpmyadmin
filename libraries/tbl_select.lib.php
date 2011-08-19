@@ -11,15 +11,14 @@
 
 require_once 'url_generating.lib.php';
 
- /**
- * PMA_tbl_setTitle() sets the title for foreign keys display link
+/**
+ * Sets the title for foreign keys display link.
  *
- * @param    $propertiesIconic    Type of icon property
- * @param    $themeImage          Icon Image
- * @return   string $str          Value of the Title
+ * @param mixed  $propertiesIconic Type of icon property
+ * @param string $pmaThemeImage    Icon Image
  *
+ * @return string $str Value of the Title
  */
-
 function PMA_tbl_setTitle($propertiesIconic,$pmaThemeImage){
     if ($propertiesIconic == true) {
         $str = '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
@@ -35,26 +34,16 @@ function PMA_tbl_setTitle($propertiesIconic,$pmaThemeImage){
 	}
 }
 
- /**
- * PMA_tbl_getFields() gets all the fields of a table along with their types,collations and whether null or not.
+/**
+ * Gets all the fields of a table along with their types, collations
+ * and whether null or not.
  *
- * @uses     PMA_DBI_query()
- * @uses     PMA_backquote()
- * @uses     PMA_DBI_num_rows()
- * @uses     PMA_DBI_fetch_assoc()
- * @uses     PMA_DBI_free_result()
- * @uses     preg_replace()
- * @uses     str_replace()
- * @uses     strncasecmp()
- * @uses     empty()
+ * @param string $table Selected table
+ * @param string $db    Selected database
  *
- * @param    $db    								Selected database
- * @param    $table    								Selected table
- *
- * @return   array($fields_list,$fields_type,$fields_collation,$fields_null)    Array containing the field list, field types, collations and null constatint
- *
+ * @return array Array containing the field list, field types, collations
+ * and null constraint
  */
-
 function PMA_tbl_getFields($table,$db) {
 
     // Gets the list and number of fields
@@ -103,12 +92,13 @@ function PMA_tbl_getFields($table,$db) {
 
 }
 
-/* PMA_tbl_setTableHeader() sets the table header for displaying a table in query-by-example format
+/**
+ * Sets the table header for displaying a table in query-by-example format.
  *
- * @return   HTML content, the tags and content for table header
+ * @param bool $geom_column_present whether a geometry column is present
  *
+ * @return HTML content, the tags and content for table header
  */
-
 function PMA_tbl_setTableHeader($geom_column_present = false){
 
     // Display the Function column only if there is alteast one geomety colum
@@ -129,12 +119,13 @@ return '<thead>
 
 }
 
-/* PMA_tbl_getSubTabs() returns an array with necessary configrations to create sub-tabs(Table Search and Zoom Search) in the table_select page
+/**
+ * Returns an array with necessary configrations to create
+ * sub-tabs(Table Search and Zoom Search) in the table_select page.
  *
- * @return   array $subtabs    Array containing configuration (icon,text,link,id,args) of sub-tabs for Table Search and Zoom search
- *
+ * @return array Array containing configuration (icon, text, link, id, args)
+ * of sub-tabs for Table Search and Zoom search
  */
-
 function PMA_tbl_getSubTabs(){
 
     $subtabs = array();
@@ -154,34 +145,26 @@ function PMA_tbl_getSubTabs(){
 
 }
 
-
-/* PMA_tbl_getForeignFields_Values() creates the HTML content for: 1) Browsing foreign data for a field. 2) Creating elements for search criteria input on fields.
+/**
+ * Creates the HTML content for:
+ * 1) Browsing foreign data for a field.
+ * 2) Creating elements for search criteria input on fields.
  *
- * @uses     PMA_foreignDropdown
- * @uses     PMA_generate_common_url
- * @uses     isset()
- * @uses     is_array()
- * @uses     in_array()
- * @uses     urlencode()
- * @uses     str_replace()
- * @uses     stbstr()
+ * @param array  $foreigners      Array of foreign keys
+ * @param array  $foreignData     Foreign keys data
+ * @param string $field           Column name
+ * @param string $tbl_fields_type Column type
+ * @param int    $i               Column index
+ * @param string $db              Selected database
+ * @param string $table           Selected table
+ * @param array  $titles          Selected title
+ * @param int    $foreignMaxLimit Max limit of displaying foreign elements
+ * @param array  $fields          Array of search criteria inputs
+ * @param bool   $in_fbs          Whether we are in 'function based search'
  *
- * @param    $foreigners          Array of foreign keys
- * @param    $foreignData         Foreign keys data
- * @param    $field               Column name
- * @param    $tbl_fields_type     Column type
- * @param    $i                   Column index
- * @param    $db                  Selected database
- * @param    $table               Selected table
- * @param    $titles              Selected title
- * @param    $foreignMaxLimit     Max limit of displaying foreign elements
- * @param    $fields              Array of search criteria inputs
- * @param    $in_fbs              In function based search
- *
- * @return   string $str    HTML content for viewing foreing data and elements for search criteria input.
- *
+ * @return string HTML content for viewing foreing data and elements
+ * for search criteria input.
  */
-
 function PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fields_type, $i, $db, $table, $titles, $foreignMaxLimit, $fields, $in_fbs = false){
 
     $str = '';
@@ -272,29 +255,20 @@ EOT;
 }
 
 
-/* PMA_tbl_search_getWhereClause() Return the where clause for query generation based on the inputs provided.
+/**
+ * Return the where clause for query generation based on the inputs provided.
  *
- * @uses     PMA_backquote
- * @uses     PMA_sqlAddslashes
- * @uses     preg_match
- * @uses     isset()
- * @uses     in_array()
- * @uses     str_replace()
- * @uses     strpos()
- * @uses     explode()
- * @uses     trim()
+ * @param mixed  $fields     Search criteria input
+ * @param string $names      Name of the column on which search is submitted
+ * @param string $types      Type of the field
+ * @param string $collations Field collation
+ * @param string $func_type  Search fucntion/operator
+ * @param bool   $unaryFlag  Whether operator unary or not
+ * @param bool   $geom_func  Whether geometry functions should be applied
  *
- * @param    $fields        Search criteria input
- * @param    $names         Name of the field(column) on which search criteria is submitted
- * @param    $types         Type of the field
- * @param    $collations    Field collation
- * @param    $func_type     Search fucntion/operator
- * @param    $unaryFlag     Whether operator unary or not
- *
- * @return   string $str    HTML content for viewing foreing data and elements for search criteria input.
- *
+ * @return string HTML content for viewing foreing data and elements
+ * for search criteria input.
  */
-
 function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations, $func_type, $unaryFlag, $geom_func = null){
 
     /**
@@ -420,8 +394,8 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations, $fu
 /**
  * Formats a SVG plot for the query results.
  *
- * @param array  $data                   Data for the status chart
- * @param array  &$settings              Settings used to generate the chart
+ * @param array $data      Data for the status chart
+ * @param array &$settings Settings used to generate the chart
  *
  * @return string HTML and JS code for the SVG plot
  */
@@ -446,13 +420,4 @@ function PMA_SVG_scatter_plot($data, &$settings)
     }
 
 }
-
-
-
-
-
-
-
-
-
 ?>
