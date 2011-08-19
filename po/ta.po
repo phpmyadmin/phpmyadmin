@@ -632,7 +632,7 @@ msgstr "படியெடுத்தல்"
 
 #: db_structure.php:443
 msgid "Sum"
-msgstr ""
+msgstr "கூட்டுத்தொகை"
 
 #: db_structure.php:450 libraries/StorageEngine.class.php:313
 #, php-format
