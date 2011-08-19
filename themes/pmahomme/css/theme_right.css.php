@@ -3096,7 +3096,7 @@ canvas.pmd * {
     top: 50px;
     z-index: 3;
     border: #00CC66 solid 1px;
-    visibility: hidden;
+    display: none;
 }
 
 .scroll_tab {
