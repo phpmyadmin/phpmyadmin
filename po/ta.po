@@ -2452,7 +2452,7 @@ msgstr "கடவுச்சொல்"
 
 #: libraries/auth/cookie.auth.lib.php:229
 msgid "Server Choice"
-msgstr ""
+msgstr "சேவையன் தேர்வு"
 
 #: libraries/auth/cookie.auth.lib.php:275 libraries/header.inc.php:87
 msgid "Cookies must be enabled past this point."
