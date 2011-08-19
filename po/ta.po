@@ -10875,7 +10875,7 @@ msgstr ""
 
 #: tbl_tracking.php:434
 msgid "No data"
-msgstr ""
+msgstr "தரவு இல்லை"
 
 #: tbl_tracking.php:444 tbl_tracking.php:501
 msgid "Date"
