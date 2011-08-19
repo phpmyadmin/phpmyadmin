@@ -17,7 +17,6 @@ $script_contr     = get_script_contr();
 $tab_pos          = get_tab_pos();
 $tables_pk_or_unique_keys = get_pk_or_unique_keys();
 $tables_all_keys  = get_all_keys();
-$hidden           = "hidden";
 
 $params = array('lang' => $GLOBALS['lang']);
 if (isset($GLOBALS['db'])) {
@@ -120,7 +119,7 @@ echo $script_tabs . $script_contr . $script_display_field;
 <div id="osn_tab">
   <canvas class="pmd" id="canvas" width="100" height="100" onclick="Canvas_click(this)"></canvas>
 </div>
-<div id="layer_menu" style="visibility:<?php echo $hidden ?>;">
+<div id="layer_menu" style="visibility:hidden;">
 <div align="center" style="padding-top:5px;">
     <a href="javascript:Hide_tab_all(document.getElementById('key_HS_all'));"
         onmousedown="return false;" class="M_butt" target="_self">
@@ -328,9 +327,9 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 ?>
 </form>
 <div id="pmd_hint"></div>
-<div id='layer_action' style="visibility:<?php echo $hidden ?>;">Load...</div>
+<div id='layer_action' style="visibility:hidden;">Load...</div>
 
-<table id="layer_new_relation" style="visibility:<?php echo $hidden ?>;"
+<table id="layer_new_relation" style="visibility:hidden;"
     width="5%" border="0" cellpadding="0" cellspacing="0">
 <tbody>
 <tr>
@@ -432,7 +431,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 </tbody>
 </table>
 
-<table id="pmd_optionse" style="visibility:<?php echo $hidden ?>;"
+<table id="pmd_optionse" style="visibility:hidden;"
     width="5%" border="0" cellpadding="0" cellspacing="0">
 <tbody>
 <tr>
@@ -554,7 +553,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 </tbody>
 </table>
 
-<table id="query_rename_to" style="visibility:<?php echo $hidden ?>;"
+<table id="query_rename_to" style="visibility:hidden;"
     width="5%" border="0" cellpadding="0" cellspacing="0">
 <tbody>
 <tr>
@@ -602,7 +601,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 </tbody>
 </table>
 
-<table id="query_having" style="visibility:<?php echo $hidden ?>;"
+<table id="query_having" style="visibility:hidden;"
     width="5%" border="0" cellpadding="0" cellspacing="0">
 <tbody>
     <tr>
@@ -678,7 +677,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 </tbody>
 </table>
 
-<table id="query_Aggregate" style="visibility:<?php echo $hidden ?>;"
+<table id="query_Aggregate" style="visibility:hidden;"
     width="5%" border="0" cellpadding="0" cellspacing="0">
 <tbody>
 <tr>
@@ -732,7 +731,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 </tbody>
 </table>
 
-<table id="query_where" style="visibility:<?php echo $hidden ?>;"
+<table id="query_where" style="visibility:hidden;"
     width="5%" border="0" cellpadding="0" cellspacing="0">
 <tbody>
     <tr>
