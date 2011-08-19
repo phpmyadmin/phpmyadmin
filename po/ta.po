@@ -2843,7 +2843,7 @@ msgstr "SQL"
 #: libraries/common.lib.php:3116 libraries/sql_query_form.lib.php:284
 #: libraries/sql_query_form.lib.php:287 libraries/tbl_links.inc.php:74
 msgid "Insert"
-msgstr ""
+msgstr "செருகு"
 
 #: libraries/common.lib.php:2929 libraries/db_links.inc.php:86
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:114
