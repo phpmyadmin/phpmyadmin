@@ -2560,7 +2560,7 @@ msgstr "அட்டவணைகள்"
 #: server_privileges.php:601 server_replication.php:314 tbl_printview.php:281
 #: tbl_structure.php:767
 msgid "Data"
-msgstr ""
+msgstr "தரவு"
 
 #: libraries/build_html_for_db.lib.php:51 libraries/db_structure.lib.php:55
 #: tbl_printview.php:300 tbl_structure.php:784
