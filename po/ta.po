@@ -10951,7 +10951,7 @@ msgstr ""
 
 #: tbl_tracking.php:731
 msgid "Create version"
-msgstr ""
+msgstr "பதிப்பை உருவாக்கு"
 
 #: tbl_zoom_select.php:140
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
