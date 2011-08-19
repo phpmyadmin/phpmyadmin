@@ -2140,7 +2140,7 @@ msgstr "கிழமை"
 
 #: js/messages.php:449
 msgid "Hour"
-msgstr ""
+msgstr "மணித்தியாலம்"
 
 #: js/messages.php:450
 msgid "Minute"
