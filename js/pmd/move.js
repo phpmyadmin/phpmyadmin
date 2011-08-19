@@ -868,11 +868,6 @@ function No_have_constr(id_this)
     }
 }
 
-function Help()
-{
-    var WinHelp = window.open("pmd_help.php", "wind1", "top=200,left=400,width=300,height=200,resizable=yes,scrollbars=yes,menubar=no");
-}
-
 function PDF_save()
 {
     // var WinPDF =
