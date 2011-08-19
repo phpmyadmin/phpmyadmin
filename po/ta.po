@@ -2914,7 +2914,7 @@ msgstr "தரவு"
 #: libraries/export/latex.php:42 libraries/export/odt.php:34
 #: libraries/export/sql.php:131 libraries/export/texytext.php:24
 msgid "structure and data"
-msgstr ""
+msgstr "கட்டமைப்பும் தரவும்"
 
 #: libraries/config.values.php:100
 msgid "Quick - display only the minimal options to configure"
