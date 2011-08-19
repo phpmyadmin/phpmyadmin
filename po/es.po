@@ -12402,10 +12402,9 @@ msgstr ""
 "hora."
 
 #: po/advisory_rules.php:115
-#, fuzzy
 #| msgid "Start row"
 msgid "Sort rows"
-msgstr "Fila de inicio"
+msgstr "Filas ordenadas"
 
 #: po/advisory_rules.php:116
 msgid "There are lots of rows being sorted."
