@@ -2074,7 +2074,7 @@ msgstr "செவ்"
 #. l10n: Short week day name
 #: js/messages.php:423 libraries/common.lib.php:1540
 msgid "Wed"
-msgstr "புதன்"
+msgstr "புத"
 
 #. l10n: Short week day name
 #: js/messages.php:425 libraries/common.lib.php:1542
