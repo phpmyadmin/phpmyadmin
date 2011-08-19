@@ -170,7 +170,7 @@ $js_messages['strJumpToTable'] = __('Jump to Log table');
 $js_messages['strNoDataFound'] = __('Log analysed, but no data found in this time span.');
 
 /* l10n: A collection of available filters */
-$js_messages['strFilters'] = __('Filters');
+$js_messages['strFiltersForLogTable'] = __('Log table filter options');
 /* l10n: Filter as in "Start Filtering" */
 $js_messages['strFilter'] = __('Filter');
 $js_messages['strFilterByWordRegexp'] = __('Filter queries by word/regexp:');
