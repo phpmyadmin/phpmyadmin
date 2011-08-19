@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 19:46+0200\n"
+"PO-Revision-Date: 2011-08-19 19:49+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -817,7 +817,8 @@ msgstr "Çıktı"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr "\"Genişlik/Değerler\" alanına katılan değerleri kopyala ve yapıştır"
+msgstr ""
+"\"Genişlik/Değerler\" alanında birleştirilen değerleri kopyala ve yapıştır"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
