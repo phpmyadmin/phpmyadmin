@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 08:58+0200\n"
+"PO-Revision-Date: 2011-08-19 08:59+0200\n"
 "Last-Translator:  <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -2684,7 +2684,7 @@ msgstr "SQL வினவல்"
 #: libraries/rte/rte_triggers.lib.php:91
 #: libraries/rte/rte_triggers.lib.php:104
 msgid "MySQL said: "
-msgstr ""
+msgstr "MySQL சொன்னது"
 
 #: libraries/common.lib.php:1050
 msgid "Failed to connect to SQL validator!"
