@@ -2144,7 +2144,7 @@ msgstr "மணித்தியாலம்"
 
 #: js/messages.php:450
 msgid "Minute"
-msgstr ""
+msgstr "நிமிடம்"
 
 #: js/messages.php:451
 msgid "Second"
