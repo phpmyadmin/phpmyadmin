@@ -16,9 +16,9 @@ require_once './libraries/common.inc.php';
 
 $GLOBALS['js_include'][] = 'server_variables.js';
 
-PMA_AddJSCode('pma_token = \'' . $_SESSION[' PMA_token '] . "';\n" .
-              'is_superuser = ' . (PMA_isSuperuser() ? 'true' : 'false') . ";\n" .
-              'url_query = \'' . str_replace('&amp;', '&', PMA_generate_common_url($db)) . "';\n");
+PMA_AddJSVar('pma_token', $_SESSION[' PMA_token ']);
+PMA_AddJSVar('url_query', str_replace('&amp;', '&', PMA_generate_common_url($db)));
+PMA_AddJSVar('is_superuser', PMA_isSuperuser() ? true : false);
 
 
 /**
