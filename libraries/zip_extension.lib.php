@@ -7,13 +7,14 @@
  */
 
 /**
-  * Gets zip file contents
-  *
-  * @param string $specific_entry regular expression to match a file
-  * @return  array  ($error_message, $file_data); $error_message
-  *                  is empty if no error
-  */
-
+ * Gets zip file contents
+ *
+ * @param string $file           zip file
+ * @param string $specific_entry regular expression to match a file
+ *
+ * @return array ($error_message, $file_data); $error_message
+ *                  is empty if no error
+ */
 function PMA_getZipContents($file, $specific_entry = null)
 {
     $error_message = '';
@@ -77,6 +78,8 @@ function PMA_getZipContents($file, $specific_entry = null)
  *
  * @param string $file_regexp regular expression for the file name to match
  * @param string $file        zip archive
+ *
+ * @return string the file name of the first file that matches the given regexp
  */
 function PMA_findFileFromZipArchive ($file_regexp, $file)
 {
@@ -100,7 +103,9 @@ function PMA_findFileFromZipArchive ($file_regexp, $file)
 /**
  * Returns the number of files in the zip archive.
  *
- * @param string $file
+ * @param string $file zip archive
+ *
+ * @return int the number of files in the zip archive
  */
 function PMA_getNoOfFilesInZip($file)
 {
@@ -121,11 +126,14 @@ function PMA_getNoOfFilesInZip($file)
 /**
  * Extracts a set of files from the given zip archive to a given destinations.
  *
- * @param string $zip_path
- * @param string $destination
- * @param array  $entries
+ * @param string $zip_path    path to the zip archive
+ * @param string $destination destination to extract files
+ * @param array  $entries     files in archive that should be extracted
+ *
+ * @return bool true on sucess, false otherwise
  */
-function PMA_zipExtract($zip_path, $destination, $entries) {
+function PMA_zipExtract($zip_path, $destination, $entries)
+{
     $zip = new ZipArchive;
     if ($zip->open($zip_path) === true) {
         $zip->extractTo($destination, $entries);
@@ -138,8 +146,9 @@ function PMA_zipExtract($zip_path, $destination, $entries) {
 /**
   * Gets zip error message
   *
-  * @param integer  error code
-  * @return  string  error message
+  * @param integer $code error code
+  *
+  * @return string error message
  */
 function PMA_getZipError($code)
 {
