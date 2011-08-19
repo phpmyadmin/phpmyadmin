@@ -2789,7 +2789,7 @@ msgstr "ஆரம்பம்"
 #: server_binlog.php:137
 msgctxt "Previous page"
 msgid "Previous"
-msgstr ""
+msgstr "முந்தைய"
 
 #: libraries/common.lib.php:2324 libraries/common.lib.php:2327
 #: libraries/display_tbl.lib.php:370 server_binlog.php:170
