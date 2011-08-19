@@ -1114,7 +1114,7 @@ msgstr "மூடு"
 #: libraries/config/messages.inc.php:478 libraries/display_tbl.lib.php:1326
 #: libraries/schema/User_Schema.class.php:185 setup/frames/index.inc.php:138
 msgid "Edit"
-msgstr ""
+msgstr "தொகு"
 
 #: js/messages.php:65 server_status.php:705
 msgid "Live traffic chart"
