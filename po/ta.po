@@ -2059,7 +2059,7 @@ msgstr "சனி"
 #| msgctxt "Short week day name"
 #| msgid "Sun"
 msgid "Sun"
-msgstr "ஞாயிறு"
+msgstr "ஞாயி"
 
 #. l10n: Short week day name
 #: js/messages.php:419 libraries/common.lib.php:1536
