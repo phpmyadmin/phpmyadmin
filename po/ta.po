@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 08:55+0200\n"
+"PO-Revision-Date: 2011-08-19 08:56+0200\n"
 "Last-Translator:  <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -2623,7 +2623,7 @@ msgstr ""
 #: libraries/header.inc.php:136 main.php:161 server_status.php:686
 #: server_synchronize.php:1228
 msgid "Server"
-msgstr ""
+msgstr "சேவையன்"
 
 #: libraries/common.inc.php:835
 msgid "Invalid authentication method set in configuration:"
