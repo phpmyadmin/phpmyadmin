@@ -509,7 +509,7 @@ class PMA_User_Schema
                 if (isset($with_field_names)) {
                     $fields = PMA_DBI_get_columns($db, $temp_sh_page['table_name']);
                     foreach ($fields as $row) {
-                           echo '<br />' . htmlspecialchars($row['Field']) . "\n";
+                       echo '<br />' . htmlspecialchars($row['Field']) . "\n";
                     }
                 }
                 echo '</div>' . "\n";
