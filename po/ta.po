@@ -2871,7 +2871,7 @@ msgstr ""
 
 #: libraries/common.lib.php:3126 libraries/common.lib.php:3127
 msgid "Execute"
-msgstr ""
+msgstr "நிறைவேற்று"
 
 #: libraries/config.values.php:45 libraries/config.values.php:47
 #: libraries/config.values.php:51
