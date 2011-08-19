@@ -10740,7 +10740,7 @@ msgstr ""
 #: tbl_structure.php:358
 msgctxt "None for default"
 msgid "None"
-msgstr ""
+msgstr "ஒன்றுமில்லாத"
 
 #: tbl_structure.php:371
 #, php-format
