@@ -1111,7 +1111,7 @@ function PMA_unInlineEditRow($del_hide, $chg_submit, $this_td, $input_siblings, 
                     }
                 }
             }
-            $this_sibling.html(new_html);
+            $this_sibling.text(new_html);
         }
     })
 }
