@@ -3157,11 +3157,18 @@ function PMA_getCellValue(td) {
         return '';
     } else if (! $(td).is('.to_be_saved') && $(td).data('original_data')) {
         return $(td).data('original_data');
-    } else if ($(td).is(':not(.transformed, .relation, .enum, .set, .null)')) {
-        return unescape($(td).find('span').html()).replace(/<br>/g, "\n");
     } else {
         return $(td).text();
     }
+}
+
+function PMA_htmlEncode(s)
+{
+    var el = document.createElement("div");
+    el.innerText = el.textContent = s;
+    s = el.innerHTML;
+    delete el;
+    return s;
 }
 
 /* Loads a js file, an array may be passed as well */
