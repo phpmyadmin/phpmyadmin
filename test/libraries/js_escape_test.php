@@ -11,7 +11,7 @@
  */
 require_once 'libraries/js_escape.lib.php';
 
-class PMA_File_test extends PHPUnit_Framework_TestCase
+class PMA_JS_Escape_test extends PHPUnit_Framework_TestCase
 {
     /**
      * @dataProvider variables
