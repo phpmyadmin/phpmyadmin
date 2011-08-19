@@ -62,8 +62,11 @@ class zipfile
      *   "echo $zipfile;" command
      *
      * @access public
+     *
+     * @return nothing
      */
-    function setDoWrite() {
+    function setDoWrite()
+    {
         $this -> doWrite = true;
     } // end of the 'setDoWrite()' method
 
@@ -71,13 +74,14 @@ class zipfile
      * Converts an Unix timestamp to a four byte DOS date and time format (date
      * in high two bytes, time in low two bytes allowing magnitude comparison).
      *
-     * @param integer  the current Unix timestamp
+     * @param integer $unixtime the current Unix timestamp
      *
-     * @return integer  the current date in a four byte DOS format
+     * @return integer the current date in a four byte DOS format
      *
      * @access private
      */
-    function unix2DosTime($unixtime = 0) {
+    function unix2DosTime($unixtime = 0)
+    {
         $timearray = ($unixtime == 0) ? getdate() : getdate($unixtime);
 
         if ($timearray['year'] < 1980) {
@@ -97,17 +101,19 @@ class zipfile
     /**
      * Adds "file" to archive
      *
-     * @param string   file contents
-     * @param string   name of the file in the archive (may contains the path)
-     * @param integer  the current timestamp
+     * @param string  $data file contents
+     * @param string  $name name of the file in the archive (may contains the path)
+     * @param integer $time the current timestamp
      *
      * @access public
+     *
+     * @return nothing
      */
     function addFile($data, $name, $time = 0)
     {
         $name     = str_replace('\\', '/', $name);
 
-        $dtime    = substr( "00000000" . dechex($this->unix2DosTime($time)), -8);
+        $dtime    = substr("00000000" . dechex($this->unix2DosTime($time)), -8);
         $hexdtime = '\x' . $dtime[6] . $dtime[7]
                   . '\x' . $dtime[4] . $dtime[5]
                   . '\x' . $dtime[2] . $dtime[3]

@@ -111,7 +111,7 @@ rule 'Distribution'
 
 rule 'MySQL Architecture'
 	system_memory
-	value > 3072*1024 && !preg_match('/64/',version_compile_machine)
+	value > 3072*1024 && !preg_match('/64/',version_compile_machine) && !preg_match('/64/',version_compile_os)
 	MySQL is not compiled as a 64-bit package.
 	Your memory capacity is above 3 GiB (assuming the Server is on localhost), so MySQL might not be able to access all of your memory. You might want to consider installing the 64-bit version of MySQL.
 	Available memory on this host: %s | implode(' ',PMA_formatByteDown(value*1024, 2, 2))
