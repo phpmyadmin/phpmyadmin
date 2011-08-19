@@ -2892,7 +2892,7 @@ msgstr "வலது"
 
 #: libraries/config.values.php:75
 msgid "Open"
-msgstr ""
+msgstr "திற"
 
 #: libraries/config.values.php:75
 msgid "Closed"
