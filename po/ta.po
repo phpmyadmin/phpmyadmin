@@ -10640,7 +10640,7 @@ msgstr ""
 
 #: tbl_printview.php:278 tbl_structure.php:762
 msgid "Usage"
-msgstr ""
+msgstr "பாவனையளவு"
 
 #: tbl_printview.php:305 tbl_structure.php:789
 msgid "Effective"
