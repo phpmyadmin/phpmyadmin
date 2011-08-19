@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 23:31+0200\n"
+"PO-Revision-Date: 2011-08-19 23:35+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -7956,7 +7956,7 @@ msgid ""
 "escaping or quotes, using this format: a"
 msgstr ""
 "Varsayılan değerler için lütfen sola eğik çizgisiz veya alıntısız sadece tek "
-"değer girin. Bu biçimi kullanın: a"
+"değer girin, bu biçimi kullanarak: a"
 
 #: libraries/tbl_properties.inc.php:119 libraries/tbl_properties.inc.php:494
 #: tbl_printview.php:290 tbl_structure.php:154 tbl_structure.php:159
