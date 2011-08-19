@@ -12535,6 +12535,8 @@ msgstr ""
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr ""
+"Tasa de lectura de la siguiente fila de una tabla: %s, este valor debería de "
+"ser menor a 1 por hora"
 
 #: po/advisory_rules.php:140
 msgid "tmp_table_size vs. max_heap_table_size"
