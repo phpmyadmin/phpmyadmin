@@ -2896,7 +2896,7 @@ msgstr "திற"
 
 #: libraries/config.values.php:75
 msgid "Closed"
-msgstr ""
+msgstr "மூடப்பட்டது"
 
 #: libraries/config.values.php:96 libraries/export/htmlword.php:25
 #: libraries/export/latex.php:42 libraries/export/odt.php:34
