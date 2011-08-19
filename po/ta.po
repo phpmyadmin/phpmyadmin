@@ -1848,7 +1848,7 @@ msgstr "கடவுச்சொல்லை இயற்று"
 
 #: js/messages.php:323 libraries/replication_gui.lib.php:369
 msgid "Generate"
-msgstr ""
+msgstr "இயற்று"
 
 #: js/messages.php:324
 msgid "Change Password"
