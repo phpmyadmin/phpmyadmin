@@ -1606,7 +1606,7 @@ msgstr ""
 #: pmd_general.php:543 pmd_general.php:591 pmd_general.php:667
 #: pmd_general.php:721 pmd_general.php:784
 msgid "OK"
-msgstr ""
+msgstr "சரி"
 
 #: js/messages.php:219
 msgid "Renaming Databases"
