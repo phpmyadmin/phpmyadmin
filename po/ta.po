@@ -1840,7 +1840,7 @@ msgstr ""
 
 #: js/messages.php:319
 msgid "Go to link"
-msgstr ""
+msgstr "இணைப்புக்கு செல்"
 
 #: js/messages.php:322
 msgid "Generate password"
