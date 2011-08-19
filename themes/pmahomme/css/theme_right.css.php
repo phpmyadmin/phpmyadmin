@@ -1462,7 +1462,7 @@ div#queryAnalyzerDialog div.CodeMirror-scroll {
 }
 
 div#queryAnalyzerDialog div#queryProfiling {
-	height: 250px;
+    height: 250px;
 }
 
 div#queryAnalyzerDialog td.explain {
@@ -1470,9 +1470,9 @@ div#queryAnalyzerDialog td.explain {
 }
 
 div#queryAnalyzerDialog table.queryNums {
-	display: none;
-	border:0;
-	text-align:left;
+    display: none;
+    border:0;
+    text-align:left;
 }
 
 .smallIndent {
