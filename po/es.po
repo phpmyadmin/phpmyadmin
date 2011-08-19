@@ -12428,10 +12428,9 @@ msgid "Sorted rows average: %s"
 msgstr "Promedio de filas ordenadas: %s"
 
 #: po/advisory_rules.php:120
-#, fuzzy
 #| msgid "There are no routines to display."
 msgid "Rate of joins without indexes"
-msgstr "No hay rutinas para mostrar."
+msgstr "Tasa de uniones («JOIN») sin índices"
 
 #: po/advisory_rules.php:121
 #, fuzzy
