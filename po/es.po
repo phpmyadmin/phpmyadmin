@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 21:39+0200\n"
+"PO-Revision-Date: 2011-08-19 21:40+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -12711,6 +12711,7 @@ msgstr "Porcentaje de índices leídos desde memoria"
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgstr ""
+"El porcentaje de índices que utilizan el búfer de claves MyISAM es bajo."
 
 #: po/advisory_rules.php:172
 msgid "You may need to increase {key_buffer_size}."
