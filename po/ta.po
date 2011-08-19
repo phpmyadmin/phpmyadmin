@@ -10656,7 +10656,7 @@ msgstr ""
 
 #: tbl_printview.php:346 tbl_structure.php:841
 msgid "dynamic"
-msgstr ""
+msgstr "இறக்காற்றல்"
 
 #: tbl_printview.php:368 tbl_structure.php:884
 msgid "Row length"
