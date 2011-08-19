@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 08:49+0200\n"
+"PO-Revision-Date: 2011-08-19 08:50+0200\n"
 "Last-Translator:  <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -2400,7 +2400,7 @@ msgstr ""
 #: libraries/auth/cookie.auth.lib.php:174 libraries/auth/http.auth.lib.php:64
 #, php-format
 msgid "Welcome to %s"
-msgstr ""
+msgstr "வரவேற்கிறது %s"
 
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
