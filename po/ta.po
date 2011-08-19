@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 09:13+0200\n"
+"PO-Revision-Date: 2011-08-19 09:14+0200\n"
 "Last-Translator:  <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -10977,7 +10977,7 @@ msgstr ""
 
 #: tbl_zoom_select.php:394
 msgid "How to use"
-msgstr ""
+msgstr "எப்படி பயன்படுத்துவது"
 
 #: themes.php:28
 msgid "Get more themes!"
