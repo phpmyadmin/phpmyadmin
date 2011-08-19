@@ -12233,9 +12233,9 @@ msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "fields being used in the join conditions will greatly speed up table joins"
 msgstr ""
-"Bu, katılımlar tam tablo taraması yapıyor anlamına gelir. Katılım "
+"Bu, birleştirmeler tam tablo taraması yapıyor anlamına gelir. Birleştirme "
 "şartlarında kullanılan alanlar için indekslerin eklenmesi tablo "
-"katılımlarını fazlasıyla hızlandıracaktır."
+"birleştirmelerini fazlasıyla hızlandıracaktır."
 
 #: po/advisory_rules.php:123
 #, php-format
