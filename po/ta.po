@@ -1890,7 +1890,7 @@ msgstr "பின்"
 #: js/messages.php:361
 msgctxt "Next month"
 msgid "Next"
-msgstr ""
+msgstr "அடுத்த"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:364
