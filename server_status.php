@@ -15,8 +15,9 @@ if (! defined('PMA_NO_VARIABLES_IMPORT')) {
     define('PMA_NO_VARIABLES_IMPORT', true);
 }
 
-if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true)
+if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     $GLOBALS['is_header_sent'] = true;
+}
 
 require_once './libraries/common.inc.php';
 
@@ -104,13 +105,15 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                          * Also do some white list filtering on the names
                         */
                         case 'servervar':
-                            if (!preg_match('/[^a-zA-Z_]+/', $pName))
+                            if (!preg_match('/[^a-zA-Z_]+/', $pName)) {
                                 $serverVars[] = $pName;
+                            }
                             break;
 
                         case 'statusvar':
-                            if (!preg_match('/[^a-zA-Z_]+/', $pName))
+                            if (!preg_match('/[^a-zA-Z_]+/', $pName)) {
                                 $statusVars[] = $pName;
+                            }
                             break;
 
                         case 'proc':
@@ -123,8 +126,9 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                                 require_once('libraries/sysinfo.lib.php');
                                 $sysinfo = getSysInfo();
                             }
-                            if (!$cpuload)
+                            if (!$cpuload) {
                                 $cpuload = $sysinfo->loadavg();
+                            }
 
                             if (PHP_OS == 'Linux') {
                                 $ret[$chart_id][$node_id][$point_id]['idle'] = $cpuload['idle'];
@@ -139,8 +143,9 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                                 require_once('libraries/sysinfo.lib.php');
                                 $sysinfo = getSysInfo();
                             }
-                            if (!$memory)
+                            if (!$memory) {
                                 $memory  = $sysinfo->memory();
+                            }
 
                             $ret[$chart_id][$node_id][$point_id]['value'] = $memory[$pName];
                             break;
@@ -190,7 +195,10 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     }
 
     if (isset($_REQUEST['log_data'])) {
-        if(PMA_MYSQL_INT_VERSION < 50106) exit('""');
+        if (PMA_MYSQL_INT_VERSION < 50106) {
+            /* FIXME: why this? */
+            exit('""');
+        }
 
         $start = intval($_REQUEST['time_start']);
         $end = intval($_REQUEST['time_end']);
@@ -224,7 +232,9 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                     break;
                 }
 
-                if(!isset($return['sum'][$type])) $return['sum'][$type] = 0;
+                if (!isset($return['sum'][$type])) {
+                    $return['sum'][$type] = 0;
+                }
                 $return['sum'][$type] += $row['#'];
                 $return['rows'][] = $row;
             }
@@ -237,7 +247,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             exit(json_encode($return));
         }
 
-        if($_REQUEST['type'] == 'general') {
+        if ($_REQUEST['type'] == 'general') {
             $limitTypes = (isset($_REQUEST['limitTypes']) && $_REQUEST['limitTypes'])
                             ? 'AND argument REGEXP \'^(INSERT|SELECT|UPDATE|DELETE)\' ' : '';
 
@@ -259,20 +269,23 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 preg_match('/^(\w+)\s/', $row['argument'], $match);
                 $type = strtolower($match[1]);
 
-                if(!isset($return['sum'][$type])) $return['sum'][$type] = 0;
+                if (!isset($return['sum'][$type])) {
+                    $return['sum'][$type] = 0;
+                }
                 $return['sum'][$type] += $row['#'];
 
                 switch($type) {
                 case 'insert':
                     // Group inserts if selected
-                    if($removeVars && preg_match('/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i', $row['argument'], $matches)) {
+                    if ($removeVars && preg_match('/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i', $row['argument'], $matches)) {
                         $insertTables[$matches[2]]++;
                         if ($insertTables[$matches[2]] > 1) {
                             $return['rows'][$insertTablesFirst]['#'] = $insertTables[$matches[2]];
 
                             // Add a ... to the end of this query to indicate that there's been other queries
-                            if($return['rows'][$insertTablesFirst]['argument'][strlen($return['rows'][$insertTablesFirst]['argument'])-1] != '.')
+                            if ($return['rows'][$insertTablesFirst]['argument'][strlen($return['rows'][$insertTablesFirst]['argument'])-1] != '.') {
                                 $return['rows'][$insertTablesFirst]['argument'] .= '<br/>...';
+                            }
 
                             // Group this value, thus do not add to the result list
                             continue 2;
@@ -285,7 +298,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
                 case 'update':
                     // Cut off big inserts and updates, but append byte count therefor
-                    if(strlen($row['argument']) > 220) {
+                    if (strlen($row['argument']) > 220) {
                         $row['argument'] = substr($row['argument'], 0, 200)
                             . '... ['
                             .  implode(' ', PMA_formatByteDown(strlen($row['argument'])), 2, 2)
@@ -310,12 +323,15 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     }
 
     if (isset($_REQUEST['logging_vars'])) {
-        if(isset($_REQUEST['varName']) && isset($_REQUEST['varValue'])) {
+        if (isset($_REQUEST['varName']) && isset($_REQUEST['varValue'])) {
             $value = PMA_sqlAddslashes($_REQUEST['varValue']);
-            if(!is_numeric($value)) $value="'" . $value . "'";
+            if (!is_numeric($value)) {
+                $value="'" . $value . "'";
+            }
 
-            if(! preg_match("/[^a-zA-Z0-9_]+/", $_REQUEST['varName']))
+            if (! preg_match("/[^a-zA-Z0-9_]+/", $_REQUEST['varName'])) {
                 PMA_DBI_query('SET GLOBAL ' . $_REQUEST['varName'] . ' = ' . $value);
+            }
 
         }
 
@@ -323,14 +339,16 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
         exit(json_encode($loggingVars));
     }
 
-    if(isset($_REQUEST['query_analyzer'])) {
+    if (isset($_REQUEST['query_analyzer'])) {
         $return = array();
 
-        if(strlen($_REQUEST['database']))
+        if (strlen($_REQUEST['database'])) {
             PMA_DBI_select_db($_REQUEST['database']);
+        }
 
-        if ($profiling = PMA_profilingSupported())
+        if ($profiling = PMA_profilingSupported()) {
             PMA_DBI_query('SET PROFILING=1;');
+        }
 
         // Do not cache query
         $query = preg_replace('/^(\s*SELECT)/i', '\\1 SQL_NO_CACHE', $_REQUEST['query']);
@@ -348,7 +366,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
         PMA_DBI_free_result($result);
 
-        if($profiling) {
+        if ($profiling) {
             $return['profiling'] = array();
             $result = PMA_DBI_try_query('SELECT seq,state,duration FROM INFORMATION_SCHEMA.PROFILING WHERE QUERY_ID=1 ORDER BY seq');
             while ($row = PMA_DBI_fetch_assoc($result)) {
@@ -360,7 +378,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
         exit(json_encode($return));
     }
 
-    if(isset($_REQUEST['advisor'])) {
+    if (isset($_REQUEST['advisor'])) {
         include('libraries/Advisor.class.php');
         $advisor = new Advisor();
         exit(json_encode($advisor->run()));
@@ -610,7 +628,9 @@ foreach ($server_status as $name => $value) {
     foreach ($allocations as $filter => $section) {
         if (strpos($name, $filter) !== false) {
             $allocationMap[$name] = $section;
-            if ($section == 'com' && $value > 0) $used_queries[$name] = $value;
+            if ($section == 'com' && $value > 0) {
+                $used_queries[$name] = $value;
+            }
             break; // Only exits inner loop
         }
     }
@@ -776,7 +796,9 @@ echo __('Runtime Information');
                     echo '<span class="status_' . $section_name . '"> ';
                     $i=0;
                     foreach ($section_links as $link_name => $link_url) {
-                        if ($i > 0) echo ', ';
+                        if ($i > 0) {
+                            echo ', ';
+                        }
                         if ('doc' == $link_name) {
                             echo PMA_showMySQLDocu($link_url, $link_url);
                         } else {
@@ -898,9 +920,11 @@ function printQueryStatistics()
         $name = str_replace(array('Com_', '_'), array('', ' '), $name);
 
         // Group together values that make out less than 2% into "Other", but only if we have more than 6 fractions already
-        if ($value < $query_sum * 0.02 && count($chart_json)>6)
+        if ($value < $query_sum * 0.02 && count($chart_json)>6) {
             $other_sum += $value;
-        else $chart_json[$name] = $value;
+        } else {
+            $chart_json[$name] = $value;
+        }
     ?>
             <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
                 <th class="name"><?php echo htmlspecialchars($name); ?></th>
@@ -919,8 +943,9 @@ function printQueryStatistics()
         <div id="serverstatusquerieschart">
             <span style="display:none;">
         <?php
-            if ($other_sum > 0)
+            if ($other_sum > 0) {
                 $chart_json[__('Other')] = $other_sum;
+            }
 
             echo json_encode($chart_json);
         ?>
@@ -975,8 +1000,7 @@ function printServerTraffic()
     }
 
     /* if the server works as master or slave in replication process, display useful information */
-    if ($server_master_status || $server_slave_status)
-    {
+    if ($server_master_status || $server_slave_status) {
     ?>
       <hr class="clearfloat" />
 
@@ -1125,7 +1149,8 @@ function printServerTraffic()
         <th><?php echo __('Status'); ?></th>
         <th><?php
             echo __('SQL query');
-            if (! PMA_DRIZZLE) { ?>
+            if (! PMA_DRIZZLE) {
+                ?>
                 <a href="<?php echo $full_text_link; ?>"
                     title="<?php echo empty($full) ? __('Show Full Queries') : __('Truncate Shown Queries'); ?>">
                     <img src="<?php echo $GLOBALS['pmaThemeImage'] . 's_' . (empty($_REQUEST['full']) ? 'full' : 'partial'); ?>text.png"
@@ -1492,7 +1517,7 @@ function printMonitor()
 
     <div id="monitorInstructionsDialog" title="<?php echo __('Monitor Instructions'); ?>" style="display:none;">
         <?php echo __('The phpMyAdmin Monitor can assist you in optimizing the server configuration and track down time intensive queries. For the latter you will need to set log_output to \'TABLE\' and have either the slow_query_log or general_log enabled. Note however, that the general_log produces a lot of data and increases server load by up to 15%'); ?>
-    <?php if(PMA_MYSQL_INT_VERSION < 50106) { ?>
+    <?php if (PMA_MYSQL_INT_VERSION < 50106) { ?>
         <p>
         <img class="icon ic_s_attention" src="themes/dot.gif" alt="" />
         <?php
@@ -1634,7 +1659,9 @@ function printMonitor()
             $i=0;
             foreach ($server_status as $name=>$value) {
                 if (is_numeric($value)) {
-                    if ($i++ > 0) echo ", ";
+                    if ($i++ > 0) {
+                        echo ", ";
+                    }
                     echo "'" . $name . "'";
                 }
             }
@@ -1652,10 +1679,11 @@ function refreshList($name, $defaultRate=5, $refreshRates=Array(1, 2, 5, 10, 20,
             foreach ($refreshRates as $rate) {
                 $selected = ($rate == $defaultRate)?' selected="selected"':'';
 
-                if ($rate<60)
+                if ($rate<60) {
                     echo '<option value="' . $rate . '"' . $selected . '>' . sprintf(_ngettext('%d second', '%d seconds', $rate), $rate) . '</option>';
-                else
+                } else {
                     echo '<option value="' . $rate . '"' . $selected . '>' . sprintf(_ngettext('%d minute', '%d minutes', $rate/60), $rate/60) . '</option>';
+                }
             }
         ?>
     </select>
