@@ -12385,6 +12385,8 @@ msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr ""
+"%s%% de todas las ordenaciones causan tablas temporales, este valor debería "
+"de ser menor a 10%%."
 
 #: po/advisory_rules.php:110
 #, fuzzy
