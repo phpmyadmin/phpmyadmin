@@ -95,7 +95,6 @@ function PMA_tbl_getFields($table,$db)
     unset($result, $type);
 
     return array($fields_list, $fields_type, $fields_collation, $fields_null, $geom_column_present);
-
 }
 
 /**
@@ -167,24 +166,23 @@ function PMA_tbl_getSubTabs()
  * @return string HTML content for viewing foreing data and elements
  * for search criteria input.
  */
-function PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fields_type, $i, $db, $table, $titles, $foreignMaxLimit, $fields, $in_fbs = false){
-
+function PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fields_type, $i, $db, $table, $titles, $foreignMaxLimit, $fields, $in_fbs = false)
+{
     $str = '';
-
     if ($foreigners && isset($foreigners[$field]) && is_array($foreignData['disp_row'])) {
         // f o r e i g n    k e y s
-        $str .=  '            <select name="fields[' . $i . ']" id="fieldID_' . $i .'">' . "\n";
+        $str .=  '<select name="fields[' . $i . ']" id="fieldID_' . $i .'">' . "\n";
         // go back to first row
         // here, the 4th parameter is empty because there is no current
         // value of data for the dropdown (the search page initial values
         // are displayed empty)
-        $str .= PMA_foreignDropdown($foreignData['disp_row'],
-                $foreignData['foreign_field'],
-                $foreignData['foreign_display'],
-                '', $foreignMaxLimit);
-        $str .= '            </select>' . "\n";
-    }
-    elseif ($foreignData['foreign_link'] == true) {
+        $str .= PMA_foreignDropdown(
+            $foreignData['disp_row'], $foreignData['foreign_field'],
+            $foreignData['foreign_display'], '', $foreignMaxLimit
+        );
+        $str .= '</select>' . "\n";
+
+    } elseif ($foreignData['foreign_link'] == true) {
         if(isset($fields[$i]) && is_string($fields[$i])){
          $str .= '<input type="text" id="fieldID_' . $i .'"name="fields[' . $i . '] " value="' . $fields[$i] . '"';
              'id="field_' . md5($field) . '[' . $i .']"
@@ -204,6 +202,7 @@ EOT;
         $str .= '' . PMA_generate_common_url($db, $table) .  '&amp;field=' . urlencode($field) . '&amp;fieldkey=' . $i . '">' . str_replace("'", "\'", $titles['Browse']) . '</a>';
         // ]]
         $str .= '</script>';
+
     } elseif (in_array($tbl_fields_type[$i], PMA_getGISDatatypes())) {
         // g e o m e t r y
         $str .= '<input type="text" name="fields[' . $i . ']"'
@@ -216,46 +215,51 @@ EOT;
             $str .= PMA_linkOrButton($edit_url, $edit_str, array(), false, false, '_blank');
             $str .= '</span>';
         }
+
     } elseif (strncasecmp($tbl_fields_type[$i], 'enum', 4) == 0) {
         // e n u m s
         $enum_value=explode(', ', str_replace("'", '', substr($tbl_fields_type[$i], 5, -1)));
         $cnt_enum_value = count($enum_value);
         $str .= '<select name="fields[' . ($i) . '][]" id="fieldID_' . $i .'"'
-                 .' multiple="multiple" size="' . min(3, $cnt_enum_value) . '">' . "\n";
-                for ($j = 0; $j < $cnt_enum_value; $j++) {
-                    if(isset($fields[$i]) && is_array($fields[$i]) && in_array($enum_value[$j],$fields[$i])){
-                        $str .= '                <option value="' . $enum_value[$j] . '" Selected>'
-                                        . $enum_value[$j] . '</option>';
-                        }
-                        else{
-                                $str .= '                <option value="' . $enum_value[$j] . '">'
-                                        . $enum_value[$j] . '</option>';
-                        }
-                } // end for
-        $str .= '            </select>' . "\n";
-    }
-    else {
+            .' multiple="multiple" size="' . min(3, $cnt_enum_value) . '">' . "\n";
+
+        for ($j = 0; $j < $cnt_enum_value; $j++) {
+            if (isset($fields[$i])
+                && is_array($fields[$i])
+                && in_array($enum_value[$j], $fields[$i])
+            ) {
+                $str .= '<option value="' . $enum_value[$j] . '" Selected>'
+                    . $enum_value[$j] . '</option>';
+            } else {
+                $str .= '<option value="' . $enum_value[$j] . '">'
+                    . $enum_value[$j] . '</option>';
+            }
+        } // end for
+        $str .= '</select>' . "\n";
+
+    } else {
         // o t h e r   c a s e s
         $the_class = 'textfield';
         $type = $tbl_fields_type[$i];
+
         if ($type == 'date') {
             $the_class .= ' datefield';
         } elseif ($type == 'datetime' || substr($type, 0, 9) == 'timestamp') {
             $the_class .= ' datetimefield';
         }
-        if(isset($fields[$i]) && is_string($fields[$i])){
-            $str .= '            <input type="text" name="fields[' . $i . ']" '
-                    .' size="40" class="' . $the_class . '" id="fieldID_' . $i .'" value = "' . $fields[$i] . '"/>' .  "\n";
-        }
-        else{
-            $str .= '            <input type="text" name="fields[' . $i . ']"'
-                    .' size="40" class="' . $the_class . '" id="fieldID_' . $i .'" />' .  "\n";
-        }
-   };
-   return $str;
 
+        if (isset($fields[$i]) && is_string($fields[$i])) {
+            $str .= '<input type="text" name="fields[' . $i . ']"'
+                .' size="40" class="' . $the_class . '" id="fieldID_'
+                . $i .'" value = "' . $fields[$i] . '"/>' .  "\n";
+        } else {
+            $str .= '<input type="text" name="fields[' . $i . ']"'
+                .' size="40" class="' . $the_class . '" id="fieldID_'
+                . $i .'" />' .  "\n";
+        }
+    }
+    return $str;
 }
-
 
 /**
  * Return the where clause for query generation based on the inputs provided.
@@ -271,8 +275,8 @@ EOT;
  * @return string HTML content for viewing foreing data and elements
  * for search criteria input.
  */
-function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations, $func_type, $unaryFlag, $geom_func = null){
-
+function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations, $func_type, $unaryFlag, $geom_func = null)
+{
     /**
      * @todo move this to a more apropriate place
      */
