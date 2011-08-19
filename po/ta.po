@@ -2041,7 +2041,7 @@ msgstr "புதன்"
 
 #: js/messages.php:411
 msgid "Thursday"
-msgstr ""
+msgstr "வியாழன்"
 
 #: js/messages.php:412
 #, fuzzy
