@@ -10764,10 +10764,9 @@ msgid "Show more actions"
 msgstr ""
 
 #: tbl_structure.php:603
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Edit view"
-msgstr "புதிய பயனாளரை சேர்க்க"
+msgstr "தொகுப்பு பார்வை"
 
 #: tbl_structure.php:620
 msgid "Relation view"
