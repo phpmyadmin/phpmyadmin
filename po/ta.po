@@ -2444,7 +2444,7 @@ msgstr "சேவையன்:"
 
 #: libraries/auth/cookie.auth.lib.php:218
 msgid "Username:"
-msgstr ""
+msgstr "பயனாளர்:"
 
 #: libraries/auth/cookie.auth.lib.php:222
 msgid "Password:"
