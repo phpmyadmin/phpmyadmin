@@ -159,8 +159,8 @@ function MouseMove(e)
     }
 
     if (ON_relation || ON_display_field) {
-        document.getElementById('hint').style.left = (Glob_X + 20) + 'px';
-        document.getElementById('hint').style.top  = (Glob_Y + 20) + 'px';
+        document.getElementById('pmd_hint').style.left = (Glob_X + 20) + 'px';
+        document.getElementById('pmd_hint').style.top  = (Glob_Y + 20) + 'px';
     }
 
     if (layer_menu_cur_click) {
@@ -225,7 +225,7 @@ function Main()
     Canvas_pos();
     Small_tab_refresh();
     Re_load();
-    id_hint = document.getElementById('hint');
+    id_hint = document.getElementById('pmd_hint');
     if (isIE) {
         General_scroll();
     }
@@ -535,12 +535,12 @@ function Start_relation()
     if (!ON_relation) {
         document.getElementById('foreign_relation').style.display = '';
         ON_relation = 1;
-        document.getElementById('hint').innerHTML = PMA_messages['strSelectReferencedKey'];
-        document.getElementById('hint').style.visibility = "visible";
+        document.getElementById('pmd_hint').innerHTML = PMA_messages['strSelectReferencedKey'];
+        document.getElementById('pmd_hint').style.visibility = "visible";
         document.getElementById('rel_button').className = 'M_butt_Selected_down';
     } else {
-        document.getElementById('hint').innerHTML = "";
-        document.getElementById('hint').style.visibility = "hidden";
+        document.getElementById('pmd_hint').innerHTML = "";
+        document.getElementById('pmd_hint').style.visibility = "hidden";
         document.getElementById('rel_button').className = 'M_butt';
         click_field = 0;
         ON_relation = 0;
@@ -561,7 +561,7 @@ function Click_field(T, f, PK) // table field
             }
             click_field = 1;
             link_relation = "T1=" + T + "&F1=" + f;
-            document.getElementById('hint').innerHTML = PMA_messages['strSelectForeignKey'];
+            document.getElementById('pmd_hint').innerHTML = PMA_messages['strSelectForeignKey'];
         } else {
             Start_relation(); // hidden hint...
             if (j_tabs[db + '.' + T] != '1' || !PK) {
@@ -596,8 +596,8 @@ function Click_field(T, f, PK) // table field
             display_field[T] = f;
         }
         ON_display_field = 0;
-        document.getElementById('hint').innerHTML = "";
-        document.getElementById('hint').style.visibility = "hidden";
+        document.getElementById('pmd_hint').innerHTML = "";
+        document.getElementById('pmd_hint').style.visibility = "hidden";
         document.getElementById('display_field_button').className = 'M_butt';
         makeRequest('pmd_display_field.php', 'T=' + T + '&F=' + f + '&server=' + server + '&db=' + db + '&token=' + token);
     }
@@ -955,16 +955,16 @@ function Start_display_field()
     }
     if (!ON_display_field) {
         ON_display_field = 1;
-        document.getElementById('hint').innerHTML = PMA_messages['strChangeDisplay'];
-        document.getElementById('hint').style.visibility = "visible";
+        document.getElementById('pmd_hint').innerHTML = PMA_messages['strChangeDisplay'];
+        document.getElementById('pmd_hint').style.visibility = "visible";
         document.getElementById('display_field_button').className = 'M_butt_Selected_down';//'#FFEE99';gray #AAAAAA
 
         if (isIE) { // correct for IE
             document.getElementById('display_field_button').className = 'M_butt_Selected_down_IE';
         }
     } else {
-        document.getElementById('hint').innerHTML = "";
-        document.getElementById('hint').style.visibility = "hidden";
+        document.getElementById('pmd_hint').innerHTML = "";
+        document.getElementById('pmd_hint').style.visibility = "hidden";
         document.getElementById('display_field_button').className = 'M_butt';
         ON_display_field = 0;
     }
@@ -1136,8 +1136,8 @@ function add_object()
     var init = history_array.length;
     if (rel.value != '--') {
         if (document.getElementById('Query').value == "") {
-            document.getElementById('hint').innerHTML = "value/subQuery is empty" ;
-            document.getElementById('hint').style.visibility = "visible";
+            document.getElementById('pmd_hint').innerHTML = "value/subQuery is empty" ;
+            document.getElementById('pmd_hint').style.visibility = "visible";
             return;
         }
         var p = document.getElementById('Query');
@@ -1168,8 +1168,8 @@ function add_object()
     }
     if (document.getElementById('h_rel_opt').value != '--') {
         if (document.getElementById('having').value == "") {
-            document.getElementById('hint').innerHTML = "value/subQuery is empty" ;
-            document.getElementById('hint').style.visibility = "visible";
+            document.getElementById('pmd_hint').innerHTML = "value/subQuery is empty" ;
+            document.getElementById('pmd_hint').style.visibility = "visible";
            return;
         }
         var p = document.getElementById('having');
@@ -1186,8 +1186,8 @@ function add_object()
         document.getElementById('orderby').checked = false;
         //make orderby
     }
-    document.getElementById('hint').innerHTML = sum + "object created" ;
-    document.getElementById('hint').style.visibility = "visible";
+    document.getElementById('pmd_hint').innerHTML = sum + "object created" ;
+    document.getElementById('pmd_hint').style.visibility = "visible";
     //output sum new objects created
     var existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = display(init,history_array.length);
