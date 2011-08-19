@@ -12242,7 +12242,7 @@ msgstr ""
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
 "Tablo birleştirmeleri ortalaması: %s, bu değer saat başına 1'den az "
-"olmalıdır."
+"olmalıdır"
 
 #: po/advisory_rules.php:125
 msgid "Rate of reading first index entry"
