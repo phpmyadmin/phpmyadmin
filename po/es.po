@@ -12513,10 +12513,9 @@ msgstr ""
 "1 por hora"
 
 #: po/advisory_rules.php:135
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Rate of reading next table row"
-msgstr "Donde mostrar los enlaces de filas de tabla"
+msgstr "Tasa de lectura de la siguiente fila de una tabla"
 
 #: po/advisory_rules.php:136
 #, fuzzy
