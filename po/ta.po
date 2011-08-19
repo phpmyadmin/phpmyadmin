@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 08:57+0200\n"
+"PO-Revision-Date: 2011-08-19 08:58+0200\n"
 "Last-Translator:  <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -2671,7 +2671,7 @@ msgstr "ஆவணச்சான்று"
 #: libraries/common.lib.php:559 libraries/header_printview.inc.php:60
 #: server_status.php:532 server_status.php:1123
 msgid "SQL query"
-msgstr ""
+msgstr "SQL வினவல்"
 
 #: libraries/common.lib.php:595 libraries/rte/rte_events.lib.php:103
 #: libraries/rte/rte_events.lib.php:108 libraries/rte/rte_events.lib.php:118
