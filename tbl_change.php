@@ -165,7 +165,7 @@ unset($show_create_table);
  * Get the list of the fields of the current table
  */
 PMA_DBI_select_db($db);
-$table_fields = PMA_DBI_get_columns($db, $table);
+$table_fields = array_values(PMA_DBI_get_columns($db, $table));
 $rows               = array();
 if (isset($where_clause)) {
     // when in edit mode load all selected rows from table
