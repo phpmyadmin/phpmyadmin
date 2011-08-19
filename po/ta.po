@@ -2504,7 +2504,7 @@ msgstr ""
 
 #: libraries/blobstreaming.lib.php:244
 msgid "PBMS error"
-msgstr ""
+msgstr "PBMS வழு"
 
 #: libraries/blobstreaming.lib.php:277
 msgid "PBMS connection failed:"
