@@ -18,7 +18,6 @@ class PMA_File_test extends PHPUnit_Framework_TestCase
      */
     public function testFormat($key, $value, $expected)
     {
-        $arr = new PMA_File($file);
         $this->assertEquals($expected, PMA_getJsValue($key, $value));
     }
 
