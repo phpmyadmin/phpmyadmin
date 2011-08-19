@@ -12700,6 +12700,8 @@ msgstr "Porcentaje de búfer de claves MyISAM utilizado"
 #, php-format
 msgid "%% MyISAM key buffer used: %s, this value should be above 95%%"
 msgstr ""
+"Porcentaje de búfer de claves MyISAM utilizado: %s, este valor debería ser "
+"mayor a 95%%"
 
 #: po/advisory_rules.php:170
 msgid "Percentage of index reads from memory"
