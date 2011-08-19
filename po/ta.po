@@ -2684,7 +2684,7 @@ msgstr "SQL வினவல்"
 #: libraries/rte/rte_triggers.lib.php:91
 #: libraries/rte/rte_triggers.lib.php:104
 msgid "MySQL said: "
-msgstr "MySQL சொன்னது"
+msgstr "MySQL சொன்னது:"
 
 #: libraries/common.lib.php:1050
 msgid "Failed to connect to SQL validator!"
