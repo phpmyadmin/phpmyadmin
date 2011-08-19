@@ -2440,7 +2440,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:213
 msgid "Server:"
-msgstr ""
+msgstr "சேவையன்:"
 
 #: libraries/auth/cookie.auth.lib.php:218
 msgid "Username:"
