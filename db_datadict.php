@@ -55,10 +55,10 @@ if ($cfgRelation['commwork']) {
  * Selects the database and gets tables names
  */
 PMA_DBI_select_db($db);
-$rowset = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', null, PMA_DBI_QUERY_STORE);
+$tables = PMA_DBI_get_tables($db);
 
 $count  = 0;
-while ($row = PMA_DBI_fetch_row($rowset)) {
+foreach($tables as $row) {
     $table = $row[0];
     $comments = PMA_getComments($db, $table);
 
