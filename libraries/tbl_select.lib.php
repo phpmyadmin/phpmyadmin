@@ -19,14 +19,15 @@ require_once 'url_generating.lib.php';
  *
  * @return string $str Value of the Title
  */
-function PMA_tbl_setTitle($propertiesIconic,$pmaThemeImage){
+function PMA_tbl_setTitle($propertiesIconic,$pmaThemeImage)
+{
     if ($propertiesIconic == true) {
         $str = '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
             .'b_browse.png" alt="' . __('Browse foreign values') . '" title="'
             . __('Browse foreign values') . '" />';
 
-    if ($propertiesIconic === 'both') {
-        $str .= __('Browse foreign values');
+        if ($propertiesIconic === 'both') {
+            $str .= __('Browse foreign values');
             return $str;
         }
     } else {
@@ -44,28 +45,33 @@ function PMA_tbl_setTitle($propertiesIconic,$pmaThemeImage){
  * @return array Array containing the field list, field types, collations
  * and null constraint
  */
-function PMA_tbl_getFields($table,$db) {
-
+function PMA_tbl_getFields($table,$db)
+{
     // Gets the list and number of fields
-
-    $result     = PMA_DBI_query('SHOW FULL FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . ';', null, PMA_DBI_QUERY_STORE);
+    $result = PMA_DBI_query(
+        'SHOW FULL FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . ';',
+        null, PMA_DBI_QUERY_STORE
+    );
     $fields_cnt = PMA_DBI_num_rows($result);
     $fields_list = $fields_null = $fields_type = $fields_collation = array();
     $geom_column_present = false;
     $geom_types = PMA_getGISDatatypes();
+
     while ($row = PMA_DBI_fetch_assoc($result)) {
         $fields_list[] = $row['Field'];
         $type          = $row['Type'];
+
         // check whether table contains geometric columns
         if (in_array($type, $geom_types)) {
             $geom_column_present = true;
         }
+
         // reformat mysql query output
         if (strncasecmp($type, 'set', 3) == 0
-            || strncasecmp($type, 'enum', 4) == 0) {
+            || strncasecmp($type, 'enum', 4) == 0
+        ) {
             $type = str_replace(',', ', ', $type);
         } else {
-
             // strip the "BINARY" attribute, except if we find "BINARY(" because
             // this would be a BINARY or VARBINARY field type
             if (!preg_match('@BINARY[\(]@i', $type)) {
@@ -81,7 +87,7 @@ function PMA_tbl_getFields($table,$db) {
         }
         $fields_null[] = $row['Null'];
         $fields_type[] = $type;
-        $fields_collation[] = !empty($row['Collation']) && $row['Collation'] != 'NULL'
+        $fields_collation[] = ! empty($row['Collation']) && $row['Collation'] != 'NULL'
                           ? $row['Collation']
                           : '';
     } // end while
@@ -99,21 +105,21 @@ function PMA_tbl_getFields($table,$db) {
  *
  * @return HTML content, the tags and content for table header
  */
-function PMA_tbl_setTableHeader($geom_column_present = false){
-
+function PMA_tbl_setTableHeader($geom_column_present = false)
+{
     // Display the Function column only if there is alteast one geomety colum
     $func = '';
     if ($geom_column_present) {
         $func = '<th>' . __('Function') . '</th>';
     }
 
-return '<thead>
+    return '<thead>
         <tr>' . $func . '<th>' .  __('Column') . '</th>
         <th>' .  __('Type') . '</th>
         <th>' .  __('Collation') . '</th>
         <th>' .  __('Operator') . '</th>
         <th>' .  __('Value') . '</th>
-       </tr>
+        </tr>
         </thead>';
 
 
@@ -126,10 +132,9 @@ return '<thead>
  * @return array Array containing configuration (icon, text, link, id, args)
  * of sub-tabs for Table Search and Zoom search
  */
-function PMA_tbl_getSubTabs(){
-
+function PMA_tbl_getSubTabs()
+{
     $subtabs = array();
-
     $subtabs['search']['icon'] = 'b_search.png';
     $subtabs['search']['text'] = __('Table Search');
     $subtabs['search']['link'] = 'tbl_select.php';
@@ -142,7 +147,6 @@ function PMA_tbl_getSubTabs(){
     $subtabs['zoom']['id'] = 'zoom_search_id';
 
     return $subtabs;
-
 }
 
 /**
