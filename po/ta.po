@@ -700,7 +700,7 @@ msgstr "அட்டவணையை உகப்பாக்கு"
 
 #: db_structure.php:512 tbl_operations.php:644
 msgid "Repair table"
-msgstr ""
+msgstr "அட்டவணையை திருத்து"
 
 #: db_structure.php:514 tbl_operations.php:631
 msgid "Analyze table"
