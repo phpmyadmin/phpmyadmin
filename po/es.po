@@ -12408,7 +12408,7 @@ msgstr "Filas ordenadas"
 
 #: po/advisory_rules.php:116
 msgid "There are lots of rows being sorted."
-msgstr ""
+msgstr "Hay demasiadas filas siendo ordenadas."
 
 #: po/advisory_rules.php:117
 msgid ""
