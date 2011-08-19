@@ -8963,7 +8963,7 @@ msgstr "Privilegiji tipični za tabelo"
 #: server_privileges.php:532 server_privileges.php:676
 #: server_privileges.php:1695
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "Opomba: Imena privilegijev MySQL so zapisana v angleščini "
+msgstr "Opomba: Imena privilegijev MySQL so zapisana v angleščini"
 
 #: server_privileges.php:601
 msgid "Administration"
