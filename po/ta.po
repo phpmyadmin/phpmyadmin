@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 07:35+0200\n"
+"PO-Revision-Date: 2011-08-19 07:37+0200\n"
 "Last-Translator:  <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -1106,7 +1106,7 @@ msgstr ""
 #: js/messages.php:61 js/messages.php:130 libraries/tbl_properties.inc.php:758
 #: tbl_tracking.php:235 tbl_tracking.php:400
 msgid "Close"
-msgstr ""
+msgstr "மூடு"
 
 #: js/messages.php:64 js/messages.php:249 libraries/Index.class.php:460
 #: libraries/common.lib.php:580 libraries/common.lib.php:1116
