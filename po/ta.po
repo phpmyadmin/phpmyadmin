@@ -1660,7 +1660,7 @@ msgstr "தேடல் முடிவுகளை காட்டு"
 
 #: js/messages.php:237
 msgid "Browsing"
-msgstr ""
+msgstr "உலாவுதல்"
 
 #: js/messages.php:238
 msgid "Deleting"
