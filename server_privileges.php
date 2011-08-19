@@ -2353,7 +2353,9 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                    . '            ' . ($current['Grant_priv'] == 'Y' ? __('Yes') : __('No')) . "\n"
                    . '        </td>' . "\n"
                    . '        <td>' . "\n";
-                $user_form .= sprintf($link_edit, urlencode($current_user),
+                $user_form .= sprintf(
+                    $link_edit,
+                    urlencode($current_user),
                     urlencode($current_host),
                     urlencode(! isset($current['Db']) || $current['Db'] == '*' ? '' : $current['Db']),
                     '');
