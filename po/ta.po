@@ -1138,7 +1138,7 @@ msgstr ""
 #: server_status.php:1021 server_status.php:1082 tbl_printview.php:315
 #: tbl_structure.php:798
 msgid "Total"
-msgstr ""
+msgstr "மொத்தம்"
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:73 server_status.php:919
