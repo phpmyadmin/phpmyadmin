@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 09:00+0200\n"
+"PO-Revision-Date: 2011-08-19 09:01+0200\n"
 "Last-Translator:  <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -2782,7 +2782,7 @@ msgstr ""
 #: libraries/display_tbl.lib.php:306
 msgctxt "First page"
 msgid "Begin"
-msgstr ""
+msgstr "ஆரம்பம்"
 
 #: libraries/common.lib.php:2295 libraries/common.lib.php:2298
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
