@@ -433,7 +433,7 @@ rule 'InnoDB buffer pool size' [system_memory > 0]
 
 #
 # other
-rule 'MyISAM concurrent inserts'
+rule 'MyISAM concurrent inserts' [!PMA_DRIZZLE]
 	concurrent_insert
 	value === 0 || value === 'NEVER'
 	Enable concurrent_insert by setting it to 1
