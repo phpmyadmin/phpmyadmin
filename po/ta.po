@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 09:16+0200\n"
+"PO-Revision-Date: 2011-08-19 09:17+0200\n"
 "Last-Translator:  <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -10854,7 +10854,7 @@ msgstr ""
 
 #: tbl_tracking.php:375 tbl_tracking.php:392
 msgid "Query error"
-msgstr ""
+msgstr "வினவல் வழு"
 
 #: tbl_tracking.php:390
 msgid "Tracking data manipulation successfully deleted"
