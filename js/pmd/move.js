@@ -536,11 +536,11 @@ function Start_relation()
         document.getElementById('foreign_relation').style.display = '';
         ON_relation = 1;
         document.getElementById('pmd_hint').innerHTML = PMA_messages['strSelectReferencedKey'];
-        document.getElementById('pmd_hint').style.visibility = "visible";
+        document.getElementById('pmd_hint').style.display = 'block';
         document.getElementById('rel_button').className = 'M_butt_Selected_down';
     } else {
         document.getElementById('pmd_hint').innerHTML = "";
-        document.getElementById('pmd_hint').style.visibility = "hidden";
+        document.getElementById('pmd_hint').style.display = 'none';
         document.getElementById('rel_button').className = 'M_butt';
         click_field = 0;
         ON_relation = 0;
@@ -551,7 +551,7 @@ function Click_field(T, f, PK) // table field
 {
     if (ON_relation) {
         if (!click_field) {
-            //.style.display=='none'        .style.visibility = "hidden"
+            //.style.display=='none'        .style.display = 'none'
             if (!PK) {
                 alert(PMA_messages['strPleaseSelectPrimaryOrUniqueKey']);
                 return;// 0;
@@ -571,7 +571,7 @@ function Click_field(T, f, PK) // table field
             document.getElementById('layer_new_relation').style.left = left + 'px';
             var top = Glob_Y - document.getElementById('layer_new_relation').offsetHeight + 40;
             document.getElementById('layer_new_relation').style.top  = top + 'px';
-            document.getElementById('layer_new_relation').style.visibility = "visible";
+            document.getElementById('layer_new_relation').style.display = 'block';
             link_relation += '&T2=' + T + '&F2=' + f;
         }
     }
@@ -597,7 +597,7 @@ function Click_field(T, f, PK) // table field
         }
         ON_display_field = 0;
         document.getElementById('pmd_hint').innerHTML = "";
-        document.getElementById('pmd_hint').style.visibility = "hidden";
+        document.getElementById('pmd_hint').style.display = 'none';
         document.getElementById('display_field_button').className = 'M_butt';
         makeRequest('pmd_display_field.php', 'T=' + T + '&F=' + f + '&server=' + server + '&db=' + db + '&token=' + token);
     }
@@ -954,7 +954,7 @@ function Start_display_field()
     if (!ON_display_field) {
         ON_display_field = 1;
         document.getElementById('pmd_hint').innerHTML = PMA_messages['strChangeDisplay'];
-        document.getElementById('pmd_hint').style.visibility = "visible";
+        document.getElementById('pmd_hint').style.display = 'block';
         document.getElementById('display_field_button').className = 'M_butt_Selected_down';//'#FFEE99';gray #AAAAAA
 
         if (isIE) { // correct for IE
@@ -962,7 +962,7 @@ function Start_display_field()
         }
     } else {
         document.getElementById('pmd_hint').innerHTML = "";
-        document.getElementById('pmd_hint').style.visibility = "hidden";
+        document.getElementById('pmd_hint').style.display = 'none';
         document.getElementById('display_field_button').className = 'M_butt';
         ON_display_field = 0;
     }
@@ -1019,7 +1019,7 @@ function Click_option(id_this,column_name,table_name)
     document.getElementById(id_this).style.left = left + 'px';
     // var top = Glob_Y - document.getElementById(id_this).offsetHeight - 10;
     document.getElementById(id_this).style.top  = (screen.height / 4) + 'px';
-    document.getElementById(id_this).style.visibility = "visible";
+    document.getElementById(id_this).style.display = 'block';
     document.getElementById('option_col_name').innerHTML = '<strong>' + PMA_messages['strAddOption'] +'"' +column_name+ '"</strong>';
     col_name = column_name;
     tab_name = table_name;
@@ -1027,7 +1027,7 @@ function Click_option(id_this,column_name,table_name)
 
 function Close_option()
 {
-    document.getElementById('pmd_optionse').style.visibility = "hidden";
+    document.getElementById('pmd_optionse').style.display = 'none';
 }
 
 function Select_all(id_this,owner)
@@ -1135,7 +1135,7 @@ function add_object()
     if (rel.value != '--') {
         if (document.getElementById('Query').value == "") {
             document.getElementById('pmd_hint').innerHTML = "value/subQuery is empty" ;
-            document.getElementById('pmd_hint').style.visibility = "visible";
+            document.getElementById('pmd_hint').style.display = 'block';
             return;
         }
         var p = document.getElementById('Query');
@@ -1167,7 +1167,7 @@ function add_object()
     if (document.getElementById('h_rel_opt').value != '--') {
         if (document.getElementById('having').value == "") {
             document.getElementById('pmd_hint').innerHTML = "value/subQuery is empty" ;
-            document.getElementById('pmd_hint').style.visibility = "visible";
+            document.getElementById('pmd_hint').style.display = 'block';
            return;
         }
         var p = document.getElementById('having');
@@ -1185,7 +1185,7 @@ function add_object()
         //make orderby
     }
     document.getElementById('pmd_hint').innerHTML = sum + "object created" ;
-    document.getElementById('pmd_hint').style.visibility = "visible";
+    document.getElementById('pmd_hint').style.display = 'block';
     //output sum new objects created
     var existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = display(init,history_array.length);
