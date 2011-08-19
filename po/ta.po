@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 08:01+0200\n"
+"PO-Revision-Date: 2011-08-19 08:02+0200\n"
 "Last-Translator:  <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -1412,7 +1412,7 @@ msgstr ""
 
 #: js/messages.php:154
 msgid "Change settings"
-msgstr ""
+msgstr "அமைப்புக்களை மாற்று"
 
 #: js/messages.php:155
 msgid "Current settings"
