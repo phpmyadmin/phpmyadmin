@@ -12705,7 +12705,7 @@ msgstr ""
 
 #: po/advisory_rules.php:170
 msgid "Percentage of index reads from memory"
-msgstr ""
+msgstr "Porcentaje de índices leídos desde memoria"
 
 #: po/advisory_rules.php:171
 #, php-format
