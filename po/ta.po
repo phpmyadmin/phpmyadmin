@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 07:11+0200\n"
+"PO-Revision-Date: 2011-08-19 07:12+0200\n"
 "Last-Translator:  <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -671,7 +671,7 @@ msgstr ""
 #: server_privileges.php:1441 server_status.php:1485
 #: setup/frames/menu.inc.php:21
 msgid "Export"
-msgstr ""
+msgstr "ஏற்றுமதி"
 
 #: db_structure.php:500 db_structure.php:554
 #: libraries/display_tbl.lib.php:2479 tbl_structure.php:609
