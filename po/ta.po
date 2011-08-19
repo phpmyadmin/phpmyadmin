@@ -2238,7 +2238,7 @@ msgstr ""
 #: libraries/rte/rte_routines.lib.php:950 tbl_tracking.php:263
 #: tbl_tracking.php:312
 msgid "Comment"
-msgstr ""
+msgstr "கருத்துரை"
 
 #: libraries/Index.class.php:466
 msgid "The primary key has been dropped"
