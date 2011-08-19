@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 08:44+0200\n"
+"PO-Revision-Date: 2011-08-19 08:45+0200\n"
 "Last-Translator:  <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -2260,7 +2260,7 @@ msgstr ""
 #: libraries/server_links.inc.php:43 server_databases.php:99
 #: server_privileges.php:1825
 msgid "Databases"
-msgstr ""
+msgstr "தரவுத்தளங்கள்"
 
 #: libraries/Message.class.php:193 libraries/blobstreaming.lib.php:325
 #: libraries/blobstreaming.lib.php:331 libraries/common.lib.php:547
