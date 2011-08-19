@@ -8513,7 +8513,7 @@ msgstr "Dejavne možnosti"
 
 #: pmd_help.php:22
 msgid "To select relation, click :"
-msgstr "Za izbiro relacije, kliknite:"
+msgstr "Za izbiro relacije kliknite:"
 
 #: pmd_help.php:24
 msgid ""
