@@ -10912,7 +10912,7 @@ msgstr ""
 
 #: tbl_tracking.php:603
 msgid "Show versions"
-msgstr ""
+msgstr "பதிப்புகளை காட்டு"
 
 #: tbl_tracking.php:635
 msgid "Version"
