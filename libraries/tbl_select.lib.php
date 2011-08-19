@@ -22,16 +22,16 @@ require_once 'url_generating.lib.php';
 function PMA_tbl_setTitle($propertiesIconic,$pmaThemeImage){
     if ($propertiesIconic == true) {
         $str = '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
-	        .'b_browse.png" alt="' . __('Browse foreign values') . '" title="'
-	        . __('Browse foreign values') . '" />';
+            .'b_browse.png" alt="' . __('Browse foreign values') . '" title="'
+            . __('Browse foreign values') . '" />';
 
-	if ($propertiesIconic === 'both') {
-	    $str .= __('Browse foreign values');
+    if ($propertiesIconic === 'both') {
+        $str .= __('Browse foreign values');
             return $str;
-	    }
-	} else {
-	    return __('Browse foreign values');
-	}
+        }
+    } else {
+        return __('Browse foreign values');
+    }
 }
 
 /**
@@ -113,7 +113,7 @@ return '<thead>
         <th>' .  __('Collation') . '</th>
         <th>' .  __('Operator') . '</th>
         <th>' .  __('Value') . '</th>
-   	</tr>
+       </tr>
         </thead>';
 
 
@@ -184,19 +184,19 @@ function PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fie
     }
     elseif ($foreignData['foreign_link'] == true) {
         if(isset($fields[$i]) && is_string($fields[$i])){
- 	    $str .= '<input type="text" id="fieldID_' . $i .'"name="fields[' . $i . '] " value="' . $fields[$i] . '"';
-		     'id="field_' . md5($field) . '[' . $i .']"
-		     class="textfield"/>' ;
+         $str .= '<input type="text" id="fieldID_' . $i .'"name="fields[' . $i . '] " value="' . $fields[$i] . '"';
+             'id="field_' . md5($field) . '[' . $i .']"
+             class="textfield"/>' ;
         }
         else{
- 	    $str .= '<input type="text" id="fieldID_' . $i .'"name="fields[' . $i . '] "';
-		     'id="field_' . md5($field) . '[' . $i .']"
-		     class="textfield" />' ;
+         $str .= '<input type="text" id="fieldID_' . $i .'"name="fields[' . $i . '] "';
+             'id="field_' . md5($field) . '[' . $i .']"
+             class="textfield" />' ;
         }
  ?>
-	<?php $str .= '<script type="text/javascript">';
+    <?php $str .= '<script type="text/javascript">';
         // <![CDATA[
-	$str .=  <<<EOT
+    $str .=  <<<EOT
 <a target="_blank" onclick="window.open(this.href, 'foreigners', 'width=640,height=240,scrollbars=yes'); return false" href="browse_foreigners.php?
 EOT;
         $str .= '' . PMA_generate_common_url($db, $table) .  '&amp;field=' . urlencode($field) . '&amp;fieldkey=' . $i . '">' . str_replace("'", "\'", $titles['Browse']) . '</a>';
