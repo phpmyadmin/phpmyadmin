@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 09:10+0200\n"
+"PO-Revision-Date: 2011-08-19 09:11+0200\n"
 "Last-Translator:  <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -11174,10 +11174,9 @@ msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgstr ""
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55
-#, fuzzy
 #| msgid "Action"
 msgid "Distribution"
-msgstr "செயல்"
+msgstr "பரம்பல்"
 
 #: po/advisory_rules.php:51
 msgid "Version is compiled from source, not a MySQL official binary."
