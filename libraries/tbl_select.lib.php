@@ -88,13 +88,13 @@ function PMA_tbl_getFields($table,$db)
         $fields_null[] = $row['Null'];
         $fields_type[] = $type;
         $fields_collation[] = ! empty($row['Collation']) && $row['Collation'] != 'NULL'
-                          ? $row['Collation']
-                          : '';
+            ? $row['Collation']
+            : '';
     } // end while
     PMA_DBI_free_result($result);
     unset($result, $type);
 
-    return array($fields_list,$fields_type,$fields_collation,$fields_null, $geom_column_present);
+    return array($fields_list, $fields_type, $fields_collation, $fields_null, $geom_column_present);
 
 }
 
@@ -121,8 +121,6 @@ function PMA_tbl_setTableHeader($geom_column_present = false)
         <th>' .  __('Value') . '</th>
         </tr>
         </thead>';
-
-
 }
 
 /**
@@ -286,7 +284,6 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations, $fu
     );
 
     $w = '';
-
     // If geometry function is set apply it to the field name
     if ($geom_func != null && trim($geom_func) != '') {
         // Get details about the geometry fucntions
@@ -295,8 +292,8 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations, $fu
         // If the function takes a single parameter
         if ($geom_funcs[$geom_func]['params'] == 1) {
             $backquoted_name = $geom_func . '(' . PMA_backquote($names) . ')';
-            // If the function takes two parameters
         } else {
+            // If the function takes two parameters
             // create gis data from the string
             $gis_data = PMA_createGISData($fields);
 
@@ -307,7 +304,7 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations, $fu
         // New output type is the output type of the function being applied
         $types = $geom_funcs[$geom_func]['type'];
 
-        // If the intended where clause is something like 'IsEmpty(`spatial_col_name`)'
+        // If the where clause is something like 'IsEmpty(`spatial_col_name`)'
         if (isset($geom_unary_functions[$geom_func]) && trim($fields) == '') {
             $w = $backquoted_name;
             return $w;
@@ -316,9 +313,9 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations, $fu
         $backquoted_name = PMA_backquote($names);
     }
 
-    if($unaryFlag){
+    if ($unaryFlag) {
         $fields = '';
-            $w = $backquoted_name . ' ' . $func_type;
+        $w = $backquoted_name . ' ' . $func_type;
 
     } elseif (in_array($types, PMA_getGISDatatypes()) && ! empty($fields)) {
         // create gis data from the string
@@ -341,23 +338,25 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations, $fu
                 $parens_open  = '(';
                 $parens_close = ')';
 
-           } else {
-               $parens_open  = '';
-               $parens_close = '';
-           }
-               $enum_where = '\'' . PMA_sqlAddslashes($fields[0]) . '\'';
-               for ($e = 1; $e < $enum_selected_count; $e++) {
-                   $enum_where .= ', \'' . PMA_sqlAddslashes($fields[$e]) . '\'';
-               }
+            } else {
+                $parens_open  = '';
+                $parens_close = '';
+            }
+            $enum_where = '\'' . PMA_sqlAddslashes($fields[0]) . '\'';
+            for ($e = 1; $e < $enum_selected_count; $e++) {
+                $enum_where .= ', \'' . PMA_sqlAddslashes($fields[$e]) . '\'';
+            }
 
-               $w = $backquoted_name . ' ' . $func_type . ' ' . $parens_open . $enum_where . $parens_close;
+            $w = $backquoted_name . ' ' . $func_type . ' ' . $parens_open . $enum_where . $parens_close;
         }
 
     } elseif ($fields != '') {
         // For these types we quote the value. Even if it's another type (like INT),
         // for a LIKE we always quote the value. MySQL converts strings to numbers
         // and numbers to strings as necessary during the comparison
-        if (preg_match('@char|binary|blob|text|set|date|time|year@i', $types) || strpos(' ' . $func_type, 'LIKE')) {
+        if (preg_match('@char|binary|blob|text|set|date|time|year@i', $types)
+            || strpos(' ' . $func_type, 'LIKE')
+        ) {
             $quot = '\'';
         } else {
             $quot = '';
@@ -373,23 +372,28 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations, $fu
             $fields = '^' . $fields . '$';
         }
 
-        if ($func_type == 'IN (...)' || $func_type == 'NOT IN (...)' || $func_type == 'BETWEEN' || $func_type == 'NOT BETWEEN') {
+        if ($func_type == 'IN (...)'
+            || $func_type == 'NOT IN (...)'
+            || $func_type == 'BETWEEN'
+            || $func_type == 'NOT BETWEEN'
+        ) {
             $func_type = str_replace(' (...)', '', $func_type);
 
-        // quote values one by one
-        $values = explode(',', $fields);
-        foreach ($values as &$value)
-            $value = $quot . PMA_sqlAddslashes(trim($value)) . $quot;
+            // quote values one by one
+            $values = explode(',', $fields);
+            foreach ($values as &$value) {
+                $value = $quot . PMA_sqlAddslashes(trim($value)) . $quot;
+            }
 
-            if ($func_type == 'BETWEEN' || $func_type == 'NOT BETWEEN')
-                $w = $backquoted_name . ' ' . $func_type . ' ' . (isset($values[0]) ? $values[0] : '')  . ' AND ' . (isset($values[1]) ? $values[1] : '');
-            else
+            if ($func_type == 'BETWEEN' || $func_type == 'NOT BETWEEN') {
+                $w = $backquoted_name . ' ' . $func_type . ' ' . (isset($values[0]) ? $values[0] : '')
+                    . ' AND ' . (isset($values[1]) ? $values[1] : '');
+            } else {
                 $w = $backquoted_name . ' ' . $func_type . ' (' . implode(',', $values) . ')';
-        }
-        else {
+            }
+        } else {
             $w = $backquoted_name . ' ' . $func_type . ' ' . $quot . PMA_sqlAddslashes($fields) . $quot;;
         }
-
     } // end if
 
     return $w;
@@ -405,7 +409,7 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations, $fu
  */
 function PMA_SVG_scatter_plot($data, &$settings)
 {
-    require_once './libraries/svg_plot/pma_scatter_plot.php';
+    include_once './libraries/svg_plot/pma_scatter_plot.php';
 
     if (empty($data)) {
         // empty data
@@ -422,6 +426,5 @@ function PMA_SVG_scatter_plot($data, &$settings)
         }
         return $scatter_plot->asSVG();
     }
-
 }
 ?>
