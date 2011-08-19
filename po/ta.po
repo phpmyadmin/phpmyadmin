@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 08:43+0200\n"
+"PO-Revision-Date: 2011-08-19 08:44+0200\n"
 "Last-Translator:  <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -2228,7 +2228,7 @@ msgstr "தனித்தன்மை"
 
 #: libraries/Index.class.php:435 tbl_tracking.php:307
 msgid "Packed"
-msgstr ""
+msgstr "பொதிக்கப்பட்டது"
 
 #: libraries/Index.class.php:437 tbl_tracking.php:309
 msgid "Cardinality"
