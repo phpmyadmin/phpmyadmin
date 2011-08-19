@@ -12389,10 +12389,9 @@ msgstr ""
 "de ser menor a 10%%."
 
 #: po/advisory_rules.php:110
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
-msgstr "Permite la creación de tablas temporales."
+msgstr "Tasa de ordenaciones que causan tablas temporales"
 
 #: po/advisory_rules.php:113
 #, php-format
