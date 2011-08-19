@@ -43,6 +43,11 @@ if (! defined('MYSQLI_TYPE_BIT')) {
     define('MYSQLI_TYPE_BIT', 16);
 }
 
+// for Drizzle
+if (! defined('MYSQLI_TYPE_VARCHAR')) {
+    define('MYSQLI_TYPE_VARCHAR', 15);
+}
+
 /**
  * Helper function for connecting to the database server
  *
@@ -481,6 +486,7 @@ function PMA_DBI_get_fields_meta($result)
     $typeAr[MYSQLI_TYPE_BLOB]        = 'blob';
     $typeAr[MYSQLI_TYPE_VAR_STRING]  = 'string';
     $typeAr[MYSQLI_TYPE_STRING]      = 'string';
+    $typeAr[MYSQLI_TYPE_VARCHAR]     = 'string'; // for Drizzle
     // MySQL returns MYSQLI_TYPE_STRING for CHAR
     // and MYSQLI_TYPE_CHAR === MYSQLI_TYPE_TINY
     // so this would override TINYINT and mark all TINYINT as string
