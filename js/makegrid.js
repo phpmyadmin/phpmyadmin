@@ -372,7 +372,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 $.post('sql.php', post_params, function(data) {
                     if (data.success != true) {
                         var $temp_div = $(document.createElement('div'));
-                        $temp_div.html(PMA_htmlEncode(data.error));
+                        $temp_div.html(data.error);
                         $temp_div.addClass("error");
                         PMA_ajaxShowMessage($temp_div);
                     }

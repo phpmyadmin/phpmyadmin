@@ -3162,15 +3162,6 @@ function PMA_getCellValue(td) {
     }
 }
 
-function PMA_htmlEncode(s)
-{
-    var el = document.createElement("div");
-    el.innerText = el.textContent = s;
-    s = el.innerHTML;
-    delete el;
-    return s;
-}
-
 /* Loads a js file, an array may be passed as well */
 loadJavascript=function(file) {
     if($.isArray(file)) {
