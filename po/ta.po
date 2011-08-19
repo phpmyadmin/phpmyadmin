@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 07:47+0200\n"
+"PO-Revision-Date: 2011-08-19 07:48+0200\n"
 "Last-Translator:  <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -1261,7 +1261,7 @@ msgstr "விடுபட்ட நினைவகம்"
 
 #: js/messages.php:111
 msgid "Used memory"
-msgstr ""
+msgstr "பாவிக்கப்பட்ட  நினைவகம்"
 
 #: js/messages.php:113
 msgid "Total Swap"
