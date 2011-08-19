@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 07:33+0200\n"
+"PO-Revision-Date: 2011-08-19 07:35+0200\n"
 "Last-Translator:  <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -1070,7 +1070,7 @@ msgstr ""
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:51
 msgid "Total count"
-msgstr ""
+msgstr "மொத்தம் எண்ணல்"
 
 #: js/messages.php:54
 msgid "The host name is empty!"
