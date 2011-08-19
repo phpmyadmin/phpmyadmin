@@ -620,7 +620,8 @@ $links['innodb']['doc'] = 'innodb';
 // Variable to contain all com_ variables
 $used_queries = array();
 
-// Variable to map variable names to their respective section name (used for js category filtering)
+// Variable to map variable names to their respective section name
+// (used for js category filtering)
 $allocationMap = array();
 
 // sort vars into arrays
@@ -637,10 +638,15 @@ foreach ($server_status as $name => $value) {
 }
 
 if(PMA_DRIZZLE) {
-    $used_queries = PMA_DBI_fetch_result('SELECT * FROM data_dictionary.global_statements', 0, 1);
+    $used_queries = PMA_DBI_fetch_result(
+        'SELECT * FROM data_dictionary.global_statements',
+        0,
+        1
+    );
     unset($used_queries['admin_commands']);
 } else {
-    // admin commands are not queries (e.g. they include COM_PING, which is excluded from $server_status['Questions'])
+    // admin commands are not queries (e.g. they include COM_PING,
+    // which is excluded from $server_status['Questions'])
     unset($used_queries['Com_admin_commands']);
 }
 
@@ -667,14 +673,38 @@ $server_db_isLocal = strtolower($cfg['Server']['host']) == 'localhost'
                               || $cfg['Server']['host'] == '127.0.0.1'
                               || $cfg['Server']['host'] == '::1';
 
-PMA_AddJSCode('pma_token = \'' . $_SESSION[' PMA_token '] . "';\n" .
-              'url_query = \'' . str_replace('&amp;', '&', PMA_generate_common_url($db)) . "';\n" .
-              'server_time_diff = new Date().getTime() - ' . (microtime(true) * 1000) . ";\n" .
-              'server_os = \'' . PHP_OS . "';\n" .
-              'is_superuser = ' . (PMA_isSuperuser() ? 'true' : 'false') . ";\n" .
-              'server_db_isLocal = ' . ($server_db_isLocal ? 'true' : 'false') . ";\n" .
-              'profiling_docu = \'' . PMA_showMySQLDocu('general-thread-states', 'general-thread-states') . "';\n" .
-              'explain_docu = \'' . PMA_showMySQLDocu('explain-output', 'explain-output') . ";'\n");
+PMA_AddJSVar(
+    'pma_token',
+    $_SESSION[' PMA_token ']
+);
+PMA_AddJSVar(
+    'url_query',
+    str_replace('&amp;', '&', PMA_generate_common_url($db))
+);
+PMA_AddJSVar(
+    'server_time_diff',
+    'new Date().getTime() - ' . (microtime(true) * 1000)
+);
+PMA_AddJSVar(
+    'server_os',
+    PHP_OS
+);
+PMA_AddJSVar(
+    'is_superuser',
+    PMA_isSuperuser()
+);
+PMA_AddJSVar(
+    'server_db_isLocal',
+    $server_db_isLocal
+);
+PMA_AddJSVar(
+    'profiling_docu',
+    PMA_showMySQLDocu('general-thread-states', 'general-thread-states')
+);
+PMA_AddJSVar(
+    'explain_docu',
+    PMA_showMySQLDocu('explain-output', 'explain-output')
+);
 
 /**
  * start output
