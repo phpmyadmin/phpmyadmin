@@ -1691,7 +1691,7 @@ msgstr ""
 #: libraries/display_tbl.lib.php:2385 querywindow.php:90 querywindow.php:94
 #: querywindow.php:97 tbl_structure.php:150 tbl_structure.php:569
 msgid "Change"
-msgstr ""
+msgstr "மாற்று"
 
 #: js/messages.php:252
 msgid "Query execution time"
