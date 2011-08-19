@@ -915,7 +915,10 @@ function General_scroll_end()
 function Show_left_menu(id_this) // max/min all tables
 {
     if (id_this.alt == "v") {
-        document.getElementById("layer_menu").style.top = document.getElementById('top_menu').offsetHeight + 'px';
+        var pos = $("#top_menu").offset();
+        var height = $("#top_menu").height();
+        document.getElementById("layer_menu").style.top = (pos.top + height) + 'px';
+        document.getElementById("layer_menu").style.left = pos.left + 'px';
         document.getElementById("layer_menu").style.display = 'block';
         id_this.alt = ">";
         id_this.src = "pmd/images/uparrow2_m.png";

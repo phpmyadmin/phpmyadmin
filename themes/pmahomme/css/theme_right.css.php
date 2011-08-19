@@ -3325,9 +3325,9 @@ a.M_butt:hover {
 }
 
 #layer_menu {
-    clear: both;
-    float: left;
     z-index: 1000;
+    position: absolute;
+    left: 0;
     background-color: #EAEEF0;
     border: #999999 solid 1px;
 }
