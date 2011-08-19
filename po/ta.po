@@ -2129,7 +2129,6 @@ msgstr "வெள்"
 
 #. l10n: Minimal week day name
 #: js/messages.php:445
-#, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "சனி"
