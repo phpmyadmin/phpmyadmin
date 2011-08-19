@@ -651,7 +651,7 @@ msgstr ""
 #: server_databases.php:261 server_privileges.php:671
 #: server_privileges.php:1754 tbl_structure.php:557
 msgid "Check All"
-msgstr ""
+msgstr "அனைத்தையும் தெரி"
 
 #: db_structure.php:485 libraries/display_tbl.lib.php:2373
 #: libraries/replication_gui.lib.php:35 server_databases.php:263
