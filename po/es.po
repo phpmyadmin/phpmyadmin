@@ -12655,6 +12655,8 @@ msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
+"Defina «key_buffer_size» dependiendo del tamaño de los índices MyISAM. 64M "
+"es un buen comienzo."
 
 #: po/advisory_rules.php:158
 msgid "key_buffer_size is 0"
