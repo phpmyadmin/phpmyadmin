@@ -1416,7 +1416,7 @@ msgstr "அமைப்புக்களை மாற்று"
 
 #: js/messages.php:155
 msgid "Current settings"
-msgstr ""
+msgstr "நடப்பு அமைப்புக்கள்"
 
 #: js/messages.php:157 server_status.php:1530
 msgid "Chart Title"
