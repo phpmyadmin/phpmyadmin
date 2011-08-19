@@ -751,7 +751,7 @@ msgstr "உருவாக்கப்பட்டது"
 
 #: db_tracking.php:88 tbl_tracking.php:637
 msgid "Updated"
-msgstr ""
+msgstr "புதுப்பிக்கப்பட்டது"
 
 #: db_tracking.php:89 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
