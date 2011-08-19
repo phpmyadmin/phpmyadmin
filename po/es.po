@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 21:25+0200\n"
+"PO-Revision-Date: 2011-08-19 21:26+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -12544,7 +12544,7 @@ msgstr "«tmp_table_size» vs. «max_heap_table_size»"
 
 #: po/advisory_rules.php:141
 msgid "tmp_table_size and max_heap_table_size are not the same."
-msgstr ""
+msgstr "«tmp_table_size» y «max_heap_table_size» no son iguales."
 
 #: po/advisory_rules.php:142
 msgid ""
