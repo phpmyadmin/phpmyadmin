@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 08:22+0200\n"
+"PO-Revision-Date: 2011-08-19 08:23+0200\n"
 "Last-Translator:  <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -1636,7 +1636,7 @@ msgstr "அட்டவணையை உருவாக்கு"
 
 #: js/messages.php:229
 msgid "Insert Table"
-msgstr ""
+msgstr "அட்டவணையை செருகு"
 
 #: js/messages.php:230
 msgid "Hide indexes"
