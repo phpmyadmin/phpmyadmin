@@ -12459,7 +12459,7 @@ msgstr "Tasa de lectura del primer índice"
 
 #: po/advisory_rules.php:126
 msgid "The rate of reading the first index entry is high."
-msgstr ""
+msgstr "La tasa de lectura del primer índice es alta."
 
 #: po/advisory_rules.php:127
 msgid ""
