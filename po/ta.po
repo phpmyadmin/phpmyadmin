@@ -722,7 +722,7 @@ msgstr ""
 
 #: db_structure.php:560 libraries/schema/User_Schema.class.php:403
 msgid "Data Dictionary"
-msgstr ""
+msgstr "தரவு அகராதி"
 
 #: db_tracking.php:79
 msgid "Tracked tables"
