@@ -2709,7 +2709,7 @@ msgstr "PHP குறிமுறை உருவாக்கு"
 #: libraries/common.lib.php:1151 libraries/config/messages.inc.php:480
 #: server_status.php:697 server_status.php:719 server_status.php:738
 msgid "Refresh"
-msgstr ""
+msgstr "புதுப்பி"
 
 #: libraries/common.lib.php:1161
 msgid "Skip Validate SQL"
