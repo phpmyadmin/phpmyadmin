@@ -298,21 +298,14 @@ function PMA_replication_synchronize_db($db, $src_link, $trg_link, $data = true)
 {
     $src_db = $trg_db = $db;
 
-    $src_connection = PMA_DBI_select_db($src_db, $src_link);
-    $trg_connection = PMA_DBI_select_db($trg_db, $trg_link);
-
     $src_tables = PMA_DBI_get_tables($src_db, $src_link);
-    $source_tables_num = sizeof($src_tables);
 
     $trg_tables = PMA_DBI_get_tables($trg_db, $trg_link);
-    $target_tables_num = sizeof($trg_tables);
 
     /**
      * initializing arrays to save table names
      */
-    $unmatched_num_src = 0;
     $source_tables_uncommon = array();
-    $unmatched_num_trg = 0;
     $target_tables_uncommon = array();
     $matching_tables = array();
     $matching_tables_num = 0;
@@ -367,6 +360,7 @@ function PMA_replication_synchronize_db($db, $src_link, $trg_link, $data = true)
     $source_indexes = array();
     $target_indexes = array();
     $add_indexes_array = array();
+    $alter_indexes_array = array();
     $remove_indexes_array = array();
     $criteria = array('Field', 'Type', 'Null', 'Collation', 'Key', 'Default', 'Comment');
 
@@ -378,17 +372,11 @@ function PMA_replication_synchronize_db($db, $src_link, $trg_link, $data = true)
             $add_indexes_array, $alter_indexes_array,$remove_indexes_array, $counter);
     }
 
-    $matching_table_data_diff = array();
-    $matching_table_structure_diff = array();
-    $uncommon_table_structure_diff = array();
-    $uncommon_table_data_diff = array();
-    $uncommon_tables = $source_tables_uncommon;
-
     /**
      * Generating Create Table query for all the non-matching tables present in Source but not in Target and populating tables.
      */
     for ($q = 0; $q < sizeof($source_tables_uncommon); $q++) {
-        if (isset($uncommon_tables[$q])) {
+        if (isset($source_tables_uncommon[$q])) {
             PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link, $source_tables_uncommon, $q, $uncommon_tables_fields, false);
         }
         if (isset($row_count[$q]) && $data) {
