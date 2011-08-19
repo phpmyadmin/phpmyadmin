@@ -154,23 +154,23 @@ function PMA_getZipError($code)
 {
     // I don't think this needs translation
     switch ($code) {
-        case ZIPARCHIVE::ER_MULTIDISK:
-            $message = 'Multi-disk zip archives not supported';
-             break;
-        case ZIPARCHIVE::ER_READ:
-            $message = 'Read error';
-             break;
-        case ZIPARCHIVE::ER_CRC:
-            $message = 'CRC error';
-             break;
-        case ZIPARCHIVE::ER_NOZIP:
-            $message = 'Not a zip archive';
-             break;
-        case ZIPARCHIVE::ER_INCONS:
-            $message = 'Zip archive inconsistent';
-             break;
-        default:
-            $message = $code;
+    case ZIPARCHIVE::ER_MULTIDISK:
+        $message = 'Multi-disk zip archives not supported';
+        break;
+    case ZIPARCHIVE::ER_READ:
+        $message = 'Read error';
+        break;
+    case ZIPARCHIVE::ER_CRC:
+        $message = 'CRC error';
+        break;
+    case ZIPARCHIVE::ER_NOZIP:
+        $message = 'Not a zip archive';
+        break;
+    case ZIPARCHIVE::ER_INCONS:
+        $message = 'Zip archive inconsistent';
+        break;
+    default:
+        $message = $code;
     }
     return $message;
 }
