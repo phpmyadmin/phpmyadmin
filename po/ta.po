@@ -1648,7 +1648,7 @@ msgstr "சுட்டுகளை காட்டு"
 
 #: js/messages.php:234
 msgid "Searching"
-msgstr ""
+msgstr "தேடுதல்"
 
 #: js/messages.php:235
 msgid "Hide search results"
