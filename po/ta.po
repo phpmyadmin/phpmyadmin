@@ -1952,7 +1952,7 @@ msgstr "கார்த்திகை"
 
 #: js/messages.php:378
 msgid "December"
-msgstr ""
+msgstr "மார்கழி"
 
 #. l10n: Short month name
 #: js/messages.php:382 libraries/common.lib.php:1509
