@@ -12527,6 +12527,8 @@ msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
 msgstr ""
+"Esto indica que muchas consultas están realizando escrutinios completos de "
+"tablas. Agregue índices donde sea aplicable."
 
 #: po/advisory_rules.php:138
 #, php-format
