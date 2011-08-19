@@ -620,7 +620,8 @@ $links['innodb']['doc'] = 'innodb';
 // Variable to contain all com_ variables
 $used_queries = array();
 
-// Variable to map variable names to their respective section name (used for js category filtering)
+// Variable to map variable names to their respective section name
+// (used for js category filtering)
 $allocationMap = array();
 
 // sort vars into arrays
@@ -637,10 +638,15 @@ foreach ($server_status as $name => $value) {
 }
 
 if(PMA_DRIZZLE) {
-    $used_queries = PMA_DBI_fetch_result('SELECT * FROM data_dictionary.global_statements', 0, 1);
+    $used_queries = PMA_DBI_fetch_result(
+        'SELECT * FROM data_dictionary.global_statements',
+        0,
+        1
+    );
     unset($used_queries['admin_commands']);
 } else {
-    // admin commands are not queries (e.g. they include COM_PING, which is excluded from $server_status['Questions'])
+    // admin commands are not queries (e.g. they include COM_PING,
+    // which is excluded from $server_status['Questions'])
     unset($used_queries['Com_admin_commands']);
 }
 
