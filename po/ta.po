@@ -1948,7 +1948,7 @@ msgstr "ஐப்பசி"
 
 #: js/messages.php:377
 msgid "November"
-msgstr ""
+msgstr "கார்த்திகை"
 
 #: js/messages.php:378
 msgid "December"
