@@ -74,9 +74,9 @@ rule 'Slow query logging'
 
 #
 # versions
-rule 'Release Series'
+rule 'Release Series' [!PMA_DRIZZLE]
 	version
-	!PMA_DRIZZLE && substr(value,0,1) <= 5 && substr(value,2,1) < 1
+	substr(value,0,1) <= 5 && substr(value,2,1) < 1
 	The MySQL server version less then 5.1.
 	You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 even more so.
 	Current version: %s | value
@@ -428,9 +428,9 @@ rule 'InnoDB buffer pool size' [system_memory > 0]
 # other
 rule 'MyISAM concurrent inserts'
 	concurrent_insert
-	value == 0
+	value === 0 || value === 'NEVER'
 	Enable concurrent_insert by setting it to 1
-	Setting {concurrent_insert} to 1 reduces contention between readers and writers for a given table. See also <a href="http://dev.mysql.com/doc/refman/5.0/en/concurrent-inserts.html">MySQL Documentation</a>
+	Setting {concurrent_insert} to 1 reduces contention between readers and writers for a given table. See also <a href="http://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html">MySQL Documentation</a>
 	concurrent_insert is set to 0
 
 # INSERT DELAYED USAGE
