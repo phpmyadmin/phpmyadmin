@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 07:20+0200\n"
+"PO-Revision-Date: 2011-08-19 07:21+0200\n"
 "Last-Translator:  <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -704,7 +704,7 @@ msgstr "அட்டவணையை திருத்து"
 
 #: db_structure.php:514 tbl_operations.php:631
 msgid "Analyze table"
-msgstr ""
+msgstr "அட்டவணையை பகுப்பாய்"
 
 #: db_structure.php:516
 msgid "Add prefix to table"
