@@ -495,12 +495,23 @@ $(document).ready(function() {
             title: { text: 'Query Results' },
 	    xAxis: {
 	        title: { text: $('#tableid_0').val() },
+		events: {
+                    setExtremes: function(e){
+                        this.resetZoom.show();
+                    }
+                }
+
             },
             yAxis: {
 		min: null,
 	        title: { text: $('#tableid_1').val() },
 		endOnTick: false,
-                startOnTick: false
+                startOnTick: false,
+		events: {
+                    setExtremes: function(e){
+                        this.resetZoom.show();
+                    }
+                }
 	    },
         }
 
@@ -678,7 +689,20 @@ $(document).ready(function() {
                 setZoom();
             }
         });
+        //Add reset zoom feature
+        currentChart.yAxis[0].resetZoom = currentChart.xAxis[0].resetZoom = $('<a href="#">Reset zoom</a>')
+        .appendTo(currentChart.container)
+        .css({
+            position: 'absolute',
+            top: 10,
+            right: 20,
+            display: 'none'
+        })
+        .click(function(){
+            currentChart.xAxis[0].setExtremes(null, null)
+            currentChart.yAxis[0].setExtremes(null, null)
+            this.style.display = 'none'
+        });
 	scrollToChart();
-
     }
 });
