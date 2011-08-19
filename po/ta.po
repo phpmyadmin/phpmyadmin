@@ -11153,7 +11153,7 @@ msgstr ""
 
 #: po/advisory_rules.php:40 po/advisory_rules.php:45
 msgid "Minor Version"
-msgstr "சிறு பதிப்பு"
+msgstr "சிறுய பதிப்பு"
 
 #: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
