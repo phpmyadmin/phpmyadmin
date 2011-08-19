@@ -130,6 +130,7 @@ class PMA_Theme
      * checks image path for existance - if not found use img from original theme
      *
      * @access  public
+     * @return bool
      */
     function checkImgPath()
     {
@@ -282,6 +283,7 @@ class PMA_Theme
      *
      * @access  public
      * @param string  $type   left, right or print
+     * @return bool
      */
     function loadCss(&$type)
     {

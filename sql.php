@@ -15,7 +15,17 @@ require_once './libraries/check_user_privileges.lib.php';
 require_once './libraries/bookmark.lib.php';
 
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
+$GLOBALS['js_include'][] = 'jquery/timepicker.js';
 $GLOBALS['js_include'][] = 'tbl_change.js';
+
+// required for GIS editor loaded via AJAX
+$GLOBALS['js_include'][] = 'gis_data_editor.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.svg.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.mousewheel.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.event.drag-2.0.min.js';
+$GLOBALS['js_include'][] = 'tbl_gis_visualization.js';
+$GLOBALS['js_include'][] = 'openlayers/OpenLayers.js';
+$GLOBALS['js_include'][] = 'OpenStreetMap.js';
 
 if (isset($_SESSION['profiling'])) {
     $GLOBALS['js_include'][] = 'highcharts/highcharts.js';
@@ -765,6 +775,34 @@ else {
         $extra_data = array();
         $extra_data['value'] = $row[0];
         PMA_ajaxResponse(NULL, true, $extra_data);
+    }
+
+    if (isset($_REQUEST['ajax_request']) && isset($_REQUEST['table_maintenance'])) {
+        $GLOBALS['js_include'][] = 'functions.js';
+        $GLOBALS['js_include'][] = 'makegrid.js';
+        $GLOBALS['js_include'][] = 'sql.js';
+        
+        // Gets the list of fields properties
+        if (isset($result) && $result) {
+            $fields_meta = PMA_DBI_get_fields_meta($result);
+            $fields_cnt  = count($fields_meta);
+        }
+
+        if (empty($disp_mode)) {
+            // see the "PMA_setDisplayMode()" function in
+            // libraries/display_tbl.lib.php
+            $disp_mode = 'urdr111101';
+        }
+
+        // hide edit and delete links for information_schema
+        if ($db == 'information_schema') {
+            $disp_mode = 'nnnn110111';
+        }
+        
+        $message = PMA_Message::success($message);
+        echo PMA_showMessage($message, $GLOBALS['sql_query'], 'success');
+        PMA_displayTable($result, $disp_mode, $analyzed_sql);
+        exit();
     }
 
     // Displays the headers

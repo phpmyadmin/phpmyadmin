@@ -20,6 +20,7 @@ $GLOBALS['js_include'][] = 'jquery/jquery.svg.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.mousewheel.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.event.drag-2.0.min.js';
 $GLOBALS['js_include'][] = 'tbl_gis_visualization.js';
+$GLOBALS['js_include'][] = 'OpenStreetMap.js';
 
 // Allows for resending headers even after sending some data
 ob_start();
@@ -63,7 +64,7 @@ if (! isset($visualizationSettings['spatialColumn'])) {
 }
 
 // Convert geometric columns from bytes to text.
-$modified_query = PMA_GIS_modify_query($sql_query, $visualizationSettings);
+$modified_query = PMA_GIS_modifyQuery($sql_query, $visualizationSettings);
 $modified_result = PMA_DBI_try_query($modified_query);
 
 $data = array();
@@ -89,7 +90,7 @@ if (isset($_REQUEST['saveToFile'])) {
     }
 
     $save_format = $_REQUEST['fileFormat'];
-    PMA_GIS_save_to_file($data, $visualizationSettings, $save_format, $file_name);
+    PMA_GIS_saveToFile($data, $visualizationSettings, $save_format, $file_name);
     exit();
 }
 
@@ -97,7 +98,7 @@ $svg_support = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER <= 8) ? fal
 $format = $svg_support ? 'svg' : 'png';
 
 // get the chart and settings after chart generation
-$visualization = PMA_GIS_visualization_results($data, $visualizationSettings, $format);
+$visualization = PMA_GIS_visualizationResults($data, $visualizationSettings, $format);
 
 /**
  * Displays the page
@@ -115,39 +116,9 @@ $visualization = PMA_GIS_visualization_results($data, $visualizationSettings, $f
     <div id="openlayersmap"></div>
     <input type="hidden" id="pmaThemeImage" value="<?php echo($GLOBALS['pmaThemeImage']); ?>" />
 
-    <script type="text/javascript" src="http://www.openstreetmap.org/openlayers/OpenStreetMap.js"></script>
     <script language="javascript" type="text/javascript">
         function drawOpenLayers() {
-            var options = {
-                projection: new OpenLayers.Projection("EPSG:900913"),
-                displayProjection: new OpenLayers.Projection("EPSG:4326"),
-                units: "m",
-                numZoomLevels: 18,
-                maxResolution: 156543.0339,
-                maxExtent: new OpenLayers.Bounds(-20037508, -20037508, 20037508, 20037508),
-                restrictedExtent: new OpenLayers.Bounds(-20037508, -20037508, 20037508, 20037508)
-            };
-            var map = new OpenLayers.Map('openlayersmap', options);
-
-            // create OSM layer
-            var layerNone = new OpenLayers.Layer.Boxes("None", {isBaseLayer: true});
-            var layerMapnik = new OpenLayers.Layer.OSM.Mapnik("Mapnik");
-            var layerOsmarender = new OpenLayers.Layer.OSM.Osmarender("Osmarender");
-            var layerCycleMap = new OpenLayers.Layer.OSM.CycleMap("CycleMap");
-            map.addLayers([layerMapnik, layerOsmarender, layerCycleMap, layerNone]);
-
-            // create a vector layer
-            var vectorLayer = new OpenLayers.Layer.Vector("Data");
-            var bound;
-            <?php echo (PMA_GIS_visualization_results($data, $visualizationSettings, 'ol')); ?>
-            map.addLayer(vectorLayer);
-
-            map.zoomToExtent(bound);
-            if (map.getZoom() < 2) {
-                map.zoomTo(2);
-            }
-            map.addControl(new OpenLayers.Control.LayerSwitcher());
-            map.addControl(new OpenLayers.Control.MousePosition());
+            <?php echo (PMA_GIS_visualizationResults($data, $visualizationSettings, 'ol')); ?>
         }
     </script>
 

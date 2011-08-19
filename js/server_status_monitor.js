@@ -1680,7 +1680,7 @@ $(function() {
 
         $('div#logTable table').tablesorter({
             sortList: [[cols.length - 1, 1]],
-            widgets: ['zebra']
+            widgets: ['fast-zebra']
         });
 
         $('div#logTable table thead th')
@@ -1869,4 +1869,9 @@ $(function() {
 
         $('a[href="#clearMonitorConfig"]').show();
     }
+});
+
+// Run the monitor once loaded
+$(function() {
+    $('a[href="#pauseCharts"]').trigger('click');
 });

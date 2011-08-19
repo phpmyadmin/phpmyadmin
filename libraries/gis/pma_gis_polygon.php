@@ -77,6 +77,7 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
     public function prepareRowAsPng($spatial, $label, $fill_color, $scale_data, $image)
     {
         // allocate colors
+        $black = imagecolorallocate($image, 0, 0, 0);
         $red   = hexdec(substr($fill_color, 1, 2));
         $green = hexdec(substr($fill_color, 3, 2));
         $blue  = hexdec(substr($fill_color, 4, 2));
@@ -105,6 +106,10 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
 
         // draw polygon
         imagefilledpolygon($image, $points_arr, sizeof($points_arr) / 2, $color);
+        // print label if applicable
+        if (isset($label) && trim($label) != '') {
+            imagestring($image, 1, $points_arr[2], $points_arr[3], trim($label), $black);
+        }
         return $image;
     }
 
@@ -150,6 +155,12 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
 
         // draw polygon
         $pdf->Polygon($points_arr, 'F*', array(), $color, true);
+        // print label if applicable
+        if (isset($label) && trim($label) != '') {
+            $pdf->SetXY($points_arr[2], $points_arr[3]);
+            $pdf->SetFontSize(5);
+            $pdf->Cell(0, 0, trim($label));
+        }
         return $pdf;
     }
 
@@ -261,6 +272,249 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
         $row .= ' Z ';
 
         return $row;
+    }
+
+    /**
+     * Generate the WKT with the set of parameters passed by the GIS editor.
+     *
+     * @param array  $gis_data GIS data
+     * @param int    $index    Index into the parameter object
+     * @param string $empty    Value for empty points
+     *
+     * @return WKT with the set of parameters passed by the GIS editor
+     */
+    public function generateWkt($gis_data, $index, $empty = '')
+    {
+        $no_of_lines = isset($gis_data[$index]['POLYGON']['no_of_lines'])
+            ? $gis_data[$index]['POLYGON']['no_of_lines'] : 1;
+        if ($no_of_lines < 1) {
+            $no_of_lines = 1;
+        }
+        $wkt = 'POLYGON(';
+        for ($i = 0; $i < $no_of_lines; $i++) {
+            $no_of_points = isset($gis_data[$index]['POLYGON'][$i]['no_of_points'])
+                ? $gis_data[$index]['POLYGON'][$i]['no_of_points'] : 4;
+            if ($no_of_points < 4) {
+                $no_of_points = 4;
+            }
+            $wkt .= '(';
+            for ($j = 0; $j < $no_of_points; $j++) {
+                $wkt .= ((isset($gis_data[$index]['POLYGON'][$i][$j]['x'])
+                    && trim($gis_data[$index]['POLYGON'][$i][$j]['x']) != '')
+                    ? $gis_data[$index]['POLYGON'][$i][$j]['x'] : $empty)
+                    . ' ' . ((isset($gis_data[$index]['POLYGON'][$i][$j]['y'])
+                    && trim($gis_data[$index]['POLYGON'][$i][$j]['y']) != '')
+                    ? $gis_data[$index]['POLYGON'][$i][$j]['y'] : $empty) .',';
+            }
+            $wkt = substr($wkt, 0, strlen($wkt) - 1);
+            $wkt .= '),';
+        }
+        $wkt = substr($wkt, 0, strlen($wkt) - 1);
+        $wkt .= ')';
+        return $wkt;
+    }
+
+    /**
+     * Calculates the area of a closed simple polygon.
+     *
+     * @param array $ring array of points forming the ring
+     *
+     * @return the area of a closed simple polygon.
+     */
+    public static function area($ring)
+    {
+
+        $no_of_points = count($ring);
+
+        // If the last point is same as the first point ignore it
+        $last = count($ring) - 1;
+        if (($ring[0]['x'] == $ring[$last]['x'])
+            && ($ring[0]['y'] == $ring[$last]['y'])
+        ) {
+            $no_of_points--;
+        }
+
+        //         _n-1
+        // A = _1_ \    (X(i) * Y(i+1)) - (Y(i) * X(i+1))
+        //      2  /__
+        //         i=0
+        $area = 0;
+        for ($i = 0; $i < $no_of_points; $i++) {
+            $j = ($i + 1) % $no_of_points;
+            $area += $ring[$i]['x'] * $ring[$j]['y'];
+            $area -= $ring[$i]['y'] * $ring[$j]['x'];
+        }
+        $area /= 2.0;
+
+        return $area;
+    }
+
+    /**
+     * Determines whether a set of points represents an outer ring.
+     * If points are in clockwise orientation then, they form an outer ring.
+     *
+     * @param array $ring array of points forming the ring
+     *
+     * @return whether a set of points represents an outer ring.
+     */
+    public static function isOuterRing($ring)
+    {
+        // If area is negative then it's in clockwise orientation,
+        // i.e. it's an outer ring
+        if (PMA_GIS_Polygon::area($ring) < 0) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Determines whether a given point is inside a given polygon.
+     *
+     * @param array $point   x, y coordinates of the point
+     * @param array $polygon array of points forming the ring
+     *
+     * @return whether a given point is inside a given polygon
+     */
+    public static function isPointInsidePolygon($point, $polygon)
+    {
+        // If first point is repeated at the end remove it
+        $last = count($polygon) - 1;
+        if (($polygon[0]['x'] == $polygon[$last]['x'])
+            && ($polygon[0]['y'] == $polygon[$last]['y'])
+        ) {
+            $polygon = array_slice($polygon, 0, $last);
+        }
+
+        $no_of_points = count($polygon);
+        $counter = 0;
+
+        // Use ray casting algorithm
+        $p1 = $polygon[0];
+        for ($i = 1; $i <= $no_of_points; $i++) {
+            $p2 = $polygon[$i % $no_of_points];
+            if ($point['y'] > min(array($p1['y'], $p2['y']))) {
+                if ($point['y'] <= max(array($p1['y'], $p2['y']))) {
+                    if ($point['x'] <= max(array($p1['x'], $p2['x']))) {
+                        if ($p1['y'] != $p2['y']) {
+                            $xinters = ($point['y'] - $p1['y'])
+                                * ($p2['x'] - $p1['x'])
+                                / ($p2['y'] - $p1['y']) + $p1['x'];
+                            if ($p1['x'] == $p2['x'] || $point['x'] <= $xinters) {
+                                $counter++;
+                            }
+                        }
+                    }
+                }
+            }
+            $p1 = $p2;
+        }
+
+        if ($counter % 2 == 0) {
+            return  false;
+        } else {
+            return true;
+        }
+    }
+
+    /**
+     * Returns a point that is guaranteed to be on the surface of the ring.
+     * (for simple closed rings)
+     *
+     * @param array $ring array of points forming the ring
+     *
+     * @return a point on the surface of the ring
+     */
+    public static function getPointOnSurface($ring)
+    {
+        // Find two consecutive distinct points.
+        for ($i = 0; $i < count($ring) - 1; $i++) {
+            if ($ring[$i]['y'] != $ring[$i + 1]['y']) {
+                $x0 = $ring[$i]['x'];
+                $x1 = $ring[$i + 1]['x'];
+                $y0 = $ring[$i]['y'];
+                $y1 = $ring[$i + 1]['y'];
+                break;
+            }
+        }
+
+        if (! isset($x0)) {
+            return false;
+        }
+
+        // Find the mid point
+        $x2 = ($x0 + $x1) / 2;
+        $y2 = ($y0 + $y1) / 2;
+
+        // Always keep $epsilon < 1 to go with the reduction logic down here
+        $epsilon = 0.1;
+        $denominator = sqrt(pow(($y1 - $y0), 2) + pow(($x0 - $x1), 2));
+        $pointA = array(); $pointB = array();
+
+        while (true) {
+            // Get the points on either sides of the line
+            // with a distance of epsilon to the mid point
+            $pointA['x'] = $x2 + ($epsilon * ($y1 - $y0)) / $denominator;
+            $pointA['y'] = $y2 + ($pointA['x'] - $x2) * ($x0 - $x1) / ($y1 - $y0);
+
+            $pointB['x'] = $x2 + ($epsilon * ($y1 - $y0)) / (0 - $denominator);
+            $pointB['y'] = $y2 + ($pointB['x'] - $x2) * ($x0 - $x1) / ($y1 - $y0);
+
+            // One of the points should be inside the polygon,
+            // unless epcilon chosen is too large
+            if (PMA_GIS_Polygon::isPointInsidePolygon($pointA, $ring)) {
+                return $pointA;
+            } elseif (PMA_GIS_Polygon::isPointInsidePolygon($pointB, $ring)) {
+                return $pointB;
+            } else {
+                //If both are outside the polygon reduce the epsilon and
+                //recalculate the points(reduce exponentially for faster convergance)
+                $epsilon = pow($epsilon, 2);
+                if ($epsilon == 0) {
+                    return false;
+                }
+            }
+
+        }
+    }
+
+    /** Generate parameters for the GIS data editor from the value of the GIS column.
+     *
+     * @param string $value of the GIS column
+     * @param index  $index of the geometry
+     *
+     * @return  parameters for the GIS data editor from the value of the GIS column
+     */
+    public function generateParams($value, $index = -1)
+    {
+        if ($index == -1) {
+            $index = 0;
+            $params = array();
+            $data = PMA_GIS_Geometry::generateParams($value);
+            $params['srid'] = $data['srid'];
+            $wkt = $data['wkt'];
+        } else {
+            $params[$index]['gis_type'] = 'POLYGON';
+            $wkt = $value;
+        }
+
+        // Trim to remove leading 'POLYGON((' and trailing '))'
+        $polygon = substr($wkt, 9, (strlen($wkt) - 11));
+        // Seperate each linestring
+        $linerings = explode("),(", $polygon);
+        $params[$index]['POLYGON']['no_of_lines'] = count($linerings);
+
+        $j = 0;
+        foreach ($linerings as $linering) {
+            $points_arr = $this->extractPoints($linering, null);
+            $no_of_points = count($points_arr);
+            $params[$index]['POLYGON'][$j]['no_of_points'] = $no_of_points;
+            for ($i = 0; $i < $no_of_points; $i++) {
+                $params[$index]['POLYGON'][$j][$i]['x'] = $points_arr[$i][0];
+                $params[$index]['POLYGON'][$j][$i]['y'] = $points_arr[$i][1];
+            }
+            $j++;
+        }
+        return $params;
     }
 }
 ?>

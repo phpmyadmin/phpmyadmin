@@ -304,7 +304,9 @@ function PMA_RTN_handleEditor()
             $extra_data = array();
             if ($message->isSuccess()) {
                 $columns  = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`, `DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
-                $where    = "ROUTINE_SCHEMA='" . PMA_sqlAddSlashes($db) . "' AND ROUTINE_NAME='" . PMA_sqlAddSlashes($_REQUEST['item_name']) . "'";
+                $where    = "ROUTINE_SCHEMA='" . PMA_sqlAddSlashes($db) . "' "
+                          . "AND ROUTINE_NAME='" . PMA_sqlAddSlashes($_REQUEST['item_name']) . "'"
+                          . "AND ROUTINE_TYPE='" . PMA_sqlAddSlashes($_REQUEST['item_type']) . "'";
                 $routine  = PMA_DBI_fetch_single_row("SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;");
                 $extra_data['name']    = htmlspecialchars(strtoupper($_REQUEST['item_name']));
                 $extra_data['new_row'] = PMA_RTN_getRowForList($routine);
@@ -343,7 +345,7 @@ function PMA_RTN_handleEditor()
         } else if (! empty($_REQUEST['edit_item'])) {
             $title = __("Edit routine");
             if (! $operation && ! empty($_REQUEST['item_name']) && empty($_REQUEST['editor_process_edit'])) {
-                $routine = PMA_RTN_getDataFromName($_REQUEST['item_name']);
+                $routine = PMA_RTN_getDataFromName($_REQUEST['item_name'], $_REQUEST['item_type']);
                 if ($routine !== false) {
                     $routine['item_original_name'] = $routine['item_name'];
                     $routine['item_original_type'] = $routine['item_type'];
@@ -501,12 +503,13 @@ function PMA_RTN_getDataFromRequest()
  * the "Edit routine" form given the name of a routine.
  *
  * @param   string   $name   The name of the routine.
+ * @param   string   $type   Type of routine (ROUTINE|PROCEDURE)
  * @param   bool     $all    Whether to return all data or just
  *                           the info about parameters.
  *
  * @return  array    Data necessary to create the routine editor.
  */
-function PMA_RTN_getDataFromName($name, $all = true)
+function PMA_RTN_getDataFromName($name, $type, $all = true)
 {
     global $param_directions, $param_sqldataaccess, $db;
 
@@ -517,7 +520,8 @@ function PMA_RTN_getDataFromName($name, $all = true)
              . "ROUTINE_DEFINITION, IS_DETERMINISTIC, SQL_DATA_ACCESS, "
              . "ROUTINE_COMMENT, SECURITY_TYPE";
     $where   = "ROUTINE_SCHEMA='" . PMA_sqlAddSlashes($db) . "' "
-             . "AND SPECIFIC_NAME='" . PMA_sqlAddSlashes($name) . "'";
+             . "AND SPECIFIC_NAME='" . PMA_sqlAddSlashes($name) . "'"
+             . "AND ROUTINE_TYPE='" . PMA_sqlAddSlashes($type) . "'";
     $query   = "SELECT $fields FROM INFORMATION_SCHEMA.ROUTINES WHERE $where;";
 
     $routine = PMA_DBI_fetch_single_row($query);
@@ -1002,7 +1006,7 @@ function PMA_RTN_getQueryFromRequest()
     $warned_about_dir    = false;
     $warned_about_name   = false;
     $warned_about_length = false;
-    if (! empty($_REQUEST['item_param_name'])
+    if (   ! empty($_REQUEST['item_param_name'])
         && ! empty($_REQUEST['item_param_type'])
         && ! empty($_REQUEST['item_param_length'])
         && is_array($_REQUEST['item_param_name'])
@@ -1124,7 +1128,7 @@ function PMA_RTN_handleExecute()
      */
     if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['item_name'])) {
         // Build the queries
-        $routine   = PMA_RTN_getDataFromName($_REQUEST['item_name'], false);
+        $routine = PMA_RTN_getDataFromName($_REQUEST['item_name'], $_REQUEST['item_type'], false);
         if ($routine !== false) {
             $queries   = array();
             $end_query = array();
@@ -1279,7 +1283,7 @@ function PMA_RTN_handleExecute()
         /**
          * Display the execute form for a routine.
          */
-        $routine = PMA_RTN_getDataFromName($_GET['item_name'], false);
+        $routine = PMA_RTN_getDataFromName($_GET['item_name'], $_GET['item_type'], true);
         if ($routine !== false) {
             $form = PMA_RTN_getExecuteForm($routine);
             if ($GLOBALS['is_ajax_request'] == true) {
@@ -1336,6 +1340,8 @@ function PMA_RTN_getExecuteForm($routine)
     $retval .= "<form action='db_routines.php' method='post' class='rte_form'>\n";
     $retval .= "<input type='hidden' name='item_name'\n";
     $retval .= "       value='{$routine['item_name']}' />\n";
+    $retval .= "<input type='hidden' name='item_type'\n";
+    $retval .= "       value='{$routine['item_type']}' />\n";
     $retval .= PMA_generate_common_hidden_inputs($db) . "\n";
     $retval .= "<fieldset>\n";
     if ($GLOBALS['is_ajax_request'] != true) {

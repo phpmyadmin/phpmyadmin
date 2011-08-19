@@ -1068,10 +1068,9 @@ function PMA_REL_renameField($db, $table, $field, $new_name)
  * @param string    $newpage
  * @param array     $cfgRelation
  * @param string    $db
- * @param string    $query_default_option
  * @return string   $pdf_page_number
  */
-function PMA_REL_create_page($newpage, $cfgRelation, $db, $query_default_option)
+function PMA_REL_create_page($newpage, $cfgRelation, $db)
 {
     if (! isset($newpage) || $newpage == '') {
         $newpage = __('no description');
@@ -1079,7 +1078,7 @@ function PMA_REL_create_page($newpage, $cfgRelation, $db, $query_default_option)
     $ins_query   = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
                  . ' (db_name, page_descr)'
                  . ' VALUES (\'' . PMA_sqlAddSlashes($db) . '\', \'' . PMA_sqlAddSlashes($newpage) . '\')';
-    PMA_query_as_controluser($ins_query, false, $query_default_option);
+    PMA_query_as_controluser($ins_query, false);
     return PMA_DBI_insert_id(isset($GLOBALS['controllink']) ? $GLOBALS['controllink'] : '');
 }
 ?>

@@ -14,6 +14,9 @@ $ID_KEY = "UPLOAD_IDENTIFIER";
  * Returns upload status.
  *
  * This is implementation for uploadprogress extension.
+ *
+ * @param string $id
+ * @return array|null
  */
 function PMA_getUploadStatus($id)
 {
@@ -21,7 +24,7 @@ function PMA_getUploadStatus($id)
     global $ID_KEY;
 
     if (trim($id) == "") {
-        return;
+        return null;
     }
 
     if (! array_key_exists($id, $_SESSION[$SESSION_KEY])) {

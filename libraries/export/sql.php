@@ -297,8 +297,8 @@ if (isset($plugin_list)) {
     /**
      * Avoids undefined variables, use NULL so isset() returns false
      */
-    if (! isset($sql_backquotes)) {
-        $sql_backquotes = null;
+    if (! isset($GLOBALS['sql_backquotes'])) {
+        $GLOBALS['sql_backquotes'] = null;
     }
 
     /**

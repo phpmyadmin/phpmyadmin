@@ -59,6 +59,7 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
     public function prepareRowAsPng($spatial, $label, $point_color, $scale_data, $image)
     {
         // allocate colors
+        $black = imagecolorallocate($image, 0, 0, 0);
         $red   = hexdec(substr($point_color, 1, 2));
         $green = hexdec(substr($point_color, 3, 2));
         $blue  = hexdec(substr($point_color, 4, 2));
@@ -70,7 +71,15 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
 
         foreach ($points_arr as $point) {
             // draw a small circle to mark the point
-            imagearc($image, $point[0], $point[1], 7, 7, 0, 360, $color);
+            if ($point[0] != '' && $point[1] != '') {
+                imagearc($image, $point[0], $point[1], 7, 7, 0, 360, $color);
+            }
+        }
+        // print label for each point
+        if ((isset($label) && trim($label) != '')
+            && ($points_arr[0][0] != '' && $points_arr[0][1] != '')
+        ) {
+            imagestring($image, 1, $points_arr[0][0], $points_arr[0][1], trim($label), $black);
         }
         return $image;
     }
@@ -100,7 +109,17 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
 
         foreach ($points_arr as $point) {
             // draw a small circle to mark the point
-            $pdf->Circle($point[0], $point[1], 2, 0, 360, 'D', $line);
+            if ($point[0] != '' && $point[1] != '') {
+                $pdf->Circle($point[0], $point[1], 2, 0, 360, 'D', $line);
+            }
+        }
+        // print label for each point
+        if ((isset($label) && trim($label) != '')
+            && ($points_arr[0][0] != '' && $points_arr[0][1] != '')
+        ) {
+            $pdf->SetXY($points_arr[0][0], $points_arr[0][1]);
+            $pdf->SetFontSize(5);
+            $pdf->Cell(0, 0, trim($label));
         }
         return $pdf;
     }
@@ -131,12 +150,14 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
 
         $row = '';
         foreach ($points_arr as $point) {
-            $row .= '<circle cx="' . $point[0] . '" cy="' . $point[1] . '" r="3"';
-            $point_options['id'] = $label . rand();
-            foreach ($point_options as $option => $val) {
-                $row .= ' ' . $option . '="' . trim($val) . '"';
+            if ($point[0] != '' && $point[1] != '') {
+                $row .= '<circle cx="' . $point[0] . '" cy="' . $point[1] . '" r="3"';
+                $point_options['id'] = $label . rand();
+                foreach ($point_options as $option => $val) {
+                    $row .= ' ' . $option . '="' . trim($val) . '"';
+                }
+                $row .= '/>';
             }
-            $row .= '/>';
         }
 
         return $row;
@@ -176,17 +197,104 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
 
         $row = 'new Array(';
         foreach ($points_arr as $point) {
-            $row .= '(new OpenLayers.Geometry.Point(' . $point[0] . ', ' . $point[1]
-                . ')).transform(new OpenLayers.Projection("EPSG:' . $srid
-                . '"), map.getProjectionObject()), ';
+            if ($point[0] != '' && $point[1] != '') {
+                $row .= '(new OpenLayers.Geometry.Point(' . $point[0] . ', ' . $point[1]
+                    . ')).transform(new OpenLayers.Projection("EPSG:' . $srid
+                    . '"), map.getProjectionObject()), ';
+            }
         }
-        $row = substr($row, 0, strlen($row) - 2);
+        if (substr($row, strlen($row) - 2) == ', ') {
+            $row = substr($row, 0, strlen($row) - 2);
+        }
         $row .= ')';
 
         $result .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
             . 'new OpenLayers.Geometry.MultiPoint(' . $row . '), null, '
             . json_encode($style_options) . '));';
         return $result;
+    }
+
+    /**
+     * Generate the WKT with the set of parameters passed by the GIS editor.
+     *
+     * @param array  $gis_data GIS data
+     * @param int    $index    Index into the parameter object
+     * @param string $empty    Multipoint does not adhere to this
+     *
+     * @return WKT with the set of parameters passed by the GIS editor
+     */
+    public function generateWkt($gis_data, $index, $empty = '')
+    {
+        $no_of_points = isset($gis_data[$index]['MULTIPOINT']['no_of_points'])
+            ? $gis_data[$index]['MULTIPOINT']['no_of_points'] : 1;
+        if ($no_of_points < 1) {
+            $no_of_points = 1;
+        }
+        $wkt = 'MULTIPOINT(';
+        for ($i = 0; $i < $no_of_points; $i++) {
+            $wkt .= ((isset($gis_data[$index]['MULTIPOINT'][$i]['x'])
+                && trim($gis_data[$index]['MULTIPOINT'][$i]['x']) != '')
+                ? $gis_data[$index]['MULTIPOINT'][$i]['x'] : '')
+                . ' ' . ((isset($gis_data[$index]['MULTIPOINT'][$i]['y'])
+                && trim($gis_data[$index]['MULTIPOINT'][$i]['y']) != '')
+                ? $gis_data[$index]['MULTIPOINT'][$i]['y'] : '') . ',';
+        }
+        $wkt = substr($wkt, 0, strlen($wkt) - 1);
+        $wkt .= ')';
+        return $wkt;
+    }
+
+    /**
+     * Generate the WKT for the data from ESRI shape files.
+     *
+     * @param array $row_data GIS data
+     *
+     * @return the WKT for the data from ESRI shape files
+     */
+    public function getShape($row_data)
+    {
+        $wkt = 'MULTIPOINT(';
+        for ($i = 0; $i < $row_data['numpoints']; $i++) {
+            $wkt .= $row_data['points'][$i]['x'] . ' ' . $row_data['points'][$i]['y'] . ',';
+        }
+        $wkt = substr($wkt, 0, strlen($wkt) - 1);
+        $wkt .= ')';
+        return $wkt;
+    }
+
+    /**
+     * Generate parameters for the GIS data editor from the value of the GIS column.
+     *
+     * @param string $value of the GIS column
+     * @param index  $index of the geometry
+     *
+     * @return  parameters for the GIS data editor from the value of the GIS column
+     */
+    public function generateParams($value, $index = -1)
+    {
+        if ($index == -1) {
+            $index = 0;
+            $params = array();
+            $data = PMA_GIS_Geometry::generateParams($value);
+            $params['srid'] = $data['srid'];
+            $wkt = $data['wkt'];
+        } else {
+            $params[$index]['gis_type'] = 'MULTIPOINT';
+            $wkt = $value;
+        }
+
+        // Trim to remove leading 'MULTIPOINT(' and trailing ')'
+        $points = substr($wkt, 11, (strlen($wkt) - 12));
+        $points_arr = $this->extractPoints($points, null);
+
+        $no_of_points = count($points_arr);
+        $params[$index]['MULTIPOINT']['no_of_points'] = $no_of_points;
+        for ($i = 0; $i < $no_of_points; $i++) {
+            $params[$index]['MULTIPOINT'][$i]['x'] = $points_arr[$i][0];
+            $params[$index]['MULTIPOINT'][$i]['y'] = $points_arr[$i][1];
+        }
+
+        return $params;
     }
 }
 ?>

@@ -9,6 +9,9 @@
  * @package phpMyAdmin
  */
 
+/**
+ * @return array
+ */
 function getSysInfo()
 {
     $supported = array('Linux','WINNT');

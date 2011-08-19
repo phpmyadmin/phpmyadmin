@@ -142,9 +142,10 @@ ul#databaseList span {
 
 ul#databaseList a {
     color: #333;
-    background: url(./themes/pmahomme/img/database.png) no-repeat 0% 50% transparent;
+    background: url(./themes/pmahomme/img/database.png) no-repeat 0 5px transparent;
     display: block;
-    padding: 5px;
+    text-indent: 0;
+    padding: 5px 5px 5px 25px;
     font-style: normal;
 }
 
@@ -160,14 +161,19 @@ div#navidbpageselector select{
 }
 
 ul#databaseList ul {
-    margin:0px;
-    padding:0px;
+    margin: 0;
+    padding: 0;
 }
-ul#databaseList li{    list-style:none;text-indent:20px;    margin:0px;
-    padding:0px;}
+
+ul#databaseList li {
+    list-style: none;
+    text-indent: 20px;
+    margin: 0;
+    padding: 0;
+}
 
 ul#databaseList a:hover {
-    background:url(./themes/pmahomme/img/database.png) no-repeat 0% 50% #e4e4e4;
+    background-color: #e4e4e4;
 }
 
 ul#databaseList li.selected a {
@@ -184,7 +190,7 @@ div#reloadlink a img,
 div#leftframelinks a img.icon {
     margin:        0.3em;
     margin-top:    0.7em;
-    border:        0px;
+    border:        0;
 }
 
 div#leftframelinks a:hover img {

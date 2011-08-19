@@ -17,6 +17,8 @@ class PMA_foreignKeySupported_test extends PHPUnit_Framework_TestCase
 {
     /**
      * data provider for foreign key supported test
+     *
+     * @return array
      */
     public function foreignkeySupportedDataProvider() {
         return array(

@@ -334,6 +334,7 @@ class PMA_Config
      * should be called on object creation
      *
      * @param string $source  config file
+     * @return bool
      */
     function load($source = null)
     {
@@ -698,6 +699,8 @@ class PMA_Config
      * $cfg['PmaAbsoluteUri'] is a required directive else cookies won't be
      * set properly and, depending on browsers, inserting or updating a
      * record might fail
+     *
+     * @return bool
      */
     function checkPmaAbsoluteUri()
     {
@@ -937,7 +940,7 @@ class PMA_Config
     }
 
     /**
-     * @static
+     * @return bool
      */
     public function isHttps()
     {
@@ -964,6 +967,8 @@ class PMA_Config
      *
      * Please note that this just detects what we see, so
      * it completely ignores things like reverse proxies.
+     *
+     * @return bool
      */
     function detectHttps()
     {
@@ -1012,7 +1017,7 @@ class PMA_Config
     }
 
     /**
-     * @static
+     * @return string
      */
     public function getCookiePath()
     {

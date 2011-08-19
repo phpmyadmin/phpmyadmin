@@ -60,7 +60,7 @@ h1 {
 h2 {
     font-size:          2em;
     font-weight:        normal;
-    text-shadow:        0px 1px 0px #fff;
+    text-shadow:        0 1px 0 #fff;
     padding:            10px 0 10px 3px;
     color:              #777;
 }
@@ -72,7 +72,6 @@ h2 a img{display:inline;}
 
 .data{
     margin: 0 0 12px 0;
-    position: relative;
 }
 
 h3 {
@@ -205,7 +204,7 @@ input[type=submit]{
     -webkit-border-radius: 12px;
     -moz-border-radius: 12px;
 
-    text-shadow: 0px 1px 0px #fff;
+    text-shadow: 0 1px 0 #fff;
 
     background-image: url(./themes/svg_gradient.php?from=ffffff&to=cccccc);
     background-size: 100% 100%;
@@ -463,11 +462,13 @@ select[multiple] {
 img.sortableIcon { background-position: -1812px 0; }
 
 /* Same as s_asc */
-th.headerSortUp img.sortableIcon { background-position: -1516px 0; }
+th.headerSortUp img.sortableIcon { background-position: 0 0; }
 
 /* Same as s_desc */
-th.headerSortDown img.sortableIcon { background-position: 0 0; }
+th.headerSortDown img.sortableIcon { background-position: -1516px 0; }
 
+/* Fix position */
+.ic_more { vertical-align: middle; }
 
 /******************************************************************************/
 /* classes */
@@ -965,11 +966,11 @@ form.login label {
 
 /* topmenu */
 #topmenu a {
-    text-shadow:0px 1px 0px #fff;
+    text-shadow: 0 1px 0 #fff;
 }
 
 #topmenu .error {
-    background:#eee;border:0px !important;color:#aaa;
+    background:#eee;border: 0 !important;color:#aaa;
 }
 
 ul#topmenu, ul#topmenu2, ul.tabs {
@@ -1009,8 +1010,8 @@ ul#topmenu li, ul#topmenu2 li {
 
 ul#topmenu a, ul#topmenu span {
     display:            block;
-    margin:             0px;
-    padding:            0px;
+    margin:             0;
+    padding:            0;
     white-space:        nowrap;
 }
 
@@ -1055,7 +1056,7 @@ ul#topmenu ul li {
 
 ul#topmenu2 a {
     display:            block;
-    margin:             7px 6px 7px 0px;
+    margin:             7px 6px 7px 0;
     padding:            4px 10px;
     white-space:        nowrap;
     border:1px solid #ddd;
@@ -1149,7 +1150,7 @@ ul#topmenu2 a.tabactive {
 /* to be able to cancel the bottom border, use <li class="active"> */
 ul#topmenu > li.active {
     /* border-bottom:      0pt solid <?php echo $GLOBALS['cfg']['MainBackground']; ?>; */
-    border-right:0px;
+    border-right: 0;
 }
 
 /* disabled tabs */
@@ -1348,6 +1349,9 @@ img.sortableIcon {
 .buttonlinks {
     float: <?php echo $right; ?>;
     white-space: nowrap;
+}
+
+.jsfeature {
     display: none; /* Made visible with js */
 }
 
@@ -1408,8 +1412,8 @@ div.liveChart {
 }
 
 #addChartDialog input[type="text"] {
-    margin:0px;
-    padding:3px;
+    margin: 0;
+    padding: 3px;
 }
 
 div#chartVariableSettings {
@@ -1513,7 +1517,7 @@ table#serverVariables td {
 
 
 p.notice {
-    margin:             1.5em 0px;
+    margin:             1.5em 0;
     border:             1px solid #000;
     <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-repeat:  no-repeat;
@@ -1530,9 +1534,9 @@ p.notice {
     -moz-border-radius:5px;
     -webkit-border-radius:5px;
     border-radius:5px;
-    -moz-box-shadow: 0px 1px 2px #fff inset;
-    -webkit-box-shadow: 0px 1px 2px #fff inset;
-    box-shadow:0px 1px 2px #fff; inset;
+    -moz-box-shadow: 0 1px 2px #fff inset;
+    -webkit-box-shadow: 0 1px 2px #fff inset;
+    box-shadow: 0 1px 2px #fff; inset;
     background:#555;
     color:#d4fb6a;
 }
@@ -1600,14 +1604,14 @@ div#profilingchart {
     border-radius:5px;
     -webkit-border-radius:5px;
     -moz-border-radius:5px;
-    box-shadow:0px 1px 1px #fff inset;
-    -webkit-box-shadow:0px 1px 1px #fff inset;
-    -moz-box-shadow:0px 1px 1px #fff inset;
+    box-shadow: 0 1px 1px #fff inset;
+    -webkit-box-shadow: 0 1px 1px #fff inset;
+    -moz-box-shadow: 0 1px 1px #fff inset;
 }
 #sectionlinks a, .buttonlinks a, a.button {
     font-size:0.88em;
     font-weight:bold;
-    text-shadow: 0px 1px 0px #fff;
+    text-shadow: 0 1px 0 #fff;
     line-height:35px;
     margin-left:7px;
     border: 1px solid #aaa;
@@ -1623,7 +1627,7 @@ div#profilingchart {
     /*
     -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,.5);
     -moz-box-shadow: 1px 1px 2px rgba(0,0,0,.5);
-    text-shadow: #fff 0px 1px 0px;
+    text-shadow: #fff 0 1px 0;
     */
     background-image: url(./themes/svg_gradient.php?from=ffffff&to=cccccc);
     background-size: 100% 100%;
@@ -1950,7 +1954,7 @@ div.upload_progress_bar_outer
 div.upload_progress_bar_inner
 {
     background-color: <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
-    width: 0px;
+    width: 0;
     height: 12px;
     margin: 1px;
 }
@@ -1973,7 +1977,7 @@ input[type=text].invalid_value,
   *  Ajax notification styling
   */
  .ajax_notification {
-    top: 0px;           /** The notification needs to be shown on the top of the page */
+    top: 0;           /** The notification needs to be shown on the top of the page */
     position: fixed;
     margin-top: 0;
     margin-right: auto;
@@ -1999,9 +2003,9 @@ input[type=text].invalid_value,
     border-radius:5px;
     -moz-border-radius:5px;
     -webkit-border-radius:5px;
-    box-shadow: 0px 5px 90px #888;
-    -moz-box-shadow: 0px 5px 90px #888;
-    -webkit-box-shadow: 0px 5px 90px #888;
+    box-shadow: 0 5px 90px #888;
+    -moz-box-shadow: 0 5px 90px #888;
+    -webkit-box-shadow: 0 5px 90px #888;
 }
 
 #loading_parent {
@@ -2053,7 +2057,7 @@ input[type=text].invalid_value,
     -webkit-border-radius: 12px;
     -moz-border-radius: 12px;
 
-    text-shadow: 0px 1px 0px #fff;
+    text-shadow: 0 1px 0 #fff;
 
     background-image: url(./themes/svg_gradient.php?from=ffffff&to=cccccc);
     background-size: 100% 100%;
@@ -2073,13 +2077,13 @@ input[type=text].invalid_value,
 }
 
 .format_specific_options h3 {
-    margin: 10px 0px 0px 10px;
-    border: 0px;
+    margin: 10px 0 0 10px;
+    border: 0;
 }
 
 .format_specific_options {
     border: 1px solid #999999;
-    margin: 7px 0px;
+    margin: 7px 0;
     padding: 3px;
 }
 
@@ -2095,7 +2099,7 @@ select#db_select, select#table_select {
 }
 
 .export_sub_options {
-    margin: 20px 0px 0px 30px;
+    margin: 20px 0 0 30px;
 }
 
 .export_sub_options h4 {
@@ -2119,7 +2123,7 @@ select#db_select, select#table_select {
  */
 
 .importoptions #import_notification {
-    margin: 10px 0px;
+    margin: 10px 0;
     font-style: italic;
 }
 
@@ -2128,7 +2132,45 @@ input#input_import_file {
 }
 
 .formelementrow {
-    margin: 5px 0px 5px 0px;
+    margin: 5px 0 5px 0;
+}
+
+/**
+ * GIS data editor styles
+ */
+a.close_gis_editor {
+    float: right;
+}
+
+#gis_editor {
+    display: none;
+    position: fixed;
+    _position: absolute; /* hack for IE */
+    z-index: 101;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#gis_data {
+    min-height: 230px;
+}
+
+#gis_data_textarea {
+    height: 6em;
+}
+
+#gis_data_editor {
+    background: #D0DCE0;
+    padding: 15px;
+    min-height: 500px;
+}
+
+#gis_data_editor .choice {
+    display: none;
+}
+
+#gis_data_editor input[type="text"] {
+    width: 75px;
 }
 
 /**
@@ -2175,12 +2217,12 @@ a.close_enum_editor {
 }
 
 #enum_editor #values, #enum_editor_no_js #values {
-    margin: 15px 0px;
+    margin: 15px 0;
     width: 100%;
 }
 
 #enum_editor #values input, #enum_editor_no_js #values input {
-    margin: 5px 0px;
+    margin: 5px 0;
     float: top;
     width: 100%;
 }
@@ -2202,7 +2244,7 @@ a.close_enum_editor {
     background:#fff;
     line-height:24px;
     border:1px solid #aaa;
-    -moz-box-shadow:0px 3px 3px #ddd;
+    -moz-box-shadow: 0 3px 3px #ddd;
 }
 .structure_actions_dropdown span{display:block;}
 .structure_actions_dropdown span:hover{background:#ddd;}
@@ -2277,7 +2319,7 @@ iframe.IE_hack {
     margin:    0;
     padding:   0.5em;
     background: #fff;
-    border-top:0px;
+    border-top: 0;
 }
 
 .config-form fieldset .errors { /* form error list */
@@ -2510,7 +2552,7 @@ fieldset .disabled-field td {
 .toggleButton .toggleOn {
     color: white;
     padding: 0 1em;
-    text-shadow: 0px 0px 0.2em #000;
+    text-shadow: 0 0 0.2em #000;
 }
 .toggleButton .toggleOff {
     padding: 0 1em;
@@ -2971,3 +3013,9 @@ span.cm-number {
     padding-left: 20px;
 }
 
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header{ margin-bottom: 8px; }
+.ui-timepicker-div dl{ text-align: left; }
+.ui-timepicker-div dl dt{ height: 25px; }
+.ui-timepicker-div dl dd{ margin: -25px 0 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }

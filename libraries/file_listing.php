@@ -10,9 +10,9 @@
 /**
  * Returns array of filtered file names
  *
- * @param string  directory to list
- * @param string  regular expression to match files
- * @returns array   sorted file list on success, false on failure
+ * @param string $dir        directory to list
+ * @param string $expression regular expression to match files
+ * @return array   sorted file list on success, false on failure
  */
 function PMA_getDirContent($dir, $expression = '')
 {
@@ -39,10 +39,10 @@ function PMA_getDirContent($dir, $expression = '')
 /**
  * Returns options of filtered file names
  *
- * @param string  directory to list
- * @param string  regullar expression to match files
- * @param string  currently active choice
- * @returns array   sorted file list on success, false on failure
+ * @param string $dir        directory to list
+ * @param string $extensions regullar expression to match files
+ * @param string $active     currently active choice
+ * @return array   sorted file list on success, false on failure
  */
 function PMA_getFileSelectOptions($dir, $extensions = '', $active = '')
 {
@@ -64,7 +64,7 @@ function PMA_getFileSelectOptions($dir, $extensions = '', $active = '')
 /**
  * Get currently supported decompressions.
  *
- * @returns string | separated list of extensions usable in PMA_getDirContent
+ * @return string | separated list of extensions usable in PMA_getDirContent
  */
 function PMA_supportedDecompressions()
 {
