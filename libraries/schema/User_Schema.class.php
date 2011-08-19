@@ -505,22 +505,14 @@ class PMA_User_Schema
                 $reset_draginit .= '    document.edcoord.elements["c_table_' . $i . '[x]"].value = "2"' . "\n";
                 $reset_draginit .= '    document.edcoord.elements["c_table_' . $i . '[y]"].value = "' . (15 * $i) . '"' . "\n";
 
-                /* TODO: use PMA_DBI_get_columns */
-                $local_query = 'SHOW FIELDS FROM '
-                             .  PMA_backquote($temp_sh_page['table_name'])
-                             . ' FROM ' . PMA_backquote($db);
-                $fields_rs = PMA_DBI_query($local_query);
-                unset($local_query);
-
                 echo '<div id="table_' . $i . '" class="pdflayout_table"><u>' . $temp_sh_page['table_name'] . '</u>';
                 if (isset($with_field_names)) {
-                    while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
+                    $fields = PMA_DBI_get_columns($db, $temp_sh_page['table_name'])
+                    foreach ($fields as $row) {
                            echo '<br />' . htmlspecialchars($row['Field']) . "\n";
                     }
                 }
                 echo '</div>' . "\n";
-                PMA_DBI_free_result($fields_rs);
-                unset($fields_rs);
                 $i++;
         }
         ?>
