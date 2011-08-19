@@ -21,6 +21,12 @@ class Advisor
             PMA_DBI_fetch_result('SHOW GLOBAL STATUS', 0, 1),
             PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES', 0, 1)
         );
+        if (PMA_DRIZZLE) {
+            $this->variables = array_merge($this->variables,
+                PMA_DBI_fetch_result(
+                    "SELECT concat('Com_', variable_name), variable_value
+                    FROM data_dictionary.GLOBAL_STATEMENTS", 0, 1));
+        }
         // Add total memory to variables as well
         require_once('libraries/sysinfo.lib.php');
         $sysinfo = getSysInfo();
