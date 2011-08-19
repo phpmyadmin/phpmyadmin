@@ -16,9 +16,12 @@ function PMA_userprefs_pageinit()
     $cf = ConfigFile::getInstance();
     $cf->resetConfigData(); // start with a clean instance
     $cf->setAllowedKeys($forms_all_keys);
-    $cf->setCfgUpdateReadMapping(array(
-        'Server/hide_db' => 'Servers/1/hide_db',
-        'Server/only_db' => 'Servers/1/only_db'));
+    $cf->setCfgUpdateReadMapping(
+        array(
+            'Server/hide_db' => 'Servers/1/hide_db',
+            'Server/only_db' => 'Servers/1/only_db'
+        )
+    );
     $cf->updateWithGlobalConfig($GLOBALS['cfg']);
 }
 
@@ -64,7 +67,8 @@ function PMA_load_userprefs()
 /**
  * Saves user preferences
  *
- * @param array $config_data
+ * @param array $config_array configuration array
+ *
  * @return true|PMA_Message
  */
 function PMA_save_userprefs(array $config_array)
@@ -80,7 +84,7 @@ function PMA_save_userprefs(array $config_array)
             'db' => $config_array,
             'ts' => time());
         if (isset($_SESSION['cache'][$cache_key]['userprefs'])) {
-           unset($_SESSION['cache'][$cache_key]['userprefs']);
+            unset($_SESSION['cache'][$cache_key]['userprefs']);
         }
         return true;
     }
@@ -122,6 +126,7 @@ function PMA_save_userprefs(array $config_array)
  * (blacklist) and keys from user preferences form (whitelist)
  *
  * @param array $config_data path => value pairs
+ *
  * @return array
  */
 function PMA_apply_userprefs(array $config_data)
@@ -155,6 +160,7 @@ function PMA_apply_userprefs(array $config_data)
  * Reads user preferences field names
  *
  * @param array|null $forms
+ *
  * @return array
  */
 function PMA_read_userprefs_fieldnames(array $forms = null)
@@ -185,8 +191,10 @@ function PMA_read_userprefs_fieldnames(array $forms = null)
  *
  * No validation is done!
  *
- * @param string $cfg_name
- * @param mixed $value
+ * @param string $path          configuration
+ * @param mixed  $value         value
+ * @param mixed  $default_value default value
+ *
  * @return void
  */
 function PMA_persist_option($path, $value, $default_value)
@@ -222,12 +230,16 @@ function PMA_userprefs_redirect(array $forms, array $old_settings, $file_name, $
                 ? $old_settings['config_data']
                 : array();
         $new_settings = ConfigFile::getInstance()->getConfigArray();
-        $diff_keys = array_keys(array_diff_assoc($old_settings, $new_settings)
-                + array_diff_assoc($new_settings, $old_settings));
+        $diff_keys = array_keys(
+            array_diff_assoc($old_settings, $new_settings)
+            + array_diff_assoc($new_settings, $old_settings)
+        );
         $check_keys = array('NaturalOrder', 'MainPageIconic', 'DefaultTabDatabase',
             'Server/hide_db', 'Server/only_db');
-        $check_keys = array_merge($check_keys, $forms['Left_frame']['Left_frame'],
-             $forms['Left_frame']['Left_databases']);
+        $check_keys = array_merge(
+            $check_keys, $forms['Left_frame']['Left_frame'],
+            $forms['Left_frame']['Left_databases']
+        );
         $diff = array_intersect($check_keys, $diff_keys);
         $reload_left_frame = !empty($diff);
     }
@@ -242,8 +254,10 @@ function PMA_userprefs_redirect(array $forms, array $old_settings, $file_name, $
     if ($hash) {
         $hash = '#' . urlencode($hash);
     }
-    PMA_sendHeaderLocation($GLOBALS['cfg']['PmaAbsoluteUri'] . $file_name
-            . PMA_generate_common_url($url_params, '&') . $hash);
+    PMA_sendHeaderLocation(
+        $GLOBALS['cfg']['PmaAbsoluteUri'] . $file_name
+        . PMA_generate_common_url($url_params, '&') . $hash
+    );
 }
 
 /**
