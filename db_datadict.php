@@ -203,7 +203,7 @@ foreach($tables as $table) {
         } else {
             $row['Default'] = htmlspecialchars($row['Default']);
         }
-        $field_name = htmlspecialchars($row['Field']);
+        $field_name = $row['Field'];
 
         if (PMA_MYSQL_INT_VERSION < 50025
          && ! empty($analyzed_sql[0]['create_table_fields'][$field_name]['type'])
@@ -225,9 +225,9 @@ foreach($tables as $table) {
     <td nowrap="nowrap">
         <?php
         if (isset($pk_array[$row['Field']])) {
-            echo '<u>' . $field_name . '</u>';
+            echo '<u>' . htmlspecialchars($field_name) . '</u>';
         } else {
-            echo $field_name;
+            echo htmlspecialchars($field_name);
         }
         ?>
     </td>
