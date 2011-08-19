@@ -12565,10 +12565,9 @@ msgstr ""
 "Los valores actuales son «tmp_table_size»: %s, «max_heap_table_size»: %s"
 
 #: po/advisory_rules.php:145
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Percentage of temp tables on disk"
-msgstr "Donde mostrar los enlaces de filas de tabla"
+msgstr "Porcentaje de tablas temporales en disco"
 
 #: po/advisory_rules.php:146 po/advisory_rules.php:151
 msgid ""
