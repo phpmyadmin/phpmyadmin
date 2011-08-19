@@ -1904,7 +1904,7 @@ msgstr "தை"
 
 #: js/messages.php:368
 msgid "February"
-msgstr ""
+msgstr "மாசி"
 
 #: js/messages.php:369
 #, fuzzy
