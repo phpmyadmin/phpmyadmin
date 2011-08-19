@@ -2884,7 +2884,7 @@ msgstr ""
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "இடது"
 
 #: libraries/config.values.php:47
 msgid "Right"
