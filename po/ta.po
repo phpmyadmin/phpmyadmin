@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 08:47+0200\n"
+"PO-Revision-Date: 2011-08-19 08:48+0200\n"
 "Last-Translator:  <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -2337,7 +2337,7 @@ msgstr "தகுதியற்ற தரவுத்தளம்"
 
 #: libraries/Table.class.php:1048 tbl_get_field.php:25
 msgid "Invalid table name"
-msgstr ""
+msgstr "தகுதியற்ற அட்டவணைப் பெயர்"
 
 #: libraries/Table.class.php:1063
 #, php-format
