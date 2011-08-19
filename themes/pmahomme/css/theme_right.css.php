@@ -3520,7 +3520,7 @@ h2.active {
     left-padding:8px;
     margin:0;
     border-bottom:4px solid #3CF;
-    background-color: #D0DCE0; //#09c;
+    background-color: #D0DCE0;
     color:black;
     font-weight:bold;
     padding-left: 2px;
@@ -3528,7 +3528,7 @@ h2.active {
 }
 
 #tblfooter {
-    background-color: D3DCE3;
+    background-color: #D3DCE3;
     float: right;
     padding-top:10px;
     color: black;
