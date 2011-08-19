@@ -362,24 +362,26 @@ class PMA_Table
         }
 
         switch ($default_type) {
-            case 'USER_DEFINED' :
-                if ($is_timestamp && $default_value === '0') {
-                    // a TIMESTAMP does not accept DEFAULT '0'
-                    // but DEFAULT 0 works
-                    $query .= ' DEFAULT 0';
-                } elseif ($type == 'BIT') {
-                    $query .= ' DEFAULT b\'' . preg_replace('/[^01]/', '0', $default_value) . '\'';
-                } else {
-                    $query .= ' DEFAULT \'' . PMA_sqlAddSlashes($default_value) . '\'';
-                }
-                break;
-            case 'NULL' :
-            case 'CURRENT_TIMESTAMP' :
-                $query .= ' DEFAULT ' . $default_type;
-                break;
-            case 'NONE' :
-            default :
-                break;
+        case 'USER_DEFINED' :
+            if ($is_timestamp && $default_value === '0') {
+                // a TIMESTAMP does not accept DEFAULT '0'
+                // but DEFAULT 0 works
+                $query .= ' DEFAULT 0';
+            } elseif ($type == 'BIT') {
+                $query .= ' DEFAULT b\''
+                        . preg_replace('/[^01]/', '0', $default_value)
+                        . '\'';
+            } else {
+                $query .= ' DEFAULT \'' . PMA_sqlAddSlashes($default_value) . '\'';
+            }
+            break;
+        case 'NULL' :
+        case 'CURRENT_TIMESTAMP' :
+            $query .= ' DEFAULT ' . $default_type;
+            break;
+        case 'NONE' :
+        default :
+            break;
         }
 
         if (!empty($extra)) {
