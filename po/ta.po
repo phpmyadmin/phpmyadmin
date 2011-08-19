@@ -2802,7 +2802,7 @@ msgstr "அடுத்து"
 #: libraries/display_tbl.lib.php:385
 msgctxt "Last page"
 msgid "End"
-msgstr ""
+msgstr "முடிவு"
 
 #: libraries/common.lib.php:2393
 #, php-format
