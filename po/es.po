@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 21:14+0200\n"
+"PO-Revision-Date: 2011-08-19 21:15+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -12398,6 +12398,8 @@ msgstr "Tasa de ordenaciones que causan tablas temporales"
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
+"Promedio de tablas temporales: %s, este valor debería de ser menor a 1 por "
+"hora."
 
 #: po/advisory_rules.php:115
 #, fuzzy
