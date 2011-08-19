@@ -2666,7 +2666,7 @@ msgstr "ஆங்"
 #: libraries/sql_query_form.lib.php:387 libraries/sql_query_form.lib.php:390
 #: main.php:212 server_variables.php:114
 msgid "Documentation"
-msgstr ""
+msgstr "ஆவணச்சான்று"
 
 #: libraries/common.lib.php:559 libraries/header_printview.inc.php:60
 #: server_status.php:532 server_status.php:1123
