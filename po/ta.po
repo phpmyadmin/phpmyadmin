@@ -2547,7 +2547,7 @@ msgstr "பகிரப்பட்டது"
 #: libraries/config/messages.inc.php:183 libraries/export/xml.php:49
 #: server_status.php:545
 msgid "Tables"
-msgstr ""
+msgstr "அட்டவணைகள்"
 
 #: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:302
 #: libraries/config/setup.forms.php:338 libraries/config/setup.forms.php:361
