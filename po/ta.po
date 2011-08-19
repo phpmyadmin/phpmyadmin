@@ -1494,7 +1494,7 @@ msgstr ""
 
 #: js/messages.php:179
 msgid "Total:"
-msgstr ""
+msgstr "மொத்த:"
 
 #: js/messages.php:181
 msgid "Loading logs"
