@@ -12647,7 +12647,7 @@ msgstr "Tamaño de búfer de claves MyISAM"
 #: po/advisory_rules.php:156
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
-"El búfe de claves no fue inicializado. No se utilizará un caché de claves "
+"El búfer de claves no fue inicializado. No se utilizará un caché de claves "
 "MyISAM."
 
 #: po/advisory_rules.php:157
