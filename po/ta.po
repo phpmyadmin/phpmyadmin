@@ -1632,7 +1632,7 @@ msgstr "நீங்கள் புதிய பயனாளரை சேர்
 
 #: js/messages.php:224
 msgid "Create Table"
-msgstr ""
+msgstr "அட்டவணையை உருவாக்கு"
 
 #: js/messages.php:229
 msgid "Insert Table"
