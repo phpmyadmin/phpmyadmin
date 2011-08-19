@@ -64,7 +64,7 @@ while ($row = PMA_DBI_fetch_row($rowset)) {
 
     echo '<div>' . "\n";
 
-    echo '<h2>' . $table . '</h2>' . "\n";
+    echo '<h2>' . htmlspecialchars($table) . '</h2>' . "\n";
 
     /**
      * Gets table informations
