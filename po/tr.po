@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-20 01:31+0200\n"
+"PO-Revision-Date: 2011-08-20 01:32+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -12349,7 +12349,7 @@ msgstr ""
 #: po/advisory_rules.php:143
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr ""
+msgstr "Şu anki değerler tmp_table_size: %s, max_heap_table_size: %s"
 
 #: po/advisory_rules.php:145
 msgid "Percentage of temp tables on disk"
