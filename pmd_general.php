@@ -79,7 +79,7 @@ echo $script_tabs . $script_contr . $script_display_field;
         /></a><a href="javascript:location.reload();" onmousedown="return false;"
             class="M_butt" target="_self"
         ><img title="<?php echo __('Reload'); ?>" src="pmd/images/reload.png" alt=""
-        /></a><a href="javascript:Help();" onmousedown="return false;"
+        /></a><a href="Documentation.html#faq6_31" target="documentation"
             class="M_butt" target="_self"
         ><img title="<?php echo __('Help'); ?>" src="pmd/images/help.png" alt=""
         /></a><img class="M_bord" src="pmd/images/bord.png" alt=""
