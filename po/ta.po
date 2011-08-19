@@ -1558,7 +1558,7 @@ msgstr "பரிந்துரை"
 
 #: js/messages.php:200
 msgid "Rule details"
-msgstr ""
+msgstr "ஆளுகை விபரங்கள்"
 
 #: js/messages.php:201
 #, fuzzy
