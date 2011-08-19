@@ -1885,7 +1885,7 @@ msgstr "முடிந்த"
 #: js/messages.php:356
 msgctxt "Previous month"
 msgid "Prev"
-msgstr ""
+msgstr "பின்"
 
 #: js/messages.php:361
 msgctxt "Next month"
