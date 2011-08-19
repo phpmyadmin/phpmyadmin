@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-16 22:58+0200\n"
+"PO-Revision-Date: 2011-08-18 00:48+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:316
@@ -855,10 +855,10 @@ msgid "Dump has been saved to file %s."
 msgstr "Dump je shranjen v datoteko %s."
 
 #: gis_data_editor.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
-msgstr "Vrednosti za stolpec \"%s\""
+msgstr "Vrednost za stolpec \"%s\""
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
@@ -866,7 +866,7 @@ msgstr "Uporabi OpenStreetMaps kot osnovni sloj"
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:289
 #: libraries/display_tbl.lib.php:663
@@ -876,66 +876,60 @@ msgstr "Geometrija"
 #: gis_data_editor.php:172 gis_data_editor.php:194 gis_data_editor.php:240
 #: gis_data_editor.php:290 js/messages.php:286
 msgid "Point"
-msgstr ""
+msgstr "Točka"
 
 #: gis_data_editor.php:173 gis_data_editor.php:195 gis_data_editor.php:241
 #: gis_data_editor.php:291 js/messages.php:284
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:197 gis_data_editor.php:243
 #: gis_data_editor.php:293 js/messages.php:285
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:202 gis_data_editor.php:246 gis_data_editor.php:296
 #: js/messages.php:292
-#, fuzzy
 #| msgid "Add routine"
 msgid "Add a point"
-msgstr "Dodaj rutino"
+msgstr "Dodaj točko"
 
 #: gis_data_editor.php:218 js/messages.php:287
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Vrstice zaključene z"
+msgstr "Daljica"
 
 #: gis_data_editor.php:221 gis_data_editor.php:275
 msgid "Outer Ring:"
-msgstr ""
+msgstr "Zunanji obroč:"
 
 #: gis_data_editor.php:223 gis_data_editor.php:277 js/messages.php:290
 msgid "Inner Ring"
-msgstr ""
+msgstr "Notranji obroč"
 
 #: gis_data_editor.php:248
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Dodaj novega uporabnika"
+msgstr "Dodaj daljico"
 
 #: gis_data_editor.php:248 gis_data_editor.php:298 js/messages.php:293
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Dodaj novega uporabnika"
+msgstr "Dodaj notranji obroč"
 
 #: gis_data_editor.php:262 js/messages.php:288
 msgid "Polygon"
-msgstr ""
+msgstr "Večkotnik"
 
 #: gis_data_editor.php:300 js/messages.php:294
-#, fuzzy
 #| msgid "Add column"
 msgid "Add a polygon"
-msgstr "Dodaj stolpec"
+msgstr "Dodaj večkotnik"
 
 #: gis_data_editor.php:304
-#, fuzzy
 #| msgid "Geometry"
 msgid "Add geometry"
-msgstr "Geometrija"
+msgstr "Dodaj geometrijo"
 
 #: gis_data_editor.php:312
 msgid ""
@@ -1229,6 +1223,10 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
+"Konfiguracija razvrstitve grafikonov v lokalni shrambi brskalnika ni več "
+"združljiva z novejšo različico pogovornega okna nadziranja. Zelo verjetno "
+"je, da vaša trenutna konfiguracija ne bo več delovala. Prosimo, ponastavite "
+"svojo konfiguracijo na privzeto v meniju <i>Nastavitve</i>."
 
 #: js/messages.php:96
 msgid "Query cache efficiency"
@@ -1549,6 +1547,9 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"Med zahtevo podatkov novega grafikona je strežnik vrnil neveljavni odziv. To "
+"se je najverjetneje zgodilo, ker je vaša seja potekla. Ponovno nalaganje "
+"strani in ponovni vnos poveril bi morala pomagati."
 
 #: js/messages.php:184
 msgid "Reload page"
@@ -1753,10 +1754,9 @@ msgid "Show search criteria"
 msgstr "Prikaži iskalne pogoje"
 
 #: js/messages.php:262 libraries/tbl_select.lib.php:150
-#, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
-msgstr "Iskanje"
+msgstr "Iskanje s povečevanjem"
 
 #: js/messages.php:264
 msgid "Each point represents a data row."
@@ -1764,11 +1764,11 @@ msgstr "Vsaka točka predstavlja podatkovno vrstico."
 
 #: js/messages.php:266
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "Prehod z miško čez točko bo pokazalo njeno oznako."
 
 #: js/messages.php:268
 msgid "Drag and select an area in the plot to zoom into it."
-msgstr ""
+msgstr "Povlecite in izberite območje na izrisu, ki ga želite povečati."
 
 #: js/messages.php:270
 msgid "Click reset zoom link to come back to original state."
@@ -1782,11 +1782,11 @@ msgstr ""
 
 #: js/messages.php:274
 msgid "The plot can be resized by dragging it along the bottom right corner."
-msgstr ""
+msgstr "Izris lahko povečate tako, da ga vlečete ob spodnjem desnem kotu."
 
 #: js/messages.php:276
 msgid "Strings are converted into integer for plotting"
-msgstr ""
+msgstr "Nizi so pri izrisovanju pretvorjeni v cela števila"
 
 #: js/messages.php:278
 msgid "Select two columns"
@@ -1807,7 +1807,7 @@ msgstr "Kopiraj"
 
 #: js/messages.php:291
 msgid "Outer Ring"
-msgstr ""
+msgstr "Zunanji obroč"
 
 #: js/messages.php:297
 msgid "Add columns"
@@ -2167,6 +2167,8 @@ msgstr "Sekunda"
 #, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr ""
+"Oblikovanje niza za pravilo '%s' je spodletelo. PHP je vrnil naslednjo "
+"napako: %s"
 
 #: libraries/Config.class.php:1159
 msgid "Font size"
@@ -6695,29 +6697,30 @@ msgstr "Uvozi denarne enote <i>(npr. $5.00 v 5.00)</i>"
 
 #: libraries/import/shp.php:14
 msgid "ESRI Shape File"
-msgstr ""
+msgstr "Datoteka oblik ESRI"
 
 #: libraries/import/shp.php:254
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr ""
+msgstr "Med uvažanjem datoteke oblik ESRI je prišlo do napake: \"%s\"."
 
 #: libraries/import/shp.php:310
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data"
 msgstr ""
+"Poskušali ste uvoziti neveljavno datoteko ali pa uvožena datoteka vsebuje "
+"neveljavne podatke"
 
 #: libraries/import/shp.php:312
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
-msgstr ""
+msgstr "Prostorska razširitev MySQL ne podpira ESRI vrste \"%s\"."
 
 #: libraries/import/shp.php:350
-#, fuzzy
 #| msgid "This page does not contain any tables!"
 msgid "The imported file does not contain any data"
-msgstr "Ta stran ne vsebuje nobenih tabel!"
+msgstr "Uvožena datoteka ne vsebuje nobenih podatkov"
 
 #: libraries/import/sql.php:33
 msgid "SQL compatibility mode:"
@@ -8042,10 +8045,9 @@ msgid "Table Search"
 msgstr "Iskanje po tabeli"
 
 #: libraries/tbl_select.lib.php:229 tbl_change.php:994
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "Vstavi"
+msgstr "Uredi/Vstavi"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 msgid ""
@@ -10339,6 +10341,10 @@ msgid ""
 "table is supported by MySQL 5.1.6 and onwards. You may still use the server "
 "charting features however."
 msgstr ""
+"Žal vaš strežnik zbirk podatkov ne podpira beleženja v tabelo, ki je "
+"zahtevano za analiziranje dnevnikov zbirk podatov s phpMyAdmin. Beleženje v "
+"tabelo podpira MySQL 5.1.6 in novejši. Kljub temu lahko še vedno uporabljate "
+"strežniške zmožnosti izrisa grafikonov."
 
 #: server_status.php:1508
 msgid "Using the monitor:"
@@ -11672,6 +11678,8 @@ msgstr "Neprekinjeno delovanje krajše od enega dneva"
 #: po/advisory_rules.php:6
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
+"Neprekinjeno delovanje je krajše od enega dneva; nastavitev zmogljivosti "
+"morda ni točna."
 
 #: po/advisory_rules.php:7
 msgid ""
@@ -11693,6 +11701,8 @@ msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
+"Na tem strežniku je bilo zagnanih manj kot 1.000 vprašanj. Priporočila morda "
+"niso točna."
 
 #: po/advisory_rules.php:12
 msgid ""
@@ -11753,6 +11763,8 @@ msgid ""
 "long_query_time is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"long_query_time je nastavljen na 10 sekund ali več, zato so zabeležene samo "
+"počasne poizvedbe, ki trajajo več kot 10 sekund."
 
 #: po/advisory_rules.php:27
 msgid ""
@@ -11784,10 +11796,9 @@ msgid "log_slow_queries is set to 'OFF'"
 msgstr "log_slow_queries je nastavljen na 'OFF'"
 
 #: po/advisory_rules.php:35
-#, fuzzy
 #| msgid "Clear series"
 msgid "Release Series"
-msgstr "Počisti serije"
+msgstr "Serije izdaj"
 
 #: po/advisory_rules.php:36
 msgid "The MySQL server version less then 5.1."
@@ -12338,12 +12349,13 @@ msgstr ""
 
 #: po/advisory_rules.php:172
 msgid "You may need to increase {key_buffer_size}."
-msgstr ""
+msgstr "Mord boste morali povečati {key_buffer_size}."
 
 #: po/advisory_rules.php:173
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
+"Branj indeksov iz pomnilnika: %s %%; ta vrednost bi morala biti nad 95 %%"
 
 #: po/advisory_rules.php:175
 msgid "Rate of table open"
@@ -12578,6 +12590,9 @@ msgid ""
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
+"Odjemalci so ponavadi prekinjeni, ker niso pravilno zaprli svoje povezave z "
+"MySQL. To je lahko zaradi omrežnih težav ali pa koda ne zapira pravilno "
+"upravljavca zbirk podatkov. Preverite svoje omrežje in kodo."
 
 #: po/advisory_rules.php:238
 #, php-format
@@ -12726,7 +12741,7 @@ msgstr ""
 
 #: po/advisory_rules.php:268
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "concurrent_insert je nastavljeno na 0"
 
 #, fuzzy
 #~ msgid "memcached usage"

@@ -1416,7 +1416,7 @@ if (isset($_REQUEST['flush_privileges'])) {
 /**
  * defines some standard links
  */
-$link_edit = '<a class="edit_user_anchor ' . $conditional_class . '" href="server_privileges.php?' . $GLOBALS['url_query']
+$link_edit = '<a class="edit_user_anchor ' . $conditional_class . '" href="server_privileges.php?' . str_replace($GLOBALS['url_query'], '%', '%%')
     . '&amp;username=%s'
     . '&amp;hostname=%s'
     . '&amp;dbname=%s'
@@ -1424,7 +1424,7 @@ $link_edit = '<a class="edit_user_anchor ' . $conditional_class . '" href="serve
     . PMA_getIcon('b_usredit.png', __('Edit Privileges'))
     . '</a>';
 
-$link_revoke = '<a href="server_privileges.php?' . $GLOBALS['url_query']
+$link_revoke = '<a href="server_privileges.php?' . str_replace($GLOBALS['url_query'], '%', '%%')
     . '&amp;username=%s'
     . '&amp;hostname=%s'
     . '&amp;dbname=%s'
@@ -1433,7 +1433,7 @@ $link_revoke = '<a href="server_privileges.php?' . $GLOBALS['url_query']
     . PMA_getIcon('b_usrdrop.png', __('Revoke'))
     . '</a>';
 
-$link_export = '<a class="export_user_anchor ' . $conditional_class . '" href="server_privileges.php?' . $GLOBALS['url_query']
+$link_export = '<a class="export_user_anchor ' . $conditional_class . '" href="server_privileges.php?' . str_replace($GLOBALS['url_query'], '%', '%%')
     . '&amp;username=%s'
     . '&amp;hostname=%s'
     . '&amp;initial=%s'
@@ -2353,7 +2353,9 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                    . '            ' . ($current['Grant_priv'] == 'Y' ? __('Yes') : __('No')) . "\n"
                    . '        </td>' . "\n"
                    . '        <td>' . "\n";
-                $user_form .= sprintf($link_edit, urlencode($current_user),
+                $user_form .= sprintf(
+                    $link_edit,
+                    urlencode($current_user),
                     urlencode($current_host),
                     urlencode(! isset($current['Db']) || $current['Db'] == '*' ? '' : $current['Db']),
                     '');

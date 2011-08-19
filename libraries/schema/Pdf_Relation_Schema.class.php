@@ -923,8 +923,8 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             $pdf->SetX(10);
             $pdf->Cell(0, 6, $i . ' ' . $table, 0, 1, 'L', 0, $pdf->PMA_links['doc'][$table]['-']);
             // $pdf->Ln(1);
-            $result = PMA_DBI_query(PMA_DBI_get_columns_sql($db, $table), null, PMA_DBI_QUERY_STORE);
-            while ($row = PMA_DBI_fetch_assoc($result)) {
+            $fields = PMA_DBI_get_columns($GLOBALS['db'], $table);
+            foreach($fields as $row) {
                 $pdf->SetX(20);
                 $field_name = $row['Field'];
                 $pdf->PMA_links['doc'][$table][$field_name] = $pdf->AddLink();

@@ -279,10 +279,10 @@ button {
 img.sortableIcon { background-position: -1727px 0; }
 
 /* Same as s_asc */
-th.headerSortUp img.sortableIcon { background-position: 0 -1445px; width: 11px; height: 9px; }
+th.headerSortUp img.sortableIcon { background-position: 0 -1528px; width: 11px; height: 9px; }
 
 /* Same as s_desc */
-th.headerSortDown img.sortableIcon { background-position: 0 -1528px; width: 11px; height: 9px; }
+th.headerSortDown img.sortableIcon { background-position: 0 -1445px; width: 11px; height: 9px; }
 
 /* Fix position */
 .ic_more { vertical-align: middle; }
@@ -2311,7 +2311,7 @@ span.CodeMirror-selected {
 .CodeMirror-matchingbracket {color: #0f0 !important;}
 .CodeMirror-nonmatchingbracket {color: #f22 !important;}
 
-span.cm-keyword {
+span.cm-keyword, span.cm-statement-verb {
     color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_reservedWord']; ?>;
 }
 span.cm-variable {

@@ -11,7 +11,8 @@
 require_once './libraries/common.inc.php';
 
 if (! isset($selected_tbl)) {
-    require_once './libraries/header.inc.php';
+    require './libraries/db_common.inc.php';
+    require './libraries/db_info.inc.php';
 }
 
 
@@ -55,16 +56,15 @@ if ($cfgRelation['commwork']) {
  * Selects the database and gets tables names
  */
 PMA_DBI_select_db($db);
-$rowset = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', null, PMA_DBI_QUERY_STORE);
+$tables = PMA_DBI_get_tables($db);
 
 $count  = 0;
-while ($row = PMA_DBI_fetch_row($rowset)) {
-    $table = $row[0];
+foreach($tables as $table) {
     $comments = PMA_getComments($db, $table);
 
     echo '<div>' . "\n";
 
-    echo '<h2>' . $table . '</h2>' . "\n";
+    echo '<h2>' . htmlspecialchars($table) . '</h2>' . "\n";
 
     /**
      * Gets table informations
@@ -204,7 +204,7 @@ while ($row = PMA_DBI_fetch_row($rowset)) {
         } else {
             $row['Default'] = htmlspecialchars($row['Default']);
         }
-        $field_name = htmlspecialchars($row['Field']);
+        $field_name = $row['Field'];
 
         if (PMA_MYSQL_INT_VERSION < 50025
          && ! empty($analyzed_sql[0]['create_table_fields'][$field_name]['type'])
@@ -226,9 +226,9 @@ while ($row = PMA_DBI_fetch_row($rowset)) {
     <td nowrap="nowrap">
         <?php
         if (isset($pk_array[$row['Field']])) {
-            echo '<u>' . $field_name . '</u>';
+            echo '<u>' . htmlspecialchars($field_name) . '</u>';
         } else {
-            echo $field_name;
+            echo htmlspecialchars($field_name);
         }
         ?>
     </td>

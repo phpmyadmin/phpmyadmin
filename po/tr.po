@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-16 16:49+0200\n"
+"PO-Revision-Date: 2011-08-18 10:40+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -847,10 +847,10 @@ msgid "Dump has been saved to file %s."
 msgstr "Döküm, %s dosyasına kaydedildi."
 
 #: gis_data_editor.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
-msgstr "\"%s\" sütunu için değerler"
+msgstr "\"%s\" sütunu için değer"
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
@@ -858,7 +858,7 @@ msgstr "Taban Katman olarak OpenStreetMaps kullan"
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:289
 #: libraries/display_tbl.lib.php:663
@@ -868,72 +868,68 @@ msgstr "Geometri"
 #: gis_data_editor.php:172 gis_data_editor.php:194 gis_data_editor.php:240
 #: gis_data_editor.php:290 js/messages.php:286
 msgid "Point"
-msgstr ""
+msgstr "Nokta"
 
 #: gis_data_editor.php:173 gis_data_editor.php:195 gis_data_editor.php:241
 #: gis_data_editor.php:291 js/messages.php:284
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:197 gis_data_editor.php:243
 #: gis_data_editor.php:293 js/messages.php:285
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:202 gis_data_editor.php:246 gis_data_editor.php:296
 #: js/messages.php:292
-#, fuzzy
 #| msgid "Add routine"
 msgid "Add a point"
-msgstr "Yordam ekle"
+msgstr "Nokta ekle"
 
 #: gis_data_editor.php:218 js/messages.php:287
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Satırı sonlandıran:"
+msgstr "Satır dizgisi"
 
 #: gis_data_editor.php:221 gis_data_editor.php:275
 msgid "Outer Ring:"
-msgstr ""
+msgstr "Dış Halka:"
 
 #: gis_data_editor.php:223 gis_data_editor.php:277 js/messages.php:290
 msgid "Inner Ring"
-msgstr ""
+msgstr "İç Halka"
 
 #: gis_data_editor.php:248
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Yeni Kullanıcı ekle"
+msgstr "Satır dizgisi ekle"
 
 #: gis_data_editor.php:248 gis_data_editor.php:298 js/messages.php:293
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Yeni Kullanıcı ekle"
+msgstr "İç halka ekle"
 
 #: gis_data_editor.php:262 js/messages.php:288
 msgid "Polygon"
-msgstr ""
+msgstr "Poligon"
 
 #: gis_data_editor.php:300 js/messages.php:294
-#, fuzzy
 #| msgid "Add column"
 msgid "Add a polygon"
-msgstr "Sütun ekle"
+msgstr "Poligon ekle"
 
 #: gis_data_editor.php:304
-#, fuzzy
 #| msgid "Geometry"
 msgid "Add geometry"
-msgstr "Geometri"
+msgstr "Geometri ekle"
 
 #: gis_data_editor.php:312
 msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
+"\"Function\" sütunundan \"GeomFromText\" seçin ve \"Value\" alanı içine alttaki "
+"dizgiyi yapıştırın"
 
 #: import.php:57
 #, php-format
@@ -1211,7 +1207,6 @@ msgid "Query statistics"
 msgstr "Sorgu istatistikleri"
 
 #: js/messages.php:93
-#, fuzzy
 #| msgid "Local monitor configuration icompatible"
 msgid "Local monitor configuration incompatible"
 msgstr "Yerel izleme yapılandırması uyumsuz"
@@ -1562,7 +1557,7 @@ msgstr "Etkilenen satırlar:"
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgstr ""
 "Yapılandırma dosyasının ayrıştırılması başarısız. Bu geçerli JSON kodu "
-"görünmüyor."
+"görünmüyor"
 
 #: js/messages.php:189
 msgid ""
@@ -1810,7 +1805,7 @@ msgstr "Kopyala"
 
 #: js/messages.php:291
 msgid "Outer Ring"
-msgstr ""
+msgstr "Dış Halka"
 
 #: js/messages.php:297
 msgid "Add columns"
@@ -2175,6 +2170,8 @@ msgstr "Saniye"
 #, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr ""
+"'%s' kuralı için dizgi biçimlendirme başarısız. PHP aşağıdaki hatayı "
+"yöneltti: %s"
 
 #: libraries/Config.class.php:1159
 msgid "Font size"
@@ -6718,29 +6715,30 @@ msgstr "Parasalları içe aktar <i>(örn. $5.00'ı 5.00'a)</i>"
 
 #: libraries/import/shp.php:14
 msgid "ESRI Shape File"
-msgstr ""
+msgstr "ESRI Şekil Dosyası"
 
 #: libraries/import/shp.php:254
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr ""
+msgstr "ESRI şekil dosyasının içe aktarılmasında hata var: \"%s\"."
 
 #: libraries/import/shp.php:310
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data"
 msgstr ""
+"Geçersiz bir dosyayı içe aktarmayı deniyorsunuz ya da içe aktarılan dosya "
+"geçersiz veri içeriyor"
 
 #: libraries/import/shp.php:312
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
-msgstr ""
+msgstr "MySQL Uzaysal Uzantısı ESRI türü \"%s\" desteklemiyor."
 
 #: libraries/import/shp.php:350
-#, fuzzy
 #| msgid "This page does not contain any tables!"
 msgid "The imported file does not contain any data"
-msgstr "Bu sayfa herhangi bir tablo içermiyor!"
+msgstr "İçe aktarılan dosya herhangi bir veri içermiyor"
 
 #: libraries/import/sql.php:33
 msgid "SQL compatibility mode:"
@@ -7907,7 +7905,7 @@ msgstr "END RAW"
 
 #: libraries/sqlparser.lib.php:382
 msgid "Automatically appended backtick to the end of query!"
-msgstr "Otomatik olarak sorgunun sonuna ters işaret ekle"
+msgstr "Otomatik olarak sorgunun sonuna ters işaret ekle!"
 
 #: libraries/sqlparser.lib.php:385
 msgid "Unclosed quote"
@@ -8065,10 +8063,9 @@ msgid "Table Search"
 msgstr "Tablo Arama"
 
 #: libraries/tbl_select.lib.php:229 tbl_change.php:994
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "Ekle"
+msgstr "Düzenle/Ekle"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 msgid ""
@@ -9599,7 +9596,7 @@ msgid ""
 "the <a href=\"#replication\">replication section</a>."
 msgstr ""
 "Sunucudaki kopya etme durumuyla ilgili daha ayrıntılı bilgi için lütfen <a "
-"href=#replication>kopya etme bölümünü</a> ziyaret edin."
+"href=\"#replication\">kopya etme bölümünü</a> ziyaret edin."
 
 #: server_status.php:979
 msgid "Replication status"
@@ -10954,7 +10951,7 @@ msgstr "Sunucuya parolasız bağlanmaya izin verdiniz."
 
 #: setup/lib/index.lib.php:389
 msgid "Key is too short, it should have at least 8 characters."
-msgstr "Anahtar çok kısa, en az 8 karakter olmalıdır"
+msgstr "Anahtar çok kısa, en az 8 karakter olmalıdır."
 
 #: setup/lib/index.lib.php:396
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
@@ -11144,7 +11141,7 @@ msgstr "-- Yok --"
 
 #: tbl_gis_visualization.php:151
 msgid "Spatial column"
-msgstr "Uzamsal sütun"
+msgstr "Uzaysal sütun"
 
 #: tbl_gis_visualization.php:175
 msgid "Redraw"
@@ -12032,6 +12029,8 @@ msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
 "%%. It should be above 80%%"
 msgstr ""
+"Boş sorgu önbellek belleğinin, toplam sorgu önbelleği boyutuna şu anki oranı "
+"%%%s. Bu %%80'in üzerinde olmalıdır"
 
 #: po/advisory_rules.php:85
 msgid "Query cache fragmentation"
@@ -12039,7 +12038,7 @@ msgstr "Sorgu önbelleği parçalama"
 
 #: po/advisory_rules.php:86
 msgid "The query cache is considerably fragmented."
-msgstr ""
+msgstr "Sorgu önbelleği oldukça parçalanmış."
 
 #: po/advisory_rules.php:87
 msgid ""
@@ -12052,6 +12051,15 @@ msgid ""
 "using this formula: (query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 msgstr ""
+"Şiddetli parçalanma Qcache_lowmem_prunes değerini muhtemelen (daha fazla) "
+"arttırır. Buna {query_cache_size} çok küçük olmasından dolayı çoğu düşük "
+"Sorgu önbellek belleği azalması sebep oluyor olabilir. Hemen ama kısa süreli "
+"onarım için sorgu önbelleğini (uzun bir süreliğine sorgu önbelleğini "
+"kilitleyebilir) temizleyebilirsiniz. {query_cache_min_res_unit}değerini daha "
+"düşük bir değere dikkatlice ayarlamak da yardımcı olabilir, örn. "
+"önbellekteki sorgularınızın ortalama boyutunu bu formülü kullanarak "
+"ayarlayabilirsiniz: (query_cache_size - qcache_free_memory) / "
+"qcache_queries_in_cache"
 
 #: po/advisory_rules.php:88
 #, php-format
@@ -12060,10 +12068,13 @@ msgid ""
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
+"Önbellek şu an %%%s olarak parçalanmış, %%100 parçalanma, sorgu önbelleğinin "
+"boş ve kullanılan bloklarının alternatif bir kalıp olduğu anlamına gelir. "
+"Bu değer %%20'nin altında olmalıdır."
 
 #: po/advisory_rules.php:90
 msgid "Query cache low memory prunes"
-msgstr ""
+msgstr "Düşük sorgu önbellek belleği azalması"
 
 #: po/advisory_rules.php:91
 msgid ""
@@ -12079,12 +12090,16 @@ msgid ""
 "overhead of maintaining the cache is likely to increase with its size, so do "
 "this in small increments and monitor the results."
 msgstr ""
+"Ancak aklınızdan çıkarmayın, önbellek koruması ek yükü muhtemelen boyutunu "
+"arttırır bu yüzden bunu küçük artışlarla yapın ve sonuçlarını izleyin."
 
 #: po/advisory_rules.php:93
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%)"
 msgstr ""
+"Kaldırılan sorguların eklenen sorgulara oranı %%%s. En düşük bu değer en "
+"iyisidir (Bu kuralları atan sınır: %0.1)"
 
 #: po/advisory_rules.php:95
 msgid "Query cache max size"
@@ -12095,12 +12110,14 @@ msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
+"Sorgu önbelleği boyutu 128 MiB'ın üzerinde. Büyük sorgu önbellekleri, "
+"önbelleği korumak için gereken önemli ölçüde ek yüke sebep olabilir."
 
 #: po/advisory_rules.php:97
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
-msgstr ""
+msgstr "Ortamınıza bağlıdır, bu değeri düşürmek performansı arttırabilir."
 
 #: po/advisory_rules.php:98
 #, php-format
@@ -12115,6 +12132,7 @@ msgstr "Sorgu önbelleği en az sonuç boyutu"
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
+"Sorgu önbelleğinde sonuç grubunun en fazla boyutu varsayılanı 1 MiB'tır."
 
 #: po/advisory_rules.php:102
 msgid ""

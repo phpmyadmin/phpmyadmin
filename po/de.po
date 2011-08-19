@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-17 13:24+0200\n"
-"Last-Translator:  <franz.georg@neurieser.eu>\n"
+"PO-Revision-Date: 2011-08-18 18:36+0200\n"
+"Last-Translator: Sven Strickroth <email@cs-ware.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -854,65 +854,69 @@ msgid "Dump has been saved to file %s."
 msgstr "Dump wurde in Datei %s gespeichert."
 
 #: gis_data_editor.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
-msgstr "Werte für die Spalte \"%s\""
+msgstr "Wert für die Spalte \"%s\""
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Verwende OpenStreetMaps als Basis-Layer"
 
 #: gis_data_editor.php:134
+#, fuzzy
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:289
 #: libraries/display_tbl.lib.php:663
 msgid "Geometry"
-msgstr "Gestaltung"
+msgstr "Geometrie"
 
 #: gis_data_editor.php:172 gis_data_editor.php:194 gis_data_editor.php:240
 #: gis_data_editor.php:290 js/messages.php:286
 msgid "Point"
-msgstr ""
+msgstr "Punkt"
 
 #: gis_data_editor.php:173 gis_data_editor.php:195 gis_data_editor.php:241
 #: gis_data_editor.php:291 js/messages.php:284
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:197 gis_data_editor.php:243
 #: gis_data_editor.php:293 js/messages.php:285
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:202 gis_data_editor.php:246 gis_data_editor.php:296
 #: js/messages.php:292
-#, fuzzy
 #| msgid "Add routine"
 msgid "Add a point"
-msgstr "Prozedur hinzufügen"
+msgstr "Punkt hinzufügen"
 
 #: gis_data_editor.php:218 js/messages.php:287
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Zeilen getrennt mit"
+msgstr "Linestring"
 
+# ist hiermit der Umkreis gemeint? http://de.wikipedia.org/wiki/Umkreis
 #: gis_data_editor.php:221 gis_data_editor.php:275
+#, fuzzy
 msgid "Outer Ring:"
-msgstr ""
+msgstr "Außenring:"
 
+# Ist hiermit der Inkreis gemeint? http://de.wikipedia.org/wiki/Inkreis
 #: gis_data_editor.php:223 gis_data_editor.php:277 js/messages.php:290
+#, fuzzy
 msgid "Inner Ring"
-msgstr ""
+msgstr "Innenring:"
 
 #: gis_data_editor.php:248
 #, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Neuen Benutzer hinzufügen"
+msgstr "Linestring hinzufügen"
 
 #: gis_data_editor.php:248 gis_data_editor.php:298 js/messages.php:293
 #, fuzzy
@@ -922,19 +926,18 @@ msgstr "Neuen Benutzer hinzufügen"
 
 #: gis_data_editor.php:262 js/messages.php:288
 msgid "Polygon"
-msgstr ""
+msgstr "Polygon"
 
 #: gis_data_editor.php:300 js/messages.php:294
-#, fuzzy
 #| msgid "Add column"
 msgid "Add a polygon"
-msgstr "Spalte hinzufügen"
+msgstr "Polygon hinzufügen"
 
 #: gis_data_editor.php:304
 #, fuzzy
 #| msgid "Geometry"
 msgid "Add geometry"
-msgstr "Gestaltung"
+msgstr "Geometrie hinzufügen"
 
 #: gis_data_editor.php:312
 msgid ""
@@ -1785,15 +1788,15 @@ msgstr "Jeder Punkt stellt eine Datenreihe dar"
 
 #: js/messages.php:266
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "Das Überfliegen eines Punktes zeigt seine Bezeichnung."
 
 #: js/messages.php:268
 msgid "Drag and select an area in the plot to zoom into it."
-msgstr ""
+msgstr "Mit gedrückter Maustaste eine Fläche aufziehen um hineinzuzoomen."
 
 #: js/messages.php:270
 msgid "Click reset zoom link to come back to original state."
-msgstr ""
+msgstr "Auf \"Zoom zurücksetzen\" klicken um zum Original zurückzukehren."
 
 #: js/messages.php:272
 msgid "Click a data point to view and possibly edit the data row."
@@ -1809,13 +1812,12 @@ msgstr ""
 
 #: js/messages.php:276
 msgid "Strings are converted into integer for plotting"
-msgstr ""
+msgstr "Zeichenketten werden für die Zeichnung in Integerwerte umgewandelt."
 
 #: js/messages.php:278
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
-msgstr "Spalten hinzufügen/entfernen"
+msgstr "Zwei Spalten auswählen"
 
 #: js/messages.php:279
 msgid "Select two different columns"
@@ -1832,7 +1834,7 @@ msgstr "Kopieren"
 
 #: js/messages.php:291
 msgid "Outer Ring"
-msgstr ""
+msgstr "Aussenring"
 
 #: js/messages.php:297
 msgid "Add columns"
@@ -1906,12 +1908,13 @@ msgstr ""
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
+"Sie können die meisten Spalten bearbeiten<br/>indem Sie auf den Inhalt "
+"klicken."
 
 #: js/messages.php:319
-#, fuzzy
 #| msgid "Go to view"
 msgid "Go to link"
-msgstr "Gehe zum View"
+msgstr "Gehe zur Verknüpfung"
 
 #: js/messages.php:322
 msgid "Generate password"
@@ -4957,16 +4960,14 @@ msgid "Show function fields"
 msgstr "Funktionsfelder anzeigen"
 
 #: libraries/config/messages.inc.php:462
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Whether to show hint or not"
-msgstr "Wo die Datensatz-Links angezeigt werden sollen"
+msgstr "Hinweise anzeigen"
 
 #: libraries/config/messages.inc.php:463
-#, fuzzy
 #| msgid "Show indexes"
 msgid "Show hint"
-msgstr "Indexes anzeigen"
+msgstr "Hinweis anzeigen"
 
 #: libraries/config/messages.inc.php:464
 msgid ""
@@ -6788,10 +6789,9 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
 #: libraries/import/shp.php:350
-#, fuzzy
 #| msgid "This page does not contain any tables!"
 msgid "The imported file does not contain any data"
-msgstr "Diese Seite enthält keine Tabellen!"
+msgstr "Die importierte Datei enthält keine Daten"
 
 #: libraries/import/sql.php:33
 msgid "SQL compatibility mode:"
@@ -7322,7 +7322,7 @@ msgstr "Abfrage ausführen"
 #| msgid "Start"
 msgctxt "Start of recurring event"
 msgid "Start"
-msgstr "Anfang"
+msgstr "Start"
 
 #: libraries/rte/rte_events.lib.php:457
 #, fuzzy
@@ -8133,16 +8133,14 @@ msgid "Operator"
 msgstr "Operator"
 
 #: libraries/tbl_select.lib.php:143
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "Suche"
+msgstr "Tabellensuche"
 
 #: libraries/tbl_select.lib.php:229 tbl_change.php:994
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "Einfügen"
+msgstr "Bearbeiten/Einfügen"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 msgid ""
@@ -9589,13 +9587,11 @@ msgid "Related links:"
 msgstr "Verwandte Links:"
 
 #: server_status.php:800
-#, fuzzy
 #| msgid "Query analyzer"
 msgid "Run analyzer"
-msgstr "Query Analyzer"
+msgstr "Analyse durchführen"
 
 #: server_status.php:801
-#, fuzzy
 #| msgid "Introduction"
 msgid "Instructions"
 msgstr "Einführung"
@@ -10497,10 +10493,9 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1508
-#, fuzzy
 #| msgid "Pause monitor"
 msgid "Using the monitor:"
-msgstr "Überwachung pausieren"
+msgstr "Verwendung der Überwachung:"
 
 #: server_status.php:1510
 #, fuzzy
@@ -10519,16 +10514,15 @@ msgid ""
 "change the refresh rate under 'Settings', or remove any chart using the cog "
 "icon on each respective chart."
 msgstr ""
-"<b>Verwendung der Überwachung:</b><br />OK, Sie sind bereit zum Starten! "
-"Sobald Sie 'Überwachung starten' angeklickt haben, wird Ihr Browser in "
-"regelmäßigen Intervallen alle angezeigten Diagramme aktualisieren. Unter "
-"'Einstellungen' können Sie Diagramme hinzufügen und das "
-"Aktualisierungsintervall ändern oder beliebige Diagramme entfernen, wenn Sie "
-"das Zahnrad-Icon des entsprechenden Schaubilds verwenden.<p>Wenn Sie eine "
-"plötzliche Spitze in der Aktivität feststellen, wählen Sie den "
-"entsprechenden Zeitraum in einem beliebigen Diagramm, indem Sie die linke "
-"Maustaste gedrückt halten und über das Schaubild ziehen. Dies wird "
-"Statistiken aus den Protokollen laden um Sie bei der Auffindung der "
+"OK, Sie sind bereit zum Starten! Sobald Sie 'Überwachung starten' angeklickt "
+"haben, wird Ihr Browser in regelmäßigen Intervallen alle angezeigten "
+"Diagramme aktualisieren. Unter 'Einstellungen' können Sie Diagramme "
+"hinzufügen und das Aktualisierungsintervall ändern oder beliebige Diagramme "
+"entfernen, wenn Sie das Zahnrad-Icon des entsprechenden Schaubilds "
+"verwenden.<p>Wenn Sie eine plötzliche Spitze in der Aktivität feststellen, "
+"wählen Sie den entsprechenden Zeitraum in einem beliebigen Diagramm, indem "
+"Sie die linke Maustaste gedrückt halten und über das Schaubild ziehen. Dies "
+"wird Statistiken aus den Protokollen laden um Sie bei der Auffindung der "
 "Aktivitätsspitze zu unterstützen.</p>"
 
 #: server_status.php:1512
@@ -10562,10 +10556,9 @@ msgstr ""
 
 #: server_status.php:1519
 msgid "Please note:"
-msgstr ""
+msgstr "Bitte beachten Sie:"
 
 #: server_status.php:1521
-#, fuzzy
 #| msgid ""
 #| "<b>Please note:</b> Enabling the general_log may increase the server load "
 #| "by 5-15%. Also be aware that generating statistics from the logs is a "
@@ -10578,10 +10571,11 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
-"<b>Bitte beachten Sie:</b> Das Aktivieren des general_log kann die "
-"Serverlast um 5-15% steigern. Seien Sie sich bewusst, dass das Erzeugen von "
-"Statistiken aus den Logs ein sehr aufwändiger Prozess ist. Deshalb ist es "
-"ratsam, nur einen kleinen Zeitraum auszuwählen."
+"Das Aktivieren des general_log kann die Serverlast um 5-15% steigern. Seien "
+"Sie sich bewusst, dass das Erzeugen von Statistiken aus den Logs ein sehr "
+"aufwändiger Prozess ist. Deshalb ist es ratsam, nur einen kleinen Zeitraum "
+"auszuwählen und die gerneral_log nach der Überwachung wieder zu "
+"deaktivieren."
 
 #: server_status.php:1533
 #, fuzzy
