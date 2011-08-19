@@ -688,7 +688,7 @@ msgstr "வெறுமை"
 #: server_databases.php:265 tbl_structure.php:151 tbl_structure.php:152
 #: tbl_structure.php:570
 msgid "Drop"
-msgstr ""
+msgstr "அழி"
 
 #: db_structure.php:508 tbl_operations.php:608
 msgid "Check table"
