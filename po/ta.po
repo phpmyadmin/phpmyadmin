@@ -1656,7 +1656,7 @@ msgstr "தேடல் முடிவுகளை மறை"
 
 #: js/messages.php:236
 msgid "Show search results"
-msgstr ""
+msgstr "தேடல் முடிவுகளை காட்டு"
 
 #: js/messages.php:237
 msgid "Browsing"
