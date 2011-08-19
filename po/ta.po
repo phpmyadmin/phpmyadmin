@@ -2655,7 +2655,7 @@ msgstr "ஆங்"
 #: libraries/common.lib.php:396
 msgctxt "MySQL 5.0 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "ஆங்"
 
 #: libraries/common.lib.php:410 libraries/common.lib.php:412
 #: libraries/common.lib.php:414 libraries/common.lib.php:431
