@@ -10983,7 +10983,7 @@ msgstr "Tabela %1$s je bila uspešno spremenjena"
 
 #: tbl_change.php:700
 msgid "Because of its length,<br /> this column might not be editable"
-msgstr "Zaradi njegove dolžine<br /> stolpca morda ne bo mogoče urejati "
+msgstr "Zaradi njegove dolžine<br />stolpca morda ne bo mogoče urejati"
 
 #: tbl_change.php:819
 msgid "Remove BLOB Repository Reference"
