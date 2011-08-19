@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 08:30+0200\n"
+"PO-Revision-Date: 2011-08-19 08:31+0200\n"
 "Last-Translator:  <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -1771,10 +1771,9 @@ msgid "Outer Ring"
 msgstr ""
 
 #: js/messages.php:297
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add columns"
-msgstr "%s களத்தை சேர்க்க"
+msgstr "வரிசைகளை சேர்"
 
 #: js/messages.php:300
 msgid "Select referenced key"
