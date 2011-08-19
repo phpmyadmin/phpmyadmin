@@ -2299,10 +2299,9 @@ msgid "Could not save recent table"
 msgstr ""
 
 #: libraries/RecentTable.class.php:142
-#, fuzzy
 #| msgid "Display table filter"
 msgid "Recent tables"
-msgstr "கருதிட்குள் சேர்க்க"
+msgstr "சமீபத்திய அட்டவணைகள்"
 
 #: libraries/RecentTable.class.php:149
 msgid "There are no recent tables"
