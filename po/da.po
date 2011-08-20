@@ -10563,7 +10563,7 @@ msgstr "Vælg fra hvilken log, du ønsker statistikken genereret fra."
 
 #: server_status.php:1610
 msgid "Results are grouped by query text."
-msgstr ""
+msgstr "Resultaterne er grupperet af forespørgselstekst."
 
 #: server_status.php:1615
 #, fuzzy
