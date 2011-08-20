@@ -922,10 +922,9 @@ msgid "Add a polygon"
 msgstr "Tilføj polygon"
 
 #: gis_data_editor.php:304
-#, fuzzy
 #| msgid "Geometry"
 msgid "Add geometry"
-msgstr "Geometri"
+msgstr "Tilføj geometri"
 
 #: gis_data_editor.php:312
 msgid ""
