@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-10 22:33+0200\n"
+"PO-Revision-Date: 2011-08-18 20:10+0200\n"
 "Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -856,14 +856,14 @@ msgid "Dump has been saved to file %s."
 msgstr "Enrollet eo bet ar restr ezporzhiañ e%s."
 
 #: gis_data_editor.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
-msgstr "Talvoudoù evit ar bann \"%s\""
+msgstr "Talvoud evit ar bann \"%s\""
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "Ober gant OpenStreetMaps evit ar gwiskad diazez"
 
 #: gis_data_editor.php:134
 msgid "SRID"
@@ -872,29 +872,28 @@ msgstr ""
 #: gis_data_editor.php:151 js/messages.php:289
 #: libraries/display_tbl.lib.php:663
 msgid "Geometry"
-msgstr ""
+msgstr "Mentoniezh"
 
 #: gis_data_editor.php:172 gis_data_editor.php:194 gis_data_editor.php:240
 #: gis_data_editor.php:290 js/messages.php:286
 msgid "Point"
-msgstr ""
+msgstr "Poent"
 
 #: gis_data_editor.php:173 gis_data_editor.php:195 gis_data_editor.php:241
 #: gis_data_editor.php:291 js/messages.php:284
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:197 gis_data_editor.php:243
 #: gis_data_editor.php:293 js/messages.php:285
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:202 gis_data_editor.php:246 gis_data_editor.php:296
 #: js/messages.php:292
-#, fuzzy
 #| msgid "Add constraints"
 msgid "Add a point"
-msgstr "Ouzhpennañ ar strishadurioù"
+msgstr "Ouzhpennañ ur poent"
 
 #: gis_data_editor.php:218 js/messages.php:287
 #, fuzzy
@@ -922,17 +921,16 @@ msgstr ""
 
 #: gis_data_editor.php:262 js/messages.php:288
 msgid "Polygon"
-msgstr ""
+msgstr "Lieskorneg"
 
 #: gis_data_editor.php:300 js/messages.php:294
 msgid "Add a polygon"
-msgstr ""
+msgstr "Ouzhpennañ ul lieskorneg"
 
 #: gis_data_editor.php:304
-#, fuzzy
 #| msgid "Add user"
 msgid "Add geometry"
-msgstr "Ouzhpennañ un implijer"
+msgstr "Ouzhpennañ mentoniezh"
 
 #: gis_data_editor.php:312
 msgid ""
@@ -1172,7 +1170,7 @@ msgstr "Udb all"
 #. l10n: Thousands separator
 #: js/messages.php:75 libraries/common.lib.php:1359
 msgid ","
-msgstr ""
+msgstr " "
 
 #. l10n: Decimal separator
 #: js/messages.php:77 libraries/common.lib.php:1361
@@ -1232,18 +1230,17 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:96
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "Query cache efficiency"
-msgstr "N'eo ket oberiant an heuliañ."
+msgstr "Efeduster ar grubuilh rekedoù"
 
 #: js/messages.php:97 po/advisory_rules.php:70
 msgid "Query cache usage"
-msgstr ""
+msgstr "Implij ar grubuilh rekedoù"
 
 #: js/messages.php:98
 msgid "Query cache used"
-msgstr ""
+msgstr "Krubuilh rekedoù implijet"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
@@ -1403,45 +1400,49 @@ msgstr ""
 #: js/messages.php:143
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "Reizhet eo bet long_query_time da %d eilenn."
 
 #: js/messages.php:144
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"Lakaet e vo e pleustr dre-vras ar reizhadurioù da-heul hag adlakaet e vint "
+"d'an talvoud dre ziouer pa adloc'ho ar servijer :"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:146
 #, php-format
 msgid "Set log_output to %s"
-msgstr ""
+msgstr "Reizhañ log_output da %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:148
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enable Ajax"
 msgid "Enable %s"
-msgstr "Gweredekaat Ajax"
+msgstr "Gweredekaat %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:150
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disabled"
 msgid "Disable %s"
-msgstr "Diweredekaet"
+msgstr "Diweredekaat %s"
 
 #. l10n: %d seconds
 #: js/messages.php:152
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "Reizhañ long_query_time da %ds"
 
 #: js/messages.php:153
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
+"N'hallit ket cheñch an arventennoù-mañ. Kevreit dindan root pe kit e "
+"darempred gant merour ar servijer."
 
 #: js/messages.php:154
 #, fuzzy
