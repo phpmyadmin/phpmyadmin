@@ -13191,7 +13191,7 @@ msgstr "Inserciones MyISAM concurrentes"
 
 #: po/advisory_rules.php:266
 msgid "Enable concurrent_insert by setting it to 1"
-msgstr ""
+msgstr "Active «concurrent_insert» definiéndolo como 1"
 
 #: po/advisory_rules.php:267
 msgid ""
