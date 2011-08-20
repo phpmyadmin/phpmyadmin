@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-20 19:17+0200\n"
+"PO-Revision-Date: 2011-08-20 19:18+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -10471,7 +10471,7 @@ msgstr ""
 
 #: server_status.php:1519
 msgid "Please note:"
-msgstr ""
+msgstr "Bemærk venligst:"
 
 #: server_status.php:1521
 #, fuzzy
