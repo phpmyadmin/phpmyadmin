@@ -1305,7 +1305,7 @@ msgstr "Sidelager i mellemlager"
 
 #: js/messages.php:115
 msgid "Used Swap"
-msgstr ""
+msgstr "Forbrugt sidelager"
 
 #: js/messages.php:116
 #, fuzzy
