@@ -903,10 +903,9 @@ msgid "Inner Ring"
 msgstr "Indre ring"
 
 #: gis_data_editor.php:248
-#, fuzzy
 #| msgid "Add constraints"
 msgid "Add a linestring"
-msgstr "Tilføj begrænsninger"
+msgstr "Tilføj en linjestreng"
 
 #: gis_data_editor.php:248 gis_data_editor.php:298 js/messages.php:293
 #, fuzzy
