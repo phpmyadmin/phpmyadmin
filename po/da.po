@@ -1285,10 +1285,9 @@ msgid "Buffered memory"
 msgstr "Hukommelse i bufferl"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "System memory"
 msgid "Free memory"
-msgstr "Systemhukommelse"
+msgstr "Ledig hukommelse"
 
 #: js/messages.php:111
 #, fuzzy
