@@ -4410,12 +4410,42 @@ chmod o+rwx tmp
     </ul>
 
 <h4 id="faq6_31">
-    <a href="#faq6_31">6.30 How do I create a relation in designer?</a></h4>
+    <a href="#faq6_31">6.31 How do I create a relation in designer?</a></h4>
 
     <p>To select relation, click :</p>
 
     <img src="pmd/images/help_relation.png"></p>
     <p>The display column is shown in pink. To set/unset a column as the display column, click the "Choose column to display" icon, then click on the appropriate column name.</p>
+
+<h4 id="faq6_32">
+    <a href="#faq6_32">6.32 How can I use the zoom search feature?</a></h4>
+
+    <p> Zoom search feature is an alternative to table search feature. It allows you to explore  
+    a table by representing its data in a scatter plot. You can locate this feature by selecting
+    a table and clicking the 'Search' tab. One of the sub-tab in the 'Table Search' page is 
+    'Zoom Search'. <br/><br/>
+
+    Consider the table REL_persons in <a href="#faq6_6"><abbr title="Frequently Asked Questions">
+    FAQ</abbr> 6.6</a> for an example. To use zoom search, two columns need to be selected, 
+    for example, id and town_code. The id values will be represented on one axis and town_code 
+    values on the other axis. Each row will be represented as a point in a scatter plot based 
+    on its id and town_code. You can include two additional search criteria apart from the two
+    fields to display.<br/><br/>
+
+    You can choose which field should be displayed as label for each point. If a display
+    column has been set for the table (see <a href="#faqdisplay"><abbr title="Frequently Asked 
+    Questions">FAQ</abbr> 6.7</a>), it is taken as the label unless you specify otherwise.
+    You can also select the maximum number of rows you want to be displayed in the plot by
+    specifing it in the 'Max rows to plot' field. Once you have decided over your criteria,
+    click 'Go' to display the plot.<br/><br/>
+
+    After the plot is generated, you can use the mousewheel to zoom in and out of the plot.
+    In addition, panning feature is enabled to navigate through the plot. You can zoom-in to
+    a certail level of detail and use panning to locate your area of interest. Clicking on a
+    point opens a dialogue box, displaying field values of the data row represented by the point.
+    You can edit the values if required and and click on submit to issue an update query. Basic
+    instructions on how to use can be viewed by clicking the 'How to use?' link located just above
+    the plot.</p>
 
 <h3 id="faqproject">phpMyAdmin project</h3>
 
