@@ -12493,7 +12493,7 @@ msgstr "{key_buffer_size} değerini arttırmanız gerekebilir."
 #: po/advisory_rules.php:173
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr ""
+msgstr "Bellekten indeks okumaları: %%%s, bu değer %%95'in üzerinde olmalıdır"
 
 #: po/advisory_rules.php:175
 msgid "Rate of table open"
