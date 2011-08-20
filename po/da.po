@@ -2393,10 +2393,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Denne MySQL-server understøtter ikke %s datalager."
 
 #: libraries/Table.class.php:303
-#, fuzzy
 #| msgid "Show slave status"
 msgid "unknown table status: "
-msgstr "Vis slavestatus"
+msgstr "ukendt tabelstatus:"
 
 #: libraries/Table.class.php:1034
 msgid "Invalid database"
