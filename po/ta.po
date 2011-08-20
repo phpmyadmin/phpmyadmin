@@ -10503,7 +10503,7 @@ msgstr "சுட்டுப் பெயர்"
 
 #: tbl_indexes.php:185
 msgid "Index type:"
-msgstr ""
+msgstr "சுட்டு வகை"
 
 #: tbl_indexes.php:265
 #, php-format
