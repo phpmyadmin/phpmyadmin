@@ -11,6 +11,9 @@ if (! defined('PHPMYADMIN')) {
 
 /**
  * Returns language name
+ *
+ * @param string $tmplang
+ * @return string
  */
 function PMA_langName($tmplang)
 {
@@ -182,6 +185,8 @@ function PMA_langDetect($str, $envType)
  * traditional) must be detected before 'zh' (chinese simplified) for
  * example.
  *
+ * @param string $lang
+ * @return array
  */
 function PMA_langDetails($lang)
 {

@@ -68,6 +68,17 @@ abstract class PMA_GIS_Geometry
     public abstract function scaleRow($spatial);
 
     /**
+     * Generate the WKT with the set of parameters passed by the GIS editor.
+     *
+     * @param array  $gis_data GIS data
+     * @param int    $index    Index into the parameter object
+     * @param string $empty    Value for empty points
+     *
+     * @return WKT with the set of parameters passed by the GIS editor
+     */
+    public abstract function generateWkt($gis_data, $index, $empty);
+
+    /**
      * Returns OpenLayers.Bounds object that correspond to the bounds of GIS data.
      *
      * @param string $srid       Spatial reference ID
@@ -122,6 +133,30 @@ abstract class PMA_GIS_Geometry
     }
 
     /**
+     * Generate parameters for the GIS data editor from the value of the GIS column.
+     * This method performs common work.
+     * More specific work is performed by each of the geom classes.
+     *
+     * @param $gis_string $value of the GIS column
+     *
+     * @return array parameters for the GIS editor from the value of the GIS column
+     */
+    protected function generateParams($value)
+    {
+        $geom_types = '(POINT|MULTIPOINT|LINESTRING|MULTILINESTRING|POLYGON|MULTIPOLYGON|GEOMETRYCOLLECTION)';
+        $srid = 0;
+        $wkt = '';
+        if (preg_match("/^'" . $geom_types . "\(.*\)',[0-9]*$/i", $value)) {
+            $last_comma = strripos($value, ",");
+            $srid = trim(substr($value, $last_comma + 1));
+            $wkt = trim(substr($value, 1, $last_comma - 2));
+        } elseif (preg_match("/^" . $geom_types . "\(.*\)$/i", $value)) {
+            $wkt = $value;
+        }
+        return array('srid' => $srid, 'wkt' => $wkt);
+    }
+
+    /**
      * Extracts points, scales and returns them as an array.
      *
      * @param string  $point_set  String of comma sperated points
@@ -141,13 +176,21 @@ abstract class PMA_GIS_Geometry
             // Extract cordinates of the point
             $cordinates = explode(" ", $point);
 
-            if ($scale_data != null) {
-                $x = ($cordinates[0] - $scale_data['x']) * $scale_data['scale'];
-                $y = $scale_data['height'] - ($cordinates[1] - $scale_data['y']) * $scale_data['scale'];
+            if (isset($cordinates[0]) && trim($cordinates[0]) != ''
+                && isset($cordinates[1]) && trim($cordinates[1]) != ''
+            ) {
+                if ($scale_data != null) {
+                    $x = ($cordinates[0] - $scale_data['x']) * $scale_data['scale'];
+                    $y = $scale_data['height'] - ($cordinates[1] - $scale_data['y']) * $scale_data['scale'];
+                } else {
+                    $x = trim($cordinates[0]);
+                    $y = trim($cordinates[1]);
+                }
             } else {
-                $x = $cordinates[0];
-                $y = $cordinates[1];
+                $x = '';
+                $y = '';
             }
+
 
             if (! $linear) {
                 $points_arr[] = array($x, $y);

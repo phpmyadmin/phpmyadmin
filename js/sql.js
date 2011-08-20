@@ -334,10 +334,10 @@ $(document).ready(function() {
              */
             var button_options = {};
             // in the following function we need to use $(this)
-            button_options[PMA_messages['strCancel']] = function() {$(this).parent().dialog('close').remove();}
+            button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove();}
 
             var button_options_error = {};
-            button_options_error[PMA_messages['strOK']] = function() {$(this).parent().dialog('close').remove();}
+            button_options_error[PMA_messages['strOK']] = function() {$(this).dialog('close').remove();}
             var $form = $("#resultsForm");
             var $msgbox = PMA_ajaxShowMessage();
 
@@ -351,6 +351,9 @@ $(document).ready(function() {
                         height: 230,
                         width: 900,
                         open: PMA_verifyTypeOfAllColumns,
+                        close: function(event, ui) {
+                            $('#change_row_dialog').remove();
+                        },
                         buttons : button_options_error
                     })// end dialog options
                 } else {
@@ -361,6 +364,9 @@ $(document).ready(function() {
                         height: 600,
                         width: 900,
                         open: PMA_verifyTypeOfAllColumns,
+                        close: function(event, ui) {
+                            $('#change_row_dialog').remove();
+                        },
                         buttons : button_options
                     })
                     //Remove the top menu container from the dialog

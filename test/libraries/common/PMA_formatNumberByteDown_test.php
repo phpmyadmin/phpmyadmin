@@ -47,8 +47,9 @@ class PMA_formatNumberByteDown_test extends PHPUnit_Framework_TestCase
 
     /**
      * format number data provider
+     *
+     * @return array
      */
-
     public function formatNumberDataProvider() {
         return array(
             array(10, 2, 2, '10  '),
@@ -72,6 +73,8 @@ class PMA_formatNumberByteDown_test extends PHPUnit_Framework_TestCase
 
     /**
      * format byte down data provider
+     *
+     * @return array
      */
     public function formatByteDownDataProvider() {
         return array(

@@ -4,6 +4,11 @@
  * @package     BLOBStreaming
  */
 
+/**
+ * Initializes PBMS database
+ *
+ * @return bool
+ */
 function initPBMSDatabase()
 {
     $query = "create database IF NOT EXISTS pbms;"; // If no other choice then try this.
@@ -379,6 +384,11 @@ function PMA_BS_CreateReferenceLink($bs_reference, $db_name)
  * BLOB streaming on a per table or database basis. So in anticipation of this
  * PMA_BS_IsTablePBMSEnabled() passes in the table and database name even though
  * they are not currently needed.
+ *
+ * @param string $db_name
+ * @param string $tbl_name
+ * @param string $tbl_type
+ * @return bool
  */
 function PMA_BS_IsTablePBMSEnabled($db_name, $tbl_name, $tbl_type)
 {

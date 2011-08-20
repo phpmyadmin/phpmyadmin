@@ -30,6 +30,8 @@ class PMA_extractFieldSpec_test extends PHPUnit_Extensions_OutputTestCase
 
     /**
      * Data provider
+     *
+     * @return array
      */
     public function provider()
     {

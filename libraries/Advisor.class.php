@@ -69,9 +69,11 @@ class Advisor
                 $this->variables['value'] = $value;
 
                 try {
-                    if($this->ruleExprEvaluate($rule['test']))
+                    if ($this->ruleExprEvaluate($rule['test'])) {
                         $this->addRule('fired', $rule);
-                    else $this->addRule('notfired', $rule);
+                    } else {
+                        $this->addRule('notfired', $rule);
+                    }
                 }  catch(Exception $e) {
                     $this->runResult['errors'][] = 'Failed running test for rule \''.$rule['name'].'\'. PHP threw following error: '.$e->getMessage();
                 }
@@ -82,13 +84,46 @@ class Advisor
     }
 
     /**
+     * Escapes percent string to be used in format string.
+     *
+     * @param string $str
+     * @return string
+     */
+    function escapePercent($str)
+    {
+        return preg_replace('/%( |,|\.|$)/','%%\1', $str);
+    }
+
+    /**
+     * Wrapper function for translating.
+     *
+     * @param string $str
+     * @param mixed  $param
+     * @return string
+     */
+    function translate($str, $param = null)
+    {
+        if (is_null($param)) {
+            return sprintf(_gettext(Advisor::escapePercent($str)));
+        } else {
+            $printf = 'sprintf("' . _gettext(Advisor::escapePercent($str)) . '",';
+            return $this->ruleExprEvaluate(
+                $printf . $param . ')',
+                strlen($printf)
+            );
+        }
+    }
+
+    /**
      * Splits justification to text and formula.
+     *
+     * @param string $rule
+     * @return array
      */
     function splitJustification($rule)
     {
         $jst = preg_split('/\s*\|\s*/', $rule['justification'], 2);
         if (count($jst) > 1) {
-            $jst[0] = preg_replace('/%( |,|\.|$)/','%%\1',$jst[0]);
             return array($jst[0], $jst[1]);
        }
         return array($rule['justification']);
@@ -100,36 +135,59 @@ class Advisor
         switch($type) {
             case 'notfired':
             case 'fired':
-                    $jst = Advisor::splitJustification($rule);
-                    if (count($jst) > 1) {
-                        try {
-                            /* Translate */
-                            $jst[0] = _gettext($jst[0]);
-                            $str = $this->ruleExprEvaluate(
-                                'sprintf("'.$jst[0].'",'.$jst[1].')',
-                                strlen('sprintf("'.$jst[0].'"')
-                            );
-                        } catch (Exception $e) {
-                            $this->runResult['errors'][] = 'Failed formattingstring for rule \''.$rule['name'].'\'. PHP threw following error: '.$e->getMessage();
-                            return;
-                        }
-
-                        $rule['justification'] = $str;
-                    } else {
-                        $rule['justification'] = _gettext($rule['justification']);
+                $jst = Advisor::splitJustification($rule);
+                if (count($jst) > 1) {
+                    try {
+                        /* Translate */
+                        $str = $this->translate($jst[0], $jst[1]);
+                    } catch (Exception $e) {
+                        $this->runResult['errors'][] = sprintf(
+                            __('Failed formatting string for rule \'%s\'. PHP threw following error: %s'),
+                            $rule['name'],
+                            $e->getMessage()
+                        );
+                        return;
                     }
-                    $rule['name'] = _gettext($rule['name']);
-                    $rule['issue'] = _gettext($rule['issue']);
 
-                    $rule['recommendation'] = preg_replace(
-                        '/\{([a-z_0-9]+)\}/Ui',
-                        '<a href="server_variables.php' . PMA_generate_common_url() . '#filter=\1">\1</a>',
-                        _gettext($rule['recommendation']));
+                    $rule['justification'] = $str;
+                } else {
+                    $rule['justification'] = $this->translate($rule['justification']);
+                }
+                $rule['name'] = $this->translate($rule['name']);
+                $rule['issue'] = $this->translate($rule['issue']);
 
-                    break;
+                // Replaces {server_variable} with 'server_variable' linking to server_variables.php
+                $rule['recommendation'] = preg_replace(
+                    '/\{([a-z_0-9]+)\}/Ui',
+                    '<a href="server_variables.php?' . PMA_generate_common_url() . '#filter=\1">\1</a>',
+                    $this->translate($rule['recommendation']));
+
+                // Replaces external Links with PMA_linkURL() generated links
+                $rule['recommendation'] = preg_replace(
+                    '#href=("|\')(https?://[^\1]+)\1#ie',
+                    '\'href="\' . PMA_linkURL("\2") . \'"\'',
+                    $rule['recommendation']
+                );
+                break;
         }
 
         $this->runResult[$type][] = $rule;
+    }
+
+    private function ruleExprEvaluate_var1($matches)
+    {
+        // '/fired\s*\(\s*(\'|")(.*)\1\s*\)/Uie'
+        return '1'; //isset($this->runResult[\'fired\']
+    }
+
+    private function ruleExprEvaluate_var2($matches)
+    {
+        // '/\b(\w+)\b/e'
+        return isset($this->variables[$matches[1]])
+            ? (is_numeric($this->variables[$matches[1]])
+                ? $this->variables[$matches[1]]
+                : '"'.$this->variables[$matches[1]].'"')
+            : $matches[1];
     }
 
     // Runs a code expression, replacing variable names with their respective values
@@ -140,13 +198,14 @@ class Advisor
             $exprIgnore = substr($expr,0,$ignoreUntil);
             $expr = substr($expr,$ignoreUntil);
         }
-        $expr = preg_replace('/fired\s*\(\s*(\'|")(.*)\1\s*\)/Uie','1',$expr); //isset($this->runResult[\'fired\']
-        $expr = preg_replace('/\b(\w+)\b/e','isset($this->variables[\'\1\']) ? (!is_numeric($this->variables[\'\1\']) ? \'"\'.$this->variables[\'\1\'].\'"\' : $this->variables[\'\1\']) : \'\1\'', $expr);
+        $expr = preg_replace_callback('/fired\s*\(\s*(\'|")(.*)\1\s*\)/Ui', array($this, 'ruleExprEvaluate_var1'), $expr);
+        $expr = preg_replace_callback('/\b(\w+)\b/', array($this, 'ruleExprEvaluate_var2'), $expr);
         if ($ignoreUntil > 0) {
             $expr = $exprIgnore . $expr;
         }
         $value = 0;
         $err = 0;
+
         ob_start();
         eval('$value = '.$expr.';');
         $err = ob_get_contents();

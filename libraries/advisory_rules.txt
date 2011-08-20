@@ -1,6 +1,6 @@
 # phpMyAdmin Advisory rules file
 # Use only UNIX style newlines
-# This file is being parsed by advisor.class.php, which should handle syntax errors correctly.
+# This file is being parsed by Advisor.class.php, which should handle syntax errors correctly.
 # However, PHP Warnings and the like are being consumed by the phpMyAdmin error handler, so those won't show up
 # E.g.: Justification line is empty because you used an unescape percent sign, sprintf() returns an empty string and no warning/error is shown
 #
@@ -74,9 +74,9 @@ rule 'Slow query logging'
 
 #
 # versions
-rule 'Release Series'
+rule 'Release Series' [!PMA_DRIZZLE]
 	version
-	!PMA_DRIZZLE && substr(value,0,1) <= 5 && substr(value,2,1) < 1
+	substr(value,0,1) <= 5 && substr(value,2,1) < 1
 	The MySQL server version less then 5.1.
 	You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 even more so.
 	Current version: %s | value
@@ -111,7 +111,7 @@ rule 'Distribution'
 
 rule 'MySQL Architecture'
 	system_memory
-	value > 3072*1024 && !preg_match('/64/',version_compile_machine)
+	value > 3072*1024 && !preg_match('/64/',version_compile_machine) && !preg_match('/64/',version_compile_os)
 	MySQL is not compiled as a 64-bit package.
 	Your memory capacity is above 3 GiB (assuming the Server is on localhost), so MySQL might not be able to access all of your memory. You might want to consider installing the 64-bit version of MySQL.
 	Available memory on this host: %s | implode(' ',PMA_formatByteDown(value*1024, 2, 2))
@@ -131,7 +131,7 @@ rule 'Query cache usage' [!fired('Query cache disabled')]
 	Questions / Uptime
 	value > 100
 	Suboptimal caching method.
-	You are using the MySQL Query cache with a fairly high traffic database. It might be worth considering to use <a href="http://dev.mysql.com/doc/refman/5.1/en/ha-memcached.html">memcached</a> instead of the MySQL Query cache, especially if you have multiple slaves.
+	You are using the MySQL Query cache with a fairly high traffic database. It might be worth considering to use <a href="http://dev.mysql.com/doc/refman/5.5/en/ha-memcached.html">memcached</a> instead of the MySQL Query cache, especially if you have multiple slaves.
 	The query cache is enabled and the server receives %d queries per second. This rule fires if there is more than 100 queries per second. | round(value,1)
 
 rule 'Query cache efficiency (%)' [Com_select + Qcache_hits > 0 && !fired('Query cache disabled')]
@@ -214,6 +214,7 @@ rule 'Rate of reading first index entry'
 	This usually indicates frequent full index scans. Full index scans are faster than table scans but require lots of CPU cycles in big tables, if those tables that have or had high volumes of UPDATEs and DELETEs, running 'OPTIMIZE TABLE' might reduce the amount of and/or speed up full index scans. Other than that full index scans can only be reduced by rewriting queries.
 	Index scans average: %s, this value should be less than 1 per hour | PMA_bytime(value,2)
 
+# This rule may be applicable to MyISAM-only workloads, but completely wrong for InnoDB - http://www.mysqlperformanceblog.com/2010/06/15/what-does-handler_read_rnd-mean/
 rule 'Rate of reading fixed position'
 	Handler_read_rnd / Uptime
 	value * 60 * 60 > 1
@@ -247,19 +248,19 @@ rule 'Temp disk rate'
 	Created_tmp_disk_tables / Uptime
 	value * 60 * 60 > 1
 	Many temporary tables are being written to disk instead of being kept in memory.
-	Increasing {max_heap_table_size} and {tmp_table_size} might help. However some temporary tables are always being written to disk, independent of the value of these variables. To eliminate these you will have to rewrite your queries to avoid those conditions (Within a temprorary table: Presence of a BLOB or TEXT column or presence of a column bigger than 512 bytes) as mentioned in in the <a href="http://dev.mysql.com/doc/refman/5.0/en/internal-temporary-tables.html">MySQL Documentation</a>
+	Increasing {max_heap_table_size} and {tmp_table_size} might help. However some temporary tables are always being written to disk, independent of the value of these variables. To eliminate these you will have to rewrite your queries to avoid those conditions (Within a temprorary table: Presence of a BLOB or TEXT column or presence of a column bigger than 512 bytes) as mentioned in in the <a href="http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables.html">MySQL Documentation</a>
 	Rate of temporay tables being written to disk: %s, this value should be less than 1 per hour | PMA_bytime(value,2)
 
 # I couldn't find any source on the internet that suggests a direct relation between high counts of temporary tables and any of these variables.
 # Several independent Blog entries suggest (http://ronaldbradford.com/blog/more-on-understanding-sort_buffer_size-2010-05-10/ and http://www.xaprb.com/blog/2010/05/09/how-to-tune-mysqls-sort_buffer_size/)
 # that sort_buffer_size should be left as it is. And increasing read_buffer_size is only suggested when there are a lot of
-# table scans (http://dev.mysql.com/doc/refman/5.1/en/server-system-variables.html#sysvar_read_buffer_size and other sources) though
+# table scans (http://dev.mysql.com/doc/refman/5.5/en/server-system-variables.html#sysvar_read_buffer_size and other sources) though
 # setting it too high is bad too (http://www.mysqlperformanceblog.com/2007/09/17/mysql-what-read_buffer_size-value-is-optimal/).
 #rule 'Temp table rate'
 #	Created_tmp_tables / Uptime
 #	value * 60 * 60 > 1
 #	Many intermediate temporary tables are being created.
-#	This may be caused by queries under certain conditions as mentioned in the <a href="http://dev.mysql.com/doc/refman/5.0/en/internal-temporary-tables.html">MySQL Documentation</a>. Consider increasing {sort_buffer_size} (sorting), {read_rnd_buffer_size} (random read buffer, ie, post-sort), {read_buffer_size} (sequential scan).
+#	This may be caused by queries under certain conditions as mentioned in the <a href="http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables.html">MySQL Documentation</a>. Consider increasing {sort_buffer_size} (sorting), {read_rnd_buffer_size} (random read buffer, ie, post-sort), {read_buffer_size} (sequential scan).
 
 #
 # MyISAM index cache
@@ -422,15 +423,15 @@ rule 'InnoDB buffer pool size' [system_memory > 0]
 	value < 60
 	Your InnoDB buffer pool is fairly small.
 	The InnoDB buffer pool has a profound impact on performance for InnoDB tables. Assign all your remaining memory to this buffer. For database servers that use solely InnoDB as storage engine and have no other services (e.g. a web server) running, you may set this as high as 80% of your available memory. If that is not the case, you need to carefully assess the memory consumption of your other services and non-InnoDB-Tables and set this variable accordingly. If it is set too high, your system will start swapping, which decreases performance significantly. See also <a href="http://www.mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/">this article</a>
-	You are currently using %s% of your memory for the InnoDB buffer pool. This rule fires if you are assigning less than 60%, however this might be perfectly adequate for your system if you don't have much InnoDB tables or other services running on the same machine.
+	You are currently using %s% of your memory for the InnoDB buffer pool. This rule fires if you are assigning less than 60%, however this might be perfectly adequate for your system if you don't have much InnoDB tables or other services running on the same machine. | value
 
 #
 # other
 rule 'MyISAM concurrent inserts'
 	concurrent_insert
-	value == 0
+	value === 0 || value === 'NEVER'
 	Enable concurrent_insert by setting it to 1
-	Setting {concurrent_insert} to 1 reduces contention between readers and writers for a given table. See also <a href="http://dev.mysql.com/doc/refman/5.0/en/concurrent-inserts.html">MySQL Documentation</a>
+	Setting {concurrent_insert} to 1 reduces contention between readers and writers for a given table. See also <a href="http://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html">MySQL Documentation</a>
 	concurrent_insert is set to 0
 
 # INSERT DELAYED USAGE

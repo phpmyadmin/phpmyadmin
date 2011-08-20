@@ -118,6 +118,16 @@ $GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'tbl_change.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'jquery/timepicker.js';
+
+// required for GIS editor
+$GLOBALS['js_include'][] = 'gis_data_editor.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.svg.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.mousewheel.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.event.drag-2.0.min.js';
+$GLOBALS['js_include'][] = 'tbl_gis_visualization.js';
+$GLOBALS['js_include'][] = 'openlayers/OpenLayers.js';
+$GLOBALS['js_include'][] = 'OpenStreetMap.js';
+
 /**
  * HTTP and HTML headers
  */
@@ -155,8 +165,7 @@ unset($show_create_table);
  * Get the list of the fields of the current table
  */
 PMA_DBI_select_db($db);
-$table_fields = PMA_DBI_fetch_result('SHOW FIELDS FROM ' . PMA_backquote($table) . ';',
-    null, null, null, PMA_DBI_QUERY_STORE);
+$table_fields = array_values(PMA_DBI_get_columns($db, $table));
 $rows               = array();
 if (isset($where_clause)) {
     // when in edit mode load all selected rows from table
@@ -472,6 +481,9 @@ foreach ($rows as $row_id => $vrow) {
 
          <?php } //End if
 
+        // Get a list of GIS data types.
+        $gis_data_types = PMA_getGISDatatypes();
+
         // Prepares the field value
         $real_null_value = false;
         $special_chars_encoded = '';
@@ -484,6 +496,10 @@ foreach ($rows as $row_id => $vrow) {
                 $data            = $vrow[$field['Field']];
             } elseif ($field['True_Type'] == 'bit') {
                 $special_chars = PMA_printable_bit_value($vrow[$field['Field']], $extracted_fieldspec['spec_in_brackets']);
+            } elseif (in_array($field['True_Type'], $gis_data_types)) {
+                // Convert gis data to Well Know Text format
+                $vrow[$field['Field']] = PMA_asWKT($vrow[$field['Field']], true);
+                $special_chars = htmlspecialchars($vrow[$field['Field']]);
             } else {
                 // special binary "characters"
                 if ($field['is_binary'] || ($field['is_blob'] && ! $cfg['ProtectBinary'])) {
@@ -791,26 +807,26 @@ foreach ($rows as $row_id => $vrow) {
         // We don't want binary data destroyed
         elseif ($field['is_binary'] || $field['is_blob']) {
             if (($cfg['ProtectBinary'] && $field['is_blob'])
-                || ($cfg['ProtectBinary'] == 'all' && $field['is_binary'])) {
+                || ($cfg['ProtectBinary'] == 'all' && $field['is_binary'])
+            ) {
                 echo "\n";
                     // for blobstreaming
-                if (PMA_BS_IsTablePBMSEnabled($db, $table, $tbl_type) && PMA_BS_IsPBMSReference($data, $db))
-                    {
-                        echo '<input type="hidden" name="remove_blob_ref_' . $field['Field_md5'] . $vkey . '" value="' . $data . '" />';
-                        echo '<input type="checkbox" name="remove_blob_repo_' . $field['Field_md5'] . $vkey . '" /> ' . __('Remove BLOB Repository Reference') . "<br />";
-                        echo PMA_BS_CreateReferenceLink($data, $db);
-                        echo "<br />";
+                if (PMA_BS_IsTablePBMSEnabled($db, $table, $tbl_type)
+                    && PMA_BS_IsPBMSReference($data, $db)
+                ) {
+                    echo '<input type="hidden" name="remove_blob_ref_' . $field['Field_md5'] . $vkey . '" value="' . $data . '" />';
+                    echo '<input type="checkbox" name="remove_blob_repo_' . $field['Field_md5'] . $vkey . '" /> ' . __('Remove BLOB Repository Reference') . "<br />";
+                    echo PMA_BS_CreateReferenceLink($data, $db);
+                    echo "<br />";
+                } else {
+                    echo __('Binary - do not edit');
+                    if (isset($data)) {
+                        $data_size = PMA_formatByteDown(strlen(stripslashes($data)), 3, 1);
+                        echo ' ('. $data_size [0] . ' ' . $data_size[1] . ')';
+                        unset($data_size);
                     }
-                    else
-                    {
-                        echo __('Binary - do not edit');
-                        if (isset($data)) {
-                            $data_size = PMA_formatByteDown(strlen(stripslashes($data)), 3, 1);
-                            echo ' ('. $data_size [0] . ' ' . $data_size[1] . ')';
-                                    unset($data_size);
-                        }
-                        echo "\n";
-                    }   // end if (PMA_BS_IsTablePBMSEnabled($db, $table, $tbl_type) && PMA_BS_IsPBMSReference($data, $db))
+                    echo "\n";
+                }   // end if (PMA_BS_IsTablePBMSEnabled($db, $table, $tbl_type) && PMA_BS_IsPBMSReference($data, $db))
                 ?>
                 <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>" value="protected" />
                 <input type="hidden" name="fields<?php echo $field_name_appendix; ?>" value="" />
@@ -849,7 +865,9 @@ foreach ($rows as $row_id => $vrow) {
 
             if ($is_upload && $field['is_blob']) {
                 // check if field type is of longblob and  if the table is PBMS enabled.
-                if (($field['pma_type'] == "longblob") && PMA_BS_IsTablePBMSEnabled($db, $table, $tbl_type)) {
+                if (($field['pma_type'] == "longblob")
+                    && PMA_BS_IsTablePBMSEnabled($db, $table, $tbl_type)
+                ) {
                     echo '<br />';
                     echo '<input type="checkbox" name="upload_blob_repo' . $vkey . '[' . $field['Field_md5'] . ']" /> ' .  __('Upload to BLOB repository');
                 }
@@ -895,15 +913,16 @@ foreach ($rows as $row_id => $vrow) {
                 }
             } // end if (web-server upload directory)
         } // end elseif (binary or blob)
-
         elseif (in_array($field['pma_type'], $no_support_types)) {
             // ignore this column to avoid changing it
-        }
-        else {
+        } else {
             // field size should be at least 4 and max 40
             $fieldsize = min(max($field['len'], 4), 40);
             echo $backup_field . "\n";
-            if ($field['is_char'] && ($cfg['CharEditing'] == 'textarea' || strpos($data, "\n") !== false)) {
+            if ($field['is_char']
+                && ($cfg['CharEditing'] == 'textarea'
+                || strpos($data, "\n") !== false)
+            ) {
                 echo "\n";
                 ?>
                 <textarea name="fields<?php echo $field_name_appendix; ?>"
@@ -919,7 +938,9 @@ foreach ($rows as $row_id => $vrow) {
                 $the_class = 'textfield';
                 if ($field['pma_type'] == 'date') {
                     $the_class .= ' datefield';
-                } elseif ($field['pma_type'] == 'datetime' || substr($field['pma_type'], 0, 9) == 'timestamp') {
+                } elseif ($field['pma_type'] == 'datetime'
+                    || substr($field['pma_type'], 0, 9) == 'timestamp'
+                ) {
                     $the_class .= ' datetimefield';
                 }
                 ?>
@@ -949,12 +970,30 @@ foreach ($rows as $row_id => $vrow) {
                     <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>" value="bit" />
                     <?php
                 }
-                if ($field['pma_type'] == 'date' || $field['pma_type'] == 'datetime' || substr($field['pma_type'], 0, 9) == 'timestamp') {
+                if ($field['pma_type'] == 'date'
+                    || $field['pma_type'] == 'datetime'
+                    || substr($field['pma_type'], 0, 9) == 'timestamp'
+                ) {
                     // the _3 suffix points to the date field
                     // the _2 suffix points to the corresponding NULL checkbox
                     // in dateFormat, 'yy' means the year with 4 digits
                 }
             }
+        }
+        if (in_array($field['pma_type'], $gis_data_types)) {
+            $data_val = isset($vrow[$field['Field']]) ? $vrow[$field['Field']] : '';
+            $_url_params = array(
+                'field' => $field['Field_title'],
+                'value' => $data_val,
+             );
+            if ($field['pma_type'] != 'geometry') {
+                $_url_params = $_url_params + array('gis_data[gis_type]' => strtoupper($field['pma_type']));
+            }
+            $edit_url = 'gis_data_editor.php' . PMA_generate_common_url($_url_params);
+            $edit_str = PMA_getIcon('b_edit.png', __('Edit/Insert'), true);
+            echo('<span class="open_gis_editor">');
+            echo(PMA_linkOrButton($edit_url, $edit_str, array(), false, false, '_blank'));
+            echo('</span>');
         }
         ?>
             </td>
@@ -966,8 +1005,8 @@ foreach ($rows as $row_id => $vrow) {
     echo '  </tbody></table><br />';
 } // end foreach on multi-edit
 ?>
+    <div id="gis_editor"></div><div id="popup_background"></div>
     <br />
-
     <fieldset id="actions_panel">
     <table border="0" cellpadding="5" cellspacing="0">
     <tr>

@@ -280,13 +280,12 @@ class Table_Stats
     /**
      * Sets the width of the table
      *
-     * @param string font The font name
-     * @param integer fontSize The font size
+     * @param string  $font     font name
+     * @param integer $fontSize font size
      * @global object    The current Visio XML document
-     * @access private
      * @see PMA_VISIO
      */
-    function _setWidthTable($font,$fontSize)
+    private function _setWidthTable($font,$fontSize)
     {
         global $visio;
 

@@ -90,7 +90,7 @@ $js_messages['strChartIssuedQueriesTitle'] = __('Questions (executed statements 
 $js_messages['strChartQueryPie'] = __('Query statistics');
 
 /* server status monitor */
-$js_messages['strIncompatibleMonitorConfig'] = __('Local monitor configuration icompatible');
+$js_messages['strIncompatibleMonitorConfig'] = __('Local monitor configuration incompatible');
 $js_messages['strIncompatibleMonitorConfigDescription'] = __('The chart arrangement configuration in your browsers local storage is not compatible anymore to the newer version of the monitor dialog. It is very likely that your current configuration will not work anymore. Please reset your configuration to default in the <i>Settings</i> menu.');
 
 $js_messages['strQueryCacheEfficiency'] = __('Query cache efficiency');
@@ -170,7 +170,7 @@ $js_messages['strJumpToTable'] = __('Jump to Log table');
 $js_messages['strNoDataFound'] = __('Log analysed, but no data found in this time span.');
 
 /* l10n: A collection of available filters */
-$js_messages['strFilters'] = __('Filters');
+$js_messages['strFiltersForLogTable'] = __('Log table filter options');
 /* l10n: Filter as in "Start Filtering" */
 $js_messages['strFilter'] = __('Filter');
 $js_messages['strFilterByWordRegexp'] = __('Filter queries by word/regexp:');
@@ -260,12 +260,38 @@ $js_messages['strShowSearchCriteria'] = __('Show search criteria');
 
 /* For tbl_zoom_plot.js */
 $js_messages['strZoomSearch'] = __('Zoom Search');
-$js_messages['strDisplayHelp'] =  __('* Each point represents a data row.<br>* Hovering over a point will show its label.<br>* Drag and select an area in the plot to zoom into it.<br>* Click reset zoom link to come back to original state.<br>*  Click a data point to view and possibly edit the data row.<br>* The plot can be resized by dragging it along the bottom right corner.<br>* Strings are converted into integer for plotting');
-$js_messages['strInputNull'] = __('<b>Select two columns</b>');
-$js_messages['strSameInputs'] = __('<b>Select two different columns</b>');
+$js_messages['strDisplayHelp'] = '<ul><li>'
+    . __('Each point represents a data row.')
+    . '</li><li>'
+    . __('Hovering over a point will show its label.')
+    . '</li><li>'
+    . __('Drag and select an area in the plot to zoom into it.')
+    . '</li><li>'
+    . __('Click reset zoom link to come back to original state.')
+    . '</li><li>'
+    . __('Click a data point to view and possibly edit the data row.')
+    . '</li><li>'
+    . __('The plot can be resized by dragging it along the bottom right corner.')
+    . '</li><li>'
+    . __('Strings are converted into integer for plotting')
+    . '</li></ul>';
+$js_messages['strInputNull'] = '<strong>' . __('Select two columns') . '</strong>';
+$js_messages['strSameInputs'] = '<strong>' . __('Select two different columns') . '</strong>';
 
 /* For tbl_change.js */
 $js_messages['strIgnore'] = __('Ignore');
+$js_messages['strCopy'] = __('Copy');
+$js_messages['strX'] = __('X');
+$js_messages['strY'] = __('Y');
+$js_messages['strPoint'] = __('Point');
+$js_messages['strLineString'] = __('Linestring');
+$js_messages['strPolygon'] = __('Polygon');
+$js_messages['strGeometry'] = __('Geometry');
+$js_messages['strInnerRing'] = __('Inner Ring');
+$js_messages['strOuterRing'] = __('Outer Ring');
+$js_messages['strAddPoint'] = __('Add a point');
+$js_messages['strAddInnerRing'] = __('Add an inner ring');
+$js_messages['strAddPolygon'] = __('Add a polygon');
 
 /* For tbl_structure.js */
 $js_messages['strAddColumns'] = __('Add columns');

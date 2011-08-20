@@ -150,13 +150,15 @@ function PMA_addDatepicker($this_element, options)
         showOn: 'button',
         buttonImage: themeCalendarImage, // defined in js/messages.php
         buttonImageOnly: true,
-        duration: '',
-        time24h: true,
         stepMinutes: 1,
         stepHours: 1,
-        showTime: showTimeOption,
+        showSecond: true,
+        showTimepicker: showTimeOption,
+        showButtonPanel: false,
         dateFormat: 'yy-mm-dd', // yy means year with four digits
-        altTimeField: '',
+        timeFormat: 'hh:mm:ss',
+        altFieldTimeOnly: false,
+        showAnim: '',
         beforeShow: function(input, inst) {
             // Remember that we came from the datepicker; this is used
             // in tbl_change.js by verificationsAfterFieldChange()
@@ -166,11 +168,10 @@ function PMA_addDatepicker($this_element, options)
             setTimeout(function() {
                 $('#ui-timepicker-div').css('z-index',$('#ui-datepicker-div').css('z-index'))
             },0);
-        },
-        constrainInput: false
+        }
     };
 
-    $this_element.datepicker($.extend(defaultOptions, options));
+    $this_element.datetimepicker($.extend(defaultOptions, options));
 }
 
 /**
@@ -611,7 +612,7 @@ $(document).ready(function() {
         var $tr = $(this);
 
         // make the table unselectable (to prevent default highlighting when shift+click)
-        $tr.parents('table').noSelect();
+        //$tr.parents('table').noSelect();
 
         if (!e.shiftKey || last_clicked_row == -1) {
             // usual click
@@ -642,6 +643,7 @@ $(document).ready(function() {
             last_shift_clicked_row = -1;
         } else {
             // handle the shift click
+            PMA_clearSelection();
             var start, end;
 
             // clear last shift click result
@@ -683,10 +685,12 @@ $(document).ready(function() {
     /**
      * Add a date/time picker to each element that needs it
      */
-    $('.datefield, .datetimefield').each(function() {
-        PMA_addDatepicker($(this));
-        });
-})
+    if ($.datetimepicker != undefined) {
+        $('.datefield, .datetimefield').each(function() {
+            PMA_addDatepicker($(this));
+            });
+    }
+});
 
 /**
  * True if last click is to check a row.
@@ -900,26 +904,6 @@ function insertValueQuery()
 function goToUrl(selObj, goToLocation)
 {
     eval("document.location.href = '" + goToLocation + "pos=" + selObj.options[selObj.selectedIndex].value + "'");
-}
-
-/**
- * getElement
- */
-function getElement(e,f)
-{
-    if(document.layers){
-        f=(f)?f:self;
-        if(f.document.layers[e]) {
-            return f.document.layers[e];
-        }
-        for(W=0;W<f.document.layers.length;W++) {
-            return(getElement(e,f.document.layers[W]));
-        }
-    }
-    if(document.all) {
-        return document.all[e];
-    }
-    return document.getElementById(e);
 }
 
 /**
@@ -1633,7 +1617,13 @@ function PMA_createProfilingChart(data, options)
     },options));
 }
 
-// Formats a profiling duration nicely. Used in PMA_createProfilingChart() and server_status.js
+/**
+ * Formats a profiling duration nicely (in us and ms time). Used in PMA_createProfilingChart() and server_status.js
+ *
+ * @param   integer     Number to be formatted, should be in the range of microsecond to second
+ * @param   integer     Acuracy, how many numbers right to the comma should be
+ * @return  string      The formatted number
+ */
 function PMA_prettyProfilingNum(num, acc)
 {
     if (!acc) {
@@ -1649,6 +1639,150 @@ function PMA_prettyProfilingNum(num, acc)
     }
 
     return num + 's';
+}
+
+
+/**
+ * Formats a SQL Query nicely with newlines and indentation. Depends on Codemirror and MySQL Mode!
+ *
+ * @param   string      Query to be formatted
+ * @return  string      The formatted query
+ */
+function PMA_SQLPrettyPrint(string)
+{
+    var mode = CodeMirror.getMode({},"text/x-mysql");
+    var stream = new CodeMirror.StringStream(string);
+    var state = mode.startState();
+    var token, tokens = [];
+    var output = '';
+    var tabs = function(cnt) {
+        var ret = '';
+        for (var i=0; i<4*cnt; i++)
+            ret += " ";
+        return ret;
+    };
+
+    // "root-level" statements
+    var statements = {
+        'select': ['select', 'from','on','where','having','limit','order by','group by'],
+        'update': ['update', 'set','where'],
+        'insert into': ['insert into', 'values']
+    };
+    // don't put spaces before these tokens
+    var spaceExceptionsBefore = { ';':true, ',': true, '.': true, '(': true };
+    // don't put spaces after these tokens
+    var spaceExceptionsAfter = { '.': true };
+
+    // Populate tokens array
+    var str='';
+    while (! stream.eol()) { 
+        stream.start = stream.pos;
+        token = mode.token(stream, state);
+        if(token != null) {
+            tokens.push([token, stream.current().toLowerCase()]);
+        }
+    }
+
+    var currentStatement = tokens[0][1];
+
+    if(! statements[currentStatement]) {
+        return string;
+    }
+    // Holds all currently opened code blocks (statement, function or generic)
+    var blockStack = [];
+    // Holds the type of block from last iteration (the current is in blockStack[0])
+    var previousBlock;
+    // If a new code block is found, newBlock contains its type for one iteration and vice versa for endBlock
+    var newBlock, endBlock;
+    // How much to indent in the current line
+    var indentLevel = 0;
+    // Holds the "root-level" statements
+    var statementPart, lastStatementPart = statements[currentStatement][0];
+
+    blockStack.unshift('statement');
+
+    // Iterate through every token and format accordingly
+    for (var i = 0; i < tokens.length; i++) {
+        previousBlock = blockStack[0];
+
+        // New block => push to stack
+        if (tokens[i][1] == '(') {
+            if (i < tokens.length - 1 && tokens[i+1][0] == 'statement-verb') {
+                blockStack.unshift(newBlock = 'statement');
+            } else if (i > 0 && tokens[i-1][0] == 'builtin') {
+                blockStack.unshift(newBlock = 'function');
+            } else {
+                blockStack.unshift(newBlock = 'generic');
+            }
+        } else {
+            newBlock = null;
+        }
+
+        // Block end => pop from stack
+        if (tokens[i][1] == ')') {
+            endBlock = blockStack[0];
+            blockStack.shift();
+        } else {
+            endBlock = null;
+        }
+
+        // A subquery is starting
+        if (i > 0 && newBlock == 'statement') {
+            indentLevel++;
+            output += "\n" + tabs(indentLevel) + tokens[i][1] + ' ' + tokens[i+1][1].toUpperCase() + "\n" + tabs(indentLevel + 1);
+            currentStatement = tokens[i+1][1];
+            i++;
+            continue;
+        }
+
+        // A subquery is ending
+        if (endBlock == 'statement' && indentLevel > 0) {
+            output += "\n" + tabs(indentLevel);
+            indentLevel--;
+        }
+
+        // One less indentation for statement parts (from, where, order by, etc.) and a newline
+        statementPart = statements[currentStatement].indexOf(tokens[i][1]);
+        if (statementPart != -1) {
+            if (i > 0) output += "\n";
+            output += tabs(indentLevel) + tokens[i][1].toUpperCase();
+            output += "\n" + tabs(indentLevel + 1);
+            lastStatementPart = tokens[i][1];
+        }
+        // Normal indentatin and spaces for everything else
+        else {
+            if (! spaceExceptionsBefore[tokens[i][1]] 
+               && ! (i > 0 && spaceExceptionsAfter[tokens[i-1][1]])
+               && output.charAt(output.length -1) != ' ' ) {
+                    output += " ";
+            }
+            if (tokens[i][0] == 'keyword') {
+                output += tokens[i][1].toUpperCase();
+            } else {
+                output += tokens[i][1];
+            }
+        }
+
+        // split columns in select and 'update set' clauses, but only inside statements blocks
+        if (( lastStatementPart == 'select' || lastStatementPart == 'where'  || lastStatementPart == 'set') 
+            && tokens[i][1]==',' && blockStack[0] == 'statement') {
+
+            output += "\n" + tabs(indentLevel + 1);
+        }
+
+        // split conditions in where clauses, but only inside statements blocks
+        if (lastStatementPart == 'where' 
+            && (tokens[i][1]=='and' || tokens[i][1]=='or' || tokens[i][1]=='xor')) {
+
+            if (blockStack[0] == 'statement') {
+                output += "\n" + tabs(indentLevel + 1);
+            }
+            // Todo: Also split and or blocks in newlines & identation++
+            //if(blockStack[0] == 'generic')
+             //   output += ...
+        }
+    }
+    return output;
 }
 
 /**
@@ -3173,8 +3307,6 @@ function PMA_getCellValue(td) {
         return '';
     } else if (! $(td).is('.to_be_saved') && $(td).data('original_data')) {
         return $(td).data('original_data');
-    } else if ($(td).is(':not(.transformed, .relation, .enum, .set, .null)')) {
-        return unescape($(td).find('span').html()).replace(/<br>/g, "\n");
     } else {
         return $(td).text();
     }
@@ -3225,3 +3357,16 @@ $(document).ready(function() {
         return true;
     });
 });
+
+/**
+ * Clear text selection
+ */
+function PMA_clearSelection() {
+    if(document.selection && document.selection.empty) {
+        document.selection.empty();
+    } else if(window.getSelection) {
+        var sel = window.getSelection();
+        if(sel.empty) sel.empty();
+        if(sel.removeAllRanges) sel.removeAllRanges();
+    }
+}

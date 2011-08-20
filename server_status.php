@@ -15,8 +15,9 @@ if (! defined('PMA_NO_VARIABLES_IMPORT')) {
     define('PMA_NO_VARIABLES_IMPORT', true);
 }
 
-if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true)
+if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     $GLOBALS['is_header_sent'] = true;
+}
 
 require_once './libraries/common.inc.php';
 
@@ -31,166 +32,173 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     // real-time charting data
     if (isset($_REQUEST['chart_data'])) {
         switch($_REQUEST['type']) {
-            // Process and Connections realtime chart
-            case 'proc':
-                $c = PMA_DBI_fetch_result("SHOW GLOBAL STATUS WHERE Variable_name = 'Connections'", 0, 1);
-                $result = PMA_DBI_query('SHOW PROCESSLIST');
-                $num_procs = PMA_DBI_num_rows($result);
+        // Process and Connections realtime chart
+        case 'proc':
+            $c = PMA_DBI_fetch_result("SHOW GLOBAL STATUS WHERE Variable_name = 'Connections'", 0, 1);
+            $result = PMA_DBI_query('SHOW PROCESSLIST');
+            $num_procs = PMA_DBI_num_rows($result);
 
-                $ret = array(
-                    'x'      => microtime(true)*1000,
-                    'y_proc' => $num_procs,
-                    'y_conn' => $c['Connections']
-                );
+            $ret = array(
+                'x'      => microtime(true) * 1000,
+                'y_proc' => $num_procs,
+                'y_conn' => $c['Connections']
+            );
 
-                exit(json_encode($ret));
+            exit(json_encode($ret));
 
-            // Query realtime chart
-            case 'queries':
-                $queries = PMA_DBI_fetch_result(
-                    "SHOW GLOBAL STATUS
-                    WHERE (Variable_name LIKE 'Com_%' OR Variable_name = 'Questions')
-                        AND Value > 0'", 0, 1);
-                cleanDeprecated($queries);
-                // admin commands are not queries
-                unset($queries['Com_admin_commands']);
-                $questions = $queries['Questions'];
-                unset($queries['Questions']);
+        // Query realtime chart
+        case 'queries':
+            $queries = PMA_DBI_fetch_result(
+                "SHOW GLOBAL STATUS
+                WHERE (Variable_name LIKE 'Com_%' OR Variable_name = 'Questions')
+                    AND Value > 0'", 0, 1);
+            cleanDeprecated($queries);
+            // admin commands are not queries
+            unset($queries['Com_admin_commands']);
+            $questions = $queries['Questions'];
+            unset($queries['Questions']);
 
-                //$sum=array_sum($queries);
-                $ret = array(
-                    'x'         => microtime(true)*1000,
-                    'y'         => $questions,
-                    'pointInfo' => $queries
-                );
+            //$sum=array_sum($queries);
+            $ret = array(
+                'x'         => microtime(true) * 1000,
+                'y'         => $questions,
+                'pointInfo' => $queries
+            );
 
-                exit(json_encode($ret));
+            exit(json_encode($ret));
 
-            // Traffic realtime chart
-            case 'traffic':
-                $traffic = PMA_DBI_fetch_result(
-                    "SHOW GLOBAL STATUS
-                    WHERE Variable_name = 'Bytes_received'
-                        OR Variable_name = 'Bytes_sent'", 0, 1);
+        // Traffic realtime chart
+        case 'traffic':
+            $traffic = PMA_DBI_fetch_result(
+                "SHOW GLOBAL STATUS
+                WHERE Variable_name = 'Bytes_received'
+                    OR Variable_name = 'Bytes_sent'", 0, 1);
 
-                $ret = array(
-                    'x'          => microtime(true)*1000,
-                    'y_sent'     => $traffic['Bytes_sent'],
-                    'y_received' => $traffic['Bytes_received']
-                );
+            $ret = array(
+                'x'          => microtime(true) * 1000,
+                'y_sent'     => $traffic['Bytes_sent'],
+                'y_received' => $traffic['Bytes_received']
+            );
 
-                exit(json_encode($ret));
+            exit(json_encode($ret));
 
-            // Data for the monitor 
-            case 'chartgrid':
-                $ret = json_decode($_REQUEST['requiredData'], true);
-                $statusVars = array();
-                $serverVars = array();
-                $sysinfo = $cpuload = $memory = 0;
-                $pName = '';
+        // Data for the monitor
+        case 'chartgrid':
+            $ret = json_decode($_REQUEST['requiredData'], true);
+            $statusVars = array();
+            $serverVars = array();
+            $sysinfo = $cpuload = $memory = 0;
+            $pName = '';
 
-                /* Accumulate all required variables and data */
-                // For each chart
-                foreach ($ret as $chart_id => $chartNodes) {
-                    // For each data series 
-                    foreach ($chartNodes as $node_id => $nodeDataPoints) {
-                        // For each data point in the series (usually just 1)
-                        foreach ($nodeDataPoints as $point_id => $dataPoint) {
-                            $pName = $dataPoint['name'];
-                            
-                            switch ($dataPoint['type']) {
-                                /* We only collect the status and server variables here to
-                                 * read them all in one query, and only afterwards assign them.
-                                 * Also do some white list filtering on the names
-                                */
-                                case 'servervar':
-                                    if (!preg_match('/[^a-zA-Z_]+/', $pName))
-                                        $serverVars[] = $pName;                  
-                                    break;
+            /* Accumulate all required variables and data */
+            // For each chart
+            foreach ($ret as $chart_id => $chartNodes) {
+                // For each data series
+                foreach ($chartNodes as $node_id => $nodeDataPoints) {
+                    // For each data point in the series (usually just 1)
+                    foreach ($nodeDataPoints as $point_id => $dataPoint) {
+                        $pName = $dataPoint['name'];
 
-                                case 'statusvar':
-                                    if (!preg_match('/[^a-zA-Z_]+/', $pName))
-                                        $statusVars[] = $pName;
-                                    break;
-
-                                case 'proc':
-                                    $result = PMA_DBI_query('SHOW PROCESSLIST');
-                                    $ret[$chart_id][$node_id][$point_id]['value'] = PMA_DBI_num_rows($result);
-                                    break;
-
-                                case 'cpu':
-                                    if (!$sysinfo) {
-                                        require_once('libraries/sysinfo.lib.php');
-                                        $sysinfo = getSysInfo();
-                                    }
-                                    if (!$cpuload)
-                                        $cpuload = $sysinfo->loadavg();
-
-                                    if (PHP_OS == 'Linux') {
-                                        $ret[$chart_id][$node_id][$point_id]['idle'] = $cpuload['idle'];
-                                        $ret[$chart_id][$node_id][$point_id]['busy'] = $cpuload['busy'];
-                                    } else
-                                        $ret[$chart_id][$node_id][$point_id]['value'] = $cpuload['loadavg'];
-
-                                    break;
-
-                                case 'memory':
-                                    if (!$sysinfo) {
-                                        require_once('libraries/sysinfo.lib.php');
-                                        $sysinfo = getSysInfo();
-                                    }
-                                    if (!$memory)
-                                        $memory  = $sysinfo->memory();
-
-                                    $ret[$chart_id][$node_id][$point_id]['value'] = $memory[$pName];
-                                    break;
+                        switch ($dataPoint['type']) {
+                        /* We only collect the status and server variables here to
+                         * read them all in one query, and only afterwards assign them.
+                         * Also do some white list filtering on the names
+                        */
+                        case 'servervar':
+                            if (!preg_match('/[^a-zA-Z_]+/', $pName)) {
+                                $serverVars[] = $pName;
                             }
+                            break;
+
+                        case 'statusvar':
+                            if (!preg_match('/[^a-zA-Z_]+/', $pName)) {
+                                $statusVars[] = $pName;
+                            }
+                            break;
+
+                        case 'proc':
+                            $result = PMA_DBI_query('SHOW PROCESSLIST');
+                            $ret[$chart_id][$node_id][$point_id]['value'] = PMA_DBI_num_rows($result);
+                            break;
+
+                        case 'cpu':
+                            if (!$sysinfo) {
+                                require_once('libraries/sysinfo.lib.php');
+                                $sysinfo = getSysInfo();
+                            }
+                            if (!$cpuload) {
+                                $cpuload = $sysinfo->loadavg();
+                            }
+
+                            if (PHP_OS == 'Linux') {
+                                $ret[$chart_id][$node_id][$point_id]['idle'] = $cpuload['idle'];
+                                $ret[$chart_id][$node_id][$point_id]['busy'] = $cpuload['busy'];
+                            } else
+                                $ret[$chart_id][$node_id][$point_id]['value'] = $cpuload['loadavg'];
+
+                            break;
+
+                        case 'memory':
+                            if (!$sysinfo) {
+                                require_once('libraries/sysinfo.lib.php');
+                                $sysinfo = getSysInfo();
+                            }
+                            if (!$memory) {
+                                $memory  = $sysinfo->memory();
+                            }
+
+                            $ret[$chart_id][$node_id][$point_id]['value'] = $memory[$pName];
+                            break;
+                        } /* switch */
+                    } /* foreach */
+                } /* foreach */
+            } /* foreach */
+
+            // Retrieve all required status variables
+            if (count($statusVars)) {
+                $statusVarValues = PMA_DBI_fetch_result(
+                    "SHOW GLOBAL STATUS
+                    WHERE Variable_name='" . implode("' OR Variable_name='", $statusVars) . "'", 0, 1);
+            } else {
+                $statusVarValues = array();
+            }
+
+            // Retrieve all required server variables
+            if (count($serverVars)) {
+                $serverVarValues = PMA_DBI_fetch_result(
+                    "SHOW GLOBAL VARIABLES
+                    WHERE Variable_name='" . implode("' OR Variable_name='", $serverVars) . "'", 0, 1);
+            } else {
+                $serverVarValues = array();
+            }
+
+            // ...and now assign them
+            foreach ($ret as $chart_id => $chartNodes) {
+                foreach ($chartNodes as $node_id => $nodeDataPoints) {
+                    foreach ($nodeDataPoints as $point_id => $dataPoint) {
+                        switch($dataPoint['type']) {
+                        case 'statusvar':
+                            $ret[$chart_id][$node_id][$point_id]['value'] = $statusVarValues[$dataPoint['name']];
+                            break;
+                        case 'servervar':
+                            $ret[$chart_id][$node_id][$point_id]['value'] = $serverVarValues[$dataPoint['name']];
+                            break;
                         }
                     }
                 }
+            }
 
-                // Retrieve all required status variables
-                if (count($statusVars)) {
-                    $statusVarValues = PMA_DBI_fetch_result(
-                        "SHOW GLOBAL STATUS
-                        WHERE Variable_name='" . implode("' OR Variable_name='", $statusVars) . "'", 0, 1);
-                } else {
-                    $statusVarValues = array();
-                }
-                
-                // Retrieve all required server variables
-                if (count($serverVars)) {
-                    $serverVarValues = PMA_DBI_fetch_result(
-                        "SHOW GLOBAL VARIABLES
-                        WHERE Variable_name='" . implode("' OR Variable_name='", $serverVars) . "'", 0, 1);
-                } else {
-                    $serverVarValues = array();
-                }
+            $ret['x'] = microtime(true) * 1000;
 
-                // ...and now assign them
-                foreach ($ret as $chart_id => $chartNodes) {
-                    foreach ($chartNodes as $node_id => $nodeDataPoints) {
-                        foreach ($nodeDataPoints as $point_id => $dataPoint) {
-                            switch($dataPoint['type']) {
-                            case 'statusvar':
-                                $ret[$chart_id][$node_id][$point_id]['value'] = $statusVarValues[$dataPoint['name']];
-                                break;
-                            case 'servervar':
-                                $ret[$chart_id][$node_id][$point_id]['value'] = $serverVarValues[$dataPoint['name']];
-                                break;
-                            }
-                        }
-                    }
-                }
-
-                $ret['x'] = microtime(true)*1000;
-
-                exit(json_encode($ret));
+            exit(json_encode($ret));
         }
     }
 
     if (isset($_REQUEST['log_data'])) {
-        if(PMA_MYSQL_INT_VERSION < 50106) exit('""');
+        if (PMA_MYSQL_INT_VERSION < 50106) {
+            /* FIXME: why this? */
+            exit('""');
+        }
 
         $start = intval($_REQUEST['time_start']);
         $end = intval($_REQUEST['time_end']);
@@ -210,19 +218,23 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 $type = strtolower(substr($row['sql_text'], 0, strpos($row['sql_text'], ' ')));
 
                 switch($type) {
-                    case 'insert':
-                    case 'update':
-                        // Cut off big inserts and updates, but append byte count therefor
-                        if(strlen($row['sql_text']) > 220)
-                            $row['sql_text'] = substr($row['sql_text'], 0, 200) . '... [' .
-                                                implode(' ', PMA_formatByteDown(strlen($row['sql_text']), 2, 2)) . ']';
-
-                        break;
-                    default:
-                        break;
+                case 'insert':
+                case 'update':
+                    // Cut off big inserts and updates, but append byte count therefor
+                    if (strlen($row['sql_text']) > 220) {
+                        $row['sql_text'] = substr($row['sql_text'], 0, 200)
+                            . '... ['
+                            .  implode(' ', PMA_formatByteDown(strlen($row['sql_text']), 2, 2))
+                            . ']';
+                    }
+                    break;
+                default:
+                    break;
                 }
 
-                if(!isset($return['sum'][$type])) $return['sum'][$type] = 0;
+                if (!isset($return['sum'][$type])) {
+                    $return['sum'][$type] = 0;
+                }
                 $return['sum'][$type] += $row['#'];
                 $return['rows'][] = $row;
             }
@@ -235,7 +247,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             exit(json_encode($return));
         }
 
-        if($_REQUEST['type'] == 'general') {
+        if ($_REQUEST['type'] == 'general') {
             $limitTypes = (isset($_REQUEST['limitTypes']) && $_REQUEST['limitTypes'])
                             ? 'AND argument REGEXP \'^(INSERT|SELECT|UPDATE|DELETE)\' ' : '';
 
@@ -257,39 +269,44 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 preg_match('/^(\w+)\s/', $row['argument'], $match);
                 $type = strtolower($match[1]);
 
-                if(!isset($return['sum'][$type])) $return['sum'][$type] = 0;
+                if (!isset($return['sum'][$type])) {
+                    $return['sum'][$type] = 0;
+                }
                 $return['sum'][$type] += $row['#'];
 
                 switch($type) {
-                    case 'insert':
-                        // Group inserts if selected
-                        if($removeVars && preg_match('/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i', $row['argument'], $matches)) {
-                            $insertTables[$matches[2]]++;
-                            if ($insertTables[$matches[2]] > 1) {
-                                $return['rows'][$insertTablesFirst]['#'] = $insertTables[$matches[2]];
+                case 'insert':
+                    // Group inserts if selected
+                    if ($removeVars && preg_match('/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i', $row['argument'], $matches)) {
+                        $insertTables[$matches[2]]++;
+                        if ($insertTables[$matches[2]] > 1) {
+                            $return['rows'][$insertTablesFirst]['#'] = $insertTables[$matches[2]];
 
-                                // Add a ... to the end of this query to indicate that there's been other queries
-                                if($return['rows'][$insertTablesFirst]['argument'][strlen($return['rows'][$insertTablesFirst]['argument'])-1] != '.')
-                                    $return['rows'][$insertTablesFirst]['argument'] .= '<br/>...';
-
-                                // Group this value, thus do not add to the result list
-                                continue 2;
-                            } else {
-                                $insertTablesFirst = $i;
-                                $insertTables[$matches[2]] += $row['#'] - 1;
+                            // Add a ... to the end of this query to indicate that there's been other queries
+                            if ($return['rows'][$insertTablesFirst]['argument'][strlen($return['rows'][$insertTablesFirst]['argument'])-1] != '.') {
+                                $return['rows'][$insertTablesFirst]['argument'] .= '<br/>...';
                             }
+
+                            // Group this value, thus do not add to the result list
+                            continue 2;
+                        } else {
+                            $insertTablesFirst = $i;
+                            $insertTables[$matches[2]] += $row['#'] - 1;
                         }
-                        // No break here
+                    }
+                    // No break here
 
-                    case 'update':
-                        // Cut off big inserts and updates, but append byte count therefor
-                        if(strlen($row['argument']) > 220)
-                            $row['argument'] = substr($row['argument'], 0, 200) . '... [' .
-                                                implode(' ', PMA_formatByteDown(strlen($row['argument'])), 2, 2) . ']';
+                case 'update':
+                    // Cut off big inserts and updates, but append byte count therefor
+                    if (strlen($row['argument']) > 220) {
+                        $row['argument'] = substr($row['argument'], 0, 200)
+                            . '... ['
+                            .  implode(' ', PMA_formatByteDown(strlen($row['argument'])), 2, 2)
+                            . ']';
+                    }
+                    break;
 
-                        break;
-
-                    default: break;
+                default: break;
                 }
 
                 $return['rows'][] = $row;
@@ -306,12 +323,15 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     }
 
     if (isset($_REQUEST['logging_vars'])) {
-        if(isset($_REQUEST['varName']) && isset($_REQUEST['varValue'])) {
+        if (isset($_REQUEST['varName']) && isset($_REQUEST['varValue'])) {
             $value = PMA_sqlAddslashes($_REQUEST['varValue']);
-            if(!is_numeric($value)) $value="'" . $value . "'";
+            if (!is_numeric($value)) {
+                $value="'" . $value . "'";
+            }
 
-            if(! preg_match("/[^a-zA-Z0-9_]+/", $_REQUEST['varName']))
+            if (! preg_match("/[^a-zA-Z0-9_]+/", $_REQUEST['varName'])) {
                 PMA_DBI_query('SET GLOBAL ' . $_REQUEST['varName'] . ' = ' . $value);
+            }
 
         }
 
@@ -319,14 +339,16 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
         exit(json_encode($loggingVars));
     }
 
-    if(isset($_REQUEST['query_analyzer'])) {
+    if (isset($_REQUEST['query_analyzer'])) {
         $return = array();
 
-        if(strlen($_REQUEST['database']))
+        if (strlen($_REQUEST['database'])) {
             PMA_DBI_select_db($_REQUEST['database']);
+        }
 
-        if ($profiling = PMA_profilingSupported())
+        if ($profiling = PMA_profilingSupported()) {
             PMA_DBI_query('SET PROFILING=1;');
+        }
 
         // Do not cache query
         $query = preg_replace('/^(\s*SELECT)/i', '\\1 SQL_NO_CACHE', $_REQUEST['query']);
@@ -344,7 +366,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
         PMA_DBI_free_result($result);
 
-        if($profiling) {
+        if ($profiling) {
             $return['profiling'] = array();
             $result = PMA_DBI_try_query('SELECT seq,state,duration FROM INFORMATION_SCHEMA.PROFILING WHERE QUERY_ID=1 ORDER BY seq');
             while ($row = PMA_DBI_fetch_assoc($result)) {
@@ -356,8 +378,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
         exit(json_encode($return));
     }
 
-    if(isset($_REQUEST['advisor'])) {
-        include('libraries/advisor.class.php');
+    if (isset($_REQUEST['advisor'])) {
+        include('libraries/Advisor.class.php');
         $advisor = new Advisor();
         exit(json_encode($advisor->run()));
     }
@@ -598,7 +620,8 @@ $links['innodb']['doc'] = 'innodb';
 // Variable to contain all com_ variables
 $used_queries = array();
 
-// Variable to map variable names to their respective section name (used for js category filtering)
+// Variable to map variable names to their respective section name
+// (used for js category filtering)
 $allocationMap = array();
 
 // sort vars into arrays
@@ -606,36 +629,43 @@ foreach ($server_status as $name => $value) {
     foreach ($allocations as $filter => $section) {
         if (strpos($name, $filter) !== false) {
             $allocationMap[$name] = $section;
-            if ($section == 'com' && $value > 0) $used_queries[$name] = $value;
+            if ($section == 'com' && $value > 0) {
+                $used_queries[$name] = $value;
+            }
             break; // Only exits inner loop
         }
     }
 }
 
 if(PMA_DRIZZLE) {
-    $used_queries = PMA_DBI_fetch_result('SELECT * FROM data_dictionary.global_statements', 0, 1);
+    $used_queries = PMA_DBI_fetch_result(
+        'SELECT * FROM data_dictionary.global_statements',
+        0,
+        1
+    );
     unset($used_queries['admin_commands']);
 } else {
-    // admin commands are not queries (e.g. they include COM_PING, which is excluded from $server_status['Questions'])
+    // admin commands are not queries (e.g. they include COM_PING,
+    // which is excluded from $server_status['Questions'])
     unset($used_queries['Com_admin_commands']);
 }
 
 /* Ajax request refresh */
 if (isset($_REQUEST['show']) && isset($_REQUEST['ajax_request'])) {
     switch($_REQUEST['show']) {
-        case 'query_statistics':
-            printQueryStatistics();
-            exit();
-        case 'server_traffic':
-            printServerTraffic();
-            exit();
-        case 'variables_table':
-            // Prints the variables table
-            printVariablesTable();
-            exit();
+    case 'query_statistics':
+        printQueryStatistics();
+        exit();
+    case 'server_traffic':
+        printServerTraffic();
+        exit();
+    case 'variables_table':
+        // Prints the variables table
+        printVariablesTable();
+        exit();
 
-        default:
-            break;
+    default:
+        break;
     }
 }
 
@@ -643,14 +673,38 @@ $server_db_isLocal = strtolower($cfg['Server']['host']) == 'localhost'
                               || $cfg['Server']['host'] == '127.0.0.1'
                               || $cfg['Server']['host'] == '::1';
 
-PMA_AddJSCode('pma_token = \'' . $_SESSION[' PMA_token '] . "';\n" .
-              'url_query = \'' . str_replace('&amp;', '&', PMA_generate_common_url($db)) . "';\n" .
-              'server_time_diff = new Date().getTime() - ' . (microtime(true)*1000) . ";\n" .
-              'server_os = \'' . PHP_OS . "';\n" .
-              'is_superuser = ' . (PMA_isSuperuser() ? 'true' : 'false') . ";\n" .
-              'server_db_isLocal = ' . ($server_db_isLocal ? 'true' : 'false') . ";\n" .
-              'profiling_docu = \'' . PMA_showMySQLDocu('general-thread-states', 'general-thread-states') . "';\n" .
-              'explain_docu = \'' . PMA_showMySQLDocu('explain-output', 'explain-output') . ";'\n");
+PMA_AddJSVar(
+    'pma_token',
+    $_SESSION[' PMA_token ']
+);
+PMA_AddJSVar(
+    'url_query',
+    str_replace('&amp;', '&', PMA_generate_common_url($db))
+);
+PMA_AddJSVar(
+    'server_time_diff',
+    'new Date().getTime() - ' . (microtime(true) * 1000)
+);
+PMA_AddJSVar(
+    'server_os',
+    PHP_OS
+);
+PMA_AddJSVar(
+    'is_superuser',
+    PMA_isSuperuser()
+);
+PMA_AddJSVar(
+    'server_db_isLocal',
+    $server_db_isLocal
+);
+PMA_AddJSVar(
+    'profiling_docu',
+    PMA_showMySQLDocu('general-thread-states', 'general-thread-states')
+);
+PMA_AddJSVar(
+    'explain_docu',
+    PMA_showMySQLDocu('explain-output', 'explain-output')
+);
 
 /**
  * start output
@@ -686,18 +740,18 @@ echo __('Runtime Information');
             <li><a href="#statustabs_traffic"><?php echo __('Server'); ?></a></li>
             <li><a href="#statustabs_queries"><?php echo __('Query statistics'); ?></a></li>
             <li><a href="#statustabs_allvars"><?php echo __('All status variables'); ?></a></li>
-            <li><a href="#statustabs_charting"><?php echo __('Monitor'); ?></a></li>
-            <li><a href="#statustabs_advisor"><?php echo __('Advisor'); ?></a></li>
+            <li class="jsfeature"><a href="#statustabs_charting"><?php echo __('Monitor'); ?></a></li>
+            <li class="jsfeature"><a href="#statustabs_advisor"><?php echo __('Advisor'); ?></a></li>
         </ul>
 
-        <div id="statustabs_traffic">
-            <div class="buttonlinks">
+        <div id="statustabs_traffic" class="clearfloat">
+            <div class="buttonlinks jsfeature">
                 <a class="tabRefresh" href="<?php echo $PMA_PHP_SELF . '?show=server_traffic&amp;' . PMA_generate_common_url(); ?>" >
                     <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
                     <?php echo __('Refresh'); ?>
                 </a>
                 <span class="refreshList" style="display:none;">
-                    <label for="trafficChartRefresh"><?php echo __('Refresh rate: '); ?></label>
+                    <label for="id_trafficChartRefresh"><?php echo __('Refresh rate: '); ?></label>
                     <?php refreshList('trafficChartRefresh'); ?>
                 </span>
 
@@ -712,14 +766,14 @@ echo __('Runtime Information');
                 <?php printServerTraffic(); ?>
             </div>
         </div>
-        <div id="statustabs_queries">
-            <div class="buttonlinks">
+        <div id="statustabs_queries" class="clearfloat">
+            <div class="buttonlinks jsfeature">
                 <a class="tabRefresh"  href="<?php echo $PMA_PHP_SELF . '?show=query_statistics&amp;' . PMA_generate_common_url(); ?>" >
                     <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
                     <?php echo __('Refresh'); ?>
                 </a>
                 <span class="refreshList" style="display:none;">
-                    <label for="queryChartRefresh"><?php echo __('Refresh rate: '); ?></label>
+                    <label for="id_queryChartRefresh"><?php echo __('Refresh rate: '); ?></label>
                        <?php refreshList('queryChartRefresh'); ?>
                 </span>
                 <a class="tabChart livequeriesLink" href="#">
@@ -730,8 +784,8 @@ echo __('Runtime Information');
                 <?php printQueryStatistics(); ?>
             </div>
         </div>
-        <div id="statustabs_allvars">
-            <fieldset id="tableFilter">
+        <div id="statustabs_allvars" class="clearfloat">
+            <fieldset id="tableFilter" class="jsfeature">
                 <div class="buttonlinks">
                     <a class="tabRefresh" href="<?php echo $PMA_PHP_SELF . '?show=variables_table&amp;' . PMA_generate_common_url(); ?>" >
                         <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
@@ -744,7 +798,7 @@ echo __('Runtime Information');
                     <input name="filterText" type="text" id="filterText" style="vertical-align: baseline;" />
                 </div>
                 <div class="formelement">
-                    <input type="checkbox" name="filterAlert" id="filterAlert">
+                    <input type="checkbox" name="filterAlert" id="filterAlert" />
                     <label for="filterAlert"><?php echo __('Show only alert values'); ?></label>
                 </div>
                 <div class="formelement">
@@ -761,7 +815,7 @@ echo __('Runtime Information');
                     </select>
                 </div>
                 <div class="formelement">
-                    <input type="checkbox" name="dontFormat" id="dontFormat">
+                    <input type="checkbox" name="dontFormat" id="dontFormat" />
                     <label for="dontFormat"><?php echo __('Show unformatted values'); ?></label>
                 </div>
             </fieldset>
@@ -772,7 +826,9 @@ echo __('Runtime Information');
                     echo '<span class="status_' . $section_name . '"> ';
                     $i=0;
                     foreach ($section_links as $link_name => $link_url) {
-                        if ($i > 0) echo ', ';
+                        if ($i > 0) {
+                            echo ', ';
+                        }
                         if ('doc' == $link_name) {
                             echo PMA_showMySQLDocu($link_url, $link_url);
                         } else {
@@ -791,11 +847,11 @@ echo __('Runtime Information');
             </div>
         </div>
 
-        <div id="statustabs_charting">
+        <div id="statustabs_charting" class="jsfeature">
             <?php printMonitor(); ?>
         </div>
 
-        <div id="statustabs_advisor">
+        <div id="statustabs_advisor" class="jsfeature">
             <div class="tabLinks">
                 <img src="themes/dot.gif" class="icon ic_play" alt="" /> <a href="#startAnalyzer"><?php echo __('Run analyzer'); ?></a>
                 <img src="themes/dot.gif" class="icon ic_b_help" alt="" /> <a href="#openAdvisorInstructions"><?php echo __('Instructions'); ?></a>
@@ -803,7 +859,17 @@ echo __('Runtime Information');
             <div class="tabInnerContent clearfloat">
             </div>
             <div id="advisorInstructionsDialog" style="display:none;">
-            <?php echo __('The Advisor system can provide recommendations on server variables by analyzing the server status variables. <p>Do note however that this system provides recommendations based on simple calculations and by rule of thumb which may not necessarily apply to your system.</p> <p>Prior to changing any of the configuration, be sure to know what you are changing (by reading the documentation) and how to undo the change. Wrong tuning can have a very negative effect on performance.</p> <p>The best way to tune your system would be to change only one setting at a time, observe or benchmark your database, and undo the change if there was no clearly measurable improvement.</p>'); ?>
+            <?php
+            echo '<p>';
+            echo __('The Advisor system can provide recommendations on server variables by analyzing the server status variables.');
+            echo '</p> <p>';
+            echo __('Do note however that this system provides recommendations based on simple calculations and by rule of thumb which may not necessarily apply to your system.');
+            echo '</p> <p>';
+            echo __('Prior to changing any of the configuration, be sure to know what you are changing (by reading the documentation) and how to undo the change. Wrong tuning can have a very negative effect on performance.');
+            echo '</p> <p>';
+            echo __('The best way to tune your system would be to change only one setting at a time, observe or benchmark your database, and undo the change if there was no clearly measurable improvement.');
+            echo '</p>';
+            ?>
             </div>
         </div>
     </div>
@@ -826,16 +892,16 @@ function printQueryStatistics()
         echo sprintf(__('Questions since startup: %s'), PMA_formatNumber($total_queries, 0)) . ' ';
         echo PMA_showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_Questions');
         ?>
-        <br>
+        <br />
         <span>
         <?php
         echo '&oslash; ' . __('per hour') . ': ';
         echo PMA_formatNumber($total_queries * $hour_factor, 0);
-        echo '<br>';
+        echo '<br />';
 
         echo '&oslash; ' . __('per minute') . ': ';
         echo PMA_formatNumber( $total_queries * 60 / $server_status['Uptime'], 0);
-        echo '<br>';
+        echo '<br />';
 
         if ($total_queries / $server_status['Uptime'] >= 1) {
             echo '&oslash; ' . __('per second') . ': ';
@@ -864,6 +930,7 @@ function printQueryStatistics()
                     /* l10n: # = Amount of queries */
                     echo __('#');
                     ?>
+                </th>
                 <th>&oslash; <?php echo __('per hour'); ?></th>
                 <th>%</th>
             </tr>
@@ -883,17 +950,19 @@ function printQueryStatistics()
         $name = str_replace(array('Com_', '_'), array('', ' '), $name);
 
         // Group together values that make out less than 2% into "Other", but only if we have more than 6 fractions already
-        if ($value < $query_sum * 0.02 && count($chart_json)>6)
+        if ($value < $query_sum * 0.02 && count($chart_json)>6) {
             $other_sum += $value;
-        else $chart_json[$name] = $value;
+        } else {
+            $chart_json[$name] = $value;
+        }
     ?>
             <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
                 <th class="name"><?php echo htmlspecialchars($name); ?></th>
-                <td class="value"><?php echo PMA_formatNumber($value, 5, 0, true); ?></td>
+                <td class="value"><?php echo htmlspecialchars(PMA_formatNumber($value, 5, 0, true)); ?></td>
                 <td class="value"><?php echo
-                    PMA_formatNumber($value * $hour_factor, 4, 1, true); ?></td>
+                    htmlspecialchars(PMA_formatNumber($value * $hour_factor, 4, 1, true)); ?></td>
                 <td class="value"><?php echo
-                    PMA_formatNumber($value * $perc_factor, 0, 2); ?>%</td>
+                    htmlspecialchars(PMA_formatNumber($value * $perc_factor, 0, 2)); ?>%</td>
             </tr>
     <?php
     }
@@ -904,8 +973,9 @@ function printQueryStatistics()
         <div id="serverstatusquerieschart">
             <span style="display:none;">
         <?php
-            if ($other_sum > 0)
+            if ($other_sum > 0) {
                 $chart_json[__('Other')] = $other_sum;
+            }
 
             echo json_encode($chart_json);
         ?>
@@ -960,8 +1030,7 @@ function printServerTraffic()
     }
 
     /* if the server works as master or slave in replication process, display useful information */
-    if ($server_master_status || $server_slave_status)
-    {
+    if ($server_master_status || $server_slave_status) {
     ?>
       <hr class="clearfloat" />
 
@@ -1110,7 +1179,8 @@ function printServerTraffic()
         <th><?php echo __('Status'); ?></th>
         <th><?php
             echo __('SQL query');
-            if (! PMA_DRIZZLE) { ?>
+            if (! PMA_DRIZZLE) {
+                ?>
                 <a href="<?php echo $full_text_link; ?>"
                     title="<?php echo empty($full) ? __('Show Full Queries') : __('Truncate Shown Queries'); ?>">
                     <img src="<?php echo $GLOBALS['pmaThemeImage'] . 's_' . (empty($_REQUEST['full']) ? 'full' : 'partial'); ?>text.png"
@@ -1372,15 +1442,15 @@ function printVariablesTable()
                 }
             }
             if ('%' === substr($name, -1, 1)) {
-                echo PMA_formatNumber($value, 0, 2) . ' %';
+                echo htmlspecialchars(PMA_formatNumber($value, 0, 2)) . ' %';
             } elseif (strpos($name, 'Uptime')!==FALSE) {
-                echo PMA_timespanFormat($value);
+                echo htmlspecialchars(PMA_timespanFormat($value));
             } elseif (is_numeric($value) && $value == (int) $value && $value > 1000) {
-                echo PMA_formatNumber($value, 3, 1);
+                echo htmlspecialchars(PMA_formatNumber($value, 3, 1));
             } elseif (is_numeric($value) && $value == (int) $value) {
-                echo PMA_formatNumber($value, 3, 0);
+                echo htmlspecialchars(PMA_formatNumber($value, 3, 0));
             } elseif (is_numeric($value)) {
-                echo PMA_formatNumber($value, 3, 1);
+                echo htmlspecialchars(PMA_formatNumber($value, 3, 1));
             } else {
                 echo htmlspecialchars($value);
             }
@@ -1445,13 +1515,13 @@ function printMonitor()
             <img src="themes/dot.gif" class="icon ic_b_chart" alt="" />
             <?php echo __('Add chart'); ?>
         </a>
-        <a href="#rearrangeCharts"><img class="icon ic_b_tblops" src="themes/dot.gif" width="16" height="16" alt=""> <?php echo __('Rearrange/edit charts'); ?></a>
+        <a href="#rearrangeCharts"><img class="icon ic_b_tblops" src="themes/dot.gif" width="16" height="16" alt="" /><?php echo __('Rearrange/edit charts'); ?></a>
         <div class="clearfloat paddingtop"></div>
         <div class="floatleft">
-            <?php 
-            echo __('Refresh rate') . '<br />'; 
-            refreshList('gridChartRefresh', 5, Array(2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200)); 
-        ?><br>
+            <?php
+            echo __('Refresh rate') . '<br />';
+            refreshList('gridChartRefresh', 5, Array(2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200));
+        ?><br />
         </div>
         <div class="floatleft">
             <?php echo __('Chart columns'); ?> <br />
@@ -1477,9 +1547,9 @@ function printMonitor()
 
     <div id="monitorInstructionsDialog" title="<?php echo __('Monitor Instructions'); ?>" style="display:none;">
         <?php echo __('The phpMyAdmin Monitor can assist you in optimizing the server configuration and track down time intensive queries. For the latter you will need to set log_output to \'TABLE\' and have either the slow_query_log or general_log enabled. Note however, that the general_log produces a lot of data and increases server load by up to 15%'); ?>
-    <?php if(PMA_MYSQL_INT_VERSION < 50106) { ?>
+    <?php if (PMA_MYSQL_INT_VERSION < 50106) { ?>
         <p>
-        <img class="icon ic_s_attention" src="themes/dot.gif" alt="">
+        <img class="icon ic_s_attention" src="themes/dot.gif" alt="" />
         <?php
             echo __('Unfortunately your Database server does not support logging to table, which is a requirement for analyzing the database logs with phpMyAdmin. Logging to table is supported by MySQL 5.1.6 and onwards. You may still use the server charting features however.');
         ?>
@@ -1488,17 +1558,26 @@ function printMonitor()
     } else {
     ?>
         <p></p>
-        <img class="ajaxIcon" src="<?php echo $GLOBALS['pmaThemeImage']; ?>ajax_clock_small.gif" alt="Loading">
+        <img class="ajaxIcon" src="<?php echo $GLOBALS['pmaThemeImage']; ?>ajax_clock_small.gif" alt="Loading" />
         <div class="ajaxContent"></div>
         <div class="monitorUse" style="display:none;">
             <p></p>
             <?php
-                echo __('<b>Using the monitor:</b><br/> Ok, you are good to go! Once you click \'Start monitor\' your browser will refresh all displayed charts in a regular interval. You may add charts and change the refresh rate under \'Settings\', or remove any chart using the cog icon on each respective chart. <p>To display queries from the logs, select the relevant time span on any chart by holding down the left mouse button and panning over the chart. Once confirmed, this will load a table of grouped queries, there you may click on any occuring SELECT statements to further analyze them.</p>');
+                echo '<strong>';
+                echo __('Using the monitor:');
+                echo '</strong><p>';
+                echo __('Ok, you are good to go! Once you click \'Start monitor\' your browser will refresh all displayed charts in a regular interval. You may add charts and change the refresh rate under \'Settings\', or remove any chart using the cog icon on each respective chart.');
+                echo '</p><p>';
+                echo __('To display queries from the logs, select the relevant time span on any chart by holding down the left mouse button and panning over the chart. Once confirmed, this will load a table of grouped queries, there you may click on any occuring SELECT statements to further analyze them.');
+                echo '</p>';
             ?>
             <p>
-            <img class="icon ic_s_attention" src="themes/dot.gif" alt="">
+            <img class="icon ic_s_attention" src="themes/dot.gif" alt="" />
             <?php
-                echo __('<b>Please note:</b> Enabling the general_log may increase the server load by 5-15%. Also be aware that generating statistics from the logs is a load intensive task, so it is advisable to select only a small time span and to disable the general_log and empty its table once monitoring is not required any more.');
+                echo '<strong>';
+                echo __('Please note:');
+                echo '</strong><br />';
+                echo __('Enabling the general_log may increase the server load by 5-15%. Also be aware that generating statistics from the logs is a load intensive task, so it is advisable to select only a small time span and to disable the general_log and empty its table once monitoring is not required any more.');
             ?>
             </p>
         </div>
@@ -1508,15 +1587,15 @@ function printMonitor()
     <div id="addChartDialog" title="Add chart" style="display:none;">
         <div id="tabGridVariables">
             <p><input type="text" name="chartTitle" value="<?php echo __('Chart Title'); ?>" /></p>
-            
-            <input type="radio" name="chartType" value="preset" id="chartPreset">
+
+            <input type="radio" name="chartType" value="preset" id="chartPreset" />
             <label for="chartPreset"><?php echo __('Preset chart'); ?></label>
             <select name="presetCharts"></select><br/>
 
-            <input type="radio" name="chartType" value="variable" id="chartStatusVar" checked="checked">
+            <input type="radio" name="chartType" value="variable" id="chartStatusVar" checked="checked" />
             <label for="chartStatusVar"><?php echo __('Status variable(s)'); ?></label><br/>
             <div id="chartVariableSettings">
-                <label for="chartSeries"><?php echo __('Select series:'); ?></label><br>
+                <label for="chartSeries"><?php echo __('Select series:'); ?></label><br />
                 <select id="chartSeries" name="varChartList" size="1">
                     <option><?php echo __('Commonly monitored'); ?></option>
                     <option>Processes</option>
@@ -1532,24 +1611,24 @@ function printMonitor()
                     <option>Open_tables</option>
                     <option>Select_full_join</option>
                     <option>Slow_queries</option>
-                </select><br>
+                </select><br />
                 <label for="variableInput"><?php echo __('or type variable name:'); ?> </label>
                 <input type="text" name="variableInput" id="variableInput" />
                 <p></p>
                 <input type="checkbox" name="differentialValue" id="differentialValue" value="differential" checked="checked" />
-                <label for="differentialValue"><?php echo __('Display as differential value'); ?></label><br>
+                <label for="differentialValue"><?php echo __('Display as differential value'); ?></label><br />
                 <input type="checkbox" id="useDivisor" name="useDivisor" value="1" />
                 <label for="useDivisor"><?php echo __('Apply a divisor'); ?></label>
                 <span class="divisorInput" style="display:none;">
-                    <input type="text" name="valueDivisor" size="4" value="1">
+                    <input type="text" name="valueDivisor" size="4" value="1" />
                     (<a href="#kibDivisor"><?php echo __('KiB'); ?></a>, <a href="#mibDivisor"><?php echo __('MiB'); ?></a>)
-                </span><br>
+                </span><br />
 
                 <input type="checkbox" id="useUnit" name="useUnit" value="1" />
                 <label for="useUnit"><?php echo __('Append unit to data values'); ?></label>
 
                 <span class="unitInput" style="display:none;">
-                    <input type="text" name="valueUnit" size="4" value="">
+                    <input type="text" name="valueUnit" size="4" value="" />
                 </span>
                 <p>
                     <a href="#submitAddSeries"><b><?php echo __('Add this series'); ?></b></a>
@@ -1583,7 +1662,13 @@ function printMonitor()
             <?php echo __('Remove variable data in INSERT statements for better grouping'); ?>
         </label>
 
-        <?php echo __('<p>Choose from which log you want the statistics to be generated from.</p> Results are grouped by query text.'); ?>
+        <?php
+        echo '<p>';
+        echo __('Choose from which log you want the statistics to be generated from.');
+        echo '</p><p>';
+        echo __('Results are grouped by query text.');
+        echo '</p>';
+        ?>
     </div>
 
     <div id="queryAnalyzerDialog" title="<?php echo __('Query analyzer'); ?>" style="display:none;">
@@ -1604,7 +1689,9 @@ function printMonitor()
             $i=0;
             foreach ($server_status as $name=>$value) {
                 if (is_numeric($value)) {
-                    if ($i++ > 0) echo ", ";
+                    if ($i++ > 0) {
+                        echo ", ";
+                    }
                     echo "'" . $name . "'";
                 }
             }
@@ -1617,15 +1704,16 @@ function printMonitor()
 function refreshList($name, $defaultRate=5, $refreshRates=Array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600))
 {
 ?>
-    <select name="<?php echo $name; ?>">
+    <select name="<?php echo $name; ?>" id="id_<?php echo $name; ?>">
         <?php
             foreach ($refreshRates as $rate) {
                 $selected = ($rate == $defaultRate)?' selected="selected"':'';
 
-                if ($rate<60)
+                if ($rate<60) {
                     echo '<option value="' . $rate . '"' . $selected . '>' . sprintf(_ngettext('%d second', '%d seconds', $rate), $rate) . '</option>';
-                else
+                } else {
                     echo '<option value="' . $rate . '"' . $selected . '>' . sprintf(_ngettext('%d minute', '%d minutes', $rate/60), $rate/60) . '</option>';
+                }
             }
         ?>
     </select>

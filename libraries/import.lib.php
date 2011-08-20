@@ -97,16 +97,21 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                     $sql_query .= $import_run_buffer['full'];
                 }
                 if (!$cfg['AllowUserDropDatabase']
-                 && !$is_superuser
-                 && preg_match('@^[[:space:]]*DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE @i', $import_run_buffer['sql'])) {
+                    && !$is_superuser
+                    && preg_match('@^[[:space:]]*DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE @i', $import_run_buffer['sql'])
+                ) {
                     $GLOBALS['message'] = PMA_Message::error(__('"DROP DATABASE" statements are disabled.'));
                     $error = true;
                 } else {
                     $executed_queries++;
-                    if ($run_query && $GLOBALS['finished'] && empty($sql) && !$error && (
-                            (!empty($import_run_buffer['sql']) && preg_match('/^[\s]*(SELECT|SHOW|HANDLER)/i', $import_run_buffer['sql'])) ||
-                            ($executed_queries == 1)
-                            )) {
+                    if ($run_query
+                        && $GLOBALS['finished']
+                        && empty($sql)
+                        && !$error
+                        && ((!empty($import_run_buffer['sql'])
+                        && preg_match('/^[\s]*(SELECT|SHOW|HANDLER)/i', $import_run_buffer['sql']))
+                        || ($executed_queries == 1))
+                    ) {
                         $go_sql = true;
                         if (!$sql_query_disabled) {
                             $complete_query = $sql_query;
@@ -161,13 +166,15 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                             list($db, $reload) = PMA_lookForUse($import_run_buffer['sql'], $db, $reload);
                         }
 
-                        if ($result != false && preg_match('@^[\s]*(DROP|CREATE)[\s]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@im', $import_run_buffer['sql'])) {
+                        if ($result != false
+                            && preg_match('@^[\s]*(DROP|CREATE)[\s]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@im', $import_run_buffer['sql'])
+                        ) {
                             $reload = true;
                         }
                     } // end run query
                 } // end if not DROP DATABASE
-            } // end non empty query
-            elseif (!empty($import_run_buffer['full'])) {
+            // end non empty query
+            } elseif (!empty($import_run_buffer['full'])) {
                 if ($go_sql) {
                     $complete_query .= $import_run_buffer['full'];
                     $display_query .= $import_run_buffer['full'];
@@ -418,6 +425,7 @@ define("VARCHAR",   1);
 define("INT",       2);
 define("DECIMAL",   3);
 define("BIGINT",    4);
+define("GEOMETRY",  5);
 
 /* Decimal size defs */
 define("M",         0);
@@ -430,8 +438,9 @@ define("COL_NAMES", 1);
 define("ROWS",      2);
 
 /* Analysis array defs */
-define("TYPES",     0);
-define("SIZES",     1);
+define("TYPES",        0);
+define("SIZES",        1);
+define("FORMATTEDSQL", 2);
 
 /**
  * Obtains the precision (total # of digits) from a size of type decimal
@@ -909,7 +918,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
     }
 
     if ($analyses != null) {
-        $type_array = array(NONE => "NULL", VARCHAR => "varchar", INT => "int", DECIMAL => "decimal", BIGINT => "bigint");
+        $type_array = array(NONE => "NULL", VARCHAR => "varchar", INT => "int", DECIMAL => "decimal", BIGINT => "bigint", GEOMETRY => 'geometry');
 
         /* TODO: Do more checking here to make sure they really are matched */
         if (count($tables) != count($analyses)) {
@@ -928,7 +937,10 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
                     $size = 10;
                 }
 
-                $tempSQLStr .= PMA_backquote($tables[$i][COL_NAMES][$j]) . " " . $type_array[$analyses[$i][TYPES][$j]] . "(" . $size . ")";
+                $tempSQLStr .= PMA_backquote($tables[$i][COL_NAMES][$j]) . " " . $type_array[$analyses[$i][TYPES][$j]];
+                if ($analyses[$i][TYPES][$j] != GEOMETRY) {
+                    $tempSQLStr .= "(" . $size . ")";
+                }
 
                 if ($j != (count($tables[$i][COL_NAMES]) - 1)) {
                     $tempSQLStr .= ", ";
@@ -973,20 +985,28 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
             $tempSQLStr .= "(";
 
             for ($k = 0; $k < $num_cols; ++$k) {
-                if ($analyses != null) {
-                    $is_varchar = ($analyses[$i][TYPES][$col_count] === VARCHAR);
+                // If fully formatted SQL, no need to enclose with aphostrophes, add shalshes etc.
+                if ($analyses != null
+                    && isset($analyses[$i][FORMATTEDSQL][$col_count])
+                    && $analyses[$i][FORMATTEDSQL][$col_count] == true
+                ) {
+                    $tempSQLStr .= (string) $tables[$i][ROWS][$j][$k];
                 } else {
-                    $is_varchar = !is_numeric($tables[$i][ROWS][$j][$k]);
-                }
+                    if ($analyses != null) {
+                        $is_varchar = ($analyses[$i][TYPES][$col_count] === VARCHAR);
+                    } else {
+                        $is_varchar = !is_numeric($tables[$i][ROWS][$j][$k]);
+                    }
 
-                /* Don't put quotes around NULL fields */
-                if (! strcmp($tables[$i][ROWS][$j][$k], 'NULL')) {
-                    $is_varchar = false;
-                }
+                    /* Don't put quotes around NULL fields */
+                    if (! strcmp($tables[$i][ROWS][$j][$k], 'NULL')) {
+                        $is_varchar = false;
+                    }
 
-                $tempSQLStr .= (($is_varchar) ? "'" : "");
-                $tempSQLStr .= PMA_sqlAddSlashes((string)$tables[$i][ROWS][$j][$k]);
-                $tempSQLStr .= (($is_varchar) ? "'" : "");
+                    $tempSQLStr .= (($is_varchar) ? "'" : "");
+                    $tempSQLStr .= PMA_sqlAddSlashes((string)$tables[$i][ROWS][$j][$k]);
+                    $tempSQLStr .= (($is_varchar) ? "'" : "");
+                }
 
                 if ($k != ($num_cols - 1)) {
                     $tempSQLStr .= ", ";

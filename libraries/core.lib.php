@@ -708,13 +708,27 @@ function PMA_includeJS($url)
 }
 
 /**
- * Adds JS code snippets to be displayed by header.inc.php. Adds a newline to each snippet.
+ * Adds JS code snippets to be displayed by header.inc.php. Adds a
+ * newline to each snippet.
  *
  * @param string $str Js code to be added (e.g. "token=1234;")
  *
  */
-function PMA_AddJSCode($str) {
+function PMA_AddJSCode($str)
+{
     $GLOBALS['js_script'][] = $str;
+}
+
+/**
+ * Adds JS code snippet for variable assignment to be displayed by header.inc.php.
+ *
+ * @param string $key Name of value to set
+ * @param mixed $value Value to set, can be either string or array of strings
+ *
+ */
+function PMA_AddJSVar($key, $value)
+{
+    PMA_AddJsCode(PMA_getJsValue($key, $value));
 }
 
 ?>

@@ -5,10 +5,10 @@
  * @package phpMyAdmin-Designer
  */
 
-include_once 'pmd_common.php';
+include_once './libraries/pmd_common.php';
 
 /**
- * If called directly from the designer, first save the positions 
+ * If called directly from the designer, first save the positions
  */
 if (! isset($scale)) {
     $no_die_save_pos = 1;
@@ -25,11 +25,7 @@ if (isset($mode)) {
     $scale_q = PMA_sqlAddSlashes($scale);
 
     if ('create_export' == $mode) {
-        /*
-         * @see pdf_pages.php
-         */
-        $query_default_option = PMA_DBI_QUERY_STORE;
-        $pdf_page_number = PMA_REL_create_page($newpage, $cfgRelation, $db, $query_default_option);
+        $pdf_page_number = PMA_REL_create_page($newpage, $cfgRelation, $db);
         if ($pdf_page_number > 0) {
             $message = PMA_Message::success(__('Page has been created'));
             $mode = 'export';
@@ -57,7 +53,7 @@ if (isset($mode)) {
         ' . $pmd_table . '.`table_name` = ' . $pma_table . '.`table_name`
         AND
         ' . $pmd_table . '.`db_name`=\''. PMA_sqlAddSlashes($db) .'\'
-        AND pdf_page_number = ' . $pdf_page_number_q . ';', true, PMA_DBI_QUERY_STORE);     
+        AND pdf_page_number = ' . $pdf_page_number_q . ';', true, PMA_DBI_QUERY_STORE);
     }
 }
 
@@ -68,20 +64,20 @@ require_once './libraries/header_meta_style.inc.php';
 <body>
 <br>
 <div>
-<?php 
-    if (!empty($message)) { 
+<?php
+    if (!empty($message)) {
         $message->display();
     }
 ?>
   <form name="form1" method="post" action="pmd_pdf.php">
-<?php 
+<?php
 echo PMA_generate_common_hidden_inputs($db);
 echo '<div>';
 echo '<fieldset><legend>' . __('Import/Export coordinates for PDF schema') . '</legend>';
 
 $choices = array();
 
-$table_info_result = PMA_query_as_controluser('SELECT * FROM ' 
+$table_info_result = PMA_query_as_controluser('SELECT * FROM '
             . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
             . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\'');
 

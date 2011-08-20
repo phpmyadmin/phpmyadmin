@@ -144,7 +144,7 @@ class PMA_Schema_PDF extends PMA_PDF
     /**
      * Sets the scaled line width
      *
-     * @param float width The line width
+     * @param float $width The line width
      * @access public
      * @see TCPDF::SetLineWidth()
      */
@@ -224,6 +224,10 @@ class PMA_Schema_PDF extends PMA_PDF
 
     /**
      * Compute number of lines used by a multicell of width w
+     *
+     * @param int    $w
+     * @param string $txt
+     * @return int
      */
     function NbLines($w, $txt)
     {
@@ -386,7 +390,7 @@ class Table_Stats
      * Returns title of the current table,
      * title can have the dimensions of the table
      *
-     * @access private
+     * @return string
      */
     private function _getTitle()
     {
@@ -401,7 +405,7 @@ class Table_Stats
      * @access private
      * @see PMA_Schema_PDF
      */
-    function _setWidth($fontSize)
+    private function _setWidth($fontSize)
     {
         global $pdf;
 
@@ -919,8 +923,8 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             $pdf->SetX(10);
             $pdf->Cell(0, 6, $i . ' ' . $table, 0, 1, 'L', 0, $pdf->PMA_links['doc'][$table]['-']);
             // $pdf->Ln(1);
-            $result = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ';');
-            while ($row = PMA_DBI_fetch_assoc($result)) {
+            $fields = PMA_DBI_get_columns($GLOBALS['db'], $table);
+            foreach($fields as $row) {
                 $pdf->SetX(20);
                 $field_name = $row['Field'];
                 $pdf->PMA_links['doc'][$table][$field_name] = $pdf->AddLink();

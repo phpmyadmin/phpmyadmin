@@ -325,14 +325,15 @@ function PMA_extractPrivInfo($row = '', $enableHTML = false)
     $allPrivileges = true;
     foreach ($grants as $current_grant) {
         if ((!empty($row) && isset($row[$current_grant[0]]))
-         || (empty($row) && isset($GLOBALS[$current_grant[0]]))) {
+            || (empty($row) && isset($GLOBALS[$current_grant[0]]))
+        ) {
             if ((!empty($row) && $row[$current_grant[0]] == 'Y')
-             || (empty($row)
-              && ($GLOBALS[$current_grant[0]] == 'Y'
-               || (is_array($GLOBALS[$current_grant[0]])
+                || (empty($row)
+                && ($GLOBALS[$current_grant[0]] == 'Y'
+                || (is_array($GLOBALS[$current_grant[0]])
                 && count($GLOBALS[$current_grant[0]]) == $GLOBALS['column_count']
-                && empty($GLOBALS[$current_grant[0] . '_none'])))))
-            {
+                && empty($GLOBALS[$current_grant[0] . '_none']))))
+            ) {
                 if ($enableHTML) {
                     $privs[] = '<dfn title="' . $current_grant[2] . '">' . $current_grant[1] . '</dfn>';
                 } else {
@@ -678,8 +679,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
         foreach ($privTable as $i => $table) {
             echo '    <fieldset>' . "\n"
                 . '        <legend>' . __($privTable_names[$i]) . '</legend>' . "\n";
-            foreach ($table as $priv)
-            {
+            foreach ($table as $priv) {
                 echo '        <div class="item">' . "\n"
                     . '            <input type="checkbox"'
                     .                   ' name="' . $priv[0] . '_priv" id="checkbox_' . $priv[0] . '_priv"'
@@ -1218,10 +1218,10 @@ if (!empty($update_privs)) {
          * @todo similar code appears twice in this script
          */
         if ((isset($Grant_priv) && $Grant_priv == 'Y')
-         || (! isset($dbname)
-          && (isset($max_questions) || isset($max_connections)
-           || isset($max_updates) || isset($max_user_connections))))
-        {
+            || (! isset($dbname)
+            && (isset($max_questions) || isset($max_connections)
+            || isset($max_updates) || isset($max_user_connections)))
+        ) {
             $sql_query2 .= 'WITH';
             if (isset($Grant_priv) && $Grant_priv == 'Y') {
                 $sql_query2 .= ' GRANT OPTION';
@@ -1416,7 +1416,7 @@ if (isset($_REQUEST['flush_privileges'])) {
 /**
  * defines some standard links
  */
-$link_edit = '<a class="edit_user_anchor ' . $conditional_class . '" href="server_privileges.php?' . $GLOBALS['url_query']
+$link_edit = '<a class="edit_user_anchor ' . $conditional_class . '" href="server_privileges.php?' . str_replace($GLOBALS['url_query'], '%', '%%')
     . '&amp;username=%s'
     . '&amp;hostname=%s'
     . '&amp;dbname=%s'
@@ -1424,7 +1424,7 @@ $link_edit = '<a class="edit_user_anchor ' . $conditional_class . '" href="serve
     . PMA_getIcon('b_usredit.png', __('Edit Privileges'))
     . '</a>';
 
-$link_revoke = '<a href="server_privileges.php?' . $GLOBALS['url_query']
+$link_revoke = '<a href="server_privileges.php?' . str_replace($GLOBALS['url_query'], '%', '%%')
     . '&amp;username=%s'
     . '&amp;hostname=%s'
     . '&amp;dbname=%s'
@@ -1433,7 +1433,7 @@ $link_revoke = '<a href="server_privileges.php?' . $GLOBALS['url_query']
     . PMA_getIcon('b_usrdrop.png', __('Revoke'))
     . '</a>';
 
-$link_export = '<a class="export_user_anchor ' . $conditional_class . '" href="server_privileges.php?' . $GLOBALS['url_query']
+$link_export = '<a class="export_user_anchor ' . $conditional_class . '" href="server_privileges.php?' . str_replace($GLOBALS['url_query'], '%', '%%')
     . '&amp;username=%s'
     . '&amp;hostname=%s'
     . '&amp;initial=%s'
@@ -1463,8 +1463,7 @@ if ($GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_RE
 
         if (!empty($password) || isset($pma_pw)) {
             $new_user_string .= __('Yes');
-        }
-        else {
+        } else {
             $new_user_string .= '<span style="color: #FF0000">' . __('No') . '</span>';
         };
 
@@ -1474,8 +1473,7 @@ if ($GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_RE
 
         if ((isset($Grant_priv) && $Grant_priv == 'Y')) {
             $new_user_string .= __('Yes');
-        }
-        else {
+        } else {
             $new_user_string .= __('No');
         }
 
@@ -2355,7 +2353,9 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                    . '            ' . ($current['Grant_priv'] == 'Y' ? __('Yes') : __('No')) . "\n"
                    . '        </td>' . "\n"
                    . '        <td>' . "\n";
-                $user_form .= sprintf($link_edit, urlencode($current_user),
+                $user_form .= sprintf(
+                    $link_edit,
+                    urlencode($current_user),
                     urlencode($current_host),
                     urlencode(! isset($current['Db']) || $current['Db'] == '*' ? '' : $current['Db']),
                     '');
@@ -2381,7 +2381,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         $extra_data['user_form'] = $user_form;
         $message = PMA_Message::success(__('User has been added.'));
         PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
-    }else{
+    } else {
         // Offer to create a new user for the current database
         $user_form .= '<fieldset id="fieldset_add_user">' . "\n"
            . '    <a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;adduser=1&amp;dbname=' . htmlspecialchars($checkprivs) .'" val="'.'checkprivs='.htmlspecialchars($checkprivs). '&'.$GLOBALS['url_query'] . '" class="'.$conditional_class.'" name="db_specific">' . "\n"

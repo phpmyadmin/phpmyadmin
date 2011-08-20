@@ -113,7 +113,7 @@ function MouseDown(e)
         dx = offsetx - parseInt(cur_click.style.left);
         dy = offsety - parseInt(cur_click.style.top);
         //alert(" dx = " + dx + " dy = " +dy);
-        document.getElementById("canvas").style.visibility = 'hidden';
+        document.getElementById("canvas").style.display = 'none';
         /*
         var left = parseInt(cur_click.style.left);
         var top  = parseInt(cur_click.style.top);
@@ -159,8 +159,8 @@ function MouseMove(e)
     }
 
     if (ON_relation || ON_display_field) {
-        document.getElementById('hint').style.left = (Glob_X + 20) + 'px';
-        document.getElementById('hint').style.top  = (Glob_Y + 20) + 'px';
+        document.getElementById('pmd_hint').style.left = (Glob_X + 20) + 'px';
+        document.getElementById('pmd_hint').style.top  = (Glob_Y + 20) + 'px';
     }
 
     if (layer_menu_cur_click) {
@@ -173,7 +173,7 @@ function MouseMove(e)
 function MouseUp(e)
 {
     if (cur_click != null) {
-        document.getElementById("canvas").style.visibility = 'visible';
+        document.getElementById("canvas").style.display = 'inline-block';
         Re_load();
         cur_click.style.zIndex = 1;
         cur_click = null;
@@ -225,7 +225,7 @@ function Main()
     Canvas_pos();
     Small_tab_refresh();
     Re_load();
-    id_hint = document.getElementById('hint');
+    id_hint = document.getElementById('pmd_hint');
     if (isIE) {
         General_scroll();
     }
@@ -535,12 +535,12 @@ function Start_relation()
     if (!ON_relation) {
         document.getElementById('foreign_relation').style.display = '';
         ON_relation = 1;
-        document.getElementById('hint').innerHTML = PMA_messages['strSelectReferencedKey'];
-        document.getElementById('hint').style.visibility = "visible";
+        document.getElementById('pmd_hint').innerHTML = PMA_messages['strSelectReferencedKey'];
+        document.getElementById('pmd_hint').style.display = 'block';
         document.getElementById('rel_button').className = 'M_butt_Selected_down';
     } else {
-        document.getElementById('hint').innerHTML = "";
-        document.getElementById('hint').style.visibility = "hidden";
+        document.getElementById('pmd_hint').innerHTML = "";
+        document.getElementById('pmd_hint').style.display = 'none';
         document.getElementById('rel_button').className = 'M_butt';
         click_field = 0;
         ON_relation = 0;
@@ -551,7 +551,7 @@ function Click_field(T, f, PK) // table field
 {
     if (ON_relation) {
         if (!click_field) {
-            //.style.display=='none'        .style.visibility = "hidden"
+            //.style.display=='none'        .style.display = 'none'
             if (!PK) {
                 alert(PMA_messages['strPleaseSelectPrimaryOrUniqueKey']);
                 return;// 0;
@@ -561,7 +561,7 @@ function Click_field(T, f, PK) // table field
             }
             click_field = 1;
             link_relation = "T1=" + T + "&F1=" + f;
-            document.getElementById('hint').innerHTML = PMA_messages['strSelectForeignKey'];
+            document.getElementById('pmd_hint').innerHTML = PMA_messages['strSelectForeignKey'];
         } else {
             Start_relation(); // hidden hint...
             if (j_tabs[db + '.' + T] != '1' || !PK) {
@@ -571,7 +571,7 @@ function Click_field(T, f, PK) // table field
             document.getElementById('layer_new_relation').style.left = left + 'px';
             var top = Glob_Y - document.getElementById('layer_new_relation').offsetHeight + 40;
             document.getElementById('layer_new_relation').style.top  = top + 'px';
-            document.getElementById('layer_new_relation').style.visibility = "visible";
+            document.getElementById('layer_new_relation').style.display = 'block';
             link_relation += '&T2=' + T + '&F2=' + f;
         }
     }
@@ -596,8 +596,8 @@ function Click_field(T, f, PK) // table field
             display_field[T] = f;
         }
         ON_display_field = 0;
-        document.getElementById('hint').innerHTML = "";
-        document.getElementById('hint').style.visibility = "hidden";
+        document.getElementById('pmd_hint').innerHTML = "";
+        document.getElementById('pmd_hint').style.display = 'none';
         document.getElementById('display_field_button').className = 'M_butt';
         makeRequest('pmd_display_field.php', 'T=' + T + '&F=' + f + '&server=' + server + '&db=' + db + '&token=' + token);
     }
@@ -605,7 +605,7 @@ function Click_field(T, f, PK) // table field
 
 function New_relation()
 {
-    document.getElementById('layer_new_relation').style.visibility = 'hidden';
+    document.getElementById('layer_new_relation').style.display = 'none';
     link_relation += '&server=' + server + '&db=' + db + '&token=' + token + '&die_save_pos=0';
     link_relation += '&on_delete=' + document.getElementById('on_delete').value + '&on_update=' + document.getElementById('on_update').value;
     link_relation += Get_url_pos();
@@ -776,14 +776,14 @@ function Canvas_click(id)
         document.getElementById('layer_upd_relation').style.left = left + 'px';
         var top = Glob_Y - document.getElementById('layer_upd_relation').offsetHeight - 10;
         document.getElementById('layer_upd_relation').style.top = top + 'px';
-        document.getElementById('layer_upd_relation').style.visibility = 'visible';
+        document.getElementById('layer_upd_relation').style.display = 'block';
         link_relation = 'T1=' + Key0 + '&F1=' + Key1 + '&T2=' + Key2 + '&F2=' + Key3 + '&K=' + Key;
     }
 }
 
 function Upd_relation()
 {
-    document.getElementById('layer_upd_relation').style.visibility = 'hidden';
+    document.getElementById('layer_upd_relation').style.display = 'none';
     link_relation += '&server=' + server + '&db=' + db + '&token=' + token + '&die_save_pos=0';
     link_relation += Get_url_pos();
     makeRequest('pmd_relation_upd.php', link_relation);
@@ -792,9 +792,9 @@ function Upd_relation()
 function VisibleTab(id, t_n)
 {
     if (id.checked) {
-        document.getElementById(t_n).style.visibility = 'visible';
+        document.getElementById(t_n).style.display = 'block';
     } else {
-        document.getElementById(t_n).style.visibility = 'hidden';
+        document.getElementById(t_n).style.display = 'none';
     }
     Re_load();
 }
@@ -813,10 +813,10 @@ function Hide_tab_all(id_this) // max/min all tables
         if (E.elements[i].type == "checkbox" && E.elements[i].id.substring(0, 10) == 'check_vis_') {
             if (id_this.alt == 'v') {
                 E.elements[i].checked = true;
-                document.getElementById(E.elements[i].value).style.visibility = 'visible';
+                document.getElementById(E.elements[i].value).style.display = 'block';
             } else {
                 E.elements[i].checked = false;
-                document.getElementById(E.elements[i].value).style.visibility = 'hidden';
+                document.getElementById(E.elements[i].value).style.display = 'none';
             }
         }
     }
@@ -859,18 +859,13 @@ function No_have_constr(id_this)
             if (!in_array_k(E.elements[i].value, a))
             if (id_this.alt == 'v') {
                 E.elements[i].checked = true;
-                document.getElementById(E.elements[i].value).style.visibility = 'visible';
+                document.getElementById(E.elements[i].value).style.display = 'block';
             } else {
                 E.elements[i].checked = false;
-                document.getElementById(E.elements[i].value).style.visibility = 'hidden';
+                document.getElementById(E.elements[i].value).style.display = 'none';
             }
         }
     }
-}
-
-function Help()
-{
-    var WinHelp = window.open("pmd_help.php", "wind1", "top=200,left=400,width=300,height=200,resizable=yes,scrollbars=yes,menubar=no");
 }
 
 function PDF_save()
@@ -884,7 +879,7 @@ function General_scroll()
 {
     /*
     if (!document.getElementById('show_relation_olways').checked) {
-        document.getElementById("canvas").style.visibility = 'hidden';
+        document.getElementById("canvas").style.display = 'none';
         clearTimeout(timeoutID);
         timeoutID = setTimeout(General_scroll_end, 500);
     }
@@ -913,15 +908,18 @@ function General_scroll_end()
         document.getElementById('layer_menu').style.left = document.body.scrollLeft;
         document.getElementById('layer_menu').style.top  = document.body.scrollTop + document.getElementById('top_menu').offsetHeight;
     }
-    document.getElementById("canvas").style.visibility = 'visible';
+    document.getElementById("canvas").style.display = 'block';
 }
 */
 
 function Show_left_menu(id_this) // max/min all tables
 {
     if (id_this.alt == "v") {
-        document.getElementById("layer_menu").style.top = document.getElementById('top_menu').offsetHeight + 'px';
-        document.getElementById("layer_menu").style.visibility = 'visible';
+        var pos = $("#top_menu").offset();
+        var height = $("#top_menu").height();
+        document.getElementById("layer_menu").style.top = (pos.top + height) + 'px';
+        document.getElementById("layer_menu").style.left = pos.left + 'px';
+        document.getElementById("layer_menu").style.display = 'block';
         id_this.alt = ">";
         id_this.src = "pmd/images/uparrow2_m.png";
         if (isIE) {
@@ -929,7 +927,7 @@ function Show_left_menu(id_this) // max/min all tables
         }
     } else {
         document.getElementById("layer_menu").style.top = -1000 + 'px'; //fast scroll
-        document.getElementById("layer_menu").style.visibility = 'hidden';
+        document.getElementById("layer_menu").style.display = 'none';
         id_this.alt = "v";
         id_this.src = "pmd/images/downarrow2_m.png";
     }
@@ -955,16 +953,16 @@ function Start_display_field()
     }
     if (!ON_display_field) {
         ON_display_field = 1;
-        document.getElementById('hint').innerHTML = PMA_messages['strChangeDisplay'];
-        document.getElementById('hint').style.visibility = "visible";
+        document.getElementById('pmd_hint').innerHTML = PMA_messages['strChangeDisplay'];
+        document.getElementById('pmd_hint').style.display = 'block';
         document.getElementById('display_field_button').className = 'M_butt_Selected_down';//'#FFEE99';gray #AAAAAA
 
         if (isIE) { // correct for IE
             document.getElementById('display_field_button').className = 'M_butt_Selected_down_IE';
         }
     } else {
-        document.getElementById('hint').innerHTML = "";
-        document.getElementById('hint').style.visibility = "hidden";
+        document.getElementById('pmd_hint').innerHTML = "";
+        document.getElementById('pmd_hint').style.display = 'none';
         document.getElementById('display_field_button').className = 'M_butt';
         ON_display_field = 0;
     }
@@ -1021,7 +1019,7 @@ function Click_option(id_this,column_name,table_name)
     document.getElementById(id_this).style.left = left + 'px';
     // var top = Glob_Y - document.getElementById(id_this).offsetHeight - 10;
     document.getElementById(id_this).style.top  = (screen.height / 4) + 'px';
-    document.getElementById(id_this).style.visibility = "visible";
+    document.getElementById(id_this).style.display = 'block';
     document.getElementById('option_col_name').innerHTML = '<strong>' + PMA_messages['strAddOption'] +'"' +column_name+ '"</strong>';
     col_name = column_name;
     tab_name = table_name;
@@ -1029,7 +1027,7 @@ function Click_option(id_this,column_name,table_name)
 
 function Close_option()
 {
-    document.getElementById('pmd_optionse').style.visibility = "hidden";
+    document.getElementById('pmd_optionse').style.display = 'none';
 }
 
 function Select_all(id_this,owner)
@@ -1136,8 +1134,8 @@ function add_object()
     var init = history_array.length;
     if (rel.value != '--') {
         if (document.getElementById('Query').value == "") {
-            document.getElementById('hint').innerHTML = "value/subQuery is empty" ;
-            document.getElementById('hint').style.visibility = "visible";
+            document.getElementById('pmd_hint').innerHTML = "value/subQuery is empty" ;
+            document.getElementById('pmd_hint').style.display = 'block';
             return;
         }
         var p = document.getElementById('Query');
@@ -1168,8 +1166,8 @@ function add_object()
     }
     if (document.getElementById('h_rel_opt').value != '--') {
         if (document.getElementById('having').value == "") {
-            document.getElementById('hint').innerHTML = "value/subQuery is empty" ;
-            document.getElementById('hint').style.visibility = "visible";
+            document.getElementById('pmd_hint').innerHTML = "value/subQuery is empty" ;
+            document.getElementById('pmd_hint').style.display = 'block';
            return;
         }
         var p = document.getElementById('having');
@@ -1186,8 +1184,8 @@ function add_object()
         document.getElementById('orderby').checked = false;
         //make orderby
     }
-    document.getElementById('hint').innerHTML = sum + "object created" ;
-    document.getElementById('hint').style.visibility = "visible";
+    document.getElementById('pmd_hint').innerHTML = sum + "object created" ;
+    document.getElementById('pmd_hint').style.display = 'block';
     //output sum new objects created
     var existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = display(init,history_array.length);
