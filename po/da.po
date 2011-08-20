@@ -1239,10 +1239,9 @@ msgid "Query cache usage"
 msgstr "Forbrug af forespørgsels-mellemlager"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
-msgstr "Forespørgsel-mellemlager"
+msgstr "Forbrugt forespørgsels-mellemlager"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
