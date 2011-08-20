@@ -10421,7 +10421,7 @@ msgstr "Y மதிப்புக்கள்:"
 #: tbl_create.php:30
 #, php-format
 msgid "Table %s already exists!"
-msgstr ""
+msgstr "%s இந்த அட்டவணை ஏற்கனவே உள்ளது!"
 
 #: tbl_create.php:216
 #, php-format
