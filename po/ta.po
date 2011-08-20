@@ -10591,7 +10591,7 @@ msgstr ""
 
 #: tbl_operations.php:716
 msgid "Delete the table (DROP)"
-msgstr ""
+msgstr "அட்டவணையை அழி (அழி)"
 
 #: tbl_operations.php:737
 msgid "Partition maintenance"
