@@ -21,6 +21,7 @@ $GLOBALS['js_include'][] = 'sql.js';
 $GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'tbl_zoom_plot.js';
 $GLOBALS['js_include'][] = 'date.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.mousewheel.js';
 $GLOBALS['js_include'][] = 'highcharts/highcharts.js';
 /* Files required for chart exporting */
 $GLOBALS['js_include'][] = 'highcharts/exporting.js';
