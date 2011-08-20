@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-20 15:51+0200\n"
+"PO-Revision-Date: 2011-08-20 17:29+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -13045,7 +13045,6 @@ msgid "InnoDB is usually the better choice for table engines."
 msgstr "InnoDB es, usualmente, la mejor opción como motor para tablas."
 
 #: po/advisory_rules.php:248
-#, fuzzy
 msgid "have_innodb is set to 'value'"
 msgstr "«have_innodb» está configurado como 'value'"
 
