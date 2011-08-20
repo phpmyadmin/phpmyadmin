@@ -10612,7 +10612,7 @@ msgstr "சரிபார்"
 
 #: tbl_operations.php:750
 msgid "Optimize"
-msgstr ""
+msgstr "உகப்பாக்கு"
 
 #: tbl_operations.php:751
 msgid "Rebuild"
