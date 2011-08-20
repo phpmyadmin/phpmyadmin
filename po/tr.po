@@ -12385,7 +12385,8 @@ msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
-"Tüm geçici tabloların %%%s diske yazılıyor, bu değer %%25'in altında olmalı"
+"Tüm geçici tabloların %%%s diske yazılıyor, bu değer %%25'in altında "
+"olmalıdır"
 
 #: po/advisory_rules.php:150
 msgid "Temp disk rate"
