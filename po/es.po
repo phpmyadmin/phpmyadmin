@@ -13185,10 +13185,9 @@ msgstr ""
 "tablas InnoDB o tiene otros servicios en el mismo equipo."
 
 #: po/advisory_rules.php:265
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
-msgstr "Número máx. de conexiones concurrentes"
+msgstr "Inserciones MyISAM concurrentes"
 
 #: po/advisory_rules.php:266
 msgid "Enable concurrent_insert by setting it to 1"
