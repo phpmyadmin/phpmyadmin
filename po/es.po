@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-20 07:05+0200\n"
+"PO-Revision-Date: 2011-08-20 07:09+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -13036,10 +13036,9 @@ msgid "Is InnoDB disabled?"
 msgstr "¿InnoDB está desactivado?"
 
 #: po/advisory_rules.php:246
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "You do not have InnoDB enabled."
-msgstr "No se pudo guardar la tabla reciente"
+msgstr "No posee InnoDB activado."
 
 #: po/advisory_rules.php:247
 msgid "InnoDB is usually the better choice for table engines."
