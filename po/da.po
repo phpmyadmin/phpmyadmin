@@ -1819,7 +1819,7 @@ msgstr ""
 
 #: js/messages.php:276
 msgid "Strings are converted into integer for plotting"
-msgstr ""
+msgstr "Strenge er konverteret til heltal i plottet."
 
 #: js/messages.php:278
 #, fuzzy
