@@ -1580,7 +1580,7 @@ msgstr "Genindlæs side"
 
 #: js/messages.php:186
 msgid "Affected rows:"
-msgstr ""
+msgstr "Berørte rækker:"
 
 #: js/messages.php:188
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
