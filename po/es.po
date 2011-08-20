@@ -12849,10 +12849,10 @@ msgid "The thread cache is set to 0"
 msgstr "El caché de hilos está configurado a 0"
 
 #: po/advisory_rules.php:205
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is not active."
 msgid "Thread cache hit rate %%"
-msgstr "El seguimiento no está activo."
+msgstr "Porcentaje de efectividad del caché de hilos"
 
 #: po/advisory_rules.php:206
 #, fuzzy
