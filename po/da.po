@@ -10380,7 +10380,6 @@ msgid "Monitor Instructions"
 msgstr "Monitorinstruktioner"
 
 #: server_status.php:1490
-#, fuzzy
 #| msgid ""
 #| "The phpMyAdmin Monitor can assist you in optimizing the server "
 #| "configuration and track down time intensive\n"
