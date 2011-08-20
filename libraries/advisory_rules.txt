@@ -127,7 +127,7 @@ rule 'Query cache disabled'
 	The query cache is known to greatly improve performance if configured correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using memcached, ignore this recommendation.
 	query_cache_size is set to 0 or query_cache_type is set to 'OFF'
 
-rule 'Query cache usage' [!fired('Query cache disabled')]
+rule 'Query caching method' [!fired('Query cache disabled')]
 	Questions / Uptime
 	value > 100
 	Suboptimal caching method.
@@ -141,7 +141,7 @@ rule 'Query cache efficiency (%)' [Com_select + Qcache_hits > 0 && !fired('Query
 	Consider increasing {query_cache_limit}.
 	The current query cache hit rate of %s% is below 20% | round(value,1)
 
-rule 'Query Cache usage' [!fired('Query cache disabled')]
+rule 'Query cache usage' [!fired('Query cache disabled')]
 	100 - Qcache_free_memory / query_cache_size * 100
 	value < 80
 	Less than 80% of the query cache is being utilized.
