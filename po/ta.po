@@ -10076,7 +10076,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:225
 msgid "Display"
-msgstr ""
+msgstr "திரை"
 
 #: setup/frames/index.inc.php:229
 msgid "Load"
