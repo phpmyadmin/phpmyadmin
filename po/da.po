@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-20 18:44+0200\n"
+"PO-Revision-Date: 2011-08-20 18:45+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -1796,7 +1796,7 @@ msgstr "Hvert punkt repræsenterer en datarække"
 
 #: js/messages.php:266
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "Ved at holde pointeren over et punkt vises dets etiket"
 
 #: js/messages.php:268
 msgid "Drag and select an area in the plot to zoom into it."
