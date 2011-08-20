@@ -12972,6 +12972,8 @@ msgstr ""
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
+"%s%% de todas las conexiones son abandonadas. Este valor debería ser menor a "
+"1%%"
 
 #: po/advisory_rules.php:230
 #, fuzzy
