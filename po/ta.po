@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-20 08:15+0200\n"
+"PO-Revision-Date: 2011-08-20 08:16+0200\n"
 "Last-Translator:  <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -10404,7 +10404,7 @@ msgstr "கள நிரல்களை சேர்க்க/ நீக்க�
 
 #: tbl_chart.php:132
 msgid "X-Axis label:"
-msgstr ""
+msgstr "X-அச்சு சிட்டை:"
 
 #: tbl_chart.php:133
 msgid "X Values"
