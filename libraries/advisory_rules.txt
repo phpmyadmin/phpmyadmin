@@ -214,7 +214,6 @@ rule 'Rate of reading first index entry'
 	This usually indicates frequent full index scans. Full index scans are faster than table scans but require lots of CPU cycles in big tables, if those tables that have or had high volumes of UPDATEs and DELETEs, running 'OPTIMIZE TABLE' might reduce the amount of and/or speed up full index scans. Other than that full index scans can only be reduced by rewriting queries.
 	Index scans average: %s, this value should be less than 1 per hour | PMA_bytime(value,2)
 
-# This rule may be applicable to MyISAM-only workloads, but completely wrong for InnoDB - http://www.mysqlperformanceblog.com/2010/06/15/what-does-handler_read_rnd-mean/
 rule 'Rate of reading fixed position'
 	Handler_read_rnd / Uptime
 	value * 60 * 60 > 1
