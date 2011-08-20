@@ -10486,7 +10486,7 @@ msgstr ""
 
 #: tbl_indexes.php:169
 msgid "Create a new index"
-msgstr "புதிய சுட்யை உருவாக்கு"
+msgstr "புதிய சுட்டை உருவாக்கு"
 
 #: tbl_indexes.php:171
 msgid "Modify an index"
