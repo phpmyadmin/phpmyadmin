@@ -10056,7 +10056,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:186
 msgid "Default language"
-msgstr ""
+msgstr "முன்னிருப்பு மொழி"
 
 #: setup/frames/index.inc.php:196
 msgid "let the user choose"
