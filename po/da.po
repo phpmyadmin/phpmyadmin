@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-20 19:02+0200\n"
+"PO-Revision-Date: 2011-08-20 19:03+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -4614,10 +4614,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:399
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of records saved in \"table_uiprefs\" table"
-msgstr "Maksimalt antal tabeller vist i tabellisten"
+msgstr "Maksimalt antal rækker gemt i tabellen \"table_uiprefs\""
 
 #: libraries/config/messages.inc.php:400
 msgid "Try to connect without password"
