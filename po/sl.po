@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-18 00:48+0200\n"
+"PO-Revision-Date: 2011-08-19 11:26+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -936,6 +936,8 @@ msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
+"Izberite \"GeomFromText\" iz stolpca \"Funkcija\" in prilepite spodnji niz v "
+"polje \"Vrednost\""
 
 #: import.php:57
 #, php-format
@@ -1874,6 +1876,9 @@ msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
+"Tabela ne vsebuje unikatnega stolpca. Zmožnosti, povezane z urejanjem mreže, "
+"potrditvenimi polji, povezavami Uredi, Kopiraj in Izbriši, po shranjevanju "
+"morda ne bodo delovale."
 
 #: js/messages.php:318
 msgid ""
@@ -9481,6 +9486,8 @@ msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
 msgstr ""
+"Svetovalni sistem lahko nudi priporočila o strežniških spremenljivkah tako, "
+"da analizira spremenljivke stanja strežnika."
 
 #: server_status.php:810
 msgid ""

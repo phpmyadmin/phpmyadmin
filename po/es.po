@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 01:20+0200\n"
+"PO-Revision-Date: 2011-08-19 21:45+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -12347,28 +12347,37 @@ msgid ""
 "(often invalidated due to table updates) increasing {query_cache_limit} "
 "might reduce efficiency."
 msgstr ""
+"Cambiar «query_cache_limit» (normalmente aumentarlo) puede aumentar la "
+"eficiencia. Esta variable determina el tamaño máximo que puede tener el "
+"resultado de una consulta para ser agregada al caché de consultas. Si hay "
+"muchos resultados de consultas mayores a 1 MiB que son útiles al caché "
+"(muchas lecturas, pocas escrituras) entonces aumentar «query_cache_limit» "
+"aumentará la eficiencia. Sin embargo, en el caso que muchos resultados de "
+"consultas mayores a 1 MiB que no sean útiles al caché (invalidados "
+"frecuentemente por actualizaciones a la tabla) aumentar «query_cache_limit» "
+"podría reducir la eficiencia."
 
 #: po/advisory_rules.php:103
 msgid "query_cache_limit is set to 1 MiB"
-msgstr ""
+msgstr "«query_cache_limit» está definido a 1 MiB"
 
 #: po/advisory_rules.php:105
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
-msgstr "Permite la creación de tablas temporales."
+msgstr "Porcentaje de ordenaciones que causan tablas temporales"
 
 #: po/advisory_rules.php:106 po/advisory_rules.php:111
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
-msgstr "Permite la creación de tablas temporales."
+msgstr "Demasiadas ordenaciones causan tablas temporales."
 
 #: po/advisory_rules.php:107 po/advisory_rules.php:112
 msgid ""
 "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending "
 "on your system memory limits"
 msgstr ""
+"Considere aumentar «sort_buffer_size» y/o «read_rnd_buffer_size» dependiendo "
+"de los límites de memoria del sistema"
 
 #: po/advisory_rules.php:108
 #, php-format
@@ -12376,28 +12385,30 @@ msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr ""
+"%s%% de todas las ordenaciones causan tablas temporales, este valor debería "
+"de ser menor a 10%%."
 
 #: po/advisory_rules.php:110
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
-msgstr "Permite la creación de tablas temporales."
+msgstr "Tasa de ordenaciones que causan tablas temporales"
 
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
+"Promedio de tablas temporales: %s, este valor debería de ser menor a 1 por "
+"hora."
 
 #: po/advisory_rules.php:115
-#, fuzzy
 #| msgid "Start row"
 msgid "Sort rows"
-msgstr "Fila de inicio"
+msgstr "Filas ordenadas"
 
 #: po/advisory_rules.php:116
 msgid "There are lots of rows being sorted."
-msgstr ""
+msgstr "Hay demasiadas filas siendo ordenadas."
 
 #: po/advisory_rules.php:117
 msgid ""
@@ -12406,42 +12417,49 @@ msgid ""
 "indexed fields in the ORDER BY clause, as this will result in much faster "
 "sorting"
 msgstr ""
+"Si bien no hay nada de malo en ordenar una gran cantidad de filas, podría "
+"llegar a desea asegurarse que las consultas que requieren gran cantidad de "
+"ordenación utilicen campos indexados en la cláusula «ORDER BY», lo que "
+"resultará en una ordenación más rápida"
 
 #: po/advisory_rules.php:118
 #, php-format
 msgid "Sorted rows average: %s"
-msgstr ""
+msgstr "Promedio de filas ordenadas: %s"
 
 #: po/advisory_rules.php:120
-#, fuzzy
 #| msgid "There are no routines to display."
 msgid "Rate of joins without indexes"
-msgstr "No hay rutinas para mostrar."
+msgstr "Tasa de uniones («JOIN») sin índices"
 
 #: po/advisory_rules.php:121
-#, fuzzy
 #| msgid "There are no routines to display."
 msgid "There are too many joins without indexes."
-msgstr "No hay rutinas para mostrar."
+msgstr "Hay demasiadas uniones («JOIN») sin índices."
 
 #: po/advisory_rules.php:122
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "fields being used in the join conditions will greatly speed up table joins"
 msgstr ""
+"Esto significa que las uniones («JOIN») están realizando escrutinios "
+"completos sobre tablas. Agregar índices a los campos siendo utilizandos en "
+"las condiciones de la unión las acelerarán en gran medida"
 
 #: po/advisory_rules.php:123
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
+"Promedio de uniones («JOIN») de tablas: %s, este promedio debería ser menor "
+"a 1 por hora"
 
 #: po/advisory_rules.php:125
 msgid "Rate of reading first index entry"
-msgstr ""
+msgstr "Tasa de lectura del primer índice"
 
 #: po/advisory_rules.php:126
 msgid "The rate of reading the first index entry is high."
-msgstr ""
+msgstr "La tasa de lectura del primer índice es alta."
 
 #: po/advisory_rules.php:127
 msgid ""
@@ -12452,19 +12470,28 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
+"Esto normalmente indica escruitinios completos de índices. Éstos son más "
+"rápidos que escrutinios de tablas pero requieren gran cantidad de clicos de "
+"CPU en tablas grandes. Si dichas tablas tienen o han tenido una gran "
+"cantidad de actualizaciones («UPDATE» o «DELETE»), ejecutar «OPTIMIZE TABLE» "
+"podría reducir dicha cantidad y/o acelerar los escrutinios completos de "
+"índices. De otra forma, la cantidad de escrutinios completos de índices sólo "
+"puede ser reducida re-escribiendo las consultas."
 
 #: po/advisory_rules.php:128
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
+"Promedio de escrutinios de índices: %s, este valor debería de ser menor a 1 "
+"por hora"
 
 #: po/advisory_rules.php:130
 msgid "Rate of reading fixed position"
-msgstr ""
+msgstr "Tasa de lectura de una posición fija"
 
 #: po/advisory_rules.php:131
 msgid "The rate of reading data from a fixed position is high."
-msgstr ""
+msgstr "La tasa de lecutura de datos de una posición fija es alta."
 
 #: po/advisory_rules.php:132
 msgid ""
@@ -12472,6 +12499,9 @@ msgid ""
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
+"Esto indica que muchas consultas necesitan ordenar resultados y/o realizar "
+"un escrutinio completo de tablas, incluyendo consultas con uniones («JOIN») "
+"que no utilizan índices. Agregue índices donde sea aplicable."
 
 #: po/advisory_rules.php:133
 #, php-format
@@ -12479,38 +12509,42 @@ msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr ""
+"Tasa de lectura de una posición fija: %s, este valor debería de ser menor a "
+"1 por hora"
 
 #: po/advisory_rules.php:135
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Rate of reading next table row"
-msgstr "Donde mostrar los enlaces de filas de tabla"
+msgstr "Tasa de lectura de la siguiente fila de una tabla"
 
 #: po/advisory_rules.php:136
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "The rate of reading the next table row is high."
-msgstr "Donde mostrar los enlaces de filas de tabla"
+msgstr "La tasa de lecutra de la siguiente fila de una tabla es alta."
 
 #: po/advisory_rules.php:137
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
 msgstr ""
+"Esto indica que muchas consultas están realizando escrutinios completos de "
+"tablas. Agregue índices donde sea aplicable."
 
 #: po/advisory_rules.php:138
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr ""
+"Tasa de lectura de la siguiente fila de una tabla: %s, este valor debería de "
+"ser menor a 1 por hora"
 
 #: po/advisory_rules.php:140
 msgid "tmp_table_size vs. max_heap_table_size"
-msgstr ""
+msgstr "«tmp_table_size» vs. «max_heap_table_size»"
 
 #: po/advisory_rules.php:141
 msgid "tmp_table_size and max_heap_table_size are not the same."
-msgstr ""
+msgstr "«tmp_table_size» y «max_heap_table_size» no son iguales."
 
 #: po/advisory_rules.php:142
 msgid ""
@@ -12519,23 +12553,29 @@ msgid ""
 "wish to increase the in-memory table limit you will have to increase the "
 "other value as well."
 msgstr ""
+"Si ha modificado alguno de ellos deliberadamente: el servidor utiliza el "
+"valor menor de ellos para determinar el tamaño máximo de tablas en memoria. "
+"Si desea aumentar el límite de tamaño de tablas en memoria deberá también "
+"aumentar el otro valor."
 
 #: po/advisory_rules.php:143
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr ""
+"Los valores actuales son «tmp_table_size»: %s, «max_heap_table_size»: %s"
 
 #: po/advisory_rules.php:145
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Percentage of temp tables on disk"
-msgstr "Donde mostrar los enlaces de filas de tabla"
+msgstr "Porcentaje de tablas temporales en disco"
 
 #: po/advisory_rules.php:146 po/advisory_rules.php:151
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr ""
+"Muchas tablas temporales están siendo escritas la disco en lugar de ser "
+"mantenidas en memoria."
 
 #: po/advisory_rules.php:147
 msgid ""
@@ -12547,6 +12587,14 @@ msgid ""
 "mentioned in the beginning of an <a href=\\\"http://www.facebook.com/note."
 "php?note_id=10150111255065841&comments\\\">Article by the Pythian Group</a>"
 msgstr ""
+"Aumentar «max_heap_table_size» y «tmp_table_size» podría ayudar. Sin "
+"embargo, algunas tablas temporales son siempre escritas a disco "
+"independientemente del valor de estas variables. Para eliminarlas deberá re-"
+"escribir las consultas para evitar estas condiciones (en una tabla temporal: "
+"la presencia de una columna «BLOB» o «TEXT», o la presencia de una columna "
+"mayor a 512 bytes) como se menciona al comienzo del <a href=\\\"http://www.fac"
+"ebook.com/note.php?note_id=10150111255065841&comments\\\">artículo de Pythian "
+"Group</a>"
 
 #: po/advisory_rules.php:148
 #, php-format
@@ -12554,15 +12602,14 @@ msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
+"%s%% de todas las tablas temporales son escritas al disco, este valor "
+"debería de ser menor a 25%%"
 
-# singular: tabla
-# plural: tablas
 #: po/advisory_rules.php:150
-#, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Temp disk rate"
-msgstr "%s tabla"
+msgstr "Tasa de tablas temporales en el disco"
 
 #: po/advisory_rules.php:152
 msgid ""
@@ -12574,6 +12621,14 @@ msgid ""
 "mentioned in in the <a href=\\\"http://dev.mysql.com/doc/refman/5.0/en/"
 "internal-temporary-tables.html\\\">MySQL Documentation</a>"
 msgstr ""
+"Aumentar «max_heap_table_size» y «tmp_table_size» podría ayudar. Sin "
+"embargo, algunas tablas temporales son siempre escritas a disco "
+"independientemente del valor de estas variables. Para eliminarlas deberá re-"
+"escribir las consultas para evitar estas condiciones (en una tabla temporal: "
+"la presencia de una columna «BLOB» o «TEXT», o la presencia de una columna "
+"mayor a 512 bytes) como se menciona en la <a "
+"href=\\\"http://dev.mysql.com/doc/refman/5.0/en/internal-temporary-"
+"tables.html\\\">documentación de MySQL</a>"
 
 #: po/advisory_rules.php:153
 #, php-format
@@ -12581,38 +12636,43 @@ msgid ""
 "Rate of temporay tables being written to disk: %s, this value should be less "
 "than 1 per hour"
 msgstr ""
+"La tasa de tablas temporales escritas al disco: %s, este valor debería ser "
+"menor a 1 por hora"
 
 #: po/advisory_rules.php:155
-#, fuzzy
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer size"
-msgstr "Organizar el tamaño del búfer de memoria"
+msgstr "Tamaño de búfer de claves MyISAM"
 
 #: po/advisory_rules.php:156
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
+"El búfer de claves no fue inicializado. No se utilizará un caché de claves "
+"MyISAM."
 
 #: po/advisory_rules.php:157
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
+"Defina «key_buffer_size» dependiendo del tamaño de los índices MyISAM. 64M "
+"es un buen comienzo."
 
 #: po/advisory_rules.php:158
 msgid "key_buffer_size is 0"
-msgstr ""
+msgstr "«key_buffer_size» es 0"
 
 #: po/advisory_rules.php:160
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "Organizar el tamaño del búfer de memoria"
+msgstr "Porcentaje máximo del búfer de claves MyISAM usado en algún momento"
 
 #: po/advisory_rules.php:161 po/advisory_rules.php:166
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr "Organizar el tamaño del búfer de memoria"
+msgstr "El porcentaje del búfer de claves MyISAM (caché de índices) es bajo."
 
 #: po/advisory_rules.php:162 po/advisory_rules.php:167
 msgid ""
@@ -12620,93 +12680,106 @@ msgid ""
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
+"Podría necesitar aumentar el valor de «key_buffer_size», examine sus tablas "
+"nuevamente para ver si se han eliminado índices o sus consultas y las "
+"expectativas de uso de los índices."
 
 #: po/advisory_rules.php:163
 #, php-format
 msgid "max %% MyISAM key buffer ever used: %s, this value should be above 95%%"
 msgstr ""
+"Maxímo porcentaje de búfer de claves MyISAM utilizado en algún momento: %s, "
+"este valor debería ser mayor a 95%%"
 
 #: po/advisory_rules.php:165
-#, fuzzy
 #| msgid "Sort buffer size"
 msgid "Percentage of MyISAM key buffer used"
-msgstr "Organizar el tamaño del búfer de memoria"
+msgstr "Porcentaje de búfer de claves MyISAM utilizado"
 
 #: po/advisory_rules.php:168
 #, php-format
 msgid "%% MyISAM key buffer used: %s, this value should be above 95%%"
 msgstr ""
+"Porcentaje de búfer de claves MyISAM utilizado: %s, este valor debería ser "
+"mayor a 95%%"
 
 #: po/advisory_rules.php:170
 msgid "Percentage of index reads from memory"
-msgstr ""
+msgstr "Porcentaje de índices leídos desde memoria"
 
 #: po/advisory_rules.php:171
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgstr ""
+"El porcentaje de índices que utilizan el búfer de claves MyISAM es bajo."
 
 #: po/advisory_rules.php:172
 msgid "You may need to increase {key_buffer_size}."
-msgstr ""
+msgstr "Podría necesitar aumentar «key_buffer_size»."
 
 #: po/advisory_rules.php:173
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr ""
+msgstr "Índices leídos desde memoria: %s%%, este valor debería ser mayor a 95%%"
 
 #: po/advisory_rules.php:175
-#, fuzzy
 #| msgid "Create table"
 msgid "Rate of table open"
-msgstr "Crear tabla"
+msgstr "Tasa de apertura de tablas"
 
 #: po/advisory_rules.php:176
-#, fuzzy
 #| msgid "The current number of pending writes."
 msgid "The rate of opening tables is high."
-msgstr "El número actual de escrituras pendientess."
+msgstr "La tasa de apertura de tablas es alta."
 
 #: po/advisory_rules.php:177
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
+"Abrir tablas necesita E/S en disco, lo cual es costoso. Aumentar "
+"«table_open_cache» podría evitarlo."
 
 #: po/advisory_rules.php:178
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
+"Tasa de apertura de tablas: %s, este valor debería ser menor a 10 por hora"
 
 #: po/advisory_rules.php:180
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of used open files limit"
-msgstr "Formato del archivo importado"
+msgstr "Porcentaje de uso del límite de archivos de abiertos"
 
+# El mensaje de error llegará de PHP o MySQL por lo que no me parece correcto traducirlo
 #: po/advisory_rules.php:181
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \\\"Too many open files\\\" error."
 msgstr ""
+"La cantidad de archivos abiertos se acerca al máximo permitido. Podría "
+"llegar a obtener un error al respecto («Too many open files»)."
 
 #: po/advisory_rules.php:182 po/advisory_rules.php:187
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing open_files_limit."
 msgstr ""
+"Considere aumentar «open_files_limit», y revise el registro de errores al "
+"reiniciar luego de cambiar esta variable."
 
 #: po/advisory_rules.php:183
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
+"La cantidad de archivos abiertos es %s%% del límite. Debería ser menor a 85%"
+"%"
 
 #: po/advisory_rules.php:185
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of open files"
-msgstr "Formato del archivo importado"
+msgstr "Tasa de apertura de archivos"
 
 #: po/advisory_rules.php:186
 #, fuzzy
