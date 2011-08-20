@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-20 18:57+0200\n"
+"PO-Revision-Date: 2011-08-20 18:58+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -1917,6 +1917,8 @@ msgstr ""
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
+"Du kan også redigere de fleste kolonner<br />ved at klikke direkte på deres "
+"indhold."
 
 #: js/messages.php:319
 #, fuzzy
