@@ -1632,10 +1632,9 @@ msgid "Rule details"
 msgstr "Regeldetaljer"
 
 #: js/messages.php:201
-#, fuzzy
 #| msgid "Authentication"
 msgid "Justification"
-msgstr "Autentifikation"
+msgstr "Begrundelse"
 
 #: js/messages.php:202
 msgid "Used variable / formula"
