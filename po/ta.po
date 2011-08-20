@@ -10116,7 +10116,7 @@ msgstr "வழுக்களை நிராகரி"
 
 #: setup/lib/form_processing.lib.php:50
 msgid "Show form"
-msgstr ""
+msgstr "படிவத்தை காட்டு"
 
 #: setup/lib/index.lib.php:122
 msgid ""
