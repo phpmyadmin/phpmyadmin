@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-20 18:35+0200\n"
+"PO-Revision-Date: 2011-08-20 18:36+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -1489,7 +1489,6 @@ msgid "Analysing & loading logs. This may take a while."
 msgstr "Analyserer & indlæser logs. Dette kan vare nogen tid."
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid ""
 #| "This columns shows the amount of identical queries that are grouped "
 #| "together. However only the SQL Text is being compared, thus the queries "
