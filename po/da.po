@@ -9499,10 +9499,9 @@ msgid "Filter by category..."
 msgstr "Filtrer efter kategori..."
 
 #: server_status.php:765
-#, fuzzy
 #| msgid "Show only alert values"
 msgid "Show unformatted values"
-msgstr "Vis kun alert-værdier"
+msgstr "Vis uformatterede værdier"
 
 #: server_status.php:769
 msgid "Related links:"
