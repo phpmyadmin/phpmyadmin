@@ -10566,7 +10566,7 @@ msgstr ""
 
 #: tbl_operations.php:594
 msgid "Table maintenance"
-msgstr ""
+msgstr "அட்டவணை பராமரிப்பு"
 
 #: tbl_operations.php:618
 msgid "Defragment table"
