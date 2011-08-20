@@ -60,14 +60,14 @@ function isEmpty(obj) {
  **/
 function getDate(val,type) {
     if(type.toString().search(/datetime/i) != -1 || type.toString().search(/timestamp/i) != -1) {
-	return Highcharts.dateFormat('%Y-%m-%e %H:%M:%S', val)
-    }	
+    return Highcharts.dateFormat('%Y-%m-%e %H:%M:%S', val)
+    }    
     else if(type.toString().search(/time/i) != -1) {
         return Highcharts.dateFormat('%H:%M:%S', val)
-    }	
+    }    
     else if (type.toString().search(/date/i) != -1) {
         return Highcharts.dateFormat('%Y-%m-%e', val)
-    }	
+    }    
 }
 
 /**
@@ -77,14 +77,14 @@ function getDate(val,type) {
  **/
 function getTimeStamp(val,type) {
     if(type.toString().search(/datetime/i) != -1 || type.toString().search(/timestamp/i) != -1) {
-	return getDateFromFormat(val,'yyyy-MM-dd HH:mm:ss', val)
-    }	
+    return getDateFromFormat(val,'yyyy-MM-dd HH:mm:ss', val)
+    }    
     else if(type.toString().search(/time/i) != -1) {
-	return getDateFromFormat('1970-01-01 ' + val,'yyyy-MM-dd HH:mm:ss')
-    }	
+    return getDateFromFormat('1970-01-01 ' + val,'yyyy-MM-dd HH:mm:ss')
+    }    
     else if (type.toString().search(/date/i) != -1) {
-	return getDateFromFormat(val,'yyyy-MM-dd')
-    }	
+    return getDateFromFormat(val,'yyyy-MM-dd')
+    }    
 }
 
 /**
@@ -92,12 +92,12 @@ function getTimeStamp(val,type) {
  ** @param field: field type (as in database structure)
  **/ 
 function getType(field) {
-	if(field.toString().search(/int/i) != -1 || field.toString().search(/decimal/i) != -1 || field.toString().search(/year/i) != -1)
-	    return 'numeric';
-	else if(field.toString().search(/time/i) != -1 || field.toString().search(/date/i) != -1)
-	    return 'time';
-	else
-	    return 'text';
+    if(field.toString().search(/int/i) != -1 || field.toString().search(/decimal/i) != -1 || field.toString().search(/year/i) != -1)
+        return 'numeric';
+    else if(field.toString().search(/time/i) != -1 || field.toString().search(/date/i) != -1)
+        return 'time';
+    else
+        return 'text';
 }
 /** 
  ** Converts a categorical array into numeric array
@@ -140,29 +140,29 @@ function includePan(currentChart) {
     $('#querychart').mousemove(function(e) {
         if (mouseDown == 1) {
             if (e.pageX > lastX) {
-		var xExtremes = currentChart.xAxis[0].getExtremes();
+        var xExtremes = currentChart.xAxis[0].getExtremes();
                 var diff = (e.pageX - lastX) * (xExtremes.max - xExtremes.min) / chartWidth;
                 currentChart.xAxis[0].setExtremes(xExtremes.min - diff, xExtremes.max - diff);
             }
             else if (e.pageX < lastX) {
-		var xExtremes = currentChart.xAxis[0].getExtremes();
+        var xExtremes = currentChart.xAxis[0].getExtremes();
                 var diff = (lastX - e.pageX) * (xExtremes.max - xExtremes.min) / chartWidth;
-            	currentChart.xAxis[0].setExtremes(xExtremes.min + diff, xExtremes.max + diff);
+                currentChart.xAxis[0].setExtremes(xExtremes.min + diff, xExtremes.max + diff);
             }
 
             if (e.pageY > lastY) {
-		var yExtremes = currentChart.yAxis[0].getExtremes();
+        var yExtremes = currentChart.yAxis[0].getExtremes();
                 var ydiff = 1.0 * (e.pageY - lastY) * (yExtremes.max - yExtremes.min) / chartHeight;
-            	currentChart.yAxis[0].setExtremes(yExtremes.min + ydiff, yExtremes.max + ydiff);
+                currentChart.yAxis[0].setExtremes(yExtremes.min + ydiff, yExtremes.max + ydiff);
             }
             else if (e.pageY < lastY) {
-		var yExtremes = currentChart.yAxis[0].getExtremes();
+        var yExtremes = currentChart.yAxis[0].getExtremes();
                 var ydiff = 1.0 * (lastY - e.pageY) * (yExtremes.max - yExtremes.min) / chartHeight;
-            	currentChart.yAxis[0].setExtremes(yExtremes.min - ydiff, yExtremes.max - ydiff);
+                currentChart.yAxis[0].setExtremes(yExtremes.min - ydiff, yExtremes.max - ydiff);
             }
         }
-    	lastX = e.pageX;
-    	lastY = e.pageY;
+        lastX = e.pageX;
+        lastY = e.pageY;
     });
 }
 
@@ -216,8 +216,8 @@ $(document).ready(function() {
      **/ 
     $('#inputFormSubmitId').click(function() {
         if ($('#tableid_0').get(0).selectedIndex == 0 || $('#tableid_1').get(0).selectedIndex == 0)         
-	    PMA_ajaxShowMessage(PMA_messages['strInputNull']);
-	else if (xLabel == yLabel) 
+        PMA_ajaxShowMessage(PMA_messages['strInputNull']);
+    else if (xLabel == yLabel) 
             PMA_ajaxShowMessage(PMA_messages['strSameInputs']);
     });
 
@@ -240,16 +240,16 @@ $(document).ready(function() {
             } else {
                 $link.text(PMA_messages['strHideSearchCriteria']);
             }
-	     // avoid default click action
-	    return false;
-	 });
+         // avoid default click action
+        return false;
+     });
     
     /** 
      ** Set dialog properties for the data display form
      **/
     $("#dataDisplay").dialog({
         autoOpen: false,
-	title: 'Data point content',
+    title: 'Data point content',
         modal: false, //false otherwise other dialogues like timepicker may not function properly
         height: $('#dataDisplay').height() + 80,
         width: $('#dataDisplay').width() + 80
@@ -260,152 +260,152 @@ $(document).ready(function() {
      */
      
     $("#submitForm").click(function(event) {
-	
+    
         //Prevent default submission of form
         event.preventDefault();
-	
-	//Find changed values by comparing form values with selectedRow Object
-	var newValues = new Array();//Stores the values changed from original
+    
+    //Find changed values by comparing form values with selectedRow Object
+    var newValues = new Array();//Stores the values changed from original
         var it = 4;
         var xChange = false;
         var yChange = false;
-	for (key in selectedRow) {
-	    if (key != 'where_clause'){
-		var oldVal = selectedRow[key];
-		var newVal = ($('#fields_null_id_' + it).attr('checked')) ? null : $('#fieldID_' + it).val();
-		if (oldVal != newVal){
-		    selectedRow[key] = newVal;
-		    newValues[key] = newVal;
-		    if(key == xLabel) {
-			xChange = true;
-		   	data[currentData][xLabel] = newVal;
-		    }
-		    else if(key == yLabel) {
-			yChange = true;
-		   	data[currentData][yLabel] = newVal;
-		    }
-		}
-	    }
-	    it++    
-	}//End data update
+    for (key in selectedRow) {
+        if (key != 'where_clause'){
+        var oldVal = selectedRow[key];
+        var newVal = ($('#fields_null_id_' + it).attr('checked')) ? null : $('#fieldID_' + it).val();
+        if (oldVal != newVal){
+            selectedRow[key] = newVal;
+            newValues[key] = newVal;
+            if(key == xLabel) {
+            xChange = true;
+               data[currentData][xLabel] = newVal;
+            }
+            else if(key == yLabel) {
+            yChange = true;
+               data[currentData][yLabel] = newVal;
+            }
+        }
+        }
+        it++    
+    }//End data update
         
-	//Update the chart series and replot
+    //Update the chart series and replot
         if (xChange || yChange) {
-	    var newSeries = new Array();
-	    newSeries[0] = new Object();
+        var newSeries = new Array();
+        newSeries[0] = new Object();
             newSeries[0].marker = {
                 symbol: 'circle'
             };
-	    //Logic similar to plot generation, replot only if xAxis changes or yAxis changes. Code includes a lot of checks so as to replot only when necessary
+        //Logic similar to plot generation, replot only if xAxis changes or yAxis changes. Code includes a lot of checks so as to replot only when necessary
             if(xChange) {
-  	        xCord[currentData] = selectedRow[xLabel];
-		if(xType == 'numeric') {
-		    currentChart.series[0].data[currentData].update({ x : selectedRow[xLabel] });
-		    currentChart.xAxis[0].setExtremes(Array.min(xCord) - 6,Array.max(xCord) + 6);
+              xCord[currentData] = selectedRow[xLabel];
+        if(xType == 'numeric') {
+            currentChart.series[0].data[currentData].update({ x : selectedRow[xLabel] });
+            currentChart.xAxis[0].setExtremes(Array.min(xCord) - 6,Array.max(xCord) + 6);
                 }
-		else if(xType == 'time') {
-		    currentChart.series[0].data[currentData].update({ x : getTimeStamp(selectedRow[xLabel],$('#types_0').val())});
-		}
-		else {
-		    var tempX = getCord(xCord);
-		    var tempY = getCord(yCord);
-		    var i = 0;
-	    	    newSeries[0].data = new Array();
-		    xCord = tempX[2];
-		    yCord = tempY[2];
+        else if(xType == 'time') {
+            currentChart.series[0].data[currentData].update({ x : getTimeStamp(selectedRow[xLabel],$('#types_0').val())});
+        }
+        else {
+            var tempX = getCord(xCord);
+            var tempY = getCord(yCord);
+            var i = 0;
+                newSeries[0].data = new Array();
+            xCord = tempX[2];
+            yCord = tempY[2];
 
-	    	    $.each(data,function(key,value) {
+                $.each(data,function(key,value) {
                         if(yType != 'text')
- 			    newSeries[0].data.push({ name: value[dataLabel], x: tempX[0][i], y: value[yLabel], marker: {fillColor: colorCodes[i % 8]} , id: i } );
-			else
+                 newSeries[0].data.push({ name: value[dataLabel], x: tempX[0][i], y: value[yLabel], marker: {fillColor: colorCodes[i % 8]} , id: i } );
+            else
                             newSeries[0].data.push({ name: value[dataLabel], x: tempX[0][i], y: tempY[0][i], marker: {fillColor: colorCodes[i % 8]} , id: i } );
-	                i++;   
+                    i++;   
                     });
-		    currentSettings.xAxis.labels = { formatter : function() {
-		        if(tempX[1][this.value] && tempX[1][this.value].length > 10)
-		            return tempX[1][this.value].substring(0,10)
-		        else 
-		            return tempX[1][this.value];    
+            currentSettings.xAxis.labels = { formatter : function() {
+                if(tempX[1][this.value] && tempX[1][this.value].length > 10)
+                    return tempX[1][this.value].substring(0,10)
+                else 
+                    return tempX[1][this.value];    
                         }
                     }
- 		    currentSettings.series = newSeries;
+             currentSettings.series = newSeries;
                     currentChart = PMA_createChart(currentSettings);
-		}
+        }
 
-	    }
+        }
             if(yChange) {
 
-  	        yCord[currentData] = selectedRow[yLabel];
-		if(yType == 'numeric') {
-		    currentChart.series[0].data[currentData].update({ y : selectedRow[yLabel] });
-		    currentChart.yAxis[0].setExtremes(Array.min(yCord) - 6,Array.max(yCord) + 6);
+              yCord[currentData] = selectedRow[yLabel];
+        if(yType == 'numeric') {
+            currentChart.series[0].data[currentData].update({ y : selectedRow[yLabel] });
+            currentChart.yAxis[0].setExtremes(Array.min(yCord) - 6,Array.max(yCord) + 6);
                 }
-		else if(yType =='time') {
-		    currentChart.series[0].data[currentData].update({ y : getTimeStamp(selectedRow[yLabel],$('#types_1').val())});
-		}
-		else {
-		    var tempX = getCord(xCord);
-		    var tempY = getCord(yCord);
-		    var i = 0;
-	    	    newSeries[0].data = new Array();
-		    xCord = tempX[2];
-		    yCord = tempY[2];
+        else if(yType =='time') {
+            currentChart.series[0].data[currentData].update({ y : getTimeStamp(selectedRow[yLabel],$('#types_1').val())});
+        }
+        else {
+            var tempX = getCord(xCord);
+            var tempY = getCord(yCord);
+            var i = 0;
+                newSeries[0].data = new Array();
+            xCord = tempX[2];
+            yCord = tempY[2];
 
-	    	    $.each(data,function(key,value) {
-			if(xType != 'text' )
+                $.each(data,function(key,value) {
+            if(xType != 'text' )
                             newSeries[0].data.push({ name: value[dataLabel], x: value[xLabel], y: tempY[0][i], marker: {fillColor: colorCodes[i % 8]} , id: i } );
-			else
+            else
                             newSeries[0].data.push({ name: value[dataLabel], x: tempX[0][i], y: tempY[0][i], marker: {fillColor: colorCodes[i % 8]} , id: i } );
-	                i++;   
+                    i++;   
                     });
-		    currentSettings.yAxis.labels = { formatter : function() {
-		        if(tempY[1][this.value] && tempY[1][this.value].length > 10)
-		            return tempY[1][this.value].substring(0,10)
-		        else 
-		            return tempY[1][this.value];    
+            currentSettings.yAxis.labels = { formatter : function() {
+                if(tempY[1][this.value] && tempY[1][this.value].length > 10)
+                    return tempY[1][this.value].substring(0,10)
+                else 
+                    return tempY[1][this.value];    
                         }
                     }
- 		    currentSettings.series = newSeries;
+             currentSettings.series = newSeries;
                     currentChart = PMA_createChart(currentSettings); 
-		}
-	    }
-	    currentChart.series[0].data[currentData].select();
         }
-	//End plot update	
+        }
+        currentChart.series[0].data[currentData].select();
+        }
+    //End plot update    
 
-	//Generate SQL query for update
-	if (!isEmpty(newValues)) {
+    //Generate SQL query for update
+    if (!isEmpty(newValues)) {
             var sql_query = 'UPDATE `' + window.parent.table + '` SET ';
-	    for (key in newValues) {
-	        if(key != 'where_clause') {
-	            sql_query += '`' + key + '`=' ;
-		    var value = newValues[key];
-		    if(!isNumeric(value) && value != null) 
-		        sql_query += '\'' + value + '\' ,';
-		    else
-		        sql_query += value + ' ,';
-	        }
-	    }
-	    sql_query = sql_query.substring(0, sql_query.length - 1);
-	    sql_query += ' WHERE ' + PMA_urldecode(data[currentData]['where_clause']);
-	    
-	    //Post SQL query to sql.php	
-	    $.post('sql.php', {
+        for (key in newValues) {
+            if(key != 'where_clause') {
+                sql_query += '`' + key + '`=' ;
+            var value = newValues[key];
+            if(!isNumeric(value) && value != null) 
+                sql_query += '\'' + value + '\' ,';
+            else
+                sql_query += value + ' ,';
+            }
+        }
+        sql_query = sql_query.substring(0, sql_query.length - 1);
+        sql_query += ' WHERE ' + PMA_urldecode(data[currentData]['where_clause']);
+        
+        //Post SQL query to sql.php    
+        $.post('sql.php', {
                 'token' : window.parent.token,
                 'db' : window.parent.db,
                 'ajax_request' : true,
                 'sql_query' : sql_query,
-	        'inline_edit' : false
-	        }, function(data) {
-	            if(data.success == true) {
-	                $('#sqlqueryresults').html(data.sql_query);
-		        $("#sqlqueryresults").trigger('appendAnchor');
-	            }
-	            else 
-	                PMA_ajaxShowMessage(data.error);
-	    })//End $.post
-	}//End database update
-        $("#dataDisplay").dialog("close");	
+            'inline_edit' : false
+            }, function(data) {
+                if(data.success == true) {
+                    $('#sqlqueryresults').html(data.sql_query);
+                $("#sqlqueryresults").trigger('appendAnchor');
+                }
+                else 
+                    PMA_ajaxShowMessage(data.error);
+        })//End $.post
+    }//End database update
+        $("#dataDisplay").dialog("close");    
     });//End submit handler 
 
     /*
@@ -418,14 +418,14 @@ $(document).ready(function() {
          .hide();
         $('#togglesearchformlink')
          .text(PMA_messages['strShowSearchCriteria'])
-	$('#togglesearchformdiv').show();
+    $('#togglesearchformdiv').show();
         var selectedRow;
-    	var colorCodes = ['#FF0000','#00FFFF','#0000FF','#0000A0','#FF0080','#800080','#FFFF00','#00FF00','#FF00FF'];
-    	var series = new Array();
-    	var xCord = new Array();
-    	var yCord = new Array();
-	var tempX, tempY;
-    	var it = 0;
+        var colorCodes = ['#FF0000','#00FFFF','#0000FF','#0000A0','#FF0080','#800080','#FFFF00','#00FF00','#FF00FF'];
+        var series = new Array();
+        var xCord = new Array();
+        var yCord = new Array();
+    var tempX, tempY;
+        var it = 0;
         var xMax; // xAxis extreme max 
         var xMin; // xAxis extreme min 
         var yMax; // yAxis extreme max 
@@ -434,33 +434,33 @@ $(document).ready(function() {
         // Set the basic plot settings
         var currentSettings = {
             chart: {
-            	renderTo: 'querychart',
-            	type: 'scatter',
-	    	//zoomType: 'xy',
-	    	width:$('#resizer').width() -3,
-            	height:$('#resizer').height()-20 
-	    },
-	    credits: {
+                renderTo: 'querychart',
+                type: 'scatter',
+            //zoomType: 'xy',
+            width:$('#resizer').width() -3,
+                height:$('#resizer').height()-20 
+        },
+        credits: {
                 enabled: false 
             },
-	    exporting: { enabled: false },
+        exporting: { enabled: false },
             label: { text: $('#dataLabel').val() },
-	    plotOptions: {
-	        series: {
-	            allowPointSelect: true,
+        plotOptions: {
+            series: {
+                allowPointSelect: true,
                     cursor: 'pointer',
-		    showInLegend: false,
+            showInLegend: false,
                     dataLabels: {
                         enabled: false,
                     },
-	            point: {
+                point: {
                         events: {
                             click: function() {
-			        var id = this.id;
-				var fid = 4;
-				currentData = id;
-				// Make AJAX request to tbl_zoom_select.php for getting the complete row info
-				var post_params = {
+                    var id = this.id;
+                var fid = 4;
+                currentData = id;
+                // Make AJAX request to tbl_zoom_select.php for getting the complete row info
+                var post_params = {
                                     'ajax_request' : true,
                                     'get_data_row' : true,
                                     'db' : window.parent.db,
@@ -469,33 +469,33 @@ $(document).ready(function() {
                                     'token' : window.parent.token,
                                 }
                                 $.post('tbl_zoom_select.php', post_params, function(data) {
-				    // Row is contained in data.row_info, now fill the displayResultForm with row values
-				    for ( key in data.row_info) { 
-					if (data.row_info[key] == null)
-					    $('#fields_null_id_' + fid).attr('checked', true);
-					else
-					    $('#fieldID_' + fid).val(data.row_info[key]);
-					fid++;
-				     }
-				     selectedRow = new Object();
-				     selectedRow = data.row_info;
+                    // Row is contained in data.row_info, now fill the displayResultForm with row values
+                    for ( key in data.row_info) { 
+                    if (data.row_info[key] == null)
+                        $('#fields_null_id_' + fid).attr('checked', true);
+                    else
+                        $('#fieldID_' + fid).val(data.row_info[key]);
+                    fid++;
+                     }
+                     selectedRow = new Object();
+                     selectedRow = data.row_info;
                                 });
 
-			        $("#dataDisplay").dialog("open");	
+                    $("#dataDisplay").dialog("open");    
                             },
                         }
-	            }
-	        }
-	    },
-	    tooltip: {
-	        formatter: function() {
-	            return this.point.name;
-	        }
-	    },
+                }
+            }
+        },
+        tooltip: {
+            formatter: function() {
+                return this.point.name;
+            }
+        },
             title: { text: 'Query Results' },
-	    xAxis: {
-	        title: { text: $('#tableid_0').val() },
-		events: {
+        xAxis: {
+            title: { text: $('#tableid_0').val() },
+        events: {
                     setExtremes: function(e){
                         this.resetZoom.show();
                     }
@@ -503,16 +503,16 @@ $(document).ready(function() {
 
             },
             yAxis: {
-		min: null,
-	        title: { text: $('#tableid_1').val() },
-		endOnTick: false,
+        min: null,
+            title: { text: $('#tableid_1').val() },
+        endOnTick: false,
                 startOnTick: false,
-		events: {
+        events: {
                     setExtremes: function(e){
                         this.resetZoom.show();
                     }
                 }
-	    },
+        },
         }
 
         $('#resizer').resizable({
@@ -525,159 +525,159 @@ $(document).ready(function() {
             }
         });
         
-	// Classify types as either numeric,time,text
-	xType = getType(xType);
-	yType = getType(yType);
+    // Classify types as either numeric,time,text
+    xType = getType(xType);
+    yType = getType(yType);
 
-	//Set the axis type based on the field
-	currentSettings.xAxis.type = (xType == 'time') ? 'datetime' : 'linear';
-	currentSettings.yAxis.type = (yType == 'time') ? 'datetime' : 'linear';
+    //Set the axis type based on the field
+    currentSettings.xAxis.type = (xType == 'time') ? 'datetime' : 'linear';
+    currentSettings.yAxis.type = (yType == 'time') ? 'datetime' : 'linear';
 
         // Formulate series data for plot
         series[0] = new Object();
         series[0].data = new Array();
-	series[0].marker = {
+    series[0].marker = {
             symbol: 'circle'
         };
-	if (xType != 'text' && yType != 'text') {
-	    $.each(data,function(key,value) {
-		var xVal = (xType == 'numeric') ? value[xLabel] : getTimeStamp(value[xLabel],$('#types_0').val());
-		var yVal = (yType == 'numeric') ? value[yLabel] : getTimeStamp(value[yLabel],$('#types_1').val());
+    if (xType != 'text' && yType != 'text') {
+        $.each(data,function(key,value) {
+        var xVal = (xType == 'numeric') ? value[xLabel] : getTimeStamp(value[xLabel],$('#types_0').val());
+        var yVal = (yType == 'numeric') ? value[yLabel] : getTimeStamp(value[yLabel],$('#types_1').val());
                 series[0].data.push({ name: value[dataLabel], x: xVal, y: yVal, marker: {fillColor: colorCodes[it % 8]} , id: it } );
-		xCord.push(value[xLabel]);
-		yCord.push(value[yLabel]);
-	        it++;   
+        xCord.push(value[xLabel]);
+        yCord.push(value[yLabel]);
+            it++;   
             });
-	    if(xType == 'numeric') {
-	        currentSettings.xAxis.max = Array.max(xCord) + 6
-	        currentSettings.xAxis.min = Array.min(xCord) - 6
-	    }
-	    else {
-	        currentSettings.xAxis.labels = { formatter : function() {
-		    return getDate(this.value, $('#types_0').val());
-		}}
+        if(xType == 'numeric') {
+            currentSettings.xAxis.max = Array.max(xCord) + 6
+            currentSettings.xAxis.min = Array.min(xCord) - 6
+        }
+        else {
+            currentSettings.xAxis.labels = { formatter : function() {
+            return getDate(this.value, $('#types_0').val());
+        }}
             }
-	    if(yType == 'numeric') {
-	        currentSettings.yAxis.max = Array.max(yCord) + 6
-	        currentSettings.yAxis.min = Array.min(yCord) - 6
-	    }
-	    else {
-	        currentSettings.yAxis.labels = { formatter : function() {
-		    return getDate(this.value, $('#types_1').val());
-		}}
+        if(yType == 'numeric') {
+            currentSettings.yAxis.max = Array.max(yCord) + 6
+            currentSettings.yAxis.min = Array.min(yCord) - 6
+        }
+        else {
+            currentSettings.yAxis.labels = { formatter : function() {
+            return getDate(this.value, $('#types_1').val());
+        }}
             }
 
         }
-	
-	else if (xType =='text' && yType !='text') {
-	    $.each(data,function(key,value) {
-		xCord.push(value[xLabel]);
-		yCord.push(value[yLabel]);
-	    });
-	    
-	    tempX = getCord(xCord);	
-	    $.each(data,function(key,value) {
-		var yVal = (yType == 'numeric') ? value[yLabel] : getTimeStamp(value[yLabel],$('#types_1').val());
+    
+    else if (xType =='text' && yType !='text') {
+        $.each(data,function(key,value) {
+        xCord.push(value[xLabel]);
+        yCord.push(value[yLabel]);
+        });
+        
+        tempX = getCord(xCord);    
+        $.each(data,function(key,value) {
+        var yVal = (yType == 'numeric') ? value[yLabel] : getTimeStamp(value[yLabel],$('#types_1').val());
                 series[0].data.push({ name: value[dataLabel], x: tempX[0][it], y: yVal, marker: {fillColor: colorCodes[it % 8]} , id: it } );
-	        it++;   
+            it++;   
             });
-	    
-	    currentSettings.xAxis.labels = { formatter : function() {
-		    if(tempX[1][this.value] && tempX[1][this.value].length > 10)
-		        return tempX[1][this.value].substring(0,10)
-		    else 
-			return tempX[1][this.value];
+        
+        currentSettings.xAxis.labels = { formatter : function() {
+            if(tempX[1][this.value] && tempX[1][this.value].length > 10)
+                return tempX[1][this.value].substring(0,10)
+            else 
+            return tempX[1][this.value];
                 } 
             }
-	    if(yType == 'numeric') {
-	        currentSettings.yAxis.max = Array.max(yCord) + 6
-	        currentSettings.yAxis.min = Array.min(yCord) - 6
-	    }
-	    else {
-	        currentSettings.yAxis.labels = { formatter : function() {
-		    return getDate(this.value, $('#types_1').val());
-		}}
+        if(yType == 'numeric') {
+            currentSettings.yAxis.max = Array.max(yCord) + 6
+            currentSettings.yAxis.min = Array.min(yCord) - 6
+        }
+        else {
+            currentSettings.yAxis.labels = { formatter : function() {
+            return getDate(this.value, $('#types_1').val());
+        }}
             }
-	    xCord = tempX[2];
-	}
-	 
-	else if (xType !='text' && yType =='text') {
-	    $.each(data,function(key,value) {
-		xCord.push(value[xLabel]);
-		yCord.push(value[yLabel]);
-	    });
-	    tempY = getCord(yCord);	
-	    $.each(data,function(key,value) {
-		var xVal = (xType == 'numeric') ? value[xLabel] : getTimeStamp(value[xLabel],$('#types_0').val());
+        xCord = tempX[2];
+    }
+     
+    else if (xType !='text' && yType =='text') {
+        $.each(data,function(key,value) {
+        xCord.push(value[xLabel]);
+        yCord.push(value[yLabel]);
+        });
+        tempY = getCord(yCord);    
+        $.each(data,function(key,value) {
+        var xVal = (xType == 'numeric') ? value[xLabel] : getTimeStamp(value[xLabel],$('#types_0').val());
                 series[0].data.push({ name: value[dataLabel], y: tempY[0][it], x: xVal, marker: {fillColor: colorCodes[it % 8]} , id: it } );
-	        it++;   
+            it++;   
             });
-	    if(xType == 'numeric') {
-	        currentSettings.xAxis.max = Array.max(xCord) + 6
-	        currentSettings.xAxis.min = Array.min(xCord) - 6
-	    }
-	    else {
-	        currentSettings.xAxis.labels = { formatter : function() {
-		    return getDate(this.value, $('#types_0').val());
-		}}
+        if(xType == 'numeric') {
+            currentSettings.xAxis.max = Array.max(xCord) + 6
+            currentSettings.xAxis.min = Array.min(xCord) - 6
+        }
+        else {
+            currentSettings.xAxis.labels = { formatter : function() {
+            return getDate(this.value, $('#types_0').val());
+        }}
             }
-	    currentSettings.yAxis.labels = { formatter : function() {
-		    if(tempY[1][this.value] && tempY[1][this.value].length > 10)
-		        return tempY[1][this.value].substring(0,10)
-		    else 
-	                return tempY[1][this.value];
-	        }
+        currentSettings.yAxis.labels = { formatter : function() {
+            if(tempY[1][this.value] && tempY[1][this.value].length > 10)
+                return tempY[1][this.value].substring(0,10)
+            else 
+                    return tempY[1][this.value];
             }
-	    yCord = tempY[2];
-	}
-	
-	else if (xType =='text' && yType =='text') {
-	    $.each(data,function(key,value) {
-		xCord.push(value[xLabel]);
-		yCord.push(value[yLabel]);
-	    });
-	    tempX = getCord(xCord);	
-	    tempY = getCord(yCord);	
-	    $.each(data,function(key,value) {
+            }
+        yCord = tempY[2];
+    }
+    
+    else if (xType =='text' && yType =='text') {
+        $.each(data,function(key,value) {
+        xCord.push(value[xLabel]);
+        yCord.push(value[yLabel]);
+        });
+        tempX = getCord(xCord);    
+        tempY = getCord(yCord);    
+        $.each(data,function(key,value) {
                 series[0].data.push({ name: value[dataLabel], x: tempX[0][it], y: tempY[0][it], marker: {fillColor: colorCodes[it % 8]} , id: it } );
-	        it++;   
+            it++;   
             });
-	    currentSettings.xAxis.labels = { formatter : function() {
-		    if(tempX[1][this.value] && tempX[1][this.value].length > 10)
-		        return tempX[1][this.value].substring(0,10)
-		    else 
-	                return tempX[1][this.value];
-	        }
+        currentSettings.xAxis.labels = { formatter : function() {
+            if(tempX[1][this.value] && tempX[1][this.value].length > 10)
+                return tempX[1][this.value].substring(0,10)
+            else 
+                    return tempX[1][this.value];
             }
-	    currentSettings.yAxis.labels = { formatter : function() {
-		    if(tempY[1][this.value] && tempY[1][this.value].length > 10)
-		        return tempY[1][this.value].substring(0,10)
-		    else 
-	                return tempY[1][this.value];
-	        }
-	    }
-	    xCord = tempX[2];
-	    yCord = tempY[2];
+            }
+        currentSettings.yAxis.labels = { formatter : function() {
+            if(tempY[1][this.value] && tempY[1][this.value].length > 10)
+                return tempY[1][this.value].substring(0,10)
+            else 
+                    return tempY[1][this.value];
+            }
+        }
+        xCord = tempX[2];
+        yCord = tempY[2];
 
-	}
+    }
 
-	currentSettings.series = series;
+    currentSettings.series = series;
         currentChart = PMA_createChart(currentSettings);
-	xMin = currentChart.xAxis[0].getExtremes().min;
-    	xMax = currentChart.xAxis[0].getExtremes().max;
-    	yMin = currentChart.yAxis[0].getExtremes().min;
-    	yMax = currentChart.yAxis[0].getExtremes().max;
-	includePan(currentChart); //Enable panning feature
+    xMin = currentChart.xAxis[0].getExtremes().min;
+        xMax = currentChart.xAxis[0].getExtremes().max;
+        yMin = currentChart.yAxis[0].getExtremes().min;
+        yMax = currentChart.yAxis[0].getExtremes().max;
+    includePan(currentChart); //Enable panning feature
         var setZoom = function() {
-	    var newxm = xMin + (xMax - xMin) * (1 - zoomRatio) / 2;
-	    var newxM = xMax - (xMax - xMin) * (1 - zoomRatio) / 2;
-	    var newym = yMin + (yMax - yMin) * (1 - zoomRatio) / 2;
-	    var newyM = yMax - (yMax - yMin) * (1 - zoomRatio) / 2;
+        var newxm = xMin + (xMax - xMin) * (1 - zoomRatio) / 2;
+        var newxM = xMax - (xMax - xMin) * (1 - zoomRatio) / 2;
+        var newym = yMin + (yMax - yMin) * (1 - zoomRatio) / 2;
+        var newyM = yMax - (yMax - yMin) * (1 - zoomRatio) / 2;
             currentChart.xAxis[0].setExtremes(newxm,newxM);
             currentChart.yAxis[0].setExtremes(newym,newyM);
-	};
-	//Enable zoom feature
-	 $("#querychart").mousewheel(function(objEvent, intDelta) {
+    };
+    //Enable zoom feature
+     $("#querychart").mousewheel(function(objEvent, intDelta) {
             if (intDelta > 0) {
                 if (zoomRatio > 0.1) {
                     zoomRatio = zoomRatio - 0.1;
@@ -703,6 +703,6 @@ $(document).ready(function() {
             currentChart.yAxis[0].setExtremes(null, null)
             this.style.display = 'none'
         });
-	scrollToChart();
+    scrollToChart();
     }
 });
