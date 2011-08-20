@@ -900,7 +900,7 @@ msgstr "Ydre ring:"
 
 #: gis_data_editor.php:223 gis_data_editor.php:277 js/messages.php:290
 msgid "Inner Ring"
-msgstr ""
+msgstr "Indre ring"
 
 #: gis_data_editor.php:248
 #, fuzzy
