@@ -1638,7 +1638,7 @@ msgstr "Begrundelse"
 
 #: js/messages.php:202
 msgid "Used variable / formula"
-msgstr ""
+msgstr "Brugt variabel/formel"
 
 #: js/messages.php:203
 msgid "Test"
