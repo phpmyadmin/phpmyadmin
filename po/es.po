@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-20 06:46+0200\n"
+"PO-Revision-Date: 2011-08-20 06:49+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -12812,7 +12812,7 @@ msgstr ""
 #: po/advisory_rules.php:193
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr ""
+msgstr "Bloqueos de tabla inmediatos: %s%%, este valor debería ser mayor a 95%%"
 
 #: po/advisory_rules.php:195
 msgid "Table lock wait rate"
