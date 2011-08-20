@@ -10416,7 +10416,7 @@ msgstr "Y-அச்சு சிட்டை:"
 
 #: tbl_chart.php:134
 msgid "Y Values"
-msgstr ""
+msgstr "Y மதிப்புக்கள்:"
 
 #: tbl_create.php:30
 #, php-format
