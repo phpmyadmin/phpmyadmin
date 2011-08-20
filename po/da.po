@@ -1800,7 +1800,7 @@ msgstr "Ved at holde pointeren over et punkt vises dets etiket"
 
 #: js/messages.php:268
 msgid "Drag and select an area in the plot to zoom into it."
-msgstr ""
+msgstr "Træk og vælg et område i plottet for at forstørre det."
 
 #: js/messages.php:270
 msgid "Click reset zoom link to come back to original state."
