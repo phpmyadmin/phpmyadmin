@@ -13095,8 +13095,8 @@ msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
 msgstr ""
-"El tamaño del archivo de registros InnoDB es %s%% del tamaño del conjunto de "
-"búfers InnoDB, no debería ser menor a 20%%"
+"El tamaño del archivo de registros InnoDB es %s%% del tamaño de la reserva "
+"de búfers InnoDB, no debería ser menor a 20%%"
 
 #: po/advisory_rules.php:255
 msgid "Max InnoDB log size"
