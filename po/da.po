@@ -1574,10 +1574,9 @@ msgstr ""
 "burde hjælpe."
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
-msgstr "Genindlæs"
+msgstr "Genindlæs side"
 
 #: js/messages.php:186
 msgid "Affected rows:"
