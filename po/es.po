@@ -12806,6 +12806,8 @@ msgstr "Demasiados bloqueos de tablas no fueron provistos inmediatamente."
 #: po/advisory_rules.php:192 po/advisory_rules.php:197
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
+"Optimice las consultas y/o utilice InnoDB para reducir el tiempo de espera "
+"para bloqueos."
 
 #: po/advisory_rules.php:193
 #, php-format
