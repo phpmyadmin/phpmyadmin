@@ -10644,7 +10644,7 @@ msgstr "பாவனையளவு"
 
 #: tbl_printview.php:305 tbl_structure.php:789
 msgid "Effective"
-msgstr ""
+msgstr "பயனுடைய"
 
 #: tbl_printview.php:330 tbl_structure.php:824
 msgid "Row Statistics"
