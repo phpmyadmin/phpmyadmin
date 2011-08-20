@@ -1521,7 +1521,6 @@ msgid "Jump to Log table"
 msgstr "Gå til logtabellen"
 
 #: js/messages.php:170
-#, fuzzy
 #| msgid "Log analysed, but not data found in this time span."
 msgid "Log analysed, but no data found in this time span."
 msgstr "Loggen er analyseret, men ingen data fundet i dette tidsinterval."
