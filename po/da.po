@@ -6634,10 +6634,9 @@ msgstr ""
 "Ændr alle indstillinger ved at klikke på det tilhørende \"Indstilling\" link"
 
 #: libraries/import.lib.php:1097
-#, fuzzy
 #| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link"
-msgstr "Rediger dens struktur ved at følge linket \"Struktur\""
+msgstr "Rediger struktur ved at følge linket \"Struktur\""
 
 #: libraries/import.lib.php:1100
 msgid "Go to database"
