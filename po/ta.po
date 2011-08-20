@@ -9998,7 +9998,7 @@ msgstr "முழுதளாவிய மதிப்பு"
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:226
 msgid "Download"
-msgstr ""
+msgstr "பதிவிறக்கம்"
 
 #: setup/frames/index.inc.php:49
 msgid "Cannot load or save configuration"
