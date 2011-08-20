@@ -12826,10 +12826,9 @@ msgstr ""
 "por hora"
 
 #: po/advisory_rules.php:200
-#, fuzzy
 #| msgid "Key cache"
 msgid "Thread cache"
-msgstr "Caché de claves"
+msgstr "Caché de hilos"
 
 #: po/advisory_rules.php:201
 msgid ""
