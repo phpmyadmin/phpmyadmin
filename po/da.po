@@ -1373,7 +1373,6 @@ msgid "Pause monitor"
 msgstr "Sæt monitor på pause"
 
 #: js/messages.php:136
-#, fuzzy
 #| msgid "general_log and slow_query_log is enabled."
 msgid "general_log and slow_query_log are enabled."
 msgstr "general_log og slow_query_log er aktiveret."
