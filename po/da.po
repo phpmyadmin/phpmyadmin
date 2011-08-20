@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-20 19:13+0200\n"
+"PO-Revision-Date: 2011-08-20 19:15+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -9550,6 +9550,9 @@ msgid ""
 "time, observe or benchmark your database, and undo the change if there was "
 "no clearly measurable improvement."
 msgstr ""
+"Den bedste måde at finjustere dit system vil være at ændre een indstiling ad "
+"gangen, observere og teste din database og annullere ændringen, hvis der "
+"ingen klart synlig forskel var."
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:836
