@@ -10371,7 +10371,6 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1485
-#, fuzzy
 #| msgid "Restore default value"
 msgid "Reset to default"
 msgstr "Gendan standardværdi"
