@@ -1297,7 +1297,7 @@ msgstr "Forbrugt hukommelse"
 #: js/messages.php:113
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "Total sidelager"
+msgstr "Totalt sidelager"
 
 #: js/messages.php:114
 msgid "Cached Swap"
