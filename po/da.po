@@ -2354,10 +2354,9 @@ msgstr[0] "%1$d række sat ind."
 msgstr[1] "%1$d rækker sat ind."
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Tillader læsning af data."
+msgstr "Fejl ved oprettelse af PDF:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
