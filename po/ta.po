@@ -10366,7 +10366,7 @@ msgstr "பங்குனி"
 
 #: tbl_chart.php:90
 msgid "Line"
-msgstr ""
+msgstr "கோடு"
 
 #: tbl_chart.php:91
 #, fuzzy
