@@ -12982,7 +12982,7 @@ msgstr "Tasa de conexiones abandonadas"
 
 #: po/advisory_rules.php:231
 msgid "Too many connections are aborted"
-msgstr ""
+msgstr "Demasiadas conexiones son abandonadas"
 
 #: po/advisory_rules.php:233
 #, php-format
