@@ -10494,10 +10494,9 @@ msgstr ""
 "tømme dens tabel, når der ikke er behov for den længere. "
 
 #: server_status.php:1533
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Preset chart"
-msgstr "Fjern diagram"
+msgstr "Foruddefineret diagram"
 
 #: server_status.php:1537
 msgid "Status variable(s)"
