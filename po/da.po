@@ -1550,10 +1550,9 @@ msgid "Sum of grouped rows:"
 msgstr "Sum af grupperede rækker:"
 
 #: js/messages.php:179
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "Total"
+msgstr "Total:"
 
 #: js/messages.php:181
 msgid "Loading logs"
