@@ -10080,7 +10080,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:229
 msgid "Load"
-msgstr ""
+msgstr "ஏற்று"
 
 #: setup/frames/index.inc.php:240
 msgid "phpMyAdmin homepage"
