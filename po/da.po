@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-20 18:48+0200\n"
+"PO-Revision-Date: 2011-08-20 18:49+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -1822,10 +1822,9 @@ msgid "Strings are converted into integer for plotting"
 msgstr "Strenge er konverteret til heltal i plottet."
 
 #: js/messages.php:278
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
-msgstr "Tilføj/Slet kolonner"
+msgstr "Vælg to kolonner"
 
 #: js/messages.php:279
 msgid "Select two different columns"
