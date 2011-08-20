@@ -13050,10 +13050,9 @@ msgid "have_innodb is set to 'value'"
 msgstr "«have_innodb» está configurado como 'value'"
 
 #: po/advisory_rules.php:250
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB log size"
-msgstr "Tamaño de la reserva de búfers"
+msgstr "Tamaño de registro InnoDB"
 
 #: po/advisory_rules.php:251
 #, fuzzy
