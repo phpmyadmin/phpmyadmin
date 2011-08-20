@@ -12989,6 +12989,8 @@ msgstr "Demasiadas conexiones son abandonadas"
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"La tasa de conexiones abandonadas es %s, este valor debería ser menor a 1 "
+"por hora"
 
 #: po/advisory_rules.php:235
 #, fuzzy
