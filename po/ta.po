@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-20 08:13+0200\n"
+"PO-Revision-Date: 2011-08-20 08:14+0200\n"
 "Last-Translator:  <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -10452,7 +10452,7 @@ msgstr "கள நிரல்களை சேர்க்க/ நீக்க�
 
 #: tbl_gis_visualization.php:138
 msgid "-- None --"
-msgstr ""
+msgstr "-- எதுவுமில்லை --"
 
 #: tbl_gis_visualization.php:151
 #, fuzzy
