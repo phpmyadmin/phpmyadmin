@@ -9508,10 +9508,9 @@ msgid "Related links:"
 msgstr "Relaterede links:"
 
 #: server_status.php:800
-#, fuzzy
 #| msgid "Query type"
 msgid "Run analyzer"
-msgstr "Forespørgselstype"
+msgstr "Kør analysator"
 
 #: server_status.php:801
 #, fuzzy
