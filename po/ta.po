@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-20 08:17+0200\n"
+"PO-Revision-Date: 2011-08-20 08:18+0200\n"
 "Last-Translator:  <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -10426,7 +10426,7 @@ msgstr "%s இந்த அட்டவணை ஏற்கனவே உள்ள
 #: tbl_create.php:216
 #, php-format
 msgid "Table %1$s has been created."
-msgstr ""
+msgstr "அட்டவணை %1$s உருவாக்கபட்டது."
 
 #: tbl_export.php:24
 msgid "View dump (schema) of table"
