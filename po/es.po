@@ -12910,10 +12910,10 @@ msgstr ""
 "hilos que inician ejecución lentamente"
 
 #: po/advisory_rules.php:218
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "slow_launch_time is set to %s"
-msgstr "«long_query_time» está configurado a %d segundo(s)."
+msgstr "«slow_launch_time» está configurado a %s"
 
 #: po/advisory_rules.php:220
 #, fuzzy
