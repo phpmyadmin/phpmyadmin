@@ -13020,10 +13020,9 @@ msgstr ""
 "%%"
 
 #: po/advisory_rules.php:240
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of aborted clients"
-msgstr "Formato del archivo importado"
+msgstr "Tasa de clientes abandonados"
 
 #: po/advisory_rules.php:243
 #, php-format
