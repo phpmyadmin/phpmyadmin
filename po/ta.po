@@ -10084,7 +10084,7 @@ msgstr "ஏற்று"
 
 #: setup/frames/index.inc.php:240
 msgid "phpMyAdmin homepage"
-msgstr ""
+msgstr "phpMyAdmin அகப்பக்கம்"
 
 #: setup/frames/index.inc.php:241
 msgid "Donate"
