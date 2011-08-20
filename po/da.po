@@ -1229,10 +1229,9 @@ msgstr ""
 "derfor din konfiguration i menuen <i>Settings</>"
 
 #: js/messages.php:96
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache efficiency"
-msgstr "Forespørgsel-mellemlager"
+msgstr "Effektivitet af forespørgsels-mellemlager"
 
 #: js/messages.php:97 po/advisory_rules.php:70
 #, fuzzy
