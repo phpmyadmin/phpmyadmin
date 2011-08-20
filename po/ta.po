@@ -10030,7 +10030,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:93
 msgid "Configuration saved."
-msgstr "உள்ளமைவு சேமிக்கப்பட்டது"
+msgstr "உள்ளமைவு சேமிக்கப்பட்டது."
 
 #: setup/frames/index.inc.php:94
 msgid ""
