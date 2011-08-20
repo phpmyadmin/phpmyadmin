@@ -12790,6 +12790,7 @@ msgstr "La tasa de apertura de archivos es alta."
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
+"Tasa de apertura de archivos: %s, este valor debería ser menor a 5 por hora"
 
 #: po/advisory_rules.php:190
 #, fuzzy, php-format
