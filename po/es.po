@@ -13206,7 +13206,7 @@ msgstr ""
 
 #: po/advisory_rules.php:268
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "«concurrent_insert» está definido como 0"
 
 #, fuzzy
 #~ msgid ""
