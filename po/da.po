@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-20 19:19+0200\n"
+"PO-Revision-Date: 2011-08-20 19:20+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -10555,14 +10555,11 @@ msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 
 #: server_status.php:1608
-#, fuzzy
 #| msgid ""
 #| "<p>Choose from which log you want the statistics to be generated from.</"
 #| "p> Results are grouped by query text."
 msgid "Choose from which log you want the statistics to be generated from."
-msgstr ""
-"<p>Vælg fra hvilken log, du ønsker statistikken genereret fra</"
-"p>Resultaterne er grupperet af forespørgselstekst."
+msgstr "Vælg fra hvilken log, du ønsker statistikken genereret fra."
 
 #: server_status.php:1610
 msgid "Results are grouped by query text."
