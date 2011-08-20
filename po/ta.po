@@ -10442,7 +10442,7 @@ msgstr "அகலம்"
 
 #: tbl_gis_visualization.php:132
 msgid "Height"
-msgstr ""
+msgstr "உயரம்"
 
 #: tbl_gis_visualization.php:136
 #, fuzzy
