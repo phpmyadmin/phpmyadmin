@@ -10293,7 +10293,7 @@ msgstr ""
 
 #: sql.php:959
 msgid "Label"
-msgstr ""
+msgstr "சிட்டை"
 
 #: tbl_addfield.php:185 tbl_alter.php:99 tbl_indexes.php:98
 #, php-format
