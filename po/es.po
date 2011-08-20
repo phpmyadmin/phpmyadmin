@@ -13137,10 +13137,9 @@ msgid "Your absolute InnoD log size is %s MiB"
 msgstr "El tamaño del archivo de registros InnoDB es %s MiB"
 
 #: po/advisory_rules.php:260
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
-msgstr "Tamaño de la reserva de búfers"
+msgstr "Tamaño de la reserva de búfers InnoDB"
 
 #: po/advisory_rules.php:261
 msgid "Your InnoDB buffer pool is fairly small."
