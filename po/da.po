@@ -1841,7 +1841,7 @@ msgstr "Kopi"
 
 #: js/messages.php:291
 msgid "Outer Ring"
-msgstr ""
+msgstr "Ydre ring"
 
 #: js/messages.php:297
 #, fuzzy
