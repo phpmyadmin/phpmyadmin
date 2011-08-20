@@ -1615,7 +1615,7 @@ msgstr "Rådgivningssystem"
 
 #: js/messages.php:197
 msgid "Possible performance issues"
-msgstr ""
+msgstr "Mulige ydelsesmæssige problemer"
 
 #: js/messages.php:198
 msgid "Issue"
