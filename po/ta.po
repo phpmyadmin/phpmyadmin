@@ -9968,7 +9968,7 @@ msgstr ""
 #: server_synchronize.php:1221
 #, php-format
 msgid "Configuration: %s"
-msgstr ""
+msgstr "உள்ளமைவு: %s"
 
 #: server_synchronize.php:1236
 msgid "Socket"
