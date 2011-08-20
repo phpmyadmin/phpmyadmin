@@ -1921,10 +1921,9 @@ msgstr ""
 "indhold."
 
 #: js/messages.php:319
-#, fuzzy
 #| msgid "Go to view"
 msgid "Go to link"
-msgstr "Gå til view"
+msgstr "Gå til link"
 
 #: js/messages.php:322
 msgid "Generate password"
