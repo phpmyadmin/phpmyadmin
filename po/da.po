@@ -10360,10 +10360,9 @@ msgid "Chart columns"
 msgstr "Diagramkolonner:"
 
 #: server_status.php:1484
-#, fuzzy
 #| msgid "Error management:"
 msgid "Chart arrangement"
-msgstr "Fejlhåndtering:"
+msgstr "Diagramopstilling"
 
 #: server_status.php:1484
 msgid ""
