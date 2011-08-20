@@ -1844,10 +1844,9 @@ msgid "Outer Ring"
 msgstr "Ydre ring"
 
 #: js/messages.php:297
-#, fuzzy
 #| msgid "Add column"
 msgid "Add columns"
-msgstr "Tilføj kolonne"
+msgstr "Tilføj kolonner"
 
 #: js/messages.php:300
 msgid "Select referenced key"
