@@ -12999,7 +12999,7 @@ msgstr "Porcentaje de clientes abandonados"
 
 #: po/advisory_rules.php:236 po/advisory_rules.php:241
 msgid "Too many clients are aborted."
-msgstr ""
+msgstr "Demasiados clientes son abandonados."
 
 #: po/advisory_rules.php:237 po/advisory_rules.php:242
 msgid ""
