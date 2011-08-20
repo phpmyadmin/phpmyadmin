@@ -1282,7 +1282,7 @@ msgstr "Hukommelse i mellemlager"
 #: js/messages.php:109
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "Hukommelse i bufferl"
+msgstr "Buffer hukommelse"
 
 #: js/messages.php:110
 #| msgid "System memory"
