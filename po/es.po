@@ -13104,7 +13104,7 @@ msgstr "Tamaño máximo del registro InnoDB"
 
 #: po/advisory_rules.php:256
 msgid "The InnoDB log file size is inadequately large."
-msgstr ""
+msgstr "El tamaño del archivo de registros InnoDB es inadecuadamente grande."
 
 #: po/advisory_rules.php:257
 #, php-format
