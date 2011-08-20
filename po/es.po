@@ -12841,6 +12841,8 @@ msgstr ""
 #: po/advisory_rules.php:202
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
+"Active el caché de hilos configurado «thread_cache_size» a un valor mayor a "
+"0."
 
 #: po/advisory_rules.php:203
 msgid "The thread cache is set to 0"
