@@ -10355,7 +10355,6 @@ msgid "Refresh rate"
 msgstr "Opdateringsfrekvens"
 
 #: server_status.php:1468
-#, fuzzy
 #| msgid "Chart columns:"
 msgid "Chart columns"
 msgstr "Diagramkolonner:"
