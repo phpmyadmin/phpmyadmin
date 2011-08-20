@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-20 08:38+0200\n"
+"PO-Revision-Date: 2011-08-20 08:39+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -12436,7 +12436,7 @@ msgstr ""
 
 #: po/advisory_rules.php:158
 msgid "key_buffer_size is 0"
-msgstr ""
+msgstr "key_buffer_size 0'dır"
 
 #: po/advisory_rules.php:160
 #, php-format
