@@ -1301,7 +1301,7 @@ msgstr "Total sidelager"
 
 #: js/messages.php:114
 msgid "Cached Swap"
-msgstr ""
+msgstr "Sidelager i mellemlager"
 
 #: js/messages.php:115
 msgid "Used Swap"
