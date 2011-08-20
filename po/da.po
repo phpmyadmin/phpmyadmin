@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-20 18:27+0200\n"
+"PO-Revision-Date: 2011-08-20 18:28+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -1295,10 +1295,9 @@ msgid "Used memory"
 msgstr "Forbrugt hukommelse"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "Total"
+msgstr "Total sidelager"
 
 #: js/messages.php:114
 msgid "Cached Swap"
