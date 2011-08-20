@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-20 07:10+0200\n"
+"PO-Revision-Date: 2011-08-20 07:11+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -13055,12 +13055,13 @@ msgid "InnoDB log size"
 msgstr "Tamaño de registro InnoDB"
 
 #: po/advisory_rules.php:251
-#, fuzzy
 #| msgid "The number writes done to the InnoDB buffer pool."
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
-msgstr "El número de escrituras hechas a la reserva de búfers InnoDB."
+msgstr ""
+"El tamaño del archivo de registro InnoDB no parece ser apropiado en relación "
+"al conjunto de búfers InnoDB."
 
 #: po/advisory_rules.php:252
 #, php-format
