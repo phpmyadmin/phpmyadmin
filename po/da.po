@@ -5685,10 +5685,9 @@ msgid "Language"
 msgstr "Sprog"
 
 #: libraries/display_tbl.lib.php:401
-#, fuzzy
 #| msgid "Save directory"
 msgid "Save edited data"
-msgstr "Gemmemappe"
+msgstr "Gem redigerede data"
 
 #: libraries/display_tbl.lib.php:407
 msgid "Restore column order"
