@@ -10470,7 +10470,7 @@ msgstr "கோப்பை சேமி"
 
 #: tbl_gis_visualization.php:178
 msgid "File name"
-msgstr ""
+msgstr "கோப்பின் பெயர்"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
