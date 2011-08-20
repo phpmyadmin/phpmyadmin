@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-20 08:27+0200\n"
+"PO-Revision-Date: 2011-08-20 08:28+0200\n"
 "Last-Translator:  <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -10044,7 +10044,7 @@ msgstr "இருதிப்பர்வை"
 
 #: setup/frames/index.inc.php:109
 msgid "Show hidden messages (#MSG_COUNT)"
-msgstr ""
+msgstr "மறைத்த செய்திகளை காட்டு (#MSG_COUNT)"
 
 #: setup/frames/index.inc.php:149
 msgid "There are no configured servers"
