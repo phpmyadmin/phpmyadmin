@@ -10490,7 +10490,7 @@ msgstr "புதிய சுட்டை உருவாக்கு"
 
 #: tbl_indexes.php:171
 msgid "Modify an index"
-msgstr ""
+msgstr "சுட்டை மார்றியமை"
 
 #: tbl_indexes.php:176
 msgid ""
