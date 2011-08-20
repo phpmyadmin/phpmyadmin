@@ -9513,7 +9513,6 @@ msgid "Run analyzer"
 msgstr "Kør analysator"
 
 #: server_status.php:801
-#, fuzzy
 #| msgid "Instructions/Setup"
 msgid "Instructions"
 msgstr "Instruktioner/Opsætning"
