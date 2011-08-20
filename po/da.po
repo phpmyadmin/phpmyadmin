@@ -1538,7 +1538,7 @@ msgstr "Filter"
 
 #: js/messages.php:176
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "Filtrer forespørgsler efter ord/regex:"
 
 #: js/messages.php:177
 msgid "Group queries, ignoring variable data in WHERE clauses"
