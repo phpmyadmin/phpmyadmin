@@ -9994,7 +9994,7 @@ msgstr "அமர்வு மதிப்பு"
 
 #: server_variables.php:111
 msgid "Global value"
-msgstr ""
+msgstr "முழுதளாவிய மதிப்பு"
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:226
 msgid "Download"
