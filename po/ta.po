@@ -10499,7 +10499,7 @@ msgstr ""
 
 #: tbl_indexes.php:179
 msgid "Index name:"
-msgstr ""
+msgstr "சுட்டுப் பெயர்"
 
 #: tbl_indexes.php:185
 msgid "Index type:"
