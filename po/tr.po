@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-18 10:40+0200\n"
+"PO-Revision-Date: 2011-08-19 21:49+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -817,7 +817,8 @@ msgstr "Çıktı"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr "\"Genişlik/Değerler\" alanına katılan değerleri kopyala ve yapıştır"
+msgstr ""
+"\"Genişlik/Değerler\" alanında birleştirilen değerleri kopyala ve yapıştır"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
@@ -3075,7 +3076,7 @@ msgstr "Sıfırla"
 
 #: libraries/config/messages.inc.php:17
 msgid "Improves efficiency of screen refresh"
-msgstr "Ekran yenilemenin etkinliğini geliştirir"
+msgstr "Ekran yenileme etkinliğini geliştirir"
 
 #: libraries/config/messages.inc.php:18
 msgid "Enable Ajax"
@@ -9782,8 +9783,8 @@ msgstr ""
 "Sabitlenmiş konumda satır tabanlı okumak için istek sayısıdır. Eğer "
 "sonuçları sıralamayı gerektiren çok fazla sorgu yapıyorsanız, bu değer "
 "yüksek olur. Muhtemelen bütün tabloları taramak için MySQL gerektiren çok "
-"fazla sorgulamanız vardır veya düzgün bir şekilde anahtarları "
-"kullanmamaktasınız."
+"fazla sorgulamalara sahipsiniz ya da anahtarları düzgün kullanılmayan "
+"birleştirmelere sahipsiniz."
 
 #: server_status.php:1209
 msgid ""
@@ -10245,7 +10246,7 @@ msgid ""
 msgstr ""
 "Yapılması zorunlu sıralama algoritması birleştirme geçişi sayısıdır. Eğer bu "
 "değer büyükse, sort_buffer_size sistem değişkeninin değerini arttırmayı "
-"dikkate almalısınız."
+"düşünmelisiniz."
 
 #: server_status.php:1290
 msgid "The number of sorts that were done with ranges."
@@ -11976,9 +11977,10 @@ msgid ""
 "cache, especially if you have multiple slaves."
 msgstr ""
 "Oldukça yüksek trafikli veritabanı ile MySQL Sorgu önbelleği "
-"kullanıyorsunuz. MySQL Sorgu önbelleği yerine <a href=\\\"http://dev.mysql."
-"com/doc/refman/5.1/en/ha-memcached.html\\\">memcached</a> kullanmayı hesaba "
-"katmak değebilir özelliklede çoklu slave'lere sahipseniz."
+"kullanıyorsunuz. MySQL Sorgu önbelleği yerine <a "
+"href=\\\"http://dev.mysql.com/doc/refman/5.1/en/ha-"
+"memcached.html\\\">memcached</a> kullanmayı düşünmek değebilir özelliklede "
+"çoklu slave'lere sahipseniz."
 
 #: po/advisory_rules.php:73
 #, php-format
@@ -11999,7 +12001,7 @@ msgstr "Sorgu önbelleği verimli çalışmıyor, düşük tavan oranına sahip.
 
 #: po/advisory_rules.php:77
 msgid "Consider increasing {query_cache_limit}."
-msgstr "Dikkate değer artış {query_cache_limit}."
+msgstr "Dikkate değer {query_cache_limit} artışı."
 
 #: po/advisory_rules.php:78
 #, php-format
@@ -12145,6 +12147,13 @@ msgid ""
 "(often invalidated due to table updates) increasing {query_cache_limit} "
 "might reduce efficiency."
 msgstr ""
+"{query_cache_limit} değiştirmek (genelde artarak) verimi arttırabilir. Bu "
+"değişken en fazla boyutu belirler sorgu sonucu sorgu önbelleği içine "
+"eklenebilmek zorundadır. Eğer 1 MiB'ın üstünde iyi önbelleklenebilir (çok "
+"okuma, az yazma) birçok sorgu sonucu varsa sonrasında {query_cache_limit} "
+"arttırmak etkiyi arttıracaktır. Halbuki çoğu sonucun iyi önbelleklenemeyen "
+"(tablo güncellemelerinden dolayı sıkça geçersiz kılınan) 1 MiB'ın üzerinde "
+"olması durumunda {query_cache_limit} arttırmak verimi azaltacaktır."
 
 #: po/advisory_rules.php:103
 msgid "query_cache_limit is set to 1 MiB"
@@ -12163,6 +12172,8 @@ msgid ""
 "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending "
 "on your system memory limits"
 msgstr ""
+"Dikkate değer sort_buffer_size ve/veya read_rnd_buffer_size artışı, sistem "
+"bellek sınırlarınıza bağlıdır."
 
 #: po/advisory_rules.php:108
 #, php-format
@@ -12170,6 +12181,8 @@ msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr ""
+"Tüm sıralamaların %%%s'i geçici tablolara sebep olur, bu değer %%10'dan "
+"düşük olmalıdır."
 
 #: po/advisory_rules.php:110
 msgid "Rate of sorts that cause temporary tables"
@@ -12180,6 +12193,7 @@ msgstr "Geçici tablolara sebep olan sıralamaların oranı"
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
+"Geçici tabloların ortalaması: %s, bu değer saat başına 1'den az olmalıdır."
 
 #: po/advisory_rules.php:115
 msgid "Sort rows"
@@ -12196,38 +12210,47 @@ msgid ""
 "indexed fields in the ORDER BY clause, as this will result in much faster "
 "sorting"
 msgstr ""
+"Satır sıralamanın yüksek miktarıyla hiçbir sorun yokken, ORDER BY ibaresinde "
+"indekslenmiş alanları kullanan çok fazla sıralama gerektiren sorgulardan "
+"emin olmak isteyebilirsiniz, ki bu çok daha hızlı sıralamayla "
+"sonuçlanacaktır."
 
 #: po/advisory_rules.php:118
 #, php-format
 msgid "Sorted rows average: %s"
-msgstr ""
+msgstr "Sıralanmış satır ortalaması: %s"
 
 #: po/advisory_rules.php:120
 msgid "Rate of joins without indexes"
-msgstr "İndeksler olmaksızın katılım oranı"
+msgstr "İndeksler olmaksızın birleştirme oranı"
 
 #: po/advisory_rules.php:121
 msgid "There are too many joins without indexes."
-msgstr "İndeksler olmaksızın çok fazla katılım var."
+msgstr "İndeksler olmaksızın çok fazla birleştirme var."
 
 #: po/advisory_rules.php:122
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "fields being used in the join conditions will greatly speed up table joins"
 msgstr ""
+"Bu, birleştirmeler tam tablo taraması yapıyor anlamına gelir. Birleştirme "
+"şartlarında kullanılan alanlar için indekslerin eklenmesi tablo "
+"birleştirmelerini fazlasıyla hızlandıracaktır."
 
 #: po/advisory_rules.php:123
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
+"Tablo birleştirmeleri ortalaması: %s, bu değer saat başına 1'den az "
+"olmalıdır."
 
 #: po/advisory_rules.php:125
 msgid "Rate of reading first index entry"
-msgstr ""
+msgstr "Okunan ilk indeks girişi oranı"
 
 #: po/advisory_rules.php:126
 msgid "The rate of reading the first index entry is high."
-msgstr ""
+msgstr "Okunan ilk indeks girişi oranı yüksek."
 
 #: po/advisory_rules.php:127
 msgid ""
@@ -12530,7 +12553,7 @@ msgstr "İşlem önbelleği tavan oranı %%"
 
 #: po/advisory_rules.php:206
 msgid "Thread cache is not efficient."
-msgstr "İşlem önbelleği etkin değil."
+msgstr "İşlem önbelleği verimli değil."
 
 #: po/advisory_rules.php:207
 msgid "Increase {thread_cache_size}."

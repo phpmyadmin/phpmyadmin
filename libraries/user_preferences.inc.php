@@ -27,9 +27,12 @@ $tabs_icons = array(
     'Import'      => 'ic_b_import',
     'Export'      => 'ic_b_export');
 echo '<ul id="topmenu2">';
-echo PMA_generate_html_tab(array(
-    'link' => 'prefs_manage.php',
-    'text' => __('Manage your settings'))) . "\n";
+echo PMA_generate_html_tab(
+    array(
+        'link' => 'prefs_manage.php',
+        'text' => __('Manage your settings')
+    )
+) . "\n";
 echo '<li>&nbsp; &nbsp;</li>' . "\n";
 $script_name = basename($GLOBALS['PMA_PHP_SELF']);
 foreach (array_keys($forms) as $formset) {

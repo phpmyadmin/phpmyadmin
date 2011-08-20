@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-07-19 14:58+0200\n"
+"PO-Revision-Date: 2011-08-18 14:54+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -6206,7 +6206,7 @@ msgstr ""
 #: libraries/export/sql.php:174
 #, php-format
 msgid "Add %s statement"
-msgstr "Ново заявление %s"
+msgstr "Добавяне на заявление %s"
 
 #: libraries/export/sql.php:152
 msgid "Add statements:"
