@@ -4955,10 +4955,9 @@ msgid "Whether to show hint or not"
 msgstr "Om hints skal vises eller ej"
 
 #: libraries/config/messages.inc.php:463
-#, fuzzy
 #| msgid "Show indexes"
 msgid "Show hint"
-msgstr "Vis indekser"
+msgstr "Vis hint"
 
 #: libraries/config/messages.inc.php:464
 msgid ""
