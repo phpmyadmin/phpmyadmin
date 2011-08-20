@@ -111,13 +111,13 @@ class PMA_EPS
      * font can be set whenever needed in EPS
      *
      * @param string  $value sets the font name e.g Arial
-     * @param integer $value sets the size of the font e.g 10
+     * @param integer $size  sets the size of the font e.g 10
      *
      * @return void
      *
      * @access public
      */
-    function setFont($value,$size)
+    function setFont($value, $size)
     {
         $this->font = $value;
         $this->fontSize = $size;
