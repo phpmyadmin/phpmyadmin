@@ -265,7 +265,9 @@ $js_messages['strDisplayHelp'] = '<ul><li>'
     . '</li><li>'
     . __('Hovering over a point will show its label.')
     . '</li><li>'
-    . __('Drag and select an area in the plot to zoom into it.')
+    . __('Use mousewheel to zoom in or out of the plot.')
+    . '</li><li>'
+    . __('Click and drag the mouse to navigate the plot.')
     . '</li><li>'
     . __('Click reset zoom link to come back to original state.')
     . '</li><li>'
