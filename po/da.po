@@ -1314,7 +1314,7 @@ msgstr "Ledigt sidelager"
 
 #: js/messages.php:118
 msgid "Bytes sent"
-msgstr ""
+msgstr "Bytes sendt"
 
 #: js/messages.php:119
 #, fuzzy
