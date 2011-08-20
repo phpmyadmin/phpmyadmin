@@ -13143,7 +13143,7 @@ msgstr "Tamaño de la reserva de búfers InnoDB"
 
 #: po/advisory_rules.php:261
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr ""
+msgstr "Su reserva de búfers InnoDB es relativamente pequeña."
 
 #: po/advisory_rules.php:262
 #, php-format
