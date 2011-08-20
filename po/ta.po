@@ -10466,7 +10466,7 @@ msgstr ""
 
 #: tbl_gis_visualization.php:177
 msgid "Save to file"
-msgstr ""
+msgstr "கோப்பை சேமி"
 
 #: tbl_gis_visualization.php:178
 msgid "File name"
