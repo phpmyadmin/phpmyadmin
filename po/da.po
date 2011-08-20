@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-20 18:45+0200\n"
+"PO-Revision-Date: 2011-08-20 18:46+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -1805,6 +1805,8 @@ msgstr "Træk og vælg et område i plottet for at forstørre det."
 #: js/messages.php:270
 msgid "Click reset zoom link to come back to original state."
 msgstr ""
+"Klik på linket for nulstil zoom for at vende tilbage til den oprindelige "
+"tilstand."
 
 #: js/messages.php:272
 msgid "Click a data point to view and possibly edit the data row."
