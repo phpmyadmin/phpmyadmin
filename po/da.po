@@ -8434,7 +8434,6 @@ msgid "No databases"
 msgstr "Ingen databaser"
 
 #: navigation.php:270
-#, fuzzy
 #| msgid "filter tables by name"
 msgid "Filter tables by name"
 msgstr "filtrer tabeller efter navn"
