@@ -12899,7 +12899,7 @@ msgstr "Tiempo de inicio lento"
 
 #: po/advisory_rules.php:216
 msgid "Slow_launch_threads is above 2s"
-msgstr ""
+msgstr "«slow_launch_threads» es mayor a 2s"
 
 #: po/advisory_rules.php:217
 msgid ""
