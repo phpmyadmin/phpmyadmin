@@ -12935,7 +12935,7 @@ msgstr ""
 
 #: po/advisory_rules.php:268
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "concurrent_insert 0'a ayarlı"
 
 #~ msgid ""
 #~ "The Advisor system can provide recommendations on server variables by "
