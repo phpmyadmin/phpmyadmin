@@ -38,7 +38,7 @@ foreach ($plugins as $plugin) {
 
     if ($check()) {
         $_SESSION[$SESSION_KEY]["handler"] = $plugin;
-        include_once("import/upload/" . $plugin . ".php");
+        include_once "import/upload/" . $plugin . ".php";
         break;
     }
 }

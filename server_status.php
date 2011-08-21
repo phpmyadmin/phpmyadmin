@@ -123,7 +123,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
                         case 'cpu':
                             if (!$sysinfo) {
-                                require_once('libraries/sysinfo.lib.php');
+                                require_once 'libraries/sysinfo.lib.php';
                                 $sysinfo = getSysInfo();
                             }
                             if (!$cpuload) {
@@ -140,7 +140,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
                         case 'memory':
                             if (!$sysinfo) {
-                                require_once('libraries/sysinfo.lib.php');
+                                require_once 'libraries/sysinfo.lib.php';
                                 $sysinfo = getSysInfo();
                             }
                             if (!$memory) {
@@ -379,7 +379,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     }
 
     if (isset($_REQUEST['advisor'])) {
-        include('libraries/Advisor.class.php');
+        include 'libraries/Advisor.class.php';
         $advisor = new Advisor();
         exit(json_encode($advisor->run()));
     }

@@ -223,7 +223,7 @@ function PMA_fatalError($error_message, $message_args = null)
         $GLOBALS['PMA_Config']->removeCookie($GLOBALS['session_name']);
     }
 
-    require('./libraries/error.inc.php');
+    require './libraries/error.inc.php';
 
     if (!defined('TESTSUITE')) {
         exit;
