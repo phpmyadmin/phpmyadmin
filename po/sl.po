@@ -12005,7 +12005,7 @@ msgstr "Uporaba predpomnilnika poizvedb"
 #: po/advisory_rules.php:81
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
-msgstr ""
+msgstr "Izkoriščanega je manj kot 80 %% predpomnilnika poizvedb."
 
 #: po/advisory_rules.php:82
 msgid ""
