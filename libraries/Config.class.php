@@ -219,9 +219,10 @@ class PMA_Config
         } elseif (preg_match('@rv:1.9(.*)Gecko@', $HTTP_USER_AGENT)) {
             $this->set('PMA_USR_BROWSER_VER', '1.9');
             $this->set('PMA_USR_BROWSER_AGENT', 'GECKO');
-        } elseif (preg_match('@Mozilla/([0-9].[0-9]{1,2})@'
-            , $HTTP_USER_AGENT
-            , $log_version)
+        } elseif (
+            preg_match('@Mozilla/([0-9].[0-9]{1,2})@',
+            $HTTP_USER_AGENT,
+            $log_version)
         ) {
             $this->set('PMA_USR_BROWSER_VER', $log_version[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'MOZILLA');
@@ -342,10 +343,7 @@ class PMA_Config
             }
             $this->set(
                 'PMA_PHP_INT_VERSION',
-                (int) sprintf('%d%02d%02d',
-                $match[1],
-                $match[2],
-                $match[3])
+                (int) sprintf('%d%02d%02d', $match[1], $match[2], $match[3])
             );
         } else {
             $this->set('PMA_PHP_INT_VERSION', 0);
@@ -495,7 +493,7 @@ class PMA_Config
                 || $_SESSION['cache'][$cache_key]['config_mtime'] < $config_mtime
             ) {
                 // load required libraries
-                require_once './libraries/user_preferences.lib.php';
+                include_once './libraries/user_preferences.lib.php';
                 $prefs = PMA_load_userprefs();
                 $_SESSION['cache'][$cache_key]['userprefs']
                     = PMA_apply_userprefs($prefs['config_data']);
@@ -668,6 +666,7 @@ class PMA_Config
 
     /**
      * set source
+     *
      * @param string  $source
      *
      * @return nothing
@@ -743,9 +742,9 @@ class PMA_Config
     /**
      * returns specific config setting
      *
-     * @param string  $setting
+     * @param string $setting
      *
-     * @return  mixed   value
+     * @return mixed value
      */
     function get($setting)
     {
@@ -758,8 +757,8 @@ class PMA_Config
     /**
      * sets configuration variable
      *
-     * @param string  $setting configuration option
-     * @param string  $value   new value for configuration option
+     * @param string $setting configuration option
+     * @param string $value   new value for configuration option
      *
      * @return nothing
      */
