@@ -12001,7 +12001,7 @@ msgstr "Sorgu önbelleği verimli çalışmıyor, düşük tavan oranına sahip.
 
 #: po/advisory_rules.php:77
 msgid "Consider increasing {query_cache_limit}."
-msgstr "Dikkate değer {query_cache_limit} artışı."
+msgstr "{query_cache_limit} artışını dikkate alın."
 
 #: po/advisory_rules.php:78
 #, php-format
