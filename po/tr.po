@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-21 12:33+0200\n"
+"PO-Revision-Date: 2011-08-21 12:34+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -12782,7 +12782,7 @@ msgstr "InnoDB genellikle tablo motorları için en iyi seçimdir."
 
 #: po/advisory_rules.php:248
 msgid "have_innodb is set to 'value'"
-msgstr ""
+msgstr "have_innodb 'value'ya ayarlı"
 
 #: po/advisory_rules.php:250
 msgid "InnoDB log size"
