@@ -12741,7 +12741,7 @@ msgstr "Durdurulan istemcilerin yüzdesi"
 
 #: po/advisory_rules.php:236 po/advisory_rules.php:241
 msgid "Too many clients are aborted."
-msgstr ""
+msgstr "Çok fazla istemci durduruldu."
 
 #: po/advisory_rules.php:237 po/advisory_rules.php:242
 msgid ""
