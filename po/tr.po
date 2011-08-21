@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-21 11:35+0200\n"
+"PO-Revision-Date: 2011-08-21 11:36+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -12601,7 +12601,7 @@ msgstr "{thread_cache_size} > 0 ayarlayarak işlem önbelleğini etkinleştirin.
 
 #: po/advisory_rules.php:203
 msgid "The thread cache is set to 0"
-msgstr ""
+msgstr "İşlem önbelleği 0'a ayarlı"
 
 #: po/advisory_rules.php:205
 #, php-format
