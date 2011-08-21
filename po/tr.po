@@ -12645,7 +12645,7 @@ msgstr ""
 
 #: po/advisory_rules.php:215
 msgid "Slow launch time"
-msgstr ""
+msgstr "Yavaş çalıştırma zamanı"
 
 #: po/advisory_rules.php:216
 msgid "Slow_launch_threads is above 2s"
