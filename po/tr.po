@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-21 11:36+0200\n"
+"PO-Revision-Date: 2011-08-21 11:37+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -12614,7 +12614,7 @@ msgstr "İşlem önbelleği verimli değil."
 
 #: po/advisory_rules.php:207
 msgid "Increase {thread_cache_size}."
-msgstr ""
+msgstr "{thread_cache_size} değerini arttır."
 
 #: po/advisory_rules.php:208
 #, php-format
