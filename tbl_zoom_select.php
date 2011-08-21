@@ -369,8 +369,10 @@ if(isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null' &
 	$row['where_clause'] = $uniqueCondition[0];
 	if($dataLabel == $inputs[0] || $dataLabel == $inputs[1])
             $data[] = array($inputs[0] => $row[$inputs[0]], $inputs[1] => $row[$inputs[1]], 'where_clause' => $uniqueCondition[0]);
-	else
+	else if($dataLabel)
             $data[] = array($inputs[0] => $row[$inputs[0]], $inputs[1] => $row[$inputs[1]], $dataLabel => $row[$dataLabel], 'where_clause' => $uniqueCondition[0]);
+	else
+            $data[] = array($inputs[0] => $row[$inputs[0]], $inputs[1] => $row[$inputs[1]], $dataLabel => '', 'where_clause' => $uniqueCondition[0]);
     }
 
 ?>
