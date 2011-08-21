@@ -7,7 +7,7 @@
  * @group Selenium
  */
 
-require_once('PmaSeleniumTestCase.php');
+require_once 'PmaSeleniumTestCase.php';
 
 
 class PmaSeleniumLoginTest extends PmaSeleniumTestCase 

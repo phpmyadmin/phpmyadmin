@@ -22,7 +22,7 @@ class Advisor
             PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES', 0, 1)
         );
         // Add total memory to variables as well
-        require_once('libraries/sysinfo.lib.php');
+        require_once 'libraries/sysinfo.lib.php';
         $sysinfo = getSysInfo();
         $memory  = $sysinfo->memory();
         $this->variables['system_memory'] = $memory['MemTotal'];
