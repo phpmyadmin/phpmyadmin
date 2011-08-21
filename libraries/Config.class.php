@@ -1365,7 +1365,7 @@ class PMA_Config
      * @param mixed   $value    new cookie value
      * @param string  $default  default value
      * @param int     $validity validity of cookie in seconds (default is one month)
-     * @param bool    $httponlt whether cookie is only for HTTP (and not for scripts)
+     * @param bool    $httponly whether cookie is only for HTTP (and not for scripts)
      *
      * @return boolean result of setcookie()
      */
