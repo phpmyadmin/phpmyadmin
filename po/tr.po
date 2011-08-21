@@ -12576,7 +12576,7 @@ msgstr "Ani tablo kilitleri: %%%s, bu değer %%95'in üzerinde olmalıdır"
 
 #: po/advisory_rules.php:195
 msgid "Table lock wait rate"
-msgstr ""
+msgstr "Tablo kilit bekleme oranı"
 
 #: po/advisory_rules.php:198
 #, php-format
