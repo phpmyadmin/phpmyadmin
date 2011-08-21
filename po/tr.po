@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-21 11:20+0200\n"
+"PO-Revision-Date: 2011-08-21 11:21+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -12553,7 +12553,7 @@ msgstr "Açılan dosyaların oranı yüksek."
 #: po/advisory_rules.php:188
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr ""
+msgstr "Açık dosya oranı: %s, bu değer saat başına 5'ten az olmalıdır"
 
 #: po/advisory_rules.php:190
 #, php-format
