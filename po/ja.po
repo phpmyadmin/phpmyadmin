@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-17 02:56+0200\n"
+"PO-Revision-Date: 2011-08-21 03:09+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -10274,10 +10274,9 @@ msgid "Chart columns"
 msgstr "1 段のグラフ数"
 
 #: server_status.php:1484
-#, fuzzy
 #| msgid "Error management:"
 msgid "Chart arrangement"
-msgstr "管理エラー:"
+msgstr "モニタ環境設定"
 
 #: server_status.php:1484
 msgid ""
