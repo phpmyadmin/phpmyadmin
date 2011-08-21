@@ -12829,7 +12829,7 @@ msgid ""
 "it should not be below 20%%"
 msgstr ""
 "InnoDB arabellek havuzu boyutuyla ilgili olan InnoDB günlük boyutunuz %%%s, "
-"bu %%20'nin altında olmamalıdır."
+"bu %%20'nin altında olmamalıdır"
 
 #: po/advisory_rules.php:255
 msgid "Max InnoDB log size"
