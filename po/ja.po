@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-21 03:56+0200\n"
+"PO-Revision-Date: 2011-08-21 03:57+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -10457,7 +10457,7 @@ msgstr "ログの統計元を選択することができます。"
 
 #: server_status.php:1610
 msgid "Results are grouped by query text."
-msgstr ""
+msgstr "結果はクエリ文でグループ化されます。"
 
 #: server_status.php:1615
 msgid "Query analyzer"
