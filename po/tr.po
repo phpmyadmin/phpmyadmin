@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-21 15:15+0200\n"
+"PO-Revision-Date: 2011-08-21 22:05+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -12920,7 +12920,7 @@ msgstr "MyISAM eşzamanlı eklemeler"
 
 #: po/advisory_rules.php:266
 msgid "Enable concurrent_insert by setting it to 1"
-msgstr ""
+msgstr "concurrent_insert'ü 1'e ayarlayarak bunu etkinleştirin"
 
 #: po/advisory_rules.php:267
 msgid ""
