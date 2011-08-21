@@ -12030,7 +12030,7 @@ msgstr "Razdrobljenost predpomnilnika poizvedb"
 
 #: po/advisory_rules.php:86
 msgid "The query cache is considerably fragmented."
-msgstr ""
+msgstr "Predpomnilnik poizvedb je precej razdrobljen."
 
 #: po/advisory_rules.php:87
 msgid ""
