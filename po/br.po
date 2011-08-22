@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-22 14:48+0200\n"
-"PO-Revision-Date: 2011-08-22 20:03+0200\n"
+"PO-Revision-Date: 2011-08-22 20:04+0200\n"
 "Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -1444,10 +1444,9 @@ msgid "Change settings"
 msgstr "Kemmañ an arventennoù"
 
 #: js/messages.php:155
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Current settings"
-msgstr "Arventennoù pouezus all"
+msgstr "Arventennoù zo bremañ"
 
 #: js/messages.php:157 server_status.php:1590
 msgid "Chart Title"
