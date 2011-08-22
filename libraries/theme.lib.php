@@ -33,7 +33,6 @@ function PMA_css_gradient($start_color, $end_color)
     $result[] = 'background: -webkit-gradient(linear, left top, left bottom, from(#' . $start_color . '), to(#' . $end_color . '));';
     $result[] = 'background: -moz-linear-gradient(top, #' . $start_color . ', #' . $end_color . ');';
     $result[] = 'background: -o-linear-gradient(top, #' . $start_color . ', #' . $end_color . ');';
-    $result[] = PMA_ieFilter($start_color, $end_color);
     if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 6 && PMA_USR_BROWSER_VER <= 8) {
         $result[] = 'filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr="#' . $start_color . '", endColorstr="#' . $end_color . '");';
     }
