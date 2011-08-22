@@ -13155,7 +13155,6 @@ msgid "Enable concurrent_insert by setting it to 1"
 msgstr "Active «concurrent_insert» definiéndolo como 1"
 
 #: po/advisory_rules.php:267
-#, fuzzy
 #| msgid ""
 #| "Setting {concurrent_insert} to 1 reduces contention between readers and "
 #| "writers for a given table. See also <a href=\\\"http://dev.mysql.com/doc/"
@@ -13166,9 +13165,9 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\\\">MySQL Documentation</a>"
 msgstr ""
 "Definir «concurrent_insert» a 1 reduce la competencia entre lectores y "
-"escritores en una tabla particular. Revise también la <a href=\\\"http://dev."
-"mysql.com/doc/refman/5.0/en/concurrent-inserts.html\\\">documentación MySQL</"
-"a>"
+"escritores en una tabla particular. Revise también la <a "
+"href=\\\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-"
+"inserts.html\\\">documentación MySQL</a>"
 
 #: po/advisory_rules.php:268
 msgid "concurrent_insert is set to 0"
