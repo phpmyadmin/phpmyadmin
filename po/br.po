@@ -1513,7 +1513,7 @@ msgstr "Dibarzhioù diskwel an taolennoù"
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:175
 msgid "Filter"
-msgstr ""
+msgstr "Sil"
 
 #: js/messages.php:176
 msgid "Filter queries by word/regexp:"
