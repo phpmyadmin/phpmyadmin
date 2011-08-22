@@ -12560,7 +12560,6 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Space usage"
 #~ msgid "Query Cache usage"
 #~ msgstr "Spasie verbruik"
 

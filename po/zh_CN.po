@@ -12463,7 +12463,6 @@ msgstr ""
 #~ "择需要的字段名。"
 
 #, fuzzy
-#~| msgid "Query cache"
 #~ msgid "Query Cache usage"
 #~ msgstr "查询缓存"
 

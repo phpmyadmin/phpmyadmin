@@ -12935,7 +12935,6 @@ msgstr ""
 #~ msgstr "Alan"
 
 #, fuzzy
-#~| msgid "Query cache"
 #~ msgid "Query Cache usage"
 #~ msgstr "Soraw alxätere"
 

@@ -12640,7 +12640,6 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Filter"
 #~ msgid "Filters"
 #~ msgstr "過濾"
 
@@ -12656,7 +12655,6 @@ msgstr ""
 #~ "擇需要的欄位名稱"
 
 #, fuzzy
-#~| msgid "Query cache"
 #~ msgid "Query Cache usage"
 #~ msgstr "查詢快取"
 

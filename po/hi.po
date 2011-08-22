@@ -12574,7 +12574,6 @@ msgstr ""
 #~ msgstr "संबंध चयन करने के लिए क्लिक करें :"
 
 #, fuzzy
-#~| msgid "Query cache"
 #~ msgid "Query Cache usage"
 #~ msgstr "क्वेरी कैश"
 

@@ -13122,7 +13122,6 @@ msgstr ""
 #~ msgstr "Et valida suhe, kliki :"
 
 #, fuzzy
-#~| msgid "Query cache"
 #~ msgid "Query Cache usage"
 #~ msgstr "Päringute vahemälu"
 

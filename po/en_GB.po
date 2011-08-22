@@ -12866,7 +12866,6 @@ msgstr ""
 #~ "appropriate column name."
 
 #, fuzzy
-#~| msgid "Query cache"
 #~ msgid "Query Cache usage"
 #~ msgstr "Query cache"
 

@@ -13121,7 +13121,6 @@ msgstr ""
 #~ msgstr "ক্ষেত্রসমূহ"
 
 #, fuzzy
-#~| msgid "Query cache"
 #~ msgid "Query Cache usage"
 #~ msgstr "Query cache"
 

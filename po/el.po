@@ -13152,7 +13152,6 @@ msgstr ""
 #~ "και μετά πατήστε το κατάλληλο όνομα στήλης."
 
 #, fuzzy
-#~| msgid "Query cache"
 #~ msgid "Query Cache usage"
 #~ msgstr "Λανθάνουσα μνήμη ερωτήματος"
 

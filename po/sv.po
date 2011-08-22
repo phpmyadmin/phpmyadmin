@@ -12915,7 +12915,6 @@ msgstr ""
 #~ "sedan på lämpligt fältnamn."
 
 #, fuzzy
-#~| msgid "Query cache"
 #~ msgid "Query Cache usage"
 #~ msgstr "Frågecache"
 

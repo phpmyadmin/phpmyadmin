@@ -13263,10 +13263,6 @@ msgstr ""
 #~ "Каб выбраць сувязь, націсьніце на кропцы злучэньня, як паказана на выяве:"
 
 #, fuzzy
-#~| msgid ""
-#~| "The display field is shown in pink. To set/unset a field as the display "
-#~| "field, click the \"Choose field to display\" icon, then click on the "
-#~| "appropriate field name."
 #~ msgid ""
 #~ "The display column is shown in pink. To set/unset a column as the display "
 #~ "column, click the \"Choose column to display\" icon, then click on the "
@@ -13277,7 +13273,6 @@ msgstr ""
 #~ "і націсьніце на адпаведнае імя поля."
 
 #, fuzzy
-#~| msgid "Query cache"
 #~ msgid "Query Cache usage"
 #~ msgstr "Кэш запытаў"
 

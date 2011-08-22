@@ -13520,7 +13520,6 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Filter"
 #~ msgid "Filters"
 #~ msgstr "Filtr"
 
@@ -13528,7 +13527,6 @@ msgstr ""
 #~ msgstr "Aby wybrać powiązanie, kliknij :"
 
 #, fuzzy
-#~| msgid "Query cache"
 #~ msgid "Query Cache usage"
 #~ msgstr "Pamięć podręczna zapytań"
 

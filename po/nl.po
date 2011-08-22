@@ -13155,7 +13155,6 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Filter"
 #~ msgid "Filters"
 #~ msgstr "Filter"
 
@@ -13172,7 +13171,6 @@ msgstr ""
 #~ "weer te geven veld."
 
 #, fuzzy
-#~| msgid "Query cache"
 #~ msgid "Query Cache usage"
 #~ msgstr "Query cache"
 

@@ -13058,7 +13058,6 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Filter"
 #~ msgid "Filters"
 #~ msgstr "Filtra"
 
@@ -13075,7 +13074,6 @@ msgstr ""
 #~ "\", e poi clicca sul nome del campo."
 
 #, fuzzy
-#~| msgid "Query cache"
 #~ msgid "Query Cache usage"
 #~ msgstr "Cache delle query"
 

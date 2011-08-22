@@ -13010,7 +13010,6 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Filter"
 #~ msgid "Filters"
 #~ msgstr "Filtro"
 
@@ -13018,10 +13017,6 @@ msgstr ""
 #~ msgstr "Para selecionar relacionamento, clique :"
 
 #, fuzzy
-#~| msgid ""
-#~| "The display field is shown in pink. To set/unset a field as the display "
-#~| "field, click the \"Choose field to display\" icon, then click on the "
-#~| "appropriate field name."
 #~ msgid ""
 #~ "The display column is shown in pink. To set/unset a column as the display "
 #~ "column, click the \"Choose column to display\" icon, then click on the "
@@ -13032,7 +13027,6 @@ msgstr ""
 #~ "então clique no nome do campo apropriado."
 
 #, fuzzy
-#~| msgid "Query cache"
 #~ msgid "Query Cache usage"
 #~ msgstr "Consulta do cache"
 

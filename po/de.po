@@ -13025,7 +13025,6 @@ msgstr ""
 #~ "\"Anzeigespalte wählen\", dann auf den passenden Spaltennamen."
 
 #, fuzzy
-#~| msgid "Query cache"
 #~ msgid "Query Cache usage"
 #~ msgstr "Abfragen-Cache"
 

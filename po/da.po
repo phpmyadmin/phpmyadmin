@@ -12809,7 +12809,6 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr ""
 
-#~| msgid "Filter"
 #~ msgid "Filters"
 #~ msgstr "Filtre"
 
@@ -12829,7 +12828,6 @@ msgstr ""
 #~ "derefter på det pågældende kolonnenavn."
 
 #, fuzzy
-#~| msgid "Query cache"
 #~ msgid "Query Cache usage"
 #~ msgstr "Forespørgsel-mellemlager"
 

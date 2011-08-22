@@ -13152,7 +13152,6 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Filter"
 #~ msgid "Filters"
 #~ msgstr "Filtre"
 
@@ -13169,7 +13168,6 @@ msgstr ""
 #~ "i clica també en el nom de camp adient."
 
 #, fuzzy
-#~| msgid "Query cache"
 #~ msgid "Query Cache usage"
 #~ msgstr "Memòria cau de consultes"
 

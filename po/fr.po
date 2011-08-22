@@ -13028,7 +13028,6 @@ msgstr ""
 #~ "descriptive», puis cliquer sur le nom de colonne approprié."
 
 #, fuzzy
-#~| msgid "Query cache"
 #~ msgid "Query Cache usage"
 #~ msgstr "Cache des requêtes"
 

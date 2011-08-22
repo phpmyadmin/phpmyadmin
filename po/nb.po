@@ -13235,7 +13235,6 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Filter"
 #~ msgid "Filters"
 #~ msgstr "Filter"
 
@@ -13252,7 +13251,6 @@ msgstr ""
 #~ "på det aktuelle kolonnenavnet."
 
 #, fuzzy
-#~| msgid "Query cache"
 #~ msgid "Query Cache usage"
 #~ msgstr "Spørringsmellomlager"
 

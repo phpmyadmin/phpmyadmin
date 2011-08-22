@@ -12610,7 +12610,6 @@ msgstr ""
 #~ "tada paspauskite ant pasirinkto stulpelio vardo."
 
 #, fuzzy
-#~| msgid "Query cache"
 #~ msgid "Query Cache usage"
 #~ msgstr "Užklausų saugykla"
 

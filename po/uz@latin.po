@@ -13809,7 +13809,6 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Filter"
 #~ msgid "Filters"
 #~ msgstr "Filtr"
 
@@ -13818,10 +13817,6 @@ msgstr ""
 #~ "Aloqani tanlash uchun rasmda ko‘rsatilganikabi ulanish nuqtasiga bosing:"
 
 #, fuzzy
-#~| msgid ""
-#~| "The display field is shown in pink. To set/unset a field as the display "
-#~| "field, click the \"Choose field to display\" icon, then click on the "
-#~| "appropriate field name."
 #~ msgid ""
 #~ "The display column is shown in pink. To set/unset a column as the display "
 #~ "column, click the \"Choose column to display\" icon, then click on the "
@@ -13832,7 +13827,6 @@ msgstr ""
 #~ "bo‘limidan mos maydonni tanlang."
 
 #, fuzzy
-#~| msgid "Query cache"
 #~ msgid "Query Cache usage"
 #~ msgstr "So‘rovlar keshi"
 

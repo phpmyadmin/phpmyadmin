@@ -12811,7 +12811,6 @@ msgstr ""
 #~ msgstr "ක්ෂේත්‍ර"
 
 #, fuzzy
-#~| msgid "Query cache"
 #~ msgid "Query Cache usage"
 #~ msgstr "විමසුම් කෑෂ්"
 

@@ -13088,7 +13088,6 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Filter"
 #~ msgid "Filters"
 #~ msgstr "Фильтр"
 
@@ -13105,7 +13104,6 @@ msgstr ""
 #~ "отображаемого столбца\" и выберите необходимый столбец."
 
 #, fuzzy
-#~| msgid "Query cache"
 #~ msgid "Query Cache usage"
 #~ msgstr "Кеш запросов"
 

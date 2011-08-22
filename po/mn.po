@@ -12940,7 +12940,6 @@ msgstr ""
 #~ msgstr "Холбоо сонгохдоо, дарах нь :"
 
 #, fuzzy
-#~| msgid "Query cache"
 #~ msgid "Query Cache usage"
 #~ msgstr "Асуудлын нөөцлөл"
 
