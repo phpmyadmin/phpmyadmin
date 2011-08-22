@@ -401,7 +401,7 @@ class PMA_Theme
         $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['punct'] . ';';
         $result[] = '}';
         $result[] = 'span.cm-mysql-word {';
-        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['alpha'] . ';';
+        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_identifier'] . ';';
         $result[] = '}';
         $result[] = 'span.cm-builtin {';
         $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_functionName'] . ';';
