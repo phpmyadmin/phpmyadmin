@@ -178,7 +178,7 @@ function PMA_sqlAddSlashes($a_string = '', $is_like = false, $crlf = false, $php
         $a_string = strtr(
             $a_string,
             array("\n" => '\n', "\r" => '\r', "\t" => '\t')
-            );
+        );
     }
 
     if ($php_code) {
@@ -246,15 +246,17 @@ function PMA_unQuote($quoted_string, $quote = null)
 
     foreach ($quotes as $quote) {
         if (substr($quoted_string, 0, 1) === $quote
-         && substr($quoted_string, -1, 1) === $quote) {
-             $unquoted_string = substr($quoted_string, 1, -1);
-             // replace escaped quotes
-             $unquoted_string = str_replace(
+            && substr($quoted_string, -1, 1) === $quote
+        ) {
+            $unquoted_string = substr($quoted_string, 1, -1);
+            // replace escaped quotes
+            $unquoted_string = str_replace(
                 $quote . $quote,
                 $quote,
-                $unquoted_string);
-             return $unquoted_string;
-         }
+                $unquoted_string
+            );
+            return $unquoted_string;
+        }
     }
 
     return $quoted_string;
@@ -512,14 +514,14 @@ function PMA_showHint($message, $bbcode = false, $type = 'notice')
  * @access  public
  */
 function PMA_mysqlDie($error_message = '', $the_query = '',
-                        $is_modify_link = true, $back_url = '', $exit = true)
+$is_modify_link = true, $back_url = '', $exit = true)
 {
     global $table, $db;
 
     /**
      * start http output, display html headers
      */
-    require_once './libraries/header.inc.php';
+    include_once './libraries/header.inc.php';
 
     $error_msg_output = '';
 
@@ -641,7 +643,7 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
         /**
          * display footer and exit
          */
-        require './libraries/footer.inc.php';
+        include './libraries/footer.inc.php';
     } else {
         echo $error_msg_output;
     }
@@ -829,9 +831,8 @@ function PMA_whichCrlf()
     // Win case
     if (PMA_USR_OS == 'Win') {
         $the_crlf = "\r\n";
-    }
-    // Others
-    else {
+    } else {
+        // Others
         $the_crlf = "\n";
     }
 
@@ -1005,8 +1006,9 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
 
             // Same as below (append LIMIT), append the remembered ORDER BY
             if ($GLOBALS['cfg']['RememberSorting']
-             && isset($analyzed_display_query[0]['queryflags']['select_from'])
-             && isset($GLOBALS['sql_order_to_append'])) {
+                && isset($analyzed_display_query[0]['queryflags']['select_from'])
+                && isset($GLOBALS['sql_order_to_append'])
+            ) {
                 $query_base = $analyzed_display_query[0]['section_before_limit']
                     . "\n" . $GLOBALS['sql_order_to_append']
                     . $analyzed_display_query[0]['section_after_limit'];
@@ -1158,10 +1160,10 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         ) {
             $validate_params = $url_params;
             if (!empty($GLOBALS['validatequery'])) {
-                $validate_message = __('Skip Validate SQL') ;
+                $validate_message = __('Skip Validate SQL');
             } else {
                 $validate_params['validatequery'] = 1;
-                $validate_message = __('Validate SQL') ;
+                $validate_message = __('Validate SQL');
             }
 
             $validate_link = 'import.php' . PMA_generate_common_url($validate_params);
@@ -1361,7 +1363,8 @@ function PMA_localizeNumber($value)
             /* l10n: Decimal separator */
             __('.'),
             ),
-        $value);
+        $value
+    );
 }
 
 /**
@@ -1383,7 +1386,8 @@ function PMA_localizeNumber($value)
  * @param integer $digits_left    number of digits left of the comma
  * @param integer $digits_right   number of digits right of the comma
  * @param boolean $only_down      do not reformat numbers below 1
- * @param boolean $noTrailingZero removes trailing zeros right of the comma (default: true)
+ * @param boolean $noTrailingZero removes trailing zeros right of the comma
+ *                                (default: true)
  *
  * @return  string   the formatted value and its unit
  *
@@ -1391,7 +1395,9 @@ function PMA_localizeNumber($value)
  */
 function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_down = false, $noTrailingZero = true)
 {
-    if ($value==0) return '0';
+    if ($value==0) {
+        return '0';
+    }
 
     $originalValue = $value;
     //number_format is not multibyte safe, str_replace is safe
@@ -1450,7 +1456,9 @@ function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_dow
         $d-= floor(($digits_left - $cur_digits)/3);
     }
 
-    if ($d<0 && $only_down) $d=0;
+    if ($d<0 && $only_down) {
+        $d=0;
+    }
 
     $value = round($value / (PMA_pow(1000, $d, 'pow') / $dh)) /$dh;
     $unit = $units[$d];
@@ -1459,7 +1467,7 @@ function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_dow
     if ($noTrailingZero) {
         $value = PMA_localizeNumber(
             preg_replace('/(?<=\d)(?=(\d{3})+(?!\d))/', ',', $value)
-            );
+        );
     } else {
         //number_format is not multibyte safe, str_replace is safe
         $value = PMA_localizeNumber(number_format($value, $digits_right));
@@ -1594,7 +1602,8 @@ function PMA_generate_html_tab($tab, $url_params = array(), $base_dir='')
     // determine additionnal style-class
     if (empty($tab['class'])) {
         if (! empty($tab['active'])
-         || PMA_isValid($GLOBALS['active_page'], 'identical', $tab['link'])) {
+            || PMA_isValid($GLOBALS['active_page'], 'identical', $tab['link'])
+        ) {
             $tab['class'] = 'active';
         } elseif (is_null($tab['active']) && empty($GLOBALS['active_page'])
           && basename($GLOBALS['PMA_PHP_SELF']) == $tab['link']
@@ -1631,19 +1640,21 @@ function PMA_generate_html_tab($tab, $url_params = array(), $base_dir='')
 
     // display icon, even if iconic is disabled but the link-text is missing
     if (($GLOBALS['cfg']['MainPageIconic'] || empty($tab['text']))
-        && isset($tab['icon'])) {
+        && isset($tab['icon'])
+    ) {
         // avoid generating an alt tag, because it only illustrates
         // the text that follows and if browser does not display
         // images, the text is duplicated
         $image = '<img class="icon %1$s" src="' . $base_dir . 'themes/dot.gif"'
             .' width="16" height="16" alt="" />%2$s';
         $tab['text'] = sprintf($image, htmlentities($tab['icon']), $tab['text']);
-    }
-    // check to not display an empty link-text
-    elseif (empty($tab['text'])) {
+    } elseif (empty($tab['text'])) {
+        // check to not display an empty link-text
         $tab['text'] = '?';
-        trigger_error('empty linktext in function ' . __FUNCTION__ . '()',
-            E_USER_NOTICE);
+        trigger_error(
+            'empty linktext in function ' . __FUNCTION__ . '()',
+            E_USER_NOTICE
+        );
     }
 
     //Set the id for the tab, if set in the params
@@ -1753,9 +1764,9 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
     if ($url_length <= $GLOBALS['cfg']['LinkLengthLimit']) {
         if ($suhosin_get_MaxValueLength = ini_get('suhosin.get.max_value_length')) {
             $query_parts = PMA_splitURLQuery($url);
-            foreach($query_parts as $query_pair) {
+            foreach ($query_parts as $query_pair) {
                 list($eachvar, $eachval) = explode('=', $query_pair);
-                if(strlen($eachval) > $suhosin_get_MaxValueLength) {
+                if (strlen($eachval) > $suhosin_get_MaxValueLength) {
                     $in_suhosin_limits = false;
                     break;
                 }
@@ -1827,7 +1838,8 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
  *
  * @return array  the parameter/value pairs, for example [0] db=sakila
  */
-function PMA_splitURLQuery($url) {
+function PMA_splitURLQuery($url)
+{
     // decode encoded url separators
     $separator   = PMA_get_arg_separator();
     // on most places separator is still hard coded ...
@@ -1964,7 +1976,7 @@ function PMA_checkParameters($params, $die = true, $request = true)
         /**
          * display html meta tags
          */
-        require_once './libraries/header_meta_style.inc.php';
+        include_once './libraries/header_meta_style.inc.php';
         echo '</head><body><p>' . $error_message . '</p></body></html>';
         if ($die) {
             exit();
@@ -1985,7 +1997,7 @@ function PMA_checkParameters($params, $die = true, $request = true)
  *
  * @return  array     the calculated condition and whether condition is unique
  */
-function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force_unique=false)
+function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force_unique = false)
 {
     $primary_key          = '';
     $unique_key           = '';
@@ -2317,9 +2329,10 @@ function PMA_listNavigator($count, $pos, $_url_params, $script, $frame, $max_cou
         echo "\n", '<form action="./', basename($script), '" method="post" target="', $frame, '">', "\n";
         echo PMA_generate_common_hidden_inputs($_url_params);
         echo PMA_pageselector(
-                $max_count,
-                floor(($pos + 1) / $max_count) + 1,
-                ceil($count / $max_count));
+            $max_count,
+            floor(($pos + 1) / $max_count) + 1,
+            ceil($count / $max_count)
+        );
         echo '</form>';
 
         if ($pos + $max_count < $count) {
@@ -2771,8 +2784,8 @@ function PMA_extractFieldSpec($fieldspec)
                         $enum_set_values[] = $working;
                         $in_string = false;
 
-                    // Otherwise, this is a 'double quote', and can be added to the working string
                     } elseif ($next == "'") {
+                        // Otherwise, this is a 'double quote', and can be added to the working string
                         $working .= "'";
                         // Skip the next char; we already know what it is
                         $index++;
@@ -2880,7 +2893,8 @@ function PMA_replace_binary_contents($content)
  *
  * @return GIS data in Well Know Text format
  */
-function PMA_asWKT($data, $includeSRID = false) {
+function PMA_asWKT($data, $includeSRID = false)
+{
     // Convert to WKT format
     $hex = bin2hex($data);
     $wktsql     = "SELECT ASTEXT(x'" . $hex . "')";
@@ -3034,17 +3048,14 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
         $response['success'] = true;
         if ($message instanceof PMA_Message) {
             $response['message'] = $message->getDisplay();
-        }
-        else {
+        } else {
             $response['message'] = $message;
         }
-    }
-    else {
+    } else {
         $response['success'] = false;
         if ($message instanceof PMA_Message) {
             $response['error'] = $message->getDisplay();
-        }
-        else {
+        } else {
             $response['error'] = $message;
         }
     }
