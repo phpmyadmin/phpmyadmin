@@ -806,7 +806,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     $editArea.find('select').live('change', function(e) {
                         $(g.cEdit).find('.edit_box').val($(this).val());
                     })
-                    $editArea.show();
                 }
                 else if($td.is('.enum')) {
                     //handle enum fields
@@ -835,7 +834,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     $editArea.find('select').live('change', function(e) {
                         $(g.cEdit).find('.edit_box').val($(this).val());
                     })
-                    $editArea.show();
                 }
                 else if($td.is('.set')) {
                     //handle set fields
@@ -865,7 +863,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     $editArea.find('select').live('change', function(e) {
                         $(g.cEdit).find('.edit_box').val($(this).val());
                     })
-                    $editArea.show();
                 }
                 else if($td.is('.truncated, .transformed')) {
                     if ($td.is('.to_be_saved')) {   // cell has been edited
@@ -929,7 +926,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         }) // end $.post()
                     }
                     g.isEditCellTextEditable = true;
-                    $editArea.show();
                 } else if ($td.is('.datefield, .datetimefield, .timestampfield')) {
                     var $input_field = $(g.cEdit).find('.edit_box');
                     
@@ -962,9 +958,16 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     } else {
                         $input_field.val('');
                     }
-                    $editArea.show();
+                    $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
                 } else {
                     g.isEditCellTextEditable = true;
+                    // only append edit area hint if there is a null checkbox
+                    if ($editArea.children().length > 0) {
+                        $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
+                    }
+                }
+                if ($editArea.children().length > 0) {
+                    $editArea.show();
                 }
             }
         },
