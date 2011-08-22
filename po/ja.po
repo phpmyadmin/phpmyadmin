@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-22 12:01+0200\n"
+"PO-Revision-Date: 2011-08-22 12:07+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -11628,10 +11628,9 @@ msgid "Data Label"
 msgstr "ラベル"
 
 #: tbl_zoom_select.php:297
-#, fuzzy
 #| msgid "Maximum number of rows to display"
 msgid "Maximum rows to plot"
-msgstr "行の最大表示数"
+msgstr "プロットする結果の最大数"
 
 #: tbl_zoom_select.php:388
 msgid "Browse/Edit the points"
