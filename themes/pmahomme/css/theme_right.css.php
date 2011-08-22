@@ -105,7 +105,7 @@ a:hover {
     -moz-border-radius:5px;
     -webkit-border-radius:5px;
     border-radius:5px;
-    <?php echo PMA_css_gradient('#ffffff', '#cccccc'); ?>
+    <?php echo PMA_css_gradient('ffffff', 'cccccc'); ?>
 }
 
 dfn {
@@ -121,7 +121,7 @@ th {
     font-weight:        bold;
     color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     background:         #f3f3f3;
-    <?php echo PMA_css_gradient('#ffffff', '#cccccc'); ?>
+    <?php echo PMA_css_gradient('ffffff', 'cccccc'); ?>
 }
 
 a img {
@@ -190,11 +190,11 @@ input[type=submit]{
 
     text-shadow: 0 1px 0 #fff;
 
-    <?php echo PMA_css_gradient('#ffffff', '#cccccc'); ?>
+    <?php echo PMA_css_gradient('ffffff', 'cccccc'); ?>
 }
 
 input[type=submit]:hover{position: relative;
-    <?php echo PMA_css_gradient('#cccccc', '#dddddd'); ?>
+    <?php echo PMA_css_gradient('cccccc', 'dddddd'); ?>
     cursor:pointer;
 }
 
@@ -289,7 +289,7 @@ select{
 }
 
 select[multiple] {
-    <?php echo PMA_css_gradient('#ffffff', '#f2f2f2'); ?>
+    <?php echo PMA_css_gradient('ffffff', 'f2f2f2'); ?>
 }
 
 /* Icon sprites */
@@ -1598,10 +1598,10 @@ div#profilingchart {
     -moz-box-shadow: 1px 1px 2px rgba(0,0,0,.5);
     text-shadow: #fff 0 1px 0;
     */
-    <?php echo PMA_css_gradient('#ffffff', '#cccccc'); ?>
+    <?php echo PMA_css_gradient('ffffff', 'cccccc'); ?>
 }
 #sectionlinks a:hover, .buttonlinks a:hover, a.button:hover {
-    <?php echo PMA_css_gradient('#cccccc', '#dddddd'); ?>
+    <?php echo PMA_css_gradient('cccccc', 'dddddd'); ?>
 }
 
 div#sqlquerycontainer {
@@ -2018,11 +2018,11 @@ input[type=text].invalid_value,
 
     text-shadow: 0 1px 0 #fff;
 
-    <?php echo PMA_css_gradient('#ffffff', '#cccccc'); ?>
+    <?php echo PMA_css_gradient('ffffff', 'cccccc'); ?>
     cursor: pointer;
 }
 #buttonGo:hover{
-    <?php echo PMA_css_gradient('#cccccc', '#dddddd'); ?>
+    <?php echo PMA_css_gradient('cccccc', 'dddddd'); ?>
 }
 
 .format_specific_options h3 {
@@ -2857,7 +2857,7 @@ span.cm-number {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
 
-    <?php echo PMA_css_gradient('#eeeeee', '#cccccc'); ?>
+    <?php echo PMA_css_gradient('eeeeee', 'cccccc'); ?>
 }
 
 .navigation td {
@@ -2894,7 +2894,7 @@ span.cm-number {
     cursor: pointer;
     text-shadow: none;
 
-    <?php echo PMA_css_gradient('#333333', '#555555'); ?>
+    <?php echo PMA_css_gradient('333333', '555555'); ?>
 }
 
 .navigation select {
