@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-21 04:03+0200\n"
+"PO-Revision-Date: 2011-08-22 11:43+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -848,7 +848,7 @@ msgid "Dump has been saved to file %s."
 msgstr "ダンプをファイル %s に保存しました"
 
 #: gis_data_editor.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
 msgstr "カラム \"%s\" に対しての値"
@@ -1225,22 +1225,19 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:96
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache efficiency"
-msgstr "クエリキャッシュ"
+msgstr "クエリキャッシュ効率"
 
 #: js/messages.php:97 po/advisory_rules.php:70
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
-msgstr "クエリキャッシュ"
+msgstr "クエリキャッシュの使用状況"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
-msgstr "クエリキャッシュ"
+msgstr "使用されているクエリキャッシュ"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
@@ -1336,7 +1333,7 @@ msgstr "グラフの削除"
 
 #: js/messages.php:128
 msgid "Edit title and labels"
-msgstr ""
+msgstr "題名・ラベルの編集"
 
 #: js/messages.php:129
 msgid "Add chart to grid"
@@ -10384,10 +10381,9 @@ msgstr ""
 "ておいてください。ですから、テーブルのモニタで必要としないのであれば、しばらくの間 general_log を無効にして空にしておくのが望ましいです。"
 
 #: server_status.php:1533
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Preset chart"
-msgstr "グラフの削除"
+msgstr "プリセットグラフ"
 
 #: server_status.php:1537
 msgid "Status variable(s)"
@@ -11964,7 +11960,7 @@ msgstr ""
 
 #: po/advisory_rules.php:75
 msgid "Query cache efficiency (%)"
-msgstr ""
+msgstr "クエリキャッシュ効率 (%)"
 
 #: po/advisory_rules.php:76
 msgid "Query cache not running efficiently, it has a low hit rate."
