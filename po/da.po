@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-07-23 21:27+0200\n"
+"PO-Revision-Date: 2011-08-20 19:20+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -414,10 +414,10 @@ msgid "You have to choose at least one column to display"
 msgstr "Du skal vælge mindst en kolonne der skal vises"
 
 #: db_qbe.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "visuel konstruktør"
+msgstr "Skift til %svisuel konstruktør%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:955
@@ -850,10 +850,10 @@ msgid "Dump has been saved to file %s."
 msgstr "Dump er blevet gemt i filen %s."
 
 #: gis_data_editor.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
-msgstr "Værdier for kolonnen \"%s\""
+msgstr "Værdi for kolonnen \"%s\""
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
@@ -861,7 +861,7 @@ msgstr "Brug OpenStreetMaps som basislag"
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:289
 #: libraries/display_tbl.lib.php:663
@@ -871,72 +871,68 @@ msgstr "Geometri"
 #: gis_data_editor.php:172 gis_data_editor.php:194 gis_data_editor.php:240
 #: gis_data_editor.php:290 js/messages.php:286
 msgid "Point"
-msgstr ""
+msgstr "Punkt"
 
 #: gis_data_editor.php:173 gis_data_editor.php:195 gis_data_editor.php:241
 #: gis_data_editor.php:291 js/messages.php:284
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:197 gis_data_editor.php:243
 #: gis_data_editor.php:293 js/messages.php:285
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:202 gis_data_editor.php:246 gis_data_editor.php:296
 #: js/messages.php:292
-#, fuzzy
 #| msgid "Add routine"
 msgid "Add a point"
-msgstr "Tilføj rutine"
+msgstr "Tilføj et punkt"
 
 #: gis_data_editor.php:218 js/messages.php:287
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Linjer afsluttes med"
+msgstr "Linjestreng"
 
 #: gis_data_editor.php:221 gis_data_editor.php:275
 msgid "Outer Ring:"
-msgstr ""
+msgstr "Ydre ring:"
 
 #: gis_data_editor.php:223 gis_data_editor.php:277 js/messages.php:290
 msgid "Inner Ring"
-msgstr ""
+msgstr "Indre ring"
 
 #: gis_data_editor.php:248
-#, fuzzy
 #| msgid "Add constraints"
 msgid "Add a linestring"
-msgstr "Tilføj begrænsninger"
+msgstr "Tilføj en linjestreng"
 
 #: gis_data_editor.php:248 gis_data_editor.php:298 js/messages.php:293
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add an inner ring"
-msgstr "Tilføj ny server"
+msgstr "Tilføj en indre ring"
 
 #: gis_data_editor.php:262 js/messages.php:288
 msgid "Polygon"
-msgstr ""
+msgstr "Polygon"
 
 #: gis_data_editor.php:300 js/messages.php:294
-#, fuzzy
 #| msgid "Add column"
 msgid "Add a polygon"
-msgstr "Tilføj kolonne"
+msgstr "Tilføj polygon"
 
 #: gis_data_editor.php:304
-#, fuzzy
 #| msgid "Geometry"
 msgid "Add geometry"
-msgstr "Geometri"
+msgstr "Tilføj geometri"
 
 #: gis_data_editor.php:312
 msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
+"Vælg \"GeomFromText\" fra kolonnen \"Function\" og indsæt strengen nedenfor i "
+"feltet \"Value\""
 
 #: import.php:57
 #, php-format
@@ -1216,10 +1212,9 @@ msgid "Query statistics"
 msgstr "Statistik over forespørgsler"
 
 #: js/messages.php:93
-#, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Local monitor configuration incompatible"
-msgstr "Kunne ikke indlæse konfigurationsfilen"
+msgstr "Konfigurationen for den lokale skærm er inkompatibel"
 
 #: js/messages.php:94
 msgid ""
@@ -1228,24 +1223,25 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
+"Konfigurationen af diagramopstillingen i din browsers lokale lager er ikke "
+"længere kompatibel med den nyere version af skærmdialogen. Det er meget "
+"sandsynligt, at din aktuelle konfiguration ikke vil virke længere.Nulstil "
+"derfor din konfiguration i menuen <i>Settings</>"
 
 #: js/messages.php:96
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache efficiency"
-msgstr "Forespørgsel-mellemlager"
+msgstr "Effektivitet af forespørgsels-mellemlager"
 
 #: js/messages.php:97 po/advisory_rules.php:70
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
-msgstr "Forespørgsel-mellemlager"
+msgstr "Forbrug af forespørgsels-mellemlager"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
-msgstr "Forespørgsel-mellemlager"
+msgstr "Forbrugt forespørgsels-mellemlager"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
@@ -1274,64 +1270,56 @@ msgid "Average load"
 msgstr "Gennemsnitlig belastning"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "System memory"
 msgid "Total memory"
-msgstr "Systemhukommelse"
+msgstr "Total hukommelse"
 
 #: js/messages.php:108
-#, fuzzy
 #| msgid "System memory"
 msgid "Cached memory"
-msgstr "Systemhukommelse"
+msgstr "Hukommelse i mellemlager"
 
 #: js/messages.php:109
-#, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "Bufferpool"
+msgstr "Hukommelse i buffer"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "System memory"
 msgid "Free memory"
-msgstr "Systemhukommelse"
+msgstr "Ledig hukommelse"
 
 #: js/messages.php:111
-#, fuzzy
 #| msgid "System memory"
 msgid "Used memory"
-msgstr "Systemhukommelse"
+msgstr "Forbrugt hukommelse"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "Total"
+msgstr "Totalt sidelager"
 
 #: js/messages.php:114
 msgid "Cached Swap"
-msgstr ""
+msgstr "Sidelager i mellemlager"
 
 #: js/messages.php:115
 msgid "Used Swap"
-msgstr ""
+msgstr "Forbrugt sidelager"
 
 #: js/messages.php:116
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "Frie sider"
+msgstr "Ledigt sidelager"
 
 #: js/messages.php:118
 msgid "Bytes sent"
-msgstr ""
+msgstr "Bytes sendt"
 
 #: js/messages.php:119
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "Modtaget"
+msgstr "Bytes modtaget"
 
 #: js/messages.php:120 server_status.php:1040
 msgid "Connections"
@@ -1356,10 +1344,9 @@ msgid "Remove chart"
 msgstr "Fjern diagram"
 
 #: js/messages.php:128
-#, fuzzy
 #| msgid "Edit labels and series"
 msgid "Edit title and labels"
-msgstr "Rediger overskrifter og serier"
+msgstr "Rediger titel og etiketter"
 
 #: js/messages.php:129
 msgid "Add chart to grid"
@@ -1386,7 +1373,6 @@ msgid "Pause monitor"
 msgstr "Sæt monitor på pause"
 
 #: js/messages.php:136
-#, fuzzy
 #| msgid "general_log and slow_query_log is enabled."
 msgid "general_log and slow_query_log are enabled."
 msgstr "general_log og slow_query_log er aktiveret."
@@ -1400,7 +1386,6 @@ msgid "slow_query_log is enabled."
 msgstr "slow_query_log er aktiveret."
 
 #: js/messages.php:139
-#, fuzzy
 #| msgid "slow_query_log and general_log is disabled."
 msgid "slow_query_log and general_log are disabled."
 msgstr "slow_query_log og general_log er deaktiveret."
@@ -1504,7 +1489,6 @@ msgid "Analysing & loading logs. This may take a while."
 msgstr "Analyserer & indlæser logs. Dette kan vare nogen tid."
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid ""
 #| "This columns shows the amount of identical queries that are grouped "
 #| "together. However only the SQL Text is being compared, thus the queries "
@@ -1537,17 +1521,15 @@ msgid "Jump to Log table"
 msgstr "Gå til logtabellen"
 
 #: js/messages.php:170
-#, fuzzy
 #| msgid "Log analysed, but not data found in this time span."
 msgid "Log analysed, but no data found in this time span."
 msgstr "Loggen er analyseret, men ingen data fundet i dette tidsinterval."
 
 #. l10n: A collection of available filters
 #: js/messages.php:173
-#, fuzzy
 #| msgid "Filter"
 msgid "Filters"
-msgstr "Filter"
+msgstr "Filtre"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:175
@@ -1556,23 +1538,21 @@ msgstr "Filter"
 
 #: js/messages.php:176
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "Filtrer forespørgsler efter ord/regex:"
 
 #: js/messages.php:177
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
+msgstr "Grupper forespørgsler, og ignorer variabeldata i WHERE klausuler"
 
 #: js/messages.php:178
-#, fuzzy
 #| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
-msgstr "Antal indsatte rækker"
+msgstr "Sum af grupperede rækker:"
 
 #: js/messages.php:179
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "Total"
+msgstr "Total:"
 
 #: js/messages.php:181
 msgid "Loading logs"
@@ -1580,7 +1560,7 @@ msgstr "Indlæser logs"
 
 #: js/messages.php:182
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "Skærmopfriskning fejlede"
 
 #: js/messages.php:183
 msgid ""
@@ -1588,26 +1568,33 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"Serveren returnerede et ugyldigt svar mens der blev anmodet om nye "
+"diagramdata. Dette er sandsynligvis fordi din session er udløbet. "
+"Genindlæsning af siden og genindtastning af dine legitimationsoplysninger "
+"burde hjælpe."
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
-msgstr "Genindlæs"
+msgstr "Genindlæs side"
 
 #: js/messages.php:186
 msgid "Affected rows:"
-msgstr ""
+msgstr "Berørte rækker:"
 
 #: js/messages.php:188
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgstr ""
+"Kunne ikke fortolke konfigurationsfilen. Det ser ikke ud til at være gyldig "
+"JSON kode"
 
 #: js/messages.php:189
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr ""
+"Kunne ikke bygge diagramgitter med den importerede konfiguration. Nulstiller "
+"til standard konfiguration..."
 
 #: js/messages.php:190 libraries/config/messages.inc.php:170
 #: libraries/db_links.inc.php:83 libraries/server_links.inc.php:69
@@ -1617,50 +1604,45 @@ msgid "Import"
 msgstr "Importer"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
-msgstr "Opdater forespørgsel"
+msgstr "Analyser forespørgsel"
 
 #: js/messages.php:196
-#, fuzzy
 #| msgid "Apply a divisor"
 msgid "Advisor system"
-msgstr "Anvend divisor"
+msgstr "Rådgivningssystem"
 
 #: js/messages.php:197
 msgid "Possible performance issues"
-msgstr ""
+msgstr "Mulige ydelsesmæssige problemer"
 
 #: js/messages.php:198
 msgid "Issue"
-msgstr ""
+msgstr "Problem"
 
 #: js/messages.php:199
-#, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
-msgstr "Dokumentation"
+msgstr "Anbefaling"
 
 #: js/messages.php:200
-#, fuzzy
 #| msgid "Details"
 msgid "Rule details"
-msgstr "Detaljer"
+msgstr "Regeldetaljer"
 
 #: js/messages.php:201
-#, fuzzy
 #| msgid "Authentication"
 msgid "Justification"
-msgstr "Autentifikation"
+msgstr "Begrundelse"
 
 #: js/messages.php:202
 msgid "Used variable / formula"
-msgstr ""
+msgstr "Brugt variabel/formel"
 
 #: js/messages.php:203
 msgid "Test"
-msgstr ""
+msgstr "Test"
 
 #: js/messages.php:208 libraries/tbl_properties.inc.php:763
 #: pmd_general.php:388 pmd_general.php:425 pmd_general.php:545
@@ -1783,10 +1765,9 @@ msgid "Change"
 msgstr "Ændre"
 
 #: js/messages.php:252
-#, fuzzy
 #| msgid "Maximum execution time"
 msgid "Query execution time"
-msgstr "Maksimal eksekveringstid"
+msgstr "Eksekveringstid for forespørgsel"
 
 #: js/messages.php:255 libraries/config/FormDisplay.tpl.php:323
 #: libraries/schema/User_Schema.class.php:334
@@ -1805,48 +1786,49 @@ msgid "Show search criteria"
 msgstr "Vis søgekriterie"
 
 #: js/messages.php:262 libraries/tbl_select.lib.php:150
-#, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
-msgstr "Søg"
+msgstr "Forstør søgning"
 
 #: js/messages.php:264
 msgid "Each point represents a data row."
-msgstr ""
+msgstr "Hvert punkt repræsenterer en datarække"
 
 #: js/messages.php:266
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "Ved at holde pointeren over et punkt vises dets etiket"
 
 #: js/messages.php:268
 msgid "Drag and select an area in the plot to zoom into it."
-msgstr ""
+msgstr "Træk og vælg et område i plottet for at forstørre det."
 
 #: js/messages.php:270
 msgid "Click reset zoom link to come back to original state."
 msgstr ""
+"Klik på linket for nulstil zoom for at vende tilbage til den oprindelige "
+"tilstand."
 
 #: js/messages.php:272
 msgid "Click a data point to view and possibly edit the data row."
-msgstr ""
+msgstr "Klik et datapunkt for at se og muligvis redigere datarækken"
 
 #: js/messages.php:274
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
+"Plottet kan ændres i størrelse ved at trække det i nederste højre hjørne."
 
 #: js/messages.php:276
 msgid "Strings are converted into integer for plotting"
-msgstr ""
+msgstr "Strenge er konverteret til heltal i plottet."
 
 #: js/messages.php:278
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
-msgstr "Tilføj/Slet kolonner"
+msgstr "Vælg to kolonner"
 
 #: js/messages.php:279
 msgid "Select two different columns"
-msgstr ""
+msgstr "Vælg to forskellige kolonner"
 
 #: js/messages.php:282 tbl_change.php:317 tbl_indexes.php:211
 #: tbl_indexes.php:238
@@ -1859,13 +1841,12 @@ msgstr "Kopi"
 
 #: js/messages.php:291
 msgid "Outer Ring"
-msgstr ""
+msgstr "Ydre ring"
 
 #: js/messages.php:297
-#, fuzzy
 #| msgid "Add column"
 msgid "Add columns"
-msgstr "Tilføj kolonne"
+msgstr "Tilføj kolonner"
 
 #: js/messages.php:300
 msgid "Select referenced key"
@@ -1897,13 +1878,15 @@ msgstr "Tilføj mulighed for kolonne"
 
 #: js/messages.php:310
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "Tryk på ESC for at annullere redigeringen."
 
 #: js/messages.php:311
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
+"Du har redigeret nogle data og de er ikke blevet gemt. Er du sikker på, at "
+"du vil forlade siden uden at gemme data ?"
 
 #: js/messages.php:312
 msgid "Drag to reorder"
@@ -1926,17 +1909,21 @@ msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
+"Denne tabel indeholder ikke en unik kolonne. Funktioner relateret til "
+"redigering af gitter, afkrydsningsboks og links til redigering, kopiering og "
+"sletning fungerer måske ikke, efter at data er gemt. "
 
 #: js/messages.php:318
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
+"Du kan også redigere de fleste kolonner<br />ved at klikke direkte på deres "
+"indhold."
 
 #: js/messages.php:319
-#, fuzzy
 #| msgid "Go to view"
 msgid "Go to link"
-msgstr "Gå til view"
+msgstr "Gå til link"
 
 #: js/messages.php:322
 msgid "Generate password"
@@ -1978,14 +1965,12 @@ msgid "Done"
 msgstr "Færdig"
 
 #: js/messages.php:356
-#, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Forrige"
 
 #: js/messages.php:361
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
@@ -2135,7 +2120,6 @@ msgstr "lørdag"
 
 #. l10n: Short week day name
 #: js/messages.php:417
-#, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
 msgid "Sun"
@@ -2226,7 +2210,7 @@ msgstr "Sekund"
 #: libraries/Advisor.class.php:145
 #, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
-msgstr ""
+msgstr "Fejlende formatteringsstreng for regel '%s'. PHP gav følgende fejl: %s"
 
 #: libraries/Config.class.php:1159
 msgid "Font size"
@@ -2370,10 +2354,9 @@ msgstr[0] "%1$d række sat ind."
 msgstr[1] "%1$d rækker sat ind."
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Tillader læsning af data."
+msgstr "Fejl ved oprettelse af PDF:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
@@ -2410,10 +2393,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Denne MySQL-server understøtter ikke %s datalager."
 
 #: libraries/Table.class.php:303
-#, fuzzy
 #| msgid "Show slave status"
 msgid "unknown table status: "
-msgstr "Vis slavestatus"
+msgstr "ukendt tabelstatus:"
 
 #: libraries/Table.class.php:1034
 msgid "Invalid database"
@@ -2605,10 +2587,9 @@ msgid "PBMS get BLOB info failed:"
 msgstr "PBMS hent BLOB info mislykkedes:"
 
 #: libraries/blobstreaming.lib.php:337
-#, fuzzy
 #| msgid "get BLOB Content-Type failed"
 msgid "PBMS get BLOB Content-Type failed"
-msgstr "hent BLOB Content-Type mislykkedes"
+msgstr "PBMS hent BLOB Content-Type mislykkedes"
 
 #: libraries/blobstreaming.lib.php:363
 msgid "View image"
@@ -2877,7 +2858,6 @@ msgstr "Manglende parameter"
 
 #: libraries/common.lib.php:2294 libraries/common.lib.php:2297
 #: libraries/display_tbl.lib.php:306
-#, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
@@ -2886,7 +2866,6 @@ msgstr "Start"
 #: libraries/common.lib.php:2295 libraries/common.lib.php:2298
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
-#, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
@@ -2895,7 +2874,6 @@ msgstr "Forrige"
 #: libraries/common.lib.php:2324 libraries/common.lib.php:2327
 #: libraries/display_tbl.lib.php:370 server_binlog.php:170
 #: server_binlog.php:172
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
@@ -2903,7 +2881,6 @@ msgstr "Næste"
 
 #: libraries/common.lib.php:2325 libraries/common.lib.php:2328
 #: libraries/display_tbl.lib.php:385
-#, fuzzy
 #| msgid "End"
 msgctxt "Last page"
 msgid "End"
@@ -4279,10 +4256,9 @@ msgid "Memory limit"
 msgstr "Hukommelsesgrænse"
 
 #: libraries/config/messages.inc.php:319
-#, fuzzy
 #| msgid "These are Edit, Inline edit, Copy and Delete links"
 msgid "These are Edit, Copy and Delete links"
-msgstr "Dette er Ret, Ret linje, Kopi og Slet links"
+msgstr "Dette er Ret, Kopi og Slet links"
 
 #: libraries/config/messages.inc.php:320
 msgid "Where to show the table row links"
@@ -4438,7 +4414,7 @@ msgstr "Vis hjælpeknap"
 
 #: libraries/config/messages.inc.php:357
 msgid "Save all edited cells at once"
-msgstr ""
+msgstr "Gem alle redigerede celler med det samme"
 
 #: libraries/config/messages.inc.php:358
 msgid "Directory where exports can be saved on server"
@@ -4638,10 +4614,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:399
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of records saved in \"table_uiprefs\" table"
-msgstr "Maksimalt antal tabeller vist i tabellisten"
+msgstr "Maksimalt antal rækker gemt i tabellen \"table_uiprefs\""
 
 #: libraries/config/messages.inc.php:400
 msgid "Try to connect without password"
@@ -4975,16 +4950,14 @@ msgid "Show function fields"
 msgstr "Vis funktionsfelter"
 
 #: libraries/config/messages.inc.php:462
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Whether to show hint or not"
-msgstr "Hvor links til tablerækker skal vises"
+msgstr "Om hints skal vises eller ej"
 
 #: libraries/config/messages.inc.php:463
-#, fuzzy
 #| msgid "Show indexes"
 msgid "Show hint"
-msgstr "Vis indekser"
+msgstr "Vis hint"
 
 #: libraries/config/messages.inc.php:464
 msgid ""
@@ -5712,10 +5685,9 @@ msgid "Language"
 msgstr "Sprog"
 
 #: libraries/display_tbl.lib.php:401
-#, fuzzy
 #| msgid "Save directory"
 msgid "Save edited data"
-msgstr "Gemmemappe"
+msgstr "Gem redigerede data"
 
 #: libraries/display_tbl.lib.php:407
 msgid "Restore column order"
@@ -6603,10 +6575,9 @@ msgid "Stand-in structure for view"
 msgstr "Stand-in-struktur for visning"
 
 #: libraries/export/sql.php:1071
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error reading data:"
-msgstr "Tillader læsning af data."
+msgstr "Fejl ved læsning af data."
 
 #: libraries/export/xml.php:19 libraries/import/xml.php:21
 msgid "XML"
@@ -6652,7 +6623,6 @@ msgid ""
 msgstr "De følgende strukturer er enten oprettet eller ændret. Her kan du: "
 
 #: libraries/import.lib.php:1095
-#, fuzzy
 #| msgid "View a structure`s contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name"
 msgstr "Vis en strukturs indhold ved at klikke på dens navn"
@@ -6664,30 +6634,29 @@ msgstr ""
 "Ændr alle indstillinger ved at klikke på det tilhørende \"Indstilling\" link"
 
 #: libraries/import.lib.php:1097
-#, fuzzy
 #| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link"
-msgstr "Rediger dens struktur ved at følge linket \"Struktur\""
+msgstr "Rediger struktur ved at følge linket \"Struktur\""
 
 #: libraries/import.lib.php:1100
 msgid "Go to database"
 msgstr "Gå til database"
 
 #: libraries/import.lib.php:1103 libraries/import.lib.php:1126
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
-msgstr "Manglende data for %s"
+msgstr "Rediger indstillinger for %s"
 
 #: libraries/import.lib.php:1121
 msgid "Go to table"
 msgstr "Gå til tabel"
 
 #: libraries/import.lib.php:1124
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
-msgstr "Kun strukturen"
+msgstr "Strukturen af %s"
 
 #: libraries/import.lib.php:1130
 msgid "Go to view"
@@ -6768,29 +6737,30 @@ msgstr "Import valutaer <i>(ex. $5.00 to 5.00)</i>"
 
 #: libraries/import/shp.php:14
 msgid "ESRI Shape File"
-msgstr ""
+msgstr "ESRI formfil"
 
 #: libraries/import/shp.php:254
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr ""
+msgstr "Der var en fejl i importen af ESRI formfilen \"%s\""
 
 #: libraries/import/shp.php:310
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data"
 msgstr ""
+"Du prøvede på at importere en invalid fil eller den importerede fil "
+"indeholder invalide data"
 
 #: libraries/import/shp.php:312
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
-msgstr ""
+msgstr "MySQL Spatial Extension understøtter ikke ESRI type \"%s\"."
 
 #: libraries/import/shp.php:350
-#, fuzzy
 #| msgid "This page does not contain any tables!"
 msgid "The imported file does not contain any data"
-msgstr "Denne side indeholder ingen tabeller!"
+msgstr "Den importerede fil indeholder ingen data!"
 
 #: libraries/import/sql.php:33
 msgid "SQL compatibility mode:"
@@ -7310,14 +7280,12 @@ msgid "Execute every"
 msgstr "Udfør hver"
 
 #: libraries/rte/rte_events.lib.php:449
-#, fuzzy
 #| msgid "Start"
 msgctxt "Start of recurring event"
 msgid "Start"
 msgstr "Start"
 
 #: libraries/rte/rte_events.lib.php:457
-#, fuzzy
 #| msgid "End"
 msgctxt "End of recurring event"
 msgid "End"
@@ -8114,16 +8082,14 @@ msgid "Operator"
 msgstr "Operatør"
 
 #: libraries/tbl_select.lib.php:143
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "Søg"
+msgstr "Tabelsøgning"
 
 #: libraries/tbl_select.lib.php:229 tbl_change.php:994
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "Indsæt"
+msgstr "Rediger/Indsæt"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 msgid ""
@@ -8468,7 +8434,6 @@ msgid "No databases"
 msgstr "Ingen databaser"
 
 #: navigation.php:270
-#, fuzzy
 #| msgid "filter tables by name"
 msgid "Filter tables by name"
 msgstr "filtrer tabeller efter navn"
@@ -9513,10 +9478,9 @@ msgid "Monitor"
 msgstr "Monitor"
 
 #: server_status.php:690
-#, fuzzy
 #| msgid "Apply a divisor"
 msgid "Advisor"
-msgstr "Anvend divisor"
+msgstr "Rådgiver"
 
 #: server_status.php:700 server_status.php:722
 msgid "Refresh rate: "
@@ -9535,23 +9499,20 @@ msgid "Filter by category..."
 msgstr "Filtrer efter kategori..."
 
 #: server_status.php:765
-#, fuzzy
 #| msgid "Show only alert values"
 msgid "Show unformatted values"
-msgstr "Vis kun alert-værdier"
+msgstr "Vis uformatterede værdier"
 
 #: server_status.php:769
 msgid "Related links:"
 msgstr "Relaterede links:"
 
 #: server_status.php:800
-#, fuzzy
 #| msgid "Query type"
 msgid "Run analyzer"
-msgstr "Forespørgselstype"
+msgstr "Kør analysator"
 
 #: server_status.php:801
-#, fuzzy
 #| msgid "Instructions/Setup"
 msgid "Instructions"
 msgstr "Instruktioner/Opsætning"
@@ -9561,6 +9522,8 @@ msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
 msgstr ""
+"Rådgiversystemer kan give anbefalinger om servervariable ved at analysere "
+"serverens statusvariable"
 
 #: server_status.php:810
 msgid ""
@@ -9568,6 +9531,8 @@ msgid ""
 "calculations and by rule of thumb which may not necessarily apply to your "
 "system."
 msgstr ""
+"Bemærk dog, at dette system giver anbefalinger baseret på simple beregninger "
+"og tommelfingerregler, som ikke passer med dit system"
 
 #: server_status.php:812
 msgid ""
@@ -9575,6 +9540,9 @@ msgid ""
 "changing (by reading the documentation) and how to undo the change. Wrong "
 "tuning can have a very negative effect on performance."
 msgstr ""
+"Før konfigurationen ændres, så vær sikker på, hvad du ændrer (ved at læse "
+"dokumentationen) og hvordan du annullerer ændringer. Forkert tuning kan have "
+"en meget negativ effekt på ydeevnen."
 
 #: server_status.php:814
 msgid ""
@@ -9582,6 +9550,9 @@ msgid ""
 "time, observe or benchmark your database, and undo the change if there was "
 "no clearly measurable improvement."
 msgstr ""
+"Den bedste måde at finjustere dit system vil være at ændre een indstiling ad "
+"gangen, observere og teste din database og annullere ændringen, hvis der "
+"ingen klart synlig forskel var."
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:836
@@ -10384,16 +10355,14 @@ msgid "Refresh rate"
 msgstr "Opdateringsfrekvens"
 
 #: server_status.php:1468
-#, fuzzy
 #| msgid "Chart columns:"
 msgid "Chart columns"
 msgstr "Diagramkolonner:"
 
 #: server_status.php:1484
-#, fuzzy
 #| msgid "Error management:"
 msgid "Chart arrangement"
-msgstr "Fejlhåndtering:"
+msgstr "Diagramopstilling"
 
 #: server_status.php:1484
 msgid ""
@@ -10402,7 +10371,6 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1485
-#, fuzzy
 #| msgid "Restore default value"
 msgid "Reset to default"
 msgstr "Gendan standardværdi"
@@ -10412,7 +10380,6 @@ msgid "Monitor Instructions"
 msgstr "Monitorinstruktioner"
 
 #: server_status.php:1490
-#, fuzzy
 #| msgid ""
 #| "The phpMyAdmin Monitor can assist you in optimizing the server "
 #| "configuration and track down time intensive\n"
@@ -10443,13 +10410,11 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1508
-#, fuzzy
 #| msgid "Pause monitor"
 msgid "Using the monitor:"
-msgstr "Sæt monitor på pause"
+msgstr "Brug af monitor:"
 
 #: server_status.php:1510
-#, fuzzy
 #| msgid ""
 #| "<b>Using the monitor:</b><br/>\n"
 #| "        Ok, you are good to go! Once you click 'Start monitor' your "
@@ -10468,16 +10433,10 @@ msgid ""
 "change the refresh rate under 'Settings', or remove any chart using the cog "
 "icon on each respective chart."
 msgstr ""
-"<b>Brug af monitoren:</b><br/>\n"
 "         Når du klikker på 'Start monitor' vil din browser opdatere alle "
-"viste diagrammer regelmæssigt.\n"
-"         Du kan tilføje diagrammer og ændre opdateringsfrekvensen under "
-"'Indstilinger' eller fjerne diagrammer\n"
-" ved at bruge ikonet cog på det relevante diagram.\n"
-"        <p>Når du ser en pludselig forøgelse i aktivitet, så vælg det "
-"relevante tidsinterval på et diagram ved at holde venstre museknap\n"
-"         nede og køre hen over diagrammet. Dette vill hente statistik fra "
-"logs og hjælpe dig til at finde årsagen.</p> til aktivitetsforøgelsen.</p>"
+"viste diagrammer regelmæssigt.         Du kan tilføje diagrammer og ændre "
+"opdateringsfrekvensen under 'Indstilinger' eller fjerne diagrammer ved at "
+"bruge ikonet cog på det relevante diagram.        "
 
 #: server_status.php:1512
 #, fuzzy
@@ -10512,10 +10471,9 @@ msgstr ""
 
 #: server_status.php:1519
 msgid "Please note:"
-msgstr ""
+msgstr "Bemærk venligst:"
 
 #: server_status.php:1521
-#, fuzzy
 #| msgid ""
 #| "<b>Please note:</b>\n"
 #| "        Enabling the general_log may increase the server load by 5-15%. "
@@ -10530,19 +10488,15 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
-"<b>Bemærk:\n"
-"        Aktivering af general_log kan forøge server load med 5-15%. Vær også "
-"opmærksom på, at statistikgenerering fra logs er en\n"
-"        krævende opgave, så det tilrådes at vælge kun en lille tidsinterval "
-"og at deaktivere general_log og tømme dens tabel, når\n"
-"        der ikke er behov for den længere.\n"
-" "
+"Aktivering af general_log kan forøge server load med 5-15%. Vær også "
+"opmærksom på, at statistikgenerering fra logs er en krævende opgave, så det "
+"tilrådes at vælge kun en lille tidsinterval og at deaktivere general_log og "
+"tømme dens tabel, når der ikke er behov for den længere. "
 
 #: server_status.php:1533
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Preset chart"
-msgstr "Fjern diagram"
+msgstr "Foruddefineret diagram"
 
 #: server_status.php:1537
 msgid "Status variable(s)"
@@ -10601,24 +10555,20 @@ msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 
 #: server_status.php:1608
-#, fuzzy
 #| msgid ""
 #| "<p>Choose from which log you want the statistics to be generated from.</"
 #| "p> Results are grouped by query text."
 msgid "Choose from which log you want the statistics to be generated from."
-msgstr ""
-"<p>Vælg fra hvilken log, du ønsker statistikken genereret fra</"
-"p>Resultaterne er grupperet af forespørgselstekst."
+msgstr "Vælg fra hvilken log, du ønsker statistikken genereret fra."
 
 #: server_status.php:1610
 msgid "Results are grouped by query text."
-msgstr ""
+msgstr "Resultaterne er grupperet af forespørgselstekst."
 
 #: server_status.php:1615
-#, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
-msgstr "Forespørgselstype"
+msgstr "Forespørgselsanalysator"
 
 #: server_status.php:1652
 #, php-format

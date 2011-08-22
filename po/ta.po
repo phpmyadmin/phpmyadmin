@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 09:21+0200\n"
+"PO-Revision-Date: 2011-08-20 08:37+0200\n"
 "Last-Translator:  <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -9955,24 +9955,24 @@ msgstr ""
 
 #: server_synchronize.php:1038
 msgid "Executed queries"
-msgstr ""
+msgstr "வினவல்கள் நிறைவடைந்தது"
 
 #: server_synchronize.php:1184
 msgid "Enter manually"
-msgstr ""
+msgstr "கைமுறையாக நுழை"
 
 #: server_synchronize.php:1192
 msgid "Current connection"
-msgstr ""
+msgstr "நடப்பாணை இணைப்பு"
 
 #: server_synchronize.php:1221
 #, php-format
 msgid "Configuration: %s"
-msgstr ""
+msgstr "உள்ளமைவு: %s"
 
 #: server_synchronize.php:1236
 msgid "Socket"
-msgstr ""
+msgstr "பொருத்துவாய்"
 
 #: server_synchronize.php:1282
 msgid ""
@@ -9982,23 +9982,23 @@ msgstr ""
 
 #: server_variables.php:65
 msgid "Setting variable failed"
-msgstr ""
+msgstr "மாறி அமைப்பு  தோல்வியடைந்தது"
 
 #: server_variables.php:84
 msgid "Server variables and settings"
-msgstr ""
+msgstr "சேவையக மாறிகள் மற்றும் அமைப்புக்கள்"
 
 #: server_variables.php:111 server_variables.php:137
 msgid "Session value"
-msgstr ""
+msgstr "அமர்வு மதிப்பு"
 
 #: server_variables.php:111
 msgid "Global value"
-msgstr ""
+msgstr "முழுதளாவிய மதிப்பு"
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:226
 msgid "Download"
-msgstr ""
+msgstr "பதிவிறக்கம்"
 
 #: setup/frames/index.inc.php:49
 msgid "Cannot load or save configuration"
@@ -10026,11 +10026,11 @@ msgstr ""
 
 #: setup/frames/index.inc.php:65
 msgid "Insecure connection"
-msgstr ""
+msgstr "பாதுகாப்பற்ற இணைப்பு"
 
 #: setup/frames/index.inc.php:93
 msgid "Configuration saved."
-msgstr ""
+msgstr "உள்ளமைவு சேமிக்கப்பட்டது."
 
 #: setup/frames/index.inc.php:94
 msgid ""
@@ -10040,11 +10040,11 @@ msgstr ""
 
 #: setup/frames/index.inc.php:101 setup/frames/menu.inc.php:15
 msgid "Overview"
-msgstr ""
+msgstr "இறுதிப்பர்வை"
 
 #: setup/frames/index.inc.php:109
 msgid "Show hidden messages (#MSG_COUNT)"
-msgstr ""
+msgstr "மறைத்த செய்திகளை காட்டு (#MSG_COUNT)"
 
 #: setup/frames/index.inc.php:149
 msgid "There are no configured servers"
@@ -10052,11 +10052,11 @@ msgstr ""
 
 #: setup/frames/index.inc.php:157
 msgid "New server"
-msgstr ""
+msgstr "புதிய சேவையகம்"
 
 #: setup/frames/index.inc.php:186
 msgid "Default language"
-msgstr ""
+msgstr "முன்னிருப்பு மொழி"
 
 #: setup/frames/index.inc.php:196
 msgid "let the user choose"
@@ -10064,39 +10064,39 @@ msgstr ""
 
 #: setup/frames/index.inc.php:207
 msgid "- none -"
-msgstr ""
+msgstr "- ஒன்றுமில்லை -"
 
 #: setup/frames/index.inc.php:210
 msgid "Default server"
-msgstr ""
+msgstr "முன்னிருப்பு சேவையகம்"
 
 #: setup/frames/index.inc.php:220
 msgid "End of line"
-msgstr ""
+msgstr "முடிவுக்கோடு"
 
 #: setup/frames/index.inc.php:225
 msgid "Display"
-msgstr ""
+msgstr "திரை"
 
 #: setup/frames/index.inc.php:229
 msgid "Load"
-msgstr ""
+msgstr "ஏற்று"
 
 #: setup/frames/index.inc.php:240
 msgid "phpMyAdmin homepage"
-msgstr ""
+msgstr "phpMyAdmin அகப்பக்கம்"
 
 #: setup/frames/index.inc.php:241
 msgid "Donate"
-msgstr ""
+msgstr "நன்கொடை"
 
 #: setup/frames/servers.inc.php:28
 msgid "Edit server"
-msgstr ""
+msgstr "சேவையகத்தை தொகு"
 
 #: setup/frames/servers.inc.php:37
 msgid "Add a new server"
-msgstr ""
+msgstr "ஒரு புதிய சேவையகத்தை சேர்"
 
 #: setup/lib/form_processing.lib.php:43
 msgid "Warning"
@@ -10112,11 +10112,11 @@ msgstr ""
 
 #: setup/lib/form_processing.lib.php:48
 msgid "Ignore errors"
-msgstr ""
+msgstr "வழுக்களை நிராகரி"
 
 #: setup/lib/form_processing.lib.php:50
 msgid "Show form"
-msgstr ""
+msgstr "படிவத்தை காட்டு"
 
 #: setup/lib/index.lib.php:122
 msgid ""
@@ -10293,7 +10293,7 @@ msgstr ""
 
 #: sql.php:959
 msgid "Label"
-msgstr ""
+msgstr "சிட்டை"
 
 #: tbl_addfield.php:185 tbl_alter.php:99 tbl_indexes.php:98
 #, php-format
@@ -10366,7 +10366,7 @@ msgstr "பங்குனி"
 
 #: tbl_chart.php:90
 msgid "Line"
-msgstr ""
+msgstr "கோடு"
 
 #: tbl_chart.php:91
 #, fuzzy
@@ -10386,15 +10386,15 @@ msgstr ""
 
 #: tbl_chart.php:97
 msgid "Chart title"
-msgstr ""
+msgstr "வரைபட தலைப்பு"
 
 #: tbl_chart.php:103
 msgid "X-Axis:"
-msgstr ""
+msgstr "X-அச்சு"
 
 #: tbl_chart.php:117
 msgid "Series:"
-msgstr ""
+msgstr "தொடர்கள்"
 
 #: tbl_chart.php:119
 #, fuzzy
@@ -10404,29 +10404,29 @@ msgstr "கள நிரல்களை சேர்க்க/ நீக்க�
 
 #: tbl_chart.php:132
 msgid "X-Axis label:"
-msgstr ""
+msgstr "X-அச்சு சிட்டை:"
 
 #: tbl_chart.php:133
 msgid "X Values"
-msgstr ""
+msgstr "X மதிப்புக்கள்"
 
 #: tbl_chart.php:134
 msgid "Y-Axis label:"
-msgstr ""
+msgstr "Y-அச்சு சிட்டை:"
 
 #: tbl_chart.php:134
 msgid "Y Values"
-msgstr ""
+msgstr "Y மதிப்புக்கள்:"
 
 #: tbl_create.php:30
 #, php-format
 msgid "Table %s already exists!"
-msgstr ""
+msgstr "%s இந்த அட்டவணை ஏற்கனவே உள்ளது!"
 
 #: tbl_create.php:216
 #, php-format
 msgid "Table %1$s has been created."
-msgstr ""
+msgstr "அட்டவணை %1$s உருவாக்கபட்டது."
 
 #: tbl_export.php:24
 msgid "View dump (schema) of table"
@@ -10438,11 +10438,11 @@ msgstr ""
 
 #: tbl_gis_visualization.php:128
 msgid "Width"
-msgstr ""
+msgstr "அகலம்"
 
 #: tbl_gis_visualization.php:132
 msgid "Height"
-msgstr ""
+msgstr "உயரம்"
 
 #: tbl_gis_visualization.php:136
 #, fuzzy
@@ -10452,7 +10452,7 @@ msgstr "கள நிரல்களை சேர்க்க/ நீக்க�
 
 #: tbl_gis_visualization.php:138
 msgid "-- None --"
-msgstr ""
+msgstr "-- எதுவுமில்லை --"
 
 #: tbl_gis_visualization.php:151
 #, fuzzy
@@ -10466,11 +10466,11 @@ msgstr ""
 
 #: tbl_gis_visualization.php:177
 msgid "Save to file"
-msgstr ""
+msgstr "கோப்பை சேமி"
 
 #: tbl_gis_visualization.php:178
 msgid "File name"
-msgstr ""
+msgstr "கோப்பின் பெயர்"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
@@ -10486,11 +10486,11 @@ msgstr ""
 
 #: tbl_indexes.php:169
 msgid "Create a new index"
-msgstr ""
+msgstr "புதிய சுட்டை உருவாக்கு"
 
 #: tbl_indexes.php:171
 msgid "Modify an index"
-msgstr ""
+msgstr "சுட்டை மார்றியமை"
 
 #: tbl_indexes.php:176
 msgid ""
@@ -10499,11 +10499,11 @@ msgstr ""
 
 #: tbl_indexes.php:179
 msgid "Index name:"
-msgstr ""
+msgstr "சுட்டுப் பெயர்"
 
 #: tbl_indexes.php:185
 msgid "Index type:"
-msgstr ""
+msgstr "சுட்டு வகை"
 
 #: tbl_indexes.php:265
 #, php-format
@@ -10550,7 +10550,7 @@ msgstr ""
 
 #: tbl_operations.php:355
 msgid "Table options"
-msgstr ""
+msgstr "அட்டவணை தெரிவுகள்"
 
 #: tbl_operations.php:359
 msgid "Rename table to"
@@ -10566,11 +10566,11 @@ msgstr ""
 
 #: tbl_operations.php:594
 msgid "Table maintenance"
-msgstr ""
+msgstr "அட்டவணை பராமரிப்பு"
 
 #: tbl_operations.php:618
 msgid "Defragment table"
-msgstr ""
+msgstr "அட்டவணையை ஒருங்கமை"
 
 #: tbl_operations.php:666
 #, php-format
@@ -10583,44 +10583,44 @@ msgstr ""
 
 #: tbl_operations.php:681
 msgid "Delete data or table"
-msgstr ""
+msgstr "தரவை அல்லது அட்டவணையை அழி"
 
 #: tbl_operations.php:696
 msgid "Empty the table (TRUNCATE)"
-msgstr ""
+msgstr "அட்டவணையை வெறுமையாக்கு (காலி)"
 
 #: tbl_operations.php:716
 msgid "Delete the table (DROP)"
-msgstr ""
+msgstr "அட்டவணையை அழி (அழி)"
 
 #: tbl_operations.php:737
 msgid "Partition maintenance"
-msgstr ""
+msgstr "பிரிவினை பராமரிப்பு"
 
 #: tbl_operations.php:745
 #, php-format
 msgid "Partition %s"
-msgstr ""
+msgstr "பிரிவினை %s"
 
 #: tbl_operations.php:748
 msgid "Analyze"
-msgstr ""
+msgstr "ஆரய்தல்"
 
 #: tbl_operations.php:749
 msgid "Check"
-msgstr ""
+msgstr "சரிபார்"
 
 #: tbl_operations.php:750
 msgid "Optimize"
-msgstr ""
+msgstr "உகப்பாக்கு"
 
 #: tbl_operations.php:751
 msgid "Rebuild"
-msgstr ""
+msgstr "மீள்வாகு"
 
 #: tbl_operations.php:752
 msgid "Repair"
-msgstr ""
+msgstr "திருத்து"
 
 #: tbl_operations.php:764
 msgid "Remove partitioning"
@@ -10644,7 +10644,7 @@ msgstr "பாவனையளவு"
 
 #: tbl_printview.php:305 tbl_structure.php:789
 msgid "Effective"
-msgstr ""
+msgstr "பயனுடைய"
 
 #: tbl_printview.php:330 tbl_structure.php:824
 msgid "Row Statistics"
