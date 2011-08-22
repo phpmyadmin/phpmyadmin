@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-22 14:48+0200\n"
-"PO-Revision-Date: 2011-08-22 22:56+0200\n"
+"PO-Revision-Date: 2011-08-22 22:59+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1761,7 +1761,7 @@ msgstr "Çizime yakınlaşmak ya da uzaklaşmak için fare tekerini kullanın."
 
 #: js/messages.php:270
 msgid "Click and drag the mouse to navigate the plot."
-msgstr ""
+msgstr "Çizimde gezinmek için tıklayın ve fareyi sürükleyin."
 
 #: js/messages.php:272
 msgid "Click reset zoom link to come back to original state."
