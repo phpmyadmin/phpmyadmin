@@ -654,7 +654,13 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             g.isCellEditActive = false;
             g.currentEditCell = null;
             // destroy datepicker in edit area, if exist
-            $(g.cEdit).find('.hasDatepicker').datepicker('destroy');
+            var $dp = $(g.cEdit).find('.hasDatepicker');
+            if ($dp.length > 0) {
+                $dp.datepicker('destroy');
+                // change the cursor in edit box back to normal
+                // (the cursor become a hand pointer when we add datepicker)
+                $(g.cEdit).find('.edit_box').css('cursor', 'inherit');
+            }
         },
 
         /**
@@ -785,11 +791,13 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     g.lastXHR = $.post('sql.php', post_params, function(data) {
                         g.lastXHR = null;
                         $editArea.removeClass('edit_area_loading');
-                        // save original_data
-                        var value = $(data.dropdown).val();
-                        $td.data('original_data', value);
-                        // update the text input field, in case where the "Relational display column" is checked
-                        $(g.cEdit).find('.edit_box').val(value);
+                        if ($(data.dropdown).is('select')) {
+                            // save original_data
+                            var value = $(data.dropdown).val();
+                            $td.data('original_data', value);
+                            // update the text input field, in case where the "Relational display column" is checked
+                            $(g.cEdit).find('.edit_box').val(value);
+                        }
 
                         $editArea.append(data.dropdown);
                         $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
@@ -940,6 +948,11 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             // remove null checkbox if it exists
                             $(g.cEdit).find('.null_div input[type=checkbox]').attr('checked', false);
                         }
+                    });
+                    
+                    // cancel any click on the datepicker element
+                    $editArea.find('> *').click(function(e) {
+                        e.stopPropagation();
                     });
                     
                     // force to restore modified $input_field value after adding datepicker
@@ -1571,9 +1584,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     // prevent text editing
                     e.preventDefault();
                 }
-            });
-            $(g.cEdit).find('.edit_area').click(function(e) {
-                e.stopPropagation();
             });
             $('html').click(function(e) {
                 // hide edit cell if the click is not from g.cEdit
