@@ -1500,6 +1500,8 @@ msgstr "Mont da taolenn ar marilh"
 #: js/messages.php:170
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
+"Dielfennet eo bet ar marilh hep kavout roadenn ebet evit ar prantad amzer-"
+"mañ."
 
 #. l10n: A collection of available filters
 #: js/messages.php:173
