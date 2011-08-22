@@ -447,11 +447,16 @@ PMA_printJsValue("$.datepicker.regional['']['dayNamesMin']",
         __('Sa')));
 /* l10n: Column header for week of the year in calendar */
 PMA_printJsValue("$.datepicker.regional['']['weekHeader']", __('Wk'));
+?>
+$.extend($.datepicker._defaults, $.datepicker.regional['']);
+} /* if ($.datepicker) */
 
+<?php
+echo "if ($.timepicker) {\n";
 PMA_printJsValue("$.timepicker.regional['']['timeText']", __('Time'));
 PMA_printJsValue("$.timepicker.regional['']['hourText']", __('Hour'));
 PMA_printJsValue("$.timepicker.regional['']['minuteText']", __('Minute'));
 PMA_printJsValue("$.timepicker.regional['']['secondText']", __('Second'));
 ?>
-$.extend($.datepicker._defaults, $.datepicker.regional['']);
-} /* if ($.datepicker) */
+$.extend($.timepicker._defaults, $.timepicker.regional['']);
+} /* if ($.timepicker) */
