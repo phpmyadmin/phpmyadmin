@@ -281,12 +281,12 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         <?php
         if (isset($tables_pk_or_unique_keys[$t_n.".".$tab_column[$t_n]["COLUMN_NAME"][$j]])) {
             ?>
-                <img src="pmd/styles/<?php echo $GLOBALS['PMD']['STYLE'];?>/images/FieldKey_small.png"
+                <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/FieldKey_small.png"
                     alt="*" />
             <?php
         } else {
             ?>
-                    <img src="pmd/styles/<?php echo $GLOBALS['PMD']['STYLE']?>/images/Field_small<?php
+                    <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/Field_small<?php
             if (strstr($tab_column[$t_n]["TYPE"][$j],'char')
              || strstr($tab_column[$t_n]["TYPE"][$j],'text')) {
                 echo '_char';
