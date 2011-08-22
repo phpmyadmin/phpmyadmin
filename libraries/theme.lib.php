@@ -6,19 +6,6 @@
  * @package phpMyAdmin
  */
 
-
-/**
- * Gradient filter for IE.
- *
- * @return string CSS code.
- */
-function PMA_ieFilter($start_color, $end_color)
-{
-    return PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 6 && PMA_USR_BROWSER_VER <= 8
-        ? 'filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr="#' . $start_color . '", endColorstr="#' . $end_color . '");'
-        : '';
-}
-
 /**
  * Remove filter for IE.
  *
@@ -47,6 +34,9 @@ function PMA_css_Gradied($start_color, $end_color)
     $result[] = 'background: -moz-linear-gradient(top, #' . $start_color . ', #' . $end_color . ');';
     $result[] = 'background: -o-linear-gradient(top, #' . $start_color . ', #' . $end_color . ');';
     $result[] = PMA_ieFilter($start_color, $end_color);
+    if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 6 && PMA_USR_BROWSER_VER <= 8) {
+        $result[] = 'filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr="#' . $start_color . '", endColorstr="#' . $end_color . '");';
+    }
     return implode("\n", $result);
 }
 
