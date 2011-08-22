@@ -12143,10 +12143,9 @@ msgstr ""
 "como 'OFF'"
 
 #: po/advisory_rules.php:70
-#, fuzzy
 #| msgid "Query cache used"
 msgid "Query caching method"
-msgstr "Caché de consultas utilizado"
+msgstr "Método de caché de consultas"
 
 #: po/advisory_rules.php:71
 msgid "Suboptimal caching method."
