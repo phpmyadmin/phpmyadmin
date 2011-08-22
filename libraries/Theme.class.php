@@ -377,5 +377,48 @@ class PMA_Theme
         }
         return implode("\n", $result);
     }
+
+    /**
+     * Returns CSS styles for CodeMirror editor based on query formatter colors.
+     *
+     * @return string CSS code.
+     */
+    function getCssCodeMirror()
+    {
+        $result[] = 'span.cm-keyword, span.cm-statement-verb {';
+        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_reservedWord'] . ';';
+        $result[] = '}';
+        $result[] = 'span.cm-variable {';
+        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_identifier'] . ';';
+        $result[] = '}';
+        $result[] = 'span.cm-comment {';
+        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['comment'] . ';';
+        $result[] = '}';
+        $result[] = 'span.cm-mysql-string {';
+        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['quote'] . ';';
+        $result[] = '}';
+        $result[] = 'span.cm-operator {';
+        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['punct'] . ';';
+        $result[] = '}';
+        $result[] = 'span.cm-mysql-word {';
+        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['alpha'] . ';';
+        $result[] = '}';
+        $result[] = 'span.cm-builtin {';
+        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_functionName'] . ';';
+        $result[] = '}';
+        $result[] = 'span.cm-variable-2 {';
+        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_columnType'] . ';';
+        $result[] = '}';
+        $result[] = 'span.cm-variable-3 {';
+        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_columnAttrib'] . ';';
+        $result[] = '}';
+        $result[] = 'span.cm-separator {';
+        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['punct'] . ';';
+        $result[] = '}';
+        $result[] = 'span.cm-number {';
+        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['digit_integer'] . ';';
+        $result[] = '}';
+        return implode("\n", $result);
+    }
 }
 ?>

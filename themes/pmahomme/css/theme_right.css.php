@@ -2670,39 +2670,7 @@ span.CodeMirror-selected {
 .CodeMirror-matchingbracket {color: #0f0 !important;}
 .CodeMirror-nonmatchingbracket {color: #f22 !important;}
 
-span.cm-keyword, span.cm-statement-verb {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_reservedWord']; ?>;
-}
-span.cm-variable {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_identifier']; ?>;
-}
-span.cm-comment {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['comment']; ?>;
-}
-span.cm-mysql-string {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['quote']; ?>;
-}
-span.cm-operator {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['punct']; ?>;
-}
-span.cm-mysql-word {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha']; ?>;
-}
-span.cm-builtin {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_functionName']; ?>;
-}
-span.cm-variable-2 {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_columnType']; ?>;
-}
-span.cm-variable-3 {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_columnAttrib']; ?>;
-}
-span.cm-separator {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['punct']; ?>;
-}
-span.cm-number {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['digit_integer']; ?>;
-}
+<?php echo $_SESSION['PMA_Theme']->getCssCodeMirror(); ?>
 
 .colborder {
     border-right: 1px solid #FFF;
