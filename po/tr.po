@@ -12387,7 +12387,6 @@ msgid "Temp disk rate"
 msgstr "Geçici disk oranı"
 
 #: po/advisory_rules.php:152
-#, fuzzy
 #| msgid ""
 #| "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 #| "some temporary tables are always being written to disk, independent of "
@@ -12407,7 +12406,7 @@ msgid ""
 msgstr ""
 "{max_heap_table_size} ve {tmp_table_size} arttırmak yardımcı olabilir. Ancak "
 "bazı geçici tablolar her zaman diske yazılır, bu değişkenlerin değeri "
-"bağımsızdır. <a href=\\\"http://dev.mysql.com/doc/refman/5.0/en/internal-"
+"bağımsızdır. <a href=\\\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\\\">MySQL Belgesi</a> içinde bahsedildiği gibi şu "
 "şartlardan (Geçici tablonun içerisinde: BLOB veya TEXT sütununun varlığı ya "
 "da 512 bayttan büyük sütunun varlığı) kaçınmak için bunları elemek "
