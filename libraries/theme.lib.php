@@ -25,7 +25,7 @@ function PMA_ieClearFilter() {
  *
  * @return string CSS code.
  */
-function PMA_css_Gradied($start_color, $end_color)
+function PMA_css_gradient($start_color, $end_color)
 {
     $result = array();
     $result[] = 'background-image: url(./themes/svg_gradient.php?from=' . $start_color . '&to=' . $end_color . ');';
