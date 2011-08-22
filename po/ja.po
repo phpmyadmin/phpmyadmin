@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-22 11:20+0200\n"
+"PO-Revision-Date: 2011-08-22 11:21+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -11961,7 +11961,7 @@ msgstr ""
 
 #: po/advisory_rules.php:75
 msgid "Query cache efficiency (%)"
-msgstr ""
+msgstr "クエリキャッシュ効率 (%)"
 
 #: po/advisory_rules.php:76
 msgid "Query cache not running efficiently, it has a low hit rate."
