@@ -3219,7 +3219,8 @@ function PMA_getSupportedDatatypes($html = false, $selected = '')
  *
  * @return   array   list of datatypes
  */
-function PMA_unsupportedDatatypes() {
+function PMA_unsupportedDatatypes()
+{
     $no_support_types = array();
     return $no_support_types;
 }
@@ -3231,7 +3232,8 @@ function PMA_unsupportedDatatypes() {
  *
  * @return array GIS data types
  */
-function PMA_getGISDatatypes($upper_case = false) {
+function PMA_getGISDatatypes($upper_case = false)
+{
     $gis_data_types = array('geometry',
                             'point',
                             'linestring',
@@ -3257,7 +3259,8 @@ function PMA_getGISDatatypes($upper_case = false) {
  *
  * @return GIS data enclosed in 'GeomFromText' function
  */
-function PMA_createGISData($gis_string) {
+function PMA_createGISData($gis_string)
+{
     $gis_string =  trim($gis_string);
     $geom_types = '(POINT|MULTIPOINT|LINESTRING|MULTILINESTRING|POLYGON|MULTIPOLYGON|GEOMETRYCOLLECTION)';
     if (preg_match("/^'" . $geom_types . "\(.*\)',[0-9]*$/i", $gis_string)) {
@@ -3283,8 +3286,8 @@ function PMA_createGISData($gis_string) {
  * @return array names and details of the functions that can be applied on
  *               geometry data typess.
  */
-function PMA_getGISFunctions($geom_type = null, $binary = true, $display = false) {
-
+function PMA_getGISFunctions($geom_type = null, $binary = true, $display = false)
+{
     $funcs = array();
     if ($display) {
         $funcs[] = array('display' => ' ');
