@@ -894,10 +894,9 @@ msgid "Add a point"
 msgstr "Ouzhpennañ ur poent"
 
 #: gis_data_editor.php:218 js/messages.php:289
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Linennoù a echu gant"
+msgstr "Aradennad linennoù"
 
 #: gis_data_editor.php:221 gis_data_editor.php:275
 msgid "Outer Ring:"
