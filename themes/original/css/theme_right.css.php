@@ -2574,7 +2574,7 @@ span.cm-number {
 }
 
 .saving_edited_data {
-    background: url(./themes/pmahomme/img/ajax_clock_small.gif) no-repeat left;
+    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>ajax_clock_small.gif) no-repeat left;
     padding-left: 20px;
 }
 
@@ -2584,3 +2584,523 @@ span.cm-number {
 .ui-timepicker-div dl dt { height: 25px; }
 .ui-timepicker-div dl dd { margin: -25px 0 10px 65px; }
 .ui-timepicker-div td { font-size: 90%; }
+
+/* Designer */
+.input_tab {
+    background-color: #A6C7E1;
+    color: #000000;
+}
+
+#canvas {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+canvas.pmd {
+    display: inline-block;
+    overflow: hidden;
+    text-align: left;
+}
+
+canvas.pmd * {
+    behavior: url(#default#VML);
+}
+
+.pmd_tab {
+    background-color: #FFFFFF;
+    color: #000000;
+    border-collapse: collapse;
+    border: 1px solid #AAAAAA;
+    z-index: 1;
+    -moz-user-select: none;
+}
+
+.tab_zag {
+    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/Header.png);
+    background-repeat: repeat-x;
+    text-align: center;
+    cursor: move;
+    padding: 1px;
+    font-weight: bold;
+}
+
+.tab_zag_2 {
+    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/Header_Linked.png);
+    background-repeat: repeat-x;
+    text-align: center;
+    cursor: move;
+    padding: 1px;
+    font-weight: bold;
+}
+
+.tab_field {
+    background: #FFFFFF;
+    color: #000000;
+    cursor: default;
+}
+
+.tab_field_2 {
+    background-color: #CCFFCC;
+    color: #000000;
+    background-repeat: repeat-x;
+    cursor: default;
+}
+
+.tab_field_3 {
+    background-color: #FFE6E6; /*#DDEEFF*/
+    color: #000000;
+    cursor: default;
+}
+
+#pmd_hint {
+    white-space: nowrap;
+    position: absolute;
+    background-color: #99FF99;
+    color: #000000;
+    left: 200px;
+    top: 50px;
+    z-index: 3;
+    border: #00CC66 solid 1px;
+    display: none;
+}
+
+.scroll_tab {
+    overflow: auto;
+    width: 100%;
+    height: 500px;
+}
+
+.pmd_Tabs {
+    cursor: default;
+    color: #0055bb;
+    white-space: nowrap;
+    text-decoration: none;
+    text-indent: 3px;
+    font-weight: bold;
+    margin-left: 2px;
+    text-align: left;
+    background-color: #FFFFFF;
+    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/left_panel_butt.png);
+    border: #CCCCCC solid 1px;
+}
+
+.pmd_Tabs2 {
+    cursor: default;
+    color: #0055bb;
+    background: #FFEE99;
+    text-indent: 3px;
+    font-weight: bold;
+    white-space: nowrap;
+    text-decoration: none;
+    border: #9999FF solid 1px;
+    text-align: left;
+}
+
+.owner {
+    font-weight: normal;
+    color: #888888;
+}
+
+.option_tab {
+    padding-left: 2px;
+    padding-right: 2px;
+    width: 5px;
+}
+
+.select_all {
+    vertical-align: top;
+    padding-left: 2px;
+    padding-right: 2px;
+    cursor: default;
+    width: 1px;
+    color: #000000;
+    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/Header.png);
+    background-repeat: repeat-x;
+}
+
+.small_tab {
+    vertical-align: top;
+    background-color: #0064ea;
+    color: #FFFFFF;
+    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/small_tab.png);
+    cursor: default;
+    text-align: center;
+    font-weight: bold;
+    padding-left: 2px;
+    padding-right: 2px;
+    width: 1px;
+    text-decoration: none;
+}
+
+.small_tab2 {
+    vertical-align: top;
+    color: #FFFFFF;
+    background-color: #FF9966;
+    cursor: default;
+    padding-left: 2px;
+    padding-right: 2px;
+    text-align: center;
+    font-weight: bold;
+    width: 1px;
+    text-decoration: none;
+}
+
+.small_tab_pref {
+    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/Header.png);
+    background-repeat: repeat-x;
+    text-align: center;
+    width: 1px;
+}
+
+.small_tab_pref2 {
+    vertical-align: top;
+    color: #FFFFFF;
+    background-color: #FF9966;
+    cursor: default;
+    text-align: center;
+    font-weight: bold;
+    width: 1px;
+    text-decoration: none;
+}
+
+.butt {
+    border: #4477aa solid 1px;
+    font-weight: bold;
+    height: 19px;
+    width: 70px;
+    background-color: #FFFFFF;
+    color: #000000;
+    vertical-align: baseline;
+}
+
+.L_butt2_1 {
+    padding: 1px;
+    text-decoration: none;
+    background-color: #ffffff;
+    color: #000000;
+    vertical-align: middle;
+    cursor: default;
+}
+
+.L_butt2_2 {
+    padding: 0;
+    border: #0099CC solid 1px;
+    background: #FFEE99;
+    text-decoration: none;
+    color: #000000;
+    cursor: default;
+}
+
+/* ---------------------------------------------------------------------------*/
+.bor {
+    width: 10px;
+    height: 10px;
+}
+
+.frams1 {
+    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/1.png) no-repeat right bottom;
+}
+
+.frams2 {
+    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/2.png) no-repeat left bottom;
+}
+
+.frams3 {
+    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/3.png) no-repeat left top;
+}
+
+.frams4 {
+    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/4.png) no-repeat right top;
+}
+
+.frams5 {
+    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/5.png) repeat-x center bottom;
+}
+
+.frams6 {
+    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/6.png) repeat-y left;
+}
+
+.frams7 {
+    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/7.png) repeat-x top;
+}
+
+.frams8 {
+    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/8.png) repeat-y right;
+}
+
+#osn_tab {
+    background-color: #FFFFFF;
+    color: #000000;
+    border: #A9A9A9 solid 1px;
+}
+
+.pmd_header {
+    background-color: #EAEEF0;
+    color: #000000;
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/top_panel.png);
+    background-position: top;
+    background-repeat: repeat-x;
+    border-right: #999999 solid 1px;
+    border-left: #999999 solid 1px;
+    height: 28px;
+}
+
+.pmd_header a {
+    display: block;
+    float: left;
+    margin: 3px 1px 4px 1px;
+    height: 20px;
+    border: 1px dotted #ffffff;
+}
+
+.pmd_header .M_bord {
+    display: block;
+    float: left;
+    margin: 4px;
+    height: 20px;
+    width: 2px;
+}
+
+.pmd_header a.first {
+    margin-right: 1em;
+}
+
+.pmd_header a.last {
+    margin-left: 1em;
+}
+
+a.M_butt_Selected_down_IE,
+a.M_butt_Selected_down {
+    border: 1px solid #C0C0BB;
+    background-color: #99FF99;
+    color: #000000;
+}
+
+a.M_butt_Selected_down_IE:hover,
+a.M_butt_Selected_down:hover,
+a.M_butt:hover {
+    border: 1px solid #0099CC;
+    background-color: #FFEE99;
+    color: #000000;
+}
+
+#layer_menu {
+    z-index: 1000;
+    position: absolute;
+    left: 0;
+    background-color: #EAEEF0;
+    border: #999999 solid 1px;
+}
+
+#layer_action {
+    position: absolute;
+    left: 638px;
+    top: 52px;
+    z-index: 1000;
+    background-color: #CCFF99;
+    padding: 3px;
+    border: #009933 solid 1px;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+#layer_upd_relation {
+    position: absolute;
+    left: 637px;
+    top: 224px;
+    z-index: 1000;
+}
+
+#layer_new_relation {
+    position: absolute;
+    left: 636px;
+    top: 85px;
+    z-index: 1000;
+    width: 153px;
+}
+
+#pmd_optionse {
+    position: absolute;
+    left: 636px;
+    top: 85px;
+    z-index: 1000;
+    width: 153px;
+}
+
+#layer_menu_sizer {
+    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/resize.png);
+    cursor: nw-resize;
+    width: 16px;
+    height: 16px;
+}
+
+.panel {
+    position: fixed;
+    top: 50px;
+    right: 0;
+    display: none;
+    background: #FFF;
+    border:1px solid #F5F5F5;
+    width: 350 px;
+    height: auto;
+    padding: 30px 170px 30px 30px;
+    color:#FFF;
+    z-index:99;
+}
+
+a.trigger{
+    position: fixed;
+    text-decoration: none;
+    top: 60px; right: 0;
+    color:#fff;
+    padding: 10px 40px 10px 15px;
+    background:#333333 url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/plus.png) 85% 55% no-repeat;
+    border:1px solid #444444;
+    display: block;
+}
+
+a.trigger:hover{
+    position: fixed;
+    text-decoration: none;
+    top: 60px; right: 0;
+    color:#080808;
+    padding: 10px 40px 10px 15px;
+    background:#fff696 url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/plus.png) 85% 55% no-repeat;
+    border:1px solid #999;
+    display: block;
+}
+
+a.active.trigger {
+    background:#222222 url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/minus.png) 85% 55% no-repeat;
+    z-index:999;
+}
+
+a.active.trigger:hover {
+    background:#fff696 url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/minus.png) 85% 55% no-repeat;
+    z-index:999;
+}
+
+h2.tiger{
+    background-repeat: repeat-x;
+    padding: 1px;
+    font-weight: bold;
+    padding: 50 20 50 20px;
+    margin: 0 0 5px 0;
+    width: 250px;
+    float: left;
+    color : #333;
+    text-align: center;
+}
+
+h2.tiger a {
+    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/Header.png);
+    text-align: center;
+    text-decoration: none;
+    color : #333;
+    display: block;
+}
+
+h2.tiger a:hover {
+    color: #000;
+    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/Header_Linked.png);
+}
+
+h2.active {
+    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/Header.png);
+    background-repeat: repeat-x;
+    padding: 1px;
+    background-position: left bottom;
+}
+
+.toggle_container {
+    margin: 0 0 5px;
+    padding: 0;
+    border-top: 1px solid #d6d6d6;
+    background: #FFF ;
+    width: 250px;
+    overflow: hidden;
+    font-size: 1.2em;
+    clear: both;
+}
+
+.toggle_container .block {
+    background-color: #DBE4E8;
+    padding:40 15 40 15px; /*--Padding of Container--*/
+    border:1px solid #999;
+    color:#000;
+}
+
+.history_table {
+    text-align: center;
+    background-color: #9999CC;
+}
+
+.history_table2 {
+    text-align: center;
+    background-color: #DBE4E8;
+}
+
+#filter {
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: #CCA;
+    z-index:10;
+    opacity:0.5;
+    filter: alpha(opacity=50);
+}
+
+#box {
+    display: none;
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    width: 500px;
+    height: 220px;
+    padding: 48px;
+    margin:0;
+    border: 1px solid black;
+    background-color: white;
+    z-index:101;
+    overflow: visible;
+}
+
+#boxtitle {
+    position:absolute;
+    float:center;
+    top:0;
+    left:0;
+    width:593px;
+    height:20px;
+    padding:0;
+    padding-top:4px;
+    left-padding:8px;
+    margin:0;
+    border-bottom:4px solid #3CF;
+    background-color: #D0DCE0;
+    color:black;
+    font-weight:bold;
+    padding-left: 2px;
+    text-align:left;
+}
+
+#tblfooter {
+    background-color: #D3DCE3;
+    float: right;
+    padding-top:10px;
+    color: black;
+    font-weight: normal;
+}
+
+input.btn {
+    color:#333;
+    background-color: #D0DCE0;
+}

@@ -58,7 +58,7 @@ echo $script_tabs . $script_contr . $script_display_field;
 </head>
 <body onload="Main()" class="general_body" id="pmd_body">
 
-<div class="header" id="top_menu">
+<div class="pmd_header" id="top_menu">
         <a href="javascript:Show_left_menu(document.getElementById('key_Show_left_menu'));"
             onmousedown="return false;" class="M_butt first" target="_self">
             <img id='key_Show_left_menu' title="<?php echo __('Show/Hide left menu'); ?>"
@@ -281,12 +281,12 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         <?php
         if (isset($tables_pk_or_unique_keys[$t_n.".".$tab_column[$t_n]["COLUMN_NAME"][$j]])) {
             ?>
-                <img src="pmd/styles/<?php echo $GLOBALS['PMD']['STYLE'];?>/images/FieldKey_small.png"
+                <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/FieldKey_small.png"
                     alt="*" />
             <?php
         } else {
             ?>
-                    <img src="pmd/styles/<?php echo $GLOBALS['PMD']['STYLE']?>/images/Field_small<?php
+                    <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/Field_small<?php
             if (strstr($tab_column[$t_n]["TYPE"][$j],'char')
              || strstr($tab_column[$t_n]["TYPE"][$j],'text')) {
                 echo '_char';
