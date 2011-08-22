@@ -722,8 +722,9 @@ function PMA_AddJSCode($str)
 /**
  * Adds JS code snippet for variable assignment to be displayed by header.inc.php.
  *
- * @param string $key Name of value to set
- * @param mixed $value Value to set, can be either string or array of strings
+ * @param string $key    Name of value to set
+ * @param mixed  $value  Value to set, can be either string or array of strings
+ * @param bool   $escape Whether to escape value or keep it as it is (for inclusion of js code)
  *
  */
 function PMA_AddJSVar($key, $value, $escape = true)

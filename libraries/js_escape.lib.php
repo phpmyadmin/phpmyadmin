@@ -82,8 +82,9 @@ function PMA_formatJsVal($value)
  * Formats an javascript assignment with proper escaping of a value
  * and support for assigning array of strings.
  *
- * @param string $key Name of value to set
- * @param mixed $value Value to set, can be either string or array of strings
+ * @param string $key    Name of value to set
+ * @param mixed  $value  Value to set, can be either string or array of strings
+ * @param bool   $escape Whether to escape value or keep it as it is (for inclusion of js code)
  *
  * @return string Javascript code.
  */
