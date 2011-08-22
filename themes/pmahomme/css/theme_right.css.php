@@ -3275,7 +3275,7 @@ canvas.pmd * {
     border: #A9A9A9 solid 1px;
 }
 
-.header {
+.pmd_header {
     background-color: #EAEEF0;
     color: #000000;
     text-align: center;
@@ -3290,7 +3290,7 @@ canvas.pmd * {
     height: 28px;
 }
 
-.header a {
+.pmd_header a {
     display: block;
     float: left;
     margin: 3px 1px 4px 1px;
@@ -3298,7 +3298,7 @@ canvas.pmd * {
     border: 1px dotted #ffffff;
 }
 
-.header .M_bord {
+.pmd_header .M_bord {
     display: block;
     float: left;
     margin: 4px;
@@ -3306,11 +3306,11 @@ canvas.pmd * {
     width: 2px;
 }
 
-.header a.first {
+.pmd_header a.first {
     margin-right: 1em;
 }
 
-.header a.last {
+.pmd_header a.last {
     margin-left: 1em;
 }
 

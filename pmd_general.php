@@ -58,7 +58,7 @@ echo $script_tabs . $script_contr . $script_display_field;
 </head>
 <body onload="Main()" class="general_body" id="pmd_body">
 
-<div class="header" id="top_menu">
+<div class="pmd_header" id="top_menu">
         <a href="javascript:Show_left_menu(document.getElementById('key_Show_left_menu'));"
             onmousedown="return false;" class="M_butt first" target="_self">
             <img id='key_Show_left_menu' title="<?php echo __('Show/Hide left menu'); ?>"
