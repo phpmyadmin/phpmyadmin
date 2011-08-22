@@ -87,10 +87,12 @@ function PMA_formatJsVal($value)
  *
  * @return string Javascript code.
  */
-function PMA_getJsValue($key, $value)
+function PMA_getJsValue($key, $value, $escape = true)
 {
     $result = $key . ' = ';
-    if (is_array($value)) {
+    if (!$escape) {
+        $result .= $value;
+    } elseif (is_array($value)) {
         $result .= '[';
         foreach ($value as $id => $val) {
             $result .= PMA_formatJsVal($value) . ",";

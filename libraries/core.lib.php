@@ -726,9 +726,9 @@ function PMA_AddJSCode($str)
  * @param mixed $value Value to set, can be either string or array of strings
  *
  */
-function PMA_AddJSVar($key, $value)
+function PMA_AddJSVar($key, $value, $escape = true)
 {
-    PMA_AddJsCode(PMA_getJsValue($key, $value));
+    PMA_AddJsCode(PMA_getJsValue($key, $value, $escape));
 }
 
 ?>
