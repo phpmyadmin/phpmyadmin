@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-17 02:56+0200\n"
+"PO-Revision-Date: 2011-08-21 04:03+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1212,10 +1212,9 @@ msgid "Query statistics"
 msgstr "クエリの統計"
 
 #: js/messages.php:93
-#, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Local monitor configuration incompatible"
-msgstr "設定ファイルの読み込みに失敗しました"
+msgstr "ローカルのモニタ環境設定に互換性なし"
 
 #: js/messages.php:94
 msgid ""
@@ -10274,16 +10273,15 @@ msgid "Chart columns"
 msgstr "1 段のグラフ数"
 
 #: server_status.php:1484
-#, fuzzy
 #| msgid "Error management:"
 msgid "Chart arrangement"
-msgstr "管理エラー:"
+msgstr "モニタ環境設定"
 
 #: server_status.php:1484
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
-msgstr ""
+msgstr "モニタの環境設定をローカルに保存します。変更されているモニタ環境をエクスポートできます。"
 
 #: server_status.php:1485
 msgid "Reset to default"
@@ -10320,13 +10318,11 @@ msgstr ""
 "タ機能は使用することができます。"
 
 #: server_status.php:1508
-#, fuzzy
 #| msgid "Pause monitor"
 msgid "Using the monitor:"
-msgstr "モニタ一時中断"
+msgstr "モニタの使い方："
 
 #: server_status.php:1510
-#, fuzzy
 #| msgid ""
 #| "<b>Using the monitor:</b><br/> Ok, you are good to go! Once you click "
 #| "'Start monitor' your browser will refresh all displayed charts in a "
@@ -10343,17 +10339,10 @@ msgid ""
 "change the refresh rate under 'Settings', or remove any chart using the cog "
 "icon on each respective chart."
 msgstr ""
-"<b>モニタの使い方：</b><br/>「モニタ開始」をクリックすると、ブラウザは一定間"
-"隔で表示されている全てのグラフを更新します。「設定」のところよりグラフを追加"
-"や再描画間隔の変更が行え、それぞれのグラフにある歯車のアイコンを通じて削除を"
-"行えます。<p>ログからクエリ分析を行うには、グラフで該当期間を選択します。マウ"
-"スの左ボタンを押したままグラフの上をドラッグするように移動させてください。こ"
-"うすることで、グラフの任意の期間を選択できます。グループ毎に分類されたクエリ"
-"が読み込まれ表示されますので、実行されたクエリを確認することができます。"
-"SELECT 文の部分をクリックすることで、更なるクエリ解析が可能です。</p>"
+"「モニタ開始」をクリックすると、ブラウザは一定間隔で表示されている全てのグラフを更新します。「設定」のところよりグラフを追加や再描画間隔の変更が行え、そ"
+"れぞれのグラフにある歯車のアイコンを通じて削除を行えます。"
 
 #: server_status.php:1512
-#, fuzzy
 #| msgid ""
 #| "<b>Using the monitor:</b><br/> Ok, you are good to go! Once you click "
 #| "'Start monitor' your browser will refresh all displayed charts in a "
@@ -10370,21 +10359,15 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occuring SELECT statements to further analyze them."
 msgstr ""
-"<b>モニタの使い方：</b><br/>「モニタ開始」をクリックすると、ブラウザは一定間"
-"隔で表示されている全てのグラフを更新します。「設定」のところよりグラフを追加"
-"や再描画間隔の変更が行え、それぞれのグラフにある歯車のアイコンを通じて削除を"
-"行えます。<p>ログからクエリ分析を行うには、グラフで該当期間を選択します。マウ"
-"スの左ボタンを押したままグラフの上をドラッグするように移動させてください。こ"
-"うすることで、グラフの任意の期間を選択できます。グループ毎に分類されたクエリ"
-"が読み込まれ表示されますので、実行されたクエリを確認することができます。"
-"SELECT 文の部分をクリックすることで、更なるクエリ解析が可能です。</p>"
+"ログからクエリ分析を行うには、グラフで該当期間を選択します。マウスの左ボタンを押したままグラフの上をドラッグするように移動させてください。こうすることで"
+"、グラフの任意の期間を選択できます。グループ毎に分類されたクエリが読み込まれ表示されますので、実行されたクエリを確認することができます。SELECT "
+"文の部分をクリックすることで、更なるクエリ解析が可能です。"
 
 #: server_status.php:1519
 msgid "Please note:"
-msgstr ""
+msgstr "注意事項："
 
 #: server_status.php:1521
-#, fuzzy
 #| msgid ""
 #| "<b>Please note:</b> Enabling the general_log may increase the server load "
 #| "by 5-15%. Also be aware that generating statistics from the logs is a "
@@ -10397,10 +10380,8 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
-"<b>注意事項：</b>general_log を有効にすると、5～15% サーバの負荷が増加するこ"
-"とがあります。ログから生成される統計は、負荷が集中する作業であることを認識し"
-"ておいてください。ですから、テーブルのモニタで必要としないのであれば、しばら"
-"くの間 general_log を無効にして空にしておくのが望ましいです。"
+"general_log を有効にすると、5～15% サーバの負荷が増加することがあります。ログから生成される統計は、負荷が集中する作業であることを認識し"
+"ておいてください。ですから、テーブルのモニタで必要としないのであれば、しばらくの間 general_log を無効にして空にしておくのが望ましいです。"
 
 #: server_status.php:1533
 #, fuzzy
@@ -10467,18 +10448,15 @@ msgid "Remove variable data in INSERT statements for better grouping"
 msgstr "結果を扱いやすくするために INSERT 文におけるデータ部を同一のように扱う"
 
 #: server_status.php:1608
-#, fuzzy
 #| msgid ""
 #| "<p>Choose from which log you want the statistics to be generated from.</"
 #| "p> Results are grouped by query text."
 msgid "Choose from which log you want the statistics to be generated from."
-msgstr ""
-"<p>ログの統計元を選択することができます。</p>結果はクエリ文でグループ化されま"
-"す。"
+msgstr "ログの統計元を選択することができます。"
 
 #: server_status.php:1610
 msgid "Results are grouped by query text."
-msgstr ""
+msgstr "結果はクエリ文でグループ化されます。"
 
 #: server_status.php:1615
 msgid "Query analyzer"
