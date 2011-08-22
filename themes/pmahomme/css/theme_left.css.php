@@ -11,11 +11,6 @@
 if (!defined('PMA_MINIMUM_COMMON')) {
     exit();
 }
-
-/**
- * Theme helpers.
- */
-require 'libraries/theme.lib.php';
 ?>
 /******************************************************************************/
 /* general tags */
@@ -245,7 +240,7 @@ div#left_tableList li {
 #newtable a {
     display: block;
     padding: 1px;
-    <?php echo PMA_css_gradient('ffffff', 'cccccc'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
     border: 1px solid #aaa;
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
@@ -257,7 +252,7 @@ div#left_tableList li {
 }
 
 #newtable a:hover {
-    <?php echo PMA_css_gradient('cccccc', 'dddddd'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('cccccc', 'dddddd'); ?>
 }
 
 #newtable li a:hover {

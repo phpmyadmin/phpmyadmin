@@ -11,11 +11,6 @@
 if (!defined('PMA_MINIMUM_COMMON') && !defined('TESTSUITE')) {
     exit();
 }
-
-/**
- * Theme helpers.
- */
-require 'libraries/theme.lib.php';
 ?>
 /******************************************************************************/
 /* general tags */
@@ -1671,7 +1666,7 @@ table#serverconnection_trg_local  {
     -moz-border-radius: 11px;
     -webkit-border-radius: 11px;
     border-radius: 11px;
-    <?php echo PMA_css_gradient('ffffff', 'cccccc'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
     border: 1px solid #444444;
     cursor: pointer;
 }

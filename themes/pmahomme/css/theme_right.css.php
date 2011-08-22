@@ -11,12 +11,6 @@
 if (!defined('PMA_MINIMUM_COMMON')) {
     exit();
 }
-
-/**
- * Theme helpers.
- */
-require 'libraries/theme.lib.php';
-
 ?>
 /******************************************************************************/
 
@@ -105,7 +99,7 @@ a:hover {
     -moz-border-radius:5px;
     -webkit-border-radius:5px;
     border-radius:5px;
-    <?php echo PMA_css_gradient('ffffff', 'cccccc'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
 }
 
 dfn {
@@ -121,7 +115,7 @@ th {
     font-weight:        bold;
     color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     background:         #f3f3f3;
-    <?php echo PMA_css_gradient('ffffff', 'cccccc'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
 }
 
 a img {
@@ -190,11 +184,11 @@ input[type=submit]{
 
     text-shadow: 0 1px 0 #fff;
 
-    <?php echo PMA_css_gradient('ffffff', 'cccccc'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
 }
 
 input[type=submit]:hover{position: relative;
-    <?php echo PMA_css_gradient('cccccc', 'dddddd'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('cccccc', 'dddddd'); ?>
     cursor:pointer;
 }
 
@@ -289,7 +283,7 @@ select{
 }
 
 select[multiple] {
-    <?php echo PMA_css_gradient('ffffff', 'f2f2f2'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'f2f2f2'); ?>
 }
 
 /* Icon sprites */
@@ -503,14 +497,14 @@ button.mult_submit {
 table tr.odd th,
 .odd {
     background: #fff;
-    <?php echo PMA_ieClearFilter(); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssIEClearFilter(); ?>
 }
 
 /* even items 2,4,6,8,... */
 table tr.even th,
 .even {
     background: #f3f3f3;
-    <?php echo PMA_ieClearFilter(); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssIEClearFilter(); ?>
 }
 
 /* odd table rows 1,3,5,7,... */
@@ -1598,10 +1592,10 @@ div#profilingchart {
     -moz-box-shadow: 1px 1px 2px rgba(0,0,0,.5);
     text-shadow: #fff 0 1px 0;
     */
-    <?php echo PMA_css_gradient('ffffff', 'cccccc'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
 }
 #sectionlinks a:hover, .buttonlinks a:hover, a.button:hover {
-    <?php echo PMA_css_gradient('cccccc', 'dddddd'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('cccccc', 'dddddd'); ?>
 }
 
 div#sqlquerycontainer {
@@ -2018,11 +2012,11 @@ input[type=text].invalid_value,
 
     text-shadow: 0 1px 0 #fff;
 
-    <?php echo PMA_css_gradient('ffffff', 'cccccc'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
     cursor: pointer;
 }
 #buttonGo:hover{
-    <?php echo PMA_css_gradient('cccccc', 'dddddd'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('cccccc', 'dddddd'); ?>
 }
 
 .format_specific_options h3 {
@@ -2857,7 +2851,7 @@ span.cm-number {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
 
-    <?php echo PMA_css_gradient('eeeeee', 'cccccc'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('eeeeee', 'cccccc'); ?>
 }
 
 .navigation td {
@@ -2894,7 +2888,7 @@ span.cm-number {
     cursor: pointer;
     text-shadow: none;
 
-    <?php echo PMA_css_gradient('333333', '555555'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('333333', '555555'); ?>
 }
 
 .navigation select {
