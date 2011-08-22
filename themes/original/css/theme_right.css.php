@@ -2929,7 +2929,7 @@ a.M_butt:hover {
 }
 
 #layer_menu_sizer {
-    background-image: url(../../images/resize.png);
+    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/resize.png);
     cursor: nw-resize;
     width: 16px;
     height: 16px;
