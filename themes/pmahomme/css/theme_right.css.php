@@ -105,12 +105,7 @@ a:hover {
     -moz-border-radius:5px;
     -webkit-border-radius:5px;
     border-radius:5px;
-    background-image: url(./themes/svg_gradient.php?from=ffffff&to=cccccc);
-    background-size: 100% 100%;
-    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
-    background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
-    background: -o-linear-gradient(top,  #ffffff,  #cccccc);
-    <?php echo PMA_ieFilter('#ffffff', '#cccccc'); ?>
+    <?php echo PMA_css_gradient('#ffffff', '#cccccc'); ?>
 }
 
 dfn {
@@ -126,12 +121,7 @@ th {
     font-weight:        bold;
     color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     background:         #f3f3f3;
-    background-image: url(./themes/svg_gradient.php?from=ffffff&to=cccccc);
-    background-size: 100% 100%;
-    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
-    background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
-    background: -o-linear-gradient(top,  #ffffff,  #cccccc);
-    <?php echo PMA_ieFilter('#ffffff', '#cccccc'); ?>
+    <?php echo PMA_css_gradient('#ffffff', '#cccccc'); ?>
 }
 
 a img {
@@ -200,21 +190,11 @@ input[type=submit]{
 
     text-shadow: 0 1px 0 #fff;
 
-    background-image: url(./themes/svg_gradient.php?from=ffffff&to=cccccc);
-    background-size: 100% 100%;
-    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
-    background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
-    background: -o-linear-gradient(top,  #ffffff,  #cccccc);
-    <?php echo PMA_ieFilter('#ffffff', '#cccccc'); ?>
+    <?php echo PMA_css_gradient('#ffffff', '#cccccc'); ?>
 }
 
 input[type=submit]:hover{position: relative;
-    background-image: url(./themes/svg_gradient.php?from=cccccc&to=dddddd);
-    background-size: 100% 100%;
-    background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd));
-    background: -moz-linear-gradient(top,  #cccccc,  #dddddd);
-    background: -o-linear-gradient(top,  #cccccc,  #dddddd);
-    <?php echo PMA_ieFilter('#cccccc', '#dddddd'); ?>
+    <?php echo PMA_css_gradient('#cccccc', '#dddddd'); ?>
     cursor:pointer;
 }
 
@@ -309,12 +289,7 @@ select{
 }
 
 select[multiple] {
-    background: #fff;
-    background: -webkit-gradient(linear, center top, center bottom, from(#fff), color-stop(0.8, #f1f1f1), to(#fbfbfb));
-    background: -webkit-linear-gradient(#fff, #f1f1f1 80%, #fbfbfb);
-    background: -moz-linear-gradient(#fff, #f1f1f1 80%, #fbfbfb);
-    /* none for Opera 11.10 as <option>s always have solid white background */
-    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#f2f2f2");
+    <?php echo PMA_css_gradient('#ffffff', '#f2f2f2'); ?>
 }
 
 /* Icon sprites */
@@ -1623,20 +1598,10 @@ div#profilingchart {
     -moz-box-shadow: 1px 1px 2px rgba(0,0,0,.5);
     text-shadow: #fff 0 1px 0;
     */
-    background-image: url(./themes/svg_gradient.php?from=ffffff&to=cccccc);
-    background-size: 100% 100%;
-    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
-    background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
-    background: -o-linear-gradient(top,  #ffffff,  #cccccc);
-    <?php echo PMA_ieFilter('#ffffff', '#cccccc'); ?>
+    <?php echo PMA_css_gradient('#ffffff', '#cccccc'); ?>
 }
 #sectionlinks a:hover, .buttonlinks a:hover, a.button:hover {
-    background-image: url(./themes/svg_gradient.php?from=cccccc&to=dddddd);
-    background-size: 100% 100%;
-    background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd));
-    background: -moz-linear-gradient(top,  #cccccc,  #dddddd);
-    background: -o-linear-gradient(top,  #cccccc,  #dddddd);
-    <?php echo PMA_ieFilter('#cccccc', '#dddddd'); ?>
+    <?php echo PMA_css_gradient('#cccccc', '#dddddd'); ?>
 }
 
 div#sqlquerycontainer {
@@ -2053,21 +2018,11 @@ input[type=text].invalid_value,
 
     text-shadow: 0 1px 0 #fff;
 
-    background-image: url(./themes/svg_gradient.php?from=ffffff&to=cccccc);
-    background-size: 100% 100%;
-    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
-    background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
-    background: -o-linear-gradient(top,  #ffffff,  #cccccc);
-    <?php echo PMA_ieFilter('#ffffff', '#cccccc'); ?>
+    <?php echo PMA_css_gradient('#ffffff', '#cccccc'); ?>
     cursor: pointer;
 }
 #buttonGo:hover{
-    background-image: url(./themes/svg_gradient.php?from=cccccc&to=dddddd);
-    background-size: 100% 100%;
-    background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd));
-    background: -moz-linear-gradient(top,  #cccccc,  #dddddd);
-    background: -o-linear-gradient(top,  #cccccc,  #dddddd);
-    <?php echo PMA_ieFilter('#cccccc', '#dddddd'); ?>
+    <?php echo PMA_css_gradient('#cccccc', '#dddddd'); ?>
 }
 
 .format_specific_options h3 {
@@ -2902,12 +2857,7 @@ span.cm-number {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
 
-    background-image: url(./themes/svg_gradient.php?from=eeeeee&to=cccccc);
-    background-size: 100% 100%;
-    background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#cccccc));
-    background: -moz-linear-gradient(top,  #eeeeee,  #cccccc);
-    background: -o-linear-gradient(top,  #eeeeee,  #cccccc);
-    <?php echo PMA_ieFilter('#eeeeee', '#cccccc'); ?>
+    <?php echo PMA_css_gradient('#eeeeee', '#cccccc'); ?>
 }
 
 .navigation td {
@@ -2944,12 +2894,7 @@ span.cm-number {
     cursor: pointer;
     text-shadow: none;
 
-    background-image: url(./themes/svg_gradient.php?from=333333&to=555555);
-    background-size: 100% 100%;
-    background: -webkit-gradient(linear, left top, left bottom, from(#333333), to(#555555));
-    background: -moz-linear-gradient(top,  #333333,  #555555);
-    background: -o-linear-gradient(top,  #333333,  #555555);
-    <?php echo PMA_ieFilter('#333333', '#555555'); ?>
+    <?php echo PMA_css_gradient('#333333', '#555555'); ?>
 }
 
 .navigation select {
