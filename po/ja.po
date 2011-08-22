@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-22 11:43+0200\n"
+"PO-Revision-Date: 2011-08-22 12:01+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -8020,10 +8020,9 @@ msgid "Operator"
 msgstr "演算子"
 
 #: libraries/tbl_select.lib.php:143
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "検索"
+msgstr "テーブル検索"
 
 #: libraries/tbl_select.lib.php:229 tbl_change.php:994
 #, fuzzy
