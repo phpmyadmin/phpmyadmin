@@ -2570,7 +2570,7 @@ span.cm-number {
 }
 
 .saving_edited_data {
-    background: url(./themes/pmahomme/img/ajax_clock_small.gif) no-repeat left;
+    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>ajax_clock_small.gif) no-repeat left;
     padding-left: 20px;
 }
 
