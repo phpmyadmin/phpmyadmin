@@ -166,7 +166,7 @@ input[type=text]{
     -moz-box-shadow:0 1px 2px #ddd;
     -webkit-box-shadow:0 1px 2px #ddd;
 
-    background:url(./themes/pmahomme/img/input_bg.gif);
+    background:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>input_bg.gif);
     border:1px solid #aaa;
     color:#555555;
     padding:4px;
@@ -183,7 +183,7 @@ input[type=password]{
     -moz-box-shadow:0 1px 2px #ddd;
     -webkit-box-shadow:0 1px 2px #ddd;
 
-    background:url(./themes/pmahomme/img/input_bg.gif);
+    background:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>input_bg.gif);
     border:1px solid #aaa;
     color:#555555;
     padding:4px;
@@ -311,7 +311,7 @@ select{
     border:1px solid #aaa;
     color:#333333;
     padding:3px;
-    background:url(./themes/pmahomme/img/input_bg.gif)
+    background:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>input_bg.gif)
 }
 
 select[multiple] {
@@ -558,7 +558,7 @@ td.marked,
 table tr.marked td,
 table tr.marked th,
 table tr.marked {
-    background:  url(./themes/pmahomme/img/marked_bg.png) repeat-x #b6c6d7;
+    background:  url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>marked_bg.png) repeat-x #b6c6d7;
     color:   <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
 }
 <?php } ?>
@@ -569,7 +569,7 @@ table tr.marked {
 .even:hover,
 .hover,
 .structure_actions_dropdown {
-    background:  url(./themes/pmahomme/img/marked_bg.png) repeat-x #b6c6d7; /* 3.4 */
+    background:  url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>marked_bg.png) repeat-x #b6c6d7; /* 3.4 */
     color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
 }
 
@@ -577,7 +577,7 @@ table tr.marked {
 table tr.odd:hover th,
 table tr.even:hover th,
 table tr.hover th {
-    background:  url(./themes/pmahomme/img/marked_bg.png) repeat-x #b6c6d7; /* 3.4 */
+    background:  url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>marked_bg.png) repeat-x #b6c6d7; /* 3.4 */
     color:   <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
 }
 <?php } ?>
@@ -999,7 +999,7 @@ ul#topmenu li, ul#topmenu2 li {
 }
 
 #topmenucontainer{
-    background:url(./themes/pmahomme/img/tab_bg.png) repeat-x;
+    background:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>tab_bg.png) repeat-x;
     border-top:1px solid #aaa;
 }
 
@@ -1041,7 +1041,7 @@ ul#topmenu ul {
 }
 
 ul#topmenu li:hover {
-    background:url(./themes/pmahomme/img/tab_hover_bg.png) repeat-x 50% 0%!important;
+    background:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>tab_hover_bg.png) repeat-x 50% 0%!important;
 }
 
 ul#topmenu li:hover ul, ul#topmenu .submenuhover ul {
@@ -1991,7 +1991,7 @@ input[type=text].invalid_value,
     display: inline;
     left: 0;
     right: 0;
-    background-image: url(./themes/pmahomme/img/ajax_clock_small.gif);
+    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>ajax_clock_small.gif);
     background-repeat: no-repeat;
     background-position: 2%;
     border:1px solid #e2b709;
@@ -2801,7 +2801,7 @@ span.cm-number {
 }
 
 .cPointer {
-    background: url(./themes/pmahomme/img/col_pointer.png);
+    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>col_pointer.png);
     height: 20px;
     margin-left: -5px;  /* must be minus half of its width */
     margin-top: -10px;
@@ -2831,7 +2831,7 @@ span.cm-number {
 }
 
 .cHide {
-    background: #EEE url(./themes/pmahomme/img/col_hide.png);
+    background: #EEE url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>col_hide.png);
     color: #CCC;
     cursor: pointer;
     height: 16px;
@@ -2852,7 +2852,7 @@ span.cm-number {
 }
 
 .coldrop {
-    background: url(./themes/pmahomme/img/col_drop.png);
+    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>col_drop.png);
     cursor: pointer;
     height: 16px;
     margin-left: 0.3em;
@@ -2998,12 +2998,12 @@ span.cm-number {
 }
 
 .cEdit .edit_box_posting {
-    background: #FFF url(./themes/pmahomme/img/ajax_clock_small.gif) no-repeat right center;
+    background: #FFF url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>ajax_clock_small.gif) no-repeat right center;
     padding-right: 1.5em;
 }
 
 .cEdit .edit_area_loading {
-    background: #FFF url(./themes/pmahomme/img/ajax_clock_small.gif) no-repeat center;
+    background: #FFF url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>ajax_clock_small.gif) no-repeat center;
     height: 10em;
 }
 
@@ -3014,7 +3014,7 @@ span.cm-number {
 }
 
 .saving_edited_data {
-    background: url(./themes/pmahomme/img/ajax_clock_small.gif) no-repeat left;
+    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>ajax_clock_small.gif) no-repeat left;
     padding-left: 20px;
 }
 
