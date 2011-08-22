@@ -1439,10 +1439,9 @@ msgstr ""
 "darempred gant merour ar servijer."
 
 #: js/messages.php:154
-#, fuzzy
 #| msgid "Changes tracking"
 msgid "Change settings"
-msgstr "Heuliañ ar c'hemmoù"
+msgstr "Kemmañ an arventennoù"
 
 #: js/messages.php:155
 #, fuzzy
