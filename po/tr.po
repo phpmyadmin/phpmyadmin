@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-22 14:48+0200\n"
-"PO-Revision-Date: 2011-08-21 22:12+0200\n"
+"PO-Revision-Date: 2011-08-22 22:51+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1496,10 +1496,9 @@ msgstr "Günlük çözümlendi, ama bu zaman aralığı içinde bulunan veri yok
 
 #. l10n: A collection of available filters
 #: js/messages.php:173
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
-msgstr "Tabloların görüntü seçenekleri"
+msgstr "Günlük tablosu süzgeci seçenekleri"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:175
