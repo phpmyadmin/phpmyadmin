@@ -1551,10 +1551,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Reload Database"
 msgid "Reload page"
-msgstr "Adkargañ an diaz roadennoù"
+msgstr "Adkargañ ar bajenn"
 
 #: js/messages.php:186
 msgid "Affected rows:"
