@@ -448,9 +448,10 @@ PMA_printJsValue("$.datepicker.regional['']['dayNamesMin']",
 /* l10n: Column header for week of the year in calendar */
 PMA_printJsValue("$.datepicker.regional['']['weekHeader']", __('Wk'));
 
-PMA_printJsValue("$.datepicker.regional['']['hourText']", __('Hour'));
-PMA_printJsValue("$.datepicker.regional['']['minuteText']", __('Minute'));
-PMA_printJsValue("$.datepicker.regional['']['secondText']", __('Second'));
+PMA_printJsValue("$.timepicker.regional['']['timeText']", __('Time'));
+PMA_printJsValue("$.timepicker.regional['']['hourText']", __('Hour'));
+PMA_printJsValue("$.timepicker.regional['']['minuteText']", __('Minute'));
+PMA_printJsValue("$.timepicker.regional['']['secondText']", __('Second'));
 ?>
 $.extend($.datepicker._defaults, $.datepicker.regional['']);
 } /* if ($.datepicker) */
