@@ -683,7 +683,8 @@ PMA_AddJSVar(
 );
 PMA_AddJSVar(
     'server_time_diff',
-    'new Date().getTime() - ' . (microtime(true) * 1000)
+    'new Date().getTime() - ' . (microtime(true) * 1000),
+    false
 );
 PMA_AddJSVar(
     'server_os',
