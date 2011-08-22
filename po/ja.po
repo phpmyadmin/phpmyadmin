@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-22 12:10+0200\n"
+"PO-Revision-Date: 2011-08-22 12:12+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -11616,10 +11616,9 @@ msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr "\"query by example\"を実行 (ワイルドカード: \"%\")"
 
 #: tbl_zoom_select.php:151
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Additional search criteria"
-msgstr "検索条件を隠す"
+msgstr "更なる検索条件"
 
 #: tbl_zoom_select.php:281
 #| msgid "Label"
