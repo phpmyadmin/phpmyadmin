@@ -1490,7 +1490,7 @@ msgstr ""
 
 #: js/messages.php:167
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr ""
+msgstr "Restr varilh karget. Rekedoù kaset da benn en amzer-mañ :"
 
 #: js/messages.php:169
 #, fuzzy
