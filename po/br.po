@@ -913,7 +913,7 @@ msgstr "Ouzhpennañ un aradennad linennoù"
 
 #: gis_data_editor.php:248 gis_data_editor.php:298 js/messages.php:295
 msgid "Add an inner ring"
-msgstr ""
+msgstr "Ouzhpennañ ur c'helc'h diabarzh"
 
 #: gis_data_editor.php:262 js/messages.php:290
 msgid "Polygon"
