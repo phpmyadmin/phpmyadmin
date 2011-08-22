@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-22 14:48+0200\n"
-"PO-Revision-Date: 2011-08-22 20:01+0200\n"
+"PO-Revision-Date: 2011-08-22 20:03+0200\n"
 "Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -932,6 +932,8 @@ msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
+"Dibab \"GeomFromText\" er bann \"Arc'hwel\" ha pegañ an neudennad er vaezienn "
+"\"Talvoud\" a-is"
 
 #: import.php:57
 #, php-format
