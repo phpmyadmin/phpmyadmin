@@ -72,6 +72,12 @@ class PMA_GIS_MultilinestringTest extends PMA_GIS_GeometryTest
         $temp1 = $temp;
         unset($temp1[0]['MULTILINESTRING'][1][1]['y']);
 
+        $temp2 = $temp;
+        $temp2[0]['MULTILINESTRING']['no_of_lines'] = 0;
+
+        $temp3 = $temp;
+        $temp3[0]['MULTILINESTRING'][1]['no_of_points'] = 1;
+
         return array(
             array(
                 $temp,
@@ -99,7 +105,21 @@ class PMA_GIS_MultilinestringTest extends PMA_GIS_GeometryTest
                 0,
                 '0',
                 'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 0))'
-            )
+            ),
+            // atleast one line should be there
+            array(
+                $temp1,
+                0,
+                null,
+                'MULTILINESTRING((5.02 8.45,6.14 0.15)))'
+            ),
+            // a line should have atleast two points
+            array(
+                $temp1,
+                0,
+                '0',
+                'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 0.47))'
+            ),
         );
     }
 
