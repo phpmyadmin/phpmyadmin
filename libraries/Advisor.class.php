@@ -22,7 +22,7 @@ class Advisor
             PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES', 0, 1)
         );
         // Add total memory to variables as well
-        require_once('libraries/sysinfo.lib.php');
+        require_once 'libraries/sysinfo.lib.php';
         $sysinfo = getSysInfo();
         $memory  = $sysinfo->memory();
         $this->variables['system_memory'] = $memory['MemTotal'];
@@ -174,6 +174,22 @@ class Advisor
         $this->runResult[$type][] = $rule;
     }
 
+    private function ruleExprEvaluate_var1($matches)
+    {
+        // '/fired\s*\(\s*(\'|")(.*)\1\s*\)/Uie'
+        return '1'; //isset($this->runResult[\'fired\']
+    }
+
+    private function ruleExprEvaluate_var2($matches)
+    {
+        // '/\b(\w+)\b/e'
+        return isset($this->variables[$matches[1]])
+            ? (is_numeric($this->variables[$matches[1]])
+                ? $this->variables[$matches[1]]
+                : '"'.$this->variables[$matches[1]].'"')
+            : $matches[1];
+    }
+
     // Runs a code expression, replacing variable names with their respective values
     // ignoreUntil: if > 0, it doesn't replace any variables until that string position, but still evaluates the whole expr
     function ruleExprEvaluate($expr, $ignoreUntil = 0)
@@ -182,13 +198,14 @@ class Advisor
             $exprIgnore = substr($expr,0,$ignoreUntil);
             $expr = substr($expr,$ignoreUntil);
         }
-        $expr = preg_replace('/fired\s*\(\s*(\'|")(.*)\1\s*\)/Uie','1',$expr); //isset($this->runResult[\'fired\']
-        $expr = preg_replace('/\b(\w+)\b/e','isset($this->variables[\'\1\']) ? (!is_numeric($this->variables[\'\1\']) ? \'"\'.$this->variables[\'\1\'].\'"\' : $this->variables[\'\1\']) : \'\1\'', $expr);
+        $expr = preg_replace_callback('/fired\s*\(\s*(\'|")(.*)\1\s*\)/Ui', array($this, 'ruleExprEvaluate_var1'), $expr);
+        $expr = preg_replace_callback('/\b(\w+)\b/', array($this, 'ruleExprEvaluate_var2'), $expr);
         if ($ignoreUntil > 0) {
             $expr = $exprIgnore . $expr;
         }
         $value = 0;
         $err = 0;
+
         ob_start();
         eval('$value = '.$expr.';');
         $err = ob_get_contents();

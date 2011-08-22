@@ -38,7 +38,7 @@ class PMA_User_Schema
 
     public function processUserChoice()
     {
-        global $action_choose,$db,$cfgRelation,$cfg;
+        global $action_choose, $db, $cfgRelation;
 
         if (isset($this->action)) {
             switch ($this->action) {
@@ -207,7 +207,7 @@ class PMA_User_Schema
      */
     public function showTableDashBoard()
     {
-        global $db,$cfgRelation,$table,$cfg,$with_field_names;
+        global $db, $cfgRelation, $table, $with_field_names;
         /*
          * We will need an array of all tables in this db
          */
@@ -479,7 +479,7 @@ class PMA_User_Schema
      */
     private function _displayScratchboardTables($array_sh_page)
     {
-        global $with_field_names,$cfg,$db;
+        global $with_field_names, $db;
         ?>
         <script type="text/javascript" src="./js/dom-drag.js"></script>
         <form method="post" action="schema_edit.php" name="dragdrop">
@@ -505,22 +505,14 @@ class PMA_User_Schema
                 $reset_draginit .= '    document.edcoord.elements["c_table_' . $i . '[x]"].value = "2"' . "\n";
                 $reset_draginit .= '    document.edcoord.elements["c_table_' . $i . '[y]"].value = "' . (15 * $i) . '"' . "\n";
 
-                $local_query = 'SHOW FIELDS FROM '
-                             .  PMA_backquote($temp_sh_page['table_name'])
-                             . ' FROM ' . PMA_backquote($db);
-                $fields_rs = PMA_DBI_query($local_query);
-                unset($local_query);
-                $fields_cnt = PMA_DBI_num_rows($fields_rs);
-
                 echo '<div id="table_' . $i . '" class="pdflayout_table"><u>' . $temp_sh_page['table_name'] . '</u>';
                 if (isset($with_field_names)) {
-                    while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
-                           echo '<br />' . htmlspecialchars($row['Field']) . "\n";
+                    $fields = PMA_DBI_get_columns($db, $temp_sh_page['table_name']);
+                    foreach ($fields as $row) {
+                       echo '<br />' . htmlspecialchars($row['Field']) . "\n";
                     }
                 }
                 echo '</div>' . "\n";
-                PMA_DBI_free_result($fields_rs);
-                unset($fields_rs);
                 $i++;
         }
         ?>
@@ -593,7 +585,7 @@ class PMA_User_Schema
 
         PMA_DBI_select_db($db);
 
-        include("./libraries/schema/".ucfirst($export_type)."_Relation_Schema.class.php");
+        include "./libraries/schema/".ucfirst($export_type)."_Relation_Schema.class.php";
         $obj_schema = eval("new PMA_".ucfirst($export_type)."_Relation_Schema();");
     }
 

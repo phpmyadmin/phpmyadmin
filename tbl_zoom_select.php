@@ -21,6 +21,7 @@ $GLOBALS['js_include'][] = 'sql.js';
 $GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'tbl_zoom_plot.js';
 $GLOBALS['js_include'][] = 'date.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.mousewheel.js';
 $GLOBALS['js_include'][] = 'highcharts/highcharts.js';
 /* Files required for chart exporting */
 $GLOBALS['js_include'][] = 'highcharts/exporting.js';
@@ -126,7 +127,7 @@ if(isset($inputs) && ($inputs[0] != 'pma_null' || $inputs[1] != 'pma_null'))
  */
 
 ?>
-<form method="post" action="tbl_zoom_select.php" name="zoomInputForm" id="zoom_search_form" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?>>
+<form method="post" action="tbl_zoom_select.php" name="insertForm" id="zoom_search_form" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?>>
 <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
 <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
 <input type="hidden" name="back" value="tbl_zoom_select.php" />
@@ -368,8 +369,10 @@ if(isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null' &
 	$row['where_clause'] = $uniqueCondition[0];
 	if($dataLabel == $inputs[0] || $dataLabel == $inputs[1])
             $data[] = array($inputs[0] => $row[$inputs[0]], $inputs[1] => $row[$inputs[1]], 'where_clause' => $uniqueCondition[0]);
-	else
+	else if($dataLabel)
             $data[] = array($inputs[0] => $row[$inputs[0]], $inputs[1] => $row[$inputs[1]], $dataLabel => $row[$dataLabel], 'where_clause' => $uniqueCondition[0]);
+	else
+            $data[] = array($inputs[0] => $row[$inputs[0]], $inputs[1] => $row[$inputs[1]], $dataLabel => '', 'where_clause' => $uniqueCondition[0]);
     }
 
 ?>

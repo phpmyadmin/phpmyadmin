@@ -170,7 +170,7 @@ $js_messages['strJumpToTable'] = __('Jump to Log table');
 $js_messages['strNoDataFound'] = __('Log analysed, but no data found in this time span.');
 
 /* l10n: A collection of available filters */
-$js_messages['strFilters'] = __('Filters');
+$js_messages['strFiltersForLogTable'] = __('Log table filter options');
 /* l10n: Filter as in "Start Filtering" */
 $js_messages['strFilter'] = __('Filter');
 $js_messages['strFilterByWordRegexp'] = __('Filter queries by word/regexp:');
@@ -265,7 +265,9 @@ $js_messages['strDisplayHelp'] = '<ul><li>'
     . '</li><li>'
     . __('Hovering over a point will show its label.')
     . '</li><li>'
-    . __('Drag and select an area in the plot to zoom into it.')
+    . __('Use mousewheel to zoom in or out of the plot.')
+    . '</li><li>'
+    . __('Click and drag the mouse to navigate the plot.')
     . '</li><li>'
     . __('Click reset zoom link to come back to original state.')
     . '</li><li>'
@@ -445,10 +447,16 @@ PMA_printJsValue("$.datepicker.regional['']['dayNamesMin']",
         __('Sa')));
 /* l10n: Column header for week of the year in calendar */
 PMA_printJsValue("$.datepicker.regional['']['weekHeader']", __('Wk'));
-
-PMA_printJsValue("$.datepicker.regional['']['hourText']", __('Hour'));
-PMA_printJsValue("$.datepicker.regional['']['minuteText']", __('Minute'));
-PMA_printJsValue("$.datepicker.regional['']['secondText']", __('Second'));
 ?>
 $.extend($.datepicker._defaults, $.datepicker.regional['']);
 } /* if ($.datepicker) */
+
+<?php
+echo "if ($.timepicker) {\n";
+PMA_printJsValue("$.timepicker.regional['']['timeText']", __('Time'));
+PMA_printJsValue("$.timepicker.regional['']['hourText']", __('Hour'));
+PMA_printJsValue("$.timepicker.regional['']['minuteText']", __('Minute'));
+PMA_printJsValue("$.timepicker.regional['']['secondText']", __('Second'));
+?>
+$.extend($.timepicker._defaults, $.timepicker.regional['']);
+} /* if ($.timepicker) */

@@ -57,24 +57,66 @@ function PMA_escapeJsString($string)
 }
 
 /**
+ * Formats a value for javascript code.
+ *
+ * @param string $value String to be formatted.
+ *
+ * @retrun string formatted value.
+ */
+function PMA_formatJsVal($value)
+{
+    if (is_bool($value)) {
+        if ($value) {
+            return 'true';
+        } else {
+            return 'false';
+        }
+    } elseif (is_int($value)) {
+        return (int)$value;
+    } else {
+        return '"' . PMA_escapeJsString($value) . '"';
+    }
+}
+
+/**
+ * Formats an javascript assignment with proper escaping of a value
+ * and support for assigning array of strings.
+ *
+ * @param string $key    Name of value to set
+ * @param mixed  $value  Value to set, can be either string or array of strings
+ * @param bool   $escape Whether to escape value or keep it as it is (for inclusion of js code)
+ *
+ * @return string Javascript code.
+ */
+function PMA_getJsValue($key, $value, $escape = true)
+{
+    $result = $key . ' = ';
+    if (!$escape) {
+        $result .= $value;
+    } elseif (is_array($value)) {
+        $result .= '[';
+        foreach ($value as $id => $val) {
+            $result .= PMA_formatJsVal($value) . ",";
+        }
+        $result .= "];\n";
+    } else {
+        $result .= PMA_formatJsVal($value) . ";\n";
+    }
+    return $result;
+}
+
+/**
  * Prints an javascript assignment with proper escaping of a value
  * and support for assigning array of strings.
  *
  * @param string $key Name of value to set
  * @param mixed $value Value to set, can be either string or array of strings
+ *
+ * @return nothing
  */
 function PMA_printJsValue($key, $value)
 {
-    echo $key . ' = ';
-    if (is_array($value)) {
-        echo '[';
-        foreach ($value as $id => $val) {
-            echo "'" . PMA_escapeJsString($val) . "',";
-        }
-        echo "];\n";
-    } else {
-        echo "'" . PMA_escapeJsString($value) . "';\n";
-    }
+    echo PMA_getJsValue($key, $value);
 }
 
 ?>

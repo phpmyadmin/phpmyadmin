@@ -8,7 +8,7 @@
 /**
  *
  */
-include_once 'pmd_common.php';
+include_once './libraries/pmd_common.php';
 
 $cfgRelation = PMA_getRelationsParam();
 
