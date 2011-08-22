@@ -12,12 +12,10 @@ if (!defined('PMA_MINIMUM_COMMON') && !defined('TESTSUITE')) {
     exit();
 }
 
-function PMA_ieFilter($start_color, $end_color)
-{
-    return PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 6 && PMA_USR_BROWSER_VER <= 8
-        ? 'filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr="' . $start_color . '", endColorstr="' . $end_color . '");'
-        : '';
-}
+/**
+ * Theme helpers.
+ */
+require 'libraries/theme.lib.php';
 ?>
 /******************************************************************************/
 /* general tags */

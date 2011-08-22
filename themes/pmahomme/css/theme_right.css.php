@@ -12,17 +12,11 @@ if (!defined('PMA_MINIMUM_COMMON')) {
     exit();
 }
 
-function PMA_ieFilter($start_color, $end_color)
-{
-    return PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 6 && PMA_USR_BROWSER_VER <= 8
-        ? 'filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr="' . $start_color . '", endColorstr="' . $end_color . '");'
-        : '';
-}
-function PMA_ieClearFilter() {
-    return PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 6 && PMA_USR_BROWSER_VER <= 8
-        ? 'filter: none'
-        : '';
-}
+/**
+ * Theme helpers.
+ */
+require 'libraries/theme.lib.php';
+
 ?>
 /******************************************************************************/
 
