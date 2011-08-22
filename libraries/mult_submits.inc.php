@@ -47,7 +47,7 @@ if (! empty($submit_mult)
                    break;
                case 'export':
                    unset($submit_mult);
-                   require('db_export.php');
+                   require 'db_export.php';
                    exit;
                    break;
            } // end switch

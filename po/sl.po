@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 11:26+0200\n"
+"PO-Revision-Date: 2011-08-21 22:29+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1565,7 +1565,7 @@ msgstr "Spremenjene vrstice:"
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgstr ""
 "Razčlenjevalne konfiguracijske datoteke je spodletelo. Kot kaže, ni veljavna "
-"koda JSON."
+"koda JSON"
 
 #: js/messages.php:189
 msgid ""
@@ -2808,7 +2808,7 @@ msgstr "ned"
 #: libraries/common.lib.php:1550
 #: libraries/transformations/text_plain__dateformat.inc.php:35
 msgid "%B %d, %Y at %I:%M %p"
-msgstr "%d %B %Y ob %H.%M"
+msgstr "%d. %B %Y ob %H.%M"
 
 #: libraries/common.lib.php:1865
 #, php-format
@@ -5828,8 +5828,8 @@ msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
-" Velikost povečevanja pri razširjanju velikosti samorazširitvenega prostora "
-"v tabeli, ko ta postane poln."
+"Velikost povečevanja pri razširjanju velikosti samorazširitvenega prostora v "
+"tabeli, ko ta postane poln."
 
 #: libraries/engines/innodb.lib.php:32
 msgid "Buffer pool size"
@@ -7830,7 +7830,7 @@ msgstr "Ločilo"
 
 #: libraries/sql_query_form.lib.php:346
 msgid "Show this query here again"
-msgstr "Ponovno pokaži poizvedbo v tem oknu "
+msgstr "Ponovno pokaži poizvedbo v tem oknu"
 
 #: libraries/sql_query_form.lib.php:402
 msgid "View only"
@@ -8513,7 +8513,7 @@ msgstr "Dejavne možnosti"
 
 #: pmd_help.php:22
 msgid "To select relation, click :"
-msgstr "Za izbiro relacije, kliknite:"
+msgstr "Za izbiro relacije kliknite:"
 
 #: pmd_help.php:24
 msgid ""
@@ -8963,7 +8963,7 @@ msgstr "Privilegiji tipični za tabelo"
 #: server_privileges.php:532 server_privileges.php:676
 #: server_privileges.php:1695
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "Opomba: Imena privilegijev MySQL so zapisana v angleščini "
+msgstr "Opomba: Imena privilegijev MySQL so zapisana v angleščini"
 
 #: server_privileges.php:601
 msgid "Administration"
@@ -9139,7 +9139,7 @@ msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-" ... izbriši starega uporabnika s seznama uporabnikov ter ponovno naloži "
+"... izbriši starega uporabnika s seznama uporabnikov ter ponovno naloži "
 "njegove pravice."
 
 #: server_privileges.php:2199
@@ -9495,6 +9495,9 @@ msgid ""
 "calculations and by rule of thumb which may not necessarily apply to your "
 "system."
 msgstr ""
+"Kakor koli, pomnite, da ta sistem nudi priporočila, ki temeljijo na "
+"preprostih računih in splošnih smernicah, katere morda ne ustrezajo vašemu "
+"sistemu."
 
 #: server_status.php:812
 msgid ""
@@ -9502,6 +9505,10 @@ msgid ""
 "changing (by reading the documentation) and how to undo the change. Wrong "
 "tuning can have a very negative effect on performance."
 msgstr ""
+"Preden spremenite kateri koli del konfiguracije, se prepričajte, da veste, "
+"kaj spreminjate (tako, da preberete dokumentacijo) in kako lahko spremembo "
+"razveljavite. Napačno nastavljanje ima lahko na zmogljivost zelo negativen "
+"učinek."
 
 #: server_status.php:814
 msgid ""
@@ -9509,6 +9516,9 @@ msgid ""
 "time, observe or benchmark your database, and undo the change if there was "
 "no clearly measurable improvement."
 msgstr ""
+"Najboljši način nastavljanja vašega sistema je spreminjanje samo ene "
+"nastavitve naenkrat, opazovanje ali primerjalno preizkušanje vaše zbirke "
+"podatkov in razveljavitev spremembe, če ni jasno izmerljivega izboljšanja."
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:836
@@ -10397,7 +10407,7 @@ msgstr ""
 "Zavedajte se tudi, da je ustvarjanje statistik iz dnevnikov zelo "
 "obremenjujoče opravilo, zato je priporočljivo, da izberete samo majhen "
 "časovni razpon ter onemogočite general_log in počistite njene tabele, ko "
-"nadziranja ne potrebujete več.        "
+"nadziranja ne potrebujete več."
 
 #: server_status.php:1533
 msgid "Preset chart"
@@ -10973,7 +10983,7 @@ msgstr "Tabela %1$s je bila uspešno spremenjena"
 
 #: tbl_change.php:700
 msgid "Because of its length,<br /> this column might not be editable"
-msgstr "Zaradi njegove dolžine<br /> stolpca morda ne bo mogoče urejati "
+msgstr "Zaradi njegove dolžine<br />stolpca morda ne bo mogoče urejati"
 
 #: tbl_change.php:819
 msgid "Remove BLOB Repository Reference"
@@ -11693,6 +11703,8 @@ msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"Za natančnejša povprečja je priporočljivo, da pred zagonom analitika pustite "
+"strežnik delovati dlje kot en dan"
 
 #: po/advisory_rules.php:8
 #, php-format
@@ -11716,6 +11728,8 @@ msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
+"Pustite strežniku delovati daljši čas, dokler ne izvede večje število "
+"poizvedb."
 
 #: po/advisory_rules.php:13
 #, php-format
@@ -11753,6 +11767,8 @@ msgstr "Delež počasnih poizvedb"
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"Odstotek počasnih poizvedb je v primerjavi z neprekinjemin delovanjem "
+"strežnika visok."
 
 #: po/advisory_rules.php:23
 #, php-format
@@ -11760,6 +11776,7 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
+"Vaš delež počasnih poizvedb je %s na uro; moral bi biti manj od 1 %% na uro."
 
 #: po/advisory_rules.php:25
 msgid "Long query time"
@@ -11778,6 +11795,8 @@ msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"Predlagamo, da nastavite {long_query_time} na nižjo vrednost, odvisno od "
+"vašega okolja. Po navadi se priporoča vrednost 1–5 sekund."
 
 #: po/advisory_rules.php:28
 #, php-format
@@ -11797,6 +11816,9 @@ msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"Omogočite beleženje počasnih poizvedb tako, da nastavite {log_slow_queries} "
+"na 'ON'. To bo pomagalo pri odpravljanju težav s slabo delujočimi "
+"poizvedbami."
 
 #: po/advisory_rules.php:33
 msgid "log_slow_queries is set to 'OFF'"
@@ -11862,6 +11884,9 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
+"Če niste prevedli iz izvorne kode, morda uporabljate paket, spremenjen z "
+"distribucijo. Priročnik MySQL je točen samo za uradne izdaje MySQL, ne za "
+"katere koli paketne distribucije (kot so RedHat, Debian/Ubuntu itn.)."
 
 #: po/advisory_rules.php:53
 msgid "'source' found in version_comment"
@@ -11893,6 +11918,10 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
+"Zmogljivost vašega pomnilnika je nad 3 GiB (predpostavljeno, da strežnik "
+"teče na localhost), zato MySQL morda ne bo zmožen dostopati do celotnega "
+"vašega pomnilnika. Morda boste želeli razmisliti o namestitvi 64-bitne "
+"različice MySQL."
 
 #: po/advisory_rules.php:63
 #, php-format
@@ -11914,10 +11943,16 @@ msgid ""
 "and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
 "memcached, ignore this recommendation."
 msgstr ""
+"Predpomnjenje poizvedb lahko izredno izboljša zmogljivost, če je "
+"konfigurirano pravilno. Omogočite ga tako, da nastavite {query_cache_size} "
+"na dvomestno vrednost MiB in nastavite {query_cache_type} na 'ON'. "
+"<b>Pomnite:</b> Če uporabljate memcached, to priporočilo prezrite."
 
 #: po/advisory_rules.php:68
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
+"query_cache_size je nastavljen na 0 ali pa je query_cache_type nastavljen na "
+"'OFF'"
 
 #: po/advisory_rules.php:71
 msgid "Suboptimal caching method."
@@ -11930,6 +11965,11 @@ msgid ""
 "refman/5.1/en/ha-memcached.html\\\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
+"Uporabljate predpomnjenje poizvedb MySQL s precej prometno zbirko podatkov. "
+"Morda bi bilo koristno razmisliti o uporabi <a "
+"href=\\\"http://dev.mysql.com/doc/refman/5.1/en/ha-"
+"memcached.html\\\">memcached</a> namesto predpomnjenja poizvedb MySQL, še "
+"posebej, če imate več podrejencev."
 
 #: po/advisory_rules.php:73
 #, php-format
@@ -11937,14 +11977,17 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
+"Predpomnjenje poizvedb je omogočeno in strežnik prejema %d poizvedb na "
+"sekundo. To pravilo se sproži, če je več kot 100 poizvedb na sekundo."
 
 #: po/advisory_rules.php:75
 msgid "Query cache efficiency (%)"
-msgstr ""
+msgstr "Učinkovitost predpomnjenja poizvedb (%)"
 
 #: po/advisory_rules.php:76
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr ""
+"Predpomnjenje poizvedb ne teče učinkovito, saj ima nizek delež zadetkov."
 
 #: po/advisory_rules.php:77
 msgid "Consider increasing {query_cache_limit}."
@@ -11953,7 +11996,7 @@ msgstr "Razmislite o povečanju {query_cache_limit}."
 #: po/advisory_rules.php:78
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr ""
+msgstr "Trenutni delež zadetkov predpomnilnika poizvedb %s %% je pod 20 %%"
 
 #: po/advisory_rules.php:80
 msgid "Query Cache usage"
@@ -11962,13 +12005,15 @@ msgstr "Uporaba predpomnilnika poizvedb"
 #: po/advisory_rules.php:81
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
-msgstr ""
+msgstr "Izkoriščanega je manj kot 80 %% predpomnilnika poizvedb."
 
 #: po/advisory_rules.php:82
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
 msgstr ""
+"To morda povzroča prenizek {query_cache_limit}. Izplaknitev predpomnilnika "
+"poizvedb bo morda prav tako pomagala."
 
 #: po/advisory_rules.php:83
 #, php-format
@@ -11976,6 +12021,8 @@ msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
 "%%. It should be above 80%%"
 msgstr ""
+"Trenutni delež prostega pomnilnika predpomnilnika poizvedb je v primerjavi s "
+"skupnim pomnilnikom predpomnilnima poizvedb %s %%. Moral bi biti nad 80 %%"
 
 #: po/advisory_rules.php:85
 msgid "Query cache fragmentation"
@@ -11983,7 +12030,7 @@ msgstr "Razdrobljenost predpomnilnika poizvedb"
 
 #: po/advisory_rules.php:86
 msgid "The query cache is considerably fragmented."
-msgstr ""
+msgstr "Predpomnilnik poizvedb je precej razdrobljen."
 
 #: po/advisory_rules.php:87
 msgid ""
@@ -12004,6 +12051,9 @@ msgid ""
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
+"Predpomnilnik je trenutno %s-%% razdrobljen, pri čemer 100-%% razdrobljenost "
+"pomeni, da je predpomnilnik poizvedb izmeničen vzorec prostih in "
+"uporabljenih blokov. Ta vrednost bi morala biti pod 20 %%."
 
 #: po/advisory_rules.php:90
 msgid "Query cache low memory prunes"

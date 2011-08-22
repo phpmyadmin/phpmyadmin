@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-19 21:45+0200\n"
+"PO-Revision-Date: 2011-08-20 17:29+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -12782,139 +12782,151 @@ msgid "Rate of open files"
 msgstr "Tasa de apertura de archivos"
 
 #: po/advisory_rules.php:186
-#, fuzzy
 #| msgid "The number of pending log file fsyncs."
 msgid "The rate of opening files is high."
-msgstr "El número de fsyncs pendientes al archivo de registro."
+msgstr "La tasa de apertura de archivos es alta."
 
 #: po/advisory_rules.php:188
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
+"Tasa de apertura de archivos: %s, este valor debería ser menor a 5 por hora"
 
 #: po/advisory_rules.php:190
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Immediate table locks %%"
-msgstr "Crear nueva tabla en la base de datos %s"
+msgstr "Porcentaje de bloqueos de tabla inmediatos"
 
 #: po/advisory_rules.php:191 po/advisory_rules.php:196
-#, fuzzy
 #| msgid "The number of times that a table lock was acquired immediately."
 msgid "Too many table locks were not granted immediately."
-msgstr "El número de veces que un table lock fue adquirido inmediatamente."
+msgstr "Demasiados bloqueos de tablas no fueron provistos inmediatamente."
 
 #: po/advisory_rules.php:192 po/advisory_rules.php:197
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
+"Optimice las consultas y/o utilice InnoDB para reducir el tiempo de espera "
+"para bloqueos."
 
 #: po/advisory_rules.php:193
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr ""
+msgstr "Bloqueos de tabla inmediatos: %s%%, este valor debería ser mayor a 95%%"
 
 #: po/advisory_rules.php:195
 msgid "Table lock wait rate"
-msgstr ""
+msgstr "Tasa de espera para bloqueos de tablas"
 
 #: po/advisory_rules.php:198
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
+"Tasa de espera para bloqueos de tablas: %s, este valor debería ser menor a 1 "
+"por hora"
 
 #: po/advisory_rules.php:200
-#, fuzzy
 #| msgid "Key cache"
 msgid "Thread cache"
-msgstr "Caché de claves"
+msgstr "Caché de hilos"
 
 #: po/advisory_rules.php:201
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
 msgstr ""
+"El caché de hilos está desactivado, esto resulta en mayor sobrecarga en las "
+"nuevas conexiones a MySQL."
 
 #: po/advisory_rules.php:202
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
+"Active el caché de hilos configurado «thread_cache_size» a un valor mayor a "
+"0."
 
 #: po/advisory_rules.php:203
 msgid "The thread cache is set to 0"
-msgstr ""
+msgstr "El caché de hilos está configurado a 0"
 
 #: po/advisory_rules.php:205
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is not active."
 msgid "Thread cache hit rate %%"
-msgstr "El seguimiento no está activo."
+msgstr "Porcentaje de efectividad del caché de hilos"
 
 #: po/advisory_rules.php:206
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "Thread cache is not efficient."
-msgstr "El seguimiento no está activo."
+msgstr "El caché de hilos no es eficiente."
 
 #: po/advisory_rules.php:207
 msgid "Increase {thread_cache_size}."
-msgstr ""
+msgstr "Aumente «thread_cache_size»."
 
 #: po/advisory_rules.php:208
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
+"Tasa de efectividad del caché de hilos: %s%%, este valor debería ser mayor a "
+"80%%"
 
 #: po/advisory_rules.php:210
 msgid "Threads that are slow to launch"
-msgstr ""
+msgstr "Hilos que inician ejecución lentamente"
 
 #: po/advisory_rules.php:211
-#, fuzzy
 #| msgid "The number of threads that are not sleeping."
 msgid "There are too many threads that are slow to launch."
-msgstr "El número de procesos que no están en reposo."
+msgstr "Hay demasiados hilos que inician ejecución lentamente."
 
 #: po/advisory_rules.php:212
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
 msgstr ""
+"Esto generalmente ocurre cuando el sistema en sí está sobrecargado ya que es "
+"una operación relativamente sencilla. Debería de monitorizar la carga sobre "
+"el sistema cuidadosamente."
 
 #: po/advisory_rules.php:213
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
-msgstr ""
+msgstr "%s hilo(s) tardaron más de %s segundos en iniciar, debería de ser 0"
 
 #: po/advisory_rules.php:215
 msgid "Slow launch time"
-msgstr ""
+msgstr "Tiempo de inicio lento"
 
 #: po/advisory_rules.php:216
 msgid "Slow_launch_threads is above 2s"
-msgstr ""
+msgstr "«slow_launch_threads» es mayor a 2s"
 
 #: po/advisory_rules.php:217
 msgid ""
 "Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
 "launch"
 msgstr ""
+"Configure «slow_launch_time» a 1 ó 2 segundos para contar correctamente los "
+"hilos que inician ejecución lentamente"
 
 #: po/advisory_rules.php:218
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "slow_launch_time is set to %s"
-msgstr "«long_query_time» está configurado a %d segundo(s)."
+msgstr "«slow_launch_time» está configurado a %s"
 
 #: po/advisory_rules.php:220
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of used connections"
-msgstr "Conexiones persistentes"
+msgstr "Porcentaje de conexiones utilizadas"
 
 #: po/advisory_rules.php:221
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "max_connections."
 msgstr ""
+"El máximo de conexiones utilizadas simultáneamente está cercano al valor de "
+"«max_connections»."
 
 #: po/advisory_rules.php:222
 msgid ""
@@ -12922,22 +12934,27 @@ msgid ""
 "do not close database handlers properly get killed sooner. Make sure the "
 "code closes database handlers properly."
 msgstr ""
+"Aumente «max_connections» o reduzca «wait_timeout» para que las conexiones "
+"que no liberan los manejadores de base de datos apropiadamente sean "
+"eliminadas más rápido. Asegúrese que su código cierre los manejadores de "
+"base de datos apropiadamente."
 
 #: po/advisory_rules.php:223
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
+"«max_used_connections» es %s%% de «max_connections», debería ser menor a 80%"
+"%"
 
 #: po/advisory_rules.php:225
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of aborted connections"
-msgstr "Conexiones persistentes"
+msgstr "Porcentaje de conexiones abandonadas"
 
 #: po/advisory_rules.php:226
 msgid "Too many connections are aborted."
-msgstr ""
+msgstr "Demasiadas conexiones son abandonadas."
 
 #: po/advisory_rules.php:227 po/advisory_rules.php:232
 msgid ""
@@ -12946,37 +12963,43 @@ msgid ""
 "source-of-aborted_connects/\\\">This article</a> might help you track down "
 "the source."
 msgstr ""
+"Las conexiones son abandonadas generalmente cuando no pueden ser "
+"autorizadas. <a href=\\\"http://www.mysqlperformanceblog.com/2008/08/23/how-"
+"to-track-down-the-source-of-aborted_connects/\\\">Este artículo</a> podría ser "
+"de ayuda para rastrear el motivo de las mismas."
 
 #: po/advisory_rules.php:228
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
+"%s%% de todas las conexiones son abandonadas. Este valor debería ser menor a "
+"1%%"
 
 #: po/advisory_rules.php:230
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Rate of aborted connections"
-msgstr "Conexiones persistentes"
+msgstr "Tasa de conexiones abandonadas"
 
 #: po/advisory_rules.php:231
 msgid "Too many connections are aborted"
-msgstr ""
+msgstr "Demasiadas conexiones son abandonadas"
 
 #: po/advisory_rules.php:233
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"La tasa de conexiones abandonadas es %s, este valor debería ser menor a 1 "
+"por hora"
 
 #: po/advisory_rules.php:235
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of aborted clients"
-msgstr "Formato del archivo importado"
+msgstr "Porcentaje de clientes abandonados"
 
 #: po/advisory_rules.php:236 po/advisory_rules.php:241
 msgid "Too many clients are aborted."
-msgstr ""
+msgstr "Demasiados clientes son abandonados."
 
 #: po/advisory_rules.php:237 po/advisory_rules.php:242
 msgid ""
@@ -12984,54 +13007,60 @@ msgid ""
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
+"Los clientes son abandonados generalmente cuando no cierran sus conexiones "
+"MySQL apropiadamente. Esto puede ser debido a problemas de red o cuando el "
+"código no libera el manejador de la base de datos correctamente. Revise su "
+"conexión de red y código."
 
 #: po/advisory_rules.php:238
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
+"%s%% de todos los clientes son abandonados. Este valor debería ser menor a 2"
+"%%"
 
 #: po/advisory_rules.php:240
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of aborted clients"
-msgstr "Formato del archivo importado"
+msgstr "Tasa de clientes abandonados"
 
 #: po/advisory_rules.php:243
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"La tasa de clientes abandonados es %s, este valor debería ser menor a 1 por "
+"hora"
 
 #: po/advisory_rules.php:245
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "¿InnoDB está desactivado?"
 
 #: po/advisory_rules.php:246
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "You do not have InnoDB enabled."
-msgstr "No se pudo guardar la tabla reciente"
+msgstr "No posee InnoDB activado."
 
 #: po/advisory_rules.php:247
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "InnoDB es, usualmente, la mejor opción como motor para tablas."
 
 #: po/advisory_rules.php:248
 msgid "have_innodb is set to 'value'"
-msgstr ""
+msgstr "«have_innodb» está configurado como 'value'"
 
 #: po/advisory_rules.php:250
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB log size"
-msgstr "Tamaño de la reserva de búfers"
+msgstr "Tamaño de registro InnoDB"
 
 #: po/advisory_rules.php:251
-#, fuzzy
 #| msgid "The number writes done to the InnoDB buffer pool."
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
-msgstr "El número de escrituras hechas a la reserva de búfers InnoDB."
+msgstr ""
+"El tamaño del archivo de registro InnoDB no parece ser apropiado en relación "
+"a la reserva de búfers InnoDB."
 
 #: po/advisory_rules.php:252
 #, php-format
@@ -13047,6 +13076,17 @@ msgid ""
 "com/2007/01/increase-innodblogfilesize-proper-way.html\\\">this blog entry</"
 "a>"
 msgstr ""
+"Especialmente en un sistema con gran cantidad de escrituras a talbas InnoDB, "
+"debería de configurar «innodb_log_file_size» a aproximadamente 25%% de "
+"«innodb_buffer_pool_size». Sin embargo, mientras mayor sea este valor, mayor "
+"será el tiempo de recuperación luego de una caída de la base de datos, por "
+"lo que este valor no debería ser mayor a 256 MiB. Note, sin embargo, que no "
+"puede simplemente cambiar el valor de esta variable. Necesitará cerrar el "
+"servidor, eliminar los archivos de registro InnoDB, definir el nuevo valor "
+"en el archivo 'my.cnf' y luego revisar los mensajes de error para asegurarse "
+"que no hubo inconvenientens. Revise también <a "
+"href=\\\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\\\">este artículo</a>."
 
 #: po/advisory_rules.php:253
 #, php-format
@@ -13054,14 +13094,16 @@ msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
 msgstr ""
+"El tamaño del archivo de registros InnoDB es %s%% del tamaño de la reserva "
+"de búfers InnoDB, no debería ser menor a 20%%"
 
 #: po/advisory_rules.php:255
 msgid "Max InnoDB log size"
-msgstr ""
+msgstr "Tamaño máximo del registro InnoDB"
 
 #: po/advisory_rules.php:256
 msgid "The InnoDB log file size is inadequately large."
-msgstr ""
+msgstr "El tamaño del archivo de registros InnoDB es inadecuadamente grande."
 
 #: po/advisory_rules.php:257
 #, php-format
@@ -13076,21 +13118,31 @@ msgid ""
 "\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\\\">this blog entry</a>"
 msgstr ""
+"Normalmente es suficiente definir «innodb_log_file_size» a el 25%% del valor "
+"de «innodb_buffer_pool_size». Un valor muy alto de «innodb_log_file_size» "
+"reduce considerablemente la velocidad de la recuperación luego de una caída "
+"de la base de datos. Revise también <a "
+"href=\\\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\\\">este artículo</a>. Necesitará cerrar el servidor, "
+"eliminar los archivos de registros InnoDB, definir el nuevo valor en el "
+"archivo 'my.cnf', iniciar el servidor y luego verificar los registros de "
+"error para asegurarse que no hubo inconvenientes. Revise también <a "
+"href=\\\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\\\">este artículo</a>."
 
 #: po/advisory_rules.php:258
 #, php-format
 msgid "Your absolute InnoD log size is %s MiB"
-msgstr ""
+msgstr "El tamaño del archivo de registros InnoDB es %s MiB"
 
 #: po/advisory_rules.php:260
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
-msgstr "Tamaño de la reserva de búfers"
+msgstr "Tamaño de la reserva de búfers InnoDB"
 
 #: po/advisory_rules.php:261
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr ""
+msgstr "Su reserva de búfers InnoDB es relativamente pequeña."
 
 #: po/advisory_rules.php:262
 #, php-format
@@ -13106,6 +13158,17 @@ msgid ""
 "\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\\\">this article</a>"
 msgstr ""
+"La reserva de búfers InnoDB tiene un profundo impacto en la performance de "
+"las tablas InnoDB. Asigne toda la memoria disponible a este búfer. Para "
+"servidores de base de datos que sólo utilicen InnoDB como motor de "
+"almacenamiento y no tengan otros servicios (por ejemplo un servidor web), "
+"puede definir este valor hasta un 80%% de su memoria disponible. Si no es el "
+"caso, deberá analizar cuidadosamente el consumo de memoria de los otros "
+"servicios y tablas con otros motores y configurar esta variable acorde a "
+"ello. Si se la define demasiado alta, su sistema comenzará a utilizar el "
+"área de intercambio en disco disminuyendo la performance significativamente. "
+"Revise también <a href=\\\"http://www.mysqlperformanceblog.com/2007/11/03"
+"/choosing-innodb_buffer_pool_size/\\\">este artículo</a>"
 
 #: po/advisory_rules.php:263
 #, php-format
@@ -13115,16 +13178,19 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
+"Actualmente está utilizando %s%% de su memoria de la reserva de búfers "
+"InnoDB. Esta regla se dispara si está asignando menos del 60%%. Sin embargo, "
+"esto puede ser perfectamente adecuado para su sistema si no posee muchas "
+"tablas InnoDB o tiene otros servicios en el mismo equipo."
 
 #: po/advisory_rules.php:265
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
-msgstr "Número máx. de conexiones concurrentes"
+msgstr "Inserciones MyISAM concurrentes"
 
 #: po/advisory_rules.php:266
 msgid "Enable concurrent_insert by setting it to 1"
-msgstr ""
+msgstr "Active «concurrent_insert» definiéndolo como 1"
 
 #: po/advisory_rules.php:267
 msgid ""
@@ -13132,10 +13198,14 @@ msgid ""
 "writers for a given table. See also <a href=\\\"http://dev.mysql.com/doc/"
 "refman/5.0/en/concurrent-inserts.html\\\">MySQL Documentation</a>"
 msgstr ""
+"Definir «concurrent_insert» a 1 reduce la competencia entre lectores y "
+"escritores en una tabla particular. Revise también la <a "
+"href=\\\"http://dev.mysql.com/doc/refman/5.0/en/concurrent-"
+"inserts.html\\\">documentación MySQL</a>"
 
 #: po/advisory_rules.php:268
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "«concurrent_insert» está definido como 0"
 
 #, fuzzy
 #~ msgid ""

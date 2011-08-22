@@ -578,8 +578,10 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             echo '<input id="col_visib" type="hidden" value="' . implode(',', $col_visib) . '" />';
         }
         // generate table create time
-        echo '<input id="table_create_time" type="hidden" value="' .
-             PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], 'Create_time') . '" />';
+        if (! PMA_Table::isView($GLOBALS['table'], $GLOBALS['db'])) {
+            echo '<input id="table_create_time" type="hidden" value="' .
+                PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], 'Create_time') . '" />';
+        }
     }
 
 

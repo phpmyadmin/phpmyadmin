@@ -7,36 +7,35 @@ function PMA_queryAutoCommit()
 
 function PMA_querywindowCommit(tab)
 {
-    document.getElementById('hiddenqueryform').querydisplay_tab.value = tab;
-    document.getElementById('hiddenqueryform').submit();
+    $('#hiddenqueryform').find("input[name='querydisplay_tab']").attr("value" ,tab);
+    $('#hiddenqueryform').submit();
     return false;
 }
 
 function PMA_querywindowSetFocus()
 {
-    document.getElementById('sqlquery').focus();
+    $('#sqlquery').focus();
 }
 
 function PMA_querywindowResize()
 {
     // for Gecko
-    if (typeof(self.sizeToContent) == 'function') {
-        self.sizeToContent();
+    if (typeof($(this)[0].sizeToContent) == 'function') {
+        $(this)[0].sizeToContent();
         //self.scrollbars.visible = false;
         // give some more space ... to prevent 'fli(pp/ck)ing'
-        self.resizeBy(10, 50);
+        $(this)[0].resizeBy(10, 50);
         return;
     }
 
     // for IE, Opera
-    if (document.getElementById && typeof(document.getElementById('querywindowcontainer')) != 'undefined') {
-
+    if ($('#querywindowcontainer') != 'undefined') {
         // get content size
-        var newWidth  = document.getElementById('querywindowcontainer').offsetWidth;
-        var newHeight = document.getElementById('querywindowcontainer').offsetHeight;
+        var newWidth  = $("#querywindowcontainer")[0].offsetWidth;
+        var newHeight = $("#querywindowcontainer")[0].offsetHeight;
 
         // set size to contentsize
         // plus some offset for scrollbars, borders, statusbar, menus ...
-        self.resizeTo(newWidth + 45, newHeight + 75);
+        $(this)[0].resizeTo(newWidth + 45, newHeight + 75);
     }
 }

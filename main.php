@@ -356,7 +356,7 @@ if (!function_exists('mcrypt_encrypt') && !$GLOBALS['cfg']['McryptDisableWarning
  * The data file is created while creating release by ./scripts/remove-incomplete-mo
  */
 if (file_exists('./libraries/language_stats.inc.php')) {
-    include('./libraries/language_stats.inc.php');
+    include './libraries/language_stats.inc.php';
     /*
      * This message is intentionally not translated, because we're
      * handling incomplete translations here and focus on english
