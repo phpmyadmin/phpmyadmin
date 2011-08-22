@@ -907,10 +907,9 @@ msgid "Inner Ring"
 msgstr "Kelc'h diabarzh"
 
 #: gis_data_editor.php:248
-#, fuzzy
 #| msgid "Add constraints"
 msgid "Add a linestring"
-msgstr "Ouzhpennañ ar strishadurioù"
+msgstr "Ouzhpennañ un aradennad linennoù"
 
 #: gis_data_editor.php:248 gis_data_editor.php:298 js/messages.php:295
 msgid "Add an inner ring"
