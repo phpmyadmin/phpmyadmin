@@ -2254,7 +2254,7 @@ function PMA_pageselector($rows, $pageNow = 1, $nbTotalPage = 1,
         } else {
             $selected = '';
         }
-        $gotopage .= '                <option ' . $selected 
+        $gotopage .= '                <option ' . $selected
             . ' value="' . (($i - 1) * $rows) . '">' . $i . '</option>' . "\n";
     }
 
@@ -3485,21 +3485,31 @@ function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
     $query = "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`%s` "
            . "WHERE GRANTEE='%s' AND PRIVILEGE_TYPE='%s'";
     // Check global privileges first.
-    if (PMA_DBI_fetch_value(sprintf($query,
-                                    'USER_PRIVILEGES',
-                                    $username,
-                                    $priv))) {
+    if (PMA_DBI_fetch_value(
+        sprintf(
+            $query,
+            'USER_PRIVILEGES',
+            $username,
+            $priv
+        )
+    )
+    ) {
         return true;
     }
     // If a database name was provided and user does not have the
     // required global privilege, try database-wise permissions.
     if ($db !== null) {
         $query .= " AND TABLE_SCHEMA='%s'";
-        if (PMA_DBI_fetch_value(sprintf($query,
-                                        'SCHEMA_PRIVILEGES',
-                                        $username,
-                                        $priv,
-                                        PMA_sqlAddSlashes($db)))) {
+        if (PMA_DBI_fetch_value(
+            sprintf(
+                $query,
+                'SCHEMA_PRIVILEGES',
+                $username,
+                $priv,
+                PMA_sqlAddSlashes($db)
+            )
+        )
+        ) {
             return true;
         }
     } else {
@@ -3511,12 +3521,17 @@ function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
     // find any valid privileges, try table-wise privileges.
     if ($tbl !== null) {
         $query .= " AND TABLE_NAME='%s'";
-        if ($retval = PMA_DBI_fetch_value(sprintf($query,
-                                                  'TABLE_PRIVILEGES',
-                                                  $username,
-                                                  $priv,
-                                                  PMA_sqlAddSlashes($db),
-                                                  PMA_sqlAddSlashes($tbl)))) {
+        if ($retval = PMA_DBI_fetch_value(
+            sprintf(
+                $query,
+                'TABLE_PRIVILEGES',
+                $username,
+                $priv,
+                PMA_sqlAddSlashes($db),
+                PMA_sqlAddSlashes($tbl)
+            )
+        )
+        ) {
             return true;
         }
     }
