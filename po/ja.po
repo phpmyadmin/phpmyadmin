@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-17 16:58+0200\n"
-"PO-Revision-Date: 2011-08-22 11:23+0200\n"
+"PO-Revision-Date: 2011-08-22 11:43+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -10381,10 +10381,9 @@ msgstr ""
 "ておいてください。ですから、テーブルのモニタで必要としないのであれば、しばらくの間 general_log を無効にして空にしておくのが望ましいです。"
 
 #: server_status.php:1533
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Preset chart"
-msgstr "グラフの削除"
+msgstr "プリセットグラフ"
 
 #: server_status.php:1537
 msgid "Status variable(s)"
