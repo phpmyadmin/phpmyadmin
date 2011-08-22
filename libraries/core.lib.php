@@ -724,16 +724,11 @@ function PMA_AddJSCode($str)
  *
  * @param string $key Name of value to set
  * @param mixed $value Value to set, can be either string or array of strings
- * @param string $escaping Handle value as-is, don't use PMA_formatJsVal() on it
  *
  */
-function PMA_AddJSVar($key, $value, $escaping = true)
+function PMA_AddJSVar($key, $value)
 {
-    if($escaping) {
-        PMA_AddJsCode($key . '=' . PMA_formatJsVal($value) . ';');
-    } else {
-        PMA_AddJsCode($key . '=' . $value . ';');
-    }
+    PMA_AddJsCode(PMA_getJsValue($key, $value));
 }
 
 ?>
