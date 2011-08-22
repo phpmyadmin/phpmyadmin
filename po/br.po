@@ -1518,7 +1518,7 @@ msgstr "Silañ"
 
 #: js/messages.php:176
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "Silañ ar rekedoù dre c'her pe lavarennoù reoliek :"
 
 #: js/messages.php:177
 msgid "Group queries, ignoring variable data in WHERE clauses"
