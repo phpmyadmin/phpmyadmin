@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-22 14:48+0200\n"
-"PO-Revision-Date: 2011-08-23 08:29+0200\n"
+"PO-Revision-Date: 2011-08-23 08:30+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -1805,7 +1805,7 @@ msgstr "Η μετάβαση πάνω από ένα σημείο θα δείξε�
 
 #: js/messages.php:268
 msgid "Use mousewheel to zoom in or out of the plot."
-msgstr ""
+msgstr "Χρησιμοποιείστε τη ροδέλα του ποντικιού για μεγέθυνση και σμίκρυνση."
 
 #: js/messages.php:270
 msgid "Click and drag the mouse to navigate the plot."
