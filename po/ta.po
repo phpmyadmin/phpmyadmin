@@ -1705,7 +1705,7 @@ msgstr "சேமி"
 
 #: js/messages.php:258
 msgid "Hide search criteria"
-msgstr ""
+msgstr "தேடுதல் கட்டளை விதியை மறை"
 
 #: js/messages.php:259
 msgid "Show search criteria"
