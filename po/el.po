@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-22 14:48+0200\n"
+"POT-Creation-Date: 2011-08-23 10:38+0200\n"
 "PO-Revision-Date: 2011-08-23 08:34+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
@@ -20,7 +20,7 @@ msgid "Show all"
 msgstr "Εμφάνιση όλων"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:42
-#: libraries/common.lib.php:2358
+#: libraries/common.lib.php:2352
 #: libraries/schema/Pdf_Relation_Schema.class.php:1149
 #: libraries/schema/Pdf_Relation_Schema.class.php:1174
 #: libraries/schema/User_Schema.class.php:376
@@ -38,9 +38,9 @@ msgstr ""
 "κλείσατε το μητρικό παράθυρο ή ο φυλλομετρητής σας δεν επιτρέπει τις "
 "ανανεώσεις μεταξύ παραθύρων λόγω ρυθμίσεων ασφαλείας."
 
-#: browse_foreigners.php:151 libraries/common.lib.php:3037
-#: libraries/common.lib.php:3044 libraries/common.lib.php:3248
-#: libraries/common.lib.php:3249 libraries/db_links.inc.php:60
+#: browse_foreigners.php:151 libraries/common.lib.php:3031
+#: libraries/common.lib.php:3038 libraries/common.lib.php:3242
+#: libraries/common.lib.php:3243 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "Αναζήτηση"
@@ -50,8 +50,8 @@ msgstr "Αναζήτηση"
 #: db_structure.php:530 enum_editor.php:63 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:309 js/messages.php:207
 #: libraries/Config.class.php:1306 libraries/Theme_Manager.class.php:309
-#: libraries/auth/cookie.auth.lib.php:247 libraries/common.lib.php:1321
-#: libraries/common.lib.php:2331 libraries/core.lib.php:508
+#: libraries/auth/cookie.auth.lib.php:247 libraries/common.lib.php:1315
+#: libraries/common.lib.php:2325 libraries/core.lib.php:508
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:349 libraries/display_import.lib.php:267
@@ -417,7 +417,6 @@ msgstr "Πρέπει να επιλέξετε τουλάχιστον μία στ�
 
 #: db_qbe.php:186
 #, php-format
-#| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
 msgstr "Αλλαγή στον %sεικονικός μάστορας%s"
 
@@ -492,7 +491,7 @@ msgstr "Χρήση Πινάκων"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "Εντολή SQL στη βάση δεδομένων <b>%s</b>:"
 
-#: db_qbe.php:955 libraries/common.lib.php:1169
+#: db_qbe.php:955 libraries/common.lib.php:1163
 msgid "Submit Query"
 msgstr "Υποβολή ερωτήματος"
 
@@ -531,8 +530,8 @@ msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s απατέλεσμα στον πίνακα <i>%s</i>"
 msgstr[1] "%s αποτελέσματα στον πίνακα <i>%s</i>"
 
-#: db_search.php:224 libraries/common.lib.php:3039
-#: libraries/common.lib.php:3246 libraries/common.lib.php:3247
+#: db_search.php:224 libraries/common.lib.php:3033
+#: libraries/common.lib.php:3240 libraries/common.lib.php:3241
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:566
 msgid "Browse"
 msgstr "Περιήγηση"
@@ -666,8 +665,8 @@ msgstr "Απεπιλογή όλων"
 msgid "Check tables having overhead"
 msgstr "Επιλογή πινάκων με περίσσεια"
 
-#: db_structure.php:498 libraries/common.lib.php:3259
-#: libraries/common.lib.php:3260 libraries/config/messages.inc.php:164
+#: db_structure.php:498 libraries/common.lib.php:3253
+#: libraries/common.lib.php:3254 libraries/config/messages.inc.php:164
 #: libraries/db_links.inc.php:56 libraries/display_tbl.lib.php:2392
 #: libraries/display_tbl.lib.php:2530 libraries/server_links.inc.php:65
 #: libraries/tbl_links.inc.php:80 prefs_manage.php:286
@@ -681,13 +680,13 @@ msgstr "Εξαγωγή"
 msgid "Print view"
 msgstr "Εμφάνιση για εκτύπωση"
 
-#: db_structure.php:504 libraries/common.lib.php:3255
-#: libraries/common.lib.php:3256
+#: db_structure.php:504 libraries/common.lib.php:3249
+#: libraries/common.lib.php:3250
 msgid "Empty"
 msgstr "Άδειασμα"
 
 #: db_structure.php:506 db_tracking.php:104 libraries/Index.class.php:482
-#: libraries/common.lib.php:3253 libraries/common.lib.php:3254
+#: libraries/common.lib.php:3247 libraries/common.lib.php:3248
 #: server_databases.php:265 tbl_structure.php:151 tbl_structure.php:152
 #: tbl_structure.php:570
 msgid "Drop"
@@ -854,7 +853,6 @@ msgstr "Το αρχείο εξόδου αποθηκεύτηκε ως %s."
 
 #: gis_data_editor.php:84
 #, php-format
-#| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
 msgstr "Τιμή για τη στήλη «%s»"
 
@@ -888,12 +886,10 @@ msgstr "Υ"
 
 #: gis_data_editor.php:202 gis_data_editor.php:246 gis_data_editor.php:296
 #: js/messages.php:294
-#| msgid "Add routine"
 msgid "Add a point"
 msgstr "Προσθήκη σημείου"
 
 #: gis_data_editor.php:218 js/messages.php:289
-#| msgid "Lines terminated by"
 msgid "Linestring"
 msgstr "Κείμενο γραμμής"
 
@@ -906,12 +902,10 @@ msgid "Inner Ring"
 msgstr "Εσωτερικός δακτύλιος"
 
 #: gis_data_editor.php:248
-#| msgid "Add a new User"
 msgid "Add a linestring"
 msgstr "Προσθήκη κειμένου γραμμής"
 
 #: gis_data_editor.php:248 gis_data_editor.php:298 js/messages.php:295
-#| msgid "Add a new User"
 msgid "Add an inner ring"
 msgstr "Προσθήκη εσωτερικού δακτυλίου"
 
@@ -920,12 +914,10 @@ msgid "Polygon"
 msgstr "Πολύγωνο"
 
 #: gis_data_editor.php:300 js/messages.php:296
-#| msgid "Add column"
 msgid "Add a polygon"
 msgstr "Προσθήκη πολυγώνου"
 
 #: gis_data_editor.php:304
-#| msgid "Geometry"
 msgid "Add geometry"
 msgstr "Προσθήκη γεωμετρίας"
 
@@ -1021,7 +1013,7 @@ msgstr ""
 msgid "Your SQL query has been executed successfully"
 msgstr "Η εντολή SQL εκτελέσθηκε επιτυχώς"
 
-#: import_status.php:29 libraries/common.lib.php:657
+#: import_status.php:29 libraries/common.lib.php:651
 #: libraries/schema/Export_Relation_Schema.class.php:237 user_password.php:109
 msgid "Back"
 msgstr "Επιστροφή"
@@ -1131,8 +1123,8 @@ msgid "Close"
 msgstr "Κλείσιμο"
 
 #: js/messages.php:64 js/messages.php:249 libraries/Index.class.php:460
-#: libraries/common.lib.php:596 libraries/common.lib.php:1145
-#: libraries/common.lib.php:3257 libraries/common.lib.php:3258
+#: libraries/common.lib.php:590 libraries/common.lib.php:1139
+#: libraries/common.lib.php:3251 libraries/common.lib.php:3252
 #: libraries/config/messages.inc.php:478 libraries/display_tbl.lib.php:1328
 #: libraries/schema/User_Schema.class.php:185 setup/frames/index.inc.php:138
 msgid "Edit"
@@ -1168,12 +1160,12 @@ msgid "Other"
 msgstr "Άλλα"
 
 #. l10n: Thousands separator
-#: js/messages.php:75 libraries/common.lib.php:1395
+#: js/messages.php:75 libraries/common.lib.php:1389
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:77 libraries/common.lib.php:1397
+#: js/messages.php:77 libraries/common.lib.php:1391
 msgid "."
 msgstr "."
 
@@ -1216,7 +1208,6 @@ msgid "Query statistics"
 msgstr "Στατιστικά ερωτήματος"
 
 #: js/messages.php:93
-#| msgid "Failed to read configuration file"
 msgid "Local monitor configuration incompatible"
 msgstr "Ασύμβατη η ρύθμιση τοπικής εποπτείας"
 
@@ -1230,21 +1221,17 @@ msgstr ""
 "Η ρύθμιση ταξινόμησης διαγραμμάτων στον τοπικό χώρο αποθήκευσης των "
 "φυλλομετρητών σας δεν είναι πλέον συμβατός με τη νεότερη έκδοση του διαλόγου "
 "εποπτείας.Είναι πολύ πιθανό ότι η τρέχουσα ρύθμιση δεν θα λειτουργεί πλέον. "
-"Επαναφέρτε τις ρυθμίσεις σας στις προεπιλεγμένες στο μενού "
-"<i>Ρυθμίσεις</i>."
+"Επαναφέρτε τις ρυθμίσεις σας στις προεπιλεγμένες στο μενού <i>Ρυθμίσεις</i>."
 
 #: js/messages.php:96
-#| msgid "Query cache"
 msgid "Query cache efficiency"
 msgstr "Αποτελεσματικότητα λανθάνουσας μνήμης ερωτήματος"
 
 #: js/messages.php:97 po/advisory_rules.php:80
-#| msgid "Query cache"
 msgid "Query cache usage"
 msgstr "Χρήση λανθάνουσας μνήμης ερωτήματος"
 
 #: js/messages.php:98
-#| msgid "Query cache"
 msgid "Query cache used"
 msgstr "Χρησιμοποιημένη λανθάνουσα μνήμη ερωτήματος"
 
@@ -1261,12 +1248,12 @@ msgid "System swap"
 msgstr "Αδράνεια συστήματος"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:103 libraries/common.lib.php:1345 server_status.php:1625
+#: js/messages.php:103 libraries/common.lib.php:1339 server_status.php:1625
 msgid "MiB"
 msgstr "MB"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:104 libraries/common.lib.php:1343 server_status.php:1625
+#: js/messages.php:104 libraries/common.lib.php:1337 server_status.php:1625
 msgid "KiB"
 msgstr "KB"
 
@@ -1275,32 +1262,26 @@ msgid "Average load"
 msgstr "Μέσο φορτίο"
 
 #: js/messages.php:107
-#| msgid "System memory"
 msgid "Total memory"
 msgstr "Συνολική μνήμη"
 
 #: js/messages.php:108
-#| msgid "System memory"
 msgid "Cached memory"
 msgstr "Λανθάνουσα μνήμη"
 
 #: js/messages.php:109
-#| msgid "Buffer Pool"
 msgid "Buffered memory"
 msgstr "Ρυθμισμένη μνήμη"
 
 #: js/messages.php:110
-#| msgid "System memory"
 msgid "Free memory"
 msgstr "Ελεύθερη μνήμη"
 
 #: js/messages.php:111
-#| msgid "System memory"
 msgid "Used memory"
 msgstr "Χρησιμοποιημένη μνήμη"
 
 #: js/messages.php:113
-#| msgid "Total"
 msgid "Total Swap"
 msgstr "Σύνολο Αδράνειας"
 
@@ -1313,7 +1294,6 @@ msgid "Used Swap"
 msgstr "Χρησιμοποιημένη Αδράνεια"
 
 #: js/messages.php:116
-#| msgid "Free pages"
 msgid "Free Swap"
 msgstr "Ελεύθερη Αδράνεια"
 
@@ -1322,7 +1302,6 @@ msgid "Bytes sent"
 msgstr "Σταλθέντα Bytes"
 
 #: js/messages.php:119
-#| msgid "Received"
 msgid "Bytes received"
 msgstr "Ληφθέντα Bytes"
 
@@ -1349,7 +1328,6 @@ msgid "Remove chart"
 msgstr "Απομάκρυνση διαγράμματος"
 
 #: js/messages.php:128
-#| msgid "Edit labels and series"
 msgid "Edit title and labels"
 msgstr "Επεξεργασία τίτλου και ετικετών"
 
@@ -1494,10 +1472,6 @@ msgid "Analysing & loading logs. This may take a while."
 msgstr "Ανάλυση & φόρτωση καταγραφών. Αυτό ίσως διαρκέσει λίγο."
 
 #: js/messages.php:165
-#| msgid ""
-#| "This columns shows the amount of identical queries that are grouped "
-#| "together. However only the SQL Text is being compared, thus the queries "
-#| "other attributes such as start time may differ."
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
@@ -1528,15 +1502,12 @@ msgid "Jump to Log table"
 msgstr "Μετάβαση στον πίνακα Καταγραφής"
 
 #: js/messages.php:170
-#| msgid "Log analysed, but not data found in this time span."
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
-"Η καταγραφή αναλύθηκε αλλά δεν βρέθηκαν δεδομένα σε αυτή την επέκταση "
-"χρόνου."
+"Η καταγραφή αναλύθηκε αλλά δεν βρέθηκαν δεδομένα σε αυτή την επέκταση χρόνου."
 
 #. l10n: A collection of available filters
 #: js/messages.php:173
-#| msgid "Tables display options"
 msgid "Log table filter options"
 msgstr "Επιλογές φιλτραρίσματος πίνακα καταγραφής"
 
@@ -1550,7 +1521,6 @@ msgid "Filter queries by word/regexp:"
 msgstr "Φιλτράρισμα ερωτημάτων ανά λέξη/κανονική έκφραση:"
 
 #: js/messages.php:177
-#| msgid "Group queries, ignoring variable data in WHERE statements"
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 "Ομαδοποίηση ερωτημάτων, αγνοώντας τα δεδομένα μεταβλητής στις δηλώσεις WHERE"
@@ -1583,7 +1553,6 @@ msgstr ""
 "βοηθήσουν."
 
 #: js/messages.php:184
-#| msgid "Reload"
 msgid "Reload page"
 msgstr "Επαναφόρτωση σελίδας"
 
@@ -1612,12 +1581,10 @@ msgid "Import"
 msgstr "Εισαγωγή"
 
 #: js/messages.php:192
-#| msgid "Update Query"
 msgid "Analyse Query"
 msgstr "Ανάλυση Ερωτήματος"
 
 #: js/messages.php:196
-#| msgid "Apply a divisor"
 msgid "Advisor system"
 msgstr "Σύστημα σύμβουλου"
 
@@ -1630,17 +1597,14 @@ msgid "Issue"
 msgstr "Θέμα"
 
 #: js/messages.php:199
-#| msgid "Documentation"
 msgid "Recommendation"
 msgstr "Πρόταση"
 
 #: js/messages.php:200
-#| msgid "Details"
 msgid "Rule details"
 msgstr "Λεπτομέρειες ρόλου"
 
 #: js/messages.php:201
-#| msgid "Authentication"
 msgid "Justification"
 msgstr "Δικαιολόγηση"
 
@@ -1764,7 +1728,7 @@ msgstr "Προβολή παραθύρου ερωτήματος"
 msgid "No rows selected"
 msgstr "Δεν επιλέχθηκαν γραμμές"
 
-#: js/messages.php:251 libraries/common.lib.php:2656
+#: js/messages.php:251 libraries/common.lib.php:2650
 #: libraries/display_tbl.lib.php:2387 querywindow.php:90 querywindow.php:94
 #: querywindow.php:97 tbl_structure.php:150 tbl_structure.php:569
 msgid "Change"
@@ -1791,7 +1755,6 @@ msgid "Show search criteria"
 msgstr "Προβολή κριτηρίων αναζήτησης"
 
 #: js/messages.php:262 libraries/tbl_select.lib.php:138
-#| msgid "Search"
 msgid "Zoom Search"
 msgstr "Εστιασμένη Αναζήτηση"
 
@@ -1832,7 +1795,6 @@ msgid "Strings are converted into integer for plotting"
 msgstr "Τα κείμενα μετατρέπονται σε ακεραίους για την εκτύπωση"
 
 #: js/messages.php:280
-#| msgid "Add/Delete columns"
 msgid "Select two columns"
 msgstr "Επιλογή δύο στηλών"
 
@@ -2035,63 +1997,63 @@ msgid "December"
 msgstr "Δεκεμβρίου"
 
 #. l10n: Short month name
-#: js/messages.php:384 libraries/common.lib.php:1552
+#: js/messages.php:384 libraries/common.lib.php:1546
 msgid "Jan"
 msgstr "Ιαν"
 
 #. l10n: Short month name
-#: js/messages.php:386 libraries/common.lib.php:1554
+#: js/messages.php:386 libraries/common.lib.php:1548
 msgid "Feb"
 msgstr "Φεβ"
 
 #. l10n: Short month name
-#: js/messages.php:388 libraries/common.lib.php:1556
+#: js/messages.php:388 libraries/common.lib.php:1550
 msgid "Mar"
 msgstr "Μαρ"
 
 #. l10n: Short month name
-#: js/messages.php:390 libraries/common.lib.php:1558
+#: js/messages.php:390 libraries/common.lib.php:1552
 msgid "Apr"
 msgstr "Απρ"
 
 #. l10n: Short month name
-#: js/messages.php:392 libraries/common.lib.php:1560
+#: js/messages.php:392 libraries/common.lib.php:1554
 msgctxt "Short month name"
 msgid "May"
 msgstr "Μάη"
 
 #. l10n: Short month name
-#: js/messages.php:394 libraries/common.lib.php:1562
+#: js/messages.php:394 libraries/common.lib.php:1556
 msgid "Jun"
 msgstr "Ιουν"
 
 #. l10n: Short month name
-#: js/messages.php:396 libraries/common.lib.php:1564
+#: js/messages.php:396 libraries/common.lib.php:1558
 msgid "Jul"
 msgstr "Ιουλ"
 
 #. l10n: Short month name
-#: js/messages.php:398 libraries/common.lib.php:1566
+#: js/messages.php:398 libraries/common.lib.php:1560
 msgid "Aug"
 msgstr "Αυγ"
 
 #. l10n: Short month name
-#: js/messages.php:400 libraries/common.lib.php:1568
+#: js/messages.php:400 libraries/common.lib.php:1562
 msgid "Sep"
 msgstr "Σεπ"
 
 #. l10n: Short month name
-#: js/messages.php:402 libraries/common.lib.php:1570
+#: js/messages.php:402 libraries/common.lib.php:1564
 msgid "Oct"
 msgstr "Οκτ"
 
 #. l10n: Short month name
-#: js/messages.php:404 libraries/common.lib.php:1572
+#: js/messages.php:404 libraries/common.lib.php:1566
 msgid "Nov"
 msgstr "Νοε"
 
 #. l10n: Short month name
-#: js/messages.php:406 libraries/common.lib.php:1574
+#: js/messages.php:406 libraries/common.lib.php:1568
 msgid "Dec"
 msgstr "Δεκ"
 
@@ -2132,32 +2094,32 @@ msgid "Sun"
 msgstr "Κυρ"
 
 #. l10n: Short week day name
-#: js/messages.php:421 libraries/common.lib.php:1579
+#: js/messages.php:421 libraries/common.lib.php:1573
 msgid "Mon"
 msgstr "Δευ"
 
 #. l10n: Short week day name
-#: js/messages.php:423 libraries/common.lib.php:1581
+#: js/messages.php:423 libraries/common.lib.php:1575
 msgid "Tue"
 msgstr "Τρί"
 
 #. l10n: Short week day name
-#: js/messages.php:425 libraries/common.lib.php:1583
+#: js/messages.php:425 libraries/common.lib.php:1577
 msgid "Wed"
 msgstr "Τετ"
 
 #. l10n: Short week day name
-#: js/messages.php:427 libraries/common.lib.php:1585
+#: js/messages.php:427 libraries/common.lib.php:1579
 msgid "Thu"
 msgstr "Πέμ"
 
 #. l10n: Short week day name
-#: js/messages.php:429 libraries/common.lib.php:1587
+#: js/messages.php:429 libraries/common.lib.php:1581
 msgid "Fri"
 msgstr "Παρ"
 
 #. l10n: Short week day name
-#: js/messages.php:431 libraries/common.lib.php:1589
+#: js/messages.php:431 libraries/common.lib.php:1583
 msgid "Sat"
 msgstr "Σάβ"
 
@@ -2339,7 +2301,7 @@ msgid "Databases"
 msgstr "Βάσεις δεδομένων"
 
 #: libraries/Message.class.php:193 libraries/blobstreaming.lib.php:325
-#: libraries/blobstreaming.lib.php:331 libraries/common.lib.php:562
+#: libraries/blobstreaming.lib.php:331 libraries/common.lib.php:556
 #: libraries/core.lib.php:210 libraries/import.lib.php:140 tbl_change.php:904
 #: tbl_operations.php:229 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
@@ -2736,34 +2698,28 @@ msgstr "Πρέπει να αναβαθμίσετε σε %s %s ή νεότερη.
 msgid "Max: %s%s"
 msgstr "Μέγιστο μέγεθος: %s%s"
 
-#. l10n: Language to use for MySQL 5.5 documentation, please
-#. * use only languages which do exist in official documentation.
-#.
-#: libraries/common.lib.php:392
+#. l10n: Please check that translation actually exists.
+#: libraries/common.lib.php:390
 msgctxt "MySQL 5.5 documentation language"
 msgid "en"
 msgstr "en"
 
-#. l10n: Language to use for MySQL 5.1 documentation, please
-#. * use only languages which do exist in official documentation.
-#.
-#: libraries/common.lib.php:398
+#. l10n: Please check that translation actually exists.
+#: libraries/common.lib.php:394
 msgctxt "MySQL 5.1 documentation language"
 msgid "en"
 msgstr "en"
 
-#. l10n: Language to use for MySQL 5.0 documentation, please use
-#. * only languages which do exist in official documentation.
-#.
-#: libraries/common.lib.php:404
+#. l10n: Please check that translation actually exists.
+#: libraries/common.lib.php:398
 msgctxt "MySQL 5.0 documentation language"
 msgid "en"
 msgstr "en"
 
-#: libraries/common.lib.php:419 libraries/common.lib.php:422
-#: libraries/common.lib.php:424 libraries/common.lib.php:443
-#: libraries/common.lib.php:446 libraries/common.lib.php:466
-#: libraries/common.lib.php:468 libraries/config/FormDisplay.tpl.php:162
+#: libraries/common.lib.php:413 libraries/common.lib.php:416
+#: libraries/common.lib.php:418 libraries/common.lib.php:437
+#: libraries/common.lib.php:440 libraries/common.lib.php:460
+#: libraries/common.lib.php:462 libraries/config/FormDisplay.tpl.php:162
 #: libraries/display_export.lib.php:234 libraries/engines/pbms.lib.php:71
 #: libraries/engines/pbxt.lib.php:106 libraries/relation.lib.php:74
 #: libraries/sql_query_form.lib.php:385 libraries/sql_query_form.lib.php:388
@@ -2771,12 +2727,12 @@ msgstr "en"
 msgid "Documentation"
 msgstr "Τεκμηρίωση"
 
-#: libraries/common.lib.php:574 libraries/header_printview.inc.php:60
+#: libraries/common.lib.php:568 libraries/header_printview.inc.php:60
 #: server_status.php:554 server_status.php:1182
 msgid "SQL query"
 msgstr "Εντολή SQL"
 
-#: libraries/common.lib.php:615 libraries/rte/rte_events.lib.php:103
+#: libraries/common.lib.php:609 libraries/rte/rte_events.lib.php:103
 #: libraries/rte/rte_events.lib.php:108 libraries/rte/rte_events.lib.php:118
 #: libraries/rte/rte_events.lib.php:131 libraries/rte/rte_routines.lib.php:255
 #: libraries/rte/rte_routines.lib.php:260
@@ -2789,79 +2745,79 @@ msgstr "Εντολή SQL"
 msgid "MySQL said: "
 msgstr "Η MySQL επέστρεψε το μήνυμα: "
 
-#: libraries/common.lib.php:1078
+#: libraries/common.lib.php:1072
 msgid "Failed to connect to SQL validator!"
 msgstr "Αδύνατη η σύνδεση στο εγκυροποιητή SQL!"
 
-#: libraries/common.lib.php:1119 libraries/config/messages.inc.php:479
+#: libraries/common.lib.php:1113 libraries/config/messages.inc.php:479
 msgid "Explain SQL"
 msgstr "Ανάλυση SQL"
 
-#: libraries/common.lib.php:1123
+#: libraries/common.lib.php:1117
 msgid "Skip Explain SQL"
 msgstr "Χωρίς ανάλυση SQL"
 
-#: libraries/common.lib.php:1158
+#: libraries/common.lib.php:1152
 msgid "Without PHP Code"
 msgstr "χωρίς κώδικα PHP"
 
-#: libraries/common.lib.php:1161 libraries/config/messages.inc.php:481
+#: libraries/common.lib.php:1155 libraries/config/messages.inc.php:481
 msgid "Create PHP Code"
 msgstr "Δημιουργία κώδικα PHP"
 
-#: libraries/common.lib.php:1180 libraries/config/messages.inc.php:480
+#: libraries/common.lib.php:1174 libraries/config/messages.inc.php:480
 #: server_status.php:752 server_status.php:774 server_status.php:793
 msgid "Refresh"
 msgstr "Ανανέωση"
 
-#: libraries/common.lib.php:1190
+#: libraries/common.lib.php:1184
 msgid "Skip Validate SQL"
 msgstr "Παράβλεψη επικύρωσης SQL"
 
-#: libraries/common.lib.php:1193 libraries/config/messages.inc.php:483
+#: libraries/common.lib.php:1187 libraries/config/messages.inc.php:483
 msgid "Validate SQL"
 msgstr "Επικύρωση SQL"
 
-#: libraries/common.lib.php:1252
+#: libraries/common.lib.php:1246
 msgid "Inline edit of this query"
 msgstr "Εσωτερική επεξεργασία αυτού του ερωτήματος"
 
-#: libraries/common.lib.php:1254
+#: libraries/common.lib.php:1248
 msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Εσωτερικό"
 
-#: libraries/common.lib.php:1320 sql.php:876
+#: libraries/common.lib.php:1314 sql.php:876
 msgid "Profiling"
 msgstr "Δημιουργία προφίλ"
 
 #. l10n: shortcuts for Byte
-#: libraries/common.lib.php:1341
+#: libraries/common.lib.php:1335
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Gigabyte
-#: libraries/common.lib.php:1347
+#: libraries/common.lib.php:1341
 msgid "GiB"
 msgstr "GB"
 
 #. l10n: shortcuts for Terabyte
-#: libraries/common.lib.php:1349
+#: libraries/common.lib.php:1343
 msgid "TiB"
 msgstr "TB"
 
 #. l10n: shortcuts for Petabyte
-#: libraries/common.lib.php:1351
+#: libraries/common.lib.php:1345
 msgid "PiB"
 msgstr "PB"
 
 #. l10n: shortcuts for Exabyte
-#: libraries/common.lib.php:1353
+#: libraries/common.lib.php:1347
 msgid "EiB"
 msgstr "EB"
 
 #. l10n: Short week day name
-#: libraries/common.lib.php:1577
+#: libraries/common.lib.php:1571
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Κυρ"
@@ -2869,21 +2825,21 @@ msgstr "Κυρ"
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
 #. * to define the format string
 #.
-#: libraries/common.lib.php:1595
+#: libraries/common.lib.php:1589
 #: libraries/transformations/text_plain__dateformat.inc.php:35
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y στις %H:%M:%S"
 
-#: libraries/common.lib.php:1928
+#: libraries/common.lib.php:1922
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s μέρες, %s ώρες, %s λεπτά %s δευτερόλεπτα"
 
-#: libraries/common.lib.php:2019
+#: libraries/common.lib.php:2013
 msgid "Missing parameter:"
 msgstr "Απολεσθείσα παράμετρος:"
 
-#: libraries/common.lib.php:2367 libraries/common.lib.php:2370
+#: libraries/common.lib.php:2361 libraries/common.lib.php:2364
 #: libraries/display_tbl.lib.php:306
 #, fuzzy
 #| msgid "Begin"
@@ -2891,7 +2847,7 @@ msgctxt "First page"
 msgid "Begin"
 msgstr "Κορυφή"
 
-#: libraries/common.lib.php:2368 libraries/common.lib.php:2371
+#: libraries/common.lib.php:2362 libraries/common.lib.php:2365
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
 #, fuzzy
@@ -2900,7 +2856,7 @@ msgctxt "Previous page"
 msgid "Previous"
 msgstr "Προηγούμενο"
 
-#: libraries/common.lib.php:2398 libraries/common.lib.php:2401
+#: libraries/common.lib.php:2392 libraries/common.lib.php:2395
 #: libraries/display_tbl.lib.php:370 server_binlog.php:170
 #: server_binlog.php:172
 #, fuzzy
@@ -2909,7 +2865,7 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "Επόμενο"
 
-#: libraries/common.lib.php:2399 libraries/common.lib.php:2402
+#: libraries/common.lib.php:2393 libraries/common.lib.php:2396
 #: libraries/display_tbl.lib.php:385
 #, fuzzy
 #| msgid "End"
@@ -2917,23 +2873,23 @@ msgctxt "Last page"
 msgid "End"
 msgstr "Τέλος"
 
-#: libraries/common.lib.php:2469
+#: libraries/common.lib.php:2463
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "Μεταπήδηση στην βάση «%s»."
 
-#: libraries/common.lib.php:2489
+#: libraries/common.lib.php:2483
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 "Η λειτουργία %s έχει επηρρεαστεί από ένα γνωστό σφάλμα, για αυτό δείτε %s"
 
-#: libraries/common.lib.php:2663
+#: libraries/common.lib.php:2657
 msgid "Click to toggle"
 msgstr "Πατήστε για εναλλαγή"
 
-#: libraries/common.lib.php:3035 libraries/common.lib.php:3042
-#: libraries/common.lib.php:3252 libraries/config/setup.forms.php:293
+#: libraries/common.lib.php:3029 libraries/common.lib.php:3036
+#: libraries/common.lib.php:3246 libraries/config/setup.forms.php:293
 #: libraries/config/setup.forms.php:330 libraries/config/setup.forms.php:356
 #: libraries/config/user_preferences.forms.php:192
 #: libraries/config/user_preferences.forms.php:229
@@ -2945,7 +2901,7 @@ msgstr "Πατήστε για εναλλαγή"
 msgid "Structure"
 msgstr "Δομή"
 
-#: libraries/common.lib.php:3036 libraries/common.lib.php:3043
+#: libraries/common.lib.php:3030 libraries/common.lib.php:3037
 #: libraries/config/messages.inc.php:214 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
@@ -2953,38 +2909,38 @@ msgstr "Δομή"
 msgid "SQL"
 msgstr "Κώδικας SQL"
 
-#: libraries/common.lib.php:3038 libraries/common.lib.php:3250
-#: libraries/common.lib.php:3251 libraries/sql_query_form.lib.php:282
+#: libraries/common.lib.php:3032 libraries/common.lib.php:3244
+#: libraries/common.lib.php:3245 libraries/sql_query_form.lib.php:282
 #: libraries/sql_query_form.lib.php:285 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "Προσθήκη"
 
-#: libraries/common.lib.php:3045 libraries/db_links.inc.php:86
+#: libraries/common.lib.php:3039 libraries/db_links.inc.php:86
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:114
 #: view_operations.php:87
 msgid "Operations"
 msgstr "Λειτουργίες"
 
-#: libraries/common.lib.php:3184
+#: libraries/common.lib.php:3178
 msgid "Browse your computer:"
 msgstr "Περιηγηθείτε στον υπολογιστή σας:"
 
-#: libraries/common.lib.php:3203
+#: libraries/common.lib.php:3197
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Επιλογή από το φάκελο αποστολής του διακοιμίστή ιστού <b>%s</b>:"
 
-#: libraries/common.lib.php:3224 libraries/sql_query_form.lib.php:445
+#: libraries/common.lib.php:3218 libraries/sql_query_form.lib.php:445
 #: tbl_change.php:905
 msgid "The directory you set for upload work cannot be reached"
 msgstr ""
 "Ο υποκατάλογος που ορίσατε για την αποθήκευση αρχείων δεν μπόρεσε να βρεθεί"
 
-#: libraries/common.lib.php:3233
+#: libraries/common.lib.php:3227
 msgid "There are no files to upload"
 msgstr "Δεν υπάρχουν αρχεία προς αποστολή"
 
-#: libraries/common.lib.php:3261 libraries/common.lib.php:3262
+#: libraries/common.lib.php:3255 libraries/common.lib.php:3256
 msgid "Execute"
 msgstr "Εκτέλεση"
 
@@ -5399,7 +5355,7 @@ msgstr ""
 msgid "Incorrect IP address: %s"
 msgstr "Εσφαλμένη διεύθυνση IP: %s"
 
-#. l10n: Language to use for PHP documentation, please use only languages which do exist in official documentation.
+#. l10n: Please check that translation actually exists.
 #: libraries/core.lib.php:245
 msgctxt "PHP documentation language"
 msgid "en"
