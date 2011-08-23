@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-22 14:48+0200\n"
-"PO-Revision-Date: 2011-08-23 10:24+0200\n"
+"PO-Revision-Date: 2011-08-23 10:26+0200\n"
 "Last-Translator: Sajeepan Yogenthiran <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -1312,7 +1312,7 @@ msgstr ""
 
 #: js/messages.php:129
 msgid "Add chart to grid"
-msgstr ""
+msgstr "வரைபடத்தை கட்டத்தில் சேர்"
 
 #: js/messages.php:131
 msgid "Please add at least one variable to the series"
