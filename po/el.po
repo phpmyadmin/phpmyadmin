@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-22 14:48+0200\n"
-"PO-Revision-Date: 2011-08-23 08:16+0200\n"
+"PO-Revision-Date: 2011-08-23 08:17+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -1528,11 +1528,11 @@ msgid "Jump to Log table"
 msgstr "Μετάβαση στον πίνακα Καταγραφής"
 
 #: js/messages.php:170
-#, fuzzy
 #| msgid "Log analysed, but not data found in this time span."
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
-"Η καταγραφή αναλύθηκε αλλά δεν βρέθηκαν δεδομένα σε αυτή την επέκταση χρόνου."
+"Η καταγραφή αναλύθηκε αλλά δεν βρέθηκαν δεδομένα σε αυτή την επέκταση "
+"χρόνου."
 
 #. l10n: A collection of available filters
 #: js/messages.php:173
