@@ -1239,10 +1239,9 @@ msgid "Query cache efficiency"
 msgstr "Αποτελεσματικότητα λανθάνουσας μνήμης ερωτήματος"
 
 #: js/messages.php:97 po/advisory_rules.php:80
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
-msgstr "Λανθάνουσα μνήμη ερωτήματος"
+msgstr "Χρήση λανθάνουσας μνήμης ερωτήματος"
 
 #: js/messages.php:98
 #, fuzzy
