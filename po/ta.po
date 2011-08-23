@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-22 14:48+0200\n"
-"PO-Revision-Date: 2011-08-23 10:44+0200\n"
+"PO-Revision-Date: 2011-08-23 10:45+0200\n"
 "Last-Translator: Sajeepan Yogenthiran <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -1679,7 +1679,7 @@ msgstr "வினவல் பெட்டியை மறை"
 
 #: js/messages.php:248
 msgid "Show query box"
-msgstr "வினவல் பெட்டியை காட்டு"
+msgstr "வினவல் பெட்டியை காண்பி"
 
 #: js/messages.php:250 tbl_row_action.php:28
 msgid "No rows selected"
