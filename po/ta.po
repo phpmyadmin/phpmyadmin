@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-22 14:48+0200\n"
-"PO-Revision-Date: 2011-08-23 10:00+0200\n"
+"PO-Revision-Date: 2011-08-23 10:02+0200\n"
 "Last-Translator: Sajeepan Yogenthiran <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -797,7 +797,7 @@ msgstr ""
 
 #: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:634
 msgid "Track table"
-msgstr ""
+msgstr "அட்டவணைத் தடம்"
 
 #: db_tracking.php:229
 msgid "Database Log"
