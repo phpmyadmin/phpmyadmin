@@ -1675,7 +1675,7 @@ msgstr ""
 
 #: js/messages.php:247
 msgid "Hide query box"
-msgstr ""
+msgstr "வினவல் பெட்டியை மறை"
 
 #: js/messages.php:248
 msgid "Show query box"
