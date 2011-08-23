@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-22 14:48+0200\n"
-"PO-Revision-Date: 2011-08-23 10:19+0200\n"
+"PO-Revision-Date: 2011-08-23 10:20+0200\n"
 "Last-Translator: Sajeepan Yogenthiran <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -1212,7 +1212,7 @@ msgstr "வினவல் இடைமாற்றல் பாவனையள�
 
 #: js/messages.php:98
 msgid "Query cache used"
-msgstr ""
+msgstr "வினவல் இடைமாற்று பயன்படுத்தப்பட்டது"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
