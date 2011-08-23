@@ -1646,7 +1646,7 @@ msgstr "Δικαιολόγηση"
 
 #: js/messages.php:202
 msgid "Used variable / formula"
-msgstr ""
+msgstr "Χρησιμοποιημένη μεταβλητή / τύπος"
 
 #: js/messages.php:203
 msgid "Test"
