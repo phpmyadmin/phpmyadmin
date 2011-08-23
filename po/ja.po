@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-23 11:03+0200\n"
-"PO-Revision-Date: 2011-08-23 11:32+0200\n"
+"PO-Revision-Date: 2011-08-23 11:38+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1766,7 +1766,7 @@ msgstr "検索"
 
 #: js/messages.php:264
 msgid "Each point represents a data row."
-msgstr ""
+msgstr "プロット点は、それぞれの行のデータを表します。"
 
 #: js/messages.php:266
 msgid "Hovering over a point will show its label."
