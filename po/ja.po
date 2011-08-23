@@ -917,10 +917,9 @@ msgid "Polygon"
 msgstr "ポリゴン"
 
 #: gis_data_editor.php:300 js/messages.php:296
-#, fuzzy
 #| msgid "Add column"
 msgid "Add a polygon"
-msgstr "カラムを追加する"
+msgstr "ポリゴンを追加する"
 
 #: gis_data_editor.php:304
 #| msgid "Geometry"
