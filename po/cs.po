@@ -11809,10 +11809,9 @@ msgid "Available memory on this host: %s"
 msgstr ""
 
 #: po/advisory_rules.php:65
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache disabled"
-msgstr "Vyrovnávací paměť dotazů"
+msgstr "Vyrovnávací paměť dotazů je vypnutá"
 
 #: po/advisory_rules.php:66
 #, fuzzy
