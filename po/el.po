@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-22 14:48+0200\n"
-"PO-Revision-Date: 2011-08-23 08:30+0200\n"
+"PO-Revision-Date: 2011-08-23 08:31+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -1814,6 +1814,7 @@ msgstr "Πατήστε και σύρτε το ποντίκι για πλοήγη
 #: js/messages.php:272
 msgid "Click reset zoom link to come back to original state."
 msgstr ""
+"Πατήστε στην επαναφορά εστίασης για να επιστρέψετε στην αρχική κατάσταση."
 
 #: js/messages.php:274
 msgid "Click a data point to view and possibly edit the data row."
