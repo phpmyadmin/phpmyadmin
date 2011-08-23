@@ -1583,10 +1583,9 @@ msgstr ""
 "βοηθήσουν."
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
-msgstr "Επαναφόρτωση"
+msgstr "Επαναφόρτωση σελίδας"
 
 #: js/messages.php:186
 msgid "Affected rows:"
