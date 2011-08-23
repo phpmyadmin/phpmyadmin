@@ -1550,7 +1550,6 @@ msgid "Filter queries by word/regexp:"
 msgstr "Φιλτράρισμα ερωτημάτων ανά λέξη/κανονική έκφραση:"
 
 #: js/messages.php:177
-#, fuzzy
 #| msgid "Group queries, ignoring variable data in WHERE statements"
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
