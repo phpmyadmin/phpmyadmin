@@ -1683,7 +1683,7 @@ msgstr "வினவல் பெட்டியை காண்பி"
 
 #: js/messages.php:250 tbl_row_action.php:28
 msgid "No rows selected"
-msgstr ""
+msgstr "தெரிவுசெய்யப்பட வரிசைகள் இல்லை"
 
 #: js/messages.php:251 libraries/common.lib.php:2650
 #: libraries/display_tbl.lib.php:2387 querywindow.php:90 querywindow.php:94
