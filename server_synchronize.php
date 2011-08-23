@@ -1274,6 +1274,9 @@ if (! isset($_REQUEST['submit_connect'])
       // these unset() do not complain if the elements do not exist
     unset($databases['mysql']);
     unset($databases['information_schema']);
+    if (PMA_DRIZZLE) {
+        unset($databases['data_dictionary']);
+    }
 
     if (count($databases) == 0) {
         echo __('No databases');
