@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-22 14:48+0200\n"
-"PO-Revision-Date: 2011-08-23 10:23+0200\n"
+"PO-Revision-Date: 2011-08-23 10:24+0200\n"
 "Last-Translator: Sajeepan Yogenthiran <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -1282,7 +1282,7 @@ msgstr "துண்டுகள் அனுப்ப"
 
 #: js/messages.php:119
 msgid "Bytes received"
-msgstr ""
+msgstr "துண்டுகள்  ஏற்றுக்கொள்ளப்பட்டது"
 
 #: js/messages.php:120 server_status.php:1099
 msgid "Connections"
