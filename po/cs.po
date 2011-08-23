@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-23 10:38+0200\n"
-"PO-Revision-Date: 2011-08-11 11:38+0200\n"
+"PO-Revision-Date: 2011-08-23 10:46+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -855,10 +855,10 @@ msgid "Dump has been saved to file %s."
 msgstr "Výpis byl uložen do souboru %s."
 
 #: gis_data_editor.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
-msgstr "Hodnoty pro pole „%s“"
+msgstr "Hodnota pro sloupec „%s“"
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
