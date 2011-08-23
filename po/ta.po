@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-22 14:48+0200\n"
-"PO-Revision-Date: 2011-08-23 10:29+0200\n"
+"PO-Revision-Date: 2011-08-23 10:30+0200\n"
 "Last-Translator: Sajeepan Yogenthiran <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -1435,7 +1435,7 @@ msgstr "மெதுவான பதிகைஇலிருந்து"
 
 #: js/messages.php:163
 msgid "From general log"
-msgstr ""
+msgstr "பொதுவான பதிகைஇலிருந்து"
 
 #: js/messages.php:164
 msgid "Analysing & loading logs. This may take a while."
