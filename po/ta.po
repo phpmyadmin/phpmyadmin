@@ -1679,7 +1679,7 @@ msgstr "வினவல் பெட்டியை மறை"
 
 #: js/messages.php:248
 msgid "Show query box"
-msgstr ""
+msgstr "வினவல் பெட்டியை காட்டு"
 
 #: js/messages.php:250 tbl_row_action.php:28
 msgid "No rows selected"
