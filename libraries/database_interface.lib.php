@@ -1175,16 +1175,6 @@ function PMA_DBI_fetch_result($result, $key = null, $value = null,
 }
 
 /**
- * return default table engine for given database
- *
- * @return  string  default table engine
- */
-function PMA_DBI_get_default_engine()
-{
-    return PMA_DBI_fetch_value('SHOW VARIABLES LIKE \'storage_engine\';', 0, 1);
-}
-
-/**
  * Get supported SQL compatibility modes
  *
  * @return  array   supported SQL compatibility modes
