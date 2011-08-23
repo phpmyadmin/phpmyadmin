@@ -11761,6 +11761,8 @@ msgstr "Distribuce"
 #: po/advisory_rules.php:51
 msgid "Version is compiled from source, not a MySQL official binary."
 msgstr ""
+"Verze je zkompilovaná ze zdrojových kódu a nejedná se o oficiální binárku "
+"MySQL."
 
 #: po/advisory_rules.php:52
 msgid ""
