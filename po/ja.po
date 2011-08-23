@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-23 11:03+0200\n"
-"PO-Revision-Date: 2011-08-23 11:47+0200\n"
+"PO-Revision-Date: 2011-08-23 11:49+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1790,7 +1790,7 @@ msgstr "プロット点をクリックすることで、行のデータの閲覧
 
 #: js/messages.php:276
 msgid "The plot can be resized by dragging it along the bottom right corner."
-msgstr ""
+msgstr "グラフの右下をドラッグすることで、大きさの調整が行えます。"
 
 #: js/messages.php:278
 msgid "Strings are converted into integer for plotting"
