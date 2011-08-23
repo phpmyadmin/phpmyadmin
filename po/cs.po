@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-23 10:38+0200\n"
-"PO-Revision-Date: 2011-08-23 10:57+0200\n"
+"PO-Revision-Date: 2011-08-23 10:58+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -11591,7 +11591,7 @@ msgstr "Server běží méně než jeden den, rady nemusí být přesné."
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
-msgstr ""
+msgstr "Pro přesnější analýzu je doporučeno nechat server běžet delší dobu."
 
 #: po/advisory_rules.php:8
 #, php-format
