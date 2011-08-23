@@ -882,10 +882,9 @@ msgstr "Y"
 
 #: gis_data_editor.php:202 gis_data_editor.php:246 gis_data_editor.php:296
 #: js/messages.php:294
-#, fuzzy
 #| msgid "Add routine"
 msgid "Add a point"
-msgstr "ルーチンを追加する"
+msgstr "座標を追加する"
 
 #: gis_data_editor.php:218 js/messages.php:289
 #, fuzzy
