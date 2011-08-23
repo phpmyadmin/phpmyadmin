@@ -1123,7 +1123,7 @@ msgstr "நேரடி இணை./செயலாக்க வரைபடம�
 
 #: js/messages.php:67 server_status.php:781
 msgid "Live query chart"
-msgstr ""
+msgstr "நேரடி வினவல் வரைபடம்"
 
 #: js/messages.php:69
 msgid "Static data"
