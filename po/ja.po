@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-23 11:03+0200\n"
-"PO-Revision-Date: 2011-08-23 12:01+0200\n"
+"PO-Revision-Date: 2011-08-23 12:27+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -887,10 +887,9 @@ msgid "Add a point"
 msgstr "座標を追加する"
 
 #: gis_data_editor.php:218 js/messages.php:289
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "行の終端記号"
+msgstr "線分"
 
 #: gis_data_editor.php:221 gis_data_editor.php:275 js/messages.php:293
 msgid "Outer Ring"
@@ -901,10 +900,9 @@ msgid "Inner Ring"
 msgstr ""
 
 #: gis_data_editor.php:248
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "新しいユーザを追加する"
+msgstr "線分を追加する"
 
 #: gis_data_editor.php:248 gis_data_editor.php:298 js/messages.php:295
 #, fuzzy
@@ -914,19 +912,17 @@ msgstr "新しいユーザを追加する"
 
 #: gis_data_editor.php:262 js/messages.php:290
 msgid "Polygon"
-msgstr ""
+msgstr "ポリゴン"
 
 #: gis_data_editor.php:300 js/messages.php:296
-#, fuzzy
 #| msgid "Add column"
 msgid "Add a polygon"
-msgstr "カラムを追加する"
+msgstr "ポリゴンを追加する"
 
 #: gis_data_editor.php:304
-#, fuzzy
 #| msgid "Geometry"
 msgid "Add geometry"
-msgstr "空間データ"
+msgstr "空間データを追加する"
 
 #: gis_data_editor.php:312
 msgid ""
@@ -1573,10 +1569,9 @@ msgid "Import"
 msgstr "インポート"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
-msgstr "クエリを更新する"
+msgstr "クエリを解析する"
 
 #: js/messages.php:196
 msgid "Advisor system"
@@ -1758,10 +1753,9 @@ msgid "Show search criteria"
 msgstr "検索条件を表示する"
 
 #: js/messages.php:262 libraries/tbl_select.lib.php:138
-#, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
-msgstr "検索"
+msgstr "検索プロット"
 
 #: js/messages.php:264
 msgid "Each point represents a data row."
@@ -9469,9 +9463,8 @@ msgid ""
 "time, observe or benchmark your database, and undo the change if there was "
 "no clearly measurable improvement."
 msgstr ""
-"お使いのシステムをチューニングする最善の方法は、一度に行う変更は 1 箇所のみに"
-"することです。変更の度に、監視やベンチマークを行い、明確な改善が測定されな"
-"かった場合は変更を元に戻します。"
+"お使いのシステムをチューニングする最善の方法は、一度に行う変更は 1 "
+"箇所のみにすることです。変更の度に、監視やベンチマークを行い、明確な改善が測定されなかった場合は変更した箇所を元に戻します。"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:893
