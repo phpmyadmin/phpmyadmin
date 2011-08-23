@@ -248,38 +248,44 @@ for ($i = 0; $i < 4; $i++) {
  */
 
 //Set default datalabel if not selected
-    if(isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null') {
-        if ($dataLabel == '')
-    $dataLabel = PMA_getDisplayField($db,$table);
+if (isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null') {
+    if ($dataLabel == '') {
+        $dataLabel = PMA_getDisplayField($db,$table);
     }
-    ?>
+}
+?>
     <table class="data">
     <tr><td><label for="label"><?php echo __("Data Label"); ?></label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
     <td><select name="dataLabel" id='dataLabel' >
         <option value = ''> <?php echo __('None');  ?> </option>
-        <?php
-        for ($j = 0 ; $j < $fields_cnt ; $j++){
-            if(isset($dataLabel) && $dataLabel == htmlspecialchars($fields_list[$j])){?>
-                <option value=<?php echo htmlspecialchars($fields_list[$j]);?> Selected>  <?php echo htmlspecialchars($fields_list[$j]);?></option>
-        <?php
-            }
-            else{ ?>
-                <option value=<?php echo htmlspecialchars($fields_list[$j]);?> >  <?php echo htmlspecialchars($fields_list[$j]);?></option>
-        <?php
-            }
-        } ?>
+<?php
+for ($j = 0; $j < $fields_cnt; $j++) {
+    if (isset($dataLabel) && $dataLabel == htmlspecialchars($fields_list[$j])) {
+?>
+        <option value=<?php echo htmlspecialchars($fields_list[$j]);?> selected="selected">  <?php echo htmlspecialchars($fields_list[$j]);?></option>
+<?php
+    } else {
+?>
+        <option value=<?php echo htmlspecialchars($fields_list[$j]);?> >  <?php echo htmlspecialchars($fields_list[$j]);?></option>
+<?php
+    }
+} 
+?>
     </select>
     </td></tr>
     <tr><td><label for="label"><?php echo __("Maximum rows to plot"); ?></label></td>
     <td>
-    <?php if(isset($maxPlotLimit)) { ?>
-        <input type="text" name="maxPlotLimit" value="<?php echo $maxPlotLimit; ?>" /></td></tr>
-    <?php
-      }
-      else { ?>
-<input type="text" name="maxPlotLimit" value="<?php echo $GLOBALS['cfg']['maxRowPlotLimit']; ?>" /></td></tr>
-    <?php
-} ?>
+<?php 
+if (isset($maxPlotLimit)) { 
+?>
+    <input type="text" name="maxPlotLimit" value="<?php echo $maxPlotLimit; ?>" /></td></tr>
+<?php
+} else { 
+?>
+    <input type="text" name="maxPlotLimit" value="<?php echo $GLOBALS['cfg']['maxRowPlotLimit']; ?>" /></td></tr>
+<?php
+}
+?>
     </table>
 
 </fieldset>
@@ -293,10 +299,10 @@ for ($i = 0; $i < 4; $i++) {
 <?php
 
 /*
- * Handle the input criteria and gerate the query result
+ * Handle the input criteria and generate the query result
  * Form for displaying query results
  */
-if(isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null' && $inputs[0] != $inputs[1]) {
+if (isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null' && $inputs[0] != $inputs[1]) {
 
     /*
      * Query generation part
@@ -305,11 +311,11 @@ if(isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null' &
     $sql_query = 'SELECT *';
 
     //Add the table
-
     $sql_query .= ' FROM ' . PMA_backquote($table);
-    for($i = 0 ; $i < 4 ; $i++){
-        if($inputs[$i] == 'pma_null')
-    continue;
+    for ($i = 0; $i < 4; $i++) {
+        if ($inputs[$i] == 'pma_null') {
+            continue;
+        }
         $tmp = array();
         // The where clause
         $charsets = array();
@@ -318,41 +324,39 @@ if(isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null' &
         list($charsets[$i]) = explode('_', $collations[$i]);
         $unaryFlag =  (isset($GLOBALS['cfg']['UnaryOperators'][$func_type]) && $GLOBALS['cfg']['UnaryOperators'][$func_type] == 1) ? true : false;
         $whereClause = PMA_tbl_search_getWhereClause($fields[$i],$inputs[$i], $types[$i], $collations[$i], $func_type, $unaryFlag);
-        if($whereClause)
-                $w[] = $whereClause;
-
-        } // end for
-        if ($w) {
-            $sql_query .= ' WHERE ' . implode(' AND ', $w);
+        if ($whereClause) {
+            $w[] = $whereClause;
         }
-$sql_query .= ' LIMIT ' . $maxPlotLimit;
+    } // end for
+    if ($w) {
+        $sql_query .= ' WHERE ' . implode(' AND ', $w);
+    }
+    $sql_query .= ' LIMIT ' . $maxPlotLimit;
 
     /*
      * Query execution part
      */
-    $result     = PMA_DBI_query( $sql_query . ";" , null, PMA_DBI_QUERY_STORE);
+    $result = PMA_DBI_query($sql_query . ";" , null, PMA_DBI_QUERY_STORE);
     $fields_meta = PMA_DBI_get_fields_meta($result);
     while ($row = PMA_DBI_fetch_assoc($result)) {
         //Need a row with indexes as 0,1,2 for the PMA_getUniqueCondition hence using a temporary array
-$tmpRow = array();
-foreach($row as $val)
-    $tmpRow[] = $val;
+        $tmpRow = array();
+        foreach ($row as $val) {
+            $tmpRow[] = $val;
+        }
         //Get unique conditon on each row (will be needed for row update)
-$uniqueCondition = PMA_getUniqueCondition($result, $fields_cnt, $fields_meta, $tmpRow, true);
+        $uniqueCondition = PMA_getUniqueCondition($result, $fields_cnt, $fields_meta, $tmpRow, true);
 
-//Append it to row array as where_clause
-$row['where_clause'] = $uniqueCondition[0];
-if($dataLabel == $inputs[0] || $dataLabel == $inputs[1])
+        //Append it to row array as where_clause
+        $row['where_clause'] = $uniqueCondition[0];
+        if ($dataLabel == $inputs[0] || $dataLabel == $inputs[1]) {
             $data[] = array($inputs[0] => $row[$inputs[0]], $inputs[1] => $row[$inputs[1]], 'where_clause' => $uniqueCondition[0]);
-else if($dataLabel)
+        } elseif ($dataLabel) {
             $data[] = array($inputs[0] => $row[$inputs[0]], $inputs[1] => $row[$inputs[1]], $dataLabel => $row[$dataLabel], 'where_clause' => $uniqueCondition[0]);
-else
+        } else {
             $data[] = array($inputs[0] => $row[$inputs[0]], $inputs[1] => $row[$inputs[1]], $dataLabel => '', 'where_clause' => $uniqueCondition[0]);
+        }
     }
-
-?>
-
-<?php
     /*
      * Form for displaying point data and also the scatter plot
      */
@@ -365,18 +369,22 @@ else
     <fieldset id="displaySection">
         <legend><?php echo __('Browse/Edit the points') ?></legend>
 <center>
-        <?php
-            //JSON encode the data(query result)
-            if(isset($zoom_submit) && !empty($data)){ ?>
+<?php
+    //JSON encode the data(query result)
+    if (isset($zoom_submit) && ! empty($data)) {
+?>
                 <div id='resizer' style="width:600px;height:400px">
-        <?php if (isset($data)) ?><center> <a href="#" onClick="displayHelp();"><?php echo __('How to use'); ?></a> </center>
+<center> <a href="#" onClick="displayHelp();"><?php echo __('How to use'); ?></a> </center>
                 <div id="querydata" style="display:none">
-                    <?php if(isset($data)) echo json_encode($data); ?>
+<?php 
+        echo json_encode($data); 
+?>
                 </div>
         <div id="querychart" style="float:right"></div>
                 </div>
                 <?php
-    } ?>
+    } 
+?>
         </center>
     <fieldset id='dataDisplay' style="display:none">
         <fieldset>
@@ -389,20 +397,21 @@ else
 </tr>
             </thead>
             <tbody>
-            <?php
-                $odd_row = true;
-        for ($i = 4; $i < $fields_cnt + 4 ; $i++) {
-                $tbl_fields_type[$i] = $fields_type[$i - 4];
-                $fieldpopup = $fields_list[$i - 4];
-                $foreignData = PMA_getForeignData($foreigners, $fieldpopup, false, '', '');
-                    ?>
+<?php
+    $odd_row = true;
+    for ($i = 4; $i < $fields_cnt + 4; $i++) {
+        $tbl_fields_type[$i] = $fields_type[$i - 4];
+        $fieldpopup = $fields_list[$i - 4];
+        $foreignData = PMA_getForeignData($foreigners, $fieldpopup, false, '', '');
+?>
                     <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
                         <th><?php echo htmlspecialchars($fields_list[$i - 4]); ?></th>
     <th><?php echo '<input type="checkbox" class="checkbox_null" name="fields_null[ ' . $i . ' ]" id="fields_null_id_' . $i . '" />'; ?></th>
                         <th><?php echo PMA_getForeignFields_Values($foreigners, $foreignData, $fieldpopup, $tbl_fields_type, $i, $db, $table, $titles,$GLOBALS['cfg']['ForeignKeyMaxLimit'], '' ); ?> </th>
                     </tr>
-                    <?php
-} ?>
+<?php
+    } 
+?>
             </tbody>
         </table>
         </fieldset>
@@ -415,10 +424,7 @@ else
     <input type="hidden" id="queryID" name="sql_query" />
     </form>
     </fieldset>
-    <?php
+<?php
 }
-?>
-
-    <?php
-    require './libraries/footer.inc.php';
+require './libraries/footer.inc.php';
 ?>
