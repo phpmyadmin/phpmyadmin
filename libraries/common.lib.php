@@ -1583,9 +1583,7 @@ function PMA_localisedDate($timestamp = -1, $format = '')
         __('Sat'));
 
     if ($format == '') {
-        /* l10n: See http://www.php.net/manual/en/function.strftime.php
-         * to define the format string
-         */
+        /* l10n: See http://www.php.net/manual/en/function.strftime.php */
         $format = __('%B %d, %Y at %I:%M %p');
     }
 
