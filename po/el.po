@@ -1275,10 +1275,9 @@ msgid "Average load"
 msgstr "Μέσο φορτίο"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "System memory"
 msgid "Total memory"
-msgstr "Μνήμη συστήματος"
+msgstr "Συνολική μνήμη"
 
 #: js/messages.php:108
 #, fuzzy
