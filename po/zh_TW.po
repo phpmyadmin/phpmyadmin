@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-23 11:03+0200\n"
+"POT-Creation-Date: 2011-08-23 12:37+0200\n"
 "PO-Revision-Date: 2011-06-19 09:59+0200\n"
 "Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
@@ -20,7 +20,7 @@ msgid "Show all"
 msgstr "全部顯示"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:42
-#: libraries/common.lib.php:2352
+#: libraries/common.lib.php:2350
 #: libraries/schema/Pdf_Relation_Schema.class.php:1149
 #: libraries/schema/Pdf_Relation_Schema.class.php:1174
 #: libraries/schema/User_Schema.class.php:376
@@ -37,9 +37,9 @@ msgstr ""
 "無法更新目標瀏覽視窗。可能您已經關閉了父視窗或您瀏覽器的安全設定阻止了跨視窗"
 "更新"
 
-#: browse_foreigners.php:151 libraries/common.lib.php:3031
-#: libraries/common.lib.php:3038 libraries/common.lib.php:3242
-#: libraries/common.lib.php:3243 libraries/db_links.inc.php:60
+#: browse_foreigners.php:151 libraries/common.lib.php:3029
+#: libraries/common.lib.php:3036 libraries/common.lib.php:3240
+#: libraries/common.lib.php:3241 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "搜尋"
@@ -50,7 +50,7 @@ msgstr "搜尋"
 #: gis_data_editor.php:166 gis_data_editor.php:309 js/messages.php:207
 #: libraries/Config.class.php:1306 libraries/Theme_Manager.class.php:309
 #: libraries/auth/cookie.auth.lib.php:247 libraries/common.lib.php:1315
-#: libraries/common.lib.php:2325 libraries/core.lib.php:508
+#: libraries/common.lib.php:2323 libraries/core.lib.php:508
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:349 libraries/display_import.lib.php:267
@@ -65,7 +65,7 @@ msgstr "搜尋"
 #: libraries/schema/User_Schema.class.php:466
 #: libraries/select_server.lib.php:93 libraries/sql_query_form.lib.php:348
 #: libraries/sql_query_form.lib.php:411 libraries/sql_query_form.lib.php:464
-#: libraries/tbl_properties.inc.php:592 libraries/tbl_properties.inc.php:763
+#: libraries/tbl_properties.inc.php:581 libraries/tbl_properties.inc.php:752
 #: main.php:109 navigation.php:169 navigation.php:207 pmd_pdf.php:120
 #: prefs_manage.php:263 prefs_manage.php:314 server_binlog.php:109
 #: server_privileges.php:733 server_privileges.php:1779
@@ -127,7 +127,7 @@ msgid "Database comment: "
 msgstr "資料庫註釋："
 
 #: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1290
-#: libraries/tbl_properties.inc.php:700 tbl_operations.php:366
+#: libraries/tbl_properties.inc.php:689 tbl_operations.php:366
 #: tbl_printview.php:124
 msgid "Table comments"
 msgstr "表註釋"
@@ -333,7 +333,7 @@ msgstr "切換到複製的資料庫"
 #: db_operations.php:537 libraries/Index.class.php:438
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:110 libraries/tbl_properties.inc.php:110
-#: libraries/tbl_properties.inc.php:706 libraries/tbl_select.lib.php:113
+#: libraries/tbl_properties.inc.php:695 libraries/tbl_select.lib.php:113
 #: server_collations.php:53 server_collations.php:65 tbl_operations.php:382
 #: tbl_structure.php:204 tbl_structure.php:866 tbl_tracking.php:259
 #: tbl_tracking.php:310
@@ -524,8 +524,8 @@ msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s 筆資料符合 - 於資料表 <i>%s</i>"
 
-#: db_search.php:224 libraries/common.lib.php:3033
-#: libraries/common.lib.php:3240 libraries/common.lib.php:3241
+#: db_search.php:224 libraries/common.lib.php:3031
+#: libraries/common.lib.php:3238 libraries/common.lib.php:3239
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:566
 msgid "Browse"
 msgstr "瀏覽"
@@ -659,8 +659,8 @@ msgstr "全不選"
 msgid "Check tables having overhead"
 msgstr "僅選擇多餘"
 
-#: db_structure.php:498 libraries/common.lib.php:3253
-#: libraries/common.lib.php:3254 libraries/config/messages.inc.php:164
+#: db_structure.php:498 libraries/common.lib.php:3251
+#: libraries/common.lib.php:3252 libraries/config/messages.inc.php:164
 #: libraries/db_links.inc.php:56 libraries/display_tbl.lib.php:2392
 #: libraries/display_tbl.lib.php:2530 libraries/server_links.inc.php:65
 #: libraries/tbl_links.inc.php:80 prefs_manage.php:286
@@ -674,13 +674,13 @@ msgstr "匯出"
 msgid "Print view"
 msgstr "列印預覽"
 
-#: db_structure.php:504 libraries/common.lib.php:3249
-#: libraries/common.lib.php:3250
+#: db_structure.php:504 libraries/common.lib.php:3247
+#: libraries/common.lib.php:3248
 msgid "Empty"
 msgstr "清空"
 
 #: db_structure.php:506 db_tracking.php:104 libraries/Index.class.php:482
-#: libraries/common.lib.php:3247 libraries/common.lib.php:3248
+#: libraries/common.lib.php:3245 libraries/common.lib.php:3246
 #: server_databases.php:265 tbl_structure.php:151 tbl_structure.php:152
 #: tbl_structure.php:570
 msgid "Drop"
@@ -797,12 +797,12 @@ msgstr "追蹤資料表"
 msgid "Database Log"
 msgstr "資料庫日誌"
 
-#: enum_editor.php:21 libraries/tbl_properties.inc.php:759
+#: enum_editor.php:21 libraries/tbl_properties.inc.php:748
 #, php-format
 msgid "Values for the column \"%s\""
 msgstr "%s 欄位的值"
 
-#: enum_editor.php:22 libraries/tbl_properties.inc.php:760
+#: enum_editor.php:22 libraries/tbl_properties.inc.php:749
 msgid "Enter each value in a separate field."
 msgstr "請將資料填入以下欄位"
 
@@ -1110,14 +1110,14 @@ msgstr "重新載入權限"
 msgid "Removing Selected Users"
 msgstr "正在刪除選中的使用者"
 
-#: js/messages.php:61 js/messages.php:130 libraries/tbl_properties.inc.php:758
+#: js/messages.php:61 js/messages.php:130 libraries/tbl_properties.inc.php:747
 #: tbl_tracking.php:235 tbl_tracking.php:400
 msgid "Close"
 msgstr "關閉"
 
 #: js/messages.php:64 js/messages.php:249 libraries/Index.class.php:460
 #: libraries/common.lib.php:590 libraries/common.lib.php:1139
-#: libraries/common.lib.php:3251 libraries/common.lib.php:3252
+#: libraries/common.lib.php:3249 libraries/common.lib.php:3250
 #: libraries/config/messages.inc.php:478 libraries/display_tbl.lib.php:1328
 #: libraries/schema/User_Schema.class.php:185 setup/frames/index.inc.php:138
 msgid "Edit"
@@ -1356,7 +1356,7 @@ msgstr ""
 
 #: js/messages.php:132 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:554 libraries/export/sql.php:1052
-#: libraries/tbl_properties.inc.php:544 pmd_general.php:504
+#: libraries/tbl_properties.inc.php:533 pmd_general.php:504
 #: server_privileges.php:2040 server_status.php:1215 server_status.php:1642
 #: tbl_zoom_select.php:159 tbl_zoom_select.php:284
 msgid "None"
@@ -1636,7 +1636,7 @@ msgstr ""
 msgid "Test"
 msgstr ""
 
-#: js/messages.php:208 libraries/tbl_properties.inc.php:763
+#: js/messages.php:208 libraries/tbl_properties.inc.php:752
 #: pmd_general.php:382 pmd_general.php:419 pmd_general.php:539
 #: pmd_general.php:587 pmd_general.php:663 pmd_general.php:717
 #: pmd_general.php:780
@@ -1751,7 +1751,7 @@ msgstr "顯示查詢框"
 msgid "No rows selected"
 msgstr "沒有選中任何行"
 
-#: js/messages.php:251 libraries/common.lib.php:2650
+#: js/messages.php:251 libraries/common.lib.php:2648
 #: libraries/display_tbl.lib.php:2387 querywindow.php:90 querywindow.php:94
 #: querywindow.php:97 tbl_structure.php:150 tbl_structure.php:569
 msgid "Change"
@@ -1765,7 +1765,7 @@ msgstr "最長執行時間"
 
 #: js/messages.php:255 libraries/config/FormDisplay.tpl.php:323
 #: libraries/schema/User_Schema.class.php:334
-#: libraries/tbl_properties.inc.php:752 setup/frames/config.inc.php:39
+#: libraries/tbl_properties.inc.php:741 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:228 tbl_change.php:1018
 #: tbl_gis_visualization.php:193 tbl_indexes.php:261 tbl_relation.php:563
 msgid "Save"
@@ -2277,7 +2277,7 @@ msgstr "沒有已定義的索引！"
 msgid "Indexes"
 msgstr "索引"
 
-#: libraries/Index.class.php:434 libraries/tbl_properties.inc.php:488
+#: libraries/Index.class.php:434 libraries/tbl_properties.inc.php:477
 #: tbl_structure.php:155 tbl_structure.php:160 tbl_structure.php:573
 #: tbl_tracking.php:306
 msgid "Unique"
@@ -2823,25 +2823,23 @@ msgid "Sun"
 msgstr "週日"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
-#. * to define the format string
-#.
-#: libraries/common.lib.php:1589
+#: libraries/common.lib.php:1587
 #: libraries/transformations/text_plain__dateformat.inc.php:35
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%Y 年 %m 月 %d 日 %H:%M"
 
-#: libraries/common.lib.php:1922
+#: libraries/common.lib.php:1920
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s 天 %s 小時，%s 分 %s 秒"
 
-#: libraries/common.lib.php:2013
+#: libraries/common.lib.php:2011
 #, fuzzy
 #| msgid "Routines"
 msgid "Missing parameter:"
 msgstr "一般"
 
-#: libraries/common.lib.php:2361 libraries/common.lib.php:2364
+#: libraries/common.lib.php:2359 libraries/common.lib.php:2362
 #: libraries/display_tbl.lib.php:306
 #, fuzzy
 #| msgid "Begin"
@@ -2849,7 +2847,7 @@ msgctxt "First page"
 msgid "Begin"
 msgstr "開始"
 
-#: libraries/common.lib.php:2362 libraries/common.lib.php:2365
+#: libraries/common.lib.php:2360 libraries/common.lib.php:2363
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
 #, fuzzy
@@ -2859,7 +2857,7 @@ msgid "Previous"
 msgstr "上一個"
 
 # 這應該使用於選擇日期的小月曆
-#: libraries/common.lib.php:2392 libraries/common.lib.php:2395
+#: libraries/common.lib.php:2390 libraries/common.lib.php:2393
 #: libraries/display_tbl.lib.php:370 server_binlog.php:170
 #: server_binlog.php:172
 #, fuzzy
@@ -2868,7 +2866,7 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "下個月"
 
-#: libraries/common.lib.php:2393 libraries/common.lib.php:2396
+#: libraries/common.lib.php:2391 libraries/common.lib.php:2394
 #: libraries/display_tbl.lib.php:385
 #, fuzzy
 #| msgid "End"
@@ -2876,36 +2874,36 @@ msgctxt "Last page"
 msgid "End"
 msgstr "結束"
 
-#: libraries/common.lib.php:2463
+#: libraries/common.lib.php:2461
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "跳轉到資料庫“%s”"
 
-#: libraries/common.lib.php:2483
+#: libraries/common.lib.php:2481
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s 功能受到一個已知的缺陷 (bug) 影響，參見 %s"
 
-#: libraries/common.lib.php:2657
+#: libraries/common.lib.php:2655
 #, fuzzy
 #| msgid "Click to select"
 msgid "Click to toggle"
 msgstr "點擊選取"
 
-#: libraries/common.lib.php:3029 libraries/common.lib.php:3036
-#: libraries/common.lib.php:3246 libraries/config/setup.forms.php:293
+#: libraries/common.lib.php:3027 libraries/common.lib.php:3034
+#: libraries/common.lib.php:3244 libraries/config/setup.forms.php:293
 #: libraries/config/setup.forms.php:330 libraries/config/setup.forms.php:356
 #: libraries/config/user_preferences.forms.php:192
 #: libraries/config/user_preferences.forms.php:229
 #: libraries/config/user_preferences.forms.php:255
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:338
 #: libraries/import.lib.php:1119 libraries/tbl_links.inc.php:61
-#: libraries/tbl_properties.inc.php:608 pmd_general.php:140
+#: libraries/tbl_properties.inc.php:597 pmd_general.php:140
 #: server_privileges.php:601 server_replication.php:313 tbl_tracking.php:253
 msgid "Structure"
 msgstr "結構"
 
-#: libraries/common.lib.php:3030 libraries/common.lib.php:3037
+#: libraries/common.lib.php:3028 libraries/common.lib.php:3035
 #: libraries/config/messages.inc.php:214 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
@@ -2913,37 +2911,37 @@ msgstr "結構"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:3032 libraries/common.lib.php:3244
-#: libraries/common.lib.php:3245 libraries/sql_query_form.lib.php:282
+#: libraries/common.lib.php:3030 libraries/common.lib.php:3242
+#: libraries/common.lib.php:3243 libraries/sql_query_form.lib.php:282
 #: libraries/sql_query_form.lib.php:285 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "插入"
 
-#: libraries/common.lib.php:3039 libraries/db_links.inc.php:86
+#: libraries/common.lib.php:3037 libraries/db_links.inc.php:86
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:114
 #: view_operations.php:87
 msgid "Operations"
 msgstr "操作"
 
-#: libraries/common.lib.php:3178
+#: libraries/common.lib.php:3176
 msgid "Browse your computer:"
 msgstr "從計算機中上傳："
 
-#: libraries/common.lib.php:3197
+#: libraries/common.lib.php:3195
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "選擇 Web 伺服器上傳目錄 <b>%s</b>："
 
-#: libraries/common.lib.php:3218 libraries/sql_query_form.lib.php:445
+#: libraries/common.lib.php:3216 libraries/sql_query_form.lib.php:445
 #: tbl_change.php:905
 msgid "The directory you set for upload work cannot be reached"
 msgstr "設定之上傳目錄錯誤，無法使用"
 
-#: libraries/common.lib.php:3227
+#: libraries/common.lib.php:3225
 msgid "There are no files to upload"
 msgstr "沒有可上傳的檔案"
 
-#: libraries/common.lib.php:3255 libraries/common.lib.php:3256
+#: libraries/common.lib.php:3253 libraries/common.lib.php:3254
 msgid "Execute"
 msgstr ""
 
@@ -6564,7 +6562,7 @@ msgstr "CSV 輸入的第 %d 行欄位數有錯"
 msgid "DocSQL"
 msgstr "DocSQL"
 
-#: libraries/import/docsql.php:32 libraries/tbl_properties.inc.php:583
+#: libraries/import/docsql.php:32 libraries/tbl_properties.inc.php:572
 #: server_synchronize.php:439 server_synchronize.php:911
 msgid "Table name"
 msgstr "資料資料表名稱"
@@ -7878,7 +7876,7 @@ msgid ""
 "escaping or quotes, using this format: a"
 msgstr "對於預設值，請只輸入單個值，不要加反斜槓或引號，請用此格式：a"
 
-#: libraries/tbl_properties.inc.php:119 libraries/tbl_properties.inc.php:494
+#: libraries/tbl_properties.inc.php:119 libraries/tbl_properties.inc.php:483
 #: tbl_printview.php:290 tbl_structure.php:154 tbl_structure.php:159
 #: tbl_structure.php:574 tbl_structure.php:775
 msgid "Index"
@@ -7905,59 +7903,59 @@ msgstr ""
 "請使用此格式輸入轉換選項的值：'a',100,b,'c'...<br />如果您需要在值中輸入反斜"
 "槓 (“\\”)或單引號(“'”)，請在前面加上反斜槓 (如 '\\\\xyz' 或 'a\\'b')"
 
-#: libraries/tbl_properties.inc.php:342
+#: libraries/tbl_properties.inc.php:331
 msgid "ENUM or SET data too long?"
 msgstr "ENUM 或 SET 資料過長？"
 
-#: libraries/tbl_properties.inc.php:344
+#: libraries/tbl_properties.inc.php:333
 msgid "Get more editing space"
 msgstr "取得更多編輯空間"
 
-#: libraries/tbl_properties.inc.php:367
+#: libraries/tbl_properties.inc.php:356
 msgctxt "for default"
 msgid "None"
 msgstr "無"
 
-#: libraries/tbl_properties.inc.php:368
+#: libraries/tbl_properties.inc.php:357
 msgid "As defined:"
 msgstr "定義："
 
-#: libraries/tbl_properties.inc.php:482 tbl_structure.php:153
+#: libraries/tbl_properties.inc.php:471 tbl_structure.php:153
 #: tbl_structure.php:158 tbl_structure.php:572
 msgid "Primary"
 msgstr "主鍵"
 
-#: libraries/tbl_properties.inc.php:500 tbl_structure.php:157
+#: libraries/tbl_properties.inc.php:489 tbl_structure.php:157
 #: tbl_structure.php:162 tbl_structure.php:581
 msgid "Fulltext"
 msgstr "全文搜尋"
 
-#: libraries/tbl_properties.inc.php:549 transformation_overview.php:57
+#: libraries/tbl_properties.inc.php:538 transformation_overview.php:57
 #, php-format
 msgid ""
 "No description is available for this transformation.<br />Please ask the "
 "author what %s does."
 msgstr "此轉換沒有說明。<br />詳細功能請詢問 %s 的作者"
 
-#: libraries/tbl_properties.inc.php:591 tbl_structure.php:647
+#: libraries/tbl_properties.inc.php:580 tbl_structure.php:647
 #, php-format
 msgid "Add %s column(s)"
 msgstr "增加 %s 個字段"
 
-#: libraries/tbl_properties.inc.php:593 tbl_structure.php:641
+#: libraries/tbl_properties.inc.php:582 tbl_structure.php:641
 msgid "You have to add at least one column."
 msgstr "至少要增加一個字段。"
 
-#: libraries/tbl_properties.inc.php:702 server_engines.php:55
+#: libraries/tbl_properties.inc.php:691 server_engines.php:55
 #: tbl_operations.php:374
 msgid "Storage Engine"
 msgstr "儲存引擎"
 
-#: libraries/tbl_properties.inc.php:731
+#: libraries/tbl_properties.inc.php:720
 msgid "PARTITION definition"
 msgstr "分區定義"
 
-#: libraries/tbl_properties.inc.php:762
+#: libraries/tbl_properties.inc.php:751
 #, fuzzy
 #| msgid "+ Add a new value"
 msgid "+ Add a value"
