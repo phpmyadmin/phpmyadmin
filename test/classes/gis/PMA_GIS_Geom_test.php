@@ -10,7 +10,7 @@ require_once 'libraries/gis/pma_gis_geometry.php';
 /**
  * Abstract parent class for all PMA_GIS_<Geom_type> test classes
  */
-abstract class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
+abstract class PMA_GIS_GeomTest extends PHPUnit_Framework_TestCase
 {
     /**
      * test generateWkt method

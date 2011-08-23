@@ -5,14 +5,14 @@
  * @package phpMyAdmin-test
  */
 
-require_once 'PMA_GIS_Geometry_test.php';
+require_once 'PMA_GIS_Geom_test.php';
 require_once 'libraries/gis/pma_gis_geometry.php';
 require_once 'libraries/gis/pma_gis_multilinestring.php';
 
 /**
  * Tests for PMA_GIS_Multilinestring class
  */
-class PMA_GIS_MultilinestringTest extends PMA_GIS_GeometryTest
+class PMA_GIS_MultilinestringTest extends PMA_GIS_GeomTest
 {
     /**
      * @var    PMA_GIS_Multilinestring
