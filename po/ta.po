@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-22 14:48+0200\n"
-"PO-Revision-Date: 2011-08-23 10:47+0200\n"
+"PO-Revision-Date: 2011-08-23 10:48+0200\n"
 "Last-Translator: Sajeepan Yogenthiran <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -1712,10 +1712,9 @@ msgid "Show search criteria"
 msgstr "தேடுதல் கட்டளை விதியை காண்பி"
 
 #: js/messages.php:262 libraries/tbl_select.lib.php:138
-#, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
-msgstr "தேடு"
+msgstr "பொரித்தாக்கி தேடு"
 
 #: js/messages.php:264
 msgid "Each point represents a data row."
