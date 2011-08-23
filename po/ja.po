@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-23 11:03+0200\n"
-"PO-Revision-Date: 2011-08-23 11:31+0200\n"
+"PO-Revision-Date: 2011-08-23 11:32+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -11275,7 +11275,7 @@ msgstr "行のサイズ "
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"
-msgstr ""
+msgstr "次の自動付番"
 
 #: tbl_relation.php:276
 #, php-format
