@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-23 10:38+0200\n"
-"PO-Revision-Date: 2011-08-23 10:49+0200\n"
+"PO-Revision-Date: 2011-08-23 10:50+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1799,7 +1799,7 @@ msgstr "Kopírovat"
 
 #: js/messages.php:293
 msgid "Outer Ring"
-msgstr ""
+msgstr "Vnější obrys"
 
 #: js/messages.php:299
 msgid "Add columns"
