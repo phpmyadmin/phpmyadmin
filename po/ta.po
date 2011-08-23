@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-22 14:48+0200\n"
-"PO-Revision-Date: 2011-08-23 10:37+0200\n"
+"PO-Revision-Date: 2011-08-23 10:51+0200\n"
 "Last-Translator: Sajeepan Yogenthiran <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -1616,11 +1616,11 @@ msgstr "தரவுத்தளத்தை மீள்ஏற்று"
 
 #: js/messages.php:221
 msgid "Copying Database"
-msgstr ""
+msgstr "தரவுத்தளம் நகல் எடுக்கபடுகின்றது"
 
 #: js/messages.php:222
 msgid "Changing Charset"
-msgstr ""
+msgstr "எழுத்துத்தொகுதி மாற்றப்படுகின்றது"
 
 #: js/messages.php:223
 #, fuzzy
@@ -1675,15 +1675,15 @@ msgstr ""
 
 #: js/messages.php:247
 msgid "Hide query box"
-msgstr ""
+msgstr "வினவல் பெட்டியை மறை"
 
 #: js/messages.php:248
 msgid "Show query box"
-msgstr ""
+msgstr "வினவல் பெட்டியை காண்பி"
 
 #: js/messages.php:250 tbl_row_action.php:28
 msgid "No rows selected"
-msgstr ""
+msgstr "தெரிவுசெய்யப்பட வரிசைகள் இல்லை"
 
 #: js/messages.php:251 libraries/common.lib.php:2650
 #: libraries/display_tbl.lib.php:2387 querywindow.php:90 querywindow.php:94
@@ -1693,7 +1693,7 @@ msgstr "மாற்று"
 
 #: js/messages.php:252
 msgid "Query execution time"
-msgstr ""
+msgstr "வினவல் நிறைவேற்றுகை நேரம்"
 
 #: js/messages.php:255 libraries/config/FormDisplay.tpl.php:323
 #: libraries/schema/User_Schema.class.php:334
@@ -1705,17 +1705,16 @@ msgstr "சேமி"
 
 #: js/messages.php:258
 msgid "Hide search criteria"
-msgstr ""
+msgstr "தேடுதல் கட்டளை விதியை மறை"
 
 #: js/messages.php:259
 msgid "Show search criteria"
-msgstr ""
+msgstr "தேடுதல் கட்டளை விதியை காண்பி"
 
 #: js/messages.php:262 libraries/tbl_select.lib.php:138
-#, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
-msgstr "தேடு"
+msgstr "பொரித்தாக்கி தேடு"
 
 #: js/messages.php:264
 msgid "Each point represents a data row."
@@ -1774,7 +1773,7 @@ msgstr ""
 
 #: js/messages.php:299
 msgid "Add columns"
-msgstr "வரிசைகளை சேர்"
+msgstr "நெடுக்கைகளை சேர்"
 
 #: js/messages.php:302
 msgid "Select referenced key"

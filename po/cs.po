@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-23 10:38+0200\n"
-"PO-Revision-Date: 2011-08-11 11:38+0200\n"
+"PO-Revision-Date: 2011-08-23 11:01+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -855,10 +855,10 @@ msgid "Dump has been saved to file %s."
 msgstr "Výpis byl uložen do souboru %s."
 
 #: gis_data_editor.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
-msgstr "Hodnoty pro pole „%s“"
+msgstr "Hodnota pro sloupec „%s“"
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
@@ -866,7 +866,7 @@ msgstr "Použít OpenStreetMap jako základní vrstvu"
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:291
 #: libraries/display_tbl.lib.php:665
@@ -876,24 +876,23 @@ msgstr "Geometrie"
 #: gis_data_editor.php:172 gis_data_editor.php:194 gis_data_editor.php:240
 #: gis_data_editor.php:290 js/messages.php:288
 msgid "Point"
-msgstr ""
+msgstr "Bod"
 
 #: gis_data_editor.php:173 gis_data_editor.php:195 gis_data_editor.php:241
 #: gis_data_editor.php:291 js/messages.php:286
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:197 gis_data_editor.php:243
 #: gis_data_editor.php:293 js/messages.php:287
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:202 gis_data_editor.php:246 gis_data_editor.php:296
 #: js/messages.php:294
-#, fuzzy
 #| msgid "Add routine"
 msgid "Add a point"
-msgstr "Přidat rutinu"
+msgstr "Přidat bod"
 
 #: gis_data_editor.php:218 js/messages.php:289
 #, fuzzy
@@ -903,11 +902,11 @@ msgstr "Řádky ukončené"
 
 #: gis_data_editor.php:221 gis_data_editor.php:275
 msgid "Outer Ring:"
-msgstr ""
+msgstr "Vnější obrys:"
 
 #: gis_data_editor.php:223 gis_data_editor.php:277 js/messages.php:292
 msgid "Inner Ring"
-msgstr ""
+msgstr "Vnitřní obrys:"
 
 #: gis_data_editor.php:248
 #, fuzzy
@@ -923,19 +922,17 @@ msgstr "Přidat nového uživatele"
 
 #: gis_data_editor.php:262 js/messages.php:290
 msgid "Polygon"
-msgstr ""
+msgstr "Polygon"
 
 #: gis_data_editor.php:300 js/messages.php:296
-#, fuzzy
 #| msgid "Add column"
 msgid "Add a polygon"
-msgstr "Přidat sloupec"
+msgstr "Přidat polygon"
 
 #: gis_data_editor.php:304
-#, fuzzy
 #| msgid "Geometry"
 msgid "Add geometry"
-msgstr "Geometrie"
+msgstr "Přidat geometrii"
 
 #: gis_data_editor.php:312
 msgid ""
@@ -1217,10 +1214,9 @@ msgid "Query statistics"
 msgstr "Statistika dotazů"
 
 #: js/messages.php:93
-#, fuzzy
 #| msgid "Local monitor configuration icompatible"
 msgid "Local monitor configuration incompatible"
-msgstr "Lokální nastavení monitoru není kompatibilní"
+msgstr "Vaše nastavení monitoru není kompatibilní"
 
 #: js/messages.php:94
 msgid ""
@@ -1504,10 +1500,9 @@ msgstr ""
 
 #. l10n: A collection of available filters
 #: js/messages.php:173
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
-msgstr "Nastavení zobrazení tabulek"
+msgstr "Nastavení filtrování logovacích tabulek"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:175
@@ -1754,7 +1749,7 @@ msgstr "Vyhledávání"
 
 #: js/messages.php:264
 msgid "Each point represents a data row."
-msgstr ""
+msgstr "Každý bod reprezentuje řádek dat"
 
 #: js/messages.php:266
 msgid "Hovering over a point will show its label."
@@ -1785,14 +1780,13 @@ msgid "Strings are converted into integer for plotting"
 msgstr ""
 
 #: js/messages.php:280
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
-msgstr "Přidat nebo odebrat pole"
+msgstr "Zvolte dva sloupce"
 
 #: js/messages.php:281
 msgid "Select two different columns"
-msgstr ""
+msgstr "Zvolte dva odlišné sloupce"
 
 #: js/messages.php:284 tbl_change.php:316 tbl_indexes.php:211
 #: tbl_indexes.php:238
@@ -1805,7 +1799,7 @@ msgstr "Kopírovat"
 
 #: js/messages.php:293
 msgid "Outer Ring"
-msgstr ""
+msgstr "Vnější obrys"
 
 #: js/messages.php:299
 msgid "Add columns"
@@ -1875,12 +1869,12 @@ msgstr ""
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
+"Většinu sloupců můžete také přímo upravit<br />kliknutím na jejich obsah."
 
 #: js/messages.php:321
-#, fuzzy
 #| msgid "Go to view"
 msgid "Go to link"
-msgstr "Přejít na podhled"
+msgstr "Přejít na odkaz"
 
 #: js/messages.php:324
 msgid "Generate password"
@@ -2169,6 +2163,8 @@ msgstr "Sekundy"
 #, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr ""
+"Selhalo formátování textu pro pravidlo '%s'. PHP selhalo s následující "
+"chybou: %s"
 
 #: libraries/Config.class.php:1277
 msgid "Font size"
@@ -2383,6 +2379,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
+"Selhalo vyčištění tabulky s nastavením procházení (viz "
+"$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Theme.class.php:145
 #, php-format
@@ -4559,10 +4557,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:399
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of records saved in \"table_uiprefs\" table"
-msgstr "Nejvyšší počet tabulek zobrazených v seznamu tabulek"
+msgstr "Nejvyšší počet záznamů uložený v tabulkce „table_uiprefs“"
 
 #: libraries/config/messages.inc.php:400
 msgid "Try to connect without password"
@@ -6670,12 +6667,12 @@ msgstr "Importovat měny <i>(např. 5.00 místo $5.00)</i>"
 
 #: libraries/import/shp.php:14
 msgid "ESRI Shape File"
-msgstr ""
+msgstr "Soubor ESRI"
 
 #: libraries/import/shp.php:275
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr ""
+msgstr "Při nahrávání souboru ESRI došlo k chybě: \"%s\"."
 
 #: libraries/import/shp.php:331
 msgid ""
@@ -6689,10 +6686,9 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
 #: libraries/import/shp.php:371
-#, fuzzy
 #| msgid "This page does not contain any tables!"
 msgid "The imported file does not contain any data"
-msgstr "Tato stránka neobsahuje žádné tabulky!"
+msgstr "Nahraný soubor neobsahuje žádná data!"
 
 #: libraries/import/sql.php:33
 msgid "SQL compatibility mode:"
@@ -8008,16 +8004,14 @@ msgid "Operator"
 msgstr "Operátor"
 
 #: libraries/tbl_select.lib.php:131
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "Vyhledávání"
+msgstr "Vyhledávání v tabulce"
 
 #: libraries/tbl_select.lib.php:208 tbl_change.php:993
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "Vložit"
+msgstr "Upravit/Vložit"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 msgid ""
@@ -9425,6 +9419,8 @@ msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
 msgstr ""
+"Poradce vám může doporučit změny v nastavení serveru analýzou stavových "
+"proměnných."
 
 #: server_status.php:867
 msgid ""
@@ -9556,6 +9552,8 @@ msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr ""
+"Počet spojení, která byla ukončena bez korektního ukončení ze strany "
+"klienta."
 
 #: server_status.php:1250
 msgid "The number of failed attempts to connect to the MySQL server."
@@ -10262,10 +10260,9 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1568
-#, fuzzy
 #| msgid "Pause monitor"
 msgid "Using the monitor:"
-msgstr "Přerušit monitor"
+msgstr "Používání monitoru:"
 
 #: server_status.php:1570
 msgid ""
@@ -10285,7 +10282,7 @@ msgstr ""
 
 #: server_status.php:1579
 msgid "Please note:"
-msgstr ""
+msgstr "Poznámka:"
 
 #: server_status.php:1581
 msgid ""
@@ -10296,10 +10293,9 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1593
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Preset chart"
-msgstr "Odstranit graf"
+msgstr "Předdefinované grafy"
 
 #: server_status.php:1597
 msgid "Status variable(s)"
@@ -11514,16 +11510,15 @@ msgid "Create version"
 msgstr "Vytvořit verzi"
 
 #: tbl_zoom_select.php:141
-#, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "Provést „dotaz podle příkladu“ (zástupný znak: „%“)"
+msgstr ""
+"Provést „dotaz podle příkladu“ (zástupný znak: „%“) pro dva různé sloupce"
 
 #: tbl_zoom_select.php:152
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Additional search criteria"
-msgstr "Skrýt parametry vyhledávání"
+msgstr "Další parametr vyhledávání"
 
 #: tbl_zoom_select.php:282
 #, fuzzy
@@ -11539,13 +11534,12 @@ msgstr "Nejvyšší počet zobrazených řádků"
 
 #: tbl_zoom_select.php:391
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "Projít/Upravit body"
 
 #: tbl_zoom_select.php:397
-#, fuzzy
 #| msgid "Control user"
 msgid "How to use"
-msgstr "Kontrolní uživatel"
+msgstr "Návod k použití"
 
 #: themes.php:28
 msgid "Get more themes!"
@@ -11587,28 +11581,27 @@ msgstr "Přejmenovat pohled na"
 
 #: po/advisory_rules.php:5
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Server běží méně než den"
 
 #: po/advisory_rules.php:6
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr ""
+msgstr "Server běží méně než jeden den, rady nemusí být přesné."
 
 #: po/advisory_rules.php:7
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
-msgstr ""
+msgstr "Pro přesnější analýzu je doporučeno nechat server běžet delší dobu."
 
 #: po/advisory_rules.php:8
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "Server běží jen %s"
 
 #: po/advisory_rules.php:10
-#, fuzzy
 #| msgid "Questions"
 msgid "Questions below 1,000"
-msgstr "Dotazy"
+msgstr "Méně než 1000 dotazů"
 
 #: po/advisory_rules.php:11
 msgid ""
@@ -11623,16 +11616,15 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:13
-#, fuzzy, php-format
+#, php-format
 #| msgid "Current connection"
 msgid "Current amount of Questions: %s"
-msgstr "Současné připojení"
+msgstr "Aktuální počet dotazů: %s"
 
 #: po/advisory_rules.php:15
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
-msgstr "Zobrazit SQL dotazy"
+msgstr "Procento pomalých dotazů"
 
 #: po/advisory_rules.php:16
 msgid ""
@@ -11730,10 +11722,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Current version: %s"
-msgstr "Vytvořit verzi"
+msgstr "Aktuální verze: %s"
 
 #: po/advisory_rules.php:40 po/advisory_rules.php:45
 #, fuzzy
@@ -11762,14 +11754,15 @@ msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgstr "Měli byste aktualizovat %s na verzi %s nebo vyšší."
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55
-#, fuzzy
 #| msgid "Description"
 msgid "Distribution"
-msgstr "Popis"
+msgstr "Distribuce"
 
 #: po/advisory_rules.php:51
 msgid "Version is compiled from source, not a MySQL official binary."
 msgstr ""
+"Verze je zkompilovaná ze zdrojových kódu a nejedná se o oficiální binárku "
+"MySQL."
 
 #: po/advisory_rules.php:52
 msgid ""
@@ -11795,14 +11788,13 @@ msgid "'percona' found in version_comment"
 msgstr ""
 
 #: po/advisory_rules.php:60
-#, fuzzy
 #| msgid "MySQL charset"
 msgid "MySQL Architecture"
-msgstr "Znaková sada v MySQL"
+msgstr "Architektura MySQL"
 
 #: po/advisory_rules.php:61
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "MySQL není kompilováno jako 64-bitový program."
 
 #: po/advisory_rules.php:62
 msgid ""
@@ -11817,10 +11809,9 @@ msgid "Available memory on this host: %s"
 msgstr ""
 
 #: po/advisory_rules.php:65
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache disabled"
-msgstr "Vyrovnávací paměť dotazů"
+msgstr "Vyrovnávací paměť dotazů je vypnutá"
 
 #: po/advisory_rules.php:66
 #, fuzzy
