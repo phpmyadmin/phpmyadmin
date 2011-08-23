@@ -1780,10 +1780,9 @@ msgid "Strings are converted into integer for plotting"
 msgstr ""
 
 #: js/messages.php:280
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
-msgstr "Přidat nebo odebrat pole"
+msgstr "Zvolte dva sloupce"
 
 #: js/messages.php:281
 msgid "Select two different columns"
