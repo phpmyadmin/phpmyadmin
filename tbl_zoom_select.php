@@ -118,7 +118,7 @@ if (isset($inputs) && ($inputs[0] != 'pma_null' || $inputs[1] != 'pma_null')) {
 <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
 <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
 <input type="hidden" name="back" value="tbl_zoom_select.php" />
-<input type="hidden" name="flag" id="id_flag" value=<?php echo $flag; ?> />
+<input type="hidden" name="flag" id="id_flag" value="<?php echo $flag; ?>" />
 
 <fieldset id="inputSection">
 
@@ -137,15 +137,15 @@ for ($i = 0; $i < 4; $i++) {
     }
 ?>
     <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
-        <th><select name="inputs[]" id=<?php echo 'tableid_' . $i?> >
-        <option value= <?php echo 'pma_null'?>><?php echo __('None');  ?> </option>
+        <th><select name="inputs[]" id="<?php echo 'tableid_' . $i; ?>" >
+        <option value="<?php echo 'pma_null'; ?>"><?php echo __('None');  ?> </option>
     <?php
     for ($j = 0 ; $j < $fields_cnt ; $j++) {
         if (isset($inputs[$i]) && $inputs[$i] == htmlspecialchars($fields_list[$j])) {?>
-                <option value=<?php echo htmlspecialchars($fields_list[$j]);?> Selected>  <?php echo htmlspecialchars($fields_list[$j]);?></option>
+                <option value="<?php echo htmlspecialchars($fields_list[$j]);?>" selected="selected">  <?php echo htmlspecialchars($fields_list[$j]);?></option>
         <?php
         } else { ?>
-                <option value=<?php echo htmlspecialchars($fields_list[$j]);?> >  <?php echo htmlspecialchars($fields_list[$j]);?></option>
+                <option value="<?php echo htmlspecialchars($fields_list[$j]);?> ">  <?php echo htmlspecialchars($fields_list[$j]);?></option>
         <?php
         }
     } ?>
@@ -162,7 +162,7 @@ for ($i = 0; $i < 4; $i++) {
             foreach ($GLOBALS['cfg']['EnumOperators'] as $fc) {
                 if (isset($zoomFunc[$i]) && $zoomFunc[$i] == htmlspecialchars($fc)) {
                     echo "\n" . '                        '
-                    . '<option value="' . htmlspecialchars($fc) . '" Selected>'
+                    . '<option value="' . htmlspecialchars($fc) . '" selected="selected">'
                     . htmlspecialchars($fc) . '</option>';
                 } else {
                     echo "\n" . '                        '
@@ -174,7 +174,7 @@ for ($i = 0; $i < 4; $i++) {
             foreach ($GLOBALS['cfg']['TextOperators'] as $fc) {
                 if (isset($zoomFunc[$i]) && $zoomFunc[$i] == $fc) {
                     echo "\n" . '                        '
-                    . '<option value="' . htmlspecialchars($fc) . '" Selected>'
+                    . '<option value="' . htmlspecialchars($fc) . '" selected="selected">'
                     . htmlspecialchars($fc) . '</option>';
                 } else {
                     echo "\n" . '                        '
@@ -186,7 +186,7 @@ for ($i = 0; $i < 4; $i++) {
             foreach ($GLOBALS['cfg']['NumOperators'] as $fc) {
                 if (isset($zoomFunc[$i]) && $zoomFunc[$i] == $fc) {
                     echo "\n" . '                        '
-                    . '<option value="' .  htmlspecialchars($fc) . '" Selected>'
+                    . '<option value="' .  htmlspecialchars($fc) . '" selected="selected">'
                     . htmlspecialchars($fc) . '</option>';
                 } else {
                     echo "\n" . '                        '
@@ -200,7 +200,7 @@ for ($i = 0; $i < 4; $i++) {
             foreach ($GLOBALS['cfg']['NullOperators'] as $fc) {
                 if (isset($zoomFunc[$i]) && $zoomFunc[$i] == $fc) {
                     echo "\n" . '                        '
-                    . '<option value="' .  htmlspecialchars($fc) . '" Selected>'
+                    . '<option value="' .  htmlspecialchars($fc) . '" selected="selected">'
                     . htmlspecialchars($fc) . '</option>';
                 } else {
                     echo "\n" . '                        '
@@ -262,11 +262,11 @@ if (isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null')
 for ($j = 0; $j < $fields_cnt; $j++) {
     if (isset($dataLabel) && $dataLabel == htmlspecialchars($fields_list[$j])) {
 ?>
-        <option value=<?php echo htmlspecialchars($fields_list[$j]);?> selected="selected">  <?php echo htmlspecialchars($fields_list[$j]);?></option>
+        <option value="<?php echo htmlspecialchars($fields_list[$j]);?>" selected="selected">  <?php echo htmlspecialchars($fields_list[$j]);?></option>
 <?php
     } else {
 ?>
-        <option value=<?php echo htmlspecialchars($fields_list[$j]);?> >  <?php echo htmlspecialchars($fields_list[$j]);?></option>
+        <option value="<?php echo htmlspecialchars($fields_list[$j]);?>" >  <?php echo htmlspecialchars($fields_list[$j]);?></option>
 <?php
     }
 } 
