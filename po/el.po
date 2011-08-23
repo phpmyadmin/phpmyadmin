@@ -1310,7 +1310,7 @@ msgstr "Λανθασμένη Αδράνεια"
 
 #: js/messages.php:115
 msgid "Used Swap"
-msgstr ""
+msgstr "Χρησιμοποιημένη Αδράνεια"
 
 #: js/messages.php:116
 #, fuzzy
