@@ -917,7 +917,7 @@ msgstr "Προσθήκη εσωτερικού δακτυλίου"
 
 #: gis_data_editor.php:262 js/messages.php:290
 msgid "Polygon"
-msgstr ""
+msgstr "Πολύγωνο"
 
 #: gis_data_editor.php:300 js/messages.php:296
 #, fuzzy
