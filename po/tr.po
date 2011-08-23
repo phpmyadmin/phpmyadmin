@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-22 14:48+0200\n"
+"POT-Creation-Date: 2011-08-23 10:38+0200\n"
 "PO-Revision-Date: 2011-08-22 22:59+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
@@ -20,7 +20,7 @@ msgid "Show all"
 msgstr "Tümünü göster"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:42
-#: libraries/common.lib.php:2358
+#: libraries/common.lib.php:2352
 #: libraries/schema/Pdf_Relation_Schema.class.php:1149
 #: libraries/schema/Pdf_Relation_Schema.class.php:1174
 #: libraries/schema/User_Schema.class.php:376
@@ -38,9 +38,9 @@ msgstr ""
 "olabilirsiniz ya da tarayıcınızın güvenlik ayarları pencereler arası "
 "güncellemeleri engellemek için yapılandırılmıştır."
 
-#: browse_foreigners.php:151 libraries/common.lib.php:3037
-#: libraries/common.lib.php:3044 libraries/common.lib.php:3248
-#: libraries/common.lib.php:3249 libraries/db_links.inc.php:60
+#: browse_foreigners.php:151 libraries/common.lib.php:3031
+#: libraries/common.lib.php:3038 libraries/common.lib.php:3242
+#: libraries/common.lib.php:3243 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "Ara"
@@ -50,8 +50,8 @@ msgstr "Ara"
 #: db_structure.php:530 enum_editor.php:63 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:309 js/messages.php:207
 #: libraries/Config.class.php:1306 libraries/Theme_Manager.class.php:309
-#: libraries/auth/cookie.auth.lib.php:247 libraries/common.lib.php:1321
-#: libraries/common.lib.php:2331 libraries/core.lib.php:508
+#: libraries/auth/cookie.auth.lib.php:247 libraries/common.lib.php:1315
+#: libraries/common.lib.php:2325 libraries/core.lib.php:508
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:349 libraries/display_import.lib.php:267
@@ -490,7 +490,7 @@ msgstr "Tabloları kullan"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "<b>%s</b> veritabanındaki SQL sorgusu:"
 
-#: db_qbe.php:955 libraries/common.lib.php:1169
+#: db_qbe.php:955 libraries/common.lib.php:1163
 msgid "Submit Query"
 msgstr "Sorguyu Gönder"
 
@@ -528,8 +528,8 @@ msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s benzeşme, <i>%s</i> tablosu içinde"
 
-#: db_search.php:224 libraries/common.lib.php:3039
-#: libraries/common.lib.php:3246 libraries/common.lib.php:3247
+#: db_search.php:224 libraries/common.lib.php:3033
+#: libraries/common.lib.php:3240 libraries/common.lib.php:3241
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:566
 msgid "Browse"
 msgstr "Gözat"
@@ -660,8 +660,8 @@ msgstr "Hiçbirini Seçme"
 msgid "Check tables having overhead"
 msgstr "Ek yükü olan tabloları kontrol et"
 
-#: db_structure.php:498 libraries/common.lib.php:3259
-#: libraries/common.lib.php:3260 libraries/config/messages.inc.php:164
+#: db_structure.php:498 libraries/common.lib.php:3253
+#: libraries/common.lib.php:3254 libraries/config/messages.inc.php:164
 #: libraries/db_links.inc.php:56 libraries/display_tbl.lib.php:2392
 #: libraries/display_tbl.lib.php:2530 libraries/server_links.inc.php:65
 #: libraries/tbl_links.inc.php:80 prefs_manage.php:286
@@ -675,13 +675,13 @@ msgstr "Dışa Aktar"
 msgid "Print view"
 msgstr "Baskı görünümü"
 
-#: db_structure.php:504 libraries/common.lib.php:3255
-#: libraries/common.lib.php:3256
+#: db_structure.php:504 libraries/common.lib.php:3249
+#: libraries/common.lib.php:3250
 msgid "Empty"
 msgstr "Boşalt"
 
 #: db_structure.php:506 db_tracking.php:104 libraries/Index.class.php:482
-#: libraries/common.lib.php:3253 libraries/common.lib.php:3254
+#: libraries/common.lib.php:3247 libraries/common.lib.php:3248
 #: server_databases.php:265 tbl_structure.php:151 tbl_structure.php:152
 #: tbl_structure.php:570
 msgid "Drop"
@@ -1006,7 +1006,7 @@ msgstr ""
 msgid "Your SQL query has been executed successfully"
 msgstr "SQL sorgunuz başarılı olarak çalıştırıldı"
 
-#: import_status.php:29 libraries/common.lib.php:657
+#: import_status.php:29 libraries/common.lib.php:651
 #: libraries/schema/Export_Relation_Schema.class.php:237 user_password.php:109
 msgid "Back"
 msgstr "Geri"
@@ -1116,8 +1116,8 @@ msgid "Close"
 msgstr "Kapat"
 
 #: js/messages.php:64 js/messages.php:249 libraries/Index.class.php:460
-#: libraries/common.lib.php:596 libraries/common.lib.php:1145
-#: libraries/common.lib.php:3257 libraries/common.lib.php:3258
+#: libraries/common.lib.php:590 libraries/common.lib.php:1139
+#: libraries/common.lib.php:3251 libraries/common.lib.php:3252
 #: libraries/config/messages.inc.php:478 libraries/display_tbl.lib.php:1328
 #: libraries/schema/User_Schema.class.php:185 setup/frames/index.inc.php:138
 msgid "Edit"
@@ -1153,12 +1153,12 @@ msgid "Other"
 msgstr "Diğer"
 
 #. l10n: Thousands separator
-#: js/messages.php:75 libraries/common.lib.php:1395
+#: js/messages.php:75 libraries/common.lib.php:1389
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:77 libraries/common.lib.php:1397
+#: js/messages.php:77 libraries/common.lib.php:1391
 msgid "."
 msgstr "."
 
@@ -1241,12 +1241,12 @@ msgid "System swap"
 msgstr "Sistem takası"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:103 libraries/common.lib.php:1345 server_status.php:1625
+#: js/messages.php:103 libraries/common.lib.php:1339 server_status.php:1625
 msgid "MiB"
 msgstr "MiB"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:104 libraries/common.lib.php:1343 server_status.php:1625
+#: js/messages.php:104 libraries/common.lib.php:1337 server_status.php:1625
 msgid "KiB"
 msgstr "KiB"
 
@@ -1496,7 +1496,6 @@ msgstr "Günlük çözümlendi, ama bu zaman aralığı içinde bulunan veri yok
 
 #. l10n: A collection of available filters
 #: js/messages.php:173
-#| msgid "Tables display options"
 msgid "Log table filter options"
 msgstr "Günlük tablosu süzgeci seçenekleri"
 
@@ -1717,7 +1716,7 @@ msgstr "Sorgu kutusunu göster"
 msgid "No rows selected"
 msgstr "Satır seçilmedi"
 
-#: js/messages.php:251 libraries/common.lib.php:2656
+#: js/messages.php:251 libraries/common.lib.php:2650
 #: libraries/display_tbl.lib.php:2387 querywindow.php:90 querywindow.php:94
 #: querywindow.php:97 tbl_structure.php:150 tbl_structure.php:569
 msgid "Change"
@@ -1989,63 +1988,63 @@ msgid "December"
 msgstr "Aralık"
 
 #. l10n: Short month name
-#: js/messages.php:384 libraries/common.lib.php:1552
+#: js/messages.php:384 libraries/common.lib.php:1546
 msgid "Jan"
 msgstr "Oca"
 
 #. l10n: Short month name
-#: js/messages.php:386 libraries/common.lib.php:1554
+#: js/messages.php:386 libraries/common.lib.php:1548
 msgid "Feb"
 msgstr "Şub"
 
 #. l10n: Short month name
-#: js/messages.php:388 libraries/common.lib.php:1556
+#: js/messages.php:388 libraries/common.lib.php:1550
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:390 libraries/common.lib.php:1558
+#: js/messages.php:390 libraries/common.lib.php:1552
 msgid "Apr"
 msgstr "Nis"
 
 #. l10n: Short month name
-#: js/messages.php:392 libraries/common.lib.php:1560
+#: js/messages.php:392 libraries/common.lib.php:1554
 msgctxt "Short month name"
 msgid "May"
 msgstr "May"
 
 #. l10n: Short month name
-#: js/messages.php:394 libraries/common.lib.php:1562
+#: js/messages.php:394 libraries/common.lib.php:1556
 msgid "Jun"
 msgstr "Haz"
 
 #. l10n: Short month name
-#: js/messages.php:396 libraries/common.lib.php:1564
+#: js/messages.php:396 libraries/common.lib.php:1558
 msgid "Jul"
 msgstr "Tem"
 
 #. l10n: Short month name
-#: js/messages.php:398 libraries/common.lib.php:1566
+#: js/messages.php:398 libraries/common.lib.php:1560
 msgid "Aug"
 msgstr "Ağu"
 
 #. l10n: Short month name
-#: js/messages.php:400 libraries/common.lib.php:1568
+#: js/messages.php:400 libraries/common.lib.php:1562
 msgid "Sep"
 msgstr "Eyl"
 
 #. l10n: Short month name
-#: js/messages.php:402 libraries/common.lib.php:1570
+#: js/messages.php:402 libraries/common.lib.php:1564
 msgid "Oct"
 msgstr "Eki"
 
 #. l10n: Short month name
-#: js/messages.php:404 libraries/common.lib.php:1572
+#: js/messages.php:404 libraries/common.lib.php:1566
 msgid "Nov"
 msgstr "Kas"
 
 #. l10n: Short month name
-#: js/messages.php:406 libraries/common.lib.php:1574
+#: js/messages.php:406 libraries/common.lib.php:1568
 msgid "Dec"
 msgstr "Ara"
 
@@ -2083,32 +2082,32 @@ msgid "Sun"
 msgstr "Paz"
 
 #. l10n: Short week day name
-#: js/messages.php:421 libraries/common.lib.php:1579
+#: js/messages.php:421 libraries/common.lib.php:1573
 msgid "Mon"
 msgstr "Ptesi"
 
 #. l10n: Short week day name
-#: js/messages.php:423 libraries/common.lib.php:1581
+#: js/messages.php:423 libraries/common.lib.php:1575
 msgid "Tue"
 msgstr "Sal"
 
 #. l10n: Short week day name
-#: js/messages.php:425 libraries/common.lib.php:1583
+#: js/messages.php:425 libraries/common.lib.php:1577
 msgid "Wed"
 msgstr "Çar"
 
 #. l10n: Short week day name
-#: js/messages.php:427 libraries/common.lib.php:1585
+#: js/messages.php:427 libraries/common.lib.php:1579
 msgid "Thu"
 msgstr "Per"
 
 #. l10n: Short week day name
-#: js/messages.php:429 libraries/common.lib.php:1587
+#: js/messages.php:429 libraries/common.lib.php:1581
 msgid "Fri"
 msgstr "Cum"
 
 #. l10n: Short week day name
-#: js/messages.php:431 libraries/common.lib.php:1589
+#: js/messages.php:431 libraries/common.lib.php:1583
 msgid "Sat"
 msgstr "Ctesi"
 
@@ -2291,7 +2290,7 @@ msgid "Databases"
 msgstr "Veritabanları"
 
 #: libraries/Message.class.php:193 libraries/blobstreaming.lib.php:325
-#: libraries/blobstreaming.lib.php:331 libraries/common.lib.php:562
+#: libraries/blobstreaming.lib.php:331 libraries/common.lib.php:556
 #: libraries/core.lib.php:210 libraries/import.lib.php:140 tbl_change.php:904
 #: tbl_operations.php:229 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
@@ -2676,34 +2675,28 @@ msgstr "%s %s veya sonrasına yükseltmelisiniz."
 msgid "Max: %s%s"
 msgstr "En fazla: %s%s"
 
-#. l10n: Language to use for MySQL 5.5 documentation, please
-#. * use only languages which do exist in official documentation.
-#.
-#: libraries/common.lib.php:392
+#. l10n: Please check that translation actually exists.
+#: libraries/common.lib.php:390
 msgctxt "MySQL 5.5 documentation language"
 msgid "en"
 msgstr "en"
 
-#. l10n: Language to use for MySQL 5.1 documentation, please
-#. * use only languages which do exist in official documentation.
-#.
-#: libraries/common.lib.php:398
+#. l10n: Please check that translation actually exists.
+#: libraries/common.lib.php:394
 msgctxt "MySQL 5.1 documentation language"
 msgid "en"
 msgstr "en"
 
-#. l10n: Language to use for MySQL 5.0 documentation, please use
-#. * only languages which do exist in official documentation.
-#.
-#: libraries/common.lib.php:404
+#. l10n: Please check that translation actually exists.
+#: libraries/common.lib.php:398
 msgctxt "MySQL 5.0 documentation language"
 msgid "en"
 msgstr "en"
 
-#: libraries/common.lib.php:419 libraries/common.lib.php:422
-#: libraries/common.lib.php:424 libraries/common.lib.php:443
-#: libraries/common.lib.php:446 libraries/common.lib.php:466
-#: libraries/common.lib.php:468 libraries/config/FormDisplay.tpl.php:162
+#: libraries/common.lib.php:413 libraries/common.lib.php:416
+#: libraries/common.lib.php:418 libraries/common.lib.php:437
+#: libraries/common.lib.php:440 libraries/common.lib.php:460
+#: libraries/common.lib.php:462 libraries/config/FormDisplay.tpl.php:162
 #: libraries/display_export.lib.php:234 libraries/engines/pbms.lib.php:71
 #: libraries/engines/pbxt.lib.php:106 libraries/relation.lib.php:74
 #: libraries/sql_query_form.lib.php:385 libraries/sql_query_form.lib.php:388
@@ -2711,12 +2704,12 @@ msgstr "en"
 msgid "Documentation"
 msgstr "Belgeler"
 
-#: libraries/common.lib.php:574 libraries/header_printview.inc.php:60
+#: libraries/common.lib.php:568 libraries/header_printview.inc.php:60
 #: server_status.php:554 server_status.php:1182
 msgid "SQL query"
 msgstr "SQL sorgusu"
 
-#: libraries/common.lib.php:615 libraries/rte/rte_events.lib.php:103
+#: libraries/common.lib.php:609 libraries/rte/rte_events.lib.php:103
 #: libraries/rte/rte_events.lib.php:108 libraries/rte/rte_events.lib.php:118
 #: libraries/rte/rte_events.lib.php:131 libraries/rte/rte_routines.lib.php:255
 #: libraries/rte/rte_routines.lib.php:260
@@ -2729,79 +2722,79 @@ msgstr "SQL sorgusu"
 msgid "MySQL said: "
 msgstr "MySQL çıktısı: "
 
-#: libraries/common.lib.php:1078
+#: libraries/common.lib.php:1072
 msgid "Failed to connect to SQL validator!"
 msgstr "SQL onaylayıcısına bağlanma başarısız oldu!"
 
-#: libraries/common.lib.php:1119 libraries/config/messages.inc.php:479
+#: libraries/common.lib.php:1113 libraries/config/messages.inc.php:479
 msgid "Explain SQL"
 msgstr "SQL'i açıkla"
 
-#: libraries/common.lib.php:1123
+#: libraries/common.lib.php:1117
 msgid "Skip Explain SQL"
 msgstr "SQL Açıklamasını atla"
 
-#: libraries/common.lib.php:1158
+#: libraries/common.lib.php:1152
 msgid "Without PHP Code"
 msgstr "PHP Kodsuz"
 
-#: libraries/common.lib.php:1161 libraries/config/messages.inc.php:481
+#: libraries/common.lib.php:1155 libraries/config/messages.inc.php:481
 msgid "Create PHP Code"
 msgstr "PHP Kodu oluştur"
 
-#: libraries/common.lib.php:1180 libraries/config/messages.inc.php:480
+#: libraries/common.lib.php:1174 libraries/config/messages.inc.php:480
 #: server_status.php:752 server_status.php:774 server_status.php:793
 msgid "Refresh"
 msgstr "Yenile"
 
-#: libraries/common.lib.php:1190
+#: libraries/common.lib.php:1184
 msgid "Skip Validate SQL"
 msgstr "SQL Onaylamayı atla"
 
-#: libraries/common.lib.php:1193 libraries/config/messages.inc.php:483
+#: libraries/common.lib.php:1187 libraries/config/messages.inc.php:483
 msgid "Validate SQL"
 msgstr "SQL'i onayla"
 
-#: libraries/common.lib.php:1252
+#: libraries/common.lib.php:1246
 msgid "Inline edit of this query"
 msgstr "Bu sorguyu sıralı düzenle"
 
-#: libraries/common.lib.php:1254
+#: libraries/common.lib.php:1248
 msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Sıralı"
 
-#: libraries/common.lib.php:1320 sql.php:876
+#: libraries/common.lib.php:1314 sql.php:876
 msgid "Profiling"
 msgstr "Profil çıkart"
 
 #. l10n: shortcuts for Byte
-#: libraries/common.lib.php:1341
+#: libraries/common.lib.php:1335
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Gigabyte
-#: libraries/common.lib.php:1347
+#: libraries/common.lib.php:1341
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
-#: libraries/common.lib.php:1349
+#: libraries/common.lib.php:1343
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
-#: libraries/common.lib.php:1351
+#: libraries/common.lib.php:1345
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
-#: libraries/common.lib.php:1353
+#: libraries/common.lib.php:1347
 msgid "EiB"
 msgstr "EiB"
 
 #. l10n: Short week day name
-#: libraries/common.lib.php:1577
+#: libraries/common.lib.php:1571
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Paz"
@@ -2809,62 +2802,62 @@ msgstr "Paz"
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
 #. * to define the format string
 #.
-#: libraries/common.lib.php:1595
+#: libraries/common.lib.php:1589
 #: libraries/transformations/text_plain__dateformat.inc.php:35
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y, %H:%M:%S"
 
-#: libraries/common.lib.php:1928
+#: libraries/common.lib.php:1922
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s gün, %s saat, %s dakika ve %s saniye"
 
-#: libraries/common.lib.php:2019
+#: libraries/common.lib.php:2013
 msgid "Missing parameter:"
 msgstr "Eksik parametreler:"
 
-#: libraries/common.lib.php:2367 libraries/common.lib.php:2370
+#: libraries/common.lib.php:2361 libraries/common.lib.php:2364
 #: libraries/display_tbl.lib.php:306
 msgctxt "First page"
 msgid "Begin"
 msgstr "Başlangıç"
 
-#: libraries/common.lib.php:2368 libraries/common.lib.php:2371
+#: libraries/common.lib.php:2362 libraries/common.lib.php:2365
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Önceki"
 
-#: libraries/common.lib.php:2398 libraries/common.lib.php:2401
+#: libraries/common.lib.php:2392 libraries/common.lib.php:2395
 #: libraries/display_tbl.lib.php:370 server_binlog.php:170
 #: server_binlog.php:172
 msgctxt "Next page"
 msgid "Next"
 msgstr "Sonraki"
 
-#: libraries/common.lib.php:2399 libraries/common.lib.php:2402
+#: libraries/common.lib.php:2393 libraries/common.lib.php:2396
 #: libraries/display_tbl.lib.php:385
 msgctxt "Last page"
 msgid "End"
 msgstr "Son"
 
-#: libraries/common.lib.php:2469
+#: libraries/common.lib.php:2463
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "&quot;%s&quot; veritabanına git."
 
-#: libraries/common.lib.php:2489
+#: libraries/common.lib.php:2483
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s işlevselliği bilinen bir hata tarafından zarar görmüş, bakınız %s"
 
-#: libraries/common.lib.php:2663
+#: libraries/common.lib.php:2657
 msgid "Click to toggle"
 msgstr "Değiştirmek için tıklayın"
 
-#: libraries/common.lib.php:3035 libraries/common.lib.php:3042
-#: libraries/common.lib.php:3252 libraries/config/setup.forms.php:293
+#: libraries/common.lib.php:3029 libraries/common.lib.php:3036
+#: libraries/common.lib.php:3246 libraries/config/setup.forms.php:293
 #: libraries/config/setup.forms.php:330 libraries/config/setup.forms.php:356
 #: libraries/config/user_preferences.forms.php:192
 #: libraries/config/user_preferences.forms.php:229
@@ -2876,7 +2869,7 @@ msgstr "Değiştirmek için tıklayın"
 msgid "Structure"
 msgstr "Yapı"
 
-#: libraries/common.lib.php:3036 libraries/common.lib.php:3043
+#: libraries/common.lib.php:3030 libraries/common.lib.php:3037
 #: libraries/config/messages.inc.php:214 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
@@ -2884,37 +2877,37 @@ msgstr "Yapı"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:3038 libraries/common.lib.php:3250
-#: libraries/common.lib.php:3251 libraries/sql_query_form.lib.php:282
+#: libraries/common.lib.php:3032 libraries/common.lib.php:3244
+#: libraries/common.lib.php:3245 libraries/sql_query_form.lib.php:282
 #: libraries/sql_query_form.lib.php:285 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "Ekle"
 
-#: libraries/common.lib.php:3045 libraries/db_links.inc.php:86
+#: libraries/common.lib.php:3039 libraries/db_links.inc.php:86
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:114
 #: view_operations.php:87
 msgid "Operations"
 msgstr "İşlemler"
 
-#: libraries/common.lib.php:3184
+#: libraries/common.lib.php:3178
 msgid "Browse your computer:"
 msgstr "Bilgisayarınıza gözat:"
 
-#: libraries/common.lib.php:3203
+#: libraries/common.lib.php:3197
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Web sunucusu gönderme dizininden <b>%s</b> seçin:"
 
-#: libraries/common.lib.php:3224 libraries/sql_query_form.lib.php:445
+#: libraries/common.lib.php:3218 libraries/sql_query_form.lib.php:445
 #: tbl_change.php:905
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Gönderme işi için ayarladığınız dizine ulaşılamıyor"
 
-#: libraries/common.lib.php:3233
+#: libraries/common.lib.php:3227
 msgid "There are no files to upload"
 msgstr "Göndermek için dosyalar yok"
 
-#: libraries/common.lib.php:3261 libraries/common.lib.php:3262
+#: libraries/common.lib.php:3255 libraries/common.lib.php:3256
 msgid "Execute"
 msgstr "Çalıştır"
 
@@ -5298,7 +5291,7 @@ msgstr "pmadb kullanan boş phpMyAdmin denetim kullanıcısı parolası"
 msgid "Incorrect IP address: %s"
 msgstr "Yanlış IP adresi: %s"
 
-#. l10n: Language to use for PHP documentation, please use only languages which do exist in official documentation.
+#. l10n: Please check that translation actually exists.
 #: libraries/core.lib.php:245
 msgctxt "PHP documentation language"
 msgid "en"
@@ -11955,7 +11948,6 @@ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr "query_cache_size 0'a ayarlı veya query_cache_type 'OFF'a ayarlı"
 
 #: po/advisory_rules.php:70
-#| msgid "Query cache used"
 msgid "Query caching method"
 msgstr "Sorgu önbellekleme yöntemi"
 
@@ -11964,11 +11956,6 @@ msgid "Suboptimal caching method."
 msgstr "Yetersiz önbellekleme yöntemi."
 
 #: po/advisory_rules.php:72
-#| msgid ""
-#| "You are using the MySQL Query cache with a fairly high traffic database. "
-#| "It might be worth considering to use <a href=\\\"http://dev.mysql.com/doc/"
-#| "refman/5.1/en/ha-memcached.html\\\">memcached</a> instead of the MySQL "
-#| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\\\"http://dev.mysql.com/doc/"
@@ -11976,10 +11963,9 @@ msgid ""
 "cache, especially if you have multiple slaves."
 msgstr ""
 "Oldukça yüksek trafikli veritabanı ile MySQL Sorgu önbelleği "
-"kullanıyorsunuz. MySQL Sorgu önbelleği yerine <a "
-"href=\\\"http://dev.mysql.com/doc/refman/5.5/en/ha-"
-"memcached.html\\\">memcached</a> kullanmayı düşünmek değebilir özellikle de "
-"çoklu slave'lere sahipseniz."
+"kullanıyorsunuz. MySQL Sorgu önbelleği yerine <a href=\\\"http://dev.mysql."
+"com/doc/refman/5.5/en/ha-memcached.html\\\">memcached</a> kullanmayı "
+"düşünmek değebilir özellikle de çoklu slave'lere sahipseniz."
 
 #: po/advisory_rules.php:73
 #, php-format
@@ -12387,14 +12373,6 @@ msgid "Temp disk rate"
 msgstr "Geçici disk oranı"
 
 #: po/advisory_rules.php:152
-#| msgid ""
-#| "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
-#| "some temporary tables are always being written to disk, independent of "
-#| "the value of these variables. To eliminate these you will have to rewrite "
-#| "your queries to avoid those conditions (Within a temprorary table: "
-#| "Presence of a BLOB or TEXT column or presence of a column bigger than 512 "
-#| "bytes) as mentioned in in the <a href=\\\"http://dev.mysql.com/doc/"
-#| "refman/5.0/en/internal-temporary-tables.html\\\">MySQL Documentation</a>"
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -12925,19 +12903,15 @@ msgid "Enable concurrent_insert by setting it to 1"
 msgstr "concurrent_insert'ü 1'e ayarlayarak bunu etkinleştirin"
 
 #: po/advisory_rules.php:267
-#| msgid ""
-#| "Setting {concurrent_insert} to 1 reduces contention between readers and "
-#| "writers for a given table. See also <a href=\\\"http://dev.mysql.com/doc/"
-#| "refman/5.0/en/concurrent-inserts.html\\\">MySQL Documentation</a>"
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\\\"http://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\\\">MySQL Documentation</a>"
 msgstr ""
 "{concurrent_insert} 1'e ayarlamak verilen bir tablo için okuyucular ve "
-"yazıcılar arasındaki bağlantıyı azaltır. Aynı zamanda <a "
-"href=\\\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-"
-"inserts.html\\\">MySQL Belgesine</a> bakın"
+"yazıcılar arasındaki bağlantıyı azaltır. Aynı zamanda <a href=\\\"http://dev."
+"mysql.com/doc/refman/5.5/en/concurrent-inserts.html\\\">MySQL Belgesine</a> "
+"bakın"
 
 #: po/advisory_rules.php:268
 msgid "concurrent_insert is set to 0"
