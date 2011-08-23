@@ -138,5 +138,39 @@ class PMA_GIS_LinestringTest extends PMA_GIS_GeometryTest
             )
         );
     }
+
+    /**
+     * test scaleRow method
+     *
+     * @param string $spatial spatial data of a row
+     * @param array  $min_max expected results
+     *
+     * @dataProvider providerForTestScaleRow
+     * @return nothing
+     */
+    public function testScaleRow($spatial, $min_max)
+    {
+        $this->assertEquals($this->object->scaleRow($spatial), $min_max);
+    }
+
+    /**
+     * data provider for testScaleRow
+     *
+     * @return data for testScaleRow
+     */
+    public function providerForTestScaleRow()
+    {
+        return array(
+            array(
+                'LINESTRING(12 35,48 75,69 23,25 45,14 53,35 78)',
+                array(
+                    'minX' => 12,
+                    'maxX' => 69,
+                    'minY' => 23,
+                    'maxY' => 78
+                )
+            )
+        );
+    }
 }
 ?>
