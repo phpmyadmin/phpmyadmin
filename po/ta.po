@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-22 14:48+0200\n"
-"PO-Revision-Date: 2011-08-20 08:37+0200\n"
-"Last-Translator:  <ysajeepan@live.com>\n"
+"PO-Revision-Date: 2011-08-23 10:37+0200\n"
+"Last-Translator: Sajeepan Yogenthiran <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
@@ -645,7 +645,7 @@ msgstr ""
 #: server_databases.php:264 server_privileges.php:1751 tbl_structure.php:554
 #: tbl_structure.php:563
 msgid "With selected:"
-msgstr "உடன் தெரிவுசெய்யப்பட்டது"
+msgstr "உடன் தெரிவுசெய்யப்பட்டது:"
 
 #: db_structure.php:481 libraries/display_tbl.lib.php:2374
 #: server_databases.php:261 server_privileges.php:671
@@ -797,11 +797,11 @@ msgstr ""
 
 #: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:634
 msgid "Track table"
-msgstr ""
+msgstr "அட்டவணைத் தடம்"
 
 #: db_tracking.php:229
 msgid "Database Log"
-msgstr ""
+msgstr "தரவுத்தளப்பதிகை"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:759
 #, php-format
@@ -860,7 +860,7 @@ msgstr ""
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:291
 #: libraries/display_tbl.lib.php:665
@@ -875,12 +875,12 @@ msgstr "புள்ளி"
 #: gis_data_editor.php:173 gis_data_editor.php:195 gis_data_editor.php:241
 #: gis_data_editor.php:291 js/messages.php:286
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:197 gis_data_editor.php:243
 #: gis_data_editor.php:293 js/messages.php:287
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:202 gis_data_editor.php:246 gis_data_editor.php:296
 #: js/messages.php:294
@@ -893,11 +893,11 @@ msgstr ""
 
 #: gis_data_editor.php:221 gis_data_editor.php:275
 msgid "Outer Ring:"
-msgstr ""
+msgstr "வெளிப்புற வளையம்"
 
 #: gis_data_editor.php:223 gis_data_editor.php:277 js/messages.php:292
 msgid "Inner Ring"
-msgstr ""
+msgstr "உள்ப்புற வளையம்"
 
 #: gis_data_editor.php:248
 #, fuzzy
@@ -907,7 +907,7 @@ msgstr "கட்டுப்பாடுகளை சேர்க்க"
 
 #: gis_data_editor.php:248 gis_data_editor.php:298 js/messages.php:295
 msgid "Add an inner ring"
-msgstr ""
+msgstr "உள்ப்புற வளையத்தை சேர்"
 
 #: gis_data_editor.php:262 js/messages.php:290
 msgid "Polygon"
@@ -1010,7 +1010,7 @@ msgstr ""
 #: js/messages.php:27 libraries/server_synchronize.lib.php:1329
 #: libraries/server_synchronize.lib.php:1338
 msgid "Click to select"
-msgstr ""
+msgstr "சொடுக்கி தெரிவுசெய்"
 
 #: js/messages.php:28
 msgid "Click to unselect"
@@ -1063,7 +1063,7 @@ msgstr ""
 
 #: js/messages.php:47
 msgid "This is not a number!"
-msgstr ""
+msgstr "இது ஒரு இலக்கம் அல்ல!"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:51
@@ -1088,10 +1088,9 @@ msgstr ""
 
 #: js/messages.php:58 server_privileges.php:1764 server_privileges.php:1788
 #: server_privileges.php:2193 server_privileges.php:2389
-#, fuzzy
 #| msgid "Add %s"
 msgid "Add user"
-msgstr "%sஐ சேர்க்க"
+msgstr "பயனரை சேர்"
 
 #: js/messages.php:59
 msgid "Reloading Privileges"
@@ -1116,19 +1115,19 @@ msgstr "தொகு"
 
 #: js/messages.php:65 server_status.php:760
 msgid "Live traffic chart"
-msgstr ""
+msgstr "நேரடி போக்குவரத்து வரைபடம்"
 
 #: js/messages.php:66 server_status.php:763
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "நேரடி இணை./செயலாக்க வரைபடம்"
 
 #: js/messages.php:67 server_status.php:781
 msgid "Live query chart"
-msgstr ""
+msgstr "நேரடி வினவல் வரைபடம்"
 
 #: js/messages.php:69
 msgid "Static data"
-msgstr ""
+msgstr "நிலையான தரவு"
 
 #. l10n: Total number of queries
 #: js/messages.php:71 libraries/build_html_for_db.lib.php:46
@@ -1171,11 +1170,11 @@ msgstr ""
 
 #: js/messages.php:83 js/messages.php:121 server_status.php:1173
 msgid "Processes"
-msgstr ""
+msgstr "செயலாக்கங்கள்"
 
 #: js/messages.php:84
 msgid "Connections / Processes"
-msgstr ""
+msgstr "இணைப்புக்கள்/ செயலாக்கங்கள்"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:86
@@ -1189,7 +1188,7 @@ msgstr ""
 
 #: js/messages.php:90 server_status.php:742
 msgid "Query statistics"
-msgstr ""
+msgstr "வினவல் புள்ளிவிவரவியல்"
 
 #: js/messages.php:93
 msgid "Local monitor configuration incompatible"
@@ -1209,15 +1208,15 @@ msgstr ""
 
 #: js/messages.php:97 po/advisory_rules.php:80
 msgid "Query cache usage"
-msgstr ""
+msgstr "வினவல் இடைமாற்றல் பாவனையளவு"
 
 #: js/messages.php:98
 msgid "Query cache used"
-msgstr ""
+msgstr "வினவல் இடைமாற்று பயன்படுத்தப்பட்டது"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
-msgstr ""
+msgstr "மையச்செயலக பாவனையளவு"
 
 #: js/messages.php:101
 msgid "System memory"
@@ -1239,7 +1238,7 @@ msgstr "KiB"
 
 #: js/messages.php:106
 msgid "Average load"
-msgstr ""
+msgstr "சராசரி ஏற்றல்"
 
 #: js/messages.php:107
 msgid "Total memory"
@@ -1279,11 +1278,11 @@ msgstr ""
 
 #: js/messages.php:118
 msgid "Bytes sent"
-msgstr ""
+msgstr "துண்டுகள் அனுப்ப"
 
 #: js/messages.php:119
 msgid "Bytes received"
-msgstr ""
+msgstr "துண்டுகள்  ஏற்றுக்கொள்ளப்பட்டது"
 
 #: js/messages.php:120 server_status.php:1099
 msgid "Connections"
@@ -1309,11 +1308,11 @@ msgstr "வரைபடத்தை நீக்கு"
 
 #: js/messages.php:128
 msgid "Edit title and labels"
-msgstr ""
+msgstr "தலைப்பு மற்றும் சிட்டையையும் தொகு"
 
 #: js/messages.php:129
 msgid "Add chart to grid"
-msgstr ""
+msgstr "வரைபடத்தை கட்டத்தில் சேர்"
 
 #: js/messages.php:131
 msgid "Please add at least one variable to the series"
@@ -1432,11 +1431,11 @@ msgstr "வகுக்கப்பட்ட %s"
 
 #: js/messages.php:162
 msgid "From slow log"
-msgstr ""
+msgstr "மெதுவான பதிகைஇலிருந்து"
 
 #: js/messages.php:163
 msgid "From general log"
-msgstr ""
+msgstr "பொதுவான பதிகைஇலிருந்து"
 
 #: js/messages.php:164
 msgid "Analysing & loading logs. This may take a while."
@@ -1498,7 +1497,7 @@ msgstr "மொத்த:"
 
 #: js/messages.php:181
 msgid "Loading logs"
-msgstr ""
+msgstr "பதிகைகள் ஏற்றப்படுகின்றது"
 
 #: js/messages.php:182
 msgid "Monitor refresh failed"
@@ -1538,11 +1537,11 @@ msgstr "இறக்குமதி"
 
 #: js/messages.php:192
 msgid "Analyse Query"
-msgstr ""
+msgstr "பாகுபடுத்தல் வினவல்"
 
 #: js/messages.php:196
 msgid "Advisor system"
-msgstr ""
+msgstr "முறைமை ஆலோசகர்"
 
 #: js/messages.php:197
 msgid "Possible performance issues"
@@ -1587,7 +1586,7 @@ msgstr "ஏற்றப்படுகிறது"
 
 #: js/messages.php:212
 msgid "Processing Request"
-msgstr ""
+msgstr "வேண்டுகோள் செயற்படுத்தபடுகின்றது"
 
 #: js/messages.php:213 libraries/import/ods.php:80
 #: libraries/rte/rte_export.lib.php:39
@@ -1596,11 +1595,11 @@ msgstr ""
 
 #: js/messages.php:214
 msgid "Dropping Column"
-msgstr ""
+msgstr "நெடுக்கை அழிக்கபடுகின்றது"
 
 #: js/messages.php:215
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "முதன்மை சாவி இணைக்கப்படுகின்றது"
 
 #: js/messages.php:216 libraries/relation.lib.php:76 pmd_general.php:380
 #: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661

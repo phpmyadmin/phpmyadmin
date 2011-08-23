@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-22 14:48+0200\n"
-"PO-Revision-Date: 2011-08-23 08:07+0200\n"
+"PO-Revision-Date: 2011-08-23 08:34+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -1227,24 +1227,26 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
+"Η ρύθμιση ταξινόμησης διαγραμμάτων στον τοπικό χώρο αποθήκευσης των "
+"φυλλομετρητών σας δεν είναι πλέον συμβατός με τη νεότερη έκδοση του διαλόγου "
+"εποπτείας.Είναι πολύ πιθανό ότι η τρέχουσα ρύθμιση δεν θα λειτουργεί πλέον. "
+"Επαναφέρτε τις ρυθμίσεις σας στις προεπιλεγμένες στο μενού "
+"<i>Ρυθμίσεις</i>."
 
 #: js/messages.php:96
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache efficiency"
-msgstr "Λανθάνουσα μνήμη ερωτήματος"
+msgstr "Αποτελεσματικότητα λανθάνουσας μνήμης ερωτήματος"
 
 #: js/messages.php:97 po/advisory_rules.php:80
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
-msgstr "Λανθάνουσα μνήμη ερωτήματος"
+msgstr "Χρήση λανθάνουσας μνήμης ερωτήματος"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
-msgstr "Λανθάνουσα μνήμη ερωτήματος"
+msgstr "Χρησιμοποιημένη λανθάνουσα μνήμη ερωτήματος"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
@@ -1273,64 +1275,56 @@ msgid "Average load"
 msgstr "Μέσο φορτίο"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "System memory"
 msgid "Total memory"
-msgstr "Μνήμη συστήματος"
+msgstr "Συνολική μνήμη"
 
 #: js/messages.php:108
-#, fuzzy
 #| msgid "System memory"
 msgid "Cached memory"
-msgstr "Μνήμη συστήματος"
+msgstr "Λανθάνουσα μνήμη"
 
 #: js/messages.php:109
-#, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "Buffer Pool"
+msgstr "Ρυθμισμένη μνήμη"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "System memory"
 msgid "Free memory"
-msgstr "Μνήμη συστήματος"
+msgstr "Ελεύθερη μνήμη"
 
 #: js/messages.php:111
-#, fuzzy
 #| msgid "System memory"
 msgid "Used memory"
-msgstr "Μνήμη συστήματος"
+msgstr "Χρησιμοποιημένη μνήμη"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "Σύνολο"
+msgstr "Σύνολο Αδράνειας"
 
 #: js/messages.php:114
 msgid "Cached Swap"
-msgstr ""
+msgstr "Λανθασμένη Αδράνεια"
 
 #: js/messages.php:115
 msgid "Used Swap"
-msgstr ""
+msgstr "Χρησιμοποιημένη Αδράνεια"
 
 #: js/messages.php:116
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "Ελέυθερες σελίδες"
+msgstr "Ελεύθερη Αδράνεια"
 
 #: js/messages.php:118
 msgid "Bytes sent"
-msgstr ""
+msgstr "Σταλθέντα Bytes"
 
 #: js/messages.php:119
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "Ελήφθησαν"
+msgstr "Ληφθέντα Bytes"
 
 #: js/messages.php:120 server_status.php:1099
 msgid "Connections"
@@ -1355,10 +1349,9 @@ msgid "Remove chart"
 msgstr "Απομάκρυνση διαγράμματος"
 
 #: js/messages.php:128
-#, fuzzy
 #| msgid "Edit labels and series"
 msgid "Edit title and labels"
-msgstr "Επεξεργασία ετικετών και σειρών"
+msgstr "Επεξεργασία τίτλου και ετικετών"
 
 #: js/messages.php:129
 msgid "Add chart to grid"
@@ -1501,7 +1494,6 @@ msgid "Analysing & loading logs. This may take a while."
 msgstr "Ανάλυση & φόρτωση καταγραφών. Αυτό ίσως διαρκέσει λίγο."
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid ""
 #| "This columns shows the amount of identical queries that are grouped "
 #| "together. However only the SQL Text is being compared, thus the queries "
@@ -1511,9 +1503,10 @@ msgid ""
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
-"Αυτές οι στήλες δείχνουν τον αριθμό των μοναδικών ερωτημάτων που "
-"ομαδοποιήθηκαν. Ωστόσο, μόνο το Κείμενο SQL συγκρίνεται έτσι οι ιδιότητες "
-"των ερωτημάτων όπως ο χρόνο εκκίνησης μπορεί να διαφέρουν."
+"Αυτή η στήλη δείχνουν τον αριθμό των μοναδικών ερωτημάτων που "
+"ομαδοποιήθηκαν. Ωστόσο, μόνο το ερώτημα SQL χρησιμοποιήθηκε ως κριτήριο "
+"ομαδοποίησης, έτσι οι άλλες ιδιότητες των ερωτημάτων, όπως ο χρόνος "
+"εκκίνησης, μπορεί να διαφέρουν."
 
 #: js/messages.php:166
 msgid ""
@@ -1535,18 +1528,17 @@ msgid "Jump to Log table"
 msgstr "Μετάβαση στον πίνακα Καταγραφής"
 
 #: js/messages.php:170
-#, fuzzy
 #| msgid "Log analysed, but not data found in this time span."
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
-"Η καταγραφή αναλύθηκε αλλά δεν βρέθηκαν δεδομένα σε αυτή την επέκταση χρόνου."
+"Η καταγραφή αναλύθηκε αλλά δεν βρέθηκαν δεδομένα σε αυτή την επέκταση "
+"χρόνου."
 
 #. l10n: A collection of available filters
 #: js/messages.php:173
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
-msgstr "Επιλογές προβολής πινάκων"
+msgstr "Επιλογές φιλτραρίσματος πίνακα καταγραφής"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:175
@@ -1558,7 +1550,6 @@ msgid "Filter queries by word/regexp:"
 msgstr "Φιλτράρισμα ερωτημάτων ανά λέξη/κανονική έκφραση:"
 
 #: js/messages.php:177
-#, fuzzy
 #| msgid "Group queries, ignoring variable data in WHERE statements"
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
@@ -1578,7 +1569,7 @@ msgstr "Φόρτωση καταγραφών"
 
 #: js/messages.php:182
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "Η ανανέωση της εποπτείας απέτυχε"
 
 #: js/messages.php:183
 msgid ""
@@ -1586,26 +1577,32 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"Κατά την αίτηση νέων δεδομένων διαγράμματος, ο διακομιστής επιστρέφει μη "
+"έγκυρη απάντηση. Αυτό συμβαίνει πιθανόν γιατί η συνεδρία σας έληξε. Η "
+"επαναφόρτωση της σελίδας και η επανεισαγωγή των διαπιστευτηρίων σας θα "
+"βοηθήσουν."
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
-msgstr "Επαναφόρτωση"
+msgstr "Επαναφόρτωση σελίδας"
 
 #: js/messages.php:186
 msgid "Affected rows:"
-msgstr ""
+msgstr "Επηρρεαζόμενες εγγραφές"
 
 #: js/messages.php:188
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgstr ""
+"Αποτυχία ανάλυσης αρχείου config. Δεν φαίνεται να είναι έγκυρος κώδκας JSON"
 
 #: js/messages.php:189
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr ""
+"Απέτυχε η δημιουργία καννάβου διαγράμματος με την εισαγωγή ρυθμίσεων. "
+"Επαναφορά στην προεπιλεγμένη ρύθμιση..."
 
 #: js/messages.php:190 libraries/config/messages.inc.php:170
 #: libraries/db_links.inc.php:83 libraries/server_links.inc.php:69
@@ -1615,50 +1612,45 @@ msgid "Import"
 msgstr "Εισαγωγή"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
-msgstr "Ενημέρωση Ερωτήματος"
+msgstr "Ανάλυση Ερωτήματος"
 
 #: js/messages.php:196
-#, fuzzy
 #| msgid "Apply a divisor"
 msgid "Advisor system"
-msgstr "Εφαρμογή διαιρέτη"
+msgstr "Σύστημα σύμβουλου"
 
 #: js/messages.php:197
 msgid "Possible performance issues"
-msgstr ""
+msgstr "Πιθανά θέματα απόδοσης"
 
 #: js/messages.php:198
 msgid "Issue"
-msgstr ""
+msgstr "Θέμα"
 
 #: js/messages.php:199
-#, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
-msgstr "Τεκμηρίωση"
+msgstr "Πρόταση"
 
 #: js/messages.php:200
-#, fuzzy
 #| msgid "Details"
 msgid "Rule details"
-msgstr "Λεπτομέρειες"
+msgstr "Λεπτομέρειες ρόλου"
 
 #: js/messages.php:201
-#, fuzzy
 #| msgid "Authentication"
 msgid "Justification"
-msgstr "Πιστοποιίηση"
+msgstr "Δικαιολόγηση"
 
 #: js/messages.php:202
 msgid "Used variable / formula"
-msgstr ""
+msgstr "Χρησιμοποιημένη μεταβλητή / τύπος"
 
 #: js/messages.php:203
 msgid "Test"
-msgstr ""
+msgstr "Έλεγχος"
 
 #: js/messages.php:208 libraries/tbl_properties.inc.php:763
 #: pmd_general.php:382 pmd_general.php:419 pmd_general.php:539
@@ -1799,52 +1791,54 @@ msgid "Show search criteria"
 msgstr "Προβολή κριτηρίων αναζήτησης"
 
 #: js/messages.php:262 libraries/tbl_select.lib.php:138
-#, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
-msgstr "Αναζήτηση"
+msgstr "Εστιασμένη Αναζήτηση"
 
 #: js/messages.php:264
 msgid "Each point represents a data row."
-msgstr ""
+msgstr "Κάθε σημείο αναπαρειστά μια εγγραφή δεδομένων."
 
 #: js/messages.php:266
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "Η μετάβαση πάνω από ένα σημείο θα δείξει την ετικέτα του."
 
 #: js/messages.php:268
 msgid "Use mousewheel to zoom in or out of the plot."
-msgstr ""
+msgstr "Χρησιμοποιείστε τη ροδέλα του ποντικιού για μεγέθυνση και σμίκρυνση."
 
 #: js/messages.php:270
 msgid "Click and drag the mouse to navigate the plot."
-msgstr ""
+msgstr "Πατήστε και σύρτε το ποντίκι για πλοήγηση."
 
 #: js/messages.php:272
 msgid "Click reset zoom link to come back to original state."
 msgstr ""
+"Πατήστε στην επαναφορά εστίασης για να επιστρέψετε στην αρχική κατάσταση."
 
 #: js/messages.php:274
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
+"Πατήστε ένα σημείο δεδομένων για να δείτε και πιθανά να επεξεργαστείτε τη "
+"γραμμή δεδομένων."
 
 #: js/messages.php:276
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
+"Ο χώρος εργασίας μπορεί να αλλάξει μέγεθος σύρωντας την κάτω δεξιά γωνία."
 
 #: js/messages.php:278
 msgid "Strings are converted into integer for plotting"
-msgstr ""
+msgstr "Τα κείμενα μετατρέπονται σε ακεραίους για την εκτύπωση"
 
 #: js/messages.php:280
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
-msgstr "Προσθήκη/Αφαίρεση Στηλών"
+msgstr "Επιλογή δύο στηλών"
 
 #: js/messages.php:281
 msgid "Select two different columns"
-msgstr ""
+msgstr "Επιλογή δύο διαφορετικών στηλών"
 
 #: js/messages.php:284 tbl_change.php:316 tbl_indexes.php:211
 #: tbl_indexes.php:238
@@ -1857,7 +1851,7 @@ msgstr "Αντιγραφή"
 
 #: js/messages.php:293
 msgid "Outer Ring"
-msgstr ""
+msgstr "Εξωτερικός δακτύλιος"
 
 #: js/messages.php:299
 msgid "Add columns"
@@ -1893,7 +1887,7 @@ msgstr "Προσθήκη επιλογής για τη στήλη "
 
 #: js/messages.php:312
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "Πατήστε το escape για ακύρωση της επεξεργασίας"
 
 #: js/messages.php:313
 msgid ""
