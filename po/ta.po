@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-22 14:48+0200\n"
-"PO-Revision-Date: 2011-08-23 10:48+0200\n"
+"PO-Revision-Date: 2011-08-23 10:51+0200\n"
 "Last-Translator: Sajeepan Yogenthiran <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -1773,7 +1773,7 @@ msgstr ""
 
 #: js/messages.php:299
 msgid "Add columns"
-msgstr "வரிசைகளை சேர்"
+msgstr "நெடுக்கைகளை சேர்"
 
 #: js/messages.php:302
 msgid "Select referenced key"
