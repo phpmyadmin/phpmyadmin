@@ -897,7 +897,7 @@ msgstr "வெளிப்புற வளையம்"
 
 #: gis_data_editor.php:223 gis_data_editor.php:277 js/messages.php:292
 msgid "Inner Ring"
-msgstr ""
+msgstr "உள்ப்புற வளையம்"
 
 #: gis_data_editor.php:248
 #, fuzzy
