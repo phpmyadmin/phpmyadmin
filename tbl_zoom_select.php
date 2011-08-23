@@ -255,7 +255,7 @@ if (isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null')
 }
 ?>
     <table class="data">
-    <tr><td><label for="label"><?php echo __("Data Label"); ?></label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+    <tr><td><label for="dataLabel"><?php echo __("Data Label"); ?></label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
     <td><select name="dataLabel" id='dataLabel' >
         <option value = ''> <?php echo __('None');  ?> </option>
 <?php
@@ -273,18 +273,16 @@ for ($j = 0; $j < $fields_cnt; $j++) {
 ?>
     </select>
     </td></tr>
-    <tr><td><label for="label"><?php echo __("Maximum rows to plot"); ?></label></td>
+    <tr><td><label for="maxRowPlotLimit"><?php echo __("Maximum rows to plot"); ?></label></td>
     <td>
 <?php 
-if (isset($maxPlotLimit)) { 
-?>
-    <input type="text" name="maxPlotLimit" value="<?php echo $maxPlotLimit; ?>" /></td></tr>
-<?php
-} else { 
-?>
-    <input type="text" name="maxPlotLimit" value="<?php echo $GLOBALS['cfg']['maxRowPlotLimit']; ?>" /></td></tr>
-<?php
+echo '<input type="text" name="maxPlotLimit" id="maxRowPlotLimit" value="';
+if (! empty($maxPlotLimit)) { 
+    echo $maxPlotLimit;
+} else {
+    echo $GLOBALS['cfg']['maxRowPlotLimit'];
 }
+echo '" /></td></tr>';
 ?>
     </table>
 
