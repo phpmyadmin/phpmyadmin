@@ -1234,10 +1234,9 @@ msgstr ""
 "<i>Ρυθμίσεις</i>."
 
 #: js/messages.php:96
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache efficiency"
-msgstr "Λανθάνουσα μνήμη ερωτήματος"
+msgstr "Αποτελεσματικότητα λανθάνουσας μνήμης ερωτήματος"
 
 #: js/messages.php:97 po/advisory_rules.php:80
 #, fuzzy
