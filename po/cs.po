@@ -9419,6 +9419,8 @@ msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
 msgstr ""
+"Poradce vám může doporučit změny v nastavení serveru analýzou stavových "
+"proměnných."
 
 #: server_status.php:867
 msgid ""
