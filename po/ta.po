@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-22 14:48+0200\n"
-"PO-Revision-Date: 2011-08-23 10:34+0200\n"
+"PO-Revision-Date: 2011-08-23 10:35+0200\n"
 "Last-Translator: Sajeepan Yogenthiran <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -1586,7 +1586,7 @@ msgstr "ஏற்றப்படுகிறது"
 
 #: js/messages.php:212
 msgid "Processing Request"
-msgstr ""
+msgstr "வேண்டுகோள் செயற்படுத்தபடுகின்றது"
 
 #: js/messages.php:213 libraries/import/ods.php:80
 #: libraries/rte/rte_export.lib.php:39
