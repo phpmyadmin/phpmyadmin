@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-22 14:48+0200\n"
-"PO-Revision-Date: 2011-08-23 10:07+0200\n"
+"PO-Revision-Date: 2011-08-23 10:10+0200\n"
 "Last-Translator: Sajeepan Yogenthiran <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -1063,7 +1063,7 @@ msgstr ""
 
 #: js/messages.php:47
 msgid "This is not a number!"
-msgstr ""
+msgstr "இது ஒரு இலக்கம் அல்ல!"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:51
