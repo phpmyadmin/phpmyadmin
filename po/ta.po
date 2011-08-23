@@ -1170,7 +1170,7 @@ msgstr ""
 
 #: js/messages.php:83 js/messages.php:121 server_status.php:1173
 msgid "Processes"
-msgstr ""
+msgstr "செயலாக்கங்கள்"
 
 #: js/messages.php:84
 msgid "Connections / Processes"
