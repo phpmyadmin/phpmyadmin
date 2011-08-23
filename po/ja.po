@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-23 11:03+0200\n"
-"PO-Revision-Date: 2011-08-23 11:59+0200\n"
+"PO-Revision-Date: 2011-08-23 12:00+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -873,7 +873,7 @@ msgstr ""
 #: gis_data_editor.php:173 gis_data_editor.php:195 gis_data_editor.php:241
 #: gis_data_editor.php:291 js/messages.php:286
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:197 gis_data_editor.php:243
 #: gis_data_editor.php:293 js/messages.php:287
