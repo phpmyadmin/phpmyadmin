@@ -1295,10 +1295,9 @@ msgid "Free memory"
 msgstr "Ελεύθερη μνήμη"
 
 #: js/messages.php:111
-#, fuzzy
 #| msgid "System memory"
 msgid "Used memory"
-msgstr "Μνήμη συστήματος"
+msgstr "Χρησιμοποιημένη μνήμη"
 
 #: js/messages.php:113
 #, fuzzy
