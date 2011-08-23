@@ -79,9 +79,7 @@ function PMA_buildHtmlForDb($current, $is_superuser, $checkall, $url_query, $col
         $out .= '<td class="tool">';
         $out .= '<input type="checkbox" name="selected_dbs[]" title="' . htmlspecialchars($current['SCHEMA_NAME']) . '" value="' . htmlspecialchars($current['SCHEMA_NAME']) . '" ';
 
-        if (strtolower($current['SCHEMA_NAME']) != 'information_schema'
-                && (PMA_DRIZZLE || $current['SCHEMA_NAME'] != 'mysql')
-                && (!PMA_DRIZZLE || strtolower($current['SCHEMA_NAME']) != 'data_dictionary')) {
+        if (!PMA_is_system_schema($current['SCHEMA_NAME'], true)) {
             $out .= (empty($checkall) ? '' : 'checked="checked" ') . '/>';
         } else {
             $out .= ' disabled="disabled" />';

@@ -795,7 +795,7 @@ else {
         }
 
         // hide edit and delete links for information_schema
-        if ($db == 'information_schema') {
+        if (PMA_is_system_schema($db)) {
             $disp_mode = 'nnnn110111';
         }
         
@@ -907,7 +907,7 @@ $(document).ready(makeProfilingChart);
     }
 
     // hide edit and delete links for information_schema
-    if (strtolower($db) == 'information_schema' || (PMA_DRIZZLE && strtolower($db) == 'data_dictionary')) {
+    if (PMA_is_system_schema($db)) {
         $disp_mode = 'nnnn110111';
     }
 

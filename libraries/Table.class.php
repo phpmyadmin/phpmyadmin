@@ -516,7 +516,7 @@ class PMA_Table
             if (false === $row_count || $row_count < $GLOBALS['cfg']['MaxExactCount']) {
                 // Make an exception for views in I_S and D_D schema in Drizzle, as these map to
                 // in-memory data and should execute fast enough
-                if (! $is_view || (PMA_DRIZZLE && (strtolower($db) == 'information_schema' || strtolower($db) == 'data_dictionary'))) {
+                if (! $is_view || (PMA_DRIZZLE && PMA_is_system_schema($db))) {
                     $row_count = PMA_DBI_fetch_value(
                         'SELECT COUNT(*) FROM ' . PMA_backquote($db) . '.'
                         . PMA_backquote($table)

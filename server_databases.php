@@ -202,9 +202,7 @@ if ($databases_count > 0) {
     $odd_row = true;
     foreach ($databases as $current) {
         $tr_class = $odd_row ? 'odd' : 'even';
-        if (strtolower($current['SCHEMA_NAME']) == 'information_schema'
-                || (!PMA_DRIZZLE && $current['SCHEMA_NAME'] == 'mysql')
-                || (PMA_DRIZZLE && strtolower($current['SCHEMA_NAME']) == 'data_dictionary')) {
+        if (PMA_is_system_schema($current['SCHEMA_NAME'], true)) {
             $tr_class .= ' noclick';
         }
         echo '<tr class="' . $tr_class . '">' . "\n";

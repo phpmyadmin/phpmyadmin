@@ -1663,6 +1663,21 @@ function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
 }
 
 /**
+ * Checks whether given schema is a system schema: information_schema (MySQL and Drizzle)
+ * or data_dictionary (Drizzle)
+ *
+ * @param string $schema_name
+ * @param bool   $test_for_mysql_schema Whether 'mysql' schema should be treated the same as IS and DD
+ * @return bool
+ */
+function PMA_is_system_schema($schema_name, $test_for_mysql_schema = false)
+{
+    return strtolower($schema_name) == 'information_schema'
+            || (PMA_DRIZZLE && strtolower($schema_name) == 'data_dictionary')
+            || ($test_for_mysql_schema && !PMA_DRIZZLE && $schema_name == 'mysql');
+}
+
+/**
  * Returns true if $db.$view_name is a view, false if not
  *
  * @param string $db         database name

@@ -83,8 +83,7 @@ abstract class PMA_List extends ArrayObject
         $options = '';
         foreach ($this as $each_item) {
             if (false === $include_information_schema
-                    && 'information_schema' === strtolower($each_item)
-                    && (!PMA_DRIZZLE || 'data_dictionary' == strtolower($each_item))) {
+                    && PMA_is_system_schema($each_item)) {
                 continue;
             }
             $options .= '<option value="' . htmlspecialchars($each_item) . '"';

@@ -19,7 +19,7 @@ function PMA_replication_db_multibox()
     $multi_values .= '<select name="db_select[]" size="6" multiple="multiple" id="db_select">';
 
     foreach ($GLOBALS['pma']->databases as $current_db) {
-        if ('information_schema' == $current_db) {
+        if (PMA_is_system_schema($current_db)) {
             continue;
         }
         if (! empty($selectall) || (isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $current_db . '|'))) {

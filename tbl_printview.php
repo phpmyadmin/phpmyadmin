@@ -225,8 +225,7 @@ foreach ($the_tables as $key => $table) {
 </tbody>
 </table>
     <?php
-    if (! $tbl_is_view && strtolower($db) != 'information_schema'
-            && (!PMA_DRIZZLE || strtolower($db) != 'data_dictionary')) {
+    if (! $tbl_is_view && !PMA_is_system_schema($db)) {
         /**
          * Displays indexes
          */
