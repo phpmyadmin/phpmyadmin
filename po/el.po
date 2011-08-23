@@ -920,10 +920,9 @@ msgid "Polygon"
 msgstr "Πολύγωνο"
 
 #: gis_data_editor.php:300 js/messages.php:296
-#, fuzzy
 #| msgid "Add column"
 msgid "Add a polygon"
-msgstr "Προσθήκη στήλης"
+msgstr "Προσθήκη πολυγώνου"
 
 #: gis_data_editor.php:304
 #, fuzzy
