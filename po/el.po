@@ -906,10 +906,9 @@ msgid "Inner Ring"
 msgstr "Εσωτερικός δακτύλιος"
 
 #: gis_data_editor.php:248
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Προσθήκη νέου Χρήστη"
+msgstr "Προσθήκη κειμένου γραμμής"
 
 #: gis_data_editor.php:248 gis_data_editor.php:298 js/messages.php:295
 #, fuzzy
