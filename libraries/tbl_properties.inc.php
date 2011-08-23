@@ -289,21 +289,10 @@ for ($i = 0; $i < $num_fields; $i++) {
         // creating a column
         $row['Type'] = '';
         $type        = '';
-    } else {
-        $type        = $row['Type'];
-    }
-
-    if (! empty($row['Type'])) {
-        $type = $extracted_fieldspec['type'];
-        if ('set' == $extracted_fieldspec['type'] || 'enum' == $extracted_fieldspec['type']) {
-            $length = $extracted_fieldspec['spec_in_brackets'];
-        } else {
-            $type = $extracted_fieldspec['print_type'];
-            $length = $extracted_fieldspec['spec_in_brackets'];
-        } // end if else
-    } else {
-        // creating a column
         $length = '';
+    } else {
+        $type = $extracted_fieldspec['type'];
+        $length = $extracted_fieldspec['spec_in_brackets'];
     }
 
     // some types, for example longtext, are reported as
