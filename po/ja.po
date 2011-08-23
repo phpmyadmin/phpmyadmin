@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-23 11:03+0200\n"
-"PO-Revision-Date: 2011-08-22 12:15+0200\n"
+"PO-Revision-Date: 2011-08-23 11:30+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -11301,7 +11301,7 @@ msgstr "外部キー制約"
 
 #: tbl_select.php:92
 msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "\"query by example\"を実行 (ワイルドカード: \"%\")"
+msgstr "定型問い合わせ (ワイルドカード: \"%\")"
 
 #: tbl_select.php:186
 msgid "Select columns (at least one):"
