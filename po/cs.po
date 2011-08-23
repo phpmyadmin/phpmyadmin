@@ -866,7 +866,7 @@ msgstr "Použít OpenStreetMap jako základní vrstvu"
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:291
 #: libraries/display_tbl.lib.php:665
