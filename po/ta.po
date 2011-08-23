@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-22 14:48+0200\n"
-"PO-Revision-Date: 2011-08-23 10:05+0200\n"
+"PO-Revision-Date: 2011-08-23 10:06+0200\n"
 "Last-Translator: Sajeepan Yogenthiran <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -907,7 +907,7 @@ msgstr "கட்டுப்பாடுகளை சேர்க்க"
 
 #: gis_data_editor.php:248 gis_data_editor.php:298 js/messages.php:295
 msgid "Add an inner ring"
-msgstr ""
+msgstr "உள்ப்புற வளையத்தை சேர்"
 
 #: gis_data_editor.php:262 js/messages.php:290
 msgid "Polygon"
