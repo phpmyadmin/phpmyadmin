@@ -1832,10 +1832,9 @@ msgid "Strings are converted into integer for plotting"
 msgstr "Τα κείμενα μετατρέπονται σε ακεραίους για την εκτύπωση"
 
 #: js/messages.php:280
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
-msgstr "Προσθήκη/Αφαίρεση Στηλών"
+msgstr "Επιλογή δύο στηλών"
 
 #: js/messages.php:281
 msgid "Select two different columns"
