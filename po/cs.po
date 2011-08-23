@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-23 10:38+0200\n"
-"PO-Revision-Date: 2011-08-23 10:50+0200\n"
+"PO-Revision-Date: 2011-08-23 10:51+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -2163,6 +2163,8 @@ msgstr "Sekundy"
 #, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr ""
+"Selhalo formátování textu pro pravidlo '%s'. PHP selhalo s následující "
+"chybou: %s"
 
 #: libraries/Config.class.php:1277
 msgid "Font size"
