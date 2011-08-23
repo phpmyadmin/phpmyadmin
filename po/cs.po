@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-23 10:38+0200\n"
+"POT-Creation-Date: 2011-08-23 11:03+0200\n"
 "PO-Revision-Date: 2011-08-23 11:01+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
@@ -856,7 +856,6 @@ msgstr "Výpis byl uložen do souboru %s."
 
 #: gis_data_editor.php:84
 #, php-format
-#| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
 msgstr "Hodnota pro sloupec „%s“"
 
@@ -890,7 +889,6 @@ msgstr "Y"
 
 #: gis_data_editor.php:202 gis_data_editor.php:246 gis_data_editor.php:296
 #: js/messages.php:294
-#| msgid "Add routine"
 msgid "Add a point"
 msgstr "Přidat bod"
 
@@ -900,9 +898,9 @@ msgstr "Přidat bod"
 msgid "Linestring"
 msgstr "Řádky ukončené"
 
-#: gis_data_editor.php:221 gis_data_editor.php:275
-msgid "Outer Ring:"
-msgstr "Vnější obrys:"
+#: gis_data_editor.php:221 gis_data_editor.php:275 js/messages.php:293
+msgid "Outer Ring"
+msgstr "Vnější obrys"
 
 #: gis_data_editor.php:223 gis_data_editor.php:277 js/messages.php:292
 msgid "Inner Ring"
@@ -925,12 +923,10 @@ msgid "Polygon"
 msgstr "Polygon"
 
 #: gis_data_editor.php:300 js/messages.php:296
-#| msgid "Add column"
 msgid "Add a polygon"
 msgstr "Přidat polygon"
 
 #: gis_data_editor.php:304
-#| msgid "Geometry"
 msgid "Add geometry"
 msgstr "Přidat geometrii"
 
@@ -1214,7 +1210,6 @@ msgid "Query statistics"
 msgstr "Statistika dotazů"
 
 #: js/messages.php:93
-#| msgid "Local monitor configuration icompatible"
 msgid "Local monitor configuration incompatible"
 msgstr "Vaše nastavení monitoru není kompatibilní"
 
@@ -1500,7 +1495,6 @@ msgstr ""
 
 #. l10n: A collection of available filters
 #: js/messages.php:173
-#| msgid "Tables display options"
 msgid "Log table filter options"
 msgstr "Nastavení filtrování logovacích tabulek"
 
@@ -1780,7 +1774,6 @@ msgid "Strings are converted into integer for plotting"
 msgstr ""
 
 #: js/messages.php:280
-#| msgid "Add/Delete columns"
 msgid "Select two columns"
 msgstr "Zvolte dva sloupce"
 
@@ -1796,10 +1789,6 @@ msgstr "Ignorovat"
 #: js/messages.php:285 libraries/display_tbl.lib.php:1329
 msgid "Copy"
 msgstr "Kopírovat"
-
-#: js/messages.php:293
-msgid "Outer Ring"
-msgstr "Vnější obrys"
 
 #: js/messages.php:299
 msgid "Add columns"
@@ -1872,7 +1861,6 @@ msgstr ""
 "Většinu sloupců můžete také přímo upravit<br />kliknutím na jejich obsah."
 
 #: js/messages.php:321
-#| msgid "Go to view"
 msgid "Go to link"
 msgstr "Přejít na odkaz"
 
@@ -2379,8 +2367,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
-"Selhalo vyčištění tabulky s nastavením procházení (viz "
-"$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
+"Selhalo vyčištění tabulky s nastavením procházení (viz $cfg['Servers'][$i]"
+"['MaxTableUiprefs'] %s)"
 
 #: libraries/Theme.class.php:145
 #, php-format
@@ -4557,7 +4545,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:399
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of records saved in \"table_uiprefs\" table"
 msgstr "Nejvyšší počet záznamů uložený v tabulkce „table_uiprefs“"
 
@@ -6686,7 +6673,6 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
 #: libraries/import/shp.php:371
-#| msgid "This page does not contain any tables!"
 msgid "The imported file does not contain any data"
 msgstr "Nahraný soubor neobsahuje žádná data!"
 
@@ -8004,12 +7990,10 @@ msgid "Operator"
 msgstr "Operátor"
 
 #: libraries/tbl_select.lib.php:131
-#| msgid "Search"
 msgid "Table Search"
 msgstr "Vyhledávání v tabulce"
 
 #: libraries/tbl_select.lib.php:208 tbl_change.php:993
-#| msgid "Insert"
 msgid "Edit/Insert"
 msgstr "Upravit/Vložit"
 
@@ -9552,8 +9536,7 @@ msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr ""
-"Počet spojení, která byla ukončena bez korektního ukončení ze strany "
-"klienta."
+"Počet spojení, která byla ukončena bez korektního ukončení ze strany klienta."
 
 #: server_status.php:1250
 msgid "The number of failed attempts to connect to the MySQL server."
@@ -10260,7 +10243,6 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1568
-#| msgid "Pause monitor"
 msgid "Using the monitor:"
 msgstr "Používání monitoru:"
 
@@ -10293,7 +10275,6 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1593
-#| msgid "Remove chart"
 msgid "Preset chart"
 msgstr "Předdefinované grafy"
 
@@ -11510,13 +11491,11 @@ msgid "Create version"
 msgstr "Vytvořit verzi"
 
 #: tbl_zoom_select.php:141
-#| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr ""
 "Provést „dotaz podle příkladu“ (zástupný znak: „%“) pro dva různé sloupce"
 
 #: tbl_zoom_select.php:152
-#| msgid "Hide search criteria"
 msgid "Additional search criteria"
 msgstr "Další parametr vyhledávání"
 
@@ -11537,7 +11516,6 @@ msgid "Browse/Edit the points"
 msgstr "Projít/Upravit body"
 
 #: tbl_zoom_select.php:397
-#| msgid "Control user"
 msgid "How to use"
 msgstr "Návod k použití"
 
@@ -11599,7 +11577,6 @@ msgid "The uptime is only %s"
 msgstr "Server běží jen %s"
 
 #: po/advisory_rules.php:10
-#| msgid "Questions"
 msgid "Questions below 1,000"
 msgstr "Méně než 1000 dotazů"
 
@@ -11617,12 +11594,10 @@ msgstr ""
 
 #: po/advisory_rules.php:13
 #, php-format
-#| msgid "Current connection"
 msgid "Current amount of Questions: %s"
 msgstr "Aktuální počet dotazů: %s"
 
 #: po/advisory_rules.php:15
-#| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
 msgstr "Procento pomalých dotazů"
 
@@ -11723,7 +11698,6 @@ msgstr ""
 
 #: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
 #, php-format
-#| msgid "Create version"
 msgid "Current version: %s"
 msgstr "Aktuální verze: %s"
 
@@ -11754,7 +11728,6 @@ msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgstr "Měli byste aktualizovat %s na verzi %s nebo vyšší."
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55
-#| msgid "Description"
 msgid "Distribution"
 msgstr "Distribuce"
 
@@ -11788,7 +11761,6 @@ msgid "'percona' found in version_comment"
 msgstr ""
 
 #: po/advisory_rules.php:60
-#| msgid "MySQL charset"
 msgid "MySQL Architecture"
 msgstr "Architektura MySQL"
 
@@ -11809,7 +11781,6 @@ msgid "Available memory on this host: %s"
 msgstr ""
 
 #: po/advisory_rules.php:65
-#| msgid "Query cache"
 msgid "Query cache disabled"
 msgstr "Vyrovnávací paměť dotazů je vypnutá"
 
@@ -12705,6 +12676,9 @@ msgstr ""
 #: po/advisory_rules.php:268
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#~ msgid "Outer Ring:"
+#~ msgstr "Vnější obrys:"
 
 #~ msgid "Filters"
 #~ msgstr "Filtry"

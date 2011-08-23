@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-23 10:38+0200\n"
+"POT-Creation-Date: 2011-08-23 11:03+0200\n"
 "PO-Revision-Date: 2011-06-04 15:35+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
@@ -898,8 +898,8 @@ msgstr "සුචිය එක් කරන්න"
 msgid "Linestring"
 msgstr "පේළි අවසන් කිරීමේ සළකුණ"
 
-#: gis_data_editor.php:221 gis_data_editor.php:275
-msgid "Outer Ring:"
+#: gis_data_editor.php:221 gis_data_editor.php:275 js/messages.php:293
+msgid "Outer Ring"
 msgstr ""
 
 #: gis_data_editor.php:223 gis_data_editor.php:277 js/messages.php:292
@@ -1860,10 +1860,6 @@ msgstr "නොසලකන්න"
 #: js/messages.php:285 libraries/display_tbl.lib.php:1329
 msgid "Copy"
 msgstr "පිටපත් කරන්න"
-
-#: js/messages.php:293
-msgid "Outer Ring"
-msgstr ""
 
 #: js/messages.php:299
 #, fuzzy

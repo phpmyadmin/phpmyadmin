@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-23 10:38+0200\n"
+"POT-Creation-Date: 2011-08-23 11:03+0200\n"
 "PO-Revision-Date: 2011-08-18 14:54+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
@@ -897,8 +897,8 @@ msgstr "Нова процедура"
 msgid "Linestring"
 msgstr "Редовете завършват с"
 
-#: gis_data_editor.php:221 gis_data_editor.php:275
-msgid "Outer Ring:"
+#: gis_data_editor.php:221 gis_data_editor.php:275 js/messages.php:293
+msgid "Outer Ring"
 msgstr ""
 
 #: gis_data_editor.php:223 gis_data_editor.php:277 js/messages.php:292
@@ -1842,10 +1842,6 @@ msgstr "Игнориране"
 #: js/messages.php:285 libraries/display_tbl.lib.php:1329
 msgid "Copy"
 msgstr "Копиране"
-
-#: js/messages.php:293
-msgid "Outer Ring"
-msgstr ""
 
 #: js/messages.php:299
 #, fuzzy

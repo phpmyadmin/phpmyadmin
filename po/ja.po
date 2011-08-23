@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-23 10:38+0200\n"
+"POT-Creation-Date: 2011-08-23 11:03+0200\n"
 "PO-Revision-Date: 2011-08-22 12:15+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
@@ -893,8 +893,8 @@ msgstr "ルーチンを追加する"
 msgid "Linestring"
 msgstr "行の終端記号"
 
-#: gis_data_editor.php:221 gis_data_editor.php:275
-msgid "Outer Ring:"
+#: gis_data_editor.php:221 gis_data_editor.php:275 js/messages.php:293
+msgid "Outer Ring"
 msgstr ""
 
 #: gis_data_editor.php:223 gis_data_editor.php:277 js/messages.php:292
@@ -1814,10 +1814,6 @@ msgstr "無視"
 #: js/messages.php:285 libraries/display_tbl.lib.php:1329
 msgid "Copy"
 msgstr "コピー"
-
-#: js/messages.php:293
-msgid "Outer Ring"
-msgstr ""
 
 #: js/messages.php:299
 msgid "Add columns"

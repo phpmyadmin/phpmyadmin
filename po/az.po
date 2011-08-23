@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-23 10:38+0200\n"
+"POT-Creation-Date: 2011-08-23 11:03+0200\n"
 "PO-Revision-Date: 2010-03-12 09:11+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: azerbaijani <az@li.org>\n"
@@ -931,8 +931,8 @@ msgstr "Yeni sahe elave et"
 msgid "Linestring"
 msgstr "Setir leğvedicisi (Lines terminated by)"
 
-#: gis_data_editor.php:221 gis_data_editor.php:275
-msgid "Outer Ring:"
+#: gis_data_editor.php:221 gis_data_editor.php:275 js/messages.php:293
+msgid "Outer Ring"
 msgstr ""
 
 #: gis_data_editor.php:223 gis_data_editor.php:277 js/messages.php:292
@@ -1891,10 +1891,6 @@ msgstr "Diqqete Alma"
 
 #: js/messages.php:285 libraries/display_tbl.lib.php:1329
 msgid "Copy"
-msgstr ""
-
-#: js/messages.php:293
-msgid "Outer Ring"
 msgstr ""
 
 #: js/messages.php:299

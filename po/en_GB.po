@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-23 10:38+0200\n"
+"POT-Creation-Date: 2011-08-23 11:03+0200\n"
 "PO-Revision-Date: 2011-08-18 22:40+0200\n"
 "Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
@@ -891,9 +891,9 @@ msgstr "Add a point"
 msgid "Linestring"
 msgstr "Linestring"
 
-#: gis_data_editor.php:221 gis_data_editor.php:275
-msgid "Outer Ring:"
-msgstr "Outer Ring:"
+#: gis_data_editor.php:221 gis_data_editor.php:275 js/messages.php:293
+msgid "Outer Ring"
+msgstr ""
 
 #: gis_data_editor.php:223 gis_data_editor.php:277 js/messages.php:292
 msgid "Inner Ring"
@@ -1805,10 +1805,6 @@ msgstr "Ignore"
 #: js/messages.php:285 libraries/display_tbl.lib.php:1329
 msgid "Copy"
 msgstr "Copy"
-
-#: js/messages.php:293
-msgid "Outer Ring"
-msgstr ""
 
 #: js/messages.php:299
 msgid "Add columns"
@@ -12843,6 +12839,9 @@ msgstr ""
 #: po/advisory_rules.php:268
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#~ msgid "Outer Ring:"
+#~ msgstr "Outer Ring:"
 
 #~ msgid "Filters"
 #~ msgstr "Filters"

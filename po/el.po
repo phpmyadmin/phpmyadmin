@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-23 10:38+0200\n"
+"POT-Creation-Date: 2011-08-23 11:03+0200\n"
 "PO-Revision-Date: 2011-08-23 08:34+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
@@ -893,8 +893,8 @@ msgstr "Προσθήκη σημείου"
 msgid "Linestring"
 msgstr "Κείμενο γραμμής"
 
-#: gis_data_editor.php:221 gis_data_editor.php:275
-msgid "Outer Ring:"
+#: gis_data_editor.php:221 gis_data_editor.php:275 js/messages.php:293
+msgid "Outer Ring"
 msgstr "Εξωτερικός δακτύλιος"
 
 #: gis_data_editor.php:223 gis_data_editor.php:277 js/messages.php:292
@@ -1810,10 +1810,6 @@ msgstr "Παράληψη"
 #: js/messages.php:285 libraries/display_tbl.lib.php:1329
 msgid "Copy"
 msgstr "Αντιγραφή"
-
-#: js/messages.php:293
-msgid "Outer Ring"
-msgstr "Εξωτερικός δακτύλιος"
 
 #: js/messages.php:299
 msgid "Add columns"
@@ -13080,6 +13076,9 @@ msgstr ""
 #: po/advisory_rules.php:268
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#~ msgid "Outer Ring:"
+#~ msgstr "Εξωτερικός δακτύλιος"
 
 #~ msgid "Filters"
 #~ msgstr "Φίλτρα"
