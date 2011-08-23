@@ -11,13 +11,6 @@
 if (!defined('PMA_MINIMUM_COMMON') && !defined('TESTSUITE')) {
     exit();
 }
-
-function PMA_ieFilter($start_color, $end_color)
-{
-    return PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 6 && PMA_USR_BROWSER_VER <= 8
-        ? 'filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr="' . $start_color . '", endColorstr="' . $end_color . '");'
-        : '';
-}
 ?>
 /******************************************************************************/
 /* general tags */
@@ -1673,12 +1666,7 @@ table#serverconnection_trg_local  {
     -moz-border-radius: 11px;
     -webkit-border-radius: 11px;
     border-radius: 11px;
-    background-image: url(./themes/svg_gradient.php?from=ffffff&to=cccccc);
-    background-size: 100% 100%;
-    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
-    background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
-    background: -o-linear-gradient(top,  #ffffff,  #cccccc);
-    <?php echo PMA_ieFilter('#ffffff', '#cccccc'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
     border: 1px solid #444444;
     cursor: pointer;
 }
@@ -2311,39 +2299,7 @@ span.CodeMirror-selected {
 .CodeMirror-matchingbracket {color: #0f0 !important;}
 .CodeMirror-nonmatchingbracket {color: #f22 !important;}
 
-span.cm-keyword, span.cm-statement-verb {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_reservedWord']; ?>;
-}
-span.cm-variable {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_identifier']; ?>;
-}
-span.cm-comment {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['comment']; ?>;
-}
-span.cm-mysql-string {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['quote']; ?>;
-}
-span.cm-operator {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['punct']; ?>;
-}
-span.cm-mysql-word {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha']; ?>;
-}
-span.cm-builtin {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_functionName']; ?>;
-}
-span.cm-variable-2 {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_columnType']; ?>;
-}
-span.cm-variable-3 {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_columnAttrib']; ?>;
-}
-span.cm-separator {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['punct']; ?>;
-}
-span.cm-number {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['digit_integer']; ?>;
-}
+<?php echo $_SESSION['PMA_Theme']->getCssCodeMirror(); ?>
 
 .colborder {
     border-right: solid 1px #FFFFFF;

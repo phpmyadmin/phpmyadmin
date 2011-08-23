@@ -11,18 +11,6 @@
 if (!defined('PMA_MINIMUM_COMMON')) {
     exit();
 }
-
-function PMA_ieFilter($start_color, $end_color)
-{
-    return PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 6 && PMA_USR_BROWSER_VER <= 8
-        ? 'filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr="' . $start_color . '", endColorstr="' . $end_color . '");'
-        : '';
-}
-function PMA_ieClearFilter() {
-    return PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 6 && PMA_USR_BROWSER_VER <= 8
-        ? 'filter: none'
-        : '';
-}
 ?>
 /******************************************************************************/
 
@@ -116,12 +104,7 @@ a:hover {
     -moz-border-radius:5px;
     -webkit-border-radius:5px;
     border-radius:5px;
-    background-image: url(./themes/svg_gradient.php?from=ffffff&to=cccccc);
-    background-size: 100% 100%;
-    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
-    background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
-    background: -o-linear-gradient(top,  #ffffff,  #cccccc);
-    <?php echo PMA_ieFilter('#ffffff', '#cccccc'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
 }
 
 dfn {
@@ -137,12 +120,7 @@ th {
     font-weight:        bold;
     color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     background:         #f3f3f3;
-    background-image: url(./themes/svg_gradient.php?from=ffffff&to=cccccc);
-    background-size: 100% 100%;
-    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
-    background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
-    background: -o-linear-gradient(top,  #ffffff,  #cccccc);
-    <?php echo PMA_ieFilter('#ffffff', '#cccccc'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
 }
 
 a img {
@@ -211,21 +189,11 @@ input[type=submit]{
 
     text-shadow: 0 1px 0 #fff;
 
-    background-image: url(./themes/svg_gradient.php?from=ffffff&to=cccccc);
-    background-size: 100% 100%;
-    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
-    background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
-    background: -o-linear-gradient(top,  #ffffff,  #cccccc);
-    <?php echo PMA_ieFilter('#ffffff', '#cccccc'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
 }
 
 input[type=submit]:hover{position: relative;
-    background-image: url(./themes/svg_gradient.php?from=cccccc&to=dddddd);
-    background-size: 100% 100%;
-    background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd));
-    background: -moz-linear-gradient(top,  #cccccc,  #dddddd);
-    background: -o-linear-gradient(top,  #cccccc,  #dddddd);
-    <?php echo PMA_ieFilter('#cccccc', '#dddddd'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('cccccc', 'dddddd'); ?>
     cursor:pointer;
 }
 
@@ -320,12 +288,7 @@ select{
 }
 
 select[multiple] {
-    background: #fff;
-    background: -webkit-gradient(linear, center top, center bottom, from(#fff), color-stop(0.8, #f1f1f1), to(#fbfbfb));
-    background: -webkit-linear-gradient(#fff, #f1f1f1 80%, #fbfbfb);
-    background: -moz-linear-gradient(#fff, #f1f1f1 80%, #fbfbfb);
-    /* none for Opera 11.10 as <option>s always have solid white background */
-    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#f2f2f2");
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'f2f2f2'); ?>
 }
 
 /* Icon sprites */
@@ -539,14 +502,14 @@ button.mult_submit {
 table tr.odd th,
 .odd {
     background: #fff;
-    <?php echo PMA_ieClearFilter(); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssIEClearFilter(); ?>
 }
 
 /* even items 2,4,6,8,... */
 table tr.even th,
 .even {
     background: #f3f3f3;
-    <?php echo PMA_ieClearFilter(); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssIEClearFilter(); ?>
 }
 
 /* odd table rows 1,3,5,7,... */
@@ -1634,20 +1597,10 @@ div#profilingchart {
     -moz-box-shadow: 1px 1px 2px rgba(0,0,0,.5);
     text-shadow: #fff 0 1px 0;
     */
-    background-image: url(./themes/svg_gradient.php?from=ffffff&to=cccccc);
-    background-size: 100% 100%;
-    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
-    background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
-    background: -o-linear-gradient(top,  #ffffff,  #cccccc);
-    <?php echo PMA_ieFilter('#ffffff', '#cccccc'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
 }
 #sectionlinks a:hover, .buttonlinks a:hover, a.button:hover {
-    background-image: url(./themes/svg_gradient.php?from=cccccc&to=dddddd);
-    background-size: 100% 100%;
-    background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd));
-    background: -moz-linear-gradient(top,  #cccccc,  #dddddd);
-    background: -o-linear-gradient(top,  #cccccc,  #dddddd);
-    <?php echo PMA_ieFilter('#cccccc', '#dddddd'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('cccccc', 'dddddd'); ?>
 }
 
 div#sqlquerycontainer {
@@ -2064,21 +2017,11 @@ input[type=text].invalid_value,
 
     text-shadow: 0 1px 0 #fff;
 
-    background-image: url(./themes/svg_gradient.php?from=ffffff&to=cccccc);
-    background-size: 100% 100%;
-    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
-    background: -moz-linear-gradient(top,  #ffffff,  #cccccc);
-    background: -o-linear-gradient(top,  #ffffff,  #cccccc);
-    <?php echo PMA_ieFilter('#ffffff', '#cccccc'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
     cursor: pointer;
 }
 #buttonGo:hover{
-    background-image: url(./themes/svg_gradient.php?from=cccccc&to=dddddd);
-    background-size: 100% 100%;
-    background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd));
-    background: -moz-linear-gradient(top,  #cccccc,  #dddddd);
-    background: -o-linear-gradient(top,  #cccccc,  #dddddd);
-    <?php echo PMA_ieFilter('#cccccc', '#dddddd'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('cccccc', 'dddddd'); ?>
 }
 
 .format_specific_options h3 {
@@ -2732,39 +2675,7 @@ span.CodeMirror-selected {
 .CodeMirror-matchingbracket {color: #0f0 !important;}
 .CodeMirror-nonmatchingbracket {color: #f22 !important;}
 
-span.cm-keyword, span.cm-statement-verb {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_reservedWord']; ?>;
-}
-span.cm-variable {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_identifier']; ?>;
-}
-span.cm-comment {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['comment']; ?>;
-}
-span.cm-mysql-string {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['quote']; ?>;
-}
-span.cm-operator {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['punct']; ?>;
-}
-span.cm-mysql-word {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha']; ?>;
-}
-span.cm-builtin {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_functionName']; ?>;
-}
-span.cm-variable-2 {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_columnType']; ?>;
-}
-span.cm-variable-3 {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_columnAttrib']; ?>;
-}
-span.cm-separator {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['punct']; ?>;
-}
-span.cm-number {
-    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['digit_integer']; ?>;
-}
+<?php echo $_SESSION['PMA_Theme']->getCssCodeMirror(); ?>
 
 .colborder {
     border-right: 1px solid #FFF;
@@ -2913,12 +2824,7 @@ span.cm-number {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
 
-    background-image: url(./themes/svg_gradient.php?from=eeeeee&to=cccccc);
-    background-size: 100% 100%;
-    background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#cccccc));
-    background: -moz-linear-gradient(top,  #eeeeee,  #cccccc);
-    background: -o-linear-gradient(top,  #eeeeee,  #cccccc);
-    <?php echo PMA_ieFilter('#eeeeee', '#cccccc'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('eeeeee', 'cccccc'); ?>
 }
 
 .navigation td {
@@ -2955,12 +2861,7 @@ span.cm-number {
     cursor: pointer;
     text-shadow: none;
 
-    background-image: url(./themes/svg_gradient.php?from=333333&to=555555);
-    background-size: 100% 100%;
-    background: -webkit-gradient(linear, left top, left bottom, from(#333333), to(#555555));
-    background: -moz-linear-gradient(top,  #333333,  #555555);
-    background: -o-linear-gradient(top,  #333333,  #555555);
-    <?php echo PMA_ieFilter('#333333', '#555555'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('333333', '555555'); ?>
 }
 
 .navigation select {

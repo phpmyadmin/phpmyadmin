@@ -5,14 +5,14 @@
  * @package phpMyAdmin-test
  */
 
-require_once 'PMA_GIS_Geometry_test.php';
+require_once 'PMA_GIS_Geom_test.php';
 require_once 'libraries/gis/pma_gis_geometry.php';
 require_once 'libraries/gis/pma_gis_polygon.php';
 
 /**
  * Tests for PMA_GIS_Polygon class
  */
-class PMA_GIS_PolygonTest extends PMA_GIS_GeometryTest
+class PMA_GIS_PolygonTest extends PMA_GIS_GeomTest
 {
     /**
      * @var    PMA_GIS_Polygon
@@ -82,6 +82,12 @@ class PMA_GIS_PolygonTest extends PMA_GIS_GeometryTest
         $temp1 = $temp;
         unset($temp1[0]['POLYGON'][1][3]['y']);
 
+        $temp2 = $temp;
+        $temp2[0]['POLYGON']['no_of_lines'] = 0;
+
+        $temp3 = $temp;
+        $temp3[0]['POLYGON'][1]['no_of_points'] = 3;
+
         return array(
             array(
                 $temp,
@@ -109,7 +115,21 @@ class PMA_GIS_PolygonTest extends PMA_GIS_GeometryTest
                 0,
                 '0',
                 'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 0))'
-            )
+            ),
+            // should have atleast one ring
+            array(
+                $temp2,
+                0,
+                '0',
+                'POLYGON((35 10,10 20,15 40,45 45,35 10))'
+            ),
+            // a ring should have atleast four points
+            array(
+                $temp3,
+                0,
+                '0',
+                'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30))'
+            ),
         );
     }
 

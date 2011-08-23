@@ -96,7 +96,7 @@ function PMA_getJsValue($key, $value, $escape = true)
     } elseif (is_array($value)) {
         $result .= '[';
         foreach ($value as $id => $val) {
-            $result .= PMA_formatJsVal($value) . ",";
+            $result .= PMA_formatJsVal($val) . ",";
         }
         $result .= "];\n";
     } else {

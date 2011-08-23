@@ -386,21 +386,15 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
         if (defined('PMA_MYSQL_INT_VERSION')) {
             if (PMA_MYSQL_INT_VERSION >= 50500) {
                 $mysql = '5.5';
-                /* l10n: Language to use for MySQL 5.5 documentation, please
-                 * use only languages which do exist in official documentation.
-                 */
+                /* l10n: Please check that translation actually exists. */
                 $lang = _pgettext('MySQL 5.5 documentation language', 'en');
             } else if (PMA_MYSQL_INT_VERSION >= 50100) {
                 $mysql = '5.1';
-                /* l10n: Language to use for MySQL 5.1 documentation, please
-                 * use only languages which do exist in official documentation.
-                 */
+                /* l10n: Please check that translation actually exists. */
                 $lang = _pgettext('MySQL 5.1 documentation language', 'en');
             } else {
                 $mysql = '5.0';
-                /* l10n: Language to use for MySQL 5.0 documentation, please use
-                 * only languages which do exist in official documentation.
-                 */
+                /* l10n: Please check that translation actually exists. */
                 $lang = _pgettext('MySQL 5.0 documentation language', 'en');
             }
         }
@@ -1594,9 +1588,7 @@ function PMA_localisedDate($timestamp = -1, $format = '')
         __('Sat'));
 
     if ($format == '') {
-        /* l10n: See http://www.php.net/manual/en/function.strftime.php
-         * to define the format string
-         */
+        /* l10n: See http://www.php.net/manual/en/function.strftime.php */
         $format = __('%B %d, %Y at %I:%M %p');
     }
 

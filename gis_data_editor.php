@@ -218,7 +218,7 @@ if (isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
                         echo __("Linestring"); echo($i + 1 . ':');
                     } else {
                         if ($i == 0) {
-                            echo __("Outer Ring:");
+                            echo __("Outer Ring") . ':';
                         } else {
                             echo __("Inner Ring"); echo($i . ':');
                         }
@@ -272,7 +272,7 @@ if (isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
                     for ($i = 0; $i < $no_of_lines; $i++) {
                         echo('<br/><br/>');
                         if ($i == 0) {
-                            echo __("Outer Ring:");
+                            echo __("Outer Ring") . ':';
                         } else {
                             echo __("Inner Ring"); echo($i . ':');
                         }

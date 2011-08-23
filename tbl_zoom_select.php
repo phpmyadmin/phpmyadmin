@@ -36,14 +36,13 @@ $GLOBALS['js_include'][] = 'jquery/timepicker.js';
  */
 
 if (isset($_REQUEST['get_data_row']) && $_REQUEST['get_data_row'] == true) {
-
     $extra_data = array();
     $row_info_query = 'SELECT * FROM `' . $_REQUEST['db'] . '`.`' . $_REQUEST['table'] . '` WHERE ' .  $_REQUEST['where_clause'];
     $result     = PMA_DBI_query( $row_info_query . ";" , null, PMA_DBI_QUERY_STORE);
     $fields_meta = PMA_DBI_get_fields_meta($result);
-    while ($row = PMA_DBI_fetch_assoc($result))
-	$extra_data['row_info'] = $row;
-
+    while ($row = PMA_DBI_fetch_assoc($result)) {
+        $extra_data['row_info'] = $row;
+    }
     PMA_ajaxResponse(NULL, true, $extra_data);
 }
 
@@ -52,44 +51,41 @@ $titles['Browse'] = PMA_tbl_setTitle($GLOBALS['cfg']['PropertiesIconic'], $pmaTh
  * Not selection yet required -> displays the selection form
  */
 
-    // Gets some core libraries
-    require_once './libraries/tbl_common.php';
-    //$err_url   = 'tbl_select.php' . $err_url;
-    $url_query .= '&amp;goto=tbl_select.php&amp;back=tbl_select.php';
+// Gets some core libraries
+require_once './libraries/tbl_common.php';
+$url_query .= '&amp;goto=tbl_select.php&amp;back=tbl_select.php';
 
-    /**
-     * Gets tables informations
-     */
-    require_once './libraries/tbl_info.inc.php';
+/**
+ * Gets tables informations
+ */
+require_once './libraries/tbl_info.inc.php';
 
-    /**
-     * Displays top menu links
-     */
-    require_once './libraries/tbl_links.inc.php';
+/**
+ * Displays top menu links
+ */
+require_once './libraries/tbl_links.inc.php';
 
-    if (! isset($goto)) {
-        $goto = $GLOBALS['cfg']['DefaultTabTable'];
-    }
-    // Defines the url to return to in case of error in the next sql statement
-    $err_url   = $goto . '?' . PMA_generate_common_url($db, $table);
+if (! isset($goto)) {
+    $goto = $GLOBALS['cfg']['DefaultTabTable'];
+}
+// Defines the url to return to in case of error in the next sql statement
+$err_url   = $goto . '?' . PMA_generate_common_url($db, $table);
 
-    // Gets the list and number of fields
+// Gets the list and number of fields
 
-    list($fields_list, $fields_type, $fields_collation, $fields_null) = PMA_tbl_getFields($table,$db);
-    $fields_cnt = count($fields_list);
+list($fields_list, $fields_type, $fields_collation, $fields_null) = PMA_tbl_getFields($table,$db);
+$fields_cnt = count($fields_list);
 
-    // retrieve keys into foreign fields, if any
-    // check also foreigners even if relwork is FALSE (to get
-    // foreign keys from innodb)
-    $foreigners = PMA_getForeigners($db, $table);
-    $flag = 1;
-    $tbl_fields_type = $tbl_fields_collation = $tbl_fields_null = array();
-    if(!isset($zoom_submit) && !isset($inputs))
-        $dataLabel = PMA_getDisplayField($db,$table);
-
-    ?>
-
-
+// retrieve keys into foreign fields, if any
+// check also foreigners even if relwork is FALSE (to get
+// foreign keys from innodb)
+$foreigners = PMA_getForeigners($db, $table);
+$flag = 1;
+$tbl_fields_type = $tbl_fields_collation = $tbl_fields_null = array();
+if (! isset($zoom_submit) && ! isset($inputs)) {
+    $dataLabel = PMA_getDisplayField($db,$table);
+}
+?>
 <div id="sqlqueryresults"></div>
 <fieldset id="fieldset_subtab">
 <?php
@@ -101,26 +97,17 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params);
 /**
  *  Set the field name,type,collation and whether null on select of a coulmn
  */
-if(isset($inputs) && ($inputs[0] != 'pma_null' || $inputs[1] != 'pma_null'))
-{
+if (isset($inputs) && ($inputs[0] != 'pma_null' || $inputs[1] != 'pma_null')) {
     $flag = 2;
-    for($i = 0 ; $i < 4 ; $i++)
-    {
-        if($inputs[$i] != 'pma_null')
-        {
-	    $key = array_search($inputs[$i],$fields_list);
-	    $tbl_fields_type[$i] = $fields_type[$key];
-	    $tbl_fields_collation[$i] = $fields_collation[$key];
-	    $tbl_fields_null[$i] = $fields_null[$key];
-	}
-
+    for ($i = 0 ; $i < 4 ; $i++) {
+        if ($inputs[$i] != 'pma_null') {
+            $key = array_search($inputs[$i], $fields_list);
+            $tbl_fields_type[$i] = $fields_type[$key];
+            $tbl_fields_collation[$i] = $fields_collation[$key];
+            $tbl_fields_null[$i] = $fields_null[$key];
+        }
     }
 }
-
-
-?>
-
-<?php
 
 /*
  * Form for input criteria
@@ -133,9 +120,6 @@ if(isset($inputs) && ($inputs[0] != 'pma_null' || $inputs[1] != 'pma_null'))
 <input type="hidden" name="back" value="tbl_zoom_select.php" />
 <input type="hidden" name="flag" id="id_flag" value=<?php echo $flag; ?> />
 
-
-
-
 <fieldset id="inputSection">
 
 <legend><?php echo __('Do a "query by example" (wildcard: "%") for two different columns') ?></legend>
@@ -145,112 +129,105 @@ if(isset($inputs) && ($inputs[0] != 'pma_null' || $inputs[1] != 'pma_null'))
 <?php
     $odd_row = true;
 
-for($i = 0 ; $i < 4 ; $i++){
-
-    if($i == 2){
-	echo "<tr><td>";
+for ($i = 0; $i < 4; $i++) {
+    if ($i == 2) {
+        echo "<tr><td>";
         echo __("Additional search criteria");
-	echo "</td><tr>";
+        echo "</td><tr>";
     }
-
 ?>
     <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
         <th><select name="inputs[]" id=<?php echo 'tableid_' . $i?> >
         <option value= <?php echo 'pma_null'?>><?php echo __('None');  ?> </option>
-        <?php
-        for ($j = 0 ; $j < $fields_cnt ; $j++){
-            if(isset($inputs[$i]) && $inputs[$i] == htmlspecialchars($fields_list[$j])){?>
+    <?php
+    for ($j = 0 ; $j < $fields_cnt ; $j++) {
+        if (isset($inputs[$i]) && $inputs[$i] == htmlspecialchars($fields_list[$j])) {?>
                 <option value=<?php echo htmlspecialchars($fields_list[$j]);?> Selected>  <?php echo htmlspecialchars($fields_list[$j]);?></option>
         <?php
-            }
-            else{ ?>
+        } else { ?>
                 <option value=<?php echo htmlspecialchars($fields_list[$j]);?> >  <?php echo htmlspecialchars($fields_list[$j]);?></option>
         <?php
-            }
-        } ?>
+        }
+    } ?>
         </select></th>
         <td><?php if(isset($tbl_fields_type[$i]))echo $tbl_fields_type[$i]; ?></td>
         <td><?php if(isset($tbl_fields_collation[$i]))echo $tbl_fields_collation[$i]; ?></td>
 
-	<td>
-	<?php if(isset($inputs) && $inputs[$i] != 'pma_null'){ ?>
-	    <select name="zoomFunc[]">
-            <?php
+<td>
+<?php
+    if (isset($inputs) && $inputs[$i] != 'pma_null') { ?>
+    <select name="zoomFunc[]">
+        <?php
+        if (strncasecmp($tbl_fields_type[$i], 'enum', 4) == 0) {
+            foreach ($GLOBALS['cfg']['EnumOperators'] as $fc) {
+                if (isset($zoomFunc[$i]) && $zoomFunc[$i] == htmlspecialchars($fc)) {
+                    echo "\n" . '                        '
+                    . '<option value="' . htmlspecialchars($fc) . '" Selected>'
+                    . htmlspecialchars($fc) . '</option>';
+                } else {
+                    echo "\n" . '                        '
+                    . '<option value="' . htmlspecialchars($fc) . '">'
+                    . htmlspecialchars($fc) . '</option>';
+                }
+            }
+        } elseif (preg_match('@char|blob|text|set@i', $tbl_fields_type[$i])) {
+            foreach ($GLOBALS['cfg']['TextOperators'] as $fc) {
+                if (isset($zoomFunc[$i]) && $zoomFunc[$i] == $fc) {
+                    echo "\n" . '                        '
+                    . '<option value="' . htmlspecialchars($fc) . '" Selected>'
+                    . htmlspecialchars($fc) . '</option>';
+                } else {
+                    echo "\n" . '                        '
+                    . '<option value="' . htmlspecialchars($fc) . '">'
+                    . htmlspecialchars($fc) . '</option>';
+                }
+            }
+        } else {
+            foreach ($GLOBALS['cfg']['NumOperators'] as $fc) {
+                if (isset($zoomFunc[$i]) && $zoomFunc[$i] == $fc) {
+                    echo "\n" . '                        '
+                    . '<option value="' .  htmlspecialchars($fc) . '" Selected>'
+                    . htmlspecialchars($fc) . '</option>';
+                } else {
+                    echo "\n" . '                        '
+                    . '<option value="' .  htmlspecialchars($fc) . '">'
+                    . htmlspecialchars($fc) . '</option>';
+                }
+            }   
+        } // end if... else...
 
-	        if (strncasecmp($tbl_fields_type[$i], 'enum', 4) == 0) {
-	            foreach ($GLOBALS['cfg']['EnumOperators'] as $fc) {
-			if(isset($zoomFunc[$i]) && $zoomFunc[$i] == htmlspecialchars($fc)){
-		            echo "\n" . '                        '
-		            . '<option value="' . htmlspecialchars($fc) . '" Selected>'
-		            . htmlspecialchars($fc) . '</option>';
-			}
-			else {
-		            echo "\n" . '                        '
-		            . '<option value="' . htmlspecialchars($fc) . '">'
-		            . htmlspecialchars($fc) . '</option>';
-			}
-		    }
-	        } elseif (preg_match('@char|blob|text|set@i', $tbl_fields_type[$i])) {
-	            foreach ($GLOBALS['cfg']['TextOperators'] as $fc) {
-			if(isset($zoomFunc[$i]) && $zoomFunc[$i] == $fc){
-		            echo "\n" . '                        '
-		            . '<option value="' . htmlspecialchars($fc) . '" Selected>'
-		            . htmlspecialchars($fc) . '</option>';
-			}
-			else {
-		            echo "\n" . '                        '
-		            . '<option value="' . htmlspecialchars($fc) . '">'
-		            . htmlspecialchars($fc) . '</option>';
-			}
-		    }
-	    	} else {
-	            foreach ($GLOBALS['cfg']['NumOperators'] as $fc) {
-			if(isset($zoomFunc[$i]) && $zoomFunc[$i] == $fc){
-		            echo "\n" . '                        '
-		    	    . '<option value="' .  htmlspecialchars($fc) . '" Selected>'
-		    	    . htmlspecialchars($fc) . '</option>';
-			}
-			else {
-		            echo "\n" . '                        '
-		    	    . '<option value="' .  htmlspecialchars($fc) . '">'
-		    	    . htmlspecialchars($fc) . '</option>';
-			}
-		    }
-	        } // end if... else...
-
-                if ($tbl_fields_null[$i]) {
-	            foreach ($GLOBALS['cfg']['NullOperators'] as $fc) {
-			if(isset($zoomFunc[$i]) && $zoomFunc[$i] == $fc){
-		            echo "\n" . '                        '
-		    	    . '<option value="' .  htmlspecialchars($fc) . '" Selected>'
-		    	    . htmlspecialchars($fc) . '</option>';
-			}
-			else {
-		            echo "\n" . '                        '
-		    	    . '<option value="' .  htmlspecialchars($fc) . '">'
-		    	    . htmlspecialchars($fc) . '</option>';
-			}
-	            }
-	        }
+        if ($tbl_fields_null[$i]) {
+            foreach ($GLOBALS['cfg']['NullOperators'] as $fc) {
+                if (isset($zoomFunc[$i]) && $zoomFunc[$i] == $fc) {
+                    echo "\n" . '                        '
+                    . '<option value="' .  htmlspecialchars($fc) . '" Selected>'
+                    . htmlspecialchars($fc) . '</option>';
+                } else {
+                    echo "\n" . '                        '
+                    . '<option value="' .  htmlspecialchars($fc) . '">'
+                    . htmlspecialchars($fc) . '</option>';
+                }
+            }
+        }
             ?>
             </select>
             </td>
             <td>
-	    <?php
-	    $field = $inputs[$i];
+    <?php
+        $field = $inputs[$i];
 
-            $foreignData = PMA_getForeignData($foreigners, $field, false, '', '');
-	    if (isset($fields))
-	        echo PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fields_type, $i ,$db, $table, $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], $fields);
-	    else
-	        echo PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fields_type, $i ,$db, $table, $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], '');
-
+        $foreignData = PMA_getForeignData($foreigners, $field, false, '', '');
+        if (isset($fields)) {
+            echo PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fields_type, $i ,$db, $table, $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], $fields);
+        } else {
+            echo PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fields_type, $i ,$db, $table, $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], '');
         }
-        else{ ?>
+    } else { ?>
 
        </td><td></td>
 
-        <?php } ?>
+        <?php 
+    } ?>
 
         </td>
     </tr>
@@ -260,22 +237,20 @@ for($i = 0 ; $i < 4 ; $i++){
     <input type="hidden" name="collations[<?php echo $i; ?>]"
         value="<?php if(isset($tbl_fields_collation[$i]))echo $tbl_fields_collation[$i]; ?>" />
 
-
-
 <?php
-    }//end for
+}//end for
 ?>
     </table>
 
-    <?php
-    /*
-     * Other inputs like data label and mode go after selection of column criteria
-     */
+<?php
+/*
+ * Other inputs like data label and mode go after selection of column criteria
+ */
 
-    //Set default datalabel if not selected
+//Set default datalabel if not selected
     if(isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null') {
         if ($dataLabel == '')
-	    $dataLabel = PMA_getDisplayField($db,$table);
+    $dataLabel = PMA_getDisplayField($db,$table);
     }
     ?>
     <table class="data">
@@ -302,9 +277,9 @@ for($i = 0 ; $i < 4 ; $i++){
     <?php
       }
       else { ?>
-	<input type="text" name="maxPlotLimit" value="<?php echo $GLOBALS['cfg']['maxRowPlotLimit']; ?>" /></td></tr>
+<input type="text" name="maxPlotLimit" value="<?php echo $GLOBALS['cfg']['maxRowPlotLimit']; ?>" /></td></tr>
     <?php
-	} ?>
+} ?>
     </table>
 
 </fieldset>
@@ -334,7 +309,7 @@ if(isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null' &
     $sql_query .= ' FROM ' . PMA_backquote($table);
     for($i = 0 ; $i < 4 ; $i++){
         if($inputs[$i] == 'pma_null')
-	    continue;
+    continue;
         $tmp = array();
         // The where clause
         $charsets = array();
@@ -350,7 +325,7 @@ if(isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null' &
         if ($w) {
             $sql_query .= ' WHERE ' . implode(' AND ', $w);
         }
-	$sql_query .= ' LIMIT ' . $maxPlotLimit;
+$sql_query .= ' LIMIT ' . $maxPlotLimit;
 
     /*
      * Query execution part
@@ -359,19 +334,19 @@ if(isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null' &
     $fields_meta = PMA_DBI_get_fields_meta($result);
     while ($row = PMA_DBI_fetch_assoc($result)) {
         //Need a row with indexes as 0,1,2 for the PMA_getUniqueCondition hence using a temporary array
-	$tmpRow = array();
-	foreach($row as $val)
-	    $tmpRow[] = $val;
+$tmpRow = array();
+foreach($row as $val)
+    $tmpRow[] = $val;
         //Get unique conditon on each row (will be needed for row update)
-	$uniqueCondition = PMA_getUniqueCondition($result, $fields_cnt, $fields_meta, $tmpRow, true);
+$uniqueCondition = PMA_getUniqueCondition($result, $fields_cnt, $fields_meta, $tmpRow, true);
 
-	//Append it to row array as where_clause
-	$row['where_clause'] = $uniqueCondition[0];
-	if($dataLabel == $inputs[0] || $dataLabel == $inputs[1])
+//Append it to row array as where_clause
+$row['where_clause'] = $uniqueCondition[0];
+if($dataLabel == $inputs[0] || $dataLabel == $inputs[1])
             $data[] = array($inputs[0] => $row[$inputs[0]], $inputs[1] => $row[$inputs[1]], 'where_clause' => $uniqueCondition[0]);
-	else if($dataLabel)
+else if($dataLabel)
             $data[] = array($inputs[0] => $row[$inputs[0]], $inputs[1] => $row[$inputs[1]], $dataLabel => $row[$dataLabel], 'where_clause' => $uniqueCondition[0]);
-	else
+else
             $data[] = array($inputs[0] => $row[$inputs[0]], $inputs[1] => $row[$inputs[1]], $dataLabel => '', 'where_clause' => $uniqueCondition[0]);
     }
 
@@ -389,45 +364,45 @@ if(isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null' &
 
     <fieldset id="displaySection">
         <legend><?php echo __('Browse/Edit the points') ?></legend>
-	<center>
+<center>
         <?php
             //JSON encode the data(query result)
             if(isset($zoom_submit) && !empty($data)){ ?>
                 <div id='resizer' style="width:600px;height:400px">
-	        <?php if (isset($data)) ?><center> <a href="#" onClick="displayHelp();"><?php echo __('How to use'); ?></a> </center>
+        <?php if (isset($data)) ?><center> <a href="#" onClick="displayHelp();"><?php echo __('How to use'); ?></a> </center>
                 <div id="querydata" style="display:none">
                     <?php if(isset($data)) echo json_encode($data); ?>
                 </div>
-	        <div id="querychart" style="float:right"></div>
+        <div id="querychart" style="float:right"></div>
                 </div>
                 <?php
-	    } ?>
+    } ?>
         </center>
     <fieldset id='dataDisplay' style="display:none">
         <fieldset>
         <table class="data">
             <thead>
                 <tr>
-		<th> <?php echo __('Column'); ?> </th>
-		<th> <?php echo __('Null'); ?> </th>
+<th> <?php echo __('Column'); ?> </th>
+<th> <?php echo __('Null'); ?> </th>
                 <th> <?php echo __('Value'); ?> </th>
-		</tr>
+</tr>
             </thead>
             <tbody>
             <?php
                 $odd_row = true;
-        	for ($i = 4; $i < $fields_cnt + 4 ; $i++) {
-            	    $tbl_fields_type[$i] = $fields_type[$i - 4];
-            	    $fieldpopup = $fields_list[$i - 4];
-            	    $foreignData = PMA_getForeignData($foreigners, $fieldpopup, false, '', '');
+        for ($i = 4; $i < $fields_cnt + 4 ; $i++) {
+                $tbl_fields_type[$i] = $fields_type[$i - 4];
+                $fieldpopup = $fields_list[$i - 4];
+                $foreignData = PMA_getForeignData($foreigners, $fieldpopup, false, '', '');
                     ?>
                     <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
                         <th><?php echo htmlspecialchars($fields_list[$i - 4]); ?></th>
-		    	<th><?php echo '<input type="checkbox" class="checkbox_null" name="fields_null[ ' . $i . ' ]" id="fields_null_id_' . $i . '" />'; ?></th>
+    <th><?php echo '<input type="checkbox" class="checkbox_null" name="fields_null[ ' . $i . ' ]" id="fields_null_id_' . $i . '" />'; ?></th>
                         <th><?php echo PMA_getForeignFields_Values($foreigners, $foreignData, $fieldpopup, $tbl_fields_type, $i, $db, $table, $titles,$GLOBALS['cfg']['ForeignKeyMaxLimit'], '' ); ?> </th>
                     </tr>
                     <?php
-		} ?>
+} ?>
             </tbody>
         </table>
         </fieldset>

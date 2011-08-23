@@ -5,14 +5,14 @@
  * @package phpMyAdmin-test
  */
 
-require_once 'PMA_GIS_Geometry_test.php';
+require_once 'PMA_GIS_Geom_test.php';
 require_once 'libraries/gis/pma_gis_geometry.php';
 require_once 'libraries/gis/pma_gis_multilinestring.php';
 
 /**
  * Tests for PMA_GIS_Multilinestring class
  */
-class PMA_GIS_MultilinestringTest extends PMA_GIS_GeometryTest
+class PMA_GIS_MultilinestringTest extends PMA_GIS_GeomTest
 {
     /**
      * @var    PMA_GIS_Multilinestring
@@ -72,6 +72,12 @@ class PMA_GIS_MultilinestringTest extends PMA_GIS_GeometryTest
         $temp1 = $temp;
         unset($temp1[0]['MULTILINESTRING'][1][1]['y']);
 
+        $temp2 = $temp;
+        $temp2[0]['MULTILINESTRING']['no_of_lines'] = 0;
+
+        $temp3 = $temp;
+        $temp3[0]['MULTILINESTRING'][1]['no_of_points'] = 1;
+
         return array(
             array(
                 $temp,
@@ -99,7 +105,21 @@ class PMA_GIS_MultilinestringTest extends PMA_GIS_GeometryTest
                 0,
                 '0',
                 'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 0))'
-            )
+            ),
+            // atleast one line should be there
+            array(
+                $temp2,
+                0,
+                null,
+                'MULTILINESTRING((5.02 8.45,6.14 0.15))'
+            ),
+            // a line should have atleast two points
+            array(
+                $temp3,
+                0,
+                '0',
+                'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 0.47))'
+            ),
         );
     }
 
