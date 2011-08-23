@@ -11534,7 +11534,7 @@ msgstr "Nejvyšší počet zobrazených řádků"
 
 #: tbl_zoom_select.php:391
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "Projít/Upravit body"
 
 #: tbl_zoom_select.php:397
 #, fuzzy
