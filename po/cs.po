@@ -10260,10 +10260,9 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1568
-#, fuzzy
 #| msgid "Pause monitor"
 msgid "Using the monitor:"
-msgstr "Přerušit monitor"
+msgstr "Používání monitoru:"
 
 #: server_status.php:1570
 msgid ""
