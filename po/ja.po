@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-23 11:03+0200\n"
-"PO-Revision-Date: 2011-08-22 12:15+0200\n"
+"PO-Revision-Date: 2011-08-23 12:01+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -868,24 +868,23 @@ msgstr "空間データ"
 #: gis_data_editor.php:172 gis_data_editor.php:194 gis_data_editor.php:240
 #: gis_data_editor.php:290 js/messages.php:288
 msgid "Point"
-msgstr ""
+msgstr "座標"
 
 #: gis_data_editor.php:173 gis_data_editor.php:195 gis_data_editor.php:241
 #: gis_data_editor.php:291 js/messages.php:286
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:197 gis_data_editor.php:243
 #: gis_data_editor.php:293 js/messages.php:287
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:202 gis_data_editor.php:246 gis_data_editor.php:296
 #: js/messages.php:294
-#, fuzzy
 #| msgid "Add routine"
 msgid "Add a point"
-msgstr "ルーチンを追加する"
+msgstr "座標を追加する"
 
 #: gis_data_editor.php:218 js/messages.php:289
 #, fuzzy
@@ -1766,19 +1765,19 @@ msgstr "検索"
 
 #: js/messages.php:264
 msgid "Each point represents a data row."
-msgstr ""
+msgstr "プロット点は、それぞれの行のデータを表します。"
 
 #: js/messages.php:266
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "プロット点にマウスカーソルを重ねると、そのラベルが表示されます。"
 
 #: js/messages.php:268
 msgid "Use mousewheel to zoom in or out of the plot."
-msgstr ""
+msgstr "マウスホイールでズームの調整ができます。"
 
 #: js/messages.php:270
 msgid "Click and drag the mouse to navigate the plot."
-msgstr ""
+msgstr "ドラッグすることでプロットのスクロールが行えます。"
 
 #: js/messages.php:272
 msgid "Click reset zoom link to come back to original state."
@@ -1786,25 +1785,24 @@ msgstr ""
 
 #: js/messages.php:274
 msgid "Click a data point to view and possibly edit the data row."
-msgstr ""
+msgstr "プロット点をクリックすることで、行のデータの閲覧と編集が可能です。"
 
 #: js/messages.php:276
 msgid "The plot can be resized by dragging it along the bottom right corner."
-msgstr ""
+msgstr "グラフの右下をドラッグすることで、大きさの調整が行えます。"
 
 #: js/messages.php:278
 msgid "Strings are converted into integer for plotting"
-msgstr ""
+msgstr "文字列データは、数値に変換されてからプロットされます。"
 
 #: js/messages.php:280
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
-msgstr "カラムを追加・削除する"
+msgstr "カラムを 2 つ選択してください"
 
 #: js/messages.php:281
 msgid "Select two different columns"
-msgstr ""
+msgstr "異なるカラムを 2 つ選択してください"
 
 #: js/messages.php:284 tbl_change.php:316 tbl_indexes.php:211
 #: tbl_indexes.php:238
@@ -8023,10 +8021,9 @@ msgid "Table Search"
 msgstr "テーブル検索"
 
 #: libraries/tbl_select.lib.php:208 tbl_change.php:993
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "挿入"
+msgstr "編集／挿入"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 msgid ""
@@ -11275,7 +11272,7 @@ msgstr "行のサイズ "
 
 #: tbl_printview.php:388 tbl_structure.php:900
 msgid "Next autoindex"
-msgstr ""
+msgstr "次の自動付番"
 
 #: tbl_relation.php:276
 #, php-format
@@ -11301,7 +11298,7 @@ msgstr "外部キー制約"
 
 #: tbl_select.php:92
 msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "\"query by example\"を実行 (ワイルドカード: \"%\")"
+msgstr "定型問い合わせ (ワイルドカード: \"%\")"
 
 #: tbl_select.php:186
 msgid "Select columns (at least one):"
@@ -11569,10 +11566,9 @@ msgid "Create version"
 msgstr "バージョンを作成"
 
 #: tbl_zoom_select.php:141
-#, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "\"query by example\"を実行 (ワイルドカード: \"%\")"
+msgstr "異なる 2 つのカラムによる定型問い合わせ (ワイルドカード: \"%\")"
 
 #: tbl_zoom_select.php:152
 msgid "Additional search criteria"
