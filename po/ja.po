@@ -1803,7 +1803,7 @@ msgstr "カラムを 2 つ選択してください"
 
 #: js/messages.php:281
 msgid "Select two different columns"
-msgstr ""
+msgstr "異なるカラムを 2 つ選択してください"
 
 #: js/messages.php:284 tbl_change.php:316 tbl_indexes.php:211
 #: tbl_indexes.php:238
