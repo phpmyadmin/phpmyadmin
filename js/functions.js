@@ -684,8 +684,9 @@ $(document).ready(function() {
 
     /**
      * Add a date/time picker to each element that needs it
+     * (only when timepicker.js is loaded)
      */
-    if ($.datetimepicker != undefined) {
+    if ($.timepicker != undefined) {
         $('.datefield, .datetimefield').each(function() {
             PMA_addDatepicker($(this));
             });
