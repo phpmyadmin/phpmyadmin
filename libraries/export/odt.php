@@ -237,15 +237,13 @@ if (isset($plugin_list)) {
         /**
          * Get the unique keys in the table
          */
-        $keys_query     = PMA_DBI_get_table_indexes_sql($db, $table);
-        $keys_result    = PMA_DBI_query($keys_query);
-        $unique_keys    = array();
-        while ($key = PMA_DBI_fetch_assoc($keys_result)) {
+        $unique_keys = array();
+        $keys        = PMA_DBI_get_table_indexes($db, $table);
+        foreach ($keys as $key) {
             if ($key['Non_unique'] == 0) {
                 $unique_keys[] = $key['Column_name'];
             }
         }
-        PMA_DBI_free_result($keys_result);
 
         /**
          * Gets fields properties

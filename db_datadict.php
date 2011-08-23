@@ -76,7 +76,7 @@ foreach($tables as $table) {
      */
 
     PMA_DBI_select_db($db);
-    $result       = PMA_DBI_query(PMA_DBI_get_table_indexes_sql($db, $table));
+    $indexes      = PMA_DBI_get_table_indexes($db, $table);
     $primary      = '';
     $indexes      = array();
     $lastIndex    = '';
@@ -84,7 +84,7 @@ foreach($tables as $table) {
     $indexes_data = array();
     $pk_array     = array(); // will be use to emphasis prim. keys in the table
                              // view
-    while ($row = PMA_DBI_fetch_assoc($result)) {
+    foreach ($indexes as $row) {
         // Backups the list of primary keys
         if ($row['Key_name'] == 'PRIMARY') {
             $primary   .= $row['Column_name'] . ', ';
@@ -111,10 +111,6 @@ foreach($tables as $table) {
         }
 
     } // end while
-    if ($result) {
-        PMA_DBI_free_result($result);
-    }
-
 
     /**
      * Gets columns properties

@@ -259,9 +259,6 @@ class PMA_Tracker
         }
 
         $indexes = PMA_DBI_get_table_indexes($dbname, $tablename);
-        if (!$indexes) {
-            $indexes = array();
-        }
 
         $snapshot = array('COLUMNS' => $columns, 'INDEXES' => $indexes);
         $snapshot = serialize($snapshot);

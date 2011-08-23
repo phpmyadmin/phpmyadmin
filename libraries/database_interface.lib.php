@@ -1104,7 +1104,7 @@ function PMA_DBI_get_table_indexes_sql($database, $table, $where = null)
 }
 
 /**
-* array  PMA_DBI_get_table_indexes($database, $table, $link = null)
+* Returns indexes od a table
 *
 * @param    string  $database   name of database
 * @param    string  $table      name of the table whose indexes are to be retreived
@@ -1117,7 +1117,7 @@ function PMA_DBI_get_table_indexes($database, $table, $link = null)
     $indexes = PMA_DBI_fetch_result($sql, null, null, $link);
 
     if (! is_array($indexes) || count($indexes) < 1) {
-        return false;
+        return array();
     }
     return $indexes;
 }

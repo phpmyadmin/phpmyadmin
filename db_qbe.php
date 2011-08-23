@@ -755,8 +755,8 @@ if (isset($Field) && count($Field) > 0) {
             PMA_DBI_select_db($db);
 
             foreach ($tab_all as $tab) {
-                $ind_rs   = PMA_DBI_query(PMA_DBI_get_table_indexes_sql($db, $tab));
-                while ($ind = PMA_DBI_fetch_assoc($ind_rs)) {
+                $indexes = PMA_DBI_get_table_indexes($db, $tab);
+                foreach ($indexes as $ind) {
                     $col1 = $tab . '.' . $ind['Column_name'];
                     if (isset($col_all[$col1])) {
                         if ($ind['Non_unique'] == 0) {
