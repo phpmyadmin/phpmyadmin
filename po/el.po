@@ -1640,10 +1640,9 @@ msgid "Rule details"
 msgstr "Λεπτομέρειες ρόλου"
 
 #: js/messages.php:201
-#, fuzzy
 #| msgid "Authentication"
 msgid "Justification"
-msgstr "Πιστοποιίηση"
+msgstr "Δικαιολόγηση"
 
 #: js/messages.php:202
 msgid "Used variable / formula"
