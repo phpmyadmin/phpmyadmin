@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-22 14:48+0200\n"
-"PO-Revision-Date: 2011-08-23 08:10+0200\n"
+"PO-Revision-Date: 2011-08-23 08:11+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -1244,10 +1244,9 @@ msgid "Query cache usage"
 msgstr "Χρήση λανθάνουσας μνήμης ερωτήματος"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
-msgstr "Λανθάνουσα μνήμη ερωτήματος"
+msgstr "Χρησιμοποιημένη λανθάνουσα μνήμη ερωτήματος"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
