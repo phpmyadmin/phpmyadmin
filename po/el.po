@@ -1627,7 +1627,7 @@ msgstr "Πιθανά θέματα απόδοσης"
 
 #: js/messages.php:198
 msgid "Issue"
-msgstr ""
+msgstr "Θέμα"
 
 #: js/messages.php:199
 #, fuzzy
