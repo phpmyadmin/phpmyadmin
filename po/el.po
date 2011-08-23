@@ -1319,7 +1319,7 @@ msgstr "Ελεύθερη Αδράνεια"
 
 #: js/messages.php:118
 msgid "Bytes sent"
-msgstr ""
+msgstr "Σταλθέντα Bytes"
 
 #: js/messages.php:119
 #, fuzzy
