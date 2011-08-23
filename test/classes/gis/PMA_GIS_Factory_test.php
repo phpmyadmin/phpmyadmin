@@ -59,19 +59,19 @@ class PMA_GIS_FactoryTest extends PHPUnit_Framework_TestCase
                 'PMA_GIS_Multilinestring'
             ),
             array(
-                    'LINESTRING',
+                'LINESTRING',
                 'PMA_GIS_Linestring'
             ),
             array(
-                    'MULTIPOINT',
+                'MULTIPOINT',
                 'PMA_GIS_Multipoint'
             ),
             array(
-                 'POINT',
+                'POINT',
                 'PMA_GIS_Point'
             ),
-               array(
-                    'GEOMETRYCOLLECTION',
+            array(
+                'GEOMETRYCOLLECTION',
                 'PMA_GIS_Geometrycollection'
             ),
         );
