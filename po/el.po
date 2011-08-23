@@ -1623,7 +1623,7 @@ msgstr "Σύστημα σύμβουλου"
 
 #: js/messages.php:197
 msgid "Possible performance issues"
-msgstr ""
+msgstr "Πιθανά θέματα απόδοσης"
 
 #: js/messages.php:198
 msgid "Issue"
