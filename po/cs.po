@@ -11622,10 +11622,9 @@ msgid "Current amount of Questions: %s"
 msgstr "Aktuální počet dotazů: %s"
 
 #: po/advisory_rules.php:15
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
-msgstr "Zobrazit SQL dotazy"
+msgstr "Procento pomalých dotazů"
 
 #: po/advisory_rules.php:16
 msgid ""
