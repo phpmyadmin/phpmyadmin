@@ -1280,10 +1280,9 @@ msgid "Total memory"
 msgstr "Συνολική μνήμη"
 
 #: js/messages.php:108
-#, fuzzy
 #| msgid "System memory"
 msgid "Cached memory"
-msgstr "Μνήμη συστήματος"
+msgstr "Λανθάνουσα μνήμη"
 
 #: js/messages.php:109
 #, fuzzy
