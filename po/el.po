@@ -1650,7 +1650,7 @@ msgstr "Χρησιμοποιημένη μεταβλητή / τύπος"
 
 #: js/messages.php:203
 msgid "Test"
-msgstr ""
+msgstr "Έλεγχος"
 
 #: js/messages.php:208 libraries/tbl_properties.inc.php:763
 #: pmd_general.php:382 pmd_general.php:419 pmd_general.php:539
