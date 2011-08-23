@@ -1306,7 +1306,7 @@ msgstr "Σύνολο Αδράνειας"
 
 #: js/messages.php:114
 msgid "Cached Swap"
-msgstr ""
+msgstr "Λανθασμένη Αδράνεια"
 
 #: js/messages.php:115
 msgid "Used Swap"
