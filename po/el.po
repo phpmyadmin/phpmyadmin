@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-22 14:48+0200\n"
-"PO-Revision-Date: 2011-08-23 08:14+0200\n"
+"PO-Revision-Date: 2011-08-23 08:15+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -1349,10 +1349,9 @@ msgid "Remove chart"
 msgstr "Απομάκρυνση διαγράμματος"
 
 #: js/messages.php:128
-#, fuzzy
 #| msgid "Edit labels and series"
 msgid "Edit title and labels"
-msgstr "Επεξεργασία ετικετών και σειρών"
+msgstr "Επεξεργασία τίτλου και ετικετών"
 
 #: js/messages.php:129
 msgid "Add chart to grid"
