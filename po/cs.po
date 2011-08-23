@@ -6672,7 +6672,7 @@ msgstr "Soubor ESRI"
 #: libraries/import/shp.php:275
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr ""
+msgstr "Při nahrávání souboru ESRI došlo k chybě: \"%s\"."
 
 #: libraries/import/shp.php:331
 msgid ""
