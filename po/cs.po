@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-23 10:38+0200\n"
-"PO-Revision-Date: 2011-08-23 10:46+0200\n"
+"PO-Revision-Date: 2011-08-23 10:47+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -906,7 +906,7 @@ msgstr "Vnější obrys:"
 
 #: gis_data_editor.php:223 gis_data_editor.php:277 js/messages.php:292
 msgid "Inner Ring"
-msgstr ""
+msgstr "Vnitřní obrys:"
 
 #: gis_data_editor.php:248
 #, fuzzy
