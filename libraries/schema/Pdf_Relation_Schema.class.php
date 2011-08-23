@@ -798,8 +798,6 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     /**
      * Defines properties
      */
-    private $_tables = array();
-    private $_relations = array();
     private $_ff = PMA_PDF_FONT;
     private $_xMax = 0;
     private $_yMax = 0;
@@ -823,7 +821,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      */
     function __construct()
     {
-        global $pdf,$db,$cfgRelation;
+        global $pdf, $db;
 
         $this->setPageNumber($_POST['pdf_page_number']);
         $this->setShowGrid(isset($_POST['show_grid']));
@@ -1115,7 +1113,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      */
     private function _showOutput($pageNumber)
     {
-        global $pdf, $db, $cfgRelation;
+        global $pdf, $cfgRelation;
 
         // Get the name of this pdfpage to use as filename
         $_name_sql = 'SELECT page_descr FROM '
@@ -1165,7 +1163,6 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 //    'L', 0, $pdf->PMA_links['doc'][$table][$field_name]
                 //);
             }
-            $lasttable = $table;
             $i++;
         }
         $pdf->PMA_links['RT']['-'] = $pdf->AddLink();
@@ -1206,9 +1203,6 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
              * Gets table informations
              */
             $showtable    = PMA_Table::sGetStatusInfo($db, $table);
-            $num_rows     = isset($showtable['Rows']) 
-                ? $showtable['Rows']
-                : 0;
             $show_comment = isset($showtable['Comment'])
                 ? $showtable['Comment']
                 : '';
