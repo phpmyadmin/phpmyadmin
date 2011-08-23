@@ -11585,7 +11585,7 @@ msgstr "Server běží méně než den"
 
 #: po/advisory_rules.php:6
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr ""
+msgstr "Server běží méně než jeden den, rady nemusí být přesné."
 
 #: po/advisory_rules.php:7
 msgid ""
