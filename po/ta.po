@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-22 14:48+0200\n"
-"PO-Revision-Date: 2011-08-23 10:36+0200\n"
+"PO-Revision-Date: 2011-08-23 10:37+0200\n"
 "Last-Translator: Sajeepan Yogenthiran <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -1599,7 +1599,7 @@ msgstr "நெடுக்கை அழிக்கபடுகின்றத�
 
 #: js/messages.php:215
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "முதன்மை சாவி இணைக்கப்படுகின்றது"
 
 #: js/messages.php:216 libraries/relation.lib.php:76 pmd_general.php:380
 #: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
