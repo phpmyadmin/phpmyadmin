@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-23 11:03+0200\n"
-"PO-Revision-Date: 2011-08-23 12:26+0200\n"
+"PO-Revision-Date: 2011-08-23 12:27+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1753,10 +1753,9 @@ msgid "Show search criteria"
 msgstr "検索条件を表示する"
 
 #: js/messages.php:262 libraries/tbl_select.lib.php:138
-#, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
-msgstr "検索"
+msgstr "検索プロット"
 
 #: js/messages.php:264
 msgid "Each point represents a data row."
