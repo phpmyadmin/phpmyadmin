@@ -1809,7 +1809,7 @@ msgstr "Χρησιμοποιείστε τη ροδέλα του ποντικιο
 
 #: js/messages.php:270
 msgid "Click and drag the mouse to navigate the plot."
-msgstr ""
+msgstr "Πατήστε και σύρτε το ποντίκι για πλοήγηση."
 
 #: js/messages.php:272
 msgid "Click reset zoom link to come back to original state."
