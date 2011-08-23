@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-23 10:38+0200\n"
-"PO-Revision-Date: 2011-08-23 10:48+0200\n"
+"PO-Revision-Date: 2011-08-23 10:49+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1786,7 +1786,7 @@ msgstr "Zvolte dva sloupce"
 
 #: js/messages.php:281
 msgid "Select two different columns"
-msgstr ""
+msgstr "Zvolte dva odlišné sloupce"
 
 #: js/messages.php:284 tbl_change.php:316 tbl_indexes.php:211
 #: tbl_indexes.php:238
