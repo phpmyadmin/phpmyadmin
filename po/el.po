@@ -1851,7 +1851,7 @@ msgstr "Αντιγραφή"
 
 #: js/messages.php:293
 msgid "Outer Ring"
-msgstr ""
+msgstr "Εξωτερικός δακτύλιος"
 
 #: js/messages.php:299
 msgid "Add columns"
