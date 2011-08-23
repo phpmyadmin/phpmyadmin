@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-22 14:48+0200\n"
-"PO-Revision-Date: 2011-08-21 22:12+0200\n"
+"PO-Revision-Date: 2011-08-22 22:59+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1496,10 +1496,9 @@ msgstr "Günlük çözümlendi, ama bu zaman aralığı içinde bulunan veri yok
 
 #. l10n: A collection of available filters
 #: js/messages.php:173
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
-msgstr "Tabloların görüntü seçenekleri"
+msgstr "Günlük tablosu süzgeci seçenekleri"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:175
@@ -1758,11 +1757,11 @@ msgstr "Noktanın üzerinde durmak etiketini gösterecektir."
 
 #: js/messages.php:268
 msgid "Use mousewheel to zoom in or out of the plot."
-msgstr ""
+msgstr "Çizime yakınlaşmak ya da uzaklaşmak için fare tekerini kullanın."
 
 #: js/messages.php:270
 msgid "Click and drag the mouse to navigate the plot."
-msgstr ""
+msgstr "Çizimde gezinmek için tıklayın ve fareyi sürükleyin."
 
 #: js/messages.php:272
 msgid "Click reset zoom link to come back to original state."
@@ -11956,17 +11955,15 @@ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr "query_cache_size 0'a ayarlı veya query_cache_type 'OFF'a ayarlı"
 
 #: po/advisory_rules.php:70
-#, fuzzy
 #| msgid "Query cache used"
 msgid "Query caching method"
-msgstr "Kullanılan sorgu önbelleği"
+msgstr "Sorgu önbellekleme yöntemi"
 
 #: po/advisory_rules.php:71
 msgid "Suboptimal caching method."
 msgstr "Yetersiz önbellekleme yöntemi."
 
 #: po/advisory_rules.php:72
-#, fuzzy
 #| msgid ""
 #| "You are using the MySQL Query cache with a fairly high traffic database. "
 #| "It might be worth considering to use <a href=\\\"http://dev.mysql.com/doc/"
@@ -11979,9 +11976,10 @@ msgid ""
 "cache, especially if you have multiple slaves."
 msgstr ""
 "Oldukça yüksek trafikli veritabanı ile MySQL Sorgu önbelleği "
-"kullanıyorsunuz. MySQL Sorgu önbelleği yerine <a href=\\\"http://dev.mysql."
-"com/doc/refman/5.1/en/ha-memcached.html\\\">memcached</a> kullanmayı "
-"düşünmek değebilir özelliklede çoklu slave'lere sahipseniz."
+"kullanıyorsunuz. MySQL Sorgu önbelleği yerine <a "
+"href=\\\"http://dev.mysql.com/doc/refman/5.5/en/ha-"
+"memcached.html\\\">memcached</a> kullanmayı düşünmek değebilir özellikle de "
+"çoklu slave'lere sahipseniz."
 
 #: po/advisory_rules.php:73
 #, php-format
@@ -12389,7 +12387,6 @@ msgid "Temp disk rate"
 msgstr "Geçici disk oranı"
 
 #: po/advisory_rules.php:152
-#, fuzzy
 #| msgid ""
 #| "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 #| "some temporary tables are always being written to disk, independent of "
@@ -12409,7 +12406,7 @@ msgid ""
 msgstr ""
 "{max_heap_table_size} ve {tmp_table_size} arttırmak yardımcı olabilir. Ancak "
 "bazı geçici tablolar her zaman diske yazılır, bu değişkenlerin değeri "
-"bağımsızdır. <a href=\\\"http://dev.mysql.com/doc/refman/5.0/en/internal-"
+"bağımsızdır. <a href=\\\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\\\">MySQL Belgesi</a> içinde bahsedildiği gibi şu "
 "şartlardan (Geçici tablonun içerisinde: BLOB veya TEXT sütununun varlığı ya "
 "da 512 bayttan büyük sütunun varlığı) kaçınmak için bunları elemek "
@@ -12928,7 +12925,6 @@ msgid "Enable concurrent_insert by setting it to 1"
 msgstr "concurrent_insert'ü 1'e ayarlayarak bunu etkinleştirin"
 
 #: po/advisory_rules.php:267
-#, fuzzy
 #| msgid ""
 #| "Setting {concurrent_insert} to 1 reduces contention between readers and "
 #| "writers for a given table. See also <a href=\\\"http://dev.mysql.com/doc/"
@@ -12939,9 +12935,9 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\\\">MySQL Documentation</a>"
 msgstr ""
 "{concurrent_insert} 1'e ayarlamak verilen bir tablo için okuyucular ve "
-"yazıcılar arasındaki bağlantıyı azaltır. Aynı zamanda <a href=\\\"http://dev."
-"mysql.com/doc/refman/5.0/en/concurrent-inserts.html\\\">MySQL Belgesine</a> "
-"bakın"
+"yazıcılar arasındaki bağlantıyı azaltır. Aynı zamanda <a "
+"href=\\\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-"
+"inserts.html\\\">MySQL Belgesine</a> bakın"
 
 #: po/advisory_rules.php:268
 msgid "concurrent_insert is set to 0"

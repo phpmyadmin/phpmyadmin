@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-22 14:48+0200\n"
-"PO-Revision-Date: 2011-08-20 17:29+0200\n"
+"PO-Revision-Date: 2011-08-22 22:01+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -1512,10 +1512,9 @@ msgstr ""
 
 #. l10n: A collection of available filters
 #: js/messages.php:173
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
-msgstr "Opciones para visualizar las tablas"
+msgstr "Opciones de filtros para tablas de registros"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:175
@@ -1774,11 +1773,11 @@ msgstr "Ubicar el cursor sobre un punto mostrará su etiqueta."
 
 #: js/messages.php:268
 msgid "Use mousewheel to zoom in or out of the plot."
-msgstr ""
+msgstr "Utilice la rueda de desplazamiento para ampliar o reducir el gráfico."
 
 #: js/messages.php:270
 msgid "Click and drag the mouse to navigate the plot."
-msgstr ""
+msgstr "Pulse y arrastre para navegar el gráfico."
 
 #: js/messages.php:272
 msgid "Click reset zoom link to come back to original state."
@@ -12144,17 +12143,15 @@ msgstr ""
 "como 'OFF'"
 
 #: po/advisory_rules.php:70
-#, fuzzy
 #| msgid "Query cache used"
 msgid "Query caching method"
-msgstr "Caché de consultas utilizado"
+msgstr "Método de caché de consultas"
 
 #: po/advisory_rules.php:71
 msgid "Suboptimal caching method."
-msgstr "Método de cacheo sub-óptimo."
+msgstr "Método de caché sub-óptimo."
 
 #: po/advisory_rules.php:72
-#, fuzzy
 #| msgid ""
 #| "You are using the MySQL Query cache with a fairly high traffic database. "
 #| "It might be worth considering to use <a href=\\\"http://dev.mysql.com/doc/"
@@ -12167,9 +12164,10 @@ msgid ""
 "cache, especially if you have multiple slaves."
 msgstr ""
 "Está utilizando el caché de consultas MySQL en una base de datos de bastante "
-"tráfico. Probablemente quiera considerar utilizar <a href=\\\"http://dev."
-"mysql.com/doc/refman/5.1/en/ha-memcached.html\\\">memcached</a> en lugar del "
-"caché de consultas de MySQL, especialmente si tiene muchos esclavos."
+"tráfico. Probablemente quiera considerar utilizar <a "
+"href=\\\"http://dev.mysql.com/doc/refman/5.5/en/ha-"
+"memcached.html\\\">memcached</a> en lugar del caché de consultas de MySQL, "
+"especialmente si tiene muchos esclavos."
 
 #: po/advisory_rules.php:73
 #, php-format
@@ -12594,7 +12592,6 @@ msgid "Temp disk rate"
 msgstr "Tasa de tablas temporales en el disco"
 
 #: po/advisory_rules.php:152
-#, fuzzy
 #| msgid ""
 #| "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 #| "some temporary tables are always being written to disk, independent of "
@@ -12617,9 +12614,9 @@ msgstr ""
 "independientemente del valor de estas variables. Para eliminarlas deberá re-"
 "escribir las consultas para evitar estas condiciones (en una tabla temporal: "
 "la presencia de una columna «BLOB» o «TEXT», o la presencia de una columna "
-"mayor a 512 bytes) como se menciona en la <a href=\\\"http://dev.mysql.com/"
-"doc/refman/5.0/en/internal-temporary-tables.html\\\">documentación de MySQL</"
-"a>"
+"mayor a 512 bytes) como se menciona en la <a "
+"href=\\\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-"
+"tables.html\\\">documentación de MySQL</a>"
 
 #: po/advisory_rules.php:153
 #, php-format
@@ -13158,7 +13155,6 @@ msgid "Enable concurrent_insert by setting it to 1"
 msgstr "Active «concurrent_insert» definiéndolo como 1"
 
 #: po/advisory_rules.php:267
-#, fuzzy
 #| msgid ""
 #| "Setting {concurrent_insert} to 1 reduces contention between readers and "
 #| "writers for a given table. See also <a href=\\\"http://dev.mysql.com/doc/"
@@ -13169,9 +13165,9 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\\\">MySQL Documentation</a>"
 msgstr ""
 "Definir «concurrent_insert» a 1 reduce la competencia entre lectores y "
-"escritores en una tabla particular. Revise también la <a href=\\\"http://dev."
-"mysql.com/doc/refman/5.0/en/concurrent-inserts.html\\\">documentación MySQL</"
-"a>"
+"escritores en una tabla particular. Revise también la <a "
+"href=\\\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-"
+"inserts.html\\\">documentación MySQL</a>"
 
 #: po/advisory_rules.php:268
 msgid "concurrent_insert is set to 0"

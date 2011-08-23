@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-22 14:48+0200\n"
-"PO-Revision-Date: 2011-07-29 14:17+0200\n"
+"PO-Revision-Date: 2011-08-23 08:07+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -416,10 +416,10 @@ msgid "You have to choose at least one column to display"
 msgstr "Πρέπει να επιλέξετε τουλάχιστον μία στήλη για εμφάνιση"
 
 #: db_qbe.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "εικονικός μάστορας"
+msgstr "Αλλαγή στον %sεικονικός μάστορας%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:957
@@ -853,10 +853,10 @@ msgid "Dump has been saved to file %s."
 msgstr "Το αρχείο εξόδου αποθηκεύτηκε ως %s."
 
 #: gis_data_editor.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
-msgstr "Τιμές για τη στήλη «%s»"
+msgstr "Τιμή για τη στήλη «%s»"
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
@@ -864,7 +864,7 @@ msgstr "Χρήση του OpenStreetMaps ως Βασικό Επίπεδο"
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:291
 #: libraries/display_tbl.lib.php:665
@@ -874,72 +874,68 @@ msgstr "Γεωμετρία"
 #: gis_data_editor.php:172 gis_data_editor.php:194 gis_data_editor.php:240
 #: gis_data_editor.php:290 js/messages.php:288
 msgid "Point"
-msgstr ""
+msgstr "Σημείο"
 
 #: gis_data_editor.php:173 gis_data_editor.php:195 gis_data_editor.php:241
 #: gis_data_editor.php:291 js/messages.php:286
 msgid "X"
-msgstr ""
+msgstr "Χ"
 
 #: gis_data_editor.php:175 gis_data_editor.php:197 gis_data_editor.php:243
 #: gis_data_editor.php:293 js/messages.php:287
 msgid "Y"
-msgstr ""
+msgstr "Υ"
 
 #: gis_data_editor.php:202 gis_data_editor.php:246 gis_data_editor.php:296
 #: js/messages.php:294
-#, fuzzy
 #| msgid "Add routine"
 msgid "Add a point"
-msgstr "Προσθήκη ρουτίνας"
+msgstr "Προσθήκη σημείου"
 
 #: gis_data_editor.php:218 js/messages.php:289
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Γραμμές που τελειώνουν σε"
+msgstr "Κείμενο γραμμής"
 
 #: gis_data_editor.php:221 gis_data_editor.php:275
 msgid "Outer Ring:"
-msgstr ""
+msgstr "Εξωτερικός δακτύλιος"
 
 #: gis_data_editor.php:223 gis_data_editor.php:277 js/messages.php:292
 msgid "Inner Ring"
-msgstr ""
+msgstr "Εσωτερικός δακτύλιος"
 
 #: gis_data_editor.php:248
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Προσθήκη νέου Χρήστη"
+msgstr "Προσθήκη κειμένου γραμμής"
 
 #: gis_data_editor.php:248 gis_data_editor.php:298 js/messages.php:295
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Προσθήκη νέου Χρήστη"
+msgstr "Προσθήκη εσωτερικού δακτυλίου"
 
 #: gis_data_editor.php:262 js/messages.php:290
 msgid "Polygon"
-msgstr ""
+msgstr "Πολύγωνο"
 
 #: gis_data_editor.php:300 js/messages.php:296
-#, fuzzy
 #| msgid "Add column"
 msgid "Add a polygon"
-msgstr "Προσθήκη στήλης"
+msgstr "Προσθήκη πολυγώνου"
 
 #: gis_data_editor.php:304
-#, fuzzy
 #| msgid "Geometry"
 msgid "Add geometry"
-msgstr "Γεωμετρία"
+msgstr "Προσθήκη γεωμετρίας"
 
 #: gis_data_editor.php:312
 msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
+"Επιλέξτε «GeomFromText» από τη στήλη «συνάρτηση» και επικολήστε το παρακάτω "
+"κείμενο στο πεδίο «Τιμή»"
 
 #: import.php:57
 #, php-format
@@ -1220,10 +1216,9 @@ msgid "Query statistics"
 msgstr "Στατιστικά ερωτήματος"
 
 #: js/messages.php:93
-#, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Local monitor configuration incompatible"
-msgstr "Αδύνατη η ανάγνωση του αρχείου ρυθμίσεων"
+msgstr "Ασύμβατη η ρύθμιση τοπικής εποπτείας"
 
 #: js/messages.php:94
 msgid ""

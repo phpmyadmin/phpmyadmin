@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-22 14:48+0200\n"
-"PO-Revision-Date: 2011-08-18 20:10+0200\n"
+"PO-Revision-Date: 2011-08-22 20:10+0200\n"
 "Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -420,10 +420,10 @@ msgid "You have to choose at least one column to display"
 msgstr "Ret eo deoc'h dibab da nebeutañ ur bann da vezañ diskwelet"
 
 #: db_qbe.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "mod gwelet"
+msgstr "Cheñch evit ar %ssavour gwelet%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:957
@@ -866,7 +866,7 @@ msgstr "Ober gant OpenStreetMaps evit ar gwiskad diazez"
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:291
 #: libraries/display_tbl.lib.php:665
@@ -894,28 +894,26 @@ msgid "Add a point"
 msgstr "Ouzhpennañ ur poent"
 
 #: gis_data_editor.php:218 js/messages.php:289
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Linennoù a echu gant"
+msgstr "Aradennad linennoù"
 
 #: gis_data_editor.php:221 gis_data_editor.php:275
 msgid "Outer Ring:"
-msgstr ""
+msgstr "Kelc'h diavaez :"
 
 #: gis_data_editor.php:223 gis_data_editor.php:277 js/messages.php:292
 msgid "Inner Ring"
-msgstr ""
+msgstr "Kelc'h diabarzh"
 
 #: gis_data_editor.php:248
-#, fuzzy
 #| msgid "Add constraints"
 msgid "Add a linestring"
-msgstr "Ouzhpennañ ar strishadurioù"
+msgstr "Ouzhpennañ un aradennad linennoù"
 
 #: gis_data_editor.php:248 gis_data_editor.php:298 js/messages.php:295
 msgid "Add an inner ring"
-msgstr ""
+msgstr "Ouzhpennañ ur c'helc'h diabarzh"
 
 #: gis_data_editor.php:262 js/messages.php:290
 msgid "Polygon"
@@ -934,6 +932,8 @@ msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
+"Dibab \"GeomFromText\" er bann \"Arc'hwel\" ha pegañ an neudennad er vaezienn "
+"\"Talvoud\" a-is"
 
 #: import.php:57
 #, php-format
@@ -1439,42 +1439,40 @@ msgstr ""
 "darempred gant merour ar servijer."
 
 #: js/messages.php:154
-#, fuzzy
 #| msgid "Changes tracking"
 msgid "Change settings"
-msgstr "Heuliañ ar c'hemmoù"
+msgstr "Kemmañ an arventennoù"
 
 #: js/messages.php:155
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Current settings"
-msgstr "Arventennoù pouezus all"
+msgstr "Arventennoù zo bremañ"
 
 #: js/messages.php:157 server_status.php:1590
 msgid "Chart Title"
-msgstr ""
+msgstr "Titl ar grafik"
 
 #. l10n: As in differential values
 #: js/messages.php:159
 msgid "Differential"
-msgstr ""
+msgstr "Diforc'herezh"
 
 #: js/messages.php:160
 #, php-format
 msgid "Divided by %s:"
-msgstr ""
+msgstr "Rannet dre %s:"
 
 #: js/messages.php:162
 msgid "From slow log"
-msgstr ""
+msgstr "Diwar ar marilh rekedoù gorrek"
 
 #: js/messages.php:163
 msgid "From general log"
-msgstr ""
+msgstr "Diwar ar marilh hollek"
 
 #: js/messages.php:164
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "O tielfennañ hag o kargañ marilhoù. Padout pellik a c'hall ober."
 
 #: js/messages.php:165
 msgid ""
@@ -1492,17 +1490,18 @@ msgstr ""
 
 #: js/messages.php:167
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr ""
+msgstr "Restr varilh karget. Rekedoù kaset da benn en amzer-mañ :"
 
 #: js/messages.php:169
-#, fuzzy
 #| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr "Mont d'an diaz roadennoù"
+msgstr "Mont da taolenn ar marilh"
 
 #: js/messages.php:170
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
+"Dielfennet eo bet ar marilh hep kavout roadenn ebet evit ar prantad amzer-"
+"mañ."
 
 #. l10n: A collection of available filters
 #: js/messages.php:173
@@ -1511,36 +1510,34 @@ msgstr ""
 msgid "Log table filter options"
 msgstr "Dibarzhioù diskwel an taolennoù"
 
+# verb pe ak. ?
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:175
 msgid "Filter"
-msgstr ""
+msgstr "Silañ"
 
 #: js/messages.php:176
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "Silañ ar rekedoù dre c'her pe lavarennoù reoliek :"
 
 #: js/messages.php:177
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 
 #: js/messages.php:178
-#, fuzzy
 #| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
-msgstr "Niver a linennoù da ensoc'hañ"
+msgstr "Sammad al linennoù bodet :"
 
 #: js/messages.php:179
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "Hollad"
+msgstr "Hollad :"
 
 #: js/messages.php:181
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading logs"
-msgstr "O kargañ"
+msgstr "O kargañ ar marilhoù"
 
 #: js/messages.php:182
 msgid "Monitor refresh failed"
@@ -1554,14 +1551,13 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Reload Database"
 msgid "Reload page"
-msgstr "Adkargañ an diaz roadennoù"
+msgstr "Adkargañ ar bajenn"
 
 #: js/messages.php:186
 msgid "Affected rows:"
-msgstr ""
+msgstr "Linennoù a sell outo :"
 
 #: js/messages.php:188
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
