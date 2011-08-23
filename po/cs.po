@@ -1214,10 +1214,9 @@ msgid "Query statistics"
 msgstr "Statistika dotazů"
 
 #: js/messages.php:93
-#, fuzzy
 #| msgid "Local monitor configuration icompatible"
 msgid "Local monitor configuration incompatible"
-msgstr "Lokální nastavení monitoru není kompatibilní"
+msgstr "Vaše nastavení monitoru není kompatibilní"
 
 #: js/messages.php:94
 msgid ""
