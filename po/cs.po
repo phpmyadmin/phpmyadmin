@@ -8004,10 +8004,9 @@ msgid "Operator"
 msgstr "Operátor"
 
 #: libraries/tbl_select.lib.php:131
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "Vyhledávání"
+msgstr "Vyhledávání v tabulce"
 
 #: libraries/tbl_select.lib.php:208 tbl_change.php:993
 #, fuzzy
