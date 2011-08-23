@@ -893,10 +893,9 @@ msgid "Add a point"
 msgstr "Προσθήκη σημείου"
 
 #: gis_data_editor.php:218 js/messages.php:289
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Γραμμές που τελειώνουν σε"
+msgstr "Κείμενο γραμμής"
 
 #: gis_data_editor.php:221 gis_data_editor.php:275
 msgid "Outer Ring:"
