@@ -1612,10 +1612,9 @@ msgid "Import"
 msgstr "Εισαγωγή"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
-msgstr "Ενημέρωση Ερωτήματος"
+msgstr "Ανάλυση Ερωτήματος"
 
 #: js/messages.php:196
 #, fuzzy
