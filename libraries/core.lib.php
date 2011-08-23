@@ -241,7 +241,7 @@ function PMA_fatalError($error_message, $message_args = null)
  */
 function PMA_getPHPDocLink($target)
 {
-    /* l10n: Language to use for PHP documentation, please use only languages which do exist in official documentation. */
+    /* l10n: Please check that translation actually exists. */
     $lang = _pgettext('PHP documentation language', 'en');
 
     return 'http://php.net/manual/' . $lang . '/' . $target;
