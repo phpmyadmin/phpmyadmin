@@ -1887,7 +1887,7 @@ msgstr "Προσθήκη επιλογής για τη στήλη "
 
 #: js/messages.php:312
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "Πατήστε το escape για ακύρωση της επεξεργασίας"
 
 #: js/messages.php:313
 msgid ""
