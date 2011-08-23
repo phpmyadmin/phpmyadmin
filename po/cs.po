@@ -11794,7 +11794,7 @@ msgstr "Architektura MySQL"
 
 #: po/advisory_rules.php:61
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "MySQL není kompilováno jako 64-bitový program."
 
 #: po/advisory_rules.php:62
 msgid ""
