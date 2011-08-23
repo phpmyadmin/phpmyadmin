@@ -1797,7 +1797,7 @@ msgstr "Εστιασμένη Αναζήτηση"
 
 #: js/messages.php:264
 msgid "Each point represents a data row."
-msgstr ""
+msgstr "Κάθε σημείο αναπαρειστά μια εγγραφή δεδομένων."
 
 #: js/messages.php:266
 msgid "Hovering over a point will show its label."
