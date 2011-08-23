@@ -10282,7 +10282,7 @@ msgstr ""
 
 #: server_status.php:1579
 msgid "Please note:"
-msgstr ""
+msgstr "Poznámka:"
 
 #: server_status.php:1581
 msgid ""
