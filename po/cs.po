@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-23 10:38+0200\n"
-"PO-Revision-Date: 2011-08-23 11:00+0200\n"
+"PO-Revision-Date: 2011-08-23 11:01+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -11788,10 +11788,9 @@ msgid "'percona' found in version_comment"
 msgstr ""
 
 #: po/advisory_rules.php:60
-#, fuzzy
 #| msgid "MySQL charset"
 msgid "MySQL Architecture"
-msgstr "Znaková sada v MySQL"
+msgstr "Architektura MySQL"
 
 #: po/advisory_rules.php:61
 msgid "MySQL is not compiled as a 64-bit package."
