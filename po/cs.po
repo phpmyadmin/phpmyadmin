@@ -1872,10 +1872,9 @@ msgstr ""
 "Většinu sloupců můžete také přímo upravit<br />kliknutím na jejich obsah."
 
 #: js/messages.php:321
-#, fuzzy
 #| msgid "Go to view"
 msgid "Go to link"
-msgstr "Přejít na podhled"
+msgstr "Přejít na odkaz"
 
 #: js/messages.php:324
 msgid "Generate password"
