@@ -11510,10 +11510,10 @@ msgid "Create version"
 msgstr "Vytvořit verzi"
 
 #: tbl_zoom_select.php:141
-#, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "Provést „dotaz podle příkladu“ (zástupný znak: „%“)"
+msgstr ""
+"Provést „dotaz podle příkladu“ (zástupný znak: „%“) pro dva různé sloupce"
 
 #: tbl_zoom_select.php:152
 #, fuzzy
