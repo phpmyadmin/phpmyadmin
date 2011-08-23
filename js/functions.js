@@ -1307,48 +1307,70 @@ $(document).ready(function(){
  */
 function PMA_ajaxShowMessage(message, timeout)
 {
-
-    //Handle the case when a empty data.message is passed. We don't want the empty message
+    // Handle the case when a empty data.message is passed.
+    // We don't want the empty message
     if (message == '') {
         return true;
     } else if (! message) {
         // If the message is undefined, show the default
         message = PMA_messages['strLoading'];
     }
-
     /**
      * @var timeout Number of milliseconds for which the message will be visible
-     * @default 5000 ms
+     * @default 10000 ms
      */
     if (! timeout) {
-        timeout = 5000;
+        timeout = 10000;
     }
-
     // Create a parent element for the AJAX messages, if necessary
     if ($('#loading_parent').length == 0) {
         $('<div id="loading_parent"></div>')
         .insertBefore("#serverinfo");
     }
-
     // Update message count to create distinct message elements every time
     ajax_message_count++;
-
     // Remove all old messages, if any
     $(".ajax_notification[id^=ajax_message_num]").remove();
-
     /**
      * @var    $retval    a jQuery object containing the reference
      *                    to the created AJAX message
      */
-    var $retval = $('<span class="ajax_notification" id="ajax_message_num_' + ajax_message_count + '"></span>')
+    var $retval = $(
+            '<span class="ajax_notification" id="ajax_message_num_'
+            + ajax_message_count +
+            '"></span>'
+        )
         .hide()
         .appendTo("#loading_parent")
         .html(message)
         .fadeIn('medium')
         .delay(timeout)
         .fadeOut('medium', function() {
+            // Here we should destroy the qtip instance, but
+            // due to a bug in qtip's implementation we can
+            // only hide it without throwing JS errors.
+            $(this).qtip('hide');
+            // Remove the notification
             $(this).remove();
         });
+    /**
+     * @var qOpts Options for "Dismiss notification" tooltip
+     */
+    var qOpts = {
+        show: {
+            effect: { length: 0 },
+            delay: 0
+        },
+        hide: {
+            effect: { length: 0 },
+            delay: 0
+        }
+    };
+    /**
+     * Add a tooltip to the notification to let the user know that (s)he
+     * can dismiss the ajax notification by clicking on it.
+     */
+    PMA_createqTip($retval, PMA_messages['strDismiss'], qOpts);
 
     return $retval;
 }
@@ -1362,8 +1384,33 @@ function PMA_ajaxRemoveMessage($this_msgbox)
         $this_msgbox
         .stop(true, true)
         .fadeOut('medium');
+        // Here we should destroy the qtip instance, but
+        // due to a bug in qtip's implementation we can
+        // only hide it without throwing JS errors.
+        $this_msgbox.qtip('hide');
     }
 }
+
+/**
+ * Allows the user to dismiss a notification
+ * created with PMA_ajaxShowMessage()
+ */
+$('.ajax_notification').live('click', function () {
+    PMA_ajaxRemoveMessage($(this));
+});
+
+/**
+ * The below two functions hide the "Dismiss notification" tooltip when a user
+ * is hovering a link or button that is inside an ajax message
+ */
+$('.ajax_notification a, .ajax_notification button, .ajax_notification input')
+.live('mouseover', function () {
+    $(this).parents('.ajax_notification').qtip('hide');
+});
+$('.ajax_notification a, .ajax_notification button, .ajax_notification input')
+.live('mouseout', function () {
+    $(this).parents('.ajax_notification').qtip('show');
+});
 
 /**
  * Hides/shows the "Open in ENUM/SET editor" message, depending on the data type of the column currently selected
