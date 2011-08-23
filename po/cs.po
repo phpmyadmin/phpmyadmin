@@ -11516,10 +11516,9 @@ msgstr ""
 "Provést „dotaz podle příkladu“ (zástupný znak: „%“) pro dva různé sloupce"
 
 #: tbl_zoom_select.php:152
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Additional search criteria"
-msgstr "Skrýt parametry vyhledávání"
+msgstr "Další parametr vyhledávání"
 
 #: tbl_zoom_select.php:282
 #, fuzzy
