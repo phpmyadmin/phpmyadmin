@@ -11596,7 +11596,7 @@ msgstr "Pro přesnější analýzu je doporučeno nechat server běžet delší 
 #: po/advisory_rules.php:8
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "Server běží jen %s"
 
 #: po/advisory_rules.php:10
 #, fuzzy
