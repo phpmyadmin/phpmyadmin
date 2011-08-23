@@ -1829,7 +1829,7 @@ msgstr ""
 
 #: js/messages.php:278
 msgid "Strings are converted into integer for plotting"
-msgstr ""
+msgstr "Τα κείμενα μετατρέπονται σε ακεραίους για την εκτύπωση"
 
 #: js/messages.php:280
 #, fuzzy
