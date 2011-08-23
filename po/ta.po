@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-22 14:48+0200\n"
-"PO-Revision-Date: 2011-08-23 10:12+0200\n"
+"PO-Revision-Date: 2011-08-23 10:13+0200\n"
 "Last-Translator: Sajeepan Yogenthiran <ysajeepan@live.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -1119,7 +1119,7 @@ msgstr "நேரடி போக்குவரத்து வரைபடம�
 
 #: js/messages.php:66 server_status.php:763
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "நேரடி இணை./செயலாக்க வரைபடம்"
 
 #: js/messages.php:67 server_status.php:781
 msgid "Live query chart"
