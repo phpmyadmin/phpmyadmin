@@ -900,10 +900,9 @@ msgid "Inner Ring"
 msgstr ""
 
 #: gis_data_editor.php:248
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "新しいユーザを追加する"
+msgstr "線分を追加する"
 
 #: gis_data_editor.php:248 gis_data_editor.php:298 js/messages.php:295
 #, fuzzy
