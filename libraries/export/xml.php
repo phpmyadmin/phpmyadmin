@@ -10,7 +10,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-if (strlen($GLOBALS['db'])) { /* Can't do server export */
+if (!strlen($GLOBALS['db'])) { /* Can't do server export */
     return;
 }
 
