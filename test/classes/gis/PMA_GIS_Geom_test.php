@@ -56,5 +56,19 @@ abstract class PMA_GIS_GeomTest extends PHPUnit_Framework_TestCase
             );
         }
     }
+
+    /**
+     * test scaleRow method
+     *
+     * @param string $spatial spatial data of a row
+     * @param array  $min_max expected results
+     *
+     * @dataProvider providerForTestScaleRow
+     * @return nothing
+     */
+    public function testScaleRow($spatial, $min_max)
+    {
+        $this->assertEquals($this->object->scaleRow($spatial), $min_max);
+    }
 }
 ?>
