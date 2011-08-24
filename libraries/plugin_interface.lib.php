@@ -20,7 +20,6 @@ function PMA_getPlugins($plugins_dir, $plugin_param)
     /* Scan for plugins */
     $plugin_list = array();
     if ($handle = @opendir($plugins_dir)) {
-        $is_first = 0;
         while ($file = @readdir($handle)) {
             // In some situations, Mac OS creates a new file for each file
             // (for example ._csv.php) so the following regexp
