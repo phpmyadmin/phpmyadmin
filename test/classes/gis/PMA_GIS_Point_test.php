@@ -144,5 +144,39 @@ class PMA_GIS_PointTest extends PMA_GIS_GeomTest
             )
         );
     }
+
+    /**
+     * test scaleRow method
+     *
+     * @param string $spatial spatial data of a row
+     * @param array  $min_max expected results
+     *
+     * @dataProvider providerForTestScaleRow
+     * @return nothing
+     */
+    public function testScaleRow($spatial, $min_max)
+    {
+        $this->assertEquals($this->object->scaleRow($spatial), $min_max);
+    }
+
+    /**
+     * data provider for testScaleRow
+     *
+     * @return data for testScaleRow
+     */
+    public function providerForTestScaleRow()
+    {
+        return array(
+            array(
+                'POINT(12 35)',
+                array(
+                    'minX' => 12,
+                    'maxX' => 12,
+                    'minY' => 35,
+                    'maxY' => 35,
+                )
+            )
+        );
+    }
 }
 ?>

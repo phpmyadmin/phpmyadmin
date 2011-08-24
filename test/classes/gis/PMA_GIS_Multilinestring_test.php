@@ -198,5 +198,39 @@ class PMA_GIS_MultilinestringTest extends PMA_GIS_GeomTest
             )
         );
     }
+
+    /**
+     * test scaleRow method
+     *
+     * @param string $spatial spatial data of a row
+     * @param array  $min_max expected results
+     *
+     * @dataProvider providerForTestScaleRow
+     * @return nothing
+     */
+    public function testScaleRow($spatial, $min_max)
+    {
+        $this->assertEquals($this->object->scaleRow($spatial), $min_max);
+    }
+
+    /**
+     * data provider for testScaleRow
+     *
+     * @return data for testScaleRow
+     */
+    public function providerForTestScaleRow()
+    {
+        return array(
+            array(
+                'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
+                array(
+                    'minX' => 17,
+                    'maxX' => 178,
+                    'minY' => 10,
+                    'maxY' => 75
+                )
+            )
+        );
+    }
 }
 ?>
