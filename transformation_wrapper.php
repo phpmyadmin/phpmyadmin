@@ -68,7 +68,7 @@ if (isset($ct) && !empty($ct)) {
 header($content_type);
 
 if (isset($cn) && !empty($cn)) {
-    header('Content-Disposition: attachment; filename=' . $cn);
+    header('Content-Disposition: attachment; filename=' . PMA_sanitize_filename($cn));
 }
 
 if (!isset($resize)) {

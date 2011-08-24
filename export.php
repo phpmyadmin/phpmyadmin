@@ -343,6 +343,7 @@ if (!$save_on_server) {
         // (avoid rewriting data containing HTML with anchors and forms;
         // this was reported to happen under Plesk)
         @ini_set('url_rewriter.tags','');
+        $filename = PMA_sanitize_filename($filename);
 
         header('Content-Type: ' . $mime_type);
         header('Expires: ' . gmdate('D, d M Y H:i:s') . ' GMT');

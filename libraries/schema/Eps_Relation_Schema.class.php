@@ -336,6 +336,7 @@ class PMA_EPS
         // if(ob_get_clean()){
             //ob_end_clean();
         //}
+        $fileName = PMA_sanitize_filename($fileName);
         header('Content-type: image/x-eps');
         header('Content-Disposition: attachment; filename="'.$fileName.'.eps"');
         $output = $this->stringCommands;

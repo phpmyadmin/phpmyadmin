@@ -111,7 +111,8 @@ if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldumpfil
     foreach($entries as $entry) {
         $dump .= $entry['statement'];
     }
-    $filename = 'log_' . htmlspecialchars($_REQUEST['table']) . '.sql';
+    //$filename = 'log_' . str_replace(';', '', htmlspecialchars($_REQUEST['table'])) . '.sql';
+    $filename = PMA_sanitize_filename('log_' . $_REQUEST['table'] . '.sql');
     header('Content-Type: text/x-sql');
     header('Expires: ' . gmdate('D, d M Y H:i:s') . ' GMT');
     header('Content-Disposition: attachment; filename="' . $filename . '"');
@@ -281,17 +282,17 @@ if (isset($_REQUEST['snapshot'])) {
         <tr class="noclick <?php echo $style; ?>">
             <?php
             if ($field['Key'] == 'PRI') {
-                echo '<td><b><u>' . $field['Field'] . '</u></b></td>' . "\n";
+                echo '<td><b><u>' . htmlspecialchars($field['Field']) . '</u></b></td>' . "\n";
             } else {
-                echo '<td><b>' . $field['Field'] . '</b></td>' . "\n";
+                echo '<td><b>' . htmlspecialchars($field['Field']) . '</b></td>' . "\n";
             }
             ?>
-            <td><?php echo $field['Type'];?></td>
-            <td><?php echo $field['Collation'];?></td>
-            <td><?php echo $field['Null'];?></td>
-            <td><?php echo $field['Default'];?></td>
-            <td><?php echo $field['Extra'];?></td>
-            <td><?php echo $field['Comment'];?></td>
+            <td><?php echo htmlspecialchars($field['Type']);?></td>
+            <td><?php echo htmlspecialchars($field['Collation']);?></td>
+            <td><?php echo htmlspecialchars($field['Null']);?></td>
+            <td><?php echo htmlspecialchars($field['Default']);?></td>
+            <td><?php echo htmlspecialchars($field['Extra']);?></td>
+            <td><?php echo htmlspecialchars($field['Comment']);?></td>
         </tr>
 <?php
             if ($style == 'even') {
@@ -337,15 +338,15 @@ if (isset($_REQUEST['snapshot'])) {
             }
 ?>
             <tr class="noclick <?php echo $style; ?>">
-                <td><b><?php echo $index['Key_name'];?></b></td>
-                <td><?php echo $index['Index_type'];?></td>
+                <td><b><?php echo htmlspecialchars($index['Key_name']);?></b></td>
+                <td><?php echo htmlspecialchars($index['Index_type']);?></td>
                 <td><?php echo $str_unique;?></td>
                 <td><?php echo $str_packed;?></td>
-                <td><?php echo $index['Column_name'];?></td>
-                <td><?php echo $index['Cardinality'];?></td>
-                <td><?php echo $index['Collation'];?></td>
-                <td><?php echo $index['Null'];?></td>
-                <td><?php echo $index['Comment'];?></td>
+                <td><?php echo htmlspecialchars($index['Column_name']);?></td>
+                <td><?php echo htmlspecialchars($index['Cardinality']);?></td>
+                <td><?php echo htmlspecialchars($index['Collation']);?></td>
+                <td><?php echo htmlspecialchars($index['Null']);?></td>
+                <td><?php echo htmlspecialchars($index['Comment']);?></td>
             </tr>
 <?php
             if ($style == 'even') {
@@ -372,10 +373,10 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     ?>
     <h3><?php echo __('Tracking report');?>  [<a href="tbl_tracking.php?<?php echo $url_query;?>"><?php echo __('Close');?></a>]</h3>
 
-    <small><?php echo __('Tracking statements') . ' ' . $data['tracking']; ?></small><br/>
+    <small><?php echo __('Tracking statements') . ' ' . htmlspecialchars($data['tracking']); ?></small><br/>
     <br/>
 
-    <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>&amp;report=true&amp;version=<?php echo $_REQUEST['version'];?>">
+    <form method="post" action="tbl_tracking.php<?php echo PMA_generate_common_url($url_params + array('report' => 'true', 'version' => $_REQUEST['version'])); ?>">
     <?php
 
     $str1 = '<select name="logtype">' .
@@ -383,9 +384,9 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
             '<option value="data"' . ($selection_data ? ' selected="selected"' : ''). '>' . __('Data only') . '</option>' .
             '<option value="schema_and_data"' . ($selection_both ? ' selected="selected"' : '') . '>' . __('Structure and data') . '</option>' .
             '</select>';
-    $str2 = '<input type="text" name="date_from" value="' . $_REQUEST['date_from'] . '" size="19" />';
-    $str3 = '<input type="text" name="date_to" value="' . $_REQUEST['date_to'] . '" size="19" />';
-    $str4 = '<input type="text" name="users" value="' . $_REQUEST['users'] . '" />';
+    $str2 = '<input type="text" name="date_from" value="' . htmlspecialchars($_REQUEST['date_from']) . '" size="19" />';
+    $str3 = '<input type="text" name="date_to" value="' . htmlspecialchars($_REQUEST['date_to']) . '" size="19" />';
+    $str4 = '<input type="text" name="users" value="' . htmlspecialchars($_REQUEST['users']) . '" />';
     $str5 = '<input type="submit" name="list_report" value="' . __('Go') . '" />';
 
     printf(__('Show %s with dates from %s to %s by user %s %s'), $str1, $str2, $str3, $str4, $str5);
@@ -422,8 +423,8 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
         ?>
                 <tr class="noclick <?php echo $style; ?>">
                     <td><small><?php echo $i;?></small></td>
-                    <td><small><?php echo $entry['date'];?></small></td>
-                    <td><small><?php echo $entry['username']; ?></small></td>
+                    <td><small><?php echo htmlspecialchars($entry['date']);?></small></td>
+                    <td><small><?php echo htmlspecialchars($entry['username']); ?></small></td>
                     <td><?php echo $statement; ?></td>
                 </tr>
         <?php
@@ -473,8 +474,8 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
         ?>
                 <tr class="noclick <?php echo $style; ?>">
                     <td><small><?php echo $i; ?></small></td>
-                    <td><small><?php echo $entry['date']; ?></small></td>
-                    <td><small><?php echo $entry['username']; ?></small></td>
+                    <td><small><?php echo htmlspecialchars($entry['date']); ?></small></td>
+                    <td><small><?php echo htmlspecialchars($entry['username']); ?></small></td>
                     <td><?php echo $statement; ?></td>
                 </tr>
         <?php
@@ -493,7 +494,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     }
     ?>
     </form>
-    <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>&amp;report=true&amp;version=<?php echo $_REQUEST['version'];?>">
+    <form method="post" action="tbl_tracking.php<?php echo PMA_generate_common_url($url_params + array('report' => 'true', 'version' => $_REQUEST['version'])); ?>">
     <?php
     printf(__('Show %s with dates from %s to %s by user %s %s'), $str1, $str2, $str3, $str4, $str5);
 
@@ -506,11 +507,11 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     $str_export2 = '<input type="submit" name="report_export" value="' . __('Go') .'" />';
     ?>
     </form>
-    <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>&amp;report=true&amp;version=<?php echo $_REQUEST['version'];?>">
-    <input type="hidden" name="logtype" value="<?php echo $_REQUEST['logtype'];?>" />
-    <input type="hidden" name="date_from" value="<?php echo $_REQUEST['date_from'];?>" />
-    <input type="hidden" name="date_to" value="<?php echo $_REQUEST['date_to'];?>" />
-    <input type="hidden" name="users" value="<?php echo $_REQUEST['users'];?>" />
+    <form method="post" action="tbl_tracking.php<?php echo PMA_generate_common_url($url_params + array('report' => 'true', 'version' => $_REQUEST['version'])); ?>">
+    <input type="hidden" name="logtype" value="<?php echo htmlspecialchars($_REQUEST['logtype']);?>" />
+    <input type="hidden" name="date_from" value="<?php echo htmlspecialchars($_REQUEST['date_from']);?>" />
+    <input type="hidden" name="date_to" value="<?php echo htmlspecialchars($_REQUEST['date_to']);?>" />
+    <input type="hidden" name="users" value="<?php echo htmlspecialchars($_REQUEST['users']);?>" />
     <?php
     echo "<br/>" . sprintf(__('Export as %s'), $str_export1) . $str_export2 . "<br/>";
     ?>
@@ -612,11 +613,15 @@ if ($last_version > 0) {
         <tr class="noclick <?php echo $style;?>">
             <td><?php echo htmlspecialchars($version['db_name']);?></td>
             <td><?php echo htmlspecialchars($version['table_name']);?></td>
-            <td><?php echo $version['version'];?></td>
-            <td><?php echo $version['date_created'];?></td>
-            <td><?php echo $version['date_updated'];?></td>
+            <td><?php echo htmlspecialchars($version['version']);?></td>
+            <td><?php echo htmlspecialchars($version['date_created']);?></td>
+            <td><?php echo htmlspecialchars($version['date_updated']);?></td>
             <td><?php echo $version_status;?></td>
-            <td> <a href="tbl_tracking.php?<?php echo $url_query;?>&amp;report=true&amp;version=<?php echo $version['version'];?>"><?php echo __('Tracking report');?></a> | <a href="tbl_tracking.php?<?php echo $url_query;?>&amp;snapshot=true&amp;version=<?php echo $version['version'];?>"><?php echo __('Structure snapshot');?></a></td>
+            <td> <a href="tbl_tracking.php<?php echo PMA_generate_common_url($url_params + array('report' => 'true', 'version' => $version['version'])
+);?>"><?php echo __('Tracking report');?></a> 
+                | <a href="tbl_tracking.php<?php echo PMA_generate_common_url($url_params + array('snapshot' => 'true', 'version' => $version['version'])
+);?>"><?php echo __('Structure snapshot');?></a>
+            </td>
         </tr>
     <?php
         if ($style == 'even') {

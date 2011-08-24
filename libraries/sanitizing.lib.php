@@ -86,4 +86,22 @@ function PMA_sanitize($message, $escape = false, $safe = false)
 
     return $message;
 }
+
+
+/**
+ * Sanitize a filename by removing anything besides A-Za-z0-9_.-
+ *
+ * Intended usecase:
+ *    When using a filename in a Content-Disposition header the value should not contain ; or "
+ *
+ * @param   string  The filename
+ *
+ * @return  string  the sanitized filename
+ *
+ */
+function PMA_sanitize_filename($filename) {
+    $filename = preg_replace('/[^A-Za-z0-9_.-]/', '_', $filename);
+    return $filename;
+}
+
 ?>
