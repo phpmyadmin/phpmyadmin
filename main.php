@@ -157,7 +157,7 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
     echo '<ul>' . "\n";
     PMA_printListItem(__('Server') . ': ' . $server_info, 'li_server_info');
     PMA_printListItem(__('Software') . ': ' . PMA_getServerType(), 'li_server_type');
-    PMA_printListItem(__('Software version') . ': ' . PMA_MYSQL_STR_VERSION, 'li_server_version');
+    PMA_printListItem(__('Software version') . ': ' . PMA_MYSQL_STR_VERSION . ' - ' . PMA_MYSQL_VERSION_COMMENT, 'li_server_version');
     PMA_printListItem(__('Protocol version') . ': ' . PMA_DBI_get_proto_info(),
         'li_mysql_proto');
     PMA_printListItem(__('User') . ': ' . htmlspecialchars($mysql_cur_user_and_host),

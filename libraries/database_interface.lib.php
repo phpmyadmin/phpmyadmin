@@ -1168,25 +1168,27 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
             define('PMA_MYSQL_INT_VERSION', PMA_cacheGet('PMA_MYSQL_INT_VERSION', true));
             define('PMA_MYSQL_MAJOR_VERSION', PMA_cacheGet('PMA_MYSQL_MAJOR_VERSION', true));
             define('PMA_MYSQL_STR_VERSION', PMA_cacheGet('PMA_MYSQL_STR_VERSION', true));
+            define('PMA_MYSQL_VERSION_COMMENT', PMA_cacheGet('PMA_MYSQL_VERSION_COMMENT', true));
         } else {
-            $mysql_version = PMA_DBI_fetch_value(
-                'SELECT VERSION()', 0, 0, $link, PMA_DBI_QUERY_STORE);
-            if ($mysql_version) {
-                $match = explode('.', $mysql_version);
+            $version = PMA_DBI_fetch_single_row('SELECT @@version, @@version_comment', 'ASSOC', $link);
+            if ($version) {
+                $match = explode('.', $version['@@version']);
                 define('PMA_MYSQL_MAJOR_VERSION', (int)$match[0]);
                 define('PMA_MYSQL_INT_VERSION',
                     (int) sprintf('%d%02d%02d', $match[0], $match[1],
                             intval($match[2])));
-                define('PMA_MYSQL_STR_VERSION', $mysql_version);
-                unset($mysql_version, $match);
+                define('PMA_MYSQL_STR_VERSION', $version['@@version']);
+                define('PMA_MYSQL_VERSION_COMMENT', $version['@@version_comment']);
             } else {
                 define('PMA_MYSQL_INT_VERSION', 50015);
                 define('PMA_MYSQL_MAJOR_VERSION', 5);
                 define('PMA_MYSQL_STR_VERSION', '5.00.15');
+                define('PMA_MYSQL_VERSION_COMMENT', '');
             }
             PMA_cacheSet('PMA_MYSQL_INT_VERSION', PMA_MYSQL_INT_VERSION, true);
             PMA_cacheSet('PMA_MYSQL_MAJOR_VERSION', PMA_MYSQL_MAJOR_VERSION, true);
             PMA_cacheSet('PMA_MYSQL_STR_VERSION', PMA_MYSQL_STR_VERSION, true);
+            PMA_cacheSet('PMA_MYSQL_VERSION_COMMENT', PMA_MYSQL_VERSION_COMMENT, true);
         }
         // detect Drizzle by version number - <year>.<month>.<build number>(.<patch rev)
         define('PMA_DRIZZLE', PMA_MYSQL_MAJOR_VERSION >= 2009);
