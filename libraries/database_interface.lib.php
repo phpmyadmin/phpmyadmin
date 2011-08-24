@@ -1345,27 +1345,4 @@ function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
 
     return($result);
 }
-
-/**
- * Returns true if $db.$view_name is a view, false if not
- *
- * @param string $db         database name
- * @param string $view_name  view/table name
- *
- * @return bool               true if $db.$view_name is a view, false if not
- */
-function PMA_isView($db, $view_name)
-{
-    $result = PMA_DBI_fetch_result(
-        "SELECT TABLE_NAME
-        FROM information_schema.VIEWS
-        WHERE TABLE_SCHEMA = '" . PMA_sqlAddSlashes($db) . "'
-            AND TABLE_NAME = '" . PMA_sqlAddSlashes($view_name) . "'");
-
-    if ($result) {
-        return true;
-    } else {
-        return false;
-    }
-}
 ?>

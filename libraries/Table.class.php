@@ -179,12 +179,23 @@ class PMA_Table
      */
     static public function isView($db = null, $table = null)
     {
-        if (strlen($db) && strlen($table)) {
+        if (empty($db) || empty($table)) {
+            return false;
+        }
+
+        // use cached data or load information with SHOW command
+        if (isset(PMA_Table::$cache[$db][$table]) || $GLOBALS['cfg']['Server']['DisableIS']) {
             $type = PMA_Table::sGetStatusInfo($db, $table, 'TABLE_TYPE');
             return $type == 'VIEW';
         }
 
-        return false;
+        // query information_schema
+        $result = PMA_DBI_fetch_result(
+            "SELECT TABLE_NAME
+            FROM information_schema.VIEWS
+            WHERE TABLE_SCHEMA = '" . PMA_sqlAddSlashes($db) . "'
+                AND TABLE_NAME = '" . PMA_sqlAddSlashes($table) . "'");
+        return $result ? true : false;
     }
 
     /**
