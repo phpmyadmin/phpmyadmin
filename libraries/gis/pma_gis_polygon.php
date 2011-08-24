@@ -40,27 +40,18 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
      */
     public function scaleRow($spatial)
     {
-        $min_max = array();
-
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = substr($spatial, 9, (strlen($spatial) - 11));
 
-        // If the polygon doesnt have an inner polygon
+        // If the polygon doesn't have an inner ring, use polygon itself
         if (strpos($polygon, "),(") === false) {
-             $min_max = $this->setMinMax($polygon, $min_max);
+            $ring = $polygon;
         } else {
-            // Seperate outer and inner polygons
+            // Seperate outer ring and use it to determin min-max
             $parts = explode("),(", $polygon);
-            $outer = $parts[0];
-            $inner = array_slice($parts, 1);
-
-            $min_max = $this->setMinMax($outer, $min_max);
-
-            foreach ($inner as $inner_poly) {
-                 $min_max = $this->setMinMax($inner_poly, $min_max);
-            }
+            $ring = $parts[0];
         }
-        return $min_max;
+        return $this->setMinMax($ring, array());
     }
 
     /**

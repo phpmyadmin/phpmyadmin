@@ -274,9 +274,7 @@ if ($asfile) {
         }
     }
     $filename = PMA_expandUserString($filename_template);
-
-    // convert filename to iso-8859-1, it is safer
-    $filename = PMA_convert_string('utf-8', 'iso-8859-1', $filename);
+    $filename = PMA_sanitize_filename($filename);
 
     // Grab basic dump extension and mime type
     // Check if the user already added extension; get the substring where the extension would be if it was included
@@ -346,6 +344,7 @@ if (!$save_on_server) {
         // (avoid rewriting data containing HTML with anchors and forms;
         // this was reported to happen under Plesk)
         @ini_set('url_rewriter.tags','');
+        $filename = PMA_sanitize_filename($filename);
 
         PMA_download_header($filename, $mime_type);
     } else {

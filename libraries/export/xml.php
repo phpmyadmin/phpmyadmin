@@ -10,7 +10,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-if (strlen($GLOBALS['db'])) { /* Can't do server export */
+if (!strlen($GLOBALS['db'])) { /* Can't do server export */
     return;
 }
 
@@ -169,7 +169,7 @@ if (isset($plugin_list)) {
                 $result = PMA_DBI_fetch_result('SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table), 0);
                 $tbl =  $result[$table][1];
 
-                $is_view = PMA_isView($db, $table);
+                $is_view = PMA_Table::isView($db, $table);
 
                 if ($is_view) {
                     $type = 'view';

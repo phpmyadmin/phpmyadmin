@@ -179,11 +179,23 @@ class PMA_Table
      */
     static public function isView($db = null, $table = null)
     {
-        if (strlen($db) && strlen($table)) {
-            return PMA_Table::_isView($db, $table);
+        if (empty($db) || empty($table)) {
+            return false;
         }
 
-        return false;
+        // use cached data or load information with SHOW command
+        if (isset(PMA_Table::$cache[$db][$table]) || $GLOBALS['cfg']['Server']['DisableIS']) {
+            $type = PMA_Table::sGetStatusInfo($db, $table, 'TABLE_TYPE');
+            return $type == 'VIEW';
+        }
+
+        // query information_schema
+        $result = PMA_DBI_fetch_result(
+            "SELECT TABLE_NAME
+            FROM information_schema.VIEWS
+            WHERE TABLE_SCHEMA = '" . PMA_sqlAddSlashes($db) . "'
+                AND TABLE_NAME = '" . PMA_sqlAddSlashes($table) . "'");
+        return $result ? true : false;
     }
 
     /**
@@ -249,30 +261,6 @@ class PMA_Table
             }
         }
         return true;
-    }
-
-    /**
-     * Checks if this "table" is a view
-     *
-     * @param string $db    the database name
-     * @param string $table the table name
-     *
-     * @deprecated
-     * @todo see what we could do with the possible existence of $table_is_view
-     *
-     * @return  boolean  whether this is a view
-     */
-    static protected function _isView($db, $table)
-    {
-        // maybe we already know if the table is a view
-        if (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view']) {
-            return true;
-        }
-
-        // Since phpMyAdmin 3.2 the field TABLE_TYPE is properly filled by
-        // PMA_DBI_get_tables_full()
-        $type = PMA_Table::sGetStatusInfo($db, $table, 'TABLE_TYPE');
-        return $type == 'VIEW';
     }
 
     /**
@@ -810,7 +798,7 @@ class PMA_Table
             if (isset($GLOBALS['drop_if_exists'])
                 && $GLOBALS['drop_if_exists'] == 'true'
             ) {
-                if (PMA_Table::_isView($target_db, $target_table)) {
+                if (PMA_Table::isView($target_db, $target_table)) {
                     $drop_query = 'DROP VIEW';
                 } else {
                     $drop_query = 'DROP TABLE';
@@ -881,7 +869,7 @@ class PMA_Table
 
         // Copy the data unless this is a VIEW
         if (($what == 'data' || $what == 'dataonly')
-            && ! PMA_Table::_isView($target_db, $target_table)
+            && ! PMA_Table::isView($target_db, $target_table)
         ) {
             $sql_insert_data = 'INSERT INTO ' . $target . ' SELECT * FROM ' . $source;
             PMA_DBI_query($sql_insert_data);
@@ -897,7 +885,7 @@ class PMA_Table
             // moving table from replicated one to not replicated one
             PMA_DBI_select_db($source_db);
 
-            if (PMA_Table::_isView($source_db, $source_table)) {
+            if (PMA_Table::isView($source_db, $source_table)) {
                 $sql_drop_query = 'DROP VIEW';
             } else {
                 $sql_drop_query = 'DROP TABLE';

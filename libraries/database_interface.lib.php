@@ -1235,16 +1235,15 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
  * @param integer|string      $field  field to fetch the value from,
  *                                      starting at 0, with 0 beeing default
  * @param resource            $link   mysql link
- * @param mixed               $options
  * @return  mixed               value of first field in first row from result
  *                              or false if not found
  */
-function PMA_DBI_fetch_value($result, $row_number = 0, $field = 0, $link = null, $options = 0)
+function PMA_DBI_fetch_value($result, $row_number = 0, $field = 0, $link = null)
 {
     $value = false;
 
     if (is_string($result)) {
-        $result = PMA_DBI_try_query($result, $link, $options | PMA_DBI_QUERY_STORE, false);
+        $result = PMA_DBI_try_query($result, $link, PMA_DBI_QUERY_STORE, false);
     }
 
     // return false if result is empty or false
@@ -1290,14 +1289,13 @@ function PMA_DBI_fetch_value($result, $row_number = 0, $field = 0, $link = null,
  *                                      returned array should either numeric
  *                                      associativ or booth
  * @param resource            $link   mysql link
- * @param mixed               $options
  * @return  array|boolean       first row from result
  *                              or false if result is empty
  */
-function PMA_DBI_fetch_single_row($result, $type = 'ASSOC', $link = null, $options = 0)
+function PMA_DBI_fetch_single_row($result, $type = 'ASSOC', $link = null)
 {
     if (is_string($result)) {
-        $result = PMA_DBI_try_query($result, $link, $options | PMA_DBI_QUERY_STORE, false);
+        $result = PMA_DBI_try_query($result, $link, PMA_DBI_QUERY_STORE, false);
     }
 
     // return null if result is empty or false
@@ -1457,16 +1455,6 @@ function PMA_DBI_fetch_result($result, $key = null, $value = null,
 
     PMA_DBI_free_result($result);
     return $resultrows;
-}
-
-/**
- * return default table engine for given database
- *
- * @return  string  default table engine
- */
-function PMA_DBI_get_default_engine()
-{
-    return PMA_DBI_fetch_value('SHOW VARIABLES LIKE \'storage_engine\';', 0, 1);
 }
 
 /**
@@ -1679,26 +1667,4 @@ function PMA_is_system_schema($schema_name, $test_for_mysql_schema = false)
             || ($test_for_mysql_schema && !PMA_DRIZZLE && $schema_name == 'mysql');
 }
 
-/**
- * Returns true if $db.$view_name is a view, false if not
- *
- * @param string $db         database name
- * @param string $view_name  view/table name
- *
- * @return bool               true if $db.$view_name is a view, false if not
- */
-function PMA_isView($db, $view_name)
-{
-    $result = PMA_DBI_fetch_result(
-        "SELECT TABLE_NAME
-        FROM information_schema.VIEWS
-        WHERE TABLE_SCHEMA = '" . PMA_sqlAddSlashes($db) . "'
-            AND TABLE_NAME = '" . PMA_sqlAddSlashes($view_name) . "'");
-
-    if ($result) {
-        return true;
-    } else {
-        return false;
-    }
-}
 ?>

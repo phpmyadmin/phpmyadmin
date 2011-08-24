@@ -142,5 +142,25 @@ class PMA_GIS_MultipointTest extends PMA_GIS_GeomTest
             )
         );
     }
+
+    /**
+     * data provider for testScaleRow
+     *
+     * @return data for testScaleRow
+     */
+    public function providerForTestScaleRow()
+    {
+        return array(
+            array(
+                'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
+                array(
+                    'minX' => 12,
+                    'maxX' => 69,
+                    'minY' => 23,
+                    'maxY' => 78
+                )
+            )
+        );
+    }
 }
 ?>
