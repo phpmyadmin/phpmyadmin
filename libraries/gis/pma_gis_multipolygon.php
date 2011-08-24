@@ -368,7 +368,7 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
         // Determines whether each line ring is an inner ring or an outer ring.
         // If it's an inner ring get a point on the surface which can be used to
         // correctly classify inner rings to their respective outer rings.
-        include_once 'libraries/gis/pma_gis_polygon.php';
+        include_once './libraries/gis/pma_gis_polygon.php';
         foreach ($row_data['parts'] as $i => $ring) {
             $row_data['parts'][$i]['isOuter'] = PMA_GIS_Polygon::isOuterRing($ring['points']);
         }
