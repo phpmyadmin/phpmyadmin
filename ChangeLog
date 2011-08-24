@@ -7,6 +7,9 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 
 3.3.11.0 (not yet released)
 
+3.3.10.4 (2011-08-24)
+- [security] Missing sanitization on the table, column and index names leads to XSS vulnerabilities, see PMASA-2011-13
+
 3.3.10.3 (2011-07-23)
 - [security] Fixed XSS vulnerability, see PMASA-2011-9
 - [security] Fixed possible session manipulation in swekey authentication, see PMASA-2011-12
