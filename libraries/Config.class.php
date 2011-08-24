@@ -92,7 +92,7 @@ class PMA_Config
      */
     function checkSystem()
     {
-        $this->set('PMA_VERSION', '3.3.10.3');
+        $this->set('PMA_VERSION', '3.3.10.4');
         /**
          * @deprecated
          */
