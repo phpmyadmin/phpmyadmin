@@ -507,19 +507,19 @@ foreach ($fields as $row) {
                      }
                   } ?>
             </div>
-	    <?php if (!PMA_DRIZZLE) { ?>
-	    <div class="action_spatial">
-               <?php
+	        <?php if (!PMA_DRIZZLE) { ?>
+	        <div class="action_spatial">
+                <?php
                 if (isset($spatial_enabled)) {
-                     if ($spatial_enabled) { ?>
-                         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD SPATIAL(' . PMA_backquote($row['Field']) . ')'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
-                             <?php echo $hidden_titles['Spatial']; ?>
-                         </a>
-                     <?php
-                     } else {
-                         echo $hidden_titles['NoSpatial'];
-                     }
-                  } ?>
+                    if ($spatial_enabled) { ?>
+                        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD SPATIAL(' . PMA_backquote($row['Field']) . ')'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
+                            <?php echo $hidden_titles['Spatial']; ?>
+                        </a>
+                    <?php
+                    } else {
+                        echo $hidden_titles['NoSpatial'];
+                    }
+                } ?>
             </div>
             <div class="action_fulltext">
                 <?php
@@ -533,7 +533,7 @@ foreach ($fields as $row) {
                          echo $hidden_titles['NoIdxFulltext'];
                      }
                 } ?>
-             </div>
+            </div>
             <?php } ?>
         </div>
     </td>

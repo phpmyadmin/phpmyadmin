@@ -765,7 +765,7 @@ if (isset($plugin_list)) {
 
         // Complete table dump,
         // Whether to quote table and fields names or not
-    // Drizzle always quotes names
+        // Drizzle always quotes names
         if (!PMA_DRIZZLE) {
             if ($sql_backquotes) {
                 PMA_DBI_query('SET SQL_QUOTE_SHOW_CREATE = 1');
@@ -819,7 +819,7 @@ if (isset($plugin_list)) {
                 $create_query     = preg_replace('/^CREATE TABLE/', 'CREATE TABLE IF NOT EXISTS', $create_query);
             }
 
-        // Drizzle (checked on 2011.03.13) returns ROW_FORMAT surrounded with quotes, which is not accepted by parser
+            // Drizzle (checked on 2011.03.13) returns ROW_FORMAT surrounded with quotes, which is not accepted by parser
             if (PMA_DRIZZLE) {
                 $create_query = preg_replace('/ROW_FORMAT=\'(\S+)\'/', 'ROW_FORMAT=$1', $create_query);
             }
@@ -906,7 +906,7 @@ if (isset($plugin_list)) {
 
         // remove a possible "AUTO_INCREMENT = value" clause
         // that could be there starting with MySQL 5.0.24
-    // in Drizzle it's useless as it contains the value given at table creation time
+        // in Drizzle it's useless as it contains the value given at table creation time
         $schema_create = preg_replace('/AUTO_INCREMENT\s*=\s*([0-9])+/', '', $schema_create);
 
         $schema_create .= $auto_increment;
