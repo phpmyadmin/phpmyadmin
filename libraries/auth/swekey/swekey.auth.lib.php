@@ -143,8 +143,8 @@ function Swekey_auth_error()
         return "Internal Error: CA File $caFile not found";
 
     $result = null;
-	$swekey_id = $_GET['swekey_id'];
-	$swekey_otp = $_GET['swekey_otp'];
+    $swekey_id = $_GET['swekey_id'];
+    $swekey_otp = $_GET['swekey_otp'];
 
     if (isset($swekey_id)) {
         unset($_SESSION['SWEKEY']['AUTHENTICATED_SWEKEY']);
@@ -186,19 +186,19 @@ function Swekey_auth_error()
     if (! isset($swekey_id)) {
         ?>
         <script>
-	if (key.length != 32)
-	{
-	    window.location.search="?swekey_id=" + key + "&token=<?php echo $_SESSION[' PMA_token ']; ?>";
-	}
-	else
-	{
-	    var url = "" + window.location;
-	    if (url.indexOf("?") > 0)
-	        url = url.substr(0, url.indexOf("?"));
-	    Swekey_SetUnplugUrl(key, "pma_login", url + "?session_to_unset=<?php echo session_id();?>&token=<?php echo $_SESSION[' PMA_token ']; ?>");
-	    var otp = Swekey_GetOtp(key, <?php echo '"'.$_SESSION['SWEKEY']['RND_TOKEN'].'"';?>);
-	    window.location.search="?swekey_id=" + key + "&swekey_otp=" + otp + "&token=<?php echo $_SESSION[' PMA_token ']; ?>";
-	}
+    if (key.length != 32)
+    {
+        window.location.search="?swekey_id=" + key + "&token=<?php echo $_SESSION[' PMA_token ']; ?>";
+    }
+    else
+    {
+        var url = "" + window.location;
+        if (url.indexOf("?") > 0)
+            url = url.substr(0, url.indexOf("?"));
+        Swekey_SetUnplugUrl(key, "pma_login", url + "?session_to_unset=<?php echo session_id();?>&token=<?php echo $_SESSION[' PMA_token ']; ?>");
+        var otp = Swekey_GetOtp(key, <?php echo '"'.$_SESSION['SWEKEY']['RND_TOKEN'].'"';?>);
+        window.location.search="?swekey_id=" + key + "&swekey_otp=" + otp + "&token=<?php echo $_SESSION[' PMA_token ']; ?>";
+    }
         </script>
         <?php
         return __('Authenticating...');
