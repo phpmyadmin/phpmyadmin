@@ -226,5 +226,39 @@ class PMA_GIS_MultipolygonTest extends PMA_GIS_GeomTest
             )
         );
     }
+
+    /**
+     * test scaleRow method
+     *
+     * @param string $spatial spatial data of a row
+     * @param array  $min_max expected results
+     *
+     * @dataProvider providerForTestScaleRow
+     * @return nothing
+     */
+    public function testScaleRow($spatial, $min_max)
+    {
+        $this->assertEquals($this->object->scaleRow($spatial), $min_max);
+    }
+
+    /**
+     * data provider for testScaleRow
+     *
+     * @return data for testScaleRow
+     */
+    public function providerForTestScaleRow()
+    {
+        return array(
+            array(
+                'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),((105 0,56 20,78 73,105 0)))',
+                array(
+                    'minX' => 16,
+                    'maxX' => 147,
+                    'minY' => 0,
+                    'maxY' => 83
+                )
+            )
+        );
+    }
 }
 ?>

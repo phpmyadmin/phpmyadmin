@@ -315,5 +315,48 @@ class PMA_GIS_PolygonTest extends PMA_GIS_GeomTest
             )
         );
     }
+
+    /**
+     * test scaleRow method
+     *
+     * @param string $spatial spatial data of a row
+     * @param array  $min_max expected results
+     *
+     * @dataProvider providerForTestScaleRow
+     * @return nothing
+     */
+    public function testScaleRow($spatial, $min_max)
+    {
+        $this->assertEquals($this->object->scaleRow($spatial), $min_max);
+    }
+
+    /**
+     * data provider for testScaleRow
+     *
+     * @return data for testScaleRow
+     */
+    public function providerForTestScaleRow()
+    {
+        return array(
+            array(
+                'POLYGON((123 0,23 30,17 63,123 0))',
+                array(
+                    'minX' => 17,
+                    'maxX' => 123,
+                    'minY' => 0,
+                    'maxY' => 63,
+                )
+            ),
+            array(
+                'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
+                array(
+                    'minX' => 10,
+                    'maxX' => 45,
+                    'minY' => 10,
+                    'maxY' => 45
+                )
+            ),
+        );
+    }
 }
 ?>
