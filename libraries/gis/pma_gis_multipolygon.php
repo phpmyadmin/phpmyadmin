@@ -48,21 +48,15 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
         $polygons = explode(")),((", $multipolygon);
 
         foreach ($polygons as $polygon) {
-            // If the polygon doesnt have an inner polygon
+            // If the polygon doesn't have an inner ring, use polygon itself
             if (strpos($polygon, "),(") === false) {
-                $min_max = $this->setMinMax($polygon, $min_max);
+                $ring = $polygon;
             } else {
-                // Seperate outer and inner polygons
+                // Seperate outer ring and use it to determin min-max
                 $parts = explode("),(", $polygon);
-                $outer = $parts[0];
-                $inner = array_slice($parts, 1);
-
-                $min_max = $this->setMinMax($outer, $min_max);
-
-                foreach ($inner as $inner_poly) {
-                    $min_max = $this->setMinMax($inner_poly, $min_max);
-                }
+                $ring = $parts[0];
             }
+            $min_max = $this->setMinMax($ring, $min_max);
         }
 
         return $min_max;
@@ -374,7 +368,7 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
         // Determines whether each line ring is an inner ring or an outer ring.
         // If it's an inner ring get a point on the surface which can be used to
         // correctly classify inner rings to their respective outer rings.
-        include_once './libraries/gis/pma_gis_polygon.php';
+        include_once 'libraries/gis/pma_gis_polygon.php';
         foreach ($row_data['parts'] as $i => $ring) {
             $row_data['parts'][$i]['isOuter'] = PMA_GIS_Polygon::isOuterRing($ring['points']);
         }
