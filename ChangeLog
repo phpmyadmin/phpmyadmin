@@ -47,6 +47,7 @@ phpMyAdmin - ChangeLog
 + [interface] Editor for GIS data
 + [import] Import GIS data from ESRI Shapefiles
 + [interface] 'Function based search' for GIS data
++ Support Drizzle database
 
 3.4.5.0 (not yet released)
 - bug #3375325 [interface] Page list in navigation frame looks odd
