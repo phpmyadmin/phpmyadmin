@@ -8803,7 +8803,7 @@ msgstr "Veritabanlarının dökümünü (şemasını) göster"
 
 #: server_plugins.php:81
 msgid "Modules"
-msgstr ""
+msgstr "Modüller"
 
 #: server_plugins.php:102
 msgid "Begin"
