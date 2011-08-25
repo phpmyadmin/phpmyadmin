@@ -193,7 +193,7 @@ for ($i = 0; $i < 4; $i++) {
                     . '<option value="' .  htmlspecialchars($fc) . '">'
                     . htmlspecialchars($fc) . '</option>';
                 }
-            }   
+            }
         } // end if... else...
 
         if ($tbl_fields_null[$i]) {
@@ -226,7 +226,7 @@ for ($i = 0; $i < 4; $i++) {
 
        </td><td></td>
 
-        <?php 
+        <?php
     } ?>
 
         </td>
@@ -269,15 +269,15 @@ for ($j = 0; $j < $fields_cnt; $j++) {
         <option value="<?php echo htmlspecialchars($fields_list[$j]);?>" >  <?php echo htmlspecialchars($fields_list[$j]);?></option>
 <?php
     }
-} 
+}
 ?>
     </select>
     </td></tr>
     <tr><td><label for="maxRowPlotLimit"><?php echo __("Maximum rows to plot"); ?></label></td>
     <td>
-<?php 
+<?php
 echo '<input type="text" name="maxPlotLimit" id="maxRowPlotLimit" value="';
-if (! empty($maxPlotLimit)) { 
+if (! empty($maxPlotLimit)) {
     echo $maxPlotLimit;
 } else {
     echo $GLOBALS['cfg']['maxRowPlotLimit'];
@@ -374,14 +374,14 @@ if (isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null' 
                 <div id='resizer' style="width:600px;height:400px">
 <center> <a href="#" onClick="displayHelp();"><?php echo __('How to use'); ?></a> </center>
                 <div id="querydata" style="display:none">
-<?php 
-        echo json_encode($data); 
+<?php
+        echo json_encode($data);
 ?>
                 </div>
         <div id="querychart" style="float:right"></div>
                 </div>
                 <?php
-    } 
+    }
 ?>
         </center>
     <fieldset id='dataDisplay' style="display:none">
@@ -408,7 +408,7 @@ if (isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null' 
                         <th><?php echo PMA_getForeignFields_Values($foreigners, $foreignData, $fieldpopup, $tbl_fields_type, $i, $db, $table, $titles,$GLOBALS['cfg']['ForeignKeyMaxLimit'], '' ); ?> </th>
                     </tr>
 <?php
-    } 
+    }
 ?>
             </tbody>
         </table>
