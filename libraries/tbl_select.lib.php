@@ -3,8 +3,8 @@
 /**
  * Functions for the table-search page and zoom-search page
  *
- * Funtion PMA_tbl_getFields : Returns the fields of a table
- * Funtion PMA_tbl_search_getWhereClause : Returns the where clause for query generation
+ * Function PMA_tbl_getFields : Returns the fields of a table
+ * Function PMA_tbl_search_getWhereClause : Returns the where clause for query generation
  *
  * @package phpMyAdmin
  */
