@@ -8387,7 +8387,7 @@ msgstr "Servidor de base de datos"
 
 #: main.php:159
 msgid "Software"
-msgstr "Programas"
+msgstr "Programa"
 
 #: main.php:160
 #| msgid "Show versions"
