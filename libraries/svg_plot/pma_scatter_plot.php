@@ -235,9 +235,7 @@ class PMA_Scatter_Plot
      * @param int    $color_number Start index to the color array
      * @param array  $scale_data   Data related to scaling
      * @param string $label        Label for the data points
-     * @param image  $results      Image object in the case of png
-     *
-     * @return the formatted array of data.
+     * @return string the formatted array of data.
      */
     private function _prepareDataSet($data, $color_number, $scale_data, $label)
     {
