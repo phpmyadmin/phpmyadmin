@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 08:38+0200\n"
-"PO-Revision-Date: 2011-08-25 13:21+0200\n"
+"PO-Revision-Date: 2011-08-25 13:22+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -190,7 +190,7 @@ msgstr "Varsayılan"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1316
 #: libraries/schema/Pdf_Relation_Schema.class.php:1337 tbl_printview.php:144
 msgid "Links to"
-msgstr "Bağlantı verilen"
+msgstr "Bağlantı verilen:"
 
 #: db_datadict.php:172 db_printview.php:110
 #: libraries/config/messages.inc.php:94 libraries/config/messages.inc.php:109
