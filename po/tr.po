@@ -8277,10 +8277,9 @@ msgid "More settings"
 msgstr "Daha fazla ayarlar"
 
 #: main.php:156
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
-msgstr "Kullanıcı için veritabanı"
+msgstr "Veritabanı sunucusu"
 
 #: main.php:159
 msgid "Software"
