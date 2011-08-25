@@ -8229,10 +8229,9 @@ msgid "User"
 msgstr "Uživatel"
 
 #: main.php:167
-#, fuzzy
 #| msgid "Server socket"
 msgid "Server charset"
-msgstr "Socket serveru"
+msgstr "Znaková sada"
 
 #: main.php:179
 msgid "Web server"
