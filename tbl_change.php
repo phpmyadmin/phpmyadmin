@@ -125,6 +125,7 @@ $GLOBALS['js_include'][] = 'jquery/timepicker.js';
 
 // required for GIS editor
 $GLOBALS['js_include'][] = 'gis_data_editor.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.sprintf.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.svg.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.mousewheel.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.event.drag-2.0.min.js';
