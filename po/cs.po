@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 08:38+0200\n"
-"PO-Revision-Date: 2011-08-25 09:00+0200\n"
+"PO-Revision-Date: 2011-08-25 09:01+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -7730,7 +7730,7 @@ msgstr "Znakové sady"
 #: libraries/server_links.inc.php:104 server_plugins.php:47
 #: server_plugins.php:80
 msgid "Plugins"
-msgstr ""
+msgstr "Rozšíření"
 
 #: libraries/server_links.inc.php:108
 msgid "Engines"
