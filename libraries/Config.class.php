@@ -182,8 +182,7 @@ class PMA_Config
             '@Opera(/| )([0-9].[0-9]{1,2})@',
             $HTTP_USER_AGENT,
             $log_version
-        )
-        ) {
+        )) {
             $this->set('PMA_USR_BROWSER_VER', $log_version[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'OPERA');
         } elseif (preg_match(
@@ -196,8 +195,8 @@ class PMA_Config
         } elseif (preg_match(
             '@OmniWeb/([0-9].[0-9]{1,2})@',
             $HTTP_USER_AGENT,
-            $log_version)
-        ) {
+            $log_version
+        )) {
             $this->set('PMA_USR_BROWSER_VER', $log_version[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'OMNIWEB');
         // Konqueror 2.2.2 says Konqueror/2.2.2
@@ -205,8 +204,8 @@ class PMA_Config
         } elseif (preg_match(
             '@(Konqueror/)(.*)(;)@',
             $HTTP_USER_AGENT,
-            $log_version)
-        ) {
+            $log_version
+        )) {
             $this->set('PMA_USR_BROWSER_VER', $log_version[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'KONQUEROR');
         } elseif (preg_match(
@@ -223,8 +222,8 @@ class PMA_Config
         } elseif (
             preg_match('@Mozilla/([0-9].[0-9]{1,2})@',
             $HTTP_USER_AGENT,
-            $log_version)
-        ) {
+            $log_version
+        )) {
             $this->set('PMA_USR_BROWSER_VER', $log_version[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'MOZILLA');
         } else {
@@ -327,12 +326,12 @@ class PMA_Config
         if (! preg_match(
             '@([0-9]{1,2}).([0-9]{1,2}).([0-9]{1,2})@',
             phpversion(),
-            $match)
-        ) {
-            preg_match(
-            '@([0-9]{1,2}).([0-9]{1,2})@',
-            phpversion(),
             $match
+        )) {
+            preg_match(
+                '@([0-9]{1,2}).([0-9]{1,2})@',
+                phpversion(),
+                $match
             );
         }
         if (isset($match) && ! empty($match[1])) {
@@ -457,11 +456,15 @@ class PMA_Config
          * @todo check validity of $_COOKIE['pma_collation_connection']
          */
         if (! empty($_COOKIE['pma_collation_connection'])) {
-            $this->set('collation_connection',
-                strip_tags($_COOKIE['pma_collation_connection']));
+            $this->set(
+                'collation_connection',
+                strip_tags($_COOKIE['pma_collation_connection'])
+            );
         } else {
-            $this->set('collation_connection',
-                $this->get('DefaultConnectionCollation'));
+            $this->set(
+                'collation_connection',
+                $this->get('DefaultConnectionCollation')
+            );
         }
         // Now, a collation information could come from REQUEST
         // (an example of this: the collation selector in main.php)
@@ -485,7 +488,9 @@ class PMA_Config
         // will have everything avaiable in session cache
         $server = isset($GLOBALS['server'])
             ? $GLOBALS['server']
-            : (!empty($GLOBALS['cfg']['ServerDefault']) ? $GLOBALS['cfg']['ServerDefault'] : 0);
+            : (!empty($GLOBALS['cfg']['ServerDefault'])
+                ? $GLOBALS['cfg']['ServerDefault']
+                : 0);
         $cache_key = 'server_' . $server;
         if ($server > 0 && !defined('PMA_MINIMUM_COMMON')) {
             $config_mtime = max($this->default_source_mtime, $this->source_mtime);
@@ -510,8 +515,14 @@ class PMA_Config
         }
         $config_data = $_SESSION['cache'][$cache_key]['userprefs'];
         // type is 'db' or 'session'
-        $this->set('user_preferences', $_SESSION['cache'][$cache_key]['userprefs_type']);
-        $this->set('user_preferences_mtime', $_SESSION['cache'][$cache_key]['userprefs_mtime']);
+        $this->set(
+            'user_preferences',
+            $_SESSION['cache'][$cache_key]['userprefs_type']
+        );
+        $this->set(
+            'user_preferences_mtime',
+            $_SESSION['cache'][$cache_key]['userprefs_mtime']
+        );
 
         // backup some settings
         $org_fontsize = $this->settings['fontsize'];
@@ -584,7 +595,8 @@ class PMA_Config
             if ((! isset($config_data['collation_connection'])
                 && $GLOBALS['collation_connection'] != 'utf8_general_ci')
                 || isset($config_data['collation_connection'])
-                && $GLOBALS['collation_connection'] != $config_data['collation_connection']
+                && $GLOBALS['collation_connection']
+                    != $config_data['collation_connection']
             ) {
                 $this->setUserValue(
                     null,
@@ -607,10 +619,12 @@ class PMA_Config
     }
 
     /**
-     * Sets config value which is stored in user preferences (if available) or in a cookie.
+     * Sets config value which is stored in user preferences (if available)
+     * or in a cookie.
      *
-     * If user preferences are not yet initialized, option is applied to global config and
-     * added to a update queue, which is processed by {@link loadUserPreferences()}
+     * If user preferences are not yet initialized, option is applied to
+     * global config and added to a update queue, which is processed
+     * by {@link loadUserPreferences()}
      *
      * @param string $cookie_name   can be null
      * @param string $cfg_path
@@ -1012,9 +1026,9 @@ class PMA_Config
             if ('off' == strtolower(ini_get('file_uploads'))) {
                 $this->set('enable_upload', false);
             }
-         } else {
+        } else {
             $this->set('enable_upload', false);
-         }
+        }
     }
 
     /**
@@ -1052,6 +1066,8 @@ class PMA_Config
     }
 
     /**
+     * Checks if protocol is https
+     *
      * @return bool
      */
     public function isHttps()
@@ -1130,6 +1146,8 @@ class PMA_Config
     }
 
     /**
+     * Get cookie path
+     *
      * @return string
      */
     public function getCookiePath()
