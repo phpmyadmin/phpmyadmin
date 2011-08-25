@@ -909,7 +909,7 @@ msgstr "Vnější obrys"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:293
 msgid "Inner Ring"
-msgstr "Vnitřní obrys:"
+msgstr "Vnitřní obrys"
 
 #: gis_data_editor.php:252
 #| msgid "Add a new User"
