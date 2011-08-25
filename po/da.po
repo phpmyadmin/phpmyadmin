@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-23 12:37+0200\n"
+"POT-Creation-Date: 2011-08-25 08:28+0200\n"
 "PO-Revision-Date: 2011-08-20 19:20+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
@@ -20,9 +20,9 @@ msgid "Show all"
 msgstr "Vis alle"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:42
-#: libraries/common.lib.php:2350
-#: libraries/schema/Pdf_Relation_Schema.class.php:1149
-#: libraries/schema/Pdf_Relation_Schema.class.php:1174
+#: libraries/common.lib.php:2354
+#: libraries/schema/Pdf_Relation_Schema.class.php:1147
+#: libraries/schema/Pdf_Relation_Schema.class.php:1171
 #: libraries/schema/User_Schema.class.php:376
 #: libraries/select_lang.lib.php:487
 msgid "Page number:"
@@ -38,20 +38,20 @@ msgstr ""
 "overliggende vindue eller din browser blokerer for tvær-vindue opdateringer "
 "i sikkerhedsindstillingerne."
 
-#: browse_foreigners.php:151 libraries/common.lib.php:3029
-#: libraries/common.lib.php:3036 libraries/common.lib.php:3240
-#: libraries/common.lib.php:3241 libraries/db_links.inc.php:60
+#: browse_foreigners.php:151 libraries/common.lib.php:3033
+#: libraries/common.lib.php:3040 libraries/common.lib.php:3244
+#: libraries/common.lib.php:3245 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "Søg"
 
-#: browse_foreigners.php:154 db_operations.php:369 db_operations.php:409
-#: db_operations.php:517 db_operations.php:544 db_search.php:328
-#: db_structure.php:530 enum_editor.php:63 gis_data_editor.php:133
+#: browse_foreigners.php:154 db_operations.php:366 db_operations.php:406
+#: db_operations.php:516 db_operations.php:543 db_search.php:337
+#: db_structure.php:541 enum_editor.php:63 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:309 js/messages.php:207
 #: libraries/Config.class.php:1306 libraries/Theme_Manager.class.php:309
 #: libraries/auth/cookie.auth.lib.php:247 libraries/common.lib.php:1315
-#: libraries/common.lib.php:2323 libraries/core.lib.php:508
+#: libraries/common.lib.php:2327 libraries/core.lib.php:508
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:349 libraries/display_import.lib.php:267
@@ -66,19 +66,19 @@ msgstr "Søg"
 #: libraries/schema/User_Schema.class.php:466
 #: libraries/select_server.lib.php:93 libraries/sql_query_form.lib.php:348
 #: libraries/sql_query_form.lib.php:411 libraries/sql_query_form.lib.php:464
-#: libraries/tbl_properties.inc.php:581 libraries/tbl_properties.inc.php:752
-#: main.php:109 navigation.php:169 navigation.php:207 pmd_pdf.php:120
+#: libraries/tbl_properties.inc.php:587 libraries/tbl_properties.inc.php:758
+#: main.php:107 navigation.php:169 navigation.php:207 pmd_pdf.php:120
 #: prefs_manage.php:263 prefs_manage.php:314 server_binlog.php:109
 #: server_privileges.php:733 server_privileges.php:1779
 #: server_privileges.php:2136 server_privileges.php:2183
 #: server_privileges.php:2223 server_replication.php:233
 #: server_replication.php:316 server_replication.php:347
-#: server_synchronize.php:1278 tbl_change.php:344 tbl_change.php:1066
-#: tbl_change.php:1103 tbl_indexes.php:268 tbl_operations.php:284
+#: server_synchronize.php:1300 tbl_change.php:348 tbl_change.php:1070
+#: tbl_change.php:1107 tbl_indexes.php:268 tbl_operations.php:284
 #: tbl_operations.php:321 tbl_operations.php:523 tbl_operations.php:585
-#: tbl_operations.php:767 tbl_select.php:243 tbl_structure.php:667
-#: tbl_structure.php:704 tbl_tracking.php:416 tbl_tracking.php:554
-#: tbl_zoom_select.php:314 view_create.php:181 view_operations.php:99
+#: tbl_operations.php:767 tbl_select.php:243 tbl_structure.php:670
+#: tbl_structure.php:707 tbl_tracking.php:416 tbl_tracking.php:554
+#: tbl_zoom_select.php:293 view_create.php:181 view_operations.php:99
 msgid "Go"
 msgstr "Udfør"
 
@@ -89,7 +89,7 @@ msgstr "Nøglenavn"
 
 #: browse_foreigners.php:170 browse_foreigners.php:172
 #: server_collations.php:54 server_collations.php:66 server_engines.php:56
-#: server_status.php:1424
+#: server_plugins.php:147 server_status.php:1466
 msgid "Description"
 msgstr "Beskrivelse"
 
@@ -99,7 +99,7 @@ msgid "Use this value"
 msgstr "Brug denne værdi"
 
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
-#: libraries/blobstreaming.lib.php:348
+#: libraries/blobstreaming.lib.php:366
 msgid "No blob streaming server configured!"
 msgstr "Ingen blob streaming server konfigureret!"
 
@@ -119,128 +119,128 @@ msgid ""
 msgstr ""
 "Filen %s er ikke tilgængelig, besøg www.phpmyadmin.net for mere information."
 
-#: db_create.php:58
+#: db_create.php:60
 #, php-format
 msgid "Database %1$s has been created."
 msgstr "Database %1$s er oprettet."
 
-#: db_datadict.php:49 db_operations.php:362
+#: db_datadict.php:49 db_operations.php:359
 msgid "Database comment: "
 msgstr "Databasekommentar: "
 
-#: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1290
-#: libraries/tbl_properties.inc.php:689 tbl_operations.php:366
+#: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1284
+#: libraries/tbl_properties.inc.php:695 tbl_operations.php:366
 #: tbl_printview.php:124
 msgid "Table comments"
 msgstr "Tabel kommentarer"
 
-#: db_datadict.php:166 db_qbe.php:196 libraries/Index.class.php:436
-#: libraries/export/htmlword.php:251 libraries/export/latex.php:361
-#: libraries/export/odt.php:288 libraries/export/texytext.php:230
-#: libraries/schema/Pdf_Relation_Schema.class.php:1316
-#: libraries/schema/Pdf_Relation_Schema.class.php:1337
-#: libraries/tbl_properties.inc.php:277 libraries/tbl_select.lib.php:111
-#: tbl_change.php:322 tbl_chart.php:89 tbl_indexes.php:196
+#: db_datadict.php:162 db_qbe.php:196 libraries/Index.class.php:436
+#: libraries/export/htmlword.php:249 libraries/export/latex.php:359
+#: libraries/export/odt.php:286 libraries/export/texytext.php:228
+#: libraries/schema/Pdf_Relation_Schema.class.php:1310
+#: libraries/schema/Pdf_Relation_Schema.class.php:1331
+#: libraries/tbl_properties.inc.php:281 libraries/tbl_select.lib.php:111
+#: tbl_change.php:326 tbl_chart.php:89 tbl_indexes.php:196
 #: tbl_printview.php:136 tbl_relation.php:399 tbl_tracking.php:257
-#: tbl_tracking.php:308 tbl_zoom_select.php:411
+#: tbl_tracking.php:308 tbl_zoom_select.php:392
 msgid "Column"
 msgstr "Kolonnenavn"
 
-#: db_datadict.php:167 db_printview.php:104 libraries/Index.class.php:433
-#: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:252
-#: libraries/export/latex.php:361 libraries/export/odt.php:291
-#: libraries/export/texytext.php:231 libraries/rte/rte_list.lib.php:53
+#: db_datadict.php:163 db_printview.php:104 libraries/Index.class.php:433
+#: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:250
+#: libraries/export/latex.php:359 libraries/export/odt.php:289
+#: libraries/export/texytext.php:229 libraries/rte/rte_list.lib.php:53
 #: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_routines.lib.php:829
 #: libraries/rte/rte_routines.lib.php:854
 #: libraries/rte/rte_routines.lib.php:1359
-#: libraries/schema/Pdf_Relation_Schema.class.php:1317
-#: libraries/schema/Pdf_Relation_Schema.class.php:1338
-#: libraries/tbl_properties.inc.php:103 libraries/tbl_select.lib.php:112
-#: server_privileges.php:2236 tbl_change.php:301 tbl_change.php:328
-#: tbl_printview.php:137 tbl_printview.php:277 tbl_structure.php:203
-#: tbl_structure.php:761 tbl_tracking.php:258 tbl_tracking.php:305
+#: libraries/schema/Pdf_Relation_Schema.class.php:1311
+#: libraries/schema/Pdf_Relation_Schema.class.php:1332
+#: libraries/tbl_properties.inc.php:107 libraries/tbl_select.lib.php:112
+#: server_privileges.php:2236 tbl_change.php:305 tbl_change.php:332
+#: tbl_printview.php:137 tbl_printview.php:277 tbl_structure.php:202
+#: tbl_structure.php:764 tbl_tracking.php:258 tbl_tracking.php:305
 msgid "Type"
 msgstr "Datatype"
 
-#: db_datadict.php:169 libraries/Index.class.php:439
-#: libraries/export/htmlword.php:253 libraries/export/latex.php:361
-#: libraries/export/odt.php:294 libraries/export/texytext.php:232
-#: libraries/schema/Pdf_Relation_Schema.class.php:1319
-#: libraries/schema/Pdf_Relation_Schema.class.php:1340
-#: libraries/tbl_properties.inc.php:112 tbl_change.php:337
-#: tbl_printview.php:139 tbl_structure.php:206 tbl_tracking.php:260
-#: tbl_tracking.php:311 tbl_zoom_select.php:412
+#: db_datadict.php:165 libraries/Index.class.php:439
+#: libraries/export/htmlword.php:251 libraries/export/latex.php:359
+#: libraries/export/odt.php:292 libraries/export/texytext.php:230
+#: libraries/schema/Pdf_Relation_Schema.class.php:1313
+#: libraries/schema/Pdf_Relation_Schema.class.php:1334
+#: libraries/tbl_properties.inc.php:116 tbl_change.php:341
+#: tbl_printview.php:139 tbl_structure.php:205 tbl_tracking.php:260
+#: tbl_tracking.php:311 tbl_zoom_select.php:393
 msgid "Null"
 msgstr "Nulværdi"
 
-#: db_datadict.php:170 db_structure.php:455 libraries/export/htmlword.php:254
-#: libraries/export/latex.php:361 libraries/export/odt.php:297
-#: libraries/export/texytext.php:233
-#: libraries/schema/Pdf_Relation_Schema.class.php:1320
-#: libraries/schema/Pdf_Relation_Schema.class.php:1341
-#: libraries/tbl_properties.inc.php:109 tbl_printview.php:140
-#: tbl_structure.php:207 tbl_tracking.php:261
+#: db_datadict.php:166 db_structure.php:464 libraries/export/htmlword.php:252
+#: libraries/export/latex.php:359 libraries/export/odt.php:295
+#: libraries/export/texytext.php:231
+#: libraries/schema/Pdf_Relation_Schema.class.php:1314
+#: libraries/schema/Pdf_Relation_Schema.class.php:1335
+#: libraries/tbl_properties.inc.php:113 tbl_printview.php:140
+#: tbl_structure.php:206 tbl_tracking.php:261
 msgid "Default"
 msgstr "Standardværdi"
 
-#: db_datadict.php:174 libraries/export/htmlword.php:256
-#: libraries/export/latex.php:363 libraries/export/odt.php:301
-#: libraries/export/texytext.php:235
-#: libraries/schema/Pdf_Relation_Schema.class.php:1322
-#: libraries/schema/Pdf_Relation_Schema.class.php:1343 tbl_printview.php:144
+#: db_datadict.php:170 libraries/export/htmlword.php:254
+#: libraries/export/latex.php:361 libraries/export/odt.php:299
+#: libraries/export/texytext.php:233
+#: libraries/schema/Pdf_Relation_Schema.class.php:1316
+#: libraries/schema/Pdf_Relation_Schema.class.php:1337 tbl_printview.php:144
 msgid "Links to"
 msgstr "Linker til"
 
-#: db_datadict.php:176 db_printview.php:110
+#: db_datadict.php:172 db_printview.php:110
 #: libraries/config/messages.inc.php:94 libraries/config/messages.inc.php:109
-#: libraries/config/messages.inc.php:131 libraries/export/htmlword.php:259
-#: libraries/export/latex.php:366 libraries/export/odt.php:306
-#: libraries/export/texytext.php:238
-#: libraries/schema/Pdf_Relation_Schema.class.php:1333
-#: libraries/schema/Pdf_Relation_Schema.class.php:1344
-#: libraries/tbl_properties.inc.php:132 tbl_printview.php:146
+#: libraries/config/messages.inc.php:131 libraries/export/htmlword.php:257
+#: libraries/export/latex.php:364 libraries/export/odt.php:304
+#: libraries/export/texytext.php:236
+#: libraries/schema/Pdf_Relation_Schema.class.php:1327
+#: libraries/schema/Pdf_Relation_Schema.class.php:1338
+#: libraries/tbl_properties.inc.php:136 tbl_printview.php:146
 msgid "Comments"
 msgstr "Kommentarer"
 
-#: db_datadict.php:237 js/messages.php:226 libraries/Index.class.php:349
+#: db_datadict.php:233 js/messages.php:226 libraries/Index.class.php:349
 #: libraries/Index.class.php:376 libraries/Index.class.php:674
 #: libraries/config.values.php:45 libraries/config.values.php:51
-#: libraries/config/FormDisplay.tpl.php:198 libraries/export/htmlword.php:301
-#: libraries/export/latex.php:409 libraries/export/odt.php:345
-#: libraries/export/texytext.php:280 libraries/mult_submits.inc.php:287
-#: libraries/schema/Pdf_Relation_Schema.class.php:1368
+#: libraries/config/FormDisplay.tpl.php:198 libraries/export/htmlword.php:299
+#: libraries/export/latex.php:407 libraries/export/odt.php:343
+#: libraries/export/texytext.php:278 libraries/mult_submits.inc.php:287
+#: libraries/schema/Pdf_Relation_Schema.class.php:1362
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:128
 #: server_privileges.php:1467 server_privileges.php:1477
 #: server_privileges.php:1723 server_privileges.php:1734
 #: server_privileges.php:2054 server_privileges.php:2059
 #: server_privileges.php:2353 sql.php:288 sql.php:349 tbl_printview.php:194
-#: tbl_structure.php:347 tbl_tracking.php:321 tbl_tracking.php:326
+#: tbl_structure.php:346 tbl_tracking.php:321 tbl_tracking.php:326
 msgid "No"
 msgstr "Nej"
 
-#: db_datadict.php:237 js/messages.php:225 libraries/Index.class.php:350
+#: db_datadict.php:233 js/messages.php:225 libraries/Index.class.php:350
 #: libraries/Index.class.php:375 libraries/Index.class.php:674
 #: libraries/config.values.php:45 libraries/config.values.php:51
-#: libraries/config/FormDisplay.tpl.php:198 libraries/export/htmlword.php:301
-#: libraries/export/latex.php:409 libraries/export/odt.php:345
-#: libraries/export/texytext.php:280 libraries/mult_submits.inc.php:46
+#: libraries/config/FormDisplay.tpl.php:198 libraries/export/htmlword.php:299
+#: libraries/export/latex.php:407 libraries/export/odt.php:343
+#: libraries/export/texytext.php:278 libraries/mult_submits.inc.php:46
 #: libraries/mult_submits.inc.php:78 libraries/mult_submits.inc.php:87
 #: libraries/mult_submits.inc.php:92 libraries/mult_submits.inc.php:97
 #: libraries/mult_submits.inc.php:102 libraries/mult_submits.inc.php:262
 #: libraries/mult_submits.inc.php:276 libraries/mult_submits.inc.php:286
 #: libraries/mult_submits.inc.php:299
-#: libraries/schema/Pdf_Relation_Schema.class.php:1368
+#: libraries/schema/Pdf_Relation_Schema.class.php:1362
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:127
-#: server_databases.php:76 server_privileges.php:1465
+#: server_databases.php:81 server_privileges.php:1465
 #: server_privileges.php:1475 server_privileges.php:1720
 #: server_privileges.php:1734 server_privileges.php:2054
 #: server_privileges.php:2057 server_privileges.php:2353 sql.php:348
-#: tbl_printview.php:194 tbl_structure.php:41 tbl_structure.php:347
+#: tbl_printview.php:194 tbl_structure.php:41 tbl_structure.php:346
 #: tbl_tracking.php:319 tbl_tracking.php:324
 msgid "Yes"
 msgstr "Ja"
 
-#: db_datadict.php:291 db_printview.php:264 tbl_printview.php:462
+#: db_datadict.php:287 db_printview.php:264 tbl_printview.php:462
 msgid "Print"
 msgstr "Print"
 
@@ -249,15 +249,15 @@ msgid "View dump (schema) of database"
 msgstr "Vis dump (skema) af database"
 
 #: db_export.php:30 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
-#: export.php:356 navigation.php:296
+#: export.php:355 navigation.php:296
 msgid "No tables found in database."
 msgstr "Ingen tabeller fundet i databasen."
 
-#: db_export.php:40 db_search.php:310 server_export.php:26
+#: db_export.php:40 db_search.php:319 server_export.php:26
 msgid "Select All"
 msgstr "Vælg alle"
 
-#: db_export.php:42 db_search.php:313 server_export.php:28
+#: db_export.php:42 db_search.php:322 server_export.php:28
 msgid "Unselect All"
 msgstr "Fravælg alle"
 
@@ -265,84 +265,84 @@ msgstr "Fravælg alle"
 msgid "The database name is empty!"
 msgstr "Databasenavnet er tomt!"
 
-#: db_operations.php:272
+#: db_operations.php:273
 #, php-format
 msgid "Database %s has been renamed to %s"
 msgstr "Database %s er blevet omdøbt til %s"
 
-#: db_operations.php:276
+#: db_operations.php:277
 #, php-format
 msgid "Database %s has been copied to %s"
 msgstr "Database %s er blevet kopieret til %s"
 
-#: db_operations.php:403
+#: db_operations.php:400
 msgid "Rename database to"
 msgstr "Omdøb database til"
 
-#: db_operations.php:427
+#: db_operations.php:426
 msgid "Remove database"
 msgstr "Fjern database"
 
-#: db_operations.php:439
+#: db_operations.php:438
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "Database %s er slettet."
 
-#: db_operations.php:444
+#: db_operations.php:443
 msgid "Drop the database (DROP)"
 msgstr "Drop databasen (DROP)"
 
-#: db_operations.php:473
+#: db_operations.php:472
 msgid "Copy database to"
 msgstr "Kopiér database til"
 
-#: db_operations.php:480 tbl_operations.php:552 tbl_tracking.php:409
+#: db_operations.php:479 tbl_operations.php:552 tbl_tracking.php:409
 msgid "Structure only"
 msgstr "Kun strukturen"
 
-#: db_operations.php:481 tbl_operations.php:553 tbl_tracking.php:411
+#: db_operations.php:480 tbl_operations.php:553 tbl_tracking.php:411
 msgid "Structure and data"
 msgstr "Struktur og data"
 
-#: db_operations.php:482 tbl_operations.php:554 tbl_tracking.php:410
+#: db_operations.php:481 tbl_operations.php:554 tbl_tracking.php:410
 msgid "Data only"
 msgstr "Kun data"
 
-#: db_operations.php:490
+#: db_operations.php:489
 msgid "CREATE DATABASE before copying"
 msgstr "CREATE DATABASE før kopiering"
 
-#: db_operations.php:493 libraries/config/messages.inc.php:126
+#: db_operations.php:492 libraries/config/messages.inc.php:126
 #: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:129
 #: libraries/config/messages.inc.php:135 tbl_operations.php:560
 #, php-format
 msgid "Add %s"
 msgstr "Tilføj %s"
 
-#: db_operations.php:497 libraries/config/messages.inc.php:119
+#: db_operations.php:496 libraries/config/messages.inc.php:119
 #: tbl_operations.php:318 tbl_operations.php:562
 msgid "Add AUTO_INCREMENT value"
 msgstr "Tilføj AUTO_INCREMENT værdi"
 
-#: db_operations.php:501 tbl_operations.php:569
+#: db_operations.php:500 tbl_operations.php:569
 msgid "Add constraints"
 msgstr "Tilføj begrænsninger"
 
-#: db_operations.php:514
+#: db_operations.php:513
 msgid "Switch to copied database"
 msgstr "Skift til den kopierede database"
 
-#: db_operations.php:537 libraries/Index.class.php:438
+#: db_operations.php:536 libraries/Index.class.php:438
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
-#: libraries/mysql_charsets.lib.php:110 libraries/tbl_properties.inc.php:110
-#: libraries/tbl_properties.inc.php:695 libraries/tbl_select.lib.php:113
+#: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:114
+#: libraries/tbl_properties.inc.php:701 libraries/tbl_select.lib.php:113
 #: server_collations.php:53 server_collations.php:65 tbl_operations.php:382
-#: tbl_structure.php:204 tbl_structure.php:866 tbl_tracking.php:259
+#: tbl_structure.php:203 tbl_structure.php:869 tbl_tracking.php:259
 #: tbl_tracking.php:310
 msgid "Collation"
 msgstr "Tegnsæt (sortering)"
 
-#: db_operations.php:550
+#: db_operations.php:549
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
@@ -350,26 +350,26 @@ msgid ""
 msgstr ""
 "phpMyAdmin er ikke sat op til at gemme tabel-relationer. Se her %shvorfor%s."
 
-#: db_operations.php:584
+#: db_operations.php:583
 msgid "Edit or export relational schema"
 msgstr "Editer eller eksporter relations skema"
 
 #: db_printview.php:102 db_tracking.php:85 db_tracking.php:186
 #: libraries/config/messages.inc.php:504 libraries/db_structure.lib.php:32
-#: libraries/export/pdf.php:95 libraries/export/xml.php:346
+#: libraries/export/pdf.php:95 libraries/export/xml.php:359
 #: libraries/header.inc.php:158 libraries/rte/rte_list.lib.php:59
 #: libraries/rte/rte_triggers.lib.php:310
 #: libraries/schema/User_Schema.class.php:254 server_privileges.php:1830
 #: server_privileges.php:1886 server_privileges.php:2150
-#: server_synchronize.php:434 server_synchronize.php:906 tbl_tracking.php:634
+#: server_synchronize.php:436 server_synchronize.php:908 tbl_tracking.php:634
 msgid "Table"
 msgstr "Tabel"
 
 #: db_printview.php:103 libraries/build_html_for_db.lib.php:31
 #: libraries/db_structure.lib.php:42 libraries/header_printview.inc.php:62
 #: libraries/import.lib.php:151 navigation.php:591 navigation.php:613
-#: tbl_printview.php:358 tbl_structure.php:362 tbl_structure.php:468
-#: tbl_structure.php:876
+#: tbl_printview.php:358 tbl_structure.php:361 tbl_structure.php:467
+#: tbl_structure.php:879
 msgid "Rows"
 msgstr "Rækker"
 
@@ -377,32 +377,32 @@ msgstr "Rækker"
 msgid "Size"
 msgstr "Størrelse"
 
-#: db_printview.php:160 db_structure.php:411 libraries/export/sql.php:756
+#: db_printview.php:160 db_structure.php:420 libraries/export/sql.php:790
 msgid "in use"
 msgstr "i brug"
 
 #: db_printview.php:185 libraries/db_info.inc.php:61
-#: libraries/export/sql.php:711
-#: libraries/schema/Pdf_Relation_Schema.class.php:1295 tbl_printview.php:398
-#: tbl_structure.php:908
+#: libraries/export/sql.php:742
+#: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:398
+#: tbl_structure.php:911
 msgid "Creation"
 msgstr "Oprettelse"
 
 #: db_printview.php:194 libraries/db_info.inc.php:66
-#: libraries/export/sql.php:716
-#: libraries/schema/Pdf_Relation_Schema.class.php:1300 tbl_printview.php:408
-#: tbl_structure.php:916
+#: libraries/export/sql.php:747
+#: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:408
+#: tbl_structure.php:919
 msgid "Last update"
 msgstr "Sidste opdatering"
 
 #: db_printview.php:203 libraries/db_info.inc.php:71
-#: libraries/export/sql.php:721
-#: libraries/schema/Pdf_Relation_Schema.class.php:1305 tbl_printview.php:418
-#: tbl_structure.php:924
+#: libraries/export/sql.php:752
+#: libraries/schema/Pdf_Relation_Schema.class.php:1299 tbl_printview.php:418
+#: tbl_structure.php:927
 msgid "Last check"
 msgstr "Sidste check"
 
-#: db_printview.php:220 db_structure.php:434
+#: db_printview.php:220 db_structure.php:443
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
@@ -425,20 +425,20 @@ msgstr "Sortér"
 
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:97
 #: libraries/display_tbl.lib.php:547 libraries/display_tbl.lib.php:918
-#: server_databases.php:157 server_databases.php:174 tbl_operations.php:279
+#: server_databases.php:162 server_databases.php:179 tbl_operations.php:279
 #: tbl_select.php:230
 msgid "Ascending"
 msgstr "Stigende"
 
 #: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:105
 #: libraries/display_tbl.lib.php:552 libraries/display_tbl.lib.php:915
-#: server_databases.php:157 server_databases.php:174 tbl_operations.php:280
+#: server_databases.php:162 server_databases.php:179 tbl_operations.php:280
 #: tbl_select.php:231
 msgid "Descending"
 msgstr "Faldende"
 
 #: db_qbe.php:286 db_tracking.php:91 libraries/display_tbl.lib.php:422
-#: tbl_change.php:291 tbl_tracking.php:639
+#: tbl_change.php:295 tbl_tracking.php:639
 msgid "Show"
 msgstr "Vis"
 
@@ -459,7 +459,7 @@ msgid "Del"
 msgstr "Del (Slet)"
 
 #: db_qbe.php:392 db_qbe.php:473 db_qbe.php:544 db_qbe.php:575
-#: server_privileges.php:395 tbl_change.php:908 tbl_indexes.php:264
+#: server_privileges.php:395 tbl_change.php:912 tbl_indexes.php:264
 #: tbl_select.php:204
 msgid "Or"
 msgstr "Eller"
@@ -500,46 +500,46 @@ msgstr "Send forespørgsel"
 msgid "Access denied"
 msgstr "Adgang nægtet"
 
-#: db_search.php:42 db_search.php:277
+#: db_search.php:42 db_search.php:286
 msgid "at least one of the words"
 msgstr "mindst et af ordene"
 
-#: db_search.php:43 db_search.php:278
+#: db_search.php:43 db_search.php:287
 msgid "all words"
 msgstr "alle ord"
 
-#: db_search.php:44 db_search.php:279
+#: db_search.php:44 db_search.php:288
 msgid "the exact phrase"
 msgstr "den nøjagtige sætning"
 
-#: db_search.php:45 db_search.php:280
+#: db_search.php:45 db_search.php:289
 msgid "as regular expression"
 msgstr "som regulært udtryk"
 
-#: db_search.php:199
+#: db_search.php:208
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Søgeresultater for \"<i>%s</i>\" %s:"
 
-#: db_search.php:217
+#: db_search.php:226
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s sammenfald i tabel <i>%s</i>"
 msgstr[1] "%s sammenfald i tabel <i>%s</i>"
 
-#: db_search.php:224 libraries/common.lib.php:3031
-#: libraries/common.lib.php:3238 libraries/common.lib.php:3239
-#: libraries/tbl_links.inc.php:55 tbl_structure.php:566
+#: db_search.php:233 libraries/common.lib.php:3035
+#: libraries/common.lib.php:3242 libraries/common.lib.php:3243
+#: libraries/tbl_links.inc.php:55 tbl_structure.php:567
 msgid "Browse"
 msgstr "Vis"
 
-#: db_search.php:229
+#: db_search.php:238
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "Slet sammenfald for %s tabellen?"
 
-#: db_search.php:229 libraries/display_tbl.lib.php:1364
+#: db_search.php:238 libraries/display_tbl.lib.php:1364
 #: libraries/display_tbl.lib.php:2354
 #: libraries/schema/User_Schema.class.php:186
 #: libraries/schema/User_Schema.class.php:255
@@ -551,65 +551,65 @@ msgstr "Slet sammenfald for %s tabellen?"
 msgid "Delete"
 msgstr "Slet"
 
-#: db_search.php:242
+#: db_search.php:251
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>I alt:</b> <i>%s</i> sammenfald"
 msgstr[1] "<b>I alt</b> <i>%s</i> sammenfald"
 
-#: db_search.php:265
+#: db_search.php:274
 msgid "Search in database"
 msgstr "Søg i databasen"
 
-#: db_search.php:268
+#: db_search.php:277
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Ord eller værdier til at søge efter (jokertegn: \"%\"):"
 
-#: db_search.php:273
+#: db_search.php:282
 msgid "Find:"
 msgstr "Find:"
 
-#: db_search.php:277 db_search.php:278
+#: db_search.php:286 db_search.php:287
 msgid "Words are separated by a space character (\" \")."
 msgstr "Ord adskilles af mellemrumstegn (\" \")."
 
-#: db_search.php:291
+#: db_search.php:300
 msgid "Inside tables:"
 msgstr "Indeni tabel(ler):"
 
-#: db_search.php:321
+#: db_search.php:330
 msgid "Inside column:"
 msgstr "Indeni kolonne:"
 
-#: db_structure.php:62
+#: db_structure.php:66
 msgid "No tables found in database"
 msgstr "Ingen tabeller fundet i databasen"
 
-#: db_structure.php:272 tbl_operations.php:692
+#: db_structure.php:280 tbl_operations.php:692
 #, php-format
 msgid "Table %s has been emptied"
 msgstr "Tabel %s blev tømt"
 
-#: db_structure.php:281 tbl_operations.php:709
+#: db_structure.php:289 tbl_operations.php:709
 #, php-format
 msgid "View %s has been dropped"
 msgstr "Visning %s er blevet slettet"
 
-#: db_structure.php:281 tbl_operations.php:709
+#: db_structure.php:289 tbl_operations.php:709
 #, php-format
 msgid "Table %s has been dropped"
 msgstr "Tabel %s blev slettet"
 
-#: db_structure.php:288 tbl_create.php:269
+#: db_structure.php:296 tbl_create.php:269
 msgid "Tracking is active."
 msgstr "Sporing er aktiv."
 
-#: db_structure.php:290 tbl_create.php:271
+#: db_structure.php:298 tbl_create.php:271
 msgid "Tracking is not active."
 msgstr "Sporing er ikke aktiv."
 
-#: db_structure.php:374 libraries/display_tbl.lib.php:2238
+#: db_structure.php:386 libraries/display_tbl.lib.php:2238
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -617,107 +617,107 @@ msgid ""
 msgstr ""
 "Viewet har som minimum dette antal rækker. Se venligst %sdokumentationen%s."
 
-#: db_structure.php:388 db_structure.php:402 libraries/header.inc.php:158
-#: libraries/tbl_info.inc.php:60 tbl_structure.php:210
+#: db_structure.php:397 db_structure.php:411 libraries/header.inc.php:158
+#: libraries/tbl_info.inc.php:60 tbl_structure.php:209
 msgid "View"
 msgstr "Visning"
 
-#: db_structure.php:439 libraries/db_structure.lib.php:35
+#: db_structure.php:448 libraries/db_structure.lib.php:35
 #: libraries/server_links.inc.php:90 server_replication.php:31
-#: server_replication.php:162 server_status.php:565
+#: server_replication.php:162 server_status.php:588
 msgid "Replication"
 msgstr "Replikation"
 
-#: db_structure.php:443
+#: db_structure.php:452
 msgid "Sum"
 msgstr "Sum"
 
-#: db_structure.php:450 libraries/StorageEngine.class.php:313
+#: db_structure.php:459 libraries/StorageEngine.class.php:331
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s er standard datalageret på denne MySQL-server."
 
-#: db_structure.php:478 db_structure.php:495 db_structure.php:496
+#: db_structure.php:487 db_structure.php:504 db_structure.php:505
 #: libraries/display_tbl.lib.php:2379 libraries/display_tbl.lib.php:2384
-#: libraries/mult_submits.inc.php:15 server_databases.php:259
-#: server_databases.php:264 server_privileges.php:1751 tbl_structure.php:554
-#: tbl_structure.php:563
+#: libraries/mult_submits.inc.php:15 server_databases.php:264
+#: server_databases.php:269 server_privileges.php:1751 tbl_structure.php:555
+#: tbl_structure.php:564
 msgid "With selected:"
 msgstr "Med det markerede:"
 
-#: db_structure.php:481 libraries/display_tbl.lib.php:2374
-#: server_databases.php:261 server_privileges.php:671
-#: server_privileges.php:1754 tbl_structure.php:557
+#: db_structure.php:490 libraries/display_tbl.lib.php:2374
+#: server_databases.php:266 server_privileges.php:671
+#: server_privileges.php:1754 tbl_structure.php:558
 msgid "Check All"
 msgstr "Vælg alle"
 
-#: db_structure.php:485 libraries/display_tbl.lib.php:2375
-#: libraries/replication_gui.lib.php:35 server_databases.php:263
-#: server_privileges.php:674 server_privileges.php:1758 tbl_structure.php:561
+#: db_structure.php:494 libraries/display_tbl.lib.php:2375
+#: libraries/replication_gui.lib.php:35 server_databases.php:268
+#: server_privileges.php:674 server_privileges.php:1758 tbl_structure.php:562
 msgid "Uncheck All"
 msgstr "Fravælg alle"
 
-#: db_structure.php:490
+#: db_structure.php:499
 msgid "Check tables having overhead"
 msgstr "Check tabeller der har overhead"
 
-#: db_structure.php:498 libraries/common.lib.php:3251
-#: libraries/common.lib.php:3252 libraries/config/messages.inc.php:164
+#: db_structure.php:507 libraries/common.lib.php:3255
+#: libraries/common.lib.php:3256 libraries/config/messages.inc.php:164
 #: libraries/db_links.inc.php:56 libraries/display_tbl.lib.php:2392
 #: libraries/display_tbl.lib.php:2530 libraries/server_links.inc.php:65
 #: libraries/tbl_links.inc.php:80 prefs_manage.php:286
-#: server_privileges.php:1441 server_status.php:1545
+#: server_privileges.php:1441 server_status.php:1589
 #: setup/frames/menu.inc.php:21
 msgid "Export"
 msgstr "Eksporter"
 
-#: db_structure.php:500 db_structure.php:554
-#: libraries/display_tbl.lib.php:2481 tbl_structure.php:609
+#: db_structure.php:509 db_structure.php:565
+#: libraries/display_tbl.lib.php:2481 tbl_structure.php:610
 msgid "Print view"
 msgstr "Udskriv"
 
 # By "Empty", if this is an action, it should translate to "Tøm" but if it's a state it should translate to "Tom".
-#: db_structure.php:504 libraries/common.lib.php:3247
-#: libraries/common.lib.php:3248
+#: db_structure.php:513 libraries/common.lib.php:3251
+#: libraries/common.lib.php:3252
 msgid "Empty"
 msgstr "Tøm"
 
-#: db_structure.php:506 db_tracking.php:104 libraries/Index.class.php:482
-#: libraries/common.lib.php:3245 libraries/common.lib.php:3246
-#: server_databases.php:265 tbl_structure.php:151 tbl_structure.php:152
-#: tbl_structure.php:570
+#: db_structure.php:515 db_tracking.php:104 libraries/Index.class.php:482
+#: libraries/common.lib.php:3249 libraries/common.lib.php:3250
+#: server_databases.php:270 tbl_structure.php:150 tbl_structure.php:151
+#: tbl_structure.php:571
 msgid "Drop"
 msgstr "Slet"
 
-#: db_structure.php:508 tbl_operations.php:608
+#: db_structure.php:517 tbl_operations.php:608
 msgid "Check table"
 msgstr "Tjek tabel"
 
-#: db_structure.php:510 tbl_operations.php:657 tbl_structure.php:810
+#: db_structure.php:520 tbl_operations.php:657 tbl_structure.php:813
 msgid "Optimize table"
 msgstr "Optimer tabel"
 
-#: db_structure.php:512 tbl_operations.php:644
+#: db_structure.php:522 tbl_operations.php:644
 msgid "Repair table"
 msgstr "Reparer tabel"
 
-#: db_structure.php:514 tbl_operations.php:631
+#: db_structure.php:525 tbl_operations.php:631
 msgid "Analyze table"
 msgstr "Analyser tabel"
 
-#: db_structure.php:516
+#: db_structure.php:527
 msgid "Add prefix to table"
 msgstr "Tilføj præfiks til tabel"
 
-#: db_structure.php:518 libraries/mult_submits.inc.php:251
+#: db_structure.php:529 libraries/mult_submits.inc.php:251
 msgid "Replace table prefix"
 msgstr "Erstat tabel præfiks"
 
-#: db_structure.php:520 libraries/mult_submits.inc.php:251
+#: db_structure.php:531 libraries/mult_submits.inc.php:251
 msgid "Copy table with prefix"
 msgstr "Kopier tabel med præfiks"
 
-#: db_structure.php:560 libraries/schema/User_Schema.class.php:403
+#: db_structure.php:571 libraries/schema/User_Schema.class.php:403
 msgid "Data Dictionary"
 msgstr "Data Dictionary"
 
@@ -728,12 +728,12 @@ msgstr "Sporede tabeller"
 #: db_tracking.php:84 libraries/config/messages.inc.php:498
 #: libraries/export/htmlword.php:78 libraries/export/latex.php:151
 #: libraries/export/odt.php:109 libraries/export/pdf.php:95
-#: libraries/export/sql.php:583 libraries/export/texytext.php:66
-#: libraries/export/xml.php:279 libraries/header.inc.php:146
-#: libraries/header_printview.inc.php:57 server_databases.php:156
+#: libraries/export/sql.php:602 libraries/export/texytext.php:66
+#: libraries/export/xml.php:292 libraries/header.inc.php:146
+#: libraries/header_printview.inc.php:57 server_databases.php:161
 #: server_privileges.php:1825 server_privileges.php:1886
-#: server_privileges.php:2144 server_status.php:1177
-#: server_synchronize.php:1248 server_synchronize.php:1252
+#: server_privileges.php:2144 server_status.php:1228
+#: server_synchronize.php:1267 server_synchronize.php:1271
 #: tbl_tracking.php:633
 msgid "Database"
 msgstr "Database"
@@ -752,15 +752,15 @@ msgstr "Opdateret"
 
 #: db_tracking.php:89 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
-#: server_status.php:1180 sql.php:880 tbl_tracking.php:638
+#: server_status.php:1231 sql.php:880 tbl_tracking.php:638
 msgid "Status"
 msgstr "Status"
 
 #: db_tracking.php:90 libraries/Index.class.php:430
 #: libraries/db_structure.lib.php:39 libraries/rte/rte_list.lib.php:52
 #: libraries/rte/rte_list.lib.php:61 libraries/rte/rte_list.lib.php:68
-#: server_databases.php:190 server_privileges.php:1697
-#: server_privileges.php:1890 server_privileges.php:2239 tbl_structure.php:212
+#: server_databases.php:195 server_privileges.php:1697
+#: server_privileges.php:1890 server_privileges.php:2239 tbl_structure.php:211
 msgid "Action"
 msgstr "Handling"
 
@@ -780,11 +780,11 @@ msgstr "ikke aktiv"
 msgid "Versions"
 msgstr "Versioner"
 
-#: db_tracking.php:135 tbl_tracking.php:400 tbl_tracking.php:667
+#: db_tracking.php:135 tbl_tracking.php:400 tbl_tracking.php:668
 msgid "Tracking report"
 msgstr "Sporingsrapport"
 
-#: db_tracking.php:136 tbl_tracking.php:235 tbl_tracking.php:667
+#: db_tracking.php:136 tbl_tracking.php:235 tbl_tracking.php:670
 msgid "Structure snapshot"
 msgstr "Øjebliksbillede af struktur"
 
@@ -792,7 +792,7 @@ msgstr "Øjebliksbillede af struktur"
 msgid "Untracked tables"
 msgstr "Ikke-sporede tabeller"
 
-#: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:634
+#: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:637
 msgid "Track table"
 msgstr "Sporingstabel"
 
@@ -800,12 +800,12 @@ msgstr "Sporingstabel"
 msgid "Database Log"
 msgstr "Databaselog"
 
-#: enum_editor.php:21 libraries/tbl_properties.inc.php:748
+#: enum_editor.php:21 libraries/tbl_properties.inc.php:754
 #, php-format
 msgid "Values for the column \"%s\""
 msgstr "Værdier for kolonnen \"%s\""
 
-#: enum_editor.php:22 libraries/tbl_properties.inc.php:749
+#: enum_editor.php:22 libraries/tbl_properties.inc.php:755
 msgid "Enter each value in a separate field."
 msgstr "Indtast hver værdi i et seperat felt."
 
@@ -825,12 +825,12 @@ msgstr "Kopier og indsæt de sammensatte værdier i \"Længde/Værdier\"-feltet"
 msgid "Selected export type has to be saved in file!"
 msgstr "Valgte eksporttype skal gemmes som fil!"
 
-#: export.php:167 export.php:192 export.php:656
+#: export.php:167 export.php:192 export.php:655
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Utilstrækkelig plads til at gemme filen %s."
 
-#: export.php:310
+#: export.php:308
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -838,12 +838,12 @@ msgstr ""
 "Filen %s findes allerede på serveren, lav filnavnet om eller tillad at der "
 "overskrives."
 
-#: export.php:314 export.php:318
+#: export.php:312 export.php:316
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "Webserveren har ikke tilladelse til at gemme filen %s."
 
-#: export.php:658
+#: export.php:657
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Dump er blevet gemt i filen %s."
@@ -964,29 +964,34 @@ msgstr ""
 "tilladt af din PHP-konfiguration. Se  [a@./Documentation."
 "html#faq1_16@Documentation]FAQ 1.16[/a]."
 
-#: import.php:370 libraries/display_import.lib.php:23
+#: import.php:352
+msgid ""
+"Cannot convert file's character set without character set conversion library"
+msgstr ""
+
+#: import.php:376 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Kunne ikke indlæse importplugins, check venligst din installation!"
 
-#: import.php:395
+#: import.php:401
 msgid "The bookmark has been deleted."
 msgstr "Bogmærket er fjernet."
 
-#: import.php:399
+#: import.php:405
 msgid "Showing bookmark"
 msgstr "Viser bogmærke"
 
-#: import.php:401 sql.php:915
+#: import.php:407 sql.php:915
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Bogmærke %s oprettet"
 
-#: import.php:407 import.php:413
+#: import.php:413 import.php:419
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Importen er korrekt gennemført, %d forespørgsler udført."
 
-#: import.php:422
+#: import.php:428
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
@@ -994,7 +999,7 @@ msgstr ""
 "Script timeout nået, hvis du vil afslutte importen, indsend venligst samme "
 "fil igen og importen vil blive genoptaget."
 
-#: import.php:424
+#: import.php:430
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -1003,7 +1008,7 @@ msgstr ""
 "normalt at phpMyAdmin ikke vil være i stand til at gennemføre importen med "
 "mindre du forøger PHP-tidsbegrænsningerne."
 
-#: import.php:452 libraries/Message.class.php:175
+#: import.php:458 libraries/Message.class.php:175
 #: libraries/display_tbl.lib.php:2275 libraries/rte/rte_routines.lib.php:1197
 #: libraries/sql_query_form.lib.php:113 tbl_operations.php:229
 #: tbl_relation.php:289 tbl_row_action.php:126 view_operations.php:60
@@ -1113,28 +1118,28 @@ msgstr "Genindlæser privillegier"
 msgid "Removing Selected Users"
 msgstr "Fjerner valge brugere"
 
-#: js/messages.php:61 js/messages.php:130 libraries/tbl_properties.inc.php:747
+#: js/messages.php:61 js/messages.php:130 libraries/tbl_properties.inc.php:753
 #: tbl_tracking.php:235 tbl_tracking.php:400
 msgid "Close"
 msgstr "Luk"
 
 #: js/messages.php:64 js/messages.php:249 libraries/Index.class.php:460
 #: libraries/common.lib.php:590 libraries/common.lib.php:1139
-#: libraries/common.lib.php:3249 libraries/common.lib.php:3250
+#: libraries/common.lib.php:3253 libraries/common.lib.php:3254
 #: libraries/config/messages.inc.php:478 libraries/display_tbl.lib.php:1328
 #: libraries/schema/User_Schema.class.php:185 setup/frames/index.inc.php:138
 msgid "Edit"
 msgstr "Ret"
 
-#: js/messages.php:65 server_status.php:760
+#: js/messages.php:65 server_status.php:794
 msgid "Live traffic chart"
 msgstr "Realtids trafikoversigt"
 
-#: js/messages.php:66 server_status.php:763
+#: js/messages.php:66 server_status.php:797
 msgid "Live conn./process chart"
 msgstr "Realtids forbind./opgave-oversigt"
 
-#: js/messages.php:67 server_status.php:781
+#: js/messages.php:67 server_status.php:815
 msgid "Live query chart"
 msgstr "Realtid forespørgsels-oversigt"
 
@@ -1144,24 +1149,24 @@ msgstr "Statiske data"
 
 #. l10n: Total number of queries
 #: js/messages.php:71 libraries/build_html_for_db.lib.php:46
-#: libraries/engines/innodb.lib.php:158 server_databases.php:218
-#: server_status.php:1080 server_status.php:1141 tbl_printview.php:315
-#: tbl_structure.php:798
+#: libraries/engines/innodb.lib.php:158 server_databases.php:223
+#: server_status.php:1115 server_status.php:1176 tbl_printview.php:315
+#: tbl_structure.php:801
 msgid "Total"
 msgstr "Total"
 
 #. l10n: Other, small valued, queries
-#: js/messages.php:73 server_status.php:978
+#: js/messages.php:73 server_status.php:594 server_status.php:1013
 msgid "Other"
 msgstr "Andet"
 
 #. l10n: Thousands separator
-#: js/messages.php:75 libraries/common.lib.php:1389
+#: js/messages.php:75 libraries/common.lib.php:1393
 msgid ","
 msgstr "."
 
 #. l10n: Decimal separator
-#: js/messages.php:77 libraries/common.lib.php:1391
+#: js/messages.php:77 libraries/common.lib.php:1395
 msgid "."
 msgstr ","
 
@@ -1181,7 +1186,7 @@ msgstr "Server-trafik (i KiB)"
 msgid "Connections since last refresh"
 msgstr "Forbindelser siden sidste visning"
 
-#: js/messages.php:83 js/messages.php:121 server_status.php:1173
+#: js/messages.php:83 js/messages.php:121 server_status.php:1224
 msgid "Processes"
 msgstr "Processer"
 
@@ -1199,7 +1204,7 @@ msgstr "Spørgsmål siden sidste visning"
 msgid "Questions (executed statements by the server)"
 msgstr "Spørgsmål (eksekverede forespørgsler på serveren)"
 
-#: js/messages.php:90 server_status.php:742
+#: js/messages.php:90 server_status.php:776
 msgid "Query statistics"
 msgstr "Statistik over forespørgsler"
 
@@ -1223,7 +1228,7 @@ msgstr ""
 msgid "Query cache efficiency"
 msgstr "Effektivitet af forespørgsels-mellemlager"
 
-#: js/messages.php:97 po/advisory_rules.php:80
+#: js/messages.php:97
 msgid "Query cache usage"
 msgstr "Forbrug af forespørgsels-mellemlager"
 
@@ -1244,12 +1249,12 @@ msgid "System swap"
 msgstr "System swap"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:103 libraries/common.lib.php:1339 server_status.php:1625
+#: js/messages.php:103 libraries/common.lib.php:1343 server_status.php:1669
 msgid "MiB"
 msgstr "MiB"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:104 libraries/common.lib.php:1337 server_status.php:1625
+#: js/messages.php:104 libraries/common.lib.php:1341 server_status.php:1669
 msgid "KiB"
 msgstr "KiB"
 
@@ -1301,7 +1306,7 @@ msgstr "Bytes sendt"
 msgid "Bytes received"
 msgstr "Bytes modtaget"
 
-#: js/messages.php:120 server_status.php:1099
+#: js/messages.php:120 server_status.php:1134
 msgid "Connections"
 msgstr "Forbindelser"
 
@@ -1310,12 +1315,12 @@ msgstr "Forbindelser"
 msgid "Questions"
 msgstr "Spørgsmål"
 
-#: js/messages.php:125 server_status.php:1054
+#: js/messages.php:125 server_status.php:1089
 msgid "Traffic"
 msgstr "Trafik"
 
 #: js/messages.php:126 libraries/server_links.inc.php:73
-#: server_status.php:1502
+#: server_status.php:1544
 msgid "Settings"
 msgstr "Indstillinger"
 
@@ -1336,10 +1341,10 @@ msgid "Please add at least one variable to the series"
 msgstr "Tilføj mindst en variabel til serien"
 
 #: js/messages.php:132 libraries/display_export.lib.php:308
-#: libraries/display_tbl.lib.php:554 libraries/export/sql.php:1052
-#: libraries/tbl_properties.inc.php:533 pmd_general.php:504
-#: server_privileges.php:2040 server_status.php:1215 server_status.php:1642
-#: tbl_zoom_select.php:159 tbl_zoom_select.php:284
+#: libraries/display_tbl.lib.php:554 libraries/export/sql.php:1092
+#: libraries/tbl_properties.inc.php:539 pmd_general.php:504
+#: server_privileges.php:2040 server_status.php:1257 server_status.php:1686
+#: tbl_zoom_select.php:141 tbl_zoom_select.php:260
 msgid "None"
 msgstr "Ingen"
 
@@ -1439,7 +1444,7 @@ msgstr "Ændre indstillinger"
 msgid "Current settings"
 msgstr "Aktuelle indstillinger"
 
-#: js/messages.php:157 server_status.php:1590
+#: js/messages.php:157 server_status.php:1634
 msgid "Chart Title"
 msgstr "Diagramtitel"
 
@@ -1568,7 +1573,7 @@ msgstr ""
 
 #: js/messages.php:190 libraries/config/messages.inc.php:170
 #: libraries/db_links.inc.php:83 libraries/server_links.inc.php:69
-#: libraries/tbl_links.inc.php:89 prefs_manage.php:229 server_status.php:1545
+#: libraries/tbl_links.inc.php:89 prefs_manage.php:229 server_status.php:1589
 #: setup/frames/menu.inc.php:20
 msgid "Import"
 msgstr "Importer"
@@ -1609,7 +1614,7 @@ msgstr "Brugt variabel/formel"
 msgid "Test"
 msgstr "Test"
 
-#: js/messages.php:208 libraries/tbl_properties.inc.php:752
+#: js/messages.php:208 libraries/tbl_properties.inc.php:758
 #: pmd_general.php:382 pmd_general.php:419 pmd_general.php:539
 #: pmd_general.php:587 pmd_general.php:663 pmd_general.php:717
 #: pmd_general.php:780
@@ -1723,9 +1728,9 @@ msgstr "Vis forespørgselsbox"
 msgid "No rows selected"
 msgstr "Ingen rækker valgt"
 
-#: js/messages.php:251 libraries/common.lib.php:2648
+#: js/messages.php:251 libraries/common.lib.php:2652
 #: libraries/display_tbl.lib.php:2387 querywindow.php:90 querywindow.php:94
-#: querywindow.php:97 tbl_structure.php:150 tbl_structure.php:569
+#: querywindow.php:97 tbl_structure.php:149 tbl_structure.php:570
 msgid "Change"
 msgstr "Ændre"
 
@@ -1735,8 +1740,8 @@ msgstr "Eksekveringstid for forespørgsel"
 
 #: js/messages.php:255 libraries/config/FormDisplay.tpl.php:323
 #: libraries/schema/User_Schema.class.php:334
-#: libraries/tbl_properties.inc.php:741 setup/frames/config.inc.php:39
-#: setup/frames/index.inc.php:228 tbl_change.php:1018
+#: libraries/tbl_properties.inc.php:747 setup/frames/config.inc.php:39
+#: setup/frames/index.inc.php:228 tbl_change.php:1022
 #: tbl_gis_visualization.php:193 tbl_indexes.php:261 tbl_relation.php:563
 msgid "Save"
 msgstr "Gem"
@@ -1796,7 +1801,7 @@ msgstr "Vælg to kolonner"
 msgid "Select two different columns"
 msgstr "Vælg to forskellige kolonner"
 
-#: js/messages.php:284 tbl_change.php:316 tbl_indexes.php:211
+#: js/messages.php:284 tbl_change.php:320 tbl_indexes.php:211
 #: tbl_indexes.php:238
 msgid "Ignore"
 msgstr "Ignorer"
@@ -1897,7 +1902,7 @@ msgstr "Generér"
 msgid "Change Password"
 msgstr "Ændre adgangskode"
 
-#: js/messages.php:329 tbl_structure.php:464
+#: js/messages.php:329 tbl_structure.php:463
 msgid "More"
 msgstr "Mere"
 
@@ -1988,63 +1993,63 @@ msgid "December"
 msgstr "december"
 
 #. l10n: Short month name
-#: js/messages.php:384 libraries/common.lib.php:1546
+#: js/messages.php:384 libraries/common.lib.php:1550
 msgid "Jan"
 msgstr "jan"
 
 #. l10n: Short month name
-#: js/messages.php:386 libraries/common.lib.php:1548
+#: js/messages.php:386 libraries/common.lib.php:1552
 msgid "Feb"
 msgstr "feb"
 
 #. l10n: Short month name
-#: js/messages.php:388 libraries/common.lib.php:1550
+#: js/messages.php:388 libraries/common.lib.php:1554
 msgid "Mar"
 msgstr "mar"
 
 #. l10n: Short month name
-#: js/messages.php:390 libraries/common.lib.php:1552
+#: js/messages.php:390 libraries/common.lib.php:1556
 msgid "Apr"
 msgstr "apr"
 
 #. l10n: Short month name
-#: js/messages.php:392 libraries/common.lib.php:1554
+#: js/messages.php:392 libraries/common.lib.php:1558
 msgctxt "Short month name"
 msgid "May"
 msgstr "maj"
 
 #. l10n: Short month name
-#: js/messages.php:394 libraries/common.lib.php:1556
+#: js/messages.php:394 libraries/common.lib.php:1560
 msgid "Jun"
 msgstr "jun"
 
 #. l10n: Short month name
-#: js/messages.php:396 libraries/common.lib.php:1558
+#: js/messages.php:396 libraries/common.lib.php:1562
 msgid "Jul"
 msgstr "jul"
 
 #. l10n: Short month name
-#: js/messages.php:398 libraries/common.lib.php:1560
+#: js/messages.php:398 libraries/common.lib.php:1564
 msgid "Aug"
 msgstr "aug"
 
 #. l10n: Short month name
-#: js/messages.php:400 libraries/common.lib.php:1562
+#: js/messages.php:400 libraries/common.lib.php:1566
 msgid "Sep"
 msgstr "sep"
 
 #. l10n: Short month name
-#: js/messages.php:402 libraries/common.lib.php:1564
+#: js/messages.php:402 libraries/common.lib.php:1568
 msgid "Oct"
 msgstr "okt"
 
 #. l10n: Short month name
-#: js/messages.php:404 libraries/common.lib.php:1566
+#: js/messages.php:404 libraries/common.lib.php:1570
 msgid "Nov"
 msgstr "nov"
 
 #. l10n: Short month name
-#: js/messages.php:406 libraries/common.lib.php:1568
+#: js/messages.php:406 libraries/common.lib.php:1572
 msgid "Dec"
 msgstr "dec"
 
@@ -2082,32 +2087,32 @@ msgid "Sun"
 msgstr "søn"
 
 #. l10n: Short week day name
-#: js/messages.php:421 libraries/common.lib.php:1573
+#: js/messages.php:421 libraries/common.lib.php:1577
 msgid "Mon"
 msgstr "man"
 
 #. l10n: Short week day name
-#: js/messages.php:423 libraries/common.lib.php:1575
+#: js/messages.php:423 libraries/common.lib.php:1579
 msgid "Tue"
 msgstr "tir"
 
 #. l10n: Short week day name
-#: js/messages.php:425 libraries/common.lib.php:1577
+#: js/messages.php:425 libraries/common.lib.php:1581
 msgid "Wed"
 msgstr "ons"
 
 #. l10n: Short week day name
-#: js/messages.php:427 libraries/common.lib.php:1579
+#: js/messages.php:427 libraries/common.lib.php:1583
 msgid "Thu"
 msgstr "tor"
 
 #. l10n: Short week day name
-#: js/messages.php:429 libraries/common.lib.php:1581
+#: js/messages.php:429 libraries/common.lib.php:1585
 msgid "Fri"
 msgstr "fre"
 
 #. l10n: Short week day name
-#: js/messages.php:431 libraries/common.lib.php:1583
+#: js/messages.php:431 libraries/common.lib.php:1587
 msgid "Sat"
 msgstr "lør"
 
@@ -2152,7 +2157,7 @@ msgid "Wk"
 msgstr "uge"
 
 #: js/messages.php:456 libraries/rte/rte_list.lib.php:62
-#: libraries/rte/rte_triggers.lib.php:326 server_status.php:1179 sql.php:881
+#: libraries/rte/rte_triggers.lib.php:326 server_status.php:1230 sql.php:881
 msgid "Time"
 msgstr "Tid"
 
@@ -2168,7 +2173,7 @@ msgstr "Minut"
 msgid "Second"
 msgstr "Sekund"
 
-#: libraries/Advisor.class.php:145
+#: libraries/Advisor.class.php:151
 #, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr "Fejlende formatteringsstreng for regel '%s'. PHP gav følgende fejl: %s"
@@ -2242,8 +2247,8 @@ msgstr "Intet indeks defineret!"
 msgid "Indexes"
 msgstr "Indeks"
 
-#: libraries/Index.class.php:434 libraries/tbl_properties.inc.php:477
-#: tbl_structure.php:155 tbl_structure.php:160 tbl_structure.php:573
+#: libraries/Index.class.php:434 libraries/tbl_properties.inc.php:481
+#: tbl_structure.php:154 tbl_structure.php:159 tbl_structure.php:574
 #: tbl_tracking.php:306
 msgid "Unique"
 msgstr "Unik"
@@ -2281,14 +2286,14 @@ msgstr ""
 "sikkert fjernes."
 
 #: libraries/List_Database.class.php:379 libraries/config/messages.inc.php:177
-#: libraries/server_links.inc.php:43 server_databases.php:99
+#: libraries/server_links.inc.php:43 server_databases.php:104
 #: server_privileges.php:1825
 msgid "Databases"
 msgstr "Databaser"
 
-#: libraries/Message.class.php:193 libraries/blobstreaming.lib.php:325
-#: libraries/blobstreaming.lib.php:331 libraries/common.lib.php:556
-#: libraries/core.lib.php:210 libraries/import.lib.php:140 tbl_change.php:904
+#: libraries/Message.class.php:193 libraries/blobstreaming.lib.php:343
+#: libraries/blobstreaming.lib.php:349 libraries/common.lib.php:556
+#: libraries/core.lib.php:210 libraries/import.lib.php:140 tbl_change.php:908
 #: tbl_operations.php:229 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
 msgstr "Fejl"
@@ -2330,55 +2335,55 @@ msgstr "Seneste tabeller"
 msgid "There are no recent tables"
 msgstr "Der er ingen nye tabeller"
 
-#: libraries/StorageEngine.class.php:180
+#: libraries/StorageEngine.class.php:198
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
 "Der er ingen detaljerede statusinformationer tilgængelige for dette "
 "datalager."
 
-#: libraries/StorageEngine.class.php:316
+#: libraries/StorageEngine.class.php:334
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s er tilgængelig på denne MySQL-server."
 
-#: libraries/StorageEngine.class.php:319
+#: libraries/StorageEngine.class.php:337
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s er slået fra på denne MySQL-server."
 
-#: libraries/StorageEngine.class.php:323
+#: libraries/StorageEngine.class.php:341
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Denne MySQL-server understøtter ikke %s datalager."
 
-#: libraries/Table.class.php:340
+#: libraries/Table.class.php:329
 msgid "unknown table status: "
 msgstr "ukendt tabelstatus:"
 
-#: libraries/Table.class.php:1112
+#: libraries/Table.class.php:1115
 msgid "Invalid database"
 msgstr "Ugyldig database"
 
-#: libraries/Table.class.php:1126 tbl_get_field.php:25
+#: libraries/Table.class.php:1129 tbl_get_field.php:25
 msgid "Invalid table name"
 msgstr "Ugyldigt tabelnavn"
 
-#: libraries/Table.class.php:1142
+#: libraries/Table.class.php:1145
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "Fejl ved omdøbning af tabel  %1$s til %2$s"
 
-#: libraries/Table.class.php:1229
+#: libraries/Table.class.php:1232
 #, php-format
 msgid "Table %s has been renamed to %s"
 msgstr "Tabellen %s er nu omdøbt til %s"
 
-#: libraries/Table.class.php:1361
+#: libraries/Table.class.php:1364
 msgid "Could not save table UI preferences"
 msgstr "Kunne ikke gemme brugerindstillinger for tabel"
 
-#: libraries/Table.class.php:1384
+#: libraries/Table.class.php:1387
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -2533,39 +2538,39 @@ msgstr "Ingen gyldig autorisations-nøgle indkoblet"
 msgid "Authenticating..."
 msgstr "Godkender..."
 
-#: libraries/blobstreaming.lib.php:244
+#: libraries/blobstreaming.lib.php:262
 msgid "PBMS error"
 msgstr "PBMS-fejl"
 
-#: libraries/blobstreaming.lib.php:277
+#: libraries/blobstreaming.lib.php:295
 msgid "PBMS connection failed:"
 msgstr "Det lykkedes ikke at oprette forbindelse til PBMS:"
 
-#: libraries/blobstreaming.lib.php:329
+#: libraries/blobstreaming.lib.php:347
 msgid "PBMS get BLOB info failed:"
 msgstr "PBMS hent BLOB info mislykkedes:"
 
-#: libraries/blobstreaming.lib.php:337
+#: libraries/blobstreaming.lib.php:355
 msgid "PBMS get BLOB Content-Type failed"
 msgstr "PBMS hent BLOB Content-Type mislykkedes"
 
-#: libraries/blobstreaming.lib.php:363
+#: libraries/blobstreaming.lib.php:381
 msgid "View image"
 msgstr "Se billede"
 
-#: libraries/blobstreaming.lib.php:367
+#: libraries/blobstreaming.lib.php:385
 msgid "Play audio"
 msgstr "Afspil lyd"
 
-#: libraries/blobstreaming.lib.php:372
+#: libraries/blobstreaming.lib.php:390
 msgid "View video"
 msgstr "Se video"
 
-#: libraries/blobstreaming.lib.php:376
+#: libraries/blobstreaming.lib.php:394
 msgid "Download file"
 msgstr "Download fil"
 
-#: libraries/blobstreaming.lib.php:443
+#: libraries/blobstreaming.lib.php:461
 #, php-format
 msgid "Could not open file: %s"
 msgstr "Kunne ikke åbne filen %s"
@@ -2575,8 +2580,8 @@ msgid "shared"
 msgstr "delt"
 
 #: libraries/build_html_for_db.lib.php:26
-#: libraries/config/messages.inc.php:183 libraries/export/xml.php:49
-#: server_status.php:567
+#: libraries/config/messages.inc.php:183 libraries/export/xml.php:51
+#: server_status.php:590
 msgid "Tables"
 msgstr "Tabeller"
 
@@ -2587,35 +2592,35 @@ msgstr "Tabeller"
 #: libraries/config/user_preferences.forms.php:237
 #: libraries/config/user_preferences.forms.php:260
 #: libraries/config/user_preferences.forms.php:265
-#: libraries/export/latex.php:201 libraries/export/sql.php:1052
+#: libraries/export/latex.php:201 libraries/export/sql.php:1092
 #: server_privileges.php:601 server_replication.php:314 tbl_printview.php:281
-#: tbl_structure.php:767
+#: tbl_structure.php:770
 msgid "Data"
 msgstr "Data"
 
 #: libraries/build_html_for_db.lib.php:51 libraries/db_structure.lib.php:55
-#: tbl_printview.php:300 tbl_structure.php:784
+#: tbl_printview.php:300 tbl_structure.php:787
 msgid "Overhead"
 msgstr "Overhead"
 
-#: libraries/build_html_for_db.lib.php:95
+#: libraries/build_html_for_db.lib.php:94
 msgid "Jump to database"
 msgstr "Gå til database"
 
-#: libraries/build_html_for_db.lib.php:132
+#: libraries/build_html_for_db.lib.php:131
 msgid "Not replicated"
 msgstr "Ikke replikeret"
 
-#: libraries/build_html_for_db.lib.php:138
+#: libraries/build_html_for_db.lib.php:137
 msgid "Replicated"
 msgstr "Replikeret"
 
-#: libraries/build_html_for_db.lib.php:152
+#: libraries/build_html_for_db.lib.php:151
 #, php-format
 msgid "Check privileges for database &quot;%s&quot;."
 msgstr "Check privilegier for database &quot;%s&quot;."
 
-#: libraries/build_html_for_db.lib.php:155
+#: libraries/build_html_for_db.lib.php:154
 msgid "Check Privileges"
 msgstr "Check privilegier"
 
@@ -2656,8 +2661,8 @@ msgstr ""
 "Ugyldigt værtsnavn for server %1$s. Gennemgå venligst din konfiguration."
 
 #: libraries/common.inc.php:656 libraries/config/messages.inc.php:502
-#: libraries/header.inc.php:136 main.php:161 server_status.php:741
-#: server_synchronize.php:1228
+#: libraries/header.inc.php:136 main.php:158 server_status.php:775
+#: server_synchronize.php:1247
 msgid "Server"
 msgstr "Server"
 
@@ -2700,12 +2705,12 @@ msgstr "en"
 #: libraries/display_export.lib.php:234 libraries/engines/pbms.lib.php:71
 #: libraries/engines/pbxt.lib.php:106 libraries/relation.lib.php:74
 #: libraries/sql_query_form.lib.php:385 libraries/sql_query_form.lib.php:388
-#: main.php:212 server_variables.php:129
+#: main.php:216 server_variables.php:129
 msgid "Documentation"
 msgstr "Dokumentation"
 
 #: libraries/common.lib.php:568 libraries/header_printview.inc.php:60
-#: server_status.php:554 server_status.php:1182
+#: server_status.php:577 server_status.php:1233
 msgid "SQL query"
 msgstr "SQL-forespørgsel"
 
@@ -2743,7 +2748,7 @@ msgid "Create PHP Code"
 msgstr "Fremstil PHP-kode"
 
 #: libraries/common.lib.php:1174 libraries/config/messages.inc.php:480
-#: server_status.php:752 server_status.php:774 server_status.php:793
+#: server_status.php:786 server_status.php:808 server_status.php:827
 msgid "Refresh"
 msgstr "Opdater"
 
@@ -2769,105 +2774,105 @@ msgid "Profiling"
 msgstr "Profilering"
 
 #. l10n: shortcuts for Byte
-#: libraries/common.lib.php:1335
+#: libraries/common.lib.php:1339
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Gigabyte
-#: libraries/common.lib.php:1341
+#: libraries/common.lib.php:1345
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
-#: libraries/common.lib.php:1343
+#: libraries/common.lib.php:1347
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
-#: libraries/common.lib.php:1345
+#: libraries/common.lib.php:1349
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
-#: libraries/common.lib.php:1347
+#: libraries/common.lib.php:1351
 msgid "EiB"
 msgstr "EiB"
 
 #. l10n: Short week day name
-#: libraries/common.lib.php:1571
+#: libraries/common.lib.php:1575
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "søn"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
-#: libraries/common.lib.php:1587
+#: libraries/common.lib.php:1591
 #: libraries/transformations/text_plain__dateformat.inc.php:35
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d. %m %Y kl. %H:%M:%S"
 
-#: libraries/common.lib.php:1920
+#: libraries/common.lib.php:1924
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dage, %s timer, %s minutter og %s sekunder"
 
-#: libraries/common.lib.php:2011
+#: libraries/common.lib.php:2015
 msgid "Missing parameter:"
 msgstr "Manglende parameter"
 
-#: libraries/common.lib.php:2359 libraries/common.lib.php:2362
+#: libraries/common.lib.php:2363 libraries/common.lib.php:2366
 #: libraries/display_tbl.lib.php:306
 msgctxt "First page"
 msgid "Begin"
 msgstr "Start"
 
-#: libraries/common.lib.php:2360 libraries/common.lib.php:2363
+#: libraries/common.lib.php:2364 libraries/common.lib.php:2367
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Forrige"
 
-#: libraries/common.lib.php:2390 libraries/common.lib.php:2393
+#: libraries/common.lib.php:2394 libraries/common.lib.php:2397
 #: libraries/display_tbl.lib.php:370 server_binlog.php:170
 #: server_binlog.php:172
 msgctxt "Next page"
 msgid "Next"
 msgstr "Næste"
 
-#: libraries/common.lib.php:2391 libraries/common.lib.php:2394
+#: libraries/common.lib.php:2395 libraries/common.lib.php:2398
 #: libraries/display_tbl.lib.php:385
 msgctxt "Last page"
 msgid "End"
 msgstr "Slut"
 
-#: libraries/common.lib.php:2461
+#: libraries/common.lib.php:2465
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "Hop til database &quot;%s&quot;."
 
-#: libraries/common.lib.php:2481
+#: libraries/common.lib.php:2485
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Funktionaliteten af %s er påvirket af en kendt fejl, se %s"
 
-#: libraries/common.lib.php:2655
+#: libraries/common.lib.php:2659
 msgid "Click to toggle"
 msgstr "Klik for at skifte"
 
-#: libraries/common.lib.php:3027 libraries/common.lib.php:3034
-#: libraries/common.lib.php:3244 libraries/config/setup.forms.php:293
+#: libraries/common.lib.php:3031 libraries/common.lib.php:3038
+#: libraries/common.lib.php:3248 libraries/config/setup.forms.php:293
 #: libraries/config/setup.forms.php:330 libraries/config/setup.forms.php:356
 #: libraries/config/user_preferences.forms.php:192
 #: libraries/config/user_preferences.forms.php:229
 #: libraries/config/user_preferences.forms.php:255
-#: libraries/db_links.inc.php:48 libraries/export/latex.php:338
-#: libraries/import.lib.php:1119 libraries/tbl_links.inc.php:61
-#: libraries/tbl_properties.inc.php:597 pmd_general.php:140
+#: libraries/db_links.inc.php:48 libraries/export/latex.php:336
+#: libraries/import.lib.php:1125 libraries/tbl_links.inc.php:61
+#: libraries/tbl_properties.inc.php:603 pmd_general.php:140
 #: server_privileges.php:601 server_replication.php:313 tbl_tracking.php:253
 msgid "Structure"
 msgstr "Struktur"
 
-#: libraries/common.lib.php:3028 libraries/common.lib.php:3035
+#: libraries/common.lib.php:3032 libraries/common.lib.php:3039
 #: libraries/config/messages.inc.php:214 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
@@ -2875,37 +2880,37 @@ msgstr "Struktur"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:3030 libraries/common.lib.php:3242
-#: libraries/common.lib.php:3243 libraries/sql_query_form.lib.php:282
+#: libraries/common.lib.php:3034 libraries/common.lib.php:3246
+#: libraries/common.lib.php:3247 libraries/sql_query_form.lib.php:282
 #: libraries/sql_query_form.lib.php:285 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "Indsæt"
 
-#: libraries/common.lib.php:3037 libraries/db_links.inc.php:86
+#: libraries/common.lib.php:3041 libraries/db_links.inc.php:86
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:114
 #: view_operations.php:87
 msgid "Operations"
 msgstr "Operationer"
 
-#: libraries/common.lib.php:3176
+#: libraries/common.lib.php:3180
 msgid "Browse your computer:"
 msgstr "Gennemse din computer:"
 
-#: libraries/common.lib.php:3195
+#: libraries/common.lib.php:3199
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Vælg fra <b>%s</b> - webserverens upload-mappe:"
 
-#: libraries/common.lib.php:3216 libraries/sql_query_form.lib.php:445
-#: tbl_change.php:905
+#: libraries/common.lib.php:3220 libraries/sql_query_form.lib.php:445
+#: tbl_change.php:909
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Mappen du har sat til upload-arbejde kan ikke findes"
 
-#: libraries/common.lib.php:3225
+#: libraries/common.lib.php:3229
 msgid "There are no files to upload"
 msgstr "Der er ikke nogen filer at uploade"
 
-#: libraries/common.lib.php:3253 libraries/common.lib.php:3254
+#: libraries/common.lib.php:3257 libraries/common.lib.php:3258
 msgid "Execute"
 msgstr "Udfør"
 
@@ -2983,28 +2988,28 @@ msgid "neither of the above"
 msgstr "ingen af de ovenfor anførte"
 
 #: libraries/config/FormDisplay.class.php:83
-#: libraries/config/validate.lib.php:412
+#: libraries/config/validate.lib.php:438
 msgid "Not a positive number"
 msgstr "Ikke et positivt tal"
 
 #: libraries/config/FormDisplay.class.php:84
-#: libraries/config/validate.lib.php:424
+#: libraries/config/validate.lib.php:450
 msgid "Not a non-negative number"
 msgstr "Ikke et ikke-negativt tal"
 
 #: libraries/config/FormDisplay.class.php:85
-#: libraries/config/validate.lib.php:400
+#: libraries/config/validate.lib.php:426
 msgid "Not a valid port number"
 msgstr "Ikke et gyldigt portnummer"
 
 #: libraries/config/FormDisplay.class.php:86
 #: libraries/config/FormDisplay.class.php:535
-#: libraries/config/validate.lib.php:352 libraries/config/validate.lib.php:439
+#: libraries/config/validate.lib.php:378 libraries/config/validate.lib.php:465
 msgid "Incorrect value"
 msgstr "Ukorrekt værdi"
 
 #: libraries/config/FormDisplay.class.php:87
-#: libraries/config/validate.lib.php:453
+#: libraries/config/validate.lib.php:479
 #, php-format
 msgid "Value must be equal or lower than %s"
 msgstr "Værdien skal være mindre end eller lig med %s"
@@ -3075,7 +3080,7 @@ msgstr "Tillad brugerdefinerede indstillinger for værdien"
 
 #: libraries/config/FormDisplay.tpl.php:324
 #: libraries/schema/User_Schema.class.php:487 prefs_manage.php:318
-#: prefs_manage.php:323 tbl_change.php:1067
+#: prefs_manage.php:323 tbl_change.php:1071
 msgid "Reset"
 msgstr "Nulstil"
 
@@ -3346,7 +3351,7 @@ msgid "Character set of the file"
 msgstr "Filens tegnsæt"
 
 #: libraries/config/messages.inc.php:72 libraries/config/messages.inc.php:88
-#: tbl_gis_visualization.php:181 tbl_printview.php:340 tbl_structure.php:836
+#: tbl_gis_visualization.php:181 tbl_printview.php:340 tbl_structure.php:839
 msgid "Format"
 msgstr "Format"
 
@@ -3443,8 +3448,8 @@ msgid "Label key"
 msgstr "Mærke nøgle"
 
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
-#: libraries/config/messages.inc.php:134 libraries/export/odt.php:312
-#: libraries/tbl_properties.inc.php:145
+#: libraries/config/messages.inc.php:134 libraries/export/odt.php:310
+#: libraries/tbl_properties.inc.php:149
 msgid "MIME type"
 msgstr "MIME-type"
 
@@ -3479,7 +3484,7 @@ msgstr "Brug \"backquotes\" omkring tabel- og feltnavne"
 msgid "SQL compatibility mode"
 msgstr "SQL-kompatibilitetstilstand"
 
-#: libraries/config/messages.inc.php:122 libraries/export/sql.php:183
+#: libraries/config/messages.inc.php:122 libraries/export/sql.php:190
 msgid "<code>CREATE TABLE</code> options:"
 msgstr "Indstillinger til <code>CREATE TABLE</code>:"
 
@@ -3507,7 +3512,7 @@ msgstr "Brug ignorer inserts"
 msgid "Syntax to use when inserting data"
 msgstr "Syntaks der bruges, når der indsættes data"
 
-#: libraries/config/messages.inc.php:133 libraries/export/sql.php:275
+#: libraries/config/messages.inc.php:133 libraries/export/sql.php:285
 msgid "Maximal length of created query"
 msgstr "Maksimal længde på oprettet forespørgsel"
 
@@ -4993,7 +4998,7 @@ msgstr "Kræver SQL Validator bliver aktiveret"
 #: libraries/replication_gui.lib.php:341 libraries/replication_gui.lib.php:345
 #: libraries/replication_gui.lib.php:355 server_privileges.php:865
 #: server_privileges.php:869 server_privileges.php:880
-#: server_privileges.php:1693 server_synchronize.php:1244
+#: server_privileges.php:1693 server_synchronize.php:1263
 msgid "Password"
 msgstr "Adgangskode"
 
@@ -5234,31 +5239,41 @@ msgstr "Microsoft Word 2000"
 msgid "Open Document Text"
 msgstr "Open Document tekst"
 
-#: libraries/config/validate.lib.php:197 libraries/config/validate.lib.php:204
+#: libraries/config/validate.lib.php:198
+msgid "Could not initialize Drizzle connection library"
+msgstr ""
+
+#: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
+#, fuzzy
+#| msgid "Could not connect to MySQL server"
+msgid "Could not connect to Drizzle server"
+msgstr "Kunne ikke forbinde til MySQL server"
+
+#: libraries/config/validate.lib.php:223 libraries/config/validate.lib.php:230
 msgid "Could not connect to MySQL server"
 msgstr "Kunne ikke forbinde til MySQL server"
 
-#: libraries/config/validate.lib.php:228
+#: libraries/config/validate.lib.php:254
 msgid "Empty username while using config authentication method"
 msgstr "Tomt brugernavn ved brug af config autentifikation"
 
-#: libraries/config/validate.lib.php:232
+#: libraries/config/validate.lib.php:258
 msgid "Empty signon session name while using signon authentication method"
 msgstr "Tomt signon sessionsnavn ved brug af signon autentifikation"
 
-#: libraries/config/validate.lib.php:236
+#: libraries/config/validate.lib.php:262
 msgid "Empty signon URL while using signon authentication method"
 msgstr "Tomt signon URL ved brug af signon autentifikation"
 
-#: libraries/config/validate.lib.php:269
+#: libraries/config/validate.lib.php:295
 msgid "Empty phpMyAdmin control user while using pmadb"
 msgstr "Tom phpMyAdmin kontrolbruger ved brug af pmadb"
 
-#: libraries/config/validate.lib.php:273
+#: libraries/config/validate.lib.php:299
 msgid "Empty phpMyAdmin control user password while using pmadb"
 msgstr "Tom phpMyAdmin adgangskode for kontrolbruger ved brug af pmadb"
 
-#: libraries/config/validate.lib.php:359
+#: libraries/config/validate.lib.php:385
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Ukorrekt IP-adresse: %s"
@@ -5302,13 +5317,13 @@ msgstr "Privilegier"
 msgid "Routines"
 msgstr "Rutiner"
 
-#: libraries/db_links.inc.php:101 libraries/export/sql.php:622
+#: libraries/db_links.inc.php:101 libraries/export/sql.php:641
 #: libraries/rte/rte_words.lib.php:49
 msgid "Events"
 msgstr "Hændelser"
 
-#: libraries/db_links.inc.php:105 libraries/export/sql.php:991
-#: libraries/export/xml.php:54 libraries/rte/rte_words.lib.php:37
+#: libraries/db_links.inc.php:105 libraries/export/sql.php:1031
+#: libraries/export/xml.php:57 libraries/rte/rte_words.lib.php:37
 #: libraries/tbl_links.inc.php:103
 msgid "Triggers"
 msgstr "Triggers"
@@ -5321,17 +5336,24 @@ msgstr ""
 "Kan være anslået. Se [a@./Documentation.html#faq3_11@Documentation] FAQ 3.11"
 "[/a]"
 
-#: libraries/dbi/mysql.dbi.lib.php:117 libraries/dbi/mysqli.dbi.lib.php:137
+#: libraries/dbi/drizzle.dbi.lib.php:114 libraries/dbi/mysql.dbi.lib.php:117
+#: libraries/dbi/mysqli.dbi.lib.php:142
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Forbindelse for kontrolbruger som defineret i din konfiguration slog fejl."
 
-#: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysql.dbi.lib.php:353
-#: libraries/dbi/mysqli.dbi.lib.php:379
+#: libraries/dbi/drizzle.dbi.lib.php:344 libraries/dbi/mysql.dbi.lib.php:351
+#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:384
 msgid "The server is not responding"
 msgstr "Serveren svarer ikke"
 
-#: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysqli.dbi.lib.php:379
+#: libraries/dbi/drizzle.dbi.lib.php:344
+#, fuzzy
+#| msgid "(or the local MySQL server's socket is not correctly configured)"
+msgid "(or the local Drizzle server's socket is not correctly configured)"
+msgstr "(eller den lokale MySQL servers socket er ikke korrekt konfigureret)"
+
+#: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysqli.dbi.lib.php:384
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr "(eller den lokale MySQL servers socket er ikke korrekt konfigureret)"
 
@@ -5339,7 +5361,7 @@ msgstr "(eller den lokale MySQL servers socket er ikke korrekt konfigureret)"
 msgid "Details..."
 msgstr "Detaljer..."
 
-#: libraries/display_change_password.lib.php:29 main.php:94
+#: libraries/display_change_password.lib.php:29 main.php:93
 #: user_password.php:105 user_password.php:123
 msgid "Change password"
 msgstr "Ændre adgangskode"
@@ -5386,8 +5408,8 @@ msgstr "Opret ny tabel i database %s"
 #: libraries/rte/rte_list.lib.php:57 libraries/rte/rte_list.lib.php:66
 #: libraries/rte/rte_routines.lib.php:853
 #: libraries/rte/rte_routines.lib.php:1358
-#: libraries/tbl_properties.inc.php:102 setup/frames/index.inc.php:126
-#: tbl_structure.php:202
+#: libraries/tbl_properties.inc.php:106 setup/frames/index.inc.php:126
+#: tbl_structure.php:201
 msgid "Name"
 msgstr "Navn"
 
@@ -5688,12 +5710,12 @@ msgstr "Sorteringsnøgle"
 #: libraries/export/pdf.php:29 libraries/export/php_array.php:29
 #: libraries/export/sql.php:88 libraries/export/texytext.php:31
 #: libraries/export/xml.php:27 libraries/export/yaml.php:30
-#: libraries/import.lib.php:1098 libraries/import.lib.php:1119
+#: libraries/import.lib.php:1104 libraries/import.lib.php:1125
 #: libraries/import/csv.php:33 libraries/import/docsql.php:35
 #: libraries/import/ldi.php:49 libraries/import/ods.php:32
 #: libraries/import/shp.php:17 libraries/import/sql.php:20
 #: libraries/import/xml.php:25 libraries/rte/rte_routines.lib.php:856
-#: tbl_select.php:183 tbl_structure.php:852
+#: tbl_select.php:183 tbl_structure.php:855
 msgid "Options"
 msgstr "Indstillinger"
 
@@ -5721,13 +5743,13 @@ msgstr "Vis binært indhold"
 msgid "Show BLOB contents"
 msgstr "Vis indhold af BLOB"
 
-#: libraries/display_tbl.lib.php:660 pmd_general.php:147 tbl_change.php:328
-#: tbl_change.php:334
+#: libraries/display_tbl.lib.php:660 pmd_general.php:147 tbl_change.php:332
+#: tbl_change.php:338
 msgid "Hide"
 msgstr "Skjul"
 
 #: libraries/display_tbl.lib.php:660 libraries/relation.lib.php:112
-#: libraries/tbl_properties.inc.php:146 transformation_overview.php:46
+#: libraries/tbl_properties.inc.php:150 transformation_overview.php:46
 msgid "Browser transformation"
 msgstr "Browser transformation"
 
@@ -5744,7 +5766,7 @@ msgid "The row has been deleted"
 msgstr "Rækken er slettet"
 
 #: libraries/display_tbl.lib.php:1383 libraries/display_tbl.lib.php:2354
-#: server_status.php:1211
+#: server_status.php:1253
 msgid "Kill"
 msgstr "Dræb (Kill)"
 
@@ -5789,7 +5811,7 @@ msgstr "Opret view"
 msgid "Link not found"
 msgstr "Link ikke fundet"
 
-#: libraries/engines/bdb.lib.php:20 main.php:211
+#: libraries/engines/bdb.lib.php:20 main.php:215
 msgid "Version information"
 msgstr "Versionsinformation"
 
@@ -5833,7 +5855,7 @@ msgstr ""
 msgid "Buffer Pool"
 msgstr "Bufferpool"
 
-#: libraries/engines/innodb.lib.php:131 server_status.php:614
+#: libraries/engines/innodb.lib.php:131 server_status.php:638
 msgid "InnoDB Status"
 msgstr "InnoDB status"
 
@@ -5984,7 +6006,7 @@ msgstr ""
 "komprimeret."
 
 #: libraries/engines/pbms.lib.php:35 libraries/replication_gui.lib.php:70
-#: server_synchronize.php:1232
+#: server_synchronize.php:1251
 msgid "Port"
 msgstr "Port"
 
@@ -6276,18 +6298,18 @@ msgid "Excel edition:"
 msgstr "Excel-udgave:"
 
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:70
-#: libraries/export/odt.php:56 libraries/export/sql.php:215
-#: libraries/export/texytext.php:26 libraries/export/xml.php:69
+#: libraries/export/odt.php:56 libraries/export/sql.php:222
+#: libraries/export/texytext.php:26 libraries/export/xml.php:73
 msgid "Data dump options"
 msgstr "Database eksportindstillinger"
 
 #: libraries/export/htmlword.php:121 libraries/export/odt.php:161
-#: libraries/export/sql.php:1147 libraries/export/texytext.php:109
+#: libraries/export/sql.php:1187 libraries/export/texytext.php:109
 msgid "Dumping data for table"
 msgstr "Data dump for tabellen"
 
 #: libraries/export/htmlword.php:195 libraries/export/odt.php:235
-#: libraries/export/sql.php:980 libraries/export/texytext.php:177
+#: libraries/export/sql.php:1020 libraries/export/texytext.php:177
 msgid "Table structure for table"
 msgstr "Struktur-dump for tabellen"
 
@@ -6326,29 +6348,29 @@ msgstr "Vis kommentarer"
 msgid "Display MIME types"
 msgstr "Vis MIME-typer"
 
-#: libraries/export/latex.php:129 libraries/export/sql.php:469
-#: libraries/export/xml.php:127 libraries/header_printview.inc.php:56
+#: libraries/export/latex.php:129 libraries/export/sql.php:482
+#: libraries/export/xml.php:131 libraries/header_printview.inc.php:56
 #: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:179
 #: libraries/replication_gui.lib.php:275 libraries/replication_gui.lib.php:278
 #: libraries/replication_gui.lib.php:335 server_privileges.php:800
 #: server_privileges.php:803 server_privileges.php:859
 #: server_privileges.php:1692 server_privileges.php:2235
-#: server_status.php:1176
+#: server_status.php:1227
 msgid "Host"
 msgstr "Vært"
 
-#: libraries/export/latex.php:134 libraries/export/sql.php:474
-#: libraries/export/xml.php:132 libraries/header_printview.inc.php:58
+#: libraries/export/latex.php:134 libraries/export/sql.php:487
+#: libraries/export/xml.php:136 libraries/header_printview.inc.php:58
 msgid "Generation Time"
 msgstr "Genereringstid"
 
-#: libraries/export/latex.php:135 libraries/export/sql.php:476
-#: libraries/export/xml.php:133 main.php:162
+#: libraries/export/latex.php:135 libraries/export/sql.php:489
+#: libraries/export/xml.php:137
 msgid "Server version"
 msgstr "Serverversion"
 
-#: libraries/export/latex.php:136 libraries/export/sql.php:477
-#: libraries/export/xml.php:134
+#: libraries/export/latex.php:136 libraries/export/sql.php:490
+#: libraries/export/xml.php:138
 msgid "PHP Version"
 msgstr "PHP-version"
 
@@ -6401,8 +6423,8 @@ msgstr ""
 "Databasesystem eller ældre MYSQL server til maksimering af kompatibiltet af "
 "output:"
 
-#: libraries/export/sql.php:114 libraries/export/sql.php:169
-#: libraries/export/sql.php:174
+#: libraries/export/sql.php:114 libraries/export/sql.php:173
+#: libraries/export/sql.php:180
 #, php-format
 msgid "Add %s statement"
 msgstr "Tilføj %s forespørgsel"
@@ -6411,7 +6433,7 @@ msgstr "Tilføj %s forespørgsel"
 msgid "Add statements:"
 msgstr "Tilføj forespørgsler:"
 
-#: libraries/export/sql.php:204
+#: libraries/export/sql.php:211
 msgid ""
 "Enclose table and field names with backquotes <i>(Protects field and table "
 "names formed with special characters or keywords)</i>"
@@ -6419,27 +6441,27 @@ msgstr ""
 "Omgiv tabel- og feltnavne med backquotes <i>(Beskytter felt- og tabelnavne "
 "indeholdende specielle tegn og nøgleord)</i>"
 
-#: libraries/export/sql.php:224
+#: libraries/export/sql.php:231
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "I stedet for <code>INSERT</code> forespørgsler, brug:"
 
-#: libraries/export/sql.php:229
+#: libraries/export/sql.php:238
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "<code>INSERT DELAYED</code> forespørgsler"
 
-#: libraries/export/sql.php:235
+#: libraries/export/sql.php:245
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "<code>INSERT IGNORE</code> forspørgsler"
 
-#: libraries/export/sql.php:245
+#: libraries/export/sql.php:255
 msgid "Function to use when dumping data:"
 msgstr "Funktioner der bruges, når data udtrækkes:"
 
-#: libraries/export/sql.php:258
+#: libraries/export/sql.php:268
 msgid "Syntax to use when inserting data:"
 msgstr "Syntaks der bruges, når data indsættes:"
 
-#: libraries/export/sql.php:264
+#: libraries/export/sql.php:274
 msgid ""
 "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -6449,7 +6471,7 @@ msgstr ""
 "&nbsp; &nbsp; Eksempel: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
 "VALUES (1,2,3)</code>"
 
-#: libraries/export/sql.php:265
+#: libraries/export/sql.php:275
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -6459,7 +6481,7 @@ msgstr ""
 "&nbsp; &nbsp; Eksempel: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 
-#: libraries/export/sql.php:266
+#: libraries/export/sql.php:276
 msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -6467,7 +6489,7 @@ msgstr ""
 "begge af ovenstående<br /> &nbsp; &nbsp; &nbsp; Eksempel: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: libraries/export/sql.php:267
+#: libraries/export/sql.php:277
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -6475,7 +6497,7 @@ msgstr ""
 "ingen af ovenstående<br /> &nbsp; &nbsp; &nbsp; Eksempel: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 
-#: libraries/export/sql.php:282
+#: libraries/export/sql.php:292
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
@@ -6483,7 +6505,7 @@ msgstr ""
 "Udtræk binære kolonner i hexadecimal notation <i>(fx, \"abc\" becomes "
 "0x616263)</i>"
 
-#: libraries/export/sql.php:289
+#: libraries/export/sql.php:301
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
@@ -6491,39 +6513,39 @@ msgstr ""
 "Udtræk TIMESTAMP kolonner i UTC <i>(gør at TIMESTAMP kolonner kan udtrækkes "
 "og indsættes i servere på tværs af tidszoner)</i>"
 
-#: libraries/export/sql.php:329 libraries/export/xml.php:44
+#: libraries/export/sql.php:342 libraries/export/xml.php:45
 msgid "Procedures"
 msgstr "Procedurer"
 
-#: libraries/export/sql.php:346 libraries/export/xml.php:39
+#: libraries/export/sql.php:359 libraries/export/xml.php:40
 msgid "Functions"
 msgstr "Funktioner"
 
-#: libraries/export/sql.php:815
+#: libraries/export/sql.php:854
 msgid "Constraints for dumped tables"
 msgstr "Begrænsninger for dumpede tabeller"
 
-#: libraries/export/sql.php:824
+#: libraries/export/sql.php:863
 msgid "Constraints for table"
 msgstr "Begrænsninger for tabel"
 
-#: libraries/export/sql.php:922
+#: libraries/export/sql.php:962
 msgid "MIME TYPES FOR TABLE"
 msgstr "MIME TYPES FOR TABLE (MIME-typer for tabellen)"
 
-#: libraries/export/sql.php:934
+#: libraries/export/sql.php:974
 msgid "RELATIONS FOR TABLE"
 msgstr "RELATIONS FOR TABLE (Relationer for tabellen)"
 
-#: libraries/export/sql.php:1003
+#: libraries/export/sql.php:1043
 msgid "Structure for view"
 msgstr "Struktur for visning"
 
-#: libraries/export/sql.php:1012
+#: libraries/export/sql.php:1052
 msgid "Stand-in structure for view"
 msgstr "Stand-in-struktur for visning"
 
-#: libraries/export/sql.php:1071
+#: libraries/export/sql.php:1111
 msgid "Error reading data:"
 msgstr "Fejl ved læsning af data."
 
@@ -6535,11 +6557,11 @@ msgstr "XML"
 msgid "Object creation options (all are recommended)"
 msgstr "Indstillinger for oprettelse af objekter (alle anbefales)"
 
-#: libraries/export/xml.php:59
+#: libraries/export/xml.php:62
 msgid "Views"
 msgstr "Views"
 
-#: libraries/export/xml.php:74
+#: libraries/export/xml.php:78
 msgid "Export contents"
 msgstr "Eksport indhold"
 
@@ -6561,48 +6583,48 @@ msgid "Generated by"
 msgstr "Genereret af"
 
 #: libraries/import.lib.php:157 libraries/rte/rte_routines.lib.php:1241
-#: sql.php:709 tbl_change.php:192 tbl_get_field.php:34
+#: sql.php:709 tbl_change.php:196 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL returnerede ingen data (fx ingen rækker)."
 
-#: libraries/import.lib.php:1094
+#: libraries/import.lib.php:1100
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "De følgende strukturer er enten oprettet eller ændret. Her kan du: "
 
-#: libraries/import.lib.php:1095
+#: libraries/import.lib.php:1101
 msgid "View a structure's contents by clicking on its name"
 msgstr "Vis en strukturs indhold ved at klikke på dens navn"
 
-#: libraries/import.lib.php:1096
+#: libraries/import.lib.php:1102
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr ""
 "Ændr alle indstillinger ved at klikke på det tilhørende \"Indstilling\" link"
 
-#: libraries/import.lib.php:1097
+#: libraries/import.lib.php:1103
 msgid "Edit structure by following the \"Structure\" link"
 msgstr "Rediger struktur ved at følge linket \"Struktur\""
 
-#: libraries/import.lib.php:1100
+#: libraries/import.lib.php:1106
 msgid "Go to database"
 msgstr "Gå til database"
 
-#: libraries/import.lib.php:1103 libraries/import.lib.php:1126
+#: libraries/import.lib.php:1109 libraries/import.lib.php:1132
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Rediger indstillinger for %s"
 
-#: libraries/import.lib.php:1121
+#: libraries/import.lib.php:1127
 msgid "Go to table"
 msgstr "Gå til tabel"
 
-#: libraries/import.lib.php:1124
+#: libraries/import.lib.php:1130
 #, php-format
 msgid "Structure of %s"
 msgstr "Strukturen af %s"
 
-#: libraries/import.lib.php:1130
+#: libraries/import.lib.php:1136
 msgid "Go to view"
 msgstr "Gå til view"
 
@@ -6657,8 +6679,8 @@ msgstr "Ugyldigt kolonneantal i CSV-input på linie %d."
 msgid "DocSQL"
 msgstr "DocSQL"
 
-#: libraries/import/docsql.php:32 libraries/tbl_properties.inc.php:572
-#: server_synchronize.php:439 server_synchronize.php:911
+#: libraries/import/docsql.php:32 libraries/tbl_properties.inc.php:578
+#: server_synchronize.php:441 server_synchronize.php:913
 msgid "Table name"
 msgstr "Tabelnavn"
 
@@ -6740,7 +6762,7 @@ msgid "To"
 msgstr "Til"
 
 #: libraries/mult_submits.inc.php:262 libraries/mult_submits.inc.php:276
-#: libraries/sql_query_form.lib.php:396 tbl_zoom_select.php:435
+#: libraries/sql_query_form.lib.php:396 tbl_zoom_select.php:417
 msgid "Submit"
 msgstr "Send"
 
@@ -6756,194 +6778,194 @@ msgstr "Tilføj præfiks"
 msgid "No change"
 msgstr "Ingen ændring"
 
-#: libraries/mysql_charsets.lib.php:110
+#: libraries/mysql_charsets.lib.php:113
 msgid "Charset"
 msgstr "Tegnsæt"
 
-#: libraries/mysql_charsets.lib.php:202 libraries/mysql_charsets.lib.php:403
-#: tbl_change.php:572
+#: libraries/mysql_charsets.lib.php:212 libraries/mysql_charsets.lib.php:413
+#: tbl_change.php:576
 msgid "Binary"
 msgstr "Binært "
 
-#: libraries/mysql_charsets.lib.php:214
+#: libraries/mysql_charsets.lib.php:224
 msgid "Bulgarian"
 msgstr "Bulgarsk"
 
-#: libraries/mysql_charsets.lib.php:218 libraries/mysql_charsets.lib.php:343
+#: libraries/mysql_charsets.lib.php:228 libraries/mysql_charsets.lib.php:353
 msgid "Simplified Chinese"
 msgstr "Simplificeret Kinesisk"
 
-#: libraries/mysql_charsets.lib.php:220 libraries/mysql_charsets.lib.php:363
+#: libraries/mysql_charsets.lib.php:230 libraries/mysql_charsets.lib.php:373
 msgid "Traditional Chinese"
 msgstr "Traditionelt Kinesisk"
 
-#: libraries/mysql_charsets.lib.php:224 libraries/mysql_charsets.lib.php:410
+#: libraries/mysql_charsets.lib.php:234 libraries/mysql_charsets.lib.php:420
 msgid "case-insensitive"
 msgstr "ingen forskel på store/små bogstaver"
 
-#: libraries/mysql_charsets.lib.php:227 libraries/mysql_charsets.lib.php:412
+#: libraries/mysql_charsets.lib.php:237 libraries/mysql_charsets.lib.php:422
 msgid "case-sensitive"
 msgstr "forskel på store/små bogstaver"
 
-#: libraries/mysql_charsets.lib.php:230
+#: libraries/mysql_charsets.lib.php:240
 msgid "Croatian"
 msgstr "Kroatisk"
 
-#: libraries/mysql_charsets.lib.php:233
+#: libraries/mysql_charsets.lib.php:243
 msgid "Czech"
 msgstr "Tjekkisk"
 
-#: libraries/mysql_charsets.lib.php:236
+#: libraries/mysql_charsets.lib.php:246
 msgid "Danish"
 msgstr "Dansk"
 
-#: libraries/mysql_charsets.lib.php:239
+#: libraries/mysql_charsets.lib.php:249
 msgid "English"
 msgstr "Engelsk"
 
-#: libraries/mysql_charsets.lib.php:242
+#: libraries/mysql_charsets.lib.php:252
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: libraries/mysql_charsets.lib.php:245
+#: libraries/mysql_charsets.lib.php:255
 msgid "Estonian"
 msgstr "Estisk"
 
-#: libraries/mysql_charsets.lib.php:248 libraries/mysql_charsets.lib.php:251
+#: libraries/mysql_charsets.lib.php:258 libraries/mysql_charsets.lib.php:261
 msgid "German"
 msgstr "Tysk"
 
-#: libraries/mysql_charsets.lib.php:248
+#: libraries/mysql_charsets.lib.php:258
 msgid "dictionary"
 msgstr "ordbog"
 
-#: libraries/mysql_charsets.lib.php:251
+#: libraries/mysql_charsets.lib.php:261
 msgid "phone book"
 msgstr "telefonbog"
 
-#: libraries/mysql_charsets.lib.php:254
+#: libraries/mysql_charsets.lib.php:264
 msgid "Hungarian"
 msgstr "Ungarsk"
 
-#: libraries/mysql_charsets.lib.php:257
+#: libraries/mysql_charsets.lib.php:267
 msgid "Icelandic"
 msgstr "Islandsk"
 
-#: libraries/mysql_charsets.lib.php:260 libraries/mysql_charsets.lib.php:350
+#: libraries/mysql_charsets.lib.php:270 libraries/mysql_charsets.lib.php:360
 msgid "Japanese"
 msgstr "Japansk"
 
-#: libraries/mysql_charsets.lib.php:263
+#: libraries/mysql_charsets.lib.php:273
 msgid "Latvian"
 msgstr "Lettisk"
 
-#: libraries/mysql_charsets.lib.php:266
+#: libraries/mysql_charsets.lib.php:276
 msgid "Lithuanian"
 msgstr "Litauisk"
 
-#: libraries/mysql_charsets.lib.php:269 libraries/mysql_charsets.lib.php:372
+#: libraries/mysql_charsets.lib.php:279 libraries/mysql_charsets.lib.php:382
 msgid "Korean"
 msgstr "Koreansk"
 
-#: libraries/mysql_charsets.lib.php:272
+#: libraries/mysql_charsets.lib.php:282
 msgid "Persian"
 msgstr "Persisk"
 
-#: libraries/mysql_charsets.lib.php:275
+#: libraries/mysql_charsets.lib.php:285
 msgid "Polish"
 msgstr "Polsk"
 
-#: libraries/mysql_charsets.lib.php:278 libraries/mysql_charsets.lib.php:326
+#: libraries/mysql_charsets.lib.php:288 libraries/mysql_charsets.lib.php:336
 msgid "West European"
 msgstr "Vesteuropæisk"
 
-#: libraries/mysql_charsets.lib.php:281
+#: libraries/mysql_charsets.lib.php:291
 msgid "Romanian"
 msgstr "Rumænsk"
 
-#: libraries/mysql_charsets.lib.php:284
+#: libraries/mysql_charsets.lib.php:294
 msgid "Slovak"
 msgstr "Slovakisk"
 
-#: libraries/mysql_charsets.lib.php:287
+#: libraries/mysql_charsets.lib.php:297
 msgid "Slovenian"
 msgstr "Slovensk"
 
-#: libraries/mysql_charsets.lib.php:290
+#: libraries/mysql_charsets.lib.php:300
 msgid "Spanish"
 msgstr "Spansk"
 
-#: libraries/mysql_charsets.lib.php:293
+#: libraries/mysql_charsets.lib.php:303
 msgid "Traditional Spanish"
 msgstr "Traditionelt Spansk"
 
-#: libraries/mysql_charsets.lib.php:296 libraries/mysql_charsets.lib.php:393
+#: libraries/mysql_charsets.lib.php:306 libraries/mysql_charsets.lib.php:403
 msgid "Swedish"
 msgstr "Svensk"
 
-#: libraries/mysql_charsets.lib.php:299 libraries/mysql_charsets.lib.php:396
+#: libraries/mysql_charsets.lib.php:309 libraries/mysql_charsets.lib.php:406
 msgid "Thai"
 msgstr "Thai"
 
-#: libraries/mysql_charsets.lib.php:302 libraries/mysql_charsets.lib.php:390
+#: libraries/mysql_charsets.lib.php:312 libraries/mysql_charsets.lib.php:400
 msgid "Turkish"
 msgstr "Tyrkisk"
 
-#: libraries/mysql_charsets.lib.php:305 libraries/mysql_charsets.lib.php:387
+#: libraries/mysql_charsets.lib.php:315 libraries/mysql_charsets.lib.php:397
 msgid "Ukrainian"
 msgstr "Ukrainsk"
 
-#: libraries/mysql_charsets.lib.php:308 libraries/mysql_charsets.lib.php:317
+#: libraries/mysql_charsets.lib.php:318 libraries/mysql_charsets.lib.php:327
 msgid "Unicode"
 msgstr "Unicode"
 
-#: libraries/mysql_charsets.lib.php:308 libraries/mysql_charsets.lib.php:317
-#: libraries/mysql_charsets.lib.php:326 libraries/mysql_charsets.lib.php:333
-#: libraries/mysql_charsets.lib.php:355 libraries/mysql_charsets.lib.php:366
+#: libraries/mysql_charsets.lib.php:318 libraries/mysql_charsets.lib.php:327
+#: libraries/mysql_charsets.lib.php:336 libraries/mysql_charsets.lib.php:343
+#: libraries/mysql_charsets.lib.php:365 libraries/mysql_charsets.lib.php:376
 msgid "multilingual"
 msgstr "flersproget"
 
-#: libraries/mysql_charsets.lib.php:333
+#: libraries/mysql_charsets.lib.php:343
 msgid "Central European"
 msgstr "Centraleuropæisk"
 
-#: libraries/mysql_charsets.lib.php:338
+#: libraries/mysql_charsets.lib.php:348
 msgid "Russian"
 msgstr "Russisk"
 
-#: libraries/mysql_charsets.lib.php:355
+#: libraries/mysql_charsets.lib.php:365
 msgid "Baltic"
 msgstr "Baltisk"
 
-#: libraries/mysql_charsets.lib.php:360
+#: libraries/mysql_charsets.lib.php:370
 msgid "Armenian"
 msgstr "Armensk"
 
-#: libraries/mysql_charsets.lib.php:366
+#: libraries/mysql_charsets.lib.php:376
 msgid "Cyrillic"
 msgstr "Kyrillisk"
 
-#: libraries/mysql_charsets.lib.php:369
+#: libraries/mysql_charsets.lib.php:379
 msgid "Arabic"
 msgstr "Arabisk"
 
-#: libraries/mysql_charsets.lib.php:375
+#: libraries/mysql_charsets.lib.php:385
 msgid "Hebrew"
 msgstr "Hebræisk"
 
-#: libraries/mysql_charsets.lib.php:378
+#: libraries/mysql_charsets.lib.php:388
 msgid "Georgian"
 msgstr "Georgisk"
 
-#: libraries/mysql_charsets.lib.php:381
+#: libraries/mysql_charsets.lib.php:391
 msgid "Greek"
 msgstr "Græsk"
 
-#: libraries/mysql_charsets.lib.php:384
+#: libraries/mysql_charsets.lib.php:394
 msgid "Czech-Slovak"
 msgstr "Tjekkisk-Slovakisk"
 
-#: libraries/mysql_charsets.lib.php:399 libraries/mysql_charsets.lib.php:406
+#: libraries/mysql_charsets.lib.php:409 libraries/mysql_charsets.lib.php:416
 msgid "unknown"
 msgstr "ukendt"
 
@@ -6965,7 +6987,7 @@ msgstr "Log af"
 msgid "Reload navigation frame"
 msgstr "Genindlæs navigationsramme"
 
-#: libraries/plugin_interface.lib.php:310
+#: libraries/plugin_interface.lib.php:309
 msgid "This format has no options"
 msgstr "Dette format har ingen indstillinger"
 
@@ -7048,7 +7070,7 @@ msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 "Re-login til phpMyAdmin for at indlæse den opdaterede konfigurationsfil."
 
-#: libraries/relation.lib.php:1076
+#: libraries/relation.lib.php:1080
 msgid "no description"
 msgstr "ingen beskrivelse"
 
@@ -7072,7 +7094,7 @@ msgstr ""
 #: libraries/replication_gui.lib.php:255 libraries/replication_gui.lib.php:258
 #: libraries/replication_gui.lib.php:265 server_privileges.php:780
 #: server_privileges.php:783 server_privileges.php:790
-#: server_synchronize.php:1240
+#: server_synchronize.php:1259
 msgid "User name"
 msgstr "Brugernavn"
 
@@ -7085,15 +7107,15 @@ msgid "Slave status"
 msgstr "Slavestatus"
 
 #: libraries/replication_gui.lib.php:118 libraries/sql_query_form.lib.php:380
-#: server_status.php:1422 server_variables.php:123
+#: server_status.php:1464 server_variables.php:123
 msgid "Variable"
 msgstr "Variabel"
 
 #: libraries/replication_gui.lib.php:119
 #: libraries/rte/rte_routines.lib.php:1363 libraries/tbl_select.lib.php:115
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
-#: pmd_general.php:769 server_status.php:1423 tbl_change.php:338
-#: tbl_printview.php:334 tbl_structure.php:828 tbl_zoom_select.php:413
+#: pmd_general.php:769 server_status.php:1465 tbl_change.php:342
+#: tbl_printview.php:334 tbl_structure.php:831 tbl_zoom_select.php:394
 msgid "Value"
 msgstr "Værdi"
 
@@ -7342,7 +7364,7 @@ msgstr "Parametre"
 msgid "Direction"
 msgstr "Retning"
 
-#: libraries/rte/rte_routines.lib.php:855 libraries/tbl_properties.inc.php:108
+#: libraries/rte/rte_routines.lib.php:855 libraries/tbl_properties.inc.php:112
 msgid "Length/Values"
 msgstr "Længde/Værdi*"
 
@@ -7431,7 +7453,7 @@ msgid "Routine parameters"
 msgstr "Rutineparametre"
 
 #: libraries/rte/rte_routines.lib.php:1361 libraries/tbl_select.lib.php:107
-#: tbl_change.php:296 tbl_change.php:334
+#: tbl_change.php:300 tbl_change.php:338
 msgid "Function"
 msgstr "Funktion"
 
@@ -7574,7 +7596,7 @@ msgid "Please configure the coordinates for table %s"
 msgstr "Konfigurér venligst koordinaterne for tabel %s"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:823
-#: libraries/schema/Pdf_Relation_Schema.class.php:843
+#: libraries/schema/Pdf_Relation_Schema.class.php:841
 #: libraries/schema/Svg_Relation_Schema.class.php:803
 #: libraries/schema/Visio_Relation_Schema.class.php:495
 #, php-format
@@ -7589,25 +7611,25 @@ msgstr "Denne side indeholder ingen tabeller!"
 msgid "SCHEMA ERROR: "
 msgstr "SCHEMA ERROR: "
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:865
-#: libraries/schema/Pdf_Relation_Schema.class.php:1179
+#: libraries/schema/Pdf_Relation_Schema.class.php:863
+#: libraries/schema/Pdf_Relation_Schema.class.php:1176
 msgid "Relational schema"
 msgstr "Relationel skematik"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1141
+#: libraries/schema/Pdf_Relation_Schema.class.php:1139
 msgid "Table of contents"
 msgstr "Indholdsfortegnelse"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1318
-#: libraries/schema/Pdf_Relation_Schema.class.php:1339
-#: libraries/tbl_properties.inc.php:111 tbl_printview.php:138
-#: tbl_structure.php:205
+#: libraries/schema/Pdf_Relation_Schema.class.php:1312
+#: libraries/schema/Pdf_Relation_Schema.class.php:1333
+#: libraries/tbl_properties.inc.php:115 tbl_printview.php:138
+#: tbl_structure.php:204
 msgid "Attributes"
 msgstr "Attributter"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1321
-#: libraries/schema/Pdf_Relation_Schema.class.php:1342 tbl_printview.php:141
-#: tbl_structure.php:208 tbl_tracking.php:262
+#: libraries/schema/Pdf_Relation_Schema.class.php:1315
+#: libraries/schema/Pdf_Relation_Schema.class.php:1336 tbl_printview.php:141
+#: tbl_structure.php:207 tbl_tracking.php:262
 msgid "Extra"
 msgstr "Ekstra"
 
@@ -7714,18 +7736,18 @@ msgstr "Ukendt sprog: %1$s."
 msgid "Current Server"
 msgstr "Aktuel server"
 
-#: libraries/server_links.inc.php:79 server_synchronize.php:1144
-#: server_synchronize.php:1152
+#: libraries/server_links.inc.php:79 server_synchronize.php:1152
+#: server_synchronize.php:1160
 msgid "Synchronize"
 msgstr "Synkroniser"
 
 #: libraries/server_links.inc.php:84 server_binlog.php:77
-#: server_status.php:560
+#: server_status.php:583
 msgid "Binary log"
 msgstr "Binær log"
 
 #: libraries/server_links.inc.php:95 server_engines.php:123
-#: server_engines.php:127 server_status.php:612
+#: server_engines.php:127 server_status.php:636
 msgid "Variables"
 msgstr "Variable"
 
@@ -7733,11 +7755,16 @@ msgstr "Variable"
 msgid "Charsets"
 msgstr "Tegnsæt"
 
-#: libraries/server_links.inc.php:103
+#: libraries/server_links.inc.php:104 server_plugins.php:47
+#: server_plugins.php:80
+msgid "Plugins"
+msgstr ""
+
+#: libraries/server_links.inc.php:108
 msgid "Engines"
 msgstr "Lagre"
 
-#: libraries/server_synchronize.lib.php:1286 server_synchronize.php:1168
+#: libraries/server_synchronize.lib.php:1286 server_synchronize.php:1176
 msgid "Source database"
 msgstr "Kildedatabase"
 
@@ -7755,7 +7782,7 @@ msgstr "Ekstern server"
 msgid "Difference"
 msgstr "Forskel"
 
-#: libraries/server_synchronize.lib.php:1294 server_synchronize.php:1170
+#: libraries/server_synchronize.lib.php:1294 server_synchronize.php:1178
 msgid "Target database"
 msgstr "Måldatabase"
 
@@ -7810,7 +7837,7 @@ msgstr "Kun oversigt"
 msgid "Location of the text file"
 msgstr "Tekstfilens placering"
 
-#: libraries/sql_query_form.lib.php:448 tbl_change.php:908
+#: libraries/sql_query_form.lib.php:448 tbl_change.php:912
 msgid "web server upload directory"
 msgstr "webserver upload-mappe"
 
@@ -7896,7 +7923,7 @@ msgstr "Tabel ser ud til at være tom!"
 msgid "Tracking of %s.%s is activated."
 msgstr "Sporing af %s.%s er aktiveret."
 
-#: libraries/tbl_properties.inc.php:108
+#: libraries/tbl_properties.inc.php:112
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
@@ -7908,7 +7935,7 @@ msgstr ""
 "eller et enkelt anførselstegn (\"'\") blandt disse værdier, så tilføj en "
 "ekstra backslash (fx '\\\\xyz' eller 'a\\'b')."
 
-#: libraries/tbl_properties.inc.php:109
+#: libraries/tbl_properties.inc.php:113
 msgid ""
 "For default values, please enter just a single value, without backslash "
 "escaping or quotes, using this format: a"
@@ -7916,13 +7943,13 @@ msgstr ""
 "For standardværdier, indtast venligst kun en enkelt værdi, uden backslash "
 "escaping eller quotes, ud fra følgende format: a"
 
-#: libraries/tbl_properties.inc.php:119 libraries/tbl_properties.inc.php:483
-#: tbl_printview.php:290 tbl_structure.php:154 tbl_structure.php:159
-#: tbl_structure.php:574 tbl_structure.php:775
+#: libraries/tbl_properties.inc.php:123 libraries/tbl_properties.inc.php:487
+#: tbl_printview.php:290 tbl_structure.php:153 tbl_structure.php:158
+#: tbl_structure.php:575 tbl_structure.php:778
 msgid "Index"
 msgstr "Indeks"
 
-#: libraries/tbl_properties.inc.php:139
+#: libraries/tbl_properties.inc.php:143
 #, php-format
 msgid ""
 "For a list of available transformation options and their MIME type "
@@ -7931,11 +7958,11 @@ msgstr ""
 "For en liste over mulige transformationsindstillinger og deres MIME-type "
 "transformationer, klik på %stransformationsbeskrivelser%s"
 
-#: libraries/tbl_properties.inc.php:147
+#: libraries/tbl_properties.inc.php:151
 msgid "Transformation options"
 msgstr "Transformationsindstillinger"
 
-#: libraries/tbl_properties.inc.php:148
+#: libraries/tbl_properties.inc.php:152
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
@@ -7947,34 +7974,34 @@ msgstr ""
 "\") eller en apostrof (\"'\") i værdierne, backslash det (for eksempel '\\"
 "\\xyz' eller 'a\\'b')."
 
-#: libraries/tbl_properties.inc.php:331
+#: libraries/tbl_properties.inc.php:335
 msgid "ENUM or SET data too long?"
 msgstr "ENUM eller SET data for lang?"
 
-#: libraries/tbl_properties.inc.php:333
+#: libraries/tbl_properties.inc.php:337
 msgid "Get more editing space"
 msgstr "Få mere redigeringsplads"
 
-#: libraries/tbl_properties.inc.php:356
+#: libraries/tbl_properties.inc.php:360
 msgctxt "for default"
 msgid "None"
 msgstr "Ingen"
 
-#: libraries/tbl_properties.inc.php:357
+#: libraries/tbl_properties.inc.php:361
 msgid "As defined:"
 msgstr "Som defineret:"
 
-#: libraries/tbl_properties.inc.php:471 tbl_structure.php:153
-#: tbl_structure.php:158 tbl_structure.php:572
+#: libraries/tbl_properties.inc.php:475 tbl_structure.php:152
+#: tbl_structure.php:157 tbl_structure.php:573
 msgid "Primary"
 msgstr "Primær"
 
-#: libraries/tbl_properties.inc.php:489 tbl_structure.php:157
-#: tbl_structure.php:162 tbl_structure.php:581
+#: libraries/tbl_properties.inc.php:494 tbl_structure.php:156
+#: tbl_structure.php:161 tbl_structure.php:582
 msgid "Fulltext"
 msgstr "Fuldtekst"
 
-#: libraries/tbl_properties.inc.php:538 transformation_overview.php:57
+#: libraries/tbl_properties.inc.php:544 transformation_overview.php:57
 #, php-format
 msgid ""
 "No description is available for this transformation.<br />Please ask the "
@@ -7983,31 +8010,31 @@ msgstr ""
 "Der er ingen beskrivelse af denne transformation.<br />Spørg venligst "
 "forfatteren, hvad %s gør."
 
-#: libraries/tbl_properties.inc.php:580 tbl_structure.php:647
+#: libraries/tbl_properties.inc.php:586 tbl_structure.php:650
 #, php-format
 msgid "Add %s column(s)"
 msgstr "Tilføj %s kolonne(r)"
 
-#: libraries/tbl_properties.inc.php:582 tbl_structure.php:641
+#: libraries/tbl_properties.inc.php:588 tbl_structure.php:644
 msgid "You have to add at least one column."
 msgstr "Du skal tilføje mindst en kolonne."
 
-#: libraries/tbl_properties.inc.php:691 server_engines.php:55
+#: libraries/tbl_properties.inc.php:697 server_engines.php:55
 #: tbl_operations.php:374
 msgid "Storage Engine"
 msgstr "Datalager"
 
-#: libraries/tbl_properties.inc.php:720
+#: libraries/tbl_properties.inc.php:726
 msgid "PARTITION definition"
 msgstr "PARTITION definition"
 
-#: libraries/tbl_properties.inc.php:751
+#: libraries/tbl_properties.inc.php:757
 msgid "+ Add a value"
 msgstr "+ Tilføj en værdi"
 
 #: libraries/tbl_select.lib.php:26 libraries/tbl_select.lib.php:27
 #: libraries/tbl_select.lib.php:30 libraries/tbl_select.lib.php:35 sql.php:108
-#: tbl_change.php:266
+#: tbl_change.php:270
 msgid "Browse foreign values"
 msgstr "Bladre i fremmedværdier"
 
@@ -8021,7 +8048,7 @@ msgstr "Operatør"
 msgid "Table Search"
 msgstr "Tabelsøgning"
 
-#: libraries/tbl_select.lib.php:208 tbl_change.php:993
+#: libraries/tbl_select.lib.php:208 tbl_change.php:997
 msgid "Edit/Insert"
 msgstr "Rediger/Indsæt"
 
@@ -8197,69 +8224,91 @@ msgstr "Fejl i ZIP arkiv:"
 msgid "General Settings"
 msgstr "Generelle indstillinger"
 
-#: main.php:103
-msgid "MySQL connection collation"
+#: main.php:101
+#, fuzzy
+#| msgid "MySQL connection collation"
+msgid "Server connection collation"
 msgstr "MySQL forbindelsestegnsæt"
 
-#: main.php:119
+#: main.php:116
 msgid "Appearance Settings"
 msgstr "Indstillinger for udseende"
 
-#: main.php:146 prefs_manage.php:272
+#: main.php:143 prefs_manage.php:272
 msgid "More settings"
 msgstr "Flere indstillinger"
 
-#: main.php:163
+#: main.php:156
+#, fuzzy
+#| msgid "Database for user"
+msgid "Database server"
+msgstr "Database for bruger"
+
+#: main.php:159
+msgid "Software"
+msgstr ""
+
+#: main.php:160
+#, fuzzy
+#| msgid "Show versions"
+msgid "Software version"
+msgstr "Vis versioner"
+
+#: main.php:161
 msgid "Protocol version"
 msgstr "Protokolversion"
 
-#: main.php:165 server_privileges.php:1537 server_privileges.php:1691
+#: main.php:163 server_privileges.php:1537 server_privileges.php:1691
 #: server_privileges.php:1815 server_privileges.php:2234
-#: server_status.php:1175
+#: server_status.php:1226
 msgid "User"
 msgstr "Bruger"
 
-#: main.php:169
-msgid "MySQL charset"
-msgstr "MySQL Tegnsæt"
+#: main.php:167
+#, fuzzy
+#| msgid "Server socket"
+msgid "Server charset"
+msgstr "Server socket"
 
-#: main.php:181
+#: main.php:179
 msgid "Web server"
 msgstr "Webserver"
 
-#: main.php:187
-msgid "MySQL client version"
-msgstr "MySQL klientversion"
+#: main.php:190
+#, fuzzy
+#| msgid "Use light version"
+msgid "Database client version"
+msgstr "Brug lille version"
 
-#: main.php:189
+#: main.php:192
 msgid "PHP extension"
 msgstr "PHP udvidelse"
 
-#: main.php:195
+#: main.php:199
 msgid "Show PHP information"
 msgstr "Vis PHP-information"
 
-#: main.php:213
+#: main.php:217
 msgid "Wiki"
 msgstr "Wiki"
 
-#: main.php:216
+#: main.php:220
 msgid "Official Homepage"
 msgstr "Officiel phpMyAdmin hjemmeside "
 
-#: main.php:217
+#: main.php:221
 msgid "Contribute"
 msgstr "Deltag"
 
-#: main.php:218
+#: main.php:222
 msgid "Get support"
 msgstr "Få support"
 
-#: main.php:219
+#: main.php:223
 msgid "List of changes"
 msgstr "Liste over ændringer"
 
-#: main.php:243
+#: main.php:247
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -8271,7 +8320,7 @@ msgstr ""
 "kører med denne standardindstilling, <u>er åben for indtrængen</u>, og du "
 "opfordres stærkt til at gøre noget ved dette sikkerhedshul."
 
-#: main.php:251
+#: main.php:255
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -8281,7 +8330,7 @@ msgstr ""
 "indstilling er ikke kompatibel med phpMyAdmin og kan forårsage ødelæggelse "
 "af nogle data!"
 
-#: main.php:259
+#: main.php:263
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -8291,7 +8340,7 @@ msgstr ""
 "multibyte tegnsæt. Uden mbstring-udvidelsen er phpMyAdmin ude af stand til "
 "at opdele strenge korrekt og dette kan forårsage uventede resultater."
 
-#: main.php:267
+#: main.php:271
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -8303,7 +8352,7 @@ msgstr ""
 "gyldighed konfigureret i phpMyAdmin; på grund af dette vil din login session "
 "udløbe tidligere end konfigureret i phpMyAdmin"
 
-#: main.php:274
+#: main.php:278
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -8312,12 +8361,12 @@ msgstr ""
 "phpMyAdmin. På grund af dette, vil din login udløbe tidligere end "
 "konfigureret i phpMyAdmin."
 
-#: main.php:282
+#: main.php:286
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "Konfigurationsfilen skal nu bruge et hemmeligt kodeord (blowfish_secret)."
 
-#: main.php:290
+#: main.php:294
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -8327,7 +8376,7 @@ msgstr ""
 "i din phpMyAdmin mappe. Du bør slette den, når phpMyAdmin er blevet "
 "konfigureret."
 
-#: main.php:299
+#: main.php:300
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -8337,7 +8386,7 @@ msgstr ""
 "udvidede funktioner er blevet deaktiverede. For at finde ud af hvorfor klik "
 "%sher%s."
 
-#: main.php:314
+#: main.php:315
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
@@ -8347,7 +8396,7 @@ msgstr ""
 "phpMyAdmin funktioner vil savnes. Fx navigationsrammen vil ikke opdateres "
 "automatisk."
 
-#: main.php:329
+#: main.php:331
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -8356,14 +8405,14 @@ msgstr ""
 "Din PHP MySQL-biblioteks version %s afviger fra din MySQL server version %s. "
 "Dette kan forårsage uforudsigelige resultater."
 
-#: main.php:341
+#: main.php:343
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr "Server med Suhosin.Se %sdocumentation%s for mulige problemer."
 
-#: navigation.php:180 server_databases.php:280 server_synchronize.php:1260
+#: navigation.php:180 server_databases.php:285 server_synchronize.php:1282
 msgid "No databases"
 msgstr "Ingen databaser"
 
@@ -8388,7 +8437,7 @@ msgstr "Vis/skjul venstre menu"
 msgid "Save position"
 msgstr "Gem position"
 
-#: pmd_general.php:71 server_synchronize.php:440 server_synchronize.php:912
+#: pmd_general.php:71 server_synchronize.php:442 server_synchronize.php:914
 msgid "Create table"
 msgstr "Opret tabel"
 
@@ -8637,17 +8686,17 @@ msgstr "Filen eksisterer ikke"
 msgid "Select binary log to view"
 msgstr "Vælg binærlog til gennemsyn"
 
-#: server_binlog.php:103 server_status.php:569
+#: server_binlog.php:103 server_status.php:592
 msgid "Files"
 msgstr "Filer"
 
-#: server_binlog.php:150 server_binlog.php:152 server_status.php:1186
-#: server_status.php:1188
+#: server_binlog.php:150 server_binlog.php:152 server_status.php:1237
+#: server_status.php:1239
 msgid "Truncate Shown Queries"
 msgstr "Trunkér viste forespørgsler"
 
-#: server_binlog.php:158 server_binlog.php:160 server_status.php:1186
-#: server_status.php:1188
+#: server_binlog.php:158 server_binlog.php:160 server_status.php:1237
+#: server_status.php:1239
 msgid "Show Full Queries"
 msgstr "Vis fuldstændige forespørgsler"
 
@@ -8671,33 +8720,33 @@ msgstr "Information"
 msgid "Character Sets and Collations"
 msgstr "Tegnsæt og kollationer"
 
-#: server_databases.php:64
+#: server_databases.php:69
 msgid "No databases selected."
 msgstr "Ingen databaser valgt."
 
-#: server_databases.php:75
+#: server_databases.php:80
 #, php-format
 msgid "%s databases have been dropped successfully."
 msgstr "%s databaser er blevet droppet korrekt."
 
-#: server_databases.php:99
+#: server_databases.php:104
 msgid "Databases statistics"
 msgstr "Databasestatistik"
 
-#: server_databases.php:182 server_replication.php:179
+#: server_databases.php:187 server_replication.php:179
 #: server_replication.php:207
 msgid "Master replication"
 msgstr "Master replikation"
 
-#: server_databases.php:184 server_replication.php:246
+#: server_databases.php:189 server_replication.php:246
 msgid "Slave replication"
 msgstr "Slave replikation"
 
-#: server_databases.php:271 server_databases.php:272
+#: server_databases.php:276 server_databases.php:277
 msgid "Enable Statistics"
 msgstr "Slå statistikker til"
 
-#: server_databases.php:274
+#: server_databases.php:279
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -8712,6 +8761,44 @@ msgstr "Datalagre"
 #: server_export.php:20
 msgid "View dump (schema) of databases"
 msgstr "Vis dump (skema) for databaser"
+
+#: server_plugins.php:81
+msgid "Modules"
+msgstr ""
+
+#: server_plugins.php:102
+msgid "Begin"
+msgstr "Start"
+
+#: server_plugins.php:111
+msgid "Plugin"
+msgstr ""
+
+#: server_plugins.php:112 server_plugins.php:146
+msgid "Module"
+msgstr ""
+
+#: server_plugins.php:113 server_plugins.php:148
+msgid "Library"
+msgstr ""
+
+#: server_plugins.php:114 server_plugins.php:149 tbl_tracking.php:635
+msgid "Version"
+msgstr "Version"
+
+#: server_plugins.php:115 server_plugins.php:150
+msgid "Author"
+msgstr ""
+
+#: server_plugins.php:116 server_plugins.php:151
+msgid "License"
+msgstr ""
+
+#: server_plugins.php:182
+#, fuzzy
+#| msgid "Disabled"
+msgid "disabled"
+msgstr "Slået fra"
 
 #: server_privileges.php:32 server_privileges.php:364
 msgid "Includes all privileges except GRANT."
@@ -9169,7 +9256,7 @@ msgstr "Master server ændret til %s"
 msgid "This server is configured as master in a replication process."
 msgstr "Denne server er konfigureret som master i en replikationsproces."
 
-#: server_replication.php:182 server_status.php:589
+#: server_replication.php:182 server_status.php:613
 msgid "Show master status"
 msgstr "Vis master status"
 
@@ -9316,123 +9403,123 @@ msgstr ""
 "Serveren er ikke konfigureret som slave i en replikationsprocess. Vil du <a "
 "href=\"%s\">konfigurere</a> den?"
 
-#: server_status.php:434
+#: server_status.php:450
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr "Tråd %s blev stoppet."
 
-#: server_status.php:436
+#: server_status.php:452
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr ""
 "phpMyAdmin kunne ikke dræbe tråden %s. Den er sandsynligvis allerede lukket."
 
-#: server_status.php:557
+#: server_status.php:580
 msgid "Handler"
 msgstr "Handler"
 
-#: server_status.php:558
+#: server_status.php:581
 msgid "Query cache"
 msgstr "Forespørgsel-mellemlager"
 
-#: server_status.php:559
+#: server_status.php:582
 msgid "Threads"
 msgstr "Tråde"
 
-#: server_status.php:561
+#: server_status.php:584
 msgid "Temporary data"
 msgstr "Midlertidige data"
 
-#: server_status.php:562
+#: server_status.php:585
 msgid "Delayed inserts"
 msgstr "Forsinkede inserts"
 
-#: server_status.php:563
+#: server_status.php:586
 msgid "Key cache"
 msgstr "Nøglemellemlager"
 
-#: server_status.php:564
+#: server_status.php:587
 msgid "Joins"
 msgstr "Joins"
 
-#: server_status.php:566
+#: server_status.php:589
 msgid "Sorting"
 msgstr "Sortering"
 
-#: server_status.php:568
+#: server_status.php:591
 msgid "Transaction coordinator"
 msgstr "Transaktionskoordinator"
 
-#: server_status.php:579
+#: server_status.php:603
 msgid "Flush (close) all tables"
 msgstr "Flush (luk) alle tabeller"
 
-#: server_status.php:581
+#: server_status.php:605
 msgid "Show open tables"
 msgstr "Vis åbne tabeller"
 
-#: server_status.php:586
+#: server_status.php:610
 msgid "Show slave hosts"
 msgstr "Vis slaveværter"
 
-#: server_status.php:592
+#: server_status.php:616
 msgid "Show slave status"
 msgstr "Vis slavestatus"
 
-#: server_status.php:597
+#: server_status.php:621
 msgid "Flush query cache"
 msgstr "Tøm forespørgsel-mellemlager"
 
-#: server_status.php:736
+#: server_status.php:770
 msgid "Runtime Information"
 msgstr "Runtime-information"
 
-#: server_status.php:743
+#: server_status.php:777
 msgid "All status variables"
 msgstr "Alle statusvariable"
 
-#: server_status.php:744
+#: server_status.php:778
 msgid "Monitor"
 msgstr "Monitor"
 
-#: server_status.php:745
+#: server_status.php:779
 msgid "Advisor"
 msgstr "Rådgiver"
 
-#: server_status.php:755 server_status.php:777
+#: server_status.php:789 server_status.php:811
 msgid "Refresh rate: "
 msgstr "Opdateringsrate:"
 
-#: server_status.php:798
+#: server_status.php:832
 msgid "Containing the word:"
 msgstr "Indeholdende ordet:"
 
-#: server_status.php:803
+#: server_status.php:837
 msgid "Show only alert values"
 msgstr "Vis kun alert-værdier"
 
-#: server_status.php:807
+#: server_status.php:841
 msgid "Filter by category..."
 msgstr "Filtrer efter kategori..."
 
-#: server_status.php:820
+#: server_status.php:855
 msgid "Show unformatted values"
 msgstr "Vis uformatterede værdier"
 
-#: server_status.php:824
+#: server_status.php:859
 msgid "Related links:"
 msgstr "Relaterede links:"
 
-#: server_status.php:857
+#: server_status.php:892
 msgid "Run analyzer"
 msgstr "Kør analysator"
 
-#: server_status.php:858
+#: server_status.php:893
 msgid "Instructions"
 msgstr "Instruktioner/Opsætning"
 
-#: server_status.php:865
+#: server_status.php:900
 msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
@@ -9440,7 +9527,7 @@ msgstr ""
 "Rådgiversystemer kan give anbefalinger om servervariable ved at analysere "
 "serverens statusvariable"
 
-#: server_status.php:867
+#: server_status.php:902
 msgid ""
 "Do note however that this system provides recommendations based on simple "
 "calculations and by rule of thumb which may not necessarily apply to your "
@@ -9449,7 +9536,7 @@ msgstr ""
 "Bemærk dog, at dette system giver anbefalinger baseret på simple beregninger "
 "og tommelfingerregler, som ikke passer med dit system"
 
-#: server_status.php:869
+#: server_status.php:904
 msgid ""
 "Prior to changing any of the configuration, be sure to know what you are "
 "changing (by reading the documentation) and how to undo the change. Wrong "
@@ -9459,7 +9546,7 @@ msgstr ""
 "dokumentationen) og hvordan du annullerer ændringer. Forkert tuning kan have "
 "en meget negativ effekt på ydeevnen."
 
-#: server_status.php:871
+#: server_status.php:906
 msgid ""
 "The best way to tune your system would be to change only one setting at a "
 "time, observe or benchmark your database, and undo the change if there was "
@@ -9470,44 +9557,44 @@ msgstr ""
 "ingen klart synlig forskel var."
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: server_status.php:893
+#: server_status.php:928
 #, php-format
 msgid "Questions since startup: %s"
 msgstr "Forespørgsler siden startup: %s"
 
-#: server_status.php:899 server_status.php:935 server_status.php:1055
-#: server_status.php:1100
+#: server_status.php:934 server_status.php:970 server_status.php:1090
+#: server_status.php:1135
 msgid "per hour"
 msgstr "pr. time"
 
-#: server_status.php:903
+#: server_status.php:938
 msgid "per minute"
 msgstr "pr. minut"
 
-#: server_status.php:908
+#: server_status.php:943
 msgid "per second"
 msgstr "pr. sekund"
 
-#: server_status.php:929 tbl_printview.php:333 tbl_structure.php:827
+#: server_status.php:964 tbl_printview.php:333 tbl_structure.php:830
 msgid "Statements"
 msgstr "Forespørgsler"
 
 #. l10n: # = Amount of queries
-#: server_status.php:932
+#: server_status.php:967
 msgid "#"
 msgstr "#"
 
-#: server_status.php:1004
+#: server_status.php:1039
 #, php-format
 msgid "Network traffic since startup: %s"
 msgstr "Netværkstrafik siden startup: %s"
 
-#: server_status.php:1012
+#: server_status.php:1047
 #, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
 msgstr "Denne MySQL-server har kørt i %1$s. Den startede op den %2$s."
 
-#: server_status.php:1022
+#: server_status.php:1057
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
@@ -9515,17 +9602,17 @@ msgstr ""
 "Denne MySQL server fungerer som <b>master</b> og <b>slave</b> i en "
 "<b>replikation</b>sproces."
 
-#: server_status.php:1024
+#: server_status.php:1059
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
 "Denne MySQL server fungerer som <b>master</b> i en <b>replikation</b>sproces."
 
-#: server_status.php:1026
+#: server_status.php:1061
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
 "Denne MySQL server fungerer som <b>slave</b> i en <b>replikation</b>sproces."
 
-#: server_status.php:1029
+#: server_status.php:1064
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=\"#replication\">replication section</a>."
@@ -9533,11 +9620,11 @@ msgstr ""
 "For yderligere information om replikationsstatus på serveren gå til <a href="
 "\"#replication\">replication section</a>."
 
-#: server_status.php:1038
+#: server_status.php:1073
 msgid "Replication status"
 msgstr "Status for replikation"
 
-#: server_status.php:1054
+#: server_status.php:1089
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
@@ -9545,35 +9632,35 @@ msgstr ""
 "På en travl server er der risiko for at bytetællerne løber over, så disse "
 "statistikker som rapporteret af MySQL-serveren kan være forkerte."
 
-#: server_status.php:1060
+#: server_status.php:1095
 msgid "Received"
 msgstr "Modtaget"
 
-#: server_status.php:1070
+#: server_status.php:1105
 msgid "Sent"
 msgstr "Sendt"
 
-#: server_status.php:1106
+#: server_status.php:1141
 msgid "max. concurrent connections"
 msgstr "Maks. samtidige forbindelser"
 
-#: server_status.php:1113
+#: server_status.php:1148
 msgid "Failed attempts"
 msgstr "Mislykkede forsøg"
 
-#: server_status.php:1127
+#: server_status.php:1162
 msgid "Aborted"
 msgstr "Afbrudt"
 
-#: server_status.php:1174
+#: server_status.php:1225
 msgid "ID"
 msgstr "ID"
 
-#: server_status.php:1178
+#: server_status.php:1229
 msgid "Command"
 msgstr "Kommando"
 
-#: server_status.php:1249
+#: server_status.php:1291
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
@@ -9581,11 +9668,11 @@ msgstr ""
 "Antallet af forbindelser, som blev aborteret, fordi klienten døde uden at "
 "lukke forbindelsen rigtigt."
 
-#: server_status.php:1250
+#: server_status.php:1292
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "Antal mislykkede forsøg på at forbinde til MySQL server."
 
-#: server_status.php:1251
+#: server_status.php:1293
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -9595,17 +9682,17 @@ msgstr ""
 "overskred værdien for binlog_cache_size og brugte en midlertidig fil til at "
 "gemme statements fra transaktionen."
 
-#: server_status.php:1252
+#: server_status.php:1294
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr ""
 "Antal transaktioner der brugte det midlertidige binære log mellemlager."
 
-#: server_status.php:1253
+#: server_status.php:1295
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr "Antal forbindelsesforsøg (lykkedes eller ej) til MySQL server."
 
-#: server_status.php:1254
+#: server_status.php:1296
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -9617,11 +9704,11 @@ msgstr ""
 "overveje at forøge tmp_table_size værdien for at gøre midlertidige tabeller "
 "hukommelses-baserede i stedet for disk-baserede."
 
-#: server_status.php:1255
+#: server_status.php:1297
 msgid "How many temporary files mysqld has created."
 msgstr "Hvor mange midlertidige filer mysqld har oprettet."
 
-#: server_status.php:1256
+#: server_status.php:1298
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
@@ -9629,7 +9716,7 @@ msgstr ""
 "Antal i-hukommelsen midlertidige tabeller oprettet automatisk af serveren "
 "under udførelse af statements."
 
-#: server_status.php:1257
+#: server_status.php:1299
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -9637,7 +9724,7 @@ msgstr ""
 "Antal rækker skrevet med INSERT DELAYED (forsinket indsættelse) under hvilke "
 "der opstod fejl (sandsynligvis dublerede nøgler)."
 
-#: server_status.php:1258
+#: server_status.php:1300
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -9645,23 +9732,23 @@ msgstr ""
 "Antallet af INSERT DELAYED handler-tråde i brug. Hver forskellig tabel "
 "hvorpå en bruger INSERT DELAYED får sin egen tråd."
 
-#: server_status.php:1259
+#: server_status.php:1301
 msgid "The number of INSERT DELAYED rows written."
 msgstr "Antallet af INSERT DELAYED rækker skrevet."
 
-#: server_status.php:1260
+#: server_status.php:1302
 msgid "The number of executed FLUSH statements."
 msgstr "Antallet af udførte FLUSH statements."
 
-#: server_status.php:1261
+#: server_status.php:1303
 msgid "The number of internal COMMIT statements."
 msgstr "Antallet af interne COMMIT statements."
 
-#: server_status.php:1262
+#: server_status.php:1304
 msgid "The number of times a row was deleted from a table."
 msgstr "Antallet af gange en række blev slettet fra en tabel."
 
-#: server_status.php:1263
+#: server_status.php:1305
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -9671,7 +9758,7 @@ msgstr ""
 "tabel med et givent navn. Dette kaldes opdagelse. Handler_discover indikerer "
 "antallet af gange tabeller er blevet opdaget."
 
-#: server_status.php:1264
+#: server_status.php:1306
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -9681,7 +9768,7 @@ msgstr ""
 "antyder det at serveren laver mange fulde indeks scans; for eksempel, SELECT "
 "col1 FROM foo, antagende at col1 er indekseret."
 
-#: server_status.php:1265
+#: server_status.php:1307
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -9690,7 +9777,7 @@ msgstr ""
 "er høj, er det en god indikation af at dine forespørgsler og tabeller er "
 "ordentligt indekserede."
 
-#: server_status.php:1266
+#: server_status.php:1308
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -9700,7 +9787,7 @@ msgstr ""
 "hvis du forespørger på en indekskolonne med en range-begrænsning eller hvis "
 "du udfører et indeks scan."
 
-#: server_status.php:1267
+#: server_status.php:1309
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
@@ -9708,7 +9795,7 @@ msgstr ""
 "Antallet af anmodninger om at læse foregående række i nøgleorden. Denne "
 "læsemetode bruges hovedsageligt til at optimere ORDER BY ... DESC."
 
-#: server_status.php:1268
+#: server_status.php:1310
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -9720,7 +9807,7 @@ msgstr ""
 "resultatet. Du har sandsynligvis mange forespørgsler der forlanger at MySQL "
 "scanner hele tabeller eller du har joins der ikke bruger nøgler ordentligt."
 
-#: server_status.php:1269
+#: server_status.php:1311
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -9732,35 +9819,35 @@ msgstr ""
 "enten ikke er ordentligt indekserede eller at dine forespørgsler ikke er "
 "skrevet til at drage fordel af de indeks du har."
 
-#: server_status.php:1270
+#: server_status.php:1312
 msgid "The number of internal ROLLBACK statements."
 msgstr "Antallet af interne ROLLBACK statements."
 
-#: server_status.php:1271
+#: server_status.php:1313
 msgid "The number of requests to update a row in a table."
 msgstr "Antallet af anmodninger om at opdatere en række i en tabel."
 
-#: server_status.php:1272
+#: server_status.php:1314
 msgid "The number of requests to insert a row in a table."
 msgstr "Antallet af anmodninger om at indsætte en række i en tabel."
 
-#: server_status.php:1273
+#: server_status.php:1315
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "Antallet af sider der indeholder data (beskidte eller rene)."
 
-#: server_status.php:1274
+#: server_status.php:1316
 msgid "The number of pages currently dirty."
 msgstr "Antallet af såkaldt beskidte sider."
 
-#: server_status.php:1275
+#: server_status.php:1317
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr "Antallet af buffer pool sider der er anmodet om at skulle flushes."
 
-#: server_status.php:1276
+#: server_status.php:1318
 msgid "The number of free pages."
 msgstr "Antallet af frie sider."
 
-#: server_status.php:1277
+#: server_status.php:1319
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -9770,7 +9857,7 @@ msgstr ""
 "sider, der i øjeblikket læses eller skrives eller som ikke kan flushes eller "
 "fjernes af andre årsager."
 
-#: server_status.php:1278
+#: server_status.php:1320
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -9782,11 +9869,11 @@ msgstr ""
 "også beregnes som  Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 
-#: server_status.php:1279
+#: server_status.php:1321
 msgid "Total size of buffer pool, in pages."
 msgstr "Total størrelse på buffer pool, i sider."
 
-#: server_status.php:1280
+#: server_status.php:1322
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -9795,7 +9882,7 @@ msgstr ""
 "forespørgsel skal scanne en større del af en tabel men i tilfældig "
 "rækkefølge."
 
-#: server_status.php:1281
+#: server_status.php:1323
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
@@ -9803,11 +9890,11 @@ msgstr ""
 "Antallet af sekventielle read-aheads InnoDB initierede. Dette sker når "
 "InnoDB laver en sekventiel fuld tabelscanning."
 
-#: server_status.php:1282
+#: server_status.php:1324
 msgid "The number of logical read requests InnoDB has done."
 msgstr "Antallet af logiske read anmodninger InnoDB har lavet."
 
-#: server_status.php:1283
+#: server_status.php:1325
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
@@ -9815,7 +9902,7 @@ msgstr ""
 "Antallet af logiske reads som InnoDB ikke kunne tilfredsstille fra buffer "
 "pool og måtte lave en enkelt-side read."
 
-#: server_status.php:1284
+#: server_status.php:1326
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -9829,55 +9916,55 @@ msgstr ""
 "sider først. Denne tæller tæller hvor mange gange det er sket. Hvis buffer "
 "pool størrelsen er sat ordentligt, skulle denne værdi være lille."
 
-#: server_status.php:1285
+#: server_status.php:1327
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "Antallet af skrivninger til InnoDB buffer poolen."
 
-#: server_status.php:1286
+#: server_status.php:1328
 msgid "The number of fsync() operations so far."
 msgstr "Antallet af fsync() operationer indtil nu."
 
-#: server_status.php:1287
+#: server_status.php:1329
 msgid "The current number of pending fsync() operations."
 msgstr "Nuværende antal ventende fsync() operationer."
 
-#: server_status.php:1288
+#: server_status.php:1330
 msgid "The current number of pending reads."
 msgstr "Nuværende antal af ventende reads."
 
-#: server_status.php:1289
+#: server_status.php:1331
 msgid "The current number of pending writes."
 msgstr "Nuværende antal af ventende writes."
 
-#: server_status.php:1290
+#: server_status.php:1332
 msgid "The amount of data read so far, in bytes."
 msgstr "Mængden af data læst indtil nu, i bytes."
 
-#: server_status.php:1291
+#: server_status.php:1333
 msgid "The total number of data reads."
 msgstr "Det totale antal af data reads."
 
-#: server_status.php:1292
+#: server_status.php:1334
 msgid "The total number of data writes."
 msgstr "Det totale antal af data writes."
 
-#: server_status.php:1293
+#: server_status.php:1335
 msgid "The amount of data written so far, in bytes."
 msgstr "Mængden af data skrevet indtil nu, i bytes."
 
-#: server_status.php:1294
+#: server_status.php:1336
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
 "Antallet af doublewrite skrivninger der er udført og antallet af sider der "
 "er blevet skrevet til dette formål."
 
-#: server_status.php:1295
+#: server_status.php:1337
 msgid "The number of doublewrite operations that have been performed."
 msgstr ""
 "Antallet af doublewrite skrivninger der er udført og antallet af sider der "
 "er blevet skrevet til dette formål."
 
-#: server_status.php:1296
+#: server_status.php:1338
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
@@ -9885,35 +9972,35 @@ msgstr ""
 "Antallet af waits vi har haft fordi log buffer var for lille og vi skulle "
 "vente på at den blev flushed før vi kunne fortsætte."
 
-#: server_status.php:1297
+#: server_status.php:1339
 msgid "The number of log write requests."
 msgstr "Antallet af log write anmodninger."
 
-#: server_status.php:1298
+#: server_status.php:1340
 msgid "The number of physical writes to the log file."
 msgstr "Antallet af fysiske skrivninger til log filen."
 
-#: server_status.php:1299
+#: server_status.php:1341
 msgid "The number of fsync() writes done to the log file."
 msgstr "Antallet af fsyncs skrivninger lavet til logfilen."
 
-#: server_status.php:1300
+#: server_status.php:1342
 msgid "The number of pending log file fsyncs."
 msgstr "Antallet af ventende log fil fsyncs."
 
-#: server_status.php:1301
+#: server_status.php:1343
 msgid "Pending log file writes."
 msgstr "Ventende log fil skrivninger."
 
-#: server_status.php:1302
+#: server_status.php:1344
 msgid "The number of bytes written to the log file."
 msgstr "Antallet af bytes skrevet til log filen."
 
-#: server_status.php:1303
+#: server_status.php:1345
 msgid "The number of pages created."
 msgstr "Antallet af sider oprettet."
 
-#: server_status.php:1304
+#: server_status.php:1346
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -9921,51 +10008,51 @@ msgstr ""
 "Den indkompilerede InnoDB sidestørrelse (standard 16KB). Mange værdier "
 "tælles i sider; sidestørrelsen gør at man let kan omregne dem til bytes."
 
-#: server_status.php:1305
+#: server_status.php:1347
 msgid "The number of pages read."
 msgstr "Antallet af sider læst."
 
-#: server_status.php:1306
+#: server_status.php:1348
 msgid "The number of pages written."
 msgstr "Antallet af sider skrevet."
 
-#: server_status.php:1307
+#: server_status.php:1349
 msgid "The number of row locks currently being waited for."
 msgstr "Antallet af rækkelåse der ventes på i øjeblikket."
 
-#: server_status.php:1308
+#: server_status.php:1350
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr "Gennemsnitstiden for at få en rækkelås, i millisekunder."
 
-#: server_status.php:1309
+#: server_status.php:1351
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr "Total tid brugt på at hente rækkelåse, i millisekunder."
 
-#: server_status.php:1310
+#: server_status.php:1352
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr "Maksimale tid for at hente en rækkelås, i millisekunder."
 
-#: server_status.php:1311
+#: server_status.php:1353
 msgid "The number of times a row lock had to be waited for."
 msgstr "Antallet af gange der skulle ventes på en rækkelås."
 
-#: server_status.php:1312
+#: server_status.php:1354
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "Antallet af rækker slettet fra InnoDB tabeller."
 
-#: server_status.php:1313
+#: server_status.php:1355
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "Antallet af rækker indsat i InnoDB tabeller."
 
-#: server_status.php:1314
+#: server_status.php:1356
 msgid "The number of rows read from InnoDB tables."
 msgstr "Antallet af rækker læst fra InnoDB tables."
 
-#: server_status.php:1315
+#: server_status.php:1357
 msgid "The number of rows updated in InnoDB tables."
 msgstr "Antallet af rækker opdateret i InnoDB tabeller."
 
-#: server_status.php:1316
+#: server_status.php:1358
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
@@ -9974,7 +10061,7 @@ msgstr ""
 "endnu ikke er blevet flushet til disk. Det hed tidligere "
 "Not_flushed_key_blocks."
 
-#: server_status.php:1317
+#: server_status.php:1359
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
@@ -9982,7 +10069,7 @@ msgstr ""
 "Antallet af ubrugte blokke i nøglemellemlageret. Du kan bruge denne værdi "
 "til at fastslå hvor meget af nøglemellemlagere der er i brug."
 
-#: server_status.php:1318
+#: server_status.php:1360
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
@@ -9992,11 +10079,11 @@ msgstr ""
 "mærke der indikerer det maksimale antal blokke der på noget tidspunkt har "
 "været i brug på en gang."
 
-#: server_status.php:1319
+#: server_status.php:1361
 msgid "The number of requests to read a key block from the cache."
 msgstr "Antallet af anmodninger om at læse en nøgleblok fra mellemlageret."
 
-#: server_status.php:1320
+#: server_status.php:1362
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -10006,15 +10093,15 @@ msgstr ""
 "stor, er din key_buffer_size værdi sandsynligvis for lille. Mellemlager miss "
 "raten kan beregnes som  Key_reads/Key_read_requests."
 
-#: server_status.php:1321
+#: server_status.php:1363
 msgid "The number of requests to write a key block to the cache."
 msgstr "Antallet af anmodninger om at skrive en nøgleblok til mellemlageret."
 
-#: server_status.php:1322
+#: server_status.php:1364
 msgid "The number of physical writes of a key block to disk."
 msgstr "Antallet af fysiske skrivninger af en nøgleblok til disk."
 
-#: server_status.php:1323
+#: server_status.php:1365
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -10026,7 +10113,7 @@ msgstr ""
 "standardværdi på 0 betyder at der ikke er kompileret nogen forespørgsler "
 "endnu."
 
-#: server_status.php:1324
+#: server_status.php:1366
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
@@ -10034,12 +10121,12 @@ msgstr ""
 "Det maksimale antal forbindelser, som har været i brug samtidigt, siden "
 "serveren startede."
 
-#: server_status.php:1325
+#: server_status.php:1367
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr ""
 "Antallet af rækker der venter på at blive skrevet i INSERT DELAYED køer."
 
-#: server_status.php:1326
+#: server_status.php:1368
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
@@ -10047,19 +10134,19 @@ msgstr ""
 "Antallet af tabeller der er blevet åbnet. Hvis åbnede tabeller er stor, er "
 "dit tabelmellemlager sandsynligvis for lille."
 
-#: server_status.php:1327
+#: server_status.php:1369
 msgid "The number of files that are open."
 msgstr "Antallet af filer der er åbne."
 
-#: server_status.php:1328
+#: server_status.php:1370
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr "Antallet af streams der er åbne (bruges hovedsageligt til logning)."
 
-#: server_status.php:1329
+#: server_status.php:1371
 msgid "The number of tables that are open."
 msgstr "Antallet af tabeller der er åbne."
 
-#: server_status.php:1330
+#: server_status.php:1372
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
@@ -10069,19 +10156,19 @@ msgstr ""
 "kan indikere fragmenteringsproblemer, som kan løses ved en FLUSH QUERY CACHE "
 "kommando."
 
-#: server_status.php:1331
+#: server_status.php:1373
 msgid "The amount of free memory for query cache."
 msgstr "Mængden af fri hukommelse til forespørgselsmellemlageret."
 
-#: server_status.php:1332
+#: server_status.php:1374
 msgid "The number of cache hits."
 msgstr "Antallet af mellemlager hits."
 
-#: server_status.php:1333
+#: server_status.php:1375
 msgid "The number of queries added to the cache."
 msgstr "Antallet af forespørgsler tilføjet til mellemlageret."
 
-#: server_status.php:1334
+#: server_status.php:1376
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -10094,7 +10181,7 @@ msgstr ""
 "Forespørgselsmellemlageret bruger en mindst nyligt brugt (LRU) strategi til "
 "at afgøre hvilke forespørgsler der skal fjernes fra mellemlageret."
 
-#: server_status.php:1335
+#: server_status.php:1377
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -10102,19 +10189,19 @@ msgstr ""
 "Antallet af ikke-mellemlagrede forespørgsler (ikke mulige at mellemlagre "
 "eller ikke mellemlagret grundet query_cache_type indstillingen)."
 
-#: server_status.php:1336
+#: server_status.php:1378
 msgid "The number of queries registered in the cache."
 msgstr "Antallet af forespørgsler registreret i mellemlageret."
 
-#: server_status.php:1337
+#: server_status.php:1379
 msgid "The total number of blocks in the query cache."
 msgstr "Totalt antal blokke i forespørgsels-mellemlageret."
 
-#: server_status.php:1338
+#: server_status.php:1380
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "Status på fejlsikker replikation (endnu ikke implementeret)."
 
-#: server_status.php:1339
+#: server_status.php:1381
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -10122,11 +10209,11 @@ msgstr ""
 "Antallet af joins der ikke bruger indeks. Hvis denne værdi ikke er 0, bør du "
 "nøje tjekke indeksene på dine tabeller."
 
-#: server_status.php:1340
+#: server_status.php:1382
 msgid "The number of joins that used a range search on a reference table."
 msgstr "Antallet af joins der brugte en range søgning på en reference tabel."
 
-#: server_status.php:1341
+#: server_status.php:1383
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -10134,7 +10221,7 @@ msgstr ""
 "Antallet af joins uden nøgler der tjekker for nøglebrug efter hver række. "
 "(Hvis denne ikke er 0, bør du nøje tjekke indeks på dine tabeller.)"
 
-#: server_status.php:1342
+#: server_status.php:1384
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -10142,15 +10229,15 @@ msgstr ""
 "Antallet af joins der brugte ranges på den første tabel. (Normalt ikke "
 "kritisk selvom tallet er stort.)"
 
-#: server_status.php:1343
+#: server_status.php:1385
 msgid "The number of joins that did a full scan of the first table."
 msgstr "Antallet af joins som lavede en fuld scan af den første tabel."
 
-#: server_status.php:1344
+#: server_status.php:1386
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr "Antallet af midlertidige tabeller i øjeblikket åbne af SQL tråden."
 
-#: server_status.php:1345
+#: server_status.php:1387
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
@@ -10158,12 +10245,12 @@ msgstr ""
 "Totalt (siden opstart) antal gange replikationsslave SQL tråden har gen-"
 "forsøgt transaktioner."
 
-#: server_status.php:1346
+#: server_status.php:1388
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr ""
 "Dette er TIL hvis denne server er en slave der er forbundet til en master."
 
-#: server_status.php:1347
+#: server_status.php:1389
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
@@ -10171,13 +10258,13 @@ msgstr ""
 "Antallet af tråde der har taget mere end slow_launch_time sekunder at "
 "oprette."
 
-#: server_status.php:1348
+#: server_status.php:1390
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr ""
 "Antallet af forespørgsler der har taget mere end long_query_time sekunder."
 
-#: server_status.php:1349
+#: server_status.php:1391
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -10187,23 +10274,23 @@ msgstr ""
 "denne værdi er høj, bør du overveje at forøge værdien af  sort_buffer_size "
 "systemvariablen."
 
-#: server_status.php:1350
+#: server_status.php:1392
 msgid "The number of sorts that were done with ranges."
 msgstr "Antallet af sorteringer lavet med ranges."
 
-#: server_status.php:1351
+#: server_status.php:1393
 msgid "The number of sorted rows."
 msgstr "Antallet af sorterede rækker."
 
-#: server_status.php:1352
+#: server_status.php:1394
 msgid "The number of sorts that were done by scanning the table."
 msgstr "Antallet af sorteringer udført ved scanning af tabellen."
 
-#: server_status.php:1353
+#: server_status.php:1395
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "Antallet af gange en tabellås blev givet øjeblikkeligt."
 
-#: server_status.php:1354
+#: server_status.php:1396
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -10215,7 +10302,7 @@ msgstr ""
 "optimere dine forespørgsler, og derefter enten opdele din tabel eller "
 "tabeller, eller bruge replikation."
 
-#: server_status.php:1355
+#: server_status.php:1397
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -10225,11 +10312,11 @@ msgstr ""
 "som Threads_created/Forbindelser. Hvis denne værdi er rød bør du forøge din "
 "thread_cache_size."
 
-#: server_status.php:1356
+#: server_status.php:1398
 msgid "The number of currently open connections."
 msgstr "Antallet af i øjeblikket åbne forbindelser."
 
-#: server_status.php:1357
+#: server_status.php:1399
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -10241,57 +10328,57 @@ msgstr ""
 "(Normalt giver dette ingen nævneværdig ydelsesforbedring hvis du har god "
 "tråd-implementering.)"
 
-#: server_status.php:1358
+#: server_status.php:1400
 msgid "The number of threads that are not sleeping."
 msgstr "Antallet af tråde, der ikke sover."
 
-#: server_status.php:1498
+#: server_status.php:1540
 msgid "Start Monitor"
 msgstr "Start Monitor"
 
-#: server_status.php:1506
+#: server_status.php:1549
 msgid "Instructions/Setup"
 msgstr "Instruktioner/Opsætning"
 
-#: server_status.php:1510
+#: server_status.php:1554
 msgid "Done rearranging/editing charts"
 msgstr "Færdig med at omordne/redigere diagrammer"
 
-#: server_status.php:1517
+#: server_status.php:1561
 msgid "Add chart"
 msgstr "Tilføj diagram"
 
-#: server_status.php:1519
+#: server_status.php:1563
 msgid "Rearrange/edit charts"
 msgstr "Omordne/rediger diagrammer"
 
-#: server_status.php:1523
+#: server_status.php:1567
 msgid "Refresh rate"
 msgstr "Opdateringsfrekvens"
 
-#: server_status.php:1528
+#: server_status.php:1572
 msgid "Chart columns"
 msgstr "Diagramkolonner:"
 
-#: server_status.php:1544
+#: server_status.php:1588
 msgid "Chart arrangement"
 msgstr "Diagramopstilling"
 
-#: server_status.php:1544
+#: server_status.php:1588
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
 
-#: server_status.php:1545
+#: server_status.php:1589
 msgid "Reset to default"
 msgstr "Gendan standardværdi"
 
-#: server_status.php:1549
+#: server_status.php:1593
 msgid "Monitor Instructions"
 msgstr "Monitorinstruktioner"
 
-#: server_status.php:1550
+#: server_status.php:1594
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -10305,7 +10392,7 @@ msgstr ""
 "og at slow_query_log eller general_log aktiveres. Bemærk dog, at\n"
 "general_log genererer en mængde data og forøger server load med op til 15%"
 
-#: server_status.php:1555
+#: server_status.php:1599
 msgid ""
 "Unfortunately your Database server does not support logging to table, which "
 "is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
@@ -10313,11 +10400,11 @@ msgid ""
 "charting features however."
 msgstr ""
 
-#: server_status.php:1568
+#: server_status.php:1612
 msgid "Using the monitor:"
 msgstr "Brug af monitor:"
 
-#: server_status.php:1570
+#: server_status.php:1614
 msgid ""
 "Ok, you are good to go! Once you click 'Start monitor' your browser will "
 "refresh all displayed charts in a regular interval. You may add charts and "
@@ -10329,7 +10416,7 @@ msgstr ""
 "opdateringsfrekvensen under 'Indstilinger' eller fjerne diagrammer ved at "
 "bruge ikonet cog på det relevante diagram.        "
 
-#: server_status.php:1572
+#: server_status.php:1616
 #, fuzzy
 #| msgid ""
 #| "<b>Using the monitor:</b><br/>\n"
@@ -10360,11 +10447,11 @@ msgstr ""
 "         nede og køre hen over diagrammet. Dette vill hente statistik fra "
 "logs og hjælpe dig til at finde årsagen.</p> til aktivitetsforøgelsen.</p>"
 
-#: server_status.php:1579
+#: server_status.php:1623
 msgid "Please note:"
 msgstr "Bemærk venligst:"
 
-#: server_status.php:1581
+#: server_status.php:1625
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -10376,86 +10463,86 @@ msgstr ""
 "tilrådes at vælge kun en lille tidsinterval og at deaktivere general_log og "
 "tømme dens tabel, når der ikke er behov for den længere. "
 
-#: server_status.php:1593
+#: server_status.php:1637
 msgid "Preset chart"
 msgstr "Foruddefineret diagram"
 
-#: server_status.php:1597
+#: server_status.php:1641
 msgid "Status variable(s)"
 msgstr "Statusvariabel/-ble"
 
-#: server_status.php:1599
+#: server_status.php:1643
 msgid "Select series:"
 msgstr "Vælg serie:"
 
-#: server_status.php:1601
+#: server_status.php:1645
 msgid "Commonly monitored"
 msgstr "Almindeligt overvåget"
 
-#: server_status.php:1616
+#: server_status.php:1660
 msgid "or type variable name:"
 msgstr "eller indtast variabelnavn:"
 
-#: server_status.php:1620
+#: server_status.php:1664
 msgid "Display as differential value"
 msgstr "Vis som forskelsværdi"
 
-#: server_status.php:1622
+#: server_status.php:1666
 msgid "Apply a divisor"
 msgstr "Anvend divisor"
 
-#: server_status.php:1629
+#: server_status.php:1673
 msgid "Append unit to data values"
 msgstr "Tilføj enhed til dataværdier"
 
-#: server_status.php:1635
+#: server_status.php:1679
 msgid "Add this series"
 msgstr "Tilføj denne serie"
 
-#: server_status.php:1637
+#: server_status.php:1681
 msgid "Clear series"
 msgstr "Slet serie"
 
-#: server_status.php:1640
+#: server_status.php:1684
 msgid "Series in Chart:"
 msgstr "Serier i diagram"
 
-#: server_status.php:1652
+#: server_status.php:1697
 msgid "Log statistics"
 msgstr "Logstatistik"
 
-#: server_status.php:1653
+#: server_status.php:1698
 msgid "Selected time range:"
 msgstr "Valgt tidsinterval:"
 
-#: server_status.php:1658
+#: server_status.php:1703
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr ""
 
-#: server_status.php:1663
+#: server_status.php:1708
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 
-#: server_status.php:1668
+#: server_status.php:1713
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr "Vælg fra hvilken log, du ønsker statistikken genereret fra."
 
-#: server_status.php:1670
+#: server_status.php:1715
 msgid "Results are grouped by query text."
 msgstr "Resultaterne er grupperet af forespørgselstekst."
 
-#: server_status.php:1675
+#: server_status.php:1720
 msgid "Query analyzer"
 msgstr "Forespørgselsanalysator"
 
-#: server_status.php:1714
+#: server_status.php:1760
 #, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d sekund"
 msgstr[1] "%d sekunder"
 
-#: server_status.php:1716
+#: server_status.php:1762
 #, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
@@ -10470,104 +10557,104 @@ msgstr "Kunne ikke forbinde til kilden"
 msgid "Could not connect to the target"
 msgstr "Kunne ikke forbinde til målet"
 
-#: server_synchronize.php:128 server_synchronize.php:131 tbl_create.php:50
+#: server_synchronize.php:130 server_synchronize.php:133 tbl_create.php:50
 #: tbl_get_field.php:19
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "'%s' database eksisterer ikke."
 
-#: server_synchronize.php:280
+#: server_synchronize.php:282
 msgid "Structure Synchronization"
 msgstr "Struktursynkronisering"
 
-#: server_synchronize.php:284
+#: server_synchronize.php:286
 msgid "Data Synchronization"
 msgstr "Datasynkronisering"
 
-#: server_synchronize.php:399 server_synchronize.php:850
+#: server_synchronize.php:401 server_synchronize.php:852
 msgid "not present"
 msgstr "findes ikke"
 
-#: server_synchronize.php:435 server_synchronize.php:907
+#: server_synchronize.php:437 server_synchronize.php:909
 msgid "Structure Difference"
 msgstr "Strukturforskel"
 
-#: server_synchronize.php:436 server_synchronize.php:908
+#: server_synchronize.php:438 server_synchronize.php:910
 msgid "Data Difference"
 msgstr "Dataforskel"
 
-#: server_synchronize.php:441 server_synchronize.php:913
+#: server_synchronize.php:443 server_synchronize.php:915
 msgid "Add column(s)"
 msgstr "Tilføj kolonne(r)"
 
-#: server_synchronize.php:442 server_synchronize.php:914
+#: server_synchronize.php:444 server_synchronize.php:916
 msgid "Remove column(s)"
 msgstr "Fjern kolonne(r)"
 
-#: server_synchronize.php:443 server_synchronize.php:915
+#: server_synchronize.php:445 server_synchronize.php:917
 msgid "Alter column(s)"
 msgstr "Ændre kolonne(r)"
 
-#: server_synchronize.php:444 server_synchronize.php:916
+#: server_synchronize.php:446 server_synchronize.php:918
 msgid "Remove index(s)"
 msgstr "Fjern indeks(es)"
 
-#: server_synchronize.php:445 server_synchronize.php:917
+#: server_synchronize.php:447 server_synchronize.php:919
 msgid "Apply index(s)"
 msgstr "Brug indeks(es)"
 
-#: server_synchronize.php:446 server_synchronize.php:918
+#: server_synchronize.php:448 server_synchronize.php:920
 msgid "Update row(s)"
 msgstr "Opdater række(r)"
 
-#: server_synchronize.php:447 server_synchronize.php:919
+#: server_synchronize.php:449 server_synchronize.php:921
 msgid "Insert row(s)"
 msgstr "Indsæt række(r)"
 
-#: server_synchronize.php:458 server_synchronize.php:931
+#: server_synchronize.php:460 server_synchronize.php:933
 msgid "Would you like to delete all the previous rows from target tables?"
 msgstr "Vil du slette alle de tidligere rækker fra måltabeller ?"
 
-#: server_synchronize.php:463 server_synchronize.php:936
+#: server_synchronize.php:465 server_synchronize.php:938
 msgid "Apply Selected Changes"
 msgstr "Udfør de valgte ændringer"
 
-#: server_synchronize.php:467 server_synchronize.php:939
+#: server_synchronize.php:469 server_synchronize.php:941
 msgid "Synchronize Databases"
 msgstr "Synkroniser databaser"
 
-#: server_synchronize.php:481
+#: server_synchronize.php:483
 msgid "Selected target tables have been synchronized with source tables."
 msgstr "Valgte måltabeller er blevet synkroniseret med kildetabeller."
 
-#: server_synchronize.php:986
+#: server_synchronize.php:988
 msgid "Target database has been synchronized with source database"
 msgstr "Måldatabasen er blevet synkroniseret med kildedatabase."
 
-#: server_synchronize.php:1038
+#: server_synchronize.php:1046
 #, fuzzy
 #| msgid "Issued queries"
 msgid "Executed queries"
 msgstr "Igangsatte forespørgsler"
 
-#: server_synchronize.php:1184
+#: server_synchronize.php:1192
 msgid "Enter manually"
 msgstr "Indtast manuelt"
 
-#: server_synchronize.php:1192
+#: server_synchronize.php:1200
 msgid "Current connection"
 msgstr "Aktuel forbindelse"
 
-#: server_synchronize.php:1221
+#: server_synchronize.php:1240
 #, php-format
 msgid "Configuration: %s"
 msgstr "Konfiguration: %s"
 
-#: server_synchronize.php:1236
+#: server_synchronize.php:1255
 msgid "Socket"
 msgstr "Socket"
 
-#: server_synchronize.php:1282
+#: server_synchronize.php:1304
 msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
@@ -10947,62 +11034,62 @@ msgstr "Mærke"
 msgid "Table %1$s has been altered successfully"
 msgstr "Tabel %1$s er blevet ændret"
 
-#: tbl_change.php:699
+#: tbl_change.php:703
 msgid "Because of its length,<br /> this column might not be editable"
 msgstr "På grund af feltets længde,<br /> kan det muligvis ikke ændres "
 
-#: tbl_change.php:818
+#: tbl_change.php:822
 msgid "Remove BLOB Repository Reference"
 msgstr "Fjern BLOB Repository reference"
 
-#: tbl_change.php:822
+#: tbl_change.php:826
 msgid "Binary - do not edit"
 msgstr "Binært - må ikke ændres"
 
-#: tbl_change.php:872
+#: tbl_change.php:876
 msgid "Upload to BLOB repository"
 msgstr "Upload til BLOB repository"
 
-#: tbl_change.php:1022
+#: tbl_change.php:1026
 msgid "Insert as new row"
 msgstr "Indsæt som ny række"
 
-#: tbl_change.php:1023
+#: tbl_change.php:1027
 msgid "Insert as new row and ignore errors"
 msgstr "Indsæt som ny række og ignorer fejl"
 
-#: tbl_change.php:1024
+#: tbl_change.php:1028
 msgid "Show insert query"
 msgstr "Vis indsættelsesforespørgsel"
 
-#: tbl_change.php:1035
+#: tbl_change.php:1039
 msgid "and then"
 msgstr "og derefter"
 
-#: tbl_change.php:1039
+#: tbl_change.php:1043
 msgid "Go back to previous page"
 msgstr "Tilbage til foregående side"
 
-#: tbl_change.php:1040
+#: tbl_change.php:1044
 msgid "Insert another new row"
 msgstr "Indsæt endnu en ny række"
 
-#: tbl_change.php:1044
+#: tbl_change.php:1048
 msgid "Go back to this page"
 msgstr "Gå tilbage til denne side"
 
-#: tbl_change.php:1052
+#: tbl_change.php:1056
 msgid "Edit next row"
 msgstr "Rediger næste række"
 
-#: tbl_change.php:1063
+#: tbl_change.php:1067
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Brug TAB-tasten for at flytte dig fra værdi til værdi, eller CTRL"
 "+piletasterne til at flytte frit omkring"
 
-#: tbl_change.php:1101
+#: tbl_change.php:1105
 #, php-format
 msgid "Continue insertion with %s rows"
 msgstr "Fortsæt indsættelse med %s rækker"
@@ -11148,7 +11235,7 @@ msgstr "Indekstype:"
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
 msgstr "Føj til indeks &nbsp;%s&nbsp;kolonne(r)"
 
-#: tbl_indexes.php:270 tbl_structure.php:696
+#: tbl_indexes.php:270 tbl_structure.php:699
 msgid "Column count has to be larger than zero."
 msgstr "Kolonneantal skal være større end nul."
 
@@ -11272,39 +11359,39 @@ msgstr "Check reference-integriteten:"
 msgid "Show tables"
 msgstr "Vis tabeller"
 
-#: tbl_printview.php:274 tbl_structure.php:758
+#: tbl_printview.php:274 tbl_structure.php:761
 msgid "Space usage"
 msgstr "Pladsforbrug"
 
-#: tbl_printview.php:278 tbl_structure.php:762
+#: tbl_printview.php:278 tbl_structure.php:765
 msgid "Usage"
 msgstr "Benyttelse"
 
-#: tbl_printview.php:305 tbl_structure.php:789
+#: tbl_printview.php:305 tbl_structure.php:792
 msgid "Effective"
 msgstr "Effektiv"
 
-#: tbl_printview.php:330 tbl_structure.php:824
+#: tbl_printview.php:330 tbl_structure.php:827
 msgid "Row Statistics"
 msgstr "Rækkestatistik"
 
-#: tbl_printview.php:344 tbl_structure.php:839
+#: tbl_printview.php:344 tbl_structure.php:842
 msgid "static"
 msgstr "statisk"
 
-#: tbl_printview.php:346 tbl_structure.php:841
+#: tbl_printview.php:346 tbl_structure.php:844
 msgid "dynamic"
 msgstr "dynamisk"
 
-#: tbl_printview.php:368 tbl_structure.php:884
+#: tbl_printview.php:368 tbl_structure.php:887
 msgid "Row length"
 msgstr "Rækkelængde"
 
-#: tbl_printview.php:378 tbl_structure.php:892
+#: tbl_printview.php:378 tbl_structure.php:895
 msgid "Row size"
 msgstr "Rækkestørrelse "
 
-#: tbl_printview.php:388 tbl_structure.php:900
+#: tbl_printview.php:388 tbl_structure.php:903
 msgid "Next autoindex"
 msgstr ""
 
@@ -11349,97 +11436,97 @@ msgstr "Rækker pr. side"
 msgid "Display order:"
 msgstr "Rækkefølge af visning:"
 
-#: tbl_structure.php:156 tbl_structure.php:161 tbl_structure.php:578
+#: tbl_structure.php:155 tbl_structure.php:160 tbl_structure.php:579
 msgid "Spatial"
 msgstr "Spatial"
 
-#: tbl_structure.php:163 tbl_structure.php:167
+#: tbl_structure.php:162 tbl_structure.php:166
 msgid "Browse distinct values"
 msgstr "Gennemse bestemte værdier"
 
-#: tbl_structure.php:168 tbl_structure.php:169
+#: tbl_structure.php:167 tbl_structure.php:168
 msgid "Add primary key"
 msgstr "Tilføj primær nøgle"
 
-#: tbl_structure.php:170 tbl_structure.php:171
+#: tbl_structure.php:169 tbl_structure.php:170
 msgid "Add index"
 msgstr "Tilføj indeks"
 
-#: tbl_structure.php:172 tbl_structure.php:173
+#: tbl_structure.php:171 tbl_structure.php:172
 msgid "Add unique index"
 msgstr "Tilføj unikt indeks"
 
-#: tbl_structure.php:174 tbl_structure.php:175
+#: tbl_structure.php:173 tbl_structure.php:174
 msgid "Add SPATIAL index"
 msgstr "Tilføj SPATIAL indeks"
 
-#: tbl_structure.php:176 tbl_structure.php:177
+#: tbl_structure.php:175 tbl_structure.php:176
 msgid "Add FULLTEXT index"
 msgstr "Tilføj FULLTEXT indeks"
 
-#: tbl_structure.php:358
+#: tbl_structure.php:357
 msgctxt "None for default"
 msgid "None"
 msgstr "Ingen"
 
-#: tbl_structure.php:371
+#: tbl_structure.php:370
 #, php-format
 msgid "Column %s has been dropped"
 msgstr "Kolonne %s er slettet"
 
-#: tbl_structure.php:382 tbl_structure.php:476
+#: tbl_structure.php:381 tbl_structure.php:475
 #, php-format
 msgid "A primary key has been added on %s"
 msgstr "En primær nøgle er blevet tilføjet til %s"
 
-#: tbl_structure.php:397 tbl_structure.php:412 tbl_structure.php:432
-#: tbl_structure.php:447 tbl_structure.php:489 tbl_structure.php:502
+#: tbl_structure.php:396 tbl_structure.php:411 tbl_structure.php:431
+#: tbl_structure.php:446 tbl_structure.php:488 tbl_structure.php:501
 #: tbl_structure.php:515 tbl_structure.php:528
 #, php-format
 msgid "An index has been added on %s"
 msgstr "Der er tilføjet et indeks til %s"
 
-#: tbl_structure.php:464
+#: tbl_structure.php:463
 msgid "Show more actions"
 msgstr "Vis flere operationer"
 
-#: tbl_structure.php:603
+#: tbl_structure.php:604
 #, fuzzy
 #| msgid "Print view"
 msgid "Edit view"
 msgstr "Udskriv"
 
-#: tbl_structure.php:620
+#: tbl_structure.php:621
 msgid "Relation view"
 msgstr "Relation view"
 
-#: tbl_structure.php:626
+#: tbl_structure.php:629
 msgid "Propose table structure"
 msgstr "Foreslå tabelstruktur"
 
-#: tbl_structure.php:645
+#: tbl_structure.php:648
 msgid "Add column"
 msgstr "Tilføj kolonne"
 
-#: tbl_structure.php:659
+#: tbl_structure.php:662
 msgid "At End of Table"
 msgstr "I slutningen af tabel"
 
-#: tbl_structure.php:660
+#: tbl_structure.php:663
 msgid "At Beginning of Table"
 msgstr "I begyndelsen af tabel"
 
-#: tbl_structure.php:661
+#: tbl_structure.php:664
 #, php-format
 msgid "After %s"
 msgstr "Efter %s"
 
-#: tbl_structure.php:701
+#: tbl_structure.php:704
 #, php-format
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "Opret et indeks på &nbsp;%s&nbsp; kolonner"
 
-#: tbl_structure.php:855
+#: tbl_structure.php:858
 msgid "partitioned"
 msgstr "partitioneret"
 
@@ -11554,74 +11641,70 @@ msgstr "Eksporter som %s"
 msgid "Show versions"
 msgstr "Vis versioner"
 
-#: tbl_tracking.php:635
-msgid "Version"
-msgstr "Version"
-
-#: tbl_tracking.php:683
+#: tbl_tracking.php:687
 #, php-format
 msgid "Deactivate tracking for %s.%s"
 msgstr "Deaktiver sporing af %s.%s"
 
-#: tbl_tracking.php:685
+#: tbl_tracking.php:689
 msgid "Deactivate now"
 msgstr "Deaktiver nu"
 
-#: tbl_tracking.php:696
+#: tbl_tracking.php:700
 #, php-format
 msgid "Activate tracking for %s.%s"
 msgstr "Aktiver sporing af %s.%s"
 
-#: tbl_tracking.php:698
+#: tbl_tracking.php:702
 msgid "Activate now"
 msgstr "Aktiver nu"
 
-#: tbl_tracking.php:711
+#: tbl_tracking.php:715
 #, php-format
 msgid "Create version %s of %s.%s"
 msgstr "Opret version %s af %s.%s"
 
-#: tbl_tracking.php:715
+#: tbl_tracking.php:719
 msgid "Track these data definition statements:"
 msgstr "Spor disse datadefinitionskommandoer:"
 
-#: tbl_tracking.php:723
+#: tbl_tracking.php:727
 msgid "Track these data manipulation statements:"
 msgstr "Spor disse datamanipulations-forespørgsler:"
 
-#: tbl_tracking.php:731
+#: tbl_tracking.php:735
 msgid "Create version"
 msgstr "Opret version"
 
-#: tbl_zoom_select.php:141
+#: tbl_zoom_select.php:125
 #, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr "Kør en forespørgsel på felter (jokertegn: \"%\")"
 
-#: tbl_zoom_select.php:152
+#: tbl_zoom_select.php:135
 #, fuzzy
 #| msgid "Hide search criteria"
 msgid "Additional search criteria"
 msgstr "Skjul søgekriterie"
 
-#: tbl_zoom_select.php:282
+#: tbl_zoom_select.php:258
 #, fuzzy
 #| msgid "Label"
 msgid "Data Label"
 msgstr "Mærke"
 
-#: tbl_zoom_select.php:298
+#: tbl_zoom_select.php:276
 #, fuzzy
 #| msgid "Maximum number of rows to display"
 msgid "Maximum rows to plot"
 msgstr "Maksimalt antal viste rækker"
 
-#: tbl_zoom_select.php:391
+#: tbl_zoom_select.php:368
 msgid "Browse/Edit the points"
 msgstr ""
 
-#: tbl_zoom_select.php:397
+#: tbl_zoom_select.php:375
 #, fuzzy
 #| msgid "Control user"
 msgid "How to use"
@@ -11843,7 +11926,7 @@ msgstr ""
 msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgstr "Du burde opdatere til %s %s eller senere."
 
-#: po/advisory_rules.php:50 po/advisory_rules.php:55
+#: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
 #, fuzzy
 #| msgid "Description"
 msgid "Distribution"
@@ -11864,7 +11947,7 @@ msgstr ""
 msgid "'source' found in version_comment"
 msgstr ""
 
-#: po/advisory_rules.php:56
+#: po/advisory_rules.php:56 po/advisory_rules.php:61
 msgid "The MySQL manual only is accurate for official MySQL binaries."
 msgstr ""
 
@@ -11876,41 +11959,50 @@ msgstr ""
 msgid "'percona' found in version_comment"
 msgstr ""
 
-#: po/advisory_rules.php:60
+#: po/advisory_rules.php:62
+msgid "Drizzle documentation is at http://docs.drizzle.org/"
+msgstr ""
+
+#: po/advisory_rules.php:63
+#, php-format
+msgid "Version string (%s) matches Drizzle versioning scheme"
+msgstr ""
+
+#: po/advisory_rules.php:65
 #, fuzzy
 #| msgid "MySQL charset"
 msgid "MySQL Architecture"
 msgstr "MySQL Tegnsæt"
 
-#: po/advisory_rules.php:61
+#: po/advisory_rules.php:66
 msgid "MySQL is not compiled as a 64-bit package."
 msgstr ""
 
-#: po/advisory_rules.php:62
+#: po/advisory_rules.php:67
 msgid ""
 "Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
 
-#: po/advisory_rules.php:63
+#: po/advisory_rules.php:68
 #, php-format
 msgid "Available memory on this host: %s"
 msgstr ""
 
-#: po/advisory_rules.php:65
+#: po/advisory_rules.php:70
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query cache disabled"
 msgstr "Forespørgsel-mellemlager"
 
-#: po/advisory_rules.php:66
+#: po/advisory_rules.php:71
 #, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is not enabled."
 msgstr "Serveren svarer ikke"
 
-#: po/advisory_rules.php:67
+#: po/advisory_rules.php:72
 msgid ""
 "The query cache is known to greatly improve performance if configured "
 "correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value "
@@ -11918,21 +12010,21 @@ msgid ""
 "memcached, ignore this recommendation."
 msgstr ""
 
-#: po/advisory_rules.php:68
+#: po/advisory_rules.php:73
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 
-#: po/advisory_rules.php:70
+#: po/advisory_rules.php:75
 #, fuzzy
 #| msgid "Query cache used"
 msgid "Query caching method"
 msgstr "Forbrugt forespørgsels-mellemlager"
 
-#: po/advisory_rules.php:71
+#: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
 msgstr ""
 
-#: po/advisory_rules.php:72
+#: po/advisory_rules.php:77
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\\\"http://dev.mysql.com/doc/"
@@ -11940,59 +12032,64 @@ msgid ""
 "cache, especially if you have multiple slaves."
 msgstr ""
 
-#: po/advisory_rules.php:73
+#: po/advisory_rules.php:78
 #, php-format
 msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
 
-#: po/advisory_rules.php:75
+#: po/advisory_rules.php:80
 msgid "Query cache efficiency (%)"
 msgstr ""
 
-#: po/advisory_rules.php:76
+#: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr ""
 
-#: po/advisory_rules.php:77
+#: po/advisory_rules.php:82
 msgid "Consider increasing {query_cache_limit}."
 msgstr ""
 
-#: po/advisory_rules.php:78
+#: po/advisory_rules.php:83
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr ""
 
-#: po/advisory_rules.php:81
+#: po/advisory_rules.php:85
+#, fuzzy
+msgid "Query Cache usage"
+msgstr "Forespørgsel-mellemlager"
+
+#: po/advisory_rules.php:86
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
 msgstr ""
 
-#: po/advisory_rules.php:82
+#: po/advisory_rules.php:87
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
 msgstr ""
 
-#: po/advisory_rules.php:83
+#: po/advisory_rules.php:88
 #, php-format
 msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
 "%%. It should be above 80%%"
 msgstr ""
 
-#: po/advisory_rules.php:85
+#: po/advisory_rules.php:90
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query cache fragmentation"
 msgstr "Forespørgsel-mellemlager"
 
-#: po/advisory_rules.php:86
+#: po/advisory_rules.php:91
 msgid "The query cache is considerably fragmented."
 msgstr ""
 
-#: po/advisory_rules.php:87
+#: po/advisory_rules.php:92
 msgid ""
 "Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
 "This might be caused by many Query cache low memory prunes due to "
@@ -12004,7 +12101,7 @@ msgid ""
 "qcache_queries_in_cache"
 msgstr ""
 
-#: po/advisory_rules.php:88
+#: po/advisory_rules.php:93
 #, php-format
 msgid ""
 "The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
@@ -12012,11 +12109,11 @@ msgid ""
 "value should be below 20%%."
 msgstr ""
 
-#: po/advisory_rules.php:90
+#: po/advisory_rules.php:95
 msgid "Query cache low memory prunes"
 msgstr ""
 
-#: po/advisory_rules.php:91
+#: po/advisory_rules.php:96
 #, fuzzy
 #| msgid "The amount of free memory for query cache."
 msgid ""
@@ -12024,54 +12121,54 @@ msgid ""
 "cache."
 msgstr "Mængden af fri hukommelse til forespørgselsmellemlageret."
 
-#: po/advisory_rules.php:92
+#: po/advisory_rules.php:97
 msgid ""
 "You might want to increase {query_cache_size}, however keep in mind that the "
 "overhead of maintaining the cache is likely to increase with its size, so do "
 "this in small increments and monitor the results."
 msgstr ""
 
-#: po/advisory_rules.php:93
+#: po/advisory_rules.php:98
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%)"
 msgstr ""
 
-#: po/advisory_rules.php:95
+#: po/advisory_rules.php:100
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query cache max size"
 msgstr "Forespørgsel-mellemlager"
 
-#: po/advisory_rules.php:96
+#: po/advisory_rules.php:101
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
 
-#: po/advisory_rules.php:97
+#: po/advisory_rules.php:102
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
 msgstr ""
 
-#: po/advisory_rules.php:98
+#: po/advisory_rules.php:103
 #, php-format
 msgid "Current query cache size: %s"
 msgstr ""
 
-#: po/advisory_rules.php:100
+#: po/advisory_rules.php:105
 #, fuzzy
 #| msgid "Query results"
 msgid "Query cache min result size"
 msgstr "Forespørgselsresultat operationer"
 
-#: po/advisory_rules.php:101
+#: po/advisory_rules.php:106
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
 
-#: po/advisory_rules.php:102
+#: po/advisory_rules.php:107
 msgid ""
 "Changing {query_cache_limit} (usually by increasing) may increase "
 "efficiency. This variable determines the maximum size a query result may "
@@ -12083,58 +12180,58 @@ msgid ""
 "might reduce efficiency."
 msgstr ""
 
-#: po/advisory_rules.php:103
+#: po/advisory_rules.php:108
 msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
 
-#: po/advisory_rules.php:105
+#: po/advisory_rules.php:110
 #, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
 msgstr "Tillader oprettelse af midlertidige tabeller."
 
-#: po/advisory_rules.php:106 po/advisory_rules.php:111
+#: po/advisory_rules.php:111 po/advisory_rules.php:116
 #, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
 msgstr "Tillader oprettelse af midlertidige tabeller."
 
-#: po/advisory_rules.php:107 po/advisory_rules.php:112
+#: po/advisory_rules.php:112 po/advisory_rules.php:117
 msgid ""
 "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending "
 "on your system memory limits"
 msgstr ""
 
-#: po/advisory_rules.php:108
+#: po/advisory_rules.php:113
 #, php-format
 msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr ""
 
-#: po/advisory_rules.php:110
+#: po/advisory_rules.php:115
 #, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
 msgstr "Tillader oprettelse af midlertidige tabeller."
 
-#: po/advisory_rules.php:113
+#: po/advisory_rules.php:118
 #, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
 
-#: po/advisory_rules.php:115
+#: po/advisory_rules.php:120
 #, fuzzy
 #| msgid "Start row"
 msgid "Sort rows"
 msgstr "Startrække"
 
-#: po/advisory_rules.php:116
+#: po/advisory_rules.php:121
 msgid "There are lots of rows being sorted."
 msgstr ""
 
-#: po/advisory_rules.php:117
+#: po/advisory_rules.php:122
 msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
@@ -12142,43 +12239,43 @@ msgid ""
 "sorting"
 msgstr ""
 
-#: po/advisory_rules.php:118
+#: po/advisory_rules.php:123
 #, php-format
 msgid "Sorted rows average: %s"
 msgstr ""
 
-#: po/advisory_rules.php:120
+#: po/advisory_rules.php:125
 #, fuzzy
 #| msgid "There are no routines to display."
 msgid "Rate of joins without indexes"
 msgstr "Der er ingen rutiner at vise."
 
-#: po/advisory_rules.php:121
+#: po/advisory_rules.php:126
 #, fuzzy
 #| msgid "There are no routines to display."
 msgid "There are too many joins without indexes."
 msgstr "Der er ingen rutiner at vise."
 
-#: po/advisory_rules.php:122
+#: po/advisory_rules.php:127
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "fields being used in the join conditions will greatly speed up table joins"
 msgstr ""
 
-#: po/advisory_rules.php:123
+#: po/advisory_rules.php:128
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
 
-#: po/advisory_rules.php:125
+#: po/advisory_rules.php:130
 msgid "Rate of reading first index entry"
 msgstr ""
 
-#: po/advisory_rules.php:126
+#: po/advisory_rules.php:131
 msgid "The rate of reading the first index entry is high."
 msgstr ""
 
-#: po/advisory_rules.php:127
+#: po/advisory_rules.php:132
 msgid ""
 "This usually indicates frequent full index scans. Full index scans are "
 "faster than table scans but require lots of CPU cycles in big tables, if "
@@ -12188,66 +12285,66 @@ msgid ""
 "queries."
 msgstr ""
 
-#: po/advisory_rules.php:128
+#: po/advisory_rules.php:133
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
 
-#: po/advisory_rules.php:130
+#: po/advisory_rules.php:135
 msgid "Rate of reading fixed position"
 msgstr ""
 
-#: po/advisory_rules.php:131
+#: po/advisory_rules.php:136
 msgid "The rate of reading data from a fixed position is high."
 msgstr ""
 
-#: po/advisory_rules.php:132
+#: po/advisory_rules.php:137
 msgid ""
 "This indicates that many queries need to sort results and/or do a full table "
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
 
-#: po/advisory_rules.php:133
+#: po/advisory_rules.php:138
 #, php-format
 msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr ""
 
-#: po/advisory_rules.php:135
+#: po/advisory_rules.php:140
 #, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Rate of reading next table row"
 msgstr "Hvor links til tablerækker skal vises"
 
-#: po/advisory_rules.php:136
+#: po/advisory_rules.php:141
 #, fuzzy
 #| msgid "Where to show the table row links"
 msgid "The rate of reading the next table row is high."
 msgstr "Hvor links til tablerækker skal vises"
 
-#: po/advisory_rules.php:137
+#: po/advisory_rules.php:142
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
 msgstr ""
 
-#: po/advisory_rules.php:138
+#: po/advisory_rules.php:143
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr ""
 
-#: po/advisory_rules.php:140
+#: po/advisory_rules.php:145
 msgid "tmp_table_size vs. max_heap_table_size"
 msgstr ""
 
-#: po/advisory_rules.php:141
+#: po/advisory_rules.php:146
 msgid "tmp_table_size and max_heap_table_size are not the same."
 msgstr ""
 
-#: po/advisory_rules.php:142
+#: po/advisory_rules.php:147
 msgid ""
 "If you have deliberately changed one of either: The server uses the lower "
 "value of either to determine the maximum size of in-memory tables. So if you "
@@ -12255,24 +12352,24 @@ msgid ""
 "other value as well."
 msgstr ""
 
-#: po/advisory_rules.php:143
+#: po/advisory_rules.php:148
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr ""
 
-#: po/advisory_rules.php:145
+#: po/advisory_rules.php:150
 #, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Percentage of temp tables on disk"
 msgstr "Hvor links til tablerækker skal vises"
 
-#: po/advisory_rules.php:146 po/advisory_rules.php:151
+#: po/advisory_rules.php:151 po/advisory_rules.php:156
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr ""
 
-#: po/advisory_rules.php:147
+#: po/advisory_rules.php:152
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -12283,21 +12380,21 @@ msgid ""
 "php?note_id=10150111255065841&comments\\\">Article by the Pythian Group</a>"
 msgstr ""
 
-#: po/advisory_rules.php:148
+#: po/advisory_rules.php:153
 #, php-format
 msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
 
-#: po/advisory_rules.php:150
+#: po/advisory_rules.php:155
 #, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Temp disk rate"
 msgstr "%s tabel"
 
-#: po/advisory_rules.php:152
+#: po/advisory_rules.php:157
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -12308,298 +12405,298 @@ msgid ""
 "internal-temporary-tables.html\\\">MySQL Documentation</a>"
 msgstr ""
 
-#: po/advisory_rules.php:153
+#: po/advisory_rules.php:158
 #, php-format
 msgid ""
 "Rate of temporay tables being written to disk: %s, this value should be less "
 "than 1 per hour"
 msgstr ""
 
-#: po/advisory_rules.php:155
+#: po/advisory_rules.php:160
 #, fuzzy
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer size"
 msgstr "Sorteringsbufferstørrelse"
 
-#: po/advisory_rules.php:156
+#: po/advisory_rules.php:161
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
 
-#: po/advisory_rules.php:157
+#: po/advisory_rules.php:162
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
 
-#: po/advisory_rules.php:158
+#: po/advisory_rules.php:163
 msgid "key_buffer_size is 0"
 msgstr ""
 
-#: po/advisory_rules.php:160
+#: po/advisory_rules.php:165
 #, fuzzy, php-format
 #| msgid "Sort buffer size"
 msgid "Max %% MyISAM key buffer ever used"
 msgstr "Sorteringsbufferstørrelse"
 
-#: po/advisory_rules.php:161 po/advisory_rules.php:166
+#: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, fuzzy, php-format
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer (index cache) %% used is low."
 msgstr "Sorteringsbufferstørrelse"
 
-#: po/advisory_rules.php:162 po/advisory_rules.php:167
+#: po/advisory_rules.php:167 po/advisory_rules.php:172
 msgid ""
 "You may need to decrease the size of {key_buffer_size}, re-examine your "
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
 
-#: po/advisory_rules.php:163
+#: po/advisory_rules.php:168
 #, php-format
 msgid "max %% MyISAM key buffer ever used: %s, this value should be above 95%%"
 msgstr ""
 
-#: po/advisory_rules.php:165
+#: po/advisory_rules.php:170
 #, fuzzy
 #| msgid "Sort buffer size"
 msgid "Percentage of MyISAM key buffer used"
 msgstr "Sorteringsbufferstørrelse"
 
-#: po/advisory_rules.php:168
+#: po/advisory_rules.php:173
 #, php-format
 msgid "%% MyISAM key buffer used: %s, this value should be above 95%%"
 msgstr ""
 
-#: po/advisory_rules.php:170
+#: po/advisory_rules.php:175
 msgid "Percentage of index reads from memory"
 msgstr ""
 
-#: po/advisory_rules.php:171
+#: po/advisory_rules.php:176
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgstr ""
 
-#: po/advisory_rules.php:172
+#: po/advisory_rules.php:177
 msgid "You may need to increase {key_buffer_size}."
 msgstr ""
 
-#: po/advisory_rules.php:173
+#: po/advisory_rules.php:178
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
 
-#: po/advisory_rules.php:175
+#: po/advisory_rules.php:180
 #, fuzzy
 #| msgid "Create table"
 msgid "Rate of table open"
 msgstr "Opret tabel"
 
-#: po/advisory_rules.php:176
+#: po/advisory_rules.php:181
 #, fuzzy
 #| msgid "The current number of pending writes."
 msgid "The rate of opening tables is high."
 msgstr "Nuværende antal af ventende writes."
 
-#: po/advisory_rules.php:177
+#: po/advisory_rules.php:182
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
 
-#: po/advisory_rules.php:178
-#, php-format
-msgid "Opened table rate: %s, this value should be less than 10 per hour"
-msgstr ""
-
-#: po/advisory_rules.php:180
-#, fuzzy
-#| msgid "Format of imported file"
-msgid "Percentage of used open files limit"
-msgstr "Format på importeret fil"
-
-#: po/advisory_rules.php:181
-msgid ""
-"The number of open files is approaching the max number of open files.  You "
-"may get a \\\"Too many open files\\\" error."
-msgstr ""
-
-#: po/advisory_rules.php:182 po/advisory_rules.php:187
-msgid ""
-"Consider increasing {open_files_limit}, and check the error log when "
-"restarting after changing open_files_limit."
-msgstr ""
-
 #: po/advisory_rules.php:183
 #, php-format
-msgid ""
-"The number of opened files is at %s%% of the limit. It should be below 85%%"
+msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:185
 #, fuzzy
 #| msgid "Format of imported file"
-msgid "Rate of open files"
+msgid "Percentage of used open files limit"
 msgstr "Format på importeret fil"
 
 #: po/advisory_rules.php:186
+msgid ""
+"The number of open files is approaching the max number of open files.  You "
+"may get a \\\"Too many open files\\\" error."
+msgstr ""
+
+#: po/advisory_rules.php:187 po/advisory_rules.php:192
+msgid ""
+"Consider increasing {open_files_limit}, and check the error log when "
+"restarting after changing open_files_limit."
+msgstr ""
+
+#: po/advisory_rules.php:188
+#, php-format
+msgid ""
+"The number of opened files is at %s%% of the limit. It should be below 85%%"
+msgstr ""
+
+#: po/advisory_rules.php:190
+#, fuzzy
+#| msgid "Format of imported file"
+msgid "Rate of open files"
+msgstr "Format på importeret fil"
+
+#: po/advisory_rules.php:191
 #, fuzzy
 #| msgid "The number of pending log file fsyncs."
 msgid "The rate of opening files is high."
 msgstr "Antallet af ventende log fil fsyncs."
 
-#: po/advisory_rules.php:188
+#: po/advisory_rules.php:193
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
 
-#: po/advisory_rules.php:190
+#: po/advisory_rules.php:195
 #, fuzzy, php-format
 #| msgid "Create table on database %s"
 msgid "Immediate table locks %%"
 msgstr "Opret ny tabel i database %s"
 
-#: po/advisory_rules.php:191 po/advisory_rules.php:196
+#: po/advisory_rules.php:196 po/advisory_rules.php:201
 #, fuzzy
 #| msgid "The number of times that a table lock was acquired immediately."
 msgid "Too many table locks were not granted immediately."
 msgstr "Antallet af gange en tabellås blev givet øjeblikkeligt."
 
-#: po/advisory_rules.php:192 po/advisory_rules.php:197
+#: po/advisory_rules.php:197 po/advisory_rules.php:202
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
-msgstr ""
-
-#: po/advisory_rules.php:193
-#, php-format
-msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr ""
-
-#: po/advisory_rules.php:195
-msgid "Table lock wait rate"
 msgstr ""
 
 #: po/advisory_rules.php:198
 #, php-format
-msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
+msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr ""
 
 #: po/advisory_rules.php:200
+msgid "Table lock wait rate"
+msgstr ""
+
+#: po/advisory_rules.php:203
+#, php-format
+msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
+msgstr ""
+
+#: po/advisory_rules.php:205
 #, fuzzy
 #| msgid "Key cache"
 msgid "Thread cache"
 msgstr "Nøglemellemlager"
 
-#: po/advisory_rules.php:201
+#: po/advisory_rules.php:206
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
 msgstr ""
 
-#: po/advisory_rules.php:202
+#: po/advisory_rules.php:207
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
 
-#: po/advisory_rules.php:203
+#: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
 msgstr ""
 
-#: po/advisory_rules.php:205
+#: po/advisory_rules.php:210
 #, fuzzy, php-format
 #| msgid "Tracking is not active."
 msgid "Thread cache hit rate %%"
 msgstr "Sporing er ikke aktiv."
 
-#: po/advisory_rules.php:206
+#: po/advisory_rules.php:211
 #, fuzzy
 #| msgid "Tracking is not active."
 msgid "Thread cache is not efficient."
 msgstr "Sporing er ikke aktiv."
 
-#: po/advisory_rules.php:207
+#: po/advisory_rules.php:212
 msgid "Increase {thread_cache_size}."
 msgstr ""
 
-#: po/advisory_rules.php:208
+#: po/advisory_rules.php:213
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
 
-#: po/advisory_rules.php:210
+#: po/advisory_rules.php:215
 msgid "Threads that are slow to launch"
 msgstr ""
 
-#: po/advisory_rules.php:211
+#: po/advisory_rules.php:216
 #, fuzzy
 #| msgid "The number of threads that are not sleeping."
 msgid "There are too many threads that are slow to launch."
 msgstr "Antallet af tråde, der ikke sover."
 
-#: po/advisory_rules.php:212
+#: po/advisory_rules.php:217
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
 msgstr ""
 
-#: po/advisory_rules.php:213
+#: po/advisory_rules.php:218
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr ""
 
-#: po/advisory_rules.php:215
+#: po/advisory_rules.php:220
 msgid "Slow launch time"
 msgstr ""
 
-#: po/advisory_rules.php:216
+#: po/advisory_rules.php:221
 msgid "Slow_launch_threads is above 2s"
 msgstr ""
 
-#: po/advisory_rules.php:217
+#: po/advisory_rules.php:222
 msgid ""
 "Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
 "launch"
 msgstr ""
 
-#: po/advisory_rules.php:218
+#: po/advisory_rules.php:223
 #, fuzzy, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "slow_launch_time is set to %s"
 msgstr "long_query_time er sat til %d sekund(er)."
 
-#: po/advisory_rules.php:220
+#: po/advisory_rules.php:225
 #, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of used connections"
 msgstr "Vedvarende forbindelser"
 
-#: po/advisory_rules.php:221
+#: po/advisory_rules.php:226
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "max_connections."
 msgstr ""
 
-#: po/advisory_rules.php:222
+#: po/advisory_rules.php:227
 msgid ""
 "Increase max_connections, or decrease wait_timeout so that connections that "
 "do not close database handlers properly get killed sooner. Make sure the "
 "code closes database handlers properly."
 msgstr ""
 
-#: po/advisory_rules.php:223
+#: po/advisory_rules.php:228
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
 
-#: po/advisory_rules.php:225
+#: po/advisory_rules.php:230
 #, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of aborted connections"
 msgstr "Vedvarende forbindelser"
 
-#: po/advisory_rules.php:226
+#: po/advisory_rules.php:231
 msgid "Too many connections are aborted."
 msgstr ""
 
-#: po/advisory_rules.php:227 po/advisory_rules.php:232
+#: po/advisory_rules.php:232 po/advisory_rules.php:237
 msgid ""
 "Connections are usually aborted when they cannot be authorized. <a href=\\"
 "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -12607,85 +12704,85 @@ msgid ""
 "the source."
 msgstr ""
 
-#: po/advisory_rules.php:228
+#: po/advisory_rules.php:233
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 
-#: po/advisory_rules.php:230
+#: po/advisory_rules.php:235
 #, fuzzy
 #| msgid "Persistent connections"
 msgid "Rate of aborted connections"
 msgstr "Vedvarende forbindelser"
 
-#: po/advisory_rules.php:231
+#: po/advisory_rules.php:236
 msgid "Too many connections are aborted"
 msgstr ""
 
-#: po/advisory_rules.php:233
+#: po/advisory_rules.php:238
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 
-#: po/advisory_rules.php:235
+#: po/advisory_rules.php:240
 #, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of aborted clients"
 msgstr "Format på importeret fil"
 
-#: po/advisory_rules.php:236 po/advisory_rules.php:241
+#: po/advisory_rules.php:241 po/advisory_rules.php:246
 msgid "Too many clients are aborted."
 msgstr ""
 
-#: po/advisory_rules.php:237 po/advisory_rules.php:242
+#: po/advisory_rules.php:242 po/advisory_rules.php:247
 msgid ""
 "Clients are usually aborted when they did not close their connection to "
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
 
-#: po/advisory_rules.php:238
+#: po/advisory_rules.php:243
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 
-#: po/advisory_rules.php:240
+#: po/advisory_rules.php:245
 #, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of aborted clients"
 msgstr "Format på importeret fil"
 
-#: po/advisory_rules.php:243
+#: po/advisory_rules.php:248
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 
-#: po/advisory_rules.php:245
+#: po/advisory_rules.php:250
 msgid "Is InnoDB disabled?"
 msgstr ""
 
-#: po/advisory_rules.php:246
+#: po/advisory_rules.php:251
 #, fuzzy
 #| msgid "Could not save recent table"
 msgid "You do not have InnoDB enabled."
 msgstr "Kunne ikke gemme seneste tabel"
 
-#: po/advisory_rules.php:247
+#: po/advisory_rules.php:252
 msgid "InnoDB is usually the better choice for table engines."
 msgstr ""
 
-#: po/advisory_rules.php:248
+#: po/advisory_rules.php:253
 msgid "have_innodb is set to 'value'"
 msgstr ""
 
-#: po/advisory_rules.php:250
+#: po/advisory_rules.php:255
 #, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB log size"
 msgstr "Buffer pool størrelse"
 
-#: po/advisory_rules.php:251
+#: po/advisory_rules.php:256
 #, fuzzy
 #| msgid "The number writes done to the InnoDB buffer pool."
 msgid ""
@@ -12693,7 +12790,7 @@ msgid ""
 "InnoDB buffer pool."
 msgstr "Antallet af skrivninger til InnoDB buffer poolen."
 
-#: po/advisory_rules.php:252
+#: po/advisory_rules.php:257
 #, php-format
 msgid ""
 "Especially one a system with a lot of writes to InnoDB tables you should set "
@@ -12708,22 +12805,22 @@ msgid ""
 "a>"
 msgstr ""
 
-#: po/advisory_rules.php:253
+#: po/advisory_rules.php:258
 #, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
 msgstr ""
 
-#: po/advisory_rules.php:255
+#: po/advisory_rules.php:260
 msgid "Max InnoDB log size"
 msgstr ""
 
-#: po/advisory_rules.php:256
+#: po/advisory_rules.php:261
 msgid "The InnoDB log file size is inadequately large."
 msgstr ""
 
-#: po/advisory_rules.php:257
+#: po/advisory_rules.php:262
 #, php-format
 msgid ""
 "It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
@@ -12737,22 +12834,22 @@ msgid ""
 "innodblogfilesize-proper-way.html\\\">this blog entry</a>"
 msgstr ""
 
-#: po/advisory_rules.php:258
+#: po/advisory_rules.php:263
 #, php-format
 msgid "Your absolute InnoD log size is %s MiB"
 msgstr ""
 
-#: po/advisory_rules.php:260
+#: po/advisory_rules.php:265
 #, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
 msgstr "Buffer pool størrelse"
 
-#: po/advisory_rules.php:261
+#: po/advisory_rules.php:266
 msgid "Your InnoDB buffer pool is fairly small."
 msgstr ""
 
-#: po/advisory_rules.php:262
+#: po/advisory_rules.php:267
 #, php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
@@ -12767,7 +12864,7 @@ msgid ""
 "innodb_buffer_pool_size/\\\">this article</a>"
 msgstr ""
 
-#: po/advisory_rules.php:263
+#: po/advisory_rules.php:268
 #, php-format
 msgid ""
 "You are currently using %s%% of your memory for the InnoDB buffer pool. This "
@@ -12776,26 +12873,32 @@ msgid ""
 "other services running on the same machine."
 msgstr ""
 
-#: po/advisory_rules.php:265
+#: po/advisory_rules.php:270
 #, fuzzy
 #| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
 msgstr "Maks. samtidige forbindelser"
 
-#: po/advisory_rules.php:266
+#: po/advisory_rules.php:271
 msgid "Enable concurrent_insert by setting it to 1"
 msgstr ""
 
-#: po/advisory_rules.php:267
+#: po/advisory_rules.php:272
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\\\"http://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\\\">MySQL Documentation</a>"
 msgstr ""
 
-#: po/advisory_rules.php:268
+#: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#~ msgid "MySQL charset"
+#~ msgstr "MySQL Tegnsæt"
+
+#~ msgid "MySQL client version"
+#~ msgstr "MySQL klientversion"
 
 #~ msgid "Outer Ring:"
 #~ msgstr "Ydre ring:"
@@ -12817,10 +12920,6 @@ msgstr ""
 #~ "Visningsfeltet er vist som pink. For at sætte/fjerne en kolonne som "
 #~ "visningsfelt, klik på \"Vælg kolonne, der skal vises\" ikonet, og klik "
 #~ "derefter på det pågældende kolonnenavn."
-
-#, fuzzy
-#~ msgid "Query Cache usage"
-#~ msgstr "Forespørgsel-mellemlager"
 
 #, fuzzy
 #~ msgid "memcached usage"
@@ -12860,9 +12959,6 @@ msgstr ""
 
 #~ msgid "Inline Edit"
 #~ msgstr "Ret linje"
-
-#~ msgid "Begin"
-#~ msgstr "Start"
 
 #~ msgid "Previous"
 #~ msgstr "Forrige"
