@@ -51,7 +51,7 @@ function PMA_tbl_getFields($db, $table)
     $geom_column_present = false;
     $geom_types = PMA_getGISDatatypes();
 
-    foreach ($fields as $row) {
+    foreach ($fields as $key => $row) {
         $fields_list[] = $row['Field'];
         $type          = $row['Type'];
 
