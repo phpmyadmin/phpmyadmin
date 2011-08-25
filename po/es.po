@@ -8381,10 +8381,9 @@ msgid "More settings"
 msgstr "Más configuraciones"
 
 #: main.php:156
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
-msgstr "Base de datos para el usuario"
+msgstr "Servidor de base de datos"
 
 #: main.php:159
 msgid "Software"
