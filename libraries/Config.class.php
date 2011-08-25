@@ -181,15 +181,16 @@ class PMA_Config
         if (preg_match(
             '@Opera(/| )([0-9].[0-9]{1,2})@',
             $HTTP_USER_AGENT,
-            $log_version)
+            $log_version
+        )
         ) {
             $this->set('PMA_USR_BROWSER_VER', $log_version[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'OPERA');
         } elseif (preg_match(
             '@MSIE ([0-9].[0-9]{1,2})@',
             $HTTP_USER_AGENT,
-            $log_version)
-        ) {
+            $log_version
+        )) {
             $this->set('PMA_USR_BROWSER_VER', $log_version[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'IE');
         } elseif (preg_match(
@@ -611,10 +612,10 @@ class PMA_Config
      * If user preferences are not yet initialized, option is applied to global config and
      * added to a update queue, which is processed by {@link loadUserPreferences()}
      *
-     * @param string $cookie_name can be null
+     * @param string $cookie_name   can be null
      * @param string $cfg_path
-     * @param mixed  $new_cfg_value
-     * @param mixed  $default_value
+     * @param mixed  $new_cfg_value new value
+     * @param mixed  $default_value default value
      *
      * @return nothing
      */
@@ -643,8 +644,8 @@ class PMA_Config
     /**
      * Reads value stored by {@link setUserValue()}
      *
-     * @param string $cookie_name
-     * @param mixed $cfg_value
+     * @param string $cookie_name cookie name
+     * @param mixed  $cfg_value   config value
      *
      * @return mixed
      */
@@ -742,7 +743,7 @@ class PMA_Config
     /**
      * returns specific config setting
      *
-     * @param string $setting
+     * @param string $setting config setting
      *
      * @return mixed value
      */
