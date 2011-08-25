@@ -11969,7 +11969,7 @@ msgstr "MySQL kılavuzu sadece resmi MySQL binarileri için doğrudur."
 
 #: po/advisory_rules.php:57
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
-msgstr "Percona belgeleri http://www.percona.com/docs/wiki/ adresinde"
+msgstr "Percona belgesi http://www.percona.com/docs/wiki/ adresinde"
 
 #: po/advisory_rules.php:58
 msgid "'percona' found in version_comment"
