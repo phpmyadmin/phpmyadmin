@@ -8725,7 +8725,7 @@ msgstr "Export databází"
 
 #: server_plugins.php:81
 msgid "Modules"
-msgstr ""
+msgstr "Moduly"
 
 #: server_plugins.php:102
 msgid "Begin"
