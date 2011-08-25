@@ -8192,10 +8192,9 @@ msgid "General Settings"
 msgstr "Obecná nastavení"
 
 #: main.php:101
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "Porovnávání pro toto připojení k MySQL"
+msgstr "Porovnávání pro toto připojení k serveru"
 
 #: main.php:116
 msgid "Appearance Settings"
