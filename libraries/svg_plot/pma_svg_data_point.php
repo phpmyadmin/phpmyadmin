@@ -25,9 +25,8 @@ class PMA_SVG_Data_Point extends PMA_SVG_Data_Element
     public function __construct($cx, $cy, $label, $dataRow)
     {
         parent::__construct($label,$dataRow);
-	$this->cx = $cx;
-	$this->cy = $cy;
-        
+        $this->cx = $cx;
+        $this->cy = $cy;
     }
 
     public function prepareRowAsSVG($options)
