@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-25 08:38+0200\n"
+"POT-Creation-Date: 2011-08-25 23:09+0200\n"
 "PO-Revision-Date: 2011-08-21 22:29+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
@@ -22,8 +22,8 @@ msgstr "Pokaži vse"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:42
 #: libraries/common.lib.php:2354
-#: libraries/schema/Pdf_Relation_Schema.class.php:1147
-#: libraries/schema/Pdf_Relation_Schema.class.php:1171
+#: libraries/schema/Pdf_Relation_Schema.class.php:1142
+#: libraries/schema/Pdf_Relation_Schema.class.php:1166
 #: libraries/schema/User_Schema.class.php:376
 #: libraries/select_lang.lib.php:487
 msgid "Page number:"
@@ -49,7 +49,7 @@ msgstr "Iskanje"
 #: db_operations.php:516 db_operations.php:543 db_search.php:337
 #: db_structure.php:541 enum_editor.php:63 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:207
-#: libraries/Config.class.php:1306 libraries/Theme_Manager.class.php:309
+#: libraries/Config.class.php:1326 libraries/Theme_Manager.class.php:309
 #: libraries/auth/cookie.auth.lib.php:247 libraries/common.lib.php:1315
 #: libraries/common.lib.php:2327 libraries/core.lib.php:508
 #: libraries/display_change_password.lib.php:72
@@ -129,7 +129,7 @@ msgstr "Zbirka podatkov %1$s je ustvarjena."
 msgid "Database comment: "
 msgstr "Pripomba zbirke podatkov: "
 
-#: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1284
+#: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1279
 #: libraries/tbl_properties.inc.php:695 tbl_operations.php:366
 #: tbl_printview.php:124
 msgid "Table comments"
@@ -138,9 +138,9 @@ msgstr "Pripomba tabele"
 #: db_datadict.php:162 db_qbe.php:196 libraries/Index.class.php:436
 #: libraries/export/htmlword.php:249 libraries/export/latex.php:359
 #: libraries/export/odt.php:286 libraries/export/texytext.php:228
-#: libraries/schema/Pdf_Relation_Schema.class.php:1310
-#: libraries/schema/Pdf_Relation_Schema.class.php:1331
-#: libraries/tbl_properties.inc.php:281 libraries/tbl_select.lib.php:111
+#: libraries/schema/Pdf_Relation_Schema.class.php:1305
+#: libraries/schema/Pdf_Relation_Schema.class.php:1326
+#: libraries/tbl_properties.inc.php:281 libraries/tbl_select.lib.php:108
 #: tbl_change.php:327 tbl_chart.php:89 tbl_indexes.php:196
 #: tbl_printview.php:136 tbl_relation.php:399 tbl_tracking.php:257
 #: tbl_tracking.php:308 tbl_zoom_select.php:392
@@ -154,9 +154,9 @@ msgstr "Stolpec"
 #: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_routines.lib.php:829
 #: libraries/rte/rte_routines.lib.php:854
 #: libraries/rte/rte_routines.lib.php:1359
-#: libraries/schema/Pdf_Relation_Schema.class.php:1311
-#: libraries/schema/Pdf_Relation_Schema.class.php:1332
-#: libraries/tbl_properties.inc.php:107 libraries/tbl_select.lib.php:112
+#: libraries/schema/Pdf_Relation_Schema.class.php:1306
+#: libraries/schema/Pdf_Relation_Schema.class.php:1327
+#: libraries/tbl_properties.inc.php:107 libraries/tbl_select.lib.php:109
 #: server_privileges.php:2236 tbl_change.php:306 tbl_change.php:333
 #: tbl_printview.php:137 tbl_printview.php:277 tbl_structure.php:202
 #: tbl_structure.php:764 tbl_tracking.php:258 tbl_tracking.php:305
@@ -166,8 +166,8 @@ msgstr "Vrsta"
 #: db_datadict.php:165 libraries/Index.class.php:439
 #: libraries/export/htmlword.php:251 libraries/export/latex.php:359
 #: libraries/export/odt.php:292 libraries/export/texytext.php:230
-#: libraries/schema/Pdf_Relation_Schema.class.php:1313
-#: libraries/schema/Pdf_Relation_Schema.class.php:1334
+#: libraries/schema/Pdf_Relation_Schema.class.php:1308
+#: libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_properties.inc.php:116 tbl_change.php:342
 #: tbl_printview.php:139 tbl_structure.php:205 tbl_tracking.php:260
 #: tbl_tracking.php:311 tbl_zoom_select.php:393
@@ -177,8 +177,8 @@ msgstr "Null"
 #: db_datadict.php:166 db_structure.php:464 libraries/export/htmlword.php:252
 #: libraries/export/latex.php:359 libraries/export/odt.php:295
 #: libraries/export/texytext.php:231
-#: libraries/schema/Pdf_Relation_Schema.class.php:1314
-#: libraries/schema/Pdf_Relation_Schema.class.php:1335
+#: libraries/schema/Pdf_Relation_Schema.class.php:1309
+#: libraries/schema/Pdf_Relation_Schema.class.php:1330
 #: libraries/tbl_properties.inc.php:113 tbl_printview.php:140
 #: tbl_structure.php:206 tbl_tracking.php:261
 msgid "Default"
@@ -187,8 +187,8 @@ msgstr "Privzeto"
 #: db_datadict.php:170 libraries/export/htmlword.php:254
 #: libraries/export/latex.php:361 libraries/export/odt.php:299
 #: libraries/export/texytext.php:233
-#: libraries/schema/Pdf_Relation_Schema.class.php:1316
-#: libraries/schema/Pdf_Relation_Schema.class.php:1337 tbl_printview.php:144
+#: libraries/schema/Pdf_Relation_Schema.class.php:1311
+#: libraries/schema/Pdf_Relation_Schema.class.php:1332 tbl_printview.php:144
 msgid "Links to"
 msgstr "Povezave z"
 
@@ -197,8 +197,8 @@ msgstr "Povezave z"
 #: libraries/config/messages.inc.php:131 libraries/export/htmlword.php:257
 #: libraries/export/latex.php:364 libraries/export/odt.php:304
 #: libraries/export/texytext.php:236
-#: libraries/schema/Pdf_Relation_Schema.class.php:1327
-#: libraries/schema/Pdf_Relation_Schema.class.php:1338
+#: libraries/schema/Pdf_Relation_Schema.class.php:1322
+#: libraries/schema/Pdf_Relation_Schema.class.php:1333
 #: libraries/tbl_properties.inc.php:136 tbl_printview.php:146
 msgid "Comments"
 msgstr "Pripombe"
@@ -209,7 +209,7 @@ msgstr "Pripombe"
 #: libraries/config/FormDisplay.tpl.php:198 libraries/export/htmlword.php:299
 #: libraries/export/latex.php:407 libraries/export/odt.php:343
 #: libraries/export/texytext.php:278 libraries/mult_submits.inc.php:287
-#: libraries/schema/Pdf_Relation_Schema.class.php:1362
+#: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:128
 #: server_privileges.php:1467 server_privileges.php:1477
 #: server_privileges.php:1723 server_privileges.php:1734
@@ -230,7 +230,7 @@ msgstr "Ne"
 #: libraries/mult_submits.inc.php:102 libraries/mult_submits.inc.php:262
 #: libraries/mult_submits.inc.php:276 libraries/mult_submits.inc.php:286
 #: libraries/mult_submits.inc.php:299
-#: libraries/schema/Pdf_Relation_Schema.class.php:1362
+#: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:127
 #: server_databases.php:81 server_privileges.php:1465
 #: server_privileges.php:1475 server_privileges.php:1720
@@ -336,7 +336,7 @@ msgstr "Preklopi na kopirano zbirko podatkov"
 #: db_operations.php:536 libraries/Index.class.php:438
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:114
-#: libraries/tbl_properties.inc.php:701 libraries/tbl_select.lib.php:113
+#: libraries/tbl_properties.inc.php:701 libraries/tbl_select.lib.php:110
 #: server_collations.php:53 server_collations.php:65 tbl_operations.php:382
 #: tbl_structure.php:203 tbl_structure.php:869 tbl_tracking.php:259
 #: tbl_tracking.php:310
@@ -385,21 +385,21 @@ msgstr "v uporabi"
 
 #: db_printview.php:185 libraries/db_info.inc.php:61
 #: libraries/export/sql.php:742
-#: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:398
+#: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:398
 #: tbl_structure.php:911
 msgid "Creation"
 msgstr "Ustvarjeno"
 
 #: db_printview.php:194 libraries/db_info.inc.php:66
 #: libraries/export/sql.php:747
-#: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:408
+#: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:408
 #: tbl_structure.php:919
 msgid "Last update"
 msgstr "Zadnjič posodobljeno"
 
 #: db_printview.php:203 libraries/db_info.inc.php:71
 #: libraries/export/sql.php:752
-#: libraries/schema/Pdf_Relation_Schema.class.php:1299 tbl_printview.php:418
+#: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:418
 #: tbl_structure.php:927
 msgid "Last check"
 msgstr "Zadnjič pregledano"
@@ -827,9 +827,21 @@ msgstr "Izhod"
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "Kopiraj in prilepi združene vrednosti v polje \"Dolžina/Vrednosti\""
 
+#: export.php:29
+#, fuzzy
+#| msgid "Bar type"
+msgid "Bad type!"
+msgstr "Vrsta stolpcev"
+
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
 msgstr "Izbrana vrsta izvoza mora biti shranjena v datoteko!"
+
+#: export.php:106
+#, fuzzy
+#| msgid "Add parameter"
+msgid "Bad parameters!"
+msgstr "Dodaj parameter"
 
 #: export.php:167 export.php:192 export.php:655
 #, php-format
@@ -853,6 +865,12 @@ msgstr "Spletni strežnik nima dovoljenja za shranjevanje datoteke %s."
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Dump je shranjen v datoteko %s."
+
+#: file_echo.php:21
+#, fuzzy
+#| msgid "Export type"
+msgid "Invalid export type"
+msgstr "Vrsta izvoza"
 
 #: gis_data_editor.php:84
 #, php-format
@@ -1761,7 +1779,7 @@ msgstr "Skrij iskalne pogoje"
 msgid "Show search criteria"
 msgstr "Prikaži iskalne pogoje"
 
-#: js/messages.php:262 libraries/tbl_select.lib.php:138
+#: js/messages.php:262 libraries/tbl_select.lib.php:135
 msgid "Zoom Search"
 msgstr "Iskanje s povečevanjem"
 
@@ -2185,7 +2203,20 @@ msgstr ""
 "Oblikovanje niza za pravilo '%s' je spodletelo. PHP je vrnil naslednjo "
 "napako: %s"
 
-#: libraries/Config.class.php:1277
+#: libraries/Config.class.php:703
+msgid "Remove \"./config\" directory before using phpMyAdmin!"
+msgstr ""
+
+#: libraries/Config.class.php:727
+#, php-format
+msgid "Existing configuration file (%d) is not readable."
+msgstr ""
+
+#: libraries/Config.class.php:752
+msgid "Wrong permissions on configuration file, should not be world writable!"
+msgstr ""
+
+#: libraries/Config.class.php:1297
 msgid "Font size"
 msgstr "Velikost pisave"
 
@@ -2466,6 +2497,10 @@ msgstr ""
 "povezavo. Preverite, ali gostitelj, uporabniško ime in geslo v datoteki "
 "config.inc.php ustrezajo podatkom administratorja strežnika MySQL."
 
+#: libraries/auth/cookie.auth.lib.php:35
+msgid "Failed to use Blowfish from mcrypt!"
+msgstr ""
+
 #: libraries/auth/cookie.auth.lib.php:199
 msgid "Log in"
 msgstr "Prijava"
@@ -2632,6 +2667,14 @@ msgstr "Preveri privilegije za zbirko podatkov &quot;%s&quot;."
 #: libraries/build_html_for_db.lib.php:154
 msgid "Check Privileges"
 msgstr "Preveri privilegije"
+
+#: libraries/common.inc.php:147
+msgid "possible exploit"
+msgstr ""
+
+#: libraries/common.inc.php:156
+msgid "numeric key detected"
+msgstr ""
 
 #: libraries/common.inc.php:597
 msgid "Failed to read configuration file"
@@ -3067,7 +3110,7 @@ msgstr ""
 "Ta nastavitev je onemogočena, zato ne bo uporabljena pri vaši konfiguraciji"
 
 #: libraries/config/FormDisplay.tpl.php:167 libraries/relation.lib.php:78
-#: libraries/relation.lib.php:85 pmd_relation_new.php:68
+#: libraries/relation.lib.php:85 pmd_relation_new.php:66
 msgid "Disabled"
 msgstr "Onemogočeno"
 
@@ -5304,6 +5347,10 @@ msgstr "en"
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Razširitev %s manjka. Prosimo, preverite vašo konfiguracijo PHP."
 
+#: libraries/core.lib.php:409
+msgid "possible deep recursion attack"
+msgstr ""
+
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
 msgid "Database seems to be empty!"
@@ -6597,6 +6644,10 @@ msgstr "Odpri novo okno phpMyAdmin"
 msgid "No data found for GIS visualization."
 msgstr "Za predstavitev GIS ni najdenih podatkov."
 
+#: libraries/header_http.inc.php:15 libraries/header_meta_style.inc.php:15
+msgid "GLOBALS overwrite attempt"
+msgstr ""
+
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:54
 msgid "SQL result"
 msgstr "Rezultat SQL"
@@ -7026,7 +7077,7 @@ msgid "Enabled"
 msgstr "Omogočeno"
 
 #: libraries/relation.lib.php:84 libraries/relation.lib.php:96
-#: pmd_relation_new.php:68
+#: pmd_relation_new.php:66
 msgid "General relation features"
 msgstr "Splošne lastnosti relacij"
 
@@ -7137,7 +7188,7 @@ msgid "Variable"
 msgstr "Spremenljivka"
 
 #: libraries/replication_gui.lib.php:119
-#: libraries/rte/rte_routines.lib.php:1363 libraries/tbl_select.lib.php:115
+#: libraries/rte/rte_routines.lib.php:1363 libraries/tbl_select.lib.php:112
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769 server_status.php:1465 tbl_change.php:343
 #: tbl_printview.php:334 tbl_structure.php:831 tbl_zoom_select.php:394
@@ -7481,7 +7532,7 @@ msgstr "Izvedi rutino"
 msgid "Routine parameters"
 msgstr "Parametri rutine"
 
-#: libraries/rte/rte_routines.lib.php:1361 libraries/tbl_select.lib.php:107
+#: libraries/rte/rte_routines.lib.php:1361 libraries/tbl_select.lib.php:104
 #: tbl_change.php:301 tbl_change.php:339
 msgid "Function"
 msgstr "Funkcija"
@@ -7625,7 +7676,7 @@ msgid "Please configure the coordinates for table %s"
 msgstr "Prosimo, konfigurirajte koordinate za tabelo %s"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:823
-#: libraries/schema/Pdf_Relation_Schema.class.php:841
+#: libraries/schema/Pdf_Relation_Schema.class.php:836
 #: libraries/schema/Svg_Relation_Schema.class.php:803
 #: libraries/schema/Visio_Relation_Schema.class.php:495
 #, php-format
@@ -7640,24 +7691,24 @@ msgstr "Ta stran ne vsebuje nobenih tabel!"
 msgid "SCHEMA ERROR: "
 msgstr "NAPAKA SHEME: "
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:863
-#: libraries/schema/Pdf_Relation_Schema.class.php:1176
+#: libraries/schema/Pdf_Relation_Schema.class.php:858
+#: libraries/schema/Pdf_Relation_Schema.class.php:1171
 msgid "Relational schema"
 msgstr "Relacijska shema"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1139
+#: libraries/schema/Pdf_Relation_Schema.class.php:1134
 msgid "Table of contents"
 msgstr "Vsebina"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1312
-#: libraries/schema/Pdf_Relation_Schema.class.php:1333
+#: libraries/schema/Pdf_Relation_Schema.class.php:1307
+#: libraries/schema/Pdf_Relation_Schema.class.php:1328
 #: libraries/tbl_properties.inc.php:115 tbl_printview.php:138
 #: tbl_structure.php:204
 msgid "Attributes"
 msgstr "Atributi"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1315
-#: libraries/schema/Pdf_Relation_Schema.class.php:1336 tbl_printview.php:141
+#: libraries/schema/Pdf_Relation_Schema.class.php:1310
+#: libraries/schema/Pdf_Relation_Schema.class.php:1331 tbl_printview.php:141
 #: tbl_structure.php:207 tbl_tracking.php:262
 msgid "Extra"
 msgstr "Dodatno"
@@ -8059,23 +8110,23 @@ msgstr "Definicija PARTITION"
 msgid "+ Add a value"
 msgstr "+ Dodaj vrednost"
 
-#: libraries/tbl_select.lib.php:26 libraries/tbl_select.lib.php:27
-#: libraries/tbl_select.lib.php:30 libraries/tbl_select.lib.php:35 sql.php:109
+#: libraries/tbl_select.lib.php:23 libraries/tbl_select.lib.php:24
+#: libraries/tbl_select.lib.php:27 libraries/tbl_select.lib.php:32 sql.php:109
 #: tbl_change.php:271
 msgid "Browse foreign values"
 msgstr "Prebrskaj tuje vrednosti"
 
-#: libraries/tbl_select.lib.php:114 pmd_general.php:481 pmd_general.php:501
+#: libraries/tbl_select.lib.php:111 pmd_general.php:481 pmd_general.php:501
 #: pmd_general.php:623 pmd_general.php:636 pmd_general.php:699
 #: pmd_general.php:753
 msgid "Operator"
 msgstr "Operator"
 
-#: libraries/tbl_select.lib.php:131
+#: libraries/tbl_select.lib.php:128
 msgid "Table Search"
 msgstr "Iskanje po tabeli"
 
-#: libraries/tbl_select.lib.php:208 tbl_change.php:998
+#: libraries/tbl_select.lib.php:205 tbl_change.php:998
 msgid "Edit/Insert"
 msgstr "Uredi/Vstavi"
 
@@ -8594,19 +8645,19 @@ msgstr "Izvozi/Uvozi v razmerju"
 msgid "recommended"
 msgstr "priporočeno"
 
-#: pmd_relation_new.php:29
+#: pmd_relation_new.php:27
 msgid "Error: relation already exists."
 msgstr "Napaka: razmerje že obstaja."
 
-#: pmd_relation_new.php:61 pmd_relation_new.php:86
+#: pmd_relation_new.php:59 pmd_relation_new.php:84
 msgid "Error: Relation not added."
 msgstr "Napaka: Razmerje ni dodano."
 
-#: pmd_relation_new.php:62
+#: pmd_relation_new.php:60
 msgid "FOREIGN KEY relation added"
 msgstr "Dodano razmerje FOREIGN KEY"
 
-#: pmd_relation_new.php:84
+#: pmd_relation_new.php:82
 msgid "Internal relation added"
 msgstr "Dodana notranja razmerja"
 
@@ -10702,6 +10753,10 @@ msgstr "Skupna vrednost"
 msgid "Download"
 msgstr "Prenesi"
 
+#: setup/frames/form.inc.php:25
+msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
+msgstr ""
+
 #: setup/frames/index.inc.php:49
 msgid "Cannot load or save configuration"
 msgstr "Ne morem naložiti ali shraniti konfiguracije"
@@ -10810,6 +10865,10 @@ msgstr "Uredi strežnik"
 #: setup/frames/servers.inc.php:37
 msgid "Add a new server"
 msgstr "Dodaj nov strežnik"
+
+#: setup/index.php:22
+msgid "Wrong GET file attribute value"
+msgstr ""
 
 #: setup/lib/form_processing.lib.php:43
 msgid "Warning"
@@ -11015,6 +11074,12 @@ msgstr "Ključ je prekratek, ima naj vsaj 8 znakov."
 #: setup/lib/index.lib.php:396
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Ključ naj vsebuje črke, številke [em]in[/em] posebne znake."
+
+#: setup/validate.php:22
+#, fuzzy
+#| msgid "No data"
+msgid "Wrong data"
+msgstr "Brez podatkov"
 
 #: sql.php:214
 #, php-format
@@ -13118,9 +13183,6 @@ msgstr "concurrent_insert je nastavljeno na 0"
 
 #~ msgid "Radar"
 #~ msgstr "Polarni"
-
-#~ msgid "Bar type"
-#~ msgstr "Vrsta stolpcev"
 
 #~ msgid "Multi"
 #~ msgstr "Več skupaj"

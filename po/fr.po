@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-25 08:38+0200\n"
+"POT-Creation-Date: 2011-08-25 23:09+0200\n"
 "PO-Revision-Date: 2011-08-04 21:49+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
@@ -21,8 +21,8 @@ msgstr "Tout afficher"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:42
 #: libraries/common.lib.php:2354
-#: libraries/schema/Pdf_Relation_Schema.class.php:1147
-#: libraries/schema/Pdf_Relation_Schema.class.php:1171
+#: libraries/schema/Pdf_Relation_Schema.class.php:1142
+#: libraries/schema/Pdf_Relation_Schema.class.php:1166
 #: libraries/schema/User_Schema.class.php:376
 #: libraries/select_lang.lib.php:487
 msgid "Page number:"
@@ -50,7 +50,7 @@ msgstr "Rechercher"
 #: db_operations.php:516 db_operations.php:543 db_search.php:337
 #: db_structure.php:541 enum_editor.php:63 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:207
-#: libraries/Config.class.php:1306 libraries/Theme_Manager.class.php:309
+#: libraries/Config.class.php:1326 libraries/Theme_Manager.class.php:309
 #: libraries/auth/cookie.auth.lib.php:247 libraries/common.lib.php:1315
 #: libraries/common.lib.php:2327 libraries/core.lib.php:508
 #: libraries/display_change_password.lib.php:72
@@ -130,7 +130,7 @@ msgstr "La base de données %1$s a été créée."
 msgid "Database comment: "
 msgstr "Commentaire sur la base de données: "
 
-#: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1284
+#: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1279
 #: libraries/tbl_properties.inc.php:695 tbl_operations.php:366
 #: tbl_printview.php:124
 msgid "Table comments"
@@ -139,9 +139,9 @@ msgstr "Commentaires sur la table"
 #: db_datadict.php:162 db_qbe.php:196 libraries/Index.class.php:436
 #: libraries/export/htmlword.php:249 libraries/export/latex.php:359
 #: libraries/export/odt.php:286 libraries/export/texytext.php:228
-#: libraries/schema/Pdf_Relation_Schema.class.php:1310
-#: libraries/schema/Pdf_Relation_Schema.class.php:1331
-#: libraries/tbl_properties.inc.php:281 libraries/tbl_select.lib.php:111
+#: libraries/schema/Pdf_Relation_Schema.class.php:1305
+#: libraries/schema/Pdf_Relation_Schema.class.php:1326
+#: libraries/tbl_properties.inc.php:281 libraries/tbl_select.lib.php:108
 #: tbl_change.php:327 tbl_chart.php:89 tbl_indexes.php:196
 #: tbl_printview.php:136 tbl_relation.php:399 tbl_tracking.php:257
 #: tbl_tracking.php:308 tbl_zoom_select.php:392
@@ -155,9 +155,9 @@ msgstr "Colonne"
 #: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_routines.lib.php:829
 #: libraries/rte/rte_routines.lib.php:854
 #: libraries/rte/rte_routines.lib.php:1359
-#: libraries/schema/Pdf_Relation_Schema.class.php:1311
-#: libraries/schema/Pdf_Relation_Schema.class.php:1332
-#: libraries/tbl_properties.inc.php:107 libraries/tbl_select.lib.php:112
+#: libraries/schema/Pdf_Relation_Schema.class.php:1306
+#: libraries/schema/Pdf_Relation_Schema.class.php:1327
+#: libraries/tbl_properties.inc.php:107 libraries/tbl_select.lib.php:109
 #: server_privileges.php:2236 tbl_change.php:306 tbl_change.php:333
 #: tbl_printview.php:137 tbl_printview.php:277 tbl_structure.php:202
 #: tbl_structure.php:764 tbl_tracking.php:258 tbl_tracking.php:305
@@ -167,8 +167,8 @@ msgstr "Type"
 #: db_datadict.php:165 libraries/Index.class.php:439
 #: libraries/export/htmlword.php:251 libraries/export/latex.php:359
 #: libraries/export/odt.php:292 libraries/export/texytext.php:230
-#: libraries/schema/Pdf_Relation_Schema.class.php:1313
-#: libraries/schema/Pdf_Relation_Schema.class.php:1334
+#: libraries/schema/Pdf_Relation_Schema.class.php:1308
+#: libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_properties.inc.php:116 tbl_change.php:342
 #: tbl_printview.php:139 tbl_structure.php:205 tbl_tracking.php:260
 #: tbl_tracking.php:311 tbl_zoom_select.php:393
@@ -178,8 +178,8 @@ msgstr "Null"
 #: db_datadict.php:166 db_structure.php:464 libraries/export/htmlword.php:252
 #: libraries/export/latex.php:359 libraries/export/odt.php:295
 #: libraries/export/texytext.php:231
-#: libraries/schema/Pdf_Relation_Schema.class.php:1314
-#: libraries/schema/Pdf_Relation_Schema.class.php:1335
+#: libraries/schema/Pdf_Relation_Schema.class.php:1309
+#: libraries/schema/Pdf_Relation_Schema.class.php:1330
 #: libraries/tbl_properties.inc.php:113 tbl_printview.php:140
 #: tbl_structure.php:206 tbl_tracking.php:261
 msgid "Default"
@@ -188,8 +188,8 @@ msgstr "Défaut"
 #: db_datadict.php:170 libraries/export/htmlword.php:254
 #: libraries/export/latex.php:361 libraries/export/odt.php:299
 #: libraries/export/texytext.php:233
-#: libraries/schema/Pdf_Relation_Schema.class.php:1316
-#: libraries/schema/Pdf_Relation_Schema.class.php:1337 tbl_printview.php:144
+#: libraries/schema/Pdf_Relation_Schema.class.php:1311
+#: libraries/schema/Pdf_Relation_Schema.class.php:1332 tbl_printview.php:144
 msgid "Links to"
 msgstr "Relié à"
 
@@ -198,8 +198,8 @@ msgstr "Relié à"
 #: libraries/config/messages.inc.php:131 libraries/export/htmlword.php:257
 #: libraries/export/latex.php:364 libraries/export/odt.php:304
 #: libraries/export/texytext.php:236
-#: libraries/schema/Pdf_Relation_Schema.class.php:1327
-#: libraries/schema/Pdf_Relation_Schema.class.php:1338
+#: libraries/schema/Pdf_Relation_Schema.class.php:1322
+#: libraries/schema/Pdf_Relation_Schema.class.php:1333
 #: libraries/tbl_properties.inc.php:136 tbl_printview.php:146
 msgid "Comments"
 msgstr "Commentaires"
@@ -210,7 +210,7 @@ msgstr "Commentaires"
 #: libraries/config/FormDisplay.tpl.php:198 libraries/export/htmlword.php:299
 #: libraries/export/latex.php:407 libraries/export/odt.php:343
 #: libraries/export/texytext.php:278 libraries/mult_submits.inc.php:287
-#: libraries/schema/Pdf_Relation_Schema.class.php:1362
+#: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:128
 #: server_privileges.php:1467 server_privileges.php:1477
 #: server_privileges.php:1723 server_privileges.php:1734
@@ -231,7 +231,7 @@ msgstr "Non"
 #: libraries/mult_submits.inc.php:102 libraries/mult_submits.inc.php:262
 #: libraries/mult_submits.inc.php:276 libraries/mult_submits.inc.php:286
 #: libraries/mult_submits.inc.php:299
-#: libraries/schema/Pdf_Relation_Schema.class.php:1362
+#: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:127
 #: server_databases.php:81 server_privileges.php:1465
 #: server_privileges.php:1475 server_privileges.php:1720
@@ -337,7 +337,7 @@ msgstr "Aller à la base de données copiée"
 #: db_operations.php:536 libraries/Index.class.php:438
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:114
-#: libraries/tbl_properties.inc.php:701 libraries/tbl_select.lib.php:113
+#: libraries/tbl_properties.inc.php:701 libraries/tbl_select.lib.php:110
 #: server_collations.php:53 server_collations.php:65 tbl_operations.php:382
 #: tbl_structure.php:203 tbl_structure.php:869 tbl_tracking.php:259
 #: tbl_tracking.php:310
@@ -386,21 +386,21 @@ msgstr "utilisé"
 
 #: db_printview.php:185 libraries/db_info.inc.php:61
 #: libraries/export/sql.php:742
-#: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:398
+#: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:398
 #: tbl_structure.php:911
 msgid "Creation"
 msgstr "Création"
 
 #: db_printview.php:194 libraries/db_info.inc.php:66
 #: libraries/export/sql.php:747
-#: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:408
+#: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:408
 #: tbl_structure.php:919
 msgid "Last update"
 msgstr "Dernière modification"
 
 #: db_printview.php:203 libraries/db_info.inc.php:71
 #: libraries/export/sql.php:752
-#: libraries/schema/Pdf_Relation_Schema.class.php:1299 tbl_printview.php:418
+#: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:418
 #: tbl_structure.php:927
 msgid "Last check"
 msgstr "Dernière vérification"
@@ -825,9 +825,21 @@ msgstr "Résultat"
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "Copiez les valeurs et collez-les dans le champ «Taille/Valeurs»"
 
+#: export.php:29
+#, fuzzy
+#| msgid "Bar type"
+msgid "Bad type!"
+msgstr "Type de barre"
+
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
 msgstr "Ce choix d'exportation doit être sauvegardé dans un fichier !"
+
+#: export.php:106
+#, fuzzy
+#| msgid "Add parameter"
+msgid "Bad parameters!"
+msgstr "Ajouter un paramètre"
 
 #: export.php:167 export.php:192 export.php:655
 #, php-format
@@ -853,6 +865,12 @@ msgstr ""
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Le fichier d'exportation a été sauvegardé sous %s."
+
+#: file_echo.php:21
+#, fuzzy
+#| msgid "Export type"
+msgid "Invalid export type"
+msgstr "Type d'exportation"
 
 #: gis_data_editor.php:84
 #, fuzzy, php-format
@@ -1786,7 +1804,7 @@ msgstr "Cacher les critères de recherche"
 msgid "Show search criteria"
 msgstr "Afficher les critères de recherche"
 
-#: js/messages.php:262 libraries/tbl_select.lib.php:138
+#: js/messages.php:262 libraries/tbl_select.lib.php:135
 #, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
@@ -2213,7 +2231,20 @@ msgstr "Seconde"
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr ""
 
-#: libraries/Config.class.php:1277
+#: libraries/Config.class.php:703
+msgid "Remove \"./config\" directory before using phpMyAdmin!"
+msgstr ""
+
+#: libraries/Config.class.php:727
+#, php-format
+msgid "Existing configuration file (%d) is not readable."
+msgstr ""
+
+#: libraries/Config.class.php:752
+msgid "Wrong permissions on configuration file, should not be world writable!"
+msgstr ""
+
+#: libraries/Config.class.php:1297
 msgid "Font size"
 msgstr "Taille du texte"
 
@@ -2494,6 +2525,10 @@ msgstr ""
 "dans votre configuration et vous assurer qu'elles correspondent aux "
 "informations fournies par l'administrateur du serveur MySQL."
 
+#: libraries/auth/cookie.auth.lib.php:35
+msgid "Failed to use Blowfish from mcrypt!"
+msgstr ""
+
 #: libraries/auth/cookie.auth.lib.php:199
 msgid "Log in"
 msgstr "Connexion"
@@ -2665,6 +2700,14 @@ msgstr "Vérifier les privilèges pour la base de données &quot;%s&quot;."
 #: libraries/build_html_for_db.lib.php:154
 msgid "Check Privileges"
 msgstr "Vérifier les privilèges"
+
+#: libraries/common.inc.php:147
+msgid "possible exploit"
+msgstr ""
+
+#: libraries/common.inc.php:156
+msgid "numeric key detected"
+msgstr ""
 
 #: libraries/common.inc.php:597
 msgid "Failed to read configuration file"
@@ -3111,7 +3154,7 @@ msgstr ""
 "Ce réglage est désactivé, il ne sera pas appliqué à votre configuration"
 
 #: libraries/config/FormDisplay.tpl.php:167 libraries/relation.lib.php:78
-#: libraries/relation.lib.php:85 pmd_relation_new.php:68
+#: libraries/relation.lib.php:85 pmd_relation_new.php:66
 msgid "Disabled"
 msgstr "Désactivé"
 
@@ -5372,6 +5415,10 @@ msgstr "fr"
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Il manque l'extension %s. Veuillez vérifier votre configuration PHP."
 
+#: libraries/core.lib.php:409
+msgid "possible deep recursion attack"
+msgstr ""
+
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
 msgid "Database seems to be empty!"
@@ -6682,6 +6729,10 @@ msgstr "Ouvrir une nouvelle fenêtre phpMyAdmin"
 msgid "No data found for GIS visualization."
 msgstr "Données non disponibles pour visualisation GIS."
 
+#: libraries/header_http.inc.php:15 libraries/header_meta_style.inc.php:15
+msgid "GLOBALS overwrite attempt"
+msgstr ""
+
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:54
 msgid "SQL result"
 msgstr "Résultat de la requête SQL"
@@ -7114,7 +7165,7 @@ msgid "Enabled"
 msgstr "Activé"
 
 #: libraries/relation.lib.php:84 libraries/relation.lib.php:96
-#: pmd_relation_new.php:68
+#: pmd_relation_new.php:66
 msgid "General relation features"
 msgstr "Fonctions relationnelles"
 
@@ -7228,7 +7279,7 @@ msgid "Variable"
 msgstr "Variable"
 
 #: libraries/replication_gui.lib.php:119
-#: libraries/rte/rte_routines.lib.php:1363 libraries/tbl_select.lib.php:115
+#: libraries/rte/rte_routines.lib.php:1363 libraries/tbl_select.lib.php:112
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769 server_status.php:1465 tbl_change.php:343
 #: tbl_printview.php:334 tbl_structure.php:831 tbl_zoom_select.php:394
@@ -7574,7 +7625,7 @@ msgstr "Exécuter la procédure"
 msgid "Routine parameters"
 msgstr "Paramètres de procédure"
 
-#: libraries/rte/rte_routines.lib.php:1361 libraries/tbl_select.lib.php:107
+#: libraries/rte/rte_routines.lib.php:1361 libraries/tbl_select.lib.php:104
 #: tbl_change.php:301 tbl_change.php:339
 msgid "Function"
 msgstr "Fonction"
@@ -7721,7 +7772,7 @@ msgid "Please configure the coordinates for table %s"
 msgstr "Les coordonnées de la table %s n'ont pas été configurées"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:823
-#: libraries/schema/Pdf_Relation_Schema.class.php:841
+#: libraries/schema/Pdf_Relation_Schema.class.php:836
 #: libraries/schema/Svg_Relation_Schema.class.php:803
 #: libraries/schema/Visio_Relation_Schema.class.php:495
 #, php-format
@@ -7736,24 +7787,24 @@ msgstr "Cette page ne contient aucune table!"
 msgid "SCHEMA ERROR: "
 msgstr "Erreur de schéma : "
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:863
-#: libraries/schema/Pdf_Relation_Schema.class.php:1176
+#: libraries/schema/Pdf_Relation_Schema.class.php:858
+#: libraries/schema/Pdf_Relation_Schema.class.php:1171
 msgid "Relational schema"
 msgstr "Schéma relationnel"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1139
+#: libraries/schema/Pdf_Relation_Schema.class.php:1134
 msgid "Table of contents"
 msgstr "Table des matières"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1312
-#: libraries/schema/Pdf_Relation_Schema.class.php:1333
+#: libraries/schema/Pdf_Relation_Schema.class.php:1307
+#: libraries/schema/Pdf_Relation_Schema.class.php:1328
 #: libraries/tbl_properties.inc.php:115 tbl_printview.php:138
 #: tbl_structure.php:204
 msgid "Attributes"
 msgstr "Attributs"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1315
-#: libraries/schema/Pdf_Relation_Schema.class.php:1336 tbl_printview.php:141
+#: libraries/schema/Pdf_Relation_Schema.class.php:1310
+#: libraries/schema/Pdf_Relation_Schema.class.php:1331 tbl_printview.php:141
 #: tbl_structure.php:207 tbl_tracking.php:262
 msgid "Extra"
 msgstr "Extra"
@@ -8156,25 +8207,25 @@ msgstr "Définition de PARTITION"
 msgid "+ Add a value"
 msgstr "+ Ajouter une valeur"
 
-#: libraries/tbl_select.lib.php:26 libraries/tbl_select.lib.php:27
-#: libraries/tbl_select.lib.php:30 libraries/tbl_select.lib.php:35 sql.php:109
+#: libraries/tbl_select.lib.php:23 libraries/tbl_select.lib.php:24
+#: libraries/tbl_select.lib.php:27 libraries/tbl_select.lib.php:32 sql.php:109
 #: tbl_change.php:271
 msgid "Browse foreign values"
 msgstr "Afficher les valeurs de la table liée"
 
-#: libraries/tbl_select.lib.php:114 pmd_general.php:481 pmd_general.php:501
+#: libraries/tbl_select.lib.php:111 pmd_general.php:481 pmd_general.php:501
 #: pmd_general.php:623 pmd_general.php:636 pmd_general.php:699
 #: pmd_general.php:753
 msgid "Operator"
 msgstr "Opérateur"
 
-#: libraries/tbl_select.lib.php:131
+#: libraries/tbl_select.lib.php:128
 #, fuzzy
 #| msgid "Search"
 msgid "Table Search"
 msgstr "Rechercher"
 
-#: libraries/tbl_select.lib.php:208 tbl_change.php:998
+#: libraries/tbl_select.lib.php:205 tbl_change.php:998
 #, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
@@ -8706,19 +8757,19 @@ msgstr "Exporter/Importer à l'échelle"
 msgid "recommended"
 msgstr "recommandé"
 
-#: pmd_relation_new.php:29
+#: pmd_relation_new.php:27
 msgid "Error: relation already exists."
 msgstr "Erreur: relation déjà existante."
 
-#: pmd_relation_new.php:61 pmd_relation_new.php:86
+#: pmd_relation_new.php:59 pmd_relation_new.php:84
 msgid "Error: Relation not added."
 msgstr "Erreur: relation non ajoutée."
 
-#: pmd_relation_new.php:62
+#: pmd_relation_new.php:60
 msgid "FOREIGN KEY relation added"
 msgstr "Relation de type FOREIGN KEY ajoutée"
 
-#: pmd_relation_new.php:84
+#: pmd_relation_new.php:82
 msgid "Internal relation added"
 msgstr "Relation interne ajoutée"
 
@@ -10886,6 +10937,10 @@ msgstr "Valeur globale"
 msgid "Download"
 msgstr "Télécharger"
 
+#: setup/frames/form.inc.php:25
+msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
+msgstr ""
+
 #: setup/frames/index.inc.php:49
 msgid "Cannot load or save configuration"
 msgstr "Impossible de charger ou sauvegarder la configuration"
@@ -10993,6 +11048,10 @@ msgstr "Modifier serveur"
 #: setup/frames/servers.inc.php:37
 msgid "Add a new server"
 msgstr "Ajouter un serveur"
+
+#: setup/index.php:22
+msgid "Wrong GET file attribute value"
+msgstr ""
 
 #: setup/lib/form_processing.lib.php:43
 msgid "Warning"
@@ -11202,6 +11261,12 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr ""
 "La clé devrait contenir des lettres, des nombres [em]et[/em] des caractères "
 "spéciaux."
+
+#: setup/validate.php:22
+#, fuzzy
+#| msgid "No data"
+msgid "Wrong data"
+msgstr "Aucune donnée"
 
 #: sql.php:214
 #, php-format
@@ -13328,9 +13393,6 @@ msgstr ""
 
 #~ msgid "Radar"
 #~ msgstr "Radar"
-
-#~ msgid "Bar type"
-#~ msgstr "Type de barre"
 
 #~ msgid "Multi"
 #~ msgstr "Multi"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-25 08:38+0200\n"
+"POT-Creation-Date: 2011-08-25 23:09+0200\n"
 "PO-Revision-Date: 2011-08-25 11:36+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
@@ -21,8 +21,8 @@ msgstr "すべて表示"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:42
 #: libraries/common.lib.php:2354
-#: libraries/schema/Pdf_Relation_Schema.class.php:1147
-#: libraries/schema/Pdf_Relation_Schema.class.php:1171
+#: libraries/schema/Pdf_Relation_Schema.class.php:1142
+#: libraries/schema/Pdf_Relation_Schema.class.php:1166
 #: libraries/schema/User_Schema.class.php:376
 #: libraries/select_lang.lib.php:487
 msgid "Page number:"
@@ -49,7 +49,7 @@ msgstr "検索"
 #: db_operations.php:516 db_operations.php:543 db_search.php:337
 #: db_structure.php:541 enum_editor.php:63 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:207
-#: libraries/Config.class.php:1306 libraries/Theme_Manager.class.php:309
+#: libraries/Config.class.php:1326 libraries/Theme_Manager.class.php:309
 #: libraries/auth/cookie.auth.lib.php:247 libraries/common.lib.php:1315
 #: libraries/common.lib.php:2327 libraries/core.lib.php:508
 #: libraries/display_change_password.lib.php:72
@@ -129,7 +129,7 @@ msgstr "データベース %1$s を作成しました。"
 msgid "Database comment: "
 msgstr "データベースのコメント"
 
-#: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1284
+#: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1279
 #: libraries/tbl_properties.inc.php:695 tbl_operations.php:366
 #: tbl_printview.php:124
 msgid "Table comments"
@@ -138,9 +138,9 @@ msgstr "テーブルのコメント"
 #: db_datadict.php:162 db_qbe.php:196 libraries/Index.class.php:436
 #: libraries/export/htmlword.php:249 libraries/export/latex.php:359
 #: libraries/export/odt.php:286 libraries/export/texytext.php:228
-#: libraries/schema/Pdf_Relation_Schema.class.php:1310
-#: libraries/schema/Pdf_Relation_Schema.class.php:1331
-#: libraries/tbl_properties.inc.php:281 libraries/tbl_select.lib.php:111
+#: libraries/schema/Pdf_Relation_Schema.class.php:1305
+#: libraries/schema/Pdf_Relation_Schema.class.php:1326
+#: libraries/tbl_properties.inc.php:281 libraries/tbl_select.lib.php:108
 #: tbl_change.php:327 tbl_chart.php:89 tbl_indexes.php:196
 #: tbl_printview.php:136 tbl_relation.php:399 tbl_tracking.php:257
 #: tbl_tracking.php:308 tbl_zoom_select.php:392
@@ -154,9 +154,9 @@ msgstr "カラム"
 #: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_routines.lib.php:829
 #: libraries/rte/rte_routines.lib.php:854
 #: libraries/rte/rte_routines.lib.php:1359
-#: libraries/schema/Pdf_Relation_Schema.class.php:1311
-#: libraries/schema/Pdf_Relation_Schema.class.php:1332
-#: libraries/tbl_properties.inc.php:107 libraries/tbl_select.lib.php:112
+#: libraries/schema/Pdf_Relation_Schema.class.php:1306
+#: libraries/schema/Pdf_Relation_Schema.class.php:1327
+#: libraries/tbl_properties.inc.php:107 libraries/tbl_select.lib.php:109
 #: server_privileges.php:2236 tbl_change.php:306 tbl_change.php:333
 #: tbl_printview.php:137 tbl_printview.php:277 tbl_structure.php:202
 #: tbl_structure.php:764 tbl_tracking.php:258 tbl_tracking.php:305
@@ -166,8 +166,8 @@ msgstr "種別"
 #: db_datadict.php:165 libraries/Index.class.php:439
 #: libraries/export/htmlword.php:251 libraries/export/latex.php:359
 #: libraries/export/odt.php:292 libraries/export/texytext.php:230
-#: libraries/schema/Pdf_Relation_Schema.class.php:1313
-#: libraries/schema/Pdf_Relation_Schema.class.php:1334
+#: libraries/schema/Pdf_Relation_Schema.class.php:1308
+#: libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_properties.inc.php:116 tbl_change.php:342
 #: tbl_printview.php:139 tbl_structure.php:205 tbl_tracking.php:260
 #: tbl_tracking.php:311 tbl_zoom_select.php:393
@@ -177,8 +177,8 @@ msgstr "NULL"
 #: db_datadict.php:166 db_structure.php:464 libraries/export/htmlword.php:252
 #: libraries/export/latex.php:359 libraries/export/odt.php:295
 #: libraries/export/texytext.php:231
-#: libraries/schema/Pdf_Relation_Schema.class.php:1314
-#: libraries/schema/Pdf_Relation_Schema.class.php:1335
+#: libraries/schema/Pdf_Relation_Schema.class.php:1309
+#: libraries/schema/Pdf_Relation_Schema.class.php:1330
 #: libraries/tbl_properties.inc.php:113 tbl_printview.php:140
 #: tbl_structure.php:206 tbl_tracking.php:261
 msgid "Default"
@@ -187,8 +187,8 @@ msgstr "デフォルト値"
 #: db_datadict.php:170 libraries/export/htmlword.php:254
 #: libraries/export/latex.php:361 libraries/export/odt.php:299
 #: libraries/export/texytext.php:233
-#: libraries/schema/Pdf_Relation_Schema.class.php:1316
-#: libraries/schema/Pdf_Relation_Schema.class.php:1337 tbl_printview.php:144
+#: libraries/schema/Pdf_Relation_Schema.class.php:1311
+#: libraries/schema/Pdf_Relation_Schema.class.php:1332 tbl_printview.php:144
 msgid "Links to"
 msgstr "リンク先"
 
@@ -197,8 +197,8 @@ msgstr "リンク先"
 #: libraries/config/messages.inc.php:131 libraries/export/htmlword.php:257
 #: libraries/export/latex.php:364 libraries/export/odt.php:304
 #: libraries/export/texytext.php:236
-#: libraries/schema/Pdf_Relation_Schema.class.php:1327
-#: libraries/schema/Pdf_Relation_Schema.class.php:1338
+#: libraries/schema/Pdf_Relation_Schema.class.php:1322
+#: libraries/schema/Pdf_Relation_Schema.class.php:1333
 #: libraries/tbl_properties.inc.php:136 tbl_printview.php:146
 msgid "Comments"
 msgstr "コメント"
@@ -209,7 +209,7 @@ msgstr "コメント"
 #: libraries/config/FormDisplay.tpl.php:198 libraries/export/htmlword.php:299
 #: libraries/export/latex.php:407 libraries/export/odt.php:343
 #: libraries/export/texytext.php:278 libraries/mult_submits.inc.php:287
-#: libraries/schema/Pdf_Relation_Schema.class.php:1362
+#: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:128
 #: server_privileges.php:1467 server_privileges.php:1477
 #: server_privileges.php:1723 server_privileges.php:1734
@@ -230,7 +230,7 @@ msgstr "いいえ"
 #: libraries/mult_submits.inc.php:102 libraries/mult_submits.inc.php:262
 #: libraries/mult_submits.inc.php:276 libraries/mult_submits.inc.php:286
 #: libraries/mult_submits.inc.php:299
-#: libraries/schema/Pdf_Relation_Schema.class.php:1362
+#: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:127
 #: server_databases.php:81 server_privileges.php:1465
 #: server_privileges.php:1475 server_privileges.php:1720
@@ -336,7 +336,7 @@ msgstr "コピーしたデータベースに切り替える"
 #: db_operations.php:536 libraries/Index.class.php:438
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:114
-#: libraries/tbl_properties.inc.php:701 libraries/tbl_select.lib.php:113
+#: libraries/tbl_properties.inc.php:701 libraries/tbl_select.lib.php:110
 #: server_collations.php:53 server_collations.php:65 tbl_operations.php:382
 #: tbl_structure.php:203 tbl_structure.php:869 tbl_tracking.php:259
 #: tbl_tracking.php:310
@@ -385,21 +385,21 @@ msgstr "使用中"
 
 #: db_printview.php:185 libraries/db_info.inc.php:61
 #: libraries/export/sql.php:742
-#: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:398
+#: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:398
 #: tbl_structure.php:911
 msgid "Creation"
 msgstr "作成日時"
 
 #: db_printview.php:194 libraries/db_info.inc.php:66
 #: libraries/export/sql.php:747
-#: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:408
+#: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:408
 #: tbl_structure.php:919
 msgid "Last update"
 msgstr "最終更新"
 
 #: db_printview.php:203 libraries/db_info.inc.php:71
 #: libraries/export/sql.php:752
-#: libraries/schema/Pdf_Relation_Schema.class.php:1299 tbl_printview.php:418
+#: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:418
 #: tbl_structure.php:927
 msgid "Last check"
 msgstr "最終検査"
@@ -820,9 +820,21 @@ msgstr ""
 "結合された値（成形結果）を「長さ/値」フィールドにコピー＆ペーストしてくださ"
 "い。"
 
+#: export.php:29
+#, fuzzy
+#| msgid "Bar type"
+msgid "Bad type!"
+msgstr "棒グラフの種類"
+
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
 msgstr "この形式のエクスポートはファイルに保存する必要があります!"
+
+#: export.php:106
+#, fuzzy
+#| msgid "Add parameter"
+msgid "Bad parameters!"
+msgstr "パラメータを追加する"
 
 #: export.php:167 export.php:192 export.php:655
 #, php-format
@@ -846,6 +858,12 @@ msgstr "このウェブサーバにはファイル %s を保存する権限が�
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "ダンプをファイル %s に保存しました"
+
+#: file_echo.php:21
+#, fuzzy
+#| msgid "Export type"
+msgid "Invalid export type"
+msgstr "エクスポート形式"
 
 #: gis_data_editor.php:84
 #, php-format
@@ -1757,7 +1775,7 @@ msgstr "検索条件を隠す"
 msgid "Show search criteria"
 msgstr "検索条件を表示する"
 
-#: js/messages.php:262 libraries/tbl_select.lib.php:138
+#: js/messages.php:262 libraries/tbl_select.lib.php:135
 msgid "Zoom Search"
 msgstr "検索プロット"
 
@@ -2173,7 +2191,20 @@ msgstr "秒"
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr ""
 
-#: libraries/Config.class.php:1277
+#: libraries/Config.class.php:703
+msgid "Remove \"./config\" directory before using phpMyAdmin!"
+msgstr ""
+
+#: libraries/Config.class.php:727
+#, php-format
+msgid "Existing configuration file (%d) is not readable."
+msgstr ""
+
+#: libraries/Config.class.php:752
+msgid "Wrong permissions on configuration file, should not be world writable!"
+msgstr ""
+
+#: libraries/Config.class.php:1297
 msgid "Font size"
 msgstr "フォントサイズ"
 
@@ -2314,7 +2345,6 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d 行挿入しました。"
 
 #: libraries/PDF.class.php:81
-#| msgid "Allows reading data."
 msgid "Error while creating PDF:"
 msgstr "PDF を作成中にエラーが発生しました："
 
@@ -2351,7 +2381,6 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "この MySQL サーバは %s ストレージエンジンをサポートしていません"
 
 #: libraries/Table.class.php:329
-#| msgid "Show slave status"
 msgid "unknown table status: "
 msgstr "不明なテーブルステータス："
 
@@ -2445,6 +2474,10 @@ msgstr ""
 "MySQL サーバに接続しようとしましたが拒否されました。config.inc.php のホスト、"
 "ユーザ名、パスワードが MySQL サーバの管理者から与えられた情報と一致するか確認"
 "してください"
+
+#: libraries/auth/cookie.auth.lib.php:35
+msgid "Failed to use Blowfish from mcrypt!"
+msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:199
 msgid "Log in"
@@ -2614,6 +2647,14 @@ msgstr "データベース &quot;%s&quot; の特権を確認する"
 #: libraries/build_html_for_db.lib.php:154
 msgid "Check Privileges"
 msgstr "特権をチェックする"
+
+#: libraries/common.inc.php:147
+msgid "possible exploit"
+msgstr ""
+
+#: libraries/common.inc.php:156
+msgid "numeric key detected"
+msgstr ""
 
 #: libraries/common.inc.php:597
 msgid "Failed to read configuration file"
@@ -3046,7 +3087,7 @@ msgid "This setting is disabled, it will not be applied to your configuration"
 msgstr "この項目は無効になっています。これは設定に適用されていません。"
 
 #: libraries/config/FormDisplay.tpl.php:167 libraries/relation.lib.php:78
-#: libraries/relation.lib.php:85 pmd_relation_new.php:68
+#: libraries/relation.lib.php:85 pmd_relation_new.php:66
 msgid "Disabled"
 msgstr "無効"
 
@@ -5278,6 +5319,10 @@ msgstr "ja"
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s 拡張がありません。PHP の設定をチェックしてみてください。"
 
+#: libraries/core.lib.php:409
+msgid "possible deep recursion attack"
+msgstr ""
+
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
 msgid "Database seems to be empty!"
@@ -5335,9 +5380,9 @@ msgid "The server is not responding"
 msgstr "サーバが応答しません"
 
 #: libraries/dbi/drizzle.dbi.lib.php:344
-#| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid "(or the local Drizzle server's socket is not correctly configured)"
-msgstr "(あるいはローカルの Drizzle サーバのソケットが正しく設定されていません)"
+msgstr ""
+"(あるいはローカルの Drizzle サーバのソケットが正しく設定されていません)"
 
 #: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysqli.dbi.lib.php:384
 msgid "(or the local MySQL server's socket is not correctly configured)"
@@ -6554,6 +6599,10 @@ msgstr "別ウィンドウで開く"
 msgid "No data found for GIS visualization."
 msgstr "視覚化できる空間情報がありません。"
 
+#: libraries/header_http.inc.php:15 libraries/header_meta_style.inc.php:15
+msgid "GLOBALS overwrite attempt"
+msgstr ""
+
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:54
 msgid "SQL result"
 msgstr "SQL の結果"
@@ -6982,7 +7031,7 @@ msgid "Enabled"
 msgstr "有効"
 
 #: libraries/relation.lib.php:84 libraries/relation.lib.php:96
-#: pmd_relation_new.php:68
+#: pmd_relation_new.php:66
 msgid "General relation features"
 msgstr "一般的なリレーション機能"
 
@@ -7090,7 +7139,7 @@ msgid "Variable"
 msgstr "変数"
 
 #: libraries/replication_gui.lib.php:119
-#: libraries/rte/rte_routines.lib.php:1363 libraries/tbl_select.lib.php:115
+#: libraries/rte/rte_routines.lib.php:1363 libraries/tbl_select.lib.php:112
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769 server_status.php:1465 tbl_change.php:343
 #: tbl_printview.php:334 tbl_structure.php:831 tbl_zoom_select.php:394
@@ -7440,7 +7489,7 @@ msgstr "ルーチンを実行する"
 msgid "Routine parameters"
 msgstr "ルーチンのパラメータ"
 
-#: libraries/rte/rte_routines.lib.php:1361 libraries/tbl_select.lib.php:107
+#: libraries/rte/rte_routines.lib.php:1361 libraries/tbl_select.lib.php:104
 #: tbl_change.php:301 tbl_change.php:339
 msgid "Function"
 msgstr "関数"
@@ -7586,7 +7635,7 @@ msgid "Please configure the coordinates for table %s"
 msgstr "テーブル %s の座標を設定してください"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:823
-#: libraries/schema/Pdf_Relation_Schema.class.php:841
+#: libraries/schema/Pdf_Relation_Schema.class.php:836
 #: libraries/schema/Svg_Relation_Schema.class.php:803
 #: libraries/schema/Visio_Relation_Schema.class.php:495
 #, php-format
@@ -7601,24 +7650,24 @@ msgstr "このページにはテーブルがありません！"
 msgid "SCHEMA ERROR: "
 msgstr "スキーマエラー："
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:863
-#: libraries/schema/Pdf_Relation_Schema.class.php:1176
+#: libraries/schema/Pdf_Relation_Schema.class.php:858
+#: libraries/schema/Pdf_Relation_Schema.class.php:1171
 msgid "Relational schema"
 msgstr "リレーショナルスキーマ"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1139
+#: libraries/schema/Pdf_Relation_Schema.class.php:1134
 msgid "Table of contents"
 msgstr "テーブルの内容"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1312
-#: libraries/schema/Pdf_Relation_Schema.class.php:1333
+#: libraries/schema/Pdf_Relation_Schema.class.php:1307
+#: libraries/schema/Pdf_Relation_Schema.class.php:1328
 #: libraries/tbl_properties.inc.php:115 tbl_printview.php:138
 #: tbl_structure.php:204
 msgid "Attributes"
 msgstr "属性"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1315
-#: libraries/schema/Pdf_Relation_Schema.class.php:1336 tbl_printview.php:141
+#: libraries/schema/Pdf_Relation_Schema.class.php:1310
+#: libraries/schema/Pdf_Relation_Schema.class.php:1331 tbl_printview.php:141
 #: tbl_structure.php:207 tbl_tracking.php:262
 msgid "Extra"
 msgstr "その他"
@@ -8018,23 +8067,23 @@ msgstr "パーティションの定義"
 msgid "+ Add a value"
 msgstr "+ 値を追加する"
 
-#: libraries/tbl_select.lib.php:26 libraries/tbl_select.lib.php:27
-#: libraries/tbl_select.lib.php:30 libraries/tbl_select.lib.php:35 sql.php:109
+#: libraries/tbl_select.lib.php:23 libraries/tbl_select.lib.php:24
+#: libraries/tbl_select.lib.php:27 libraries/tbl_select.lib.php:32 sql.php:109
 #: tbl_change.php:271
 msgid "Browse foreign values"
 msgstr "参照されている値を表示する"
 
-#: libraries/tbl_select.lib.php:114 pmd_general.php:481 pmd_general.php:501
+#: libraries/tbl_select.lib.php:111 pmd_general.php:481 pmd_general.php:501
 #: pmd_general.php:623 pmd_general.php:636 pmd_general.php:699
 #: pmd_general.php:753
 msgid "Operator"
 msgstr "演算子"
 
-#: libraries/tbl_select.lib.php:131
+#: libraries/tbl_select.lib.php:128
 msgid "Table Search"
 msgstr "テーブル検索"
 
-#: libraries/tbl_select.lib.php:208 tbl_change.php:998
+#: libraries/tbl_select.lib.php:205 tbl_change.php:998
 msgid "Edit/Insert"
 msgstr "編集／挿入"
 
@@ -8209,7 +8258,6 @@ msgid "General Settings"
 msgstr "一般設定"
 
 #: main.php:101
-#| msgid "MySQL connection collation"
 msgid "Server connection collation"
 msgstr "サーバ接続の照合順序"
 
@@ -8222,7 +8270,6 @@ msgid "More settings"
 msgstr "詳細設定"
 
 #: main.php:156
-#| msgid "Database for user"
 msgid "Database server"
 msgstr "データベースサーバ"
 
@@ -8231,7 +8278,6 @@ msgid "Software"
 msgstr "ソフトウェア"
 
 #: main.php:160
-#| msgid "Show versions"
 msgid "Software version"
 msgstr "ソフトウェアバージョン"
 
@@ -8246,7 +8292,6 @@ msgid "User"
 msgstr "ユーザ"
 
 #: main.php:167
-#| msgid "Server socket"
 msgid "Server charset"
 msgstr "サーバの文字セット"
 
@@ -8255,7 +8300,6 @@ msgid "Web server"
 msgstr "ウェブサーバ"
 
 #: main.php:190
-#| msgid "Use light version"
 msgid "Database client version"
 msgstr "データベースクライアントのバージョン"
 
@@ -8547,19 +8591,19 @@ msgstr "倍率にあわせたエクスポート/インポート"
 msgid "recommended"
 msgstr "推奨"
 
-#: pmd_relation_new.php:29
+#: pmd_relation_new.php:27
 msgid "Error: relation already exists."
 msgstr "エラー: リレーションはすでに存在しています"
 
-#: pmd_relation_new.php:61 pmd_relation_new.php:86
+#: pmd_relation_new.php:59 pmd_relation_new.php:84
 msgid "Error: Relation not added."
 msgstr "エラー: リレーションを追加できませんでした"
 
-#: pmd_relation_new.php:62
+#: pmd_relation_new.php:60
 msgid "FOREIGN KEY relation added"
 msgstr "外部キーを追加しました"
 
-#: pmd_relation_new.php:84
+#: pmd_relation_new.php:82
 msgid "Internal relation added"
 msgstr "内部リレーションを追加しました"
 
@@ -8780,7 +8824,6 @@ msgid "License"
 msgstr "ライセンス"
 
 #: server_plugins.php:182
-#| msgid "Disabled"
 msgid "disabled"
 msgstr "無効"
 
@@ -9486,7 +9529,6 @@ msgid "Show unformatted values"
 msgstr "生の値（書式化なし）で表示する"
 
 #: server_status.php:859
-#| msgid "Related Links"
 msgid "Related links:"
 msgstr "関連リンク:"
 
@@ -10624,6 +10666,10 @@ msgstr "グローバル値"
 msgid "Download"
 msgstr "ダウンロードする"
 
+#: setup/frames/form.inc.php:25
+msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
+msgstr ""
+
 #: setup/frames/index.inc.php:49
 msgid "Cannot load or save configuration"
 msgstr "設定の読み込み・保存が出来ません"
@@ -10732,6 +10778,10 @@ msgstr "サーバの編集"
 #: setup/frames/servers.inc.php:37
 msgid "Add a new server"
 msgstr "新しいサーバの追加"
+
+#: setup/index.php:22
+msgid "Wrong GET file attribute value"
+msgstr ""
 
 #: setup/lib/form_processing.lib.php:43
 msgid "Warning"
@@ -10937,6 +10987,12 @@ msgstr "キーが短すぎます。少なくとも 8 文字は必要です。"
 #: setup/lib/index.lib.php:396
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "キーは文字、数字[em]そして[/em]特殊文字を含める必要があります。"
+
+#: setup/validate.php:22
+#, fuzzy
+#| msgid "No data"
+msgid "Wrong data"
+msgstr "データが存在しません"
 
 #: sql.php:214
 #, php-format
@@ -11437,7 +11493,6 @@ msgid "Show more actions"
 msgstr "他の操作を表示する"
 
 #: tbl_structure.php:604
-#| msgid "Print view"
 msgid "Edit view"
 msgstr "ビューを編集する"
 
@@ -11900,7 +11955,6 @@ msgid "'percona' found in version_comment"
 msgstr ""
 
 #: po/advisory_rules.php:62
-#| msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
 msgstr "Drizzle ドキュメントは http://docs.drizzle.org/ にあります。"
 
@@ -13043,9 +13097,6 @@ msgstr ""
 
 #~ msgid "Radar"
 #~ msgstr "レーダグラフ"
-
-#~ msgid "Bar type"
-#~ msgstr "棒グラフの種類"
 
 #~ msgid "Multi"
 #~ msgstr "マルチ形式"
