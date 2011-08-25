@@ -8310,10 +8310,9 @@ msgid "Web server"
 msgstr "Web sunucusu"
 
 #: main.php:190
-#, fuzzy
 #| msgid "Use light version"
 msgid "Database client version"
-msgstr "Sade sürümü kullan"
+msgstr "Veritabanı istemcisi sürümü"
 
 #: main.php:192
 msgid "PHP extension"
