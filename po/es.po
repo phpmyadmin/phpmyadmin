@@ -7891,7 +7891,7 @@ msgstr "Juegos de caracteres"
 #: libraries/server_links.inc.php:104 server_plugins.php:47
 #: server_plugins.php:80
 msgid "Plugins"
-msgstr ""
+msgstr "Complementos"
 
 #: libraries/server_links.inc.php:108
 msgid "Engines"
