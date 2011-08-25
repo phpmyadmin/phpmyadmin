@@ -980,6 +980,8 @@ msgstr ""
 msgid ""
 "Cannot convert file's character set without character set conversion library"
 msgstr ""
+"No se pudo convertir el conjunto de caracteres del archivo sin la biblioteca "
+"correspondiente"
 
 #: import.php:376 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
