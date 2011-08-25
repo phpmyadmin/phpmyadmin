@@ -5277,7 +5277,7 @@ msgstr "Drizzle sunucusuna bağlanılamadı"
 
 #: libraries/config/validate.lib.php:223 libraries/config/validate.lib.php:230
 msgid "Could not connect to MySQL server"
-msgstr "MySQL sunucusuna bağlanamadı"
+msgstr "MySQL sunucusuna bağlanılamadı"
 
 #: libraries/config/validate.lib.php:254
 msgid "Empty username while using config authentication method"
