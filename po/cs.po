@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 08:38+0200\n"
-"PO-Revision-Date: 2011-08-23 11:01+0200\n"
+"PO-Revision-Date: 2011-08-25 09:02+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -888,10 +888,10 @@ msgstr "Y"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
 #: js/messages.php:289
-#, fuzzy, php-format
+#, php-format
 #| msgid "Point"
 msgid "Point %d"
-msgstr "Bod"
+msgstr "Bod %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:295
@@ -899,10 +899,9 @@ msgid "Add a point"
 msgstr "Přidat bod"
 
 #: gis_data_editor.php:220 js/messages.php:290
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Řádky ukončené"
+msgstr "Linka"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:294
 msgid "Outer Ring"
@@ -910,19 +909,17 @@ msgstr "Vnější obrys"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:293
 msgid "Inner Ring"
-msgstr "Vnitřní obrys:"
+msgstr "Vnitřní obrys"
 
 #: gis_data_editor.php:252
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Přidat nového uživatele"
+msgstr "Přidat linku"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:296
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Přidat nového uživatele"
+msgstr "Přidat vnitřní obrys"
 
 #: gis_data_editor.php:266 js/messages.php:291
 msgid "Polygon"
@@ -980,7 +977,7 @@ msgstr ""
 #: import.php:352
 msgid ""
 "Cannot convert file's character set without character set conversion library"
-msgstr ""
+msgstr "Bez potřebné knihovny nelze převést znakovou sadu"
 
 #: import.php:376 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -1747,10 +1744,9 @@ msgid "Show search criteria"
 msgstr "Zobrazit parametry vyhledávání"
 
 #: js/messages.php:262 libraries/tbl_select.lib.php:138
-#, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
-msgstr "Vyhledávání"
+msgstr "Zoomovací vyhledávání"
 
 #: js/messages.php:264
 msgid "Each point represents a data row."
@@ -5221,13 +5217,12 @@ msgstr "Text OpenDocument"
 
 #: libraries/config/validate.lib.php:198
 msgid "Could not initialize Drizzle connection library"
-msgstr ""
+msgstr "Nepodařilo se inicializovat knihovnu Drizzle"
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Could not connect to Drizzle server"
-msgstr "Nepodařilo se připojit k MySQL serveru"
+msgstr "Nepodařilo se připojit k Drizzle serveru"
 
 #: libraries/config/validate.lib.php:223 libraries/config/validate.lib.php:230
 msgid "Could not connect to MySQL server"
@@ -5329,10 +5324,9 @@ msgid "The server is not responding"
 msgstr "Server neodpovídá"
 
 #: libraries/dbi/drizzle.dbi.lib.php:344
-#, fuzzy
 #| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid "(or the local Drizzle server's socket is not correctly configured)"
-msgstr "(nebo není správně nastaven lokální socket MySQL serveru)"
+msgstr "(nebo není správně nastaven lokální socket Drizzle serveru)"
 
 #: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysqli.dbi.lib.php:384
 msgid "(or the local MySQL server's socket is not correctly configured)"
@@ -7736,7 +7730,7 @@ msgstr "Znakové sady"
 #: libraries/server_links.inc.php:104 server_plugins.php:47
 #: server_plugins.php:80
 msgid "Plugins"
-msgstr ""
+msgstr "Rozšíření"
 
 #: libraries/server_links.inc.php:108
 msgid "Engines"
@@ -8198,10 +8192,9 @@ msgid "General Settings"
 msgstr "Obecná nastavení"
 
 #: main.php:101
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "Porovnávání pro toto připojení k MySQL"
+msgstr "Porovnávání pro toto připojení k serveru"
 
 #: main.php:116
 msgid "Appearance Settings"
@@ -8212,20 +8205,18 @@ msgid "More settings"
 msgstr "Více nastavení"
 
 #: main.php:156
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
-msgstr "Databáze pro uživatele"
+msgstr "Databázový server"
 
 #: main.php:159
 msgid "Software"
-msgstr ""
+msgstr "Software"
 
 #: main.php:160
-#, fuzzy
 #| msgid "Show versions"
 msgid "Software version"
-msgstr "Zobrazit verze"
+msgstr "Verze software"
 
 #: main.php:161
 msgid "Protocol version"
@@ -8238,20 +8229,18 @@ msgid "User"
 msgstr "Uživatel"
 
 #: main.php:167
-#, fuzzy
 #| msgid "Server socket"
 msgid "Server charset"
-msgstr "Socket serveru"
+msgstr "Znaková sada"
 
 #: main.php:179
 msgid "Web server"
 msgstr "Webserver"
 
 #: main.php:190
-#, fuzzy
 #| msgid "Use light version"
 msgid "Database client version"
-msgstr "Použít odlehčenou verzi"
+msgstr "Verze databázového klienta"
 
 #: main.php:192
 msgid "PHP extension"
@@ -8736,7 +8725,7 @@ msgstr "Export databází"
 
 #: server_plugins.php:81
 msgid "Modules"
-msgstr ""
+msgstr "Moduly"
 
 #: server_plugins.php:102
 msgid "Begin"
@@ -8744,15 +8733,15 @@ msgstr "Začátek"
 
 #: server_plugins.php:111
 msgid "Plugin"
-msgstr ""
+msgstr "Rozšíření"
 
 #: server_plugins.php:112 server_plugins.php:146
 msgid "Module"
-msgstr ""
+msgstr "Modul"
 
 #: server_plugins.php:113 server_plugins.php:148
 msgid "Library"
-msgstr ""
+msgstr "Knihovna"
 
 #: server_plugins.php:114 server_plugins.php:149 tbl_tracking.php:635
 msgid "Version"
@@ -8760,17 +8749,16 @@ msgstr "Verze"
 
 #: server_plugins.php:115 server_plugins.php:150
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: server_plugins.php:116 server_plugins.php:151
 msgid "License"
 msgstr "Licence"
 
 #: server_plugins.php:182
-#, fuzzy
 #| msgid "Disabled"
 msgid "disabled"
-msgstr "Vypnuto"
+msgstr "vypnuto"
 
 #: server_privileges.php:32 server_privileges.php:364
 msgid "Includes all privileges except GRANT."
