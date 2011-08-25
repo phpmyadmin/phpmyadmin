@@ -9490,10 +9490,9 @@ msgid "Show unformatted values"
 msgstr "生の値（書式化なし）で表示する"
 
 #: server_status.php:859
-#, fuzzy
 #| msgid "Related Links"
 msgid "Related links:"
-msgstr "関連リンク"
+msgstr "関連リンク:"
 
 #: server_status.php:892
 #, fuzzy
