@@ -12164,11 +12164,9 @@ msgstr ""
 "se encontró 'percona' en el comentario de la versión («version_comment»)"
 
 #: po/advisory_rules.php:62
-#, fuzzy
 #| msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
-msgstr ""
-"La documentación de Percona se encuentra en http://www.percona.com/docs/wiki/"
+msgstr "La documentación de Drizzle se encuentra en http://docs.drizzle.org/"
 
 #: po/advisory_rules.php:63
 #, php-format
