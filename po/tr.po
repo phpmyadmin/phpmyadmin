@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 08:38+0200\n"
-"PO-Revision-Date: 2011-08-25 13:20+0200\n"
+"PO-Revision-Date: 2011-08-25 13:21+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -5268,7 +5268,7 @@ msgstr "Açık Belge Metni"
 
 #: libraries/config/validate.lib.php:198
 msgid "Could not initialize Drizzle connection library"
-msgstr ""
+msgstr "Drizzle bağlantı kütüphanesi başlatılamadı"
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
 #| msgid "Could not connect to MySQL server"
