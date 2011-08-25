@@ -8264,10 +8264,9 @@ msgid "General Settings"
 msgstr "Genel Ayarlar"
 
 #: main.php:101
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "MySQL bağlantı karşılaştırması"
+msgstr "Sunucu bağlantısı karşılaştırması"
 
 #: main.php:116
 msgid "Appearance Settings"
