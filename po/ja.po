@@ -11443,10 +11443,9 @@ msgid "Show more actions"
 msgstr "他の操作を表示する"
 
 #: tbl_structure.php:604
-#, fuzzy
 #| msgid "Print view"
 msgid "Edit view"
-msgstr "印刷用画面"
+msgstr "ビューを編集する"
 
 #: tbl_structure.php:621
 msgid "Relation view"
