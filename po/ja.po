@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 08:38+0200\n"
-"PO-Revision-Date: 2011-08-25 11:21+0200\n"
+"PO-Revision-Date: 2011-08-25 11:22+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -8211,10 +8211,9 @@ msgid "General Settings"
 msgstr "一般設定"
 
 #: main.php:101
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "MySQL 接続の照合順序"
+msgstr "サーバ接続の照合順序"
 
 #: main.php:116
 msgid "Appearance Settings"
