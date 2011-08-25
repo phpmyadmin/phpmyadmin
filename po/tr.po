@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 08:38+0200\n"
-"PO-Revision-Date: 2011-08-25 12:06+0200\n"
+"PO-Revision-Date: 2011-08-25 12:08+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -5378,7 +5378,7 @@ msgstr "Sunucu yanıt vermiyor"
 #: libraries/dbi/drizzle.dbi.lib.php:344
 #| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid "(or the local Drizzle server's socket is not correctly configured)"
-msgstr "(ya da yerel Drizeel sunucusunun soketi doğru olarak yapılandırılmadı)"
+msgstr "(ya da yerel Drizzel sunucusunun soketi doğru olarak yapılandırılmadı)"
 
 #: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysqli.dbi.lib.php:384
 msgid "(or the local MySQL server's socket is not correctly configured)"
