@@ -40,13 +40,13 @@ function PMA_tbl_setTitle($propertiesIconic, $pmaThemeImage)
  * Gets all the fields of a table along with their types, collations
  * and whether null or not.
  *
- * @param string $table Selected table
  * @param string $db    Selected database
+ * @param string $table Selected table
  *
  * @return array Array containing the field list, field types, collations
  * and null constraint
  */
-function PMA_tbl_getFields($table,$db)
+function PMA_tbl_getFields($db, $table)
 {
     // Gets the list and number of fields
     $fields = PMA_DBI_get_columns($db, $table, true);

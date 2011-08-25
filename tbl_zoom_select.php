@@ -73,7 +73,7 @@ $err_url   = $goto . '?' . PMA_generate_common_url($db, $table);
 
 // Gets the list and number of fields
 
-list($fields_list, $fields_type, $fields_collation, $fields_null) = PMA_tbl_getFields($table,$db);
+list($fields_list, $fields_type, $fields_collation, $fields_null) = PMA_tbl_getFields($db, $table);
 $fields_cnt = count($fields_list);
 
 // retrieve keys into foreign fields, if any
