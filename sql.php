@@ -35,7 +35,7 @@ if (isset($_SESSION['profiling'])) {
     /* < IE 9 doesn't support canvas natively */
     if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
         $GLOBALS['js_include'][] = 'canvg/flashcanvas.js';
-    }	
+    }
     $GLOBALS['js_include'][] = 'canvg/canvg.js';
 }
 
@@ -782,7 +782,7 @@ else {
         $GLOBALS['js_include'][] = 'functions.js';
         $GLOBALS['js_include'][] = 'makegrid.js';
         $GLOBALS['js_include'][] = 'sql.js';
-        
+
         // Gets the list of fields properties
         if (isset($result) && $result) {
             $fields_meta = PMA_DBI_get_fields_meta($result);
@@ -799,7 +799,7 @@ else {
         if (PMA_is_system_schema($db)) {
             $disp_mode = 'nnnn110111';
         }
-        
+
         $message = PMA_Message::success($message);
         echo PMA_showMessage($message, $GLOBALS['sql_query'], 'success');
         PMA_displayTable($result, $disp_mode, $analyzed_sql);
