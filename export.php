@@ -26,7 +26,7 @@ $type = $what;
 
 // Check export type
 if (! isset($export_list[$type])) {
-    die('Bad type!');
+    die(__('Bad type!'));
 }
 
 /**
@@ -103,7 +103,7 @@ if ($export_type == 'server') {
 } elseif ($export_type == 'table' && strlen($db) && strlen($table)) {
     $err_url = 'tbl_export.php?' . PMA_generate_common_url($db, $table);
 } else {
-    die('Bad parameters!');
+    die(__('Bad parameters!'));
 }
 
 // Get the functions specific to the export type

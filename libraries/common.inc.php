@@ -144,7 +144,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
  * protect against possible exploits - there is no need to have so much variables
  */
 if (count($_REQUEST) > 1000) {
-    die('possible exploit');
+    die(__('possible exploit'));
 }
 
 /**
@@ -153,7 +153,7 @@ if (count($_REQUEST) > 1000) {
  */
 foreach ($GLOBALS as $key => $dummy) {
     if (is_numeric($key)) {
-        die('numeric key detected');
+        die(__('numeric key detected'));
     }
 }
 unset($dummy);

@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
  *
  */
 if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
-    die("GLOBALS overwrite attempt");
+    die(__("GLOBALS overwrite attempt"));
 }
 
 /**

@@ -686,7 +686,7 @@ class PMA_Config
     {
         // Refuse to work while there still might be some world writable dir:
         if (is_dir('./config')) {
-            die('Remove "./config" directory before using phpMyAdmin!');
+            die(__('Remove "./config" directory before using phpMyAdmin!'));
         }
     }
 
@@ -710,8 +710,9 @@ class PMA_Config
         if (! is_readable($this->getSource())) {
             $this->source_mtime = 0;
             die(
-                'Existing configuration file (' 
-                    . $this->getSource() . ') is not readable.'
+                sprintf(__('Existing configuration file (%d) is not readable.'),
+                    $this->getSource()
+                )
             );
         }
 
@@ -734,7 +735,7 @@ class PMA_Config
                 $this->checkWebServerOs();
                 if ($this->get('PMA_IS_WINDOWS') == 0) {
                     $this->source_mtime = 0;
-                    die('Wrong permissions on configuration file, should not be world writable!');
+                    die(__('Wrong permissions on configuration file, should not be world writable!'));
                 }
             }
         }
