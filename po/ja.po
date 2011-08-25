@@ -8232,10 +8232,9 @@ msgid "Software"
 msgstr "ソフトウェア"
 
 #: main.php:160
-#, fuzzy
 #| msgid "Show versions"
 msgid "Software version"
-msgstr "バージョンを表示する"
+msgstr "ソフトウェアバージョン"
 
 #: main.php:161
 msgid "Protocol version"
