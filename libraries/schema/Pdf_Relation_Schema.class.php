@@ -587,11 +587,6 @@ class Table_Stats
             $pdf->PMA_PDF_setXScale($this->x);
             $pdf->SetFillColor(255);
         }
-        /*if ($pdf->PageNo() > 1) {
-            $pdf->PMA_PDF_die(
-                __('The scale factor is too small to fit the schema on one page')
-            );
-        } */
     }
 }
 
