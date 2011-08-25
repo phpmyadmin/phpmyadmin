@@ -179,16 +179,18 @@ class PMA_Config
         // (must check everything else before Mozilla)
 
         if (preg_match(
-            '@Opera(/| )([0-9].[0-9]{1,2})@',
-            $HTTP_USER_AGENT,
-            $log_version)
+                '@Opera(/| )([0-9].[0-9]{1,2})@',
+                $HTTP_USER_AGENT,
+                $log_version
+            )
         ) {
             $this->set('PMA_USR_BROWSER_VER', $log_version[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'OPERA');
         } elseif (preg_match(
-            '@MSIE ([0-9].[0-9]{1,2})@',
-            $HTTP_USER_AGENT,
-            $log_version)
+                '@MSIE ([0-9].[0-9]{1,2})@',
+                $HTTP_USER_AGENT,
+                $log_version
+            )
         ) {
             $this->set('PMA_USR_BROWSER_VER', $log_version[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'IE');
