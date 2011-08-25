@@ -46,7 +46,7 @@ function PMA_tbl_setTitle($propertiesIconic, $pmaThemeImage)
 function PMA_tbl_getFields($db, $table)
 {
     // Gets the list and number of fields
-    $fields = PMA_DBI_get_columns($db, $table, true);
+    $fields = PMA_DBI_get_columns($db, $table, null, true);
     $fields_list = $fields_null = $fields_type = $fields_collation = array();
     $geom_column_present = false;
     $geom_types = PMA_getGISDatatypes();

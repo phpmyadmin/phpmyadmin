@@ -75,7 +75,7 @@ function get_tab_info()
     PMA_DBI_select_db($GLOBALS['db']);
     $tab_column = array();
     for ($i = 0, $cnt = count($GLOBALS['PMD']["TABLE_NAME"]); $i < $cnt; $i++) {
-        $fields_rs   = PMA_DBI_query(PMA_DBI_get_columns_sql($GLOBALS['db'], $GLOBALS['PMD']["TABLE_NAME_SMALL"][$i], true), NULL, PMA_DBI_QUERY_STORE);
+        $fields_rs   = PMA_DBI_query(PMA_DBI_get_columns_sql($GLOBALS['db'], $GLOBALS['PMD']["TABLE_NAME_SMALL"][$i], null, true), NULL, PMA_DBI_QUERY_STORE);
         $j = 0;
         while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
             $tab_column[$GLOBALS['PMD']['TABLE_NAME'][$i]]['COLUMN_ID'][$j]   = $j;
@@ -175,7 +175,7 @@ function get_all_keys($unique_only = false)
     require_once './libraries/Index.class.php';
 
     $keys = array();
-        
+
     foreach ($GLOBALS['PMD']['TABLE_NAME_SMALL'] as $I => $table) {
         $schema = $GLOBALS['PMD']['OWNER'][$I];
         // for now, take into account only the first index segment
