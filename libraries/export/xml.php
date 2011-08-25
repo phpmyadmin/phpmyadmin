@@ -32,7 +32,7 @@ if (isset($plugin_list)) {
         'type' => 'begin_group',
         'name' => 'structure',
         'text' => __('Object creation options (all are recommended)')
-		);
+        );
     if (!PMA_DRIZZLE) {
         $plugin_list['xml']['options'][] = array(
             'type' => 'bool',
@@ -43,7 +43,7 @@ if (isset($plugin_list)) {
             'type' => 'bool',
             'name' => 'export_procedures',
             'text' => __('Procedures')
-			);
+            );
     }
     $plugin_list['xml']['options'][] = array(
         'type' => 'bool',
@@ -60,8 +60,8 @@ if (isset($plugin_list)) {
             'type' => 'bool',
             'name' => 'export_views',
             'text' => __('Views')
-			);
-	}
+            );
+    }
     $plugin_list['xml']['options'][] = array(
         'type' => 'end_group'
         );

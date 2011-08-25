@@ -507,8 +507,8 @@ foreach ($fields as $row) {
                      }
                   } ?>
             </div>
-	        <?php if (!PMA_DRIZZLE) { ?>
-	        <div class="action_spatial">
+            <?php if (!PMA_DRIZZLE) { ?>
+            <div class="action_spatial">
                 <?php
                 if (isset($spatial_enabled)) {
                     if ($spatial_enabled) { ?>

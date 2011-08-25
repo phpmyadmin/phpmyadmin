@@ -119,12 +119,12 @@ class PMA_Scatter_Plot
         $this->_dataPoints = array();
         if (! is_null($this->_userSpecifiedSettings)) {
             foreach (array_keys($this->_userSpecifiedSettings) as $key){
-	        $this->_settings[$key] = $this->_userSpecifiedSettings[$key];	
- 	    }
+            $this->_settings[$key] = $this->_userSpecifiedSettings[$key];	
+         }
         }
         if ($this->_settings['dataLabel'] == '') {
-        	$labels = array_keys($this->_data[0]);
-		$this->_settings['dataLabel'] = $labels[0];
+            $labels = array_keys($this->_data[0]);
+        $this->_settings['dataLabel'] = $labels[0];
         }
     }
 
@@ -143,7 +143,7 @@ class PMA_Scatter_Plot
             . ' height="' . $this->_settings['height'] . '">';
         $output .= '<g id="groupPanel">';
         $output .= '<defs>
-		    <path id="myTextPath1"
+            <path id="myTextPath1"
                     d="M10,190 L10,50"/>
                     <path id="myTextPath2"
                     d="M250,10 L370,10"/>
@@ -194,41 +194,38 @@ class PMA_Scatter_Plot
         // Currently assuming only numeric fields are selected 
         $coordinates = array();
         foreach ($data as $row) {
-	    $coordinates[0][] = $row[$xField];
-	    $coordinates[1][] = $row[$yField];
-	}
+            $coordinates[0][] = $row[$xField];
+            $coordinates[1][] = $row[$yField];
+        }
         for ($i = 0 ; $i < 2 ; $i++) {
-
             $maxC = ($i == 0) ? 500 : 320;          
 
-            if( !is_numeric($coordinates[$i][0])) {
+            if ( !is_numeric($coordinates[$i][0])) {
                 $uniqueC = array_unique($coordinates[$i]);
                 $countC = count(array_unique($coordinates[$i]));
-	        $map = $tmp = array();
+                $map = $tmp = array();
                 foreach ($uniqueC as $uc) {
-			$tmp[] = $uc;
-		}
+                    $tmp[] = $uc;
+                }
                 for ($j = 0 ; $j < $countC ; $j++) {
                     $map[$tmp[$j]] = 20 + $j * $maxC / $countC;
-	        }
-		for($j = 0 ; $j < count($coordinates[$i]) ; $j++) {
-     		        $coordinates[$i][$j] = $map[$coordinates[$i][$j]];
-		}
-
-	    }
-            elseif (is_numeric($coordinates[$i][0])) {
-		
-        	$maxC = max($coordinates[$i]);
-		for($j = 0 ; $j < count($coordinates[$i]) ; $j++) {
-		
-		    if ($i == 0)
-     		        $coordinates[$i][$j] = 20 + 500 * $coordinates[$i][$j] / $maxC;
-		    else
-     		        $coordinates[$i][$j] = 20 + 320 * (1 - $coordinates[$i][$j] / $maxC);
-		}
-	    }
-	}
-	return $coordinates;
+                }
+                for ($j = 0 ; $j < count($coordinates[$i]) ; $j++) {
+                     $coordinates[$i][$j] = $map[$coordinates[$i][$j]];
+                }
+            }
+            else if (is_numeric($coordinates[$i][0])) {
+                $maxC = max($coordinates[$i]);
+                for ($j = 0 ; $j < count($coordinates[$i]) ; $j++) {
+                    if ($i == 0) {
+                         $coordinates[$i][$j] = 20 + 500 * $coordinates[$i][$j] / $maxC;
+                    } else {
+                         $coordinates[$i][$j] = 20 + 320 * (1 - $coordinates[$i][$j] / $maxC);
+                    }
+                }
+            }
+        }
+        return $coordinates;
     }
 
     /**
@@ -238,15 +235,13 @@ class PMA_Scatter_Plot
      * @param int    $color_number Start index to the color array
      * @param array  $scale_data   Data related to scaling
      * @param string $label        Label for the data points
-     * @param image  $results      Image object in the case of png
-     *
-     * @return the formatted array of data.
+     * @return string the formatted array of data.
      */
     private function _prepareDataSet($data, $color_number, $scale_data, $label)
     {
         $result = '';
         // loop through the rows
-        for($i = 0 ; $i < count($data) ; $i++) {
+        for ($i = 0 ; $i < count($data) ; $i++) {
 
             $index = $color_number % sizeof($this->_settings['colors']);
             
@@ -255,10 +250,9 @@ class PMA_Scatter_Plot
             $options = array('color' => $this->_settings['colors'][$index], 'id' => $i);
             $this->_dataPoints[] = $data_element;
 
-	    $result .= $data_element->prepareRowAsSVG($options);
+            $result .= $data_element->prepareRowAsSVG($options);
             $color_number++;
         }
-
 
         return $result;
     }
