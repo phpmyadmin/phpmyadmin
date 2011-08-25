@@ -8387,7 +8387,7 @@ msgstr "Servidor de base de datos"
 
 #: main.php:159
 msgid "Software"
-msgstr ""
+msgstr "Programas"
 
 #: main.php:160
 #, fuzzy
