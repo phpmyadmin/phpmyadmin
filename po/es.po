@@ -8915,7 +8915,7 @@ msgstr "Ver el volcado (schema) de la base de datos"
 
 #: server_plugins.php:81
 msgid "Modules"
-msgstr ""
+msgstr "Módulos"
 
 #: server_plugins.php:102
 msgid "Begin"
