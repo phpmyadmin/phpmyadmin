@@ -11069,10 +11069,9 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Anahtar harf, sayı [em]ve[/em] özel karakterler içermelidir."
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No data"
 msgid "Wrong data"
-msgstr "Veri yok"
+msgstr "Yanlış veri"
 
 #: sql.php:214
 #, php-format
