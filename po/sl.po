@@ -8317,7 +8317,7 @@ msgstr "Strežnik zbirke podatkov"
 
 #: main.php:159
 msgid "Software"
-msgstr ""
+msgstr "Programska oprema"
 
 #: main.php:160
 #, fuzzy
