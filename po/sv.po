@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-27 00:52+0200\n"
+"PO-Revision-Date: 2011-08-27 00:53+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1583,10 +1583,9 @@ msgstr ""
 "mata in dina inloggningsuppgifter igen bör lösa problemet."
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
-msgstr "Uppdatera"
+msgstr "Uppdatera sidan"
 
 #: js/messages.php:186
 msgid "Affected rows:"
