@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-26 13:57+0200\n"
+"PO-Revision-Date: 2011-08-26 13:59+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -12384,6 +12384,9 @@ msgid ""
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
+"To kaže, da mora veliko poizvedb rezultate razvrstiti in/ali izvesti poln "
+"pregled tabele, vključno s poizvedbami stikov, ki ne uporabljajo indeksov. "
+"Dodajte indekse, kjer je to primerno."
 
 #: po/advisory_rules.php:138
 #, php-format
