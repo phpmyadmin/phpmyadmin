@@ -966,7 +966,7 @@ ul#topmenu li, ul#topmenu2 li {
     vertical-align:-3px;
 }
 
-#topmenucontainer{
+.menucontainer{
     background:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>tab_bg.png) repeat-x;
     border-top:1px solid #aaa;
 }
