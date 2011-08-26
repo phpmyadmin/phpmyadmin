@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-26 13:52+0200\n"
+"PO-Revision-Date: 2011-08-26 13:53+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -12027,10 +12027,9 @@ msgid "'percona' found in version_comment"
 msgstr "našel sem 'percona' v version_comment"
 
 #: po/advisory_rules.php:62
-#, fuzzy
 #| msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
-msgstr "Dokumentacija Percona se nahaja na http://www.percona.com/docs/wiki/"
+msgstr "Dokumentacija Drizzle se nahaja na http://docs.drizzle.org/"
 
 #: po/advisory_rules.php:63
 #, php-format
