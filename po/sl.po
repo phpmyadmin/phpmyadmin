@@ -8298,10 +8298,9 @@ msgid "General Settings"
 msgstr "Splošne nastavitve"
 
 #: main.php:101
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "Razvrščanje znakov povezave MySQL"
+msgstr "Razvrščanje znakov povezave strežnika"
 
 #: main.php:116
 msgid "Appearance Settings"
