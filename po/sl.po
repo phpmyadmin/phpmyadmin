@@ -12394,6 +12394,8 @@ msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr ""
+"Delež povprečja branja stalnega položaja: %s; ta vrednost bi morala biti "
+"manj kot 1 na uro"
 
 #: po/advisory_rules.php:140
 msgid "Rate of reading next table row"
