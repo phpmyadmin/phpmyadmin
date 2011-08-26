@@ -5301,10 +5301,9 @@ msgid "Could not initialize Drizzle connection library"
 msgstr "Ne morem inicializirati knjižnice za povezavo Drizzle"
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Could not connect to Drizzle server"
-msgstr "Ne morem se povezati s strežnikom MySQL"
+msgstr "Ne morem se povezati s strežnikom Drizzle"
 
 #: libraries/config/validate.lib.php:223 libraries/config/validate.lib.php:230
 msgid "Could not connect to MySQL server"
