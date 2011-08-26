@@ -8344,10 +8344,9 @@ msgid "Web server"
 msgstr "Spletni strežnik"
 
 #: main.php:190
-#, fuzzy
 #| msgid "Use light version"
 msgid "Database client version"
-msgstr "Uporabi lahko različico"
+msgstr "Različica odjemalca zbirk podatkov"
 
 #: main.php:192
 msgid "PHP extension"
