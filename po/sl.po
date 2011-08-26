@@ -11068,10 +11068,9 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Ključ naj vsebuje črke, številke [em]in[/em] posebne znake."
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No data"
 msgid "Wrong data"
-msgstr "Brez podatkov"
+msgstr "Napačni podatki"
 
 #: sql.php:214
 #, php-format
