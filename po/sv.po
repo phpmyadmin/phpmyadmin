@@ -1274,7 +1274,7 @@ msgstr "System swap"
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:103 libraries/common.lib.php:1343 server_status.php:1669
 msgid "MiB"
-msgstr "MiB"
+msgstr "MB"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:104 libraries/common.lib.php:1341 server_status.php:1669
