@@ -1324,10 +1324,9 @@ msgid "Used Swap"
 msgstr "Använt Swap"
 
 #: js/messages.php:116
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "Fria sidor"
+msgstr "Ledigt Swap"
 
 #: js/messages.php:118
 msgid "Bytes sent"
