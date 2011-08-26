@@ -8863,7 +8863,7 @@ msgstr "Avtor"
 
 #: server_plugins.php:116 server_plugins.php:151
 msgid "License"
-msgstr ""
+msgstr "Dovoljenje"
 
 #: server_plugins.php:182
 #, fuzzy
