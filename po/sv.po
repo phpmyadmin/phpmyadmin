@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-27 00:34+0200\n"
+"PO-Revision-Date: 2011-08-27 00:35+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1301,10 +1301,9 @@ msgid "Buffered memory"
 msgstr "Buffrat minne"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "System memory"
 msgid "Free memory"
-msgstr "Systemminne"
+msgstr "Ledigt minne"
 
 #: js/messages.php:111
 #, fuzzy
