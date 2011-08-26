@@ -12376,7 +12376,7 @@ msgstr "Delež branja stalnega položaja"
 
 #: po/advisory_rules.php:136
 msgid "The rate of reading data from a fixed position is high."
-msgstr ""
+msgstr "Delež branja podatkov s stalnega položaja je visok."
 
 #: po/advisory_rules.php:137
 msgid ""
