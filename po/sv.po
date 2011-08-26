@@ -1366,7 +1366,7 @@ msgstr "Redigera titlar och etiketter"
 
 #: js/messages.php:129
 msgid "Add chart to grid"
-msgstr "Adders diagrammet till rutnätet"
+msgstr "Addera diagrammet till rutnätet"
 
 #: js/messages.php:131
 msgid "Please add at least one variable to the series"
