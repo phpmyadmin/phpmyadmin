@@ -12938,7 +12938,7 @@ msgstr "Sočasna vstavljanja MyISAM"
 
 #: po/advisory_rules.php:271
 msgid "Enable concurrent_insert by setting it to 1"
-msgstr ""
+msgstr "Omogočite concurrent_insert z nastavitvijo na 1"
 
 #: po/advisory_rules.php:272
 msgid ""
