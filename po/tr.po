@@ -830,10 +830,9 @@ msgid "Selected export type has to be saved in file!"
 msgstr "Seçili dışa aktarma türü dosyaya kaydedilmelidir!"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Bad parameters!"
-msgstr "Parametre ekle"
+msgstr "Kötü parametreler!"
 
 #: export.php:167 export.php:192 export.php:655
 #, php-format
