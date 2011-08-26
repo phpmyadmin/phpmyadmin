@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-26 14:47+0200\n"
+"PO-Revision-Date: 2011-08-26 14:48+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2210,6 +2210,7 @@ msgstr "Mevcut yapılandırma dosyası (%d) okunabilir değil."
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
+"Yapılandırma dosyasında yanlış izinler, herkesçe yazılabilir olmamalıdır!"
 
 #: libraries/Config.class.php:1297
 msgid "Font size"
