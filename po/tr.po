@@ -2205,7 +2205,7 @@ msgstr "phpMyAdmin'den önce kullanılan \"./config\" dizinini kaldır!"
 #: libraries/Config.class.php:727
 #, php-format
 msgid "Existing configuration file (%d) is not readable."
-msgstr ""
+msgstr "Mevcut yapılandırma dosyası (%d) okunabilir değil."
 
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
