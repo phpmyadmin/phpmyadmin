@@ -8835,7 +8835,7 @@ msgstr "Pokaži povzetek stanja zbirk podatkov"
 
 #: server_plugins.php:81
 msgid "Modules"
-msgstr ""
+msgstr "Moduli"
 
 #: server_plugins.php:102
 msgid "Begin"
