@@ -12093,7 +12093,7 @@ msgstr "Način predpomnjenja poizvedb"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
-msgstr ""
+msgstr "Podoptimalni način predpomnjenja."
 
 #: po/advisory_rules.php:77
 #, fuzzy
