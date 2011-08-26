@@ -12034,7 +12034,7 @@ msgstr "Dokumentacija Drizzle se nahaja na http://docs.drizzle.org/"
 #: po/advisory_rules.php:63
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
-msgstr ""
+msgstr "Niz različice (%s) se ujema s shemo različic Drizzle"
 
 #: po/advisory_rules.php:65
 msgid "MySQL Architecture"
