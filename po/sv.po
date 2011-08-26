@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-27 00:18+0200\n"
+"PO-Revision-Date: 2011-08-27 00:19+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -903,10 +903,9 @@ msgstr "Punkt %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:295
-#, fuzzy
 #| msgid "Add routine"
 msgid "Add a point"
-msgstr "Lägg till rutin."
+msgstr "Lägg till en punkt"
 
 #: gis_data_editor.php:220 js/messages.php:290
 #, fuzzy
