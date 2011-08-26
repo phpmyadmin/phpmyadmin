@@ -1339,7 +1339,7 @@ msgstr "Antal mottagna bital"
 
 #: js/messages.php:120 server_status.php:1134
 msgid "Connections"
-msgstr "Förbindelser"
+msgstr "Anslutningar"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:124
