@@ -12251,7 +12251,7 @@ msgstr "Velikost najmanjšega rezultata predpomnilnika poizvedb"
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
-"Provzeta največja velikost množice podatkov v predpomnilniku poizvedb je 1 "
+"Privzeta največja velikost množice podatkov v predpomnilniku poizvedb je 1 "
 "MiB."
 
 #: po/advisory_rules.php:107
