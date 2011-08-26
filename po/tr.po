@@ -858,10 +858,9 @@ msgid "Dump has been saved to file %s."
 msgstr "Döküm, %s dosyasına kaydedildi."
 
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "Dışa aktarma türü"
+msgstr "Geçersiz dışa aktarma türü"
 
 #: gis_data_editor.php:84
 #, php-format
