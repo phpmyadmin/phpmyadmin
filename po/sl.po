@@ -2208,7 +2208,7 @@ msgstr "Pred uporabo phpMyAdmina odstranite mapo \"./config\"!"
 #: libraries/Config.class.php:727
 #, php-format
 msgid "Existing configuration file (%d) is not readable."
-msgstr ""
+msgstr "Obstoječa konfiguracijska datoteka (%d) ni berljiva."
 
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
