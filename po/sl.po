@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-26 13:47+0200\n"
+"PO-Revision-Date: 2011-08-26 13:48+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -2213,6 +2213,7 @@ msgstr "Obstoječa konfiguracijska datoteka (%d) ni berljiva."
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
+"Napačna dovoljenja konfiguracijski datoteke; ne sme biti vsem zapisljiva!"
 
 #: libraries/Config.class.php:1297
 msgid "Font size"
