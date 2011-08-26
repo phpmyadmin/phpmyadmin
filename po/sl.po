@@ -2669,7 +2669,7 @@ msgstr "Preveri privilegije"
 
 #: libraries/common.inc.php:147
 msgid "possible exploit"
-msgstr ""
+msgstr "možno izkoriščanje"
 
 #: libraries/common.inc.php:156
 msgid "numeric key detected"
