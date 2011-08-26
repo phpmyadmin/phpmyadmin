@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-27 00:57+0200\n"
+"PO-Revision-Date: 2011-08-27 00:58+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1618,10 +1618,9 @@ msgid "Analyse Query"
 msgstr "Analysera fråga"
 
 #: js/messages.php:196
-#, fuzzy
 #| msgid "Apply a divisor"
 msgid "Advisor system"
-msgstr "Tillämpa en dividend"
+msgstr "Handledningssystem"
 
 #: js/messages.php:197
 msgid "Possible performance issues"
