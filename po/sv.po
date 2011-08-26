@@ -932,7 +932,7 @@ msgstr "Lägg till ny innre ring"
 
 #: gis_data_editor.php:266 js/messages.php:291
 msgid "Polygon"
-msgstr ""
+msgstr "Polygon"
 
 #: gis_data_editor.php:306 js/messages.php:297
 #, fuzzy
