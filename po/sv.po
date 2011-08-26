@@ -874,7 +874,7 @@ msgstr "Använd OpenStreetMaps som baslager"
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:292
 #: libraries/display_tbl.lib.php:665
