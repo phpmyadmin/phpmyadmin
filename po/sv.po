@@ -899,7 +899,7 @@ msgstr "Y"
 #: js/messages.php:289
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "Punkt %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:295
