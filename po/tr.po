@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-26 14:50+0200\n"
+"PO-Revision-Date: 2011-08-26 14:53+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -5359,7 +5359,7 @@ msgstr "%s uzantısı eksik. Lütfen PHP yapılandırmanızı kontrol edin."
 
 #: libraries/core.lib.php:409
 msgid "possible deep recursion attack"
-msgstr ""
+msgstr "olası aşırı özyinelemeli saldırı"
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
