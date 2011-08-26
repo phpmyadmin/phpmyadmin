@@ -10860,7 +10860,7 @@ msgstr "Dodaj nov strežnik"
 
 #: setup/index.php:22
 msgid "Wrong GET file attribute value"
-msgstr ""
+msgstr "Napačna vrednost atributa datoteke GET"
 
 #: setup/lib/form_processing.lib.php:43
 msgid "Warning"
