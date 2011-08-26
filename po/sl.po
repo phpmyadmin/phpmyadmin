@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-26 13:54+0200\n"
+"PO-Revision-Date: 2011-08-26 13:55+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -12096,7 +12096,6 @@ msgid "Suboptimal caching method."
 msgstr "Podoptimalni način predpomnjenja."
 
 #: po/advisory_rules.php:77
-#, fuzzy
 #| msgid ""
 #| "You are using the MySQL Query cache with a fairly high traffic database. "
 #| "It might be worth considering to use <a href=\\\"http://dev.mysql.com/doc/"
@@ -12109,9 +12108,10 @@ msgid ""
 "cache, especially if you have multiple slaves."
 msgstr ""
 "Uporabljate predpomnjenje poizvedb MySQL s precej prometno zbirko podatkov. "
-"Morda bi bilo koristno razmisliti o uporabi <a href=\\\"http://dev.mysql.com/"
-"doc/refman/5.1/en/ha-memcached.html\\\">memcached</a> namesto predpomnjenja "
-"poizvedb MySQL, še posebej, če imate več podrejencev."
+"Morda bi bilo koristno razmisliti o uporabi <a "
+"href=\\\"http://dev.mysql.com/doc/refman/5.5/en/ha-"
+"memcached.html\\\">memcached</a> namesto predpomnjenja poizvedb MySQL, še "
+"posebej, če imate več podrejencev."
 
 #: po/advisory_rules.php:78
 #, php-format
