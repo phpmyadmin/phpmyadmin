@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-25 13:26+0200\n"
+"PO-Revision-Date: 2011-08-26 14:38+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -821,10 +821,9 @@ msgstr ""
 "\"Genişlik/Değerler\" alanında birleştirilen değerleri kopyala ve yapıştır"
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "Çubuk türü"
+msgstr "Kötü tür!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
