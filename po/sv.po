@@ -1382,7 +1382,7 @@ msgstr "Inget"
 
 #: js/messages.php:133
 msgid "Resume monitor"
-msgstr "Återuppta monitor"
+msgstr "Återuppta övervakning"
 
 #: js/messages.php:134
 msgid "Pause monitor"
