@@ -1589,7 +1589,7 @@ msgstr "Uppdatera sidan"
 
 #: js/messages.php:186
 msgid "Affected rows:"
-msgstr ""
+msgstr "Påverkade rader:"
 
 #: js/messages.php:188
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
