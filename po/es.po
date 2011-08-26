@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-22 22:01+0200\n"
+"PO-Revision-Date: 2011-08-25 18:57+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -909,10 +909,10 @@ msgstr "Y"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
 #: js/messages.php:289
-#, fuzzy, php-format
+#, php-format
 #| msgid "Point"
 msgid "Point %d"
-msgstr "Punto"
+msgstr "Punto %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:295
@@ -1000,6 +1000,8 @@ msgstr ""
 msgid ""
 "Cannot convert file's character set without character set conversion library"
 msgstr ""
+"No se pudo convertir el conjunto de caracteres del archivo sin la biblioteca "
+"correspondiente"
 
 #: import.php:376 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -5370,13 +5372,12 @@ msgstr "Texto Open Document"
 
 #: libraries/config/validate.lib.php:198
 msgid "Could not initialize Drizzle connection library"
-msgstr ""
+msgstr "No se pudo inicializar la biblioteca de conexión Drizzle"
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Could not connect to Drizzle server"
-msgstr "No pudo conectarse con un servidor MySQL"
+msgstr "No se pudo conectar con un servidor Drizzle"
 
 #: libraries/config/validate.lib.php:223 libraries/config/validate.lib.php:230
 msgid "Could not connect to MySQL server"
@@ -5489,11 +5490,10 @@ msgid "The server is not responding"
 msgstr "El servidor no está respondiendo"
 
 #: libraries/dbi/drizzle.dbi.lib.php:344
-#, fuzzy
 #| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid "(or the local Drizzle server's socket is not correctly configured)"
 msgstr ""
-"(o el socket del servidor MySQL local no está configurado correctamente)"
+"(o el zócalo del servidor Drizzle local no está configurado correctamente)"
 
 #: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysqli.dbi.lib.php:384
 msgid "(or the local MySQL server's socket is not correctly configured)"
@@ -7944,7 +7944,7 @@ msgstr "Juegos de caracteres"
 #: libraries/server_links.inc.php:104 server_plugins.php:47
 #: server_plugins.php:80
 msgid "Plugins"
-msgstr ""
+msgstr "Complementos"
 
 #: libraries/server_links.inc.php:108
 msgid "Engines"
@@ -8421,10 +8421,9 @@ msgid "General Settings"
 msgstr "Configuraciones generales"
 
 #: main.php:101
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "Cotejamiento de las conexiones MySQL"
+msgstr "Cotejamiento de la conexión al servidor"
 
 #: main.php:116
 msgid "Appearance Settings"
@@ -8435,20 +8434,18 @@ msgid "More settings"
 msgstr "Más configuraciones"
 
 #: main.php:156
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
-msgstr "Base de datos para el usuario"
+msgstr "Servidor de base de datos"
 
 #: main.php:159
 msgid "Software"
-msgstr ""
+msgstr "Programa"
 
 #: main.php:160
-#, fuzzy
 #| msgid "Show versions"
 msgid "Software version"
-msgstr "Mostrar versiones"
+msgstr "Versiones de programa"
 
 #: main.php:161
 msgid "Protocol version"
@@ -8461,20 +8458,18 @@ msgid "User"
 msgstr "Usuario"
 
 #: main.php:167
-#, fuzzy
 #| msgid "Server socket"
 msgid "Server charset"
-msgstr "Puerto del servidor"
+msgstr "Conjunto de caracteres del servidor"
 
 #: main.php:179
 msgid "Web server"
 msgstr "Servidor web"
 
 #: main.php:190
-#, fuzzy
 #| msgid "Use light version"
 msgid "Database client version"
-msgstr "Use la versión clara"
+msgstr "Versión del cliente de base de datos"
 
 #: main.php:192
 msgid "PHP extension"
@@ -8973,7 +8968,7 @@ msgstr "Ver el volcado (schema) de la base de datos"
 
 #: server_plugins.php:81
 msgid "Modules"
-msgstr ""
+msgstr "Módulos"
 
 #: server_plugins.php:102
 msgid "Begin"
@@ -8981,15 +8976,15 @@ msgstr "Empezar"
 
 #: server_plugins.php:111
 msgid "Plugin"
-msgstr ""
+msgstr "Complemento"
 
 #: server_plugins.php:112 server_plugins.php:146
 msgid "Module"
-msgstr ""
+msgstr "Módulo"
 
 #: server_plugins.php:113 server_plugins.php:148
 msgid "Library"
-msgstr ""
+msgstr "Biblioteca"
 
 #: server_plugins.php:114 server_plugins.php:149 tbl_tracking.php:635
 msgid "Version"
@@ -8997,17 +8992,16 @@ msgstr "Versión"
 
 #: server_plugins.php:115 server_plugins.php:150
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: server_plugins.php:116 server_plugins.php:151
 msgid "License"
 msgstr "Licencia"
 
 #: server_plugins.php:182
-#, fuzzy
 #| msgid "Disabled"
 msgid "disabled"
-msgstr "Deshabilitado"
+msgstr "desactivado"
 
 #: server_privileges.php:32 server_privileges.php:364
 msgid "Includes all privileges except GRANT."
@@ -12237,16 +12231,15 @@ msgstr ""
 "se encontró 'percona' en el comentario de la versión («version_comment»)"
 
 #: po/advisory_rules.php:62
-#, fuzzy
 #| msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
-msgstr ""
-"La documentación de Percona se encuentra en http://www.percona.com/docs/wiki/"
+msgstr "La documentación de Drizzle se encuentra en http://docs.drizzle.org/"
 
 #: po/advisory_rules.php:63
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr ""
+"La cadena de versión (%s) coincide con el esquema de versionado de Drizzle"
 
 #: po/advisory_rules.php:65
 msgid "MySQL Architecture"
