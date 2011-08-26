@@ -6655,7 +6655,7 @@ msgstr "GIS görselleştirmesi için bulunan veri yok."
 
 #: libraries/header_http.inc.php:15 libraries/header_meta_style.inc.php:15
 msgid "GLOBALS overwrite attempt"
-msgstr ""
+msgstr "GLOBALS üzerine yazma girişimi"
 
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:54
 msgid "SQL result"
