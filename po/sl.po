@@ -8311,10 +8311,9 @@ msgid "More settings"
 msgstr "Več nastavitev"
 
 #: main.php:156
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
-msgstr "Podatkovna zbirka za uporabnika"
+msgstr "Strežnik zbirke podatkov"
 
 #: main.php:159
 msgid "Software"
