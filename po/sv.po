@@ -1317,7 +1317,7 @@ msgstr "Totalt Swap"
 
 #: js/messages.php:114
 msgid "Cached Swap"
-msgstr ""
+msgstr "Cachad Swap"
 
 #: js/messages.php:115
 msgid "Used Swap"
