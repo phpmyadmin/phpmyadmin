@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-27 00:21+0200\n"
+"PO-Revision-Date: 2011-08-27 00:22+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -926,10 +926,9 @@ msgid "Add a linestring"
 msgstr "Lägg till ny linestring"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:296
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Lägg till ny användare"
+msgstr "Lägg till ny innre ring"
 
 #: gis_data_editor.php:266 js/messages.php:291
 msgid "Polygon"
