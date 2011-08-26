@@ -858,10 +858,9 @@ msgid "Dump has been saved to file %s."
 msgstr "SQL-satserna har sparats till filen %s."
 
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "Export-typ"
+msgstr "Ogiltig export-typ"
 
 #: gis_data_editor.php:84
 #, fuzzy, php-format
