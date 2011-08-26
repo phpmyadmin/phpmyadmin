@@ -865,10 +865,9 @@ msgid "Dump has been saved to file %s."
 msgstr "Dump je shranjen v datoteko %s."
 
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "Vrsta izvoza"
+msgstr "Neveljavna vrsta izvoza"
 
 #: gis_data_editor.php:84
 #, php-format
