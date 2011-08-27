@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-27 23:01+0200\n"
+"PO-Revision-Date: 2011-08-27 23:02+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -12560,6 +12560,7 @@ msgstr "Velikost medpomnilnika ključev MyISAM"
 #: po/advisory_rules.php:161
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
+"Medpomnilnika ključev ni inicializiran. Indeksi MyISAM ne bodo predpomnjeni."
 
 #: po/advisory_rules.php:162
 msgid ""
