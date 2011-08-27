@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-27 23:14+0200\n"
+"PO-Revision-Date: 2011-08-27 23:15+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -12748,10 +12748,10 @@ msgid "The thread cache is set to 0"
 msgstr "Predpomnilnik niti je nastavljen na 0."
 
 #: po/advisory_rules.php:210
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is not active."
 msgid "Thread cache hit rate %%"
-msgstr "Sledenje ni aktivno."
+msgstr "%% deleža zadetkov predpomnilnika niti"
 
 #: po/advisory_rules.php:211
 msgid "Thread cache is not efficient."
