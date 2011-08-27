@@ -12399,6 +12399,8 @@ msgstr ""
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
+"Povprečje pregledovanja indeksov: %s; ta vrednost bi morala biti manj kot 1 "
+"na uro"
 
 #: po/advisory_rules.php:135
 msgid "Rate of reading fixed position"
