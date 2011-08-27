@@ -12844,7 +12844,7 @@ msgstr "Odstotek prekinjenih povezav"
 
 #: po/advisory_rules.php:231
 msgid "Too many connections are aborted."
-msgstr ""
+msgstr "Prekinjenih je preveč povezav."
 
 #: po/advisory_rules.php:232 po/advisory_rules.php:237
 msgid ""
