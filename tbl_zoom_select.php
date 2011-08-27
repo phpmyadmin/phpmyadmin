@@ -142,10 +142,10 @@ for ($i = 0; $i < 4; $i++) {
     <?php
     for ($j = 0 ; $j < $fields_cnt ; $j++) {
         if (isset($inputs[$i]) && $inputs[$i] == htmlspecialchars($fields_list[$j])) {?>
-                <option value="<?php echo htmlspecialchars($fields_list[$j]);?>" selected="selected">  <?php echo htmlspecialchars($fields_list[$j]);?></option>
+                <option value="<?php echo htmlspecialchars($fields_list[$j]);?>" selected="selected"><?php echo htmlspecialchars($fields_list[$j]);?></option>
         <?php
         } else { ?>
-                <option value="<?php echo htmlspecialchars($fields_list[$j]);?>">  <?php echo htmlspecialchars($fields_list[$j]);?></option>
+                <option value="<?php echo htmlspecialchars($fields_list[$j]);?>"><?php echo htmlspecialchars($fields_list[$j]);?></option>
         <?php
         }
     } ?>
