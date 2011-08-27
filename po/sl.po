@@ -12692,7 +12692,7 @@ msgstr "Delež odprtih datotek je visok."
 #: po/advisory_rules.php:193
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr ""
+msgstr "Delež odprtih datotek: %s; ta vrednost bi morala biti pod 5 na uro"
 
 #: po/advisory_rules.php:195
 #, php-format
