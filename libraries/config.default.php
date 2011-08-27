@@ -2423,7 +2423,7 @@ $cfg['NaturalOrder'] = true;
 
 /**
  * Initial state for sliders
- * (open | closed)
+ * (open | closed | disabled)
  *
  * @global string $cfg['InitialSlidersState']
  */
