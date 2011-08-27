@@ -12858,7 +12858,7 @@ msgstr ""
 #: po/advisory_rules.php:233
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
-msgstr ""
+msgstr "%s %% vseh povezav je prekinjenih. Ta vrednost bi morala biti pod 1 %%"
 
 #: po/advisory_rules.php:235
 msgid "Rate of aborted connections"
