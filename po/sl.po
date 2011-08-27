@@ -12675,7 +12675,7 @@ msgstr ""
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
-msgstr ""
+msgstr "Število odprtih datotek je na %s %% omejitve. Moralo bi biti pod 85 %%"
 
 #: po/advisory_rules.php:190
 msgid "Rate of open files"
