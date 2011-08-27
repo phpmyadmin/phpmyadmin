@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-27 23:07+0200\n"
+"PO-Revision-Date: 2011-08-27 23:08+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -12655,10 +12655,9 @@ msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr "Delež odprtih tabel: %s; ta vrednost bi morala biti manj kot 10 na uro"
 
 #: po/advisory_rules.php:185
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of used open files limit"
-msgstr "Oblika uvožene datoteke"
+msgstr "Odstotek omejitve uporabljenih odprtih datotek"
 
 #: po/advisory_rules.php:186
 msgid ""
