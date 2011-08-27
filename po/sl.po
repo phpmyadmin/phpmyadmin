@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-27 23:12+0200\n"
+"PO-Revision-Date: 2011-08-27 23:13+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -12738,6 +12738,8 @@ msgstr ""
 #: po/advisory_rules.php:207
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
+"Omogočite predpomnilnik niti tako, da nastavite {thread_cache_size} na večje "
+"od 0."
 
 #: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
