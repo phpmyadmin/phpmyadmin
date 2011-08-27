@@ -12536,6 +12536,13 @@ msgid ""
 "mentioned in in the <a href=\\\"http://dev.mysql.com/doc/refman/5.5/en/"
 "internal-temporary-tables.html\\\">MySQL Documentation</a>"
 msgstr ""
+"Povečanje {max_heap_table_size} in {tmp_table_size} bo morda pomagalo.Kljub "
+"temu so nekatere začasne tabele vedno zapisane na disk, neodvisno od "
+"vrednosti teh spremenljivk. Da se tega znebite, boste morali preoblikovati "
+"vaše poizvedbe in se tako izogniti tem pogojem (znotraj začasne tabele: "
+"prisotnost stolpca BLOB ali TEXT ali prisotnost stolpca, večjega od 512 "
+"bajtov), kot je omenjeno v <a href=\\\"http://dev.mysql.com/doc/refman/5.5/en"
+"/internal-temporary-tables.html\\\">dokumentaciji MySQL</a>"
 
 #: po/advisory_rules.php:158
 #, php-format
