@@ -12712,7 +12712,7 @@ msgstr ""
 #: po/advisory_rules.php:198
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr ""
+msgstr "Takojšnji zaklepi tabel: %s %%; ta vrednost bi morala biti nad 95 %%"
 
 #: po/advisory_rules.php:200
 msgid "Table lock wait rate"
