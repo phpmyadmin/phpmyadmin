@@ -12795,7 +12795,7 @@ msgstr "%s nit(i) je za zagon potrebovalo več kot %s sekund; moralo bi biti 0"
 
 #: po/advisory_rules.php:220
 msgid "Slow launch time"
-msgstr ""
+msgstr "Čas počasnega zagona"
 
 #: po/advisory_rules.php:221
 msgid "Slow_launch_threads is above 2s"
