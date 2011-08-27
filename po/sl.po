@@ -12765,6 +12765,8 @@ msgstr "Povečajte {thread_cache_size}."
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
+"Delež zadetkov predpomnilnika niti: %s %%; ta vrednost bi morala biti nad 80 "
+"%%"
 
 #: po/advisory_rules.php:215
 msgid "Threads that are slow to launch"
