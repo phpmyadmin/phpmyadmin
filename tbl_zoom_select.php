@@ -145,7 +145,7 @@ for ($i = 0; $i < 4; $i++) {
                 <option value="<?php echo htmlspecialchars($fields_list[$j]);?>" selected="selected">  <?php echo htmlspecialchars($fields_list[$j]);?></option>
         <?php
         } else { ?>
-                <option value="<?php echo htmlspecialchars($fields_list[$j]);?> ">  <?php echo htmlspecialchars($fields_list[$j]);?></option>
+                <option value="<?php echo htmlspecialchars($fields_list[$j]);?>">  <?php echo htmlspecialchars($fields_list[$j]);?></option>
         <?php
         }
     } ?>
