@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-21 22:29+0200\n"
+"PO-Revision-Date: 2011-08-26 14:06+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:319
@@ -828,20 +828,18 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "Kopiraj in prilepi združene vrednosti v polje \"Dolžina/Vrednosti\""
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "Vrsta stolpcev"
+msgstr "Slaba vrsta!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
 msgstr "Izbrana vrsta izvoza mora biti shranjena v datoteko!"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Bad parameters!"
-msgstr "Dodaj parameter"
+msgstr "Slabi parametri!"
 
 #: export.php:167 export.php:192 export.php:655
 #, php-format
@@ -867,10 +865,9 @@ msgid "Dump has been saved to file %s."
 msgstr "Dump je shranjen v datoteko %s."
 
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "Vrsta izvoza"
+msgstr "Neveljavna vrsta izvoza"
 
 #: gis_data_editor.php:84
 #, php-format
@@ -906,10 +903,10 @@ msgstr "Y"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
 #: js/messages.php:289
-#, fuzzy, php-format
+#, php-format
 #| msgid "Point"
 msgid "Point %d"
-msgstr "Točka"
+msgstr "Točka %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:295
@@ -995,6 +992,8 @@ msgstr ""
 msgid ""
 "Cannot convert file's character set without character set conversion library"
 msgstr ""
+"Ne morem pretvoriti nabora znakov datoteke brez knjižnice za pretvorbo "
+"nabora znakov"
 
 #: import.php:376 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -1533,10 +1532,9 @@ msgstr ""
 
 #. l10n: A collection of available filters
 #: js/messages.php:173
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
-msgstr "Možnosti prikaza tabel"
+msgstr "Možnosti filtra dnevnikov tabel"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:175
@@ -1793,11 +1791,11 @@ msgstr "Prehod z miško čez točko bo pokazalo njeno oznako."
 
 #: js/messages.php:268
 msgid "Use mousewheel to zoom in or out of the plot."
-msgstr ""
+msgstr "Uporabite miškin kolešček za povečevanje ali pomanjševanje izrisa."
 
 #: js/messages.php:270
 msgid "Click and drag the mouse to navigate the plot."
-msgstr ""
+msgstr "Kliknite in povlecite miško za premikanje po izrisu."
 
 #: js/messages.php:272
 msgid "Click reset zoom link to come back to original state."
@@ -2205,16 +2203,17 @@ msgstr ""
 
 #: libraries/Config.class.php:703
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
-msgstr ""
+msgstr "Pred uporabo phpMyAdmina odstranite mapo \"./config\"!"
 
 #: libraries/Config.class.php:727
 #, php-format
 msgid "Existing configuration file (%d) is not readable."
-msgstr ""
+msgstr "Obstoječa konfiguracijska datoteka (%d) ni berljiva."
 
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
+"Napačna dovoljenja konfiguracijski datoteke; ne sme biti vsem zapisljiva!"
 
 #: libraries/Config.class.php:1297
 msgid "Font size"
@@ -2499,7 +2498,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:35
 msgid "Failed to use Blowfish from mcrypt!"
-msgstr ""
+msgstr "Uporaba Blowfish iz mcrypt je spodletela!"
 
 #: libraries/auth/cookie.auth.lib.php:199
 msgid "Log in"
@@ -2670,11 +2669,11 @@ msgstr "Preveri privilegije"
 
 #: libraries/common.inc.php:147
 msgid "possible exploit"
-msgstr ""
+msgstr "možno izkoriščanje"
 
 #: libraries/common.inc.php:156
 msgid "numeric key detected"
-msgstr ""
+msgstr "zaznana številska tipka"
 
 #: libraries/common.inc.php:597
 msgid "Failed to read configuration file"
@@ -5299,13 +5298,12 @@ msgstr "Besedilo Open Document"
 
 #: libraries/config/validate.lib.php:198
 msgid "Could not initialize Drizzle connection library"
-msgstr ""
+msgstr "Ne morem inicializirati knjižnice za povezavo Drizzle"
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Could not connect to Drizzle server"
-msgstr "Ne morem se povezati s strežnikom MySQL"
+msgstr "Ne morem se povezati s strežnikom Drizzle"
 
 #: libraries/config/validate.lib.php:223 libraries/config/validate.lib.php:230
 msgid "Could not connect to MySQL server"
@@ -5349,7 +5347,7 @@ msgstr "Razširitev %s manjka. Prosimo, preverite vašo konfiguracijo PHP."
 
 #: libraries/core.lib.php:409
 msgid "possible deep recursion attack"
-msgstr ""
+msgstr "možen napad globoke rekurzije"
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
@@ -5411,10 +5409,9 @@ msgid "The server is not responding"
 msgstr "Strežnik se ne odziva"
 
 #: libraries/dbi/drizzle.dbi.lib.php:344
-#, fuzzy
 #| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid "(or the local Drizzle server's socket is not correctly configured)"
-msgstr "(ali pa lokalna vtičnica strežnika MySQL ni pravilno konfigurirana)"
+msgstr "(ali pa lokalna vtičnica strežnika Drizzle ni pravilno konfigurirana)"
 
 #: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysqli.dbi.lib.php:384
 msgid "(or the local MySQL server's socket is not correctly configured)"
@@ -6646,7 +6643,7 @@ msgstr "Za predstavitev GIS ni najdenih podatkov."
 
 #: libraries/header_http.inc.php:15 libraries/header_meta_style.inc.php:15
 msgid "GLOBALS overwrite attempt"
-msgstr ""
+msgstr "poskus prepisa GLOBALS"
 
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:54
 msgid "SQL result"
@@ -7838,7 +7835,7 @@ msgstr "Nabori znakov"
 #: libraries/server_links.inc.php:104 server_plugins.php:47
 #: server_plugins.php:80
 msgid "Plugins"
-msgstr ""
+msgstr "Vtičniki"
 
 #: libraries/server_links.inc.php:108
 msgid "Engines"
@@ -8301,10 +8298,9 @@ msgid "General Settings"
 msgstr "Splošne nastavitve"
 
 #: main.php:101
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "Razvrščanje znakov povezave MySQL"
+msgstr "Razvrščanje znakov povezave strežnika"
 
 #: main.php:116
 msgid "Appearance Settings"
@@ -8315,20 +8311,18 @@ msgid "More settings"
 msgstr "Več nastavitev"
 
 #: main.php:156
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
-msgstr "Podatkovna zbirka za uporabnika"
+msgstr "Strežnik zbirke podatkov"
 
 #: main.php:159
 msgid "Software"
-msgstr ""
+msgstr "Programska oprema"
 
 #: main.php:160
-#, fuzzy
 #| msgid "Show versions"
 msgid "Software version"
-msgstr "Prikaži različice"
+msgstr "Različica programske opreme"
 
 #: main.php:161
 msgid "Protocol version"
@@ -8341,20 +8335,18 @@ msgid "User"
 msgstr "Uporabnik"
 
 #: main.php:167
-#, fuzzy
 #| msgid "Server socket"
 msgid "Server charset"
-msgstr "Vtičnica strežnika"
+msgstr "Nabor znakov strežnika"
 
 #: main.php:179
 msgid "Web server"
 msgstr "Spletni strežnik"
 
 #: main.php:190
-#, fuzzy
 #| msgid "Use light version"
 msgid "Database client version"
-msgstr "Uporabi lahko različico"
+msgstr "Različica odjemalca zbirk podatkov"
 
 #: main.php:192
 msgid "PHP extension"
@@ -8843,7 +8835,7 @@ msgstr "Pokaži povzetek stanja zbirk podatkov"
 
 #: server_plugins.php:81
 msgid "Modules"
-msgstr ""
+msgstr "Moduli"
 
 #: server_plugins.php:102
 msgid "Begin"
@@ -8851,15 +8843,15 @@ msgstr "Začetek"
 
 #: server_plugins.php:111
 msgid "Plugin"
-msgstr ""
+msgstr "Vtičnik"
 
 #: server_plugins.php:112 server_plugins.php:146
 msgid "Module"
-msgstr ""
+msgstr "Modul"
 
 #: server_plugins.php:113 server_plugins.php:148
 msgid "Library"
-msgstr ""
+msgstr "Knjižnica"
 
 #: server_plugins.php:114 server_plugins.php:149 tbl_tracking.php:635
 msgid "Version"
@@ -8867,17 +8859,16 @@ msgstr "Različica"
 
 #: server_plugins.php:115 server_plugins.php:150
 msgid "Author"
-msgstr ""
+msgstr "Avtor"
 
 #: server_plugins.php:116 server_plugins.php:151
 msgid "License"
-msgstr ""
+msgstr "Dovoljenje"
 
 #: server_plugins.php:182
-#, fuzzy
 #| msgid "Disabled"
 msgid "disabled"
-msgstr "Onemogočeno"
+msgstr "onemogočeno"
 
 #: server_privileges.php:32 server_privileges.php:364
 msgid "Includes all privileges except GRANT."
@@ -10756,6 +10747,7 @@ msgstr "Prenesi"
 #: setup/frames/form.inc.php:25
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
 msgstr ""
+"Neveljaven formset; preverite polje $formsets v setup/frames/form.inc.php"
 
 #: setup/frames/index.inc.php:49
 msgid "Cannot load or save configuration"
@@ -10868,7 +10860,7 @@ msgstr "Dodaj nov strežnik"
 
 #: setup/index.php:22
 msgid "Wrong GET file attribute value"
-msgstr ""
+msgstr "Napačna vrednost atributa datoteke GET"
 
 #: setup/lib/form_processing.lib.php:43
 msgid "Warning"
@@ -11076,10 +11068,9 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Ključ naj vsebuje črke, številke [em]in[/em] posebne znake."
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No data"
 msgid "Wrong data"
-msgstr "Brez podatkov"
+msgstr "Napačni podatki"
 
 #: sql.php:214
 #, php-format
@@ -12036,15 +12027,14 @@ msgid "'percona' found in version_comment"
 msgstr "našel sem 'percona' v version_comment"
 
 #: po/advisory_rules.php:62
-#, fuzzy
 #| msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
-msgstr "Dokumentacija Percona se nahaja na http://www.percona.com/docs/wiki/"
+msgstr "Dokumentacija Drizzle se nahaja na http://docs.drizzle.org/"
 
 #: po/advisory_rules.php:63
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
-msgstr ""
+msgstr "Niz različice (%s) se ujema s shemo različic Drizzle"
 
 #: po/advisory_rules.php:65
 msgid "MySQL Architecture"
@@ -12097,17 +12087,15 @@ msgstr ""
 "'OFF'"
 
 #: po/advisory_rules.php:75
-#, fuzzy
 #| msgid "Query cache used"
 msgid "Query caching method"
-msgstr "Uporabljenega predpomnilnika poizvedb"
+msgstr "Način predpomnjenja poizvedb"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
-msgstr ""
+msgstr "Podoptimalni način predpomnjenja."
 
 #: po/advisory_rules.php:77
-#, fuzzy
 #| msgid ""
 #| "You are using the MySQL Query cache with a fairly high traffic database. "
 #| "It might be worth considering to use <a href=\\\"http://dev.mysql.com/doc/"
@@ -12120,9 +12108,10 @@ msgid ""
 "cache, especially if you have multiple slaves."
 msgstr ""
 "Uporabljate predpomnjenje poizvedb MySQL s precej prometno zbirko podatkov. "
-"Morda bi bilo koristno razmisliti o uporabi <a href=\\\"http://dev.mysql.com/"
-"doc/refman/5.1/en/ha-memcached.html\\\">memcached</a> namesto predpomnjenja "
-"poizvedb MySQL, še posebej, če imate več podrejencev."
+"Morda bi bilo koristno razmisliti o uporabi <a "
+"href=\\\"http://dev.mysql.com/doc/refman/5.5/en/ha-"
+"memcached.html\\\">memcached</a> namesto predpomnjenja poizvedb MySQL, še "
+"posebej, če imate več podrejencev."
 
 #: po/advisory_rules.php:78
 #, php-format
@@ -12262,6 +12251,8 @@ msgstr "Velikost najmanjšega rezultata predpomnilnika poizvedb"
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
+"Privzeta največja velikost množice podatkov v predpomnilniku poizvedb je 1 "
+"MiB."
 
 #: po/advisory_rules.php:107
 msgid ""
@@ -12381,11 +12372,11 @@ msgstr ""
 
 #: po/advisory_rules.php:135
 msgid "Rate of reading fixed position"
-msgstr ""
+msgstr "Delež branja stalnega položaja"
 
 #: po/advisory_rules.php:136
 msgid "The rate of reading data from a fixed position is high."
-msgstr ""
+msgstr "Delež branja podatkov s stalnega položaja je visok."
 
 #: po/advisory_rules.php:137
 msgid ""
@@ -12393,6 +12384,9 @@ msgid ""
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
+"To kaže, da mora veliko poizvedb rezultate razvrstiti in/ali izvesti poln "
+"pregled tabele, vključno s poizvedbami stikov, ki ne uporabljajo indeksov. "
+"Dodajte indekse, kjer je to primerno."
 
 #: po/advisory_rules.php:138
 #, php-format
@@ -12400,6 +12394,8 @@ msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr ""
+"Delež povprečja branja stalnega položaja: %s; ta vrednost bi morala biti "
+"manj kot 1 na uro"
 
 #: po/advisory_rules.php:140
 msgid "Rate of reading next table row"
@@ -12414,12 +12410,16 @@ msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
 msgstr ""
+"To kaže, da mora veliko poizvedb izvesti polne preglede tabele. Dodajte "
+"indekse, kjer je to primerno."
 
 #: po/advisory_rules.php:143
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr ""
+"Delež branja naslednje vrstice v tabeli: %s; ta vrednost bi morala biti manj "
+"kot 1 na uro"
 
 #: po/advisory_rules.php:145
 msgid "tmp_table_size vs. max_heap_table_size"
@@ -12873,11 +12873,11 @@ msgstr ""
 
 #: po/advisory_rules.php:260
 msgid "Max InnoDB log size"
-msgstr ""
+msgstr "Največja velikost dnevnika InnoDB"
 
 #: po/advisory_rules.php:261
 msgid "The InnoDB log file size is inadequately large."
-msgstr ""
+msgstr "Velikost datoteke dnevnika InnoDB je nezadostne velikosti."
 
 #: po/advisory_rules.php:262
 #, php-format
@@ -12896,13 +12896,12 @@ msgstr ""
 #: po/advisory_rules.php:263
 #, php-format
 msgid "Your absolute InnoD log size is %s MiB"
-msgstr ""
+msgstr "Absolutna velikost vašega dnenika InnoDB je %s MiB"
 
 #: po/advisory_rules.php:265
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
-msgstr "Velikost zaloge medpomnilnika"
+msgstr "Velikost zaloge medpomnilnika InnoDB"
 
 #: po/advisory_rules.php:266
 msgid "Your InnoDB buffer pool is fairly small."
@@ -12933,14 +12932,13 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:270
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
-msgstr "Največ sočasnih povezav"
+msgstr "Sočasna vstavljanja MyISAM"
 
 #: po/advisory_rules.php:271
 msgid "Enable concurrent_insert by setting it to 1"
-msgstr ""
+msgstr "Omogočite concurrent_insert z nastavitvijo na 1"
 
 #: po/advisory_rules.php:272
 msgid ""
@@ -12948,6 +12946,10 @@ msgid ""
 "writers for a given table. See also <a href=\\\"http://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\\\">MySQL Documentation</a>"
 msgstr ""
+"Nastavljanje {concurrent_insert} na 1 zmanjša spore med bralci in "
+"zapisovalci za dano tabelo. Oglejte si tudi <a "
+"href=\\\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-"
+"inserts.html\\\">dokumentacijo MySQL</a>"
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"

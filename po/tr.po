@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-25 13:26+0200\n"
+"PO-Revision-Date: 2011-08-26 15:17+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -821,20 +821,18 @@ msgstr ""
 "\"Genişlik/Değerler\" alanında birleştirilen değerleri kopyala ve yapıştır"
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "Çubuk türü"
+msgstr "Kötü tür!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
 msgstr "Seçili dışa aktarma türü dosyaya kaydedilmelidir!"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Bad parameters!"
-msgstr "Parametre ekle"
+msgstr "Kötü parametreler!"
 
 #: export.php:167 export.php:192 export.php:655
 #, php-format
@@ -860,10 +858,9 @@ msgid "Dump has been saved to file %s."
 msgstr "Döküm, %s dosyasına kaydedildi."
 
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "Dışa aktarma türü"
+msgstr "Geçersiz dışa aktarma türü"
 
 #: gis_data_editor.php:84
 #, php-format
@@ -2203,16 +2200,17 @@ msgstr ""
 
 #: libraries/Config.class.php:703
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
-msgstr ""
+msgstr "phpMyAdmin'den önce kullanılan \"./config\" dizinini kaldır!"
 
 #: libraries/Config.class.php:727
 #, php-format
 msgid "Existing configuration file (%d) is not readable."
-msgstr ""
+msgstr "Mevcut yapılandırma dosyası (%d) okunabilir değil."
 
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
+"Yapılandırma dosyasında yanlış izinler, herkesçe yazılabilir olmamalıdır!"
 
 #: libraries/Config.class.php:1297
 msgid "Font size"
@@ -2489,7 +2487,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:35
 msgid "Failed to use Blowfish from mcrypt!"
-msgstr ""
+msgstr "mcrypt'tan Blowfish kullanmak başarısız!"
 
 #: libraries/auth/cookie.auth.lib.php:199
 msgid "Log in"
@@ -2663,11 +2661,11 @@ msgstr "Yetkileri kontrol et"
 
 #: libraries/common.inc.php:147
 msgid "possible exploit"
-msgstr ""
+msgstr "olası kötüye kullanma"
 
 #: libraries/common.inc.php:156
 msgid "numeric key detected"
-msgstr ""
+msgstr "sayısal tuş algılandı"
 
 #: libraries/common.inc.php:597
 msgid "Failed to read configuration file"
@@ -4540,7 +4538,7 @@ msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
-"Sınırlı yetkilerle yapılandırılmış özel MySQL kullanıcısıdır, daha fazla "
+"Sınırlı izinlerle yapılandırılmış özel MySQL kullanıcısıdır, daha fazla "
 "bilgi [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]'de mevcuttur"
 
 #: libraries/config/messages.inc.php:382
@@ -5361,7 +5359,7 @@ msgstr "%s uzantısı eksik. Lütfen PHP yapılandırmanızı kontrol edin."
 
 #: libraries/core.lib.php:409
 msgid "possible deep recursion attack"
-msgstr ""
+msgstr "olası aşırı özyinelemeli saldırı"
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
@@ -6657,7 +6655,7 @@ msgstr "GIS görselleştirmesi için bulunan veri yok."
 
 #: libraries/header_http.inc.php:15 libraries/header_meta_style.inc.php:15
 msgid "GLOBALS overwrite attempt"
-msgstr ""
+msgstr "GLOBALS üzerine yazma girişimi"
 
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:54
 msgid "SQL result"
@@ -10750,6 +10748,8 @@ msgstr "İndir"
 #: setup/frames/form.inc.php:25
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
 msgstr ""
+"Doğru olmayan form grubu, setup/frames/form.inc.php içindeki $formsets "
+"dizilimini kontrol edin"
 
 #: setup/frames/index.inc.php:49
 msgid "Cannot load or save configuration"
@@ -10863,7 +10863,7 @@ msgstr "Yeni sunucu ekle"
 
 #: setup/index.php:22
 msgid "Wrong GET file attribute value"
-msgstr ""
+msgstr "Yanlış GET dosya öznitelik değeri"
 
 #: setup/lib/form_processing.lib.php:43
 msgid "Warning"
@@ -11072,10 +11072,9 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Anahtar harf, sayı [em]ve[/em] özel karakterler içermelidir."
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No data"
 msgid "Wrong data"
-msgstr "Veri yok"
+msgstr "Yanlış veri"
 
 #: sql.php:214
 #, php-format

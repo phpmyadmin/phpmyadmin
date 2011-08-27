@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-15 01:24+0200\n"
+"PO-Revision-Date: 2011-08-27 01:00+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -821,20 +821,18 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "Klipp och klistra de sammanförda värdena till fältet /Längd/Värde\""
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "Stapel typ"
+msgstr "Dåligl typ!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
 msgstr "Vald export-typ måste sparas i filen!"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Bad parameters!"
-msgstr "Lägg till parameter"
+msgstr "Felaktiga parametrar!"
 
 #: export.php:167 export.php:192 export.php:655
 #, php-format
@@ -860,16 +858,15 @@ msgid "Dump has been saved to file %s."
 msgstr "SQL-satserna har sparats till filen %s."
 
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "Export-typ"
+msgstr "Ogiltig export-typ"
 
 #: gis_data_editor.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
-msgstr "Värden för kolumn \"%s\""
+msgstr "Värde för kolumn \"%s\""
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
@@ -877,7 +874,7 @@ msgstr "Använd OpenStreetMaps som baslager"
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:292
 #: libraries/display_tbl.lib.php:665
@@ -886,78 +883,74 @@ msgstr "Geometri"
 
 #: gis_data_editor.php:172 js/messages.php:288
 msgid "Point"
-msgstr ""
+msgstr "Punkt"
 
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
 #: gis_data_editor.php:297 js/messages.php:286
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
 #: gis_data_editor.php:299 js/messages.php:287
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
 #: js/messages.php:289
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "Punkt %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:295
-#, fuzzy
 #| msgid "Add routine"
 msgid "Add a point"
-msgstr "Lägg till rutin."
+msgstr "Lägg till en punkt"
 
 #: gis_data_editor.php:220 js/messages.php:290
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Rader avslutas med"
+msgstr "Linestring"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:294
 msgid "Outer Ring"
-msgstr ""
+msgstr "Yttre ringen"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:293
 msgid "Inner Ring"
-msgstr ""
+msgstr "Inre ringen"
 
 #: gis_data_editor.php:252
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Lägg till ny användare"
+msgstr "Lägg till ny linestring"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:296
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Lägg till ny användare"
+msgstr "Lägg till ny innre ring"
 
 #: gis_data_editor.php:266 js/messages.php:291
 msgid "Polygon"
-msgstr ""
+msgstr "Polygon"
 
 #: gis_data_editor.php:306 js/messages.php:297
-#, fuzzy
 #| msgid "Add column"
 msgid "Add a polygon"
-msgstr "Lägg till kolumn"
+msgstr "Addera polygon"
 
 #: gis_data_editor.php:310
-#, fuzzy
 #| msgid "Geometry"
 msgid "Add geometry"
-msgstr "Geometri"
+msgstr "Addera geometri"
 
 #: gis_data_editor.php:318
 msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
+"Välj \"GeomFromText\" från \"Funktions\"-kolumnen och klistra in nedanstående "
+"sträng i \"Value\"-fältet"
 
 #: import.php:57
 #, php-format
@@ -998,6 +991,8 @@ msgstr ""
 msgid ""
 "Cannot convert file's character set without character set conversion library"
 msgstr ""
+"Kan inte konvertera filens teckenuppsättning utan teckenuppsättningens "
+"omvandlings bibliotek"
 
 #: import.php:376 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -1237,7 +1232,6 @@ msgid "Query statistics"
 msgstr "Visa statistik"
 
 #: js/messages.php:93
-#, fuzzy
 #| msgid "Local monitor configuration icompatible"
 msgid "Local monitor configuration incompatible"
 msgstr "Lokal övervakningskonfiguration ej kompatibel"
@@ -1249,28 +1243,29 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
+"Diagrammets arrangemang i din webbläsares lokala lagring är inte kompatibelt "
+"längre med den nyare versionen av övervakarens dialogruta. Det är mycket "
+"troligt att din nuvarande konfiguration inte fungerar längre. Återställ "
+"konfigurationen  i <i>Inställningar</i> menyn."
 
 #: js/messages.php:96
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache efficiency"
-msgstr "Frågecache"
+msgstr "Frågecache effektivitet"
 
 #: js/messages.php:97
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
-msgstr "Frågecache"
+msgstr "Användning av frågecache"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
-msgstr "Frågecache"
+msgstr "Använd frågecache"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
-msgstr "System processoranvändning"
+msgstr "Systemets processoranvändning (CPU)"
 
 #: js/messages.php:101
 msgid "System memory"
@@ -1283,80 +1278,72 @@ msgstr "System swap"
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:103 libraries/common.lib.php:1343 server_status.php:1669
 msgid "MiB"
-msgstr "MiB"
+msgstr "MB"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:104 libraries/common.lib.php:1341 server_status.php:1669
 msgid "KiB"
-msgstr "KiB"
+msgstr "Kb"
 
 #: js/messages.php:106
 msgid "Average load"
-msgstr "Genomsnittlig belastning"
+msgstr "Genomsnittlig last"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "System memory"
 msgid "Total memory"
-msgstr "Systemminne"
+msgstr "Totalt minne"
 
 #: js/messages.php:108
-#, fuzzy
 #| msgid "System memory"
 msgid "Cached memory"
-msgstr "Systemminne"
+msgstr "cachat minne"
 
 #: js/messages.php:109
-#, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "Buffertutrymme"
+msgstr "Buffrat minne"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "System memory"
 msgid "Free memory"
-msgstr "Systemminne"
+msgstr "Ledigt minne"
 
 #: js/messages.php:111
-#, fuzzy
 #| msgid "System memory"
 msgid "Used memory"
-msgstr "Systemminne"
+msgstr "Använt minne"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "Total"
+msgstr "Totalt Swap"
 
 #: js/messages.php:114
 msgid "Cached Swap"
-msgstr ""
+msgstr "Cachad Swap"
 
 #: js/messages.php:115
 msgid "Used Swap"
-msgstr ""
+msgstr "Använt Swap"
 
 #: js/messages.php:116
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "Fria sidor"
+msgstr "Ledigt Swap"
 
 #: js/messages.php:118
 msgid "Bytes sent"
-msgstr ""
+msgstr "Antal bitar som skickats"
 
 #: js/messages.php:119
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "Mottagna"
+msgstr "Antal mottagna bital"
 
 #: js/messages.php:120 server_status.php:1134
 msgid "Connections"
-msgstr "Förbindelser"
+msgstr "Anslutningar"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:124
@@ -1377,14 +1364,13 @@ msgid "Remove chart"
 msgstr "Ta bort diagram"
 
 #: js/messages.php:128
-#, fuzzy
 #| msgid "Edit labels and series"
 msgid "Edit title and labels"
-msgstr "Redigera etiketter och serier"
+msgstr "Redigera titlar och etiketter"
 
 #: js/messages.php:129
 msgid "Add chart to grid"
-msgstr "Adders diagrammet till rutnätet"
+msgstr "Addera diagrammet till rutnätet"
 
 #: js/messages.php:131
 msgid "Please add at least one variable to the series"
@@ -1400,7 +1386,7 @@ msgstr "Inget"
 
 #: js/messages.php:133
 msgid "Resume monitor"
-msgstr "Återuppta monitor"
+msgstr "Återuppta övervakning"
 
 #: js/messages.php:134
 msgid "Pause monitor"
@@ -1553,10 +1539,9 @@ msgstr "Loggdata laddad. Frågorna exekverade under denna tidsperiod:"
 
 #. l10n: A collection of available filters
 #: js/messages.php:173
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
-msgstr "Visningsalternativ för tabeller"
+msgstr "Logga filteralternativ"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:175
@@ -1585,7 +1570,7 @@ msgstr "Läser in loggar"
 
 #: js/messages.php:182
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "Uppdateringen av övervakningen misslyckades"
 
 #: js/messages.php:183
 msgid ""
@@ -1593,26 +1578,32 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"När ny diagramdata begärdes returnerade servern returnerade ett ett ogiltigt "
+"svar. Detta beror troligen på att din session upphört. Ladda om sidan och "
+"mata in dina inloggningsuppgifter igen bör lösa problemet."
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
-msgstr "Uppdatera"
+msgstr "Uppdatera sidan"
 
 #: js/messages.php:186
 msgid "Affected rows:"
-msgstr ""
+msgstr "Påverkade rader:"
 
 #: js/messages.php:188
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgstr ""
+"Misslyckades med parsning av config-filen. Det verkar inte vara giltig JSON-"
+"kod"
 
 #: js/messages.php:189
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr ""
+"Misslyckades skapa diagrammets rutnät med den importerade configurationen. "
+"Återställer till ursprunglig konfiguration ..."
 
 #: js/messages.php:190 libraries/config/messages.inc.php:170
 #: libraries/db_links.inc.php:83 libraries/server_links.inc.php:69
@@ -1622,30 +1613,27 @@ msgid "Import"
 msgstr "Importera"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
-msgstr "Uppdatera fråga"
+msgstr "Analysera fråga"
 
 #: js/messages.php:196
-#, fuzzy
 #| msgid "Apply a divisor"
 msgid "Advisor system"
-msgstr "Tillämpa en dividend"
+msgstr "Handledningssystem"
 
 #: js/messages.php:197
 msgid "Possible performance issues"
-msgstr ""
+msgstr "Möjliga prestandaproblem"
 
 #: js/messages.php:198
 msgid "Issue"
-msgstr ""
+msgstr "Problem"
 
 #: js/messages.php:199
-#, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
-msgstr "Dokumentation"
+msgstr "Rekommendation"
 
 #: js/messages.php:200
 #, fuzzy
