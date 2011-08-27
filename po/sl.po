@@ -6472,7 +6472,7 @@ msgstr ""
 #: libraries/export/sql.php:45
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
-"Dodatna prilagojena pripomba v glavi (\n"
+"Dodatna prilagojena pripomba v glavi (\\\n"
 " prelomi vrstice):"
 
 #: libraries/export/sql.php:50
