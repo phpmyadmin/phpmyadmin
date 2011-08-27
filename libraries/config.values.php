@@ -72,7 +72,10 @@ $cfg_db['QueryWindowDefTab'] = array(
     'files',   // Import files
     'history', // SQL history
     'full');   // All (SQL and SQL history)
-$cfg_db['InitialSlidersState'] = array('open' => __('Open'), 'closed' => __('Closed'));
+$cfg_db['InitialSlidersState'] = array(
+    'open' => __('Open'), 
+    'closed' => __('Closed'),
+    'disabled' => __('Disabled'));
 $cfg_db['Import']['format'] = array(
     'csv',    // CSV
     'docsql', // DocSQL
