@@ -12741,7 +12741,7 @@ msgstr ""
 
 #: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
-msgstr ""
+msgstr "Predpomnilnik niti je nastavljen na 0."
 
 #: po/advisory_rules.php:210
 #, fuzzy, php-format
