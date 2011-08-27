@@ -1205,11 +1205,8 @@ function changeMIMEType(db, table, reference, mime_type)
  */
 $(document).ready(function(){
     $(".inline_edit_sql").live('click', function(){
-        var server     = $(this).prev().find("input[name='server']").val();
-        var db         = $(this).prev().find("input[name='db']").val();
-        var table      = $(this).prev().find("input[name='table']").val();
-        var token      = $(this).prev().find("input[name='token']").val();
-        var sql_query  = $(this).prev().find("input[name='sql_query']").val();
+        var $form = $(this).prev();
+        var sql_query  = $form.find("input[name='sql_query']").val();
         var $inner_sql = $(this).parent().prev().find('.inner_sql');
         var old_text   = $inner_sql.html();
 
@@ -1217,22 +1214,16 @@ $(document).ready(function(){
         new_content    += "<input type=\"button\" class=\"btnSave\" value=\"" + PMA_messages['strGo'] + "\">\n";
         new_content    += "<input type=\"button\" class=\"btnDiscard\" value=\"" + PMA_messages['strCancel'] + "\">\n";
         $inner_sql.replaceWith(new_content);
-        $(".btnSave").each(function(){
-            $(this).click(function(){
-                sql_query = $(this).prev().val();
-                window.location.replace("import.php"
-                                      + "?server=" + encodeURIComponent(server)
-                                      + "&db=" + encodeURIComponent(db)
-                                      + "&table=" + encodeURIComponent(table)
-                                      + "&sql_query=" + encodeURIComponent(sql_query)
-                                      + "&show_query=1"
-                                      + "&token=" + token);
-            });
+        $(".btnSave").click(function(){
+            var sql_query = $(this).prev().val();
+            var $fake_form = $('<form>', {action: 'import.php', method: 'post'})
+                    .append($form.find("input[name=server], input[name=db], input[name=table], input[name=token]").clone())
+                    .append($('<input>', {type: 'hidden', name: 'show_query', value: 1}))
+                    .append($('<input>', {type: 'hidden', name: 'sql_query', value: sql_query}));
+            $fake_form.appendTo($('body')).submit();
         });
-        $(".btnDiscard").each(function(){
-            $(this).click(function(){
-                $(this).closest(".sql").html("<span class=\"syntax\"><span class=\"inner_sql\">" + old_text + "</span></span>");
-            });
+        $(".btnDiscard").click(function(){
+            $(this).closest(".sql").html("<span class=\"syntax\"><span class=\"inner_sql\">" + old_text + "</span></span>");
         });
         return false;
     });
