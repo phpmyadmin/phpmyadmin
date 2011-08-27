@@ -12347,7 +12347,7 @@ msgid ""
 msgstr ""
 "Čeprav ni nič narobe z visoko količino razvrščanja vrstic, se boste morda "
 "želeli prepričati, da poizvedbe, ki zahtevajo veliko sortiranja, v stavku "
-"ORDER BY uporabljajo indeksirana polja, saj bo to povzročilo veliko hitrejše "
+"ORDER BY uporabljajo indeksirana polja, saj bo to sledilo v veliko hitrejše "
 "razvrščanje"
 
 #: po/advisory_rules.php:123
