@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-27 23:34+0200\n"
+"PO-Revision-Date: 2011-08-27 23:35+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -13004,7 +13004,7 @@ msgstr "Velikost zaloge medpomnilnika InnoDB"
 
 #: po/advisory_rules.php:266
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr ""
+msgstr "Zaloga vašega medpomnilnika InnoDB je precej majhna."
 
 #: po/advisory_rules.php:267
 #, php-format
