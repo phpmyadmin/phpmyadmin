@@ -12799,7 +12799,7 @@ msgstr "Čas počasnega zagona"
 
 #: po/advisory_rules.php:221
 msgid "Slow_launch_threads is above 2s"
-msgstr ""
+msgstr "Slow_launch_threads je nad 2 s"
 
 #: po/advisory_rules.php:222
 msgid ""
