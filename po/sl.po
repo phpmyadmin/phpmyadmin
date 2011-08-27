@@ -12722,6 +12722,8 @@ msgstr "Delež čakanja na zaklep tabel"
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
+"Delež čakanja na zaklep tabel: %s; ta vrednost bi morala biti manj kot 1 na "
+"uro"
 
 #: po/advisory_rules.php:205
 msgid "Thread cache"
