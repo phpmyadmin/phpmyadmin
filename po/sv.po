@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 00:09+0200\n"
+"PO-Revision-Date: 2011-08-29 00:10+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -855,7 +855,7 @@ msgstr "Webbservern har inte behörighet att spara filen %s."
 #: export.php:657
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr "SQL-satserna har sparats till filen %s."
+msgstr "Dump har sparats till filen %s."
 
 #: file_echo.php:21
 #| msgid "Export type"
