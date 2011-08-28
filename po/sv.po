@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 00:22+0200\n"
+"PO-Revision-Date: 2011-08-29 00:23+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1072,7 +1072,7 @@ msgstr "Du är på väg att FÖRSTÖRA en komplett databas!"
 
 #: js/messages.php:34
 msgid "You are about to DESTROY a complete table!"
-msgstr "Du håller på att TA BORT en hel tabell!"
+msgstr "Du håller på att FÖRSTÖRA en hel tabell!"
 
 #: js/messages.php:35
 msgid "You are about to TRUNCATE a complete table!"
