@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 00:03+0200\n"
+"PO-Revision-Date: 2011-08-29 00:04+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -818,7 +818,7 @@ msgstr "Utdata"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr "Klipp och klistra de sammanförda värdena till fältet /Längd/Värde\""
+msgstr "Klipp och klistra de sammanförda värdena till fältet \"Längd/Värde\""
 
 #: export.php:29
 #| msgid "Bar type"
