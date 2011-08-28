@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-28 18:20+0200\n"
+"PO-Revision-Date: 2011-08-28 18:21+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -538,7 +538,7 @@ msgstr "Bläddra"
 #: db_search.php:238
 #, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "radera matchande för %s tabellen?"
+msgstr "Ta bort matchande för %s tabellen?"
 
 #: db_search.php:238 libraries/display_tbl.lib.php:1364
 #: libraries/display_tbl.lib.php:2354
