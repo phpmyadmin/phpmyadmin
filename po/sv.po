@@ -1215,7 +1215,7 @@ msgstr "Processer"
 
 #: js/messages.php:84
 msgid "Connections / Processes"
-msgstr "Förbindelser / Processer"
+msgstr "Anslutningar / Processer"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:86
