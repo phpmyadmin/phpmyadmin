@@ -2228,6 +2228,8 @@ msgstr "No se pudo leer el archivo de configuración existente (%d)."
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
+"Permisos incorrectos en el archivo de configuración ¡cualquiera no debería "
+"poder modificarlo!"
 
 #: libraries/Config.class.php:1297
 msgid "Font size"
