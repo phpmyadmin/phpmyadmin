@@ -1832,10 +1832,9 @@ msgid "Strings are converted into integer for plotting"
 msgstr "Strängar omvandlas till heltal för plottning"
 
 #: js/messages.php:280
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
-msgstr "Lägg till / ta bort kolumner"
+msgstr "Välj två kolumner"
 
 #: js/messages.php:281
 msgid "Select two different columns"
