@@ -1647,7 +1647,7 @@ msgstr "Motivering"
 
 #: js/messages.php:202
 msgid "Used variable / formula"
-msgstr ""
+msgstr "Använd variabel / formel"
 
 #: js/messages.php:203
 msgid "Test"
