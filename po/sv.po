@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-28 18:25+0200\n"
+"PO-Revision-Date: 2011-08-29 00:03+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -810,7 +810,7 @@ msgstr "Mata in varje värde i ett eget fält."
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr "+ Återstarta inmatandet och lägg till nytt värde"
+msgstr "+ Starta om inmatandet och lägg till ett nytt värde"
 
 #: enum_editor.php:67 gis_data_editor.php:317
 msgid "Output"
