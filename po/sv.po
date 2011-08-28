@@ -1883,7 +1883,7 @@ msgstr "Välj ett alternativ för kolumn"
 
 #: js/messages.php:313
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "Tryck Escape för att avbryta redigeringen"
 
 #: js/messages.php:314
 msgid ""
