@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-28 18:18+0200\n"
+"PO-Revision-Date: 2011-08-28 18:19+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -492,7 +492,7 @@ msgstr "SQL-fråga i databas <b>%s</b>:"
 
 #: db_qbe.php:955 libraries/common.lib.php:1163
 msgid "Submit Query"
-msgstr "Kör fråga"
+msgstr "Skicka fråga"
 
 #: db_search.php:30 libraries/auth/config.auth.lib.php:77
 #: libraries/auth/config.auth.lib.php:96
