@@ -1191,7 +1191,7 @@ msgstr ","
 #. l10n: Decimal separator
 #: js/messages.php:77 libraries/common.lib.php:1395
 msgid "."
-msgstr ","
+msgstr "."
 
 #: js/messages.php:79
 msgid "KiB sent since last refresh"
