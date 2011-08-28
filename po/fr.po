@@ -942,7 +942,7 @@ msgstr "Ajouter un utilisateur"
 
 #: gis_data_editor.php:266 js/messages.php:291
 msgid "Polygon"
-msgstr ""
+msgstr "Polygone"
 
 #: gis_data_editor.php:306 js/messages.php:297
 #, fuzzy
