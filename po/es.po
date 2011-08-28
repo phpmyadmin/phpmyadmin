@@ -868,10 +868,9 @@ msgstr "El volcado ha sido guardado al archivo %s."
 # Used as description for SQL syntax Export Type (options are INSERT, UPDATE
 # and REPLACE)
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "Tipo de exportación"
+msgstr "Tipo de exportación inválido"
 
 #: gis_data_editor.php:84
 #, php-format
