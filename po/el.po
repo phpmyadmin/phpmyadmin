@@ -1911,6 +1911,8 @@ msgstr ""
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
+"Μπορείτε επίσης να επεξεργαστείτε στήλες<br />πατώντας κατευθείαν στα "
+"περιεχόμενά τους."
 
 #: js/messages.php:322
 #, fuzzy
