@@ -823,7 +823,7 @@ msgstr "Klipp och klistra de sammanförda värdena till fältet \"Längd/Värde\
 #: export.php:29
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "Dåligl typ!"
+msgstr "Dålig typ!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
