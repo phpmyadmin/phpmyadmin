@@ -2372,10 +2372,9 @@ msgstr[0] "Εισήχθηκε %1$d γραμμή."
 msgstr[1] "Εισήχθηκαν %1$d γραμμές."
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Επιτρέπει την ανάγνωση δεδομένων."
+msgstr "Σφάλμα κατά τη δημιουργία του PDF:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
