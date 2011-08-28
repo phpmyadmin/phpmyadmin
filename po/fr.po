@@ -895,7 +895,7 @@ msgstr "Point"
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
 #: gis_data_editor.php:297 js/messages.php:286
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
 #: gis_data_editor.php:299 js/messages.php:287
