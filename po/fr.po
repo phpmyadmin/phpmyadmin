@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-04 21:49+0200\n"
+"PO-Revision-Date: 2011-08-28 14:09+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -417,10 +417,10 @@ msgid "You have to choose at least one column to display"
 msgstr "Vous devez choisir au moins une colonne à afficher"
 
 #: db_qbe.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "mode visuel"
+msgstr "Passer au %smode visuel%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:957
