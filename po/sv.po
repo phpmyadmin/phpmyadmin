@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-28 18:15+0200\n"
+"PO-Revision-Date: 2011-08-28 18:18+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -471,7 +471,7 @@ msgstr "Ändra"
 
 #: db_qbe.php:606
 msgid "Add/Delete criteria rows"
-msgstr "Lägg till / ta bort villkorsrader"
+msgstr "Lägg till / Ta bort villkorsrader"
 
 #: db_qbe.php:618
 msgid "Add/Delete columns"
