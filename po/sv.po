@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 00:34+0200\n"
+"PO-Revision-Date: 2011-08-29 00:35+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1278,7 +1278,7 @@ msgstr "System swap"
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:103 libraries/common.lib.php:1343 server_status.php:1669
 msgid "MiB"
-msgstr "MB"
+msgstr "Mb"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:104 libraries/common.lib.php:1341 server_status.php:1669
