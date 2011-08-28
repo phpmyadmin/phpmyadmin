@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-28 18:24+0200\n"
+"PO-Revision-Date: 2011-08-28 18:25+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -659,7 +659,7 @@ msgstr "Avmarkera alla"
 
 #: db_structure.php:499
 msgid "Check tables having overhead"
-msgstr "Markera ooptimerade"
+msgstr "Kontrollera tabeller som har overhead"
 
 #: db_structure.php:507 libraries/common.lib.php:3255
 #: libraries/common.lib.php:3256 libraries/config/messages.inc.php:164
