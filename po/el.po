@@ -2220,7 +2220,7 @@ msgstr "Απομακρύντε το φάκελο «./config» πριν τη χρ
 #: libraries/Config.class.php:727
 #, php-format
 msgid "Existing configuration file (%d) is not readable."
-msgstr ""
+msgstr "Το υπαρχον αρχείο ρυθμίσεων (%d) δεν είναι αναγνώσιμο."
 
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
