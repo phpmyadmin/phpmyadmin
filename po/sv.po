@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-28 18:19+0200\n"
+"PO-Revision-Date: 2011-08-28 18:20+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -520,7 +520,7 @@ msgstr "som reguljärt uttryck"
 #: db_search.php:208
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr "Resultat av sökning efter \"<i>%s</i>\" %s:"
+msgstr "Sökresultat för \"<i>%s</i>\" %s:"
 
 #: db_search.php:226
 #, php-format
