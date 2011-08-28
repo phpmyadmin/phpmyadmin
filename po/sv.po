@@ -475,7 +475,7 @@ msgstr "Lägg till / Ta bort villkorsrader"
 
 #: db_qbe.php:618
 msgid "Add/Delete columns"
-msgstr "Lägg till / ta bort kolumner"
+msgstr "Lägg till / Ta bort kolumner"
 
 #: db_qbe.php:631 db_qbe.php:656
 msgid "Update Query"
