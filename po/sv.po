@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-28 18:13+0200\n"
+"PO-Revision-Date: 2011-08-28 18:14+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -323,7 +323,7 @@ msgstr "Lägg till %s"
 #: db_operations.php:496 libraries/config/messages.inc.php:119
 #: tbl_operations.php:318 tbl_operations.php:562
 msgid "Add AUTO_INCREMENT value"
-msgstr "Lägg till AUTO_INCREMENT-värde"
+msgstr "Lägg till AUTO_INCREMENT värde"
 
 #: db_operations.php:500 tbl_operations.php:569
 msgid "Add constraints"
