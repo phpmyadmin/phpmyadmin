@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 00:56+0200\n"
+"PO-Revision-Date: 2011-08-29 00:57+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -2379,10 +2379,9 @@ msgstr[0] "%1$d rad infogad."
 msgstr[1] "%1$d rader infogade."
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Tillåter läsning av data."
+msgstr "Fel när PDF skapas:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
