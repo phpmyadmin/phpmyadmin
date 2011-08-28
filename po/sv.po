@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 00:17+0200\n"
+"PO-Revision-Date: 2011-08-29 00:20+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1043,7 +1043,7 @@ msgstr "Din SQL-fråga utfördes korrekt"
 #: import_status.php:29 libraries/common.lib.php:651
 #: libraries/schema/Export_Relation_Schema.class.php:237 user_password.php:109
 msgid "Back"
-msgstr "Bakåt"
+msgstr "Tillbaka"
 
 #: index.php:164
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
