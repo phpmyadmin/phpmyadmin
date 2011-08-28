@@ -2125,11 +2125,10 @@ msgstr "Lördag"
 
 #. l10n: Short week day name
 #: js/messages.php:420
-#, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
 msgid "Sun"
-msgstr "Sön"
+msgstr "Söndag"
 
 #. l10n: Short week day name
 #: js/messages.php:422 libraries/common.lib.php:1577
