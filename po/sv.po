@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 00:37+0200\n"
+"PO-Revision-Date: 2011-08-29 00:38+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1651,7 +1651,7 @@ msgstr "Använd variabel / formel"
 
 #: js/messages.php:203
 msgid "Test"
-msgstr ""
+msgstr "Test"
 
 #: js/messages.php:208 libraries/tbl_properties.inc.php:758
 #: pmd_general.php:382 pmd_general.php:419 pmd_general.php:539
