@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-28 14:12+0200\n"
+"PO-Revision-Date: 2011-08-28 14:15+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -1260,10 +1260,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:96
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache efficiency"
-msgstr "Cache des requêtes"
+msgstr "Efficacité de la cache de requêtes"
 
 #: js/messages.php:97
 #, fuzzy
