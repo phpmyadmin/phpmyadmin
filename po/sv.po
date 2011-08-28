@@ -1186,7 +1186,7 @@ msgstr "Annan"
 #. l10n: Thousands separator
 #: js/messages.php:75 libraries/common.lib.php:1393
 msgid ","
-msgstr "  "
+msgstr ","
 
 #. l10n: Decimal separator
 #: js/messages.php:77 libraries/common.lib.php:1395
