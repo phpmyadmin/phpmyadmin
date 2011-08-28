@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 00:50+0200\n"
+"PO-Revision-Date: 2011-08-29 00:51+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1926,10 +1926,9 @@ msgstr ""
 "deras innehåll."
 
 #: js/messages.php:322
-#, fuzzy
 #| msgid "Go to view"
 msgid "Go to link"
-msgstr "Gå till vy"
+msgstr "Gå till länk"
 
 #: js/messages.php:325
 msgid "Generate password"
