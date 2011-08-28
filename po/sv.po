@@ -1203,7 +1203,7 @@ msgstr "Kb mottagna sedan senaste uppdatering"
 
 #: js/messages.php:81
 msgid "Server traffic (in KiB)"
-msgstr "Server trafik (i kb)"
+msgstr "Server trafik (i Kb)"
 
 #: js/messages.php:82
 msgid "Connections since last refresh"
