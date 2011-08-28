@@ -1959,7 +1959,6 @@ msgid "Done"
 msgstr "Ολοκληρώθηκε"
 
 #: js/messages.php:359
-#, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
