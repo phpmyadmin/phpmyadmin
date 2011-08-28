@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-28 22:03+0200\n"
+"PO-Revision-Date: 2011-08-28 22:04+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -838,10 +838,9 @@ msgid "Selected export type has to be saved in file!"
 msgstr "¡El formato de exportación seleccionado debe grabarse en el archivo!"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Bad parameters!"
-msgstr "Agregar parámetro"
+msgstr "¡Parámetros incorrectos!"
 
 #: export.php:167 export.php:192 export.php:655
 #, php-format
