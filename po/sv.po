@@ -1803,7 +1803,7 @@ msgstr "Varje punkt representerar en dataserie."
 
 #: js/messages.php:266
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "Hovra över en punkt kommer visa etiketten."
 
 #: js/messages.php:268
 msgid "Use mousewheel to zoom in or out of the plot."
