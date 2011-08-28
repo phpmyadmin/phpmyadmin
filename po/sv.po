@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 00:08+0200\n"
+"PO-Revision-Date: 2011-08-29 00:09+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -850,7 +850,7 @@ msgstr ""
 #: export.php:312 export.php:316
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr "Webbservern har inte tillåtelse att spara filen %s."
+msgstr "Webbservern har inte behörighet att spara filen %s."
 
 #: export.php:657
 #, php-format
