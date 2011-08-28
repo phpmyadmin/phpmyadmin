@@ -11257,10 +11257,9 @@ msgstr ""
 "La clave debe contener letras, números [em]y[/em] caracteres especiales."
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No data"
 msgid "Wrong data"
-msgstr "No hay datos"
+msgstr "Datos incorrectos"
 
 #: sql.php:214
 #, php-format
