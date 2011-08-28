@@ -834,10 +834,9 @@ msgid "Selected export type has to be saved in file!"
 msgstr "Ο επιλεγμένος τύπος εξαγωγής πρέπει να αποθηκευτεί σε αρχείο!"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Bad parameters!"
-msgstr "Προσθήκη παραμέτρου"
+msgstr "Μη έγκυρες παράμετροι!"
 
 #: export.php:167 export.php:192 export.php:655
 #, php-format
