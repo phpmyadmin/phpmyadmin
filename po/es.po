@@ -11042,7 +11042,7 @@ msgstr "Añadir un nuevo servidor"
 
 #: setup/index.php:22
 msgid "Wrong GET file attribute value"
-msgstr ""
+msgstr "Valor incorrecto del atributo de archivo («file») en GET"
 
 #: setup/lib/form_processing.lib.php:43
 msgid "Warning"
