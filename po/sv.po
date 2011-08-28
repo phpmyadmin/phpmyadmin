@@ -608,7 +608,7 @@ msgstr "Spårning är aktiv."
 
 #: db_structure.php:298 tbl_create.php:271
 msgid "Tracking is not active."
-msgstr "Spårning är inte aktiv."
+msgstr "Spårning är inaktiv."
 
 #: db_structure.php:386 libraries/display_tbl.lib.php:2238
 #, php-format
