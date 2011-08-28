@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-28 18:12+0200\n"
+"PO-Revision-Date: 2011-08-28 18:13+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -295,7 +295,7 @@ msgstr "Tag bort databasen (DROP)"
 
 #: db_operations.php:472
 msgid "Copy database to"
-msgstr "Kopiera databas till"
+msgstr "Kopiera databasen till"
 
 #: db_operations.php:479 tbl_operations.php:552 tbl_tracking.php:409
 msgid "Structure only"
