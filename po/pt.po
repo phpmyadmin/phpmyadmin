@@ -1453,10 +1453,10 @@ msgstr ""
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:146
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save as file"
 msgid "Set log_output to %s"
-msgstr "envia"
+msgstr "Define log_output como %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:148
