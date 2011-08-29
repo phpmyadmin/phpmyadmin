@@ -1509,7 +1509,8 @@ class PMA_Table
                 // there is no $table_create_time, or
                 // supplied $table_create_time is older than current create time,
                 // so don't save
-                return false;
+                return PMA_Message::error(sprintf(
+                    __('Cannot save UI property "%s". The changes made will not be persistent after you refresh this page. Please check if the table structure has been changed.'), $property));
             }
         }
         // save the value
