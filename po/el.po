@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 21:32+0200\n"
+"PO-Revision-Date: 2011-08-29 21:33+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12358,7 +12358,7 @@ msgstr "Λανθάνουσα μνήμη ερωτήματος"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
-msgstr ""
+msgstr "Ημί βέλτιστη μέθοδος λανθάνουσας μνήμης."
 
 #: po/advisory_rules.php:77
 msgid ""
