@@ -1226,7 +1226,7 @@ msgstr "Tráfego do servidor (em KiB)"
 
 #: js/messages.php:82
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "Ligações desde a última actualização"
 
 #: js/messages.php:83 js/messages.php:121 server_status.php:1224
 msgid "Processes"
