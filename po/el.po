@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 20:52+0200\n"
+"PO-Revision-Date: 2011-08-29 20:54+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -6864,7 +6864,7 @@ msgstr "Shape File της ESRI"
 #: libraries/import/shp.php:275
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr ""
+msgstr "Σφάλμα εισαγωγής shape file της ESRI: «%s»."
 
 #: libraries/import/shp.php:331
 msgid ""
