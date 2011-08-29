@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 10:43+0200\n"
+"PO-Revision-Date: 2011-08-29 10:44+0200\n"
 "Last-Translator:  <dobreira@gmail.com>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -1568,10 +1568,9 @@ msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr "Agrupar comandos, ignorando dados variáveis em clausulas WHERE"
 
 #: js/messages.php:178
-#, fuzzy
 #| msgid "Number of rows per page"
 msgid "Sum of grouped rows:"
-msgstr "Número de registos por página"
+msgstr "Soma de linhas agrupadas"
 
 #: js/messages.php:179
 #, fuzzy
