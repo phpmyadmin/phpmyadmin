@@ -1623,9 +1623,8 @@ msgstr ""
 #: libraries/db_links.inc.php:83 libraries/server_links.inc.php:69
 #: libraries/tbl_links.inc.php:89 prefs_manage.php:229 server_status.php:1589
 #: setup/frames/menu.inc.php:20
-#, fuzzy
 msgid "Import"
-msgstr "Exportar"
+msgstr "Importar"
 
 #: js/messages.php:192
 #, fuzzy
