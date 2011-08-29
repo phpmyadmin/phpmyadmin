@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 21:11+0200\n"
+"PO-Revision-Date: 2011-08-29 21:15+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -10723,7 +10723,7 @@ msgstr ""
 
 #: server_status.php:1623
 msgid "Please note:"
-msgstr ""
+msgstr "Σημειώστε"
 
 #: server_status.php:1625
 #, fuzzy
