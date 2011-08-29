@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 20:55+0200\n"
+"PO-Revision-Date: 2011-08-29 20:56+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -6880,10 +6880,9 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "Η Χωρική Επέκταση της MySQL δεν υποστηρίζει τύπο της ESRI «%s»."
 
 #: libraries/import/shp.php:371
-#, fuzzy
 #| msgid "This page does not contain any tables!"
 msgid "The imported file does not contain any data"
-msgstr "Αυτή η σελίδα δεν περιέχει κανένα πίνακα!"
+msgstr "Το εισαγόμενο αρχείο δεν περιέχει δεδομένα"
 
 #: libraries/import/sql.php:33
 msgid "SQL compatibility mode:"
