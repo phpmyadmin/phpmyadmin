@@ -1724,10 +1724,9 @@ msgid "Create Table"
 msgstr "Criar uma Tabela"
 
 #: js/messages.php:229
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
-msgstr "Usar Tabelas"
+msgstr "Inserir Tabela"
 
 #: js/messages.php:230
 #, fuzzy
