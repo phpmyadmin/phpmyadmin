@@ -1308,7 +1308,7 @@ msgstr "Memória total"
 
 #: js/messages.php:108
 msgid "Cached memory"
-msgstr ""
+msgstr "Memória na cache"
 
 #: js/messages.php:109
 msgid "Buffered memory"
