@@ -1248,9 +1248,8 @@ msgid "Questions (executed statements by the server)"
 msgstr "Perguntas (comandos executados pelo servidor)"
 
 #: js/messages.php:90 server_status.php:776
-#, fuzzy
 msgid "Query statistics"
-msgstr "Estatísticas dos registos"
+msgstr "Estatísticas de comandos"
 
 #: js/messages.php:93
 msgid "Local monitor configuration incompatible"
