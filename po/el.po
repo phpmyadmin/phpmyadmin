@@ -8218,10 +8218,9 @@ msgid "Table Search"
 msgstr "Αναζήτηση Πίνακα"
 
 #: libraries/tbl_select.lib.php:205 tbl_change.php:998
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "Προσθήκη"
+msgstr "Επεξεργασία/Προσθήκη"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 msgid ""
