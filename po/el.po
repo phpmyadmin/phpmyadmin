@@ -9709,10 +9709,9 @@ msgid "Related links:"
 msgstr "Σχετικοί σύνδεσμοι:"
 
 #: server_status.php:892
-#, fuzzy
 #| msgid "Query analyzer"
 msgid "Run analyzer"
-msgstr "Αναλυτής ερωτήματος"
+msgstr "Αναλυτής εκτέλεσης"
 
 #: server_status.php:893
 #, fuzzy
