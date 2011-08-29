@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 20:56+0200\n"
+"PO-Revision-Date: 2011-08-29 20:57+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -8213,10 +8213,9 @@ msgid "Operator"
 msgstr "Τελεστής"
 
 #: libraries/tbl_select.lib.php:128
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "Αναζήτηση"
+msgstr "Αναζήτηση Πίνακα"
 
 #: libraries/tbl_select.lib.php:205 tbl_change.php:998
 #, fuzzy
