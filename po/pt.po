@@ -1616,6 +1616,8 @@ msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr ""
+"Falha ao construir grelha do gráfico com a configuração importada. "
+"Redefinindo os valores padrão..."
 
 #: js/messages.php:190 libraries/config/messages.inc.php:170
 #: libraries/db_links.inc.php:83 libraries/server_links.inc.php:69
