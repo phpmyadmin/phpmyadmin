@@ -1516,7 +1516,7 @@ msgstr "Do registo lento"
 
 #: js/messages.php:163
 msgid "From general log"
-msgstr ""
+msgstr "Do registo geral"
 
 #: js/messages.php:164
 msgid "Analysing & loading logs. This may take a while."
