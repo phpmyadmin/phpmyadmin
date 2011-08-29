@@ -1333,7 +1333,7 @@ msgstr "Swap retida"
 
 #: js/messages.php:115
 msgid "Used Swap"
-msgstr ""
+msgstr "Swap utilizada"
 
 #: js/messages.php:116
 msgid "Free Swap"
