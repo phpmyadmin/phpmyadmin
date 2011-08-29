@@ -838,10 +838,9 @@ msgid "Selected export type has to be saved in file!"
 msgstr "O tipo de export seleccionado tem de ser gravado em ficheiro!"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Remove database"
 msgid "Bad parameters!"
-msgstr "Remover a Base de Dados"
+msgstr "Parâmetros inválidos!"
 
 #: export.php:167 export.php:192 export.php:655
 #, php-format
