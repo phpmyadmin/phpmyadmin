@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 10:37+0200\n"
+"PO-Revision-Date: 2011-08-29 10:38+0200\n"
 "Last-Translator:  <dobreira@gmail.com>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -1448,6 +1448,8 @@ msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"As seguintes configurações vão ser aplicadas globalmente e redefinidas para "
+"o valor padrão após o reinicio do servidor:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:146
