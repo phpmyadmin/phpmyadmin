@@ -185,17 +185,17 @@ if (isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
     if (isset($_REQUEST['col_order'])) {
         $col_order = explode(',', $_REQUEST['col_order']);
         $retval = $pmatable->setUiProp(PMA_Table::PROP_COLUMN_ORDER, $col_order, $_REQUEST['table_create_time']);
-        if ($retval !== true) {
+        if (gettype($retval) != 'boolean') {
             PMA_ajaxResponse($retval->getString(), false);
         }
     }
 
 
     // set column visibility
-    if (isset($_REQUEST['col_visib'])) {
+    if ($retval === true && isset($_REQUEST['col_visib'])) {
         $col_visib = explode(',', $_REQUEST['col_visib']);
         $retval = $pmatable->setUiProp(PMA_Table::PROP_COLUMN_VISIB, $col_visib, $_REQUEST['table_create_time']);
-        if ($retval !== true) {
+        if (gettype($retval) != 'boolean') {
             PMA_ajaxResponse($retval->getString(), false);
         }
     }
