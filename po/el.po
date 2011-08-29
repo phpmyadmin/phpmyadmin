@@ -7415,11 +7415,10 @@ msgid "Start"
 msgstr "Έναρξη"
 
 #: libraries/rte/rte_events.lib.php:457
-#, fuzzy
 #| msgid "End"
 msgctxt "End of recurring event"
 msgid "End"
-msgstr "Τέλος"
+msgstr "Λήξη"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:916
 #: libraries/rte/rte_triggers.lib.php:354
