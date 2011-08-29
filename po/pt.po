@@ -1375,7 +1375,7 @@ msgstr "Remover gráfico"
 
 #: js/messages.php:128
 msgid "Edit title and labels"
-msgstr ""
+msgstr "Editar titulo e rótulos"
 
 #: js/messages.php:129
 msgid "Add chart to grid"
