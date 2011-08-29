@@ -938,7 +938,7 @@ msgstr "Adicionar um anel interior"
 
 #: gis_data_editor.php:266 js/messages.php:291
 msgid "Polygon"
-msgstr ""
+msgstr "Polígono "
 
 #: gis_data_editor.php:306 js/messages.php:297
 #, fuzzy
