@@ -945,9 +945,8 @@ msgid "Add a polygon"
 msgstr "Adicionar um polígono"
 
 #: gis_data_editor.php:310
-#, fuzzy
 msgid "Add geometry"
-msgstr "Acrescenta um utilizador"
+msgstr "Adicionar geometria"
 
 #: gis_data_editor.php:318
 msgid ""
