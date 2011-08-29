@@ -8413,10 +8413,9 @@ msgid "More settings"
 msgstr "Περισσότερες ρυθμίσεις"
 
 #: main.php:156
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
-msgstr "Βάση δεδομένων για χρήστη"
+msgstr "Διακομιστής βάσης δεδομένων"
 
 #: main.php:159
 msgid "Software"
