@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 20:59+0200\n"
+"PO-Revision-Date: 2011-08-29 21:00+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -8943,7 +8943,7 @@ msgstr "Εμφάνισης σκαριφήματος (σχήματος) βάσε�
 
 #: server_plugins.php:81
 msgid "Modules"
-msgstr ""
+msgstr "Πρότυπα"
 
 #: server_plugins.php:102
 msgid "Begin"
