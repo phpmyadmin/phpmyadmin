@@ -8974,10 +8974,9 @@ msgid "License"
 msgstr "Άδεια"
 
 #: server_plugins.php:182
-#, fuzzy
 #| msgid "Disabled"
 msgid "disabled"
-msgstr "Απενεργοποιημένη"
+msgstr "Απενεργοποιημένο"
 
 #: server_privileges.php:32 server_privileges.php:364
 msgid "Includes all privileges except GRANT."
