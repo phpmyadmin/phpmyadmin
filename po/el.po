@@ -6871,6 +6871,8 @@ msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data"
 msgstr ""
+"Προσπαθήσατε να εισάγετε μη έγκυρο αρχείο ή το εισαγμένο αρχείο περιέχει μη "
+"έγκυρα δεδομένα"
 
 #: libraries/import/shp.php:333
 #, php-format
