@@ -8422,10 +8422,9 @@ msgid "Software"
 msgstr "Λογισμικό"
 
 #: main.php:160
-#, fuzzy
 #| msgid "Show versions"
 msgid "Software version"
-msgstr "Εμφάνιση εκδόσεων"
+msgstr "Έκδοση λογισμικού"
 
 #: main.php:161
 msgid "Protocol version"
