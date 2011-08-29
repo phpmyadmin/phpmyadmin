@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 20:42+0200\n"
+"PO-Revision-Date: 2011-08-29 20:43+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -6695,10 +6695,9 @@ msgid "Stand-in structure for view"
 msgstr "Στημένη δομή για προβολή"
 
 #: libraries/export/sql.php:1111
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error reading data:"
-msgstr "Επιτρέπει την ανάγνωση δεδομένων."
+msgstr "Σφάλμα ανάγνωσης δεδομένων."
 
 #: libraries/export/xml.php:19 libraries/import/xml.php:21
 msgid "XML"
