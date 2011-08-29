@@ -1556,9 +1556,8 @@ msgstr "Opções de filtragem da tabela de registos"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:175
-#, fuzzy
 msgid "Filter"
-msgstr "Qtd Campos"
+msgstr "Filtrar"
 
 #: js/messages.php:176
 msgid "Filter queries by word/regexp:"
