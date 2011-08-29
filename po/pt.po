@@ -1395,7 +1395,7 @@ msgstr "Nenhum"
 
 #: js/messages.php:133
 msgid "Resume monitor"
-msgstr ""
+msgstr "Resumir o monitor"
 
 #: js/messages.php:134
 msgid "Pause monitor"
