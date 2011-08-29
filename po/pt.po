@@ -1399,7 +1399,7 @@ msgstr "Resumir o monitor"
 
 #: js/messages.php:134
 msgid "Pause monitor"
-msgstr ""
+msgstr "Pausar o monitor"
 
 #: js/messages.php:136
 msgid "general_log and slow_query_log are enabled."
