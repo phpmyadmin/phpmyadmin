@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 20:44+0200\n"
+"PO-Revision-Date: 2011-08-29 20:48+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -6765,10 +6765,10 @@ msgid "Go to database"
 msgstr "Μετάβαση στη βάση δεδομένων"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
-msgstr "Απολεσθέντα δεδομένα για %s"
+msgstr "Επεξεργασία ρυθμίσεων για %s"
 
 #: libraries/import.lib.php:1127
 msgid "Go to table"
