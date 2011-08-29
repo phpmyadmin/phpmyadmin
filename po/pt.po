@@ -1175,9 +1175,8 @@ msgid "Live traffic chart"
 msgstr "Gráfico de tráfego em direto"
 
 #: js/messages.php:66 server_status.php:797
-#, fuzzy
 msgid "Live conn./process chart"
-msgstr "Gráfico de con/processo em directo"
+msgstr "Gráfico de ligações/processo ao vivo"
 
 #: js/messages.php:67 server_status.php:815
 msgid "Live query chart"
