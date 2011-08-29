@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 20:37+0200\n"
+"PO-Revision-Date: 2011-08-29 20:38+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -4676,10 +4676,9 @@ msgstr ""
 "εγγραφές στο «table_uiprefs» και αυτόματα διαγράφονται παλαιές εγγραφές"
 
 #: libraries/config/messages.inc.php:399
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of records saved in \"table_uiprefs\" table"
-msgstr "Μέγιστος αριθμός πινάκες που θα προβάλονται σε λίστα πινάκων"
+msgstr "Μέγιστος αριθμός εγγραφών που αποθηκεύονται στον πίνακα «table_uiprefs»"
 
 #: libraries/config/messages.inc.php:400
 msgid "Try to connect without password"
