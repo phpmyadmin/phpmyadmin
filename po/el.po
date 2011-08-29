@@ -12297,7 +12297,7 @@ msgstr "Βρέθηκη η «percona» στο version_comment"
 
 #: po/advisory_rules.php:62
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
-msgstr ""
+msgstr "Η τεκμηρίωση του Drizzle είναι στο http://docs.drizzle.org/"
 
 #: po/advisory_rules.php:63
 #, php-format
