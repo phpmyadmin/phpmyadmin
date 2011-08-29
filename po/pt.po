@@ -1547,7 +1547,7 @@ msgstr "Saltar para a tabela de registos"
 
 #: js/messages.php:170
 msgid "Log analysed, but no data found in this time span."
-msgstr ""
+msgstr "Registo analisado, mas nenhuns dados encontrados neste período de tempo"
 
 #. l10n: A collection of available filters
 #: js/messages.php:173
