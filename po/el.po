@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 20:28+0200\n"
+"PO-Revision-Date: 2011-08-29 20:29+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -2901,11 +2901,10 @@ msgstr "Εκκίνηση"
 #: libraries/common.lib.php:2364 libraries/common.lib.php:2367
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
-#, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
-msgstr "Προηγούμενο"
+msgstr "Προηγούμενη"
 
 #: libraries/common.lib.php:2394 libraries/common.lib.php:2397
 #: libraries/display_tbl.lib.php:370 server_binlog.php:170
