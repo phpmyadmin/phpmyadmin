@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 10:45+0200\n"
+"PO-Revision-Date: 2011-08-29 10:46+0200\n"
 "Last-Translator:  <dobreira@gmail.com>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -1592,6 +1592,9 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"Ao pedir novos dados do gráfico o servidor retornou uma resposta inválida. "
+"Isto é provavelmente porque a sua sessão expirou. Atualizar a página e "
+"reinserir as suas credenciais deve ajudar."
 
 #: js/messages.php:184
 #, fuzzy
