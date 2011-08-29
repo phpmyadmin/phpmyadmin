@@ -2896,7 +2896,7 @@ msgstr "Απολεσθείσα παράμετρος:"
 #| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
-msgstr "Εκκίνηση"
+msgstr "Αρχή"
 
 #: libraries/common.lib.php:2364 libraries/common.lib.php:2367
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
