@@ -7927,7 +7927,7 @@ msgstr "Σύνολο χαρακτήρων"
 #: libraries/server_links.inc.php:104 server_plugins.php:47
 #: server_plugins.php:80
 msgid "Plugins"
-msgstr ""
+msgstr "Πρόσθετα"
 
 #: libraries/server_links.inc.php:108
 msgid "Engines"
