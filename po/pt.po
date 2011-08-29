@@ -1650,7 +1650,7 @@ msgstr "Recomendação"
 
 #: js/messages.php:200
 msgid "Rule details"
-msgstr ""
+msgstr "Detalhes da regra"
 
 #: js/messages.php:201
 #, fuzzy
