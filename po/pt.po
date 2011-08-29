@@ -1186,7 +1186,7 @@ msgstr "Gráfico de comandos em directo"
 
 #: js/messages.php:69
 msgid "Static data"
-msgstr ""
+msgstr "Dados estáticos"
 
 #. l10n: Total number of queries
 #: js/messages.php:71 libraries/build_html_for_db.lib.php:46
