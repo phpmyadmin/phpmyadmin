@@ -1487,10 +1487,9 @@ msgstr ""
 "contacte o seu administrador de base de dados."
 
 #: js/messages.php:154
-#, fuzzy
 #| msgid "General relation features"
 msgid "Change settings"
-msgstr "Características gerais de Relação"
+msgstr "Modificar configurações"
 
 #: js/messages.php:155
 #, fuzzy
