@@ -5793,10 +5793,9 @@ msgid "Language"
 msgstr "Γλώσσα"
 
 #: libraries/display_tbl.lib.php:401
-#, fuzzy
 #| msgid "Save directory"
 msgid "Save edited data"
-msgstr "Φάκελος αποθήκευσης"
+msgstr "Αποθήκευση επεξεργασμένων δεδομένων"
 
 #: libraries/display_tbl.lib.php:407
 msgid "Restore column order"
