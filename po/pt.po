@@ -1734,10 +1734,9 @@ msgid "Hide indexes"
 msgstr "Esconder índices "
 
 #: js/messages.php:231
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "Mostrar grelha"
+msgstr "Mostrar índices"
 
 #: js/messages.php:234
 msgid "Searching"
