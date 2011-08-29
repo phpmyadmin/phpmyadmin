@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 10:40+0200\n"
+"PO-Revision-Date: 2011-08-29 10:41+0200\n"
 "Last-Translator:  <dobreira@gmail.com>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -1512,7 +1512,7 @@ msgstr "Dividido por %s:"
 
 #: js/messages.php:162
 msgid "From slow log"
-msgstr ""
+msgstr "Do registo lento"
 
 #: js/messages.php:163
 msgid "From general log"
