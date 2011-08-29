@@ -1542,9 +1542,8 @@ msgstr ""
 "Dados do registo carregados. Comandos executados neste período de tempo:"
 
 #: js/messages.php:169
-#, fuzzy
 msgid "Jump to Log table"
-msgstr "Sem bases de dados"
+msgstr "Saltar para a tabela de registos"
 
 #: js/messages.php:170
 msgid "Log analysed, but no data found in this time span."
