@@ -1379,7 +1379,7 @@ msgstr "Editar titulo e rótulos"
 
 #: js/messages.php:129
 msgid "Add chart to grid"
-msgstr ""
+msgstr "Adicionar gráfico a grelha"
 
 #: js/messages.php:131
 msgid "Please add at least one variable to the series"
