@@ -877,7 +877,7 @@ msgstr "Valor para a coluna \"%s\""
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "Usar OpenStreetMaps como camada base"
 
 #: gis_data_editor.php:134
 msgid "SRID"
