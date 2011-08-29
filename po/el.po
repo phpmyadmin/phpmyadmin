@@ -2893,11 +2893,10 @@ msgstr "Απολεσθείσα παράμετρος:"
 
 #: libraries/common.lib.php:2363 libraries/common.lib.php:2366
 #: libraries/display_tbl.lib.php:306
-#, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
-msgstr "Κορυφή"
+msgstr "Εκκίνηση"
 
 #: libraries/common.lib.php:2364 libraries/common.lib.php:2367
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
