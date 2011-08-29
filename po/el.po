@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 20:58+0200\n"
+"PO-Revision-Date: 2011-08-29 20:59+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -8446,10 +8446,9 @@ msgid "Web server"
 msgstr "Διακομιστής ιστού"
 
 #: main.php:190
-#, fuzzy
 #| msgid "Use light version"
 msgid "Database client version"
-msgstr "Χρήση απλής έκδοσης"
+msgstr "Έκδοση πελάτη βάσης δεδομένων"
 
 #: main.php:192
 msgid "PHP extension"
