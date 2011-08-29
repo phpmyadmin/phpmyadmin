@@ -1603,7 +1603,7 @@ msgstr "Atualizar página"
 
 #: js/messages.php:186
 msgid "Affected rows:"
-msgstr ""
+msgstr "Linhas afetadas:"
 
 #: js/messages.php:188
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
