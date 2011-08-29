@@ -1520,7 +1520,7 @@ msgstr "Do registo geral"
 
 #: js/messages.php:164
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "A analisar e a carregar registos. Isto pode demorar um um pouco."
 
 #: js/messages.php:165
 msgid ""
