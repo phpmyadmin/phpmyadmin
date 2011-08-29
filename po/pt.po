@@ -1633,7 +1633,7 @@ msgstr "Analisar Comando"
 
 #: js/messages.php:196
 msgid "Advisor system"
-msgstr ""
+msgstr "Sistema de Assessoria"
 
 #: js/messages.php:197
 msgid "Possible performance issues"
