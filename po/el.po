@@ -9679,10 +9679,9 @@ msgid "Monitor"
 msgstr "Εποπτεία"
 
 #: server_status.php:779
-#, fuzzy
 #| msgid "Apply a divisor"
 msgid "Advisor"
-msgstr "Εφαρμογή διαιρέτη"
+msgstr "Σύμβουλος"
 
 #: server_status.php:789 server_status.php:811
 msgid "Refresh rate: "
