@@ -26,7 +26,7 @@ msgstr "Mostrar tudo"
 #: libraries/schema/User_Schema.class.php:376
 #: libraries/select_lang.lib.php:487
 msgid "Page number:"
-msgstr "Número de página:"
+msgstr "Número da página:"
 
 #: browse_foreigners.php:133
 msgid ""
