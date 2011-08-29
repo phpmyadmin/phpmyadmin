@@ -1337,7 +1337,7 @@ msgstr "Swap utilizada"
 
 #: js/messages.php:116
 msgid "Free Swap"
-msgstr ""
+msgstr "Swap livre"
 
 #: js/messages.php:118
 msgid "Bytes sent"
