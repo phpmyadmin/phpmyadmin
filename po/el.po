@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 21:24+0200\n"
+"PO-Revision-Date: 2011-08-29 21:29+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12281,7 +12281,7 @@ msgstr ""
 
 #: po/advisory_rules.php:53
 msgid "'source' found in version_comment"
-msgstr ""
+msgstr "Βρέθηκη η «προέλευση» στο version_comment"
 
 #: po/advisory_rules.php:56 po/advisory_rules.php:61
 msgid "The MySQL manual only is accurate for official MySQL binaries."
