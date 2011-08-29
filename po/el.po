@@ -8437,10 +8437,9 @@ msgid "User"
 msgstr "Χρήστης"
 
 #: main.php:167
-#, fuzzy
 #| msgid "Server socket"
 msgid "Server charset"
-msgstr "Υποδοχή διακομιστή"
+msgstr "Κωδικοποιήση διακομιστή"
 
 #: main.php:179
 msgid "Web server"
