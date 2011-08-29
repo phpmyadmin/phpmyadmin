@@ -1644,10 +1644,9 @@ msgid "Issue"
 msgstr "Problemas"
 
 #: js/messages.php:199
-#, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
-msgstr "Documentação"
+msgstr "Recomendação"
 
 #: js/messages.php:200
 msgid "Rule details"
