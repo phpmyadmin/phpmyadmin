@@ -1565,7 +1565,7 @@ msgstr "Filtrar comandos por palavra/regexp:"
 
 #: js/messages.php:177
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
+msgstr "Agrupar comandos, ignorando dados variáveis em clausulas WHERE"
 
 #: js/messages.php:178
 #, fuzzy
