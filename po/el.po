@@ -5022,10 +5022,9 @@ msgid "Show function fields"
 msgstr "Εμφάνιση πεδίων συναρτήσεων"
 
 #: libraries/config/messages.inc.php:462
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Whether to show hint or not"
-msgstr "Που να προβάλονται οι σύνδεσμοι γραμμής πίνακα"
+msgstr "Αν θα εμφανίζεται επεξήγηση ή όχι"
 
 #: libraries/config/messages.inc.php:463
 #, fuzzy
