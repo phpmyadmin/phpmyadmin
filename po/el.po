@@ -11723,7 +11723,7 @@ msgstr "Μέγεθος εγγραφής "
 
 #: tbl_printview.php:388 tbl_structure.php:903
 msgid "Next autoindex"
-msgstr ""
+msgstr "Επόμενη αυτόματη αρίθμηση"
 
 #: tbl_relation.php:276
 #, php-format
