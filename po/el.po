@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 21:18+0200\n"
+"PO-Revision-Date: 2011-08-29 21:19+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12090,6 +12090,8 @@ msgstr "Σε λειτουργία λιγότερο από μια ημερα"
 #: po/advisory_rules.php:6
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
+"Είναι σε λειτουργία λιγότερο από 1 ημέρα, η ρύθμιση της απόδσης ίσως δεν "
+"είναι ακριβής."
 
 #: po/advisory_rules.php:7
 msgid ""
