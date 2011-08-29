@@ -1407,7 +1407,7 @@ msgstr "general_log e slow_query estão ativos "
 
 #: js/messages.php:137
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log está ativo"
 
 #: js/messages.php:138
 msgid "slow_query_log is enabled."
