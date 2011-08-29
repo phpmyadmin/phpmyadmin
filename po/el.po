@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 21:16+0200\n"
+"PO-Revision-Date: 2011-08-29 21:17+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12035,7 +12035,7 @@ msgstr "Μέγιστος αριθμός γραμμών για προβολή"
 
 #: tbl_zoom_select.php:368
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "Αναζήτηση/Επεξεργασία των σημείων"
 
 #: tbl_zoom_select.php:375
 #, fuzzy
