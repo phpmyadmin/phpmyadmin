@@ -1637,7 +1637,7 @@ msgstr "Sistema de Assessoria"
 
 #: js/messages.php:197
 msgid "Possible performance issues"
-msgstr ""
+msgstr "Possíveis problemas de desempenho"
 
 #: js/messages.php:198
 msgid "Issue"
