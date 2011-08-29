@@ -1316,7 +1316,7 @@ msgstr "Memória retida"
 
 #: js/messages.php:110
 msgid "Free memory"
-msgstr ""
+msgstr "Memória livre"
 
 #: js/messages.php:111
 msgid "Used memory"
