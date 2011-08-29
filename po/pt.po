@@ -1508,7 +1508,7 @@ msgstr "Diferencial"
 #: js/messages.php:160
 #, php-format
 msgid "Divided by %s:"
-msgstr ""
+msgstr "Dividido por %s:"
 
 #: js/messages.php:162
 msgid "From slow log"
