@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 10:41+0200\n"
+"PO-Revision-Date: 2011-08-29 10:42+0200\n"
 "Last-Translator:  <dobreira@gmail.com>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -1539,6 +1539,7 @@ msgstr ""
 #: js/messages.php:167
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
+"Dados do registo carregados. Comandos executados neste período de tempo:"
 
 #: js/messages.php:169
 #, fuzzy
