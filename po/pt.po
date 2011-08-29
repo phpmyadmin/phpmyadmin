@@ -1418,8 +1418,9 @@ msgid "slow_query_log and general_log are disabled."
 msgstr "slow_query_log e general_log estão inativos"
 
 #: js/messages.php:140
+#, fuzzy
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output não está configurado para TABLE"
 
 #: js/messages.php:141
 msgid "log_output is set to TABLE."
