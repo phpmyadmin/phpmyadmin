@@ -8592,10 +8592,9 @@ msgid "No databases"
 msgstr "Δεν υπάρχουν βάσεις δεδομένων"
 
 #: navigation.php:270
-#, fuzzy
 #| msgid "filter tables by name"
 msgid "Filter tables by name"
-msgstr "φιλτράρισμα πινάκων κατά όνομα"
+msgstr "Φιλτράρισμα πινάκων κατά όνομα"
 
 #: navigation.php:303 navigation.php:304
 msgctxt "short form"
