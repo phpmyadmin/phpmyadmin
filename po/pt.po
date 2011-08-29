@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 10:33+0200\n"
+"PO-Revision-Date: 2011-08-29 10:34+0200\n"
 "Last-Translator:  <dobreira@gmail.com>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -1383,7 +1383,7 @@ msgstr "Adicionar gráfico a grelha"
 
 #: js/messages.php:131
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "Por favor adicione pelo menos uma variável à serie"
 
 #: js/messages.php:132 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:554 libraries/export/sql.php:1092
