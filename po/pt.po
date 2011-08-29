@@ -1268,9 +1268,8 @@ msgid "Query cache efficiency"
 msgstr "Eficiência da cache de comandos"
 
 #: js/messages.php:97
-#, fuzzy
 msgid "Query cache usage"
-msgstr "Tipo de Query"
+msgstr "Utilização da cache de comandos"
 
 #: js/messages.php:98
 #, fuzzy
