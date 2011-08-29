@@ -8400,10 +8400,9 @@ msgid "General Settings"
 msgstr "Γενικές Ρυθμίσεις"
 
 #: main.php:101
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "Σύνθεση σύνδεσης MySQL"
+msgstr "Σύνθεση σύνδεσης διακομιστή"
 
 #: main.php:116
 msgid "Appearance Settings"
