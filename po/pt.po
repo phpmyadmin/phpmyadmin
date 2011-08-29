@@ -1272,9 +1272,8 @@ msgid "Query cache usage"
 msgstr "Utilização da cache de comandos"
 
 #: js/messages.php:98
-#, fuzzy
 msgid "Query cache used"
-msgstr "Tipo de Query"
+msgstr "Cache de comandos utilizada"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
