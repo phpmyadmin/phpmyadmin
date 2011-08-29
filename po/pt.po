@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 10:28+0200\n"
+"PO-Revision-Date: 2011-08-29 10:29+0200\n"
 "Last-Translator:  <dobreira@gmail.com>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -1253,7 +1253,7 @@ msgstr "Estatísticas de comandos"
 
 #: js/messages.php:93
 msgid "Local monitor configuration incompatible"
-msgstr ""
+msgstr "Configuração incompatível do monitor local"
 
 #: js/messages.php:94
 msgid ""
