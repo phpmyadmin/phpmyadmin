@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-29 10:14+0200\n"
+"PO-Revision-Date: 2011-08-29 10:15+0200\n"
 "Last-Translator:  <dobreira@gmail.com>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -722,7 +722,7 @@ msgstr "Substituir prefixo da tabela"
 #, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
-msgstr "Substituir os dados da tabela pelos do arquivo"
+msgstr "Copiar() tabela com prefixo()"
 
 #: db_structure.php:571 libraries/schema/User_Schema.class.php:403
 msgid "Data Dictionary"
