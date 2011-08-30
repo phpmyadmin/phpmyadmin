@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-30 12:12+0200\n"
+"PO-Revision-Date: 2011-08-30 12:13+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -11858,10 +11858,9 @@ msgid "Current amount of Questions: %s"
 msgstr "Aktuelt antal forespørgsler: %s"
 
 #: po/advisory_rules.php:15
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
-msgstr "Vis SQL-forespørgsler"
+msgstr "Procentdel langsomme forespørgsler"
 
 #: po/advisory_rules.php:16
 msgid ""
