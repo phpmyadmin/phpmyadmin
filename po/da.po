@@ -8844,7 +8844,7 @@ msgstr "Forfatter"
 
 #: server_plugins.php:116 server_plugins.php:151
 msgid "License"
-msgstr ""
+msgstr "Licens"
 
 #: server_plugins.php:182
 #, fuzzy
