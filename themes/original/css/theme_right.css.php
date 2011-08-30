@@ -1661,16 +1661,6 @@ table#serverconnection_trg_local  {
     margin: 20px 30px 30px 10px
 }
 
-.exportoptions #buttonGo, .importoptions #buttonGo {
-    padding: 5px 30px;
-    -moz-border-radius: 11px;
-    -webkit-border-radius: 11px;
-    border-radius: 11px;
-    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
-    border: 1px solid #444444;
-    cursor: pointer;
-}
-
 .format_specific_options h3 {
     margin: 10px 0 0 10px;
     border: 0;

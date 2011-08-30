@@ -12523,7 +12523,7 @@ msgid ""
 "below 25%%"
 msgstr ""
 "%s%% af alle midlertidige tabeller skrives til disk. Denne værdi bør være "
-"under 25%"
+"under 25%%"
 
 #: po/advisory_rules.php:155
 #| msgid "%s table"
