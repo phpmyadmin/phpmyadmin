@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-30 12:33+0200\n"
+"PO-Revision-Date: 2011-08-30 12:35+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -12066,6 +12066,9 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
+"Din hukommelseskapacitet er over 3 GiB (forudsat serveren er på localhost), "
+"så MySQL kan måske ikke anvende al din hukommelse. Du bør overveje at "
+"installere 64-bit versionen af MySQL."
 
 #: po/advisory_rules.php:68
 #, php-format
