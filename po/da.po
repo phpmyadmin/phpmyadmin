@@ -11962,7 +11962,7 @@ msgstr "Slet serie"
 
 #: po/advisory_rules.php:36
 msgid "The MySQL server version less then 5.1."
-msgstr ""
+msgstr "Versionen af MySQL server er mindre end 5.1"
 
 #: po/advisory_rules.php:37
 msgid ""
