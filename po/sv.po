@@ -10828,7 +10828,7 @@ msgstr "Osäker anslutning"
 
 #: setup/frames/index.inc.php:93
 msgid "Configuration saved."
-msgstr "Konfiguration sparad"
+msgstr "Konfigurationen sparad."
 
 #: setup/frames/index.inc.php:94
 msgid ""
