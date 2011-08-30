@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-31 00:20+0200\n"
+"PO-Revision-Date: 2011-08-31 00:21+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -10665,7 +10665,7 @@ msgstr "Kunde inte ansluta till målet"
 #: tbl_get_field.php:19
 #, php-format
 msgid "'%s' database does not exist."
-msgstr "'%s' databasen finns inte."
+msgstr "'%s' databasen existerar inte."
 
 #: server_synchronize.php:282
 msgid "Structure Synchronization"
