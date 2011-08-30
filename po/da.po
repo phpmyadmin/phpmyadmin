@@ -2803,7 +2803,7 @@ msgstr "Opdater"
 
 #: libraries/common.lib.php:1184
 msgid "Skip Validate SQL"
-msgstr "Spring over Validér SQL"
+msgstr "Spring over Valider SQL"
 
 #: libraries/common.lib.php:1187 libraries/config/messages.inc.php:483
 msgid "Validate SQL"
