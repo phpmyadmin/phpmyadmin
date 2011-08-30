@@ -12734,7 +12734,7 @@ msgstr "Aktiver trådmellemlager ved at sætte {thread_cache_size} > 0."
 
 #: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
-msgstr ""
+msgstr "Trådmellemlager er sat til 0"
 
 #: po/advisory_rules.php:210
 #, fuzzy, php-format
