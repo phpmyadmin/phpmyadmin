@@ -12437,10 +12437,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:140
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Rate of reading next table row"
-msgstr "Hvor links til tablerækker skal vises"
+msgstr "Andel af læsning af næste tabelrække"
 
 #: po/advisory_rules.php:141
 #, fuzzy
