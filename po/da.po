@@ -12785,7 +12785,7 @@ msgstr "Langsom starttid"
 
 #: po/advisory_rules.php:221
 msgid "Slow_launch_threads is above 2s"
-msgstr ""
+msgstr "Slow_launch_threads er over 2s"
 
 #: po/advisory_rules.php:222
 msgid ""
