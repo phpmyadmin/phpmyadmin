@@ -1793,7 +1793,7 @@ msgstr "Brug musehjul til at zoome ind eller ud af plottet."
 
 #: js/messages.php:270
 msgid "Click and drag the mouse to navigate the plot."
-msgstr ""
+msgstr "Klik og træk musen for at navigere i plottet"
 
 #: js/messages.php:272
 msgid "Click reset zoom link to come back to original state."
