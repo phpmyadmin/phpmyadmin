@@ -12081,10 +12081,9 @@ msgid "Query cache disabled"
 msgstr "Forespørgsel-mellemlager deaktiveret"
 
 #: po/advisory_rules.php:71
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "Serveren svarer ikke"
+msgstr "Forespørgsel-mellemlager er ikke aktiveret"
 
 #: po/advisory_rules.php:72
 msgid ""
