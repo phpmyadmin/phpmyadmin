@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-30 13:42+0200\n"
+"PO-Revision-Date: 2011-08-30 13:43+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -12591,10 +12591,9 @@ msgid "max %% MyISAM key buffer ever used: %s, this value should be above 95%%"
 msgstr ""
 
 #: po/advisory_rules.php:170
-#, fuzzy
 #| msgid "Sort buffer size"
 msgid "Percentage of MyISAM key buffer used"
-msgstr "Sorteringsbufferstørrelse"
+msgstr "Procentdel brugt af MyISAM nøglebuffer"
 
 #: po/advisory_rules.php:173
 #, php-format
