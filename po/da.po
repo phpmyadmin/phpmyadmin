@@ -12140,6 +12140,7 @@ msgstr "Effektivitet (%) af forespørgselsmellemlager "
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr ""
+"Forespørgselsmellemlageret kører ikke effektivt. Det har en lav hitrate."
 
 #: po/advisory_rules.php:82
 msgid "Consider increasing {query_cache_limit}."
