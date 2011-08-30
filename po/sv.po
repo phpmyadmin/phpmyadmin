@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-31 00:29+0200\n"
+"PO-Revision-Date: 2011-08-31 00:30+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -10767,7 +10767,7 @@ msgstr ""
 
 #: server_variables.php:80
 msgid "Setting variable failed"
-msgstr "Definiering av variabel misslyckades"
+msgstr "Inställning av variabeln misslyckades"
 
 #: server_variables.php:99
 msgid "Server variables and settings"
