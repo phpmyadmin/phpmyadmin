@@ -12743,10 +12743,9 @@ msgid "Thread cache hit rate %%"
 msgstr "Frekvens for hits i trådmellemlager %%"
 
 #: po/advisory_rules.php:211
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "Thread cache is not efficient."
-msgstr "Sporing er ikke aktiv."
+msgstr "Trådmellemlageret er ikke effektivt."
 
 #: po/advisory_rules.php:212
 msgid "Increase {thread_cache_size}."
