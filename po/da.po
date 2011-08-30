@@ -12349,7 +12349,7 @@ msgstr "Sorter rækker"
 
 #: po/advisory_rules.php:121
 msgid "There are lots of rows being sorted."
-msgstr ""
+msgstr "Der er mange rækker, der sorteres."
 
 #: po/advisory_rules.php:122
 msgid ""
