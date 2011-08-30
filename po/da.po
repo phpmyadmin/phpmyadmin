@@ -12514,11 +12514,10 @@ msgstr ""
 "under 25%"
 
 #: po/advisory_rules.php:155
-#, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Temp disk rate"
-msgstr "%s tabel"
+msgstr "Andel af midlertidig disk"
 
 #: po/advisory_rules.php:157
 msgid ""
