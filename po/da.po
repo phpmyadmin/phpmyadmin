@@ -12370,7 +12370,7 @@ msgstr "Gennemsnit af sorterede rækker: %s"
 #: po/advisory_rules.php:125
 #| msgid "There are no routines to display."
 msgid "Rate of joins without indexes"
-msgstr "Andel af joins uden indeks"
+msgstr "Frekvens af joins uden indeks"
 
 #: po/advisory_rules.php:126
 #| msgid "There are no routines to display."
