@@ -12602,7 +12602,7 @@ msgstr "%% MyISAM nøglebuffer brugt: %s. Denne værdi bør være over 95%%"
 
 #: po/advisory_rules.php:175
 msgid "Percentage of index reads from memory"
-msgstr ""
+msgstr "Procentdel af indekslæsninger fra hukommelse"
 
 #: po/advisory_rules.php:176
 #, php-format
