@@ -12365,7 +12365,7 @@ msgstr ""
 #: po/advisory_rules.php:123
 #, php-format
 msgid "Sorted rows average: %s"
-msgstr ""
+msgstr "Gennemsnit af sorterede rækker: %s"
 
 #: po/advisory_rules.php:125
 #, fuzzy
