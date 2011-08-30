@@ -48,21 +48,21 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
         // Query realtime chart
         case 'queries':
-                if (PMA_DRIZZLE) {
-                    $sql = "SELECT concat('Com_', variable_name), variable_value
-                        FROM data_dictionary.GLOBAL_STATEMENTS
-                        WHERE variable_value > 0
-                          UNION
-                        SELECT variable_name, variable_value
-                        FROM data_dictionary.GLOBAL_STATUS
-                        WHERE variable_name = 'Questions'";
-                    $queries = PMA_DBI_fetch_result($sql, 0, 1);
-                } else {
-                    $queries = PMA_DBI_fetch_result(
-                        "SHOW GLOBAL STATUS
-                        WHERE (Variable_name LIKE 'Com_%' OR Variable_name = 'Questions')
-                            AND Value > 0", 0, 1);
-                }
+            if (PMA_DRIZZLE) {
+                $sql = "SELECT concat('Com_', variable_name), variable_value
+                    FROM data_dictionary.GLOBAL_STATEMENTS
+                    WHERE variable_value > 0
+                      UNION
+                    SELECT variable_name, variable_value
+                    FROM data_dictionary.GLOBAL_STATUS
+                    WHERE variable_name = 'Questions'";
+                $queries = PMA_DBI_fetch_result($sql, 0, 1);
+            } else {
+                $queries = PMA_DBI_fetch_result(
+                    "SHOW GLOBAL STATUS
+                    WHERE (Variable_name LIKE 'Com_%' OR Variable_name = 'Questions')
+                        AND Value > 0", 0, 1);
+            }
             cleanDeprecated($queries);
             // admin commands are not queries
             unset($queries['Com_admin_commands']);
