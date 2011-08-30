@@ -12099,7 +12099,7 @@ msgstr ""
 
 #: po/advisory_rules.php:73
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
-msgstr ""
+msgstr "query_cache_size er sat til 0 eller query_cache_type er sat til 'OFF'"
 
 #: po/advisory_rules.php:75
 #, fuzzy
