@@ -10742,7 +10742,7 @@ msgstr "Utförda frågor"
 
 #: server_synchronize.php:1192
 msgid "Enter manually"
-msgstr "Skriv in manuellt"
+msgstr "Mata in manuellt"
 
 #: server_synchronize.php:1200
 msgid "Current connection"
