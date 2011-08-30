@@ -8745,7 +8745,7 @@ msgstr "Filer"
 #: server_binlog.php:150 server_binlog.php:152 server_status.php:1237
 #: server_status.php:1239
 msgid "Truncate Shown Queries"
-msgstr "Trunkér viste forespørgsler"
+msgstr "Trunker viste forespørgsler"
 
 #: server_binlog.php:158 server_binlog.php:160 server_status.php:1237
 #: server_status.php:1239
