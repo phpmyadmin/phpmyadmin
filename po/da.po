@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-30 13:53+0200\n"
+"PO-Revision-Date: 2011-08-30 13:54+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -12681,7 +12681,7 @@ msgstr "Frekvensen af filåbninger er høj."
 #: po/advisory_rules.php:193
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr ""
+msgstr "Frekvens af filåbninger: %s. Denne værdi bør være mindre end 5 pr time "
 
 #: po/advisory_rules.php:195
 #, fuzzy, php-format
