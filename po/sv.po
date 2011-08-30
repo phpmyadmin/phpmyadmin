@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-31 00:24+0200\n"
+"PO-Revision-Date: 2011-08-31 00:25+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -10717,7 +10717,7 @@ msgstr "Infoga rad(er)"
 
 #: server_synchronize.php:460 server_synchronize.php:933
 msgid "Would you like to delete all the previous rows from target tables?"
-msgstr "Vill du radera alla tidigare rader från mål tabellen?"
+msgstr "Vill du radera alla föregående rader från måltabellen?"
 
 #: server_synchronize.php:465 server_synchronize.php:938
 msgid "Apply Selected Changes"
