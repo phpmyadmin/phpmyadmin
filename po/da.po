@@ -12978,10 +12978,9 @@ msgid "Your absolute InnoD log size is %s MiB"
 msgstr ""
 
 #: po/advisory_rules.php:265
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
-msgstr "Buffer pool størrelse"
+msgstr "InnoDB buffer pool størrelse"
 
 #: po/advisory_rules.php:266
 msgid "Your InnoDB buffer pool is fairly small."
