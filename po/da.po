@@ -11933,10 +11933,9 @@ msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time er sat til %ds"
 
 #: po/advisory_rules.php:30
-#, fuzzy
 #| msgid "Show query box"
 msgid "Slow query logging"
-msgstr "Vis forespørgselsbox"
+msgstr "Logning af langsomme forespørgsler"
 
 #: po/advisory_rules.php:31
 #, fuzzy
