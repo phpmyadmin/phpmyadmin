@@ -11795,10 +11795,9 @@ msgid "Create version"
 msgstr "Skapa version"
 
 #: tbl_zoom_select.php:125
-#, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "Utför en \"Query By Example\" (jokertecken: \"%\")"
+msgstr "Utför en \"Query By Example\" (jokertecken: \"%\") för två olika kolumner"
 
 #: tbl_zoom_select.php:135
 #, fuzzy
