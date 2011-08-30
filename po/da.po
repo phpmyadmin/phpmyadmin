@@ -12854,7 +12854,7 @@ msgstr "Frekvens af aborterede forbindelser"
 
 #: po/advisory_rules.php:236
 msgid "Too many connections are aborted"
-msgstr ""
+msgstr "For mange forbindelser er aborteret."
 
 #: po/advisory_rules.php:238
 #, php-format
