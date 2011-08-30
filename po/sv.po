@@ -11880,7 +11880,7 @@ msgstr ""
 #: po/advisory_rules.php:8
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "Upptid är bara %s"
 
 #: po/advisory_rules.php:10
 #, fuzzy
