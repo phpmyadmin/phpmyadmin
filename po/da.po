@@ -12832,7 +12832,7 @@ msgstr "Procentdel af aborterede forbindelser"
 
 #: po/advisory_rules.php:231
 msgid "Too many connections are aborted."
-msgstr ""
+msgstr "For mange forbindelser er aborterede."
 
 #: po/advisory_rules.php:232 po/advisory_rules.php:237
 msgid ""
