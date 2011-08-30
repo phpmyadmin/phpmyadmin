@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-20 19:20+0200\n"
+"PO-Revision-Date: 2011-08-30 11:55+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -822,20 +822,18 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "Kopier og indsæt de sammensatte værdier i \"Længde/Værdier\"-feltet"
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "Forespørgselstype"
+msgstr "Forkert type!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
 msgstr "Valgte eksporttype skal gemmes som fil!"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Bad parameters!"
-msgstr "Tilføj parameter"
+msgstr "Forkerte parametre!"
 
 #: export.php:167 export.php:192 export.php:655
 #, php-format
@@ -861,10 +859,9 @@ msgid "Dump has been saved to file %s."
 msgstr "Dump er blevet gemt i filen %s."
 
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "Eksporttype"
+msgstr "Ugyldig eksporttype"
 
 #: gis_data_editor.php:84
 #, php-format
@@ -900,10 +897,10 @@ msgstr "Y"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
 #: js/messages.php:289
-#, fuzzy, php-format
+#, php-format
 #| msgid "Point"
 msgid "Point %d"
-msgstr "Punkt"
+msgstr "Punkt %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:295
@@ -992,6 +989,7 @@ msgstr ""
 msgid ""
 "Cannot convert file's character set without character set conversion library"
 msgstr ""
+"Kan ikke konvertere filens tegnsæt uden konverteringsbibliotek for tegnsæt"
 
 #: import.php:376 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -1528,10 +1526,9 @@ msgstr "Loggen er analyseret, men ingen data fundet i dette tidsinterval."
 
 #. l10n: A collection of available filters
 #: js/messages.php:173
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
-msgstr "Indstillinger for visning af tabeller"
+msgstr "Indstillinger for filtre på logtabel"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:175
@@ -1792,11 +1789,11 @@ msgstr "Ved at holde pointeren over et punkt vises dets etiket"
 
 #: js/messages.php:268
 msgid "Use mousewheel to zoom in or out of the plot."
-msgstr ""
+msgstr "Brug musehjul til at zoome ind eller ud af plottet."
 
 #: js/messages.php:270
 msgid "Click and drag the mouse to navigate the plot."
-msgstr ""
+msgstr "Klik og træk musen for at navigere i plottet"
 
 #: js/messages.php:272
 msgid "Click reset zoom link to come back to original state."
@@ -2204,16 +2201,17 @@ msgstr "Fejlende formatteringsstreng for regel '%s'. PHP gav følgende fejl: %s"
 
 #: libraries/Config.class.php:703
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
-msgstr ""
+msgstr "Fjern \"./config\" folderen før brug af phpMyAdmin!"
 
 #: libraries/Config.class.php:727
 #, php-format
 msgid "Existing configuration file (%d) is not readable."
-msgstr ""
+msgstr "Eksisterende konfigurationsfil (%d) kan ikke læses."
 
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
+"Forkerte rettigheder på konfigurationsfil. Må ikke være skrivbar af alle!"
 
 #: libraries/Config.class.php:1297
 msgid "Font size"
@@ -2426,6 +2424,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
+"Kunne ikke rydde op i indstillinger for tabel-UI (se "
+"$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Theme.class.php:145
 #, php-format
@@ -2492,7 +2492,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:35
 msgid "Failed to use Blowfish from mcrypt!"
-msgstr ""
+msgstr "Kunne ikke bruge Blowfish fra mcrypt!"
 
 #: libraries/auth/cookie.auth.lib.php:199
 msgid "Log in"
@@ -2667,11 +2667,11 @@ msgstr "Check privilegier"
 
 #: libraries/common.inc.php:147
 msgid "possible exploit"
-msgstr ""
+msgstr "muligt sikkerhedshul"
 
 #: libraries/common.inc.php:156
 msgid "numeric key detected"
-msgstr ""
+msgstr "numerisk tast opfanget"
 
 #: libraries/common.inc.php:597
 msgid "Failed to read configuration file"
@@ -4619,6 +4619,8 @@ msgid ""
 "This configuration make sure that we only keep N (N = MaxTableUiprefs) "
 "newest record in \"table_uiprefs\" and automatically delete older records"
 msgstr ""
+"Denne konfiguration sikrer, at vi kun beholder de N (N = MaxTableUiprefs) "
+"nyeste rækker i \"table_uiprefs\"  og automatisk sletter ældre rækker"
 
 #: libraries/config/messages.inc.php:399
 msgid "Maximum number of records saved in \"table_uiprefs\" table"
@@ -5290,13 +5292,12 @@ msgstr "Open Document tekst"
 
 #: libraries/config/validate.lib.php:198
 msgid "Could not initialize Drizzle connection library"
-msgstr ""
+msgstr "Kunne ikke initialisere Drizzle forbindelsesbibliotek."
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Could not connect to Drizzle server"
-msgstr "Kunne ikke forbinde til MySQL server"
+msgstr "Kunne ikke forbinde til Drizzle server"
 
 #: libraries/config/validate.lib.php:223 libraries/config/validate.lib.php:230
 msgid "Could not connect to MySQL server"
@@ -5340,7 +5341,7 @@ msgstr "%s udvidelsen mangler. Check din PHP-konfiguration."
 
 #: libraries/core.lib.php:409
 msgid "possible deep recursion attack"
-msgstr ""
+msgstr "muligt dybt rekursionsangreb"
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
@@ -5401,10 +5402,9 @@ msgid "The server is not responding"
 msgstr "Serveren svarer ikke"
 
 #: libraries/dbi/drizzle.dbi.lib.php:344
-#, fuzzy
 #| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid "(or the local Drizzle server's socket is not correctly configured)"
-msgstr "(eller den lokale MySQL servers socket er ikke korrekt konfigureret)"
+msgstr "(eller den lokale Drizzle servers socket er ikke korrekt konfigureret)"
 
 #: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysqli.dbi.lib.php:384
 msgid "(or the local MySQL server's socket is not correctly configured)"
@@ -6629,7 +6629,7 @@ msgstr "Ingen data fundet for GIS visualization."
 
 #: libraries/header_http.inc.php:15 libraries/header_meta_style.inc.php:15
 msgid "GLOBALS overwrite attempt"
-msgstr ""
+msgstr "forsøg på overskrivning af GLOBALS"
 
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:54
 msgid "SQL result"
@@ -7815,7 +7815,7 @@ msgstr "Tegnsæt"
 #: libraries/server_links.inc.php:104 server_plugins.php:47
 #: server_plugins.php:80
 msgid "Plugins"
-msgstr ""
+msgstr "Udvidelsesmoduler"
 
 #: libraries/server_links.inc.php:108
 msgid "Engines"
@@ -8282,10 +8282,9 @@ msgid "General Settings"
 msgstr "Generelle indstillinger"
 
 #: main.php:101
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "MySQL forbindelsestegnsæt"
+msgstr "Servers forbindelsestegnsæt"
 
 #: main.php:116
 msgid "Appearance Settings"
@@ -8296,20 +8295,18 @@ msgid "More settings"
 msgstr "Flere indstillinger"
 
 #: main.php:156
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
-msgstr "Database for bruger"
+msgstr "Database server"
 
 #: main.php:159
 msgid "Software"
-msgstr ""
+msgstr "Programmel"
 
 #: main.php:160
-#, fuzzy
 #| msgid "Show versions"
 msgid "Software version"
-msgstr "Vis versioner"
+msgstr "Programmelversion"
 
 #: main.php:161
 msgid "Protocol version"
@@ -8322,20 +8319,18 @@ msgid "User"
 msgstr "Bruger"
 
 #: main.php:167
-#, fuzzy
 #| msgid "Server socket"
 msgid "Server charset"
-msgstr "Server socket"
+msgstr "Servers tegnsæt"
 
 #: main.php:179
 msgid "Web server"
 msgstr "Webserver"
 
 #: main.php:190
-#, fuzzy
 #| msgid "Use light version"
 msgid "Database client version"
-msgstr "Brug lille version"
+msgstr "Databaseklientversion"
 
 #: main.php:192
 msgid "PHP extension"
@@ -8821,7 +8816,7 @@ msgstr "Vis dump (skema) for databaser"
 
 #: server_plugins.php:81
 msgid "Modules"
-msgstr ""
+msgstr "Moduler"
 
 #: server_plugins.php:102
 msgid "Begin"
@@ -8829,15 +8824,15 @@ msgstr "Start"
 
 #: server_plugins.php:111
 msgid "Plugin"
-msgstr ""
+msgstr "Udvidelsesmodul"
 
 #: server_plugins.php:112 server_plugins.php:146
 msgid "Module"
-msgstr ""
+msgstr "Modul"
 
 #: server_plugins.php:113 server_plugins.php:148
 msgid "Library"
-msgstr ""
+msgstr "Bibliotek"
 
 #: server_plugins.php:114 server_plugins.php:149 tbl_tracking.php:635
 msgid "Version"
@@ -8845,17 +8840,16 @@ msgstr "Version"
 
 #: server_plugins.php:115 server_plugins.php:150
 msgid "Author"
-msgstr ""
+msgstr "Forfatter"
 
 #: server_plugins.php:116 server_plugins.php:151
 msgid "License"
-msgstr ""
+msgstr "Licens"
 
 #: server_plugins.php:182
-#, fuzzy
 #| msgid "Disabled"
 msgid "disabled"
-msgstr "Slået fra"
+msgstr "slået fra"
 
 #: server_privileges.php:32 server_privileges.php:364
 msgid "Includes all privileges except GRANT."
@@ -10426,6 +10420,8 @@ msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
+"Opsætningen af diagrammerne er lagret i browserens lokale lager. Det er "
+"muligt at eksportere den, hvis man har en kompleks opstilling."
 
 #: server_status.php:1589
 msgid "Reset to default"
