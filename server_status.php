@@ -61,7 +61,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                     $queries = PMA_DBI_fetch_result(
                         "SHOW GLOBAL STATUS
                         WHERE (Variable_name LIKE 'Com_%' OR Variable_name = 'Questions')
-                            AND Value > 0'", 0, 1);
+                            AND Value > 0", 0, 1);
                 }
             cleanDeprecated($queries);
             // admin commands are not queries
