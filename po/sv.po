@@ -10582,7 +10582,7 @@ msgstr "Vanligtvis övervakade"
 
 #: server_status.php:1660
 msgid "or type variable name:"
-msgstr "eller skriv ett variabelnamn:"
+msgstr "eller skriv variabelnamn:"
 
 #: server_status.php:1664
 msgid "Display as differential value"
