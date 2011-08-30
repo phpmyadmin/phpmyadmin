@@ -12515,6 +12515,13 @@ msgid ""
 "mentioned in the beginning of an <a href=\\\"http://www.facebook.com/note."
 "php?note_id=10150111255065841&comments\\\">Article by the Pythian Group</a>"
 msgstr ""
+"Forøgelse af  {max_heap_table_size} og {tmp_table_size} kan hjælpe. Dog "
+"skrives nogle midlertidige tabeller altid til disk uafhængig af disse "
+"variable. For at undgå disse skal man omskrive sine forespørgsler for at "
+"undgå disse betingelser (inden for en midlertidig tabel: Tilstedeværelse af "
+"BLOB eller TEXT felter eller et felt større end 512 bytes) som nævnt i <a "
+"href=\\\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-"
+"tables.html\\\">MySQL Documentation</a>"
 
 #: po/advisory_rules.php:153
 #, php-format
