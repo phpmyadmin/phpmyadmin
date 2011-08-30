@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-30 13:54+0200\n"
+"PO-Revision-Date: 2011-08-30 13:55+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -12690,10 +12690,9 @@ msgid "Immediate table locks %%"
 msgstr "Omgående tabellåse %%"
 
 #: po/advisory_rules.php:196 po/advisory_rules.php:201
-#, fuzzy
 #| msgid "The number of times that a table lock was acquired immediately."
 msgid "Too many table locks were not granted immediately."
-msgstr "Antallet af gange en tabellås blev givet øjeblikkeligt."
+msgstr "For mange tabellåse blev ikke givet øjeblikkeligt."
 
 #: po/advisory_rules.php:197 po/advisory_rules.php:202
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
