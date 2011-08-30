@@ -831,10 +831,9 @@ msgid "Selected export type has to be saved in file!"
 msgstr "Valgte eksporttype skal gemmes som fil!"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Bad parameters!"
-msgstr "Tilføj parameter"
+msgstr "Forkerte parametre!"
 
 #: export.php:167 export.php:192 export.php:655
 #, php-format
