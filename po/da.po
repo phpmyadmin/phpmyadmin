@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-30 13:51+0200\n"
+"PO-Revision-Date: 2011-08-30 13:52+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -12666,7 +12666,7 @@ msgstr ""
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
-msgstr ""
+msgstr "Antallet af åbne filer er på %s%% af grænsen. Den bør være under 85%%"
 
 #: po/advisory_rules.php:190
 #, fuzzy
