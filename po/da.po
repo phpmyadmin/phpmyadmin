@@ -11927,10 +11927,10 @@ msgstr ""
 "installationen. Sædvanligvis anbefales en værdi på 1-5 sekunder. "
 
 #: po/advisory_rules.php:28
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "long_query_time is currently set to %ds."
-msgstr "long_query_time er sat til %d sekund(er)."
+msgstr "long_query_time er sat til %ds"
 
 #: po/advisory_rules.php:30
 #, fuzzy
