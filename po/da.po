@@ -12152,9 +12152,8 @@ msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr "Den aktuelle hitrate %s%% for forespørgselsmellemlager er under 20%%"
 
 #: po/advisory_rules.php:85
-#, fuzzy
 msgid "Query Cache usage"
-msgstr "Forespørgsel-mellemlager"
+msgstr "Brug af forespørgselmellemlager"
 
 #: po/advisory_rules.php:86
 #, php-format
