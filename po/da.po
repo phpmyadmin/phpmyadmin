@@ -12227,7 +12227,7 @@ msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
 msgstr ""
-"Mellemlagrede forespørgsler er fjernet  pga lav hukommelse i "
+"Mellemlagrede forespørgsler er fjernet pga lav hukommelse i "
 "forspørgselmellemlageret"
 
 #: po/advisory_rules.php:97
