@@ -11056,10 +11056,9 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Nøglen bør indeholde bogstaver, numre [em]og[/em] specialtegn."
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No data"
 msgid "Wrong data"
-msgstr "Ingen data"
+msgstr "Forkerte data"
 
 #: sql.php:214
 #, php-format
