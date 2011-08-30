@@ -10574,7 +10574,7 @@ msgstr "Statusvariabler"
 
 #: server_status.php:1643
 msgid "Select series:"
-msgstr "Välj serier:"
+msgstr "Välj serie:"
 
 #: server_status.php:1645
 msgid "Commonly monitored"
