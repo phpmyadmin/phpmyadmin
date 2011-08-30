@@ -12865,10 +12865,9 @@ msgstr ""
 "1 pr time."
 
 #: po/advisory_rules.php:240
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of aborted clients"
-msgstr "Format på importeret fil"
+msgstr "Procentdel af aborterede klienter"
 
 #: po/advisory_rules.php:241 po/advisory_rules.php:246
 msgid "Too many clients are aborted."
