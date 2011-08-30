@@ -12725,7 +12725,7 @@ msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
 msgstr ""
-"Trådmellemlagereet er deaktiveret, hvilket resulterer i mere arbejde ved nye "
+"Trådmellemlageret er deaktiveret, hvilket resulterer i mere arbejde ved nye "
 "forbindelser til MySQL."
 
 #: po/advisory_rules.php:207
