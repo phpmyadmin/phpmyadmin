@@ -12272,7 +12272,7 @@ msgstr ""
 #: po/advisory_rules.php:103
 #, php-format
 msgid "Current query cache size: %s"
-msgstr ""
+msgstr "Aktuel størrelse af forespørgselmellemlager: %s"
 
 #: po/advisory_rules.php:105
 #, fuzzy
