@@ -12536,6 +12536,8 @@ msgid ""
 "Rate of temporay tables being written to disk: %s, this value should be less "
 "than 1 per hour"
 msgstr ""
+"Andel af midlertidige tabeller skrevet til disk: %s. Denne værdi bør være "
+"mindre end 1 pr time"
 
 #: po/advisory_rules.php:160
 #| msgid "Sort buffer size"
