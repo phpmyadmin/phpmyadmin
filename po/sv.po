@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-31 00:49+0200\n"
+"PO-Revision-Date: 2011-08-31 00:50+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -11112,10 +11112,9 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Nyckeln ska innehålla bokstäver, siffror [em]och[/em] specialtecken."
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No data"
 msgid "Wrong data"
-msgstr "Inget data"
+msgstr "Felaktigt data"
 
 #: sql.php:214
 #, php-format
