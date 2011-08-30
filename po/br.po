@@ -6692,9 +6692,10 @@ msgstr ""
 msgid "No databases"
 msgstr ""
 
+# verb pe ak. ?
 #: navigation.php:277
 msgid "Filter"
-msgstr ""
+msgstr "Silañ"
 
 #: navigation.php:277
 msgid "filter tables by name"

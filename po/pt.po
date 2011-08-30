@@ -805,7 +805,7 @@ msgstr "+ Reiniciar inserção e adicionar um novo valor"
 
 #: enum_editor.php:67
 msgid "Output"
-msgstr ""
+msgstr "Saída"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
