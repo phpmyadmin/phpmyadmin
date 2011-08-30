@@ -12303,10 +12303,9 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit er sat til 1 MiB"
 
 #: po/advisory_rules.php:110
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
-msgstr "Tillader oprettelse af midlertidige tabeller."
+msgstr "Procentdel af sorteringer, som bruger midlertidige tabeller"
 
 #: po/advisory_rules.php:111 po/advisory_rules.php:116
 #, fuzzy
