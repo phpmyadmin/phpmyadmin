@@ -12343,10 +12343,9 @@ msgstr ""
 "pr time."
 
 #: po/advisory_rules.php:120
-#, fuzzy
 #| msgid "Start row"
 msgid "Sort rows"
-msgstr "Startrække"
+msgstr "Sorter rækker"
 
 #: po/advisory_rules.php:121
 msgid "There are lots of rows being sorted."
