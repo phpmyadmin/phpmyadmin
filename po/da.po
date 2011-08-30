@@ -12044,7 +12044,7 @@ msgstr "'percona' fundet i version_comment"
 
 #: po/advisory_rules.php:62
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
-msgstr ""
+msgstr "Drizzle dokumentation er i http://docs.drizzle.org/"
 
 #: po/advisory_rules.php:63
 #, php-format
