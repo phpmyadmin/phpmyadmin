@@ -11874,7 +11874,7 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
-"Man bør forøge  {long_query_time}  eller optimere forespørgslerne listet i "
+"Man bør forøge {long_query_time} eller optimere forespørgslerne listet i "
 "loggen for langsomme forespørgsler"
 
 #: po/advisory_rules.php:18
