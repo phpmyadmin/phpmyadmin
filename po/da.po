@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-30 15:44+0200\n"
+"PO-Revision-Date: 2011-08-30 18:16+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -1753,7 +1753,7 @@ msgstr "Ingen rækker valgt"
 #: libraries/display_tbl.lib.php:2387 querywindow.php:90 querywindow.php:94
 #: querywindow.php:97 tbl_structure.php:149 tbl_structure.php:570
 msgid "Change"
-msgstr "Rediger"
+msgstr "Ret"
 
 #: js/messages.php:252
 msgid "Query execution time"
