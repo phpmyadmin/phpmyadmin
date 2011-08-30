@@ -12908,7 +12908,7 @@ msgstr "InnoDB er ikke aktiveret."
 
 #: po/advisory_rules.php:252
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "InnoDB er sædvanligvis et bedre valg for tabelformat."
 
 #: po/advisory_rules.php:253
 msgid "have_innodb is set to 'value'"
