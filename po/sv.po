@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-30 23:08+0200\n"
+"PO-Revision-Date: 2011-08-30 23:09+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -2901,7 +2901,6 @@ msgstr "Starta"
 #: libraries/common.lib.php:2364 libraries/common.lib.php:2367
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
-#, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
