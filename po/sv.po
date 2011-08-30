@@ -8143,10 +8143,9 @@ msgid "Table Search"
 msgstr "Tabellsök"
 
 #: libraries/tbl_select.lib.php:205 tbl_change.php:998
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "Lägg till"
+msgstr "Redigera / Infoga"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 msgid ""
