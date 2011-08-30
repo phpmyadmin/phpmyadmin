@@ -12450,7 +12450,7 @@ msgstr "Andel af læsning af næste tabelrække"
 #: po/advisory_rules.php:141
 #| msgid "Where to show the table row links"
 msgid "The rate of reading the next table row is high."
-msgstr "Andelen af læsning af den næste tabelrække er høj."
+msgstr "Frekvensen af læsning af den næste tabelrække er høj."
 
 #: po/advisory_rules.php:142
 msgid ""
