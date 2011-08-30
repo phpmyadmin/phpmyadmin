@@ -11893,6 +11893,8 @@ msgstr "Andel langsomme forespørgsler"
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"Der er en høj andel af langsomme forespørgsler sammenlignet med serverens "
+"oppetid."
 
 #: po/advisory_rules.php:23
 #, php-format
