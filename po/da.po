@@ -11997,7 +11997,7 @@ msgstr ""
 
 #: po/advisory_rules.php:46
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr ""
+msgstr "Version mindre end 5.5.8 (den første GA release af 5.5)"
 
 #: po/advisory_rules.php:47
 #, fuzzy
