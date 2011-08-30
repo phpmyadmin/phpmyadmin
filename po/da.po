@@ -12626,7 +12626,7 @@ msgstr "Andel af tabelåbninger"
 #: po/advisory_rules.php:181
 #| msgid "The current number of pending writes."
 msgid "The rate of opening tables is high."
-msgstr "Andelen af tabelåbninger er høj."
+msgstr "Frekvensen af tabelåbninger er høj."
 
 #: po/advisory_rules.php:182
 msgid ""
