@@ -10681,7 +10681,7 @@ msgstr "saknas"
 
 #: server_synchronize.php:437 server_synchronize.php:909
 msgid "Structure Difference"
-msgstr "Struktur skillnad"
+msgstr "Strukturskillnad"
 
 #: server_synchronize.php:438 server_synchronize.php:910
 msgid "Data Difference"
