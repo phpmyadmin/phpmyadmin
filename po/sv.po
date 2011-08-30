@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-31 00:52+0200\n"
+"PO-Revision-Date: 2011-08-31 00:53+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -11816,7 +11816,7 @@ msgstr "Maximalt antal rader att visa"
 
 #: tbl_zoom_select.php:368
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "Bläddra / Redigera punkter"
 
 #: tbl_zoom_select.php:375
 #, fuzzy
