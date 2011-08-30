@@ -12611,7 +12611,7 @@ msgstr "Procentdelen af indeks, der bruger MyISAM nøglebuffer er lav."
 
 #: po/advisory_rules.php:177
 msgid "You may need to increase {key_buffer_size}."
-msgstr ""
+msgstr "Du bør måske forøge {key_buffer_size}."
 
 #: po/advisory_rules.php:178
 #, php-format
