@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-31 00:25+0200\n"
+"PO-Revision-Date: 2011-08-31 00:26+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -10721,7 +10721,7 @@ msgstr "Vill du radera alla föregående rader från måltabellen?"
 
 #: server_synchronize.php:465 server_synchronize.php:938
 msgid "Apply Selected Changes"
-msgstr "Applicera markerade ändringar"
+msgstr "Verkställ markerade ändringar"
 
 #: server_synchronize.php:469 server_synchronize.php:941
 msgid "Synchronize Databases"
