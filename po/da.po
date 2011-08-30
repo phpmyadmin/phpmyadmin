@@ -3348,7 +3348,7 @@ msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
 msgstr ""
-"Deaktivér masseoperationer for tabelvedligeholdelse såsom optimering eller "
+"Deaktiver masseoperationer for tabelvedligeholdelse såsom optimering eller "
 "reperation af tabllerne i en database."
 
 #: libraries/config/messages.inc.php:61
