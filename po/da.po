@@ -12166,7 +12166,7 @@ msgid ""
 "query cache might help as well."
 msgstr ""
 "Dette kan skyldes, at {query_cache_limit} er for lav. Tømning af "
-"orespørgselsmellemlageret kan også hjælpe."
+"forespørgselsmellemlageret kan også hjælpe."
 
 #: po/advisory_rules.php:88
 #, php-format
