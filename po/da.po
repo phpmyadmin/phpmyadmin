@@ -12716,10 +12716,9 @@ msgstr ""
 "time."
 
 #: po/advisory_rules.php:205
-#, fuzzy
 #| msgid "Key cache"
 msgid "Thread cache"
-msgstr "Nøglemellemlager"
+msgstr "Trådmellemlager"
 
 #: po/advisory_rules.php:206
 msgid ""
