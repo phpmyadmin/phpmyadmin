@@ -12005,10 +12005,9 @@ msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgstr "Du burde opdatere til en stabil version af MySQL 5.5"
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
-#, fuzzy
 #| msgid "Description"
 msgid "Distribution"
-msgstr "Beskrivelse"
+msgstr "Distribution"
 
 #: po/advisory_rules.php:51
 msgid "Version is compiled from source, not a MySQL official binary."
