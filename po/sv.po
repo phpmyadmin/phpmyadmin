@@ -9609,10 +9609,9 @@ msgid "Run analyzer"
 msgstr "Kör analysator"
 
 #: server_status.php:893
-#, fuzzy
 #| msgid "Instructions/Setup"
 msgid "Instructions"
-msgstr "Instruktioner/Setup"
+msgstr "Instruktioner"
 
 #: server_status.php:900
 msgid ""
