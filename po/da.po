@@ -12108,7 +12108,7 @@ msgstr "Metode for forespørgsels-mellemlager"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
-msgstr ""
+msgstr "Suboptimal metode for mellemlager"
 
 #: po/advisory_rules.php:77
 msgid ""
