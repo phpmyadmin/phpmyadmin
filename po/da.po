@@ -11957,7 +11957,7 @@ msgstr "log_slow_queries er sat til 'OFF'"
 #: po/advisory_rules.php:35
 #| msgid "Clear series"
 msgid "Release Series"
-msgstr "Release serie"
+msgstr "Udgivelsesserie"
 
 #: po/advisory_rules.php:36
 msgid "The MySQL server version less then 5.1."
