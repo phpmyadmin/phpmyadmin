@@ -10940,7 +10940,7 @@ msgstr ""
 
 #: setup/lib/index.lib.php:152
 msgid "Got invalid version string from server"
-msgstr "Fick ogiltig versionssträng från server"
+msgstr "Fick ogiltig versionssträng från servern"
 
 #: setup/lib/index.lib.php:162
 msgid "Unparsable version string"
