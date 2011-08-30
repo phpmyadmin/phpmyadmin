@@ -12277,7 +12277,7 @@ msgstr "Aktuel størrelse af forespørgselmellemlager: %s"
 #: po/advisory_rules.php:105
 #| msgid "Query results"
 msgid "Query cache min result size"
-msgstr "Min  resultatstørrelse i forespørgselmellemlager"
+msgstr "Minimum resultatstørrelse i forespørgselmellemlager"
 
 #: po/advisory_rules.php:106
 msgid ""
