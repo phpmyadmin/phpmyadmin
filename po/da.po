@@ -12247,10 +12247,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:100
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache max size"
-msgstr "Forespørgsel-mellemlager"
+msgstr "Maks størrelse af forespørgselmellemlager"
 
 #: po/advisory_rules.php:101
 msgid ""
