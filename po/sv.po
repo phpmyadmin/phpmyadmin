@@ -11819,10 +11819,9 @@ msgid "Browse/Edit the points"
 msgstr "Bläddra / Redigera punkter"
 
 #: tbl_zoom_select.php:375
-#, fuzzy
 #| msgid "Control user"
 msgid "How to use"
-msgstr "Kontrollanvändare"
+msgstr "Hur du använder"
 
 #: themes.php:28
 msgid "Get more themes!"
