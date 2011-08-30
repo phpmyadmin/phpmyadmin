@@ -12567,10 +12567,10 @@ msgid "key_buffer_size is 0"
 msgstr "key_buffer_size er 0"
 
 #: po/advisory_rules.php:165
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "Sorteringsbufferstørrelse"
+msgstr "Maksimal %% MyISAM nøglebuffer nogensinde brugt"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, fuzzy, php-format
