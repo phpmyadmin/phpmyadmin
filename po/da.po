@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-30 13:44+0200\n"
+"PO-Revision-Date: 2011-08-30 13:45+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -12607,7 +12607,7 @@ msgstr "Procentdel af indekslæsninger fra hukommelse"
 #: po/advisory_rules.php:176
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
-msgstr ""
+msgstr "Procentdelen af indeks, der bruger MyISAM nøglebuffer er lav."
 
 #: po/advisory_rules.php:177
 msgid "You may need to increase {key_buffer_size}."
