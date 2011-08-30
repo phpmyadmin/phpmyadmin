@@ -12811,6 +12811,8 @@ msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "max_connections."
 msgstr ""
+"Det maksimale antal brugte forbindelser er tæt på værdien af "
+"max_connections."
 
 #: po/advisory_rules.php:227
 msgid ""
