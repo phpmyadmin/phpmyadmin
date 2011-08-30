@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-30 12:43+0200\n"
+"PO-Revision-Date: 2011-08-30 12:44+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -12102,10 +12102,9 @@ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr "query_cache_size er sat til 0 eller query_cache_type er sat til 'OFF'"
 
 #: po/advisory_rules.php:75
-#, fuzzy
 #| msgid "Query cache used"
 msgid "Query caching method"
-msgstr "Forbrugt forespørgsels-mellemlager"
+msgstr "Metode for forespørgsels-mellemlager"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
