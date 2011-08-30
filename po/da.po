@@ -7650,7 +7650,7 @@ msgstr "Tabellen \"%s\" findes ikke!"
 #: libraries/schema/Visio_Relation_Schema.class.php:251
 #, php-format
 msgid "Please configure the coordinates for table %s"
-msgstr "Konfigurér venligst koordinaterne for tabel %s"
+msgstr "Konfigurer venligst koordinaterne for tabel %s"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:823
 #: libraries/schema/Pdf_Relation_Schema.class.php:836
