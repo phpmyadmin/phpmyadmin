@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-30 13:02+0200\n"
+"PO-Revision-Date: 2011-08-30 13:03+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -11940,7 +11940,7 @@ msgstr "Logning af langsomme forespørgsler"
 #: po/advisory_rules.php:31
 #| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
-msgstr "Logning af  langsommme forspørgsler er deaktiveret."
+msgstr "Logning af langsommme forspørgsler er deaktiveret."
 
 #: po/advisory_rules.php:32
 msgid ""
