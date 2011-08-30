@@ -11833,7 +11833,7 @@ msgstr "Oppetiden er kun %s"
 #: po/advisory_rules.php:10
 #| msgid "Questions"
 msgid "Questions below 1,000"
-msgstr "Spørgsmål under 1.000"
+msgstr "Forespørgsler under 1.000"
 
 #: po/advisory_rules.php:11
 msgid ""
