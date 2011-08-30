@@ -12669,10 +12669,9 @@ msgid ""
 msgstr "Antallet af åbne filer er på %s%% af grænsen. Den bør være under 85%%"
 
 #: po/advisory_rules.php:190
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of open files"
-msgstr "Format på importeret fil"
+msgstr "Frekvens af åbne filer"
 
 #: po/advisory_rules.php:191
 #, fuzzy
