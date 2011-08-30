@@ -12749,7 +12749,7 @@ msgstr "Trådmellemlageret er ikke effektivt."
 
 #: po/advisory_rules.php:212
 msgid "Increase {thread_cache_size}."
-msgstr ""
+msgstr "Forøg {thread_cache_size}."
 
 #: po/advisory_rules.php:213
 #, php-format
