@@ -12032,7 +12032,7 @@ msgstr "'source' fundet i version_comment"
 
 #: po/advisory_rules.php:56 po/advisory_rules.php:61
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr ""
+msgstr " MySQL manualen er kun korrekt for officielle MySQL binære filer."
 
 #: po/advisory_rules.php:57
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
