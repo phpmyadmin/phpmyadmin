@@ -12883,7 +12883,7 @@ msgstr ""
 #: po/advisory_rules.php:243
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
-msgstr ""
+msgstr "%s%% af alle klienter er aborteret. Denne værdi bør være under 2%%"
 
 #: po/advisory_rules.php:245
 #| msgid "Format of imported file"
