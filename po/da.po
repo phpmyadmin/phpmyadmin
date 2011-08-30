@@ -12871,7 +12871,7 @@ msgstr "Procentdel af aborterede klienter"
 
 #: po/advisory_rules.php:241 po/advisory_rules.php:246
 msgid "Too many clients are aborted."
-msgstr ""
+msgstr "For mange klienter er aborterede."
 
 #: po/advisory_rules.php:242 po/advisory_rules.php:247
 msgid ""
