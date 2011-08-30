@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-30 12:32+0200\n"
+"PO-Revision-Date: 2011-08-30 12:33+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -12049,7 +12049,7 @@ msgstr "Drizzle dokumentation er i http://docs.drizzle.org/"
 #: po/advisory_rules.php:63
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
-msgstr ""
+msgstr "Versionstreng (%s) passer med Drizzle versionsformat"
 
 #: po/advisory_rules.php:65
 #, fuzzy
