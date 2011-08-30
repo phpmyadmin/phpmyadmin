@@ -11866,6 +11866,8 @@ msgstr "Procentdel langsomme forespørgsler"
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr ""
+"Der er mange langsomme forespørgsler sammenlignet med det totale antal "
+"forespørgsler."
 
 #: po/advisory_rules.php:17 po/advisory_rules.php:22
 msgid ""
