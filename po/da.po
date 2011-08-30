@@ -12643,7 +12643,7 @@ msgstr "Du bør måske forøge {key_buffer_size}."
 #: po/advisory_rules.php:178
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr ""
+msgstr "Indekslæsninger fra hukommelse: %s%%. Denne værdi bør være over 95%%"
 
 #: po/advisory_rules.php:180
 #| msgid "Create table"
