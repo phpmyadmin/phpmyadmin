@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-30 11:48+0200\n"
+"PO-Revision-Date: 2011-08-30 11:49+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -5292,7 +5292,7 @@ msgstr "Open Document tekst"
 
 #: libraries/config/validate.lib.php:198
 msgid "Could not initialize Drizzle connection library"
-msgstr ""
+msgstr "Kunne ikke initialisere Drizzle forbindelsesbibliotek."
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
 #, fuzzy
