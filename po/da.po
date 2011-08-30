@@ -12687,7 +12687,7 @@ msgid ""
 "restarting after changing open_files_limit."
 msgstr ""
 "Overvej at forøge {open_files_limit} og check fejlloggen, når der genstartes "
-"efter ændringen. "
+"efter ændringen."
 
 #: po/advisory_rules.php:188
 #, php-format
