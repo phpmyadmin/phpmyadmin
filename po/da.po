@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-30 13:35+0200\n"
+"PO-Revision-Date: 2011-08-30 13:36+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -12545,6 +12545,8 @@ msgstr "MyISAM nøglebufferstørrelse"
 #: po/advisory_rules.php:161
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
+"Nøglebuffer er ikke initialiseret. Ingen MyISAM indeks vil blive lagret i "
+"mellemlager."
 
 #: po/advisory_rules.php:162
 msgid ""
