@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-30 12:07+0200\n"
+"PO-Revision-Date: 2011-08-30 12:08+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -11814,6 +11814,8 @@ msgstr "Oppetid under en dag"
 #: po/advisory_rules.php:6
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
+"Oppetid er mindre end 1 dag. Finjustering af performance kan nok ikke gøres "
+"korrekt."
 
 #: po/advisory_rules.php:7
 msgid ""
