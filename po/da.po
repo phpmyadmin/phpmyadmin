@@ -12952,7 +12952,7 @@ msgstr ""
 
 #: po/advisory_rules.php:260
 msgid "Max InnoDB log size"
-msgstr ""
+msgstr "Maksimal InnoDB logstørrelse"
 
 #: po/advisory_rules.php:261
 msgid "The InnoDB log file size is inadequately large."
