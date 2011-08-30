@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-31 00:04+0200\n"
+"PO-Revision-Date: 2011-08-31 00:08+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -10545,7 +10545,6 @@ msgid "Please note:"
 msgstr "Vänligen notera:"
 
 #: server_status.php:1625
-#, fuzzy
 #| msgid ""
 #| "<b>Please note:</b> Enabling the general_log may increase the server load "
 #| "by 5-15%. Also be aware that generating statistics from the logs is a "
@@ -10558,12 +10557,11 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
-"<b>Observera:</b>\n"
-" Att aktivera general_log kan öka belastningen på servern med 5-15%. Var "
-"medveten om att generera statistik från loggarna är en \n"
+"Att aktivera \"general_log\" kan öka belastningen på servern med 5-15%. Var "
+"också medveten om att generera statistik från loggarna är en "
 "belastningsintensiv uppgift, så det är klokt att välja en kort tidsperiod "
-"samt att inaktivera general_log och tömma tabellen när övervakningen inte "
-"behövs längre. \n"
+"samt att inaktivera \"general_log\" och tömma tabellen när övervakningen inte "
+"behövs längre."
 
 #: server_status.php:1637
 #, fuzzy
