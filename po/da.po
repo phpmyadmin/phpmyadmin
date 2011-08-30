@@ -11745,10 +11745,9 @@ msgstr ""
 "kolonner"
 
 #: tbl_zoom_select.php:135
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Additional search criteria"
-msgstr "Skjul søgekriterie"
+msgstr "Ekstra søgekriterium"
 
 #: tbl_zoom_select.php:258
 #, fuzzy
