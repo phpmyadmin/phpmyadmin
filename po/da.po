@@ -2667,7 +2667,7 @@ msgstr "Check privilegier"
 
 #: libraries/common.inc.php:147
 msgid "possible exploit"
-msgstr ""
+msgstr "muligt sikkerhedshul"
 
 #: libraries/common.inc.php:156
 msgid "numeric key detected"
