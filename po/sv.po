@@ -10570,7 +10570,7 @@ msgstr "Förinställt diagram"
 
 #: server_status.php:1641
 msgid "Status variable(s)"
-msgstr "Alla statusvariabler"
+msgstr "Statusvariabler"
 
 #: server_status.php:1643
 msgid "Select series:"
