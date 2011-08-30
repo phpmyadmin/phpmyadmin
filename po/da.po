@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-30 11:42+0200\n"
+"PO-Revision-Date: 2011-08-30 11:43+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -2201,7 +2201,7 @@ msgstr "Fejlende formatteringsstreng for regel '%s'. PHP gav følgende fejl: %s"
 
 #: libraries/Config.class.php:703
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
-msgstr ""
+msgstr "Fjern \"./config\" folderen før brug af phpMyAdmin!"
 
 #: libraries/Config.class.php:727
 #, php-format
