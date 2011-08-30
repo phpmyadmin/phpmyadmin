@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-30 23:07+0200\n"
+"PO-Revision-Date: 2011-08-30 23:08+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -2893,7 +2893,6 @@ msgstr "Saknade parametrar:"
 
 #: libraries/common.lib.php:2363 libraries/common.lib.php:2366
 #: libraries/display_tbl.lib.php:306
-#, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
