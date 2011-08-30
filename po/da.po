@@ -12706,7 +12706,7 @@ msgstr "Omgående tabellåse: %s%%. Denne værdi bør være over 95%%"
 
 #: po/advisory_rules.php:200
 msgid "Table lock wait rate"
-msgstr ""
+msgstr "Frekvens af venten på tabellås"
 
 #: po/advisory_rules.php:203
 #, php-format
