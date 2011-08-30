@@ -12445,7 +12445,7 @@ msgstr ""
 #: po/advisory_rules.php:140
 #| msgid "Where to show the table row links"
 msgid "Rate of reading next table row"
-msgstr "Andel af læsning af næste tabelrække"
+msgstr "Frekvens af læsning af næste tabelrække"
 
 #: po/advisory_rules.php:141
 #| msgid "Where to show the table row links"
