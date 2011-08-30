@@ -12326,6 +12326,8 @@ msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr ""
+"%s%% af alle sorteringer bruger midlertidige tabeller. Denne værdi bør være "
+"mindre end 10%%."
 
 #: po/advisory_rules.php:115
 #, fuzzy
