@@ -11325,7 +11325,7 @@ msgstr "Intet tabelnavn!"
 
 #: tbl_operations.php:268
 msgid "Alter table order by"
-msgstr "Arrangér tabelrækkefølge efter"
+msgstr "Arranger tabelrækkefølge efter"
 
 #: tbl_operations.php:277
 msgid "(singly)"
