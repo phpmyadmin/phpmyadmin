@@ -8816,7 +8816,7 @@ msgstr "Vis dump (skema) for databaser"
 
 #: server_plugins.php:81
 msgid "Modules"
-msgstr ""
+msgstr "Moduler"
 
 #: server_plugins.php:102
 msgid "Begin"
