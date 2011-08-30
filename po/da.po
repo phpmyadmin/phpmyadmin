@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-30 14:36+0200\n"
+"PO-Revision-Date: 2011-08-30 14:38+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -12429,6 +12429,9 @@ msgid ""
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
+"Dette indikerer, at mange forespørgsler behøver sortere resultater og/eller "
+"foretager fulde tabelskanninger inklusive join-forespørgsler, som ikke "
+"bruger indeks. Tilføj indeks, hvor det er relevant."
 
 #: po/advisory_rules.php:138
 #, php-format
