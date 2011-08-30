@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-30 14:10+0200\n"
+"PO-Revision-Date: 2011-08-30 14:11+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -12861,6 +12861,8 @@ msgstr "For mange forbindelser er aborteret."
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"Frekvensen af aborterede forbindelser er %s. Denne værdi bør være mindre end "
+"1 pr time."
 
 #: po/advisory_rules.php:240
 #, fuzzy
