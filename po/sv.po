@@ -8507,10 +8507,9 @@ msgid "No databases"
 msgstr "Inga databaser"
 
 #: navigation.php:270
-#, fuzzy
 #| msgid "filter tables by name"
 msgid "Filter tables by name"
-msgstr "filtrera tabeller efter namn"
+msgstr "Filtrera tabeller efter namn"
 
 #: navigation.php:303 navigation.php:304
 msgctxt "short form"
