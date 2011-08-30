@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-30 13:48+0200\n"
+"PO-Revision-Date: 2011-08-30 13:49+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -12642,10 +12642,9 @@ msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr "Tabelåbningsrate: %s. Denne værdi bør være mindre end 10 pr time"
 
 #: po/advisory_rules.php:185
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of used open files limit"
-msgstr "Format på importeret fil"
+msgstr "Procentdel af grænse for brugte åbne filer"
 
 #: po/advisory_rules.php:186
 msgid ""
