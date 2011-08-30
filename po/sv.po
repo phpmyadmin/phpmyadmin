@@ -6790,7 +6790,7 @@ msgstr "Importera valutor <i>(t.ex. $5.00 to 5.00)</i>"
 
 #: libraries/import/shp.php:14
 msgid "ESRI Shape File"
-msgstr ""
+msgstr "ESRI Shape-fil"
 
 #: libraries/import/shp.php:275
 #, php-format
