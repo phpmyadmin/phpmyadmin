@@ -2909,7 +2909,6 @@ msgstr "Föregående"
 #: libraries/common.lib.php:2394 libraries/common.lib.php:2397
 #: libraries/display_tbl.lib.php:370 server_binlog.php:170
 #: server_binlog.php:172
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
