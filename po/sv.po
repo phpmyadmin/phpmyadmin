@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-31 00:11+0200\n"
+"PO-Revision-Date: 2011-08-31 00:12+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -10586,7 +10586,7 @@ msgstr "eller skriv variabelnamn:"
 
 #: server_status.php:1664
 msgid "Display as differential value"
-msgstr "Visa som differensvärde"
+msgstr "Visa som skillnadsvärde"
 
 #: server_status.php:1666
 msgid "Apply a divisor"
