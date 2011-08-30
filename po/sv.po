@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-30 23:46+0200\n"
+"PO-Revision-Date: 2011-08-30 23:47+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -10441,10 +10441,9 @@ msgid "Refresh rate"
 msgstr "Uppdateringsfrekvens"
 
 #: server_status.php:1572
-#, fuzzy
 #| msgid "Chart columns:"
 msgid "Chart columns"
-msgstr "Visa kolumner:"
+msgstr "Visa kolumner"
 
 #: server_status.php:1588
 #, fuzzy
