@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-31 00:08+0200\n"
+"PO-Revision-Date: 2011-08-31 00:09+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -10564,10 +10564,9 @@ msgstr ""
 "behövs längre."
 
 #: server_status.php:1637
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Preset chart"
-msgstr "Ta bort diagram"
+msgstr "Förinställt diagram"
 
 #: server_status.php:1641
 msgid "Status variable(s)"
