@@ -10669,7 +10669,7 @@ msgstr "'%s' databasen existerar inte."
 
 #: server_synchronize.php:282
 msgid "Structure Synchronization"
-msgstr "Struktur Synkronisering"
+msgstr "Struktur synkronisering"
 
 #: server_synchronize.php:286
 msgid "Data Synchronization"
