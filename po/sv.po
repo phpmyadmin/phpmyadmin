@@ -8344,10 +8344,9 @@ msgid "Software"
 msgstr "Mjukvara"
 
 #: main.php:160
-#, fuzzy
 #| msgid "Show versions"
 msgid "Software version"
-msgstr "Visa versioner"
+msgstr "Mjukvaruversion"
 
 #: main.php:161
 msgid "Protocol version"
