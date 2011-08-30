@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-30 14:01+0200\n"
+"PO-Revision-Date: 2011-08-30 14:02+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -12755,6 +12755,7 @@ msgstr "Forøg {thread_cache_size}."
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
+"Frekvens for hits i trådmellemlager: %s%%. Denne værdi bør være over 80%%"
 
 #: po/advisory_rules.php:215
 msgid "Threads that are slow to launch"
