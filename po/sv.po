@@ -4991,10 +4991,9 @@ msgid "Whether to show hint or not"
 msgstr "Om du vill visa tips eller inte"
 
 #: libraries/config/messages.inc.php:463
-#, fuzzy
 #| msgid "Show indexes"
 msgid "Show hint"
-msgstr "Visa index"
+msgstr "Visa tips"
 
 #: libraries/config/messages.inc.php:464
 msgid ""
