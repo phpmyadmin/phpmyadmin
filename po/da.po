@@ -11755,10 +11755,9 @@ msgid "Data Label"
 msgstr "Dataetiket"
 
 #: tbl_zoom_select.php:276
-#, fuzzy
 #| msgid "Maximum number of rows to display"
 msgid "Maximum rows to plot"
-msgstr "Maksimalt antal viste rækker"
+msgstr "Maksimalt antal plottede rækker"
 
 #: tbl_zoom_select.php:368
 msgid "Browse/Edit the points"
