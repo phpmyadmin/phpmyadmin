@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-30 14:24+0200\n"
+"PO-Revision-Date: 2011-08-30 14:25+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -12889,6 +12889,9 @@ msgid ""
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
+"Klienter aborteres normalt, når de ikke lukke forbindelsen til MySQL "
+"ordentligt. Dette kan skyldes netværksproblemer eller programkode, der ikke "
+"lukker database handlers ordentligt. Check netværk og programkode."
 
 #: po/advisory_rules.php:243
 #, php-format
