@@ -1526,10 +1526,9 @@ msgstr "Loggen er analyseret, men ingen data fundet i dette tidsinterval."
 
 #. l10n: A collection of available filters
 #: js/messages.php:173
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
-msgstr "Indstillinger for visning af tabeller"
+msgstr "Indstillinger for filtre på logtabel"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:175
