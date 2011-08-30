@@ -11852,10 +11852,10 @@ msgstr ""
 "forespørgsler."
 
 #: po/advisory_rules.php:13
-#, fuzzy, php-format
+#, php-format
 #| msgid "Current connection"
 msgid "Current amount of Questions: %s"
-msgstr "Aktuel forbindelse"
+msgstr "Aktuelt antal forespørgsler: %s"
 
 #: po/advisory_rules.php:15
 #, fuzzy
