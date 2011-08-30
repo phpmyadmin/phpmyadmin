@@ -10845,7 +10845,7 @@ msgstr "Tilføj ny server"
 
 #: setup/index.php:22
 msgid "Wrong GET file attribute value"
-msgstr ""
+msgstr "Forkert GET filattributværdi"
 
 #: setup/lib/form_processing.lib.php:43
 msgid "Warning"
