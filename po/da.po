@@ -1913,7 +1913,7 @@ msgstr "Gå til link"
 
 #: js/messages.php:325
 msgid "Generate password"
-msgstr "Generér adgangskode"
+msgstr "Generer adgangskode"
 
 #: js/messages.php:326 libraries/replication_gui.lib.php:369
 msgid "Generate"
