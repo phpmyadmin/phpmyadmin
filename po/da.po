@@ -12894,6 +12894,8 @@ msgstr "Frekvens af aborterede klienter"
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"Frekvensen af aborterede klienter er %s. Denne værdi bør være mindre end 1 "
+"pr time."
 
 #: po/advisory_rules.php:250
 msgid "Is InnoDB disabled?"
