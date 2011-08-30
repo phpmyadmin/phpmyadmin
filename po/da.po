@@ -11881,6 +11881,8 @@ msgstr ""
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
+"Andelen af langsomme forespørgsler bør være under 5%%. Den aktuelle værdi er "
+"%s%%"
 
 #: po/advisory_rules.php:20
 #, fuzzy
