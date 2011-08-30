@@ -11805,10 +11805,9 @@ msgid "Additional search criteria"
 msgstr "Ytterligare sökkriterier"
 
 #: tbl_zoom_select.php:258
-#, fuzzy
 #| msgid "Label"
 msgid "Data Label"
-msgstr "Etikett"
+msgstr "Dataetikett"
 
 #: tbl_zoom_select.php:276
 #, fuzzy
