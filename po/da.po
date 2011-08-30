@@ -10571,7 +10571,7 @@ msgstr "Hent kun SELECT,INSERT,UPDATE og DELETE forespørgsler"
 
 #: server_status.php:1708
 msgid "Remove variable data in INSERT statements for better grouping"
-msgstr ""
+msgstr "Fjern variable data i INSERT forspørgsler for bedre gruppering"
 
 #: server_status.php:1713
 msgid "Choose from which log you want the statistics to be generated from."
