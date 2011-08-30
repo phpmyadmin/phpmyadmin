@@ -11761,7 +11761,7 @@ msgstr "Maksimalt antal plottede rækker"
 
 #: tbl_zoom_select.php:368
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "Bladr gennem/rediger punkterne"
 
 #: tbl_zoom_select.php:375
 #, fuzzy
