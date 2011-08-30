@@ -12393,7 +12393,7 @@ msgstr "Gennemsnitlig joins: %s. Denne værdi bør være mindre end 1 pr time"
 
 #: po/advisory_rules.php:130
 msgid "Rate of reading first index entry"
-msgstr ""
+msgstr "Andel af læsning af første indeksindgang"
 
 #: po/advisory_rules.php:131
 msgid "The rate of reading the first index entry is high."
