@@ -11512,7 +11512,7 @@ msgstr "Radstorlek"
 
 #: tbl_printview.php:388 tbl_structure.php:903
 msgid "Next autoindex"
-msgstr ""
+msgstr "Nästa AutoIndex"
 
 #: tbl_relation.php:276
 #, php-format
