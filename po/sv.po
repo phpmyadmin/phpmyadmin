@@ -10606,7 +10606,7 @@ msgstr "Rensa serie"
 
 #: server_status.php:1684
 msgid "Series in Chart:"
-msgstr "Serier i diagram:"
+msgstr "Serie i diagram:"
 
 #: server_status.php:1697
 msgid "Log statistics"
