@@ -5301,7 +5301,7 @@ msgstr "Chybí rozšíření %s. Prosím zkontrolujte nastavení PHP."
 
 #: libraries/core.lib.php:409
 msgid "possible deep recursion attack"
-msgstr ""
+msgstr "možný útok rekurzí"
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
