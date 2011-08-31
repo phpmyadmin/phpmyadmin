@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-25 23:09+0200\n"
+"POT-Creation-Date: 2011-08-31 10:47+0200\n"
 "PO-Revision-Date: 2010-07-22 02:31+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: uzbek_cyrillic <uz@li.org>\n"
@@ -20,10 +20,10 @@ msgid "Show all"
 msgstr "Барчасини кўрсатиш"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:42
-#: libraries/common.lib.php:2354
+#: libraries/common.lib.php:2355
 #: libraries/schema/Pdf_Relation_Schema.class.php:1142
 #: libraries/schema/Pdf_Relation_Schema.class.php:1166
-#: libraries/schema/User_Schema.class.php:376
+#: libraries/schema/User_Schema.class.php:393
 #: libraries/select_lang.lib.php:487
 msgid "Page number:"
 msgstr "Саҳифа рақами: "
@@ -37,9 +37,9 @@ msgstr ""
 "Браузернинг нишондаги ойнасини янгилаб бўлмади. Эҳтимол, бош ойна ёпилган "
 "ёки браузер хавфсизлик юзасидан ойналараро янгилашни блокировка қилмоқда"
 
-#: browse_foreigners.php:151 libraries/common.lib.php:3033
-#: libraries/common.lib.php:3040 libraries/common.lib.php:3244
-#: libraries/common.lib.php:3245 libraries/db_links.inc.php:60
+#: browse_foreigners.php:151 libraries/common.lib.php:3034
+#: libraries/common.lib.php:3041 libraries/common.lib.php:3245
+#: libraries/common.lib.php:3246 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "Қидириш"
@@ -50,7 +50,7 @@ msgstr "Қидириш"
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:207
 #: libraries/Config.class.php:1326 libraries/Theme_Manager.class.php:309
 #: libraries/auth/cookie.auth.lib.php:247 libraries/common.lib.php:1315
-#: libraries/common.lib.php:2327 libraries/core.lib.php:508
+#: libraries/common.lib.php:2328 libraries/core.lib.php:508
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:349 libraries/display_import.lib.php:267
@@ -59,10 +59,10 @@ msgstr "Қидириш"
 #: libraries/rte/rte_events.lib.php:493 libraries/rte/rte_routines.lib.php:963
 #: libraries/rte/rte_routines.lib.php:1441
 #: libraries/rte/rte_triggers.lib.php:373
-#: libraries/schema/User_Schema.class.php:141
-#: libraries/schema/User_Schema.class.php:193
-#: libraries/schema/User_Schema.class.php:426
-#: libraries/schema/User_Schema.class.php:466
+#: libraries/schema/User_Schema.class.php:147
+#: libraries/schema/User_Schema.class.php:204
+#: libraries/schema/User_Schema.class.php:443
+#: libraries/schema/User_Schema.class.php:484
 #: libraries/select_server.lib.php:93 libraries/sql_query_form.lib.php:348
 #: libraries/sql_query_form.lib.php:411 libraries/sql_query_form.lib.php:464
 #: libraries/tbl_properties.inc.php:587 libraries/tbl_properties.inc.php:758
@@ -371,7 +371,7 @@ msgstr "Алоқалар схемаси"
 #: libraries/export/pdf.php:95 libraries/export/xml.php:359
 #: libraries/header.inc.php:158 libraries/rte/rte_list.lib.php:59
 #: libraries/rte/rte_triggers.lib.php:310
-#: libraries/schema/User_Schema.class.php:254 server_privileges.php:1830
+#: libraries/schema/User_Schema.class.php:271 server_privileges.php:1830
 #: server_privileges.php:1886 server_privileges.php:2150
 #: server_synchronize.php:436 server_synchronize.php:908 tbl_tracking.php:634
 msgid "Table"
@@ -547,8 +547,8 @@ msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "<i>\"%s\"</i> жадвалида ўхшашликлар сони \"%s\" та"
 msgstr[1] "<i>\"%s\"</i> жадвалида ўхшашликлар сони \"%s\" та"
 
-#: db_search.php:233 libraries/common.lib.php:3035
-#: libraries/common.lib.php:3242 libraries/common.lib.php:3243
+#: db_search.php:233 libraries/common.lib.php:3036
+#: libraries/common.lib.php:3243 libraries/common.lib.php:3244
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:567
 msgid "Browse"
 msgstr "Кўриб чиқиш"
@@ -561,10 +561,10 @@ msgstr "Ушбу жадвал учун кузатув маълумотлари �
 
 #: db_search.php:238 libraries/display_tbl.lib.php:1364
 #: libraries/display_tbl.lib.php:2354
-#: libraries/schema/User_Schema.class.php:186
-#: libraries/schema/User_Schema.class.php:255
-#: libraries/schema/User_Schema.class.php:290
-#: libraries/schema/User_Schema.class.php:320
+#: libraries/schema/User_Schema.class.php:197
+#: libraries/schema/User_Schema.class.php:272
+#: libraries/schema/User_Schema.class.php:307
+#: libraries/schema/User_Schema.class.php:337
 #: libraries/sql_query_form.lib.php:404 pmd_general.php:417
 #: setup/frames/index.inc.php:139 setup/frames/index.inc.php:230
 #: tbl_tracking.php:426 tbl_tracking.php:447 tbl_tracking.php:504
@@ -691,8 +691,8 @@ msgstr "Белгилашни бекор қилиш"
 msgid "Check tables having overhead"
 msgstr "Оптималлаштириш лозим бўлгн жадвалларни белгилаш"
 
-#: db_structure.php:507 libraries/common.lib.php:3255
-#: libraries/common.lib.php:3256 libraries/config/messages.inc.php:164
+#: db_structure.php:507 libraries/common.lib.php:3256
+#: libraries/common.lib.php:3257 libraries/config/messages.inc.php:164
 #: libraries/db_links.inc.php:56 libraries/display_tbl.lib.php:2392
 #: libraries/display_tbl.lib.php:2530 libraries/server_links.inc.php:65
 #: libraries/tbl_links.inc.php:80 prefs_manage.php:286
@@ -706,13 +706,13 @@ msgstr "Экспорт"
 msgid "Print view"
 msgstr "Чоп этиш версияси"
 
-#: db_structure.php:513 libraries/common.lib.php:3251
-#: libraries/common.lib.php:3252
+#: db_structure.php:513 libraries/common.lib.php:3252
+#: libraries/common.lib.php:3253
 msgid "Empty"
 msgstr "Тозалаш"
 
 #: db_structure.php:515 db_tracking.php:104 libraries/Index.class.php:482
-#: libraries/common.lib.php:3249 libraries/common.lib.php:3250
+#: libraries/common.lib.php:3250 libraries/common.lib.php:3251
 #: server_databases.php:270 tbl_structure.php:150 tbl_structure.php:151
 #: tbl_structure.php:571
 msgid "Drop"
@@ -752,7 +752,7 @@ msgstr "Жадвал маълумотларини файл маълумотла�
 msgid "Copy table with prefix"
 msgstr "Жадвал маълумотларини файл маълумотлари билан алмаштириш"
 
-#: db_structure.php:571 libraries/schema/User_Schema.class.php:403
+#: db_structure.php:571 libraries/schema/User_Schema.class.php:420
 msgid "Data Dictionary"
 msgstr "Маълумотлар луғати"
 
@@ -1210,9 +1210,9 @@ msgstr "Ёпиш"
 
 #: js/messages.php:64 js/messages.php:249 libraries/Index.class.php:460
 #: libraries/common.lib.php:590 libraries/common.lib.php:1139
-#: libraries/common.lib.php:3253 libraries/common.lib.php:3254
+#: libraries/common.lib.php:3254 libraries/common.lib.php:3255
 #: libraries/config/messages.inc.php:478 libraries/display_tbl.lib.php:1328
-#: libraries/schema/User_Schema.class.php:185 setup/frames/index.inc.php:138
+#: libraries/schema/User_Schema.class.php:196 setup/frames/index.inc.php:138
 msgid "Edit"
 msgstr "Таҳрирлаш"
 
@@ -1886,7 +1886,7 @@ msgstr "SQL сўровлари қутиси"
 msgid "No rows selected"
 msgstr "Амални амалга ошириш учун битта ёки бир нечта қаторни танлаш керак. "
 
-#: js/messages.php:251 libraries/common.lib.php:2652
+#: js/messages.php:251 libraries/common.lib.php:2653
 #: libraries/display_tbl.lib.php:2387 querywindow.php:90 querywindow.php:94
 #: querywindow.php:97 tbl_structure.php:149 tbl_structure.php:570
 msgid "Change"
@@ -1899,7 +1899,7 @@ msgid "Query execution time"
 msgstr "Максимум бажарилиш вақти"
 
 #: js/messages.php:255 libraries/config/FormDisplay.tpl.php:323
-#: libraries/schema/User_Schema.class.php:334
+#: libraries/schema/User_Schema.class.php:351
 #: libraries/tbl_properties.inc.php:747 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:228 tbl_change.php:1023
 #: tbl_gis_visualization.php:193 tbl_indexes.php:261 tbl_relation.php:563
@@ -2414,7 +2414,7 @@ msgstr ""
 
 #: libraries/Config.class.php:727
 #, php-format
-msgid "Existing configuration file (%d) is not readable."
+msgid "Existing configuration file (%s) is not readable."
 msgstr ""
 
 #: libraries/Config.class.php:752
@@ -2644,6 +2644,14 @@ msgstr ""
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
+msgstr ""
+
+#: libraries/Table.class.php:1513
+#, php-format
+msgid ""
+"Cannot save UI property \"%s\". The changes made will not be persistent "
+"after you refresh this page. Please check if the table structure has been "
+"changed."
 msgstr ""
 
 #: libraries/Theme.class.php:145
@@ -3094,18 +3102,18 @@ msgstr "Якш"
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y й., %H:%M"
 
-#: libraries/common.lib.php:1924
+#: libraries/common.lib.php:1925
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "\"%s\" кун, \"%s\" соат, \"%s\" минут ва \"%s\" секунд"
 
-#: libraries/common.lib.php:2015
+#: libraries/common.lib.php:2016
 #, fuzzy
 #| msgid "Routines"
 msgid "Missing parameter:"
 msgstr "Муолажалар"
 
-#: libraries/common.lib.php:2363 libraries/common.lib.php:2366
+#: libraries/common.lib.php:2364 libraries/common.lib.php:2367
 #: libraries/display_tbl.lib.php:306
 #, fuzzy
 #| msgid "Begin"
@@ -3113,7 +3121,7 @@ msgctxt "First page"
 msgid "Begin"
 msgstr "Боши"
 
-#: libraries/common.lib.php:2364 libraries/common.lib.php:2367
+#: libraries/common.lib.php:2365 libraries/common.lib.php:2368
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
 #, fuzzy
@@ -3122,7 +3130,7 @@ msgctxt "Previous page"
 msgid "Previous"
 msgstr "Орқага"
 
-#: libraries/common.lib.php:2394 libraries/common.lib.php:2397
+#: libraries/common.lib.php:2395 libraries/common.lib.php:2398
 #: libraries/display_tbl.lib.php:370 server_binlog.php:170
 #: server_binlog.php:172
 #, fuzzy
@@ -3131,7 +3139,7 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "Кейинги"
 
-#: libraries/common.lib.php:2395 libraries/common.lib.php:2398
+#: libraries/common.lib.php:2396 libraries/common.lib.php:2399
 #: libraries/display_tbl.lib.php:385
 #, fuzzy
 #| msgid "End"
@@ -3139,26 +3147,26 @@ msgctxt "Last page"
 msgid "End"
 msgstr "Охири"
 
-#: libraries/common.lib.php:2465
+#: libraries/common.lib.php:2466
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "\"%s\" маълумотлар базасига ўтиш"
 
-#: libraries/common.lib.php:2485
+#: libraries/common.lib.php:2486
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 " \"%s\" параметрининг иши маълум хатоликка олиб келиши мумкин, батафсил "
 "маълумот учун қаранг \"%s\""
 
-#: libraries/common.lib.php:2659
+#: libraries/common.lib.php:2660
 #, fuzzy
 #| msgid "Click to select"
 msgid "Click to toggle"
 msgstr "Танлаш учун сичқонча тугмасини босинг"
 
-#: libraries/common.lib.php:3031 libraries/common.lib.php:3038
-#: libraries/common.lib.php:3248 libraries/config/setup.forms.php:293
+#: libraries/common.lib.php:3032 libraries/common.lib.php:3039
+#: libraries/common.lib.php:3249 libraries/config/setup.forms.php:293
 #: libraries/config/setup.forms.php:330 libraries/config/setup.forms.php:356
 #: libraries/config/user_preferences.forms.php:192
 #: libraries/config/user_preferences.forms.php:229
@@ -3170,7 +3178,7 @@ msgstr "Танлаш учун сичқонча тугмасини босинг"
 msgid "Structure"
 msgstr "Тузилиши"
 
-#: libraries/common.lib.php:3032 libraries/common.lib.php:3039
+#: libraries/common.lib.php:3033 libraries/common.lib.php:3040
 #: libraries/config/messages.inc.php:214 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
@@ -3178,38 +3186,38 @@ msgstr "Тузилиши"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:3034 libraries/common.lib.php:3246
-#: libraries/common.lib.php:3247 libraries/sql_query_form.lib.php:282
+#: libraries/common.lib.php:3035 libraries/common.lib.php:3247
+#: libraries/common.lib.php:3248 libraries/sql_query_form.lib.php:282
 #: libraries/sql_query_form.lib.php:285 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "Қўйиш"
 
-#: libraries/common.lib.php:3041 libraries/db_links.inc.php:86
+#: libraries/common.lib.php:3042 libraries/db_links.inc.php:86
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:114
 #: view_operations.php:87
 msgid "Operations"
 msgstr "Операциялар"
 
-#: libraries/common.lib.php:3180
+#: libraries/common.lib.php:3181
 msgid "Browse your computer:"
 msgstr ""
 
-#: libraries/common.lib.php:3199
+#: libraries/common.lib.php:3200
 #, fuzzy, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Юклаш каталогидан"
 
-#: libraries/common.lib.php:3220 libraries/sql_query_form.lib.php:445
+#: libraries/common.lib.php:3221 libraries/sql_query_form.lib.php:445
 #: tbl_change.php:910
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Кўрсатилган каталокка юклаб бўлмади"
 
-#: libraries/common.lib.php:3229
+#: libraries/common.lib.php:3230
 msgid "There are no files to upload"
 msgstr ""
 
-#: libraries/common.lib.php:3257 libraries/common.lib.php:3258
+#: libraries/common.lib.php:3258 libraries/common.lib.php:3259
 msgid "Execute"
 msgstr ""
 
@@ -3230,29 +3238,35 @@ msgstr ""
 msgid "Right"
 msgstr ""
 
-#: libraries/config.values.php:75
+#: libraries/config.values.php:76
 msgid "Open"
 msgstr ""
 
-#: libraries/config.values.php:75
+#: libraries/config.values.php:77
 #, fuzzy
 #| msgid "Close"
 msgid "Closed"
 msgstr "Ёпиш"
 
-#: libraries/config.values.php:96 libraries/export/htmlword.php:25
+#: libraries/config.values.php:78 libraries/config/FormDisplay.tpl.php:167
+#: libraries/relation.lib.php:78 libraries/relation.lib.php:85
+#: pmd_relation_new.php:66
+msgid "Disabled"
+msgstr "Фаолсизлантирилган"
+
+#: libraries/config.values.php:99 libraries/export/htmlword.php:25
 #: libraries/export/latex.php:42 libraries/export/odt.php:34
 #: libraries/export/sql.php:129 libraries/export/texytext.php:24
 msgid "structure"
 msgstr "тузилиш"
 
-#: libraries/config.values.php:97 libraries/export/htmlword.php:25
+#: libraries/config.values.php:100 libraries/export/htmlword.php:25
 #: libraries/export/latex.php:42 libraries/export/odt.php:34
 #: libraries/export/sql.php:130 libraries/export/texytext.php:24
 msgid "data"
 msgstr ""
 
-#: libraries/config.values.php:98 libraries/export/htmlword.php:25
+#: libraries/config.values.php:101 libraries/export/htmlword.php:25
 #: libraries/export/latex.php:42 libraries/export/odt.php:34
 #: libraries/export/sql.php:131 libraries/export/texytext.php:24
 #, fuzzy
@@ -3260,35 +3274,35 @@ msgstr ""
 msgid "structure and data"
 msgstr "Тузилиши ва маълумотлари"
 
-#: libraries/config.values.php:100
+#: libraries/config.values.php:103
 msgid "Quick - display only the minimal options to configure"
 msgstr ""
 
-#: libraries/config.values.php:101
+#: libraries/config.values.php:104
 msgid "Custom - display all possible options to configure"
 msgstr ""
 
-#: libraries/config.values.php:102
+#: libraries/config.values.php:105
 msgid "Custom - like above, but without the quick/custom choice"
 msgstr ""
 
-#: libraries/config.values.php:120
+#: libraries/config.values.php:123
 #, fuzzy
 #| msgid "Complete inserts"
 msgid "complete inserts"
 msgstr "Тўла қўйиш"
 
-#: libraries/config.values.php:121
+#: libraries/config.values.php:124
 #, fuzzy
 #| msgid "Extended inserts"
 msgid "extended inserts"
 msgstr "Кенгайтирилган қўйилмалар"
 
-#: libraries/config.values.php:122
+#: libraries/config.values.php:125
 msgid "both of the above"
 msgstr ""
 
-#: libraries/config.values.php:123
+#: libraries/config.values.php:126
 msgid "neither of the above"
 msgstr ""
 
@@ -3367,11 +3381,6 @@ msgstr "Максимал жадваллар сони"
 msgid "This setting is disabled, it will not be applied to your configuration"
 msgstr ""
 
-#: libraries/config/FormDisplay.tpl.php:167 libraries/relation.lib.php:78
-#: libraries/relation.lib.php:85 pmd_relation_new.php:66
-msgid "Disabled"
-msgstr "Фаолсизлантирилган"
-
 #: libraries/config/FormDisplay.tpl.php:242
 #, php-format
 msgid "Set value: %s"
@@ -3387,7 +3396,7 @@ msgid "Allow users to customize this value"
 msgstr ""
 
 #: libraries/config/FormDisplay.tpl.php:324
-#: libraries/schema/User_Schema.class.php:487 prefs_manage.php:318
+#: libraries/schema/User_Schema.class.php:505 prefs_manage.php:318
 #: prefs_manage.php:323 tbl_change.php:1072
 msgid "Reset"
 msgstr "Тозалаш"
@@ -7266,7 +7275,7 @@ msgstr "DocSQL"
 msgid "Table name"
 msgstr "Жадвал номи"
 
-#: libraries/import/ldi.php:45 libraries/schema/User_Schema.class.php:333
+#: libraries/import/ldi.php:45 libraries/schema/User_Schema.class.php:350
 #: view_create.php:147
 msgid "Column names"
 msgstr "Майдон номлари"
@@ -8263,7 +8272,7 @@ msgstr "Биронта ҳам конфигурацияланган сервер 
 #: libraries/schema/Eps_Relation_Schema.class.php:420
 #: libraries/schema/Pdf_Relation_Schema.class.php:393
 #: libraries/schema/Svg_Relation_Schema.class.php:387
-#: libraries/schema/Visio_Relation_Schema.class.php:209
+#: libraries/schema/Visio_Relation_Schema.class.php:219
 #, fuzzy, php-format
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
@@ -8273,7 +8282,7 @@ msgstr "\"%s\" жадвали мавжуд эмас!"
 #: libraries/schema/Eps_Relation_Schema.class.php:469
 #: libraries/schema/Pdf_Relation_Schema.class.php:433
 #: libraries/schema/Svg_Relation_Schema.class.php:438
-#: libraries/schema/Visio_Relation_Schema.class.php:251
+#: libraries/schema/Visio_Relation_Schema.class.php:270
 #, php-format
 msgid "Please configure the coordinates for table %s"
 msgstr "\"%s\" жадвалининг координаталарини ўзгартириш"
@@ -8281,7 +8290,7 @@ msgstr "\"%s\" жадвалининг координаталарини ўзга�
 #: libraries/schema/Eps_Relation_Schema.class.php:823
 #: libraries/schema/Pdf_Relation_Schema.class.php:836
 #: libraries/schema/Svg_Relation_Schema.class.php:803
-#: libraries/schema/Visio_Relation_Schema.class.php:495
+#: libraries/schema/Visio_Relation_Schema.class.php:537
 #, fuzzy, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
@@ -8319,93 +8328,93 @@ msgstr "Атрибутлар"
 msgid "Extra"
 msgstr "Қўшимча"
 
-#: libraries/schema/User_Schema.class.php:110
+#: libraries/schema/User_Schema.class.php:116
 msgid "Create a page"
 msgstr "Янги саҳифа тузиш"
 
-#: libraries/schema/User_Schema.class.php:116
+#: libraries/schema/User_Schema.class.php:122
 #, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
 msgstr "Саҳифа рақами: "
 
-#: libraries/schema/User_Schema.class.php:120
+#: libraries/schema/User_Schema.class.php:126
 #, fuzzy
 #| msgid "Automatic layout"
 msgid "Automatic layout based on"
 msgstr "Автоматик раскладка"
 
-#: libraries/schema/User_Schema.class.php:123
+#: libraries/schema/User_Schema.class.php:129
 msgid "Internal relations"
 msgstr "Ички алоқалар"
 
-#: libraries/schema/User_Schema.class.php:133
+#: libraries/schema/User_Schema.class.php:139
 msgid "FOREIGN KEY"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:165
+#: libraries/schema/User_Schema.class.php:173
 msgid "Please choose a page to edit"
 msgstr "Таҳрирлаш лозим бўлган саҳифани танлаш"
 
-#: libraries/schema/User_Schema.class.php:170
+#: libraries/schema/User_Schema.class.php:178
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select page"
 msgstr "Жадвалларни танланг"
 
-#: libraries/schema/User_Schema.class.php:228
+#: libraries/schema/User_Schema.class.php:243
 msgid "Select Tables"
 msgstr "Жадвалларни танланг"
 
-#: libraries/schema/User_Schema.class.php:362
+#: libraries/schema/User_Schema.class.php:379
 #, fuzzy
 #| msgid "Relational schema"
 msgid "Display relational schema"
 msgstr "Алоқалар схемаси"
 
-#: libraries/schema/User_Schema.class.php:372
+#: libraries/schema/User_Schema.class.php:389
 msgid "Select Export Relational Type"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:393
+#: libraries/schema/User_Schema.class.php:410
 msgid "Show grid"
 msgstr "Тўрни кўрсатиш"
 
-#: libraries/schema/User_Schema.class.php:395
+#: libraries/schema/User_Schema.class.php:412
 msgid "Show color"
 msgstr "Рангда кўрсатиш"
 
-#: libraries/schema/User_Schema.class.php:397
+#: libraries/schema/User_Schema.class.php:414
 msgid "Show dimension of tables"
 msgstr "Жадвал ўлчамларини кўрсатиш"
 
-#: libraries/schema/User_Schema.class.php:400
+#: libraries/schema/User_Schema.class.php:417
 msgid "Display all tables with the same width"
 msgstr "Бир хил кенгликдаги барча жадвалларни кўрсатиш"
 
-#: libraries/schema/User_Schema.class.php:405
+#: libraries/schema/User_Schema.class.php:422
 msgid "Only show keys"
 msgstr "Фақат калитларни кўрсатиш"
 
-#: libraries/schema/User_Schema.class.php:407
+#: libraries/schema/User_Schema.class.php:424
 msgid "Landscape"
 msgstr "Албом шаклида"
 
-#: libraries/schema/User_Schema.class.php:408
+#: libraries/schema/User_Schema.class.php:425
 msgid "Portrait"
 msgstr "Китоб шаклида"
 
-#: libraries/schema/User_Schema.class.php:410
+#: libraries/schema/User_Schema.class.php:427
 #, fuzzy
 #| msgid "Creation"
 msgid "Orientation"
 msgstr "Тузиш"
 
-#: libraries/schema/User_Schema.class.php:423
+#: libraries/schema/User_Schema.class.php:440
 msgid "Paper size"
 msgstr "Қоғоз ўлчами"
 
-#: libraries/schema/User_Schema.class.php:461
+#: libraries/schema/User_Schema.class.php:479
 msgid ""
 "The current page has references to tables that no longer exist. Would you "
 "like to delete those references?"
@@ -8413,7 +8422,7 @@ msgstr ""
 "Ушбу саҳифада мавжуд бўлмаган жадваллар учун мурожаатлар мавжуд. Ушбу "
 "мурожаатларни ўчиришни хоҳлайсизми?"
 
-#: libraries/schema/User_Schema.class.php:486
+#: libraries/schema/User_Schema.class.php:504
 msgid "Toggle scratchboard"
 msgstr "Кўрсатиш"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-08-25 23:09+0200\n"
+"POT-Creation-Date: 2011-08-31 10:47+0200\n"
 "PO-Revision-Date: 2011-08-11 04:40+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -20,10 +20,10 @@ msgid "Show all"
 msgstr "全部显示"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:42
-#: libraries/common.lib.php:2354
+#: libraries/common.lib.php:2355
 #: libraries/schema/Pdf_Relation_Schema.class.php:1142
 #: libraries/schema/Pdf_Relation_Schema.class.php:1166
-#: libraries/schema/User_Schema.class.php:376
+#: libraries/schema/User_Schema.class.php:393
 #: libraries/select_lang.lib.php:487
 msgid "Page number:"
 msgstr "页码："
@@ -37,9 +37,9 @@ msgstr ""
 "无法更新目标浏览窗口。可能你已经关闭了父窗口或您浏览器的安全设置阻止了跨窗口"
 "更新。"
 
-#: browse_foreigners.php:151 libraries/common.lib.php:3033
-#: libraries/common.lib.php:3040 libraries/common.lib.php:3244
-#: libraries/common.lib.php:3245 libraries/db_links.inc.php:60
+#: browse_foreigners.php:151 libraries/common.lib.php:3034
+#: libraries/common.lib.php:3041 libraries/common.lib.php:3245
+#: libraries/common.lib.php:3246 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "搜索"
@@ -50,7 +50,7 @@ msgstr "搜索"
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:207
 #: libraries/Config.class.php:1326 libraries/Theme_Manager.class.php:309
 #: libraries/auth/cookie.auth.lib.php:247 libraries/common.lib.php:1315
-#: libraries/common.lib.php:2327 libraries/core.lib.php:508
+#: libraries/common.lib.php:2328 libraries/core.lib.php:508
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:349 libraries/display_import.lib.php:267
@@ -59,10 +59,10 @@ msgstr "搜索"
 #: libraries/rte/rte_events.lib.php:493 libraries/rte/rte_routines.lib.php:963
 #: libraries/rte/rte_routines.lib.php:1441
 #: libraries/rte/rte_triggers.lib.php:373
-#: libraries/schema/User_Schema.class.php:141
-#: libraries/schema/User_Schema.class.php:193
-#: libraries/schema/User_Schema.class.php:426
-#: libraries/schema/User_Schema.class.php:466
+#: libraries/schema/User_Schema.class.php:147
+#: libraries/schema/User_Schema.class.php:204
+#: libraries/schema/User_Schema.class.php:443
+#: libraries/schema/User_Schema.class.php:484
 #: libraries/select_server.lib.php:93 libraries/sql_query_form.lib.php:348
 #: libraries/sql_query_form.lib.php:411 libraries/sql_query_form.lib.php:464
 #: libraries/tbl_properties.inc.php:587 libraries/tbl_properties.inc.php:758
@@ -356,7 +356,7 @@ msgstr "编辑或导出关系大纲"
 #: libraries/export/pdf.php:95 libraries/export/xml.php:359
 #: libraries/header.inc.php:158 libraries/rte/rte_list.lib.php:59
 #: libraries/rte/rte_triggers.lib.php:310
-#: libraries/schema/User_Schema.class.php:254 server_privileges.php:1830
+#: libraries/schema/User_Schema.class.php:271 server_privileges.php:1830
 #: server_privileges.php:1886 server_privileges.php:2150
 #: server_synchronize.php:436 server_synchronize.php:908 tbl_tracking.php:634
 msgid "Table"
@@ -523,8 +523,8 @@ msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "在表 <i>%2$s</i> 中找到 %1$s 个匹配"
 
-#: db_search.php:233 libraries/common.lib.php:3035
-#: libraries/common.lib.php:3242 libraries/common.lib.php:3243
+#: db_search.php:233 libraries/common.lib.php:3036
+#: libraries/common.lib.php:3243 libraries/common.lib.php:3244
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:567
 msgid "Browse"
 msgstr "浏览"
@@ -536,10 +536,10 @@ msgstr "删除 %s 表中所有匹配的记录？"
 
 #: db_search.php:238 libraries/display_tbl.lib.php:1364
 #: libraries/display_tbl.lib.php:2354
-#: libraries/schema/User_Schema.class.php:186
-#: libraries/schema/User_Schema.class.php:255
-#: libraries/schema/User_Schema.class.php:290
-#: libraries/schema/User_Schema.class.php:320
+#: libraries/schema/User_Schema.class.php:197
+#: libraries/schema/User_Schema.class.php:272
+#: libraries/schema/User_Schema.class.php:307
+#: libraries/schema/User_Schema.class.php:337
 #: libraries/sql_query_form.lib.php:404 pmd_general.php:417
 #: setup/frames/index.inc.php:139 setup/frames/index.inc.php:230
 #: tbl_tracking.php:426 tbl_tracking.php:447 tbl_tracking.php:504
@@ -654,8 +654,8 @@ msgstr "全不选"
 msgid "Check tables having overhead"
 msgstr "仅选择多余"
 
-#: db_structure.php:507 libraries/common.lib.php:3255
-#: libraries/common.lib.php:3256 libraries/config/messages.inc.php:164
+#: db_structure.php:507 libraries/common.lib.php:3256
+#: libraries/common.lib.php:3257 libraries/config/messages.inc.php:164
 #: libraries/db_links.inc.php:56 libraries/display_tbl.lib.php:2392
 #: libraries/display_tbl.lib.php:2530 libraries/server_links.inc.php:65
 #: libraries/tbl_links.inc.php:80 prefs_manage.php:286
@@ -669,13 +669,13 @@ msgstr "导出"
 msgid "Print view"
 msgstr "打印预览"
 
-#: db_structure.php:513 libraries/common.lib.php:3251
-#: libraries/common.lib.php:3252
+#: db_structure.php:513 libraries/common.lib.php:3252
+#: libraries/common.lib.php:3253
 msgid "Empty"
 msgstr "清空"
 
 #: db_structure.php:515 db_tracking.php:104 libraries/Index.class.php:482
-#: libraries/common.lib.php:3249 libraries/common.lib.php:3250
+#: libraries/common.lib.php:3250 libraries/common.lib.php:3251
 #: server_databases.php:270 tbl_structure.php:150 tbl_structure.php:151
 #: tbl_structure.php:571
 msgid "Drop"
@@ -709,7 +709,7 @@ msgstr "修改表前缀"
 msgid "Copy table with prefix"
 msgstr "复制表为新前缀"
 
-#: db_structure.php:571 libraries/schema/User_Schema.class.php:403
+#: db_structure.php:571 libraries/schema/User_Schema.class.php:420
 msgid "Data Dictionary"
 msgstr "数据字典"
 
@@ -1137,9 +1137,9 @@ msgstr "关闭"
 
 #: js/messages.php:64 js/messages.php:249 libraries/Index.class.php:460
 #: libraries/common.lib.php:590 libraries/common.lib.php:1139
-#: libraries/common.lib.php:3253 libraries/common.lib.php:3254
+#: libraries/common.lib.php:3254 libraries/common.lib.php:3255
 #: libraries/config/messages.inc.php:478 libraries/display_tbl.lib.php:1328
-#: libraries/schema/User_Schema.class.php:185 setup/frames/index.inc.php:138
+#: libraries/schema/User_Schema.class.php:196 setup/frames/index.inc.php:138
 msgid "Edit"
 msgstr "编辑"
 
@@ -1738,7 +1738,7 @@ msgstr "显示查询框"
 msgid "No rows selected"
 msgstr "没有选中任何行"
 
-#: js/messages.php:251 libraries/common.lib.php:2652
+#: js/messages.php:251 libraries/common.lib.php:2653
 #: libraries/display_tbl.lib.php:2387 querywindow.php:90 querywindow.php:94
 #: querywindow.php:97 tbl_structure.php:149 tbl_structure.php:570
 msgid "Change"
@@ -1749,7 +1749,7 @@ msgid "Query execution time"
 msgstr "查询执行时间"
 
 #: js/messages.php:255 libraries/config/FormDisplay.tpl.php:323
-#: libraries/schema/User_Schema.class.php:334
+#: libraries/schema/User_Schema.class.php:351
 #: libraries/tbl_properties.inc.php:747 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:228 tbl_change.php:1023
 #: tbl_gis_visualization.php:193 tbl_indexes.php:261 tbl_relation.php:563
@@ -2186,7 +2186,7 @@ msgstr ""
 
 #: libraries/Config.class.php:727
 #, php-format
-msgid "Existing configuration file (%d) is not readable."
+msgid "Existing configuration file (%s) is not readable."
 msgstr ""
 
 #: libraries/Config.class.php:752
@@ -2394,6 +2394,14 @@ msgstr "无法保存表界面设置"
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
+msgstr ""
+
+#: libraries/Table.class.php:1513
+#, php-format
+msgid ""
+"Cannot save UI property \"%s\". The changes made will not be persistent "
+"after you refresh this page. Please check if the table structure has been "
+"changed."
 msgstr ""
 
 #: libraries/Theme.class.php:145
@@ -2815,57 +2823,57 @@ msgstr "周日"
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%Y 年 %m 月 %d 日 %H:%M"
 
-#: libraries/common.lib.php:1924
+#: libraries/common.lib.php:1925
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s 天 %s 小时，%s 分 %s 秒"
 
-#: libraries/common.lib.php:2015
+#: libraries/common.lib.php:2016
 msgid "Missing parameter:"
 msgstr "缺少参数:"
 
-#: libraries/common.lib.php:2363 libraries/common.lib.php:2366
+#: libraries/common.lib.php:2364 libraries/common.lib.php:2367
 #: libraries/display_tbl.lib.php:306
 msgctxt "First page"
 msgid "Begin"
 msgstr "首页"
 
-#: libraries/common.lib.php:2364 libraries/common.lib.php:2367
+#: libraries/common.lib.php:2365 libraries/common.lib.php:2368
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "上一页"
 
-#: libraries/common.lib.php:2394 libraries/common.lib.php:2397
+#: libraries/common.lib.php:2395 libraries/common.lib.php:2398
 #: libraries/display_tbl.lib.php:370 server_binlog.php:170
 #: server_binlog.php:172
 msgctxt "Next page"
 msgid "Next"
 msgstr "下一页"
 
-#: libraries/common.lib.php:2395 libraries/common.lib.php:2398
+#: libraries/common.lib.php:2396 libraries/common.lib.php:2399
 #: libraries/display_tbl.lib.php:385
 msgctxt "Last page"
 msgid "End"
 msgstr "尾页"
 
-#: libraries/common.lib.php:2465
+#: libraries/common.lib.php:2466
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "跳转到数据库“%s”。"
 
-#: libraries/common.lib.php:2485
+#: libraries/common.lib.php:2486
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s 功能受到一个已知的缺陷 (bug) 影响，参见 %s"
 
-#: libraries/common.lib.php:2659
+#: libraries/common.lib.php:2660
 msgid "Click to toggle"
 msgstr "点击切换"
 
-#: libraries/common.lib.php:3031 libraries/common.lib.php:3038
-#: libraries/common.lib.php:3248 libraries/config/setup.forms.php:293
+#: libraries/common.lib.php:3032 libraries/common.lib.php:3039
+#: libraries/common.lib.php:3249 libraries/config/setup.forms.php:293
 #: libraries/config/setup.forms.php:330 libraries/config/setup.forms.php:356
 #: libraries/config/user_preferences.forms.php:192
 #: libraries/config/user_preferences.forms.php:229
@@ -2877,7 +2885,7 @@ msgstr "点击切换"
 msgid "Structure"
 msgstr "结构"
 
-#: libraries/common.lib.php:3032 libraries/common.lib.php:3039
+#: libraries/common.lib.php:3033 libraries/common.lib.php:3040
 #: libraries/config/messages.inc.php:214 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
@@ -2885,37 +2893,37 @@ msgstr "结构"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:3034 libraries/common.lib.php:3246
-#: libraries/common.lib.php:3247 libraries/sql_query_form.lib.php:282
+#: libraries/common.lib.php:3035 libraries/common.lib.php:3247
+#: libraries/common.lib.php:3248 libraries/sql_query_form.lib.php:282
 #: libraries/sql_query_form.lib.php:285 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "插入"
 
-#: libraries/common.lib.php:3041 libraries/db_links.inc.php:86
+#: libraries/common.lib.php:3042 libraries/db_links.inc.php:86
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:114
 #: view_operations.php:87
 msgid "Operations"
 msgstr "操作"
 
-#: libraries/common.lib.php:3180
+#: libraries/common.lib.php:3181
 msgid "Browse your computer:"
 msgstr "从计算机中上传："
 
-#: libraries/common.lib.php:3199
+#: libraries/common.lib.php:3200
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "从网站服务器上传文件夹 <b>%s</b> 中选择："
 
-#: libraries/common.lib.php:3220 libraries/sql_query_form.lib.php:445
+#: libraries/common.lib.php:3221 libraries/sql_query_form.lib.php:445
 #: tbl_change.php:910
 msgid "The directory you set for upload work cannot be reached"
 msgstr "用于上传的文件夹出错，无法使用"
 
-#: libraries/common.lib.php:3229
+#: libraries/common.lib.php:3230
 msgid "There are no files to upload"
 msgstr "没有可上传的文件"
 
-#: libraries/common.lib.php:3257 libraries/common.lib.php:3258
+#: libraries/common.lib.php:3258 libraries/common.lib.php:3259
 msgid "Execute"
 msgstr "执行"
 
@@ -2936,57 +2944,63 @@ msgstr "左侧"
 msgid "Right"
 msgstr "右侧"
 
-#: libraries/config.values.php:75
+#: libraries/config.values.php:76
 msgid "Open"
 msgstr "开启"
 
-#: libraries/config.values.php:75
+#: libraries/config.values.php:77
 msgid "Closed"
 msgstr "关闭"
 
-#: libraries/config.values.php:96 libraries/export/htmlword.php:25
+#: libraries/config.values.php:78 libraries/config/FormDisplay.tpl.php:167
+#: libraries/relation.lib.php:78 libraries/relation.lib.php:85
+#: pmd_relation_new.php:66
+msgid "Disabled"
+msgstr "已禁用"
+
+#: libraries/config.values.php:99 libraries/export/htmlword.php:25
 #: libraries/export/latex.php:42 libraries/export/odt.php:34
 #: libraries/export/sql.php:129 libraries/export/texytext.php:24
 msgid "structure"
 msgstr "结构"
 
-#: libraries/config.values.php:97 libraries/export/htmlword.php:25
+#: libraries/config.values.php:100 libraries/export/htmlword.php:25
 #: libraries/export/latex.php:42 libraries/export/odt.php:34
 #: libraries/export/sql.php:130 libraries/export/texytext.php:24
 msgid "data"
 msgstr "数据"
 
-#: libraries/config.values.php:98 libraries/export/htmlword.php:25
+#: libraries/config.values.php:101 libraries/export/htmlword.php:25
 #: libraries/export/latex.php:42 libraries/export/odt.php:34
 #: libraries/export/sql.php:131 libraries/export/texytext.php:24
 msgid "structure and data"
 msgstr "结构和数据"
 
-#: libraries/config.values.php:100
+#: libraries/config.values.php:103
 msgid "Quick - display only the minimal options to configure"
 msgstr "快速 - 仅显示必须的设置项"
 
-#: libraries/config.values.php:101
+#: libraries/config.values.php:104
 msgid "Custom - display all possible options to configure"
 msgstr "自定义 - 显示所有可用的设置项"
 
-#: libraries/config.values.php:102
+#: libraries/config.values.php:105
 msgid "Custom - like above, but without the quick/custom choice"
 msgstr "自定义 - 不显示 快速/自定义 选择"
 
-#: libraries/config.values.php:120
+#: libraries/config.values.php:123
 msgid "complete inserts"
 msgstr "完整插入"
 
-#: libraries/config.values.php:121
+#: libraries/config.values.php:124
 msgid "extended inserts"
 msgstr "扩展插入"
 
-#: libraries/config.values.php:122
+#: libraries/config.values.php:125
 msgid "both of the above"
 msgstr "以上兼有"
 
-#: libraries/config.values.php:123
+#: libraries/config.values.php:126
 msgid "neither of the above"
 msgstr "以上均不"
 
@@ -3060,11 +3074,6 @@ msgstr "最大 %s"
 msgid "This setting is disabled, it will not be applied to your configuration"
 msgstr "此设置已禁用，不会应用到你的设置中"
 
-#: libraries/config/FormDisplay.tpl.php:167 libraries/relation.lib.php:78
-#: libraries/relation.lib.php:85 pmd_relation_new.php:66
-msgid "Disabled"
-msgstr "已禁用"
-
 #: libraries/config/FormDisplay.tpl.php:242
 #, php-format
 msgid "Set value: %s"
@@ -3080,7 +3089,7 @@ msgid "Allow users to customize this value"
 msgstr "允许用户自定义该值"
 
 #: libraries/config/FormDisplay.tpl.php:324
-#: libraries/schema/User_Schema.class.php:487 prefs_manage.php:318
+#: libraries/schema/User_Schema.class.php:505 prefs_manage.php:318
 #: prefs_manage.php:323 tbl_change.php:1072
 msgid "Reset"
 msgstr "重置"
@@ -6548,7 +6557,7 @@ msgstr "DocSQL"
 msgid "Table name"
 msgstr "数据表名"
 
-#: libraries/import/ldi.php:45 libraries/schema/User_Schema.class.php:333
+#: libraries/import/ldi.php:45 libraries/schema/User_Schema.class.php:350
 #: view_create.php:147
 msgid "Column names"
 msgstr "字段名"
@@ -7441,7 +7450,7 @@ msgstr "没有事件。"
 #: libraries/schema/Eps_Relation_Schema.class.php:420
 #: libraries/schema/Pdf_Relation_Schema.class.php:393
 #: libraries/schema/Svg_Relation_Schema.class.php:387
-#: libraries/schema/Visio_Relation_Schema.class.php:209
+#: libraries/schema/Visio_Relation_Schema.class.php:219
 #, php-format
 msgid "The %s table doesn't exist!"
 msgstr "数据表 %s 不存在！"
@@ -7450,7 +7459,7 @@ msgstr "数据表 %s 不存在！"
 #: libraries/schema/Eps_Relation_Schema.class.php:469
 #: libraries/schema/Pdf_Relation_Schema.class.php:433
 #: libraries/schema/Svg_Relation_Schema.class.php:438
-#: libraries/schema/Visio_Relation_Schema.class.php:251
+#: libraries/schema/Visio_Relation_Schema.class.php:270
 #, php-format
 msgid "Please configure the coordinates for table %s"
 msgstr "请配置表 %s 的并发"
@@ -7458,7 +7467,7 @@ msgstr "请配置表 %s 的并发"
 #: libraries/schema/Eps_Relation_Schema.class.php:823
 #: libraries/schema/Pdf_Relation_Schema.class.php:836
 #: libraries/schema/Svg_Relation_Schema.class.php:803
-#: libraries/schema/Visio_Relation_Schema.class.php:495
+#: libraries/schema/Visio_Relation_Schema.class.php:537
 #, php-format
 msgid "Schema of the %s database - Page %s"
 msgstr "数据库 %s 的大纲 - 第 %s 页"
@@ -7493,89 +7502,89 @@ msgstr "属性"
 msgid "Extra"
 msgstr "额外"
 
-#: libraries/schema/User_Schema.class.php:110
+#: libraries/schema/User_Schema.class.php:116
 msgid "Create a page"
 msgstr "创建新页"
 
-#: libraries/schema/User_Schema.class.php:116
+#: libraries/schema/User_Schema.class.php:122
 msgid "Page name"
 msgstr "页面名称"
 
-#: libraries/schema/User_Schema.class.php:120
+#: libraries/schema/User_Schema.class.php:126
 msgid "Automatic layout based on"
 msgstr "自动排版，基于"
 
-#: libraries/schema/User_Schema.class.php:123
+#: libraries/schema/User_Schema.class.php:129
 msgid "Internal relations"
 msgstr "内联"
 
-#: libraries/schema/User_Schema.class.php:133
+#: libraries/schema/User_Schema.class.php:139
 msgid "FOREIGN KEY"
 msgstr "外键"
 
-#: libraries/schema/User_Schema.class.php:165
+#: libraries/schema/User_Schema.class.php:173
 msgid "Please choose a page to edit"
 msgstr "请选择需要编辑的页"
 
-#: libraries/schema/User_Schema.class.php:170
+#: libraries/schema/User_Schema.class.php:178
 msgid "Select page"
 msgstr "选择页"
 
-#: libraries/schema/User_Schema.class.php:228
+#: libraries/schema/User_Schema.class.php:243
 msgid "Select Tables"
 msgstr "选择表"
 
-#: libraries/schema/User_Schema.class.php:362
+#: libraries/schema/User_Schema.class.php:379
 msgid "Display relational schema"
 msgstr "显示关系大纲"
 
-#: libraries/schema/User_Schema.class.php:372
+#: libraries/schema/User_Schema.class.php:389
 msgid "Select Export Relational Type"
 msgstr "选择导出关系类型"
 
-#: libraries/schema/User_Schema.class.php:393
+#: libraries/schema/User_Schema.class.php:410
 msgid "Show grid"
 msgstr "显示网格"
 
-#: libraries/schema/User_Schema.class.php:395
+#: libraries/schema/User_Schema.class.php:412
 msgid "Show color"
 msgstr "显示颜色"
 
-#: libraries/schema/User_Schema.class.php:397
+#: libraries/schema/User_Schema.class.php:414
 msgid "Show dimension of tables"
 msgstr "显示表格大小"
 
-#: libraries/schema/User_Schema.class.php:400
+#: libraries/schema/User_Schema.class.php:417
 msgid "Display all tables with the same width"
 msgstr "以相同宽度显示所有的表"
 
-#: libraries/schema/User_Schema.class.php:405
+#: libraries/schema/User_Schema.class.php:422
 msgid "Only show keys"
 msgstr "仅显示键"
 
-#: libraries/schema/User_Schema.class.php:407
+#: libraries/schema/User_Schema.class.php:424
 msgid "Landscape"
 msgstr "横向"
 
-#: libraries/schema/User_Schema.class.php:408
+#: libraries/schema/User_Schema.class.php:425
 msgid "Portrait"
 msgstr "纵向"
 
-#: libraries/schema/User_Schema.class.php:410
+#: libraries/schema/User_Schema.class.php:427
 msgid "Orientation"
 msgstr "方向"
 
-#: libraries/schema/User_Schema.class.php:423
+#: libraries/schema/User_Schema.class.php:440
 msgid "Paper size"
 msgstr "纸张大小"
 
-#: libraries/schema/User_Schema.class.php:461
+#: libraries/schema/User_Schema.class.php:479
 msgid ""
 "The current page has references to tables that no longer exist. Would you "
 "like to delete those references?"
 msgstr "当前页所引用的表不存在了。您是否想要删除这些引用？"
 
-#: libraries/schema/User_Schema.class.php:486
+#: libraries/schema/User_Schema.class.php:504
 msgid "Toggle scratchboard"
 msgstr "切换草稿板"
 
