@@ -11628,10 +11628,9 @@ msgid "Data Label"
 msgstr "Název dat"
 
 #: tbl_zoom_select.php:276
-#, fuzzy
 #| msgid "Maximum number of rows to display"
 msgid "Maximum rows to plot"
-msgstr "Nejvyšší počet zobrazených řádků"
+msgstr "Nejvyšší počet vykreslených řádků"
 
 #: tbl_zoom_select.php:368
 msgid "Browse/Edit the points"
