@@ -6734,7 +6734,7 @@ msgstr "Při nahrávání souboru ESRI došlo k chybě: \"%s\"."
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data"
-msgstr ""
+msgstr "Nahraný soubor je chybný nebo obsahuje chybná data."
 
 #: libraries/import/shp.php:333
 #, php-format
