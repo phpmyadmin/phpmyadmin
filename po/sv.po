@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-08-31 22:23+0200\n"
+"PO-Revision-Date: 2011-08-31 22:24+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -11843,6 +11843,7 @@ msgstr "Långsam frågetakt"
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"Det finns en stor andel av långsamma frågor jämfört med serverns upptid."
 
 #: po/advisory_rules.php:23
 #, php-format
