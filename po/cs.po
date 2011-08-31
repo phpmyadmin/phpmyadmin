@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-31 10:39+0200\n"
+"PO-Revision-Date: 2011-08-31 10:41+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -2465,7 +2465,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:35
 msgid "Failed to use Blowfish from mcrypt!"
-msgstr ""
+msgstr "Při použití funkce Blowfish z knihovny mcrypt došlo k chybě!"
 
 #: libraries/auth/cookie.auth.lib.php:199
 msgid "Log in"
