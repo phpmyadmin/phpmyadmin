@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-31 10:42+0200\n"
+"PO-Revision-Date: 2011-08-31 10:43+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -10450,7 +10450,7 @@ msgstr "Před sloučením odstranit proměnná data v příkazech INSERT"
 
 #: server_status.php:1713
 msgid "Choose from which log you want the statistics to be generated from."
-msgstr ""
+msgstr "Zvolte ze kterého záznamu chcete vygenerovat statistiku."
 
 #: server_status.php:1715
 msgid "Results are grouped by query text."
