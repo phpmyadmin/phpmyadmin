@@ -11623,10 +11623,9 @@ msgid "Additional search criteria"
 msgstr "Další parametr vyhledávání"
 
 #: tbl_zoom_select.php:258
-#, fuzzy
 #| msgid "Label"
 msgid "Data Label"
-msgstr "Název"
+msgstr "Název dat"
 
 #: tbl_zoom_select.php:276
 #, fuzzy
