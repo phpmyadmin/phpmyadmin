@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-08-31 22:31+0200\n"
+"PO-Revision-Date: 2011-08-31 22:32+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -11876,10 +11876,10 @@ msgstr ""
 "på din miljö. Ett värde på 1-5 sekunder är lämpligt."
 
 #: po/advisory_rules.php:28
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "long_query_time is currently set to %ds."
-msgstr "long_query_time är definerad till %d sekund(er)."
+msgstr "long_query_time är för närvarande satt till %ds."
 
 #: po/advisory_rules.php:30
 #, fuzzy
