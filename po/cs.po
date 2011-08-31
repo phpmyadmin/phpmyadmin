@@ -2173,7 +2173,7 @@ msgstr ""
 
 #: libraries/Config.class.php:703
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
-msgstr ""
+msgstr "Před použitím phpMyAdmina odstraňte adresář „./config“!"
 
 #: libraries/Config.class.php:727
 #, php-format
