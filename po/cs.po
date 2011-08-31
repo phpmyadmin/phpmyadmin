@@ -1760,7 +1760,7 @@ msgstr "Zoomovací vyhledávání"
 
 #: js/messages.php:264
 msgid "Each point represents a data row."
-msgstr "Každý bod reprezentuje řádek dat"
+msgstr "Každý bod reprezentuje řádek dat."
 
 #: js/messages.php:266
 msgid "Hovering over a point will show its label."
