@@ -1764,7 +1764,7 @@ msgstr "Každý bod reprezentuje řádek dat"
 
 #: js/messages.php:266
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "Najetí myší nad bod ukáže jeho název."
 
 #: js/messages.php:268
 msgid "Use mousewheel to zoom in or out of the plot."
