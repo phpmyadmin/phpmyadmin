@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-08-31 22:22+0200\n"
+"PO-Revision-Date: 2011-08-31 22:23+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -11835,10 +11835,9 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr "Den långsamma frågeraten bör vara under 5%% ditt värde är %s%%."
 
 #: po/advisory_rules.php:20
-#, fuzzy
 #| msgid "Flush query cache"
 msgid "Slow query rate"
-msgstr "Rensa frågecache"
+msgstr "Långsam frågetakt"
 
 #: po/advisory_rules.php:21
 msgid ""
