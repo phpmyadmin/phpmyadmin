@@ -2637,7 +2637,7 @@ msgstr "Zkontrolovat oprávnění"
 
 #: libraries/common.inc.php:147
 msgid "possible exploit"
-msgstr ""
+msgstr "možný pokus o exploit"
 
 #: libraries/common.inc.php:156
 msgid "numeric key detected"
