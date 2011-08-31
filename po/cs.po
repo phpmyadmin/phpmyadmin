@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-25 23:09+0200\n"
-"PO-Revision-Date: 2011-08-25 09:02+0200\n"
+"PO-Revision-Date: 2011-08-31 10:44+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -828,20 +828,18 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "Zkopírujte spojené hodnoty do pole „Délka/Hodnoty“"
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "Typ sloupců"
+msgstr "Chybný typ!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
 msgstr "Zvolený export musí být uložen do souboru!"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Bad parameters!"
-msgstr "Přidat parametr"
+msgstr "Chybné parametry!"
 
 #: export.php:167 export.php:192 export.php:655
 #, php-format
@@ -867,10 +865,9 @@ msgid "Dump has been saved to file %s."
 msgstr "Výpis byl uložen do souboru %s."
 
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "Typ exportu"
+msgstr "Chybný typ exportu"
 
 #: gis_data_editor.php:84
 #, php-format
@@ -1763,15 +1760,15 @@ msgstr "Zoomovací vyhledávání"
 
 #: js/messages.php:264
 msgid "Each point represents a data row."
-msgstr "Každý bod reprezentuje řádek dat"
+msgstr "Každý bod reprezentuje řádek dat."
 
 #: js/messages.php:266
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "Najetí myší nad bod ukáže jeho název."
 
 #: js/messages.php:268
 msgid "Use mousewheel to zoom in or out of the plot."
-msgstr ""
+msgstr "Použijte kolečko myši pro změnu velikosti grafu."
 
 #: js/messages.php:270
 msgid "Click and drag the mouse to navigate the plot."
@@ -2176,7 +2173,7 @@ msgstr ""
 
 #: libraries/Config.class.php:703
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
-msgstr ""
+msgstr "Před použitím phpMyAdmina odstraňte adresář „./config“!"
 
 #: libraries/Config.class.php:727
 #, php-format
@@ -2468,7 +2465,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:35
 msgid "Failed to use Blowfish from mcrypt!"
-msgstr ""
+msgstr "Při použití funkce Blowfish z knihovny mcrypt došlo k chybě!"
 
 #: libraries/auth/cookie.auth.lib.php:199
 msgid "Log in"
@@ -2640,11 +2637,11 @@ msgstr "Zkontrolovat oprávnění"
 
 #: libraries/common.inc.php:147
 msgid "possible exploit"
-msgstr ""
+msgstr "možný pokus o exploit"
 
 #: libraries/common.inc.php:156
 msgid "numeric key detected"
-msgstr ""
+msgstr "detekován číselný klíč"
 
 #: libraries/common.inc.php:597
 msgid "Failed to read configuration file"
@@ -5304,7 +5301,7 @@ msgstr "Chybí rozšíření %s. Prosím zkontrolujte nastavení PHP."
 
 #: libraries/core.lib.php:409
 msgid "possible deep recursion attack"
-msgstr ""
+msgstr "možný útok rekurzí"
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
@@ -6587,7 +6584,7 @@ msgstr "Nebyla nalezena žádná data zobrazení GIS."
 
 #: libraries/header_http.inc.php:15 libraries/header_meta_style.inc.php:15
 msgid "GLOBALS overwrite attempt"
-msgstr ""
+msgstr "pokus o přepsání GLOBALS"
 
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:54
 msgid "SQL result"
@@ -10453,11 +10450,11 @@ msgstr "Před sloučením odstranit proměnná data v příkazech INSERT"
 
 #: server_status.php:1713
 msgid "Choose from which log you want the statistics to be generated from."
-msgstr ""
+msgstr "Zvolte ze kterého záznamu chcete vygenerovat statistiku."
 
 #: server_status.php:1715
 msgid "Results are grouped by query text."
-msgstr ""
+msgstr "Výsledky jsou sloučeny podle textu dotazu."
 
 #: server_status.php:1720
 msgid "Query analyzer"
@@ -10937,10 +10934,9 @@ msgstr ""
 "Tajný klíč by měl obsahovat číslice, písmena [em]A[/em] zvláštní znaky."
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No data"
 msgid "Wrong data"
-msgstr "Nejsou k dispozici žádná data"
+msgstr "Chybná data"
 
 #: sql.php:214
 #, php-format
@@ -11627,16 +11623,14 @@ msgid "Additional search criteria"
 msgstr "Další parametr vyhledávání"
 
 #: tbl_zoom_select.php:258
-#, fuzzy
 #| msgid "Label"
 msgid "Data Label"
-msgstr "Název"
+msgstr "Název dat"
 
 #: tbl_zoom_select.php:276
-#, fuzzy
 #| msgid "Maximum number of rows to display"
 msgid "Maximum rows to plot"
-msgstr "Nejvyšší počet zobrazených řádků"
+msgstr "Nejvyšší počet vykreslených řádků"
 
 #: tbl_zoom_select.php:368
 msgid "Browse/Edit the points"
