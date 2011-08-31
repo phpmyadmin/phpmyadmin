@@ -10454,7 +10454,7 @@ msgstr "Zvolte ze kterého záznamu chcete vygenerovat statistiku."
 
 #: server_status.php:1715
 msgid "Results are grouped by query text."
-msgstr ""
+msgstr "Výsledky jsou sloučeny podle textu dotazu."
 
 #: server_status.php:1720
 msgid "Query analyzer"
