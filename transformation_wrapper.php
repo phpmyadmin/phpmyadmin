@@ -65,11 +65,7 @@ if (isset($ct) && !empty($ct)) {
     $mime_type = (isset($mime_map[$transform_key]['mimetype']) ? str_replace('_', '/', $mime_map[$transform_key]['mimetype']) : $default_ct) . (isset($mime_options['charset']) ? $mime_options['charset'] : '');
 }
 
-if (empty($cn)) {
-    $cn = 'download.bin';
-}
-
-PMA_download_header($mime_type, $cn);
+PMA_download_header($cn, $mime_type);
 
 if (! isset($resize)) {
     echo $row[$transform_key];
