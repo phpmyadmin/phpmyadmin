@@ -69,7 +69,7 @@ if (empty($cn)) {
     $cn = 'download.bin';
 }
 
-PMA_download_header($mime_type, $cn);
+PMA_download_header($cn, $mime_type);
 
 if (! isset($resize)) {
     echo $row[$transform_key];
