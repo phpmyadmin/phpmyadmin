@@ -564,7 +564,8 @@ function PMA_no_cache_header()
 /**
  * Sends header indicating file download.
  *
- * @param string $filename Filename to include in headers.
+ * @param string $filename Filename to include in headers if empty,
+ *                         none Content-Disposition header will be sent.
  * @param string $mimetype MIME type to include in headers.
  * @param int    $length   Length of content (optional)
  * @param bool   $no_cache Whether to include no-caching headers.
@@ -579,7 +580,9 @@ function PMA_download_header($filename, $mimetype, $length = 0, $no_cache = true
     /* Replace all possibly dangerous chars in filename */
     $filename = str_replace(array(';', '"', "\n", "\r"), '-', $filename);
     header('Content-Description: File Transfer');
-    header('Content-Disposition: attachment; filename="' . $filename . '"');
+    if (!empty($filename)) {
+        header('Content-Disposition: attachment; filename="' . $filename . '"');
+    }
     header('Content-Type: ' . $mimetype);
     header('Content-Transfer-Encoding: binary');
     if ($length > 0) {
