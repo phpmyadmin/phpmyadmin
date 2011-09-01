@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-02 00:55+0200\n"
+"PO-Revision-Date: 2011-09-02 00:56+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -11978,7 +11978,7 @@ msgstr "\"källa\" hittades i version_comment"
 
 #: po/advisory_rules.php:56 po/advisory_rules.php:61
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr ""
+msgstr "MySQL handboken är endast korrekt för officiella MySQL-binärer."
 
 #: po/advisory_rules.php:57
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
