@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-02 00:25+0200\n"
+"PO-Revision-Date: 2011-09-02 00:26+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -11921,10 +11921,10 @@ msgstr ""
 "ännu bättre."
 
 #: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Current version: %s"
-msgstr "Skapa version"
+msgstr "Nuvarande version: %s"
 
 #: po/advisory_rules.php:40 po/advisory_rules.php:45
 #, fuzzy
