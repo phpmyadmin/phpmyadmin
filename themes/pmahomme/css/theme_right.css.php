@@ -553,12 +553,30 @@ table tr.hover th {
 /**
  * marks table rows/cells if the db field is in a where condition
  */
-tr.condition th,
-tr.condition td,
-td.condition,
-th.condition {
-    border: 1px solid <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
+.condition {
+    border-color: <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?> !important;
 }
+
+th.condition {
+    border-width: 1px 1px 0 1px;
+    border-style: solid;
+}
+
+td.condition {
+    border-width: 0 1px 0 1px;
+    border-style: solid;
+}
+
+tr:last-child td.condition {
+    border-width: 0 1px 1px 1px;
+}
+
+<?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
+/* for first th which must have right border set (ltr only) */
+.before-condition {
+    border-right: 1px solid <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
+}
+<?php } ?>
 
 /**
  * cells with the value NULL

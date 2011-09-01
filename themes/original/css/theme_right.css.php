@@ -388,8 +388,6 @@ table tr.hover th {
 /**
  * marks table rows/cells if the db field is in a where condition
  */
-tr.condition th,
-tr.condition td,
 td.condition,
 th.condition {
     border: 1px solid <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
@@ -2295,7 +2293,7 @@ span.CodeMirror-selected {
     border-right: solid 1px #FFFFFF;
     cursor: col-resize;
     height: 100%;
-    margin-left: -6px;
+    margin-left: -5px;
     position: absolute;
     width: 5px;
 }
