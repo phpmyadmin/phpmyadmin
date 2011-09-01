@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-01 11:54+0200\n"
+"PO-Revision-Date: 2011-09-01 11:59+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2427,6 +2427,9 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
+"KA özelliği \"%s\" kaydedilemiyor. Yapılan değişiklikler bu sayfayı "
+"yenilemenizden sonra kalıcı olmayacaktır. Eğer tablo yapısı değiştirilmişse "
+"lütfen kontrol edin."
 
 #: libraries/Theme.class.php:145
 #, php-format
