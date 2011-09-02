@@ -12253,10 +12253,9 @@ msgid "Available memory on this host: %s"
 msgstr "Verfügbarer Specher auf diesem Rechner: %s"
 
 #: po/advisory_rules.php:70
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache disabled"
-msgstr "Abfragen-Cache"
+msgstr "Abfragen-Cache deaktiviert"
 
 #: po/advisory_rules.php:71
 #, fuzzy
