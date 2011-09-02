@@ -6870,6 +6870,8 @@ msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data"
 msgstr ""
+"Sie haben versucht, eine ungültige Datei hochzuladen oder die Datei enthielt "
+"ungültige Daten"
 
 #: libraries/import/shp.php:333
 #, php-format
