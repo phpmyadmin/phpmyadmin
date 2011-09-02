@@ -12392,10 +12392,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:100
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache max size"
-msgstr "Abfragen-Cache"
+msgstr "Maximale Abfragen-Cache Größe"
 
 #: po/advisory_rules.php:101
 msgid ""
