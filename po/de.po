@@ -959,7 +959,7 @@ msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
-"Wählen Sie \"GeomFromText\" aus der Spalte \"Function\" und kopieren Sie den "
+"Wählen Sie \"GeomFromText\" aus der Spalte \"Funktion\" und kopieren Sie den "
 "Text in das Feld \"Wert\""
 
 #: import.php:57
