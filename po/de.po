@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-02 04:34+0200\n"
+"PO-Revision-Date: 2011-09-02 04:35+0200\n"
 "Last-Translator: Sven Strickroth <email@cs-ware.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -10634,7 +10634,6 @@ msgid "Using the monitor:"
 msgstr "Verwendung der Überwachung:"
 
 #: server_status.php:1614
-#, fuzzy
 #| msgid ""
 #| "<b>Using the monitor:</b><br/> Ok, you are good to go! Once you click "
 #| "'Start monitor' your browser will refresh all displayed charts in a "
@@ -10654,12 +10653,8 @@ msgstr ""
 "haben, wird Ihr Browser in regelmäßigen Intervallen alle angezeigten "
 "Diagramme aktualisieren. Unter 'Einstellungen' können Sie Diagramme "
 "hinzufügen und das Aktualisierungsintervall ändern oder beliebige Diagramme "
-"entfernen, wenn Sie das Zahnrad-Icon des entsprechenden Schaubilds verwenden."
-"<p>Wenn Sie eine plötzliche Spitze in der Aktivität feststellen, wählen Sie "
-"den entsprechenden Zeitraum in einem beliebigen Diagramm, indem Sie die "
-"linke Maustaste gedrückt halten und über das Schaubild ziehen. Dies wird "
-"Statistiken aus den Protokollen laden um Sie bei der Auffindung der "
-"Aktivitätsspitze zu unterstützen.</p>"
+"entfernen, wenn Sie das Zahnrad-Icon des entsprechenden Schaubilds "
+"verwenden."
 
 #: server_status.php:1616
 #, fuzzy
