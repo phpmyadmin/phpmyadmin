@@ -12027,10 +12027,9 @@ msgid "Query cache disabled"
 msgstr "Frågecache inaktiverad"
 
 #: po/advisory_rules.php:71
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "Servern svarar inte"
+msgstr "Frågaecache är inte aktiverat."
 
 #: po/advisory_rules.php:72
 msgid ""
