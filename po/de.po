@@ -11947,10 +11947,9 @@ msgstr ""
 "unterschiedliche Spalten"
 
 #: tbl_zoom_select.php:135
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Additional search criteria"
-msgstr "Suchkriterien ausblenden"
+msgstr "Zusätzliche Suchkriterien"
 
 #: tbl_zoom_select.php:258
 #, fuzzy
