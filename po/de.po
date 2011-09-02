@@ -12035,7 +12035,7 @@ msgstr "Die Betriebszeit beträgt nur %s"
 #: po/advisory_rules.php:10
 #| msgid "Questions"
 msgid "Questions below 1,000"
-msgstr "Weger als 1.000 Anfragen"
+msgstr "Weniger als 1.000 Anfragen"
 
 #: po/advisory_rules.php:11
 msgid ""
