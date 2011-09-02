@@ -12281,7 +12281,7 @@ msgstr "Abfragen-Cache Methode"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
-msgstr ""
+msgstr "Suboptimale Zwischenspeicher-Methode."
 
 #: po/advisory_rules.php:77
 msgid ""
