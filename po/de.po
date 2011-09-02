@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-02 04:37+0200\n"
+"PO-Revision-Date: 2011-09-02 04:38+0200\n"
 "Last-Translator: Sven Strickroth <email@cs-ware.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -10753,14 +10753,13 @@ msgstr ""
 "Lösche Variablen-Werte in INSERT Abfragen um die Gruppierung zu verbessern"
 
 #: server_status.php:1713
-#, fuzzy
 #| msgid ""
 #| "<p>Choose from which log you want the statistics to be generated from.</"
 #| "p> Results are grouped by query text."
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr ""
-"<p>Bitte wählen Sie das log aus, von dem Statistiken generiert werden "
-"sollen</p> Ergebnisse sind nach Abfrage-Text zusammengefasst."
+"Bitte wählen Sie das Protokoll aus, von dem Statistiken generiert werden "
+"sollen."
 
 #: server_status.php:1715
 msgid "Results are grouped by query text."
