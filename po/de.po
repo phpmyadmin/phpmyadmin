@@ -878,7 +878,6 @@ msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Verwende OpenStreetMaps als Basis-Layer"
 
 #: gis_data_editor.php:134
-#, fuzzy
 msgid "SRID"
 msgstr "SRID"
 
