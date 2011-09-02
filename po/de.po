@@ -12322,7 +12322,7 @@ msgstr "Abfragen-Cache Ausnutzung"
 #: po/advisory_rules.php:86
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
-msgstr ""
+msgstr "Weniger als 80%% des Abfragen-Caches werden benutzt."
 
 #: po/advisory_rules.php:87
 msgid ""
