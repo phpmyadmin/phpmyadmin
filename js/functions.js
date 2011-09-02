@@ -2774,13 +2774,12 @@ function PMA_getRowNumber(classlist)
 /**
  * Changes status of slider
  */
-function PMA_set_status_label(id)
+function PMA_set_status_label($element)
 {
-    if ($('#' + id).css('display') == 'none') {
-        $('#anchor_status_' + id).text('+ ');
-    } else {
-        $('#anchor_status_' + id).text('- ');
-    }
+    var text = $element.css('display') == 'none'
+        ? '+ '
+        : '- ';
+    $element.closest('.slide-wrapper').prev().find('span').text(text);
 }
 
 /**
@@ -2788,21 +2787,34 @@ function PMA_set_status_label(id)
  */
 function PMA_init_slider()
 {
-    $('.pma_auto_slider').each(function(idx, e) {
-        if ($(e).hasClass('slider_init_done')) return;
-        $(e).addClass('slider_init_done');
-        $('<span id="anchor_status_' + e.id + '"></span>')
-            .insertBefore(e);
-        PMA_set_status_label(e.id);
+    $('.pma_auto_slider').each(function() {
+        var $this = $(this);
 
-        $('<a href="#' + e.id + '" id="anchor_' + e.id + '">' + e.title + '</a>')
-            .insertBefore(e)
+        if ($this.hasClass('slider_init_done')) {
+            return;
+        }
+        $this.addClass('slider_init_done');
+
+        var $wrapper = $('<div>', {'class': 'slide-wrapper'}).css('height', $this.outerHeight(true));
+        $wrapper.toggle($this.is(':visible'));
+        $('<a>', {href: '#'+this.id})
+            .text(this.title)
+            .prepend($('<span>'))
+            .insertBefore($this)
             .click(function() {
-                $('#' + e.id).toggle('clip', function() {
-                    PMA_set_status_label(e.id);
+                var $wrapper = $this.closest('.slide-wrapper');
+                var visible = $this.is(':visible');
+                if (!visible) {
+                    $wrapper.show();
+                }
+                $this[visible ? 'hide' : 'show']('blind', function() {
+                    $wrapper.toggle(!visible);
+                    PMA_set_status_label($this);
                 });
                 return false;
             });
+        $this.wrap($wrapper);
+        PMA_set_status_label($this);
     });
 }
 
