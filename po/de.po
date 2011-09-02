@@ -12316,9 +12316,8 @@ msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr ""
 
 #: po/advisory_rules.php:85
-#, fuzzy
 msgid "Query Cache usage"
-msgstr "Abfragen-Cache"
+msgstr "Abfragen-Cache Ausnutzung"
 
 #: po/advisory_rules.php:86
 #, php-format
