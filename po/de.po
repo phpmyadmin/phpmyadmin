@@ -12042,6 +12042,8 @@ msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
+"Weniger als 1.000 Anfragen wurden an den Datenbank-Server gerichtet. "
+"Empfehlungen könnten ungenau sein."
 
 #: po/advisory_rules.php:12
 msgid ""
