@@ -8430,7 +8430,7 @@ msgstr "Datenbank-Server"
 
 #: main.php:159
 msgid "Software"
-msgstr ""
+msgstr "Software"
 
 #: main.php:160
 #, fuzzy
