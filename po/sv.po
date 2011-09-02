@@ -12049,10 +12049,9 @@ msgstr ""
 "query_cache_size är satt till 0 eller query_cache_type är inställd på 'OFF'"
 
 #: po/advisory_rules.php:75
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query caching method"
-msgstr "Frågecache"
+msgstr " Frågecache metod"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
