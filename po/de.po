@@ -9756,6 +9756,9 @@ msgid ""
 "time, observe or benchmark your database, and undo the change if there was "
 "no clearly measurable improvement."
 msgstr ""
+"Der beste Weg das System zu optimieren ist es genau eine Einstellung auf "
+"einmal zu ändern, die Leistungsfähigkeit der Datenbank zu testen und die "
+"Änderungen zurückzunehmen, falls es keine klar messbaren Verbesserungen gab."
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:928
