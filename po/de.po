@@ -835,10 +835,9 @@ msgid "Selected export type has to be saved in file!"
 msgstr "Der gewählte Export-Typ kann nur als Datei exportiert werden!"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Bad parameters!"
-msgstr "Parameter hinzufügen"
+msgstr "Ungültiger Parameter!"
 
 #: export.php:167 export.php:192 export.php:655
 #, php-format
