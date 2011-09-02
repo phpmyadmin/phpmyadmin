@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-08-11 04:40+0200\n"
+"PO-Revision-Date: 2011-09-02 04:10+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -814,10 +814,9 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "将生成的内容复制粘贴到 \"长度/值\" 一栏中"
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "柱状图类型"
+msgstr "非法类型！"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
