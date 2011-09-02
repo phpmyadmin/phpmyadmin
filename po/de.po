@@ -11251,10 +11251,9 @@ msgstr ""
 "Schlüssel sollte Buchstaben, Ziffern [em]und[/em] Sonderzeichen enthalten."
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No data"
 msgid "Wrong data"
-msgstr "Keine Daten"
+msgstr "Fehlerhafte Daten"
 
 #: sql.php:214
 #, php-format
