@@ -12190,10 +12190,9 @@ msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgstr "Sie sollten auf eine stabile MySQL Version der 5.1-Reihe aktualisieren."
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
-#, fuzzy
 #| msgid "Description"
 msgid "Distribution"
-msgstr "Beschreibung"
+msgstr "Distribution"
 
 #: po/advisory_rules.php:51
 msgid "Version is compiled from source, not a MySQL official binary."
