@@ -876,7 +876,7 @@ msgstr "Стойност за колона \"%s\""
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr "Използвай OpenStreetMaps като основен слой"
+msgstr "Използване на OpenStreetMaps като основен слой"
 
 #: gis_data_editor.php:134
 msgid "SRID"
