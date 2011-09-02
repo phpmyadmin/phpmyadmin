@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-02 04:11+0200\n"
+"PO-Revision-Date: 2011-09-02 04:12+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -849,10 +849,9 @@ msgid "Dump has been saved to file %s."
 msgstr "转存已经保存到文件 %s 中。"
 
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "导出类型"
+msgstr "导出类型无效"
 
 #: gis_data_editor.php:84
 #, fuzzy, php-format
