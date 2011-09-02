@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-03 01:11+0200\n"
+"PO-Revision-Date: 2011-09-03 01:12+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -11998,10 +11998,9 @@ msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr "Versionssträngen (%s) matchar versionshanterings schemat i Drizzle"
 
 #: po/advisory_rules.php:65
-#, fuzzy
 #| msgid "MySQL charset"
 msgid "MySQL Architecture"
-msgstr "MySQL teckenuppsättning"
+msgstr "MySQL Arkitektur"
 
 #: po/advisory_rules.php:66
 msgid "MySQL is not compiled as a 64-bit package."
