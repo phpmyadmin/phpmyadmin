@@ -458,6 +458,10 @@ foreach ($rows as $row_id => $vrow) {
 
         if (-1 === $field['len']) {
             $field['len'] = PMA_DBI_field_len($vresult, $i);
+            // length is unknown for geometry fields, make enough space to edit very simple WKTs
+            if (-1 === $field['len']) {
+                $field['len'] = 30;
+            }
         }
         //Call validation when the form submited...
         $unnullify_trigger = $chg_evt_handler . "=\"return verificationsAfterFieldChange('". PMA_escapeJsString($field['Field_md5']) . "', '"

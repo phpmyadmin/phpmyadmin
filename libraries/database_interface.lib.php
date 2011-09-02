@@ -1063,7 +1063,7 @@ function PMA_DBI_get_columns($database, $table, $column = null, $full = false, $
 }
 
 /**
-* Returns SQL for fetching informatin on table indexes (SHOW INDEXES)
+* Returns SQL for fetching information on table indexes (SHOW INDEXES)
 *
 * @param    string  $database   name of database
 * @param    string  $table      name of the table whose indexes are to be retreived
@@ -1104,10 +1104,10 @@ function PMA_DBI_get_table_indexes_sql($database, $table, $where = null)
 }
 
 /**
-* Returns indexes od a table
+* Returns indexes of a table
 *
 * @param    string  $database   name of database
-* @param    string  $table      name of the table whose indexes are to be retreived
+* @param    string  $table      name of the table whose indexes are to be retrieved
 * @param    mixed   $link       mysql link resource
 * @return   array   $indexes
 */
