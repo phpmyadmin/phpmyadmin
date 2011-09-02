@@ -8960,7 +8960,7 @@ msgstr "Anfang"
 
 #: server_plugins.php:111
 msgid "Plugin"
-msgstr ""
+msgstr "Erweiterung"
 
 #: server_plugins.php:112 server_plugins.php:146
 msgid "Module"
