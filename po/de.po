@@ -11967,10 +11967,9 @@ msgid "Browse/Edit the points"
 msgstr ""
 
 #: tbl_zoom_select.php:375
-#, fuzzy
 #| msgid "Control user"
 msgid "How to use"
-msgstr "Control-user"
+msgstr "Anleitung"
 
 #: themes.php:28
 msgid "Get more themes!"
