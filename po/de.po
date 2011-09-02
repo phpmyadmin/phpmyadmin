@@ -8411,10 +8411,9 @@ msgid "General Settings"
 msgstr "Allgemeine Einstellungen"
 
 #: main.php:101
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "Zeichensatz / Kollation der MySQL-Verbindung"
+msgstr "Zeichensatz/Kollation der MySQL-Verbindung"
 
 #: main.php:116
 msgid "Appearance Settings"
