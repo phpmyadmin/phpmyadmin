@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+3.4.6.0 (not yet released)
+
 3.4.5.0 (not yet released)
 - bug #3375325 [interface] Page list in navigation frame looks odd
 - bug #3313235 [interface] Error div misplaced
