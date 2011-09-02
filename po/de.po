@@ -10867,10 +10867,9 @@ msgid "Target database has been synchronized with source database"
 msgstr "Ziel-Tabelle wurde mit Quell-Tabelle abgeglichen"
 
 #: server_synchronize.php:1046
-#, fuzzy
 #| msgid "Issued queries"
 msgid "Executed queries"
-msgstr "Ausgelöste SQL-Befehle"
+msgstr "Ausgefürte SQL-Anfragen"
 
 #: server_synchronize.php:1192
 msgid "Enter manually"
