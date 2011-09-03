@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-02-24 16:21+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2011-09-03 17:02+0200\n"
+"Last-Translator:  <piecu@go2.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -850,10 +850,9 @@ msgid "Selected export type has to be saved in file!"
 msgstr "Wybrany typ eksportu musi być zapisany do pliku"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Bad parameters!"
-msgstr "Dołącz indeks(y)"
+msgstr "Niewłaściwe parametry"
 
 #: export.php:167 export.php:192 export.php:655
 #, php-format
