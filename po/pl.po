@@ -1107,7 +1107,7 @@ msgstr "Masz zamiar ZNISZCZYĆ całą bazę danych!"
 
 #: js/messages.php:37
 msgid "Deleting tracking data"
-msgstr "Usuwanie danych nt. śledzenia"
+msgstr "Usuwanie danych śledzenia"
 
 #: js/messages.php:38
 msgid "Dropping Primary Key/Index"
