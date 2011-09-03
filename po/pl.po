@@ -1203,7 +1203,7 @@ msgstr "Okno zapytania SQL"
 
 #: js/messages.php:69
 msgid "Static data"
-msgstr ""
+msgstr "Dane statyczne"
 
 #. l10n: Total number of queries
 #: js/messages.php:71 libraries/build_html_for_db.lib.php:46
