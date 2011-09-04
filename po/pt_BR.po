@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-08-29 19:55+0200\n"
-"Last-Translator: Alfredo Oliveira <freddobr@gmail.com>\n"
+"PO-Revision-Date: 2011-09-04 07:32+0200\n"
+"Last-Translator:  <mateusfbi@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -13121,8 +13121,9 @@ msgid "InnoDB buffer pool size"
 msgstr "Tamanho do Buffer Pool"
 
 #: po/advisory_rules.php:266
+#, fuzzy
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr ""
+msgstr "Sua área de buffer InnoDB é bastante pequena."
 
 #: po/advisory_rules.php:267
 #, php-format
