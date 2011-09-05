@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-05 21:00+0200\n"
+"PO-Revision-Date: 2011-09-05 21:01+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -102,7 +102,7 @@ msgstr "Użyj tej wartości"
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:366
 msgid "No blob streaming server configured!"
-msgstr "Nie skonfigurowano żadnego serwera blob"
+msgstr "Nie skonfigurowano żadnego serwera strumieniowego blob!"
 
 #: bs_disp_as_mime_type.php:35
 msgid "Failed to fetch headers"
