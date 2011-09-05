@@ -1786,10 +1786,9 @@ msgid "Show search criteria"
 msgstr "Afficher les critères de recherche"
 
 #: js/messages.php:262 libraries/tbl_select.lib.php:135
-#, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
-msgstr "Rechercher"
+msgstr "Recherche par zoom"
 
 #: js/messages.php:264
 msgid "Each point represents a data row."
