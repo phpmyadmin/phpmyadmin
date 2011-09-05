@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-05 15:28+0200\n"
+"PO-Revision-Date: 2011-09-05 15:31+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -1589,6 +1589,8 @@ msgstr "Lignes modifiées :"
 #: js/messages.php:188
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgstr ""
+"Échec d'analyse du fichier de configuration. Il ne contient pas de code JSON "
+"valide"
 
 #: js/messages.php:189
 msgid ""
