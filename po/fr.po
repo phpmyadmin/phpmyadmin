@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-05 15:17+0200\n"
+"PO-Revision-Date: 2011-09-05 15:18+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -922,10 +922,9 @@ msgid "Inner Ring"
 msgstr "Anneau intérieur"
 
 #: gis_data_editor.php:252
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Ajouter un utilisateur"
+msgstr "Ajouter une ligne"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:296
 #, fuzzy
