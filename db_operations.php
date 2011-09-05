@@ -161,9 +161,10 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
                 //  for importing via the mysql client or our Import feature)
                 $triggers = PMA_DBI_get_triggers($db, $each_table, '');
 
-                if (! PMA_Table::moveCopy($db, $each_table, $newname, $each_table,
-                    isset($this_what) ? $this_what : 'data', $move, 'db_copy'))
-                {
+                if (! PMA_Table::moveCopy(
+                    $db, $each_table, $newname, $each_table,
+                    isset($this_what) ? $this_what : 'data', $move, 'db_copy')
+                ) {
                     $_error = true;
                     // $sql_query is filled by PMA_Table::moveCopy()
                     $sql_query = $back . $sql_query;
@@ -273,7 +274,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             $message = PMA_Message::success(__('Database %s has been renamed to %s'));
             $message->addParam($db);
             $message->addParam($newname);
-        } elseif (! $_error)  {
+        } elseif (! $_error) {
             $message = PMA_Message::success(__('Database %s has been copied to %s'));
             $message->addParam($db);
             $message->addParam($newname);

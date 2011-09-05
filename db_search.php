@@ -258,8 +258,7 @@ if (isset($_REQUEST['submit_search'])) {
  */
 if ($GLOBALS['is_ajax_request'] == true) {
     exit;
-}
-else {
+} else {
     echo '</div>';//end searchresults div
 }
 

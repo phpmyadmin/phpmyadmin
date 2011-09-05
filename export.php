@@ -155,9 +155,8 @@ function PMA_exportOutputHandler($line)
                 // as bzipped
                 if ($GLOBALS['compression'] == 'bzip'  && @function_exists('bzcompress')) {
                     $dump_buffer = bzcompress($dump_buffer);
-                }
-                // as a gzipped file
-                elseif ($GLOBALS['compression'] == 'gzip' && @function_exists('gzencode')) {
+                } elseif ($GLOBALS['compression'] == 'gzip' && @function_exists('gzencode')) {
+                    // as a gzipped file
                     // without the optional parameter level because it bug
                     $dump_buffer = gzencode($dump_buffer);
                 }
@@ -632,15 +631,13 @@ if (!empty($asfile)) {
             $zipfile -> addFile($dump_buffer, substr($filename, 0, -4));
             $dump_buffer = $zipfile -> file();
         }
-    }
-    // 2. as a bzipped file
-    elseif ($compression == 'bzip') {
+    } elseif ($compression == 'bzip') {
+        // 2. as a bzipped file
         if (@function_exists('bzcompress')) {
             $dump_buffer = bzcompress($dump_buffer);
         }
-    }
-    // 3. as a gzipped file
-    elseif ($compression == 'gzip') {
+    } elseif ($compression == 'gzip') {
+        // 3. as a gzipped file
         if (@function_exists('gzencode') && !@ini_get('zlib.output_compression')) {
             // without the optional parameter level because it bug
             $dump_buffer = gzencode($dump_buffer);
@@ -672,13 +669,11 @@ if (!empty($asfile)) {
     } else {
         echo $dump_buffer;
     }
-}
-/**
- * Displays the dump...
- */
-else {
+} else {
     /**
-     * Close the html tags and add the footers in dump is displayed on screen
+     * Displays the dump...
+     *
+     * Close the html tags and add the footers if dump is displayed on screen
      */
     echo '</textarea>' . "\n"
        . '    </form>' . "\n";

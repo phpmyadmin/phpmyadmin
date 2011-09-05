@@ -499,8 +499,8 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
 
             foreach ($each_tables as $table_name => $each_table) {
                 if ('comment' === $tbl_is_group
-                  && 0 === strpos($each_table['Comment'], $table))
-                {
+                  && 0 === strpos($each_table['Comment'], $table)
+                ) {
                     // remove table from list
                     unset($each_tables[$table_name]);
                     continue;

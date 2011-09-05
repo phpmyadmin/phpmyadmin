@@ -106,7 +106,7 @@ class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
     public function testBackquoteForbidenWords() {
         global $PMA_SQPdata_forbidden_word;
 
-        foreach ($PMA_SQPdata_forbidden_word as $forbidden){
+        foreach ($PMA_SQPdata_forbidden_word as $forbidden) {
             $this->assertEquals("`" . $forbidden . "`", PMA_backquote($forbidden, false));
         }
     }

@@ -352,8 +352,7 @@ foreach ($fields as $row) {
         } else {
             echo $row['Default'];
         }
-    }
-    else {
+    } else {
         echo '<i>' . _pgettext('None for default','None') . '</i>';
     } ?></td>
     <td nowrap="nowrap"><?php echo strtoupper($row['Extra']); ?></td>
@@ -631,8 +630,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
         echo PMA_showMySQLDocu('Extending_MySQL', 'procedure_analyse') . "\n";
     }
 
-    if (PMA_Tracker::isActive())
-    {
+    if (PMA_Tracker::isActive()) {
         echo '<a href="tbl_tracking.php?' . $url_query . '">';
         echo PMA_getIcon('eye.png', __('Track table'));
         echo '</a>';
