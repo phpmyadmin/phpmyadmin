@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-05 15:40+0200\n"
+"PO-Revision-Date: 2011-09-05 15:41+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -1822,6 +1822,7 @@ msgstr ""
 #: js/messages.php:276
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
+"L'image peut être redimensionnée en faisant glisser le coin inférieur droit."
 
 #: js/messages.php:278
 msgid "Strings are converted into integer for plotting"
