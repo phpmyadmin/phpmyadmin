@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-05 21:03+0200\n"
+"PO-Revision-Date: 2011-09-05 21:04+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -248,7 +248,7 @@ msgstr "Drukuj"
 
 #: db_export.php:26
 msgid "View dump (schema) of database"
-msgstr "Zrzut bazy danych"
+msgstr "Zobacz zrzut (schemat) bazy danych"
 
 #: db_export.php:30 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
 #: export.php:355 navigation.php:296
