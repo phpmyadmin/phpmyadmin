@@ -919,7 +919,7 @@ msgstr "Anneau extérieur"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:293
 msgid "Inner Ring"
-msgstr ""
+msgstr "Anneau intérieur"
 
 #: gis_data_editor.php:252
 #, fuzzy
