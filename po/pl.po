@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-05 21:04+0200\n"
+"PO-Revision-Date: 2011-09-05 21:05+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -270,7 +270,7 @@ msgstr "Nazwa bazy danych jest pusta!"
 #: db_operations.php:273
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr "Baza danych %s ma nazwę zmienioną na %s"
+msgstr "Nazwa bazy danych %s została zmieniona na %s"
 
 #: db_operations.php:277
 #, php-format
