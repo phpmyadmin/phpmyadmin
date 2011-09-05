@@ -1623,7 +1623,7 @@ msgstr "Impact de performance possible"
 
 #: js/messages.php:198
 msgid "Issue"
-msgstr ""
+msgstr "Problème"
 
 #: js/messages.php:199
 #, fuzzy
