@@ -1826,7 +1826,7 @@ msgstr ""
 
 #: js/messages.php:278
 msgid "Strings are converted into integer for plotting"
-msgstr ""
+msgstr "Les chaînes sont converties en nombres entiers aux fins d'affichage"
 
 #: js/messages.php:280
 #, fuzzy
