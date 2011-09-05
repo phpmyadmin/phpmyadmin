@@ -253,7 +253,7 @@ msgstr "Zobacz zrzut (schemat) bazy danych"
 #: db_export.php:30 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
 #: export.php:355 navigation.php:296
 msgid "No tables found in database."
-msgstr "Nie znaleziono tabeli w bazie danych."
+msgstr "Nie znaleziono żadnych tabel w bazie danych."
 
 #: db_export.php:40 db_search.php:319 server_export.php:26
 msgid "Select All"
