@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-05 15:35+0200\n"
+"PO-Revision-Date: 2011-09-05 15:36+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -1796,7 +1796,7 @@ msgstr "Chaque point représente une ligne de données."
 
 #: js/messages.php:266
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "Survoler un point montrera sa description."
 
 #: js/messages.php:268
 msgid "Use mousewheel to zoom in or out of the plot."
