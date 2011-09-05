@@ -1578,10 +1578,9 @@ msgstr ""
 "expiré. Veuillez recharger la page et vous connecter à nouveau."
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
-msgstr "Recharger"
+msgstr "Recharger la page"
 
 #: js/messages.php:186
 msgid "Affected rows:"
