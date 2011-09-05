@@ -1608,10 +1608,9 @@ msgid "Import"
 msgstr "Importer"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
-msgstr "Mise-à-jour de la requête"
+msgstr "Analyser la requête"
 
 #: js/messages.php:196
 #, fuzzy
