@@ -1566,7 +1566,7 @@ msgstr "Chargement des journaux en cours"
 
 #: js/messages.php:182
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "Échec de rafraîchissement de la surveillance"
 
 #: js/messages.php:183
 msgid ""
