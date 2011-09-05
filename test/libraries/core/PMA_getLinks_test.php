@@ -52,8 +52,7 @@ class PMA_getLinks_test extends PHPUnit_Framework_TestCase
 
         if (file_exists('./js/'.$filename)) {
             $mod = filemtime('./js/'.$filename);
-        }
-        else{
+        } else {
             $this->fail("JS file doesn't exists.");
         }
         $this->assertEquals(PMA_includeJS($filename), '<script src="./js/'.$filename.'?ts='.$mod.'" type="text/javascript"></script>'. "\n");

@@ -252,14 +252,11 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params, '', 'topmenu2');
 </fieldset>
 
 <?php
-}
+} else {
+    /**
+     * Selection criteria have been submitted -> do the work
+     */
 
-
-
-/**
- * Selection criteria have been submitted -> do the work
- */
-else {
     // Builds the query
 
     $sql_query = 'SELECT ' . (isset($distinct) ? 'DISTINCT ' : '');

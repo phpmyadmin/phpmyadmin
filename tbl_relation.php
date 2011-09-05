@@ -387,7 +387,7 @@ if ($cfgRelation['relwork'] || PMA_foreignkey_supported($tbl_type)) {
 $columns = PMA_DBI_get_columns($db, $table);
 
 if (count($columns) > 0) {
-    foreach($columns as $row) {
+    foreach ($columns as $row) {
         $save_row[] = $row;
     }
     $saved_row_cnt  = count($save_row);

@@ -1032,8 +1032,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
  */
 if (isset($_REQUEST['grid_edit']) && $_REQUEST['grid_edit'] == true) {
     $GLOBALS['grid_edit'] = true;
-}
-else {
+} else {
     $GLOBALS['grid_edit'] = false;
 }
 

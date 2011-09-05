@@ -643,7 +643,7 @@ if ($last_version > 0) {
     <?php
     $style = 'odd';
     PMA_DBI_data_seek($sql_result, 0);
-    while($version = PMA_DBI_fetch_array($sql_result)) {
+    while ($version = PMA_DBI_fetch_array($sql_result)) {
         if ($version['tracking_active'] == 1) {
             $version_status = __('active');
         } else {

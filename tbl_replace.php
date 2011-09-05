@@ -520,7 +520,7 @@ if ($GLOBALS['is_ajax_request'] == true) {
         $edited_values = array();
         parse_str($_REQUEST['transform_fields_list'], $edited_values);
 
-        foreach($mime_map as $transformation) {
+        foreach ($mime_map as $transformation) {
             $include_file = PMA_securePath($transformation['transformation']);
             $column_name = $transformation['column_name'];
 

@@ -54,7 +54,7 @@ if (! empty($sql_query)) {
             $wheres[] = '(' . implode(') OR (',$where_clause) . ')';
         }
 
-        if (!empty($analyzed_sql[0]['where_clause']))  {
+        if (!empty($analyzed_sql[0]['where_clause'])) {
             $wheres[] = $analyzed_sql[0]['where_clause'];
         }
 

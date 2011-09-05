@@ -92,9 +92,8 @@ echo '<br />';
 // 1. No table
 if ($num_tables == 0) {
     echo __('No tables found in database.');
-}
-// 2. Shows table informations on mysql >= 3.23.03
-else {
+} else {
+// 2. Shows table information
     ?>
 <table>
 <thead>

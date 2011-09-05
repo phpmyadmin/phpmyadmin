@@ -59,7 +59,7 @@ PMA_DBI_select_db($db);
 $tables = PMA_DBI_get_tables($db);
 
 $count  = 0;
-foreach($tables as $table) {
+foreach ($tables as $table) {
     $comments = PMA_getComments($db, $table);
 
     echo '<div>' . "\n";
