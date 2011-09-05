@@ -1880,7 +1880,7 @@ msgstr "Ajouter une option pour la colonne"
 
 #: js/messages.php:313
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "Appuyez sur la touche d'échappement pour annuler l'édition"
 
 #: js/messages.php:314
 msgid ""
