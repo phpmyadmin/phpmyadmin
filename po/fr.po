@@ -1811,7 +1811,7 @@ msgstr ""
 
 #: js/messages.php:272
 msgid "Click reset zoom link to come back to original state."
-msgstr ""
+msgstr "Cliquez le lien «Réinitialiser zoom» pour revenir à l'état original."
 
 #: js/messages.php:274
 msgid "Click a data point to view and possibly edit the data row."
