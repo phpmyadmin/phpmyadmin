@@ -487,7 +487,7 @@ msgstr "Dodaj/usuń kolumny"
 
 #: db_qbe.php:631 db_qbe.php:656
 msgid "Update Query"
-msgstr "Zmień zapytanie"
+msgstr "Aktualizuj zapytanie"
 
 #: db_qbe.php:639
 msgid "Use Tables"
