@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-06 17:36+0200\n"
+"PO-Revision-Date: 2011-09-06 17:37+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -547,7 +547,7 @@ msgstr "Przeglądaj"
 #: db_search.php:238
 #, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "Usuń wszystkie trafienia dla tabeli %s?"
+msgstr "Usunąć trafienia dla tabeli %s?"
 
 #: db_search.php:238 libraries/display_tbl.lib.php:1364
 #: libraries/display_tbl.lib.php:2354
