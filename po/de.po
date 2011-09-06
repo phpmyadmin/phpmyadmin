@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-08-18 18:36+0200\n"
+"PO-Revision-Date: 2011-09-02 04:56+0200\n"
 "Last-Translator: Sven Strickroth <email@cs-ware.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -826,20 +826,18 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "Kopiere die zusammengefügten Werte in das Feld \"Länge/Werte\""
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "Säulentyp"
+msgstr "Ungültiger Typ!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
 msgstr "Der gewählte Export-Typ kann nur als Datei exportiert werden!"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Bad parameters!"
-msgstr "Parameter hinzufügen"
+msgstr "Ungültiger Parameter!"
 
 #: export.php:167 export.php:192 export.php:655
 #, php-format
@@ -866,10 +864,9 @@ msgid "Dump has been saved to file %s."
 msgstr "Dump wurde in Datei %s gespeichert."
 
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "Exporttyp"
+msgstr "Ungültiger Exporttyp"
 
 #: gis_data_editor.php:84
 #, php-format
@@ -881,7 +878,6 @@ msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Verwende OpenStreetMaps als Basis-Layer"
 
 #: gis_data_editor.php:134
-#, fuzzy
 msgid "SRID"
 msgstr "SRID"
 
@@ -906,10 +902,10 @@ msgstr "Y"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
 #: js/messages.php:289
-#, fuzzy, php-format
+#, php-format
 #| msgid "Point"
 msgid "Point %d"
-msgstr "Punkt"
+msgstr "Punkt %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:295
@@ -963,6 +959,8 @@ msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
+"Wählen Sie \"GeomFromText\" aus der Spalte \"Funktion\" und kopieren Sie den "
+"Text in das Feld \"Wert\""
 
 #: import.php:57
 #, php-format
@@ -1005,6 +1003,8 @@ msgstr ""
 msgid ""
 "Cannot convert file's character set without character set conversion library"
 msgstr ""
+"Die Zeichen-Kodierung der Datei kann nicht ohne eine Zeichen-"
+"Kodierungsbibliothek konvertiert werden"
 
 #: import.php:376 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -1553,10 +1553,9 @@ msgstr ""
 
 #. l10n: A collection of available filters
 #: js/messages.php:173
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
-msgstr "Anzeigeoptionen für Tabellen"
+msgstr "Filteroptionen für Protokoll-Tabelle"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:175
@@ -1593,6 +1592,9 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"Während neue Daten angefragt wurden, gab der Server eine ungültige Antwort. "
+"Das ist vermutlich passiert, weil Ihre Sitzung abgelaufen ist. Es sollte "
+"helfen, wenn Sie die Seite aktualisieren und sich erneut anmelden."
 
 #: js/messages.php:184
 msgid "Reload page"
@@ -2230,16 +2232,18 @@ msgstr ""
 
 #: libraries/Config.class.php:703
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
-msgstr ""
+msgstr "Löschen Sie das \"./config\" Verzeichnis bevor Sie phpMyAdmin benutzen!"
 
 #: libraries/Config.class.php:727
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr ""
+msgstr "Bestehende Konfigurationsdatei (%s) kann nicht gelesen werden."
 
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
+"Falsche Zugriffsrechte auf die Konfigurationdaten. Die Datei sollte nicht "
+"für alle lesbar sein!"
 
 #: libraries/Config.class.php:1297
 msgid "Font size"
@@ -2530,7 +2534,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:35
 msgid "Failed to use Blowfish from mcrypt!"
-msgstr ""
+msgstr "Benutzung von Blowfish des mcrypt-Pakets fehlgeschlagen."
 
 #: libraries/auth/cookie.auth.lib.php:199
 msgid "Log in"
@@ -2709,7 +2713,7 @@ msgstr ""
 
 #: libraries/common.inc.php:156
 msgid "numeric key detected"
-msgstr ""
+msgstr "Numerischer Schlüssel entdeckt"
 
 #: libraries/common.inc.php:597
 msgid "Failed to read configuration file"
@@ -4679,10 +4683,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:399
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of records saved in \"table_uiprefs\" table"
-msgstr "Maximale Anzahl der in einer Tabellenliste angezeigten Tabellen"
+msgstr "Maximale Anzahl der Einträge in der Tabelle \"table_uiprefs\""
 
 #: libraries/config/messages.inc.php:400
 msgid "Try to connect without password"
@@ -5363,10 +5366,9 @@ msgid "Could not initialize Drizzle connection library"
 msgstr ""
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Could not connect to Drizzle server"
-msgstr "Verbindungsaufbau zu MySQL-Server schlug fehl"
+msgstr "Verbindungsaufbau zu Drizzle-Server schlug fehl"
 
 #: libraries/config/validate.lib.php:223 libraries/config/validate.lib.php:230
 msgid "Could not connect to MySQL server"
@@ -5473,12 +5475,10 @@ msgid "The server is not responding"
 msgstr "Der Server antwortet nicht"
 
 #: libraries/dbi/drizzle.dbi.lib.php:344
-#, fuzzy
 #| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid "(or the local Drizzle server's socket is not correctly configured)"
 msgstr ""
-"(evtl. ist auch der Socket des lokalen MySQL-Servers nicht korrekt "
-"konfiguriert)"
+"(oder der Socket des lokalen Drizzle-Servers ist nicht korrekt konfiguriert)"
 
 #: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysqli.dbi.lib.php:384
 msgid "(or the local MySQL server's socket is not correctly configured)"
@@ -6870,6 +6870,8 @@ msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data"
 msgstr ""
+"Sie haben versucht, eine ungültige Datei hochzuladen oder die Datei enthielt "
+"ungültige Daten"
 
 #: libraries/import/shp.php:333
 #, php-format
@@ -7930,7 +7932,7 @@ msgstr "Zeichensätze"
 #: libraries/server_links.inc.php:104 server_plugins.php:47
 #: server_plugins.php:80
 msgid "Plugins"
-msgstr ""
+msgstr "Erweiterungen"
 
 #: libraries/server_links.inc.php:108
 msgid "Engines"
@@ -8409,10 +8411,9 @@ msgid "General Settings"
 msgstr "Allgemeine Einstellungen"
 
 #: main.php:101
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "Zeichensatz / Kollation der MySQL-Verbindung"
+msgstr "Zeichensatz/Kollation der MySQL-Verbindung"
 
 #: main.php:116
 msgid "Appearance Settings"
@@ -8423,20 +8424,18 @@ msgid "More settings"
 msgstr "Weitere Einstellungen"
 
 #: main.php:156
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
-msgstr "Datenbank für Benutzer"
+msgstr "Datenbank-Server"
 
 #: main.php:159
 msgid "Software"
-msgstr ""
+msgstr "Software"
 
 #: main.php:160
-#, fuzzy
 #| msgid "Show versions"
 msgid "Software version"
-msgstr "Versionen anzeigen"
+msgstr "Software-Version"
 
 #: main.php:161
 msgid "Protocol version"
@@ -8449,20 +8448,18 @@ msgid "User"
 msgstr "Benutzer"
 
 #: main.php:167
-#, fuzzy
 #| msgid "Server socket"
 msgid "Server charset"
-msgstr "Sockel"
+msgstr "Server Zeichensatz"
 
 #: main.php:179
 msgid "Web server"
 msgstr "Webserver"
 
 #: main.php:190
-#, fuzzy
 #| msgid "Use light version"
 msgid "Database client version"
-msgstr "Light-Version benutzen"
+msgstr "Datenbank-Client Version"
 
 #: main.php:192
 msgid "PHP extension"
@@ -8955,7 +8952,7 @@ msgstr "Dump (Schema) der Datenbanken anzeigen"
 
 #: server_plugins.php:81
 msgid "Modules"
-msgstr ""
+msgstr "Module"
 
 #: server_plugins.php:102
 msgid "Begin"
@@ -8963,15 +8960,15 @@ msgstr "Anfang"
 
 #: server_plugins.php:111
 msgid "Plugin"
-msgstr ""
+msgstr "Erweiterung"
 
 #: server_plugins.php:112 server_plugins.php:146
 msgid "Module"
-msgstr ""
+msgstr "Modul"
 
 #: server_plugins.php:113 server_plugins.php:148
 msgid "Library"
-msgstr ""
+msgstr "Bibliothek"
 
 #: server_plugins.php:114 server_plugins.php:149 tbl_tracking.php:635
 msgid "Version"
@@ -8979,11 +8976,11 @@ msgstr "Version"
 
 #: server_plugins.php:115 server_plugins.php:150
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: server_plugins.php:116 server_plugins.php:151
 msgid "License"
-msgstr ""
+msgstr "Lizenz"
 
 #: server_plugins.php:182
 #, fuzzy
@@ -9730,6 +9727,8 @@ msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
 msgstr ""
+"Der Ratgeber kann Empfehlungen zu Server-Variablen durch Analyse der Server-"
+"Status-Variablen geben."
 
 #: server_status.php:902
 msgid ""
@@ -9737,6 +9736,9 @@ msgid ""
 "calculations and by rule of thumb which may not necessarily apply to your "
 "system."
 msgstr ""
+"Bitte beachten Sie jedoch, dass diese Empfehlungen auf einfachen "
+"Berechnungen und Faustregeln basieren und nicht umbedingt auf Ihrem System "
+"funktionieren müssen."
 
 #: server_status.php:904
 msgid ""
@@ -9744,6 +9746,9 @@ msgid ""
 "changing (by reading the documentation) and how to undo the change. Wrong "
 "tuning can have a very negative effect on performance."
 msgstr ""
+"Bevor Sie Änderungen an der Konfiguration vornehmen, seien Sie sich sicher, "
+"was Sie ändern und wie Sie die Änderungen rückgängig machen können. Falsche "
+"Optimierungen können sehr negative Effekte hervorrufen."
 
 #: server_status.php:906
 msgid ""
@@ -9751,6 +9756,9 @@ msgid ""
 "time, observe or benchmark your database, and undo the change if there was "
 "no clearly measurable improvement."
 msgstr ""
+"Der beste Weg das System zu optimieren ist es genau eine Einstellung auf "
+"einmal zu ändern, die Leistungsfähigkeit der Datenbank zu testen und die "
+"Änderungen zurückzunehmen, falls es keine klar messbaren Verbesserungen gab."
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:928
@@ -10626,7 +10634,6 @@ msgid "Using the monitor:"
 msgstr "Verwendung der Überwachung:"
 
 #: server_status.php:1614
-#, fuzzy
 #| msgid ""
 #| "<b>Using the monitor:</b><br/> Ok, you are good to go! Once you click "
 #| "'Start monitor' your browser will refresh all displayed charts in a "
@@ -10646,15 +10653,10 @@ msgstr ""
 "haben, wird Ihr Browser in regelmäßigen Intervallen alle angezeigten "
 "Diagramme aktualisieren. Unter 'Einstellungen' können Sie Diagramme "
 "hinzufügen und das Aktualisierungsintervall ändern oder beliebige Diagramme "
-"entfernen, wenn Sie das Zahnrad-Icon des entsprechenden Schaubilds verwenden."
-"<p>Wenn Sie eine plötzliche Spitze in der Aktivität feststellen, wählen Sie "
-"den entsprechenden Zeitraum in einem beliebigen Diagramm, indem Sie die "
-"linke Maustaste gedrückt halten und über das Schaubild ziehen. Dies wird "
-"Statistiken aus den Protokollen laden um Sie bei der Auffindung der "
-"Aktivitätsspitze zu unterstützen.</p>"
+"entfernen, wenn Sie das Zahnrad-Icon des entsprechenden Schaubilds "
+"verwenden."
 
 #: server_status.php:1616
-#, fuzzy
 #| msgid ""
 #| "<b>Using the monitor:</b><br/> Ok, you are good to go! Once you click "
 #| "'Start monitor' your browser will refresh all displayed charts in a "
@@ -10670,17 +10672,6 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occuring SELECT statements to further analyze them."
 msgstr ""
-"<b>Verwendung der Überwachung:</b><br />OK, Sie sind bereit zum Starten! "
-"Sobald Sie 'Überwachung starten' angeklickt haben, wird Ihr Browser in "
-"regelmäßigen Intervallen alle angezeigten Diagramme aktualisieren. Unter "
-"'Einstellungen' können Sie Diagramme hinzufügen und das "
-"Aktualisierungsintervall ändern oder beliebige Diagramme entfernen, wenn Sie "
-"das Zahnrad-Icon des entsprechenden Schaubilds verwenden.<p>Wenn Sie eine "
-"plötzliche Spitze in der Aktivität feststellen, wählen Sie den "
-"entsprechenden Zeitraum in einem beliebigen Diagramm, indem Sie die linke "
-"Maustaste gedrückt halten und über das Schaubild ziehen. Dies wird "
-"Statistiken aus den Protokollen laden um Sie bei der Auffindung der "
-"Aktivitätsspitze zu unterstützen.</p>"
 
 #: server_status.php:1623
 msgid "Please note:"
@@ -10762,18 +10753,17 @@ msgstr ""
 "Lösche Variablen-Werte in INSERT Abfragen um die Gruppierung zu verbessern"
 
 #: server_status.php:1713
-#, fuzzy
 #| msgid ""
 #| "<p>Choose from which log you want the statistics to be generated from.</"
 #| "p> Results are grouped by query text."
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr ""
-"<p>Bitte wählen Sie das log aus, von dem Statistiken generiert werden "
-"sollen</p> Ergebnisse sind nach Abfrage-Text zusammengefasst."
+"Bitte wählen Sie das Protokoll aus, von dem Statistiken generiert werden "
+"sollen."
 
 #: server_status.php:1715
 msgid "Results are grouped by query text."
-msgstr ""
+msgstr "Ergebnisse sind nach Abfrage-Text zusammengefasst."
 
 #: server_status.php:1720
 msgid "Query analyzer"
@@ -10877,10 +10867,9 @@ msgid "Target database has been synchronized with source database"
 msgstr "Ziel-Tabelle wurde mit Quell-Tabelle abgeglichen"
 
 #: server_synchronize.php:1046
-#, fuzzy
 #| msgid "Issued queries"
 msgid "Executed queries"
-msgstr "Ausgelöste SQL-Befehle"
+msgstr "Ausgeführte SQL-Anfragen"
 
 #: server_synchronize.php:1192
 msgid "Enter manually"
@@ -11262,10 +11251,9 @@ msgstr ""
 "Schlüssel sollte Buchstaben, Ziffern [em]und[/em] Sonderzeichen enthalten."
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No data"
 msgid "Wrong data"
-msgstr "Keine Daten"
+msgstr "Fehlerhafte Daten"
 
 #: sql.php:214
 #, php-format
@@ -11665,7 +11653,7 @@ msgstr "Zeilengröße "
 
 #: tbl_printview.php:388 tbl_structure.php:903
 msgid "Next autoindex"
-msgstr ""
+msgstr "Nächster Autoindex"
 
 #: tbl_relation.php:276
 #, php-format
@@ -11765,10 +11753,9 @@ msgid "Show more actions"
 msgstr "Weitere Aktionen anzeigen"
 
 #: tbl_structure.php:604
-#, fuzzy
 #| msgid "Print view"
 msgid "Edit view"
-msgstr "Druckansicht"
+msgstr "View/Ansicht bearbeiten"
 
 #: tbl_structure.php:621
 msgid "Relation view"
@@ -11953,16 +11940,16 @@ msgid "Create version"
 msgstr "Erzeuge Version"
 
 #: tbl_zoom_select.php:125
-#, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "Suche über Beispielwerte (\"query by example\") (Platzhalter: \"%\")"
+msgstr ""
+"Suche über Beispielwerte (\"query by example\") (Platzhalter: \"%\") für zwei "
+"unterschiedliche Spalten"
 
 #: tbl_zoom_select.php:135
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Additional search criteria"
-msgstr "Suchkriterien ausblenden"
+msgstr "Zusätzliche Suchkriterien"
 
 #: tbl_zoom_select.php:258
 #, fuzzy
@@ -11971,20 +11958,18 @@ msgid "Data Label"
 msgstr "Titel"
 
 #: tbl_zoom_select.php:276
-#, fuzzy
 #| msgid "Maximum number of rows to display"
 msgid "Maximum rows to plot"
-msgstr "Maximale Anzahl der angezeigten Datensätze"
+msgstr "Maximale Anzahl der darzustellenden Datensätze"
 
 #: tbl_zoom_select.php:368
 msgid "Browse/Edit the points"
 msgstr ""
 
 #: tbl_zoom_select.php:375
-#, fuzzy
 #| msgid "Control user"
 msgid "How to use"
-msgstr "Control-user"
+msgstr "Anleitung"
 
 #: themes.php:28
 msgid "Get more themes!"
@@ -12028,11 +12013,13 @@ msgstr "View umbenennen in"
 
 #: po/advisory_rules.php:5
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Betriebszeit unter einem Tag"
 
 #: po/advisory_rules.php:6
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
+"Die Betriebszeit beträgt weniger als ein Tag, Performanz-Optimierungen "
+"könnten ungenau sein."
 
 #: po/advisory_rules.php:7
 msgid ""
@@ -12043,19 +12030,20 @@ msgstr ""
 #: po/advisory_rules.php:8
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "Die Betriebszeit beträgt nur %s"
 
 #: po/advisory_rules.php:10
-#, fuzzy
 #| msgid "Questions"
 msgid "Questions below 1,000"
-msgstr "Anfragen"
+msgstr "Weniger als 1.000 Anfragen"
 
 #: po/advisory_rules.php:11
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
+"Weniger als 1.000 Anfragen wurden an den Datenbank-Server gerichtet. "
+"Empfehlungen könnten ungenau sein."
 
 #: po/advisory_rules.php:12
 msgid ""
@@ -12064,16 +12052,15 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:13
-#, fuzzy, php-format
+#, php-format
 #| msgid "Current connection"
 msgid "Current amount of Questions: %s"
-msgstr "Aktuelle Verbindung"
+msgstr "Bisherige Anzahl von Anfragen: %s"
 
 #: po/advisory_rules.php:15
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
-msgstr "Zeige SQL Anfragen"
+msgstr "Prozentsatz langsamer Anfragen"
 
 #: po/advisory_rules.php:16
 msgid ""
@@ -12163,7 +12150,7 @@ msgstr "Serien löschen"
 
 #: po/advisory_rules.php:36
 msgid "The MySQL server version less then 5.1."
-msgstr ""
+msgstr "Die MySQL-Server-Version ist kleiner als 5.1."
 
 #: po/advisory_rules.php:37
 msgid ""
@@ -12172,10 +12159,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Current version: %s"
-msgstr "Erzeuge Version"
+msgstr "Aktuelle Version: %s"
 
 #: po/advisory_rules.php:40 po/advisory_rules.php:45
 #, fuzzy
@@ -12198,16 +12185,14 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr ""
 
 #: po/advisory_rules.php:47
-#, fuzzy
 #| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5"
-msgstr "Sie sollten auf %s %s oder neuer aktualisieren."
+msgstr "Sie sollten auf eine stabile MySQL Version der 5.1-Reihe aktualisieren."
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
-#, fuzzy
 #| msgid "Description"
 msgid "Distribution"
-msgstr "Beschreibung"
+msgstr "Distribution"
 
 #: po/advisory_rules.php:51
 msgid "Version is compiled from source, not a MySQL official binary."
@@ -12265,19 +12250,17 @@ msgstr ""
 #: po/advisory_rules.php:68
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "Verfügbarer Specher auf diesem Rechner: %s"
 
 #: po/advisory_rules.php:70
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache disabled"
-msgstr "Abfragen-Cache"
+msgstr "Abfragen-Cache deaktiviert"
 
 #: po/advisory_rules.php:71
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "Der Server antwortet nicht"
+msgstr "Der Abfragen-Cache ist nicht aktiviert."
 
 #: po/advisory_rules.php:72
 msgid ""
@@ -12292,14 +12275,13 @@ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 
 #: po/advisory_rules.php:75
-#, fuzzy
 #| msgid "Query cache used"
 msgid "Query caching method"
-msgstr "Abfragen-Cache benutzt"
+msgstr "Abfragen-Cache Methode"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
-msgstr ""
+msgstr "Suboptimale Zwischenspeicher-Methode."
 
 #: po/advisory_rules.php:77
 msgid ""
@@ -12318,7 +12300,7 @@ msgstr ""
 
 #: po/advisory_rules.php:80
 msgid "Query cache efficiency (%)"
-msgstr ""
+msgstr "Anfragen-Cache Effizienz (%)"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -12334,14 +12316,13 @@ msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr ""
 
 #: po/advisory_rules.php:85
-#, fuzzy
 msgid "Query Cache usage"
-msgstr "Abfragen-Cache"
+msgstr "Abfragen-Cache Ausnutzung"
 
 #: po/advisory_rules.php:86
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
-msgstr ""
+msgstr "Weniger als 80%% des Abfragen-Caches werden benutzt."
 
 #: po/advisory_rules.php:87
 msgid ""
@@ -12357,10 +12338,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:90
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache fragmentation"
-msgstr "Abfragen-Cache"
+msgstr "Abfragen-Cache Fragmentierung"
 
 #: po/advisory_rules.php:91
 msgid "The query cache is considerably fragmented."
@@ -12412,10 +12392,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:100
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache max size"
-msgstr "Abfragen-Cache"
+msgstr "Maximale Abfragen-Cache Größe"
 
 #: po/advisory_rules.php:101
 msgid ""
@@ -12432,7 +12411,7 @@ msgstr ""
 #: po/advisory_rules.php:103
 #, php-format
 msgid "Current query cache size: %s"
-msgstr ""
+msgstr "Aktuelle Abfragen-Cache Größe: %s"
 
 #: po/advisory_rules.php:105
 #, fuzzy
@@ -12499,14 +12478,13 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:120
-#, fuzzy
 #| msgid "Start row"
 msgid "Sort rows"
-msgstr "Anfangs-Datensatz"
+msgstr "Zeilen sortieren"
 
 #: po/advisory_rules.php:121
 msgid "There are lots of rows being sorted."
-msgstr ""
+msgstr "Es werden viele Zeilen sortiert."
 
 #: po/advisory_rules.php:122
 msgid ""
@@ -12528,10 +12506,9 @@ msgid "Rate of joins without indexes"
 msgstr "Es sind keine Prozeduren zum Anzeigen vorhanden."
 
 #: po/advisory_rules.php:126
-#, fuzzy
 #| msgid "There are no routines to display."
 msgid "There are too many joins without indexes."
-msgstr "Es sind keine Prozeduren zum Anzeigen vorhanden."
+msgstr "Es werden zu viele Joins ohne die Benutzung von Indizes durchgeführt."
 
 #: po/advisory_rules.php:127
 msgid ""
@@ -12615,11 +12592,11 @@ msgstr ""
 
 #: po/advisory_rules.php:145
 msgid "tmp_table_size vs. max_heap_table_size"
-msgstr ""
+msgstr "tmp_table_size vs. max_heap_table_size"
 
 #: po/advisory_rules.php:146
 msgid "tmp_table_size and max_heap_table_size are not the same."
-msgstr ""
+msgstr "tmp_table_size und max_heap_table_size sind nicht identisch belegt."
 
 #: po/advisory_rules.php:147
 msgid ""
@@ -12632,7 +12609,7 @@ msgstr ""
 #: po/advisory_rules.php:148
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr ""
+msgstr "Aktuelle Belegungen sind: tmp_table_size: %s, max_heap_table_size: %s"
 
 #: po/advisory_rules.php:150
 #, fuzzy
@@ -12707,7 +12684,7 @@ msgstr ""
 
 #: po/advisory_rules.php:163
 msgid "key_buffer_size is 0"
-msgstr ""
+msgstr "key_buffer_size ist 0"
 
 #: po/advisory_rules.php:165
 #, fuzzy, php-format

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-08-28 14:15+0200\n"
+"PO-Revision-Date: 2011-09-05 15:42+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -909,30 +909,27 @@ msgid "Add a point"
 msgstr "Ajouter un point"
 
 #: gis_data_editor.php:220 js/messages.php:290
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Lignes terminées par"
+msgstr "Ligne"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:294
 msgid "Outer Ring"
-msgstr ""
+msgstr "Anneau extérieur"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:293
 msgid "Inner Ring"
-msgstr ""
+msgstr "Anneau intérieur"
 
 #: gis_data_editor.php:252
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Ajouter un utilisateur"
+msgstr "Ajouter une ligne"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:296
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Ajouter un utilisateur"
+msgstr "Ajouter un anneau intérieur"
 
 #: gis_data_editor.php:266 js/messages.php:291
 msgid "Polygon"
@@ -943,16 +940,17 @@ msgid "Add a polygon"
 msgstr "Ajouter un polygone"
 
 #: gis_data_editor.php:310
-#, fuzzy
 #| msgid "Geometry"
 msgid "Add geometry"
-msgstr "Géométrie"
+msgstr "Ajouter géométrie"
 
 #: gis_data_editor.php:318
 msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
+"Choisissez «GeomFromText» dans la colonne «Fonction» et collez la chaîne "
+"dans le champ «Valeur»"
 
 #: import.php:57
 #, php-format
@@ -1250,6 +1248,10 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
+"La configuration du graphique dans votre stockage local du navigateur n'est "
+"plus compatible avec l'interface de surveillance. Votre configuration "
+"courante ne fonctionnera probablement pas. Veuillez réinitialiser votre "
+"configuration via le menu <i>Paramètres</i>."
 
 #: js/messages.php:96
 msgid "Query cache efficiency"
@@ -1533,10 +1535,9 @@ msgstr "Journal analysé, mais aucune donnée trouvée pour ce laps de temps."
 
 #. l10n: A collection of available filters
 #: js/messages.php:173
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
-msgstr "Options d'affichage des tables"
+msgstr "Options de filtrage de la table journal"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:175
@@ -1565,7 +1566,7 @@ msgstr "Chargement des journaux en cours"
 
 #: js/messages.php:182
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "Échec de rafraîchissement de la surveillance"
 
 #: js/messages.php:183
 msgid ""
@@ -1573,26 +1574,31 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"Le serveur a retourné une réponse invalide. Votre session a probablement "
+"expiré. Veuillez recharger la page et vous connecter à nouveau."
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
-msgstr "Recharger"
+msgstr "Recharger la page"
 
 #: js/messages.php:186
 msgid "Affected rows:"
-msgstr ""
+msgstr "Lignes modifiées :"
 
 #: js/messages.php:188
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgstr ""
+"Échec d'analyse du fichier de configuration. Il ne contient pas de code JSON "
+"valide"
 
 #: js/messages.php:189
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr ""
+"Échec de construction du graphique avec la configuration importée. "
+"Réinitialisation à la configuration par défaut..."
 
 #: js/messages.php:190 libraries/config/messages.inc.php:170
 #: libraries/db_links.inc.php:83 libraries/server_links.inc.php:69
@@ -1602,50 +1608,45 @@ msgid "Import"
 msgstr "Importer"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
-msgstr "Mise-à-jour de la requête"
+msgstr "Analyser la requête"
 
 #: js/messages.php:196
-#, fuzzy
 #| msgid "Apply a divisor"
 msgid "Advisor system"
-msgstr "Appliquer un diviseur"
+msgstr "Conseiller"
 
 #: js/messages.php:197
 msgid "Possible performance issues"
-msgstr ""
+msgstr "Impact de performance possible"
 
 #: js/messages.php:198
 msgid "Issue"
-msgstr ""
+msgstr "Problème"
 
 #: js/messages.php:199
-#, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
-msgstr "Documentation"
+msgstr "Recommandation"
 
 #: js/messages.php:200
-#, fuzzy
 #| msgid "Details"
 msgid "Rule details"
-msgstr "Détails"
+msgstr "Détails de règle"
 
 #: js/messages.php:201
-#, fuzzy
 #| msgid "Authentication"
 msgid "Justification"
-msgstr "Type d'authentification"
+msgstr "Alignement"
 
 #: js/messages.php:202
 msgid "Used variable / formula"
-msgstr ""
+msgstr "Variable / formule utilisée"
 
 #: js/messages.php:203
 msgid "Test"
-msgstr ""
+msgstr "Test"
 
 #: js/messages.php:208 libraries/tbl_properties.inc.php:758
 #: pmd_general.php:382 pmd_general.php:419 pmd_general.php:539
@@ -1785,52 +1786,56 @@ msgid "Show search criteria"
 msgstr "Afficher les critères de recherche"
 
 #: js/messages.php:262 libraries/tbl_select.lib.php:135
-#, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
-msgstr "Rechercher"
+msgstr "Recherche par zoom"
 
 #: js/messages.php:264
 msgid "Each point represents a data row."
-msgstr ""
+msgstr "Chaque point représente une ligne de données."
 
 #: js/messages.php:266
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "Survoler un point montrera sa description."
 
 #: js/messages.php:268
 msgid "Use mousewheel to zoom in or out of the plot."
 msgstr ""
+"Utilisez la molette de la souris pour effectuer un zoom avant / arrière."
 
 #: js/messages.php:270
 msgid "Click and drag the mouse to navigate the plot."
 msgstr ""
+"Cliquez et faites glisser la souris pour vous déplacer dans la série de "
+"points."
 
 #: js/messages.php:272
 msgid "Click reset zoom link to come back to original state."
-msgstr ""
+msgstr "Cliquez le lien «Réinitialiser zoom» pour revenir à l'état original."
 
 #: js/messages.php:274
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
+"Cliquez sur un point pour visualiser et possiblement éditer la ligne de "
+"données."
 
 #: js/messages.php:276
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
+"L'image peut être redimensionnée en faisant glisser le coin inférieur droit."
 
 #: js/messages.php:278
 msgid "Strings are converted into integer for plotting"
-msgstr ""
+msgstr "Les chaînes sont converties en nombres entiers aux fins d'affichage"
 
 #: js/messages.php:280
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
-msgstr "Ajouter/effacer des colonnes"
+msgstr "Sélectionnez deux colonnes"
 
 #: js/messages.php:281
 msgid "Select two different columns"
-msgstr ""
+msgstr "Sélectionnez deux colonnes différentes"
 
 #: js/messages.php:284 tbl_change.php:321 tbl_indexes.php:211
 #: tbl_indexes.php:238
@@ -1875,7 +1880,7 @@ msgstr "Ajouter une option pour la colonne"
 
 #: js/messages.php:313
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "Appuyez sur la touche d'échappement pour annuler l'édition"
 
 #: js/messages.php:314
 msgid ""

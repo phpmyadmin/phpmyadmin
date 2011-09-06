@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-08-11 04:40+0200\n"
+"PO-Revision-Date: 2011-09-02 04:21+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -814,20 +814,18 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "将生成的内容复制粘贴到 \"长度/值\" 一栏中"
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "柱状图类型"
+msgstr "非法类型！"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
 msgstr "选择导出文件的类型！"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Bad parameters!"
-msgstr "添加参数"
+msgstr "非法参数！"
 
 #: export.php:167 export.php:192 export.php:655
 #, php-format
@@ -851,10 +849,9 @@ msgid "Dump has been saved to file %s."
 msgstr "转存已经保存到文件 %s 中。"
 
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "导出类型"
+msgstr "导出类型无效"
 
 #: gis_data_editor.php:84
 #, fuzzy, php-format
@@ -1221,10 +1218,9 @@ msgid "Query statistics"
 msgstr "查询统计"
 
 #: js/messages.php:93
-#, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Local monitor configuration incompatible"
-msgstr "读取配置文件失败"
+msgstr "本地监控配置不兼容"
 
 #: js/messages.php:94
 msgid ""
@@ -1235,22 +1231,19 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:96
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache efficiency"
-msgstr "查询缓存"
+msgstr "查询缓存效率"
 
 #: js/messages.php:97
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
-msgstr "查询缓存"
+msgstr "查询缓存使用"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
-msgstr "查询缓存"
+msgstr "已用查询缓存"
 
 #: js/messages.php:100
 msgid "System CPU Usage"

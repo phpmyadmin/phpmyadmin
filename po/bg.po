@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-08-18 14:54+0200\n"
+"PO-Revision-Date: 2011-09-02 09:19+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -416,10 +416,10 @@ msgid "You have to choose at least one column to display"
 msgstr "Изберете поне една колона за показване"
 
 #: db_qbe.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "строител"
+msgstr "Към %sвизуален строител%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:957
@@ -869,14 +869,14 @@ msgid "Invalid export type"
 msgstr "Тип експорт"
 
 #: gis_data_editor.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
-msgstr "Стойности за колоната \"%s\""
+msgstr "Стойност за колона \"%s\""
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "Използване на OpenStreetMaps като основен слой"
 
 #: gis_data_editor.php:134
 msgid "SRID"
@@ -889,17 +889,17 @@ msgstr "Геометрия"
 
 #: gis_data_editor.php:172 js/messages.php:288
 msgid "Point"
-msgstr ""
+msgstr "Точка"
 
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
 #: gis_data_editor.php:297 js/messages.php:286
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
 #: gis_data_editor.php:299 js/messages.php:287
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
 #: js/messages.php:289
@@ -909,10 +909,9 @@ msgstr ""
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:295
-#, fuzzy
 #| msgid "Add routine"
 msgid "Add a point"
-msgstr "Нова процедура"
+msgstr "Добавяне на точка"
 
 #: gis_data_editor.php:220 js/messages.php:290
 #, fuzzy
@@ -926,7 +925,7 @@ msgstr ""
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:293
 msgid "Inner Ring"
-msgstr ""
+msgstr "Вътрешен пръстен"
 
 #: gis_data_editor.php:252
 #, fuzzy

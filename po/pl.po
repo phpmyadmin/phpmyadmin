@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-02-24 16:21+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2011-09-05 21:06+0200\n"
+"Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -35,9 +35,9 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"Docelowe okno przeglądarki nie mogło być zaktualizowane. Być może okno-"
-"rodzic zostało zamknięte lub przeglądarka, uwzględniając ustawienia "
-"bezpieczeństwa, blokuje aktualizacje pomiędzy oknami"
+"Docelowe okno przeglądarki nie mogło być zaktualizowane. Być może zamknałeś "
+"okno macierzyste lub ustawienia zabezpieczeń twojej przeglądarki są tak "
+"skonfigurowane, że blokują aktualizacje pomiędzy oknami."
 
 #: browse_foreigners.php:151 libraries/common.lib.php:3034
 #: libraries/common.lib.php:3041 libraries/common.lib.php:3245
@@ -81,7 +81,7 @@ msgstr "Szukaj"
 #: tbl_structure.php:707 tbl_tracking.php:416 tbl_tracking.php:554
 #: tbl_zoom_select.php:293 view_create.php:181 view_operations.php:99
 msgid "Go"
-msgstr "Wykonaj"
+msgstr "Przejdź"
 
 #: browse_foreigners.php:169 browse_foreigners.php:173
 #: libraries/Index.class.php:432 tbl_tracking.php:304
@@ -102,7 +102,7 @@ msgstr "Użyj tej wartości"
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:366
 msgid "No blob streaming server configured!"
-msgstr "Nie skonfigurowano żadnego serwera blob"
+msgstr "Nie skonfigurowano żadnego serwera strumieniowego blob!"
 
 #: bs_disp_as_mime_type.php:35
 msgid "Failed to fetch headers"
@@ -118,8 +118,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"Plik %s nie jest dostępny na tym systemie, prosimy odwiedzić www.phpmyadmin."
-"net aby uzyskać więcej informacji."
+"Plik %s nie jest dostępny w tym systemie, prosimy odwiedzić "
+"www.phpmyadmin.net, aby uzyskać więcej informacji."
 
 #: db_create.php:60
 #, php-format
@@ -191,7 +191,7 @@ msgstr "Domyślnie"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1311
 #: libraries/schema/Pdf_Relation_Schema.class.php:1332 tbl_printview.php:144
 msgid "Links to"
-msgstr "Łącze"
+msgstr "Łącze do"
 
 #: db_datadict.php:172 db_printview.php:110
 #: libraries/config/messages.inc.php:94 libraries/config/messages.inc.php:109
@@ -248,12 +248,12 @@ msgstr "Drukuj"
 
 #: db_export.php:26
 msgid "View dump (schema) of database"
-msgstr "Zrzut bazy danych"
+msgstr "Zobacz zrzut (schemat) bazy danych"
 
 #: db_export.php:30 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
 #: export.php:355 navigation.php:296
 msgid "No tables found in database."
-msgstr "Nie znaleziono tabeli w bazie danych."
+msgstr "Nie znaleziono żadnych tabel w bazie danych."
 
 #: db_export.php:40 db_search.php:319 server_export.php:26
 msgid "Select All"
@@ -270,7 +270,7 @@ msgstr "Nazwa bazy danych jest pusta!"
 #: db_operations.php:273
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr "Baza danych %s ma nazwę zmienioną na %s"
+msgstr "Nazwa bazy danych %s została zmieniona na %s"
 
 #: db_operations.php:277
 #, php-format
@@ -840,20 +840,18 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "Kopiuj i wklej połączone wartości do pola \"Długości/Wartości\""
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "Rodzaj zapytania"
+msgstr "Niewłaściwy typ"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
 msgstr "Wybrany typ eksportu musi być zapisany do pliku"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Bad parameters!"
-msgstr "Dołącz indeks(y)"
+msgstr "Niewłaściwe parametry"
 
 #: export.php:167 export.php:192 export.php:655
 #, php-format
@@ -879,10 +877,9 @@ msgid "Dump has been saved to file %s."
 msgstr "Zrzut został zapisany do pliku %s."
 
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "Rodzaj eksportu"
+msgstr "Niewłaściwy rodzaj eksportu"
 
 #: gis_data_editor.php:84
 #, fuzzy, php-format
@@ -1097,20 +1094,18 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Masz zamiar ZNISZCZYĆ całą bazę danych!"
 
 #: js/messages.php:34
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to DESTROY a complete table!"
-msgstr "Masz zamiar ZNISZCZYĆ całą bazę danych!"
+msgstr "Masz zamiar ZNISZCZYĆ całą tabelę!"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "Masz zamiar ZNISZCZYĆ całą bazę danych!"
+msgstr "Masz zamiar WYCZYŚCIĆ całą tabelę!"
 
 #: js/messages.php:37
 msgid "Deleting tracking data"
-msgstr "Usuwanie danych nt. śledzenia"
+msgstr "Usuwanie danych śledzenia"
 
 #: js/messages.php:38
 msgid "Dropping Primary Key/Index"
@@ -1208,7 +1203,7 @@ msgstr "Okno zapytania SQL"
 
 #: js/messages.php:69
 msgid "Static data"
-msgstr ""
+msgstr "Dane statyczne"
 
 #. l10n: Total number of queries
 #: js/messages.php:71 libraries/build_html_for_db.lib.php:46

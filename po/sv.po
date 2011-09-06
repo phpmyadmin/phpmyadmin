@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-08-31 22:33+0200\n"
+"PO-Revision-Date: 2011-09-03 01:22+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -11887,78 +11887,79 @@ msgid "Slow query logging"
 msgstr "Långsam frågeloggning"
 
 #: po/advisory_rules.php:31
-#, fuzzy
 #| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
-msgstr "slow_query_log är aktiverad."
+msgstr "Den långsamma sökfrågeloggen är inaktiverad."
 
 #: po/advisory_rules.php:32
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"Aktivera långsam frågeloggning genom att sätta {log_slow_queries} till \"ON\". "
+"Detta kommer att förbättra vid  felsökning av dålig prestanda frågor."
 
 #: po/advisory_rules.php:33
 msgid "log_slow_queries is set to 'OFF'"
-msgstr ""
+msgstr "log_slow_queries är satt till 'OFF'"
 
 #: po/advisory_rules.php:35
-#, fuzzy
 #| msgid "Clear series"
 msgid "Release Series"
-msgstr "Rensa serier"
+msgstr "Releasa serien"
 
 #: po/advisory_rules.php:36
 msgid "The MySQL server version less then 5.1."
-msgstr ""
+msgstr "MySQL server version är mindre än 5.1."
 
 #: po/advisory_rules.php:37
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
+"Du bör uppgradera, eftersom MySQL 5.1 har bättre prestanda, och MySQL 5.5 "
+"ännu bättre."
 
 #: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Current version: %s"
-msgstr "Skapa version"
+msgstr "Nuvarande version: %s"
 
 #: po/advisory_rules.php:40 po/advisory_rules.php:45
-#, fuzzy
 #| msgid "Version"
 msgid "Minor Version"
-msgstr "Version"
+msgstr "Minor version"
 
 #: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
+msgstr "Version lägre än 5.1.30 (den första GA utgåvan av 5.1)."
 
 #: po/advisory_rules.php:42
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
+"Du bör uppgradera, eftersom de senare versionerna av MySQL 5.1 har "
+"förbättrad prestanda och MySQL 5.5 ännu mer."
 
 #: po/advisory_rules.php:46
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr ""
+msgstr "Version lägre än 5.5.8 (den första GA utgåvan av 5.5)."
 
 #: po/advisory_rules.php:47
-#, fuzzy
 #| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5"
-msgstr "Du bör uppgradera till %s %s eller senare."
+msgstr "Du bör uppgradera till en stabil version av MySQL 5.5"
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
-#, fuzzy
 #| msgid "Description"
 msgid "Distribution"
-msgstr "Beskrivning"
+msgstr "Distribution"
 
 #: po/advisory_rules.php:51
 msgid "Version is compiled from source, not a MySQL official binary."
-msgstr ""
+msgstr "Version är kompilerad från källan, inte från en officiell MySQL binär."
 
 #: po/advisory_rules.php:52
 msgid ""
@@ -11966,41 +11967,44 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
+"Om du inte kompilerade från källkod, så kanske du använder ett paket som "
+"modifierats av en distribution. MySQL handboken är endast exakt för "
+"officiella MySQL-binärer, inte någon paket distribution (t.ex. RedHat, "
+"Debian/Ubuntu etc)."
 
 #: po/advisory_rules.php:53
 msgid "'source' found in version_comment"
-msgstr ""
+msgstr "\"källa\" hittades i version_comment"
 
 #: po/advisory_rules.php:56 po/advisory_rules.php:61
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr ""
+msgstr "MySQL handboken är endast korrekt för officiella MySQL-binärer."
 
 #: po/advisory_rules.php:57
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
-msgstr ""
+msgstr "Percona dokumentation finns vid http://www.percona.com/docs/wiki/"
 
 #: po/advisory_rules.php:58
 msgid "'percona' found in version_comment"
-msgstr ""
+msgstr "\"percona\" hittades i version_comment"
 
 #: po/advisory_rules.php:62
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
-msgstr ""
+msgstr "Drizzle dokumentation finns vid http://docs.drizzle.org/"
 
 #: po/advisory_rules.php:63
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
-msgstr ""
+msgstr "Versionssträngen (%s) matchar versionshanterings schemat i Drizzle"
 
 #: po/advisory_rules.php:65
-#, fuzzy
 #| msgid "MySQL charset"
 msgid "MySQL Architecture"
-msgstr "MySQL teckenuppsättning"
+msgstr "MySQL Arkitektur"
 
 #: po/advisory_rules.php:66
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "MySQL är inte kompilerad som ett 64-bitars paket."
 
 #: po/advisory_rules.php:67
 msgid ""
@@ -12008,23 +12012,24 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
+"Din minneskapacitet är över 3 GiB (förutsatt att servern är på localhost), "
+"så MySQL kanske inte kan att få tillgång till allt minne. Du kan vilja "
+"överväga att installera 64-bitars versionen av MySQL."
 
 #: po/advisory_rules.php:68
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "Tillgängligt minne på denna värd: %s"
 
 #: po/advisory_rules.php:70
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache disabled"
-msgstr "Frågecache"
+msgstr "Frågecache inaktiverad"
 
 #: po/advisory_rules.php:71
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "Servern svarar inte"
+msgstr "Frågaecache är inte aktiverat."
 
 #: po/advisory_rules.php:72
 msgid ""
@@ -12033,20 +12038,24 @@ msgid ""
 "and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
 "memcached, ignore this recommendation."
 msgstr ""
+"Frågaecachen är känd för att avsevärt förbättra prestanda när den är korrekt "
+"konfigurerad. Aktivera den genom att ställa {query_cache_size} till ett 2 "
+"siffrigt Mb värde och sätt{query_cache_type} till \"ON\". <b> Notera:</b> Om "
+"du använder memcached, ignorera denna rekommendation."
 
 #: po/advisory_rules.php:73
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
+"query_cache_size är satt till 0 eller query_cache_type är inställd på 'OFF'"
 
 #: po/advisory_rules.php:75
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query caching method"
-msgstr "Frågecache"
+msgstr " Frågecache metod"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
-msgstr ""
+msgstr "Suboptimal caching metod."
 
 #: po/advisory_rules.php:77
 msgid ""
