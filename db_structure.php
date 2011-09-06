@@ -31,21 +31,21 @@ if (empty($is_info)) {
         // -> db_structure.php and if we got an error on the multi submit,
         // we must display it here and not call again mult_submits.inc.php
         if (! isset($error) || false === $error) {
-            require './libraries/mult_submits.inc.php';
+            include './libraries/mult_submits.inc.php';
         }
         if (empty($message)) {
             $message = PMA_Message::success();
         }
     }
-    require './libraries/db_common.inc.php';
+    include './libraries/db_common.inc.php';
     $url_query .= '&amp;goto=db_structure.php';
 
     // Gets the database structure
     $sub_part = '_structure';
-    require './libraries/db_info.inc.php';
+    include './libraries/db_info.inc.php';
 
     if (!PMA_DRIZZLE) {
-        require './libraries/replication.inc.php';
+        include './libraries/replication.inc.php';
     } else {
         $server_slave_status = false;
     }
@@ -66,13 +66,13 @@ if ($num_tables == 0) {
     echo '<p>' . __('No tables found in database') . '</p>' . "\n";
 
     if (empty($db_is_information_schema)) {
-        require './libraries/display_create_table.lib.php';
+        include './libraries/display_create_table.lib.php';
     } // end if (Create Table dialog)
 
     /**
      * Displays the footer
      */
-    require_once './libraries/footer.inc.php';
+    include_once './libraries/footer.inc.php';
     exit;
 }
 
@@ -572,7 +572,7 @@ echo __('Data Dictionary') . '</a>';
 echo '</p>';
 
 if (empty($db_is_information_schema)) {
-    require './libraries/display_create_table.lib.php';
+    include './libraries/display_create_table.lib.php';
 } // end if (Create Table dialog)
 
 /**

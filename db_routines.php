@@ -13,9 +13,9 @@ require_once './libraries/common.inc.php';
 require_once './libraries/common.lib.php';
 require_once './libraries/mysql_charsets.lib.php';
 if (PMA_DRIZZLE) {
-    require_once './libraries/data_drizzle.inc.php';
+    include_once './libraries/data_drizzle.inc.php';
 } else {
-    require_once './libraries/data_mysql.inc.php';
+    include_once './libraries/data_mysql.inc.php';
 }
 
 /**

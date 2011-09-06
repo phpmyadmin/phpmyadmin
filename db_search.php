@@ -93,7 +93,7 @@ if (empty($_REQUEST['field_str']) || ! is_string($_REQUEST['field_str'])) {
 $sub_part = '';
 
 if ( $GLOBALS['is_ajax_request'] != true) {
-    require './libraries/db_info.inc.php';
+    include './libraries/db_info.inc.php';
     echo '<div id="searchresults">';
 }
 
