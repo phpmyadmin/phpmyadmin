@@ -26,7 +26,7 @@ if (isset($_REQUEST['submit_sql']) && ! empty($sql_query)) {
         $message_to_display = true;
     } else {
         $goto      = 'db_sql.php';
-        require './sql.php';
+        include './sql.php';
         exit;
     }
 }
@@ -99,7 +99,7 @@ $tbl_result     = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', 
 $tbl_result_cnt = PMA_DBI_num_rows($tbl_result);
 if (0 == $tbl_result_cnt) {
     PMA_Message::error(__('No tables found in database.'))->display();
-    require './libraries/footer.inc.php';
+    include './libraries/footer.inc.php';
     exit;
 }
 

@@ -11,8 +11,8 @@
 require_once './libraries/common.inc.php';
 
 if (! isset($selected_tbl)) {
-    require './libraries/db_common.inc.php';
-    require './libraries/db_info.inc.php';
+    include './libraries/db_common.inc.php';
+    include './libraries/db_info.inc.php';
 }
 
 

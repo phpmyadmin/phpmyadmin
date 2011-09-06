@@ -109,7 +109,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
         $views = array();
 
         // remove all foreign key constraints, otherwise we can get errors
-        require_once './libraries/export/sql.php';
+        include_once './libraries/export/sql.php';
         foreach ($tables_full as $each_table => $tmp) {
             $sql_constraints = '';
             $sql_drop_foreign_keys = '';
@@ -263,7 +263,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             /**
              * cleanup pmadb stuff for this db
              */
-            require_once './libraries/relation_cleanup.lib.php';
+            include_once './libraries/relation_cleanup.lib.php';
             PMA_relationsCleanupDatabase($db);
 
             // if someday the RENAME DATABASE reappears, do not DROP
@@ -329,12 +329,12 @@ if (isset($_REQUEST['comment'])) {
  * because there is no table in the database ($is_info is true)
  */
 if (empty($is_info)) {
-    require './libraries/db_common.inc.php';
+    include './libraries/db_common.inc.php';
     $url_query .= '&amp;goto=db_operations.php';
 
     // Gets the database structure
     $sub_part = '_structure';
-    require './libraries/db_info.inc.php';
+    include './libraries/db_info.inc.php';
     echo "\n";
 
     if (isset($message)) {
@@ -372,7 +372,7 @@ if (!$is_information_schema) {
     }
     ?>
     <div class="operations_half_width">
-    <?php require './libraries/display_create_table.lib.php'; ?>
+    <?php include './libraries/display_create_table.lib.php'; ?>
     </div>
     <?php
     /**
