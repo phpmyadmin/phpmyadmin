@@ -519,7 +519,7 @@ msgstr "wszystkie słowa"
 
 #: db_search.php:44 db_search.php:288
 msgid "the exact phrase"
-msgstr "cała fraza"
+msgstr "dokładna fraza"
 
 #: db_search.php:45 db_search.php:289
 msgid "as regular expression"
