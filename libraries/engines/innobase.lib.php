@@ -8,7 +8,7 @@
 /**
  *
  */
-include_once './libraries/engines/innodb.lib.php';
+require_once './libraries/engines/innodb.lib.php';
 
 /**
  *

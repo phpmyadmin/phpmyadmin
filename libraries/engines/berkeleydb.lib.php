@@ -7,7 +7,7 @@
 /**
  * Load BDB class.
  */
-include_once './libraries/engines/bdb.lib.php';
+require_once './libraries/engines/bdb.lib.php';
 
 /**
  * This is same as BDB.
