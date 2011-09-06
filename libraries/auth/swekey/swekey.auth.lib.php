@@ -69,7 +69,7 @@ function Swekey_auth_error()
     if (! $_SESSION['SWEKEY']['ENABLED'])
         return null;
 
-    require_once './libraries/auth/swekey/authentication.inc.php';
+    include_once './libraries/auth/swekey/authentication.inc.php';
 
     ?>
     <script>
@@ -115,7 +115,7 @@ function Swekey_auth_error()
     if (count($_SESSION['SWEKEY']['VALID_SWEKEYS']) == 0)
         return sprintf(__('File %s does not contain any key id'), $GLOBALS['cfg']['Server']['auth_swekey_config']);
 
-    require_once "./libraries/auth/swekey/swekey.php";
+    include_once "./libraries/auth/swekey/swekey.php";
 
     Swekey_SetCheckServer($_SESSION['SWEKEY']['CONF_SERVER_CHECK']);
     Swekey_SetRndTokenServer($_SESSION['SWEKEY']['CONF_SERVER_RNDTOKEN']);

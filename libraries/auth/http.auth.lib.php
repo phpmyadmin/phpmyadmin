@@ -49,13 +49,13 @@ function PMA_auth()
     header('Content-Type: text/html; charset=utf-8');
     /* HTML header */
     $page_title = __('Access denied');
-    require './libraries/header_meta_style.inc.php';
+    include './libraries/header_meta_style.inc.php';
     ?>
 </head>
 <body>
     <?php
     if (file_exists(CUSTOM_HEADER_FILE)) {
-        require CUSTOM_HEADER_FILE;
+        include CUSTOM_HEADER_FILE;
     }
     ?>
 
@@ -69,7 +69,7 @@ function PMA_auth()
     PMA_Message::error(__('Wrong username/password. Access denied.'))->display();
 
     if (file_exists(CUSTOM_FOOTER_FILE)) {
-        require CUSTOM_FOOTER_FILE;
+        include CUSTOM_FOOTER_FILE;
     }
     ?>
 

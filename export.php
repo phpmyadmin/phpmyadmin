@@ -75,16 +75,16 @@ if ($_REQUEST['output_format'] == 'astext') {
 // Does export require to be into file?
 if (isset($export_list[$type]['force_file']) && ! $asfile) {
     $message = PMA_Message::error(__('Selected export type has to be saved in file!'));
-    require_once './libraries/header.inc.php';
+    include_once './libraries/header.inc.php';
     if ($export_type == 'server') {
         $active_page = 'server_export.php';
-        require './server_export.php';
+        include './server_export.php';
     } elseif ($export_type == 'database') {
         $active_page = 'db_export.php';
-        require './db_export.php';
+        include './db_export.php';
     } else {
         $active_page = 'tbl_export.php';
-        require './tbl_export.php';
+        include './tbl_export.php';
     }
     exit();
 }
@@ -318,16 +318,16 @@ if ($save_on_server) {
         }
     }
     if (isset($message)) {
-        require_once './libraries/header.inc.php';
+        include_once './libraries/header.inc.php';
         if ($export_type == 'server') {
             $active_page = 'server_export.php';
-            require './server_export.php';
+            include './server_export.php';
         } elseif ($export_type == 'database') {
             $active_page = 'db_export.php';
-            require './db_export.php';
+            include './db_export.php';
         } else {
             $active_page = 'tbl_export.php';
-            require './tbl_export.php';
+            include './tbl_export.php';
         }
         exit();
     }
@@ -352,14 +352,14 @@ if (!$save_on_server) {
             $num_tables = count($tables);
             if ($num_tables == 0) {
                 $message = PMA_Message::error(__('No tables found in database.'));
-                require_once './libraries/header.inc.php';
+                include_once './libraries/header.inc.php';
                 $active_page = 'db_export.php';
-                require './db_export.php';
+                include './db_export.php';
                 exit();
             }
         }
         $backup_cfgServer = $cfg['Server'];
-        require_once './libraries/header.inc.php';
+        include_once './libraries/header.inc.php';
         $cfg['Server'] = $backup_cfgServer;
         unset($backup_cfgServer);
         echo "\n" . '<div align="' . $cell_align_left . '">' . "\n";
@@ -416,7 +416,7 @@ do {
         $cfgRelation = PMA_getRelationsParam();
     }
     if ($do_mime) {
-        require_once './libraries/transformations.lib.php';
+        include_once './libraries/transformations.lib.php';
     }
 
     // Include dates in export?
@@ -600,16 +600,16 @@ do {
 // End of fake loop
 
 if ($save_on_server && isset($message)) {
-    require_once './libraries/header.inc.php';
+    include_once './libraries/header.inc.php';
     if ($export_type == 'server') {
         $active_page = 'server_export.php';
-        require './server_export.php';
+        include './server_export.php';
     } elseif ($export_type == 'database') {
         $active_page = 'db_export.php';
-        require './db_export.php';
+        include './db_export.php';
     } else {
         $active_page = 'tbl_export.php';
-        require './tbl_export.php';
+        include './tbl_export.php';
     }
     exit();
 }
@@ -654,16 +654,16 @@ if (!empty($asfile)) {
             $message = new PMA_Message(__('Dump has been saved to file %s.'), PMA_Message::SUCCESS, $save_filename);
         }
 
-        require_once './libraries/header.inc.php';
+        include_once './libraries/header.inc.php';
         if ($export_type == 'server') {
             $active_page = 'server_export.php';
-            require_once './server_export.php';
+            include_once './server_export.php';
         } elseif ($export_type == 'database') {
             $active_page = 'db_export.php';
-            require_once './db_export.php';
+            include_once './db_export.php';
         } else {
             $active_page = 'tbl_export.php';
-            require_once './tbl_export.php';
+            include_once './tbl_export.php';
         }
         exit();
     } else {
@@ -704,6 +704,6 @@ if (!empty($asfile)) {
 //]]>
 </script>
 <?php
-    require './libraries/footer.inc.php';
+    include './libraries/footer.inc.php';
 } // end if
 ?>

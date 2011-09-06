@@ -7,7 +7,7 @@
 /**
  *
  */
-include_once './libraries/engines/merge.lib.php';
+require_once './libraries/engines/merge.lib.php';
 
 /**
  *

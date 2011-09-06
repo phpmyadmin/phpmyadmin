@@ -28,7 +28,7 @@ class Advisor
                     FROM data_dictionary.GLOBAL_STATEMENTS", 0, 1));
         }
         // Add total memory to variables as well
-        require_once 'libraries/sysinfo.lib.php';
+        include_once 'libraries/sysinfo.lib.php';
         $sysinfo = getSysInfo();
         $memory  = $sysinfo->memory();
         $this->variables['system_memory'] = $memory['MemTotal'];

@@ -75,7 +75,7 @@ function PMA_auth_fails()
     header('Content-Type: text/html; charset=utf-8');
     /* HTML header */
     $page_title = __('Access denied');
-    require './libraries/header_meta_style.inc.php';
+    include './libraries/header_meta_style.inc.php';
     ?>
 </head>
 
@@ -117,7 +117,7 @@ function PMA_auth_fails()
 <?php
     if (count($GLOBALS['cfg']['Servers']) > 1) {
         // offer a chance to login to other servers if the current one failed
-        require_once './libraries/select_server.lib.php';
+        include_once './libraries/select_server.lib.php';
         echo '<tr>' . "\n";
         echo ' <td>' . "\n";
         PMA_select_server(true, true);
@@ -125,7 +125,7 @@ function PMA_auth_fails()
         echo '</tr>' . "\n";
     }
     echo '</table>' . "\n";
-    require './libraries/footer.inc.php';
+    include './libraries/footer.inc.php';
     return true;
 } // end of the 'PMA_auth_fails()' function
 
