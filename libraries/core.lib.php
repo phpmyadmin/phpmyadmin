@@ -223,7 +223,7 @@ function PMA_fatalError($error_message, $message_args = null)
         $GLOBALS['PMA_Config']->removeCookie($GLOBALS['session_name']);
     }
 
-    require './libraries/error.inc.php';
+    include './libraries/error.inc.php';
 
     if (!defined('TESTSUITE')) {
         exit;
@@ -489,7 +489,7 @@ function PMA_getenv($var_name)
 function PMA_sendHeaderLocation($uri)
 {
     if (PMA_IS_IIS && strlen($uri) > 600) {
-        require_once './libraries/js_escape.lib.php';
+        include_once './libraries/js_escape.lib.php';
 
         echo '<html><head><title>- - -</title>' . "\n";
         echo '<meta http-equiv="expires" content="0">' . "\n";

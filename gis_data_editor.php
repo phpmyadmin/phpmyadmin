@@ -1,8 +1,8 @@
 <?php
 require_once './libraries/common.inc.php';
 if (! isset($_REQUEST['get_gis_editor']) && ! isset($_REQUEST['generate'])) {
-    require_once './libraries/header_http.inc.php';
-    require_once './libraries/header_meta_style.inc.php';
+    include_once './libraries/header_http.inc.php';
+    include_once './libraries/header_meta_style.inc.php';
 }
 require_once './libraries/gis/pma_gis_factory.php';
 require_once './libraries/gis_visualization.lib.php';

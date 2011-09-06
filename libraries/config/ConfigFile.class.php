@@ -77,7 +77,7 @@ class ConfigFile
     {
         // load default config values
         $cfg = &$this->cfg;
-        require './libraries/config.default.php';
+        include './libraries/config.default.php';
         $cfg['fontsize'] = '82%';
 
         // create PMA_Config to read config.inc.php values
@@ -85,7 +85,7 @@ class ConfigFile
 
         // load additional config information
         $cfg_db = &$this->cfgDb;
-        require './libraries/config.values.php';
+        include './libraries/config.values.php';
 
         // apply default values overrides
         if (count($cfg_db['_overrides'])) {
@@ -452,7 +452,7 @@ class ConfigFile
     {
         // Load paths
         if (!defined('SETUP_CONFIG_FILE')) {
-            require_once './libraries/vendor_config.php';
+            include_once './libraries/vendor_config.php';
         }
 
         return SETUP_CONFIG_FILE;
