@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-06 17:39+0200\n"
+"PO-Revision-Date: 2011-09-06 17:40+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -616,7 +616,7 @@ msgstr "Tabela %s została usunięta"
 
 #: db_structure.php:296 tbl_create.php:269
 msgid "Tracking is active."
-msgstr "Monitorowanie jest aktywne."
+msgstr "Śledzenie jest aktywne."
 
 #: db_structure.php:298 tbl_create.php:271
 msgid "Tracking is not active."
