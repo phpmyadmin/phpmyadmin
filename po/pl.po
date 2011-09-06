@@ -324,7 +324,7 @@ msgstr "Dodaj %s"
 #: db_operations.php:496 libraries/config/messages.inc.php:119
 #: tbl_operations.php:318 tbl_operations.php:562
 msgid "Add AUTO_INCREMENT value"
-msgstr "Dodaj wartości AUTO_INCREMENT"
+msgstr "Dodaj wartość AUTO_INCREMENT"
 
 #: db_operations.php:500 tbl_operations.php:569
 msgid "Add constraints"
