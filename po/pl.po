@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-06 17:22+0200\n"
+"PO-Revision-Date: 2011-09-06 17:26+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -345,7 +345,7 @@ msgid "Collation"
 msgstr "Metoda porównywania napisów"
 
 #: db_operations.php:549
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
@@ -353,8 +353,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Dodatkowe możliwości pracy z połączonymi tabelami zostały wyłączone. Aby "
-"dowiedzieć się, dlaczego - kliknij %stutaj%s."
+"Konfiguracja przechowywania w phpMyAdmin została wyłączona. Aby dowiedzieć "
+"się dlaczego, kliknij %shere%s."
 
 #: db_operations.php:583
 msgid "Edit or export relational schema"
