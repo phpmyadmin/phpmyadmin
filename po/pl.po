@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-06 17:27+0200\n"
+"PO-Revision-Date: 2011-09-06 17:28+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -358,7 +358,7 @@ msgstr ""
 
 #: db_operations.php:583
 msgid "Edit or export relational schema"
-msgstr "Edytuj lub eksportuj schemat relacji"
+msgstr "Edytuj lub eksportuj schemat relacyjny"
 
 #: db_printview.php:102 db_tracking.php:85 db_tracking.php:186
 #: libraries/config/messages.inc.php:504 libraries/db_structure.lib.php:32
