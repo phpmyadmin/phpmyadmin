@@ -1778,7 +1778,7 @@ msgstr "Použijte kolečko myši pro změnu velikosti grafu."
 
 #: js/messages.php:270
 msgid "Click and drag the mouse to navigate the plot."
-msgstr ""
+msgstr "Kliknutím a táhnutím myší se můžete po grafu pohybovat."
 
 #: js/messages.php:272
 msgid "Click reset zoom link to come back to original state."
