@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-07 09:27+0200\n"
+"PO-Revision-Date: 2011-09-07 09:28+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1794,7 +1794,7 @@ msgstr ""
 
 #: js/messages.php:278
 msgid "Strings are converted into integer for plotting"
-msgstr ""
+msgstr "Texty byly pro vykreslení převedeny na čísla"
 
 #: js/messages.php:280
 msgid "Select two columns"
