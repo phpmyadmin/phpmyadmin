@@ -278,7 +278,7 @@ for ($j = 0; $j < $fields_cnt; $j++) {
 <?php
 echo '<input type="text" name="maxPlotLimit" id="maxRowPlotLimit" value="';
 if (! empty($maxPlotLimit)) {
-    echo $maxPlotLimit;
+    echo htmlspecialchars($maxPlotLimit);
 } else {
     echo $GLOBALS['cfg']['maxRowPlotLimit'];
 }
