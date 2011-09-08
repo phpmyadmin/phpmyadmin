@@ -12096,9 +12096,8 @@ msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr "Den aktuella frågecachens träffsäkerhet på %s%% är under 20%%"
 
 #: po/advisory_rules.php:85
-#, fuzzy
 msgid "Query Cache usage"
-msgstr "Frågecache"
+msgstr "Frågecache användning"
 
 #: po/advisory_rules.php:86
 #, php-format
