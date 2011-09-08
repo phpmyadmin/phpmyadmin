@@ -199,7 +199,7 @@ function selectContent( element, lock, only_once )
 }
 
 /**
- * Displays a confirmation box before to submit a "DROP/DELETE/ALTER" query.
+ * Displays a confirmation box before submitting a "DROP/DELETE/ALTER" query.
  * This function is called while clicking links
  *
  * @param   object   the link
@@ -2246,7 +2246,7 @@ $(document).ready(function() {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = PMA_messages['strDropDatabaseStrongWarning'] + '\n' + PMA_messages['strDoYouReally'] + ' :\n' + 'DROP DATABASE ' + window.parent.db;
+        var question = PMA_messages['strDropDatabaseStrongWarning'] + '\n' + PMA_messages['strDoYouReally'] + ' :\n' + 'DROP DATABASE ' + escapeHtml(window.parent.db);
 
         $(this).PMA_confirm(question, $(this).attr('href') ,function(url) {
 
@@ -3373,4 +3373,16 @@ function PMA_clearSelection() {
         if(sel.empty) sel.empty();
         if(sel.removeAllRanges) sel.removeAllRanges();
     }
+}
+
+/**
+ * HTML escaping
+ */
+function escapeHtml(unsafe) {
+    return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
 }
