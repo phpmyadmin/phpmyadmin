@@ -14,6 +14,8 @@ phpMyAdmin - ChangeLog
 - [export] Remove native Excel export modules (xls and xlsx formats)
 - [import] Remove native Excel import modules (xls and xlsx formats)
 - bug #3392920 [edit] BLOB emptied after editing another column
+- [security] Fixed XSS in Inline Edit on save action, see PMASA-2011-14
+- [security] Fixed XSS with db/table/column names, see PMASA-2011-14 
 
 3.4.4.0 (2011-08-24)
 - bug #3323060 [parser] SQL parser breaks AJAX requests if query has unclosed quotes
