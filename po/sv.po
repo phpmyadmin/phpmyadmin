@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-09 00:05+0200\n"
+"PO-Revision-Date: 2011-09-09 00:06+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -12084,7 +12084,7 @@ msgstr "Frågecache effektivitet (%)"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
-msgstr ""
+msgstr "Frågecachen fungerar inte effektivt, den har en låg träffsäkerhet."
 
 #: po/advisory_rules.php:82
 msgid "Consider increasing {query_cache_limit}."
