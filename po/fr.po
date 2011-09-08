@@ -1919,6 +1919,8 @@ msgstr ""
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
+"Vous pouvez aussi modifier la plupart des colonnes<br/> en cliquant "
+"directement sur leur contenu."
 
 #: js/messages.php:322
 #, fuzzy
