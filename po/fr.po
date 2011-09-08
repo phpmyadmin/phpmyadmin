@@ -1911,6 +1911,9 @@ msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
+"Cette table ne contient pas de colonne unique. Les grilles d'édition, les "
+"cases à cocher ainsi que les liens Edition, Copie et Supprimer pourrait ne "
+"plus fonctionner après prise en compte de la modification."
 
 #: js/messages.php:321
 msgid ""
