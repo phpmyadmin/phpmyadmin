@@ -1923,10 +1923,9 @@ msgstr ""
 "directement sur leur contenu."
 
 #: js/messages.php:322
-#, fuzzy
 #| msgid "Go to view"
 msgid "Go to link"
-msgstr "Aller à la vue"
+msgstr "Suivre le lien"
 
 #: js/messages.php:325
 msgid "Generate password"
