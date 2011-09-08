@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-08 22:13+0200\n"
+"PO-Revision-Date: 2011-09-08 22:14+0200\n"
 "Last-Translator:  <guilhem.h@free.fr>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -2234,6 +2234,8 @@ msgstr "Le fichier de configuration (%s) est illisible."
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
+"Permissions sur le fichier de configuration incorrectes, il ne doit pas être "
+"en écriture pour tout le monde."
 
 #: libraries/Config.class.php:1297
 msgid "Font size"
