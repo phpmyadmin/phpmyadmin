@@ -1236,7 +1236,7 @@ msgstr "Вопросов с момента последнего обновлен
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:88
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "Вопросы (выражения выполненные сервером)"
 
 #: js/messages.php:90 server_status.php:776
 msgid "Query statistics"
