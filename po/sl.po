@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-08-28 14:10+0200\n"
+"PO-Revision-Date: 2011-09-09 18:57+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:319
@@ -2201,10 +2201,10 @@ msgid "Remove \"./config\" directory before using phpMyAdmin!"
 msgstr "Pred uporabo phpMyAdmina odstranite mapo \"./config\"!"
 
 #: libraries/Config.class.php:727
-#, fuzzy, php-format
+#, php-format
 #| msgid "Existing configuration file (%d) is not readable."
 msgid "Existing configuration file (%s) is not readable."
-msgstr "Obstoječa konfiguracijska datoteka (%d) ni berljiva."
+msgstr "Obstoječa konfiguracijska datoteka (%s) ni berljiva."
 
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
