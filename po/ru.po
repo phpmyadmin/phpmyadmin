@@ -912,10 +912,9 @@ msgstr "Точка %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:295
-#, fuzzy
 #| msgid "Add routine"
 msgid "Add a point"
-msgstr "Добавить процедуру"
+msgstr "Добавить точку"
 
 #: gis_data_editor.php:220 js/messages.php:290
 #, fuzzy
