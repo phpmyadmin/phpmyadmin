@@ -130,14 +130,25 @@ url_query = '<?php echo $url_query;?>';
     </div>
     <div style="float:left; padding-left:40px;">
         <?php echo __('X-Axis label:'); ?> <input style="margin-top:0;" type="text" name="xaxis_label" 
-            value="<?php echo ($yaxis == -1) ? __('X Values') : $keys[$yaxis]; ?>"><br />
+            value="<?php echo ($yaxis == -1) ? __('X Values') : htmlspecialchars($keys[$yaxis]); ?>"><br />
         <?php echo __('Y-Axis label:'); ?> <input type="text" name="yaxis_label" value="<?php echo __('Y Values'); ?>">
     </div>
     <p style="clear:both;">&nbsp;</p>
     <div id="resizer" style="width:600px; height:400px;">
         <div id="inner-resizer">
             <div id="querychart" style="display:none;">
-                <?php echo json_encode($data); ?>
+<?php
+$sanitized_data = array();
+foreach ($data as $data_row_number => $data_row) {
+    $tmp_row = array();
+    foreach ($data_row as $data_column => $data_value) {
+        $tmp_row[htmlspecialchars($data_column)] = htmlspecialchars($data_value);
+    }
+    $sanitized_data[] = $tmp_row;
+} 
+echo json_encode($sanitized_data); 
+unset($sanitized_data);
+?>
             </div>
         </div>
     </div>
