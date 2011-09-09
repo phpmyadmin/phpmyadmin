@@ -5475,11 +5475,10 @@ msgid "The server is not responding"
 msgstr "Le serveur ne répond pas"
 
 #: libraries/dbi/drizzle.dbi.lib.php:344
-#, fuzzy
 #| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid "(or the local Drizzle server's socket is not correctly configured)"
 msgstr ""
-"(ou l'interface de connexion vers le serveur MySQL local n'est pas "
+"(ou l'interface de connexion vers le serveur Drizzle local n'est pas "
 "correctement configurée)"
 
 #: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysqli.dbi.lib.php:384
