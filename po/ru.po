@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-09 20:24+0200\n"
+"PO-Revision-Date: 2011-09-09 20:26+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -1229,10 +1229,9 @@ msgstr "Соединения / Процессы"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:86
-#, fuzzy
 #| msgid "Connections since last refresh"
 msgid "Questions since last refresh"
-msgstr "Соединений с момента последнего обновления"
+msgstr "Вопросов с момента последнего обновления"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:88
