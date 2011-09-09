@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-09 12:44+0200\n"
+"PO-Revision-Date: 2011-09-09 12:45+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -6867,7 +6867,7 @@ msgstr "Fichier de formes ESRI"
 #: libraries/import/shp.php:275
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr ""
+msgstr "Erreur lors de l'importation du fichier de formes ESRI :«%s»."
 
 #: libraries/import/shp.php:331
 msgid ""
