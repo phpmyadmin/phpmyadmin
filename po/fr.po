@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-09 12:35+0200\n"
+"PO-Revision-Date: 2011-09-09 12:36+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -4478,7 +4478,7 @@ msgstr "Afficher un bouton d'aide"
 
 #: libraries/config/messages.inc.php:357
 msgid "Save all edited cells at once"
-msgstr ""
+msgstr "Sauvegarder en une étape tous les éléments modifiés"
 
 #: libraries/config/messages.inc.php:358
 msgid "Directory where exports can be saved on server"
