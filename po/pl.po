@@ -1213,7 +1213,7 @@ msgstr "Sumarycznie"
 #. l10n: Other, small valued, queries
 #: js/messages.php:73 server_status.php:594 server_status.php:1013
 msgid "Other"
-msgstr ""
+msgstr "Inne"
 
 #. l10n: Thousands separator
 #: js/messages.php:75 libraries/common.lib.php:1393
