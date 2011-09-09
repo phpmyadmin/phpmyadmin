@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-09 20:12+0200\n"
+"PO-Revision-Date: 2011-09-09 20:15+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -917,10 +917,9 @@ msgid "Add a point"
 msgstr "Добавить точку"
 
 #: gis_data_editor.php:220 js/messages.php:290
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Разделитель строк"
+msgstr "Линия"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:294
 msgid "Outer Ring"
