@@ -1336,10 +1336,9 @@ msgid "Used Swap"
 msgstr "Использовано области подкачки"
 
 #: js/messages.php:116
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "Чистых страниц"
+msgstr "Свободно области подкачки"
 
 #: js/messages.php:118
 msgid "Bytes sent"
