@@ -1600,10 +1600,9 @@ msgid "Analyse Query"
 msgstr "Analyse Query"
 
 #: js/messages.php:196
-#, fuzzy
 #| msgid "Apply a divisor"
 msgid "Advisor system"
-msgstr "Apply a divisor"
+msgstr "Advisor system"
 
 #: js/messages.php:197
 msgid "Possible performance issues"
