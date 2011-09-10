@@ -8482,10 +8482,9 @@ msgid "No databases"
 msgstr "No databases"
 
 #: navigation.php:270
-#, fuzzy
 #| msgid "filter tables by name"
 msgid "Filter tables by name"
-msgstr "filter tables by name"
+msgstr "Filter tables by name"
 
 #: navigation.php:303 navigation.php:304
 msgctxt "short form"
