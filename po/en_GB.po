@@ -1796,7 +1796,7 @@ msgstr "Click and drag the mouse to navigate the plot."
 
 #: js/messages.php:272
 msgid "Click reset zoom link to come back to original state."
-msgstr ""
+msgstr "Click reset zoom link to come back to original state."
 
 #: js/messages.php:274
 msgid "Click a data point to view and possibly edit the data row."
