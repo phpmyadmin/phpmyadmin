@@ -1416,7 +1416,7 @@ msgstr "Включена переменная slow_query_log."
 
 #: js/messages.php:139
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "Отключены переменные slow_query_log и general_log."
 
 #: js/messages.php:140
 msgid "log_output is not set to TABLE."
