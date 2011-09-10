@@ -919,7 +919,7 @@ msgstr "Linhas terminadas por"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:294
 msgid "Outer Ring"
-msgstr ""
+msgstr "Anel Externo"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:293
 msgid "Inner Ring"
