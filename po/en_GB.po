@@ -5300,7 +5300,7 @@ msgstr "Open Document Text"
 
 #: libraries/config/validate.lib.php:198
 msgid "Could not initialize Drizzle connection library"
-msgstr ""
+msgstr "Could not initialise Drizzle connection library"
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
 #, fuzzy
