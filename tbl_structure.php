@@ -260,20 +260,23 @@ foreach ($fields as $row) {
     // for the case ENUM('&#8211;','&ldquo;')
     $type         = htmlspecialchars($type);
     // in case it is too long
+    $start = 0;
     if (strlen($type) > $GLOBALS['cfg']['LimitChars']) {
+        $start = 13;
         $type = '<abbr title="' . $type . '">' . substr($type, 0, $GLOBALS['cfg']['LimitChars']) . '</abbr>';
     }
 
     unset($field_charset);
-    if ((substr($type, 0, 4) == 'char'
-        || substr($type, 0, 7) == 'varchar'
-        || substr($type, 0, 4) == 'text'
-        || substr($type, 0, 8) == 'tinytext'
-        || substr($type, 0, 10) == 'mediumtext'
-        || substr($type, 0, 8) == 'longtext'
-        || substr($type, 0, 3) == 'set'
-        || substr($type, 0, 4) == 'enum'
-        ) && !$extracted_fieldspec['binary']) {
+    if ((substr($type, $start, 4) == 'char'
+        || substr($type, $start, 7) == 'varchar'
+        || substr($type, $start, 4) == 'text'
+        || substr($type, $start, 8) == 'tinytext'
+        || substr($type, $start, 10) == 'mediumtext'
+        || substr($type, $start, 8) == 'longtext'
+        || substr($type, $start, 3) == 'set'
+        || substr($type, $start, 4) == 'enum')
+        && !$extracted_fieldspec['binary']
+    ) {
         if (strpos($type, ' character set ')) {
             $type = substr($type, 0, strpos($type, ' character set '));
         }
