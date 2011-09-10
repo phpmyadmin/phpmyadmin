@@ -9543,10 +9543,9 @@ msgid "Monitor"
 msgstr "Monitor"
 
 #: server_status.php:779
-#, fuzzy
 #| msgid "Apply a divisor"
 msgid "Advisor"
-msgstr "Apply a divisor"
+msgstr "Advisor"
 
 #: server_status.php:789 server_status.php:811
 msgid "Refresh rate: "
