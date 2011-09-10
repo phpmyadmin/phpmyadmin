@@ -1329,7 +1329,7 @@ msgstr "Всего области подкачки"
 
 #: js/messages.php:114
 msgid "Cached Swap"
-msgstr ""
+msgstr "Кешировано области подкачки"
 
 #: js/messages.php:115
 msgid "Used Swap"
