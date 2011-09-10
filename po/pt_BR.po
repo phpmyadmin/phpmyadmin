@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-10 03:04+0200\n"
+"PO-Revision-Date: 2011-09-10 03:07+0200\n"
 "Last-Translator:  <erickdeoliveiraleal@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -341,7 +341,7 @@ msgstr "Mudar para o Banco de Dados copiado"
 #: tbl_structure.php:203 tbl_structure.php:869 tbl_tracking.php:259
 #: tbl_tracking.php:310
 msgid "Collation"
-msgstr "Collation"
+msgstr "Colação"
 
 #: db_operations.php:549
 #, php-format
