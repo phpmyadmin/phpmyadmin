@@ -1524,10 +1524,9 @@ msgstr "Log analyzed, but no data found in this time span."
 
 #. l10n: A collection of available filters
 #: js/messages.php:173
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
-msgstr "Tables display options"
+msgstr "Log table filter options"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:175
