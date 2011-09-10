@@ -4965,10 +4965,9 @@ msgid "Show function fields"
 msgstr "Show function fields"
 
 #: libraries/config/messages.inc.php:462
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Whether to show hint or not"
-msgstr "Where to show the table row links"
+msgstr "Whether to show hint or not"
 
 #: libraries/config/messages.inc.php:463
 #, fuzzy
