@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-10 20:06+0200\n"
+"PO-Revision-Date: 2011-09-10 20:07+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -1369,10 +1369,9 @@ msgid "Settings"
 msgstr "Настройки"
 
 #: js/messages.php:127
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "Удалить базу данных"
+msgstr "Удалить график"
 
 #: js/messages.php:128
 msgid "Edit title and labels"
