@@ -1375,10 +1375,9 @@ msgid "Remove chart"
 msgstr "Remover Gráfico"
 
 #: js/messages.php:128
-#, fuzzy
 #| msgid "Edit labels and series"
 msgid "Edit title and labels"
-msgstr "Editar rótulos e séries."
+msgstr "Editar rótulos e títulos"
 
 # The word "chart" in brasilian portuguese can mean either "Table = tabela" or "Report = relatório" or "Chart = gráfico" or "Diagram = diagrama". So, it depends of the context.
 #: js/messages.php:129
