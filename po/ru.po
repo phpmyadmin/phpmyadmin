@@ -1476,7 +1476,7 @@ msgstr "Отключить %s"
 #: js/messages.php:152
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "Установить long_query_time в %ds"
 
 #: js/messages.php:153
 msgid ""
