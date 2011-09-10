@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-10 20:09+0200\n"
+"PO-Revision-Date: 2011-09-10 20:10+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -1396,7 +1396,7 @@ msgstr "Нет"
 
 #: js/messages.php:133
 msgid "Resume monitor"
-msgstr ""
+msgstr "Возобновить монитор"
 
 #: js/messages.php:134
 msgid "Pause monitor"
