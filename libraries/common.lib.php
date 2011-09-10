@@ -2899,11 +2899,13 @@ function PMA_extractFieldSpec($fieldspec)
         /* Create printable type name */
         $printtype = strtolower($fieldspec);
 
-        // strip the "BINARY" attribute, except if we find "BINARY(" because
-        // this would be a BINARY or VARBINARY field type
-        if (!preg_match('@binary[\(]@', $printtype)) {
-            $binary = strpos($printtype, 'blob') !== false || strpos($printtype, 'binary') !== false;
+        // Strip the "BINARY" attribute, except if we find "BINARY(" because
+        // this would be a BINARY or VARBINARY field type;
+        // by the way, a BLOB should not show the BINARY attribute
+        // because this is not accepted in MySQL syntax.
+        if (preg_match('@binary@', $printtype) && ! preg_match('@binary[\(]@', $printtype)) {
             $printtype = preg_replace('@binary@', '', $printtype);
+            $binary = true;
         } else {
             $binary = false;
         }
