@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-10 20:10+0200\n"
+"PO-Revision-Date: 2011-09-10 20:11+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -1404,7 +1404,7 @@ msgstr "Приостановить монитор"
 
 #: js/messages.php:136
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "Включены переменные general_log и slow_query_log."
 
 #: js/messages.php:137
 msgid "general_log is enabled."
