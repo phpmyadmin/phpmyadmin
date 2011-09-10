@@ -4427,7 +4427,7 @@ msgstr "Show help button"
 
 #: libraries/config/messages.inc.php:357
 msgid "Save all edited cells at once"
-msgstr ""
+msgstr "Save all edited cells at once"
 
 #: libraries/config/messages.inc.php:358
 msgid "Directory where exports can be saved on server"
