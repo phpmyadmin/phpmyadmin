@@ -6770,7 +6770,7 @@ msgstr "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 
 #: libraries/import/shp.php:14
 msgid "ESRI Shape File"
-msgstr ""
+msgstr "ESRI Shape File"
 
 #: libraries/import/shp.php:275
 #, php-format
