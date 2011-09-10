@@ -1236,6 +1236,10 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
+"The chart arrangement configuration in your browsers local storage is not "
+"compatible any more to the newer version of the monitor dialogue. It is very "
+"likely that your current configuration will not work any more. Please reset "
+"your configuration to default in the <i>Settings</i> menu."
 
 #: js/messages.php:96
 #, fuzzy
