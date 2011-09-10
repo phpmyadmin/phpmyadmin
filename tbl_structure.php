@@ -245,6 +245,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     $type             = $row['Type'];
     $extracted_fieldspec = PMA_extractFieldSpec($row['Type']);
 
+    $truncated = false;
     if ('set' == $extracted_fieldspec['type'] || 'enum' == $extracted_fieldspec['type']) {
         $type         = $extracted_fieldspec['type'] . '(' .
             str_replace("','", "', '", $extracted_fieldspec['spec_in_brackets']) . ')';
@@ -252,6 +253,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         // for the case ENUM('&#8211;','&ldquo;')
         $type         = htmlspecialchars($type);
         if(strlen($type) > $GLOBALS['cfg']['LimitChars']) {
+            $truncated = true;
             $type = '<abbr title="' . $type . '">' . substr($type, 0, $GLOBALS['cfg']['LimitChars']) . '</abbr>';
         }
 
@@ -292,6 +294,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         || substr($type, 0, 8) == 'longtext'
         || substr($type, 0, 3) == 'set'
         || substr($type, 0, 4) == 'enum'
+        || ($truncated && substr($type, 13, 4) == 'enum')
         ) && !$binary) {
         if (strpos($type, ' character set ')) {
             $type = substr($type, 0, strpos($type, ' character set '));
