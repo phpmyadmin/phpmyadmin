@@ -2435,6 +2435,8 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
+"Cannot save UI property \"%s\". The changes made will not be persistent after "
+"you refresh this page. Please check if the table structure has been changed."
 
 #: libraries/Theme.class.php:145
 #, php-format
