@@ -8112,10 +8112,9 @@ msgid "Operator"
 msgstr "Operator"
 
 #: libraries/tbl_select.lib.php:128
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "Search"
+msgstr "Table Search"
 
 #: libraries/tbl_select.lib.php:205 tbl_change.php:998
 #, fuzzy
