@@ -2197,7 +2197,7 @@ msgstr "Second"
 #: libraries/Advisor.class.php:151
 #, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
-msgstr ""
+msgstr "Failed formatting string for rule '%s'. PHP threw following error: %s"
 
 #: libraries/Config.class.php:703
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
