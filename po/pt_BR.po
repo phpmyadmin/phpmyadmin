@@ -867,7 +867,7 @@ msgid "Invalid export type"
 msgstr "Formato inválido para exportação"
 
 #: gis_data_editor.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
 msgstr "Valores do campo \"%s\""
