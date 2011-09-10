@@ -1343,7 +1343,7 @@ msgstr "Swap livre"
 
 #: js/messages.php:118
 msgid "Bytes sent"
-msgstr ""
+msgstr "Bytes enviados"
 
 #: js/messages.php:119
 #, fuzzy
