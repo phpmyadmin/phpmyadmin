@@ -1252,10 +1252,9 @@ msgid "Query cache usage"
 msgstr "Query cache usage"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
-msgstr "Query cache"
+msgstr "Query cache used"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
