@@ -814,6 +814,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
                     }) // end $.post()
 
+                    $editArea.show();
                     $editArea.find('select').live('change', function(e) {
                         $(g.cEdit).find('.edit_box').val($(this).val());
                     })
@@ -842,6 +843,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
                     }) // end $.post()
 
+                    $editArea.show();
                     $editArea.find('select').live('change', function(e) {
                         $(g.cEdit).find('.edit_box').val($(this).val());
                     })
@@ -871,6 +873,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
                     }) // end $.post()
 
+                    $editArea.show();
                     $editArea.find('select').live('change', function(e) {
                         $(g.cEdit).find('.edit_box').val($(this).val());
                     })
@@ -935,6 +938,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                                 PMA_ajaxShowMessage(data.error);
                             }
                         }) // end $.post()
+                        $editArea.show();
                     }
                     g.isEditCellTextEditable = true;
                 } else if ($td.is('.datefield, .datetimefield, .timestampfield')) {
