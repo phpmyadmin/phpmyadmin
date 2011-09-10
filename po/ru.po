@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-10 20:00+0200\n"
+"PO-Revision-Date: 2011-09-10 20:01+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -1276,7 +1276,7 @@ msgstr "Кеш запросов использован"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
-msgstr ""
+msgstr "Использование системного процессора"
 
 #: js/messages.php:101
 msgid "System memory"
