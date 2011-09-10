@@ -1400,7 +1400,7 @@ msgstr "Возобновить монитор"
 
 #: js/messages.php:134
 msgid "Pause monitor"
-msgstr ""
+msgstr "Приостановить монитор"
 
 #: js/messages.php:136
 msgid "general_log and slow_query_log are enabled."
