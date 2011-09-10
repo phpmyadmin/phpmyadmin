@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-10 20:19+0200\n"
+"PO-Revision-Date: 2011-09-10 20:20+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -1460,10 +1460,10 @@ msgstr "Установить log_output в %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:148
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
-msgstr "Доступно"
+msgstr "Включить %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:150
