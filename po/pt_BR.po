@@ -6585,7 +6585,7 @@ msgstr "Restrições para a tabela"
 
 #: libraries/export/sql.php:962
 msgid "MIME TYPES FOR TABLE"
-msgstr "MIME-TYPES PARA AS TABELAS"
+msgstr "MIME-TYPES PARA TABELA"
 
 #: libraries/export/sql.php:974
 msgid "RELATIONS FOR TABLE"
