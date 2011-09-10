@@ -6676,10 +6676,10 @@ msgid "Go to database"
 msgstr "Go to database"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
-msgstr "Missing data for %s"
+msgstr "Edit settings for %s"
 
 #: libraries/import.lib.php:1127
 msgid "Go to table"
