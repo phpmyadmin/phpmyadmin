@@ -1441,7 +1441,7 @@ msgstr ""
 #: js/messages.php:143
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "Переменная long_query_time установлена в %d секунд."
 
 #: js/messages.php:144
 msgid ""
