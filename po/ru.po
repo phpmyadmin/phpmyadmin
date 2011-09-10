@@ -1280,7 +1280,7 @@ msgstr "Использование системного процессора"
 
 #: js/messages.php:101
 msgid "System memory"
-msgstr ""
+msgstr "Системная память"
 
 #: js/messages.php:102
 msgid "System swap"
