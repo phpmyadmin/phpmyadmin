@@ -578,12 +578,12 @@ $is_modify_link = true, $back_url = '', $exit = true)
             if (strlen($table)) {
                 $_url_params['db'] = $db;
                 $_url_params['table'] = $table;
-                $doedit_goto = '<a href="tbl_sql.php?' . PMA_generate_common_url($_url_params) . '">';
+                $doedit_goto = '<a href="tbl_sql.php' . PMA_generate_common_url($_url_params) . '">';
             } elseif (strlen($db)) {
                 $_url_params['db'] = $db;
-                $doedit_goto = '<a href="db_sql.php?' . PMA_generate_common_url($_url_params) . '">';
+                $doedit_goto = '<a href="db_sql.php' . PMA_generate_common_url($_url_params) . '">';
             } else {
-                $doedit_goto = '<a href="server_sql.php?' . PMA_generate_common_url($_url_params) . '">';
+                $doedit_goto = '<a href="server_sql.php' . PMA_generate_common_url($_url_params) . '">';
             }
 
             $error_msg_output .= $doedit_goto

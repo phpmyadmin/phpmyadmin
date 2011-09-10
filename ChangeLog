@@ -51,6 +51,7 @@ phpMyAdmin - ChangeLog
 
 3.4.6.0 (not yet released)
 - patch #3404173 InnoDB comment display with tooltips/aliases
+- bug #3404886 [navi] Edit SQL statement after error
 
 3.4.5.0 (not yet released)
 - bug #3375325 [interface] Page list in navigation frame looks odd
