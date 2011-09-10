@@ -4826,10 +4826,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:430
-#, fuzzy
 #| msgid "Defragment table"
 msgid "UI preferences table"
-msgstr "Desfragmentar tabela"
+msgstr "Preferências visuais da tabela"
 
 #: libraries/config/messages.inc.php:431
 msgid ""
