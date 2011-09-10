@@ -10464,10 +10464,9 @@ msgstr ""
 "charting features however."
 
 #: server_status.php:1612
-#, fuzzy
 #| msgid "Pause monitor"
 msgid "Using the monitor:"
-msgstr "Pause monitor"
+msgstr "Using the monitor:"
 
 #: server_status.php:1614
 #, fuzzy
