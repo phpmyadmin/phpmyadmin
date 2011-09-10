@@ -5303,10 +5303,9 @@ msgid "Could not initialize Drizzle connection library"
 msgstr "Could not initialise Drizzle connection library"
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Could not connect to Drizzle server"
-msgstr "Could not connect to MySQL server"
+msgstr "Could not connect to Drizzle server"
 
 #: libraries/config/validate.lib.php:223 libraries/config/validate.lib.php:230
 msgid "Could not connect to MySQL server"
