@@ -8341,10 +8341,9 @@ msgid "Web server"
 msgstr "Web server"
 
 #: main.php:190
-#, fuzzy
 #| msgid "Use light version"
 msgid "Database client version"
-msgstr "Use light version"
+msgstr "Database client version"
 
 #: main.php:192
 msgid "PHP extension"
