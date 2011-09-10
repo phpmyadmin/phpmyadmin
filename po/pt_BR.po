@@ -1101,7 +1101,7 @@ msgstr "Esta operação pode ser demorada. Deseja prosseguir?"
 
 #: js/messages.php:42
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr "Você está prestes a DESATIVAR um repositório BLOB."
+msgstr "Você está prestes a DESATIVAR um repositório BLOB!"
 
 #: js/messages.php:43
 #, php-format
