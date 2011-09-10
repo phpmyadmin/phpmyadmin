@@ -28,7 +28,11 @@ require_once './libraries/StorageEngine.class.php';
 require_once './libraries/Partition.class.php';
 
 // load additional configuration variables
-require_once './libraries/data_mysql.inc.php';
+if (PMA_DRIZZLE) {
+    require_once './libraries/data_drizzle.inc.php';
+} else {
+    require_once './libraries/data_mysql.inc.php';
+}
 
 if (is_int($cfg['DefaultPropDisplay'])) {
     if ($num_fields <= $cfg['DefaultPropDisplay']) {
@@ -227,7 +231,7 @@ for ($i = 0; $i < $num_fields; $i++) {
                 if ($row['Null'] == 'YES') {
                     $row['DefaultType']  = 'NULL';
                     $row['DefaultValue'] = '';
-    // SHOW FULL FIELDS does not report the case when there is a DEFAULT value
+    // SHOW FULL COLUMNS does not report the case when there is a DEFAULT value
     // which is empty so we need to use the results of SHOW CREATE TABLE
                 } elseif (isset($row) && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['default_value'])) {
                     $row['DefaultType']  = 'USER_DEFINED';
@@ -413,7 +417,7 @@ for ($i = 0; $i < $num_fields; $i++) {
         $attribute = $submit_attribute;
     }
 
-    // here, we have a TIMESTAMP that SHOW FULL FIELDS reports as having the
+    // here, we have a TIMESTAMP that SHOW FULL COLUMNS reports as having the
     // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
     // the latter.
     if (PMA_MYSQL_INT_VERSION < 50025
@@ -486,11 +490,13 @@ for ($i = 0; $i < $num_fields; $i++) {
         }
         $content_cells[$i][$ci] .= '>INDEX</option>';
 
-        $content_cells[$i][$ci] .= '<option value="fulltext_' . $i . '" title="' . __('Fulltext') . '"';
-        if (isset($row['Key']) && $row['Key'] == 'FULLTEXT') {
-            $content_cells[$i][$ci] .= ' selected="selected"';
+        if (!PMA_DRIZZLE) {
+            $content_cells[$i][$ci] .= '<option value="fulltext_' . $i . '" title="' . __('Fulltext') . '"';
+            if (isset($row['Key']) && $row['Key'] == 'FULLTEXT') {
+                $content_cells[$i][$ci] .= ' selected="selected"';
+            }
+            $content_cells[$i][$ci] .= '>FULLTEXT</option>';
         }
-        $content_cells[$i][$ci] .= '>FULLTEXT</option>';
 
         $content_cells[$i][$ci] .= '</select>';
         $ci++;

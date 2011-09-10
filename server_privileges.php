@@ -750,7 +750,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
 function PMA_displayLoginInformationFields($mode = 'new')
 {
     // Get user/host name lengths
-    $fields_info = PMA_DBI_get_columns('mysql', 'user', true);
+    $fields_info = PMA_DBI_get_columns('mysql', 'user', null, true);
     $username_length = 16;
     $hostname_length = 41;
     foreach ($fields_info as $val) {

@@ -5,14 +5,14 @@
  * @package phpMyAdmin-test
  */
 
-require_once 'PMA_GIS_Geometry_test.php';
+require_once 'PMA_GIS_Geom_test.php';
 require_once 'libraries/gis/pma_gis_geometry.php';
 require_once 'libraries/gis/pma_gis_polygon.php';
 
 /**
  * Tests for PMA_GIS_Polygon class
  */
-class PMA_GIS_PolygonTest extends PMA_GIS_GeometryTest
+class PMA_GIS_PolygonTest extends PMA_GIS_GeomTest
 {
     /**
      * @var    PMA_GIS_Polygon
@@ -313,6 +313,35 @@ class PMA_GIS_PolygonTest extends PMA_GIS_GeometryTest
             array(
                 $temp['POLYGON'][1]
             )
+        );
+    }
+
+    /**
+     * data provider for testScaleRow
+     *
+     * @return data for testScaleRow
+     */
+    public function providerForTestScaleRow()
+    {
+        return array(
+            array(
+                'POLYGON((123 0,23 30,17 63,123 0))',
+                array(
+                    'minX' => 17,
+                    'maxX' => 123,
+                    'minY' => 0,
+                    'maxY' => 63,
+                )
+            ),
+            array(
+                'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
+                array(
+                    'minX' => 10,
+                    'maxX' => 45,
+                    'minY' => 10,
+                    'maxY' => 45
+                )
+            ),
         );
     }
 }

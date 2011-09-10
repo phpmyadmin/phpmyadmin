@@ -388,8 +388,6 @@ table tr.hover th {
 /**
  * marks table rows/cells if the db field is in a where condition
  */
-tr.condition th,
-tr.condition td,
 td.condition,
 th.condition {
     border: 1px solid <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
@@ -422,11 +420,11 @@ table [class=value] {
     font-family:        <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
 }
 <?php } ?>
-.value .attention {
+.attention {
     color:              red;
     font-weight:        bold;
 }
-.value .allfine {
+.allfine {
     color:              green;
 }
 
@@ -1662,16 +1660,6 @@ table#serverconnection_trg_local  {
     margin: 20px 30px 30px 10px
 }
 
-.exportoptions #buttonGo, .importoptions #buttonGo {
-    padding: 5px 30px;
-    -moz-border-radius: 11px;
-    -webkit-border-radius: 11px;
-    border-radius: 11px;
-    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
-    border: 1px solid #444444;
-    cursor: pointer;
-}
-
 .format_specific_options h3 {
     margin: 10px 0 0 10px;
     border: 0;
@@ -2306,7 +2294,7 @@ span.CodeMirror-selected {
     border-right: solid 1px #FFFFFF;
     cursor: col-resize;
     height: 100%;
-    margin-left: -6px;
+    margin-left: -5px;
     position: absolute;
     width: 5px;
 }
@@ -2367,6 +2355,10 @@ span.CodeMirror-selected {
     padding: 1px 3px !important;
 }
 
+
+.data_full_width {
+    width: 100%;
+}
 .cHide {
     background: #D3DCE3 url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>col_hide.png);
     color: #CCC;

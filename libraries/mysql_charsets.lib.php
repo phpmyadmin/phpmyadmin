@@ -42,7 +42,7 @@ if (! PMA_cacheExists('mysql_charsets', true)) {
             $mysql_collations[$row['CHARACTER_SET_NAME']][] = $row['COLLATION_NAME'];
         }
         $mysql_collations_flat[] = $row['COLLATION_NAME'];
-        if ($row['IS_DEFAULT'] == 'Yes') {
+        if ($row['IS_DEFAULT'] == 'Yes' || $row['IS_DEFAULT'] == '1') {
             $mysql_default_collations[$row['CHARACTER_SET_NAME']] = $row['COLLATION_NAME'];
         }
         //$mysql_collations_available[$row['Collation']] = ! isset($row['Compiled']) || $row['Compiled'] == 'Yes';
@@ -56,7 +56,10 @@ if (! PMA_cacheExists('mysql_charsets', true)) {
 
     if (PMA_DRIZZLE && isset($mysql_collations['utf8_general_ci']) && isset($mysql_collations['utf8'])) {
         $mysql_collations['utf8'] = $mysql_collations['utf8_general_ci'];
-        unset($mysql_collations['utf8_general_ci']);
+        $mysql_default_collations['utf8'] = $mysql_default_collations['utf8_general_ci'];
+        $mysql_charsets_available['utf8'] = $mysql_charsets_available['utf8_general_ci'];
+        unset($mysql_collations['utf8_general_ci'], $mysql_default_collations['utf8_general_ci'],
+            $mysql_charsets_available['utf8_general_ci']);
     }
 
     sort($mysql_collations_flat, SORT_STRING);
@@ -147,8 +150,12 @@ function PMA_generateCharsetDropdownBox($type = PMA_CSDROPDOWN_COLLATION,
 
 function PMA_generateCharsetQueryPart($collation)
 {
-    list($charset) = explode('_', $collation);
-    return ' CHARACTER SET ' . $charset . ($charset == $collation ? '' : ' COLLATE ' . $collation);
+    if (!PMA_DRIZZLE) {
+        list($charset) = explode('_', $collation);
+        return ' CHARACTER SET ' . $charset . ($charset == $collation ? '' : ' COLLATE ' . $collation);
+    } else {
+        return ' COLLATE ' . $collation;
+    }
 }
 
 /**
@@ -159,7 +166,7 @@ function PMA_generateCharsetQueryPart($collation)
  */
 function PMA_getDbCollation($db)
 {
-    if ($db == 'information_schema') {
+    if (PMA_is_system_schema($db)) {
         // We don't have to check the collation of the virtual
         // information_schema database: We know it!
         return 'utf8_general_ci';
@@ -167,7 +174,10 @@ function PMA_getDbCollation($db)
 
     if (! $GLOBALS['cfg']['Server']['DisableIS']) {
         // this is slow with thousands of databases
-        return PMA_DBI_fetch_value('SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA WHERE SCHEMA_NAME = \'' . PMA_sqlAddSlashes($db) . '\' LIMIT 1;');
+        $sql = PMA_DRIZZLE
+            ? 'SELECT DEFAULT_COLLATION_NAME FROM data_dictionary.SCHEMAS WHERE SCHEMA_NAME = \'' . PMA_sqlAddSlashes($db) . '\' LIMIT 1'
+            : 'SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA WHERE SCHEMA_NAME = \'' . PMA_sqlAddSlashes($db) . '\' LIMIT 1';
+        return PMA_DBI_fetch_value($sql);
     } else {
         PMA_DBI_select_db($db);
         $return = PMA_DBI_fetch_value('SHOW VARIABLES LIKE \'collation_database\'', 0, 1);

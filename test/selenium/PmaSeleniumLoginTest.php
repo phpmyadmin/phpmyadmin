@@ -21,7 +21,7 @@ class PmaSeleniumLoginTest extends PmaSeleniumTestCase
         $this->doLogin();
 
         // Check if login error happend
-        if ($this->isElementPresent("//html/body/div/div[@class='error']")){
+        if ($this->isElementPresent("//html/body/div/div[@class='error']")) {
             $this->fail($this->getText("//html/body/div/div[@class='error']"));
         }
 

@@ -3,9 +3,6 @@
 /**
  * Functions for the table-search page and zoom-search page
  *
- * Funtion PMA_tbl_getFields : Returns the fields of a table
- * Funtion PMA_tbl_search_getWhereClause : Returns the where clause for query generation
- *
  * @package phpMyAdmin
  */
 
@@ -40,21 +37,21 @@ function PMA_tbl_setTitle($propertiesIconic, $pmaThemeImage)
  * Gets all the fields of a table along with their types, collations
  * and whether null or not.
  *
- * @param string $table Selected table
  * @param string $db    Selected database
+ * @param string $table Selected table
  *
  * @return array Array containing the field list, field types, collations
  * and null constraint
  */
-function PMA_tbl_getFields($table,$db)
+function PMA_tbl_getFields($db, $table)
 {
     // Gets the list and number of fields
-    $fields = PMA_DBI_get_columns($db, $table, true);
+    $fields = PMA_DBI_get_columns($db, $table, null, true);
     $fields_list = $fields_null = $fields_type = $fields_collation = array();
     $geom_column_present = false;
     $geom_types = PMA_getGISDatatypes();
 
-    foreach ($fields as $row) {
+    foreach ($fields as $key => $row) {
         $fields_list[] = $row['Field'];
         $type          = $row['Type'];
 

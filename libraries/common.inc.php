@@ -124,17 +124,17 @@ if (!defined('PMA_MINIMUM_COMMON')) {
     /**
      * common functions
      */
-    require_once './libraries/common.lib.php';
+    include_once './libraries/common.lib.php';
 
     /**
      * Java script escaping.
      */
-    require_once './libraries/js_escape.lib.php';
+    include_once './libraries/js_escape.lib.php';
 
     /**
      * Include URL/hidden inputs generating.
      */
-    require_once './libraries/url_generating.lib.php';
+    include_once './libraries/url_generating.lib.php';
 }
 
 /******************************************************************************/
@@ -144,7 +144,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
  * protect against possible exploits - there is no need to have so much variables
  */
 if (count($_REQUEST) > 1000) {
-    die('possible exploit');
+    die(__('possible exploit'));
 }
 
 /**
@@ -153,7 +153,7 @@ if (count($_REQUEST) > 1000) {
  */
 foreach ($GLOBALS as $key => $dummy) {
     if (is_numeric($key)) {
-        die('numeric key detected');
+        die(__('numeric key detected'));
     }
 }
 unset($dummy);
@@ -265,7 +265,7 @@ if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) {
  * include deprecated grab_globals only if required
  */
 if (empty($__redirect) && !defined('PMA_NO_VARIABLES_IMPORT')) {
-    require './libraries/grab_globals.lib.php';
+    include './libraries/grab_globals.lib.php';
 }
 
 /**
@@ -484,7 +484,7 @@ if (! PMA_isValid($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['
     /**
      * Require cleanup functions
      */
-    require './libraries/cleanup.lib.php';
+    include './libraries/cleanup.lib.php';
     /**
      * Do actual cleanup
      */
@@ -740,12 +740,12 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * Character set conversion.
      */
-    require_once './libraries/charset_conversion.lib.php';
+    include_once './libraries/charset_conversion.lib.php';
 
     /**
      * String handling
      */
-    require_once './libraries/string.lib.php';
+    include_once './libraries/string.lib.php';
 
     /**
      * Lookup server by name
@@ -793,7 +793,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      */
     if (function_exists('mb_convert_encoding')
      && $lang == 'ja') {
-        require_once './libraries/kanji-encoding.lib.php';
+        include_once './libraries/kanji-encoding.lib.php';
     } // end if
 
     /**
@@ -810,9 +810,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /**
          * Loads the proper database interface for this server
          */
-        require_once './libraries/database_interface.lib.php';
+        include_once './libraries/database_interface.lib.php';
 
-        require_once './libraries/logging.lib.php';
+        include_once './libraries/logging.lib.php';
 
         // get LoginCookieValidity from preferences cache
         // no generic solution for loading preferences from cache as some settings need to be kept
@@ -837,7 +837,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /**
          * the required auth type plugin
          */
-        require_once './libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php';
+        include_once './libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php';
         if (!PMA_auth_check()) {
             /* Force generating of new session on login */
             PMA_secureSession();
@@ -857,7 +857,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             /**
              * ip based access library
              */
-            require_once './libraries/ip_allow_deny.lib.php';
+            include_once './libraries/ip_allow_deny.lib.php';
 
             $allowDeny_forbidden         = false; // default
             if ($cfg['Server']['AllowDeny']['order'] == 'allow,deny') {
@@ -943,20 +943,28 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             PMA_fatalError(__('You should upgrade to %s %s or later.'), array('MySQL', '5.0.15'));
         }
 
+        if (PMA_DRIZZLE) {
+            // DisableIS must be set to false for Drizzle, it maps SHOW commands
+            // to INFORMATION_SCHEMA queries anyway so it's fast on large servers
+            $cfg['Server']['DisableIS'] = false;
+            // SHOW OPEN TABLES is not supported by Drizzle
+            $cfg['SkipLockedTables'] = false;
+        }
+
         /**
          * SQL Parser code
          */
-        require_once './libraries/sqlparser.lib.php';
+        include_once './libraries/sqlparser.lib.php';
 
         /**
          * SQL Validator interface code
          */
-        require_once './libraries/sqlvalidator.lib.php';
+        include_once './libraries/sqlvalidator.lib.php';
 
         /**
          * the PMA_List_Database class
          */
-        require_once './libraries/PMA.php';
+        include_once './libraries/PMA.php';
         $pma = new PMA;
         $pma->userlink = $userlink;
         $pma->controllink = $controllink;
@@ -983,7 +991,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     }
 
     // library file for blobstreaming
-    require_once './libraries/blobstreaming.lib.php';
+    include_once './libraries/blobstreaming.lib.php';
 
     // checks for blobstreaming plugins and databases that support
     // blobstreaming (by having the necessary tables for blobstreaming)
@@ -1024,8 +1032,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
  */
 if (isset($_REQUEST['grid_edit']) && $_REQUEST['grid_edit'] == true) {
     $GLOBALS['grid_edit'] = true;
-}
-else {
+} else {
     $GLOBALS['grid_edit'] = false;
 }
 
@@ -1033,7 +1040,7 @@ if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {
     /**
      * include subform target page
      */
-    require $__redirect;
+    include $__redirect;
     exit();
 }
 ?>

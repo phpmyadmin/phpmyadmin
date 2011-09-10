@@ -79,28 +79,26 @@ if ($server > 0
     /**
      * Displays the mysql server related links
      */
-    if ($server > 0) {
+    if ($server > 0 && !PMA_DRIZZLE) {
         require_once './libraries/check_user_privileges.lib.php';
 
-        if (!PMA_DRIZZLE) {
-            // Logout for advanced authentication
-            if ($cfg['Server']['auth_type'] != 'config') {
-                if ($cfg['ShowChgPassword']) {
-                    if ($GLOBALS['cfg']['AjaxEnable']) {
-                        $conditional_class = 'ajax';
-                    } else {
-                        $conditional_class = null;
-                    }
-                    PMA_printListItem(__('Change password'), 'li_change_password',
-                        './user_password.php?' . $common_url_query, null, null, 'change_password_anchor', null, $conditional_class);
+        // Logout for advanced authentication
+        if ($cfg['Server']['auth_type'] != 'config') {
+            if ($cfg['ShowChgPassword']) {
+                if ($GLOBALS['cfg']['AjaxEnable']) {
+                    $conditional_class = 'ajax';
+                } else {
+                    $conditional_class = null;
                 }
-            } // end if
-
-            echo '    <li id="li_select_mysql_collation">';
-            echo '        <form method="post" action="index.php" target="_parent">' . "\n"
+                PMA_printListItem(__('Change password'), 'li_change_password',
+                    './user_password.php?' . $common_url_query, null, null, 'change_password_anchor', null, $conditional_class);
+            }
+        } // end if
+        echo '    <li id="li_select_mysql_collation">';
+        echo '        <form method="post" action="index.php" target="_parent">' . "\n"
            . PMA_generate_common_hidden_inputs(null, null, 4, 'collation_connection')
            . '            <label for="select_collation_connection">' . "\n"
-           . '                ' . __('MySQL connection collation') . "\n"
+           . '                ' . __('Server connection collation') . "\n"
            // put the doc link in the form so that it appears on the same line
            . PMA_showMySQLDocu('MySQL_Database_Administration', 'Charset-connection') . ': ' .  "\n"
            . '            </label>' . "\n"
@@ -109,8 +107,7 @@ if ($server > 0
            . '            <noscript><input type="submit" value="' . __('Go') . '" /></noscript>' . "\n"
            . '        </form>' . "\n"
            . '    </li>' . "\n";
-        } // not Drizzle
-    } // end of if ($server > 0)
+    } // end of if ($server > 0 && !PMA_DRIZZLE)
     echo '</ul>';
     echo '</div>';
 }
@@ -156,17 +153,18 @@ echo '<div id="main_pane_right">';
 
 if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
     echo '<div class="group">';
-    echo '<h2>MySQL</h2>';
+    echo '<h2>' . __('Database server') . '</h2>';
     echo '<ul>' . "\n";
     PMA_printListItem(__('Server') . ': ' . $server_info, 'li_server_info');
-    PMA_printListItem(__('Server version') . ': ' . PMA_MYSQL_STR_VERSION, 'li_server_version');
+    PMA_printListItem(__('Software') . ': ' . PMA_getServerType(), 'li_server_type');
+    PMA_printListItem(__('Software version') . ': ' . PMA_MYSQL_STR_VERSION . ' - ' . PMA_MYSQL_VERSION_COMMENT, 'li_server_version');
     PMA_printListItem(__('Protocol version') . ': ' . PMA_DBI_get_proto_info(),
         'li_mysql_proto');
     PMA_printListItem(__('User') . ': ' . htmlspecialchars($mysql_cur_user_and_host),
         'li_user_info');
 
     echo '    <li id="li_select_mysql_charset">';
-    echo '        ' . __('MySQL charset') . ': '
+    echo '        ' . __('Server charset') . ': '
        . '        <span xml:lang="en" dir="ltr">'
        . '           ' . $mysql_charsets_descriptions[$mysql_charset_map['utf-8']] . "\n"
        . '           (' . $mysql_charset_map['utf-8'] . ')' . "\n"
@@ -184,9 +182,15 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
         PMA_printListItem($_SERVER['SERVER_SOFTWARE'], 'li_web_server_software');
 
         if ($server > 0) {
-            PMA_printListItem(__('MySQL client version') . ': ' . PMA_DBI_get_client_info(),
+            $client_version_str = PMA_DBI_get_client_info();
+            if (preg_match('#\d+\.\d+\.\d+#', $client_version_str)
+                    && in_array($GLOBALS['cfg']['Server']['extension'], array('mysql', 'mysqli'))) {
+                $client_version_str = 'libmysql - ' . $client_version_str;
+            }
+            PMA_printListItem(__('Database client version') . ': ' . $client_version_str,
                 'li_mysql_client_version');
-            PMA_printListItem(__('PHP extension') . ': ' . $GLOBALS['cfg']['Server']['extension'] . ' ' . PMA_showPHPDocu('book.' . $GLOBALS['cfg']['Server']['extension'] . '.php'),
+            PMA_printListItem(__('PHP extension') . ': ' . $GLOBALS['cfg']['Server']['extension']. ' '
+                    . PMA_showPHPDocu('book.' . $GLOBALS['cfg']['Server']['extension'] . '.php'),
                 'li_used_php_extension');
         }
     }
@@ -290,9 +294,6 @@ if (file_exists('./config')) {
     trigger_error(__('Directory [code]config[/code], which is used by the setup script, still exists in your phpMyAdmin directory. You should remove it once phpMyAdmin has been configured.'), E_USER_WARNING);
 }
 
-/**
- * Check whether relations are supported.
- */
 if ($server > 0) {
     $cfgRelation = PMA_getRelationsParam();
     if (! $cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {
@@ -322,8 +323,9 @@ echo '</noscript>';
  * If someday there is a constant that we can check about mysqlnd, we can use it instead
  * of strpos().
  * If no default server is set, PMA_DBI_get_client_info() is not defined yet.
+ * Drizzle can speak MySQL protocol, so don't warn about version mismatch for Drizzle servers.
  */
-if (function_exists('PMA_DBI_get_client_info')) {
+if (function_exists('PMA_DBI_get_client_info') && !PMA_DRIZZLE) {
     $_client_info = PMA_DBI_get_client_info();
     if ($server > 0 && strpos($_client_info, 'mysqlnd') === false && substr(PMA_MYSQL_CLIENT_API, 0, 3) != substr(PMA_MYSQL_INT_VERSION, 0, 3)) {
         trigger_error(PMA_sanitize(sprintf(__('Your PHP MySQL library version %s differs from your MySQL server version %s. This may cause unpredictable behavior.'),

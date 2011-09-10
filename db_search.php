@@ -93,7 +93,7 @@ if (empty($_REQUEST['field_str']) || ! is_string($_REQUEST['field_str'])) {
 $sub_part = '';
 
 if ( $GLOBALS['is_ajax_request'] != true) {
-    require './libraries/db_info.inc.php';
+    include './libraries/db_info.inc.php';
     echo '<div id="searchresults">';
 }
 
@@ -148,11 +148,20 @@ if (isset($_REQUEST['submit_search'])) {
             $thefieldlikevalue = array();
             foreach ($tblfields as $tblfield) {
                 if (! isset($field) || strlen($field) == 0 || $tblfield['Field'] == $field) {
-                    $thefieldlikevalue[] = 'CONVERT(' . PMA_backquote($tblfield['Field']) . ' USING utf8)'
-                                         . ' ' . $like_or_regex . ' '
-                                         . "'" . $automatic_wildcard
-                                         . $search_word
-                                         . $automatic_wildcard . "'";
+                    // Drizzle has no CONVERT and all text columns are UTF-8
+                    if (PMA_DRIZZLE) {
+                        $thefieldlikevalue[] = PMA_backquote($tblfield['Field'])
+                                            . ' ' . $like_or_regex . ' '
+                                            . "'" . $automatic_wildcard
+                                            . $search_word
+                                            . $automatic_wildcard . "'";
+                    } else {
+                        $thefieldlikevalue[] = 'CONVERT(' . PMA_backquote($tblfield['Field']) . ' USING utf8)'
+                                            . ' ' . $like_or_regex . ' '
+                                            . "'" . $automatic_wildcard
+                                            . $search_word
+                                            . $automatic_wildcard . "'";
+                    }
                 }
             } // end for
 
@@ -249,8 +258,7 @@ if (isset($_REQUEST['submit_search'])) {
  */
 if ($GLOBALS['is_ajax_request'] == true) {
     exit;
-}
-else {
+} else {
     echo '</div>';//end searchresults div
 }
 

@@ -58,7 +58,22 @@ class PMA_StorageEngine
         static $storage_engines = null;
 
         if (null == $storage_engines) {
-            $storage_engines = PMA_DBI_fetch_result('SHOW STORAGE ENGINES', 'Engine');
+            if (PMA_DRIZZLE) {
+                $sql = "SELECT
+                        p.plugin_name            AS Engine,
+                        (CASE
+                            WHEN p.plugin_name = @@storage_engine THEN 'DEFAULT'
+                            WHEN p.is_active THEN 'YES'
+                            ELSE 'DISABLED' END) AS Support,
+                        m.module_description     AS Comment
+                    FROM data_dictionary.plugins p
+                        JOIN data_dictionary.modules m USING (module_name)
+                    WHERE p.plugin_type = 'StorageEngine'
+                        AND p.plugin_name NOT IN ('FunctionEngine', 'schema')";
+                $storage_engines = PMA_DBI_fetch_result($sql, 'Engine');
+            } else {
+                $storage_engines = PMA_DBI_fetch_result('SHOW STORAGE ENGINES', 'Engine');
+            }
         }
 
         return $storage_engines;
@@ -83,9 +98,12 @@ class PMA_StorageEngine
             . (empty($id) ? '' : ' id="' . $id . '"') . '>' . "\n";
 
         foreach (PMA_StorageEngine::getStorageEngines() as $key => $details) {
+            // Don't show PERFORMANCE_SCHEMA engine (MySQL 5.5)
+            // Don't show MyISAM for Drizzle (allowed only for temporary tables)
             if (!$offerUnavailableEngines
-                  && ($details['Support'] == 'NO' || $details['Support'] == 'DISABLED'
-                      || $details['Engine'] == 'PERFORMANCE_SCHEMA')) {
+                && ($details['Support'] == 'NO' || $details['Support'] == 'DISABLED'
+                    || $details['Engine'] == 'PERFORMANCE_SCHEMA')
+                    || (PMA_DRIZZLE && $details['Engine'] == 'MyISAM')) {
                 continue;
             }
 

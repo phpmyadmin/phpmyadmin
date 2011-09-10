@@ -246,11 +246,21 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
         reposRsz: function() {
             $(g.cRsz).find('div').hide();
             var $firstRowCols = $(g.t).find('tr:first th.draggable:visible');
+            var $resizeHandles = $(g.cRsz).find('div').removeClass('condition');
+            $('.pma_table').find('thead th:first').removeClass('before-condition');
             for (var n = 0; n < $firstRowCols.length; n++) {
                 var $col = $($firstRowCols[n]);
-                $cb = $(g.cRsz).find('div:eq(' + n + ')');   // column border
-                $cb.css('left', $col.position().left + $col.outerWidth(true))
+                $($resizeHandles[n]).css('left', $col.position().left + $col.outerWidth(true))
                    .show();
+                if ($($firstRowCols[n]).hasClass('condition')) {
+                    $($resizeHandles[n]).addClass('condition');
+                    if (n > 0) {
+                        $($resizeHandles[n-1]).addClass('condition');
+                    }
+                }
+            }
+            if ($($resizeHandles[0]).hasClass('condition')) {
+                $('.pma_table').find('thead th:first').addClass('before-condition');
             }
             $(g.cRsz).css('height', $(g.t).height());
         },
@@ -431,9 +441,10 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 }
 
                 // hide the hint if no text and the event is mouseenter
-                g.qtip.disable(!text && e.type == 'mouseenter');
-
-                g.qtip.updateContent(text, false);
+                if (g.qtip) {
+                    g.qtip.disable(!text && e.type == 'mouseenter');
+                    g.qtip.updateContent(text, false);
+                }
             } else {
                 g.hideHint();
             }
@@ -531,7 +542,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
          * Reposition the column visibility drop-down arrow.
          */
         reposDrop: function() {
-            $th = $(t).find('th:not(.draggable)');
+            var $th = $(t).find('th:not(.draggable)');
             for (var i = 0; i < $th.length; i++) {
                 var $cd = $(g.cDrop).find('div:eq(' + i + ')');   // column drop-down arrow
                 var pos = $($th[i]).position();
@@ -786,7 +797,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         'token' : g.token,
                         'curr_value' : relation_curr_value,
                         'relation_key_or_display_column' : relation_key_or_display_column
-                    }
+                    };
 
                     g.lastXHR = $.post('sql.php', post_params, function(data) {
                         g.lastXHR = null;
@@ -801,11 +812,12 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
                         $editArea.append(data.dropdown);
                         $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
-                    }) // end $.post()
+                    }); // end $.post()
 
+                    $editArea.show();
                     $editArea.find('select').live('change', function(e) {
                         $(g.cEdit).find('.edit_box').val($(this).val());
-                    })
+                    });
                 }
                 else if($td.is('.enum')) {
                     //handle enum fields
@@ -823,17 +835,18 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             'column' : field_name,
                             'token' : g.token,
                             'curr_value' : curr_value
-                    }
+                    };
                     g.lastXHR = $.post('sql.php', post_params, function(data) {
                         g.lastXHR = null;
                         $editArea.removeClass('edit_area_loading');
                         $editArea.append(data.dropdown);
                         $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
-                    }) // end $.post()
+                    }); // end $.post()
 
+                    $editArea.show();
                     $editArea.find('select').live('change', function(e) {
                         $(g.cEdit).find('.edit_box').val($(this).val());
-                    })
+                    });
                 }
                 else if($td.is('.set')) {
                     //handle set fields
@@ -851,18 +864,19 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             'column' : field_name,
                             'token' : g.token,
                             'curr_value' : curr_value
-                    }
+                    };
 
                     g.lastXHR = $.post('sql.php', post_params, function(data) {
                         g.lastXHR = null;
                         $editArea.removeClass('edit_area_loading');
                         $editArea.append(data.select);
                         $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
-                    }) // end $.post()
+                    }); // end $.post()
 
+                    $editArea.show();
                     $editArea.find('select').live('change', function(e) {
                         $(g.cEdit).find('.edit_box').val($(this).val());
-                    })
+                    });
                 }
                 else if($td.is('.truncated, .transformed')) {
                     if ($td.is('.to_be_saved')) {   // cell has been edited
@@ -923,7 +937,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             else {
                                 PMA_ajaxShowMessage(data.error);
                             }
-                        }) // end $.post()
+                        }); // end $.post()
+                        $editArea.show();
                     }
                     g.isEditCellTextEditable = true;
                 } else if ($td.is('.datefield, .datetimefield, .timestampfield')) {
@@ -1227,7 +1242,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             PMA_ajaxShowMessage(data.error);
                         }
                     }
-            }) // end $.ajax()
+            }); // end $.ajax()
         },
 
         /**
@@ -1446,7 +1461,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             var $firstRowCols = $(g.t).find('tr:first th.draggable');
 
             // initialize column visibility
-            $col_visib = $('#col_visib');   // check if column visibility is passed from PHP
+            var $col_visib = $('#col_visib');   // check if column visibility is passed from PHP
             if ($col_visib.length > 0) {
                 g.colVisib = $col_visib.val().split(',');
                 for (var i = 0; i < g.colVisib.length; i++) {
@@ -1458,9 +1473,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     g.colVisib.push(1);
                 }
             }
-
-            // get data columns in the first row of the table
-            var $firstRowCols = $(t).find('tr:first th.draggable');
 
             // make sure we have more than one column
             if ($firstRowCols.length > 1) {
@@ -1617,7 +1629,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             // add hint for grid editing feature when hovering "Edit" link in each table row
             PMA_createqTip($(g.t).find('.edit_row_anchor a'), PMA_messages['strGridEditFeatureHint']);
         }
-    }
+    };
 
     /******************
      * Initialize grid

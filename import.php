@@ -53,7 +53,7 @@ if (!empty($sql_query)) {
 // upload limit has been reached, let's assume the second possibility.
 ;
 if ($_POST == array() && $_GET == array()) {
-    require_once './libraries/header.inc.php';
+    include_once './libraries/header.inc.php';
     $message = PMA_Message::error(__('You probably tried to upload too large file. Please refer to %sdocumentation%s for ways to workaround this limit.'));
     $message->addParam('[a@./Documentation.html#faq1_16@_blank]');
     $message->addParam('[/a]');
@@ -63,7 +63,7 @@ if ($_POST == array() && $_GET == array()) {
     $_SESSION['Import_message']['go_back_url'] = $goto;
 
     $message->display();
-    require './libraries/footer.inc.php';
+    include './libraries/footer.inc.php';
 }
 
 // Check needed parameters
@@ -148,7 +148,7 @@ $bookmark_created = false;
 // Bookmark Support: get a query back from bookmark if required
 if (!empty($id_bookmark)) {
     $id_bookmark = (int)$id_bookmark;
-    require_once './libraries/bookmark.lib.php';
+    include_once './libraries/bookmark.lib.php';
     switch ($action_bookmark) {
         case 0: // bookmarked query that have to be run
             $import_text = PMA_Bookmark_get($db, $id_bookmark, 'id', isset($action_bookmark_all));
@@ -183,7 +183,7 @@ if (isset($GLOBALS['show_as_php'])) {
 
 // Store the query as a bookmark before executing it if bookmarklabel was given
 if (!empty($bkm_label) && !empty($import_text)) {
-    require_once './libraries/bookmark.lib.php';
+    include_once './libraries/bookmark.lib.php';
     $bfields = array(
                  'dbase' => $db,
                  'user'  => $cfg['Bookmark']['user'],
@@ -346,10 +346,16 @@ if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE && isset($charset_of_fil
         $charset_conversion = true;
     }
 } elseif (isset($charset_of_file) && $charset_of_file != 'utf8') {
-    PMA_DBI_query('SET NAMES \'' . $charset_of_file . '\'');
-    // We can not show query in this case, it is in different charset
-    $sql_query_disabled = true;
-    $reset_charset = true;
+    if (PMA_DRIZZLE) {
+        // Drizzle doesn't support other character sets, so we can't fallback to SET NAMES - throw an error
+        $error = true;
+        $message = PMA_Message::error(__('Cannot convert file\'s character set without character set conversion library'));
+    } else {
+        PMA_DBI_query('SET NAMES \'' . $charset_of_file . '\'');
+        // We can not show query in this case, it is in different charset
+        $sql_query_disabled = true;
+        $reset_charset = true;
+    }
 }
 
 // Something to skip?
@@ -371,7 +377,7 @@ if (!$error) {
     } else {
         // Do the real import
         $plugin_param = $import_type;
-        require './libraries/import/' . $format . '.php';
+        include './libraries/import/' . $format . '.php';
     }
 }
 
@@ -435,7 +441,7 @@ if (isset($message)) {
 // (but if the query is too large, in case of an imported file, the parser
 //  can choke on it so avoid parsing)
 if (strlen($sql_query) <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
-    require_once './libraries/parse_analyze.lib.php';
+    include_once './libraries/parse_analyze.lib.php';
 }
 
 // There was an error?
@@ -455,10 +461,10 @@ if (! empty($last_query_with_results)) {
 }
 
 if ($go_sql) {
-    require './sql.php';
+    include './sql.php';
 } else {
     $active_page = $goto;
-    require './' . $goto;
+    include './' . $goto;
 }
 exit();
 ?>

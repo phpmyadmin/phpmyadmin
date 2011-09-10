@@ -130,8 +130,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
         $this->object->set('GD2Available',$prevIsGb2Val);
 
-        if (!@function_exists('imagecreatetruecolor'))
-        {
+        if (!@function_exists('imagecreatetruecolor')) {
             $this->object->checkGd2();
             $this->assertEquals(0, $this->object->get('PMA_IS_GD2'), 'Function imagecreatetruecolor does not exist, PMA_IS_GD2 should be 0');
         }
@@ -178,23 +177,19 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     {
         $this->object->checkWebServerOs();
 
-        if (defined('PHP_OS'))
-        {
-            switch (PHP_OS)
-            {
-                case stristr(PHP_OS,'win'):
-                    $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'), 'PHP_OS equals: ' . PHP_OS . ' PMA_IS_WINDOWS should be 1');
-                    break;
-                case stristr(PHP_OS, 'OS/2'):
-                    $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'), 'PHP_OS is OS/2 PMA_IS_WINDOWS should be 1 (No file permissions like Windows)');
-                    break;
-                case stristr(PHP_OS, 'Linux'):
-                    $this->assertEquals(0, $this->object->get('PMA_IS_WINDOWS'));
-                    break;
+        if (defined('PHP_OS')) {
+            switch (PHP_OS) {
+            case stristr(PHP_OS,'win'):
+                $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'), 'PHP_OS equals: ' . PHP_OS . ' PMA_IS_WINDOWS should be 1');
+                break;
+            case stristr(PHP_OS, 'OS/2'):
+                $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'), 'PHP_OS is OS/2 PMA_IS_WINDOWS should be 1 (No file permissions like Windows)');
+                break;
+            case stristr(PHP_OS, 'Linux'):
+                $this->assertEquals(0, $this->object->get('PMA_IS_WINDOWS'));
+                break;
             }
-        }
-        else
-        {
+        } else {
             $this->assertEquals(0, $this->object->get('PMA_IS_WINDOWS'), 'PMA_IS_WINDOWS Default to Unix or Equiv');
 
             define('PHP_OS','Windows');
@@ -432,8 +427,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
             'PMA_USR_BROWSER_AGENT'
             );
 
-        foreach ($defines as $define)
-        {
+        foreach ($defines as $define) {
             $this->assertTrue(defined($define));
             $this->assertEquals(constant($define), $this->object->get($define));
         }

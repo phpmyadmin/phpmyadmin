@@ -1787,7 +1787,8 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dd>Defines the default connection collation to use, if not
         user-defined.<br />
         See the <a href="http://dev.mysql.com/doc/mysql/en/charset-charsets.html">MySQL
-        documentation</a> for list of possible values.</dd>
+        documentation</a> for list of possible values. This setting is ignored when
+		connected to Drizzle server.</dd>
 
     <dt id="cfg_Lang">$cfg['Lang'] string</dt>
     <dd>Force language to use.<br />
@@ -2260,6 +2261,10 @@ setfacl -d -m "g:www-data:rwx" tmp
     <dd>Contains names of configuration options (keys in <tt>$cfg</tt> array)
         that users can't set through user preferences. For possible values, refer
         to <tt>libraries/config/user_preferences.forms.php</tt>.</dd>
+
+    <dt id="cfg_UserprefsDeveloperTab">$cfg['UserprefsDeveloperTab'] boolean</dt>
+    <dd>Activates in the user preferences a tab containing options for 
+        developers of phpMyAdmin.</dd>
 
     <dt id="cfg_TitleTable">$cfg['TitleTable'] string</dt>
     <dt id="cfg_TitleDatabase">$cfg['TitleDatabase'] string</dt>
@@ -2834,7 +2839,9 @@ setfacl -d -m "g:www-data:rwx" tmp
     minor version since the one that is bundled with some PHP distributions is
     rather old and might cause problems <a href="#faq1_17a">
         (see <abbr title="Frequently Asked Questions">FAQ</abbr> 1.17a)</a>.<br /><br />
-    MariaDB is also supported (versions 5.1 and 5.2 were tested).
+    <a href="http://mariadb.org/">MariaDB</a> is also supported
+    (versions 5.1 and 5.2 were tested).<br /><br />
+    Since phpMyAdmin 3.5 <a href="http://www.drizzle.org/">Drizzle</a> is supported.
     </p>
 
 <h5 id="faq1_17a">
@@ -4414,7 +4421,7 @@ chmod o+rwx tmp
 
     <p>To select relation, click :</p>
 
-    <img src="pmd/images/help_relation.png"></p>
+    <img src="pmd/images/help_relation.png" />
     <p>The display column is shown in pink. To set/unset a column as the display column, click the "Choose column to display" icon, then click on the appropriate column name.</p>
 
 <h4 id="faq6_32">
@@ -4923,10 +4930,11 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
   <li>BLOBstreaming support</li>
 </ul></li>
 
-<li>Piotr Przybylski (Google Summer of Code 2008 and 2010)
+<li>Piotr Przybylski (Google Summer of Code 2008, 2010 and 2011)
 <ul>
   <li>improved setup script</li>
   <li>user preferences</li>
+  <li>Drizzle support</li>
 </ul></li>
 
 <li>Derek Schaefer (Google Summer of Code 2009)

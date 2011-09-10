@@ -91,7 +91,7 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link, &$matching
 {
     if (isset($matching_table[$matching_table_index])) {
         $fld = array();
-        $fld_results = PMA_DBI_get_columns($src_db, $matching_table[$matching_table_index], true, $src_link);
+        $fld_results = PMA_DBI_get_columns($src_db, $matching_table[$matching_table_index], null, true, $src_link);
         $is_key = array();
         if (isset($fld_results)) {
             foreach ($fld_results as $each_field) {
@@ -109,7 +109,7 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link, &$matching
         $source_result_set = PMA_get_column_values($src_db, $matching_table[$matching_table_index], $is_key, $src_link);
         $source_size = sizeof($source_result_set);
 
-        $trg_fld_results = PMA_DBI_get_columns($trg_db, $matching_table[$matching_table_index], true, $trg_link);
+        $trg_fld_results = PMA_DBI_get_columns($trg_db, $matching_table[$matching_table_index], null, true, $trg_link);
         $all_keys_match = true;
         $trg_keys = array();
 
@@ -591,7 +591,7 @@ function PMA_insertIntoTargetTable($matching_table, $src_db, $trg_db, $src_link,
 function PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link, &$uncommon_tables, $table_index, &$uncommon_tables_fields, $display)
 {
     if (isset($uncommon_tables[$table_index])) {
-        $fields_result = PMA_DBI_get_columns($src_db, $uncommon_tables[$table_index], true, $src_link);
+        $fields_result = PMA_DBI_get_columns($src_db, $uncommon_tables[$table_index], null, true, $src_link);
         $fields = array();
         foreach ($fields_result as $each_field) {
             $field_name = $each_field['Field'];
@@ -1125,8 +1125,8 @@ function PMA_indexesDiffInTables($src_db, $trg_db, $src_link, $trg_link, $matchi
  &$alter_indexes_array, &$remove_indexes_array, $table_counter)
 {
     //Gets indexes information for source and target table
-    $source_indexes[$table_counter] = PMA_get_table_indexes($src_db, $matching_tables[$table_counter],$src_link);
-    $target_indexes[$table_counter] = PMA_get_table_indexes($trg_db, $matching_tables[$table_counter],$trg_link);
+    $source_indexes[$table_counter] = PMA_DBI_get_table_indexes($src_db, $matching_tables[$table_counter],$src_link);
+    $target_indexes[$table_counter] = PMA_DBI_get_table_indexes($trg_db, $matching_tables[$table_counter],$trg_link);
     for ($a = 0; $a < sizeof($source_indexes[$table_counter]); $a++) {
         $found = false;
         $z = 0;
@@ -1371,25 +1371,5 @@ function PMA_get_column_values($database, $table, $column, $link = null)
         return false;
     }
     return $field_values;
-}
-
-/**
- * array  PMA_get_table_indexes($database, $table, $link = null)
- *
- * @param string  $database   name of database
- * @param string  $table      name of the table whose indexes are to be retreived
- * @param mixed   $link       mysql link resource
- * @return   array   $indexes
- */
-function PMA_get_table_indexes($database, $table, $link = null)
-{
-    $indexes = PMA_DBI_fetch_result(
-              'SHOW INDEXES FROM ' .PMA_backquote($database) . '.' . PMA_backquote($table),
-               null, null, $link);
-
-    if (!is_array($indexes) || count($indexes) == 0) {
-        return null;
-    }
-    return $indexes;
 }
 ?>

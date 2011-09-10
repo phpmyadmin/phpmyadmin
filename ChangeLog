@@ -47,6 +47,12 @@ phpMyAdmin - ChangeLog
 + [interface] Editor for GIS data
 + [import] Import GIS data from ESRI Shapefiles
 + [interface] 'Function based search' for GIS data
++ Support Drizzle database
+
+3.4.6.0 (not yet released)
+- patch #3404173 InnoDB comment display with tooltips/aliases
+- bug #3404886 [navi] Edit SQL statement after error
+- bug #3403165 [interface] Collation not displayed for long enum fields
 
 3.4.5.0 (not yet released)
 - bug #3375325 [interface] Page list in navigation frame looks odd
@@ -58,8 +64,10 @@ phpMyAdmin - ChangeLog
 - [export] Remove native Excel export modules (xls and xlsx formats)
 - [import] Remove native Excel import modules (xls and xlsx formats)
 - bug #3392920 [edit] BLOB emptied after editing another column
+- [security] Fixed XSS in Inline Edit on save action, see PMASA-2011-14
+- [security] Fixed XSS with db/table/column names, see PMASA-2011-14 
 
-3.4.4.0 (not yet released)
+3.4.4.0 (2011-08-24)
 - bug #3323060 [parser] SQL parser breaks AJAX requests if query has unclosed quotes
 - bug #3323101 [parser] Invalid escape sequence in SQL parser
 - bug #3348995 [config] $cfg['Export']['asfile'] set to false does not select asText option
@@ -77,6 +85,7 @@ phpMyAdmin - ChangeLog
 - bug #3372807 [interface] Fix security warning link in setup
 - bug #3374347 [display] Backquotes in normal text on import page
 - bug #3358750 [core] With Suhosin, urls are too long in edit links
+- [security] Missing sanitization on the table, column and index names leads to XSS vulnerabilities, see PMASA-2011-13
 
 3.4.3.2 (2011-07-23)
 - [security] Fixed XSS vulnerability, see PMASA-2011-9

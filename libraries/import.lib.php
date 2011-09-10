@@ -872,7 +872,11 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
     $sql = array();
 
     if ($create_db) {
-        $sql[] = "CREATE DATABASE IF NOT EXISTS " . PMA_backquote($db_name) . " DEFAULT CHARACTER SET " . $charset . " COLLATE " . $collation;
+        if (PMA_DRIZZLE) {
+            $sql[] = "CREATE DATABASE IF NOT EXISTS " . PMA_backquote($db_name) . " COLLATE " . $collation;
+        } else {
+            $sql[] = "CREATE DATABASE IF NOT EXISTS " . PMA_backquote($db_name) . " DEFAULT CHARACTER SET " . $charset . " COLLATE " . $collation;
+        }
     }
 
     /**
@@ -946,7 +950,9 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
                     $tempSQLStr .= ", ";
                 }
             }
-            $tempSQLStr .= ") DEFAULT CHARACTER SET " . $charset . " COLLATE " . $collation . ";";
+            $tempSQLStr .= ")"
+                . (PMA_DRIZZLE ? "" : " DEFAULT CHARACTER SET " . $charset)
+                . " COLLATE " . $collation . ";";
 
             /**
              * Each SQL statement is executed immediately
@@ -1115,7 +1121,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
 
         unset($params);
 
-        if (! PMA_isView($db_name, $tables[$i][TBL_NAME])) {
+        if (! PMA_Table::isView($db_name, $tables[$i][TBL_NAME])) {
             $message .= sprintf('<li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">' . __('Structure') . '</a>) (<a href="%s" title="%s">' . __('Options') . '</a>)</li>',
                                 $tbl_url,
                                 __('Go to table') . ': ' . htmlspecialchars(PMA_backquote($tables[$i][TBL_NAME])),

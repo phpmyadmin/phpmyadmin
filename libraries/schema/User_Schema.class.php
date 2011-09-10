@@ -31,11 +31,12 @@ class PMA_User_Schema
      * you can set the table positions on the paper via scratchboard
      * for table positions, put the x,y co-ordinates
      *
-     * @param string $this->action It tells what the Schema is supposed to do
-     *                       create and select a page, generate schema etc
+     * $this->action tells what the Schema is supposed to do
+     * create and select a page, generate schema etc
+     *
      * @access public
+     * @return void
      */
-
     public function processUserChoice()
     {
         global $action_choose, $db, $cfgRelation;
@@ -64,13 +65,17 @@ class PMA_User_Schema
                     $cfgRelation,
                     $db
                 );
-                $this->autoLayoutForeign = isset($_POST['auto_layout_foreign']) ? "1":NULL;
-                $this->autoLayoutInternal = isset($_POST['auto_layout_internal']) ? "1":NULL;
+                $this->autoLayoutForeign = isset($_POST['auto_layout_foreign'])
+                    ? "1"
+                    : null;
+                $this->autoLayoutInternal = isset($_POST['auto_layout_internal'])
+                    ? "1"
+                    : null;
                 $this->processRelations(
                     $db,
                     $this->pageNumber,
                     $cfgRelation
-                    );
+                );
                 break;
             case 'edcoord':
                 $this->chosenPage = $_POST['chpage'];
@@ -97,7 +102,8 @@ class PMA_User_Schema
     /**
      * shows/displays the HTML FORM to create the page
      *
-     * @param string db name of the selected database
+     * @param string $db name of the selected database
+     *
      * @return void
      * @access public
      */
@@ -154,8 +160,10 @@ class PMA_User_Schema
     public function selectPage()
     {
         global $db,$table,$cfgRelation;
-        $page_query = 'SELECT * FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
-                . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\'';
+        $page_query = 'SELECT * FROM '
+            . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
+            . PMA_backquote($cfgRelation['pdf_pages'])
+            . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\'';
         $page_rs    = PMA_query_as_controluser($page_query, false, PMA_DBI_QUERY_STORE);
         if ($page_rs && PMA_DBI_num_rows($page_rs) > 0) {
             ?>
@@ -170,12 +178,15 @@ class PMA_User_Schema
             <option value="0"><?php echo __('Select page'); ?></option>
             <?php
             while ($curr_page = PMA_DBI_fetch_assoc($page_rs)) {
-                   echo "\n" . '        '
-                        . '<option value="' . $curr_page['page_nr'] . '"';
-                    if (isset($this->chosenPage) && $this->chosenPage == $curr_page['page_nr']) {
-                        echo ' selected="selected"';
-                    }
-                    echo '>' . $curr_page['page_nr'] . ': ' . htmlspecialchars($curr_page['page_descr']) . '</option>';
+                echo "\n" . '        '
+                    . '<option value="' . $curr_page['page_nr'] . '"';
+                if (isset($this->chosenPage)
+                    && $this->chosenPage == $curr_page['page_nr']
+                ) {
+                    echo ' selected="selected"';
+                }
+                echo '>' . $curr_page['page_nr'] . ': '
+                    . htmlspecialchars($curr_page['page_descr']) . '</option>';
             } // end while
             echo "\n";
             ?>
@@ -212,7 +223,11 @@ class PMA_User_Schema
          * We will need an array of all tables in this db
          */
         $selectboxall = array('--');
-        $alltab_rs    = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', null, PMA_DBI_QUERY_STORE);
+        $alltab_rs    = PMA_DBI_query(
+            'SHOW TABLES FROM ' . PMA_backquote($db) . ';',
+            null,
+            PMA_DBI_QUERY_STORE
+        );
         while ($val = @PMA_DBI_fetch_row($alltab_rs)) {
                $selectboxall[] = $val[0];
         }
@@ -225,11 +240,13 @@ class PMA_User_Schema
         if (isset($this->chosenPage) && $this->chosenPage > 0) {
             echo "\n";
             ?>
-            <h2><?php echo __('Select Tables') ;?></h2>
+            <h2><?php echo __('Select Tables'); ?></h2>
             <?php
-            $page_query = 'SELECT * FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
-                        . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
-                        . ' AND pdf_page_number = \'' . PMA_sqlAddSlashes($this->chosenPage) . '\'';
+            $page_query = 'SELECT * FROM '
+                . PMA_backquote($GLOBALS['cfgRelation']['db'])
+                . '.' . PMA_backquote($cfgRelation['table_coords'])
+                . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
+                . ' AND pdf_page_number = \'' . PMA_sqlAddSlashes($this->chosenPage) . '\'';
             $page_rs    = PMA_query_as_controluser($page_query, false);
             $array_sh_page = array();
             while ($temp_sh_page = @PMA_DBI_fetch_assoc($page_rs)) {
@@ -264,55 +281,25 @@ class PMA_User_Schema
             $i = 0;
             $odd_row = true;
             foreach ($array_sh_page as $dummy_sh_page => $sh_page) {
-                    $_mtab            =  $sh_page['table_name'];
-                    $tabExist[$_mtab] =  false;
-                    echo "\n" . '    <tr class="noclick ';
-                    if ($odd_row) {
-                        echo 'odd';
-                    } else {
-                        echo 'even';
-                    }
-                    echo '">';
-                    $odd_row != $odd_row;
-                    echo "\n" . '        <td>'
-                         . "\n" . '            <select name="c_table_' . $i . '[name]">';
-                    foreach ($selectboxall as $key => $value) {
-                            echo "\n" . '                <option value="' . htmlspecialchars($value) . '"';
-                            if ($value == $sh_page['table_name']) {
-                                echo ' selected="selected"';
-                                $tabExist[$_mtab] = true;
-                            }
-                            echo '>' . htmlspecialchars($value) . '</option>';
-                    }
-                    echo "\n" . '            </select>'
-                         . "\n" . '        </td>';
-                    echo "\n" . '        <td>'
-                         . "\n" . '            <input type="checkbox" id="id_c_table_' . $i .'" name="c_table_' . $i . '[delete]" value="y" /><label for="id_c_table_' . $i .'">' . __('Delete') . '</label>';
-                    echo "\n" . '        </td>';
-                    echo "\n" . '        <td>'
-                         . "\n" . '            <input type="text" onchange="dragPlace(' . $i . ', \'x\', this.value)" name="c_table_' . $i . '[x]" value="' . $sh_page['x'] . '" />';
-                    echo "\n" . '        </td>';
-                    echo "\n" . '        <td>'
-                         . "\n" . '            <input type="text" onchange="dragPlace(' . $i . ', \'y\', this.value)" name="c_table_' . $i . '[y]" value="' . $sh_page['y'] . '" />';
-                    echo "\n" . '        </td>';
-                    echo "\n" . '    </tr>';
-                    $i++;
-                }
-                /*
-                 * Add one more empty row
-                 */
+                $_mtab            =  $sh_page['table_name'];
+                $tabExist[$_mtab] =  false;
                 echo "\n" . '    <tr class="noclick ';
                 if ($odd_row) {
                     echo 'odd';
                 } else {
                     echo 'even';
                 }
-                $odd_row != $odd_row;
                 echo '">';
+                $odd_row != $odd_row;
                 echo "\n" . '        <td>'
                      . "\n" . '            <select name="c_table_' . $i . '[name]">';
                 foreach ($selectboxall as $key => $value) {
-                    echo "\n" . '                <option value="' . htmlspecialchars($value) . '">' . htmlspecialchars($value) . '</option>';
+                    echo "\n" . '                <option value="' . htmlspecialchars($value) . '"';
+                    if ($value == $sh_page['table_name']) {
+                        echo ' selected="selected"';
+                        $tabExist[$_mtab] = true;
+                    }
+                    echo '>' . htmlspecialchars($value) . '</option>';
                 }
                 echo "\n" . '            </select>'
                      . "\n" . '        </td>';
@@ -320,19 +307,49 @@ class PMA_User_Schema
                      . "\n" . '            <input type="checkbox" id="id_c_table_' . $i .'" name="c_table_' . $i . '[delete]" value="y" /><label for="id_c_table_' . $i .'">' . __('Delete') . '</label>';
                 echo "\n" . '        </td>';
                 echo "\n" . '        <td>'
-                     . "\n" . '            <input type="text" name="c_table_' . $i . '[x]" value="' . (isset($sh_page['x'])?$sh_page['x']:'') . '" />';
+                     . "\n" . '            <input type="text" onchange="dragPlace(' . $i . ', \'x\', this.value)" name="c_table_' . $i . '[x]" value="' . $sh_page['x'] . '" />';
                 echo "\n" . '        </td>';
                 echo "\n" . '        <td>'
-                     . "\n" . '            <input type="text" name="c_table_' . $i . '[y]" value="' . (isset($sh_page['y'])?$sh_page['y']:'') . '" />';
+                     . "\n" . '            <input type="text" onchange="dragPlace(' . $i . ', \'y\', this.value)" name="c_table_' . $i . '[y]" value="' . $sh_page['y'] . '" />';
                 echo "\n" . '        </td>';
                 echo "\n" . '    </tr>';
-                echo "\n" . '    </table>' . "\n";
+                $i++;
+            }
+            /*
+             * Add one more empty row
+             */
+            echo "\n" . '    <tr class="noclick ';
+            if ($odd_row) {
+                echo 'odd';
+            } else {
+                echo 'even';
+            }
+            $odd_row != $odd_row;
+            echo '">';
+            echo "\n" . '        <td>'
+                 . "\n" . '            <select name="c_table_' . $i . '[name]">';
+            foreach ($selectboxall as $key => $value) {
+                echo "\n" . '                <option value="' . htmlspecialchars($value) . '">' . htmlspecialchars($value) . '</option>';
+            }
+            echo "\n" . '            </select>'
+                 . "\n" . '        </td>';
+            echo "\n" . '        <td>'
+                 . "\n" . '            <input type="checkbox" id="id_c_table_' . $i .'" name="c_table_' . $i . '[delete]" value="y" /><label for="id_c_table_' . $i .'">' . __('Delete') . '</label>';
+            echo "\n" . '        </td>';
+            echo "\n" . '        <td>'
+                 . "\n" . '            <input type="text" name="c_table_' . $i . '[x]" value="' . (isset($sh_page['x'])?$sh_page['x']:'') . '" />';
+            echo "\n" . '        </td>';
+            echo "\n" . '        <td>'
+                 . "\n" . '            <input type="text" name="c_table_' . $i . '[y]" value="' . (isset($sh_page['y'])?$sh_page['y']:'') . '" />';
+            echo "\n" . '        </td>';
+            echo "\n" . '    </tr>';
+            echo "\n" . '    </table>' . "\n";
 
-                echo "\n" . '    <input type="hidden" name="c_table_rows" value="' . ($i + 1) . '" />';
-                echo "\n" . '    <input type="hidden" id="showwysiwyg" name="showwysiwyg" value="' . ((isset($showwysiwyg) && $showwysiwyg == '1') ? '1' : '0') . '" />';
-                echo "\n" . '    <input type="checkbox" name="with_field_names" ' . (isset($with_field_names) ? 'checked="checked"' : ''). ' />' . __('Column names') . '<br />';
-                echo "\n" . '    <input type="submit" value="' . __('Save') . '" />';
-                echo "\n" . '</form>' . "\n\n";
+            echo "\n" . '    <input type="hidden" name="c_table_rows" value="' . ($i + 1) . '" />';
+            echo "\n" . '    <input type="hidden" id="showwysiwyg" name="showwysiwyg" value="' . ((isset($showwysiwyg) && $showwysiwyg == '1') ? '1' : '0') . '" />';
+            echo "\n" . '    <input type="checkbox" name="with_field_names" ' . (isset($with_field_names) ? 'checked="checked"' : ''). ' />' . __('Column names') . '<br />';
+            echo "\n" . '    <input type="submit" value="' . __('Save') . '" />';
+            echo "\n" . '</form>' . "\n\n";
         } // end if
 
         $this->_deleteTables($db, $this->chosenPage, isset($tabExist));
@@ -375,14 +392,14 @@ class PMA_User_Schema
             ?>
             <label for="pdf_page_number_opt"><?php echo __('Page number:'); ?></label>
             <select name="pdf_page_number" id="pdf_page_number_opt">
-                   <?php
-                   while ($pages = @PMA_DBI_fetch_assoc($test_rs)) {
-                          echo '                <option value="' . $pages['page_nr'] . '">'
-                                . $pages['page_nr'] . ': ' . htmlspecialchars($pages['page_descr']) . '</option>' . "\n";
-                    } // end while
-                    PMA_DBI_free_result($test_rs);
-                    unset($test_rs);
-                    ?>
+                <?php
+                while ($pages = @PMA_DBI_fetch_assoc($test_rs)) {
+                    echo '                <option value="' . $pages['page_nr'] . '">'
+                        . $pages['page_nr'] . ': ' . htmlspecialchars($pages['page_descr']) . '</option>' . "\n";
+                } // end while
+                PMA_DBI_free_result($test_rs);
+                unset($test_rs);
+                ?>
             </select><br />
             <?php } else { ?>
             <input type="hidden" name="pdf_page_number" value="<?php echo htmlspecialchars($this->chosenPage); ?>" />
@@ -433,9 +450,10 @@ class PMA_User_Schema
     * Check if there are tables that need to be deleted in dashboard,
     * if there are, ask the user for allowance
     *
-    * @param string db name of database selected
-    * @param integer chpage selected page
-    * @param array tabExist
+    * @param string  $db       name of database selected
+    * @param integer $chpage   selected page
+    * @param array   $tabExist
+    *
     * @return void
     * @access private
     */
@@ -445,13 +463,13 @@ class PMA_User_Schema
         $_strtrans  = '';
         $_strname   = '';
         $shoot      = false;
-        if (!empty($tabExist) && is_array($tabExist)) {
+        if (! empty($tabExist) && is_array($tabExist)) {
             foreach ($tabExist as $key => $value) {
-                    if (!$value) {
-                        $_strtrans  .= '<input type="hidden" name="delrow[]" value="' . htmlspecialchars($key) . '" />' . "\n";
-                        $_strname   .= '<li>' . htmlspecialchars($key) . '</li>' . "\n";
-                        $shoot       = true;
-                    }
+                if (! $value) {
+                    $_strtrans  .= '<input type="hidden" name="delrow[]" value="' . htmlspecialchars($key) . '" />' . "\n";
+                    $_strname   .= '<li>' . htmlspecialchars($key) . '</li>' . "\n";
+                    $shoot       = true;
+                }
             }
             if ($shoot) {
                 echo '<form action="schema_edit.php" method="post">' . "\n"
@@ -493,27 +511,27 @@ class PMA_User_Schema
         $reset_draginit = '';
         $i = 0;
         foreach ($array_sh_page as $key => $temp_sh_page) {
-                $drag_x = $temp_sh_page['x'];
-                $drag_y = $temp_sh_page['y'];
+            $drag_x = $temp_sh_page['x'];
+            $drag_y = $temp_sh_page['y'];
 
-                $draginit2      .= ' Drag.init($("#table_' . $i . '")[0], null, 0, parseInt(myid.style.width)-2, 0, parseInt(myid.style.height)-5);' . "\n";
-                $draginit2      .= '    $("#table_' . $i . '")[0].onDrag = function (x, y) { document.edcoord.elements["c_table_' . $i . '[x]"].value = parseInt(x); document.edcoord.elements["c_table_' . $i . '[y]"].value = parseInt(y) }' . "\n";
-                $draginit       .= '    $("#table_' . $i . '")[0].style.left = "' . $drag_x . 'px";' . "\n";
-                $draginit       .= '    $("#table_' . $i . '")[0].style.top  = "' . $drag_y . 'px";' . "\n";
-                $reset_draginit .= '    $("#table_' . $i . '")[0].style.left = "2px";' . "\n";
-                $reset_draginit .= '    $("#table_' . $i . '")[0].style.top  = "' . (15 * $i) . 'px";' . "\n";
-                $reset_draginit .= '    document.edcoord.elements["c_table_' . $i . '[x]"].value = "2"' . "\n";
-                $reset_draginit .= '    document.edcoord.elements["c_table_' . $i . '[y]"].value = "' . (15 * $i) . '"' . "\n";
+            $draginit2      .= ' Drag.init($("#table_' . $i . '")[0], null, 0, parseInt(myid.style.width)-2, 0, parseInt(myid.style.height)-5);' . "\n";
+            $draginit2      .= '    $("#table_' . $i . '")[0].onDrag = function (x, y) { document.edcoord.elements["c_table_' . $i . '[x]"].value = parseInt(x); document.edcoord.elements["c_table_' . $i . '[y]"].value = parseInt(y) }' . "\n";
+            $draginit       .= '    $("#table_' . $i . '")[0].style.left = "' . $drag_x . 'px";' . "\n";
+            $draginit       .= '    $("#table_' . $i . '")[0].style.top  = "' . $drag_y . 'px";' . "\n";
+            $reset_draginit .= '    $("#table_' . $i . '")[0].style.left = "2px";' . "\n";
+            $reset_draginit .= '    $("#table_' . $i . '")[0].style.top  = "' . (15 * $i) . 'px";' . "\n";
+            $reset_draginit .= '    document.edcoord.elements["c_table_' . $i . '[x]"].value = "2"' . "\n";
+            $reset_draginit .= '    document.edcoord.elements["c_table_' . $i . '[y]"].value = "' . (15 * $i) . '"' . "\n";
 
-                echo '<div id="table_' . $i . '" class="pdflayout_table"><u>' . $temp_sh_page['table_name'] . '</u>';
-                if (isset($with_field_names)) {
-                    $fields = PMA_DBI_get_columns($db, $temp_sh_page['table_name']);
-                    foreach ($fields as $row) {
-                       echo '<br />' . htmlspecialchars($row['Field']) . "\n";
-                    }
+            echo '<div id="table_' . $i . '" class="pdflayout_table"><u>' . $temp_sh_page['table_name'] . '</u>';
+            if (isset($with_field_names)) {
+                $fields = PMA_DBI_get_columns($db, $temp_sh_page['table_name']);
+                foreach ($fields as $row) {
+                    echo '<br />' . htmlspecialchars($row['Field']) . "\n";
                 }
-                echo '</div>' . "\n";
-                $i++;
+            }
+            echo '</div>' . "\n";
+            $i++;
         }
         ?>
         </div>
@@ -542,22 +560,25 @@ class PMA_User_Schema
     /**
      * delete the table rows with table co-ordinates
      *
-     * @param int delrow delete selected table from list of tables
-     * @param array cfgRelation relation settings
-     * @param string db database name
-     * @param integer chpage selected page for adding relations etc
+     * @param int     $delrow      delete selected table from list of tables
+     * @param array   $cfgRelation relation settings
+     * @param string  $db          database name
+     * @param integer $chpage      selected page for adding relations etc
+     *
      * @return void
      * @access private
      */
     private function _deleteTableRows($delrow,$cfgRelation,$db,$chpage)
     {
         foreach ($delrow as $current_row) {
-                $del_query = 'DELETE FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords']) . ' ' . "\n"
-                         .   ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\'' . "\n"
-                         .   ' AND   table_name = \'' . PMA_sqlAddSlashes($current_row) . '\'' . "\n"
-                         .   ' AND   pdf_page_number = \'' . PMA_sqlAddSlashes($chpage) . '\'';
-                         echo $del_query;
-                PMA_query_as_controluser($del_query, false);
+            $del_query = 'DELETE FROM '
+                . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
+                . PMA_backquote($cfgRelation['table_coords']) . ' ' . "\n"
+                .   ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\'' . "\n"
+                .   ' AND table_name = \'' . PMA_sqlAddSlashes($current_row) . '\'' . "\n"
+                .   ' AND pdf_page_number = \'' . PMA_sqlAddSlashes($chpage) . '\'';
+                echo $del_query;
+            PMA_query_as_controluser($del_query, false);
         }
     }
 
@@ -573,8 +594,8 @@ class PMA_User_Schema
         /**
         * Settings for relation stuff
         */
-        require_once './libraries/transformations.lib.php';
-        require_once './libraries/Index.class.php';
+        include_once './libraries/transformations.lib.php';
+        include_once './libraries/Index.class.php';
         /**
          * default is PDF, otherwise validate it's only letters a-z
          */
@@ -585,50 +606,55 @@ class PMA_User_Schema
 
         PMA_DBI_select_db($db);
 
-        include "./libraries/schema/".ucfirst($export_type)."_Relation_Schema.class.php";
-        $obj_schema = eval("new PMA_".ucfirst($export_type)."_Relation_Schema();");
+        include "./libraries/schema/" . ucfirst($export_type) . "_Relation_Schema.class.php";
+        $obj_schema = eval("new PMA_" . ucfirst($export_type) . "_Relation_Schema();");
     }
 
     /**
      * delete X and Y coordinates
      *
-     * @param string db The database name
-     * @param array cfgRelation relation settings
-     * @param integer choosePage selected page for adding relations etc
+     * @param string  $db          The database name
+     * @param array   $cfgRelation relation settings
+     * @param integer $choosePage  selected page for adding relations etc
+     *
      * @return void
      * @access private
      */
     public function deleteCoordinates($db, $cfgRelation, $choosePage)
     {
-        $query = 'DELETE FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
-                                .   ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
-                                .   ' AND   pdf_page_number = \'' . PMA_sqlAddSlashes($choosePage) . '\'';
+        $query = 'DELETE FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
+            . PMA_backquote($cfgRelation['table_coords'])
+            . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
+            . ' AND   pdf_page_number = \'' . PMA_sqlAddSlashes($choosePage) . '\'';
         PMA_query_as_controluser($query, false);
     }
 
     /**
      * delete pages
      *
-     * @param string db The database name
-     * @param array cfgRelation relation settings
-     * @param integer choosePage selected page for adding relations etc
+     * @param string  $db          The database name
+     * @param array   $cfgRelation relation settings
+     * @param integer $choosePage  selected page for adding relations etc
+     *
      * @return void
      * @access private
      */
     public function deletePages($db, $cfgRelation, $choosePage)
     {
-        $query = 'DELETE FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
-                                .   ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
-                                .   ' AND   page_nr = \'' . PMA_sqlAddSlashes($choosePage) . '\'';
+        $query = 'DELETE FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
+            . PMA_backquote($cfgRelation['pdf_pages'])
+            . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
+            . ' AND   page_nr = \'' . PMA_sqlAddSlashes($choosePage) . '\'';
         PMA_query_as_controluser($query, false);
     }
 
     /**
      * process internal and foreign key relations
      *
-     * @param string db The database name
-     * @param array cfgRelation relation settings
-     * @param integer pageNumber document number/Id
+     * @param string  $db          The database name
+     * @param integer $pageNumber  document number/Id
+     * @param array   $cfgRelation relation settings
+     *
      * @return void
      * @access private
      */
@@ -655,9 +681,9 @@ class PMA_User_Schema
             $tables = PMA_DBI_get_tables_full($db);
             $foreignkey_tables = array();
             foreach ($tables as $table_name => $table_properties) {
-                   if (PMA_foreignkey_supported($table_properties['ENGINE'])) {
-                        $foreignkey_tables[] = $table_name;
-                    }
+                if (PMA_foreignkey_supported($table_properties['ENGINE'])) {
+                    $foreignkey_tables[] = $table_name;
+                }
             }
             $all_tables = $foreignkey_tables;
             /*
@@ -675,11 +701,14 @@ class PMA_User_Schema
              * you setup the PMA tables correctly
              */
             $master_tables = 'SELECT COUNT(master_table), master_table'
-                           . ' FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['relation'])
-                           . ' WHERE master_db = \'' . PMA_sqlAddSlashes($db) . '\''
-                           . ' GROUP BY master_table'
-                           . ' ORDER BY COUNT(master_table) DESC';
-            $master_tables_rs = PMA_query_as_controluser($master_tables, false, PMA_DBI_QUERY_STORE);
+                . ' FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
+                . PMA_backquote($cfgRelation['relation'])
+                . ' WHERE master_db = \'' . PMA_sqlAddSlashes($db) . '\''
+                . ' GROUP BY master_table'
+                . ' ORDER BY COUNT(master_table) DESC';
+            $master_tables_rs = PMA_query_as_controluser(
+                $master_tables, false, PMA_DBI_QUERY_STORE
+            );
             if ($master_tables_rs && PMA_DBI_num_rows($master_tables_rs) > 0) {
                 /* first put all the master tables at beginning
                  * of the list, so they are near the center of
@@ -697,27 +726,29 @@ class PMA_User_Schema
 
                 $foreign_tables = array();
                 foreach ($all_tables as $master_table) {
-                        $foreigners = PMA_getForeigners($db, $master_table);
-                        foreach ($foreigners as $foreigner) {
-                                if (!in_array($foreigner['foreign_table'], $foreign_tables)) {
-                                        $foreign_tables[] = $foreigner['foreign_table'];
-                                }
+                    $foreigners = PMA_getForeigners($db, $master_table);
+                    foreach ($foreigners as $foreigner) {
+                        if (! in_array($foreigner['foreign_table'], $foreign_tables)) {
+                            $foreign_tables[] = $foreigner['foreign_table'];
                         }
+                    }
                 }
 
                 /*
                  * Now merge the master and foreign arrays/tables
                  */
                 foreach ($foreign_tables as $foreign_table) {
-                        if (!in_array($foreign_table, $all_tables)) {
-                            $all_tables[] = $foreign_table;
-                        }
+                    if (! in_array($foreign_table, $all_tables)) {
+                        $all_tables[] = $foreign_table;
+                    }
                 }
             }
         }
 
         if (isset($this->autoLayoutInternal) || isset($this->autoLayoutForeign)) {
-            $this->addRelationCoordinates($all_tables,$pageNumber,$db, $cfgRelation);
+            $this->addRelationCoordinates(
+                $all_tables, $pageNumber, $db, $cfgRelation
+            );
         }
 
         $this->chosenPage = $pageNumber;
@@ -726,14 +757,15 @@ class PMA_User_Schema
     /**
      * Add X and Y coordinates for a table
      *
-     * @param string db The database name
-     * @param array cfgRelation relation settings
-     * @param integer pageNumber document number/Id
-     * @param array all_tables A list of all tables involved
+     * @param array   $all_tables  A list of all tables involved
+     * @param integer $pageNumber  document number/Id
+     * @param string  $db          The database name
+     * @param array   $cfgRelation relation settings
+     *
      * @return void
      * @access private
      */
-    public function addRelationCoordinates($all_tables,$pageNumber,$db, $cfgRelation)
+    public function addRelationCoordinates($all_tables, $pageNumber, $db, $cfgRelation)
     {
         /*
          * Now generate the coordinates for the schema
@@ -748,9 +780,13 @@ class PMA_User_Schema
             /*
             * save current table's coordinates
             */
-            $insert_query = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords']) . ' '
-                          . '(db_name, table_name, pdf_page_number, x, y) '
-                          . 'VALUES (\'' . PMA_sqlAddSlashes($db) . '\', \'' . PMA_sqlAddSlashes($current_table) . '\',' . $pageNumber . ',' . $pos_x . ',' . $pos_y . ')';
+            $insert_query = 'INSERT INTO '
+                . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
+                . PMA_backquote($cfgRelation['table_coords']) . ' '
+                . '(db_name, table_name, pdf_page_number, x, y) '
+                . 'VALUES (\'' . PMA_sqlAddSlashes($db) . '\', \''
+                . PMA_sqlAddSlashes($current_table) . '\',' . $pageNumber
+                . ',' . $pos_x . ',' . $pos_y . ')';
             PMA_query_as_controluser($insert_query, false);
 
             /*
@@ -776,7 +812,7 @@ class PMA_User_Schema
                 $pos_y    -= $delta;
                 $direction = "right";
                 $delta    *= $delta_mult;
-                 break;
+                break;
             }
         }
     }
@@ -784,8 +820,9 @@ class PMA_User_Schema
     /**
      * update X and Y coordinates for a table
      *
-     * @param string db The database name
-     * @param array cfgRelation relation settings
+     * @param string $db          The database name
+     * @param array  $cfgRelation relation settings
+     *
      * @return void
      * @access private
      */
@@ -802,29 +839,38 @@ class PMA_User_Schema
                 $arrvalue['y'] = 0;
             }
             if (isset($arrvalue['name']) && $arrvalue['name'] != '--') {
-                $test_query = 'SELECT * FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
-                            .   ' WHERE db_name = \'' .  PMA_sqlAddSlashes($db) . '\''
-                            .   ' AND   table_name = \'' . PMA_sqlAddSlashes($arrvalue['name']) . '\''
-                            .   ' AND   pdf_page_number = \'' . PMA_sqlAddSlashes($this->chosenPage) . '\'';
-                $test_rs    = PMA_query_as_controluser($test_query, false, PMA_DBI_QUERY_STORE);
+                $test_query = 'SELECT * FROM '
+                    . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
+                    . PMA_backquote($cfgRelation['table_coords'])
+                    . ' WHERE db_name = \'' .  PMA_sqlAddSlashes($db) . '\''
+                    . ' AND   table_name = \'' . PMA_sqlAddSlashes($arrvalue['name']) . '\''
+                    . ' AND   pdf_page_number = \'' . PMA_sqlAddSlashes($this->chosenPage) . '\'';
+                $test_rs = PMA_query_as_controluser($test_query, false, PMA_DBI_QUERY_STORE);
                 //echo $test_query;
                 if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
                     if (isset($arrvalue['delete']) && $arrvalue['delete'] == 'y') {
-                        $ch_query = 'DELETE FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
-                                  .   ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
-                                  .   ' AND   table_name = \'' . PMA_sqlAddSlashes($arrvalue['name']) . '\''
-                                  .   ' AND   pdf_page_number = \'' . PMA_sqlAddSlashes($this->chosenPage) . '\'';
+                        $ch_query = 'DELETE FROM '
+                            . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
+                            . PMA_backquote($cfgRelation['table_coords'])
+                            . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
+                            . ' AND   table_name = \'' . PMA_sqlAddSlashes($arrvalue['name']) . '\''
+                            . ' AND   pdf_page_number = \'' . PMA_sqlAddSlashes($this->chosenPage) . '\'';
                     } else {
-                        $ch_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords']) . ' '
-                                  . 'SET x = ' . $arrvalue['x'] . ', y= ' . $arrvalue['y']
-                                  .   ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
-                                  .   ' AND   table_name = \'' . PMA_sqlAddSlashes($arrvalue['name']) . '\''
-                                  .   ' AND   pdf_page_number = \'' . PMA_sqlAddSlashes($this->chosenPage) . '\'';
+                        $ch_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db'])
+                            . '.' . PMA_backquote($cfgRelation['table_coords']) . ' '
+                            . 'SET x = ' . $arrvalue['x'] . ', y= ' . $arrvalue['y']
+                            . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
+                            . ' AND   table_name = \'' . PMA_sqlAddSlashes($arrvalue['name']) . '\''
+                            . ' AND   pdf_page_number = \'' . PMA_sqlAddSlashes($this->chosenPage) . '\'';
                     }
                 } else {
-                    $ch_query     = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords']) . ' '
-                                  . '(db_name, table_name, pdf_page_number, x, y) '
-                                  . 'VALUES (\'' . PMA_sqlAddSlashes($db) . '\', \'' . PMA_sqlAddSlashes($arrvalue['name']) . '\', \'' . PMA_sqlAddSlashes($this->chosenPage) . '\',' . $arrvalue['x'] . ',' . $arrvalue['y'] . ')';
+                    $ch_query = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db'])
+                        . '.' . PMA_backquote($cfgRelation['table_coords']) . ' '
+                        . '(db_name, table_name, pdf_page_number, x, y) '
+                        . 'VALUES (\'' . PMA_sqlAddSlashes($db) . '\', \''
+                        . PMA_sqlAddSlashes($arrvalue['name']) . '\', \''
+                        . PMA_sqlAddSlashes($this->chosenPage) . '\','
+                        . $arrvalue['x'] . ',' . $arrvalue['y'] . ')';
                 }
                 //echo $ch_query;
                 PMA_query_as_controluser($ch_query, false);

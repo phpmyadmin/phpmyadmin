@@ -990,7 +990,7 @@ $(function() {
                 zoomType: 'x',
                 events: {
                     selection: function(event) {
-                        if (editMode) {
+                        if (editMode || $('#logAnalyseDialog').length == 0) {
                             return false;
                         }
 

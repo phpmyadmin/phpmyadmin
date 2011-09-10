@@ -31,20 +31,24 @@ if (empty($is_info)) {
         // -> db_structure.php and if we got an error on the multi submit,
         // we must display it here and not call again mult_submits.inc.php
         if (! isset($error) || false === $error) {
-            require './libraries/mult_submits.inc.php';
+            include './libraries/mult_submits.inc.php';
         }
         if (empty($message)) {
             $message = PMA_Message::success();
         }
     }
-    require './libraries/db_common.inc.php';
+    include './libraries/db_common.inc.php';
     $url_query .= '&amp;goto=db_structure.php';
 
     // Gets the database structure
     $sub_part = '_structure';
-    require './libraries/db_info.inc.php';
+    include './libraries/db_info.inc.php';
 
-    require_once './libraries/replication.inc.php';
+    if (!PMA_DRIZZLE) {
+        include './libraries/replication.inc.php';
+    } else {
+        $server_slave_status = false;
+    }
 }
 
 require_once './libraries/bookmark.lib.php';
@@ -62,13 +66,13 @@ if ($num_tables == 0) {
     echo '<p>' . __('No tables found in database') . '</p>' . "\n";
 
     if (empty($db_is_information_schema)) {
-        require './libraries/display_create_table.lib.php';
+        include './libraries/display_create_table.lib.php';
     } // end if (Create Table dialog)
 
     /**
      * Displays the footer
      */
-    require_once './libraries/footer.inc.php';
+    include_once './libraries/footer.inc.php';
     exit;
 }
 
@@ -158,10 +162,12 @@ foreach ($tables as $keyname => $each_table) {
             }
             break;
         case 'InnoDB' :
-            // InnoDB table: Row count is not accurate but data and index
-            // sizes are.
+        case 'PBMS' :
+            // InnoDB table: Row count is not accurate but data and index sizes are.
+            // PBMS table in Drizzle: TABLE_ROWS is taken from table cache, so it may be unavailable
 
-            if ($each_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount']) {
+            if (($each_table['ENGINE'] == 'InnoDB' && $each_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount'])
+                    || !isset($each_table['TABLE_ROWS'])) {
                 $each_table['COUNTED'] = true;
                 $each_table['TABLE_ROWS'] = PMA_Table::countRecords($db,
                     $each_table['TABLE_NAME'], $force_exact = true,
@@ -170,7 +176,8 @@ foreach ($tables as $keyname => $each_table) {
                 $each_table['COUNTED'] = false;
             }
 
-            if ($is_show_stats) {
+            // Drizzle doesn't provide data and index length, check for null
+            if ($is_show_stats && $each_table['Data_length'] !== null) {
                 $tblsize                    =  $each_table['Data_length'] + $each_table['Index_length'];
                 $sum_size                   += $tblsize;
                 list($formatted_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
@@ -193,6 +200,7 @@ foreach ($tables as $keyname => $each_table) {
             // or on some servers it's reported as "SYSTEM VIEW"
         case null :
         case 'SYSTEM VIEW' :
+        case 'FunctionEngine' :
             // if table is broken, Engine is reported as null, so one more test
             if ($each_table['TABLE_TYPE'] == 'VIEW') {
                 // countRecords() takes care of $cfg['MaxExactCountViews']
@@ -249,7 +257,7 @@ foreach ($tables as $keyname => $each_table) {
         $hidden_fields[] = '<input type="hidden" name="views[]" value="' .  htmlspecialchars($each_table['TABLE_NAME']) . '" />';
     }
 
-    if ($each_table['TABLE_ROWS'] > 0) {
+    if ($each_table['TABLE_ROWS'] > 0 || $table_is_view) {
         $browse_table = '<a href="sql.php?' . $tbl_url_query . '&amp;pos=0">' . $titles['Browse'] . '</a>';
         $search_table = '<a href="tbl_select.php?' . $tbl_url_query . '">' . $titles['Search'] . '</a>';
         $browse_table_label = '<a href="sql.php?' . $tbl_url_query . '&amp;pos=0">' . $truename . '</a>';
@@ -367,8 +375,12 @@ foreach ($tables as $keyname => $each_table) {
     //  so ensure that we'll display "in use" below for a table
     //  that needs to be repaired
     if (isset($each_table['TABLE_ROWS']) && ($each_table['ENGINE'] != null || $table_is_view)) {
+        $row_count_pre = '';
+        $show_superscript = '';
         if ($table_is_view) {
-            if ($each_table['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews']) {
+            // Drizzle views use FunctionEngine, and the only place where they are available are I_S and D_D
+            // schemas, where we do exact counting
+            if ($each_table['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews'] && $each_table['ENGINE'] != 'FunctionEngine') {
                 $row_count_pre = '~';
                 $sum_row_count_pre = '~';
                 $show_superscript = PMA_showHint(PMA_sanitize(sprintf(__('This view has at least this number of rows. Please refer to %sdocumentation%s.'), '[a@./Documentation.html#cfg_MaxExactCountViews@_blank]', '[/a]')));
@@ -377,9 +389,6 @@ foreach ($tables as $keyname => $each_table) {
             // InnoDB table: we did not get an accurate row count
             $row_count_pre = '~';
             $sum_row_count_pre = '~';
-            $show_superscript = '';
-        } else {
-            $row_count_pre = '';
             $show_superscript = '';
         }
     ?>
@@ -444,7 +453,7 @@ if ($is_show_stats) {
     <th class="value tbl_rows"><?php echo $sum_row_count_pre . PMA_formatNumber($sum_entries, 0); ?></th>
 <?php
 if (!($cfg['PropertiesNumColumns'] > 1)) {
-    $default_engine = PMA_DBI_get_default_engine();
+    $default_engine = PMA_DBI_fetch_value('SHOW VARIABLES LIKE \'storage_engine\';', 0, 1);
     echo '    <th align="center">' . "\n"
        . '        <dfn title="'
        . sprintf(__('%s is the default storage engine on this MySQL server.'), $default_engine) . '">' .$default_engine . '</dfn></th>' . "\n";
@@ -506,10 +515,12 @@ if (!$db_is_information_schema && !$cfg['DisableMultiTableMaintenance']) {
          . __('Drop') . '</option>' . "\n";
     echo '    <option value="check_tbl" >'
          . __('Check table') . '</option>' . "\n";
-    echo '    <option value="optimize_tbl" >'
-         . __('Optimize table') . '</option>' . "\n";
-    echo '    <option value="repair_tbl" >'
-         . __('Repair table') . '</option>' . "\n";
+    if (!PMA_DRIZZLE) {
+        echo '    <option value="optimize_tbl" >'
+             . __('Optimize table') . '</option>' . "\n";
+        echo '    <option value="repair_tbl" >'
+             . __('Repair table') . '</option>' . "\n";
+    }
     echo '    <option value="analyze_tbl" >'
          . __('Analyze table') . '</option>' . "\n";
     echo '    <option value="add_prefix_tbl" >'
@@ -561,7 +572,7 @@ echo __('Data Dictionary') . '</a>';
 echo '</p>';
 
 if (empty($db_is_information_schema)) {
-    require './libraries/display_create_table.lib.php';
+    include './libraries/display_create_table.lib.php';
 } // end if (Create Table dialog)
 
 /**

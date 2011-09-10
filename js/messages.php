@@ -287,6 +287,7 @@ $js_messages['strCopy'] = __('Copy');
 $js_messages['strX'] = __('X');
 $js_messages['strY'] = __('Y');
 $js_messages['strPoint'] = __('Point');
+$js_messages['strPointN'] = __('Point %d');
 $js_messages['strLineString'] = __('Linestring');
 $js_messages['strPolygon'] = __('Polygon');
 $js_messages['strGeometry'] = __('Geometry');

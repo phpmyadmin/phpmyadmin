@@ -20,7 +20,11 @@ require_once './libraries/common.lib.php';
 require_once './libraries/db_table_exists.lib.php';
 
 // load additional configuration variables
-require_once './libraries/data_mysql.inc.php';
+if (PMA_DRIZZLE) {
+    require_once './libraries/data_drizzle.inc.php';
+} else {
+    require_once './libraries/data_mysql.inc.php';
+}
 
 /**
  * Sets global variables.
@@ -121,6 +125,7 @@ $GLOBALS['js_include'][] = 'jquery/timepicker.js';
 
 // required for GIS editor
 $GLOBALS['js_include'][] = 'gis_data_editor.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.sprintf.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.svg.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.mousewheel.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.event.drag-2.0.min.js';
@@ -453,6 +458,10 @@ foreach ($rows as $row_id => $vrow) {
 
         if (-1 === $field['len']) {
             $field['len'] = PMA_DBI_field_len($vresult, $i);
+            // length is unknown for geometry fields, make enough space to edit very simple WKTs
+            if (-1 === $field['len']) {
+                $field['len'] = 30;
+            }
         }
         //Call validation when the form submited...
         $unnullify_trigger = $chg_evt_handler . "=\"return verificationsAfterFieldChange('". PMA_escapeJsString($field['Field_md5']) . "', '"

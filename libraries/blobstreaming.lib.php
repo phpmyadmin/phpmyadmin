@@ -11,7 +11,8 @@
  */
 function initPBMSDatabase()
 {
-    $query = "create database IF NOT EXISTS pbms;"; // If no other choice then try this.
+    // If no other choice then try this.
+    $query = "create database IF NOT EXISTS pbms;";
     /*
      * The user may not have privileges to create the 'pbms' database
      * so if it doesn't exist then we perform a select on a pbms system
@@ -26,18 +27,21 @@ function initPBMSDatabase()
                 return true;
             }
             if ($target == "") {
-                if (($current_db != 'pbxt') && ($current_db != 'mysql')  && ($current_db != 'information_schema')) {
+                if ($current_db != 'pbxt'
+                    && ! PMA_is_system_schema($current_db, true)
+                ) {
                     $target = $current_db;
                 }
             }
         }
 
         if ($target != "") {
-            $query = "select * from $target.pbms_metadata_header"; // If it exists this table will not contain much
+            // If it exists this table will not contain much
+            $query = "select * from $target.pbms_metadata_header";
         }
     }
 
-    $result = PMA_DBI_query($query );
+    $result = PMA_DBI_query($query);
     if (! $result) {
         return false;
     }
@@ -93,50 +97,71 @@ function checkBLOBStreamingPlugins()
         $serverCfg['socket'] = "";
     }
 
-    $has_blobstreaming = false;
-    if (PMA_MYSQL_INT_VERSION >= 50109) {
+    $has_blobstreaming = PMA_cacheGet('has_blobstreaming', true);
 
-        // Retrieve MySQL plugins
-        $existing_plugins = PMA_DBI_fetch_result('SHOW PLUGINS');
+    if ($has_blobstreaming === null) {
+        if (! PMA_DRIZZLE && PMA_MYSQL_INT_VERSION >= 50109) {
 
-        foreach ($existing_plugins as $one_existing_plugin) {
-            // check if required plugins exist
-            if ( strtolower($one_existing_plugin['Library']) == 'libpbms.so'
-                && $one_existing_plugin['Status'] == "ACTIVE") {
-                $has_blobstreaming = true;
-                break;
+            // Retrieve MySQL plugins
+            $existing_plugins = PMA_DBI_fetch_result('SHOW PLUGINS');
+
+            foreach ($existing_plugins as $one_existing_plugin) {
+                // check if required plugins exist
+                if ( strtolower($one_existing_plugin['Library']) == 'libpbms.so'
+                    && $one_existing_plugin['Status'] == "ACTIVE"
+                ) {
+                    $has_blobstreaming = true;
+                    break;
+                }
             }
+            unset($existing_plugins, $one_existing_plugin);
+        } else if (PMA_DRIZZLE) {
+            $has_blobstreaming = (bool) PMA_DBI_fetch_result(
+                "SELECT 1
+                FROM data_dictionary.plugins
+                WHERE module_name = 'PBMS'
+                    AND is_active = true
+                LIMIT 1"
+            );
         }
-        unset($existing_plugins, $one_existing_plugin);
+        PMA_cacheSet('has_blobstreaming', $has_blobstreaming, true);
     }
 
     // set variable indicating BS plugin existence
     $PMA_Config->set('BLOBSTREAMING_PLUGINS_EXIST', $has_blobstreaming);
 
+    if (! $has_blobstreaming) {
+        PMA_cacheSet('skip_blobstreaming', true, true);
+        return false;
+    }
+
     if ($has_blobstreaming) {
         $bs_variables = PMA_BS_GetVariables();
 
-       // if no BS variables exist, set plugin existence to false and return
-        if (count($bs_variables) <= 0) {
+        // if no BS variables exist, set plugin existence to false and return
+        if (count($bs_variables) == 0) {
             $PMA_Config->set('BLOBSTREAMING_PLUGINS_EXIST', false);
             PMA_cacheSet('skip_blobstreaming', true, true);
+            PMA_cacheSet('has_blobstreaming', false, true);
             return false;
         } // end if (count($bs_variables) <= 0)
 
         // Check that the required pbms functions exist:
-        if ((function_exists("pbms_connect") == false) ||
-            (function_exists("pbms_error") == false) ||
-            (function_exists("pbms_close") == false) ||
-            (function_exists("pbms_is_blob_reference") == false) ||
-            (function_exists("pbms_get_info") == false) ||
-            (function_exists("pbms_get_metadata_value") == false) ||
-            (function_exists("pbms_add_metadata") == false) ||
-            (function_exists("pbms_read_stream") == false)) {
+        if (function_exists("pbms_connect") == false
+            || function_exists("pbms_error") == false
+            || function_exists("pbms_close") == false
+            || function_exists("pbms_is_blob_reference") == false
+            || function_exists("pbms_get_info") == false
+            || function_exists("pbms_get_metadata_value") == false
+            || function_exists("pbms_add_metadata") == false
+            || function_exists("pbms_read_stream") == false
+        ) {
 
             // We should probably notify the user that they need to install
             // the pbms client lib and PHP extension to make use of blob streaming.
             $PMA_Config->set('BLOBSTREAMING_PLUGINS_EXIST', false);
             PMA_cacheSet('skip_blobstreaming', true, true);
+            PMA_cacheSet('has_blobstreaming', false, true);
             return false;
         }
 
@@ -155,7 +180,8 @@ function checkBLOBStreamingPlugins()
          // get BS server port
         $BS_PORT = $bs_variables['pbms_port'];
 
-        // if no BS server port or 'pbms' database exists, set plugin existance to false and return
+        // if no BS server port or 'pbms' database exists,
+        // set plugin existance to false and return
         if ((! $BS_PORT) || (! initPBMSDatabase())) {
             $PMA_Config->set('BLOBSTREAMING_PLUGINS_EXIST', false);
             PMA_cacheSet('skip_blobstreaming', true, true);
@@ -209,16 +235,16 @@ function checkBLOBStreamingPlugins()
  *
  * @access  public
  * @return  array - list of BLOBStreaming variables
-*/
+ */
 function PMA_BS_GetVariables()
 {
     // load PMA configuration
     $PMA_Config = $GLOBALS['PMA_Config'];
 
     // return if unable to load PMA configuration
-    if (empty($PMA_Config))
-        return NULL;
-
+    if (empty($PMA_Config)) {
+        return null;
+    }
     // run query to retrieve BS variables
     $query = "SHOW VARIABLES LIKE '%pbms%'";
     $result = PMA_DBI_query($query);
@@ -226,15 +252,17 @@ function PMA_BS_GetVariables()
     $BS_Variables = array();
 
     // while there are records to retrieve
-    while ($data = @PMA_DBI_fetch_assoc($result))
+    while ($data = @PMA_DBI_fetch_assoc($result)) {
         $BS_Variables[$data['Variable_name']] = $data['Value'];
-
+    }
     // return BS variables
     return $BS_Variables;
 }
 
 /**
  * Retrieves and shows PBMS error.
+ *
+ * @param sting $msg error message
  *
  * @return nothing
  */
@@ -274,7 +302,10 @@ function PMA_do_connect($db_name, $quiet)
 
     if ($ok == false) {
         if ($quiet == false) {
-            PMA_BS_ReportPBMSError(__('PBMS connection failed:') . " pbms_connect($pbms_host, $pbms_port, $db_name)");
+            PMA_BS_ReportPBMSError(
+                __('PBMS connection failed:')
+                . " pbms_connect($pbms_host, $pbms_port, $db_name)"
+            );
         }
         return false;
     }
@@ -295,7 +326,7 @@ function PMA_do_disconnect()
  * Checks whether the BLOB reference looks valid
  *
  * @param string $bs_reference BLOB reference
- * @param string $db_name Database name
+ * @param string $db_name      Database name
  *
  * @return bool True on success.
  */
@@ -310,7 +341,7 @@ function PMA_BS_IsPBMSReference($bs_reference, $db_name)
     // requires one at this point so until the API is updated
     // we need to epen one here. If you use pool connections this
     // will not be a performance problem.
-     if (PMA_do_connect($db_name, false) == false) {
+    if (PMA_do_connect($db_name, false) == false) {
         return false;
     }
 
@@ -326,7 +357,10 @@ function PMA_BS_CreateReferenceLink($bs_reference, $db_name)
     }
 
     if (pbms_get_info(trim($bs_reference)) == false) {
-        PMA_BS_ReportPBMSError(__('PBMS get BLOB info failed:') . " pbms_get_info($bs_reference)");
+        PMA_BS_ReportPBMSError(
+            __('PBMS get BLOB info failed:')
+            . " pbms_get_info($bs_reference)"
+        );
         PMA_do_disconnect();
         return __('Error');
     }
@@ -334,7 +368,10 @@ function PMA_BS_CreateReferenceLink($bs_reference, $db_name)
     $content_type = pbms_get_metadata_value("Content-Type");
     if ($content_type == false) {
         $br = trim($bs_reference);
-        PMA_BS_ReportPBMSError("PMA_BS_CreateReferenceLink('$br', '$db_name'): " . __('PBMS get BLOB Content-Type failed'));
+        PMA_BS_ReportPBMSError(
+            "PMA_BS_CreateReferenceLink('$br', '$db_name'): "
+            . __('PBMS get BLOB Content-Type failed')
+        );
     }
 
     PMA_do_disconnect();
@@ -353,27 +390,37 @@ function PMA_BS_CreateReferenceLink($bs_reference, $db_name)
 
     // specify custom HTML for various content types
     switch ($content_type) {
-        // no content specified
-        case NULL:
-            $output = "NULL";
-            break;
-        // image content
-        case 'image/jpeg':
-        case 'image/png':
-            $output .= ' (<a href="' . $bs_url . '" target="new">' . __('View image') . '</a>)';
+    // no content specified
+    case null:
+        $output = "NULL";
         break;
-        // audio content
-        case 'audio/mpeg':
-            $output .= ' (<a href="#" onclick="popupBSMedia(\'' . PMA_generate_common_url() . '\',\'' . urlencode($bs_reference) . '\', \'' . urlencode($content_type) . '\',' . ($is_custom_type ? 1 : 0) . ', 640, 120)">' . __('Play audio'). '</a>)';
-            break;
-        // video content
-        case 'application/x-flash-video':
-        case 'video/mpeg':
-            $output .= ' (<a href="#" onclick="popupBSMedia(\'' . PMA_generate_common_url() . '\',\'' . urlencode($bs_reference) . '\', \'' . urlencode($content_type) . '\',' . ($is_custom_type ? 1 : 0) . ', 640, 480)">' . __('View video') . '</a>)';
-            break;
-        // unsupported content. specify download
-        default:
-            $output .= ' (<a href="' . $bs_url . '" target="new">' . __('Download file'). '</a>)';
+    // image content
+    case 'image/jpeg':
+    case 'image/png':
+        $output .= ' (<a href="' . $bs_url . '" target="new">'
+            . __('View image') . '</a>)';
+        break;
+    // audio content
+    case 'audio/mpeg':
+        $output .= ' (<a href="#" onclick="popupBSMedia(\''
+            . PMA_generate_common_url() . '\',\'' . urlencode($bs_reference)
+            . '\', \'' . urlencode($content_type) . '\','
+            . ($is_custom_type ? 1 : 0) . ', 640, 120)">' . __('Play audio')
+            . '</a>)';
+        break;
+    // video content
+    case 'application/x-flash-video':
+    case 'video/mpeg':
+        $output .= ' (<a href="#" onclick="popupBSMedia(\''
+            . PMA_generate_common_url() . '\',\'' . urlencode($bs_reference)
+            . '\', \'' . urlencode($content_type) . '\','
+            . ($is_custom_type ? 1 : 0) . ', 640, 480)">' . __('View video')
+            . '</a>)';
+        break;
+    // unsupported content. specify download
+    default:
+        $output .= ' (<a href="' . $bs_url . '" target="new">'
+            . __('Download file') . '</a>)';
     }
 
     return $output;
@@ -385,9 +432,10 @@ function PMA_BS_CreateReferenceLink($bs_reference, $db_name)
  * PMA_BS_IsTablePBMSEnabled() passes in the table and database name even though
  * they are not currently needed.
  *
- * @param string $db_name
- * @param string $tbl_name
- * @param string $tbl_type
+ * @param string $db_name  database name
+ * @param string $tbl_name table name
+ * @param string $tbl_type table type
+ *
  * @return bool
  */
 function PMA_BS_IsTablePBMSEnabled($db_name, $tbl_name, $tbl_type)
@@ -413,8 +461,11 @@ function PMA_BS_IsTablePBMSEnabled($db_name, $tbl_name, $tbl_type)
     }
 
     // This information should be cached rather than selecting it each time.
-    //$query = "SELECT count(*)  FROM information_schema.TABLES T, pbms.pbms_enabled E where T.table_schema = ". PMA_backquote($db_name) . " and T.table_name = ". PMA_backquote($tbl_name) . " and T.engine = E.name";
-    $query = "SELECT count(*)  FROM pbms.pbms_enabled E where E.name = '" . PMA_sqlAddSlashes($tbl_type) . "'";
+    // $query = "SELECT count(*)  FROM information_schema.TABLES T,
+    // pbms.pbms_enabled E where T.table_schema = ". PMA_backquote($db_name) . "
+    // and T.table_name = ". PMA_backquote($tbl_name) . " and T.engine = E.name";
+    $query = "SELECT count(*)  FROM pbms.pbms_enabled E where E.name = '"
+        . PMA_sqlAddSlashes($tbl_type) . "'";
     $result = PMA_DBI_query($query);
 
     $data = PMA_DBI_fetch_row($result);
@@ -466,23 +517,28 @@ function PMA_BS_SetContentType($db_name, $bsTable, $blobReference, $contentType)
     // This is a really ugly way to do this but currently there is nothing better.
     // In a future version of PBMS the system tables will be redesigned to make this
     // more efficient.
-    $query = "SELECT Repository_id, Repo_blob_offset FROM pbms_reference  WHERE Blob_url='" . PMA_sqlAddSlashes($blobReference) . "'";
+    $query = "SELECT Repository_id, Repo_blob_offset FROM pbms_reference"
+        . " WHERE Blob_url='" . PMA_sqlAddSlashes($blobReference) . "'";
     //error_log(" PMA_BS_SetContentType: $query\n", 3, "/tmp/mylog");
     $result = PMA_DBI_query($query);
     //error_log(" $query\n", 3, "/tmp/mylog");
 
-// if record exists
+    // if record exists
     if ($data = PMA_DBI_fetch_assoc($result)) {
-        $where = "WHERE Repository_id=" . $data['Repository_id'] . " AND Repo_blob_offset=" . $data['Repo_blob_offset'] ;
+        $where = "WHERE Repository_id=" . $data['Repository_id']
+           . " AND Repo_blob_offset=" . $data['Repo_blob_offset'] ;
         $query = "SELECT name from  pbms_metadata $where";
         $result = PMA_DBI_query($query);
 
         if (PMA_DBI_num_rows($result) == 0) {
-            $query = "INSERT into pbms_metadata Values( ". $data['Repository_id'] . ", " . $data['Repo_blob_offset']  . ", 'Content_type', '" . PMA_sqlAddSlashes($contentType)  . "')";
+            $query = "INSERT into pbms_metadata Values( ". $data['Repository_id']
+                . ", " . $data['Repo_blob_offset']  . ", 'Content_type', '"
+                . PMA_sqlAddSlashes($contentType)  . "')";
         } else {
-            $query = "UPDATE pbms_metadata SET name = 'Content_type', Value = '" . PMA_sqlAddSlashes($contentType)  . "' $where";
+            $query = "UPDATE pbms_metadata SET name = 'Content_type', Value = '"
+                . PMA_sqlAddSlashes($contentType) . "' $where";
         }
-//error_log("$query\n", 3, "/tmp/mylog");
+        //error_log("$query\n", 3, "/tmp/mylog");
         PMA_DBI_query($query);
     } else {
         return false;
@@ -493,8 +549,12 @@ function PMA_BS_SetContentType($db_name, $bsTable, $blobReference, $contentType)
 //------------
 function PMA_BS_IsHiddenTable($table)
 {
-    if ($table === 'pbms_repository' || $table === 'pbms_reference' || $table === 'pbms_metadata'
-    || $table === 'pbms_metadata_header' || $table === 'pbms_dump') {
+    if ($table === 'pbms_repository'
+        || $table === 'pbms_reference'
+        || $table === 'pbms_metadata'
+        || $table === 'pbms_metadata_header'
+        || $table === 'pbms_dump'
+    ) {
         return true;
     }
     return false;

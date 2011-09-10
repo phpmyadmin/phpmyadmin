@@ -42,12 +42,13 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
     } else {
         $sql_query = ''; // in case target db exists
         $_error = false;
-        if ($move ||
-         (isset($create_database_before_copying) && $create_database_before_copying)) {
+        if ($move || (isset($create_database_before_copying) && $create_database_before_copying)) {
             // lower_case_table_names=1 `DB` becomes `db`
-            $lower_case_table_names = PMA_DBI_fetch_value('SHOW VARIABLES LIKE "lower_case_table_names"', 0, 1);
-            if ($lower_case_table_names === '1') {
-                $newname = PMA_strtolower($newname);
+            if (!PMA_DRIZZLE) {
+                $lower_case_table_names = PMA_DBI_fetch_value('SHOW VARIABLES LIKE "lower_case_table_names"', 0, 1);
+                if ($lower_case_table_names === '1') {
+                    $newname = PMA_strtolower($newname);
+                }
             }
 
             $local_query = 'CREATE DATABASE ' . PMA_backquote($newname);
@@ -108,7 +109,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
         $views = array();
 
         // remove all foreign key constraints, otherwise we can get errors
-        require_once './libraries/export/sql.php';
+        include_once './libraries/export/sql.php';
         foreach ($tables_full as $each_table => $tmp) {
             $sql_constraints = '';
             $sql_drop_foreign_keys = '';
@@ -160,9 +161,10 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
                 //  for importing via the mysql client or our Import feature)
                 $triggers = PMA_DBI_get_triggers($db, $each_table, '');
 
-                if (! PMA_Table::moveCopy($db, $each_table, $newname, $each_table,
-                    isset($this_what) ? $this_what : 'data', $move, 'db_copy'))
-                {
+                if (! PMA_Table::moveCopy(
+                    $db, $each_table, $newname, $each_table,
+                    isset($this_what) ? $this_what : 'data', $move, 'db_copy')
+                ) {
                     $_error = true;
                     // $sql_query is filled by PMA_Table::moveCopy()
                     $sql_query = $back . $sql_query;
@@ -225,7 +227,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             unset($GLOBALS['sql_constraints_query_full_db'], $one_query);
         }
 
-        if (PMA_MYSQL_INT_VERSION >= 50100) {
+        if (!PMA_DRIZZLE && PMA_MYSQL_INT_VERSION >= 50100) {
             // here DELIMITER is not used because it's not part of the
             // language; each statement is sent one by one
 
@@ -261,7 +263,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             /**
              * cleanup pmadb stuff for this db
              */
-            require_once './libraries/relation_cleanup.lib.php';
+            include_once './libraries/relation_cleanup.lib.php';
             PMA_relationsCleanupDatabase($db);
 
             // if someday the RENAME DATABASE reappears, do not DROP
@@ -272,7 +274,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             $message = PMA_Message::success(__('Database %s has been renamed to %s'));
             $message->addParam($db);
             $message->addParam($newname);
-        } elseif (! $_error)  {
+        } elseif (! $_error) {
             $message = PMA_Message::success(__('Database %s has been copied to %s'));
             $message->addParam($db);
             $message->addParam($newname);
@@ -327,12 +329,12 @@ if (isset($_REQUEST['comment'])) {
  * because there is no table in the database ($is_info is true)
  */
 if (empty($is_info)) {
-    require './libraries/db_common.inc.php';
+    include './libraries/db_common.inc.php';
     $url_query .= '&amp;goto=db_operations.php';
 
     // Gets the database structure
     $sub_part = '_structure';
-    require './libraries/db_info.inc.php';
+    include './libraries/db_info.inc.php';
     echo "\n";
 
     if (isset($message)) {
@@ -342,11 +344,7 @@ if (empty($is_info)) {
 }
 
 $db_collation = PMA_getDbCollation($db);
-if ($db == 'information_schema') {
-    $is_information_schema = true;
-} else {
-    $is_information_schema = false;
-}
+$is_information_schema = PMA_is_system_schema($db);
 
 if (!$is_information_schema) {
     if ($cfgRelation['commwork']) {
@@ -374,7 +372,7 @@ if (!$is_information_schema) {
     }
     ?>
     <div class="operations_half_width">
-    <?php require './libraries/display_create_table.lib.php'; ?>
+    <?php include './libraries/display_create_table.lib.php'; ?>
     </div>
     <?php
     /**
@@ -416,7 +414,9 @@ if ($db != 'mysql') {
 // Drop link if allowed
 // Don't even try to drop information_schema. You won't be able to. Believe me. You won't.
 // Don't allow to easily drop mysql database, RFE #1327514.
-if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase']) && ! $db_is_information_schema && ($db != 'mysql')) {
+if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase'])
+        && !$db_is_information_schema
+        && (PMA_DRIZZLE || $db != 'mysql')) {
 ?>
 <div class="operations_half_width">
 <fieldset class="caution">

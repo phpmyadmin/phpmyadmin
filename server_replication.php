@@ -113,7 +113,7 @@ if (isset($GLOBALS['sr_take_action'])) {
 
         $tmp_alldbs = PMA_DBI_query('SHOW DATABASES;', $src_link);
         while ($tmp_row = PMA_DBI_fetch_row($tmp_alldbs)) {
-            if ($tmp_row[0] == 'information_schema') {
+            if (PMA_is_system_schema($tmp_row[0])) {
                 continue;
             }
             if (count($do_db) == 0) {

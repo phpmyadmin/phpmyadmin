@@ -26,6 +26,7 @@ $GLOBALS['js_include'][] = 'jquery/timepicker.js';
 
 // required for GIS editor loaded via AJAX
 $GLOBALS['js_include'][] = 'gis_data_editor.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.sprintf.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.svg.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.mousewheel.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.event.drag-2.0.min.js';
@@ -62,7 +63,7 @@ if (! isset($param) || $param[0] == '') {
     $err_url   = $goto . '?' . PMA_generate_common_url($db, $table);
 
     // Gets the list and number of fields
-    list($fields_list, $fields_type, $fields_collation, $fields_null, $geom_column_present) = PMA_tbl_getFields($table,$db);
+    list($fields_list, $fields_type, $fields_collation, $fields_null, $geom_column_present) = PMA_tbl_getFields($db, $table);
     $fields_cnt = count($fields_list);
 
     // retrieve keys into foreign fields, if any
@@ -77,7 +78,7 @@ $url_params = array();
 $url_params['db']    = $db;
 $url_params['table'] = $table;
 
-echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params);
+echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params, '', 'topmenu2');
 
 ?>
 
@@ -161,9 +162,9 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params);
 
         $foreignData = PMA_getForeignData($foreigners, $field, false, '', '');
 
-	echo PMA_getForeignFields_Values($foreigners, $foreignData, $field, $fields_type, $i, $db, $table, $titles,$GLOBALS['cfg']['ForeignKeyMaxLimit'], '', true);
+        echo PMA_getForeignFields_Values($foreigners, $foreignData, $field, $fields_type, $i, $db, $table, $titles,$GLOBALS['cfg']['ForeignKeyMaxLimit'], '', true);
 
-	?>
+        ?>
             <input type="hidden" name="names[<?php echo $i; ?>]"
                 value="<?php echo htmlspecialchars($fields_list[$i]); ?>" />
             <input type="hidden" name="types[<?php echo $i; ?>]"
@@ -251,14 +252,11 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params);
 </fieldset>
 
 <?php
-}
+} else {
+    /**
+     * Selection criteria have been submitted -> do the work
+     */
 
-
-
-/**
- * Selection criteria have been submitted -> do the work
- */
-else {
     // Builds the query
 
     $sql_query = 'SELECT ' . (isset($distinct) ? 'DISTINCT ' : '');
@@ -289,16 +287,15 @@ else {
         reset($func);
         while (list($i, $func_type) = each($func)) {
 
-	        list($charsets[$i]) = explode('_', $collations[$i]);
+            list($charsets[$i]) = explode('_', $collations[$i]);
             $unaryFlag =  (isset($GLOBALS['cfg']['UnaryOperators'][$func_type]) && $GLOBALS['cfg']['UnaryOperators'][$func_type] == 1) ? true : false;
 
             $tmp_geom_func = isset($geom_func[$i]) ? $geom_func[$i] : null;
-	        $whereClause = PMA_tbl_search_getWhereClause($fields[$i],$names[$i], $types[$i], $collations[$i], $func_type, $unaryFlag, $tmp_geom_func);
+            $whereClause = PMA_tbl_search_getWhereClause($fields[$i],$names[$i], $types[$i], $collations[$i], $func_type, $unaryFlag, $tmp_geom_func);
 
-	        if($whereClause)
-		        $w[] = $whereClause;
+            if($whereClause)
+                $w[] = $whereClause;
             } // end for
-	//print_r($w);
         if ($w) {
             $sql_query .= ' WHERE ' . implode(' AND ', $w);
         }

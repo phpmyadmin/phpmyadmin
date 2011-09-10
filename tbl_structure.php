@@ -123,17 +123,16 @@ foreach (PMA_Index::getFromTable($table, $db) as $index) {
 unset($index, $columns, $column_name, $dummy);
 
 // 3. Get fields
-$fields = PMA_DBI_get_columns($db, $table, true);
-$fields_cnt  = count($fields);
+$fields = (array) PMA_DBI_get_columns($db, $table, null, true);
 
 // Get more complete field information
 // For now, this is done just for MySQL 4.1.2+ new TIMESTAMP options
 // but later, if the analyser returns more information, it
 // could be executed for any MySQL version and replace
-// the info given by SHOW FULL FIELDS FROM.
+// the info given by SHOW FULL COLUMNS FROM.
 //
 // We also need this to correctly learn if a TIMESTAMP is NOT NULL, since
-// SHOW FULL FIELDS or INFORMATION_SCHEMA incorrectly says NULL
+// SHOW FULL COLUMNS or INFORMATION_SCHEMA incorrectly says NULL
 // and SHOW CREATE TABLE says NOT NULL (tested
 // in MySQL 4.0.25 and 5.0.21, http://bugs.mysql.com/20910).
 
@@ -261,20 +260,23 @@ foreach ($fields as $row) {
     // for the case ENUM('&#8211;','&ldquo;')
     $type         = htmlspecialchars($type);
     // in case it is too long
+    $start = 0;
     if (strlen($type) > $GLOBALS['cfg']['LimitChars']) {
+        $start = 13;
         $type = '<abbr title="' . $type . '">' . substr($type, 0, $GLOBALS['cfg']['LimitChars']) . '</abbr>';
     }
 
     unset($field_charset);
-    if ((substr($type, 0, 4) == 'char'
-        || substr($type, 0, 7) == 'varchar'
-        || substr($type, 0, 4) == 'text'
-        || substr($type, 0, 8) == 'tinytext'
-        || substr($type, 0, 10) == 'mediumtext'
-        || substr($type, 0, 8) == 'longtext'
-        || substr($type, 0, 3) == 'set'
-        || substr($type, 0, 4) == 'enum'
-        ) && !$extracted_fieldspec['binary']) {
+    if ((substr($type, $start, 4) == 'char'
+        || substr($type, $start, 7) == 'varchar'
+        || substr($type, $start, 4) == 'text'
+        || substr($type, $start, 8) == 'tinytext'
+        || substr($type, $start, 10) == 'mediumtext'
+        || substr($type, $start, 8) == 'longtext'
+        || substr($type, $start, 3) == 'set'
+        || substr($type, $start, 4) == 'enum')
+        && !$extracted_fieldspec['binary']
+    ) {
         if (strpos($type, ' character set ')) {
             $type = substr($type, 0, strpos($type, ' character set '));
         }
@@ -302,7 +304,7 @@ foreach ($fields as $row) {
         $attribute = 'on update CURRENT_TIMESTAMP';
     }
 
-    // here, we have a TIMESTAMP that SHOW FULL FIELDS reports as having the
+    // here, we have a TIMESTAMP that SHOW FULL COLUMNS reports as having the
     // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
     // the latter.
     if (!empty($analyzed_sql[0]['create_table_fields'][$row['Field']]['type']) && $analyzed_sql[0]['create_table_fields'][$row['Field']]['type'] == 'TIMESTAMP' && $analyzed_sql[0]['create_table_fields'][$row['Field']]['timestamp_not_null']) {
@@ -353,8 +355,7 @@ foreach ($fields as $row) {
         } else {
             echo $row['Default'];
         }
-    }
-    else {
+    } else {
         echo '<i>' . _pgettext('None for default','None') . '</i>';
     } ?></td>
     <td nowrap="nowrap"><?php echo strtoupper($row['Extra']); ?></td>
@@ -508,18 +509,19 @@ foreach ($fields as $row) {
                      }
                   } ?>
             </div>
+            <?php if (!PMA_DRIZZLE) { ?>
             <div class="action_spatial">
-               <?php
+                <?php
                 if (isset($spatial_enabled)) {
-                     if ($spatial_enabled) { ?>
-                         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD SPATIAL(' . PMA_backquote($row['Field']) . ')'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
-                             <?php echo $hidden_titles['Spatial']; ?>
-                         </a>
-                     <?php
-                     } else {
-                         echo $hidden_titles['NoSpatial'];
-                     }
-                  } ?>
+                    if ($spatial_enabled) { ?>
+                        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD SPATIAL(' . PMA_backquote($row['Field']) . ')'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
+                            <?php echo $hidden_titles['Spatial']; ?>
+                        </a>
+                    <?php
+                    } else {
+                        echo $hidden_titles['NoSpatial'];
+                    }
+                } ?>
             </div>
             <div class="action_fulltext">
                 <?php
@@ -533,7 +535,8 @@ foreach ($fields as $row) {
                          echo $hidden_titles['NoIdxFulltext'];
                      }
                 } ?>
-             </div>
+            </div>
+            <?php } ?>
         </div>
     </td>
     <?php
@@ -621,15 +624,16 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
         ?></a>
         <?php
     }
-    ?>
+
+    if (!PMA_DRIZZLE) {
+        ?>
 <a href="sql.php?<?php echo $url_query; ?>&amp;session_max_rows=all&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table) . ' PROCEDURE ANALYSE()'); ?>"><?php
-    echo PMA_getIcon('b_tblanalyse.png', __('Propose table structure'));
-    ?></a><?php
-    echo PMA_showMySQLDocu('Extending_MySQL', 'procedure_analyse') . "\n";
+        echo PMA_getIcon('b_tblanalyse.png', __('Propose table structure'));
+        ?></a><?php
+        echo PMA_showMySQLDocu('Extending_MySQL', 'procedure_analyse') . "\n";
+    }
 
-
-    if (PMA_Tracker::isActive())
-    {
+    if (PMA_Tracker::isActive()) {
         echo '<a href="tbl_tracking.php?' . $url_query . '">';
         echo PMA_getIcon('eye.png', __('Track table'));
         echo '</a>';
@@ -676,9 +680,9 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
  * If there are more than 20 rows, displays browse/select/insert/empty/drop
  * links again
  */
-if ($fields_cnt > 20) {
+if (count($fields) > 20) {
     require './libraries/tbl_links.inc.php';
-} // end if ($fields_cnt > 20)
+} // end if (count($fields) > 20)
 
 /**
  * Displays indexes
@@ -802,7 +806,7 @@ if ($cfg['ShowStats']) {
             <?php
         }
         // Optimize link if overhead
-        if (isset($free_size) && ($tbl_type == 'MYISAM' || $tbl_type == 'ARIA' || $tbl_type == 'MARIA' || $tbl_type == 'BDB')) {
+        if (isset($free_size) && !PMA_DRIZZLE && ($tbl_type == 'MYISAM' || $tbl_type == 'ARIA' || $tbl_type == 'MARIA' || $tbl_type == 'BDB')) {
             ?>
     <tr class="tblFooters">
         <td colspan="3" align="center">

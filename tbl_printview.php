@@ -166,7 +166,7 @@ foreach ($the_tables as $key => $table) {
         }
         $field_name = htmlspecialchars($row['Field']);
 
-        // here, we have a TIMESTAMP that SHOW FULL FIELDS reports as having the
+        // here, we have a TIMESTAMP that SHOW FULL COLUMNS reports as having the
         // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
         // the latter.
         /**
@@ -225,7 +225,7 @@ foreach ($the_tables as $key => $table) {
 </tbody>
 </table>
     <?php
-    if (! $tbl_is_view && $db != 'information_schema') {
+    if (! $tbl_is_view && !PMA_is_system_schema($db)) {
         /**
          * Displays indexes
          */

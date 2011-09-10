@@ -11,8 +11,8 @@
 require_once './libraries/common.inc.php';
 
 if (! isset($selected_tbl)) {
-    require './libraries/db_common.inc.php';
-    require './libraries/db_info.inc.php';
+    include './libraries/db_common.inc.php';
+    include './libraries/db_info.inc.php';
 }
 
 
@@ -59,7 +59,7 @@ PMA_DBI_select_db($db);
 $tables = PMA_DBI_get_tables($db);
 
 $count  = 0;
-foreach($tables as $table) {
+foreach ($tables as $table) {
     $comments = PMA_getComments($db, $table);
 
     echo '<div>' . "\n";
@@ -76,7 +76,7 @@ foreach($tables as $table) {
      */
 
     PMA_DBI_select_db($db);
-    $result       = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($table) . ';');
+    $indexes      = PMA_DBI_get_table_indexes($db, $table);
     $primary      = '';
     $indexes      = array();
     $lastIndex    = '';
@@ -84,7 +84,7 @@ foreach($tables as $table) {
     $indexes_data = array();
     $pk_array     = array(); // will be use to emphasis prim. keys in the table
                              // view
-    while ($row = PMA_DBI_fetch_assoc($result)) {
+    foreach ($indexes as $row) {
         // Backups the list of primary keys
         if ($row['Key_name'] == 'PRIMARY') {
             $primary   .= $row['Column_name'] . ', ';
@@ -111,10 +111,6 @@ foreach($tables as $table) {
         }
 
     } // end while
-    if ($result) {
-        PMA_DBI_free_result($result);
-    }
-
 
     /**
      * Gets columns properties
@@ -124,7 +120,7 @@ foreach($tables as $table) {
 
     if (PMA_MYSQL_INT_VERSION < 50025) {
         // We need this to correctly learn if a TIMESTAMP is NOT NULL, since
-        // SHOW FULL FIELDS or INFORMATION_SCHEMA incorrectly says NULL
+        // SHOW FULL COLUMNS or INFORMATION_SCHEMA incorrectly says NULL
         // and SHOW CREATE TABLE says NOT NULL
         // http://bugs.mysql.com/20910.
 
@@ -210,7 +206,7 @@ foreach($tables as $table) {
          && ! empty($analyzed_sql[0]['create_table_fields'][$field_name]['type'])
          && $analyzed_sql[0]['create_table_fields'][$field_name]['type'] == 'TIMESTAMP'
          && $analyzed_sql[0]['create_table_fields'][$field_name]['timestamp_not_null']) {
-            // here, we have a TIMESTAMP that SHOW FULL FIELDS reports as having the
+            // here, we have a TIMESTAMP that SHOW FULL COLUMNS reports as having the
             // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
             // the latter.
             /**

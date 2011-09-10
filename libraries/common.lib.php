@@ -578,12 +578,12 @@ $is_modify_link = true, $back_url = '', $exit = true)
             if (strlen($table)) {
                 $_url_params['db'] = $db;
                 $_url_params['table'] = $table;
-                $doedit_goto = '<a href="tbl_sql.php?' . PMA_generate_common_url($_url_params) . '">';
+                $doedit_goto = '<a href="tbl_sql.php' . PMA_generate_common_url($_url_params) . '">';
             } elseif (strlen($db)) {
                 $_url_params['db'] = $db;
-                $doedit_goto = '<a href="db_sql.php?' . PMA_generate_common_url($_url_params) . '">';
+                $doedit_goto = '<a href="db_sql.php' . PMA_generate_common_url($_url_params) . '">';
             } else {
-                $doedit_goto = '<a href="server_sql.php?' . PMA_generate_common_url($_url_params) . '">';
+                $doedit_goto = '<a href="server_sql.php' . PMA_generate_common_url($_url_params) . '">';
             }
 
             $error_msg_output .= $doedit_goto
@@ -718,10 +718,10 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count =
             // in this case.
 
             // set this because PMA_Table::countRecords() can use it
-            $tbl_is_view = PMA_Table::isView($db, $table['Name']);
+            $tbl_is_view = $table['TABLE_TYPE'] == 'VIEW';
 
-            if ($tbl_is_view || 'information_schema' == $db) {
-                $table['Rows'] = PMA_Table::countRecords($db, $table['Name']);
+            if ($tbl_is_view || PMA_is_system_schema($db)) {
+                $table['Rows'] = PMA_Table::countRecords($db, $table['Name'], false, true);
             }
         }
 
@@ -953,7 +953,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
     if (strlen($GLOBALS['table'])
         && $GLOBALS['sql_query'] == 'TRUNCATE TABLE ' . PMA_backquote($GLOBALS['table'])
     ) {
-        if (PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], 'Index_length') > 1024) {
+        if (PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], 'Index_length') > 1024 && !PMA_DRIZZLE) {
             PMA_DBI_try_query('REPAIR TABLE ' . PMA_backquote($GLOBALS['table']));
         }
     }
@@ -1330,6 +1330,10 @@ function PMA_profilingCheckbox($sql_query)
  */
 function PMA_formatByteDown($value, $limes = 6, $comma = 0)
 {
+    if ($value === null) {
+        return null;
+    }
+
     $byteUnits = array(
         /* l10n: shortcuts for Byte */
         __('B'),
@@ -1717,14 +1721,15 @@ function PMA_generate_html_tab($tab, $url_params = array(), $base_dir='')
  *
  * @param array  $tabs       one element per tab
  * @param string $url_params
+ * @param string $base_dir
+ * @param string $menu_id
  *
  * @return  string  html-code for tab-navigation
  */
-function PMA_generate_html_tabs($tabs, $url_params, $base_dir='')
+function PMA_generate_html_tabs($tabs, $url_params, $base_dir='', $menu_id='topmenu')
 {
-    $tag_id = 'topmenu';
-    $tab_navigation = '<div id="' . htmlentities($tag_id) . 'container">' . "\n"
-        .'<ul id="' . htmlentities($tag_id) . '">' . "\n";
+    $tab_navigation = '<div id="' . htmlentities($menu_id) . 'container" class="menucontainer">'
+        .'<ul id="' . htmlentities($menu_id) . '">';
 
     foreach ($tabs as $tab) {
         $tab_navigation .= PMA_generate_html_tab($tab, $url_params, $base_dir);
@@ -2894,11 +2899,13 @@ function PMA_extractFieldSpec($fieldspec)
         /* Create printable type name */
         $printtype = strtolower($fieldspec);
 
-        // strip the "BINARY" attribute, except if we find "BINARY(" because
-        // this would be a BINARY or VARBINARY field type
-        if (!preg_match('@binary[\(]@', $printtype)) {
-            $binary = strpos($printtype, 'blob') !== false || strpos($printtype, 'binary') !== false;
+        // Strip the "BINARY" attribute, except if we find "BINARY(" because
+        // this would be a BINARY or VARBINARY field type;
+        // by the way, a BLOB should not show the BINARY attribute
+        // because this is not accepted in MySQL syntax.
+        if (preg_match('@binary@', $printtype) && ! preg_match('@binary[\(]@', $printtype)) {
             $printtype = preg_replace('@binary@', '', $printtype);
+            $binary = true;
         } else {
             $binary = false;
         }
@@ -3542,7 +3549,7 @@ function PMA_getFunctionsForField($field, $insert_mode)
         && $field['Key'] == 'PRI'
         && ($field['Type'] == 'char(36)' || $field['Type'] == 'varchar(36)')
     ) {
-         $default_function = $cfg['DefaultFunctions']['pk_char36'];
+         $default_function = $cfg['DefaultFunctions']['FUNC_UUID'];
     }
     // this is set only when appropriate and is always true
     if (isset($field['display_binary_as_hex'])) {
@@ -3680,6 +3687,26 @@ function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
     // If we reached this point, the user does not
     // have even valid table-wise privileges.
     return false;
+}
+
+/**
+ * Returns server type for current connection
+ *
+ * Known types are: Drizzle, MariaDB and MySQL (default)
+ *
+ * @return string
+ */
+function PMA_getServerType()
+{
+    $server_type = 'MySQL';
+    if (PMA_DRIZZLE) {
+        $server_type = 'Drizzle';
+    } else if (strpos(PMA_MYSQL_STR_VERSION, 'mariadb') !== false) {
+        $server_type = 'MariaDB';
+    } else if (stripos(PMA_MYSQL_VERSION_COMMENT, 'percona') !== false) {
+        $server_type = 'Percona Server';
+    }
+    return $server_type;
 }
 
 ?>

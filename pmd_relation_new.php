@@ -8,16 +8,14 @@
 /**
  *
  */
-include_once './libraries/pmd_common.php';
+require_once './libraries/pmd_common.php';
 $die_save_pos = 0;
-include_once 'pmd_save_pos.php';
+require_once 'pmd_save_pos.php';
 extract($_POST, EXTR_SKIP);
 
 $tables = PMA_DBI_get_tables_full($db, $T1);
 $type_T1 = strtoupper($tables[$T1]['ENGINE']);
 $tables = PMA_DBI_get_tables_full($db, $T2);
-//print_r($tables);
-//die();
 $type_T2 = strtoupper($tables[$T2]['ENGINE']);
 
 // native foreign key

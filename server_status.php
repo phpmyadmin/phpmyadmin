@@ -48,10 +48,21 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
         // Query realtime chart
         case 'queries':
-            $queries = PMA_DBI_fetch_result(
-                "SHOW GLOBAL STATUS
-                WHERE (Variable_name LIKE 'Com_%' OR Variable_name = 'Questions')
-                    AND Value > 0'", 0, 1);
+            if (PMA_DRIZZLE) {
+                $sql = "SELECT concat('Com_', variable_name), variable_value
+                    FROM data_dictionary.GLOBAL_STATEMENTS
+                    WHERE variable_value > 0
+                      UNION
+                    SELECT variable_name, variable_value
+                    FROM data_dictionary.GLOBAL_STATUS
+                    WHERE variable_name = 'Questions'";
+                $queries = PMA_DBI_fetch_result($sql, 0, 1);
+            } else {
+                $queries = PMA_DBI_fetch_result(
+                    "SHOW GLOBAL STATUS
+                    WHERE (Variable_name LIKE 'Com_%' OR Variable_name = 'Questions')
+                        AND Value > 0", 0, 1);
+            }
             cleanDeprecated($queries);
             // admin commands are not queries
             unset($queries['Com_admin_commands']);
@@ -389,8 +400,13 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 /**
  * Replication library
  */
-require './libraries/replication.inc.php';
-require_once './libraries/replication_gui.lib.php';
+if (PMA_DRIZZLE) {
+    $server_master_status = false;
+    $server_slave_status = false;
+} else {
+    require './libraries/replication.inc.php';
+    require_once './libraries/replication_gui.lib.php';
+}
 
 /**
  * JS Includes
@@ -445,6 +461,13 @@ if (!empty($_REQUEST['kill'])) {
  * get status from server
  */
 $server_status = PMA_DBI_fetch_result('SHOW GLOBAL STATUS', 0, 1);
+if (PMA_DRIZZLE) {
+    // Drizzle doesn't put query statistics into variables, add it
+    $sql = "SELECT concat('Com_', variable_name), variable_value
+        FROM data_dictionary.GLOBAL_STATEMENTS";
+    $statements = PMA_DBI_fetch_result($sql, 0, 1);
+    $server_status = array_merge($server_status, $statements);
+}
 
 /**
  * for some calculations we require also some server settings
@@ -568,6 +591,7 @@ $sections = array(
     'tc'            => __('Transaction coordinator'),
     'files'         => __('Files'),
     'ssl'           => 'SSL',
+    'other'         => __('Other')
 );
 
 /**
@@ -617,23 +641,33 @@ $links['innodb'][__('InnoDB Status')]
 $links['innodb']['doc'] = 'innodb';
 
 
-// Variable to contain all com_ variables
+// Variable to contain all com_ variables (query statistics)
 $used_queries = array();
 
 // Variable to map variable names to their respective section name
 // (used for js category filtering)
 $allocationMap = array();
 
+// Variable to mark used sections
+$categoryUsed = array();
+
 // sort vars into arrays
 foreach ($server_status as $name => $value) {
+    $section_found = false;
     foreach ($allocations as $filter => $section) {
         if (strpos($name, $filter) !== false) {
             $allocationMap[$name] = $section;
+            $categoryUsed[$section] = true;
+            $section_found = true;
             if ($section == 'com' && $value > 0) {
                 $used_queries[$name] = $value;
             }
             break; // Only exits inner loop
         }
+    }
+    if (!$section_found) {
+        $allocationMap[$name] = 'other';
+        $categoryUsed['other'] = true;
     }
 }
 
@@ -807,11 +841,12 @@ echo __('Runtime Information');
                         <option value=''><?php echo __('Filter by category...'); ?></option>
                 <?php
                         foreach ($sections as $section_id => $section_name) {
+                            if (isset($categoryUsed[$section_id])) {
                 ?>
-                            <option value='<?php echo $section_id; ?>'><?php echo $section_name; ?></option>
+                                <option value='<?php echo $section_id; ?>'><?php echo $section_name; ?></option>
                 <?php
+                            }
                         }
-
                 ?>
                     </select>
                 </div>
@@ -1153,13 +1188,29 @@ function printServerTraffic()
 
     $url_params = array();
 
-    if (! empty($_REQUEST['full'])) {
-        $sql_query = 'SHOW FULL PROCESSLIST';
+    $show_full_sql = !empty($_REQUEST['full']);
+    if ($show_full_sql) {
         $url_params['full'] = 1;
         $full_text_link = 'server_status.php' . PMA_generate_common_url(array(), 'html', '?');
     } else {
-        $sql_query = 'SHOW PROCESSLIST';
         $full_text_link = 'server_status.php' . PMA_generate_common_url(array('full' => 1));
+    }
+    if (PMA_DRIZZLE) {
+        $sql_query = "SELECT
+                p.id       AS Id,
+                p.username AS User,
+                p.host     AS Host,
+                p.db       AS db,
+                p.command  AS Command,
+                p.time     AS Time,
+                p.state    AS State,
+                " . ($show_full_sql ? 's.query' : 'left(p.info, ' . (int)$GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] . ')') . " AS Info
+            FROM data_dictionary.PROCESSLIST p
+                " . ($show_full_sql ? 'LEFT JOIN data_dictionary.SESSIONS s ON s.session_id = p.id' : '');
+    } else {
+        $sql_query = $show_full_sql
+            ? 'SHOW FULL PROCESSLIST'
+            : 'SHOW PROCESSLIST';
     }
     $result = PMA_DBI_query($sql_query);
 
@@ -1182,11 +1233,11 @@ function printServerTraffic()
             echo __('SQL query');
             if (! PMA_DRIZZLE) {
                 ?>
-                <a href="<?php echo $full_text_link; ?>"
-                    title="<?php echo empty($full) ? __('Show Full Queries') : __('Truncate Shown Queries'); ?>">
-                    <img src="<?php echo $GLOBALS['pmaThemeImage'] . 's_' . (empty($_REQUEST['full']) ? 'full' : 'partial'); ?>text.png"
-                    alt="<?php echo empty($_REQUEST['full']) ? __('Show Full Queries') : __('Truncate Shown Queries'); ?>" />
-                </a>
+            <a href="<?php echo $full_text_link; ?>"
+                title="<?php echo $show_full_sql ? __('Truncate Shown Queries') : __('Show Full Queries'); ?>">
+                <img src="<?php echo $GLOBALS['pmaThemeImage'] . 's_' . ($show_full_sql ? 'partial' : 'full'); ?>text.png"
+                alt="<?php echo $show_full_sql ? __('Truncate Shown Queries') : __('Show Full Queries'); ?>" />
+            </a>
             <?php } ?>
         </th>
     </tr>
@@ -1195,15 +1246,6 @@ function printServerTraffic()
     <?php
     $odd_row = true;
     while ($process = PMA_DBI_fetch_assoc($result)) {
-        if (PMA_DRIZZLE) {
-            // Drizzle uses uppercase keys
-            foreach ($process as $k => $v) {
-                $k = $k !== 'DB'
-                    ? ucfirst(strtolower($k))
-                    : 'db';
-                $process[$k] = $v;
-            }
-        }
         $url_params['kill'] = $process['Id'];
         $kill_process = 'server_status.php' . PMA_generate_common_url($url_params);
         ?>
@@ -1221,7 +1263,7 @@ function printServerTraffic()
         if (empty($process['Info'])) {
             echo '---';
         } else {
-            if (empty($_REQUEST['full']) && strlen($process['Info']) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
+            if (!$show_full_sql && strlen($process['Info']) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
                 echo htmlspecialchars(substr($process['Info'], 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'])) . '[...]';
             } else {
                 echo PMA_SQP_formatHtml(PMA_SQP_parse($process['Info']));
@@ -1392,20 +1434,20 @@ function printVariablesTable()
         'Table_locks_waited' => 0,
         'Qcache_lowmem_prunes' => 0,
 
-        'Qcache_free_blocks' => $server_status['Qcache_total_blocks'] / 5,
+        'Qcache_free_blocks' => isset($server_status['Qcache_total_blocks']) ? $server_status['Qcache_total_blocks'] / 5 : 0,
         'Slow_launch_threads' => 0,
 
         // depends on Key_read_requests
         // normaly lower then 1:0.01
-        'Key_reads' => (0.01 * $server_status['Key_read_requests']),
+        'Key_reads' => isset($server_status['Key_read_requests']) ? (0.01 * $server_status['Key_read_requests']) : 0,
         // depends on Key_write_requests
         // normaly nearly 1:1
-        'Key_writes' => (0.9 * $server_status['Key_write_requests']),
+        'Key_writes' => isset($server_status['Key_write_requests']) ? (0.9 * $server_status['Key_write_requests']) : 0,
 
         'Key_buffer_fraction' => 0.5,
 
         // alert if more than 95% of thread cache is in use
-        'Threads_cached' => 0.95 * $server_variables['thread_cache_size']
+        'Threads_cached' => isset($server_variables['thread_cache_size']) ? 0.95 * $server_variables['thread_cache_size'] : 0
 
         // higher is better
         // variable => min value
@@ -1501,10 +1543,12 @@ function printMonitor()
             <img src="themes/dot.gif" class="icon ic_s_cog" alt="" />
             <?php echo __('Settings'); ?>
         </a>
+        <?php if (!PMA_DRIZZLE) { ?>
         <a href="#monitorInstructionsDialog">
             <img src="themes/dot.gif" class="icon ic_b_help" alt="" />
             <?php echo __('Instructions/Setup'); ?>
         </a>
+        <?php } ?>
         <a href="#endChartEditMode" style="display:none;">
             <img src="themes/dot.gif" class="icon ic_s_okay" alt="" />
             <?php echo __('Done rearranging/editing charts'); ?>
@@ -1649,6 +1693,7 @@ function printMonitor()
     <div id="emptyDialog" title="Dialog" style="display:none;">
     </div>
 
+    <?php if (!PMA_DRIZZLE) { ?>
     <div id="logAnalyseDialog" title="<?php echo __('Log statistics'); ?>" style="display:none;">
         <p> <?php echo __('Selected time range:'); ?>
         <input type="text" name="dateStart" class="datetimefield" value="" /> -
@@ -1677,6 +1722,7 @@ function printMonitor()
         <p></p>
         <div class="placeHolder"></div>
     </div>
+    <?php } ?>
 
     <table border="0" class="clearfloat" id="chartGrid">
 

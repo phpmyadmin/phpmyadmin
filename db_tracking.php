@@ -17,7 +17,7 @@ $GLOBALS['js_include'][] = 'db_structure.js';
  * If we are not in an Ajax request, then do the common work and show the links etc.
  */
 if ($GLOBALS['is_ajax_request'] != true) {
-    require './libraries/db_common.inc.php';
+    include './libraries/db_common.inc.php';
 }
 $url_query .= '&amp;goto=tbl_tracking.php&amp;back=db_tracking.php';
 
@@ -48,11 +48,11 @@ if ($num_tables == 0 && count($data['ddlog']) == 0) {
     echo '<p>' . __('No tables found in database.') . '</p>' . "\n";
 
     if (empty($db_is_information_schema)) {
-        require './libraries/display_create_table.lib.php';
+        include './libraries/display_create_table.lib.php';
     }
 
     // Display the footer
-    require './libraries/footer.inc.php';
+    include './libraries/footer.inc.php';
     exit;
 }
 

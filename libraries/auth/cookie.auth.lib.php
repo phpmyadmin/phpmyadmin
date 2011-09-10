@@ -32,7 +32,7 @@ if (function_exists('mcrypt_encrypt')) {
         srand((double) microtime() * 1000000);
         $td = mcrypt_module_open(MCRYPT_BLOWFISH, '', MCRYPT_MODE_CBC, '');
         if ($td === false) {
-            die('Failed to use Blowfish from mcrypt!');
+            die(__('Failed to use Blowfish from mcrypt!'));
         }
         $iv = mcrypt_create_iv(mcrypt_enc_get_iv_size($td), MCRYPT_RAND);
         $GLOBALS['PMA_Config']->setCookie('pma_mcrypt_iv', base64_encode($iv));
@@ -73,7 +73,7 @@ if (function_exists('mcrypt_encrypt')) {
     }
 
 } else {
-    require_once './libraries/blowfish.php';
+    include_once './libraries/blowfish.php';
 }
 
 /**
@@ -137,9 +137,9 @@ function PMA_auth()
 
     /* HTML header; do not show here the PMA version to improve security */
     $page_title = 'phpMyAdmin ';
-    require './libraries/header_meta_style.inc.php';
+    include './libraries/header_meta_style.inc.php';
     // if $page_title is set, this script uses it as the title:
-    require './libraries/header_scripts.inc.php';
+    include './libraries/header_scripts.inc.php';
     ?>
 <script type="text/javascript">
 //<![CDATA[
@@ -155,7 +155,7 @@ if (top != self) {
 
     <?php
     if (file_exists(CUSTOM_HEADER_FILE)) {
-        require CUSTOM_HEADER_FILE;
+        include CUSTOM_HEADER_FILE;
     }
     ?>
 
@@ -184,7 +184,7 @@ if (top != self) {
 
     // Displays the languages form
     if (empty($GLOBALS['cfg']['Lang'])) {
-        require_once './libraries/display_select_lang.lib.php';
+        include_once './libraries/display_select_lang.lib.php';
         // use fieldset, don't show doc link
         PMA_select_language(true, false);
     }
@@ -234,7 +234,7 @@ if (top != self) {
         }
         echo '>';
 
-        require_once './libraries/select_server.lib.php';
+        include_once './libraries/select_server.lib.php';
         PMA_select_server(false, false);
 
         echo '</select></div>';
@@ -283,7 +283,7 @@ if (top != self) {
 </div>
     <?php
     if (file_exists(CUSTOM_FOOTER_FILE)) {
-        require CUSTOM_FOOTER_FILE;
+        include CUSTOM_FOOTER_FILE;
     }
     ?>
 </body>

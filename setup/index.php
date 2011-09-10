@@ -19,7 +19,7 @@ if ($page === '') {
 }
 if (!file_exists("./setup/frames/$page.inc.php")) {
     // it will happen only when enterung URL by hand, we don't care for these cases
-    die('Wrong GET file attribute value');
+    die(__('Wrong GET file attribute value'));
 }
 
 // Handle done action info

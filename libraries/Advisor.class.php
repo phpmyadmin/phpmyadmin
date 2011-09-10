@@ -13,7 +13,8 @@ class Advisor
     var $parseResult;
     var $runResult;
 
-    function run() {
+    function run()
+    {
         // HowTo: A simple Advisory system in 3 easy steps.
 
         // Step 1: Get some variables to evaluate on
@@ -21,8 +22,17 @@ class Advisor
             PMA_DBI_fetch_result('SHOW GLOBAL STATUS', 0, 1),
             PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES', 0, 1)
         );
+        if (PMA_DRIZZLE) {
+            $this->variables = array_merge(
+                $this->variables,
+                PMA_DBI_fetch_result(
+                    "SELECT concat('Com_', variable_name), variable_value
+                    FROM data_dictionary.GLOBAL_STATEMENTS", 0, 1
+                )
+            );
+        }
         // Add total memory to variables as well
-        require_once 'libraries/sysinfo.lib.php';
+        include_once 'libraries/sysinfo.lib.php';
         $sysinfo = getSysInfo();
         $memory  = $sysinfo->memory();
         $this->variables['system_memory'] = $memory['MemTotal'];
@@ -32,10 +42,14 @@ class Advisor
         // Step 3: Feed the variables to the rules and let them fire. Sets $runResult
         $this->runRules();
 
-        return array('parse' => array('errors' => $this->parseResult['errors']), 'run' => $this->runResult);
+        return array(
+            'parse' => array('errors' => $this->parseResult['errors']),
+            'run'   => $this->runResult
+        );
     }
 
-    function runRules() {
+    function runRules()
+    {
         $this->runResult = array(
             'fired' => array(),
             'notfired' => array(),
@@ -51,7 +65,9 @@ class Advisor
                 try {
                      $precond = $this->ruleExprEvaluate($rule['precondition']);
                 } catch (Exception $e) {
-                    $this->runResult['errors'][] = 'Failed evaluating precondition for rule \''.$rule['name'].'\'. PHP threw following error: '.$e->getMessage();
+                    $this->runResult['errors'][] = 'Failed evaluating precondition for rule \''
+                        . $rule['name'] . '\'. PHP threw following error: '
+                        . $e->getMessage();
                     continue;
                 }
             }
@@ -62,7 +78,9 @@ class Advisor
                 try {
                     $value = $this->ruleExprEvaluate($rule['formula']);
                 } catch(Exception $e) {
-                    $this->runResult['errors'][] = 'Failed calculating value for rule \''.$rule['name'].'\'. PHP threw following error: '.$e->getMessage();
+                    $this->runResult['errors'][] = 'Failed calculating value for rule \''
+                        . $rule['name'] . '\'. PHP threw following error: '
+                        . $e->getMessage();
                     continue;
                 }
 
@@ -75,7 +93,9 @@ class Advisor
                         $this->addRule('notfired', $rule);
                     }
                 }  catch(Exception $e) {
-                    $this->runResult['errors'][] = 'Failed running test for rule \''.$rule['name'].'\'. PHP threw following error: '.$e->getMessage();
+                    $this->runResult['errors'][] = 'Failed running test for rule \''
+                        . $rule['name'] . '\'. PHP threw following error: '
+                        . $e->getMessage();
                 }
             }
         }
@@ -86,12 +106,13 @@ class Advisor
     /**
      * Escapes percent string to be used in format string.
      *
-     * @param string $str
+     * @param string $str string to escape
+     *
      * @return string
      */
     function escapePercent($str)
     {
-        return preg_replace('/%( |,|\.|$)/','%%\1', $str);
+        return preg_replace('/%( |,|\.|$)/', '%%\1', $str);
     }
 
     /**
@@ -99,6 +120,7 @@ class Advisor
      *
      * @param string $str
      * @param mixed  $param
+     *
      * @return string
      */
     function translate($str, $param = null)
@@ -118,6 +140,7 @@ class Advisor
      * Splits justification to text and formula.
      *
      * @param string $rule
+     *
      * @return array
      */
     function splitJustification($rule)
@@ -125,7 +148,7 @@ class Advisor
         $jst = preg_split('/\s*\|\s*/', $rule['justification'], 2);
         if (count($jst) > 1) {
             return array($jst[0], $jst[1]);
-       }
+        }
         return array($rule['justification']);
     }
 
@@ -133,42 +156,44 @@ class Advisor
     function addRule($type, $rule)
     {
         switch($type) {
-            case 'notfired':
-            case 'fired':
-                $jst = Advisor::splitJustification($rule);
-                if (count($jst) > 1) {
-                    try {
-                        /* Translate */
-                        $str = $this->translate($jst[0], $jst[1]);
-                    } catch (Exception $e) {
-                        $this->runResult['errors'][] = sprintf(
-                            __('Failed formatting string for rule \'%s\'. PHP threw following error: %s'),
-                            $rule['name'],
-                            $e->getMessage()
-                        );
-                        return;
-                    }
-
-                    $rule['justification'] = $str;
-                } else {
-                    $rule['justification'] = $this->translate($rule['justification']);
+        case 'notfired':
+        case 'fired':
+            $jst = Advisor::splitJustification($rule);
+            if (count($jst) > 1) {
+                try {
+                    /* Translate */
+                    $str = $this->translate($jst[0], $jst[1]);
+                } catch (Exception $e) {
+                    $this->runResult['errors'][] = sprintf(
+                        __('Failed formatting string for rule \'%s\'. PHP threw following error: %s'),
+                        $rule['name'],
+                        $e->getMessage()
+                    );
+                    return;
                 }
-                $rule['name'] = $this->translate($rule['name']);
-                $rule['issue'] = $this->translate($rule['issue']);
 
-                // Replaces {server_variable} with 'server_variable' linking to server_variables.php
-                $rule['recommendation'] = preg_replace(
-                    '/\{([a-z_0-9]+)\}/Ui',
-                    '<a href="server_variables.php?' . PMA_generate_common_url() . '#filter=\1">\1</a>',
-                    $this->translate($rule['recommendation']));
+                $rule['justification'] = $str;
+            } else {
+                $rule['justification'] = $this->translate($rule['justification']);
+            }
+            $rule['name'] = $this->translate($rule['name']);
+            $rule['issue'] = $this->translate($rule['issue']);
 
-                // Replaces external Links with PMA_linkURL() generated links
-                $rule['recommendation'] = preg_replace(
-                    '#href=("|\')(https?://[^\1]+)\1#ie',
-                    '\'href="\' . PMA_linkURL("\2") . \'"\'',
-                    $rule['recommendation']
-                );
-                break;
+            // Replaces {server_variable} with 'server_variable'
+            // linking to server_variables.php
+            $rule['recommendation'] = preg_replace(
+                '/\{([a-z_0-9]+)\}/Ui',
+                '<a href="server_variables.php?' . PMA_generate_common_url() . '#filter=\1">\1</a>',
+                $this->translate($rule['recommendation'])
+            );
+
+            // Replaces external Links with PMA_linkURL() generated links
+            $rule['recommendation'] = preg_replace(
+                '#href=("|\')(https?://[^\1]+)\1#ie',
+                '\'href="\' . PMA_linkURL("\2") . \'"\'',
+                $rule['recommendation']
+            );
+            break;
         }
 
         $this->runResult[$type][] = $rule;
@@ -191,15 +216,24 @@ class Advisor
     }
 
     // Runs a code expression, replacing variable names with their respective values
-    // ignoreUntil: if > 0, it doesn't replace any variables until that string position, but still evaluates the whole expr
+    // ignoreUntil: if > 0, it doesn't replace any variables until that string
+    // position, but still evaluates the whole expr
     function ruleExprEvaluate($expr, $ignoreUntil = 0)
     {
         if ($ignoreUntil > 0) {
-            $exprIgnore = substr($expr,0,$ignoreUntil);
-            $expr = substr($expr,$ignoreUntil);
+            $exprIgnore = substr($expr, 0, $ignoreUntil);
+            $expr = substr($expr, $ignoreUntil);
         }
-        $expr = preg_replace_callback('/fired\s*\(\s*(\'|")(.*)\1\s*\)/Ui', array($this, 'ruleExprEvaluate_var1'), $expr);
-        $expr = preg_replace_callback('/\b(\w+)\b/', array($this, 'ruleExprEvaluate_var2'), $expr);
+        $expr = preg_replace_callback(
+            '/fired\s*\(\s*(\'|")(.*)\1\s*\)/Ui',
+            array($this, 'ruleExprEvaluate_var1'),
+            $expr
+        );
+        $expr = preg_replace_callback(
+            '/\b(\w+)\b/',
+            array($this, 'ruleExprEvaluate_var2'),
+            $expr
+        );
         if ($ignoreUntil > 0) {
             $expr = $exprIgnore . $expr;
         }
@@ -211,7 +245,9 @@ class Advisor
         $err = ob_get_contents();
         ob_end_clean();
         if ($err) {
-            throw new Exception(strip_tags($err) . '<br />Executed code: $value = '.$expr.';');
+            throw new Exception(
+                strip_tags($err) . '<br />Executed code: $value = ' . $expr . ';'
+            );
         }
         return $value;
     }
@@ -222,7 +258,7 @@ class Advisor
         $file = file('libraries/advisory_rules.txt');
         $errors = array();
         $rules = array();
-        $ruleSyntax = array('name','formula','test','issue','recommendation','justification');
+        $ruleSyntax = array('name', 'formula', 'test', 'issue', 'recommendation', 'justification');
         $numRules = count($ruleSyntax);
         $numLines = count($file);
         $j = -1;
@@ -237,14 +273,18 @@ class Advisor
             // Reading new rule
             if (substr($line, 0, 4) == 'rule') {
                 if ($ruleLine > 0) {
-                    $errors[] = 'Invalid rule declaration on line '.($i+1). ', expected line '.$ruleSyntax[$ruleLine++].' of previous rule' ;
+                    $errors[] = 'Invalid rule declaration on line ' . ($i+1)
+                        . ', expected line ' . $ruleSyntax[$ruleLine++]
+                        . ' of previous rule' ;
                     continue;
                 }
-                if (preg_match("/rule\s'(.*)'( \[(.*)\])?$/",$line,$match)) {
+                if (preg_match("/rule\s'(.*)'( \[(.*)\])?$/", $line, $match)) {
                     $ruleLine = 1;
                     $j++;
                     $rules[$j] = array( 'name' => $match[1]);
-                    if(isset($match[3])) $rules[$j]['precondition'] = $match[3];
+                    if (isset($match[3])) {
+                        $rules[$j]['precondition'] = $match[3];
+                    }
                 } else {
                     $errors[] = 'Invalid rule declaration on line '.($i+1);
                 }
@@ -266,7 +306,7 @@ class Advisor
                         . Expected tab, but found \''.$line[0].'\'';
                     continue;
                 }
-                $rules[$j][$ruleSyntax[$ruleLine++]] = chop(substr($line,1));
+                $rules[$j][$ruleSyntax[$ruleLine++]] = chop(substr($line, 1));
             }
 
             // Rule complete
@@ -282,12 +322,12 @@ class Advisor
 function PMA_bytime($num, $precision)
 {
     $per = '';
-    if ($num >= 1) { # per second
+    if ($num >= 1) { // per second
         $per = "per second";
-    } elseif ($num*60 >= 1) { # per minute
+    } elseif ($num*60 >= 1) { // per minute
         $num = $num*60;
         $per = "per minute";
-    } elseif ($num*60*60 >=1 ) { # per hour
+    } elseif ($num*60*60 >=1 ) { // per hour
         $num = $num*60*60;
         $per = "per hour";
     } else {
@@ -298,7 +338,7 @@ function PMA_bytime($num, $precision)
     $num = round($num, $precision);
 
     if ($num == 0) {
-        $num = '<'.pow(10,-$precision);
+        $num = '<' . pow(10, -$precision);
     }
 
     return "$num $per";

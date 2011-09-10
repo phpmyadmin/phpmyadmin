@@ -41,7 +41,7 @@ function prepareJSVersion() {
         $button.addClass('addJs').removeClass('add');
         var classes = $button.attr('class');
         $button
-            .after('<a class="' + classes + '" name="' + $button.attr('name') 
+            .after('<a class="' + classes + '" name="' + $button.attr('name')
                 + '">+ ' + $button.attr('value') + '</a>')
             .remove();
     });
@@ -55,7 +55,7 @@ function prepareJSVersion() {
  * @returns the HTML for a data point
  */
 function addDataPoint(pointNumber, prefix) {
-    return '<br>' + PMA_messages['strPoint'] + (pointNumber + 1) + ':'
+    return '<br>' + $.sprintf(PMA_messages['strPointN'], (pointNumber + 1)) + ':'
         + '<label for="x"> ' + PMA_messages['strX'] + ' </label>'
         + '<input type="text" name="' + prefix + '[' + pointNumber + '][x]" value="">'
         + '<label for="y"> ' + PMA_messages['strY'] + ' </label>'
@@ -79,7 +79,7 @@ function initGISEditorVisualization() {
 
 /**
  * Opens up the GIS data editor.
- * 
+ *
  * @param value      current value of the geometry field
  * @param field      field name
  * @param type       geometry type
@@ -142,7 +142,7 @@ $(document).ready(function() {
 
     // Remove the class that is added due to the URL being too long.
     $('.open_gis_editor a').removeClass('formLinkSubmit');
-    
+
     /**
      * Prepares and insert the GIS data to the input field on clicking 'copy'.
      */
@@ -247,7 +247,7 @@ $(document).ready(function() {
         for (i = 0; i < noOfPoints; i++) {
             html += addDataPoint(i, (prefix + '[' + noOfLines + ']'));
         }
-        html += '<a class="addPoint addJs" name="' + prefix + '[' + noOfLines + '][add_point]">+ ' 
+        html += '<a class="addPoint addJs" name="' + prefix + '[' + noOfLines + '][add_point]">+ '
             + PMA_messages['strAddPoint'] + '</a><br>';
 
         $a.before(html);
@@ -274,9 +274,9 @@ $(document).ready(function() {
         for (i = 0; i < 4; i++) {
             html += addDataPoint(i, (prefix + '[' + noOfPolygons + '][0]'));
         }
-        html += '<a class="addPoint addJs" name="' + prefix + '[' + noOfPolygons + '][0][add_point]">+ ' 
+        html += '<a class="addPoint addJs" name="' + prefix + '[' + noOfPolygons + '][0][add_point]">+ '
             + PMA_messages['strAddPoint'] + '</a><br>'
-            + '<a class="addLine addJs" name="' + prefix + '[' + noOfPolygons + '][add_line]">+ ' 
+            + '<a class="addLine addJs" name="' + prefix + '[' + noOfPolygons + '][add_line]">+ '
             + PMA_messages['strAddInnerRing'] + '</a><br><br>';
 
         $a.before(html);

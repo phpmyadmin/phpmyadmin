@@ -427,7 +427,7 @@ $cfg['Servers'][$i]['AllowDeny']['order'] = '';
 $cfg['Servers'][$i]['AllowDeny']['rules'] = array();
 
 /**
- * Disable use of INFORMATION_SCHEMA
+ * Disable use of INFORMATION_SCHEMA. Is always 'true' for Drizzle.
  *
  * @see http://sf.net/support/tracker.php?aid=1849494
  * @see http://bugs.mysql.com/19588
@@ -616,6 +616,7 @@ $cfg['MemoryLimit'] = '0';
 
 /**
  * mark used tables, make possible to show locked tables (since MySQL 3.23.30)
+ * Is ignored for Drizzle.
  *
  * @global boolean $cfg['SkipLockedTables']
  */
@@ -2422,7 +2423,7 @@ $cfg['NaturalOrder'] = true;
 
 /**
  * Initial state for sliders
- * (open | closed)
+ * (open | closed | disabled)
  *
  * @global string $cfg['InitialSlidersState']
  */
@@ -2807,8 +2808,8 @@ if ($cfg['ShowFunctionFields']) {
         'FUNC_DATE' => '',
         'FUNC_NUMBER' => '',
         'FUNC_SPATIAL' => 'GeomFromText',
+        'FUNC_UUID' => 'UUID',
         'first_timestamp' => 'NOW',
-        'pk_char36' => 'UUID',
     );
 } // end if
 

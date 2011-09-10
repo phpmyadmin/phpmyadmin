@@ -5,7 +5,7 @@
  * @package phpMyAdmin-Designer
  */
 
-include_once './libraries/pmd_common.php';
+require_once './libraries/pmd_common.php';
 
 /**
  * If called directly from the designer, first save the positions

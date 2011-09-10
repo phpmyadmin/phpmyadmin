@@ -2565,7 +2565,7 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql)
         echo $header;
         $header_shown = true;
     }
-    if (! isset($analyzed_sql[0]['queryflags']['procedure'])) {
+    if (!PMA_DRIZZLE && !isset($analyzed_sql[0]['queryflags']['procedure'])) {
         echo PMA_linkOrButton(
             'view_create.php' . $url_query,
             PMA_getIcon('b_views.png', __('Create view')),

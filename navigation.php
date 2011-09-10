@@ -296,7 +296,7 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
         echo __('No tables found in database.');
     }
     unset($table_list);
-    if ($db != 'information_schema') {
+    if (!PMA_is_system_schema($db)) {
         $class = '';
         $GLOBALS['cfg']['AjaxEnable'] ? $class="ajax" : '';
         echo '<ul id="newtable"><li><a target="frame_content" href="tbl_create.php' . PMA_generate_common_url(array('db' => $GLOBALS['db'])) . '"  class="'.$class .'" >'

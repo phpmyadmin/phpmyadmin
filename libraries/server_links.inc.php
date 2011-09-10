@@ -54,7 +54,7 @@ if (!$GLOBALS['is_ajax_request']) {
     $tabs['process']['link'] = 'server_processlist.php';
     $tabs['process']['text'] = __('Processes');*/
 
-    if ($is_superuser) {
+    if ($is_superuser && !PMA_DRIZZLE) {
         $tabs['rights']['icon'] = 'ic_s_rights';
         $tabs['rights']['link'] = 'server_privileges.php';
         $tabs['rights']['text'] = __('Privileges');
@@ -84,7 +84,7 @@ if (!$GLOBALS['is_ajax_request']) {
         $tabs['binlog']['text'] = __('Binary log');
     }
 
-    if ($is_superuser) {
+    if ($is_superuser && !PMA_DRIZZLE) {
         $tabs['replication']['icon'] = 'ic_s_replication';
         $tabs['replication']['link'] = 'server_replication.php';
         $tabs['replication']['text'] = __('Replication');
@@ -98,9 +98,15 @@ if (!$GLOBALS['is_ajax_request']) {
     $tabs['charset']['link'] = 'server_collations.php';
     $tabs['charset']['text'] = __('Charsets');
 
-    $tabs['engine']['icon'] = 'ic_b_engine';
-    $tabs['engine']['link'] = 'server_engines.php';
-    $tabs['engine']['text'] = __('Engines');
+    if (PMA_DRIZZLE) {
+        $tabs['plugins']['icon'] = 'ic_b_engine';
+        $tabs['plugins']['link'] = 'server_plugins.php';
+        $tabs['plugins']['text'] = __('Plugins');
+    } else {
+        $tabs['engine']['icon'] = 'ic_b_engine';
+        $tabs['engine']['link'] = 'server_engines.php';
+        $tabs['engine']['text'] = __('Engines');
+    }
 
     echo PMA_generate_html_tabs($tabs, array());
     unset($tabs);

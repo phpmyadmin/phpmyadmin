@@ -48,21 +48,15 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
         $polygons = explode(")),((", $multipolygon);
 
         foreach ($polygons as $polygon) {
-            // If the polygon doesnt have an inner polygon
+            // If the polygon doesn't have an inner ring, use polygon itself
             if (strpos($polygon, "),(") === false) {
-                $min_max = $this->setMinMax($polygon, $min_max);
+                $ring = $polygon;
             } else {
-                // Seperate outer and inner polygons
+                // Seperate outer ring and use it to determin min-max
                 $parts = explode("),(", $polygon);
-                $outer = $parts[0];
-                $inner = array_slice($parts, 1);
-
-                $min_max = $this->setMinMax($outer, $min_max);
-
-                foreach ($inner as $inner_poly) {
-                    $min_max = $this->setMinMax($inner_poly, $min_max);
-                }
+                $ring = $parts[0];
             }
+            $min_max = $this->setMinMax($ring, $min_max);
         }
 
         return $min_max;
@@ -374,7 +368,7 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
         // Determines whether each line ring is an inner ring or an outer ring.
         // If it's an inner ring get a point on the surface which can be used to
         // correctly classify inner rings to their respective outer rings.
-        require_once './libraries/gis/pma_gis_polygon.php';
+        include_once './libraries/gis/pma_gis_polygon.php';
         foreach ($row_data['parts'] as $i => $ring) {
             $row_data['parts'][$i]['isOuter'] = PMA_GIS_Polygon::isOuterRing($ring['points']);
         }
@@ -382,7 +376,8 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
         // Find points on surface for inner rings
         foreach ($row_data['parts'] as $i => $ring) {
             if (! $ring['isOuter']) {
-                $row_data['parts'][$i]['pointOnSurface'] = PMA_GIS_Polygon::getPointOnSurface($ring['points']);
+                $row_data['parts'][$i]['pointOnSurface']
+                    = PMA_GIS_Polygon::getPointOnSurface($ring['points']);
             }
         }
 
@@ -391,8 +386,11 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
             if (! $ring1['isOuter']) {
                 foreach ($row_data['parts'] as $k => $ring2) {
                     if ($ring2['isOuter']) {
-                        // If the pointOnSurface of the inner ring is also inside the outer ring
-                        if (PMA_GIS_Polygon::isPointInsidePolygon($ring1['pointOnSurface'], $ring2['points'])) {
+                        // If the pointOnSurface of the inner ring
+                        // is also inside the outer ring
+                        if (PMA_GIS_Polygon::isPointInsidePolygon(
+                            $ring1['pointOnSurface'], $ring2['points']
+                        )) {
                             if (! isset($ring2['inner'])) {
                                 $row_data['parts'][$k]['inner'] = array();
                             }
@@ -410,7 +408,7 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
                 $wkt .= '('; // start of polygon
 
                 $wkt .= '('; // start of outer ring
-                foreach($ring['points'] as $point) {
+                foreach ($ring['points'] as $point) {
                     $wkt .= $point['x'] . ' ' . $point['y'] . ',';
                 }
                 $wkt = substr($wkt, 0, strlen($wkt) - 1);

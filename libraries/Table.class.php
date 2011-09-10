@@ -179,11 +179,23 @@ class PMA_Table
      */
     static public function isView($db = null, $table = null)
     {
-        if (strlen($db) && strlen($table)) {
-            return PMA_Table::_isView($db, $table);
+        if (empty($db) || empty($table)) {
+            return false;
         }
 
-        return false;
+        // use cached data or load information with SHOW command
+        if (isset(PMA_Table::$cache[$db][$table]) || $GLOBALS['cfg']['Server']['DisableIS']) {
+            $type = PMA_Table::sGetStatusInfo($db, $table, 'TABLE_TYPE');
+            return $type == 'VIEW';
+        }
+
+        // query information_schema
+        $result = PMA_DBI_fetch_result(
+            "SELECT TABLE_NAME
+            FROM information_schema.VIEWS
+            WHERE TABLE_SCHEMA = '" . PMA_sqlAddSlashes($db) . "'
+                AND TABLE_NAME = '" . PMA_sqlAddSlashes($table) . "'");
+        return $result ? true : false;
     }
 
     /**
@@ -252,30 +264,6 @@ class PMA_Table
     }
 
     /**
-     * Checks if this "table" is a view
-     *
-     * @param string $db    the database name
-     * @param string $table the table name
-     *
-     * @deprecated
-     * @todo see what we could do with the possible existence of $table_is_view
-     *
-     * @return  boolean  whether this is a view
-     */
-    static protected function _isView($db, $table)
-    {
-        // maybe we already know if the table is a view
-        if (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view']) {
-            return true;
-        }
-
-        // Since phpMyAdmin 3.2 the field TABLE_TYPE is properly filled by
-        // PMA_DBI_get_tables_full()
-        $type = PMA_Table::sGetStatusInfo($db, $table, 'TABLE_TYPE');
-        return $type == 'VIEW';
-    }
-
-    /**
      * Checks if this is a merge table
      *
      * If the ENGINE of the table is MERGE or MRG_MYISAM (alias),
@@ -335,7 +323,8 @@ class PMA_Table
             return PMA_Table::$cache[$db][$table];
         }
 
-        if (! isset(PMA_Table::$cache[$db][$table][$info])) {
+        // array_key_exists allows for null values
+        if (!array_key_exists($info, PMA_Table::$cache[$db][$table])) {
             if (! $disable_error) {
                 trigger_error(__('unknown table status: ') . $info, E_USER_WARNING);
             }
@@ -379,9 +368,8 @@ class PMA_Table
         $query = PMA_backquote($name) . ' ' . $type;
 
         if ($length != ''
-            && ! preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|'
-            . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN)$@i', $type)
-        ) {
+            && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|'
+                . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN|UUID)$@i', $type)) {
             $query .= '(' . $length . ')';
         }
 
@@ -413,6 +401,15 @@ class PMA_Table
                 $query .= ' DEFAULT b\''
                         . preg_replace('/[^01]/', '0', $default_value)
                         . '\'';
+            } elseif ($type == 'BOOLEAN') {
+                if (preg_match('/^1|T|TRUE|YES$/i', $default_value)) {
+                    $query .= ' DEFAULT TRUE';
+                } elseif (preg_match('/^0|F|FALSE|NO$/i', $default_value)) {
+                    $query .= ' DEFAULT FALSE';
+                } else {
+                    // Invalid BOOLEAN value
+                    $query .= ' DEFAULT \'' . PMA_sqlAddSlashes($default_value) . '\'';
+                }
             } else {
                 $query .= ' DEFAULT \'' . PMA_sqlAddSlashes($default_value) . '\'';
             }
@@ -505,7 +502,9 @@ class PMA_Table
 
             // for a VIEW, $row_count is always false at this point
             if (false === $row_count || $row_count < $GLOBALS['cfg']['MaxExactCount']) {
-                if (! $is_view) {
+                // Make an exception for views in I_S and D_D schema in Drizzle, as these map to
+                // in-memory data and should execute fast enough
+                if (! $is_view || (PMA_DRIZZLE && PMA_is_system_schema($db))) {
                     $row_count = PMA_DBI_fetch_value(
                         'SELECT COUNT(*) FROM ' . PMA_backquote($db) . '.'
                         . PMA_backquote($table)
@@ -750,15 +749,19 @@ class PMA_Table
                 }
             }
             unset($analyzed_sql);
-            $server_sql_mode = PMA_DBI_fetch_value("SHOW VARIABLES LIKE 'sql_mode'", 0, 1);
-            // ANSI_QUOTES might be a subset of sql_mode, for example
-            // REAL_AS_FLOAT,PIPES_AS_CONCAT,ANSI_QUOTES,IGNORE_SPACE,ANSI
-            if (false !== strpos($server_sql_mode, 'ANSI_QUOTES')) {
-                $table_delimiter = 'quote_double';
-            } else {
+            if (PMA_DRIZZLE) {
                 $table_delimiter = 'quote_backtick';
+            } else {
+                $server_sql_mode = PMA_DBI_fetch_value("SHOW VARIABLES LIKE 'sql_mode'", 0, 1);
+                // ANSI_QUOTES might be a subset of sql_mode, for example
+                // REAL_AS_FLOAT,PIPES_AS_CONCAT,ANSI_QUOTES,IGNORE_SPACE,ANSI
+                if (false !== strpos($server_sql_mode, 'ANSI_QUOTES')) {
+                    $table_delimiter = 'quote_double';
+                } else {
+                    $table_delimiter = 'quote_backtick';
+                }
+                unset($server_sql_mode);
             }
-            unset($server_sql_mode);
 
             /* Find table name in query and replace it */
             while ($parsed_sql[$i]['type'] != $table_delimiter) {
@@ -795,7 +798,7 @@ class PMA_Table
             if (isset($GLOBALS['drop_if_exists'])
                 && $GLOBALS['drop_if_exists'] == 'true'
             ) {
-                if (PMA_Table::_isView($target_db, $target_table)) {
+                if (PMA_Table::isView($target_db, $target_table)) {
                     $drop_query = 'DROP VIEW';
                 } else {
                     $drop_query = 'DROP TABLE';
@@ -866,7 +869,7 @@ class PMA_Table
 
         // Copy the data unless this is a VIEW
         if (($what == 'data' || $what == 'dataonly')
-            && ! PMA_Table::_isView($target_db, $target_table)
+            && ! PMA_Table::isView($target_db, $target_table)
         ) {
             $sql_insert_data = 'INSERT INTO ' . $target . ' SELECT * FROM ' . $source;
             PMA_DBI_query($sql_insert_data);
@@ -882,7 +885,7 @@ class PMA_Table
             // moving table from replicated one to not replicated one
             PMA_DBI_select_db($source_db);
 
-            if (PMA_Table::_isView($source_db, $source_table)) {
+            if (PMA_Table::isView($source_db, $source_table)) {
                 $sql_drop_query = 'DROP VIEW';
             } else {
                 $sql_drop_query = 'DROP TABLE';
@@ -1251,7 +1254,7 @@ class PMA_Table
      */
     public function getUniqueColumns($backquoted = true)
     {
-        $sql = 'SHOW INDEX FROM ' . $this->getFullName(true) . ' WHERE Non_unique = 0';
+        $sql = PMA_DBI_get_table_indexes_sql($this->getDbName(), $this->getName(), 'Non_unique = 0');
         $uniques = PMA_DBI_fetch_result($sql, array('Key_name', null), 'Column_name');
 
         $return = array();
@@ -1280,7 +1283,7 @@ class PMA_Table
      */
     public function getIndexedColumns($backquoted = true)
     {
-        $sql = 'SHOW INDEX FROM ' . $this->getFullName(true) . ' WHERE Seq_in_index = 1';
+        $sql = PMA_DBI_get_table_indexes_sql($this->getDbName(), $this->getName(), 'Seq_in_index = 1');
         $indexed = PMA_DBI_fetch_result($sql, 'Column_name', 'Column_name');
 
         $return = array();
@@ -1506,7 +1509,8 @@ class PMA_Table
                 // there is no $table_create_time, or
                 // supplied $table_create_time is older than current create time,
                 // so don't save
-                return false;
+                return PMA_Message::error(sprintf(
+                    __('Cannot save UI property "%s". The changes made will not be persistent after you refresh this page. Please check if the table structure has been changed.'), $property));
             }
         }
         // save the value

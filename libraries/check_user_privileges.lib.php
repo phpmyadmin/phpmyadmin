@@ -134,6 +134,15 @@ function PMA_analyseShowGrant()
     PMA_cacheSet('dbs_where_create_table_allowed', $GLOBALS['dbs_where_create_table_allowed'], true);
 } // end function
 
-PMA_analyseShowGrant();
+if (!PMA_DRIZZLE) {
+    PMA_analyseShowGrant();
+} else {
+    // todo: for simple_user_policy only database with user's login can be created (unless logged in as root)
+    $GLOBALS['is_create_db_priv'] = $GLOBALS['is_superuser'];
+    $GLOBALS['is_process_priv']   = false;
+    $GLOBALS['is_reload_priv']    = false;
+    $GLOBALS['db_to_create']      = '';
+    $GLOBALS['dbs_where_create_table_allowed'] = array('*');
+}
 
 ?>

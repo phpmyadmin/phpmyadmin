@@ -11,7 +11,12 @@
 require_once './libraries/common.inc.php';
 
 require './libraries/server_common.inc.php';
-require './libraries/replication.inc.php';
+if (!PMA_DRIZZLE) {
+    require './libraries/replication.inc.php';
+} else {
+    $replication_types = array();
+    $replication_info = null;
+}
 require './libraries/build_html_for_db.lib.php';
 
 /**
@@ -186,7 +191,7 @@ if ($databases_count > 0) {
         echo '    <th>'. $name .'</th>' . "\n";
     }
 
-    if ($is_superuser) {
+    if ($is_superuser && !PMA_DRIZZLE) {
         echo '    <th>' . ($cfg['PropertiesIconic'] ? '' : __('Action')) . "\n"
            . '    </th>' . "\n";
     }
@@ -197,7 +202,7 @@ if ($databases_count > 0) {
     $odd_row = true;
     foreach ($databases as $current) {
         $tr_class = $odd_row ? 'odd' : 'even';
-        if ($current['SCHEMA_NAME'] == 'mysql' || $current['SCHEMA_NAME'] == 'information_schema') {
+        if (PMA_is_system_schema($current['SCHEMA_NAME'], true)) {
             $tr_class .= ' noclick';
         }
         echo '<tr class="' . $tr_class . '">' . "\n";

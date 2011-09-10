@@ -1,8 +1,8 @@
 <?php
 require_once './libraries/common.inc.php';
 if (! isset($_REQUEST['get_gis_editor']) && ! isset($_REQUEST['generate'])) {
-    require_once './libraries/header_http.inc.php';
-    require_once './libraries/header_meta_style.inc.php';
+    include_once './libraries/header_http.inc.php';
+    include_once './libraries/header_meta_style.inc.php';
 }
 require_once './libraries/gis/pma_gis_factory.php';
 require_once './libraries/gis_visualization.lib.php';
@@ -191,7 +191,9 @@ if (isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
                 echo('<input type="hidden" name="gis_data[' . $a . '][' . $type . '][no_of_points]" value="' . $no_of_points . '">');
 
                 for ($i = 0; $i < $no_of_points; $i++) {
-                    echo('<br/>'); echo __("Point"); echo($i + 1 . ':');
+                    echo('<br/>');
+                    printf(__('Point %d'), $i + 1);
+                    echo ':';
 ?>                  <label for="x"><?php echo  __("X"); ?></label>
                     <input type="text" name="gis_data[<?php echo($a); ?>][<?php echo($type); ?>][<?php echo($i); ?>][x]" value="<?php echo(isset($gis_data[$a][$type][$i]['x']) ? htmlspecialchars($gis_data[$a][$type][$i]['x']) : ''); ?>" />
                     <label for="y"><?php echo  __("Y"); ?></label>
@@ -237,7 +239,9 @@ if (isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
                     echo('<input type="hidden" name="gis_data[' . $a . '][' . $type . '][' . $i . '][no_of_points]" value="' . $no_of_points . '">');
 
                     for ($j = 0; $j < $no_of_points; $j++) {
-                        echo('<br/>'); echo __("Point"); echo($j + 1 . ':');
+                        echo('<br/>');
+                        printf(__('Point %d'), $j + 1);
+                        echo ':';
 ?>                      <label for="x"><?php echo  __("X"); ?></label>
                         <input type="text" name="gis_data[<?php echo($a); ?>][<?php echo($type); ?>][<?php echo($i); ?>][<?php echo($j); ?>][x]" value="<?php echo(isset($gis_data[$a][$type][$i][$j]['x']) ? htmlspecialchars($gis_data[$a][$type][$i][$j]['x']) : ''); ?>" />
                         <label for="y"><?php echo  __("Y"); ?></label>
@@ -287,7 +291,9 @@ if (isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
                         echo('<input type="hidden" name="gis_data[' . $a . '][' . $type . '][' . $k . '][' . $i . '][no_of_points]" value="' . $no_of_points . '">');
 
                         for ($j = 0; $j < $no_of_points; $j++) {
-                            echo('<br/>'); echo __("Point"); echo($j + 1 . ':');
+                            echo('<br/>');
+                            printf(__('Point %d'), $j + 1);
+                            echo ':';
 ?>                          <label for="x"><?php echo  __("X"); ?></label>
                             <input type="text" name="<?php echo("gis_data[" . $a . "][" . $type . "][" . $k . "][" . $i . "][" . $j . "][x]"); ?>" value="<?php echo(isset($gis_data[$a][$type][$k][$i][$j]['x']) ? htmlspecialchars($gis_data[$a][$type][$k][$i][$j]['x']) : ''); ?>" />
                             <label for="y"><?php echo  __("Y"); ?></label>

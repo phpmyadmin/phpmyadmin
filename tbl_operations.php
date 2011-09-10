@@ -633,7 +633,7 @@ if ($is_myisam_or_aria || $is_innodb || $is_berkeleydb) {
     </li>
         <?php
     }
-    if ($is_myisam_or_aria) {
+    if ($is_myisam_or_aria && !PMA_DRIZZLE) {
         $this_url_params = array_merge($url_params,
             array(
                 'sql_query' => 'REPAIR TABLE ' . PMA_backquote($GLOBALS['table']),
@@ -646,7 +646,7 @@ if ($is_myisam_or_aria || $is_innodb || $is_berkeleydb) {
     </li>
         <?php
     }
-    if ($is_myisam_or_aria || $is_innodb || $is_berkeleydb) {
+    if (($is_myisam_or_aria || $is_innodb || $is_berkeleydb) && !PMA_DRIZZLE) {
         $this_url_params = array_merge($url_params,
             array(
                 'sql_query' => 'OPTIMIZE TABLE ' . PMA_backquote($GLOBALS['table']),

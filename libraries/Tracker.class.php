@@ -67,13 +67,23 @@ class PMA_Tracker
     static protected $default_tracking_set;
 
     /**
+     * Flags copied from `tracking` column definition in `pma_tracking` table.
+     * Used for column type conversion in Drizzle.
+     *
+     * @var array
+     */
+    static private $tracking_set_flags = array('UPDATE','REPLACE','INSERT','DELETE','TRUNCATE','CREATE DATABASE',
+            'ALTER DATABASE','DROP DATABASE','CREATE TABLE','ALTER TABLE','RENAME TABLE','DROP TABLE','CREATE INDEX',
+            'DROP INDEX','CREATE VIEW','ALTER VIEW','DROP VIEW');
+
+    /**
      * Initializes settings. See phpMyAdmin/Documentation.html.
      *
      * @static
      *
      * @return nothing
      */
-    static public function init()
+    static protected function init()
     {
         self::$pma_table = PMA_backquote($GLOBALS['cfg']['Server']['pmadb']) .".".
                            PMA_backquote($GLOBALS['cfg']['Server']['tracking']);
@@ -240,7 +250,7 @@ class PMA_Tracker
 
         // Get data definition snapshot of table
 
-        $columns = PMA_DBI_get_columns($dbname, $tablename, true);
+        $columns = PMA_DBI_get_columns($dbname, $tablename, null, true);
         // int indices to reduce size
         $columns = array_values($columns);
         // remove Privileges to reduce size
@@ -248,16 +258,7 @@ class PMA_Tracker
             unset($columns[$i]['Privileges']);
         }
 
-        $sql_query = '
-        SHOW INDEX FROM ' . PMA_backquote($dbname) . '.' . PMA_backquote($tablename);
-
-        $sql_result = PMA_DBI_query($sql_query);
-
-        $indexes = array();
-
-        while ($row = PMA_DBI_fetch_assoc($sql_result)) {
-            $indexes[] = $row;
-        }
+        $indexes = PMA_DBI_get_table_indexes($dbname, $tablename);
 
         $snapshot = array('COLUMNS' => $columns, 'INDEXES' => $indexes);
         $snapshot = serialize($snapshot);
@@ -304,7 +305,7 @@ class PMA_Tracker
         '" . PMA_sqlAddSlashes($snapshot) . "',
         '" . PMA_sqlAddSlashes($create_sql) . "',
         '" . PMA_sqlAddSlashes("\n") . "',
-        '" . PMA_sqlAddSlashes($tracking_set) . "' )";
+        '" . PMA_sqlAddSlashes(self::transformTrackingSet($tracking_set)) . "' )";
 
         $result = PMA_query_as_controluser($sql_query);
 
@@ -390,7 +391,7 @@ class PMA_Tracker
         '" . PMA_sqlAddSlashes('') . "',
         '" . PMA_sqlAddSlashes($create_sql) . "',
         '" . PMA_sqlAddSlashes("\n") . "',
-        '" . PMA_sqlAddSlashes($tracking_set) . "' )";
+        '" . PMA_sqlAddSlashes(self::transformTrackingSet($tracking_set)) . "' )";
 
         $result = PMA_query_as_controluser($sql_query);
 
@@ -522,7 +523,9 @@ class PMA_Tracker
         " AND `table_name` = '" . PMA_sqlAddSlashes($tablename) . "' ";
 
         if ($statement != "") {
-            $sql_query .= " AND FIND_IN_SET('" . $statement . "',tracking) > 0" ;
+            $sql_query .= PMA_DRIZZLE
+                ? ' AND tracking & ' . self::transformTrackingSet($statement) . ' <> 0'
+                : " AND FIND_IN_SET('" . $statement . "',tracking) > 0" ;
         }
         $row = PMA_DBI_fetch_array(PMA_query_as_controluser($sql_query));
         return isset($row[0])
@@ -625,7 +628,7 @@ class PMA_Tracker
         }
         $data['ddlog']           = $ddlog;
         $data['dmlog']           = $dmlog;
-        $data['tracking']        = $mixed['tracking'];
+        $data['tracking']        = self::transformTrackingSet($mixed['tracking']);
         $data['schema_snapshot'] = $mixed['schema_snapshot'];
 
         return $data;
@@ -939,6 +942,58 @@ class PMA_Tracker
                 $result = PMA_query_as_controluser($sql_query);
             }
         }
+    }
+
+    /**
+     * Transforms tracking set for Drizzle, which has no SET type
+     *
+     * Converts int<>string for Drizzle, does nothing for MySQL
+     *
+     * @param int|string $tracking_set
+     * @return int|string
+     */
+    static private function transformTrackingSet($tracking_set)
+    {
+        if (!PMA_DRIZZLE) {
+            return $tracking_set;
+        }
+
+        // init conversion array (key 3 doesn't exist in calculated array)
+        if (isset(self::$tracking_set_flags[3])) {
+            // initialize flags
+            $set = self::$tracking_set_flags;
+            $array = array();
+            for ($i = 0; $i < count($set); $i++) {
+                $flag = 1 << $i;
+                $array[$flag] = $set[$i];
+                $array[$set[$i]] = $flag;
+            }
+            self::$tracking_set_flags = $array;
+        }
+
+        if (is_numeric($tracking_set)) {
+            // int > string conversion
+            $aflags = array();
+            // count/2 - conversion table has both int > string and string > int values
+            for ($i = 0; $i < count(self::$tracking_set_flags)/2; $i++) {
+                $flag = 1 << $i;
+                if ($tracking_set & $flag) {
+                    $aflags[] = self::$tracking_set_flags[$flag];
+                }
+            }
+            $flags = implode(',', $aflags);
+        } else {
+            // string > int conversion
+            $flags = 0;
+            foreach (explode(',', $tracking_set) as $strflag) {
+                if ($strflag == '') {
+                    continue;
+                }
+                $flags |= self::$tracking_set_flags[$strflag];
+            }
+        }
+
+        return $flags;
     }
 }
 ?>

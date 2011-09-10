@@ -20,6 +20,7 @@ $GLOBALS['js_include'][] = 'tbl_change.js';
 
 // required for GIS editor loaded via AJAX
 $GLOBALS['js_include'][] = 'gis_data_editor.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.sprintf.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.svg.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.mousewheel.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.event.drag-2.0.min.js';
@@ -34,7 +35,7 @@ if (isset($_SESSION['profiling'])) {
     /* < IE 9 doesn't support canvas natively */
     if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
         $GLOBALS['js_include'][] = 'canvg/flashcanvas.js';
-    }	
+    }
     $GLOBALS['js_include'][] = 'canvg/canvg.js';
 }
 
@@ -121,7 +122,7 @@ if (isset($_REQUEST['get_relational_values']) && $_REQUEST['get_relational_value
  * Logic taken from libraries/display_tbl_lib.php
  */
 if (isset($_REQUEST['get_enum_values']) && $_REQUEST['get_enum_values'] == true) {
-    $field_info_query = 'SHOW FIELDS FROM `' . $db . '`.`' . $table . '` LIKE \'' . $_REQUEST['column'] . '\' ;';
+    $field_info_query = PMA_DBI_get_columns_sql($db, $table, $_REQUEST['column']);
 
     $field_info_result = PMA_DBI_fetch_result($field_info_query, null, null, null, PMA_DBI_QUERY_STORE);
 
@@ -148,7 +149,7 @@ if (isset($_REQUEST['get_enum_values']) && $_REQUEST['get_enum_values'] == true)
  * Find possible values for set fields during grid edit.
  */
 if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
-    $field_info_query = 'SHOW FIELDS FROM `' . $db . '`.`' . $table . '` LIKE \'' . $_REQUEST['column'] . '\' ;';
+    $field_info_query = PMA_DBI_get_columns_sql($db, $table, $_REQUEST['column']);
 
     $field_info_result = PMA_DBI_fetch_result($field_info_query, null, null, null, PMA_DBI_QUERY_STORE);
 
@@ -184,17 +185,17 @@ if (isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
     if (isset($_REQUEST['col_order'])) {
         $col_order = explode(',', $_REQUEST['col_order']);
         $retval = $pmatable->setUiProp(PMA_Table::PROP_COLUMN_ORDER, $col_order, $_REQUEST['table_create_time']);
-        if ($retval !== true) {
+        if (gettype($retval) != 'boolean') {
             PMA_ajaxResponse($retval->getString(), false);
         }
     }
 
 
     // set column visibility
-    if (isset($_REQUEST['col_visib'])) {
+    if ($retval === true && isset($_REQUEST['col_visib'])) {
         $col_visib = explode(',', $_REQUEST['col_visib']);
         $retval = $pmatable->setUiProp(PMA_Table::PROP_COLUMN_VISIB, $col_visib, $_REQUEST['table_create_time']);
-        if ($retval !== true) {
+        if (gettype($retval) != 'boolean') {
             PMA_ajaxResponse($retval->getString(), false);
         }
     }
@@ -781,7 +782,7 @@ else {
         $GLOBALS['js_include'][] = 'functions.js';
         $GLOBALS['js_include'][] = 'makegrid.js';
         $GLOBALS['js_include'][] = 'sql.js';
-        
+
         // Gets the list of fields properties
         if (isset($result) && $result) {
             $fields_meta = PMA_DBI_get_fields_meta($result);
@@ -795,10 +796,10 @@ else {
         }
 
         // hide edit and delete links for information_schema
-        if ($db == 'information_schema') {
+        if (PMA_is_system_schema($db)) {
             $disp_mode = 'nnnn110111';
         }
-        
+
         $message = PMA_Message::success($message);
         echo PMA_showMessage($message, $GLOBALS['sql_query'], 'success');
         PMA_displayTable($result, $disp_mode, $analyzed_sql);
@@ -907,7 +908,7 @@ $(document).ready(makeProfilingChart);
     }
 
     // hide edit and delete links for information_schema
-    if ($db == 'information_schema') {
+    if (PMA_is_system_schema($db)) {
         $disp_mode = 'nnnn110111';
     }
 

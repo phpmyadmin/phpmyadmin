@@ -117,6 +117,8 @@ if ((isset($_REQUEST['submit_connect']))) {
                 ${"{$con}_link"} = null;
             }
             ${"{$con}_db_selected"} = PMA_DBI_select_db(${"{$con}_db"}, ${"{$con}_link"});
+            ${"{$con}_version"} = PMA_DBI_fetch_value('SELECT VERSION()', 0, 0, ${"{$con}_link"});
+            ${"{$con}_is_drizzle"} = (bool)preg_match('/\d{4}\./', ${"{$con}_version"});
         } // end foreach ($cons as $con)
 
         if (($src_db_selected != 1) || ($trg_db_selected != 1)) {
@@ -1015,19 +1017,25 @@ if (isset($_REQUEST['synchronize_db'])) {
     * connecting the source and target servers
     */
     if ('cur' != $_SESSION['src_type']) {
-        $src_link = PMA_DBI_connect($src_username, $src_password,
-            $is_controluser = false, $_SESSION['src_server']);
+        $src_link = PMA_DBI_connect($src_username, $src_password, $is_controluser = false, $_SESSION['src_server']);
+        $src_version = PMA_DBI_fetch_value('SELECT VERSION()', 0, 0, $src_link);
+        $src_is_drizzle = (bool)preg_match('/\d{4}\./', $src_version);
     } else {
         $src_link = $GLOBALS['userlink'];
+        $src_version = PMA_MYSQL_STR_VERSION;
+        $src_is_drizzle = PMA_DRIZZLE;
         // working on current server, so initialize this for tracking
         // (does not work if user defined current server as a remote one)
         $GLOBALS['db'] = $_SESSION['src_db'];
     }
     if ('cur' != $_SESSION['trg_type']) {
-        $trg_link = PMA_DBI_connect($trg_username, $trg_password,
-            $is_controluser = false, $_SESSION['trg_server']);
+        $trg_link = PMA_DBI_connect($trg_username, $trg_password, $is_controluser = false, $_SESSION['trg_server']);
+        $trg_version = PMA_DBI_fetch_value('SELECT VERSION()', 0, 0, $trg_link);
+        $trg_is_drizzle = (bool)preg_match('/\d{4}\./', $trg_version);
     } else {
         $trg_link = $GLOBALS['userlink'];
+        $trg_version = PMA_MYSQL_STR_VERSION;
+        $trg_is_drizzle = PMA_DRIZZLE;
         // working on current server, so initialize this for tracking
         $GLOBALS['db'] = $_SESSION['trg_db'];
     }
@@ -1191,6 +1199,7 @@ if (! isset($_REQUEST['submit_connect'])
         }
         echo '>' .  __('Current connection') . '</option>';
 
+        $loaded_dbi = $GLOBALS['cfg']['Server']['extension'];
         foreach ($GLOBALS['cfg']['Servers'] as $key => $tmp_server) {
             if (empty($tmp_server['host']) && empty($tmp_server['socket'])) {
                 continue;
@@ -1204,20 +1213,30 @@ if (! isset($_REQUEST['submit_connect'])
                     $label .= ':' . $tmp_server['port'];
                 }
             }
-            $value = $tmp_server['host'];
-            $value .= '||||';
-            if (empty($tmp_server['port']) && empty($tmp_server['socket'])) {
-                $value .= '3306';
+
+            if ($loaded_dbi == 'drizzle' && $tmp_server['extension'] != 'drizzle'
+                    || $loaded_dbi != 'drizzle' && $tmp_server['extension'] == 'drizzle') {
+                // incompatible connection protocols
+                $disabled = ' disabled="disabled"';
+                $value = '';
             } else {
-                $value .= $tmp_server['port'];
+                $disabled = '';
+                $value = $tmp_server['host'];
+                $value .= '||||';
+                if (empty($tmp_server['port']) && empty($tmp_server['socket'])) {
+                    $value .= '3306';
+                } else {
+                    $value .= $tmp_server['port'];
+                }
+                $value .= '||||';
+                $value .= $tmp_server['socket'];
+                $value .= '||||';
+                $value .= $tmp_server['user'];
+                $value .= '||||';
+                $value .= $tmp_server['only_db'];
             }
-            $value .= '||||';
-            $value .= $tmp_server['socket'];
-            $value .= '||||';
-            $value .= $tmp_server['user'];
-            $value .= '||||';
-            $value .= $tmp_server['only_db'];
-            echo '<option value="' . $value . '" >'
+
+            echo '<option value="' . $value . '"' . $disabled . '>'
                 . sprintf(__('Configuration: %s'), htmlspecialchars($label)) . '</option>';
         } // end foreach
 ?>
@@ -1255,6 +1274,9 @@ if (! isset($_REQUEST['submit_connect'])
       // these unset() do not complain if the elements do not exist
     unset($databases['mysql']);
     unset($databases['information_schema']);
+    if (PMA_DRIZZLE) {
+        unset($databases['data_dictionary']);
+    }
 
     if (count($databases) == 0) {
         echo __('No databases');

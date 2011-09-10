@@ -5,7 +5,7 @@
  * @package phpMyAdmin
  */
 
-include_once "Export_Relation_Schema.class.php";
+require_once 'Export_Relation_Schema.class.php';
 
 /**
  * This Class inherits the XMLwriter class and
@@ -14,7 +14,6 @@ include_once "Export_Relation_Schema.class.php";
  * @access public
  * @see http://php.net/manual/en/book.xmlwriter.php
  */
-
 class PMA_VISIO extends XMLWriter
 {
     public $title;
@@ -44,7 +43,7 @@ class PMA_VISIO extends XMLWriter
          * Create the XML document
          */
 
-        $this->startDocument('1.0','UTF-8');
+        $this->startDocument('1.0', 'UTF-8');
     }
 
     /**
@@ -57,7 +56,8 @@ class PMA_VISIO extends XMLWriter
      *
      * @return void
      * @access public
-     * @see XMLWriter::startElement(),XMLWriter::writeAttribute(),_documentProperties,_documentSettings
+     * @see XMLWriter::startElement(), XMLWriter::writeAttribute(),
+     * _documentProperties, _documentSettings
      */
     function startVisioDoc()
     {
@@ -72,7 +72,8 @@ class PMA_VISIO extends XMLWriter
     /**
      * Set document title
      *
-     * @param string value sets the title text
+     * @param string $value title text
+     *
      * @return void
      * @access public
      */
@@ -84,7 +85,8 @@ class PMA_VISIO extends XMLWriter
     /**
      * Set document author
      *
-     * @param string value sets the author
+     * @param string $value the author
+     *
      * @return void
      * @access public
      */
@@ -145,7 +147,8 @@ class PMA_VISIO extends XMLWriter
     /**
      * Output Visio XML .VDX Document for download
      *
-     * @param string fileName name of the Visio XML document
+     * @param string $fileName name of the Visio XML document
+     *
      * @return void
      * @access public
      * @see XMLWriter::flush()
@@ -185,18 +188,22 @@ class Table_Stats
     /**
      * The "Table_Stats" constructor
      *
-     * @param string tableName The table name
-     * @param integer same_wide_width The max. with among tables
-     * @param boolean showKeys Whether to display keys or not
-     * @param boolean showInfo Whether to display table position or not
+     * @param string  $tableName        The table name
+     * @param integer $pageNumber       Page number
+     * @param integer &$same_wide_width The max. with among tables
+     * @param boolean $showKeys         Whether to display keys or not
+     * @param boolean $showInfo         Whether to display table position or not
+     *
      * @global object    The current Visio XML document
      * @global integer   The current page number (from the
      *                     $cfg['Servers'][$i]['table_coords'] table)
      * @global array     The relations settings
      * @global string    The current db name
+     *
+     * @return void
      * @access private
      * @see PMA_VISIO, Table_Stats::Table_Stats_setWidth,
-            Table_Stats::Table_Stats_setHeight
+     *      Table_Stats::Table_Stats_setHeight
      */
     function __construct($tableName, $pageNumber, &$same_wide_width, $showKeys = false, $showInfo = false)
     {
@@ -206,7 +213,11 @@ class Table_Stats
         $sql = 'DESCRIBE ' . PMA_backquote($tableName);
         $result = PMA_DBI_try_query($sql, null, PMA_DBI_QUERY_STORE);
         if (!$result || !PMA_DBI_num_rows($result)) {
-            $visio->dieSchema($pageNumber,"VISIO",sprintf(__('The %s table doesn\'t exist!'), $tableName));
+            $visio->dieSchema(
+                $pageNumber,
+                "VISIO",
+                sprintf(__('The %s table doesn\'t exist!'), $tableName)
+            );
         }
 
         /*
@@ -218,7 +229,10 @@ class Table_Stats
             $indexes = PMA_Index::getFromTable($this->_tableName, $db);
             $all_columns = array();
             foreach ($indexes as $index) {
-            $all_columns = array_merge($all_columns, array_flip(array_keys($index->getColumns())));
+                $all_columns = array_merge(
+                    $all_columns,
+                    array_flip(array_keys($index->getColumns()))
+                );
             }
             $this->fields = array_keys($all_columns);
         } else {
@@ -234,21 +248,29 @@ class Table_Stats
 
         // setWidth must me after setHeight, because title
         // can include table height which changes table width
-        $this->_setWidthTable($font,$fontSize);
+        $this->_setWidthTable($font, $fontSize);
         if ($same_wide_width < $this->width) {
             $same_wide_width = $this->width;
         }
 
         // x and y
         $sql = 'SELECT x, y FROM '
-         . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
+         . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
+         . PMA_backquote($cfgRelation['table_coords'])
          . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
          . ' AND   table_name = \'' . PMA_sqlAddSlashes($tableName) . '\''
          . ' AND   pdf_page_number = ' . $pageNumber;
         $result = PMA_query_as_controluser($sql, false, PMA_DBI_QUERY_STORE);
 
         if (!$result || !PMA_DBI_num_rows($result)) {
-            $visio->dieSchema($pageNumber,"VISIO",sprintf(__('Please configure the coordinates for table %s'), $tableName));
+            $visio->dieSchema(
+                $pageNumber,
+                "VISIO",
+                sprintf(
+                    __('Please configure the coordinates for table %s'),
+                    $tableName
+                )
+            );
         }
         list($this->x, $this->y) = PMA_DBI_fetch_row($result);
         $this->x = (double) $this->x;
@@ -270,11 +292,14 @@ class Table_Stats
      * Returns title of the current table,
      * title can have the dimensions/co-ordinates of the table
      *
+     * @return the title
      * @access private
      */
     private function _getTitle()
     {
-        return ($this->_showInfo ? sprintf('%.0f', $this->width) . 'x' . sprintf('%.0f', $this->heightCell) : '') . ' ' . $this->_tableName;
+        return ($this->_showInfo
+            ? sprintf('%.0f', $this->width) . 'x' . sprintf('%.0f', $this->heightCell)
+            : '') . ' ' . $this->_tableName;
     }
 
     /**
@@ -282,18 +307,23 @@ class Table_Stats
      *
      * @param string  $font     font name
      * @param integer $fontSize font size
-     * @global object    The current Visio XML document
+     *
+     * @global object The current Visio XML document
+     *
+     * @return void
      * @see PMA_VISIO
      */
     private function _setWidthTable($font,$fontSize)
     {
         global $visio;
-
     }
 
     /**
      * Sets the height of the table
      *
+     * @param integer $fontSize font size
+     *
+     * @return void
      * @access private
      */
     function _setHeightTable($fontSize)
@@ -305,8 +335,11 @@ class Table_Stats
     /**
      * draw the table
      *
-     * @param boolean showColor Whether to display color
+     * @param boolean $showColor Whether to display color
+     *
      * @global object The current Visio XML document
+     *
+     * @return void
      * @access public
      * @see PMA_VISIO
      */
@@ -316,17 +349,17 @@ class Table_Stats
         //echo $this->_tableName.'<br />';
 
         foreach ($this->fields as $field) {
-                $this->currentCell += $this->heightCell;
-                $showColor    = 'none';
-                if ($showColor) {
-                    if (in_array($field, $this->primary)) {
-                        $showColor = '#0c0';
-                    }
-                    if ($field == $this->displayfield) {
-                        $showColor = 'none';
-                    }
+            $this->currentCell += $this->heightCell;
+            $showColor    = 'none';
+            if ($showColor) {
+                if (in_array($field, $this->primary)) {
+                    $showColor = '#0c0';
                 }
-               // code here for drawing table diagrams
+                if ($field == $this->displayfield) {
+                    $showColor = 'none';
+                }
+            }
+            // code here for drawing table diagrams
         }
     }
 }
@@ -351,10 +384,12 @@ class Relation_Stats
     /**
      * The "Relation_Stats" constructor
      *
-     * @param string master_table The master table name
-     * @param string master_field The relation field in the master table
-     * @param string foreign_table The foreign table name
-     * @param string foreigh_field The relation field in the foreign table
+     * @param string $master_table  The master table name
+     * @param string $master_field  The relation field in the master table
+     * @param string $foreign_table The foreign table name
+     * @param string $foreign_field The relation field in the foreign table
+     *
+     * @return void
      * @see Relation_Stats::_getXy
      */
     function __construct($master_table, $master_field, $foreign_table, $foreign_field)
@@ -405,8 +440,9 @@ class Relation_Stats
     /**
      * Gets arrows coordinates
      *
-     * @param string table The current table name
-     * @param string column The relation column name
+     * @param string $table  The current table name
+     * @param string $column The relation column name
+     *
      * @return array Arrows coordinates
      * @access private
      */
@@ -414,15 +450,21 @@ class Relation_Stats
     {
         $pos = array_search($column, $table->fields);
         // x_left, x_right, y
-        return array($table->x, $table->x + $table->width, $table->y + ($pos + 1.5) * $table->heightCell);
+        return array(
+            $table->x,
+            $table->x + $table->width,
+            $table->y + ($pos + 1.5) * $table->heightCell
+        );
     }
 
     /**
-     * draws relation links and arrows
-     * shows foreign key relations
+     * draws relation links and arrows shows foreign key relations
      *
-     * @param boolean changeColor Whether to use one color per relation or not
-     * @global object    The current Visio XML document
+     * @param boolean $changeColor Whether to use one color per relation or not
+     *
+     * @global object The current Visio XML document
+     *
+     * @return void
      * @access public
      * @see PMA_VISIO
      */
@@ -438,7 +480,7 @@ class Relation_Stats
                 'yellow',
                 'green',
                 'cyan',
-            '    orange'
+                'orange'
             );
             shuffle($listOfColors);
             $color =  $listOfColors[0];
@@ -447,7 +489,6 @@ class Relation_Stats
         }
 
         // code here for making connections b/w relation objects
-
     }
 }
 /*
@@ -457,10 +498,11 @@ class Relation_Stats
 /**
  * Visio Relation Schema Class
  *
- * Purpose of this class is to generate the Visio XML .VDX Document
- * which is used for representing the database diagrams in any version of MS Visio IDE.
- * This class uses Software and Database Template and Database model diagram of Visio
- * and with the combination of these objects actually helps in preparing Visio XML .VDX document.
+ * Purpose of this class is to generate the Visio XML .VDX Document which is used
+ * for representing the database diagrams in any version of MS Visio IDE.
+ * This class uses Software and Database Template and Database model diagram of
+ * Visio and with the combination of these objects actually helps in preparing
+ * Visio XML .VDX document.
  *
  * Visio XML is generated by using XMLWriter php extension and this class
  * inherits Export_Relation_Schema class has common functionality added
@@ -495,7 +537,7 @@ class PMA_Visio_Relation_Schema extends PMA_Export_Relation_Schema
         $visio->setTitle(sprintf(__('Schema of the %s database - Page %s'), $db, $this->pageNumber));
         $visio->SetAuthor('phpMyAdmin ' . PMA_VERSION);
         $visio->startVisioDoc();
-        $alltables = $this->getAllTables($db,$this->pageNumber);
+        $alltables = $this->getAllTables($db, $this->pageNumber);
 
         foreach ($alltables as $table) {
             if (! isset($this->tables[$table])) {
@@ -515,7 +557,13 @@ class PMA_Visio_Relation_Schema extends PMA_Export_Relation_Schema
                     * to do a === false and this is not PHP3 compatible)
                     */
                     if (in_array($rel['foreign_table'], $alltables)) {
-                        $this->_addRelation($one_table, $master_field, $rel['foreign_table'], $rel['foreign_field'],$this->showKeys);
+                        $this->_addRelation(
+                            $one_table,
+                            $master_field,
+                            $rel['foreign_table'],
+                            $rel['foreign_field'],
+                            $this->showKeys
+                        );
                     }
                 }
             }
@@ -533,32 +581,40 @@ class PMA_Visio_Relation_Schema extends PMA_Export_Relation_Schema
     /**
      * Defines relation objects
      *
-     * @param string masterTable The master table name
-     * @param string masterField The relation field in the master table
-     * @param string foreignTable The foreign table name
-     * @param string foreignField The relation field in the foreign table
+     * @param string  $masterTable  The master table name
+     * @param string  $masterField  The relation field in the master table
+     * @param string  $foreignTable The foreign table name
+     * @param string  $foreignField The relation field in the foreign table
+     * @param boolean $showKeys     Whether to display keys or not
+     *
      * @return void
      * @access private
-     * @see Table_Stats::__construct(),Relation_Stats::__construct()
+     * @see Table_Stats::__construct(), Relation_Stats::__construct()
      */
     private function _addRelation($masterTable, $masterField, $foreignTable, $foreignField, $showKeys)
     {
         if (! isset($this->tables[$masterTable])) {
-            $this->tables[$masterTable] = new Table_Stats($masterTable, $this->pageNumber, $showKeys);
+            $this->tables[$masterTable] = new Table_Stats(
+                $masterTable, $this->pageNumber, $showKeys
+            );
         }
         if (! isset($this->tables[$foreignTable])) {
-            $this->tables[$foreignTable] = new Table_Stats($foreignTable, $this->pageNumber, $showKeys);
+            $this->tables[$foreignTable] = new Table_Stats(
+                $foreignTable, $this->pageNumber, $showKeys
+            );
         }
-        $this->_relations[] = new Relation_Stats($this->tables[$masterTable], $masterField, $this->tables[$foreignTable], $foreignField);
+        $this->_relations[] = new Relation_Stats(
+            $this->tables[$masterTable], $masterField,
+            $this->tables[$foreignTable], $foreignField
+        );
     }
 
     /**
      * Draws relation references
+     * connects master table's master field to foreign table's forein field.
      *
-     * connects master table's master field to
-     * foreign table's forein field.
+     * @param boolean $changeColor Whether to use one color per relation or not
      *
-     * @param boolean changeColor Whether to use one color per relation or not
      * @return void
      * @access private
      * @see Relation_Stats::relationDraw()
@@ -573,8 +629,8 @@ class PMA_Visio_Relation_Schema extends PMA_Export_Relation_Schema
     /**
      * Draws tables
      *
+     * @param boolean $changeColor Whether to show color for tables text or not
      *
-     * @param boolean changeColor Whether to show color for tables text or not
      * @return void
      * @access private
      * @see Table_Stats::tableDraw()

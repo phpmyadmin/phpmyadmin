@@ -166,8 +166,8 @@ if ($cfg['ShowFunctionFields']) {
         ),
 
         'FUNC_DATE' => array(
-            'CURDATE',
-            'CURTIME',
+            'CURRENT_DATE',
+            'CURRENT_TIME',
             'DATE',
             'FROM_DAYS',
             'FROM_UNIXTIME',

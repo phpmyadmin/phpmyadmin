@@ -175,7 +175,7 @@ function test_php_errormsg($start = true)
 /**
  * Test database connection
  *
- * @param string $extension     'mysql' or 'mysqli'
+ * @param string $extension     'drizzle', 'mysql' or 'mysqli'
  * @param string $connect_type  'tcp' or 'socket'
  * @param string $host
  * @param string $port
@@ -191,7 +191,33 @@ function test_db_connection($extension, $connect_type, $host, $port, $socket, $u
     $socket = empty($socket) || $connect_type == 'tcp' ? null : $socket;
     $port = empty($port) || $connect_type == 'socket' ? null : ':' . $port;
     $error = null;
-    if ($extension == 'mysql') {
+    if ($extension == 'drizzle') {
+        while (1) {
+            $drizzle = @drizzle_create();
+            if (!$drizzle) {
+                $error = __('Could not initialize Drizzle connection library');
+                break;
+            }
+            $conn = $socket
+                ? @drizzle_con_add_uds($socket, $user, $pass, null, 0)
+                : @drizzle_con_add_tcp($drizzle, $host, $port, $user, $pass, null, 0);
+            if (!$conn) {
+                $error = __('Could not connect to Drizzle server');
+                drizzle_free($drizzle);
+                break;
+            }
+            // connection object is set up but we have to send some query to actually connect
+            $res = @drizzle_query($conn, 'SELECT 1');
+            if (!$res) {
+                $error = __('Could not connect to Drizzle server');
+            } else {
+                drizzle_result_free($res);
+            }
+            drizzle_con_free($conn);
+            drizzle_free($drizzle);
+            break;
+        }
+    } else if ($extension == 'mysql') {
         $conn = @mysql_connect($host . $socket . $port, $user, $pass);
         if (!$conn) {
             $error = __('Could not connect to MySQL server');

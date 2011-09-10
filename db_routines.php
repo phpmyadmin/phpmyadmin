@@ -12,7 +12,11 @@
 require_once './libraries/common.inc.php';
 require_once './libraries/common.lib.php';
 require_once './libraries/mysql_charsets.lib.php';
-require_once './libraries/data_mysql.inc.php';
+if (PMA_DRIZZLE) {
+    include_once './libraries/data_drizzle.inc.php';
+} else {
+    include_once './libraries/data_mysql.inc.php';
+}
 
 /**
  * Include JavaScript libraries

@@ -25,9 +25,8 @@ class PMA_SVG_Data_Point extends PMA_SVG_Data_Element
     public function __construct($cx, $cy, $label, $dataRow)
     {
         parent::__construct($label,$dataRow);
-	$this->cx = $cx;
-	$this->cy = $cy;
-        
+        $this->cx = $cx;
+        $this->cy = $cy;
     }
 
     public function prepareRowAsSVG($options)
@@ -39,10 +38,8 @@ class PMA_SVG_Data_Point extends PMA_SVG_Data_Element
      * Prepares and returns the code related to a row in the query result as SVG.
      *
      * @param array  $options  Array containing options related to properties of the point
-     *
      * @return the code related to a row in the query result.
      */
-    
     protected function prepareSvg($options)
     {
         $point_options = array(

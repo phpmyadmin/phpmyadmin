@@ -223,7 +223,7 @@ function PMA_fatalError($error_message, $message_args = null)
         $GLOBALS['PMA_Config']->removeCookie($GLOBALS['session_name']);
     }
 
-    require './libraries/error.inc.php';
+    include './libraries/error.inc.php';
 
     if (!defined('TESTSUITE')) {
         exit;
@@ -406,7 +406,7 @@ function PMA_arrayWalkRecursive(&$array, $function, $apply_to_keys_also = false)
 {
     static $recursive_counter = 0;
     if (++$recursive_counter > 1000) {
-        die('possible deep recursion attack');
+        die(__('possible deep recursion attack'));
     }
     foreach ($array as $key => $value) {
         if (is_array($value)) {
@@ -489,7 +489,7 @@ function PMA_getenv($var_name)
 function PMA_sendHeaderLocation($uri)
 {
     if (PMA_IS_IIS && strlen($uri) > 600) {
-        require_once './libraries/js_escape.lib.php';
+        include_once './libraries/js_escape.lib.php';
 
         echo '<html><head><title>- - -</title>' . "\n";
         echo '<meta http-equiv="expires" content="0">' . "\n";
@@ -564,7 +564,8 @@ function PMA_no_cache_header()
 /**
  * Sends header indicating file download.
  *
- * @param string $filename Filename to include in headers.
+ * @param string $filename Filename to include in headers if empty,
+ *                         none Content-Disposition header will be sent.
  * @param string $mimetype MIME type to include in headers.
  * @param int    $length   Length of content (optional)
  * @param bool   $no_cache Whether to include no-caching headers.
@@ -578,8 +579,10 @@ function PMA_download_header($filename, $mimetype, $length = 0, $no_cache = true
     }
     /* Replace all possibly dangerous chars in filename */
     $filename = str_replace(array(';', '"', "\n", "\r"), '-', $filename);
-    header('Content-Description: File Transfer');
-    header('Content-Disposition: attachment; filename="' . $filename . '"');
+    if (!empty($filename)) {
+        header('Content-Description: File Transfer');
+        header('Content-Disposition: attachment; filename="' . $filename . '"');
+    }
     header('Content-Type: ' . $mimetype);
     header('Content-Transfer-Encoding: binary');
     if ($length > 0) {

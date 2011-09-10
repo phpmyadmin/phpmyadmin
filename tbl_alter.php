@@ -170,12 +170,7 @@ if ($abort == false) {
      * @todo optimize in case of multiple fields to modify
      */
     for ($i = 0; $i < $selected_cnt; $i++) {
-        $_REQUEST['field'] = PMA_sqlAddSlashes($selected[$i], true);
-        $result        = PMA_DRIZZLE
-            ? PMA_DBI_query('SHOW COLUMNS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . ' WHERE Field = \'' . $_REQUEST['field'] . '\';')
-            : PMA_DBI_query('SHOW FULL COLUMNS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . ' LIKE \'' . $_REQUEST['field'] . '\';');
-        $fields_meta[] = PMA_DBI_fetch_assoc($result);
-        PMA_DBI_free_result($result);
+        $fields_meta[] = PMA_DBI_get_columns($db, $table, $selected[$i], true);
     }
     $num_fields  = count($fields_meta);
     $action      = 'tbl_alter.php';
@@ -184,14 +179,14 @@ if ($abort == false) {
     // For now, this is done to obtain MySQL 4.1.2+ new TIMESTAMP options
     // and to know when there is an empty DEFAULT value.
     // Later, if the analyser returns more information, it
-    // could be executed to replace the info given by SHOW FULL FIELDS FROM.
+    // could be executed to replace the info given by SHOW FULL COLUMNS FROM.
     /**
      * @todo put this code into a require()
      * or maybe make it part of PMA_DBI_get_fields();
      */
 
     // We also need this to correctly learn if a TIMESTAMP is NOT NULL, since
-    // SHOW FULL FIELDS says NULL and SHOW CREATE TABLE says NOT NULL (tested
+    // SHOW FULL COLUMNS says NULL and SHOW CREATE TABLE says NOT NULL (tested
     // in MySQL 4.0.25).
 
     $show_create_table = PMA_DBI_fetch_value('SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table), 0, 1);

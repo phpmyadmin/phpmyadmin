@@ -61,8 +61,7 @@ $tab_search['text']     = __('Search');
 $tab_search['icon']     = 'ic_b_search';
 $tab_search['link']     = 'db_search.php';
 
-if (PMA_Tracker::isActive())
-{
+if (PMA_Tracker::isActive()) {
     $tab_tracking['text'] = __('Tracking');
     $tab_tracking['icon'] = 'ic_eye';
     $tab_tracking['link'] = 'db_tracking.php';
@@ -85,7 +84,7 @@ if (! $db_is_information_schema) {
     $tab_operation['link']  = 'db_operations.php';
     $tab_operation['text']  = __('Operations');
     $tab_operation['icon']  = 'ic_b_tblops';
-    if ($is_superuser) {
+    if ($is_superuser && !PMA_DRIZZLE) {
         $tab_privileges['link'] = 'server_privileges.php';
         $tab_privileges['args']['checkprivs']       = $db;
         // stay on database view
@@ -118,7 +117,7 @@ $tabs[] =& $tab_export;
 if (! $db_is_information_schema) {
     $tabs[] =& $tab_import;
     $tabs[] =& $tab_operation;
-    if ($is_superuser) {
+    if ($is_superuser && !PMA_DRIZZLE) {
         $tabs[] =& $tab_privileges;
     }
     if (!PMA_DRIZZLE) {

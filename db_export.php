@@ -28,7 +28,7 @@ $export_page_title = __('View dump (schema) of database');
 // exit if no tables in db found
 if ($num_tables < 1) {
     PMA_Message::error(__('No tables found in database.'))->display();
-    require './libraries/footer.inc.php';
+    include './libraries/footer.inc.php';
     exit;
 } // end if
 

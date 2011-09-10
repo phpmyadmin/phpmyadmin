@@ -5,14 +5,14 @@
  * @package phpMyAdmin-test
  */
 
-require_once 'PMA_GIS_Geometry_test.php';
+require_once 'PMA_GIS_Geom_test.php';
 require_once 'libraries/gis/pma_gis_geometry.php';
 require_once 'libraries/gis/pma_gis_point.php';
 
 /**
  * Tests for PMA_GIS_Point class.
  */
-class PMA_GIS_PointTest extends PMA_GIS_GeometryTest
+class PMA_GIS_PointTest extends PMA_GIS_GeomTest
 {
     /**
      * @var    PMA_GIS_Point
@@ -140,6 +140,26 @@ class PMA_GIS_PointTest extends PMA_GIS_GeometryTest
                         'gis_type' => 'POINT',
                         'POINT'    => array('x' => '5.02', 'y' => '8.45')
                     ),
+                )
+            )
+        );
+    }
+
+    /**
+     * data provider for testScaleRow
+     *
+     * @return data for testScaleRow
+     */
+    public function providerForTestScaleRow()
+    {
+        return array(
+            array(
+                'POINT(12 35)',
+                array(
+                    'minX' => 12,
+                    'maxX' => 12,
+                    'minY' => 35,
+                    'maxY' => 35,
                 )
             )
         );

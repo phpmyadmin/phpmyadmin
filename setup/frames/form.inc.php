@@ -22,7 +22,7 @@ require './libraries/config/setup.forms.php';
 $formset_id = filter_input(INPUT_GET, 'formset');
 $mode = filter_input(INPUT_GET, 'mode');
 if (! isset($forms[$formset_id])) {
-    die('Incorrect formset, check $formsets array in setup/frames/form.inc.php');
+    die(__('Incorrect formset, check $formsets array in setup/frames/form.inc.php'));
 }
 
 if (isset($GLOBALS['strConfigFormset_' . $formset_id])) {

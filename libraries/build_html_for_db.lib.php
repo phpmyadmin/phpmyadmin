@@ -79,8 +79,7 @@ function PMA_buildHtmlForDb($current, $is_superuser, $checkall, $url_query, $col
         $out .= '<td class="tool">';
         $out .= '<input type="checkbox" name="selected_dbs[]" title="' . htmlspecialchars($current['SCHEMA_NAME']) . '" value="' . htmlspecialchars($current['SCHEMA_NAME']) . '" ';
 
-        if ($current['SCHEMA_NAME'] != 'mysql'
-         && $current['SCHEMA_NAME'] != 'information_schema') {
+        if (!PMA_is_system_schema($current['SCHEMA_NAME'], true)) {
             $out .= (empty($checkall) ? '' : 'checked="checked" ') . '/>';
         } else {
             $out .= ' disabled="disabled" />';
@@ -143,7 +142,7 @@ function PMA_buildHtmlForDb($current, $is_superuser, $checkall, $url_query, $col
         }
     }
 
-    if ($is_superuser) {
+    if ($is_superuser && !PMA_DRIZZLE) {
         $out .= '<td class="tool">'
                . '<a onclick="'
                . 'if (window.parent.setDb) window.parent.setDb(\'' . PMA_jsFormat($current['SCHEMA_NAME']) . '\');'

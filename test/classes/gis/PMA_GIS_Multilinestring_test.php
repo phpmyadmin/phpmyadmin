@@ -5,14 +5,14 @@
  * @package phpMyAdmin-test
  */
 
-require_once 'PMA_GIS_Geometry_test.php';
+require_once 'PMA_GIS_Geom_test.php';
 require_once 'libraries/gis/pma_gis_geometry.php';
 require_once 'libraries/gis/pma_gis_multilinestring.php';
 
 /**
  * Tests for PMA_GIS_Multilinestring class
  */
-class PMA_GIS_MultilinestringTest extends PMA_GIS_GeometryTest
+class PMA_GIS_MultilinestringTest extends PMA_GIS_GeomTest
 {
     /**
      * @var    PMA_GIS_Multilinestring
@@ -194,6 +194,26 @@ class PMA_GIS_MultilinestringTest extends PMA_GIS_GeometryTest
                 2,
                 array(
                     2 => $temp1
+                )
+            )
+        );
+    }
+
+    /**
+     * data provider for testScaleRow
+     *
+     * @return data for testScaleRow
+     */
+    public function providerForTestScaleRow()
+    {
+        return array(
+            array(
+                'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
+                array(
+                    'minX' => 17,
+                    'maxX' => 178,
+                    'minY' => 10,
+                    'maxY' => 75
                 )
             )
         );

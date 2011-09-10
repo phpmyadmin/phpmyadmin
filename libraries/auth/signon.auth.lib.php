@@ -87,7 +87,7 @@ function PMA_auth_check()
         if (! file_exists($script_name)) {
             PMA_fatalError(__('Can not find signon authentication script:') . ' ' . $script_name);
         }
-        require $script_name;
+        include $script_name;
 
         list ($PHP_AUTH_USER, $PHP_AUTH_PW) = get_login_credentials($cfg['Server']['user']);
 

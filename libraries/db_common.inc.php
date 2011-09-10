@@ -18,11 +18,9 @@ PMA_checkParameters(array('db'));
 
 $is_show_stats = $cfg['ShowStats'];
 
-if ($db == 'information_schema') {
+$db_is_information_schema = PMA_is_system_schema($db);
+if ($db_is_information_schema) {
     $is_show_stats = false;
-    $db_is_information_schema = true;
-} else {
-    $db_is_information_schema = false;
 }
 
 /**

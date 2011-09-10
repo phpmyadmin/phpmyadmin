@@ -26,7 +26,7 @@ $type = $what;
 
 // Check export type
 if (! isset($export_list[$type])) {
-    die('Bad type!');
+    die(__('Bad type!'));
 }
 
 /**
@@ -75,16 +75,16 @@ if ($_REQUEST['output_format'] == 'astext') {
 // Does export require to be into file?
 if (isset($export_list[$type]['force_file']) && ! $asfile) {
     $message = PMA_Message::error(__('Selected export type has to be saved in file!'));
-    require_once './libraries/header.inc.php';
+    include_once './libraries/header.inc.php';
     if ($export_type == 'server') {
         $active_page = 'server_export.php';
-        require './server_export.php';
+        include './server_export.php';
     } elseif ($export_type == 'database') {
         $active_page = 'db_export.php';
-        require './db_export.php';
+        include './db_export.php';
     } else {
         $active_page = 'tbl_export.php';
-        require './tbl_export.php';
+        include './tbl_export.php';
     }
     exit();
 }
@@ -103,7 +103,7 @@ if ($export_type == 'server') {
 } elseif ($export_type == 'table' && strlen($db) && strlen($table)) {
     $err_url = 'tbl_export.php?' . PMA_generate_common_url($db, $table);
 } else {
-    die('Bad parameters!');
+    die(__('Bad parameters!'));
 }
 
 // Get the functions specific to the export type
@@ -155,9 +155,8 @@ function PMA_exportOutputHandler($line)
                 // as bzipped
                 if ($GLOBALS['compression'] == 'bzip'  && @function_exists('bzcompress')) {
                     $dump_buffer = bzcompress($dump_buffer);
-                }
-                // as a gzipped file
-                elseif ($GLOBALS['compression'] == 'gzip' && @function_exists('gzencode')) {
+                } elseif ($GLOBALS['compression'] == 'gzip' && @function_exists('gzencode')) {
+                    // as a gzipped file
                     // without the optional parameter level because it bug
                     $dump_buffer = gzencode($dump_buffer);
                 }
@@ -274,9 +273,7 @@ if ($asfile) {
         }
     }
     $filename = PMA_expandUserString($filename_template);
-
-    // convert filename to iso-8859-1, it is safer
-    $filename = PMA_convert_string('utf-8', 'iso-8859-1', $filename);
+    $filename = PMA_sanitize_filename($filename);
 
     // Grab basic dump extension and mime type
     // Check if the user already added extension; get the substring where the extension would be if it was included
@@ -321,16 +318,16 @@ if ($save_on_server) {
         }
     }
     if (isset($message)) {
-        require_once './libraries/header.inc.php';
+        include_once './libraries/header.inc.php';
         if ($export_type == 'server') {
             $active_page = 'server_export.php';
-            require './server_export.php';
+            include './server_export.php';
         } elseif ($export_type == 'database') {
             $active_page = 'db_export.php';
-            require './db_export.php';
+            include './db_export.php';
         } else {
             $active_page = 'tbl_export.php';
-            require './tbl_export.php';
+            include './tbl_export.php';
         }
         exit();
     }
@@ -346,6 +343,7 @@ if (!$save_on_server) {
         // (avoid rewriting data containing HTML with anchors and forms;
         // this was reported to happen under Plesk)
         @ini_set('url_rewriter.tags','');
+        $filename = PMA_sanitize_filename($filename);
 
         PMA_download_header($filename, $mime_type);
     } else {
@@ -354,14 +352,14 @@ if (!$save_on_server) {
             $num_tables = count($tables);
             if ($num_tables == 0) {
                 $message = PMA_Message::error(__('No tables found in database.'));
-                require_once './libraries/header.inc.php';
+                include_once './libraries/header.inc.php';
                 $active_page = 'db_export.php';
-                require './db_export.php';
+                include './db_export.php';
                 exit();
             }
         }
         $backup_cfgServer = $cfg['Server'];
-        require_once './libraries/header.inc.php';
+        include_once './libraries/header.inc.php';
         $cfg['Server'] = $backup_cfgServer;
         unset($backup_cfgServer);
         echo "\n" . '<div align="' . $cell_align_left . '">' . "\n";
@@ -418,7 +416,7 @@ do {
         $cfgRelation = PMA_getRelationsParam();
     }
     if ($do_mime) {
-        require_once './libraries/transformations.lib.php';
+        include_once './libraries/transformations.lib.php';
     }
 
     // Include dates in export?
@@ -602,16 +600,16 @@ do {
 // End of fake loop
 
 if ($save_on_server && isset($message)) {
-    require_once './libraries/header.inc.php';
+    include_once './libraries/header.inc.php';
     if ($export_type == 'server') {
         $active_page = 'server_export.php';
-        require './server_export.php';
+        include './server_export.php';
     } elseif ($export_type == 'database') {
         $active_page = 'db_export.php';
-        require './db_export.php';
+        include './db_export.php';
     } else {
         $active_page = 'tbl_export.php';
-        require './tbl_export.php';
+        include './tbl_export.php';
     }
     exit();
 }
@@ -633,15 +631,13 @@ if (!empty($asfile)) {
             $zipfile -> addFile($dump_buffer, substr($filename, 0, -4));
             $dump_buffer = $zipfile -> file();
         }
-    }
-    // 2. as a bzipped file
-    elseif ($compression == 'bzip') {
+    } elseif ($compression == 'bzip') {
+        // 2. as a bzipped file
         if (@function_exists('bzcompress')) {
             $dump_buffer = bzcompress($dump_buffer);
         }
-    }
-    // 3. as a gzipped file
-    elseif ($compression == 'gzip') {
+    } elseif ($compression == 'gzip') {
+        // 3. as a gzipped file
         if (@function_exists('gzencode') && !@ini_get('zlib.output_compression')) {
             // without the optional parameter level because it bug
             $dump_buffer = gzencode($dump_buffer);
@@ -658,28 +654,26 @@ if (!empty($asfile)) {
             $message = new PMA_Message(__('Dump has been saved to file %s.'), PMA_Message::SUCCESS, $save_filename);
         }
 
-        require_once './libraries/header.inc.php';
+        include_once './libraries/header.inc.php';
         if ($export_type == 'server') {
             $active_page = 'server_export.php';
-            require_once './server_export.php';
+            include_once './server_export.php';
         } elseif ($export_type == 'database') {
             $active_page = 'db_export.php';
-            require_once './db_export.php';
+            include_once './db_export.php';
         } else {
             $active_page = 'tbl_export.php';
-            require_once './tbl_export.php';
+            include_once './tbl_export.php';
         }
         exit();
     } else {
         echo $dump_buffer;
     }
-}
-/**
- * Displays the dump...
- */
-else {
+} else {
     /**
-     * Close the html tags and add the footers in dump is displayed on screen
+     * Displays the dump...
+     *
+     * Close the html tags and add the footers if dump is displayed on screen
      */
     echo '</textarea>' . "\n"
        . '    </form>' . "\n";
@@ -710,6 +704,6 @@ else {
 //]]>
 </script>
 <?php
-    require './libraries/footer.inc.php';
+    include './libraries/footer.inc.php';
 } // end if
 ?>
