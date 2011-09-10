@@ -1804,7 +1804,7 @@ msgstr "Click a data point to view and possibly edit the data row."
 
 #: js/messages.php:276
 msgid "The plot can be resized by dragging it along the bottom right corner."
-msgstr ""
+msgstr "The plot can be resized by dragging it along the bottom right corner."
 
 #: js/messages.php:278
 msgid "Strings are converted into integer for plotting"
