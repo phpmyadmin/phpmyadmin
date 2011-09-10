@@ -8031,7 +8031,7 @@ msgstr "FIM CORTE"
 
 #: libraries/sqlparser.lib.php:181
 msgid "BEGIN RAW"
-msgstr "INICIO CRU"
+msgstr "INICIO RAW"
 
 #: libraries/sqlparser.lib.php:185
 msgid "END RAW"
