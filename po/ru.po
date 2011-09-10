@@ -1298,7 +1298,7 @@ msgstr "КБ"
 
 #: js/messages.php:106
 msgid "Average load"
-msgstr ""
+msgstr "Средняя загрузка"
 
 #: js/messages.php:107
 #, fuzzy
