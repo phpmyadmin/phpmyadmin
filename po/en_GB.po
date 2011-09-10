@@ -8829,7 +8829,7 @@ msgstr "View dump (schema) of databases"
 
 #: server_plugins.php:81
 msgid "Modules"
-msgstr ""
+msgstr "Modules"
 
 #: server_plugins.php:102
 msgid "Begin"
