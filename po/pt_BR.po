@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-10 02:46+0200\n"
+"PO-Revision-Date: 2011-09-10 02:47+0200\n"
 "Last-Translator:  <erickdeoliveiraleal@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -3943,10 +3943,9 @@ msgid "SQL queries settings"
 msgstr "consulta SQL"
 
 #: libraries/config/messages.inc.php:220
-#, fuzzy
 #| msgid "SQL history"
 msgid "SQL Validator"
-msgstr "Histórico de consultas"
+msgstr "Validador SQL"
 
 #: libraries/config/messages.inc.php:221
 msgid ""
