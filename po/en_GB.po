@@ -1817,7 +1817,7 @@ msgstr "Select two columns"
 
 #: js/messages.php:281
 msgid "Select two different columns"
-msgstr ""
+msgstr "Select two different columns"
 
 #: js/messages.php:284 tbl_change.php:321 tbl_indexes.php:211
 #: tbl_indexes.php:238
