@@ -1381,10 +1381,9 @@ msgstr "Editar rótulos e títulos"
 
 # The word "chart" in brasilian portuguese can mean either "Table = tabela" or "Report = relatório" or "Chart = gráfico" or "Diagram = diagrama". So, it depends of the context.
 #: js/messages.php:129
-#, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "Adicionar Gráfico/Tabela ou Relatório ajustado na grade"
+msgstr "Adicionar gráfico ajustado na grade"
 
 #: js/messages.php:131
 msgid "Please add at least one variable to the series"
