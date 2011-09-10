@@ -1577,7 +1577,7 @@ msgstr "Affected rows:"
 
 #: js/messages.php:188
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
-msgstr ""
+msgstr "Failed parsing config file. It doesn't seem to be valid JSON code"
 
 #: js/messages.php:189
 msgid ""
