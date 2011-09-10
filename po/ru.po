@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-09 20:32+0200\n"
+"PO-Revision-Date: 2011-09-10 19:58+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -1260,10 +1260,9 @@ msgstr ""
 "меню <i>Настройки</i>, в изначальные."
 
 #: js/messages.php:96
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache efficiency"
-msgstr "Кеш запросов"
+msgstr "Эффективность кеширования запросов"
 
 #: js/messages.php:97
 #, fuzzy
