@@ -2355,10 +2355,9 @@ msgstr[0] "%1$d row inserted."
 msgstr[1] "%1$d rows inserted."
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Allows reading data."
+msgstr "Error while creating PDF:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
