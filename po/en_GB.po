@@ -2675,7 +2675,7 @@ msgstr "Check Privileges"
 
 #: libraries/common.inc.php:147
 msgid "possible exploit"
-msgstr ""
+msgstr "possible exploit"
 
 #: libraries/common.inc.php:156
 msgid "numeric key detected"
