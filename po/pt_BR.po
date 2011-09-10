@@ -11547,10 +11547,9 @@ msgid "Table %s has been flushed"
 msgstr "Tabela %s foi limpa"
 
 #: tbl_operations.php:672
-#, fuzzy
 #| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
-msgstr "Limpar a tabela (\"LIMPAR\")"
+msgstr "Limpar a tabela (FLUSH)"
 
 #: tbl_operations.php:681
 msgid "Delete data or table"
