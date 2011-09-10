@@ -1502,7 +1502,7 @@ msgstr "Título do Relatório/Gráfico ou Tabela"
 #. l10n: As in differential values
 #: js/messages.php:159
 msgid "Differential"
-msgstr ""
+msgstr "Diferencial"
 
 #: js/messages.php:160
 #, php-format
