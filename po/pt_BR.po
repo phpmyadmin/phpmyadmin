@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-10 03:01+0200\n"
+"PO-Revision-Date: 2011-09-10 03:02+0200\n"
 "Last-Translator:  <erickdeoliveiraleal@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -874,7 +874,7 @@ msgstr "Valores do campo \"%s\""
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "Use OpenStreetMaps como base"
 
 #: gis_data_editor.php:134
 msgid "SRID"
