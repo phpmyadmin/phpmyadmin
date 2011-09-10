@@ -10427,10 +10427,9 @@ msgstr ""
 "may want to export it if you have a complicated set up."
 
 #: server_status.php:1589
-#, fuzzy
 #| msgid "Restore default value"
 msgid "Reset to default"
-msgstr "Restore default value"
+msgstr "Reset to default"
 
 #: server_status.php:1593
 msgid "Monitor Instructions"
