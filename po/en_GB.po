@@ -1633,7 +1633,7 @@ msgstr "Used variable / formula"
 
 #: js/messages.php:203
 msgid "Test"
-msgstr ""
+msgstr "Test"
 
 #: js/messages.php:208 libraries/tbl_properties.inc.php:758
 #: pmd_general.php:382 pmd_general.php:419 pmd_general.php:539
