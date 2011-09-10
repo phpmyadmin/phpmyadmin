@@ -10553,10 +10553,9 @@ msgstr ""
 "        "
 
 #: server_status.php:1637
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Preset chart"
-msgstr "Remove chart"
+msgstr "Preset chart"
 
 #: server_status.php:1641
 msgid "Status variable(s)"
