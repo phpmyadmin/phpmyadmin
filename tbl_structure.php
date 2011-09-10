@@ -272,8 +272,9 @@ foreach ($fields as $row) {
         || substr($type, 0, 10) == 'mediumtext'
         || substr($type, 0, 8) == 'longtext'
         || substr($type, 0, 3) == 'set'
-        || substr($type, 0, 4) == 'enum'
-        ) && !$extracted_fieldspec['binary']) {
+        || substr($type, 0, 4) == 'enum')
+        && !$extracted_fieldspec['binary']
+    ) {
         if (strpos($type, ' character set ')) {
             $type = substr($type, 0, strpos($type, ' character set '));
         }
