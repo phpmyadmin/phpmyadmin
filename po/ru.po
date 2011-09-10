@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-10 20:07+0200\n"
+"PO-Revision-Date: 2011-09-10 20:08+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -1378,10 +1378,9 @@ msgid "Edit title and labels"
 msgstr "Редактировать название и подписи"
 
 #: js/messages.php:129
-#, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "Привязать к сетке"
+msgstr "Добавить график к сетке"
 
 #: js/messages.php:131
 msgid "Please add at least one variable to the series"
