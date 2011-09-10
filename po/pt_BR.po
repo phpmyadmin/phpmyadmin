@@ -825,10 +825,9 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "Copie e cole os valores concatenados na coluna \"Tamanho/Valores\""
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "Tipo de consulta"
+msgstr "Tipo incorreto!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
