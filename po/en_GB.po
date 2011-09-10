@@ -6788,7 +6788,7 @@ msgstr ""
 #: libraries/import/shp.php:333
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
-msgstr ""
+msgstr "MySQL Spatial Extension does not support ESRI type \"%s\"."
 
 #: libraries/import/shp.php:371
 #, fuzzy
