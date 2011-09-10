@@ -860,10 +860,9 @@ msgid "Dump has been saved to file %s."
 msgstr "Dump has been saved to file %s."
 
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "Export type"
+msgstr "Invalid export type"
 
 #: gis_data_editor.php:84
 #, php-format
