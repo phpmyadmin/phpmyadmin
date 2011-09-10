@@ -1424,7 +1424,7 @@ msgstr "Переменная log_output не установлена для та�
 
 #: js/messages.php:141
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "Переменная log_output установлена для таблицы."
 
 #: js/messages.php:142
 #, php-format
