@@ -10414,10 +10414,9 @@ msgid "Chart columns"
 msgstr "Chart columns"
 
 #: server_status.php:1588
-#, fuzzy
 #| msgid "Error management:"
 msgid "Chart arrangement"
-msgstr "Error management:"
+msgstr "Chart arrangement"
 
 #: server_status.php:1588
 msgid ""
