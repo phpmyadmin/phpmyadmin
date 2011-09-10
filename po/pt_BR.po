@@ -8035,7 +8035,7 @@ msgstr "INICIO RAW"
 
 #: libraries/sqlparser.lib.php:185
 msgid "END RAW"
-msgstr "FIM CRU"
+msgstr "FIM RAW"
 
 #: libraries/sqlparser.lib.php:382
 msgid "Automatically appended backtick to the end of query!"
