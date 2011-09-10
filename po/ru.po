@@ -1345,10 +1345,9 @@ msgid "Bytes sent"
 msgstr "Отослано байт"
 
 #: js/messages.php:119
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "Принято"
+msgstr "Принято байт"
 
 #: js/messages.php:120 server_status.php:1134
 msgid "Connections"
