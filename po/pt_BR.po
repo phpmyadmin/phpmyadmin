@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-10 02:54+0200\n"
+"PO-Revision-Date: 2011-09-10 02:55+0200\n"
 "Last-Translator:  <erickdeoliveiraleal@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -8328,7 +8328,6 @@ msgstr ""
 "htmlspecialchars(). Isso é, a coluna assume conter HTML válido"
 
 #: libraries/transformations/text_plain__imagelink.inc.php:10
-#, fuzzy
 #| msgid ""
 #| "Displays an image and a link; the field contains the filename. The first "
 #| "option is a URL prefix like \"http://www.example.com/\". The second and "
@@ -8338,9 +8337,9 @@ msgid ""
 "option is a URL prefix like \"http://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
-"Mostrar uma imagem e um link, o campo contém um nome de arquivo; primeira "
-"opção é um prefixo tipo \"http://domain.com/\", segunda opção é a largura em "
-"pixels, o terceiro é a altura."
+"Mostra uma imagem e um link, o campo contém um nome de arquivo. Primeira "
+"opção é um prefixo de URL como \"http://www.exemplo.com/\".  A segunda e "
+"terceira opção são a largura e a altura em pixels."
 
 #: libraries/transformations/text_plain__link.inc.php:10
 #, fuzzy
