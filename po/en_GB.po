@@ -9606,6 +9606,9 @@ msgid ""
 "changing (by reading the documentation) and how to undo the change. Wrong "
 "tuning can have a very negative effect on performance."
 msgstr ""
+"Prior to changing any of the configuration, be sure to know what you are "
+"changing (by reading the documentation) and how to undo the change. Wrong "
+"tuning can have a very negative effect on performance."
 
 #: server_status.php:906
 msgid ""
