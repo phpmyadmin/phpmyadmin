@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-10 16:12+0200\n"
+"PO-Revision-Date: 2011-09-10 16:18+0200\n"
 "Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -9573,10 +9573,9 @@ msgid "Related links:"
 msgstr "Related links:"
 
 #: server_status.php:892
-#, fuzzy
 #| msgid "Query analyzer"
 msgid "Run analyzer"
-msgstr "Query analyser"
+msgstr "Run analyser"
 
 #: server_status.php:893
 #, fuzzy
