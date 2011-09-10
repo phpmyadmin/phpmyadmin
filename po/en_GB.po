@@ -1573,7 +1573,7 @@ msgstr "Reload page"
 
 #: js/messages.php:186
 msgid "Affected rows:"
-msgstr ""
+msgstr "Affected rows:"
 
 #: js/messages.php:188
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
