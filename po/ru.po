@@ -1375,7 +1375,7 @@ msgstr "Удалить график"
 
 #: js/messages.php:128
 msgid "Edit title and labels"
-msgstr ""
+msgstr "Редактировать название и подписи"
 
 #: js/messages.php:129
 #, fuzzy
