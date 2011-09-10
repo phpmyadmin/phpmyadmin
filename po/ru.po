@@ -1333,7 +1333,7 @@ msgstr "Кешировано области подкачки"
 
 #: js/messages.php:115
 msgid "Used Swap"
-msgstr ""
+msgstr "Использовано области подкачки"
 
 #: js/messages.php:116
 #, fuzzy
