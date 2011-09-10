@@ -294,8 +294,9 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         || substr($type, 0, 8) == 'longtext'
         || substr($type, 0, 3) == 'set'
         || substr($type, 0, 4) == 'enum'
-        || ($truncated && substr($type, 13, 4) == 'enum')
-        ) && !$binary) {
+        || ($truncated && substr($type, 13, 4) == 'enum'))
+        && !$binary
+    ) {
         if (strpos($type, ' character set ')) {
             $type = substr($type, 0, strpos($type, ' character set '));
         }
