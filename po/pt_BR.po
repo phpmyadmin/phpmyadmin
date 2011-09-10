@@ -2421,10 +2421,9 @@ msgstr[0] "%1$d linha inserida."
 msgstr[1] "%1$d linha(s) inseridas."
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Permitir leitura dos dados."
+msgstr "Erro ao criar o PDF:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
