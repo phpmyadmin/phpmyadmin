@@ -1370,10 +1370,9 @@ msgstr "Configurações"
 
 # The word "chart" in brasilian portuguese can mean either "Table = tabela" or "Report = relatório" or "Chart = gráfico" or "Diagram = diagrama". So, it depends of the context.
 #: js/messages.php:127
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "Remover Gráfico/Tabela ou Relatório"
+msgstr "Remover Gráfico"
 
 #: js/messages.php:128
 #, fuzzy
