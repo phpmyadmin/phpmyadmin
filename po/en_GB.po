@@ -1606,7 +1606,7 @@ msgstr "Advisor system"
 
 #: js/messages.php:197
 msgid "Possible performance issues"
-msgstr ""
+msgstr "Possible performance issues"
 
 #: js/messages.php:198
 msgid "Issue"
