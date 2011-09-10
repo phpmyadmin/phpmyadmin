@@ -6782,6 +6782,8 @@ msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data"
 msgstr ""
+"You tried to import an invalid file or the imported file contains invalid "
+"data"
 
 #: libraries/import/shp.php:333
 #, php-format
