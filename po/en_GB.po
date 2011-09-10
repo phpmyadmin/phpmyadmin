@@ -2201,7 +2201,7 @@ msgstr "Failed formatting string for rule '%s'. PHP threw following error: %s"
 
 #: libraries/Config.class.php:703
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
-msgstr ""
+msgstr "Remove \"./config\" directory before using phpMyAdmin!"
 
 #: libraries/Config.class.php:727
 #, php-format
