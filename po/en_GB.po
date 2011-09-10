@@ -1903,10 +1903,9 @@ msgstr ""
 "You can also edit most columns<br />by clicking directly on their content."
 
 #: js/messages.php:322
-#, fuzzy
 #| msgid "Go to view"
 msgid "Go to link"
-msgstr "Go to view"
+msgstr "Go to link"
 
 #: js/messages.php:325
 msgid "Generate password"
