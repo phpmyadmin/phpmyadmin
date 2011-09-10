@@ -1320,7 +1320,7 @@ msgstr "Свободная память"
 
 #: js/messages.php:111
 msgid "Used memory"
-msgstr ""
+msgstr "Использованная память"
 
 #: js/messages.php:113
 #, fuzzy
