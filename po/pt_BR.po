@@ -1081,7 +1081,7 @@ msgstr "Você está prestes à DESTRUIR completamente o Banco de Dados!"
 
 #: js/messages.php:34
 msgid "You are about to DESTROY a complete table!"
-msgstr "Você está prestes à DESTRUIR completamente a tabela"
+msgstr "Você está prestes à DESTRUIR completamente a tabela!"
 
 #: js/messages.php:35
 msgid "You are about to TRUNCATE a complete table!"
