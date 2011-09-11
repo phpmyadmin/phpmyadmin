@@ -298,8 +298,8 @@ if(isset($_GET['sql_query'])) {
                 // zip, gzip and bzip2 encode features
                 $is_zip  = ($cfg['ZipDump']  && @function_exists('gzcompress'));
                 $is_gzip = ($cfg['GZipDump'] && @function_exists('gzencode'));
-                $is_bzip = ($cfg['BZipDump'] && @function_exists('bzcompress'));
-                if ($is_zip || $is_gzip || $is_bzip) { ?>
+                $is_bzip2 = ($cfg['BZipDump'] && @function_exists('bzcompress'));
+                if ($is_zip || $is_gzip || $is_bzip2) { ?>
                     <li>
                     <label for="compression" class="desc"><?php echo __('Compression:'); ?></label>
                     <select id="compression" name="compression">
@@ -308,8 +308,8 @@ if(isset($_GET['sql_query'])) {
                             <option value="zip" <?php echo ($selected_compression == "zip") ? 'selected="selected"' : ''; ?>><?php echo __('zipped'); ?></option>
                         <?php } if ($is_gzip) { ?>
                             <option value="gzip" <?php echo ($selected_compression == "gzip") ? 'selected="selected"' : ''; ?>><?php echo __('gzipped'); ?></option>
-                        <?php } if ($is_bzip) { ?>
-                            <option value="bzip" <?php echo ($selected_compression == "bzip") ? 'selected="selected"' : ''; ?>><?php echo __('bzipped'); ?></option>
+                        <?php } if ($is_bzip2) { ?>
+                            <option value="bzip2" <?php echo ($selected_compression == "bzip2") ? 'selected="selected"' : ''; ?>><?php echo __('bzipped'); ?></option>
                         <?php } ?>
                     </select>
                     </li>
