@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-11 11:12+0200\n"
+"PO-Revision-Date: 2011-09-11 11:14+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2271,7 +2271,7 @@ msgstr "アップロードされたファイルを移動中にエラーが発生
 
 #: libraries/File.class.php:516
 msgid "Cannot read (moved) upload file."
-msgstr ""
+msgstr "アップロードされ（移動し）たファイルが読み込めません。"
 
 #: libraries/Index.class.php:418 tbl_relation.php:526
 msgid "No index defined!"
