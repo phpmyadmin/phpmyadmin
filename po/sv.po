@@ -12218,10 +12218,9 @@ msgid "Current query cache size: %s"
 msgstr "Nuvarande storlek på frågecache: %s"
 
 #: po/advisory_rules.php:105
-#, fuzzy
 #| msgid "Query results"
 msgid "Query cache min result size"
-msgstr "Visa resultat"
+msgstr "Frågecachen minimum resultat storlek"
 
 #: po/advisory_rules.php:106
 msgid ""
