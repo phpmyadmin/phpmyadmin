@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-11 13:28+0200\n"
+"PO-Revision-Date: 2011-09-11 13:29+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -12192,10 +12192,9 @@ msgstr ""
 "värdet är, desto bättre (Denna regel aktiveras vid: 0,1%)"
 
 #: po/advisory_rules.php:100
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache max size"
-msgstr "Frågecache"
+msgstr "Maximal storlek för frågecache"
 
 #: po/advisory_rules.php:101
 msgid ""
