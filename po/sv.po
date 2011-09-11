@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-11 13:21+0200\n"
+"PO-Revision-Date: 2011-09-11 13:22+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -12166,12 +12166,12 @@ msgid "Query cache low memory prunes"
 msgstr "Fråge cachen lite minne prunes"
 
 #: po/advisory_rules.php:96
-#, fuzzy
 #| msgid "The amount of free memory for query cache."
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
-msgstr "Mängden fritt minne för frågecache."
+msgstr ""
+"Cachade frågor tas bort på grund av lågt frågecache minne från frågecache."
 
 #: po/advisory_rules.php:97
 msgid ""
