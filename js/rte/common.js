@@ -242,8 +242,6 @@ $(document).ready(function () {
                  */
                 var opts = {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql"};
                 RTE.syntaxHiglighter = CodeMirror.fromTextArea($elm[0], opts);
-                // Hack to prevent the syntax highlighter from expanding beyond dialog boundries
-                $('.CodeMirror-scroll').find('div').first().css('width', '1px');
                 // Execute item-specific code
                 RTE.postDialogShow(data);
             } else {
