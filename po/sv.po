@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-11 13:52+0200\n"
+"PO-Revision-Date: 2011-09-11 13:53+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -12295,10 +12295,9 @@ msgstr ""
 "1 per timme."
 
 #: po/advisory_rules.php:120
-#, fuzzy
 #| msgid "Start row"
 msgid "Sort rows"
-msgstr "Starta rad"
+msgstr "Sortera rader"
 
 #: po/advisory_rules.php:121
 msgid "There are lots of rows being sorted."
