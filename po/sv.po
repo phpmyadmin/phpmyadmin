@@ -12252,7 +12252,7 @@ msgstr ""
 
 #: po/advisory_rules.php:108
 msgid "query_cache_limit is set to 1 MiB"
-msgstr ""
+msgstr "query_cache_limit är satt till 1 Mb"
 
 #: po/advisory_rules.php:110
 #, fuzzy
