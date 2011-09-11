@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-11 13:56+0200\n"
+"PO-Revision-Date: 2011-09-11 17:46+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -12310,6 +12310,9 @@ msgid ""
 "indexed fields in the ORDER BY clause, as this will result in much faster "
 "sorting"
 msgstr ""
+"Även om det inte är fel med en stor mängd radsorteringar,bör du se till att "
+"frågor som kräver mycket sortering använder de  indexerade fälten i ORDER "
+"BY-satsen, då detta kommer resultera i mycket snabbare sortering"
 
 #: po/advisory_rules.php:123
 #, php-format
