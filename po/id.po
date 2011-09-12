@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-12 09:30+0200\n"
+"PO-Revision-Date: 2011-09-12 09:36+0200\n"
 "Last-Translator:  <uringinteristi@gmail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -839,10 +839,9 @@ msgid "Selected export type has to be saved in file!"
 msgstr "jenis ekspor yang diipilih harus disimpan dalam file!"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Remove database"
 msgid "Bad parameters!"
-msgstr "Hapus database"
+msgstr "Pembatasan yang buruk!"
 
 #: export.php:167 export.php:192 export.php:655
 #, php-format
