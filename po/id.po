@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-12 09:36+0200\n"
+"PO-Revision-Date: 2011-09-12 09:37+0200\n"
 "Last-Translator:  <uringinteristi@gmail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -829,10 +829,9 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "keluaran"
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "Tipe Pencarian"
+msgstr "Penulisan yang buruk!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
