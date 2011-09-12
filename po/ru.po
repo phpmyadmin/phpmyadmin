@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-11 06:58-0400\n"
-"PO-Revision-Date: 2011-09-12 17:26+0200\n"
+"PO-Revision-Date: 2011-09-12 17:27+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -1522,7 +1522,7 @@ msgstr "Из основного журнала"
 
 #: js/messages.php:164
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "Анализ и загрузка журналов. Ждите, может занять какое-то время."
 
 #: js/messages.php:165
 msgid ""
