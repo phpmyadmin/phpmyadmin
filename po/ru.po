@@ -1548,7 +1548,7 @@ msgstr ""
 #: js/messages.php:167
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
-"Данные журналов загружены. Запросы выполненные в данный промежуток времени."
+"Данные журналов загружены. Запросы выполненные в данный промежуток времени:"
 
 #: js/messages.php:169
 #, fuzzy
