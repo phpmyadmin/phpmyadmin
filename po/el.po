@@ -10567,10 +10567,9 @@ msgid "Chart columns"
 msgstr "Στήλες διαγράμματος"
 
 #: server_status.php:1588
-#, fuzzy
 #| msgid "Error management:"
 msgid "Chart arrangement"
-msgstr "Διαχείριση σφάλματος:"
+msgstr "Διευθέτηση διαγράμματος"
 
 #: server_status.php:1588
 msgid ""
