@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-12 09:20+0200\n"
+"PO-Revision-Date: 2011-09-12 09:23+0200\n"
 "Last-Translator:  <uringinteristi@gmail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -415,10 +415,10 @@ msgid "You have to choose at least one column to display"
 msgstr "Sekurang-kurangnya satu kolom harus dipilih untuk ditampilkan"
 
 #: db_qbe.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "pembangun visual"
+msgstr "Alihkan ke %spembangun visual%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:957
