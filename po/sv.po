@@ -12311,10 +12311,9 @@ msgid "Rate of joins without indexes"
 msgstr "Andelen JOIN som saknar index"
 
 #: po/advisory_rules.php:126
-#, fuzzy
 #| msgid "There are no routines to display."
 msgid "There are too many joins without indexes."
-msgstr "Det finns inga rutiner att visa."
+msgstr "Det finns för många JOINS som saknar index"
 
 #: po/advisory_rules.php:127
 msgid ""
