@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-11 06:58-0400\n"
-"PO-Revision-Date: 2011-08-30 00:02+0200\n"
+"PO-Revision-Date: 2011-09-12 19:02+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -2217,10 +2217,10 @@ msgid "Remove \"./config\" directory before using phpMyAdmin!"
 msgstr "¡Elimine el directorio './config' antes de utilizar phpMyAdmin!"
 
 #: libraries/Config.class.php:727
-#, fuzzy, php-format
+#, php-format
 #| msgid "Existing configuration file (%d) is not readable."
 msgid "Existing configuration file (%s) is not readable."
-msgstr "No se pudo leer el archivo de configuración existente (%d)."
+msgstr "El archivo de configuración existente (%s) no pudo ser leído."
 
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
