@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-11 06:58-0400\n"
-"PO-Revision-Date: 2011-09-10 20:22+0200\n"
+"PO-Revision-Date: 2011-09-12 17:22+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.5\n"
@@ -1492,10 +1492,9 @@ msgid "Change settings"
 msgstr "Изменить настройки"
 
 #: js/messages.php:155
-#, fuzzy
 #| msgid "More settings"
 msgid "Current settings"
-msgstr "Дополнительные настройки"
+msgstr "Текущие настройки"
 
 #: js/messages.php:157 server_status.php:1634
 #, fuzzy
