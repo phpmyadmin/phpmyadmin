@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-31 10:47+0200\n"
-"PO-Revision-Date: 2011-09-12 09:07+0200\n"
+"PO-Revision-Date: 2011-09-12 09:11+0200\n"
 "Last-Translator:  <uringinteristi@gmail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -12864,7 +12864,7 @@ msgstr "Daftar Isi"
 
 #: po/advisory_rules.php:241 po/advisory_rules.php:246
 msgid "Too many clients are aborted."
-msgstr ""
+msgstr "Terlalu banyak klien-klien yang dibatalkan"
 
 #: po/advisory_rules.php:242 po/advisory_rules.php:247
 msgid ""
