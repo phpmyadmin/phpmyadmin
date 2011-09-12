@@ -1610,10 +1610,9 @@ msgstr ""
 "учетной записи, должны решить проблему."
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
-msgstr "Обновить"
+msgstr "Перезагрузка страницы"
 
 #: js/messages.php:186
 msgid "Affected rows:"
