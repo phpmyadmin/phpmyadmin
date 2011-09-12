@@ -1581,10 +1581,9 @@ msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr "Группировать запросы с игнорированием переменных данных в условии WHERE"
 
 #: js/messages.php:178
-#, fuzzy
 #| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
-msgstr "Количество строк при вставке"
+msgstr "Сумма сгруппированных строк:"
 
 #: js/messages.php:179
 #, fuzzy
