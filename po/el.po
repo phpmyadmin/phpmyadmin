@@ -10562,10 +10562,9 @@ msgid "Refresh rate"
 msgstr "Ρυθμός ανανέωσης"
 
 #: server_status.php:1572
-#, fuzzy
 #| msgid "Chart columns:"
 msgid "Chart columns"
-msgstr "Στήλες διαγράμματος:"
+msgstr "Στήλες διαγράμματος"
 
 #: server_status.php:1588
 #, fuzzy
