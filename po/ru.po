@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-11 06:58-0400\n"
-"PO-Revision-Date: 2011-07-03 19:50+0200\n"
+"PO-Revision-Date: 2011-09-10 20:22+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -419,10 +419,10 @@ msgstr ""
 "Для выполнения запроса, должен быть выбран отображаемый столбец/столбцы"
 
 #: db_qbe.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "визуальный составитель запросов"
+msgstr "Переключиться на %sвизуальный составитель запросов%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:957
@@ -830,20 +830,18 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "Скопируйте и вставьте объединенные значения в поле \"Длина/значения\""
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "Тип столбца"
+msgstr "Ошибочный тип!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
 msgstr "Выбранный тип экспорта возможен только в файл!"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Bad parameters!"
-msgstr "Добавить параметр"
+msgstr "Ошибочные параметры!"
 
 #: export.php:166 export.php:191 export.php:652
 #, php-format
@@ -869,16 +867,15 @@ msgid "Dump has been saved to file %s."
 msgstr "Дамп был сохранен в файл %s."
 
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "Тип экспорта"
+msgstr "Ошибочный тип экспорта"
 
 #: gis_data_editor.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
-msgstr "Значения для поля \"%s\""
+msgstr "Значение для поля \"%s\""
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
@@ -886,7 +883,7 @@ msgstr "Используйте в качестве основного слоя O
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:292
 #: libraries/display_tbl.lib.php:665
@@ -895,78 +892,73 @@ msgstr "Геометрия"
 
 #: gis_data_editor.php:172 js/messages.php:288
 msgid "Point"
-msgstr ""
+msgstr "Точка"
 
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
 #: gis_data_editor.php:297 js/messages.php:286
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
 #: gis_data_editor.php:299 js/messages.php:287
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
 #: js/messages.php:289
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "Точка %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:295
-#, fuzzy
 #| msgid "Add routine"
 msgid "Add a point"
-msgstr "Добавить процедуру"
+msgstr "Добавить точку"
 
 #: gis_data_editor.php:220 js/messages.php:290
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Разделитель строк"
+msgstr "Линия"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:294
 msgid "Outer Ring"
-msgstr ""
+msgstr "Внешний контур"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:293
 msgid "Inner Ring"
-msgstr ""
+msgstr "Внутренний контур"
 
 #: gis_data_editor.php:252
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Добавить нового пользователя"
+msgstr "Добавить линию"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:296
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Добавить нового пользователя"
+msgstr "Добавить внутренний контур"
 
 #: gis_data_editor.php:266 js/messages.php:291
 msgid "Polygon"
-msgstr ""
+msgstr "Многоугольник"
 
 #: gis_data_editor.php:306 js/messages.php:297
-#, fuzzy
 #| msgid "Add column"
 msgid "Add a polygon"
-msgstr "Добавить столбец"
+msgstr "Добавить многоугольник"
 
 #: gis_data_editor.php:310
-#, fuzzy
 #| msgid "Geometry"
 msgid "Add geometry"
-msgstr "Геометрия"
+msgstr "Добавить геометрии"
 
 #: gis_data_editor.php:318
 msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
+"Из поля функции выберите \"GeomFromText\" и вставьте строку ниже, как значение"
 
 #: import.php:57
 #, php-format
@@ -1007,7 +999,7 @@ msgstr ""
 #: import.php:352
 msgid ""
 "Cannot convert file's character set without character set conversion library"
-msgstr ""
+msgstr "Без необходимой библиотеки невозможна конвертация кодировки файла"
 
 #: import.php:376 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -1237,25 +1229,23 @@ msgstr "Соединения / Процессы"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:86
-#, fuzzy
 #| msgid "Connections since last refresh"
 msgid "Questions since last refresh"
-msgstr "Соединений с момента последнего обновления"
+msgstr "Вопросов с момента последнего обновления"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:88
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "Вопросы (выражения выполненные сервером)"
 
 #: js/messages.php:90 server_status.php:776
 msgid "Query statistics"
 msgstr "Статистика запросов"
 
 #: js/messages.php:93
-#, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Local monitor configuration incompatible"
-msgstr "Ошибка при чтении конфигурационного файла"
+msgstr "Настройки локального монитора несовместимы"
 
 #: js/messages.php:94
 msgid ""
@@ -1264,36 +1254,37 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
+"Настройки вывода графиков в локальном хранилище вашего браузера больше "
+"несовместимы с новой версией диалога монитора. Высока вероятность потери "
+"работоспособности текущих настроек. Пожалуйста, сбросьте ваши настройки, в "
+"меню <i>Настройки</i>, в изначальные."
 
 #: js/messages.php:96
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache efficiency"
-msgstr "Кеш запросов"
+msgstr "Эффективность кеширования запросов"
 
 #: js/messages.php:97
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
-msgstr "Кеш запросов"
+msgstr "Использование кеширования запросов"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
-msgstr "Кеш запросов"
+msgstr "Кеш запросов использован"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
-msgstr ""
+msgstr "Использование системного процессора"
 
 #: js/messages.php:101
 msgid "System memory"
-msgstr ""
+msgstr "Системная память"
 
 #: js/messages.php:102
 msgid "System swap"
-msgstr ""
+msgstr "Система подкачки"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:103 libraries/common.lib.php:1343 server_status.php:1669
@@ -1307,61 +1298,56 @@ msgstr "КБ"
 
 #: js/messages.php:106
 msgid "Average load"
-msgstr ""
+msgstr "Средняя загрузка"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "Total count"
 msgid "Total memory"
-msgstr "Общее количество"
+msgstr "Полная память"
 
 #: js/messages.php:108
 msgid "Cached memory"
-msgstr ""
+msgstr "Кешированная память"
 
 #: js/messages.php:109
-#, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "Буферный пул"
+msgstr "Беферизованная память"
 
 #: js/messages.php:110
 msgid "Free memory"
-msgstr ""
+msgstr "Свободная память"
 
 #: js/messages.php:111
 msgid "Used memory"
-msgstr ""
+msgstr "Использованная память"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "Всего"
+msgstr "Всего области подкачки"
 
 #: js/messages.php:114
 msgid "Cached Swap"
-msgstr ""
+msgstr "Кешировано области подкачки"
 
 #: js/messages.php:115
 msgid "Used Swap"
-msgstr ""
+msgstr "Использовано области подкачки"
 
 #: js/messages.php:116
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "Чистых страниц"
+msgstr "Свободно области подкачки"
 
 #: js/messages.php:118
 msgid "Bytes sent"
-msgstr ""
+msgstr "Отослано байт"
 
 #: js/messages.php:119
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "Принято"
+msgstr "Принято байт"
 
 #: js/messages.php:120 server_status.php:1134
 msgid "Connections"
@@ -1369,10 +1355,9 @@ msgstr "Соединения"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:124
-#, fuzzy
 #| msgid "Versions"
 msgid "Questions"
-msgstr "Версии"
+msgstr "Вопросы"
 
 #: js/messages.php:125 server_status.php:1089
 msgid "Traffic"
@@ -1384,24 +1369,22 @@ msgid "Settings"
 msgstr "Настройки"
 
 #: js/messages.php:127
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "Удалить базу данных"
+msgstr "Удалить график"
 
 #: js/messages.php:128
 msgid "Edit title and labels"
-msgstr ""
+msgstr "Редактировать название и подписи"
 
 #: js/messages.php:129
-#, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "Привязать к сетке"
+msgstr "Добавить график к сетке"
 
 #: js/messages.php:131
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "Пожалуйста, добавьте в серию хотя бы одну переменную"
 
 #: js/messages.php:132 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:554 libraries/export/sql.php:1092
@@ -1413,35 +1396,35 @@ msgstr "Нет"
 
 #: js/messages.php:133
 msgid "Resume monitor"
-msgstr ""
+msgstr "Возобновить монитор"
 
 #: js/messages.php:134
 msgid "Pause monitor"
-msgstr ""
+msgstr "Приостановить монитор"
 
 #: js/messages.php:136
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "Включены переменные general_log и slow_query_log."
 
 #: js/messages.php:137
 msgid "general_log is enabled."
-msgstr ""
+msgstr "Включена переменная general_log."
 
 #: js/messages.php:138
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "Включена переменная slow_query_log."
 
 #: js/messages.php:139
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "Отключены переменные slow_query_log и general_log."
 
 #: js/messages.php:140
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "Переменная log_output не установлена для таблицы."
 
 #: js/messages.php:141
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "Переменная log_output установлена для таблицы."
 
 #: js/messages.php:142
 #, php-format
@@ -1450,56 +1433,63 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"Включена переменная slow_query_log, но сервером записываются только те "
+"запросы, длительность выполнения которых превышает %d секунд. Советуем "
+"установить переменную long_query_time на 0-2 секунды, в зависимости от вашей "
+"системы."
 
 #: js/messages.php:143
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "Переменная long_query_time установлена в %d секунд."
 
 #: js/messages.php:144
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"Следующие настройки будут приняты глобально и сбросятся в изначальное "
+"состояние при перезагрузке сервера:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:146
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save output to a file"
 msgid "Set log_output to %s"
-msgstr "Сохранить вывод в файл"
+msgstr "Установить log_output в %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:148
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
-msgstr "Доступно"
+msgstr "Включить %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:150
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disabled"
 msgid "Disable %s"
-msgstr "Недоступно"
+msgstr "Отключить %s"
 
 #. l10n: %d seconds
 #: js/messages.php:152
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "Установить long_query_time в %ds"
 
 #: js/messages.php:153
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
+"Вы не можете изменить значения данных переменных. Пожалуйста, войдите под "
+"учетной записью root, или свяжитесь с администратором базы данных."
 
 #: js/messages.php:154
-#, fuzzy
 #| msgid "Manage your settings"
 msgid "Change settings"
-msgstr "Пользовательские настройки"
+msgstr "Изменить настройки"
 
 #: js/messages.php:155
 #, fuzzy

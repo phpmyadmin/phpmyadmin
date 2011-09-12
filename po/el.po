@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-11 06:58-0400\n"
-"PO-Revision-Date: 2011-08-29 21:36+0200\n"
+"PO-Revision-Date: 2011-09-10 09:25+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -2210,10 +2210,10 @@ msgid "Remove \"./config\" directory before using phpMyAdmin!"
 msgstr "Απομακρύντε το φάκελο «./config» πριν τη χρήση του phpMyAdmin!"
 
 #: libraries/Config.class.php:727
-#, fuzzy, php-format
+#, php-format
 #| msgid "Existing configuration file (%d) is not readable."
 msgid "Existing configuration file (%s) is not readable."
-msgstr "Το υπαρχον αρχείο ρυθμίσεων (%d) δεν είναι αναγνώσιμο."
+msgstr "Το υπαρχον αρχείο ρυθμίσεων (%s) δεν είναι αναγνώσιμο."
 
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"

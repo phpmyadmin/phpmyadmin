@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-11 06:58-0400\n"
-"PO-Revision-Date: 2011-09-04 07:36+0200\n"
-"Last-Translator:  <mateusfbi@gmail.com>\n"
+"PO-Revision-Date: 2011-09-10 03:20+0200\n"
+"Last-Translator:  <erickdeoliveiraleal@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +26,7 @@ msgstr "Mostrar todos"
 #: libraries/schema/User_Schema.class.php:393
 #: libraries/select_lang.lib.php:487
 msgid "Page number:"
-msgstr "Numero da página:"
+msgstr "Página número:"
 
 #: browse_foreigners.php:133
 msgid ""
@@ -341,7 +341,7 @@ msgstr "Mudar para o Banco de Dados copiado"
 #: tbl_structure.php:203 tbl_structure.php:870 tbl_tracking.php:259
 #: tbl_tracking.php:310
 msgid "Collation"
-msgstr "Collation"
+msgstr "Colação"
 
 #: db_operations.php:550
 #, php-format
@@ -416,10 +416,10 @@ msgid "You have to choose at least one column to display"
 msgstr "Você deve escolher pelo menos uma coluna para exibir"
 
 #: db_qbe.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "construtor visual"
+msgstr "Alterar para %construtor visual%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:957
@@ -825,20 +825,18 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "Copie e cole os valores concatenados na coluna \"Tamanho/Valores\""
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "Tipo de consulta"
+msgstr "Tipo incorreto!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
 msgstr "Tipo de exportação selecionada tem que ser salvo no arquivo!"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Add index"
 msgid "Bad parameters!"
-msgstr "Adicionar índice"
+msgstr "Parâmetros incorretos!"
 
 #: export.php:166 export.php:191 export.php:652
 #, php-format
@@ -864,24 +862,23 @@ msgid "Dump has been saved to file %s."
 msgstr "Dump foi salvo no arquivo %s."
 
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "Tipo de exportação"
+msgstr "Formato inválido para exportação"
 
 #: gis_data_editor.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
 msgstr "Valores do campo \"%s\""
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "Use OpenStreetMaps como base"
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:292
 #: libraries/display_tbl.lib.php:665
@@ -890,30 +887,29 @@ msgstr "Geometria"
 
 #: gis_data_editor.php:172 js/messages.php:288
 msgid "Point"
-msgstr ""
+msgstr "Ponto"
 
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
 #: gis_data_editor.php:297 js/messages.php:286
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
 #: gis_data_editor.php:299 js/messages.php:287
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
 #: js/messages.php:289
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "Ponto %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:295
-#, fuzzy
 #| msgid "Add index"
 msgid "Add a point"
-msgstr "Adicionar índice"
+msgstr "Adicione um ponto"
 
 #: gis_data_editor.php:220 js/messages.php:290
 #, fuzzy
@@ -923,17 +919,16 @@ msgstr "Linhas terminadas por"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:294
 msgid "Outer Ring"
-msgstr ""
+msgstr "Anel Externo"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:293
 msgid "Inner Ring"
-msgstr ""
+msgstr "Anel interno"
 
 #: gis_data_editor.php:252
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Adicionar novo usuário"
+msgstr "Adicionar uma linha"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:296
 #, fuzzy
@@ -960,6 +955,8 @@ msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
+"Selecione \"GeomFromText\" no campo \"Function\" e cole a string abaixo no campo "
+"\"Value\""
 
 #: import.php:57
 #, php-format
@@ -1002,6 +999,8 @@ msgstr ""
 msgid ""
 "Cannot convert file's character set without character set conversion library"
 msgstr ""
+"Impossível converter conjunto de caracteres deste arquivo sem a biblioteca "
+"de conversão"
 
 #: import.php:376 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -1082,7 +1081,7 @@ msgstr "Você está prestes à DESTRUIR completamente o Banco de Dados!"
 
 #: js/messages.php:34
 msgid "You are about to DESTROY a complete table!"
-msgstr "Você está prestes à DESTRUIR completamente a tabela"
+msgstr "Você está prestes à DESTRUIR completamente a tabela!"
 
 #: js/messages.php:35
 msgid "You are about to TRUNCATE a complete table!"
@@ -1102,7 +1101,7 @@ msgstr "Esta operação pode ser demorada. Deseja prosseguir?"
 
 #: js/messages.php:42
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr "Você está prestes a DESATIVAR um repositório BLOB."
+msgstr "Você está prestes a DESATIVAR um repositório BLOB!"
 
 #: js/messages.php:43
 #, php-format
@@ -1244,10 +1243,9 @@ msgid "Query statistics"
 msgstr "Estatísticas de Consultas"
 
 #: js/messages.php:93
-#, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Local monitor configuration incompatible"
-msgstr "Falhou ao ler o arquivo de configuração"
+msgstr "Configuração do monitor local incompatível"
 
 #: js/messages.php:94
 msgid ""
@@ -1302,62 +1300,55 @@ msgid "Average load"
 msgstr "Carga média"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "System memory"
 msgid "Total memory"
-msgstr "Memória do sistema"
+msgstr "Memória total do sistema"
 
 #: js/messages.php:108
-#, fuzzy
 #| msgid "System memory"
 msgid "Cached memory"
-msgstr "Memória do sistema"
+msgstr "Cache de memória"
 
 #: js/messages.php:109
 msgid "Buffered memory"
 msgstr "Memória em Buffer"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "System memory"
 msgid "Free memory"
-msgstr "Memória do sistema"
+msgstr "Memória livre"
 
 #: js/messages.php:111
-#, fuzzy
 #| msgid "System memory"
 msgid "Used memory"
-msgstr "Memória do sistema"
+msgstr "Memória usada"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "Total"
+msgstr "Swap Total"
 
 #: js/messages.php:114
 msgid "Cached Swap"
-msgstr ""
+msgstr "Swap em cache"
 
 #: js/messages.php:115
 msgid "Used Swap"
-msgstr ""
+msgstr "Swap Utilizado"
 
 #: js/messages.php:116
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "Páginas livres"
+msgstr "Swap livre"
 
 #: js/messages.php:118
 msgid "Bytes sent"
-msgstr ""
+msgstr "Bytes enviados"
 
 #: js/messages.php:119
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "Recebido"
+msgstr "Bytes Recebidos"
 
 #: js/messages.php:120 server_status.php:1134
 msgid "Connections"
@@ -1379,23 +1370,20 @@ msgstr "Configurações"
 
 # The word "chart" in brasilian portuguese can mean either "Table = tabela" or "Report = relatório" or "Chart = gráfico" or "Diagram = diagrama". So, it depends of the context.
 #: js/messages.php:127
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "Remover Gráfico/Tabela ou Relatório"
+msgstr "Remover Gráfico"
 
 #: js/messages.php:128
-#, fuzzy
 #| msgid "Edit labels and series"
 msgid "Edit title and labels"
-msgstr "Editar rótulos e séries."
+msgstr "Editar rótulos e títulos"
 
 # The word "chart" in brasilian portuguese can mean either "Table = tabela" or "Report = relatório" or "Chart = gráfico" or "Diagram = diagrama". So, it depends of the context.
 #: js/messages.php:129
-#, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "Adicionar Gráfico/Tabela ou Relatório ajustado na grade"
+msgstr "Adicionar gráfico ajustado na grade"
 
 #: js/messages.php:131
 msgid "Please add at least one variable to the series"
@@ -1435,11 +1423,11 @@ msgstr "\"slow_query_log\" e \"general_log\" estão desativados."
 
 #: js/messages.php:140
 msgid "log_output is not set to TABLE."
-msgstr "\"log_output\" não está definido para a TABELA"
+msgstr "\"log_output\" não está definido para a TABELA."
 
 #: js/messages.php:141
 msgid "log_output is set to TABLE."
-msgstr "\"log_output\" está definido para a TABELA"
+msgstr "\"log_output\" está definido para a TABELA."
 
 #: js/messages.php:142
 #, php-format
@@ -1514,7 +1502,7 @@ msgstr "Título do Relatório/Gráfico ou Tabela"
 #. l10n: As in differential values
 #: js/messages.php:159
 msgid "Differential"
-msgstr ""
+msgstr "Diferencial"
 
 #: js/messages.php:160
 #, php-format
@@ -1527,7 +1515,7 @@ msgstr ""
 
 #: js/messages.php:163
 msgid "From general log"
-msgstr ""
+msgstr "Do relatório geral"
 
 #: js/messages.php:164
 msgid "Analysing & loading logs. This may take a while."
@@ -2303,8 +2291,8 @@ msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
-"O arquivo carregado excede o tamanho definido na diretriz MAX_FILE_SIZE do "
-"formulário HTM."
+"O arquivo enviado excede o tamanho definido na diretriz MAX_FILE_SIZE que "
+"foi definido no formulário HTML."
 
 #: libraries/File.class.php:284
 msgid "The uploaded file was only partially uploaded."
@@ -2422,10 +2410,9 @@ msgstr[0] "%1$d linha inserida."
 msgstr[1] "%1$d linha(s) inseridas."
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Permitir leitura dos dados."
+msgstr "Erro ao criar o PDF:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
@@ -2487,7 +2474,7 @@ msgstr "Tabela %s renomeada para %s"
 
 #: libraries/Table.class.php:1364
 msgid "Could not save table UI preferences"
-msgstr "Não foi possível salvar as preferências da tabela"
+msgstr "Não foi possível salvar as preferências visuais da tabela"
 
 #: libraries/Table.class.php:1387
 #, php-format
@@ -2666,10 +2653,8 @@ msgid "PBMS get BLOB info failed:"
 msgstr "o PBMS falhou na obtenção de informações BLOB:"
 
 #: libraries/blobstreaming.lib.php:373
-#, fuzzy
-#| msgid "get BLOB Content-Type failed"
 msgid "PBMS get BLOB Content-Type failed"
-msgstr "a obtenção do Tipo de conteúdo do BLOB falhou"
+msgstr "a obtenção do Tipo de conteúdo BLOB falhou"
 
 #: libraries/blobstreaming.lib.php:401
 msgid "View image"
@@ -2771,7 +2756,7 @@ msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"A diretriz<tt>$cfg['PmaAbsoluteUri']</tt> deve ser estabelecida no seu "
+"A diretriz<tt>$cfg['PmaAbsoluteUri']</tt> dDEVE ser estabelecida no seu "
 "arquivo de configuração!"
 
 #: libraries/common.inc.php:640
@@ -2933,7 +2918,7 @@ msgstr "Dom"
 #: libraries/common.lib.php:1591
 #: libraries/transformations/text_plain__dateformat.inc.php:35
 msgid "%B %d, %Y at %I:%M %p"
-msgstr "%d/%m/%Y às %Hh%Mmin"
+msgstr "%d/%m/%Y às %T"
 
 #: libraries/common.lib.php:1925
 #, php-format
@@ -3668,9 +3653,8 @@ msgid "Enclose export in a transaction"
 msgstr "Encapsular exportação numa transação"
 
 #: libraries/config/messages.inc.php:140
-#, fuzzy
 msgid "Export time in UTC"
-msgstr "Tipo de exportação"
+msgstr "Exportar data em UTC"
 
 #: libraries/config/messages.inc.php:148
 msgid "Force secured connection while using phpMyAdmin"
@@ -3942,15 +3926,13 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr ""
 
 #: libraries/config/messages.inc.php:219
-#, fuzzy
 msgid "SQL queries settings"
-msgstr "consulta SQL"
+msgstr "Configurações de consultas SQL"
 
 #: libraries/config/messages.inc.php:220
-#, fuzzy
 #| msgid "SQL history"
 msgid "SQL Validator"
-msgstr "Histórico de consultas"
+msgstr "Validador SQL"
 
 #: libraries/config/messages.inc.php:221
 msgid ""
@@ -4832,10 +4814,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:430
-#, fuzzy
 #| msgid "Defragment table"
 msgid "UI preferences table"
-msgstr "Desfragmentar tabela"
+msgstr "Preferências visuais da tabela"
 
 #: libraries/config/messages.inc.php:431
 msgid ""
@@ -5243,9 +5224,8 @@ msgid "Cookie authentication"
 msgstr "Falha na autenticação de hardware"
 
 #: libraries/config/setup.forms.php:48
-#, fuzzy
 msgid "HTTP authentication"
-msgstr "Falha na autenticação de hardware"
+msgstr "Autenticação PHP"
 
 #: libraries/config/setup.forms.php:51
 #, fuzzy
@@ -5725,8 +5705,8 @@ msgid ""
 "however it can break transactions.)</i>"
 msgstr ""
 "Permitir interromper a importação caso se detecte que o script demorará "
-"perto do tempo limite. Isso pode ser um bom caminho para importar arquivos "
-"grandes, entretanto isso pode interromper as transações."
+"perto do tempo limite PHP.<i (Isso pode ser um bom caminho para importar "
+"arquivos grandes, entretanto isso pode interromper as transações.)</i>"
 
 #: libraries/display_import.lib.php:228
 msgid "Number of rows to skip, starting from the first row:"
@@ -6593,7 +6573,7 @@ msgstr "Restrições para a tabela"
 
 #: libraries/export/sql.php:962
 msgid "MIME TYPES FOR TABLE"
-msgstr "MIME-TYPES PARA AS TABELAS"
+msgstr "MIME-TYPES PARA TABELA"
 
 #: libraries/export/sql.php:974
 msgid "RELATIONS FOR TABLE"
@@ -6638,10 +6618,9 @@ msgid "Open new phpMyAdmin window"
 msgstr "Abrir nova janela do phpMyAdmin"
 
 #: libraries/gis_visualization.lib.php:134
-#, fuzzy
 #| msgid "No data found for the chart."
 msgid "No data found for GIS visualization."
-msgstr "Não foram encontrados dados para o gráfico."
+msgstr "Não foram encontrados dados para a visualização GIS."
 
 #: libraries/header_http.inc.php:15 libraries/header_meta_style.inc.php:15
 msgid "GLOBALS overwrite attempt"
@@ -7106,7 +7085,7 @@ msgstr "Consulta SQL gravada"
 
 #: libraries/relation.lib.php:124 querywindow.php:74 querywindow.php:181
 msgid "SQL history"
-msgstr "Histórico de consultas"
+msgstr "Histórico SQL"
 
 #: libraries/relation.lib.php:132
 #, fuzzy
@@ -8020,7 +7999,7 @@ msgid ""
 "and submit a bug report with the data chunk in the CUT section below:"
 msgstr ""
 "Talvez tenha encontrado um bug no analizador (parser) do SQL. Analise a sua "
-"Consulta SQL com atenção, e verifique se as aspas estão corretas e não estão "
+"consulta SQL com atenção e verifique se as aspas estão corretas e não estão "
 "desencontradas. Outra possibilidade de falha é o fato de estar tentando "
 "subir um arquivo com saída binária de uma área de texto citada. Pode também "
 "experimentar a sua consulta SQL no prompt de comandos do MySQL. A saída de "
@@ -8040,11 +8019,11 @@ msgstr "FIM CORTE"
 
 #: libraries/sqlparser.lib.php:181
 msgid "BEGIN RAW"
-msgstr "INICIO CRU"
+msgstr "INICIO RAW"
 
 #: libraries/sqlparser.lib.php:185
 msgid "END RAW"
-msgstr "FIM CRU"
+msgstr "FIM RAW"
 
 #: libraries/sqlparser.lib.php:382
 msgid "Automatically appended backtick to the end of query!"
@@ -8069,7 +8048,7 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "O Validador SQL não pode ser inicializado. Verifique se você instalou a "
-"extenção necessária do php conforme está escrito em %sdocumentation%s."
+"extensão necessária do php conforme está escrito na %sdocumentação%s."
 
 #: libraries/tbl_links.inc.php:118 libraries/tbl_links.inc.php:119
 msgid "Table seems to be empty!"
@@ -8290,7 +8269,6 @@ msgstr ""
 "isso é feito usando a função gmdate()."
 
 #: libraries/transformations/text_plain__external.inc.php:10
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the field data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -8317,26 +8295,27 @@ msgstr ""
 "LINUX APENAS: Rode uma aplicação externa e alimente os campos de dados pela "
 "entrada padrão. Retorna a saída padrão da aplicação. Padrão é Limpo, para "
 "uma bonita impressão do código HTML. Por razões de segurança, você deve "
-"editar manualmente o arquivo libraries/transformations/text_plain__external."
-"inc.php e inserir as ferramentas que você permite rodar. A primeira opção é "
-"o número do programa que você quer rodar e a segunda opção são os parâmetros "
-"para o programa. A terceira opção, se setada para 1 irá converter a saída "
-"usando htmlspecialchars() (Padrão é 1). A quarta opção, se setada como 1 irá "
-"por um NOWRAP para o conteúdo da célula, de forma que a saída inteira será "
+"editar manualmente o arquivo "
+"libraries/transformations/text_plain__external.inc.php e inserir as "
+"ferramentas que você permite rodar. A primeira opção é o número do programa "
+"que você quer rodar e a segunda opção são os parâmetros para o programa. A "
+"terceira opção, se setada para 1 irá converter a saída usando "
+"htmlspecialchars() (Padrão é 1). A quarta opção, se setada como 1 irá por um "
+"NOWRAP para o conteúdo da célula, de forma que a saída inteira será "
 "mostrada sem reformatação(Padrão é 1)"
 
 #: libraries/transformations/text_plain__formatted.inc.php:10
-#, fuzzy
 #| msgid ""
 #| "Displays the contents of the field as-is, without running it through "
 #| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
-msgstr "Preservar a formatação original campo. Sem escape."
+msgstr ""
+"Mostra o conteúdo da coluna como na realidade, sem manipular através de "
+"htmlspecialchars(). Isso é, a coluna assume conter HTML válido"
 
 #: libraries/transformations/text_plain__imagelink.inc.php:10
-#, fuzzy
 #| msgid ""
 #| "Displays an image and a link; the field contains the filename. The first "
 #| "option is a URL prefix like \"http://www.example.com/\". The second and "
@@ -8346,12 +8325,11 @@ msgid ""
 "option is a URL prefix like \"http://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
-"Mostrar uma imagem e um link, o campo contém um nome de arquivo; primeira "
-"opção é um prefixo tipo \"http://domain.com/\", segunda opção é a largura em "
-"pixels, o terceiro é a altura."
+"Mostra uma imagem e um link, o campo contém um nome de arquivo. Primeira "
+"opção é um prefixo de URL como \"http://www.exemplo.com/\".  A segunda e "
+"terceira opção são a largura e a altura em pixels."
 
 #: libraries/transformations/text_plain__link.inc.php:10
-#, fuzzy
 #| msgid ""
 #| "Displays a link; the field contains the filename. The first option is a "
 #| "URL prefix like \"http://www.example.com/\". The second option is a title "
@@ -8361,8 +8339,9 @@ msgid ""
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
-"Mostrar um link, o campo contém o nome do arquivo, primeira opção é um "
-"prefixo tipo \"http://domain.com/\", segunda opção é um título para o link."
+"Mostra um link, o campo contém o nome do arquivo. A primeira opção é um "
+"prefixo URL como \"http://www.exemplo.com/\". A segunda opção é um título para "
+"o link."
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:10
 msgid ""
@@ -9597,20 +9576,18 @@ msgid "Reset slave"
 msgstr ""
 
 #: server_replication.php:326
-#, fuzzy
 #| msgid "Structure only"
 msgid "Start SQL Thread only"
-msgstr "Somente estrutura"
+msgstr "Iniciar somente processo SQL"
 
 #: server_replication.php:328
 msgid "Stop SQL Thread only"
 msgstr ""
 
 #: server_replication.php:331
-#, fuzzy
 #| msgid "Structure only"
 msgid "Start IO Thread only"
-msgstr "Somente estrutura"
+msgstr "Iniciar somente processo IO"
 
 #: server_replication.php:333
 msgid "Stop IO Thread only"
@@ -11560,10 +11537,9 @@ msgid "Table %s has been flushed"
 msgstr "Tabela %s foi limpa"
 
 #: tbl_operations.php:672
-#, fuzzy
 #| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
-msgstr "Limpar a tabela (\"LIMPAR\")"
+msgstr "Limpar a tabela (FLUSH)"
 
 #: tbl_operations.php:681
 msgid "Delete data or table"
@@ -11720,10 +11696,9 @@ msgid "Add unique index"
 msgstr "Adicionar índice único"
 
 #: tbl_structure.php:173 tbl_structure.php:174
-#, fuzzy
 #| msgid "Add index"
 msgid "Add SPATIAL index"
-msgstr "Adicionar índice"
+msgstr "Adicionar índice SPATIAL"
 
 #: tbl_structure.php:175 tbl_structure.php:176
 #, fuzzy

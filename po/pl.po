@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-11 06:58-0400\n"
-"PO-Revision-Date: 2011-09-06 17:42+0200\n"
+"PO-Revision-Date: 2011-09-09 20:17+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -128,7 +128,7 @@ msgstr "Baza danych %1$s została utworzona."
 
 #: db_datadict.php:49 db_operations.php:360
 msgid "Database comment: "
-msgstr "Komentarz bazy danych: "
+msgstr "Komentarz bazy danych:"
 
 #: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1279
 #: libraries/tbl_properties.inc.php:695 tbl_operations.php:366
@@ -1201,17 +1201,17 @@ msgstr "Sumarycznie"
 #. l10n: Other, small valued, queries
 #: js/messages.php:73 server_status.php:594 server_status.php:1013
 msgid "Other"
-msgstr ""
+msgstr "Inne"
 
 #. l10n: Thousands separator
 #: js/messages.php:75 libraries/common.lib.php:1393
 msgid ","
-msgstr " "
+msgstr ","
 
 #. l10n: Decimal separator
 #: js/messages.php:77 libraries/common.lib.php:1395
 msgid "."
-msgstr ","
+msgstr "."
 
 #: js/messages.php:79
 msgid "KiB sent since last refresh"
@@ -1236,10 +1236,9 @@ msgid "Processes"
 msgstr "Procesy"
 
 #: js/messages.php:84
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "Połączenia"
+msgstr "Połączenia / Procesy"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:86
@@ -13646,14 +13645,13 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:270
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
-msgstr "Maks. jednoczesnych połączeń"
+msgstr "MyISAM concurrent inserts"
 
 #: po/advisory_rules.php:271
 msgid "Enable concurrent_insert by setting it to 1"
-msgstr ""
+msgstr "Włącz concurrent_insert za pomocą ustawienia go na 1"
 
 #: po/advisory_rules.php:272
 msgid ""
@@ -13661,10 +13659,14 @@ msgid ""
 "writers for a given table. See also <a href=\\\"http://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\\\">MySQL Documentation</a>"
 msgstr ""
+"Ustawienie {concurrent_insert} na 1 ogranicza zawartość pomiędzy odczytem a "
+"zapisem do danej tabeli. Zobacz także <a "
+"href=\\\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-"
+"inserts.html\\\">Dokumentację MySQL</a>"
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "concurrent_insert jest ustawiony na 0"
 
 #~ msgid "MySQL charset"
 #~ msgstr "Kodowanie napisów dla MySQL"

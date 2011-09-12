@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-11 06:58-0400\n"
-"PO-Revision-Date: 2011-09-05 15:42+0200\n"
+"PO-Revision-Date: 2011-09-09 12:45+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1874,6 +1874,8 @@ msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
+"Vous avez modifier des données non encore sauvegardées, êtes vous sûr de "
+"vouloir quitter cette page avant de sauvegarder?"
 
 #: js/messages.php:315
 msgid "Drag to reorder"
@@ -1896,17 +1898,21 @@ msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
+"Cette table ne contient pas de colonne unique. Les grilles d'édition, les "
+"cases à cocher ainsi que les liens Edition, Copie et Supprimer pourrait ne "
+"plus fonctionner après prise en compte de la modification."
 
 #: js/messages.php:321
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
+"Vous pouvez aussi modifier la plupart des colonnes<br/> en cliquant "
+"directement sur leur contenu."
 
 #: js/messages.php:322
-#, fuzzy
 #| msgid "Go to view"
 msgid "Go to link"
-msgstr "Aller à la vue"
+msgstr "Suivre le lien"
 
 #: js/messages.php:325
 msgid "Generate password"
@@ -1948,14 +1954,12 @@ msgid "Done"
 msgstr "Fermer"
 
 #: js/messages.php:359
-#, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Précédent"
 
 #: js/messages.php:364
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
@@ -2105,7 +2109,6 @@ msgstr "Samedi"
 
 #. l10n: Short week day name
 #: js/messages.php:420
-#, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
 msgid "Sun"
@@ -2202,19 +2205,24 @@ msgstr "Seconde"
 #, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr ""
+"Échec lors de la mise en forme de la chaine avec la règle '%s'. PHP a "
+"remonter l'erreur: %s  "
 
 #: libraries/Config.class.php:703
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
 msgstr ""
+"Veuillez supprimer le répertoire \"./config\" avant d'utiliser phpMyAdmin!"
 
 #: libraries/Config.class.php:727
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr ""
+msgstr "Le fichier de configuration (%s) est illisible."
 
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
+"Permissions sur le fichier de configuration incorrectes, il ne doit pas être "
+"en écriture pour tout le monde."
 
 #: libraries/Config.class.php:1297
 msgid "Font size"
@@ -2360,10 +2368,9 @@ msgstr[0] "%1$d ligne insérée."
 msgstr[1] "%1$d lignes insérées."
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Permission de lire des données."
+msgstr "Erreur pendant la création du PDF: "
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
@@ -2400,10 +2407,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Ce serveur MySQL ne supporte pas le moteur de stockage %s."
 
 #: libraries/Table.class.php:329
-#, fuzzy
 #| msgid "Show slave status"
 msgid "unknown table status: "
-msgstr "Montrer l'état des serveurs esclaves"
+msgstr "Statut de table incorrect:"
 
 #: libraries/Table.class.php:1115
 msgid "Invalid database"
@@ -2433,6 +2439,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
+"Echec lors de la tentative de vidage de la table UI Préférences (voir "
+"$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.class.php:1513
 #, php-format
@@ -2441,6 +2449,9 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
+"Impossible de sauvegarder l'UI Propriété \"%s\". Le changement effectué ne "
+"sera pas persistant après actualisation de cette page. Merci de vérifier si "
+"la structure de la table a changé."
 
 #: libraries/Theme.class.php:145
 #, php-format
@@ -2507,7 +2518,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:35
 msgid "Failed to use Blowfish from mcrypt!"
-msgstr ""
+msgstr "Impossible d'utiliser Blowfish depuis mcrypt!"
 
 #: libraries/auth/cookie.auth.lib.php:199
 msgid "Log in"
@@ -2606,8 +2617,6 @@ msgid "PBMS get BLOB info failed:"
 msgstr "L'accès aux informations BLOB de PBMS a échoué :"
 
 #: libraries/blobstreaming.lib.php:373
-#, fuzzy
-#| msgid "get BLOB Content-Type failed"
 msgid "PBMS get BLOB Content-Type failed"
 msgstr "L'accès au Content-Type du BLOB a échoué"
 
@@ -2683,11 +2692,11 @@ msgstr "Vérifier les privilèges"
 
 #: libraries/common.inc.php:147
 msgid "possible exploit"
-msgstr ""
+msgstr "vulnérabilité possible"
 
 #: libraries/common.inc.php:156
 msgid "numeric key detected"
-msgstr ""
+msgstr "Clé numérique détectée"
 
 #: libraries/common.inc.php:597
 msgid "Failed to read configuration file"
@@ -2889,7 +2898,6 @@ msgstr "Paramètre manquant :"
 
 #: libraries/common.lib.php:2364 libraries/common.lib.php:2367
 #: libraries/display_tbl.lib.php:306
-#, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
@@ -2898,7 +2906,6 @@ msgstr "Début"
 #: libraries/common.lib.php:2365 libraries/common.lib.php:2368
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
-#, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
@@ -2907,7 +2914,6 @@ msgstr "Précédent"
 #: libraries/common.lib.php:2395 libraries/common.lib.php:2398
 #: libraries/display_tbl.lib.php:370 server_binlog.php:170
 #: server_binlog.php:172
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
@@ -2915,7 +2921,6 @@ msgstr "Suivant"
 
 #: libraries/common.lib.php:2396 libraries/common.lib.php:2399
 #: libraries/display_tbl.lib.php:385
-#, fuzzy
 #| msgid "End"
 msgctxt "Last page"
 msgid "End"
@@ -4299,10 +4304,9 @@ msgid "Memory limit"
 msgstr "Limite mémoire"
 
 #: libraries/config/messages.inc.php:319
-#, fuzzy
 #| msgid "These are Edit, Inline edit, Copy and Delete links"
 msgid "These are Edit, Copy and Delete links"
-msgstr "Il s'agit des liens Modifier, Éditer en place, Copier et Effacer"
+msgstr "Il s'agit des liens Modifier,  Copier et Effacer"
 
 #: libraries/config/messages.inc.php:320
 msgid "Where to show the table row links"
@@ -4460,7 +4464,7 @@ msgstr "Afficher un bouton d'aide"
 
 #: libraries/config/messages.inc.php:357
 msgid "Save all edited cells at once"
-msgstr ""
+msgstr "Sauvegarder en une étape tous les éléments modifiés"
 
 #: libraries/config/messages.inc.php:358
 msgid "Directory where exports can be saved on server"
@@ -4660,12 +4664,13 @@ msgid ""
 "This configuration make sure that we only keep N (N = MaxTableUiprefs) "
 "newest record in \"table_uiprefs\" and automatically delete older records"
 msgstr ""
+"Cette configuration assure que seulement les N (N = MaxTableUiprefs) plus "
+"récentes entrées dans «table_uiprefs» sont conservées"
 
 #: libraries/config/messages.inc.php:399
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of records saved in \"table_uiprefs\" table"
-msgstr "Nombre maximum de tables affichées dans la liste des tables"
+msgstr "Nombre maximum de lignes conservées dans la table «table_uiprefs»"
 
 #: libraries/config/messages.inc.php:400
 msgid "Try to connect without password"
@@ -5006,16 +5011,14 @@ msgid "Show function fields"
 msgstr "Montrer les fonctions"
 
 #: libraries/config/messages.inc.php:462
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Whether to show hint or not"
-msgstr "À quel endroit afficher les liens pour chaque ligne de données"
+msgstr "Afficher ou non les explications"
 
 #: libraries/config/messages.inc.php:463
-#, fuzzy
 #| msgid "Show indexes"
 msgid "Show hint"
-msgstr "Montrer les index"
+msgstr "Montrer les explications"
 
 #: libraries/config/messages.inc.php:464
 msgid ""
@@ -5347,13 +5350,12 @@ msgstr "Texte Open Document"
 
 #: libraries/config/validate.lib.php:198
 msgid "Could not initialize Drizzle connection library"
-msgstr ""
+msgstr "Impossible d'initialiser la bibliothèque de connexion Drizzle"
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Could not connect to Drizzle server"
-msgstr "Connexion au serveur MySQL impossible"
+msgstr "Connexion au serveur Drizzle impossible"
 
 #: libraries/config/validate.lib.php:223 libraries/config/validate.lib.php:230
 msgid "Could not connect to MySQL server"
@@ -5398,7 +5400,7 @@ msgstr "Il manque l'extension %s. Veuillez vérifier votre configuration PHP."
 
 #: libraries/core.lib.php:409
 msgid "possible deep recursion attack"
-msgstr ""
+msgstr "possible attaque récursive"
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
@@ -5459,11 +5461,10 @@ msgid "The server is not responding"
 msgstr "Le serveur ne répond pas"
 
 #: libraries/dbi/drizzle.dbi.lib.php:344
-#, fuzzy
 #| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid "(or the local Drizzle server's socket is not correctly configured)"
 msgstr ""
-"(ou l'interface de connexion vers le serveur MySQL local n'est pas "
+"(ou l'interface de connexion vers le serveur Drizzle local n'est pas "
 "correctement configurée)"
 
 #: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysqli.dbi.lib.php:384
@@ -5775,10 +5776,9 @@ msgid "Language"
 msgstr "Langue"
 
 #: libraries/display_tbl.lib.php:401
-#, fuzzy
 #| msgid "Save directory"
 msgid "Save edited data"
-msgstr "Répertoire de sauvegarde"
+msgstr "Sauvegarder les données modifiées"
 
 #: libraries/display_tbl.lib.php:407
 msgid "Restore column order"
@@ -6679,10 +6679,9 @@ msgid "Stand-in structure for view"
 msgstr "Doublure de structure pour la vue"
 
 #: libraries/export/sql.php:1111
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error reading data:"
-msgstr "Permission de lire des données."
+msgstr "Erreur de lecture des données :"
 
 #: libraries/export/xml.php:19 libraries/import/xml.php:21
 msgid "XML"
@@ -6711,7 +6710,7 @@ msgstr "Données non disponibles pour visualisation GIS."
 
 #: libraries/header_http.inc.php:15 libraries/header_meta_style.inc.php:15
 msgid "GLOBALS overwrite attempt"
-msgstr ""
+msgstr "Tentative d'écrasement de GLOBALS"
 
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:54
 msgid "SQL result"
@@ -6751,20 +6750,20 @@ msgid "Go to database"
 msgstr "Aller à la base de données"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
-msgstr "Données manquantes pour %s"
+msgstr "Paramètres de modification pour %s"
 
 #: libraries/import.lib.php:1127
 msgid "Go to table"
 msgstr "Aller à la table"
 
 #: libraries/import.lib.php:1130
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
-msgstr "Structure seule"
+msgstr "Structure de %s"
 
 #: libraries/import.lib.php:1136
 msgid "Go to view"
@@ -6848,12 +6847,12 @@ msgstr "Importer les valeurs de monnaie <i>($5.00 devient 5.00)</i>"
 
 #: libraries/import/shp.php:14
 msgid "ESRI Shape File"
-msgstr ""
+msgstr "Fichier de formes ESRI"
 
 #: libraries/import/shp.php:275
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr ""
+msgstr "Erreur lors de l'importation du fichier de formes ESRI :«%s»."
 
 #: libraries/import/shp.php:331
 msgid ""
