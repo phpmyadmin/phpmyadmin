@@ -1497,7 +1497,6 @@ msgid "Current settings"
 msgstr "Текущие настройки"
 
 #: js/messages.php:157 server_status.php:1634
-#, fuzzy
 #| msgid "Chart title"
 msgid "Chart Title"
 msgstr "Заголовок графика"
