@@ -12857,10 +12857,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:240
-#, fuzzy
 #| msgid "Table of contents"
 msgid "Percentage of aborted clients"
-msgstr "Daftar Isi"
+msgstr "Persentase klien-klien yang dibatalkan"
 
 #: po/advisory_rules.php:241 po/advisory_rules.php:246
 msgid "Too many clients are aborted."
