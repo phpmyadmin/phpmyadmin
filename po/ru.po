@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-11 06:58-0400\n"
-"PO-Revision-Date: 2011-09-12 17:44+0200\n"
+"PO-Revision-Date: 2011-09-12 17:45+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -1586,10 +1586,9 @@ msgid "Sum of grouped rows:"
 msgstr "Сумма сгруппированных строк:"
 
 #: js/messages.php:179
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "Всего"
+msgstr "Всего:"
 
 #: js/messages.php:181
 #, fuzzy
