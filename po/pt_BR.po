@@ -419,7 +419,7 @@ msgstr "Você deve escolher pelo menos uma coluna para exibir"
 #, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "Alterar para %construtor visual%s"
+msgstr "Alterar para %sconstrutor visual%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:957
