@@ -1514,7 +1514,7 @@ msgstr "Разделено на %s:"
 
 #: js/messages.php:162
 msgid "From slow log"
-msgstr ""
+msgstr "Из журнала медленных запросов"
 
 #: js/messages.php:163
 msgid "From general log"
