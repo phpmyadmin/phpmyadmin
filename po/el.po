@@ -10580,10 +10580,9 @@ msgstr ""
 "φυλλομετρητών. Ίσως θέλετε να το εξάγετε αν έχετε πολύπλοκη ρύθμιση."
 
 #: server_status.php:1589
-#, fuzzy
 #| msgid "Restore default value"
 msgid "Reset to default"
-msgstr "Επαναφορά προεπιλεγμένης τιμής"
+msgstr "Επαναφορά προεπιλογής"
 
 #: server_status.php:1593
 msgid "Monitor Instructions"
