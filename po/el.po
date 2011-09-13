@@ -12145,10 +12145,9 @@ msgid "Slow query logging"
 msgstr "Καταγραφή αργού ερωτήματος"
 
 #: po/advisory_rules.php:31
-#, fuzzy
 #| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
-msgstr "Το slow_query_log είναι ενεργοποιημένα."
+msgstr "Η καταγραφή αργού ερωτήματος είναι απενεργοποιημένη."
 
 #: po/advisory_rules.php:32
 msgid ""
