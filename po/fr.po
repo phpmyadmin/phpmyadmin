@@ -8953,7 +8953,7 @@ msgstr "Version"
 
 #: server_plugins.php:115 server_plugins.php:150
 msgid "Author"
-msgstr ""
+msgstr "Auteur"
 
 #: server_plugins.php:116 server_plugins.php:151
 msgid "License"
