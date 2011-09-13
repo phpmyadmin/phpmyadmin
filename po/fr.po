@@ -9698,7 +9698,7 @@ msgstr "Liens connexes:"
 #: server_status.php:892
 #| msgid "Query analyzer"
 msgid "Run analyzer"
-msgstr "Exécuter l'analyseur"
+msgstr "Lancer l'analyseur"
 
 #: server_status.php:893
 #, fuzzy
