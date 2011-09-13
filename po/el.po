@@ -12100,10 +12100,9 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 
 #: po/advisory_rules.php:20
-#, fuzzy
 #| msgid "Flush query cache"
 msgid "Slow query rate"
-msgstr "Εκκαθάριση λανθάνουσας μνήμης ερωτημάτων"
+msgstr "Βαθμός αργών ερωτημάτων"
 
 #: po/advisory_rules.php:21
 msgid ""
