@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-11 06:58-0400\n"
-"PO-Revision-Date: 2011-09-13 19:58+0200\n"
+"PO-Revision-Date: 2011-09-13 19:59+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -1857,10 +1857,9 @@ msgid "Strings are converted into integer for plotting"
 msgstr "Для построения графиков, строки конвертируются в числа."
 
 #: js/messages.php:280
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
-msgstr "Добавить/удалить столбцы"
+msgstr "Выберите два столбца"
 
 #: js/messages.php:281
 msgid "Select two different columns"
