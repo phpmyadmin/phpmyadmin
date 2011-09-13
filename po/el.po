@@ -12352,10 +12352,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:90
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache fragmentation"
-msgstr "Λανθάνουσα μνήμη ερωτήματος"
+msgstr "Συγκρότηση λανθάνουσας μνήμης ερωτήματος"
 
 #: po/advisory_rules.php:91
 msgid "The query cache is considerably fragmented."
