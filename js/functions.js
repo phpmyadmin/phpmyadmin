@@ -3318,15 +3318,12 @@ function PMA_getCellValue(td) {
 
 /* Loads a js file, an array may be passed as well */
 loadJavascript=function(file) {
-    if(! $.isArray(file)) {
-        file = [file];
-    }
-    for(var i = 0; i < file.length; i++) {
-        var head = document.getElementsByTagName('head')[0];
-        var script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.src = file[i];
-        head.appendChild(script);
+    if($.isArray(file)) {
+        for(var i=0; i<file.length; i++) {
+            $('head').append('<script type="text/javascript" src="'+file[i]+'"></script>');
+        }
+    } else {
+        $('head').append('<script type="text/javascript" src="'+file+'"></script>');
     }
 };
 
