@@ -10849,10 +10849,9 @@ msgid "Target database has been synchronized with source database"
 msgstr "La base cible a été synchronizée avec la base source"
 
 #: server_synchronize.php:1046
-#, fuzzy
 #| msgid "Issued queries"
 msgid "Executed queries"
-msgstr "Requêtes reçues"
+msgstr "Requêtes exécutées"
 
 #: server_synchronize.php:1192
 msgid "Enter manually"
