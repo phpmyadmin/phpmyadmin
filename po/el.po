@@ -10774,14 +10774,11 @@ msgstr ""
 "ομαδοποιήση"
 
 #: server_status.php:1713
-#, fuzzy
 #| msgid ""
 #| "<p>Choose from which log you want the statistics to be generated from.</"
 #| "p> Results are grouped by query text."
 msgid "Choose from which log you want the statistics to be generated from."
-msgstr ""
-"<p>Επιλέξτε από ποια καταγραφή θέλετε να προκύψουν τα στατιστικά.</p> Τα "
-"αποτελέσματα ομοδοποιούνται ανά κείμενο ερωτήματος."
+msgstr "Επιλέξτε από ποια καταγραφή θέλετε να δημιουργούνται τα στατιστικά."
 
 #: server_status.php:1715
 msgid "Results are grouped by query text."
