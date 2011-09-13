@@ -8422,10 +8422,9 @@ msgid "User"
 msgstr "Utilisateur"
 
 #: main.php:167
-#, fuzzy
 #| msgid "Server socket"
 msgid "Server charset"
-msgstr "Interface de connexion socket"
+msgstr "Jeu de caractères du serveur"
 
 #: main.php:179
 msgid "Web server"
