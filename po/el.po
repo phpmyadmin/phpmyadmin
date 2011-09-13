@@ -12205,10 +12205,9 @@ msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgstr "Πρέπει να αναβαθμίσετε σε σταθερή έκδοση της MySQL 5.5"
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
-#, fuzzy
 #| msgid "Description"
 msgid "Distribution"
-msgstr "Περιγραφή"
+msgstr "Διανομή"
 
 #: po/advisory_rules.php:51
 msgid "Version is compiled from source, not a MySQL official binary."
