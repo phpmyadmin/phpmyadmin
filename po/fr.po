@@ -11443,10 +11443,9 @@ msgid "No index parts defined!"
 msgstr "Aucune colonne n'a été définie pour cet index!"
 
 #: tbl_indexes.php:169
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create an index"
-msgstr "Créer un nouvel index"
+msgstr "Créer un index"
 
 #: tbl_indexes.php:171
 msgid "Modify an index"
