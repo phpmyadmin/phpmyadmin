@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-11 06:58-0400\n"
-"PO-Revision-Date: 2011-09-13 18:34+0200\n"
+"PO-Revision-Date: 2011-09-13 18:35+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -8198,10 +8198,9 @@ msgid "Operator"
 msgstr "Opérateur"
 
 #: libraries/tbl_select.lib.php:128
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "Rechercher"
+msgstr "Recherche dans la table"
 
 #: libraries/tbl_select.lib.php:205 tbl_change.php:1002
 #, fuzzy
