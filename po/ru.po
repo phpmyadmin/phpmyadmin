@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-11 06:58-0400\n"
-"PO-Revision-Date: 2011-09-13 19:59+0200\n"
+"PO-Revision-Date: 2011-09-13 20:00+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -1911,7 +1911,7 @@ msgstr "Добавить параметр для столбца"
 
 #: js/messages.php:313
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "Для отмены редактирования нажмите кнопку Esc"
 
 #: js/messages.php:314
 msgid ""
