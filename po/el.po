@@ -12289,10 +12289,9 @@ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 
 #: po/advisory_rules.php:75
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query caching method"
-msgstr "Λανθάνουσα μνήμη ερωτήματος"
+msgstr "Μέθοδος λανθάνουσας μνήμης ερωτήματος"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
