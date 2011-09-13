@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-11 06:58-0400\n"
-"PO-Revision-Date: 2011-09-13 19:53+0200\n"
+"PO-Revision-Date: 2011-09-13 19:54+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -1842,6 +1842,7 @@ msgstr "Кликните и перетащите мышкой для перем�
 #: js/messages.php:272
 msgid "Click reset zoom link to come back to original state."
 msgstr ""
+"Кликните ссылку сброса увеличения для возвращения к исходному состоянию."
 
 #: js/messages.php:274
 msgid "Click a data point to view and possibly edit the data row."
