@@ -10738,14 +10738,11 @@ msgstr ""
 "Enlever les données variables des énoncés INSERT pour un meilleur groupement"
 
 #: server_status.php:1713
-#, fuzzy
 #| msgid ""
 #| "<p>Choose from which log you want the statistics to be generated from.</"
 #| "p> Results are grouped by query text."
 msgid "Choose from which log you want the statistics to be generated from."
-msgstr ""
-"<p>Choississez depuis quel journal les statistiques doivent être générées.</"
-"p>Les résultats sont regroupés par le texte des requêtes."
+msgstr "Choisissez depuis quel journal les statistiques doivent être générées."
 
 #: server_status.php:1715
 msgid "Results are grouped by query text."
