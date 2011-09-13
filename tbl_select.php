@@ -23,16 +23,8 @@ $GLOBALS['js_include'][] = 'tbl_select.js';
 $GLOBALS['js_include'][] = 'tbl_change.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'jquery/timepicker.js';
-
-// required for GIS editor loaded via AJAX
-$GLOBALS['js_include'][] = 'gis_data_editor.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.sprintf.js';
-$GLOBALS['js_include'][] = 'jquery/jquery.svg.js';
-$GLOBALS['js_include'][] = 'jquery/jquery.mousewheel.js';
-$GLOBALS['js_include'][] = 'jquery/jquery.event.drag-2.0.min.js';
-$GLOBALS['js_include'][] = 'tbl_gis_visualization.js';
-$GLOBALS['js_include'][] = 'openlayers/OpenLayers.js';
-$GLOBALS['js_include'][] = 'OpenStreetMap.js';
+$GLOBALS['js_include'][] = 'gis_data_editor.js';
 
 $titles['Browse'] = PMA_tbl_setTitle($GLOBALS['cfg']['PropertiesIconic'], $pmaThemeImage);
 

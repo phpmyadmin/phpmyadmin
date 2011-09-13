@@ -5,6 +5,8 @@
  *
  */
 
+var gisEditorLoaded = false;
+
 /**
  * Closes the GIS data editor and perform necessary clean up work.
  */
@@ -87,6 +89,16 @@ function initGISEditorVisualization() {
  * @param token      token
  */
 function openGISEditor(value, field, type, input_name, token) {
+    
+    if (!gisEditorLoaded) {
+        loadJavascript([ 'js/jquery/jquery.svg.js',
+                'js/jquery/jquery.mousewheel.js',
+                'js/jquery/jquery.event.drag-2.0.min.js',
+                'js/tbl_gis_visualization.js', 'js/openlayers/OpenLayers.js' ]);
+
+        gisEditorLoaded = true;	
+    }
+
     // Center the popup
     var windowWidth = document.documentElement.clientWidth;
     var windowHeight = document.documentElement.clientHeight;
