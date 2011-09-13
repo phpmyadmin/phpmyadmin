@@ -10626,10 +10626,9 @@ msgstr ""
 "χαρακτηριστικά διαγραμμάτων του διακομιστή."
 
 #: server_status.php:1612
-#, fuzzy
 #| msgid "Pause monitor"
 msgid "Using the monitor:"
-msgstr "Παύση εποπτείας"
+msgstr "Χρήση της εποπτείας"
 
 #: server_status.php:1614
 #, fuzzy
