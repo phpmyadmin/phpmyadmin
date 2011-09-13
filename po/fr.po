@@ -10551,7 +10551,6 @@ msgid "Refresh rate"
 msgstr "Taux de rafraîchissement"
 
 #: server_status.php:1572
-#, fuzzy
 #| msgid "Chart columns:"
 msgid "Chart columns"
 msgstr "Colonnes du graphique :"
