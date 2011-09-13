@@ -8407,10 +8407,9 @@ msgid "Software"
 msgstr "Logiciel"
 
 #: main.php:160
-#, fuzzy
 #| msgid "Show versions"
 msgid "Software version"
-msgstr "Montrer les versions"
+msgstr "Version du logiciel"
 
 #: main.php:161
 msgid "Protocol version"
