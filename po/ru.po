@@ -1863,7 +1863,7 @@ msgstr "Выберите два столбца"
 
 #: js/messages.php:281
 msgid "Select two different columns"
-msgstr ""
+msgstr "Выберите два различных столбца"
 
 #: js/messages.php:284 tbl_change.php:321 tbl_indexes.php:211
 #: tbl_indexes.php:238
