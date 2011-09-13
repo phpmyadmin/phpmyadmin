@@ -11276,10 +11276,9 @@ msgstr ""
 "χαρακτήρες."
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No data"
 msgid "Wrong data"
-msgstr "Δεν υπάρχουν δεδομένα"
+msgstr "Εσφαλμένα δεδομένα"
 
 #: sql.php:214
 #, php-format
