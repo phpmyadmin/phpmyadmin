@@ -11976,10 +11976,9 @@ msgid "Additional search criteria"
 msgstr "Πρόσθετα κριτήρια αναζήτησης"
 
 #: tbl_zoom_select.php:258
-#, fuzzy
 #| msgid "Label"
 msgid "Data Label"
-msgstr "Ετικέτα"
+msgstr "Ετικέτα Δεδομένων"
 
 #: tbl_zoom_select.php:276
 #, fuzzy
