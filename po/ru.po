@@ -1798,10 +1798,9 @@ msgid "Change"
 msgstr "Изменить"
 
 #: js/messages.php:252
-#, fuzzy
 #| msgid "Maximum execution time"
 msgid "Query execution time"
-msgstr "Максимальное время выполнения"
+msgstr "Время выполнения запроса"
 
 #: js/messages.php:255 libraries/config/FormDisplay.tpl.php:323
 #: libraries/schema/User_Schema.class.php:351
