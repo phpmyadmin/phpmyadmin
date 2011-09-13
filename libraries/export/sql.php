@@ -208,7 +208,7 @@ if (isset($plugin_list)) {
             $plugin_list['sql']['options'][] = array(
                 'type' => 'bool',
                 'name' => 'backquotes',
-                'text' => __('Enclose table and field names with backquotes <i>(Protects field and table names formed with special characters or keywords)</i>')
+                'text' => __('Enclose table and column names with backquotes <i>(Protects column and table names formed with special characters or keywords)</i>')
                 );
 
             $plugin_list['sql']['options'][] = array('type' => 'end_group');
@@ -505,7 +505,7 @@ if (isset($plugin_list)) {
             $head .= 'SET FOREIGN_KEY_CHECKS=0;' . $crlf;
         }
 
-        /* We want exported AUTO_INCREMENT fields to have still same value, do this only for recent MySQL exports */
+        /* We want exported AUTO_INCREMENT columns to have still same value, do this only for recent MySQL exports */
         if ((!isset($GLOBALS['sql_compatibility']) || $GLOBALS['sql_compatibility'] == 'NONE')
                 && !PMA_DRIZZLE) {
             $head .= 'SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";' . $crlf;
@@ -764,7 +764,7 @@ if (isset($plugin_list)) {
         }
 
         // Complete table dump,
-        // Whether to quote table and fields names or not
+        // Whether to quote table and column names or not
         // Drizzle always quotes names
         if (!PMA_DRIZZLE) {
             if ($sql_backquotes) {
@@ -782,7 +782,7 @@ if (isset($plugin_list)) {
         //
         // Note: SHOW CREATE TABLE, at least in MySQL 5.1.23, does not
         // produce a displayable result for the default value of a BIT
-        // field, nor does the mysqldump command. See MySQL bug 35796
+        // column, nor does the mysqldump command. See MySQL bug 35796
         $result = PMA_DBI_try_query('SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table));
         // an error can happen, for example the table is crashed
         $tmp_error = PMA_DBI_getError();
