@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-11 06:58-0400\n"
-"PO-Revision-Date: 2011-09-13 18:33+0200\n"
+"PO-Revision-Date: 2011-09-13 18:34+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -7401,7 +7401,6 @@ msgid "Start"
 msgstr "Départ"
 
 #: libraries/rte/rte_events.lib.php:457
-#, fuzzy
 #| msgid "End"
 msgctxt "End of recurring event"
 msgid "End"
