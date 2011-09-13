@@ -6868,10 +6868,9 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "Les données spatiales MySQL ne supportent pas le type ESRI «%s»."
 
 #: libraries/import/shp.php:371
-#, fuzzy
 #| msgid "This page does not contain any tables!"
 msgid "The imported file does not contain any data"
-msgstr "Cette page ne contient aucune table!"
+msgstr "Le fichier importé ne contient aucune donnée."
 
 #: libraries/import/sql.php:33
 msgid "SQL compatibility mode:"
