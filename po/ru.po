@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-11 06:58-0400\n"
-"PO-Revision-Date: 2011-09-13 19:56+0200\n"
+"PO-Revision-Date: 2011-09-13 19:57+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -1850,7 +1850,7 @@ msgstr "Кликните точку данных для просмотра ил�
 
 #: js/messages.php:276
 msgid "The plot can be resized by dragging it along the bottom right corner."
-msgstr ""
+msgstr "Можно изменить размер участка перетащив его вдоль нижнего правого угла."
 
 #: js/messages.php:278
 msgid "Strings are converted into integer for plotting"
