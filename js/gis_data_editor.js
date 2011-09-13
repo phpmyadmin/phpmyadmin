@@ -80,7 +80,7 @@ function initGISEditorVisualization() {
 }
 
 /**
- * Opens up the GIS data editor.
+ * Loads JavaScript files and the GIS editor.
  *
  * @param value      current value of the geometry field
  * @param field      field name
@@ -88,27 +88,47 @@ function initGISEditorVisualization() {
  * @param input_name name of the input field
  * @param token      token
  */
-function openGISEditor(value, field, type, input_name, token) {
-    
-    if (!gisEditorLoaded) {
-        loadJavascript([ 'js/jquery/jquery.svg.js',
-                'js/jquery/jquery.mousewheel.js',
-                'js/jquery/jquery.event.drag-2.0.min.js',
-                'js/tbl_gis_visualization.js', 'js/openlayers/OpenLayers.js' ]);
+function loadJSAndGISEditor(value, field, type, input_name, token) {
 
-        gisEditorLoaded = true;	
-    }
+    // Loads a set of small JS file needed for the GIS editor
+    loadJavascript([ 'js/jquery/jquery.svg.js',
+                     'js/jquery/jquery.mousewheel.js',
+                     'js/jquery/jquery.event.drag-2.0.min.js',
+                     'js/tbl_gis_visualization.js' ]);
 
-    // Center the popup
-    var windowWidth = document.documentElement.clientWidth;
-    var windowHeight = document.documentElement.clientHeight;
-    var popupWidth = windowWidth * 0.9;
-    var popupHeight = windowHeight * 0.9;
-    var popupOffsetTop = windowHeight / 2 - popupHeight / 2;
-    var popupOffsetLeft = windowWidth / 2 - popupWidth / 2;
+    // OpenLayers.js is BIG and takes time. So asynchronous loading would not work.
+    // Load the JS and do a callback to load the content for the GIS Editor.
+    var head = document.getElementsByTagName('head')[0];
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+
+    script.onreadystatechange = function() {
+        if (this.readyState == 'complete') {
+            loadGISEditor(value, field, type, input_name, token);
+        }
+    };
+    script.onload = function() {
+        loadGISEditor(value, field, type, input_name, token);
+    };
+
+    script.src = 'js/openlayers/OpenLayers.js';
+    head.appendChild(script);
+
+    gisEditorLoaded = true;
+}
+
+/**
+ * Loads the GIS editor via AJAX
+ *
+ * @param value      current value of the geometry field
+ * @param field      field name
+ * @param type       geometry type
+ * @param input_name name of the input field
+ * @param token      token
+ */
+function loadGISEditor(value, field, type, input_name, token) {
+
     var $gis_editor = $("#gis_editor");
-    $gis_editor.css({"top": popupOffsetTop, "left": popupOffsetLeft, "width": popupWidth, "height": popupHeight});
-
     $.post('gis_data_editor.php', {
         'field' : field,
         'value' : value,
@@ -117,7 +137,7 @@ function openGISEditor(value, field, type, input_name, token) {
         'get_gis_editor' : true,
         'token' : token
     }, function(data) {
-        if(data.success == true) {
+        if (data.success == true) {
             $gis_editor.html(data.gis_editor);
             initGISEditorVisualization();
             prepareJSVersion();
@@ -125,10 +145,33 @@ function openGISEditor(value, field, type, input_name, token) {
             PMA_ajaxShowMessage(data.error);
         }
     }, 'json');
+}
+
+/**
+ * Opens up the dialog for the GIS data editor.
+ */
+function openGISEditor() {
+
+    // Center the popup
+    var windowWidth = document.documentElement.clientWidth;
+    var windowHeight = document.documentElement.clientHeight;
+    var popupWidth = windowWidth * 0.9;
+    var popupHeight = windowHeight * 0.9;
+    var popupOffsetTop = windowHeight / 2 - popupHeight / 2;
+    var popupOffsetLeft = windowWidth / 2 - popupWidth / 2;
+
+    var $gis_editor = $("#gis_editor");
+    var $backgrouond = $("#popup_background");
+
+    $gis_editor.css({"top": popupOffsetTop, "left": popupOffsetLeft, "width": popupWidth, "height": popupHeight});
+    $backgrouond.css({"opacity":"0.7"});
+
+    $gis_editor.append('<div id="gis_data_editor"><img class="ajaxIcon" id="loadingMonitorIcon" src="' 
+            + pmaThemeImage + 'ajax_clock_small.gif" alt=""></div>'
+    );
 
     // Make it appear
-    $("#popup_background").css({"opacity":"0.7"});
-    $("#popup_background").fadeIn("fast");
+    $backgrouond.fadeIn("fast");
     $gis_editor.fadeIn("fast");
 }
 

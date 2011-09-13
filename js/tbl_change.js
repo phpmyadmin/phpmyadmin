@@ -238,7 +238,12 @@ $(document).ready(function() {
         //Token
         var token = $("input[name='token']").val();
 
-        openGISEditor(value, field, type, input_name, token);
+        openGISEditor();
+        if (!gisEditorLoaded) {
+            loadJSAndGISEditor(value, field, type, input_name, token);
+        } else {
+            loadGISEditor(value, field, type, input_name, token);
+        }
     });
 
     /**
