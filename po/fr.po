@@ -10553,7 +10553,7 @@ msgstr "Taux de rafraîchissement"
 #: server_status.php:1572
 #| msgid "Chart columns:"
 msgid "Chart columns"
-msgstr "Colonnes du graphique :"
+msgstr "Colonnes du graphique"
 
 #: server_status.php:1588
 #, fuzzy
