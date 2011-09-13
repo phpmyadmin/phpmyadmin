@@ -10569,7 +10569,6 @@ msgstr ""
 "vouloir l'exporter si vous avez une configuration complexe."
 
 #: server_status.php:1589
-#, fuzzy
 #| msgid "Restore default value"
 msgid "Reset to default"
 msgstr "Ramener la valeur par défaut"
