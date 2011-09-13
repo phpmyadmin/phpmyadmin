@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-11 06:58-0400\n"
-"PO-Revision-Date: 2011-09-13 18:46+0200\n"
+"PO-Revision-Date: 2011-09-13 18:47+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12079,10 +12079,9 @@ msgid "Current amount of Questions: %s"
 msgstr "Τρέχουσα ποσότητα ερωτήσεων: %s"
 
 #: po/advisory_rules.php:15
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
-msgstr "Εμφάνιση ερωτημάτων SQL"
+msgstr "Ποσοστό αργών ερωτημάτων"
 
 #: po/advisory_rules.php:16
 msgid ""
