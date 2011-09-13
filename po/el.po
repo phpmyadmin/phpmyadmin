@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-11 06:58-0400\n"
-"PO-Revision-Date: 2011-09-13 18:54+0200\n"
+"PO-Revision-Date: 2011-09-13 18:55+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12272,10 +12272,9 @@ msgid "Query cache disabled"
 msgstr "Η λανθάνουσα μνήμη είναι απενεργοποιημένη"
 
 #: po/advisory_rules.php:71
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "Ο διακομιστής δεν αποκρίνεται"
+msgstr "Η λανθάνουσα μνήμη ερωτήματος δεν είναι ενεργοποιημένη."
 
 #: po/advisory_rules.php:72
 msgid ""
