@@ -12267,10 +12267,9 @@ msgid "Available memory on this host: %s"
 msgstr "Διαθέσιμη μνήμη σε αυτό το φιλοξενητή: %s"
 
 #: po/advisory_rules.php:70
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache disabled"
-msgstr "Λανθάνουσα μνήμη ερωτήματος"
+msgstr "Η λανθάνουσα μνήμη είναι απενεργοποιημένη"
 
 #: po/advisory_rules.php:71
 #, fuzzy
