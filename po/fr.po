@@ -10657,7 +10657,6 @@ msgid "Please note:"
 msgstr "Note :"
 
 #: server_status.php:1625
-#, fuzzy
 #| msgid ""
 #| "<b>Please note:</b> Enabling the general_log may increase the server load "
 #| "by 5-15%. Also be aware that generating statistics from the logs is a "
@@ -10670,11 +10669,11 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
-"<b>À noter :</b>Activer le journal general_log peut causer une augmentation "
-"de charge de 5 à 15%. Également, la génération des statistiques à partir des "
-"journaux est une tâche intensive, donc il est suggéré de ne sélectionner "
-"qu'une petite portion de temps et de désactiver general_log puis de vider la "
-"table correspondante lorsque la surveillance n'est plus requise."
+"Activer le journal general_log peut causer une augmentation de charge de 5 à "
+"15%. Également, la génération des statistiques à partir des journaux est "
+"une tâche intensive, donc il est suggéré de ne sélectionner qu'une petite "
+"portion de temps et de désactiver general_log puis de vider la table "
+"correspondante lorsque la surveillance n'est plus requise."
 
 #: server_status.php:1637
 #, fuzzy
