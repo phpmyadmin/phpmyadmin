@@ -11981,10 +11981,9 @@ msgid "Data Label"
 msgstr "Ετικέτα Δεδομένων"
 
 #: tbl_zoom_select.php:276
-#, fuzzy
 #| msgid "Maximum number of rows to display"
 msgid "Maximum rows to plot"
-msgstr "Μέγιστος αριθμός γραμμών για προβολή"
+msgstr "Μέγιστος αριθμός γραμμών για εκτύπωση"
 
 #: tbl_zoom_select.php:368
 msgid "Browse/Edit the points"
