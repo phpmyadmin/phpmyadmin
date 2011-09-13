@@ -11226,10 +11226,9 @@ msgstr ""
 "spéciaux."
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No data"
 msgid "Wrong data"
-msgstr "Aucune donnée"
+msgstr "Données incorrectes"
 
 #: sql.php:214
 #, php-format
