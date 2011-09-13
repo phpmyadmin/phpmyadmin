@@ -10890,10 +10890,9 @@ msgstr ""
 "Η βάση δεδομένων προορισμού συγχρονίστηκε με τη βάση δεδομένων προέλευσης"
 
 #: server_synchronize.php:1046
-#, fuzzy
 #| msgid "Issued queries"
 msgid "Executed queries"
-msgstr "Δωθέντα ερωτήματα"
+msgstr "Εκτελεσμένα ερωτήματα"
 
 #: server_synchronize.php:1192
 msgid "Enter manually"
