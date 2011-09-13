@@ -12073,10 +12073,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:13
-#, fuzzy, php-format
+#, php-format
 #| msgid "Current connection"
 msgid "Current amount of Questions: %s"
-msgstr "Τρέχουσα σύνδεση"
+msgstr "Τρέχουσα ποσότητα ερωτήσεων: %s"
 
 #: po/advisory_rules.php:15
 #, fuzzy
