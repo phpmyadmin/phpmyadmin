@@ -8385,10 +8385,9 @@ msgid "General Settings"
 msgstr "Paramètres généraux"
 
 #: main.php:101
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "Interclassement pour la connexion MySQL"
+msgstr "Interclassement pour la connexion au serveur"
 
 #: main.php:116
 msgid "Appearance Settings"
