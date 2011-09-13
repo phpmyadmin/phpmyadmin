@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-11 06:58-0400\n"
-"PO-Revision-Date: 2011-09-13 19:49+0200\n"
+"PO-Revision-Date: 2011-09-13 19:51+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -1829,7 +1829,7 @@ msgstr "Каждая точка представляет строку данны
 
 #: js/messages.php:266
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "Задержание курсора над точкой отобразит ее название."
 
 #: js/messages.php:268
 msgid "Use mousewheel to zoom in or out of the plot."
