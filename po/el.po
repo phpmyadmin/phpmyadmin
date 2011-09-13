@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-12 12:07+0200\n"
+"PO-Revision-Date: 2011-09-13 18:57+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -10611,15 +10611,18 @@ msgid ""
 "table is supported by MySQL 5.1.6 and onwards. You may still use the server "
 "charting features however."
 msgstr ""
+"Δυστυχώς ο διακομιστής βάσεων δεδομένων σας δεν υποστηρίζει καταγραφή σε "
+"πίνακα, κάτι που είναι προαπαιτούμενο για την ανάλυση των καταγραφών βάσεων "
+"δεδομένων με το phpMyAdmin. Η καταγραφή σε πίνακα υποστηρίζεται από την "
+"MySQL 5.1.6 και νεότερη. Μπορείτε να χρησιμοποιήσετε παρόλα αυτά τα "
+"χαρακτηριστικά διαγραμμάτων του διακομιστή."
 
 #: server_status.php:1612
-#, fuzzy
 #| msgid "Pause monitor"
 msgid "Using the monitor:"
-msgstr "Παύση εποπτείας"
+msgstr "Χρήση της εποπτείας"
 
 #: server_status.php:1614
-#, fuzzy
 #| msgid ""
 #| "<b>Using the monitor:</b><br/>\n"
 #| "        Ok, you are good to go! Once you click 'Start monitor' your "
@@ -10638,22 +10641,13 @@ msgid ""
 "change the refresh rate under 'Settings', or remove any chart using the cog "
 "icon on each respective chart."
 msgstr ""
-"<b>Χρήση της εποπτείας:</b><br/>\n"
-"        Εντάξει, είστε έτοιμοι! Μόλις πατήσετε το «Έναρξη εποπτείας» ο "
-"φυλλομετρητής σας θα ανανεώσει όλα τα εμφανιζόμενα διαγράμματα\n"
-"        ανά ένα τακτικό διάστημα. Μπορείτε να προσθέσετε διαγράμματα και να "
-"αλλάξετε τον ρυθμό ανανέωσης από τις «Ρυθμίσεις», ή να απομακρύνετε κάποιο "
-"διάγραμμα\n"
-"        χρησιμοποιώντας το εικονίδιο γρανάζι για κάθε διάγραμμα.\n"
-"        <p>Όταν δείτε ένα ξαφνικό μέγιστο, επιλέξτε την αντίστοιχη επέκταση "
-"χρόνου σε οποιοδήποτε διάγραμμα έχοντας πατημένο το\n"
-"        αριστερό πλήκτρο του ποντικιού και μετακινηθείτε μέσα στο διάγραμμα. "
-"Αυτό θα φορτώσει τα απαιτούμενα στατιστικά από τις καταγραφές βοηθόντας να "
-"βρείτε τι προκάλεσε αυτή\n"
-"        την έντονη δραστηριότητα.</p>"
+"Εντάξει, μπορείς να πηγαίνετε! Μόλις πατήσετε το «Έναρξη εποπτείας» ο "
+"φυλλομετρητής σας θα ανανεώσει όλα τα προβαλλόμενα διαγράμματα σε τακτό "
+"χρονικό διάστημα. Μπορείτε να προσθέσετε διαγράμματα και να αλλάξετε το "
+"ρυθμό ανανέωσης από τις «Ρυθμίσεις» ή να απομακρύνετε οποιοδήποτε διάγραμμα "
+"πατώντας το γρανάζι σε κάθε διάγραμμα."
 
 #: server_status.php:1616
-#, fuzzy
 #| msgid ""
 #| "<b>Using the monitor:</b><br/>\n"
 #| "        Ok, you are good to go! Once you click 'Start monitor' your "
@@ -10672,19 +10666,11 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occuring SELECT statements to further analyze them."
 msgstr ""
-"<b>Χρήση της εποπτείας:</b><br/>\n"
-"        Εντάξει, είστε έτοιμοι! Μόλις πατήσετε το «Έναρξη εποπτείας» ο "
-"φυλλομετρητής σας θα ανανεώσει όλα τα εμφανιζόμενα διαγράμματα\n"
-"        ανά ένα τακτικό διάστημα. Μπορείτε να προσθέσετε διαγράμματα και να "
-"αλλάξετε τον ρυθμό ανανέωσης από τις «Ρυθμίσεις», ή να απομακρύνετε κάποιο "
-"διάγραμμα\n"
-"        χρησιμοποιώντας το εικονίδιο γρανάζι για κάθε διάγραμμα.\n"
-"        <p>Όταν δείτε ένα ξαφνικό μέγιστο, επιλέξτε την αντίστοιχη επέκταση "
-"χρόνου σε οποιοδήποτε διάγραμμα έχοντας πατημένο το\n"
-"        αριστερό πλήκτρο του ποντικιού και μετακινηθείτε μέσα στο διάγραμμα. "
-"Αυτό θα φορτώσει τα απαιτούμενα στατιστικά από τις καταγραφές βοηθόντας να "
-"βρείτε τι προκάλεσε αυτή\n"
-"        την έντονη δραστηριότητα.</p>"
+"Για να προβάλετε ερωτήματα από τις καταγραφές, επιλέξτε το αντίστοιχο "
+"χρονικό εύρος σε οποιοδήποτε διάγραμμα έχοντας πατημένο το πλήκτρο το "
+"ποντικιού και σαρώνοντας την επιφάνεια του διαγράμματος. Μόλις το "
+"επιβεβαιώσετε, θα φορτωθεί ένας πίνακας ομαδοποιημένων ερωτημάτων, οπού εκεί "
+"μπορείτε να πατήσετε οποιαδήποτε δήλωση SELECTγια περαιτέρω ανάλυση."
 
 #: server_status.php:1623
 msgid "Please note:"
@@ -10717,10 +10703,9 @@ msgstr ""
 "        "
 
 #: server_status.php:1637
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Preset chart"
-msgstr "Απομάκρυνση διαγράμματος"
+msgstr "Προκαθορισμός διαγράμματος"
 
 #: server_status.php:1641
 msgid "Status variable(s)"
@@ -10781,14 +10766,11 @@ msgstr ""
 "ομαδοποιήση"
 
 #: server_status.php:1713
-#, fuzzy
 #| msgid ""
 #| "<p>Choose from which log you want the statistics to be generated from.</"
 #| "p> Results are grouped by query text."
 msgid "Choose from which log you want the statistics to be generated from."
-msgstr ""
-"<p>Επιλέξτε από ποια καταγραφή θέλετε να προκύψουν τα στατιστικά.</p> Τα "
-"αποτελέσματα ομοδοποιούνται ανά κείμενο ερωτήματος."
+msgstr "Επιλέξτε από ποια καταγραφή θέλετε να δημιουργούνται τα στατιστικά."
 
 #: server_status.php:1715
 msgid "Results are grouped by query text."
@@ -10900,10 +10882,9 @@ msgstr ""
 "Η βάση δεδομένων προορισμού συγχρονίστηκε με τη βάση δεδομένων προέλευσης"
 
 #: server_synchronize.php:1046
-#, fuzzy
 #| msgid "Issued queries"
 msgid "Executed queries"
-msgstr "Δωθέντα ερωτήματα"
+msgstr "Εκτελεσμένα ερωτήματα"
 
 #: server_synchronize.php:1192
 msgid "Enter manually"
@@ -10953,6 +10934,8 @@ msgstr "Λήψη"
 #: setup/frames/form.inc.php:25
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
 msgstr ""
+"Λανθασμένο σύνολο φόρμας, ελέγξτε τη ακολουθία $formsets στο "
+"setup/frames/form.inc.php"
 
 #: setup/frames/index.inc.php:49
 msgid "Cannot load or save configuration"
@@ -11285,10 +11268,9 @@ msgstr ""
 "χαρακτήρες."
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No data"
 msgid "Wrong data"
-msgstr "Δεν υπάρχουν δεδομένα"
+msgstr "Εσφαλμένα δεδομένα"
 
 #: sql.php:214
 #, php-format
@@ -11503,10 +11485,9 @@ msgid "No index parts defined!"
 msgstr "Δεν ορίστηκαν τα στοιχεία του ευρετηρίου!"
 
 #: tbl_indexes.php:169
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create an index"
-msgstr "Δημιουργία νέου ευρετηρίου"
+msgstr "Δημιουργία ευρετηρίου"
 
 #: tbl_indexes.php:171
 msgid "Modify an index"
@@ -11790,10 +11771,9 @@ msgid "Show more actions"
 msgstr "Προβολή περισσοτέρων δράσεων"
 
 #: tbl_structure.php:606
-#, fuzzy
 #| msgid "Print view"
 msgid "Edit view"
-msgstr "Εμφάνιση για εκτύπωση"
+msgstr "Επεξεργασία εμφάνισης"
 
 #: tbl_structure.php:623
 msgid "Relation view"
@@ -11983,32 +11963,28 @@ msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr "Εκτέλεσε ένα «επερώτημα κατά παράδειγμα» (χαρακτήρας μπαλαντέρ «%»)"
 
 #: tbl_zoom_select.php:135
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Additional search criteria"
-msgstr "Απόκρυψη κριτηρίων αναζήτησης"
+msgstr "Πρόσθετα κριτήρια αναζήτησης"
 
 #: tbl_zoom_select.php:258
-#, fuzzy
 #| msgid "Label"
 msgid "Data Label"
-msgstr "Ετικέτα"
+msgstr "Ετικέτα Δεδομένων"
 
 #: tbl_zoom_select.php:276
-#, fuzzy
 #| msgid "Maximum number of rows to display"
 msgid "Maximum rows to plot"
-msgstr "Μέγιστος αριθμός γραμμών για προβολή"
+msgstr "Μέγιστος αριθμός γραμμών για εκτύπωση"
 
 #: tbl_zoom_select.php:368
 msgid "Browse/Edit the points"
 msgstr "Αναζήτηση/Επεξεργασία των σημείων"
 
 #: tbl_zoom_select.php:375
-#, fuzzy
 #| msgid "Control user"
 msgid "How to use"
-msgstr "Έλεγχος χρήστη"
+msgstr "Πως να το χρησιμοποιήσετε"
 
 #: themes.php:28
 msgid "Get more themes!"
@@ -12072,10 +12048,9 @@ msgid "The uptime is only %s"
 msgstr "Ο χρόνος λειτουργίας είναι μόνο %s"
 
 #: po/advisory_rules.php:10
-#, fuzzy
 #| msgid "Questions"
 msgid "Questions below 1,000"
-msgstr "Ερωτήσεις"
+msgstr "Ερωτήσεις κάτω από 1.000"
 
 #: po/advisory_rules.php:11
 msgid ""
@@ -12090,16 +12065,15 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:13
-#, fuzzy, php-format
+#, php-format
 #| msgid "Current connection"
 msgid "Current amount of Questions: %s"
-msgstr "Τρέχουσα σύνδεση"
+msgstr "Τρέχουσα ποσότητα ερωτήσεων: %s"
 
 #: po/advisory_rules.php:15
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
-msgstr "Εμφάνιση ερωτημάτων SQL"
+msgstr "Ποσοστό αργών ερωτημάτων"
 
 #: po/advisory_rules.php:16
 msgid ""
@@ -12118,10 +12092,9 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 
 #: po/advisory_rules.php:20
-#, fuzzy
 #| msgid "Flush query cache"
 msgid "Slow query rate"
-msgstr "Εκκαθάριση λανθάνουσας μνήμης ερωτημάτων"
+msgstr "Βαθμός αργών ερωτημάτων"
 
 #: po/advisory_rules.php:21
 msgid ""
@@ -12136,10 +12109,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:25
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Long query time"
-msgstr "Ερωτήματα SQL"
+msgstr "Χρόνος μακρού ερωτήματος"
 
 #: po/advisory_rules.php:26
 msgid ""
@@ -12154,22 +12126,20 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:28
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "long_query_time is currently set to %ds."
-msgstr "Το long_query_time έχει οριστεί σε %d δευτερόλεπτο(α)."
+msgstr "Το long_query_time έχει οριστεί σε %dδ."
 
 #: po/advisory_rules.php:30
-#, fuzzy
 #| msgid "Show query box"
 msgid "Slow query logging"
-msgstr "Προβολή παραθύρου ερωτήματος"
+msgstr "Καταγραφή αργού ερωτήματος"
 
 #: po/advisory_rules.php:31
-#, fuzzy
 #| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
-msgstr "Το slow_query_log είναι ενεργοποιημένα."
+msgstr "Η καταγραφή αργού ερωτήματος είναι απενεργοποιημένη."
 
 #: po/advisory_rules.php:32
 msgid ""
@@ -12182,10 +12152,9 @@ msgid "log_slow_queries is set to 'OFF'"
 msgstr "Το log_slow_queries έχει οριστεί σε «ΑΝΕΝΕΡΓΟ»"
 
 #: po/advisory_rules.php:35
-#, fuzzy
 #| msgid "Clear series"
 msgid "Release Series"
-msgstr "Εκκαθάριση σειράς"
+msgstr "Σειρές Δημοσίευσης"
 
 #: po/advisory_rules.php:36
 msgid "The MySQL server version less then 5.1."
@@ -12198,20 +12167,19 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Current version: %s"
-msgstr "Δημιουργία έκδοσης"
+msgstr "Τρέχουσα έκδοση: %s"
 
 #: po/advisory_rules.php:40 po/advisory_rules.php:45
-#, fuzzy
 #| msgid "Version"
 msgid "Minor Version"
-msgstr "Έκδοση"
+msgstr "Μικρή Έκδοση"
 
 #: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
+msgstr "Έκδοση μικρότερη από 5.1.30 (η πρώτη GA δημοσίευση της 5.1)."
 
 #: po/advisory_rules.php:42
 msgid ""
@@ -12221,19 +12189,17 @@ msgstr ""
 
 #: po/advisory_rules.php:46
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr ""
+msgstr "Έκδοση μικρότερη από 5.5.8 (η πρώτη GA δημοσίευση της 5.5)."
 
 #: po/advisory_rules.php:47
-#, fuzzy
 #| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5"
-msgstr "Πρέπει να αναβαθμίσετε σε %s %s ή νεότερη."
+msgstr "Πρέπει να αναβαθμίσετε σε σταθερή έκδοση της MySQL 5.5"
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
-#, fuzzy
 #| msgid "Description"
 msgid "Distribution"
-msgstr "Περιγραφή"
+msgstr "Διανομή"
 
 #: po/advisory_rules.php:51
 msgid "Version is compiled from source, not a MySQL official binary."
@@ -12272,14 +12238,13 @@ msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr ""
 
 #: po/advisory_rules.php:65
-#, fuzzy
 #| msgid "MySQL charset"
 msgid "MySQL Architecture"
-msgstr "Σύνολο χαρακτήρων MySQL"
+msgstr "Αρχιτεκτονική MySQL"
 
 #: po/advisory_rules.php:66
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "Η MySQL δεν δομήθηκε ως πακέτο 64-bit."
 
 #: po/advisory_rules.php:67
 msgid ""
@@ -12294,16 +12259,14 @@ msgid "Available memory on this host: %s"
 msgstr "Διαθέσιμη μνήμη σε αυτό το φιλοξενητή: %s"
 
 #: po/advisory_rules.php:70
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache disabled"
-msgstr "Λανθάνουσα μνήμη ερωτήματος"
+msgstr "Η λανθάνουσα μνήμη είναι απενεργοποιημένη"
 
 #: po/advisory_rules.php:71
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "Ο διακομιστής δεν αποκρίνεται"
+msgstr "Η λανθάνουσα μνήμη ερωτήματος δεν είναι ενεργοποιημένη."
 
 #: po/advisory_rules.php:72
 msgid ""
@@ -12318,10 +12281,9 @@ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 
 #: po/advisory_rules.php:75
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query caching method"
-msgstr "Λανθάνουσα μνήμη ερωτήματος"
+msgstr "Μέθοδος λανθάνουσας μνήμης ερωτήματος"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
@@ -12360,9 +12322,8 @@ msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr ""
 
 #: po/advisory_rules.php:85
-#, fuzzy
 msgid "Query Cache usage"
-msgstr "Λανθάνουσα μνήμη ερωτήματος"
+msgstr "Χρήση λανθάνουσας μνήμης ερωτήματος"
 
 #: po/advisory_rules.php:86
 #, php-format
@@ -12383,14 +12344,13 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:90
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache fragmentation"
-msgstr "Λανθάνουσα μνήμη ερωτήματος"
+msgstr "Συγκρότηση λανθάνουσας μνήμης ερωτήματος"
 
 #: po/advisory_rules.php:91
 msgid "The query cache is considerably fragmented."
-msgstr ""
+msgstr "Η λανθάνουσας μνήμης ερωτήματος είναι αρκετά συγκροτημένη."
 
 #: po/advisory_rules.php:92
 msgid ""
