@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-11 06:58-0400\n"
-"PO-Revision-Date: 2011-09-13 19:52+0200\n"
+"PO-Revision-Date: 2011-09-13 19:53+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -1837,7 +1837,7 @@ msgstr "Используйте колесо мышки для увеличени
 
 #: js/messages.php:270
 msgid "Click and drag the mouse to navigate the plot."
-msgstr ""
+msgstr "Кликните и перетащите мышкой для перемещения участка."
 
 #: js/messages.php:272
 msgid "Click reset zoom link to come back to original state."
