@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-09-11 06:58-0400\n"
+"POT-Creation-Date: 2011-09-13 12:29-0400\n"
 "PO-Revision-Date: 2011-09-12 18:20+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
-"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -6474,8 +6474,12 @@ msgid "Add statements:"
 msgstr "Lägg till uppgift:"
 
 #: libraries/export/sql.php:211
+#, fuzzy
+#| msgid ""
+#| "Enclose table and field names with backquotes <i>(Protects field and "
+#| "table names formed with special characters or keywords)</i>"
 msgid ""
-"Enclose table and field names with backquotes <i>(Protects field and table "
+"Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
 "Bifoga tabell och fältnamnen med backquotes <i>(Skyddar fältet och namn på "
@@ -11235,7 +11239,6 @@ msgid "No index parts defined!"
 msgstr "Inga delar av index är definierade!"
 
 #: tbl_indexes.php:169
-#| msgid "Create a new index"
 msgid "Create an index"
 msgstr "Skapa index"
 
@@ -12051,9 +12054,9 @@ msgid ""
 "cache, especially if you have multiple slaves."
 msgstr ""
 "Du använder MySQL Querycachen med en ganska högbelastad databas. Det kan "
-"vara värt att överväga att använda <a "
-"href=\\\"http://dev.mysql.com/doc/refman/5.5/en/ha-memcached.html\\\"> memcached "
-"</ a> istället för MySQL Querycachen, speciellt om du har flera slavar."
+"vara värt att överväga att använda <a href=\\\"http://dev.mysql.com/doc/"
+"refman/5.5/en/ha-memcached.html\\\"> memcached </ a> istället för MySQL "
+"Querycachen, speciellt om du har flera slavar."
 
 #: po/advisory_rules.php:78
 #, php-format
@@ -12108,7 +12111,6 @@ msgstr ""
 "cache-storlek är %s%%. Det bör vara över 80%%"
 
 #: po/advisory_rules.php:90
-#| msgid "Query cache"
 msgid "Query cache fragmentation"
 msgstr "Frågecache fragmentering"
 
@@ -12152,7 +12154,6 @@ msgid "Query cache low memory prunes"
 msgstr "Fråge cachen lite minne prunes"
 
 #: po/advisory_rules.php:96
-#| msgid "The amount of free memory for query cache."
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
@@ -12178,7 +12179,6 @@ msgstr ""
 "värdet är, desto bättre (Denna regel aktiveras vid: 0,1%)"
 
 #: po/advisory_rules.php:100
-#| msgid "Query cache"
 msgid "Query cache max size"
 msgstr "Maximal storlek för frågecache"
 
@@ -12204,7 +12204,6 @@ msgid "Current query cache size: %s"
 msgstr "Nuvarande storlek på frågecache: %s"
 
 #: po/advisory_rules.php:105
-#| msgid "Query results"
 msgid "Query cache min result size"
 msgstr "Frågecachen minimum resultat storlek"
 
@@ -12212,8 +12211,7 @@ msgstr "Frågecachen minimum resultat storlek"
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
-"Den maximala storleken på resultatet i fråg cachen är standardvärdet på 1 "
-"Mb."
+"Den maximala storleken på resultatet i fråg cachen är standardvärdet på 1 Mb."
 
 #: po/advisory_rules.php:107
 msgid ""
@@ -12241,12 +12239,10 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit är satt till 1 Mb"
 
 #: po/advisory_rules.php:110
-#| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
 msgstr "Andelen av typer som medför temporära tabeller"
 
 #: po/advisory_rules.php:111 po/advisory_rules.php:116
-#| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
 msgstr "Alltför många typer orsakar temporära tabeller."
 
@@ -12268,7 +12264,6 @@ msgstr ""
 "än 10%%."
 
 #: po/advisory_rules.php:115
-#| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
 msgstr "Andelen sorter som orsakar temporära tabeller."
 
@@ -12281,7 +12276,6 @@ msgstr ""
 "1 per timme."
 
 #: po/advisory_rules.php:120
-#| msgid "Start row"
 msgid "Sort rows"
 msgstr "Sortera rader"
 
@@ -12297,8 +12291,8 @@ msgid ""
 "sorting"
 msgstr ""
 "Även om det inte är fel med en stor mängd radsorteringar,bör du se till att "
-"frågor som kräver mycket sortering använder de  indexerade fälten i ORDER "
-"BY-satsen, då detta kommer resultera i mycket snabbare sortering"
+"frågor som kräver mycket sortering använder de  indexerade fälten i ORDER BY-"
+"satsen, då detta kommer resultera i mycket snabbare sortering"
 
 #: po/advisory_rules.php:123
 #, php-format
@@ -12306,12 +12300,10 @@ msgid "Sorted rows average: %s"
 msgstr "Genomsnittligt antal sorterade rader: %s"
 
 #: po/advisory_rules.php:125
-#| msgid "There are no routines to display."
 msgid "Rate of joins without indexes"
 msgstr "Andelen JOIN som saknar index"
 
 #: po/advisory_rules.php:126
-#| msgid "There are no routines to display."
 msgid "There are too many joins without indexes."
 msgstr "Det finns för många JOINS som saknar index"
 

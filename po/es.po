@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-09-11 06:58-0400\n"
+"POT-Creation-Date: 2011-09-13 12:29-0400\n"
 "PO-Revision-Date: 2011-09-12 19:03+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -2218,7 +2218,6 @@ msgstr "¡Elimine el directorio './config' antes de utilizar phpMyAdmin!"
 
 #: libraries/Config.class.php:727
 #, php-format
-#| msgid "Existing configuration file (%d) is not readable."
 msgid "Existing configuration file (%s) is not readable."
 msgstr "El archivo de configuración existente (%s) no pudo ser leído."
 
@@ -2452,8 +2451,8 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
-"No se pudo guardar la propiedad de interfaz \"%s\". Los cambios realizados no "
-"serán persistentes luego de actualizar esta página. Revise si cambió la "
+"No se pudo guardar la propiedad de interfaz \"%s\". Los cambios realizados "
+"no serán persistentes luego de actualizar esta página. Revise si cambió la "
 "estructura de la tabla."
 
 #: libraries/Theme.class.php:145
@@ -6609,8 +6608,12 @@ msgid "Add statements:"
 msgstr "Agregar sentencias:"
 
 #: libraries/export/sql.php:211
+#, fuzzy
+#| msgid ""
+#| "Enclose table and field names with backquotes <i>(Protects field and "
+#| "table names formed with special characters or keywords)</i>"
 msgid ""
-"Enclose table and field names with backquotes <i>(Protects field and table "
+"Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
 "Encerrar tabla y nombres de campo con comillas invertidas <i>(protege los "
@@ -11472,7 +11475,6 @@ msgid "No index parts defined!"
 msgstr "¡No se han definido las partes del índice!"
 
 #: tbl_indexes.php:169
-#| msgid "Create a new index"
 msgid "Create an index"
 msgstr "Crear un índice"
 

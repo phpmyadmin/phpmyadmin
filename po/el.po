@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-09-11 06:58-0400\n"
+"POT-Creation-Date: 2011-09-13 12:29-0400\n"
 "PO-Revision-Date: 2011-09-12 12:07+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
-"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -2211,7 +2211,6 @@ msgstr "Απομακρύντε το φάκελο «./config» πριν τη χρ
 
 #: libraries/Config.class.php:727
 #, php-format
-#| msgid "Existing configuration file (%d) is not readable."
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Το υπαρχον αρχείο ρυθμίσεων (%s) δεν είναι αναγνώσιμο."
 
@@ -6572,8 +6571,12 @@ msgid "Add statements:"
 msgstr "Προσθήκη δηλώσεων:"
 
 #: libraries/export/sql.php:211
+#, fuzzy
+#| msgid ""
+#| "Enclose table and field names with backquotes <i>(Protects field and "
+#| "table names formed with special characters or keywords)</i>"
 msgid ""
-"Enclose table and field names with backquotes <i>(Protects field and table "
+"Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
 "Εσωκλείνει ονόματα πίνακα και πεδίων με ανάποδα εισαγωγικά <i>(Προστατεύει "
@@ -10562,12 +10565,10 @@ msgid "Refresh rate"
 msgstr "Ρυθμός ανανέωσης"
 
 #: server_status.php:1572
-#| msgid "Chart columns:"
 msgid "Chart columns"
 msgstr "Στήλες διαγράμματος"
 
 #: server_status.php:1588
-#| msgid "Error management:"
 msgid "Chart arrangement"
 msgstr "Διευθέτηση διαγράμματος"
 
@@ -10580,7 +10581,6 @@ msgstr ""
 "φυλλομετρητών. Ίσως θέλετε να το εξάγετε αν έχετε πολύπλοκη ρύθμιση."
 
 #: server_status.php:1589
-#| msgid "Restore default value"
 msgid "Reset to default"
 msgstr "Επαναφορά προεπιλογής"
 
@@ -10589,14 +10589,6 @@ msgid "Monitor Instructions"
 msgstr "Οδηγίες Εποπτείας"
 
 #: server_status.php:1594
-#| msgid ""
-#| "The phpMyAdmin Monitor can assist you in optimizing the server "
-#| "configuration and track down time intensive\n"
-#| "        queries. For the latter you will need to set log_output to "
-#| "'TABLE' and have either the slow_query_log or general_log enabled. Note "
-#| "however, that the\n"
-#| "        general_log produces a lot of data and increases server load by "
-#| "up to 15%"
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "

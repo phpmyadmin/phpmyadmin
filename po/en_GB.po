@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-09-11 06:58-0400\n"
+"POT-Creation-Date: 2011-09-13 12:29-0400\n"
 "PO-Revision-Date: 2011-09-10 16:23+0200\n"
 "Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
@@ -824,7 +824,6 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "Copy and paste the joined values into the \"Length/Values\" field"
 
 #: export.php:29
-#| msgid "Bar type"
 msgid "Bad type!"
 msgstr "Bad type!"
 
@@ -833,7 +832,6 @@ msgid "Selected export type has to be saved in file!"
 msgstr "Selected export type has to be saved in file!"
 
 #: export.php:106
-#| msgid "Add parameter"
 msgid "Bad parameters!"
 msgstr "Bad parameters!"
 
@@ -860,7 +858,6 @@ msgid "Dump has been saved to file %s."
 msgstr "Dump has been saved to file %s."
 
 #: file_echo.php:21
-#| msgid "Export type"
 msgid "Invalid export type"
 msgstr "Invalid export type"
 
@@ -899,7 +896,6 @@ msgstr "Y"
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
 #: js/messages.php:289
 #, php-format
-#| msgid "Point"
 msgid "Point %d"
 msgstr "Point %d"
 
@@ -1242,17 +1238,14 @@ msgstr ""
 "your configuration to default in the <i>Settings</i> menu."
 
 #: js/messages.php:96
-#| msgid "Query cache"
 msgid "Query cache efficiency"
 msgstr "Query cache efficiency"
 
 #: js/messages.php:97
-#| msgid "Query cache"
 msgid "Query cache usage"
 msgstr "Query cache usage"
 
 #: js/messages.php:98
-#| msgid "Query cache"
 msgid "Query cache used"
 msgstr "Query cache used"
 
@@ -1524,7 +1517,6 @@ msgstr "Log analyzed, but no data found in this time span."
 
 #. l10n: A collection of available filters
 #: js/messages.php:173
-#| msgid "Tables display options"
 msgid "Log table filter options"
 msgstr "Log table filter options"
 
@@ -1595,12 +1587,10 @@ msgid "Import"
 msgstr "Import"
 
 #: js/messages.php:192
-#| msgid "Update Query"
 msgid "Analyse Query"
 msgstr "Analyse Query"
 
 #: js/messages.php:196
-#| msgid "Apply a divisor"
 msgid "Advisor system"
 msgstr "Advisor system"
 
@@ -1613,17 +1603,14 @@ msgid "Issue"
 msgstr "Issue"
 
 #: js/messages.php:199
-#| msgid "Documentation"
 msgid "Recommendation"
 msgstr "Recommendation"
 
 #: js/messages.php:200
-#| msgid "Details"
 msgid "Rule details"
 msgstr "Rule details"
 
 #: js/messages.php:201
-#| msgid "Authentication"
 msgid "Justification"
 msgstr "Justification"
 
@@ -1774,7 +1761,6 @@ msgid "Show search criteria"
 msgstr "Show search criteria"
 
 #: js/messages.php:262 libraries/tbl_select.lib.php:135
-#| msgid "Search"
 msgid "Zoom Search"
 msgstr "Zoom Search"
 
@@ -1811,7 +1797,6 @@ msgid "Strings are converted into integer for plotting"
 msgstr "Strings are converted into integer for plotting"
 
 #: js/messages.php:280
-#| msgid "Add/Delete columns"
 msgid "Select two columns"
 msgstr "Select two columns"
 
@@ -1903,7 +1888,6 @@ msgstr ""
 "You can also edit most columns<br />by clicking directly on their content."
 
 #: js/messages.php:322
-#| msgid "Go to view"
 msgid "Go to link"
 msgstr "Go to link"
 
@@ -1947,13 +1931,11 @@ msgid "Done"
 msgstr "Done"
 
 #: js/messages.php:359
-#| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Prev"
 
 #: js/messages.php:364
-#| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
 msgstr "Next"
@@ -2102,8 +2084,6 @@ msgstr "Saturday"
 
 #. l10n: Short week day name
 #: js/messages.php:420
-#| msgctxt "Short week day name"
-#| msgid "Sun"
 msgid "Sun"
 msgstr "Sun"
 
@@ -2210,7 +2190,8 @@ msgstr "Existing configuration file (%s) is not readable."
 
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
-msgstr "Wrong permissions on configuration file, should not be world writeable!"
+msgstr ""
+"Wrong permissions on configuration file, should not be world writeable!"
 
 #: libraries/Config.class.php:1297
 msgid "Font size"
@@ -2355,7 +2336,6 @@ msgstr[0] "%1$d row inserted."
 msgstr[1] "%1$d rows inserted."
 
 #: libraries/PDF.class.php:81
-#| msgid "Allows reading data."
 msgid "Error while creating PDF:"
 msgstr "Error while creating PDF:"
 
@@ -2393,7 +2373,6 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "This MySQL server does not support the %s storage engine."
 
 #: libraries/Table.class.php:329
-#| msgid "Show slave status"
 msgid "unknown table status: "
 msgstr "unknown table status: "
 
@@ -2425,8 +2404,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
-"Failed to cleanup table UI preferences (see "
-"$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
+"Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
+"['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.class.php:1513
 #, php-format
@@ -2435,8 +2414,9 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
-"Cannot save UI property \"%s\". The changes made will not be persistent after "
-"you refresh this page. Please check if the table structure has been changed."
+"Cannot save UI property \"%s\". The changes made will not be persistent "
+"after you refresh this page. Please check if the table structure has been "
+"changed."
 
 #: libraries/Theme.class.php:145
 #, php-format
@@ -2599,7 +2579,6 @@ msgid "PBMS get BLOB info failed:"
 msgstr "PBMS get BLOB info failed:"
 
 #: libraries/blobstreaming.lib.php:373
-#| msgid "get BLOB Content-Type failed"
 msgid "PBMS get BLOB Content-Type failed"
 msgstr "PBMS get BLOB Content-Type failed"
 
@@ -2877,7 +2856,6 @@ msgstr "Missing parameter:"
 
 #: libraries/common.lib.php:2364 libraries/common.lib.php:2367
 #: libraries/display_tbl.lib.php:306
-#| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
 msgstr "Begin"
@@ -2885,7 +2863,6 @@ msgstr "Begin"
 #: libraries/common.lib.php:2365 libraries/common.lib.php:2368
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
-#| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Previous"
@@ -2893,14 +2870,12 @@ msgstr "Previous"
 #: libraries/common.lib.php:2395 libraries/common.lib.php:2398
 #: libraries/display_tbl.lib.php:370 server_binlog.php:170
 #: server_binlog.php:172
-#| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
 msgstr "Next"
 
 #: libraries/common.lib.php:2396 libraries/common.lib.php:2399
 #: libraries/display_tbl.lib.php:385
-#| msgid "End"
 msgctxt "Last page"
 msgid "End"
 msgstr "End"
@@ -4268,7 +4243,6 @@ msgid "Memory limit"
 msgstr "Memory limit"
 
 #: libraries/config/messages.inc.php:319
-#| msgid "These are Edit, Inline edit, Copy and Delete links"
 msgid "These are Edit, Copy and Delete links"
 msgstr "These are Edit, Copy and Delete links"
 
@@ -4628,7 +4602,6 @@ msgstr ""
 "newest record in \"table_uiprefs\" and automatically delete older records"
 
 #: libraries/config/messages.inc.php:399
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of records saved in \"table_uiprefs\" table"
 msgstr "Maximum number of records saved in \"table_uiprefs\" table"
 
@@ -4965,12 +4938,10 @@ msgid "Show function fields"
 msgstr "Show function fields"
 
 #: libraries/config/messages.inc.php:462
-#| msgid "Where to show the table row links"
 msgid "Whether to show hint or not"
 msgstr "Whether to show hint or not"
 
 #: libraries/config/messages.inc.php:463
-#| msgid "Show indexes"
 msgid "Show hint"
 msgstr "Show hint"
 
@@ -5303,7 +5274,6 @@ msgid "Could not initialize Drizzle connection library"
 msgstr "Could not initialise Drizzle connection library"
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
-#| msgid "Could not connect to MySQL server"
 msgid "Could not connect to Drizzle server"
 msgstr "Could not connect to Drizzle server"
 
@@ -5409,7 +5379,6 @@ msgid "The server is not responding"
 msgstr "The server is not responding"
 
 #: libraries/dbi/drizzle.dbi.lib.php:344
-#| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid "(or the local Drizzle server's socket is not correctly configured)"
 msgstr "(or the local Drizzle server's socket is not correctly configured)"
 
@@ -5717,7 +5686,6 @@ msgid "Language"
 msgstr "Language"
 
 #: libraries/display_tbl.lib.php:401
-#| msgid "Save directory"
 msgid "Save edited data"
 msgstr "Save edited data"
 
@@ -6493,8 +6461,12 @@ msgid "Add statements:"
 msgstr "Add statements:"
 
 #: libraries/export/sql.php:211
+#, fuzzy
+#| msgid ""
+#| "Enclose table and field names with backquotes <i>(Protects field and "
+#| "table names formed with special characters or keywords)</i>"
 msgid ""
-"Enclose table and field names with backquotes <i>(Protects field and table "
+"Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
 "Enclose table and field names with backquotes <i>(Protects field and table "
@@ -6605,7 +6577,6 @@ msgid "Stand-in structure for view"
 msgstr "Stand-in structure for view"
 
 #: libraries/export/sql.php:1111
-#| msgid "Allows reading data."
 msgid "Error reading data:"
 msgstr "Error reading data:"
 
@@ -6677,7 +6648,6 @@ msgstr "Go to database"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
 #, php-format
-#| msgid "Missing data for %s"
 msgid "Edit settings for %s"
 msgstr "Edit settings for %s"
 
@@ -6687,7 +6657,6 @@ msgstr "Go to table"
 
 #: libraries/import.lib.php:1130
 #, php-format
-#| msgid "Structure only"
 msgid "Structure of %s"
 msgstr "Structure of %s"
 
@@ -6791,7 +6760,6 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "MySQL Spatial Extension does not support ESRI type \"%s\"."
 
 #: libraries/import/shp.php:371
-#| msgid "This page does not contain any tables!"
 msgid "The imported file does not contain any data"
 msgstr "The imported file does not contain any data"
 
@@ -7313,13 +7281,11 @@ msgid "Execute every"
 msgstr "Execute every"
 
 #: libraries/rte/rte_events.lib.php:449
-#| msgid "Start"
 msgctxt "Start of recurring event"
 msgid "Start"
 msgstr "Start"
 
 #: libraries/rte/rte_events.lib.php:457
-#| msgid "End"
 msgctxt "End of recurring event"
 msgid "End"
 msgstr "End"
@@ -8112,7 +8078,6 @@ msgid "Operator"
 msgstr "Operator"
 
 #: libraries/tbl_select.lib.php:128
-#| msgid "Search"
 msgid "Table Search"
 msgstr "Table Search"
 
@@ -8294,7 +8259,6 @@ msgid "General Settings"
 msgstr "General Settings"
 
 #: main.php:101
-#| msgid "MySQL connection collation"
 msgid "Server connection collation"
 msgstr "Server connection collation"
 
@@ -8307,7 +8271,6 @@ msgid "More settings"
 msgstr "More settings"
 
 #: main.php:156
-#| msgid "Database for user"
 msgid "Database server"
 msgstr "Database server"
 
@@ -8316,7 +8279,6 @@ msgid "Software"
 msgstr "Software"
 
 #: main.php:160
-#| msgid "Show versions"
 msgid "Software version"
 msgstr "Software version"
 
@@ -8331,7 +8293,6 @@ msgid "User"
 msgstr "User"
 
 #: main.php:167
-#| msgid "Server socket"
 msgid "Server charset"
 msgstr "Server charset"
 
@@ -8340,7 +8301,6 @@ msgid "Web server"
 msgstr "Web server"
 
 #: main.php:190
-#| msgid "Use light version"
 msgid "Database client version"
 msgstr "Database client version"
 
@@ -8481,7 +8441,6 @@ msgid "No databases"
 msgstr "No databases"
 
 #: navigation.php:270
-#| msgid "filter tables by name"
 msgid "Filter tables by name"
 msgstr "Filter tables by name"
 
@@ -8859,7 +8818,6 @@ msgid "License"
 msgstr "Licence"
 
 #: server_plugins.php:182
-#| msgid "Disabled"
 msgid "disabled"
 msgstr "disabled"
 
@@ -9542,7 +9500,6 @@ msgid "Monitor"
 msgstr "Monitor"
 
 #: server_status.php:779
-#| msgid "Apply a divisor"
 msgid "Advisor"
 msgstr "Advisor"
 
@@ -9563,7 +9520,6 @@ msgid "Filter by category..."
 msgstr "Filter by category..."
 
 #: server_status.php:855
-#| msgid "Show only alert values"
 msgid "Show unformatted values"
 msgstr "Show unformatted values"
 
@@ -9572,12 +9528,10 @@ msgid "Related links:"
 msgstr "Related links:"
 
 #: server_status.php:892
-#| msgid "Query analyzer"
 msgid "Run analyzer"
 msgstr "Run analyser"
 
 #: server_status.php:893
-#| msgid "Introduction"
 msgid "Instructions"
 msgstr "Instructions"
 
@@ -10408,12 +10362,10 @@ msgid "Refresh rate"
 msgstr "Refresh rate"
 
 #: server_status.php:1572
-#| msgid "Chart columns:"
 msgid "Chart columns"
 msgstr "Chart columns"
 
 #: server_status.php:1588
-#| msgid "Error management:"
 msgid "Chart arrangement"
 msgstr "Chart arrangement"
 
@@ -10426,7 +10378,6 @@ msgstr ""
 "may want to export it if you have a complicated set up."
 
 #: server_status.php:1589
-#| msgid "Restore default value"
 msgid "Reset to default"
 msgstr "Reset to default"
 
@@ -10463,7 +10414,6 @@ msgstr ""
 "charting features however."
 
 #: server_status.php:1612
-#| msgid "Pause monitor"
 msgid "Using the monitor:"
 msgstr "Using the monitor:"
 
@@ -10552,7 +10502,6 @@ msgstr ""
 "        "
 
 #: server_status.php:1637
-#| msgid "Remove chart"
 msgid "Preset chart"
 msgstr "Preset chart"
 
