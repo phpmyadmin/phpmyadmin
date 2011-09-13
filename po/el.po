@@ -11493,10 +11493,9 @@ msgid "No index parts defined!"
 msgstr "Δεν ορίστηκαν τα στοιχεία του ευρετηρίου!"
 
 #: tbl_indexes.php:169
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create an index"
-msgstr "Δημιουργία νέου ευρετηρίου"
+msgstr "Δημιουργία ευρετηρίου"
 
 #: tbl_indexes.php:171
 msgid "Modify an index"
