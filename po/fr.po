@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-11 06:58-0400\n"
-"PO-Revision-Date: 2011-09-13 18:53+0200\n"
+"PO-Revision-Date: 2011-09-13 18:54+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -10746,7 +10746,7 @@ msgstr "Choisissez depuis quel journal les statistiques doivent être générée
 
 #: server_status.php:1715
 msgid "Results are grouped by query text."
-msgstr ""
+msgstr "Les résultats sont regroupés par le texte des requêtes."
 
 #: server_status.php:1720
 msgid "Query analyzer"
