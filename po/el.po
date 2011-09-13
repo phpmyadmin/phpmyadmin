@@ -11971,10 +11971,9 @@ msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr "Εκτέλεσε ένα «επερώτημα κατά παράδειγμα» (χαρακτήρας μπαλαντέρ «%»)"
 
 #: tbl_zoom_select.php:135
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Additional search criteria"
-msgstr "Απόκρυψη κριτηρίων αναζήτησης"
+msgstr "Πρόσθετα κριτήρια αναζήτησης"
 
 #: tbl_zoom_select.php:258
 #, fuzzy
