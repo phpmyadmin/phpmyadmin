@@ -1303,7 +1303,7 @@ $(document).ready(function(){
  * This will show a message that will disappear automatically and it can also
  * be dismissed by the user.
  *
- * 3) var $msg = PMA_ajaxShowMessage('Some error', 0);
+ * 3) var $msg = PMA_ajaxShowMessage('Some error', false);
  * This will show a message that will not disappear automatically, but it
  * can be dismissed by the user after he has finished reading it.
  *
