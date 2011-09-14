@@ -290,7 +290,7 @@ msgstr "Eliminar base de datos"
 #: db_operations.php:439
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "Eliminouse a base de datos %s."
+msgstr "A base de datos %s foi eliminada."
 
 #: db_operations.php:444
 #, fuzzy
