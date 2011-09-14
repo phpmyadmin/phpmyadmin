@@ -112,7 +112,7 @@ if (isset($dbname)) {
 /**
  * Checks if the user is allowed to do what he tries to...
  */
-if (!$is_superuser) {
+if (! $is_superuser) {
     include './libraries/server_links.inc.php';
     echo '<h2>' . "\n"
        . PMA_getIcon('b_usrlist.png')
@@ -122,7 +122,7 @@ if (!$is_superuser) {
     include './libraries/footer.inc.php';
 }
 
-$random_n = mt_rand(0,1000000); // a random number that will be appended to the id of the user forms
+$random_n = mt_rand(0, 1000000); // a random number that will be appended to the id of the user forms
 
 /**
  * Escapes wildcard in a database+table specification
@@ -167,7 +167,7 @@ function PMA_rangeOfUsers($initial = '')
 {
     // strtolower() is used because the User field
     // might be BINARY, so LIKE would be case sensitive
-    if (!empty($initial)) {
+    if (! empty($initial)) {
         $ret = " WHERE `User` LIKE '" . PMA_sqlAddSlashes($initial, true) . "%'"
             . " OR `User` LIKE '" . PMA_sqlAddSlashes(strtolower($initial), true) . "%'";
     } else {
@@ -309,7 +309,7 @@ function PMA_extractPrivInfo($row = '', $enableHTML = false)
             __('Allows executing stored routines.')),
     );
 
-    if (!empty($row) && isset($row['Table_priv'])) {
+    if (! empty($row) && isset($row['Table_priv'])) {
         $row1 = PMA_DBI_fetch_single_row(
             'SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';',
             'ASSOC', $GLOBALS['userlink']
@@ -327,10 +327,10 @@ function PMA_extractPrivInfo($row = '', $enableHTML = false)
     $privs = array();
     $allPrivileges = true;
     foreach ($grants as $current_grant) {
-        if ((!empty($row) && isset($row[$current_grant[0]]))
+        if ((! empty($row) && isset($row[$current_grant[0]]))
             || (empty($row) && isset($GLOBALS[$current_grant[0]]))
         ) {
-            if ((!empty($row) && $row[$current_grant[0]] == 'Y')
+            if ((! empty($row) && $row[$current_grant[0]] == 'Y')
                 || (empty($row)
                 && ($GLOBALS[$current_grant[0]] == 'Y'
                 || (is_array($GLOBALS[$current_grant[0]])
@@ -342,7 +342,7 @@ function PMA_extractPrivInfo($row = '', $enableHTML = false)
                 } else {
                     $privs[] = $current_grant[1];
                 }
-            } elseif (!empty($GLOBALS[$current_grant[0]])
+            } elseif (! empty($GLOBALS[$current_grant[0]])
              && is_array($GLOBALS[$current_grant[0]])
              && empty($GLOBALS[$current_grant[0] . '_none'])) {
                 if ($enableHTML) {
@@ -695,7 +695,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
                     . '            <input type="checkbox"'
                     .                   ' name="' . $priv[0] . '_priv" id="checkbox_' . $priv[0] . '_priv"'
                     .                   ' value="Y" title="' . $priv[2] . '"'
-                    .                   ((!empty($GLOBALS['checkall']) || $row[$priv[0] . '_priv'] == 'Y') ?  ' checked="checked"' : '')
+                    .                   ((! empty($GLOBALS['checkall']) || $row[$priv[0] . '_priv'] == 'Y') ?  ' checked="checked"' : '')
                     .               '/>' . "\n"
                     . '            <label for="checkbox_' . $priv[0] . '_priv"><tt><dfn title="' . $priv[2] . '">'
                     .                    $priv[1] . '</dfn></tt></label>' . "\n"
@@ -848,7 +848,7 @@ function PMA_displayLoginInformationFields($mode = 'new')
         . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'localhost')
             ? ' selected="selected"' : '') . '>' . __('Local')
         . '</option>' . "\n";
-    if (!empty($thishost)) {
+    if (! empty($thishost)) {
         echo '        <option value="thishost"'
             . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'thishost')
                 ? ' selected="selected"' : '') . '>' . __('This Host')
@@ -974,7 +974,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
                 $create_user_real .= ' IDENTIFIED BY \'' . PMA_sqlAddSlashes($pma_pw) . '\'';
             }
         } else {
-            if ($pred_password == 'keep' && !empty($password)) {
+            if ($pred_password == 'keep' && ! empty($password)) {
                 $real_sql_query .= ' IDENTIFIED BY PASSWORD \'' . $password . '\'';
                 if (isset($create_user_real)) {
                     $create_user_real .= ' IDENTIFIED BY PASSWORD \'' . $password . '\'';
@@ -1179,16 +1179,16 @@ if (isset($_REQUEST['change_copy'])) {
             }
             unset($tmp_array);
         }
-        if (count($tmp_privs2['Select']) > 0 && !in_array('SELECT', $tmp_privs1)) {
+        if (count($tmp_privs2['Select']) > 0 && ! in_array('SELECT', $tmp_privs1)) {
             $tmp_privs1[] = 'SELECT (`' . join('`, `', $tmp_privs2['Select']) . '`)';
         }
-        if (count($tmp_privs2['Insert']) > 0 && !in_array('INSERT', $tmp_privs1)) {
+        if (count($tmp_privs2['Insert']) > 0 && ! in_array('INSERT', $tmp_privs1)) {
             $tmp_privs1[] = 'INSERT (`' . join('`, `', $tmp_privs2['Insert']) . '`)';
         }
-        if (count($tmp_privs2['Update']) > 0 && !in_array('UPDATE', $tmp_privs1)) {
+        if (count($tmp_privs2['Update']) > 0 && ! in_array('UPDATE', $tmp_privs1)) {
             $tmp_privs1[] = 'UPDATE (`' . join('`, `', $tmp_privs2['Update']) . '`)';
         }
-        if (count($tmp_privs2['References']) > 0 && !in_array('REFERENCES', $tmp_privs1)) {
+        if (count($tmp_privs2['References']) > 0 && ! in_array('REFERENCES', $tmp_privs1)) {
             $tmp_privs1[] = 'REFERENCES (`' . join('`, `', $tmp_privs2['References']) . '`)';
         }
         unset($tmp_privs2);
@@ -1203,7 +1203,7 @@ if (isset($_REQUEST['change_copy'])) {
 /**
  * Updates privileges
  */
-if (!empty($update_privs)) {
+if (! empty($update_privs)) {
     $db_and_table = PMA_wildcardEscapeForGrant($dbname, (isset($tablename) ? $tablename : ''));
 
     $sql_query0 = 'REVOKE ALL PRIVILEGES ON ' . $db_and_table
@@ -1258,7 +1258,7 @@ if (!empty($update_privs)) {
         // See https://sourceforge.net/tracker/index.php?func=detail&aid=3285929&group_id=23067&atid=377408
         $sql_query0 = '';
     }
-    if (isset($sql_query1) && !PMA_DBI_try_query($sql_query1)) {
+    if (isset($sql_query1) && ! PMA_DBI_try_query($sql_query1)) {
         // this one may fail, too...
         $sql_query1 = '';
     }
@@ -1318,7 +1318,7 @@ if (isset($_REQUEST['change_pw'])) {
     // here $nopass could be == 1
     if (empty($message)) {
 
-        $hashing_function = (!empty($pw_hash) && $pw_hash == 'old' ? 'OLD_' : '')
+        $hashing_function = (! empty($pw_hash) && $pw_hash == 'old' ? 'OLD_' : '')
                       . 'PASSWORD';
 
         // in $sql_query which will be displayed, hide the password
@@ -1454,7 +1454,7 @@ $link_export = '<a class="export_user_anchor ' . $conditional_class . '" href="s
 if ($GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_REQUEST['adduser']) || $_add_user_error) && ! isset($_REQUEST['initial']) && ! isset($_REQUEST['showall']) && ! isset($_REQUEST['edit_user_dialog']) && ! isset($_REQUEST['db_specific'])) {
 
     if (isset($sql_query)) {
-        $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query);
+        $extra_data['sql_query'] = PMA_showMessage(null, $sql_query);
     }
 
     if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
@@ -1462,12 +1462,12 @@ if ($GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_RE
          * generate html on the fly for the new user that was just created.
          */
         $new_user_string = '<tr>'."\n"
-                           .'<td> <input type="checkbox" name="selected_usr[]" id="checkbox_sel_users_" value="' . htmlspecialchars($username) . '&amp;#27;' . htmlspecialchars($hostname) . '" /> </td>'."\n"
+                           .'<td> <input type="checkbox" name="selected_usr[]" id="checkbox_sel_users_" value="' . htmlspecialchars($username) . '&amp;#27;' . htmlspecialchars($hostname) . '" /> </td>' . "\n"
                            .'<td><label for="checkbox_sel_users_">' . (empty($username) ? '<span style="color: #FF0000">' . __('Any') . '</span>' : htmlspecialchars($username) ) . '</label></td>' . "\n"
                            .'<td>' . htmlspecialchars($hostname) . '</td>' . "\n";
         $new_user_string .= '<td>';
 
-        if (!empty($password) || isset($pma_pw)) {
+        if (! empty($password) || isset($pma_pw)) {
             $new_user_string .= __('Yes');
         } else {
             $new_user_string .= '<span style="color: #FF0000">' . __('No') . '</span>';
@@ -1485,8 +1485,8 @@ if ($GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_RE
 
         $new_user_string .='</td>';
 
-        $new_user_string .= '<td>'.sprintf($link_edit, urlencode($username), urlencode($hostname), '', '' ).'</td>'."\n";
-        $new_user_string .= '<td>'.sprintf($link_export, urlencode($username), urlencode($hostname), (isset($initial) ? $initial : '')).'</td>'."\n";
+        $new_user_string .= '<td>' . sprintf($link_edit, urlencode($username), urlencode($hostname), '', '') . '</td>' . "\n";
+        $new_user_string .= '<td>' . sprintf($link_export, urlencode($username), urlencode($hostname), (isset($initial) ? $initial : '')) . '</td>' . "\n";
 
         $new_user_string .= '</tr>';
 
@@ -1506,7 +1506,7 @@ if ($GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_RE
     if (isset($update_privs)) {
         $extra_data['db_specific_privs'] = false;
         if (isset($dbname_is_wildcard)) {
-            $extra_data['db_specific_privs'] = !$dbname_is_wildcard;
+            $extra_data['db_specific_privs'] = ! $dbname_is_wildcard;
         }
         $new_privileges = join(', ', PMA_extractPrivInfo('', true));
 
@@ -1579,7 +1579,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             $sql_query = 'SELECT * FROM `mysql`.`user`';
             $res = PMA_DBI_try_query($sql_query, null, PMA_DBI_QUERY_STORE);
 
-            if (!$res) {
+            if (! $res) {
                 PMA_Message::error(__('No Privileges'))->display();
                 PMA_DBI_free_result($res);
                 unset($res);
@@ -1802,7 +1802,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             $flushnote->addParam('<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;flush_privileges=1" id="reload_privileges_anchor" class="' . $conditional_class . '">', false);
             $flushnote->addParam('</a>', false);
             $flushnote->display();
-         }
+        }
 
 
     } else {
@@ -1817,7 +1817,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         echo '<h2>' . "\n"
            . PMA_getIcon('b_usredit.png')
            . __('Edit Privileges') . ': '
-           . __('User') ;
+           . __('User');
 
         if (isset($dbname)) {
             echo ' <i><a href="server_privileges.php?'
@@ -2100,7 +2100,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                 $pred_db_array =PMA_DBI_fetch_result('SHOW DATABASES;');
 
                 echo '    <label for="text_dbname">' . __('Add privileges on the following database') . ':</label>' . "\n";
-                if (!empty($pred_db_array)) {
+                if (! empty($pred_db_array)) {
                     echo '    <select name="pred_dbname" class="autosubmit">' . "\n"
                        . '        <option value="" selected="selected">' . __('Use text field') . ':</option>' . "\n";
                     foreach ($pred_db_array as $current_db) {
@@ -2124,13 +2124,13 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                 if ($res = @PMA_DBI_try_query('SHOW TABLES FROM ' . PMA_backquote(PMA_unescape_mysql_wildcards($dbname)) . ';', null, PMA_DBI_QUERY_STORE)) {
                     $pred_tbl_array = array();
                     while ($row = PMA_DBI_fetch_row($res)) {
-                        if (! isset($found_rows) || !in_array($row[0], $found_rows)) {
+                        if (! isset($found_rows) || ! in_array($row[0], $found_rows)) {
                             $pred_tbl_array[] = $row[0];
                         }
                     }
                     PMA_DBI_free_result($res);
                     unset($res, $row);
-                    if (!empty($pred_tbl_array)) {
+                    if (! empty($pred_tbl_array)) {
                         echo '    <select name="pred_tablename" class="autosubmit">' . "\n"
                            . '        <option value="" selected="selected">' . __('Use text field') . ':</option>' . "\n";
                         foreach ($pred_tbl_array as $current_table) {
