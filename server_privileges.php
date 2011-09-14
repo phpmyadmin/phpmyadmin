@@ -378,31 +378,31 @@ function PMA_extractPrivInfo($row = '', $enableHTML = false)
 function PMA_display_column_privs($columns, $row, $name_for_select,
     $priv_for_header, $name, $name_for_dfn, $name_for_current)
 {
-        echo '    <div class="item" id="div_item_' . $name . '">' . "\n"
-           . '        <label for="select_' . $name . '_priv">' . "\n"
-           . '            <tt><dfn title="' . $name_for_dfn . '">'
-            . $priv_for_header . '</dfn></tt>' . "\n"
-           . '        </label><br />' . "\n"
-           . '        <select id="select_' . $name . '_priv" name="'
-            . $name_for_select . '[]" multiple="multiple" size="8">' . "\n";
+    echo '    <div class="item" id="div_item_' . $name . '">' . "\n"
+       . '        <label for="select_' . $name . '_priv">' . "\n"
+       . '            <tt><dfn title="' . $name_for_dfn . '">'
+        . $priv_for_header . '</dfn></tt>' . "\n"
+       . '        </label><br />' . "\n"
+       . '        <select id="select_' . $name . '_priv" name="'
+        . $name_for_select . '[]" multiple="multiple" size="8">' . "\n";
 
-        foreach ($columns as $current_column => $current_column_privileges) {
-            echo '            <option value="' . htmlspecialchars($current_column) . '"';
-            if ($row[$name_for_select] == 'Y' || $current_column_privileges[$name_for_current]) {
-                echo ' selected="selected"';
-            }
-            echo '>' . htmlspecialchars($current_column) . '</option>' . "\n";
+    foreach ($columns as $current_column => $current_column_privileges) {
+        echo '            <option value="' . htmlspecialchars($current_column) . '"';
+        if ($row[$name_for_select] == 'Y' || $current_column_privileges[$name_for_current]) {
+            echo ' selected="selected"';
         }
+        echo '>' . htmlspecialchars($current_column) . '</option>' . "\n";
+    }
 
-        echo '        </select>' . "\n"
-           . '        <i>' . __('Or') . '</i>' . "\n"
-           . '        <label for="checkbox_' . $name_for_select
-            . '_none"><input type="checkbox"'
-            . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
-            . ' name="' . $name_for_select . '_none" id="checkbox_'
-            . $name_for_select . '_none" title="' . _pgettext('None privileges', 'None') . '" />'
-            . _pgettext('None privileges', 'None') . '</label>' . "\n"
-           . '    </div>' . "\n";
+    echo '        </select>' . "\n"
+       . '        <i>' . __('Or') . '</i>' . "\n"
+       . '        <label for="checkbox_' . $name_for_select
+        . '_none"><input type="checkbox"'
+        . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
+        . ' name="' . $name_for_select . '_none" id="checkbox_'
+        . $name_for_select . '_none" title="' . _pgettext('None privileges', 'None') . '" />'
+        . _pgettext('None privileges', 'None') . '</label>' . "\n"
+       . '    </div>' . "\n";
 } // end function
 
 
@@ -734,7 +734,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
                 . $row['max_user_connections'] . '" size="11" maxlength="11" title="' . __('Limits the number of simultaneous connections the user may have.') . '" />' . "\n"
                . '        </div>' . "\n"
                . '    </fieldset>' . "\n";
-           }
+        }
         // for Safari 2.0.2
         echo '    <div class="clearfloat"></div>' . "\n";
     }
@@ -828,16 +828,16 @@ function PMA_displayLoginInformationFields($mode = 'new')
     // when we start editing a user, $GLOBALS['pred_hostname'] is not defined
     if (! isset($GLOBALS['pred_hostname']) && isset($GLOBALS['hostname'])) {
         switch (strtolower($GLOBALS['hostname'])) {
-            case 'localhost':
-            case '127.0.0.1':
-                $GLOBALS['pred_hostname'] = 'localhost';
-                break;
-            case '%':
-                $GLOBALS['pred_hostname'] = 'any';
-                break;
-            default:
-                $GLOBALS['pred_hostname'] = 'userdefined';
-                break;
+        case 'localhost':
+        case '127.0.0.1':
+            $GLOBALS['pred_hostname'] = 'localhost';
+            break;
+        case '%':
+            $GLOBALS['pred_hostname'] = 'any';
+            break;
+        default:
+            $GLOBALS['pred_hostname'] = 'userdefined';
+            break;
         }
     }
     echo '        <option value="any"'
@@ -937,20 +937,20 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
         $username = '';
     }
     switch ($pred_hostname) {
-        case 'any':
-            $hostname = '%';
-            break;
-        case 'localhost':
-            $hostname = 'localhost';
-            break;
-        case 'hosttable':
-            $hostname = '';
-            break;
-        case 'thishost':
-            $_user_name = PMA_DBI_fetch_value('SELECT USER()');
-            $hostname = substr($_user_name, (strrpos($_user_name, '@') + 1));
-            unset($_user_name);
-            break;
+    case 'any':
+        $hostname = '%';
+        break;
+    case 'localhost':
+        $hostname = 'localhost';
+        break;
+    case 'hosttable':
+        $hostname = '';
+        break;
+    case 'thishost':
+        $_user_name = PMA_DBI_fetch_value('SELECT USER()');
+        $hostname = substr($_user_name, (strrpos($_user_name, '@') + 1));
+        unset($_user_name);
+        break;
     }
     $sql = "SELECT '1' FROM `mysql`.`user`"
         . " WHERE `User` = '" . PMA_sqlAddSlashes($username) . "'"
@@ -1044,58 +1044,58 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
             }
 
             switch (PMA_ifSetOr($_REQUEST['createdb'], '0')) {
-                case '1' :
-                    // Create database with same name and grant all privileges
-                    $q = 'CREATE DATABASE IF NOT EXISTS '
-                        . PMA_backquote(PMA_sqlAddSlashes($username)) . ';';
-                    $sql_query .= $q;
-                    if (! PMA_DBI_try_query($q)) {
-                        $message = PMA_Message::rawError(PMA_DBI_getError());
-                        break;
-                    }
-
-
-                    /**
-                     * If we are not in an Ajax request, we can't reload navigation now
-                     */
-                    if ($GLOBALS['is_ajax_request'] != true) {
-                        // this is needed in case tracking is on:
-                        $GLOBALS['db'] = $username;
-                        $GLOBALS['reload'] = true;
-                        PMA_reloadNavigation();
-                    }
-
-                    $q = 'GRANT ALL PRIVILEGES ON '
-                        . PMA_backquote(PMA_sqlAddSlashes($username)) . '.* TO \''
-                        . PMA_sqlAddSlashes($username) . '\'@\'' . PMA_sqlAddSlashes($hostname) . '\';';
-                    $sql_query .= $q;
-                    if (! PMA_DBI_try_query($q)) {
-                        $message = PMA_Message::rawError(PMA_DBI_getError());
-                    }
-                    break;
-                case '2' :
-                    // Grant all privileges on wildcard name (username\_%)
-                    $q = 'GRANT ALL PRIVILEGES ON '
-                        . PMA_backquote(PMA_sqlAddSlashes($username) . '\_%') . '.* TO \''
-                        . PMA_sqlAddSlashes($username) . '\'@\'' . PMA_sqlAddSlashes($hostname) . '\';';
-                    $sql_query .= $q;
-                    if (! PMA_DBI_try_query($q)) {
-                        $message = PMA_Message::rawError(PMA_DBI_getError());
-                    }
-                    break;
-                case '3' :
-                    // Grant all privileges on the specified database to the new user
-                    $q = 'GRANT ALL PRIVILEGES ON '
-                    . PMA_backquote(PMA_sqlAddSlashes($dbname)) . '.* TO \''
-                    . PMA_sqlAddSlashes($username) . '\'@\'' . PMA_sqlAddSlashes($hostname) . '\';';
-                    $sql_query .= $q;
-                    if (! PMA_DBI_try_query($q)) {
+            case '1' :
+                // Create database with same name and grant all privileges
+                $q = 'CREATE DATABASE IF NOT EXISTS '
+                    . PMA_backquote(PMA_sqlAddSlashes($username)) . ';';
+                $sql_query .= $q;
+                if (! PMA_DBI_try_query($q)) {
                     $message = PMA_Message::rawError(PMA_DBI_getError());
-                    }
                     break;
-                case '0' :
-                default :
-                    break;
+                }
+
+
+                /**
+                 * If we are not in an Ajax request, we can't reload navigation now
+                 */
+                if ($GLOBALS['is_ajax_request'] != true) {
+                    // this is needed in case tracking is on:
+                    $GLOBALS['db'] = $username;
+                    $GLOBALS['reload'] = true;
+                    PMA_reloadNavigation();
+                }
+
+                $q = 'GRANT ALL PRIVILEGES ON '
+                    . PMA_backquote(PMA_sqlAddSlashes($username)) . '.* TO \''
+                    . PMA_sqlAddSlashes($username) . '\'@\'' . PMA_sqlAddSlashes($hostname) . '\';';
+                $sql_query .= $q;
+                if (! PMA_DBI_try_query($q)) {
+                    $message = PMA_Message::rawError(PMA_DBI_getError());
+                }
+                break;
+            case '2' :
+                // Grant all privileges on wildcard name (username\_%)
+                $q = 'GRANT ALL PRIVILEGES ON '
+                    . PMA_backquote(PMA_sqlAddSlashes($username) . '\_%') . '.* TO \''
+                    . PMA_sqlAddSlashes($username) . '\'@\'' . PMA_sqlAddSlashes($hostname) . '\';';
+                $sql_query .= $q;
+                if (! PMA_DBI_try_query($q)) {
+                    $message = PMA_Message::rawError(PMA_DBI_getError());
+                }
+                break;
+            case '3' :
+                // Grant all privileges on the specified database to the new user
+                $q = 'GRANT ALL PRIVILEGES ON '
+                . PMA_backquote(PMA_sqlAddSlashes($dbname)) . '.* TO \''
+                . PMA_sqlAddSlashes($username) . '\'@\'' . PMA_sqlAddSlashes($hostname) . '\';';
+                $sql_query .= $q;
+                if (! PMA_DBI_try_query($q)) {
+                    $message = PMA_Message::rawError(PMA_DBI_getError());
+                }
+                break;
+            case '0' :
+            default :
+                break;
             }
         } else {
             if (isset($create_user_real)) {
@@ -1721,16 +1721,16 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                            . '            <td>' . htmlspecialchars($host['Host']) . '</td>' . "\n";
                         echo '            <td>';
                         switch ($host['Password']) {
-                            case 'Y':
-                                echo __('Yes');
-                                break;
-                            case 'N':
-                                echo '<span style="color: #FF0000">' . __('No') . '</span>';
-                                break;
-                            // this happens if this is a definition not coming from mysql.user
-                            default:
-                                echo '--'; // in future version, replace by "not present"
-                                break;
+                        case 'Y':
+                            echo __('Yes');
+                            break;
+                        case 'N':
+                            echo '<span style="color: #FF0000">' . __('No') . '</span>';
+                            break;
+                        // this happens if this is a definition not coming from mysql.user
+                        default:
+                            echo '--'; // in future version, replace by "not present"
+                            break;
                         } // end switch
                         echo '</td>' . "\n"
                            . '            <td><tt>' . "\n"
