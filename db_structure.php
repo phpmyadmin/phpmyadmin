@@ -22,7 +22,8 @@ $GLOBALS['js_include'][] = 'jquery/timepicker.js';
 if (empty($is_info)) {
     // Drops/deletes/etc. multiple tables if required
     if ((!empty($submit_mult) && isset($selected_tbl))
-      || isset($mult_btn)) {
+        || isset($mult_btn)
+    ) {
         $action = 'db_structure.php';
         $err_url = 'db_structure.php?'. PMA_generate_common_url($db);
 
@@ -96,7 +97,10 @@ if (isset($_REQUEST['sort_order'])) {
     $_url_params['sort_order'] = $_REQUEST['sort_order'];
 }
 
-PMA_listNavigator($total_num_tables, $pos, $_url_params, 'db_structure.php', 'frame_content', $GLOBALS['cfg']['MaxTableList']);
+PMA_listNavigator(
+    $total_num_tables, $pos, $_url_params, 'db_structure.php',
+    'frame_content', $GLOBALS['cfg']['MaxTableList']
+);
 
 ?>
 <form method="post" action="db_structure.php" name="tablesForm" id="tablesForm">
@@ -110,7 +114,9 @@ $sum_size       = (double) 0;
 $overhead_size  = (double) 0;
 $overhead_check = '';
 $checked        = !empty($checkall) ? ' checked="checked"' : '';
-$num_columns    = $cfg['PropertiesNumColumns'] > 1 ? ceil($num_tables / $cfg['PropertiesNumColumns']) + 1 : 0;
+$num_columns    = $cfg['PropertiesNumColumns'] > 1
+    ? ceil($num_tables / $cfg['PropertiesNumColumns']) + 1
+    : 0;
 $row_count      = 0;
 
 
@@ -147,8 +153,9 @@ foreach ($tables as $keyname => $each_table) {
     case 'Aria' :
     case 'Maria' :
         if ($db_is_information_schema) {
-            $each_table['Rows'] = PMA_Table::countRecords($db,
-                $each_table['Name']);
+            $each_table['Rows'] = PMA_Table::countRecords(
+                $db, $each_table['Name']
+            );
         }
 
         if ($is_show_stats) {
@@ -166,12 +173,15 @@ foreach ($tables as $keyname => $each_table) {
         // InnoDB table: Row count is not accurate but data and index sizes are.
         // PBMS table in Drizzle: TABLE_ROWS is taken from table cache, so it may be unavailable
 
-        if (($each_table['ENGINE'] == 'InnoDB' && $each_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount'])
-                || !isset($each_table['TABLE_ROWS'])) {
+        if (($each_table['ENGINE'] == 'InnoDB'
+            && $each_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount'])
+            || !isset($each_table['TABLE_ROWS'])
+        ) {
             $each_table['COUNTED'] = true;
-            $each_table['TABLE_ROWS'] = PMA_Table::countRecords($db,
-                $each_table['TABLE_NAME'], $force_exact = true,
-                $is_view = false);
+            $each_table['TABLE_ROWS'] = PMA_Table::countRecords(
+                $db, $each_table['TABLE_NAME'],
+                $force_exact = true, $is_view = false
+            );
         } else {
             $each_table['COUNTED'] = false;
         }
@@ -204,9 +214,10 @@ foreach ($tables as $keyname => $each_table) {
         // if table is broken, Engine is reported as null, so one more test
         if ($each_table['TABLE_TYPE'] == 'VIEW') {
             // countRecords() takes care of $cfg['MaxExactCountViews']
-            $each_table['TABLE_ROWS'] = PMA_Table::countRecords($db,
-                $each_table['TABLE_NAME'], $force_exact = true,
-                $is_view = true);
+            $each_table['TABLE_ROWS'] = PMA_Table::countRecords(
+                $db, $each_table['TABLE_NAME'],
+                $force_exact = true, $is_view = true
+            );
             $table_is_view = true;
         }
         break;
@@ -287,7 +298,8 @@ foreach ($tables as $keyname => $each_table) {
             . ' ' . PMA_backquote($each_table['TABLE_NAME']);
         $drop_message = sprintf(
             $table_is_view ? __('View %s has been dropped') : __('Table %s has been dropped'),
-            str_replace(' ', '&nbsp;', htmlspecialchars($each_table['TABLE_NAME'])));
+            str_replace(' ', '&nbsp;', htmlspecialchars($each_table['TABLE_NAME']))
+        );
     }
 
     $tracking_icon = '';
@@ -299,8 +311,10 @@ foreach ($tables as $keyname => $each_table) {
         }
     }
 
-    if ($num_columns > 0 && $num_tables > $num_columns
-      && (($row_count % $num_columns) == 0)) {
+    if ($num_columns > 0
+        && $num_tables > $num_columns
+        && ($row_count % $num_columns) == 0
+    ) {
         $row_count = 1;
         $odd_row = true;
         ?>
