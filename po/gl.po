@@ -381,7 +381,7 @@ msgstr "Táboa"
 #: tbl_printview.php:358 tbl_structure.php:363 tbl_structure.php:469
 #: tbl_structure.php:880
 msgid "Rows"
-msgstr "Fileiras"
+msgstr "Filas"
 
 #: db_printview.php:106 libraries/db_structure.lib.php:53 tbl_indexes.php:197
 msgid "Size"
