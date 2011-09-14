@@ -2551,3 +2551,131 @@ options.subPaths.shift();this.writeNode("_Layer",options,node);return node;}else
 if(layer.options.maxScale){this.writeNode("sld:MinScaleDenominator",layer.options.maxScale,node);}
 if(layer.options.minScale){this.writeNode("sld:MaxScaleDenominator",layer.options.minScale,node);}
 this.nestingLayerLookup[layer.name]=node;return node;}},"_WFS":function(layer){var node=this.createElementNSPlus("Layer",{attributes:{name:layer.protocol.featurePrefix+":"+layer.protocol.featureType,hidden:layer.visibility?"0":"1"}});this.writeNode("ows:Title",layer.name,node);this.writeNode("Server",{service:OpenLayers.Format.Context.serviceTypes.WFS,version:layer.protocol.version,url:layer.protocol.url},node);return node;},"_InlineGeometry":function(layer){var node=this.createElementNSPlus("Layer",{attributes:{name:this.featureType,hidden:layer.visibility?"0":"1"}});this.writeNode("ows:Title",layer.name,node);this.writeNode("InlineGeometry",layer,node);return node;},"_GML":function(layer){var node=this.createElementNSPlus("Layer");this.writeNode("ows:Title",layer.name,node);this.writeNode("Server",{service:OpenLayers.Format.Context.serviceTypes.GML,url:layer.protocol.url,version:layer.protocol.format.version},node);return node;},"_KML":function(layer){var node=this.createElementNSPlus("Layer");this.writeNode("ows:Title",layer.name,node);this.writeNode("Server",{service:OpenLayers.Format.Context.serviceTypes.KML,version:layer.protocol.format.version,url:layer.protocol.url},node);return node;}},"gml":OpenLayers.Util.applyDefaults({"boundedBy":function(bounds){var node=this.createElementNSPlus("gml:boundedBy");this.writeNode("gml:Box",bounds,node);return node;}},OpenLayers.Format.GML.v2.prototype.writers.gml),"ows":OpenLayers.Format.OWSCommon.v1_0_0.prototype.writers.ows,"sld":OpenLayers.Format.SLD.v1_0_0.prototype.writers.sld,"feature":OpenLayers.Format.GML.v2.prototype.writers.feature},CLASS_NAME:"OpenLayers.Format.OWSContext.v0_3_1"});
+
+// OpenStreetMaps.js merged
+
+/**
+ * Namespace: Util.OSM
+ */
+OpenLayers.Util.OSM = {};
+
+/**
+ * Constant: MISSING_TILE_URL
+ * {String} URL of image to display for missing tiles
+ */
+OpenLayers.Util.OSM.MISSING_TILE_URL = "http://www.openstreetmap.org/openlayers/img/404.png";
+
+/**
+ * Property: originalOnImageLoadError
+ * {Function} Original onImageLoadError function.
+ */
+OpenLayers.Util.OSM.originalOnImageLoadError = OpenLayers.Util.onImageLoadError;
+
+/**
+ * Function: onImageLoadError
+ */
+OpenLayers.Util.onImageLoadError = function() {
+    if (this.src.match(/^http:\/\/[abc]\.[a-z]+\.openstreetmap\.org\//)) {
+        this.src = OpenLayers.Util.OSM.MISSING_TILE_URL;
+    } else if (this.src.match(/^http:\/\/[def]\.tah\.openstreetmap\.org\//)) {
+        // do nothing - this layer is transparent
+    } else {
+        OpenLayers.Util.OSM.originalOnImageLoadError;
+    }
+};
+
+/**
+ * Class: OpenLayers.Layer.OSM.Mapnik
+ *
+ * Inherits from:
+ *  - <OpenLayers.Layer.OSM>
+ */
+OpenLayers.Layer.OSM.Mapnik = OpenLayers.Class(OpenLayers.Layer.OSM, {
+    /**
+     * Constructor: OpenLayers.Layer.OSM.Mapnik
+     *
+     * Parameters:
+     * name - {String}
+     * options - {Object} Hashtable of extra options to tag onto the layer
+     */
+    initialize: function(name, options) {
+        var url = [
+            "http://a.tile.openstreetmap.org/${z}/${x}/${y}.png",
+            "http://b.tile.openstreetmap.org/${z}/${x}/${y}.png",
+            "http://c.tile.openstreetmap.org/${z}/${x}/${y}.png"
+        ];
+        options = OpenLayers.Util.extend({
+            numZoomLevels: 19,
+            buffer: 0,
+            transitionEffect: "resize"
+        }, options);
+        var newArguments = [name, url, options];
+        OpenLayers.Layer.OSM.prototype.initialize.apply(this, newArguments);
+    },
+
+    CLASS_NAME: "OpenLayers.Layer.OSM.Mapnik"
+});
+
+/**
+ * Class: OpenLayers.Layer.OSM.Osmarender
+ *
+ * Inherits from:
+ *  - <OpenLayers.Layer.OSM>
+ */
+OpenLayers.Layer.OSM.Osmarender = OpenLayers.Class(OpenLayers.Layer.OSM, {
+    /**
+     * Constructor: OpenLayers.Layer.OSM.Osmarender
+     *
+     * Parameters:
+     * name - {String}
+     * options - {Object} Hashtable of extra options to tag onto the layer
+     */
+    initialize: function(name, options) {
+        var url = [
+            "http://a.tah.openstreetmap.org/Tiles/tile/${z}/${x}/${y}.png",
+            "http://b.tah.openstreetmap.org/Tiles/tile/${z}/${x}/${y}.png",
+            "http://c.tah.openstreetmap.org/Tiles/tile/${z}/${x}/${y}.png"
+        ];
+        options = OpenLayers.Util.extend({
+            numZoomLevels: 18,
+            buffer: 0,
+            transitionEffect: "resize"
+        }, options);
+        var newArguments = [name, url, options];
+        OpenLayers.Layer.OSM.prototype.initialize.apply(this, newArguments);
+    },
+
+    CLASS_NAME: "OpenLayers.Layer.OSM.Osmarender"
+});
+
+/**
+ * Class: OpenLayers.Layer.OSM.CycleMap
+ *
+ * Inherits from:
+ *  - <OpenLayers.Layer.OSM>
+ */
+OpenLayers.Layer.OSM.CycleMap = OpenLayers.Class(OpenLayers.Layer.OSM, {
+    /**
+     * Constructor: OpenLayers.Layer.OSM.CycleMap
+     *
+     * Parameters:
+     * name - {String}
+     * options - {Object} Hashtable of extra options to tag onto the layer
+     */
+    initialize: function(name, options) {
+        var url = [
+            "http://a.tile.opencyclemap.org/cycle/${z}/${x}/${y}.png",
+            "http://b.tile.opencyclemap.org/cycle/${z}/${x}/${y}.png",
+            "http://c.tile.opencyclemap.org/cycle/${z}/${x}/${y}.png"
+        ];
+        options = OpenLayers.Util.extend({
+            numZoomLevels: 19,
+            buffer: 0,
+            transitionEffect: "resize"
+        }, options);
+        var newArguments = [name, url, options];
+        OpenLayers.Layer.OSM.prototype.initialize.apply(this, newArguments);
+    },
+
+    CLASS_NAME: "OpenLayers.Layer.OSM.CycleMap"
+});

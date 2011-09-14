@@ -166,7 +166,7 @@ echo PMA_generate_common_hidden_inputs($form_params);
     <legend>
 <?php
 if (isset($_REQUEST['create_index'])) {
-    echo __('Create a new index');
+    echo __('Create an index');
 } else {
     echo __('Modify an index');
 }

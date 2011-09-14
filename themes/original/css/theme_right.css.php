@@ -2060,6 +2060,10 @@ fieldset .disabled-field td {
     margin-bottom: 0.5em;
 }
 
+.rte_table {
+    table-layout: fixed;
+}
+
 .rte_table td {
     vertical-align:     middle;
 }
