@@ -3325,7 +3325,7 @@ loadJavascript=function(file) {
     } else {
         $('head').append('<script type="text/javascript" src="'+file+'"></script>');
     }
-}
+};
 
 $(document).ready(function() {
     /**
