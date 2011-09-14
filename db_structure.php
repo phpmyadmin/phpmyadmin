@@ -265,7 +265,8 @@ foreach ($tables as $keyname => $each_table) {
 
     $row_count++;
     if ($table_is_view) {
-        $hidden_fields[] = '<input type="hidden" name="views[]" value="' .  htmlspecialchars($each_table['TABLE_NAME']) . '" />';
+        $hidden_fields[] = '<input type="hidden" name="views[]" value="'
+            .  htmlspecialchars($each_table['TABLE_NAME']) . '" />';
     }
 
     if ($each_table['TABLE_ROWS'] > 0 || $table_is_view) {
@@ -305,9 +306,13 @@ foreach ($tables as $keyname => $each_table) {
     $tracking_icon = '';
     if (PMA_Tracker::isActive()) {
         if (PMA_Tracker::isTracked($GLOBALS["db"], $truename)) {
-            $tracking_icon = '<a href="tbl_tracking.php?' . $url_query.'&amp;table=' . $truename . '"><img class="icon ic_eye" src="themes/dot.gif" alt="' . __('Tracking is active.') . '" title="' . __('Tracking is active.') . '" /></a>';
+            $tracking_icon = '<a href="tbl_tracking.php?' . $url_query
+                . '&amp;table=' . $truename . '"><img class="icon ic_eye" src="themes/dot.gif" alt="'
+                . __('Tracking is active.') . '" title="' . __('Tracking is active.') . '" /></a>';
         } elseif (PMA_Tracker::getVersion($GLOBALS["db"], $truename) > 0) {
-            $tracking_icon = '<a href="tbl_tracking.php?' . $url_query . '&amp;table=' . $truename . '"><img class="icon ic_eye" src="themes/dot.gif" alt="' . __('Tracking is not active.') . '" title="' . __('Tracking is not active.') . '" /></a>';
+            $tracking_icon = '<a href="tbl_tracking.php?' . $url_query
+                . '&amp;table=' . $truename . '"><img class="icon ic_eye" src="themes/dot.gif" alt="'
+                . __('Tracking is not active.') . '" title="' . __('Tracking is not active.') . '" /></a>';
         }
     }
 
@@ -339,17 +344,23 @@ foreach ($tables as $keyname => $each_table) {
         }
         foreach ($server_slave_Wild_Do_Table as $db_table) {
             $table_part = PMA_extract_db_or_table($db_table, 'table');
-            if (($db == PMA_extract_db_or_table($db_table, 'db')) && (preg_match("@^" . substr($table_part, 0, strlen($table_part) - 1) . "@", $truename))) {
+            if (($db == PMA_extract_db_or_table($db_table, 'db'))
+                && (preg_match("@^" . substr($table_part, 0, strlen($table_part) - 1) . "@", $truename))
+            ) {
                 $do = true;
             }
         }
         ////////////////////////////////////////////////////////////////////
-        if ((strlen(array_search($truename, $server_slave_Ignore_Table)) > 0)  || (strlen(array_search($db, $server_slave_Ignore_DB)) > 0)) {
+        if ((strlen(array_search($truename, $server_slave_Ignore_Table)) > 0)
+            || (strlen(array_search($db, $server_slave_Ignore_DB)) > 0)
+        ) {
             $ignored = true;
         }
         foreach ($server_slave_Wild_Ignore_Table as $db_table) {
             $table_part = PMA_extract_db_or_table($db_table, 'table');
-            if (($db == PMA_extract_db_or_table($db_table)) && (preg_match("@^" . substr($table_part, 0, strlen($table_part) - 1) . "@", $truename))) {
+            if (($db == PMA_extract_db_or_table($db_table))
+                && (preg_match("@^" . substr($table_part, 0, strlen($table_part) - 1) . "@", $truename))
+            ) {
                 $ignored = true;
             }
         }
@@ -364,7 +375,13 @@ foreach ($tables as $keyname => $each_table) {
     <th><?php echo $browse_table_label; ?>
         <?php echo (! empty($tracking_icon) ? $tracking_icon : ''); ?>
     </th>
-   <?php if ($server_slave_status) { ?><td align="center"><?php echo $ignored ? ' <img class="icon ic_s_cancel" src="themes/dot.gif" alt="NOT REPLICATED" />' : ''. $do ? ' <img class="icon ic_s_success" src="themes/dot.gif" alt="REPLICATED" />' : ''; ?></td><?php } ?>
+   <?php if ($server_slave_status) { ?><td align="center"><?php
+        echo $ignored
+            ? ' <img class="icon ic_s_cancel" src="themes/dot.gif" alt="NOT REPLICATED" />'
+            : ''.
+        $do
+            ? ' <img class="icon ic_s_success" src="themes/dot.gif" alt="REPLICATED" />'
+            : ''; ?></td><?php } ?>
     <td align="center"><?php echo $browse_table; ?></td>
     <td align="center">
         <a href="tbl_structure.php?<?php echo $tbl_url_query; ?>">
@@ -394,10 +411,20 @@ foreach ($tables as $keyname => $each_table) {
         if ($table_is_view) {
             // Drizzle views use FunctionEngine, and the only place where they are available are I_S and D_D
             // schemas, where we do exact counting
-            if ($each_table['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews'] && $each_table['ENGINE'] != 'FunctionEngine') {
+            if ($each_table['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews']
+                && $each_table['ENGINE'] != 'FunctionEngine'
+            ) {
                 $row_count_pre = '~';
                 $sum_row_count_pre = '~';
-                $show_superscript = PMA_showHint(PMA_sanitize(sprintf(__('This view has at least this number of rows. Please refer to %sdocumentation%s.'), '[a@./Documentation.html#cfg_MaxExactCountViews@_blank]', '[/a]')));
+                $show_superscript = PMA_showHint(
+                    PMA_sanitize(
+                        sprintf(
+                            __('This view has at least this number of rows. Please refer to %sdocumentation%s.'),
+                            '[a@./Documentation.html#cfg_MaxExactCountViews@_blank]',
+                            '[/a]'
+                        )
+                    )
+                );
             }
         } elseif ($each_table['ENGINE'] == 'InnoDB' && (! $each_table['COUNTED'])) {
             // InnoDB table: we did not get an accurate row count
@@ -451,10 +478,13 @@ if ($is_show_stats) {
         <?php
             // for blobstreaming - if the number of tables is 0, set tableReductionCount to 0
             // (we don't want negative numbers here)
-            if ($num_tables == 0)
+            if ($num_tables == 0) {
                 $tableReductionCount = 0;
-
-            echo sprintf(_ngettext('%s table', '%s tables', $num_tables - $tableReductionCount), PMA_formatNumber($num_tables - $tableReductionCount, 0));
+            }
+            echo sprintf(
+                _ngettext('%s table', '%s tables', $num_tables - $tableReductionCount),
+                PMA_formatNumber($num_tables - $tableReductionCount, 0)
+            );
         ?>
     </th>
     <?php
@@ -470,7 +500,8 @@ if (!($cfg['PropertiesNumColumns'] > 1)) {
     $default_engine = PMA_DBI_fetch_value('SHOW VARIABLES LIKE \'storage_engine\';', 0, 1);
     echo '    <th align="center">' . "\n"
        . '        <dfn title="'
-       . sprintf(__('%s is the default storage engine on this MySQL server.'), $default_engine) . '">' .$default_engine . '</dfn></th>' . "\n";
+       . sprintf(__('%s is the default storage engine on this MySQL server.'), $default_engine)
+       . '">' .$default_engine . '</dfn></th>' . "\n";
     // we got a case where $db_collation was empty
     echo '    <th align="center">' . "\n";
     if (! empty($db_collation)) {
@@ -559,7 +590,10 @@ if (!$db_is_information_schema && !$cfg['DisableMultiTableMaintenance']) {
 </form>
 <?php
 // display again the table list navigator
-PMA_listNavigator($total_num_tables, $pos, $_url_params, 'db_structure.php', 'frame_content', $GLOBALS['cfg']['MaxTableList']);
+PMA_listNavigator(
+    $total_num_tables, $pos, $_url_params, 'db_structure.php',
+    'frame_content', $GLOBALS['cfg']['MaxTableList']
+);
 ?>
 </div>
 <hr />
