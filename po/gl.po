@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-14 23:56+0200\n"
+"PO-Revision-Date: 2011-09-14 23:57+0200\n"
 "Last-Translator:  <fran.dieguez@mabishu.com>\n"
 "Language-Team: galician <gl@li.org>\n"
 "Language: gl\n"
@@ -192,7 +192,7 @@ msgstr "Predeterminado"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1311
 #: libraries/schema/Pdf_Relation_Schema.class.php:1332 tbl_printview.php:144
 msgid "Links to"
-msgstr "Vincúlase con"
+msgstr "Ligazóns a"
 
 #: db_datadict.php:172 db_printview.php:109
 #: libraries/config/messages.inc.php:94 libraries/config/messages.inc.php:109
