@@ -134,8 +134,9 @@ $random_n = mt_rand(0,1000000); // a random number that will be appended to the 
  * no escaping (for example test_db) but in mysql.db you'll see test\_db
  * for a db-specific privilege.
  *
- * @param string $dbname       Database name
- * @param string $tablename    Table name
+ * @param string $dbname    Database name
+ * @param string $tablename Table name
+ *
  * @return string the escaped (if necessary) database.table
  */
 function PMA_wildcardEscapeForGrant($dbname, $tablename)
@@ -158,7 +159,8 @@ function PMA_wildcardEscapeForGrant($dbname, $tablename)
 /**
  * Generates a condition on the user name
  *
- * @param string   the user's initial
+ * @param string $initial the user's initial
+ *
  * @return  string   the generated condition
  */
 function PMA_rangeOfUsers($initial = '')
@@ -409,6 +411,7 @@ function PMA_display_column_privs($columns, $row, $name_for_select,
  * @param string  $db     the database
  * @param string  $table  the table
  * @param boolean $submit wheather to display the submit button or not
+ *
  * @global  array      $cfg         the phpMyAdmin configuration
  * @global  ressource  $user_link   the database connection
  *
@@ -740,8 +743,9 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
  * Displays the fields used by the "new user" form as well as the
  * "change login information / copy user" form.
  *
- * @param string     $mode    are we creating a new user or are we just
- *                              changing  one? (allowed values: 'new', 'change')
+ * @param string $mode are we creating a new user or are we just
+ *                     changing  one? (allowed values: 'new', 'change')
+ *
  * @global  array      $cfg     the phpMyAdmin configuration
  * @global  ressource  $user_link the database connection
  *
@@ -1442,8 +1446,8 @@ $link_export = '<a class="export_user_anchor ' . $conditional_class . '" href="s
     . '</a>';
 
 /**
- * If we are in an Ajax request for Create User/Edit User/Revoke User/Flush Privileges,
- * show $message and exit.
+ * If we are in an Ajax request for Create User/Edit User/Revoke User/
+ * Flush Privileges, show $message and exit.
  */
 if ($GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_REQUEST['adduser']) || $_add_user_error) && ! isset($_REQUEST['initial']) && ! isset($_REQUEST['showall']) && ! isset($_REQUEST['edit_user_dialog']) && ! isset($_REQUEST['db_specific'])) {
 
@@ -1634,9 +1638,9 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
 
             /**
              * Displays the initials
-             * In an Ajax request, we don't need to show this. Also not necassary if there is less than 20 privileges
+             * In an Ajax request, we don't need to show this.
+             * Also not necassary if there is less than 20 privileges
              */
-
             if ($GLOBALS['is_ajax_request'] != true && PMA_DBI_num_rows($res) > 20 ) {
 
                 // initialize to false the letters A-Z
