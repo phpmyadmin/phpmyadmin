@@ -43,7 +43,7 @@ msgstr ""
 #: libraries/common.lib.php:3248 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
-msgstr "Procurar"
+msgstr "Buscar"
 
 #: browse_foreigners.php:154 db_operations.php:367 db_operations.php:407
 #: db_operations.php:517 db_operations.php:544 db_search.php:336
