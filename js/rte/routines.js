@@ -58,9 +58,9 @@ RTE.validateCustom = function () {
         if (isSuccess) {
             $(this).find(':input').each(function () {
                 inputname = $(this).attr('name');
-                if (inputname.substr(0, 17) === 'item_param_dir' ||
-                    inputname.substr(0, 18) === 'item_param_name' ||
-                    inputname.substr(0, 18) === 'item_param_type') {
+                if (inputname.substr(0, 14) === 'item_param_dir' ||
+                    inputname.substr(0, 15) === 'item_param_name' ||
+                    inputname.substr(0, 15) === 'item_param_type') {
                     if ($(this).val() === '') {
                         $(this).focus();
                         isSuccess = false;
@@ -264,18 +264,18 @@ $(document).ready(function () {
                  *                      the input field being reindexed.
                  */
                 var inputname = $(this).attr('name');
-                if (inputname.substr(0, 17) === 'item_param_dir') {
+                if (inputname.substr(0, 14) === 'item_param_dir') {
+                    $(this).attr('name', inputname.substr(0, 14) + '[' + index + ']');
+                } else if (inputname.substr(0, 15) === 'item_param_name') {
+                    $(this).attr('name', inputname.substr(0, 15) + '[' + index + ']');
+                } else if (inputname.substr(0, 15) === 'item_param_type') {
+                    $(this).attr('name', inputname.substr(0, 15) + '[' + index + ']');
+                } else if (inputname.substr(0, 17) === 'item_param_length') {
                     $(this).attr('name', inputname.substr(0, 17) + '[' + index + ']');
-                } else if (inputname.substr(0, 18) === 'item_param_name') {
-                    $(this).attr('name', inputname.substr(0, 18) + '[' + index + ']');
-                } else if (inputname.substr(0, 18) === 'item_param_type') {
-                    $(this).attr('name', inputname.substr(0, 18) + '[' + index + ']');
-                } else if (inputname.substr(0, 20) === 'item_param_length') {
+                } else if (inputname.substr(0, 20) === 'item_param_opts_text') {
                     $(this).attr('name', inputname.substr(0, 20) + '[' + index + ']');
-                } else if (inputname.substr(0, 23) === 'item_param_opts_text') {
-                    $(this).attr('name', inputname.substr(0, 23) + '[' + index + ']');
-                } else if (inputname.substr(0, 22) === 'item_param_opts_num') {
-                    $(this).attr('name', inputname.substr(0, 22) + '[' + index + ']');
+                } else if (inputname.substr(0, 19) === 'item_param_opts_num') {
+                    $(this).attr('name', inputname.substr(0, 19) + '[' + index + ']');
                 }
             });
             index++;
