@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-15 00:11+0200\n"
+"PO-Revision-Date: 2011-09-15 00:12+0200\n"
 "Last-Translator:  <fran.dieguez@mabishu.com>\n"
 "Language-Team: galician <gl@li.org>\n"
 "Language: gl\n"
@@ -1111,7 +1111,7 @@ msgstr "Está a piques de elimianr (DESTROY) unha base de datos enteira!"
 #: js/messages.php:34
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to DESTROY a complete table!"
-msgstr "Está a piques de DESTRUÍR unha táboa enteira!"
+msgstr "Está a piques de eliminar (DESTROY) unha táboa enteira!"
 
 #: js/messages.php:35
 #, fuzzy
