@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-09 12:45+0200\n"
+"PO-Revision-Date: 2011-09-13 18:57+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -6842,17 +6842,18 @@ msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data"
 msgstr ""
+"Vous avez tenté d'importer un fichier invalide ou ce fichier contient des "
+"données invalides."
 
 #: libraries/import/shp.php:333
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
-msgstr ""
+msgstr "Les données spatiales MySQL ne supportent pas le type ESRI «%s»."
 
 #: libraries/import/shp.php:371
-#, fuzzy
 #| msgid "This page does not contain any tables!"
 msgid "The imported file does not contain any data"
-msgstr "Cette page ne contient aucune table!"
+msgstr "Le fichier importé ne contient aucune donnée."
 
 #: libraries/import/sql.php:33
 msgid "SQL compatibility mode:"
@@ -7377,14 +7378,12 @@ msgid "Execute every"
 msgstr "Exécuter chaque"
 
 #: libraries/rte/rte_events.lib.php:449
-#, fuzzy
 #| msgid "Start"
 msgctxt "Start of recurring event"
 msgid "Start"
 msgstr "Départ"
 
 #: libraries/rte/rte_events.lib.php:457
-#, fuzzy
 #| msgid "End"
 msgctxt "End of recurring event"
 msgid "End"
@@ -7896,7 +7895,7 @@ msgstr "Jeux de caractères"
 #: libraries/server_links.inc.php:104 server_plugins.php:47
 #: server_plugins.php:80
 msgid "Plugins"
-msgstr ""
+msgstr "Plug-ins"
 
 #: libraries/server_links.inc.php:108
 msgid "Engines"
@@ -8182,16 +8181,14 @@ msgid "Operator"
 msgstr "Opérateur"
 
 #: libraries/tbl_select.lib.php:128
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "Rechercher"
+msgstr "Recherche dans la table"
 
 #: libraries/tbl_select.lib.php:205 tbl_change.php:1002
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "Insérer"
+msgstr "Modifier/Insérer"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 msgid ""
@@ -8371,10 +8368,9 @@ msgid "General Settings"
 msgstr "Paramètres généraux"
 
 #: main.php:101
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "Interclassement pour la connexion MySQL"
+msgstr "Interclassement pour la connexion au serveur"
 
 #: main.php:116
 msgid "Appearance Settings"
@@ -8385,20 +8381,18 @@ msgid "More settings"
 msgstr "Plus de paramètres"
 
 #: main.php:156
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
-msgstr "Base de données pour cet utilisateur"
+msgstr "Serveur de base de données"
 
 #: main.php:159
 msgid "Software"
-msgstr ""
+msgstr "Logiciel"
 
 #: main.php:160
-#, fuzzy
 #| msgid "Show versions"
 msgid "Software version"
-msgstr "Montrer les versions"
+msgstr "Version du logiciel"
 
 #: main.php:161
 msgid "Protocol version"
@@ -8411,20 +8405,18 @@ msgid "User"
 msgstr "Utilisateur"
 
 #: main.php:167
-#, fuzzy
 #| msgid "Server socket"
 msgid "Server charset"
-msgstr "Interface de connexion socket"
+msgstr "Jeu de caractères du serveur"
 
 #: main.php:179
 msgid "Web server"
 msgstr "Serveur web"
 
 #: main.php:190
-#, fuzzy
 #| msgid "Use light version"
 msgid "Database client version"
-msgstr "Active l'affichage léger"
+msgstr "Version du client de base de données"
 
 #: main.php:192
 msgid "PHP extension"
@@ -8567,10 +8559,9 @@ msgid "No databases"
 msgstr "Aucune base de données"
 
 #: navigation.php:270
-#, fuzzy
 #| msgid "filter tables by name"
 msgid "Filter tables by name"
-msgstr "filtrer par nom de table"
+msgstr "Filtrer par nom de table"
 
 #: navigation.php:303 navigation.php:304
 msgctxt "short form"
@@ -8921,7 +8912,7 @@ msgstr "Schéma et/ou contenu des bases de données"
 
 #: server_plugins.php:81
 msgid "Modules"
-msgstr ""
+msgstr "Modules"
 
 #: server_plugins.php:102
 msgid "Begin"
@@ -8929,15 +8920,15 @@ msgstr "Début"
 
 #: server_plugins.php:111
 msgid "Plugin"
-msgstr ""
+msgstr "Plug-in"
 
 #: server_plugins.php:112 server_plugins.php:146
 msgid "Module"
-msgstr ""
+msgstr "Module"
 
 #: server_plugins.php:113 server_plugins.php:148
 msgid "Library"
-msgstr ""
+msgstr "Bibliothèque"
 
 #: server_plugins.php:114 server_plugins.php:149 tbl_tracking.php:635
 msgid "Version"
@@ -8945,17 +8936,16 @@ msgstr "Version"
 
 #: server_plugins.php:115 server_plugins.php:150
 msgid "Author"
-msgstr ""
+msgstr "Auteur"
 
 #: server_plugins.php:116 server_plugins.php:151
 msgid "License"
 msgstr "Licence"
 
 #: server_plugins.php:182
-#, fuzzy
 #| msgid "Disabled"
 msgid "disabled"
-msgstr "Désactivé"
+msgstr "désactivé"
 
 #: server_privileges.php:32 server_privileges.php:364
 msgid "Includes all privileges except GRANT."
@@ -9659,10 +9649,9 @@ msgid "Monitor"
 msgstr "Surveillance"
 
 #: server_status.php:779
-#, fuzzy
 #| msgid "Apply a divisor"
 msgid "Advisor"
-msgstr "Appliquer un diviseur"
+msgstr "Conseiller"
 
 #: server_status.php:789 server_status.php:811
 msgid "Refresh rate: "
@@ -9681,32 +9670,31 @@ msgid "Filter by category..."
 msgstr "Filtrer par catégorie..."
 
 #: server_status.php:855
-#, fuzzy
 #| msgid "Show only alert values"
 msgid "Show unformatted values"
-msgstr "Afficher uniquement les valeurs d'alerte"
+msgstr "Afficher les valeurs non formattées"
 
 #: server_status.php:859
 msgid "Related links:"
 msgstr "Liens connexes:"
 
 #: server_status.php:892
-#, fuzzy
 #| msgid "Query analyzer"
 msgid "Run analyzer"
-msgstr "Analyseur de requêtes"
+msgstr "Lancer l'analyseur"
 
 #: server_status.php:893
-#, fuzzy
 #| msgid "Introduction"
 msgid "Instructions"
-msgstr "Introduction"
+msgstr "Consignes"
 
 #: server_status.php:900
 msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
 msgstr ""
+"Le conseiller peut donner des recommandations au sujet des variables de "
+"serveur."
 
 #: server_status.php:902
 msgid ""
@@ -9714,6 +9702,8 @@ msgid ""
 "calculations and by rule of thumb which may not necessarily apply to your "
 "system."
 msgstr ""
+"Veuillez noter que ce système se base sur de simples calculs et des règles "
+"de base qui ne s'appliquent pas nécessairement à votre serveur."
 
 #: server_status.php:904
 msgid ""
@@ -9721,6 +9711,9 @@ msgid ""
 "changing (by reading the documentation) and how to undo the change. Wrong "
 "tuning can have a very negative effect on performance."
 msgstr ""
+"Avant de procéder à un changement, assurez-vous d'en connaître l'impact "
+"(lisez la documentation) et de savoir comment défaire le changement. Un "
+"réglage incorrect peut affecter négativement la performance."
 
 #: server_status.php:906
 msgid ""
@@ -9728,6 +9721,9 @@ msgid ""
 "time, observe or benchmark your database, and undo the change if there was "
 "no clearly measurable improvement."
 msgstr ""
+"La meilleure méthode est d'effectuer un changement à la fois, observer votre "
+"serveur et défaire le changement si aucune amélioration mesurable ne s'est "
+"produite."
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:928
@@ -10538,25 +10534,24 @@ msgid "Refresh rate"
 msgstr "Taux de rafraîchissement"
 
 #: server_status.php:1572
-#, fuzzy
 #| msgid "Chart columns:"
 msgid "Chart columns"
-msgstr "Colonnes du graphique :"
+msgstr "Colonnes du graphique"
 
 #: server_status.php:1588
-#, fuzzy
 #| msgid "Error management:"
 msgid "Chart arrangement"
-msgstr "Gestion des erreurs : "
+msgstr "Disposition du graphique"
 
 #: server_status.php:1588
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
+"La disposition du graphique est stockée dans le navigateur. Vous pouvez "
+"vouloir l'exporter si vous avez une configuration complexe."
 
 #: server_status.php:1589
-#, fuzzy
 #| msgid "Restore default value"
 msgid "Reset to default"
 msgstr "Ramener la valeur par défaut"
@@ -10586,15 +10581,17 @@ msgid ""
 "table is supported by MySQL 5.1.6 and onwards. You may still use the server "
 "charting features however."
 msgstr ""
+"Votre serveur ne supporte pas l'enregistrement du journal vers une table, ce "
+"qui est requis pour l'analyse des journaux par phpMyAdmin. Cette fonction "
+"est supportée par MySQL 5.1.6 et supérieur. Vous pouvez tout de même "
+"utiliser les graphiques de serveur."
 
 #: server_status.php:1612
-#, fuzzy
 #| msgid "Pause monitor"
 msgid "Using the monitor:"
-msgstr "Mettre la surveillance en pause"
+msgstr "Utilisation de la surveillance :"
 
 #: server_status.php:1614
-#, fuzzy
 #| msgid ""
 #| "<b>Using the monitor:</b><br/> Ok, you are good to go! Once you click "
 #| "'Start monitor' your browser will refresh all displayed charts in a "
@@ -10610,18 +10607,13 @@ msgid ""
 "change the refresh rate under 'Settings', or remove any chart using the cog "
 "icon on each respective chart."
 msgstr ""
-"<b>Utilisation de la surveillance :</b><br />Vous êtes maintenant prêt! "
-"Après avoir cliqué sur «Démarrer la surveillance», votre navigateur va "
-"rafraîchir les graphiques à intervalle régulier. Vous pouvez ajouter des "
-"graphiques et modifier le taux de rafraîchissement sous «Paramètres», ou "
-"supprimer tout graphique via l'cône de rouage.<p>Lorsque vous constatez un "
-"pic d'activité soudain, sélectionnez la portion de temps pertinent sur l'un "
-"des graphiques en tenant enfoncé le bouton gauche de la souris et en vous "
-"déplaçant sur le graphique. Ceci va charger les statistiques à partir des "
-"journaux et vous aidera à trouver la cause du pic dans l'activité.</p>"
+"Vous êtes maintenant prêt! Après avoir cliqué sur «Démarrer la "
+"surveillance», votre navigateur va rafraîchir les graphiques à intervalle "
+"régulier. Vous pouvez ajouter des graphiques et modifier le taux de "
+"rafraîchissement sous «Paramètres», ou supprimer tout graphique via l'cône "
+"de rouage."
 
 #: server_status.php:1616
-#, fuzzy
 #| msgid ""
 #| "<b>Using the monitor:</b><br/> Ok, you are good to go! Once you click "
 #| "'Start monitor' your browser will refresh all displayed charts in a "
@@ -10637,22 +10629,17 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occuring SELECT statements to further analyze them."
 msgstr ""
-"<b>Utilisation de la surveillance :</b><br />Vous êtes maintenant prêt! "
-"Après avoir cliqué sur «Démarrer la surveillance», votre navigateur va "
-"rafraîchir les graphiques à intervalle régulier. Vous pouvez ajouter des "
-"graphiques et modifier le taux de rafraîchissement sous «Paramètres», ou "
-"supprimer tout graphique via l'cône de rouage.<p>Lorsque vous constatez un "
-"pic d'activité soudain, sélectionnez la portion de temps pertinent sur l'un "
-"des graphiques en tenant enfoncé le bouton gauche de la souris et en vous "
-"déplaçant sur le graphique. Ceci va charger les statistiques à partir des "
-"journaux et vous aidera à trouver la cause du pic dans l'activité.</p>"
+"Pour afficher des requêtes à partir des journaux, sélectionnez la portion de "
+"temps pertinente sur l'un des graphiques en tenant enfoncé le bouton gauche "
+"de la souris et en vous déplaçant sur le graphique. Ceci va charger les "
+"statistiques sous forme de requêtes groupées, par la suite vous pouvez "
+"cliquer sur tout énoncé SELECT pour une analyse plus poussée."
 
 #: server_status.php:1623
 msgid "Please note:"
-msgstr ""
+msgstr "Note :"
 
 #: server_status.php:1625
-#, fuzzy
 #| msgid ""
 #| "<b>Please note:</b> Enabling the general_log may increase the server load "
 #| "by 5-15%. Also be aware that generating statistics from the logs is a "
@@ -10665,17 +10652,16 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
-"<b>À noter :</b>Activer le journal general_log peut causer une augmentation "
-"de charge de 5 à 15%. Également, la génération des statistiques à partir des "
-"journaux est une tâche intensive, donc il est suggéré de ne sélectionner "
-"qu'une petite portion de temps et de désactiver general_log puis de vider la "
-"table correspondante lorsque la surveillance n'est plus requise."
+"Activer le journal general_log peut causer une augmentation de charge de 5 à "
+"15%. Également, la génération des statistiques à partir des journaux est "
+"une tâche intensive, donc il est suggéré de ne sélectionner qu'une petite "
+"portion de temps et de désactiver general_log puis de vider la table "
+"correspondante lorsque la surveillance n'est plus requise."
 
 #: server_status.php:1637
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Preset chart"
-msgstr "Supprimer le graphique"
+msgstr "Graphique prédéfini"
 
 #: server_status.php:1641
 msgid "Status variable(s)"
@@ -10735,18 +10721,15 @@ msgstr ""
 "Enlever les données variables des énoncés INSERT pour un meilleur groupement"
 
 #: server_status.php:1713
-#, fuzzy
 #| msgid ""
 #| "<p>Choose from which log you want the statistics to be generated from.</"
 #| "p> Results are grouped by query text."
 msgid "Choose from which log you want the statistics to be generated from."
-msgstr ""
-"<p>Choississez depuis quel journal les statistiques doivent être générées.</"
-"p>Les résultats sont regroupés par le texte des requêtes."
+msgstr "Choisissez depuis quel journal les statistiques doivent être générées."
 
 #: server_status.php:1715
 msgid "Results are grouped by query text."
-msgstr ""
+msgstr "Les résultats sont regroupés par le texte des requêtes."
 
 #: server_status.php:1720
 msgid "Query analyzer"
@@ -10849,10 +10832,9 @@ msgid "Target database has been synchronized with source database"
 msgstr "La base cible a été synchronizée avec la base source"
 
 #: server_synchronize.php:1046
-#, fuzzy
 #| msgid "Issued queries"
 msgid "Executed queries"
-msgstr "Requêtes reçues"
+msgstr "Requêtes exécutées"
 
 #: server_synchronize.php:1192
 msgid "Enter manually"
@@ -10902,6 +10884,8 @@ msgstr "Télécharger"
 #: setup/frames/form.inc.php:25
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
 msgstr ""
+"Jeu de formulaires incorrect, vérifiez le tableau $formsets dans "
+"setup/frames/form.inc.php"
 
 #: setup/frames/index.inc.php:49
 msgid "Cannot load or save configuration"
@@ -11013,7 +10997,7 @@ msgstr "Ajouter un serveur"
 
 #: setup/index.php:22
 msgid "Wrong GET file attribute value"
-msgstr ""
+msgstr "Valeur incorrecte de l'attribut GET file"
 
 #: setup/lib/form_processing.lib.php:43
 msgid "Warning"
@@ -11225,10 +11209,9 @@ msgstr ""
 "spéciaux."
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No data"
 msgid "Wrong data"
-msgstr "Aucune donnée"
+msgstr "Données incorrectes"
 
 #: sql.php:214
 #, php-format
@@ -11443,10 +11426,9 @@ msgid "No index parts defined!"
 msgstr "Aucune colonne n'a été définie pour cet index!"
 
 #: tbl_indexes.php:169
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create an index"
-msgstr "Créer un nouvel index"
+msgstr "Créer un index"
 
 #: tbl_indexes.php:171
 msgid "Modify an index"
@@ -11628,7 +11610,7 @@ msgstr "Taille enr. "
 
 #: tbl_printview.php:388 tbl_structure.php:904
 msgid "Next autoindex"
-msgstr ""
+msgstr "Prochain index automatique"
 
 #: tbl_relation.php:276
 #, php-format

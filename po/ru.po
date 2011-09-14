@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-12 17:49+0200\n"
+"PO-Revision-Date: 2011-09-13 20:02+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1584,13 +1584,15 @@ msgstr "Затронуто строк:"
 
 #: js/messages.php:188
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
-msgstr ""
+msgstr "Ошибка при разборе конфигурационного файла. Не корректный код JSON."
 
 #: js/messages.php:189
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr ""
+"Ошибка построения сетки графика из импортированной конфигурации. Сброшено на "
+"изначальную конфигурацию..."
 
 #: js/messages.php:190 libraries/config/messages.inc.php:170
 #: libraries/db_links.inc.php:82 libraries/server_links.inc.php:69
@@ -1600,48 +1602,44 @@ msgid "Import"
 msgstr "Импорт"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
-msgstr "Дополнить запрос"
+msgstr "Анализ запроса"
 
 #: js/messages.php:196
 msgid "Advisor system"
-msgstr ""
+msgstr "Системный советник"
 
 #: js/messages.php:197
 msgid "Possible performance issues"
-msgstr ""
+msgstr "Возможные проблемы производительности"
 
 #: js/messages.php:198
 msgid "Issue"
-msgstr ""
+msgstr "Проблема"
 
 #: js/messages.php:199
-#, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
-msgstr "Документация"
+msgstr "Рекомендация"
 
 #: js/messages.php:200
-#, fuzzy
 #| msgid "Details"
 msgid "Rule details"
-msgstr "Детали"
+msgstr "Подробности правил"
 
 #: js/messages.php:201
-#, fuzzy
 #| msgid "Authentication"
 msgid "Justification"
-msgstr "Идентификация"
+msgstr "Обоснование"
 
 #: js/messages.php:202
 msgid "Used variable / formula"
-msgstr ""
+msgstr "Использованная переменная / формула"
 
 #: js/messages.php:203
 msgid "Test"
-msgstr ""
+msgstr "Тест"
 
 #: js/messages.php:208 libraries/tbl_properties.inc.php:758
 #: pmd_general.php:382 pmd_general.php:419 pmd_general.php:539
@@ -1706,16 +1704,14 @@ msgid "Insert Table"
 msgstr "Вставить таблицу"
 
 #: js/messages.php:230
-#, fuzzy
 #| msgid "Add index"
 msgid "Hide indexes"
-msgstr "Добавить индекс"
+msgstr "Скрыть индексы"
 
 #: js/messages.php:231
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "Отображать сетку"
+msgstr "Отображать индексы"
 
 #: js/messages.php:234
 msgid "Searching"
@@ -1766,10 +1762,9 @@ msgid "Change"
 msgstr "Изменить"
 
 #: js/messages.php:252
-#, fuzzy
 #| msgid "Maximum execution time"
 msgid "Query execution time"
-msgstr "Максимальное время выполнения"
+msgstr "Время выполнения запроса"
 
 #: js/messages.php:255 libraries/config/FormDisplay.tpl.php:323
 #: libraries/schema/User_Schema.class.php:351
@@ -1788,52 +1783,51 @@ msgid "Show search criteria"
 msgstr "Отобразить параметры поиска"
 
 #: js/messages.php:262 libraries/tbl_select.lib.php:135
-#, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
-msgstr "Поиск"
+msgstr "Поиск с приближением"
 
 #: js/messages.php:264
 msgid "Each point represents a data row."
-msgstr ""
+msgstr "Каждая точка представляет строку данных."
 
 #: js/messages.php:266
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "Задержание курсора над точкой отобразит ее название."
 
 #: js/messages.php:268
 msgid "Use mousewheel to zoom in or out of the plot."
-msgstr ""
+msgstr "Используйте колесо мышки для увеличения или уменьшения участка."
 
 #: js/messages.php:270
 msgid "Click and drag the mouse to navigate the plot."
-msgstr ""
+msgstr "Кликните и перетащите мышкой для перемещения участка."
 
 #: js/messages.php:272
 msgid "Click reset zoom link to come back to original state."
 msgstr ""
+"Кликните ссылку сброса увеличения для возвращения к исходному состоянию."
 
 #: js/messages.php:274
 msgid "Click a data point to view and possibly edit the data row."
-msgstr ""
+msgstr "Кликните точку данных для просмотра или редактирования строки данных."
 
 #: js/messages.php:276
 msgid "The plot can be resized by dragging it along the bottom right corner."
-msgstr ""
+msgstr "Можно изменить размер участка перетащив его вдоль нижнего правого угла."
 
 #: js/messages.php:278
 msgid "Strings are converted into integer for plotting"
-msgstr ""
+msgstr "Для построения графиков, строки конвертируются в числа."
 
 #: js/messages.php:280
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
-msgstr "Добавить/удалить столбцы"
+msgstr "Выберите два столбца"
 
 #: js/messages.php:281
 msgid "Select two different columns"
-msgstr ""
+msgstr "Выберите два различных столбца"
 
 #: js/messages.php:284 tbl_change.php:321 tbl_indexes.php:211
 #: tbl_indexes.php:238
@@ -1845,10 +1839,9 @@ msgid "Copy"
 msgstr "Копировать"
 
 #: js/messages.php:300
-#, fuzzy
 #| msgid "Add column"
 msgid "Add columns"
-msgstr "Добавить столбец"
+msgstr "Добавить столбцы"
 
 #: js/messages.php:303
 msgid "Select referenced key"
@@ -1882,13 +1875,15 @@ msgstr "Добавить параметр для столбца"
 
 #: js/messages.php:313
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "Для отмены редактирования нажмите кнопку Esc"
 
 #: js/messages.php:314
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
+"Вы отредактировали некоторые данные, но изменения не были сохранены. Вы "
+"уверены, что хотите покинуть данную страницу без сохранения данных?"
 
 #: js/messages.php:315
 msgid "Drag to reorder"
@@ -1904,7 +1899,7 @@ msgstr "Кликнуть для снятия/установки отметки"
 
 #: js/messages.php:318
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
-msgstr ""
+msgstr "Кликните выпадающую стрелку<br />для переключения видимости столбцов"
 
 #: js/messages.php:320
 msgid ""
