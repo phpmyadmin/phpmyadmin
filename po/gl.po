@@ -1511,7 +1511,7 @@ msgstr ""
 #, php-format
 #| msgid "Save as file"
 msgid "Set log_output to %s"
-msgstr "Configurar «log_output» to %s"
+msgstr "Configurar «log_output» a %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:148
