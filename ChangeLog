@@ -6,6 +6,7 @@ phpMyAdmin - ChangeLog
 - bug #3404886 [navi] Edit SQL statement after error
 - bug #3403165 [interface] Collation not displayed for long enum fields
 - bug #3399951 [export] Config for export compression not used
+- bug #3400690 [privileges] DB-specific privileges won't submit
 
 3.4.5.0 (2011-09-14)
 - bug #3375325 [interface] Page list in navigation frame looks odd

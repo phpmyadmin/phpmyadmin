@@ -1790,7 +1790,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             // but only if $dbname contains no wildcards
 
             // table header
-            echo '<form action="server_privileges.php" method="post">' . "\n"
+            echo '<form action="server_privileges.php" id="db_or_table_specific_priv" method="post">' . "\n"
                . PMA_generate_common_hidden_inputs('', '')
                . '<input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n"
                . '<input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n"
