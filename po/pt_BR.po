@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-09-11 06:58-0400\n"
+"POT-Creation-Date: 2011-09-13 12:29-0400\n"
 "PO-Revision-Date: 2011-09-10 03:20+0200\n"
 "Last-Translator:  <erickdeoliveiraleal@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
@@ -417,9 +417,8 @@ msgstr "Você deve escolher pelo menos uma coluna para exibir"
 
 #: db_qbe.php:186
 #, php-format
-#| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "Alterar para %construtor visual%s"
+msgstr "Alterar para %sconstrutor visual%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:957
@@ -825,7 +824,6 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "Copie e cole os valores concatenados na coluna \"Tamanho/Valores\""
 
 #: export.php:29
-#| msgid "Bar type"
 msgid "Bad type!"
 msgstr "Tipo incorreto!"
 
@@ -834,7 +832,6 @@ msgid "Selected export type has to be saved in file!"
 msgstr "Tipo de exportação selecionada tem que ser salvo no arquivo!"
 
 #: export.php:106
-#| msgid "Add index"
 msgid "Bad parameters!"
 msgstr "Parâmetros incorretos!"
 
@@ -862,13 +859,11 @@ msgid "Dump has been saved to file %s."
 msgstr "Dump foi salvo no arquivo %s."
 
 #: file_echo.php:21
-#| msgid "Export type"
 msgid "Invalid export type"
 msgstr "Formato inválido para exportação"
 
 #: gis_data_editor.php:84
 #, php-format
-#| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
 msgstr "Valores do campo \"%s\""
 
@@ -907,7 +902,6 @@ msgstr "Ponto %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:295
-#| msgid "Add index"
 msgid "Add a point"
 msgstr "Adicione um ponto"
 
@@ -926,7 +920,6 @@ msgid "Inner Ring"
 msgstr "Anel interno"
 
 #: gis_data_editor.php:252
-#| msgid "Add a new User"
 msgid "Add a linestring"
 msgstr "Adicionar uma linha"
 
@@ -955,8 +948,8 @@ msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
-"Selecione \"GeomFromText\" no campo \"Function\" e cole a string abaixo no campo "
-"\"Value\""
+"Selecione \"GeomFromText\" no campo \"Function\" e cole a string abaixo no "
+"campo \"Value\""
 
 #: import.php:57
 #, php-format
@@ -1243,7 +1236,6 @@ msgid "Query statistics"
 msgstr "Estatísticas de Consultas"
 
 #: js/messages.php:93
-#| msgid "Failed to read configuration file"
 msgid "Local monitor configuration incompatible"
 msgstr "Configuração do monitor local incompatível"
 
@@ -1300,12 +1292,10 @@ msgid "Average load"
 msgstr "Carga média"
 
 #: js/messages.php:107
-#| msgid "System memory"
 msgid "Total memory"
 msgstr "Memória total do sistema"
 
 #: js/messages.php:108
-#| msgid "System memory"
 msgid "Cached memory"
 msgstr "Cache de memória"
 
@@ -1314,17 +1304,14 @@ msgid "Buffered memory"
 msgstr "Memória em Buffer"
 
 #: js/messages.php:110
-#| msgid "System memory"
 msgid "Free memory"
 msgstr "Memória livre"
 
 #: js/messages.php:111
-#| msgid "System memory"
 msgid "Used memory"
 msgstr "Memória usada"
 
 #: js/messages.php:113
-#| msgid "Total"
 msgid "Total Swap"
 msgstr "Swap Total"
 
@@ -1337,7 +1324,6 @@ msgid "Used Swap"
 msgstr "Swap Utilizado"
 
 #: js/messages.php:116
-#| msgid "Free pages"
 msgid "Free Swap"
 msgstr "Swap livre"
 
@@ -1346,7 +1332,6 @@ msgid "Bytes sent"
 msgstr "Bytes enviados"
 
 #: js/messages.php:119
-#| msgid "Received"
 msgid "Bytes received"
 msgstr "Bytes Recebidos"
 
@@ -1370,18 +1355,15 @@ msgstr "Configurações"
 
 # The word "chart" in brasilian portuguese can mean either "Table = tabela" or "Report = relatório" or "Chart = gráfico" or "Diagram = diagrama". So, it depends of the context.
 #: js/messages.php:127
-#| msgid "Remove database"
 msgid "Remove chart"
 msgstr "Remover Gráfico"
 
 #: js/messages.php:128
-#| msgid "Edit labels and series"
 msgid "Edit title and labels"
 msgstr "Editar rótulos e títulos"
 
 # The word "chart" in brasilian portuguese can mean either "Table = tabela" or "Report = relatório" or "Chart = gráfico" or "Diagram = diagrama". So, it depends of the context.
 #: js/messages.php:129
-#| msgid "Snap to grid"
 msgid "Add chart to grid"
 msgstr "Adicionar gráfico ajustado na grade"
 
@@ -2410,7 +2392,6 @@ msgstr[0] "%1$d linha inserida."
 msgstr[1] "%1$d linha(s) inseridas."
 
 #: libraries/PDF.class.php:81
-#| msgid "Allows reading data."
 msgid "Error while creating PDF:"
 msgstr "Erro ao criar o PDF:"
 
@@ -3930,7 +3911,6 @@ msgid "SQL queries settings"
 msgstr "Configurações de consultas SQL"
 
 #: libraries/config/messages.inc.php:220
-#| msgid "SQL history"
 msgid "SQL Validator"
 msgstr "Validador SQL"
 
@@ -4814,7 +4794,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:430
-#| msgid "Defragment table"
 msgid "UI preferences table"
 msgstr "Preferências visuais da tabela"
 
@@ -6493,7 +6472,7 @@ msgstr "Adicionar instruções:"
 
 #: libraries/export/sql.php:211
 msgid ""
-"Enclose table and field names with backquotes <i>(Protects field and table "
+"Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
 
@@ -6618,7 +6597,6 @@ msgid "Open new phpMyAdmin window"
 msgstr "Abrir nova janela do phpMyAdmin"
 
 #: libraries/gis_visualization.lib.php:134
-#| msgid "No data found for the chart."
 msgid "No data found for GIS visualization."
 msgstr "Não foram encontrados dados para a visualização GIS."
 
@@ -8269,17 +8247,6 @@ msgstr ""
 "isso é feito usando a função gmdate()."
 
 #: libraries/transformations/text_plain__external.inc.php:10
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the field data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/transformations/"
-#| "text_plain__external.inc.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -8295,19 +8262,15 @@ msgstr ""
 "LINUX APENAS: Rode uma aplicação externa e alimente os campos de dados pela "
 "entrada padrão. Retorna a saída padrão da aplicação. Padrão é Limpo, para "
 "uma bonita impressão do código HTML. Por razões de segurança, você deve "
-"editar manualmente o arquivo "
-"libraries/transformations/text_plain__external.inc.php e inserir as "
-"ferramentas que você permite rodar. A primeira opção é o número do programa "
-"que você quer rodar e a segunda opção são os parâmetros para o programa. A "
-"terceira opção, se setada para 1 irá converter a saída usando "
-"htmlspecialchars() (Padrão é 1). A quarta opção, se setada como 1 irá por um "
-"NOWRAP para o conteúdo da célula, de forma que a saída inteira será "
+"editar manualmente o arquivo libraries/transformations/text_plain__external."
+"inc.php e inserir as ferramentas que você permite rodar. A primeira opção é "
+"o número do programa que você quer rodar e a segunda opção são os parâmetros "
+"para o programa. A terceira opção, se setada para 1 irá converter a saída "
+"usando htmlspecialchars() (Padrão é 1). A quarta opção, se setada como 1 irá "
+"por um NOWRAP para o conteúdo da célula, de forma que a saída inteira será "
 "mostrada sem reformatação(Padrão é 1)"
 
 #: libraries/transformations/text_plain__formatted.inc.php:10
-#| msgid ""
-#| "Displays the contents of the field as-is, without running it through "
-#| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
@@ -8316,10 +8279,6 @@ msgstr ""
 "htmlspecialchars(). Isso é, a coluna assume conter HTML válido"
 
 #: libraries/transformations/text_plain__imagelink.inc.php:10
-#| msgid ""
-#| "Displays an image and a link; the field contains the filename. The first "
-#| "option is a URL prefix like \"http://www.example.com/\". The second and "
-#| "third options are the width and the height in pixels."
 msgid ""
 "Displays an image and a link; the column contains the filename. The first "
 "option is a URL prefix like \"http://www.example.com/\". The second and "
@@ -8330,18 +8289,14 @@ msgstr ""
 "terceira opção são a largura e a altura em pixels."
 
 #: libraries/transformations/text_plain__link.inc.php:10
-#| msgid ""
-#| "Displays a link; the field contains the filename. The first option is a "
-#| "URL prefix like \"http://www.example.com/\". The second option is a title "
-#| "for the link."
 msgid ""
 "Displays a link; the column contains the filename. The first option is a URL "
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
 "Mostra um link, o campo contém o nome do arquivo. A primeira opção é um "
-"prefixo URL como \"http://www.exemplo.com/\". A segunda opção é um título para "
-"o link."
+"prefixo URL como \"http://www.exemplo.com/\". A segunda opção é um título "
+"para o link."
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:10
 msgid ""
@@ -9576,7 +9531,6 @@ msgid "Reset slave"
 msgstr ""
 
 #: server_replication.php:326
-#| msgid "Structure only"
 msgid "Start SQL Thread only"
 msgstr "Iniciar somente processo SQL"
 
@@ -9585,7 +9539,6 @@ msgid "Stop SQL Thread only"
 msgstr ""
 
 #: server_replication.php:331
-#| msgid "Structure only"
 msgid "Start IO Thread only"
 msgstr "Iniciar somente processo IO"
 
@@ -11537,7 +11490,6 @@ msgid "Table %s has been flushed"
 msgstr "Tabela %s foi limpa"
 
 #: tbl_operations.php:672
-#| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
 msgstr "Limpar a tabela (FLUSH)"
 
@@ -11696,7 +11648,6 @@ msgid "Add unique index"
 msgstr "Adicionar índice único"
 
 #: tbl_structure.php:173 tbl_structure.php:174
-#| msgid "Add index"
 msgid "Add SPATIAL index"
 msgstr "Adicionar índice SPATIAL"
 

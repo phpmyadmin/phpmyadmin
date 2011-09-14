@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-09-11 06:58-0400\n"
+"POT-Creation-Date: 2011-09-13 12:29-0400\n"
 "PO-Revision-Date: 2011-09-09 20:17+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
@@ -1236,7 +1236,6 @@ msgid "Processes"
 msgstr "Procesy"
 
 #: js/messages.php:84
-#| msgid "Connections"
 msgid "Connections / Processes"
 msgstr "Połączenia / Procesy"
 
@@ -6815,7 +6814,7 @@ msgstr "Cecha"
 #: libraries/export/sql.php:211
 #, fuzzy
 msgid ""
-"Enclose table and field names with backquotes <i>(Protects field and table "
+"Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
 "\"Użycie cudzysłowów z nazwami tabel i pól\" zapewnia ochronę nazwom pól i "
@@ -13645,7 +13644,6 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:270
-#| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
 msgstr "MyISAM concurrent inserts"
 
@@ -13660,9 +13658,8 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\\\">MySQL Documentation</a>"
 msgstr ""
 "Ustawienie {concurrent_insert} na 1 ogranicza zawartość pomiędzy odczytem a "
-"zapisem do danej tabeli. Zobacz także <a "
-"href=\\\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-"
-"inserts.html\\\">Dokumentację MySQL</a>"
+"zapisem do danej tabeli. Zobacz także <a href=\\\"http://dev.mysql.com/doc/"
+"refman/5.5/en/concurrent-inserts.html\\\">Dokumentację MySQL</a>"
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"

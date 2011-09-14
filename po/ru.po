@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-09-11 06:58-0400\n"
-"PO-Revision-Date: 2011-09-10 20:22+0200\n"
+"POT-Creation-Date: 2011-09-13 12:29-0400\n"
+"PO-Revision-Date: 2011-09-12 17:49+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -420,7 +420,6 @@ msgstr ""
 
 #: db_qbe.php:186
 #, php-format
-#| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
 msgstr "Переключиться на %sвизуальный составитель запросов%s"
 
@@ -830,7 +829,6 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "Скопируйте и вставьте объединенные значения в поле \"Длина/значения\""
 
 #: export.php:29
-#| msgid "Bar type"
 msgid "Bad type!"
 msgstr "Ошибочный тип!"
 
@@ -839,7 +837,6 @@ msgid "Selected export type has to be saved in file!"
 msgstr "Выбранный тип экспорта возможен только в файл!"
 
 #: export.php:106
-#| msgid "Add parameter"
 msgid "Bad parameters!"
 msgstr "Ошибочные параметры!"
 
@@ -867,13 +864,11 @@ msgid "Dump has been saved to file %s."
 msgstr "Дамп был сохранен в файл %s."
 
 #: file_echo.php:21
-#| msgid "Export type"
 msgid "Invalid export type"
 msgstr "Ошибочный тип экспорта"
 
 #: gis_data_editor.php:84
 #, php-format
-#| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
 msgstr "Значение для поля \"%s\""
 
@@ -912,12 +907,10 @@ msgstr "Точка %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:295
-#| msgid "Add routine"
 msgid "Add a point"
 msgstr "Добавить точку"
 
 #: gis_data_editor.php:220 js/messages.php:290
-#| msgid "Lines terminated by"
 msgid "Linestring"
 msgstr "Линия"
 
@@ -930,12 +923,10 @@ msgid "Inner Ring"
 msgstr "Внутренний контур"
 
 #: gis_data_editor.php:252
-#| msgid "Add a new User"
 msgid "Add a linestring"
 msgstr "Добавить линию"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:296
-#| msgid "Add a new User"
 msgid "Add an inner ring"
 msgstr "Добавить внутренний контур"
 
@@ -944,12 +935,10 @@ msgid "Polygon"
 msgstr "Многоугольник"
 
 #: gis_data_editor.php:306 js/messages.php:297
-#| msgid "Add column"
 msgid "Add a polygon"
 msgstr "Добавить многоугольник"
 
 #: gis_data_editor.php:310
-#| msgid "Geometry"
 msgid "Add geometry"
 msgstr "Добавить геометрии"
 
@@ -958,7 +947,8 @@ msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
-"Из поля функции выберите \"GeomFromText\" и вставьте строку ниже, как значение"
+"Из поля функции выберите \"GeomFromText\" и вставьте строку ниже, как "
+"значение"
 
 #: import.php:57
 #, php-format
@@ -1229,7 +1219,6 @@ msgstr "Соединения / Процессы"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:86
-#| msgid "Connections since last refresh"
 msgid "Questions since last refresh"
 msgstr "Вопросов с момента последнего обновления"
 
@@ -1243,7 +1232,6 @@ msgid "Query statistics"
 msgstr "Статистика запросов"
 
 #: js/messages.php:93
-#| msgid "Failed to read configuration file"
 msgid "Local monitor configuration incompatible"
 msgstr "Настройки локального монитора несовместимы"
 
@@ -1260,17 +1248,14 @@ msgstr ""
 "меню <i>Настройки</i>, в изначальные."
 
 #: js/messages.php:96
-#| msgid "Query cache"
 msgid "Query cache efficiency"
 msgstr "Эффективность кеширования запросов"
 
 #: js/messages.php:97
-#| msgid "Query cache"
 msgid "Query cache usage"
 msgstr "Использование кеширования запросов"
 
 #: js/messages.php:98
-#| msgid "Query cache"
 msgid "Query cache used"
 msgstr "Кеш запросов использован"
 
@@ -1301,7 +1286,6 @@ msgid "Average load"
 msgstr "Средняя загрузка"
 
 #: js/messages.php:107
-#| msgid "Total count"
 msgid "Total memory"
 msgstr "Полная память"
 
@@ -1310,7 +1294,6 @@ msgid "Cached memory"
 msgstr "Кешированная память"
 
 #: js/messages.php:109
-#| msgid "Buffer Pool"
 msgid "Buffered memory"
 msgstr "Беферизованная память"
 
@@ -1323,7 +1306,6 @@ msgid "Used memory"
 msgstr "Использованная память"
 
 #: js/messages.php:113
-#| msgid "Total"
 msgid "Total Swap"
 msgstr "Всего области подкачки"
 
@@ -1336,7 +1318,6 @@ msgid "Used Swap"
 msgstr "Использовано области подкачки"
 
 #: js/messages.php:116
-#| msgid "Free pages"
 msgid "Free Swap"
 msgstr "Свободно области подкачки"
 
@@ -1345,7 +1326,6 @@ msgid "Bytes sent"
 msgstr "Отослано байт"
 
 #: js/messages.php:119
-#| msgid "Received"
 msgid "Bytes received"
 msgstr "Принято байт"
 
@@ -1355,7 +1335,6 @@ msgstr "Соединения"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:124
-#| msgid "Versions"
 msgid "Questions"
 msgstr "Вопросы"
 
@@ -1369,7 +1348,6 @@ msgid "Settings"
 msgstr "Настройки"
 
 #: js/messages.php:127
-#| msgid "Remove database"
 msgid "Remove chart"
 msgstr "Удалить график"
 
@@ -1378,7 +1356,6 @@ msgid "Edit title and labels"
 msgstr "Редактировать название и подписи"
 
 #: js/messages.php:129
-#| msgid "Snap to grid"
 msgid "Add chart to grid"
 msgstr "Добавить график к сетке"
 
@@ -1454,21 +1431,18 @@ msgstr ""
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:146
 #, php-format
-#| msgid "Save output to a file"
 msgid "Set log_output to %s"
 msgstr "Установить log_output в %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:148
 #, php-format
-#| msgid "Enabled"
 msgid "Enable %s"
 msgstr "Включить %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:150
 #, php-format
-#| msgid "Disabled"
 msgid "Disable %s"
 msgstr "Отключить %s"
 
@@ -1487,45 +1461,38 @@ msgstr ""
 "учетной записью root, или свяжитесь с администратором базы данных."
 
 #: js/messages.php:154
-#| msgid "Manage your settings"
 msgid "Change settings"
 msgstr "Изменить настройки"
 
 #: js/messages.php:155
-#, fuzzy
-#| msgid "More settings"
 msgid "Current settings"
-msgstr "Дополнительные настройки"
+msgstr "Текущие настройки"
 
 #: js/messages.php:157 server_status.php:1634
-#, fuzzy
-#| msgid "Chart title"
 msgid "Chart Title"
 msgstr "Заголовок графика"
 
 #. l10n: As in differential values
 #: js/messages.php:159
-#, fuzzy
-#| msgid "Difference"
 msgid "Differential"
-msgstr "Различие"
+msgstr "Различия"
 
 #: js/messages.php:160
 #, php-format
 msgid "Divided by %s:"
-msgstr ""
+msgstr "Разделено на %s:"
 
 #: js/messages.php:162
 msgid "From slow log"
-msgstr ""
+msgstr "Из журнала медленных запросов"
 
 #: js/messages.php:163
 msgid "From general log"
-msgstr ""
+msgstr "Из основного журнала"
 
 #: js/messages.php:164
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "Анализ и загрузка журналов. Ждите, может занять какое-то время."
 
 #: js/messages.php:165
 msgid ""
@@ -1533,6 +1500,10 @@ msgid ""
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
+"Данный столбец показывает количество сгруппированных вместе идентичных "
+"запросов. Однако, в качестве критерия группировки используется только сам "
+"SQL запрос, таким образом другие атрибуты запросов, как время запуска, могут "
+"отличаться."
 
 #: js/messages.php:166
 msgid ""
@@ -1540,27 +1511,28 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
+"Поскольку была выбрана группировка INSERT запросов, INSERT запросы одной и "
+"той же таблицы так же группируются вместе, в независимости от заносимых "
+"данных."
 
 #: js/messages.php:167
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
+"Данные журналов загружены. Запросы выполненные в данный промежуток времени:"
 
 #: js/messages.php:169
-#, fuzzy
-#| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr "Перейти к базе данных"
+msgstr "Перейти к таблице журнала"
 
 #: js/messages.php:170
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
+"Анализ журнала пройден, но данные за выбранный промежуток времени не найдены."
 
 #. l10n: A collection of available filters
 #: js/messages.php:173
-#, fuzzy
-#| msgid "Tables display options"
 msgid "Log table filter options"
-msgstr "Параметры отображения списка таблиц"
+msgstr "Параметры фильтра таблицы журнала"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:175
@@ -1569,33 +1541,28 @@ msgstr "Фильтр"
 
 #: js/messages.php:176
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "Фильтровать запросы по строке, либо регулярному выражению:"
 
 #: js/messages.php:177
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
+"Группировать запросы с игнорированием переменных данных в условии WHERE"
 
 #: js/messages.php:178
-#, fuzzy
-#| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
-msgstr "Количество строк при вставке"
+msgstr "Сумма сгруппированных строк:"
 
 #: js/messages.php:179
-#, fuzzy
-#| msgid "Total"
 msgid "Total:"
-msgstr "Всего"
+msgstr "Всего:"
 
 #: js/messages.php:181
-#, fuzzy
-#| msgid "Loading"
 msgid "Loading logs"
-msgstr "Загрузка"
+msgstr "Загрузка журналов"
 
 #: js/messages.php:182
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "Обновление монитора завершилось ошибкой"
 
 #: js/messages.php:183
 msgid ""
@@ -1603,16 +1570,17 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"При запросе новых данных графика, сервер вернул некорректный ответ. Причиной "
+"может быть истекшая сессия. Перезагрузка страницы и последующий ввод данных "
+"учетной записи, должны решить проблему."
 
 #: js/messages.php:184
-#, fuzzy
-#| msgid "Reload"
 msgid "Reload page"
-msgstr "Обновить"
+msgstr "Перезагрузка страницы"
 
 #: js/messages.php:186
 msgid "Affected rows:"
-msgstr ""
+msgstr "Затронуто строк:"
 
 #: js/messages.php:188
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
@@ -6634,8 +6602,12 @@ msgid "Add statements:"
 msgstr "Добавить выражения:"
 
 #: libraries/export/sql.php:211
+#, fuzzy
+#| msgid ""
+#| "Enclose table and field names with backquotes <i>(Protects field and "
+#| "table names formed with special characters or keywords)</i>"
 msgid ""
-"Enclose table and field names with backquotes <i>(Protects field and table "
+"Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
 "Заключить имена таблиц и полей в обратные кавычки <i>(защищает имена таблиц "

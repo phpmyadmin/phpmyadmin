@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-09-11 06:58-0400\n"
-"PO-Revision-Date: 2011-09-09 18:58+0200\n"
+"POT-Creation-Date: 2011-09-13 12:29-0400\n"
+"PO-Revision-Date: 2011-09-13 00:30+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -2202,7 +2202,6 @@ msgstr "Pred uporabo phpMyAdmina odstranite mapo \"./config\"!"
 
 #: libraries/Config.class.php:727
 #, php-format
-#| msgid "Existing configuration file (%d) is not readable."
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Obstoječa konfiguracijska datoteka (%s) ni berljiva."
 
@@ -2437,9 +2436,9 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
-"Ne morem straniti lastnosti uporabniškega vmesnika \"%s\". Narejene spremembe "
-"po osvežitvi te strani ne bodo stalne. Prosimo, preverite, ali je bila "
-"struktura tabele spremenjena."
+"Ne morem straniti lastnosti uporabniškega vmesnika \"%s\". Narejene "
+"spremembe po osvežitvi te strani ne bodo stalne. Prosimo, preverite, ali je "
+"bila struktura tabele spremenjena."
 
 #: libraries/Theme.class.php:145
 #, php-format
@@ -6507,8 +6506,12 @@ msgid "Add statements:"
 msgstr "Dodaj izjave:"
 
 #: libraries/export/sql.php:211
+#, fuzzy
+#| msgid ""
+#| "Enclose table and field names with backquotes <i>(Protects field and "
+#| "table names formed with special characters or keywords)</i>"
 msgid ""
-"Enclose table and field names with backquotes <i>(Protects field and table "
+"Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
 "Obdaj imena tabel in polj z narekovaji <i>(Zaščiti imena polj in tabel, "
@@ -11282,10 +11285,8 @@ msgid "No index parts defined!"
 msgstr "Ni definiranega dela indeksa!"
 
 #: tbl_indexes.php:169
-#, fuzzy
-#| msgid "Create a new index"
 msgid "Create an index"
-msgstr "Ustvari nov indeks"
+msgstr "Ustvari indeks"
 
 #: tbl_indexes.php:171
 msgid "Modify an index"

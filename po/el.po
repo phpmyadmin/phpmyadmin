@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-09-11 06:58-0400\n"
-"PO-Revision-Date: 2011-09-10 09:25+0200\n"
+"POT-Creation-Date: 2011-09-13 12:29-0400\n"
+"PO-Revision-Date: 2011-09-12 12:07+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -2211,7 +2211,6 @@ msgstr "Απομακρύντε το φάκελο «./config» πριν τη χρ
 
 #: libraries/Config.class.php:727
 #, php-format
-#| msgid "Existing configuration file (%d) is not readable."
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Το υπαρχον αρχείο ρυθμίσεων (%s) δεν είναι αναγνώσιμο."
 
@@ -2444,6 +2443,9 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
+"Αδύνατη η ιδιότητα περιβάλλοντος εργασίας «%s». Οι αλλαγές που έγιναν δεν θα "
+"παραμείνουν μετά την ανανέωση της σελίδας. Ελέξτε αν η δομή πίνακα έχει "
+"αλλαχτεί."
 
 #: libraries/Theme.class.php:145
 #, php-format
@@ -6569,8 +6571,12 @@ msgid "Add statements:"
 msgstr "Προσθήκη δηλώσεων:"
 
 #: libraries/export/sql.php:211
+#, fuzzy
+#| msgid ""
+#| "Enclose table and field names with backquotes <i>(Protects field and "
+#| "table names formed with special characters or keywords)</i>"
 msgid ""
-"Enclose table and field names with backquotes <i>(Protects field and table "
+"Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
 "Εσωκλείνει ονόματα πίνακα και πεδίων με ανάποδα εισαγωγικά <i>(Προστατεύει "
@@ -9720,6 +9726,9 @@ msgid ""
 "time, observe or benchmark your database, and undo the change if there was "
 "no clearly measurable improvement."
 msgstr ""
+"Ο καλύτερος τρόπος για να βελτιώσετε το σύστημά σας είναι να αλλάζετε μια "
+"ρύθμιση κάθε φορά, να παρατηρείτε τη βάση δεδομένων και αναιρέστε την αλλαγή "
+"αν δεν υπήρχε ουσιαστική βελτίωση."
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:928
@@ -10556,43 +10565,30 @@ msgid "Refresh rate"
 msgstr "Ρυθμός ανανέωσης"
 
 #: server_status.php:1572
-#, fuzzy
-#| msgid "Chart columns:"
 msgid "Chart columns"
-msgstr "Στήλες διαγράμματος:"
+msgstr "Στήλες διαγράμματος"
 
 #: server_status.php:1588
-#, fuzzy
-#| msgid "Error management:"
 msgid "Chart arrangement"
-msgstr "Διαχείριση σφάλματος:"
+msgstr "Διευθέτηση διαγράμματος"
 
 #: server_status.php:1588
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
+"Η διευθέτηση των διαγραμμάτων αποθηκεύεται στον τοπικό χώρο αποθήκευσης των "
+"φυλλομετρητών. Ίσως θέλετε να το εξάγετε αν έχετε πολύπλοκη ρύθμιση."
 
 #: server_status.php:1589
-#, fuzzy
-#| msgid "Restore default value"
 msgid "Reset to default"
-msgstr "Επαναφορά προεπιλεγμένης τιμής"
+msgstr "Επαναφορά προεπιλογής"
 
 #: server_status.php:1593
 msgid "Monitor Instructions"
 msgstr "Οδηγίες Εποπτείας"
 
 #: server_status.php:1594
-#, fuzzy
-#| msgid ""
-#| "The phpMyAdmin Monitor can assist you in optimizing the server "
-#| "configuration and track down time intensive\n"
-#| "        queries. For the latter you will need to set log_output to "
-#| "'TABLE' and have either the slow_query_log or general_log enabled. Note "
-#| "however, that the\n"
-#| "        general_log produces a lot of data and increases server load by "
-#| "up to 15%"
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "

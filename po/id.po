@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-09-11 06:58-0400\n"
+"POT-Creation-Date: 2011-09-13 12:29-0400\n"
 "PO-Revision-Date: 2011-09-12 09:37+0200\n"
 "Last-Translator:  <uringinteristi@gmail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
@@ -416,7 +416,6 @@ msgstr "Sekurang-kurangnya satu kolom harus dipilih untuk ditampilkan"
 
 #: db_qbe.php:186
 #, php-format
-#| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
 msgstr "Alihkan ke %spembangun visual%s"
 
@@ -828,7 +827,6 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "keluaran"
 
 #: export.php:29
-#| msgid "Bar type"
 msgid "Bad type!"
 msgstr "Penulisan yang buruk!"
 
@@ -837,7 +835,6 @@ msgid "Selected export type has to be saved in file!"
 msgstr "jenis ekspor yang diipilih harus disimpan dalam file!"
 
 #: export.php:106
-#| msgid "Remove database"
 msgid "Bad parameters!"
 msgstr "Pembatasan yang buruk!"
 
@@ -6541,7 +6538,7 @@ msgstr "Keterangan"
 
 #: libraries/export/sql.php:211
 msgid ""
-"Enclose table and field names with backquotes <i>(Protects field and table "
+"Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
 
@@ -12857,7 +12854,6 @@ msgstr ""
 "dari 1 per jam"
 
 #: po/advisory_rules.php:240
-#| msgid "Table of contents"
 msgid "Percentage of aborted clients"
 msgstr "Persentase klien-klien yang dibatalkan"
 
@@ -12871,8 +12867,8 @@ msgid ""
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
-"Klien-klien biasanya dibatalkan apabila mereka tidak menutup "
-"koneksi/sambungan ke MySQL secara tepat. Hal ini bisa disebabkan oleh adanya "
+"Klien-klien biasanya dibatalkan apabila mereka tidak menutup koneksi/"
+"sambungan ke MySQL secara tepat. Hal ini bisa disebabkan oleh adanya "
 "kesalahan pada jaringan (network) atau penutupan penanganan database secara "
 "tepat. Periksa jaringan dan kode anda."
 
@@ -12897,7 +12893,6 @@ msgid "Is InnoDB disabled?"
 msgstr "Apakah InnoDB non-aktif?"
 
 #: po/advisory_rules.php:251
-#| msgid "Could not save recent table"
 msgid "You do not have InnoDB enabled."
 msgstr "InnoDB anda tidak ada yang aktif"
 

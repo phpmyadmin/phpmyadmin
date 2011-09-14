@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-09-11 06:58-0400\n"
+"POT-Creation-Date: 2011-09-13 12:29-0400\n"
 "PO-Revision-Date: 2011-09-09 12:45+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
@@ -1910,7 +1910,6 @@ msgstr ""
 "directement sur leur contenu."
 
 #: js/messages.php:322
-#| msgid "Go to view"
 msgid "Go to link"
 msgstr "Suivre le lien"
 
@@ -1954,13 +1953,11 @@ msgid "Done"
 msgstr "Fermer"
 
 #: js/messages.php:359
-#| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Précédent"
 
 #: js/messages.php:364
-#| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
 msgstr "Suivant"
@@ -2109,8 +2106,6 @@ msgstr "Samedi"
 
 #. l10n: Short week day name
 #: js/messages.php:420
-#| msgctxt "Short week day name"
-#| msgid "Sun"
 msgid "Sun"
 msgstr "Dim"
 
@@ -2368,7 +2363,6 @@ msgstr[0] "%1$d ligne insérée."
 msgstr[1] "%1$d lignes insérées."
 
 #: libraries/PDF.class.php:81
-#| msgid "Allows reading data."
 msgid "Error while creating PDF:"
 msgstr "Erreur pendant la création du PDF: "
 
@@ -2407,7 +2401,6 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Ce serveur MySQL ne supporte pas le moteur de stockage %s."
 
 #: libraries/Table.class.php:329
-#| msgid "Show slave status"
 msgid "unknown table status: "
 msgstr "Statut de table incorrect:"
 
@@ -2439,8 +2432,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
-"Echec lors de la tentative de vidage de la table UI Préférences (voir "
-"$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
+"Echec lors de la tentative de vidage de la table UI Préférences (voir $cfg"
+"['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.class.php:1513
 #, php-format
@@ -2898,7 +2891,6 @@ msgstr "Paramètre manquant :"
 
 #: libraries/common.lib.php:2364 libraries/common.lib.php:2367
 #: libraries/display_tbl.lib.php:306
-#| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
 msgstr "Début"
@@ -2906,7 +2898,6 @@ msgstr "Début"
 #: libraries/common.lib.php:2365 libraries/common.lib.php:2368
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
-#| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Précédent"
@@ -2914,14 +2905,12 @@ msgstr "Précédent"
 #: libraries/common.lib.php:2395 libraries/common.lib.php:2398
 #: libraries/display_tbl.lib.php:370 server_binlog.php:170
 #: server_binlog.php:172
-#| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
 msgstr "Suivant"
 
 #: libraries/common.lib.php:2396 libraries/common.lib.php:2399
 #: libraries/display_tbl.lib.php:385
-#| msgid "End"
 msgctxt "Last page"
 msgid "End"
 msgstr "Fin"
@@ -4304,7 +4293,6 @@ msgid "Memory limit"
 msgstr "Limite mémoire"
 
 #: libraries/config/messages.inc.php:319
-#| msgid "These are Edit, Inline edit, Copy and Delete links"
 msgid "These are Edit, Copy and Delete links"
 msgstr "Il s'agit des liens Modifier,  Copier et Effacer"
 
@@ -4668,7 +4656,6 @@ msgstr ""
 "récentes entrées dans «table_uiprefs» sont conservées"
 
 #: libraries/config/messages.inc.php:399
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of records saved in \"table_uiprefs\" table"
 msgstr "Nombre maximum de lignes conservées dans la table «table_uiprefs»"
 
@@ -5011,12 +4998,10 @@ msgid "Show function fields"
 msgstr "Montrer les fonctions"
 
 #: libraries/config/messages.inc.php:462
-#| msgid "Where to show the table row links"
 msgid "Whether to show hint or not"
 msgstr "Afficher ou non les explications"
 
 #: libraries/config/messages.inc.php:463
-#| msgid "Show indexes"
 msgid "Show hint"
 msgstr "Montrer les explications"
 
@@ -5353,7 +5338,6 @@ msgid "Could not initialize Drizzle connection library"
 msgstr "Impossible d'initialiser la bibliothèque de connexion Drizzle"
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
-#| msgid "Could not connect to MySQL server"
 msgid "Could not connect to Drizzle server"
 msgstr "Connexion au serveur Drizzle impossible"
 
@@ -5461,7 +5445,6 @@ msgid "The server is not responding"
 msgstr "Le serveur ne répond pas"
 
 #: libraries/dbi/drizzle.dbi.lib.php:344
-#| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid "(or the local Drizzle server's socket is not correctly configured)"
 msgstr ""
 "(ou l'interface de connexion vers le serveur Drizzle local n'est pas "
@@ -5776,7 +5759,6 @@ msgid "Language"
 msgstr "Langue"
 
 #: libraries/display_tbl.lib.php:401
-#| msgid "Save directory"
 msgid "Save edited data"
 msgstr "Sauvegarder les données modifiées"
 
@@ -6564,8 +6546,12 @@ msgid "Add statements:"
 msgstr "Ajouter les énoncés :"
 
 #: libraries/export/sql.php:211
+#, fuzzy
+#| msgid ""
+#| "Enclose table and field names with backquotes <i>(Protects field and "
+#| "table names formed with special characters or keywords)</i>"
 msgid ""
-"Enclose table and field names with backquotes <i>(Protects field and table "
+"Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
 "Entourer les noms des tables et des colonnes par des guillemets obliques <i>"
@@ -6679,7 +6665,6 @@ msgid "Stand-in structure for view"
 msgstr "Doublure de structure pour la vue"
 
 #: libraries/export/sql.php:1111
-#| msgid "Allows reading data."
 msgid "Error reading data:"
 msgstr "Erreur de lecture des données :"
 
@@ -6751,7 +6736,6 @@ msgstr "Aller à la base de données"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
 #, php-format
-#| msgid "Missing data for %s"
 msgid "Edit settings for %s"
 msgstr "Paramètres de modification pour %s"
 
@@ -6761,7 +6745,6 @@ msgstr "Aller à la table"
 
 #: libraries/import.lib.php:1130
 #, php-format
-#| msgid "Structure only"
 msgid "Structure of %s"
 msgstr "Structure de %s"
 

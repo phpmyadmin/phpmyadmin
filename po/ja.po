@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-09-11 06:58-0400\n"
+"POT-Creation-Date: 2011-09-13 12:29-0400\n"
 "PO-Revision-Date: 2011-09-11 11:14+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
@@ -2200,7 +2200,8 @@ msgstr ""
 
 #: libraries/Config.class.php:703
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
-msgstr "phpMyAdmin を使用し始める前に、「./config」ディレクトリを削除してください！"
+msgstr ""
+"phpMyAdmin を使用し始める前に、「./config」ディレクトリを削除してください！"
 
 #: libraries/Config.class.php:727
 #, php-format
@@ -2209,7 +2210,9 @@ msgstr "設定ファイル (%s) は存在しますが、読み込むことがで
 
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
-msgstr "設定ファイルのパーミッションが正しくありません。書き込み可能になっていません！"
+msgstr ""
+"設定ファイルのパーミッションが正しくありません。書き込み可能になっていませ"
+"ん！"
 
 #: libraries/Config.class.php:1297
 msgid "Font size"
@@ -6475,8 +6478,12 @@ msgid "Add statements:"
 msgstr "追加コマンド："
 
 #: libraries/export/sql.php:211
+#, fuzzy
+#| msgid ""
+#| "Enclose table and field names with backquotes <i>(Protects field and "
+#| "table names formed with special characters or keywords)</i>"
 msgid ""
-"Enclose table and field names with backquotes <i>(Protects field and table "
+"Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
 "逆クォートでテーブルやフィールドの名前を囲む <i>(特殊な文字やキーワードを含む"
