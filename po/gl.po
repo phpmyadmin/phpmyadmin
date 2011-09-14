@@ -413,12 +413,12 @@ msgid "Last check"
 msgstr "Última revisión"
 
 #: db_printview.php:219 db_structure.php:443
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s táboa(s)"
-msgstr[1] "%s táboa(s)"
+msgstr[0] "%s táboa"
+msgstr[1] "%s táboas"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
