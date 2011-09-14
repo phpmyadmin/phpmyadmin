@@ -1121,7 +1121,7 @@ msgstr "Está a piques de baleirar (TRUNCATE) unha base de datos enteira!"
 #: js/messages.php:37
 #| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
-msgstr "Borrar os datos de seguemento"
+msgstr "Eliminar os datos de seguemento"
 
 #: js/messages.php:38
 msgid "Dropping Primary Key/Index"
