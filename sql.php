@@ -17,7 +17,6 @@ require_once './libraries/bookmark.lib.php';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'jquery/timepicker.js';
 $GLOBALS['js_include'][] = 'tbl_change.js';
-$GLOBALS['js_include'][] = 'jquery/jquery.sprintf.js';
 $GLOBALS['js_include'][] = 'gis_data_editor.js';
 
 if (isset($_SESSION['profiling'])) {

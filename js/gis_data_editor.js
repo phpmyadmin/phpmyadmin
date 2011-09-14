@@ -94,6 +94,7 @@ function loadJSAndGISEditor(value, field, type, input_name, token) {
 
     // Loads a set of small JS file needed for the GIS editor
     var smallScripts = [ 'js/jquery/jquery.svg.js',
+                     'js/jquery/jquery.sprintf.js',
                      'js/jquery/jquery.mousewheel.js',
                      'js/jquery/jquery.event.drag-2.0.min.js',
                      'js/tbl_gis_visualization.js' ];
