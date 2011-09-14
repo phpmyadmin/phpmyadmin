@@ -139,83 +139,83 @@ foreach ($tables as $keyname => $each_table) {
     switch ( $each_table['ENGINE']) {
         // MyISAM, ISAM or Heap table: Row count, data size and index size
         // are accurate; data size is accurate for ARCHIVE
-        case 'MyISAM' :
-        case 'ISAM' :
-        case 'HEAP' :
-        case 'MEMORY' :
-        case 'ARCHIVE' :
-        case 'Aria' :
-        case 'Maria' :
-            if ($db_is_information_schema) {
-                $each_table['Rows'] = PMA_Table::countRecords($db,
-                    $each_table['Name']);
-            }
+    case 'MyISAM' :
+    case 'ISAM' :
+    case 'HEAP' :
+    case 'MEMORY' :
+    case 'ARCHIVE' :
+    case 'Aria' :
+    case 'Maria' :
+        if ($db_is_information_schema) {
+            $each_table['Rows'] = PMA_Table::countRecords($db,
+                $each_table['Name']);
+        }
 
-            if ($is_show_stats) {
-                $tblsize                    =  doubleval($each_table['Data_length']) + doubleval($each_table['Index_length']);
-                $sum_size                   += $tblsize;
-                list($formatted_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
-                if (isset($each_table['Data_free']) && $each_table['Data_free'] > 0) {
-                    list($formatted_overhead, $overhead_unit)     = PMA_formatByteDown($each_table['Data_free'], 3, ($each_table['Data_free'] > 0) ? 1 : 0);
-                    $overhead_size           += $each_table['Data_free'];
-                }
+        if ($is_show_stats) {
+            $tblsize                    =  doubleval($each_table['Data_length']) + doubleval($each_table['Index_length']);
+            $sum_size                   += $tblsize;
+            list($formatted_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
+            if (isset($each_table['Data_free']) && $each_table['Data_free'] > 0) {
+                list($formatted_overhead, $overhead_unit)     = PMA_formatByteDown($each_table['Data_free'], 3, ($each_table['Data_free'] > 0) ? 1 : 0);
+                $overhead_size           += $each_table['Data_free'];
             }
-            break;
-        case 'InnoDB' :
-        case 'PBMS' :
-            // InnoDB table: Row count is not accurate but data and index sizes are.
-            // PBMS table in Drizzle: TABLE_ROWS is taken from table cache, so it may be unavailable
+        }
+        break;
+    case 'InnoDB' :
+    case 'PBMS' :
+        // InnoDB table: Row count is not accurate but data and index sizes are.
+        // PBMS table in Drizzle: TABLE_ROWS is taken from table cache, so it may be unavailable
 
-            if (($each_table['ENGINE'] == 'InnoDB' && $each_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount'])
-                    || !isset($each_table['TABLE_ROWS'])) {
-                $each_table['COUNTED'] = true;
-                $each_table['TABLE_ROWS'] = PMA_Table::countRecords($db,
-                    $each_table['TABLE_NAME'], $force_exact = true,
-                    $is_view = false);
-            } else {
-                $each_table['COUNTED'] = false;
-            }
+        if (($each_table['ENGINE'] == 'InnoDB' && $each_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount'])
+                || !isset($each_table['TABLE_ROWS'])) {
+            $each_table['COUNTED'] = true;
+            $each_table['TABLE_ROWS'] = PMA_Table::countRecords($db,
+                $each_table['TABLE_NAME'], $force_exact = true,
+                $is_view = false);
+        } else {
+            $each_table['COUNTED'] = false;
+        }
 
-            // Drizzle doesn't provide data and index length, check for null
-            if ($is_show_stats && $each_table['Data_length'] !== null) {
-                $tblsize                    =  $each_table['Data_length'] + $each_table['Index_length'];
-                $sum_size                   += $tblsize;
-                list($formatted_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
-            }
-            //$display_rows                   =  ' - ';
-            break;
-        // Mysql 5.0.x (and lower) uses MRG_MyISAM and MySQL 5.1.x (and higher) uses MRG_MYISAM
-        // Both are aliases for MERGE
-        case 'MRG_MyISAM' :
-        case 'MRG_MYISAM' :
-        case 'MERGE' :
-        case 'BerkeleyDB' :
-            // Merge or BerkleyDB table: Only row count is accurate.
-            if ($is_show_stats) {
-                $formatted_size =  ' - ';
-                $unit          =  '';
-            }
-            break;
-            // for a view, the ENGINE is sometimes reported as null,
-            // or on some servers it's reported as "SYSTEM VIEW"
-        case null :
-        case 'SYSTEM VIEW' :
-        case 'FunctionEngine' :
-            // if table is broken, Engine is reported as null, so one more test
-            if ($each_table['TABLE_TYPE'] == 'VIEW') {
-                // countRecords() takes care of $cfg['MaxExactCountViews']
-                $each_table['TABLE_ROWS'] = PMA_Table::countRecords($db,
-                    $each_table['TABLE_NAME'], $force_exact = true,
-                    $is_view = true);
-                $table_is_view = true;
-            }
-            break;
-        default :
-            // Unknown table type.
-            if ($is_show_stats) {
-                $formatted_size =  'unknown';
-                $unit          =  '';
-            }
+        // Drizzle doesn't provide data and index length, check for null
+        if ($is_show_stats && $each_table['Data_length'] !== null) {
+            $tblsize                    =  $each_table['Data_length'] + $each_table['Index_length'];
+            $sum_size                   += $tblsize;
+            list($formatted_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
+        }
+        //$display_rows                   =  ' - ';
+        break;
+    // Mysql 5.0.x (and lower) uses MRG_MyISAM and MySQL 5.1.x (and higher) uses MRG_MYISAM
+    // Both are aliases for MERGE
+    case 'MRG_MyISAM' :
+    case 'MRG_MYISAM' :
+    case 'MERGE' :
+    case 'BerkeleyDB' :
+        // Merge or BerkleyDB table: Only row count is accurate.
+        if ($is_show_stats) {
+            $formatted_size =  ' - ';
+            $unit          =  '';
+        }
+        break;
+        // for a view, the ENGINE is sometimes reported as null,
+        // or on some servers it's reported as "SYSTEM VIEW"
+    case null :
+    case 'SYSTEM VIEW' :
+    case 'FunctionEngine' :
+        // if table is broken, Engine is reported as null, so one more test
+        if ($each_table['TABLE_TYPE'] == 'VIEW') {
+            // countRecords() takes care of $cfg['MaxExactCountViews']
+            $each_table['TABLE_ROWS'] = PMA_Table::countRecords($db,
+                $each_table['TABLE_NAME'], $force_exact = true,
+                $is_view = true);
+            $table_is_view = true;
+        }
+        break;
+    default :
+        // Unknown table type.
+        if ($is_show_stats) {
+            $formatted_size =  'unknown';
+            $unit          =  '';
+        }
     } // end switch
 
     if (! PMA_Table::isMerge($db, $each_table['TABLE_NAME'])) {
