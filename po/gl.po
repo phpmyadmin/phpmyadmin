@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-14 23:57+0200\n"
+"PO-Revision-Date: 2011-09-14 23:58+0200\n"
 "Last-Translator:  <fran.dieguez@mabishu.com>\n"
 "Language-Team: galician <gl@li.org>\n"
 "Language: gl\n"
@@ -266,7 +266,7 @@ msgstr "Deseleccionar todo"
 
 #: db_operations.php:41 tbl_create.php:22
 msgid "The database name is empty!"
-msgstr "Ese nome de base de datos non existe."
+msgstr "O nome da base de datos está baleiro!"
 
 #: db_operations.php:274
 #, php-format
