@@ -1106,7 +1106,7 @@ msgstr "Seguro? "
 
 #: js/messages.php:33 libraries/mult_submits.inc.php:282 sql.php:329
 msgid "You are about to DESTROY a complete database!"
-msgstr "Está a piques de DESTRUÍR unha base de datos enteira!"
+msgstr "Está a piques de elimianr (DESTROY) unha base de datos enteira!"
 
 #: js/messages.php:34
 #| msgid "You are about to DESTROY a complete database!"
