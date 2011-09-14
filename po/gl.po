@@ -299,7 +299,7 @@ msgstr "Eliminar base de datos (DROP)"
 
 #: db_operations.php:473
 msgid "Copy database to"
-msgstr "Copiar a base de datos para"
+msgstr "Copiar a base de datos a"
 
 #: db_operations.php:480 tbl_operations.php:552 tbl_tracking.php:409
 msgid "Structure only"
