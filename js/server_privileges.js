@@ -385,7 +385,7 @@ $(document).ready(function() {
      * @memberOf    jQuery
      * @name        edit_user_submit
      */
-    $("#edit_user_dialog").find("form").live('submit', function(event) {
+    $("#edit_user_dialog").find("form:not(#db_or_table_specific_priv)").live('submit', function(event) {
         /** @lends jQuery */
         event.preventDefault();
 
