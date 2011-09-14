@@ -1098,7 +1098,7 @@ msgstr ""
 
 #: js/messages.php:29 libraries/import.lib.php:103 sql.php:246
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "Non se permiten as ordes \"Eliminar a base de datos\"."
+msgstr "Non se permiten as ordes \"DROP DATABASE\"."
 
 #: js/messages.php:32 libraries/mult_submits.inc.php:282 sql.php:344
 msgid "Do you really want to "
