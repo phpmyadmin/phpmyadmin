@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-15 00:21+0200\n"
+"PO-Revision-Date: 2011-09-15 00:22+0200\n"
 "Last-Translator:  <fran.dieguez@mabishu.com>\n"
 "Language-Team: galician <gl@li.org>\n"
 "Language: gl\n"
@@ -410,7 +410,7 @@ msgstr "Última actualización"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:418
 #: tbl_structure.php:928
 msgid "Last check"
-msgstr "Comprobación máis recente"
+msgstr "Última revisión"
 
 #: db_printview.php:219 db_structure.php:443
 #, fuzzy, php-format
