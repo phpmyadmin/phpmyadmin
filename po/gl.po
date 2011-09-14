@@ -271,7 +271,7 @@ msgstr "O nome da base de datos está baleiro!"
 #: db_operations.php:274
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr "Mudóuselle o nome á base de datos %s para %s"
+msgstr "A base de datos %s foi renomeada a %s"
 
 #: db_operations.php:278
 #, php-format
