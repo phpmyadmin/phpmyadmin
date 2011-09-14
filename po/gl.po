@@ -1125,7 +1125,7 @@ msgstr "Eliminar os datos de seguemento"
 
 #: js/messages.php:38
 msgid "Dropping Primary Key/Index"
-msgstr "Borrando chaves primarias/Índice"
+msgstr "Eliminar chaves primarias/Índice"
 
 #: js/messages.php:39
 msgid "This operation could take a long time. Proceed anyway?"
