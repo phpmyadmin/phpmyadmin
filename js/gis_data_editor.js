@@ -89,17 +89,25 @@ function initGISEditorVisualization() {
  * @param token      token
  */
 function loadJSAndGISEditor(value, field, type, input_name, token) {
+    var head = document.getElementsByTagName('head')[0];
+    var script;
 
     // Loads a set of small JS file needed for the GIS editor
-    loadJavascript([ 'js/jquery/jquery.svg.js',
+    var smallScripts = [ 'js/jquery/jquery.svg.js',
                      'js/jquery/jquery.mousewheel.js',
                      'js/jquery/jquery.event.drag-2.0.min.js',
-                     'js/tbl_gis_visualization.js' ]);
+                     'js/tbl_gis_visualization.js' ];
+
+    for (i = 0; i < smallScripts.length; i++) {
+        script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = smallScripts[i];
+        head.appendChild(script);
+    }
 
     // OpenLayers.js is BIG and takes time. So asynchronous loading would not work.
     // Load the JS and do a callback to load the content for the GIS Editor.
-    var head = document.getElementsByTagName('head')[0];
-    var script = document.createElement('script');
+    script = document.createElement('script');
     script.type = 'text/javascript';
 
     script.onreadystatechange = function() {
