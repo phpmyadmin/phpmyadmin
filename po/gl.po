@@ -280,7 +280,7 @@ msgstr "A base de datos %s foi copiada para %s"
 
 #: db_operations.php:401
 msgid "Rename database to"
-msgstr "Mudar o nome da base de datos para"
+msgstr "Renomear a base de datos a"
 
 #: db_operations.php:427
 #, fuzzy
