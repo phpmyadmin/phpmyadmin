@@ -1971,7 +1971,6 @@ input[type=text].invalid_value,
     background-repeat: no-repeat;
     background-position: 2%;
     border:1px solid #e2b709;
-    cursor: pointer;
  }
 
 /* additional styles */

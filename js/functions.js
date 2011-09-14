@@ -1291,14 +1291,42 @@ $(document).ready(function(){
 /**
  * Show a message on the top of the page for an Ajax request
  *
- * @param   var     message     string containing the message to be shown.
+ * Sample usage:
+ *
+ * 1) var $msg = PMA_ajaxShowMessage();
+ * This will show a message that reads "Loading...". Such a message will not
+ * disappear automatically and cannot be dismissed by the user. To remove this
+ * message either the PMA_ajaxRemoveMessage($msg) function must be called or
+ * another message must be show with PMA_ajaxShowMessage() function.
+ *
+ * 2) var $msg = PMA_ajaxShowMessage('The operation was successful');
+ * This will show a message that will disappear automatically and it can also
+ * be dismissed by the user.
+ *
+ * 3) var $msg = PMA_ajaxShowMessage('Some error', 0);
+ * This will show a message that will not disappear automatically, but it
+ * can be dismissed by the user after he has finished reading it.
+ *
+ * @param   string  message     string containing the message to be shown.
  *                              optional, defaults to 'Loading...'
- * @param   var     timeout     number of milliseconds for the message to be visible
- *                              optional, defaults to 5000
+ * @param   mixed   timeout     number of milliseconds for the message to be visible
+ *                              optional, defaults to 5000. If set to 'false', the
+ *                              notification will never disappear
  * @return  jQuery object       jQuery Element that holds the message div
+ *                              this object can be passed to PMA_ajaxRemoveMessage()
+ *                              to remove the notification
  */
 function PMA_ajaxShowMessage(message, timeout)
 {
+    /**
+     * @var self_closing Whether the notification will automatically disappear
+     */
+    var self_closing = true;
+    /**
+     * @var dismissable Whether the user will be able to remove
+     *                  the notification by clicking on it
+     */
+    var dismissable = true;
     // Handle the case when a empty data.message is passed.
     // We don't want the empty message
     if (message == '') {
@@ -1306,13 +1334,14 @@ function PMA_ajaxShowMessage(message, timeout)
     } else if (! message) {
         // If the message is undefined, show the default
         message = PMA_messages['strLoading'];
+        dismissable = false;
+        self_closing = false;
     }
-    /**
-     * @var timeout Number of milliseconds for which the message will be visible
-     * @default 10000 ms
-     */
-    if (! timeout) {
-        timeout = 10000;
+    // Figure out whether (or after how long) to remove the notification
+    if (timeout == undefined) {
+        timeout = 5000;
+    } else if (timeout === false) {
+        self_closing = false;
     }
     // Create a parent element for the AJAX messages, if necessary
     if ($('#loading_parent').length == 0) {
@@ -1331,44 +1360,59 @@ function PMA_ajaxShowMessage(message, timeout)
             '<span class="ajax_notification" id="ajax_message_num_'
             + ajax_message_count +
             '"></span>'
-        )
-        .hide()
-        .appendTo("#loading_parent")
-        .html(message)
-        .fadeIn('medium')
+    )
+    .hide()
+    .appendTo("#loading_parent")
+    .html(message)
+    .fadeIn('medium');
+    // If the notification is self-closing we should create a callback to remove it
+    if (self_closing) {
+        $retval
         .delay(timeout)
         .fadeOut('medium', function() {
-            // Here we should destroy the qtip instance, but
-            // due to a bug in qtip's implementation we can
-            // only hide it without throwing JS errors.
-            $(this).qtip('hide');
+            if ($(this).is('.dismissable')) {
+                // Here we should destroy the qtip instance, but
+                // due to a bug in qtip's implementation we can
+                // only hide it without throwing JS errors.
+                $(this).qtip('hide');
+            }
             // Remove the notification
             $(this).remove();
         });
-    /**
-     * @var qOpts Options for "Dismiss notification" tooltip
-     */
-    var qOpts = {
-        show: {
-            effect: { length: 0 },
-            delay: 0
-        },
-        hide: {
-            effect: { length: 0 },
-            delay: 0
-        }
-    };
-    /**
-     * Add a tooltip to the notification to let the user know that (s)he
-     * can dismiss the ajax notification by clicking on it.
-     */
-    PMA_createqTip($retval, PMA_messages['strDismiss'], qOpts);
+    }
+    // If the notification is dismissable we need to add the relevant class to it
+    // and add a tooltip so that the users know that it can be removed
+    if (dismissable) {
+        $retval.addClass('dismissable').css('cursor', 'pointer');
+        /**
+         * @var qOpts Options for "Dismiss notification" tooltip
+         */
+        var qOpts = {
+            show: {
+                effect: { length: 0 },
+                delay: 0
+            },
+            hide: {
+                effect: { length: 0 },
+                delay: 0
+            }
+        };
+        /**
+         * Add a tooltip to the notification to let the user know that (s)he
+         * can dismiss the ajax notification by clicking on it.
+         */
+        PMA_createqTip($retval, PMA_messages['strDismiss'], qOpts);
+    }
 
     return $retval;
 }
 
 /**
  * Removes the message shown for an Ajax operation when it's completed
+ *
+ * @param  jQuery object   jQuery Element that holds the notification
+ *
+ * @return nothing
  */
 function PMA_ajaxRemoveMessage($this_msgbox)
 {
@@ -1376,32 +1420,35 @@ function PMA_ajaxRemoveMessage($this_msgbox)
         $this_msgbox
         .stop(true, true)
         .fadeOut('medium');
-        // Here we should destroy the qtip instance, but
-        // due to a bug in qtip's implementation we can
-        // only hide it without throwing JS errors.
-        $this_msgbox.qtip('hide');
+        if ($this_msgbox.is('.dismissable')) {
+            // Here we should destroy the qtip instance, but
+            // due to a bug in qtip's implementation we can
+            // only hide it without throwing JS errors.
+            $this_msgbox.qtip('hide');
+        }
     }
 }
 
-/**
- * Allows the user to dismiss a notification
- * created with PMA_ajaxShowMessage()
- */
-$('.ajax_notification').live('click', function () {
-    PMA_ajaxRemoveMessage($(this));
-});
-
-/**
- * The below two functions hide the "Dismiss notification" tooltip when a user
- * is hovering a link or button that is inside an ajax message
- */
-$('.ajax_notification a, .ajax_notification button, .ajax_notification input')
-.live('mouseover', function () {
-    $(this).parents('.ajax_notification').qtip('hide');
-});
-$('.ajax_notification a, .ajax_notification button, .ajax_notification input')
-.live('mouseout', function () {
-    $(this).parents('.ajax_notification').qtip('show');
+$(document).ready(function() {
+    /**
+     * Allows the user to dismiss a notification
+     * created with PMA_ajaxShowMessage()
+     */
+    $('.ajax_notification.dismissable').live('click', function () {
+        PMA_ajaxRemoveMessage($(this));
+    });
+    /**
+     * The below two functions hide the "Dismiss notification" tooltip when a user
+     * is hovering a link or button that is inside an ajax message
+     */
+    $('.ajax_notification a, .ajax_notification button, .ajax_notification input')
+    .live('mouseover', function () {
+        $(this).parents('.ajax_notification').qtip('hide');
+    });
+    $('.ajax_notification a, .ajax_notification button, .ajax_notification input')
+    .live('mouseout', function () {
+        $(this).parents('.ajax_notification').qtip('show');
+    });
 });
 
 /**
@@ -2942,7 +2989,7 @@ var toggleButton = function ($obj) {
         } else {
             $(this).addClass('isActive');
         }
-        var $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
+        var $msg = PMA_ajaxShowMessage();
         var $container = $(this);
         var callback = $('.callback', this).text();
         // Perform the actual toggle
