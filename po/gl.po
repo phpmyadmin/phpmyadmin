@@ -403,7 +403,7 @@ msgstr "Creación"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:408
 #: tbl_structure.php:920
 msgid "Last update"
-msgstr "Actualización máis recente"
+msgstr "Última actualización"
 
 #: db_printview.php:202 libraries/db_info.inc.php:80
 #: libraries/export/sql.php:752
