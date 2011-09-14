@@ -113,13 +113,13 @@ if (isset($dbname)) {
  * Checks if the user is allowed to do what he tries to...
  */
 if (!$is_superuser) {
-    require './libraries/server_links.inc.php';
+    include './libraries/server_links.inc.php';
     echo '<h2>' . "\n"
        . PMA_getIcon('b_usrlist.png')
        . __('Privileges') . "\n"
        . '</h2>' . "\n";
     PMA_Message::error(__('No Privileges'))->display();
-    require './libraries/footer.inc.php';
+    include './libraries/footer.inc.php';
 }
 
 $random_n = mt_rand(0,1000000); // a random number that will be appended to the id of the user forms
@@ -1521,10 +1521,10 @@ if (isset($viewing_mode) && $viewing_mode == 'db') {
 
     // Gets the database structure
     $sub_part = '_structure';
-    require './libraries/db_info.inc.php';
+    include './libraries/db_info.inc.php';
     echo "\n";
 } else {
-    require './libraries/server_links.inc.php';
+    include './libraries/server_links.inc.php';
 }
 
 
@@ -2158,7 +2158,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         }
 
         if (! isset($dbname) && ! $user_does_not_exists) {
-            require_once './libraries/display_change_password.lib.php';
+            include_once './libraries/display_change_password.lib.php';
 
             echo '<form action="server_privileges.php" method="post" onsubmit="return checkPassword(this);">' . "\n"
                . PMA_generate_common_hidden_inputs('', '')
