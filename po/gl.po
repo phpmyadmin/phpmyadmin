@@ -254,7 +254,7 @@ msgstr "Ver o volcado (esquema) da base de datos"
 #: db_export.php:30 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
 #: export.php:354 navigation.php:296
 msgid "No tables found in database."
-msgstr "Non se achou ningunha táboa na base de datos"
+msgstr "Non foi posíbel atopar ningunha táboa na base de datos."
 
 #: db_export.php:40 db_search.php:318 server_export.php:26
 msgid "Select All"
