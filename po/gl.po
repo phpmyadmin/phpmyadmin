@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-15 00:09+0200\n"
+"PO-Revision-Date: 2011-09-15 00:10+0200\n"
 "Last-Translator:  <fran.dieguez@mabishu.com>\n"
 "Language-Team: galician <gl@li.org>\n"
 "Language: gl\n"
@@ -315,7 +315,7 @@ msgstr "Só os datos"
 
 #: db_operations.php:490
 msgid "CREATE DATABASE before copying"
-msgstr "CREAR BASE DE DATOS antes de copiar"
+msgstr "CREATE DATABSE antes de copiar"
 
 #: db_operations.php:493 libraries/config/messages.inc.php:126
 #: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:129
