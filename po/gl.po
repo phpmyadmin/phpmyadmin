@@ -262,7 +262,7 @@ msgstr "Seleccionar todo"
 
 #: db_export.php:42 db_search.php:321 server_export.php:28
 msgid "Unselect All"
-msgstr "Non seleccionar nada"
+msgstr "Deseleccionar todo"
 
 #: db_operations.php:41 tbl_create.php:22
 msgid "The database name is empty!"
