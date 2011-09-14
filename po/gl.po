@@ -276,7 +276,7 @@ msgstr "A base de datos %s foi renomeada a %s"
 #: db_operations.php:278
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr "Copiuse a base de datos %s para %s"
+msgstr "A base de datos %s foi copiada para %s"
 
 #: db_operations.php:401
 msgid "Rename database to"
