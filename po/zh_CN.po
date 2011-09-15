@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-15 07:38+0200\n"
+"PO-Revision-Date: 2011-09-15 07:41+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -11471,7 +11471,7 @@ msgstr "运行时间少于一天，性能调整建议可能不准确。"
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
-msgstr ""
+msgstr "要获得更加准确的数据，建议在运行分析器之前先让服务器运行至少一天"
 
 #: po/advisory_rules.php:8
 #, php-format
