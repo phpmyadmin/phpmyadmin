@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-15 07:43+0200\n"
+"PO-Revision-Date: 2011-09-15 07:45+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -11493,7 +11493,7 @@ msgstr "内部查询少于 1000 。建议可能不准确。"
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
-msgstr ""
+msgstr "让服务器运行一段时间以使查询数超过该值。"
 
 #: po/advisory_rules.php:13
 #, fuzzy, php-format
