@@ -990,7 +990,7 @@ foreach ($rows as $row_id => $vrow) {
                 $_url_params = $_url_params + array('gis_data[gis_type]' => strtoupper($field['pma_type']));
             }
             $edit_url = 'gis_data_editor.php' . PMA_generate_common_url($_url_params);
-            $edit_str = PMA_getIcon('b_edit.png', __('Edit/Insert'), true);
+            $edit_str = PMA_getIcon('b_edit.png', __('Edit/Insert'));
             echo('<span class="open_gis_editor">');
             echo(PMA_linkOrButton($edit_url, $edit_str, array(), false, false, '_blank'));
             echo('</span>');

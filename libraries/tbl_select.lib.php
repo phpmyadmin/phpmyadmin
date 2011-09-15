@@ -202,7 +202,7 @@ EOT;
 
         if ($in_fbs) {
             $edit_url = 'gis_data_editor.php?' . PMA_generate_common_url();
-            $edit_str = PMA_getIcon('b_edit.png', __('Edit/Insert'), true);
+            $edit_str = PMA_getIcon('b_edit.png', __('Edit/Insert'));
             $str .= '<span class="open_search_gis_editor">';
             $str .= PMA_linkOrButton($edit_url, $edit_str, array(), false, false, '_blank');
             $str .= '</span>';
