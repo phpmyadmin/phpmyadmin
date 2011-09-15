@@ -11502,10 +11502,9 @@ msgid "Current amount of Questions: %s"
 msgstr "当前内部查询数: %s"
 
 #: po/advisory_rules.php:15
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
-msgstr "显示 SQL 查询"
+msgstr "慢查询比例"
 
 #: po/advisory_rules.php:16
 msgid ""
