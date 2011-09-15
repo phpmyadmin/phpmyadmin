@@ -11523,10 +11523,9 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr "慢查询率应小于 5%%，当前为 %s%%。"
 
 #: po/advisory_rules.php:20
-#, fuzzy
 #| msgid "Flush query cache"
 msgid "Slow query rate"
-msgstr "强制更新查询缓存"
+msgstr "慢查询率"
 
 #: po/advisory_rules.php:21
 msgid ""
