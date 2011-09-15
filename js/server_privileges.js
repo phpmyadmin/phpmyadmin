@@ -364,7 +364,8 @@ $(document).ready(function() {
         var button_options = {};
         button_options[PMA_messages['strCancel']] = function() {$(this).dialog("close").remove();}
 
-        $.get($(this).attr('href'), {'ajax_request':true, 'edit_user_dialog': true}, function(data) {
+        var token = $(this).parents('form').find('input[name="token"]').val();
+        $.get($(this).attr('href'), {'ajax_request':true, 'edit_user_dialog': true, 'token': token}, function(data) {
             $('<div id="edit_user_dialog"></div>')
             .append(data)
             .dialog({
