@@ -357,7 +357,12 @@ if (!$is_information_schema) {
     <?php echo PMA_generate_common_hidden_inputs($db); ?>
     <fieldset>
         <legend>
-        <?php echo PMA_getIcon('b_comment.png', __('Database comment: '), true); ?>
+        <?php
+        if ($cfg['PropertiesIconic']) {
+            echo '<img class="icon ic_b_comment" src="themes/dot.gif" alt="" />';
+        }
+        echo __('Database comment: ');
+        ?>
         </legend>
         <input type="text" name="comment" class="textfield" size="30"
             value="<?php
