@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-15 07:45+0200\n"
+"PO-Revision-Date: 2011-09-15 07:46+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -11504,7 +11504,7 @@ msgstr "当前内部查询数: %s"
 #: po/advisory_rules.php:15
 #| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
-msgstr "慢查询比例"
+msgstr "慢查询率"
 
 #: po/advisory_rules.php:16
 msgid ""
