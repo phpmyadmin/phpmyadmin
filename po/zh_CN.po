@@ -11515,7 +11515,7 @@ msgstr "慢查询的数量在所有查询中所占的比例很大。"
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
-msgstr ""
+msgstr "你可能需要增加 {long_query_time} 值或优化在慢查询日志中所列出的查询"
 
 #: po/advisory_rules.php:18
 #, php-format
