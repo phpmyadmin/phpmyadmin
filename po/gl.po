@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-15 00:24+0200\n"
+"PO-Revision-Date: 2011-09-15 11:33+0200\n"
 "Last-Translator:  <fran.dieguez@mabishu.com>\n"
 "Language-Team: galician <gl@li.org>\n"
 "Language: gl\n"
@@ -348,7 +348,7 @@ msgid "Collation"
 msgstr "Orde alfabética"
 
 #: db_operations.php:550
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
@@ -356,8 +356,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Desactivouse a funcionalidade adicional para o traballo con táboas "
-"vinculadas. Para saber o por que, prema %saqu&iacute;%s."
+"Desactivouse a configuración de almacenamento. Para saber por que prema %"
+"saqu&iacute;%s."
 
 #: db_operations.php:584
 #| msgid "Relational schema"
