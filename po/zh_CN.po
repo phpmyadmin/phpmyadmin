@@ -11476,7 +11476,7 @@ msgstr "要获得更加准确的数据，建议在运行分析器之前先让服
 #: po/advisory_rules.php:8
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "运行时间只有 %s"
 
 #: po/advisory_rules.php:10
 #, fuzzy
