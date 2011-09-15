@@ -357,7 +357,12 @@ if (!$is_information_schema) {
     <?php echo PMA_generate_common_hidden_inputs($db); ?>
     <fieldset>
         <legend>
-        <?php echo PMA_getIcon('b_comment.png', __('Database comment: '), true); ?>
+        <?php
+        if ($cfg['PropertiesIconic']) {
+            echo '<img class="icon ic_b_comment" src="themes/dot.gif" alt="" />';
+        }
+        echo __('Database comment: ');
+        ?>
         </legend>
         <input type="text" name="comment" class="textfield" size="30"
             value="<?php
@@ -395,7 +400,10 @@ if ($db != 'mysql') {
     <fieldset>
         <legend>
     <?php
-    echo PMA_getIcon('b_edit.png', __('Rename database to'), true) . ':';
+    if ($cfg['PropertiesIconic']) {
+        echo '<img class="icon ic_b_edit" src="themes/dot.gif" alt="" />';
+    }
+    echo __('Rename database to') . ':';
     ?>
         </legend>
         <input id="new_db_name" type="text" name="newname" size="30" class="textfield" value="" />
@@ -418,7 +426,10 @@ if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase'])
 <div class="operations_half_width">
 <fieldset class="caution">
  <legend><?php
-echo PMA_getIcon('b_deltbl.png', __('Remove database'), true);
+if ($cfg['PropertiesIconic']) {
+    echo '<img class="icon ic_b_deltbl" src="themes/dot.gif" alt="" />';
+}
+echo __('Remove database');
 ?></legend>
 
 <ul>
@@ -461,7 +472,10 @@ echo PMA_getIcon('b_deltbl.png', __('Remove database'), true);
     <fieldset>
         <legend>
     <?php
-    echo PMA_getIcon('b_edit.png', __('Copy database to'), true) . ':';
+    if ($cfg['PropertiesIconic']) {
+        echo '<img class="icon ic_b_edit" src="themes/dot.gif" alt="" />';
+    }
+    echo __('Copy database to') . ':';
     $drop_clause = 'DROP TABLE / DROP VIEW';
     ?>
         </legend>
@@ -522,7 +536,10 @@ echo PMA_getIcon('b_deltbl.png', __('Remove database'), true);
        . PMA_generate_common_hidden_inputs($db, $table)
        . '<fieldset>' . "\n"
        . '    <legend>';
-    echo PMA_getIcon('s_asci.png', __('Collation'), true) . ':'
+    if ($cfg['PropertiesIconic']) {
+        echo '<img class="icon ic_s_asci" src="themes/dot.gif" alt="" />';
+    }
+    echo '    <label for="select_db_collation">' . __('Collation') . ':</label>' . "\n"
        . '    </legend>' . "\n"
        . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION,
             'db_collation', 'select_db_collation', $db_collation, false, 3)
