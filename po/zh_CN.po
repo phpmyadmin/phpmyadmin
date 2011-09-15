@@ -11496,10 +11496,10 @@ msgid ""
 msgstr "让服务器运行一段时间以使查询数超过该值。"
 
 #: po/advisory_rules.php:13
-#, fuzzy, php-format
+#, php-format
 #| msgid "Current connection"
 msgid "Current amount of Questions: %s"
-msgstr "当前连接"
+msgstr "当前内部查询数: %s"
 
 #: po/advisory_rules.php:15
 #, fuzzy
