@@ -943,7 +943,7 @@ $(document).ready(makeProfilingChart);
 <input type="hidden" name="fields[query]" value="<?php echo urlencode(isset($complete_query) ? $complete_query : $sql_query); ?>" />
 <fieldset>
     <legend><?php
-    echo PMA_getIcon('b_bookmark.png', __('Bookmark this SQL query'));
+    echo PMA_getIcon('b_bookmark.png', __('Bookmark this SQL query'), true);
 ?>
     </legend>
 

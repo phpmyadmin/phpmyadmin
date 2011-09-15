@@ -2478,14 +2478,14 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql)
 
             echo PMA_linkOrButton(
                 'sql.php' . $url_query,
-                PMA_getIcon('b_print.png', __('Print view')),
+                PMA_getIcon('b_print.png', __('Print view'), true),
                 '', true, true, 'print_view') . "\n";
 
             if ($_SESSION['tmp_user_values']['display_text']) {
                 $_url_params['display_text'] = 'F';
                 echo PMA_linkOrButton(
                     'sql.php' . PMA_generate_common_url($_url_params),
-                    PMA_getIcon('b_print.png', __('Print view (with full texts)')),
+                    PMA_getIcon('b_print.png', __('Print view (with full texts)'), true),
                     '', true, true, 'print_view') . "\n";
                 unset($_url_params['display_text']);
             }
@@ -2527,13 +2527,13 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql)
 
         echo PMA_linkOrButton(
             'tbl_export.php' . PMA_generate_common_url($_url_params),
-            PMA_getIcon('b_tblexport.png', __('Export')),
+            PMA_getIcon('b_tblexport.png', __('Export'), true),
             '', true, true, '') . "\n";
 
         // show chart
         echo PMA_linkOrButton(
             'tbl_chart.php' . PMA_generate_common_url($_url_params),
-            PMA_getIcon('b_chart.png', __('Display chart')),
+            PMA_getIcon('b_chart.png', __('Display chart'), true),
             '', true, true, '') . "\n";
 
         // show GIS chart
@@ -2548,7 +2548,7 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql)
         if ($geometry_found) {
             echo PMA_linkOrButton(
                 'tbl_gis_visualization.php' . PMA_generate_common_url($_url_params),
-                PMA_getIcon('b_globe.gif', __('Visualize GIS data')),
+                PMA_getIcon('b_globe.gif', __('Visualize GIS data'), true),
                 '', true, true, '') . "\n";
         }
     }
@@ -2568,7 +2568,7 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql)
     if (!PMA_DRIZZLE && !isset($analyzed_sql[0]['queryflags']['procedure'])) {
         echo PMA_linkOrButton(
             'view_create.php' . $url_query,
-            PMA_getIcon('b_views.png', __('Create view')),
+            PMA_getIcon('b_views.png', __('Create view'), true),
             '', true, true, '') . "\n";
     }
     if ($header_shown) {
