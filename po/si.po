@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-16 19:44+0200\n"
+"PO-Revision-Date: 2011-09-16 19:45+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1339,10 +1339,9 @@ msgid "Bytes sent"
 msgstr "යැවුණු බයිට ගණන "
 
 #: js/messages.php:119
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "ලබන ලද"
+msgstr "ලැබුණු බයිට ගණන "
 
 #: js/messages.php:120 server_status.php:1134
 msgid "Connections"
