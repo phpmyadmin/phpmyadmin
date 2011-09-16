@@ -603,13 +603,13 @@ if ($tbl_is_view) {
                 'show_query' => '1',
             )
         ),
-        PMA_getIcon('b_edit.png', __('Edit view'))
+        PMA_getIcon('b_edit.png', __('Edit view'), true)
         );
 }
 ?>
 
 <a href="tbl_printview.php?<?php echo $url_query; ?>"><?php
-echo PMA_getIcon('b_print.png', __('Print view'));
+echo PMA_getIcon('b_print.png', __('Print view'), true);
 ?></a>
 
 <?php
@@ -620,7 +620,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     if ($cfgRelation['relwork'] || PMA_foreignkey_supported($tbl_type)) {
         ?>
 <a href="tbl_relation.php?<?php echo $url_query; ?>"><?php
-        echo PMA_getIcon('b_relations.png', __('Relation view'));
+        echo PMA_getIcon('b_relations.png', __('Relation view'), true);
         ?></a>
         <?php
     }
@@ -628,14 +628,14 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     if (!PMA_DRIZZLE) {
         ?>
 <a href="sql.php?<?php echo $url_query; ?>&amp;session_max_rows=all&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table) . ' PROCEDURE ANALYSE()'); ?>"><?php
-        echo PMA_getIcon('b_tblanalyse.png', __('Propose table structure'));
+        echo PMA_getIcon('b_tblanalyse.png', __('Propose table structure'), true);
         ?></a><?php
         echo PMA_showMySQLDocu('Extending_MySQL', 'procedure_analyse') . "\n";
     }
 
     if (PMA_Tracker::isActive()) {
         echo '<a href="tbl_tracking.php?' . $url_query . '">';
-        echo PMA_getIcon('eye.png', __('Track table'));
+        echo PMA_getIcon('eye.png', __('Track table'), true);
         echo '</a>';
     }
     ?>
