@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-16 19:15+0200\n"
+"PO-Revision-Date: 2011-09-16 19:16+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1132,10 +1132,9 @@ msgstr "The passwords aren't the same!"
 
 #: js/messages.php:58 server_privileges.php:1764 server_privileges.php:1788
 #: server_privileges.php:2193 server_privileges.php:2389
-#, fuzzy
 #| msgid "Any user"
 msgid "Add user"
-msgstr "ඕනෑම භාවිතා කරන්නෙක්"
+msgstr "භාවිතා කරන්නෙක් එක් කරන්න"
 
 #: js/messages.php:59
 msgid "Reloading Privileges"
