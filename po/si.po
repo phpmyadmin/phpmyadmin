@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-16 19:28+0200\n"
+"PO-Revision-Date: 2011-09-16 19:29+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -824,10 +824,9 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "ඈඳූ අගයන් \"Length/Values\" ක්ෂේත්‍රය තුලට පිටපත් කරන්න"
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "තීර වර්ගය"
+msgstr "වැරදි වර්ගය!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
