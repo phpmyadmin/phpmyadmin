@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-16 19:25+0200\n"
+"PO-Revision-Date: 2011-09-16 19:26+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1207,10 +1207,9 @@ msgid "KiB received since last refresh"
 msgstr "අවසන් යාවත්කාලින කිරීමේ සිට ලැබුණු KiB"
 
 #: js/messages.php:81
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
-msgstr "සේවාදායකයේ තේරීම"
+msgstr "සේවාදායකයේ තදබදය (KiB වලින්)"
 
 #: js/messages.php:82
 msgid "Connections since last refresh"
