@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-16 19:04+0200\n"
+"PO-Revision-Date: 2011-09-16 19:09+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -952,6 +952,8 @@ msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
+"\"Function\" තීරුවෙන් \"GeomFromText\" තෝරා පහත ඇති දේ \"Value\" ක්ෂේත්‍රයට පිටපත් "
+"කරන්න "
 
 #: import.php:57
 #, php-format
