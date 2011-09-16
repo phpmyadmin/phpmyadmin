@@ -1257,10 +1257,9 @@ msgid "Query cache efficiency"
 msgstr "විමසුම් කෑෂ් කාර්යක්ෂමතාව "
 
 #: js/messages.php:97
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
-msgstr "විමසුම් කෑෂ්"
+msgstr "විමසුම් කෑෂ් භාවිතය "
 
 #: js/messages.php:98
 #, fuzzy
