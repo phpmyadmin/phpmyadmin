@@ -1262,10 +1262,9 @@ msgid "Query cache usage"
 msgstr "විමසුම් කෑෂ් භාවිතය "
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
-msgstr "විමසුම් කෑෂ්"
+msgstr "භාවිතා කරන ලද විමසුම් කෑෂ්"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
