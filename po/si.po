@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-16 18:43+0200\n"
+"PO-Revision-Date: 2011-09-16 18:44+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -563,7 +563,6 @@ msgid "Search in database"
 msgstr "දත්තගබඩාවේ සොයන්න"
 
 #: db_search.php:276
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "සෙවීම සඳහා වචන(ය) හෝ අගය(න්) (wildcard: \"%\"):"
