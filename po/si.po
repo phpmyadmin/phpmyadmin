@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-16 19:20+0200\n"
+"PO-Revision-Date: 2011-09-16 19:21+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1167,10 +1167,9 @@ msgid "Live conn./process chart"
 msgstr "සජීවී සබඳතා/ක්‍රියාවලි ප්‍රස්තාරය  "
 
 #: js/messages.php:67 server_status.php:815
-#, fuzzy
 #| msgid "Show query chart"
 msgid "Live query chart"
-msgstr "විමසුම සඳහා ප්‍රස්ථාරය පෙන්වන්න"
+msgstr "සජීවී විමසුම් ප්‍රස්තාරය "
 
 #: js/messages.php:69
 msgid "Static data"
