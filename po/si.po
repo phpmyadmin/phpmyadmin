@@ -1363,10 +1363,9 @@ msgid "Settings"
 msgstr "සිටුවම්"
 
 #: js/messages.php:127
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "දත්තගබඩාව ඉවත් කරන්න"
+msgstr "ප්‍රස්තාරය ඉවත් කරන්න"
 
 #: js/messages.php:128
 msgid "Edit title and labels"
