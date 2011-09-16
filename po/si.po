@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-16 19:47+0200\n"
+"PO-Revision-Date: 2011-09-16 19:49+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1373,7 +1373,7 @@ msgstr "මාතෘකාව සහ ලේබල සංස්කරණය ක�
 
 #: js/messages.php:129
 msgid "Add chart to grid"
-msgstr ""
+msgstr "ජාලකයට ප්‍රස්තාර එක් කරන්න "
 
 #: js/messages.php:131
 msgid "Please add at least one variable to the series"
