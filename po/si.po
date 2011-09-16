@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-16 19:26+0200\n"
+"PO-Revision-Date: 2011-09-16 19:27+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1213,7 +1213,7 @@ msgstr "සේවාදායකයේ තදබදය (KiB වලින්)"
 
 #: js/messages.php:82
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "අවසන් යාවත්කාලින කිරීමේ සිට සබැඳුම් "
 
 #: js/messages.php:83 js/messages.php:121 server_status.php:1224
 msgid "Processes"
