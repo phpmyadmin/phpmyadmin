@@ -1413,7 +1413,7 @@ msgstr "slow_query_log සහ general_log අක්‍රීය යි."
 
 #: js/messages.php:140
 msgid "log_output is not set to TABLE."
-msgstr "log_output, TABLE ලෙස සිටුවා නැත ."
+msgstr "log_output, TABLE ලෙස සිටුවා නැත."
 
 #: js/messages.php:141
 msgid "log_output is set to TABLE."
