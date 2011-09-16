@@ -1401,7 +1401,7 @@ msgstr "general_log සහ slow_query_log සක්‍රීය යි."
 
 #: js/messages.php:137
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log සක්‍රීය යි."
 
 #: js/messages.php:138
 msgid "slow_query_log is enabled."
