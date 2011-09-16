@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-16 19:37+0200\n"
+"PO-Revision-Date: 2011-09-16 19:39+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1293,10 +1293,9 @@ msgid "Average load"
 msgstr ""
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "Total"
 msgid "Total memory"
-msgstr "මුළු එකතුව"
+msgstr "සම්පූර්ණ මතකය  "
 
 #: js/messages.php:108
 msgid "Cached memory"
