@@ -140,23 +140,21 @@ function includePan(currentChart) {
     $('#querychart').mousemove(function(e) {
         if (mouseDown == 1) {
             if (e.pageX > lastX) {
-        var xExtremes = currentChart.xAxis[0].getExtremes();
+                var xExtremes = currentChart.xAxis[0].getExtremes();
                 var diff = (e.pageX - lastX) * (xExtremes.max - xExtremes.min) / chartWidth;
                 currentChart.xAxis[0].setExtremes(xExtremes.min - diff, xExtremes.max - diff);
-            }
-            else if (e.pageX < lastX) {
-        var xExtremes = currentChart.xAxis[0].getExtremes();
+            } else if (e.pageX < lastX) {
+                var xExtremes = currentChart.xAxis[0].getExtremes();
                 var diff = (lastX - e.pageX) * (xExtremes.max - xExtremes.min) / chartWidth;
                 currentChart.xAxis[0].setExtremes(xExtremes.min + diff, xExtremes.max + diff);
             }
 
             if (e.pageY > lastY) {
-        var yExtremes = currentChart.yAxis[0].getExtremes();
+                var yExtremes = currentChart.yAxis[0].getExtremes();
                 var ydiff = 1.0 * (e.pageY - lastY) * (yExtremes.max - yExtremes.min) / chartHeight;
                 currentChart.yAxis[0].setExtremes(yExtremes.min + ydiff, yExtremes.max + ydiff);
-            }
-            else if (e.pageY < lastY) {
-        var yExtremes = currentChart.yAxis[0].getExtremes();
+            } else if (e.pageY < lastY) {
+                var yExtremes = currentChart.yAxis[0].getExtremes();
                 var ydiff = 1.0 * (lastY - e.pageY) * (yExtremes.max - yExtremes.min) / chartHeight;
                 currentChart.yAxis[0].setExtremes(yExtremes.min - ydiff, yExtremes.max - ydiff);
             }
@@ -249,7 +247,7 @@ $(document).ready(function() {
      **/
     $("#dataDisplay").dialog({
         autoOpen: false,
-    title: 'Data point content',
+        title: 'Data point content',
         modal: false, //false otherwise other dialogues like timepicker may not function properly
         height: $('#dataDisplay').height() + 80,
         width: $('#dataDisplay').width() + 80
@@ -372,40 +370,39 @@ $(document).ready(function() {
             currentChart.series[0].data[currentData].select();
         } //End plot update    
 
-    //Generate SQL query for update
-    if (!isEmpty(newValues)) {
+        //Generate SQL query for update
+        if (!isEmpty(newValues)) {
             var sql_query = 'UPDATE `' + window.parent.table + '` SET ';
-        for (key in newValues) {
-            if(key != 'where_clause') {
-                sql_query += '`' + key + '`=' ;
-            var value = newValues[key];
-            if(!isNumeric(value) && value != null) {
-                sql_query += '\'' + value + '\' ,';
-            } else {
-                sql_query += value + ' ,';
-            }
-            }
-        }
-        sql_query = sql_query.substring(0, sql_query.length - 1);
-        sql_query += ' WHERE ' + PMA_urldecode(data[currentData]['where_clause']);
-        
-        //Post SQL query to sql.php    
-        $.post('sql.php', {
-                'token' : window.parent.token,
-                'db' : window.parent.db,
-                'ajax_request' : true,
-                'sql_query' : sql_query,
-            'inline_edit' : false
-            }, function(data) {
-                if(data.success == true) {
-                    $('#sqlqueryresults').html(data.sql_query);
-                $("#sqlqueryresults").trigger('appendAnchor');
+            for (key in newValues) {
+                if(key != 'where_clause') {
+                    sql_query += '`' + key + '`=' ;
+                    var value = newValues[key];
+                    if(!isNumeric(value) && value != null) {
+                        sql_query += '\'' + value + '\' ,';
+                    } else {
+                        sql_query += value + ' ,';
+                    }
                 }
-                else {
-                    PMA_ajaxShowMessage(data.error);
-                }
-        }); //End $.post
-    }//End database update
+            }
+            sql_query = sql_query.substring(0, sql_query.length - 1);
+            sql_query += ' WHERE ' + PMA_urldecode(data[currentData]['where_clause']);
+            
+            //Post SQL query to sql.php    
+            $.post('sql.php', {
+                    'token' : window.parent.token,
+                    'db' : window.parent.db,
+                    'ajax_request' : true,
+                    'sql_query' : sql_query,
+                    'inline_edit' : false
+                }, function(data) {
+                    if(data.success == true) {
+                        $('#sqlqueryresults').html(data.sql_query);
+                        $("#sqlqueryresults").trigger('appendAnchor');
+                    } else {
+                        PMA_ajaxShowMessage(data.error);
+                    }
+            }); //End $.post
+        }//End database update
         $("#dataDisplay").dialog("close");    
     });//End submit handler 
 
@@ -419,13 +416,13 @@ $(document).ready(function() {
          .hide();
         $('#togglesearchformlink')
          .text(PMA_messages['strShowSearchCriteria']);
-    $('#togglesearchformdiv').show();
+        $('#togglesearchformdiv').show();
         var selectedRow;
         var colorCodes = ['#FF0000','#00FFFF','#0000FF','#0000A0','#FF0080','#800080','#FFFF00','#00FF00','#FF00FF'];
         var series = new Array();
         var xCord = new Array();
         var yCord = new Array();
-    var tempX, tempY;
+        var tempX, tempY;
         var it = 0;
         var xMax; // xAxis extreme max 
         var xMin; // xAxis extreme min 
@@ -437,67 +434,67 @@ $(document).ready(function() {
             chart: {
                 renderTo: 'querychart',
                 type: 'scatter',
-            //zoomType: 'xy',
-            width:$('#resizer').width() -3,
+                //zoomType: 'xy',
+                width:$('#resizer').width() -3,
                 height:$('#resizer').height()-20
-        },
-        credits: {
+            },
+            credits: {
                 enabled: false 
             },
-        exporting: { enabled: false },
+            exporting: { enabled: false },
             label: { text: $('#dataLabel').val() },
-        plotOptions: {
-            series: {
-                allowPointSelect: true,
+            plotOptions: {
+                series: {
+                    allowPointSelect: true,
                     cursor: 'pointer',
-            showInLegend: false,
+                    showInLegend: false,
                     dataLabels: {
-                        enabled: false,
+                        enabled: false
                     },
-                point: {
+                    point: {
                         events: {
                             click: function() {
-                    var id = this.id;
-                var fid = 4;
-                currentData = id;
-                // Make AJAX request to tbl_zoom_select.php for getting the complete row info
-                var post_params = {
+                                var id = this.id;
+                                var fid = 4;
+                                currentData = id;
+                                // Make AJAX request to tbl_zoom_select.php for getting the complete row info
+                                var post_params = {
                                     'ajax_request' : true,
                                     'get_data_row' : true,
                                     'db' : window.parent.db,
                                     'table' : window.parent.table,
                                     'where_clause' : data[id]['where_clause'],
-                                    'token' : window.parent.token,
+                                    'token' : window.parent.token
                                 }
                                 $.post('tbl_zoom_select.php', post_params, function(data) {
-                    // Row is contained in data.row_info, now fill the displayResultForm with row values
-                    for ( key in data.row_info) { 
-                    if (data.row_info[key] == null) {
-                        $('#fields_null_id_' + fid).attr('checked', true);
-                    } else {
-                        $('#fieldID_' + fid).val(data.row_info[key]);
-                    }
-                    fid++;
-                     }
-                     selectedRow = new Object();
-                     selectedRow = data.row_info;
+                                    // Row is contained in data.row_info, now fill the displayResultForm with row values
+                                    for ( key in data.row_info) { 
+                                        if (data.row_info[key] == null) {
+                                            $('#fields_null_id_' + fid).attr('checked', true);
+                                        } else {
+                                            $('#fieldID_' + fid).val(data.row_info[key]);
+                                        }
+                                        fid++;
+                                    }
+                                    selectedRow = new Object();
+                                    selectedRow = data.row_info;
                                 });
-
-                    $("#dataDisplay").dialog("open");    
-                            },
+            
+                                $("#dataDisplay").dialog("open");    
+                            }
                         }
+                    }
                 }
-            }
-        },
-        tooltip: {
-            formatter: function() {
-                return this.point.name;
-            }
-        },
+            },
+            tooltip: {
+                formatter: function() {
+                    return this.point.name;
+                }
+            },
             title: { text: 'Query Results' },
-        xAxis: {
-            title: { text: $('#tableid_0').val() },
-        events: {
+            xAxis: {
+                title: { text: $('#tableid_0').val() },
+                events: {
                     setExtremes: function(e){
                         this.resetZoom.show();
                     }
@@ -505,16 +502,16 @@ $(document).ready(function() {
 
             },
             yAxis: {
-        min: null,
-            title: { text: $('#tableid_1').val() },
-        endOnTick: false,
+                min: null,
+                title: { text: $('#tableid_1').val() },
+                endOnTick: false,
                 startOnTick: false,
-        events: {
-                    setExtremes: function(e){
+                events: {
+                    setExtremes: function(e) {
                         this.resetZoom.show();
                     }
                 }
-        },
+            }
         }
 
         $('#resizer').resizable({
