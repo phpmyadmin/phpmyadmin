@@ -214,6 +214,7 @@ $js_messages['strErrorProcessingRequest'] = __('Error in Processing Request');
 $js_messages['strDroppingColumn'] = __('Dropping Column');
 $js_messages['strAddingPrimaryKey'] = __('Adding Primary Key');
 $js_messages['strOK'] = __('OK');
+$js_messages['strDismiss'] = __('Click to dismiss this notification');
 
 /* For db_operations.js */
 $js_messages['strRenamingDatabases'] = __('Renaming Databases');

@@ -357,7 +357,7 @@ $(document).ready(function () {
                                 PMA_slidingMessage(data.message);
                                 $ajaxDialog.dialog('close');
                             } else {
-                                PMA_ajaxShowMessage(data.error);
+                                PMA_ajaxShowMessage(data.error, false);
                             }
                         });
                     };
@@ -388,7 +388,7 @@ $(document).ready(function () {
                     PMA_slidingMessage(data.message);
                 }
             } else {
-                PMA_ajaxShowMessage(data.error);
+                PMA_ajaxShowMessage(data.error, false);
             }
         }); // end $.get()
     }); // end $.live()
