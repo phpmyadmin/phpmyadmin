@@ -312,18 +312,20 @@ $(document).ready(function() {
                     yCord = tempY[2];
         
                     $.each(data,function(key,value) {
-                        if(yType != 'text') 
+                        if(yType != 'text') {
                             newSeries[0].data.push({ name: value[dataLabel], x: tempX[0][i], y: value[yLabel], marker: {fillColor: colorCodes[i % 8]} , id: i } );
-                        else
+                        } else {
                             newSeries[0].data.push({ name: value[dataLabel], x: tempX[0][i], y: tempY[0][i], marker: {fillColor: colorCodes[i % 8]} , id: i } );
+                        }
                         i++;   
                     });
                     currentSettings.xAxis.labels = { 
                         formatter : function() {
-                            if(tempX[1][this.value] && tempX[1][this.value].length > 10)
+                            if(tempX[1][this.value] && tempX[1][this.value].length > 10) {
                                 return tempX[1][this.value].substring(0,10);
-                            else 
-                                return tempX[1][this.value];    
+                            } else {
+                                return tempX[1][this.value]; 
+                            }
                         }
                      };
                      currentSettings.series = newSeries;
@@ -347,18 +349,20 @@ $(document).ready(function() {
                     yCord = tempY[2];
         
                     $.each(data,function(key,value) {
-                        if(xType != 'text' )
+                        if(xType != 'text' ) {
                             newSeries[0].data.push({ name: value[dataLabel], x: value[xLabel], y: tempY[0][i], marker: {fillColor: colorCodes[i % 8]} , id: i } );
-                        else
+                        } else {
                             newSeries[0].data.push({ name: value[dataLabel], x: tempX[0][i], y: tempY[0][i], marker: {fillColor: colorCodes[i % 8]} , id: i } );
+                        }
                         i++;   
                     });
                     currentSettings.yAxis.labels = { 
                         formatter : function() {
-                            if(tempY[1][this.value] && tempY[1][this.value].length > 10)
+                            if(tempY[1][this.value] && tempY[1][this.value].length > 10) {
                                 return tempY[1][this.value].substring(0,10);
-                            else 
-                                return tempY[1][this.value];    
+                            } else {
+                                return tempY[1][this.value]; 
+                            }
                         }
                      };
                      currentSettings.series = newSeries;
@@ -375,10 +379,11 @@ $(document).ready(function() {
             if(key != 'where_clause') {
                 sql_query += '`' + key + '`=' ;
             var value = newValues[key];
-            if(!isNumeric(value) && value != null) 
+            if(!isNumeric(value) && value != null) {
                 sql_query += '\'' + value + '\' ,';
-            else
+            } else {
                 sql_query += value + ' ,';
+            }
             }
         }
         sql_query = sql_query.substring(0, sql_query.length - 1);
@@ -396,8 +401,9 @@ $(document).ready(function() {
                     $('#sqlqueryresults').html(data.sql_query);
                 $("#sqlqueryresults").trigger('appendAnchor');
                 }
-                else 
+                else {
                     PMA_ajaxShowMessage(data.error);
+                }
         }); //End $.post
     }//End database update
         $("#dataDisplay").dialog("close");    
@@ -466,10 +472,11 @@ $(document).ready(function() {
                                 $.post('tbl_zoom_select.php', post_params, function(data) {
                     // Row is contained in data.row_info, now fill the displayResultForm with row values
                     for ( key in data.row_info) { 
-                    if (data.row_info[key] == null)
+                    if (data.row_info[key] == null) {
                         $('#fields_null_id_' + fid).attr('checked', true);
-                    else
+                    } else {
                         $('#fieldID_' + fid).val(data.row_info[key]);
+                    }
                     fid++;
                      }
                      selectedRow = new Object();
@@ -578,10 +585,11 @@ $(document).ready(function() {
             });
         
         currentSettings.xAxis.labels = { formatter : function() {
-            if(tempX[1][this.value] && tempX[1][this.value].length > 10)
+            if(tempX[1][this.value] && tempX[1][this.value].length > 10) {
                 return tempX[1][this.value].substring(0,10)
-            else 
+            } else {
             return tempX[1][this.value];
+            }
                 } 
             }
         if(yType == 'numeric') {
@@ -617,10 +625,11 @@ $(document).ready(function() {
         }}
             }
         currentSettings.yAxis.labels = { formatter : function() {
-            if(tempY[1][this.value] && tempY[1][this.value].length > 10)
+            if(tempY[1][this.value] && tempY[1][this.value].length > 10) {
                 return tempY[1][this.value].substring(0,10)
-            else 
+            } else {
                     return tempY[1][this.value];
+            }
             }
             }
         yCord = tempY[2];
@@ -638,17 +647,19 @@ $(document).ready(function() {
             it++;   
             });
         currentSettings.xAxis.labels = { formatter : function() {
-            if(tempX[1][this.value] && tempX[1][this.value].length > 10)
+            if(tempX[1][this.value] && tempX[1][this.value].length > 10) {
                 return tempX[1][this.value].substring(0,10)
-            else 
+            } else {
                     return tempX[1][this.value];
             }
             }
+            }
         currentSettings.yAxis.labels = { formatter : function() {
-            if(tempY[1][this.value] && tempY[1][this.value].length > 10)
+            if(tempY[1][this.value] && tempY[1][this.value].length > 10) {
                 return tempY[1][this.value].substring(0,10)
-            else 
+            } else {
                     return tempY[1][this.value];
+            }
             }
         }
         xCord = tempX[2];
