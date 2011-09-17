@@ -23,7 +23,7 @@ function displayHelp() {
  **/
 Array.max = function (array) {
     return Math.max.apply( Math, array );
-}
+};
 
 /**
  ** Extend the array object for min function
@@ -31,7 +31,7 @@ Array.max = function (array) {
  **/
 Array.min = function (array) {
     return Math.min.apply( Math, array );
-}
+};
 
 /**
  ** Checks if a string contains only numeric value
@@ -60,13 +60,13 @@ function isEmpty(obj) {
  **/
 function getDate(val,type) {
     if(type.toString().search(/datetime/i) != -1 || type.toString().search(/timestamp/i) != -1) {
-    return Highcharts.dateFormat('%Y-%m-%e %H:%M:%S', val)
+    return Highcharts.dateFormat('%Y-%m-%e %H:%M:%S', val);
     }    
     else if(type.toString().search(/time/i) != -1) {
-        return Highcharts.dateFormat('%H:%M:%S', val)
+        return Highcharts.dateFormat('%H:%M:%S', val);
     }    
     else if (type.toString().search(/date/i) != -1) {
-        return Highcharts.dateFormat('%Y-%m-%e', val)
+        return Highcharts.dateFormat('%Y-%m-%e', val);
     }    
 }
 
@@ -77,13 +77,13 @@ function getDate(val,type) {
  **/
 function getTimeStamp(val,type) {
     if(type.toString().search(/datetime/i) != -1 || type.toString().search(/timestamp/i) != -1) {
-    return getDateFromFormat(val,'yyyy-MM-dd HH:mm:ss', val)
+    return getDateFromFormat(val,'yyyy-MM-dd HH:mm:ss', val);
     }    
     else if(type.toString().search(/time/i) != -1) {
-    return getDateFromFormat('1970-01-01 ' + val,'yyyy-MM-dd HH:mm:ss')
+    return getDateFromFormat('1970-01-01 ' + val,'yyyy-MM-dd HH:mm:ss');
     }    
     else if (type.toString().search(/date/i) != -1) {
-    return getDateFromFormat(val,'yyyy-MM-dd')
+    return getDateFromFormat(val,'yyyy-MM-dd');
     }    
 }
 
@@ -197,19 +197,19 @@ $(document).ready(function() {
      **/
     $('#tableid_0').change(function() {
           $('#zoom_search_form').submit();
-    })
+    });
 
     $('#tableid_1').change(function() {
           $('#zoom_search_form').submit();
-    })
+    });
 
     $('#tableid_2').change(function() {
           $('#zoom_search_form').submit();
-    })
+    });
 
     $('#tableid_3').change(function() {
           $('#zoom_search_form').submit();
-    })
+    });
 
     /**
      * Input form validation
@@ -286,7 +286,7 @@ $(document).ready(function() {
             }
         }
         }
-        it++    
+        it++;  
     }//End data update
         
     //Update the chart series and replot
@@ -323,11 +323,11 @@ $(document).ready(function() {
                     });
             currentSettings.xAxis.labels = { formatter : function() {
                 if(tempX[1][this.value] && tempX[1][this.value].length > 10)
-                    return tempX[1][this.value].substring(0,10)
+                    return tempX[1][this.value].substring(0,10);
                 else 
                     return tempX[1][this.value];    
                         }
-                    }
+                    };
              currentSettings.series = newSeries;
                     currentChart = PMA_createChart(currentSettings);
         }
@@ -360,11 +360,11 @@ $(document).ready(function() {
                     });
             currentSettings.yAxis.labels = { formatter : function() {
                 if(tempY[1][this.value] && tempY[1][this.value].length > 10)
-                    return tempY[1][this.value].substring(0,10)
+                    return tempY[1][this.value].substring(0,10);
                 else 
                     return tempY[1][this.value];    
                         }
-                    }
+                    };
              currentSettings.series = newSeries;
                     currentChart = PMA_createChart(currentSettings); 
         }
@@ -403,7 +403,7 @@ $(document).ready(function() {
                 }
                 else 
                     PMA_ajaxShowMessage(data.error);
-        })//End $.post
+        }); //End $.post
     }//End database update
         $("#dataDisplay").dialog("close");    
     });//End submit handler 
@@ -417,7 +417,7 @@ $(document).ready(function() {
          .slideToggle()
          .hide();
         $('#togglesearchformlink')
-         .text(PMA_messages['strShowSearchCriteria'])
+         .text(PMA_messages['strShowSearchCriteria']);
     $('#togglesearchformdiv').show();
         var selectedRow;
         var colorCodes = ['#FF0000','#00FFFF','#0000FF','#0000A0','#FF0080','#800080','#FFFF00','#00FF00','#FF00FF'];
@@ -438,7 +438,7 @@ $(document).ready(function() {
                 type: 'scatter',
             //zoomType: 'xy',
             width:$('#resizer').width() -3,
-                height:$('#resizer').height()-20 
+                height:$('#resizer').height()-20
         },
         credits: {
                 enabled: false 
