@@ -278,7 +278,7 @@ $(document).ready(function() {
                     newValues[key] = newVal;
                     if(key == xLabel) {
                         xChange = true;
-                    data[currentData][xLabel] = newVal;
+                        data[currentData][xLabel] = newVal;
                     } else if(key == yLabel) {
                         yChange = true;
                         data[currentData][yLabel] = newVal;
@@ -288,89 +288,85 @@ $(document).ready(function() {
             it++;  
         } //End data update
         
-    //Update the chart series and replot
+        //Update the chart series and replot
         if (xChange || yChange) {
-        var newSeries = new Array();
-        newSeries[0] = new Object();
+            var newSeries = new Array();
+            newSeries[0] = new Object();
             newSeries[0].marker = {
                 symbol: 'circle'
             };
-        //Logic similar to plot generation, replot only if xAxis changes or yAxis changes. Code includes a lot of checks so as to replot only when necessary
+            //Logic similar to plot generation, replot only if xAxis changes or yAxis changes. Code includes a lot of checks so as to replot only when necessary
             if(xChange) {
-              xCord[currentData] = selectedRow[xLabel];
-        if(xType == 'numeric') {
-            currentChart.series[0].data[currentData].update({ x : selectedRow[xLabel] });
-            currentChart.xAxis[0].setExtremes(Array.min(xCord) - 6,Array.max(xCord) + 6);
-                }
-        else if(xType == 'time') {
-            currentChart.series[0].data[currentData].update({ x : getTimeStamp(selectedRow[xLabel],$('#types_0').val())});
-        }
-        else {
-            var tempX = getCord(xCord);
-            var tempY = getCord(yCord);
-            var i = 0;
-                newSeries[0].data = new Array();
-            xCord = tempX[2];
-            yCord = tempY[2];
-
-                $.each(data,function(key,value) {
-                        if(yType != 'text')
-                 newSeries[0].data.push({ name: value[dataLabel], x: tempX[0][i], y: value[yLabel], marker: {fillColor: colorCodes[i % 8]} , id: i } );
-            else
+                xCord[currentData] = selectedRow[xLabel];
+                if(xType == 'numeric') {
+                    currentChart.series[0].data[currentData].update({ x : selectedRow[xLabel] });
+                    currentChart.xAxis[0].setExtremes(Array.min(xCord) - 6,Array.max(xCord) + 6);
+                } else if(xType == 'time') {
+                    currentChart.series[0].data[currentData].update({ x : getTimeStamp(selectedRow[xLabel],$('#types_0').val())});
+                } else {
+                    var tempX = getCord(xCord);
+                    var tempY = getCord(yCord);
+                    var i = 0;
+                    newSeries[0].data = new Array();
+                    xCord = tempX[2];
+                    yCord = tempY[2];
+        
+                    $.each(data,function(key,value) {
+                        if(yType != 'text') 
+                            newSeries[0].data.push({ name: value[dataLabel], x: tempX[0][i], y: value[yLabel], marker: {fillColor: colorCodes[i % 8]} , id: i } );
+                        else
                             newSeries[0].data.push({ name: value[dataLabel], x: tempX[0][i], y: tempY[0][i], marker: {fillColor: colorCodes[i % 8]} , id: i } );
-                    i++;   
+                        i++;   
                     });
-            currentSettings.xAxis.labels = { formatter : function() {
-                if(tempX[1][this.value] && tempX[1][this.value].length > 10)
-                    return tempX[1][this.value].substring(0,10);
-                else 
-                    return tempX[1][this.value];    
+                    currentSettings.xAxis.labels = { 
+                        formatter : function() {
+                            if(tempX[1][this.value] && tempX[1][this.value].length > 10)
+                                return tempX[1][this.value].substring(0,10);
+                            else 
+                                return tempX[1][this.value];    
                         }
-                    };
-             currentSettings.series = newSeries;
-                    currentChart = PMA_createChart(currentSettings);
-        }
-
-        }
+                     };
+                     currentSettings.series = newSeries;
+                     currentChart = PMA_createChart(currentSettings);
+                 }
+    
+            }
             if(yChange) {
-
-              yCord[currentData] = selectedRow[yLabel];
-        if(yType == 'numeric') {
-            currentChart.series[0].data[currentData].update({ y : selectedRow[yLabel] });
-            currentChart.yAxis[0].setExtremes(Array.min(yCord) - 6,Array.max(yCord) + 6);
-                }
-        else if(yType =='time') {
-            currentChart.series[0].data[currentData].update({ y : getTimeStamp(selectedRow[yLabel],$('#types_1').val())});
-        }
-        else {
-            var tempX = getCord(xCord);
-            var tempY = getCord(yCord);
-            var i = 0;
-                newSeries[0].data = new Array();
-            xCord = tempX[2];
-            yCord = tempY[2];
-
-                $.each(data,function(key,value) {
-            if(xType != 'text' )
+                yCord[currentData] = selectedRow[yLabel];
+                if(yType == 'numeric') {
+                    currentChart.series[0].data[currentData].update({ y : selectedRow[yLabel] });
+                    currentChart.yAxis[0].setExtremes(Array.min(yCord) - 6,Array.max(yCord) + 6);
+                } else if(yType =='time') {
+                    currentChart.series[0].data[currentData].update({ y : getTimeStamp(selectedRow[yLabel],$('#types_1').val())});
+                } else {
+                    var tempX = getCord(xCord);
+                    var tempY = getCord(yCord);
+                    var i = 0;
+                    newSeries[0].data = new Array();
+                    xCord = tempX[2];
+                    yCord = tempY[2];
+        
+                    $.each(data,function(key,value) {
+                        if(xType != 'text' )
                             newSeries[0].data.push({ name: value[dataLabel], x: value[xLabel], y: tempY[0][i], marker: {fillColor: colorCodes[i % 8]} , id: i } );
-            else
+                        else
                             newSeries[0].data.push({ name: value[dataLabel], x: tempX[0][i], y: tempY[0][i], marker: {fillColor: colorCodes[i % 8]} , id: i } );
-                    i++;   
+                        i++;   
                     });
-            currentSettings.yAxis.labels = { formatter : function() {
-                if(tempY[1][this.value] && tempY[1][this.value].length > 10)
-                    return tempY[1][this.value].substring(0,10);
-                else 
-                    return tempY[1][this.value];    
+                    currentSettings.yAxis.labels = { 
+                        formatter : function() {
+                            if(tempY[1][this.value] && tempY[1][this.value].length > 10)
+                                return tempY[1][this.value].substring(0,10);
+                            else 
+                                return tempY[1][this.value];    
                         }
-                    };
-             currentSettings.series = newSeries;
-                    currentChart = PMA_createChart(currentSettings); 
-        }
-        }
-        currentChart.series[0].data[currentData].select();
-        }
-    //End plot update    
+                     };
+                     currentSettings.series = newSeries;
+                     currentChart = PMA_createChart(currentSettings); 
+                }
+            }
+            currentChart.series[0].data[currentData].select();
+        } //End plot update    
 
     //Generate SQL query for update
     if (!isEmpty(newValues)) {
