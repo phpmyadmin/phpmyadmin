@@ -465,7 +465,7 @@ $(document).ready(function() {
                                     'table' : window.parent.table,
                                     'where_clause' : data[id]['where_clause'],
                                     'token' : window.parent.token
-                                }
+                                };
                                 $.post('tbl_zoom_select.php', post_params, function(data) {
                                     // Row is contained in data.row_info, now fill the displayResultForm with row values
                                     for ( key in data.row_info) { 
@@ -512,7 +512,7 @@ $(document).ready(function() {
                     }
                 }
             }
-        }
+        };
 
         $('#resizer').resizable({
             resize: function() {
@@ -548,22 +548,22 @@ $(document).ready(function() {
             it++;   
             });
         if(xType == 'numeric') {
-            currentSettings.xAxis.max = Array.max(xCord) + 6
-            currentSettings.xAxis.min = Array.min(xCord) - 6
+            currentSettings.xAxis.max = Array.max(xCord) + 6;
+            currentSettings.xAxis.min = Array.min(xCord) - 6;
         }
         else {
             currentSettings.xAxis.labels = { formatter : function() {
             return getDate(this.value, $('#types_0').val());
-        }}
+        }};
             }
         if(yType == 'numeric') {
-            currentSettings.yAxis.max = Array.max(yCord) + 6
-            currentSettings.yAxis.min = Array.min(yCord) - 6
+            currentSettings.yAxis.max = Array.max(yCord) + 6;
+            currentSettings.yAxis.min = Array.min(yCord) - 6;
         }
         else {
             currentSettings.yAxis.labels = { formatter : function() {
             return getDate(this.value, $('#types_1').val());
-        }}
+        }};
             }
 
         }
@@ -583,20 +583,20 @@ $(document).ready(function() {
         
         currentSettings.xAxis.labels = { formatter : function() {
             if(tempX[1][this.value] && tempX[1][this.value].length > 10) {
-                return tempX[1][this.value].substring(0,10)
+                return tempX[1][this.value].substring(0,10);
             } else {
             return tempX[1][this.value];
             }
                 } 
-            }
+            };
         if(yType == 'numeric') {
-            currentSettings.yAxis.max = Array.max(yCord) + 6
-            currentSettings.yAxis.min = Array.min(yCord) - 6
+            currentSettings.yAxis.max = Array.max(yCord) + 6;
+            currentSettings.yAxis.min = Array.min(yCord) - 6;
         }
         else {
             currentSettings.yAxis.labels = { formatter : function() {
             return getDate(this.value, $('#types_1').val());
-        }}
+        }};
             }
         xCord = tempX[2];
     }
@@ -613,22 +613,22 @@ $(document).ready(function() {
             it++;   
             });
         if(xType == 'numeric') {
-            currentSettings.xAxis.max = Array.max(xCord) + 6
-            currentSettings.xAxis.min = Array.min(xCord) - 6
+            currentSettings.xAxis.max = Array.max(xCord) + 6;
+            currentSettings.xAxis.min = Array.min(xCord) - 6;
         }
         else {
             currentSettings.xAxis.labels = { formatter : function() {
             return getDate(this.value, $('#types_0').val());
-        }}
+        }};
             }
         currentSettings.yAxis.labels = { formatter : function() {
             if(tempY[1][this.value] && tempY[1][this.value].length > 10) {
-                return tempY[1][this.value].substring(0,10)
+                return tempY[1][this.value].substring(0,10);
             } else {
                     return tempY[1][this.value];
             }
             }
-            }
+            };
         yCord = tempY[2];
     }
     
@@ -645,20 +645,20 @@ $(document).ready(function() {
             });
         currentSettings.xAxis.labels = { formatter : function() {
             if(tempX[1][this.value] && tempX[1][this.value].length > 10) {
-                return tempX[1][this.value].substring(0,10)
+                return tempX[1][this.value].substring(0,10);
             } else {
                     return tempX[1][this.value];
             }
             }
-            }
+            };
         currentSettings.yAxis.labels = { formatter : function() {
             if(tempY[1][this.value] && tempY[1][this.value].length > 10) {
-                return tempY[1][this.value].substring(0,10)
+                return tempY[1][this.value].substring(0,10);
             } else {
                     return tempY[1][this.value];
             }
             }
-        }
+        };
         xCord = tempX[2];
         yCord = tempY[2];
 
@@ -702,9 +702,9 @@ $(document).ready(function() {
             display: 'none'
         })
         .click(function(){
-            currentChart.xAxis[0].setExtremes(null, null)
-            currentChart.yAxis[0].setExtremes(null, null)
-            this.style.display = 'none'
+            currentChart.xAxis[0].setExtremes(null, null);
+            currentChart.yAxis[0].setExtremes(null, null);
+            this.style.display = 'none';
         });
     scrollToChart();
     }
