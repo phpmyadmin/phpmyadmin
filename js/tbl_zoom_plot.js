@@ -35,7 +35,7 @@ Array.min = function (array) {
 
 /**
  ** Checks if a string contains only numeric value
- ** @param n: String (to be checked) 
+ ** @param n: String (to be checked)
  **/
 function isNumeric(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
@@ -43,7 +43,7 @@ function isNumeric(n) {
 
 /**
  ** Checks if an object is empty
- ** @param n: Object (to be checked) 
+ ** @param n: Object (to be checked)
  **/
 function isEmpty(obj) {
     var name;
@@ -61,13 +61,13 @@ function isEmpty(obj) {
 function getDate(val, type) {
     if (type.toString().search(/datetime/i) != -1 || type.toString().search(/timestamp/i) != -1) {
         return Highcharts.dateFormat('%Y-%m-%e %H:%M:%S', val);
-    }    
+    }
     else if (type.toString().search(/time/i) != -1) {
         return Highcharts.dateFormat('%H:%M:%S', val);
-    }    
+    }
     else if (type.toString().search(/date/i) != -1) {
         return Highcharts.dateFormat('%Y-%m-%e', val);
-    }    
+    }
 }
 
 /**
@@ -78,19 +78,19 @@ function getDate(val, type) {
 function getTimeStamp(val, type) {
     if (type.toString().search(/datetime/i) != -1 || type.toString().search(/timestamp/i) != -1) {
         return getDateFromFormat(val, 'yyyy-MM-dd HH:mm:ss', val);
-    }    
+    }
     else if (type.toString().search(/time/i) != -1) {
         return getDateFromFormat('1970-01-01 ' + val, 'yyyy-MM-dd HH:mm:ss');
-    }    
+    }
     else if (type.toString().search(/date/i) != -1) {
         return getDateFromFormat(val, 'yyyy-MM-dd');
-    }    
+    }
 }
 
 /**
  ** Classifies the field type into numeric,timeseries or text
  ** @param field: field type (as in database structure)
- **/ 
+ **/
 function getType(field) {
     if (field.toString().search(/int/i) != -1 || field.toString().search(/decimal/i) != -1 || field.toString().search(/year/i) != -1)
         return 'numeric';
@@ -174,7 +174,7 @@ $(document).ready(function() {
         cache: 'false'
     });
 
-    var cursorMode = ($("input[name='mode']:checked").val() == 'edit') ? 'crosshair' : 'pointer'; 
+    var cursorMode = ($("input[name='mode']:checked").val() == 'edit') ? 'crosshair' : 'pointer';
     var currentChart = null;
     var currentData = null;
     var xLabel = $('#tableid_0').val();
@@ -187,7 +187,7 @@ $(document).ready(function() {
     var zoomRatio = 1;
 
 
-    // Get query result 
+    // Get query result
     var data = jQuery.parseJSON($('#querydata').html());
 
     /**
@@ -211,9 +211,9 @@ $(document).ready(function() {
 
     /**
      * Input form validation
-     **/ 
+     **/
     $('#inputFormSubmitId').click(function() {
-        if ($('#tableid_0').get(0).selectedIndex == 0 || $('#tableid_1').get(0).selectedIndex == 0) {         
+        if ($('#tableid_0').get(0).selectedIndex == 0 || $('#tableid_1').get(0).selectedIndex == 0) {
             PMA_ajaxShowMessage(PMA_messages['strInputNull']);
         } else if (xLabel == yLabel) {
             PMA_ajaxShowMessage(PMA_messages['strSameInputs']);
@@ -221,7 +221,7 @@ $(document).ready(function() {
     });
 
     /**
-      ** Prepare a div containing a link, otherwise it's incorrectly displayed 
+      ** Prepare a div containing a link, otherwise it's incorrectly displayed
       ** after a couple of clicks
       **/
     $('<div id="togglesearchformdiv"><a id="togglesearchformlink"></a></div>')
@@ -255,7 +255,7 @@ $(document).ready(function() {
     });
 
     /*
-     * Handle submit of zoom_display_form 
+     * Handle submit of zoom_display_form
      */
 
     $("#submitForm").click(function(event) {
@@ -284,7 +284,7 @@ $(document).ready(function() {
                     }
                 }
             }
-            it++;  
+            it++;
         } //End data update
 
         //Update the chart series and replot
@@ -318,12 +318,12 @@ $(document).ready(function() {
                         }
                         i++;
                     });
-                    currentSettings.xAxis.labels = { 
+                    currentSettings.xAxis.labels = {
                         formatter : function() {
                             if (tempX[1][this.value] && tempX[1][this.value].length > 10) {
                                 return tempX[1][this.value].substring(0, 10);
                             } else {
-                                return tempX[1][this.value]; 
+                                return tempX[1][this.value];
                             }
                         }
                      };
@@ -355,17 +355,17 @@ $(document).ready(function() {
                         }
                         i++;
                     });
-                    currentSettings.yAxis.labels = { 
+                    currentSettings.yAxis.labels = {
                         formatter : function() {
                             if (tempY[1][this.value] && tempY[1][this.value].length > 10) {
                                 return tempY[1][this.value].substring(0, 10);
                             } else {
-                                return tempY[1][this.value]; 
+                                return tempY[1][this.value];
                             }
                         }
                      };
                      currentSettings.series = newSeries;
-                     currentChart = PMA_createChart(currentSettings); 
+                     currentChart = PMA_createChart(currentSettings);
                 }
             }
             currentChart.series[0].data[currentData].select();
@@ -405,11 +405,11 @@ $(document).ready(function() {
             }); //End $.post
         }//End database update
         $("#dataDisplay").dialog("close");
-    });//End submit handler 
+    });//End submit handler
 
     /*
      * Generate plot using Highcharts
-     */ 
+     */
 
     if (data != null) {
         $('#zoom_search_form')
@@ -425,10 +425,10 @@ $(document).ready(function() {
         var yCord = new Array();
         var tempX, tempY;
         var it = 0;
-        var xMax; // xAxis extreme max 
-        var xMin; // xAxis extreme min 
-        var yMax; // yAxis extreme max 
-        var yMin; // yAxis extreme min 
+        var xMax; // xAxis extreme max
+        var xMin; // xAxis extreme min
+        var yMax; // yAxis extreme max
+        var yMin; // yAxis extreme min
 
         // Set the basic plot settings
         var currentSettings = {
@@ -440,7 +440,7 @@ $(document).ready(function() {
                 height:$('#resizer').height() - 20
             },
             credits: {
-                enabled: false 
+                enabled: false
             },
             exporting: { enabled: false },
             label: { text: $('#dataLabel').val() },
@@ -469,7 +469,7 @@ $(document).ready(function() {
                                 };
                                 $.post('tbl_zoom_select.php', post_params, function(data) {
                                     // Row is contained in data.row_info, now fill the displayResultForm with row values
-                                    for ( key in data.row_info) { 
+                                    for ( key in data.row_info) {
                                         if (data.row_info[key] == null) {
                                             $('#fields_null_id_' + fid).attr('checked', true);
                                         } else {
@@ -481,7 +481,7 @@ $(document).ready(function() {
                                     selectedRow = data.row_info;
                                 });
 
-                                $("#dataDisplay").dialog("open");    
+                                $("#dataDisplay").dialog("open");
                             }
                         }
                     }
@@ -578,20 +578,20 @@ $(document).ready(function() {
                 it++;
             });
 
-            currentSettings.xAxis.labels = { 
+            currentSettings.xAxis.labels = {
                 formatter : function() {
                     if (tempX[1][this.value] && tempX[1][this.value].length > 10) {
                         return tempX[1][this.value].substring(0, 10);
                     } else {
                         return tempX[1][this.value];
                     }
-                } 
+                }
             };
             if (yType == 'numeric') {
                 currentSettings.yAxis.max = Array.max(yCord) + 6;
                 currentSettings.yAxis.min = Array.min(yCord) - 6;
             } else {
-                currentSettings.yAxis.labels = { 
+                currentSettings.yAxis.labels = {
                     formatter : function() {
                         return getDate(this.value, $('#types_1').val());
                     }
@@ -608,19 +608,19 @@ $(document).ready(function() {
             $.each(data, function(key, value) {
                 var xVal = (xType == 'numeric') ? value[xLabel] : getTimeStamp(value[xLabel], $('#types_0').val());
                 series[0].data.push({ name: value[dataLabel], y: tempY[0][it], x: xVal, marker: {fillColor: colorCodes[it % 8]} , id: it } );
-                it++;   
+                it++;
             });
             if (xType == 'numeric') {
                 currentSettings.xAxis.max = Array.max(xCord) + 6;
                 currentSettings.xAxis.min = Array.min(xCord) - 6;
             } else {
-                currentSettings.xAxis.labels = { 
+                currentSettings.xAxis.labels = {
                     formatter : function() {
                         return getDate(this.value, $('#types_0').val());
                     }
                 };
             }
-            currentSettings.yAxis.labels = { 
+            currentSettings.yAxis.labels = {
                 formatter : function() {
                     if (tempY[1][this.value] && tempY[1][this.value].length > 10) {
                         return tempY[1][this.value].substring(0, 10);
@@ -636,13 +636,13 @@ $(document).ready(function() {
                 xCord.push(value[xLabel]);
                 yCord.push(value[yLabel]);
             });
-            tempX = getCord(xCord);    
+            tempX = getCord(xCord);
             tempY = getCord(yCord);
             $.each(data, function(key, value) {
                 series[0].data.push({ name: value[dataLabel], x: tempX[0][it], y: tempY[0][it], marker: {fillColor: colorCodes[it % 8]} , id: it } );
                 it++;
             });
-            currentSettings.xAxis.labels = { 
+            currentSettings.xAxis.labels = {
                 formatter : function() {
                     if (tempX[1][this.value] && tempX[1][this.value].length > 10) {
                         return tempX[1][this.value].substring(0, 10);
@@ -651,7 +651,7 @@ $(document).ready(function() {
                     }
                 }
             };
-            currentSettings.yAxis.labels = { 
+            currentSettings.yAxis.labels = {
                 formatter : function() {
                     if (tempY[1][this.value] && tempY[1][this.value].length > 10) {
                         return tempY[1][this.value].substring(0, 10);
