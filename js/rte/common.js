@@ -198,7 +198,7 @@ $(document).ready(function () {
                                     });
                                 }
                             } else {
-                                PMA_ajaxShowMessage(data.error);
+                                PMA_ajaxShowMessage(data.error, false);
                             }
                         }); // end $.post()
                     } // end "if (RTE.validate())"
@@ -245,7 +245,7 @@ $(document).ready(function () {
                 // Execute item-specific code
                 RTE.postDialogShow(data);
             } else {
-                PMA_ajaxShowMessage(data.error);
+                PMA_ajaxShowMessage(data.error, false);
             }
         }); // end $.get()
     }); // end $.live()
@@ -301,7 +301,7 @@ $(document).ready(function () {
                 var opts = {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql"};
                 CodeMirror.fromTextArea($elm[0], opts);
             } else {
-                PMA_ajaxShowMessage(data.error);
+                PMA_ajaxShowMessage(data.error, false);
             }
         }); // end $.get()
     }); // end $.live()
@@ -370,7 +370,7 @@ $(document).ready(function () {
                     // Show the query that we just executed
                     PMA_slidingMessage(data.sql_query);
                 } else {
-                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
+                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
             }); // end $.get()
         }); // end $.PMA_confirm()
