@@ -1299,11 +1299,15 @@ $(document).ready(function(){
  * message either the PMA_ajaxRemoveMessage($msg) function must be called or
  * another message must be show with PMA_ajaxShowMessage() function.
  *
- * 2) var $msg = PMA_ajaxShowMessage('The operation was successful');
+ * 2) var $msg = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+ * This is a special case. The behaviour is same as above,
+ * just with a different message
+ *
+ * 3) var $msg = PMA_ajaxShowMessage('The operation was successful');
  * This will show a message that will disappear automatically and it can also
  * be dismissed by the user.
  *
- * 3) var $msg = PMA_ajaxShowMessage('Some error', false);
+ * 4) var $msg = PMA_ajaxShowMessage('Some error', false);
  * This will show a message that will not disappear automatically, but it
  * can be dismissed by the user after he has finished reading it.
  *
@@ -1334,6 +1338,10 @@ function PMA_ajaxShowMessage(message, timeout)
     } else if (! message) {
         // If the message is undefined, show the default
         message = PMA_messages['strLoading'];
+        dismissable = false;
+        self_closing = false;
+    } else if (message == PMA_messages['strProcessingRequest']) {
+        // This is another case where the message should not disappear
         dismissable = false;
         self_closing = false;
     }
