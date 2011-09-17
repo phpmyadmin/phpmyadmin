@@ -264,30 +264,29 @@ $(document).ready(function() {
         //Prevent default submission of form
         event.preventDefault();
     
-    //Find changed values by comparing form values with selectedRow Object
-    var newValues = new Array();//Stores the values changed from original
+        //Find changed values by comparing form values with selectedRow Object
+        var newValues = new Array();//Stores the values changed from original
         var it = 4;
         var xChange = false;
         var yChange = false;
-    for (key in selectedRow) {
-        if (key != 'where_clause'){
-        var oldVal = selectedRow[key];
-        var newVal = ($('#fields_null_id_' + it).attr('checked')) ? null : $('#fieldID_' + it).val();
-        if (oldVal != newVal){
-            selectedRow[key] = newVal;
-            newValues[key] = newVal;
-            if(key == xLabel) {
-            xChange = true;
-               data[currentData][xLabel] = newVal;
+        for (key in selectedRow) {
+            if (key != 'where_clause') {
+                var oldVal = selectedRow[key];
+                var newVal = ($('#fields_null_id_' + it).attr('checked')) ? null : $('#fieldID_' + it).val();
+                if (oldVal != newVal) {
+                    selectedRow[key] = newVal;
+                    newValues[key] = newVal;
+                    if(key == xLabel) {
+                        xChange = true;
+                    data[currentData][xLabel] = newVal;
+                    } else if(key == yLabel) {
+                        yChange = true;
+                        data[currentData][yLabel] = newVal;
+                    }
+                }
             }
-            else if(key == yLabel) {
-            yChange = true;
-               data[currentData][yLabel] = newVal;
-            }
-        }
-        }
-        it++;  
-    }//End data update
+            it++;  
+        } //End data update
         
     //Update the chart series and replot
         if (xChange || yChange) {
