@@ -469,10 +469,12 @@ $(document).ready(function() {
                                 };
                                 $.post('tbl_zoom_select.php', post_params, function(data) {
                                     // Row is contained in data.row_info, now fill the displayResultForm with row values
-                                    for ( key in data.row_info) {
+                                    for (key in data.row_info) {
                                         if (data.row_info[key] == null) {
                                             $('#fields_null_id_' + fid).attr('checked', true);
+                                            $('#fieldID_' + fid).val('');
                                         } else {
+                                            $('#fields_null_id_' + fid).attr('checked', false);
                                             $('#fieldID_' + fid).val(data.row_info[key]);
                                         }
                                         fid++;
