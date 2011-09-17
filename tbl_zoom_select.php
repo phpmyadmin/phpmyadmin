@@ -229,7 +229,6 @@ for ($i = 0; $i < 4; $i++) {
         <?php
     } ?>
 
-        </td>
     </tr>
 
     <tr><td><input type="hidden" name="types[<?php echo $i; ?>]" id="types_<?php echo $i; ?>"
@@ -240,6 +239,7 @@ for ($i = 0; $i < 4; $i++) {
 <?php
 }//end for
 ?>
+    </tbody>
     </table>
 
 <?php
@@ -255,7 +255,7 @@ if (isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null')
 }
 ?>
     <table class="data">
-    <tr><td><label for="dataLabel"><?php echo __("Data Label"); ?></label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+    <tr><td><label for="dataLabel"><?php echo __("Data Label"); ?></label></td>
     <td><select name="dataLabel" id='dataLabel' >
         <option value = ''> <?php echo __('None');  ?> </option>
 <?php
@@ -293,6 +293,7 @@ echo '" /></td></tr>';
     <input type="submit" name="zoom_submit" id="inputFormSubmitId" value="<?php echo __('Go'); ?>" />
 </fieldset>
 </form>
+</fieldset>
 
 <?php
 
