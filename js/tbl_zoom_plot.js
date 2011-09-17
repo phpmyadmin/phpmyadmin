@@ -524,188 +524,188 @@ $(document).ready(function() {
             }
         });
         
-    // Classify types as either numeric,time,text
-    xType = getType(xType);
-    yType = getType(yType);
+        // Classify types as either numeric,time,text
+        xType = getType(xType);
+        yType = getType(yType);
 
-    //Set the axis type based on the field
-    currentSettings.xAxis.type = (xType == 'time') ? 'datetime' : 'linear';
-    currentSettings.yAxis.type = (yType == 'time') ? 'datetime' : 'linear';
+        //Set the axis type based on the field
+        currentSettings.xAxis.type = (xType == 'time') ? 'datetime' : 'linear';
+        currentSettings.yAxis.type = (yType == 'time') ? 'datetime' : 'linear';
 
         // Formulate series data for plot
         series[0] = new Object();
         series[0].data = new Array();
-    series[0].marker = {
+        series[0].marker = {
             symbol: 'circle'
         };
-    if (xType != 'text' && yType != 'text') {
-        $.each(data,function(key,value) {
-        var xVal = (xType == 'numeric') ? value[xLabel] : getTimeStamp(value[xLabel],$('#types_0').val());
-        var yVal = (yType == 'numeric') ? value[yLabel] : getTimeStamp(value[yLabel],$('#types_1').val());
+        if (xType != 'text' && yType != 'text') {
+            $.each(data,function(key,value) {
+                var xVal = (xType == 'numeric') ? value[xLabel] : getTimeStamp(value[xLabel],$('#types_0').val());
+                var yVal = (yType == 'numeric') ? value[yLabel] : getTimeStamp(value[yLabel],$('#types_1').val());
                 series[0].data.push({ name: value[dataLabel], x: xVal, y: yVal, marker: {fillColor: colorCodes[it % 8]} , id: it } );
-        xCord.push(value[xLabel]);
-        yCord.push(value[yLabel]);
-            it++;   
+                xCord.push(value[xLabel]);
+                yCord.push(value[yLabel]);
+                it++;   
             });
-        if(xType == 'numeric') {
-            currentSettings.xAxis.max = Array.max(xCord) + 6;
-            currentSettings.xAxis.min = Array.min(xCord) - 6;
-        }
-        else {
-            currentSettings.xAxis.labels = { formatter : function() {
-            return getDate(this.value, $('#types_0').val());
-        }};
+            if(xType == 'numeric') {
+                currentSettings.xAxis.max = Array.max(xCord) + 6;
+                currentSettings.xAxis.min = Array.min(xCord) - 6;
+            } else {
+                currentSettings.xAxis.labels = { formatter : function() {
+                    return getDate(this.value, $('#types_0').val());
+                }};
             }
-        if(yType == 'numeric') {
-            currentSettings.yAxis.max = Array.max(yCord) + 6;
-            currentSettings.yAxis.min = Array.min(yCord) - 6;
-        }
-        else {
-            currentSettings.yAxis.labels = { formatter : function() {
-            return getDate(this.value, $('#types_1').val());
-        }};
+            if(yType == 'numeric') {
+                currentSettings.yAxis.max = Array.max(yCord) + 6;
+                currentSettings.yAxis.min = Array.min(yCord) - 6;
+            } else {
+                currentSettings.yAxis.labels = { formatter : function() {
+                     return getDate(this.value, $('#types_1').val());
+                }};
             }
 
-        }
-    
-    else if (xType =='text' && yType !='text') {
-        $.each(data,function(key,value) {
-        xCord.push(value[xLabel]);
-        yCord.push(value[yLabel]);
-        });
-        
-        tempX = getCord(xCord);    
-        $.each(data,function(key,value) {
-        var yVal = (yType == 'numeric') ? value[yLabel] : getTimeStamp(value[yLabel],$('#types_1').val());
-                series[0].data.push({ name: value[dataLabel], x: tempX[0][it], y: yVal, marker: {fillColor: colorCodes[it % 8]} , id: it } );
-            it++;   
+        } else if (xType =='text' && yType !='text') {
+            $.each(data,function(key,value) {
+                xCord.push(value[xLabel]);
+                yCord.push(value[yLabel]);
             });
-        
-        currentSettings.xAxis.labels = { formatter : function() {
-            if(tempX[1][this.value] && tempX[1][this.value].length > 10) {
-                return tempX[1][this.value].substring(0,10);
-            } else {
-            return tempX[1][this.value];
-            }
+            
+            tempX = getCord(xCord);
+            $.each(data,function(key,value) {
+                var yVal = (yType == 'numeric') ? value[yLabel] : getTimeStamp(value[yLabel],$('#types_1').val());
+                series[0].data.push({ name: value[dataLabel], x: tempX[0][it], y: yVal, marker: {fillColor: colorCodes[it % 8]} , id: it } );
+                it++;   
+            });
+            
+            currentSettings.xAxis.labels = { 
+                formatter : function() {
+                    if(tempX[1][this.value] && tempX[1][this.value].length > 10) {
+                        return tempX[1][this.value].substring(0,10);
+                    } else {
+                        return tempX[1][this.value];
+                    }
                 } 
             };
-        if(yType == 'numeric') {
-            currentSettings.yAxis.max = Array.max(yCord) + 6;
-            currentSettings.yAxis.min = Array.min(yCord) - 6;
-        }
-        else {
-            currentSettings.yAxis.labels = { formatter : function() {
-            return getDate(this.value, $('#types_1').val());
-        }};
+            if(yType == 'numeric') {
+                currentSettings.yAxis.max = Array.max(yCord) + 6;
+                currentSettings.yAxis.min = Array.min(yCord) - 6;
+            } else {
+                currentSettings.yAxis.labels = { 
+                    formatter : function() {
+                        return getDate(this.value, $('#types_1').val());
+                    }
+                };
             }
-        xCord = tempX[2];
-    }
-     
-    else if (xType !='text' && yType =='text') {
-        $.each(data,function(key,value) {
-        xCord.push(value[xLabel]);
-        yCord.push(value[yLabel]);
-        });
-        tempY = getCord(yCord);    
-        $.each(data,function(key,value) {
-        var xVal = (xType == 'numeric') ? value[xLabel] : getTimeStamp(value[xLabel],$('#types_0').val());
+            xCord = tempX[2];
+
+        } else if (xType !='text' && yType =='text') {
+            $.each(data,function(key,value) {
+                xCord.push(value[xLabel]);
+                yCord.push(value[yLabel]);
+            });
+            tempY = getCord(yCord);
+            $.each(data,function(key,value) {
+                var xVal = (xType == 'numeric') ? value[xLabel] : getTimeStamp(value[xLabel],$('#types_0').val());
                 series[0].data.push({ name: value[dataLabel], y: tempY[0][it], x: xVal, marker: {fillColor: colorCodes[it % 8]} , id: it } );
-            it++;   
+                it++;   
             });
-        if(xType == 'numeric') {
-            currentSettings.xAxis.max = Array.max(xCord) + 6;
-            currentSettings.xAxis.min = Array.min(xCord) - 6;
-        }
-        else {
-            currentSettings.xAxis.labels = { formatter : function() {
-            return getDate(this.value, $('#types_0').val());
-        }};
-            }
-        currentSettings.yAxis.labels = { formatter : function() {
-            if(tempY[1][this.value] && tempY[1][this.value].length > 10) {
-                return tempY[1][this.value].substring(0,10);
+            if(xType == 'numeric') {
+                currentSettings.xAxis.max = Array.max(xCord) + 6;
+                currentSettings.xAxis.min = Array.min(xCord) - 6;
             } else {
-                    return tempY[1][this.value];
+                currentSettings.xAxis.labels = { 
+                    formatter : function() {
+                        return getDate(this.value, $('#types_0').val());
+                    }
+                };
             }
-            }
+            currentSettings.yAxis.labels = { 
+                formatter : function() {
+                    if(tempY[1][this.value] && tempY[1][this.value].length > 10) {
+                        return tempY[1][this.value].substring(0,10);
+                    } else {
+                        return tempY[1][this.value];
+                    }
+                }
             };
-        yCord = tempY[2];
-    }
-    
-    else if (xType =='text' && yType =='text') {
-        $.each(data,function(key,value) {
-        xCord.push(value[xLabel]);
-        yCord.push(value[yLabel]);
-        });
-        tempX = getCord(xCord);    
-        tempY = getCord(yCord);    
-        $.each(data,function(key,value) {
+            yCord = tempY[2];
+
+        } else if (xType =='text' && yType =='text') {
+            $.each(data,function(key,value) {
+                xCord.push(value[xLabel]);
+                yCord.push(value[yLabel]);
+            });
+            tempX = getCord(xCord);    
+            tempY = getCord(yCord);
+            $.each(data,function(key,value) {
                 series[0].data.push({ name: value[dataLabel], x: tempX[0][it], y: tempY[0][it], marker: {fillColor: colorCodes[it % 8]} , id: it } );
-            it++;   
+                it++;
             });
-        currentSettings.xAxis.labels = { formatter : function() {
-            if(tempX[1][this.value] && tempX[1][this.value].length > 10) {
-                return tempX[1][this.value].substring(0,10);
-            } else {
-                    return tempX[1][this.value];
-            }
-            }
+            currentSettings.xAxis.labels = { 
+                formatter : function() {
+                    if(tempX[1][this.value] && tempX[1][this.value].length > 10) {
+                        return tempX[1][this.value].substring(0,10);
+                    } else {
+                        return tempX[1][this.value];
+                    }
+                }
             };
-        currentSettings.yAxis.labels = { formatter : function() {
-            if(tempY[1][this.value] && tempY[1][this.value].length > 10) {
-                return tempY[1][this.value].substring(0,10);
-            } else {
-                    return tempY[1][this.value];
-            }
-            }
-        };
-        xCord = tempX[2];
-        yCord = tempY[2];
+            currentSettings.yAxis.labels = { 
+                formatter : function() {
+                    if(tempY[1][this.value] && tempY[1][this.value].length > 10) {
+                        return tempY[1][this.value].substring(0,10);
+                    } else {
+                        return tempY[1][this.value];
+                    }
+                }
+            };
+            xCord = tempX[2];
+            yCord = tempY[2];
+        }
 
-    }
-
-    currentSettings.series = series;
+        currentSettings.series = series;
         currentChart = PMA_createChart(currentSettings);
-    xMin = currentChart.xAxis[0].getExtremes().min;
+        xMin = currentChart.xAxis[0].getExtremes().min;
         xMax = currentChart.xAxis[0].getExtremes().max;
         yMin = currentChart.yAxis[0].getExtremes().min;
         yMax = currentChart.yAxis[0].getExtremes().max;
-    includePan(currentChart); //Enable panning feature
+        includePan(currentChart); //Enable panning feature
         var setZoom = function() {
-        var newxm = xMin + (xMax - xMin) * (1 - zoomRatio) / 2;
-        var newxM = xMax - (xMax - xMin) * (1 - zoomRatio) / 2;
-        var newym = yMin + (yMax - yMin) * (1 - zoomRatio) / 2;
-        var newyM = yMax - (yMax - yMin) * (1 - zoomRatio) / 2;
+            var newxm = xMin + (xMax - xMin) * (1 - zoomRatio) / 2;
+            var newxM = xMax - (xMax - xMin) * (1 - zoomRatio) / 2;
+            var newym = yMin + (yMax - yMin) * (1 - zoomRatio) / 2;
+            var newyM = yMax - (yMax - yMin) * (1 - zoomRatio) / 2;
             currentChart.xAxis[0].setExtremes(newxm,newxM);
             currentChart.yAxis[0].setExtremes(newym,newyM);
-    };
-    //Enable zoom feature
-     $("#querychart").mousewheel(function(objEvent, intDelta) {
+        };
+
+        //Enable zoom feature
+        $("#querychart").mousewheel(function(objEvent, intDelta) {
             if (intDelta > 0) {
                 if (zoomRatio > 0.1) {
                     zoomRatio = zoomRatio - 0.1;
                     setZoom();
                 }
-            }
-            else if (intDelta < 0) {
+            } else if (intDelta < 0) {
                 zoomRatio = zoomRatio + 0.1;
                 setZoom();
             }
         });
+
         //Add reset zoom feature
         currentChart.yAxis[0].resetZoom = currentChart.xAxis[0].resetZoom = $('<a href="#">Reset zoom</a>')
-        .appendTo(currentChart.container)
-        .css({
-            position: 'absolute',
-            top: 10,
-            right: 20,
-            display: 'none'
-        })
-        .click(function(){
-            currentChart.xAxis[0].setExtremes(null, null);
-            currentChart.yAxis[0].setExtremes(null, null);
-            this.style.display = 'none';
-        });
-    scrollToChart();
+            .appendTo(currentChart.container)
+            .css({
+                position: 'absolute',
+                top: 10,
+                right: 20,
+                display: 'none'
+            })
+            .click(function(){
+                currentChart.xAxis[0].setExtremes(null, null);
+                currentChart.yAxis[0].setExtremes(null, null);
+                this.style.display = 'none';
+            });
+        scrollToChart();
     }
 });
