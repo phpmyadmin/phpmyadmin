@@ -133,7 +133,7 @@ for ($i = 0; $i < 4; $i++) {
     if ($i == 2) {
         echo "<tr><td>";
         echo __("Additional search criteria");
-        echo "</td><tr>";
+        echo "</td></tr>";
     }
 ?>
     <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
@@ -232,10 +232,10 @@ for ($i = 0; $i < 4; $i++) {
         </td>
     </tr>
 
-    <input type="hidden" name="types[<?php echo $i; ?>]" id="types_<?php echo $i; ?>"
+    <tr><td><input type="hidden" name="types[<?php echo $i; ?>]" id="types_<?php echo $i; ?>"
         value="<?php if(isset($tbl_fields_type[$i]))echo $tbl_fields_type[$i]; ?>" />
     <input type="hidden" name="collations[<?php echo $i; ?>]"
-        value="<?php if(isset($tbl_fields_collation[$i]))echo $tbl_fields_collation[$i]; ?>" />
+        value="<?php if(isset($tbl_fields_collation[$i]))echo $tbl_fields_collation[$i]; ?>" /></td></tr>
 
 <?php
 }//end for
