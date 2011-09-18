@@ -12213,7 +12213,7 @@ msgstr "Verfügbarer Specher auf diesem Rechner: %s"
 
 #: po/advisory_rules.php:70
 msgid "Query cache disabled"
-msgstr "Abfragen-Cache deaktiviert"
+msgstr "Abfragen-Zwischenspeicher deaktiviert"
 
 #: po/advisory_rules.php:71
 msgid "The query cache is not enabled."
