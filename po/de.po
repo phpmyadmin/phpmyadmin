@@ -9627,7 +9627,7 @@ msgstr "Verzögertes Einfügen (delayed inserts)"
 
 #: server_status.php:586
 msgid "Key cache"
-msgstr "Schlüssel-Cache"
+msgstr "Schlüssel-Zwischenspeicher"
 
 #: server_status.php:587
 msgid "Joins"
