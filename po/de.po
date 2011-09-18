@@ -12037,10 +12037,9 @@ msgstr ""
 "."
 
 #: po/advisory_rules.php:20
-#, fuzzy
 #| msgid "Flush query cache"
 msgid "Slow query rate"
-msgstr "Den Abfragen-Cache leeren. (FLUSH)"
+msgstr "Langsame Anfragen Anteil"
 
 #: po/advisory_rules.php:21
 msgid ""
