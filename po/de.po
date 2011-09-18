@@ -10288,7 +10288,9 @@ msgstr ""
 
 #: server_status.php:1361
 msgid "The number of requests to read a key block from the cache."
-msgstr "Die Anzahl der Anfragen, einen Schlüssel-Block aus dem Cache zu lesen."
+msgstr ""
+"Die Anzahl der Anfragen, einen Schlüssel-Block aus dem Zwischenspeicher zu "
+"lesen."
 
 #: server_status.php:1362
 msgid ""
