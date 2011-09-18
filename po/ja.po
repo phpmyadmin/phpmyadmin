@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-18 11:23+0200\n"
+"PO-Revision-Date: 2011-09-18 11:25+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -11002,10 +11002,9 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "キーは文字、数字[em]そして[/em]特殊文字を含める必要があります。"
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No data"
 msgid "Wrong data"
-msgstr "データが存在しません"
+msgstr "データが正しくありません"
 
 #: sql.php:214
 #, php-format
