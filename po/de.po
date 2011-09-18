@@ -3581,7 +3581,7 @@ msgstr "<code>CREATE TABLE</code> Optionen:"
 
 #: libraries/config/messages.inc.php:123
 msgid "Creation/Update/Check dates"
-msgstr "Erzeugungs- / Aktualisierungs- / Überprüfungszeiten"
+msgstr "Erzeugungs-/Aktualisierungs-/Überprüfungszeiten"
 
 #: libraries/config/messages.inc.php:124
 msgid "Use delayed inserts"
