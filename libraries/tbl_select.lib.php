@@ -9,31 +9,6 @@
 require_once 'url_generating.lib.php';
 
 /**
- * Sets the title for foreign keys display link.
- *
- * @param mixed  $propertiesIconic Type of icon property
- * @param string $pmaThemeImage    Icon Image
- *
- * @return string $str Value of the Title
- */
-function PMA_tbl_setTitle($propertiesIconic, $pmaThemeImage)
-{
-    if ($propertiesIconic == true) {
-        $str = '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
-            .'b_browse.png" alt="' . __('Browse foreign values') . '" title="'
-            . __('Browse foreign values') . '" />';
-
-        if ($propertiesIconic === 'both') {
-            $str .= __('Browse foreign values');
-        }
-
-        return $str;
-    } else {
-        return __('Browse foreign values');
-    }
-}
-
-/**
  * Gets all the fields of a table along with their types, collations
  * and whether null or not.
  *

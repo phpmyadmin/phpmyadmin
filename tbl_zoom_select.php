@@ -55,7 +55,7 @@ if (isset($_REQUEST['get_data_row']) && $_REQUEST['get_data_row'] == true) {
     PMA_ajaxResponse(null, true, $extra_data);
 }
 
-$titles['Browse'] = PMA_tbl_setTitle($GLOBALS['cfg']['PropertiesIconic'], $pmaThemeImage);
+$titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse'));
 /**
  * Not selection yet required -> displays the selection form
  */
