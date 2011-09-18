@@ -154,11 +154,13 @@ function PMA_tbl_getSubTabs()
  * @param int    $foreignMaxLimit Max limit of displaying foreign elements
  * @param array  $fields          Array of search criteria inputs
  * @param bool   $in_fbs          Whether we are in 'function based search'
+ * @param bool   $in_edit         Whether in search mode
+ *                                    or edit mode (used for zoom search)
  *
  * @return string HTML content for viewing foreing data and elements
  * for search criteria input.
  */
-function PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fields_type, $i, $db, $table, $titles, $foreignMaxLimit, $fields, $in_fbs = false)
+function PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fields_type, $i, $db, $table, $titles, $foreignMaxLimit, $fields, $in_fbs = false, $in_edit = false)
 {
     $str = '';
     if ($foreigners && isset($foreigners[$field]) && is_array($foreignData['disp_row'])) {
@@ -208,23 +210,39 @@ EOT;
             $str .= '</span>';
         }
 
-    } elseif (strncasecmp($tbl_fields_type[$i], 'enum', 4) == 0) {
-        // e n u m s
-        $enum_value=explode(', ', str_replace("'", '', substr($tbl_fields_type[$i], 5, -1)));
-        $cnt_enum_value = count($enum_value);
-        $str .= '<select name="fields[' . ($i) . '][]" id="fieldID_' . $i .'"'
-            .' multiple="multiple" size="' . min(3, $cnt_enum_value) . '">' . "\n";
+    } elseif (strncasecmp($tbl_fields_type[$i], 'enum', 4) == 0
+        || (strncasecmp($tbl_fields_type[$i], 'set', 3) == 0 && $in_edit)
+    ) {
+        // e n u m s   a n d   s e t s
 
-        for ($j = 0; $j < $cnt_enum_value; $j++) {
+        // Enum in edit mode   --> dropdown
+        // Enum in search mode --> multiselect
+        // Set in edit mode    --> multiselect
+        // Set in search mode  --> input (skipped here, so the 'else'
+        //                                 section would handle it)
+
+        $value = explode(', ', str_replace("'", '', substr($tbl_fields_type[$i], 5, -1)));
+        $cnt_value = count($value);
+
+        if ((strncasecmp($tbl_fields_type[$i], 'enum', 4) && ! $in_edit)
+            || (strncasecmp($tbl_fields_type[$i], 'set', 3) && $in_edit)
+        ) {
+            $str .= '<select name="fields[' . ($i) . '][]" id="fieldID_' . $i .'">' . "\n";
+        } else {
+            $str .= '<select name="fields[' . ($i) . '][]" id="fieldID_' . $i .'"'
+                . ' multiple="multiple" size="' . min(3, $cnt_value) . '">' . "\n";
+        }
+
+        for ($j = 0; $j < $cnt_value; $j++) {
             if (isset($fields[$i])
                 && is_array($fields[$i])
-                && in_array($enum_value[$j], $fields[$i])
+                && in_array($value[$j], $fields[$i])
             ) {
-                $str .= '<option value="' . $enum_value[$j] . '" Selected>'
-                    . $enum_value[$j] . '</option>';
+                $str .= '<option value="' . $value[$j] . '" Selected>'
+                    . $value[$j] . '</option>';
             } else {
-                $str .= '<option value="' . $enum_value[$j] . '">'
-                    . $enum_value[$j] . '</option>';
+                $str .= '<option value="' . $value[$j] . '">'
+                    . $value[$j] . '</option>';
             }
         } // end for
         $str .= '</select>' . "\n";
@@ -238,6 +256,8 @@ EOT;
             $the_class .= ' datefield';
         } elseif ($type == 'datetime' || substr($type, 0, 9) == 'timestamp') {
             $the_class .= ' datetimefield';
+        } elseif (substr($type, 0, 3) == 'bit') {
+            $the_class .= ' bit';
         }
 
         if (isset($fields[$i]) && is_string($fields[$i])) {

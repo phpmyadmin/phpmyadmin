@@ -438,13 +438,16 @@ if (isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null' 
         ?>
             <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
               <th><?php echo htmlspecialchars($fields_list[$i - 4]); ?></th>
-              <th><?php echo '<input type="checkbox" class="checkbox_null" name="fields_null[ '
-                  . $i . ' ]" id="fields_null_id_' . $i . '" />'; ?>
+              <th><?php echo ($fields_null[$i - 4] == 'YES')
+                  ? '<input type="checkbox" class="checkbox_null" name="fields_null[ '
+                      . $i . ' ]" id="fields_null_id_' . $i . '" />'
+                  : ''; ?>
               </th>
               <th> <?php
               echo PMA_getForeignFields_Values(
                   $foreigners, $foreignData, $fieldpopup, $tbl_fields_type,
-                  $i, $db, $table, $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], ''
+                  $i, $db, $table, $titles,
+                  $GLOBALS['cfg']['ForeignKeyMaxLimit'], '', false, true
               ); ?>
               </th>
             </tr>

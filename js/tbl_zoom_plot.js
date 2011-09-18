@@ -265,6 +265,7 @@ $(document).ready(function() {
 
         //Find changed values by comparing form values with selectedRow Object
         var newValues = new Array();//Stores the values changed from original
+        var sqlTypes = new Array();
         var it = 4;
         var xChange = false;
         var yChange = false;
@@ -282,6 +283,10 @@ $(document).ready(function() {
                         yChange = true;
                         data[currentData][yLabel] = newVal;
                     }
+                }
+                var $input = $('#fieldID_' + it);
+                if ($input.hasClass('bit')) {
+                    sqlTypes[key] = 'bit';
                 }
             }
             it++;
@@ -378,7 +383,11 @@ $(document).ready(function() {
                 if (key != 'where_clause') {
                     sql_query += '`' + key + '`=' ;
                     var value = newValues[key];
-                    if (!isNumeric(value) && value != null) {
+                    if (sqlTypes[key] != null) {
+                        if (sqlTypes[key] == 'bit') {
+                            sql_query += 'b\'' + value + '\' ,';
+                        }
+                    } else if (!isNumeric(value) && value != null) {
                         sql_query += '\'' + value + '\' ,';
                     } else {
                         sql_query += value + ' ,';
