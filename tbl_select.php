@@ -25,7 +25,7 @@ $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'jquery/timepicker.js';
 $GLOBALS['js_include'][] = 'gis_data_editor.js';
 
-$titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse'));
+$titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
 
 $geom_types = PMA_getGISDatatypes();
 /**
