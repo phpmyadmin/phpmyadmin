@@ -6248,7 +6248,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:27
 msgid "Record cache size"
-msgstr "Record-Cache-Größe"
+msgstr "Record-Zwischenspeicher-Größe"
 
 #: libraries/engines/pbxt.lib.php:28
 msgid ""
