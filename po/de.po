@@ -9872,9 +9872,10 @@ msgid ""
 "exceeded the value of binlog_cache_size and used a temporary file to store "
 "statements from the transaction."
 msgstr ""
-"Anzahl der Transaktionen die den Binarylog-Cache verwendet, aber die Größe "
-"des Binarylog-Caches (binlog_cache_size) überschritten und eine temporäre "
-"Datei verwendet haben um die Statements der Transaktion zu speichern."
+"Anzahl der Transaktionen die den Binarylog-Zwischenspeicher verwendet, aber "
+"die Größe des Binarylog-Zwischenspeichers (binlog_cache_size) überschritten "
+"und eine temporäre Datei verwendet haben um die Statements der Transaktion "
+"zu speichern."
 
 #: server_status.php:1294
 msgid "The number of transactions that used the temporary binary log cache."
