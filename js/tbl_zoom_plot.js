@@ -273,6 +273,11 @@ $(document).ready(function() {
             if (key != 'where_clause') {
                 var oldVal = selectedRow[key];
                 var newVal = ($('#fields_null_id_' + it).attr('checked')) ? null : $('#fieldID_' + it).val();
+                if (newVal instanceof Array) { // when the column is of type SET
+                    newVal =  $('#fieldID_' + it).map(function(){
+                        return $(this).val();
+                    }).get().join(",");
+                }
                 if (oldVal != newVal) {
                     selectedRow[key] = newVal;
                     newValues[key] = newVal;
@@ -481,12 +486,18 @@ $(document).ready(function() {
                                 $.post('tbl_zoom_select.php', post_params, function(data) {
                                     // Row is contained in data.row_info, now fill the displayResultForm with row values
                                     for (key in data.row_info) {
+                                        $field = $('#fieldID_' + fid);
+                                        $field_null = $('#fields_null_id_' + fid);
                                         if (data.row_info[key] == null) {
-                                            $('#fields_null_id_' + fid).attr('checked', true);
-                                            $('#fieldID_' + fid).val('');
+                                            $field_null.attr('checked', true);
+                                            $field.val('');
                                         } else {
-                                            $('#fields_null_id_' + fid).attr('checked', false);
-                                            $('#fieldID_' + fid).val(data.row_info[key]);
+                                            $field_null.attr('checked', false);
+                                            if ($field.attr('multiple')) { // when the column is of type SET
+                                                $field.val(data.row_info[key].split(','));
+                                            } else {
+                                                $field.val(data.row_info[key]);
+                                            }
                                         }
                                         fid++;
                                     }
