@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-18 19:26+0200\n"
+"PO-Revision-Date: 2011-09-18 19:27+0200\n"
 "Last-Translator:  <joungkyun@yahoo.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -2880,7 +2880,7 @@ msgstr "PHP 코드 보기"
 #: libraries/common.lib.php:1174 libraries/config/messages.inc.php:480
 #: server_status.php:786 server_status.php:808 server_status.php:827
 msgid "Refresh"
-msgstr ""
+msgstr "다시 보기"
 
 #: libraries/common.lib.php:1184
 msgid "Skip Validate SQL"
