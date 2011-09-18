@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-18 19:33+0200\n"
+"PO-Revision-Date: 2011-09-18 19:34+0200\n"
 "Last-Translator:  <joungkyun@yahoo.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -2987,7 +2987,7 @@ msgstr "데이터베이스 &quot;%s&quot; 로 이동."
 #: libraries/common.lib.php:2486
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
-msgstr ""
+msgstr "%s 기능은 알려진 버그가 있습니다. %s 문서를 참조하십시오"
 
 #: libraries/common.lib.php:2660
 msgid "Click to toggle"
