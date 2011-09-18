@@ -9611,7 +9611,7 @@ msgstr "Bezeichner"
 
 #: server_status.php:581
 msgid "Query cache"
-msgstr "Abfragen-Cache"
+msgstr "Abfragen-Zwischenspeicher"
 
 #: server_status.php:582
 msgid "Threads"
