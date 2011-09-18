@@ -10379,7 +10379,7 @@ msgstr "Anzahl an Abfrage-Zwischenspeicher-Anfragetreffer."
 
 #: server_status.php:1375
 msgid "The number of queries added to the cache."
-msgstr "Die Anzahl der Abfragen die dem Cache hinzugefügt wurden."
+msgstr "Die Anzahl der Abfragen die dem Zwischenspeicher hinzugefügt wurden."
 
 #: server_status.php:1376
 msgid ""
