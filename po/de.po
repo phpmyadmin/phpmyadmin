@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-19 01:17+0200\n"
+"PO-Revision-Date: 2011-09-19 01:18+0200\n"
 "Last-Translator: Sven Strickroth <email@cs-ware.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -12033,6 +12033,8 @@ msgstr ""
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
+"Der Anteil langsamer Anfragen sollte kleiner als 5%% sein, Ihr Wert ist %s%%"
+"."
 
 #: po/advisory_rules.php:20
 #, fuzzy
