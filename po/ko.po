@@ -2759,10 +2759,9 @@ msgid "numeric key detected"
 msgstr ""
 
 #: libraries/common.inc.php:597
-#, fuzzy
 #| msgid "Failed to write file to disk."
 msgid "Failed to read configuration file"
-msgstr "디스크 쓰기에 실패했습니다."
+msgstr "설정 파일을 읽는데 실패했습니다."
 
 #: libraries/common.inc.php:598
 msgid ""
