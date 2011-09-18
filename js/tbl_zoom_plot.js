@@ -383,18 +383,20 @@ $(document).ready(function() {
                 if (key != 'where_clause') {
                     sql_query += '`' + key + '`=' ;
                     var value = newValues[key];
-                    if (sqlTypes[key] != null) {
-                        if (sqlTypes[key] == 'bit') {
-                            sql_query += 'b\'' + value + '\' ,';
+                    if (sqlTypes[key] != null && value != null) {
+                        if (sqlTypes[key] == 'bit' && value != '') {
+                            sql_query += 'b\'' + value + '\', ';
+                        } else {
+                            sql_query += '\'\', ';
                         }
                     } else if (!isNumeric(value) && value != null) {
-                        sql_query += '\'' + value + '\' ,';
+                        sql_query += '\'' + value + '\', ';
                     } else {
-                        sql_query += value + ' ,';
+                        sql_query += value + ', ';
                     }
                 }
             }
-            sql_query = sql_query.substring(0, sql_query.length - 1);
+            sql_query = sql_query.substring(0, sql_query.length - 2);
             sql_query += ' WHERE ' + PMA_urldecode(data[currentData]['where_clause']);
 
             //Post SQL query to sql.php
