@@ -2748,7 +2748,7 @@ msgstr "데이터베이스 &quot;%s&quot; 에 대한 사용권한 검사."
 
 #: libraries/build_html_for_db.lib.php:154
 msgid "Check Privileges"
-msgstr "사용권한 보기"
+msgstr "사용권한 검사"
 
 #: libraries/common.inc.php:147
 msgid "possible exploit"
