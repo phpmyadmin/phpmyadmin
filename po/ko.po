@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-18 19:12+0200\n"
+"PO-Revision-Date: 2011-09-18 19:13+0200\n"
 "Last-Translator:  <joungkyun@yahoo.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -2439,10 +2439,9 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "데이터 읽기 허용."
+msgstr "PDF 생성 실패:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
