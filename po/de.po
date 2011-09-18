@@ -10375,7 +10375,7 @@ msgstr "Freier Speicher im Abfragen-Zwischenspeicher."
 
 #: server_status.php:1374
 msgid "The number of cache hits."
-msgstr "Abfrage-Cache-Zugriffsrate."
+msgstr "Abfrage-Zwischenspeicher-Zugriffsrate."
 
 #: server_status.php:1375
 msgid "The number of queries added to the cache."
