@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-18 19:27+0200\n"
+"PO-Revision-Date: 2011-09-18 19:28+0200\n"
 "Last-Translator:  <joungkyun@yahoo.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -2897,7 +2897,7 @@ msgstr ""
 #: libraries/common.lib.php:1248
 msgctxt "Inline edit query"
 msgid "Inline"
-msgstr ""
+msgstr "인라인"
 
 #: libraries/common.lib.php:1314 sql.php:877
 msgid "Profiling"
