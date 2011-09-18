@@ -2798,7 +2798,7 @@ msgstr "서버"
 
 #: libraries/common.inc.php:835
 msgid "Invalid authentication method set in configuration:"
-msgstr ""
+msgstr "설정 파일에 인증 방식이 제대로 설정이 되어 있지 않습니다."
 
 #: libraries/common.inc.php:943
 #, php-format
