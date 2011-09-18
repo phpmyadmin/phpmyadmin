@@ -2867,7 +2867,7 @@ msgstr "SQL 해석"
 
 #: libraries/common.lib.php:1117
 msgid "Skip Explain SQL"
-msgstr "해석(EXPLAIN) 생략"
+msgstr "SQL 해석 생략"
 
 #: libraries/common.lib.php:1152
 msgid "Without PHP Code"
