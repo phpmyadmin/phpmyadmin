@@ -11914,10 +11914,9 @@ msgid "Additional search criteria"
 msgstr "Zusätzliche Suchkriterien"
 
 #: tbl_zoom_select.php:258
-#, fuzzy
 #| msgid "Label"
 msgid "Data Label"
-msgstr "Titel"
+msgstr "Datenbeschriftung"
 
 #: tbl_zoom_select.php:276
 msgid "Maximum rows to plot"
