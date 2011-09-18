@@ -6235,7 +6235,7 @@ msgstr "Website von PrimeBase XT"
 
 #: libraries/engines/pbxt.lib.php:22
 msgid "Index cache size"
-msgstr "Index-Cache Größe"
+msgstr "Index-Zwischenspeicher Größe"
 
 #: libraries/engines/pbxt.lib.php:23
 msgid ""
