@@ -9659,7 +9659,7 @@ msgstr "Zeige den Slave-Status"
 
 #: server_status.php:621
 msgid "Flush query cache"
-msgstr "Den Abfragen-Cache leeren. (FLUSH)"
+msgstr "Den Abfragen-Zwischenspeicher leeren. (FLUSH)"
 
 #: server_status.php:770
 msgid "Runtime Information"
