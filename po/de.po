@@ -1079,7 +1079,7 @@ msgstr "Möchten Sie wirklich diese Abfrage ausführen "
 
 #: js/messages.php:33 libraries/mult_submits.inc.php:282 sql.php:329
 msgid "You are about to DESTROY a complete database!"
-msgstr "Sie sind dabei eine komplette Datenbank zu ZERSTÖREN!"
+msgstr "Sie sind dabei eine komplette Datenbank zu LÖSCHEN!"
 
 #: js/messages.php:34
 msgid "You are about to DESTROY a complete table!"
