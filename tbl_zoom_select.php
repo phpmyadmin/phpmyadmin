@@ -42,6 +42,14 @@ if (isset($_REQUEST['get_data_row']) && $_REQUEST['get_data_row'] == true) {
     $result = PMA_DBI_query($row_info_query . ";", null, PMA_DBI_QUERY_STORE);
     $fields_meta = PMA_DBI_get_fields_meta($result);
     while ($row = PMA_DBI_fetch_assoc($result)) {
+        // for bit fields we need to convert them to printable form
+        $i = 0;
+        foreach ($row as $col => $val) {
+            if ($fields_meta[$i]->type == 'bit') {
+                $row[$col] = PMA_printable_bit_value($val, $fields_meta[$i]->length);
+            }
+            $i++;
+        }
         $extra_data['row_info'] = $row;
     }
     PMA_ajaxResponse(null, true, $extra_data);
