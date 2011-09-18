@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-18 11:20+0200\n"
+"PO-Revision-Date: 2011-09-18 11:23+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -10631,10 +10631,9 @@ msgid "Target database has been synchronized with source database"
 msgstr "対象先のデータベースが、元のデータベースと同期されています。"
 
 #: server_synchronize.php:1046
-#, fuzzy
 #| msgid "Issued queries"
 msgid "Executed queries"
-msgstr "発行されたクエリ数"
+msgstr "実行されたクエリ"
 
 #: server_synchronize.php:1192
 msgid "Enter manually"
