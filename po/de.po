@@ -12082,10 +12082,9 @@ msgid "Slow query logging"
 msgstr "Langsame Anfragen Überwachung"
 
 #: po/advisory_rules.php:31
-#, fuzzy
 #| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
-msgstr "slow_query_log ist aktiviert."
+msgstr "Die Überwachung langsamer Anfragen ist deaktiveirt."
 
 #: po/advisory_rules.php:32
 msgid ""
