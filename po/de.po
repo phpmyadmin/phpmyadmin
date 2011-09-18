@@ -12097,10 +12097,9 @@ msgid "log_slow_queries is set to 'OFF'"
 msgstr "log_slow_queries ist deaktiviert"
 
 #: po/advisory_rules.php:35
-#, fuzzy
 #| msgid "Clear series"
 msgid "Release Series"
-msgstr "Serien löschen"
+msgstr "Release Reihe"
 
 #: po/advisory_rules.php:36
 msgid "The MySQL server version less then 5.1."
