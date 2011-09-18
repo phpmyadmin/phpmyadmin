@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-18 11:15+0200\n"
+"PO-Revision-Date: 2011-09-18 11:17+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6586,10 +6586,9 @@ msgid "Stand-in structure for view"
 msgstr "ビュー用の代替構造"
 
 #: libraries/export/sql.php:1111
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error reading data:"
-msgstr "データの読み込みを許可する"
+msgstr "データ読み込みエラー:"
 
 #: libraries/export/xml.php:19 libraries/import/xml.php:21
 msgid "XML"
