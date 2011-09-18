@@ -2941,7 +2941,7 @@ msgid "%B %d, %Y at %I:%M %p"
 msgstr "%y-%m-%d %H:%M "
 
 #: libraries/common.lib.php:1925
-#, fuzzy, php-format
+#, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s일 %s시간 %분 %초"
 
