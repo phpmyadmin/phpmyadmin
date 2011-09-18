@@ -236,7 +236,7 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
                 <input type="radio" id="import_text_file" name="import_type" value="text_file" checked="checked" />
                 <label for="import_text_file"><?php echo __('Import from file') ?></label>
                 <div id="opts_import_text_file" class="prefsmanage_opts">
-                    <label for="input_import_file"><?php echo __('Location of the text file'); ?></label>
+                    <label for="input_import_file"><?php echo __('Browse your computer:'); ?></label>
                     <input type="file" name="import_file" id="input_import_file" />
                 </div>
                 <input type="radio" id="import_local_storage" name="import_type" value="local_storage" disabled="disabled" />

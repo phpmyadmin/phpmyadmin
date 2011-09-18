@@ -433,7 +433,7 @@ function PMA_sqlQueryFormUpload()
     // start output
     echo '<fieldset id="">';
     echo '<legend>';
-    echo __('Location of the text file') . '</legend>';
+    echo __('Browse your computer:') . '</legend>';
     echo '<div class="formelement">';
     echo '<input type="file" name="sql_file" class="textfield" /> ';
     echo PMA_displayMaximumUploadSize($GLOBALS['max_upload_size']);
