@@ -388,16 +388,30 @@ $(document).ready(function() {
                 if (key != 'where_clause') {
                     sql_query += '`' + key + '`=' ;
                     var value = newValues[key];
-                    if (sqlTypes[key] != null && value != null) {
-                        if (sqlTypes[key] == 'bit' && value != '') {
-                            sql_query += 'b\'' + value + '\', ';
-                        } else {
-                            sql_query += '\'\', ';
-                        }
-                    } else if (!isNumeric(value) && value != null) {
-                        sql_query += '\'' + value + '\', ';
+
+                    // null
+                    if (value == null) {
+                        sql_query += 'NULL, ';
+
+                    // empty
+                    } else if ($.trim(value) == '') {
+                        sql_query += "'', ";
+
+                    // other
                     } else {
-                        sql_query += value + ', ';
+                        // type explicitly identified
+                        if (sqlTypes[key] != null) {
+                            if (sqlTypes[key] == 'bit') {
+                                sql_query += "b'" + value + "', ";
+                            }
+                        // type not explicitly identified
+                        } else {
+                            if (!isNumeric(value)) {
+                                sql_query += "'" + value + "', ";
+                            } else {
+                                sql_query += value + ', ';
+                            }
+                        }
                     }
                 }
             }
