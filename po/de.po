@@ -9340,7 +9340,7 @@ msgstr "Rechte zu folgender Tabelle hinzufügen"
 
 #: server_privileges.php:2168
 msgid "Change Login Information / Copy User"
-msgstr "Anmelde-Information ändern / Benutzer kopieren"
+msgstr "Anmelde-Information ändern/Benutzer kopieren"
 
 #: server_privileges.php:2171
 msgid "Create a new user with the same privileges and ..."
