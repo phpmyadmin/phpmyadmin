@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-18 19:20+0200\n"
+"PO-Revision-Date: 2011-09-18 19:21+0200\n"
 "Last-Translator:  <joungkyun@yahoo.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -2783,7 +2783,7 @@ msgstr "환경설정 파일에 <tt>$cfg['PmaAbsoluteUri']</tt> 변수가 선언�
 #: libraries/common.inc.php:640
 #, php-format
 msgid "Invalid server index: %s"
-msgstr ""
+msgstr "잘못된 서버 인덱스: %s"
 
 #: libraries/common.inc.php:647
 #, php-format
