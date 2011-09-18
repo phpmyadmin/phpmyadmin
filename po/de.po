@@ -12217,7 +12217,7 @@ msgstr "Abfragen-Zwischenspeicher deaktiviert"
 
 #: po/advisory_rules.php:71
 msgid "The query cache is not enabled."
-msgstr "Der Abfragen-Cache ist nicht aktiviert."
+msgstr "Der Abfragen-Zwischenspeicher ist nicht aktiviert."
 
 #: po/advisory_rules.php:72
 msgid ""
