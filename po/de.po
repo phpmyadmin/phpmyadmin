@@ -12233,7 +12233,7 @@ msgstr "query_cache_size ist auf 0 oder query_cache_type ist auf 'OFF' gesetzt"
 
 #: po/advisory_rules.php:75
 msgid "Query caching method"
-msgstr "Abfragen-Cache Methode"
+msgstr "Abfragen-Zwischenspeicher Methode"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
