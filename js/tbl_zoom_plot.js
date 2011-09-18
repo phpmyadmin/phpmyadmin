@@ -270,29 +270,27 @@ $(document).ready(function() {
         var xChange = false;
         var yChange = false;
         for (key in selectedRow) {
-            if (key != 'where_clause') {
-                var oldVal = selectedRow[key];
-                var newVal = ($('#fields_null_id_' + it).attr('checked')) ? null : $('#fieldID_' + it).val();
-                if (newVal instanceof Array) { // when the column is of type SET
-                    newVal =  $('#fieldID_' + it).map(function(){
-                        return $(this).val();
-                    }).get().join(",");
+            var oldVal = selectedRow[key];
+            var newVal = ($('#fields_null_id_' + it).attr('checked')) ? null : $('#fieldID_' + it).val();
+            if (newVal instanceof Array) { // when the column is of type SET
+                newVal =  $('#fieldID_' + it).map(function(){
+                    return $(this).val();
+                }).get().join(",");
+            }
+            if (oldVal != newVal) {
+                selectedRow[key] = newVal;
+                newValues[key] = newVal;
+                if (key == xLabel) {
+                    xChange = true;
+                    data[currentData][xLabel] = newVal;
+                } else if (key == yLabel) {
+                    yChange = true;
+                    data[currentData][yLabel] = newVal;
                 }
-                if (oldVal != newVal) {
-                    selectedRow[key] = newVal;
-                    newValues[key] = newVal;
-                    if (key == xLabel) {
-                        xChange = true;
-                        data[currentData][xLabel] = newVal;
-                    } else if (key == yLabel) {
-                        yChange = true;
-                        data[currentData][yLabel] = newVal;
-                    }
-                }
-                var $input = $('#fieldID_' + it);
-                if ($input.hasClass('bit')) {
-                    sqlTypes[key] = 'bit';
-                }
+            }
+            var $input = $('#fieldID_' + it);
+            if ($input.hasClass('bit')) {
+                sqlTypes[key] = 'bit';
             }
             it++;
         } //End data update
@@ -385,32 +383,30 @@ $(document).ready(function() {
         if (!isEmpty(newValues)) {
             var sql_query = 'UPDATE `' + window.parent.table + '` SET ';
             for (key in newValues) {
-                if (key != 'where_clause') {
-                    sql_query += '`' + key + '`=' ;
-                    var value = newValues[key];
+                sql_query += '`' + key + '`=' ;
+                var value = newValues[key];
 
-                    // null
-                    if (value == null) {
-                        sql_query += 'NULL, ';
+                // null
+                if (value == null) {
+                    sql_query += 'NULL, ';
 
-                    // empty
-                    } else if ($.trim(value) == '') {
-                        sql_query += "'', ";
+                // empty
+                } else if ($.trim(value) == '') {
+                    sql_query += "'', ";
 
-                    // other
+                // other
+                } else {
+                    // type explicitly identified
+                    if (sqlTypes[key] != null) {
+                        if (sqlTypes[key] == 'bit') {
+                            sql_query += "b'" + value + "', ";
+                        }
+                    // type not explicitly identified
                     } else {
-                        // type explicitly identified
-                        if (sqlTypes[key] != null) {
-                            if (sqlTypes[key] == 'bit') {
-                                sql_query += "b'" + value + "', ";
-                            }
-                        // type not explicitly identified
+                        if (!isNumeric(value)) {
+                            sql_query += "'" + value + "', ";
                         } else {
-                            if (!isNumeric(value)) {
-                                sql_query += "'" + value + "', ";
-                            } else {
-                                sql_query += value + ', ';
-                            }
+                            sql_query += value + ', ';
                         }
                     }
                 }
