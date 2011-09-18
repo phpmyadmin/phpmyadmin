@@ -1265,7 +1265,7 @@ msgstr "Abfragen-Zwischenspeicher Ausnutzung"
 
 #: js/messages.php:98
 msgid "Query cache used"
-msgstr "Abfragen-Cache benutzt"
+msgstr "Abfragen-Zwischenspeicher benutzt"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
