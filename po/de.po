@@ -10400,8 +10400,8 @@ msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
 msgstr ""
-"Die Anzahl der nicht im Cache eingetragenen Abfragen (nicht möglich, oder "
-"aufgrund der query_cache_type Einstellung)."
+"Die Anzahl der nicht im Zwischenspeicher eingetragenen Abfragen (nicht "
+"möglich, oder aufgrund der query_cache_type Einstellung)."
 
 #: server_status.php:1378
 msgid "The number of queries registered in the cache."
