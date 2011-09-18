@@ -10273,8 +10273,9 @@ msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
 msgstr ""
-"Die Anzahl der unbenutzten Schlüssel-Blöcke im Schlüssel-Cache. Dieser Wert "
-"kann dazu dienen die Auslastung des Schlüssel-Cache zu bestimmen."
+"Die Anzahl der unbenutzten Schlüssel-Blöcke im Schlüssel-Zwischenspeicher. "
+"Dieser Wert kann dazu dienen die Auslastung des Schlüssel-Zwischenspeicher "
+"zu bestimmen."
 
 #: server_status.php:1360
 msgid ""
