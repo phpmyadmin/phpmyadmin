@@ -8808,7 +8808,7 @@ msgstr "データベースのダンプ(スキーマ)表示"
 
 #: server_plugins.php:81
 msgid "Modules"
-msgstr ""
+msgstr "モジュール"
 
 #: server_plugins.php:102
 msgid "Begin"
