@@ -10306,7 +10306,8 @@ msgstr ""
 #: server_status.php:1363
 msgid "The number of requests to write a key block to the cache."
 msgstr ""
-"Die Anzahl der Anfragen, einen Schlüssel-Block in den Cache zu schreiben."
+"Die Anzahl der Anfragen, einen Schlüssel-Block in den Zwischenspeicher zu "
+"schreiben."
 
 #: server_status.php:1364
 msgid "The number of physical writes of a key block to disk."
