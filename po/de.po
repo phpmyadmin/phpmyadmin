@@ -3718,7 +3718,7 @@ msgstr "Standard-Importeinstellungen anpassen"
 
 #: libraries/config/messages.inc.php:173
 msgid "Import / export"
-msgstr "Import/export"
+msgstr "Import/Export"
 
 #: libraries/config/messages.inc.php:174
 msgid "Set import and export directories and compression options"
