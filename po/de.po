@@ -1327,7 +1327,6 @@ msgid "Cached Swap"
 msgstr "Zwischengespeicherter Swap"
 
 #: js/messages.php:115
-#, fuzzy
 msgid "Used Swap"
 msgstr "Benutzer Swap"
 
