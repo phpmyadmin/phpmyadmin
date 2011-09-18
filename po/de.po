@@ -6242,9 +6242,9 @@ msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
 msgstr ""
-"Die Menge an reserviertem Speicher für den Index-Cache. Die Voreinstellung "
-"ist 32 MB. Der Speicher wird nur zum zwischenspeichern von Index-Seiten "
-"verwendet."
+"Die Menge an reserviertem Speicher für den Index-Zwischenspeicher. Die "
+"Voreinstellung ist 32 MB. Der Speicher wird nur zum zwischenspeichern von "
+"Index-Seiten verwendet."
 
 #: libraries/engines/pbxt.lib.php:27
 msgid "Record cache size"
