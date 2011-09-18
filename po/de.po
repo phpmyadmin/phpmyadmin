@@ -1322,6 +1322,7 @@ msgid "Total Swap"
 msgstr "Gesamt Swap"
 
 #: js/messages.php:114
+#, fuzzy
 msgid "Cached Swap"
 msgstr "Zwischengespeicherter Swap"
 
