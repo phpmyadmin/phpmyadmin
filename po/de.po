@@ -2702,7 +2702,7 @@ msgstr "Rechte überprüfen"
 
 #: libraries/common.inc.php:147
 msgid "possible exploit"
-msgstr ""
+msgstr "Mögliche Ausnutzung"
 
 #: libraries/common.inc.php:156
 msgid "numeric key detected"
