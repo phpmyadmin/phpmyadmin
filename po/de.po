@@ -2248,7 +2248,7 @@ msgstr "Bei der Datei handelt es sich um keine hochgeladene Datei."
 
 #: libraries/File.class.php:260 libraries/File.class.php:389
 msgid "Unknown error while uploading."
-msgstr "Unbekannter Fehler beim hochladen der Datei."
+msgstr "Unbekannter Fehler beim Hochladen der Datei."
 
 #: libraries/File.class.php:278
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
