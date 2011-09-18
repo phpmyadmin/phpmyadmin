@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-18 19:24+0200\n"
+"PO-Revision-Date: 2011-09-18 19:25+0200\n"
 "Last-Translator:  <joungkyun@yahoo.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -2859,7 +2859,7 @@ msgstr "MySQL 메시지: "
 
 #: libraries/common.lib.php:1072
 msgid "Failed to connect to SQL validator!"
-msgstr ""
+msgstr "SQL 검증을 하기 위한 연결이 실패했습니다."
 
 #: libraries/common.lib.php:1113 libraries/config/messages.inc.php:479
 msgid "Explain SQL"
