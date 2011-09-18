@@ -10405,7 +10405,7 @@ msgstr ""
 
 #: server_status.php:1378
 msgid "The number of queries registered in the cache."
-msgstr "Die Anzahl der Abfragen im Cache."
+msgstr "Die Anzahl der Abfragen im Zwischenspeicher."
 
 #: server_status.php:1379
 msgid "The total number of blocks in the query cache."
