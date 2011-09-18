@@ -10409,7 +10409,7 @@ msgstr "Die Anzahl der Abfragen im Zwischenspeicher."
 
 #: server_status.php:1379
 msgid "The total number of blocks in the query cache."
-msgstr "Die Anzahl aller Speicherblöcke im Abfrage-Cache."
+msgstr "Die Anzahl aller Speicherblöcke im Abfrage-Zwischenspeicher."
 
 #: server_status.php:1380
 msgid "The status of failsafe replication (not yet implemented)."
