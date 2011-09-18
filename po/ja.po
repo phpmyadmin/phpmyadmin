@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-18 10:31+0200\n"
+"PO-Revision-Date: 2011-09-18 10:36+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1583,7 +1583,7 @@ msgstr "設定ファイルの構文解析に失敗しました。有効な JSON 
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
-msgstr ""
+msgstr "インポートした設定でのグラフの配置に失敗しました。設定をデフォルトに戻します..."
 
 #: js/messages.php:190 libraries/config/messages.inc.php:170
 #: libraries/db_links.inc.php:82 libraries/server_links.inc.php:69
