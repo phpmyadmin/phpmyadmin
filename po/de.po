@@ -12278,7 +12278,7 @@ msgstr "Abfragen-Zwischenspeicher Ausnutzung"
 #: po/advisory_rules.php:86
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
-msgstr "Weniger als 80%% des Abfragen-Caches werden benutzt."
+msgstr "Weniger als 80%% des Abfragen-Zwischenspeichers werden benutzt."
 
 #: po/advisory_rules.php:87
 msgid ""
