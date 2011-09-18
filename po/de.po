@@ -12348,7 +12348,7 @@ msgstr ""
 
 #: po/advisory_rules.php:100
 msgid "Query cache max size"
-msgstr "Maximale Abfragen-Cache Größe"
+msgstr "Maximale Abfragen-Zwischenspeicher Größe"
 
 #: po/advisory_rules.php:101
 msgid ""
