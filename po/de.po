@@ -12273,7 +12273,7 @@ msgstr ""
 
 #: po/advisory_rules.php:85
 msgid "Query Cache usage"
-msgstr "Abfragen-Cache Ausnutzung"
+msgstr "Abfragen-Zwischenspeicher Ausnutzung"
 
 #: po/advisory_rules.php:86
 #, php-format
