@@ -553,6 +553,11 @@ $(document).ready(function() {
             }
         };
 
+        // If data label is not set, do not show tooltips
+        if (dataLabel == '') {
+             currentSettings.tooltip.enabled = false;
+        }
+
         $('#resizer').resizable({
             resize: function() {
                 currentChart.setSize(
