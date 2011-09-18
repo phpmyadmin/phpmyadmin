@@ -345,7 +345,7 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         .'</label>' . "\n";
 
     echo '</div>' . "\n";
-    echo '<input type="submit" name="SQL" tabindex="200" value="' . __('Go') . '" />'
+    echo '<input type="submit" id="button_submit_query" name="SQL" tabindex="200" value="' . __('Go') . '" />'
         ."\n";
     echo '<div class="clearfloat"></div>' . "\n";
     echo '</fieldset>' . "\n";
@@ -408,7 +408,7 @@ function PMA_sqlQueryFormBookmark()
     echo '</fieldset>' . "\n";
 
     echo '<fieldset id="bookmarkoptionsfooter" class="tblFooters">' . "\n";
-    echo '<input type="submit" name="SQL" value="' . __('Go') . '" />';
+    echo '<input type="submit" name="SQL" id="button_submit_bookmark" value="' . __('Go') . '" />';
     echo '<div class="clearfloat"></div>' . "\n";
     echo '</fieldset>' . "\n";
 }

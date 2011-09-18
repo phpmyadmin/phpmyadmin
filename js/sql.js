@@ -138,10 +138,16 @@ $(document).ready(function() {
      * @memberOf    jQuery
      * @name        sqlqueryform_submit
      */
-    $("#sqlqueryform.ajax").live('submit', function(event) {
+    $("#sqlqueryform.ajax input:submit").live('click', function(event) {
         event.preventDefault();
 
-        var $form = $(this);
+        var $form = $(this).closest("form");
+        var clicked_button = $(this).attr('id');
+
+        if ('button_submit_query' == clicked_button) {
+            $form.find("select[name=id_bookmark]").attr("value","");
+        }
+
         if (! checkSqlQuery($form[0])) {
             return false;
         }
