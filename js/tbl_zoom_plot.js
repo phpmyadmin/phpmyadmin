@@ -92,12 +92,14 @@ function getTimeStamp(val, type) {
  ** @param field: field type (as in database structure)
  **/
 function getType(field) {
-    if (field.toString().search(/int/i) != -1 || field.toString().search(/decimal/i) != -1 || field.toString().search(/year/i) != -1)
+    if (field.toString().search(/int/i) != -1 || field.toString().search(/decimal/i) != -1
+        || field.toString().search(/year/i) != -1) {
         return 'numeric';
-    else if (field.toString().search(/time/i) != -1 || field.toString().search(/date/i) != -1)
+    } else if (field.toString().search(/time/i) != -1 || field.toString().search(/date/i) != -1) {
         return 'time';
-    else
+    } else {
         return 'text';
+    }
 }
 /**
  ** Converts a categorical array into numeric array
@@ -327,7 +329,7 @@ $(document).ready(function() {
                                 name: value[dataLabel], 
                                 x: tempX[0][i], 
                                 y: value[yLabel], 
-                                marker: {fillColor: colorCodes[i % 8]} , 
+                                marker: {fillColor: colorCodes[i % 8]}, 
                                 id: i 
                             });
                         } else {
@@ -335,7 +337,7 @@ $(document).ready(function() {
                                 name: value[dataLabel], 
                                 x: tempX[0][i], 
                                 y: tempY[0][i], 
-                                marker: {fillColor: colorCodes[i % 8]} , 
+                                marker: {fillColor: colorCodes[i % 8]}, 
                                 id: i 
                             });
                         }
@@ -378,7 +380,7 @@ $(document).ready(function() {
                                 name: value[dataLabel], 
                                 x: value[xLabel], 
                                 y: tempY[0][i], 
-                                marker: {fillColor: colorCodes[i % 8]} , 
+                                marker: {fillColor: colorCodes[i % 8]}, 
                                 id: i 
                             });
                         } else {
@@ -386,7 +388,7 @@ $(document).ready(function() {
                                 name: value[dataLabel], 
                                 x: tempX[0][i], 
                                 y: tempY[0][i], 
-                                marker: {fillColor: colorCodes[i % 8]} , 
+                                marker: {fillColor: colorCodes[i % 8]}, 
                                 id: i 
                             });
                         }
@@ -615,7 +617,7 @@ $(document).ready(function() {
                     name: value[dataLabel], 
                     x: xVal, 
                     y: yVal, 
-                    marker: {fillColor: colorCodes[it % 8]} , 
+                    marker: {fillColor: colorCodes[it % 8]}, 
                     id: it 
                 });
                 xCord.push(value[xLabel]);
@@ -652,7 +654,7 @@ $(document).ready(function() {
                     name: value[dataLabel], 
                     x: tempX[0][it], 
                     y: yVal, 
-                    marker: {fillColor: colorCodes[it % 8]} , 
+                    marker: {fillColor: colorCodes[it % 8]}, 
                     id: it 
                 });
                 it++;
