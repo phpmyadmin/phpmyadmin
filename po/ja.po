@@ -6477,16 +6477,13 @@ msgid "Add statements:"
 msgstr "追加コマンド："
 
 #: libraries/export/sql.php:211
-#, fuzzy
 #| msgid ""
 #| "Enclose table and field names with backquotes <i>(Protects field and "
 #| "table names formed with special characters or keywords)</i>"
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
-msgstr ""
-"逆クォートでテーブルやフィールドの名前を囲む <i>(特殊な文字やキーワードを含む"
-"フィールド名やテーブル名を保護します)</i>"
+msgstr "逆クォートでテーブルやカラムの名前を囲む <i>(特殊な文字やキーワードを含むカラム名やテーブル名を保護します)</i>"
 
 #: libraries/export/sql.php:231
 msgid "Instead of <code>INSERT</code> statements, use:"
