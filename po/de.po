@@ -10283,7 +10283,8 @@ msgid ""
 "that indicates the maximum number of blocks that have ever been in use at "
 "one time."
 msgstr ""
-"Die Anzahl der maximal gleichzeitig benutzten Blocks im Schlüssel-Cache."
+"Die Anzahl der maximal gleichzeitig benutzten Blocks im Schlüssel-"
+"Zwischenspeicher."
 
 #: server_status.php:1361
 msgid "The number of requests to read a key block from the cache."
