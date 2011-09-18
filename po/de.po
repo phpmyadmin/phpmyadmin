@@ -12256,7 +12256,7 @@ msgstr ""
 
 #: po/advisory_rules.php:80
 msgid "Query cache efficiency (%)"
-msgstr "Anfragen-Cache Effizienz (%)"
+msgstr "Anfragen-Zwischenspeicher Effizienz (%)"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
