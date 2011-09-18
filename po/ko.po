@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-18 19:19+0200\n"
+"PO-Revision-Date: 2011-09-18 19:20+0200\n"
 "Last-Translator:  <joungkyun@yahoo.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -2778,7 +2778,7 @@ msgstr "기본 설정을 가져올 수 없습니다: %1$s"
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
-msgstr "환경설정 파일에서 <tt>$cfg['PmaAbsoluteUri']</tt> 주소를 기입하십시오!"
+msgstr "환경설정 파일에 <tt>$cfg['PmaAbsoluteUri']</tt> 변수가 선언되어야 합니다."
 
 #: libraries/common.inc.php:640
 #, php-format
