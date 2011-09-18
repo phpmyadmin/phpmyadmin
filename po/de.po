@@ -12189,7 +12189,7 @@ msgstr "MySQL Architektur"
 
 #: po/advisory_rules.php:66
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "MySQL wurde nicht als 64-bit Programm übersetzt."
 
 #: po/advisory_rules.php:67
 msgid ""
