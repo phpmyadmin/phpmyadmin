@@ -10264,9 +10264,9 @@ msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
 msgstr ""
-"Schlüssel-Blöcke im Schlüssel-Cache, die verändert wurden, aber noch nicht "
-"auf die Platte zurück geschrieben (flush) wurden; auch bekannt als "
-"Not_flushed_key_blocks."
+"Schlüssel-Blöcke im Schlüssel-Zwischenspeicher, die verändert wurden, aber "
+"noch nicht auf die Platte zurück geschrieben (flush) wurden; auch bekannt "
+"als Not_flushed_key_blocks."
 
 #: server_status.php:1359
 msgid ""
