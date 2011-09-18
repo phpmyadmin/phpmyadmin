@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-13 12:29-0400\n"
-"PO-Revision-Date: 2011-09-18 19:30+0200\n"
+"PO-Revision-Date: 2011-09-18 19:31+0200\n"
 "Last-Translator:  <joungkyun@yahoo.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -2947,7 +2947,7 @@ msgstr "%s일 %s시간 %분 %초"
 
 #: libraries/common.lib.php:2016
 msgid "Missing parameter:"
-msgstr ""
+msgstr "매개 변수 누락:"
 
 #: libraries/common.lib.php:2364 libraries/common.lib.php:2367
 #: libraries/display_tbl.lib.php:306
