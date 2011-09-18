@@ -931,6 +931,7 @@ msgid "Add a linestring"
 msgstr "Linestring hinzufügen"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:296
+#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
 msgstr "Innenring hinzufügen"
