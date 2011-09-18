@@ -1083,7 +1083,7 @@ msgstr "Sie sind dabei eine komplette Datenbank zu LÖSCHEN!"
 
 #: js/messages.php:34
 msgid "You are about to DESTROY a complete table!"
-msgstr "Sie sind dabei eine komplette Tabelle zu ZERSTÖREN!"
+msgstr "Sie sind dabei eine komplette Tabelle zu LÖSCHEN!"
 
 #: js/messages.php:35
 msgid "You are about to TRUNCATE a complete table!"
