@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-19 22:29+0200\n"
+"PO-Revision-Date: 2011-09-19 22:30+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -12839,7 +12839,7 @@ msgstr "Andelen avslutade klienter"
 
 #: po/advisory_rules.php:241 po/advisory_rules.php:246
 msgid "Too many clients are aborted."
-msgstr ""
+msgstr "Alltför många klienter avbryts."
 
 #: po/advisory_rules.php:242 po/advisory_rules.php:247
 msgid ""
