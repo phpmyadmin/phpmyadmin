@@ -12001,6 +12001,8 @@ msgstr "Taux de requêtes lentes"
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"Le pourcentage de requêtes lentes par rapport au temps de disponibilité du "
+"serveur est élevé."
 
 #: po/advisory_rules.php:23
 #, php-format
