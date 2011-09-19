@@ -12574,7 +12574,7 @@ msgstr "Andelen %% av index som använder MyISAM key buffer är låg."
 
 #: po/advisory_rules.php:177
 msgid "You may need to increase {key_buffer_size}."
-msgstr ""
+msgstr "Du kan behöva öka {key_buffer_size}."
 
 #: po/advisory_rules.php:178
 #, php-format
