@@ -273,7 +273,7 @@ if (isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null')
 }
 ?>
     <table class="data">
-    <tr><td><label for="dataLabel"><?php echo __("Data Label"); ?></label></td>
+    <tr><td><label for="dataLabel"><?php echo __("Use this column to label each point"); ?></label></td>
     <td><select name="dataLabel" id='dataLabel' >
         <option value = ''> <?php echo __('None');  ?> </option>
 <?php
