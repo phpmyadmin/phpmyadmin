@@ -11937,7 +11937,7 @@ msgstr ""
 #: po/advisory_rules.php:8
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "Le temps de disponibilité n'est que %s."
 
 #: po/advisory_rules.php:10
 #, fuzzy
