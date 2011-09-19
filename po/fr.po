@@ -12053,7 +12053,7 @@ msgstr ""
 
 #: po/advisory_rules.php:33
 msgid "log_slow_queries is set to 'OFF'"
-msgstr ""
+msgstr "log_slow_queries a une valeur de 'OFF'"
 
 #: po/advisory_rules.php:35
 #, fuzzy
