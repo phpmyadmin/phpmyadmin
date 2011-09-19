@@ -12132,6 +12132,8 @@ msgstr "Le mot «source» a été trouvé dans version_comment."
 #: po/advisory_rules.php:56 po/advisory_rules.php:61
 msgid "The MySQL manual only is accurate for official MySQL binaries."
 msgstr ""
+"Le manuel MySQL n'est précis que pour les versions compilées officielles de "
+"MySQL."
 
 #: po/advisory_rules.php:57
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
