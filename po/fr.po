@@ -11975,6 +11975,8 @@ msgstr "Pourcentage de requêtes lentes"
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr ""
+"Il y a un grand nombre de requêtes lentes par rapport au nombre total de "
+"requêtes."
 
 #: po/advisory_rules.php:17 po/advisory_rules.php:22
 msgid ""
