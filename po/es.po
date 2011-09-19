@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-18 06:14-0400\n"
-"PO-Revision-Date: 2011-09-19 15:12+0200\n"
+"PO-Revision-Date: 2011-09-19 15:13+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -4943,7 +4943,6 @@ msgid "Automatically create versions"
 msgstr "Crear versiones automáticamente"
 
 #: libraries/config/messages.inc.php:443
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
@@ -4952,7 +4951,7 @@ msgid ""
 "pma_userconfig[/kbd]"
 msgstr ""
 "Deje en blanco para eliminar soporte de almacenamiento de preferencias en "
-"base de datos, valor sugerido : [kbd]pma_config[/kbd]"
+"base de datos, valor sugerido : [kbd]pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:444
 msgid "User preferences storage table"
