@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-19 21:12+0200\n"
+"PO-Revision-Date: 2011-09-19 21:13+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -12525,10 +12525,10 @@ msgid "key_buffer_size is 0"
 msgstr "key_buffer_size är 0"
 
 #: po/advisory_rules.php:165
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "Storlek för sorteringsbuffert"
+msgstr "Max %% MyISAM key buffer har någonsin använts"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, fuzzy, php-format
