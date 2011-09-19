@@ -12359,7 +12359,7 @@ msgstr "Andelen läsning av fast position"
 
 #: po/advisory_rules.php:136
 msgid "The rate of reading data from a fixed position is high."
-msgstr "Frekvensen att läser data från en fast position är hög."
+msgstr "Frekvensen att läsa data från en fast position är hög."
 
 #: po/advisory_rules.php:137
 msgid ""
