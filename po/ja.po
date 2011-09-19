@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-09-18 06:14-0400\n"
+"POT-Creation-Date: 2011-09-19 08:41-0400\n"
 "PO-Revision-Date: 2011-09-19 12:23+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
-"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -78,7 +78,7 @@ msgstr "検索"
 #: tbl_operations.php:321 tbl_operations.php:523 tbl_operations.php:585
 #: tbl_operations.php:767 tbl_select.php:235 tbl_structure.php:671
 #: tbl_structure.php:708 tbl_tracking.php:416 tbl_tracking.php:554
-#: tbl_zoom_select.php:305 view_create.php:181 view_operations.php:99
+#: tbl_zoom_select.php:313 view_create.php:181 view_operations.php:99
 msgid "Go"
 msgstr "実行"
 
@@ -140,10 +140,10 @@ msgstr "テーブルのコメント"
 #: libraries/export/odt.php:286 libraries/export/texytext.php:228
 #: libraries/schema/Pdf_Relation_Schema.class.php:1305
 #: libraries/schema/Pdf_Relation_Schema.class.php:1326
-#: libraries/tbl_properties.inc.php:281 libraries/tbl_select.lib.php:108
+#: libraries/tbl_properties.inc.php:281 libraries/tbl_select.lib.php:83
 #: tbl_change.php:318 tbl_chart.php:89 tbl_indexes.php:196
 #: tbl_printview.php:136 tbl_relation.php:399 tbl_tracking.php:257
-#: tbl_tracking.php:308 tbl_zoom_select.php:426
+#: tbl_tracking.php:308 tbl_zoom_select.php:434
 msgid "Column"
 msgstr "カラム"
 
@@ -156,7 +156,7 @@ msgstr "カラム"
 #: libraries/rte/rte_routines.lib.php:1359
 #: libraries/schema/Pdf_Relation_Schema.class.php:1306
 #: libraries/schema/Pdf_Relation_Schema.class.php:1327
-#: libraries/tbl_properties.inc.php:107 libraries/tbl_select.lib.php:109
+#: libraries/tbl_properties.inc.php:107 libraries/tbl_select.lib.php:84
 #: server_privileges.php:2251 tbl_change.php:297 tbl_change.php:324
 #: tbl_printview.php:137 tbl_printview.php:277 tbl_structure.php:202
 #: tbl_structure.php:765 tbl_tracking.php:258 tbl_tracking.php:305
@@ -170,7 +170,7 @@ msgstr "種別"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_properties.inc.php:116 tbl_change.php:333
 #: tbl_printview.php:139 tbl_structure.php:205 tbl_tracking.php:260
-#: tbl_tracking.php:311 tbl_zoom_select.php:427
+#: tbl_tracking.php:311 tbl_zoom_select.php:435
 msgid "Null"
 msgstr "NULL"
 
@@ -336,7 +336,7 @@ msgstr "コピーしたデータベースに切り替える"
 #: db_operations.php:542 libraries/Index.class.php:438
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:114
-#: libraries/tbl_properties.inc.php:701 libraries/tbl_select.lib.php:110
+#: libraries/tbl_properties.inc.php:701 libraries/tbl_select.lib.php:85
 #: server_collations.php:53 server_collations.php:65 tbl_operations.php:382
 #: tbl_structure.php:203 tbl_structure.php:870 tbl_tracking.php:259
 #: tbl_tracking.php:310
@@ -821,7 +821,6 @@ msgstr ""
 "い。"
 
 #: export.php:29
-#| msgid "Bar type"
 msgid "Bad type!"
 msgstr "エクスポート形式が正しくありません！"
 
@@ -830,7 +829,6 @@ msgid "Selected export type has to be saved in file!"
 msgstr "この形式のエクスポートはファイルに保存する必要があります!"
 
 #: export.php:106
-#| msgid "Add parameter"
 msgid "Bad parameters!"
 msgstr "パラメータが正しくありません！"
 
@@ -858,7 +856,6 @@ msgid "Dump has been saved to file %s."
 msgstr "ダンプをファイル %s に保存しました"
 
 #: file_echo.php:21
-#| msgid "Export type"
 msgid "Invalid export type"
 msgstr "無効なエクスポート形式"
 
@@ -1237,8 +1234,9 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
-"ローカルに保存されていたモニタ環境設定は、新しいモニタ環境との互換性がありません。この環境設定ではおそらく機能させることはできないでしょう。<i>設定<"
-"/i>項目よりモニタ環境設定をデフォルトに戻してください。"
+"ローカルに保存されていたモニタ環境設定は、新しいモニタ環境との互換性がありま"
+"せん。この環境設定ではおそらく機能させることはできないでしょう。<i>設定</i>項"
+"目よりモニタ環境設定をデフォルトに戻してください。"
 
 #: js/messages.php:96
 msgid "Query cache efficiency"
@@ -1360,7 +1358,7 @@ msgstr "少なくとも１つの系列を追加してください"
 #: libraries/display_tbl.lib.php:554 libraries/export/sql.php:1092
 #: libraries/tbl_properties.inc.php:539 pmd_general.php:504
 #: server_privileges.php:2046 server_status.php:1257 server_status.php:1686
-#: tbl_zoom_select.php:143 tbl_zoom_select.php:270
+#: tbl_zoom_select.php:151 tbl_zoom_select.php:278
 msgid "None"
 msgstr "なし"
 
@@ -1522,7 +1520,6 @@ msgstr "ログの解析を行いましたが、この期間のデータは見つ
 
 #. l10n: A collection of available filters
 #: js/messages.php:173
-#| msgid "Tables display options"
 msgid "Log table filter options"
 msgstr "ログの表のフィルタオプション"
 
@@ -1564,7 +1561,6 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:184
-#| msgid "Reload"
 msgid "Reload page"
 msgstr "ページの再読み込み"
 
@@ -1574,13 +1570,16 @@ msgstr ""
 
 #: js/messages.php:188
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
-msgstr "設定ファイルの構文解析に失敗しました。有効な JSON コードではないようです。"
+msgstr ""
+"設定ファイルの構文解析に失敗しました。有効な JSON コードではないようです。"
 
 #: js/messages.php:189
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
-msgstr "インポートした設定でのグラフの配置に失敗しました。設定をデフォルトに戻します..."
+msgstr ""
+"インポートした設定でのグラフの配置に失敗しました。設定をデフォルトに戻しま"
+"す..."
 
 #: js/messages.php:190 libraries/config/messages.inc.php:170
 #: libraries/db_links.inc.php:82 libraries/server_links.inc.php:69
@@ -1776,7 +1775,7 @@ msgstr "検索条件を隠す"
 msgid "Show search criteria"
 msgstr "検索条件を表示する"
 
-#: js/messages.php:263 libraries/tbl_select.lib.php:135
+#: js/messages.php:263 libraries/tbl_select.lib.php:110
 msgid "Zoom Search"
 msgstr "検索プロット"
 
@@ -4614,7 +4613,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:399
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of records saved in \"table_uiprefs\" table"
 msgstr "「table_uiprefs」テーブルに保存できる最大行数。"
 
@@ -5298,7 +5296,6 @@ msgid "Could not initialize Drizzle connection library"
 msgstr "Drizzle 接続ライブラリが初期化できません"
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
-#| msgid "Could not connect to MySQL server"
 msgid "Could not connect to Drizzle server"
 msgstr "Drizzle サーバに接続できませんでした。"
 
@@ -6482,13 +6479,12 @@ msgid "Add statements:"
 msgstr "追加コマンド："
 
 #: libraries/export/sql.php:211
-#| msgid ""
-#| "Enclose table and field names with backquotes <i>(Protects field and "
-#| "table names formed with special characters or keywords)</i>"
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
-msgstr "逆クォートでテーブルやカラムの名前を囲む <i>(特殊な文字やキーワードを含むカラム名やテーブル名を保護します)</i>"
+msgstr ""
+"逆クォートでテーブルやカラムの名前を囲む <i>(特殊な文字やキーワードを含むカラ"
+"ム名やテーブル名を保護します)</i>"
 
 #: libraries/export/sql.php:231
 msgid "Instead of <code>INSERT</code> statements, use:"
@@ -6591,7 +6587,6 @@ msgid "Stand-in structure for view"
 msgstr "ビュー用の代替構造"
 
 #: libraries/export/sql.php:1111
-#| msgid "Allows reading data."
 msgid "Error reading data:"
 msgstr "データ読み込みエラー:"
 
@@ -6774,7 +6769,6 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
 #: libraries/import/shp.php:371
-#| msgid "This page does not contain any tables!"
 msgid "The imported file does not contain any data"
 msgstr "インポートされたファイルには、データが含まれていません。"
 
@@ -6813,7 +6807,7 @@ msgid "To"
 msgstr "付け替え先"
 
 #: libraries/mult_submits.inc.php:262 libraries/mult_submits.inc.php:276
-#: libraries/sql_query_form.lib.php:396 tbl_zoom_select.php:461
+#: libraries/sql_query_form.lib.php:396 tbl_zoom_select.php:469
 msgid "Submit"
 msgstr "実行する"
 
@@ -7159,10 +7153,10 @@ msgid "Variable"
 msgstr "変数"
 
 #: libraries/replication_gui.lib.php:119
-#: libraries/rte/rte_routines.lib.php:1363 libraries/tbl_select.lib.php:112
+#: libraries/rte/rte_routines.lib.php:1363 libraries/tbl_select.lib.php:87
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769 server_status.php:1465 tbl_change.php:334
-#: tbl_printview.php:334 tbl_structure.php:832 tbl_zoom_select.php:428
+#: tbl_printview.php:334 tbl_structure.php:832 tbl_zoom_select.php:436
 msgid "Value"
 msgstr "値"
 
@@ -7509,7 +7503,7 @@ msgstr "ルーチンを実行する"
 msgid "Routine parameters"
 msgstr "ルーチンのパラメータ"
 
-#: libraries/rte/rte_routines.lib.php:1361 libraries/tbl_select.lib.php:104
+#: libraries/rte/rte_routines.lib.php:1361 libraries/tbl_select.lib.php:79
 #: tbl_change.php:292 tbl_change.php:330
 msgid "Function"
 msgstr "関数"
@@ -8083,23 +8077,17 @@ msgstr "パーティションの定義"
 msgid "+ Add a value"
 msgstr "+ 値を追加する"
 
-#: libraries/tbl_select.lib.php:23 libraries/tbl_select.lib.php:24
-#: libraries/tbl_select.lib.php:27 libraries/tbl_select.lib.php:32 sql.php:100
-#: tbl_change.php:262
-msgid "Browse foreign values"
-msgstr "参照されている値を表示する"
-
-#: libraries/tbl_select.lib.php:111 pmd_general.php:481 pmd_general.php:501
+#: libraries/tbl_select.lib.php:86 pmd_general.php:481 pmd_general.php:501
 #: pmd_general.php:623 pmd_general.php:636 pmd_general.php:699
 #: pmd_general.php:753
 msgid "Operator"
 msgstr "演算子"
 
-#: libraries/tbl_select.lib.php:128
+#: libraries/tbl_select.lib.php:103
 msgid "Table Search"
 msgstr "テーブル検索"
 
-#: libraries/tbl_select.lib.php:207 tbl_change.php:993
+#: libraries/tbl_select.lib.php:182 tbl_change.php:993
 msgid "Edit/Insert"
 msgstr "編集／挿入"
 
@@ -10632,7 +10620,6 @@ msgid "Target database has been synchronized with source database"
 msgstr "対象先のデータベースが、元のデータベースと同期されています。"
 
 #: server_synchronize.php:1046
-#| msgid "Issued queries"
 msgid "Executed queries"
 msgstr "実行されたクエリ"
 
@@ -11003,9 +10990,12 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "キーは文字、数字[em]そして[/em]特殊文字を含める必要があります。"
 
 #: setup/validate.php:22
-#| msgid "No data"
 msgid "Wrong data"
 msgstr "データが正しくありません"
+
+#: sql.php:100 tbl_change.php:262 tbl_select.php:28 tbl_zoom_select.php:58
+msgid "Browse foreign values"
+msgstr "参照されている値を表示する"
 
 #: sql.php:205
 #, php-format
@@ -11696,27 +11686,27 @@ msgstr "追跡するデータ操作コマンド"
 msgid "Create version"
 msgstr "バージョンを作成"
 
-#: tbl_zoom_select.php:127
+#: tbl_zoom_select.php:135
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr "異なる 2 つのカラムによる定型問い合わせ (ワイルドカード: \"%\")"
 
-#: tbl_zoom_select.php:137
+#: tbl_zoom_select.php:145
 msgid "Additional search criteria"
 msgstr "更なる検索条件"
 
-#: tbl_zoom_select.php:268
-msgid "Data Label"
-msgstr "ラベルにするデータ"
+#: tbl_zoom_select.php:276
+msgid "Use this column to label each point"
+msgstr ""
 
-#: tbl_zoom_select.php:288
+#: tbl_zoom_select.php:296
 msgid "Maximum rows to plot"
 msgstr "プロットする結果の最大数"
 
-#: tbl_zoom_select.php:402
+#: tbl_zoom_select.php:410
 msgid "Browse/Edit the points"
 msgstr "結果表示／プロット点の編集"
 
-#: tbl_zoom_select.php:409
+#: tbl_zoom_select.php:417
 msgid "How to use"
 msgstr "使い方"
 
@@ -12427,13 +12417,14 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:160
-#| msgid "Sort buffer size"
 msgid "MyISAM key buffer size"
 msgstr "MyISAM キーバッファのサイズ"
 
 #: po/advisory_rules.php:161
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
-msgstr "キーバッファが初期化されていません。おそらく、MyISAM インデックスはキャッシュされていません。"
+msgstr ""
+"キーバッファが初期化されていません。おそらく、MyISAM インデックスはキャッシュ"
+"されていません。"
 
 #: po/advisory_rules.php:162
 msgid ""
@@ -12453,7 +12444,6 @@ msgstr "ソートバッファのサイズ"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, php-format
-#| msgid "Sort buffer size"
 msgid "MyISAM key buffer (index cache) %% used is low."
 msgstr "MyISAM キーバッファ（インデックスキャッシュ）の使用率が低いです。"
 
@@ -12470,7 +12460,6 @@ msgid "max %% MyISAM key buffer ever used: %s, this value should be above 95%%"
 msgstr ""
 
 #: po/advisory_rules.php:170
-#| msgid "Sort buffer size"
 msgid "Percentage of MyISAM key buffer used"
 msgstr "MyISAM キーバッファの使用率 (%%)"
 
@@ -12899,6 +12888,9 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#~ msgid "Data Label"
+#~ msgstr "ラベルにするデータ"
 
 #~ msgid "Location of the text file"
 #~ msgstr "テキストファイルの位置"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-09-18 06:14-0400\n"
+"POT-Creation-Date: 2011-09-19 08:41-0400\n"
 "PO-Revision-Date: 2010-07-21 14:54+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: croatian <hr@li.org>\n"
@@ -79,7 +79,7 @@ msgstr "Traži"
 #: tbl_operations.php:321 tbl_operations.php:523 tbl_operations.php:585
 #: tbl_operations.php:767 tbl_select.php:235 tbl_structure.php:671
 #: tbl_structure.php:708 tbl_tracking.php:416 tbl_tracking.php:554
-#: tbl_zoom_select.php:305 view_create.php:181 view_operations.php:99
+#: tbl_zoom_select.php:313 view_create.php:181 view_operations.php:99
 msgid "Go"
 msgstr "Kreni"
 
@@ -141,10 +141,10 @@ msgstr "Komentari tablice"
 #: libraries/export/odt.php:286 libraries/export/texytext.php:228
 #: libraries/schema/Pdf_Relation_Schema.class.php:1305
 #: libraries/schema/Pdf_Relation_Schema.class.php:1326
-#: libraries/tbl_properties.inc.php:281 libraries/tbl_select.lib.php:108
+#: libraries/tbl_properties.inc.php:281 libraries/tbl_select.lib.php:83
 #: tbl_change.php:318 tbl_chart.php:89 tbl_indexes.php:196
 #: tbl_printview.php:136 tbl_relation.php:399 tbl_tracking.php:257
-#: tbl_tracking.php:308 tbl_zoom_select.php:426
+#: tbl_tracking.php:308 tbl_zoom_select.php:434
 #, fuzzy
 #| msgid "Column names"
 msgid "Column"
@@ -159,7 +159,7 @@ msgstr "Nazivi stupaca"
 #: libraries/rte/rte_routines.lib.php:1359
 #: libraries/schema/Pdf_Relation_Schema.class.php:1306
 #: libraries/schema/Pdf_Relation_Schema.class.php:1327
-#: libraries/tbl_properties.inc.php:107 libraries/tbl_select.lib.php:109
+#: libraries/tbl_properties.inc.php:107 libraries/tbl_select.lib.php:84
 #: server_privileges.php:2251 tbl_change.php:297 tbl_change.php:324
 #: tbl_printview.php:137 tbl_printview.php:277 tbl_structure.php:202
 #: tbl_structure.php:765 tbl_tracking.php:258 tbl_tracking.php:305
@@ -173,7 +173,7 @@ msgstr "Vrsta"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_properties.inc.php:116 tbl_change.php:333
 #: tbl_printview.php:139 tbl_structure.php:205 tbl_tracking.php:260
-#: tbl_tracking.php:311 tbl_zoom_select.php:427
+#: tbl_tracking.php:311 tbl_zoom_select.php:435
 msgid "Null"
 msgstr "Null"
 
@@ -342,7 +342,7 @@ msgstr "Prebaci se na kopiranu bazu podataka"
 #: db_operations.php:542 libraries/Index.class.php:438
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:114
-#: libraries/tbl_properties.inc.php:701 libraries/tbl_select.lib.php:110
+#: libraries/tbl_properties.inc.php:701 libraries/tbl_select.lib.php:85
 #: server_collations.php:53 server_collations.php:65 tbl_operations.php:382
 #: tbl_structure.php:203 tbl_structure.php:870 tbl_tracking.php:259
 #: tbl_tracking.php:310
@@ -1458,7 +1458,7 @@ msgstr ""
 #: libraries/display_tbl.lib.php:554 libraries/export/sql.php:1092
 #: libraries/tbl_properties.inc.php:539 pmd_general.php:504
 #: server_privileges.php:2046 server_status.php:1257 server_status.php:1686
-#: tbl_zoom_select.php:143 tbl_zoom_select.php:270
+#: tbl_zoom_select.php:151 tbl_zoom_select.php:278
 msgid "None"
 msgstr "bez kompresije"
 
@@ -1905,7 +1905,7 @@ msgstr "SQL upit"
 msgid "Show search criteria"
 msgstr "SQL upit"
 
-#: js/messages.php:263 libraries/tbl_select.lib.php:135
+#: js/messages.php:263 libraries/tbl_select.lib.php:110
 #, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
@@ -7081,7 +7081,7 @@ msgid "To"
 msgstr ""
 
 #: libraries/mult_submits.inc.php:262 libraries/mult_submits.inc.php:276
-#: libraries/sql_query_form.lib.php:396 tbl_zoom_select.php:461
+#: libraries/sql_query_form.lib.php:396 tbl_zoom_select.php:469
 msgid "Submit"
 msgstr "Podnesi"
 
@@ -7428,10 +7428,10 @@ msgid "Variable"
 msgstr "Varijabla"
 
 #: libraries/replication_gui.lib.php:119
-#: libraries/rte/rte_routines.lib.php:1363 libraries/tbl_select.lib.php:112
+#: libraries/rte/rte_routines.lib.php:1363 libraries/tbl_select.lib.php:87
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769 server_status.php:1465 tbl_change.php:334
-#: tbl_printview.php:334 tbl_structure.php:832 tbl_zoom_select.php:428
+#: tbl_printview.php:334 tbl_structure.php:832 tbl_zoom_select.php:436
 msgid "Value"
 msgstr "Vrijednost"
 
@@ -7801,7 +7801,7 @@ msgstr ""
 msgid "Routine parameters"
 msgstr "Rutine"
 
-#: libraries/rte/rte_routines.lib.php:1361 libraries/tbl_select.lib.php:104
+#: libraries/rte/rte_routines.lib.php:1361 libraries/tbl_select.lib.php:79
 #: tbl_change.php:292 tbl_change.php:330
 msgid "Function"
 msgstr "Funkcija"
@@ -8437,25 +8437,19 @@ msgstr "Definicija PARTICIJE"
 msgid "+ Add a value"
 msgstr "Dodaj novog korisnika"
 
-#: libraries/tbl_select.lib.php:23 libraries/tbl_select.lib.php:24
-#: libraries/tbl_select.lib.php:27 libraries/tbl_select.lib.php:32 sql.php:100
-#: tbl_change.php:262
-msgid "Browse foreign values"
-msgstr "Pretraži strane vrijednosti"
-
-#: libraries/tbl_select.lib.php:111 pmd_general.php:481 pmd_general.php:501
+#: libraries/tbl_select.lib.php:86 pmd_general.php:481 pmd_general.php:501
 #: pmd_general.php:623 pmd_general.php:636 pmd_general.php:699
 #: pmd_general.php:753
 msgid "Operator"
 msgstr "Operator"
 
-#: libraries/tbl_select.lib.php:128
+#: libraries/tbl_select.lib.php:103
 #, fuzzy
 #| msgid "Search"
 msgid "Table Search"
 msgstr "Traži"
 
-#: libraries/tbl_select.lib.php:207 tbl_change.php:993
+#: libraries/tbl_select.lib.php:182 tbl_change.php:993
 #, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
@@ -11443,6 +11437,10 @@ msgstr ""
 msgid "Wrong data"
 msgstr "Nema baza podataka"
 
+#: sql.php:100 tbl_change.php:262 tbl_select.php:28 tbl_zoom_select.php:58
+msgid "Browse foreign values"
+msgstr "Pretraži strane vrijednosti"
+
 #: sql.php:205
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
@@ -12178,32 +12176,30 @@ msgstr ""
 msgid "Create version"
 msgstr "Izradi relaciju"
 
-#: tbl_zoom_select.php:127
+#: tbl_zoom_select.php:135
 #, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr "Izvedi \"upit po primjeru\" (džoker: \"%\")"
 
-#: tbl_zoom_select.php:137
+#: tbl_zoom_select.php:145
 #, fuzzy
 msgid "Additional search criteria"
 msgstr "SQL upit"
 
-#: tbl_zoom_select.php:268
-#, fuzzy
-#| msgid "Label"
-msgid "Data Label"
-msgstr "Oznaka"
+#: tbl_zoom_select.php:276
+msgid "Use this column to label each point"
+msgstr ""
 
-#: tbl_zoom_select.php:288
+#: tbl_zoom_select.php:296
 msgid "Maximum rows to plot"
 msgstr ""
 
-#: tbl_zoom_select.php:402
+#: tbl_zoom_select.php:410
 msgid "Browse/Edit the points"
 msgstr ""
 
-#: tbl_zoom_select.php:409
+#: tbl_zoom_select.php:417
 #, fuzzy
 msgid "How to use"
 msgstr "PHP ekstenzija"
@@ -13371,6 +13367,11 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Label"
+#~ msgid "Data Label"
+#~ msgstr "Oznaka"
 
 #~ msgid "Location of the text file"
 #~ msgstr "Lokacija tekstualne datoteke"

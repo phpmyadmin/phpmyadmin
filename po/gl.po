@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-09-18 06:14-0400\n"
+"POT-Creation-Date: 2011-09-19 08:41-0400\n"
 "PO-Revision-Date: 2011-09-15 11:33+0200\n"
 "Last-Translator:  <fran.dieguez@mabishu.com>\n"
 "Language-Team: galician <gl@li.org>\n"
-"Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: gl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -78,7 +78,7 @@ msgstr "Buscar"
 #: tbl_operations.php:321 tbl_operations.php:523 tbl_operations.php:585
 #: tbl_operations.php:767 tbl_select.php:235 tbl_structure.php:671
 #: tbl_structure.php:708 tbl_tracking.php:416 tbl_tracking.php:554
-#: tbl_zoom_select.php:305 view_create.php:181 view_operations.php:99
+#: tbl_zoom_select.php:313 view_create.php:181 view_operations.php:99
 msgid "Go"
 msgstr "Ir"
 
@@ -104,7 +104,6 @@ msgid "No blob streaming server configured!"
 msgstr "Non se configurou ningún servidor de streaming blob!"
 
 #: bs_disp_as_mime_type.php:35
-#| msgid "Failed to write file to disk."
 msgid "Failed to fetch headers"
 msgstr "Produciuse un fallo ao obter as cabeceiras."
 
@@ -141,10 +140,10 @@ msgstr "Comentarios da táboa"
 #: libraries/export/odt.php:286 libraries/export/texytext.php:228
 #: libraries/schema/Pdf_Relation_Schema.class.php:1305
 #: libraries/schema/Pdf_Relation_Schema.class.php:1326
-#: libraries/tbl_properties.inc.php:281 libraries/tbl_select.lib.php:108
+#: libraries/tbl_properties.inc.php:281 libraries/tbl_select.lib.php:83
 #: tbl_change.php:318 tbl_chart.php:89 tbl_indexes.php:196
 #: tbl_printview.php:136 tbl_relation.php:399 tbl_tracking.php:257
-#: tbl_tracking.php:308 tbl_zoom_select.php:426
+#: tbl_tracking.php:308 tbl_zoom_select.php:434
 msgid "Column"
 msgstr "Columnas"
 
@@ -157,7 +156,7 @@ msgstr "Columnas"
 #: libraries/rte/rte_routines.lib.php:1359
 #: libraries/schema/Pdf_Relation_Schema.class.php:1306
 #: libraries/schema/Pdf_Relation_Schema.class.php:1327
-#: libraries/tbl_properties.inc.php:107 libraries/tbl_select.lib.php:109
+#: libraries/tbl_properties.inc.php:107 libraries/tbl_select.lib.php:84
 #: server_privileges.php:2251 tbl_change.php:297 tbl_change.php:324
 #: tbl_printview.php:137 tbl_printview.php:277 tbl_structure.php:202
 #: tbl_structure.php:765 tbl_tracking.php:258 tbl_tracking.php:305
@@ -171,7 +170,7 @@ msgstr "Columna"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_properties.inc.php:116 tbl_change.php:333
 #: tbl_printview.php:139 tbl_structure.php:205 tbl_tracking.php:260
-#: tbl_tracking.php:311 tbl_zoom_select.php:427
+#: tbl_tracking.php:311 tbl_zoom_select.php:435
 msgid "Null"
 msgstr "Nulo"
 
@@ -337,7 +336,7 @@ msgstr "Pasar á base de datos copiada"
 #: db_operations.php:542 libraries/Index.class.php:438
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:114
-#: libraries/tbl_properties.inc.php:701 libraries/tbl_select.lib.php:110
+#: libraries/tbl_properties.inc.php:701 libraries/tbl_select.lib.php:85
 #: server_collations.php:53 server_collations.php:65 tbl_operations.php:382
 #: tbl_structure.php:203 tbl_structure.php:870 tbl_tracking.php:259
 #: tbl_tracking.php:310
@@ -418,7 +417,6 @@ msgstr "Ten que escoller polo menos unha columna para mostrar"
 
 #: db_qbe.php:186
 #, php-format
-#| msgid "Switch to copied table"
 msgid "Switch to %svisual builder%s"
 msgstr "Cambiar ao %sconstrutor visual%s"
 
@@ -531,7 +529,6 @@ msgstr "Procurar os resultados para \"<i>%s</i>\" %s:"
 
 #: db_search.php:226
 #, php-format
-#| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s ocorrencia dentro da táboa <i>%s</i>"
@@ -545,7 +542,6 @@ msgstr "Visualizar"
 
 #: db_search.php:238
 #, php-format
-#| msgid "Dumping data for table"
 msgid "Delete the matches for the %s table?"
 msgstr "Eliminar as coincidencias para a táboa %s?"
 
@@ -563,7 +559,6 @@ msgstr "Eliminar"
 
 #: db_search.php:251
 #, php-format
-#| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>Total:</b> <i>%s</i> ocorrencia"
@@ -594,7 +589,6 @@ msgid "Inside tables:"
 msgstr "Dentro da(s) táboa(s):"
 
 #: db_search.php:329
-#| msgid "Inside field:"
 msgid "Inside column:"
 msgstr "Dentro da columna:"
 
@@ -1097,17 +1091,14 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Está a piques de eliminar (DESTROY) unha base de datos enteira!"
 
 #: js/messages.php:34
-#| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to DESTROY a complete table!"
 msgstr "Está a piques de eliminar (DESTROY) unha táboa enteira!"
 
 #: js/messages.php:35
-#| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to TRUNCATE a complete table!"
 msgstr "Está a piques de baleirar (TRUNCATE) unha base de datos enteira!"
 
 #: js/messages.php:37
-#| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
 msgstr "Eliminar os datos de seguemento"
 
@@ -1439,7 +1430,7 @@ msgstr ""
 #: libraries/display_tbl.lib.php:554 libraries/export/sql.php:1092
 #: libraries/tbl_properties.inc.php:539 pmd_general.php:504
 #: server_privileges.php:2046 server_status.php:1257 server_status.php:1686
-#: tbl_zoom_select.php:143 tbl_zoom_select.php:270
+#: tbl_zoom_select.php:151 tbl_zoom_select.php:278
 msgid "None"
 msgstr "Ningunha"
 
@@ -1497,21 +1488,18 @@ msgstr ""
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:146
 #, php-format
-#| msgid "Save as file"
 msgid "Set log_output to %s"
 msgstr "Configurar «log_output» a %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:148
 #, php-format
-#| msgid "Enabled"
 msgid "Enable %s"
 msgstr "Activar %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:150
 #, php-format
-#| msgid "Disable"
 msgid "Disable %s"
 msgstr "Desactivar %s"
 
@@ -1900,7 +1888,7 @@ msgstr "Caixa de Procuras SQL"
 msgid "Show search criteria"
 msgstr "Caixa de Procuras SQL"
 
-#: js/messages.php:263 libraries/tbl_select.lib.php:135
+#: js/messages.php:263 libraries/tbl_select.lib.php:110
 #, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
@@ -7350,7 +7338,7 @@ msgid "To"
 msgstr ""
 
 #: libraries/mult_submits.inc.php:262 libraries/mult_submits.inc.php:276
-#: libraries/sql_query_form.lib.php:396 tbl_zoom_select.php:461
+#: libraries/sql_query_form.lib.php:396 tbl_zoom_select.php:469
 msgid "Submit"
 msgstr "Enviar"
 
@@ -7703,10 +7691,10 @@ msgid "Variable"
 msgstr "Variábel"
 
 #: libraries/replication_gui.lib.php:119
-#: libraries/rte/rte_routines.lib.php:1363 libraries/tbl_select.lib.php:112
+#: libraries/rte/rte_routines.lib.php:1363 libraries/tbl_select.lib.php:87
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769 server_status.php:1465 tbl_change.php:334
-#: tbl_printview.php:334 tbl_structure.php:832 tbl_zoom_select.php:428
+#: tbl_printview.php:334 tbl_structure.php:832 tbl_zoom_select.php:436
 msgid "Value"
 msgstr "Valor"
 
@@ -8085,7 +8073,7 @@ msgstr ""
 msgid "Routine parameters"
 msgstr "Rutinas"
 
-#: libraries/rte/rte_routines.lib.php:1361 libraries/tbl_select.lib.php:104
+#: libraries/rte/rte_routines.lib.php:1361 libraries/tbl_select.lib.php:79
 #: tbl_change.php:292 tbl_change.php:330
 msgid "Function"
 msgstr "Función"
@@ -8730,25 +8718,19 @@ msgstr "Definición da PARTICIÓN"
 msgid "+ Add a value"
 msgstr "Engadir un servidor novo"
 
-#: libraries/tbl_select.lib.php:23 libraries/tbl_select.lib.php:24
-#: libraries/tbl_select.lib.php:27 libraries/tbl_select.lib.php:32 sql.php:100
-#: tbl_change.php:262
-msgid "Browse foreign values"
-msgstr "Visualizar valores alleos"
-
-#: libraries/tbl_select.lib.php:111 pmd_general.php:481 pmd_general.php:501
+#: libraries/tbl_select.lib.php:86 pmd_general.php:481 pmd_general.php:501
 #: pmd_general.php:623 pmd_general.php:636 pmd_general.php:699
 #: pmd_general.php:753
 msgid "Operator"
 msgstr "Operador"
 
-#: libraries/tbl_select.lib.php:128
+#: libraries/tbl_select.lib.php:103
 #, fuzzy
 #| msgid "Search"
 msgid "Table Search"
 msgstr "Procurar"
 
-#: libraries/tbl_select.lib.php:207 tbl_change.php:993
+#: libraries/tbl_select.lib.php:182 tbl_change.php:993
 #, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
@@ -11916,6 +11898,10 @@ msgstr "A chave debería conter letras, números [em]e[/em] caracteres especiais
 msgid "Wrong data"
 msgstr "Non hai ningunha base de datos"
 
+#: sql.php:100 tbl_change.php:262 tbl_select.php:28 tbl_zoom_select.php:58
+msgid "Browse foreign values"
+msgstr "Visualizar valores alleos"
+
 #: sql.php:205
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
@@ -12665,35 +12651,33 @@ msgstr "Seguir estas declaracións de manipulación de datos:"
 msgid "Create version"
 msgstr "Crear unha versión"
 
-#: tbl_zoom_select.php:127
+#: tbl_zoom_select.php:135
 #, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr "Faga unha \"procura por exemplo\" (o comodín é \"%\")"
 
-#: tbl_zoom_select.php:137
+#: tbl_zoom_select.php:145
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "Additional search criteria"
 msgstr "Caixa de Procuras SQL"
 
-#: tbl_zoom_select.php:268
-#, fuzzy
-#| msgid "Label"
-msgid "Data Label"
-msgstr "Nome"
+#: tbl_zoom_select.php:276
+msgid "Use this column to label each point"
+msgstr ""
 
-#: tbl_zoom_select.php:288
+#: tbl_zoom_select.php:296
 #, fuzzy
 #| msgid "Maximum number of rows to display"
 msgid "Maximum rows to plot"
 msgstr "Número máximo de fileiras que se mostran"
 
-#: tbl_zoom_select.php:402
+#: tbl_zoom_select.php:410
 msgid "Browse/Edit the points"
 msgstr ""
 
-#: tbl_zoom_select.php:409
+#: tbl_zoom_select.php:417
 #, fuzzy
 #| msgid "Control user"
 msgid "How to use"
@@ -13873,6 +13857,11 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Label"
+#~ msgid "Data Label"
+#~ msgstr "Nome"
 
 #~ msgid "Location of the text file"
 #~ msgstr "Localización do arquivo de texto"

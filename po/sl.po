@@ -3,16 +3,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-09-18 06:14-0400\n"
+"POT-Creation-Date: 2011-09-19 08:41-0400\n"
 "PO-Revision-Date: 2011-09-14 16:27+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
-"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3);\n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:320
@@ -78,7 +78,7 @@ msgstr "Iskanje"
 #: tbl_operations.php:321 tbl_operations.php:523 tbl_operations.php:585
 #: tbl_operations.php:767 tbl_select.php:235 tbl_structure.php:671
 #: tbl_structure.php:708 tbl_tracking.php:416 tbl_tracking.php:554
-#: tbl_zoom_select.php:305 view_create.php:181 view_operations.php:99
+#: tbl_zoom_select.php:313 view_create.php:181 view_operations.php:99
 msgid "Go"
 msgstr "Izvedi"
 
@@ -140,10 +140,10 @@ msgstr "Pripomba tabele"
 #: libraries/export/odt.php:286 libraries/export/texytext.php:228
 #: libraries/schema/Pdf_Relation_Schema.class.php:1305
 #: libraries/schema/Pdf_Relation_Schema.class.php:1326
-#: libraries/tbl_properties.inc.php:281 libraries/tbl_select.lib.php:108
+#: libraries/tbl_properties.inc.php:281 libraries/tbl_select.lib.php:83
 #: tbl_change.php:318 tbl_chart.php:89 tbl_indexes.php:196
 #: tbl_printview.php:136 tbl_relation.php:399 tbl_tracking.php:257
-#: tbl_tracking.php:308 tbl_zoom_select.php:426
+#: tbl_tracking.php:308 tbl_zoom_select.php:434
 msgid "Column"
 msgstr "Stolpec"
 
@@ -156,7 +156,7 @@ msgstr "Stolpec"
 #: libraries/rte/rte_routines.lib.php:1359
 #: libraries/schema/Pdf_Relation_Schema.class.php:1306
 #: libraries/schema/Pdf_Relation_Schema.class.php:1327
-#: libraries/tbl_properties.inc.php:107 libraries/tbl_select.lib.php:109
+#: libraries/tbl_properties.inc.php:107 libraries/tbl_select.lib.php:84
 #: server_privileges.php:2251 tbl_change.php:297 tbl_change.php:324
 #: tbl_printview.php:137 tbl_printview.php:277 tbl_structure.php:202
 #: tbl_structure.php:765 tbl_tracking.php:258 tbl_tracking.php:305
@@ -170,7 +170,7 @@ msgstr "Vrsta"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_properties.inc.php:116 tbl_change.php:333
 #: tbl_printview.php:139 tbl_structure.php:205 tbl_tracking.php:260
-#: tbl_tracking.php:311 tbl_zoom_select.php:427
+#: tbl_tracking.php:311 tbl_zoom_select.php:435
 msgid "Null"
 msgstr "Null"
 
@@ -336,7 +336,7 @@ msgstr "Preklopi na kopirano zbirko podatkov"
 #: db_operations.php:542 libraries/Index.class.php:438
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:114
-#: libraries/tbl_properties.inc.php:701 libraries/tbl_select.lib.php:110
+#: libraries/tbl_properties.inc.php:701 libraries/tbl_select.lib.php:85
 #: server_collations.php:53 server_collations.php:65 tbl_operations.php:382
 #: tbl_structure.php:203 tbl_structure.php:870 tbl_tracking.php:259
 #: tbl_tracking.php:310
@@ -1367,7 +1367,7 @@ msgstr "Prosimo, v serijo dodajte vsaj eno spremenljivko"
 #: libraries/display_tbl.lib.php:554 libraries/export/sql.php:1092
 #: libraries/tbl_properties.inc.php:539 pmd_general.php:504
 #: server_privileges.php:2046 server_status.php:1257 server_status.php:1686
-#: tbl_zoom_select.php:143 tbl_zoom_select.php:270
+#: tbl_zoom_select.php:151 tbl_zoom_select.php:278
 msgid "None"
 msgstr "Brez"
 
@@ -1776,7 +1776,7 @@ msgstr "Skrij iskalne pogoje"
 msgid "Show search criteria"
 msgstr "Prikaži iskalne pogoje"
 
-#: js/messages.php:263 libraries/tbl_select.lib.php:135
+#: js/messages.php:263 libraries/tbl_select.lib.php:110
 msgid "Zoom Search"
 msgstr "Iskanje s povečevanjem"
 
@@ -6515,9 +6515,6 @@ msgid "Add statements:"
 msgstr "Dodaj izjave:"
 
 #: libraries/export/sql.php:211
-#| msgid ""
-#| "Enclose table and field names with backquotes <i>(Protects field and "
-#| "table names formed with special characters or keywords)</i>"
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
@@ -6853,7 +6850,7 @@ msgid "To"
 msgstr "Za"
 
 #: libraries/mult_submits.inc.php:262 libraries/mult_submits.inc.php:276
-#: libraries/sql_query_form.lib.php:396 tbl_zoom_select.php:461
+#: libraries/sql_query_form.lib.php:396 tbl_zoom_select.php:469
 msgid "Submit"
 msgstr "Pošlji"
 
@@ -7202,10 +7199,10 @@ msgid "Variable"
 msgstr "Spremenljivka"
 
 #: libraries/replication_gui.lib.php:119
-#: libraries/rte/rte_routines.lib.php:1363 libraries/tbl_select.lib.php:112
+#: libraries/rte/rte_routines.lib.php:1363 libraries/tbl_select.lib.php:87
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769 server_status.php:1465 tbl_change.php:334
-#: tbl_printview.php:334 tbl_structure.php:832 tbl_zoom_select.php:428
+#: tbl_printview.php:334 tbl_structure.php:832 tbl_zoom_select.php:436
 msgid "Value"
 msgstr "Vrednost"
 
@@ -7546,7 +7543,7 @@ msgstr "Izvedi rutino"
 msgid "Routine parameters"
 msgstr "Parametri rutine"
 
-#: libraries/rte/rte_routines.lib.php:1361 libraries/tbl_select.lib.php:104
+#: libraries/rte/rte_routines.lib.php:1361 libraries/tbl_select.lib.php:79
 #: tbl_change.php:292 tbl_change.php:330
 msgid "Function"
 msgstr "Funkcija"
@@ -8120,23 +8117,17 @@ msgstr "Definicija PARTITION"
 msgid "+ Add a value"
 msgstr "+ Dodaj vrednost"
 
-#: libraries/tbl_select.lib.php:23 libraries/tbl_select.lib.php:24
-#: libraries/tbl_select.lib.php:27 libraries/tbl_select.lib.php:32 sql.php:100
-#: tbl_change.php:262
-msgid "Browse foreign values"
-msgstr "Prebrskaj tuje vrednosti"
-
-#: libraries/tbl_select.lib.php:111 pmd_general.php:481 pmd_general.php:501
+#: libraries/tbl_select.lib.php:86 pmd_general.php:481 pmd_general.php:501
 #: pmd_general.php:623 pmd_general.php:636 pmd_general.php:699
 #: pmd_general.php:753
 msgid "Operator"
 msgstr "Operator"
 
-#: libraries/tbl_select.lib.php:128
+#: libraries/tbl_select.lib.php:103
 msgid "Table Search"
 msgstr "Iskanje po tabeli"
 
-#: libraries/tbl_select.lib.php:207 tbl_change.php:993
+#: libraries/tbl_select.lib.php:182 tbl_change.php:993
 msgid "Edit/Insert"
 msgstr "Uredi/Vstavi"
 
@@ -11078,6 +11069,10 @@ msgstr "Ključ naj vsebuje črke, številke [em]in[/em] posebne znake."
 msgid "Wrong data"
 msgstr "Napačni podatki"
 
+#: sql.php:100 tbl_change.php:262 tbl_select.php:28 tbl_zoom_select.php:58
+msgid "Browse foreign values"
+msgstr "Prebrskaj tuje vrednosti"
+
 #: sql.php:205
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
@@ -11754,28 +11749,28 @@ msgstr "Sledi tem stavkom upravljanja s podatki:"
 msgid "Create version"
 msgstr "Ustvari različico"
 
-#: tbl_zoom_select.php:127
+#: tbl_zoom_select.php:135
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr ""
 "Izvedi \"query by example\" (nadomestni znak: \"%\") za dva različna stolpca"
 
-#: tbl_zoom_select.php:137
+#: tbl_zoom_select.php:145
 msgid "Additional search criteria"
 msgstr "Dodatni iskalni pogoji"
 
-#: tbl_zoom_select.php:268
-msgid "Data Label"
-msgstr "Podatkovna oznaka"
+#: tbl_zoom_select.php:276
+msgid "Use this column to label each point"
+msgstr ""
 
-#: tbl_zoom_select.php:288
+#: tbl_zoom_select.php:296
 msgid "Maximum rows to plot"
 msgstr "Največje število vrstic za izris"
 
-#: tbl_zoom_select.php:402
+#: tbl_zoom_select.php:410
 msgid "Browse/Edit the points"
 msgstr "Prebrskaj/Uredi točke"
 
-#: tbl_zoom_select.php:409
+#: tbl_zoom_select.php:417
 msgid "How to use"
 msgstr "Kako uporabljati"
 
@@ -13078,6 +13073,9 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavljeno na 0"
+
+#~ msgid "Data Label"
+#~ msgstr "Podatkovna oznaka"
 
 #~ msgid "Location of the text file"
 #~ msgstr "Mesto datoteke z besedilom"

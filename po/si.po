@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-09-18 06:14-0400\n"
+"POT-Creation-Date: 2011-09-19 08:41-0400\n"
 "PO-Revision-Date: 2011-09-16 19:55+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
-"Language: si\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: si\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -77,7 +77,7 @@ msgstr "සෙවීම"
 #: tbl_operations.php:321 tbl_operations.php:523 tbl_operations.php:585
 #: tbl_operations.php:767 tbl_select.php:235 tbl_structure.php:671
 #: tbl_structure.php:708 tbl_tracking.php:416 tbl_tracking.php:554
-#: tbl_zoom_select.php:305 view_create.php:181 view_operations.php:99
+#: tbl_zoom_select.php:313 view_create.php:181 view_operations.php:99
 msgid "Go"
 msgstr "යන්න"
 
@@ -137,10 +137,10 @@ msgstr "වගු විස්තර"
 #: libraries/export/odt.php:286 libraries/export/texytext.php:228
 #: libraries/schema/Pdf_Relation_Schema.class.php:1305
 #: libraries/schema/Pdf_Relation_Schema.class.php:1326
-#: libraries/tbl_properties.inc.php:281 libraries/tbl_select.lib.php:108
+#: libraries/tbl_properties.inc.php:281 libraries/tbl_select.lib.php:83
 #: tbl_change.php:318 tbl_chart.php:89 tbl_indexes.php:196
 #: tbl_printview.php:136 tbl_relation.php:399 tbl_tracking.php:257
-#: tbl_tracking.php:308 tbl_zoom_select.php:426
+#: tbl_tracking.php:308 tbl_zoom_select.php:434
 msgid "Column"
 msgstr "තීර"
 
@@ -153,7 +153,7 @@ msgstr "තීර"
 #: libraries/rte/rte_routines.lib.php:1359
 #: libraries/schema/Pdf_Relation_Schema.class.php:1306
 #: libraries/schema/Pdf_Relation_Schema.class.php:1327
-#: libraries/tbl_properties.inc.php:107 libraries/tbl_select.lib.php:109
+#: libraries/tbl_properties.inc.php:107 libraries/tbl_select.lib.php:84
 #: server_privileges.php:2251 tbl_change.php:297 tbl_change.php:324
 #: tbl_printview.php:137 tbl_printview.php:277 tbl_structure.php:202
 #: tbl_structure.php:765 tbl_tracking.php:258 tbl_tracking.php:305
@@ -167,7 +167,7 @@ msgstr "වර්ගය"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_properties.inc.php:116 tbl_change.php:333
 #: tbl_printview.php:139 tbl_structure.php:205 tbl_tracking.php:260
-#: tbl_tracking.php:311 tbl_zoom_select.php:427
+#: tbl_tracking.php:311 tbl_zoom_select.php:435
 msgid "Null"
 msgstr "Null"
 
@@ -333,7 +333,7 @@ msgstr "පිටපත් කරන ලද දත්තගබඩාව වෙ�
 #: db_operations.php:542 libraries/Index.class.php:438
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:114
-#: libraries/tbl_properties.inc.php:701 libraries/tbl_select.lib.php:110
+#: libraries/tbl_properties.inc.php:701 libraries/tbl_select.lib.php:85
 #: server_collations.php:53 server_collations.php:65 tbl_operations.php:382
 #: tbl_structure.php:203 tbl_structure.php:870 tbl_tracking.php:259
 #: tbl_tracking.php:310
@@ -414,7 +414,6 @@ msgstr "පෙන්වීම සඳහා අවම වශයෙන් එක�
 
 #: db_qbe.php:186
 #, php-format
-#| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
 msgstr "%sදෘශ්‍ය ගොඩනංවනය%s වෙත යන්න"
 
@@ -563,7 +562,6 @@ msgid "Search in database"
 msgstr "දත්තගබඩාවේ සොයන්න"
 
 #: db_search.php:276
-#| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "සෙවීම සඳහා වචන(ය) හෝ අගය(න්) (wildcard: \"%\"):"
 
@@ -576,7 +574,6 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Words are separated by a space character (\" \")."
 
 #: db_search.php:299
-#| msgid "Inside table(s):"
 msgid "Inside tables:"
 msgstr "වගු තුල:"
 
@@ -824,7 +821,6 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "ඈඳූ අගයන් \"Length/Values\" ක්ෂේත්‍රය තුලට පිටපත් කරන්න"
 
 #: export.php:29
-#| msgid "Bar type"
 msgid "Bad type!"
 msgstr "වැරදි වර්ගය!"
 
@@ -833,7 +829,6 @@ msgid "Selected export type has to be saved in file!"
 msgstr "Selected export type has to be saved in file!"
 
 #: export.php:106
-#| msgid "Add index"
 msgid "Bad parameters!"
 msgstr "වැරදි පරාමිතියන්!"
 
@@ -860,13 +855,11 @@ msgid "Dump has been saved to file %s."
 msgstr "%s ගොනුවට නික්ෂේප දත්ත සුරකින ලදි."
 
 #: file_echo.php:21
-#| msgid "Export type"
 msgid "Invalid export type"
 msgstr "වැරදි අපනයන වර්ගයකි"
 
 #: gis_data_editor.php:84
 #, php-format
-#| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
 msgstr "\"%s\" තීරය සඳහා අගයන්"
 
@@ -921,7 +914,6 @@ msgid "Inner Ring"
 msgstr "ඇතුලත කවය"
 
 #: gis_data_editor.php:252
-#| msgid "Add a new User"
 msgid "Add a linestring"
 msgstr "රේඛාවක් එක් කරන්න "
 
@@ -938,7 +930,6 @@ msgid "Add a polygon"
 msgstr "බහු අස්‍රයක් එක් කරන්න"
 
 #: gis_data_editor.php:310
-#| msgid "Add a new server"
 msgid "Add geometry"
 msgstr "ජ්‍යාමිතියක් එක් කරන්න"
 
@@ -988,8 +979,7 @@ msgstr ""
 #: import.php:352
 msgid ""
 "Cannot convert file's character set without character set conversion library"
-msgstr ""
-"අක්ෂර කට්ටල හැරවීම් පුස්තකාලය නොමැතිව ගොනුවේ අක්ෂර කට්ටලය හැරවීම කල නොහැක"
+msgstr "අක්ෂර කට්ටල හැරවීම් පුස්තකාලය නොමැතිව ගොනුවේ අක්ෂර කට්ටලය හැරවීම කල නොහැක"
 
 #: import.php:376 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -1105,7 +1095,6 @@ msgstr "මෙය අංකයක් නොවේ!"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:51
-#| msgid "Total"
 msgid "Total count"
 msgstr "මුළු එකතුව"
 
@@ -1152,7 +1141,6 @@ msgid "Edit"
 msgstr "සංස්කරණය කරන්න"
 
 #: js/messages.php:65 server_status.php:794
-#| msgid "Server Choice"
 msgid "Live traffic chart"
 msgstr "සජීවී දත්ත හුවමාරු ප්‍රස්තාරය"
 
@@ -1161,7 +1149,6 @@ msgid "Live conn./process chart"
 msgstr "සජීවී සබඳතා/ක්‍රියාවලි ප්‍රස්තාරය  "
 
 #: js/messages.php:67 server_status.php:815
-#| msgid "Show query chart"
 msgid "Live query chart"
 msgstr "සජීවී විමසුම් ප්‍රස්තාරය "
 
@@ -1201,7 +1188,6 @@ msgid "KiB received since last refresh"
 msgstr "අවසන් යාවත්කාලින කිරීමේ සිට ලැබුණු KiB"
 
 #: js/messages.php:81
-#| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
 msgstr "සේවාදායකයේ තදබදය (KiB වලින්)"
 
@@ -1214,7 +1200,6 @@ msgid "Processes"
 msgstr "ක්‍රියාවලිය"
 
 #: js/messages.php:84
-#| msgid "Connections"
 msgid "Connections / Processes"
 msgstr "සම්බන්ධතා / ක්‍රියාවලි "
 
@@ -1247,17 +1232,14 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:96
-#| msgid "Query cache"
 msgid "Query cache efficiency"
 msgstr "විමසුම් කෑෂ් කාර්යක්ෂමතාව "
 
 #: js/messages.php:97
-#| msgid "Query cache"
 msgid "Query cache usage"
 msgstr "විමසුම් කෑෂ් භාවිතය "
 
 #: js/messages.php:98
-#| msgid "Query cache"
 msgid "Query cache used"
 msgstr "භාවිතා කරන ලද විමසුම් කෑෂ්"
 
@@ -1288,7 +1270,6 @@ msgid "Average load"
 msgstr ""
 
 #: js/messages.php:107
-#| msgid "Total"
 msgid "Total memory"
 msgstr "සම්පූර්ණ මතකය  "
 
@@ -1297,7 +1278,6 @@ msgid "Cached memory"
 msgstr "කෑෂ්ගත මතකය "
 
 #: js/messages.php:109
-#| msgid "Buffer Pool"
 msgid "Buffered memory"
 msgstr "බෆරගත මතකය"
 
@@ -1334,7 +1314,6 @@ msgid "Bytes sent"
 msgstr "යැවුණු බයිට ගණන "
 
 #: js/messages.php:119
-#| msgid "Received"
 msgid "Bytes received"
 msgstr "ලැබුණු බයිට ගණන "
 
@@ -1344,7 +1323,6 @@ msgstr "සම්බන්ධතා"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:124
-#| msgid "Versions"
 msgid "Questions"
 msgstr "ප්‍රශ්න"
 
@@ -1358,7 +1336,6 @@ msgid "Settings"
 msgstr "සිටුවම්"
 
 #: js/messages.php:127
-#| msgid "Remove database"
 msgid "Remove chart"
 msgstr "ප්‍රස්තාරය ඉවත් කරන්න"
 
@@ -1378,7 +1355,7 @@ msgstr ""
 #: libraries/display_tbl.lib.php:554 libraries/export/sql.php:1092
 #: libraries/tbl_properties.inc.php:539 pmd_general.php:504
 #: server_privileges.php:2046 server_status.php:1257 server_status.php:1686
-#: tbl_zoom_select.php:143 tbl_zoom_select.php:270
+#: tbl_zoom_select.php:151 tbl_zoom_select.php:278
 msgid "None"
 msgstr "කිසිවක් නැත"
 
@@ -1809,7 +1786,7 @@ msgstr "SQL විමසුම"
 msgid "Show search criteria"
 msgstr "SQL විමසුම"
 
-#: js/messages.php:263 libraries/tbl_select.lib.php:135
+#: js/messages.php:263 libraries/tbl_select.lib.php:110
 #, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
@@ -6736,7 +6713,7 @@ msgid "To"
 msgstr ""
 
 #: libraries/mult_submits.inc.php:262 libraries/mult_submits.inc.php:276
-#: libraries/sql_query_form.lib.php:396 tbl_zoom_select.php:461
+#: libraries/sql_query_form.lib.php:396 tbl_zoom_select.php:469
 msgid "Submit"
 msgstr "ඉදිරිපත් කරන්න"
 
@@ -7083,10 +7060,10 @@ msgid "Variable"
 msgstr "විචල්‍යය"
 
 #: libraries/replication_gui.lib.php:119
-#: libraries/rte/rte_routines.lib.php:1363 libraries/tbl_select.lib.php:112
+#: libraries/rte/rte_routines.lib.php:1363 libraries/tbl_select.lib.php:87
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769 server_status.php:1465 tbl_change.php:334
-#: tbl_printview.php:334 tbl_structure.php:832 tbl_zoom_select.php:428
+#: tbl_printview.php:334 tbl_structure.php:832 tbl_zoom_select.php:436
 msgid "Value"
 msgstr "අගය"
 
@@ -7459,7 +7436,7 @@ msgstr ""
 msgid "Routine parameters"
 msgstr "නෛත්‍යක"
 
-#: libraries/rte/rte_routines.lib.php:1361 libraries/tbl_select.lib.php:104
+#: libraries/rte/rte_routines.lib.php:1361 libraries/tbl_select.lib.php:79
 #: tbl_change.php:292 tbl_change.php:330
 msgid "Function"
 msgstr "ශ්‍රිතය"
@@ -8091,25 +8068,19 @@ msgstr ""
 msgid "+ Add a value"
 msgstr "+ නව භාවිතා කරන්නෙක් එක් කරන්න"
 
-#: libraries/tbl_select.lib.php:23 libraries/tbl_select.lib.php:24
-#: libraries/tbl_select.lib.php:27 libraries/tbl_select.lib.php:32 sql.php:100
-#: tbl_change.php:262
-msgid "Browse foreign values"
-msgstr "අන්‍ය අගයන් පිරික්සන්න"
-
-#: libraries/tbl_select.lib.php:111 pmd_general.php:481 pmd_general.php:501
+#: libraries/tbl_select.lib.php:86 pmd_general.php:481 pmd_general.php:501
 #: pmd_general.php:623 pmd_general.php:636 pmd_general.php:699
 #: pmd_general.php:753
 msgid "Operator"
 msgstr "මෙහෙයවනය"
 
-#: libraries/tbl_select.lib.php:128
+#: libraries/tbl_select.lib.php:103
 #, fuzzy
 #| msgid "Search"
 msgid "Table Search"
 msgstr "සෙවීම"
 
-#: libraries/tbl_select.lib.php:207 tbl_change.php:993
+#: libraries/tbl_select.lib.php:182 tbl_change.php:993
 #, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
@@ -11030,6 +11001,10 @@ msgstr "මූලයේ අක්ෂර, ඉලක්කම් [em]සහ[/em] �
 msgid "Wrong data"
 msgstr "දත්තගබඩා නොමැත"
 
+#: sql.php:100 tbl_change.php:262 tbl_select.php:28 tbl_zoom_select.php:58
+msgid "Browse foreign values"
+msgstr "අන්‍ය අගයන් පිරික්සන්න"
+
 #: sql.php:205
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
@@ -11741,32 +11716,30 @@ msgstr ""
 msgid "Create version"
 msgstr "අනුවාදය සාදන්න"
 
-#: tbl_zoom_select.php:127
+#: tbl_zoom_select.php:135
 #, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr "\"උදාහරණයෙන් විමසුම\" ක් සිදු කරන්න (wildcard: \"%\")"
 
-#: tbl_zoom_select.php:137
+#: tbl_zoom_select.php:145
 #, fuzzy
 msgid "Additional search criteria"
 msgstr "SQL විමසුම"
 
-#: tbl_zoom_select.php:268
-#, fuzzy
-#| msgid "Label"
-msgid "Data Label"
-msgstr "ලේබලය"
+#: tbl_zoom_select.php:276
+msgid "Use this column to label each point"
+msgstr ""
 
-#: tbl_zoom_select.php:288
+#: tbl_zoom_select.php:296
 msgid "Maximum rows to plot"
 msgstr ""
 
-#: tbl_zoom_select.php:402
+#: tbl_zoom_select.php:410
 msgid "Browse/Edit the points"
 msgstr ""
 
-#: tbl_zoom_select.php:409
+#: tbl_zoom_select.php:417
 #, fuzzy
 #| msgid "PHP extension to use"
 msgid "How to use"
@@ -12945,6 +12918,11 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Label"
+#~ msgid "Data Label"
+#~ msgstr "ලේබලය"
 
 #~ msgid "Location of the text file"
 #~ msgstr "පාඨ ගොනුවෙහි පිහිටුම"
