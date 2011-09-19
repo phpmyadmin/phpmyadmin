@@ -11847,10 +11847,11 @@ msgid "Create version"
 msgstr "Créer une version"
 
 #: tbl_zoom_select.php:127
-#, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "Recherche «par valeur» (passepartout: «% ») "
+msgstr ""
+"Faites une recherche «par valeur» (passepartout: «% ») sur deux colonnes "
+"différentes"
 
 #: tbl_zoom_select.php:137
 #, fuzzy
