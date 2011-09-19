@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-18 06:14-0400\n"
-"PO-Revision-Date: 2011-09-19 14:54+0200\n"
+"PO-Revision-Date: 2011-09-19 15:01+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -11957,6 +11957,8 @@ msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
+"Laissez le serveur fonctionner plus longtemps jusqu'à ce qu'il ait traité un "
+"plus grand nombre de requêtes."
 
 #: po/advisory_rules.php:13
 #, fuzzy, php-format
