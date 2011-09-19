@@ -617,19 +617,27 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         echo '</div>';
 
         // prepare full/partial text button or link
+        $url_params_full_text = array(
+            'db' => $db,
+            'table' => $table,
+            'sql_query' => $sql_query,
+            'goto' => $goto,
+            'full_text_button' => 1
+        );
+
         if ($_SESSION['tmp_user_values']['display_text']=='F') {
             // currently in fulltext mode so show the opposite link
             $tmp_image_file = $GLOBALS['pmaThemeImage'] . 's_partialtext.png';
             $tmp_txt = __('Partial texts');
-            $url_params['display_text'] = 'P';
+            $url_params_full_text['display_text'] = 'P';
         } else {
             $tmp_image_file = $GLOBALS['pmaThemeImage'] . 's_fulltext.png';
             $tmp_txt = __('Full texts');
-            $url_params['display_text'] = 'F';
+            $url_params_full_text['display_text'] = 'F';
         }
 
         $tmp_image = '<img class="fulltext" src="' . $tmp_image_file . '" alt="' . $tmp_txt . '" title="' . $tmp_txt . '" />';
-        $tmp_url = 'sql.php' . PMA_generate_common_url($url_params);
+        $tmp_url = 'sql.php' . PMA_generate_common_url($url_params_full_text);
         $full_or_partial_text_link = PMA_linkOrButton($tmp_url, $tmp_image, array(), false);
         unset($tmp_image_file, $tmp_txt, $tmp_url, $tmp_image);
 
@@ -1637,6 +1645,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
 
                     // displays special characters from binaries
                     $field_flags = PMA_DBI_field_flags($dt_result, $i);
+                    $is_html = false;
                     if (isset($meta->_type) && $meta->_type === MYSQLI_TYPE_BIT) {
                         $row[$i]     = PMA_printable_bit_value($row[$i], $meta->length);
                         // some results of PROCEDURE ANALYSE() are reported as
@@ -1655,18 +1664,22 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                             // we show the BINARY message and field's size
                             // (or maybe use a transformation)
                             $row[$i] = PMA_handle_non_printable_contents('BINARY', $row[$i], $transform_function, $transform_options, $default_function, $meta, $_url_params);
+                            $is_html = true;
                         }
                     }
 
-                    // transform functions may enable no-wrapping:
-                    $function_nowrap = $transform_function . '_nowrap';
-                    $bool_nowrap = (($default_function != $transform_function && function_exists($function_nowrap)) ? $function_nowrap($transform_options) : false);
+                    if ($is_html) {
+                        $vertical_display['data'][$row_no][$i]     = PMA_buildValueDisplay($class, $condition_field, $row[$i]);
+                    } else {
+                        // transform functions may enable no-wrapping:
+                        $function_nowrap = $transform_function . '_nowrap';
+                        $bool_nowrap = (($default_function != $transform_function && function_exists($function_nowrap)) ? $function_nowrap($transform_options) : false);
 
-                    // do not wrap if date field type
-                    $nowrap = ((preg_match('@DATE|TIME@i', $meta->type) || $bool_nowrap) ? ' nowrap' : '');
-                    $where_comparison = ' = \'' . PMA_sqlAddSlashes($row[$i]) . '\'';
-                    $vertical_display['data'][$row_no][$i]     = '<td ' . PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $map, $row[$i], $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated);
-
+                        // do not wrap if date field type
+                        $nowrap = ((preg_match('@DATE|TIME@i', $meta->type) || $bool_nowrap) ? ' nowrap' : '');
+                        $where_comparison = ' = \'' . PMA_sqlAddSlashes($row[$i]) . '\'';
+                        $vertical_display['data'][$row_no][$i]     = '<td ' . PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $map, $row[$i], $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated);
+                    }
                 } else {
                     $vertical_display['data'][$row_no][$i]     = PMA_buildEmptyDisplay($class, $condition_field, $meta);
                 }
@@ -1995,6 +2008,8 @@ function PMA_displayTable_checkConfigParams()
     } elseif (isset($_REQUEST['display_options_form'])) {
         // we know that the checkbox was unchecked
         unset($_SESSION['tmp_user_values']['query'][$sql_md5]['display_binary']);
+    } elseif (isset($_REQUEST['full_text_button'])) {
+        // do nothing to keep the value that is there in the session
     } else {
         // selected by default because some operations like OPTIMIZE TABLE
         // and all queries involving functions return "binary" contents,
@@ -2008,6 +2023,8 @@ function PMA_displayTable_checkConfigParams()
     } elseif (isset($_REQUEST['display_options_form'])) {
         // we know that the checkbox was unchecked
         unset($_SESSION['tmp_user_values']['query'][$sql_md5]['display_binary_as_hex']);
+    } elseif (isset($_REQUEST['full_text_button'])) {
+        // do nothing to keep the value that is there in the session
     } else {
         // display_binary_as_hex config option
         if (isset($GLOBALS['cfg']['DisplayBinaryAsHex']) && true === $GLOBALS['cfg']['DisplayBinaryAsHex']) {

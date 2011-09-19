@@ -57,6 +57,8 @@ phpMyAdmin - ChangeLog
 - bug #3400690 [privileges] DB-specific privileges won't submit
 - bug #3410604 [config] Configuration storage incorrect suggested table name 
 - bug #3383572 [interface] Cannot execute saved query
+- bug #3411535 [display] Full text button unchecks results display options
+- bug #3411224 [display] Broken binary column when 'Show binary contents' is not set
 
 3.4.5.0 (2011-09-14)
 - bug #3375325 [interface] Page list in navigation frame looks odd
