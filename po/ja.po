@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-18 06:14-0400\n"
-"PO-Revision-Date: 2011-09-19 12:21+0200\n"
+"PO-Revision-Date: 2011-09-19 12:23+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -830,10 +830,9 @@ msgid "Selected export type has to be saved in file!"
 msgstr "この形式のエクスポートはファイルに保存する必要があります!"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Bad parameters!"
-msgstr "パラメータを追加する"
+msgstr "パラメータが正しくありません！"
 
 #: export.php:166 export.php:191 export.php:652
 #, php-format
