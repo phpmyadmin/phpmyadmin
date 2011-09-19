@@ -3948,16 +3948,12 @@ msgid "Automatically create versions"
 msgstr "Automaticky vytvářet verze"
 
 #: libraries/config/messages.inc.php:431
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_config[/kbd]"
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
 msgstr ""
 "Nechte prázdné pro vypnutí podpory pro uživatelské nastavení v databázi, "
-"výchozí nastavení: [kbd]pma_config[/kbd]"
+"výchozí nastavení: [kbd]pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:432
 msgid "User preferences storage table"
