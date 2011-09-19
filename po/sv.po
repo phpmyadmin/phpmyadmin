@@ -12741,7 +12741,7 @@ msgstr "%s tråd(ar) tog längre tid än %s sekunder att starta, bör det vara 0
 
 #: po/advisory_rules.php:220
 msgid "Slow launch time"
-msgstr "Långsam starttid"
+msgstr "Långsam uppstartstid"
 
 #: po/advisory_rules.php:221
 msgid "Slow_launch_threads is above 2s"
