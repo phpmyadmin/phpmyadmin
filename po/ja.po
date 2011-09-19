@@ -823,7 +823,7 @@ msgstr ""
 #: export.php:29
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "エクスポート形式が正しくありません"
+msgstr "エクスポート形式が正しくありません！"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
