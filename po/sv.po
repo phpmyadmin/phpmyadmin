@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-19 22:00+0200\n"
+"PO-Revision-Date: 2011-09-19 22:01+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -12741,7 +12741,7 @@ msgstr "%s tråd(ar) tog längre tid än %s sekunder att starta, bör det vara 0
 
 #: po/advisory_rules.php:220
 msgid "Slow launch time"
-msgstr ""
+msgstr "Långsam starttid"
 
 #: po/advisory_rules.php:221
 msgid "Slow_launch_threads is above 2s"
