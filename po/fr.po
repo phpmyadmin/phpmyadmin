@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-18 06:14-0400\n"
-"PO-Revision-Date: 2011-09-19 14:42+0200\n"
+"PO-Revision-Date: 2011-09-19 14:43+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -11874,10 +11874,9 @@ msgid "Browse/Edit the points"
 msgstr "Afficher/Modifier les points"
 
 #: tbl_zoom_select.php:409
-#, fuzzy
 #| msgid "Control user"
 msgid "How to use"
-msgstr "Utilisateur de contrôle"
+msgstr "Consignes d'utilisation"
 
 #: themes.php:28
 msgid "Get more themes!"
