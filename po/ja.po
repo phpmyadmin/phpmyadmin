@@ -858,10 +858,9 @@ msgid "Dump has been saved to file %s."
 msgstr "ダンプをファイル %s に保存しました"
 
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "エクスポート形式"
+msgstr "無効なエクスポート形式"
 
 #: gis_data_editor.php:84
 #, php-format
