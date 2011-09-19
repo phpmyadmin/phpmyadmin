@@ -12176,7 +12176,7 @@ msgstr ""
 #: po/advisory_rules.php:68
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "Mémoire disponible sur cet hôte : %s"
 
 #: po/advisory_rules.php:70
 #, fuzzy
