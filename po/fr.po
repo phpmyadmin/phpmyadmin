@@ -11993,10 +11993,9 @@ msgstr ""
 "Le taux de requêtes lentes devrait être sous 5%%, dans votre cas c'est %s%%."
 
 #: po/advisory_rules.php:20
-#, fuzzy
 #| msgid "Flush query cache"
 msgid "Slow query rate"
-msgstr "Vider la cache des requêtes"
+msgstr "Taux de requêtes lentes"
 
 #: po/advisory_rules.php:21
 msgid ""
