@@ -11940,10 +11940,9 @@ msgid "The uptime is only %s"
 msgstr "Le temps de disponibilité n'est que %s."
 
 #: po/advisory_rules.php:10
-#, fuzzy
 #| msgid "Questions"
 msgid "Questions below 1,000"
-msgstr "Questions"
+msgstr "Moins de 1000 questions"
 
 #: po/advisory_rules.php:11
 msgid ""
