@@ -12719,7 +12719,7 @@ msgstr "Andel trådad cache: %s%%, detta värde bör vara över 80%%"
 
 #: po/advisory_rules.php:215
 msgid "Threads that are slow to launch"
-msgstr ""
+msgstr "Trådar som är långsamma att starta"
 
 #: po/advisory_rules.php:216
 #, fuzzy
