@@ -12184,10 +12184,9 @@ msgid "Query cache disabled"
 msgstr "Cache des requêtes désactivée"
 
 #: po/advisory_rules.php:71
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "Le serveur ne répond pas"
+msgstr "La cache des requêtes est désactivée."
 
 #: po/advisory_rules.php:72
 msgid ""
