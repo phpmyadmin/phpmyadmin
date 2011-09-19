@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-18 06:14-0400\n"
-"PO-Revision-Date: 2011-09-19 12:08+0200\n"
+"PO-Revision-Date: 2011-09-19 12:09+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2409,7 +2409,7 @@ msgstr "テーブル名が不正です"
 #: libraries/Table.class.php:1145
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
-msgstr "テーブルを %1$s から %2$s にリネームするときにエラーが発生しました"
+msgstr "テーブル名を %1$s から %2$s に変更するときにエラーが発生しました"
 
 #: libraries/Table.class.php:1232
 #, php-format
