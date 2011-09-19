@@ -12565,7 +12565,7 @@ msgstr "%% MyISAM key buffer används:%s, detta värde bör vara över 95%%"
 
 #: po/advisory_rules.php:175
 msgid "Percentage of index reads from memory"
-msgstr ""
+msgstr "Andelen index som läses från minnet"
 
 #: po/advisory_rules.php:176
 #, php-format
