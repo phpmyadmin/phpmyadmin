@@ -12062,7 +12062,7 @@ msgstr "Famille de versions"
 
 #: po/advisory_rules.php:36
 msgid "The MySQL server version less then 5.1."
-msgstr ""
+msgstr "La version du serveur MySQL est antérieure à 5.1."
 
 #: po/advisory_rules.php:37
 msgid ""
