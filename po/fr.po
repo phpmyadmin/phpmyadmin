@@ -11854,10 +11854,9 @@ msgstr ""
 "différentes"
 
 #: tbl_zoom_select.php:137
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Additional search criteria"
-msgstr "Cacher les critères de recherche"
+msgstr "Critères de recherche supplémentaires"
 
 #: tbl_zoom_select.php:268
 #, fuzzy
