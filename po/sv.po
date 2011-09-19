@@ -12818,10 +12818,9 @@ msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr "%s%% av alla anslutningar avbryts. Detta värde bör vara under 1%%"
 
 #: po/advisory_rules.php:235
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Rate of aborted connections"
-msgstr "Bestående anslutningar"
+msgstr "Andelen avbrutna anslutningar"
 
 #: po/advisory_rules.php:236
 msgid "Too many connections are aborted"
