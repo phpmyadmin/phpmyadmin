@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-19 21:47+0200\n"
+"PO-Revision-Date: 2011-09-19 21:48+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -12695,7 +12695,7 @@ msgstr "Aktivera trådad cache genom att sätta {thread_cache_size} > 0"
 
 #: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
-msgstr ""
+msgstr "Trådad cache är satt till 0"
 
 #: po/advisory_rules.php:210
 #, fuzzy, php-format
