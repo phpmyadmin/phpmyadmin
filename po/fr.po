@@ -12155,10 +12155,9 @@ msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr "La version (%s) correspond au schème des versions de Drizzle"
 
 #: po/advisory_rules.php:65
-#, fuzzy
 #| msgid "MySQL charset"
 msgid "MySQL Architecture"
-msgstr "Jeu de caractères pour MySQL"
+msgstr "Architecture MySQL"
 
 #: po/advisory_rules.php:66
 msgid "MySQL is not compiled as a 64-bit package."
