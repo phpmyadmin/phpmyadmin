@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-18 06:14-0400\n"
-"PO-Revision-Date: 2011-09-02 04:56+0200\n"
+"PO-Revision-Date: 2011-09-19 01:30+0200\n"
 "Last-Translator: Sven Strickroth <email@cs-ware.de>\n"
 "Language-Team: german <de@li.org>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -934,7 +934,7 @@ msgstr "Linestring hinzufügen"
 #, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Neuen Benutzer hinzufügen"
+msgstr "Innenring hinzufügen"
 
 #: gis_data_editor.php:266 js/messages.php:292
 msgid "Polygon"
@@ -1079,11 +1079,11 @@ msgstr "Möchten Sie wirklich diese Abfrage ausführen "
 
 #: js/messages.php:33 libraries/mult_submits.inc.php:282 sql.php:320
 msgid "You are about to DESTROY a complete database!"
-msgstr "Sie sind dabei eine komplette Datenbank zu ZERSTÖREN!"
+msgstr "Sie sind dabei eine komplette Datenbank zu LÖSCHEN!"
 
 #: js/messages.php:34
 msgid "You are about to DESTROY a complete table!"
-msgstr "Sie sind dabei eine komplette Tabelle zu ZERSTÖREN!"
+msgstr "Sie sind dabei eine komplette Tabelle zu LÖSCHEN!"
 
 #: js/messages.php:35
 msgid "You are about to TRUNCATE a complete table!"
@@ -1227,7 +1227,7 @@ msgstr "Prozesse"
 
 #: js/messages.php:84
 msgid "Connections / Processes"
-msgstr "Verbindungen / Prozesse"
+msgstr "Verbindungen/Prozesse"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:86
@@ -1257,15 +1257,15 @@ msgstr ""
 
 #: js/messages.php:96
 msgid "Query cache efficiency"
-msgstr "Abfragen-Cache Effizienz"
+msgstr "Abfragen-Zwischenspeicher Effizienz"
 
 #: js/messages.php:97
 msgid "Query cache usage"
-msgstr "Abfragen-Cache Ausnutzung"
+msgstr "Abfragen-Zwischenspeicher Ausnutzung"
 
 #: js/messages.php:98
 msgid "Query cache used"
-msgstr "Abfragen-Cache benutzt"
+msgstr "Abfragen-Zwischenspeicher benutzt"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
@@ -1294,16 +1294,14 @@ msgid "Average load"
 msgstr "Durchschnittliche Auslastung"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "System memory"
 msgid "Total memory"
 msgstr "Gesamter Speicher"
 
 #: js/messages.php:108
-#, fuzzy
 #| msgid "System memory"
 msgid "Cached memory"
-msgstr "Cached Speicher"
+msgstr "Zwischenspeicher"
 
 #: js/messages.php:109
 msgid "Buffered memory"
@@ -1326,10 +1324,9 @@ msgstr "Gesamt Swap"
 #: js/messages.php:114
 #, fuzzy
 msgid "Cached Swap"
-msgstr "Cached Swap"
+msgstr "Zwischengespeicherter Swap"
 
 #: js/messages.php:115
-#, fuzzy
 msgid "Used Swap"
 msgstr "Benutzer Swap"
 
@@ -1559,7 +1556,7 @@ msgstr "Filter"
 
 #: js/messages.php:176
 msgid "Filter queries by word/regexp:"
-msgstr "Filte die Abfragen durch Wort / Regulären Ausdruck:"
+msgstr "Abfragen durch Wort/Regulären Ausdruck filtern:"
 
 #: js/messages.php:177
 msgid "Group queries, ignoring variable data in WHERE clauses"
@@ -2255,7 +2252,7 @@ msgstr "Bei der Datei handelt es sich um keine hochgeladene Datei."
 
 #: libraries/File.class.php:260 libraries/File.class.php:389
 msgid "Unknown error while uploading."
-msgstr "Unbekannter Fehler beim Dateihochladen."
+msgstr "Unbekannter Fehler beim Hochladen der Datei."
 
 #: libraries/File.class.php:278
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
@@ -2709,7 +2706,7 @@ msgstr "Rechte überprüfen"
 
 #: libraries/common.inc.php:147
 msgid "possible exploit"
-msgstr ""
+msgstr "Mögliche Ausnutzung"
 
 #: libraries/common.inc.php:156
 msgid "numeric key detected"
@@ -3589,7 +3586,7 @@ msgstr "<code>CREATE TABLE</code> Optionen:"
 
 #: libraries/config/messages.inc.php:123
 msgid "Creation/Update/Check dates"
-msgstr "Erzeugungs- / Aktualisierungs- / Überprüfungszeiten"
+msgstr "Erzeugungs-/Aktualisierungs-/Überprüfungszeiten"
 
 #: libraries/config/messages.inc.php:124
 msgid "Use delayed inserts"
@@ -3726,7 +3723,7 @@ msgstr "Standard-Importeinstellungen anpassen"
 
 #: libraries/config/messages.inc.php:173
 msgid "Import / export"
-msgstr "Import/export"
+msgstr "Import/Export"
 
 #: libraries/config/messages.inc.php:174
 msgid "Set import and export directories and compression options"
@@ -5367,7 +5364,7 @@ msgstr "Open Document Text"
 
 #: libraries/config/validate.lib.php:198
 msgid "Could not initialize Drizzle connection library"
-msgstr ""
+msgstr "Konnte Drizzle-Verbindungsbibliothek nicht initialisieren."
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
 msgid "Could not connect to Drizzle server"
@@ -6247,20 +6244,20 @@ msgstr "Website von PrimeBase XT"
 
 #: libraries/engines/pbxt.lib.php:22
 msgid "Index cache size"
-msgstr "Index-Cache Größe"
+msgstr "Index-Zwischenspeicher Größe"
 
 #: libraries/engines/pbxt.lib.php:23
 msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
 msgstr ""
-"Die Menge an reserviertem Speicher für den Index-Cache. Die Voreinstellung "
-"ist 32 MB. Der Speicher wird nur zum zwischenspeichern von Index-Seiten "
-"verwendet."
+"Die Menge an reserviertem Speicher für den Index-Zwischenspeicher. Die "
+"Voreinstellung ist 32 MB. Der Speicher wird nur zum zwischenspeichern von "
+"Index-Seiten verwendet."
 
 #: libraries/engines/pbxt.lib.php:27
 msgid "Record cache size"
-msgstr "Record-Cache-Größe"
+msgstr "Record-Zwischenspeicher-Größe"
 
 #: libraries/engines/pbxt.lib.php:28
 msgid ""
@@ -6268,13 +6265,13 @@ msgid ""
 "table data. The default value is 32MB. This memory is used to cache changes "
 "to the handle data (.xtd) and row pointer (.xtr) files."
 msgstr ""
-"Die Menge an reserviertem Speicher zum Cachen von Tabellendaten. Die "
-"Voreinstellung ist 32 MB. Der Speicher wird verwendet um Änderungen an "
+"Die Menge an reserviertem Speicher zum Zwischenspeichern von Tabellendaten. "
+"Die Voreinstellung ist 32 MB. Der Speicher wird verwendet um Änderungen an "
 "Handle-Dateien (.xtd) und Row-Pointer-Dateien (.xtr) zwischenzuspeichern."
 
 #: libraries/engines/pbxt.lib.php:32
 msgid "Log cache size"
-msgstr "Log-Cache Größe"
+msgstr "Protokoll-Zwischenspeicher Größe"
 
 #: libraries/engines/pbxt.lib.php:33
 msgid ""
@@ -6578,7 +6575,6 @@ msgid "Add statements:"
 msgstr "Befehle hinzufügen:"
 
 #: libraries/export/sql.php:211
-#, fuzzy
 #| msgid ""
 #| "Enclose table and field names with backquotes <i>(Protects field and "
 #| "table names formed with special characters or keywords)</i>"
@@ -6726,7 +6722,7 @@ msgstr "Keine Daten für die GIS-Darstellung gefunden."
 
 #: libraries/header_http.inc.php:15 libraries/header_meta_style.inc.php:15
 msgid "GLOBALS overwrite attempt"
-msgstr ""
+msgstr "GLOBALS Überschreibversuch"
 
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:54
 msgid "SQL result"
@@ -8980,10 +8976,9 @@ msgid "License"
 msgstr "Lizenz"
 
 #: server_plugins.php:182
-#, fuzzy
 #| msgid "Disabled"
 msgid "disabled"
-msgstr "Deaktiviert"
+msgstr "deaktiviert"
 
 #: server_privileges.php:32 server_privileges.php:367
 msgid "Includes all privileges except GRANT."
@@ -9350,7 +9345,7 @@ msgstr "Rechte zu folgender Tabelle hinzufügen"
 
 #: server_privileges.php:2180
 msgid "Change Login Information / Copy User"
-msgstr "Anmelde-Information ändern / Benutzer kopieren"
+msgstr "Anmelde-Information ändern/Benutzer kopieren"
 
 #: server_privileges.php:2183
 msgid "Create a new user with the same privileges and ..."
@@ -9621,7 +9616,7 @@ msgstr "Bezeichner"
 
 #: server_status.php:581
 msgid "Query cache"
-msgstr "Abfragen-Cache"
+msgstr "Abfragen-Zwischenspeicher"
 
 #: server_status.php:582
 msgid "Threads"
@@ -9637,7 +9632,7 @@ msgstr "Verzögertes Einfügen (delayed inserts)"
 
 #: server_status.php:586
 msgid "Key cache"
-msgstr "Schlüssel-Cache"
+msgstr "Schlüssel-Zwischenspeicher"
 
 #: server_status.php:587
 msgid "Joins"
@@ -9669,7 +9664,7 @@ msgstr "Zeige den Slave-Status"
 
 #: server_status.php:621
 msgid "Flush query cache"
-msgstr "Den Abfragen-Cache leeren. (FLUSH)"
+msgstr "Den Abfragen-Zwischenspeicher leeren. (FLUSH)"
 
 #: server_status.php:770
 msgid "Runtime Information"
@@ -9882,14 +9877,16 @@ msgid ""
 "exceeded the value of binlog_cache_size and used a temporary file to store "
 "statements from the transaction."
 msgstr ""
-"Anzahl der Transaktionen die den Binarylog-Cache verwendet, aber die Größe "
-"des Binarylog-Caches (binlog_cache_size) überschritten und eine temporäre "
-"Datei verwendet haben um die Statements der Transaktion zu speichern."
+"Anzahl der Transaktionen die den Binarylog-Zwischenspeicher verwendet, aber "
+"die Größe des Binarylog-Zwischenspeichers (binlog_cache_size) überschritten "
+"und eine temporäre Datei verwendet haben um die Statements der Transaktion "
+"zu speichern."
 
 #: server_status.php:1294
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr ""
-"Anzahl der Transaktionen, die den temporären Binarylog-Cache verwendet haben."
+"Anzahl der Transaktionen, die den temporären Binarylog-Zwischenspeicher "
+"verwendet haben."
 
 #: server_status.php:1295
 msgid ""
@@ -10272,17 +10269,18 @@ msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
 msgstr ""
-"Schlüssel-Blöcke im Schlüssel-Cache, die verändert wurden, aber noch nicht "
-"auf die Platte zurück geschrieben (flush) wurden; auch bekannt als "
-"Not_flushed_key_blocks."
+"Schlüssel-Blöcke im Schlüssel-Zwischenspeicher, die verändert wurden, aber "
+"noch nicht auf die Platte zurück geschrieben (flush) wurden; auch bekannt "
+"als Not_flushed_key_blocks."
 
 #: server_status.php:1359
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
 msgstr ""
-"Die Anzahl der unbenutzten Schlüssel-Blöcke im Schlüssel-Cache. Dieser Wert "
-"kann dazu dienen die Auslastung des Schlüssel-Cache zu bestimmen."
+"Die Anzahl der unbenutzten Schlüssel-Blöcke im Schlüssel-Zwischenspeicher. "
+"Dieser Wert kann dazu dienen die Auslastung des Schlüssel-Zwischenspeicher "
+"zu bestimmen."
 
 #: server_status.php:1360
 msgid ""
@@ -10290,11 +10288,14 @@ msgid ""
 "that indicates the maximum number of blocks that have ever been in use at "
 "one time."
 msgstr ""
-"Die Anzahl der maximal gleichzeitig benutzten Blocks im Schlüssel-Cache."
+"Die Anzahl der maximal gleichzeitig benutzten Blocks im Schlüssel-"
+"Zwischenspeicher."
 
 #: server_status.php:1361
 msgid "The number of requests to read a key block from the cache."
-msgstr "Die Anzahl der Anfragen, einen Schlüssel-Block aus dem Cache zu lesen."
+msgstr ""
+"Die Anzahl der Anfragen, einen Schlüssel-Block aus dem Zwischenspeicher zu "
+"lesen."
 
 #: server_status.php:1362
 msgid ""
@@ -10304,13 +10305,14 @@ msgid ""
 msgstr ""
 "Die Anzahl physikalischer Lesezugriffe eines Schlüssel-Blocks von der "
 "Platte. Wenn key_reads hoch ist, ist Ihr key_cache wahrscheinlich zu klein. "
-"Die Cache-Zugriffsrate kann mit key_reads / key_read_requests berechnet "
-"werden."
+"Die Zwischenspeicher-Zugriffsrate kann mit key_reads/key_read_requests "
+"berechnet werden."
 
 #: server_status.php:1363
 msgid "The number of requests to write a key block to the cache."
 msgstr ""
-"Die Anzahl der Anfragen, einen Schlüssel-Block in den Cache zu schreiben."
+"Die Anzahl der Anfragen, einen Schlüssel-Block in den Zwischenspeicher zu "
+"schreiben."
 
 #: server_status.php:1364
 msgid "The number of physical writes of a key block to disk."
@@ -10374,15 +10376,15 @@ msgstr ""
 
 #: server_status.php:1373
 msgid "The amount of free memory for query cache."
-msgstr "Freier Speicher im Abfragen-Cache."
+msgstr "Freier Speicher im Abfragen-Zwischenspeicher."
 
 #: server_status.php:1374
 msgid "The number of cache hits."
-msgstr "Abfrage-Cache-Zugriffsrate."
+msgstr "Anzahl an Abfrage-Zwischenspeicher-Anfragetreffer."
 
 #: server_status.php:1375
 msgid "The number of queries added to the cache."
-msgstr "Die Anzahl der Abfragen die dem Cache hinzugefügt wurden."
+msgstr "Die Anzahl der Abfragen die dem Zwischenspeicher hinzugefügt wurden."
 
 #: server_status.php:1376
 msgid ""
@@ -10391,27 +10393,28 @@ msgid ""
 "cache size. The query cache uses a least recently used (LRU) strategy to "
 "decide which queries to remove from the cache."
 msgstr ""
-"Die Anzahl der Abfragen die aus dem Cache entfernt wurden, um Speicher für "
-"neue Abfragen frei zu geben. Dieser Wert kann helfen die Abfrage-Cache-Größe "
-"zu optimieren. Der Abfrage-Cache arbeitet nach der LRU-Strategie (least "
-"recently used), d.&nbsp;h. es wird stets die Abfrage gelöscht, die am "
-"längsten unbenutzt im Cache lag."
+"Die Anzahl der Abfragen die aus dem Zwischenspeicher entfernt wurden, um "
+"Speicher für neue Abfragen frei zu geben. Dieser Wert kann helfen die "
+"Abfrage-Zwischenspeicher-Größe zu optimieren. Der Abfrage-Zwischenspeicher "
+"arbeitet nach der LRU-Strategie (least recently used), d.&nbsp;h. es wird "
+"stets die Abfrage gelöscht, die am längsten unbenutzt im Zwischenspeicher "
+"lag."
 
 #: server_status.php:1377
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
 msgstr ""
-"Die Anzahl der nicht im Cache eingetragenen Abfragen (nicht möglich, oder "
-"aufgrund der query_cache_type Einstellung)."
+"Die Anzahl der nicht im Zwischenspeicher eingetragenen Abfragen (nicht "
+"möglich, oder aufgrund der query_cache_type Einstellung)."
 
 #: server_status.php:1378
 msgid "The number of queries registered in the cache."
-msgstr "Die Anzahl der Abfragen im Cache."
+msgstr "Die Anzahl der Abfragen im Zwischenspeicher."
 
 #: server_status.php:1379
 msgid "The total number of blocks in the query cache."
-msgstr "Die Anzahl aller Speicherblöcke im Abfrage-Cache."
+msgstr "Die Anzahl aller Speicherblöcke im Abfrage-Zwischenspeicher."
 
 #: server_status.php:1380
 msgid "The status of failsafe replication (not yet implemented)."
@@ -10530,9 +10533,9 @@ msgid ""
 "calculated as Threads_created/Connections. If this value is red you should "
 "raise your thread_cache_size."
 msgstr ""
-"Anzahl der Prozesse im Prozess-Cache. Die Cache-Zugriffsrate kann mit "
-"Threads_created / Connections berechnet werden. Wenn dieser Wert rot ist, "
-"sollte der thread_cache_size erhöht werden."
+"Anzahl der Prozesse im Prozess-Zwischenspeicher. Die Zwischenspeicher-"
+"Zugriffsrate kann mit Threads_created/Connections berechnet werden. Wenn "
+"dieser Wert rot ist, sollte der thread_cache_size erhöht werden."
 
 #: server_status.php:1398
 msgid "The number of currently open connections."
@@ -11004,8 +11007,9 @@ msgid "Add a new server"
 msgstr "Neuen Server hinzufügen"
 
 #: setup/index.php:22
+#, fuzzy
 msgid "Wrong GET file attribute value"
-msgstr ""
+msgstr "Falscher GET Datei-Attribut-Wert"
 
 #: setup/lib/form_processing.lib.php:43
 msgid "Warning"
@@ -11440,7 +11444,6 @@ msgid "No index parts defined!"
 msgstr "Keine Indizes definiert!"
 
 #: tbl_indexes.php:169
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create an index"
 msgstr "Neuen Index anlegen"
@@ -11539,7 +11542,7 @@ msgstr ""
 
 #: tbl_operations.php:672
 msgid "Flush the table (FLUSH)"
-msgstr "Leeren des Tabellencaches (FLUSH)"
+msgstr "Leeren des Tabellenzwischenspeichers (FLUSH)"
 
 #: tbl_operations.php:681
 msgid "Delete data or table"
@@ -11924,10 +11927,8 @@ msgid "Additional search criteria"
 msgstr "Zusätzliche Suchkriterien"
 
 #: tbl_zoom_select.php:268
-#, fuzzy
-#| msgid "Label"
 msgid "Data Label"
-msgstr "Titel"
+msgstr "Datenbeschriftung"
 
 #: tbl_zoom_select.php:288
 msgid "Maximum rows to plot"
@@ -12044,12 +12045,13 @@ msgstr ""
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
+"Der Anteil langsamer Anfragen sollte kleiner als 5%% sein, Ihr Wert ist %s%%"
+"."
 
 #: po/advisory_rules.php:20
-#, fuzzy
 #| msgid "Flush query cache"
 msgid "Slow query rate"
-msgstr "Den Abfragen-Cache leeren. (FLUSH)"
+msgstr "Langsame Anfragen Anteil"
 
 #: po/advisory_rules.php:21
 msgid ""
@@ -12064,10 +12066,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:25
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Long query time"
-msgstr "SQL-Abfragen"
+msgstr "Langsame Anfragen Zeit"
 
 #: po/advisory_rules.php:26
 msgid ""
@@ -12082,22 +12083,20 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:28
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time ist auf %d Sekunde(n) eingestellt."
 
 #: po/advisory_rules.php:30
-#, fuzzy
 #| msgid "Show query box"
 msgid "Slow query logging"
-msgstr "SQL-Querybox anzeigen"
+msgstr "Langsame Anfragen Überwachung"
 
 #: po/advisory_rules.php:31
-#, fuzzy
 #| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
-msgstr "slow_query_log ist aktiviert."
+msgstr "Die Überwachung langsamer Anfragen ist deaktiveirt."
 
 #: po/advisory_rules.php:32
 msgid ""
@@ -12107,13 +12106,12 @@ msgstr ""
 
 #: po/advisory_rules.php:33
 msgid "log_slow_queries is set to 'OFF'"
-msgstr ""
+msgstr "log_slow_queries ist deaktiviert"
 
 #: po/advisory_rules.php:35
-#, fuzzy
 #| msgid "Clear series"
 msgid "Release Series"
-msgstr "Serien löschen"
+msgstr "Release Reihe"
 
 #: po/advisory_rules.php:36
 msgid "The MySQL server version less then 5.1."
@@ -12181,6 +12179,7 @@ msgstr ""
 #: po/advisory_rules.php:57
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgstr ""
+"Die Percona-Dokumentation finden Sie unter http://www.percona.com/docs/wiki/"
 
 #: po/advisory_rules.php:58
 msgid "'percona' found in version_comment"
@@ -12188,7 +12187,7 @@ msgstr ""
 
 #: po/advisory_rules.php:62
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
-msgstr ""
+msgstr "Die Drizzle-Dokumentation finden Sie unter http://docs.drizzle.org/"
 
 #: po/advisory_rules.php:63
 #, php-format
@@ -12196,14 +12195,13 @@ msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr ""
 
 #: po/advisory_rules.php:65
-#, fuzzy
 #| msgid "MySQL charset"
 msgid "MySQL Architecture"
-msgstr "MySQL-Zeichensatz"
+msgstr "MySQL Architektur"
 
 #: po/advisory_rules.php:66
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "MySQL wurde nicht als 64-bit Programm übersetzt."
 
 #: po/advisory_rules.php:67
 msgid ""
@@ -12219,11 +12217,11 @@ msgstr "Verfügbarer Specher auf diesem Rechner: %s"
 
 #: po/advisory_rules.php:70
 msgid "Query cache disabled"
-msgstr "Abfragen-Cache deaktiviert"
+msgstr "Abfragen-Zwischenspeicher deaktiviert"
 
 #: po/advisory_rules.php:71
 msgid "The query cache is not enabled."
-msgstr "Der Abfragen-Cache ist nicht aktiviert."
+msgstr "Der Abfragen-Zwischenspeicher ist nicht aktiviert."
 
 #: po/advisory_rules.php:72
 msgid ""
@@ -12235,11 +12233,11 @@ msgstr ""
 
 #: po/advisory_rules.php:73
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
-msgstr ""
+msgstr "query_cache_size ist auf 0 oder query_cache_type ist auf 'OFF' gesetzt"
 
 #: po/advisory_rules.php:75
 msgid "Query caching method"
-msgstr "Abfragen-Cache Methode"
+msgstr "Abfragen-Zwischenspeicher-Methode"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
@@ -12262,7 +12260,7 @@ msgstr ""
 
 #: po/advisory_rules.php:80
 msgid "Query cache efficiency (%)"
-msgstr "Anfragen-Cache Effizienz (%)"
+msgstr "Anfragen-Zwischenspeicher Effizienz (%)"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -12279,12 +12277,12 @@ msgstr ""
 
 #: po/advisory_rules.php:85
 msgid "Query Cache usage"
-msgstr "Abfragen-Cache Ausnutzung"
+msgstr "Abfragen-Zwischenspeicher Ausnutzung"
 
 #: po/advisory_rules.php:86
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
-msgstr "Weniger als 80%% des Abfragen-Caches werden benutzt."
+msgstr "Weniger als 80%% des Abfragen-Zwischenspeichers werden benutzt."
 
 #: po/advisory_rules.php:87
 msgid ""
@@ -12301,7 +12299,7 @@ msgstr ""
 
 #: po/advisory_rules.php:90
 msgid "Query cache fragmentation"
-msgstr "Abfragen-Cache Fragmentierung"
+msgstr "Abfragen-Zwischenspeicher Fragmentierung"
 
 #: po/advisory_rules.php:91
 msgid "The query cache is considerably fragmented."
@@ -12354,7 +12352,7 @@ msgstr ""
 
 #: po/advisory_rules.php:100
 msgid "Query cache max size"
-msgstr "Maximale Abfragen-Cache Größe"
+msgstr "Maximale Abfragen-Zwischenspeicher Größe"
 
 #: po/advisory_rules.php:101
 msgid ""
@@ -12371,7 +12369,7 @@ msgstr ""
 #: po/advisory_rules.php:103
 #, php-format
 msgid "Current query cache size: %s"
-msgstr "Aktuelle Abfragen-Cache Größe: %s"
+msgstr "Aktuelle Abfragen-Zwischenspeicher Größe: %s"
 
 #: po/advisory_rules.php:105
 #, fuzzy

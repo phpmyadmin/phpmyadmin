@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-18 06:14-0400\n"
-"PO-Revision-Date: 2011-08-05 14:17+0200\n"
-"Last-Translator: Chung-Ook Lee <hantip@gmail.com>\n"
+"PO-Revision-Date: 2011-09-18 19:35+0200\n"
+"Last-Translator:  <joungkyun@yahoo.com>\n"
 "Language-Team: korean <ko@li.org>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -292,7 +292,7 @@ msgstr "데이터베이스 %s 를 제거했습니다."
 
 #: db_operations.php:449
 msgid "Drop the database (DROP)"
-msgstr "데이터베이스 제거"
+msgstr "데이터베이스 제거 (DROP)"
 
 #: db_operations.php:478
 msgid "Copy database to"
@@ -2443,10 +2443,9 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "데이터 읽기 허용."
+msgstr "PDF 생성 실패:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
@@ -2753,48 +2752,47 @@ msgstr "데이터베이스 &quot;%s&quot; 에 대한 사용권한 검사."
 
 #: libraries/build_html_for_db.lib.php:154
 msgid "Check Privileges"
-msgstr "사용권한 보기"
+msgstr "사용권한 검사"
 
 #: libraries/common.inc.php:147
 msgid "possible exploit"
-msgstr ""
+msgstr "어떤 공격을 받고있을 가능성이 있습니다."
 
 #: libraries/common.inc.php:156
 msgid "numeric key detected"
-msgstr ""
+msgstr "전역 변수에서 숫자로 된 키가 발견 되었습니다."
 
 #: libraries/common.inc.php:597
-#, fuzzy
 #| msgid "Failed to write file to disk."
 msgid "Failed to read configuration file"
-msgstr "디스크 쓰기에 실패했습니다."
+msgstr "설정 파일을 읽는데 실패했습니다."
 
 #: libraries/common.inc.php:598
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
-msgstr ""
+msgstr "일반적으로 이것은 문법 오류가 있음을 의미합니다. 다음의 모든 오류를 확인하십시오."
 
 #: libraries/common.inc.php:605
 #, php-format
 msgid "Could not load default configuration from: %1$s"
-msgstr ""
+msgstr "기본 설정을 가져올 수 없습니다: %1$s"
 
 #: libraries/common.inc.php:610
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
-msgstr "환경설정 파일에서 <tt>$cfg['PmaAbsoluteUri']</tt> 주소를 기입하십시오!"
+msgstr "환경설정 파일에 <tt>$cfg['PmaAbsoluteUri']</tt> 변수가 선언되어야 합니다."
 
 #: libraries/common.inc.php:640
 #, php-format
 msgid "Invalid server index: %s"
-msgstr ""
+msgstr "잘못된 서버 인덱스: %s"
 
 #: libraries/common.inc.php:647
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgstr ""
+msgstr "서버 %1$s의 호스트 이름이 잘못되었습니다. 설정을 확인하십시오"
 
 #: libraries/common.inc.php:656 libraries/config/messages.inc.php:502
 #: libraries/header.inc.php:136 main.php:158 server_status.php:775
@@ -2804,12 +2802,12 @@ msgstr "서버"
 
 #: libraries/common.inc.php:835
 msgid "Invalid authentication method set in configuration:"
-msgstr ""
+msgstr "설정 파일에 인증 방식이 제대로 설정이 되어 있지 않습니다."
 
 #: libraries/common.inc.php:943
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr ""
+msgstr "%s를 %s 이상으로 업그레이드 하십시오"
 
 #: libraries/common.lib.php:135
 #, php-format
@@ -2865,7 +2863,7 @@ msgstr "MySQL 메시지: "
 
 #: libraries/common.lib.php:1072
 msgid "Failed to connect to SQL validator!"
-msgstr ""
+msgstr "SQL 검증을 하기 위한 연결이 실패했습니다."
 
 #: libraries/common.lib.php:1113 libraries/config/messages.inc.php:479
 msgid "Explain SQL"
@@ -2873,7 +2871,7 @@ msgstr "SQL 해석"
 
 #: libraries/common.lib.php:1117
 msgid "Skip Explain SQL"
-msgstr "해석(EXPLAIN) 생략"
+msgstr "SQL 해석 생략"
 
 #: libraries/common.lib.php:1152
 msgid "Without PHP Code"
@@ -2886,7 +2884,7 @@ msgstr "PHP 코드 보기"
 #: libraries/common.lib.php:1174 libraries/config/messages.inc.php:480
 #: server_status.php:786 server_status.php:808 server_status.php:827
 msgid "Refresh"
-msgstr ""
+msgstr "다시 보기"
 
 #: libraries/common.lib.php:1184
 msgid "Skip Validate SQL"
@@ -2898,16 +2896,16 @@ msgstr "SQL 검사"
 
 #: libraries/common.lib.php:1246
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "이 쿼리 인라인 수정"
 
 #: libraries/common.lib.php:1248
 msgctxt "Inline edit query"
 msgid "Inline"
-msgstr ""
+msgstr "인라인"
 
 #: libraries/common.lib.php:1314 sql.php:868
 msgid "Profiling"
-msgstr ""
+msgstr "프로파일링"
 
 #. l10n: shortcuts for Byte
 #: libraries/common.lib.php:1339
@@ -2947,17 +2945,16 @@ msgid "%B %d, %Y at %I:%M %p"
 msgstr "%y-%m-%d %H:%M "
 
 #: libraries/common.lib.php:1925
-#, fuzzy, php-format
+#, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s일 %s시간 %분 %초"
 
 #: libraries/common.lib.php:2016
 msgid "Missing parameter:"
-msgstr ""
+msgstr "매개 변수 누락:"
 
 #: libraries/common.lib.php:2364 libraries/common.lib.php:2367
 #: libraries/display_tbl.lib.php:306
-#, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
@@ -2966,7 +2963,6 @@ msgstr "처음"
 #: libraries/common.lib.php:2365 libraries/common.lib.php:2368
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
-#, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
@@ -2975,7 +2971,6 @@ msgstr "이전"
 #: libraries/common.lib.php:2395 libraries/common.lib.php:2398
 #: libraries/display_tbl.lib.php:370 server_binlog.php:170
 #: server_binlog.php:172
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
@@ -2983,7 +2978,6 @@ msgstr "다음"
 
 #: libraries/common.lib.php:2396 libraries/common.lib.php:2399
 #: libraries/display_tbl.lib.php:385
-#, fuzzy
 #| msgid "End"
 msgctxt "Last page"
 msgid "End"
@@ -2997,7 +2991,7 @@ msgstr "데이터베이스 &quot;%s&quot; 로 이동."
 #: libraries/common.lib.php:2486
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
-msgstr ""
+msgstr "%s 기능은 알려진 버그가 있습니다. %s 문서를 참조하십시오"
 
 #: libraries/common.lib.php:2660
 msgid "Click to toggle"
@@ -3039,7 +3033,7 @@ msgstr "테이블 작업"
 #: libraries/common.lib.php:3183 libraries/sql_query_form.lib.php:436
 #: prefs_manage.php:239
 msgid "Browse your computer:"
-msgstr ""
+msgstr "업로드 파일:"
 
 #: libraries/common.lib.php:3202
 #, fuzzy, php-format

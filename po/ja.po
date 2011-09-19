@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-18 06:14-0400\n"
-"PO-Revision-Date: 2011-09-11 11:14+0200\n"
+"PO-Revision-Date: 2011-09-18 11:25+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -1240,6 +1240,8 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
+"ローカルに保存されていたモニタ環境設定は、新しいモニタ環境との互換性がありません。この環境設定ではおそらく機能させることはできないでしょう。<i>設定<"
+"/i>項目よりモニタ環境設定をデフォルトに戻してください。"
 
 #: js/messages.php:96
 msgid "Query cache efficiency"
@@ -1523,10 +1525,9 @@ msgstr "ログの解析を行いましたが、この期間のデータは見つ
 
 #. l10n: A collection of available filters
 #: js/messages.php:173
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
-msgstr "テーブルの表示オプション"
+msgstr "ログの表のフィルタオプション"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:175
@@ -1566,10 +1567,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
-msgstr "再読み込み"
+msgstr "ページの再読み込み"
 
 #: js/messages.php:186
 msgid "Affected rows:"
@@ -1577,13 +1577,13 @@ msgstr ""
 
 #: js/messages.php:188
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
-msgstr ""
+msgstr "設定ファイルの構文解析に失敗しました。有効な JSON コードではないようです。"
 
 #: js/messages.php:189
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
-msgstr ""
+msgstr "インポートした設定でのグラフの配置に失敗しました。設定をデフォルトに戻します..."
 
 #: js/messages.php:190 libraries/config/messages.inc.php:170
 #: libraries/db_links.inc.php:82 libraries/server_links.inc.php:69
@@ -1890,7 +1890,7 @@ msgstr "クリックでカラムを反転/解除"
 
 #: js/messages.php:319
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
-msgstr ""
+msgstr "クリックでカラムの表示／非表示<br />ができるドロップダウンを表示"
 
 #: js/messages.php:321
 msgid ""
@@ -2499,7 +2499,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:35
 msgid "Failed to use Blowfish from mcrypt!"
-msgstr ""
+msgstr "mcrypt から Blowfish を使おうとして失敗しました。"
 
 #: libraries/auth/cookie.auth.lib.php:199
 msgid "Log in"
@@ -2672,11 +2672,11 @@ msgstr "特権をチェックする"
 
 #: libraries/common.inc.php:147
 msgid "possible exploit"
-msgstr ""
+msgstr "なんらかの攻撃をされている可能性があります。"
 
 #: libraries/common.inc.php:156
 msgid "numeric key detected"
-msgstr ""
+msgstr "グローバル変数から数値キーが検出されました。"
 
 #: libraries/common.inc.php:597
 msgid "Failed to read configuration file"
@@ -4419,7 +4419,7 @@ msgstr "ヘルプボタンの表示"
 
 #: libraries/config/messages.inc.php:357
 msgid "Save all edited cells at once"
-msgstr ""
+msgstr "修正したセルを一度に全て保存する"
 
 #: libraries/config/messages.inc.php:358
 msgid "Directory where exports can be saved on server"
@@ -5299,13 +5299,12 @@ msgstr "Open Document テキスト"
 
 #: libraries/config/validate.lib.php:198
 msgid "Could not initialize Drizzle connection library"
-msgstr ""
+msgstr "Drizzle 接続ライブラリが初期化できません"
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Could not connect to Drizzle server"
-msgstr "MySQL サーバに接続できませんでした。"
+msgstr "Drizzle サーバに接続できませんでした。"
 
 #: libraries/config/validate.lib.php:223 libraries/config/validate.lib.php:230
 msgid "Could not connect to MySQL server"
@@ -5349,7 +5348,7 @@ msgstr "%s 拡張がありません。PHP の設定をチェックしてみて�
 
 #: libraries/core.lib.php:409
 msgid "possible deep recursion attack"
-msgstr ""
+msgstr "深い再帰的な攻撃を受けている可能性があります。"
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
@@ -6487,16 +6486,13 @@ msgid "Add statements:"
 msgstr "追加コマンド："
 
 #: libraries/export/sql.php:211
-#, fuzzy
 #| msgid ""
 #| "Enclose table and field names with backquotes <i>(Protects field and "
 #| "table names formed with special characters or keywords)</i>"
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
-msgstr ""
-"逆クォートでテーブルやフィールドの名前を囲む <i>(特殊な文字やキーワードを含む"
-"フィールド名やテーブル名を保護します)</i>"
+msgstr "逆クォートでテーブルやカラムの名前を囲む <i>(特殊な文字やキーワードを含むカラム名やテーブル名を保護します)</i>"
 
 #: libraries/export/sql.php:231
 msgid "Instead of <code>INSERT</code> statements, use:"
@@ -6599,10 +6595,9 @@ msgid "Stand-in structure for view"
 msgstr "ビュー用の代替構造"
 
 #: libraries/export/sql.php:1111
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error reading data:"
-msgstr "データの読み込みを許可する"
+msgstr "データ読み込みエラー:"
 
 #: libraries/export/xml.php:19 libraries/import/xml.php:21
 msgid "XML"
@@ -6783,10 +6778,9 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
 #: libraries/import/shp.php:371
-#, fuzzy
 #| msgid "This page does not contain any tables!"
 msgid "The imported file does not contain any data"
-msgstr "このページにはテーブルがありません！"
+msgstr "インポートされたファイルには、データが含まれていません。"
 
 #: libraries/import/sql.php:33
 msgid "SQL compatibility mode:"
@@ -7827,7 +7821,7 @@ msgstr "文字セット"
 #: libraries/server_links.inc.php:104 server_plugins.php:47
 #: server_plugins.php:80
 msgid "Plugins"
-msgstr ""
+msgstr "プラグイン"
 
 #: libraries/server_links.inc.php:108
 msgid "Engines"
@@ -8819,7 +8813,7 @@ msgstr "データベースのダンプ(スキーマ)表示"
 
 #: server_plugins.php:81
 msgid "Modules"
-msgstr ""
+msgstr "モジュール"
 
 #: server_plugins.php:102
 msgid "Begin"
@@ -8827,15 +8821,15 @@ msgstr "先頭"
 
 #: server_plugins.php:111
 msgid "Plugin"
-msgstr ""
+msgstr "プラグイン"
 
 #: server_plugins.php:112 server_plugins.php:146
 msgid "Module"
-msgstr ""
+msgstr "モジュール"
 
 #: server_plugins.php:113 server_plugins.php:148
 msgid "Library"
-msgstr ""
+msgstr "ライブラリ"
 
 #: server_plugins.php:114 server_plugins.php:149 tbl_tracking.php:635
 msgid "Version"
@@ -10642,10 +10636,9 @@ msgid "Target database has been synchronized with source database"
 msgstr "対象先のデータベースが、元のデータベースと同期されています。"
 
 #: server_synchronize.php:1046
-#, fuzzy
 #| msgid "Issued queries"
 msgid "Executed queries"
-msgstr "発行されたクエリ数"
+msgstr "実行されたクエリ"
 
 #: server_synchronize.php:1192
 msgid "Enter manually"
@@ -11014,10 +11007,9 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "キーは文字、数字[em]そして[/em]特殊文字を含める必要があります。"
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No data"
 msgid "Wrong data"
-msgstr "データが存在しません"
+msgstr "データが正しくありません"
 
 #: sql.php:205
 #, php-format
@@ -12439,14 +12431,13 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:160
-#, fuzzy
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer size"
-msgstr "ソートバッファのサイズ"
+msgstr "MyISAM キーバッファのサイズ"
 
 #: po/advisory_rules.php:161
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
-msgstr ""
+msgstr "キーバッファが初期化されていません。おそらく、MyISAM インデックスはキャッシュされていません。"
 
 #: po/advisory_rules.php:162
 msgid ""
@@ -12465,10 +12456,10 @@ msgid "Max %% MyISAM key buffer ever used"
 msgstr "ソートバッファのサイズ"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr "ソートバッファのサイズ"
+msgstr "MyISAM キーバッファ（インデックスキャッシュ）の使用率が低いです。"
 
 #: po/advisory_rules.php:167 po/advisory_rules.php:172
 msgid ""
@@ -12483,10 +12474,9 @@ msgid "max %% MyISAM key buffer ever used: %s, this value should be above 95%%"
 msgstr ""
 
 #: po/advisory_rules.php:170
-#, fuzzy
 #| msgid "Sort buffer size"
 msgid "Percentage of MyISAM key buffer used"
-msgstr "ソートバッファのサイズ"
+msgstr "MyISAM キーバッファの使用率 (%%)"
 
 #: po/advisory_rules.php:173
 #, php-format

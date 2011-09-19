@@ -4,20 +4,20 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-18 06:14-0400\n"
-"PO-Revision-Date: 2010-07-21 14:50+0200\n"
-"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"PO-Revision-Date: 2011-09-15 11:33+0200\n"
+"Last-Translator:  <fran.dieguez@mabishu.com>\n"
 "Language-Team: galician <gl@li.org>\n"
+"Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: gl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:320
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1673
 msgid "Show all"
-msgstr "Ver todos os rexistros"
+msgstr "Ver tódolos rexistros"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:42
 #: libraries/common.lib.php:2355
@@ -34,17 +34,16 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"Non se puido modificar a xanela de destino do navegador. Talvez porque "
-"fechou a xanela da que depende ou porque o seu navegador está a bloquear as "
-"actualizacións entre xanelas xa que así o pediu na configuración de "
-"seguranza do navegador."
+"Non foi posíbel actualizar a xanela do navegador. Quizáis porque pechou a "
+"xanela pai ou porque as opcións de seguranza do seu navegador están "
+"bloqueando as actualizacións entre xanelas."
 
 #: browse_foreigners.php:151 libraries/common.lib.php:3036
 #: libraries/common.lib.php:3043 libraries/common.lib.php:3247
 #: libraries/common.lib.php:3248 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
-msgstr "Procurar"
+msgstr "Buscar"
 
 #: browse_foreigners.php:154 db_operations.php:372 db_operations.php:412
 #: db_operations.php:522 db_operations.php:549 db_search.php:336
@@ -81,12 +80,12 @@ msgstr "Procurar"
 #: tbl_structure.php:708 tbl_tracking.php:416 tbl_tracking.php:554
 #: tbl_zoom_select.php:305 view_create.php:181 view_operations.php:99
 msgid "Go"
-msgstr "Executar"
+msgstr "Ir"
 
 #: browse_foreigners.php:169 browse_foreigners.php:173
 #: libraries/Index.class.php:432 tbl_tracking.php:304
 msgid "Keyname"
-msgstr "Nome chave"
+msgstr "Nome da chave"
 
 #: browse_foreigners.php:170 browse_foreigners.php:172
 #: server_collations.php:54 server_collations.php:66 server_engines.php:56
@@ -102,17 +101,16 @@ msgstr "Usar este valor"
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:385
 msgid "No blob streaming server configured!"
-msgstr ""
+msgstr "Non se configurou ningún servidor de streaming blob!"
 
 #: bs_disp_as_mime_type.php:35
-#, fuzzy
 #| msgid "Failed to write file to disk."
 msgid "Failed to fetch headers"
-msgstr "Non se puido escribir no disco."
+msgstr "Produciuse un fallo ao obter as cabeceiras."
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr ""
+msgstr "Produciuse un fallo ao abrir o URL remoto"
 
 #: changelog.php:32 license.php:28
 #, php-format
@@ -120,11 +118,13 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"O ficheiro %s non está dispoñíbel neste sistema, visite www.phpmyadmin.net "
+"para obter máis información."
 
 #: db_create.php:60
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "Creouse  a base de datos %1$s."
+msgstr "Creouse a base de datos %1$s."
 
 #: db_datadict.php:49 db_operations.php:364
 msgid "Database comment: "
@@ -145,10 +145,8 @@ msgstr "Comentarios da táboa"
 #: tbl_change.php:318 tbl_chart.php:89 tbl_indexes.php:196
 #: tbl_printview.php:136 tbl_relation.php:399 tbl_tracking.php:257
 #: tbl_tracking.php:308 tbl_zoom_select.php:426
-#, fuzzy
-#| msgid "Column names"
 msgid "Column"
-msgstr "Nomes das columnas"
+msgstr "Columnas"
 
 #: db_datadict.php:163 db_printview.php:103 libraries/Index.class.php:433
 #: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:250
@@ -164,7 +162,7 @@ msgstr "Nomes das columnas"
 #: tbl_printview.php:137 tbl_printview.php:277 tbl_structure.php:202
 #: tbl_structure.php:765 tbl_tracking.php:258 tbl_tracking.php:305
 msgid "Type"
-msgstr "Tipo"
+msgstr "Columna"
 
 #: db_datadict.php:165 libraries/Index.class.php:439
 #: libraries/export/htmlword.php:251 libraries/export/latex.php:359
@@ -185,7 +183,7 @@ msgstr "Nulo"
 #: libraries/tbl_properties.inc.php:113 tbl_printview.php:140
 #: tbl_structure.php:206 tbl_tracking.php:261
 msgid "Default"
-msgstr "Padrón"
+msgstr "Predeterminado"
 
 #: db_datadict.php:170 libraries/export/htmlword.php:254
 #: libraries/export/latex.php:361 libraries/export/odt.php:299
@@ -193,7 +191,7 @@ msgstr "Padrón"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1311
 #: libraries/schema/Pdf_Relation_Schema.class.php:1332 tbl_printview.php:144
 msgid "Links to"
-msgstr "Vincúlase con"
+msgstr "Ligazóns a"
 
 #: db_datadict.php:172 db_printview.php:109
 #: libraries/config/messages.inc.php:94 libraries/config/messages.inc.php:109
@@ -250,12 +248,12 @@ msgstr "Imprimir"
 
 #: db_export.php:26
 msgid "View dump (schema) of database"
-msgstr "Ver o esquema do volcado da base de datos"
+msgstr "Ver o volcado (esquema) da base de datos"
 
 #: db_export.php:30 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
 #: export.php:354 navigation.php:296
 msgid "No tables found in database."
-msgstr "Non se achou ningunha táboa na base de datos"
+msgstr "Non foi posíbel atopar ningunha táboa na base de datos."
 
 #: db_export.php:40 db_search.php:318 server_export.php:26
 msgid "Select All"
@@ -263,46 +261,42 @@ msgstr "Seleccionar todo"
 
 #: db_export.php:42 db_search.php:321 server_export.php:28
 msgid "Unselect All"
-msgstr "Non seleccionar nada"
+msgstr "Deseleccionar todo"
 
 #: db_operations.php:41 tbl_create.php:22
 msgid "The database name is empty!"
-msgstr "Ese nome de base de datos non existe."
+msgstr "O nome da base de datos está baleiro!"
 
 #: db_operations.php:274
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr "Mudóuselle o nome á base de datos %s para %s"
+msgstr "A base de datos %s foi renomeada a %s"
 
 #: db_operations.php:278
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr "Copiuse a base de datos %s para %s"
+msgstr "A base de datos %s foi copiada para %s"
 
 #: db_operations.php:406
 msgid "Rename database to"
-msgstr "Mudar o nome da base de datos para"
+msgstr "Renomear a base de datos a"
 
 #: db_operations.php:432
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Mudar o nome da base de datos para"
+msgstr "Eliminar base de datos"
 
 #: db_operations.php:444
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "Eliminouse a base de datos %s."
+msgstr "A base de datos %s foi eliminada."
 
 #: db_operations.php:449
-#, fuzzy
-#| msgid "Go to database"
 msgid "Drop the database (DROP)"
-msgstr "Ir á base de datos"
+msgstr "Eliminar base de datos (DROP)"
 
 #: db_operations.php:478
 msgid "Copy database to"
-msgstr "Copiar a base de datos para"
+msgstr "Copiar a base de datos a"
 
 #: db_operations.php:485 tbl_operations.php:552 tbl_tracking.php:409
 msgid "Structure only"
@@ -318,7 +312,7 @@ msgstr "Só os datos"
 
 #: db_operations.php:495
 msgid "CREATE DATABASE before copying"
-msgstr "CREAR UNHA BASE DE DATOS antes de copiar"
+msgstr "CREATE DATABSE antes de copiar"
 
 #: db_operations.php:498 libraries/config/messages.inc.php:126
 #: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:129
@@ -351,22 +345,17 @@ msgid "Collation"
 msgstr "Orde alfabética"
 
 #: db_operations.php:555
-#, fuzzy, php-format
-#| msgid ""
-#| "The additional features for working with linked tables have been "
-#| "deactivated. To find out why click %shere%s."
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Desactivouse a funcionalidade adicional para o traballo con táboas "
-"vinculadas. Para saber o por que, prema %saqu&iacute;%s."
+"Desactivouse a configuración de almacenamento. Para saber por que prema %"
+"saqu&iacute;%s."
 
 #: db_operations.php:589
-#, fuzzy
-#| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "Esquema relacional"
+msgstr "Editar ou exportar esquema relacional"
 
 #: db_printview.php:101 db_tracking.php:85 db_tracking.php:186
 #: libraries/config/messages.inc.php:504 libraries/db_structure.lib.php:32
@@ -385,7 +374,7 @@ msgstr "Táboa"
 #: tbl_printview.php:358 tbl_structure.php:363 tbl_structure.php:469
 #: tbl_structure.php:880
 msgid "Rows"
-msgstr "Fileiras"
+msgstr "Filas"
 
 #: db_printview.php:106 libraries/db_structure.lib.php:53 tbl_indexes.php:197
 msgid "Size"
@@ -407,32 +396,31 @@ msgstr "Creación"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:408
 #: tbl_structure.php:920
 msgid "Last update"
-msgstr "Actualización máis recente"
+msgstr "Última actualización"
 
 #: db_printview.php:202 libraries/db_info.inc.php:80
 #: libraries/export/sql.php:752
 #: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:418
 #: tbl_structure.php:928
 msgid "Last check"
-msgstr "Comprobación máis recente"
+msgstr "Última revisión"
 
 #: db_printview.php:219 db_structure.php:485
-#, fuzzy, php-format
-#| msgid "%s table(s)"
+#, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s táboa(s)"
-msgstr[1] "%s táboa(s)"
+msgstr[0] "%s táboa"
+msgstr[1] "%s táboas"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
 msgstr "Ten que escoller polo menos unha columna para mostrar"
 
 #: db_qbe.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "Switch to copied table"
 msgid "Switch to %svisual builder%s"
-msgstr "Ir à táboa copiada"
+msgstr "Cambiar ao %sconstrutor visual%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:957
@@ -542,12 +530,12 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Procurar os resultados para \"<i>%s</i>\" %s:"
 
 #: db_search.php:226
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s ocorrencias(s) dentro da táboa <i>%s</i>"
-msgstr[1] "%s ocorrencias(s) dentro da táboa <i>%s</i>"
+msgstr[0] "%s ocorrencia dentro da táboa <i>%s</i>"
+msgstr[1] "%s ocorrencias dentro da táboa <i>%s</i>"
 
 #: db_search.php:233 libraries/common.lib.php:3038
 #: libraries/common.lib.php:3245 libraries/common.lib.php:3246
@@ -556,10 +544,10 @@ msgid "Browse"
 msgstr "Visualizar"
 
 #: db_search.php:238
-#, fuzzy, php-format
+#, php-format
 #| msgid "Dumping data for table"
 msgid "Delete the matches for the %s table?"
-msgstr "A extraer datos da táboa"
+msgstr "Eliminar as coincidencias para a táboa %s?"
 
 #: db_search.php:238 libraries/display_tbl.lib.php:1364
 #: libraries/display_tbl.lib.php:2354
@@ -574,12 +562,12 @@ msgid "Delete"
 msgstr "Eliminar"
 
 #: db_search.php:251
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Total:</b> <i>%s</i> ocorrencia(s)"
-msgstr[1] "<b>Total:</b> <i>%s</i> ocorrencia(s)"
+msgstr[0] "<b>Total:</b> <i>%s</i> ocorrencia"
+msgstr[1] "<b>Total:</b> <i>%s</i> ocorrencias"
 
 #: db_search.php:273
 msgid "Search in database"
@@ -606,16 +594,13 @@ msgid "Inside tables:"
 msgstr "Dentro da(s) táboa(s):"
 
 #: db_search.php:329
-#, fuzzy
 #| msgid "Inside field:"
 msgid "Inside column:"
-msgstr "No campo:"
+msgstr "Dentro da columna:"
 
 #: db_structure.php:67
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "No tables found in database"
-msgstr "Non se achou ningunha táboa na base de datos"
+msgstr "No se atoparon táboas na base de datos:"
 
 #: db_structure.php:292 tbl_operations.php:692
 #, php-format
@@ -1101,7 +1086,7 @@ msgstr ""
 
 #: js/messages.php:29 libraries/import.lib.php:103 sql.php:237
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "Non se permiten as ordes \"Eliminar a base de datos\"."
+msgstr "Non se permiten as ordes \"DROP DATABASE\"."
 
 #: js/messages.php:32 libraries/mult_submits.inc.php:282 sql.php:335
 msgid "Do you really want to "
@@ -1109,37 +1094,35 @@ msgstr "Seguro? "
 
 #: js/messages.php:33 libraries/mult_submits.inc.php:282 sql.php:320
 msgid "You are about to DESTROY a complete database!"
-msgstr "Está a piques de DESTRUÍR unha base de datos enteira!"
+msgstr "Está a piques de eliminar (DESTROY) unha base de datos enteira!"
 
 #: js/messages.php:34
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to DESTROY a complete table!"
-msgstr "Está a piques de DESTRUÍR unha base de datos enteira!"
+msgstr "Está a piques de eliminar (DESTROY) unha táboa enteira!"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "Está a piques de DESTRUÍR unha base de datos enteira!"
+msgstr "Está a piques de baleirar (TRUNCATE) unha base de datos enteira!"
 
 #: js/messages.php:37
-#, fuzzy
 #| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
-msgstr "Permite inserir e substituír datos."
+msgstr "Eliminar os datos de seguemento"
 
 #: js/messages.php:38
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "Eliminar chaves primarias/Índice"
 
 #: js/messages.php:39
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "Esta operación pode que leve moito tempo. Procésase igual?"
+msgstr ""
+"Esta operación pode que leve moito tempo. Desexa proceder de todas formas?"
 
 #: js/messages.php:42
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr "Está a piques de DESACTIVAR un repositorio de BLOB!"
+msgstr "Está a piques de desactivar (DISABLE) un repositorio de BLOB!"
 
 #: js/messages.php:43
 #, php-format
@@ -1513,30 +1496,30 @@ msgstr ""
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:146
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save as file"
 msgid "Set log_output to %s"
-msgstr "Enviar <i>(gravar nun ficheiro)</i><br />"
+msgstr "Configurar «log_output» a %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:148
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
-msgstr "Activado"
+msgstr "Activar %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:150
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disable"
 msgid "Disable %s"
-msgstr "Desactivar"
+msgstr "Desactivar %s"
 
 #. l10n: %d seconds
 #: js/messages.php:152
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "Definir «long_query_time» a %ds"
 
 #: js/messages.php:153
 msgid ""
