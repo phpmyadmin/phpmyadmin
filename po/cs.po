@@ -6470,7 +6470,6 @@ msgid "Add statements:"
 msgstr "Přidat příkazy:"
 
 #: libraries/export/sql.php:211
-#, fuzzy
 #| msgid ""
 #| "Enclose table and field names with backquotes <i>(Protects field and "
 #| "table names formed with special characters or keywords)</i>"
