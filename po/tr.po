@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-19 20:38+0200\n"
+"PO-Revision-Date: 2011-09-19 20:43+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1663,7 +1663,7 @@ msgstr "TAMAM"
 
 #: js/messages.php:217
 msgid "Click to dismiss this notification"
-msgstr ""
+msgstr "Bu bildiriyi reddetmek için tıklayın"
 
 #: js/messages.php:220
 msgid "Renaming Databases"
