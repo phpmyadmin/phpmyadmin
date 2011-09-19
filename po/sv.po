@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-19 19:54+0200\n"
+"PO-Revision-Date: 2011-09-19 19:59+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -12313,6 +12313,9 @@ msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "fields being used in the join conditions will greatly speed up table joins"
 msgstr ""
+"Detta innebär att joins gör fullständiga tabell sökningar. Att lägga till "
+"index för de fält som använder join villkoren, kommer avsevärt snabba upp "
+"tabellkopplingen"
 
 #: po/advisory_rules.php:128
 #, php-format
