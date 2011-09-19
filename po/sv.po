@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-19 22:08+0200\n"
+"PO-Revision-Date: 2011-09-19 22:10+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -12780,6 +12780,9 @@ msgid ""
 "do not close database handlers properly get killed sooner. Make sure the "
 "code closes database handlers properly."
 msgstr ""
+"Öka max_connections eller minska wait_timeout så att anslutningar som inte "
+"stänger databashanterare blir dödade tidigare. Se till att koden stänger "
+"databashanteraren ordentligt."
 
 #: po/advisory_rules.php:228
 #, php-format
