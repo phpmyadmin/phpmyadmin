@@ -12500,6 +12500,8 @@ msgid ""
 "Rate of temporay tables being written to disk: %s, this value should be less "
 "than 1 per hour"
 msgstr ""
+"Andel temporay tabeller skrivs disk:%s, detta värde bör vara mindre än 1 per "
+"timme"
 
 #: po/advisory_rules.php:160
 #, fuzzy
