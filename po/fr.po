@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-13 18:57+0200\n"
+"PO-Revision-Date: 2011-09-19 15:09+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -1673,7 +1673,7 @@ msgstr "OK"
 
 #: js/messages.php:217
 msgid "Click to dismiss this notification"
-msgstr ""
+msgstr "Cliquer pour éliminer ce message"
 
 #: js/messages.php:220
 msgid "Renaming Databases"
@@ -4905,7 +4905,6 @@ msgid "Automatically create versions"
 msgstr "Création automatique de versions"
 
 #: libraries/config/messages.inc.php:443
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
@@ -4914,7 +4913,7 @@ msgid ""
 "pma_userconfig[/kbd]"
 msgstr ""
 "Laisser vider pour désactiver les préférences utilisateur, valeur suggérée : "
-"[kbd]pma_config[/kbd]"
+"[kbd]pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:444
 msgid "User preferences storage table"
@@ -6555,7 +6554,6 @@ msgid "Add statements:"
 msgstr "Ajouter les énoncés :"
 
 #: libraries/export/sql.php:211
-#, fuzzy
 #| msgid ""
 #| "Enclose table and field names with backquotes <i>(Protects field and "
 #| "table names formed with special characters or keywords)</i>"
@@ -6563,8 +6561,8 @@ msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
-"Entourer les noms des tables et des colonnes par des guillemets obliques <i>"
-"(Protège les noms de tables et de colonnes comportant des caractères "
+"Entourer les noms des tables et des colonnes par des guillemets obliques "
+"<i>(Protège les noms de tables et de colonnes comportant des caractères "
 "spéciaux ou des mots réservés)</i>"
 
 #: libraries/export/sql.php:231
@@ -11661,10 +11659,9 @@ msgid "Show more actions"
 msgstr "Montrer d'autres actions"
 
 #: tbl_structure.php:606
-#, fuzzy
 #| msgid "Print view"
 msgid "Edit view"
-msgstr "Version imprimable"
+msgstr "Modifier la vue"
 
 #: tbl_structure.php:623
 msgid "Relation view"
@@ -11848,36 +11845,30 @@ msgid "Create version"
 msgstr "Créer une version"
 
 #: tbl_zoom_select.php:135
-#, fuzzy
-#| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "Recherche «par valeur» (passepartout: «% ») "
+msgstr ""
+"Faites une recherche «par valeur» (passepartout: «% ») sur deux colonnes "
+"différentes"
 
 #: tbl_zoom_select.php:145
-#, fuzzy
-#| msgid "Hide search criteria"
 msgid "Additional search criteria"
-msgstr "Cacher les critères de recherche"
+msgstr "Critères de recherche supplémentaires"
 
 #: tbl_zoom_select.php:276
 msgid "Use this column to label each point"
 msgstr ""
 
 #: tbl_zoom_select.php:296
-#, fuzzy
-#| msgid "Maximum number of rows to display"
 msgid "Maximum rows to plot"
-msgstr "Nombre maximum de lignes à afficher"
+msgstr "Nombre maximum de lignes de données à utiliser pour le graphique"
 
 #: tbl_zoom_select.php:410
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "Afficher/Modifier les points"
 
 #: tbl_zoom_select.php:417
-#, fuzzy
-#| msgid "Control user"
 msgid "How to use"
-msgstr "Utilisateur de contrôle"
+msgstr "Consignes d'utilisation"
 
 #: themes.php:28
 msgid "Get more themes!"
@@ -11921,79 +11912,89 @@ msgstr "Changer le nom de la vue pour"
 
 #: po/advisory_rules.php:5
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Le temps de disponibilité est inférieur à un jour"
 
 #: po/advisory_rules.php:6
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr ""
+msgstr "Les informations de réglage peuvent être inexactes."
 
 #: po/advisory_rules.php:7
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"Pour obtenir de meilleurs résultats, il est recommandé de laisser le serveur "
+"en marche plus d'un jour avant d'utiliser l'analyseur."
 
 #: po/advisory_rules.php:8
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "Le temps de disponibilité n'est que %s."
 
 #: po/advisory_rules.php:10
-#, fuzzy
 #| msgid "Questions"
 msgid "Questions below 1,000"
-msgstr "Questions"
+msgstr "Moins de 1000 questions"
 
 #: po/advisory_rules.php:11
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
+"Moins de 1000 questions ont été traitées par ce serveur. Les recommandations "
+"peuvent être inexactes."
 
 #: po/advisory_rules.php:12
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
+"Laissez le serveur fonctionner plus longtemps jusqu'à ce qu'il ait traité un "
+"plus grand nombre de requêtes."
 
 #: po/advisory_rules.php:13
-#, fuzzy, php-format
+#, php-format
 #| msgid "Current connection"
 msgid "Current amount of Questions: %s"
-msgstr "Connexion actuelle"
+msgstr "Nombre actuel de questions: %s"
 
 #: po/advisory_rules.php:15
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
-msgstr "Afficher les requêtes SQL"
+msgstr "Pourcentage de requêtes lentes"
 
 #: po/advisory_rules.php:16
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr ""
+"Il y a un grand nombre de requêtes lentes par rapport au nombre total de "
+"requêtes."
 
 #: po/advisory_rules.php:17 po/advisory_rules.php:22
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
+"Veuillez augmenter la valeur du paramètre {long_query_time} ou optimiser les "
+"requêtes qui apparaissent dans le journal de requêtes lentes."
 
 #: po/advisory_rules.php:18
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
+"Le taux de requêtes lentes devrait être sous 5%%, dans votre cas c'est %s%%."
 
 #: po/advisory_rules.php:20
-#, fuzzy
 #| msgid "Flush query cache"
 msgid "Slow query rate"
-msgstr "Vider la cache des requêtes"
+msgstr "Taux de requêtes lentes"
 
 #: po/advisory_rules.php:21
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"Le pourcentage de requêtes lentes par rapport au temps de disponibilité du "
+"serveur est élevé."
 
 #: po/advisory_rules.php:23
 #, php-format
@@ -12001,6 +12002,8 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
+"Le taux de requêtes lentes est de %s par heure, vous devriez en avoir moins "
+"de 1%% par heure."
 
 #: po/advisory_rules.php:25
 #, fuzzy
@@ -12013,6 +12016,8 @@ msgid ""
 "long_query_time is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"Le paramètre long_query_time est de 10 secondes ou plus, donc seules les "
+"requêtes lentes prenant plus de 10 secondes sont mises au journal."
 
 #: po/advisory_rules.php:27
 msgid ""
