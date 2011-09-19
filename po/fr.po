@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-19 23:01+0200\n"
+"PO-Revision-Date: 2011-09-19 23:04+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -12169,6 +12169,9 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
+"Votre serveur a plus de 3 GiB de mémoire (assumant que le serveur tourne sur "
+"localhost), donc MySQL ne peut utliser toute la mémoire. Il est suggéré "
+"d'installer une version 64-bits de MySQL."
 
 #: po/advisory_rules.php:68
 #, php-format
