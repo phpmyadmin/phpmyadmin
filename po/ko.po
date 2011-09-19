@@ -2947,7 +2947,7 @@ msgstr "%y-%m-%d %H:%M "
 #: libraries/common.lib.php:1925
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
-msgstr "%s일 %s시간 %분 %초"
+msgstr "%s일 %s시간 %s분 %s초"
 
 #: libraries/common.lib.php:2016
 msgid "Missing parameter:"

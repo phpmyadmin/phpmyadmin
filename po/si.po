@@ -416,7 +416,7 @@ msgstr "පෙන්වීම සඳහා අවම වශයෙන් එක�
 #, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "%දෘශ්‍ය ගොඩනංවනය% වෙත යන්න"
+msgstr "%sදෘශ්‍ය ගොඩනංවනය%s වෙත යන්න"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:957
