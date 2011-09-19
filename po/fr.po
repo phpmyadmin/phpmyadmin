@@ -4905,7 +4905,6 @@ msgid "Automatically create versions"
 msgstr "Création automatique de versions"
 
 #: libraries/config/messages.inc.php:443
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
@@ -4914,7 +4913,7 @@ msgid ""
 "pma_userconfig[/kbd]"
 msgstr ""
 "Laisser vider pour désactiver les préférences utilisateur, valeur suggérée : "
-"[kbd]pma_config[/kbd]"
+"[kbd]pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:444
 msgid "User preferences storage table"
