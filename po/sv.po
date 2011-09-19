@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-19 22:05+0200\n"
+"PO-Revision-Date: 2011-09-19 22:06+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -12762,10 +12762,9 @@ msgid "slow_launch_time is set to %s"
 msgstr "slow_launch_time är satt till %s"
 
 #: po/advisory_rules.php:225
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of used connections"
-msgstr "Bestående anslutningar"
+msgstr "Andel använda anslutningar"
 
 #: po/advisory_rules.php:226
 msgid ""
