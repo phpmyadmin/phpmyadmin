@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-19 19:53+0200\n"
+"PO-Revision-Date: 2011-09-19 19:54+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -11717,7 +11717,7 @@ msgstr "Ytterligare sökkriterier"
 
 #: tbl_zoom_select.php:276
 msgid "Use this column to label each point"
-msgstr ""
+msgstr "Använd denna kolumn för att markera varje punkt"
 
 #: tbl_zoom_select.php:296
 msgid "Maximum rows to plot"
