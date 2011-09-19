@@ -1,7 +1,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.5-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 08:31+0200\n"
 "PO-Revision-Date: 2010-06-16 18:18+0200\n"
@@ -1903,7 +1903,7 @@ msgstr ""
 #: libraries/common.inc.php:585
 #, php-format
 msgid "Could not load default configuration from: %1$s"
-msgstr ""
+msgstr "기본 설정을 가져올 수 없습니다: %1$s"
 
 #: libraries/common.inc.php:590
 msgid ""
@@ -1914,12 +1914,12 @@ msgstr "환경설정 파일에서 <tt>$cfg['PmaAbsoluteUri']</tt> 주소를 기�
 #: libraries/common.inc.php:620
 #, php-format
 msgid "Invalid server index: %s"
-msgstr ""
+msgstr "잘못된 서버 인덱스: %s"
 
 #: libraries/common.inc.php:627
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgstr ""
+msgstr "서버 %1$s의 호스트 이름이 잘못되었습니다. 설정을 확인하십시오"
 
 #: libraries/common.inc.php:636 libraries/config/messages.inc.php:486
 #: libraries/header.inc.php:115 main.php:161 server_synchronize.php:1174
@@ -1929,12 +1929,12 @@ msgstr "서버"
 
 #: libraries/common.inc.php:819
 msgid "Invalid authentication method set in configuration:"
-msgstr ""
+msgstr "설정 파일에 인증 방식이 제대로 설정이 되어 있지 않습니다."
 
 #: libraries/common.inc.php:922
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr ""
+msgstr "%s를 %s 이상으로 업그레이드 하십시오"
 
 #: libraries/common.lib.php:142
 #, php-format
@@ -1981,7 +1981,7 @@ msgstr "MySQL 메시지: "
 
 #: libraries/common.lib.php:1098
 msgid "Failed to connect to SQL validator!"
-msgstr ""
+msgstr "SQL 검증을 하기 위한 연결이 실패했습니다."
 
 #: libraries/common.lib.php:1139 libraries/config/messages.inc.php:463
 msgid "Explain SQL"
@@ -2002,7 +2002,7 @@ msgstr "PHP 코드 보기"
 #: libraries/common.lib.php:1198 libraries/config/messages.inc.php:464
 #: server_status.php:467
 msgid "Refresh"
-msgstr ""
+msgstr "다시 보기"
 
 #: libraries/common.lib.php:1207
 msgid "Skip Validate SQL"
@@ -2014,7 +2014,7 @@ msgstr "SQL 검사"
 
 #: libraries/common.lib.php:1265
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "이 쿼리 인라인 수정"
 
 #: libraries/common.lib.php:1267
 msgid "Inline"
@@ -2022,7 +2022,7 @@ msgstr ""
 
 #: libraries/common.lib.php:1334 libraries/common.lib.php:1350
 msgid "Profiling"
-msgstr ""
+msgstr "프로파일링"
 
 #: libraries/common.lib.php:1355 libraries/tbl_triggers.lib.php:27
 #: server_processlist.php:70
@@ -2103,7 +2103,7 @@ msgstr "데이터베이스 &quot;%s&quot; 로 이동."
 #: libraries/common.lib.php:2466
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
-msgstr ""
+msgstr "%s 기능은 알려진 버그가 있습니다. %s 문서를 참조하십시오"
 
 #: libraries/common.lib.php:2826 libraries/common.lib.php:2833
 #: libraries/common.lib.php:3018 libraries/config/setup.forms.php:291
@@ -2140,7 +2140,7 @@ msgstr "테이블 작업"
 
 #: libraries/common.lib.php:2966
 msgid "Browse your computer:"
-msgstr ""
+msgstr "업로드 파일:"
 
 #: libraries/common.lib.php:2979
 #, fuzzy, php-format
