@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-18 06:14-0400\n"
-"PO-Revision-Date: 2011-09-19 12:09+0200\n"
+"PO-Revision-Date: 2011-09-19 12:10+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2414,7 +2414,7 @@ msgstr "テーブル名を %1$s から %2$s に変更するときにエラーが
 #: libraries/Table.class.php:1232
 #, php-format
 msgid "Table %s has been renamed to %s"
-msgstr "テーブル %s を %s にリネームしました"
+msgstr "テーブル名 %s を %s に変更しました"
 
 #: libraries/Table.class.php:1364
 msgid "Could not save table UI preferences"
