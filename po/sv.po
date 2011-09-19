@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-19 21:05+0200\n"
+"PO-Revision-Date: 2011-09-19 21:07+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -12491,7 +12491,8 @@ msgstr ""
 "variabler. För att eliminera dessa måste du skriva om dina frågor för att "
 "undvika dessa villkor (Inom en temprorär tabell: Förekomst av en BLOB eller "
 "TEXT kolumn eller förekomsten av en kolumn större än 512 byte) som nämns i "
-"MySQL dokumentationen"
+"MySQL dokumentationen; <a href=\\\"http://dev.mysql.com/doc/refman/5.5/en"
+"/internal-temporary-tables.html\\\">MySQL Documentation</a>"
 
 #: po/advisory_rules.php:158
 #, php-format
