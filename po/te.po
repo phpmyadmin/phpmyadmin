@@ -12498,7 +12498,6 @@ msgstr ""
 
 # మొదటి అనువాదము
 #, fuzzy
-#~| msgid "Database"
 #~ msgid "Data Label"
 #~ msgstr "డేటాబేస్"
 

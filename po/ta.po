@@ -12186,7 +12186,6 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Data only"
 #~ msgid "Data Label"
 #~ msgstr "தரவுகளை மட்டும்"
 

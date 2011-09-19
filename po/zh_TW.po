@@ -12811,7 +12811,6 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Label"
 #~ msgid "Data Label"
 #~ msgstr "標籤"
 

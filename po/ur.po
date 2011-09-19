@@ -12667,7 +12667,6 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Database"
 #~ msgid "Data Label"
 #~ msgstr "کوائفیہ"
 
