@@ -1645,6 +1645,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
 
                     // displays special characters from binaries
                     $field_flags = PMA_DBI_field_flags($dt_result, $i);
+                    $is_html = false;
                     if (isset($meta->_type) && $meta->_type === MYSQLI_TYPE_BIT) {
                         $row[$i]     = PMA_printable_bit_value($row[$i], $meta->length);
                         // some results of PROCEDURE ANALYSE() are reported as
@@ -1663,18 +1664,22 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                             // we show the BINARY message and field's size
                             // (or maybe use a transformation)
                             $row[$i] = PMA_handle_non_printable_contents('BINARY', $row[$i], $transform_function, $transform_options, $default_function, $meta, $_url_params);
+                            $is_html = true;
                         }
                     }
 
-                    // transform functions may enable no-wrapping:
-                    $function_nowrap = $transform_function . '_nowrap';
-                    $bool_nowrap = (($default_function != $transform_function && function_exists($function_nowrap)) ? $function_nowrap($transform_options) : false);
+                    if ($is_html) {
+                        $vertical_display['data'][$row_no][$i]     = PMA_buildValueDisplay($class, $condition_field, $row[$i]);
+                    } else {
+                        // transform functions may enable no-wrapping:
+                        $function_nowrap = $transform_function . '_nowrap';
+                        $bool_nowrap = (($default_function != $transform_function && function_exists($function_nowrap)) ? $function_nowrap($transform_options) : false);
 
-                    // do not wrap if date field type
-                    $nowrap = ((preg_match('@DATE|TIME@i', $meta->type) || $bool_nowrap) ? ' nowrap' : '');
-                    $where_comparison = ' = \'' . PMA_sqlAddSlashes($row[$i]) . '\'';
-                    $vertical_display['data'][$row_no][$i]     = '<td ' . PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $map, $row[$i], $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated);
-
+                        // do not wrap if date field type
+                        $nowrap = ((preg_match('@DATE|TIME@i', $meta->type) || $bool_nowrap) ? ' nowrap' : '');
+                        $where_comparison = ' = \'' . PMA_sqlAddSlashes($row[$i]) . '\'';
+                        $vertical_display['data'][$row_no][$i]     = '<td ' . PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $map, $row[$i], $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated);
+                    }
                 } else {
                     $vertical_display['data'][$row_no][$i]     = PMA_buildEmptyDisplay($class, $condition_field, $meta);
                 }
