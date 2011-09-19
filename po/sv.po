@@ -12756,10 +12756,10 @@ msgstr ""
 "tar lång tid att starta"
 
 #: po/advisory_rules.php:223
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "slow_launch_time is set to %s"
-msgstr "long_query_time är definerad till %d sekund(er)."
+msgstr "slow_launch_time är satt till %s"
 
 #: po/advisory_rules.php:225
 #, fuzzy
