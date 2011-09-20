@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-20 06:40+0200\n"
+"PO-Revision-Date: 2011-09-20 06:51+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -8063,10 +8063,9 @@ msgid "Operator"
 msgstr "මෙහෙයවනය"
 
 #: libraries/tbl_select.lib.php:103
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "සෙවීම"
+msgstr "වගුව තුල සෙවීම"
 
 #: libraries/tbl_select.lib.php:182 tbl_change.php:993
 #, fuzzy
