@@ -1365,7 +1365,7 @@ msgstr "අධීක්ෂණය නැවත අරඹන්න"
 
 #: js/messages.php:134
 msgid "Pause monitor"
-msgstr ""
+msgstr "අධීක්ෂණය තාවකාලිකව නවතන්න"
 
 #: js/messages.php:136
 msgid "general_log and slow_query_log are enabled."
