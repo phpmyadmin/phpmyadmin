@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-20 06:00+0200\n"
+"PO-Revision-Date: 2011-09-20 06:04+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -5351,10 +5351,9 @@ msgstr "MySQL&nbsp;4.0 compatible"
 
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
-#, fuzzy
 #| msgid "Create new database"
 msgid "Create database"
-msgstr "නව දත්තගබඩාවක් සාදන්න"
+msgstr "දත්තගබඩාවක් සාදන්න"
 
 #: libraries/display_create_database.lib.php:33
 msgid "Create"
