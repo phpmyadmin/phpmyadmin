@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-20 05:57+0200\n"
+"PO-Revision-Date: 2011-09-20 05:59+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -8331,10 +8331,9 @@ msgid "Web server"
 msgstr ""
 
 #: main.php:190
-#, fuzzy
 #| msgid "Use light version"
 msgid "Database client version"
-msgstr "සැහැල්ලු අනුවාදය භාවිත කරන්න."
+msgstr "දත්තගබඩා සේවාලාභියාගේ අනුවාදය"
 
 #: main.php:192
 msgid "PHP extension"
