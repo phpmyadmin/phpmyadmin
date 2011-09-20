@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-20 05:59+0200\n"
+"PO-Revision-Date: 2011-09-20 06:00+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2483,7 +2483,7 @@ msgstr "Theme path not found for theme %s!"
 
 #: libraries/Theme_Manager.class.php:296 themes.php:20 themes.php:27
 msgid "Theme"
-msgstr ""
+msgstr "තේමාව"
 
 #: libraries/auth/config.auth.lib.php:71
 msgid "Cannot connect: invalid settings."
