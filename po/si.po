@@ -1708,10 +1708,9 @@ msgid "Hide indexes"
 msgstr "සුචි සඟවන්න"
 
 #: js/messages.php:232
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "කොටු සැලැස්ම පෙන්වන්න"
+msgstr "සුචි පෙන්වන්න"
 
 #: js/messages.php:235
 msgid "Searching"
