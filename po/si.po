@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-20 05:56+0200\n"
+"PO-Revision-Date: 2011-09-20 05:57+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -8322,10 +8322,9 @@ msgid "User"
 msgstr "භාවිතා කරන්නා"
 
 #: main.php:167
-#, fuzzy
 #| msgid "Server socket"
 msgid "Server charset"
-msgstr "සර්වරයේ සොකට්"
+msgstr "සේවාදායකයේ අක්ෂර කට්ටලය"
 
 #: main.php:179
 msgid "Web server"
