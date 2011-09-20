@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-20 11:54+0200\n"
+"PO-Revision-Date: 2011-09-20 11:57+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12251,10 +12251,9 @@ msgid "Rate of joins without indexes"
 msgstr "表示できるルーチンがありません"
 
 #: po/advisory_rules.php:126
-#, fuzzy
 #| msgid "There are no routines to display."
 msgid "There are too many joins without indexes."
-msgstr "表示できるルーチンがありません"
+msgstr "インデックスを使用しない結合が多くあります。"
 
 #: po/advisory_rules.php:127
 msgid ""
