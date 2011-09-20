@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-20 06:16+0200\n"
+"PO-Revision-Date: 2011-09-20 06:18+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2995,7 +2995,7 @@ msgstr "උඩුගත කිරීම සඳහා ගොනු නොමැ�
 
 #: libraries/common.lib.php:3260 libraries/common.lib.php:3261
 msgid "Execute"
-msgstr ""
+msgstr "ක්‍රියාත්මක කරන්න"
 
 #: libraries/config.values.php:45 libraries/config.values.php:47
 #: libraries/config.values.php:51
