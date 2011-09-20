@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-20 07:06+0200\n"
+"PO-Revision-Date: 2011-09-20 07:07+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -11409,7 +11409,7 @@ msgstr "පේළියේ ප්‍රමාණය "
 
 #: tbl_printview.php:388 tbl_structure.php:904
 msgid "Next autoindex"
-msgstr ""
+msgstr "මීළඟ ක්‍රමාංකය"
 
 #: tbl_relation.php:276
 #, php-format
