@@ -2236,7 +2236,8 @@ iframe.IE_hack {
 }
 
 .config-form ul.tabs li {
-    float: <?php echo $left; ?>;
+    float:         <?php echo $left; ?>;
+    margin-bottom: -1px;
 }
 
 .config-form ul.tabs li a {
@@ -2245,36 +2246,40 @@ iframe.IE_hack {
     white-space:      nowrap;
     text-decoration:  none;
     border:           1px solid <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
-    border-bottom:    none;
+    border-bottom:    1px solid #aaa;
 }
 
 .config-form ul.tabs li a {
-    padding:7px 10px;
-    -moz-border-radius:5px 5px 0 0;
-    -webkit-border-radius:5px 5px 0 0;
-    border-radius:5px 5px 0 0;
-    background:#f2f2f2;
-    color:#555;
-    text-shadow: 0 1px 0 #fff;
+    padding:               7px 10px;
+    -webkit-border-radius: 5px 5px 0 0;
+    -moz-border-radius:    5px 5px 0 0;
+    border-radius:         5px 5px 0 0;
+    background:            #f2f2f2;
+    color:                 #555;
+    text-shadow:           0 1px 0 #fff;
 }
 
 .config-form ul.tabs li a:hover,
 .config-form ul.tabs li a:active {
-    background:#e5e5e5;
+    background: #e5e5e5;
 }
 
-.config-form ul.tabs li a.active {
+.config-form ul.tabs li.active a {
     background-color: #fff;
-    margin-top:1px;
-    color:#000;
-    text-shadow: none;
+    margin-top:       1px;
+    color:            #000;
+    text-shadow:      none;
+    border-color:     #aaa;
+    border-bottom:    1px solid #fff;
 }
 
 .config-form fieldset {
-    margin-top:   0;
-    padding:      0;
-    clear:        both;
-    /*border-color: <?php echo $GLOBALS['cfg']['BgTwo']; ?>;*/
+    margin-top:            0;
+    padding:               0;
+    clear:                 both;
+    -webkit-border-radius: 0;
+    -moz-border-radius:    0;
+    border-radius:         0;
 }
 
 .config-form legend {

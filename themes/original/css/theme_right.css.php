@@ -1872,7 +1872,7 @@ iframe.IE_hack {
     padding:          0.1em 0.6em 0.2em;
 }
 
-.config-form ul.tabs li a.active {
+.config-form ul.tabs li.active a {
     background-color: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
 }
 

@@ -166,7 +166,7 @@ ul.tabs li a {
     border-bottom: none;
 }
 
-ul.tabs li a:hover, ul.tabs li a:active, ul.tabs li a.active {
+ul.tabs li a:hover, ul.tabs li a:active, ul.tabs li.active a {
     margin: 0;
     padding: 2px 10px 4px;
     background: #F7FBFF;
