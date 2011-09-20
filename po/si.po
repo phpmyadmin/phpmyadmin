@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-20 07:05+0200\n"
+"PO-Revision-Date: 2011-09-20 07:06+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1703,10 +1703,9 @@ msgid "Insert Table"
 msgstr "වගු භාවිතා කරන්න"
 
 #: js/messages.php:231
-#, fuzzy
 #| msgid "Add index"
 msgid "Hide indexes"
-msgstr "සුචිය එක් කරන්න"
+msgstr "සුචි සඟවන්න"
 
 #: js/messages.php:232
 #, fuzzy
