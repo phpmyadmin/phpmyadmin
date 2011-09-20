@@ -11828,9 +11828,7 @@ msgstr "遅いクエリの割合が高いので、サーバの稼働時間と比
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
-msgstr ""
-"現在の遅いクエリの割合は 1 時間当たり %s です。推奨値は 1 時間当たり 1%% 未満"
-"です。"
+msgstr "現在の遅いクエリの割合は 1 時間当たり %s です。1 時間当たり 1%% 未満がいいと言われています。"
 
 #: po/advisory_rules.php:25
 msgid "Long query time"
