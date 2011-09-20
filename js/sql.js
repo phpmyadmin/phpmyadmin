@@ -217,9 +217,17 @@ $(document).ready(function() {
                 }
             } else {
                 // button_submit_bookmark
-                $('#sqlquery').text(data.sql_query);
-                // send to codemirror if possible
-                setQuery(data.sql_query);
+                //
+                // view only
+                if ('1' == data.action_bookmark) {
+                    $('#sqlquery').text(data.sql_query);
+                    // send to codemirror if possible
+                    setQuery(data.sql_query);
+                }
+                // delete
+                if ('2' == data.action_bookmark) {
+                    $("#id_bookmark option[value='" + data.id_bookmark . "']").remove();
+                }
                 // fade out previous messages, if any
                 $('.success').fadeOut();
                 $('.sqlquery_message').fadeOut();
