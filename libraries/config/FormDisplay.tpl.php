@@ -49,7 +49,7 @@ function display_tabs_top($tabs)
 ?>
 <ul class="tabs">
 <?php foreach ($tabs as $tab_id => $tab_name): ?>
-    <li><a href="#<?php echo $tab_id ?>"><?php echo $tab_name ?></a></li>
+    <li><a href="#<?php echo $tab_id ?>"><?php echo htmlspecialchars($tab_name); ?></a></li>
 <?php endforeach; ?>
 </ul>
 <br clear="right" />
