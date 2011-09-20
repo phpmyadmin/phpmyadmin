@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-20 06:04+0200\n"
+"PO-Revision-Date: 2011-09-20 06:06+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7826,9 +7826,8 @@ msgstr "SQL විමසුමක් සිදු කරන්න/%s දත්�
 
 #: libraries/sql_query_form.lib.php:260 navigation.php:269
 #: setup/frames/index.inc.php:232
-#, fuzzy
 msgid "Clear"
-msgstr "දින දර්ශනය"
+msgstr "මකන්න"
 
 #: libraries/sql_query_form.lib.php:265
 #, fuzzy
