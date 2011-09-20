@@ -12334,7 +12334,7 @@ msgstr ""
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
-msgstr "テーブルの次行を読み込む割合：%s。推奨値は、1 時間当たり 1 未満です。"
+msgstr "テーブルの次行を読み込む割合：%s。1 時間当たり 1 未満がいいと言われています。"
 
 #: po/advisory_rules.php:145
 msgid "tmp_table_size vs. max_heap_table_size"
