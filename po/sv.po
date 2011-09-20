@@ -13036,7 +13036,7 @@ msgstr ""
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "concurrent_insert är satt till 0"
 
 #~ msgid "Data Label"
 #~ msgstr "Dataetikett"
