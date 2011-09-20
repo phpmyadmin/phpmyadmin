@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-20 07:01+0200\n"
+"PO-Revision-Date: 2011-09-20 07:02+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -11720,10 +11720,9 @@ msgid "Browse/Edit the points"
 msgstr "ලක්ෂ්‍ය පිරික්සීම/සංස්කරණය"
 
 #: tbl_zoom_select.php:417
-#, fuzzy
 #| msgid "PHP extension to use"
 msgid "How to use"
-msgstr "භාවිතා කල යුතු PHP දිගුව"
+msgstr "භාවිතා කරන අයුරු"
 
 #: themes.php:28
 msgid "Get more themes!"
