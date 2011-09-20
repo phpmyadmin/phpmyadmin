@@ -2318,6 +2318,7 @@ iframe.IE_hack {
     vertical-align: top;
     width:          40%;
     background:     transparent;
+    filter:         none;
 }
 
 .config-form fieldset .doc, .config-form fieldset .disabled-notice {
