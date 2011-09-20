@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-20 06:11+0200\n"
+"PO-Revision-Date: 2011-09-20 06:12+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9531,10 +9531,9 @@ msgid "Refresh rate: "
 msgstr "අලුත් කරන්න"
 
 #: server_status.php:832
-#, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "මුරපදය වෙනස් නොකරන්න"
+msgstr "වචනය අඩංගු:"
 
 #: server_status.php:837
 #, fuzzy
