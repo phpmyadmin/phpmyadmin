@@ -12271,7 +12271,7 @@ msgstr "最初のインデックスエントリを読み込む割合"
 
 #: po/advisory_rules.php:131
 msgid "The rate of reading the first index entry is high."
-msgstr ""
+msgstr "最初のインデックスエントリを読み込む割合が高いです。"
 
 #: po/advisory_rules.php:132
 msgid ""
