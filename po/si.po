@@ -5648,10 +5648,9 @@ msgid "Start row"
 msgstr "ආරම්භක පේළිය"
 
 #: libraries/display_tbl.lib.php:425
-#, fuzzy
 #| msgid "Number of rows:"
 msgid "Number of rows"
-msgstr "පේළි ගණන:"
+msgstr "පේළි ගණන"
 
 #: libraries/display_tbl.lib.php:430
 #, fuzzy
