@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-20 12:21+0200\n"
+"PO-Revision-Date: 2011-09-20 12:26+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12267,7 +12267,7 @@ msgstr "テーブル結合の平均：%s。1 時間当たり 1 未満がいい�
 
 #: po/advisory_rules.php:130
 msgid "Rate of reading first index entry"
-msgstr ""
+msgstr "最初のインデックスエントリを読み込む割合"
 
 #: po/advisory_rules.php:131
 msgid "The rate of reading the first index entry is high."
