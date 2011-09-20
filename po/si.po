@@ -8307,10 +8307,9 @@ msgid "Software"
 msgstr "මෘදුකාංගය"
 
 #: main.php:160
-#, fuzzy
 #| msgid "Show versions"
 msgid "Software version"
-msgstr "අනුවාද පෙන්වන්න"
+msgstr "මෘදුකාංග අනුවාදය"
 
 #: main.php:161
 msgid "Protocol version"
