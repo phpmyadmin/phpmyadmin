@@ -12501,7 +12501,7 @@ msgstr ""
 #: po/advisory_rules.php:183
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
-msgstr "テーブルを開く割合: %s。推奨値は 1 時間当たり 10 未満です。"
+msgstr "テーブルを開く割合：%s。1 時間当たり 10 未満がいいと言われています。"
 
 #: po/advisory_rules.php:185
 #, fuzzy
