@@ -161,63 +161,72 @@ $(document).ready(function() {
         PMA_prepareForAjaxRequest($form);
 
         $.post($form.attr('action'), $form.serialize() , function(data) {
-            if (data.success == true) {
+            if ('button_submit_query' == clicked_button) {
+                if (data.success == true) {
+                    // fade out previous messages, if any
+                    $('.success').fadeOut();
+                    $('.sqlquery_message').fadeOut();
+                    // show a message that stays on screen
+                    if (typeof data.sql_query != 'undefined') {
+                        $('<div class="sqlquery_message"></div>')
+                         .html(data.sql_query)
+                         .insertBefore('#sqlqueryform');
+                        // unnecessary div that came from data.sql_query
+                        $('.notice').remove();
+                    } else {
+                        $('#sqlqueryform').before(data.message);
+                    }
+                    $sqlqueryresults.show();
+                    // this happens if a USE command was typed
+                    if (typeof data.reload != 'undefined') {
+                        // Unbind the submit event before reloading. See bug #3295529
+                        $("#sqlqueryform.ajax").die('submit');
+                        $form.find('input[name=db]').val(data.db);
+                        // need to regenerate the whole upper part
+                        $form.find('input[name=ajax_request]').remove();
+                        $form.append('<input type="hidden" name="reload" value="true" />');
+                        $.post('db_sql.php', $form.serialize(), function(data) {
+                            $('body').html(data);
+                        }); // end inner post
+                    }
+                } else if (data.success == false ) {
+                    // show an error message that stays on screen
+                    $('#sqlqueryform').before(data.error);
+                    $sqlqueryresults.hide();
+                } else {
+                    // real results are returned
+                    // fade out previous messages, if any
+                    $('.success').fadeOut();
+                    $('.sqlquery_message').fadeOut();
+                    var $received_data = $(data);
+                    var $zero_row_results = $received_data.find('textarea[name="sql_query"]');
+                    // if zero rows are returned from the query execution
+                    if ($zero_row_results.length > 0) {
+                        $('#sqlquery').val($zero_row_results.val());
+                    } else {
+                        $sqlqueryresults
+                         .show()
+                         .html(data)
+                         .trigger('makegrid');
+                        $('#togglequerybox').show();
+                        if ($("#togglequerybox").siblings(":visible").length > 0) {
+                            $("#togglequerybox").trigger('click');
+                        }
+                        PMA_init_slider();
+                    }
+                }
+            } else {
+                // button_submit_bookmark
+                $('#sqlquery').text(data.sql_query);
+                // send to codemirror if possible
+                setQuery(data.sql_query);
                 // fade out previous messages, if any
                 $('.success').fadeOut();
                 $('.sqlquery_message').fadeOut();
                 // show a message that stays on screen
-                if (typeof data.sql_query != 'undefined') {
-                    $('<div class="sqlquery_message"></div>')
-                     .html(data.sql_query)
-                     .insertBefore('#sqlqueryform');
-                    // unnecessary div that came from data.sql_query
-                    $('.notice').remove();
-                } else {
-                    $('#sqlqueryform').before(data.message);
-                }
-                $sqlqueryresults.show();
-                // this happens if a USE command was typed
-                if (typeof data.reload != 'undefined') {
-                    // Unbind the submit event before reloading. See bug #3295529
-                    $("#sqlqueryform.ajax").die('submit');
-                    $form.find('input[name=db]').val(data.db);
-                    // need to regenerate the whole upper part
-                    $form.find('input[name=ajax_request]').remove();
-                    $form.append('<input type="hidden" name="reload" value="true" />');
-                    $.post('db_sql.php', $form.serialize(), function(data) {
-                        $('body').html(data);
-                    }); // end inner post
-                }
-            }
-            else if (data.success == false ) {
-                // show an error message that stays on screen
-                $('#sqlqueryform').before(data.error);
-                $sqlqueryresults.hide();
-            }
-            else {
-                // real results are returned
-                // fade out previous messages, if any
-                $('.success').fadeOut();
-                $('.sqlquery_message').fadeOut();
-                var $received_data = $(data);
-                var $zero_row_results = $received_data.find('textarea[name="sql_query"]');
-                // if zero rows are returned from the query execution
-                if ($zero_row_results.length > 0) {
-                    $('#sqlquery').val($zero_row_results.val());
-                } else {
-                    $sqlqueryresults
-                     .show()
-                     .html(data)
-                     .trigger('makegrid');
-                    $('#togglequerybox').show();
-                    if ($("#togglequerybox").siblings(":visible").length > 0) {
-                        $("#togglequerybox").trigger('click');
-                    }
-                    PMA_init_slider();
-                }
+                $('#sqlqueryform').before(data.message);
             }
             PMA_ajaxRemoveMessage($msgbox);
-
         }) // end $.post()
     }) // end SQL Query submit
 

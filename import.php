@@ -164,7 +164,13 @@ if (!empty($id_bookmark)) {
             break;
         case 1: // bookmarked query that have to be displayed
             $import_text = PMA_Bookmark_get($db, $id_bookmark);
-            $run_query = false;
+            if ($GLOBALS['is_ajax_request'] == true) {
+                $extra_data['sql_query'] = $import_text;
+                $message = PMA_Message::success(__('Showing bookmark'));
+                PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
+            } else {
+                $run_query = false;
+            }
             break;
         case 2: // bookmarked query that have to be deleted
             $import_text = PMA_Bookmark_get($db, $id_bookmark);
