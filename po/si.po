@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-20 06:19+0200\n"
+"PO-Revision-Date: 2011-09-20 06:22+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7518,10 +7518,9 @@ msgid "No routine with name %1$s found in database %2$s"
 msgstr "දත්තගබඩාවේ වගු කිසිවක් සොයා ගැනීමට නොමැත"
 
 #: libraries/rte/rte_words.lib.php:24
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no routines to display."
-msgstr "උඩුගත කිරීම සඳහා ගොනු නොමැත"
+msgstr "පෙන්වීම සඳහා නෛත්‍යක නොමැත."
 
 #: libraries/rte/rte_words.lib.php:30
 #, fuzzy
