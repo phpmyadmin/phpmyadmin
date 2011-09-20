@@ -7586,10 +7586,9 @@ msgid "No event with name %1$s found in database %2$s"
 msgstr "දත්තගබඩාවේ වගු කිසිවක් සොයා ගැනීමට නොමැත"
 
 #: libraries/rte/rte_words.lib.php:48
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no events to display."
-msgstr "උඩුගත කිරීම සඳහා ගොනු නොමැත"
+msgstr "පෙන්වීම සඳහා සිද්ධි නොමැත."
 
 #: libraries/schema/Dia_Relation_Schema.class.php:230
 #: libraries/schema/Eps_Relation_Schema.class.php:420
