@@ -367,10 +367,12 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
         && $_SESSION['tmp_user_values']['max_rows'] != 'all'
     ) {
         // display the Next button
-        PMA_displayTableNavigationOneButton('&gt;',
+        PMA_displayTableNavigationOneButton(
+            '&gt;',
             _pgettext('Next page', 'Next'),
             $pos_next,
-            $html_sql_query);
+            $html_sql_query
+        );
 
         // prepare some options for the End button
         if ($is_innodb && $unlim_num_rows > $GLOBALS['cfg']['MaxExactCount']) {
@@ -382,14 +384,15 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
         }
 
         // display the End button
-        PMA_displayTableNavigationOneButton('&gt;&gt;',
+        PMA_displayTableNavigationOneButton(
+            '&gt;&gt;',
             _pgettext('Last page', 'End'),
             @((ceil($unlim_num_rows / $_SESSION['tmp_user_values']['max_rows'])- 1) * $_SESSION['tmp_user_values']['max_rows']),
             $html_sql_query,
             'onsubmit="return ' . (($_SESSION['tmp_user_values']['pos'] + $_SESSION['tmp_user_values']['max_rows'] < $unlim_num_rows && $num_rows >= $_SESSION['tmp_user_values']['max_rows']) ? 'true' : 'false') . '"',
             $input_for_real_end,
             $onclick
-            );
+        );
     } // end move toward
 
     // show separator if pagination happen
@@ -437,8 +440,10 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
             unset($choices);
         }
 
-        printf(__('Headers every %s rows'),
-            '<input type="text" size="3" name="repeat_cells" value="' . $_SESSION['tmp_user_values']['repeat_cells'] . '" class="textfield" />');
+        printf(
+            __('Headers every %s rows'),
+            '<input type="text" size="3" name="repeat_cells" value="' . $_SESSION['tmp_user_values']['repeat_cells'] . '" class="textfield" />'
+        );
         echo "\n";
         ?>
         </form>
@@ -611,7 +616,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         );
         echo PMA_generate_common_hidden_inputs($url_params);
         echo '<br />';
-        PMA_generate_slider_effect('displayoptions',__('Options'));
+        PMA_generate_slider_effect('displayoptions', __('Options'));
         echo '<fieldset>';
 
         echo '<div class="formelement">';
@@ -2465,14 +2470,19 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
             .$uncheckall_link . "\n"
             .'<i>' . __('With selected:') . '</i>' . "\n";
 
-        PMA_buttonOrImage('submit_mult', 'mult_submit',
-            'submit_mult_change', __('Change'), 'b_edit.png', 'edit');
-        PMA_buttonOrImage('submit_mult', 'mult_submit',
-            'submit_mult_delete', $delete_text, 'b_drop.png', 'delete');
+        PMA_buttonOrImage(
+            'submit_mult', 'mult_submit', 'submit_mult_change',
+            __('Change'), 'b_edit.png', 'edit'
+        );
+        PMA_buttonOrImage(
+            'submit_mult', 'mult_submit', 'submit_mult_delete',
+            $delete_text, 'b_drop.png', 'delete'
+        );
         if (isset($analyzed_sql[0]) && $analyzed_sql[0]['querytype'] == 'SELECT') {
-            PMA_buttonOrImage('submit_mult', 'mult_submit',
-                'submit_mult_export', __('Export'),
-                'b_tblexport.png', 'export');
+            PMA_buttonOrImage(
+                'submit_mult', 'mult_submit', 'submit_mult_export',
+                __('Export'), 'b_tblexport.png', 'export'
+            );
         }
         echo "\n";
 
@@ -2508,8 +2518,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 function default_function($buffer)
 {
     $buffer = htmlspecialchars($buffer);
-    $buffer = str_replace("\011", ' &nbsp;&nbsp;&nbsp;',
-        str_replace('  ', ' &nbsp;', $buffer));
+    $buffer = str_replace("\011", ' &nbsp;&nbsp;&nbsp;', str_replace('  ', ' &nbsp;', $buffer));
     $buffer = preg_replace("@((\015\012)|(\015)|(\012))@", '<br />', $buffer);
 
     return $buffer;
@@ -2561,14 +2570,16 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql)
             echo PMA_linkOrButton(
                 'sql.php' . $url_query,
                 PMA_getIcon('b_print.png', __('Print view'), true),
-                '', true, true, 'print_view') . "\n";
+                '', true, true, 'print_view'
+            ) . "\n";
 
             if ($_SESSION['tmp_user_values']['display_text']) {
                 $_url_params['display_text'] = 'F';
                 echo PMA_linkOrButton(
                     'sql.php' . PMA_generate_common_url($_url_params),
                     PMA_getIcon('b_print.png', __('Print view (with full texts)'), true),
-                    '', true, true, 'print_view') . "\n";
+                    '', true, true, 'print_view'
+                ) . "\n";
                 unset($_url_params['display_text']);
             }
         } // end displays "printable view"
@@ -2610,13 +2621,15 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql)
         echo PMA_linkOrButton(
             'tbl_export.php' . PMA_generate_common_url($_url_params),
             PMA_getIcon('b_tblexport.png', __('Export'), true),
-            '', true, true, '') . "\n";
+            '', true, true, ''
+        ) . "\n";
 
         // show chart
         echo PMA_linkOrButton(
             'tbl_chart.php' . PMA_generate_common_url($_url_params),
             PMA_getIcon('b_chart.png', __('Display chart'), true),
-            '', true, true, '') . "\n";
+            '', true, true, ''
+        ) . "\n";
 
         // show GIS chart
         $geometry_found = false;
@@ -2631,7 +2644,8 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql)
             echo PMA_linkOrButton(
                 'tbl_gis_visualization.php' . PMA_generate_common_url($_url_params),
                 PMA_getIcon('b_globe.gif', __('Visualize GIS data'), true),
-                '', true, true, '') . "\n";
+                '', true, true, ''
+            ) . "\n";
         }
     }
 
@@ -2651,7 +2665,8 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql)
         echo PMA_linkOrButton(
             'view_create.php' . $url_query,
             PMA_getIcon('b_views.png', __('Create view'), true),
-            '', true, true, '') . "\n";
+            '', true, true, ''
+        ) . "\n";
     }
     if ($header_shown) {
         echo '</fieldset><br />';
@@ -2946,7 +2961,7 @@ function PMA_generateCheckboxAndLinks($position, $del_url, $is_display, $row_no,
     $ret = '';
 
     if ($position == 'left') {
-        $ret .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $condition_array, $del_query, $id_suffix='_left', '', '', '');
+        $ret .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $condition_array, $del_query, $id_suffix = '_left', '', '', '');
 
         $ret .= PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $where_clause_html, '');
 
@@ -2961,9 +2976,9 @@ function PMA_generateCheckboxAndLinks($position, $del_url, $is_display, $row_no,
 
         $ret .= PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $where_clause_html, '');
 
-        $ret .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $condition_array, $del_query, $id_suffix='_right', '', '', '');
+        $ret .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $condition_array, $del_query, $id_suffix = '_right', '', '', '');
     } else { // $position == 'none'
-        $ret .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $condition_array, $del_query, $id_suffix='_left', '', '', '');
+        $ret .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $condition_array, $del_query, $id_suffix = '_left', '', '', '');
     }
     return $ret;
 }
