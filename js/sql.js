@@ -226,7 +226,7 @@ $(document).ready(function() {
                 }
                 // delete
                 if ('2' == data.action_bookmark) {
-                    $("#id_bookmark option[value='" + data.id_bookmark . "']").remove();
+                    $("#id_bookmark option[value='" + data.id_bookmark + "']").remove();
                 }
                 // fade out previous messages, if any
                 $('.success').fadeOut();
