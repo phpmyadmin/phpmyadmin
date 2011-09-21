@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-21 08:28+0200\n"
+"PO-Revision-Date: 2011-09-21 08:30+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -11158,10 +11158,9 @@ msgid "View dump (schema) of table"
 msgstr "View dump (schema) of table"
 
 #: tbl_gis_visualization.php:112
-#, fuzzy
 #| msgid "Display servers selection"
 msgid "Display GIS Visualization"
-msgstr "සේවාදායක තේරීම පෙන්වන්න"
+msgstr "ජ්‍යාමිතික දත්ත නිරූපණය"
 
 #: tbl_gis_visualization.php:128
 msgid "Width"
