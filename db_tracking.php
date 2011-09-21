@@ -196,11 +196,7 @@ if (isset($my_tables)) {
     foreach ($my_tables as $key => $tablename) {
         if (PMA_Tracker::getVersion($GLOBALS['db'], $tablename) == -1) {
             $my_link = '<a href="tbl_tracking.php?' . $url_query . '&amp;table=' . htmlspecialchars($tablename) .'">';
-
-            if ($cfg['PropertiesIconic']) {
-                $my_link .= '<img class="icon ic_eye" src="themes/dot.gif" alt="' . __('Track table') . '" /> ';
-            }
-            $my_link .= __('Track table') . '</a>';
+            $my_link .= PMA_getIcon('eye.png', __('Track table')) . '</a>';
         ?>
             <tr class="noclick <?php echo $style;?>">
             <td><?php echo htmlspecialchars($tablename);?></td>

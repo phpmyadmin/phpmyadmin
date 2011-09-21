@@ -607,16 +607,10 @@ PMA_listNavigator(
 /* Printable view of a table */
 echo '<p>';
 echo '<a href="db_printview.php?' . $url_query . '">';
-if ($cfg['PropertiesIconic']) {
-     echo '<img class="icon ic_b_print" src="themes/dot.gif" alt="" />';
-}
-echo __('Print view') . '</a> ';
+echo PMA_getIcon('b_print.png', __('Print view'), true) . '</a>';
 
 echo '<a href="./db_datadict.php?' . $url_query . '">';
-if ($cfg['PropertiesIconic']) {
-    echo '<img class="icon ic_b_tblanalyse" src="themes/dot.gif" alt="" />';
-}
-echo __('Data Dictionary') . '</a>';
+echo PMA_getIcon('b_tblanalyse.png', __('Data Dictionary'), true) . '</a>';
 echo '</p>';
 
 if (empty($db_is_information_schema)) {

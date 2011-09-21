@@ -71,7 +71,7 @@ if ($no_js) {
     $tabs['import']['attr']   = 'onclick="javascript:PMA_querywindowCommit(\'files\');return false;"';
     $tabs['import']['active'] = (bool) ($querydisplay_tab == 'files');
     $tabs['history']['icon']   = 'ic_b_bookmark';
-    $tabs['history']['text']   = __('SQL history'); 
+    $tabs['history']['text']   = __('SQL history');
     $tabs['history']['fragment']   = '#';
     $tabs['history']['attr']   = 'onclick="javascript:PMA_querywindowCommit(\'history\');return false;"';
     $tabs['history']['active'] = (bool) ($querydisplay_tab == 'history');
@@ -84,19 +84,7 @@ if ($no_js) {
     }
 }
 
-if ($GLOBALS['cfg']['PropertiesIconic']) {
-    $titles['Change'] =
-         '<img class="icon ic_b_edit" src="themes/dot.gif" alt="' 
-        . __('Change') . '" title="' . __('Change')
-        . '" />';
-
-    if ('both' === $GLOBALS['cfg']['PropertiesIconic']) {
-        $titles['Change'] .= __('Change') . ' ';
-    }
-} else {
-    $titles['Change'] = __('Change') . ' ';
-}
-
+$titles['Change'] = PMA_getIcon('b_edit.png', __('Change'));
 $url_query = PMA_generate_common_url($db, $table);
 
 if (! empty($sql_query)) {
