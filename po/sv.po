@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-12 18:20+0200\n"
+"PO-Revision-Date: 2011-09-20 22:18+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -1659,7 +1659,7 @@ msgstr "OK"
 
 #: js/messages.php:217
 msgid "Click to dismiss this notification"
-msgstr ""
+msgstr "Klicka för att ta bort detta meddelande"
 
 #: js/messages.php:220
 msgid "Renaming Databases"
@@ -4861,7 +4861,6 @@ msgid "Automatically create versions"
 msgstr "Automatiskt skapa versioner"
 
 #: libraries/config/messages.inc.php:443
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
@@ -4869,8 +4868,8 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
 msgstr ""
-"Lämna tomt för iatt inte spara användarinställningar i databasen, förslag: "
-"[kbd]pma_config[/kbd]"
+"Lämna tomt för att inga användarinställningar ska lagras i databasen, "
+"förslag: [kbd]pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:444
 msgid "User preferences storage table"
@@ -6483,7 +6482,6 @@ msgid "Add statements:"
 msgstr "Lägg till uppgift:"
 
 #: libraries/export/sql.php:211
-#, fuzzy
 #| msgid ""
 #| "Enclose table and field names with backquotes <i>(Protects field and "
 #| "table names formed with special characters or keywords)</i>"
@@ -6491,8 +6489,8 @@ msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
-"Bifoga tabell och fältnamnen med backquotes <i>(Skyddar fältet och namn på "
-"tabell skapade med specialtecken eller nyckelord)/i>"
+"Bifoga tabell-och kolumnnamn med backquote (`) <i>(Skyddar kolumn- och "
+"tabellnamn skapade med specialtecken eller nyckelord)</i>"
 
 #: libraries/export/sql.php:231
 msgid "Instead of <code>INSERT</code> statements, use:"
@@ -11719,7 +11717,7 @@ msgstr "Ytterligare sökkriterier"
 
 #: tbl_zoom_select.php:276
 msgid "Use this column to label each point"
-msgstr ""
+msgstr "Använd denna kolumn för att markera varje punkt"
 
 #: tbl_zoom_select.php:296
 msgid "Maximum rows to plot"
@@ -12315,19 +12313,23 @@ msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "fields being used in the join conditions will greatly speed up table joins"
 msgstr ""
+"Detta innebär att joins gör fullständiga tabell sökningar. Att lägga till "
+"index för de fält som använder join villkoren, kommer avsevärt snabba upp "
+"tabellkopplingen"
 
 #: po/advisory_rules.php:128
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
+"Tabellkoppling i genomsnitt: %s detta värde bör vara mindre än 1 per timme"
 
 #: po/advisory_rules.php:130
 msgid "Rate of reading first index entry"
-msgstr ""
+msgstr "Andel läsning av första indexpost"
 
 #: po/advisory_rules.php:131
 msgid "The rate of reading the first index entry is high."
-msgstr ""
+msgstr "Frekvensen av att läsa första indexpost är hög."
 
 #: po/advisory_rules.php:132
 msgid ""
@@ -12338,19 +12340,26 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
+"Detta visar oftast frekventa fullständiga index sökningar. Fullständiga "
+"index sökningar är snabbare än tabell sökningar men kräver mycket CPU-tid "
+"för stora tabeller, om denna tabeller som har eller har haft stora volymer "
+"av UPDATES's och DELETE's,, kan \"OPTIMIZE TABLE\" minska mängden och / eller "
+"snabba upp fullständiga index sökningar. Annat än fullständiga index "
+"skanningar kan bara minskas genom att skriva om frågorna"
 
 #: po/advisory_rules.php:133
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
+"Index sökningar i genomsnitt: %s detta värde bör vara mindre än 1 per timme"
 
 #: po/advisory_rules.php:135
 msgid "Rate of reading fixed position"
-msgstr ""
+msgstr "Andelen läsning av fast position"
 
 #: po/advisory_rules.php:136
 msgid "The rate of reading data from a fixed position is high."
-msgstr ""
+msgstr "Frekvensen att läsa data från en fast position är hög."
 
 #: po/advisory_rules.php:137
 msgid ""
@@ -12358,6 +12367,9 @@ msgid ""
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
+"Detta tyder på att många frågor behöver sortera resultat och / eller göra en "
+"fullständig tabellsökning, innehållande join-frågor som inte använder "
+"index. Lägg till index i förekommande fall."
 
 #: po/advisory_rules.php:138
 #, php-format
@@ -12365,38 +12377,42 @@ msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr ""
+"Andelen läsning av fast position i genomsnitt: %s detta värde bör vara "
+"mindre än 1 per timme"
 
 #: po/advisory_rules.php:140
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Rate of reading next table row"
-msgstr "Var länkarna i tabellraden visas"
+msgstr "Andelen av läsning av nästa tabellrad"
 
 #: po/advisory_rules.php:141
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "The rate of reading the next table row is high."
-msgstr "Var länkarna i tabellraden visas"
+msgstr "Frekvensen av läsning av nästa tabellrad är hög."
 
 #: po/advisory_rules.php:142
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
 msgstr ""
+"Detta tyder på att många frågor utför en fullständig tabellsökning, Lägg "
+"till index i förekommande fall."
 
 #: po/advisory_rules.php:143
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr ""
+"Andelen av läsning av nästa tabellrad: %s, detta värde bör vara mindre än 1 "
+"per timme"
 
 #: po/advisory_rules.php:145
 msgid "tmp_table_size vs. max_heap_table_size"
-msgstr ""
+msgstr "tmp_table_size jämfört med max_heap_table_size"
 
 #: po/advisory_rules.php:146
 msgid "tmp_table_size and max_heap_table_size are not the same."
-msgstr ""
+msgstr "tmp_table_size och max_heap_table_size inte är samma"
 
 #: po/advisory_rules.php:147
 msgid ""
@@ -12405,23 +12421,27 @@ msgid ""
 "wish to increase the in-memory table limit you will have to increase the "
 "other value as well."
 msgstr ""
+"Om du medvetet ändrat någon av:Servern använder det lägre värdet av endera "
+"för att bestämma den maximala storleken på in-memory tabeller. Så om du vill "
+"öka iminnets tabellgräns kommer du behöva öka andra värdet också."
 
 #: po/advisory_rules.php:148
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr ""
+msgstr "Nuvarande värden är tmp_table_size: %s, max_heap_table_size:%s"
 
 #: po/advisory_rules.php:150
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Percentage of temp tables on disk"
-msgstr "Var länkarna i tabellraden visas"
+msgstr "Andel temporära tabeller på disken"
 
 #: po/advisory_rules.php:151 po/advisory_rules.php:156
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr ""
+"Många temporära tabeller skrivs till disken istället för att lagras i "
+"minnet."
 
 #: po/advisory_rules.php:152
 msgid ""
@@ -12433,6 +12453,13 @@ msgid ""
 "mentioned in the beginning of an <a href=\\\"http://www.facebook.com/note."
 "php?note_id=10150111255065841&comments\\\">Article by the Pythian Group</a>"
 msgstr ""
+"Att öka {max_heap_table_size:} och {tmp_table_size:} kan hjälpa. Men vissa "
+"temporära tabeller skrivs alltid till disk, oberoende av värdet på dessa "
+"variabler. För att eliminera dessa måste du skriva om dina frågor för att "
+"undvika dessa villkor (Inom en temporär tabell: Förekomst av en BLOB eller "
+"TEXT kolumn eller förekomsten av en kolumn större än 512 byte) som nämns i i "
+"början av en artikel av Pythian group: <a href=\\\"http://www.facebook.com/no"
+"te.php?note_id=10150111255065841&comments\\\">"
 
 #: po/advisory_rules.php:153
 #, php-format
@@ -12440,13 +12467,14 @@ msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
+"%s%% av alla temporära tabeller skrivna till disk, detta värde bör vara "
+"mindre än 25%%"
 
 #: po/advisory_rules.php:155
-#, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Temp disk rate"
-msgstr "%s tabell"
+msgstr "Temporär disk användning"
 
 #: po/advisory_rules.php:157
 msgid ""
@@ -12458,6 +12486,13 @@ msgid ""
 "mentioned in in the <a href=\\\"http://dev.mysql.com/doc/refman/5.5/en/"
 "internal-temporary-tables.html\\\">MySQL Documentation</a>"
 msgstr ""
+"Att öka {max_heap_table_size:} och {tmp_table_size:} kan hjälpa. Men vissa "
+"temporära tabeller skrivs alltid till disk, oberoende av värdet på dessa "
+"variabler. För att eliminera dessa måste du skriva om dina frågor för att "
+"undvika dessa villkor (Inom en temprorär tabell: Förekomst av en BLOB eller "
+"TEXT kolumn eller förekomsten av en kolumn större än 512 byte) som nämns i "
+"MySQL dokumentationen; <a href=\\\"http://dev.mysql.com/doc/refman/5.5/en"
+"/internal-temporary-tables.html\\\">MySQL Documentation</a>"
 
 #: po/advisory_rules.php:158
 #, php-format
@@ -12465,38 +12500,41 @@ msgid ""
 "Rate of temporay tables being written to disk: %s, this value should be less "
 "than 1 per hour"
 msgstr ""
+"Andel temporay tabeller skrivs disk:%s, detta värde bör vara mindre än 1 per "
+"timme"
 
 #: po/advisory_rules.php:160
-#, fuzzy
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer size"
-msgstr "Storlek för sorteringsbuffert"
+msgstr "MyISAM nyckel buffertstorlek"
 
 #: po/advisory_rules.php:161
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
-msgstr ""
+msgstr "Nyckel buffert är inte initialiserad. Inget MyISAM index kommer cachas."
 
 #: po/advisory_rules.php:162
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
+"Definiera {key_buffer_size} beroende på storleken på ditt MyISAM index. 64Mb "
+"är en bra början."
 
 #: po/advisory_rules.php:163
 msgid "key_buffer_size is 0"
-msgstr ""
+msgstr "key_buffer_size är 0"
 
 #: po/advisory_rules.php:165
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "Storlek för sorteringsbuffert"
+msgstr "Max %% MyISAM key buffer har någonsin använts"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr "Storlek för sorteringsbuffert"
+msgstr "MyISAM key buffer (index cache) %% använt, är lågt."
 
 #: po/advisory_rules.php:167 po/advisory_rules.php:172
 msgid ""
@@ -12504,228 +12542,237 @@ msgid ""
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
+"Du kan behöva minska storleken på {key_buffer_size}, se över dina tabeller "
+"för att se om index har tagits bort eller kontrollera frågor och "
+"förväntningar på vilka index som används."
 
 #: po/advisory_rules.php:168
 #, php-format
 msgid "max %% MyISAM key buffer ever used: %s, this value should be above 95%%"
 msgstr ""
+"max %% MyISAM key buffer har någonsin använts: %s, detta värde ska vara "
+"större än 95%%"
 
 #: po/advisory_rules.php:170
-#, fuzzy
 #| msgid "Sort buffer size"
 msgid "Percentage of MyISAM key buffer used"
-msgstr "Storlek för sorteringsbuffert"
+msgstr "Andelen MyISAM key buffer som använts "
 
 #: po/advisory_rules.php:173
 #, php-format
 msgid "%% MyISAM key buffer used: %s, this value should be above 95%%"
-msgstr ""
+msgstr "%% MyISAM key buffer används:%s, detta värde bör vara över 95%%"
 
 #: po/advisory_rules.php:175
 msgid "Percentage of index reads from memory"
-msgstr ""
+msgstr "Andelen index som läses från minnet"
 
 #: po/advisory_rules.php:176
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
-msgstr ""
+msgstr "Andelen %% av index som använder MyISAM key buffer är låg."
 
 #: po/advisory_rules.php:177
 msgid "You may need to increase {key_buffer_size}."
-msgstr ""
+msgstr "Du kan behöva öka {key_buffer_size}."
 
 #: po/advisory_rules.php:178
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr ""
+msgstr "Index som läses från minnet: %s%%, detta värde bör vara över 95%%"
 
 #: po/advisory_rules.php:180
-#, fuzzy
 #| msgid "Create table"
 msgid "Rate of table open"
-msgstr "Skapa tabell"
+msgstr "Andelen öppna tabeller"
 
 #: po/advisory_rules.php:181
-#, fuzzy
 #| msgid "The current number of pending writes."
 msgid "The rate of opening tables is high."
-msgstr "Nuvarande antal väntande skrivningar."
+msgstr "Andelen öppna tabeller är hög."
 
 #: po/advisory_rules.php:182
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
+"Öppna tabeller kräver disk I/O som är dyrt. Att öka {table_open_cache} kan "
+"lösa detta."
 
 #: po/advisory_rules.php:183
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
-msgstr ""
+msgstr "Andel öppna tabeller: %s, detta värde bör vara mindre än 10 per timme"
 
 #: po/advisory_rules.php:185
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of used open files limit"
-msgstr "Format på importerad fil"
+msgstr "Procentandel av gränsen för använda öppna filer"
 
 #: po/advisory_rules.php:186
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \\\"Too many open files\\\" error."
 msgstr ""
+"Antalet öppna filer närmar sig maximalt antal öppna filer. Du kan få en "
+"\\\"För många öppna filer\\\" fel."
 
 #: po/advisory_rules.php:187 po/advisory_rules.php:192
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing open_files_limit."
 msgstr ""
+"Överväg att öka {open_files_limit} och kontrollera felloggen vid omstart "
+"efter att ha ändrat open_files_limit"
 
 #: po/advisory_rules.php:188
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
-msgstr ""
+msgstr "Antalet öppnade filer på% s%%, av gränsvärdet. Det bör vara under 85%%"
 
 #: po/advisory_rules.php:190
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of open files"
-msgstr "Format på importerad fil"
+msgstr "Andel öppna filer"
 
 #: po/advisory_rules.php:191
-#, fuzzy
 #| msgid "The number of pending log file fsyncs."
 msgid "The rate of opening files is high."
-msgstr "Antalet väntande fsync() av loggfil."
+msgstr "Andelen öppnande av filer är hög."
 
 #: po/advisory_rules.php:193
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr ""
+msgstr "Andelen öppnade filer: %s detta värde bör vara mindre än 5 per timme"
 
 #: po/advisory_rules.php:195
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Immediate table locks %%"
-msgstr "Skapa ny tabell i databas %s"
+msgstr "Omedelbar tabellåsning %%"
 
 #: po/advisory_rules.php:196 po/advisory_rules.php:201
-#, fuzzy
 #| msgid "The number of times that a table lock was acquired immediately."
 msgid "Too many table locks were not granted immediately."
-msgstr "Antalet gånger som ett tabellås förvärvades omedelbart."
+msgstr "Alltför många tabell låsningar beviljades inte omedelbart."
 
 #: po/advisory_rules.php:197 po/advisory_rules.php:202
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
-msgstr ""
+msgstr "Optimera frågor och/eller använd InnoDB för att minska låsningsväntan."
 
 #: po/advisory_rules.php:198
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr ""
+msgstr "Omedelbara tabellåsningar %s%%, detta värde bör vara över 95%%"
 
 #: po/advisory_rules.php:200
 msgid "Table lock wait rate"
-msgstr ""
+msgstr "Tabell låsning. Andelen vänta"
 
 #: po/advisory_rules.php:203
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
+"Tabellåsning,.andel väntan: %s, detta värde bör vara mindre än 1 per timme"
 
 #: po/advisory_rules.php:205
-#, fuzzy
 #| msgid "Key cache"
 msgid "Thread cache"
-msgstr "Nyckelcache"
+msgstr "trådad cache"
 
 #: po/advisory_rules.php:206
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
 msgstr ""
+"Trådad cache är inaktiverad, vilket resulterar i mer overhead från nya "
+"anslutningar till MySQL."
 
 #: po/advisory_rules.php:207
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
-msgstr ""
+msgstr "Aktivera trådad cache genom att sätta {thread_cache_size} > 0"
 
 #: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
-msgstr ""
+msgstr "Trådad cache är satt till 0"
 
 #: po/advisory_rules.php:210
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is not active."
 msgid "Thread cache hit rate %%"
-msgstr "Spårning är inte aktiv."
+msgstr "Andel trådad cache %%"
 
 #: po/advisory_rules.php:211
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "Thread cache is not efficient."
-msgstr "Spårning är inte aktiv."
+msgstr "Trådad cache är inte effektivt"
 
 #: po/advisory_rules.php:212
 msgid "Increase {thread_cache_size}."
-msgstr ""
+msgstr "Öka {thread_cache_size}."
 
 #: po/advisory_rules.php:213
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr ""
+msgstr "Andel trådad cache: %s%%, detta värde bör vara över 80%%"
 
 #: po/advisory_rules.php:215
 msgid "Threads that are slow to launch"
-msgstr ""
+msgstr "Trådar som är långsamma att starta"
 
 #: po/advisory_rules.php:216
-#, fuzzy
 #| msgid "The number of threads that are not sleeping."
 msgid "There are too many threads that are slow to launch."
-msgstr "Antalet trådar som inte är vilande."
+msgstr "Det är för många trådar som tar lång tid att starta."
 
 #: po/advisory_rules.php:217
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
 msgstr ""
+"Detta händer i allmänhet vid generell överbelastning av systemet då det är "
+"ganska enkla operationer. Du bör kanske övervaka din system last noggrant."
 
 #: po/advisory_rules.php:218
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
-msgstr ""
+msgstr "%s tråd(ar) tog längre tid än %s sekunder att starta, bör det vara 0"
 
 #: po/advisory_rules.php:220
 msgid "Slow launch time"
-msgstr ""
+msgstr "Långsam uppstartstid"
 
 #: po/advisory_rules.php:221
 msgid "Slow_launch_threads is above 2s"
-msgstr ""
+msgstr "Slow_launch_threads är över 2s"
 
 #: po/advisory_rules.php:222
 msgid ""
 "Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
 "launch"
 msgstr ""
+"Sätt slow_launch_time till 1s eller 2s för att korrekt räkna de trådar som "
+"tar lång tid att starta"
 
 #: po/advisory_rules.php:223
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "slow_launch_time is set to %s"
-msgstr "long_query_time är definerad till %d sekund(er)."
+msgstr "slow_launch_time är satt till %s"
 
 #: po/advisory_rules.php:225
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of used connections"
-msgstr "Bestående anslutningar"
+msgstr "Andel använda anslutningar"
 
 #: po/advisory_rules.php:226
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "max_connections."
 msgstr ""
+"Det maximala antalet av använda anslutningar börjar närma sig antalet "
+"max_connections."
 
 #: po/advisory_rules.php:227
 msgid ""
@@ -12733,22 +12780,25 @@ msgid ""
 "do not close database handlers properly get killed sooner. Make sure the "
 "code closes database handlers properly."
 msgstr ""
+"Öka max_connections eller minska wait_timeout så att anslutningar som inte "
+"stänger databashanterare blir dödade tidigare. Se till att koden stänger "
+"databashanteraren ordentligt."
 
 #: po/advisory_rules.php:228
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
+"Max_used_connections är %s%% av max_connections. Det bör vara mindre än 80%%"
 
 #: po/advisory_rules.php:230
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of aborted connections"
-msgstr "Bestående anslutningar"
+msgstr "Andelen avbrutna anslutningar"
 
 #: po/advisory_rules.php:231
 msgid "Too many connections are aborted."
-msgstr ""
+msgstr "För många anslutningar avbryts."
 
 #: po/advisory_rules.php:232 po/advisory_rules.php:237
 msgid ""
@@ -12757,37 +12807,39 @@ msgid ""
 "source-of-aborted_connects/\\\">This article</a> might help you track down "
 "the source."
 msgstr ""
+"Anslutningar avbryts vanligtvis när de inte kan auktoriseras. <a "
+"href=\\\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
+"source-of-aborted_connects/\\\">Denna artikel</a> kan hjälpa dig att spåra "
+"källan"
 
 #: po/advisory_rules.php:233
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
-msgstr ""
+msgstr "%s%% av alla anslutningar avbryts. Detta värde bör vara under 1%%"
 
 #: po/advisory_rules.php:235
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Rate of aborted connections"
-msgstr "Bestående anslutningar"
+msgstr "Andelen avbrutna anslutningar"
 
 #: po/advisory_rules.php:236
 msgid "Too many connections are aborted"
-msgstr ""
+msgstr "Alltför många anslutningar avbryts."
 
 #: po/advisory_rules.php:238
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
-msgstr ""
+msgstr "Andelen avbrutna anslutningar är %s, det bör vara mindre än 1 per timme"
 
 #: po/advisory_rules.php:240
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of aborted clients"
-msgstr "Format på importerad fil"
+msgstr "Andelen avslutade klienter"
 
 #: po/advisory_rules.php:241 po/advisory_rules.php:246
 msgid "Too many clients are aborted."
-msgstr ""
+msgstr "Alltför många klienter avbryts."
 
 #: po/advisory_rules.php:242 po/advisory_rules.php:247
 msgid ""
@@ -12795,54 +12847,56 @@ msgid ""
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
+"Klienter är oftast avslutade när de inte stängde kopplingen till MySQL "
+"ordentligt. Detta kan bero på nätverksproblem eller att koden inte stänger "
+"databashanteraren korrekt. Kontrollera ditt nätverk och kod."
 
 #: po/advisory_rules.php:243
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
-msgstr ""
+msgstr "%s%% av alla klienter har avslutats. Detta v'rde bör vara under 2¤¤"
 
 #: po/advisory_rules.php:245
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of aborted clients"
-msgstr "Format på importerad fil"
+msgstr "Andelen avslutade klienter"
 
 #: po/advisory_rules.php:248
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"Andelen avbrytna klienter är %s detta värde bör vara mindre än 1 per timme"
 
 #: po/advisory_rules.php:250
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "Är InnoDB inaktiverad?"
 
 #: po/advisory_rules.php:251
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "You do not have InnoDB enabled."
-msgstr "Kunde inte spara den senaste tabellen"
+msgstr "Du har inte aktiverat InnoDB"
 
 #: po/advisory_rules.php:252
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "InnoDB är vanligtvis ett bättre val för tabell motorer."
 
 #: po/advisory_rules.php:253
 msgid "have_innodb is set to 'value'"
-msgstr ""
+msgstr "have_innodb är satt till \"value\""
 
 #: po/advisory_rules.php:255
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB log size"
-msgstr "Buffertstorlek"
+msgstr "InnoDB loggstorlek"
 
 #: po/advisory_rules.php:256
-#, fuzzy
 #| msgid "The number writes done to the InnoDB buffer pool."
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
-msgstr "Antalet skrivningar gjorda till InnoDB-bufferten."
+msgstr ""
+"Storleken på InnoDBs loggfil har inte lämplig storlek i förhållande till "
+"InnoDB buffer pool."
 
 #: po/advisory_rules.php:257
 #, php-format
@@ -12858,6 +12912,15 @@ msgid ""
 "com/2007/01/increase-innodblogfilesize-proper-way.html\\\">this blog entry</"
 "a>"
 msgstr ""
+"Speciellt på ett system med många skrivningar till InnoDB tabeller bör du "
+"ställa innodb_log_file_size till 25%%, av {innodb_buffer_pool_size}. Men ju "
+"större detta värde är, desto längre återhämtningstid blir det när databasen "
+"kraschar, så detta värde inte bör ställas mycket högre än 256 Mb. Observera "
+"dock att du inte bara kan ändra värdet på denna variabel. Du måste stänga av "
+"servern, ta bort InnoDB loggfiler, ställ in nytt värde i my.cnf, starta "
+"servern och sedan kontrollera felloggar om allt gick bra. Se också <a "
+"href=\\\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\\\">detta blogg-inlägg</a>"
 
 #: po/advisory_rules.php:258
 #, php-format
@@ -12865,14 +12928,16 @@ msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
 msgstr ""
+"Din InnoDB loggstorlek är %s%%, i förhållande till InnoDB buffer pool "
+"storlek, bör det inte vara under 20%%"
 
 #: po/advisory_rules.php:260
 msgid "Max InnoDB log size"
-msgstr ""
+msgstr "Maximal 'innoDB koggstorlek"
 
 #: po/advisory_rules.php:261
 msgid "The InnoDB log file size is inadequately large."
-msgstr ""
+msgstr "Storleken på InnoDB databas är inte tillräckligt stor."
 
 #: po/advisory_rules.php:262
 #, php-format
@@ -12887,21 +12952,29 @@ msgid ""
 "\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\\\">this blog entry</a>"
 msgstr ""
+"Det är oftast tillräckligt för att sätta innodb_log_file_size till 25%% av "
+"storleken på {innodb_buffer_pool_size}. En mycket innodb_log_file_size "
+"reducerar tiden för återhämtning efter en databas krasch avsevärt. se även "
+"<a href=\\\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\\\">denna artikel</a>. Du måste stänga av servern, ta "
+"bort InnoDB loggfiler, ställ in nytt värde i my.cnf, starta servern och "
+"sedan kontrollera felloggar om allt gick bra. se även <a "
+"href=\\\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\\\">denna blogpost</a>"
 
 #: po/advisory_rules.php:263
 #, php-format
 msgid "Your absolute InnoD log size is %s MiB"
-msgstr ""
+msgstr "Din absoluta InnoD loggstorlek är %s Mb"
 
 #: po/advisory_rules.php:265
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
-msgstr "Buffertstorlek"
+msgstr "InnoDB bufferpoolstorlek"
 
 #: po/advisory_rules.php:266
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr ""
+msgstr "Din InnoDB buffer pool är relativt liten."
 
 #: po/advisory_rules.php:267
 #, php-format
@@ -12917,6 +12990,16 @@ msgid ""
 "\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\\\">this article</a>"
 msgstr ""
+"InnoDB buffer poolen har stor inverkan på prestandan för InnoDB tabeller. "
+"Tilldela allt ditt återstående minne till denna buffert. För databasservrar "
+"som uteslutande använder InnoDB som lagrings motor och har inga andra "
+"tjänster (t.ex. en webbserver) som kör, kan du ställa in detta så hög som 80"
+"%% av ditt tillgängliga minne. Om så inte är fallet, måste du noggrant "
+"bedöma minnesåtgången för dina andra tjänster och icke-InnoDB-tabeller och "
+"ställa in denna variabel därefter. Om den är för hög, kommer ditt system "
+"börja swappa, vilket minskar prestandan avsevärt. se även <a "
+"href=\\\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\\\">denna artikel</a>"
 
 #: po/advisory_rules.php:268
 #, php-format
@@ -12926,16 +13009,19 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
+"Du använder för närvarande% s%% av ditt minne för InnoDB buffer poolen. "
+"Denna regel aktiveras om du tilldelar mindre än 60%%, men detta kan vara "
+"fullt tillräckligt för ditt system om du inte har så många InnoDB tabeller "
+"eller andra tjänster som körs på samma maskin."
 
 #: po/advisory_rules.php:270
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
-msgstr "Max. samtidiga förbindelser"
+msgstr "MyISAM parallella infogningar"
 
 #: po/advisory_rules.php:271
 msgid "Enable concurrent_insert by setting it to 1"
-msgstr ""
+msgstr "Aktivera concurrent_insert genom att sätta det till 1"
 
 #: po/advisory_rules.php:272
 msgid ""
@@ -12943,10 +13029,14 @@ msgid ""
 "writers for a given table. See also <a href=\\\"http://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\\\">MySQL Documentation</a>"
 msgstr ""
+"Att ställa in {concurrent_insert} till 1 minskar kampen mellan läsare och "
+"skrivare för en given tabell. se även <a "
+"href=\\\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-"
+"inserts.html\\\">MySQL Dokumentation</a>"
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "concurrent_insert är satt till 0"
 
 #~ msgid "Data Label"
 #~ msgstr "Dataetikett"

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-19 15:09+0200\n"
+"PO-Revision-Date: 2011-09-20 18:58+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -11856,7 +11856,7 @@ msgstr "Critères de recherche supplémentaires"
 
 #: tbl_zoom_select.php:276
 msgid "Use this column to label each point"
-msgstr ""
+msgstr "Utiliser cette colonne pour décrire chaque point"
 
 #: tbl_zoom_select.php:296
 msgid "Maximum rows to plot"
@@ -12006,10 +12006,9 @@ msgstr ""
 "de 1%% par heure."
 
 #: po/advisory_rules.php:25
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Long query time"
-msgstr "Requêtes SQL"
+msgstr "Durée des longues requêtes"
 
 #: po/advisory_rules.php:26
 msgid ""
@@ -12024,92 +12023,97 @@ msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"Il est suggéré de donner à {long_query_time} une plus petite valeur, selon "
+"votre environnement. Habituellement une valeur entre 1 et 5 secondes fait "
+"l'affaire."
 
 #: po/advisory_rules.php:28
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "long_query_time is currently set to %ds."
-msgstr "long_query_time est réglé à %d seconde(s)."
+msgstr "long_query_time est actuellement  %d seconde(s)."
 
 #: po/advisory_rules.php:30
-#, fuzzy
 #| msgid "Show query box"
 msgid "Slow query logging"
-msgstr "Montrer zone SQL"
+msgstr "Journalisation des requêtes longues"
 
 #: po/advisory_rules.php:31
-#, fuzzy
 #| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
-msgstr "slow_query_log est activé."
+msgstr "Le journal des requêtes longues est désactivé."
 
 #: po/advisory_rules.php:32
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"Activez la journalisation des requêtes longues en réglant {log_slow_queries} "
+"à 'ON'. Ceci aidera à dépanner les problèmes de lenteur des requêtes."
 
 #: po/advisory_rules.php:33
 msgid "log_slow_queries is set to 'OFF'"
-msgstr ""
+msgstr "log_slow_queries a une valeur de 'OFF'"
 
 #: po/advisory_rules.php:35
-#, fuzzy
 #| msgid "Clear series"
 msgid "Release Series"
-msgstr "Effacer la série"
+msgstr "Famille de versions"
 
 #: po/advisory_rules.php:36
 msgid "The MySQL server version less then 5.1."
-msgstr ""
+msgstr "La version du serveur MySQL est antérieure à 5.1."
 
 #: po/advisory_rules.php:37
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
+"Vous devriez mettre à jour, puisque MySQL 5.1 a une meilleure performance et "
+"MySQL 5.5 est encore meilleur."
 
 #: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Current version: %s"
-msgstr "Créer une version"
+msgstr "Version courante : %s"
 
 #: po/advisory_rules.php:40 po/advisory_rules.php:45
-#, fuzzy
 #| msgid "Version"
 msgid "Minor Version"
-msgstr "Version"
+msgstr "Version mineure"
 
 #: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
+msgstr "La version est inférieure à 5.1.30 (la première version stable de 5.1)."
 
 #: po/advisory_rules.php:42
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
+"Vous devriez mettre à jour, puisque les versions récentes MySQL 5.1 ont une "
+"meilleure performance et MySQL 5.5 est encore meilleur."
 
 #: po/advisory_rules.php:46
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr ""
+msgstr "La version est inférieure à 5.5.8 (la première version stable de 5.5)."
 
 #: po/advisory_rules.php:47
-#, fuzzy
 #| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5"
-msgstr "Vous devriez utiliser %s en version %s ou plus récente."
+msgstr "Vous devriez mettre à jour vers une version stable de MySQL 5.5."
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
-#, fuzzy
 #| msgid "Description"
 msgid "Distribution"
-msgstr "Description"
+msgstr "Distribution"
 
 #: po/advisory_rules.php:51
 msgid "Version is compiled from source, not a MySQL official binary."
 msgstr ""
+"Le serveur a été compilé à partir de la source et n'est pas une version "
+"officielle de MySQL."
 
 #: po/advisory_rules.php:52
 msgid ""
@@ -12117,41 +12121,47 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
+"Si vous n'avez pas compilé à partir de la source, vous utilisez peut-être un "
+"paquet provenant d'un distributeur. Le manuel MySQL n'est précis que pour "
+"les versions compilées officielles de MySQL."
 
 #: po/advisory_rules.php:53
 msgid "'source' found in version_comment"
-msgstr ""
+msgstr "Le mot «source» a été trouvé dans version_comment."
 
 #: po/advisory_rules.php:56 po/advisory_rules.php:61
 msgid "The MySQL manual only is accurate for official MySQL binaries."
 msgstr ""
+"Le manuel MySQL n'est précis que pour les versions compilées officielles de "
+"MySQL."
 
 #: po/advisory_rules.php:57
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgstr ""
+"La documentation de Percona est disponible au "
+"http://www.percona.com/docs/wiki/"
 
 #: po/advisory_rules.php:58
 msgid "'percona' found in version_comment"
-msgstr ""
+msgstr "Le mot «percona» a été trouvé dans version_comment."
 
 #: po/advisory_rules.php:62
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
-msgstr ""
+msgstr "La documentation de Drizzle est disponible au http://docs.drizzle.org/"
 
 #: po/advisory_rules.php:63
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
-msgstr ""
+msgstr "La version (%s) correspond au schème des versions de Drizzle"
 
 #: po/advisory_rules.php:65
-#, fuzzy
 #| msgid "MySQL charset"
 msgid "MySQL Architecture"
-msgstr "Jeu de caractères pour MySQL"
+msgstr "Architecture MySQL"
 
 #: po/advisory_rules.php:66
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "MySQL n'est pas compilé en paquet 64 bits."
 
 #: po/advisory_rules.php:67
 msgid ""
@@ -12159,23 +12169,24 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
+"Votre serveur a plus de 3 GiB de mémoire (assumant que le serveur tourne sur "
+"localhost), donc MySQL ne peut utliser toute la mémoire. Il est suggéré "
+"d'installer une version 64-bits de MySQL."
 
 #: po/advisory_rules.php:68
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "Mémoire disponible sur cet hôte : %s"
 
 #: po/advisory_rules.php:70
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache disabled"
-msgstr "Cache des requêtes"
+msgstr "Cache des requêtes désactivée"
 
 #: po/advisory_rules.php:71
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "Le serveur ne répond pas"
+msgstr "La cache des requêtes est désactivée."
 
 #: po/advisory_rules.php:72
 msgid ""
@@ -12184,20 +12195,23 @@ msgid ""
 "and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
 "memcached, ignore this recommendation."
 msgstr ""
+"La cache des requêtes améliore la performance lorsque correctement "
+"configurée. Activez-la en réglant {query_cache_size} à une valeur de plus de "
+"9 Mio et {query_cache_type} à 'ON'. <b>Note:</b> Si vous utilisez "
+"memcached, ignorez cet avis."
 
 #: po/advisory_rules.php:73
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
-msgstr ""
+msgstr "query_cache_size a une valeur de 0 ou query_cache_type est à 'OFF'"
 
 #: po/advisory_rules.php:75
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query caching method"
-msgstr "Cache des requêtes"
+msgstr "Méthode de cache des requêtes"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
-msgstr ""
+msgstr "Méthode de cache non efficace."
 
 #: po/advisory_rules.php:77
 msgid ""
@@ -12206,6 +12220,11 @@ msgid ""
 "refman/5.5/en/ha-memcached.html\\\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
+"Vous utilisez la cache de requêtes MySQL avec une base de données très "
+"sollicitée. Veuillez envisager l'utilisation de <a "
+"href=\\\"http://dev.mysql.com/doc/refman/5.5/en/ha-"
+"memcached.html\\\">memcached</a> à la place, spécialement si vous utilisez de "
+"nombreux serveurs esclaves."
 
 #: po/advisory_rules.php:78
 #, php-format

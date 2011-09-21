@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-16 19:55+0200\n"
+"PO-Revision-Date: 2011-09-21 08:44+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
+"Language: si\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: si\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -1197,7 +1197,7 @@ msgstr "අවසන් යාවත්කාලින කිරීමේ සි
 
 #: js/messages.php:83 js/messages.php:121 server_status.php:1224
 msgid "Processes"
-msgstr "ක්‍රියාවලිය"
+msgstr "ක්‍රියාවලි"
 
 #: js/messages.php:84
 msgid "Connections / Processes"
@@ -1253,7 +1253,7 @@ msgstr "පද්ධතියේ මතකය"
 
 #: js/messages.php:102
 msgid "System swap"
-msgstr ""
+msgstr "පද්ධතියේ swap"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:103 libraries/common.lib.php:1343 server_status.php:1669
@@ -1267,7 +1267,7 @@ msgstr "KiB"
 
 #: js/messages.php:106
 msgid "Average load"
-msgstr ""
+msgstr "මධ්‍යක භාරය"
 
 #: js/messages.php:107
 msgid "Total memory"
@@ -1290,24 +1290,22 @@ msgid "Used memory"
 msgstr "භාවිත මතකය"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "මුළු එකතුව"
+msgstr "මුළු swap"
 
 #: js/messages.php:114
 msgid "Cached Swap"
-msgstr ""
+msgstr "කෑෂ්ගත swap"
 
 #: js/messages.php:115
 msgid "Used Swap"
-msgstr ""
+msgstr "භාවිත swap"
 
 #: js/messages.php:116
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "නිදහස් පිටු"
+msgstr "නිදහස් swap"
 
 #: js/messages.php:118
 msgid "Bytes sent"
@@ -1361,11 +1359,11 @@ msgstr "කිසිවක් නැත"
 
 #: js/messages.php:133
 msgid "Resume monitor"
-msgstr ""
+msgstr "අධීක්ෂණය නැවත අරඹන්න"
 
 #: js/messages.php:134
 msgid "Pause monitor"
-msgstr ""
+msgstr "අධීක්ෂණය තාවකාලිකව නවතන්න"
 
 #: js/messages.php:136
 msgid "general_log and slow_query_log are enabled."
@@ -1521,9 +1519,8 @@ msgstr "ගොනු පෙන්වුම් විකල්ප"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:175
-#, fuzzy
 msgid "Filter"
-msgstr "ක්ෂේත්‍ර"
+msgstr "පෙරහන"
 
 #: js/messages.php:176
 msgid "Filter queries by word/regexp:"
@@ -1704,16 +1701,14 @@ msgid "Insert Table"
 msgstr "වගු භාවිතා කරන්න"
 
 #: js/messages.php:231
-#, fuzzy
 #| msgid "Add index"
 msgid "Hide indexes"
-msgstr "සුචිය එක් කරන්න"
+msgstr "සුචි සඟවන්න"
 
 #: js/messages.php:232
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "කොටු සැලැස්ම පෙන්වන්න"
+msgstr "සුචි පෙන්වන්න"
 
 #: js/messages.php:235
 msgid "Searching"
@@ -1787,10 +1782,9 @@ msgid "Show search criteria"
 msgstr "SQL විමසුම"
 
 #: js/messages.php:263 libraries/tbl_select.lib.php:110
-#, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
-msgstr "සෙවීම"
+msgstr "Zoom සෙවීම"
 
 #: js/messages.php:265
 msgid "Each point represents a data row."
@@ -2483,7 +2477,7 @@ msgstr "Theme path not found for theme %s!"
 
 #: libraries/Theme_Manager.class.php:296 themes.php:20 themes.php:27
 msgid "Theme"
-msgstr ""
+msgstr "තේමාව"
 
 #: libraries/auth/config.auth.lib.php:71
 msgid "Cannot connect: invalid settings."
@@ -2996,7 +2990,7 @@ msgstr "උඩුගත කිරීම සඳහා ගොනු නොමැ�
 
 #: libraries/common.lib.php:3260 libraries/common.lib.php:3261
 msgid "Execute"
-msgstr ""
+msgstr "ක්‍රියාත්මක කරන්න"
 
 #: libraries/config.values.php:45 libraries/config.values.php:47
 #: libraries/config.values.php:51
@@ -4387,7 +4381,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:353
 msgid "Repeat headers"
-msgstr "ශීර්ෂකය නැවත නැවතත් පෙන්වන්න"
+msgstr "ශීර්ෂක පුනරාවර්තනය"
 
 #: libraries/config/messages.inc.php:354
 msgid "Show help button instead of Documentation text"
@@ -5351,10 +5345,9 @@ msgstr "MySQL&nbsp;4.0 compatible"
 
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
-#, fuzzy
 #| msgid "Create new database"
 msgid "Create database"
-msgstr "නව දත්තගබඩාවක් සාදන්න"
+msgstr "දත්තගබඩාවක් සාදන්න"
 
 #: libraries/display_create_database.lib.php:33
 msgid "Create"
@@ -5380,10 +5373,9 @@ msgid "Name"
 msgstr "නම"
 
 #: libraries/display_create_table.lib.php:55
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of columns"
-msgstr "ක්ෂේත්‍ර ගණන"
+msgstr "තීර ගණන"
 
 #: libraries/display_export.lib.php:37
 msgid "Could not load export plugins, please check your installation!"
@@ -5646,16 +5638,14 @@ msgid "%d is not valid row number."
 msgstr "%d is not valid row number."
 
 #: libraries/display_tbl.lib.php:423
-#, fuzzy
 #| msgid "Startup"
 msgid "Start row"
-msgstr "ඇරඹුම්"
+msgstr "ආරම්භක පේළිය"
 
 #: libraries/display_tbl.lib.php:425
-#, fuzzy
 #| msgid "Number of rows:"
 msgid "Number of rows"
-msgstr "පේළි ගණන:"
+msgstr "පේළි ගණන"
 
 #: libraries/display_tbl.lib.php:430
 #, fuzzy
@@ -7261,7 +7251,7 @@ msgstr ""
 
 #: libraries/rte/rte_footer.lib.php:29
 msgid "New"
-msgstr ""
+msgstr "නව"
 
 #: libraries/rte/rte_footer.lib.php:91
 msgid "OFF"
@@ -7273,13 +7263,12 @@ msgstr ""
 
 #: libraries/rte/rte_footer.lib.php:108
 msgid "Event scheduler status"
-msgstr ""
+msgstr "සිද්ධි නියමකාරනියේ තත්වය"
 
 #: libraries/rte/rte_list.lib.php:54
-#, fuzzy
 #| msgid "Table options"
 msgid "Returns"
-msgstr "වගු විකල්ප"
+msgstr "ප්‍රතිදානය"
 
 #: libraries/rte/rte_list.lib.php:63 libraries/rte/rte_triggers.lib.php:340
 msgid "Event"
@@ -7492,10 +7481,9 @@ msgid "You must provide a trigger definition."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:18
-#, fuzzy
 #| msgid "Add index"
 msgid "Add routine"
-msgstr "සුචිය එක් කරන්න"
+msgstr "නෛත්‍යකයක් එක් කරන්න"
 
 #: libraries/rte/rte_words.lib.php:20
 #, fuzzy, php-format
@@ -7522,16 +7510,14 @@ msgid "No routine with name %1$s found in database %2$s"
 msgstr "දත්තගබඩාවේ වගු කිසිවක් සොයා ගැනීමට නොමැත"
 
 #: libraries/rte/rte_words.lib.php:24
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no routines to display."
-msgstr "උඩුගත කිරීම සඳහා ගොනු නොමැත"
+msgstr "පෙන්වීම සඳහා නෛත්‍යක නොමැත."
 
 #: libraries/rte/rte_words.lib.php:30
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add trigger"
-msgstr "නව සේවාදායකයක් එක් කරන්න"
+msgstr "ප්‍රේරකයක් එක් කරන්න"
 
 #: libraries/rte/rte_words.lib.php:32
 #, fuzzy, php-format
@@ -7557,16 +7543,14 @@ msgid "No trigger with name %1$s found in database %2$s"
 msgstr "දත්තගබඩාවේ වගු කිසිවක් සොයා ගැනීමට නොමැත"
 
 #: libraries/rte/rte_words.lib.php:36
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no triggers to display."
-msgstr "උඩුගත කිරීම සඳහා ගොනු නොමැත"
+msgstr "පෙන්වීම සඳහා ප්‍රේරක නොමැත."
 
 #: libraries/rte/rte_words.lib.php:42
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add event"
-msgstr "නව සේවාදායකයක් එක් කරන්න"
+msgstr "සිද්ධියක් එක් කරන්න"
 
 #: libraries/rte/rte_words.lib.php:44
 #, fuzzy, php-format
@@ -7592,10 +7576,9 @@ msgid "No event with name %1$s found in database %2$s"
 msgstr "දත්තගබඩාවේ වගු කිසිවක් සොයා ගැනීමට නොමැත"
 
 #: libraries/rte/rte_words.lib.php:48
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no events to display."
-msgstr "උඩුගත කිරීම සඳහා ගොනු නොමැත"
+msgstr "පෙන්වීම සඳහා සිද්ධි නොමැත."
 
 #: libraries/schema/Dia_Relation_Schema.class.php:230
 #: libraries/schema/Eps_Relation_Schema.class.php:420
@@ -7827,9 +7810,8 @@ msgstr "SQL විමසුමක් සිදු කරන්න/%s දත්�
 
 #: libraries/sql_query_form.lib.php:260 navigation.php:269
 #: setup/frames/index.inc.php:232
-#, fuzzy
 msgid "Clear"
-msgstr "දින දර්ශනය"
+msgstr "මකන්න"
 
 #: libraries/sql_query_form.lib.php:265
 #, fuzzy
@@ -8075,16 +8057,14 @@ msgid "Operator"
 msgstr "මෙහෙයවනය"
 
 #: libraries/tbl_select.lib.php:103
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "සෙවීම"
+msgstr "වගුව තුල සෙවීම"
 
 #: libraries/tbl_select.lib.php:182 tbl_change.php:993
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "ඇතුල් කරන්න"
+msgstr "සංස්කරණය/ඇතුල් කරන්න "
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 #, fuzzy
@@ -8304,13 +8284,12 @@ msgstr "භාවිතා කරන්නා සඳහා දත්තගබඩ
 
 #: main.php:159
 msgid "Software"
-msgstr ""
+msgstr "මෘදුකාංගය"
 
 #: main.php:160
-#, fuzzy
 #| msgid "Show versions"
 msgid "Software version"
-msgstr "අනුවාද පෙන්වන්න"
+msgstr "මෘදුකාංග අනුවාදය"
 
 #: main.php:161
 msgid "Protocol version"
@@ -8323,20 +8302,18 @@ msgid "User"
 msgstr "භාවිතා කරන්නා"
 
 #: main.php:167
-#, fuzzy
 #| msgid "Server socket"
 msgid "Server charset"
-msgstr "සර්වරයේ සොකට්"
+msgstr "සේවාදායකයේ අක්ෂර කට්ටලය"
 
 #: main.php:179
 msgid "Web server"
 msgstr ""
 
 #: main.php:190
-#, fuzzy
 #| msgid "Use light version"
 msgid "Database client version"
-msgstr "සැහැල්ලු අනුවාදය භාවිත කරන්න."
+msgstr "දත්තගබඩා සේවාලාභියාගේ අනුවාදය"
 
 #: main.php:192
 msgid "PHP extension"
@@ -9517,10 +9494,9 @@ msgid "Runtime Information"
 msgstr "ධාවන කාල තොරතුරු"
 
 #: server_status.php:777
-#, fuzzy
 #| msgid "See slave status table"
 msgid "All status variables"
-msgstr "slave තත්ව වගුව බලන්න"
+msgstr "සියලුම තත්ත්ව විචල්‍යයන්"
 
 #: server_status.php:778
 msgid "Monitor"
@@ -9528,7 +9504,7 @@ msgstr ""
 
 #: server_status.php:779
 msgid "Advisor"
-msgstr ""
+msgstr "උපදේශකය"
 
 #: server_status.php:789 server_status.php:811
 #, fuzzy
@@ -9537,26 +9513,23 @@ msgid "Refresh rate: "
 msgstr "අලුත් කරන්න"
 
 #: server_status.php:832
-#, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "මුරපදය වෙනස් නොකරන්න"
+msgstr "වචනය අඩංගු:"
 
 #: server_status.php:837
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show only alert values"
-msgstr "විවෘත වගු පෙන්වන්න"
+msgstr "අනතුරුදායක අගයන් පමණක් පෙන්වන්න"
 
 #: server_status.php:841
 msgid "Filter by category..."
-msgstr ""
+msgstr "වර්ගය මත පෙරන්න..."
 
 #: server_status.php:855
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show unformatted values"
-msgstr "විවෘත වගු පෙන්වන්න"
+msgstr "ආකෘතික අගයන් පෙන්වන්න"
 
 #: server_status.php:859
 #, fuzzy
@@ -10374,7 +10347,7 @@ msgstr "ඇරඹුම්"
 
 #: server_status.php:1549
 msgid "Instructions/Setup"
-msgstr ""
+msgstr "උපදෙස්/පිහිටුවීම"
 
 #: server_status.php:1554
 msgid "Done rearranging/editing charts"
@@ -11183,10 +11156,9 @@ msgid "View dump (schema) of table"
 msgstr "View dump (schema) of table"
 
 #: tbl_gis_visualization.php:112
-#, fuzzy
 #| msgid "Display servers selection"
 msgid "Display GIS Visualization"
-msgstr "සේවාදායක තේරීම පෙන්වන්න"
+msgstr "ජ්‍යාමිතික දත්ත නිරූපණය"
 
 #: tbl_gis_visualization.php:128
 msgid "Width"
@@ -11197,37 +11169,32 @@ msgid "Height"
 msgstr "උස"
 
 #: tbl_gis_visualization.php:136
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Label column"
-msgstr "ක්ෂේත්‍ර තීර එක් කරන්න/ඉවත් කරන්න"
+msgstr "ලේබල තීරුව"
 
 #: tbl_gis_visualization.php:138
-#, fuzzy
 #| msgid "- none -"
 msgid "-- None --"
 msgstr "- කිසිවක් නොමැත -"
 
 #: tbl_gis_visualization.php:151
-#, fuzzy
 #| msgid "Total"
 msgid "Spatial column"
-msgstr "මුළු එකතුව"
+msgstr "ජ්‍යාමිතික තීරුව"
 
 #: tbl_gis_visualization.php:175
 msgid "Redraw"
 msgstr "නැවත අඳින්න"
 
 #: tbl_gis_visualization.php:177
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save to file"
-msgstr "ගොනුවක් ලෙස තෝරන්න"
+msgstr "ගොනුවකට සුරකින්න"
 
 #: tbl_gis_visualization.php:178
-#, fuzzy
 msgid "File name"
-msgstr "වගුවේ නම"
+msgstr "ගොනුවේ නම"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
@@ -11429,7 +11396,7 @@ msgstr "පේළියේ ප්‍රමාණය "
 
 #: tbl_printview.php:388 tbl_structure.php:904
 msgid "Next autoindex"
-msgstr ""
+msgstr "මීළඟ ක්‍රමාංකය"
 
 #: tbl_relation.php:276
 #, php-format
@@ -11491,10 +11458,9 @@ msgid "Add unique index"
 msgstr "අනන්‍ය මූලය එක් කරන්න"
 
 #: tbl_structure.php:173 tbl_structure.php:174
-#, fuzzy
 #| msgid "Add index"
 msgid "Add SPATIAL index"
-msgstr "සුචිය එක් කරන්න"
+msgstr "SPATIAL මූලය එක් කරන්න"
 
 #: tbl_structure.php:175 tbl_structure.php:176
 msgid "Add FULLTEXT index"
@@ -11717,33 +11683,30 @@ msgid "Create version"
 msgstr "අනුවාදය සාදන්න"
 
 #: tbl_zoom_select.php:135
-#, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "\"උදාහරණයෙන් විමසුම\" ක් සිදු කරන්න (wildcard: \"%\")"
+msgstr "තීර දෙකක් සඳහා \"උදාහරණයෙන් විමසුම\" ක් සිදු කරන්න (wildcard: \"%\")"
 
 #: tbl_zoom_select.php:145
-#, fuzzy
 msgid "Additional search criteria"
-msgstr "SQL විමසුම"
+msgstr "අමතර සෙවීම් නිර්ණායක"
 
 #: tbl_zoom_select.php:276
 msgid "Use this column to label each point"
-msgstr ""
+msgstr "ලක්ෂ්‍ය ලේබල ගත කිරීමට මෙම තීරය භාවිත කරන්න"
 
 #: tbl_zoom_select.php:296
 msgid "Maximum rows to plot"
-msgstr ""
+msgstr "උපරිම තීර ගණන"
 
 #: tbl_zoom_select.php:410
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "ලක්ෂ්‍ය පිරික්සීම/සංස්කරණය"
 
 #: tbl_zoom_select.php:417
-#, fuzzy
 #| msgid "PHP extension to use"
 msgid "How to use"
-msgstr "භාවිතා කල යුතු PHP දිගුව"
+msgstr "භාවිතා කරන අයුරු"
 
 #: themes.php:28
 msgid "Get more themes!"
