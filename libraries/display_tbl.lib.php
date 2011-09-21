@@ -1582,6 +1582,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
 
                     // Display in Well Known Text(WKT) format.
                     } elseif ('WKT' == $_SESSION['tmp_user_values']['geometry_display']) {
+                        $where_comparison = ' = ' . $row[$i];
+
                         // Convert to WKT format
                         $wktval = PMA_asWKT($row[$i]);
 
@@ -1594,12 +1596,14 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
 
                         $vertical_display['data'][$row_no][$i] = '<td ' . PMA_prepare_row_data(
                             $class, $condition_field, $analyzed_sql, $meta, $map, $wktval, $transform_function,
-                            $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated
+                            $default_function, '', $where_comparison, $transform_options, $is_field_truncated
                         );
 
                     // Display in  Well Known Binary(WKB) format.
                     } else {
                         if ($_SESSION['tmp_user_values']['display_binary']) {
+                            $where_comparison = ' = ' . $row[$i];
+
                             if ($_SESSION['tmp_user_values']['display_binary_as_hex']
                                 && PMA_contains_nonprintable_ascii($row[$i])
                             ) {
@@ -1617,7 +1621,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
 
                             $vertical_display['data'][$row_no][$i] = '<td ' . PMA_prepare_row_data(
                                 $class, $condition_field, $analyzed_sql, $meta, $map, $wkbval, $transform_function,
-                                $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated
+                                $default_function, '', $where_comparison, $transform_options, $is_field_truncated
                             );
                         } else {
                             $wkbval = PMA_handle_non_printable_contents(
