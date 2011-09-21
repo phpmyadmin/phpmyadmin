@@ -2004,11 +2004,15 @@ function PMA_displayVerticalTable()
 } // end of the 'PMA_displayVerticalTable' function
 
 /**
+ * Checks the posted options for viewing query resutls
+ * and sets appropriate values in the session.
  *
  * @todo    make maximum remembered queries configurable
  * @todo    move/split into SQL class!?
  * @todo    currently this is called twice unnecessary
  * @todo    ignore LIMIT and ORDER in query!?
+ *
+ * @return nothing
  */
 function PMA_displayTable_checkConfigParams()
 {
@@ -2154,10 +2158,10 @@ function PMA_displayTable_checkConfigParams()
  * Displays a table of results returned by a SQL query.
  * This function is called by the "sql.php" script.
  *
- * @param integer the link id associated to the query which results have
- *                  to be displayed
- * @param array   the display mode
- * @param array   the analyzed query
+ * @param integer &$dt_result     the link id associated to the query which results have
+ *                                to be displayed
+ * @param array   &$the_disp_mode the display mode
+ * @param array   $analyzed_sql   the analyzed query
  *
  * @global  string   $db                the database name
  * @global  string   $table             the table name
@@ -2175,12 +2179,15 @@ function PMA_displayTable_checkConfigParams()
  *                                      mode
  * @global  array    $highlight_columns column names to highlight
  * @global  array    $cfgRelation       the relation settings
+ * @global  array    $showtable         table definitions
  *
  * @access  private
  *
  * @see     PMA_showMessage(), PMA_setDisplayMode(),
  *          PMA_displayTableNavigation(), PMA_displayTableHeaders(),
  *          PMA_displayTableBody(), PMA_displayResultsOperations()
+ *
+ * @return nothing
  */
 function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 {
@@ -2527,8 +2534,8 @@ function default_function($buffer)
 /**
  * Displays operations that are available on results.
  *
- * @param array   the display mode
- * @param array   the analyzed query
+ * @param array $the_disp_mode the display mode
+ * @param array $analyzed_sql  the analyzed query
  *
  * @global  string   $db                the database name
  * @global  string   $table             the table name
@@ -2542,6 +2549,8 @@ function default_function($buffer)
  * @see     PMA_showMessage(), PMA_setDisplayMode(),
  *          PMA_displayTableNavigation(), PMA_displayTableHeaders(),
  *          PMA_displayTableBody(), PMA_displayResultsOperations()
+ *
+ * @return nothing
  */
 function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql)
 {
@@ -2683,6 +2692,8 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql)
  * @param string $transform_options  transformation parameters
  * @param string $default_function   default transformation function
  * @param object $meta               the meta-information about this field
+ * @param array  $url_params         parameters that should go to the download link
+ *
  * @return  mixed  string or float
  */
 function PMA_handle_non_printable_contents($category, $content, $transform_function, $transform_options, $default_function, $meta, $url_params = array())
@@ -2723,17 +2734,19 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
  * Prepares the displayable content of a data cell in Browse mode,
  * taking into account foreign key description field and transformations
  *
- * @param string $class
- * @param string $condition_field
- * @param string $analyzed_sql
- * @param object $meta   the meta-information about this field
- * @param string $map
- * @param string $data
- * @param string $transform_function
- * @param string $default_function
- * @param string $nowrap
- * @param string $where_comparison
- * @param bool   $is_field_truncated
+ * @param string $class              css classes for the td element
+ * @param bool   $condition_field    whether the column is a part of the where clause
+ * @param string $analyzed_sql       the analyzed query
+ * @param object $meta               the meta-information about this field
+ * @param array  $map                the list of relations
+ * @param string $data               data
+ * @param string $transform_function transformation function
+ * @param string $default_function   default function
+ * @param string $nowrap             'nowrap' if the content should not be wrapped
+ * @param string $where_comparison   data for the where cluase
+ * @param array  $transform_options  array of options for transformation
+ * @param bool   $is_field_truncated whether the field is truncated
+ *
  * @return  string  formatted data
  */
 function PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $map, $data, $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated )
@@ -2825,13 +2838,15 @@ function PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $m
 /**
  * Generates a checkbox for multi-row submits
  *
- * @param string $del_url
- * @param array  $is_display
- * @param string $row_no
- * @param string $where_clause_html
- * @param string $del_query
- * @param string $id_suffix
- * @param string $class
+ * @param string $del_url           delete url
+ * @param array  $is_display        array with explicit indexes for all the display elements
+ * @param string $row_no            the row number
+ * @param string $where_clause_html url encoded where cluase
+ * @param array  $condition_array   array of conditions in the where cluase
+ * @param string $del_query         delete query
+ * @param string $id_suffix         suffix for the id
+ * @param string $class             css classes for the td element
+ *
  * @return  string  the generated HTML
  */
 
@@ -2856,11 +2871,12 @@ function PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_cla
 /**
  * Generates an Edit link
  *
- * @param string $edit_url
- * @param string $class
- * @param string $edit_str
- * @param string $where_clause
- * @param string $where_clause_html
+ * @param string $edit_url          edit url
+ * @param string $class             css classes for td element
+ * @param string $edit_str          text for the edit link
+ * @param string $where_clause      where cluase
+ * @param string $where_clause_html url encoded where cluase
+ *
  * @return  string  the generated HTML
  */
 function PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $where_clause_html)
@@ -2884,10 +2900,12 @@ function PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $wher
 /**
  * Generates an Copy link
  *
- * @param string $copy_url
- * @param string $copy_str
- * @param string $where_clause
- * @param string $where_clause_html
+ * @param string $copy_url          copy url
+ * @param string $copy_str          text for the copy link
+ * @param string $where_clause      where clause
+ * @param string $where_clause_html url encoded where cluase
+ * @param string $class             css classes for the td element
+ *
  * @return  string  the generated HTML
  */
 function PMA_generateCopyLink($copy_url, $copy_str, $where_clause, $where_clause_html, $class)
@@ -2915,10 +2933,11 @@ function PMA_generateCopyLink($copy_url, $copy_str, $where_clause, $where_clause
 /**
  * Generates a Delete link
  *
- * @param string $del_url
- * @param string $del_str
- * @param string $js_conf
- * @param string $class
+ * @param string $del_url delete url
+ * @param string $del_str text for the delete link
+ * @param string $js_conf text for the JS confirmation
+ * @param string $class   css classes for the td element
+ *
  * @return  string  the generated HTML
  */
 function PMA_generateDeleteLink($del_url, $del_str, $js_conf, $class)
@@ -2940,20 +2959,23 @@ function PMA_generateDeleteLink($del_url, $del_str, $js_conf, $class)
  * Generates checkbox and links at some position (left or right)
  * (only called for horizontal mode)
  *
- * @param string $position
- * @param string $del_url
- * @param array  $is_display
- * @param string $row_no
- * @param string $where_clause
- * @param string $where_clause_html
- * @param string $del_query
- * @param string $id_suffix
- * @param string $edit_url
- * @param string $copy_url
- * @param string $class
- * @param string $edit_str
- * @param string $del_str
- * @param string $js_conf
+ * @param string $position          the position of the checkbox and links
+ * @param string $del_url           delete url
+ * @param array  $is_display        array with explicit indexes for all the display elements
+ * @param string $row_no            row number
+ * @param string $where_clause      where clause
+ * @param string $where_clause_html url encoded where cluase
+ * @param array  $condition_array   array of conditions in the where cluase
+ * @param string $del_query         delete query
+ * @param string $id_suffix         suffix for the id
+ * @param string $edit_url          edit url
+ * @param string $copy_url          copy url
+ * @param string $class             css classes for the td elements
+ * @param string $edit_str          text for the edit link
+ * @param string $copy_str          text for the copy link
+ * @param string $del_str           text for the delete link
+ * @param string $js_conf           text for the JS confirmation
+ *
  * @return  string  the generated HTML
  */
 function PMA_generateCheckboxAndLinks($position, $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $condition_array, $del_query, $id_suffix, $edit_url, $copy_url, $class, $edit_str, $copy_str, $del_str, $js_conf)
