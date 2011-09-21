@@ -822,7 +822,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
     }
 
     if ($GLOBALS['cfgRelation']['commwork'] && $GLOBALS['cfgRelation']['mimework'] && $GLOBALS['cfg']['BrowseMIME'] && ! $_SESSION['tmp_user_values']['hide_transformation']) {
-        require_once './libraries/transformations.lib.php';
+        include_once './libraries/transformations.lib.php';
         $GLOBALS['mime_map'] = PMA_getMIME($db, $table);
     }
 
@@ -1511,7 +1511,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                     if (file_exists('./libraries/transformations/' . $include_file)) {
                         $transformfunction_name = str_replace('.inc.php', '', $GLOBALS['mime_map'][$meta->name]['transformation']);
 
-                        require_once './libraries/transformations/' . $include_file;
+                        include_once './libraries/transformations/' . $include_file;
 
                         if (function_exists('PMA_transformation_' . $transformfunction_name)) {
                             $transform_function = 'PMA_transformation_' . $transformfunction_name;
@@ -2280,7 +2280,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
             // check for non printable sorted row data
             $meta = $fields_meta[$sorted_column_index];
             if (stristr($meta->type, 'BLOB') || $meta->type == 'geometry') {
-                $column_for_first_row = PMA_handle_non_printable_contents($meta->type, $row[$sorted_column_index], $transform_function, $transform_options, $default_function, $meta, NULL);
+                $column_for_first_row = PMA_handle_non_printable_contents($meta->type, $row[$sorted_column_index], $transform_function, $transform_options, $default_function, $meta, null);
             } else {
                 $column_for_first_row = $row[$sorted_column_index];
             }
@@ -2291,7 +2291,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
             // check for non printable sorted row data
             $meta = $fields_meta[$sorted_column_index];
             if (stristr($meta->type, 'BLOB') || $meta->type == 'geometry') {
-                $column_for_last_row = PMA_handle_non_printable_contents($meta->type, $row[$sorted_column_index], $transform_function, $transform_options, $default_function, $meta, NULL);
+                $column_for_last_row = PMA_handle_non_printable_contents($meta->type, $row[$sorted_column_index], $transform_function, $transform_options, $default_function, $meta, null);
             } else {
                 $column_for_last_row = $row[$sorted_column_index];
             }
@@ -2392,7 +2392,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     $target=array();
     if (isset($analyzed_sql[0]['table_ref']) && is_array($analyzed_sql[0]['table_ref'])) {
         foreach ($analyzed_sql[0]['table_ref'] AS $table_ref_position => $table_ref) {
-           $target[] = $analyzed_sql[0]['table_ref'][$table_ref_position]['table_true_name'];
+            $target[] = $analyzed_sql[0]['table_ref'][$table_ref_position]['table_true_name'];
         }
     }
     $tabs    = '(\'' . join('\',\'', $target) . '\')';
@@ -2613,7 +2613,7 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql)
         if (empty($_url_params['table']) && !empty($_url_params['db'])) {
             $_url_params['table'] = PMA_DBI_fetch_value("SHOW TABLES");
             /* No result (probably no database selected) */
-            if ($_url_params['table'] === FALSE) {
+            if ($_url_params['table'] === false) {
                 unset($_url_params['table']);
             }
         }
