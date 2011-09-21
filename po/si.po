@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-21 08:31+0200\n"
+"PO-Revision-Date: 2011-09-21 08:32+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -11196,9 +11196,8 @@ msgid "Save to file"
 msgstr "ගොනුවකට සුරකින්න"
 
 #: tbl_gis_visualization.php:178
-#, fuzzy
 msgid "File name"
-msgstr "වගුවේ නම"
+msgstr "ගොනුවේ නම"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
