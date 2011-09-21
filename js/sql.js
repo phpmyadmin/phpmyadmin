@@ -95,7 +95,7 @@ $(document).ready(function() {
      */
     $("#sqlqueryresults").live('makegrid', function() {
         PMA_makegrid($('#table_results')[0]);
-    })
+    });
 
     /**
      * Append the "Show/Hide query box" message to the query input form
@@ -114,7 +114,7 @@ $(document).ready(function() {
 
         // Attach the toggling of the query box visibility to a click
         $("#togglequerybox").bind('click', function() {
-            var $link = $(this)
+            var $link = $(this);
             $link.siblings().slideToggle("fast");
             if ($link.text() == PMA_messages['strHideQueryBox']) {
                 $link.text(PMA_messages['strShowQueryBox']);
@@ -127,7 +127,7 @@ $(document).ready(function() {
             }
             // avoid default click action
             return false;
-        })
+        });
     }
 
     /**
@@ -226,7 +226,7 @@ $(document).ready(function() {
                 }
                 // delete
                 if ('2' == data.action_bookmark) {
-                    $("#id_bookmark option[value='" + data.id_bookmark . "']").remove();
+                    $("#id_bookmark option[value='" + data.id_bookmark + "']").remove();
                 }
                 // fade out previous messages, if any
                 $('.success').fadeOut();
@@ -235,8 +235,8 @@ $(document).ready(function() {
                 $('#sqlqueryform').before(data.message);
             }
             PMA_ajaxRemoveMessage($msgbox);
-        }) // end $.post()
-    }) // end SQL Query submit
+        }); // end $.post()
+    }); // end SQL Query submit
 
     /**
      * Ajax Event handlers for Paginating the results table
@@ -270,8 +270,8 @@ $(document).ready(function() {
             PMA_init_slider();
 
             PMA_ajaxRemoveMessage($msgbox);
-        }) // end $.post()
-    })// end Paginate results table
+        }); // end $.post()
+    }); // end Paginate results table
 
     /**
      * Paginate results with Page Selector dropdown
@@ -293,12 +293,12 @@ $(document).ready(function() {
                  .trigger('makegrid');
                 PMA_init_slider();
                 PMA_ajaxRemoveMessage($msgbox);
-            }) // end $.post()
+            }); // end $.post()
         } else {
             $form.submit();
         }
 
-    })// end Paginate results with Page Selector
+    }); // end Paginate results with Page Selector
 
     /**
      * Ajax Event handler for sorting the results table
@@ -318,8 +318,8 @@ $(document).ready(function() {
              .html(data)
              .trigger('makegrid');
             PMA_ajaxRemoveMessage($msgbox);
-        }) // end $.get()
-    })//end Sort results table
+        }); // end $.get()
+    }); //end Sort results table
 
     /**
      * Ajax Event handler for the display options
@@ -337,9 +337,8 @@ $(document).ready(function() {
              .html(data)
              .trigger('makegrid');
             PMA_init_slider();
-        }) // end $.post()
-    })
-    //end displayOptionsForm handler
+        }); // end $.post()
+    }); //end displayOptionsForm handler
 
 /**
  * Ajax Event for table row change
@@ -357,10 +356,10 @@ $(document).ready(function() {
              */
             var button_options = {};
             // in the following function we need to use $(this)
-            button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove();}
+            button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove();};
 
             var button_options_error = {};
-            button_options_error[PMA_messages['strOK']] = function() {$(this).dialog('close').remove();}
+            button_options_error[PMA_messages['strOK']] = function() {$(this).dialog('close').remove();};
             var $form = $("#resultsForm");
             var $msgbox = PMA_ajaxShowMessage();
 
@@ -378,7 +377,7 @@ $(document).ready(function() {
                             $('#change_row_dialog').remove();
                         },
                         buttons : button_options_error
-                    })// end dialog options
+                    }); // end dialog options
                 } else {
                     div
                     .append(data)
@@ -399,7 +398,7 @@ $(document).ready(function() {
                     $("#buttonYes").addClass("ajax");
                 }
                 PMA_ajaxRemoveMessage($msgbox);
-            }) // end $.get()
+            }); // end $.get()
         } else {
             PMA_ajaxShowMessage(PMA_messages['strNoRowSelected']);
         }
@@ -442,8 +441,8 @@ $(document).ready(function() {
             $("#sqlqueryresults").prepend(data.sql_query);
             $("#result_query .notice").remove();
             $("#result_query").prepend((data.message));
-        }) // end $.post()
-    }) // end insert table button "Go"
+        }); // end $.post()
+    }); // end insert table button "Go"
 
 /**$("#buttonYes.ajax").live('click'
  * Click action for #buttonYes button in ajax dialog insertForm
@@ -496,10 +495,10 @@ $(document).ready(function() {
             if ($("#change_row_dialog").length > 0) {
                 $("#change_row_dialog").dialog("close").remove();
             }
-        }) // end $.post()
+        }); // end $.post()
     });
 
-}, 'top.frame_content') // end $(document).ready()
+}, 'top.frame_content'); // end $(document).ready()
 
 
 /**

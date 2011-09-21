@@ -9,6 +9,11 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+// Drizzle does not suppost GIS data types
+if (PMA_DRIZZLE) {
+    return;
+}
+
 if (isset($plugin_list)) {
     $plugin_list['shp'] = array(
         'text' => __('ESRI Shape File'),

@@ -668,14 +668,16 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         PMA_display_html_checkbox('hide_transformation', __('Hide') . ' ' . __('Browser transformation'), ! empty($_SESSION['tmp_user_values']['hide_transformation']), false);
         echo '</div>';
 
-        echo '<div class="formelement">';
-        $choices = array(
-            'GEOM'  => __('Geometry'),
-            'WKT'   => __('Well Known Text'),
-            'WKB'   => __('Well Known Binary')
-        );
-        PMA_display_html_radio('geometry_display', $choices, $_SESSION['tmp_user_values']['geometry_display']);
-        echo '</div>';
+        if (! PMA_DRIZZLE) {
+            echo '<div class="formelement">';
+            $choices = array(
+                'GEOM'  => __('Geometry'),
+                'WKT'   => __('Well Known Text'),
+                'WKB'   => __('Well Known Binary')
+            );
+            PMA_display_html_radio('geometry_display', $choices, $_SESSION['tmp_user_values']['geometry_display']);
+            echo '</div>';
+        }
 
         echo '<div class="clearfloat"></div>';
         echo '</fieldset>';
