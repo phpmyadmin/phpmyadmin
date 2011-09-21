@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-21 08:35+0200\n"
+"PO-Revision-Date: 2011-09-21 08:44+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7266,10 +7266,9 @@ msgid "Event scheduler status"
 msgstr "සිද්ධි නියමකාරනියේ තත්වය"
 
 #: libraries/rte/rte_list.lib.php:54
-#, fuzzy
 #| msgid "Table options"
 msgid "Returns"
-msgstr "වගු විකල්ප"
+msgstr "ප්‍රතිදානය"
 
 #: libraries/rte/rte_list.lib.php:63 libraries/rte/rte_triggers.lib.php:340
 msgid "Event"
