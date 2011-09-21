@@ -12830,7 +12830,7 @@ msgstr "Alltför många anslutningar avbryts."
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
-msgstr "Andelen avbrutna anslutningar är &2, det bör vara mindre än 1 per timme"
+msgstr "Andelen avbrutna anslutningar är %s, det bör vara mindre än 1 per timme"
 
 #: po/advisory_rules.php:240
 #| msgid "Format of imported file"
