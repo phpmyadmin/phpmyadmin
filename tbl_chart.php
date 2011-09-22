@@ -35,19 +35,19 @@ $GLOBALS['js_include'][] = 'canvg/canvg.js';
 if (strlen($GLOBALS['table'])) {
     $url_params['goto'] = $cfg['DefaultTabTable'];
     $url_params['back'] = 'tbl_sql.php';
-    require './libraries/tbl_common.php';
-    require './libraries/tbl_info.inc.php';
-    require './libraries/tbl_links.inc.php';
+    include './libraries/tbl_common.php';
+    include './libraries/tbl_info.inc.php';
+    include './libraries/tbl_links.inc.php';
 } elseif (strlen($GLOBALS['db'])) {
     $url_params['goto'] = $cfg['DefaultTabDatabase'];
     $url_params['back'] = 'sql.php';
-    require './libraries/db_common.inc.php';
-    require './libraries/db_info.inc.php';
+    include './libraries/db_common.inc.php';
+    include './libraries/db_info.inc.php';
 } else {
     $url_params['goto'] = $cfg['DefaultTabServer'];
     $url_params['back'] = 'sql.php';
-    require './libraries/server_common.inc.php';
-    require './libraries/server_links.inc.php';
+    include './libraries/server_common.inc.php';
+    include './libraries/server_links.inc.php';
 }
 
 /*

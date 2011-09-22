@@ -163,7 +163,7 @@ if (isset($_REQUEST['do_save_data'])) {
 
     if ($result === true) {
         // If comments were sent, enable relation stuff
-        require_once './libraries/transformations.lib.php';
+        include_once './libraries/transformations.lib.php';
 
         // Update comment table for mime types [MIME]
         if (isset($_REQUEST['field_mimetype'])
@@ -191,7 +191,7 @@ if (isset($_REQUEST['do_save_data'])) {
         }
 
         $active_page = 'tbl_structure.php';
-        require './tbl_structure.php';
+        include './tbl_structure.php';
     } else {
         PMA_mysqlDie('', '', '', $err_url, false);
         // An error happened while inserting/updating a table definition.
@@ -215,21 +215,21 @@ if ($abort == false) {
     /**
      * Gets tables informations
      */
-    require_once './libraries/tbl_common.php';
-    require_once './libraries/tbl_info.inc.php';
+    include_once './libraries/tbl_common.php';
+    include_once './libraries/tbl_info.inc.php';
     /**
      * Displays top menu links
      */
     $active_page = 'tbl_structure.php';
-    require_once './libraries/tbl_links.inc.php';
+    include_once './libraries/tbl_links.inc.php';
     /**
      * Display the form
      */
     $action = 'tbl_addfield.php';
-    require_once './libraries/tbl_properties.inc.php';
+    include_once './libraries/tbl_properties.inc.php';
 
     // Diplays the footer
-    require './libraries/footer.inc.php';
+    include './libraries/footer.inc.php';
 }
 
 ?>

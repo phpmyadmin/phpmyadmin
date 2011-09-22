@@ -134,7 +134,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
                         case 'cpu':
                             if (!$sysinfo) {
-                                require_once 'libraries/sysinfo.lib.php';
+                                include_once 'libraries/sysinfo.lib.php';
                                 $sysinfo = getSysInfo();
                             }
                             if (!$cpuload) {
@@ -151,7 +151,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
                         case 'memory':
                             if (!$sysinfo) {
-                                require_once 'libraries/sysinfo.lib.php';
+                                include_once 'libraries/sysinfo.lib.php';
                                 $sysinfo = getSysInfo();
                             }
                             if (!$memory) {
@@ -404,8 +404,8 @@ if (PMA_DRIZZLE) {
     $server_master_status = false;
     $server_slave_status = false;
 } else {
-    require './libraries/replication.inc.php';
-    require_once './libraries/replication_gui.lib.php';
+    include './libraries/replication.inc.php';
+    include_once './libraries/replication_gui.lib.php';
 }
 
 /**

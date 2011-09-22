@@ -21,9 +21,9 @@ require_once './libraries/db_table_exists.lib.php';
 
 // load additional configuration variables
 if (PMA_DRIZZLE) {
-    require_once './libraries/data_drizzle.inc.php';
+    include_once './libraries/data_drizzle.inc.php';
 } else {
-    require_once './libraries/data_mysql.inc.php';
+    include_once './libraries/data_mysql.inc.php';
 }
 
 /**
@@ -187,7 +187,7 @@ if (isset($where_clause)) {
             unset($rows[$key_id], $where_clause_array[$key_id]);
             PMA_showMessage(__('MySQL returned an empty result set (i.e. zero rows).'), $local_query);
             echo "\n";
-            require './libraries/footer.inc.php';
+            include './libraries/footer.inc.php';
         } else { // end if (no row returned)
             $meta = PMA_DBI_get_fields_meta($result[$key_id]);
             list($unique_condition, $tmp_clause_is_unique) = PMA_getUniqueCondition($result[$key_id], count($meta), $meta, $rows[$key_id], true);

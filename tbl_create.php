@@ -197,7 +197,7 @@ if (isset($_REQUEST['do_save_data'])) {
     if ($result) {
 
         // If comments were sent, enable relation stuff
-        require_once './libraries/transformations.lib.php';
+        include_once './libraries/transformations.lib.php';
 
         // Update comment table for mime types [MIME]
         if (isset($_REQUEST['field_mimetype'])
@@ -314,13 +314,13 @@ if (isset($_REQUEST['do_save_data'])) {
         // read table info on this newly created table, in case
         // the next page is Structure
         $reread_info = true;
-        require './libraries/tbl_info.inc.php';
+        include './libraries/tbl_info.inc.php';
 
         // do not switch to sql.php - as there is no row to be displayed on a new table
         if ($cfg['DefaultTabTable'] === 'sql.php') {
-            require './tbl_structure.php';
+            include './tbl_structure.php';
         } else {
-            require './' . $cfg['DefaultTabTable'];
+            include './' . $cfg['DefaultTabTable'];
         }
         exit;
     } else {

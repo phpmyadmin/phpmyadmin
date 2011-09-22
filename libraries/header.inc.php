@@ -39,7 +39,7 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
         /**
          * Gets a core script and starts output buffering work
          */
-        require_once './libraries/ob.lib.php';
+        include_once './libraries/ob.lib.php';
         PMA_outBufferPre();
 
         // if database storage for user preferences is transient, offer to load
@@ -54,9 +54,9 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
         // to a seperate file. It can now be included by header.inc.php,
         // querywindow.php.
 
-        require_once './libraries/header_http.inc.php';
-        require_once './libraries/header_meta_style.inc.php';
-        require_once './libraries/header_scripts.inc.php';
+        include_once './libraries/header_http.inc.php';
+        include_once './libraries/header_meta_style.inc.php';
+        include_once './libraries/header_scripts.inc.php';
         ?>
         <meta name="OBGZip" content="<?php echo ($GLOBALS['cfg']['OBGzip'] ? 'true' : 'false'); ?>" />
         <?php /* remove vertical scroll bar bug in ie */ ?>
@@ -76,7 +76,7 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
 
         // Include possible custom headers
         if (file_exists(CUSTOM_HEADER_FILE)) {
-            require CUSTOM_HEADER_FILE;
+            include CUSTOM_HEADER_FILE;
         }
 
 
@@ -89,7 +89,7 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
 
         // offer to load user preferences from localStorage
         if ($userprefs_offer_import) {
-            require_once './libraries/user_preferences.lib.php';
+            include_once './libraries/user_preferences.lib.php';
             PMA_userprefs_autoload_header();
         }
 
@@ -148,7 +148,7 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
                     // if the table is being dropped, $_REQUEST['purge'] is set to '1'
                     // so do not display the table name in upper div
                     if (strlen($GLOBALS['table']) && ! (isset($_REQUEST['purge']) && $_REQUEST['purge'] == '1')) {
-                        require_once './libraries/tbl_info.inc.php';
+                        include_once './libraries/tbl_info.inc.php';
 
                         echo $separator;
                         printf($item,
@@ -179,7 +179,7 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
                         /**
                          * Settings for relations stuff
                          */
-                        require_once './libraries/relation.lib.php';
+                        include_once './libraries/relation.lib.php';
                         $cfgRelation = PMA_getRelationsParam();
 
                         // Get additional information about tables for tooltip is done
@@ -208,7 +208,7 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
 } //end if (!$GLOBALS['is_ajax_request'])
 else {
     if (empty($GLOBALS['is_header_sent'])) {
-        require_once './libraries/header_http.inc.php';
+        include_once './libraries/header_http.inc.php';
         $GLOBALS['is_header_sent'] = true;
     }
 }
