@@ -776,7 +776,7 @@ msgstr "이 테이블에 대한 추적 데이터를 제거"
 
 #: db_tracking.php:119 tbl_tracking.php:590 tbl_tracking.php:648
 msgid "active"
-msgstr ""
+msgstr "활성"
 
 #: db_tracking.php:121 tbl_tracking.php:592 tbl_tracking.php:650
 msgid "not active"
