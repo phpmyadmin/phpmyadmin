@@ -12539,7 +12539,7 @@ msgstr "ファイルを開く割合が高いです。"
 #: po/advisory_rules.php:193
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr "ファイルを開く割合：%s。1 時間当たり 5 未満がいいと言われています。"
+msgstr "ファイルを開く割合：%s。この値は、1 時間当たり 5 未満がいいと言われています。"
 
 #: po/advisory_rules.php:195
 #, fuzzy, php-format
