@@ -12699,10 +12699,9 @@ msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 
 #: po/advisory_rules.php:235
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Rate of aborted connections"
-msgstr "永続的な接続"
+msgstr "中断された接続の割合"
 
 #: po/advisory_rules.php:236
 msgid "Too many connections are aborted"
