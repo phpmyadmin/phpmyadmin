@@ -524,11 +524,11 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "\"<i>%s</i>\"의 검색 결과 %s:"
 
 #: db_search.php:226
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s 건 일치 (테이블 <i>%s</i>)"
+msgstr[0] "테이블 <i>%s</i>에서 %s 건 일치"
 
 #: db_search.php:233 libraries/common.lib.php:3038
 #: libraries/common.lib.php:3245 libraries/common.lib.php:3246
