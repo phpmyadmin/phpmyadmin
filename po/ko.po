@@ -780,7 +780,7 @@ msgstr "활성"
 
 #: db_tracking.php:121 tbl_tracking.php:592 tbl_tracking.php:650
 msgid "not active"
-msgstr ""
+msgstr "비활성"
 
 #: db_tracking.php:134
 #, fuzzy
