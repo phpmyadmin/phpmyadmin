@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-22 11:09+0200\n"
+"PO-Revision-Date: 2011-09-22 11:10+0200\n"
 "Last-Translator:  <deminoth@naver.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -540,7 +540,7 @@ msgstr "보기"
 #, php-format
 #| msgid "Dumping data for table"
 msgid "Delete the matches for the %s table?"
-msgstr "테이블 %s에 대하여 일치하는 것을 삭제 하겠습니까?"
+msgstr "테이블 %s에 대하여 일치하는 것들을 삭제 하겠습니까?"
 
 #: db_search.php:238 libraries/display_tbl.lib.php:1364
 #: libraries/display_tbl.lib.php:2354
