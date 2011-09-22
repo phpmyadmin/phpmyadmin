@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-22 11:49+0200\n"
+"PO-Revision-Date: 2011-09-22 11:50+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -12242,6 +12242,8 @@ msgstr "Efficacité de la cache de requêtes (%)"
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr ""
+"La cache de requêtes ne fonctionne pas efficacement, son taux de réussite "
+"est bas."
 
 #: po/advisory_rules.php:82
 msgid "Consider increasing {query_cache_limit}."
