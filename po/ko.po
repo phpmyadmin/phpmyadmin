@@ -788,7 +788,7 @@ msgstr "버전"
 
 #: db_tracking.php:135 tbl_tracking.php:400 tbl_tracking.php:668
 msgid "Tracking report"
-msgstr ""
+msgstr "추적 보고서"
 
 #: db_tracking.php:136 tbl_tracking.php:235 tbl_tracking.php:670
 #, fuzzy
