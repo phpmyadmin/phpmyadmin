@@ -809,7 +809,7 @@ msgstr "데이터베이스 로그"
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:754
 #, php-format
 msgid "Values for the column \"%s\""
-msgstr ""
+msgstr "\"%s\" 열의 값"
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:755
 msgid "Enter each value in a separate field."
