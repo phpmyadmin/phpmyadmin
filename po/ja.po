@@ -12683,7 +12683,7 @@ msgstr "中断された接続の割合"
 
 #: po/advisory_rules.php:231
 msgid "Too many connections are aborted."
-msgstr "中断されている接続が多いです。"
+msgstr "中断された接続が多いです。"
 
 #: po/advisory_rules.php:232 po/advisory_rules.php:237
 msgid ""
