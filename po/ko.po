@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-22 11:24+0200\n"
+"PO-Revision-Date: 2011-09-22 11:25+0200\n"
 "Last-Translator:  <deminoth@naver.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -812,8 +812,9 @@ msgid "Values for the column \"%s\""
 msgstr "\"%s\" 열의 값"
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:755
+#, fuzzy
 msgid "Enter each value in a separate field."
-msgstr ""
+msgstr "각각의 필드에 값을 입력하세요"
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
