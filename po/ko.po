@@ -833,7 +833,7 @@ msgstr "\"길이/값\" 필드로 결합된 값을 복사하여 붙여넣으세�
 #, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "질의 종류"
+msgstr "잘못된 타입!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
