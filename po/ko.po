@@ -791,9 +791,8 @@ msgid "Tracking report"
 msgstr "추적 보고서"
 
 #: db_tracking.php:136 tbl_tracking.php:235 tbl_tracking.php:670
-#, fuzzy
 msgid "Structure snapshot"
-msgstr "구조만"
+msgstr "구조 요약"
 
 #: db_tracking.php:181
 msgid "Untracked tables"
