@@ -12256,9 +12256,8 @@ msgstr ""
 "Le taux actuel de réussite de la cache de requêtes (%s%%) est sous les 20%%"
 
 #: po/advisory_rules.php:85
-#, fuzzy
 msgid "Query Cache usage"
-msgstr "Cache des requêtes"
+msgstr "Utilisation de la cache des requêtes"
 
 #: po/advisory_rules.php:86
 #, php-format
