@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-22 11:27+0200\n"
+"PO-Revision-Date: 2011-09-22 11:28+0200\n"
 "Last-Translator:  <deminoth@naver.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -837,7 +837,7 @@ msgstr "잘못된 타입!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
-msgstr ""
+msgstr "선택한 내보내기가 파일에 저장되었습니다!"
 
 #: export.php:106
 #, fuzzy
