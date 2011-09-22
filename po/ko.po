@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-22 11:06+0200\n"
+"PO-Revision-Date: 2011-09-22 11:08+0200\n"
 "Last-Translator:  <deminoth@naver.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -415,10 +415,10 @@ msgid "You have to choose at least one column to display"
 msgstr "출력하려면 적어도 1개 이상의 열(칼럼)을 선택해야 합니다."
 
 #: db_qbe.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "Switch to copied table"
 msgid "Switch to %svisual builder%s"
-msgstr "복사한 테이블로 옮겨감"
+msgstr "%s비주얼 쿼리 빌더%s로 전환"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:957
