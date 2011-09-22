@@ -803,9 +803,8 @@ msgid "Track table"
 msgstr "테이블 추적"
 
 #: db_tracking.php:229
-#, fuzzy
 msgid "Database Log"
-msgstr "데이터베이스"
+msgstr "데이터베이스 로그"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:754
 #, php-format
