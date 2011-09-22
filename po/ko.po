@@ -664,7 +664,7 @@ msgstr "모두 체크안함"
 
 #: db_structure.php:544
 msgid "Check tables having overhead"
-msgstr ""
+msgstr "오버헤드를 가진 테이블들을 체크"
 
 #: db_structure.php:552 libraries/common.lib.php:3258
 #: libraries/common.lib.php:3259 libraries/config/messages.inc.php:164
