@@ -354,7 +354,7 @@ msgstr "phpMyAdmin 설정 스토리지가 비활성화 되어 있습니다. 원�
 
 #: db_operations.php:589
 msgid "Edit or export relational schema"
-msgstr ""
+msgstr "관계 스키마를 수정 또는 내보내기"
 
 #: db_printview.php:101 db_tracking.php:85 db_tracking.php:186
 #: libraries/config/messages.inc.php:504 libraries/db_structure.lib.php:32
