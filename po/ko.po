@@ -840,10 +840,9 @@ msgid "Selected export type has to be saved in file!"
 msgstr "선택한 내보내기가 파일에 저장되었습니다!"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Bad parameters!"
-msgstr "데이터베이스 이름 변경"
+msgstr "잘못된 인자!"
 
 #: export.php:166 export.php:191 export.php:652
 #, php-format
