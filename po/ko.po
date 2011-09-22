@@ -822,7 +822,7 @@ msgstr ""
 
 #: enum_editor.php:67 gis_data_editor.php:317
 msgid "Output"
-msgstr ""
+msgstr "출력"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
