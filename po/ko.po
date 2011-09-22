@@ -847,7 +847,7 @@ msgstr "잘못된 인자!"
 #: export.php:166 export.php:191 export.php:652
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr ""
+msgstr "파일 %s를 저장하기에 공간이 부족합니다."
 
 #: export.php:307
 #, php-format
