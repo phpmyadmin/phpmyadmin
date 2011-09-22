@@ -588,7 +588,6 @@ msgid "Inside column:"
 msgstr "검색할 컬럼:"
 
 #: db_structure.php:67
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
 msgstr "데이터베이스에 테이블이 없습니다."
