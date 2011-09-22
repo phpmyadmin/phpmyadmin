@@ -853,9 +853,7 @@ msgstr "파일 %s를 저장하기에 공간이 부족합니다."
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
-msgstr ""
-"%s 라는 이름의 파일이 이미 서버에 존재합니다. 파일명을 변경하거나 덮어쓰기 옵"
-"션을 설정해주세요."
+msgstr "%s 라는 이름의 파일이 이미 서버에 존재합니다. 파일명을 변경하거나 덮어쓰기 옵션을 설정해주세요."
 
 #: export.php:311 export.php:315
 #, php-format
