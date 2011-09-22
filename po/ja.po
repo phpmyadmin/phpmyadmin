@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-22 12:24+0200\n"
+"PO-Revision-Date: 2011-09-22 12:26+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6759,7 +6759,7 @@ msgstr "ESRI シェープファイルをインポート中にエラーがあり�
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data"
-msgstr ""
+msgstr "無効なファイルもしくは無効なデータが含まれているファイルをインポートしようとしました。"
 
 #: libraries/import/shp.php:333
 #, php-format
