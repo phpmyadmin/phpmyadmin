@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-22 11:10+0200\n"
+"PO-Revision-Date: 2011-09-22 11:11+0200\n"
 "Last-Translator:  <deminoth@naver.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -579,10 +579,9 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "단어는 스페이스(\" \")로 구분됩니다."
 
 #: db_search.php:299
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
-msgstr "찾을 테이블:"
+msgstr "검색할 테이블:"
 
 #: db_search.php:329
 msgid "Inside column:"
