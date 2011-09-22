@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-22 12:35+0200\n"
+"PO-Revision-Date: 2011-09-22 12:42+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12696,7 +12696,7 @@ msgstr ""
 #: po/advisory_rules.php:233
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
-msgstr ""
+msgstr "全接続のうち %s%% が中断されています。この値は、1%% 未満がいいと言われています。"
 
 #: po/advisory_rules.php:235
 #| msgid "Persistent connections"
