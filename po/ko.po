@@ -566,7 +566,6 @@ msgid "Search in database"
 msgstr "데이터베이스 검색"
 
 #: db_search.php:276
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "찾을 단어, 값 (와일드카드: \"%\"):"
