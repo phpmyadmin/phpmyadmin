@@ -12311,7 +12311,7 @@ msgstr ""
 msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
-msgstr "決まった位置を読み込む割合の平均：%s。1 時間当たり 1 未満がいいと言われています。"
+msgstr "決まった位置を読み込む割合の平均：%s。この値は、1 時間当たり 1 未満がいいと言われています。"
 
 #: po/advisory_rules.php:140
 msgid "Rate of reading next table row"
