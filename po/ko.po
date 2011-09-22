@@ -799,9 +799,8 @@ msgid "Untracked tables"
 msgstr "추적되지 않은 테이블"
 
 #: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:638
-#, fuzzy
 msgid "Track table"
-msgstr "테이블 검사"
+msgstr "테이블 추적"
 
 #: db_tracking.php:229
 #, fuzzy
