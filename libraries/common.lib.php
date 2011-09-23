@@ -2637,7 +2637,7 @@ function PMA_toggleButton($action, $select_name, $options, $callback)
     }
     // Generate output
     $retval  = "<!-- TOGGLE START -->\n";
-    if ($GLOBALS['cfg']['AjaxEnable']) {
+    if ($GLOBALS['cfg']['AjaxEnable'] && is_readable($_SESSION['PMA_Theme']->getImgPath() . 'toggle-ltr.png')) {
         $retval .= "<noscript>\n";
     }
     $retval .= "<div class='wrapper'>\n";
@@ -2653,7 +2653,7 @@ function PMA_toggleButton($action, $select_name, $options, $callback)
     $retval .= "        <input type='submit' value='" . __('Change') . "'/>\n";
     $retval .= "    </form>\n";
     $retval .= "</div>\n";
-    if ($GLOBALS['cfg']['AjaxEnable']) {
+    if ($GLOBALS['cfg']['AjaxEnable'] && is_readable($_SESSION['PMA_Theme']->getImgPath() . 'toggle-ltr.png')) {
         $retval .= "</noscript>\n";
         $retval .= "<div class='wrapper toggleAjax hide'>\n";
         $retval .= "    <div class='toggleButton'>\n";
