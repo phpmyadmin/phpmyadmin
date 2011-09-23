@@ -29,9 +29,9 @@ require_once './libraries/Partition.class.php';
 
 // load additional configuration variables
 if (PMA_DRIZZLE) {
-    require_once './libraries/data_drizzle.inc.php';
+    include_once './libraries/data_drizzle.inc.php';
 } else {
-    require_once './libraries/data_mysql.inc.php';
+    include_once './libraries/data_mysql.inc.php';
 }
 
 if (is_int($cfg['DefaultPropDisplay'])) {

@@ -105,8 +105,8 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
         }
         if (!$all_ok) {
             // mimic original form and post json in a hidden field
-            require './libraries/header.inc.php';
-            require './libraries/user_preferences.inc.php';
+            include './libraries/header.inc.php';
+            include './libraries/user_preferences.inc.php';
             $msg = PMA_Message::error(__('Configuration contains incorrect data for some fields.'));
             $msg->display();
             echo '<div class="config-form">';
@@ -128,7 +128,7 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
                 <input type="submit" name="submit_ignore" value="<?php echo __('No') ?>" />
             </form>
             <?php
-            require './libraries/footer.inc.php';
+            include './libraries/footer.inc.php';
             return;
         }
 

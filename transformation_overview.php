@@ -52,7 +52,7 @@ foreach ($types['mimetype'] as $key => $mimetype) {
 $odd_row = true;
 foreach ($types['transformation'] as $key => $transform) {
     $func = strtolower(str_ireplace('.inc.php', '', $types['transformation_file'][$key]));
-    require './libraries/transformations/' . $types['transformation_file'][$key];
+    include './libraries/transformations/' . $types['transformation_file'][$key];
     $funcname = 'PMA_transformation_' . $func . '_info';
     $desc = '<i>' . sprintf(__('No description is available for this transformation.<br />Please ask the author what %s does.'), 'PMA_transformation_' . $func . '()') . '</i>';
     if (function_exists($funcname)) {

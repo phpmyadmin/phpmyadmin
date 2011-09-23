@@ -23,7 +23,7 @@ class PMA_showMessage_test extends PHPUnit_Extensions_OutputTestCase
     function setUp()
     {
         global $cfg;
-        require 'libraries/config.default.php';
+        include 'libraries/config.default.php';
     }
 
     function testShowMessageNotAjax()

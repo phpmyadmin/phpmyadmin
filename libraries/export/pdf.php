@@ -30,7 +30,7 @@ if (isset($plugin_list)) {
         );
 } else {
 
-    require_once './libraries/PDF.class.php';
+    include_once './libraries/PDF.class.php';
 
     /**
      * Adapted from a LGPL script by Philip Clarke

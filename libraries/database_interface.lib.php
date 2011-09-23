@@ -203,7 +203,7 @@ function PMA_DBI_convert_message($message)
     if (! empty($server_language) && isset($encodings[$server_language])) {
         if (function_exists('iconv')) {
             if ((@stristr(PHP_OS, 'AIX')) && (@strcasecmp(ICONV_IMPL, 'unknown') == 0) && (@strcasecmp(ICONV_VERSION, 'unknown') == 0)) {
-                require_once './libraries/iconv_wrapper.lib.php';
+                include_once './libraries/iconv_wrapper.lib.php';
                 $message = PMA_aix_iconv_wrapper($encodings[$server_language],
                     'utf-8' . $GLOBALS['cfg']['IconvExtraParams'], $message);
             } else {
@@ -730,7 +730,7 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
             $databases[$database_name]['SCHEMA_NAME']      = $database_name;
 
             if ($force_stats) {
-                require_once './libraries/mysql_charsets.lib.php';
+                include_once './libraries/mysql_charsets.lib.php';
 
                 $databases[$database_name]['DEFAULT_COLLATION_NAME']
                     = PMA_getDbCollation($database_name);

@@ -25,13 +25,13 @@ require_once './libraries/server_synchronize.lib.php';
  * Checks if the user is allowed to do what he tries to...
  */
 if (! $is_superuser) {
-    require './libraries/server_links.inc.php';
+    include './libraries/server_links.inc.php';
     echo '<h2>' . "\n"
         . PMA_getIcon('s_replication.png')
         . __('Replication') . "\n"
         . '</h2>' . "\n";
     PMA_Message::error(__('No Privileges'))->display();
-    require './libraries/footer.inc.php';
+    include './libraries/footer.inc.php';
 }
 
 /**
@@ -234,7 +234,7 @@ if (isset($GLOBALS['mr_configure'])) {
     echo ' </form>';
     echo '</fieldset>';
 
-    require './libraries/footer.inc.php';
+    include './libraries/footer.inc.php';
     exit;
 }
 

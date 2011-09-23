@@ -12,7 +12,7 @@ require_once './libraries/common.inc.php';
 
 require './libraries/server_common.inc.php';
 if (!PMA_DRIZZLE) {
-    require './libraries/replication.inc.php';
+    include './libraries/replication.inc.php';
 } else {
     $replication_types = array();
     $replication_info = null;
@@ -74,7 +74,7 @@ if ((isset($_REQUEST['drop_selected_dbs']) || isset($_REQUEST['query_type']))
         if (isset($_REQUEST['selected_dbs'])) {
             $selected_db = $_REQUEST['selected_dbs'];
         }
-        require './libraries/mult_submits.inc.php';
+        include './libraries/mult_submits.inc.php';
         unset($action, $submit_mult, $err_url, $selected_db, $GLOBALS['db']);
         if (empty($message)) {
             $message = PMA_Message::success(__('%s databases have been dropped successfully.'));
@@ -109,7 +109,7 @@ echo '<h2>' . "\n"
  */
 if ($cfg['ShowCreateDb']) {
     echo '<ul><li id="li_create_database">' . "\n";
-    require './libraries/display_create_database.lib.php';
+    include './libraries/display_create_database.lib.php';
     echo '    </li>' . "\n";
     echo '</ul>' . "\n";
 }

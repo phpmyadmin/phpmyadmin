@@ -172,7 +172,7 @@ function get_pk_or_unique_keys()
  */
 function get_all_keys($unique_only = false)
 {
-    require_once './libraries/Index.class.php';
+    include_once './libraries/Index.class.php';
 
     $keys = array();
 

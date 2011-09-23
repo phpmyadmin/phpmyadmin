@@ -38,6 +38,6 @@ if (isset($plugin_list)) {
         );
 } else {
     /* Everything rest is coded in csv plugin */
-    require './libraries/export/csv.php';
+    include './libraries/export/csv.php';
 }
 ?>

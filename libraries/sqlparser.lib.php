@@ -37,14 +37,14 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * Include the string library as we use it heavily
      */
-    require_once './libraries/string.lib.php';
+    include_once './libraries/string.lib.php';
 
     /**
      * Include data for the SQL Parser
      */
-    require_once './libraries/sqlparser.data.php';
+    include_once './libraries/sqlparser.data.php';
     if (!defined('TESTSUITE')) {
-        require_once './libraries/mysql_charsets.lib.php';
+        include_once './libraries/mysql_charsets.lib.php';
     }
     if (! isset($mysql_charsets)) {
         $mysql_charsets = array();

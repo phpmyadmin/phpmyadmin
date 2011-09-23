@@ -16,7 +16,7 @@ function PMA_transformation_image_png__inline_info()
  */
 function PMA_transformation_image_png__inline($buffer, $options = array(), $meta = '')
 {
-    require_once './libraries/transformations/global.inc.php';
+    include_once './libraries/transformations/global.inc.php';
 
     if (PMA_IS_GD2) {
         $transform_options = array ('string' => '<a href="transformation_wrapper.php' . $options['wrapper_link'] . '" target="_blank"><img src="transformation_wrapper.php' . $options['wrapper_link'] . '&amp;resize=png&amp;newWidth=' . (isset($options[0]) ? $options[0] : '100') . '&amp;newHeight=' . (isset($options[1]) ? $options[1] : 100) . '" alt="[__BUFFER__]" border="0" /></a>');

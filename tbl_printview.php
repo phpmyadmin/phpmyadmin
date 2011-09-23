@@ -17,7 +17,7 @@ require './libraries/tbl_common.php';
  */
 $print_view = true;
 if (! isset($selected_tbl)) {
-    require_once './libraries/header.inc.php';
+    include_once './libraries/header.inc.php';
 }
 
 // Check parameters
@@ -62,7 +62,7 @@ $multi_tables     = (count($the_tables) > 1);
 
 if ($multi_tables) {
     if (empty($GLOBALS['is_header_sent'])) {
-        require_once './libraries/header.inc.php';
+        include_once './libraries/header.inc.php';
     }
     $tbl_list     = '';
     foreach ($the_tables as $key => $table) {

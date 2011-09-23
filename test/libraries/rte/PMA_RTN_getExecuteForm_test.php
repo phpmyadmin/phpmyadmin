@@ -54,7 +54,7 @@ class PMA_RTN_getExecuteForm_test extends PHPUnit_Framework_TestCase
             $cfg['DefaultFunctions']['FUNC_SPATIAL'] = 'GeomFromText';
             $GLOBALS['tear_down']['default'] = true;
         }
-        require 'libraries/data_mysql.inc.php';
+        include 'libraries/data_mysql.inc.php';
     }
 
     public function tearDown()

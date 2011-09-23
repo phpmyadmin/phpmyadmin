@@ -21,8 +21,8 @@ class PMA_getDbLink_test extends PHPUnit_Framework_TestCase
     function setUp()
     {
         global $cfg;
-        require_once 'libraries/vendor_config.php';
-        require 'libraries/config.default.php';
+        include_once 'libraries/vendor_config.php';
+        include 'libraries/config.default.php';
         $_SESSION[' PMA_token '] = 'token';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['server'] = 99;

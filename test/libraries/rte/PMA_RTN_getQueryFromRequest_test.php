@@ -29,7 +29,7 @@ class PMA_RTN_getQueryFromRequest_test extends PHPUnit_Framework_TestCase
 
         $cfg['ShowFunctionFields'] = false;
 
-        require 'libraries/data_mysql.inc.php';
+        include 'libraries/data_mysql.inc.php';
 
         $errors = array();
         PMA_RTN_setGlobals();

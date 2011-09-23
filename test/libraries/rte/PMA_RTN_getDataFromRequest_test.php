@@ -21,7 +21,7 @@ class PMA_RTN_getDataFromRequest_test extends PHPUnit_Framework_TestCase
         global $cfg;
 
         $cfg['ShowFunctionFields'] = false;
-        require 'libraries/data_mysql.inc.php';
+        include 'libraries/data_mysql.inc.php';
     }
 
     /**

@@ -39,7 +39,7 @@ if (! defined('PHPMYADMIN')) {
  * For now we actually use a configuration flag
  */
 if ($cfg['SQLValidator']['use'] == true) {
-    require_once './libraries/sqlvalidator.class.php';
+    include_once './libraries/sqlvalidator.class.php';
 } // if ($cfg['SQLValidator']['use'] == true)
 
 
