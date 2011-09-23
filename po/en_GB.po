@@ -12136,7 +12136,7 @@ msgstr "Query cache fragmentation"
 
 #: po/advisory_rules.php:91
 msgid "The query cache is considerably fragmented."
-msgstr ""
+msgstr "The query cache is considerably fragmented."
 
 #: po/advisory_rules.php:92
 msgid ""
