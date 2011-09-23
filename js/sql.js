@@ -130,6 +130,22 @@ $(document).ready(function() {
         });
     }
 
+
+    /**
+     * Event handler for sqlqueryform.ajax button_submit_query 
+     *
+     * @memberOf    jQuery
+     */
+    $("#button_submit_query").live('click', function(event) {
+        var $form = $(this).closest("form");
+        // the Go button related to query submission was clicked,
+        // instead of the one related to Bookmarks, so empty the
+        // id_bookmark selector to avoid misinterpretation in 
+        // import.php about what needs to be done
+        $form.find("select[name=id_bookmark]").attr("value","");
+        // let normal event propagation happen
+    });
+
     /**
      * Ajax Event handler for 'SQL Query Submit'
      *
@@ -161,9 +177,8 @@ $(document).ready(function() {
                 $('.sqlquery_message').fadeOut();
                 // show a message that stays on screen
                 if (typeof data.sql_query != 'undefined') {
-                    $('<div class="sqlquery_message"></div>')
-                     .html(data.sql_query)
-                     .insertBefore('#sqlqueryform');
+                    $('#sqlquery').html(data.sql_query);
+                    setQuery(data.sql_query);
                     // unnecessary div that came from data.sql_query
                     $('.notice').remove();
                 } else {
@@ -181,6 +196,11 @@ $(document).ready(function() {
                     $.post('db_sql.php', $form.serialize(), function(data) {
                         $('body').html(data);
                     }); // end inner post
+                }
+                if (typeof data.action_bookmark != 'undefined') {
+                    if ('2' == data.action_bookmark) {
+                        $("#id_bookmark option[value='" + data.id_bookmark + "']").remove();
+                    }
                 }
             } else if (data.success == false ) {
                 // show an error message that stays on screen
