@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-23 22:59+0200\n"
+"PO-Revision-Date: 2011-09-23 23:00+0200\n"
 "Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -11773,7 +11773,7 @@ msgstr "Rename view to"
 
 #: po/advisory_rules.php:5
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Uptime below one day"
 
 #: po/advisory_rules.php:6
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
