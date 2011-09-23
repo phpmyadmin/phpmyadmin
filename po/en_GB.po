@@ -11873,6 +11873,8 @@ msgid ""
 "long_query_time is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"long_query_time is set to 10 seconds or more, thus only slow queries that "
+"take above 10 seconds are logged."
 
 #: po/advisory_rules.php:27
 msgid ""
