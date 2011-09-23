@@ -12227,10 +12227,9 @@ msgid "Current query cache size: %s"
 msgstr "Current query cache size: %s"
 
 #: po/advisory_rules.php:105
-#, fuzzy
 #| msgid "Query results"
 msgid "Query cache min result size"
-msgstr "Query results"
+msgstr "Query cache min result size"
 
 #: po/advisory_rules.php:106
 msgid ""
