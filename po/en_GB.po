@@ -12130,10 +12130,9 @@ msgstr ""
 "%%. It should be above 80%%"
 
 #: po/advisory_rules.php:90
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache fragmentation"
-msgstr "Query cache"
+msgstr "Query cache fragmentation"
 
 #: po/advisory_rules.php:91
 msgid "The query cache is considerably fragmented."
