@@ -12197,6 +12197,8 @@ msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%)"
 msgstr ""
+"The ratio of removed queries to inserted queries is %s%%. The lower this "
+"value is, the better (This rules firing limit: 0.1%)"
 
 #: po/advisory_rules.php:100
 #, fuzzy
