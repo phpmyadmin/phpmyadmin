@@ -11844,10 +11844,9 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr "The slow query rate should be below 5%%, your value is %s%%."
 
 #: po/advisory_rules.php:20
-#, fuzzy
 #| msgid "Flush query cache"
 msgid "Slow query rate"
-msgstr "Flush query cache"
+msgstr "Slow query rate"
 
 #: po/advisory_rules.php:21
 msgid ""
