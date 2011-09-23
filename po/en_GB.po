@@ -11725,7 +11725,7 @@ msgstr "Maximum rows to plot"
 
 #: tbl_zoom_select.php:410
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "Browse/Edit the points"
 
 #: tbl_zoom_select.php:417
 #, fuzzy
