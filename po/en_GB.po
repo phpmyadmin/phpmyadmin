@@ -11994,7 +11994,7 @@ msgstr "Percona documentation is at http://www.percona.com/docs/wiki/"
 
 #: po/advisory_rules.php:58
 msgid "'percona' found in version_comment"
-msgstr ""
+msgstr "'percona' found in version_comment"
 
 #: po/advisory_rules.php:62
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
