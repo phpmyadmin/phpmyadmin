@@ -12083,6 +12083,8 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
+"The query cache is enabled and the server receives %d queries per second. "
+"This rule fires if there is more than 100 queries per second."
 
 #: po/advisory_rules.php:80
 msgid "Query cache efficiency (%)"
