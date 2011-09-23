@@ -10539,14 +10539,11 @@ msgid "Remove variable data in INSERT statements for better grouping"
 msgstr "Remove variable data in INSERT statements for better grouping"
 
 #: server_status.php:1713
-#, fuzzy
 #| msgid ""
 #| "<p>Choose from which log you want the statistics to be generated from.</"
 #| "p> Results are grouped by query text."
 msgid "Choose from which log you want the statistics to be generated from."
-msgstr ""
-"<p>Choose from which log you want the statistics to be generated from.</p> "
-"Results are grouped by query text."
+msgstr "Choose from which log you want the statistics to be generated from."
 
 #: server_status.php:1715
 msgid "Results are grouped by query text."
