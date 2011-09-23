@@ -45,8 +45,8 @@ $GLOBALS['js_include'][] = 'sql.js';
 if (isset($_REQUEST['insert_rows']) && is_numeric($_REQUEST['insert_rows']) && $_REQUEST['insert_rows'] != $cfg['InsertRows']) {
     $cfg['InsertRows'] = $_REQUEST['insert_rows'];
     $GLOBALS['js_include'][] = 'tbl_change.js';
-    require_once './libraries/header.inc.php';
-    require './tbl_change.php';
+    include_once './libraries/header.inc.php';
+    include './tbl_change.php';
     exit;
 }
 
@@ -227,7 +227,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
 
         // Note: $key is an md5 of the fieldname. The actual fieldname is available in $me_fields_name[$key]
 
-        require './libraries/tbl_replace_fields.inc.php';
+        include './libraries/tbl_replace_fields.inc.php';
 
         // for blobstreaming
         if ($blob_streaming_active) {
@@ -344,9 +344,9 @@ if ($is_insert && count($value_sets) > 0) {
     $message = PMA_Message::success(__('No change'));
     $active_page = $goto_include;
     if (! $GLOBALS['is_ajax_request'] == true) {
-        require_once './libraries/header.inc.php';
+        include_once './libraries/header.inc.php';
     }
-    require './' . PMA_securePath($goto_include);
+    include './' . PMA_securePath($goto_include);
     exit;
 }
 unset($me_fields, $is_insertignore);
@@ -442,7 +442,7 @@ if ($GLOBALS['is_ajax_request'] == true) {
 
     if (isset($_REQUEST['rel_fields_list']) && $_REQUEST['rel_fields_list'] != '') {
         //handle relations work here for updated row.
-        require_once './libraries/relation.lib.php';
+        include_once './libraries/relation.lib.php';
 
         $map = PMA_getForeigners($db, $table, '', 'both');
 
@@ -509,7 +509,7 @@ if ($GLOBALS['is_ajax_request'] == true) {
     }
 
     if (isset($_REQUEST['do_transformations']) && $_REQUEST['do_transformations'] == true ) {
-        require_once './libraries/transformations.lib.php';
+        include_once './libraries/transformations.lib.php';
         //if some posted fields need to be transformed, generate them here.
         $mime_map = PMA_getMIME($db, $table);
 
@@ -538,7 +538,7 @@ if ($GLOBALS['is_ajax_request'] == true) {
                     if (file_exists('./libraries/transformations/' . $include_file)) {
                         $transformfunction_name = str_replace('.inc.php', '', $transformation['transformation']);
 
-                        require_once './libraries/transformations/' . $include_file;
+                        include_once './libraries/transformations/' . $include_file;
 
                         if (function_exists('PMA_transformation_' . $transformfunction_name)) {
                             $transform_function = 'PMA_transformation_' . $transformfunction_name;

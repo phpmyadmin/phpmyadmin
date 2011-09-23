@@ -62,13 +62,13 @@ if (! empty($submit_mult) && isset($_REQUEST['selected_fld'])) {
         // what is this htmlspecialchars() for??
         //$sql_query .= ' FROM ' . PMA_backquote(htmlspecialchars($table));
         $sql_query .= ' FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
-        require './sql.php';
+        include './sql.php';
         exit;
     } else {
         // handle multiple field commands
         // handle confirmation of deleting multiple fields/columns
         $action = 'tbl_structure.php';
-        require './libraries/mult_submits.inc.php';
+        include './libraries/mult_submits.inc.php';
         //require_once './libraries/header.inc.php';
         //require_once './libraries/tbl_links.inc.php';
 
@@ -224,7 +224,7 @@ $comments_map = array();
 $mime_map = array();
 
 if ($GLOBALS['cfg']['ShowPropertyComments']) {
-    require_once './libraries/transformations.lib.php';
+    include_once './libraries/transformations.lib.php';
 
     //$cfgRelation = PMA_getRelationsParam();
 
@@ -681,7 +681,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
  * links again
  */
 if (count($fields) > 20) {
-    require './libraries/tbl_links.inc.php';
+    include './libraries/tbl_links.inc.php';
 } // end if (count($fields) > 20)
 
 /**

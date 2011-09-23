@@ -33,19 +33,19 @@ $geom_types = PMA_getGISDatatypes();
  */
 if (! isset($param) || $param[0] == '') {
     // Gets some core libraries
-    require_once './libraries/tbl_common.php';
+    include_once './libraries/tbl_common.php';
     //$err_url   = 'tbl_select.php' . $err_url;
     $url_query .= '&amp;goto=tbl_select.php&amp;back=tbl_select.php';
 
     /**
      * Gets tables informations
      */
-    require_once './libraries/tbl_info.inc.php';
+    include_once './libraries/tbl_info.inc.php';
 
     /**
      * Displays top menu links
      */
-    require_once './libraries/tbl_links.inc.php';
+    include_once './libraries/tbl_links.inc.php';
 
     if (! isset($goto)) {
         $goto = $GLOBALS['cfg']['DefaultTabTable'];
@@ -237,7 +237,7 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params, '', 'topmenu2');
 </form>
 <div id="sqlqueryresults"></div>
     <?php
-    require './libraries/footer.inc.php';
+    include './libraries/footer.inc.php';
 ?>
 
 </fieldset>
@@ -295,7 +295,7 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params, '', 'topmenu2');
     if ($orderField != '--nil--') {
         $sql_query .= ' ORDER BY ' . PMA_backquote($orderField) . ' ' . $order;
     } // end if
-    require './sql.php';
+    include './sql.php';
 }
 
 ?>

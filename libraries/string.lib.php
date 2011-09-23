@@ -24,18 +24,18 @@ if (! defined('PHPMYADMIN')) {
  */
 if (@function_exists('mb_strlen')) {
     mb_internal_encoding('utf-8');
-    require './libraries/string_mb.lib.php';
+    include './libraries/string_mb.lib.php';
 } else {
-    require './libraries/string_native.lib.php';
+    include './libraries/string_native.lib.php';
 }
 
 /**
  * Load ctype handler.
  */
 if (@extension_loaded('ctype')) {
-    require './libraries/string_type_ctype.lib.php';
+    include './libraries/string_type_ctype.lib.php';
 } else {
-    require './libraries/string_type_native.lib.php';
+    include './libraries/string_type_native.lib.php';
 }
 
 /**

@@ -30,9 +30,9 @@ $common_url_query =  PMA_generate_common_url('', '');
 // when $server > 0, a server has been chosen so we can display
 // all MySQL-related information
 if ($server > 0) {
-    require './libraries/server_common.inc.php';
-    require './libraries/StorageEngine.class.php';
-    require './libraries/server_links.inc.php';
+    include './libraries/server_common.inc.php';
+    include './libraries/StorageEngine.class.php';
+    include './libraries/server_links.inc.php';
 
     // Use the verbose name of the server instead of the hostname
     // if a value is set
@@ -71,7 +71,7 @@ if ($server > 0
     if (! $cfg['LeftDisplayServers']
      && (count($cfg['Servers']) > 1 || $server == 0 && count($cfg['Servers']) == 1)) {
         echo '<li id="li_select_server">';
-        require_once './libraries/select_server.lib.php';
+        include_once './libraries/select_server.lib.php';
         PMA_select_server(true, true);
         echo '</li>';
     }
@@ -80,7 +80,7 @@ if ($server > 0
      * Displays the mysql server related links
      */
     if ($server > 0 && !PMA_DRIZZLE) {
-        require_once './libraries/check_user_privileges.lib.php';
+        include_once './libraries/check_user_privileges.lib.php';
 
         // Logout for advanced authentication
         if ($cfg['Server']['auth_type'] != 'config') {
@@ -119,7 +119,7 @@ echo '  <ul>';
 // Displays language selection combo
 if (empty($cfg['Lang'])) {
     echo '<li id="li_select_lang">';
-    require_once './libraries/display_select_lang.lib.php';
+    include_once './libraries/display_select_lang.lib.php';
     PMA_select_language();
     echo '</li>';
 }

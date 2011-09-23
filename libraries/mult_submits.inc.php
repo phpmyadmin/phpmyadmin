@@ -25,7 +25,7 @@ if (! empty($submit_mult)
     } elseif (isset($selected_tbl) && !empty($selected_tbl)) {
         // coming from database structure view - do something with selected tables
         if ($submit_mult == 'print') {
-            require './tbl_printview.php';
+            include './tbl_printview.php';
         } else {
            $selected = $selected_tbl;
            switch ($submit_mult) {
@@ -47,7 +47,7 @@ if (! empty($submit_mult)
                    break;
                case 'export':
                    unset($submit_mult);
-                   require 'db_export.php';
+                   include 'db_export.php';
                    exit;
                    break;
            } // end switch
@@ -102,7 +102,7 @@ if (! empty($submit_mult)
                 $mult_btn   = __('Yes');
                 break;
             case 'change':
-                require './tbl_alter.php';
+                include './tbl_alter.php';
                 break;
             case 'browse':
                 // this should already be handled by tbl_structure.php
@@ -121,18 +121,18 @@ if (! empty($submit_mult)
 if (!empty($submit_mult) && !empty($what)) {
     unset($message);
 
-    require_once './libraries/header.inc.php';
+    include_once './libraries/header.inc.php';
     if (strlen($table)) {
-        require './libraries/tbl_common.php';
+        include './libraries/tbl_common.php';
         $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
-        require './libraries/tbl_info.inc.php';
-        require_once './libraries/tbl_links.inc.php';
+        include './libraries/tbl_info.inc.php';
+        include_once './libraries/tbl_links.inc.php';
     } elseif (strlen($db)) {
-        require './libraries/db_common.inc.php';
-        require './libraries/db_info.inc.php';
+        include './libraries/db_common.inc.php';
+        include './libraries/db_info.inc.php';
     } else {
-        require_once './libraries/server_common.inc.php';
-        require_once './libraries/server_links.inc.php';
+        include_once './libraries/server_common.inc.php';
+        include_once './libraries/server_links.inc.php';
     }
 
     // Builds the query
@@ -288,7 +288,7 @@ if (!empty($submit_mult) && !empty($what)) {
     </fieldset>
     <?php
     }
-    require './libraries/footer.inc.php';
+    include './libraries/footer.inc.php';
 
 } // end if
 
@@ -299,7 +299,7 @@ if (!empty($submit_mult) && !empty($what)) {
 elseif ($mult_btn == __('Yes')) {
 
     if ($query_type == 'drop_db' || $query_type == 'drop_tbl' || $query_type == 'drop_fld') {
-        require_once './libraries/relation_cleanup.lib.php';
+        include_once './libraries/relation_cleanup.lib.php';
     }
 
     $sql_query      = '';
@@ -465,7 +465,7 @@ elseif ($mult_btn == __('Yes')) {
     }
 
     if ($use_sql) {
-        require './sql.php';
+        include './sql.php';
     } elseif (!$run_parts) {
         PMA_DBI_select_db($db);
         $result = PMA_DBI_try_query($sql_query);

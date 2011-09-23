@@ -27,8 +27,8 @@ if (! PMA_isValid($_REQUEST['rows_to_delete'], 'array')
  && ! isset($_REQUEST['mult_btn'])) {
     $disp_message = __('No rows selected');
     $disp_query = '';
-    require './sql.php';
-    require './libraries/footer.inc.php';
+    include './sql.php';
+    include './libraries/footer.inc.php';
 }
 
 if (isset($_REQUEST['submit_mult'])) {
@@ -112,7 +112,7 @@ if (!empty($submit_mult)) {
                     $original_url_query = $url_query;
                 }
             }
-            require './libraries/mult_submits.inc.php';
+            include './libraries/mult_submits.inc.php';
             $_url_params = $GLOBALS['url_params'];
             $_url_params['goto'] = 'tbl_sql.php';
             $url_query = PMA_generate_common_url($_url_params);
@@ -140,12 +140,12 @@ if (!empty($submit_mult)) {
             unset($submit_mult, $_REQUEST['mult_btn']);
 
             $active_page = 'sql.php';
-            require './sql.php';
+            include './sql.php';
 
             /**
              * Displays the footer
              */
-            require './libraries/footer.inc.php';
+            include './libraries/footer.inc.php';
             break;
     }
 }

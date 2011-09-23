@@ -37,24 +37,24 @@ $cfgRelation = PMA_getRelationsParam();
 if (! $cfgRelation['relwork']) {
     echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'relation', 'config.inc.php') . '<br />' . "\n"
          . PMA_showDocu('relation') . "\n";
-    require_once './libraries/footer.inc.php';
+    include_once './libraries/footer.inc.php';
 }
 
 if (! $cfgRelation['displaywork']) {
     echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'table_info', 'config.inc.php') . '<br />' . "\n"
          . PMA_showDocu('table_info') . "\n";
-    require_once './libraries/footer.inc.php';
+    include_once './libraries/footer.inc.php';
 }
 
 if (! isset($cfgRelation['table_coords'])) {
     echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'table_coords', 'config.inc.php') . '<br />' . "\n"
          . PMA_showDocu('table_coords') . "\n";
-    require_once './libraries/footer.inc.php';
+    include_once './libraries/footer.inc.php';
 }
 if (! isset($cfgRelation['pdf_pages'])) {
     echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'pdf_page', 'config.inc.php') . '<br />' . "\n"
          . PMA_showDocu('pdf_pages') . "\n";
-    require_once './libraries/footer.inc.php';
+    include_once './libraries/footer.inc.php';
 }
 
 if ($cfgRelation['pdfwork']) {
@@ -64,7 +64,7 @@ if ($cfgRelation['pdfwork']) {
     * so, user can interact with it and perform export of relations schema
     */
 
-    require_once './libraries/schema/User_Schema.class.php';
+    include_once './libraries/schema/User_Schema.class.php';
     $user_schema = new PMA_User_Schema();
 
     /**

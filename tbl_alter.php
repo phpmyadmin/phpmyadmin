@@ -103,7 +103,7 @@ if (isset($_REQUEST['do_save_data'])) {
         /**
          * If comments were sent, enable relation stuff
          */
-        require_once './libraries/transformations.lib.php';
+        include_once './libraries/transformations.lib.php';
 
         // updaet field names in relation
         if (isset($_REQUEST['field_orig']) && is_array($_REQUEST['field_orig'])) {
@@ -136,7 +136,7 @@ if (isset($_REQUEST['do_save_data'])) {
         }
 
         $active_page = 'tbl_structure.php';
-        require './tbl_structure.php';
+        include './tbl_structure.php';
     } else {
         PMA_mysqlDie('', '', '', $err_url, false);
         // An error happened while inserting/updating a table definition.
@@ -156,7 +156,7 @@ if (isset($_REQUEST['do_save_data'])) {
  * $selected comes from multi_submits.inc.php
  */
 if ($abort == false) {
-    require_once './libraries/tbl_links.inc.php';
+    include_once './libraries/tbl_links.inc.php';
 
     if (! isset($selected)) {
         PMA_checkParameters(array('field'));
@@ -195,7 +195,7 @@ if ($abort == false) {
     /**
      * Form for changing properties.
      */
-    require './libraries/tbl_properties.inc.php';
+    include './libraries/tbl_properties.inc.php';
 }
 
 

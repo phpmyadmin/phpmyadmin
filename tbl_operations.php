@@ -72,13 +72,13 @@ $table_alters = array();
  */
 if (isset($_REQUEST['submit_move']) || isset($_REQUEST['submit_copy'])) {
     $_message = '';
-    require_once './tbl_move_copy.php';
+    include_once './tbl_move_copy.php';
 }
 /**
  * If the table has to be maintained
  */
 if (isset($_REQUEST['table_maintenance'])) {
-    require_once './sql.php';
+    include_once './sql.php';
     unset($result);
 }
 /**
@@ -211,7 +211,7 @@ if ($reread_info) {
     // a change, clear the cache
     PMA_Table::$cache = array();
     $page_checksum = $checksum = $delay_key_write = 0;
-    require './libraries/tbl_info.inc.php';
+    include './libraries/tbl_info.inc.php';
 }
 unset($reread_info);
 
@@ -219,7 +219,7 @@ unset($reread_info);
  * Displays top menu links in non ajax requests
  */
 if (!isset($_REQUEST['ajax_request'])) {
-    require_once './libraries/tbl_links.inc.php';
+    include_once './libraries/tbl_links.inc.php';
 }
 if (isset($result) && empty($message_to_show)) {
     // set to success by default, because result set could be empty

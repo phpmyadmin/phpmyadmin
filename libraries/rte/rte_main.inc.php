@@ -23,12 +23,12 @@ if ($GLOBALS['is_ajax_request'] != true) {
      * Displays the header and tabs
      */
     if (! empty($table) && in_array($table, PMA_DBI_get_tables($db))) {
-        require_once './libraries/tbl_common.php';
-        require_once './libraries/tbl_links.inc.php';
+        include_once './libraries/tbl_common.php';
+        include_once './libraries/tbl_links.inc.php';
     } else {
         $table = '';
-        require_once './libraries/db_common.inc.php';
-        require_once './libraries/db_info.inc.php';
+        include_once './libraries/db_common.inc.php';
+        include_once './libraries/db_info.inc.php';
     }
 } else {
     /**
@@ -92,7 +92,7 @@ case 'EVN':
  * Display the footer, if necessary
  */
 if ($GLOBALS['is_ajax_request'] != true) {
-    require './libraries/footer.inc.php';
+    include './libraries/footer.inc.php';
 }
 
 ?>

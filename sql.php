@@ -71,7 +71,7 @@ if (isset($fields['dbase'])) {
  * better place either.
  */
 if (isset($_REQUEST['get_relational_values']) && $_REQUEST['get_relational_values'] == true) {
-    require_once 'libraries/relation.lib.php';
+    include_once 'libraries/relation.lib.php';
 
     $column = $_REQUEST['column'];
     $foreigners = PMA_getForeigners($db, $table, $column);
@@ -197,7 +197,7 @@ if (isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
 // Default to browse if no query set and we have table
 // (needed for browsing from DefaultTabTable)
 if (empty($sql_query) && strlen($table) && strlen($db)) {
-    require_once './libraries/bookmark.lib.php';
+    include_once './libraries/bookmark.lib.php';
     $book_sql_query = PMA_Bookmark_get($db, '\'' . PMA_sqlAddSlashes($table) . '\'',
         'label', false, true);
 
@@ -233,7 +233,7 @@ if (!defined('PMA_CHK_DROP')
  && !$cfg['AllowUserDropDatabase']
  && $is_drop_database
  && !$is_superuser) {
-    require_once './libraries/header.inc.php';
+    include_once './libraries/header.inc.php';
     PMA_mysqlDie(__('"DROP DATABASE" statements are disabled.'), '', '', $err_url);
 } // end if
 
@@ -286,7 +286,7 @@ if (isset($btnDrop) && $btnDrop == __('No')) {
             $table = '';
         }
         $active_page = $goto;
-        require './' . PMA_securePath($goto);
+        include './' . PMA_securePath($goto);
     } else {
         PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . str_replace('&amp;', '&', $goto));
     }
@@ -315,7 +315,7 @@ if (! $cfg['Confirm'] || isset($_REQUEST['is_js_confirmed']) || isset($btnDrop)
 
 if ($do_confirm) {
     $stripped_sql_query = $sql_query;
-    require_once './libraries/header.inc.php';
+    include_once './libraries/header.inc.php';
     if ($is_drop_database) {
         echo '<h1 class="error">' . __('You are about to DESTROY a complete database!') . '</h1>';
     }
@@ -346,7 +346,7 @@ if ($do_confirm) {
     /**
      * Displays the footer and exit
      */
-    require './libraries/footer.inc.php';
+    include './libraries/footer.inc.php';
 } // end if $do_confirm
 
 
@@ -501,7 +501,7 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
             /**
              * Go to target path.
              */
-            require './' . PMA_securePath($goto);
+            include './' . PMA_securePath($goto);
         } else {
             $full_err_url = (preg_match('@^(db|tbl)_@', $err_url))
                           ? $err_url . '&amp;show_query=1&amp;sql_query=' . urlencode($sql_query)
@@ -637,7 +637,7 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
         /**
          * Cleanup relations.
          */
-        require_once './libraries/relation_cleanup.lib.php';
+        include_once './libraries/relation_cleanup.lib.php';
 
         if (strlen($table) && strlen($db)) {
             PMA_relationsCleanupTable($db, $table);
@@ -650,7 +650,7 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
 
     // If a column gets dropped, do relation magic.
     if (isset($dropped_column) && strlen($db) && strlen($table) && !empty($dropped_column)) {
-        require_once './libraries/relation_cleanup.lib.php';
+        include_once './libraries/relation_cleanup.lib.php';
         PMA_relationsCleanupColumn($db, $table, $dropped_column);
 
     } // end if column was dropped
@@ -744,10 +744,10 @@ if (0 == $num_rows || $is_affected) {
         }
         // Loads to target script
         if ($goto != 'main.php') {
-            require_once './libraries/header.inc.php';
+            include_once './libraries/header.inc.php';
         }
         $active_page = $goto;
-        require './' . $goto;
+        include './' . $goto;
     } else {
         // avoid a redirect loop when last record was deleted
         if (0 == $num_rows && 'sql.php' == $cfg['DefaultTabTable']) {
@@ -802,7 +802,7 @@ else {
         unset($show_query);
     }
     if (isset($printview) && $printview == '1') {
-        require_once './libraries/header_printview.inc.php';
+        include_once './libraries/header_printview.inc.php';
     } else {
 
         $GLOBALS['js_include'][] = 'functions.js';
@@ -813,19 +813,19 @@ else {
 
         if (! $GLOBALS['is_ajax_request'] || ! $GLOBALS['cfg']['AjaxEnable']) {
             if (strlen($table)) {
-                require './libraries/tbl_common.php';
+                include './libraries/tbl_common.php';
                 $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
-                require './libraries/tbl_info.inc.php';
-                require './libraries/tbl_links.inc.php';
+                include './libraries/tbl_info.inc.php';
+                include './libraries/tbl_links.inc.php';
             } elseif (strlen($db)) {
-                require './libraries/db_common.inc.php';
-                require './libraries/db_info.inc.php';
+                include './libraries/db_common.inc.php';
+                include './libraries/db_info.inc.php';
             } else {
-                require './libraries/server_common.inc.php';
-                require './libraries/server_links.inc.php';
+                include './libraries/server_common.inc.php';
+                include './libraries/server_links.inc.php';
             }
         } else {
-            require_once './libraries/header.inc.php';
+            include_once './libraries/header.inc.php';
             //we don't need to buffer the output in PMA_showMessage here.
             //set a global variable and check against it in the function
             $GLOBALS['buffer_message'] = false;
@@ -992,6 +992,6 @@ window.onload = function()
  * Displays the footer
  */
 if (! isset($_REQUEST['table_maintenance'])) {
-    require './libraries/footer.inc.php';
+    include './libraries/footer.inc.php';
 }
 ?>
