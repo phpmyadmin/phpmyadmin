@@ -12046,6 +12046,10 @@ msgid ""
 "and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
 "memcached, ignore this recommendation."
 msgstr ""
+"The query cache is known to greatly improve performance if configured "
+"correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value "
+"and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
+"memcached, ignore this recommendation."
 
 #: po/advisory_rules.php:73
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
