@@ -11860,6 +11860,8 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
+"You have a slow query rate of %s per hour, you should have less than 1%% per "
+"hour."
 
 #: po/advisory_rules.php:25
 #, fuzzy
