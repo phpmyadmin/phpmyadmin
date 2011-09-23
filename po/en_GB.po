@@ -11957,10 +11957,9 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "Version less than 5.5.8 (the first GA release of 5.5)."
 
 #: po/advisory_rules.php:47
-#, fuzzy
 #| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5"
-msgstr "You should upgrade to %s %s or later."
+msgstr "You should upgrade, to a stable version of MySQL 5.5"
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
 #, fuzzy
