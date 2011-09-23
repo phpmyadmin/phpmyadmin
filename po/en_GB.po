@@ -12071,6 +12071,11 @@ msgid ""
 "refman/5.5/en/ha-memcached.html\\\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
+"You are using the MySQL Query cache with a fairly high traffic database. It "
+"might be worth considering to use <a "
+"href=\\\"http://dev.mysql.com/doc/refman/5.5/en/ha-"
+"memcached.html\\\">memcached</a> instead of the MySQL Query cache, especially "
+"if you have multiple slaves."
 
 #: po/advisory_rules.php:78
 #, php-format
