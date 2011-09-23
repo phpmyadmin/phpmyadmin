@@ -11784,6 +11784,8 @@ msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"To have more accurate averages it is recommended to let the server run for "
+"longer than a day before running this analyser"
 
 #: po/advisory_rules.php:8
 #, php-format
