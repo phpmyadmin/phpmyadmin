@@ -12117,6 +12117,8 @@ msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
 msgstr ""
+"This might be caused by {query_cache_limit} being too low. Flushing the "
+"query cache might help as well."
 
 #: po/advisory_rules.php:88
 #, php-format
