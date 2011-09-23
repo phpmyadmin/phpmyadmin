@@ -11942,7 +11942,7 @@ msgstr "Minor Version"
 
 #: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
+msgstr "Version less than 5.1.30 (the first GA release of 5.1)."
 
 #: po/advisory_rules.php:42
 msgid ""
