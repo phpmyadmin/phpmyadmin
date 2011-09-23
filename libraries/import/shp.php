@@ -63,8 +63,8 @@ if (isset($plugin_list)) {
      *    reading directly from a file. Using readFromBuffer() in place of fread().
      *    This makes it possible to use compressions.
      */
-    class PMA_ShapeFile extends ShapeFile {
-
+    class PMA_ShapeFile extends ShapeFile
+    {
         function _isDbaseLoaded()
         {
             return extension_loaded('dbase');
