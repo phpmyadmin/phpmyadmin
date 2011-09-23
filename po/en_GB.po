@@ -12062,7 +12062,7 @@ msgstr "Query caching method"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
-msgstr ""
+msgstr "Suboptimal caching method."
 
 #: po/advisory_rules.php:77
 msgid ""
