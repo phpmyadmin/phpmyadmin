@@ -12035,10 +12035,9 @@ msgid "Query cache disabled"
 msgstr "Query cache disabled"
 
 #: po/advisory_rules.php:71
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "The server is not responding"
+msgstr "The query cache is not enabled."
 
 #: po/advisory_rules.php:72
 msgid ""
