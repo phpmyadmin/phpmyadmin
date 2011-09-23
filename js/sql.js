@@ -172,13 +172,28 @@ $(document).ready(function() {
 
         $.post($form.attr('action'), $form.serialize() , function(data) {
             if (data.success == true) {
+                // success happens if the query returns rows or not
+                //
                 // fade out previous messages, if any
                 $('.success').fadeOut();
                 $('.sqlquery_message').fadeOut();
                 // show a message that stays on screen
-                if (typeof data.sql_query != 'undefined') {
-                    $('#sqlquery').html(data.sql_query);
-                    setQuery(data.sql_query);
+                if (typeof data.action_bookmark != 'undefined') {
+                    // view only
+                    if ('1' == data.action_bookmark) {
+                        $('#sqlquery').text(data.sql_query);
+                        // send to codemirror if possible
+                        setQuery(data.sql_query);
+                    }
+                    // delete
+                    if ('2' == data.action_bookmark) {
+                        $("#id_bookmark option[value='" + data.id_bookmark + "']").remove();
+                    }
+                    $('#sqlqueryform').before(data.message);
+                } elseif (typeof data.sql_query != 'undefined') {
+                    $('<div class="sqlquery_message"></div>')
+                     .html(data.sql_query)
+                     .insertBefore('#sqlqueryform');
                     // unnecessary div that came from data.sql_query
                     $('.notice').remove();
                 } else {
@@ -196,11 +211,6 @@ $(document).ready(function() {
                     $.post('db_sql.php', $form.serialize(), function(data) {
                         $('body').html(data);
                     }); // end inner post
-                }
-                if (typeof data.action_bookmark != 'undefined') {
-                    if ('2' == data.action_bookmark) {
-                        $("#id_bookmark option[value='" + data.id_bookmark + "']").remove();
-                    }
                 }
             } else if (data.success == false ) {
                 // show an error message that stays on screen
