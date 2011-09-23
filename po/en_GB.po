@@ -11852,6 +11852,7 @@ msgstr "Slow query rate"
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"There is a high percentage of slow queries compared to the server uptime."
 
 #: po/advisory_rules.php:23
 #, php-format
