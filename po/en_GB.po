@@ -11881,6 +11881,8 @@ msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"It is suggested to set {long_query_time} to a lower value, depending on your "
+"environment. Usually a value of 1-5 seconds is suggested."
 
 #: po/advisory_rules.php:28
 #, fuzzy, php-format
