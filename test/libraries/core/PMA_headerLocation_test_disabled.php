@@ -104,9 +104,9 @@ class PMA_headerLocation_test extends PHPUnit_Extensions_OutputTestCase
 
             if (defined('PMA_IS_IIS')) {
                 $this->oldIISvalue = PMA_IS_IIS;
-                runkit_constant_redefine('PMA_IS_IIS', NULL);
+                runkit_constant_redefine('PMA_IS_IIS', null);
             } else {
-                runkit_constant_add('PMA_IS_IIS', NULL);
+                runkit_constant_add('PMA_IS_IIS', null);
             }
 
 
@@ -114,9 +114,9 @@ class PMA_headerLocation_test extends PHPUnit_Extensions_OutputTestCase
 
             if (defined('SID')) {
                 $this->oldSIDvalue = SID;
-                runkit_constant_redefine('SID', NULL);
+                runkit_constant_redefine('SID', null);
             } else {
-                runkit_constant_add('SID', NULL);
+                runkit_constant_add('SID', null);
             }
 
         }

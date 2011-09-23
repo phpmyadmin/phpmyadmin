@@ -1486,7 +1486,7 @@ function printVariablesTable()
             }
             if ('%' === substr($name, -1, 1)) {
                 echo htmlspecialchars(PMA_formatNumber($value, 0, 2)) . ' %';
-            } elseif (strpos($name, 'Uptime')!==FALSE) {
+            } elseif (strpos($name, 'Uptime') !== false) {
                 echo htmlspecialchars(PMA_timespanFormat($value));
             } elseif (is_numeric($value) && $value == (int) $value && $value > 1000) {
                 echo htmlspecialchars(PMA_formatNumber($value, 3, 1));

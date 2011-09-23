@@ -12,7 +12,7 @@
     /*
      * @var     string  contains media type of BLOB reference
      */
-    $mediaType = isset($_REQUEST['media_type']) ? $_REQUEST['media_type'] : NULL;
+    $mediaType = isset($_REQUEST['media_type']) ? $_REQUEST['media_type'] : null;
 
     /*
      * @var     string  indicates whether media type is of custom type
@@ -22,7 +22,7 @@
     /*
      * @var     string  contains BLOB reference
      */
-    $bsReference = isset($_REQUEST['bs_reference']) ? $_REQUEST['bs_reference'] : NULL;
+    $bsReference = isset($_REQUEST['bs_reference']) ? $_REQUEST['bs_reference'] : null;
 
     // if media type and BS reference are specified
     if (isset($mediaType) && isset($bsReference)) {

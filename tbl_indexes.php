@@ -100,7 +100,7 @@ if (isset($_REQUEST['do_save_data'])) {
 
         if ( $GLOBALS['is_ajax_request'] == true) {
             $extra_data['index_table'] = PMA_Index::getView($table, $db);
-            $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query);
+            $extra_data['sql_query'] = PMA_showMessage(null, $sql_query);
             PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
         }
 

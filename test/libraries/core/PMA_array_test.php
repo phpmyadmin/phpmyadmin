@@ -94,7 +94,7 @@ class PMA_array_test extends PHPUnit_Framework_TestCase
         PMA_array_write('sarr/not_existing/1', $arr, 'some_val');
         $this->assertEquals($arr['sarr']['not_existing'][1], 'some_val');
 
-        PMA_array_write('sarr/0/2', $arr, NULL);
+        PMA_array_write('sarr/0/2', $arr, null);
         $this->assertNull($arr['sarr'][0][2]);
     }
 

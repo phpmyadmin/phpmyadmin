@@ -104,7 +104,7 @@ if (isset($_REQUEST['get_relational_values']) && $_REQUEST['get_relational_value
     }
 
     $extra_data['dropdown'] = $dropdown;
-    PMA_ajaxResponse(NULL, true, $extra_data);
+    PMA_ajaxResponse(null, true, $extra_data);
 }
 
 /**
@@ -133,7 +133,7 @@ if (isset($_REQUEST['get_enum_values']) && $_REQUEST['get_enum_values'] == true)
     $dropdown = '<select>' . $dropdown . '</select>';
 
     $extra_data['dropdown'] = $dropdown;
-    PMA_ajaxResponse(NULL, true, $extra_data);
+    PMA_ajaxResponse(null, true, $extra_data);
 }
 
 /**
@@ -162,7 +162,7 @@ if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
     $select = '<select multiple="multiple" size="' . $select_size . '">' . $select . '</select>';
 
     $extra_data['select'] = $select;
-    PMA_ajaxResponse(NULL, true, $extra_data);
+    PMA_ajaxResponse(null, true, $extra_data);
 }
 
 /**
@@ -191,7 +191,7 @@ if (isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
         }
     }
 
-    PMA_ajaxResponse(NULL, ($retval == true));
+    PMA_ajaxResponse(null, ($retval == true));
 }
 
 // Default to browse if no query set and we have table
@@ -766,7 +766,7 @@ else {
         $row = PMA_DBI_fetch_row($result);
         $extra_data = array();
         $extra_data['value'] = $row[0];
-        PMA_ajaxResponse(NULL, true, $extra_data);
+        PMA_ajaxResponse(null, true, $extra_data);
     }
 
     if (isset($_REQUEST['ajax_request']) && isset($_REQUEST['table_maintenance'])) {
