@@ -11422,7 +11422,7 @@ msgstr "Row size"
 
 #: tbl_printview.php:388 tbl_structure.php:904
 msgid "Next autoindex"
-msgstr ""
+msgstr "Next autoindex"
 
 #: tbl_relation.php:276
 #, php-format
