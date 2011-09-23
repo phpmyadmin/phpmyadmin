@@ -11976,6 +11976,9 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
+"If you did not compile from source, you may be using a package modified by a "
+"distribution. The MySQL manual only is accurate for official MySQL "
+"binaries, not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 
 #: po/advisory_rules.php:53
 msgid "'source' found in version_comment"
