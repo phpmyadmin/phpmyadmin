@@ -11019,10 +11019,9 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Key should contain letters, numbers [em]and[/em] special characters."
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No data"
 msgid "Wrong data"
-msgstr "No data"
+msgstr "Wrong data"
 
 #: sql.php:100 tbl_change.php:262 tbl_select.php:28 tbl_zoom_select.php:58
 msgid "Browse foreign values"
