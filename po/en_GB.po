@@ -11820,10 +11820,9 @@ msgid "Current amount of Questions: %s"
 msgstr "Current amount of Questions: %s"
 
 #: po/advisory_rules.php:15
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
-msgstr "Show SQL queries"
+msgstr "Percentage of slow queries"
 
 #: po/advisory_rules.php:16
 msgid ""
