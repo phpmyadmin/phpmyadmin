@@ -180,7 +180,7 @@ function PMA_TRI_handleEditor()
             } else {
                 echo "\n\n<h2>$title</h2>\n\n$editor";
                 unset($_POST);
-                require './libraries/footer.inc.php';
+                include './libraries/footer.inc.php';
             }
             // exit;
         } else {

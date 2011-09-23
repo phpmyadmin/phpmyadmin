@@ -19,7 +19,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     /**
      * Turn off backup globals
      */
-    protected $backupGlobals = FALSE;
+    protected $backupGlobals = false;
 
     /**
      * @var PMA_Config

@@ -54,7 +54,7 @@ if (PMA_ifSetOr($_POST['submit_clear'], '')) {
     // Load config file from the server
     //
     $cfg = array();
-    require_once $config_file_path;
+    include_once $config_file_path;
     ConfigFile::getInstance()->setConfigData($cfg);
     header('HTTP/1.1 303 See Other');
     header('Location: index.php');

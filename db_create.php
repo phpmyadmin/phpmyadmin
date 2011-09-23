@@ -69,16 +69,16 @@ if (! $result) {
         /**
          * String containing the SQL Query formatted in pretty HTML
          * @global array $GLOBALS['extra_data']
-         * @name $extra_data 
+         * @name $extra_data
          */
-        $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query, 'success');
+        $extra_data['sql_query'] = PMA_showMessage(null, $sql_query, 'success');
 
         //Construct the html for the new database, so that it can be appended to the list of databases on server_databases.php
 
         /**
          * Build the array to be passed to {@link PMA_generate_common_url} to generate the links
          * @global array $GLOBALS['db_url_params']
-         * @name $db_url_params 
+         * @name $db_url_params
          */
         $db_url_params['db'] = $new_db;
 

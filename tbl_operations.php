@@ -230,7 +230,7 @@ if (isset($result) && empty($message_to_show)) {
         // $result should exist, regardless of $_message
         $_type = $result ? 'success' : 'error';
         if ( $_REQUEST['ajax_request'] == true) {
-            $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query);
+            $extra_data['sql_query'] = PMA_showMessage(null, $sql_query);
             PMA_ajaxResponse($_message, $_message->isSuccess(), $extra_data);
         }
     }

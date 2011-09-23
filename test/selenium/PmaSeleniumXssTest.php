@@ -9,9 +9,9 @@
 
 require_once 'PmaSeleniumTestCase.php';
 
-class PmaSeleniumXSSTest extends PmaSeleniumTestCase 
+class PmaSeleniumXSSTest extends PmaSeleniumTestCase
 {
-    public function testXssQueryTab() 
+    public function testXssQueryTab()
     {
         $this->doLogin();
         $this->selectFrame("frame_content");

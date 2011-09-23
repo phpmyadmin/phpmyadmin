@@ -209,7 +209,7 @@ if (isset($plugin_list)) {
         $buffer .= ' \\hline \\endhead \\hline \\endfoot \\hline ' . $crlf;
         if (isset($GLOBALS['latex_caption'])) {
             $buffer .= ' \\caption{' . PMA_expandUserString($GLOBALS['latex_data_caption'], 'PMA_texEscape', array('table' => $table, 'database' => $db))
-                       . '} \\label{' . PMA_expandUserString($GLOBALS['latex_data_label'], NULL, array('table' => $table, 'database' => $db)) . '} \\\\';
+                       . '} \\label{' . PMA_expandUserString($GLOBALS['latex_data_label'], null, array('table' => $table, 'database' => $db)) . '} \\\\';
         }
         if (!PMA_exportOutputHandler($buffer)) {
             return false;
@@ -372,7 +372,7 @@ if (isset($plugin_list)) {
         // Table caption for first page and label
         if (isset($GLOBALS['latex_caption'])) {
             $buffer .= ' \\caption{'. PMA_expandUserString($GLOBALS['latex_structure_caption'], 'PMA_texEscape', array('table' => $table, 'database' => $db))
-                       . '} \\label{' . PMA_expandUserString($GLOBALS['latex_structure_label'], NULL, array('table' => $table, 'database' => $db))
+                       . '} \\label{' . PMA_expandUserString($GLOBALS['latex_structure_label'], null, array('table' => $table, 'database' => $db))
                        . '} \\\\' . $crlf;
         }
         $buffer .= $header . ' \\\\ \\hline \\hline' . $crlf . '\\endfirsthead' . $crlf;

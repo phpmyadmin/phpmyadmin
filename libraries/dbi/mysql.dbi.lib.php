@@ -99,17 +99,17 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
     }
 
     if (!$server) {
-        $link = PMA_DBI_real_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, $password, empty($client_flags) ? NULL : $client_flags);
+        $link = PMA_DBI_real_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, $password, empty($client_flags) ? null : $client_flags);
 
       // Retry with empty password if we're allowed to
         if (empty($link) && $cfg['Server']['nopassword'] && !$is_controluser) {
-            $link = PMA_DBI_real_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, '', empty($client_flags) ? NULL : $client_flags);
+            $link = PMA_DBI_real_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, '', empty($client_flags) ? null : $client_flags);
         }
     } else {
         if (!isset($server['host'])) {
-            $link = PMA_DBI_real_connect($server_socket, $user, $password, NULL);
+            $link = PMA_DBI_real_connect($server_socket, $user, $password, null);
         } else {
-            $link = PMA_DBI_real_connect($server['host'] . $server_port . $server_socket, $user, $password, NULL);
+            $link = PMA_DBI_real_connect($server['host'] . $server_port . $server_socket, $user, $password, null);
         }
     }
     if (empty($link)) {

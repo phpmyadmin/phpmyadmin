@@ -21,7 +21,7 @@ class PmaSeleniumTestCase extends PHPUnit_Extensions_SeleniumTestCase
     protected $selenium;
     protected $cfg;
 
-    protected $captureScreenshotOnFailure = TRUE;
+    protected $captureScreenshotOnFailure = true;
     protected $screenshotPath = '/var/www/screenshots';
     protected $screenshotUrl = 'http://localhost/screenshots';
 

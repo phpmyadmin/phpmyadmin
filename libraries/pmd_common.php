@@ -75,7 +75,7 @@ function get_tab_info()
     PMA_DBI_select_db($GLOBALS['db']);
     $tab_column = array();
     for ($i = 0, $cnt = count($GLOBALS['PMD']["TABLE_NAME"]); $i < $cnt; $i++) {
-        $fields_rs   = PMA_DBI_query(PMA_DBI_get_columns_sql($GLOBALS['db'], $GLOBALS['PMD']["TABLE_NAME_SMALL"][$i], null, true), NULL, PMA_DBI_QUERY_STORE);
+        $fields_rs   = PMA_DBI_query(PMA_DBI_get_columns_sql($GLOBALS['db'], $GLOBALS['PMD']["TABLE_NAME_SMALL"][$i], null, true), null, PMA_DBI_QUERY_STORE);
         $j = 0;
         while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
             $tab_column[$GLOBALS['PMD']['TABLE_NAME'][$i]]['COLUMN_ID'][$j]   = $j;
@@ -98,7 +98,7 @@ function get_script_contr()
     PMA_DBI_select_db($GLOBALS['db']);
     $con["C_NAME"] = array();
     $i = 0;
-    $alltab_rs  = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($GLOBALS['db']), NULL, PMA_DBI_QUERY_STORE);
+    $alltab_rs  = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($GLOBALS['db']), null, PMA_DBI_QUERY_STORE);
     while ($val = @PMA_DBI_fetch_row($alltab_rs)) {
         $row = PMA_getForeigners($GLOBALS['db'], $val[0], '', 'internal');
         //echo "<br> internal ".$GLOBALS['db']." - ".$val[0]." - ";
@@ -172,7 +172,7 @@ function get_pk_or_unique_keys()
  */
 function get_all_keys($unique_only = false)
 {
-    require_once './libraries/Index.class.php';
+    include_once './libraries/Index.class.php';
 
     $keys = array();
 

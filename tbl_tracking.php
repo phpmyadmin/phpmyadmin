@@ -219,7 +219,7 @@ if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldump') 
     $table_temp = $table;
 
     $db = $table = '';
-    require_once './libraries/sql_query_form.lib.php';
+    include_once './libraries/sql_query_form.lib.php';
 
     PMA_sqlQueryForm($new_query, 'sql');
 

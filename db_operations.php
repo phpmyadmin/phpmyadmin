@@ -304,7 +304,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
      */
     if ( $GLOBALS['is_ajax_request'] == true) {
         $extra_data['newname'] = $newname;
-        $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query);
+        $extra_data['sql_query'] = PMA_showMessage(null, $sql_query);
         PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
     };
 }
@@ -442,7 +442,7 @@ echo __('Remove database');
             'reload' => '1',
             'purge' => '1',
             'message_to_show' => sprintf(__('Database %s has been dropped.'), htmlspecialchars(PMA_backquote($db))),
-            'db' => NULL,
+            'db' => null,
         );
     ?>
         <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'id="drop_db_anchor"' : ''); ?>>

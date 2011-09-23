@@ -440,10 +440,10 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
     if (($is_information_schema || $is_data_dictionary) && ($source == 'internal' || $source == 'both')) {
         if ($is_information_schema) {
             $relations_key = 'information_schema_relations';
-            require_once './libraries/information_schema_relations.lib.php';
+            include_once './libraries/information_schema_relations.lib.php';
         } else {
             $relations_key = 'data_dictionary_relations';
-            require_once './libraries/data_dictionary_relations.lib.php';
+            include_once './libraries/data_dictionary_relations.lib.php';
         }
         if (isset($GLOBALS[$relations_key][$table])) {
             foreach ($GLOBALS[$relations_key][$table] as $field => $relations) {

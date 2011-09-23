@@ -10,9 +10,9 @@
 require_once 'PmaSeleniumTestCase.php';
 
 
-class PmaSeleniumPrivilegesTest extends PmaSeleniumTestCase 
+class PmaSeleniumPrivilegesTest extends PmaSeleniumTestCase
 {
-    public function testChangePassword() 
+    public function testChangePassword()
     {
         $this->doLogin();
         $this->selectFrame("frame_content");

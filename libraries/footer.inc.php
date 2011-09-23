@@ -174,7 +174,7 @@ setURLHash("<?php echo PMA_generate_common_url($url_params, 'text', ''); ?>");
 
 // Include possible custom footers
 if (! $GLOBALS['is_ajax_request'] && file_exists(CUSTOM_FOOTER_FILE)) {
-    require CUSTOM_FOOTER_FILE;
+    include CUSTOM_FOOTER_FILE;
 }
 
 /**

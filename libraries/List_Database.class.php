@@ -453,7 +453,7 @@ require_once './libraries/List.class.php';
                             // TODO: db names may contain characters
                             //       that are regexp instructions
                             $re        = '(^|(\\\\\\\\)+|[^\])';
-                            $tmp_regex = preg_replace('/' . addcslashes($re, '/') . '%/', '\\1.*', preg_replace('/' . addcslashes($re,'/') . '_/', '\\1.{1}', $tmp_matchpattern));
+                            $tmp_regex = preg_replace('/' . addcslashes($re, '/') . '%/', '\\1.*', preg_replace('/' . addcslashes($re, '/') . '_/', '\\1.{1}', $tmp_matchpattern));
                             // Fixed db name matching
                             // 2000-08-28 -- Benjamin Gandon
                             if (preg_match('/^' . addcslashes($tmp_regex, '/') . '$/', $tmp_db)) {

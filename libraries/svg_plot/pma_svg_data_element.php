@@ -4,8 +4,8 @@
  *
  * @package phpMyAdmin
  */
-abstract class PMA_SVG_Data_Element{
-
+abstract class PMA_SVG_Data_Element
+{
     protected $label = '';
 
     protected $dataRow = array();
@@ -26,7 +26,7 @@ abstract class PMA_SVG_Data_Element{
      * @return the code related to a row in the GIS dataset
      */
     public abstract function prepareRowAsSVG($options);
-    
+
     public function getLabel()
     {
         return $this->label;
@@ -36,7 +36,7 @@ abstract class PMA_SVG_Data_Element{
     {
         $this->label = $label;
     }
- 
+
     public function getDataRow()
     {
         return $this->dataRow;

@@ -95,11 +95,11 @@ if ($no_js) {
     // ... we redirect to appropriate query sql page
     // works only full if $db and $table is also stored/grabbed from $_COOKIE
     if (strlen($table)) {
-        require './tbl_sql.php';
+        include './tbl_sql.php';
     } elseif (strlen($db)) {
-        require './db_sql.php';
+        include './db_sql.php';
     } else {
-        require './server_sql.php';
+        include './server_sql.php';
     }
     exit;
 }

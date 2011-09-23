@@ -63,7 +63,7 @@ if (isset($plugin_list)) {
 } else {
 
     $GLOBALS['odt_buffer'] = '';
-    require_once './libraries/opendocument.lib.php';
+    include_once './libraries/opendocument.lib.php';
 
     /**
      * Outputs export footer

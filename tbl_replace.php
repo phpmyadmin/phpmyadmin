@@ -231,8 +231,8 @@ foreach ($loop_array as $rownumber => $where_clause) {
 
         // for blobstreaming
         if ($blob_streaming_active) {
-            $remove_blob_repo = isset($_REQUEST['remove_blob_repo_' . $key]) ? $_REQUEST['remove_blob_repo_' . $key] : NULL;
-            $upload_blob_repo = isset($_REQUEST['upload_blob_repo_' . $key]) ? $_REQUEST['upload_blob_repo_' . $key] : NULL;
+            $remove_blob_repo = isset($_REQUEST['remove_blob_repo_' . $key]) ? $_REQUEST['remove_blob_repo_' . $key] : null;
+            $upload_blob_repo = isset($_REQUEST['upload_blob_repo_' . $key]) ? $_REQUEST['upload_blob_repo_' . $key] : null;
 
             // checks if an existing blob repository reference should be removed
             if (isset($remove_blob_repo) && ! isset($upload_blob_repo)) {

@@ -41,24 +41,27 @@ if (PMA_foreignkey_supported($type_T1) && PMA_foreignkey_supported($type_T2) && 
 }
 if ($try_to_delete_internal_relation) {
     // internal relations
-    PMA_query_as_controluser('DELETE FROM '
-              . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
-              . $cfg['Server']['relation'].' WHERE '
-              . 'master_db = \'' . PMA_sqlAddSlashes($DB2) . '\''
-              . ' AND master_table = \'' . PMA_sqlAddSlashes($T2) . '\''
-              . ' AND master_field = \'' . PMA_sqlAddSlashes($F2) . '\''
-              . ' AND foreign_db = \'' . PMA_sqlAddSlashes($DB1) . '\''
-              . ' AND foreign_table = \'' . PMA_sqlAddSlashes($T1) . '\''
-              . ' AND foreign_field = \'' . PMA_sqlAddSlashes($F1) . '\''
-              , false, PMA_DBI_QUERY_STORE);
+    PMA_query_as_controluser(
+        'DELETE FROM '
+        . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
+        . $cfg['Server']['relation'].' WHERE '
+        . 'master_db = \'' . PMA_sqlAddSlashes($DB2) . '\''
+        . ' AND master_table = \'' . PMA_sqlAddSlashes($T2) . '\''
+        . ' AND master_field = \'' . PMA_sqlAddSlashes($F2) . '\''
+        . ' AND foreign_db = \'' . PMA_sqlAddSlashes($DB1) . '\''
+        . ' AND foreign_table = \'' . PMA_sqlAddSlashes($T1) . '\''
+        . ' AND foreign_field = \'' . PMA_sqlAddSlashes($F1) . '\'',
+        false,
+        PMA_DBI_QUERY_STORE
+    );
 }
 PMD_return_upd(1, __('Relation deleted'));
 
 function PMD_return_upd($b, $ret)
 {
-  global $K;
-  header("Content-Type: text/xml; charset=utf-8");
-  header("Cache-Control: no-cache");
-  die('<root act="relation_upd" return="'.$ret.'" b="'.$b.'" K="'.$K.'"></root>');
+    global $K;
+    header("Content-Type: text/xml; charset=utf-8");
+    header("Cache-Control: no-cache");
+    die('<root act="relation_upd" return="'.$ret.'" b="'.$b.'" K="'.$K.'"></root>');
 }
 ?>

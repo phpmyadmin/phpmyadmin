@@ -10,9 +10,9 @@
 require_once 'PmaSeleniumTestCase.php';
 
 
-class PmaSeleniumLoginTest extends PmaSeleniumTestCase 
+class PmaSeleniumLoginTest extends PmaSeleniumTestCase
 {
-    protected $captureScreenshotOnFailure = TRUE;
+    protected $captureScreenshotOnFailure = true;
     protected $screenshotPath = '/var/www/screenshots';
     protected $screenshotUrl = 'http://localhost/screenshots';
 

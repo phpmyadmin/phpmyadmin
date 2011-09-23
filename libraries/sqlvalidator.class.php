@@ -45,8 +45,8 @@ if (!$GLOBALS['sqlvalidator_error']) {
 /**
  * @package phpMyAdmin
  */
-    class PMA_SQLValidator {
-
+    class PMA_SQLValidator
+    {
         var $url;
         var $service_name;
         var $wsdl;

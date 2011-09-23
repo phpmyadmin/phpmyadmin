@@ -1109,13 +1109,15 @@ if (isset($_REQUEST['synchronize_db'])) {
         PMA_updateTargetTables($matching_tables, $update_array, $src_db, $trg_db,
             $trg_link, $p, $matching_tables_keys, true);
 
-        PMA_insertIntoTargetTable($matching_tables, $src_db, $trg_db, $src_link,
-            $trg_link , $matching_tables_fields, $insert_array, $p,
+        PMA_insertIntoTargetTable(
+            $matching_tables, $src_db, $trg_db, $src_link,
+            $trg_link, $matching_tables_fields, $insert_array, $p,
             $matching_tables_keys, $matching_tables_keys, $source_columns,
             $add_column_array, $criteria, $target_tables_keys, $uncommon_tables,
             $uncommon_tables_fields, $uncommon_cols, $alter_str_array, $source_indexes,
             $target_indexes, $add_indexes_array,
-            $alter_indexes_array, $delete_array, $update_array, true);
+            $alter_indexes_array, $delete_array, $update_array, true
+        );
     }
 
     /**

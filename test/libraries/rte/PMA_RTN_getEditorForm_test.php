@@ -20,7 +20,7 @@ class PMA_RTN_getEditorForm_test extends PHPUnit_Framework_TestCase
         global $cfg;
 
         $cfg['ShowFunctionFields'] = false;
-        require 'libraries/data_mysql.inc.php';
+        include 'libraries/data_mysql.inc.php';
 
         if (! function_exists('PMA_generateCharsetDropdownBox')) {
             function PMA_generateCharsetDropdownBox() {}

@@ -627,7 +627,7 @@ if (isset($plugin_list)) {
             $delimiter = '$$';
 
             if (PMA_MYSQL_INT_VERSION > 50100) {
-                $event_names = PMA_DBI_fetch_result('SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'' . PMA_sqlAddSlashes($db,true) . '\';');
+                $event_names = PMA_DBI_fetch_result('SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'' . PMA_sqlAddSlashes($db, true) . '\';');
             } else {
                 $event_names = array();
             }
@@ -759,7 +759,7 @@ if (isset($plugin_list)) {
         $schema_create .= $new_crlf;
 
         // no need to generate a DROP VIEW here, it was done earlier
-        if (! empty($sql_drop_table) && ! PMA_Table::isView($db,$table)) {
+        if (! empty($sql_drop_table) && ! PMA_Table::isView($db, $table)) {
             $schema_create .= 'DROP TABLE IF EXISTS ' . PMA_backquote($table, $sql_backquotes) . ';' . $crlf;
         }
 
