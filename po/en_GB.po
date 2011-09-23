@@ -12027,7 +12027,7 @@ msgstr ""
 #: po/advisory_rules.php:68
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "Available memory on this host: %s"
 
 #: po/advisory_rules.php:70
 #, fuzzy
