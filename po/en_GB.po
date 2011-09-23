@@ -12188,6 +12188,9 @@ msgid ""
 "overhead of maintaining the cache is likely to increase with its size, so do "
 "this in small increments and monitor the results."
 msgstr ""
+"You might want to increase {query_cache_size}, however keep in mind that the "
+"overhead of maintaining the cache is likely to increase with its size, so "
+"do this in small increments and monitor the results."
 
 #: po/advisory_rules.php:98
 msgid ""
