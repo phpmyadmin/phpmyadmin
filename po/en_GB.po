@@ -11949,6 +11949,8 @@ msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
+"You should upgrade, as recent versions of MySQL 5.1 have improved "
+"performance and MySQL 5.5 even more so."
 
 #: po/advisory_rules.php:46
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
