@@ -6469,7 +6469,6 @@ msgid "Add statements:"
 msgstr "Add statements:"
 
 #: libraries/export/sql.php:211
-#, fuzzy
 #| msgid ""
 #| "Enclose table and field names with backquotes <i>(Protects field and "
 #| "table names formed with special characters or keywords)</i>"
@@ -6477,8 +6476,8 @@ msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
-"Enclose table and field names with backquotes <i>(Protects field and table "
-"names formed with special characters or keywords)</i>"
+"Enclose table and column names with back-quotes <i>(Protects column and "
+"table names formed with special characters or keywords)</i>"
 
 #: libraries/export/sql.php:231
 msgid "Instead of <code>INSERT</code> statements, use:"
