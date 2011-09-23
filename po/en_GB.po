@@ -10547,7 +10547,7 @@ msgstr "Choose from which log you want the statistics to be generated from."
 
 #: server_status.php:1715
 msgid "Results are grouped by query text."
-msgstr ""
+msgstr "Results are grouped by query text."
 
 #: server_status.php:1720
 msgid "Query analyzer"
