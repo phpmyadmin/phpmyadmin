@@ -45,8 +45,8 @@ function PMA_createOpenDocument($mime, $data)
                 . '<meta:initial-creator>phpMyAdmin ' . PMA_VERSION . '</meta:initial-creator>'
                 . '<meta:creation-date>' . strftime('%Y-%m-%dT%H:%M:%S') . '</meta:creation-date>'
             . '</office:meta>'
-        . '</office:document-meta>'
-        , 'meta.xml');
+        . '</office:document-meta>',
+        'meta.xml');
     $zipfile -> addFile('<?xml version="1.0" encoding="UTF-8"?' . '>'
         . '<office:document-styles '. $GLOBALS['OpenDocumentNS'] . 'office:version="1.0">'
             . '<office:font-face-decls>'
@@ -89,16 +89,16 @@ function PMA_createOpenDocument($mime, $data)
             . '<office:master-styles>'
                 . '<style:master-page style:name="Standard" style:page-layout-name="pm1"/>'
             . '</office:master-styles>'
-        . '</office:document-styles>'
-        , 'styles.xml');
+        . '</office:document-styles>',
+        'styles.xml');
     $zipfile -> addFile('<?xml version="1.0" encoding="UTF-8"?' . '>'
         . '<manifest:manifest xmlns:manifest="urn:oasis:names:tc:opendocument:xmlns:manifest:1.0">'
         . '<manifest:file-entry manifest:media-type="' . $mime . '" manifest:full-path="/"/>'
         . '<manifest:file-entry manifest:media-type="text/xml" manifest:full-path="content.xml"/>'
         . '<manifest:file-entry manifest:media-type="text/xml" manifest:full-path="meta.xml"/>'
         . '<manifest:file-entry manifest:media-type="text/xml" manifest:full-path="styles.xml"/>'
-        . '</manifest:manifest>'
-        , 'META-INF/manifest.xml');
+        . '</manifest:manifest>',
+        'META-INF/manifest.xml');
     return $zipfile -> file();
 }
 ?>
