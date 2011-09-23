@@ -12030,10 +12030,9 @@ msgid "Available memory on this host: %s"
 msgstr "Available memory on this host: %s"
 
 #: po/advisory_rules.php:70
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache disabled"
-msgstr "Query cache"
+msgstr "Query cache disabled"
 
 #: po/advisory_rules.php:71
 #, fuzzy
