@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-20 18:58+0200\n"
+"PO-Revision-Date: 2011-09-22 11:54+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -12232,39 +12232,45 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
+"La cache de requêtes est activée et le serveur traite %d requêtes par "
+"seconde. Cette règle intervient s'il y a plus de 100 requêtes par seconde."
 
 #: po/advisory_rules.php:80
 msgid "Query cache efficiency (%)"
-msgstr ""
+msgstr "Efficacité de la cache de requêtes (%)"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr ""
+"La cache de requêtes ne fonctionne pas efficacement, son taux de réussite "
+"est bas."
 
 #: po/advisory_rules.php:82
 msgid "Consider increasing {query_cache_limit}."
-msgstr ""
+msgstr "Il est suggéré d'augmenter {query_cache_limit}."
 
 #: po/advisory_rules.php:83
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr ""
+"Le taux actuel de réussite de la cache de requêtes (%s%%) est sous les 20%%"
 
 #: po/advisory_rules.php:85
-#, fuzzy
 msgid "Query Cache usage"
-msgstr "Cache des requêtes"
+msgstr "Utilisation de la cache des requêtes"
 
 #: po/advisory_rules.php:86
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
-msgstr ""
+msgstr "Moins de 80%% de la cache des requêtes est utilisé."
 
 #: po/advisory_rules.php:87
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
 msgstr ""
+"Ceci peut être causé par une trop faible valeur de {query_cache_limit}. "
+"Initialiser la cache des requêtes pourrait également aider."
 
 #: po/advisory_rules.php:88
 #, php-format
@@ -12274,10 +12280,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:90
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache fragmentation"
-msgstr "Cache des requêtes"
+msgstr "Fragmentation de la cache des requêtes"
 
 #: po/advisory_rules.php:91
 msgid "The query cache is considerably fragmented."

@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-18 19:35+0200\n"
-"Last-Translator:  <joungkyun@yahoo.com>\n"
+"PO-Revision-Date: 2011-09-22 11:28+0200\n"
+"Last-Translator:  <deminoth@naver.com>\n"
 "Language-Team: korean <ko@li.org>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -110,16 +110,14 @@ msgstr "디스크 쓰기에 실패했습니다."
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr "원격 URL 열기 실패했습니다"
+msgstr "원격 URL 열기에 실패했습니다"
 
 #: changelog.php:32 license.php:28
 #, php-format
 msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
-msgstr ""
-"%s 파일은 사용할 수 없습니다. www.phpmyadmin.net에 방문하여 정보를 확인하세"
-"요."
+msgstr "%s 파일이 이 시스템에서 사용 가능하지 않습니다. www.phpmyadmin.net에 방문하여 정보를 확인하세요."
 
 #: db_create.php:60
 #, php-format
@@ -345,20 +343,18 @@ msgid "Collation"
 msgstr "데이터정렬방식"
 
 #: db_operations.php:555
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
-msgstr ""
-"링크 테이블을 처리하는 추가 기능이 비활성화되어 있습니다. 원인을 확인하려면 %"
-"s여기를 클릭%s하십시오."
+msgstr "phpMyAdmin 설정 스토리지가 비활성화 되어 있습니다. 원인을 확인하려면 %s여기를 클릭%s하십시오."
 
 #: db_operations.php:589
 msgid "Edit or export relational schema"
-msgstr ""
+msgstr "관계 스키마를 수정 또는 내보내기"
 
 #: db_printview.php:101 db_tracking.php:85 db_tracking.php:186
 #: libraries/config/messages.inc.php:504 libraries/db_structure.lib.php:32
@@ -419,10 +415,10 @@ msgid "You have to choose at least one column to display"
 msgstr "출력하려면 적어도 1개 이상의 열(칼럼)을 선택해야 합니다."
 
 #: db_qbe.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "Switch to copied table"
 msgid "Switch to %svisual builder%s"
-msgstr "복사한 테이블로 옮겨감"
+msgstr "%s비주얼 쿼리 빌더%s로 전환"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:957
@@ -528,11 +524,11 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "\"<i>%s</i>\"의 검색 결과 %s:"
 
 #: db_search.php:226
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s 건 일치 (테이블 <i>%s</i>)"
+msgstr[0] "테이블 <i>%s</i>에서 %s 건 일치"
 
 #: db_search.php:233 libraries/common.lib.php:3038
 #: libraries/common.lib.php:3245 libraries/common.lib.php:3246
@@ -541,10 +537,10 @@ msgid "Browse"
 msgstr "보기"
 
 #: db_search.php:238
-#, fuzzy, php-format
+#, php-format
 #| msgid "Dumping data for table"
 msgid "Delete the matches for the %s table?"
-msgstr "테이블의 덤프 데이터"
+msgstr "테이블 %s에 대하여 일치하는 것들을 삭제 하겠습니까?"
 
 #: db_search.php:238 libraries/display_tbl.lib.php:1364
 #: libraries/display_tbl.lib.php:2354
@@ -559,7 +555,7 @@ msgid "Delete"
 msgstr "삭제"
 
 #: db_search.php:251
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
@@ -570,7 +566,6 @@ msgid "Search in database"
 msgstr "데이터베이스 검색"
 
 #: db_search.php:276
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "찾을 단어, 값 (와일드카드: \"%\"):"
@@ -584,17 +579,15 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "단어는 스페이스(\" \")로 구분됩니다."
 
 #: db_search.php:299
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
-msgstr "찾을 테이블:"
+msgstr "검색할 테이블:"
 
 #: db_search.php:329
 msgid "Inside column:"
 msgstr "검색할 컬럼:"
 
 #: db_structure.php:67
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
 msgstr "데이터베이스에 테이블이 없습니다."
@@ -627,7 +620,7 @@ msgstr "트래킹이 활성화되어 있지 않습니다."
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
 "s."
-msgstr ""
+msgstr "이 뷰는 최소 이 숫자 이상의 열을 가지고 있습니다. %s문서%s를 참조해 주십시오."
 
 #: db_structure.php:438 db_structure.php:452 libraries/header.inc.php:158
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
@@ -671,7 +664,7 @@ msgstr "모두 체크안함"
 
 #: db_structure.php:544
 msgid "Check tables having overhead"
-msgstr ""
+msgstr "오버헤드를 가진 테이블들을 체크"
 
 #: db_structure.php:552 libraries/common.lib.php:3258
 #: libraries/common.lib.php:3259 libraries/config/messages.inc.php:164
@@ -718,19 +711,17 @@ msgstr "테이블 분석"
 
 #: db_structure.php:572
 msgid "Add prefix to table"
-msgstr ""
+msgstr "테이블에 접두사 추가"
 
 #: db_structure.php:574 libraries/mult_submits.inc.php:251
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
-msgstr "파일로 테이블 대치하기"
+msgstr "테이블의 접두사를 교체"
 
 #: db_structure.php:576 libraries/mult_submits.inc.php:251
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
-msgstr "파일로 테이블 대치하기"
+msgstr "테이블에 접두사를 추가하여 복제"
 
 #: db_structure.php:619 libraries/schema/User_Schema.class.php:420
 msgid "Data Dictionary"
@@ -738,7 +729,7 @@ msgstr "데이터 사전 (전체 구조보기)"
 
 #: db_tracking.php:79
 msgid "Tracked tables"
-msgstr ""
+msgstr "추적된 테이블"
 
 #: db_tracking.php:84 libraries/config/messages.inc.php:498
 #: libraries/export/htmlword.php:78 libraries/export/latex.php:151
@@ -755,16 +746,15 @@ msgstr "데이터베이스"
 
 #: db_tracking.php:86
 msgid "Last version"
-msgstr ""
+msgstr "최근 버전"
 
 #: db_tracking.php:87 tbl_tracking.php:636
-#, fuzzy
 msgid "Created"
-msgstr "만들기 "
+msgstr "생성됨"
 
 #: db_tracking.php:88 tbl_tracking.php:637
 msgid "Updated"
-msgstr ""
+msgstr "수정됨"
 
 #: db_tracking.php:89 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
@@ -782,52 +772,49 @@ msgstr "실행"
 
 #: db_tracking.php:101 js/messages.php:36
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "이 테이블에 대한 추적 데이터를 제거"
 
 #: db_tracking.php:119 tbl_tracking.php:590 tbl_tracking.php:648
 msgid "active"
-msgstr ""
+msgstr "활성"
 
 #: db_tracking.php:121 tbl_tracking.php:592 tbl_tracking.php:650
 msgid "not active"
-msgstr ""
+msgstr "비활성"
 
 #: db_tracking.php:134
-#, fuzzy
 msgid "Versions"
-msgstr "테이블 작업"
+msgstr "버전"
 
 #: db_tracking.php:135 tbl_tracking.php:400 tbl_tracking.php:668
 msgid "Tracking report"
-msgstr ""
+msgstr "추적 보고서"
 
 #: db_tracking.php:136 tbl_tracking.php:235 tbl_tracking.php:670
-#, fuzzy
 msgid "Structure snapshot"
-msgstr "구조만"
+msgstr "구조 요약"
 
 #: db_tracking.php:181
 msgid "Untracked tables"
-msgstr ""
+msgstr "추적되지 않은 테이블"
 
 #: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:638
-#, fuzzy
 msgid "Track table"
-msgstr "테이블 검사"
+msgstr "테이블 추적"
 
 #: db_tracking.php:229
-#, fuzzy
 msgid "Database Log"
-msgstr "데이터베이스"
+msgstr "데이터베이스 로그"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:754
 #, php-format
 msgid "Values for the column \"%s\""
-msgstr ""
+msgstr "\"%s\" 열의 값"
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:755
+#, fuzzy
 msgid "Enter each value in a separate field."
-msgstr ""
+msgstr "각각의 필드에 값을 입력하세요"
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
@@ -835,40 +822,38 @@ msgstr ""
 
 #: enum_editor.php:67 gis_data_editor.php:317
 msgid "Output"
-msgstr ""
+msgstr "출력"
 
 #: enum_editor.php:68
+#, fuzzy
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr ""
+msgstr "\"길이/값\" 필드로 결합된 값을 복사하여 붙여넣으세요"
 
 #: export.php:29
 #, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "질의 종류"
+msgstr "잘못된 타입!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
-msgstr ""
+msgstr "선택한 내보내기가 파일에 저장되었습니다!"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Bad parameters!"
-msgstr "데이터베이스 이름 변경"
+msgstr "잘못된 인자!"
 
 #: export.php:166 export.php:191 export.php:652
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr ""
+msgstr "파일 %s를 저장하기에 공간이 부족합니다."
 
 #: export.php:307
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
-msgstr ""
-"%s 라는 이름의 파일이 이미 서버에 존재합니다. 파일명을 변경하거나 덮어쓰기 옵"
-"션을 설정해주세요."
+msgstr "%s 라는 이름의 파일이 이미 서버에 존재합니다. 파일명을 변경하거나 덮어쓰기 옵션을 설정해주세요."
 
 #: export.php:311 export.php:315
 #, php-format

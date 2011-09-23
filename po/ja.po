@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-20 12:28+0200\n"
+"PO-Revision-Date: 2011-09-22 12:50+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6748,23 +6748,23 @@ msgstr "金額は単位を取り除く<i>（例：$5.00 を 5.00）</i>"
 
 #: libraries/import/shp.php:14
 msgid "ESRI Shape File"
-msgstr ""
+msgstr "ESRI シェープファイル"
 
 #: libraries/import/shp.php:275
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr ""
+msgstr "ESRI シェープファイルをインポート中にエラーがありました: \"%s\""
 
 #: libraries/import/shp.php:331
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data"
-msgstr ""
+msgstr "無効なファイルもしくは無効なデータが含まれているファイルをインポートしようとしました。"
 
 #: libraries/import/shp.php:333
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
-msgstr ""
+msgstr "MySQL の空間拡張が ESRI タイプをサポートしていません: \"%s\""
 
 #: libraries/import/shp.php:371
 msgid "The imported file does not contain any data"
@@ -11828,7 +11828,7 @@ msgstr "遅いクエリの割合が高いので、サーバの稼働時間と比
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
-msgstr "現在の遅いクエリの割合は 1 時間当たり %s です。1 時間当たり 1%% 未満がいいと言われています。"
+msgstr "現在の遅いクエリの割合は 1 時間当たり %s です。この値は、1 時間当たり 1%% 未満がいいと言われています。"
 
 #: po/advisory_rules.php:25
 msgid "Long query time"
@@ -12257,13 +12257,13 @@ msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "fields being used in the join conditions will greatly speed up table joins"
 msgstr ""
-"これは、テーブルをフルスキャンしていることを意味しています。結合条件にあったカラムにインデックスを追加することで、テーブル結合のスピードは大幅に上がるで"
-"しょう。"
+"これは、テーブルをフルスキャンしていることを示しています。結合条件にあったカラムにインデックスを追加することで、テーブル結合のスピードは大幅に上がるでし"
+"ょう。"
 
 #: po/advisory_rules.php:128
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
-msgstr "テーブル結合の平均：%s。1 時間当たり 1 未満がいいと言われています。"
+msgstr "テーブル結合の平均：%s。この値は、1 時間当たり 1 未満がいいと言われています。"
 
 #: po/advisory_rules.php:130
 msgid "Rate of reading first index entry"
@@ -12286,7 +12286,7 @@ msgstr ""
 #: po/advisory_rules.php:133
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
-msgstr "インデックススキャンの平均：%s。1 時間当たり 1 未満がいいと言われています。"
+msgstr "インデックススキャンの平均：%s。この値は、1 時間当たり 1 未満がいいと言われています。"
 
 #: po/advisory_rules.php:135
 msgid "Rate of reading fixed position"
@@ -12311,7 +12311,7 @@ msgstr ""
 msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
-msgstr "決まった位置を読み込む割合の平均：%s。1 時間当たり 1 未満がいいと言われています。"
+msgstr "決まった位置を読み込む割合の平均：%s。この値は、1 時間当たり 1 未満がいいと言われています。"
 
 #: po/advisory_rules.php:140
 msgid "Rate of reading next table row"
@@ -12333,7 +12333,7 @@ msgstr ""
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
-msgstr "テーブルの次行を読み込む割合：%s。1 時間当たり 1 未満がいいと言われています。"
+msgstr "テーブルの次行を読み込む割合：%s。この値は、1 時間当たり 1 未満がいいと言われています。"
 
 #: po/advisory_rules.php:145
 msgid "tmp_table_size vs. max_heap_table_size"
@@ -12500,7 +12500,7 @@ msgstr ""
 #: po/advisory_rules.php:183
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
-msgstr "テーブルを開く割合：%s。1 時間当たり 10 未満がいいと言われています。"
+msgstr "テーブルを開く割合：%s。この値は、1 時間当たり 10 未満がいいと言われています。"
 
 #: po/advisory_rules.php:185
 #, fuzzy
@@ -12539,7 +12539,7 @@ msgstr "ファイルを開く割合が高いです。"
 #: po/advisory_rules.php:193
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr "ファイルを開く割合：%s。1 時間当たり 5 未満がいいと言われています。"
+msgstr "ファイルを開く割合：%s。この値は、1 時間当たり 5 未満がいいと言われています。"
 
 #: po/advisory_rules.php:195
 #, fuzzy, php-format
@@ -12677,14 +12677,13 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:230
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of aborted connections"
-msgstr "永続的な接続"
+msgstr "中断された接続の割合"
 
 #: po/advisory_rules.php:231
 msgid "Too many connections are aborted."
-msgstr ""
+msgstr "中断された接続が多いです。"
 
 #: po/advisory_rules.php:232 po/advisory_rules.php:237
 msgid ""
@@ -12697,23 +12696,22 @@ msgstr ""
 #: po/advisory_rules.php:233
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
-msgstr ""
+msgstr "全接続のうち %s%% が中断されています。この値は、1%% 未満がいいと言われています。"
 
 #: po/advisory_rules.php:235
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Rate of aborted connections"
-msgstr "永続的な接続"
+msgstr "中断された接続の割合"
 
 #: po/advisory_rules.php:236
 msgid "Too many connections are aborted"
-msgstr ""
+msgstr "中断された接続が多いです。"
 
 #: po/advisory_rules.php:238
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
-msgstr ""
+msgstr "中断された接続の割合は %s です。この値は、1 時間当たり 1 未満がいいと言われています。"
 
 #: po/advisory_rules.php:240
 #, fuzzy
