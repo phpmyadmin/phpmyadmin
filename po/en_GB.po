@@ -12201,10 +12201,9 @@ msgstr ""
 "value is, the better (This rules firing limit: 0.1%)"
 
 #: po/advisory_rules.php:100
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache max size"
-msgstr "Query cache"
+msgstr "Query cache max size"
 
 #: po/advisory_rules.php:101
 msgid ""
