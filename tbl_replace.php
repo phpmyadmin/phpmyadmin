@@ -554,7 +554,7 @@ if ($GLOBALS['is_ajax_request'] == true) {
     }
 
     /**Get the total row count of the table*/
-    $extra_data['row_count'] = PMA_Table::countRecords($_REQUEST['db'],$_REQUEST['table']);
+    $extra_data['row_count'] = PMA_Table::countRecords($_REQUEST['db'], $_REQUEST['table']);
     $extra_data['sql_query'] = PMA_showMessage($message, $GLOBALS['display_query']);
     PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
 }

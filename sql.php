@@ -751,7 +751,7 @@ if (0 == $num_rows || $is_affected) {
     } else {
         // avoid a redirect loop when last record was deleted
         if (0 == $num_rows && 'sql.php' == $cfg['DefaultTabTable']) {
-            $goto = str_replace('sql.php','tbl_structure.php',$goto);
+            $goto = str_replace('sql.php', 'tbl_structure.php', $goto);
         }
         PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . str_replace('&amp;', '&', $goto) . '&message=' . urlencode($message));
     } // end else
@@ -869,7 +869,7 @@ $(document).ready(makeProfilingChart);
         echo '<div style="float: left;">';
         echo '<table>' . "\n";
         echo ' <tr>' .  "\n";
-        echo '  <th>' . __('Status') . PMA_showMySQLDocu('general-thread-states','general-thread-states') .  '</th>' . "\n";
+        echo '  <th>' . __('Status') . PMA_showMySQLDocu('general-thread-states', 'general-thread-states') .  '</th>' . "\n";
         echo '  <th>' . __('Time') . '</th>' . "\n";
         echo ' </tr>' .  "\n";
 
@@ -877,7 +877,7 @@ $(document).ready(makeProfilingChart);
         foreach ($profiling_results as $one_result) {
             echo ' <tr>' .  "\n";
             echo '<td>' . ucwords($one_result['Status']) . '</td>' .  "\n";
-            echo '<td align="right">' . (PMA_formatNumber($one_result['Duration'],3,1)) . 's</td>' .  "\n";
+            echo '<td align="right">' . (PMA_formatNumber($one_result['Duration'], 3, 1)) . 's</td>' .  "\n";
             $chart_json[ucwords($one_result['Status'])] = $one_result['Duration'];
         }
 

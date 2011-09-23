@@ -369,7 +369,7 @@ function PMA_replication_synchronize_db($db, $src_link, $trg_link, $data = true)
             $target_columns, $alter_str_array, $add_column_array, $uncommon_columns, $criteria, $target_tables_keys, $counter);
 
         PMA_indexesDiffInTables($src_db, $trg_db, $src_link, $trg_link, $matching_tables, $source_indexes, $target_indexes,
-            $add_indexes_array, $alter_indexes_array,$remove_indexes_array, $counter);
+            $add_indexes_array, $alter_indexes_array, $remove_indexes_array, $counter);
     }
 
     /**

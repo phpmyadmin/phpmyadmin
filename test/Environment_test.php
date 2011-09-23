@@ -26,7 +26,7 @@ class Environment_test extends PHPUnit_Framework_TestCase
     {
         try{
             $pdo = new PDO("mysql:host=".TESTSUITE_SERVER.";dbname=".TESTSUITE_DATABASE, TESTSUITE_USER, TESTSUITE_PASSWORD);
-            $this->assertNull($pdo->errorCode(),"Error when trying to connect to database");
+            $this->assertNull($pdo->errorCode(), "Error when trying to connect to database");
 
             //$pdo->beginTransaction();
             $test = $pdo->exec("SHOW TABLES;");

@@ -24,7 +24,7 @@ class PMA_generate_slider_effect_test extends PHPUnit_Extensions_OutputTestCase
         $message = "test_message";
 
         $this->expectOutputString('<div id="' . $id . '"  class="pma_auto_slider" title="' . htmlspecialchars($message) . '">' . "\n" . '    ');
-        PMA_generate_slider_effect($id,$message);
+        PMA_generate_slider_effect($id, $message);
     }
 
     function testGenerateSliderEffectTestClosed()
@@ -36,7 +36,7 @@ class PMA_generate_slider_effect_test extends PHPUnit_Extensions_OutputTestCase
         $message = "test_message";
 
         $this->expectOutputString('<div id="' . $id . '"  style="display: none; overflow:auto;" class="pma_auto_slider" title="' . htmlspecialchars($message) . '">' . "\n" . '    ');
-        PMA_generate_slider_effect($id,$message);
+        PMA_generate_slider_effect($id, $message);
     }
 
     function testGenerateSliderEffectTestDisabled()
@@ -48,6 +48,6 @@ class PMA_generate_slider_effect_test extends PHPUnit_Extensions_OutputTestCase
         $message = "test_message";
 
         $this->expectOutputString('<div id="' . $id . '">');
-        PMA_generate_slider_effect($id,$message);
+        PMA_generate_slider_effect($id, $message);
     }
 }

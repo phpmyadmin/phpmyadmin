@@ -104,7 +104,7 @@ if (isset($_REQUEST['report_export'])) {
 
 // Export as file download
 if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldumpfile') {
-    @ini_set('url_rewriter.tags','');
+    @ini_set('url_rewriter.tags', '');
 
     $dump = "# " . sprintf(__('Tracking report for table `%s`'), htmlspecialchars($_REQUEST['table'])) . "\n" .
             "# " . date('Y-m-d H:i:s') . "\n";
@@ -665,7 +665,7 @@ if ($last_version > 0) {
             <td><?php echo htmlspecialchars($version['date_updated']);?></td>
             <td><?php echo $version_status;?></td>
             <td> <a href="tbl_tracking.php<?php echo PMA_generate_common_url($url_params + array('report' => 'true', 'version' => $version['version'])
-);?>"><?php echo __('Tracking report');?></a> 
+);?>"><?php echo __('Tracking report');?></a>
                 | <a href="tbl_tracking.php<?php echo PMA_generate_common_url($url_params + array('snapshot' => 'true', 'version' => $version['version'])
 );?>"><?php echo __('Structure snapshot');?></a>
             </td>

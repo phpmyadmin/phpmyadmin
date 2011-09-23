@@ -356,7 +356,7 @@ foreach ($fields as $row) {
             echo $row['Default'];
         }
     } else {
-        echo '<i>' . _pgettext('None for default','None') . '</i>';
+        echo '<i>' . _pgettext('None for default', 'None') . '</i>';
     } ?></td>
     <td nowrap="nowrap"><?php echo strtoupper($row['Extra']); ?></td>
     <td align="center" class="browse">

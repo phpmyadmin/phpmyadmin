@@ -14,7 +14,7 @@
  */
 function getSysInfo()
 {
-    $supported = array('Linux','WINNT');
+    $supported = array('Linux', 'WINNT');
 
     $sysinfo = array();
 
@@ -110,7 +110,7 @@ class Linux
 
     function loadavg() {
         $buf = file_get_contents('/proc/stat');
-        $nums=preg_split("/\s+/", substr($buf,0,strpos($buf,"\n")));
+        $nums=preg_split("/\s+/", substr($buf, 0, strpos($buf, "\n")));
         return Array('busy' => $nums[1]+$nums[2]+$nums[3], 'idle' => intval($nums[4]));
     }
 

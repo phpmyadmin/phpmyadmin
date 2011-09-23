@@ -315,7 +315,7 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
     echo '</div>' . "\n";
 
     $common_url_query = PMA_generate_common_url();
-    PMA_displayDbList($GLOBALS['pma']->databases->getGroupedDetails($_SESSION['tmp_user_values']['navi_limit_offset'],$GLOBALS['cfg']['MaxDbList']), $_SESSION['tmp_user_values']['navi_limit_offset'],$GLOBALS['cfg']['MaxDbList']);
+    PMA_displayDbList($GLOBALS['pma']->databases->getGroupedDetails($_SESSION['tmp_user_values']['navi_limit_offset'], $GLOBALS['cfg']['MaxDbList']), $_SESSION['tmp_user_values']['navi_limit_offset'], $GLOBALS['cfg']['MaxDbList']);
 }
 
 /**

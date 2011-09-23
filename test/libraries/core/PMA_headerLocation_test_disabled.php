@@ -70,9 +70,9 @@ class PMA_headerLocation_test extends PHPUnit_Extensions_OutputTestCase
 
             foreach ($substs as $func => $ren_func) {
                 if (function_exists("__overridden__"))
-                    rename_function("__overridden__", str_replace(array('.', ' '),array('', ''),microtime()));
+                    rename_function("__overridden__", str_replace(array('.', ' '), array('', ''), microtime()));
                 override_function($func, $args[$func], $substs[$func]);
-                rename_function("__overridden__", str_replace(array('.', ' '),array('', ''),microtime()));
+                rename_function("__overridden__", str_replace(array('.', ' '), array('', ''), microtime()));
             }
 
         }
@@ -85,8 +85,8 @@ class PMA_headerLocation_test extends PHPUnit_Extensions_OutputTestCase
         if ($this->apdExt && $GLOBALS['test_header']) {
             $GLOBALS['test_header'] = 0;
 
-            rename_function('header', 'header'.str_replace(array('.', ' '),array('', ''),microtime()));
-            rename_function('headers_sent', 'headers_sent'.str_replace(array('.', ' '),array('', ''),microtime()));
+            rename_function('header', 'header'.str_replace(array('.', ' '), array('', ''), microtime()));
+            rename_function('headers_sent', 'headers_sent'.str_replace(array('.', ' '), array('', ''), microtime()));
 
             rename_function('test_header', 'header');
             rename_function('test_headers_sent', 'headers_sent');

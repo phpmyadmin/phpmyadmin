@@ -231,7 +231,7 @@ if (isset($result) && empty($message_to_show)) {
         $_type = $result ? 'success' : 'error';
         if ( $_REQUEST['ajax_request'] == true) {
             $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query);
-            PMA_ajaxResponse($_message,$_message->isSuccess() ,$extra_data);
+            PMA_ajaxResponse($_message, $_message->isSuccess(), $extra_data);
         }
     }
     if (! empty($warning_messages)) {

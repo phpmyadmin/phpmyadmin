@@ -287,17 +287,17 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         } else {
             ?>
                     <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/Field_small<?php
-            if (strstr($tab_column[$t_n]["TYPE"][$j],'char')
-             || strstr($tab_column[$t_n]["TYPE"][$j],'text')) {
+            if (strstr($tab_column[$t_n]["TYPE"][$j], 'char')
+             || strstr($tab_column[$t_n]["TYPE"][$j], 'text')) {
                 echo '_char';
-            } elseif (strstr($tab_column[$t_n]["TYPE"][$j],'int')
-             || strstr($tab_column[$t_n]["TYPE"][$j],'float')
-             || strstr($tab_column[$t_n]["TYPE"][$j],'double')
-             || strstr($tab_column[$t_n]["TYPE"][$j],'decimal')) {
+            } elseif (strstr($tab_column[$t_n]["TYPE"][$j], 'int')
+             || strstr($tab_column[$t_n]["TYPE"][$j], 'float')
+             || strstr($tab_column[$t_n]["TYPE"][$j], 'double')
+             || strstr($tab_column[$t_n]["TYPE"][$j], 'decimal')) {
                 echo '_int';
-            } elseif (strstr($tab_column[$t_n]["TYPE"][$j],'date')
-             || strstr($tab_column[$t_n]["TYPE"][$j],'time')
-             || strstr($tab_column[$t_n]["TYPE"][$j],'year')) {
+            } elseif (strstr($tab_column[$t_n]["TYPE"][$j], 'date')
+             || strstr($tab_column[$t_n]["TYPE"][$j], 'time')
+             || strstr($tab_column[$t_n]["TYPE"][$j], 'year')) {
                 echo '_date';
             }
             ?>.png" alt="*" />

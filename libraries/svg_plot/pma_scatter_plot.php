@@ -119,7 +119,7 @@ class PMA_Scatter_Plot
         $this->_dataPoints = array();
         if (! is_null($this->_userSpecifiedSettings)) {
             foreach (array_keys($this->_userSpecifiedSettings) as $key){
-            $this->_settings[$key] = $this->_userSpecifiedSettings[$key];	
+            $this->_settings[$key] = $this->_userSpecifiedSettings[$key];
          }
         }
         if ($this->_settings['dataLabel'] == '') {
@@ -188,17 +188,17 @@ class PMA_Scatter_Plot
      *
      * @return an array containing the scale, x and y offsets
      */
-    private function _scaleDataSet($data,$xField,$yField)
+    private function _scaleDataSet($data, $xField, $yField)
     {
 
-        // Currently assuming only numeric fields are selected 
+        // Currently assuming only numeric fields are selected
         $coordinates = array();
         foreach ($data as $row) {
             $coordinates[0][] = $row[$xField];
             $coordinates[1][] = $row[$yField];
         }
         for ($i = 0 ; $i < 2 ; $i++) {
-            $maxC = ($i == 0) ? 500 : 320;          
+            $maxC = ($i == 0) ? 500 : 320;
 
             if ( !is_numeric($coordinates[$i][0])) {
                 $uniqueC = array_unique($coordinates[$i]);
@@ -244,8 +244,8 @@ class PMA_Scatter_Plot
         for ($i = 0 ; $i < count($data) ; $i++) {
 
             $index = $color_number % sizeof($this->_settings['colors']);
-            
-            $data_element = new PMA_SVG_Data_Point($scale_data[0][$i],$scale_data[1][$i],$data[$i][$label],$data[$i]);
+
+            $data_element = new PMA_SVG_Data_Point($scale_data[0][$i], $scale_data[1][$i], $data[$i][$label], $data[$i]);
 
             $options = array('color' => $this->_settings['colors'][$index], 'id' => $i);
             $this->_dataPoints[] = $data_element;

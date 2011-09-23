@@ -24,7 +24,7 @@ class PMA_generate_html_dropdown_test extends PHPUnit_Framework_TestCase
 
         $result = '<select name="' . htmlspecialchars($name) . '" id="' . htmlspecialchars($id) . '"></select>';
 
-        $this->assertEquals($result, PMA_generate_html_dropdown($name,$choices,$active_choice,$id));
+        $this->assertEquals($result, PMA_generate_html_dropdown($name, $choices, $active_choice, $id));
     }
 
     function testGenerateHtmlDropdown()
@@ -44,7 +44,7 @@ class PMA_generate_html_dropdown_test extends PHPUnit_Framework_TestCase
         }
         $result .= '</select>';
 
-        $this->assertEquals($result, PMA_generate_html_dropdown($name,$choices,$active_choice,$id));
+        $this->assertEquals($result, PMA_generate_html_dropdown($name, $choices, $active_choice, $id));
     }
 
     function testGenerateHtmlDropdownWithActive()
@@ -64,6 +64,6 @@ class PMA_generate_html_dropdown_test extends PHPUnit_Framework_TestCase
         }
         $result .= '</select>';
 
-        $this->assertEquals($result, PMA_generate_html_dropdown($name,$choices,$active_choice,$id));
+        $this->assertEquals($result, PMA_generate_html_dropdown($name, $choices, $active_choice, $id));
     }
 }
