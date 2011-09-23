@@ -11986,7 +11986,7 @@ msgstr "'source' found in version_comment"
 
 #: po/advisory_rules.php:56 po/advisory_rules.php:61
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr ""
+msgstr "The MySQL manual only is accurate for official MySQL binaries."
 
 #: po/advisory_rules.php:57
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
