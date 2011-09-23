@@ -13,8 +13,8 @@ extract($_POST, EXTR_SKIP);
 extract($_GET, EXTR_SKIP);
 $die_save_pos = 0;
 require_once 'pmd_save_pos.php';
-list($DB1,$T1) = explode(".",$T1);
-list($DB2,$T2) = explode(".",$T2);
+list($DB1, $T1) = explode(".", $T1);
+list($DB2, $T2) = explode(".", $T2);
 
 $tables = PMA_DBI_get_tables_full($db, $T1);
 $type_T1 = strtoupper($tables[$T1]['ENGINE']);
@@ -54,7 +54,7 @@ if ($try_to_delete_internal_relation) {
 }
 PMD_return_upd(1, __('Relation deleted'));
 
-function PMD_return_upd($b,$ret)
+function PMD_return_upd($b, $ret)
 {
   global $K;
   header("Content-Type: text/xml; charset=utf-8");

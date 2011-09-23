@@ -22,7 +22,7 @@ class PMA_contains_nonprintable_ascii extends PHPUnit_Framework_TestCase
             array("new\nline", 1),
             array("tab\tspace", 1),
             array("escape" . chr(27) . "char", 1),
-            array("chars%$\r\n",1),
+            array("chars%$\r\n", 1),
         );
     }
 
@@ -30,7 +30,7 @@ class PMA_contains_nonprintable_ascii extends PHPUnit_Framework_TestCase
      * @dataProvider dataProvider
      */
     function testContainsNonPrintableAscii($str, $res){
-        $this->assertEquals($res,PMA_contains_nonprintable_ascii($str));
+        $this->assertEquals($res, PMA_contains_nonprintable_ascii($str));
     }
 
 }

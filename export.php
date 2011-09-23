@@ -342,7 +342,7 @@ if (!$save_on_server) {
         // Download
         // (avoid rewriting data containing HTML with anchors and forms;
         // this was reported to happen under Plesk)
-        @ini_set('url_rewriter.tags','');
+        @ini_set('url_rewriter.tags', '');
         $filename = PMA_sanitize_filename($filename);
 
         PMA_download_header($filename, $mime_type);

@@ -18,21 +18,21 @@ class PMA_extractValueFromFormattedSize_test extends PHPUnit_Framework_TestCase
 
     function testExtractValueFromFormattedSizeNoFormat(){
 
-        $this->assertEquals(-1,PMA_extractValueFromFormattedSize(100));
+        $this->assertEquals(-1, PMA_extractValueFromFormattedSize(100));
     }
 
     function testExtractValueFromFormattedSizeGB(){
 
-        $this->assertEquals(10737418240,PMA_extractValueFromFormattedSize("10GB"));
+        $this->assertEquals(10737418240, PMA_extractValueFromFormattedSize("10GB"));
     }
 
     function testExtractValueFromFormattedSizeMB(){
 
-        $this->assertEquals(15728640,PMA_extractValueFromFormattedSize("15MB"));
+        $this->assertEquals(15728640, PMA_extractValueFromFormattedSize("15MB"));
     }
 
     function testExtractValueFromFormattedSizeK(){
 
-        $this->assertEquals(262144,PMA_extractValueFromFormattedSize("256K"));
+        $this->assertEquals(262144, PMA_extractValueFromFormattedSize("256K"));
     }
 }

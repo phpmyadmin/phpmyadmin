@@ -61,7 +61,7 @@ if (typeof(parent.document) != 'undefined' && typeof(parent.document) != 'unknow
 }
 <?php
 if(count($GLOBALS['js_script']) > 0) {
-    echo implode("\n",$GLOBALS['js_script'])."\n";
+    echo implode("\n", $GLOBALS['js_script'])."\n";
 }
 
 foreach ($GLOBALS['js_events'] as $js_event) {

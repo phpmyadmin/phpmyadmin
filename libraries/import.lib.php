@@ -407,7 +407,7 @@ function PMA_getColumnNumberFromName($name)
         // base26 to base10 conversion : multiply each number
         // with corresponding value of the position, in this case
         // $i=0 : 1; $i=1 : 26; $i=2 : 676; ...
-        $column_number += $number * pow(26,$i);
+        $column_number += $number * pow(26, $i);
         }
         return $column_number;
     } else {

@@ -587,10 +587,10 @@ if (isset($_REQUEST['Table_ids'])) {
 
                 unset($delete_array[$matching_table_structure_diff[$q]]);
             }
-            PMA_addColumnsInTargetTable($src_db, $trg_db,$src_link, $trg_link,
+            PMA_addColumnsInTargetTable($src_db, $trg_db, $src_link, $trg_link,
                 $matching_tables, $source_columns, $add_column_array,
                 $matching_tables_fields, $criteria, $matching_tables_keys,
-                $target_tables_keys, $uncommon_tables,$uncommon_tables_fields,
+                $target_tables_keys, $uncommon_tables, $uncommon_tables_fields,
                 $matching_table_structure_diff[$q], $uncommon_cols, false);
 
             unset($add_column_array[$matching_table_structure_diff[$q]]);
@@ -653,7 +653,7 @@ if (isset($_REQUEST['Table_ids'])) {
 
                 unset($delete_array[$matching_table_data_diff[$p]]);
             }
-            PMA_addColumnsInTargetTable($src_db, $trg_db,$src_link, $trg_link,
+            PMA_addColumnsInTargetTable($src_db, $trg_db, $src_link, $trg_link,
                 $matching_tables, $source_columns, $add_column_array,
                 $matching_tables_fields, $criteria, $matching_tables_keys,
                 $target_tables_keys, $uncommon_tables, $uncommon_tables_fields,
@@ -1113,7 +1113,7 @@ if (isset($_REQUEST['synchronize_db'])) {
             $trg_link , $matching_tables_fields, $insert_array, $p,
             $matching_tables_keys, $matching_tables_keys, $source_columns,
             $add_column_array, $criteria, $target_tables_keys, $uncommon_tables,
-            $uncommon_tables_fields,$uncommon_cols, $alter_str_array,$source_indexes,
+            $uncommon_tables_fields, $uncommon_cols, $alter_str_array, $source_indexes,
             $target_indexes, $add_indexes_array,
             $alter_indexes_array, $delete_array, $update_array, true);
     }

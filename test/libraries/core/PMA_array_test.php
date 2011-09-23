@@ -185,7 +185,7 @@ class PMA_array_test extends PHPUnit_Framework_TestCase
         }
 
         $arr = array(1, 2, 3, 4);
-        $target = array('val: 1 processed','val: 2 processed','val: 3 processed','val: 4 processed');
+        $target = array('val: 1 processed', 'val: 2 processed', 'val: 3 processed', 'val: 4 processed');
 
         PMA_arrayWalkRecursive($arr, 'fConcat');
         $this->assertEquals($arr, $target);
@@ -213,8 +213,8 @@ class PMA_array_test extends PHPUnit_Framework_TestCase
      */
     function testPMA_arrayWalkRecursiveSubArray()
     {
-        $arr = array("key1"=>'val1', 'key2'=>array('skey1'=>'sval1','skey2'=>'sval2'),'key3'=>'val3');
-        $target = array('key1'=>'val: val1 processed', 'key2'=> array('skey1'=>'val: sval1 processed', 'skey2'=>'val: sval2 processed'),'key3'=>'val: val3 processed');
+        $arr = array("key1"=>'val1', 'key2'=>array('skey1'=>'sval1', 'skey2'=>'sval2'), 'key3'=>'val3');
+        $target = array('key1'=>'val: val1 processed', 'key2'=> array('skey1'=>'val: sval1 processed', 'skey2'=>'val: sval2 processed'), 'key3'=>'val: val3 processed');
 
         PMA_arrayWalkRecursive($arr, 'fConcat');
         $this->assertEquals($arr, $target);
@@ -222,10 +222,10 @@ class PMA_array_test extends PHPUnit_Framework_TestCase
 
     function testPMA_arrayWalkRecursiveApplyToKeysStripSlashes()
     {
-        $arr = array("key\\1"=>'v\\\\al1', 'k\\ey2'=>array('s\\\\key1'=>'sval\\1','s\\k\\ey2'=>'s\\v\\al2'),'key3'=>'val3');
-        $target = array("key1"=>'val1', 'key2'=>array('skey1'=>'sval1','skey2'=>'sval2'),'key3'=>'val3');
+        $arr = array("key\\1"=>'v\\\\al1', 'k\\ey2'=>array('s\\\\key1'=>'sval\\1', 's\\k\\ey2'=>'s\\v\\al2'), 'key3'=>'val3');
+        $target = array("key1"=>'val1', 'key2'=>array('skey1'=>'sval1', 'skey2'=>'sval2'), 'key3'=>'val3');
 
-        PMA_arrayWalkRecursive($arr, 'stripslashes',true);
+        PMA_arrayWalkRecursive($arr, 'stripslashes', true);
         $this->assertEquals($arr, $target);
     }
 }

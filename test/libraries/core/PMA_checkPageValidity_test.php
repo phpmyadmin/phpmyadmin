@@ -37,31 +37,31 @@ class PMA_checkPageValidity_test extends PHPUnit_Framework_TestCase
 
     function testGotoNowhere(){
         $page = null;
-        $this->assertFalse(PMA_checkPageValidity($page,null));
+        $this->assertFalse(PMA_checkPageValidity($page, null));
     }
 
     function testGotoWhitelist(){
         $page = 'export.php';
 
-        $this->assertTrue(PMA_checkPageValidity($page,$this->goto_whitelist));
+        $this->assertTrue(PMA_checkPageValidity($page, $this->goto_whitelist));
     }
 
     function testGotoNotInWhitelist(){
         $page = 'shell.php';
 
-        $this->assertFalse(PMA_checkPageValidity($page,$this->goto_whitelist));
+        $this->assertFalse(PMA_checkPageValidity($page, $this->goto_whitelist));
     }
 
     function testGotoWhitelistPage(){
         $page = 'main.php?sql.php&test=true';
 
-        $this->assertTrue(PMA_checkPageValidity($page,$this->goto_whitelist));
+        $this->assertTrue(PMA_checkPageValidity($page, $this->goto_whitelist));
     }
 
     function testGotoWhitelistEncodedPage(){
         $page = 'main.php%3Fsql.php%26test%3Dtrue';
 
-        $this->assertTrue(PMA_checkPageValidity($page,$this->goto_whitelist));
+        $this->assertTrue(PMA_checkPageValidity($page, $this->goto_whitelist));
     }
 
 }

@@ -13,7 +13,7 @@ class PMA_SVG_Data_Point extends PMA_SVG_Data_Element
      * X-Coordinate of the point
      */
     private $cx;
-    
+
     /*
      * Y-Coordinate of the point
      */
@@ -24,7 +24,7 @@ class PMA_SVG_Data_Point extends PMA_SVG_Data_Element
      */
     public function __construct($cx, $cy, $label, $dataRow)
     {
-        parent::__construct($label,$dataRow);
+        parent::__construct($label, $dataRow);
         $this->cx = $cx;
         $this->cy = $cy;
     }
@@ -50,7 +50,7 @@ class PMA_SVG_Data_Point extends PMA_SVG_Data_Element
             'stroke'      => $options['color'],
             'stroke-width'=> 2,
         );
-         
+
         $row = '<circle cx="' . $this->cx . '" cy="' . $this->cy . '" r=".1"';
         foreach ($point_options as $option => $val) {
             $row .= ' ' . $option . '="' . trim($val) . '"';
@@ -59,7 +59,7 @@ class PMA_SVG_Data_Point extends PMA_SVG_Data_Element
 
         return $row;
     }
-  
+
     public function getCx()
     {
         return $this->cx;

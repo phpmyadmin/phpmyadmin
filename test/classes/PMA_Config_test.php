@@ -46,7 +46,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     public function testCheckSystem()
     {
         $this->object->checkSystem();
-        
+
         $this->assertNotNull($this->object->get('PMA_VERSION'));
         $this->assertNotEmpty($this->object->get('PMA_THEME_VERSION'));
         $this->assertNotEmpty($this->object->get('PMA_THEME_GENERATION'));
@@ -66,7 +66,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         $this->object->set('PMA_USR_BROWSER_AGENT', 'MOZILLA');
         $this->object->set('PMA_USR_BROWSER_VER', 5);
         $this->object->checkOutputCompression();
-        $this->assertEquals('auto',$this->object->get("OBGzip"));
+        $this->assertEquals('auto', $this->object->get("OBGzip"));
 
         ini_set('zlib.output_compression', 'Off');
         $this->object->checkOutputCompression();
@@ -120,15 +120,15 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     {
         $prevIsGb2Val = $this->object->get('PMA_IS_GD2');
 
-        $this->object->set('GD2Available','yes');
+        $this->object->set('GD2Available', 'yes');
         $this->object->checkGd2();
         $this->assertEquals(1, $this->object->get('PMA_IS_GD2'));
 
-        $this->object->set('GD2Available','no');
+        $this->object->set('GD2Available', 'no');
         $this->object->checkGd2();
         $this->assertEquals(0, $this->object->get('PMA_IS_GD2'));
 
-        $this->object->set('GD2Available',$prevIsGb2Val);
+        $this->object->set('GD2Available', $prevIsGb2Val);
 
         if (!@function_exists('imagecreatetruecolor')) {
             $this->object->checkGd2();
@@ -179,7 +179,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
         if (defined('PHP_OS')) {
             switch (PHP_OS) {
-            case stristr(PHP_OS,'win'):
+            case stristr(PHP_OS, 'win'):
                 $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'), 'PHP_OS equals: ' . PHP_OS . ' PMA_IS_WINDOWS should be 1');
                 break;
             case stristr(PHP_OS, 'OS/2'):
@@ -192,7 +192,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         } else {
             $this->assertEquals(0, $this->object->get('PMA_IS_WINDOWS'), 'PMA_IS_WINDOWS Default to Unix or Equiv');
 
-            define('PHP_OS','Windows');
+            define('PHP_OS', 'Windows');
             $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'), 'PMA_IS_WINDOWS must be 1');
         }
     }
@@ -247,7 +247,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
         $expectedSettings = PMA_array_merge_recursive($this->object->settings, $loadedConf);
 
-        $this->assertEquals($expectedSettings, $this->object->settings,'Settings loaded wrong');
+        $this->assertEquals($expectedSettings, $this->object->settings, 'Settings loaded wrong');
 
         $this->assertFalse($this->object->error_config_default_file);
     }
@@ -298,7 +298,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
     public function testCheckPmaAbsoluteUriEmpty()
     {
-        $this->object->set('PmaAbsoluteUri','');
+        $this->object->set('PmaAbsoluteUri', '');
         $this->assertFalse($this->object->checkPmaAbsoluteUri(), 'PmaAbsoluteUri is not set and should be error');
         $this->assertTrue($this->object->error_pma_uri, 'PmaAbsoluteUri is not set and should be error');
     }
@@ -308,11 +308,11 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      */
     public function testCheckPmaAbsoluteUriNormal()
     {
-        $this->object->set('PmaAbsoluteUri','http://localhost/phpmyadmin/');
+        $this->object->set('PmaAbsoluteUri', 'http://localhost/phpmyadmin/');
         $this->object->checkPmaAbsoluteUri();
         $this->assertEquals("http://localhost/phpmyadmin/", $this->object->get('PmaAbsoluteUri'));
 
-        $this->object->set('PmaAbsoluteUri','http://localhost/phpmyadmin');
+        $this->object->set('PmaAbsoluteUri', 'http://localhost/phpmyadmin');
         $this->object->checkPmaAbsoluteUri();
         $this->assertEquals("http://localhost/phpmyadmin/", $this->object->get('PmaAbsoluteUri'), 'Expected trailing slash at the end of the phpMyAdmin uri');
 
@@ -328,7 +328,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         $_SERVER['HTTPS'] = 'off';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
 
-        $this->object->set('PmaAbsoluteUri','');
+        $this->object->set('PmaAbsoluteUri', '');
 
         $this->object->checkPmaAbsoluteUri();
         $this->assertEquals("http://localhost/", $this->object->get('PmaAbsoluteUri'));
@@ -339,12 +339,12 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      */
     public function testCheckPmaAbsoluteUriUser()
     {
-        $this->object->set('PmaAbsoluteUri','http://user:pwd@localhost/phpmyadmin/index.php');
+        $this->object->set('PmaAbsoluteUri', 'http://user:pwd@localhost/phpmyadmin/index.php');
 
         $this->object->checkPmaAbsoluteUri();
         $this->assertEquals("http://user:pwd@localhost/phpmyadmin/index.php/", $this->object->get('PmaAbsoluteUri'));
 
-        $this->object->set('PmaAbsoluteUri','https://user:pwd@localhost/phpmyadmin/index.php');
+        $this->object->set('PmaAbsoluteUri', 'https://user:pwd@localhost/phpmyadmin/index.php');
 
         $this->object->checkPmaAbsoluteUri();
         $this->assertEquals("https://user:pwd@localhost/phpmyadmin/index.php/", $this->object->get('PmaAbsoluteUri'));
@@ -400,7 +400,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     {
         $this->object->checkCookiePath();
         echo $this->object->get('cookie_path');
-        $this->assertEquals('',$this->object->get('cookie_path'));
+        $this->assertEquals('', $this->object->get('cookie_path'));
     }
 
     /**
@@ -546,7 +546,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     public function testSetUserValue()
     {
         $this->object->setUserValue(null, 'lang', $GLOBALS['lang'], 'en');
-        $this->object->setUserValue("TEST_COOKIE_USER_VAL",'','cfg_val_1');
+        $this->object->setUserValue("TEST_COOKIE_USER_VAL", '', 'cfg_val_1');
 
         // Remove the following lines when you implement this test.
 //        $this->markTestIncomplete(

@@ -39,7 +39,7 @@ if (isset($mode)) {
     if ('export' == $mode) {
         $sql = "REPLACE INTO " . $pma_table . " (db_name, table_name, pdf_page_number, x, y) SELECT db_name, table_name, " . $pdf_page_number_q . ", ROUND(x/" . $scale_q . ") , ROUND(y/" . $scale_q . ") y FROM " . $pmd_table . " WHERE db_name = '" . PMA_sqlAddSlashes($db) . "'";
 
-        PMA_query_as_controluser($sql,true,PMA_DBI_QUERY_STORE);
+        PMA_query_as_controluser($sql, true, PMA_DBI_QUERY_STORE);
     }
 
     if ('import' == $mode) {
@@ -101,7 +101,7 @@ if (1 == count($choices)) {
     echo $choices['create_export'];
     echo '<input type="hidden" name="mode" value="create_export" />';
 } else {
-    PMA_display_html_radio('mode', $choices, $checked_choice = '', $line_break = true, $escape_label = false, $class='');
+    PMA_display_html_radio('mode', $choices, $checked_choice = '', $line_break = true, $escape_label = false, $class = '');
 }
 echo '<br />';
 echo '<label for="newpage">' . __('New page name: ') . '</label>';

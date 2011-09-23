@@ -21,7 +21,7 @@ class PMA_display_html_radio_test extends PHPUnit_Extensions_OutputTestCase
         $choices = array();
 
         $this->expectOutputString("");
-        PMA_display_html_radio($name,$choices);
+        PMA_display_html_radio($name, $choices);
     }
 
     function testDisplayHtmlRadio()
@@ -40,7 +40,7 @@ class PMA_display_html_radio_test extends PHPUnit_Extensions_OutputTestCase
         }
 
         $this->expectOutputString($out);
-        PMA_display_html_radio($name,$choices);
+        PMA_display_html_radio($name, $choices);
     }
 
     function testDisplayHtmlRadioWithChecked()
@@ -63,7 +63,7 @@ class PMA_display_html_radio_test extends PHPUnit_Extensions_OutputTestCase
         }
 
         $this->expectOutputString($out);
-        PMA_display_html_radio($name,$choices,$checked_choice);
+        PMA_display_html_radio($name, $choices, $checked_choice);
     }
 
     function testDisplayHtmlRadioWithCheckedWithClass()
@@ -89,7 +89,7 @@ class PMA_display_html_radio_test extends PHPUnit_Extensions_OutputTestCase
         }
 
         $this->expectOutputString($out);
-        PMA_display_html_radio($name,$choices,$checked_choice,true,false,$class);
+        PMA_display_html_radio($name, $choices, $checked_choice, true, false, $class);
     }
 
     function testDisplayHtmlRadioWithoutBR()
@@ -111,7 +111,7 @@ class PMA_display_html_radio_test extends PHPUnit_Extensions_OutputTestCase
         }
 
         $this->expectOutputString($out);
-        PMA_display_html_radio($name,$choices,$checked_choice,false);
+        PMA_display_html_radio($name, $choices, $checked_choice, false);
     }
 
     function testDisplayHtmlRadioEscapeLabelEscapeLabel()
@@ -134,7 +134,7 @@ class PMA_display_html_radio_test extends PHPUnit_Extensions_OutputTestCase
         }
 
         $this->expectOutputString($out);
-        PMA_display_html_radio($name,$choices,$checked_choice,true,true);
+        PMA_display_html_radio($name, $choices, $checked_choice, true, true);
     }
 
     function testDisplayHtmlRadioEscapeLabelNotEscapeLabel()
@@ -157,7 +157,7 @@ class PMA_display_html_radio_test extends PHPUnit_Extensions_OutputTestCase
         }
 
         $this->expectOutputString($out);
-        PMA_display_html_radio($name,$choices,$checked_choice,true,false);
+        PMA_display_html_radio($name, $choices, $checked_choice, true, false);
     }
 
     function testDisplayHtmlRadioEscapeLabelEscapeLabelWithClass()
@@ -183,6 +183,6 @@ class PMA_display_html_radio_test extends PHPUnit_Extensions_OutputTestCase
         }
 
         $this->expectOutputString($out);
-        PMA_display_html_radio($name,$choices,$checked_choice,true,true,$class);
+        PMA_display_html_radio($name, $choices, $checked_choice, true, true, $class);
     }
 }

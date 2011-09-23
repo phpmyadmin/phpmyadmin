@@ -45,7 +45,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 $varValue = PMA_DBI_fetch_single_row('SHOW GLOBAL VARIABLES WHERE Variable_name="' . PMA_sqlAddslashes($_REQUEST['varName']) . '";', 'NUM');
                 if (isset($VARIABLE_DOC_LINKS[$_REQUEST['varName']][3])
                     && $VARIABLE_DOC_LINKS[$_REQUEST['varName']][3] == 'byte') {
-                    exit(implode(' ', PMA_formatByteDown($varValue[1],3,3)));
+                    exit(implode(' ', PMA_formatByteDown($varValue[1], 3, 3)));
                 }
                 exit($varValue[1]);
                 break;
@@ -55,7 +55,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
                 if (isset($VARIABLE_DOC_LINKS[$_REQUEST['varName']][3])
                    && $VARIABLE_DOC_LINKS[$_REQUEST['varName']][3] == 'byte'
-                   && preg_match('/^\s*(\d+(\.\d+)?)\s*(mb|kb|mib|kib|gb|gib)\s*$/i',$value,$matches)) {
+                   && preg_match('/^\s*(\d+(\.\d+)?)\s*(mb|kb|mib|kib|gb|gib)\s*$/i', $value, $matches)) {
                     $exp = array('kb' => 1, 'kib' => 1, 'mb' => 2, 'mib' => 2, 'gb' => 3, 'gib' => 3);
                     $value = floatval($matches[1]) * pow(1024, $exp[strtolower($matches[3])]);
                 } else {
@@ -97,7 +97,7 @@ require './libraries/server_links.inc.php';
 echo '<h2>' . "\n"
    . ($cfg['MainPageIconic'] ? '<img class="icon ic_s_vars" src="themes/dot.gif" alt="" />' : '')
    . '' . __('Server variables and settings') . "\n"
-   . PMA_showMySQLDocu('server_system_variables','server_system_variables')
+   . PMA_showMySQLDocu('server_system_variables', 'server_system_variables')
    . '</h2>' . "\n";
 
 /**
@@ -138,7 +138,7 @@ foreach ($serverVars as $name => $value) {
     ?>
 <tr class="<?php echo $row_class; ?>">
     <th nowrap="nowrap"><?php echo htmlspecialchars(str_replace('_', ' ', $name)); ?></th>
-    <td class="value"><?php echo formatVariable($name,$value); ?></td>
+    <td class="value"><?php echo formatVariable($name, $value); ?></td>
     <td class="value"><?php
     // To display variable documentation link
     if (isset($VARIABLE_DOC_LINKS[$name]))
@@ -150,7 +150,7 @@ foreach ($serverVars as $name => $value) {
 </tr>
 <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?> ">
     <td>(<?php echo __('Session value'); ?>)</td>
-    <td class="value"><?php echo formatVariable($name,$serverVarsSession[$name]); ?></td>
+    <td class="value"><?php echo formatVariable($name, $serverVarsSession[$name]); ?></td>
     <td class="value"></td>
     <?php } ?>
 </tr>
@@ -162,13 +162,13 @@ foreach ($serverVars as $name => $value) {
 </table>
 <?php
 
-function formatVariable($name,$value)
+function formatVariable($name, $value)
 {
     global $VARIABLE_DOC_LINKS;
 
     if (is_numeric($value)) {
         if (isset($VARIABLE_DOC_LINKS[$name][3]) && $VARIABLE_DOC_LINKS[$name][3]=='byte')
-            return '<abbr title="'.PMA_formatNumber($value, 0).'">'.implode(' ',PMA_formatByteDown($value,3,3)).'</abbr>';
+            return '<abbr title="'.PMA_formatNumber($value, 0).'">'.implode(' ', PMA_formatByteDown($value, 3, 3)).'</abbr>';
         else return PMA_formatNumber($value, 0);
     }
     return htmlspecialchars($value);

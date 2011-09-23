@@ -24,7 +24,7 @@ if (PMA_foreignkey_supported($type_T1) && PMA_foreignkey_supported($type_T2) && 
     $existrel_foreign = PMA_getForeigners($db, $T2, '', 'foreign');
     if (isset($existrel_foreign[$F2])
      && isset($existrel_foreign[$F2]['constraint'])) {
-         PMD_return_new(0,__('Error: relation already exists.'));
+         PMD_return_new(0, __('Error: relation already exists.'));
     }
 // note: in InnoDB, the index does not requires to be on a PRIMARY
 // or UNIQUE key
@@ -56,8 +56,8 @@ if (PMA_foreignkey_supported($type_T1) && PMA_foreignkey_supported($type_T2) && 
         if ($on_update != 'nix') {
             $upd_query   .= ' ON UPDATE ' . $on_update;
         }
-        PMA_DBI_try_query($upd_query) or PMD_return_new(0,__('Error: Relation not added.'));
-    PMD_return_new(1,__('FOREIGN KEY relation added'));
+        PMA_DBI_try_query($upd_query) or PMD_return_new(0, __('Error: Relation not added.'));
+    PMD_return_new(1, __('FOREIGN KEY relation added'));
     }
 
 // internal (pmadb) relation
@@ -78,7 +78,7 @@ if (PMA_foreignkey_supported($type_T1) && PMA_foreignkey_supported($type_T2) && 
                             . '\'' . PMA_sqlAddSlashes($T1) . '\','
                             . '\'' . PMA_sqlAddSlashes($F1) . '\')';
 
-        if (PMA_query_as_controluser($q , false, PMA_DBI_QUERY_STORE)) {
+        if (PMA_query_as_controluser($q, false, PMA_DBI_QUERY_STORE)) {
             PMD_return_new(1, __('Internal relation added'));
         } else {
             PMD_return_new(0, __('Error: Relation not added.'));

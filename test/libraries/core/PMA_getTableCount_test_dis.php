@@ -31,7 +31,7 @@ class PMA_getTableCount_test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['user'] = 'root';
 
-        $this->assertEquals(5,PMA_getTableCount('meddb'));
+        $this->assertEquals(5, PMA_getTableCount('meddb'));
         $this->assertTrue(true);
     }
 }
