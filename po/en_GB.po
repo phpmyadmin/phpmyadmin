@@ -11968,7 +11968,7 @@ msgstr "Distribution"
 
 #: po/advisory_rules.php:51
 msgid "Version is compiled from source, not a MySQL official binary."
-msgstr ""
+msgstr "Version is compiled from source, not a MySQL official binary."
 
 #: po/advisory_rules.php:52
 msgid ""
