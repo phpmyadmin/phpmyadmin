@@ -11841,7 +11841,7 @@ msgstr ""
 #: po/advisory_rules.php:18
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr ""
+msgstr "The slow query rate should be below 5%%, your value is %s%%."
 
 #: po/advisory_rules.php:20
 #, fuzzy
