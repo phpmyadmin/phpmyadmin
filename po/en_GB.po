@@ -11716,7 +11716,7 @@ msgstr "Additional search criteria"
 
 #: tbl_zoom_select.php:276
 msgid "Use this column to label each point"
-msgstr ""
+msgstr "Use this column to label each point"
 
 #: tbl_zoom_select.php:296
 #, fuzzy
