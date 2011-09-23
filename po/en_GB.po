@@ -11814,10 +11814,10 @@ msgstr ""
 "of queries."
 
 #: po/advisory_rules.php:13
-#, fuzzy, php-format
+#, php-format
 #| msgid "Current connection"
 msgid "Current amount of Questions: %s"
-msgstr "Current connection"
+msgstr "Current amount of Questions: %s"
 
 #: po/advisory_rules.php:15
 #, fuzzy
