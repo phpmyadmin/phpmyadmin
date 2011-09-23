@@ -12174,12 +12174,13 @@ msgid "Query cache low memory prunes"
 msgstr "Query cache low memory prunes"
 
 #: po/advisory_rules.php:96
-#, fuzzy
 #| msgid "The amount of free memory for query cache."
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
-msgstr "The amount of free memory for query cache."
+msgstr ""
+"Cached queries are removed due to low query cache memory from the query "
+"cache."
 
 #: po/advisory_rules.php:97
 msgid ""
