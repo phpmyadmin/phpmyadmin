@@ -12096,7 +12096,7 @@ msgstr "Query cache not running efficiently, it has a low hit rate."
 
 #: po/advisory_rules.php:82
 msgid "Consider increasing {query_cache_limit}."
-msgstr ""
+msgstr "Consider increasing {query_cache_limit}."
 
 #: po/advisory_rules.php:83
 #, php-format
