@@ -11719,10 +11719,9 @@ msgid "Use this column to label each point"
 msgstr "Use this column to label each point"
 
 #: tbl_zoom_select.php:296
-#, fuzzy
 #| msgid "Maximum number of rows to display"
 msgid "Maximum rows to plot"
-msgstr "Maximum number of rows to display"
+msgstr "Maximum rows to plot"
 
 #: tbl_zoom_select.php:410
 msgid "Browse/Edit the points"
