@@ -2227,7 +2227,6 @@ msgid "File was not an uploaded file."
 msgstr "الملف لم يكن مرفوعاً."
 
 #: libraries/File.class.php:260 libraries/File.class.php:389
-#, fuzzy
 #| msgid "Unknown error in file upload."
 msgid "Unknown error while uploading."
 msgstr "خطأ غير معروف عند رفع الملف."
