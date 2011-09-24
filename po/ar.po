@@ -1600,10 +1600,9 @@ msgid "Import"
 msgstr "استيراد"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
-msgstr "تجديد الإستعلام"
+msgstr "تحليل الإستعلام"
 
 #: js/messages.php:196
 msgid "Advisor system"
