@@ -4334,10 +4334,9 @@ msgid "Query window height"
 msgstr "إرتفاع نافذة الإستعلام"
 
 #: libraries/config/messages.inc.php:346
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width (in pixels)"
-msgstr "نافذة الاستعلام"
+msgstr "عرض نافذة الإستعلام (بالبكسل)"
 
 #: libraries/config/messages.inc.php:347
 #, fuzzy
