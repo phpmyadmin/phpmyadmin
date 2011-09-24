@@ -4345,7 +4345,7 @@ msgstr "إرتفاع نافذة الإستعلام"
 
 #: libraries/config/messages.inc.php:348
 msgid "Select which functions will be used for character set conversion"
-msgstr ""
+msgstr "إختر أي وظيفة سوف تستعمل لتغيير الترميز"
 
 #: libraries/config/messages.inc.php:349
 msgid "Recoding engine"
