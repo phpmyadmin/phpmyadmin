@@ -11,6 +11,7 @@ phpMyAdmin - ChangeLog
 - bug #3383572 [interface] Cannot execute saved query
 - bug #3411535 [display] Full text button unchecks results display options
 - bug #3411224 [display] Broken binary column when 'Show binary contents' is not set
+- bug #3411633 [core] Call to undefined function PMA_isSuperuser()
 
 3.4.5.0 (2011-09-14)
 - bug #3375325 [interface] Page list in navigation frame looks odd
