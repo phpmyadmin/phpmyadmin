@@ -1909,10 +1909,9 @@ msgid ""
 msgstr "تستطيع تعديل أغلب الأعمدة <br /> بالضغط مباشرة على المحتوى."
 
 #: js/messages.php:323
-#, fuzzy
 #| msgid "Go to table"
 msgid "Go to link"
-msgstr "اذهب إلى الجدول"
+msgstr "ذهاب للرابط"
 
 #: js/messages.php:326
 msgid "Generate password"
