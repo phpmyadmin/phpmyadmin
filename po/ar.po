@@ -1580,7 +1580,7 @@ msgstr "إعادة تحميل الصفحة"
 
 #: js/messages.php:186
 msgid "Affected rows:"
-msgstr ""
+msgstr "الصفوف المتأثرة:"
 
 #: js/messages.php:188
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
