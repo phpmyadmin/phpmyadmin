@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-24 21:22+0200\n"
+"PO-Revision-Date: 2011-09-24 21:23+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -1870,7 +1870,7 @@ msgstr "إضافة خيار للعمود"
 
 #: js/messages.php:314
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "إضغط escape  لإلغاء التعديل"
 
 #: js/messages.php:315
 msgid ""
