@@ -1174,9 +1174,8 @@ msgid "Live conn./process chart"
 msgstr "실시간 연결/프로세스 도표"
 
 #: js/messages.php:67 server_status.php:815
-#, fuzzy
 msgid "Live query chart"
-msgstr "SQL 질의"
+msgstr "실시간 쿼리 도표"
 
 #: js/messages.php:69
 msgid "Static data"
