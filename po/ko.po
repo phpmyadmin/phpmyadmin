@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-24 03:18+0200\n"
+"PO-Revision-Date: 2011-09-24 03:19+0200\n"
 "Last-Translator: Deminoth Runo <deminoth@naver.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -1105,7 +1105,7 @@ msgstr "정말로 데이터베이스 %s에서 모든 BLOB 참조를 사용 불�
 
 #: js/messages.php:46
 msgid "Missing value in the form!"
-msgstr "Missing value in the form !"
+msgstr "입력 폼 안에 빠진 값이 있습니다!"
 
 #: js/messages.php:47
 msgid "This is not a number!"
