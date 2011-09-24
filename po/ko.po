@@ -1277,7 +1277,7 @@ msgstr "사용된 질의 캐시"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
-msgstr ""
+msgstr "시스템 CPU 사용량"
 
 #: js/messages.php:101
 msgid "System memory"
