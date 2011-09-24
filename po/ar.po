@@ -1953,7 +1953,6 @@ msgid "Done"
 msgstr "إنتهى"
 
 #: js/messages.php:360
-#, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
