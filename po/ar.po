@@ -2875,10 +2875,9 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s يوم، %s ساعة، %s دقيقة و%s ثانية"
 
 #: libraries/common.lib.php:2016
-#, fuzzy
 #| msgid "Add new field"
 msgid "Missing parameter:"
-msgstr "إضافة حقل جديد"
+msgstr "مدخلات مفقودة:"
 
 #: libraries/common.lib.php:2364 libraries/common.lib.php:2367
 #: libraries/display_tbl.lib.php:306
