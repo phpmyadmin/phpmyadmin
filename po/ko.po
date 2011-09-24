@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-24 03:21+0200\n"
+"PO-Revision-Date: 2011-09-24 03:22+0200\n"
 "Last-Translator: Deminoth Runo <deminoth@naver.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -1167,7 +1167,7 @@ msgstr "수정"
 #: js/messages.php:65 server_status.php:794
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "실시간 전송량 차트"
+msgstr "실시간 전송량 도표"
 
 #: js/messages.php:66 server_status.php:797
 msgid "Live conn./process chart"
