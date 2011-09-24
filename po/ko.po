@@ -1171,7 +1171,7 @@ msgstr "실시간 전송량 도표"
 
 #: js/messages.php:66 server_status.php:797
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "실시간 연결/프로세스 도표"
 
 #: js/messages.php:67 server_status.php:815
 #, fuzzy
