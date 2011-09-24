@@ -4182,7 +4182,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:309
 msgid "Maximum databases"
-msgstr ""
+msgstr "قواعد بيانات أكبر"
 
 #: libraries/config/messages.inc.php:310
 msgid ""
