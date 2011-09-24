@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-24 03:15+0200\n"
+"PO-Revision-Date: 2011-09-24 03:16+0200\n"
 "Last-Translator: Deminoth Runo <deminoth@naver.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -1079,7 +1079,7 @@ msgstr "이 테이블 전체를 제거하려고 합니다!"
 
 #: js/messages.php:35
 msgid "You are about to TRUNCATE a complete table!"
-msgstr ""
+msgstr "이 테이블 전체를 비우려고 합니다!"
 
 #: js/messages.php:37
 #, fuzzy
