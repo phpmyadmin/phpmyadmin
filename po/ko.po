@@ -1281,7 +1281,7 @@ msgstr "시스템 CPU 사용량"
 
 #: js/messages.php:101
 msgid "System memory"
-msgstr ""
+msgstr "시스템 메모리"
 
 #: js/messages.php:102
 msgid "System swap"
