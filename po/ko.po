@@ -1226,10 +1226,9 @@ msgid "Processes"
 msgstr "프로세스 목록"
 
 #: js/messages.php:84
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "연결 수"
+msgstr "연결 / 프로세스"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:86
