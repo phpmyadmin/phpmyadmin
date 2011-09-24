@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-22 12:50+0200\n"
+"PO-Revision-Date: 2011-09-24 12:00+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1534,8 +1534,7 @@ msgstr "単語／正規表現でクエリをフィルタ："
 
 #: js/messages.php:177
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
-"WHERE 句内のデータ部（文字列や数値など）は同一として扱いクエリをまとめる"
+msgstr "WHERE 節内のデータ部（文字列や数値など）は同一として扱いクエリをまとめる"
 
 #: js/messages.php:178
 msgid "Sum of grouped rows:"
