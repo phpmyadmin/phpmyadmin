@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-24 03:29+0200\n"
+"PO-Revision-Date: 2011-09-24 03:32+0200\n"
 "Last-Translator: Deminoth Runo <deminoth@naver.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -1252,12 +1252,15 @@ msgid "Local monitor configuration incompatible"
 msgstr "로컬 모니터 설정이 호환되지 않습니다."
 
 #: js/messages.php:94
+#, fuzzy
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
+"브라우저의 로컬 저장소에 있는 차트 정렬 설정이 더 이상 새 버전의 모니터 대화창과 호환되지 않습니다. 당신의 현재 설정은 더 이상 "
+"작동하지 않을 수 있습니다. <i>설정<i>메뉴에서 설정을 초기화해주세요."
 
 #: js/messages.php:96
 #, fuzzy
