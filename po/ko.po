@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-24 03:12+0200\n"
+"PO-Revision-Date: 2011-09-24 03:14+0200\n"
 "Last-Translator: Deminoth Runo <deminoth@naver.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -1029,10 +1029,12 @@ msgstr ""
 "파일을 다시 전송해주십시오."
 
 #: import.php:430
+#, fuzzy
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
+"파싱된 데이터가 없지만, 이것은 보통 phpMyAdmin이 php 시간 제한을 늘리지 않고는 이 가져오기를 마칠 수 없음을 뜻합니다."
 
 #: import.php:458 libraries/Message.class.php:175
 #: libraries/display_tbl.lib.php:2275 libraries/rte/rte_routines.lib.php:1197
