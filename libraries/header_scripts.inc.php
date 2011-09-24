@@ -20,12 +20,14 @@ if ( false === $GLOBALS['cfg']['AllowThirdPartyFraming']) {
 }
 // generate title (unless we already have $page_title, from cookie auth)
 if (! isset($page_title)) {
-    $title = PMA_expandUserString(
-            !empty($GLOBALS['table']) ? $GLOBALS['cfg']['TitleTable'] :
-            (!empty($GLOBALS['db']) ? $GLOBALS['cfg']['TitleDatabase'] :
-            (!empty($GLOBALS['cfg']['Server']['host']) ? $GLOBALS['cfg']['TitleServer'] :
+    if ($GLOBALS['server'] > 0) {
+        $title = PMA_expandUserString(
+            ! empty($GLOBALS['table']) ? $GLOBALS['cfg']['TitleTable'] :
+            (! empty($GLOBALS['db']) ? $GLOBALS['cfg']['TitleDatabase'] :
+            (! empty($GLOBALS['cfg']['Server']['host']) ? $GLOBALS['cfg']['TitleServer'] :
             $GLOBALS['cfg']['TitleDefault']))
         );
+    }
 } else {
     $title = $page_title;
 }
@@ -57,7 +59,7 @@ foreach ($GLOBALS['js_include'] as $js_script_file) {
 // Updates the title of the frameset if possible (ns4 does not allow this)
 if (typeof(parent.document) != 'undefined' && typeof(parent.document) != 'unknown'
     && typeof(parent.document.title) == 'string') {
-    parent.document.title = '<?php echo PMA_sanitize(PMA_escapeJsString(htmlspecialchars($title))); ?>';
+    parent.document.title = '<?php echo (isset($title) ? PMA_sanitize(PMA_escapeJsString(htmlspecialchars($title))) : ''); ?>';
 }
 
 <?php
