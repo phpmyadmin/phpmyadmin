@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-24 03:28+0200\n"
+"PO-Revision-Date: 2011-09-24 03:29+0200\n"
 "Last-Translator: Deminoth Runo <deminoth@naver.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -1242,9 +1242,8 @@ msgid "Questions (executed statements by the server)"
 msgstr "Questions(서버에 의해 실행된 문장)"
 
 #: js/messages.php:90 server_status.php:776
-#, fuzzy
 msgid "Query statistics"
-msgstr "행(레코드) 통계"
+msgstr "질의 통계"
 
 #: js/messages.php:93
 #, fuzzy
