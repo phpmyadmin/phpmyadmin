@@ -4356,10 +4356,9 @@ msgid "When browsing tables, the sorting of each table is remembered"
 msgstr "عند تصفح الجداول, تذكر ترتيب كل جدول"
 
 #: libraries/config/messages.inc.php:351
-#, fuzzy
 #| msgid "Rename table to"
 msgid "Remember table's sorting"
-msgstr "تغيير اسم جدول إلى"
+msgstr "تذكر ترتيب الجداول"
 
 #: libraries/config/messages.inc.php:352
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
