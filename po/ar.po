@@ -4349,7 +4349,7 @@ msgstr "إختر أي وظيفة سوف تستعمل لتغيير الترميز
 
 #: libraries/config/messages.inc.php:349
 msgid "Recoding engine"
-msgstr ""
+msgstr "محرك إعادة الترميز"
 
 #: libraries/config/messages.inc.php:350
 msgid "When browsing tables, the sorting of each table is remembered"
