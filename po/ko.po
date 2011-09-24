@@ -1210,7 +1210,7 @@ msgstr "KiB가 마지막 최신화 이후로 전송되었습니다."
 
 #: js/messages.php:80
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "KiB를 마지막 새로고침 이후로 받았습니다."
 
 #: js/messages.php:81
 #, fuzzy
