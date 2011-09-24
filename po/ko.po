@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-24 03:20+0200\n"
+"PO-Revision-Date: 2011-09-24 03:21+0200\n"
 "Last-Translator: Deminoth Runo <deminoth@naver.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -1154,7 +1154,7 @@ msgstr "선택한 사용자를 삭제"
 #: js/messages.php:61 js/messages.php:130 libraries/tbl_properties.inc.php:753
 #: tbl_tracking.php:235 tbl_tracking.php:400
 msgid "Close"
-msgstr ""
+msgstr "닫기"
 
 #: js/messages.php:64 js/messages.php:250 libraries/Index.class.php:460
 #: libraries/common.lib.php:590 libraries/common.lib.php:1139
