@@ -1333,7 +1333,7 @@ msgstr "캐시된 스왑"
 
 #: js/messages.php:115
 msgid "Used Swap"
-msgstr ""
+msgstr "사용된 스왑"
 
 #: js/messages.php:116
 msgid "Free Swap"
