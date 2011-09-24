@@ -1312,7 +1312,7 @@ msgstr "캐시된 메모리"
 
 #: js/messages.php:109
 msgid "Buffered memory"
-msgstr ""
+msgstr "버퍼 메모리"
 
 #: js/messages.php:110
 msgid "Free memory"
