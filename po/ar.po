@@ -998,7 +998,7 @@ msgstr ""
 #: import.php:352
 msgid ""
 "Cannot convert file's character set without character set conversion library"
-msgstr ""
+msgstr "لاتستطيع تغيير ترميز الملفات بدون مكتبة الدوال الخاصة بذلك"
 
 #: import.php:376 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
