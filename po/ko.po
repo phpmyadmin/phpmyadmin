@@ -1147,7 +1147,6 @@ msgid "Reloading Privileges"
 msgstr "사용권한을 다시 불러옵니다."
 
 #: js/messages.php:60
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "선택한 사용자를 삭제"
