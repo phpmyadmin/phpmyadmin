@@ -1006,7 +1006,7 @@ msgstr "لايمكن تحميل الإضافات المستوردة ,, فضلا�
 
 #: import.php:401
 msgid "The bookmark has been deleted."
-msgstr "لقد حذفت العلامة المرجعية."
+msgstr "تم حذف العلامة المرجعية."
 
 #: import.php:405
 msgid "Showing bookmark"
