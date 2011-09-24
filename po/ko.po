@@ -1101,7 +1101,7 @@ msgstr "BLOB 저장소를 사용 불가능하게 하려고 합니다!"
 #: js/messages.php:43
 #, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
-msgstr ""
+msgstr "정말로 데이터베이스 %s에서 모든 BLOB 참조를 사용 불가능하게 하시겠습니까?"
 
 #: js/messages.php:46
 msgid "Missing value in the form!"
