@@ -1623,7 +1623,7 @@ msgstr "توصية"
 
 #: js/messages.php:200
 msgid "Rule details"
-msgstr ""
+msgstr "تفاصيل القواعد"
 
 #: js/messages.php:201
 #, fuzzy
