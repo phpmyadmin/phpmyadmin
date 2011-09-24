@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-24 20:57+0200\n"
+"PO-Revision-Date: 2011-09-24 21:00+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -932,10 +932,9 @@ msgid "Inner Ring"
 msgstr ""
 
 #: gis_data_editor.php:252
-#, fuzzy
 #| msgid "Add constraints"
 msgid "Add a linestring"
-msgstr "أضف قيود"
+msgstr "إضافة منحنى"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:297
 #, fuzzy
