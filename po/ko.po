@@ -1299,7 +1299,7 @@ msgstr "KB"
 
 #: js/messages.php:106
 msgid "Average load"
-msgstr ""
+msgstr "평균 부하"
 
 #: js/messages.php:107
 #, fuzzy
