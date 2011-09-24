@@ -1553,10 +1553,9 @@ msgid "Sum of grouped rows:"
 msgstr "مجموع الصفوف المدخلة:"
 
 #: js/messages.php:179
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "مجموع كلي"
+msgstr "المجموع:"
 
 #: js/messages.php:181
 #, fuzzy
