@@ -1070,9 +1070,8 @@ msgid "Do you really want to "
 msgstr "정말로 다음을 실행하시겠습니까? "
 
 #: js/messages.php:33 libraries/mult_submits.inc.php:282 sql.php:320
-#, fuzzy
 msgid "You are about to DESTROY a complete database!"
-msgstr "전체 데이터베이스를 '제거'하려고 합니다!"
+msgstr "이 데이터베이스 전체를 제거하려고 합니다!"
 
 #: js/messages.php:34
 msgid "You are about to DESTROY a complete table!"
