@@ -1626,7 +1626,6 @@ msgid "Rule details"
 msgstr "تفاصيل القواعد"
 
 #: js/messages.php:201
-#, fuzzy
 #| msgid "Authentication"
 msgid "Justification"
 msgstr "المصادقة"
