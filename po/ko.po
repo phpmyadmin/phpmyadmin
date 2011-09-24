@@ -1142,10 +1142,9 @@ msgid "Add user"
 msgstr "사용자 추가"
 
 #: js/messages.php:59
-#, fuzzy
 #| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
-msgstr "사용권한을 갱신합니다(Reloading the privileges)"
+msgstr "사용권한을 다시 불러옵니다."
 
 #: js/messages.php:60
 #, fuzzy
