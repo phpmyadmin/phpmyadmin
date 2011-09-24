@@ -1574,10 +1574,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Reload Database"
 msgid "Reload page"
-msgstr "أعادة تحميل قاعدة البيانات"
+msgstr "إعادة تحميل الصفحة"
 
 #: js/messages.php:186
 msgid "Affected rows:"
