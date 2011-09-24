@@ -1674,7 +1674,7 @@ msgstr "موافق"
 
 #: js/messages.php:217
 msgid "Click to dismiss this notification"
-msgstr ""
+msgstr "إضغط لإغلاق هذا الإشعار"
 
 #: js/messages.php:220
 msgid "Renaming Databases"
