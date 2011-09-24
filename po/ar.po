@@ -2407,7 +2407,7 @@ msgstr "خادم MySQL هذا لايدعم محرك التخزين %s ."
 
 #: libraries/Table.class.php:329
 msgid "unknown table status: "
-msgstr ""
+msgstr "حالة الجدول غير معروفة:"
 
 #: libraries/Table.class.php:1115
 msgid "Invalid database"
