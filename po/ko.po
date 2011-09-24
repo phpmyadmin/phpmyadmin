@@ -874,7 +874,7 @@ msgstr "\"%s\"행의 값"
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "기본 레이어로 OpenStreetMaps를 사용"
 
 #: gis_data_editor.php:134
 msgid "SRID"
