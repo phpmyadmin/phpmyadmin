@@ -4201,7 +4201,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:314
 msgid "Maximum tables"
-msgstr ""
+msgstr "جداول أكبر"
 
 #: libraries/config/messages.inc.php:315
 msgid ""
