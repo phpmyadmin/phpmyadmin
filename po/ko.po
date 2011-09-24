@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-24 03:33+0200\n"
+"PO-Revision-Date: 2011-09-24 03:40+0200\n"
 "Last-Translator: Deminoth Runo <deminoth@naver.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -1285,7 +1285,7 @@ msgstr "시스템 메모리"
 
 #: js/messages.php:102
 msgid "System swap"
-msgstr ""
+msgstr "시스템 스왑"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:103 libraries/common.lib.php:1343 server_status.php:1669
