@@ -1783,7 +1783,6 @@ msgid "Show search criteria"
 msgstr "إظهار معايير البحث"
 
 #: js/messages.php:263 libraries/tbl_select.lib.php:110
-#, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
 msgstr "بحث"
