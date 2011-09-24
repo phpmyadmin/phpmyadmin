@@ -4295,7 +4295,7 @@ msgstr "منع تعديل الأعمدة من نوع BLOB  و BINARY"
 
 #: libraries/config/messages.inc.php:336
 msgid "Protect binary columns"
-msgstr ""
+msgstr "حماية الأعمدة من نوع BINARY"
 
 #: libraries/config/messages.inc.php:337
 msgid ""
