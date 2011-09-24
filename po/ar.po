@@ -944,7 +944,7 @@ msgstr "إضافة فهرس مميز"
 
 #: gis_data_editor.php:266 js/messages.php:292
 msgid "Polygon"
-msgstr ""
+msgstr "مضلع"
 
 #: gis_data_editor.php:306 js/messages.php:298
 #, fuzzy
