@@ -882,8 +882,9 @@ msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:293
 #: libraries/display_tbl.lib.php:665
+#, fuzzy
 msgid "Geometry"
-msgstr ""
+msgstr "Geometry"
 
 #: gis_data_editor.php:172 js/messages.php:289
 msgid "Point"
