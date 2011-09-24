@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-24 03:16+0200\n"
+"PO-Revision-Date: 2011-09-24 03:17+0200\n"
 "Last-Translator: Deminoth Runo <deminoth@naver.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -1088,7 +1088,7 @@ msgstr "추적 데이터 삭제"
 
 #: js/messages.php:38
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "기본 키 / 인덱스를 제거중"
 
 #: js/messages.php:39
 msgid "This operation could take a long time. Proceed anyway?"
