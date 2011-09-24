@@ -1558,10 +1558,9 @@ msgid "Total:"
 msgstr "المجموع:"
 
 #: js/messages.php:181
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading logs"
-msgstr "تحميل"
+msgstr "تحميل السجلات"
 
 #: js/messages.php:182
 msgid "Monitor refresh failed"
