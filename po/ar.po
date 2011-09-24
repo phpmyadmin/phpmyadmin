@@ -910,7 +910,7 @@ msgstr "ص"
 #: js/messages.php:290
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "نقطة %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:296
