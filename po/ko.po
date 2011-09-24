@@ -1137,10 +1137,9 @@ msgstr "암호가 동일하지 않습니다!"
 
 #: js/messages.php:58 server_privileges.php:1769 server_privileges.php:1793
 #: server_privileges.php:2205 server_privileges.php:2404
-#, fuzzy
 #| msgid "Any user"
 msgid "Add user"
-msgstr "아무나"
+msgstr "사용자 추가"
 
 #: js/messages.php:59
 #, fuzzy
