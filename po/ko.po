@@ -1092,7 +1092,7 @@ msgstr "기본 키 / 인덱스를 제거중"
 
 #: js/messages.php:39
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr ""
+msgstr "이 명령은 오랜 시간이 걸릴 수 있습니다. 그래도 실행하시겠습니까?"
 
 #: js/messages.php:42
 msgid "You are about to DISABLE a BLOB Repository!"
