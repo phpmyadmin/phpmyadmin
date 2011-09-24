@@ -861,7 +861,7 @@ msgstr "웹 서버에 파일 %s를 저장할 권한이 없습니다."
 #: export.php:654
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr ""
+msgstr "덤프 파일이 s%에 저장되었습니다."
 
 #: file_echo.php:21
 #, fuzzy
