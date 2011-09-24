@@ -2680,7 +2680,7 @@ msgstr "تحقق من الصلاحيات"
 
 #: libraries/common.inc.php:147
 msgid "possible exploit"
-msgstr ""
+msgstr "إستغلال محتمل"
 
 #: libraries/common.inc.php:156
 msgid "numeric key detected"
