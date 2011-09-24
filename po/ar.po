@@ -2369,10 +2369,9 @@ msgstr[4] ""
 msgstr[5] ""
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "يسمح بقراءة البيانات."
+msgstr "خطأ عند إنشاء ملف PDF :"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
