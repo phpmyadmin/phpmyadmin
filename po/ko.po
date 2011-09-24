@@ -816,8 +816,9 @@ msgid "Enter each value in a separate field."
 msgstr "각각의 필드에 값을 입력하세요"
 
 #: enum_editor.php:57
+#, fuzzy
 msgid "+ Restart insertion and add a new value"
-msgstr ""
+msgstr "+ 삽입을 재시작하고 새 값을 입력합니다"
 
 #: enum_editor.php:67 gis_data_editor.php:317
 msgid "Output"
