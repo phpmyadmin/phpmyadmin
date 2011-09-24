@@ -1179,7 +1179,7 @@ msgstr "실시간 쿼리 도표"
 
 #: js/messages.php:69
 msgid "Static data"
-msgstr ""
+msgstr "정적 데이터"
 
 #. l10n: Total number of queries
 #: js/messages.php:71 libraries/build_html_for_db.lib.php:46
