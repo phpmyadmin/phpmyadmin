@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-24 03:22+0200\n"
+"PO-Revision-Date: 2011-09-24 03:23+0200\n"
 "Last-Translator: Deminoth Runo <deminoth@naver.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -1187,7 +1187,7 @@ msgstr "정적 데이터"
 #: server_status.php:1115 server_status.php:1176 tbl_printview.php:315
 #: tbl_structure.php:802
 msgid "Total"
-msgstr "전체 사용량"
+msgstr "전체 쿼리수"
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:73 server_status.php:594 server_status.php:1013
