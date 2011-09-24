@@ -1213,10 +1213,9 @@ msgid "KiB received since last refresh"
 msgstr "KiB를 마지막 새로고침 이후로 받았습니다."
 
 #: js/messages.php:81
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
-msgstr "서버 선택"
+msgstr "서버 전송량(KiB)"
 
 #: js/messages.php:82
 msgid "Connections since last refresh"
