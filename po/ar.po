@@ -4322,7 +4322,7 @@ msgstr "عرض التبوب عند فتح نافذة إستعلام جديد"
 
 #: libraries/config/messages.inc.php:343
 msgid "Default query window tab"
-msgstr ""
+msgstr "نافذة إستعلام إفتراضية"
 
 #: libraries/config/messages.inc.php:344
 msgid "Query window height (in pixels)"
