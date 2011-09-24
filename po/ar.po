@@ -1499,7 +1499,7 @@ msgstr ""
 
 #: js/messages.php:164
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "تحميل وتحليل السجل . قد يستغرق بعض الوقت."
 
 #: js/messages.php:165
 msgid ""
