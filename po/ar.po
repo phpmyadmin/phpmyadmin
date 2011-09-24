@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-24 21:43+0200\n"
+"PO-Revision-Date: 2011-09-24 21:44+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -4310,7 +4310,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:340
 msgid "How many queries are kept in history"
-msgstr ""
+msgstr "كم عدد الإستعلامات التي حفظت؟"
 
 #: libraries/config/messages.inc.php:341
 msgid "Query history length"
