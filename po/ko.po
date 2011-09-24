@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-24 03:32+0200\n"
+"PO-Revision-Date: 2011-09-24 03:33+0200\n"
 "Last-Translator: Deminoth Runo <deminoth@naver.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -1273,7 +1273,7 @@ msgstr "질의 캐시 사용량"
 #: js/messages.php:98
 #, fuzzy
 msgid "Query cache used"
-msgstr "질의 종류"
+msgstr "사용된 질의 캐시"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
