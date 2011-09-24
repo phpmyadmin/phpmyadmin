@@ -1219,7 +1219,7 @@ msgstr "서버 전송량(KiB)"
 
 #: js/messages.php:82
 msgid "Connections since last refresh"
-msgstr "마지막 새로고침 이후 연결"
+msgstr "마지막 새로고침 이후 연결 수"
 
 #: js/messages.php:83 js/messages.php:121 server_status.php:1224
 msgid "Processes"
