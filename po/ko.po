@@ -1316,7 +1316,7 @@ msgstr "버퍼 메모리"
 
 #: js/messages.php:110
 msgid "Free memory"
-msgstr ""
+msgstr "사용가능 메모리"
 
 #: js/messages.php:111
 msgid "Used memory"
