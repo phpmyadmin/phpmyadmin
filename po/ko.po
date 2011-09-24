@@ -1008,7 +1008,7 @@ msgstr "북마크를 제거했습니다."
 
 #: import.php:405
 msgid "Showing bookmark"
-msgstr ""
+msgstr "북마크를 보여줍니다."
 
 #: import.php:407 sql.php:907
 #, php-format
