@@ -1075,7 +1075,7 @@ msgstr "이 데이터베이스 전체를 제거하려고 합니다!"
 
 #: js/messages.php:34
 msgid "You are about to DESTROY a complete table!"
-msgstr ""
+msgstr "이 테이블 전체를 제거하려고 합니다!"
 
 #: js/messages.php:35
 msgid "You are about to TRUNCATE a complete table!"
