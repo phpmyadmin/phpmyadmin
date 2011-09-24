@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-24 03:07+0200\n"
+"PO-Revision-Date: 2011-09-24 03:09+0200\n"
 "Last-Translator: Deminoth Runo <deminoth@naver.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -976,11 +976,11 @@ msgstr "파일을 읽을 수 없습니다"
 #: import.php:285 import.php:294 import.php:313 import.php:322
 #: libraries/File.class.php:610 libraries/File.class.php:618
 #: libraries/File.class.php:634 libraries/File.class.php:642
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
-msgstr ""
+msgstr "지원되지 않는 압축(%)형식의 파일을 업로드하려고 시도했습니다. 지원이 구현되지 않았거나 설정에서 사용하지 않게 되어있습니다."
 
 #: import.php:335
 msgid ""
