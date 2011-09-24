@@ -1545,7 +1545,7 @@ msgstr "ترشيح الإستعلامات بواسطة word/regexp :"
 
 #: js/messages.php:177
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
+msgstr "مجموعة إستعلامات , تجاهل المتغيرات في جملة WHERE"
 
 #: js/messages.php:178
 #, fuzzy
