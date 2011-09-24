@@ -1108,6 +1108,7 @@ msgid "Missing value in the form!"
 msgstr "입력 폼 안에 빠진 값이 있습니다!"
 
 #: js/messages.php:47
+#, fuzzy
 msgid "This is not a number!"
 msgstr "은 숫자(번호)가 아닙니다!"
 
