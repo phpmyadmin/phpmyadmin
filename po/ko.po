@@ -1084,7 +1084,7 @@ msgstr "이 테이블 전체를 비우려고 합니다!"
 #: js/messages.php:37
 #| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
-msgstr "추적 데이터 삭제"
+msgstr "추적 데이터 삭제중"
 
 #: js/messages.php:38
 msgid "Dropping Primary Key/Index"
