@@ -1082,10 +1082,9 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "이 테이블 전체를 비우려고 합니다!"
 
 #: js/messages.php:37
-#, fuzzy
 #| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
-msgstr "데이터 추가(insert) 및 변경(replace) 허용."
+msgstr "추적 데이터 삭제"
 
 #: js/messages.php:38
 msgid "Dropping Primary Key/Index"
