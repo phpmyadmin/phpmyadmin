@@ -1117,7 +1117,7 @@ msgstr "은 숫자(번호)가 아닙니다!"
 #, fuzzy
 #| msgid "Total"
 msgid "Total count"
-msgstr "전체 사용량"
+msgstr "전체 갯수"
 
 #: js/messages.php:54
 msgid "The host name is empty!"
