@@ -1835,7 +1835,7 @@ msgstr "تجاهل"
 
 #: js/messages.php:286 libraries/display_tbl.lib.php:1329
 msgid "Copy"
-msgstr ""
+msgstr "نسخ"
 
 #: js/messages.php:301
 #, fuzzy
