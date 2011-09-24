@@ -4225,7 +4225,7 @@ msgstr "حدود الذاكرة"
 
 #: libraries/config/messages.inc.php:319
 msgid "These are Edit, Copy and Delete links"
-msgstr ""
+msgstr "هذه هي روابط التعديل والنسخ والحذف"
 
 #: libraries/config/messages.inc.php:320
 msgid "Where to show the table row links"
