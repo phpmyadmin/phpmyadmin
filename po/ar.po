@@ -1882,7 +1882,7 @@ msgstr ""
 
 #: js/messages.php:316
 msgid "Drag to reorder"
-msgstr ""
+msgstr "إسحب لإعادة الترتيب"
 
 #: js/messages.php:317
 #, fuzzy
