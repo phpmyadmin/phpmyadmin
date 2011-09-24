@@ -1614,7 +1614,7 @@ msgstr "الأداء المتوقع"
 
 #: js/messages.php:198
 msgid "Issue"
-msgstr ""
+msgstr "قضايا"
 
 #: js/messages.php:199
 #, fuzzy
