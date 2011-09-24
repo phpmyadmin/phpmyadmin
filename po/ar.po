@@ -1710,10 +1710,9 @@ msgid "Hide indexes"
 msgstr "إخفاء الفهارس"
 
 #: js/messages.php:232
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "أظهر تخطيط الجدول"
+msgstr "أظهار الفهارس"
 
 #: js/messages.php:235
 msgid "Searching"
