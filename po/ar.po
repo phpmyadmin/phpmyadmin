@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-24 21:46+0200\n"
+"PO-Revision-Date: 2011-09-24 21:47+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -4339,10 +4339,9 @@ msgid "Query window width (in pixels)"
 msgstr "عرض نافذة الإستعلام (بالبكسل)"
 
 #: libraries/config/messages.inc.php:347
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width"
-msgstr "نافذة الاستعلام"
+msgstr "إرتفاع نافذة الإستعلام"
 
 #: libraries/config/messages.inc.php:348
 msgid "Select which functions will be used for character set conversion"
