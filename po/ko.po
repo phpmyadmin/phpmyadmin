@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-24 03:01+0200\n"
+"PO-Revision-Date: 2011-09-24 03:02+0200\n"
 "Last-Translator: Deminoth Runo <deminoth@naver.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -864,9 +864,8 @@ msgid "Dump has been saved to file %s."
 msgstr "덤프 파일이 s%에 저장되었습니다."
 
 #: file_echo.php:21
-#, fuzzy
 msgid "Invalid export type"
-msgstr "테이블이 없습니다"
+msgstr "잘못된 내보내기 타입"
 
 #: gis_data_editor.php:84
 #, php-format
