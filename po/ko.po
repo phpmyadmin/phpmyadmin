@@ -1267,9 +1267,8 @@ msgid "Query cache efficiency"
 msgstr "질의 캐시 효율"
 
 #: js/messages.php:97
-#, fuzzy
 msgid "Query cache usage"
-msgstr "질의 종류"
+msgstr "질의 캐시 사용량"
 
 #: js/messages.php:98
 #, fuzzy
