@@ -1762,7 +1762,6 @@ msgid "Change"
 msgstr "تغيير"
 
 #: js/messages.php:253
-#, fuzzy
 #| msgid "Maximum execution time"
 msgid "Query execution time"
 msgstr "وقت التنفيذ الأقصى"
