@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-24 03:00+0200\n"
+"PO-Revision-Date: 2011-09-24 03:01+0200\n"
 "Last-Translator: Deminoth Runo <deminoth@naver.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -856,7 +856,7 @@ msgstr "%s 라는 이름의 파일이 이미 서버에 존재합니다. 파일�
 #: export.php:311 export.php:315
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr ""
+msgstr "웹 서버에 파일 %s를 저장할 권한이 없습니다."
 
 #: export.php:654
 #, php-format
