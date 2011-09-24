@@ -4310,7 +4310,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:340
 msgid "How many queries are kept in history"
-msgstr "كم عدد الإستعلامات التي حفظت؟"
+msgstr "عدد الإستعلامات التي حفظت"
 
 #: libraries/config/messages.inc.php:341
 msgid "Query history length"
