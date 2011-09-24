@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-24 03:05+0200\n"
+"PO-Revision-Date: 2011-09-24 03:07+0200\n"
 "Last-Translator: Deminoth Runo <deminoth@naver.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -962,11 +962,11 @@ msgid ""
 msgstr ""
 
 #: import.php:57
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation%"
 "s for ways to workaround this limit."
-msgstr ""
+msgstr "너무 큰 파일을 업로드하려고 시도했습니다. 제한치를 우회하는 방법은 %s문서%s를 참조하여 주십시오."
 
 #: import.php:277 import.php:330 libraries/File.class.php:457
 #: libraries/File.class.php:540
