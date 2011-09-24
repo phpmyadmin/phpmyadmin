@@ -1826,7 +1826,7 @@ msgstr "إختر عمودين"
 
 #: js/messages.php:282
 msgid "Select two different columns"
-msgstr ""
+msgstr "إختر عمودين مختلفين"
 
 #: js/messages.php:285 tbl_change.php:312 tbl_indexes.php:211
 #: tbl_indexes.php:238
