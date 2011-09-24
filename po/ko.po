@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-24 03:24+0200\n"
+"PO-Revision-Date: 2011-09-24 03:25+0200\n"
 "Last-Translator: Deminoth Runo <deminoth@naver.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -1206,7 +1206,7 @@ msgstr "."
 
 #: js/messages.php:79
 msgid "KiB sent since last refresh"
-msgstr "KiB가 마지막 최신화 이후로 전송되었습니다."
+msgstr "KiB가 마지막 새로고침 이후로 전송되었습니다."
 
 #: js/messages.php:80
 msgid "KiB received since last refresh"
