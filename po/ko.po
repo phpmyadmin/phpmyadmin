@@ -1320,7 +1320,7 @@ msgstr "사용가능 메모리"
 
 #: js/messages.php:111
 msgid "Used memory"
-msgstr ""
+msgstr "사용된 메모리"
 
 #: js/messages.php:113
 #, fuzzy
