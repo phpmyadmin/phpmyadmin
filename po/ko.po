@@ -1329,7 +1329,7 @@ msgstr "전체 스왑"
 
 #: js/messages.php:114
 msgid "Cached Swap"
-msgstr ""
+msgstr "캐시된 스왑"
 
 #: js/messages.php:115
 msgid "Used Swap"
