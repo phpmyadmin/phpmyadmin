@@ -1249,7 +1249,7 @@ msgstr "질의 통계"
 #, fuzzy
 #| msgid "Failed to write file to disk."
 msgid "Local monitor configuration incompatible"
-msgstr "디스크 쓰기에 실패했습니다."
+msgstr "로컬 모니터 설정이 호환되지 않습니다."
 
 #: js/messages.php:94
 msgid ""
