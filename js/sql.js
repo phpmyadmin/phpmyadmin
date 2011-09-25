@@ -190,7 +190,7 @@ $(document).ready(function() {
                         $("#id_bookmark option[value='" + data.id_bookmark + "']").remove();
                     }
                     $('#sqlqueryform').before(data.message);
-                } elseif (typeof data.sql_query != 'undefined') {
+                } else if (typeof data.sql_query != 'undefined') {
                     $('<div class="sqlquery_message"></div>')
                      .html(data.sql_query)
                      .insertBefore('#sqlqueryform');
