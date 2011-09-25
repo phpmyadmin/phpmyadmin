@@ -1751,7 +1751,7 @@ msgstr "Sto cambiando il charset"
 
 #: js/messages.php:224
 msgid "Table must have at least one column"
-msgstr "La tabella deve avere come minimo una colonna"
+msgstr "La tabella deve avere come minimo un campo"
 
 #: js/messages.php:225
 msgid "Create Table"
