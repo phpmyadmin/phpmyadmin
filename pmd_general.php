@@ -59,46 +59,46 @@ echo $script_tabs . $script_contr . $script_display_field;
 <body onload="Main()" class="general_body" id="pmd_body">
 
 <div class="pmd_header" id="top_menu">
-        <a href="javascript:Show_left_menu(document.getElementById('key_Show_left_menu'));"
-            onmousedown="return false;" class="M_butt first" target="_self">
+        <a href="#"
+            onclick="Show_left_menu(document.getElementById('key_Show_left_menu')); return false" class="M_butt first" target="_self">
             <img id='key_Show_left_menu' title="<?php echo __('Show/Hide left menu'); ?>"
                 alt="v" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/downarrow2_m.png" /></a>
-        <a href="javascript:Save2();" onmousedown="return false;"
+        <a href="#" onclick="Save2(); return false"
             class="M_butt" target="_self"
         ><img title="<?php echo __('Save position') ?>" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/save.png" alt=""
-        /></a><a href="javascript:Start_table_new();" onmousedown="return false;"
+        /></a><a href="#" onclick="Start_table_new(); return false"
             class="M_butt" target="_self"
         ><img title="<?php echo __('Create table')?>" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/table.png" alt=""
-        /></a><a href="javascript:Start_relation();" onmousedown="return false;"
+        /></a><a href="#" onclick="Start_relation(); return false"
             class="M_butt" id="rel_button" target="_self"
         ><img title="<?php echo __('Create relation') ?>" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/relation.png" alt=""
-        /></a><a href="javascript:Start_display_field();" onmousedown="return false;"
+        /></a><a href="#" onclick="Start_display_field(); return false"
             class="M_butt" id="display_field_button" target="_self"
         ><img title="<?php echo __('Choose column to display') ?>" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/display_field.png" alt=""
-        /></a><a href="javascript:location.reload();" onmousedown="return false;"
+        /></a><a href="#" onclick="location.reload(); return false"
             class="M_butt" target="_self"
         ><img title="<?php echo __('Reload'); ?>" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/reload.png" alt=""
         /></a><a href="Documentation.html#faq6_31" target="documentation"
             class="M_butt" target="_self"
         ><img title="<?php echo __('Help'); ?>" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/help.png" alt=""
         /></a><img class="M_bord" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/bord.png" alt=""
-        /><a href="javascript:Angular_direct();" onmousedown="return false;"
+        /><a href="#" onclick="Angular_direct(); return false"
             class="M_butt" id="angular_direct_button" target="_self"
         ><img title="<?php echo __('Angular links') . ' / ' . __('Direct links'); ?>"
                 src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/ang_direct.png" alt=""
-        /></a><a href="javascript:Grid();" onmousedown="return false;"
+        /></a><a href="#" onclick="Grid(); return false"
             class="M_butt" id="grid_button" target="_self"
         ><img title="<?php echo __('Snap to grid') ?>" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/grid.png" alt=""
         /></a><img class="M_bord" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/bord.png" alt=""
-        /><a href="javascript:Small_tab_all(document.getElementById('key_SB_all'));"
-            onmousedown="return false;" class="M_butt" target="_self"
+        /><a href="#"
+            onclick="Small_tab_all(document.getElementById('key_SB_all')); return false" class="M_butt" target="_self"
         ><img id='key_SB_all' title="<?php echo __('Small/Big All'); ?>" alt="v"
                 src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/downarrow1.png"
-        /></a><a href="javascript:Small_tab_invert();" onmousedown="return false;"
+        /></a><a href="#" onclick="Small_tab_invert(); return false"
             class="M_butt" target="_self"
         ><img title="<?php echo __('Toggle small/big'); ?>" alt="key" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/bottom.png"
         /></a><img class="M_bord" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/bord.png" alt=""
-        /><a href="javascript:PDF_save();" onmousedown="return false;"
+        /><a href="#" onclick="PDF_save(); return false"
             class="M_butt" target="_self"
         ><img src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/pdf.png" alt="key" width="20" height="20"
                 title="<?php echo __('Import/Export coordinates for PDF schema'); ?>" /></a
@@ -109,8 +109,8 @@ echo $script_tabs . $script_contr . $script_display_field;
             echo '<img src="'. $GLOBALS['pmaThemeImage'] . 'pmd/query_builder.png" alt="key" width="20" height="20" title="';
             echo __('Build Query');
             echo '"/></a>'; }?>
-         <a href="javascript:Top_menu_right(document.getElementById('key_Left_Right'));"
-            onmousedown="return false;" class="M_butt last" target="_self">
+         <a href="#"
+            onclick="Top_menu_right(document.getElementById('key_Left_Right')); return false" class="M_butt last" target="_self">
             <img src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/2rightarrow_m.png" id="key_Left_Right" alt=">"
                 title="<?php echo __('Move Menu'); ?>" /></a>
 </div>
@@ -121,12 +121,12 @@ echo $script_tabs . $script_contr . $script_display_field;
 </div>
 <div id="layer_menu" style="display:none;">
 <div align="center" style="padding-top:5px;">
-    <a href="javascript:Hide_tab_all(document.getElementById('key_HS_all'));"
-        onmousedown="return false;" class="M_butt" target="_self">
+    <a href="#"
+        onclick="Hide_tab_all(document.getElementById('key_HS_all')); return false" class="M_butt" target="_self">
     <img title="<?php echo __('Hide/Show all'); ?>" alt="v"
         src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/downarrow1.png" id='key_HS_all' /></a>
-    <a href="javascript:No_have_constr(document.getElementById('key_HS'));"
-        onmousedown="return false;" class="M_butt" target="_self">
+    <a href="#"
+        onclick="No_have_constr(document.getElementById('key_HS')); return false" class="M_butt" target="_self">
     <img title="<?php echo __('Hide/Show Tables with no relation'); ?>" alt="v"
         src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/downarrow2.png" id='key_HS' /></a>
 </div>
