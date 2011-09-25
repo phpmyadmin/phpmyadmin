@@ -275,7 +275,7 @@ msgstr "Il database %s è stato rinominato come %s"
 #: db_operations.php:278
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr "Il database %s è stato copiato a %s"
+msgstr "Il database %s è stato copiato come %s"
 
 #: db_operations.php:406
 msgid "Rename database to"
