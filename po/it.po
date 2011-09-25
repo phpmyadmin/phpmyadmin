@@ -6871,10 +6871,10 @@ msgid "Go to table"
 msgstr "Vai alla tabella"
 
 #: libraries/import.lib.php:1130
-#, fuzzy, php-format
+#, php-format, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
-msgstr "Solo struttura"
+msgstr "Struttura di %s"
 
 #: libraries/import.lib.php:1136
 msgid "Go to view"
