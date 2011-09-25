@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-09-19 08:41-0400\n"
+"POT-Creation-Date: 2011-09-25 18:34-0400\n"
 "PO-Revision-Date: 2010-03-12 09:12+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: belarusian_cyrillic <be@li.org>\n"
@@ -54,7 +54,7 @@ msgstr "Пошук"
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:349 libraries/display_import.lib.php:267
-#: libraries/display_tbl.lib.php:556 libraries/display_tbl.lib.php:676
+#: libraries/display_tbl.lib.php:567 libraries/display_tbl.lib.php:697
 #: libraries/replication_gui.lib.php:76 libraries/replication_gui.lib.php:375
 #: libraries/rte/rte_events.lib.php:493 libraries/rte/rte_routines.lib.php:963
 #: libraries/rte/rte_routines.lib.php:1441
@@ -72,7 +72,7 @@ msgstr "Пошук"
 #: server_privileges.php:2148 server_privileges.php:2195
 #: server_privileges.php:2238 server_replication.php:233
 #: server_replication.php:316 server_replication.php:347
-#: server_synchronize.php:1300 tbl_change.php:340 tbl_change.php:1066
+#: server_synchronize.php:1302 tbl_change.php:340 tbl_change.php:1066
 #: tbl_change.php:1103 tbl_indexes.php:268 tbl_operations.php:284
 #: tbl_operations.php:321 tbl_operations.php:523 tbl_operations.php:585
 #: tbl_operations.php:767 tbl_select.php:235 tbl_structure.php:671
@@ -432,25 +432,25 @@ msgid "Switch to %svisual builder%s"
 msgstr "Перайсьці да скапіяванай табліцы"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
-#: libraries/display_tbl.lib.php:957
+#: libraries/display_tbl.lib.php:993
 msgid "Sort"
 msgstr "Парадак"
 
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:97
-#: libraries/display_tbl.lib.php:547 libraries/display_tbl.lib.php:918
+#: libraries/display_tbl.lib.php:558 libraries/display_tbl.lib.php:953
 #: server_databases.php:162 server_databases.php:179 tbl_operations.php:279
 #: tbl_select.php:222
 msgid "Ascending"
 msgstr "прамы"
 
 #: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:105
-#: libraries/display_tbl.lib.php:552 libraries/display_tbl.lib.php:915
+#: libraries/display_tbl.lib.php:563 libraries/display_tbl.lib.php:950
 #: server_databases.php:162 server_databases.php:179 tbl_operations.php:280
 #: tbl_select.php:223
 msgid "Descending"
 msgstr "адваротны"
 
-#: db_qbe.php:286 db_tracking.php:91 libraries/display_tbl.lib.php:422
+#: db_qbe.php:286 db_tracking.php:91 libraries/display_tbl.lib.php:426
 #: tbl_change.php:287 tbl_tracking.php:639
 msgid "Show"
 msgstr "Паказаць"
@@ -558,8 +558,8 @@ msgstr "Прагляд"
 msgid "Delete the matches for the %s table?"
 msgstr "Дамп дадзеных табліцы"
 
-#: db_search.php:238 libraries/display_tbl.lib.php:1364
-#: libraries/display_tbl.lib.php:2354
+#: db_search.php:238 libraries/display_tbl.lib.php:1414
+#: libraries/display_tbl.lib.php:2448
 #: libraries/schema/User_Schema.class.php:197
 #: libraries/schema/User_Schema.class.php:272
 #: libraries/schema/User_Schema.class.php:307
@@ -637,7 +637,7 @@ msgstr ""
 msgid "Tracking is not active."
 msgstr ""
 
-#: db_structure.php:422 libraries/display_tbl.lib.php:2238
+#: db_structure.php:422 libraries/display_tbl.lib.php:2331
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
@@ -669,20 +669,20 @@ msgstr ""
 "сэрвэры."
 
 #: db_structure.php:532 db_structure.php:549 db_structure.php:550
-#: libraries/display_tbl.lib.php:2379 libraries/display_tbl.lib.php:2384
+#: libraries/display_tbl.lib.php:2473 libraries/display_tbl.lib.php:2478
 #: libraries/mult_submits.inc.php:15 server_databases.php:264
 #: server_databases.php:269 server_privileges.php:1756 tbl_structure.php:557
 #: tbl_structure.php:566
 msgid "With selected:"
 msgstr "З адзначанымі:"
 
-#: db_structure.php:535 libraries/display_tbl.lib.php:2374
+#: db_structure.php:535 libraries/display_tbl.lib.php:2468
 #: server_databases.php:266 server_privileges.php:682
 #: server_privileges.php:1759 tbl_structure.php:560
 msgid "Check All"
 msgstr "Адзначыць усё"
 
-#: db_structure.php:539 libraries/display_tbl.lib.php:2375
+#: db_structure.php:539 libraries/display_tbl.lib.php:2469
 #: libraries/replication_gui.lib.php:35 server_databases.php:268
 #: server_privileges.php:685 server_privileges.php:1763 tbl_structure.php:564
 msgid "Uncheck All"
@@ -694,16 +694,16 @@ msgstr "Адзначыць тыя, што патрабуюць аптыміза�
 
 #: db_structure.php:552 libraries/common.lib.php:3258
 #: libraries/common.lib.php:3259 libraries/config/messages.inc.php:164
-#: libraries/db_links.inc.php:56 libraries/display_tbl.lib.php:2392
-#: libraries/display_tbl.lib.php:2530 libraries/server_links.inc.php:65
+#: libraries/db_links.inc.php:56 libraries/display_tbl.lib.php:2491
+#: libraries/display_tbl.lib.php:2632 libraries/server_links.inc.php:65
 #: libraries/tbl_links.inc.php:80 prefs_manage.php:286
 #: server_privileges.php:1447 server_status.php:1589
 #: setup/frames/menu.inc.php:21
 msgid "Export"
 msgstr "Экспарт"
 
-#: db_structure.php:554 db_structure.php:613
-#: libraries/display_tbl.lib.php:2481 tbl_structure.php:612
+#: db_structure.php:554 db_structure.php:610
+#: libraries/display_tbl.lib.php:2581 tbl_structure.php:612
 msgid "Print view"
 msgstr "Вэрсія для друку"
 
@@ -752,7 +752,7 @@ msgstr "Замяніць дадзеныя табліцы дадзенымі з �
 msgid "Copy table with prefix"
 msgstr "Замяніць дадзеныя табліцы дадзенымі з файла"
 
-#: db_structure.php:619 libraries/schema/User_Schema.class.php:420
+#: db_structure.php:613 libraries/schema/User_Schema.class.php:420
 msgid "Data Dictionary"
 msgstr "Слоўнік дадзеных"
 
@@ -769,7 +769,7 @@ msgstr "Праверыць табліцу"
 #: libraries/header_printview.inc.php:57 server_databases.php:161
 #: server_privileges.php:1830 server_privileges.php:1893
 #: server_privileges.php:2156 server_status.php:1228
-#: server_synchronize.php:1267 server_synchronize.php:1271
+#: server_synchronize.php:1269 server_synchronize.php:1273
 #: tbl_tracking.php:633
 msgid "Database"
 msgstr "База дадзеных"
@@ -833,12 +833,12 @@ msgstr "Толькі структуру"
 msgid "Untracked tables"
 msgstr "Праверыць табліцу"
 
-#: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:638
+#: db_tracking.php:199 tbl_structure.php:638
 #, fuzzy
 msgid "Track table"
 msgstr "Праверыць табліцу"
 
-#: db_tracking.php:229
+#: db_tracking.php:225
 #, fuzzy
 msgid "Database Log"
 msgstr "База дадзеных"
@@ -921,7 +921,7 @@ msgid "SRID"
 msgstr ""
 
 #: gis_data_editor.php:151 js/messages.php:293
-#: libraries/display_tbl.lib.php:665
+#: libraries/display_tbl.lib.php:685
 msgid "Geometry"
 msgstr ""
 
@@ -1009,12 +1009,20 @@ msgstr ""
 "зьвярніцеся да %sдакумэнтацыі%s для высьвятленьня спосабаў абыйсьці гэтае "
 "абмежаваньне."
 
-#: import.php:277 import.php:330 libraries/File.class.php:457
+#: import.php:170 import.php:419
+msgid "Showing bookmark"
+msgstr "Паказваючы закладку"
+
+#: import.php:180 import.php:415
+msgid "The bookmark has been deleted."
+msgstr "Закладка была выдаленая."
+
+#: import.php:291 import.php:344 libraries/File.class.php:457
 #: libraries/File.class.php:540
 msgid "File could not be read"
 msgstr "Немагчыма прачытаць файл"
 
-#: import.php:285 import.php:294 import.php:313 import.php:322
+#: import.php:299 import.php:308 import.php:327 import.php:336
 #: libraries/File.class.php:610 libraries/File.class.php:618
 #: libraries/File.class.php:634 libraries/File.class.php:642
 #, php-format
@@ -1026,7 +1034,7 @@ msgstr ""
 "s). Ягоная падтрымка або не рэалізаваная, або адключаная ў вашай "
 "канфігурацыі."
 
-#: import.php:335
+#: import.php:349
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -1036,35 +1044,27 @@ msgstr ""
 "загружаны, альбо памер файла перавысіў максымальны памер, вызначаны "
 "канфігурацыяй PHP. Гл. FAQ 1.16."
 
-#: import.php:352
+#: import.php:366
 msgid ""
 "Cannot convert file's character set without character set conversion library"
 msgstr ""
 
-#: import.php:376 libraries/display_import.lib.php:23
+#: import.php:390 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Немагчыма загрузіць плагіны імпартаваньня, калі ласка, праверце ўсталёўку!"
 
-#: import.php:401
-msgid "The bookmark has been deleted."
-msgstr "Закладка была выдаленая."
-
-#: import.php:405
-msgid "Showing bookmark"
-msgstr "Паказваючы закладку"
-
-#: import.php:407 sql.php:907
+#: import.php:421 sql.php:907
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Закладка %s створаная"
 
-#: import.php:413 import.php:419
+#: import.php:427 import.php:433
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Імпартраваньне пасьпяхова завершанае, выканана %d запытаў."
 
-#: import.php:428
+#: import.php:442
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
@@ -1072,7 +1072,7 @@ msgstr ""
 "Выйшаў дазволены час выкананьня скрыпта. Калі вы хочаце завершыць "
 "імпартаваньне, калі ласка, загрузіце файл зноў і імпартаваньне ўзнавіцца."
 
-#: import.php:430
+#: import.php:444
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -1081,8 +1081,8 @@ msgstr ""
 "звычайна значыць, што phpMyAdmin ня зможа скончыць гэтае імпартаваньня, калі "
 "вы не павялічыце ліміты выкананьня php-скрыптоў."
 
-#: import.php:458 libraries/Message.class.php:175
-#: libraries/display_tbl.lib.php:2275 libraries/rte/rte_routines.lib.php:1197
+#: import.php:472 libraries/Message.class.php:175
+#: libraries/display_tbl.lib.php:2368 libraries/rte/rte_routines.lib.php:1197
 #: libraries/sql_query_form.lib.php:113 tbl_operations.php:229
 #: tbl_relation.php:289 tbl_row_action.php:126 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
@@ -1211,7 +1211,7 @@ msgstr ""
 #: js/messages.php:64 js/messages.php:250 libraries/Index.class.php:460
 #: libraries/common.lib.php:590 libraries/common.lib.php:1139
 #: libraries/common.lib.php:3256 libraries/common.lib.php:3257
-#: libraries/config/messages.inc.php:478 libraries/display_tbl.lib.php:1328
+#: libraries/config/messages.inc.php:478 libraries/display_tbl.lib.php:1378
 #: libraries/schema/User_Schema.class.php:196 setup/frames/index.inc.php:138
 msgid "Edit"
 msgstr "Рэдагаваць"
@@ -1455,7 +1455,7 @@ msgid "Please add at least one variable to the series"
 msgstr ""
 
 #: js/messages.php:132 libraries/display_export.lib.php:308
-#: libraries/display_tbl.lib.php:554 libraries/export/sql.php:1092
+#: libraries/display_tbl.lib.php:565 libraries/export/sql.php:1092
 #: libraries/tbl_properties.inc.php:539 pmd_general.php:504
 #: server_privileges.php:2046 server_status.php:1257 server_status.php:1686
 #: tbl_zoom_select.php:151 tbl_zoom_select.php:278
@@ -1877,8 +1877,8 @@ msgid "No rows selected"
 msgstr "Ніводны радок ня выбраны"
 
 #: js/messages.php:252 libraries/common.lib.php:2653
-#: libraries/display_tbl.lib.php:2387 querywindow.php:90 querywindow.php:94
-#: querywindow.php:97 tbl_structure.php:149 tbl_structure.php:572
+#: libraries/display_tbl.lib.php:2482 querywindow.php:87 tbl_structure.php:149
+#: tbl_structure.php:572
 msgid "Change"
 msgstr "Зьмяніць"
 
@@ -1957,7 +1957,7 @@ msgstr ""
 msgid "Ignore"
 msgstr "Ігнараваць"
 
-#: js/messages.php:286 libraries/display_tbl.lib.php:1329
+#: js/messages.php:286 libraries/display_tbl.lib.php:1379
 msgid "Copy"
 msgstr "Скапіяваць"
 
@@ -2918,8 +2918,8 @@ msgstr ""
 "Няправільнае імя хосту для сэрвэра %1$s. Калі ласка, праверце канфігурыцыю."
 
 #: libraries/common.inc.php:656 libraries/config/messages.inc.php:502
-#: libraries/header.inc.php:136 main.php:158 server_status.php:775
-#: server_synchronize.php:1247
+#: libraries/header.inc.php:136 main.php:160 server_status.php:775
+#: server_synchronize.php:1249
 msgid "Server"
 msgstr "Сэрвэр"
 
@@ -2962,7 +2962,7 @@ msgstr "en"
 #: libraries/display_export.lib.php:234 libraries/engines/pbms.lib.php:71
 #: libraries/engines/pbxt.lib.php:106 libraries/relation.lib.php:74
 #: libraries/sql_query_form.lib.php:385 libraries/sql_query_form.lib.php:388
-#: main.php:216 server_variables.php:129
+#: main.php:218 server_variables.php:129
 msgid "Documentation"
 msgstr "Дакумэнтацыя"
 
@@ -3098,7 +3098,7 @@ msgid "Previous"
 msgstr "Папярэдняя старонка"
 
 #: libraries/common.lib.php:2395 libraries/common.lib.php:2398
-#: libraries/display_tbl.lib.php:370 server_binlog.php:170
+#: libraries/display_tbl.lib.php:372 server_binlog.php:170
 #: server_binlog.php:172
 #, fuzzy
 #| msgid "Next"
@@ -3107,7 +3107,7 @@ msgid "Next"
 msgstr "Наступная старонка"
 
 #: libraries/common.lib.php:2396 libraries/common.lib.php:2399
-#: libraries/display_tbl.lib.php:385
+#: libraries/display_tbl.lib.php:389
 #, fuzzy
 #| msgid "End"
 msgctxt "Last page"
@@ -3541,7 +3541,7 @@ msgstr "Перайменаваць базу дадзеных у"
 msgid "Show binary contents as HEX by default"
 msgstr ""
 
-#: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:652
+#: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:671
 msgid "Show binary contents as HEX"
 msgstr ""
 
@@ -5258,7 +5258,7 @@ msgstr ""
 #: libraries/replication_gui.lib.php:341 libraries/replication_gui.lib.php:345
 #: libraries/replication_gui.lib.php:355 server_privileges.php:877
 #: server_privileges.php:881 server_privileges.php:892
-#: server_privileges.php:1698 server_synchronize.php:1263
+#: server_privileges.php:1698 server_synchronize.php:1265
 msgid "Password"
 msgstr "Пароль"
 
@@ -5578,7 +5578,7 @@ msgstr "Падзеі"
 msgid "Triggers"
 msgstr "Трыгеры"
 
-#: libraries/db_structure.lib.php:43 libraries/display_tbl.lib.php:2124
+#: libraries/db_structure.lib.php:43 libraries/display_tbl.lib.php:2216
 msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
@@ -5957,62 +5957,62 @@ msgstr ""
 msgid "Language"
 msgstr "Мова"
 
-#: libraries/display_tbl.lib.php:401
+#: libraries/display_tbl.lib.php:405
 #, fuzzy
 msgid "Save edited data"
 msgstr "Хатняя тэчка дадзеных"
 
-#: libraries/display_tbl.lib.php:407
+#: libraries/display_tbl.lib.php:411
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Restore column order"
 msgstr "Дадаць/выдаліць калёнку крытэру"
 
-#: libraries/display_tbl.lib.php:418
+#: libraries/display_tbl.lib.php:422
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d не зьяўляецца карэктным нумарам радка."
 
-#: libraries/display_tbl.lib.php:423
+#: libraries/display_tbl.lib.php:427
 #, fuzzy
 #| msgid "Start"
 msgid "Start row"
 msgstr "Суб"
 
-#: libraries/display_tbl.lib.php:425
+#: libraries/display_tbl.lib.php:429
 #, fuzzy
 #| msgid "Number of fields"
 msgid "Number of rows"
 msgstr "Колькасьць палёў"
 
-#: libraries/display_tbl.lib.php:430
+#: libraries/display_tbl.lib.php:434
 #, fuzzy
 #| msgid "Mon"
 msgid "Mode"
 msgstr "Пан"
 
-#: libraries/display_tbl.lib.php:432
+#: libraries/display_tbl.lib.php:436
 msgid "horizontal"
 msgstr "гарызантальна"
 
-#: libraries/display_tbl.lib.php:433
+#: libraries/display_tbl.lib.php:437
 msgid "horizontal (rotated headers)"
 msgstr "гарызантальна (павернутыя загалоўкі)"
 
-#: libraries/display_tbl.lib.php:434
+#: libraries/display_tbl.lib.php:438
 msgid "vertical"
 msgstr "вэртыкальна"
 
-#: libraries/display_tbl.lib.php:439
+#: libraries/display_tbl.lib.php:444
 #, php-format
 msgid "Headers every %s rows"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:536
+#: libraries/display_tbl.lib.php:547
 msgid "Sort by key"
 msgstr "Сартаваць па ключы"
 
-#: libraries/display_tbl.lib.php:608 libraries/export/codegen.php:41
+#: libraries/display_tbl.lib.php:619 libraries/export/codegen.php:41
 #: libraries/export/csv.php:34 libraries/export/excel.php:37
 #: libraries/export/htmlword.php:33 libraries/export/json.php:29
 #: libraries/export/latex.php:35 libraries/export/mediawiki.php:23
@@ -6023,114 +6023,114 @@ msgstr "Сартаваць па ключы"
 #: libraries/import.lib.php:1104 libraries/import.lib.php:1125
 #: libraries/import/csv.php:33 libraries/import/docsql.php:35
 #: libraries/import/ldi.php:49 libraries/import/ods.php:32
-#: libraries/import/shp.php:17 libraries/import/sql.php:20
+#: libraries/import/shp.php:22 libraries/import/sql.php:20
 #: libraries/import/xml.php:25 libraries/rte/rte_routines.lib.php:856
 #: tbl_select.php:175 tbl_structure.php:856
 msgid "Options"
 msgstr "Налады"
 
-#: libraries/display_tbl.lib.php:613 libraries/display_tbl.lib.php:623
+#: libraries/display_tbl.lib.php:624 libraries/display_tbl.lib.php:642
 #, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Частковыя тэксты"
 
-#: libraries/display_tbl.lib.php:614 libraries/display_tbl.lib.php:627
+#: libraries/display_tbl.lib.php:625 libraries/display_tbl.lib.php:646
 #, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Поўныя тэксты"
 
-#: libraries/display_tbl.lib.php:640
+#: libraries/display_tbl.lib.php:659
 msgid "Relational key"
 msgstr "Ключ сувязі"
 
-#: libraries/display_tbl.lib.php:641
+#: libraries/display_tbl.lib.php:660
 #, fuzzy
 #| msgid "Relational display field"
 msgid "Relational display column"
 msgstr "Адлюстраванае поле сувязі"
 
-#: libraries/display_tbl.lib.php:648
+#: libraries/display_tbl.lib.php:667
 msgid "Show binary contents"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:650
+#: libraries/display_tbl.lib.php:669
 msgid "Show BLOB contents"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:660 pmd_general.php:147 tbl_change.php:324
+#: libraries/display_tbl.lib.php:679 pmd_general.php:147 tbl_change.php:324
 #: tbl_change.php:330
 msgid "Hide"
 msgstr "Схаваць"
 
-#: libraries/display_tbl.lib.php:660 libraries/relation.lib.php:112
+#: libraries/display_tbl.lib.php:679 libraries/relation.lib.php:112
 #: libraries/tbl_properties.inc.php:150 transformation_overview.php:46
 msgid "Browser transformation"
 msgstr "Пераўтварэньне MIME-тыпу браўзэрам"
 
-#: libraries/display_tbl.lib.php:666
+#: libraries/display_tbl.lib.php:686
 msgid "Well Known Text"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:667
+#: libraries/display_tbl.lib.php:687
 msgid "Well Known Binary"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:1344 libraries/display_tbl.lib.php:1356
+#: libraries/display_tbl.lib.php:1394 libraries/display_tbl.lib.php:1406
 msgid "The row has been deleted"
 msgstr "Радок быў выдалены"
 
-#: libraries/display_tbl.lib.php:1383 libraries/display_tbl.lib.php:2354
+#: libraries/display_tbl.lib.php:1433 libraries/display_tbl.lib.php:2448
 #: server_status.php:1253
 msgid "Kill"
 msgstr "Спыніць"
 
-#: libraries/display_tbl.lib.php:2228
+#: libraries/display_tbl.lib.php:2320
 msgid "in query"
 msgstr "па запыту"
 
-#: libraries/display_tbl.lib.php:2246
+#: libraries/display_tbl.lib.php:2339
 msgid "Showing rows"
 msgstr "Паказаныя запісы"
 
-#: libraries/display_tbl.lib.php:2256
+#: libraries/display_tbl.lib.php:2349
 msgid "total"
 msgstr "усяго"
 
-#: libraries/display_tbl.lib.php:2264 sql.php:705
+#: libraries/display_tbl.lib.php:2357 sql.php:705
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Запыт выконваўся %01.4f сэк"
 
-#: libraries/display_tbl.lib.php:2460
+#: libraries/display_tbl.lib.php:2560
 msgid "Query results operations"
 msgstr "Дзеяньні з вынікамі запытаў"
 
-#: libraries/display_tbl.lib.php:2488
+#: libraries/display_tbl.lib.php:2589
 msgid "Print view (with full texts)"
 msgstr "Вэрсія для друку (з усім тэкстам)"
 
-#: libraries/display_tbl.lib.php:2536 tbl_chart.php:86
+#: libraries/display_tbl.lib.php:2639 tbl_chart.php:86
 #, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
 msgstr "Паказаць PDF-схему"
 
-#: libraries/display_tbl.lib.php:2551
+#: libraries/display_tbl.lib.php:2655
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:2571
+#: libraries/display_tbl.lib.php:2676
 #, fuzzy
 msgid "Create view"
 msgstr "Стварыць сувязь"
 
-#: libraries/display_tbl.lib.php:2673
+#: libraries/display_tbl.lib.php:2783
 msgid "Link not found"
 msgstr "Сувязь ня знойдзеная"
 
-#: libraries/engines/bdb.lib.php:20 main.php:215
+#: libraries/engines/bdb.lib.php:20 main.php:217
 msgid "Version information"
 msgstr "Інфармацыя пра вэрсію"
 
@@ -6333,7 +6333,7 @@ msgstr ""
 "— 50."
 
 #: libraries/engines/pbms.lib.php:35 libraries/replication_gui.lib.php:70
-#: server_synchronize.php:1251
+#: server_synchronize.php:1253
 #, fuzzy
 msgid "Port"
 msgstr "Парадак"
@@ -7036,27 +7036,27 @@ msgstr ""
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr ""
 
-#: libraries/import/shp.php:14
+#: libraries/import/shp.php:19
 msgid "ESRI Shape File"
 msgstr ""
 
-#: libraries/import/shp.php:275
+#: libraries/import/shp.php:280
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr ""
 
-#: libraries/import/shp.php:331
+#: libraries/import/shp.php:336
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data"
 msgstr ""
 
-#: libraries/import/shp.php:333
+#: libraries/import/shp.php:338
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
-#: libraries/import/shp.php:371
+#: libraries/import/shp.php:376
 #, fuzzy
 #| msgid "File %s does not contain any key id"
 msgid "The imported file does not contain any data"
@@ -7370,7 +7370,7 @@ msgstr ""
 msgid "Bookmarked SQL query"
 msgstr "Закладзены SQL-запыт"
 
-#: libraries/relation.lib.php:124 querywindow.php:74 querywindow.php:181
+#: libraries/relation.lib.php:124 querywindow.php:74 querywindow.php:169
 msgid "SQL history"
 msgstr "Гісторыя SQL"
 
@@ -7431,7 +7431,7 @@ msgstr ""
 #: libraries/replication_gui.lib.php:255 libraries/replication_gui.lib.php:258
 #: libraries/replication_gui.lib.php:265 server_privileges.php:792
 #: server_privileges.php:795 server_privileges.php:802
-#: server_synchronize.php:1259
+#: server_synchronize.php:1261
 msgid "User name"
 msgstr "Імя карыстальніка"
 
@@ -8155,8 +8155,8 @@ msgstr "Невядомая мова: %1$s."
 msgid "Current Server"
 msgstr "Сэрвэр"
 
-#: libraries/server_links.inc.php:79 server_synchronize.php:1152
-#: server_synchronize.php:1160
+#: libraries/server_links.inc.php:79 server_synchronize.php:1154
+#: server_synchronize.php:1162
 msgid "Synchronize"
 msgstr ""
 
@@ -8183,7 +8183,7 @@ msgstr ""
 msgid "Engines"
 msgstr "Машыны"
 
-#: libraries/server_synchronize.lib.php:1286 server_synchronize.php:1176
+#: libraries/server_synchronize.lib.php:1286 server_synchronize.php:1178
 #, fuzzy
 msgid "Source database"
 msgstr "Пошук у базе дадзеных"
@@ -8203,7 +8203,7 @@ msgstr "Вэб-сэрвэр"
 msgid "Difference"
 msgstr ""
 
-#: libraries/server_synchronize.lib.php:1294 server_synchronize.php:1178
+#: libraries/server_synchronize.lib.php:1294 server_synchronize.php:1180
 #, fuzzy
 msgid "Target database"
 msgstr "Пошук у базе дадзеных"
@@ -8712,85 +8712,85 @@ msgstr "Супастаўленьне падлучэньня да MySQL"
 msgid "Appearance Settings"
 msgstr ""
 
-#: main.php:143 prefs_manage.php:272
+#: main.php:144 prefs_manage.php:272
 #, fuzzy
 #| msgid "General relation features"
 msgid "More settings"
 msgstr "Магчымасьці асноўных сувязяў"
 
-#: main.php:156
+#: main.php:158
 #, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
 msgstr "База дадзеных для карыстальніка"
 
-#: main.php:159
+#: main.php:161
 msgid "Software"
 msgstr ""
 
-#: main.php:160
+#: main.php:162
 #, fuzzy
 #| msgid "Server version"
 msgid "Software version"
 msgstr "Вэрсія сэрвэра"
 
-#: main.php:161
+#: main.php:163
 msgid "Protocol version"
 msgstr "Вэрсія пратаколу"
 
-#: main.php:163 server_privileges.php:1543 server_privileges.php:1696
+#: main.php:165 server_privileges.php:1543 server_privileges.php:1696
 #: server_privileges.php:1820 server_privileges.php:2249
 #: server_status.php:1226
 msgid "User"
 msgstr "Карыстальнік"
 
-#: main.php:167
+#: main.php:169
 #, fuzzy
 msgid "Server charset"
 msgstr "Выбар сэрвэра"
 
-#: main.php:179
+#: main.php:181
 msgid "Web server"
 msgstr "Вэб-сэрвэр"
 
-#: main.php:190
+#: main.php:192
 #, fuzzy
 msgid "Database client version"
 msgstr "Вэрсія кліента MySQL"
 
-#: main.php:192
+#: main.php:194
 msgid "PHP extension"
 msgstr "Пашырэньне PHP"
 
-#: main.php:199
+#: main.php:201
 msgid "Show PHP information"
 msgstr "Паказаць інфармацыю пра PHP"
 
-#: main.php:217
+#: main.php:219
 msgid "Wiki"
 msgstr "Wiki"
 
-#: main.php:220
+#: main.php:222
 msgid "Official Homepage"
 msgstr "Афіцыйная старонка phpMyAdmin"
 
-#: main.php:221
+#: main.php:223
 #, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
 msgstr "Атрыбуты"
 
-#: main.php:222
+#: main.php:224
 msgid "Get support"
 msgstr ""
 
-#: main.php:223
+#: main.php:225
 #, fuzzy
 #| msgid "No change"
 msgid "List of changes"
 msgstr "Няма зьменаў"
 
-#: main.php:247
+#: main.php:249
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -8803,7 +8803,7 @@ msgstr ""
 "зьнешняга ўрываньня, і таму вам абавязкова трэба выправіць гэтую хібу ў "
 "бясьпецы."
 
-#: main.php:255
+#: main.php:257
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -8812,7 +8812,7 @@ msgstr ""
 "Вы ўключылі mbstring.func_overload у вашым канфігурацыйным файле PHP. Гэтая "
 "опцыя несумяшчальная з phpMyAdmin і можа выклікаць пашкоджаньне дадзеных!"
 
-#: main.php:263
+#: main.php:265
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -8822,7 +8822,7 @@ msgstr ""
 "шматбайтавую кадыроўку. Без пашырэньня mbstring phpMyAdmin ня можа падзяляць "
 "радкі карэктна, і гэта можа прывесьці да нечаканых вынікаў."
 
-#: main.php:271
+#: main.php:273
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -8830,25 +8830,25 @@ msgid ""
 "sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: main.php:278
+#: main.php:280
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: main.php:286
+#: main.php:288
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "Канфігурацыйнаму файлу зараз патрэбная сакрэтная фраза (blowfish_secret)."
 
-#: main.php:294
+#: main.php:296
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
 msgstr ""
 
-#: main.php:300
+#: main.php:302
 #, fuzzy, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
@@ -8860,14 +8860,14 @@ msgstr ""
 "Дадатковыя магчымасьці работы з зьвязанымі табліцамі былі адключаныя. Каб "
 "высьветліць чаму, націсьніце %sтут%s."
 
-#: main.php:315
+#: main.php:317
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
 "automatically."
 msgstr ""
 
-#: main.php:331
+#: main.php:333
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -8876,7 +8876,7 @@ msgstr ""
 "Вэрсія вашай бібліятэкі MySQL для PHP %s адрозьніваецца ад вэрсіі вашага "
 "сэрвэра MySQL %s. Гэта можа выклікаць непрадказальныя паводзіны."
 
-#: main.php:343
+#: main.php:345
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -8885,7 +8885,7 @@ msgstr ""
 "На сэрвэры запушчаны Suhosin. Калі ласка, зьвярніцеся да %sдакумэнтацыі%s "
 "для атрыманьня апісаньня магчымых праблемаў."
 
-#: navigation.php:180 server_databases.php:285 server_synchronize.php:1282
+#: navigation.php:180 server_databases.php:285 server_synchronize.php:1284
 msgid "No databases"
 msgstr "Базы дадзеных адсутнічаюць"
 
@@ -9086,7 +9086,7 @@ msgstr "Сувязь FOREIGN KEY была дададзеная"
 msgid "Internal relation added"
 msgstr "Унутраная сувязь дададзеная"
 
-#: pmd_relation_upd.php:55
+#: pmd_relation_upd.php:58
 msgid "Relation deleted"
 msgstr "Сувязь выдаленая"
 
@@ -11145,26 +11145,26 @@ msgstr ""
 msgid "Executed queries"
 msgstr "SQL-запыт"
 
-#: server_synchronize.php:1192
+#: server_synchronize.php:1194
 msgid "Enter manually"
 msgstr ""
 
-#: server_synchronize.php:1200
+#: server_synchronize.php:1202
 #, fuzzy
 #| msgid "max. concurrent connections"
 msgid "Current connection"
 msgstr "максымум адначасовых злучэньняў"
 
-#: server_synchronize.php:1240
+#: server_synchronize.php:1242
 #, php-format
 msgid "Configuration: %s"
 msgstr ""
 
-#: server_synchronize.php:1255
+#: server_synchronize.php:1257
 msgid "Socket"
 msgstr ""
 
-#: server_synchronize.php:1304
+#: server_synchronize.php:1306
 msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
@@ -12764,7 +12764,7 @@ msgstr ""
 msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
-"indexed fields in the ORDER BY clause, as this will result in much faster "
+"indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting"
 msgstr ""
 
@@ -12786,7 +12786,7 @@ msgstr "Праверыць табліцу"
 #: po/advisory_rules.php:127
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
-"fields being used in the join conditions will greatly speed up table joins"
+"columns being used in the join conditions will greatly speed up table joins"
 msgstr ""
 
 #: po/advisory_rules.php:128
