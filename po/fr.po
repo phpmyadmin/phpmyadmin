@@ -12430,7 +12430,7 @@ msgstr "Lignes triées"
 
 #: po/advisory_rules.php:121
 msgid "There are lots of rows being sorted."
-msgstr ""
+msgstr "Un grand nombre de lignes sont en train d'être triées."
 
 #: po/advisory_rules.php:122
 msgid ""
