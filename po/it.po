@@ -296,7 +296,7 @@ msgstr "Cancella il database (DROP)"
 
 #: db_operations.php:478
 msgid "Copy database to"
-msgstr "Copia il database a"
+msgstr "Copia il database come"
 
 #: db_operations.php:485 tbl_operations.php:552 tbl_tracking.php:409
 msgid "Structure only"
