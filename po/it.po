@@ -12187,10 +12187,9 @@ msgid "Slow query logging"
 msgstr "Mostra riquadro query SQL"
 
 #: po/advisory_rules.php:31
-#, fuzzy
 #| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
-msgstr "slow_query_log é abilitato."
+msgstr "Il slow_query_log é disabilitato."
 
 #: po/advisory_rules.php:32
 msgid ""
