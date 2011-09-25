@@ -5005,10 +5005,9 @@ msgid ""
 msgstr "Определяет направление отображения при просмотре данных таблицы"
 
 #: libraries/config/messages.inc.php:457
-#, fuzzy
 #| msgid "Default display direction"
 msgid "Show display direction"
-msgstr "Вид отображения по умолчанию"
+msgstr "Показать направление отображения"
 
 #: libraries/config/messages.inc.php:458
 msgid ""
