@@ -279,7 +279,7 @@ msgstr "Il database %s è stato copiato come %s"
 
 #: db_operations.php:406
 msgid "Rename database to"
-msgstr "Rinomina il database a"
+msgstr "Rinomina il database come"
 
 #: db_operations.php:432
 msgid "Remove database"
