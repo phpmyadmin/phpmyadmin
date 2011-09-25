@@ -6640,7 +6640,7 @@ msgstr ""
 #: libraries/export/sql.php:45
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
-"Aggiunge un commento personalizzato al header (\n"
+"Aggiunge un commento personalizzato al header (\\\n"
 " per tornare a capo):"
 
 #: libraries/export/sql.php:50
