@@ -795,7 +795,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 </table>
 
 <?php
-if ($_REQUEST['query']) {
+if (! empty($_REQUEST['query'])) {
     echo '<div class="panel">';
     echo '<div style="clear:both;"></div>';
     echo '<div id="ab"></div>';
