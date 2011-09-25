@@ -12293,10 +12293,9 @@ msgstr ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 
 #: po/advisory_rules.php:120
-#, fuzzy
 #| msgid "Start row"
 msgid "Sort rows"
-msgstr "Start row"
+msgstr "Sort rows"
 
 #: po/advisory_rules.php:121
 msgid "There are lots of rows being sorted."
