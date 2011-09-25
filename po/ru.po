@@ -2287,7 +2287,7 @@ msgstr "Ошибка при перемещении загруженного фа
 
 #: libraries/File.class.php:516
 msgid "Cannot read (moved) upload file."
-msgstr ""
+msgstr "Невозможно прочесть (переместить) загруженный файл."
 
 #: libraries/Index.class.php:418 tbl_relation.php:526
 msgid "No index defined!"
