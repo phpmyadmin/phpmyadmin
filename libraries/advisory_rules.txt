@@ -203,7 +203,7 @@ rule 'Sort rows'
 	Sort_rows / Uptime
 	value * 60 >= 1
 	There are lots of rows being sorted.
-	While there is nothing wrong with a high amount of row sorting, you might want to make sure that the queries which require a lot of sorting use indexed fields in the ORDER BY clause, as this will result in much faster sorting
+	While there is nothing wrong with a high amount of row sorting, you might want to make sure that the queries which require a lot of sorting use indexed columns in the ORDER BY clause, as this will result in much faster sorting
 	Sorted rows average: %s | PMA_bytime(value,2)
 
 # Joins, scans
@@ -211,7 +211,7 @@ rule 'Rate of joins without indexes'
 	(Select_range_check + Select_scan + Select_full_join) / Uptime
 	value * 60 * 60 > 1
 	There are too many joins without indexes.
-	This means that joins are doing full table scans. Adding indexes for the fields being used in the join conditions will greatly speed up table joins
+	This means that joins are doing full table scans. Adding indexes for the columns being used in the join conditions will greatly speed up table joins
 	Table joins average: %s, this value should be less than 1 per hour | PMA_bytime(value,2)
 
 rule 'Rate of reading first index entry'
