@@ -42,7 +42,7 @@ echo '
     var db = "' . PMA_escapeJsString($db) . '";
     var token = "' . PMA_escapeJsString($token) . '";';
 	echo "\n";
-	if($_REQUEST['query']) {
+	if (! empty($_REQUEST['query'])) {
 	echo '
 	 $(document).ready(function(){
 		$(".trigger").click(function(){
@@ -113,7 +113,7 @@ echo $script_tabs . $script_contr . $script_display_field;
         ><img src="pmd/images/pdf.png" alt="key" width="20" height="20"
                 title="<?php echo __('Import/Export coordinates for PDF schema'); ?>" /></a
          >
-        <?php if($_REQUEST['query']){
+        <?php if (! empty($_REQUEST['query'])){
             echo '<a href="#" onClick="build_query(\'SQL Query on Database\', 0)" onmousedown="return false;"
             class="M_butt" target="_self">';
             echo '<img src="pmd/images/query_builder.png" alt="key" width="20" height="20" title="';
@@ -801,7 +801,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 </table>
 
 <?php
-if($_REQUEST['query']) {
+if (! empty($_REQUEST['query'])) {
 	echo '<div class="panel">';
   	echo '<div style="clear:both;"></div>';
    	echo '<div id="ab"></div>';
