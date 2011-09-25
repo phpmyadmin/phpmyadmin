@@ -9423,7 +9423,7 @@ msgstr "L'utente selezionato non è stato trovato nella tabella dei privilegi."
 
 #: server_privileges.php:1896
 msgid "Column-specific privileges"
-msgstr "Privilegi relativi alle colonne"
+msgstr "Privilegi relativi ai campi"
 
 #: server_privileges.php:2102
 msgid "Add privileges on the following database"
