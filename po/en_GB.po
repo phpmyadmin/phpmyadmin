@@ -12316,7 +12316,7 @@ msgstr ""
 #: po/advisory_rules.php:123
 #, php-format
 msgid "Sorted rows average: %s"
-msgstr ""
+msgstr "Sorted rows average: %s"
 
 #: po/advisory_rules.php:125
 #, fuzzy
