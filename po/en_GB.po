@@ -12308,6 +12308,10 @@ msgid ""
 "indexed fields in the ORDER BY clause, as this will result in much faster "
 "sorting"
 msgstr ""
+"While there is nothing wrong with a high amount of row sorting, you might "
+"want to make sure that the queries which require a lot of sorting use "
+"indexed fields in the ORDER BY clause, as this will result in much faster "
+"sorting"
 
 #: po/advisory_rules.php:123
 #, php-format
