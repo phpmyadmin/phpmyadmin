@@ -836,10 +836,9 @@ msgstr ""
 "Il tipo di esportazione selezionato necessita di essere salvato in un file!"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Bad parameters!"
-msgstr "Aggiungi parametro"
+msgstr "Parametri errati!"
 
 #: export.php:166 export.php:191 export.php:652
 #, php-format
