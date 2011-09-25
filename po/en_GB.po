@@ -12333,6 +12333,8 @@ msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "fields being used in the join conditions will greatly speed up table joins"
 msgstr ""
+"This means that joins are doing full table scans. Adding indexes for the "
+"fields being used in the join conditions will greatly speed up table joins"
 
 #: po/advisory_rules.php:128
 #, php-format
