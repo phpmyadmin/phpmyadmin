@@ -6766,7 +6766,6 @@ msgid ""
 msgstr "Изменить любую настройку нажав на соответствующую ссылку \"Параметры\""
 
 #: libraries/import.lib.php:1103
-#, fuzzy
 #| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link"
 msgstr "Отредактировать структуру перейдя по ссылке \"Структура\""
