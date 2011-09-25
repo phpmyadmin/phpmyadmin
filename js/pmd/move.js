@@ -636,7 +636,7 @@ function Small_tab_all(id_this) // max/min all tables
             }
         }
         id_this.alt = ">";
-        id_this.src = "pmd/images/rightarrow1.png";
+        id_this.src = pmaThemeImage + "pmd/rightarrow1.png";
     } else {
         for (key in j_tabs) {
             if (document.getElementById('id_hide_tbody_'+key).innerHTML != "v") {
@@ -644,7 +644,7 @@ function Small_tab_all(id_this) // max/min all tables
             }
         }
         id_this.alt = "v";
-        id_this.src = "pmd/images/downarrow1.png";
+        id_this.src = pmaThemeImage + "pmd/downarrow1.png";
     }
     Re_load();
 }
@@ -803,10 +803,10 @@ function Hide_tab_all(id_this) // max/min all tables
 {
     if (id_this.alt == 'v') {
         id_this.alt = '>';
-        id_this.src = "pmd/images/rightarrow1.png";
+        id_this.src = pmaThemeImage + "pmd/rightarrow1.png";
     } else {
         id_this.alt = 'v';
-        id_this.src = "pmd/images/downarrow1.png";
+        id_this.src = pmaThemeImage + "pmd/downarrow1.png";
     }
     var E = document.form1;
     for (i = 0; i < E.elements.length; i++) {
@@ -847,10 +847,10 @@ function No_have_constr(id_this)
 
     if (id_this.alt == 'v') {
         id_this.alt = '>';
-        id_this.src = "pmd/images/rightarrow2.png";
+        id_this.src = pmaThemeImage + "pmd/rightarrow2.png";
     } else {
         id_this.alt = 'v';
-        id_this.src = "pmd/images/downarrow2.png";
+        id_this.src = pmaThemeImage + "pmd/downarrow2.png";
     }
     var E = document.form1;
     for (i = 0; i < E.elements.length; i++) {
@@ -921,7 +921,7 @@ function Show_left_menu(id_this) // max/min all tables
         document.getElementById("layer_menu").style.left = pos.left + 'px';
         document.getElementById("layer_menu").style.display = 'block';
         id_this.alt = ">";
-        id_this.src = "pmd/images/uparrow2_m.png";
+        id_this.src = pmaThemeImage + "pmd/uparrow2_m.png";
         if (isIE) {
             General_scroll();
         }
@@ -929,7 +929,7 @@ function Show_left_menu(id_this) // max/min all tables
         document.getElementById("layer_menu").style.top = -1000 + 'px'; //fast scroll
         document.getElementById("layer_menu").style.display = 'none';
         id_this.alt = "v";
-        id_this.src = "pmd/images/downarrow2_m.png";
+        id_this.src = pmaThemeImage + "pmd/downarrow2_m.png";
     }
 }
 //------------------------------------------------------------------------------
@@ -938,11 +938,11 @@ function Top_menu_right(id_this)
     if (id_this.alt == ">") {
         document.getElementById('top_menu').style.marginLeft = document.getElementById('top_menu').offsetWidth + 'px'; // = 350
         id_this.alt = "<";
-        id_this.src = "pmd/images/2leftarrow_m.png";
+        id_this.src = pmaThemeImage + "pmd/2leftarrow_m.png";
     } else {
         document.getElementById('top_menu').style.marginLeft = 0;
         id_this.alt = ">";
-        id_this.src = "pmd/images/2rightarrow_m.png";
+        id_this.src = pmaThemeImage + "pmd/2rightarrow_m.png";
     }
 }
 //------------------------------------------------------------------------------
