@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-25 09:29+0200\n"
+"PO-Revision-Date: 2011-09-25 09:32+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -2223,6 +2223,8 @@ msgstr "Невозможно прочесть существующий конф�
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
+"На конфигурационный файл выставлены неверные права разрешающие запись для "
+"всех!"
 
 #: libraries/Config.class.php:1297
 msgid "Font size"
