@@ -12385,6 +12385,8 @@ msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr ""
+"Rate of reading fixed position average: %s, this value should be less than 1 "
+"per hour"
 
 #: po/advisory_rules.php:140
 #, fuzzy
