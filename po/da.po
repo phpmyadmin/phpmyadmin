@@ -11739,7 +11739,7 @@ msgstr "Ekstra søgekriterium"
 
 #: tbl_zoom_select.php:276
 msgid "Use this column to label each point"
-msgstr ""
+msgstr "Brug denne kolonne til at navngive hvert punkt"
 
 #: tbl_zoom_select.php:296
 msgid "Maximum rows to plot"
