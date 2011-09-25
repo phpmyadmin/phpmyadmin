@@ -12452,10 +12452,9 @@ msgid "Rate of joins without indexes"
 msgstr "Il n'y a aucune procédure à afficher."
 
 #: po/advisory_rules.php:126
-#, fuzzy
 #| msgid "There are no routines to display."
 msgid "There are too many joins without indexes."
-msgstr "Il n'y a aucune procédure à afficher."
+msgstr "Il y a trop de jointures sans index."
 
 #: po/advisory_rules.php:127
 msgid ""
