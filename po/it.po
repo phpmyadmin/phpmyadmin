@@ -10815,7 +10815,7 @@ msgstr "Scegli il log dal quale generare le statistiche."
 
 #: server_status.php:1715
 msgid "Results are grouped by query text."
-msgstr ""
+msgstr "I risultati verranno raggruppati secondo il testo di query."
 
 #: server_status.php:1720
 #, fuzzy
