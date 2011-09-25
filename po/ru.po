@@ -5841,7 +5841,7 @@ msgstr "вертикальном"
 #: libraries/display_tbl.lib.php:439
 #, php-format
 msgid "Headers every %s rows"
-msgstr ""
+msgstr "Заголовки каждые %s строк"
 
 #: libraries/display_tbl.lib.php:536
 msgid "Sort by key"
