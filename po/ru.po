@@ -5817,10 +5817,9 @@ msgid "Start row"
 msgstr "Начальная строка"
 
 #: libraries/display_tbl.lib.php:425
-#, fuzzy
 #| msgid "Number of rows:"
 msgid "Number of rows"
-msgstr "Количество строк:"
+msgstr "Количество строк"
 
 #: libraries/display_tbl.lib.php:430
 #, fuzzy
