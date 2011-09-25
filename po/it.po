@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-25 15:29+0200\n"
+"PO-Revision-Date: 2011-09-25 15:30+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -10703,10 +10703,9 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1612
-#, fuzzy
 #| msgid "Pause monitor"
 msgid "Using the monitor:"
-msgstr "Arresta il monitoraggio"
+msgstr "Utilizzo del monitor:"
 
 #: server_status.php:1614
 msgid ""
