@@ -6940,7 +6940,7 @@ msgstr "Nome tabella"
 #: libraries/import/ldi.php:45 libraries/schema/User_Schema.class.php:350
 #: view_create.php:147
 msgid "Column names"
-msgstr "Nomi delle colonne"
+msgstr "Nomi dei campi"
 
 #: libraries/import/ldi.php:57
 msgid "This plugin does not support compressed imports!"
