@@ -2939,10 +2939,9 @@ msgstr ""
 "Работа параметра &quot;%s&quot; подвержена ошибке, описание смотрите на %s"
 
 #: libraries/common.lib.php:2660
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to toggle"
-msgstr "Выделение"
+msgstr "Кликните для переключения"
 
 #: libraries/common.lib.php:3034 libraries/common.lib.php:3041
 #: libraries/common.lib.php:3251 libraries/config/setup.forms.php:293
