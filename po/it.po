@@ -5713,7 +5713,7 @@ msgstr "@SERVER@ diventerá il nome del server"
 
 #: libraries/display_export.lib.php:226
 msgid ", @DATABASE@ will become the database name"
-msgstr ", il nome del database diventerá @DATABASE@"
+msgstr ", @DATABASE@ diventerá il nome del database"
 
 #: libraries/display_export.lib.php:228
 msgid ", @TABLE@ will become the table name"
