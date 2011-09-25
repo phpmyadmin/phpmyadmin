@@ -11562,7 +11562,7 @@ msgstr "Aggiungi &nbsp;%s&nbsp; campo/i all'indice"
 
 #: tbl_indexes.php:270 tbl_structure.php:700
 msgid "Column count has to be larger than zero."
-msgstr "Il contatore delle colonne deve essere superiore a 0."
+msgstr "Il numero dei campi deve essere superiore a zero."
 
 #: tbl_move_copy.php:44
 msgid "Can't move table to same one!"
