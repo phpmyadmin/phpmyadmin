@@ -2218,7 +2218,7 @@ msgstr "Перед использованием phpMyAdmin удалите кат
 #: libraries/Config.class.php:727
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr ""
+msgstr "Невозможно прочесть существующий конфигурационный файл (%s)."
 
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
