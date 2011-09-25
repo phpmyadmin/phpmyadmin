@@ -6785,10 +6785,10 @@ msgid "Go to table"
 msgstr "Перейти к таблице"
 
 #: libraries/import.lib.php:1130
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
-msgstr "Только структура"
+msgstr "Структура %s"
 
 #: libraries/import.lib.php:1136
 msgid "Go to view"
