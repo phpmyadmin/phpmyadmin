@@ -8095,7 +8095,7 @@ msgstr "Delimitatori"
 
 #: libraries/sql_query_form.lib.php:344
 msgid "Show this query here again"
-msgstr "Mostra di nuovo questa query "
+msgstr "Mostra di nuovo questa query"
 
 #: libraries/sql_query_form.lib.php:400
 msgid "View only"
