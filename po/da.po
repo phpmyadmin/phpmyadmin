@@ -2203,10 +2203,10 @@ msgid "Remove \"./config\" directory before using phpMyAdmin!"
 msgstr "Fjern \"./config\" folderen før brug af phpMyAdmin!"
 
 #: libraries/Config.class.php:727
-#, fuzzy, php-format
+#, php-format
 #| msgid "Existing configuration file (%d) is not readable."
 msgid "Existing configuration file (%s) is not readable."
-msgstr "Eksisterende konfigurationsfil (%d) kan ikke læses."
+msgstr "Eksisterende konfigurationsfil (%s) kan ikke læses."
 
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
