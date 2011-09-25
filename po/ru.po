@@ -5035,10 +5035,9 @@ msgid "Whether to show hint or not"
 msgstr "Показать или скрыть подсказки"
 
 #: libraries/config/messages.inc.php:463
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show hint"
-msgstr "Отображать сетку"
+msgstr "Показать подсказку"
 
 #: libraries/config/messages.inc.php:464
 msgid ""
