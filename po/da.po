@@ -4873,7 +4873,6 @@ msgid "Automatically create versions"
 msgstr "Opret versioner automatisk"
 
 #: libraries/config/messages.inc.php:443
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
@@ -4881,8 +4880,8 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
 msgstr ""
-"Lades blank for ingen bruger preference storage i database, forslag: [kbd]"
-"pma_config[/kbd]"
+"Lades blank for ingen bruger preference storage i database, forslag: "
+"[kbd]pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:444
 msgid "User preferences storage table"
