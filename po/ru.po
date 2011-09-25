@@ -6704,10 +6704,9 @@ msgid "Stand-in structure for view"
 msgstr "Дублирующая структура для представления"
 
 #: libraries/export/sql.php:1111
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error reading data:"
-msgstr "Разрешает выборку данных."
+msgstr "Ошибка считывания данных:"
 
 #: libraries/export/xml.php:19 libraries/import/xml.php:21
 msgid "XML"
