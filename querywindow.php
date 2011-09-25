@@ -87,23 +87,23 @@ if ($no_js) {
     $tabs['sql']['icon']   = 'b_sql.png';
     $tabs['sql']['text']   = __('SQL');
     $tabs['sql']['fragment']   = '#';
-    $tabs['sql']['attr']   = 'onclick="javascript:PMA_querywindowCommit(\'sql\');return false;"';
+    $tabs['sql']['attr']   = 'onclick="PMA_querywindowCommit(\'sql\');return false;"';
     $tabs['sql']['active'] = (bool) ($querydisplay_tab == 'sql');
     $tabs['import']['icon']   = 'b_import.png';
     $tabs['import']['text']   = __('Import files');
     $tabs['import']['fragment']   = '#';
-    $tabs['import']['attr']   = 'onclick="javascript:PMA_querywindowCommit(\'files\');return false;"';
+    $tabs['import']['attr']   = 'onclick="PMA_querywindowCommit(\'files\');return false;"';
     $tabs['import']['active'] = (bool) ($querydisplay_tab == 'files');
     $tabs['history']['icon']   = 'b_bookmark.png';
     $tabs['history']['text']   = __('SQL history'); 
     $tabs['history']['fragment']   = '#';
-    $tabs['history']['attr']   = 'onclick="javascript:PMA_querywindowCommit(\'history\');return false;"';
+    $tabs['history']['attr']   = 'onclick="PMA_querywindowCommit(\'history\');return false;"';
     $tabs['history']['active'] = (bool) ($querydisplay_tab == 'history');
 
     if ($GLOBALS['cfg']['QueryWindowDefTab'] == 'full') {
         $tabs['all']['text']   = __('All');
         $tabs['all']['fragment']   = '#';
-        $tabs['all']['attr']   = 'onclick="javascript:PMA_querywindowCommit(\'full\');return false;"';
+        $tabs['all']['attr']   = 'onclick="PMA_querywindowCommit(\'full\');return false;"';
         $tabs['all']['active'] = (bool) ($querydisplay_tab == 'full');
     }
 }
