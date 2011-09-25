@@ -4669,7 +4669,7 @@ msgstr "Conta le tabelle quando la lista dei database viene mostrata"
 
 #: libraries/config/messages.inc.php:384
 msgid "Count tables"
-msgstr "Conta tabbelle"
+msgstr "Conta tabelle"
 
 #: libraries/config/messages.inc.php:385
 msgid ""
