@@ -12259,10 +12259,9 @@ msgid "Percentage of sorts that cause temporary tables"
 msgstr "Percentage of sorts that cause temporary tables"
 
 #: po/advisory_rules.php:111 po/advisory_rules.php:116
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
-msgstr "Allows creating temporary tables."
+msgstr "Too many sorts are causing temporary tables."
 
 #: po/advisory_rules.php:112 po/advisory_rules.php:117
 msgid ""
