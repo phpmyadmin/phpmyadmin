@@ -12343,7 +12343,7 @@ msgstr "Table joins average: %s, this value should be less than 1 per hour"
 
 #: po/advisory_rules.php:130
 msgid "Rate of reading first index entry"
-msgstr ""
+msgstr "Rate of reading first index entry"
 
 #: po/advisory_rules.php:131
 msgid "The rate of reading the first index entry is high."
