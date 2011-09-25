@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-25 11:36+0200\n"
+"PO-Revision-Date: 2011-09-25 11:37+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -5488,10 +5488,9 @@ msgid "The server is not responding"
 msgstr "Сервер не отвечает"
 
 #: libraries/dbi/drizzle.dbi.lib.php:344
-#, fuzzy
 #| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid "(or the local Drizzle server's socket is not correctly configured)"
-msgstr "(либо локальный сокет MySQL неверно настроен)"
+msgstr "(или сокет локального сервера Drizzle неверно настроен)"
 
 #: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysqli.dbi.lib.php:384
 msgid "(or the local MySQL server's socket is not correctly configured)"
