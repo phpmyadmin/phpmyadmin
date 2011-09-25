@@ -5717,7 +5717,7 @@ msgstr ", @DATABASE@ diventerá il nome del database"
 
 #: libraries/display_export.lib.php:228
 msgid ", @TABLE@ will become the table name"
-msgstr ", il nome della tabella diventerá @TABLE@"
+msgstr ", @TABLE@ diventerá il nome della tabella"
 
 #: libraries/display_export.lib.php:232
 #, php-format
