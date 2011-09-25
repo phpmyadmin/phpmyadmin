@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-25 15:20+0200\n"
+"PO-Revision-Date: 2011-09-25 15:21+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -11947,7 +11947,7 @@ msgstr "Dump SQL (scarica il file)"
 
 #: tbl_tracking.php:550
 msgid "SQL dump"
-msgstr "dump SQL"
+msgstr "Dump SQL"
 
 #: tbl_tracking.php:551
 msgid "This option will replace your table and contained data."
