@@ -1931,7 +1931,7 @@ msgstr ""
 
 #: js/messages.php:311
 msgid "Add an option for column "
-msgstr "Aggiungi un'opzione alla colonna "
+msgstr "Aggiungi un'opzione al campo "
 
 #: js/messages.php:314
 msgid "Press escape to cancel editing"
