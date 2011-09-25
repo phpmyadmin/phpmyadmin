@@ -11755,7 +11755,7 @@ msgstr "Aggiungi condizioni di ricerca (corpo della clausola \"where\"):"
 
 #: tbl_select.php:203
 msgid "Number of rows per page"
-msgstr "Numero di righi per pagina"
+msgstr "Numero di righe per pagina"
 
 #: tbl_select.php:209
 msgid "Display order:"
