@@ -12288,7 +12288,7 @@ msgstr "Fragmentation de la cache des requêtes"
 
 #: po/advisory_rules.php:91
 msgid "The query cache is considerably fragmented."
-msgstr ""
+msgstr "La cache des requêtes est très fragmentée."
 
 #: po/advisory_rules.php:92
 msgid ""
