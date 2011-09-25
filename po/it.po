@@ -723,7 +723,7 @@ msgstr "Copia tabella col prefisso"
 
 #: db_structure.php:619 libraries/schema/User_Schema.class.php:420
 msgid "Data Dictionary"
-msgstr "Data Dictionary"
+msgstr "Dizionario dei dati"
 
 #: db_tracking.php:79
 msgid "Tracked tables"
