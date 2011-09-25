@@ -5999,7 +5999,7 @@ msgstr "nella query"
 
 #: libraries/display_tbl.lib.php:2246
 msgid "Showing rows"
-msgstr "Mostrando i righi"
+msgstr "Mostrando le righe"
 
 #: libraries/display_tbl.lib.php:2256
 msgid "total"
