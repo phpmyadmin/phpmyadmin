@@ -12339,7 +12339,7 @@ msgstr ""
 #: po/advisory_rules.php:128
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
-msgstr ""
+msgstr "Table joins average: %s, this value should be less than 1 per hour"
 
 #: po/advisory_rules.php:130
 msgid "Rate of reading first index entry"
