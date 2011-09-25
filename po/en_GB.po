@@ -12394,10 +12394,9 @@ msgid "Rate of reading next table row"
 msgstr "Rate of reading next table row"
 
 #: po/advisory_rules.php:141
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "The rate of reading the next table row is high."
-msgstr "Where to show the table row links"
+msgstr "The rate of reading the next table row is high."
 
 #: po/advisory_rules.php:142
 msgid ""
