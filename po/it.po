@@ -9467,8 +9467,8 @@ msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-" ... cancella quello vecchio dalla tabella degli utenti e in seguito "
-"ricarica i privilegi."
+"... cancella quello vecchio dalla tabella degli utenti e in seguito ricarica "
+"i privilegi."
 
 #: server_privileges.php:2211
 msgid "Database for user"
