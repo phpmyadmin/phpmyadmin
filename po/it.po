@@ -1602,10 +1602,9 @@ msgid "Sum of grouped rows:"
 msgstr "Il numero di righe inserite"
 
 #: js/messages.php:179
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "Totale"
+msgstr "Totale:"
 
 #: js/messages.php:181
 msgid "Loading logs"
