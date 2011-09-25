@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-25 15:22+0200\n"
+"PO-Revision-Date: 2011-09-25 15:23+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -10847,7 +10847,7 @@ msgstr "Impossibile connettersi alla destinazione"
 #: tbl_get_field.php:19
 #, php-format
 msgid "'%s' database does not exist."
-msgstr "database '%s' non esiste."
+msgstr "Database '%s' non esiste."
 
 #: server_synchronize.php:282
 msgid "Structure Synchronization"
