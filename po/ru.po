@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-25 09:46+0200\n"
+"PO-Revision-Date: 2011-09-25 09:47+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -2893,10 +2893,9 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s дней, %s часов, %s минут и %s секунд"
 
 #: libraries/common.lib.php:2016
-#, fuzzy
 #| msgid "Routine parameters"
 msgid "Missing parameter:"
-msgstr "Параметры процедуры"
+msgstr "Отсутствующий параметр:"
 
 #: libraries/common.lib.php:2364 libraries/common.lib.php:2367
 #: libraries/display_tbl.lib.php:306
