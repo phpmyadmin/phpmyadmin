@@ -5681,7 +5681,7 @@ msgstr "Esegui il dump di alcune righe"
 
 #: libraries/display_export.lib.php:154
 msgid "Number of rows:"
-msgstr "Numero di righi:"
+msgstr "Numero di righe:"
 
 #: libraries/display_export.lib.php:157
 msgid "Row to begin at:"
