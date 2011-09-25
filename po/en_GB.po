@@ -12362,7 +12362,7 @@ msgstr ""
 #: po/advisory_rules.php:133
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
-msgstr ""
+msgstr "Index scans average: %s, this value should be less than 1 per hour"
 
 #: po/advisory_rules.php:135
 msgid "Rate of reading fixed position"
