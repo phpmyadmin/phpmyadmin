@@ -3309,7 +3309,7 @@ msgid ""
 "kbd] - allows newlines in columns"
 msgstr ""
 "Definisce quale tipo di casella di modifica si utilizzerà per modificare "
-"colonne CHAR e VARCHAR; [kbd]input[/kbd] - permette di limitare la lunghezza "
+"campi CHAR e VARCHAR; [kbd]input[/kbd] - permette di limitare la lunghezza "
 "dell'input, [kbd]textarea[/kbd] - permette di inserire caratteri newline "
 "(andare a capo)"
 
