@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-25 09:44+0200\n"
+"PO-Revision-Date: 2011-09-25 09:45+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -2693,7 +2693,7 @@ msgstr "Проверить привилегии"
 
 #: libraries/common.inc.php:147
 msgid "possible exploit"
-msgstr ""
+msgstr "возможная уязвимость"
 
 #: libraries/common.inc.php:156
 msgid "numeric key detected"
