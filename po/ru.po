@@ -1913,10 +1913,9 @@ msgstr ""
 "содержимом."
 
 #: js/messages.php:323
-#, fuzzy
 #| msgid "Go to view"
 msgid "Go to link"
-msgstr "Перейти к представлению (VIEW)"
+msgstr "Перейти к ссылке"
 
 #: js/messages.php:326
 msgid "Generate password"
