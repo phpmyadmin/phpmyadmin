@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-25 23:12+0200\n"
+"PO-Revision-Date: 2011-09-25 23:13+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -12366,7 +12366,7 @@ msgstr "Index scans average: %s, this value should be less than 1 per hour"
 
 #: po/advisory_rules.php:135
 msgid "Rate of reading fixed position"
-msgstr ""
+msgstr "Rate of reading fixed position"
 
 #: po/advisory_rules.php:136
 msgid "The rate of reading data from a fixed position is high."
