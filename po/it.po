@@ -5629,7 +5629,7 @@ msgstr "Nome"
 
 #: libraries/display_create_table.lib.php:55
 msgid "Number of columns"
-msgstr "Numero di colonne"
+msgstr "Numero dei campi"
 
 #: libraries/display_export.lib.php:37
 msgid "Could not load export plugins, please check your installation!"
