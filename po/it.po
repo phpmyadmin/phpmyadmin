@@ -1717,7 +1717,7 @@ msgstr "Errore nel processare la richiesta"
 
 #: js/messages.php:214
 msgid "Dropping Column"
-msgstr "Eliminazione colonna"
+msgstr "Eliminazione Campo"
 
 #: js/messages.php:215
 msgid "Adding Primary Key"
