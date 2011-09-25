@@ -10081,9 +10081,9 @@ msgid ""
 "if you are doing an index scan."
 msgstr ""
 "Il numero di richieste per leggere la riga successiva nell'ordine delle "
-"chiavi. Questo valore è incrementato se stai facendo una query su di una "
-"colonna indice con un range costante, oppure se stai facendo una scansione "
-"degli indici."
+"chiavi. Questo valore è incrementato se stai facendo una query su un campo "
+"indice con un range costante, oppure se stai facendo una scansione degli "
+"indici."
 
 #: server_status.php:1309
 msgid ""
