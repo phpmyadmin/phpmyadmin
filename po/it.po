@@ -7268,7 +7268,7 @@ msgstr "Creazione di PDF"
 
 #: libraries/relation.lib.php:110
 msgid "Displaying Column Comments"
-msgstr "Visualizzazione commenti delle colonne"
+msgstr "Visualizzazione Commenti dei Campi"
 
 #: libraries/relation.lib.php:115
 msgid ""
