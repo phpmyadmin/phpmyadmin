@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-25 23:04+0200\n"
+"PO-Revision-Date: 2011-09-25 23:05+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -6500,7 +6500,6 @@ msgid "Add statements:"
 msgstr "Tilføj forespørgsler:"
 
 #: libraries/export/sql.php:211
-#, fuzzy
 #| msgid ""
 #| "Enclose table and field names with backquotes <i>(Protects field and "
 #| "table names formed with special characters or keywords)</i>"
