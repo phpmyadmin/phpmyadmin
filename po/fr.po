@@ -12357,7 +12357,7 @@ msgstr ""
 #: po/advisory_rules.php:103
 #, php-format
 msgid "Current query cache size: %s"
-msgstr ""
+msgstr "Taille actuelle de la cache des requêtes : %s"
 
 #: po/advisory_rules.php:105
 #, fuzzy
