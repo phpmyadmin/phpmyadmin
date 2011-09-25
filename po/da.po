@@ -11261,7 +11261,6 @@ msgid "No index parts defined!"
 msgstr "Ingen dele af indeks er defineret!"
 
 #: tbl_indexes.php:169
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create an index"
 msgstr "Lav et nyt indeks"
