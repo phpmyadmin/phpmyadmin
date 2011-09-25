@@ -11759,7 +11759,7 @@ msgstr "Dodatni iskalni pogoji"
 
 #: tbl_zoom_select.php:276
 msgid "Use this column to label each point"
-msgstr ""
+msgstr "Uporabite ta stolpec za označevanje vsake točke"
 
 #: tbl_zoom_select.php:296
 msgid "Maximum rows to plot"
