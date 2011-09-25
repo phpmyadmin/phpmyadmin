@@ -6525,8 +6525,8 @@ msgstr "Sostituisci NULL con:"
 #: libraries/export/csv.php:29 libraries/export/excel.php:24
 msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
-"Rimuovi i caratteri di ritorno a capo/avanzamento (CR/LF) riga dall'interno "
-"delle colonne"
+"Rimuovi i caratteri di ritorno a capo/avanzamento riga (CR/LF) dall'interno "
+"dei campi"
 
 #: libraries/export/excel.php:33
 msgid "Excel edition:"
