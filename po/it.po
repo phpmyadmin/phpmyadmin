@@ -11558,7 +11558,7 @@ msgstr "Tipo di indice:"
 #: tbl_indexes.php:265
 #, php-format
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
-msgstr "Aggiungi all'indice &nbsp;%s&nbsp;colonna/e"
+msgstr "Aggiungi &nbsp;%s&nbsp; campo/i all'indice"
 
 #: tbl_indexes.php:270 tbl_structure.php:700
 msgid "Column count has to be larger than zero."
