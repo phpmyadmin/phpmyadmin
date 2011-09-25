@@ -9459,7 +9459,7 @@ msgstr "... cancella quello vecchio dalla tabella degli utenti."
 msgid ""
 "... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
-" ... revoca tutti i privilegi attivi da quello vecchio e in seguito "
+"... revoca tutti i privilegi attivi da quello vecchio e in seguito "
 "cancellalo."
 
 #: server_privileges.php:2188
