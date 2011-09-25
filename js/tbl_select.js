@@ -77,6 +77,8 @@ $(document).ready(function() {
                 $('#togglesearchformdiv')
                  // now it's time to show the div containing the link 
                  .show();
+                 // needed for the display options slider in the results
+                 PMA_init_slider();
             } else {
                 // error message (zero rows)
                 $("#sqlqueryresults").html(response['message']);
