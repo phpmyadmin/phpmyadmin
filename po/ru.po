@@ -5812,10 +5812,9 @@ msgid "%d is not valid row number."
 msgstr "Число %d не является правильным номером строки."
 
 #: libraries/display_tbl.lib.php:423
-#, fuzzy
 #| msgid "Textarea rows"
 msgid "Start row"
-msgstr "Строк в текстовом поле"
+msgstr "Начальная строка"
 
 #: libraries/display_tbl.lib.php:425
 #, fuzzy
