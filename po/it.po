@@ -3569,7 +3569,7 @@ msgstr "Modello per nomi delle tabbelle"
 #: libraries/export/latex.php:40 libraries/export/odt.php:32
 #: libraries/export/sql.php:123 libraries/export/texytext.php:23
 msgid "Dump table"
-msgstr "Dump delle tabbelle"
+msgstr "Dump delle tabelle"
 
 #: libraries/config/messages.inc.php:92 libraries/export/latex.php:32
 msgid "Include table caption"
