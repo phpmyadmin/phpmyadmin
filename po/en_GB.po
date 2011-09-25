@@ -12290,6 +12290,7 @@ msgstr "Rate of sorts that cause temporary tables"
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
+"Temporary tables average: %s, this value should be less than 1 per hour."
 
 #: po/advisory_rules.php:120
 #, fuzzy
