@@ -236,7 +236,7 @@ msgstr "ഇല്ല"
 #: tbl_printview.php:194 tbl_structure.php:41 tbl_structure.php:349
 #: tbl_tracking.php:319 tbl_tracking.php:324
 msgid "Yes"
-msgstr ""
+msgstr "അതേ"
 
 #: db_datadict.php:287 db_printview.php:263 tbl_printview.php:462
 msgid "Print"
