@@ -169,7 +169,7 @@ msgstr "തരം"
 #: tbl_printview.php:139 tbl_structure.php:205 tbl_tracking.php:260
 #: tbl_tracking.php:311 tbl_zoom_select.php:435
 msgid "Null"
-msgstr ""
+msgstr "ശൂന്യം"
 
 #: db_datadict.php:166 db_structure.php:509 libraries/export/htmlword.php:252
 #: libraries/export/latex.php:359 libraries/export/odt.php:295
