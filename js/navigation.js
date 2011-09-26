@@ -30,16 +30,16 @@ function toggle(id, only_open)
         el.style.display = '';
         if (img) {
             var newimg = PMA_getImage('b_minus.png');
-            img.className = newimg.attr.class;
-            img.src = newimg.attr.src;
+            img.className = newimg.attr('class');
+            img.src = newimg.attr('src');
             img.alt = '-';
         }
     } else {
         el.style.display = 'none';
         if (img) {
             var newimg = PMA_getImage('b_plus.png');
-            img.className = newimg.attr.class;
-            img.src = newimg.attr.src;
+            img.className = newimg.attr('class');
+            img.src = newimg.attr('src');
             img.alt = '+';
         }
     }

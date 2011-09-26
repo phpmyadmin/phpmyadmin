@@ -41,11 +41,11 @@ foreach ($sprites as $key => $value) {
  * @param string alternate  Used to set 'alt' and 'title' attributes of the image
  * @param object attributes An associative array of other attributes
  *
- * @return Object The requested image, this object has one method:
+ * @return Object The requested image, this object has two methods:
  *                   .toString() - Returns the IMG tag for the requested image
- *                And two properties:
- *                   .attr       - an associative array containing
- *                                 all attributes of the IMG tag
+ *                   .attr(name) - Returns a particular attribute of the IMG
+ *                                 tag given it's name
+ *                And one property:
  *                   .isSprite   - Whether the image is a sprite or not
  */
 function PMA_getImage(image, alternate, attributes) {
@@ -62,17 +62,24 @@ function PMA_getImage(image, alternate, attributes) {
     ];
     // custom image object, it will eventually be returned by this functions
     var retval = {
-        attr: {
+        data: {
+            // this is private
             alt: '',
             title: '',
             src: 'themes/dot.gif',
-            class: ''
         },
         isSprite: true,
+        attr: function (name) {
+            if (this.data[name] == undefined) {
+                return '';
+            } else {
+                return this.data[name];
+            }
+        }
         toString: function () {
             var retval = '<' + 'img';
-            for (var i in this.attr) {
-                retval += ' ' + i + '="' + this.attr[i] + '"';
+            for (var i in this.data) {
+                retval += ' ' + i + '="' + this.data[i] + '"';
             }
             retval += ' /' + '>';
             return retval;
@@ -87,25 +94,25 @@ function PMA_getImage(image, alternate, attributes) {
     }
     // set alt
     if (attributes.alt != undefined) {
-        retval.attr.alt = attributes.alt;
+        retval.data.alt = attributes.alt;
     } else {
-        retval.attr.alt = alternate;
+        retval.data.alt = alternate;
     }
     // set title
     if (attributes.title != undefined) {
-        retval.attr.title = attributes.title;
+        retval.data.title = attributes.title;
     } else {
-        retval.attr.title = alternate;
+        retval.data.title = alternate;
     }
     // set src
     var klass = image.replace('.gif', '').replace('.png', '');
     if (in_array(klass, sprites)) {
         // it's an icon from a sprite
-        retval.attr.class = 'icon ic_' + klass;
+        retval.data.class = 'icon ic_' + klass;
     } else {
         // it's an image file
         retval.isSprite = false;
-        retval.attr.src = "<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>" + image;
+        retval.data.src = "<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>" + image;
     }
     // set all other attrubutes
     for (var i in attributes) {
@@ -113,9 +120,9 @@ function PMA_getImage(image, alternate, attributes) {
             // do not allow to override the 'src' attribute
             continue;
         } else if (i == 'class') {
-            retval.attr[i] += ' ' + attributes[i];
+            retval.data[i] += ' ' + attributes[i];
         } else {
-            retval.attr[i] = attributes[i];
+            retval.data[i] = attributes[i];
         }
     }
 
