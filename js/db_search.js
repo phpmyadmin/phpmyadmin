@@ -88,7 +88,7 @@ $(document).ready(function() {
     });
 
     /** Hide the table link in the initial search result */
-    $("#table-info").prepend('<img id="table-image" class="icon ic_s_tbl" src="./themes/dot.gif" />').hide();
+    $("#table-info").prepend(PMA_getImage('s_tbl.png', '', {id: 'table-image'}).toString()).hide();
 
     /** Hide the browse and deleted results in the new search criteria */
     $('#buttonGo').click(function(){

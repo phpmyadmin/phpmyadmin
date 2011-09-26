@@ -98,7 +98,7 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
 
     $drop_image_or_text = '';
     if (true == $GLOBALS['cfg']['PropertiesIconic']) {
-        $drop_image_or_text .= '<img class="icon ic_b_drop" src="themes/dot.gif" alt="' . __('Delete tracking data for this table') . '" title="' . __('Delete tracking data for this table') . '" />';
+        $drop_image_or_text .= PMA_getImage('b_drop.png', __('Delete tracking data for this table'));
     }
     if ('both' === $GLOBALS['cfg']['PropertiesIconic'] || false === $GLOBALS['cfg']['PropertiesIconic']) {
         $drop_image_or_text .= __('Drop');

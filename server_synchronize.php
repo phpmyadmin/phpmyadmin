@@ -1149,7 +1149,7 @@ if (! isset($_REQUEST['submit_connect'])
 * Displays the sub-page heading
 */
     echo '<h2>' . ($GLOBALS['cfg']['MainPageIconic']
-    ? '<img class="icon ic_s_sync" src="themes/dot.gif" alt="" />'
+    ? PMA_getImage('s_sync.png')
     : '')
     . __('Synchronize')
     .'</h2>';

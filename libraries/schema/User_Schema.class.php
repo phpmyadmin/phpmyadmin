@@ -374,7 +374,7 @@ class PMA_User_Schema
             <?php
             echo PMA_generate_common_hidden_inputs($db);
             if ($cfg['PropertiesIconic']) {
-                echo '<img class="icon ic_b_views" src="themes/dot.gif" />';
+                echo PMA_getImage('b_views.png');
             }
             echo __('Display relational schema');
             ?>:

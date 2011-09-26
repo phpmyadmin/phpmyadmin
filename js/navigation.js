@@ -29,13 +29,17 @@ function toggle(id, only_open)
     if (el.style.display == 'none' || only_open) {
         el.style.display = '';
         if (img) {
-            img.className = 'icon ic_b_minus';
+            var newimg = PMA_getImage('b_minus.png');
+            img.className = newimg.attr.class;
+            img.src = newimg.attr.src;
             img.alt = '-';
         }
     } else {
         el.style.display = 'none';
         if (img) {
-            img.className = 'icon ic_b_plus';
+            var newimg = PMA_getImage('b_plus.png');
+            img.className = newimg.attr.class;
+            img.src = newimg.attr.src;
             img.alt = '+';
         }
     }

@@ -306,6 +306,11 @@ select[multiple] {
     padding-top: 1em;
 }
 
+.separator {
+    color: white;
+    text-shadow: 0 1px 0 black;
+}
+
 div.tools {
    /* border: 1px solid #000000; */
     padding: 0.2em;

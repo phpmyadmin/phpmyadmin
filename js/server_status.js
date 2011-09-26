@@ -715,7 +715,7 @@ function serverResponseError() {
     };
     $('#emptyDialog').attr('title', PMA_messages['strRefreshFailed']);
     $('#emptyDialog').html(
-        '<img class="icon ic_s_attention" src="themes/dot.gif" alt=""> ' + 
+        PMA_getImage('s_attention.png') +
         PMA_messages['strInvalidResponseExplanation']
     );
     $('#emptyDialog').dialog({ buttons: btns });

@@ -94,19 +94,21 @@ function PMA_SortableTableHeader($title, $sort, $initial_sort_order = 'ASC')
         if ($requested_sort_order == 'ASC') {
             $future_sort_order = 'DESC';
             // current sort order is ASC
-            $order_img  = ' <img class="icon ic_s_asc" src="themes/dot.gif" alt="'. __('Ascending') . '" title="'. __('Ascending') . '" id="sort_arrow" />';
+            $order_img  = ' ' . PMA_getImage('s_asc.png', __('Ascending'), array('class' => 'sort_arrow', 'title' => ''));
+            $order_img .= ' ' . PMA_getImage('s_desc.png', __('Descending'), array('class' => 'sort_arrow hide', 'title' => ''));
             // but on mouse over, show the reverse order (DESC)
-            $order_link_params['onmouseover'] = 'if ($(\'#sort_arrow\').length > 0) { $(\'#sort_arrow\').attr(\'class\',\'icon ic_s_desc\'); }';
+            $order_link_params['onmouseover'] = "$('.sort_arrow').toggle();";
             // on mouse out, show current sort order (ASC)
-            $order_link_params['onmouseout']  = 'if ($(\'#sort_arrow\').length > 0) { $(\'#sort_arrow\').attr(\'class\',\'icon ic_s_asc\'); }';
+            $order_link_params['onmouseout'] = "$('.sort_arrow').toggle();";
         } else {
             $future_sort_order = 'ASC';
             // current sort order is DESC
-            $order_img  = ' <img class="icon ic_s_desc" src="themes/dot.gif" alt="'. __('Descending') . '" title="'. __('Descending') . '" id="sort_arrow" />';
+            $order_img  = ' ' . PMA_getImage('s_asc.png', __('Ascending'), array('class' => 'sort_arrow hide', 'title' => ''));
+            $order_img .= ' ' . PMA_getImage('s_desc.png', __('Descending'), array('class' => 'sort_arrow', 'title' => ''));
             // but on mouse over, show the reverse order (ASC)
-            $order_link_params['onmouseover']  = 'if ($(\'#sort_arrow\').length > 0) { $(\'#sort_arrow\').attr(\'class\',\'icon ic_s_asc\'); }';
+            $order_link_params['onmouseover'] = "$('.sort_arrow').toggle();";
             // on mouse out, show current sort order (DESC)
-            $order_link_params['onmouseout'] = 'if ($(\'#sort_arrow\').length > 0) { $(\'#sort_arrow\').attr(\'class\',\'icon ic_s_desc\'); }';
+            $order_link_params['onmouseout'] = "$('.sort_arrow').toggle();";
         }
     }
 

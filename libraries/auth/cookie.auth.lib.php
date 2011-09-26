@@ -132,8 +132,6 @@ function PMA_auth()
 
     // Defines the charset to be used
     header('Content-Type: text/html; charset=utf-8');
-    // Defines the "item" image depending on text direction
-    $item_img = 'ic_item_' . $GLOBALS['text_dir'];
 
     /* HTML header; do not show here the PMA version to improve security */
     $page_title = 'phpMyAdmin ';
@@ -198,9 +196,9 @@ if (top != self) {
 <?php
     echo __('Log in');
     echo '<a href="./Documentation.html" target="documentation" ' .
-        'title="' . __('phpMyAdmin documentation') . '">';
+        'title="' . __('phpMyAdmin documentation') . '"> ';
     if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-        echo '<img class="icon ic_b_help_s" src="themes/dot.gif" alt="' . __('phpMyAdmin documentation') . '" />';
+        echo PMA_getImage('b_help.png', __('phpMyAdmin documentation'));
     } else {
         echo '(*)';
     }

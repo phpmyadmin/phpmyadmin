@@ -462,7 +462,7 @@ foreach ($fields as $row) {
         echo "\n";
         ?>
     <td class="more_opts" id="more_opts<?php echo $rownum; ?>">
-        <?php echo __('More'); ?> <img class="icon ic_more" src="themes/dot.gif" alt="<?php echo __('Show more actions'); ?>" />
+        <?php echo PMA_getImage('more.png', __('Show more actions')); ?> <?php echo __('More'); ?>
         <div class="structure_actions_dropdown" id="row_<?php echo $rownum; ?>">
 
             <div class="action_browse">
@@ -646,7 +646,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     <?php
     echo PMA_generate_common_hidden_inputs($db, $table);
     if ($cfg['PropertiesIconic']) {
-        echo '<img class="icon ic_b_insrow" src="themes/dot.gif" alt="' . __('Add column') . '"/>';
+        echo PMA_getImage('b_insrow.png', __('Add column'));
     }
     echo sprintf(__('Add %s column(s)'), '<input type="text" name="num_fields" size="2" maxlength="2" value="1" onfocus="this.select()" />');
 

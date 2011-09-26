@@ -401,7 +401,7 @@ if ($db != 'mysql') {
         <legend>
     <?php
     if ($cfg['PropertiesIconic']) {
-        echo '<img class="icon ic_b_edit" src="themes/dot.gif" alt="" />';
+        echo PMA_getImage('b_edit.png');
     }
     echo __('Rename database to') . ':';
     ?>
@@ -427,7 +427,7 @@ if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase'])
 <fieldset class="caution">
  <legend><?php
 if ($cfg['PropertiesIconic']) {
-    echo '<img class="icon ic_b_deltbl" src="themes/dot.gif" alt="" />';
+    echo PMA_getImage('b_deltbl.png');
 }
 echo __('Remove database');
 ?></legend>
@@ -473,7 +473,7 @@ echo __('Remove database');
         <legend>
     <?php
     if ($cfg['PropertiesIconic']) {
-        echo '<img class="icon ic_b_edit" src="themes/dot.gif" alt="" />';
+        echo PMA_getImage('b_edit.png');
     }
     echo __('Copy database to') . ':';
     $drop_clause = 'DROP TABLE / DROP VIEW';
@@ -537,7 +537,7 @@ echo __('Remove database');
        . '<fieldset>' . "\n"
        . '    <legend>';
     if ($cfg['PropertiesIconic']) {
-        echo '<img class="icon ic_s_asci" src="themes/dot.gif" alt="" />';
+        echo PMA_getImage('s_asci.png');
     }
     echo '    <label for="select_db_collation">' . __('Collation') . ':</label>' . "\n"
        . '    </legend>' . "\n"
@@ -584,7 +584,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
      */
     echo '<div class="operations_full_width"><fieldset><a href="schema_edit.php?' . $url_query . '">';
     if ($cfg['PropertiesIconic']) {
-        echo '<img class="icon ic_b_edit" src="themes/dot.gif" alt="" />';
+        echo PMA_getImage('b_edit.png');
     }
     echo __('Edit or export relational schema') . '</a></fieldset></div>';
 } // end if

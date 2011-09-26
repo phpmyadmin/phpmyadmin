@@ -585,9 +585,9 @@ $(function() {
     $('a[href="#pauseCharts"]').click(function() {
         runtime.redrawCharts = ! runtime.redrawCharts;
         if (! runtime.redrawCharts) {
-            $(this).html('<img src="themes/dot.gif" class="icon ic_play" alt="" /> ' + PMA_messages['strResumeMonitor']);
+            $(this).html(PMA_getImage('play.png') + ' ' + PMA_messages['strResumeMonitor']);
         } else {
-            $(this).html('<img src="themes/dot.gif" class="icon ic_pause" alt="" /> ' + PMA_messages['strPauseMonitor']);
+            $(this).html(PMA_getImage('pause.png') + ' ' + PMA_messages['strPauseMonitor']);
             if (! runtime.charts) {
                 initGrid();
                 $('a[href="#settingsPopup"]').show();
@@ -613,7 +613,7 @@ $(function() {
             $.get('server_status.php?' + url_query, vars,
                 function(data) {
                     var logVars = $.parseJSON(data),
-                        icon = 'ic_s_success', msg='', str='';
+                        icon = PMA_getImage('s_success.png'), msg='', str='';
 
                     if (logVars['general_log'] == 'ON') {
                         if (logVars['slow_query_log'] == 'ON') {
@@ -628,28 +628,28 @@ $(function() {
                     }
 
                     if (msg.length == 0) {
-                        icon = 'ic_s_error';
+                        icon = PMA_getImage('s_error.png');
                         msg = PMA_messages['strBothLogOff'];
                     }
 
                     str = '<b>' + PMA_messages['strCurrentSettings'] + '</b><br><div class="smallIndent">';
-                    str += '<img src="themes/dot.gif" class="icon ' + icon + '" alt=""/> ' + msg + '<br />';
+                    str += icon + msg + '<br />';
 
                     if (logVars['log_output'] != 'TABLE') {
-                        str += '<img src="themes/dot.gif" class="icon ic_s_error" alt=""/> ' + PMA_messages['strLogOutNotTable'] + '<br />';
+                        str += PMA_getImage('s_error.png') + ' ' + PMA_messages['strLogOutNotTable'] + '<br />';
                     } else {
-                        str += '<img src="themes/dot.gif" class="icon ic_s_success" alt=""/> ' + PMA_messages['strLogOutIsTable'] + '<br />';
+                        str += PMA_getImage('s_success.png') + ' ' + PMA_messages['strLogOutIsTable'] + '<br />';
                     }
 
                     if (logVars['slow_query_log'] == 'ON') {
                         if (logVars['long_query_time'] > 2) {
-                            str += '<img src="themes/dot.gif" class="icon ic_s_attention" alt=""/> '
+                            str += PMA_getImage('s_attention.png') + ' '
                                 + $.sprintf(PMA_messages['strSmallerLongQueryTimeAdvice'], logVars['long_query_time'])
                                 + '<br />';
                         }
                         
                         if (logVars['long_query_time'] < 2) {
-                            str += '<img src="themes/dot.gif" class="icon ic_s_success" alt=""/> '
+                            str += PMA_getImage('s_success.png') + ' '
                                 + $.sprintf(PMA_messages['strLongQueryTimeSet'], logVars['long_query_time'])
                                 + '<br />';
                         }
@@ -1660,7 +1660,7 @@ $(function() {
 
         // Append a tooltip to the count column, if there exist one
         if ($('#logTable th:last').html() == '#') {
-            $('#logTable th:last').append('&nbsp;<img class="qroupedQueryInfoIcon icon ic_b_docs" src="themes/dot.gif" alt="" />');
+            $('#logTable th:last').append('&nbsp;' + PMA_getImage('b_docs.png', '', {class: 'qroupedQueryInfoIcon'}));
 
             var qtipContent = PMA_messages['strCountColumnExplanation'];
             if (groupInserts) {

@@ -56,7 +56,7 @@ if ($GLOBALS['cfg']['LeftDisplayLogo']) {
     echo '<a href="main.php?' . $query_url . '"'
         .' title="' . __('Home') . '">'
         .($GLOBALS['cfg']['MainPageIconic']
-            ? '<img class="icon ic_b_home" src="themes/dot.gif" alt="' . __('Home') . '" />'
+            ? PMA_getImage('b_home.png', __('Home'))
             : __('Home'))
         .'</a>' . "\n";
     // if we have chosen server
@@ -68,7 +68,7 @@ if ($GLOBALS['cfg']['LeftDisplayLogo']) {
                 .urlencode($PHP_AUTH_USER) . '" target="_parent"'
                 .' title="' . __('Log out') . '" >'
                 .($GLOBALS['cfg']['MainPageIconic']
-                    ? '<img class="icon ic_s_loggoff" src="themes/dot.gif" alt="' . __('Log out') . '" />'
+                    ? PMA_getImage('s_loggoff.png', __('Log out'))
                     : __('Log out'))
                 .'</a>' . "\n";
         } // end if ($GLOBALS['cfg']['Server']['auth_type'] != 'config'
@@ -76,8 +76,7 @@ if ($GLOBALS['cfg']['LeftDisplayLogo']) {
         $anchor = 'querywindow.php?' . PMA_generate_common_url($db, $table);
 
         if ($GLOBALS['cfg']['MainPageIconic']) {
-            $query_frame_link_text =
-                '<img class="icon ic_b_selboard" src="themes/dot.gif" alt="' . __('Query window') . '" />';
+            $query_frame_link_text = PMA_getImage('b_selboard.png', __('Query window'));
         } else {
             echo '<br />' . "\n";
             $query_frame_link_text = __('Query window');
@@ -92,8 +91,7 @@ if ($GLOBALS['cfg']['LeftDisplayLogo']) {
         .' title="' . __('phpMyAdmin documentation') . '" >';
 
     if ($GLOBALS['cfg']['MainPageIconic']) {
-        echo '<img class="icon ic_b_docs" src="themes/dot.gif"'
-            .' alt="' . __('phpMyAdmin documentation') . '" />';
+        echo PMA_getImage('b_docs.png', __('phpMyAdmin documentation'));
     }
     echo '</a>';
     echo '    ' . PMA_showMySQLDocu('', '', true) . "\n";
@@ -104,9 +102,7 @@ if ($GLOBALS['cfg']['LeftDisplayLogo']) {
     }
     echo '<a href="navigation.php?' . PMA_generate_common_url($params) . '" target="frame_navigation">';
     if ($GLOBALS['cfg']['MainPageIconic']) {
-        echo '<img class="icon ic_s_reload" src="themes/dot.gif"'
-            . ' title="' . __('Reload navigation frame') . '"'
-            . ' alt="' . __('Reload navigation frame') . '" />';
+        echo PMA_getImage('s_reload', __('Reload navigation frame'));
     } else {
         echo '<br />' . __('Reload navigation frame');
     }

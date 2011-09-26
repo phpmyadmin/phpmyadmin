@@ -462,11 +462,9 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
     if ($just_open) {
         return $open_link;
     } elseif ($big_icon) {
-        return $open_link . '<img class="icon ic_b_sqlhelp" src="themes/dot.gif" alt="'
-            . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
+        return $open_link . PMA_getImage('b_sqlhelp.png', __('Documentation')) . '</a>';
     } elseif ($GLOBALS['cfg']['ReplaceHelpImg']) {
-        return $open_link . '<img class="icon ic_b_help_s" src="themes/dot.gif" alt="'
-            . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
+        return $open_link . PMA_getImage('b_help.png', __('Documentation')) . '</a>';
     } else {
         return '[' . $open_link . __('Documentation') . '</a>]';
     }
@@ -486,8 +484,8 @@ function PMA_showDocu($anchor)
 {
     if ($GLOBALS['cfg']['ReplaceHelpImg']) {
         return '<a href="Documentation.html#' . $anchor . '" target="documentation">'
-            . '<img class="icon ic_b_help_s" src="themes/dot.gif" alt="'
-            . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
+             . PMA_getImage('b_help.png', __('Documentation'))
+             . '</a>';
     } else {
         return '[<a href="Documentation.html#' . $anchor . '" target="documentation">'
         . __('Documentation') . '</a>]';
@@ -509,8 +507,8 @@ function PMA_showPHPDocu($target)
 
     if ($GLOBALS['cfg']['ReplaceHelpImg']) {
         return '<a href="' . $url . '" target="documentation">'
-            . '<img class="icon ic_b_help_s" src="themes/dot.gif" alt="'
-            . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
+             . PMA_getImage('b_help.png', __('Documentation'))
+             . '</a>';
     } else {
         return '[<a href="' . $url . '" target="documentation">' . __('Documentation') . '</a>]';
     }
@@ -556,7 +554,7 @@ function PMA_showHint($message, $bbcode = false, $type = 'notice')
 
     // footnotemarker used in js/tooltip.js
     return '<sup class="footnotemarker">' . $nr . '</sup>' .
-    '<img class="footnotemarker footnote_' . $nr . ' ic_b_help" src="themes/dot.gif" alt="" />';
+           PMA_getImage('b_help.png', '', array('class' => 'footnotemarker footnote_' . $nr));
 }
 
 /**
@@ -1739,9 +1737,8 @@ function PMA_generate_html_tab($tab, $url_params = array(), $base_dir='')
         // avoid generating an alt tag, because it only illustrates
         // the text that follows and if browser does not display
         // images, the text is duplicated
-        $image = '<img class="icon %1$s" src="' . $base_dir . 'themes/dot.gif"'
-            .' width="16" height="16" alt="" />%2$s';
-        $tab['text'] = sprintf($image, htmlentities($tab['icon']), $tab['text']);
+        $tab['text'] = PMA_getImage(htmlentities($tab['icon'])) . $tab['text'];
+
     } elseif (empty($tab['text'])) {
         // check to not display an empty link-text
         $tab['text'] = '?';

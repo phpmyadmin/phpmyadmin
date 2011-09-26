@@ -41,7 +41,7 @@ $is_create_table_priv = true;
     <legend>
 <?php
 if ($GLOBALS['cfg']['PropertiesIconic']) {
-    echo '<img class="icon ic_b_newtbl" src="themes/dot.gif" alt="" />';
+    echo PMA_getImage('b_newtbl.png');
 }
 echo sprintf(__('Create table on database %s'), PMA_getDbLink());
 ?>
