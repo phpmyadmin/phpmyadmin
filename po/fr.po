@@ -12361,6 +12361,8 @@ msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
+"La taille de la cache de requêtes dépasse 128 Mio. Ceci peut causer une "
+"surcharge dans sa maintenance."
 
 #: po/advisory_rules.php:102
 msgid ""
