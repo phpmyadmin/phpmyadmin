@@ -441,7 +441,7 @@ msgstr "പ്രദർശിപ്പിക്കുക"
 
 #: db_qbe.php:322
 msgid "Criteria"
-msgstr ""
+msgstr "മാനദണ്ഡം"
 
 #: db_qbe.php:375 db_qbe.php:457 db_qbe.php:549 db_qbe.php:580
 msgid "Ins"
