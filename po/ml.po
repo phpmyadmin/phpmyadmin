@@ -124,7 +124,7 @@ msgstr "%1$ എന്ന വിവരശേഖരം(ങ്ങൾ) സൃഷ്�
 
 #: db_datadict.php:49 db_operations.php:364
 msgid "Database comment: "
-msgstr ""
+msgstr "വിവരശേഖര അഭിപ്രായം: "
 
 #: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1279
 #: libraries/tbl_properties.inc.php:695 tbl_operations.php:366
