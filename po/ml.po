@@ -28,7 +28,7 @@ msgstr "എല്ലാം കാണിക്കൂ"
 #: libraries/schema/User_Schema.class.php:393
 #: libraries/select_lang.lib.php:487
 msgid "Page number:"
-msgstr ""
+msgstr "താൾ"
 
 #: browse_foreigners.php:133
 msgid ""
