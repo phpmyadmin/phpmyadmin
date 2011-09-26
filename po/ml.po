@@ -372,7 +372,7 @@ msgstr "വരികൾ"
 
 #: db_printview.php:106 libraries/db_structure.lib.php:53 tbl_indexes.php:197
 msgid "Size"
-msgstr ""
+msgstr "വലിപ്പം"
 
 #: db_printview.php:159 db_structure.php:461 libraries/export/sql.php:790
 msgid "in use"
