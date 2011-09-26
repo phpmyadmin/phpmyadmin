@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-26 13:54+0200\n"
+"PO-Revision-Date: 2011-09-26 13:55+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -12378,10 +12378,9 @@ msgid "Current query cache size: %s"
 msgstr "Taille actuelle de la cache des requêtes : %s"
 
 #: po/advisory_rules.php:105
-#, fuzzy
 #| msgid "Query results"
 msgid "Query cache min result size"
-msgstr "Résultats de la requête"
+msgstr "Taille minimum de résultats de la cache de requêtes"
 
 #: po/advisory_rules.php:106
 msgid ""
