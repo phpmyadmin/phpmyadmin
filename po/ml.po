@@ -479,7 +479,7 @@ msgstr "അഭ്യര്‍ത്ഥന നവീകറിക്കുക"
 
 #: db_qbe.php:639
 msgid "Use Tables"
-msgstr ""
+msgstr "പട്ടികകൾ ഉപയോഗിക്കുക"
 
 #: db_qbe.php:662
 #, php-format
