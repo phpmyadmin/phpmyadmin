@@ -12322,7 +12322,7 @@ msgstr ""
 
 #: po/advisory_rules.php:95
 msgid "Query cache low memory prunes"
-msgstr ""
+msgstr "Élaguages de mémoire de la cache de requêtes"
 
 #: po/advisory_rules.php:96
 #, fuzzy
