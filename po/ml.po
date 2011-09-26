@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-26 10:25+0200\n"
+"PO-Revision-Date: 2011-09-26 10:26+0200\n"
 "Last-Translator:  <sadik.khalid@gmail.com>\n"
 "Language-Team: Malayalam <ml@li.org>\n"
 "Language: ml\n"
@@ -198,7 +198,7 @@ msgstr ""
 #: libraries/schema/Pdf_Relation_Schema.class.php:1333
 #: libraries/tbl_properties.inc.php:136 tbl_printview.php:146
 msgid "Comments"
-msgstr ""
+msgstr "അഭിപ്രായങ്ങൾ"
 
 #: db_datadict.php:233 js/messages.php:227 libraries/Index.class.php:349
 #: libraries/Index.class.php:376 libraries/Index.class.php:674
