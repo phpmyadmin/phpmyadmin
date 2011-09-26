@@ -453,7 +453,7 @@ msgstr "ഉം"
 
 #: db_qbe.php:388 db_qbe.php:469 db_qbe.php:551 db_qbe.php:582
 msgid "Del"
-msgstr ""
+msgstr "മായ്ക്കുക"
 
 #: db_qbe.php:392 db_qbe.php:473 db_qbe.php:544 db_qbe.php:575
 #: server_privileges.php:398 tbl_change.php:908 tbl_indexes.php:264
