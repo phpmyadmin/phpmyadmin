@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-26 15:53+0200\n"
+"PO-Revision-Date: 2011-09-26 15:54+0200\n"
 "Last-Translator:  <sadik.khalid@gmail.com>\n"
 "Language-Team: Malayalam <ml@li.org>\n"
 "Language: ml\n"
@@ -271,7 +271,7 @@ msgstr "%s എന്ന വിവരശേഖരം %s എന്ന പേരി
 #: db_operations.php:278
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr ""
+msgstr "%s എന്ന വിവരശേഖരം %s എന്ന പേരിലേക്ക് പകർത്തിയിരിക്കുന്നു"
 
 #: db_operations.php:406
 msgid "Rename database to"
