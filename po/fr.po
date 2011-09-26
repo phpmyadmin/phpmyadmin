@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-26 13:49+0200\n"
+"PO-Revision-Date: 2011-09-26 13:50+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -12325,12 +12325,13 @@ msgid "Query cache low memory prunes"
 msgstr "Élaguages de mémoire de la cache de requêtes"
 
 #: po/advisory_rules.php:96
-#, fuzzy
 #| msgid "The amount of free memory for query cache."
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
-msgstr "La quantité de mémoire libre dans la cache de requêtes."
+msgstr ""
+"Les requêtes en cache sont enlevées en raison d'un manque de mémoire dans la "
+"cache de requêtes."
 
 #: po/advisory_rules.php:97
 msgid ""
