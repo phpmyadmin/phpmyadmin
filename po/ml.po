@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-26 10:07+0200\n"
+"PO-Revision-Date: 2011-09-26 10:08+0200\n"
 "Last-Translator:  <sadik.khalid@gmail.com>\n"
 "Language-Team: Malayalam <ml@li.org>\n"
 "Language: ml\n"
@@ -84,7 +84,7 @@ msgstr "പോകൂ"
 #: browse_foreigners.php:169 browse_foreigners.php:173
 #: libraries/Index.class.php:432 tbl_tracking.php:304
 msgid "Keyname"
-msgstr ""
+msgstr "കീനാമം"
 
 #: browse_foreigners.php:170 browse_foreigners.php:172
 #: server_collations.php:54 server_collations.php:66 server_engines.php:56
