@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-26 10:09+0200\n"
+"PO-Revision-Date: 2011-09-26 10:23+0200\n"
 "Last-Translator:  <sadik.khalid@gmail.com>\n"
 "Language-Team: Malayalam <ml@li.org>\n"
 "Language: ml\n"
@@ -120,7 +120,7 @@ msgstr ""
 #: db_create.php:60
 #, php-format
 msgid "Database %1$s has been created."
-msgstr ""
+msgstr "%1$ എന്ന വിവരശേഖരം(ങ്ങൾ) സൃഷ്ടിച്ചിരിക്കുന്നു"
 
 #: db_datadict.php:49 db_operations.php:364
 msgid "Database comment: "
