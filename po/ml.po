@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-26 16:09+0200\n"
+"PO-Revision-Date: 2011-09-26 16:10+0200\n"
 "Last-Translator:  <sadik.khalid@gmail.com>\n"
 "Language-Team: Malayalam <ml@li.org>\n"
 "Language: ml\n"
@@ -475,7 +475,7 @@ msgstr "നിരകൾ ചേർക്കുക/മായക്കുക"
 
 #: db_qbe.php:631 db_qbe.php:656
 msgid "Update Query"
-msgstr ""
+msgstr "അഭ്യര്‍ത്ഥന നവീകറിക്കുക"
 
 #: db_qbe.php:639
 msgid "Use Tables"
