@@ -90,7 +90,7 @@ msgstr "കീനാമം"
 #: server_collations.php:54 server_collations.php:66 server_engines.php:56
 #: server_plugins.php:147 server_status.php:1466
 msgid "Description"
-msgstr ""
+msgstr "വിവരണം"
 
 #: browse_foreigners.php:249 browse_foreigners.php:258
 #: browse_foreigners.php:270 browse_foreigners.php:278
