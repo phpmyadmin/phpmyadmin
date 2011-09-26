@@ -4923,7 +4923,6 @@ msgid "Automatically create versions"
 msgstr "Αυτόματη δημιουργία εκδόσεων"
 
 #: libraries/config/messages.inc.php:443
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
@@ -4931,8 +4930,8 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
 msgstr ""
-"Αφήστε το κενό για μη αποθήκευση των ρυθμίσεων χρήστη, προτείνεται: [kbd]"
-"pma_config[/kbd]"
+"Αφήστε το κενό για μη αποθήκευση των ρυθμίσεων χρήστη στη βάση δεδομένων, "
+"προτείνεται: [kbd]pma_config[/kbd]"
 
 #: libraries/config/messages.inc.php:444
 msgid "User preferences storage table"
