@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-26 16:06+0200\n"
+"PO-Revision-Date: 2011-09-26 16:07+0200\n"
 "Last-Translator:  <sadik.khalid@gmail.com>\n"
 "Language-Team: Malayalam <ml@li.org>\n"
 "Language: ml\n"
@@ -463,7 +463,7 @@ msgstr "അല്ലെനങ്കിൽ"
 
 #: db_qbe.php:529
 msgid "Modify"
-msgstr ""
+msgstr "തിരുത്തുക"
 
 #: db_qbe.php:606
 msgid "Add/Delete criteria rows"
