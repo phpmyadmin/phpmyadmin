@@ -79,7 +79,7 @@ msgstr "തിരയൂ"
 #: tbl_structure.php:708 tbl_tracking.php:416 tbl_tracking.php:554
 #: tbl_zoom_select.php:313 view_create.php:181 view_operations.php:99
 msgid "Go"
-msgstr ""
+msgstr "പോകൂ"
 
 #: browse_foreigners.php:169 browse_foreigners.php:173
 #: libraries/Index.class.php:432 tbl_tracking.php:304
