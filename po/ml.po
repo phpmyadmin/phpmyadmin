@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-26 16:10+0200\n"
+"PO-Revision-Date: 2011-09-26 16:12+0200\n"
 "Last-Translator:  <sadik.khalid@gmail.com>\n"
 "Language-Team: Malayalam <ml@li.org>\n"
 "Language: ml\n"
@@ -488,7 +488,7 @@ msgstr ""
 
 #: db_qbe.php:955 libraries/common.lib.php:1163
 msgid "Submit Query"
-msgstr ""
+msgstr "അഭ്യർത്ഥന സമർപ്പിക്കുക"
 
 #: db_search.php:30 libraries/auth/config.auth.lib.php:77
 #: libraries/auth/config.auth.lib.php:96
