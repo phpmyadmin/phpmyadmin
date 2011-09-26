@@ -1660,7 +1660,7 @@ $(function() {
 
         // Append a tooltip to the count column, if there exist one
         if ($('#logTable th:last').html() == '#') {
-            $('#logTable th:last').append('&nbsp;' + PMA_getImage('b_docs.png', '', {class: 'qroupedQueryInfoIcon'}));
+            $('#logTable th:last').append('&nbsp;' + PMA_getImage('b_docs.png', '', {'class': 'qroupedQueryInfoIcon'}));
 
             var qtipContent = PMA_messages['strCountColumnExplanation'];
             if (groupInserts) {

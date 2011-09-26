@@ -120,7 +120,7 @@ $(document).ready(function() {
           'ST_Intersects',
           'ST_Overlaps',
           'ST_Touches',
-          'ST_Within',
+          'ST_Within'
         ];
 
         var tempArray = [
