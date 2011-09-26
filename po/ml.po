@@ -376,7 +376,7 @@ msgstr "വലിപ്പം"
 
 #: db_printview.php:159 db_structure.php:461 libraries/export/sql.php:790
 msgid "in use"
-msgstr ""
+msgstr "ഉപയോഗത്തിൽ"
 
 #: db_printview.php:184 libraries/db_info.inc.php:70
 #: libraries/export/sql.php:742
