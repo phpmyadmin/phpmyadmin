@@ -257,7 +257,7 @@ msgstr "എല്ലാം തിരഞ്ഞെടുക്കുക"
 
 #: db_export.php:42 db_search.php:321 server_export.php:28
 msgid "Unselect All"
-msgstr ""
+msgstr "ഒന്നും തിരഞ്ഞെടുക്കാതിരിക്കുക"
 
 #: db_operations.php:41 tbl_create.php:22
 msgid "The database name is empty!"
