@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-19 08:41-0400\n"
-"PO-Revision-Date: 2011-09-26 15:32+0200\n"
+"PO-Revision-Date: 2011-09-26 15:35+0200\n"
 "Last-Translator:  <sadik.khalid@gmail.com>\n"
 "Language-Team: Malayalam <ml@li.org>\n"
 "Language: ml\n"
@@ -315,7 +315,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:135 tbl_operations.php:560
 #, php-format
 msgid "Add %s"
-msgstr ""
+msgstr "%s ചേർക്കുക"
 
 #: db_operations.php:502 libraries/config/messages.inc.php:119
 #: tbl_operations.php:318 tbl_operations.php:562
