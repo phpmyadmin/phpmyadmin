@@ -311,6 +311,18 @@ class PMA_Theme
         }
 
         include $_css_file;
+
+        if ($type != 'print') {
+            $_sprites_data_file = $this->getPath() . '/sprites.lib.php';
+            $_sprites_css_file = './themes/sprites.css.php';
+            if (   (file_exists($_sprites_data_file)  && is_readable($_sprites_data_file))
+                && (file_exists($_sprites_css_file) && is_readable($_sprites_css_file))
+            ) {
+                include $_sprites_data_file;
+                include $_sprites_css_file;
+            }
+        }
+
         return true;
     }
 

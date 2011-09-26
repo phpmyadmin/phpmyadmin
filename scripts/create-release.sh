@@ -133,6 +133,11 @@ if [ -f ./scripts/compress-js ] ; then
     rm -rf sources
 fi
 
+if [ -f ./scripts/generate-sprites ] ; then
+    echo "* Generating sprites"
+    ./scripts/generate-sprites . || exit 1
+fi
+
 echo "* Removing unneeded files"
 
 # Remove test directory from package to avoid Path disclosure messages

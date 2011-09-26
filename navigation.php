@@ -110,6 +110,8 @@ require_once './libraries/header_http.inc.php';
     echo PMA_includeJS('navigation.js');
     echo PMA_includeJS('functions.js');
     echo PMA_includeJS('messages.php');
+    // Append the theme id to this url to invalidate the cache on a theme change
+    echo PMA_includeJS('get_image.js.php?theme=' . urlencode($_SESSION['PMA_Theme']->getId()));
     ?>
     <script type="text/javascript">
     // <![CDATA[

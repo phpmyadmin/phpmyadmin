@@ -71,51 +71,104 @@ function PMA_pow($base, $exp, $use_function = false)
 }
 
 /**
- * string PMA_getIcon(string $icon)
+ * Returns an HTML IMG tag for a particular icon from a theme,
+ * which may be an actual file or an icon from a sprite.
+ * This function takes into account the PropertiesIconic
+ * configuration setting and wraps the image tag in a span tag.
  *
  * @param string  $icon       name of icon file
  * @param string  $alternate  alternate text
  * @param boolean $force_text whether to force alternate text to be displayed
- * @param boolean $noSprite   If true, the image source will be not replaced
- *                            with a CSS Sprite
  *
- * @return html img tag
+ * @return string an html snippet
  */
-function PMA_getIcon($icon, $alternate = '', $force_text = false, $noSprite = false)
+function PMA_getIcon($icon, $alternate = '', $force_text = false)
 {
     // $cfg['PropertiesIconic'] is true or both
     $include_icon = ($GLOBALS['cfg']['PropertiesIconic'] !== false);
     // $cfg['PropertiesIconic'] is false or both
     // OR we have no $include_icon
     $include_text = ($force_text || true !== $GLOBALS['cfg']['PropertiesIconic']);
-    $alternate    = htmlspecialchars($alternate);
-    $button       = '';
 
     // Always use a span (we rely on this in js/sql.js)
-    $button .= '<span class="nowrap">';
-
+    $button = '<span class="nowrap">';
     if ($include_icon) {
-        if ($noSprite) {
-            $button .= '<img src="' . $GLOBALS['pmaThemeImage'] . $icon . '"'
-                . ' class="icon" width="16" height="16" />';
-        } else {
-            $button .= '<img src="themes/dot.gif"' . ' title="'
-                . $alternate . '" alt="' . $alternate . '"' . ' class="icon ic_'
-                . str_replace(array('.gif','.png'), '', $icon) . '" />';
-        }
+        $button .= PMA_getImage($icon, $alternate);
     }
-
     if ($include_icon && $include_text) {
         $button .= ' ';
     }
-
     if ($include_text) {
         $button .= $alternate;
     }
-
     $button .= '</span>';
 
     return $button;
+}
+
+/**
+ * Returns an HTML IMG tag for a particular image from a theme,
+ * which may be an actual file or an icon from a sprite
+ *
+ * @param string $image      The name of the file to get
+ * @param string $alternate  Used to set 'alt' and 'title' attributes of the image
+ * @param array  $attributes An associative array of other attributes
+ *
+ * @return string an html IMG tag
+ */
+function PMA_getImage($image, $alternate = '', $attributes = array())
+{
+    $url       = '';
+    $is_sprite = false;
+    $alternate = htmlspecialchars($alternate);
+
+    // Check if we have the requested image as a sprite
+    //  and set $url accordingly
+    if (is_readable($_SESSION['PMA_Theme']->getPath() . '/sprites.lib.php')) {
+        include_once $_SESSION['PMA_Theme']->getPath() . '/sprites.lib.php';
+        $sprites = PMA_sprites();
+        $class = str_replace(array('.gif','.png'), '', $image);
+        if (array_key_exists($class, $sprites)) {
+            $is_sprite = true;
+            $url = 'themes/dot.gif';
+        } else {
+            $url = $GLOBALS['pmaThemeImage'] . $image;
+        }
+    } else {
+        $url = $GLOBALS['pmaThemeImage'] . $image;
+    }
+    // set class attribute
+    if ($is_sprite) {
+        if (isset($attributes['class'])) {
+            $attributes['class'] = "icon ic_$class " . $attributes['class'];
+        } else {
+            $attributes['class'] = "icon ic_$class";
+        }
+    }
+    // set all other attributes
+    $attr_str = '';
+    foreach ($attributes as $key => $value) {
+        if (! in_array($key, array('alt', 'title'))) {
+            $attr_str .= " $key='$value'";
+        }
+    }
+    // override the alt attribute
+    if (isset($attributes['alt'])) {
+        $alt = $attributes['alt'];
+    } else {
+        $alt = $alternate;
+    }
+    // override the title attribute
+    if (isset($attributes['title'])) {
+        $title = $attributes['title'];
+    } else {
+        $title = $alternate;
+    }
+    // generate the IMG tag
+    $template = '<img src="%s" title="%s" alt="%s"%s />';
+    $retval = sprintf($template, $url, $title, $alt, $attr_str);
+
+    return $retval;
 }
 
 /**

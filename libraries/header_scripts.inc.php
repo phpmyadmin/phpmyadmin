@@ -41,6 +41,8 @@ if (isset($GLOBALS['db'])) {
     $params['db'] = $GLOBALS['db'];
 }
 $GLOBALS['js_include'][] = 'messages.php' . PMA_generate_common_url($params);
+// Append the theme id to this url to invalidate the cache on a theme change
+$GLOBALS['js_include'][] = 'get_image.js.php?theme=' . urlencode($_SESSION['PMA_Theme']->getId());
 
 /**
  * Here we add a timestamp when loading the file, so that users who
