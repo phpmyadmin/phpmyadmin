@@ -459,7 +459,7 @@ msgstr "മായ്ക്കുക"
 #: server_privileges.php:398 tbl_change.php:908 tbl_indexes.php:264
 #: tbl_select.php:196
 msgid "Or"
-msgstr ""
+msgstr "അല്ലെനങ്കിൽ"
 
 #: db_qbe.php:529
 msgid "Modify"
