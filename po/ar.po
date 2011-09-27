@@ -2334,9 +2334,9 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d صف أضيف"
 msgstr[1] "%1$d صف أضيف"
 msgstr[2] "%1$d صفوف أضيفت"
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[3] "%1$d صفوف أضيفت"
+msgstr[4] "%1$d صفوف أضيفت"
+msgstr[5] "%1$d صفوف أضيفت"
 
 #: libraries/PDF.class.php:81
 msgid "Error while creating PDF:"
