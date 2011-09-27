@@ -72,9 +72,9 @@ function PMA_generate_dropdown($dropdown_question, $select_name, $choices, $sele
 }
 
 /**
- * Split a string on backquote pairs 
+ * Split a string on backquote pairs
  *
- * @param   string  original string 
+ * @param   string  original string
  * @return  array   containing the elements (and their surrounding backquotes)
  *
  * @access  public
@@ -97,7 +97,7 @@ function PMA_backquote_split($text)
         }
         $elements[] = substr($text, $first_backquote, $second_backquote - $first_backquote + 1);
         $pos = $second_backquote + 1;
-    } 
+    }
     return($elements);
 }
 
@@ -216,25 +216,18 @@ if (isset($_REQUEST['destination_foreign'])) {
             } elseif (PMA_backquote($existrel_foreign[$master_field]['foreign_db']) != $foreign_db
                 || PMA_backquote($existrel_foreign[$master_field]['foreign_table']) != $foreign_table
                 || PMA_backquote($existrel_foreign[$master_field]['foreign_field']) != $foreign_field
-                || ($_REQUEST['on_delete'][$master_field_md5] != (!empty($existrel_foreign[$master_field]['on_delete']) ? $existrel_foreign[$master_field]['on_delete'] : ''))
-                || ($_REQUEST['on_update'][$master_field_md5] != (!empty($existrel_foreign[$master_field]['on_update']) ? $existrel_foreign[$master_field]['on_update'] : ''))
+                || ($_REQUEST['on_delete'][$master_field_md5] != (!empty($existrel_foreign[$master_field]['on_delete']) ? $existrel_foreign[$master_field]['on_delete'] : 'RESTRICT'))
+                || ($_REQUEST['on_update'][$master_field_md5] != (!empty($existrel_foreign[$master_field]['on_update']) ? $existrel_foreign[$master_field]['on_update'] : 'RESTRICT'))
                    ) {
                 // another foreign key is already defined for this field
                 // or
                 // an option has been changed for ON DELETE or ON UPDATE
 
-                // remove existing key
+                // remove existing key and add the new one
                 $sql_query  = 'ALTER TABLE ' . PMA_backquote($table)
                             . ' DROP FOREIGN KEY '
-                            . PMA_backquote($existrel_foreign[$master_field]['constraint']) . ';';
-
-                // I tried to send both in one query but it failed
-                PMA_DBI_query($sql_query);
-                $display_query .= $sql_query . "\n";
-
-                // add another
-                $sql_query  = 'ALTER TABLE ' . PMA_backquote($table)
-                            . ' ADD FOREIGN KEY ('
+                            . PMA_backquote($existrel_foreign[$master_field]['constraint']) . ', '
+                            . 'ADD FOREIGN KEY ('
                             . PMA_backquote($master_field) . ')'
                             . ' REFERENCES '
                             . $foreign_db . '.'
@@ -376,7 +369,7 @@ if ($cfgRelation['relwork'] || PMA_foreignkey_supported($tbl_type)) {
          && isset($curr_table[1])
          && strtoupper($curr_table[1]) == $tbl_type) {
              // explicitely ask for non-quoted list of indexed columns
-             // need to obtain backquoted values to support dots inside values 
+             // need to obtain backquoted values to support dots inside values
              $selectboxall_foreign = array_merge($selectboxall_foreign, $current_table->getIndexedColumns($backquoted = true));
         }
     } // end while over tables
@@ -506,9 +499,9 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
             </span>
             <span class="formelement">
                 <?php
-                // For ON DELETE and ON UPDATE, the default action 
+                // For ON DELETE and ON UPDATE, the default action
                 // is RESTRICT as per MySQL doc; however, a SHOW CREATE TABLE
-                // won't display the clause if it's set as RESTRICT. 
+                // won't display the clause if it's set as RESTRICT.
                 PMA_generate_dropdown('ON DELETE',
                     'on_delete[' . $myfield_md5 . ']',
                     $options_array,
