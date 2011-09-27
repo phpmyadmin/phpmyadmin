@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-09-25 18:34-0400\n"
+"POT-Creation-Date: 2011-09-27 09:13+0200\n"
 "PO-Revision-Date: 2011-09-25 15:35+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
@@ -616,8 +616,8 @@ msgstr "Il tracking non è attivo."
 #: db_structure.php:422 libraries/display_tbl.lib.php:2331
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Questa vista ha, come minimo, questo numero di righe. Per informazioni "
 "controlla la %sdocumentazione%s."
@@ -826,7 +826,6 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "Copia ed incolla i valori relazionati nei campi \"Lunghezza/Valore\""
 
 #: export.php:29
-#| msgid "Bar type"
 msgid "Bad type!"
 msgstr "Tipo errato!"
 
@@ -836,7 +835,6 @@ msgstr ""
 "Il tipo di esportazione selezionato necessita di essere salvato in un file!"
 
 #: export.php:106
-#| msgid "Add parameter"
 msgid "Bad parameters!"
 msgstr "Parametri errati!"
 
@@ -864,13 +862,11 @@ msgid "Dump has been saved to file %s."
 msgstr "Il dump è stato salvato nel file %s."
 
 #: file_echo.php:21
-#| msgid "Export type"
 msgid "Invalid export type"
 msgstr "Tipo di esportazione non valido"
 
 #: gis_data_editor.php:84
 #, php-format
-#| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
 msgstr "Valore per il campo \"%s\""
 
@@ -909,7 +905,6 @@ msgstr "Punto %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:296
-#| msgid "Add routine"
 msgid "Add a point"
 msgstr "Aggiungi un punto"
 
@@ -964,8 +959,8 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Stai probabilmente cercando di caricare sul server un file troppo grande. "
 "Fai riferimento alla documentazione %sdocumentation%s se desideri aggirare "
@@ -1602,7 +1597,6 @@ msgid "Sum of grouped rows:"
 msgstr "Il numero di righe inserite"
 
 #: js/messages.php:179
-#| msgid "Total"
 msgid "Total:"
 msgstr "Totale:"
 
@@ -2425,7 +2419,6 @@ msgstr[0] "%1$d riga inserita."
 msgstr[1] "%1$d righe inserite."
 
 #: libraries/PDF.class.php:81
-#| msgid "Allows reading data."
 msgid "Error while creating PDF:"
 msgstr "Si é verificato un errore durante la creazione del PDF:"
 
@@ -2464,7 +2457,6 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Questo server MySQL non supporta il motore di memorizzazione %s."
 
 #: libraries/Table.class.php:329
-#| msgid "Show slave status"
 msgid "unknown table status: "
 msgstr "stato della tabella sconosciuto: "
 
@@ -2552,8 +2544,8 @@ msgstr "Benvenuto in %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "La ragione di questo è che probabilmente non hai creato alcun file di "
 "configurazione. Potresti voler usare %1$ssetup script%2$s per crearne uno."
@@ -5721,8 +5713,8 @@ msgstr ", @TABLE@ diventerá il nome della tabella"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Questo valore è interpretato usando %1$sstrftime%2$s: in questo modo puoi "
 "usare stringhe di formattazione per le date/tempi. Verranno anche aggiunte "
@@ -6483,8 +6475,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "La documentazione ed ulteriori informazioni a riguardo di PBXT é disponibile "
 "su %sPrimeBase XT Home Page%s."
@@ -6705,8 +6697,8 @@ msgid ""
 "(1,2,3)</code>"
 msgstr ""
 "includi i nomi dei campi in ogni instruzione <code>INSERT</code> <br /> "
-"&nbsp; &nbsp; &nbsp; Ad esempio: <code>INSERT INTO tbl_name "
-"(col_A,col_B,col_C) VALUES (1,2,3)</code>"
+"&nbsp; &nbsp; &nbsp; Ad esempio: <code>INSERT INTO tbl_name (col_A,col_B,"
+"col_C) VALUES (1,2,3)</code>"
 
 #: libraries/export/sql.php:275
 msgid ""
@@ -6783,7 +6775,6 @@ msgid "Stand-in structure for view"
 msgstr "Struttura stand-in per le viste"
 
 #: libraries/export/sql.php:1111
-#| msgid "Allows reading data."
 msgid "Error reading data:"
 msgstr "Si é verificato un errore durante la lettura dei dati:"
 
@@ -6867,8 +6858,7 @@ msgid "Go to table"
 msgstr "Vai alla tabella"
 
 #: libraries/import.lib.php:1130
-#, php-format, php-format
-#| msgid "Structure only"
+#, php-format
 msgid "Structure of %s"
 msgstr "Struttura di %s"
 
@@ -8683,15 +8673,14 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Sul server è in esecuzione Suhosin. Controlla la documentazione: %"
-"sdocumentation%s per possibili problemi."
+"Sul server è in esecuzione Suhosin. Controlla la documentazione: "
+"%sdocumentation%s per possibili problemi."
 
 #: navigation.php:180 server_databases.php:285 server_synchronize.php:1284
 msgid "No databases"
 msgstr "Nessun database"
 
 #: navigation.php:270
-#| msgid "filter tables by name"
 msgid "Filter tables by name"
 msgstr "Filtra tabelle in base al nome"
 
@@ -9072,7 +9061,6 @@ msgid "License"
 msgstr ""
 
 #: server_plugins.php:182
-#| msgid "Disabled"
 msgid "disabled"
 msgstr "disabilitato"
 
@@ -9402,8 +9390,8 @@ msgstr "Elimina i databases gli stessi nomi degli utenti."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "N.B.: phpMyAdmin legge i privilegi degli utenti direttamente nella tabella "
 "dei privilegi di MySQL. Il contenuto di questa tabella può differire dai "
@@ -10659,12 +10647,10 @@ msgid "Refresh rate"
 msgstr "Ritmo di aggiornamenti"
 
 #: server_status.php:1572
-#| msgid "Chart columns:"
 msgid "Chart columns"
 msgstr "Numero di grafici per rigo"
 
 #: server_status.php:1588
-#| msgid "Error management:"
 msgid "Chart arrangement"
 msgstr "Disposizione dei grafici"
 
@@ -10702,7 +10688,6 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1612
-#| msgid "Pause monitor"
 msgid "Using the monitor:"
 msgstr "Utilizzo del monitor:"
 
@@ -10797,9 +10782,6 @@ msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 
 #: server_status.php:1713
-#| msgid ""
-#| "<p>Choose from which log you want the statistics to be generated from.</"
-#| "p> Results are grouped by query text."
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr "Scegli il log dal quale generare le statistiche."
 
@@ -11234,10 +11216,10 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Se credi che é necessario, usa delle ulteriori impostazioni di protezione - %"
-"saimpostazioni di autenticazione dei host%s e %slista di proxy di fiducia%s. "
-"Comunque, la protezione a base di IP potrebbe non essere affidabile se il "
-"tuo IP appartiene ad un ISP dove migliaia di utenti, incluso te, sono "
+"Se credi che é necessario, usa delle ulteriori impostazioni di protezione - "
+"%saimpostazioni di autenticazione dei host%s e %slista di proxy di fiducia"
+"%s. Comunque, la protezione a base di IP potrebbe non essere affidabile se "
+"il tuo IP appartiene ad un ISP dove migliaia di utenti, incluso te, sono "
 "connessi."
 
 #: setup/lib/index.lib.php:292
@@ -11252,8 +11234,8 @@ msgstr ""
 "Hai impostato il tipo di autenticazione [kbd]config[/kbd] e hai inclusi il "
 "nome utente e la parola chiave per l'auto-login, questo non è desiderato per "
 "gli host in uso live. Chiunque che conosce o indovina il tuo URL di "
-"phpMyAdmin potrá direttamente accedere al pannello di phpMyAdmin. Imposta %"
-"sil tipo di autenticazione%s a [kbd]cookie[/kbd] o [kbd]http[/kbd]."
+"phpMyAdmin potrá direttamente accedere al pannello di phpMyAdmin. Imposta "
+"%sil tipo di autenticazione%s a [kbd]cookie[/kbd] o [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:294
 #, php-format
@@ -12178,7 +12160,6 @@ msgid "Slow query logging"
 msgstr "Mostra riquadro query SQL"
 
 #: po/advisory_rules.php:31
-#| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
 msgstr "Il slow_query_log é disabilitato."
 
@@ -12210,7 +12191,6 @@ msgstr ""
 
 #: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
 #, php-format
-#| msgid "Create version"
 msgid "Current version: %s"
 msgstr "Versione corrente: %s"
 
@@ -12235,7 +12215,6 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr ""
 
 #: po/advisory_rules.php:47
-#| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgstr ""
 "Dovresti effettuare l'aggiornamento ad una versione stabile di MySQL 5.5"
@@ -12389,8 +12368,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -12519,8 +12498,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: po/advisory_rules.php:115
@@ -13188,7 +13167,6 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:270
-#| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
 msgstr "Inserimenti MyISAM contemporanei"
 

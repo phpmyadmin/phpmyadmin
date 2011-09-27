@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-09-25 18:34-0400\n"
+"POT-Creation-Date: 2011-09-27 09:13+0200\n"
 "PO-Revision-Date: 2011-09-24 21:48+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
@@ -349,8 +349,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"تم تعطيل المزايا الإضافية للعمل بالجداول المترابطة. لمعرفة السبب اضغط %sهنا%"
-"s."
+"تم تعطيل المزايا الإضافية للعمل بالجداول المترابطة. لمعرفة السبب اضغط %sهنا"
+"%s."
 
 #: db_operations.php:589
 msgid "Edit or export relational schema"
@@ -626,8 +626,8 @@ msgstr "التتبع غير نشط."
 #: db_structure.php:422 libraries/display_tbl.lib.php:2331
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "هذا العرض له ما لا يقل عدد هذه الصفوف يرجى الرجوع إلى %s الوثيقة %s"
 
 #: db_structure.php:438 db_structure.php:452 libraries/header.inc.php:158
@@ -834,7 +834,6 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "نسخ ولصق القيم المضمومة لحقل \"Length/Values\""
 
 #: export.php:29
-#| msgid "Bar type"
 msgid "Bad type!"
 msgstr "نوع غير صالح!"
 
@@ -843,7 +842,6 @@ msgid "Selected export type has to be saved in file!"
 msgstr "نوع التصدير المحدد سيحفظ في الملف!"
 
 #: export.php:106
-#| msgid "Add new field"
 msgid "Bad parameters!"
 msgstr "مدخلات غير صالحة!"
 
@@ -869,13 +867,11 @@ msgid "Dump has been saved to file %s."
 msgstr "تم حفظ الـDump إلى الملف %s."
 
 #: file_echo.php:21
-#| msgid "Export type"
 msgid "Invalid export type"
 msgstr "نوع التصدير غير صحيح"
 
 #: gis_data_editor.php:84
 #, php-format
-#| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
 msgstr "قيمة العمود \"%s\""
 
@@ -914,12 +910,10 @@ msgstr "نقطة %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:296
-#| msgid "Add new field"
 msgid "Add a point"
 msgstr "إضافة نقطة"
 
 #: gis_data_editor.php:220 js/messages.php:291
-#| msgid "Lines terminated by"
 msgid "Linestring"
 msgstr "منحنى"
 
@@ -932,7 +926,6 @@ msgid "Inner Ring"
 msgstr ""
 
 #: gis_data_editor.php:252
-#| msgid "Add constraints"
 msgid "Add a linestring"
 msgstr "إضافة منحنى"
 
@@ -947,7 +940,6 @@ msgid "Polygon"
 msgstr "مضلع"
 
 #: gis_data_editor.php:306 js/messages.php:298
-#| msgid "Add column"
 msgid "Add a polygon"
 msgstr "إضافة مضلع"
 
@@ -966,8 +958,8 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "يبدو أنك تحاول رفع ملف كبير الحجم , فضلاً راجع المستند %sdocumentation%s لحل "
 "المشكلة."
@@ -1012,6 +1004,7 @@ msgstr "لاتستطيع تغيير ترميز الملفات بدون مكتب�
 msgid "Could not load import plugins, please check your installation!"
 msgstr "لايمكن تحميل الإضافات المستوردة ,, فضلاً تحقق من عملية التنصيب ."
 
+#: import.php:421 sql.php:907
 #, php-format
 msgid "Bookmark %s created"
 msgstr "تم إنشاء العلامة المرجعية %s"
@@ -1236,7 +1229,6 @@ msgid "Query statistics"
 msgstr "إحصائيات الإستعلام"
 
 #: js/messages.php:93
-#| msgid "Failed to read configuration file"
 msgid "Local monitor configuration incompatible"
 msgstr "فشل قراءة ملف الإعدادات"
 
@@ -1474,7 +1466,6 @@ msgid "Current settings"
 msgstr "الإعدادات الحالية"
 
 #: js/messages.php:157 server_status.php:1634
-#| msgid "Import files"
 msgid "Chart Title"
 msgstr "عنوان الرسم البياني"
 
@@ -1547,17 +1538,14 @@ msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr "مجموعة إستعلامات , تجاهل المتغيرات في جملة WHERE"
 
 #: js/messages.php:178
-#| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
 msgstr "مجموع الصفوف المدخلة:"
 
 #: js/messages.php:179
-#| msgid "Total"
 msgid "Total:"
 msgstr "المجموع:"
 
 #: js/messages.php:181
-#| msgid "Loading"
 msgid "Loading logs"
 msgstr "تحميل السجلات"
 
@@ -1573,7 +1561,6 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:184
-#| msgid "Reload Database"
 msgid "Reload page"
 msgstr "إعادة تحميل الصفحة"
 
@@ -1599,7 +1586,6 @@ msgid "Import"
 msgstr "استيراد"
 
 #: js/messages.php:192
-#| msgid "Update Query"
 msgid "Analyse Query"
 msgstr "تحليل الإستعلام"
 
@@ -1616,7 +1602,6 @@ msgid "Issue"
 msgstr "قضايا"
 
 #: js/messages.php:199
-#| msgid "Documentation"
 msgid "Recommendation"
 msgstr "توصية"
 
@@ -1625,7 +1610,6 @@ msgid "Rule details"
 msgstr "تفاصيل القواعد"
 
 #: js/messages.php:201
-#| msgid "Authentication"
 msgid "Justification"
 msgstr "المصادقة"
 
@@ -1704,12 +1688,10 @@ msgid "Insert Table"
 msgstr "إدخال الجدول"
 
 #: js/messages.php:231
-#| msgid "Add new field"
 msgid "Hide indexes"
 msgstr "إخفاء الفهارس"
 
 #: js/messages.php:232
-#| msgid "Show grid"
 msgid "Show indexes"
 msgstr "أظهار الفهارس"
 
@@ -1761,7 +1743,6 @@ msgid "Change"
 msgstr "تغيير"
 
 #: js/messages.php:253
-#| msgid "Maximum execution time"
 msgid "Query execution time"
 msgstr "وقت التنفيذ الأقصى"
 
@@ -1782,7 +1763,6 @@ msgid "Show search criteria"
 msgstr "إظهار معايير البحث"
 
 #: js/messages.php:263 libraries/tbl_select.lib.php:110
-#| msgid "Search"
 msgid "Zoom Search"
 msgstr "بحث"
 
@@ -1819,7 +1799,6 @@ msgid "Strings are converted into integer for plotting"
 msgstr ""
 
 #: js/messages.php:281
-#| msgid "Add/Delete columns"
 msgid "Select two columns"
 msgstr "إختر عمودين"
 
@@ -1837,7 +1816,6 @@ msgid "Copy"
 msgstr "نسخ"
 
 #: js/messages.php:301
-#| msgid "Add into comments"
 msgid "Add columns"
 msgstr "إضافة أعمدة"
 
@@ -1884,7 +1862,6 @@ msgid "Drag to reorder"
 msgstr "إسحب لإعادة الترتيب"
 
 #: js/messages.php:317
-#| msgid "Click to select"
 msgid "Click to sort"
 msgstr "إضغط للترتيب"
 
@@ -1908,7 +1885,6 @@ msgid ""
 msgstr "تستطيع تعديل أغلب الأعمدة <br /> بالضغط مباشرة على المحتوى."
 
 #: js/messages.php:323
-#| msgid "Go to table"
 msgid "Go to link"
 msgstr "ذهاب للرابط"
 
@@ -1952,13 +1928,11 @@ msgid "Done"
 msgstr "إنتهى"
 
 #: js/messages.php:360
-#| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "سابق"
 
 #: js/messages.php:365
-#| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
 msgstr "التالي"
@@ -2107,8 +2081,6 @@ msgstr "السبت"
 
 #. l10n: Short week day name
 #: js/messages.php:421
-#| msgctxt "Short week day name"
-#| msgid "Sun"
 msgid "Sun"
 msgstr "الأحد"
 
@@ -2226,7 +2198,6 @@ msgid "File was not an uploaded file."
 msgstr "الملف لم يكن مرفوعاً."
 
 #: libraries/File.class.php:260 libraries/File.class.php:389
-#| msgid "Unknown error in file upload."
 msgid "Unknown error while uploading."
 msgstr "خطأ غير معروف عند رفع الملف."
 
@@ -2368,7 +2339,6 @@ msgstr[4] ""
 msgstr[5] ""
 
 #: libraries/PDF.class.php:81
-#| msgid "Allows reading data."
 msgid "Error while creating PDF:"
 msgstr "خطأ عند إنشاء ملف PDF :"
 
@@ -2490,8 +2460,8 @@ msgstr "أهلا بك في %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr "يبدو انك لم تنشئ ملف الإعدادات.إستخدم %1$ssetup script%2$s لإنشائه."
 
 #: libraries/auth/config.auth.lib.php:109
@@ -2603,7 +2573,6 @@ msgid "PBMS get BLOB info failed:"
 msgstr "فشل جلب معلومات PBMS BLOB:"
 
 #: libraries/blobstreaming.lib.php:373
-#| msgid "get BLOB Content-Type failed"
 msgid "PBMS get BLOB Content-Type failed"
 msgstr "فشل جلب نوع محتوى BLOB:"
 
@@ -2874,13 +2843,11 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s يوم، %s ساعة، %s دقيقة و%s ثانية"
 
 #: libraries/common.lib.php:2016
-#| msgid "Add new field"
 msgid "Missing parameter:"
 msgstr "مدخلات مفقودة:"
 
 #: libraries/common.lib.php:2364 libraries/common.lib.php:2367
 #: libraries/display_tbl.lib.php:306
-#| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
 msgstr "بداية"
@@ -2888,7 +2855,6 @@ msgstr "بداية"
 #: libraries/common.lib.php:2365 libraries/common.lib.php:2368
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
-#| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "سابق"
@@ -2896,7 +2862,6 @@ msgstr "سابق"
 #: libraries/common.lib.php:2395 libraries/common.lib.php:2398
 #: libraries/display_tbl.lib.php:372 server_binlog.php:170
 #: server_binlog.php:172
-#| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
 msgstr "التالي"
@@ -2918,7 +2883,6 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 
 #: libraries/common.lib.php:2660
-#| msgid "Click to select"
 msgid "Click to toggle"
 msgstr "إضغط للإختيار"
 
@@ -2962,7 +2926,6 @@ msgstr "تصفح كمبيوترك."
 
 #: libraries/common.lib.php:3202
 #, php-format
-#| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "إختر مجلد الرفع من الخادم <b>%s</b>:"
 
@@ -4234,7 +4197,6 @@ msgid "Use natural order for sorting table and database names"
 msgstr ""
 
 #: libraries/config/messages.inc.php:322
-#| msgid "Alter table order by"
 msgid "Natural order"
 msgstr "ترتيب طبيعي"
 
@@ -4327,17 +4289,14 @@ msgid "Query window height (in pixels)"
 msgstr "إرتفاع نافذة الإستعلام (بالبكسل)"
 
 #: libraries/config/messages.inc.php:345
-#| msgid "Query window"
 msgid "Query window height"
 msgstr "إرتفاع نافذة الإستعلام"
 
 #: libraries/config/messages.inc.php:346
-#| msgid "Query window"
 msgid "Query window width (in pixels)"
 msgstr "عرض نافذة الإستعلام (بالبكسل)"
 
 #: libraries/config/messages.inc.php:347
-#| msgid "Query window"
 msgid "Query window width"
 msgstr "إرتفاع نافذة الإستعلام"
 
@@ -4354,7 +4313,6 @@ msgid "When browsing tables, the sorting of each table is remembered"
 msgstr "عند تصفح الجداول, تذكر ترتيب كل جدول"
 
 #: libraries/config/messages.inc.php:351
-#| msgid "Rename table to"
 msgid "Remember table's sorting"
 msgstr "تذكر ترتيب الجداول"
 
@@ -5462,8 +5420,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:270
@@ -6170,8 +6128,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -8380,8 +8338,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"تم تعطيل المزايا الإضافية للعمل بالجداول المترابطة. لمعرفة السبب اضغط %sهنا%"
-"s."
+"تم تعطيل المزايا الإضافية للعمل بالجداول المترابطة. لمعرفة السبب اضغط %sهنا"
+"%s."
 
 #: main.php:317
 msgid ""
@@ -9143,8 +9101,8 @@ msgstr "احذف قواعد البيانات التي لها نفس أسماء �
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "ملاحظة: يقرأ phpMyAdmin صلاحيات المستخدمين من جداول الصلاحيات من خادم MySQL "
 "مباشرة. محتويات هذه الجداول قد تختلف عن الصلاحيات التي يستخدمها الخادم إذا "
@@ -11937,8 +11895,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -12061,8 +12019,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: po/advisory_rules.php:115
@@ -12878,8 +12836,8 @@ msgstr ""
 #~ "The additional features for working with linked tables have been "
 #~ "deactivated. To find out why click %shere%s."
 #~ msgstr ""
-#~ "تم تعطيل المزايا الإضافية للعمل بالجداول المترابطة. لمعرفة السبب اضغط %"
-#~ "sهنا%s."
+#~ "تم تعطيل المزايا الإضافية للعمل بالجداول المترابطة. لمعرفة السبب اضغط "
+#~ "%sهنا%s."
 
 #~ msgid "Execute bookmarked query"
 #~ msgstr "نفذ استعلام محفوظ بعلامة مرجعية"

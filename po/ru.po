@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-09-25 18:34-0400\n"
+"POT-Creation-Date: 2011-09-27 09:13+0200\n"
 "PO-Revision-Date: 2011-09-25 12:00+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
@@ -11,8 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:320
@@ -619,8 +619,8 @@ msgstr "Слежение выключено."
 #: db_structure.php:422 libraries/display_tbl.lib.php:2331
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Данное представление имеет, по меньшей мере, указанное количество строк. "
 "Пожалуйста, обратитесь к %sдокументации%s."
@@ -953,8 +953,8 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Вероятно, размер загружаемого файла слишком велик. Способы обхода данного "
 "ограничения описаны в %sдокументации%s."
@@ -1913,7 +1913,6 @@ msgstr ""
 "содержимом."
 
 #: js/messages.php:323
-#| msgid "Go to view"
 msgid "Go to link"
 msgstr "Перейти к ссылке"
 
@@ -1957,13 +1956,11 @@ msgid "Done"
 msgstr "Готово"
 
 #: js/messages.php:360
-#| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Предыдущий"
 
 #: js/messages.php:365
-#| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
 msgstr "Следующий"
@@ -2112,8 +2109,6 @@ msgstr "Суббота"
 
 #. l10n: Short week day name
 #: js/messages.php:421
-#| msgctxt "Short week day name"
-#| msgid "Sun"
 msgid "Sun"
 msgstr "Вс"
 
@@ -2235,7 +2230,6 @@ msgid "File was not an uploaded file."
 msgstr "Файл не был загружен."
 
 #: libraries/File.class.php:260 libraries/File.class.php:389
-#| msgid "Unknown error in file upload."
 msgid "Unknown error while uploading."
 msgstr "Во время загрузки произошла неизвестная ошибка."
 
@@ -2372,7 +2366,6 @@ msgstr[1] "Добавлено %1$d строки."
 msgstr[2] "Добавлено %1$d строк."
 
 #: libraries/PDF.class.php:81
-#| msgid "Allows reading data."
 msgid "Error while creating PDF:"
 msgstr "Ошибка при создании PDF:"
 
@@ -2410,7 +2403,6 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Данный сервер MySQL не поддерживает тип таблиц %s."
 
 #: libraries/Table.class.php:329
-#| msgid "Show slave status"
 msgid "unknown table status: "
 msgstr "Неизвестный статус таблицы:"
 
@@ -2501,8 +2493,8 @@ msgstr "Добро пожаловать в %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Возможная причина - отсутствие файла конфигурации. Для его создания вы "
 "можете воспользоваться %1$sсценарием установки%2$s."
@@ -2617,7 +2609,6 @@ msgid "PBMS get BLOB info failed:"
 msgstr "Ошибка получения информации о BLOB данных от PBMS:"
 
 #: libraries/blobstreaming.lib.php:373
-#| msgid "get BLOB Content-Type failed"
 msgid "PBMS get BLOB Content-Type failed"
 msgstr "Ошибка получения BLOB Content-Type от PBMS"
 
@@ -2893,13 +2884,11 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s дней, %s часов, %s минут и %s секунд"
 
 #: libraries/common.lib.php:2016
-#| msgid "Routine parameters"
 msgid "Missing parameter:"
 msgstr "Отсутствующий параметр:"
 
 #: libraries/common.lib.php:2364 libraries/common.lib.php:2367
 #: libraries/display_tbl.lib.php:306
-#| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
 msgstr "Начало"
@@ -2907,7 +2896,6 @@ msgstr "Начало"
 #: libraries/common.lib.php:2365 libraries/common.lib.php:2368
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
-#| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Предыдущая"
@@ -2915,7 +2903,6 @@ msgstr "Предыдущая"
 #: libraries/common.lib.php:2395 libraries/common.lib.php:2398
 #: libraries/display_tbl.lib.php:372 server_binlog.php:170
 #: server_binlog.php:172
-#| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
 msgstr "Следующая"
@@ -2938,7 +2925,6 @@ msgstr ""
 "Работа параметра &quot;%s&quot; подвержена ошибке, описание смотрите на %s"
 
 #: libraries/common.lib.php:2660
-#| msgid "Click to select"
 msgid "Click to toggle"
 msgstr "Кликните для переключения"
 
@@ -4311,7 +4297,6 @@ msgid "Memory limit"
 msgstr "Лимит памяти"
 
 #: libraries/config/messages.inc.php:319
-#| msgid "These are Edit, Inline edit, Copy and Delete links"
 msgid "These are Edit, Copy and Delete links"
 msgstr "Ссылки редактирования, копирования и удаления"
 
@@ -4676,9 +4661,9 @@ msgstr ""
 "записей в \"table_uiprefs\" и автоматически удалит устаревшие записи"
 
 #: libraries/config/messages.inc.php:399
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of records saved in \"table_uiprefs\" table"
-msgstr "Максимальное количество записей сохраняемых в таблице \"table_uiprefs\""
+msgstr ""
+"Максимальное количество записей сохраняемых в таблице \"table_uiprefs\""
 
 #: libraries/config/messages.inc.php:400
 msgid "Try to connect without password"
@@ -4926,9 +4911,6 @@ msgid "Automatically create versions"
 msgstr "Автоматическое создание версий"
 
 #: libraries/config/messages.inc.php:443
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_config[/kbd]"
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
@@ -5004,7 +4986,6 @@ msgid ""
 msgstr "Определяет направление отображения при просмотре данных таблицы"
 
 #: libraries/config/messages.inc.php:457
-#| msgid "Default display direction"
 msgid "Show display direction"
 msgstr "Показать направление отображения"
 
@@ -5029,12 +5010,10 @@ msgid "Show function fields"
 msgstr "Выводить поля функций"
 
 #: libraries/config/messages.inc.php:462
-#| msgid "Where to show the table row links"
 msgid "Whether to show hint or not"
 msgstr "Показать или скрыть подсказки"
 
 #: libraries/config/messages.inc.php:463
-#| msgid "Show grid"
 msgid "Show hint"
 msgstr "Показать подсказку"
 
@@ -5373,7 +5352,6 @@ msgid "Could not initialize Drizzle connection library"
 msgstr "Невозможно инициализировать библиотеку соединения Drizzle"
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
-#| msgid "Could not connect to MySQL server"
 msgid "Could not connect to Drizzle server"
 msgstr "Не удалось соединиться с сервером Drizzle"
 
@@ -5487,7 +5465,6 @@ msgid "The server is not responding"
 msgstr "Сервер не отвечает"
 
 #: libraries/dbi/drizzle.dbi.lib.php:344
-#| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid "(or the local Drizzle server's socket is not correctly configured)"
 msgstr "(или сокет локального сервера Drizzle неверно настроен)"
 
@@ -5648,8 +5625,8 @@ msgstr ", @TABLE@ будет замещено именем таблицы"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Значение обрабатывается функцией %1$sstrftime%2$s, благодаря чему возможна "
 "вставка текущей даты и времени. Дополнительно могут быть использованы "
@@ -6401,8 +6378,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "Документацию и дальнейшую информацию по PBXT смотрите на %sдомашней странице "
 "PrimeBase XT%s."
@@ -6582,9 +6559,6 @@ msgid "Add statements:"
 msgstr "Добавить выражения:"
 
 #: libraries/export/sql.php:211
-#| msgid ""
-#| "Enclose table and field names with backquotes <i>(Protects field and "
-#| "table names formed with special characters or keywords)</i>"
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
@@ -6699,7 +6673,6 @@ msgid "Stand-in structure for view"
 msgstr "Дублирующая структура для представления"
 
 #: libraries/export/sql.php:1111
-#| msgid "Allows reading data."
 msgid "Error reading data:"
 msgstr "Ошибка считывания данных:"
 
@@ -6751,7 +6724,6 @@ msgid ""
 msgstr "Следующие структуры были созданы, либо изменены. Вы можете:"
 
 #: libraries/import.lib.php:1101
-#| msgid "View a structure`s contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name"
 msgstr "Просмотреть детали структуры нажав на её имя"
 
@@ -6761,7 +6733,6 @@ msgid ""
 msgstr "Изменить любую настройку нажав на соответствующую ссылку \"Параметры\""
 
 #: libraries/import.lib.php:1103
-#| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link"
 msgstr "Отредактировать структуру перейдя по ссылке \"Структура\""
 
@@ -6771,7 +6742,6 @@ msgstr "Перейти к базе данных"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
 #, php-format
-#| msgid "Missing data for %s"
 msgid "Edit settings for %s"
 msgstr "Отредактировать настройки для %s"
 
@@ -6781,7 +6751,6 @@ msgstr "Перейти к таблице"
 
 #: libraries/import.lib.php:1130
 #, php-format
-#| msgid "Structure only"
 msgid "Structure of %s"
 msgstr "Структура %s"
 
@@ -9366,8 +9335,8 @@ msgstr "Удалить базы данных, имена которых совп
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Примечание: phpMyAdmin получает информацию о пользовательских привилегиях "
 "непосредственно из таблиц привилегий MySQL. Содержимое этих таблиц может "
@@ -11214,8 +11183,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"При необходимости используйте дополнительные настройки безопасности - %"
-"sидентификация по хосту%s и %sсписок доверенных прокси серверов%s. Однако, "
+"При необходимости используйте дополнительные настройки безопасности - "
+"%sидентификация по хосту%s и %sсписок доверенных прокси серверов%s. Однако, "
 "защита по IP может быть ненадежной, если ваш IP не является выделенным и "
 "кроме вас принадлежит тысячам пользователей того же Интернет Провайдера."
 
@@ -12362,8 +12331,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -12492,8 +12461,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: po/advisory_rules.php:115

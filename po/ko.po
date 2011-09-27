@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-09-25 18:34-0400\n"
+"POT-Creation-Date: 2011-09-27 09:13+0200\n"
 "PO-Revision-Date: 2011-09-24 03:46+0200\n"
 "Last-Translator: Deminoth Runo <deminoth@naver.com>\n"
 "Language-Team: korean <ko@li.org>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -612,8 +612,8 @@ msgstr "트래킹이 활성화되어 있지 않습니다."
 #: db_structure.php:422 libraries/display_tbl.lib.php:2331
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "이 뷰는 최소 이 숫자 이상의 열을 가지고 있습니다. %s문서%s를 참조해 주십시오."
 
@@ -822,7 +822,6 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "\"길이/값\" 필드로 결합된 값을 복사하여 붙여넣으세요"
 
 #: export.php:29
-#| msgid "Bar type"
 msgid "Bad type!"
 msgstr "잘못된 타입!"
 
@@ -957,9 +956,11 @@ msgstr ""
 #: import.php:57
 #, fuzzy, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
-msgstr "너무 큰 파일을 업로드하려고 시도했습니다. 제한치를 우회하는 방법은 %s문서%s를 참조하여 주십시오."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
+msgstr ""
+"너무 큰 파일을 업로드하려고 시도했습니다. 제한치를 우회하는 방법은 %s문서%s"
+"를 참조하여 주십시오."
 
 #: import.php:170 import.php:419
 msgid "Showing bookmark"
@@ -981,7 +982,9 @@ msgstr "파일을 읽을 수 없습니다"
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
-msgstr "지원되지 않는 압축(%)형식의 파일을 업로드하려고 시도했습니다. 지원이 구현되지 않았거나 설정에서 사용하지 않게 되어있습니다."
+msgstr ""
+"지원되지 않는 압축(%)형식의 파일을 업로드하려고 시도했습니다. 지원이 구현되"
+"지 않았거나 설정에서 사용하지 않게 되어있습니다."
 
 #: import.php:349
 msgid ""
@@ -1003,6 +1006,7 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "가져오기 플러그인을 로드할 수 없습니다. 올바로 설치되었는지 확인해주세요!"
 
+#: import.php:421 sql.php:907
 #, php-format
 msgid "Bookmark %s created"
 msgstr "북마크 %s가 생성되었습니다."
@@ -1025,7 +1029,8 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"파싱된 데이터가 없지만, 이것은 보통 phpMyAdmin이 php 시간 제한을 늘리지 않고는 이 가져오기를 마칠 수 없음을 뜻합니다."
+"파싱된 데이터가 없지만, 이것은 보통 phpMyAdmin이 php 시간 제한을 늘리지 않고"
+"는 이 가져오기를 마칠 수 없음을 뜻합니다."
 
 #: import.php:472 libraries/Message.class.php:175
 #: libraries/display_tbl.lib.php:2368 libraries/rte/rte_routines.lib.php:1197
@@ -1073,7 +1078,6 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "이 테이블 전체를 비우려고 합니다!"
 
 #: js/messages.php:37
-#| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
 msgstr "추적 데이터 삭제중"
 
@@ -1092,7 +1096,8 @@ msgstr "BLOB 저장소를 사용 불가능하게 하려고 합니다!"
 #: js/messages.php:43
 #, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
-msgstr "정말로 데이터베이스 %s에서 모든 BLOB 참조를 사용 불가능하게 하시겠습니까?"
+msgstr ""
+"정말로 데이터베이스 %s에서 모든 BLOB 참조를 사용 불가능하게 하시겠습니까?"
 
 #: js/messages.php:46
 msgid "Missing value in the form!"
@@ -1128,17 +1133,14 @@ msgstr "암호가 동일하지 않습니다!"
 
 #: js/messages.php:58 server_privileges.php:1769 server_privileges.php:1793
 #: server_privileges.php:2205 server_privileges.php:2404
-#| msgid "Any user"
 msgid "Add user"
 msgstr "사용자 추가"
 
 #: js/messages.php:59
-#| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
 msgstr "사용권한을 다시 불러옵니다."
 
 #: js/messages.php:60
-#| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "선택한 사용자를 삭제"
 
@@ -1156,7 +1158,6 @@ msgid "Edit"
 msgstr "수정"
 
 #: js/messages.php:65 server_status.php:794
-#| msgid "Server Choice"
 msgid "Live traffic chart"
 msgstr "실시간 전송량 도표"
 
@@ -1204,7 +1205,6 @@ msgid "KiB received since last refresh"
 msgstr "KiB를 마지막 새로고침 이후로 받았습니다."
 
 #: js/messages.php:81
-#| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
 msgstr "서버 전송량(KiB)"
 
@@ -1217,7 +1217,6 @@ msgid "Processes"
 msgstr "프로세스"
 
 #: js/messages.php:84
-#| msgid "Connections"
 msgid "Connections / Processes"
 msgstr "연결 / 프로세스"
 
@@ -1250,8 +1249,9 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
-"브라우저의 로컬 저장소에 있는 차트 정렬 설정이 더 이상 새 버전의 모니터 대화창과 호환되지 않습니다. 당신의 현재 설정은 더 이상 "
-"작동하지 않을 수 있습니다. <i>설정<i>메뉴에서 설정을 초기화해주세요."
+"브라우저의 로컬 저장소에 있는 차트 정렬 설정이 더 이상 새 버전의 모니터 대화"
+"창과 호환되지 않습니다. 당신의 현재 설정은 더 이상 작동하지 않을 수 있습니"
+"다. <i>설정<i>메뉴에서 설정을 초기화해주세요."
 
 #: js/messages.php:96
 msgid "Query cache efficiency"
@@ -1293,7 +1293,6 @@ msgid "Average load"
 msgstr "평균 부하"
 
 #: js/messages.php:107
-#| msgid "Total"
 msgid "Total memory"
 msgstr "전체 메모리"
 
@@ -1314,7 +1313,6 @@ msgid "Used memory"
 msgstr "사용된 메모리"
 
 #: js/messages.php:113
-#| msgid "Total"
 msgid "Total Swap"
 msgstr "전체 스왑"
 
@@ -1335,7 +1333,6 @@ msgid "Bytes sent"
 msgstr "바이트 보냄"
 
 #: js/messages.php:119
-#| msgid "Received"
 msgid "Bytes received"
 msgstr "바이트 받음"
 
@@ -2535,8 +2532,8 @@ msgstr "%s에 오셨습니다"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "설정 파일을 생성하지 않은 것 같습니다. %1$ssetup script%2$s 를 사용해 설정 파"
 "일을 생성할 수 있습니다."
@@ -5577,8 +5574,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:270
@@ -6283,8 +6280,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -8391,8 +8388,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"링크 테이블을 처리하는 추가 기능이 비활성화되어 있습니다. 원인을 확인하려면 %"
-"s여기를 클릭%s하십시오."
+"링크 테이블을 처리하는 추가 기능이 비활성화되어 있습니다. 원인을 확인하려면 "
+"%s여기를 클릭%s하십시오."
 
 #: main.php:317
 msgid ""
@@ -9160,8 +9157,8 @@ msgstr "사용자명과 같은 이름의 데이터베이스를 삭제"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 
 #: server_privileges.php:1854
@@ -11938,8 +11935,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -12064,8 +12061,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: po/advisory_rules.php:115

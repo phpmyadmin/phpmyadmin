@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-09-25 18:34-0400\n"
+"POT-Creation-Date: 2011-09-27 09:13+0200\n"
 "PO-Revision-Date: 2011-09-25 23:14+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
@@ -614,11 +614,11 @@ msgstr "Tracking is not active."
 #: db_structure.php:422 libraries/display_tbl.lib.php:2331
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 
 #: db_structure.php:438 db_structure.php:452 libraries/header.inc.php:158
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
@@ -947,11 +947,11 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 
 #: import.php:170 import.php:419
 msgid "Showing bookmark"
@@ -2467,11 +2467,11 @@ msgstr "Welcome to %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 
 #: libraries/auth/config.auth.lib.php:109
 msgid ""
@@ -4844,15 +4844,12 @@ msgid "Automatically create versions"
 msgstr "Automatically create versions"
 
 #: libraries/config/messages.inc.php:443
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_config[/kbd]"
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
 msgstr ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma_userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: [kbd]"
+"pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:444
 msgid "User preferences storage table"
@@ -5545,12 +5542,12 @@ msgstr ", @TABLE@ will become the table name"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 
 #: libraries/display_export.lib.php:270
 msgid "use this for future exports"
@@ -6289,11 +6286,11 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 
 #: libraries/engines/pbxt.lib.php:129
 msgid "The PrimeBase XT Blog by Paul McCullagh"
@@ -6469,9 +6466,6 @@ msgid "Add statements:"
 msgstr "Add statements:"
 
 #: libraries/export/sql.php:211
-#| msgid ""
-#| "Enclose table and field names with backquotes <i>(Protects field and "
-#| "table names formed with special characters or keywords)</i>"
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
@@ -9139,13 +9133,13 @@ msgstr "Drop the databases that have the same names as the users."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 
 #: server_privileges.php:1854
 msgid "The selected user was not found in the privilege table."
@@ -10415,15 +10409,6 @@ msgid "Using the monitor:"
 msgstr "Using the monitor:"
 
 #: server_status.php:1614
-#| msgid ""
-#| "<b>Using the monitor:</b><br/> Ok, you are good to go! Once you click "
-#| "'Start monitor' your browser will refresh all displayed charts in a "
-#| "regular interval. You may add charts and change the refresh rate under "
-#| "'Settings', or remove any chart using the cog icon on each respective "
-#| "chart.<p>When you get to see a sudden spike in activity, select the "
-#| "relevant time span on any chart by holding down the left mouse button and "
-#| "panning over the chart. This will load statistics from the logs helping "
-#| "you find what caused the activity spike.</p>"
 msgid ""
 "Ok, you are good to go! Once you click 'Start monitor' your browser will "
 "refresh all displayed charts in a regular interval. You may add charts and "
@@ -10436,15 +10421,6 @@ msgstr ""
 "icon on each respective chart."
 
 #: server_status.php:1616
-#| msgid ""
-#| "<b>Using the monitor:</b><br/> Ok, you are good to go! Once you click "
-#| "'Start monitor' your browser will refresh all displayed charts in a "
-#| "regular interval. You may add charts and change the refresh rate under "
-#| "'Settings', or remove any chart using the cog icon on each respective "
-#| "chart.<p>When you get to see a sudden spike in activity, select the "
-#| "relevant time span on any chart by holding down the left mouse button and "
-#| "panning over the chart. This will load statistics from the logs helping "
-#| "you find what caused the activity spike.</p>"
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -10461,12 +10437,6 @@ msgid "Please note:"
 msgstr "Please note:"
 
 #: server_status.php:1625
-#| msgid ""
-#| "<b>Please note:</b> Enabling the general_log may increase the server load "
-#| "by 5-15%. Also be aware that generating statistics from the logs is a "
-#| "load intensive task, so it is advisable to select only a small time span "
-#| "and to disable the general_log and empty its table once monitoring is not "
-#| "required any more."
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -10539,9 +10509,6 @@ msgid "Remove variable data in INSERT statements for better grouping"
 msgstr "Remove variable data in INSERT statements for better grouping"
 
 #: server_status.php:1713
-#| msgid ""
-#| "<p>Choose from which log you want the statistics to be generated from.</"
-#| "p> Results are grouped by query text."
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr "Choose from which log you want the statistics to be generated from."
 
@@ -10650,7 +10617,6 @@ msgid "Target database has been synchronized with source database"
 msgstr "Target database has been synchronised with source database"
 
 #: server_synchronize.php:1046
-#| msgid "Issued queries"
 msgid "Executed queries"
 msgstr "Executed queries"
 
@@ -11019,7 +10985,6 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Key should contain letters, numbers [em]and[/em] special characters."
 
 #: setup/validate.php:22
-#| msgid "No data"
 msgid "Wrong data"
 msgstr "Wrong data"
 
@@ -11237,7 +11202,6 @@ msgid "No index parts defined!"
 msgstr "No index parts defined!"
 
 #: tbl_indexes.php:169
-#| msgid "Create a new index"
 msgid "Create an index"
 msgstr "Create an index"
 
@@ -11520,7 +11484,6 @@ msgid "Show more actions"
 msgstr "Show more actions"
 
 #: tbl_structure.php:606
-#| msgid "Print view"
 msgid "Edit view"
 msgstr "Edit view"
 
@@ -11705,12 +11668,10 @@ msgid "Create version"
 msgstr "Create version"
 
 #: tbl_zoom_select.php:135
-#| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 
 #: tbl_zoom_select.php:145
-#| msgid "Hide search criteria"
 msgid "Additional search criteria"
 msgstr "Additional search criteria"
 
@@ -11719,7 +11680,6 @@ msgid "Use this column to label each point"
 msgstr "Use this column to label each point"
 
 #: tbl_zoom_select.php:296
-#| msgid "Maximum number of rows to display"
 msgid "Maximum rows to plot"
 msgstr "Maximum rows to plot"
 
@@ -11728,7 +11688,6 @@ msgid "Browse/Edit the points"
 msgstr "Browse/Edit the points"
 
 #: tbl_zoom_select.php:417
-#| msgid "Control user"
 msgid "How to use"
 msgstr "How to use"
 
@@ -11793,7 +11752,6 @@ msgid "The uptime is only %s"
 msgstr "The uptime is only %s"
 
 #: po/advisory_rules.php:10
-#| msgid "Questions"
 msgid "Questions below 1,000"
 msgstr "Questions below 1,000"
 
@@ -11815,12 +11773,10 @@ msgstr ""
 
 #: po/advisory_rules.php:13
 #, php-format
-#| msgid "Current connection"
 msgid "Current amount of Questions: %s"
 msgstr "Current amount of Questions: %s"
 
 #: po/advisory_rules.php:15
-#| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
 msgstr "Percentage of slow queries"
 
@@ -11844,7 +11800,6 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr "The slow query rate should be below 5%%, your value is %s%%."
 
 #: po/advisory_rules.php:20
-#| msgid "Flush query cache"
 msgid "Slow query rate"
 msgstr "Slow query rate"
 
@@ -11864,7 +11819,6 @@ msgstr ""
 "hour."
 
 #: po/advisory_rules.php:25
-#| msgid "SQL queries"
 msgid "Long query time"
 msgstr "Long query time"
 
@@ -11886,17 +11840,14 @@ msgstr ""
 
 #: po/advisory_rules.php:28
 #, php-format
-#| msgid "long_query_time is set to %d second(s)."
 msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time is currently set to %ds."
 
 #: po/advisory_rules.php:30
-#| msgid "Show query box"
 msgid "Slow query logging"
 msgstr "Slow query logging"
 
 #: po/advisory_rules.php:31
-#| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
 msgstr "The slow query log is disabled."
 
@@ -11913,7 +11864,6 @@ msgid "log_slow_queries is set to 'OFF'"
 msgstr "log_slow_queries is set to 'OFF'"
 
 #: po/advisory_rules.php:35
-#| msgid "Clear series"
 msgid "Release Series"
 msgstr "Release Series"
 
@@ -11931,12 +11881,10 @@ msgstr ""
 
 #: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
 #, php-format
-#| msgid "Create version"
 msgid "Current version: %s"
 msgstr "Current version: %s"
 
 #: po/advisory_rules.php:40 po/advisory_rules.php:45
-#| msgid "Version"
 msgid "Minor Version"
 msgstr "Minor Version"
 
@@ -11957,12 +11905,10 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "Version less than 5.5.8 (the first GA release of 5.5)."
 
 #: po/advisory_rules.php:47
-#| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgstr "You should upgrade, to a stable version of MySQL 5.5"
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
-#| msgid "Description"
 msgid "Distribution"
 msgstr "Distribution"
 
@@ -11977,8 +11923,8 @@ msgid ""
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
 "If you did not compile from source, you may be using a package modified by a "
-"distribution. The MySQL manual only is accurate for official MySQL "
-"binaries, not any package distributions (such as RedHat, Debian/Ubuntu etc)."
+"distribution. The MySQL manual only is accurate for official MySQL binaries, "
+"not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 
 #: po/advisory_rules.php:53
 msgid "'source' found in version_comment"
@@ -12006,7 +11952,6 @@ msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr "Version string (%s) matches Drizzle versioning scheme"
 
 #: po/advisory_rules.php:65
-#| msgid "MySQL charset"
 msgid "MySQL Architecture"
 msgstr "MySQL Architecture"
 
@@ -12030,12 +11975,10 @@ msgid "Available memory on this host: %s"
 msgstr "Available memory on this host: %s"
 
 #: po/advisory_rules.php:70
-#| msgid "Query cache"
 msgid "Query cache disabled"
 msgstr "Query cache disabled"
 
 #: po/advisory_rules.php:71
-#| msgid "The server is not responding"
 msgid "The query cache is not enabled."
 msgstr "The query cache is not enabled."
 
@@ -12056,7 +11999,6 @@ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 
 #: po/advisory_rules.php:75
-#| msgid "Query cache"
 msgid "Query caching method"
 msgstr "Query caching method"
 
@@ -12072,10 +12014,9 @@ msgid ""
 "cache, especially if you have multiple slaves."
 msgstr ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a "
-"href=\\\"http://dev.mysql.com/doc/refman/5.5/en/ha-"
-"memcached.html\\\">memcached</a> instead of the MySQL Query cache, especially "
-"if you have multiple slaves."
+"might be worth considering to use <a href=\\\"http://dev.mysql.com/doc/"
+"refman/5.5/en/ha-memcached.html\\\">memcached</a> instead of the MySQL Query "
+"cache, especially if you have multiple slaves."
 
 #: po/advisory_rules.php:78
 #, php-format
@@ -12123,14 +12064,13 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "The current ratio of free query cache memory to total query cache size is %s"
 "%%. It should be above 80%%"
 
 #: po/advisory_rules.php:90
-#| msgid "Query cache"
 msgid "Query cache fragmentation"
 msgstr "Query cache fragmentation"
 
@@ -12166,15 +12106,14 @@ msgid ""
 "value should be below 20%%."
 msgstr ""
 "The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
-"that the query cache is an alternating pattern of free and used blocks. "
-"This value should be below 20%%."
+"that the query cache is an alternating pattern of free and used blocks. This "
+"value should be below 20%%."
 
 #: po/advisory_rules.php:95
 msgid "Query cache low memory prunes"
 msgstr "Query cache low memory prunes"
 
 #: po/advisory_rules.php:96
-#| msgid "The amount of free memory for query cache."
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
@@ -12189,8 +12128,8 @@ msgid ""
 "this in small increments and monitor the results."
 msgstr ""
 "You might want to increase {query_cache_size}, however keep in mind that the "
-"overhead of maintaining the cache is likely to increase with its size, so "
-"do this in small increments and monitor the results."
+"overhead of maintaining the cache is likely to increase with its size, so do "
+"this in small increments and monitor the results."
 
 #: po/advisory_rules.php:98
 msgid ""
@@ -12201,7 +12140,6 @@ msgstr ""
 "value is, the better (This rules firing limit: 0.1%)"
 
 #: po/advisory_rules.php:100
-#| msgid "Query cache"
 msgid "Query cache max size"
 msgstr "Query cache max size"
 
@@ -12227,7 +12165,6 @@ msgid "Current query cache size: %s"
 msgstr "Current query cache size: %s"
 
 #: po/advisory_rules.php:105
-#| msgid "Query results"
 msgid "Query cache min result size"
 msgstr "Query cache min result size"
 
@@ -12254,12 +12191,10 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit is set to 1 MiB"
 
 #: po/advisory_rules.php:110
-#| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
 msgstr "Percentage of sorts that cause temporary tables"
 
 #: po/advisory_rules.php:111 po/advisory_rules.php:116
-#| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
 msgstr "Too many sorts are causing temporary tables."
 
@@ -12274,14 +12209,13 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10"
-"%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 
 #: po/advisory_rules.php:115
-#| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
 msgstr "Rate of sorts that cause temporary tables"
 
@@ -12293,7 +12227,6 @@ msgstr ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 
 #: po/advisory_rules.php:120
-#| msgid "Start row"
 msgid "Sort rows"
 msgstr "Sort rows"
 
@@ -12319,12 +12252,10 @@ msgid "Sorted rows average: %s"
 msgstr "Sorted rows average: %s"
 
 #: po/advisory_rules.php:125
-#| msgid "There are no routines to display."
 msgid "Rate of joins without indexes"
 msgstr "Rate of joins without indexes"
 
 #: po/advisory_rules.php:126
-#| msgid "There are no routines to display."
 msgid "There are too many joins without indexes."
 msgstr "There are too many joins without indexes."
 
@@ -12389,12 +12320,10 @@ msgstr ""
 "per hour"
 
 #: po/advisory_rules.php:140
-#| msgid "Where to show the table row links"
 msgid "Rate of reading next table row"
 msgstr "Rate of reading next table row"
 
 #: po/advisory_rules.php:141
-#| msgid "Where to show the table row links"
 msgid "The rate of reading the next table row is high."
 msgstr "The rate of reading the next table row is high."
 
