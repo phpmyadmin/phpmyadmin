@@ -353,7 +353,7 @@ msgstr ""
 
 #: db_operations.php:589
 msgid "Edit or export relational schema"
-msgstr ""
+msgstr "관계 스키마를 수정 또는 내보내기"
 
 #: db_printview.php:102 db_tracking.php:85 db_tracking.php:186
 #: libraries/config/messages.inc.php:488 libraries/db_structure.lib.php:37
@@ -620,6 +620,7 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr ""
+"이 뷰는 최소 이 숫자 이상의 열을 가지고 있습니다. %s문서%s를 참조해 주십시오."
 
 #: db_structure.php:393 db_structure.php:407 libraries/header.inc.php:137
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:206 test/theme.php:73
@@ -663,7 +664,7 @@ msgstr "모두 체크안함"
 
 #: db_structure.php:495
 msgid "Check tables having overhead"
-msgstr ""
+msgstr "오버헤드를 가진 테이블들을 체크"
 
 #: db_structure.php:503 libraries/config/messages.inc.php:162
 #: libraries/db_links.inc.php:56 libraries/display_tbl.lib.php:2213
@@ -714,7 +715,7 @@ msgstr "데이터 사전 (전체 구조보기)"
 
 #: db_tracking.php:79
 msgid "Tracked tables"
-msgstr ""
+msgstr "추적된 테이블"
 
 #: db_tracking.php:84 libraries/config/messages.inc.php:482
 #: libraries/export/htmlword.php:89 libraries/export/latex.php:162
@@ -731,7 +732,7 @@ msgstr "데이터베이스"
 
 #: db_tracking.php:86
 msgid "Last version"
-msgstr ""
+msgstr "최근 버전"
 
 #: db_tracking.php:87 tbl_tracking.php:589
 #, fuzzy
@@ -740,7 +741,7 @@ msgstr " 만들기 "
 
 #: db_tracking.php:88 tbl_tracking.php:590
 msgid "Updated"
-msgstr ""
+msgstr "수정됨"
 
 #: db_tracking.php:89 libraries/common.lib.php:1354
 #: libraries/server_links.inc.php:50 server_processlist.php:71
@@ -757,15 +758,15 @@ msgstr "실행"
 
 #: db_tracking.php:101 js/messages.php:34
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "이 테이블에 대한 추적 데이터를 제거"
 
 #: db_tracking.php:119 tbl_tracking.php:543 tbl_tracking.php:601
 msgid "active"
-msgstr ""
+msgstr "활성"
 
 #: db_tracking.php:121 tbl_tracking.php:545 tbl_tracking.php:603
 msgid "not active"
-msgstr ""
+msgstr "비활성"
 
 #: db_tracking.php:134
 #, fuzzy
@@ -774,7 +775,7 @@ msgstr "테이블 작업"
 
 #: db_tracking.php:135 tbl_tracking.php:374 tbl_tracking.php:621
 msgid "Tracking report"
-msgstr ""
+msgstr "추적 보고서"
 
 #: db_tracking.php:136 tbl_tracking.php:246 tbl_tracking.php:623
 #, fuzzy
@@ -783,7 +784,7 @@ msgstr "구조만"
 
 #: db_tracking.php:181
 msgid "Untracked tables"
-msgstr ""
+msgstr "추적되지 않은 테이블"
 
 #: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:626
 #: tbl_structure.php:628
@@ -799,32 +800,33 @@ msgstr "데이터베이스"
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:793
 #, php-format
 msgid "Values for the column \"%s\""
-msgstr ""
+msgstr "\"%s\" 열의 값"
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:794
 msgid "Enter each value in a separate field."
-msgstr ""
+msgstr "각각의 필드에 값을 입력하세요"
 
 #: enum_editor.php:57
+#, fuzzy
 msgid "+ Restart insertion and add a new value"
-msgstr ""
+msgstr "+ 삽입을 재시작하고 새 값을 입력합니다"
 
 #: enum_editor.php:67
 msgid "Output"
-msgstr ""
+msgstr "출력"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr ""
+msgstr "\"길이/값\" 필드로 결합된 값을 복사하여 붙여넣으세요"
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
-msgstr ""
+msgstr "선택한 내보내기가 파일에 저장되었습니다!"
 
 #: export.php:164 export.php:189 export.php:670
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr ""
+msgstr "파일 %s를 저장하기에 공간이 부족합니다."
 
 #: export.php:305
 #, php-format
@@ -837,19 +839,21 @@ msgstr ""
 #: export.php:309 export.php:313
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr ""
+msgstr "웹 서버에 파일 %s를 저장할 권한이 없습니다."
 
 #: export.php:672
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr ""
+msgstr "덤프 파일이 %s에 저장되었습니다."
 
 #: import.php:58
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
 "%s for ways to workaround this limit."
 msgstr ""
+"너무 큰 파일을 업로드하려고 시도했습니다. 제한치를 우회하는 방법은 %s문서%s"
+"를 참조하여 주십시오."
 
 #: import.php:278 import.php:331 libraries/File.class.php:501
 #: libraries/File.class.php:611
@@ -859,11 +863,13 @@ msgstr "파일을 읽을 수 없습니다"
 #: import.php:286 import.php:295 import.php:314 import.php:323
 #: libraries/File.class.php:681 libraries/File.class.php:689
 #: libraries/File.class.php:705 libraries/File.class.php:713
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
+"지원되지 않는 압축(%)형식의 파일을 업로드하려고 시도했습니다. 지원이 구현되"
+"지 않았거나 설정에서 사용하지 않게 되어있습니다."
 
 #: import.php:336
 msgid ""
@@ -891,7 +897,7 @@ msgstr ""
 #: import.php:402 sql.php:884
 #, php-format
 msgid "Bookmark %s created"
-msgstr ""
+msgstr "북마크 %s가 생성되었습니다."
 
 #: import.php:408 import.php:414
 #, php-format
@@ -911,6 +917,8 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
+"파싱된 데이터가 없지만, 이것은 보통 phpMyAdmin이 php 시간 제한을 늘리지 않고"
+"는 이 가져오기를 마칠 수 없음을 뜻합니다."
 
 #: import.php:453 libraries/Message.class.php:185
 #: libraries/display_tbl.lib.php:2096 libraries/sql_query_form.lib.php:139
@@ -933,11 +941,11 @@ msgstr "phpMyAdmin 은 <b>프레임을 지원하는</b> 브라우저에서 잘 �
 #: server_synchronize.php:734 server_synchronize.php:762
 #: server_synchronize.php:790 server_synchronize.php:802
 msgid "Click to select"
-msgstr ""
+msgstr "선택하려면 클릭하세요"
 
 #: js/messages.php:26
 msgid "Click to unselect"
-msgstr ""
+msgstr "선택을 해제하려면 클릭하세요"
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:195
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -949,7 +957,7 @@ msgstr "정말로 다음을 실행하시겠습니까? "
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:242 sql.php:278
 msgid "You are about to DESTROY a complete database!"
-msgstr ""
+msgstr "이 데이터베이스 전체를 제거하려고 합니다!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
@@ -968,20 +976,21 @@ msgstr "데이터 추가(insert) 및 변경(replace) 허용."
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "기본 키 / 인덱스를 제거중"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr ""
+msgstr "이 명령은 오랜 시간이 걸릴 수 있습니다. 그래도 실행하시겠습니까?"
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr ""
+msgstr "BLOB 저장소를 사용 불가능하게 하려고 합니다!"
 
 #: js/messages.php:41
 #, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
 msgstr ""
+"정말로 데이터베이스 %s에서 모든 BLOB 참조를 사용 불가능하게 하시겠습니까?"
 
 #: js/messages.php:44
 msgid "Missing value in the form!"
@@ -1033,7 +1042,7 @@ msgstr "선택한 사용자를 삭제"
 #: js/messages.php:56 libraries/tbl_properties.inc.php:792
 #: tbl_tracking.php:246 tbl_tracking.php:374
 msgid "Close"
-msgstr ""
+msgstr "닫기"
 
 #: js/messages.php:60 libraries/tbl_properties.inc.php:797 pmd_general.php:388
 #: pmd_general.php:425 pmd_general.php:545 pmd_general.php:593

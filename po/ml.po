@@ -18,7 +18,7 @@ msgstr ""
 #: browse_foreigners.php:35 browse_foreigners.php:53
 #: libraries/display_tbl.lib.php:341 server_privileges.php:1583
 msgid "Show all"
-msgstr ""
+msgstr "എല്ലാം കാണിക്കൂ"
 
 #: browse_foreigners.php:70 libraries/common.lib.php:2332
 #: libraries/display_tbl.lib.php:321 libraries/export/pdf.php:133
@@ -27,7 +27,7 @@ msgstr ""
 #: libraries/schema/Pdf_Relation_Schema.class.php:1116
 #: libraries/schema/User_Schema.class.php:360
 msgid "Page number:"
-msgstr ""
+msgstr "താൾ:"
 
 #: browse_foreigners.php:133
 msgid ""
@@ -41,7 +41,7 @@ msgstr ""
 #: libraries/common.lib.php:3015 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:61
 msgid "Search"
-msgstr ""
+msgstr "തിരയൂ"
 
 #: browse_foreigners.php:154 db_operations.php:369 db_operations.php:410
 #: db_operations.php:520 db_operations.php:548 db_search.php:358
@@ -73,23 +73,23 @@ msgstr ""
 #: tbl_structure.php:660 tbl_structure.php:696 tbl_tracking.php:390
 #: tbl_tracking.php:507 view_create.php:181 view_operations.php:99
 msgid "Go"
-msgstr ""
+msgstr "പോകൂ"
 
 #: browse_foreigners.php:169 browse_foreigners.php:173
 #: libraries/Index.class.php:441 tbl_tracking.php:315
 msgid "Keyname"
-msgstr ""
+msgstr "കീനാമം"
 
 #: browse_foreigners.php:170 browse_foreigners.php:172
 #: server_collations.php:54 server_collations.php:66 server_engines.php:57
 #: server_status.php:777
 msgid "Description"
-msgstr ""
+msgstr "വിവരണം"
 
 #: browse_foreigners.php:248 browse_foreigners.php:257
 #: browse_foreigners.php:269 browse_foreigners.php:277
 msgid "Use this value"
-msgstr ""
+msgstr "ഈ വില ഉപയോഗിക്കൂ"
 
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:331
@@ -102,7 +102,7 @@ msgstr ""
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr ""
+msgstr "വിദൂര യു ആർ എൽ (URL) തുറക്കുന്നതിൽ പരാജയപ്പെട്ടിരിക്കുന്നു"
 
 #: changelog.php:32 license.php:28
 #, php-format
@@ -114,17 +114,17 @@ msgstr ""
 #: db_create.php:58
 #, php-format
 msgid "Database %1$s has been created."
-msgstr ""
+msgstr "വിവരശേഖരം(ങ്ങൾ) %1$s സൃഷ്ടിച്ചിരിക്കുന്നു."
 
 #: db_datadict.php:48 db_operations.php:362
 msgid "Database comment: "
-msgstr ""
+msgstr "വിവരശേഖര അഭിപ്രായം: "
 
 #: db_datadict.php:158 libraries/schema/Pdf_Relation_Schema.class.php:1215
 #: libraries/tbl_properties.inc.php:725 tbl_operations.php:358
 #: tbl_printview.php:127
 msgid "Table comments"
-msgstr ""
+msgstr "പട്ടിക അഭിപ്രയങ്ങൾ"
 
 #: db_datadict.php:167 db_qbe.php:196 libraries/Index.class.php:445
 #: libraries/export/htmlword.php:247 libraries/export/latex.php:374
@@ -136,7 +136,7 @@ msgstr ""
 #: tbl_relation.php:399 tbl_select.php:112 tbl_structure.php:198
 #: tbl_tracking.php:268 tbl_tracking.php:319
 msgid "Column"
-msgstr ""
+msgstr "നിര"
 
 #: db_datadict.php:168 db_printview.php:104 libraries/Index.class.php:442
 #: libraries/db_events.inc.php:25 libraries/db_routines.inc.php:36
@@ -151,7 +151,7 @@ msgstr ""
 #: tbl_structure.php:199 tbl_structure.php:753 tbl_tracking.php:269
 #: tbl_tracking.php:316
 msgid "Type"
-msgstr ""
+msgstr "തരം"
 
 #: db_datadict.php:170 libraries/Index.class.php:448
 #: libraries/export/htmlword.php:249 libraries/export/latex.php:374
@@ -162,7 +162,7 @@ msgstr ""
 #: tbl_printview.php:142 tbl_structure.php:202 tbl_tracking.php:271
 #: tbl_tracking.php:322
 msgid "Null"
-msgstr ""
+msgstr "ശൂന്യം"
 
 #: db_datadict.php:171 db_structure.php:460 libraries/export/htmlword.php:250
 #: libraries/export/latex.php:374 libraries/export/odt.php:310
@@ -172,7 +172,7 @@ msgstr ""
 #: libraries/tbl_properties.inc.php:105 tbl_printview.php:143
 #: tbl_structure.php:203 tbl_tracking.php:272
 msgid "Default"
-msgstr ""
+msgstr "സ്വതേ"
 
 #: db_datadict.php:175 libraries/export/htmlword.php:252
 #: libraries/export/latex.php:376 libraries/export/odt.php:314
@@ -180,7 +180,7 @@ msgstr ""
 #: libraries/schema/Pdf_Relation_Schema.class.php:1247
 #: libraries/schema/Pdf_Relation_Schema.class.php:1268 tbl_printview.php:147
 msgid "Links to"
-msgstr ""
+msgstr "കണ്ണികൾ"
 
 #: db_datadict.php:177 db_printview.php:110
 #: libraries/config/messages.inc.php:92 libraries/config/messages.inc.php:107
@@ -191,7 +191,7 @@ msgstr ""
 #: libraries/schema/Pdf_Relation_Schema.class.php:1269
 #: libraries/tbl_properties.inc.php:128 tbl_printview.php:149
 msgid "Comments"
-msgstr ""
+msgstr "അഭിപ്രായങ്ങൾ"
 
 #: db_datadict.php:260 js/messages.php:78 libraries/Index.class.php:358
 #: libraries/Index.class.php:385 libraries/config.values.php:45
@@ -207,7 +207,7 @@ msgstr ""
 #: server_privileges.php:2268 sql.php:238 sql.php:299 tbl_printview.php:226
 #: tbl_structure.php:378 tbl_tracking.php:332 tbl_tracking.php:337
 msgid "No"
-msgstr ""
+msgstr "ഇല്ല"
 
 #: db_datadict.php:260 js/messages.php:77 libraries/Index.class.php:359
 #: libraries/Index.class.php:384 libraries/config.values.php:45
@@ -227,11 +227,11 @@ msgstr ""
 #: tbl_printview.php:226 tbl_structure.php:39 tbl_structure.php:378
 #: tbl_tracking.php:330 tbl_tracking.php:335
 msgid "Yes"
-msgstr ""
+msgstr "അതേ"
 
 #: db_datadict.php:315 db_printview.php:264 tbl_printview.php:495
 msgid "Print"
-msgstr ""
+msgstr "അച്ചടിക്കുക"
 
 #: db_export.php:30
 msgid "View dump (schema) of database"
@@ -240,62 +240,62 @@ msgstr ""
 #: db_export.php:34 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
 #: export.php:370 navigation.php:303
 msgid "No tables found in database."
-msgstr ""
+msgstr "വിവരശേഖരത്തിൽ ഒരു പട്ടികയും കണ്ടെത്താനായില്ല."
 
 #: db_export.php:44 db_search.php:340 server_export.php:26
 msgid "Select All"
-msgstr ""
+msgstr "എല്ലാം തിരഞ്ഞെടുക്കുക"
 
 #: db_export.php:46 db_search.php:343 server_export.php:28
 msgid "Unselect All"
-msgstr ""
+msgstr "ഒന്നും തിരഞ്ഞെടുക്കാതിരിക്കുക"
 
 #: db_operations.php:41 tbl_create.php:48
 msgid "The database name is empty!"
-msgstr ""
+msgstr "വിവരശേഖരത്തിനു പേര് നൽകിയിട്ടില്ല!"
 
 #: db_operations.php:272
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr ""
+msgstr "%s എന്ന വിവരശേഖരം %s എന്ന പേരിലേക്ക് മാറ്റിയിരിക്കുന്നു"
 
 #: db_operations.php:276
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr ""
+msgstr "%s എന്ന വിവരശേഖരം %s എന്ന പേരിലേക്ക് പകർത്തിയിരിക്കുന്നു"
 
 #: db_operations.php:404
 msgid "Rename database to"
-msgstr ""
+msgstr "വിവരശേഖരത്തിന്റ്റ പേര് മാറ്റുക"
 
 #: db_operations.php:429
 msgid "Remove database"
-msgstr ""
+msgstr "വിവരശേഖരം നീക്കുക"
 
 #: db_operations.php:441
 #, php-format
 msgid "Database %s has been dropped."
-msgstr ""
+msgstr "%s എന്ന വിവരശേഖരം ഉപേക്ഷിച്ചിരിക്കുന്നു."
 
 #: db_operations.php:446
 msgid "Drop the database (DROP)"
-msgstr ""
+msgstr "വിവരശേഖരം ഉപേക്ഷിക്കുക (DROP)"
 
 #: db_operations.php:476
 msgid "Copy database to"
-msgstr ""
+msgstr "വിവരശേഖരം പകർത്തുക"
 
 #: db_operations.php:483 tbl_operations.php:544 tbl_tracking.php:383
 msgid "Structure only"
-msgstr ""
+msgstr "ഘടന മാത്രം"
 
 #: db_operations.php:484 tbl_operations.php:545 tbl_tracking.php:385
 msgid "Structure and data"
-msgstr ""
+msgstr "ഘടനയും വിവരവും"
 
 #: db_operations.php:485 tbl_operations.php:546 tbl_tracking.php:384
 msgid "Data only"
-msgstr ""
+msgstr "വിവരം മാത്രം"
 
 #: db_operations.php:493
 msgid "CREATE DATABASE before copying"
@@ -306,7 +306,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:133 tbl_operations.php:552
 #, php-format
 msgid "Add %s"
-msgstr ""
+msgstr "%s ചേർക്കുക"
 
 #: db_operations.php:500 libraries/config/messages.inc.php:117
 #: tbl_operations.php:310 tbl_operations.php:554
@@ -329,7 +329,7 @@ msgstr ""
 #: tbl_structure.php:200 tbl_structure.php:861 tbl_tracking.php:270
 #: tbl_tracking.php:321
 msgid "Collation"
-msgstr ""
+msgstr "നിബന്ധന"
 
 #: db_operations.php:554
 #, php-format
@@ -350,7 +350,7 @@ msgstr ""
 #: server_privileges.php:2065 server_synchronize.php:418
 #: server_synchronize.php:861 tbl_tracking.php:587 test/theme.php:74
 msgid "Table"
-msgstr ""
+msgstr "പട്ടിക"
 
 #: db_printview.php:103 libraries/build_html_for_db.lib.php:30
 #: libraries/db_structure.lib.php:47 libraries/header_printview.inc.php:62
@@ -358,37 +358,37 @@ msgstr ""
 #: tbl_printview.php:391 tbl_structure.php:393 tbl_structure.php:479
 #: tbl_structure.php:871
 msgid "Rows"
-msgstr ""
+msgstr "വരികൾ"
 
 #: db_printview.php:107 libraries/db_structure.lib.php:58 tbl_indexes.php:186
 msgid "Size"
-msgstr ""
+msgstr "വലിപ്പം"
 
 #: db_printview.php:160 db_structure.php:416 libraries/export/sql.php:636
 #: libraries/export/sql.php:967
 msgid "in use"
-msgstr ""
+msgstr "ഉപയോഗത്തിൽ"
 
 #: db_printview.php:185 libraries/db_info.inc.php:95
 #: libraries/export/sql.php:591
 #: libraries/schema/Pdf_Relation_Schema.class.php:1220 tbl_printview.php:431
 #: tbl_structure.php:903
 msgid "Creation"
-msgstr ""
+msgstr "സൃഷ്‌ടി"
 
 #: db_printview.php:194 libraries/db_info.inc.php:100
 #: libraries/export/sql.php:596
 #: libraries/schema/Pdf_Relation_Schema.class.php:1225 tbl_printview.php:441
 #: tbl_structure.php:911
 msgid "Last update"
-msgstr ""
+msgstr "അവസാനം നവീകരിച്ചത്"
 
 #: db_printview.php:203 libraries/db_info.inc.php:105
 #: libraries/export/sql.php:601
 #: libraries/schema/Pdf_Relation_Schema.class.php:1230 tbl_printview.php:451
 #: tbl_structure.php:919
 msgid "Last check"
-msgstr ""
+msgstr "അന്തിമ പരിശോധന"
 
 #: db_printview.php:220 db_structure.php:439
 #, php-format
@@ -412,68 +412,68 @@ msgstr ""
 #: db_qbe.php:222 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:863
 msgid "Sort"
-msgstr ""
+msgstr "തരംതിരിക്കുക"
 
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:102
 #: libraries/display_tbl.lib.php:510 libraries/display_tbl.lib.php:824
 #: server_databases.php:158 server_databases.php:175 tbl_operations.php:271
 #: tbl_select.php:277
 msgid "Ascending"
-msgstr ""
+msgstr "ആരോഹണം"
 
 #: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:110
 #: libraries/display_tbl.lib.php:515 libraries/display_tbl.lib.php:821
 #: server_databases.php:158 server_databases.php:175 tbl_operations.php:272
 #: tbl_select.php:278
 msgid "Descending"
-msgstr ""
+msgstr "അവരോഹണം"
 
 #: db_qbe.php:286 db_tracking.php:91 libraries/display_tbl.lib.php:390
 #: tbl_change.php:278 tbl_tracking.php:592
 msgid "Show"
-msgstr ""
+msgstr "പ്രദർശിപ്പിക്കുക"
 
 #: db_qbe.php:322
 msgid "Criteria"
-msgstr ""
+msgstr "മാനദണ്ഡം"
 
 #: db_qbe.php:375 db_qbe.php:457 db_qbe.php:549 db_qbe.php:580
 msgid "Ins"
-msgstr ""
+msgstr "ചേര്‍ക്കുക"
 
 #: db_qbe.php:379 db_qbe.php:461 db_qbe.php:546 db_qbe.php:577
 msgid "And"
-msgstr ""
+msgstr "ഉം"
 
 #: db_qbe.php:388 db_qbe.php:469 db_qbe.php:551 db_qbe.php:582
 msgid "Del"
-msgstr ""
+msgstr "മായ്ക്കുക"
 
 #: db_qbe.php:392 db_qbe.php:473 db_qbe.php:544 db_qbe.php:575
 #: libraries/tbl_properties.inc.php:779 server_privileges.php:307
 #: tbl_change.php:965 tbl_indexes.php:246 tbl_select.php:251
 msgid "Or"
-msgstr ""
+msgstr "അല്ലെനങ്കിൽ"
 
 #: db_qbe.php:529
 msgid "Modify"
-msgstr ""
+msgstr "തിരുത്തുക"
 
 #: db_qbe.php:606
 msgid "Add/Delete criteria rows"
-msgstr ""
+msgstr "മാനദണ്ഡ വരികൾ ചേർക്കുക/മായക്കുക"
 
 #: db_qbe.php:618
 msgid "Add/Delete columns"
-msgstr ""
+msgstr "നിരകൾ ചേർക്കുക/മായക്കുക"
 
 #: db_qbe.php:631 db_qbe.php:656
 msgid "Update Query"
-msgstr ""
+msgstr "അഭ്യര്‍ത്ഥന നവീകറിക്കുക"
 
 #: db_qbe.php:639
 msgid "Use Tables"
-msgstr ""
+msgstr "പട്ടികകൾ ഉപയോഗിക്കുക"
 
 #: db_qbe.php:662
 #, php-format
@@ -482,7 +482,7 @@ msgstr ""
 
 #: db_qbe.php:956 libraries/common.lib.php:1188
 msgid "Submit Query"
-msgstr ""
+msgstr "അഭ്യർത്ഥന സമർപ്പിക്കുക"
 
 #: db_search.php:52 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
@@ -9265,7 +9265,7 @@ msgstr ""
 #: transformation_overview.php:47
 msgctxt "for MIME transformation"
 msgid "Description"
-msgstr ""
+msgstr "വിവരണം"
 
 #: user_password.php:48
 msgid "You don't have sufficient privileges to be here right now!"

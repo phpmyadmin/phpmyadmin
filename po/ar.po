@@ -3437,11 +3437,11 @@ msgstr "مضاعفة حجم مربع النص لأعمدة LONGTEXT"
 
 #: libraries/config/messages.inc.php:299
 msgid "Bigger textarea for LONGTEXT"
-msgstr ""
+msgstr "مربع نص أكبر لـ LONGTEXT"
 
 #: libraries/config/messages.inc.php:300
 msgid "Use icons on main page"
-msgstr ""
+msgstr "إستخدم الإيقونات في الصفحة الرئيسية"
 
 #: libraries/config/messages.inc.php:301
 msgid "Maximum number of characters used when a SQL query is displayed"
@@ -3454,7 +3454,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:303 libraries/config/messages.inc.php:308
 #: libraries/config/messages.inc.php:336
 msgid "Users cannot set a higher value"
-msgstr ""
+msgstr "المستخدمين لايمكنهم وضع قيمة أكبر"
 
 #: libraries/config/messages.inc.php:304
 msgid "Maximum number of databases displayed in left frame and database list"
@@ -3462,7 +3462,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:305
 msgid "Maximum databases"
-msgstr ""
+msgstr "قواعد بيانات أكبر"
 
 #: libraries/config/messages.inc.php:306
 msgid ""
@@ -3481,7 +3481,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:310
 msgid "Maximum tables"
-msgstr ""
+msgstr "جداول أكبر"
 
 #: libraries/config/messages.inc.php:311
 msgid ""
@@ -3491,7 +3491,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:312
 msgid "mcrypt warning"
-msgstr ""
+msgstr "تحذير mcrypt"
 
 #: libraries/config/messages.inc.php:313
 msgid ""
@@ -3501,7 +3501,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:314
 msgid "Memory limit"
-msgstr ""
+msgstr "حدود الذاكرة"
 
 #: libraries/config/messages.inc.php:315
 msgid "These are Edit, Inline edit, Copy and Delete links"
@@ -3527,7 +3527,7 @@ msgstr "تعديل ترتيب الجدول بـ"
 
 #: libraries/config/messages.inc.php:320 libraries/config/messages.inc.php:330
 msgid "Use only icons, only text or both"
-msgstr ""
+msgstr "إستخدم الأيقونات او النصوص فقط , أو الإثنان"
 
 #: libraries/config/messages.inc.php:321
 msgid "Iconic navigation bar"
@@ -3549,7 +3549,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:325
 msgid "Default sorting order"
-msgstr ""
+msgstr "الترتيب الإفتراضي"
 
 #: libraries/config/messages.inc.php:326
 msgid "Use persistent connections to MySQL databases"
@@ -3557,7 +3557,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:327
 msgid "Persistent connections"
-msgstr ""
+msgstr "الإتصالات الثابتة"
 
 #: libraries/config/messages.inc.php:328
 msgid ""
@@ -3576,11 +3576,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:332
 msgid "Disallow BLOB and BINARY columns from editing"
-msgstr ""
+msgstr "منع تعديل الأعمدة من نوع BLOB  و BINARY"
 
 #: libraries/config/messages.inc.php:333
 msgid "Protect binary columns"
-msgstr ""
+msgstr "حماية الأعمدة من نوع BINARY"
 
 #: libraries/config/messages.inc.php:334
 msgid ""
@@ -3595,7 +3595,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:337
 msgid "How many queries are kept in history"
-msgstr ""
+msgstr "عدد الإستعلامات التي حفظت"
 
 #: libraries/config/messages.inc.php:338
 msgid "Query history length"
@@ -3603,15 +3603,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:339
 msgid "Tab displayed when opening a new query window"
-msgstr ""
+msgstr "عرض التبوب عند فتح نافذة إستعلام جديد"
 
 #: libraries/config/messages.inc.php:340
 msgid "Default query window tab"
-msgstr ""
+msgstr "نافذة إستعلام إفتراضية"
 
 #: libraries/config/messages.inc.php:341
 msgid "Query window height (in pixels)"
-msgstr ""
+msgstr "إرتفاع نافذة الإستعلام (بالبكسل)"
 
 #: libraries/config/messages.inc.php:342
 #, fuzzy
@@ -3633,11 +3633,11 @@ msgstr "نافذة الاستعلام"
 
 #: libraries/config/messages.inc.php:345
 msgid "Select which functions will be used for character set conversion"
-msgstr ""
+msgstr "إختر أي وظيفة سوف تستعمل لتغيير الترميز"
 
 #: libraries/config/messages.inc.php:346
 msgid "Recoding engine"
-msgstr ""
+msgstr "محرك إعادة الترميز"
 
 #: libraries/config/messages.inc.php:347
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
@@ -4900,7 +4900,7 @@ msgstr "تحويل المتصفح"
 
 #: libraries/display_tbl.lib.php:1210
 msgid "Copy"
-msgstr ""
+msgstr "نسخ"
 
 #: libraries/display_tbl.lib.php:1225 libraries/display_tbl.lib.php:1237
 msgid "The row has been deleted"
@@ -7011,7 +7011,7 @@ msgstr "لايوجد قواعد بيانات"
 
 #: navigation.php:277
 msgid "Filter"
-msgstr ""
+msgstr "مرشح"
 
 #: navigation.php:277
 #, fuzzy
