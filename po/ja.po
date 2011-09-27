@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-27 09:13+0200\n"
-"PO-Revision-Date: 2011-09-27 12:31+0200\n"
+"PO-Revision-Date: 2011-09-27 12:32+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12465,7 +12465,7 @@ msgstr ""
 
 #: po/advisory_rules.php:170
 msgid "Percentage of MyISAM key buffer used"
-msgstr "MyISAM キーバッファの使用率 (%%)"
+msgstr "MyISAM キーバッファの比率"
 
 #: po/advisory_rules.php:173
 #, php-format
