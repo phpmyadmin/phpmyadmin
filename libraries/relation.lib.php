@@ -12,8 +12,9 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Executes a query as controluser if possible, otherwise as normal user
  *
- * @param string    the query to execute
- * @param boolean   whether to display SQL error messages or not
+ * @param string  $sql        the query to execute
+ * @param boolean $show_error whether to display SQL error messages or not
+ * @param int     $options    query options
  *
  * @return  integer   the result set, or false if no result set
  *
@@ -42,7 +43,8 @@ function PMA_query_as_controluser($sql, $show_error = true, $options = 0)
 } // end of the "PMA_query_as_controluser()" function
 
 /**
- * @param bool    $verbose    whether to print diagnostic info
+ * @param bool $verbose whether to print diagnostic info
+ *
  * @return  array   $cfgRelation
  */
 function PMA_getRelationsParam($verbose = false)
@@ -65,7 +67,9 @@ function PMA_getRelationsParam($verbose = false)
 /**
  * prints out diagnostic info for pma relation feature
  *
- * @param array   $cfgRelation
+ * @param array $cfgRelation
+ *
+ * @return nothing
  */
 function PMA_printRelationsParamDiagnostic($cfgRelation)
 {
@@ -157,10 +161,12 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
 /**
  * prints out one diagnostic message for a feature
  *
- * @param string  feature name in a message string
- * @param string  the $GLOBALS['cfgRelation'] parameter to check
- * @param array   utility messages
- * @param boolean whether to skip a line after the message
+ * @param string  $feature_name       feature name in a message string
+ * @param string  $relation_parameter the $GLOBALS['cfgRelation'] parameter to check
+ * @param array   $messages           utility messages
+ * @param boolean $skip_line          whether to skip a line after the message
+ *
+ * @return nothing
  */
 function PMA_printDiagMessageForFeature($feature_name, $relation_parameter, $messages, $skip_line=true)
 {
@@ -175,10 +181,12 @@ function PMA_printDiagMessageForFeature($feature_name, $relation_parameter, $mes
 /**
  * prints out one diagnostic message for a configuration parameter
  *
- * @param string  config parameter name to display
- * @param boolean whether this parameter is set
- * @param array   utility messages
- * @param string  anchor in Documentation.html
+ * @param string  $parameter              config parameter name to display
+ * @param boolean $relation_parameter_set whether this parameter is set
+ * @param array   $messages               utility messages
+ * @param string  $doc_anchor             anchor in Documentation.html
+ *
+ * @return nothing
  */
 function PMA_printDiagMessageForParameter($parameter, $relation_parameter_set, $messages, $doc_anchor)
 {
@@ -216,7 +224,8 @@ function PMA__getRelationsParam()
     $cfgRelation['db']          = null;
 
     if ($GLOBALS['server'] == 0 || empty($GLOBALS['cfg']['Server']['pmadb'])
-     || ! PMA_DBI_select_db($GLOBALS['cfg']['Server']['pmadb'], $GLOBALS['controllink'])) {
+        || ! PMA_DBI_select_db($GLOBALS['cfg']['Server']['pmadb'], $GLOBALS['controllink'])
+    ) {
         // No server selected -> no bookmark table
         // we return the array with the falses in it,
         // to avoid some 'Unitialized string offset' errors later
@@ -304,8 +313,9 @@ function PMA__getRelationsParam()
             PMA_DBI_free_result($mime_rs);
 
             if ($mime_field_mimetype
-             && $mime_field_transformation
-             && $mime_field_transformation_options) {
+                && $mime_field_transformation
+                && $mime_field_transformation_options
+            ) {
                 $cfgRelation['mimework'] = true;
             }
         } else {
@@ -344,11 +354,12 @@ function PMA__getRelationsParam()
     }
 
     if ($cfgRelation['relwork'] && $cfgRelation['displaywork']
-     && $cfgRelation['pdfwork'] && $cfgRelation['commwork']
-     && $cfgRelation['mimework'] && $cfgRelation['historywork']
-     && $cfgRelation['recentwork'] && $cfgRelation['uiprefswork']
-     && $cfgRelation['trackingwork'] && $cfgRelation['userconfigwork']
-     && $cfgRelation['bookmarkwork'] && $cfgRelation['designerwork']) {
+        && $cfgRelation['pdfwork'] && $cfgRelation['commwork']
+        && $cfgRelation['mimework'] && $cfgRelation['historywork']
+        && $cfgRelation['recentwork'] && $cfgRelation['uiprefswork']
+        && $cfgRelation['trackingwork'] && $cfgRelation['userconfigwork']
+        && $cfgRelation['bookmarkwork'] && $cfgRelation['designerwork']
+    ) {
         $cfgRelation['allworks'] = true;
     }
 
@@ -359,12 +370,14 @@ function PMA__getRelationsParam()
  * Gets all Relations to foreign tables for a given table or
  * optionally a given column in a table
  *
- * @access  public
- * @param string   $db        the name of the db to check for
- * @param string   $table     the name of the table to check for
- * @param string   $column    the name of the column to check for
- * @param string   $source    the source for foreign key information
+ * @param string $db     the name of the db to check for
+ * @param string $table  the name of the table to check for
+ * @param string $column the name of the column to check for
+ * @param string $source the source for foreign key information
+ *
  * @return  array    db,table,column
+ *
+ * @access  public
  */
 function PMA_getForeigners($db, $table, $column = '', $source = 'both')
 {
@@ -448,7 +461,8 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
         if (isset($GLOBALS[$relations_key][$table])) {
             foreach ($GLOBALS[$relations_key][$table] as $field => $relations) {
                 if ((! strlen($column) || $column == $field)
-                 && (! isset($foreign[$field]) || ! strlen($foreign[$field]))) {
+                    && (! isset($foreign[$field]) || ! strlen($foreign[$field]))
+                ) {
                     $foreign[$field] = $relations;
                 }
             }
@@ -461,10 +475,12 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
 /**
  * Gets the display field of a table
  *
- * @access  public
- * @param string   $db    the name of the db to check for
- * @param string   $table the name of the table to check for
+ * @param string $db    the name of the db to check for
+ * @param string $table the name of the table to check for
+ *
  * @return  string   field name
+ *
+ * @access  public
  */
 function PMA_getDisplayField($db, $table)
 {
@@ -491,8 +507,10 @@ function PMA_getDisplayField($db, $table)
      */
     if ($db == 'information_schema') {
         switch ($table) {
-            case 'CHARACTER_SETS': return 'DESCRIPTION';
-            case 'TABLES':         return 'TABLE_COMMENT';
+        case 'CHARACTER_SETS':
+            return 'DESCRIPTION';
+        case 'TABLES':
+            return 'TABLE_COMMENT';
         }
     }
 
@@ -506,10 +524,12 @@ function PMA_getDisplayField($db, $table)
 /**
  * Gets the comments for all rows of a table or the db itself
  *
- * @access  public
- * @param string   the name of the db to check for
- * @param string   the name of the table to check for
+ * @param string $db    the name of the db to check for
+ * @param string $table the name of the table to check for
+ *
  * @return  array    [field_name] = comment
+ *
+ * @access  public
  */
 function PMA_getComments($db, $table = '')
 {
@@ -535,9 +555,11 @@ function PMA_getComments($db, $table = '')
 /**
  * Gets the comment for a db
  *
- * @access  public
- * @param string   the name of the db to check for
+ * @param string $db the name of the db to check for
+ *
  * @return  string   comment
+ *
+ * @access  public
  */
 function PMA_getDbComment($db)
 {
@@ -568,7 +590,7 @@ function PMA_getDbComment($db)
  * Gets the comment for a db
  *
  * @access  public
- * @param string   the name of the db to check for
+ *
  * @return  string   comment
  */
 function PMA_getDbComments()
@@ -598,10 +620,12 @@ function PMA_getDbComments()
 /**
  * Set a database comment to a certain value.
  *
- * @access  public
- * @param string   $db        the name of the db
- * @param string   $comment   the value of the column
+ * @param string $db      the name of the db
+ * @param string $comment the value of the column
+ *
  * @return  boolean  true, if comment-query was made.
+ *
+ * @access  public
  */
 function PMA_setDbComment($db, $comment = '')
 {
@@ -642,10 +666,13 @@ function PMA_setDbComment($db, $comment = '')
 /**
  * Set a SQL history entry
  *
- * @param string   $db        the name of the db
- * @param string   $table     the name of the table
- * @param string   $username  the username
- * @param string   $sqlquery  the sql query
+ * @param string $db       the name of the db
+ * @param string $table    the name of the table
+ * @param string $username the username
+ * @param string $sqlquery the sql query
+ *
+ * @return nothing
+ *
  * @access  public
  */
 function PMA_setHistory($db, $table, $username, $sqlquery)
@@ -681,27 +708,30 @@ function PMA_setHistory($db, $table, $username, $sqlquery)
         return;
     }
 
-    PMA_query_as_controluser('
-         INSERT INTO
+    PMA_query_as_controluser(
+        'INSERT INTO
                 ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['history']) . '
               (`username`,
                 `db`,
                 `table`,
                 `timevalue`,
                 `sqlquery`)
-         VALUES
+        VALUES
               (\'' . PMA_sqlAddSlashes($username) . '\',
                \'' . PMA_sqlAddSlashes($db) . '\',
                \'' . PMA_sqlAddSlashes($table) . '\',
                NOW(),
-               \'' . PMA_sqlAddSlashes($sqlquery) . '\')');
+               \'' . PMA_sqlAddSlashes($sqlquery) . '\')'
+    );
 } // end of 'PMA_setHistory()' function
 
 /**
  * Gets a SQL history entry
  *
- * @param string   $username  the username
+ * @param string $username the username
+ *
  * @return  array    list of history items
+ *
  * @access  public
  */
 function PMA_getHistory($username)
@@ -729,7 +759,10 @@ function PMA_getHistory($username)
  * deletes entries that exceeds $cfg['QueryHistoryMax'], oldest first, for the
  * given user
  *
- * @param string   $username  the username
+ * @param string $username the username
+ *
+ * @return nothing
+ *
  * @access  public
  */
 function PMA_purgeHistory($username)
@@ -751,20 +784,21 @@ function PMA_purgeHistory($username)
           LIMIT ' . $GLOBALS['cfg']['QueryHistoryMax'] . ', 1';
 
     if ($max_time = PMA_DBI_fetch_value($search_query, 0, 0, $GLOBALS['controllink'])) {
-        PMA_query_as_controluser('
-             DELETE FROM
+        PMA_query_as_controluser(
+            'DELETE FROM
                     ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['history']) . '
               WHERE `username` = \'' . PMA_sqlAddSlashes($username) . '\'
-                AND `timevalue` <= \'' . $max_time . '\'');
+                AND `timevalue` <= \'' . $max_time . '\''
+        );
     }
 } // end of 'PMA_purgeHistory()' function
 
 /**
  * Prepares the dropdown for one mode
  *
- * @param array    $foreign   the keys and values for foreigns
- * @param string   $data      the current data of the dropdown
- * @param string   $mode      the needed mode
+ * @param array  $foreign the keys and values for foreigns
+ * @param string $data    the current data of the dropdown
+ * @param string $mode    the needed mode
  *
  * @return  array   the <option value=""><option>s
  *
@@ -807,7 +841,7 @@ function PMA__foreignDropdownBuild($foreign, $data, $mode)
         }
 
         if ((string) $key == (string) $data) {
-           $reloption .= ' selected="selected"';
+            $reloption .= ' selected="selected"';
         }
 
         if ($mode == 'content-id') {
@@ -825,11 +859,14 @@ function PMA__foreignDropdownBuild($foreign, $data, $mode)
 /**
  * Outputs dropdown with values of foreign fields
  *
- * @param array    array of the displayed row
- * @param string   the foreign field
- * @param string   the foreign field to display
- * @param string   the current data of the dropdown (field in row)
+ * @param array  $disp_row        array of the displayed row
+ * @param string $foreign_field   the foreign field
+ * @param string $foreign_display the foreign field to display
+ * @param string $data            the current data of the dropdown (field in row)
+ * @param int    $max             maximum number of items in the dropdown
+ *
  * @return  string   the <option value=""><option>s
+ *
  * @access  public
  */
 function PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, $data,
@@ -861,12 +898,18 @@ function PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, $data,
     if ($foreign_display) {
         if (PMA_isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'], 'array')) {
             if (PMA_isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'][0])) {
-                $top = PMA__foreignDropdownBuild($foreign, $data,
-                    $GLOBALS['cfg']['ForeignKeyDropdownOrder'][0]);
+                $top = PMA__foreignDropdownBuild(
+                    $foreign,
+                    $data,
+                    $GLOBALS['cfg']['ForeignKeyDropdownOrder'][0]
+                );
             }
             if (PMA_isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])) {
-                $bottom = PMA__foreignDropdownBuild($foreign, $data,
-                    $GLOBALS['cfg']['ForeignKeyDropdownOrder'][1]);
+                $bottom = PMA__foreignDropdownBuild(
+                    $foreign,
+                    $data,
+                    $GLOBALS['cfg']['ForeignKeyDropdownOrder'][1]
+                );
             }
         } else {
             $top = PMA__foreignDropdownBuild($foreign, $data, 'id-content');
@@ -897,12 +940,14 @@ function PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, $data,
 /**
  * Gets foreign keys in preparation for a drop-down selector
  *
- * @param array    array of the foreign keys
- * @param string   the foreign field name
- * @param bool     whether to override the total
- * @param string   a possible filter
- * @param string   a possible LIMIT clause
+ * @param array  $foreigners     array of the foreign keys
+ * @param string $field          the foreign field name
+ * @param bool   $override_total whether to override the total
+ * @param string $foreign_filter a possible filter
+ * @param string $foreign_limit  a possible LIMIT clause
+ *
  * @return  array    data about the foreign keys
+ *
  * @access  public
  */
 
@@ -980,8 +1025,10 @@ function PMA_getForeignData($foreigners, $field, $override_total, $foreign_filte
 /**
  * Finds all related tables
  *
- * @param string   whether to go from master to foreign or vice versa
+ * @param string $from whether to go from master to foreign or vice versa
+ *
  * @return  boolean  always true
+ *
  * @global  array    $tab_left the list of tables that we still couldn't connect
  * @global  array    $tab_know the list of allready connected tables
  * @global  string   $fromclause
@@ -1031,10 +1078,12 @@ function PMA_getRelatives($from)
  *
  * usually called after a field in a table was renamed in tbl_alter.php
  *
- * @param string $db
- * @param string $table
- * @param string $field
- * @param string $new_name
+ * @param string $db       databse name
+ * @param string $table    table name
+ * @param string $field    old field name
+ * @param string $new_name new field name
+ *
+ * @return nothing
  */
 function PMA_REL_renameField($db, $table, $field, $new_name)
 {
@@ -1069,9 +1118,10 @@ function PMA_REL_renameField($db, $table, $field, $new_name)
 /**
  * Create a PDF page
  *
- * @param string    $newpage
- * @param array     $cfgRelation
- * @param string    $db
+ * @param string $newpage     name of the new PDF page
+ * @param array  $cfgRelation
+ * @param string $db          database name
+ *
  * @return string   $pdf_page_number
  */
 function PMA_REL_create_page($newpage, $cfgRelation, $db)

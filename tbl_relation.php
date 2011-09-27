@@ -48,9 +48,11 @@ $options_array = array(
 /**
  * Generate dropdown choices
  *
- * @param string   Message to display
- * @param string   Name of the <select> field
- * @param array    Choices for dropdown
+ * @param string $dropdown_question Message to display
+ * @param string $select_name       Name of the <select> field
+ * @param array  $choices           Choices for dropdown
+ * @param string $selected_value    Selected value
+ *
  * @return  string   The existing value (for selected)
  *
  * @access  public
@@ -74,7 +76,8 @@ function PMA_generate_dropdown($dropdown_question, $select_name, $choices, $sele
 /**
  * Split a string on backquote pairs
  *
- * @param string  original string
+ * @param string $text original string
+ *
  * @return  array   containing the elements (and their surrounding backquotes)
  *
  * @access  public
@@ -121,8 +124,7 @@ if ($cfgRelation['displaywork']) {
 }
 
 // will be used in the logic for internal relations and foreign keys:
-$me_fields_name =
-    isset($_REQUEST['fields_name'])
+$me_fields_name = isset($_REQUEST['fields_name'])
     ? $_REQUEST['fields_name']
     : null;
 
@@ -137,8 +139,7 @@ if (isset($destination) && $cfgRelation['relwork']) {
 
         if (! empty($foreign_string)) {
             $foreign_string = trim($foreign_string, '`');
-            list($foreign_db, $foreign_table, $foreign_field) =
-                explode('.', $foreign_string);
+            list($foreign_db, $foreign_table, $foreign_field) = explode('.', $foreign_string);
             if (! isset($existrel[$master_field])) {
                 $upd_query  = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['relation'])
                             . '(master_db, master_table, master_field, foreign_db, foreign_table, foreign_field)'
@@ -216,25 +217,18 @@ if (isset($_REQUEST['destination_foreign'])) {
             } elseif (PMA_backquote($existrel_foreign[$master_field]['foreign_db']) != $foreign_db
                 || PMA_backquote($existrel_foreign[$master_field]['foreign_table']) != $foreign_table
                 || PMA_backquote($existrel_foreign[$master_field]['foreign_field']) != $foreign_field
-                || ($_REQUEST['on_delete'][$master_field_md5] != (!empty($existrel_foreign[$master_field]['on_delete']) ? $existrel_foreign[$master_field]['on_delete'] : ''))
-                || ($_REQUEST['on_update'][$master_field_md5] != (!empty($existrel_foreign[$master_field]['on_update']) ? $existrel_foreign[$master_field]['on_update'] : ''))
+                || ($_REQUEST['on_delete'][$master_field_md5] != (!empty($existrel_foreign[$master_field]['on_delete']) ? $existrel_foreign[$master_field]['on_delete'] : 'RESTRICT'))
+                || ($_REQUEST['on_update'][$master_field_md5] != (!empty($existrel_foreign[$master_field]['on_update']) ? $existrel_foreign[$master_field]['on_update'] : 'RESTRICT'))
                    ) {
                 // another foreign key is already defined for this field
                 // or
                 // an option has been changed for ON DELETE or ON UPDATE
 
-                // remove existing key
+                // remove existing key and add the new one
                 $sql_query  = 'ALTER TABLE ' . PMA_backquote($table)
                             . ' DROP FOREIGN KEY '
-                            . PMA_backquote($existrel_foreign[$master_field]['constraint']) . ';';
-
-                // I tried to send both in one query but it failed
-                PMA_DBI_query($sql_query);
-                $display_query .= $sql_query . "\n";
-
-                // add another
-                $sql_query  = 'ALTER TABLE ' . PMA_backquote($table)
-                            . ' ADD FOREIGN KEY ('
+                            . PMA_backquote($existrel_foreign[$master_field]['constraint']) . ', '
+                            . 'ADD FOREIGN KEY ('
                             . PMA_backquote($master_field) . ')'
                             . ' REFERENCES '
                             . $foreign_db . '.'
@@ -268,12 +262,13 @@ if (isset($_REQUEST['destination_foreign'])) {
                 $seen_error = true;
             }
             if (substr($tmp_error, 1, 4) == '1216'
-            ||  substr($tmp_error, 1, 4) == '1452') {
+                ||  substr($tmp_error, 1, 4) == '1452'
+            ) {
                 PMA_mysqlDie($tmp_error, $sql_query, false, '', false);
                 echo PMA_showMySQLDocu('manual_Table_types', 'InnoDB_foreign_key_constraints') . "\n";
             }
             if (substr($tmp_error, 1, 4) == '1005') {
-                $message = PMA_Message::error( __('Error creating foreign key on %1$s (check data types)'));
+                $message = PMA_Message::error(__('Error creating foreign key on %1$s (check data types)'));
                 $message->addParam($master_field);
                 $message->display();
                 echo PMA_showMySQLDocu('manual_Table_types', 'InnoDB_foreign_key_constraints') . "\n";
@@ -373,8 +368,9 @@ if ($cfgRelation['relwork'] || PMA_foreignkey_supported($tbl_type)) {
         // if foreign keys are supported, collect all keys from other
         // tables of the same engine
         if (PMA_foreignkey_supported($tbl_type)
-         && isset($curr_table[1])
-         && strtoupper($curr_table[1]) == $tbl_type) {
+            && isset($curr_table[1])
+            && strtoupper($curr_table[1]) == $tbl_type
+        ) {
              // explicitely ask for non-quoted list of indexed columns
              // need to obtain backquoted values to support dots inside values
              $selectboxall_foreign = array_merge($selectboxall_foreign, $current_table->getIndexedColumns($backquoted = true));
