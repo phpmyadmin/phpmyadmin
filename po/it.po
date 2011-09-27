@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-25 18:34-0400\n"
-"PO-Revision-Date: 2011-07-22 19:13+0200\n"
+"PO-Revision-Date: 2011-09-25 15:35+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -36,7 +36,7 @@ msgid ""
 msgstr ""
 "La finestra destinataria del browser non può essere aggiornata. Può darsi "
 "che sia stata chiusa la finestra madre o che il vostro browser stia "
-"bloccando gli aggiornamenti fra browsers a causa di qualche impostazione di "
+"bloccando gli aggiornamenti fra finestre a causa di qualche impostazione di "
 "sicurezza."
 
 #: browse_foreigners.php:151 libraries/common.lib.php:3036
@@ -110,7 +110,7 @@ msgstr "La lettura delle intestazioni é fallita"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr "Non sono riuscito ad aprire l'URL remoto"
+msgstr "Impossibile aprire l'URL remoto"
 
 #: changelog.php:32 license.php:28
 #, php-format
@@ -270,16 +270,16 @@ msgstr "Il nome del database è vuoto!"
 #: db_operations.php:274
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr "Il database %s è stato rinominato a %s"
+msgstr "Il database %s è stato rinominato come %s"
 
 #: db_operations.php:278
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr "Il database %s è stato copiato a %s"
+msgstr "Il database %s è stato copiato come %s"
 
 #: db_operations.php:406
 msgid "Rename database to"
-msgstr "Rinomina il database a"
+msgstr "Rinomina il database come"
 
 #: db_operations.php:432
 msgid "Remove database"
@@ -296,7 +296,7 @@ msgstr "Cancella il database (DROP)"
 
 #: db_operations.php:478
 msgid "Copy database to"
-msgstr "Copia il database a"
+msgstr "Copia il database come"
 
 #: db_operations.php:485 tbl_operations.php:552 tbl_tracking.php:409
 msgid "Structure only"
@@ -342,7 +342,7 @@ msgstr "Passa al database copiato"
 #: tbl_structure.php:203 tbl_structure.php:870 tbl_tracking.php:259
 #: tbl_tracking.php:310
 msgid "Collation"
-msgstr "Collation"
+msgstr "Codifica caratteri"
 
 #: db_operations.php:555
 #, php-format
@@ -478,7 +478,7 @@ msgstr "Aggiungi/Cancella criterio di riga"
 
 #: db_qbe.php:618
 msgid "Add/Delete columns"
-msgstr "Aggiungi/Cancella colonne"
+msgstr "Aggiungi/Cancella campi"
 
 #: db_qbe.php:631 db_qbe.php:656
 msgid "Update Query"
@@ -584,7 +584,7 @@ msgstr "Nelle tabelle:"
 
 #: db_search.php:329
 msgid "Inside column:"
-msgstr "All'interno della colonna:"
+msgstr "All'interno del campo:"
 
 #: db_structure.php:67
 msgid "No tables found in database"
@@ -723,7 +723,7 @@ msgstr "Copia tabella col prefisso"
 
 #: db_structure.php:613 libraries/schema/User_Schema.class.php:420
 msgid "Data Dictionary"
-msgstr "Data Dictionary"
+msgstr "Dizionario dei dati"
 
 #: db_tracking.php:79
 msgid "Tracked tables"
@@ -807,7 +807,7 @@ msgstr "Log database"
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:754
 #, php-format
 msgid "Values for the column \"%s\""
-msgstr "Valore per la colonna \"%s\""
+msgstr "Valori per il campo \"%s\""
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:755
 msgid "Enter each value in a separate field."
@@ -826,10 +826,9 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "Copia ed incolla i valori relazionati nei campi \"Lunghezza/Valore\""
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "Tipo di barre"
+msgstr "Tipo errato!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
@@ -837,10 +836,9 @@ msgstr ""
 "Il tipo di esportazione selezionato necessita di essere salvato in un file!"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Bad parameters!"
-msgstr "Aggiungi parametro"
+msgstr "Parametri errati!"
 
 #: export.php:166 export.php:191 export.php:652
 #, php-format
@@ -866,16 +864,15 @@ msgid "Dump has been saved to file %s."
 msgstr "Il dump è stato salvato nel file %s."
 
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "Tipo di esportazione"
+msgstr "Tipo di esportazione non valido"
 
 #: gis_data_editor.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
-msgstr "Valore per la colonna \"%s\""
+msgstr "Valore per il campo \"%s\""
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
@@ -883,7 +880,7 @@ msgstr "Usa OpenStreetMaps come livello base"
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:293
 #: libraries/display_tbl.lib.php:685
@@ -892,30 +889,29 @@ msgstr "Geometria"
 
 #: gis_data_editor.php:172 js/messages.php:289
 msgid "Point"
-msgstr ""
+msgstr "Punto"
 
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
 #: gis_data_editor.php:297 js/messages.php:287
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
 #: gis_data_editor.php:299 js/messages.php:288
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
 #: js/messages.php:290
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "Punto %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:296
-#, fuzzy
 #| msgid "Add routine"
 msgid "Add a point"
-msgstr "Aggiungi una routine"
+msgstr "Aggiungi un punto"
 
 #: gis_data_editor.php:220 js/messages.php:291
 #, fuzzy
@@ -925,11 +921,11 @@ msgstr "Linee terminate da"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:295
 msgid "Outer Ring"
-msgstr ""
+msgstr "Cerchio Esterno"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:294
 msgid "Inner Ring"
-msgstr ""
+msgstr "Cerchio Interno"
 
 #: gis_data_editor.php:252
 #, fuzzy
@@ -1606,10 +1602,9 @@ msgid "Sum of grouped rows:"
 msgstr "Il numero di righe inserite"
 
 #: js/messages.php:179
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "Totale"
+msgstr "Totale:"
 
 #: js/messages.php:181
 msgid "Loading logs"
@@ -1721,7 +1716,7 @@ msgstr "Errore nel processare la richiesta"
 
 #: js/messages.php:214
 msgid "Dropping Column"
-msgstr "Eliminazione colonna"
+msgstr "Eliminazione Campo"
 
 #: js/messages.php:215
 msgid "Adding Primary Key"
@@ -1755,7 +1750,7 @@ msgstr "Sto cambiando il charset"
 
 #: js/messages.php:224
 msgid "Table must have at least one column"
-msgstr "La tabella deve avere come minimo una colonna"
+msgstr "La tabella deve avere come minimo un campo"
 
 #: js/messages.php:225
 msgid "Create Table"
@@ -1923,7 +1918,7 @@ msgstr "Seleziona la chiave primaria o una chiave univoca"
 
 #: js/messages.php:307 pmd_general.php:77 tbl_relation.php:545
 msgid "Choose column to display"
-msgstr "Scegli la colonna da mostrare"
+msgstr "Scegli il campo da mostrare"
 
 #: js/messages.php:308
 msgid ""
@@ -1935,7 +1930,7 @@ msgstr ""
 
 #: js/messages.php:311
 msgid "Add an option for column "
-msgstr "Aggiungi un'opzione alla colonna "
+msgstr "Aggiungi un'opzione al campo "
 
 #: js/messages.php:314
 msgid "Press escape to cancel editing"
@@ -2430,10 +2425,9 @@ msgstr[0] "%1$d riga inserita."
 msgstr[1] "%1$d righe inserite."
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Permette di leggere i dati."
+msgstr "Si é verificato un errore durante la creazione del PDF:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
@@ -2470,10 +2464,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Questo server MySQL non supporta il motore di memorizzazione %s."
 
 #: libraries/Table.class.php:329
-#, fuzzy
 #| msgid "Show slave status"
 msgid "unknown table status: "
-msgstr "Mostra lo stato degli slave"
+msgstr "stato della tabella sconosciuto: "
 
 #: libraries/Table.class.php:1115
 msgid "Invalid database"
@@ -3313,13 +3306,13 @@ msgid ""
 "kbd] - allows newlines in columns"
 msgstr ""
 "Definisce quale tipo di casella di modifica si utilizzerà per modificare "
-"colonne CHAR e VARCHAR; [kbd]input[/kbd] - permette di limitare la lunghezza "
+"campi CHAR e VARCHAR; [kbd]input[/kbd] - permette di limitare la lunghezza "
 "dell'input, [kbd]textarea[/kbd] - permette di inserire caratteri newline "
 "(andare a capo)"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
-msgstr "Modifica di colonne CHAR"
+msgstr "Modifica dei campi CHAR"
 
 #: libraries/config/messages.inc.php:34
 msgid "Number of columns for CHAR/VARCHAR textareas"
@@ -3514,7 +3507,7 @@ msgstr "Compressione"
 #: libraries/export/latex.php:72 libraries/export/ods.php:25
 #: libraries/export/odt.php:58 libraries/export/texytext.php:28
 msgid "Put columns names in the first row"
-msgstr "Metti i nomi delle colonne nel primo rigo"
+msgstr "Metti i nomi dei campi nel primo rigo"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:241
 #: libraries/config/messages.inc.php:248 libraries/import/csv.php:76
@@ -3573,7 +3566,7 @@ msgstr "Modello per nomi delle tabbelle"
 #: libraries/export/latex.php:40 libraries/export/odt.php:32
 #: libraries/export/sql.php:123 libraries/export/texytext.php:23
 msgid "Dump table"
-msgstr "Dump delle tabbelle"
+msgstr "Dump delle tabelle"
 
 #: libraries/config/messages.inc.php:92 libraries/export/latex.php:32
 msgid "Include table caption"
@@ -4673,7 +4666,7 @@ msgstr "Conta le tabelle quando la lista dei database viene mostrata"
 
 #: libraries/config/messages.inc.php:384
 msgid "Count tables"
-msgstr "Conta tabbelle"
+msgstr "Conta tabelle"
 
 #: libraries/config/messages.inc.php:385
 msgid ""
@@ -5633,7 +5626,7 @@ msgstr "Nome"
 
 #: libraries/display_create_table.lib.php:55
 msgid "Number of columns"
-msgstr "Numero di colonne"
+msgstr "Numero dei campi"
 
 #: libraries/display_export.lib.php:37
 msgid "Could not load export plugins, please check your installation!"
@@ -5685,7 +5678,7 @@ msgstr "Esegui il dump di alcune righe"
 
 #: libraries/display_export.lib.php:154
 msgid "Number of rows:"
-msgstr "Numero di righi:"
+msgstr "Numero di righe:"
 
 #: libraries/display_export.lib.php:157
 msgid "Row to begin at:"
@@ -5714,15 +5707,15 @@ msgstr "Modello per nomi dei file:"
 
 #: libraries/display_export.lib.php:224
 msgid "@SERVER@ will become the server name"
-msgstr "il nome del server diventerá @SERVER@"
+msgstr "@SERVER@ diventerá il nome del server"
 
 #: libraries/display_export.lib.php:226
 msgid ", @DATABASE@ will become the database name"
-msgstr ", il nome del database diventerá @DATABASE@"
+msgstr ", @DATABASE@ diventerá il nome del database"
 
 #: libraries/display_export.lib.php:228
 msgid ", @TABLE@ will become the table name"
-msgstr ", il nome della tabella diventerá @TABLE@"
+msgstr ", @TABLE@ diventerá il nome della tabella"
 
 #: libraries/display_export.lib.php:232
 #, php-format
@@ -6003,7 +5996,7 @@ msgstr "nella query"
 
 #: libraries/display_tbl.lib.php:2339
 msgid "Showing rows"
-msgstr "Mostrando i righi"
+msgstr "Mostrando le righe"
 
 #: libraries/display_tbl.lib.php:2349
 msgid "total"
@@ -6063,7 +6056,7 @@ msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
-" La dimensione di incremento per aumentare la dimensione di una tabella "
+"La dimensione di incremento per aumentare la dimensione di una tabella "
 "autoextending quando diventa piena."
 
 #: libraries/engines/innodb.lib.php:32
@@ -6529,8 +6522,8 @@ msgstr "Sostituisci NULL con:"
 #: libraries/export/csv.php:29 libraries/export/excel.php:24
 msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
-"Rimuovi i caratteri di ritorno a capo/avanzamento (CR/LF) riga dall'interno "
-"delle colonne"
+"Rimuovi i caratteri di ritorno a capo/avanzamento riga (CR/LF) dall'interno "
+"dei campi"
 
 #: libraries/export/excel.php:33
 msgid "Excel edition:"
@@ -6712,8 +6705,8 @@ msgid ""
 "(1,2,3)</code>"
 msgstr ""
 "includi i nomi dei campi in ogni instruzione <code>INSERT</code> <br /> "
-"&nbsp; &nbsp; &nbsp; Ad esempio: <code>INSERT INTO tbl_name (col_A,col_B,"
-"col_C) VALUES (1,2,3)</code>"
+"&nbsp; &nbsp; &nbsp; Ad esempio: <code>INSERT INTO tbl_name "
+"(col_A,col_B,col_C) VALUES (1,2,3)</code>"
 
 #: libraries/export/sql.php:275
 msgid ""
@@ -6747,7 +6740,7 @@ msgid ""
 "0x616263)</i>"
 msgstr ""
 "Esegui il dump dei campi nella notazione esadecimale <i>(ad esempio, \"abc\" "
-"diventa 0x0616263)</i>"
+"diventa 0x616263)</i>"
 
 #: libraries/export/sql.php:301
 msgid ""
@@ -6790,10 +6783,9 @@ msgid "Stand-in structure for view"
 msgstr "Struttura stand-in per le viste"
 
 #: libraries/export/sql.php:1111
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error reading data:"
-msgstr "Permette di leggere i dati."
+msgstr "Si é verificato un errore durante la lettura dei dati:"
 
 #: libraries/export/xml.php:19 libraries/import/xml.php:21
 msgid "XML"
@@ -6875,10 +6867,10 @@ msgid "Go to table"
 msgstr "Vai alla tabella"
 
 #: libraries/import.lib.php:1130
-#, fuzzy, php-format
+#, php-format, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
-msgstr "Solo struttura"
+msgstr "Struttura di %s"
 
 #: libraries/import.lib.php:1136
 msgid "Go to view"
@@ -6944,7 +6936,7 @@ msgstr "Nome tabella"
 #: libraries/import/ldi.php:45 libraries/schema/User_Schema.class.php:350
 #: view_create.php:147
 msgid "Column names"
-msgstr "Nomi delle colonne"
+msgstr "Nomi dei campi"
 
 #: libraries/import/ldi.php:57
 msgid "This plugin does not support compressed imports!"
@@ -6980,10 +6972,8 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
 #: libraries/import/shp.php:376
-#, fuzzy
-#| msgid "This page does not contain any tables!"
 msgid "The imported file does not contain any data"
-msgstr "Questa pagina non contiene alcuna tabbella!"
+msgstr "Il file importato non contiene dei dati"
 
 #: libraries/import/sql.php:33
 msgid "SQL compatibility mode:"
@@ -7272,7 +7262,7 @@ msgstr "Creazione di PDF"
 
 #: libraries/relation.lib.php:110
 msgid "Displaying Column Comments"
-msgstr "Visualizzazione commenti delle colonne"
+msgstr "Visualizzazione Commenti dei Campi"
 
 #: libraries/relation.lib.php:115
 msgid ""
@@ -8104,7 +8094,7 @@ msgstr "Delimitatori"
 
 #: libraries/sql_query_form.lib.php:344
 msgid "Show this query here again"
-msgstr "Mostra di nuovo questa query "
+msgstr "Mostra di nuovo questa query"
 
 #: libraries/sql_query_form.lib.php:400
 msgid "View only"
@@ -8701,10 +8691,9 @@ msgid "No databases"
 msgstr "Nessun database"
 
 #: navigation.php:270
-#, fuzzy
 #| msgid "filter tables by name"
 msgid "Filter tables by name"
-msgstr "filtra tabbelle in base al nome"
+msgstr "Filtra tabelle in base al nome"
 
 #: navigation.php:303 navigation.php:304
 msgctxt "short form"
@@ -9083,10 +9072,9 @@ msgid "License"
 msgstr ""
 
 #: server_plugins.php:182
-#, fuzzy
 #| msgid "Disabled"
 msgid "disabled"
-msgstr "Disabilitata"
+msgstr "disabilitato"
 
 #: server_privileges.php:32 server_privileges.php:367
 msgid "Includes all privileges except GRANT."
@@ -9295,7 +9283,7 @@ msgstr "Privilegi relativi alle tabelle"
 #: server_privileges.php:535 server_privileges.php:687
 #: server_privileges.php:1700
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "Nota: i nomi dei privilegi di MySQL sono in Inglese "
+msgstr "Nota: i nomi dei privilegi di MySQL sono in Inglese"
 
 #: server_privileges.php:612
 msgid "Administration"
@@ -9428,7 +9416,7 @@ msgstr "L'utente selezionato non è stato trovato nella tabella dei privilegi."
 
 #: server_privileges.php:1896
 msgid "Column-specific privileges"
-msgstr "Privilegi relativi alle colonne"
+msgstr "Privilegi relativi ai campi"
 
 #: server_privileges.php:2102
 msgid "Add privileges on the following database"
@@ -9464,7 +9452,7 @@ msgstr "... cancella quello vecchio dalla tabella degli utenti."
 msgid ""
 "... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
-" ... revoca tutti i privilegi attivi da quello vecchio e in seguito "
+"... revoca tutti i privilegi attivi da quello vecchio e in seguito "
 "cancellalo."
 
 #: server_privileges.php:2188
@@ -9472,8 +9460,8 @@ msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-" ... cancella quello vecchio dalla tabella degli utenti e in seguito "
-"ricarica i privilegi."
+"... cancella quello vecchio dalla tabella degli utenti e in seguito ricarica "
+"i privilegi."
 
 #: server_privileges.php:2211
 msgid "Database for user"
@@ -10086,9 +10074,9 @@ msgid ""
 "if you are doing an index scan."
 msgstr ""
 "Il numero di richieste per leggere la riga successiva nell'ordine delle "
-"chiavi. Questo valore è incrementato se stai facendo una query su di una "
-"colonna indice con un range costante, oppure se stai facendo una scansione "
-"degli indici."
+"chiavi. Questo valore è incrementato se stai facendo una query su un campo "
+"indice con un range costante, oppure se stai facendo una scansione degli "
+"indici."
 
 #: server_status.php:1309
 msgid ""
@@ -10671,16 +10659,14 @@ msgid "Refresh rate"
 msgstr "Ritmo di aggiornamenti"
 
 #: server_status.php:1572
-#, fuzzy
 #| msgid "Chart columns:"
 msgid "Chart columns"
-msgstr "Campi del grafico:"
+msgstr "Numero di grafici per rigo"
 
 #: server_status.php:1588
-#, fuzzy
 #| msgid "Error management:"
 msgid "Chart arrangement"
-msgstr "Gestione degli errori:"
+msgstr "Disposizione dei grafici"
 
 #: server_status.php:1588
 msgid ""
@@ -10716,10 +10702,9 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1612
-#, fuzzy
 #| msgid "Pause monitor"
 msgid "Using the monitor:"
-msgstr "Arresta il monitoraggio"
+msgstr "Utilizzo del monitor:"
 
 #: server_status.php:1614
 msgid ""
@@ -10812,18 +10797,15 @@ msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 
 #: server_status.php:1713
-#, fuzzy
 #| msgid ""
 #| "<p>Choose from which log you want the statistics to be generated from.</"
 #| "p> Results are grouped by query text."
 msgid "Choose from which log you want the statistics to be generated from."
-msgstr ""
-"<p>Scegli il log dal quale generare le statistiche.</p> I risultati verranno "
-"raggruppati secondo il testo di query."
+msgstr "Scegli il log dal quale generare le statistiche."
 
 #: server_status.php:1715
 msgid "Results are grouped by query text."
-msgstr ""
+msgstr "I risultati verranno raggruppati secondo il testo di query."
 
 #: server_status.php:1720
 #, fuzzy
@@ -10857,7 +10839,7 @@ msgstr "Impossibile connettersi alla destinazione"
 #: tbl_get_field.php:19
 #, php-format
 msgid "'%s' database does not exist."
-msgstr "database '%s' non esiste."
+msgstr "Database '%s' non esiste."
 
 #: server_synchronize.php:282
 msgid "Structure Synchronization"
@@ -11361,8 +11343,7 @@ msgstr "La tabella %1$s è già stata modificata con successo"
 #: tbl_change.php:699
 msgid "Because of its length,<br /> this column might not be editable"
 msgstr ""
-" A causa della lunghezza,<br /> questo campo potrebbe non essere "
-"modificabile "
+"A causa della lunghezza,<br /> questo campo potrebbe non essere modificabile"
 
 #: tbl_change.php:818
 msgid "Remove BLOB Repository Reference"
@@ -11563,11 +11544,11 @@ msgstr "Tipo di indice:"
 #: tbl_indexes.php:265
 #, php-format
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
-msgstr "Aggiungi all'indice &nbsp;%s&nbsp;colonna/e"
+msgstr "Aggiungi &nbsp;%s&nbsp; campo/i all'indice"
 
 #: tbl_indexes.php:270 tbl_structure.php:700
 msgid "Column count has to be larger than zero."
-msgstr "Il contatore delle colonne deve essere superiore a 0."
+msgstr "Il numero dei campi deve essere superiore a zero."
 
 #: tbl_move_copy.php:44
 msgid "Can't move table to same one!"
@@ -11719,7 +11700,7 @@ msgstr "Lunghezza riga"
 
 #: tbl_printview.php:378 tbl_structure.php:896
 msgid "Row size"
-msgstr "Dimensione riga "
+msgstr "Dimensione riga"
 
 #: tbl_printview.php:388 tbl_structure.php:904
 msgid "Next autoindex"
@@ -11760,7 +11741,7 @@ msgstr "Aggiungi condizioni di ricerca (corpo della clausola \"where\"):"
 
 #: tbl_select.php:203
 msgid "Number of rows per page"
-msgstr "Numero di righi per pagina"
+msgstr "Numero di righe per pagina"
 
 #: tbl_select.php:209
 msgid "Display order:"
@@ -11957,7 +11938,7 @@ msgstr "Dump SQL (scarica il file)"
 
 #: tbl_tracking.php:550
 msgid "SQL dump"
-msgstr "dump SQL"
+msgstr "Dump SQL"
 
 #: tbl_tracking.php:551
 msgid "This option will replace your table and contained data."
@@ -12197,10 +12178,9 @@ msgid "Slow query logging"
 msgstr "Mostra riquadro query SQL"
 
 #: po/advisory_rules.php:31
-#, fuzzy
 #| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
-msgstr "slow_query_log é abilitato."
+msgstr "Il slow_query_log é disabilitato."
 
 #: po/advisory_rules.php:32
 msgid ""
@@ -12229,10 +12209,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Current version: %s"
-msgstr "Crea versione"
+msgstr "Versione corrente: %s"
 
 #: po/advisory_rules.php:40 po/advisory_rules.php:45
 #, fuzzy
@@ -12255,10 +12235,10 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr ""
 
 #: po/advisory_rules.php:47
-#, fuzzy
 #| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5"
-msgstr "Si dovrebbe aggiornare %s alla versione %s o successiva."
+msgstr ""
+"Dovresti effettuare l'aggiornamento ad una versione stabile di MySQL 5.5"
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
 #, fuzzy
@@ -13208,10 +13188,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:270
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
-msgstr "max. connessioni contemporanee"
+msgstr "Inserimenti MyISAM contemporanei"
 
 #: po/advisory_rules.php:271
 msgid "Enable concurrent_insert by setting it to 1"

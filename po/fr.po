@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-25 18:34-0400\n"
-"PO-Revision-Date: 2011-09-22 11:54+0200\n"
+"PO-Revision-Date: 2011-09-26 14:01+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -12254,6 +12254,8 @@ msgid ""
 "The current ratio of free query cache memory to total query cache size is %s%"
 "%. It should be above 80%%"
 msgstr ""
+"Le ratio actuel de mémoire libre pour la cache de requêtes par rapport à la "
+"mémoire totale de la cache est de %s%%. Il devrait se situer à plus de 80%%"
 
 #: po/advisory_rules.php:90
 msgid "Query cache fragmentation"
@@ -12261,7 +12263,7 @@ msgstr "Fragmentation de la cache des requêtes"
 
 #: po/advisory_rules.php:91
 msgid "The query cache is considerably fragmented."
-msgstr ""
+msgstr "La cache des requêtes est très fragmentée."
 
 #: po/advisory_rules.php:92
 msgid ""
@@ -12274,6 +12276,13 @@ msgid ""
 "using this formula: (query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 msgstr ""
+"Une fragmentation sévère va faire augmenter Qcache_lowmem_prunes. Ceci peut "
+"être causé par de nombreux élaguages de mémoire des caches de requêtes en "
+"raison du paramètre {query_cache_size} trop petit. Pour une correction "
+"immédiate à court terme vous pouvez vider la cache de requêtes (ce qui peut "
+"verrouiller cette cache un long moment). Un ajustement de "
+"{query_cache_min_res_unit} à la baisse peut également aider; utilisez la "
+"valeur  (query_cache_size - qcache_free_memory) / qcache_queries_in_cache"
 
 #: po/advisory_rules.php:93
 #, php-format
@@ -12282,18 +12291,22 @@ msgid ""
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
+"La cache est fragmentée à %s%%; une valeur de 100%% signifie qu'elle "
+"contient des blocs libres et occupés en alternance. Cette valeur devrait "
+"être sous les 20%%."
 
 #: po/advisory_rules.php:95
 msgid "Query cache low memory prunes"
-msgstr ""
+msgstr "Élaguages de mémoire de la cache de requêtes"
 
 #: po/advisory_rules.php:96
-#, fuzzy
 #| msgid "The amount of free memory for query cache."
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
-msgstr "La quantité de mémoire libre dans la cache de requêtes."
+msgstr ""
+"Les requêtes en cache sont enlevées en raison d'un manque de mémoire dans la "
+"cache de requêtes."
 
 #: po/advisory_rules.php:97
 msgid ""
@@ -12301,46 +12314,55 @@ msgid ""
 "overhead of maintaining the cache is likely to increase with its size, so do "
 "this in small increments and monitor the results."
 msgstr ""
+"Vous pouvez augmenter {query_cache_size}, cependant notez que la surcharge "
+"de maintenance de la cache va augmenter selon sa taille, alors effectuez "
+"cette augmentation petit à petit et surveillez les résultats."
 
 #: po/advisory_rules.php:98
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%)"
 msgstr ""
+"Le ratio des requêtes enlevées par rapport aux requêtes ajoutées est de %s%%"
+". Plus faible est cette valeur, mieux c'est."
 
 #: po/advisory_rules.php:100
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache max size"
-msgstr "Cache des requêtes"
+msgstr "Taille maximum de la cache des requêtes"
 
 #: po/advisory_rules.php:101
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
+"La taille de la cache de requêtes dépasse 128 Mio. Ceci peut causer une "
+"surcharge dans sa maintenance."
 
 #: po/advisory_rules.php:102
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
 msgstr ""
+"Selon votre environnement, la réduction de cette valeur pourrait améliorer "
+"la performance."
 
 #: po/advisory_rules.php:103
 #, php-format
 msgid "Current query cache size: %s"
-msgstr ""
+msgstr "Taille actuelle de la cache des requêtes : %s"
 
 #: po/advisory_rules.php:105
-#, fuzzy
 #| msgid "Query results"
 msgid "Query cache min result size"
-msgstr "Résultats de la requête"
+msgstr "Taille minimum de résultats de la cache de requêtes"
 
 #: po/advisory_rules.php:106
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
+"La taille maximum d'un jeu de résultats dans la cache de requêtes est la "
+"valeur par défaut de 1 Mio."
 
 #: po/advisory_rules.php:107
 msgid ""
@@ -12353,28 +12375,34 @@ msgid ""
 "(often invalidated due to table updates) increasing {query_cache_limit} "
 "might reduce efficiency."
 msgstr ""
+"Augmenter {query_cache_limit} peut améliorer l'efficacité. Cette variable "
+"détermine la taille maximum qu'un résultat doit avoir pour être inséré dans "
+"la cache de requêtes. Si plusieurs résultats d'une taille supérieure à 1 Mio "
+"qui peuvent être mis en cache (grand nombre de lectures, peu d'écritures), "
+"alors une augmentation de {query_cache_limit} va aider. Dans le cas "
+"contraire, cette augmentation va réduire l'efficacité."
 
 #: po/advisory_rules.php:108
 msgid "query_cache_limit is set to 1 MiB"
-msgstr ""
+msgstr "query_cache_limit a une valeur de 1Mio"
 
 #: po/advisory_rules.php:110
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
-msgstr "Permission de créer des tables temporaires."
+msgstr "Pourcentage des tris qui requièrent des tables temporaires"
 
 #: po/advisory_rules.php:111 po/advisory_rules.php:116
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
-msgstr "Permission de créer des tables temporaires."
+msgstr "Trop de tris causent la création de tables temporaires"
 
 #: po/advisory_rules.php:112 po/advisory_rules.php:117
 msgid ""
 "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending "
 "on your system memory limits"
 msgstr ""
+"Augmentez sort_buffer_size et/ou  read_rnd_buffer_size, selon la mémoire "
+"disponible."
 
 #: po/advisory_rules.php:113
 #, php-format
@@ -12396,14 +12424,13 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:120
-#, fuzzy
 #| msgid "Start row"
 msgid "Sort rows"
-msgstr "Ligne de départ"
+msgstr "Lignes triées"
 
 #: po/advisory_rules.php:121
 msgid "There are lots of rows being sorted."
-msgstr ""
+msgstr "Un grand nombre de lignes sont en train d'être triées."
 
 #: po/advisory_rules.php:122
 msgid ""
@@ -12416,7 +12443,7 @@ msgstr ""
 #: po/advisory_rules.php:123
 #, php-format
 msgid "Sorted rows average: %s"
-msgstr ""
+msgstr "Moyenne des lignes triées : %s"
 
 #: po/advisory_rules.php:125
 #, fuzzy
@@ -12425,16 +12452,18 @@ msgid "Rate of joins without indexes"
 msgstr "Il n'y a aucune procédure à afficher."
 
 #: po/advisory_rules.php:126
-#, fuzzy
 #| msgid "There are no routines to display."
 msgid "There are too many joins without indexes."
-msgstr "Il n'y a aucune procédure à afficher."
+msgstr "Il y a trop de jointures sans index."
 
 #: po/advisory_rules.php:127
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
 msgstr ""
+"Ceci signifie que les jointures requièrent des lectures de tables au "
+"complet. L'ajout d'index sur les colonnes utilisées dans les critères de "
+"jointure va accélérer les jointures."
 
 #: po/advisory_rules.php:128
 #, php-format

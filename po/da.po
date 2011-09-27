@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-25 18:34-0400\n"
-"PO-Revision-Date: 2011-08-30 18:16+0200\n"
+"PO-Revision-Date: 2011-09-25 23:05+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -1666,7 +1666,7 @@ msgstr "OK"
 
 #: js/messages.php:217
 msgid "Click to dismiss this notification"
-msgstr ""
+msgstr "Klik for at forkaste denne notifikation"
 
 #: js/messages.php:220
 msgid "Renaming Databases"
@@ -2203,10 +2203,10 @@ msgid "Remove \"./config\" directory before using phpMyAdmin!"
 msgstr "Fjern \"./config\" folderen før brug af phpMyAdmin!"
 
 #: libraries/Config.class.php:727
-#, fuzzy, php-format
+#, php-format
 #| msgid "Existing configuration file (%d) is not readable."
 msgid "Existing configuration file (%s) is not readable."
-msgstr "Eksisterende konfigurationsfil (%d) kan ikke læses."
+msgstr "Eksisterende konfigurationsfil (%s) kan ikke læses."
 
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
@@ -2434,6 +2434,8 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
+"Kan ikke gemme UI egenskaben \"%s\". Ændringerne vil ikke blive bevaret, efter "
+"at du opfrisker denne side. Undersøg, om tabelstrukturen er blevet ændret."
 
 #: libraries/Theme.class.php:145
 #, php-format
@@ -4871,7 +4873,6 @@ msgid "Automatically create versions"
 msgstr "Opret versioner automatisk"
 
 #: libraries/config/messages.inc.php:443
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
@@ -4879,8 +4880,8 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
 msgstr ""
-"Lades blank for ingen bruger preference storage i database, forslag: [kbd]"
-"pma_config[/kbd]"
+"Lades blank for ingen bruger preference storage i database, forslag: "
+"[kbd]pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:444
 msgid "User preferences storage table"
@@ -6499,7 +6500,6 @@ msgid "Add statements:"
 msgstr "Tilføj forespørgsler:"
 
 #: libraries/export/sql.php:211
-#, fuzzy
 #| msgid ""
 #| "Enclose table and field names with backquotes <i>(Protects field and "
 #| "table names formed with special characters or keywords)</i>"
@@ -11261,7 +11261,6 @@ msgid "No index parts defined!"
 msgstr "Ingen dele af indeks er defineret!"
 
 #: tbl_indexes.php:169
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create an index"
 msgstr "Lav et nyt indeks"
@@ -11740,7 +11739,7 @@ msgstr "Ekstra søgekriterium"
 
 #: tbl_zoom_select.php:276
 msgid "Use this column to label each point"
-msgstr ""
+msgstr "Brug denne kolonne til at navngive hvert punkt"
 
 #: tbl_zoom_select.php:296
 msgid "Maximum rows to plot"

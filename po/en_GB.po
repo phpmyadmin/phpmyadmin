@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-25 18:34-0400\n"
-"PO-Revision-Date: 2011-09-10 16:23+0200\n"
-"Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
+"PO-Revision-Date: 2011-09-25 23:14+0200\n"
+"Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
+"Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -1658,7 +1658,7 @@ msgstr "OK"
 
 #: js/messages.php:217
 msgid "Click to dismiss this notification"
-msgstr ""
+msgstr "Click to dismiss this notification"
 
 #: js/messages.php:220
 msgid "Renaming Databases"
@@ -4844,7 +4844,6 @@ msgid "Automatically create versions"
 msgstr "Automatically create versions"
 
 #: libraries/config/messages.inc.php:443
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
@@ -4852,8 +4851,8 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
 msgstr ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma_config[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:444
 msgid "User preferences storage table"
@@ -6470,7 +6469,6 @@ msgid "Add statements:"
 msgstr "Add statements:"
 
 #: libraries/export/sql.php:211
-#, fuzzy
 #| msgid ""
 #| "Enclose table and field names with backquotes <i>(Protects field and "
 #| "table names formed with special characters or keywords)</i>"
@@ -6478,8 +6476,8 @@ msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
-"Enclose table and field names with backquotes <i>(Protects field and table "
-"names formed with special characters or keywords)</i>"
+"Enclose table and column names with back-quotes <i>(Protects column and "
+"table names formed with special characters or keywords)</i>"
 
 #: libraries/export/sql.php:231
 msgid "Instead of <code>INSERT</code> statements, use:"
@@ -10417,7 +10415,6 @@ msgid "Using the monitor:"
 msgstr "Using the monitor:"
 
 #: server_status.php:1614
-#, fuzzy
 #| msgid ""
 #| "<b>Using the monitor:</b><br/> Ok, you are good to go! Once you click "
 #| "'Start monitor' your browser will refresh all displayed charts in a "
@@ -10433,20 +10430,12 @@ msgid ""
 "change the refresh rate under 'Settings', or remove any chart using the cog "
 "icon on each respective chart."
 msgstr ""
-"<b>Using the monitor:</b><br/>\n"
-"        Ok, you are good to go! Once you click 'Start monitor' your browser "
-"will refresh all displayed charts\n"
-"        in a regular interval. You may add charts and change the refresh "
-"rate under 'Settings', or remove any chart\n"
-"        using the cog icon on each respective chart.\n"
-"        <p>When you get to see a sudden spike in activity, select the "
-"relevant time span on any chart by holding down the\n"
-"        left mouse button and panning over the chart. This will load "
-"statistics from the logs helping you find what caused the\n"
-"        activity spike.</p>"
+"Ok, you are good to go! Once you click 'Start monitor' your browser will "
+"refresh all displayed charts in a regular interval. You may add charts and "
+"change the refresh rate under 'Settings', or remove any chart using the cog "
+"icon on each respective chart."
 
 #: server_status.php:1616
-#, fuzzy
 #| msgid ""
 #| "<b>Using the monitor:</b><br/> Ok, you are good to go! Once you click "
 #| "'Start monitor' your browser will refresh all displayed charts in a "
@@ -10462,24 +10451,16 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occuring SELECT statements to further analyze them."
 msgstr ""
-"<b>Using the monitor:</b><br/>\n"
-"        Ok, you are good to go! Once you click 'Start monitor' your browser "
-"will refresh all displayed charts\n"
-"        in a regular interval. You may add charts and change the refresh "
-"rate under 'Settings', or remove any chart\n"
-"        using the cog icon on each respective chart.\n"
-"        <p>When you get to see a sudden spike in activity, select the "
-"relevant time span on any chart by holding down the\n"
-"        left mouse button and panning over the chart. This will load "
-"statistics from the logs helping you find what caused the\n"
-"        activity spike.</p>"
+"To display queries from the logs, select the relevant time span on any chart "
+"by holding down the left mouse button and panning over the chart. Once "
+"confirmed, this will load a table of grouped queries, there you may click on "
+"any occurring SELECT statements to further analyse them."
 
 #: server_status.php:1623
 msgid "Please note:"
-msgstr ""
+msgstr "Please note:"
 
 #: server_status.php:1625
-#, fuzzy
 #| msgid ""
 #| "<b>Please note:</b> Enabling the general_log may increase the server load "
 #| "by 5-15%. Also be aware that generating statistics from the logs is a "
@@ -10492,13 +10473,10 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
-"<b>Please note:</b>\n"
-"        Enabling the general_log may increase the server load by 5-15%. Also "
-"be aware that generating statistics from the logs is a\n"
-"        load intensive task, so it is advisable to select only a small time "
-"span and to disable the general_log and empty its table once monitoring is "
-"not required any more.\n"
-"        "
+"Enabling the general_log may increase the server load by 5-15%. Also be "
+"aware that generating statistics from the logs is a load intensive task, so "
+"it is advisable to select only a small time span and to disable the "
+"general_log and empty its table once monitoring is not required any more."
 
 #: server_status.php:1637
 msgid "Preset chart"
@@ -10561,18 +10539,15 @@ msgid "Remove variable data in INSERT statements for better grouping"
 msgstr "Remove variable data in INSERT statements for better grouping"
 
 #: server_status.php:1713
-#, fuzzy
 #| msgid ""
 #| "<p>Choose from which log you want the statistics to be generated from.</"
 #| "p> Results are grouped by query text."
 msgid "Choose from which log you want the statistics to be generated from."
-msgstr ""
-"<p>Choose from which log you want the statistics to be generated from.</p> "
-"Results are grouped by query text."
+msgstr "Choose from which log you want the statistics to be generated from."
 
 #: server_status.php:1715
 msgid "Results are grouped by query text."
-msgstr ""
+msgstr "Results are grouped by query text."
 
 #: server_status.php:1720
 msgid "Query analyzer"
@@ -10675,10 +10650,9 @@ msgid "Target database has been synchronized with source database"
 msgstr "Target database has been synchronised with source database"
 
 #: server_synchronize.php:1046
-#, fuzzy
 #| msgid "Issued queries"
 msgid "Executed queries"
-msgstr "Issued queries"
+msgstr "Executed queries"
 
 #: server_synchronize.php:1194
 msgid "Enter manually"
@@ -10727,7 +10701,7 @@ msgstr "Download"
 
 #: setup/frames/form.inc.php:25
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
-msgstr ""
+msgstr "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
 
 #: setup/frames/index.inc.php:49
 msgid "Cannot load or save configuration"
@@ -10838,7 +10812,7 @@ msgstr "Add a new server"
 
 #: setup/index.php:22
 msgid "Wrong GET file attribute value"
-msgstr ""
+msgstr "Wrong GET file attribute value"
 
 #: setup/lib/form_processing.lib.php:43
 msgid "Warning"
@@ -11045,10 +11019,9 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Key should contain letters, numbers [em]and[/em] special characters."
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No data"
 msgid "Wrong data"
-msgstr "No data"
+msgstr "Wrong data"
 
 #: sql.php:100 tbl_change.php:262 tbl_select.php:28 tbl_zoom_select.php:58
 msgid "Browse foreign values"
@@ -11264,10 +11237,9 @@ msgid "No index parts defined!"
 msgstr "No index parts defined!"
 
 #: tbl_indexes.php:169
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create an index"
-msgstr "Create a new index"
+msgstr "Create an index"
 
 #: tbl_indexes.php:171
 msgid "Modify an index"
@@ -11450,7 +11422,7 @@ msgstr "Row size"
 
 #: tbl_printview.php:388 tbl_structure.php:904
 msgid "Next autoindex"
-msgstr ""
+msgstr "Next autoindex"
 
 #: tbl_relation.php:276
 #, php-format
@@ -11548,10 +11520,9 @@ msgid "Show more actions"
 msgstr "Show more actions"
 
 #: tbl_structure.php:606
-#, fuzzy
 #| msgid "Print view"
 msgid "Edit view"
-msgstr "Print view"
+msgstr "Edit view"
 
 #: tbl_structure.php:623
 msgid "Relation view"
@@ -11734,36 +11705,32 @@ msgid "Create version"
 msgstr "Create version"
 
 #: tbl_zoom_select.php:135
-#, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "Do a \"query by example\" (wildcard: \"%\")"
+msgstr "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 
 #: tbl_zoom_select.php:145
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Additional search criteria"
-msgstr "Hide search criteria"
+msgstr "Additional search criteria"
 
 #: tbl_zoom_select.php:276
 msgid "Use this column to label each point"
-msgstr ""
+msgstr "Use this column to label each point"
 
 #: tbl_zoom_select.php:296
-#, fuzzy
 #| msgid "Maximum number of rows to display"
 msgid "Maximum rows to plot"
-msgstr "Maximum number of rows to display"
+msgstr "Maximum rows to plot"
 
 #: tbl_zoom_select.php:410
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "Browse/Edit the points"
 
 #: tbl_zoom_select.php:417
-#, fuzzy
 #| msgid "Control user"
 msgid "How to use"
-msgstr "Control user"
+msgstr "How to use"
 
 #: themes.php:28
 msgid "Get more themes!"
@@ -11806,79 +11773,86 @@ msgstr "Rename view to"
 
 #: po/advisory_rules.php:5
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Uptime below one day"
 
 #: po/advisory_rules.php:6
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr ""
+msgstr "Uptime is less than 1 day, performance tuning may not be accurate."
 
 #: po/advisory_rules.php:7
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"To have more accurate averages it is recommended to let the server run for "
+"longer than a day before running this analyser"
 
 #: po/advisory_rules.php:8
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "The uptime is only %s"
 
 #: po/advisory_rules.php:10
-#, fuzzy
 #| msgid "Questions"
 msgid "Questions below 1,000"
-msgstr "Questions"
+msgstr "Questions below 1,000"
 
 #: po/advisory_rules.php:11
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
+"Fewer than 1,000 questions have been run against this server. The "
+"recommendations may not be accurate."
 
 #: po/advisory_rules.php:12
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
+"Let the server run for a longer time until it has executed a greater amount "
+"of queries."
 
 #: po/advisory_rules.php:13
-#, fuzzy, php-format
+#, php-format
 #| msgid "Current connection"
 msgid "Current amount of Questions: %s"
-msgstr "Current connection"
+msgstr "Current amount of Questions: %s"
 
 #: po/advisory_rules.php:15
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
-msgstr "Show SQL queries"
+msgstr "Percentage of slow queries"
 
 #: po/advisory_rules.php:16
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr ""
+"There is a lot of slow queries compared to the overall amount of Queries."
 
 #: po/advisory_rules.php:17 po/advisory_rules.php:22
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
+"You might want to increase {long_query_time} or optimize the queries listed "
+"in the slow query log"
 
 #: po/advisory_rules.php:18
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr ""
+msgstr "The slow query rate should be below 5%%, your value is %s%%."
 
 #: po/advisory_rules.php:20
-#, fuzzy
 #| msgid "Flush query cache"
 msgid "Slow query rate"
-msgstr "Flush query cache"
+msgstr "Slow query rate"
 
 #: po/advisory_rules.php:21
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"There is a high percentage of slow queries compared to the server uptime."
 
 #: po/advisory_rules.php:23
 #, php-format
@@ -11886,110 +11860,115 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
+"You have a slow query rate of %s per hour, you should have less than 1%% per "
+"hour."
 
 #: po/advisory_rules.php:25
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Long query time"
-msgstr "SQL queries"
+msgstr "Long query time"
 
 #: po/advisory_rules.php:26
 msgid ""
 "long_query_time is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"long_query_time is set to 10 seconds or more, thus only slow queries that "
+"take above 10 seconds are logged."
 
 #: po/advisory_rules.php:27
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"It is suggested to set {long_query_time} to a lower value, depending on your "
+"environment. Usually a value of 1-5 seconds is suggested."
 
 #: po/advisory_rules.php:28
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "long_query_time is currently set to %ds."
-msgstr "long_query_time is set to %d second(s)."
+msgstr "long_query_time is currently set to %ds."
 
 #: po/advisory_rules.php:30
-#, fuzzy
 #| msgid "Show query box"
 msgid "Slow query logging"
-msgstr "Show query box"
+msgstr "Slow query logging"
 
 #: po/advisory_rules.php:31
-#, fuzzy
 #| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
-msgstr "slow_query_log is enabled."
+msgstr "The slow query log is disabled."
 
 #: po/advisory_rules.php:32
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
+"help troubleshooting badly performing queries."
 
 #: po/advisory_rules.php:33
 msgid "log_slow_queries is set to 'OFF'"
-msgstr ""
+msgstr "log_slow_queries is set to 'OFF'"
 
 #: po/advisory_rules.php:35
-#, fuzzy
 #| msgid "Clear series"
 msgid "Release Series"
-msgstr "Clear series"
+msgstr "Release Series"
 
 #: po/advisory_rules.php:36
 msgid "The MySQL server version less then 5.1."
-msgstr ""
+msgstr "The MySQL server version less then 5.1."
 
 #: po/advisory_rules.php:37
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
+"You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
+"even more so."
 
 #: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Current version: %s"
-msgstr "Create version"
+msgstr "Current version: %s"
 
 #: po/advisory_rules.php:40 po/advisory_rules.php:45
-#, fuzzy
 #| msgid "Version"
 msgid "Minor Version"
-msgstr "Version"
+msgstr "Minor Version"
 
 #: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
+msgstr "Version less than 5.1.30 (the first GA release of 5.1)."
 
 #: po/advisory_rules.php:42
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
+"You should upgrade, as recent versions of MySQL 5.1 have improved "
+"performance and MySQL 5.5 even more so."
 
 #: po/advisory_rules.php:46
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr ""
+msgstr "Version less than 5.5.8 (the first GA release of 5.5)."
 
 #: po/advisory_rules.php:47
-#, fuzzy
 #| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5"
-msgstr "You should upgrade to %s %s or later."
+msgstr "You should upgrade, to a stable version of MySQL 5.5"
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
-#, fuzzy
 #| msgid "Description"
 msgid "Distribution"
-msgstr "Description"
+msgstr "Distribution"
 
 #: po/advisory_rules.php:51
 msgid "Version is compiled from source, not a MySQL official binary."
-msgstr ""
+msgstr "Version is compiled from source, not a MySQL official binary."
 
 #: po/advisory_rules.php:52
 msgid ""
@@ -11997,41 +11976,43 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
+"If you did not compile from source, you may be using a package modified by a "
+"distribution. The MySQL manual only is accurate for official MySQL "
+"binaries, not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 
 #: po/advisory_rules.php:53
 msgid "'source' found in version_comment"
-msgstr ""
+msgstr "'source' found in version_comment"
 
 #: po/advisory_rules.php:56 po/advisory_rules.php:61
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr ""
+msgstr "The MySQL manual only is accurate for official MySQL binaries."
 
 #: po/advisory_rules.php:57
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
-msgstr ""
+msgstr "Percona documentation is at http://www.percona.com/docs/wiki/"
 
 #: po/advisory_rules.php:58
 msgid "'percona' found in version_comment"
-msgstr ""
+msgstr "'percona' found in version_comment"
 
 #: po/advisory_rules.php:62
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
-msgstr ""
+msgstr "Drizzle documentation is at http://docs.drizzle.org/"
 
 #: po/advisory_rules.php:63
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
-msgstr ""
+msgstr "Version string (%s) matches Drizzle versioning scheme"
 
 #: po/advisory_rules.php:65
-#, fuzzy
 #| msgid "MySQL charset"
 msgid "MySQL Architecture"
-msgstr "MySQL charset"
+msgstr "MySQL Architecture"
 
 #: po/advisory_rules.php:66
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "MySQL is not compiled as a 64-bit package."
 
 #: po/advisory_rules.php:67
 msgid ""
@@ -12039,23 +12020,24 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
+"Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
+"so MySQL might not be able to access all of your memory. You might want to "
+"consider installing the 64-bit version of MySQL."
 
 #: po/advisory_rules.php:68
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "Available memory on this host: %s"
 
 #: po/advisory_rules.php:70
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache disabled"
-msgstr "Query cache"
+msgstr "Query cache disabled"
 
 #: po/advisory_rules.php:71
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "The server is not responding"
+msgstr "The query cache is not enabled."
 
 #: po/advisory_rules.php:72
 msgid ""
@@ -12064,20 +12046,23 @@ msgid ""
 "and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
 "memcached, ignore this recommendation."
 msgstr ""
+"The query cache is known to greatly improve performance if configured "
+"correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value "
+"and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
+"memcached, ignore this recommendation."
 
 #: po/advisory_rules.php:73
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
-msgstr ""
+msgstr "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 
 #: po/advisory_rules.php:75
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query caching method"
-msgstr "Query cache"
+msgstr "Query caching method"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
-msgstr ""
+msgstr "Suboptimal caching method."
 
 #: po/advisory_rules.php:77
 msgid ""
@@ -12086,6 +12071,11 @@ msgid ""
 "refman/5.5/en/ha-memcached.html\\\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
+"You are using the MySQL Query cache with a fairly high traffic database. It "
+"might be worth considering to use <a "
+"href=\\\"http://dev.mysql.com/doc/refman/5.5/en/ha-"
+"memcached.html\\\">memcached</a> instead of the MySQL Query cache, especially "
+"if you have multiple slaves."
 
 #: po/advisory_rules.php:78
 #, php-format
@@ -12093,39 +12083,42 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
+"The query cache is enabled and the server receives %d queries per second. "
+"This rule fires if there is more than 100 queries per second."
 
 #: po/advisory_rules.php:80
 msgid "Query cache efficiency (%)"
-msgstr ""
+msgstr "Query cache efficiency (%)"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
-msgstr ""
+msgstr "Query cache not running efficiently, it has a low hit rate."
 
 #: po/advisory_rules.php:82
 msgid "Consider increasing {query_cache_limit}."
-msgstr ""
+msgstr "Consider increasing {query_cache_limit}."
 
 #: po/advisory_rules.php:83
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr ""
+msgstr "The current query cache hit rate of %s%% is below 20%%"
 
 #: po/advisory_rules.php:85
-#, fuzzy
 msgid "Query Cache usage"
-msgstr "Query cache"
+msgstr "Query Cache usage"
 
 #: po/advisory_rules.php:86
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
-msgstr ""
+msgstr "Less than 80%% of the query cache is being utilised."
 
 #: po/advisory_rules.php:87
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
 msgstr ""
+"This might be caused by {query_cache_limit} being too low. Flushing the "
+"query cache might help as well."
 
 #: po/advisory_rules.php:88
 #, php-format
@@ -12133,16 +12126,17 @@ msgid ""
 "The current ratio of free query cache memory to total query cache size is %s%"
 "%. It should be above 80%%"
 msgstr ""
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 
 #: po/advisory_rules.php:90
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache fragmentation"
-msgstr "Query cache"
+msgstr "Query cache fragmentation"
 
 #: po/advisory_rules.php:91
 msgid "The query cache is considerably fragmented."
-msgstr ""
+msgstr "The query cache is considerably fragmented."
 
 #: po/advisory_rules.php:92
 msgid ""
@@ -12155,6 +12149,14 @@ msgid ""
 "using this formula: (query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 msgstr ""
+"Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
+"This might be caused by many Query cache low memory prunes due to "
+"{query_cache_size} being too small. For a immediate but short lived fix you "
+"can flush the query cache (might lock the query cache for a long time). "
+"Carefully adjusting {query_cache_min_res_unit} to a lower value might help "
+"too, e.g. you can set it to the average size of your queries in the cache "
+"using this formula: (query_cache_size - qcache_free_memory) / "
+"qcache_queries_in_cache"
 
 #: po/advisory_rules.php:93
 #, php-format
@@ -12163,18 +12165,22 @@ msgid ""
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
+"The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
+"that the query cache is an alternating pattern of free and used blocks. "
+"This value should be below 20%%."
 
 #: po/advisory_rules.php:95
 msgid "Query cache low memory prunes"
-msgstr ""
+msgstr "Query cache low memory prunes"
 
 #: po/advisory_rules.php:96
-#, fuzzy
 #| msgid "The amount of free memory for query cache."
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
-msgstr "The amount of free memory for query cache."
+msgstr ""
+"Cached queries are removed due to low query cache memory from the query "
+"cache."
 
 #: po/advisory_rules.php:97
 msgid ""
@@ -12182,46 +12188,54 @@ msgid ""
 "overhead of maintaining the cache is likely to increase with its size, so do "
 "this in small increments and monitor the results."
 msgstr ""
+"You might want to increase {query_cache_size}, however keep in mind that the "
+"overhead of maintaining the cache is likely to increase with its size, so "
+"do this in small increments and monitor the results."
 
 #: po/advisory_rules.php:98
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%)"
 msgstr ""
+"The ratio of removed queries to inserted queries is %s%%. The lower this "
+"value is, the better (This rules firing limit: 0.1%)"
 
 #: po/advisory_rules.php:100
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache max size"
-msgstr "Query cache"
+msgstr "Query cache max size"
 
 #: po/advisory_rules.php:101
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
+"The query cache size is above 128 MiB. Big query caches may cause "
+"significant overhead that is required to maintain the cache."
 
 #: po/advisory_rules.php:102
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
 msgstr ""
+"Depending on your environment, it might be performance increasing to reduce "
+"this value."
 
 #: po/advisory_rules.php:103
 #, php-format
 msgid "Current query cache size: %s"
-msgstr ""
+msgstr "Current query cache size: %s"
 
 #: po/advisory_rules.php:105
-#, fuzzy
 #| msgid "Query results"
 msgid "Query cache min result size"
-msgstr "Query results"
+msgstr "Query cache min result size"
 
 #: po/advisory_rules.php:106
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
+"The max size of the result set in the query cache is the default of 1 MiB."
 
 #: po/advisory_rules.php:107
 msgid ""
@@ -12237,25 +12251,25 @@ msgstr ""
 
 #: po/advisory_rules.php:108
 msgid "query_cache_limit is set to 1 MiB"
-msgstr ""
+msgstr "query_cache_limit is set to 1 MiB"
 
 #: po/advisory_rules.php:110
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
-msgstr "Allows creating temporary tables."
+msgstr "Percentage of sorts that cause temporary tables"
 
 #: po/advisory_rules.php:111 po/advisory_rules.php:116
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
-msgstr "Allows creating temporary tables."
+msgstr "Too many sorts are causing temporary tables."
 
 #: po/advisory_rules.php:112 po/advisory_rules.php:117
 msgid ""
 "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending "
 "on your system memory limits"
 msgstr ""
+"Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending "
+"on your system memory limits"
 
 #: po/advisory_rules.php:113
 #, php-format
@@ -12263,28 +12277,29 @@ msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than 10%"
 "%."
 msgstr ""
+"%s%% of all sorts cause temporary tables, this value should be lower than 10"
+"%%."
 
 #: po/advisory_rules.php:115
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
-msgstr "Allows creating temporary tables."
+msgstr "Rate of sorts that cause temporary tables"
 
 #: po/advisory_rules.php:118
 #, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
+"Temporary tables average: %s, this value should be less than 1 per hour."
 
 #: po/advisory_rules.php:120
-#, fuzzy
 #| msgid "Start row"
 msgid "Sort rows"
-msgstr "Start row"
+msgstr "Sort rows"
 
 #: po/advisory_rules.php:121
 msgid "There are lots of rows being sorted."
-msgstr ""
+msgstr "There are lots of rows being sorted."
 
 #: po/advisory_rules.php:122
 msgid ""
@@ -12293,42 +12308,46 @@ msgid ""
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting"
 msgstr ""
+"While there is nothing wrong with a high amount of row sorting, you might "
+"want to make sure that the queries which require a lot of sorting use "
+"indexed fields in the ORDER BY clause, as this will result in much faster "
+"sorting"
 
 #: po/advisory_rules.php:123
 #, php-format
 msgid "Sorted rows average: %s"
-msgstr ""
+msgstr "Sorted rows average: %s"
 
 #: po/advisory_rules.php:125
-#, fuzzy
 #| msgid "There are no routines to display."
 msgid "Rate of joins without indexes"
-msgstr "There are no routines to display."
+msgstr "Rate of joins without indexes"
 
 #: po/advisory_rules.php:126
-#, fuzzy
 #| msgid "There are no routines to display."
 msgid "There are too many joins without indexes."
-msgstr "There are no routines to display."
+msgstr "There are too many joins without indexes."
 
 #: po/advisory_rules.php:127
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
 msgstr ""
+"This means that joins are doing full table scans. Adding indexes for the "
+"fields being used in the join conditions will greatly speed up table joins"
 
 #: po/advisory_rules.php:128
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
-msgstr ""
+msgstr "Table joins average: %s, this value should be less than 1 per hour"
 
 #: po/advisory_rules.php:130
 msgid "Rate of reading first index entry"
-msgstr ""
+msgstr "Rate of reading first index entry"
 
 #: po/advisory_rules.php:131
 msgid "The rate of reading the first index entry is high."
-msgstr ""
+msgstr "The rate of reading the first index entry is high."
 
 #: po/advisory_rules.php:132
 msgid ""
@@ -12343,15 +12362,15 @@ msgstr ""
 #: po/advisory_rules.php:133
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
-msgstr ""
+msgstr "Index scans average: %s, this value should be less than 1 per hour"
 
 #: po/advisory_rules.php:135
 msgid "Rate of reading fixed position"
-msgstr ""
+msgstr "Rate of reading fixed position"
 
 #: po/advisory_rules.php:136
 msgid "The rate of reading data from a fixed position is high."
-msgstr ""
+msgstr "The rate of reading data from a fixed position is high."
 
 #: po/advisory_rules.php:137
 msgid ""
@@ -12366,24 +12385,26 @@ msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr ""
+"Rate of reading fixed position average: %s, this value should be less than 1 "
+"per hour"
 
 #: po/advisory_rules.php:140
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Rate of reading next table row"
-msgstr "Where to show the table row links"
+msgstr "Rate of reading next table row"
 
 #: po/advisory_rules.php:141
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "The rate of reading the next table row is high."
-msgstr "Where to show the table row links"
+msgstr "The rate of reading the next table row is high."
 
 #: po/advisory_rules.php:142
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
 msgstr ""
+"This indicates that many queries are doing full table scans. Add indexes "
+"where applicable."
 
 #: po/advisory_rules.php:143
 #, php-format

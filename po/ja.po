@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-25 18:34-0400\n"
-"PO-Revision-Date: 2011-09-22 12:50+0200\n"
+"PO-Revision-Date: 2011-09-24 12:27+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1534,8 +1534,7 @@ msgstr "単語／正規表現でクエリをフィルタ："
 
 #: js/messages.php:177
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
-"WHERE 句内のデータ部（文字列や数値など）は同一として扱いクエリをまとめる"
+msgstr "WHERE 節内のデータ部（文字列や数値など）は同一として扱いクエリをまとめる"
 
 #: js/messages.php:178
 msgid "Sum of grouped rows:"
@@ -12136,10 +12135,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:100
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache max size"
-msgstr "クエリキャッシュ"
+msgstr "クエリキャッシュの最大サイズ"
 
 #: po/advisory_rules.php:101
 msgid ""
@@ -12159,10 +12157,9 @@ msgid "Current query cache size: %s"
 msgstr "現在のクエリキャッシュサイズ: %s"
 
 #: po/advisory_rules.php:105
-#, fuzzy
 #| msgid "Query results"
 msgid "Query cache min result size"
-msgstr "クエリの結果"
+msgstr "クエリキャッシュの最小結果サイズ"
 
 #: po/advisory_rules.php:106
 msgid ""
@@ -12224,14 +12221,13 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:120
-#, fuzzy
 #| msgid "Start row"
 msgid "Sort rows"
-msgstr "開始行"
+msgstr "行のソート"
 
 #: po/advisory_rules.php:121
 msgid "There are lots of rows being sorted."
-msgstr ""
+msgstr "ソートされている行が沢山あります。"
 
 #: po/advisory_rules.php:122
 msgid ""
@@ -12240,11 +12236,13 @@ msgid ""
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting"
 msgstr ""
+"多くの行がソートされていても特に問題ないのであれば、多くのソートを必要とするクエリに対して、ORDER BY "
+"節にインデックスのあるカラムを使うのを検討する程度でいいでしょう。そのクエリ結果のソートは、とても速くなるかもしれません。"
 
 #: po/advisory_rules.php:123
 #, php-format
 msgid "Sorted rows average: %s"
-msgstr ""
+msgstr "ソートされている行の平均：%s"
 
 #: po/advisory_rules.php:125
 msgid "Rate of joins without indexes"

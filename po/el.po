@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-25 18:34-0400\n"
-"PO-Revision-Date: 2011-09-13 18:57+0200\n"
+"PO-Revision-Date: 2011-09-26 13:10+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -1676,7 +1676,7 @@ msgstr "Εντάξει"
 
 #: js/messages.php:217
 msgid "Click to dismiss this notification"
-msgstr ""
+msgstr "Πατήστε γαι να παραλείψετε αυτή την ειδοποίηση"
 
 #: js/messages.php:220
 msgid "Renaming Databases"
@@ -4923,7 +4923,6 @@ msgid "Automatically create versions"
 msgstr "Αυτόματη δημιουργία εκδόσεων"
 
 #: libraries/config/messages.inc.php:443
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
@@ -4931,8 +4930,8 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
 msgstr ""
-"Αφήστε το κενό για μη αποθήκευση των ρυθμίσεων χρήστη, προτείνεται: [kbd]"
-"pma_config[/kbd]"
+"Αφήστε το κενό για μη αποθήκευση των ρυθμίσεων χρήστη στη βάση δεδομένων, "
+"προτείνεται: [kbd]pma_config[/kbd]"
 
 #: libraries/config/messages.inc.php:444
 msgid "User preferences storage table"

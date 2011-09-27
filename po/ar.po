@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-25 18:34-0400\n"
-"PO-Revision-Date: 2011-08-07 03:51+0200\n"
+"PO-Revision-Date: 2011-09-24 21:48+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ar\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 "X-Generator: Pootle 2.0.5\n"
@@ -834,20 +834,18 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "نسخ ولصق القيم المضمومة لحقل \"Length/Values\""
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "نوع الاستعلام"
+msgstr "نوع غير صالح!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
 msgstr "نوع التصدير المحدد سيحفظ في الملف!"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Add new field"
 msgid "Bad parameters!"
-msgstr "إضافة حقل جديد"
+msgstr "مدخلات غير صالحة!"
 
 #: export.php:166 export.php:191 export.php:652
 #, php-format
@@ -871,16 +869,15 @@ msgid "Dump has been saved to file %s."
 msgstr "تم حفظ الـDump إلى الملف %s."
 
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "نوع التصدير"
+msgstr "نوع التصدير غير صحيح"
 
 #: gis_data_editor.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
-msgstr "قيم للعمود \"%s\""
+msgstr "قيمة العمود \"%s\""
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
@@ -888,45 +885,43 @@ msgstr ""
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:293
 #: libraries/display_tbl.lib.php:685
 msgid "Geometry"
-msgstr ""
+msgstr "هندسة"
 
 #: gis_data_editor.php:172 js/messages.php:289
 msgid "Point"
-msgstr ""
+msgstr "نقطة"
 
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
 #: gis_data_editor.php:297 js/messages.php:287
 msgid "X"
-msgstr ""
+msgstr "س"
 
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
 #: gis_data_editor.php:299 js/messages.php:288
 msgid "Y"
-msgstr ""
+msgstr "ص"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
 #: js/messages.php:290
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "نقطة %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:296
-#, fuzzy
 #| msgid "Add new field"
 msgid "Add a point"
-msgstr "إضافة حقل جديد"
+msgstr "إضافة نقطة"
 
 #: gis_data_editor.php:220 js/messages.php:291
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "أسطر تنتهي بـ"
+msgstr "منحنى"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:295
 msgid "Outer Ring"
@@ -937,10 +932,9 @@ msgid "Inner Ring"
 msgstr ""
 
 #: gis_data_editor.php:252
-#, fuzzy
 #| msgid "Add constraints"
 msgid "Add a linestring"
-msgstr "أضف قيود"
+msgstr "إضافة منحنى"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:297
 #, fuzzy
@@ -950,13 +944,12 @@ msgstr "إضافة فهرس مميز"
 
 #: gis_data_editor.php:266 js/messages.php:292
 msgid "Polygon"
-msgstr ""
+msgstr "مضلع"
 
 #: gis_data_editor.php:306 js/messages.php:298
-#, fuzzy
 #| msgid "Add column"
 msgid "Add a polygon"
-msgstr "إضافة عمود"
+msgstr "إضافة مضلع"
 
 #: gis_data_editor.php:310
 #, fuzzy
@@ -1013,13 +1006,12 @@ msgstr ""
 #: import.php:366
 msgid ""
 "Cannot convert file's character set without character set conversion library"
-msgstr ""
+msgstr "لاتستطيع تغيير ترميز الملفات بدون مكتبة الدوال الخاصة بذلك"
 
 #: import.php:390 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
 msgstr "لايمكن تحميل الإضافات المستوردة ,, فضلاً تحقق من عملية التنصيب ."
 
-#: import.php:421 sql.php:907
 #, php-format
 msgid "Bookmark %s created"
 msgstr "تم إنشاء العلامة المرجعية %s"
@@ -1244,7 +1236,6 @@ msgid "Query statistics"
 msgstr "إحصائيات الإستعلام"
 
 #: js/messages.php:93
-#, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Local monitor configuration incompatible"
 msgstr "فشل قراءة ملف الإعدادات"
@@ -1377,7 +1368,7 @@ msgstr "تحرير العناوين"
 
 #: js/messages.php:129
 msgid "Add chart to grid"
-msgstr ""
+msgstr "إضافة رسم بياني "
 
 #: js/messages.php:131
 msgid "Please add at least one variable to the series"
@@ -1393,11 +1384,11 @@ msgstr "لا شيء"
 
 #: js/messages.php:133
 msgid "Resume monitor"
-msgstr ""
+msgstr "إستئناف المراقبة"
 
 #: js/messages.php:134
 msgid "Pause monitor"
-msgstr ""
+msgstr "إيقاف المراقبة"
 
 #: js/messages.php:136
 msgid "general_log and slow_query_log are enabled."
@@ -1440,7 +1431,7 @@ msgstr "long_query_time محددة بـ %d ثانية."
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
-msgstr ""
+msgstr "الإعدادات التالية سوف تفعل عند إعادة تشغيل السيرفر:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:146
@@ -1483,10 +1474,9 @@ msgid "Current settings"
 msgstr "الإعدادات الحالية"
 
 #: js/messages.php:157 server_status.php:1634
-#, fuzzy
 #| msgid "Import files"
 msgid "Chart Title"
-msgstr "استورد الملفات"
+msgstr "عنوان الرسم البياني"
 
 #. l10n: As in differential values
 #: js/messages.php:159
@@ -1508,7 +1498,7 @@ msgstr ""
 
 #: js/messages.php:164
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "تحميل وتحليل السجل . قد يستغرق بعض الوقت."
 
 #: js/messages.php:165
 msgid ""
@@ -1546,37 +1536,34 @@ msgstr "خيارات عرض الجداول"
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:175
 msgid "Filter"
-msgstr ""
+msgstr "مرشح"
 
 #: js/messages.php:176
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "ترشيح الإستعلامات بواسطة word/regexp :"
 
 #: js/messages.php:177
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
+msgstr "مجموعة إستعلامات , تجاهل المتغيرات في جملة WHERE"
 
 #: js/messages.php:178
-#, fuzzy
 #| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
-msgstr "عدد الصفوف المدخلة"
+msgstr "مجموع الصفوف المدخلة:"
 
 #: js/messages.php:179
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "مجموع كلي"
+msgstr "المجموع:"
 
 #: js/messages.php:181
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading logs"
-msgstr "تحميل"
+msgstr "تحميل السجلات"
 
 #: js/messages.php:182
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "فشل تحديث المراقب"
 
 #: js/messages.php:183
 msgid ""
@@ -1586,14 +1573,13 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Reload Database"
 msgid "Reload page"
-msgstr "أعادة تحميل قاعدة البيانات"
+msgstr "إعادة تحميل الصفحة"
 
 #: js/messages.php:186
 msgid "Affected rows:"
-msgstr ""
+msgstr "الصفوف المتأثرة:"
 
 #: js/messages.php:188
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
@@ -1613,10 +1599,9 @@ msgid "Import"
 msgstr "استيراد"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
-msgstr "تجديد الإستعلام"
+msgstr "تحليل الإستعلام"
 
 #: js/messages.php:196
 msgid "Advisor system"
@@ -1624,35 +1609,33 @@ msgstr ""
 
 #: js/messages.php:197
 msgid "Possible performance issues"
-msgstr ""
+msgstr "الأداء المتوقع"
 
 #: js/messages.php:198
 msgid "Issue"
-msgstr ""
+msgstr "قضايا"
 
 #: js/messages.php:199
-#, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
-msgstr "مستندات وثائقية"
+msgstr "توصية"
 
 #: js/messages.php:200
 msgid "Rule details"
-msgstr ""
+msgstr "تفاصيل القواعد"
 
 #: js/messages.php:201
-#, fuzzy
 #| msgid "Authentication"
 msgid "Justification"
 msgstr "المصادقة"
 
 #: js/messages.php:202
 msgid "Used variable / formula"
-msgstr ""
+msgstr "المتغيرات المستعملة"
 
 #: js/messages.php:203
 msgid "Test"
-msgstr ""
+msgstr "إختبار"
 
 #: js/messages.php:208 libraries/tbl_properties.inc.php:758
 #: pmd_general.php:382 pmd_general.php:419 pmd_general.php:539
@@ -1690,7 +1673,7 @@ msgstr "موافق"
 
 #: js/messages.php:217
 msgid "Click to dismiss this notification"
-msgstr ""
+msgstr "إضغط لإغلاق هذا الإشعار"
 
 #: js/messages.php:220
 msgid "Renaming Databases"
@@ -1721,16 +1704,14 @@ msgid "Insert Table"
 msgstr "إدخال الجدول"
 
 #: js/messages.php:231
-#, fuzzy
 #| msgid "Add new field"
 msgid "Hide indexes"
-msgstr "إضافة حقل جديد"
+msgstr "إخفاء الفهارس"
 
 #: js/messages.php:232
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "أظهر تخطيط الجدول"
+msgstr "أظهار الفهارس"
 
 #: js/messages.php:235
 msgid "Searching"
@@ -1780,7 +1761,6 @@ msgid "Change"
 msgstr "تغيير"
 
 #: js/messages.php:253
-#, fuzzy
 #| msgid "Maximum execution time"
 msgid "Query execution time"
 msgstr "وقت التنفيذ الأقصى"
@@ -1802,14 +1782,13 @@ msgid "Show search criteria"
 msgstr "إظهار معايير البحث"
 
 #: js/messages.php:263 libraries/tbl_select.lib.php:110
-#, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
 msgstr "بحث"
 
 #: js/messages.php:265
 msgid "Each point represents a data row."
-msgstr ""
+msgstr "كل نقطة تمثل صف بيانات."
 
 #: js/messages.php:267
 msgid "Hovering over a point will show its label."
@@ -1817,15 +1796,15 @@ msgstr ""
 
 #: js/messages.php:269
 msgid "Use mousewheel to zoom in or out of the plot."
-msgstr ""
+msgstr "إستخدم عجلة الفأرة للتكبير والتصغير."
 
 #: js/messages.php:271
 msgid "Click and drag the mouse to navigate the plot."
-msgstr ""
+msgstr "إضغط وإسحب للتصفح."
 
 #: js/messages.php:273
 msgid "Click reset zoom link to come back to original state."
-msgstr ""
+msgstr "إضغط إعادة للعودة إلى الوضع الأصلي."
 
 #: js/messages.php:275
 msgid "Click a data point to view and possibly edit the data row."
@@ -1840,14 +1819,13 @@ msgid "Strings are converted into integer for plotting"
 msgstr ""
 
 #: js/messages.php:281
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
-msgstr "إضافه/حذف عمود"
+msgstr "إختر عمودين"
 
 #: js/messages.php:282
 msgid "Select two different columns"
-msgstr ""
+msgstr "إختر عمودين مختلفين"
 
 #: js/messages.php:285 tbl_change.php:312 tbl_indexes.php:211
 #: tbl_indexes.php:238
@@ -1856,13 +1834,12 @@ msgstr "تجاهل"
 
 #: js/messages.php:286 libraries/display_tbl.lib.php:1379
 msgid "Copy"
-msgstr ""
+msgstr "نسخ"
 
 #: js/messages.php:301
-#, fuzzy
 #| msgid "Add into comments"
 msgid "Add columns"
-msgstr "أضف إلى الملاحظات"
+msgstr "إضافة أعمدة"
 
 #: js/messages.php:304
 msgid "Select referenced key"
@@ -1892,27 +1869,28 @@ msgstr "إضافة خيار للعمود"
 
 #: js/messages.php:314
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "إضغط escape  لإلغاء التعديل"
 
 #: js/messages.php:315
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
+"لقد تم التعديل على بعض البيانات ولم يتم حفظها. هل تريد ترك هذه الصفحة بدون "
+"حفظ البيانات الجديدة؟"
 
 #: js/messages.php:316
 msgid "Drag to reorder"
-msgstr ""
+msgstr "إسحب لإعادة الترتيب"
 
 #: js/messages.php:317
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to sort"
-msgstr "اضغط للاختيار"
+msgstr "إضغط للترتيب"
 
 #: js/messages.php:318
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "إضغط لوضع علامة / إزالة علامة"
 
 #: js/messages.php:319
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
@@ -1927,13 +1905,12 @@ msgstr ""
 #: js/messages.php:322
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
-msgstr ""
+msgstr "تستطيع تعديل أغلب الأعمدة <br /> بالضغط مباشرة على المحتوى."
 
 #: js/messages.php:323
-#, fuzzy
 #| msgid "Go to table"
 msgid "Go to link"
-msgstr "اذهب إلى الجدول"
+msgstr "ذهاب للرابط"
 
 #: js/messages.php:326
 msgid "Generate password"
@@ -1975,14 +1952,12 @@ msgid "Done"
 msgstr "إنتهى"
 
 #: js/messages.php:360
-#, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "سابق"
 
 #: js/messages.php:365
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
@@ -2132,7 +2107,6 @@ msgstr "السبت"
 
 #. l10n: Short week day name
 #: js/messages.php:421
-#, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
 msgid "Sun"
@@ -2232,16 +2206,16 @@ msgstr ""
 
 #: libraries/Config.class.php:703
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
-msgstr ""
+msgstr "إحذف الملف \"./config\" مباشرة بعد إستخدام phpMyAdmin!"
 
 #: libraries/Config.class.php:727
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr ""
+msgstr "ملف الإعدادت (%s) غير قابل للقراءة."
 
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
-msgstr ""
+msgstr "صلاحيات خاطئة على ملف الإعدادات , لاينبغى أن يكون قابل للكتابة!"
 
 #: libraries/Config.class.php:1297
 msgid "Font size"
@@ -2249,10 +2223,9 @@ msgstr "حجم الخط"
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "الملف لم يكن مرفوعاً."
 
 #: libraries/File.class.php:260 libraries/File.class.php:389
-#, fuzzy
 #| msgid "Unknown error in file upload."
 msgid "Unknown error while uploading."
 msgstr "خطأ غير معروف عند رفع الملف."
@@ -2297,11 +2270,11 @@ msgstr ""
 
 #: libraries/File.class.php:508
 msgid "Error while moving uploaded file."
-msgstr ""
+msgstr "خطأ عند نقل الملف المرفوع."
 
 #: libraries/File.class.php:516
 msgid "Cannot read (moved) upload file."
-msgstr ""
+msgstr "لايمكن قراءة الملف المرفوع."
 
 #: libraries/Index.class.php:418 tbl_relation.php:526
 msgid "No index defined!"
@@ -2384,7 +2357,7 @@ msgstr[4] "%1$d صفوف حذفت"
 msgstr[5] "%1$d صفوف حذفت"
 
 #: libraries/Message.class.php:273
-#, fuzzy, php-format
+#, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d صف أضيف"
@@ -2395,10 +2368,9 @@ msgstr[4] ""
 msgstr[5] ""
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "يسمح بقراءة البيانات."
+msgstr "خطأ عند إنشاء ملف PDF :"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
@@ -2434,7 +2406,7 @@ msgstr "خادم MySQL هذا لايدعم محرك التخزين %s ."
 
 #: libraries/Table.class.php:329
 msgid "unknown table status: "
-msgstr ""
+msgstr "حالة الجدول غير معروفة:"
 
 #: libraries/Table.class.php:1115
 msgid "Invalid database"
@@ -2631,7 +2603,6 @@ msgid "PBMS get BLOB info failed:"
 msgstr "فشل جلب معلومات PBMS BLOB:"
 
 #: libraries/blobstreaming.lib.php:373
-#, fuzzy
 #| msgid "get BLOB Content-Type failed"
 msgid "PBMS get BLOB Content-Type failed"
 msgstr "فشل جلب نوع محتوى BLOB:"
@@ -2708,11 +2679,11 @@ msgstr "تحقق من الصلاحيات"
 
 #: libraries/common.inc.php:147
 msgid "possible exploit"
-msgstr ""
+msgstr "إستغلال محتمل"
 
 #: libraries/common.inc.php:156
 msgid "numeric key detected"
-msgstr ""
+msgstr "الكشف عن مفتاح رقمي"
 
 #: libraries/common.inc.php:597
 msgid "Failed to read configuration file"
@@ -2903,14 +2874,12 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s يوم، %s ساعة، %s دقيقة و%s ثانية"
 
 #: libraries/common.lib.php:2016
-#, fuzzy
 #| msgid "Add new field"
 msgid "Missing parameter:"
-msgstr "إضافة حقل جديد"
+msgstr "مدخلات مفقودة:"
 
 #: libraries/common.lib.php:2364 libraries/common.lib.php:2367
 #: libraries/display_tbl.lib.php:306
-#, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
@@ -2919,7 +2888,6 @@ msgstr "بداية"
 #: libraries/common.lib.php:2365 libraries/common.lib.php:2368
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
-#, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
@@ -2928,7 +2896,6 @@ msgstr "سابق"
 #: libraries/common.lib.php:2395 libraries/common.lib.php:2398
 #: libraries/display_tbl.lib.php:372 server_binlog.php:170
 #: server_binlog.php:172
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
@@ -2936,8 +2903,6 @@ msgstr "التالي"
 
 #: libraries/common.lib.php:2396 libraries/common.lib.php:2399
 #: libraries/display_tbl.lib.php:389
-#, fuzzy
-#| msgid "End"
 msgctxt "Last page"
 msgid "End"
 msgstr "نهاية"
@@ -2953,7 +2918,6 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 
 #: libraries/common.lib.php:2660
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to toggle"
 msgstr "إضغط للإختيار"
@@ -2997,10 +2961,10 @@ msgid "Browse your computer:"
 msgstr "تصفح كمبيوترك."
 
 #: libraries/common.lib.php:3202
-#, fuzzy, php-format
+#, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "دليل تحميل الملفات على خادم الشبكة"
+msgstr "إختر مجلد الرفع من الخادم <b>%s</b>:"
 
 #: libraries/common.lib.php:3223 libraries/sql_query_form.lib.php:445
 #: tbl_change.php:905
@@ -4191,11 +4155,11 @@ msgstr "مضاعفة حجم مربع النص لأعمدة LONGTEXT"
 
 #: libraries/config/messages.inc.php:303
 msgid "Bigger textarea for LONGTEXT"
-msgstr ""
+msgstr "مربع نص أكبر لـ LONGTEXT"
 
 #: libraries/config/messages.inc.php:304
 msgid "Use icons on main page"
-msgstr ""
+msgstr "إستخدم الإيقونات في الصفحة الرئيسية"
 
 #: libraries/config/messages.inc.php:305
 msgid "Maximum number of characters used when a SQL query is displayed"
@@ -4208,7 +4172,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:307 libraries/config/messages.inc.php:312
 #: libraries/config/messages.inc.php:339
 msgid "Users cannot set a higher value"
-msgstr ""
+msgstr "المستخدمين لايمكنهم وضع قيمة أكبر"
 
 #: libraries/config/messages.inc.php:308
 msgid "Maximum number of databases displayed in left frame and database list"
@@ -4216,7 +4180,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:309
 msgid "Maximum databases"
-msgstr ""
+msgstr "قواعد بيانات أكبر"
 
 #: libraries/config/messages.inc.php:310
 msgid ""
@@ -4235,7 +4199,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:314
 msgid "Maximum tables"
-msgstr ""
+msgstr "جداول أكبر"
 
 #: libraries/config/messages.inc.php:315
 msgid ""
@@ -4245,7 +4209,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:316
 msgid "mcrypt warning"
-msgstr ""
+msgstr "تحذير mcrypt"
 
 #: libraries/config/messages.inc.php:317
 msgid ""
@@ -4255,11 +4219,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:318
 msgid "Memory limit"
-msgstr ""
+msgstr "حدود الذاكرة"
 
 #: libraries/config/messages.inc.php:319
 msgid "These are Edit, Copy and Delete links"
-msgstr ""
+msgstr "هذه هي روابط التعديل والنسخ والحذف"
 
 #: libraries/config/messages.inc.php:320
 msgid "Where to show the table row links"
@@ -4270,14 +4234,13 @@ msgid "Use natural order for sorting table and database names"
 msgstr ""
 
 #: libraries/config/messages.inc.php:322
-#, fuzzy
 #| msgid "Alter table order by"
 msgid "Natural order"
-msgstr "تعديل ترتيب الجدول بـ"
+msgstr "ترتيب طبيعي"
 
 #: libraries/config/messages.inc.php:323 libraries/config/messages.inc.php:333
 msgid "Use only icons, only text or both"
-msgstr ""
+msgstr "إستخدم الأيقونات او النصوص فقط , أو الإثنان"
 
 #: libraries/config/messages.inc.php:324
 msgid "Iconic navigation bar"
@@ -4299,7 +4262,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:328
 msgid "Default sorting order"
-msgstr ""
+msgstr "الترتيب الإفتراضي"
 
 #: libraries/config/messages.inc.php:329
 msgid "Use persistent connections to MySQL databases"
@@ -4307,7 +4270,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:330
 msgid "Persistent connections"
-msgstr ""
+msgstr "الإتصالات الثابتة"
 
 #: libraries/config/messages.inc.php:331
 msgid ""
@@ -4326,11 +4289,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:335
 msgid "Disallow BLOB and BINARY columns from editing"
-msgstr ""
+msgstr "منع تعديل الأعمدة من نوع BLOB  و BINARY"
 
 #: libraries/config/messages.inc.php:336
 msgid "Protect binary columns"
-msgstr ""
+msgstr "حماية الأعمدة من نوع BINARY"
 
 #: libraries/config/messages.inc.php:337
 msgid ""
@@ -4345,7 +4308,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:340
 msgid "How many queries are kept in history"
-msgstr ""
+msgstr "عدد الإستعلامات التي حفظت"
 
 #: libraries/config/messages.inc.php:341
 msgid "Query history length"
@@ -4353,51 +4316,47 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:342
 msgid "Tab displayed when opening a new query window"
-msgstr ""
+msgstr "عرض التبوب عند فتح نافذة إستعلام جديد"
 
 #: libraries/config/messages.inc.php:343
 msgid "Default query window tab"
-msgstr ""
+msgstr "نافذة إستعلام إفتراضية"
 
 #: libraries/config/messages.inc.php:344
 msgid "Query window height (in pixels)"
-msgstr ""
+msgstr "إرتفاع نافذة الإستعلام (بالبكسل)"
 
 #: libraries/config/messages.inc.php:345
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window height"
-msgstr "نافذة الاستعلام"
+msgstr "إرتفاع نافذة الإستعلام"
 
 #: libraries/config/messages.inc.php:346
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width (in pixels)"
-msgstr "نافذة الاستعلام"
+msgstr "عرض نافذة الإستعلام (بالبكسل)"
 
 #: libraries/config/messages.inc.php:347
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width"
-msgstr "نافذة الاستعلام"
+msgstr "إرتفاع نافذة الإستعلام"
 
 #: libraries/config/messages.inc.php:348
 msgid "Select which functions will be used for character set conversion"
-msgstr ""
+msgstr "إختر أي وظيفة سوف تستعمل لتغيير الترميز"
 
 #: libraries/config/messages.inc.php:349
 msgid "Recoding engine"
-msgstr ""
+msgstr "محرك إعادة الترميز"
 
 #: libraries/config/messages.inc.php:350
 msgid "When browsing tables, the sorting of each table is remembered"
-msgstr ""
+msgstr "عند تصفح الجداول, تذكر ترتيب كل جدول"
 
 #: libraries/config/messages.inc.php:351
-#, fuzzy
 #| msgid "Rename table to"
 msgid "Remember table's sorting"
-msgstr "تغيير اسم جدول إلى"
+msgstr "تذكر ترتيب الجداول"
 
 #: libraries/config/messages.inc.php:352
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"

@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-25 18:34-0400\n"
-"PO-Revision-Date: 2011-09-22 11:28+0200\n"
-"Last-Translator:  <deminoth@naver.com>\n"
+"PO-Revision-Date: 2011-09-24 03:46+0200\n"
+"Last-Translator: Deminoth Runo <deminoth@naver.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -805,25 +805,23 @@ msgid "Values for the column \"%s\""
 msgstr "\"%s\" 열의 값"
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:755
-#, fuzzy
 msgid "Enter each value in a separate field."
 msgstr "각각의 필드에 값을 입력하세요"
 
 #: enum_editor.php:57
+#, fuzzy
 msgid "+ Restart insertion and add a new value"
-msgstr ""
+msgstr "+ 삽입을 재시작하고 새 값을 입력합니다"
 
 #: enum_editor.php:67 gis_data_editor.php:317
 msgid "Output"
 msgstr "출력"
 
 #: enum_editor.php:68
-#, fuzzy
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "\"길이/값\" 필드로 결합된 값을 복사하여 붙여넣으세요"
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
 msgstr "잘못된 타입!"
@@ -852,55 +850,57 @@ msgstr ""
 #: export.php:311 export.php:315
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr ""
+msgstr "웹 서버에 파일 %s를 저장할 권한이 없습니다."
 
 #: export.php:654
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr ""
+msgstr "덤프 파일이 s%에 저장되었습니다."
 
 #: file_echo.php:21
-#, fuzzy
 msgid "Invalid export type"
-msgstr "테이블이 없습니다"
+msgstr "잘못된 내보내기 타입"
 
 #: gis_data_editor.php:84
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr ""
+msgstr "\"%s\"행의 값"
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "기본 레이어로 OpenStreetMaps를 사용"
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:293
 #: libraries/display_tbl.lib.php:685
 msgid "Geometry"
-msgstr ""
+msgstr "Geometry"
 
 #: gis_data_editor.php:172 js/messages.php:289
+#, fuzzy
 msgid "Point"
-msgstr ""
+msgstr "점"
 
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
 #: gis_data_editor.php:297 js/messages.php:287
+#, fuzzy
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
 #: gis_data_editor.php:299 js/messages.php:288
+#, fuzzy
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
 #: js/messages.php:290
-#, php-format
+#, fuzzy, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "점 %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:296
@@ -955,11 +955,11 @@ msgid ""
 msgstr ""
 
 #: import.php:57
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation%"
 "s for ways to workaround this limit."
-msgstr ""
+msgstr "너무 큰 파일을 업로드하려고 시도했습니다. 제한치를 우회하는 방법은 %s문서%s를 참조하여 주십시오."
 
 #: import.php:170 import.php:419
 msgid "Showing bookmark"
@@ -977,11 +977,11 @@ msgstr "파일을 읽을 수 없습니다"
 #: import.php:299 import.php:308 import.php:327 import.php:336
 #: libraries/File.class.php:610 libraries/File.class.php:618
 #: libraries/File.class.php:634 libraries/File.class.php:642
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
-msgstr ""
+msgstr "지원되지 않는 압축(%)형식의 파일을 업로드하려고 시도했습니다. 지원이 구현되지 않았거나 설정에서 사용하지 않게 되어있습니다."
 
 #: import.php:349
 msgid ""
@@ -996,17 +996,16 @@ msgstr ""
 #: import.php:366
 msgid ""
 "Cannot convert file's character set without character set conversion library"
-msgstr ""
+msgstr "문자셋 변환 라이브러리 없이 파일의 문자셋을 변환할 수 없습니다."
 
 #: import.php:390 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "가져오기 플러그인을 로드할 수 없습니다. 올바로 설치되었는지 확인해주세요!"
 
-#: import.php:421 sql.php:907
 #, php-format
 msgid "Bookmark %s created"
-msgstr ""
+msgstr "북마크 %s가 생성되었습니다."
 
 #: import.php:427 import.php:433
 #, php-format
@@ -1026,6 +1025,7 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
+"파싱된 데이터가 없지만, 이것은 보통 phpMyAdmin이 php 시간 제한을 늘리지 않고는 이 가져오기를 마칠 수 없음을 뜻합니다."
 
 #: import.php:472 libraries/Message.class.php:175
 #: libraries/display_tbl.lib.php:2368 libraries/rte/rte_routines.lib.php:1197
@@ -1046,11 +1046,11 @@ msgstr "phpMyAdmin 은 <b>프레임을 지원하는</b> 브라우저에서 잘 �
 #: js/messages.php:27 libraries/server_synchronize.lib.php:1329
 #: libraries/server_synchronize.lib.php:1338
 msgid "Click to select"
-msgstr ""
+msgstr "선택하려면 클릭하세요"
 
 #: js/messages.php:28
 msgid "Click to unselect"
-msgstr ""
+msgstr "선택을 해제하려면 클릭하세요"
 
 #: js/messages.php:29 libraries/import.lib.php:103 sql.php:237
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -1062,44 +1062,44 @@ msgstr "정말로 다음을 실행하시겠습니까? "
 
 #: js/messages.php:33 libraries/mult_submits.inc.php:282 sql.php:320
 msgid "You are about to DESTROY a complete database!"
-msgstr ""
+msgstr "이 데이터베이스 전체를 제거하려고 합니다!"
 
 #: js/messages.php:34
 msgid "You are about to DESTROY a complete table!"
-msgstr ""
+msgstr "이 테이블 전체를 제거하려고 합니다!"
 
 #: js/messages.php:35
 msgid "You are about to TRUNCATE a complete table!"
-msgstr ""
+msgstr "이 테이블 전체를 비우려고 합니다!"
 
 #: js/messages.php:37
-#, fuzzy
 #| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
-msgstr "데이터 추가(insert) 및 변경(replace) 허용."
+msgstr "추적 데이터 삭제중"
 
 #: js/messages.php:38
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "기본 키 / 인덱스를 제거중"
 
 #: js/messages.php:39
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr ""
+msgstr "이 명령은 오랜 시간이 걸릴 수 있습니다. 그래도 실행하시겠습니까?"
 
 #: js/messages.php:42
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr ""
+msgstr "BLOB 저장소를 사용 불가능하게 하려고 합니다!"
 
 #: js/messages.php:43
 #, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
-msgstr ""
+msgstr "정말로 데이터베이스 %s에서 모든 BLOB 참조를 사용 불가능하게 하시겠습니까?"
 
 #: js/messages.php:46
 msgid "Missing value in the form!"
-msgstr "Missing value in the form !"
+msgstr "입력 폼 안에 빠진 값이 있습니다!"
 
 #: js/messages.php:47
+#, fuzzy
 msgid "This is not a number!"
 msgstr "은 숫자(번호)가 아닙니다!"
 
@@ -1108,7 +1108,7 @@ msgstr "은 숫자(번호)가 아닙니다!"
 #, fuzzy
 #| msgid "Total"
 msgid "Total count"
-msgstr "전체 사용량"
+msgstr "전체 갯수"
 
 #: js/messages.php:54
 msgid "The host name is empty!"
@@ -1120,7 +1120,7 @@ msgstr "사용자명이 없습니다!"
 
 #: js/messages.php:56 server_privileges.php:1314 user_password.php:50
 msgid "The password is empty!"
-msgstr "암호가 비었습니다!"
+msgstr "암호가 없습니다!"
 
 #: js/messages.php:57 server_privileges.php:1312 user_password.php:53
 msgid "The passwords aren't the same!"
@@ -1128,19 +1128,16 @@ msgstr "암호가 동일하지 않습니다!"
 
 #: js/messages.php:58 server_privileges.php:1769 server_privileges.php:1793
 #: server_privileges.php:2205 server_privileges.php:2404
-#, fuzzy
 #| msgid "Any user"
 msgid "Add user"
-msgstr "아무나"
+msgstr "사용자 추가"
 
 #: js/messages.php:59
-#, fuzzy
 #| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
-msgstr "사용권한을 갱신합니다(Reloading the privileges)"
+msgstr "사용권한을 다시 불러옵니다."
 
 #: js/messages.php:60
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "선택한 사용자를 삭제"
@@ -1148,7 +1145,7 @@ msgstr "선택한 사용자를 삭제"
 #: js/messages.php:61 js/messages.php:130 libraries/tbl_properties.inc.php:753
 #: tbl_tracking.php:235 tbl_tracking.php:400
 msgid "Close"
-msgstr ""
+msgstr "닫기"
 
 #: js/messages.php:64 js/messages.php:250 libraries/Index.class.php:460
 #: libraries/common.lib.php:590 libraries/common.lib.php:1139
@@ -1159,23 +1156,21 @@ msgid "Edit"
 msgstr "수정"
 
 #: js/messages.php:65 server_status.php:794
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "서버 선택"
+msgstr "실시간 전송량 도표"
 
 #: js/messages.php:66 server_status.php:797
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "실시간 연결/프로세스 도표"
 
 #: js/messages.php:67 server_status.php:815
-#, fuzzy
 msgid "Live query chart"
-msgstr "SQL 질의"
+msgstr "실시간 쿼리 도표"
 
 #: js/messages.php:69
 msgid "Static data"
-msgstr ""
+msgstr "정적 데이터"
 
 #. l10n: Total number of queries
 #: js/messages.php:71 libraries/build_html_for_db.lib.php:46
@@ -1183,12 +1178,12 @@ msgstr ""
 #: server_status.php:1115 server_status.php:1176 tbl_printview.php:315
 #: tbl_structure.php:802
 msgid "Total"
-msgstr "전체 사용량"
+msgstr "전체 쿼리수"
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:73 server_status.php:594 server_status.php:1013
 msgid "Other"
-msgstr ""
+msgstr "기타"
 
 #. l10n: Thousands separator
 #: js/messages.php:75 libraries/common.lib.php:1393
@@ -1202,87 +1197,86 @@ msgstr "."
 
 #: js/messages.php:79
 msgid "KiB sent since last refresh"
-msgstr ""
+msgstr "KiB가 마지막 새로고침 이후로 전송되었습니다."
 
 #: js/messages.php:80
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "KiB를 마지막 새로고침 이후로 받았습니다."
 
 #: js/messages.php:81
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
-msgstr "서버 선택"
+msgstr "서버 전송량(KiB)"
 
 #: js/messages.php:82
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "마지막 새로고침 이후 연결 수"
 
 #: js/messages.php:83 js/messages.php:121 server_status.php:1224
 msgid "Processes"
-msgstr "프로세스 목록"
+msgstr "프로세스"
 
 #: js/messages.php:84
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "연결 수"
+msgstr "연결 / 프로세스"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:86
 msgid "Questions since last refresh"
-msgstr ""
+msgstr "마지막 새로고침 이후 Questions"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:88
+#, fuzzy
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "Questions(서버에 의해 실행된 문장)"
 
 #: js/messages.php:90 server_status.php:776
-#, fuzzy
 msgid "Query statistics"
-msgstr "행(레코드) 통계"
+msgstr "질의 통계"
 
 #: js/messages.php:93
 #, fuzzy
 #| msgid "Failed to write file to disk."
 msgid "Local monitor configuration incompatible"
-msgstr "디스크 쓰기에 실패했습니다."
+msgstr "로컬 모니터 설정이 호환되지 않습니다."
 
 #: js/messages.php:94
+#, fuzzy
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
+"브라우저의 로컬 저장소에 있는 차트 정렬 설정이 더 이상 새 버전의 모니터 대화창과 호환되지 않습니다. 당신의 현재 설정은 더 이상 "
+"작동하지 않을 수 있습니다. <i>설정<i>메뉴에서 설정을 초기화해주세요."
 
 #: js/messages.php:96
-#, fuzzy
 msgid "Query cache efficiency"
-msgstr "질의 종류"
+msgstr "질의 캐시 효율"
 
 #: js/messages.php:97
-#, fuzzy
 msgid "Query cache usage"
-msgstr "질의 종류"
+msgstr "질의 캐시 사용량"
 
 #: js/messages.php:98
 #, fuzzy
 msgid "Query cache used"
-msgstr "질의 종류"
+msgstr "사용된 질의 캐시"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
-msgstr ""
+msgstr "시스템 CPU 사용량"
 
 #: js/messages.php:101
 msgid "System memory"
-msgstr ""
+msgstr "시스템 메모리"
 
 #: js/messages.php:102
 msgid "System swap"
-msgstr ""
+msgstr "시스템 스왑"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:103 libraries/common.lib.php:1343 server_status.php:1669
@@ -1296,57 +1290,54 @@ msgstr "KB"
 
 #: js/messages.php:106
 msgid "Average load"
-msgstr ""
+msgstr "평균 부하"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "Total"
 msgid "Total memory"
-msgstr "전체 사용량"
+msgstr "전체 메모리"
 
 #: js/messages.php:108
 msgid "Cached memory"
-msgstr ""
+msgstr "캐시된 메모리"
 
 #: js/messages.php:109
 msgid "Buffered memory"
-msgstr ""
+msgstr "버퍼 메모리"
 
 #: js/messages.php:110
 msgid "Free memory"
-msgstr ""
+msgstr "사용가능 메모리"
 
 #: js/messages.php:111
 msgid "Used memory"
-msgstr ""
+msgstr "사용된 메모리"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "전체 사용량"
+msgstr "전체 스왑"
 
 #: js/messages.php:114
 msgid "Cached Swap"
-msgstr ""
+msgstr "캐시된 스왑"
 
 #: js/messages.php:115
 msgid "Used Swap"
-msgstr ""
+msgstr "사용된 스왑"
 
 #: js/messages.php:116
 msgid "Free Swap"
-msgstr ""
+msgstr "사용가능 스왑"
 
 #: js/messages.php:118
 msgid "Bytes sent"
-msgstr ""
+msgstr "바이트 보냄"
 
 #: js/messages.php:119
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "받음"
+msgstr "바이트 받음"
 
 #: js/messages.php:120 server_status.php:1134
 msgid "Connections"
