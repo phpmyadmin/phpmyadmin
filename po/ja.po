@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-27 09:13+0200\n"
-"PO-Revision-Date: 2011-09-27 12:30+0200\n"
+"PO-Revision-Date: 2011-09-27 12:31+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12367,10 +12367,9 @@ msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr ""
 
 #: po/advisory_rules.php:150
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Percentage of temp tables on disk"
-msgstr "テーブルの行リンクを表示する場所"
+msgstr "ディスク上にある一時テーブルの比率"
 
 #: po/advisory_rules.php:151 po/advisory_rules.php:156
 msgid ""
