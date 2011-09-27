@@ -216,25 +216,18 @@ if (isset($_REQUEST['destination_foreign'])) {
             } elseif (PMA_backquote($existrel_foreign[$master_field]['foreign_db']) != $foreign_db
                 || PMA_backquote($existrel_foreign[$master_field]['foreign_table']) != $foreign_table
                 || PMA_backquote($existrel_foreign[$master_field]['foreign_field']) != $foreign_field
-                || ($_REQUEST['on_delete'][$master_field_md5] != (!empty($existrel_foreign[$master_field]['on_delete']) ? $existrel_foreign[$master_field]['on_delete'] : ''))
-                || ($_REQUEST['on_update'][$master_field_md5] != (!empty($existrel_foreign[$master_field]['on_update']) ? $existrel_foreign[$master_field]['on_update'] : ''))
+                || ($_REQUEST['on_delete'][$master_field_md5] != (!empty($existrel_foreign[$master_field]['on_delete']) ? $existrel_foreign[$master_field]['on_delete'] : 'RESTRICT'))
+                || ($_REQUEST['on_update'][$master_field_md5] != (!empty($existrel_foreign[$master_field]['on_update']) ? $existrel_foreign[$master_field]['on_update'] : 'RESTRICT'))
                    ) {
                 // another foreign key is already defined for this field
                 // or
                 // an option has been changed for ON DELETE or ON UPDATE
 
-                // remove existing key
+                // remove existing key and add the new one
                 $sql_query  = 'ALTER TABLE ' . PMA_backquote($table)
                             . ' DROP FOREIGN KEY '
-                            . PMA_backquote($existrel_foreign[$master_field]['constraint']) . ';';
-
-                // I tried to send both in one query but it failed
-                PMA_DBI_query($sql_query);
-                $display_query .= $sql_query . "\n";
-
-                // add another
-                $sql_query  = 'ALTER TABLE ' . PMA_backquote($table)
-                            . ' ADD FOREIGN KEY ('
+                            . PMA_backquote($existrel_foreign[$master_field]['constraint']) . ', '
+                            . 'ADD FOREIGN KEY ('
                             . PMA_backquote($master_field) . ')'
                             . ' REFERENCES '
                             . $foreign_db . '.'
