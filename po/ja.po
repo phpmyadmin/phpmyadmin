@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-27 09:13+0200\n"
-"PO-Revision-Date: 2011-09-27 12:25+0200\n"
+"PO-Revision-Date: 2011-09-27 12:29+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -11796,10 +11796,9 @@ msgid "Current amount of Questions: %s"
 msgstr "現在の問い合わせ総数: %s"
 
 #: po/advisory_rules.php:15
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
-msgstr "SQL クエリの表示"
+msgstr "遅いクエリの比率"
 
 #: po/advisory_rules.php:16
 msgid ""
