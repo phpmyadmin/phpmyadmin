@@ -12185,7 +12185,7 @@ msgstr "query_cache_limit は 1 MiB に設定されています。"
 #: po/advisory_rules.php:110
 #| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
-msgstr "ソート時に一時テーブルが使われる割合"
+msgstr "ソート時に一時テーブルが使われる比率"
 
 #: po/advisory_rules.php:111 po/advisory_rules.php:116
 #| msgid "Allows creating temporary tables."
