@@ -15,12 +15,13 @@ $bg = $_SESSION['PMA_Theme']->getImgPath() . 'sprites.png';
 ?>
 /* Icon sprites */
 .icon, .footnotemarker {
-    vertical-align: -3px;
-    margin-right:   0.3em;
-    margin-left:    0.3em;
-    width:          16px;
-    height:         16px;
-    background:     url('<?php echo $bg; ?>') no-repeat top left;
+    margin:              0 0.3em;
+    padding:             0 !important;
+    width:               16px;
+    height:              16px;
+    background-image:    url('<?php echo $bg; ?>') !important;
+    background-repeat:   no-repeat !important;
+    background-position: top left !important;
 }
 
 <?php
@@ -34,7 +35,7 @@ $bg = $_SESSION['PMA_Theme']->getImgPath() . 'sprites.png';
         foreach ($sprites as $name => $data) {
             // generate the CSS code for each icon
             echo ".ic_$name { ";
-            echo "background-position: 0 -" . ($data['position'] * 16) . "px;";
+            echo "background-position: 0 -" . ($data['position'] * 16) . "px !important;";
             // if either the height or width of an icon is 16px,
             // then it's pointless to set this as a parameter,
             //since it will be inherited from the "icon" class
