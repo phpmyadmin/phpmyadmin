@@ -75,7 +75,7 @@ function PMA_getImage(image, alternate, attributes) {
             } else {
                 return this.data[name];
             }
-        }
+        },
         toString: function () {
             var retval = '<' + 'img';
             for (var i in this.data) {
