@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-27 09:13+0200\n"
-"PO-Revision-Date: 2011-09-27 12:24+0200\n"
+"PO-Revision-Date: 2011-09-27 12:25+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12189,10 +12189,9 @@ msgid "Percentage of sorts that cause temporary tables"
 msgstr "ソート時に一時テーブルが使われる割合"
 
 #: po/advisory_rules.php:111 po/advisory_rules.php:116
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
-msgstr "一時テーブルの作成を許可する"
+msgstr "一時テーブルが多くのソートで使われています。"
 
 #: po/advisory_rules.php:112 po/advisory_rules.php:117
 msgid ""
