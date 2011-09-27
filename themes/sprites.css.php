@@ -32,20 +32,27 @@ $bg = $_SESSION['PMA_Theme']->getImgPath() . 'sprites.png';
         if (function_exists('PMA_sprites')) {
             $sprites = PMA_sprites();
         }
+        $template = ".ic_%s { background-position: 0 -%upx !important;%s%s }\n";
         foreach ($sprites as $name => $data) {
             // generate the CSS code for each icon
-            echo ".ic_$name { ";
-            echo "background-position: 0 -" . ($data['position'] * 16) . "px !important;";
+            $width = '';
+            $height = '';
             // if either the height or width of an icon is 16px,
             // then it's pointless to set this as a parameter,
             //since it will be inherited from the "icon" class
             if ($data['width'] != 16) {
-                echo " width: " . $data['width'] . "px;";
+                $width = " width: " . $data['width'] . "px;";
             }
             if ($data['height'] != 16) {
-                echo " height: " . $data['height'] . "px;";
+                $height = " height: " . $data['height'] . "px;";
             }
-            echo " }\n";
+            printf(
+                $template,
+                $name,
+                ($data['position'] * 16),
+                $width,
+                $height
+            );
         }
         // Here we map some of the classes that we
         // defined above to other CSS selectors.
