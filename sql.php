@@ -47,7 +47,7 @@ if (! empty($goto)) {
 } // end if
 
 if (! isset($err_url)) {
-    $err_url = (!empty($back) ? $back : $goto)
+    $err_url = (! empty($back) ? $back : $goto)
              . '?' . PMA_generate_common_url($db)
              . ((strpos(' ' . $goto, 'db_') != 1 && strlen($table)) ? '&amp;table=' . urlencode($table) : '');
 } // end if
@@ -81,8 +81,11 @@ if (isset($_REQUEST['get_relational_values']) && $_REQUEST['get_relational_value
     $foreignData = PMA_getForeignData($foreigners, $column, false, '', '');
 
     if ($_SESSION['tmp_user_values']['relational_display'] == 'D'
-        && (isset($display_field) && strlen($display_field)
-        && (isset($_REQUEST['relation_key_or_display_column']) && $_REQUEST['relation_key_or_display_column']))) {
+        && isset($display_field)
+        && strlen($display_field)
+        && isset($_REQUEST['relation_key_or_display_column'])
+        && $_REQUEST['relation_key_or_display_column']
+    ) {
             $curr_value = $_REQUEST['relation_key_or_display_column'];
     } else {
         $curr_value = $_REQUEST['curr_value'];
@@ -181,7 +184,6 @@ if (isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
         }
     }
 
-
     // set column visibility
     if ($retval === true && isset($_REQUEST['col_visib'])) {
         $col_visib = explode(',', $_REQUEST['col_visib']);
@@ -198,8 +200,13 @@ if (isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
 // (needed for browsing from DefaultTabTable)
 if (empty($sql_query) && strlen($table) && strlen($db)) {
     include_once './libraries/bookmark.lib.php';
-    $book_sql_query = PMA_Bookmark_get($db, '\'' . PMA_sqlAddSlashes($table) . '\'',
-        'label', false, true);
+    $book_sql_query = PMA_Bookmark_get(
+        $db,
+        '\'' . PMA_sqlAddSlashes($table) . '\'',
+        'label',
+        false,
+        true
+    );
 
     if (! empty($book_sql_query)) {
         $GLOBALS['using_bookmark_message'] = PMA_message::notice(__('Using bookmark "%s" as default browse query.'));
@@ -219,8 +226,10 @@ if (empty($sql_query) && strlen($table) && strlen($db)) {
 }
 
 // instead of doing the test twice
-$is_drop_database = preg_match('/DROP[[:space:]]+(DATABASE|SCHEMA)[[:space:]]+/i',
-    $sql_query);
+$is_drop_database = preg_match(
+    '/DROP[[:space:]]+(DATABASE|SCHEMA)[[:space:]]+/i',
+    $sql_query
+);
 
 /**
  * Check rights in case of DROP DATABASE
@@ -229,10 +238,11 @@ $is_drop_database = preg_match('/DROP[[:space:]]+(DATABASE|SCHEMA)[[:space:]]+/i
  * but since a malicious user may pass this variable by url/form, we don't take
  * into account this case.
  */
-if (!defined('PMA_CHK_DROP')
- && !$cfg['AllowUserDropDatabase']
- && $is_drop_database
- && !$is_superuser) {
+if (! defined('PMA_CHK_DROP')
+    && ! $cfg['AllowUserDropDatabase']
+    && $is_drop_database
+    && ! $is_superuser
+) {
     include_once './libraries/header.inc.php';
     PMA_mysqlDie(__('"DROP DATABASE" statements are disabled.'), '', '', $err_url);
 } // end if
@@ -278,7 +288,7 @@ if ($goto == 'sql.php') {
  * Go back to further page if table should not be dropped
  */
 if (isset($btnDrop) && $btnDrop == __('No')) {
-    if (!empty($back)) {
+    if (! empty($back)) {
         $goto = $back;
     }
     if ($is_gotofile) {
@@ -303,11 +313,14 @@ if (isset($btnDrop) && $btnDrop == __('No')) {
  *
  * Also bypassed if only showing php code.or validating a SQL query
  */
-if (! $cfg['Confirm'] || isset($_REQUEST['is_js_confirmed']) || isset($btnDrop)
- // if we are coming from a "Create PHP code" or a "Without PHP Code"
- // dialog, we won't execute the query anyway, so don't confirm
- || isset($GLOBALS['show_as_php'])
- || !empty($GLOBALS['validatequery'])) {
+if (! $cfg['Confirm']
+    || isset($_REQUEST['is_js_confirmed'])
+    || isset($btnDrop)
+    // if we are coming from a "Create PHP code" or a "Without PHP Code"
+    // dialog, we won't execute the query anyway, so don't confirm
+    || isset($GLOBALS['show_as_php'])
+    || ! empty($GLOBALS['validatequery'])
+) {
     $do_confirm = false;
 } else {
     $do_confirm = isset($analyzed_sql[0]['queryflags']['need_confirm']);
@@ -357,7 +370,8 @@ if ($do_confirm) {
  */
 
 if (empty($reload)
-    && preg_match('/^(CREATE|ALTER|DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $sql_query)) {
+    && preg_match('/^(CREATE|ALTER|DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $sql_query)
+) {
     $reload = 1;
 }
 
@@ -375,8 +389,8 @@ if (empty($reload)
 $is_explain = $is_count = $is_export = $is_delete = $is_insert = $is_affected = $is_show = $is_maint = $is_analyse = $is_group = $is_func = $is_replace = false;
 if ($is_select) { // see line 141
     $is_group = preg_match('@(GROUP[[:space:]]+BY|HAVING|SELECT[[:space:]]+DISTINCT)[[:space:]]+@i', $sql_query);
-    $is_func =  !$is_group && (preg_match('@[[:space:]]+(SUM|AVG|STD|STDDEV|MIN|MAX|BIT_OR|BIT_AND)\s*\(@i', $sql_query));
-    $is_count = !$is_group && (preg_match('@^SELECT[[:space:]]+COUNT\((.*\.+)?.*\)@i', $sql_query));
+    $is_func =  ! $is_group && (preg_match('@[[:space:]]+(SUM|AVG|STD|STDDEV|MIN|MAX|BIT_OR|BIT_AND)\s*\(@i', $sql_query));
+    $is_count = ! $is_group && (preg_match('@^SELECT[[:space:]]+COUNT\((.*\.+)?.*\)@i', $sql_query));
     $is_export   = (preg_match('@[[:space:]]+INTO[[:space:]]+OUTFILE[[:space:]]+@i', $sql_query));
     $is_analyse  = (preg_match('@[[:space:]]+PROCEDURE[[:space:]]+ANALYSE@i', $sql_query));
 } elseif (preg_match('@^EXPLAIN[[:space:]]+@i', $sql_query)) {
@@ -403,18 +417,19 @@ $full_sql_query = $sql_query;
 
 // Handle remembered sorting order, only for single table query
 if ($GLOBALS['cfg']['RememberSorting']
- && ! ($is_count || $is_export || $is_func || $is_analyse)
- && count($analyzed_sql[0]['select_expr']) == 0
- && isset($analyzed_sql[0]['queryflags']['select_from'])
- && count($analyzed_sql[0]['table_ref']) == 1
- ) {
+    && ! ($is_count || $is_export || $is_func || $is_analyse)
+    && count($analyzed_sql[0]['select_expr']) == 0
+    && isset($analyzed_sql[0]['queryflags']['select_from'])
+    && count($analyzed_sql[0]['table_ref']) == 1
+) {
     $pmatable = new PMA_Table($table, $db);
     if (empty($analyzed_sql[0]['order_by_clause'])) {
         $sorted_col = $pmatable->getUiProp(PMA_Table::PROP_SORTED_COLUMN);
         if ($sorted_col) {
             // retrieve the remembered sorting order for current table
             $sql_order_to_append = ' ORDER BY ' . $sorted_col . ' ';
-            $full_sql_query = $analyzed_sql[0]['section_before_limit'] . $sql_order_to_append . $analyzed_sql[0]['section_after_limit'];
+            $full_sql_query = $analyzed_sql[0]['section_before_limit'] . $sql_order_to_append
+                . $analyzed_sql[0]['section_after_limit'];
 
             // update the $analyzed_sql
             $analyzed_sql[0]['section_before_limit'] .= $sql_order_to_append;
@@ -428,14 +443,16 @@ if ($GLOBALS['cfg']['RememberSorting']
 
 // Do append a "LIMIT" clause?
 if ((! $cfg['ShowAll'] || $_SESSION['tmp_user_values']['max_rows'] != 'all')
- && ! ($is_count || $is_export || $is_func || $is_analyse)
- && isset($analyzed_sql[0]['queryflags']['select_from'])
- && ! isset($analyzed_sql[0]['queryflags']['offset'])
- && empty($analyzed_sql[0]['limit_clause'])
- ) {
-    $sql_limit_to_append = ' LIMIT ' . $_SESSION['tmp_user_values']['pos'] . ', ' . $_SESSION['tmp_user_values']['max_rows'] . " ";
+    && ! ($is_count || $is_export || $is_func || $is_analyse)
+    && isset($analyzed_sql[0]['queryflags']['select_from'])
+    && ! isset($analyzed_sql[0]['queryflags']['offset'])
+    && empty($analyzed_sql[0]['limit_clause'])
+) {
+    $sql_limit_to_append = ' LIMIT ' . $_SESSION['tmp_user_values']['pos']
+        . ', ' . $_SESSION['tmp_user_values']['max_rows'] . " ";
 
-    $full_sql_query  = $analyzed_sql[0]['section_before_limit'] . "\n" . $sql_limit_to_append . $analyzed_sql[0]['section_after_limit'];
+    $full_sql_query  = $analyzed_sql[0]['section_before_limit'] . "\n"
+        . $sql_limit_to_append . $analyzed_sql[0]['section_after_limit'];
     /**
      * @todo pretty printing of this modified query
      */
@@ -444,9 +461,12 @@ if ((! $cfg['ShowAll'] || $_SESSION['tmp_user_values']['max_rows'] != 'all')
         // a section_after_limit, we now have to analyze $display_query
         // to display it correctly
 
-        if (!empty($analyzed_sql[0]['section_after_limit']) && trim($analyzed_sql[0]['section_after_limit']) != ';') {
+        if (! empty($analyzed_sql[0]['section_after_limit'])
+            && trim($analyzed_sql[0]['section_after_limit']) != ';'
+        ) {
             $analyzed_display_query = PMA_SQP_analyze(PMA_SQP_parse($display_query));
-            $display_query  = $analyzed_display_query[0]['section_before_limit'] . "\n" . $sql_limit_to_append . $analyzed_display_query[0]['section_after_limit'];
+            $display_query  = $analyzed_display_query[0]['section_before_limit']
+                . "\n" . $sql_limit_to_append . $analyzed_display_query[0]['section_after_limit'];
         }
     }
 
@@ -459,7 +479,7 @@ if (strlen($db)) {
 //  E x e c u t e    t h e    q u e r y
 
 // Only if we didn't ask to see the php code (mikebeck)
-if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
+if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     unset($result);
     $num_rows = 0;
 } else {
@@ -516,7 +536,7 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
     // (This must be done immediately after the query because
     // mysql_affected_rows() reports about the last query done)
 
-    if (!$is_affected) {
+    if (! $is_affected) {
         $num_rows = ($result) ? @PMA_DBI_num_rows($result) : 0;
     } elseif (! isset($num_rows)) {
         $num_rows = @PMA_DBI_affected_rows();
@@ -544,7 +564,8 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
 
     // tmpfile remove after convert encoding appended by Y.Kawada
     if (function_exists('PMA_kanji_file_conv')
-        && (isset($textfile) && file_exists($textfile))) {
+        && (isset($textfile) && file_exists($textfile))
+    ) {
         unlink($textfile);
     }
 
@@ -568,12 +589,11 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
         // However, do not count again if we did it previously
         // due to $find_real_end == true
 
-        if (!$is_group
-         && ! isset($analyzed_sql[0]['queryflags']['union'])
-         && ! isset($analyzed_sql[0]['table_ref'][1]['table_name'])
-         && (empty($analyzed_sql[0]['where_clause'])
-           || $analyzed_sql[0]['where_clause'] == '1 ')
-         && ! isset($find_real_end)
+        if (! $is_group
+            && ! isset($analyzed_sql[0]['queryflags']['union'])
+            && ! isset($analyzed_sql[0]['table_ref'][1]['table_name'])
+            && (empty($analyzed_sql[0]['where_clause']) || $analyzed_sql[0]['where_clause'] == '1 ')
+            && ! isset($find_real_end)
         ) {
 
             // "j u s t   b r o w s i n g"
@@ -592,7 +612,7 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
             $count_query = PMA_SQP_formatHtml($parsed_sql, 'query_only', 0, $analyzed_sql[0]['position_of_first_select'] + 1);
             $count_query .= ' SQL_CALC_FOUND_ROWS ';
             // add everything that was after the first SELECT
-            $count_query .= PMA_SQP_formatHtml($parsed_sql, 'query_only', $analyzed_sql[0]['position_of_first_select']+1);
+            $count_query .= PMA_SQP_formatHtml($parsed_sql, 'query_only', $analyzed_sql[0]['position_of_first_select'] + 1);
             // ensure there is no semicolon at the end of the
             // count query because we'll probably add
             // a LIMIT 1 clause after it
@@ -649,7 +669,7 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
     } // end if ($purge)
 
     // If a column gets dropped, do relation magic.
-    if (isset($dropped_column) && strlen($db) && strlen($table) && !empty($dropped_column)) {
+    if (isset($dropped_column) && strlen($db) && strlen($table) && ! empty($dropped_column)) {
         include_once './libraries/relation_cleanup.lib.php';
         PMA_relationsCleanupColumn($db, $table, $dropped_column);
 
@@ -688,14 +708,14 @@ if (0 == $num_rows || $is_affected) {
         // fact that $message_to_show is sent for every case.
         // The $message_to_show containing a success message and sent with
         // the form should not have priority over errors
-    } elseif (!empty($message_to_show) && !$is_select) {
+    } elseif (! empty($message_to_show) && ! $is_select) {
         $message = PMA_Message::rawSuccess(htmlspecialchars($message_to_show));
-    } elseif (!empty($GLOBALS['show_as_php'])) {
+    } elseif (! empty($GLOBALS['show_as_php'])) {
         $message = PMA_Message::success(__('Showing as PHP code'));
     } elseif (isset($GLOBALS['show_as_php'])) {
         /* User disable showing as PHP, query is only displayed */
         $message = PMA_Message::notice(__('Showing SQL query'));
-    } elseif (!empty($GLOBALS['validatequery'])) {
+    } elseif (! empty($GLOBALS['validatequery'])) {
         $message = PMA_Message::notice(__('Validated SQL'));
     } else {
         $message = PMA_Message::success(__('MySQL returned an empty result set (i.e. zero rows).'));
@@ -926,7 +946,8 @@ $(document).ready(makeProfilingChart);
     // Bookmark support if required
     if ($disp_mode[7] == '1'
         && (! empty($cfg['Bookmark']) && empty($id_bookmark))
-        && !empty($sql_query)) {
+        && ! empty($sql_query)
+    ) {
         echo "\n";
 
         $goto = 'sql.php?'
