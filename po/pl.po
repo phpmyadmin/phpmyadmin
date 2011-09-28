@@ -579,7 +579,7 @@ msgstr "Znajdź:"
 
 #: db_search.php:285 db_search.php:286
 msgid "Words are separated by a space character (\" \")."
-msgstr "Słowa są rozdzielane znakiem spacji(\" \")."
+msgstr "Słowa rozdzielane są znakiem spacji(\" \")."
 
 #: db_search.php:299
 msgid "Inside tables:"
