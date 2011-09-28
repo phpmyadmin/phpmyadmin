@@ -10236,7 +10236,7 @@ msgstr ""
 
 #: server_status.php:1385
 msgid "The number of joins that did a full scan of the first table."
-msgstr "最初のテーブルをフルスキャンした結合の数"
+msgstr "最初のテーブルを全スキャンした結合の数"
 
 #: server_status.php:1386
 msgid "The number of temporary tables currently open by the slave SQL thread."
