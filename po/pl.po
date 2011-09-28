@@ -503,7 +503,7 @@ msgstr "Wykonaj zapytanie"
 #: libraries/auth/cookie.auth.lib.php:568 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:237
 msgid "Access denied"
-msgstr "Brak dostępu"
+msgstr "Dostęp zabroniony"
 
 #: db_search.php:42 db_search.php:285
 msgid "at least one of the words"
