@@ -614,7 +614,7 @@ msgstr "Śledzenie jest aktywne."
 
 #: db_structure.php:315 tbl_create.php:271
 msgid "Tracking is not active."
-msgstr "Śledzenie nie jest aktywne."
+msgstr "Śledzenie jest nieaktywne."
 
 #: db_structure.php:422 libraries/display_tbl.lib.php:2331
 #, php-format
