@@ -1624,7 +1624,7 @@ msgstr "特定の値に対する変数値の割合"
 
 #: js/messages.php:203
 msgid "Test"
-msgstr ""
+msgstr "判断基準"
 
 #: js/messages.php:208 libraries/tbl_properties.inc.php:758
 #: pmd_general.php:382 pmd_general.php:419 pmd_general.php:539
