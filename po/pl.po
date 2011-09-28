@@ -496,7 +496,7 @@ msgstr "Zapytanie SQL dla bazy danych <b>%s</b>:"
 
 #: db_qbe.php:955 libraries/common.lib.php:1163
 msgid "Submit Query"
-msgstr "Wykonaj zapytania"
+msgstr "Wykonaj zapytanie"
 
 #: db_search.php:30 libraries/auth/config.auth.lib.php:77
 #: libraries/auth/config.auth.lib.php:96
