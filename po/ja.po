@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-27 09:13+0200\n"
-"PO-Revision-Date: 2011-09-28 12:28+0200\n"
+"PO-Revision-Date: 2011-09-28 12:29+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1620,7 +1620,7 @@ msgstr "判断理由"
 
 #: js/messages.php:202
 msgid "Used variable / formula"
-msgstr ""
+msgstr "特定の値に対する変数値の割合"
 
 #: js/messages.php:203
 msgid "Test"
