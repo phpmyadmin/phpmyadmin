@@ -13662,7 +13662,7 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\\\">MySQL Documentation</a>"
 msgstr ""
 "Ustawienie {concurrent_insert} na 1 ogranicza zawartość pomiędzy odczytem a "
-"zapisem do danej tabeli. Patrz także <a "
+"zapisem do danej tabeli. Patrz także: <a "
 "href=\\\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-"
 "inserts.html\\\">Dokumentacja MySQL.</a>"
 
