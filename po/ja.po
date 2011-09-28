@@ -9785,9 +9785,8 @@ msgid ""
 "it suggests that the server is doing a lot of full index scans; for example, "
 "SELECT col1 FROM foo, assuming that col1 is indexed."
 msgstr ""
-"インデックスの最初のエントリを読み込んだ回数。この値が高い場合はサーバが何度"
-"もインデックスのフルスキャンを実行しているものと思われます。例えば SELECT "
-"col1 FROM foo を実行した場合 (col1 はインデックスに含まれているものとします)"
+"インデックスの最初のエントリを読み込んだ回数。この値が高い場合はサーバが何度もインデックスの全スキャンを実行しているものと思われます。例えば "
+"SELECT col1 FROM foo を実行した場合 (col1 はインデックスに含まれているものとします)"
 
 #: server_status.php:1307
 msgid ""
