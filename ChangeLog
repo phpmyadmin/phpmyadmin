@@ -64,6 +64,7 @@ phpMyAdmin - ChangeLog
 - bug #3413743 [interface] Display options link missing after search
 - bug #3324161 [core] CSP policy causing designer JS buttons to fail
 - bug #3412862 [relation] Relations/constraints are dropped/created on every change
+- bug #3390832 [display] Delete records from last page breaks search
 
 3.4.5.0 (2011-09-14)
 - bug #3375325 [interface] Page list in navigation frame looks odd
