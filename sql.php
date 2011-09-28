@@ -580,7 +580,7 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
 } // end else "didn't ask to see php code"
 
 // No rows returned -> move back to the calling page
-if (0 == $num_rows || $is_affected) {
+if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     if ($is_delete) {
         $message = PMA_Message::deleted_rows($num_rows);
     } elseif ($is_insert) {
