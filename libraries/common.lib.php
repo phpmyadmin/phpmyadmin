@@ -3709,4 +3709,19 @@ function PMA_getServerType()
     return $server_type;
 }
 
+/**
+ * Analyzes the limit clause and return the start and length attributes of it.
+ *
+ * @param string $limit_clause limit clause
+ *
+ * @return array Start and length attributes of the limit clause
+ */
+function PMA_analyzeLimitClause($limit_clause)
+{
+    $start_and_length = explode(',', str_ireplace('LIMIT', '', $limit_clause));
+    return array(
+        'start'  => trim($start_and_length[0]),
+        'length' => trim($start_and_length[1])
+    );
+}
 ?>

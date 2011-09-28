@@ -48,6 +48,7 @@ phpMyAdmin - ChangeLog
 + [import] Import GIS data from ESRI Shapefiles
 + [interface] 'Function based search' for GIS data
 + Support Drizzle database
+- bug #3356456 [interface] Interface problems for queries having LIMIT clauses
 
 3.4.6.0 (not yet released)
 - patch #3404173 InnoDB comment display with tooltips/aliases
