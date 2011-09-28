@@ -2321,9 +2321,22 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
         } else {
             $selectstring = '';
         }
-        $last_shown_rec = ($_SESSION['tmp_user_values']['max_rows'] == 'all' || $pos_next > $total)
-                        ? $total - 1
-                        : $pos_next - 1;
+
+        if (! empty($analyzed_sql[0]['limit_clause'])) {
+            $limit_data = PMA_analyzeLimitClause($analyzed_sql[0]['limit_clause']);
+            $first_shown_rec = $limit_data['start'];
+            if ($limit_data['length'] < $total) {
+                $last_shown_rec = $limit_data['start'] + $limit_data['length'] - 1;
+            } else {
+                $last_shown_rec = $limit_data['start'] + $total - 1;
+            }
+        } elseif ($_SESSION['tmp_user_values']['max_rows'] == 'all' || $pos_next > $total) {
+            $first_shown_rec = $_SESSION['tmp_user_values']['pos'];
+            $last_shown_rec  = $total - 1;
+        } else {
+            $first_shown_rec = $_SESSION['tmp_user_values']['pos'];
+            $last_shown_rec  = $pos_next - 1;
+        }
 
         if (PMA_Table::isView($db, $table)
             && $total == $GLOBALS['cfg']['MaxExactCountViews']
@@ -2337,7 +2350,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
         }
 
         $message = PMA_Message::success(__('Showing rows'));
-        $message->addMessage($_SESSION['tmp_user_values']['pos']);
+        $message->addMessage($first_shown_rec);
         if ($message_view_warning) {
             $message->addMessage('...', ' - ');
             $message->addMessage($message_view_warning);
@@ -2382,7 +2395,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
         }
     }
 
-    if ($is_display['nav_bar'] == '1') {
+    if ($is_display['nav_bar'] == '1' && empty($analyzed_sql[0]['limit_clause'])) {
         PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, 'top_direction_dropdown');
         echo "\n";
     } elseif (! isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
@@ -2509,7 +2522,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 
     // 5. ----- Displays the navigation bar at the bottom if required -----
 
-    if ($is_display['nav_bar'] == '1') {
+    if ($is_display['nav_bar'] == '1' && empty($analyzed_sql[0]['limit_clause'])) {
         echo '<br />' . "\n";
         PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, 'bottom_direction_dropdown');
     } elseif (! isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
