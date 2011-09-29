@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-27 09:13+0200\n"
-"PO-Revision-Date: 2011-09-19 20:43+0200\n"
+"PO-Revision-Date: 2011-09-29 12:00+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -12337,7 +12337,6 @@ msgid "There are lots of rows being sorted."
 msgstr "Birçok sıralanmış satır var."
 
 #: po/advisory_rules.php:122
-#, fuzzy
 #| msgid ""
 #| "While there is nothing wrong with a high amount of row sorting, you might "
 #| "want to make sure that the queries which require a lot of sorting use "
@@ -12350,8 +12349,9 @@ msgid ""
 "sorting"
 msgstr ""
 "Satır sıralamanın yüksek miktarıyla hiçbir sorun yokken, ORDER BY ibaresinde "
-"indekslenmiş alanları kullanan çok fazla sıralama gerektiren sorgulardan "
-"emin olmak isteyebilirsiniz, ki bu çok daha hızlı sıralamayla sonuçlanacaktır"
+"indekslenmiş sütunları kullanan çok fazla sıralama gerektiren sorgulardan "
+"emin olmak isteyebilirsiniz, ki bu çok daha hızlı sıralamayla "
+"sonuçlanacaktır"
 
 #: po/advisory_rules.php:123
 #, php-format
