@@ -84,10 +84,10 @@ class PMA_User_Schema
                 break;
             case 'delete_old_references':
                 $this->_deleteTableRows(
-                    $delrow,
+                    $_POST['delrow'],
                     $cfgRelation,
                     $db,
-                    $this->chosenPage
+                    $_POST['chpage'] 
                 );
                 break;
             case 'process_export':
@@ -352,7 +352,9 @@ class PMA_User_Schema
             echo "\n" . '</form>' . "\n\n";
         } // end if
 
-        $this->_deleteTables($db, $this->chosenPage, isset($tabExist));
+        if (isset($tabExist)) {
+            $this->_deleteTables($db, $this->chosenPage, $tabExist);
+        }
     }
 
     /**
@@ -473,7 +475,7 @@ class PMA_User_Schema
             }
             if ($shoot) {
                 echo '<form action="schema_edit.php" method="post">' . "\n"
-                    . PMA_generate_common_hidden_inputs($db, $table)
+                    . PMA_generate_common_hidden_inputs($db)
                     . '<input type="hidden" name="do" value="delete_old_references" />' . "\n"
                     . '<input type="hidden" name="chpage" value="' . htmlspecialchars($chpage) . '" />' . "\n"
                     . __('The current page has references to tables that no longer exist. Would you like to delete those references?')
