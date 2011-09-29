@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-27 09:13+0200\n"
-"PO-Revision-Date: 2011-09-20 22:18+0200\n"
+"PO-Revision-Date: 2011-09-29 23:29+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -12279,7 +12279,6 @@ msgid "There are lots of rows being sorted."
 msgstr "Det är många rader som blir sorterade."
 
 #: po/advisory_rules.php:122
-#, fuzzy
 #| msgid ""
 #| "While there is nothing wrong with a high amount of row sorting, you might "
 #| "want to make sure that the queries which require a lot of sorting use "
@@ -12291,9 +12290,9 @@ msgid ""
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting"
 msgstr ""
-"Även om det inte är fel med en stor mängd radsorteringar,bör du se till att "
-"frågor som kräver mycket sortering använder de  indexerade fälten i ORDER BY-"
-"satsen, då detta kommer resultera i mycket snabbare sortering"
+"Även om det inte är fel med en hög andel av radsorteringar,bör du se till "
+"att frågor som kräver mycket sortering använder de  indexerade fälten i "
+"ORDER BY-satsen, då detta kommer resultera i mycket snabbare sortering"
 
 #: po/advisory_rules.php:123
 #, php-format
