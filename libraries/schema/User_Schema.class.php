@@ -84,10 +84,10 @@ class PMA_User_Schema
                 break;
             case 'delete_old_references':
                 $this->_deleteTableRows(
-                    $delrow,
+                    $_POST['delrow'],
                     $cfgRelation,
                     $db,
-                    $this->chosenPage
+                    $_POST['chpage'] 
                 );
                 break;
             case 'process_export':
@@ -352,7 +352,9 @@ class PMA_User_Schema
             echo "\n" . '</form>' . "\n\n";
         } // end if
 
-        $this->_deleteTables($db, $this->chosenPage, $tabExist);
+        if (isset($tabExist)) {
+            $this->_deleteTables($db, $this->chosenPage, $tabExist);
+        }
     }
 
     /**
