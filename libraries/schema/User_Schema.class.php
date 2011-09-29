@@ -491,10 +491,12 @@ class PMA_User_Schema
                 $local_query = 'SHOW FIELDS FROM '
                              .  PMA_backquote($temp_sh_page['table_name'])
                              . ' FROM ' . PMA_backquote($db);
-                $fields_rs = PMA_DBI_query($local_query);
+                $fields_rs = PMA_DBI_try_query($local_query);
                 unset($local_query);
-                $fields_cnt = PMA_DBI_num_rows($fields_rs);
-
+                // the table has been dropped from outside phpMyAdmin
+                if (PMA_DBI_getError()) {
+                    continue;
+                } 
                 echo '<div id="table_' . $i . '" class="pdflayout_table"><u>' . $temp_sh_page['table_name'] . '</u>';
                 if (isset($with_field_names)) {
                     while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
