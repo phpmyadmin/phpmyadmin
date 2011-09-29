@@ -925,7 +925,7 @@ foreach ($rows as $row_id => $vrow) {
             ) {
                 echo "\n";
                 ?>
-                <textarea name="fields<?php echo $field_name_appendix; ?>"
+                <textarea class="char" name="fields<?php echo $field_name_appendix; ?>"
                     rows="<?php echo $cfg['CharTextareaRows']; ?>"
                     cols="<?php echo $cfg['CharTextareaCols']; ?>"
                     dir="<?php echo $text_dir; ?>"

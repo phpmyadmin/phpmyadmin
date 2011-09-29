@@ -1422,7 +1422,7 @@ if (isset($_REQUEST['flush_privileges'])) {
 /**
  * defines some standard links
  */
-$link_edit = '<a class="edit_user_anchor ' . $conditional_class . '" href="server_privileges.php?' . str_replace($GLOBALS['url_query'], '%', '%%')
+$link_edit = '<a class="edit_user_anchor ' . $conditional_class . '" href="server_privileges.php?' . str_replace('%', '%%', $GLOBALS['url_query'])
     . '&amp;username=%s'
     . '&amp;hostname=%s'
     . '&amp;dbname=%s'
@@ -1430,7 +1430,7 @@ $link_edit = '<a class="edit_user_anchor ' . $conditional_class . '" href="serve
     . PMA_getIcon('b_usredit.png', __('Edit Privileges'))
     . '</a>';
 
-$link_revoke = '<a href="server_privileges.php?' . str_replace($GLOBALS['url_query'], '%', '%%')
+$link_revoke = '<a href="server_privileges.php?' . str_replace('%', '%%', $GLOBALS['url_query'])
     . '&amp;username=%s'
     . '&amp;hostname=%s'
     . '&amp;dbname=%s'
@@ -1439,7 +1439,7 @@ $link_revoke = '<a href="server_privileges.php?' . str_replace($GLOBALS['url_que
     . PMA_getIcon('b_usrdrop.png', __('Revoke'))
     . '</a>';
 
-$link_export = '<a class="export_user_anchor ' . $conditional_class . '" href="server_privileges.php?' . str_replace($GLOBALS['url_query'], '%', '%%')
+$link_export = '<a class="export_user_anchor ' . $conditional_class . '" href="server_privileges.php?' . str_replace('%', '%%', $GLOBALS['url_query'])
     . '&amp;username=%s'
     . '&amp;hostname=%s'
     . '&amp;initial=%s'
