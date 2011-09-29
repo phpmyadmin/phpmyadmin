@@ -66,6 +66,7 @@ phpMyAdmin - ChangeLog
 - bug #3412862 [relation] Relations/constraints are dropped/created on every change
 - bug #3390832 [display] Delete records from last page breaks search
 - bug #3392150 [schema] PMA_User_Schema::processUserChoice() is broken
+- bug #3414744 [core] External link fails in 3.4.5
 
 3.4.5.0 (2011-09-14)
 - bug #3375325 [interface] Page list in navigation frame looks odd
