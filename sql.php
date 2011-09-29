@@ -394,6 +394,7 @@ if (strlen($db)) {
 if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
     unset($result);
     $num_rows = 0;
+    $unlim_num_rows = 0;
 } else {
     if (isset($_SESSION['profiling']) && PMA_profilingSupported()) {
         PMA_DBI_query('SET PROFILING=1;');
