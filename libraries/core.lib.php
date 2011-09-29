@@ -263,7 +263,7 @@ function PMA_getPHPDocLink($target) {
     /* l10n: Language to use for PHP documentation, please use only languages which do exist in official documentation. */
     $lang = _pgettext('PHP documentation language', 'en');
 
-    return 'http://php.net/manual/' . $lang . '/' . $target;
+    return PMA_linkURL('http://php.net/manual/' . $lang . '/' . $target);
 }
 
 /**
