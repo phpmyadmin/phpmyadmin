@@ -12367,7 +12367,6 @@ msgid "There are too many joins without indexes."
 msgstr "İndeksler olmaksızın çok fazla birleştirme var."
 
 #: po/advisory_rules.php:127
-#, fuzzy
 #| msgid ""
 #| "This means that joins are doing full table scans. Adding indexes for the "
 #| "fields being used in the join conditions will greatly speed up table joins"
@@ -12376,7 +12375,7 @@ msgid ""
 "columns being used in the join conditions will greatly speed up table joins"
 msgstr ""
 "Bu, birleştirmeler tam tablo taraması yapıyor anlamına gelir. Birleştirme "
-"şartlarında kullanılan alanlar için indekslerin eklenmesi tablo "
+"şartlarında kullanılan sütunlar için indekslerin eklenmesi tablo "
 "birleştirmelerini fazlasıyla hızlandıracaktır"
 
 #: po/advisory_rules.php:128
