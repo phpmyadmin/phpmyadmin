@@ -764,7 +764,7 @@ require './libraries/server_links.inc.php';
  * Displays the sub-page heading
  */
 if ($GLOBALS['cfg']['MainPageIconic']) {
-    echo '<img class="icon ic_s_status" src="themes/dot.gif" width="16" height="16" alt="" />';
+    echo PMA_getImage('s_status.png');
 }
 
 echo __('Runtime Information');
@@ -889,8 +889,8 @@ echo __('Runtime Information');
 
         <div id="statustabs_advisor" class="jsfeature">
             <div class="tabLinks">
-                <img src="themes/dot.gif" class="icon ic_play" alt="" /> <a href="#startAnalyzer"><?php echo __('Run analyzer'); ?></a>
-                <img src="themes/dot.gif" class="icon ic_b_help" alt="" /> <a href="#openAdvisorInstructions"><?php echo __('Instructions'); ?></a>
+                <?php echo PMA_getImage('play.png'); ?> <a href="#startAnalyzer"><?php echo __('Run analyzer'); ?></a>
+                <?php echo PMA_getImage('b_help.png'); ?> <a href="#openAdvisorInstructions"><?php echo __('Instructions'); ?></a>
             </div>
             <div class="tabInnerContent clearfloat">
             </div>
@@ -1536,31 +1536,31 @@ function printMonitor()
 ?>
     <div class="tabLinks" style="display:none;">
         <a href="#pauseCharts">
-            <img src="themes/dot.gif" class="icon ic_play" alt="" />
+            <?php echo PMA_getImage('play.png'); ?>
             <?php echo __('Start Monitor'); ?>
         </a>
         <a href="#settingsPopup" rel="popupLink" style="display:none;">
-            <img src="themes/dot.gif" class="icon ic_s_cog" alt="" />
+            <?php echo PMA_getImage('s_cog.png'); ?>
             <?php echo __('Settings'); ?>
         </a>
         <?php if (!PMA_DRIZZLE) { ?>
         <a href="#monitorInstructionsDialog">
-            <img src="themes/dot.gif" class="icon ic_b_help" alt="" />
+            <?php echo PMA_getImage('b_help.png'); ?>
             <?php echo __('Instructions/Setup'); ?>
         </a>
         <?php } ?>
         <a href="#endChartEditMode" style="display:none;">
-            <img src="themes/dot.gif" class="icon ic_s_okay" alt="" />
+            <?php echo PMA_getImage('s_okay.png'); ?>
             <?php echo __('Done rearranging/editing charts'); ?>
         </a>
     </div>
 
     <div class="popupContent settingsPopup">
         <a href="#addNewChart">
-            <img src="themes/dot.gif" class="icon ic_b_chart" alt="" />
+            <?php echo PMA_getImage('b_chart.png'); ?>
             <?php echo __('Add chart'); ?>
         </a>
-        <a href="#rearrangeCharts"><img class="icon ic_b_tblops" src="themes/dot.gif" width="16" height="16" alt="" /><?php echo __('Rearrange/edit charts'); ?></a>
+        <a href="#rearrangeCharts"><?php echo PMA_getImage('b_tblops.png'); ?><?php echo __('Rearrange/edit charts'); ?></a>
         <div class="clearfloat paddingtop"></div>
         <div class="floatleft">
             <?php
@@ -1594,7 +1594,7 @@ function printMonitor()
         <?php echo __('The phpMyAdmin Monitor can assist you in optimizing the server configuration and track down time intensive queries. For the latter you will need to set log_output to \'TABLE\' and have either the slow_query_log or general_log enabled. Note however, that the general_log produces a lot of data and increases server load by up to 15%'); ?>
     <?php if (PMA_MYSQL_INT_VERSION < 50106) { ?>
         <p>
-        <img class="icon ic_s_attention" src="themes/dot.gif" alt="" />
+        <?php echo PMA_getImage('s_attention.png'); ?>
         <?php
             echo __('Unfortunately your Database server does not support logging to table, which is a requirement for analyzing the database logs with phpMyAdmin. Logging to table is supported by MySQL 5.1.6 and onwards. You may still use the server charting features however.');
         ?>
@@ -1617,7 +1617,7 @@ function printMonitor()
                 echo '</p>';
             ?>
             <p>
-            <img class="icon ic_s_attention" src="themes/dot.gif" alt="" />
+            <?php echo PMA_getImage('s_attention.png'); ?>
             <?php
                 echo '<strong>';
                 echo __('Please note:');

@@ -162,8 +162,7 @@ setURLHash("<?php echo PMA_generate_common_url($url_params, 'text', ''); ?>");
     echo '<a href="index.php' . PMA_generate_common_url($url_params) . '"'
         . ' title="' . __('Open new phpMyAdmin window') . '" target="_blank">';
     if ($GLOBALS['cfg']['NavigationBarIconic']) {
-        echo '<img class="icon ic_window-new" src="themes/dot.gif"'
-            . ' alt="' . __('Open new phpMyAdmin window') . '" />';
+        echo PMA_getImage('window-new.png', __('Open new phpMyAdmin window'));
     }
     if ($GLOBALS['cfg']['NavigationBarIconic'] !== true) {
         echo __('Open new phpMyAdmin window');

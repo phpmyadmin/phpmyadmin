@@ -266,9 +266,11 @@ if (isset($_REQUEST['do_save_data'])) {
             if (PMA_Tracker::isActive()) {
                 $truename = str_replace(' ', '&nbsp;', htmlspecialchars($table));
                 if (PMA_Tracker::isTracked($db, $truename)) {
-                    $new_table_string .= '<a href="tbl_tracking.php' . PMA_generate_common_url($tbl_url_params) . '"><img class="icon ic_eye" src="themes/dot.gif" alt="' . __('Tracking is active.') . '" title="' . __('Tracking is active.') . '" /></a>';
+                    $new_table_string .= '<a href="tbl_tracking.php' . PMA_generate_common_url($tbl_url_params) . '">';
+                    $new_table_string .= PMA_getImage('eye.png', __('Tracking is active.'));
                 } elseif (PMA_Tracker::getVersion($db, $truename) > 0) {
-                    $new_table_string .= '<a href="tbl_tracking.php' . PMA_generate_common_url($tbl_url_params) . '"><img class="icon ic_eye_grey" src="themes/dot.gif" alt="' . __('Tracking is not active.') . '" title="' . __('Tracking is not active.') . '" /></a>';
+                    $new_table_string .= '<a href="tbl_tracking.php' . PMA_generate_common_url($tbl_url_params) . '">';
+                    $new_table_string .= PMA_getImage('eye_grey.png', __('Tracking is not active.'));
                 }
                 unset($truename);
             }

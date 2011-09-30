@@ -2843,7 +2843,7 @@ $(function() {
         });
     var img = topmenu.find('li:first-child img');
     if (img.length) {
-        img.clone().attr('class', 'icon ic_b_more').prependTo(link);
+        $(PMA_getImage('b_more.png').toString()).prependTo(link);
     }
     var submenu = $('<li />', {'class': 'submenu'})
         .append(link)

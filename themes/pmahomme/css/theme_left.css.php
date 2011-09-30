@@ -65,32 +65,6 @@ button {
     display:            inline;
 }
 
-/* Icon sprites */
-
-.icon {
-    /* leave some space between icons and text */
-    vertical-align:     middle;
-    margin-right:       0.3em;
-    margin-left:        0.3em;
-    width:16px;
-    height:16px;
-    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>iconsprites.png) no-repeat top left;
-}
-
-.ic_b_home { background-position: -357px 0; }
-.ic_b_selboard { background-position: -754px 0; }
-.ic_b_docs { background-position: -136px 0; }
-.ic_b_sqlhelp { background-position: -856px 0; }
-.ic_s_reload { background-position: -1761px 0; }
-.ic_s_loggoff { background-position: -1698px 0; }
-.ic_b_browse, .ic_b_sbrowse { background-position: -34px 0; }
-.ic_b_view { background-position: -1077px 0; }
-.ic_b_plus { background-position: -573px 0; }
-.ic_b_minus { background-position: -471px 0; }
-
-.ic_b_views, .ic_s_views { background-position: -1094px 0; }
-.ic_b_snewtbl { background-position: -788px 0; }
-
 /******************************************************************************/
 /* classes */
 
