@@ -12,18 +12,24 @@
  * Include to test.
  */
 require_once 'libraries/common.lib.php';
+require_once 'libraries/Theme.class.php';
 
 class PMA_showPHPDocu_test extends PHPUnit_Framework_TestCase
 {
+    function setup()
+    {
+        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+    }
+
     function testShwoPHPDocuReplaceHelpImg()
     {
         $GLOBALS['cfg']['ReplaceHelpImg'] = true;
 
         $target = "docu";
         $lang = _pgettext('PHP documentation language', 'en');
-        $expected = '<a href="http://php.net/manual/' . $lang . '/' . $target 
-            . '" target="documentation"><img class="icon ic_b_help_s" src="themes/dot.gif" alt="' 
-            . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
+        $expected = '<a href="http://php.net/manual/' . $lang . '/' . $target
+            . '" target="documentation"><img src="themes/dot.gif" title="'
+            . __('Documentation') . '" alt="' . __('Documentation') . '" class="icon ic_b_help" /></a>';
 
         $this->assertEquals($expected, PMA_showPHPDocu($target));
     }

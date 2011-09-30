@@ -947,10 +947,12 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 $order_img   = '';
             } elseif ('DESC' == $sort_direction) {
                 $sort_order .= ' ASC';
-                $order_img   = ' <img class="icon ic_s_desc" src="themes/dot.gif" alt="'. __('Descending') . '" title="'. __('Descending') . '" id="soimg' . $i . '" />';
+                $order_img   = ' ' . PMA_getImage('s_desc.png', __('Descending'), array('class' => "soimg$i", 'title' => ''));
+                $order_img  .= ' ' . PMA_getImage('s_asc.png', __('Ascending'), array('class' => "soimg$i hide", 'title' => ''));
             } else {
                 $sort_order .= ' DESC';
-                $order_img   = ' <img class="icon ic_s_asc" src="themes/dot.gif" alt="'. __('Ascending') . '" title="'. __('Ascending') . '" id="soimg' . $i . '" />';
+                $order_img   = ' ' . PMA_getImage('s_asc.png', __('Ascending'), array('class' => "soimg$i", 'title' => ''));
+                $order_img  .= ' ' . PMA_getImage('s_desc.png', __('Descending'), array('class' => "soimg$i hide", 'title' => ''));
             }
 
             if (preg_match('@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE))@is', $unsorted_sql_query, $regs3)) {
@@ -971,11 +973,11 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             $order_link_params = array();
             if (isset($order_img) && $order_img!='') {
                 if (strstr($order_img, 'asc')) {
-                    $order_link_params['onmouseover'] = 'if ($(\'#soimg' . $i . '\').length > 0) { $(\'#soimg' . $i . '\').attr(\'class\', \'icon ic_s_desc\'); }';
-                    $order_link_params['onmouseout']  = 'if ($(\'#soimg' . $i . '\').length > 0) { $(\'#soimg' . $i . '\').attr(\'class\', \'icon ic_s_asc\'); }';
+                    $order_link_params['onmouseover'] = "$('.soimg$i').toggle()";
+                    $order_link_params['onmouseout']  = "$('.soimg$i').toggle()";
                 } elseif (strstr($order_img, 'desc')) {
-                    $order_link_params['onmouseover'] = 'if ($(\'#soimg' . $i . '\').length > 0) { $(\'#soimg' . $i . '\').attr(\'class\', \'icon ic_s_asc\'); }';
-                    $order_link_params['onmouseout']  = 'if ($(\'#soimg' . $i . '\').length > 0) { $(\'#soimg' . $i . '\').attr(\'class\', \'icon ic_s_desc\'); }';
+                    $order_link_params['onmouseover'] = "$('.soimg$i').toggle()";
+                    $order_link_params['onmouseout']  = "$('.soimg$i').toggle()";
                 }
             }
             if ($GLOBALS['cfg']['HeaderFlipType'] == 'auto') {

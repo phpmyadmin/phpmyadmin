@@ -115,13 +115,8 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
                                                                    : ':' . $GLOBALS['cfg']['Server']['port']
                                                                   )
                            );
+            $separator = "<span class='separator'>»</span>\n";
             $item = '<a href="%1$s?%2$s" class="item">';
-            if ($GLOBALS['cfg']['NavigationBarIconic']) {
-                $separator = '        <span class="separator"><img class="icon ic_item_' . $GLOBALS['text_dir'] . '" src="themes/dot.gif" alt="-" /></span>' . "\n";
-                $item .= '        <img class="icon %5$s" src="themes/dot.gif" alt="" /> ' . "\n";
-            } else {
-                $separator = '        <span class="separator"> - </span>' . "\n";
-            }
 
                 if ($GLOBALS['cfg']['NavigationBarIconic'] !== true) {
                     $item .= '%4$s: ';
@@ -129,34 +124,41 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
                 $item .= '%3$s</a>' . "\n";
 
                 echo '<div id="serverinfo">' . "\n";
+                if ($GLOBALS['cfg']['NavigationBarIconic']) {
+                    echo PMA_getImage('s_host.png') . "\n";
+                }
                 printf($item,
                         $GLOBALS['cfg']['DefaultTabServer'],
                         PMA_generate_common_url(),
                         htmlspecialchars($server_info),
-                        __('Server'),
-                        'ic_s_host');
+                        __('Server'));
 
                 if (strlen($GLOBALS['db'])) {
 
                     echo $separator;
+                    if ($GLOBALS['cfg']['NavigationBarIconic']) {
+                        echo PMA_getImage('s_db.png') . "\n";
+                    }
                     printf($item,
                             $GLOBALS['cfg']['DefaultTabDatabase'],
                             PMA_generate_common_url($GLOBALS['db']),
                             htmlspecialchars($GLOBALS['db']),
-                            __('Database'),
-                            'ic_s_db');
+                            __('Database'));
                     // if the table is being dropped, $_REQUEST['purge'] is set to '1'
                     // so do not display the table name in upper div
                     if (strlen($GLOBALS['table']) && ! (isset($_REQUEST['purge']) && $_REQUEST['purge'] == '1')) {
                         include_once './libraries/tbl_info.inc.php';
 
                         echo $separator;
+                        if ($GLOBALS['cfg']['NavigationBarIconic']) {
+                            $icon = isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? 'b_views.png' : 's_tbl.png';
+                            echo PMA_getImage($icon) . "\n";
+                        }
                         printf($item,
                             $GLOBALS['cfg']['DefaultTabTable'],
                             PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']),
                             str_replace(' ', '&nbsp;', htmlspecialchars($GLOBALS['table'])),
-                            (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? __('View') : __('Table')),
-                            (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? 'ic_b_views' : 'ic_s_tbl'));
+                            (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? __('View') : __('Table')));
 
                         /**
                          * Displays table comment

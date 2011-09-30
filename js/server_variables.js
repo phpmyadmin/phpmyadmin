@@ -4,9 +4,9 @@ $(function() {
     var $tmpDiv, charWidth;
 
     // Global vars
-    editLink = '<a href="#" class="editLink" onclick="return editVariable(this);"><img class="icon ic_b_edit" src="themes/dot.gif" alt=""> '+PMA_messages['strEdit']+'</a>';
-    saveLink = '<a href="#" class="saveLink"><img class="icon ic_b_save" src="themes/dot.gif" alt=""> '+PMA_messages['strSave']+'</a> ';
-    cancelLink = '<a href="#" class="cancelLink"><img class="icon ic_b_close" src="themes/dot.gif" alt=""> '+PMA_messages['strCancel']+'</a> ';
+    editLink = '<a href="#" class="editLink" onclick="return editVariable(this);">' + PMA_getImage('b_edit.png') + ' ' + PMA_messages['strEdit'] + '</a>';
+    saveLink = '<a href="#" class="saveLink">' + PMA_getImage('b_save.png') + ' ' + PMA_messages['strSave'] + '</a> ';
+    cancelLink = '<a href="#" class="cancelLink">' + PMA_getImage('b_close.png') + ' ' + PMA_messages['strCancel'] + '</a> ';
 
     $.ajaxSetup({
         cache:false

@@ -96,8 +96,8 @@ function showDetails(i, update_size, insert_size, remove_size, insert_index, rem
         insert_rows.align = "center";
 
         var tick_image = document.createElement("img");
-        tick_image.src = 'themes/dot.gif';
-        tick_image.className = "icon ic_s_success";
+        tick_image.src = PMA_getImage('s_success.png').attr('src');
+        tick_image.className = PMA_getImage('s_success.png').attr('class');
 
         if (update_size == '' && insert_size == '' && remove_size == '') {
           /**

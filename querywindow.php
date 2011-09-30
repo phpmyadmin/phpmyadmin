@@ -60,17 +60,17 @@ if ($no_js) {
     $tabs = false;
 } else {
     $tabs = array();
-    $tabs['sql']['icon']   = 'ic_b_sql';
+    $tabs['sql']['icon']   = 'b_sql.png';
     $tabs['sql']['text']   = __('SQL');
     $tabs['sql']['fragment']   = '#';
     $tabs['sql']['attr']   = 'onclick="PMA_querywindowCommit(\'sql\');return false;"';
     $tabs['sql']['active'] = (bool) ($querydisplay_tab == 'sql');
-    $tabs['import']['icon']   = 'ic_b_import';
+    $tabs['import']['icon']   = 'b_import.png';
     $tabs['import']['text']   = __('Import files');
     $tabs['import']['fragment']   = '#';
     $tabs['import']['attr']   = 'onclick="PMA_querywindowCommit(\'files\');return false;"';
     $tabs['import']['active'] = (bool) ($querydisplay_tab == 'files');
-    $tabs['history']['icon']   = 'ic_b_bookmark';
+    $tabs['history']['icon']   = 'b_bookmark.png';
     $tabs['history']['text']   = __('SQL history');
     $tabs['history']['fragment']   = '#';
     $tabs['history']['attr']   = 'onclick="PMA_querywindowCommit(\'history\');return false;"';

@@ -307,12 +307,14 @@ foreach ($tables as $keyname => $each_table) {
     if (PMA_Tracker::isActive()) {
         if (PMA_Tracker::isTracked($GLOBALS["db"], $truename)) {
             $tracking_icon = '<a href="tbl_tracking.php?' . $url_query
-                . '&amp;table=' . $truename . '"><img class="icon ic_eye" src="themes/dot.gif" alt="'
-                . __('Tracking is active.') . '" title="' . __('Tracking is active.') . '" /></a>';
+                . '&amp;table=' . $truename . '">'
+                . PMA_getImage('eye.png', __('Tracking is active.'))
+                . '</a>';
         } elseif (PMA_Tracker::getVersion($GLOBALS["db"], $truename) > 0) {
             $tracking_icon = '<a href="tbl_tracking.php?' . $url_query
-                . '&amp;table=' . $truename . '"><img class="icon ic_eye" src="themes/dot.gif" alt="'
-                . __('Tracking is not active.') . '" title="' . __('Tracking is not active.') . '" /></a>';
+                . '&amp;table=' . $truename . '">'
+                . PMA_getImage('eye.png', __('Tracking is not active.'))
+                . '</a>';
         }
     }
 
@@ -377,10 +379,10 @@ foreach ($tables as $keyname => $each_table) {
     </th>
    <?php if ($server_slave_status) { ?><td align="center"><?php
         echo $ignored
-            ? ' <img class="icon ic_s_cancel" src="themes/dot.gif" alt="NOT REPLICATED" />'
+            ? PMA_getImage('s_cancel.png', 'NOT REPLICATED')
             : ''.
         $do
-            ? ' <img class="icon ic_s_success" src="themes/dot.gif" alt="REPLICATED" />'
+            ? PMA_getImage('s_success.png', 'REPLICATED')
             : ''; ?></td><?php } ?>
     <td align="center"><?php echo $browse_table; ?></td>
     <td align="center">
