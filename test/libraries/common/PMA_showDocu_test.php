@@ -12,15 +12,23 @@
  * Include to test.
  */
 require_once 'libraries/common.lib.php';
+require_once 'libraries/Theme.class.php';
 
 class PMA_showDocu_test extends PHPUnit_Framework_TestCase
 {
+    function setup()
+    {
+        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+    }
+
     function testShowDocuReplaceHelpImg()
     {
         $GLOBALS['cfg']['ReplaceHelpImg'] = true;
 
         $anchor = "relation";
-        $expected = '<a href="Documentation.html#' . $anchor . '" target="documentation"><img class="icon ic_b_help_s" src="themes/dot.gif" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
+        $expected = '<a href="Documentation.html#' . $anchor . '" target="documentation">'
+                  . '<img src="themes/dot.gif" title="' . __('Documentation') . '" '
+                  . 'alt="' . __('Documentation') . '" class="icon ic_b_help" /></a>';
 
         $this->assertEquals($expected, PMA_showDocu($anchor));
 
@@ -31,7 +39,9 @@ class PMA_showDocu_test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ReplaceHelpImg'] = false;
 
         $anchor = "relation";
-        $expected = '[<a href="Documentation.html#' . $anchor . '" target="documentation">' . __('Documentation') . '</a>]';
+        $expected = '[<a href="Documentation.html#' . $anchor . '" target="documentation">'
+                  . __('Documentation')
+                  . '</a>]';
 
         $this->assertEquals($expected, PMA_showDocu($anchor));
 

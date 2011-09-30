@@ -149,7 +149,7 @@ function PMA_getImage($image, $alternate = '', $attributes = array())
     $attr_str = '';
     foreach ($attributes as $key => $value) {
         if (! in_array($key, array('alt', 'title'))) {
-            $attr_str .= " $key='$value'";
+            $attr_str .= " $key=\"$value\"";
         }
     }
     // override the alt attribute
