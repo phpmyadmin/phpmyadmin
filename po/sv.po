@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-27 09:13+0200\n"
-"PO-Revision-Date: 2011-09-29 23:29+0200\n"
+"PO-Revision-Date: 2011-09-30 21:07+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -12308,7 +12308,6 @@ msgid "There are too many joins without indexes."
 msgstr "Det finns för många JOINS som saknar index"
 
 #: po/advisory_rules.php:127
-#, fuzzy
 #| msgid ""
 #| "This means that joins are doing full table scans. Adding indexes for the "
 #| "fields being used in the join conditions will greatly speed up table joins"
@@ -12316,8 +12315,8 @@ msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
 msgstr ""
-"Detta innebär att joins gör fullständiga tabell sökningar. Att lägga till "
-"index för de fält som använder join villkoren, kommer avsevärt snabba upp "
+"Detta innebär att joins gör fullständiga tabellsökningar. Att lägga till "
+"index för de fält som använder join villkoren kommer avsevärt snabba upp "
 "tabellkopplingen"
 
 #: po/advisory_rules.php:128
