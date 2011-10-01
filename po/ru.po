@@ -7345,10 +7345,9 @@ msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr "<b>При обработке вашего запроса были обнаружены ошибки:</b>"
 
 #: libraries/rte/rte_events.lib.php:185
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit event"
-msgstr "Редактировать сервер"
+msgstr "Редактировать событие"
 
 #: libraries/rte/rte_events.lib.php:212 libraries/rte/rte_routines.lib.php:372
 #: libraries/rte/rte_routines.lib.php:1268
