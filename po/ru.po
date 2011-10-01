@@ -9658,7 +9658,7 @@ msgstr "Все переменные состояния"
 
 #: server_status.php:778
 msgid "Monitor"
-msgstr ""
+msgstr "Монитор"
 
 #: server_status.php:779
 msgid "Advisor"
