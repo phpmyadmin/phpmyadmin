@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-27 09:13+0200\n"
-"PO-Revision-Date: 2011-10-01 00:32+0200\n"
-"Last-Translator:  <klin.enot@gmail.com>\n"
+"PO-Revision-Date: 2011-10-01 17:36+0200\n"
+"Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -7318,10 +7318,9 @@ msgid "The following query has failed: \"%s\""
 msgstr "Данный запрос не был выполнен: \"%s\""
 
 #: libraries/rte/rte_events.lib.php:116
-#, fuzzy
 #| msgid "Sorry, we failed to restore the dropped routine."
 msgid "Sorry, we failed to restore the dropped event."
-msgstr "Невозможно восстановить удаленную процедуру."
+msgstr "Невозможно восстановить удаленное событие."
 
 #: libraries/rte/rte_events.lib.php:117 libraries/rte/rte_routines.lib.php:269
 #: libraries/rte/rte_triggers.lib.php:90
