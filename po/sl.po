@@ -12360,7 +12360,6 @@ msgid "There are too many joins without indexes."
 msgstr "Obstaja preveč stikov brez indeksov."
 
 #: po/advisory_rules.php:127
-#, fuzzy
 #| msgid ""
 #| "This means that joins are doing full table scans. Adding indexes for the "
 #| "fields being used in the join conditions will greatly speed up table joins"
@@ -12369,7 +12368,7 @@ msgid ""
 "columns being used in the join conditions will greatly speed up table joins"
 msgstr ""
 "To pomeni, da stiki izvajajo polne preglede tabel. Dodajanje indeksov za "
-"polja, ki se uporabljajo v pogojih stikov, bo zelo pohitrilo stike tabel"
+"stolpce, ki se uporabljajo v pogojih stikov, bo zelo pohitrilo stike tabel"
 
 #: po/advisory_rules.php:128
 #, php-format
