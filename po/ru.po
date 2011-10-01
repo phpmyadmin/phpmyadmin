@@ -7653,10 +7653,9 @@ msgid "You must provide a valid event for the trigger"
 msgstr "Вы должны задать корректное событие для триггера"
 
 #: libraries/rte/rte_triggers.lib.php:421
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a valid table name"
-msgstr "Необходимо задать имя процедуры"
+msgstr "Необходимо задать корректное имя таблицы"
 
 #: libraries/rte/rte_triggers.lib.php:427
 #, fuzzy
