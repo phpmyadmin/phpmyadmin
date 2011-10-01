@@ -11,7 +11,6 @@
 /*
  * Include to test.
  */
-require_once 'libraries/config.default.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/common.lib.php';
 require_once 'libraries/Theme.class.php';
