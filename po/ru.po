@@ -7732,10 +7732,9 @@ msgid "Export of event %s"
 msgstr "Экспортировать событие %s"
 
 #: libraries/rte/rte_words.lib.php:45
-#, fuzzy
 #| msgid "Event"
 msgid "event"
-msgstr "Событие"
+msgstr "событие"
 
 #: libraries/rte/rte_words.lib.php:46
 #, fuzzy
