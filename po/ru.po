@@ -7737,10 +7737,9 @@ msgid "event"
 msgstr "событие"
 
 #: libraries/rte/rte_words.lib.php:46
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create an event"
-msgstr "У вас недостаточно прав для создания новой процедуры"
+msgstr "У вас недостаточно прав для создания события"
 
 #: libraries/rte/rte_words.lib.php:47
 #, fuzzy, php-format
