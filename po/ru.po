@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-27 09:13+0200\n"
-"PO-Revision-Date: 2011-10-01 19:16+0200\n"
+"PO-Revision-Date: 2011-10-01 19:17+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -7742,7 +7742,7 @@ msgid "You do not have the necessary privileges to create an event"
 msgstr "У вас недостаточно прав для создания события"
 
 #: libraries/rte/rte_words.lib.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "No event with name %s found in database %s"
 msgid "No event with name %1$s found in database %2$s"
 msgstr "В базе данных %2$s не найдено событие с именем %1$s"
