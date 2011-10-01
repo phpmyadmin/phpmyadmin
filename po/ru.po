@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-27 09:13+0200\n"
-"PO-Revision-Date: 2011-10-01 17:54+0200\n"
+"PO-Revision-Date: 2011-10-01 17:55+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -7677,10 +7677,9 @@ msgid "routine"
 msgstr "процедура"
 
 #: libraries/rte/rte_words.lib.php:22
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a routine"
-msgstr "У вас недостаточно прав для создания новой процедуры"
+msgstr "У вас недостаточно прав для создания процедуры"
 
 #: libraries/rte/rte_words.lib.php:23
 #, php-format
