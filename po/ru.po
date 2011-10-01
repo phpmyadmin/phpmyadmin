@@ -7672,10 +7672,9 @@ msgid "Export of routine %s"
 msgstr "Экспорт процедуры %s"
 
 #: libraries/rte/rte_words.lib.php:21
-#, fuzzy
 #| msgid "Routines"
 msgid "routine"
-msgstr "Процедуры"
+msgstr "процедура"
 
 #: libraries/rte/rte_words.lib.php:22
 #, fuzzy
