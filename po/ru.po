@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-27 09:13+0200\n"
-"PO-Revision-Date: 2011-10-01 17:46+0200\n"
+"PO-Revision-Date: 2011-10-01 17:47+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -7455,10 +7455,9 @@ msgid "ON"
 msgstr "ВКЛЮЧИТЬ"
 
 #: libraries/rte/rte_footer.lib.php:108
-#, fuzzy
 #| msgid "The event scheduler is enabled"
 msgid "Event scheduler status"
-msgstr "Включен планировщик событий"
+msgstr "Статус планировщика событий"
 
 #: libraries/rte/rte_list.lib.php:54
 #, fuzzy
