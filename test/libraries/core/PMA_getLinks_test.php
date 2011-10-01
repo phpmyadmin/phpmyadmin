@@ -26,7 +26,11 @@ class PMA_getLinks_test extends PHPUnit_Framework_TestCase
     public function testPMA_getPHPDocLink()
     {
         $lang = _pgettext('PHP documentation language', 'en');
-        $this->assertEquals(PMA_getPHPDocLink('function'), 'http://php.net/manual/' . $lang . '/function');
+        $this->assertEquals(
+            PMA_getPHPDocLink('function'),
+            './url.php?url=http%3A%2F%2Fphp.net%2Fmanual%2F'
+            . $lang . '%2Ffunction&amp;server=99&amp;lang=en&amp;token=token'
+        );
     }
 
     public function providerLinkURL(){
