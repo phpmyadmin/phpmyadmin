@@ -8212,10 +8212,9 @@ msgid "Table Search"
 msgstr "Поиск в таблице"
 
 #: libraries/tbl_select.lib.php:182 tbl_change.php:993
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "Вставить"
+msgstr "Редактировать/Вставить"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 msgid ""
