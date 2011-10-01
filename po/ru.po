@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-27 09:13+0200\n"
-"PO-Revision-Date: 2011-10-01 17:57+0200\n"
+"PO-Revision-Date: 2011-10-01 19:16+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -7726,10 +7726,10 @@ msgid "Add event"
 msgstr "Добавить событие"
 
 #: libraries/rte/rte_words.lib.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of event %s"
-msgstr "Экспортировать содержимое"
+msgstr "Экспортировать событие %s"
 
 #: libraries/rte/rte_words.lib.php:45
 #, fuzzy
