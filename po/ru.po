@@ -9740,10 +9740,10 @@ msgstr ""
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:928
-#, fuzzy, php-format
+#, php-format
 #| msgid "Network traffic since startup: %s"
 msgid "Questions since startup: %s"
-msgstr "Сетевой трафик с момента запуска: %s"
+msgstr "Вопросов начиная с запуска: %s"
 
 #: server_status.php:934 server_status.php:970 server_status.php:1090
 #: server_status.php:1135
