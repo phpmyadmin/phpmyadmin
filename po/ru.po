@@ -10535,10 +10535,9 @@ msgid "The number of threads that are not sleeping."
 msgstr "Количество процессов, находящихся в активном состоянии."
 
 #: server_status.php:1540
-#, fuzzy
 #| msgid "Textarea rows"
 msgid "Start Monitor"
-msgstr "Строк в текстовом поле"
+msgstr "Запустить монитор"
 
 #: server_status.php:1549
 msgid "Instructions/Setup"
