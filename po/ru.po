@@ -8404,10 +8404,9 @@ msgid "More settings"
 msgstr "Дополнительные настройки"
 
 #: main.php:158
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
-msgstr "База данных для пользователя"
+msgstr "Сервер баз данных"
 
 #: main.php:161
 msgid "Software"
