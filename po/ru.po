@@ -7701,10 +7701,9 @@ msgid "Export of trigger %s"
 msgstr "Экспорт триггера %s"
 
 #: libraries/rte/rte_words.lib.php:33
-#, fuzzy
 #| msgid "Triggers"
 msgid "trigger"
-msgstr "Триггеры"
+msgstr "триггер"
 
 #: libraries/rte/rte_words.lib.php:34
 #, fuzzy
