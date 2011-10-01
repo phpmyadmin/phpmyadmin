@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-27 09:13+0200\n"
-"PO-Revision-Date: 2011-10-01 19:17+0200\n"
+"PO-Revision-Date: 2011-10-01 19:18+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -8207,10 +8207,9 @@ msgid "Operator"
 msgstr "Оператор"
 
 #: libraries/tbl_select.lib.php:103
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "Поиск"
+msgstr "Поиск в таблице"
 
 #: libraries/tbl_select.lib.php:182 tbl_change.php:993
 #, fuzzy
