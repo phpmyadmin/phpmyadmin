@@ -7376,10 +7376,9 @@ msgid "Change to %s"
 msgstr "Изменить на %s"
 
 #: libraries/rte/rte_events.lib.php:422
-#, fuzzy
 #| msgid "Execute"
 msgid "Execute at"
-msgstr "Выполнить"
+msgstr "Выполнить в"
 
 #: libraries/rte/rte_events.lib.php:430
 #, fuzzy
