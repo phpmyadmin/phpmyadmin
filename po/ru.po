@@ -7691,7 +7691,6 @@ msgid "There are no routines to display."
 msgstr "Нет процедур для отображения."
 
 #: libraries/rte/rte_words.lib.php:30
-#, fuzzy
 #| msgid "Add a trigger"
 msgid "Add trigger"
 msgstr "Добавить триггер"
