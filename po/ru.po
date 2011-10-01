@@ -8930,7 +8930,7 @@ msgstr "Отобразить дамп (схему) баз данных"
 
 #: server_plugins.php:81
 msgid "Modules"
-msgstr ""
+msgstr "Модули"
 
 #: server_plugins.php:102
 msgid "Begin"
