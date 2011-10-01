@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-27 09:13+0200\n"
-"PO-Revision-Date: 2011-10-01 19:25+0200\n"
+"PO-Revision-Date: 2011-10-01 19:26+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -9682,10 +9682,9 @@ msgid "Filter by category..."
 msgstr "Фильтр по категории..."
 
 #: server_status.php:855
-#, fuzzy
 #| msgid "Show only alert values"
 msgid "Show unformatted values"
-msgstr "Выводить только предупреждающие значения"
+msgstr "Выводить неотформатированные значения"
 
 #: server_status.php:859
 msgid "Related links:"
