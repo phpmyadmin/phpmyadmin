@@ -10615,7 +10615,7 @@ msgstr ""
 
 #: server_status.php:1612
 msgid "Using the monitor:"
-msgstr ""
+msgstr "Использование мониторинга:"
 
 #: server_status.php:1614
 msgid ""
