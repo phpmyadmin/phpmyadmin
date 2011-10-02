@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-27 09:13+0200\n"
-"PO-Revision-Date: 2011-10-02 13:35+0200\n"
+"PO-Revision-Date: 2011-10-02 13:36+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -10579,7 +10579,6 @@ msgstr ""
 "наличии сложной настройки, вы можете осуществить ее экспорт."
 
 #: server_status.php:1589
-#, fuzzy
 #| msgid "Restore default value"
 msgid "Reset to default"
 msgstr "Восстановить изначальное значение"
