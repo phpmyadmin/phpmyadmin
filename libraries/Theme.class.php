@@ -379,13 +379,22 @@ class PMA_Theme
     function getCssGradient($start_color, $end_color)
     {
         $result = array();
+        // Opera 9.5+, IE 9
         $result[] = 'background-image: url(./themes/svg_gradient.php?from=' . $start_color . '&to=' . $end_color . ');';
         $result[] = 'background-size: 100% 100%;';
+        // Safari 4-5, Chrome 1-9
         $result[] = 'background: -webkit-gradient(linear, left top, left bottom, from(#' . $start_color . '), to(#' . $end_color . '));';
+        // Safari 5.1, Chrome 10+
+        $result[] = 'background: -webkit-linear-gradient(top, #' . $start_color . ', #' . $end_color . ');';
+        // Firefox 3.6+
         $result[] = 'background: -moz-linear-gradient(top, #' . $start_color . ', #' . $end_color . ');';
+        // IE 10
+        $result[] = 'background: -ms-linear-gradient(top, #' . $start_color . ', #' . $end_color . ');';
+        // Opera 11.10
         $result[] = 'background: -o-linear-gradient(top, #' . $start_color . ', #' . $end_color . ');';
+        // IE 6-8
         if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 6 && PMA_USR_BROWSER_VER <= 8) {
-            $result[] = 'filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr="#' . $start_color . '", endColorstr="#' . $end_color . '");';
+            $result[] = 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#' . $start_color . '", endColorstr="#' . $end_color . '");';
         }
         return implode("\n", $result);
     }
