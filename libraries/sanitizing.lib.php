@@ -17,8 +17,6 @@ function PMA_checkLink($url)
     $valid_starts = array(
         'http://',
         'https://',
-        'http%3A%2F%2F',
-        'https%3A%2F%2F',
     );
     if (defined('PMA_SETUP')) {
         $valid_starts[] = '../Documentation.html';
@@ -58,7 +56,7 @@ function PMA_replaceBBLink($found)
     }
 
     /* Construct url */
-    if (preg_match('/^https?:\/\//', $found[1])) {
+    if (substr($found[1], 0, 4) == 'http') {
         $url = PMA_linkURL($found[1]);
     } else {
         $url = $found[1];
