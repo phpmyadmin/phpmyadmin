@@ -17,6 +17,8 @@ function PMA_checkLink($url)
     $valid_starts = array(
         'http://',
         'https://',
+        './url.php?url=http%3A%2F%2F',
+        './url.php?url=https%3A%2F%2F',
     );
     if (defined('PMA_SETUP')) {
         $valid_starts[] = '../Documentation.html';
