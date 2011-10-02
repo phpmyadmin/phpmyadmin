@@ -68,6 +68,7 @@ phpMyAdmin - ChangeLog
 - bug #3392150 [schema] PMA_User_Schema::processUserChoice() is broken
 - bug #3414744 [core] External link fails in 3.4.5
 - patch #3314626 [display] CharTextareaRows is not respected
+- bug #3417089 [synchronize] Extraneous db choices
 
 3.4.5.0 (2011-09-14)
 - bug #3375325 [interface] Page list in navigation frame looks odd

@@ -1167,6 +1167,11 @@ if (! isset($_REQUEST['submit_connect'])
     $databases = PMA_DBI_get_databases_full(null, false, null, 'SCHEMA_NAME',
         'ASC', 0, true);
 
+    $databases_to_hide = array(
+        'information_schema',
+        'mysql'
+        );
+
     if ($GLOBALS['cfg']['AllowArbitraryServer'] === false) {
         $possibly_readonly = ' readonly="readonly"';
     } else {
