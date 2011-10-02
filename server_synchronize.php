@@ -1170,7 +1170,10 @@ if (! isset($_REQUEST['submit_connect'])
     $databases_to_hide = array(
         'information_schema',
         'mysql'
-        );
+    );
+    if (PMA_DRIZZLE) {
+        $databases_to_hide[] = 'data_dictionary';
+    }
 
     if ($GLOBALS['cfg']['AllowArbitraryServer'] === false) {
         $possibly_readonly = ' readonly="readonly"';
@@ -1278,23 +1281,22 @@ if (! isset($_REQUEST['submit_connect'])
         <td><?php echo __('Database'); ?></td>
         <td>
 <?php
-      // these unset() do not complain if the elements do not exist
-    unset($databases['mysql']);
-    unset($databases['information_schema']);
-    if (PMA_DRIZZLE) {
-        unset($databases['data_dictionary']);
+    $options_list = '';
+    foreach ($databases as $array_key => $db) {
+        if (in_array($db['SCHEMA_NAME'], $databases_to_hide)) {
+            unset($databases[$array_key]);
+        } else {
+            $options_list .= '<option>' . htmlspecialchars($db['SCHEMA_NAME']) . '</option>';
+        }
     }
 
     if (count($databases) == 0) {
         echo __('No databases');
     } else {
-        echo '
-              <select name="' . $type . '_db_sel">
-        ';
-        foreach ($databases as $db) {
-            echo '        <option>' . htmlspecialchars($db['SCHEMA_NAME']) . '</option>';
-        }
-        echo '</select>';
+        echo '<select name="' . $type . '_db_sel">'
+         . $options_list
+         . '</select>';
+        unset($options_list);
     }
     echo '</td> </tr>
       </table>';
