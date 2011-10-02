@@ -10561,10 +10561,9 @@ msgid "Refresh rate"
 msgstr "Частота обновления"
 
 #: server_status.php:1572
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Chart columns"
-msgstr "Столбцов в текстовом поле"
+msgstr "Столбцы графиков"
 
 #: server_status.php:1588
 #, fuzzy
