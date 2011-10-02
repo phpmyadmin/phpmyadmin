@@ -10548,10 +10548,9 @@ msgid "Done rearranging/editing charts"
 msgstr "Завершено редактирование графиков"
 
 #: server_status.php:1561
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Add chart"
-msgstr "Добавить параметр"
+msgstr "Добавить график"
 
 #: server_status.php:1563
 msgid "Rearrange/edit charts"
