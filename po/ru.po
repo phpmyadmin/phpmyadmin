@@ -10563,7 +10563,7 @@ msgstr "Частота обновления"
 #: server_status.php:1572
 #| msgid "Textarea columns"
 msgid "Chart columns"
-msgstr "Столбцы графиков"
+msgstr "Столбцы графика"
 
 #: server_status.php:1588
 #, fuzzy
