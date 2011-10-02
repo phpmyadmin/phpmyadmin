@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-27 09:13+0200\n"
-"PO-Revision-Date: 2011-10-01 19:44+0200\n"
+"PO-Revision-Date: 2011-10-02 13:25+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -10541,7 +10541,7 @@ msgstr "Запустить монитор"
 
 #: server_status.php:1549
 msgid "Instructions/Setup"
-msgstr ""
+msgstr "Инструкции/Настройки"
 
 #: server_status.php:1554
 msgid "Done rearranging/editing charts"
