@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+3.4.7.0 (not yet released)
+
 3.4.6.0 (not yet released)
 - patch #3404173 InnoDB comment display with tooltips/aliases
 - bug #3404886 [navi] Edit SQL statement after error
