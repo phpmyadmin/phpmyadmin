@@ -9,7 +9,7 @@
  *
  */
 // sometimes, we lose $_REQUEST['js_frame']
-define('PMA_FRAME', empty($_REQUEST['js_frame']) ? 'right' : $_REQUEST['js_frame']);
+define('PMA_FRAME', (! empty($_REQUEST['js_frame']) && is_string($_REQUEST['js_frame'])) ? $_REQUEST['js_frame'] : 'right');
 
 define('PMA_MINIMUM_COMMON', true);
 require_once './libraries/common.inc.php';
