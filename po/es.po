@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-27 09:13+0200\n"
-"PO-Revision-Date: 2011-10-03 15:50+0200\n"
+"PO-Revision-Date: 2011-10-03 15:56+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -12571,7 +12571,6 @@ msgid "There are too many joins without indexes."
 msgstr "Hay demasiadas uniones («JOIN») sin índices."
 
 #: po/advisory_rules.php:127
-#, fuzzy
 #| msgid ""
 #| "This means that joins are doing full table scans. Adding indexes for the "
 #| "fields being used in the join conditions will greatly speed up table joins"
@@ -12580,8 +12579,8 @@ msgid ""
 "columns being used in the join conditions will greatly speed up table joins"
 msgstr ""
 "Esto significa que las uniones («JOIN») están realizando escrutinios "
-"completos sobre tablas. Agregar índices a los campos siendo utilizandos en "
-"las condiciones de la unión las acelerarán en gran medida"
+"completos sobre tablas. Agregar índices a los campos utilizados en las "
+"condiciones de la unión las acelerarán en gran medida"
 
 #: po/advisory_rules.php:128
 #, php-format
