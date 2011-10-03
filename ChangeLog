@@ -50,6 +50,8 @@ phpMyAdmin - ChangeLog
 + Support Drizzle database
 - bug #3356456 [interface] Interface problems for queries having LIMIT clauses
 
+3.4.7.0 (not yet released)
+
 3.4.6.0 (not yet released)
 - patch #3404173 InnoDB comment display with tooltips/aliases
 - bug #3404886 [navi] Edit SQL statement after error
