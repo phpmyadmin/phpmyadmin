@@ -422,7 +422,7 @@ class ConfigFile
         }
         $verbose = $this->get("Servers/$id/verbose");
         if (!empty($verbose)) {
-            return $verbose;
+            return htmlspecialchars($verbose);
         }
         $host = $this->get("Servers/$id/host");
         return empty($host) ? 'localhost' : $host;
