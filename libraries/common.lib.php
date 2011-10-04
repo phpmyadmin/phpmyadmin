@@ -3097,7 +3097,7 @@ function PMA_getTitleForTarget($target)
 }
 
 /**
- * Formats user string, expading @VARIABLES@, accepting strftime format string.
+ * Formats user string, expanding @VARIABLES@, accepting strftime format string.
  *
  * @param string   $string  Text where to do expansion.
  * @param function $escape  Function to call for escaping variable values.
@@ -3149,20 +3149,25 @@ function PMA_expandUserString($string, $escape = null, $updates = array())
         }
     }
 
-    /* Fetch fields list if required */
+    /* Backward compatibility in 3.5.x */
     if (strpos($string, '@FIELDS@') !== false) {
-        $fields_list = PMA_DBI_get_columns($GLOBALS['db'], $GLOBALS['table']);
+        $string = strtr($string, array('@FIELDS@' => '@COLUMNS@')); 
+    }
 
-        $field_names = array();
-        foreach ($fields_list as $field) {
-            if (!is_null($escape)) {
-                $field_names[] = $escape($field['Field']);
+    /* Fetch columns list if required */
+    if (strpos($string, '@COLUMNS@') !== false) {
+        $columns_list = PMA_DBI_get_columns($GLOBALS['db'], $GLOBALS['table']);
+
+        $column_names = array();
+        foreach ($columns_list as $column) {
+            if (! is_null($escape)) {
+                $column_names[] = $escape($column['Field']);
             } else {
-                $field_names[] = $field['Field'];
+                $column_names[] = $field['Field'];
             }
         }
 
-        $replace['@FIELDS@'] = implode(',', $field_names);
+        $replace['@COLUMNS@'] = implode(',', $column_names);
     }
 
     /* Do the replacement */
