@@ -12474,7 +12474,7 @@ msgstr ""
 
 #: po/advisory_rules.php:130
 msgid "Rate of reading first index entry"
-msgstr ""
+msgstr "Taux de lecture de la première entrée d'index"
 
 #: po/advisory_rules.php:131
 msgid "The rate of reading the first index entry is high."
