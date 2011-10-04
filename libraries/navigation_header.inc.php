@@ -97,15 +97,27 @@ if ($GLOBALS['cfg']['LeftDisplayLogo']) {
     if ($GLOBALS['cfg']['MainPageIconic']) {
         echo '<img class="icon" src="' . $pmaThemeImage . 'b_docs.png" width="16" height="16"'
             .' alt="' . __('phpMyAdmin documentation') . '" />';
+    } else {
+        echo '<br />' . __('phpMyAdmin documentation');
     }
     echo '</a>';
-    echo '    ' . PMA_showMySQLDocu('', '', TRUE) . "\n";
+
+    $documentation_link = PMA_showMySQLDocu('', '', true);
+    if ($GLOBALS['cfg']['MainPageIconic']) {
+        echo $documentation_link . "\n";
+    } else {
+        preg_match('/<a[^>]*>/', $documentation_link, $matches);
+        $link = $matches[0];
+        echo substr($link, 0, strlen($link) - 1) . ' title="' . __('Documentation') . '" >'
+            . '<br />' . __('Documentation') . '</a>';
+    }
 
     $params = array('uniqid' => uniqid());
     if (!empty($GLOBALS['db'])) {
         $params['db'] = $GLOBALS['db'];
     }
-    echo '<a href="navigation.php?' . PMA_generate_common_url($params) . '" target="frame_navigation">';
+    echo '<a href="navigation.php?' . PMA_generate_common_url($params)
+        . '" title="' . __('Reload navigation frame') . '" target="frame_navigation">';
     if ($GLOBALS['cfg']['MainPageIconic']) {
         echo '<img class="icon" src="'. $GLOBALS['pmaThemeImage'] . 's_reload.png"'
             . ' title="' . __('Reload navigation frame') . '"'

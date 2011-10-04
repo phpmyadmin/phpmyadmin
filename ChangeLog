@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 3.4.7.0 (not yet released)
+- bug #3418610 [interface] Links in navigation when $cfg['MainPageIconic'] = false
 
 3.4.6.0 (not yet released)
 - patch #3404173 InnoDB comment display with tooltips/aliases
