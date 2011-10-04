@@ -12504,7 +12504,7 @@ msgstr ""
 
 #: po/advisory_rules.php:135
 msgid "Rate of reading fixed position"
-msgstr ""
+msgstr "Taux de lecture d'une position fixe"
 
 #: po/advisory_rules.php:136
 msgid "The rate of reading data from a fixed position is high."
