@@ -878,9 +878,8 @@ msgid "Geometry"
 msgstr "Geometry"
 
 #: gis_data_editor.php:172 js/messages.php:289
-#, fuzzy
 msgid "Point"
-msgstr "점"
+msgstr "포인트"
 
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
 #: gis_data_editor.php:297 js/messages.php:287
