@@ -12530,10 +12530,9 @@ msgstr ""
 "heure"
 
 #: po/advisory_rules.php:140
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Rate of reading next table row"
-msgstr "À quel endroit afficher les liens pour chaque ligne de données"
+msgstr "Taux de lecture de la ligne suivante"
 
 #: po/advisory_rules.php:141
 #, fuzzy
