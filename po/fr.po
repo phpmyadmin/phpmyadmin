@@ -12591,6 +12591,8 @@ msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr ""
+"Plusieurs tables temporaires sont écrites sur disque au lieu d'être "
+"conservées en mémoire."
 
 #: po/advisory_rules.php:152
 msgid ""
