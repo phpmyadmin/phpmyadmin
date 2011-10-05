@@ -710,14 +710,13 @@ $(document).ready(function() {
                     'sql_query' : sql_query,
                     'inline_edit' : true
                 }, function(data) {
-                    if(data.success == true) {
+                    if(data.success == true && $edit_td.hasClass('inline_edit_active')) {
                         $this_field.append('<textarea>'+data.value+'</textarea>');
-                        $this_field.data('original_data', data_value);
-                    }
-                    else {
+                    } else {
                         PMA_ajaxShowMessage(data.error);
                     }
                 }) // end $.post()
+                $this_field.data('original_data', data_value);
             }
             else if($this_field.is('.relation')) {
                 /** @lends jQuery */
@@ -738,9 +737,11 @@ $(document).ready(function() {
                 }
 
                 $.post('sql.php', post_params, function(data) {
-                    $this_field.append(data.dropdown);
-                    $this_field.data('original_data', data_value);
+                    if ($edit_td.hasClass('inline_edit_active')) {
+                        $this_field.append(data.dropdown);
+                    }
                 }) // end $.post()
+                $this_field.data('original_data', data_value);
             }
             else if($this_field.is('.enum')) {
                 /** @lends jQuery */
@@ -759,9 +760,11 @@ $(document).ready(function() {
                         'curr_value' : curr_value
                 }
                 $.post('sql.php', post_params, function(data) {
-                    $this_field.append(data.dropdown);
-                    $this_field.data('original_data', data_value);
+                    if ($edit_td.hasClass('inline_edit_active')) {
+                        $this_field.append(data.dropdown);
+                    }
                 }) // end $.post()
+                $this_field.data('original_data', data_value);
             }
             else if($this_field.is('.set')) {
                 /** @lends jQuery */
@@ -781,9 +784,11 @@ $(document).ready(function() {
                 }
 
                 $.post('sql.php', post_params, function(data) {
-                    $this_field.append(data.select);
-                    $this_field.data('original_data', data_value);
+                    if ($edit_td.hasClass('inline_edit_active')) {
+                        $this_field.append(data.select);
+                    }
                 }) // end $.post()
+                $this_field.data('original_data', data_value);
             }
             else if($this_field.is('.null')) {
                 //handle null fields
