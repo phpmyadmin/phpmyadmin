@@ -933,9 +933,8 @@ msgid "Polygon"
 msgstr "폴리곤"
 
 #: gis_data_editor.php:306 js/messages.php:298
-#, fuzzy
 msgid "Add a polygon"
-msgstr "필드 추가하기"
+msgstr "폴리곤 추가"
 
 #: gis_data_editor.php:310
 #, fuzzy
