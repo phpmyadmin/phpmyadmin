@@ -1021,8 +1021,7 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"파싱된 데이터가 없지만, 이것은 보통 phpMyAdmin이 php 시간 제한을 늘리지 않고"
-"는 이 가져오기를 마칠 수 없음을 뜻합니다."
+"파싱된 데이터가 없지만, 이것은 보통 phpMyAdmin이 php 시간 제한을 늘리지 않고는 이 가져오기를 마칠 수 없음을 뜻합니다."
 
 #: import.php:472 libraries/Message.class.php:175
 #: libraries/display_tbl.lib.php:2368 libraries/rte/rte_routines.lib.php:1197
