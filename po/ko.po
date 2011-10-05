@@ -889,7 +889,6 @@ msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
 #: gis_data_editor.php:299 js/messages.php:288
-#, fuzzy
 msgid "Y"
 msgstr "Y"
 
