@@ -1014,9 +1014,7 @@ msgstr "가져오기를 성공적으로 마쳤습니다. %d 쿼리가 실행되�
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
-msgstr ""
-"스크립트 타임아웃이 통보되었습니다. 가져오기를 이어서 계속 완료시키려면 같은 "
-"파일을 다시 전송해주십시오."
+msgstr "스크립트 타임아웃이 통보되었습니다. 가져오기를 이어서 계속 완료시키려면 같은 파일을 다시 전송해주십시오."
 
 #: import.php:444
 msgid ""
