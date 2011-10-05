@@ -9585,7 +9585,7 @@ msgstr "명세"
 #. l10n: # = Amount of queries
 #: server_status.php:967
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: server_status.php:1039
 #, php-format
