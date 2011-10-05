@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-27 09:13+0200\n"
-"PO-Revision-Date: 2011-10-05 09:47+0200\n"
+"PO-Revision-Date: 2011-10-05 09:48+0200\n"
 "Last-Translator: Deminoth Runo <deminoth@naver.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -1099,7 +1099,6 @@ msgstr "은 숫자가 아닙니다!"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Total"
 msgid "Total count"
 msgstr "전체 갯수"
