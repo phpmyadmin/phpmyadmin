@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-27 09:13+0200\n"
-"PO-Revision-Date: 2011-09-24 03:46+0200\n"
+"PO-Revision-Date: 2011-10-05 09:44+0200\n"
 "Last-Translator: Deminoth Runo <deminoth@naver.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -809,9 +809,8 @@ msgid "Enter each value in a separate field."
 msgstr "각각의 필드에 값을 입력하세요"
 
 #: enum_editor.php:57
-#, fuzzy
 msgid "+ Restart insertion and add a new value"
-msgstr "+ 삽입을 재시작하고 새 값을 입력합니다"
+msgstr "+ 삽입을 재시작하고 새 값을 추가합니다"
 
 #: enum_editor.php:67 gis_data_editor.php:317
 msgid "Output"
