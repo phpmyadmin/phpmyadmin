@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-27 09:13+0200\n"
-"PO-Revision-Date: 2011-09-24 03:46+0200\n"
+"PO-Revision-Date: 2011-10-05 09:55+0200\n"
 "Last-Translator: Deminoth Runo <deminoth@naver.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -809,9 +809,8 @@ msgid "Enter each value in a separate field."
 msgstr "각각의 필드에 값을 입력하세요"
 
 #: enum_editor.php:57
-#, fuzzy
 msgid "+ Restart insertion and add a new value"
-msgstr "+ 삽입을 재시작하고 새 값을 입력합니다"
+msgstr "+ 삽입을 재시작하고 새 값을 추가합니다"
 
 #: enum_editor.php:67 gis_data_editor.php:317
 msgid "Output"
@@ -879,36 +878,31 @@ msgid "Geometry"
 msgstr "Geometry"
 
 #: gis_data_editor.php:172 js/messages.php:289
-#, fuzzy
 msgid "Point"
-msgstr "점"
+msgstr "포인트"
 
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
 #: gis_data_editor.php:297 js/messages.php:287
-#, fuzzy
 msgid "X"
 msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
 #: gis_data_editor.php:299 js/messages.php:288
-#, fuzzy
 msgid "Y"
 msgstr "Y"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
 #: js/messages.php:290
-#, fuzzy, php-format
+#, php-format
 msgid "Point %d"
-msgstr "점 %d"
+msgstr "포인트 %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:296
-#, fuzzy
 msgid "Add a point"
-msgstr "필드 추가하기"
+msgstr "포인트 추가하기"
 
 #: gis_data_editor.php:220 js/messages.php:291
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
 msgstr "줄(열) 구분자"
@@ -934,13 +928,13 @@ msgid "Add an inner ring"
 msgstr "새 사용자 추가"
 
 #: gis_data_editor.php:266 js/messages.php:292
+#, fuzzy
 msgid "Polygon"
-msgstr ""
+msgstr "폴리곤"
 
 #: gis_data_editor.php:306 js/messages.php:298
-#, fuzzy
 msgid "Add a polygon"
-msgstr "필드 추가하기"
+msgstr "폴리곤 추가"
 
 #: gis_data_editor.php:310
 #, fuzzy
@@ -1014,23 +1008,20 @@ msgstr "북마크 %s가 생성되었습니다."
 #: import.php:427 import.php:433
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr "가져오기를 마쳤습니다. %d 쿼리가 실행되었습니다."
+msgstr "가져오기를 성공적으로 마쳤습니다. %d 쿼리가 실행되었습니다."
 
 #: import.php:442
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
-msgstr ""
-"스크립트 타임아웃이 통보되었습니다. 가져오기를 이어서 계속 완료시키려면 같은 "
-"파일을 다시 전송해주십시오."
+msgstr "스크립트 타임아웃이 통보되었습니다. 가져오기를 이어서 계속 완료시키려면 같은 파일을 다시 전송해주십시오."
 
 #: import.php:444
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"파싱된 데이터가 없지만, 이것은 보통 phpMyAdmin이 php 시간 제한을 늘리지 않고"
-"는 이 가져오기를 마칠 수 없음을 뜻합니다."
+"파싱된 데이터가 없지만, 이것은 보통 phpMyAdmin이 php 시간 제한을 늘리지 않고는 이 가져오기를 마칠 수 없음을 뜻합니다."
 
 #: import.php:472 libraries/Message.class.php:175
 #: libraries/display_tbl.lib.php:2368 libraries/rte/rte_routines.lib.php:1197
@@ -1096,21 +1087,18 @@ msgstr "BLOB 저장소를 사용 불가능하게 하려고 합니다!"
 #: js/messages.php:43
 #, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
-msgstr ""
-"정말로 데이터베이스 %s에서 모든 BLOB 참조를 사용 불가능하게 하시겠습니까?"
+msgstr "정말로 데이터베이스 %s에서 모든 BLOB 참조를 사용 불가능하게 하시겠습니까?"
 
 #: js/messages.php:46
 msgid "Missing value in the form!"
 msgstr "입력 폼 안에 빠진 값이 있습니다!"
 
 #: js/messages.php:47
-#, fuzzy
 msgid "This is not a number!"
-msgstr "은 숫자(번호)가 아닙니다!"
+msgstr "은 숫자가 아닙니다!"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Total"
 msgid "Total count"
 msgstr "전체 갯수"
@@ -2392,22 +2380,19 @@ msgstr "오류"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d 열에 적용되었습니다."
 
 #: libraries/Message.class.php:257
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d 열이 삭제되었습니다."
 
 #: libraries/Message.class.php:273
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d 열이 삽입되었습니다."
 
 #: libraries/PDF.class.php:81
 msgid "Error while creating PDF:"
@@ -7982,7 +7967,6 @@ msgid "Tracking of %s.%s is activated."
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:112
-#, fuzzy
 #| msgid ""
 #| "If field type is \"enum\" or \"set\", please enter the values using this "
 #| "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") "
@@ -7994,9 +7978,8 @@ msgid ""
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"필드 종류가 \"enum\"이나 \"set\"일 경우, 다음과 같은 형식으로 값을 입력하십시"
-"오: 'a','b','c'...<br />여기에 역슬래시(\\)나 작은 따옴표(')를 넣어야 한다"
-"면, 그 앞에 역슬래시를 사용하십시오. (예: '\\\\xyz' 또는 'a\\'b')."
+"필드 종류가 \"enum\"이나 \"set\"일 경우, 다음과 같은 형식으로 값을 입력하십시오: 'a','b','c'...<br />여기에 "
+"역슬래시(\\)나 작은 따옴표(')를 넣어야 한다면, 그 앞에 역슬래시를 사용하십시오. (예: '\\\\xyz' 또는 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:113
 msgid ""
@@ -8022,16 +8005,14 @@ msgid "Transformation options"
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:152
-#, fuzzy
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"필드 종류가 \"enum\"이나 \"set\"일 경우, 다음과 같은 형식으로 값을 입력하십시"
-"오: 'a','b','c'...<br />여기에 역슬래시(\\)나 작은 따옴표(')를 넣어야 한다"
-"면, 그 앞에 역슬래시를 사용하십시오. (예: '\\\\xyz' 또는 'a\\'b')."
+"필드 종류가 \"enum\"이나 \"set\"일 경우, 다음과 같은 형식으로 값을 입력하십시오: 'a',100, b,'c'...<br />여기에 "
+"역슬래시(\\)나 작은 따옴표(')를 넣어야 한다면, 그 앞에 역슬래시를 사용하십시오. (예: '\\\\xyz' 또는 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:335
 msgid "ENUM or SET data too long?"
@@ -8336,9 +8317,8 @@ msgid ""
 "running with this default, is open to intrusion, and you really should fix "
 "this security hole by setting a password for user 'root'."
 msgstr ""
-"환경설정파일에 MySQL 관리자 암호가 없습니다. 이같은 기본설정상태로 MySQL 서버"
-"가 작동한다면 누구나 침입할 수 있으므로, 이 보안상 허점을 수정하시기 바랍니"
-"다."
+"환경설정파일에 MySQL 관리자 암호가 없습니다. 이같은 기본설정상태로 MySQL 서버가 작동한다면 누구나 침입할 수 있으므로, "
+"'root'유저에 암호를 설정하여 이 보안 취약점을 수정하시기 바랍니다."
 
 #: main.php:257
 msgid ""
@@ -9604,7 +9584,7 @@ msgstr "명세"
 #. l10n: # = Amount of queries
 #: server_status.php:967
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: server_status.php:1039
 #, php-format
