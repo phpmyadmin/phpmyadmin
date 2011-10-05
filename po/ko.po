@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-09-27 09:13+0200\n"
-"PO-Revision-Date: 2011-10-05 09:48+0200\n"
+"PO-Revision-Date: 2011-10-05 09:49+0200\n"
 "Last-Translator: Deminoth Runo <deminoth@naver.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -7970,7 +7970,6 @@ msgid "Tracking of %s.%s is activated."
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:112
-#, fuzzy
 #| msgid ""
 #| "If field type is \"enum\" or \"set\", please enter the values using this "
 #| "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") "
@@ -7982,9 +7981,8 @@ msgid ""
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"필드 종류가 \"enum\"이나 \"set\"일 경우, 다음과 같은 형식으로 값을 입력하십시"
-"오: 'a','b','c'...<br />여기에 역슬래시(\\)나 작은 따옴표(')를 넣어야 한다"
-"면, 그 앞에 역슬래시를 사용하십시오. (예: '\\\\xyz' 또는 'a\\'b')."
+"필드 종류가 \"enum\"이나 \"set\"일 경우, 다음과 같은 형식으로 값을 입력하십시오: 'a','b','c'...<br />여기에 "
+"역슬래시(\\)나 작은 따옴표(')를 넣어야 한다면, 그 앞에 역슬래시를 사용하십시오. (예: '\\\\xyz' 또는 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:113
 msgid ""
