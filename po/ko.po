@@ -2392,8 +2392,7 @@ msgstr[0] "%1$d 열이 삭제되었습니다."
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d 열이 삽입되었습니다."
 
 #: libraries/PDF.class.php:81
 msgid "Error while creating PDF:"
