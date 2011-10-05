@@ -2386,8 +2386,7 @@ msgstr[0] "%1$d 열에 적용되었습니다."
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d 열이 삭제되었습니다."
 
 #: libraries/Message.class.php:273
 #, php-format
