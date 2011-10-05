@@ -893,9 +893,9 @@ msgstr "Y"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
 #: js/messages.php:290
-#, fuzzy, php-format
+#, php-format
 msgid "Point %d"
-msgstr "점 %d"
+msgstr "포인트 %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:296
