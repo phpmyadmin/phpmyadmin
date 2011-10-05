@@ -8008,16 +8008,14 @@ msgid "Transformation options"
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:152
-#, fuzzy
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"필드 종류가 \"enum\"이나 \"set\"일 경우, 다음과 같은 형식으로 값을 입력하십시"
-"오: 'a','b','c'...<br />여기에 역슬래시(\\)나 작은 따옴표(')를 넣어야 한다"
-"면, 그 앞에 역슬래시를 사용하십시오. (예: '\\\\xyz' 또는 'a\\'b')."
+"필드 종류가 \"enum\"이나 \"set\"일 경우, 다음과 같은 형식으로 값을 입력하십시오: 'a','b','c'...<br />여기에 "
+"역슬래시(\\)나 작은 따옴표(')를 넣어야 한다면, 그 앞에 역슬래시를 사용하십시오. (예: '\\\\xyz' 또는 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:335
 msgid "ENUM or SET data too long?"
