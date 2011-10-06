@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-05 12:57-0400\n"
-"PO-Revision-Date: 2011-10-04 18:59+0200\n"
+"PO-Revision-Date: 2011-10-05 18:57+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -12516,6 +12516,9 @@ msgid ""
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
+"Ceci indique que plusieurs requêtes doivent effectuer un tri et/ou un "
+"balayage complet de table, incluant des jointures qui n'utilisent pas "
+"d'index. Ajouter des index si possible."
 
 #: po/advisory_rules.php:138
 #, php-format
@@ -12523,38 +12526,42 @@ msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr ""
+"Taux de lecture d'une position fixe : %s, devrait être de moins de 1 par "
+"heure"
 
 #: po/advisory_rules.php:140
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Rate of reading next table row"
-msgstr "À quel endroit afficher les liens pour chaque ligne de données"
+msgstr "Taux de lecture de la ligne suivante"
 
 #: po/advisory_rules.php:141
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "The rate of reading the next table row is high."
-msgstr "À quel endroit afficher les liens pour chaque ligne de données"
+msgstr "Le taux de lecture de la prochaine ligne dans la table est élevé."
 
 #: po/advisory_rules.php:142
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
 msgstr ""
+"Ceci indique que plusieurs requêtes doivent effectuer un balayage complet de "
+"table. Ajouter des index si possible."
 
 #: po/advisory_rules.php:143
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr ""
+"Taux de lecture de la prochaine ligne de table : %s, devrait être de moins "
+"de 1 par heure"
 
 #: po/advisory_rules.php:145
 msgid "tmp_table_size vs. max_heap_table_size"
-msgstr ""
+msgstr "tmp_table_size versus max_heap_table_size"
 
 #: po/advisory_rules.php:146
 msgid "tmp_table_size and max_heap_table_size are not the same."
-msgstr ""
+msgstr "tmp_table_size et max_heap_table_size n'ont pas la même valeur."
 
 #: po/advisory_rules.php:147
 msgid ""
@@ -12563,23 +12570,29 @@ msgid ""
 "wish to increase the in-memory table limit you will have to increase the "
 "other value as well."
 msgstr ""
+"Si vous avez intentionnellement changé l'une des valeurs : Le serveur "
+"utilise la plus petite valeur des deux pour déterminer la taille maximum des "
+"tables en mémoire. Si vous désirez augmenter cette taille, vous devez donc "
+"augmenter l'autre valeur."
 
 #: po/advisory_rules.php:148
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr ""
+"Les valeurs courantes sont : tmp_table_size: %s, max_heap_table_size: %s"
 
 #: po/advisory_rules.php:150
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Percentage of temp tables on disk"
-msgstr "À quel endroit afficher les liens pour chaque ligne de données"
+msgstr "Pourcentage de tables temporaires sur disque"
 
 #: po/advisory_rules.php:151 po/advisory_rules.php:156
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr ""
+"Plusieurs tables temporaires sont écrites sur disque au lieu d'être "
+"conservées en mémoire."
 
 #: po/advisory_rules.php:152
 msgid ""
@@ -12591,6 +12604,13 @@ msgid ""
 "mentioned in the beginning of an <a href=\\\"http://www.facebook.com/note."
 "php?note_id=10150111255065841&comments\\\">Article by the Pythian Group</a>"
 msgstr ""
+"Augmenter {max_heap_table_size} et {tmp_table_size} pourrait aider. "
+"Cependant il y a toujours quelques tables temporaires qui sont écrites sur "
+"disque, peu importe la valeur de ces variables. Pour éliminer ces tables "
+"temporaires, il faut modifier les requêtes pour éviter ces conditions "
+"(Présence d'une colonne BLOB ou TEXT ou d'une colonne de taille supérieure à "
+"512 octets) tel que décrit dans cet <a href=\\\"http://www.facebook.com/note."
+"php?note_id=10150111255065841&comments\\\">arrticle par the Pythian Group</a>"
 
 #: po/advisory_rules.php:153
 #, php-format
@@ -12598,13 +12618,14 @@ msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
+"%s%% de toutes les tables temporaires sont écrites sur disque, cette valeur "
+"ne devrait pas dépasser 25%%"
 
 #: po/advisory_rules.php:155
-#, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Temp disk rate"
-msgstr "%s table"
+msgstr "Taux d'écriture des tables temporaires sur disque"
 
 #: po/advisory_rules.php:157
 msgid ""
