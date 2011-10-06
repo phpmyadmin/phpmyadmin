@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-05 12:57-0400\n"
-"PO-Revision-Date: 2011-10-01 19:12+0200\n"
+"PO-Revision-Date: 2011-10-06 18:47+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:320
@@ -12540,7 +12540,7 @@ msgstr ""
 "en/internal-temporary-tables.html\\\">dokumentaciji MySQL</a>"
 
 #: po/advisory_rules.php:158
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Rate of temporay tables being written to disk: %s, this value should be "
 #| "less than 1 per hour"
@@ -12548,7 +12548,7 @@ msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
 msgstr ""
-"Delež začasnih tabel, zapisanih na disk: %s; ta vrednost bi morala biti manj "
+"Delež začasnih tabel, pisanih na disk: %s; ta vrednost bi morala biti manj "
 "kot 1 na uro"
 
 #: po/advisory_rules.php:160
