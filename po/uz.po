@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.6-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.7-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-09-19 13:09+0200\n"
+"POT-Creation-Date: 2011-10-06 09:23+0200\n"
 "PO-Revision-Date: 2010-07-22 02:31+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: uzbek_cyrillic <uz@li.org>\n"
@@ -53,7 +53,7 @@ msgstr "Қидириш"
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:347 libraries/display_import.lib.php:267
-#: libraries/display_tbl.lib.php:519 libraries/display_tbl.lib.php:605
+#: libraries/display_tbl.lib.php:519 libraries/display_tbl.lib.php:613
 #: libraries/replication_gui.lib.php:75 libraries/replication_gui.lib.php:371
 #: libraries/schema/User_Schema.class.php:124
 #: libraries/schema/User_Schema.class.php:176
@@ -67,7 +67,7 @@ msgstr "Қидириш"
 #: server_privileges.php:1694 server_privileges.php:2051
 #: server_privileges.php:2098 server_privileges.php:2138
 #: server_replication.php:234 server_replication.php:317
-#: server_replication.php:348 server_synchronize.php:1220 tbl_change.php:331
+#: server_replication.php:348 server_synchronize.php:1227 tbl_change.php:331
 #: tbl_change.php:1102 tbl_change.php:1139 tbl_indexes.php:250
 #: tbl_operations.php:276 tbl_operations.php:313 tbl_operations.php:515
 #: tbl_operations.php:577 tbl_operations.php:759 tbl_select.php:290
@@ -136,7 +136,7 @@ msgstr "Жадвал изоҳи"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1262
 #: libraries/tbl_properties.inc.php:98 libraries/tbl_properties.inc.php:273
 #: tbl_change.php:309 tbl_indexes.php:185 tbl_printview.php:139
-#: tbl_relation.php:399 tbl_select.php:112 tbl_structure.php:198
+#: tbl_relation.php:392 tbl_select.php:112 tbl_structure.php:198
 #: tbl_tracking.php:268 tbl_tracking.php:319
 #, fuzzy
 #| msgid "Column names"
@@ -427,19 +427,19 @@ msgid "visual builder"
 msgstr ""
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:95
-#: libraries/display_tbl.lib.php:863
+#: libraries/display_tbl.lib.php:871
 msgid "Sort"
 msgstr "Сортировка қилиш"
 
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:102
-#: libraries/display_tbl.lib.php:510 libraries/display_tbl.lib.php:824
+#: libraries/display_tbl.lib.php:510 libraries/display_tbl.lib.php:832
 #: server_databases.php:158 server_databases.php:175 tbl_operations.php:271
 #: tbl_select.php:277
 msgid "Ascending"
 msgstr "Ўсиш тартибида"
 
 #: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:110
-#: libraries/display_tbl.lib.php:515 libraries/display_tbl.lib.php:821
+#: libraries/display_tbl.lib.php:515 libraries/display_tbl.lib.php:829
 #: server_databases.php:158 server_databases.php:175 tbl_operations.php:272
 #: tbl_select.php:278
 msgid "Descending"
@@ -553,8 +553,8 @@ msgstr "Кўриб чиқиш"
 msgid "Delete the matches for the %s table?"
 msgstr "Ушбу жадвал учун кузатув маълумотлари ўчириш"
 
-#: db_search.php:259 libraries/display_tbl.lib.php:1245
-#: libraries/display_tbl.lib.php:2175
+#: db_search.php:259 libraries/display_tbl.lib.php:1253
+#: libraries/display_tbl.lib.php:2192
 #: libraries/schema/User_Schema.class.php:169
 #: libraries/schema/User_Schema.class.php:238
 #: libraries/schema/User_Schema.class.php:273
@@ -627,7 +627,7 @@ msgstr "Кузатиш фаол."
 msgid "Tracking is not active."
 msgstr "Кузатиш фаол эмас."
 
-#: db_structure.php:379 libraries/display_tbl.lib.php:2059
+#: db_structure.php:379 libraries/display_tbl.lib.php:2076
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -657,20 +657,20 @@ msgid "%s is the default storage engine on this MySQL server."
 msgstr "\"%s\" - MySQL серверидаги андозавий маълумотлар жадвали тури."
 
 #: db_structure.php:483 db_structure.php:500 db_structure.php:501
-#: libraries/display_tbl.lib.php:2200 libraries/display_tbl.lib.php:2205
+#: libraries/display_tbl.lib.php:2217 libraries/display_tbl.lib.php:2222
 #: libraries/mult_submits.inc.php:15 server_databases.php:256
 #: server_databases.php:261 server_privileges.php:1666 tbl_structure.php:552
 #: tbl_structure.php:561
 msgid "With selected:"
 msgstr "Белгиланганларни: "
 
-#: db_structure.php:486 libraries/display_tbl.lib.php:2195
+#: db_structure.php:486 libraries/display_tbl.lib.php:2212
 #: server_databases.php:258 server_privileges.php:583
 #: server_privileges.php:1669 tbl_structure.php:555
 msgid "Check All"
 msgstr "Барчасини белгилаш"
 
-#: db_structure.php:490 libraries/display_tbl.lib.php:2196
+#: db_structure.php:490 libraries/display_tbl.lib.php:2213
 #: libraries/replication_gui.lib.php:35 server_databases.php:260
 #: server_privileges.php:586 server_privileges.php:1673 tbl_structure.php:559
 msgid "Uncheck All"
@@ -681,15 +681,15 @@ msgid "Check tables having overhead"
 msgstr "Оптималлаштириш лозим бўлгн жадвалларни белгилаш"
 
 #: db_structure.php:503 libraries/config/messages.inc.php:162
-#: libraries/db_links.inc.php:56 libraries/display_tbl.lib.php:2213
-#: libraries/display_tbl.lib.php:2347 libraries/server_links.inc.php:69
+#: libraries/db_links.inc.php:56 libraries/display_tbl.lib.php:2230
+#: libraries/display_tbl.lib.php:2364 libraries/server_links.inc.php:69
 #: libraries/tbl_links.inc.php:73 prefs_manage.php:288
 #: server_privileges.php:1354 setup/frames/menu.inc.php:21
 msgid "Export"
 msgstr "Экспорт"
 
 #: db_structure.php:505 db_structure.php:561
-#: libraries/display_tbl.lib.php:2302 tbl_structure.php:590
+#: libraries/display_tbl.lib.php:2319 tbl_structure.php:590
 #: tbl_structure.php:592
 msgid "Print view"
 msgstr "Чоп этиш версияси"
@@ -739,7 +739,7 @@ msgstr "Кузатилган жадваллар"
 #: libraries/header_printview.inc.php:57 server_databases.php:157
 #: server_privileges.php:1740 server_privileges.php:1801
 #: server_privileges.php:2059 server_processlist.php:68
-#: server_synchronize.php:1190 server_synchronize.php:1194
+#: server_synchronize.php:1195 server_synchronize.php:1199
 #: tbl_tracking.php:586 test/theme.php:64
 msgid "Database"
 msgstr "Маълумотлар базаси"
@@ -905,7 +905,7 @@ msgstr "Хатчўп ўчирилди."
 msgid "Showing bookmark"
 msgstr "Хатчўпларни кўрсатиш"
 
-#: import.php:402 sql.php:884
+#: import.php:402 sql.php:885
 #, php-format
 msgid "Bookmark %s created"
 msgstr "\"%s\" хатчўпи тузилди"
@@ -934,8 +934,8 @@ msgstr ""
 "phpMyAdmin дастури импорт жараёнини якунла олмаслигини билдиради."
 
 #: import.php:453 libraries/Message.class.php:185
-#: libraries/display_tbl.lib.php:2096 libraries/sql_query_form.lib.php:139
-#: tbl_operations.php:224 tbl_relation.php:289 tbl_row_action.php:126
+#: libraries/display_tbl.lib.php:2113 libraries/sql_query_form.lib.php:139
+#: tbl_operations.php:224 tbl_relation.php:282 tbl_row_action.php:126
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
 msgstr "SQL сўрови муваффақиятли бажарилди"
@@ -1160,7 +1160,7 @@ msgstr "Жадвал турлари"
 #: js/messages.php:89 libraries/Index.class.php:465
 #: libraries/common.lib.php:626 libraries/common.lib.php:1164
 #: libraries/common.lib.php:3023 libraries/config/messages.inc.php:462
-#: libraries/display_tbl.lib.php:1209 libraries/import.lib.php:1150
+#: libraries/display_tbl.lib.php:1217 libraries/import.lib.php:1150
 #: libraries/import.lib.php:1174 libraries/schema/User_Schema.class.php:168
 #: setup/frames/index.inc.php:125
 msgid "Edit"
@@ -1170,11 +1170,11 @@ msgstr "Таҳрирлаш"
 #: libraries/schema/User_Schema.class.php:317
 #: libraries/tbl_properties.inc.php:777 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:215 tbl_change.php:1054 tbl_indexes.php:244
-#: tbl_relation.php:563
+#: tbl_relation.php:556
 msgid "Save"
 msgstr "Сақлаш"
 
-#: js/messages.php:91 libraries/display_tbl.lib.php:598 pmd_general.php:158
+#: js/messages.php:91 libraries/display_tbl.lib.php:606 pmd_general.php:158
 #: tbl_change.php:315 tbl_change.php:321
 msgid "Hide"
 msgstr "Яшириш"
@@ -1208,7 +1208,7 @@ msgstr "Ташқи калитни танланг"
 msgid "Please select the primary key or a unique key"
 msgstr "Бирламчи (PRIMARY) ёки уникал (UNIQUE) индекс бўлган майдонни танланг!"
 
-#: js/messages.php:104 pmd_general.php:87 tbl_relation.php:545
+#: js/messages.php:104 pmd_general.php:87 tbl_relation.php:538
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
@@ -1600,7 +1600,7 @@ msgstr ""
 "Юкланган файл жойини ўзгартиришда хатолик, [a@./Documentation."
 "html#faq1_11@Documentation]\"FAQ 1.11\"[/a]га қаранг"
 
-#: libraries/Index.class.php:427 tbl_relation.php:526
+#: libraries/Index.class.php:427 tbl_relation.php:519
 msgid "No index defined!"
 msgstr "Индекс белгиланмаган!"
 
@@ -1652,7 +1652,7 @@ msgstr "Маълумотлар базалари"
 #: libraries/Message.class.php:205 libraries/blobstreaming.lib.php:308
 #: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:593
 #: libraries/core.lib.php:232 libraries/import.lib.php:136 tbl_change.php:961
-#: tbl_operations.php:224 tbl_relation.php:287 view_operations.php:60
+#: tbl_operations.php:224 tbl_relation.php:280 view_operations.php:60
 msgid "Error"
 msgstr "Хатолик"
 
@@ -1790,6 +1790,7 @@ msgstr "Авторизация"
 #: libraries/auth/cookie.auth.lib.php:234
 #: libraries/navigation_header.inc.php:95
 #: libraries/navigation_header.inc.php:99
+#: libraries/navigation_header.inc.php:101
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin документацияси"
 
@@ -2033,7 +2034,7 @@ msgstr ""
 "файлида белгиланган созлашларни тўғирланг."
 
 #: libraries/common.inc.php:636 libraries/config/messages.inc.php:486
-#: libraries/header.inc.php:115 main.php:161 server_synchronize.php:1170
+#: libraries/header.inc.php:115 main.php:163 server_synchronize.php:1175
 #: test/theme.php:56
 msgid "Server"
 msgstr "Сервер"
@@ -2076,9 +2077,10 @@ msgstr "en"
 #: libraries/common.lib.php:447 libraries/common.lib.php:464
 #: libraries/common.lib.php:466 libraries/config/FormDisplay.tpl.php:168
 #: libraries/display_export.lib.php:232 libraries/engines/pbms.lib.php:71
-#: libraries/engines/pbxt.lib.php:106 libraries/relation.lib.php:85
+#: libraries/engines/pbxt.lib.php:106 libraries/navigation_header.inc.php:111
+#: libraries/navigation_header.inc.php:112 libraries/relation.lib.php:85
 #: libraries/sql_query_form.lib.php:428 libraries/sql_query_form.lib.php:431
-#: main.php:212 server_variables.php:63
+#: main.php:214 server_variables.php:63
 msgid "Documentation"
 msgstr "Документация"
 
@@ -2640,7 +2642,7 @@ msgstr "Жадвал ёрлиғи"
 msgid "Show binary contents as HEX by default"
 msgstr "Иккилик маълумотларни ўн олтилик шаклда кўрсатиш"
 
-#: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:590
+#: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:598
 msgid "Show binary contents as HEX"
 msgstr "Иккилик маълумотларни ўн олтилик шаклда кўрсатиш"
 
@@ -2834,7 +2836,7 @@ msgid "MIME type"
 msgstr "MIME тури"
 
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
-#: libraries/config/messages.inc.php:134 tbl_relation.php:396
+#: libraries/config/messages.inc.php:134 tbl_relation.php:389
 msgid "Relations"
 msgstr "Алоқалар"
 
@@ -4413,7 +4415,7 @@ msgstr ""
 #: libraries/replication_gui.lib.php:337 libraries/replication_gui.lib.php:341
 #: libraries/replication_gui.lib.php:351 server_privileges.php:778
 #: server_privileges.php:782 server_privileges.php:793
-#: server_privileges.php:1608 server_synchronize.php:1186
+#: server_privileges.php:1608 server_synchronize.php:1191
 msgid "Password"
 msgstr "Парол"
 
@@ -4752,7 +4754,7 @@ msgstr "Муолажалар"
 msgid "Return type"
 msgstr "Қайтариладиган тип"
 
-#: libraries/db_structure.lib.php:48 libraries/display_tbl.lib.php:1945
+#: libraries/db_structure.lib.php:48 libraries/display_tbl.lib.php:1962
 msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
@@ -5180,101 +5182,101 @@ msgstr "Индекс бўйича сортировка қилиш"
 msgid "Options"
 msgstr "Параметрлар"
 
-#: libraries/display_tbl.lib.php:551 libraries/display_tbl.lib.php:561
+#: libraries/display_tbl.lib.php:551 libraries/display_tbl.lib.php:569
 #, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Маълумотларни қисқартириб кўрсатиш"
 
-#: libraries/display_tbl.lib.php:552 libraries/display_tbl.lib.php:565
+#: libraries/display_tbl.lib.php:552 libraries/display_tbl.lib.php:573
 #, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Маълумотларни кенгайтирилган ҳолда кўрсатиш"
 
-#: libraries/display_tbl.lib.php:578
+#: libraries/display_tbl.lib.php:586
 msgid "Relational key"
 msgstr "Алоқадор калит"
 
-#: libraries/display_tbl.lib.php:579
+#: libraries/display_tbl.lib.php:587
 #, fuzzy
 #| msgid "Relational display field"
 msgid "Relational display column"
 msgstr "Алоқадор майдон қиймати"
 
-#: libraries/display_tbl.lib.php:586
+#: libraries/display_tbl.lib.php:594
 msgid "Show binary contents"
 msgstr "Иккилик маълумотларни кўрсатиш"
 
-#: libraries/display_tbl.lib.php:588
+#: libraries/display_tbl.lib.php:596
 msgid "Show BLOB contents"
 msgstr "BLOB туридаги маълумотларни кўрсатиш"
 
-#: libraries/display_tbl.lib.php:598 libraries/relation.lib.php:123
+#: libraries/display_tbl.lib.php:606 libraries/relation.lib.php:123
 #: libraries/tbl_properties.inc.php:142 transformation_overview.php:46
 msgid "Browser transformation"
 msgstr "Ўгириш"
 
-#: libraries/display_tbl.lib.php:1210
+#: libraries/display_tbl.lib.php:1218
 msgid "Copy"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:1225 libraries/display_tbl.lib.php:1237
+#: libraries/display_tbl.lib.php:1233 libraries/display_tbl.lib.php:1245
 msgid "The row has been deleted"
 msgstr "Ёзув ўчирилди"
 
-#: libraries/display_tbl.lib.php:1264 libraries/display_tbl.lib.php:2175
+#: libraries/display_tbl.lib.php:1272 libraries/display_tbl.lib.php:2192
 #: server_processlist.php:92
 msgid "Kill"
 msgstr "Тугатиш"
 
-#: libraries/display_tbl.lib.php:2049
+#: libraries/display_tbl.lib.php:2066
 msgid "in query"
 msgstr "сўров бўйича"
 
-#: libraries/display_tbl.lib.php:2067
+#: libraries/display_tbl.lib.php:2084
 msgid "Showing rows"
 msgstr "Ёзувларни кўрсатиш"
 
-#: libraries/display_tbl.lib.php:2077
+#: libraries/display_tbl.lib.php:2094
 msgid "total"
 msgstr "жами"
 
-#: libraries/display_tbl.lib.php:2085 sql.php:628
+#: libraries/display_tbl.lib.php:2102 sql.php:629
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Сўров %01.4f секунд вақт олди"
 
-#: libraries/display_tbl.lib.php:2208 querywindow.php:114 querywindow.php:118
+#: libraries/display_tbl.lib.php:2225 querywindow.php:114 querywindow.php:118
 #: querywindow.php:121 tbl_structure.php:150 tbl_structure.php:567
 msgid "Change"
 msgstr "Ўзгартириш"
 
-#: libraries/display_tbl.lib.php:2281
+#: libraries/display_tbl.lib.php:2298
 msgid "Query results operations"
 msgstr "Сўров натижаларини ишлатиш"
 
-#: libraries/display_tbl.lib.php:2309
+#: libraries/display_tbl.lib.php:2326
 msgid "Print view (with full texts)"
 msgstr "Чоп этиш версияси (тўла)"
 
-#: libraries/display_tbl.lib.php:2353 tbl_chart.php:81
+#: libraries/display_tbl.lib.php:2370 tbl_chart.php:81
 #, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
 msgstr "PDF-схемани кўрсатиш"
 
-#: libraries/display_tbl.lib.php:2372
+#: libraries/display_tbl.lib.php:2389
 #, fuzzy
 #| msgid "Create version"
 msgid "Create view"
 msgstr "Версиясини тузиш"
 
-#: libraries/display_tbl.lib.php:2487
+#: libraries/display_tbl.lib.php:2504
 msgid "Link not found"
 msgstr "Алоқа топилмади"
 
-#: libraries/engines/bdb.lib.php:20 main.php:211
+#: libraries/engines/bdb.lib.php:20 main.php:213
 msgid "Version information"
 msgstr "Версия ҳақида маълумот"
 
@@ -5478,7 +5480,7 @@ msgstr ""
 "нисбати. Қиймат 1 ва 99 орасидабўлиши шарт. Асл қиймати – 50."
 
 #: libraries/engines/pbms.lib.php:35 libraries/replication_gui.lib.php:69
-#: server_synchronize.php:1174
+#: server_synchronize.php:1179
 msgid "Port"
 msgstr "Порт"
 
@@ -5850,7 +5852,7 @@ msgid "Generation Time"
 msgstr "Тузилган сана "
 
 #: libraries/export/latex.php:145 libraries/export/sql.php:344
-#: libraries/export/xml.php:112 main.php:162
+#: libraries/export/xml.php:112 main.php:164
 msgid "Server version"
 msgstr "Сервер версияси"
 
@@ -6049,7 +6051,7 @@ msgstr "SQL сўрови натижаси"
 msgid "Generated by"
 msgstr "Тузилган"
 
-#: libraries/import.lib.php:153 sql.php:624 tbl_change.php:179
+#: libraries/import.lib.php:153 sql.php:625 tbl_change.php:179
 #: tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL бўш натижа берди (яъни нольта сатр)."
@@ -6405,9 +6407,10 @@ msgstr "Бош саҳифа"
 msgid "Log out"
 msgstr "Чиқиш"
 
-#: libraries/navigation_header.inc.php:111
-#: libraries/navigation_header.inc.php:112
-#: libraries/navigation_header.inc.php:114
+#: libraries/navigation_header.inc.php:120
+#: libraries/navigation_header.inc.php:123
+#: libraries/navigation_header.inc.php:124
+#: libraries/navigation_header.inc.php:126
 msgid "Reload navigation frame"
 msgstr "Навигация ойнасини қайта юклаш"
 
@@ -6514,7 +6517,7 @@ msgstr ""
 #: libraries/replication_gui.lib.php:251 libraries/replication_gui.lib.php:254
 #: libraries/replication_gui.lib.php:261 server_privileges.php:693
 #: server_privileges.php:696 server_privileges.php:703
-#: server_synchronize.php:1182
+#: server_synchronize.php:1187
 msgid "User name"
 msgstr "Фойдаланувчи номи"
 
@@ -6801,7 +6804,7 @@ msgstr "Синхронизация қилиш"
 msgid "Settings"
 msgstr "танловлар"
 
-#: libraries/server_synchronize.lib.php:1337 server_synchronize.php:1111
+#: libraries/server_synchronize.lib.php:1337 server_synchronize.php:1116
 msgid "Source database"
 msgstr "Манба база"
 
@@ -6819,7 +6822,7 @@ msgstr "Масофадаги сервер"
 msgid "Difference"
 msgstr "Фарқ"
 
-#: libraries/server_synchronize.lib.php:1360 server_synchronize.php:1113
+#: libraries/server_synchronize.lib.php:1360 server_synchronize.php:1118
 msgid "Target database"
 msgstr "Нишон база"
 
@@ -6844,11 +6847,11 @@ msgstr "Тозалаш"
 msgid "Columns"
 msgstr "Майдон номлари"
 
-#: libraries/sql_query_form.lib.php:336 sql.php:923 sql.php:924 sql.php:941
+#: libraries/sql_query_form.lib.php:336 sql.php:924 sql.php:925 sql.php:942
 msgid "Bookmark this SQL query"
 msgstr "Ушбу SQL сўровига хатчўп тузиш"
 
-#: libraries/sql_query_form.lib.php:343 sql.php:935
+#: libraries/sql_query_form.lib.php:343 sql.php:936
 msgid "Let every user access this bookmark"
 msgstr "Барча фойдаланувчиларга рухсат бериш"
 
@@ -7323,67 +7326,67 @@ msgstr "MySQL билан уланишни чоғиштириш"
 msgid "Appearance Settings"
 msgstr "Бошқа созланишлар"
 
-#: main.php:146 prefs_manage.php:274
+#: main.php:147 prefs_manage.php:274
 #, fuzzy
 #| msgid "settings"
 msgid "More settings"
 msgstr "танловлар"
 
-#: main.php:163
+#: main.php:165
 msgid "Protocol version"
 msgstr "Протокол версияси"
 
-#: main.php:165 server_privileges.php:1452 server_privileges.php:1606
+#: main.php:167 server_privileges.php:1452 server_privileges.php:1606
 #: server_privileges.php:1730 server_privileges.php:2149
 #: server_processlist.php:66
 msgid "User"
 msgstr "Фойдаланувчи"
 
-#: main.php:169
+#: main.php:171
 msgid "MySQL charset"
 msgstr "MySQL-кодировка"
 
-#: main.php:181
+#: main.php:183
 msgid "Web server"
 msgstr "Веб сервер"
 
-#: main.php:187
+#: main.php:189
 msgid "MySQL client version"
 msgstr "MySQL-клиент версияси"
 
-#: main.php:189
+#: main.php:191
 msgid "PHP extension"
 msgstr "PHP кенгайтмаси"
 
-#: main.php:195
+#: main.php:197
 msgid "Show PHP information"
 msgstr "PHP ҳақида маълумотни кўрсатиш"
 
-#: main.php:213
+#: main.php:215
 msgid "Wiki"
 msgstr "Вики"
 
-#: main.php:216
+#: main.php:218
 msgid "Official Homepage"
 msgstr " phpMyAdmin расмий веб-саҳифаси"
 
-#: main.php:217
+#: main.php:219
 #, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
 msgstr "Атрибутлар"
 
-#: main.php:218
+#: main.php:220
 msgid "Get support"
 msgstr ""
 
-#: main.php:219
+#: main.php:221
 #, fuzzy
 #| msgid "No change"
 msgid "List of changes"
 msgstr "Ўзгариш йўқ"
 
-#: main.php:243
+#: main.php:245
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -7395,7 +7398,7 @@ msgstr ""
 "созланган MySQL сервери хавфсизлик жиҳатидан анча заиф ҳисобланади, шунинг "
 "учун \"root\" суперфойдаланувчисига парол ўрнатиш қатъиян тавсия этилади."
 
-#: main.php:251
+#: main.php:253
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -7405,7 +7408,7 @@ msgstr ""
 "func_overload параметри ёқилган. Маълумот йўқолиши олдини олиш учун, ушбу "
 "параметр ўчирилиши керак!"
 
-#: main.php:259
+#: main.php:261
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -7416,7 +7419,7 @@ msgstr ""
 "маълумот йўқолишига олиб келиши мумкин. PHP \"mbstring\" кенгайтмасини "
 "ўрнатиш қатъий тавсия этилади."
 
-#: main.php:267
+#: main.php:269
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -7429,7 +7432,7 @@ msgstr ""
 "давомийлигидан кичикроқ, шунинг учун логин сессиянгиз phpMyAdmin дастурида "
 "конфигурация қилганингиздан тезроқ тугайди."
 
-#: main.php:274
+#: main.php:276
 #, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
@@ -7446,13 +7449,13 @@ msgstr ""
 "давомийлигидан кичикроқ, шунинг учун логин сессиянгиз phpMyAdmin дастурида "
 "конфигурация қилганингиздан тезроқ тугайди."
 
-#: main.php:282
+#: main.php:284
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "cookie-аутентификация ишлатилганда, конфигурацион файлдаги $cfg"
 "[\"blowfish_secret\"] директиваси қийматини ўрнатиб парол белгилаш керак."
 
-#: main.php:290
+#: main.php:292
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -7462,7 +7465,7 @@ msgstr ""
 "каталоги ҳалиям мавжуд. phpMyAdmin муваффақиятли ўрнатилгандан кейин, уни "
 "ўчириш тавсия этилади."
 
-#: main.php:299
+#: main.php:301
 #, fuzzy, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
@@ -7474,7 +7477,7 @@ msgstr ""
 "Алоқадор жадваллар билан ишлаш учун қўшимча имкониятлар мавжуд эмас. "
 "Сабабларини аниқлаш учун %sбу ерга%s босинг."
 
-#: main.php:314
+#: main.php:316
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
@@ -7484,7 +7487,7 @@ msgstr ""
 "баъзи функциялари ишламайди. Масалан, навигация ойнаси автоматик тарзда "
 "янгиланиб турмайди."
 
-#: main.php:329
+#: main.php:331
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -7493,7 +7496,7 @@ msgstr ""
 "MySQL-клиент версияси (\"%s\") ўрнатилган MySQL-сервер  версияси(\"%s\")дан "
 "фарқ қилмоқда. Бу ҳолат нохуш оқибатларга олиб келиши мумкин."
 
-#: main.php:341
+#: main.php:343
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -7502,7 +7505,7 @@ msgstr ""
 "Сервер \"Suhosin\" ҳимоя тизимадан фойдаланмоқда. Юзага келган муаммолар "
 "ечими учун \"%s\"документация\"%s\" га қаранг."
 
-#: navigation.php:187 server_databases.php:277 server_synchronize.php:1202
+#: navigation.php:187 server_databases.php:277 server_synchronize.php:1212
 msgid "No databases"
 msgstr "Маълумотлар базаси мавжуд эмас"
 
@@ -9513,27 +9516,27 @@ msgstr "Нишон база манба база билан синхрониза�
 msgid "The following queries have been executed:"
 msgstr "Қуйидаги сўровлар бажарилди:"
 
-#: server_synchronize.php:1126
+#: server_synchronize.php:1131
 msgid "Enter manually"
 msgstr ""
 
-#: server_synchronize.php:1134
+#: server_synchronize.php:1139
 #, fuzzy
 #| msgid "Insecure connection"
 msgid "Current connection"
 msgstr "Нохавфсиз уланиш"
 
-#: server_synchronize.php:1163
+#: server_synchronize.php:1168
 #, fuzzy, php-format
 #| msgid "Configuration file"
 msgid "Configuration: %s"
 msgstr "Конфигурацион файл"
 
-#: server_synchronize.php:1178
+#: server_synchronize.php:1183
 msgid "Socket"
 msgstr "Сокет"
 
-#: server_synchronize.php:1224
+#: server_synchronize.php:1231
 msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
@@ -9930,31 +9933,31 @@ msgstr "Ташқи қийматларни кўриб чиқиш"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: sql.php:600 tbl_replace.php:387
+#: sql.php:601 tbl_replace.php:387
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Киритилган қатор идентификатори: %1$d"
 
-#: sql.php:617
+#: sql.php:618
 msgid "Showing as PHP code"
 msgstr "PHP-код сифатида кўрсатиш"
 
-#: sql.php:620 tbl_replace.php:361
+#: sql.php:621 tbl_replace.php:361
 msgid "Showing SQL query"
 msgstr "SQL-сўровни кўрсатиш"
 
-#: sql.php:622
+#: sql.php:623
 #, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
 msgstr "SQL тўғрилигини текшириш"
 
-#: sql.php:897
+#: sql.php:898
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr " `\"%s\"` жадвалидаги индексларда муаммо мавжуд"
 
-#: sql.php:929
+#: sql.php:930
 msgid "Label"
 msgstr "Хатчўп белгиси"
 
@@ -10354,20 +10357,20 @@ msgstr "Қатор узунлиги"
 msgid " Row size "
 msgstr "Қатор ҳажми"
 
-#: tbl_relation.php:276
+#: tbl_relation.php:269
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 " %1$s да ташқи калит (FOREIGN KEY) тузишда хатолик (маълумот турини "
 "текширинг)"
 
-#: tbl_relation.php:402
+#: tbl_relation.php:395
 #, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relation"
 msgstr "Ички алоқалар"
 
-#: tbl_relation.php:404
+#: tbl_relation.php:397
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
@@ -10375,7 +10378,7 @@ msgstr ""
 "Агар ташқи калит (FOREIGN KEY) орқали алоқа мавжуд бўлса, ички алоқа ўрнатиш "
 "шарт эмас."
 
-#: tbl_relation.php:410
+#: tbl_relation.php:403
 #, fuzzy
 #| msgid "Foreign key limit"
 msgid "Foreign key constraint"
