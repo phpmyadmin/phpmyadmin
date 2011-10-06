@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-05 12:57-0400\n"
-"PO-Revision-Date: 2011-10-06 21:30+0200\n"
+"PO-Revision-Date: 2011-10-06 21:31+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12032,6 +12032,8 @@ msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
+"Αφήστε τον διακομιστή να εκτελείται για περισσότερο χρόνο μέχρι να "
+"εκτελεστεί μεγαλύτερος αριθμός ερωτημάτων."
 
 #: po/advisory_rules.php:13
 #, php-format
