@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-05 12:57-0400\n"
-"PO-Revision-Date: 2011-10-06 21:34+0200\n"
+"PO-Revision-Date: 2011-10-06 21:35+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12074,6 +12074,8 @@ msgstr "Βαθμός αργών ερωτημάτων"
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"Υπάρχει ένα υψηλό ποσοστό αργών ερωτημάτων σε σχέση με το χρόνο λειτουργίας "
+"του διακομιστή."
 
 #: po/advisory_rules.php:23
 #, php-format
