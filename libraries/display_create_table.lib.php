@@ -43,7 +43,7 @@ $is_create_table_priv = true;
 if ($GLOBALS['cfg']['PropertiesIconic']) {
     echo PMA_getImage('b_newtbl.png');
 }
-echo sprintf(__('Create table on database %s'), PMA_getDbLink());
+echo __('Create table');
 ?>
     </legend>
     <?php echo PMA_generate_common_hidden_inputs($db); ?>
