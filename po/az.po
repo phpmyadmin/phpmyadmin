@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-10-05 12:57-0400\n"
+"POT-Creation-Date: 2011-10-07 07:36-0400\n"
 "PO-Revision-Date: 2010-03-12 09:11+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: azerbaijani <az@li.org>\n"
@@ -5546,10 +5546,11 @@ msgstr "Qur"
 msgid "No Privileges"
 msgstr "Selahiyyet çatışmazlığı"
 
-#: libraries/display_create_table.lib.php:46
-#, php-format
-msgid "Create table on database %s"
-msgstr "%s bazasında yeni cedvel qur"
+#: libraries/display_create_table.lib.php:46 pmd_general.php:71
+#: server_synchronize.php:442 server_synchronize.php:914
+#, fuzzy
+msgid "Create table"
+msgstr "Yeni Sehife qur"
 
 #: libraries/display_create_table.lib.php:51 libraries/rte/rte_list.lib.php:51
 #: libraries/rte/rte_list.lib.php:57 libraries/rte/rte_list.lib.php:66
@@ -8640,11 +8641,6 @@ msgstr ""
 #: pmd_general.php:68
 msgid "Save position"
 msgstr ""
-
-#: pmd_general.php:71 server_synchronize.php:442 server_synchronize.php:914
-#, fuzzy
-msgid "Create table"
-msgstr "Yeni Sehife qur"
 
 #: pmd_general.php:74 pmd_general.php:346
 msgid "Create relation"
@@ -12949,6 +12945,9 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#~ msgid "Create table on database %s"
+#~ msgstr "%s bazasında yeni cedvel qur"
 
 #, fuzzy
 #~ msgid "Data Label"

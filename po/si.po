@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-10-05 12:57-0400\n"
+"POT-Creation-Date: 2011-10-07 07:36-0400\n"
 "PO-Revision-Date: 2011-09-21 08:44+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
@@ -5360,10 +5360,10 @@ msgstr "සාදන්න"
 msgid "No Privileges"
 msgstr "වරප්‍රසාද නොමැත"
 
-#: libraries/display_create_table.lib.php:46
-#, php-format
-msgid "Create table on database %s"
-msgstr "%s දත්තගබඩාවේ නව වගුවක් සාදන්න"
+#: libraries/display_create_table.lib.php:46 pmd_general.php:71
+#: server_synchronize.php:442 server_synchronize.php:914
+msgid "Create table"
+msgstr "වගුව සාදන්න"
 
 #: libraries/display_create_table.lib.php:51 libraries/rte/rte_list.lib.php:51
 #: libraries/rte/rte_list.lib.php:57 libraries/rte/rte_list.lib.php:66
@@ -8442,10 +8442,6 @@ msgstr "වම් මෙනුව පෙන්වන්න/සඟවන්න"
 #: pmd_general.php:68
 msgid "Save position"
 msgstr "ස්ථාපිතය සුරකින්න"
-
-#: pmd_general.php:71 server_synchronize.php:442 server_synchronize.php:914
-msgid "Create table"
-msgstr "වගුව සාදන්න"
 
 #: pmd_general.php:74 pmd_general.php:346
 #, fuzzy
@@ -12852,6 +12848,9 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#~ msgid "Create table on database %s"
+#~ msgstr "%s දත්තගබඩාවේ නව වගුවක් සාදන්න"
 
 #, fuzzy
 #~ msgid "Data Label"

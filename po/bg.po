@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-10-05 12:57-0400\n"
+"POT-Creation-Date: 2011-10-07 07:36-0400\n"
 "PO-Revision-Date: 2011-09-02 09:19+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
@@ -5354,10 +5354,10 @@ msgstr "Създаване"
 msgid "No Privileges"
 msgstr "Няма права"
 
-#: libraries/display_create_table.lib.php:46
-#, php-format
-msgid "Create table on database %s"
-msgstr "Създаване нова таблица в БД %s"
+#: libraries/display_create_table.lib.php:46 pmd_general.php:71
+#: server_synchronize.php:442 server_synchronize.php:914
+msgid "Create table"
+msgstr "Създаване таблица"
 
 #: libraries/display_create_table.lib.php:51 libraries/rte/rte_list.lib.php:51
 #: libraries/rte/rte_list.lib.php:57 libraries/rte/rte_list.lib.php:66
@@ -8251,10 +8251,6 @@ msgstr "Скриване/Показване на лявото меню"
 #: pmd_general.php:68
 msgid "Save position"
 msgstr "Запазване на позицията"
-
-#: pmd_general.php:71 server_synchronize.php:442 server_synchronize.php:914
-msgid "Create table"
-msgstr "Създаване таблица"
 
 #: pmd_general.php:74 pmd_general.php:346
 msgid "Create relation"
@@ -12506,6 +12502,9 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#~ msgid "Create table on database %s"
+#~ msgstr "Създаване нова таблица в БД %s"
 
 #, fuzzy
 #~ msgid "Data Label"

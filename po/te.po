@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-10-05 12:57-0400\n"
+"POT-Creation-Date: 2011-10-07 07:36-0400\n"
 "PO-Revision-Date: 2011-04-07 17:06+0200\n"
 "Last-Translator: <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
@@ -5382,9 +5382,9 @@ msgstr "సృష్టించు"
 msgid "No Privileges"
 msgstr ""
 
-#: libraries/display_create_table.lib.php:46
-#, php-format
-msgid "Create table on database %s"
+#: libraries/display_create_table.lib.php:46 pmd_general.php:71
+#: server_synchronize.php:442 server_synchronize.php:914
+msgid "Create table"
 msgstr ""
 
 #: libraries/display_create_table.lib.php:51 libraries/rte/rte_list.lib.php:51
@@ -8297,10 +8297,6 @@ msgstr "ఎడమవైపున మెనుని చూపించు/దా
 
 #: pmd_general.php:68
 msgid "Save position"
-msgstr ""
-
-#: pmd_general.php:71 server_synchronize.php:442 server_synchronize.php:914
-msgid "Create table"
 msgstr ""
 
 #: pmd_general.php:74 pmd_general.php:346

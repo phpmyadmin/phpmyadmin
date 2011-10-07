@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-10-05 12:57-0400\n"
+"POT-Creation-Date: 2011-10-07 07:36-0400\n"
 "PO-Revision-Date: 2011-09-29 12:00+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
@@ -5492,10 +5492,10 @@ msgstr "Oluştur"
 msgid "No Privileges"
 msgstr "Yetkiniz yok"
 
-#: libraries/display_create_table.lib.php:46
-#, php-format
-msgid "Create table on database %s"
-msgstr "%s veritabanında yeni tablo oluştur"
+#: libraries/display_create_table.lib.php:46 pmd_general.php:71
+#: server_synchronize.php:442 server_synchronize.php:914
+msgid "Create table"
+msgstr "Tablo oluştur"
 
 #: libraries/display_create_table.lib.php:51 libraries/rte/rte_list.lib.php:51
 #: libraries/rte/rte_list.lib.php:57 libraries/rte/rte_list.lib.php:66
@@ -8523,10 +8523,6 @@ msgstr "Sol menüyü Göster/Gizle"
 #: pmd_general.php:68
 msgid "Save position"
 msgstr "Konumu kaydet"
-
-#: pmd_general.php:71 server_synchronize.php:442 server_synchronize.php:914
-msgid "Create table"
-msgstr "Tablo oluştur"
 
 #: pmd_general.php:74 pmd_general.php:346
 msgid "Create relation"
@@ -13075,6 +13071,9 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 0'a ayarlı"
+
+#~ msgid "Create table on database %s"
+#~ msgstr "%s veritabanında yeni tablo oluştur"
 
 #~ msgid "Data Label"
 #~ msgstr "Veri Etiketi"

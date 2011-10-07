@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-10-05 12:57-0400\n"
+"POT-Creation-Date: 2011-10-07 07:36-0400\n"
 "PO-Revision-Date: 2011-10-05 18:57+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
@@ -5511,10 +5511,10 @@ msgstr "Créer"
 msgid "No Privileges"
 msgstr "Aucun privilège"
 
-#: libraries/display_create_table.lib.php:46
-#, php-format
-msgid "Create table on database %s"
-msgstr "Créer une nouvelle table sur la base %s"
+#: libraries/display_create_table.lib.php:46 pmd_general.php:71
+#: server_synchronize.php:442 server_synchronize.php:914
+msgid "Create table"
+msgstr "Nouvelle table"
 
 #: libraries/display_create_table.lib.php:51 libraries/rte/rte_list.lib.php:51
 #: libraries/rte/rte_list.lib.php:57 libraries/rte/rte_list.lib.php:66
@@ -8563,10 +8563,6 @@ msgstr "Montrer/cacher le menu de gauche"
 #: pmd_general.php:68
 msgid "Save position"
 msgstr "Sauvegarder la position"
-
-#: pmd_general.php:71 server_synchronize.php:442 server_synchronize.php:914
-msgid "Create table"
-msgstr "Nouvelle table"
 
 #: pmd_general.php:74 pmd_general.php:346
 msgid "Create relation"
@@ -12530,12 +12526,10 @@ msgstr ""
 "heure"
 
 #: po/advisory_rules.php:140
-#| msgid "Where to show the table row links"
 msgid "Rate of reading next table row"
 msgstr "Taux de lecture de la ligne suivante"
 
 #: po/advisory_rules.php:141
-#| msgid "Where to show the table row links"
 msgid "The rate of reading the next table row is high."
 msgstr "Le taux de lecture de la prochaine ligne dans la table est élevé."
 
@@ -12582,7 +12576,6 @@ msgstr ""
 "Les valeurs courantes sont : tmp_table_size: %s, max_heap_table_size: %s"
 
 #: po/advisory_rules.php:150
-#| msgid "Where to show the table row links"
 msgid "Percentage of temp tables on disk"
 msgstr "Pourcentage de tables temporaires sur disque"
 
@@ -12622,8 +12615,6 @@ msgstr ""
 "ne devrait pas dépasser 25%%"
 
 #: po/advisory_rules.php:155
-#| msgid "%s table"
-#| msgid_plural "%s tables"
 msgid "Temp disk rate"
 msgstr "Taux d'écriture des tables temporaires sur disque"
 
@@ -13130,6 +13121,9 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#~ msgid "Create table on database %s"
+#~ msgstr "Créer une nouvelle table sur la base %s"
 
 #, fuzzy
 #~ msgid "Data Label"

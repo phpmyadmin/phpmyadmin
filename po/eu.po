@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-10-05 12:57-0400\n"
+"POT-Creation-Date: 2011-10-07 07:36-0400\n"
 "PO-Revision-Date: 2010-07-21 14:53+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: basque <eu@li.org>\n"
@@ -5541,10 +5541,11 @@ msgstr "Sortu"
 msgid "No Privileges"
 msgstr "Pribilegiorik gabe"
 
-#: libraries/display_create_table.lib.php:46
-#, php-format
-msgid "Create table on database %s"
-msgstr "Taula berri bat sortu %s datu-basean"
+#: libraries/display_create_table.lib.php:46 pmd_general.php:71
+#: server_synchronize.php:442 server_synchronize.php:914
+#, fuzzy
+msgid "Create table"
+msgstr "Orri berri bat sortu"
 
 #: libraries/display_create_table.lib.php:51 libraries/rte/rte_list.lib.php:51
 #: libraries/rte/rte_list.lib.php:57 libraries/rte/rte_list.lib.php:66
@@ -8640,11 +8641,6 @@ msgstr ""
 #: pmd_general.php:68
 msgid "Save position"
 msgstr ""
-
-#: pmd_general.php:71 server_synchronize.php:442 server_synchronize.php:914
-#, fuzzy
-msgid "Create table"
-msgstr "Orri berri bat sortu"
 
 #: pmd_general.php:74 pmd_general.php:346
 msgid "Create relation"
@@ -12952,6 +12948,9 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#~ msgid "Create table on database %s"
+#~ msgstr "Taula berri bat sortu %s datu-basean"
 
 #, fuzzy
 #~ msgid "Data Label"
