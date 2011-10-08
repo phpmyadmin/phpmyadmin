@@ -1075,7 +1075,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         if (empty($filename)) {
             $filename = $pageNumber . '.pdf';
         }
-        $fileName = PMA_sanitize_filename($fileName);
+        $filename = PMA_sanitize_filename($filename);
 
         // instead of $pdf->Output():
         $pdfData = $pdf->getPDFData();
