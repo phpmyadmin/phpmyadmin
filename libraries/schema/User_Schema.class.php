@@ -200,11 +200,12 @@ class PMA_User_Schema
                $selectboxall[] = $val[0];
         }
 
+        $tabExist = array();
+
         /*
          * Now if we already have chosen a page number then we should
          * show the tables involved
          */
-
         if (isset($this->chosenPage) && $this->chosenPage > 0) {
             echo "\n";
             ?>
@@ -496,7 +497,7 @@ class PMA_User_Schema
                 // the table has been dropped from outside phpMyAdmin
                 if (PMA_DBI_getError()) {
                     continue;
-                } 
+                }
                 echo '<div id="table_' . $i . '" class="pdflayout_table"><u>' . $temp_sh_page['table_name'] . '</u>';
                 if (isset($with_field_names)) {
                     while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
