@@ -489,7 +489,7 @@ class Table_Stats
         foreach ($this->fields as $field) {
             $this->width = max($this->width, $pdf->GetStringWidth($field));
         }
-        $this->width += $pdf->GetStringWidth('  ');
+        $this->width += $pdf->GetStringWidth('      ');
         $pdf->SetFont($this->_ff, 'B', $fontSize);
         /*
          * it is unknown what value must be added, because
