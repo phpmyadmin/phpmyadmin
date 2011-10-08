@@ -219,8 +219,7 @@ $forms['Main_frame']['Edit'] = array(
     'LongtextDoubleTextarea',
     'InsertRows',
     'ForeignKeyDropdownOrder',
-    'ForeignKeyMaxLimit',
-    'DefaultPropDisplay');
+    'ForeignKeyMaxLimit');
 $forms['Main_frame']['Tabs'] = array(
     'LightTabs',
     'PropertiesIconic',

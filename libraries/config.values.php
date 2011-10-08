@@ -150,7 +150,6 @@ $cfg_db['_overrides']['Servers/1/extension'] = extension_loaded('mysqli')
 $cfg_db['_validators'] = array(
     'CharTextareaCols' => 'validate_positive_number',
     'CharTextareaRows' => 'validate_positive_number',
-    'DefaultPropDisplay' => array(array('validate_by_regex', '/^(?:horizontal|vertical|\d+)$/')),
     'ExecTimeLimit' => 'validate_non_negative_number',
     'Export/sql_max_query_size' => 'validate_positive_number',
     'ForeignKeyMaxLimit' => 'validate_positive_number',
