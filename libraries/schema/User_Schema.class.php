@@ -87,7 +87,7 @@ class PMA_User_Schema
                     $_POST['delrow'],
                     $cfgRelation,
                     $db,
-                    $_POST['chpage'] 
+                    $_POST['chpage']
                 );
                 break;
             case 'process_export':
@@ -232,11 +232,12 @@ class PMA_User_Schema
                $selectboxall[] = $val[0];
         }
 
+        $tabExist = array();
+
         /*
          * Now if we already have chosen a page number then we should
          * show the tables involved
          */
-
         if (isset($this->chosenPage) && $this->chosenPage > 0) {
             echo "\n";
             ?>
