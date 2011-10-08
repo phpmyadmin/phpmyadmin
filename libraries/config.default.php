@@ -2301,15 +2301,6 @@ $cfg['DefaultDisplay'] = 'horizontal';
 $cfg['RememberSorting'] = true;
 
 /**
- * default display direction for altering/creating columns (tbl_properties)
- * (horizontal|vertical|<number>)
- * number indicates maximum number for which vertical model is used
- *
- * @global integer $cfg['DefaultPropDisplay']
- */
-$cfg['DefaultPropDisplay'] = 3;
-
-/**
  * table-header rotation via faking or CSS? (css|fake|auto)
  * NOTE: CSS only works in IE browsers!
  *

@@ -49,6 +49,7 @@ phpMyAdmin - ChangeLog
 + [interface] 'Function based search' for GIS data
 + Support Drizzle database
 - bug #3356456 [interface] Interface problems for queries having LIMIT clauses
++ [interface] Remove DefaultPropDisplay feature
 
 3.4.7.0 (not yet released)
 - bug #3418610 [interface] Links in navigation when $cfg['MainPageIconic'] = false

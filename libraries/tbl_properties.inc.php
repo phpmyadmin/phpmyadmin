@@ -34,21 +34,7 @@ if (PMA_DRIZZLE) {
     include_once './libraries/data_mysql.inc.php';
 }
 
-if (is_int($cfg['DefaultPropDisplay'])) {
-    if ($num_fields <= $cfg['DefaultPropDisplay']) {
-        $display_type = 'vertical';
-    } else {
-        $display_type = 'horizontal';
-    }
-} else {
-    $display_type = $cfg['DefaultPropDisplay'];
-}
-
-if ('horizontal' == $display_type) {
-    $length_values_input_size = 8;
-} else {
-    $length_values_input_size = 30;
-}
+$length_values_input_size = 8;
 
 $_form_params = array(
     'db' => $db,
@@ -123,7 +109,7 @@ if (!$is_backup) {
     $header_cells[] = __('Index');
 }
 
-$header_cells[] = '<abbr title="AUTO_INCREMENT">' . ($display_type == 'horizontal' ? 'A_I' : 'AUTO_INCREMENT') . '</abbr>';
+$header_cells[] = '<abbr title="AUTO_INCREMENT">A_I</abbr>';
 
 require_once './libraries/transformations.lib.php';
 $cfgRelation = PMA_getRelationsParam();
@@ -279,7 +265,7 @@ for ($i = 0; $i < $num_fields; $i++) {
     $content_cells[$i][$ci] = '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '"'
         . ' type="text" name="field_name[' . $i . ']"'
         . ' maxlength="64" class="textfield" title="' . __('Column') . '"'
-        . ' size="' . ($GLOBALS['cfg']['DefaultPropDisplay'] == 'horizontal' ? '10' : '30') . '"'
+        . ' size="10"'
         . ' value="' . (isset($row['Field']) ? htmlspecialchars($row['Field']) : '') . '"'
         . ' />';
     $ci++;
@@ -562,7 +548,7 @@ for ($i = 0; $i < $num_fields; $i++) {
 <script src="./js/keyhandler.js" type="text/javascript"></script>
 <script type="text/javascript">
 // <![CDATA[
-var switch_movement = <?php echo $display_type == 'horizontal' ? '0' : '1'; ?>;
+var switch_movement = 0;
 document.onkeydown = onKeyDownArrowsHandler;
 // ]]>
 </script>
@@ -602,48 +588,27 @@ if (is_array($content_cells) && is_array($header_cells)) {
     echo '<table id="table_columns" class="noclick">';
     echo '<caption class="tblHeaders">' . __('Structure') . PMA_showMySQLDocu('SQL-Syntax', 'CREATE_TABLE') . '</caption>';
 
-    if ($display_type == 'horizontal') {
         ?>
 <tr>
-        <?php foreach ($header_cells as $header_val) { ?>
+    <?php foreach ($header_cells as $header_val) { ?>
     <th><?php echo $header_val; ?></th>
-        <?php } ?>
+    <?php } ?>
 </tr>
-        <?php
+    <?php
 
-        $odd_row = true;
-        foreach ($content_cells as $content_row) {
-            echo '<tr class="' . ($odd_row ? 'odd' : 'even') . '">';
-            $odd_row = ! $odd_row;
+    $odd_row = true;
+    foreach ($content_cells as $content_row) {
+        echo '<tr class="' . ($odd_row ? 'odd' : 'even') . '">';
+        $odd_row = ! $odd_row;
 
-            if (is_array($content_row)) {
-                foreach ($content_row as $content_row_val) {
-                    ?>
+        if (is_array($content_row)) {
+            foreach ($content_row as $content_row_val) {
+                ?>
     <td align="center"><?php echo $content_row_val; ?></td>
-                    <?php
-                }
+                <?php
             }
-            echo '</tr>';
         }
-    } else {
-        $i = 0;
-        $odd_row = true;
-        foreach ($header_cells as $header_val) {
-            echo '<tr class="' . ($odd_row ? 'odd' : 'even') . '">';
-            $odd_row = ! $odd_row;
-            ?>
-    <th><?php echo $header_val; ?></th>
-            <?php
-            foreach ($content_cells as $content_cell) {
-                if (isset($content_cell[$i]) && $content_cell[$i] != '') {
-                    ?>
-    <td><?php echo $content_cell[$i]; ?></td>
-                    <?php
-                }
-            }
-            echo '</tr>';
-            $i++;
-        }
+        echo '</tr>';
     }
     ?>
 </table>
