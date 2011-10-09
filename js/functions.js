@@ -1491,6 +1491,12 @@ function PMA_createTableDialog( div, url , target)
      button_options_error[PMA_messages['strOK']] = function() {$(this).parent().dialog('close').remove();}
 
      var $msgbox = PMA_ajaxShowMessage();
+     /*
+      * Use a little less than the current value, otherwise there is some 
+      * overlap; 16 is a value found by experimenting
+      */
+     var current_width = $(top.frame_content).width() - 16;
+     var current_height = $(top.frame_content).height() - 16;
 
      $.get( target , url ,  function(data) {
          //in the case of an error, show the error message returned.
@@ -1511,8 +1517,8 @@ function PMA_createTableDialog( div, url , target)
              .append(data)
              .dialog({
                  title: PMA_messages['strCreateTable'],
-                 height: 600,
-                 width: 900,
+                 height: current_height,
+                 width: current_width,
                  open: PMA_verifyTypeOfAllColumns,
                  buttons : button_options
              }); // end dialog options
