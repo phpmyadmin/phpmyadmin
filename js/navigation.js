@@ -229,8 +229,12 @@ $(document).ready(function(){
         var div = parent.frame_content.$('<div id="create_table_dialog"></div>');
         var target = "tbl_create.php";
 
-        /*Calling to the createTableDialog function*/
-        PMA_createTableDialog(div , url , target);
+        /*
+         * Calling to the createTableDialog function
+         * (needs to be done in the context of frame_content in order
+         *  for the qtip tooltips to work)
+         * */
+        parent.frame_content.PMA_createTableDialog(div , url , target);
     });//end of create new table
 });//end of document get ready
 
