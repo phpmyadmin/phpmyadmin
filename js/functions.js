@@ -1523,6 +1523,7 @@ function PMA_createTableDialog( div, url , target)
                  buttons : button_options
              }); // end dialog options
          }
+         PMA_convertFootnotesToTooltips($(div));
          PMA_ajaxRemoveMessage($msgbox);
      }) // end $.get()
 
