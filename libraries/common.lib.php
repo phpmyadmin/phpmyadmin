@@ -1219,6 +1219,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
 
         // Refresh query
         if (! empty($cfg['SQLQuery']['Refresh'])
+            && ! isset($GLOBALS['show_as_php']) // 'Submit query' does the same
             && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sql_query)
         ) {
             $refresh_link = 'import.php' . PMA_generate_common_url($url_params);
@@ -3151,7 +3152,7 @@ function PMA_expandUserString($string, $escape = null, $updates = array())
 
     /* Backward compatibility in 3.5.x */
     if (strpos($string, '@FIELDS@') !== false) {
-        $string = strtr($string, array('@FIELDS@' => '@COLUMNS@')); 
+        $string = strtr($string, array('@FIELDS@' => '@COLUMNS@'));
     }
 
     /* Fetch columns list if required */
