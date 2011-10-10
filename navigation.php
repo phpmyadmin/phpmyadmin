@@ -107,6 +107,7 @@ require_once './libraries/header_http.inc.php';
     <?php
     echo PMA_includeJS('jquery/jquery-1.6.2.js');
     echo PMA_includeJS('jquery/jquery-ui-1.8.custom.js');
+    echo PMA_includeJS('jquery/jquery.qtip-1.0.0-rc3.js');
     echo PMA_includeJS('navigation.js');
     echo PMA_includeJS('functions.js');
     echo PMA_includeJS('messages.php');

@@ -1511,12 +1511,17 @@ function PMA_createTableDialog( div, url , target)
              .append(data)
              .dialog({
                  title: PMA_messages['strCreateTable'],
-                 height: 600,
-                 width: 900,
+             /*
+              * Use a little less than the current value, otherwise there is i
+              * some overlap; 16 is a value found by experimenting
+              */
+                 height: $(window.document).height() - 16, 
+                 width: $(window.document).width() - 16, 
                  open: PMA_verifyTypeOfAllColumns,
                  buttons : button_options
              }); // end dialog options
          }
+         PMA_convertFootnotesToTooltips($(div));
          PMA_ajaxRemoveMessage($msgbox);
      }) // end $.get()
 
