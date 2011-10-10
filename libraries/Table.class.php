@@ -1008,6 +1008,7 @@ class PMA_Table
      * @param   string  new database name
      * @param   boolean is this for a VIEW rename?
      * @return  boolean success
+     * @todo    remove the $is_view parameter (also in callers)
      */
     function rename($new_name, $new_db = null, $is_view = false)
     {
@@ -1032,15 +1033,12 @@ class PMA_Table
             return false;
         }
 
-        if (! $is_view) {
-            $GLOBALS['sql_query'] = '
-                RENAME TABLE ' . $this->getFullName(true) . '
-                      TO ' . $new_table->getFullName(true) . ';';
-        } else {
-            $GLOBALS['sql_query'] = '
-                ALTER TABLE ' . $this->getFullName(true) . '
-                RENAME ' . $new_table->getFullName(true) . ';';
-        }
+        /*
+         * tested also for a view, in MySQL 5.0.92, 5.1.55 and 5.5.13
+         */
+        $GLOBALS['sql_query'] = '
+            RENAME TABLE ' . $this->getFullName(true) . '
+                  TO ' . $new_table->getFullName(true) . ';';
         // I don't think a specific error message for views is necessary
         if (! PMA_DBI_query($GLOBALS['sql_query'])) {
             $this->errors[] = sprintf(__('Error renaming table %1$s to %2$s'), $this->getFullName(), $new_table->getFullName());
