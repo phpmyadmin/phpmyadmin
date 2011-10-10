@@ -597,7 +597,7 @@ function PMA_displayTableList($tables, $visible = false,
                 .'&amp;goto=' . $GLOBALS['cfg']['LeftDefaultTabTable']
                 . '" >';
             $attr = array('id' => 'icon_' . htmlspecialchars($table_db . '.' . $table['Name']));
-            if ('VIEW' === strtoupper($table['Comment'])) {
+            if (PMA_Table::isView($table_db, $table['Name'])) {
                 echo PMA_getImage('s_views.png', htmlspecialchars($link_title), $attr);
             } else {
                 echo PMA_getImage('b_browse.png', htmlspecialchars($link_title), $attr);
