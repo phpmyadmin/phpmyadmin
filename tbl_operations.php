@@ -717,6 +717,7 @@ if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
 <?php
 }
 ?>
+<br class="clearfloat">
 <?php if (PMA_Partition::havePartitioning()) {
     $partition_names = PMA_Partition::getPartitionNames($db, $table);
     // show the Partition maintenance section only if we detect a partition
