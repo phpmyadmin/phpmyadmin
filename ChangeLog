@@ -54,6 +54,7 @@ phpMyAdmin - ChangeLog
 3.4.7.0 (not yet released)
 - bug #3418610 [interface] Links in navigation when $cfg['MainPageIconic'] = false
 - bug #3418849 [interface] Inline edit shows dropdowns even after closing
+- bug [view] View renaming did not work
 
 3.4.6.0 (not yet released)
 - patch #3404173 InnoDB comment display with tooltips/aliases
