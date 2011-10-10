@@ -1226,7 +1226,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
             $refresh_link = ' [' . PMA_linkOrButton($refresh_link, __('Refresh')) . ']';
         } else {
             $refresh_link = '';
-        } //show as php
+        } //refresh
 
         if (! empty($cfg['SQLValidator']['use'])
             && ! empty($cfg['SQLQuery']['Validate'])
