@@ -3339,3 +3339,7 @@ input.btn {
     color:#333;
     background-color: #D0DCE0;
 }
+
+.ui-dialog fieldset legend a {
+    color: #235A81;
+}

@@ -10,7 +10,7 @@
  */
 require_once './libraries/common.inc.php';
 
-$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
+$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.6.custom.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.sprintf.js';
 
 // Handles some variables that may have been sent by the calling script

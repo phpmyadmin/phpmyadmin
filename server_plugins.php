@@ -21,7 +21,7 @@ require_once './libraries/common.inc.php';
 /**
  * JS includes
  */
-$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
+$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.6.custom.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.cookie.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.tablesorter.js';
 $GLOBALS['js_include'][] = 'server_plugins.js';

@@ -413,7 +413,7 @@ if (PMA_DRIZZLE) {
  */
 
 $GLOBALS['js_include'][] = 'server_status.js';
-$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
+$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.6.custom.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.tablesorter.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.cookie.js'; // For tab persistence
 // Charting

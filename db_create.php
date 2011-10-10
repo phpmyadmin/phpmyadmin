@@ -10,7 +10,7 @@
  */
 require_once './libraries/common.inc.php';
 $GLOBALS['js_include'][] = 'functions.js';
-$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
+$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.6.custom.js';
 
 require_once './libraries/mysql_charsets.lib.php';
 if (!PMA_DRIZZLE) {

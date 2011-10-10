@@ -2916,3 +2916,7 @@ input.btn {
     color:#333;
     background-color: #D0DCE0;
 }
+
+.ui-dialog fieldset legend a {
+    color: #0000FF;
+}
