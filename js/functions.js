@@ -1433,6 +1433,8 @@ function PMA_ajaxRemoveMessage($this_msgbox)
             // due to a bug in qtip's implementation we can
             // only hide it without throwing JS errors.
             $this_msgbox.qtip('hide');
+        } else {
+            $this_msgbox.remove();
         }
     }
 }
@@ -1485,10 +1487,10 @@ function PMA_createTableDialog( div, url , target)
      */
      var button_options = {};
      // in the following function we need to use $(this)
-     button_options[PMA_messages['strCancel']] = function() {$(this).parent().dialog('close').remove();}
+     button_options[PMA_messages['strCancel']] = function() {$(this).closest('.ui-dialog-content').dialog('close').remove();}
 
      var button_options_error = {};
-     button_options_error[PMA_messages['strOK']] = function() {$(this).parent().dialog('close').remove();}
+     button_options_error[PMA_messages['strOK']] = function() {$(this).closest('.ui-dialog-content').dialog('close').remove();}
 
      var $msgbox = PMA_ajaxShowMessage();
 
@@ -1507,23 +1509,52 @@ function PMA_createTableDialog( div, url , target)
              //remove the redundant [Back] link in the error message.
              .find('fieldset').remove();
          } else {
+             var timeout;
              div
              .append(data)
              .dialog({
                  title: PMA_messages['strCreateTable'],
-             /*
-              * Use a little less than the current value, otherwise there is i
-              * some overlap; 16 is a value found by experimenting
-              */
-                 height: $(window.document).height() - 16, 
-                 width: $(window.document).width() - 16, 
-                 open: PMA_verifyTypeOfAllColumns,
-                 buttons : button_options
+                 resizable: false,
+                 draggable: false,
+                 modal: true,
+                 stack: false,
+                 position: ['left','top'],
+                 width: window.innerWidth-10,
+                 height: window.innerHeight-10,
+                 open: function(event) {
+                     $(window).bind('resize.dialog-resizer', function() {
+                         clearTimeout(timeout);
+                         timeout = setTimeout(function() {
+                             $(this).dialog('option', {
+                                 width: window.innerWidth-10,
+                                 height: window.innerHeight-10
+                             });
+                         }, 50);
+                     });
+
+                     var $wrapper = $('<div>', {'id': 'content-hide'}).hide();
+                     $('body > *:not(.ui-dialog)').wrapAll($wrapper);
+
+                     $(this).closest('.ui-dialog').css({
+                         left: 0,
+                         top: 0
+                     });
+
+                     // for Chrome
+                     $(this).scrollTop(0);
+
+                     PMA_verifyTypeOfAllColumns();
+                 },
+                 close: function() {
+                     $(window).unbind('resize.dialog-resizer');
+                     $('#content-hide > *').unwrap();
+                 },
+                 buttons: button_options
              }); // end dialog options
          }
          PMA_convertFootnotesToTooltips($(div));
          PMA_ajaxRemoveMessage($msgbox);
-     }) // end $.get()
+     }); // end $.get()
 
 }
 
