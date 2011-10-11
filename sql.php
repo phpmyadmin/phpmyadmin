@@ -14,7 +14,7 @@ require_once './libraries/Table.class.php';
 require_once './libraries/check_user_privileges.lib.php';
 require_once './libraries/bookmark.lib.php';
 
-$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.6.custom.js';
+$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.16.custom.js';
 $GLOBALS['js_include'][] = 'jquery/timepicker.js';
 $GLOBALS['js_include'][] = 'tbl_change.js';
 $GLOBALS['js_include'][] = 'gis_data_editor.js';

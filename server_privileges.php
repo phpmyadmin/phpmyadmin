@@ -15,7 +15,7 @@ require_once './libraries/common.inc.php';
  */
 $GLOBALS['js_include'][] = 'server_privileges.js';
 $GLOBALS['js_include'][] = 'functions.js';
-$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.6.custom.js';
+$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.16.custom.js';
 $_add_user_error = false;
 
 require './libraries/server_common.inc.php';
