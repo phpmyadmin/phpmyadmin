@@ -12652,6 +12652,8 @@ msgstr "Taille du tampon des clés MyISAM"
 #: po/advisory_rules.php:161
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
+"Le tampon des clés n'est pas initialisé. Aucun index MyISAM ne sera mis en "
+"cache."
 
 #: po/advisory_rules.php:162
 msgid ""
