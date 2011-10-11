@@ -12665,7 +12665,7 @@ msgstr ""
 
 #: po/advisory_rules.php:163
 msgid "key_buffer_size is 0"
-msgstr ""
+msgstr "key_buffer_size est à 0"
 
 #: po/advisory_rules.php:165
 #, fuzzy, php-format
