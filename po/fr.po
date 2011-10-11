@@ -12634,14 +12634,14 @@ msgstr ""
 "tables.html\\\">MySQL Documentation MySQL</a>"
 
 #: po/advisory_rules.php:158
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Temporary tables average: %s, this value should be less than 1 per hour."
 msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
 msgstr ""
-"Moyenne du nombre de tables temporaires : %s, cette valeur devrait être "
+"Taux de tables temporaires écrites sur disque: %s, cette valeur devrait être "
 "moins de 1 par heure"
 
 #: po/advisory_rules.php:160
