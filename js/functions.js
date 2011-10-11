@@ -30,6 +30,20 @@ var codemirror_editor = false;
 var chart_activeTimeouts = new Object();
 
 /**
+ * Returns browser's viewport size, without accounting for scrollbars
+ *
+ * @param window wnd
+ */
+function getWindowSize(wnd) {
+    var vp = wnd || window;
+    return {
+        // most browsers || IE6-8 strict || failsafe
+        width: vp.innerWidth || (vp.documentElement !== undefined ? vp.documentElement.clientWidth : false) || $(vp).width(),
+        height: vp.innerHeight || (vp.documentElement !== undefined ? vp.documentElement.clientHeight : false) || $(vp).height()
+    };
+}
+
+/**
  * Add a hidden field to the form to indicate that this will be an
  * Ajax request (only if this hidden field does not exist)
  *
@@ -1509,6 +1523,7 @@ function PMA_createTableDialog( div, url , target)
              //remove the redundant [Back] link in the error message.
              .find('fieldset').remove();
          } else {
+             var size = getWindowSize();
              var timeout;
              div
              .append(data)
@@ -1519,16 +1534,17 @@ function PMA_createTableDialog( div, url , target)
                  modal: true,
                  stack: false,
                  position: ['left','top'],
-                 width: window.innerWidth-10,
-                 height: window.innerHeight-10,
+                 width: size.width-10,
+                 height: size.height-10,
                  open: function() {
-                     var $dialog = $(this);
+                     var dialog_id = $(this).attr('id');
                      $(window).bind('resize.dialog-resizer', function() {
                          clearTimeout(timeout);
                          timeout = setTimeout(function() {
-                             $dialog.dialog('option', {
-                                 width: window.innerWidth-10,
-                                 height: window.innerHeight-10
+                             var size = getWindowSize();
+                             $('#'+dialog_id).dialog('option', {
+                                 width: size.width-10,
+                                 height: size.height-10
                              });
                          }, 50);
                      });
@@ -1536,13 +1552,12 @@ function PMA_createTableDialog( div, url , target)
                      var $wrapper = $('<div>', {'id': 'content-hide'}).hide();
                      $('body > *:not(.ui-dialog)').wrapAll($wrapper);
 
-                     $(this).closest('.ui-dialog').css({
-                         left: 0,
-                         top: 0
-                     });
-
-                     // for Chrome
-                     $(this).scrollTop(0);
+                     $(this)
+                         .scrollTop(0) // for Chrome
+                         .closest('.ui-dialog').css({
+                             left: 0,
+                             top: 0
+                         });
 
                      PMA_verifyTypeOfAllColumns();
                  },
