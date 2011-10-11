@@ -56,6 +56,7 @@ phpMyAdmin - ChangeLog
 - bug #3418849 [interface] Inline edit shows dropdowns even after closing
 - bug [view] View renaming did not work
 - bug [navi] Wrong icon for view (MySQL 5.5)
+- bug #3420229 [doc] Missing documentation section
 
 3.4.6.0 (not yet released)
 - patch #3404173 InnoDB comment display with tooltips/aliases
