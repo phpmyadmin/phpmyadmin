@@ -3340,6 +3340,10 @@ input.btn {
     background-color: #D0DCE0;
 }
 
+body .ui-widget {
+    font-size: 1em;
+}
+
 .ui-dialog fieldset legend a {
     color: #235A81;
 }
