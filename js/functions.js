@@ -1521,11 +1521,12 @@ function PMA_createTableDialog( div, url , target)
                  position: ['left','top'],
                  width: window.innerWidth-10,
                  height: window.innerHeight-10,
-                 open: function(event) {
+                 open: function() {
+                     var $dialog = $(this);
                      $(window).bind('resize.dialog-resizer', function() {
                          clearTimeout(timeout);
                          timeout = setTimeout(function() {
-                             $(this).dialog('option', {
+                             $dialog.dialog('option', {
                                  width: window.innerWidth-10,
                                  height: window.innerHeight-10
                              });
