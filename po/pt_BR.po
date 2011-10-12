@@ -3729,7 +3729,7 @@ msgstr "Importar / exportar"
 
 #: libraries/config/messages.inc.php:172
 msgid "Set import and export directories and compression options"
-msgstr ""
+msgstr "Define diretórios de importação e exportação e opções de compressão"
 
 #: libraries/config/messages.inc.php:173 libraries/export/latex.php:27
 msgid "LaTeX"
