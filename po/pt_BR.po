@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-12 21:28+0200\n"
+"PO-Revision-Date: 2011-10-12 21:29+0200\n"
 "Last-Translator:  <emerson4br@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -4586,7 +4586,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:386
 msgid "Disable use of INFORMATION_SCHEMA"
-msgstr "Desabilitar o uso do INFORMATION_SCHEMA"
+msgstr "Desabilitar o uso do INFORMATION_SCHEMA "
 
 #: libraries/config/messages.inc.php:387
 msgid "What PHP extension to use; you should use mysqli if supported"
