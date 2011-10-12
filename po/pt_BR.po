@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-12 18:32+0200\n"
+"PO-Revision-Date: 2011-10-12 18:33+0200\n"
 "Last-Translator:  <emerson4br@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -1542,7 +1542,7 @@ msgstr "Log analizado, nenhum dado encontrado neste intervalo de tempo"
 #, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
-msgstr "Opções de exibição de tabelas"
+msgstr "Opções de filtragem da tabela de Log"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:175
