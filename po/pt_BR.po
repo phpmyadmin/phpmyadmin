@@ -3649,8 +3649,7 @@ msgstr "Ordem da caixa de seleção de chave estrangeira"
 
 #: libraries/config/messages.inc.php:150
 msgid "A dropdown will be used if fewer items are present"
-msgstr ""
-"Uma caixa de seleção será utilizada se poucos itens estiverem presentes"
+msgstr "Uma caixa de seleção será utilizada se poucos itens estiverem presentes"
 
 #: libraries/config/messages.inc.php:151
 msgid "Foreign key limit"
