@@ -3549,7 +3549,7 @@ msgstr "Rótulo da chave"
 #: libraries/config/messages.inc.php:132 libraries/export/odt.php:310
 #: libraries/tbl_properties.inc.php:135
 msgid "MIME type"
-msgstr "MIME-type"
+msgstr "MIME type"
 
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
 #: libraries/config/messages.inc.php:134 tbl_relation.php:392
