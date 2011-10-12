@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-12 21:04+0200\n"
+"PO-Revision-Date: 2011-10-12 21:11+0200\n"
 "Last-Translator:  <emerson4br@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -4291,7 +4291,7 @@ msgstr "Limite de memória"
 
 #: libraries/config/messages.inc.php:317
 msgid "These are Edit, Copy and Delete links"
-msgstr ""
+msgstr "Estes são os links de Editar, Copiar e Apagar"
 
 #: libraries/config/messages.inc.php:318
 msgid "Where to show the table row links"
