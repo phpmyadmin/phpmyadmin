@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-12 19:33+0200\n"
+"PO-Revision-Date: 2011-10-12 19:34+0200\n"
 "Last-Translator:  <emerson4br@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -1820,7 +1820,7 @@ msgstr "Clique e arraste com o mouse para navegar no mapa"
 
 #: js/messages.php:273
 msgid "Click reset zoom link to come back to original state."
-msgstr ""
+msgstr "Clique no link resetar zoom para voltar ao estado original"
 
 #: js/messages.php:275
 msgid "Click a data point to view and possibly edit the data row."
