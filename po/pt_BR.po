@@ -3624,7 +3624,7 @@ msgstr "Encapsular exportação numa transação"
 
 #: libraries/config/messages.inc.php:138
 msgid "Export time in UTC"
-msgstr "Exportar data em UTC"
+msgstr "Hora de exportação em UTC"
 
 #: libraries/config/messages.inc.php:146
 msgid "Force secured connection while using phpMyAdmin"
