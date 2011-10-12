@@ -3661,7 +3661,7 @@ msgstr "Modo de navegação"
 
 #: libraries/config/messages.inc.php:153
 msgid "Customize browse mode"
-msgstr "Personalizar modo de busca"
+msgstr "Personalizar modo de navegação"
 
 #: libraries/config/messages.inc.php:155 libraries/config/messages.inc.php:157
 #: libraries/config/messages.inc.php:174 libraries/config/messages.inc.php:185
