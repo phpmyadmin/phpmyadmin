@@ -3774,7 +3774,7 @@ msgstr "Abrir Documento"
 
 #: libraries/config/messages.inc.php:188
 msgid "Other core settings"
-msgstr ""
+msgstr "Outras configurações do núcleo"
 
 #: libraries/config/messages.inc.php:189
 msgid "Settings that didn't fit enywhere else"
