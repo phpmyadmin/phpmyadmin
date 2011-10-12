@@ -3841,10 +3841,9 @@ msgid "Enter server connection parameters"
 msgstr "Digite os parâmetros de configuração do servidor"
 
 #: libraries/config/messages.inc.php:202
-#, fuzzy
 #| msgid "Configuration"
 msgid "Configuration storage"
-msgstr "Configuração"
+msgstr "Configuração de armazenamento"
 
 #: libraries/config/messages.inc.php:203
 msgid ""
