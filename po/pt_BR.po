@@ -2190,7 +2190,6 @@ msgstr "Qua"
 
 #. l10n: Minimal week day name
 #: js/messages.php:445
-#, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Qui"
