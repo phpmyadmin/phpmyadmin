@@ -5030,7 +5030,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:484
 msgid "Enable SQL Validator"
-msgstr "Habilitar Válidador SQL"
+msgstr "Habilitar Validador SQL"
 
 #: libraries/config/messages.inc.php:485
 msgid ""
