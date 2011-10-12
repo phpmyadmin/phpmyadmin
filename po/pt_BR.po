@@ -4061,7 +4061,7 @@ msgstr "Alvo para ícone de rápido acesso"
 
 #: libraries/config/messages.inc.php:266
 msgid "Show logo in left frame"
-msgstr ""
+msgstr "Mostrar logo no quadro da esquerda"
 
 #: libraries/config/messages.inc.php:267
 msgid "Display logo"
