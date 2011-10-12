@@ -4065,7 +4065,7 @@ msgstr "Mostrar logo no quadro da esquerda"
 
 #: libraries/config/messages.inc.php:267
 msgid "Display logo"
-msgstr ""
+msgstr "Mostrar logo"
 
 #: libraries/config/messages.inc.php:268
 msgid "Display server choice at the top of the left frame"
