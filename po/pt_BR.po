@@ -1931,9 +1931,8 @@ msgstr ""
 "conteúdo"
 
 #: js/messages.php:323
-#, fuzzy
 msgid "Go to link"
-msgstr "Sem bases"
+msgstr "Ir para o link"
 
 #: js/messages.php:326
 msgid "Generate password"
