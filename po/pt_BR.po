@@ -1511,6 +1511,10 @@ msgid ""
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
+"Esta coluna mostra a quantidade de consultas idênticas que são agrupadas "
+"juntas. No entanto, apenas a consulta SQL em si foi usada como um critério "
+"de agrupamento, por isso os outros atributos de consultas, tais como horário "
+"de início, podem ser diferentes."
 
 #: js/messages.php:166
 msgid ""
