@@ -3799,9 +3799,8 @@ msgid "Query window"
 msgstr "Janela de consulta"
 
 #: libraries/config/messages.inc.php:193
-#, fuzzy
 msgid "Customize query window options"
-msgstr "Opções de exportação do Banco de Dados"
+msgstr "Opções de personalização da janela de consulta"
 
 #: libraries/config/messages.inc.php:194
 msgid "Security"
