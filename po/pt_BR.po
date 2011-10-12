@@ -4517,7 +4517,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:371
 msgid "Bookmark table"
-msgstr ""
+msgstr "Tabela de favoritos"
 
 #: libraries/config/messages.inc.php:372
 msgid ""
