@@ -4940,7 +4940,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:461
 #| msgid "Show indexes"
 msgid "Show hint"
-msgstr "Mostrar dica"
+msgstr "Exibir dica"
 
 #: libraries/config/messages.inc.php:462
 msgid ""
