@@ -5139,7 +5139,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:510
 msgid "Enable the Developer tab in settings"
-msgstr ""
+msgstr "Habilitar aba Desenvolvedor nas configurações"
 
 #: libraries/config/messages.inc.php:511
 msgid ""
