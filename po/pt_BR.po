@@ -4263,7 +4263,7 @@ msgstr "Número máximo de linhas a exibir"
 
 #: libraries/config/messages.inc.php:311
 msgid "Maximum number of tables displayed in table list"
-msgstr ""
+msgstr "Número máximo de tabelas exibidas na lista de tabelas"
 
 #: libraries/config/messages.inc.php:312
 msgid "Maximum tables"
