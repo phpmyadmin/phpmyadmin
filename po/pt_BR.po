@@ -3512,9 +3512,8 @@ msgid "Database name template"
 msgstr "Modelo de nome de banco de dados"
 
 #: libraries/config/messages.inc.php:84
-#, fuzzy
 msgid "Server name template"
-msgstr "Nome do arquivo do modelo"
+msgstr "Modelo de nome do servidor"
 
 #: libraries/config/messages.inc.php:85
 msgid "Table name template"
