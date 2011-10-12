@@ -2941,7 +2941,6 @@ msgstr "Próximo"
 
 #: libraries/common.lib.php:2446 libraries/common.lib.php:2449
 #: libraries/display_tbl.lib.php:389
-#, fuzzy
 #| msgid "End"
 msgctxt "Last page"
 msgid "End"
