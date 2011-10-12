@@ -1252,10 +1252,9 @@ msgstr ""
 "configurações para as padrão no menu <i>Configurações</i>."
 
 #: js/messages.php:96
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache efficiency"
-msgstr "Consulta do cache"
+msgstr "Eficiência do cache de consulta"
 
 #: js/messages.php:97
 #, fuzzy
