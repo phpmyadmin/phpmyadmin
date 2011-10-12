@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-12 20:26+0200\n"
+"PO-Revision-Date: 2011-10-12 20:31+0200\n"
 "Last-Translator:  <emerson4br@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -3974,14 +3974,13 @@ msgid "Ignore multiple statement errors"
 msgstr ""
 
 #: libraries/config/messages.inc.php:235
-#, fuzzy
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be good way to import large files, however it can break "
 "transactions."
 msgstr ""
 "Permitir interromper a importação caso se detecte que o script demorará "
-"perto do tempo limite. Isso pode ser um bom caminho para importar arquivos "
+"perto do tempo limite. Isso pode ser uma boa maneira para importar arquivos "
 "grandes, entretanto isso pode interromper as transações."
 
 #: libraries/config/messages.inc.php:236
