@@ -3937,7 +3937,7 @@ msgstr "Personalizar campos de entrada de texto"
 
 #: libraries/config/messages.inc.php:226 libraries/export/texytext.php:18
 msgid "Texy! text"
-msgstr "Texy! texto"
+msgstr "Texto texy!"
 
 #: libraries/config/messages.inc.php:228
 msgid "Warnings"
