@@ -4996,7 +4996,7 @@ msgstr "Exibir comentários das tabelas ao invés dos nomes"
 
 #: libraries/config/messages.inc.php:473
 msgid "Display table comments in tooltips"
-msgstr "Mostrar comentários das tabelas em tooltips"
+msgstr "Mostrar comentários das tabelas nas dicas"
 
 #: libraries/config/messages.inc.php:474
 msgid ""
