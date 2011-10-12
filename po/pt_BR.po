@@ -4480,7 +4480,7 @@ msgstr "Permitir login sem uma senha"
 
 #: libraries/config/messages.inc.php:363
 msgid "Allow root login"
-msgstr ""
+msgstr "Permitir login como root"
 
 #: libraries/config/messages.inc.php:364
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
