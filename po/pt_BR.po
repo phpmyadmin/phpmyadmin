@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-12 21:16+0200\n"
+"PO-Revision-Date: 2011-10-12 21:18+0200\n"
 "Last-Translator:  <emerson4br@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -4408,6 +4408,8 @@ msgstr "Largura da janela de consultas"
 #: libraries/config/messages.inc.php:346
 msgid "Select which functions will be used for character set conversion"
 msgstr ""
+"Selecione quais funções serão usadas para conversão do conjunto de "
+"caracteres"
 
 #: libraries/config/messages.inc.php:347
 msgid "Recoding engine"
