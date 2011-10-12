@@ -3985,7 +3985,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:236
 msgid "Partial import: allow interrupt"
-msgstr ""
+msgstr "Importação parcial: permite Interrupção"
 
 #: libraries/config/messages.inc.php:241 libraries/config/messages.inc.php:248
 #: libraries/import/csv.php:27 libraries/import/ldi.php:40
