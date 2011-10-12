@@ -2934,7 +2934,6 @@ msgstr "Anterior"
 #: libraries/common.lib.php:2445 libraries/common.lib.php:2448
 #: libraries/display_tbl.lib.php:372 server_binlog.php:170
 #: server_binlog.php:172
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
