@@ -2178,7 +2178,6 @@ msgstr "Seg"
 
 #. l10n: Minimal week day name
 #: js/messages.php:441
-#, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Ter"
