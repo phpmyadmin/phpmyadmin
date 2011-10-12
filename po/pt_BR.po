@@ -4595,7 +4595,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:388
 msgid "PHP extension to use"
-msgstr "Utilizar a extensão do PHP"
+msgstr "Extensões PHP para utilizar"
 
 #: libraries/config/messages.inc.php:389
 msgid "Hide databases matching regular expression (PCRE)"
