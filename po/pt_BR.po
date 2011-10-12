@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-12 21:31+0200\n"
+"PO-Revision-Date: 2011-10-12 21:33+0200\n"
 "Last-Translator:  <emerson4br@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -4636,7 +4636,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:397
 msgid "Maximum number of records saved in \"table_uiprefs\" table"
-msgstr ""
+msgstr "Numero máximo de registro salvos na tabela \"table_uiprefs\""
 
 #: libraries/config/messages.inc.php:398
 msgid "Try to connect without password"
