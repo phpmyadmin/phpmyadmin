@@ -2196,7 +2196,6 @@ msgstr "Qui"
 
 #. l10n: Minimal week day name
 #: js/messages.php:447
-#, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Sex"
