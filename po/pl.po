@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-13 13:39+0200\n"
+"PO-Revision-Date: 2011-10-13 13:40+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1141,10 +1141,9 @@ msgstr "Hasła nie są identyczne!"
 
 #: js/messages.php:58 server_privileges.php:1769 server_privileges.php:1793
 #: server_privileges.php:2205 server_privileges.php:2404
-#, fuzzy
 #| msgid "Any user"
 msgid "Add user"
-msgstr "Dowolny użytkownik"
+msgstr "Dodaj użytkownika"
 
 #: js/messages.php:59
 msgid "Reloading Privileges"
