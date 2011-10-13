@@ -1057,8 +1057,7 @@ msgstr "Wstecz"
 #: index.php:164
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr ""
-"phpMyAdmin jest bardziej przyjazny w przeglądarkach <b>obsługujących ramki</"
-"b>"
+"phpMyAdmin jest bardziej przyjazny w przeglądarkach z <b>obsługą ramek</b>"
 
 #: js/messages.php:27 libraries/server_synchronize.lib.php:1329
 #: libraries/server_synchronize.lib.php:1338
