@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-13 13:33+0200\n"
+"PO-Revision-Date: 2011-10-13 13:34+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1102,7 +1102,7 @@ msgstr "Ta operacja może długo potrwać. Czy mimo to kontynuować?"
 
 #: js/messages.php:42
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr "Masz zamiar WYŁĄCZYĆ repozytorium BLOBów!"
+msgstr "Masz zamiar WYŁĄCZYĆ repozytorium BLOB!"
 
 #: js/messages.php:43
 #, php-format
