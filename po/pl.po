@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-13 13:15+0200\n"
+"PO-Revision-Date: 2011-10-13 13:16+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -975,7 +975,7 @@ msgstr "Pokazanie zakładki"
 
 #: import.php:180 import.php:415
 msgid "The bookmark has been deleted."
-msgstr "Zapamiętane zapytanie SQL zostało usunięte."
+msgstr "Zakładka została usunięta."
 
 #: import.php:291 import.php:344 libraries/File.class.php:457
 #: libraries/File.class.php:540
