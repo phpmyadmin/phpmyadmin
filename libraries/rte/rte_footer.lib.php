@@ -73,7 +73,7 @@ function PMA_TRI_getFooterLinks()
  */
 function PMA_EVN_getFooterLinks()
 {
-    global $db, $url_query, $ajax_class;
+    global $db, $url_query;
 
     /**
      * For events, we show the usual 'Add event' form and also

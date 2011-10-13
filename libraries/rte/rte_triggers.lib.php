@@ -113,7 +113,7 @@ function PMA_TRI_handleEditor()
         if (count($errors)) {
             $message = PMA_Message::error(__('<b>One or more errors have occured while processing your request:</b>'));
             $message->addString('<ul>');
-            foreach ($errors as $num => $string) {
+            foreach ($errors as $string) {
                 $message->addString('<li>' . $string . '</li>');
             }
             $message->addString('</ul>');
@@ -125,7 +125,7 @@ function PMA_TRI_handleEditor()
             if ($message->isSuccess()) {
                 $items = PMA_DBI_get_triggers($db, $table, '');
                 $trigger = false;
-                foreach ($items as $key => $value) {
+                foreach ($items as $value) {
                     if ($value['name'] == $_REQUEST['item_name']) {
                         $trigger = $value;
                     }
@@ -215,7 +215,7 @@ function PMA_TRI_getDataFromRequest()
                      'item_event_manipulation',
                      'item_definition',
                      'item_definer');
-    foreach ($indices as $key => $index) {
+    foreach ($indices as $index) {
         $retval[$index] = isset($_REQUEST[$index]) ? $_REQUEST[$index] : '';
     }
     return $retval;
@@ -235,7 +235,7 @@ function PMA_TRI_getDataFromName($name)
 
     $temp = array();
     $items = PMA_DBI_get_triggers($db, $table, '');
-    foreach ($items as $key => $value) {
+    foreach ($items as $value) {
         if ($value['name'] == $name) {
             $temp = $value;
         }
@@ -269,7 +269,7 @@ function PMA_TRI_getDataFromName($name)
  */
 function PMA_TRI_getEditorForm($mode, $item)
 {
-    global $db, $table, $titles, $event_manipulations, $action_timings;
+    global $db, $table, $event_manipulations, $action_timings;
 
     // Escape special characters
     $need_escape = array(
