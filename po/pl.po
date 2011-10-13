@@ -841,7 +841,7 @@ msgstr "Wybrany typ eksportu musi być zapisany do pliku !"
 
 #: export.php:106
 msgid "Bad parameters!"
-msgstr "Niewłaściwe parametry !"
+msgstr "Błędne parametry !"
 
 #: export.php:166 export.php:191 export.php:652
 #, php-format
