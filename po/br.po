@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-13 17:17+0200\n"
+"PO-Revision-Date: 2011-10-13 17:18+0200\n"
 "Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -865,10 +865,9 @@ msgid "Dump has been saved to file %s."
 msgstr "Enrollet eo bet ar restr ezporzhiañ e%s."
 
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "Seurt ezporzhiadenn"
+msgstr "Seurt ezporzhiadenn direizh"
 
 #: gis_data_editor.php:84
 #, php-format
