@@ -560,10 +560,7 @@ unset($_form_params);
 if ($action == 'tbl_create.php') {
     ?>
     <table>
-        <tr valign="top">
-            <th><?php echo __('Table name'); ?>:&nbsp;</th>
-        </tr>
-        <tr><td><input type="text" name="table" size="40" maxlength="80"
+        <tr><td><?php echo __('Table name'); ?>:&nbsp;<input type="text" name="table" size="40" maxlength="80"
                 value="<?php echo (isset($_REQUEST['table']) ? htmlspecialchars($_REQUEST['table']) : ''); ?>"
                 class="textfield" />
             </td>
