@@ -980,7 +980,7 @@ msgstr "Zakładka została usunięta."
 #: import.php:291 import.php:344 libraries/File.class.php:457
 #: libraries/File.class.php:540
 msgid "File could not be read"
-msgstr "Nie można odczytać pliku"
+msgstr "Plik nie mógł być odczytany."
 
 #: import.php:299 import.php:308 import.php:327 import.php:336
 #: libraries/File.class.php:610 libraries/File.class.php:618
