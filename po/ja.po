@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-13 12:00+0200\n"
+"PO-Revision-Date: 2011-10-13 12:09+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12554,7 +12554,7 @@ msgstr "テーブルロック要求をしても速やかに取得できないこ
 
 #: po/advisory_rules.php:197 po/advisory_rules.php:202
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
-msgstr ""
+msgstr "最適化もしくは InnoDB のロック待ち時間の減少、のいずれかもしくは両方を行ってください。"
 
 #: po/advisory_rules.php:198
 #, php-format
