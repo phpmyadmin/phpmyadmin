@@ -919,7 +919,7 @@ msgstr "Aradennad linennoù"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:295
 msgid "Outer Ring"
-msgstr ""
+msgstr "Kelc'h diavaez"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:294
 msgid "Inner Ring"
