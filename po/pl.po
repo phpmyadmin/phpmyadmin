@@ -871,10 +871,10 @@ msgid "Invalid export type"
 msgstr "Nieprawidłowy typ eksportu"
 
 #: gis_data_editor.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
-msgstr "Wartości dla kolumny \"%s\""
+msgstr "Wartość dla kolumny \"%s\""
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
