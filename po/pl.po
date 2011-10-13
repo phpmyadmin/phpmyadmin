@@ -882,7 +882,7 @@ msgstr "Użyj OpenStreetMaps jako warstwy podstawowej"
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:293
 #: libraries/display_tbl.lib.php:685
