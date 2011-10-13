@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-13 13:04+0200\n"
+"PO-Revision-Date: 2011-10-13 13:05+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -911,10 +911,9 @@ msgstr "Punkt %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:296
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add a point"
-msgstr "Dołącz indeks(y)"
+msgstr "Dodaj punkt"
 
 #: gis_data_editor.php:220 js/messages.php:291
 #, fuzzy
