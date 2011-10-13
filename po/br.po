@@ -1236,10 +1236,9 @@ msgid "Query statistics"
 msgstr "Stadegoù war ar rekedoù"
 
 #: js/messages.php:93
-#, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Local monitor configuration incompatible"
-msgstr "Dibosupl lenn ar restr keluniañ"
+msgstr "N'eo ket kenglotus kefluniadur lec'hel an evezhiañ"
 
 #: js/messages.php:94
 msgid ""
