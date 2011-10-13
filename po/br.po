@@ -839,7 +839,7 @@ msgstr "Ret eo enrollañ an diuzadenn ezporzhiañ en ur restr !"
 
 #: export.php:106
 msgid "Bad parameters!"
-msgstr ""
+msgstr "Arventennoù fall !"
 
 #: export.php:166 export.php:191 export.php:652
 #, php-format
