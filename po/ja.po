@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-13 12:17+0200\n"
+"PO-Revision-Date: 2011-10-13 12:18+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12542,10 +12542,10 @@ msgstr ""
 "ファイルを開く割合：%s。この値は、1 時間当たり 5 未満がいいと言われています。"
 
 #: po/advisory_rules.php:195
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Immediate table locks %%"
-msgstr "データベース %s にテーブルを作成する"
+msgstr "速やかに行われたテーブルロックの比率"
 
 #: po/advisory_rules.php:196 po/advisory_rules.php:201
 #| msgid "The number of times that a table lock was acquired immediately."
