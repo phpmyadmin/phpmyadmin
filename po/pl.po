@@ -821,7 +821,7 @@ msgstr "Wprowadź każdą wartość do osobnego pola"
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr "+ Zacznij od nowa i dodaj nową wartość"
+msgstr "+ Zacznij wprowadzanie od nowa i dodaj nową wartość"
 
 #: enum_editor.php:67 gis_data_editor.php:317
 msgid "Output"
