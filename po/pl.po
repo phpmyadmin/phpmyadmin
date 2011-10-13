@@ -1150,10 +1150,9 @@ msgid "Reloading Privileges"
 msgstr "Przeładowanie uprawnień"
 
 #: js/messages.php:60
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
-msgstr "Usuń zaznaczonych użytkowników"
+msgstr "Usuwanie zaznaczonych użytkowników"
 
 #: js/messages.php:61 js/messages.php:130 libraries/tbl_properties.inc.php:718
 #: tbl_tracking.php:235 tbl_tracking.php:400
