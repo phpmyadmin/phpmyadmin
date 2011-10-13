@@ -971,7 +971,7 @@ msgstr ""
 
 #: import.php:170 import.php:419
 msgid "Showing bookmark"
-msgstr "Pokazanie zakładki"
+msgstr "Pokazywanie zakładki"
 
 #: import.php:180 import.php:415
 msgid "The bookmark has been deleted."
