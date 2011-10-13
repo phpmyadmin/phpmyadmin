@@ -1074,7 +1074,7 @@ msgstr "Zdania \"DROP DATABASE\" są wyłączone."
 
 #: js/messages.php:32 libraries/mult_submits.inc.php:282 sql.php:348
 msgid "Do you really want to "
-msgstr "Czy na pewno wykonać "
+msgstr "Czy na pewno chcesz, aby usunąć? "
 
 #: js/messages.php:33 libraries/mult_submits.inc.php:282 sql.php:333
 msgid "You are about to DESTROY a complete database!"
