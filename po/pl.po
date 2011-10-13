@@ -720,7 +720,7 @@ msgstr "Dodaj prefiks do tabeli"
 
 #: db_structure.php:576 libraries/mult_submits.inc.php:251
 msgid "Replace table prefix"
-msgstr "Zmień prefiks tabeli"
+msgstr "Zamień prefiks tabeli"
 
 #: db_structure.php:578 libraries/mult_submits.inc.php:251
 #| msgid "Replace table data with file"
