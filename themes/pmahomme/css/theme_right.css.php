@@ -2414,11 +2414,15 @@ fieldset .disabled-field td {
 }
 
 #table_columns input, #table_columns select {
-    width:              14em;
+    width:              10em;
     box-sizing:         border-box;
     -ms-box-sizing:     border-box;
     -moz-box-sizing:    border-box;
     -webkit-box-sizing: border-box;
+}
+
+#table_columns input[type="checkbox"] {
+    width:              2em;
 }
 
 #table_columns select {
