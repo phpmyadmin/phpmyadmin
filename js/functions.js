@@ -1493,7 +1493,7 @@ function PMA_showNoticeForEnum(selectElement)
 /**
  * Generates a dialog box to pop up the create_table form
  */
-function PMA_createTableDialog( div, url , target)
+function PMA_createTableDialog( $div, url , target)
 {
      /**
      *  @var    button_options  Object that stores the options passed to jQueryUI
@@ -1511,7 +1511,7 @@ function PMA_createTableDialog( div, url , target)
      $.get( target , url ,  function(data) {
          //in the case of an error, show the error message returned.
          if (data.success != undefined && data.success == false) {
-             div
+             $div
              .append(data.error)
              .dialog({
                  title: PMA_messages['strCreateTable'],
@@ -1525,7 +1525,7 @@ function PMA_createTableDialog( div, url , target)
          } else {
              var size = getWindowSize();
              var timeout;
-             div
+             $div
              .append(data)
              .dialog({
                  title: PMA_messages['strCreateTable'],
@@ -1568,7 +1568,7 @@ function PMA_createTableDialog( div, url , target)
                  buttons: button_options
              }); // end dialog options
          }
-         PMA_convertFootnotesToTooltips($(div));
+         PMA_convertFootnotesToTooltips($div);
          PMA_ajaxRemoveMessage($msgbox);
      }); // end $.get()
 
@@ -2039,10 +2039,10 @@ $(document).ready(function() {
         /*variables which stores the common attributes*/
         var url = $form.serialize();
         var action = $form.attr('action');
-        var div =  $('<div id="create_table_dialog"></div>');
+        var $div =  $('<div id="create_table_dialog"></div>');
 
         /*Calling to the createTableDialog function*/
-        PMA_createTableDialog(div, url, action);
+        PMA_createTableDialog($div, url, action);
 
         // empty table name and number of columns from the minimal form
         $form.find('input[name=table],input[name=num_fields]').val('');
