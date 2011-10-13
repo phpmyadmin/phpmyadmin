@@ -2413,16 +2413,12 @@ fieldset .disabled-field td {
     padding: 1.5em;
 }
 
-#table_columns input, #table_columns select {
+#table_columns input[type="text"], #table_columns select {
     width:              10em;
     box-sizing:         border-box;
     -ms-box-sizing:     border-box;
     -moz-box-sizing:    border-box;
     -webkit-box-sizing: border-box;
-}
-
-#table_columns input[type="checkbox"] {
-    width:              2em;
 }
 
 #table_columns select {
