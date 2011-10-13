@@ -936,7 +936,7 @@ msgstr "Dodaj linestring"
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:297
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Dodaj pierścień wewnetrzny"
+msgstr "Dodaj pierścień wewnętrzny"
 
 #: gis_data_editor.php:266 js/messages.php:292
 msgid "Polygon"
