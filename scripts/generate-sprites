@@ -98,17 +98,10 @@ if [ -d $1/themes ]; then
     echo "/* RUN './scripts/generate-sprites' TO UPDATE THIS FILE */" >> $LIBRARY
     echo "function PMA_sprites() {" >> $LIBRARY
     echo "    return array(" >> $LIBRARY
-    PADDING=0
-    for f in $FILES; do
-      if [ ${#f} -gt $PADDING ]; then
-        PADDING=${#f}
-      fi
-    done
-    PADDING=$(($PADDING-3))
     CURRENT=1
     for f in $FILES; do
       # Add a CSS rule for each icon in the sprite
-      NAME=$(echo "'$f'" | sed 's/\.png//' | sed -e :a -e "s/^.\{1,$PADDING\}$/& /;ta")
+      NAME=$(echo "'$f'" | sed 's/\.png//')
 
       DATA=$(identify -ping $f || echo "NULL")
       if [ "$DATA" != "NULL" ]; then
@@ -123,7 +116,11 @@ if [ -d $1/themes ]; then
           fi
         done
       fi
-      echo "        $NAME => array('position' => '$CURRENT', 'width' => '$WIDTH', 'height' => '$HEIGHT')," >> $LIBRARY
+      echo "        $NAME => array("               >> $LIBRARY
+      echo "            'position' => '$CURRENT'," >> $LIBRARY
+      echo "            'width'    => '$WIDTH',"   >> $LIBRARY
+      echo "            'height'   => '$HEIGHT'"   >> $LIBRARY
+      echo "        ),"                            >> $LIBRARY
       CURRENT=$(($CURRENT+1))
     done
     echo "    );" >> $LIBRARY
