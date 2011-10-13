@@ -142,8 +142,6 @@ function PMA_RTN_parseOneParameter($value)
  */
 function PMA_RTN_parseAllParameters($parsed_query, $routine_type)
 {
-    global $param_directions;
-
     $retval = array();
     $retval['num'] = 0;
 
@@ -230,7 +228,7 @@ function PMA_RTN_parseRoutineDefiner($parsed_query)
  */
 function PMA_RTN_handleEditor()
 {
-    global $_GET, $_POST, $_REQUEST, $GLOBALS, $db, $cfg, $errors;
+    global $_GET, $_POST, $_REQUEST, $GLOBALS, $db, $errors;
 
     if (! empty($_REQUEST['editor_process_add'])
         || ! empty($_REQUEST['editor_process_edit'])
@@ -293,7 +291,7 @@ function PMA_RTN_handleEditor()
         if (count($errors)) {
             $message = PMA_Message::error(__('<b>One or more errors have occured while processing your request:</b>'));
             $message->addString('<ul>');
-            foreach ($errors as $num => $string) {
+            foreach ($errors as $string) {
                 $message->addString('<li>' . $string . '</li>');
             }
             $message->addString('</ul>');
@@ -511,7 +509,7 @@ function PMA_RTN_getDataFromRequest()
  */
 function PMA_RTN_getDataFromName($name, $type, $all = true)
 {
-    global $param_directions, $param_sqldataaccess, $db;
+    global $db;
 
     $retval  = array();
 
@@ -734,7 +732,7 @@ function PMA_RTN_getParameterRow($routine = array(), $index = null, $class = '')
  */
 function PMA_RTN_getEditorForm($mode, $operation, $routine)
 {
-    global $db, $titles, $errors, $param_directions, $param_sqldataaccess, $param_opts_num;
+    global $db, $errors, $param_sqldataaccess, $param_opts_num;
 
     // Escape special characters
     $need_escape = array(
@@ -976,7 +974,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
  */
 function PMA_RTN_getQueryFromRequest()
 {
-    global $_REQUEST, $cfg, $errors, $param_sqldataaccess, $param_opts_num, $param_directions;
+    global $_REQUEST, $cfg, $errors, $param_sqldataaccess, $param_directions;
 
     $_REQUEST['item_type'] = isset($_REQUEST['item_type']) ? $_REQUEST['item_type'] : '';
 
@@ -1174,7 +1172,7 @@ function PMA_RTN_handleExecute()
             $affected = 0;
             $result = null;
             $outcome = true;
-            foreach ($queries as $num => $query) {
+            foreach ($queries as $query) {
                 $resource = PMA_DBI_try_query($query);
                 if ($resource === false) {
                     $outcome = false;
