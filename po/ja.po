@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-13 12:18+0200\n"
+"PO-Revision-Date: 2011-10-13 12:26+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12398,15 +12398,13 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:158
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Temporary tables average: %s, this value should be less than 1 per hour."
 msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
-msgstr ""
-"一時テーブル使用率の平均：%s。この値は、1 時間当たり 1 未満がいいと言われてい"
-"ます。"
+msgstr "ディスク書き込みを伴う一時テーブル割合：%s。この値は、1 時間当たり 1 未満がいいと言われています。"
 
 #: po/advisory_rules.php:160
 msgid "MyISAM key buffer size"
