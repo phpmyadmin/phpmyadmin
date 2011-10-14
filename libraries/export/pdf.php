@@ -129,7 +129,7 @@ class PMA_PDF extends TCPDF
         if (!isset($this->footerset[$this->page])) {
             $this->SetY(-15);
             //Page number
-            $this->setFooterFont(PMA_PDF_FONT, '', 14);
+            $this->SetFont(PMA_PDF_FONT, '', 14);
             $this->Cell(0, 6, __('Page number:') . ' ' . $this->getAliasNumPage() . '/' .  $this->getAliasNbPages(), 'T', 0, 'C');
 
             // set footerset
