@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-13 12:33+0200\n"
+"PO-Revision-Date: 2011-10-14 12:27+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12682,6 +12682,9 @@ msgid ""
 "source-of-aborted_connects/\\\">This article</a> might help you track down "
 "the source."
 msgstr ""
+"接続は中断されたというのは、一般的に、認証できなかった場合のことです。<a "
+"href=\\\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
+"source-of-aborted_connects/\\\">この記事</a>は、原因を突き止めるのに参考になるかもしれません。"
 
 #: po/advisory_rules.php:233
 #, php-format
