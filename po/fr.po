@@ -12695,7 +12695,7 @@ msgstr ""
 msgid "max %% MyISAM key buffer ever used: %s, this value should be above 95%%"
 msgstr ""
 "Le %% maximum de mémoire tampon pour les clés MyISAM utilisé est de %s, "
-"cette valeur ne devrait pas dépasser 95%%."
+"cette valeur devrait dépasser 95%%."
 
 #: po/advisory_rules.php:170
 #| msgid "Sort buffer size"
