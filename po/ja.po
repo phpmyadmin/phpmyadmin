@@ -12723,6 +12723,8 @@ msgid ""
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
+"クライアントによって中断されたというのは、一般的に、MySQL への接続が適切に閉じられなかった場合のことです。ネットワークの問題もしくはデータベースへ"
+"の接続を適切に閉じていないコードが原因と考えられます。ネットワークとコードを確認してください。"
 
 #: po/advisory_rules.php:243
 #, php-format
