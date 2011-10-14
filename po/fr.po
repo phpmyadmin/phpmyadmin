@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-11 18:29+0200\n"
+"PO-Revision-Date: 2011-10-14 16:46+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -12674,10 +12674,11 @@ msgid "Max %% MyISAM key buffer ever used"
 msgstr "Pourcentage maximum du tampon de clés MyISAM qui a été utilisé"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr "Taille de la mémoire tampon"
+msgstr ""
+"Le pourcentage de la mémoire tampon utilisée pour les clés MyISAM est bas."
 
 #: po/advisory_rules.php:167 po/advisory_rules.php:172
 msgid ""
@@ -12685,35 +12686,41 @@ msgid ""
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
+"Diminuez la taille de  {key_buffer_size}, examinez vos table pour voir si "
+"les index ont été enlevés, ou examinez les requêtes pour voir quels index "
+"sont utilisés."
 
 #: po/advisory_rules.php:168
 #, php-format
 msgid "max %% MyISAM key buffer ever used: %s, this value should be above 95%%"
 msgstr ""
+"Le %% maximum de mémoire tampon pour les clés MyISAM utilisé est de %s, "
+"cette valeur devrait dépasser 95%%."
 
 #: po/advisory_rules.php:170
-#, fuzzy
 #| msgid "Sort buffer size"
 msgid "Percentage of MyISAM key buffer used"
-msgstr "Taille de la mémoire tampon"
+msgstr "Pourcentage de la mémoire tampon des clés MyISAM utilisée"
 
 #: po/advisory_rules.php:173
 #, php-format
 msgid "%% MyISAM key buffer used: %s, this value should be above 95%%"
 msgstr ""
+"%% de mémoire tampon pour les clés MyISAM utilisée : %s, cette valeur "
+"devrait être au-dessus de 95%%"
 
 #: po/advisory_rules.php:175
 msgid "Percentage of index reads from memory"
-msgstr ""
+msgstr "Pourcentage des lectures d'index depuis la mémoire"
 
 #: po/advisory_rules.php:176
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
-msgstr ""
+msgstr "Le %% des index qui utilisent la mémoire tampon MySQL est bas."
 
 #: po/advisory_rules.php:177
 msgid "You may need to increase {key_buffer_size}."
-msgstr ""
+msgstr "Veuillez augmenter {key_buffer_size}."
 
 #: po/advisory_rules.php:178
 #, php-format

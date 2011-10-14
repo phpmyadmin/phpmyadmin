@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-11 11:16+0200\n"
+"PO-Revision-Date: 2011-10-13 13:40+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -659,7 +659,7 @@ msgstr "Z zaznaczeniem:"
 #: server_databases.php:266 server_privileges.php:682
 #: server_privileges.php:1759 tbl_structure.php:560
 msgid "Check All"
-msgstr "Zaznacz wszystko"
+msgstr "Zaznacz wszystkie"
 
 #: db_structure.php:541 libraries/display_tbl.lib.php:2484
 #: libraries/replication_gui.lib.php:35 server_databases.php:268
@@ -720,13 +720,12 @@ msgstr "Dodaj prefiks do tabeli"
 
 #: db_structure.php:576 libraries/mult_submits.inc.php:251
 msgid "Replace table prefix"
-msgstr "Zmień prefiks tabeli"
+msgstr "Zamień prefiks tabeli"
 
 #: db_structure.php:578 libraries/mult_submits.inc.php:251
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
-msgstr "Zamiana danych tabeli z plikiem"
+msgstr "Kopiuj tabelę z prefiksem"
 
 #: db_structure.php:615 libraries/schema/User_Schema.class.php:422
 msgid "Data Dictionary"
@@ -809,7 +808,7 @@ msgstr "Monitoruj tabelę"
 
 #: db_tracking.php:225
 msgid "Database Log"
-msgstr "Log bazy danych"
+msgstr "Dziennik bazy danych"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:719
 #, php-format
@@ -818,11 +817,11 @@ msgstr "Wartości dla kolumny \"%s\""
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:720
 msgid "Enter each value in a separate field."
-msgstr "Wprowadź wartości w osobnych polach"
+msgstr "Wprowadź każdą wartość do osobnego pola"
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr "+ Zacznij od nowa i dodaj nową wartość"
+msgstr "+ Zacznij wprowadzanie od nowa i dodaj nową wartość"
 
 #: enum_editor.php:67 gis_data_editor.php:317
 msgid "Output"
@@ -834,15 +833,15 @@ msgstr "Kopiuj i wklej połączone wartości do pola \"Długości/Wartości\""
 
 #: export.php:29
 msgid "Bad type!"
-msgstr "Niewłaściwy typ"
+msgstr "Typ nieprawidłowy!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
-msgstr "Wybrany typ eksportu musi być zapisany do pliku"
+msgstr "Wybrany typ eksportu musi być zapisany do pliku!"
 
 #: export.php:106
 msgid "Bad parameters!"
-msgstr "Niewłaściwe parametry"
+msgstr "Parametry nieprawidłowe!"
 
 #: export.php:166 export.php:191 export.php:652
 #, php-format
@@ -869,101 +868,97 @@ msgstr "Zrzut został zapisany do pliku %s."
 
 #: file_echo.php:21
 msgid "Invalid export type"
-msgstr "Niewłaściwy rodzaj eksportu"
+msgstr "Nieprawidłowy typ eksportu"
 
 #: gis_data_editor.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
-msgstr "Wartości dla kolumny \"%s\""
+msgstr "Wartość dla kolumny \"%s\""
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "Użyj OpenStreetMaps jako warstwy podstawowej"
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:293
 #: libraries/display_tbl.lib.php:685
 msgid "Geometry"
-msgstr ""
+msgstr "Geometria"
 
 #: gis_data_editor.php:172 js/messages.php:289
 msgid "Point"
-msgstr ""
+msgstr "Punkt"
 
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
 #: gis_data_editor.php:297 js/messages.php:287
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
 #: gis_data_editor.php:299 js/messages.php:288
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
 #: js/messages.php:290
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "Punkt %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:296
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add a point"
-msgstr "Dołącz indeks(y)"
+msgstr "Dodaj punkt"
 
 #: gis_data_editor.php:220 js/messages.php:291
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Linie zakończone przez"
+msgstr "Linestring"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:295
 msgid "Outer Ring"
-msgstr ""
+msgstr "Pierścień zewnętrzny"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:294
 msgid "Inner Ring"
-msgstr ""
+msgstr "Pierścień wewnętrzny"
 
 #: gis_data_editor.php:252
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Dodaj nowego użytkownika"
+msgstr "Dodaj linestring"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:297
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Dodaj nowego użytkownika"
+msgstr "Dodaj pierścień wewnętrzny"
 
 #: gis_data_editor.php:266 js/messages.php:292
 msgid "Polygon"
-msgstr ""
+msgstr "Wielokąt"
 
 #: gis_data_editor.php:306 js/messages.php:298
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add a polygon"
-msgstr "Dodaj %s pól"
+msgstr "Dodaj wielokąt"
 
 #: gis_data_editor.php:310
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add geometry"
-msgstr "Dodaj nowy serwer"
+msgstr "Dodaj geometrię"
 
 #: gis_data_editor.php:318
 msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
+"Wybierz \"GeomFromText\" z kolumny \"Function\" i wklej poniżej napisu do pola "
+"\"Value\"."
 
 #: import.php:57
 #, php-format
@@ -971,21 +966,21 @@ msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation%"
 "s for ways to workaround this limit."
 msgstr ""
-"Prawdopodobnie próbowano wrzucić duży plik. Aby poznać sposoby obejścia tego "
-"limitu, proszę zapoznać się z %sdokumenacją%s."
+"Prawdopodobnie próbowano przesłać na serwer zbyt duży plik. Aby poznać "
+"sposoby obejścia tego problemu, proszę zapoznać się z %sdokumenacją%s."
 
 #: import.php:170 import.php:419
 msgid "Showing bookmark"
-msgstr "Pokaz zapamiętanego zapytania"
+msgstr "Wyświetlanie zakładki"
 
 #: import.php:180 import.php:415
 msgid "The bookmark has been deleted."
-msgstr "Zapamiętane zapytanie SQL zostało usunięte."
+msgstr "Zakładka została usunięta."
 
 #: import.php:291 import.php:344 libraries/File.class.php:457
 #: libraries/File.class.php:540
 msgid "File could not be read"
-msgstr "Nie można odczytać pliku"
+msgstr "Plik nie mógł być odczytany."
 
 #: import.php:299 import.php:308 import.php:327 import.php:336
 #: libraries/File.class.php:610 libraries/File.class.php:618
@@ -995,8 +990,9 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"Próbowano wczytać plik z nieobsługiwanym typem kompresji (%s). Albo jego "
-"obsługa nie została zaimplementowana albo została konfiguracyjnie wyłączona."
+"Próbowano wczytać plik z nieobsługiwanym typem kompresji (%s). Powód: "
+"obsługa tego pliku nie została zaimplementowana, albo została wyłączona "
+"przez konfigurację."
 
 #: import.php:349
 msgid ""
@@ -1004,24 +1000,25 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
-"Nie otrzymano żadnych danych do importu. Albo nie została wysłana nazwa "
+"Nie otrzymano żadnych danych do importu. Powód: nie została wysłana nazwa "
 "pliku, albo plik był zbyt duży (maksymalny dopuszczalny rozmiar pliku "
-"określa się w konfiguracji PHP). Patrz: [a@./Documentation."
-"html#faq1_16@Documentation]FAQ 1.16[/a]."
+"określa się w konfiguracji PHP). Zobacz: "
+"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 
 #: import.php:366
 msgid ""
 "Cannot convert file's character set without character set conversion library"
 msgstr ""
+"Nie można przekonwertować zestawu znaków bez biblioteki konwersji znaków"
 
 #: import.php:390 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
-msgstr "Nie udało się załadować modułów importu, proszę sprawdzić instalację!"
+msgstr "Nie udało się załadować wtyczek importu, proszę sprawdzić instalację!"
 
 #: import.php:421 sql.php:928
 #, php-format
 msgid "Bookmark %s created"
-msgstr "Zapytanie %s zostało zapamiętane"
+msgstr "Zakładka %s została utworzona"
 
 #: import.php:427 import.php:433
 #, php-format
@@ -1033,17 +1030,17 @@ msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr ""
-"Limit czasu wykonania skryptu minął; aby ukończyć import, proszę przedłożyć "
-"ten sam plik a import zostanie wznowiony."
+"Limit czasu wykonania skryptu minął. Aby ukończyć import, proszę ponownie "
+"wczytać ten sam plik."
 
 #: import.php:444
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"Jednakże, podczas ostatniego uruchomienia nie zostały przetworzone żadne "
-"dane, co zwykle oznacza, że phpMyAdmin nie będzie w stanie ukończyć tego "
-"importu bez zwiększenia limitów czasowych PHP."
+"Podczas ostatniego uruchomienia nie zostały przetworzone żadne dane, co "
+"zwykle oznacza, że phpMyAdmin nie będzie mógł ukończyć importu bez "
+"zwiększenia limitów czasowych PHP."
 
 #: import.php:472 libraries/Message.class.php:175
 #: libraries/display_tbl.lib.php:2383 libraries/rte/rte_routines.lib.php:1197
@@ -1055,13 +1052,12 @@ msgstr "Zapytanie SQL zostało wykonane pomyślnie"
 #: import_status.php:29 libraries/common.lib.php:702
 #: libraries/schema/Export_Relation_Schema.class.php:237 user_password.php:109
 msgid "Back"
-msgstr "Powrót"
+msgstr "Wstecz"
 
 #: index.php:164
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr ""
-"phpMyAdmin jest bardziej przyjazny w przeglądarkach <b>obsługujących ramki</"
-"b>"
+"phpMyAdmin jest bardziej przyjazny w przeglądarkach z <b>obsługą ramek</b>"
 
 #: js/messages.php:27 libraries/server_synchronize.lib.php:1329
 #: libraries/server_synchronize.lib.php:1338
@@ -1074,11 +1070,11 @@ msgstr "Kliknij, aby usunąć zaznaczenie"
 
 #: js/messages.php:29 libraries/import.lib.php:103 sql.php:247
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "Polecenie \"DROP DATABASE\" jest zablokowane."
+msgstr "Zdania \"DROP DATABASE\" są wyłączone."
 
 #: js/messages.php:32 libraries/mult_submits.inc.php:282 sql.php:348
 msgid "Do you really want to "
-msgstr "Czy na pewno wykonać "
+msgstr "Czy na pewno chcesz, aby usunąć? "
 
 #: js/messages.php:33 libraries/mult_submits.inc.php:282 sql.php:333
 msgid "You are about to DESTROY a complete database!"
@@ -1106,7 +1102,7 @@ msgstr "Ta operacja może długo potrwać. Czy mimo to kontynuować?"
 
 #: js/messages.php:42
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr "Masz zamiar WYŁĄCZYĆ repozytorium BLOBów!"
+msgstr "Masz zamiar WYŁĄCZYĆ repozytorium BLOB!"
 
 #: js/messages.php:43
 #, php-format
@@ -1115,7 +1111,7 @@ msgstr "Czy na pewno wyłączyć wszystkie odwołania do BLOBów z bazy danych %
 
 #: js/messages.php:46
 msgid "Missing value in the form!"
-msgstr "Brakująca wartość w formularzu!"
+msgstr "W formularzu brakuje wartości!"
 
 #: js/messages.php:47
 msgid "This is not a number!"
@@ -1123,10 +1119,9 @@ msgstr "To nie jest liczba!"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Log file count"
 msgid "Total count"
-msgstr "Liczba plików dziennika"
+msgstr "Całkowita liczba:"
 
 #: js/messages.php:54
 msgid "The host name is empty!"
@@ -1138,7 +1133,7 @@ msgstr "Brak nazwy użytkownika!"
 
 #: js/messages.php:56 server_privileges.php:1314 user_password.php:50
 msgid "The password is empty!"
-msgstr "Puste hasło!"
+msgstr "Brak hasła!"
 
 #: js/messages.php:57 server_privileges.php:1312 user_password.php:53
 msgid "The passwords aren't the same!"
@@ -1146,20 +1141,18 @@ msgstr "Hasła nie są identyczne!"
 
 #: js/messages.php:58 server_privileges.php:1769 server_privileges.php:1793
 #: server_privileges.php:2205 server_privileges.php:2404
-#, fuzzy
 #| msgid "Any user"
 msgid "Add user"
-msgstr "Dowolny użytkownik"
+msgstr "Dodaj użytkownika"
 
 #: js/messages.php:59
 msgid "Reloading Privileges"
 msgstr "Przeładowanie uprawnień"
 
 #: js/messages.php:60
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
-msgstr "Usuń zaznaczonych użytkowników"
+msgstr "Usuwanie zaznaczonych użytkowników"
 
 #: js/messages.php:61 js/messages.php:130 libraries/tbl_properties.inc.php:718
 #: tbl_tracking.php:235 tbl_tracking.php:400
