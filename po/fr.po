@@ -12716,7 +12716,7 @@ msgstr "Pourcentage des lectures d'index depuis la mémoire"
 #: po/advisory_rules.php:176
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
-msgstr ""
+msgstr "Le %% des index qui utilisent la mémoire tampon MySQL est bas."
 
 #: po/advisory_rules.php:177
 msgid "You may need to increase {key_buffer_size}."
