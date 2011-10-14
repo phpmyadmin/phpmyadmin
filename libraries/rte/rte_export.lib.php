@@ -18,7 +18,7 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_RTE_handleExport($item_name, $export_data)
 {
-    global $db, $table;
+    global $db;
 
     $item_name = htmlspecialchars(PMA_backquote($_GET['item_name']));
     if ($export_data !== false) {

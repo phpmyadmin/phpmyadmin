@@ -78,7 +78,7 @@ function PMA_EVN_main()
  */
 function PMA_EVN_handleEditor()
 {
-    global $_REQUEST, $_POST, $errors, $db, $table;
+    global $_REQUEST, $_POST, $errors, $db;
 
     if (! empty($_REQUEST['editor_process_add'])
         || ! empty($_REQUEST['editor_process_edit'])
@@ -140,7 +140,7 @@ function PMA_EVN_handleEditor()
         if (count($errors)) {
             $message = PMA_Message::error(__('<b>One or more errors have occured while processing your request:</b>'));
             $message->addString('<ul>');
-            foreach ($errors as $num => $string) {
+            foreach ($errors as $string) {
                 $message->addString('<li>' . $string . '</li>');
             }
             $message->addString('</ul>');
@@ -245,7 +245,7 @@ function PMA_EVN_getDataFromRequest()
                      'item_preserve',
                      'item_comment',
                      'item_definer');
-    foreach ($indices as $key => $index) {
+    foreach ($indices as $index) {
         $retval[$index] = isset($_REQUEST[$index]) ? $_REQUEST[$index] : '';
     }
     $retval['item_type']        = 'ONE TIME';
@@ -320,7 +320,7 @@ function PMA_EVN_getDataFromName($name)
  */
 function PMA_EVN_getEditorForm($mode, $operation, $item)
 {
-    global $db, $table, $titles, $event_status, $event_type, $event_interval;
+    global $db, $table, $event_status, $event_type, $event_interval;
 
     // Escape special characters
     $need_escape = array(
@@ -335,7 +335,7 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
                        'item_definer',
                        'item_comment'
                    );
-    foreach ($need_escape as $key => $index) {
+    foreach ($need_escape as $index) {
         $item[$index] = htmlentities($item[$index], ENT_QUOTES);
     }
     $original_data = '';
@@ -506,7 +506,7 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
  */
 function PMA_EVN_getQueryFromRequest()
 {
-    global $_REQUEST, $db, $errors, $event_status, $event_type, $event_interval;
+    global $_REQUEST, $errors, $event_status, $event_type, $event_interval;
 
     $query = 'CREATE ';
     if (! empty($_REQUEST['item_definer'])) {
