@@ -12740,7 +12740,7 @@ msgstr "インポートするファイルの形式"
 #: po/advisory_rules.php:248
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
-msgstr ""
+msgstr "中断されたクライアントの割合: %s。この値は、1 時間当たり 1 未満がいいと言われています。"
 
 #: po/advisory_rules.php:250
 msgid "Is InnoDB disabled?"
