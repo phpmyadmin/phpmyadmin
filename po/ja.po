@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-14 12:29+0200\n"
+"PO-Revision-Date: 2011-10-14 12:30+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12732,10 +12732,9 @@ msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr "全クライアントの内 %s%% が中断されています。この値は、2%% 未満がいいと言われています。"
 
 #: po/advisory_rules.php:245
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of aborted clients"
-msgstr "インポートするファイルの形式"
+msgstr "中断されたクライアントの割合"
 
 #: po/advisory_rules.php:248
 #, php-format
