@@ -11372,10 +11372,9 @@ msgid "No index parts defined!"
 msgstr "Части индекса не определены!"
 
 #: tbl_indexes.php:169
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create an index"
-msgstr "Создать новый индекс"
+msgstr "Создать индекс"
 
 #: tbl_indexes.php:171
 msgid "Modify an index"
