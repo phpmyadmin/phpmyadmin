@@ -1014,7 +1014,7 @@ msgstr ""
 
 #: import.php:390 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
-msgstr "Nie udało się załadować wtyczek importu, proszę sprawdzić instalację!"
+msgstr "Nie udało się wczytać wtyczek importu, proszę sprawdzić instalację!"
 
 #: import.php:421 sql.php:928
 #, php-format
