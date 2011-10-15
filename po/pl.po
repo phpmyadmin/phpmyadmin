@@ -875,7 +875,7 @@ msgstr "Nieważny typ eksportu"
 #, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
-msgstr "Wartość dla kolumny \"%s\""
+msgstr "Wartość do kolumny \"%s\""
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
