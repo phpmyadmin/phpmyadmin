@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-15 11:10+0200\n"
+"PO-Revision-Date: 2011-10-15 11:11+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1251,10 +1251,9 @@ msgid "Query statistics"
 msgstr "Statystyki zapytań"
 
 #: js/messages.php:93
-#, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Local monitor configuration incompatible"
-msgstr "Nie udało się załadować lub zapisać konfiguracji"
+msgstr "Niekompatybilny lokalny monitor konfiguracji"
 
 #: js/messages.php:94
 msgid ""
