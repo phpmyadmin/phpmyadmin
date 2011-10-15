@@ -494,7 +494,7 @@ msgstr "Użyj tabel"
 #: db_qbe.php:662
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "Zapytanie SQL dla bazy danych <b>%s</b>:"
+msgstr "Zapytanie SQL do bazy danych <b>%s</b>:"
 
 #: db_qbe.php:955 libraries/common.lib.php:1214
 msgid "Submit Query"
