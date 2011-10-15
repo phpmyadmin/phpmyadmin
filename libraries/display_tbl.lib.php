@@ -928,9 +928,9 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             //       It still might be a column name of a view. See bug #3383711
             //       Check is_orgname.
             if (strpos($name_to_use_in_sort, '(') !== false && ! $is_orgname) {
-                $sort_order = ' ORDER BY ' . $name_to_use_in_sort . ' ';
+                $sort_order = "\n" . 'ORDER BY ' . $name_to_use_in_sort . ' ';
             } else {
-                $sort_order = ' ORDER BY ' . $sort_tbl . PMA_backquote($name_to_use_in_sort) . ' ';
+                $sort_order = "\n" . 'ORDER BY ' . $sort_tbl . PMA_backquote($name_to_use_in_sort) . ' ';
             }
             unset($name_to_use_in_sort);
             unset($is_orgname);

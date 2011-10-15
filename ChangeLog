@@ -50,6 +50,7 @@ phpMyAdmin - ChangeLog
 + Support Drizzle database
 - bug #3356456 [interface] Interface problems for queries having LIMIT clauses
 + [interface] Remove DefaultPropDisplay feature
+- bug #3299486 [prettyprint] Order By in a query containing comment character
 
 3.4.7.0 (not yet released)
 - bug #3418610 [interface] Links in navigation when $cfg['MainPageIconic'] = false
