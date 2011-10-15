@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-15 10:14+0200\n"
+"PO-Revision-Date: 2011-10-15 10:15+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -734,7 +734,7 @@ msgstr "Słownik danych"
 
 #: db_tracking.php:79
 msgid "Tracked tables"
-msgstr "Monitorowane tabele"
+msgstr "Tabele monitorowane"
 
 #: db_tracking.php:84 libraries/config/messages.inc.php:496
 #: libraries/export/htmlword.php:78 libraries/export/latex.php:151
