@@ -11910,7 +11910,7 @@ msgstr "Переименовать представление в"
 
 #: po/advisory_rules.php:5
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Сервер работает менее суток"
 
 #: po/advisory_rules.php:6
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
