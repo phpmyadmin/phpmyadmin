@@ -1091,7 +1091,7 @@ msgstr "Masz zamiar WYCZYŚCIĆ całą tabelę!"
 
 #: js/messages.php:37
 msgid "Deleting tracking data"
-msgstr "Usuwanie danych śledzenia"
+msgstr "Usuwanie danych monitorowania"
 
 #: js/messages.php:38
 msgid "Dropping Primary Key/Index"
