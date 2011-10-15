@@ -1108,7 +1108,9 @@ msgstr "Masz zamiar WYŁĄCZYĆ repozytorium BLOB!"
 #: js/messages.php:43
 #, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
-msgstr "Czy na pewno wyłączyć wszystkie odwołania do BLOBów z bazy danych %s?"
+msgstr ""
+"Czy na pewno wyłączyć wszystkie odwołania do repozytoriów BLOB z bazy danych "
+"%s?"
 
 #: js/messages.php:46
 msgid "Missing value in the form!"
