@@ -11929,7 +11929,7 @@ msgstr ""
 #: po/advisory_rules.php:8
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "Сервер работает только %s"
 
 #: po/advisory_rules.php:10
 #, fuzzy
