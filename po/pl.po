@@ -690,7 +690,7 @@ msgstr "Widok do druku"
 #: db_structure.php:560 libraries/common.lib.php:3309
 #: libraries/common.lib.php:3310
 msgid "Empty"
-msgstr "Wyczyść"
+msgstr "Opróżnij"
 
 #: db_structure.php:562 db_tracking.php:104 libraries/Index.class.php:482
 #: libraries/common.lib.php:3307 libraries/common.lib.php:3308
