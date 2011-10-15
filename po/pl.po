@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-15 10:25+0200\n"
+"PO-Revision-Date: 2011-10-15 10:26+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -932,7 +932,7 @@ msgstr "Pierścień wewnętrzny"
 #: gis_data_editor.php:252
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Dodaj linestring"
+msgstr "Dodaj linię (linestring)"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:297
 #| msgid "Add a new User"
