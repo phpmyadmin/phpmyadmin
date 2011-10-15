@@ -1194,7 +1194,7 @@ msgstr "Dane statyczne"
 #: server_status.php:1115 server_status.php:1176 tbl_printview.php:315
 #: tbl_structure.php:802
 msgid "Total"
-msgstr "Sumarycznie"
+msgstr "Ogółem"
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:73 server_status.php:594 server_status.php:1013
