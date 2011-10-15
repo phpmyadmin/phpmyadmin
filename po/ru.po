@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-15 19:48+0200\n"
+"PO-Revision-Date: 2011-10-15 19:50+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -10642,10 +10642,9 @@ msgid "Log statistics"
 msgstr "Статистика журналов"
 
 #: server_status.php:1698
-#, fuzzy
 #| msgid "Select page"
 msgid "Selected time range:"
-msgstr "Выберите страницу"
+msgstr "Выбранный диапазон времени:"
 
 #: server_status.php:1703
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
