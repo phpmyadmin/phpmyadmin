@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-15 10:26+0200\n"
+"PO-Revision-Date: 2011-10-15 10:27+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -946,7 +946,7 @@ msgstr "Obrys"
 #: gis_data_editor.php:306 js/messages.php:298
 #| msgid "Add %s field(s)"
 msgid "Add a polygon"
-msgstr "Dodaj wielokąt"
+msgstr "Dodaj obrys"
 
 #: gis_data_editor.php:310
 #| msgid "Add a new server"
