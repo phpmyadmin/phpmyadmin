@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-15 10:11+0200\n"
+"PO-Revision-Date: 2011-10-15 10:14+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -668,8 +668,9 @@ msgid "Uncheck All"
 msgstr "Usuń zaznaczenie"
 
 #: db_structure.php:546
+#, fuzzy
 msgid "Check tables having overhead"
-msgstr "Zaznacz nieoptymalne"
+msgstr "Zaznacz tabele niezoptymalizowane"
 
 #: db_structure.php:554 libraries/common.lib.php:3313
 #: libraries/common.lib.php:3314 libraries/config/messages.inc.php:162
