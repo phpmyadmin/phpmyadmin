@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-15 10:07+0200\n"
+"PO-Revision-Date: 2011-10-15 10:11+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -645,7 +645,7 @@ msgstr "Suma"
 #: db_structure.php:505 libraries/StorageEngine.class.php:331
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr "%s to domyślny mechanizm składowania tego serwera MySQL."
+msgstr "%s to domyślny silnik przechowywania na tym serwerze MySQL."
 
 #: db_structure.php:534 db_structure.php:551 db_structure.php:552
 #: libraries/display_tbl.lib.php:2488 libraries/display_tbl.lib.php:2493
