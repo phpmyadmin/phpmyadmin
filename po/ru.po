@@ -10632,10 +10632,9 @@ msgid "Clear series"
 msgstr "Очистить серии"
 
 #: server_status.php:1684
-#, fuzzy
 #| msgid "Series:"
 msgid "Series in Chart:"
-msgstr "Серии:"
+msgstr "Серии в графике:"
 
 #: server_status.php:1697
 #, fuzzy
