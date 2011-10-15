@@ -1173,7 +1173,7 @@ msgstr "Edytuj"
 #: js/messages.php:65 server_status.php:794
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Wykres ruchu na serwerze  &quot;na żywo&quot;"
+msgstr "Wykres ruchu na serwerze &quot;na żywo&quot;"
 
 #: js/messages.php:66 server_status.php:797
 msgid "Live conn./process chart"
