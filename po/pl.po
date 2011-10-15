@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-15 10:20+0200\n"
+"PO-Revision-Date: 2011-10-15 10:25+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -917,10 +917,9 @@ msgid "Add a point"
 msgstr "Dodaj punkt"
 
 #: gis_data_editor.php:220 js/messages.php:291
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Linia ciagła"
+msgstr "Linia (linestring)"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:295
 msgid "Outer Ring"
