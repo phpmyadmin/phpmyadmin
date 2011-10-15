@@ -1217,7 +1217,7 @@ msgstr "Przesłane KiB od chwili ostatniego odświeżenia"
 
 #: js/messages.php:80
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "Otrzymane KiB od chwili ostatniego odświeżenia"
 
 #: js/messages.php:81
 #, fuzzy
