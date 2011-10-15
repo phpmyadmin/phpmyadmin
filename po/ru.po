@@ -10663,10 +10663,9 @@ msgid "Results are grouped by query text."
 msgstr "Результаты сгруппированы по тексту запроса."
 
 #: server_status.php:1720
-#, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
-msgstr "Тип запроса"
+msgstr "Анализ запроса"
 
 #: server_status.php:1760
 #, php-format
