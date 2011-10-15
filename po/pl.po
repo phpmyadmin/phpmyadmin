@@ -1182,7 +1182,7 @@ msgstr "Wykres połączenia/procesy &quot;na żywo&quot;"
 #: js/messages.php:67 server_status.php:815
 #| msgid "SQL Query box"
 msgid "Live query chart"
-msgstr "Wykres zapytań &#8221;na żywo&#8221;"
+msgstr "Wykres zapytań &quot;na żywo&quot;"
 
 #: js/messages.php:69
 msgid "Static data"
