@@ -10629,7 +10629,7 @@ msgstr "Добавить данные серии"
 
 #: server_status.php:1681
 msgid "Clear series"
-msgstr ""
+msgstr "Очистить серии"
 
 #: server_status.php:1684
 #, fuzzy
