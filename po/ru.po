@@ -11153,10 +11153,9 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Ключ должен содержать символы алфавита, цифры [em]и[/em] знаки."
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No data"
 msgid "Wrong data"
-msgstr "Нет данных"
+msgstr "Ошибочные данные"
 
 #: sql.php:103 tbl_change.php:262 tbl_select.php:28 tbl_zoom_select.php:58
 msgid "Browse foreign values"
