@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-15 19:52+0200\n"
+"PO-Revision-Date: 2011-10-15 19:56+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -10652,7 +10652,7 @@ msgstr "Выполнять только выражения SELECT,INSERT,UPDATE 
 
 #: server_status.php:1708
 msgid "Remove variable data in INSERT statements for better grouping"
-msgstr ""
+msgstr "Для лучшей группировки, удалить данные переменной в запросах INSERT"
 
 #: server_status.php:1713
 msgid "Choose from which log you want the statistics to be generated from."
