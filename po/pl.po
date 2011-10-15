@@ -968,7 +968,7 @@ msgid ""
 "s for ways to workaround this limit."
 msgstr ""
 "Prawdopodobnie próbowano przesłać na serwer zbyt duży plik. Aby poznać "
-"sposoby obejścia tego problemu, proszę zapoznać się z %sdokumenacją%s."
+"sposoby obejścia tego problemu, proszę zapoznać się z %sdokumenacja%s."
 
 #: import.php:170 import.php:419
 msgid "Showing bookmark"
