@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-15 10:18+0200\n"
+"PO-Revision-Date: 2011-10-15 10:19+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -869,7 +869,7 @@ msgstr "Zrzut został zapisany do pliku %s."
 
 #: file_echo.php:21
 msgid "Invalid export type"
-msgstr "Nieprawidłowy typ eksportu"
+msgstr "Nieważny typ eksportu"
 
 #: gis_data_editor.php:84
 #, php-format
