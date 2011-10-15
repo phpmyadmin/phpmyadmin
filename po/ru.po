@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-15 20:12+0200\n"
+"PO-Revision-Date: 2011-10-15 20:14+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -11915,6 +11915,8 @@ msgstr "Сервер работает менее суток"
 #: po/advisory_rules.php:6
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
+"Сервер работает менее одного дня, настройки производительности могут быть не "
+"достаточно точны."
 
 #: po/advisory_rules.php:7
 msgid ""
