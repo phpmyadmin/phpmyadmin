@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-15 11:11+0200\n"
+"PO-Revision-Date: 2011-10-15 11:19+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1173,7 +1173,7 @@ msgstr "Edytuj"
 #: js/messages.php:65 server_status.php:794
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Wykres ruchu na serwerze &#8221;na żywo&#8221;"
+msgstr "Wykres ruchu na serwerze  &quot;na żywo&quot;"
 
 #: js/messages.php:66 server_status.php:797
 msgid "Live conn./process chart"
