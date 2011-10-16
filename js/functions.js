@@ -1517,7 +1517,7 @@ function PMA_createTableDialog( $div, url , target)
                  title: PMA_messages['strCreateTable'],
                  height: 230,
                  width: 900,
-                 open: PMA_verifyTypeOfAllColumns,
+                 open: PMA_verifyColumnsProperties,
                  buttons : button_options_error
              })// end dialog options
              //remove the redundant [Back] link in the error message.
@@ -1559,7 +1559,7 @@ function PMA_createTableDialog( $div, url , target)
                              top: 0
                          });
 
-                     PMA_verifyTypeOfAllColumns();
+                     PMA_verifyColumnsProperties();
                  },
                  close: function() {
                      $(window).unbind('resize.dialog-resizer');
@@ -2180,7 +2180,7 @@ $(document).ready(function() {
             if ($("#create_table_div").length > 0) {
                 $("#create_table_div").html(data);
             }
-            PMA_verifyTypeOfAllColumns();
+            PMA_verifyColumnsProperties();
             PMA_ajaxRemoveMessage($msgbox);
         }) //end $.post()
 
@@ -2540,19 +2540,37 @@ $(document).ready(function() {
 $(document).ready(function() {
     // is called here for normal page loads and also when opening
     // the Create table dialog
-    PMA_verifyTypeOfAllColumns();
+    PMA_verifyColumnsProperties();
     //
     // needs live() to work also in the Create Table dialog
     $("select[class='column_type']").live('change', function() {
         PMA_showNoticeForEnum($(this));
     });
+    $(".default_type").live('change', function() {
+        PMA_hideShowDefaultValue($(this));
+    });
 });
 
-function PMA_verifyTypeOfAllColumns()
+function PMA_verifyColumnsProperties()
 {
     $("select[class='column_type']").each(function() {
         PMA_showNoticeForEnum($(this));
     });
+    $(".default_type").each(function() {
+        PMA_hideShowDefaultValue($(this));
+    });
+}
+
+/**
+ * Hides/shows the default value input field, depending on the default type 
+ */
+function PMA_hideShowDefaultValue($default_type)
+{
+    if ($default_type.val() == 'USER_DEFINED') {
+        $default_type.siblings('.default_value').show().focus();
+    } else {
+        $default_type.siblings('.default_value').hide();
+    }
 }
 
 /**

@@ -376,7 +376,7 @@ $(document).ready(function() {
                         title: PMA_messages['strChangeTbl'],
                         height: 230,
                         width: 900,
-                        open: PMA_verifyTypeOfAllColumns,
+                        open: PMA_verifyColumnsProperties,
                         close: function(event, ui) {
                             $('#change_row_dialog').remove();
                         },
@@ -389,7 +389,7 @@ $(document).ready(function() {
                         title: PMA_messages['strChangeTbl'],
                         height: 600,
                         width: 900,
-                        open: PMA_verifyTypeOfAllColumns,
+                        open: PMA_verifyColumnsProperties,
                         close: function(event, ui) {
                             $('#change_row_dialog').remove();
                         },

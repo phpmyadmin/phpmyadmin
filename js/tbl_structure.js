@@ -219,7 +219,7 @@ $(document).ready(function() {
                     title: PMA_messages['strEdit'],
                     height: 230,
                     width: 900,
-                    open: PMA_verifyTypeOfAllColumns,
+                    open: PMA_verifyColumnsProperties,
                     modal: true,
                     buttons : button_options_error
                 })// end dialog options
@@ -230,7 +230,7 @@ $(document).ready(function() {
                     title: PMA_messages['strEdit'],
                     height: 600,
                     width: 900,
-                    open: PMA_verifyTypeOfAllColumns,
+                    open: PMA_verifyColumnsProperties,
                     modal: true,
                     buttons : button_options
                 })
@@ -371,7 +371,7 @@ $(document).ready(function() {
                     title: PMA_messages['strAddColumns'],
                     height: 230,
                     width: 900,
-                    open: PMA_verifyTypeOfAllColumns,
+                    open: PMA_verifyColumnsProperties,
                     modal: true,
                     buttons : button_options_error
                 })// end dialog options
@@ -382,7 +382,7 @@ $(document).ready(function() {
                     title: PMA_messages['strAddColumns'],
                     height: 600,
                     width: 900,
-                    open: PMA_verifyTypeOfAllColumns,
+                    open: PMA_verifyColumnsProperties,
                     modal: true,
                     buttons : button_options
                 })
@@ -441,7 +441,7 @@ function changeColumns(action,url)
                 height: 230,
                 width: 900,
                 modal: true,
-                open: PMA_verifyTypeOfAllColumns,
+                open: PMA_verifyColumnsProperties,
                 buttons : button_options_error
             })// end dialog options
         } else {
@@ -452,7 +452,7 @@ function changeColumns(action,url)
                 height: 600,
                 width: 900,
                 modal: true,
-                open: PMA_verifyTypeOfAllColumns,
+                open: PMA_verifyColumnsProperties,
                 buttons : button_options
             })
             //Remove the top menu container from the dialog
