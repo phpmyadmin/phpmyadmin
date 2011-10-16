@@ -1324,7 +1324,7 @@ msgstr "Pamięć dostępna"
 
 #: js/messages.php:111
 msgid "Used memory"
-msgstr ""
+msgstr "Zużycie pamięci"
 
 #: js/messages.php:113
 #, fuzzy
