@@ -1274,10 +1274,9 @@ msgid "Query cache usage"
 msgstr "Użycie pamięci podręcznej zapytań"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
-msgstr "Pamięć podręczna zapytań"
+msgstr "Użyta pamięć podręczna zapytań"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
