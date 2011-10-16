@@ -1305,10 +1305,9 @@ msgid "Average load"
 msgstr "Przeciętne obciążenie systemu"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "Log file count"
 msgid "Total memory"
-msgstr "Liczba plików dziennika"
+msgstr "Pamięć ogółem"
 
 #: js/messages.php:108
 msgid "Cached memory"
