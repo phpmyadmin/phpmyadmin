@@ -1360,10 +1360,9 @@ msgstr "Połączenia"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:124
-#, fuzzy
 #| msgid "Suggestions:"
 msgid "Questions"
-msgstr "Propozycje:"
+msgstr "Pytania"
 
 #: js/messages.php:125 server_status.php:1089
 msgid "Traffic"
