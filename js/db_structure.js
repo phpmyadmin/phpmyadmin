@@ -96,7 +96,7 @@ $(document).ready(function() {
                     height: 230,
                     width: 900,
                     modal: true,
-                    open: PMA_verifyTypeOfAllColumns,
+                    open: PMA_verifyColumnsProperties,
                     buttons : button_options_error
                 })// end dialog options
             } else {
@@ -107,7 +107,7 @@ $(document).ready(function() {
                         height: 600,
                         width: 900,
                         modal: true,
-                        open: PMA_verifyTypeOfAllColumns,
+                        open: PMA_verifyColumnsProperties,
                         buttons : button_options
                     });// end dialog options
                 //Remove the top menu container from the dialog
