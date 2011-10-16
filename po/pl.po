@@ -1370,10 +1370,9 @@ msgstr "Ruch"
 
 #: js/messages.php:126 libraries/server_links.inc.php:73
 #: server_status.php:1544
-#, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
-msgstr "Ogólne funkcje relacyjne"
+msgstr "Ustawienia"
 
 #: js/messages.php:127
 #, fuzzy
