@@ -1314,10 +1314,9 @@ msgid "Cached memory"
 msgstr "Pamięć podręczna"
 
 #: js/messages.php:109
-#, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "Rezerwy buforowe"
+msgstr "Pamięć buforowa"
 
 #: js/messages.php:110
 msgid "Free memory"
