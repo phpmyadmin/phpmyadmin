@@ -1398,7 +1398,7 @@ msgstr "Proszę dodać do serii przynajmniej jedną zmienną"
 #: server_privileges.php:2046 server_status.php:1257 server_status.php:1686
 #: tbl_zoom_select.php:151 tbl_zoom_select.php:278
 msgid "None"
-msgstr "Brak"
+msgstr "Żadna"
 
 #: js/messages.php:133
 msgid "Resume monitor"
