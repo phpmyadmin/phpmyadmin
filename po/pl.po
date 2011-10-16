@@ -1381,7 +1381,7 @@ msgstr "Usuń wykres"
 
 #: js/messages.php:128
 msgid "Edit title and labels"
-msgstr ""
+msgstr "Edytuj tytuł i etykiety"
 
 #: js/messages.php:129
 #, fuzzy
