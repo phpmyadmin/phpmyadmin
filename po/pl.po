@@ -941,7 +941,7 @@ msgstr "Dodaj pierścień wewnętrzny"
 
 #: gis_data_editor.php:266 js/messages.php:292
 msgid "Polygon"
-msgstr "Obrys"
+msgstr "Kontur"
 
 #: gis_data_editor.php:306 js/messages.php:298
 #| msgid "Add %s field(s)"
