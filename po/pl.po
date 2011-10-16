@@ -1341,10 +1341,9 @@ msgid "Used Swap"
 msgstr "Użyta przestrzeń wymiany"
 
 #: js/messages.php:116
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "Strony puste"
+msgstr "Dostępna przestrzeń wymiany"
 
 #: js/messages.php:118
 msgid "Bytes sent"
