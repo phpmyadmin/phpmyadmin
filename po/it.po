@@ -4666,7 +4666,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:384
 msgid "Designer table"
-msgstr "Tabbella di design assistito"
+msgstr "Tabella di design assistito"
 
 #: libraries/config/messages.inc.php:385
 msgid ""
