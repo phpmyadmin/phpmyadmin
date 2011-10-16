@@ -946,7 +946,7 @@ msgstr "Kontur"
 #: gis_data_editor.php:306 js/messages.php:298
 #| msgid "Add %s field(s)"
 msgid "Add a polygon"
-msgstr "Dodaj obrys"
+msgstr "Dodaj kontur"
 
 #: gis_data_editor.php:310
 #| msgid "Add a new server"
