@@ -1410,7 +1410,7 @@ msgstr "Wstrzymaj monitor"
 
 #: js/messages.php:136
 msgid "general_log and slow_query_log are enabled."
-msgstr "Włączone są general_log i slow_query_log."
+msgstr "general_log i slow_query_log są włączone."
 
 #: js/messages.php:137
 msgid "general_log is enabled."
