@@ -1484,7 +1484,7 @@ msgstr "Wyłacz %s"
 #: js/messages.php:152
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "Ustaw long_query_time do %ds"
 
 #: js/messages.php:153
 msgid ""
