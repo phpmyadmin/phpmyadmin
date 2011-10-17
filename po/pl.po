@@ -1593,10 +1593,9 @@ msgid "Sum of grouped rows:"
 msgstr "Suma pogrupowanych wierszy:"
 
 #: js/messages.php:179
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "Sumarycznie"
+msgstr "Sumarycznie:"
 
 #: js/messages.php:181
 #, fuzzy
