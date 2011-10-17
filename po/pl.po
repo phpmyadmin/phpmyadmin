@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-17 13:58+0200\n"
+"PO-Revision-Date: 2011-10-17 13:59+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1565,6 +1565,8 @@ msgstr "Przejdź do tabeli dziennika"
 #: js/messages.php:170
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
+"Przeanalizowano dziennik, lecz nie znaleziono zadnych danych w tym okresie "
+"czasu."
 
 #. l10n: A collection of available filters
 #: js/messages.php:173
