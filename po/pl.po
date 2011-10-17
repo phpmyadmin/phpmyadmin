@@ -1328,7 +1328,7 @@ msgstr "Pamięć dostępna"
 
 #: js/messages.php:111
 msgid "Used memory"
-msgstr "Użyta pamięć"
+msgstr "Pamięć użyta"
 
 #: js/messages.php:113
 #| msgid "Total"
