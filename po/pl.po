@@ -1585,7 +1585,7 @@ msgstr "Zapytania filtrowane wyrazem/regexp:"
 
 #: js/messages.php:177
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr "Grupa zapytań, ignorująca zmienne dane  w przypadkach WHERE"
+msgstr "Grupa zapytań, ignorująca dane zmiennej w przypadkach WHERE"
 
 #: js/messages.php:178
 #, fuzzy
