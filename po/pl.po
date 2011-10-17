@@ -9801,7 +9801,7 @@ msgstr "Utwórz bazę danych z taką samą nazwą i przyznaj wszystkie uprawnien
 msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr ""
 "Przyznaj wszystkie uprawienia do baz danych o nazwach pasujących do maski "
-"(nazwaużytkownika_%)"
+"(nazwa_użytkownika\\_%)"
 
 #: server_privileges.php:2221
 #, php-format
