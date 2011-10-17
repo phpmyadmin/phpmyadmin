@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-17 14:18+0200\n"
+"PO-Revision-Date: 2011-10-17 14:22+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -6811,13 +6811,13 @@ msgid "Add statements:"
 msgstr "Cecha"
 
 #: libraries/export/sql.php:211
-#, fuzzy
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
-"\"Użycie cudzysłowów z nazwami tabel i pól\" zapewnia ochronę nazwom pól i "
-"tabel zawierającymi znaki specjalne."
+"Załącz nazwy tabel i kolumn w odwrotnych znakach cudzysłowów <i>(Ochrania to "
+"nazwy kolumn i tabel, które utworzono z udziałem znaków specjalnych i słów "
+"kluczowych)</i>"
 
 #: libraries/export/sql.php:231
 msgid "Instead of <code>INSERT</code> statements, use:"
