@@ -1497,7 +1497,7 @@ msgstr ""
 #: js/messages.php:154
 #| msgid "Other core settings"
 msgid "Change settings"
-msgstr "Zmień ustawienia"
+msgstr "Zmiana ustawień"
 
 #: js/messages.php:155
 #, fuzzy
