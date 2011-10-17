@@ -1570,10 +1570,9 @@ msgstr ""
 
 #. l10n: A collection of available filters
 #: js/messages.php:173
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
-msgstr "Opcje wyświetlania tabel"
+msgstr "Opcje filtra tabeli dziennika"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:175
