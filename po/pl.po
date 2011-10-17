@@ -1380,7 +1380,7 @@ msgstr "Ustawienia"
 #: js/messages.php:127
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "Usuń wykres"
+msgstr "Usuń układ"
 
 #: js/messages.php:128
 msgid "Edit title and labels"
