@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-17 14:22+0200\n"
+"PO-Revision-Date: 2011-10-17 14:23+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -2806,10 +2806,10 @@ msgid ""
 msgstr ""
 
 #: libraries/common.inc.php:605
-#, fuzzy, php-format
+#, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
-msgstr "Nie udało się załadować domyślnej konfiguracji z pliku: \"%1$s\""
+msgstr "Nie udało się załadować domyślnej konfiguracji z pliku: %1$s"
 
 #: libraries/common.inc.php:610
 msgid ""
