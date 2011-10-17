@@ -3232,7 +3232,7 @@ msgstr "Zmienna"
 #: libraries/config/FormDisplay.class.php:701
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr "\"%s\" wymaga rozszerzenia \"%s\""
+msgstr "\"%s\" wymaga rozszerzenia %s"
 
 #: libraries/config/FormDisplay.class.php:715
 #, php-format
