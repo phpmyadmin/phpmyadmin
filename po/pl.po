@@ -1275,7 +1275,7 @@ msgstr "Wydajność podręcznej pamięci zapytań"
 #: js/messages.php:97
 #| msgid "Query cache"
 msgid "Query cache usage"
-msgstr "Użycie podręcznej pamięci zapytań"
+msgstr "Użycie pamięci podręcznej zapytań"
 
 #: js/messages.php:98
 #| msgid "Query cache"
