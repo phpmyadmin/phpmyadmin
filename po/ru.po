@@ -11953,10 +11953,10 @@ msgstr ""
 "достаточное количество запросов."
 
 #: po/advisory_rules.php:13
-#, fuzzy, php-format
+#, php-format
 #| msgid "Current connection"
 msgid "Current amount of Questions: %s"
-msgstr "Текущее соединение"
+msgstr "Текущее количество запросов: %s"
 
 #: po/advisory_rules.php:15
 #, fuzzy
