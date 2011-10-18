@@ -60,6 +60,7 @@ function PMA_sanitize($message, $escape = false, $safe = false)
         $valid_links = array(
             'http',  // default http:// links (and https://)
             './Do',  // ./Documentation
+            './ur',  // url.php redirector
         );
 
         foreach ($founds as $found) {
