@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-18 07:53+0200\n"
+"PO-Revision-Date: 2011-10-18 07:54+0200\n"
 "Last-Translator:  <dsiwarsza@hotmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -1021,7 +1021,7 @@ msgstr "ที่คั่นหน้า ได้ถูกสร้างข�
 #: import.php:427 import.php:433
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr ""
+msgstr "นำเข้าได้สำเร็จ %d กำลังดำเนินกา่รต่อ"
 
 #: import.php:442
 msgid ""
