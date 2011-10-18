@@ -695,6 +695,9 @@ function PMA_linkURL($url) {
     if (!preg_match('#^https?://#', $url) || defined('PMA_SETUP')) {
         return $url;
     } else {
+        if (!function_exists('PMA_generate_common_url')) {
+            require_once('./libraries/url_generating.lib.php');
+        }
         $params = array();
         $params['url'] = $url;
         return './url.php' . PMA_generate_common_url($params);
