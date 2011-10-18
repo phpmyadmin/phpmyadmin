@@ -836,11 +836,12 @@ msgid "Dump has been saved to file %s."
 msgstr ""
 
 #: import.php:58
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
 "%s for ways to workaround this limit."
 msgstr ""
+"คุณพยายามที่จะอับโหลดไฟล์ที่มีขนาดใหญ่เกินไป กรุณาดูที่ เอกสารช่วยเหลือ เพื่อแก้ไขปัญหาดังกล่าวนี้ "
 
 #: import.php:278 import.php:331 libraries/File.class.php:501
 #: libraries/File.class.php:611
@@ -855,6 +856,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
+"คุณพยายามที่จะโหลดไฟล์ที่ไม่สนับสนุนระบบการบีบอัดไฟล์ข้อมูล (%s) กรุณากำหนดค่าอย่างไรอย่างหนึ่ง "
+"หรือปิดการตั้งค่าของคุณ"
 
 #: import.php:336
 msgid ""
@@ -865,7 +868,7 @@ msgstr ""
 
 #: import.php:371 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
-msgstr ""
+msgstr "ไม่สามารถโหลดนำเข้าปลั๊กอินได้ กรุณาตรวจสอบการติดตั้งของคุณ"
 
 #: import.php:396
 msgid "The bookmark has been deleted."
@@ -873,23 +876,23 @@ msgstr "ลบคำค้นที่จดไว้เรียบร้อย
 
 #: import.php:400
 msgid "Showing bookmark"
-msgstr ""
+msgstr "แสดงบุ๊คมาร์ค"
 
 #: import.php:402 sql.php:885
-#, php-format
+#, fuzzy, php-format
 msgid "Bookmark %s created"
-msgstr ""
+msgstr "ที่คั่นหน้า ได้ถูกสร้างขึ้น"
 
 #: import.php:408 import.php:414
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr ""
+msgstr "นำเข้าได้สำเร็จ %d กำลังดำเนินกา่รต่อ"
 
 #: import.php:423
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
-msgstr ""
+msgstr "หมดเวลาการนำเข้าสริปแล้ว กรุณานำเข้าไฟล์สริปใหม่"
 
 #: import.php:425
 msgid ""
@@ -918,11 +921,11 @@ msgstr "เบราเซอร์ที่<b>ใช้เฟรมได้</b
 #: server_synchronize.php:734 server_synchronize.php:762
 #: server_synchronize.php:790 server_synchronize.php:802
 msgid "Click to select"
-msgstr ""
+msgstr "คลิกเพื่อเลือก"
 
 #: js/messages.php:26
 msgid "Click to unselect"
-msgstr ""
+msgstr "คลิกเพื่อยกเลิกการเลือก"
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:195
 msgid "\"DROP DATABASE\" statements are disabled."

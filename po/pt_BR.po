@@ -2914,7 +2914,7 @@ msgstr "Importar / exportar"
 
 #: libraries/config/messages.inc.php:172
 msgid "Set import and export directories and compression options"
-msgstr ""
+msgstr "Define diretórios de importação e exportação e opções de compressão"
 
 #: libraries/config/messages.inc.php:173 libraries/export/latex.php:26
 msgid "LaTeX"
@@ -2962,7 +2962,7 @@ msgstr "Abrir Documento"
 
 #: libraries/config/messages.inc.php:188
 msgid "Other core settings"
-msgstr ""
+msgstr "Outras configurações do núcleo"
 
 #: libraries/config/messages.inc.php:189
 msgid "Settings that didn't fit enywhere else"
@@ -3031,7 +3031,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:201
 msgid "Enter server connection parameters"
-msgstr ""
+msgstr "Digite os parâmetros de configuração do servidor"
 
 #: libraries/config/messages.inc.php:202
 #, fuzzy
@@ -3045,6 +3045,9 @@ msgid ""
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
+"Configure as opções de armazenamento do phpMyAdmin para ter acesso as "
+"configurações adcionais, veja [a@Documentation.html#linked-tables]"
+"Configuração de armazenamento do phpMyAdmin[/a] na documentação"
 
 #: libraries/config/messages.inc.php:204
 msgid "Changes tracking"
@@ -3112,7 +3115,7 @@ msgstr "Status"
 
 #: libraries/config/messages.inc.php:221
 msgid "Customize startup page"
-msgstr ""
+msgstr "Personalizar página inicial"
 
 #: libraries/config/messages.inc.php:222
 msgid "Tabs"
@@ -3148,6 +3151,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
 msgstr ""
+"Habilitar [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compressão nas "
+"operações de importação e exportação"
 
 #: libraries/config/messages.inc.php:231
 msgid "GZip"
@@ -3180,7 +3185,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:236
 msgid "Partial import: allow interrupt"
-msgstr ""
+msgstr "Importação parcial: permite Interrupção"
 
 #: libraries/config/messages.inc.php:241 libraries/config/messages.inc.php:248
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
@@ -3253,19 +3258,19 @@ msgstr "Número de linhas inseridas"
 
 #: libraries/config/messages.inc.php:265
 msgid "Target for quick access icon"
-msgstr ""
+msgstr "Alvo para ícone de rápido acesso"
 
 #: libraries/config/messages.inc.php:266
 msgid "Show logo in left frame"
-msgstr ""
+msgstr "Exibir logo no quadro da esquerda"
 
 #: libraries/config/messages.inc.php:267
 msgid "Display logo"
-msgstr ""
+msgstr "Exibir logo"
 
 #: libraries/config/messages.inc.php:268
 msgid "Display server choice at the top of the left frame"
-msgstr ""
+msgstr "Exibir servidor escolhido no topo do quadro esquerdo"
 
 #: libraries/config/messages.inc.php:269
 msgid "Display servers selection"
@@ -3333,7 +3338,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:283
 msgid "Logo link target"
-msgstr ""
+msgstr "Alvo do link da logo"
 
 #: libraries/config/messages.inc.php:284
 msgid "Highlight server under the mouse cursor"
@@ -3417,6 +3422,8 @@ msgstr "Usar ícones na página principal"
 #: libraries/config/messages.inc.php:301
 msgid "Maximum number of characters used when a SQL query is displayed"
 msgstr ""
+"Numero máximo de caracteres utilizados na exibição do resultado da consulta "
+"SQL"
 
 #: libraries/config/messages.inc.php:302
 msgid "Maximum displayed SQL length"
@@ -3430,6 +3437,8 @@ msgstr ""
 #: libraries/config/messages.inc.php:304
 msgid "Maximum number of databases displayed in left frame and database list"
 msgstr ""
+"Número máximo de bancos de dados mostrados no quadro da esquerda na lista de "
+"banco de dados"
 
 #: libraries/config/messages.inc.php:305
 #, fuzzy
@@ -3445,15 +3454,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:307
 msgid "Maximum number of rows to display"
-msgstr ""
+msgstr "Número máximo de linhas a exibir"
 
 #: libraries/config/messages.inc.php:309
 msgid "Maximum number of tables displayed in table list"
-msgstr ""
+msgstr "Número máximo de tabelas exibidas na lista de tabelas"
 
 #: libraries/config/messages.inc.php:310
 msgid "Maximum tables"
-msgstr ""
+msgstr "Número máximo de tabelas"
 
 #: libraries/config/messages.inc.php:311
 msgid ""
@@ -3523,7 +3532,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:326
 msgid "Use persistent connections to MySQL databases"
-msgstr ""
+msgstr "Usar conexões persistentes para bancos de dados MySQL"
 
 #: libraries/config/messages.inc.php:327
 msgid "Persistent connections"
@@ -3546,11 +3555,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:332
 msgid "Disallow BLOB and BINARY columns from editing"
-msgstr ""
+msgstr "Desabilitar colunas BLOB e BINARY da edição"
 
 #: libraries/config/messages.inc.php:333
 msgid "Protect binary columns"
-msgstr ""
+msgstr "Proteger colunas binárias"
 
 #: libraries/config/messages.inc.php:334
 msgid ""
@@ -3598,6 +3607,7 @@ msgstr "Largura da janela de consultas"
 #: libraries/config/messages.inc.php:345
 msgid "Select which functions will be used for character set conversion"
 msgstr ""
+"Selecione quais funções serão usadas para conversão do conjunto de caracteres"
 
 #: libraries/config/messages.inc.php:346
 msgid "Recoding engine"
@@ -3650,11 +3660,11 @@ msgstr "Falha na autenticação de hardware"
 
 #: libraries/config/messages.inc.php:358
 msgid "Allow logins without a password"
-msgstr ""
+msgstr "Permitir login sem uma senha"
 
 #: libraries/config/messages.inc.php:359
 msgid "Allow root login"
-msgstr ""
+msgstr "Permitir login como root"
 
 #: libraries/config/messages.inc.php:360
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
@@ -3673,7 +3683,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:363
 msgid "SweKey config file"
-msgstr ""
+msgstr "Arquivo de configuração Swekey"
 
 #: libraries/config/messages.inc.php:364
 #, fuzzy
@@ -3692,7 +3702,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:367
 msgid "Bookmark table"
-msgstr ""
+msgstr "Tabela de favoritos"
 
 #: libraries/config/messages.inc.php:368
 msgid ""
@@ -3789,7 +3799,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:388
 msgid "SQL query history table"
-msgstr ""
+msgstr "Tabela de histórico das consultas SQL"
 
 #: libraries/config/messages.inc.php:389
 msgid "Hostname where MySQL server is running"
@@ -3810,7 +3820,7 @@ msgstr "Tentando conectar sem senha"
 
 #: libraries/config/messages.inc.php:393
 msgid "Connect without password"
-msgstr ""
+msgstr "Conectar sem senha"
 
 #: libraries/config/messages.inc.php:394
 msgid ""
@@ -3823,7 +3833,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:395
 msgid "Show only listed databases"
-msgstr ""
+msgstr "Exibir apenas bancos de dados listados"
 
 #: libraries/config/messages.inc.php:396 libraries/config/messages.inc.php:433
 msgid "Leave empty if not using config auth"
@@ -3904,7 +3914,7 @@ msgstr "Socket do servidor"
 
 #: libraries/config/messages.inc.php:413
 msgid "Enable SSL for connection to MySQL server"
-msgstr ""
+msgstr "Habilitar SSL para conexões no servidor MySQL"
 
 #: libraries/config/messages.inc.php:414
 msgid "Use SSL"
@@ -3999,7 +4009,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:432
 msgid "User preferences storage table"
-msgstr ""
+msgstr "Utilizar tabela de preferências de armazenamento"
 
 #: libraries/config/messages.inc.php:434
 msgid "User for config auth"
@@ -4106,7 +4116,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:456
 msgid "Display database comment instead of its name"
-msgstr ""
+msgstr "Exibir comentários dos bancos de dados ao invés do nomes"
 
 #: libraries/config/messages.inc.php:457
 msgid ""
@@ -4118,7 +4128,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:458
 msgid "Display table comment instead of its name"
-msgstr ""
+msgstr "Exibir comentários das tabelas ao invés dos nomes"
 
 #: libraries/config/messages.inc.php:459
 msgid "Display table comments in tooltips"
@@ -4136,7 +4146,7 @@ msgstr "Exibir tabelas abertas"
 
 #: libraries/config/messages.inc.php:466
 msgid "Requires SQL Validator to be enabled"
-msgstr ""
+msgstr "Requer validador SQL para ser habilitado"
 
 #: libraries/config/messages.inc.php:468
 #: libraries/display_change_password.lib.php:40
@@ -4156,7 +4166,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:470
 msgid "Enable SQL Validator"
-msgstr ""
+msgstr "Habilitar Validador SQL"
 
 #: libraries/config/messages.inc.php:471
 msgid ""
@@ -4266,7 +4276,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:496
 msgid "Enable the Developer tab in settings"
-msgstr ""
+msgstr "Habilitar aba Desenvolvedor nas configurações"
 
 #: libraries/config/messages.inc.php:497
 msgid ""
@@ -6984,7 +6994,7 @@ msgstr "Mostrar informações do PHP"
 
 #: main.php:215
 msgid "Wiki"
-msgstr ""
+msgstr "Wiki"
 
 #: main.php:218
 msgid "Official Homepage"
