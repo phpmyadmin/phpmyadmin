@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-18 16:28+0200\n"
+"PO-Revision-Date: 2011-10-18 16:30+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -12007,10 +12007,9 @@ msgstr ""
 "более 1%% в час."
 
 #: po/advisory_rules.php:25
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Long query time"
-msgstr "SQL запросы"
+msgstr "Время выполнения длинных запросов"
 
 #: po/advisory_rules.php:26
 msgid ""
