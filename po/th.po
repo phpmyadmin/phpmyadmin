@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
 "PO-Revision-Date: 2011-10-18 07:48+0200\n"
-"Last-Translator:  <dsiwarsza@hotmail.com>\n"
+"Last-Translator:  <jaideejung007@gmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
@@ -12695,7 +12695,7 @@ msgstr "สารบัญ"
 
 #: po/advisory_rules.php:241 po/advisory_rules.php:246
 msgid "Too many clients are aborted."
-msgstr ""
+msgstr "การเข้าถึงด้วยไคลเอนต์มากเกินไปจะถูกยกเลิก"
 
 #: po/advisory_rules.php:242 po/advisory_rules.php:247
 msgid ""
