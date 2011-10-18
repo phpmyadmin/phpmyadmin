@@ -241,8 +241,13 @@ function PMA_fatalError($error_message, $message_args = null)
  */
 function PMA_getPHPDocLink($target)
 {
-    /* l10n: Please check that translation actually exists. */
-    $lang = _pgettext('PHP documentation language', 'en');
+    /* Gettext does not have to be loaded yet */
+    if (function_exists('_pgettext')) {
+        /* l10n: Please check that translation actually exists. */
+        $lang = _pgettext('PHP documentation language', 'en');
+    } else {
+        $lang = 'en';
+    }
 
     return PMA_linkURL('http://php.net/manual/' . $lang . '/' . $target);
 }
@@ -688,6 +693,9 @@ function PMA_linkURL($url)
     if (!preg_match('#^https?://#', $url) || defined('PMA_SETUP')) {
         return $url;
     } else {
+        if (!function_exists('PMA_generate_common_url')) {
+            require_once('./libraries/url_generating.lib.php');
+        }
         $params = array();
         $params['url'] = $url;
         return './url.php' . PMA_generate_common_url($params);
