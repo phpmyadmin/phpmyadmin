@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-18 07:52+0200\n"
+"PO-Revision-Date: 2011-10-18 07:53+0200\n"
 "Last-Translator:  <dsiwarsza@hotmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -1016,7 +1016,7 @@ msgstr "ไม่สามารถโหลดนำเข้าปลั๊ก
 #: import.php:421 sql.php:928
 #, php-format
 msgid "Bookmark %s created"
-msgstr ""
+msgstr "ที่คั่นหน้า ได้ถูกสร้างขึ้น"
 
 #: import.php:427 import.php:433
 #, php-format
