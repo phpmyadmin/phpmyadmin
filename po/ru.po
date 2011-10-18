@@ -12240,7 +12240,7 @@ msgstr ""
 
 #: po/advisory_rules.php:80
 msgid "Query cache efficiency (%)"
-msgstr ""
+msgstr "Эффективность кеширования запросов (%)"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
