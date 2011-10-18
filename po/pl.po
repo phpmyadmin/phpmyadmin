@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-18 13:21+0200\n"
+"PO-Revision-Date: 2011-10-18 13:22+0200\n"
 "Last-Translator:  <tauruss85@gmail.com>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1657,7 +1657,7 @@ msgstr "Możliwe problemy z wydajnością"
 
 #: js/messages.php:198
 msgid "Issue"
-msgstr ""
+msgstr "Zagadnienie"
 
 #: js/messages.php:199
 #, fuzzy
