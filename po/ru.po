@@ -11982,8 +11982,8 @@ msgstr ""
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
-"Количество медленных запросов должно быть менее 5%%, ваше значение "
-"составляет %s%%."
+"Уровень медленных запросов должен быть менее 5%%, ваше значение составляет %"
+"s%%."
 
 #: po/advisory_rules.php:20
 #| msgid "Flush query cache"
