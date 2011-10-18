@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-18 07:55+0200\n"
+"PO-Revision-Date: 2011-10-18 07:56+0200\n"
 "Last-Translator:  <dsiwarsza@hotmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -1054,7 +1054,7 @@ msgstr "เบราเซอร์ที่<b>ใช้เฟรมได้</b
 #: js/messages.php:27 libraries/server_synchronize.lib.php:1329
 #: libraries/server_synchronize.lib.php:1338
 msgid "Click to select"
-msgstr ""
+msgstr "คลิกเพื่อเลือก"
 
 #: js/messages.php:28
 msgid "Click to unselect"
