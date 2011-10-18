@@ -469,7 +469,7 @@ if (! PMA_isValid($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['
         /* needed for direct access, see FAQ 1.34
          * also, server needed for cookie login screen (multi-server)
          */
-        'server', 'db', 'table', 'target',
+        'server', 'db', 'table', 'target', 'lang',
         /* Session ID */
         'phpMyAdmin',
         /* Cookie preferences */
