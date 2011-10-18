@@ -12179,10 +12179,9 @@ msgid "Available memory on this host: %s"
 msgstr "Объем памяти доступной на данном хосте: %s"
 
 #: po/advisory_rules.php:70
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache disabled"
-msgstr "Кеш запросов"
+msgstr "Кеш запросов отключен"
 
 #: po/advisory_rules.php:71
 #, fuzzy
