@@ -907,7 +907,7 @@ msgstr "Y"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
 #: js/messages.php:290
-#, php-format
+#, php-format, fuzzy
 msgid "Point %d"
 msgstr "จุด"
 
@@ -965,7 +965,7 @@ msgid ""
 msgstr ""
 
 #: import.php:57
-#, php-format
+#, php-format, fuzzy
 msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation%"
 "s for ways to workaround this limit."
@@ -1014,7 +1014,7 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr "ไม่สามารถโหลดนำเข้าปลั๊กอินได้ กรุณาตรวจสอบการติดตั้งของคุณ"
 
 #: import.php:421 sql.php:928
-#, php-format
+#, php-format, fuzzy
 msgid "Bookmark %s created"
 msgstr "ที่คั่นหน้า ได้ถูกสร้างขึ้น"
 
