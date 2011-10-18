@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-18 07:47+0200\n"
+"PO-Revision-Date: 2011-10-18 07:48+0200\n"
 "Last-Translator:  <dsiwarsza@hotmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -975,7 +975,7 @@ msgstr ""
 
 #: import.php:170 import.php:419
 msgid "Showing bookmark"
-msgstr ""
+msgstr "แสดงบุ๊คมาร์ค"
 
 #: import.php:180 import.php:415
 msgid "The bookmark has been deleted."
