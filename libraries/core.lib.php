@@ -260,8 +260,13 @@ function PMA_fatalError($error_message, $message_args = null)
  * @access  public
  */
 function PMA_getPHPDocLink($target) {
-    /* l10n: Language to use for PHP documentation, please use only languages which do exist in official documentation. */
-    $lang = _pgettext('PHP documentation language', 'en');
+    /* Gettext does not have to be loaded yet */
+    if (function_exists('_pgettext')) {
+        /* l10n: Language to use for PHP documentation, please use only languages which do exist in official documentation. */
+        $lang = _pgettext('PHP documentation language', 'en');
+    } else {
+        $lang = 'en';
+    }
 
     return PMA_linkURL('http://php.net/manual/' . $lang . '/' . $target);
 }
