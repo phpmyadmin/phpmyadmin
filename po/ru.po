@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-18 16:12+0200\n"
+"PO-Revision-Date: 2011-10-18 16:16+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -11959,10 +11959,9 @@ msgid "Current amount of Questions: %s"
 msgstr "Текущее количество запросов: %s"
 
 #: po/advisory_rules.php:15
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
-msgstr "Показывать SQL запросы"
+msgstr "Процент медленных запросов"
 
 #: po/advisory_rules.php:16
 msgid ""
