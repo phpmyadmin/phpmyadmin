@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-18 16:45+0200\n"
+"PO-Revision-Date: 2011-10-18 17:38+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -12070,6 +12070,8 @@ msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
+"В связи с улучшенной производительностью MySQL 5.1 и еще более выдающимися "
+"результатами MySQL 5.5, вам рекомендуется обновить свою версию MySQL."
 
 #: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
 #, fuzzy, php-format
