@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-14 12:30+0200\n"
+"PO-Revision-Date: 2011-10-19 11:20+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12542,7 +12542,7 @@ msgstr "速やかに行われたテーブルロックの比率"
 #: po/advisory_rules.php:196 po/advisory_rules.php:201
 #| msgid "The number of times that a table lock was acquired immediately."
 msgid "Too many table locks were not granted immediately."
-msgstr "テーブルロック要求をしても速やかに取得できないことが多いです。"
+msgstr "テーブルロック要求に対して速やかに取得できないことが多いです。"
 
 #: po/advisory_rules.php:197 po/advisory_rules.php:202
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
