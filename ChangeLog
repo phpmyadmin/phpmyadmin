@@ -61,6 +61,7 @@ phpMyAdmin - ChangeLog
 - bug #3423725 [pdf] Broken PDF file when exporting database to PDF
 - [core] Allow to set language in URL
 - bug #3425184 [doc] Fix links to PHP documentation
+- bug #3426031 [export] Export to bzip2 is not working
 
 3.4.6.0 (2011-10-16)
 - patch #3404173 InnoDB comment display with tooltips/aliases
