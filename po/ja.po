@@ -12361,6 +12361,11 @@ msgid ""
 "mentioned in the beginning of an <a href=\\\"http://www.facebook.com/note."
 "php?note_id=10150111255065841&comments\\\">Article by the Pythian Group</a>"
 msgstr ""
+"{max_heap_table_size} と {tmp_table_size} を増加させることで改善されるかもしれません。しかしながら、これらの変数"
+"値に関わりなく、常にディスクに展開される一時テーブルは存在します。この状況をも改善したいのであれば、BLOB や TEXT のカラムもしくは 512 "
+"バイトを超えるカラムを使わないように、クエリを書き直す必要があるでしょう。このことは、<a href=\\\"http://www.facebook.com"
+"/note.php?note_id=10150111255065841&comments\\\">The Pythian Group "
+"の記事</a>に詳しく記載されています。"
 
 #: po/advisory_rules.php:153
 #, php-format
