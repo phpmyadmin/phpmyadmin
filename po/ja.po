@@ -12390,6 +12390,11 @@ msgid ""
 "mentioned in the <a href=\\\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\\\">MySQL Documentation</a>"
 msgstr ""
+"{max_heap_table_size} と {tmp_table_size} を増加させることで改善されるかもしれません。しかしながら、これらの変数"
+"値に関わりなく、常にディスクに展開される一時テーブルは存在します。この状況をも改善したいのであれば、BLOB や TEXT のカラムもしくは 512 "
+"バイトを超えるカラムを使わないように、クエリを書き直す必要があるでしょう。このことは、<a "
+"href=\\\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-"
+"tables.html\\\">MySQL ドキュメント</a>に詳しく記載されています。"
 
 #: po/advisory_rules.php:158
 #, php-format
