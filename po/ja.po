@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-19 11:21+0200\n"
+"PO-Revision-Date: 2011-10-19 11:23+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12264,7 +12264,7 @@ msgstr ""
 "これは、通常、インデックスの全スキャンが頻繁に行われていることを示しています。インデックスの全スキャンはテーブルのスキャンよりは速いですが、大きなテーブ"
 "ルでは CPU リソースを多く必要とします。このテーブルに対して UPDATE や DELETE "
 "が多く行われたまたは行われているのであれば、「OPTIMIZE TABLE」を実行することでインデックスの全スキャンの減少やスキャンスピードの上昇が見込"
-"めるかもしれません。また、インデックスの全スキャンは、クエリを書き換えることでも減少させることが可能です。"
+"めるかもしれません。また、インデックスの全スキャンは、クエリを書き直すことでも減らすことが可能です。"
 
 #: po/advisory_rules.php:133
 #, php-format
