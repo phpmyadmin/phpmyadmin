@@ -12343,7 +12343,7 @@ msgstr ""
 
 #: po/advisory_rules.php:150
 msgid "Percentage of temp tables on disk"
-msgstr "ディスク上にある一時テーブルの比率"
+msgstr "一時テーブルがディスク上に展開される比率"
 
 #: po/advisory_rules.php:151 po/advisory_rules.php:156
 msgid ""
