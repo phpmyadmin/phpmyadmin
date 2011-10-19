@@ -52,6 +52,8 @@ phpMyAdmin - ChangeLog
 + [interface] Remove DefaultPropDisplay feature
 - bug #3299486 [prettyprint] Order By in a query containing comment character
 
+3.4.8.0 (not yet released)
+
 3.4.7.0 (not yet released)
 - bug #3418610 [interface] Links in navigation when $cfg['MainPageIconic'] = false
 - bug #3418849 [interface] Inline edit shows dropdowns even after closing
