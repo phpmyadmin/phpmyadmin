@@ -12372,7 +12372,7 @@ msgstr ""
 msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
-msgstr ""
+msgstr "全一時テーブルの内 %s%% がディスク上に展開されています。この値は、25%% 未満がいいと言われています。"
 
 #: po/advisory_rules.php:155
 #, fuzzy
