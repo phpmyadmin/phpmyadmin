@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-19 11:26+0200\n"
+"PO-Revision-Date: 2011-10-19 11:27+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12375,11 +12375,10 @@ msgid ""
 msgstr "全一時テーブルの内 %s%% がディスク上に展開されています。この値は、25%% 未満がいいと言われています。"
 
 #: po/advisory_rules.php:155
-#, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Temp disk rate"
-msgstr "%s テーブル"
+msgstr "一時テーブルがディスク上に展開される割合"
 
 #: po/advisory_rules.php:157
 msgid ""
