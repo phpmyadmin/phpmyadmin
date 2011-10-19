@@ -631,7 +631,7 @@ if (!empty($asfile)) {
             $zipfile -> addFile($dump_buffer, substr($filename, 0, -4));
             $dump_buffer = $zipfile -> file();
         }
-    } elseif ($compression == 'bzip') {
+    } elseif ($compression == 'bzip2') {
         // 2. as a bzipped file
         if (@function_exists('bzcompress')) {
             $dump_buffer = bzcompress($dump_buffer);
