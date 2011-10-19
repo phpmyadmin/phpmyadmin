@@ -9543,8 +9543,7 @@ msgid ""
 "calculations and by rule of thumb which may not necessarily apply to your "
 "system."
 msgstr ""
-"このシステムは、単純な計算を基にして経験則によってお勧め設定を提供するため、"
-"お使いのシステムに必ずしも当てはまるものではないことに注意してください。"
+"このシステムは、単純な計算を基にして経験則によって調整方法を提供するため、お使いのシステムに必ずしも当てはまるものではないことに注意してください。"
 
 #: server_status.php:904
 msgid ""
