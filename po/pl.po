@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-20 12:14+0200\n"
+"PO-Revision-Date: 2011-10-20 12:15+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1580,7 +1580,7 @@ msgstr "Filtr"
 
 #: js/messages.php:176
 msgid "Filter queries by word/regexp:"
-msgstr "Zapytania filtrowane wyrazem/regexp:"
+msgstr "Zapytania filtrowane przez wyraz/regexp:"
 
 #: js/messages.php:177
 msgid "Group queries, ignoring variable data in WHERE clauses"
