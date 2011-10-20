@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-20 09:58+0200\n"
+"PO-Revision-Date: 2011-10-20 09:59+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1349,7 +1349,7 @@ msgstr "Dostępna przestrzeń wymiany"
 
 #: js/messages.php:118
 msgid "Bytes sent"
-msgstr "Bajty przesłane"
+msgstr "Bajty wysłane"
 
 #: js/messages.php:119
 #| msgid "Received"
