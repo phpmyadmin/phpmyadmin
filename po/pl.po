@@ -1252,7 +1252,7 @@ msgstr "Statystyki zapytań"
 #: js/messages.php:93
 #| msgid "Cannot load or save configuration"
 msgid "Local monitor configuration incompatible"
-msgstr "Niedostosowana konfiguracja monitora lokalnego "
+msgstr "Niedostosowana konfiguracja monitora lokalnego"
 
 #: js/messages.php:94
 msgid ""
