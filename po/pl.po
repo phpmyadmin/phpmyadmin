@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-20 09:57+0200\n"
+"PO-Revision-Date: 2011-10-20 09:58+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1181,7 +1181,7 @@ msgstr "Wykaz połączenia/procesy"
 #: js/messages.php:67 server_status.php:815
 #| msgid "SQL Query box"
 msgid "Live query chart"
-msgstr "Wykres zapytań &quot;na żywo&quot;"
+msgstr "Wykaz zapytań"
 
 #: js/messages.php:69
 msgid "Static data"
