@@ -1388,7 +1388,7 @@ msgstr "Edytuj tytuł i etykiety"
 #: js/messages.php:129
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "Dodaj wykres do siatki"
+msgstr "Dodaj wykaz do siatki"
 
 #: js/messages.php:131
 msgid "Please add at least one variable to the series"
