@@ -1176,7 +1176,7 @@ msgstr "Wykaz ruchu na serwerze"
 
 #: js/messages.php:66 server_status.php:797
 msgid "Live conn./process chart"
-msgstr "Wykres połączenia/procesy &quot;na żywo&quot;"
+msgstr "Wykaz połączenia/procesy"
 
 #: js/messages.php:67 server_status.php:815
 #| msgid "SQL Query box"
