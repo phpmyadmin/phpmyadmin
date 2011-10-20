@@ -1181,7 +1181,7 @@ msgstr "połączenia / procesy"
 #: js/messages.php:67 server_status.php:815
 #| msgid "SQL Query box"
 msgid "Live query chart"
-msgstr "Wykaz zapytań"
+msgstr "Zapytania w czasie rzeczywistym"
 
 #: js/messages.php:69
 msgid "Static data"
