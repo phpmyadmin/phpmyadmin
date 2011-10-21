@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-21 17:41+0200\n"
+"PO-Revision-Date: 2011-10-21 17:42+0200\n"
 "Last-Translator:  <tauruss85@gmail.com>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -8809,7 +8809,7 @@ msgstr "Użytkownik"
 #: main.php:169
 #| msgid "Server socket"
 msgid "Server charset"
-msgstr "Kodowania serwera"
+msgstr "Kodowania znaków serwera"
 
 #: main.php:181
 msgid "Web server"
