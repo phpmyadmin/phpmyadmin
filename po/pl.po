@@ -1777,10 +1777,9 @@ msgid "Hide search results"
 msgstr "Ukryj wyniki wyszukiwania"
 
 #: js/messages.php:237
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Show search results"
-msgstr "Okno zapytania SQL"
+msgstr "Pokaż wyniki wyszukiwania"
 
 #: js/messages.php:238
 #, fuzzy
