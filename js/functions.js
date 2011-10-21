@@ -1857,7 +1857,7 @@ $(document).ready(function() {
                 val = val.substr(1, val.length-2).replace(/''/g, "'").replace(/\\\\/g, '\\').replace(/\\'/g, "'").replace(/'/g, "&#039;");
                 // escape the greater-than symbol
                 val = val.replace(/>/g, "&gt;");
-                $("#enum_editor #values").append("<input type='text' value=" + val + " />");
+                $("#enum_editor #values").append("<input type='text' value='" + val + "' />");
             }
         });
         // So we know which column's data is being edited
