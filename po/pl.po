@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-22 00:35+0200\n"
+"PO-Revision-Date: 2011-10-22 00:36+0200\n"
 "Last-Translator:  <tauruss85@gmail.com>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -7369,9 +7369,8 @@ msgstr "Wyjście"
 #: libraries/navigation_header.inc.php:115
 #: libraries/navigation_header.inc.php:117
 #: libraries/navigation_header.inc.php:119
-#, fuzzy
 msgid "Reload navigation frame"
-msgstr "Indywidualizacja ramki nawigacyjnej"
+msgstr "Przeładuj ramkę nawigacyjną"
 
 #: libraries/plugin_interface.lib.php:309
 msgid "This format has no options"
