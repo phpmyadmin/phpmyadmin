@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-21 13:25+0200\n"
+"PO-Revision-Date: 2011-10-21 13:30+0200\n"
 "Last-Translator:  <tauruss85@gmail.com>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1795,7 +1795,7 @@ msgstr "Usuwanie %s"
 
 #: js/messages.php:242
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr ""
+msgstr "Definicji funkcji składowanej musi zawierać instrukcję RETURN!"
 
 #: js/messages.php:245
 msgid ""
