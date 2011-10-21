@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-21 17:43+0200\n"
+"PO-Revision-Date: 2011-10-22 00:35+0200\n"
 "Last-Translator:  <tauruss85@gmail.com>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -7358,7 +7358,7 @@ msgstr "nieznany"
 #: libraries/navigation_header.inc.php:59
 #: libraries/navigation_header.inc.php:60
 msgid "Home"
-msgstr "Wejście"
+msgstr "Strona główna"
 
 #: libraries/navigation_header.inc.php:69
 #: libraries/navigation_header.inc.php:71
