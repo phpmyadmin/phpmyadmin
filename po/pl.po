@@ -8816,10 +8816,9 @@ msgid "Web server"
 msgstr "Serwer WWW"
 
 #: main.php:192
-#, fuzzy
 #| msgid "Use light version"
 msgid "Database client version"
-msgstr "Używaj uproszczonej wersji"
+msgstr "Wersja klienta bazy danych"
 
 #: main.php:194
 msgid "PHP extension"
