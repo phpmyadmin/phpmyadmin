@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-21 13:31+0200\n"
+"PO-Revision-Date: 2011-10-21 13:32+0200\n"
 "Last-Translator:  <tauruss85@gmail.com>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1838,10 +1838,9 @@ msgid "Hide search criteria"
 msgstr "Ukryj okno zapytania SQL"
 
 #: js/messages.php:260
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Show search criteria"
-msgstr "Okno zapytania SQL"
+msgstr "Wyświetl kryteria wyszukiwania"
 
 #: js/messages.php:263 libraries/tbl_select.lib.php:110
 #, fuzzy
