@@ -8807,10 +8807,9 @@ msgid "User"
 msgstr "Użytkownik"
 
 #: main.php:169
-#, fuzzy
 #| msgid "Server socket"
 msgid "Server charset"
-msgstr "Gniazdo serwera"
+msgstr "Kodowania serwera"
 
 #: main.php:181
 msgid "Web server"
