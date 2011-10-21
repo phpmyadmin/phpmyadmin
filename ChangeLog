@@ -54,6 +54,7 @@ phpMyAdmin - ChangeLog
 
 3.4.8.0 (not yet released)
 - bug #3425230 [interface] enum data split at space char (more space to edit)
+- bug #3426840 [interface] ENUM/SET editor can't handle commas in values
 
 3.4.7.0 (not yet released)
 - bug #3418610 [interface] Links in navigation when $cfg['MainPageIconic'] = false
