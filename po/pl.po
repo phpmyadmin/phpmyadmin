@@ -1862,7 +1862,7 @@ msgstr "Użyj pokrętła myszy aby powiększy lub pomniejszyć wykres."
 
 #: js/messages.php:271
 msgid "Click and drag the mouse to navigate the plot."
-msgstr ""
+msgstr "Kliknij i przeciągnij myszą, aby poruszać się po wykresie."
 
 #: js/messages.php:273
 msgid "Click reset zoom link to come back to original state."
