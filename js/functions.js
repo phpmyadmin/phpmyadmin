@@ -1842,24 +1842,48 @@ $(document).ready(function() {
         $("#popup_background").fadeIn("fast");
         $("#enum_editor").fadeIn("fast");
 
-        // Get the values
-        var values = $(this).parent().prev("input").attr("value").split(",");
-        $.each(values, function(index, val) {
-            if(jQuery.trim(val) != "") {
-                 // enclose the string in single quotes if it's not already
-                 if(val.substr(0, 1) != "'") {
-                      val = "'" + val;
-                 }
-                 if(val.substr(val.length-1, val.length) != "'") {
-                      val = val + "'";
-                 }
-                // escape the single quotes, except the mandatory ones enclosing the entire string
-                val = val.substr(1, val.length-2).replace(/''/g, "'").replace(/\\\\/g, '\\').replace(/\\'/g, "'").replace(/'/g, "&#039;");
-                // escape the greater-than symbol
-                val = val.replace(/>/g, "&gt;");
-                $("#enum_editor #values").append("<input type='text' value='" + val + "' />");
+        // Get the values as a string
+        var inputstring = $(this)
+            .parent()
+            .prev("input")
+            .val();
+        // Escape html entities
+        inputstring = $('<div/>')
+            .text(inputstring)
+            .html();
+        // Parse the values, escaping quotes and
+        // slashes on the fly, into an array
+        var values = [];
+        var in_string = false;
+        var curr, next, buffer = '';
+        for (var i=0; i<inputstring.length; i++) {
+            curr = inputstring.charAt(i);
+            next = i == inputstring.length ? '' : inputstring.charAt(i+1);
+            if (! in_string && curr == "'") {
+                in_string = true;
+            } else if (in_string && curr == "\\" && next == "\\") {
+                buffer += "&#92;";
+                i++;
+            } else if (in_string && next == "'" && (curr == "'" || curr == "\\")) {
+                buffer += "&#39;";
+                i++;
+            } else if (in_string && curr == "'") {
+                in_string = false;
+                values.push(buffer);
+                buffer = '';
+            } else if (in_string) {
+                 buffer += curr;
             }
-        });
+        }
+        if (buffer.length > 0) {
+            values.push(buffer);
+        }
+        // Add the parsed values to the editor
+        for (var i=0; i<values.length; i++) {
+            $("#enum_editor #values").append(
+                "<input type='text' value='" + values[i] + "' />"
+            );
+        }
         // So we know which column's data is being edited
         $("#enum_editor").append("<input type='hidden' value='" + $(this).parent().prev("input").attr("id") + "' />");
         return false;
