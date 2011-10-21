@@ -53,6 +53,7 @@ phpMyAdmin - ChangeLog
 - bug #3299486 [prettyprint] Order By in a query containing comment character
 
 3.4.8.0 (not yet released)
+- bug #3425230 [interface] enum data split at space char (more space to edit)
 
 3.4.7.0 (not yet released)
 - bug #3418610 [interface] Links in navigation when $cfg['MainPageIconic'] = false
