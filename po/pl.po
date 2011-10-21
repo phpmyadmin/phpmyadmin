@@ -8838,9 +8838,8 @@ msgid "Contribute"
 msgstr "Wesprzyj projekt"
 
 #: main.php:224
-#, fuzzy
 msgid "Get support"
-msgstr "Eksport"
+msgstr "Uzyskaj wsparcie"
 
 #: main.php:225
 #, fuzzy
