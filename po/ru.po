@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-18 20:02+0200\n"
+"PO-Revision-Date: 2011-10-22 20:00+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -12255,7 +12255,7 @@ msgstr "Рассмотрите возможность увеличения {quer
 #: po/advisory_rules.php:83
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr ""
+msgstr "Текущая частота успешных обращений кеширования запросов %s%% ниже 20%%"
 
 #: po/advisory_rules.php:85
 #, fuzzy
