@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-22 21:10+0200\n"
+"PO-Revision-Date: 2011-10-22 21:15+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -12350,6 +12350,8 @@ msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%)"
 msgstr ""
+"Соотношение удаленных запросов к добавленным запросам составляет %s%%. Чем "
+"ниже данное значение, тем лучше (порог срабатывания правила: 0.1%)"
 
 #: po/advisory_rules.php:100
 #, fuzzy
