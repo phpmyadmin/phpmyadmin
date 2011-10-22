@@ -12290,7 +12290,7 @@ msgstr "Фрагментация кеша запросов"
 
 #: po/advisory_rules.php:91
 msgid "The query cache is considerably fragmented."
-msgstr ""
+msgstr "Кеш запросов существенно фрагментирован."
 
 #: po/advisory_rules.php:92
 msgid ""
