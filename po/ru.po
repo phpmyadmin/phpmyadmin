@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-22 21:22+0200\n"
+"PO-Revision-Date: 2011-10-22 21:24+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -12389,6 +12389,8 @@ msgstr "Минимальный размер результата кеша зап
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
+"Максимальный размер результата установленный в кеше запросов, по умолчанию "
+"составляет 1 MiB."
 
 #: po/advisory_rules.php:107
 msgid ""
