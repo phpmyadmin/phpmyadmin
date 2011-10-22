@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-22 20:25+0200\n"
+"PO-Revision-Date: 2011-10-22 21:05+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -12329,12 +12329,11 @@ msgid "Query cache low memory prunes"
 msgstr "Очисток низкой памяти кеша запросов"
 
 #: po/advisory_rules.php:96
-#, fuzzy
 #| msgid "The amount of free memory for query cache."
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
-msgstr "Объем свободной памяти для кеша запросов."
+msgstr "Кешированные запросы удалены из-за недостатка памяти кеша запросов."
 
 #: po/advisory_rules.php:97
 msgid ""
