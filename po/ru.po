@@ -12354,10 +12354,9 @@ msgstr ""
 "ниже данное значение, тем лучше (порог срабатывания правила: 0.1%)"
 
 #: po/advisory_rules.php:100
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache max size"
-msgstr "Кеш запросов"
+msgstr "Максимальный размер кеша запросов"
 
 #: po/advisory_rules.php:101
 msgid ""
