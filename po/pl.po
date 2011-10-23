@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-23 17:45+0200\n"
+"PO-Revision-Date: 2011-10-23 17:47+0200\n"
 "Last-Translator:  <tauruss85@gmail.com>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1813,7 +1813,7 @@ msgstr "Pokaż okno zapytań"
 
 #: js/messages.php:251 tbl_row_action.php:28
 msgid "No rows selected"
-msgstr "Żaden rekord nie został zaznaczony"
+msgstr "Żaden wiersz nie został zaznaczony"
 
 #: js/messages.php:252 libraries/common.lib.php:2703
 #: libraries/display_tbl.lib.php:2497 querywindow.php:87 tbl_structure.php:149
