@@ -254,31 +254,57 @@ foreach ($tables as $keyname => $each_table) {
         $hidden_fields[] = '<input type="hidden" name="views[]" value="' .  htmlspecialchars($each_table['TABLE_NAME']) . '" />';
     }
 
-    if ($each_table['TABLE_ROWS'] > 0) {
-        $browse_table = '<a href="sql.php?' . $tbl_url_query . '&amp;pos=0">' . $titles['Browse'] . '</a>';
-        $search_table = '<a href="tbl_select.php?' . $tbl_url_query . '">' . $titles['Search'] . '</a>';
-        $browse_table_label = '<a href="sql.php?' . $tbl_url_query . '&amp;pos=0">' . $truename . '</a>';
+    /*
+     * Always activate links for Browse, Search and Empty, even if
+     * the icons are greyed, because
+     * 1. for views, we don't know the number of rows at this point
+     * 2. for tables, another source could have populated them since the
+     *    page was generated
+     *
+     * I could have used the PHP ternary conditional operator but I find
+     * the code easier to read without this operator.
+     */
+    if ($each_table['TABLE_ROWS'] > 0 || $table_is_view) {
+        $may_have_rows = true;
     } else {
-        $browse_table = $titles['NoBrowse'];
-        $search_table = $titles['NoSearch'];
-        $browse_table_label = '<a href="tbl_structure.php?' . $tbl_url_query . '">' . $truename . '</a>';
+        $may_have_rows = false;
     }
+    $browse_table = '<a href="sql.php?' . $tbl_url_query . '&amp;pos=0">';
+    if ($may_have_rows) {
+        $browse_table .= $titles['Browse'];
+    } else {
+        $browse_table .= $titles['NoBrowse'];
+    }
+    $browse_table .= '</a>';
+
+    $search_table = '<a href="tbl_select.php?' . $tbl_url_query . '">';
+    if ($may_have_rows) {
+        $search_table .= $titles['Search'];
+    } else {
+        $search_table .= $titles['NoSearch'];
+    }
+    $search_table .= '</a>';
+
+    $browse_table_label = '<a href="sql.php?' . $tbl_url_query . '&amp;pos=0">' . $truename . '</a>';
 
     if (! $db_is_information_schema) {
-        if (! empty($each_table['TABLE_ROWS'])) {
-            $empty_table = '<a ';
-            if ($GLOBALS['cfg']['AjaxEnable']) {
-                $empty_table .= 'class="truncate_table_anchor"';
-            }
-            $empty_table .= ' href="sql.php?' . $tbl_url_query
-                 . '&amp;sql_query=';
-            $empty_table .= urlencode('TRUNCATE ' . PMA_backquote($each_table['TABLE_NAME']))
-                 . '&amp;message_to_show='
-                 . urlencode(sprintf(__('Table %s has been emptied'), htmlspecialchars($each_table['TABLE_NAME'])))
-                 .'">' . $titles['Empty'] . '</a>';
-        } else {
-            $empty_table = $titles['NoEmpty'];
+        $empty_table = '<a ';
+        if ($GLOBALS['cfg']['AjaxEnable']) {
+            $empty_table .= 'class="truncate_table_anchor"';
         }
+        $empty_table .= ' href="sql.php?' . $tbl_url_query
+             . '&amp;sql_query=';
+        $empty_table .= urlencode('TRUNCATE ' . PMA_backquote($each_table['TABLE_NAME']))
+             . '&amp;message_to_show='
+             . urlencode(sprintf(__('Table %s has been emptied'), htmlspecialchars($each_table['TABLE_NAME'])))
+             .'">';
+        if ($may_have_rows) {
+            $empty_table .= $titles['Empty'];
+        } else {
+            $empty_table .= $titles['NoEmpty'];
+        }
+        $empty_table .= '</a>';
+
         $drop_query = 'DROP '
             . ($table_is_view ? 'VIEW' : 'TABLE')
             . ' ' . PMA_backquote($each_table['TABLE_NAME']);
