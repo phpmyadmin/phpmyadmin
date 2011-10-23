@@ -12466,7 +12466,7 @@ msgstr "Сортировать строки"
 
 #: po/advisory_rules.php:121
 msgid "There are lots of rows being sorted."
-msgstr ""
+msgstr "Было отсортировано большое количество строк."
 
 #: po/advisory_rules.php:122
 msgid ""
