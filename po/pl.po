@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-23 19:29+0200\n"
+"PO-Revision-Date: 2011-10-23 19:30+0200\n"
 "Last-Translator:  <tauruss85@gmail.com>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1902,10 +1902,9 @@ msgid "Copy"
 msgstr "Kopiuj"
 
 #: js/messages.php:301
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add columns"
-msgstr "Dodaj %s pól"
+msgstr "Dodaj kolumny"
 
 #: js/messages.php:304
 msgid "Select referenced key"
