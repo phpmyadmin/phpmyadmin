@@ -1949,10 +1949,9 @@ msgid "Drag to reorder"
 msgstr ""
 
 #: js/messages.php:317
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to sort"
-msgstr "Kliknij, aby zaznaczyć"
+msgstr "Kliknij, aby posortować"
 
 #: js/messages.php:318
 msgid "Click to mark/unmark"
