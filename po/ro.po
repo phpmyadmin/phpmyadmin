@@ -286,7 +286,7 @@ msgstr "Redenumire bază de date în"
 #: db_operations.php:432
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Șterge baza de date"
+msgstr "Elimină baza de date"
 
 #: db_operations.php:444
 #, php-format
