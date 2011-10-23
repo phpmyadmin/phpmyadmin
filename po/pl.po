@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-23 19:27+0200\n"
+"PO-Revision-Date: 2011-10-23 19:29+0200\n"
 "Last-Translator:  <tauruss85@gmail.com>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1890,7 +1890,7 @@ msgstr "Wybierz dwie kolumny"
 
 #: js/messages.php:282
 msgid "Select two different columns"
-msgstr ""
+msgstr "Wybierz dwie różne kolumny"
 
 #: js/messages.php:285 tbl_change.php:312 tbl_indexes.php:211
 #: tbl_indexes.php:238
