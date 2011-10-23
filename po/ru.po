@@ -12566,6 +12566,8 @@ msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr ""
+"Средняя доля чтений из фиксированной позиции: %s, значение должно быть менее "
+"1 в час"
 
 #: po/advisory_rules.php:140
 #, fuzzy
