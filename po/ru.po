@@ -12548,7 +12548,7 @@ msgstr "Доля чтения фиксированного положения"
 
 #: po/advisory_rules.php:136
 msgid "The rate of reading data from a fixed position is high."
-msgstr ""
+msgstr "Доля чтения данных из фиксированного положения высока."
 
 #: po/advisory_rules.php:137
 msgid ""
