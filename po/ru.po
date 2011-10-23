@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-23 10:44+0200\n"
+"PO-Revision-Date: 2011-10-23 10:45+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -12447,10 +12447,9 @@ msgstr ""
 "быть ниже 10%%."
 
 #: po/advisory_rules.php:115
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
-msgstr "Разрешает создание временных таблиц."
+msgstr "Процент сортировок вызывающих создание временных таблиц"
 
 #: po/advisory_rules.php:118
 #, php-format
