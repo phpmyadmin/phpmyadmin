@@ -12621,10 +12621,9 @@ msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr "Текущие значения tmp_table_size: %s, max_heap_table_size: %s"
 
 #: po/advisory_rules.php:150
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Percentage of temp tables on disk"
-msgstr "Где вывести ссылки строки таблицы"
+msgstr "Процентное соотношение временных таблиц на диске"
 
 #: po/advisory_rules.php:151 po/advisory_rules.php:156
 msgid ""
