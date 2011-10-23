@@ -12483,7 +12483,7 @@ msgstr ""
 #: po/advisory_rules.php:123
 #, php-format
 msgid "Sorted rows average: %s"
-msgstr ""
+msgstr "Средний показатель отсортированных строк: %s"
 
 #: po/advisory_rules.php:125
 #, fuzzy
