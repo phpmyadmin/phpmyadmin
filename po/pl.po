@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-23 17:48+0200\n"
+"PO-Revision-Date: 2011-10-23 17:49+0200\n"
 "Last-Translator:  <tauruss85@gmail.com>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -2449,9 +2449,9 @@ msgstr[2] "Usuniętych wierszy: %1$d."
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "Wstawionych rekordów: %1$d."
-msgstr[1] "Wstawionych rekordów: %1$d."
-msgstr[2] "Wstawionych rekordów: %1$d."
+msgstr[0] "Wstawionych wieszy: %1$d."
+msgstr[1] "Wstawionych wierszy: %1$d."
+msgstr[2] "Wstawionych wierszy: %1$d."
 
 #: libraries/PDF.class.php:81
 #, fuzzy
