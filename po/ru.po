@@ -12575,10 +12575,9 @@ msgid "Rate of reading next table row"
 msgstr "Доля чтения следующей строки таблицы"
 
 #: po/advisory_rules.php:141
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "The rate of reading the next table row is high."
-msgstr "Где вывести ссылки строки таблицы"
+msgstr "Доля чтения следующей строки таблицы высока."
 
 #: po/advisory_rules.php:142
 msgid ""
