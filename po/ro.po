@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-23 11:05+0200\n"
+"PO-Revision-Date: 2011-10-23 11:06+0200\n"
 "Last-Translator:  <tatuci@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -284,10 +284,9 @@ msgid "Rename database to"
 msgstr "Redenumire bază de date în"
 
 #: db_operations.php:432
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Redenumire bază de date în"
+msgstr "Șterge baza de date"
 
 #: db_operations.php:444
 #, php-format
