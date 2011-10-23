@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2010-07-22 02:28+0200\n"
-"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"PO-Revision-Date: 2011-10-23 11:05+0200\n"
+"Last-Translator:  <tatuci@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
+"Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ro\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2);;\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:320
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1673
@@ -102,7 +102,7 @@ msgstr "Folosește această valoare"
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:385
 msgid "No blob streaming server configured!"
-msgstr ""
+msgstr "Nici un server de streaming aglomerat nu a fost configurat!"
 
 #: bs_disp_as_mime_type.php:35
 #, fuzzy
