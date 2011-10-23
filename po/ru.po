@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-23 10:45+0200\n"
+"PO-Revision-Date: 2011-10-23 10:47+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -12456,6 +12456,8 @@ msgstr "Процент сортировок вызывающих создани�
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
+"Среднее значение создания временных таблиц: %s, данное значение должно быть "
+"менее 1 в час."
 
 #: po/advisory_rules.php:120
 #, fuzzy
