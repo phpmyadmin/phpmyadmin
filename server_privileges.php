@@ -1558,7 +1558,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         // No username is given --> display the overview
         echo '<h2>' . "\n"
            . PMA_getIcon('b_usrlist.png')
-           . __('User overview') . "\n"
+           . __('Users overview') . "\n"
            . '</h2>' . "\n";
 
         $sql_query = 'SELECT *,' .

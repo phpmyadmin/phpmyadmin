@@ -57,7 +57,7 @@ if (!$GLOBALS['is_ajax_request']) {
     if ($is_superuser && !PMA_DRIZZLE) {
         $tabs['rights']['icon'] = 's_rights.png';
         $tabs['rights']['link'] = 'server_privileges.php';
-        $tabs['rights']['text'] = __('Privileges');
+        $tabs['rights']['text'] = __('Users');
     }
 
     $tabs['export']['icon'] = 'b_export.png';
