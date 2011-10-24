@@ -221,8 +221,12 @@ class FormDisplay
                 : '';
             $form_errors = isset($this->errors[$form->name])
                 ? $this->errors[$form->name] : null;
-            display_fieldset_top(PMA_lang("Form_$form->name"),
-                $form_desc, $form_errors, array('id' => $form->name));
+            display_fieldset_top(
+                PMA_lang("Form_$form->name"),
+                $form_desc,
+                $form_errors,
+                array('id' => $form->name)
+            );
 
             foreach ($form->fields as $field => $path) {
                 $work_path = array_search($path, $this->system_paths);
@@ -233,8 +237,16 @@ class FormDisplay
                     ? !isset($this->userprefs_disallow[$path])
                     : null;
                 // display input
-                $this->_displayFieldInput($form, $field, $path, $work_path,
-                    $translated_path, $show_restore_default, $userprefs_allow, $js_default);
+                $this->_displayFieldInput(
+                    $form,
+                    $field,
+                    $path,
+                    $work_path,
+                    $translated_path,
+                    $show_restore_default,
+                    $userprefs_allow,
+                    $js_default
+                );
                 // register JS validators for this field
                 if (isset($validators[$path])) {
                     js_validate($translated_path, $validators[$path], $js);
