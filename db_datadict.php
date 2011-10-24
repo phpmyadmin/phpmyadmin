@@ -269,22 +269,7 @@ foreach ($tables as $table) {
 /**
  * Displays the footer
  */
-?>
-<script type="text/javascript">
-//<![CDATA[
-function printPage()
-{
-    document.getElementById('print').style.visibility = 'hidden';
-    // Do print the page
-    if (typeof(window.print) != 'undefined') {
-        window.print();
-    }
-    document.getElementById('print').style.visibility = '';
-}
-//]]>
-</script>
-<?php
-echo '<br /><br /><input type="button" id="print" value="' . __('Print') . '" onclick="printPage()" />';
+PMA_printButton();
 
 require './libraries/footer.inc.php';
 ?>

@@ -3780,4 +3780,16 @@ function PMA_analyzeLimitClause($limit_clause)
         'length' => trim($start_and_length[1])
     );
 }
+
+/**
+ * Outputs HTML code for print button.
+ *
+ * @return nothing
+ */
+function PMA_printButton()
+{
+    echo '<p class="print_ignore">';
+    echo '<input type="button" id="print" value="' . __('Print') . '" />';
+    echo '</p>';
+}
 ?>

@@ -443,11 +443,7 @@ foreach ($the_tables as $key => $table) {
 /**
  * Displays the footer
  */
-?>
+PMA_printButton();
 
-<p class="print_ignore">
-    <input type="button" id="print" value="<?php echo __('Print'); ?>" /></p>
-
-<?php
 require './libraries/footer.inc.php';
 ?>

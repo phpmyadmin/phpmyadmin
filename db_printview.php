@@ -244,24 +244,7 @@ if ($num_tables == 0) {
 /**
  * Displays the footer
  */
-?>
+PMA_printButton();
 
-<script type="text/javascript">
-//<![CDATA[
-function printPage()
-{
-    // Do print the page
-    if (typeof(window.print) != 'undefined') {
-        window.print();
-    }
-}
-//]]>
-</script>
-<br /><br />
-
-<input type="button" class="print_ignore"
-    id="print" value="<?php echo __('Print'); ?>" onclick="printPage()" />
-
-<?php
 require './libraries/footer.inc.php';
 ?>
