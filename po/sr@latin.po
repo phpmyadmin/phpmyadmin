@@ -13274,7 +13274,6 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "(or the local MySQL server's socket is not correctly configured)"
 #~ msgid "(or the local Drizzle server's socket is not correctly configured)"
 #~ msgstr "(ili priključak lokalnog MySQL servera nije ispravno podešen)"
 
