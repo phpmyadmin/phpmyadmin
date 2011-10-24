@@ -1653,6 +1653,44 @@ function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
 }
 
 /**
+ * Formats database error message in a friendly way.
+ * This is needed because some errors messages cannot
+ * be obtained by mysql_error().
+ *
+ * @param int    $error_number Error code
+ * @param string $error_message Error message as returned by server
+ *
+ * @return string HML text with error details
+ */
+function PMA_DBI_formatError($error_number, $error_message)
+{
+    if (! empty($error_message)) {
+        $error_message = PMA_DBI_convert_message($error_message);
+    }
+
+    $error_message = htmlspecialchars($error_message);
+
+    $error = '#' . ((string) $error_number);
+
+    if ($error_number == 2002) {
+        $error .= ' - ' . __('The server is not responding') . ' ' . __('(or the local MySQL server\'s socket is not correctly configured)');
+    } elseif ($error_number == 2003) {
+        $error .= ' - ' . __('The server is not responding');
+    } elseif ($error_number == 1005) {
+        /* InnoDB contraints, see
+         * http://dev.mysql.com/doc/refman/5.0/en/innodb-foreign-key-constraints.html
+         */
+        $error .= ' - ' . $error_message .
+            ' (<a href="server_engines.php' . PMA_generate_common_url(array('engine' => 'InnoDB', 'page' => 'Status')).
+            '">' . __('Details...') . '</a>)';
+    } else {
+        $error .= ' - ' . $error_message;
+    }
+
+    return $error;
+}
+
+/**
  * Checks whether given schema is a system schema: information_schema (MySQL and Drizzle)
  * or data_dictionary (Drizzle)
  *

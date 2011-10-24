@@ -340,28 +340,7 @@ function PMA_DBI_getError($link = null)
     // keep the error number for further check after the call to PMA_DBI_getError()
     $GLOBALS['errno'] = $error_number;
 
-    if (! empty($error_message)) {
-        $error_message = PMA_DBI_convert_message($error_message);
-    }
-
-    $error_message = htmlspecialchars($error_message);
-
-    // Some errors messages cannot be obtained by mysql_error()
-    if ($error_number == 2002) {
-        $error = '#' . ((string) $error_number) . ' - ' . __('The server is not responding') . ' ' . __('(or the local MySQL server\'s socket is not correctly configured)');
-    } elseif ($error_number == 2003) {
-        $error = '#' . ((string) $error_number) . ' - ' . __('The server is not responding');
-    } elseif ($error_number == 1005) {
-        /* InnoDB contraints, see
-         * http://dev.mysql.com/doc/refman/5.0/en/innodb-foreign-key-constraints.html
-         */
-        $error = '#' . ((string) $error_number) . ' - ' . $error_message .
-            ' (<a href="server_engines.php' . PMA_generate_common_url(array('engine' => 'InnoDB', 'page' => 'Status')).
-            '">' . __('Details...') . '</a>)';
-    } else {
-        $error = '#' . ((string) $error_number) . ' - ' . $error_message;
-    }
-    return $error;
+    return PMA_DBI_formatError($error_number, $error_message);
 }
 
 /**

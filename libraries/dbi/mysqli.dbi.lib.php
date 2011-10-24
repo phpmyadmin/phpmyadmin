@@ -420,20 +420,7 @@ function PMA_DBI_getError($link = null)
     // keep the error number for further check after the call to PMA_DBI_getError()
     $GLOBALS['errno'] = $error_number;
 
-    if (! empty($error_message)) {
-        $error_message = PMA_DBI_convert_message($error_message);
-    }
-
-    $error_message = htmlspecialchars($error_message);
-
-    if ($error_number == 2002) {
-        $error = '#' . ((string) $error_number) . ' - '
-            . __('The server is not responding') . ' '
-            . __('(or the local MySQL server\'s socket is not correctly configured)');
-    } else {
-        $error = '#' . ((string) $error_number) . ' - ' . $error_message;
-    }
-    return $error;
+    return PMA_DBI_formatError($error_number, $error_message);
 }
 
 /**
