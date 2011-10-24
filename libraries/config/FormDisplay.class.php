@@ -22,7 +22,6 @@ require_once './libraries/js_escape.lib.php';
 
 /**
  * Form management class, displays and processes forms
- * @package    phpMyAdmin-setup
  */
 class FormDisplay
 {
