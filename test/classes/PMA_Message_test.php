@@ -12,6 +12,7 @@
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Message.class.php';
+require_once 'libraries/php-gettext/gettext.inc';
 
 class PMA_Message_test extends PHPUnit_Extensions_OutputTestCase
 {
