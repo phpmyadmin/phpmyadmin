@@ -6751,7 +6751,7 @@ msgstr "Nahraný soubor je chybný nebo obsahuje chybná data."
 #: libraries/import/shp.php:338
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
-msgstr ""
+msgstr "Prostorové rozšíření MySQL nepodporuje ESRI typ „%s“."
 
 #: libraries/import/shp.php:376
 msgid "The imported file does not contain any data"
