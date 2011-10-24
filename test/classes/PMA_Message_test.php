@@ -238,13 +238,34 @@ class PMA_Message_test extends PHPUnit_Extensions_OutputTestCase
     public function decodeBBDataProvider()
     {
         return array(
-            array('[i]test[/i][i]aa[i/][em]test[/em]', '<em>test</em><em>aa[i/]<em>test</em>'),
-            array('[b]test[/b][strong]test[/strong]', '<strong>test</strong><strong>test</strong>'),
-            array('[tt]test[/tt][code]test[/code]', '<code>test</code><code>test</code>'),
-            array('[kbd]test[/kbd][br][sup]test[/sup]', '<kbd>test</kbd><br /><sup>test</sup>'),
-            array('[a@http://foo.bar/@Documentation]link[/a]', '<a href="./url.php?url=http%3A%2F%2Ffoo.bar%2F&amp;lang=en" target="Documentation">link</a>'),
-            array('[a@./non-existing@Documentation]link[/a]', '[a@./non-existing@Documentation]link</a>'),
-            array('[a@./Documentation.html@Documentation]link[/a]', '<a href="./Documentation.html" target="Documentation">link</a>'),
+            array(
+                '[i]test[/i][i]aa[i/][em]test[/em]',
+                '<em>test</em><em>aa[i/]<em>test</em>'
+            ),
+            array(
+                '[b]test[/b][strong]test[/strong]',
+                '<strong>test</strong><strong>test</strong>'
+            ),
+            array(
+                '[tt]test[/tt][code]test[/code]',
+                '<code>test</code><code>test</code>'
+            ),
+            array(
+                '[kbd]test[/kbd][br][sup]test[/sup]',
+                '<kbd>test</kbd><br /><sup>test</sup>'
+            ),
+            array(
+                '[a@http://foo.bar/@Documentation]link[/a]',
+                '<a href="./url.php?url=http%3A%2F%2Ffoo.bar%2F&amp;lang=en" target="Documentation">link</a>'
+            ),
+            array(
+                '[a@./non-existing@Documentation]link[/a]',
+                '[a@./non-existing@Documentation]link</a>'
+            ),
+            array(
+                '[a@./Documentation.html@Documentation]link[/a]',
+                '<a href="./Documentation.html" target="Documentation">link</a>'
+            ),
         );
     }
 
