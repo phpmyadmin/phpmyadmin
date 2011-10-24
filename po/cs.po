@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 09:52-0400\n"
-"PO-Revision-Date: 2011-10-24 17:14+0200\n"
+"PO-Revision-Date: 2011-10-24 17:15+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -11309,10 +11309,9 @@ msgid "Check referential integrity:"
 msgstr "Zkontrolovat integritu odkazů:"
 
 #: tbl_printview.php:72
-#, fuzzy
 #| msgid "Show tables"
 msgid "Showing tables"
-msgstr "Zobrazit tabulky"
+msgstr "Zobrazuji tabulky"
 
 #: tbl_printview.php:273 tbl_structure.php:762
 msgid "Space usage"
