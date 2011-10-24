@@ -69,7 +69,7 @@ if ($multi_tables) {
         $tbl_list .= (empty($tbl_list) ? '' : ', ')
                   . PMA_backquote($table);
     }
-    echo '<strong>'.  __('Show tables') . ': ' . htmlspecialchars($tbl_list) . '</strong>' . "\n";
+    echo '<strong>'.  __('Showing tables') . ': ' . htmlspecialchars($tbl_list) . '</strong>' . "\n";
     echo '<hr />' . "\n";
 } // end if
 
