@@ -178,15 +178,14 @@ foreach ($the_tables as $key => $table) {
         if (!empty($analyzed_sql[0]['create_table_fields'][$field_name]['type']) && $analyzed_sql[0]['create_table_fields'][$field_name]['type'] == 'TIMESTAMP' && $analyzed_sql[0]['create_table_fields'][$field_name]['timestamp_not_null']) {
             $row['Null'] = '';
         }
-        ?>
 
-<tr><td>
-    <?php
-    if (isset($pk_array[$row['Field']])) {
-        echo '    <u>' . $field_name . '</u>' . "\n";
-    } else {
-        echo '    ' . $field_name . "\n";
-    }
+        echo '<tr><td>';
+
+        if (isset($pk_array[$row['Field']])) {
+            echo '    <u>' . $field_name . '</u>' . "\n";
+        } else {
+            echo '    ' . $field_name . "\n";
+        }
     ?>
     </td>
     <td><?php echo $type; ?><bdo dir="ltr"></bdo></td>
@@ -195,28 +194,28 @@ foreach ($the_tables as $key => $table) {
     <td><?php if (isset($row['Default'])) { echo $row['Default']; } ?>&nbsp;</td>
     <!--<td><?php echo $row['Extra']; ?>&nbsp;</td>-->
     <?php
-    if ($have_rel) {
+        if ($have_rel) {
+            echo '    <td>';
+            if (isset($res_rel[$field_name])) {
+                echo htmlspecialchars($res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field']);
+            }
+            echo '&nbsp;</td>' . "\n";
+        }
         echo '    <td>';
-        if (isset($res_rel[$field_name])) {
-            echo htmlspecialchars($res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field']);
+        $comments = PMA_getComments($db, $table);
+        if (isset($comments[$field_name])) {
+            echo htmlspecialchars($comments[$field_name]);
         }
         echo '&nbsp;</td>' . "\n";
-    }
-    echo '    <td>';
-    $comments = PMA_getComments($db, $table);
-    if (isset($comments[$field_name])) {
-        echo htmlspecialchars($comments[$field_name]);
-    }
-    echo '&nbsp;</td>' . "\n";
-    if ($cfgRelation['mimework']) {
-        $mime_map = PMA_getMIME($db, $table, true);
+        if ($cfgRelation['mimework']) {
+            $mime_map = PMA_getMIME($db, $table, true);
 
-        echo '    <td>';
-        if (isset($mime_map[$field_name])) {
-            echo htmlspecialchars(str_replace('_', '/', $mime_map[$field_name]['mimetype']));
+            echo '    <td>';
+            if (isset($mime_map[$field_name])) {
+                echo htmlspecialchars(str_replace('_', '/', $mime_map[$field_name]['mimetype']));
+            }
+            echo '&nbsp;</td>' . "\n";
         }
-        echo '&nbsp;</td>' . "\n";
-    }
     ?>
 </tr>
         <?php
@@ -243,7 +242,7 @@ foreach ($the_tables as $key => $table) {
             if ($nonisam == false) {
                 // Gets some sizes
 
-        $mergetable = PMA_Table::isMerge($db, $table);
+                $mergetable = PMA_Table::isMerge($db, $table);
 
                 list($data_size, $data_unit)         = PMA_formatByteDown($showtable['Data_length']);
                 if ($mergetable == false) {
