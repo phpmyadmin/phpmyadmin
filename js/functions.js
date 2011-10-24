@@ -1821,7 +1821,7 @@ function PMA_SQLPrettyPrint(string)
 
     // Populate tokens array
     var str='';
-    while (! stream.eol()) { 
+    while (! stream.eol()) {
         stream.start = stream.pos;
         token = mode.token(stream, state);
         if(token != null) {
@@ -1897,7 +1897,7 @@ function PMA_SQLPrettyPrint(string)
         }
         // Normal indentatin and spaces for everything else
         else {
-            if (! spaceExceptionsBefore[tokens[i][1]] 
+            if (! spaceExceptionsBefore[tokens[i][1]]
                && ! (i > 0 && spaceExceptionsAfter[tokens[i-1][1]])
                && output.charAt(output.length -1) != ' ' ) {
                     output += " ";
@@ -1910,14 +1910,14 @@ function PMA_SQLPrettyPrint(string)
         }
 
         // split columns in select and 'update set' clauses, but only inside statements blocks
-        if (( lastStatementPart == 'select' || lastStatementPart == 'where'  || lastStatementPart == 'set') 
+        if (( lastStatementPart == 'select' || lastStatementPart == 'where'  || lastStatementPart == 'set')
             && tokens[i][1]==',' && blockStack[0] == 'statement') {
 
             output += "\n" + tabs(indentLevel + 1);
         }
 
         // split conditions in where clauses, but only inside statements blocks
-        if (lastStatementPart == 'where' 
+        if (lastStatementPart == 'where'
             && (tokens[i][1]=='and' || tokens[i][1]=='or' || tokens[i][1]=='xor')) {
 
             if (blockStack[0] == 'statement') {
@@ -2562,7 +2562,7 @@ function PMA_verifyColumnsProperties()
 }
 
 /**
- * Hides/shows the default value input field, depending on the default type 
+ * Hides/shows the default value input field, depending on the default type
  */
 function PMA_hideShowDefaultValue($default_type)
 {
