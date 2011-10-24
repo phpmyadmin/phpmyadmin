@@ -70,9 +70,26 @@ function PMA_DBI_real_connect($link, $host, $user, $password, $dbname, $server_p
         $host = 'p:' . $host;
     }
     if ($client_flags === null) {
-        return @mysqli_real_connect($link, $host, $user, $password, $dbname, $server_port, $server_socket);
+        return @mysqli_real_connect(
+            $link,
+            $host,
+            $user,
+            $password,
+            $dbname,
+            $server_port,
+            $server_socket
+        );
     } else {
-        return @mysqli_real_connect($link, $host, $user, $password, $dbname, $server_port, $server_socket, $client_flags);
+        return @mysqli_real_connect(
+            $link,
+            $host,
+            $user,
+            $password,
+            $dbname,
+            $server_port,
+            $server_socket,
+            $client_flags
+        );
     }
 }
 
@@ -128,18 +145,47 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
     }
 
     if (!$server) {
-        $return_value = @PMA_DBI_real_connect($link, $cfg['Server']['host'], $user, $password, false, $server_port, $server_socket, $client_flags);
+        $return_value = @PMA_DBI_real_connect(
+            $link,
+            $cfg['Server']['host'],
+            $user,
+            $password,
+            false,
+            $server_port,
+            $server_socket,
+            $client_flags
+        );
         // Retry with empty password if we're allowed to
         if ($return_value == false && isset($cfg['Server']['nopassword']) && $cfg['Server']['nopassword'] && !$is_controluser) {
-            $return_value = @PMA_DBI_real_connect($link, $cfg['Server']['host'], $user, '', false, $server_port, $server_socket, $client_flags);
+            $return_value = @PMA_DBI_real_connect(
+                $link,
+                $cfg['Server']['host'],
+                $user,
+                '',
+                false,
+                $server_port,
+                $server_socket,
+                $client_flags
+            );
         }
     } else {
-        $return_value = @PMA_DBI_real_connect($link, $server['host'], $user, $password, false, $server_port, $server_socket);
+        $return_value = @PMA_DBI_real_connect(
+            $link,
+            $server['host'],
+            $user,
+            $password,
+            false,
+            $server_port,
+            $server_socket
+        );
     }
 
     if ($return_value == false) {
         if ($is_controluser) {
-            trigger_error(__('Connection for controluser as defined in your configuration failed.'), E_USER_WARNING);
+            trigger_error(
+                __('Connection for controluser as defined in your configuration failed.'),
+                E_USER_WARNING
+            );
             return false;
         }
         // we could be calling PMA_DBI_connect() to connect to another
@@ -381,7 +427,9 @@ function PMA_DBI_getError($link = null)
     $error_message = htmlspecialchars($error_message);
 
     if ($error_number == 2002) {
-        $error = '#' . ((string) $error_number) . ' - ' . __('The server is not responding') . ' ' . __('(or the local MySQL server\'s socket is not correctly configured)');
+        $error = '#' . ((string) $error_number) . ' - '
+            . __('The server is not responding') . ' '
+            . __('(or the local MySQL server\'s socket is not correctly configured)');
     } else {
         $error = '#' . ((string) $error_number) . ' - ' . $error_message;
     }
@@ -584,27 +632,57 @@ function PMA_DBI_field_flags($result, $i)
     $charsetnr = $f->charsetnr;
     $f = $f->flags;
     $flags = '';
-    if ($f & MYSQLI_UNIQUE_KEY_FLAG)     { $flags .= 'unique ';}
-    if ($f & MYSQLI_NUM_FLAG)            { $flags .= 'num ';}
-    if ($f & MYSQLI_PART_KEY_FLAG)       { $flags .= 'part_key ';}
-    if ($f & MYSQLI_SET_FLAG)            { $flags .= 'set ';}
-    if ($f & MYSQLI_TIMESTAMP_FLAG)      { $flags .= 'timestamp ';}
-    if ($f & MYSQLI_AUTO_INCREMENT_FLAG) { $flags .= 'auto_increment ';}
-    if ($f & MYSQLI_ENUM_FLAG)           { $flags .= 'enum ';}
+    if ($f & MYSQLI_UNIQUE_KEY_FLAG) {
+        $flags .= 'unique ';
+    }
+    if ($f & MYSQLI_NUM_FLAG) {
+        $flags .= 'num ';
+    }
+    if ($f & MYSQLI_PART_KEY_FLAG) {
+        $flags .= 'part_key ';
+    }
+    if ($f & MYSQLI_SET_FLAG) {
+        $flags .= 'set ';
+    }
+    if ($f & MYSQLI_TIMESTAMP_FLAG) {
+        $flags .= 'timestamp ';
+    }
+    if ($f & MYSQLI_AUTO_INCREMENT_FLAG) {
+        $flags .= 'auto_increment ';
+    }
+    if ($f & MYSQLI_ENUM_FLAG) {
+        $flags .= 'enum ';
+    }
     // See http://dev.mysql.com/doc/refman/6.0/en/c-api-datatypes.html:
     // to determine if a string is binary, we should not use MYSQLI_BINARY_FLAG
     // but instead the charsetnr member of the MYSQL_FIELD
     // structure. Watch out: some types like DATE returns 63 in charsetnr
     // so we have to check also the type.
     // Unfortunately there is no equivalent in the mysql extension.
-    if (($type == MYSQLI_TYPE_TINY_BLOB || $type == MYSQLI_TYPE_BLOB || $type == MYSQLI_TYPE_MEDIUM_BLOB || $type == MYSQLI_TYPE_LONG_BLOB || $type == MYSQLI_TYPE_VAR_STRING || $type == MYSQLI_TYPE_STRING) && 63 == $charsetnr)                { $flags .= 'binary ';}
-    if ($f & MYSQLI_ZEROFILL_FLAG)       { $flags .= 'zerofill ';}
-    if ($f & MYSQLI_UNSIGNED_FLAG)       { $flags .= 'unsigned ';}
-    if ($f & MYSQLI_BLOB_FLAG)           { $flags .= 'blob ';}
-    if ($f & MYSQLI_MULTIPLE_KEY_FLAG)   { $flags .= 'multiple_key ';}
-    if ($f & MYSQLI_UNIQUE_KEY_FLAG)     { $flags .= 'unique_key ';}
-    if ($f & MYSQLI_PRI_KEY_FLAG)        { $flags .= 'primary_key ';}
-    if ($f & MYSQLI_NOT_NULL_FLAG)       { $flags .= 'not_null ';}
+    if (($type == MYSQLI_TYPE_TINY_BLOB || $type == MYSQLI_TYPE_BLOB || $type == MYSQLI_TYPE_MEDIUM_BLOB || $type == MYSQLI_TYPE_LONG_BLOB || $type == MYSQLI_TYPE_VAR_STRING || $type == MYSQLI_TYPE_STRING) && 63 == $charsetnr) {
+        $flags .= 'binary ';
+    }
+    if ($f & MYSQLI_ZEROFILL_FLAG) {
+        $flags .= 'zerofill ';
+    }
+    if ($f & MYSQLI_UNSIGNED_FLAG) {
+        $flags .= 'unsigned ';
+    }
+    if ($f & MYSQLI_BLOB_FLAG) {
+        $flags .= 'blob ';
+    }
+    if ($f & MYSQLI_MULTIPLE_KEY_FLAG) {
+        $flags .= 'multiple_key ';
+    }
+    if ($f & MYSQLI_UNIQUE_KEY_FLAG) {
+        $flags .= 'unique_key ';
+    }
+    if ($f & MYSQLI_PRI_KEY_FLAG) {
+        $flags .= 'primary_key ';
+    }
+    if ($f & MYSQLI_NOT_NULL_FLAG) {
+        $flags .= 'not_null ';
+    }
     return trim($flags);
 }
 
