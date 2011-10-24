@@ -3582,3 +3582,18 @@ function escapeHtml(unsafe) {
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
 }
+
+/**
+ * Print button
+ */
+function printPage()
+{
+    // Do print the page
+    if (typeof(window.print) != 'undefined') {
+        window.print();
+    }
+}
+
+$(document).ready(function() {
+    $('input#print').click(printPage);
+});

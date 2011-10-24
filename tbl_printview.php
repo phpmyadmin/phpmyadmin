@@ -445,21 +445,8 @@ foreach ($the_tables as $key => $table) {
  */
 ?>
 
-<script type="text/javascript">
-//<![CDATA[
-function printPage()
-{
-    // Do print the page
-    if (typeof(window.print) != 'undefined') {
-        window.print();
-    }
-}
-//]]>
-</script>
-
 <p class="print_ignore">
-    <input type="button" id="print" value="<?php echo __('Print'); ?>"
-        onclick="printPage()" /></p>
+    <input type="button" id="print" value="<?php echo __('Print'); ?>" /></p>
 
 <?php
 require './libraries/footer.inc.php';
