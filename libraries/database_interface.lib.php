@@ -1673,7 +1673,7 @@ function PMA_DBI_formatError($error_number, $error_message)
     $error = '#' . ((string) $error_number);
 
     if ($error_number == 2002) {
-        $error .= ' - ' . __('The server is not responding') . ' ' . __('(or the local MySQL server\'s socket is not correctly configured)');
+        $error .= ' - ' . __('The server is not responding (or the local MySQL server\'s socket is not correctly configured)');
     } elseif ($error_number == 2003) {
         $error .= ' - ' . __('The server is not responding');
     } elseif ($error_number == 1005) {
@@ -1681,7 +1681,8 @@ function PMA_DBI_formatError($error_number, $error_message)
          * http://dev.mysql.com/doc/refman/5.0/en/innodb-foreign-key-constraints.html
          */
         $error .= ' - ' . $error_message .
-            ' (<a href="server_engines.php' . PMA_generate_common_url(array('engine' => 'InnoDB', 'page' => 'Status')).
+            ' (<a href="server_engines.php' .
+            PMA_generate_common_url(array('engine' => 'InnoDB', 'page' => 'Status')) .
             '">' . __('Details...') . '</a>)';
     } else {
         $error .= ' - ' . $error_message;
