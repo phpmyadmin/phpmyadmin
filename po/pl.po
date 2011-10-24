@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-10-24 09:52-0400\n"
+"POT-Creation-Date: 2011-10-24 17:47+0200\n"
 "PO-Revision-Date: 2011-10-24 14:52+0200\n"
 "Last-Translator:  <tauruss85@gmail.com>\n"
 "Language-Team: polish <pl@li.org>\n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pl\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.5\n"
@@ -160,7 +160,7 @@ msgstr "Kolumna"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1327
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:84
 #: server_privileges.php:2251 tbl_change.php:297 tbl_change.php:324
-#: tbl_printview.php:137 tbl_printview.php:276 tbl_structure.php:202
+#: tbl_printview.php:137 tbl_printview.php:272 tbl_structure.php:202
 #: tbl_structure.php:765 tbl_tracking.php:258 tbl_tracking.php:305
 msgid "Type"
 msgstr "Typ"
@@ -171,7 +171,7 @@ msgstr "Typ"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1308
 #: libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_properties.inc.php:102 tbl_change.php:333
-#: tbl_printview.php:139 tbl_structure.php:205 tbl_tracking.php:260
+#: tbl_printview.php:138 tbl_structure.php:205 tbl_tracking.php:260
 #: tbl_tracking.php:311 tbl_zoom_select.php:435
 msgid "Null"
 msgstr "Null"
@@ -181,7 +181,7 @@ msgstr "Null"
 #: libraries/export/texytext.php:231
 #: libraries/schema/Pdf_Relation_Schema.class.php:1309
 #: libraries/schema/Pdf_Relation_Schema.class.php:1330
-#: libraries/tbl_properties.inc.php:99 tbl_printview.php:140
+#: libraries/tbl_properties.inc.php:99 tbl_printview.php:139
 #: tbl_structure.php:206 tbl_tracking.php:261
 msgid "Default"
 msgstr "Domyślnie"
@@ -190,7 +190,7 @@ msgstr "Domyślnie"
 #: libraries/export/latex.php:361 libraries/export/odt.php:299
 #: libraries/export/texytext.php:233
 #: libraries/schema/Pdf_Relation_Schema.class.php:1311
-#: libraries/schema/Pdf_Relation_Schema.class.php:1332 tbl_printview.php:144
+#: libraries/schema/Pdf_Relation_Schema.class.php:1332 tbl_printview.php:142
 msgid "Links to"
 msgstr "Łącza do"
 
@@ -201,7 +201,7 @@ msgstr "Łącza do"
 #: libraries/export/texytext.php:236
 #: libraries/schema/Pdf_Relation_Schema.class.php:1322
 #: libraries/schema/Pdf_Relation_Schema.class.php:1333
-#: libraries/tbl_properties.inc.php:122 tbl_printview.php:146
+#: libraries/tbl_properties.inc.php:122 tbl_printview.php:144
 msgid "Comments"
 msgstr "Komentarze"
 
@@ -216,7 +216,7 @@ msgstr "Komentarze"
 #: server_privileges.php:1473 server_privileges.php:1483
 #: server_privileges.php:1728 server_privileges.php:1739
 #: server_privileges.php:2060 server_privileges.php:2065
-#: server_privileges.php:2367 sql.php:290 sql.php:354 tbl_printview.php:193
+#: server_privileges.php:2367 sql.php:290 sql.php:354 tbl_printview.php:190
 #: tbl_structure.php:349 tbl_tracking.php:321 tbl_tracking.php:326
 msgid "No"
 msgstr "Nie"
@@ -238,7 +238,7 @@ msgstr "Nie"
 #: server_privileges.php:1481 server_privileges.php:1725
 #: server_privileges.php:1739 server_privileges.php:2060
 #: server_privileges.php:2063 server_privileges.php:2367 sql.php:353
-#: tbl_printview.php:193 tbl_structure.php:41 tbl_structure.php:349
+#: tbl_printview.php:190 tbl_structure.php:41 tbl_structure.php:349
 #: tbl_tracking.php:319 tbl_tracking.php:324
 msgid "Yes"
 msgstr "Tak"
@@ -368,7 +368,7 @@ msgstr "Tabela"
 #: db_printview.php:102 libraries/build_html_for_db.lib.php:31
 #: libraries/db_structure.lib.php:42 libraries/header_printview.inc.php:65
 #: libraries/import.lib.php:151 navigation.php:592 navigation.php:612
-#: tbl_printview.php:357 tbl_structure.php:363 tbl_structure.php:469
+#: tbl_printview.php:353 tbl_structure.php:363 tbl_structure.php:469
 #: tbl_structure.php:880
 msgid "Rows"
 msgstr "Wiersze"
@@ -383,21 +383,21 @@ msgstr "w użyciu"
 
 #: db_printview.php:184 libraries/db_info.inc.php:70
 #: libraries/export/sql.php:742
-#: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:397
+#: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:393
 #: tbl_structure.php:912
 msgid "Creation"
 msgstr "Utworzenie"
 
 #: db_printview.php:193 libraries/db_info.inc.php:75
 #: libraries/export/sql.php:747
-#: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:407
+#: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:403
 #: tbl_structure.php:920
 msgid "Last update"
 msgstr "Ostatnia aktualizacja"
 
 #: db_printview.php:202 libraries/db_info.inc.php:80
 #: libraries/export/sql.php:752
-#: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:417
+#: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:413
 #: tbl_structure.php:928
 msgid "Last check"
 msgstr "Ostatnie sprawdzenie"
@@ -617,11 +617,11 @@ msgstr "Śledzenie jest nieaktywne."
 #: db_structure.php:450 libraries/display_tbl.lib.php:2346
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Ten widok ma przynajmniej taką ilość wierszy. Więcej informacji w %"
-"sdokumentacja%s."
+"Ten widok ma przynajmniej taką ilość wierszy. Więcej informacji w "
+"%sdokumentacja%s."
 
 #: db_structure.php:466 db_structure.php:480 libraries/header.inc.php:161
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
@@ -951,8 +951,8 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Prawdopodobnie próbowano przesłać na serwer zbyt duży plik. Aby poznać "
 "sposoby obejścia tego problemu, proszę zapoznać się z %sdokumenacja%s."
@@ -1173,7 +1173,7 @@ msgstr "Dane statyczne"
 #. l10n: Total number of queries
 #: js/messages.php:71 libraries/build_html_for_db.lib.php:46
 #: libraries/engines/innodb.lib.php:158 server_databases.php:223
-#: server_status.php:1115 server_status.php:1176 tbl_printview.php:314
+#: server_status.php:1115 server_status.php:1176 tbl_printview.php:310
 #: tbl_structure.php:802
 msgid "Total"
 msgstr "Ogółem"
@@ -2527,8 +2527,8 @@ msgstr "Witamy w %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Prawdopodobnie powodem jest brak utworzonego pliku konfiguracyjnego. Do jego "
 "stworzenia można użyć %1$sskryptu instalacyjnego%2$s."
@@ -2690,13 +2690,13 @@ msgstr "Tabele"
 #: libraries/config/user_preferences.forms.php:259
 #: libraries/config/user_preferences.forms.php:264
 #: libraries/export/latex.php:201 libraries/export/sql.php:1092
-#: server_privileges.php:612 server_replication.php:314 tbl_printview.php:280
+#: server_privileges.php:612 server_replication.php:314 tbl_printview.php:276
 #: tbl_structure.php:771
 msgid "Data"
 msgstr "Dane"
 
 #: libraries/build_html_for_db.lib.php:51 libraries/db_structure.lib.php:55
-#: tbl_printview.php:299 tbl_structure.php:788
+#: tbl_printview.php:295 tbl_structure.php:788
 msgid "Overhead"
 msgstr "Nadmiar"
 
@@ -3144,7 +3144,7 @@ msgid "Not a valid port number"
 msgstr "Nieprawidłowy numer portu"
 
 #: libraries/config/FormDisplay.class.php:86
-#: libraries/config/FormDisplay.class.php:535
+#: libraries/config/FormDisplay.class.php:547
 #: libraries/config/validate.lib.php:378 libraries/config/validate.lib.php:465
 msgid "Incorrect value"
 msgstr "Nieprawidłowa wartość"
@@ -3155,43 +3155,43 @@ msgstr "Nieprawidłowa wartość"
 msgid "Value must be equal or lower than %s"
 msgstr "Wartość musi być mniejsza bądź równa %s"
 
-#: libraries/config/FormDisplay.class.php:499
+#: libraries/config/FormDisplay.class.php:511
 #, php-format
 msgid "Missing data for %s"
 msgstr "Brakuje danych dla %s"
 
-#: libraries/config/FormDisplay.class.php:696
-#: libraries/config/FormDisplay.class.php:700
+#: libraries/config/FormDisplay.class.php:708
+#: libraries/config/FormDisplay.class.php:712
 #, fuzzy
 #| msgid "Variable"
 msgid "unavailable"
 msgstr "Zmienna"
 
-#: libraries/config/FormDisplay.class.php:697
-#: libraries/config/FormDisplay.class.php:701
+#: libraries/config/FormDisplay.class.php:709
+#: libraries/config/FormDisplay.class.php:713
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" wymaga rozszerzenia %s"
 
-#: libraries/config/FormDisplay.class.php:715
+#: libraries/config/FormDisplay.class.php:727
 #, php-format
 msgid "import will not work, missing function (%s)"
 msgstr "import nie zadziała, brak funkcji (%s)"
 
-#: libraries/config/FormDisplay.class.php:719
+#: libraries/config/FormDisplay.class.php:731
 #, php-format
 msgid "export will not work, missing function (%s)"
 msgstr "export nie zadziała, brak funkcji (%s)"
 
-#: libraries/config/FormDisplay.class.php:726
+#: libraries/config/FormDisplay.class.php:738
 msgid "SQL Validator is disabled"
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:733
+#: libraries/config/FormDisplay.class.php:745
 msgid "SOAP extension not found"
 msgstr "Rozszerzenie SOAP nie jest zainstalowane"
 
-#: libraries/config/FormDisplay.class.php:741
+#: libraries/config/FormDisplay.class.php:753
 #, fuzzy, php-format
 #| msgid "Maximum tables"
 msgid "maximum %s"
@@ -3480,7 +3480,7 @@ msgid "Character set of the file"
 msgstr "Kodowanie pliku"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
-#: tbl_gis_visualization.php:181 tbl_printview.php:339 tbl_structure.php:840
+#: tbl_gis_visualization.php:181 tbl_printview.php:335 tbl_structure.php:840
 msgid "Format"
 msgstr "Format"
 
@@ -5509,6 +5509,25 @@ msgstr "Brak rozszerzenia %s. Proszę sprawdzić konfigurację PHP."
 msgid "possible deep recursion attack"
 msgstr ""
 
+#: libraries/database_interface.lib.php:1676
+#, fuzzy
+#| msgid "(or the local MySQL server's socket is not correctly configured)"
+msgid ""
+"The server is not responding (or the local server's socket is not correctly "
+"configured)."
+msgstr ""
+"(lub gniazdo lokalnego serwera MySQL nie jest skonfigurowane poprawnie)"
+
+#: libraries/database_interface.lib.php:1678
+#, fuzzy
+#| msgid "The server is not responding"
+msgid "The server is not responding."
+msgstr "Serwer nie odpowiada"
+
+#: libraries/database_interface.lib.php:1686
+msgid "Details..."
+msgstr "Szczegóły…"
+
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
 msgid "Database seems to be empty!"
@@ -5556,32 +5575,11 @@ msgstr ""
 "html#faq3_11@Documentation]FAQ 3.11[/a]"
 
 #: libraries/dbi/drizzle.dbi.lib.php:114 libraries/dbi/mysql.dbi.lib.php:117
-#: libraries/dbi/mysqli.dbi.lib.php:142
+#: libraries/dbi/mysqli.dbi.lib.php:186
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Połączenie dla użytkownika kontrolnego zdefiniowanego w pliku "
 "konfiguracyjnym nie powiodło się."
-
-#: libraries/dbi/drizzle.dbi.lib.php:344 libraries/dbi/mysql.dbi.lib.php:351
-#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:384
-msgid "The server is not responding"
-msgstr "Serwer nie odpowiada"
-
-#: libraries/dbi/drizzle.dbi.lib.php:344
-#, fuzzy
-#| msgid "(or the local MySQL server's socket is not correctly configured)"
-msgid "(or the local Drizzle server's socket is not correctly configured)"
-msgstr ""
-"(lub gniazdo lokalnego serwera MySQL nie jest skonfigurowane poprawnie)"
-
-#: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysqli.dbi.lib.php:384
-msgid "(or the local MySQL server's socket is not correctly configured)"
-msgstr ""
-"(lub gniazdo lokalnego serwera MySQL nie jest skonfigurowane poprawnie)"
-
-#: libraries/dbi/mysql.dbi.lib.php:360
-msgid "Details..."
-msgstr "Szczegóły…"
 
 #: libraries/display_change_password.lib.php:29 main.php:93
 #: user_password.php:105 user_password.php:123
@@ -5757,8 +5755,8 @@ msgstr ", @TABLE@ zostanie zastąpione nazwą wybranej tabeli"
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Interpretacja tej wartości należy do funkcji %1$sstrftime%2$s i można użyć "
 "jej napisów formatujących. Dodatkowo zostaną zastosowane następujące "
@@ -6542,8 +6540,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -7437,7 +7435,7 @@ msgstr "Zmienna"
 #: libraries/rte/rte_routines.lib.php:1361 libraries/tbl_select.lib.php:87
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769 server_status.php:1465 tbl_change.php:334
-#: tbl_printview.php:333 tbl_structure.php:832 tbl_zoom_select.php:436
+#: tbl_printview.php:329 tbl_structure.php:832 tbl_zoom_select.php:436
 msgid "Value"
 msgstr "Wartość"
 
@@ -8028,14 +8026,13 @@ msgstr "Spis treści"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1307
 #: libraries/schema/Pdf_Relation_Schema.class.php:1328
-#: libraries/tbl_properties.inc.php:101 tbl_printview.php:138
-#: tbl_structure.php:204
+#: libraries/tbl_properties.inc.php:101 tbl_structure.php:204
 msgid "Attributes"
 msgstr "Atrybuty"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1310
-#: libraries/schema/Pdf_Relation_Schema.class.php:1331 tbl_printview.php:141
-#: tbl_structure.php:207 tbl_tracking.php:262
+#: libraries/schema/Pdf_Relation_Schema.class.php:1331 tbl_structure.php:207
+#: tbl_tracking.php:262
 msgid "Extra"
 msgstr "Dodatkowo"
 
@@ -8334,8 +8331,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "Analizator składni SQL nie mógł zostać zainicjowany. Sprawdź, czy "
-"zainstalowane są niezbędne rozszerzenia PHP, tak jak zostało to opisane w %"
-"sdokumentacji%s."
+"zainstalowane są niezbędne rozszerzenia PHP, tak jak zostało to opisane w "
+"%sdokumentacji%s."
 
 #: libraries/tbl_links.inc.php:118 libraries/tbl_links.inc.php:119
 msgid "Table seems to be empty!"
@@ -8374,7 +8371,7 @@ msgstr ""
 "formatu: a"
 
 #: libraries/tbl_properties.inc.php:109 libraries/tbl_properties.inc.php:473
-#: tbl_printview.php:289 tbl_structure.php:153 tbl_structure.php:158
+#: tbl_printview.php:285 tbl_structure.php:153 tbl_structure.php:158
 #: tbl_structure.php:577 tbl_structure.php:779
 msgid "Index"
 msgstr "Indeks"
@@ -8385,8 +8382,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Aby uzyskać listę dostępnych opcji transformacji i ich typów MIME, kliknij %"
-"sopisy transformacji%s"
+"Aby uzyskać listę dostępnych opcji transformacji i ich typów MIME, kliknij "
+"%sopisy transformacji%s"
 
 #: libraries/tbl_properties.inc.php:137
 msgid "Transformation options"
@@ -8889,8 +8886,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Serwer działa pod ochroną Suhosina. Możliwe problemy opisuje %sdokumentacja%"
-"s."
+"Serwer działa pod ochroną Suhosina. Możliwe problemy opisuje %sdokumentacja"
+"%s."
 
 #: navigation.php:183 server_databases.php:285 server_synchronize.php:1294
 msgid "No databases"
@@ -9648,8 +9645,8 @@ msgstr "Usuń bazy danych o takich samych nazwach jak użytkownicy."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Uwaga: phpMyAdmin pobiera uprawnienia użytkowników wprost z tabeli uprawnień "
 "MySQL-a. Zawartość tej tabeli, jeśli zostały w niej dokonane ręczne zmiany, "
@@ -10122,7 +10119,7 @@ msgstr "na minutę"
 msgid "per second"
 msgstr "na sekundę"
 
-#: server_status.php:964 tbl_printview.php:332 tbl_structure.php:831
+#: server_status.php:964 tbl_printview.php:328 tbl_structure.php:831
 msgid "Statements"
 msgstr "Cecha"
 
@@ -11518,8 +11515,8 @@ msgid ""
 "of users, including you, are connected to."
 msgstr ""
 "Jeżeli wydaje się to konieczne, można użyć dodatkowych ustawień "
-"bezpieczeństwa — [a@?page=servers&amp;mode=edit&amp;id=%1"
-"$d#tab_Server_config]uwierzytelniania na podstawie hosta[/a] i [a@?"
+"bezpieczeństwa — [a@?page=servers&amp;mode=edit&amp;id="
+"%1$d#tab_Server_config]uwierzytelniania na podstawie hosta[/a] i [a@?"
 "page=form&amp;formset=features#tab_Security]listy zaufanych serwerów proxy[/"
 "a]. Jednakże ochrona oparta na adresy IP może nie być wiarygodna, jeżeli "
 "używany IP należy do ISP, do którego podłączonych jest tysiące użytkowników."
@@ -11530,9 +11527,9 @@ msgstr ""
 #| "You set the [kbd]config[/kbd] authentication type and included username "
 #| "and password for auto-login, which is not a desirable option for live "
 #| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1"
-#| "$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/"
-#| "kbd]."
+#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id="
+#| "%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http"
+#| "[/kbd]."
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -12015,39 +12012,39 @@ msgstr "Sprawdź spójność powiązań:"
 msgid "Showing tables"
 msgstr "Pokaż tabele"
 
-#: tbl_printview.php:273 tbl_structure.php:762
+#: tbl_printview.php:269 tbl_structure.php:762
 msgid "Space usage"
 msgstr "Wykorzystanie przestrzeni"
 
-#: tbl_printview.php:277 tbl_structure.php:766
+#: tbl_printview.php:273 tbl_structure.php:766
 msgid "Usage"
 msgstr "Wykorzystanie"
 
-#: tbl_printview.php:304 tbl_structure.php:793
+#: tbl_printview.php:300 tbl_structure.php:793
 msgid "Effective"
 msgstr "Efektywne"
 
-#: tbl_printview.php:329 tbl_structure.php:828
+#: tbl_printview.php:325 tbl_structure.php:828
 msgid "Row Statistics"
 msgstr "Statystyka rekordów"
 
-#: tbl_printview.php:343 tbl_structure.php:843
+#: tbl_printview.php:339 tbl_structure.php:843
 msgid "static"
 msgstr "statycznie"
 
-#: tbl_printview.php:345 tbl_structure.php:845
+#: tbl_printview.php:341 tbl_structure.php:845
 msgid "dynamic"
 msgstr "zmienny"
 
-#: tbl_printview.php:367 tbl_structure.php:888
+#: tbl_printview.php:363 tbl_structure.php:888
 msgid "Row length"
 msgstr "Długość rekordu"
 
-#: tbl_printview.php:377 tbl_structure.php:896
+#: tbl_printview.php:373 tbl_structure.php:896
 msgid "Row size"
 msgstr "Rozmiar rekordu "
 
-#: tbl_printview.php:387 tbl_structure.php:904
+#: tbl_printview.php:383 tbl_structure.php:904
 msgid "Next autoindex"
 msgstr ""
 
@@ -12756,8 +12753,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -12886,8 +12883,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: po/advisory_rules.php:115
@@ -13568,6 +13565,12 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert jest ustawione na 0"
+
+#, fuzzy
+#~| msgid "(or the local MySQL server's socket is not correctly configured)"
+#~ msgid "(or the local Drizzle server's socket is not correctly configured)"
+#~ msgstr ""
+#~ "(lub gniazdo lokalnego serwera MySQL nie jest skonfigurowane poprawnie)"
 
 #~ msgid "Display direction for altering/creating columns"
 #~ msgstr "Wyświetl kierunek dla dodawania/zmiany kolumn"

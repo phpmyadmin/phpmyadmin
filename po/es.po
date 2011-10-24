@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-10-24 09:52-0400\n"
+"POT-Creation-Date: 2011-10-24 17:47+0200\n"
 "PO-Revision-Date: 2011-10-13 01:34+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -158,7 +158,7 @@ msgstr "Columna"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1327
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:84
 #: server_privileges.php:2251 tbl_change.php:297 tbl_change.php:324
-#: tbl_printview.php:137 tbl_printview.php:276 tbl_structure.php:202
+#: tbl_printview.php:137 tbl_printview.php:272 tbl_structure.php:202
 #: tbl_structure.php:765 tbl_tracking.php:258 tbl_tracking.php:305
 msgid "Type"
 msgstr "Tipo"
@@ -169,7 +169,7 @@ msgstr "Tipo"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1308
 #: libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_properties.inc.php:102 tbl_change.php:333
-#: tbl_printview.php:139 tbl_structure.php:205 tbl_tracking.php:260
+#: tbl_printview.php:138 tbl_structure.php:205 tbl_tracking.php:260
 #: tbl_tracking.php:311 tbl_zoom_select.php:435
 msgid "Null"
 msgstr "Nulo"
@@ -179,7 +179,7 @@ msgstr "Nulo"
 #: libraries/export/texytext.php:231
 #: libraries/schema/Pdf_Relation_Schema.class.php:1309
 #: libraries/schema/Pdf_Relation_Schema.class.php:1330
-#: libraries/tbl_properties.inc.php:99 tbl_printview.php:140
+#: libraries/tbl_properties.inc.php:99 tbl_printview.php:139
 #: tbl_structure.php:206 tbl_tracking.php:261
 msgid "Default"
 msgstr "Predeterminado"
@@ -188,7 +188,7 @@ msgstr "Predeterminado"
 #: libraries/export/latex.php:361 libraries/export/odt.php:299
 #: libraries/export/texytext.php:233
 #: libraries/schema/Pdf_Relation_Schema.class.php:1311
-#: libraries/schema/Pdf_Relation_Schema.class.php:1332 tbl_printview.php:144
+#: libraries/schema/Pdf_Relation_Schema.class.php:1332 tbl_printview.php:142
 msgid "Links to"
 msgstr "Enlaces a"
 
@@ -199,7 +199,7 @@ msgstr "Enlaces a"
 #: libraries/export/texytext.php:236
 #: libraries/schema/Pdf_Relation_Schema.class.php:1322
 #: libraries/schema/Pdf_Relation_Schema.class.php:1333
-#: libraries/tbl_properties.inc.php:122 tbl_printview.php:146
+#: libraries/tbl_properties.inc.php:122 tbl_printview.php:144
 msgid "Comments"
 msgstr "Comentarios"
 
@@ -214,7 +214,7 @@ msgstr "Comentarios"
 #: server_privileges.php:1473 server_privileges.php:1483
 #: server_privileges.php:1728 server_privileges.php:1739
 #: server_privileges.php:2060 server_privileges.php:2065
-#: server_privileges.php:2367 sql.php:290 sql.php:354 tbl_printview.php:193
+#: server_privileges.php:2367 sql.php:290 sql.php:354 tbl_printview.php:190
 #: tbl_structure.php:349 tbl_tracking.php:321 tbl_tracking.php:326
 msgid "No"
 msgstr "No"
@@ -236,7 +236,7 @@ msgstr "No"
 #: server_privileges.php:1481 server_privileges.php:1725
 #: server_privileges.php:1739 server_privileges.php:2060
 #: server_privileges.php:2063 server_privileges.php:2367 sql.php:353
-#: tbl_printview.php:193 tbl_structure.php:41 tbl_structure.php:349
+#: tbl_printview.php:190 tbl_structure.php:41 tbl_structure.php:349
 #: tbl_tracking.php:319 tbl_tracking.php:324
 msgid "Yes"
 msgstr "Sí"
@@ -366,7 +366,7 @@ msgstr "Tabla"
 #: db_printview.php:102 libraries/build_html_for_db.lib.php:31
 #: libraries/db_structure.lib.php:42 libraries/header_printview.inc.php:65
 #: libraries/import.lib.php:151 navigation.php:592 navigation.php:612
-#: tbl_printview.php:357 tbl_structure.php:363 tbl_structure.php:469
+#: tbl_printview.php:353 tbl_structure.php:363 tbl_structure.php:469
 #: tbl_structure.php:880
 msgid "Rows"
 msgstr "Filas"
@@ -381,21 +381,21 @@ msgstr "en uso"
 
 #: db_printview.php:184 libraries/db_info.inc.php:70
 #: libraries/export/sql.php:742
-#: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:397
+#: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:393
 #: tbl_structure.php:912
 msgid "Creation"
 msgstr "Creación"
 
 #: db_printview.php:193 libraries/db_info.inc.php:75
 #: libraries/export/sql.php:747
-#: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:407
+#: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:403
 #: tbl_structure.php:920
 msgid "Last update"
 msgstr "Última actualización"
 
 #: db_printview.php:202 libraries/db_info.inc.php:80
 #: libraries/export/sql.php:752
-#: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:417
+#: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:413
 #: tbl_structure.php:928
 msgid "Last check"
 msgstr "Última revisión"
@@ -616,11 +616,11 @@ msgstr "El seguimiento no está activo."
 #: db_structure.php:450 libraries/display_tbl.lib.php:2346
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Esta vista tiene al menos este número de filas. Por favor refiérase a la %"
-"sdocumentation%s."
+"Esta vista tiene al menos este número de filas. Por favor refiérase a la "
+"%sdocumentation%s."
 
 #: db_structure.php:466 db_structure.php:480 libraries/header.inc.php:161
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
@@ -953,8 +953,8 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Usted probablemente intentó cargar un archivo demasiado grande. Por favor, "
 "refiérase a %sla documentation%s para hallar modos de superar esta "
@@ -1177,7 +1177,7 @@ msgstr "Datos estáticos"
 #. l10n: Total number of queries
 #: js/messages.php:71 libraries/build_html_for_db.lib.php:46
 #: libraries/engines/innodb.lib.php:158 server_databases.php:223
-#: server_status.php:1115 server_status.php:1176 tbl_printview.php:314
+#: server_status.php:1115 server_status.php:1176 tbl_printview.php:310
 #: tbl_structure.php:802
 msgid "Total"
 msgstr "Total"
@@ -2502,8 +2502,8 @@ msgstr "Bienvenido a %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "La razón más probable es que usted no haya creado un archivo de "
 "configuración. Utilice el %1$sscript de configuración%2$s para crear uno."
@@ -2667,13 +2667,13 @@ msgstr "Tablas"
 #: libraries/config/user_preferences.forms.php:259
 #: libraries/config/user_preferences.forms.php:264
 #: libraries/export/latex.php:201 libraries/export/sql.php:1092
-#: server_privileges.php:612 server_replication.php:314 tbl_printview.php:280
+#: server_privileges.php:612 server_replication.php:314 tbl_printview.php:276
 #: tbl_structure.php:771
 msgid "Data"
 msgstr "Datos"
 
 #: libraries/build_html_for_db.lib.php:51 libraries/db_structure.lib.php:55
-#: tbl_printview.php:299 tbl_structure.php:788
+#: tbl_printview.php:295 tbl_structure.php:788
 msgid "Overhead"
 msgstr "Residuo a depurar"
 
@@ -3103,7 +3103,7 @@ msgid "Not a valid port number"
 msgstr "No es un número de puerto válido"
 
 #: libraries/config/FormDisplay.class.php:86
-#: libraries/config/FormDisplay.class.php:535
+#: libraries/config/FormDisplay.class.php:547
 #: libraries/config/validate.lib.php:378 libraries/config/validate.lib.php:465
 msgid "Incorrect value"
 msgstr "Valor incorrecto"
@@ -3114,41 +3114,41 @@ msgstr "Valor incorrecto"
 msgid "Value must be equal or lower than %s"
 msgstr "El valor debe ser igual o menor que %s"
 
-#: libraries/config/FormDisplay.class.php:499
+#: libraries/config/FormDisplay.class.php:511
 #, php-format
 msgid "Missing data for %s"
 msgstr "Faltan datos para %s"
 
-#: libraries/config/FormDisplay.class.php:696
-#: libraries/config/FormDisplay.class.php:700
+#: libraries/config/FormDisplay.class.php:708
+#: libraries/config/FormDisplay.class.php:712
 msgid "unavailable"
 msgstr "no disponible"
 
-#: libraries/config/FormDisplay.class.php:697
-#: libraries/config/FormDisplay.class.php:701
+#: libraries/config/FormDisplay.class.php:709
+#: libraries/config/FormDisplay.class.php:713
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" requiere la extensión %s"
 
-#: libraries/config/FormDisplay.class.php:715
+#: libraries/config/FormDisplay.class.php:727
 #, php-format
 msgid "import will not work, missing function (%s)"
 msgstr "la importación no funcionará, falta una función (%s)"
 
-#: libraries/config/FormDisplay.class.php:719
+#: libraries/config/FormDisplay.class.php:731
 #, php-format
 msgid "export will not work, missing function (%s)"
 msgstr "la exportación no funcionará, falta una función (%s)"
 
-#: libraries/config/FormDisplay.class.php:726
+#: libraries/config/FormDisplay.class.php:738
 msgid "SQL Validator is disabled"
 msgstr "El validador de SQL está desactivado"
 
-#: libraries/config/FormDisplay.class.php:733
+#: libraries/config/FormDisplay.class.php:745
 msgid "SOAP extension not found"
 msgstr "extensión SOAP no encontrada"
 
-#: libraries/config/FormDisplay.class.php:741
+#: libraries/config/FormDisplay.class.php:753
 #, php-format
 msgid "maximum %s"
 msgstr "máximo %s"
@@ -3440,7 +3440,7 @@ msgid "Character set of the file"
 msgstr "Conjunto de caracteres del archivo"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
-#: tbl_gis_visualization.php:181 tbl_printview.php:339 tbl_structure.php:840
+#: tbl_gis_visualization.php:181 tbl_printview.php:335 tbl_structure.php:840
 msgid "Format"
 msgstr "Formato"
 
@@ -5437,6 +5437,25 @@ msgstr "No se encontró la extensión %s. Por favor revisa la configuración PHP
 msgid "possible deep recursion attack"
 msgstr "posible ataque de recursión extrema"
 
+#: libraries/database_interface.lib.php:1676
+#, fuzzy
+#| msgid "(or the local MySQL server's socket is not correctly configured)"
+msgid ""
+"The server is not responding (or the local server's socket is not correctly "
+"configured)."
+msgstr ""
+"(o el socket del servidor MySQL local no está configurado correctamente)"
+
+#: libraries/database_interface.lib.php:1678
+#, fuzzy
+#| msgid "The server is not responding"
+msgid "The server is not responding."
+msgstr "El servidor no está respondiendo"
+
+#: libraries/database_interface.lib.php:1686
+msgid "Details..."
+msgstr "Detalles..."
+
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
 msgid "Database seems to be empty!"
@@ -5484,30 +5503,11 @@ msgstr ""
 "3.11[/a]"
 
 #: libraries/dbi/drizzle.dbi.lib.php:114 libraries/dbi/mysql.dbi.lib.php:117
-#: libraries/dbi/mysqli.dbi.lib.php:142
+#: libraries/dbi/mysqli.dbi.lib.php:186
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "La conexión para controluser, como está definida en su configuración, "
 "fracasó."
-
-#: libraries/dbi/drizzle.dbi.lib.php:344 libraries/dbi/mysql.dbi.lib.php:351
-#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:384
-msgid "The server is not responding"
-msgstr "El servidor no está respondiendo"
-
-#: libraries/dbi/drizzle.dbi.lib.php:344
-msgid "(or the local Drizzle server's socket is not correctly configured)"
-msgstr ""
-"(o el zócalo del servidor Drizzle local no está configurado correctamente)"
-
-#: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysqli.dbi.lib.php:384
-msgid "(or the local MySQL server's socket is not correctly configured)"
-msgstr ""
-"(o el socket del servidor MySQL local no está configurado correctamente)"
-
-#: libraries/dbi/mysql.dbi.lib.php:360
-msgid "Details..."
-msgstr "Detalles..."
 
 #: libraries/display_change_password.lib.php:29 main.php:93
 #: user_password.php:105 user_password.php:123
@@ -5656,8 +5656,8 @@ msgstr ", @TABLE@ se convertirá en el nombre de la tabla"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Este valor es interpretado usando %1$sstrftime%2$s por lo que se pueden usar "
 "cadenas para formatear el tiempo. Además sucederán las siguientes "
@@ -6425,8 +6425,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "Se puede encontrar documentación y más información sobre PBXT en la %spágina "
 "inicial de PrimeBase XT%s."
@@ -7302,7 +7302,7 @@ msgstr "Variable"
 #: libraries/rte/rte_routines.lib.php:1361 libraries/tbl_select.lib.php:87
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769 server_status.php:1465 tbl_change.php:334
-#: tbl_printview.php:333 tbl_structure.php:832 tbl_zoom_select.php:436
+#: tbl_printview.php:329 tbl_structure.php:832 tbl_zoom_select.php:436
 msgid "Value"
 msgstr "Valor"
 
@@ -7812,14 +7812,13 @@ msgstr "Tabla de contenidos"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1307
 #: libraries/schema/Pdf_Relation_Schema.class.php:1328
-#: libraries/tbl_properties.inc.php:101 tbl_printview.php:138
-#: tbl_structure.php:204
+#: libraries/tbl_properties.inc.php:101 tbl_structure.php:204
 msgid "Attributes"
 msgstr "Atributos"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1310
-#: libraries/schema/Pdf_Relation_Schema.class.php:1331 tbl_printview.php:141
-#: tbl_structure.php:207 tbl_tracking.php:262
+#: libraries/schema/Pdf_Relation_Schema.class.php:1331 tbl_structure.php:207
+#: tbl_tracking.php:262
 msgid "Extra"
 msgstr "Extra"
 
@@ -8137,7 +8136,7 @@ msgstr ""
 "de escape ni comillas, usando este formato: a"
 
 #: libraries/tbl_properties.inc.php:109 libraries/tbl_properties.inc.php:473
-#: tbl_printview.php:289 tbl_structure.php:153 tbl_structure.php:158
+#: tbl_printview.php:285 tbl_structure.php:153 tbl_structure.php:158
 #: tbl_structure.php:577 tbl_structure.php:779
 msgid "Index"
 msgstr "Índice"
@@ -8569,8 +8568,8 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "El almacenamiento de configuración phpMyAdmin no está completamente "
-"configurado, algunas funcionalidades extendidas fueron deshabilitadas. %"
-"sPulsa aquí para averiguar por qué%s."
+"configurado, algunas funcionalidades extendidas fueron deshabilitadas. "
+"%sPulsa aquí para averiguar por qué%s."
 
 #: main.php:317
 msgid ""
@@ -9325,8 +9324,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Nota: phpMyAdmin obtiene los privilegios de los usuarios 'directamente de "
 "las tablas de privilegios MySQL'. El contenido de estas tablas puede diferir "
@@ -9788,7 +9787,7 @@ msgstr "por minuto"
 msgid "per second"
 msgstr "por segundo"
 
-#: server_status.php:964 tbl_printview.php:332 tbl_structure.php:831
+#: server_status.php:964 tbl_printview.php:328 tbl_structure.php:831
 msgid "Statements"
 msgstr "Sentencias"
 
@@ -10631,8 +10630,9 @@ msgstr ""
 "El Monitorizador de phpMyAdmin puede asistir en la optimización de la "
 "configuración del servidor y rastrear consultas que toman mucho tiempo. Para "
 "esto último necesitará que «log_output» esté definido como 'TABLE' y tener "
-"activado «slow_query_log» o «general_log». Note, sin embargo, que «general_log» "
-"produce mucha información y aumenta la carga en el servidor hasta en un 15%"
+"activado «slow_query_log» o «general_log». Note, sin embargo, que "
+"«general_log» produce mucha información y aumenta la carga en el servidor "
+"hasta en un 15%"
 
 #: server_status.php:1599
 msgid ""
@@ -11617,39 +11617,39 @@ msgstr "Comprobar la integridad referencial:"
 msgid "Showing tables"
 msgstr "Mostrar las tablas"
 
-#: tbl_printview.php:273 tbl_structure.php:762
+#: tbl_printview.php:269 tbl_structure.php:762
 msgid "Space usage"
 msgstr "Espacio utilizado"
 
-#: tbl_printview.php:277 tbl_structure.php:766
+#: tbl_printview.php:273 tbl_structure.php:766
 msgid "Usage"
 msgstr "Uso"
 
-#: tbl_printview.php:304 tbl_structure.php:793
+#: tbl_printview.php:300 tbl_structure.php:793
 msgid "Effective"
 msgstr "Efectivo/a"
 
-#: tbl_printview.php:329 tbl_structure.php:828
+#: tbl_printview.php:325 tbl_structure.php:828
 msgid "Row Statistics"
 msgstr "Estadísticas de la fila"
 
-#: tbl_printview.php:343 tbl_structure.php:843
+#: tbl_printview.php:339 tbl_structure.php:843
 msgid "static"
 msgstr "estático"
 
-#: tbl_printview.php:345 tbl_structure.php:845
+#: tbl_printview.php:341 tbl_structure.php:845
 msgid "dynamic"
 msgstr "dinámico/a"
 
-#: tbl_printview.php:367 tbl_structure.php:888
+#: tbl_printview.php:363 tbl_structure.php:888
 msgid "Row length"
 msgstr "Longitud de la fila"
 
-#: tbl_printview.php:377 tbl_structure.php:896
+#: tbl_printview.php:373 tbl_structure.php:896
 msgid "Row size"
 msgstr "Tamaño de la fila "
 
-#: tbl_printview.php:387 tbl_structure.php:904
+#: tbl_printview.php:383 tbl_structure.php:904
 msgid "Next autoindex"
 msgstr "Índice automático siguiente"
 
@@ -12062,8 +12062,8 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
-"Podría aumentar «{long_query_time}» u optimizar las consultas que aparecen en "
-"el registro de consultas lentas."
+"Podría aumentar «{long_query_time}» u optimizar las consultas que aparecen "
+"en el registro de consultas lentas."
 
 #: po/advisory_rules.php:18
 #, php-format
@@ -12130,8 +12130,8 @@ msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"Active el registro de consultas lenta configurando «log_slow_queries» a 'ON'. "
-"Esto ayudará a analizar consultas con mala performance."
+"Active el registro de consultas lenta configurando «log_slow_queries» a "
+"'ON'. Esto ayudará a analizar consultas con mala performance."
 
 #: po/advisory_rules.php:33
 msgid "log_slow_queries is set to 'OFF'"
@@ -12274,8 +12274,8 @@ msgid ""
 msgstr ""
 "Se sabe que el caché de consultas puede mejorar la performance enormemente "
 "si está correctamente configurado. Actívelo definiendo «query_cache_size» a "
-"un valor en MiB de 2 dígitos y definiendo «query_cache_type» a 'ON'. <b>Notar "
-"que: </b> si está utilizando memcached ignore esta recomendación."
+"un valor en MiB de 2 dígitos y definiendo «query_cache_type» a 'ON'. "
+"<b>Notar que: </b> si está utilizando memcached ignore esta recomendación."
 
 #: po/advisory_rules.php:73
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
@@ -12351,8 +12351,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "La tasa actual de memoria libre del caché de consultas respecto del tamaño "
 "total es %s%%. Debería ser mayor al 80%%"
@@ -12509,8 +12509,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "%s%% de todas las ordenaciones causan tablas temporales, este valor debería "
 "de ser menor a 10%%."
@@ -12573,8 +12573,8 @@ msgstr ""
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
-"Promedio de uniones («JOIN») de tablas: %s, este promedio debería ser menor a "
-"1 por hora"
+"Promedio de uniones («JOIN») de tablas: %s, este promedio debería ser menor "
+"a 1 por hora"
 
 #: po/advisory_rules.php:130
 msgid "Rate of reading first index entry"
@@ -12682,7 +12682,8 @@ msgstr ""
 #: po/advisory_rules.php:148
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr "Los valores actuales son «tmp_table_size»: %s, «max_heap_table_size»: %s"
+msgstr ""
+"Los valores actuales son «tmp_table_size»: %s, «max_heap_table_size»: %s"
 
 #: po/advisory_rules.php:150
 msgid "Percentage of temp tables on disk"
@@ -12706,13 +12707,14 @@ msgid ""
 "mentioned in the beginning of an <a href=\\\"http://www.facebook.com/note."
 "php?note_id=10150111255065841&comments\\\">Article by the Pythian Group</a>"
 msgstr ""
-"Aumentar «max_heap_table_size» y «tmp_table_size» podría ayudar. Sin embargo, "
-"algunas tablas temporales son siempre escritas a disco independientemente "
-"del valor de estas variables. Para eliminarlas deberá re-escribir las "
-"consultas para evitar estas condiciones (en una tabla temporal: la presencia "
-"de una columna «BLOB» o «TEXT», o la presencia de una columna mayor a 512 "
-"bytes) como se menciona al comienzo del <a href=\\\"http://www.facebook.com/"
-"note.php?note_id=10150111255065841&comments\\\">artículo de Pythian Group</a>"
+"Aumentar «max_heap_table_size» y «tmp_table_size» podría ayudar. Sin "
+"embargo, algunas tablas temporales son siempre escritas a disco "
+"independientemente del valor de estas variables. Para eliminarlas deberá re-"
+"escribir las consultas para evitar estas condiciones (en una tabla temporal: "
+"la presencia de una columna «BLOB» o «TEXT», o la presencia de una columna "
+"mayor a 512 bytes) como se menciona al comienzo del <a href=\\\"http://www."
+"facebook.com/note.php?note_id=10150111255065841&comments\\\">artículo de "
+"Pythian Group</a>"
 
 #: po/advisory_rules.php:153
 #, php-format
@@ -12737,8 +12739,8 @@ msgid ""
 "mentioned in the <a href=\\\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\\\">MySQL Documentation</a>"
 msgstr ""
-"Aumentar «max_heap_table_size» y «tmp_table_size» podría ayudar. Sin embargo, "
-"algunas tablas temporales son siempre a disco permanentemente "
+"Aumentar «max_heap_table_size» y «tmp_table_size» podría ayudar. Sin "
+"embargo, algunas tablas temporales son siempre a disco permanentemente "
 "independientemente del valor de estas variables. Para eliminarlas deberá re-"
 "escribir las consultas para evitar estas condiciones (en una tabla temporal: "
 "la presencia de una columna «BLOB» o «TEXT» o la presencia de una columna "
@@ -12770,8 +12772,8 @@ msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
-"Defina «key_buffer_size» dependiendo del tamaño de los índices MyISAM. 64M es "
-"un buen comienzo."
+"Defina «key_buffer_size» dependiendo del tamaño de los índices MyISAM. 64M "
+"es un buen comienzo."
 
 #: po/advisory_rules.php:163
 msgid "key_buffer_size is 0"
@@ -12946,7 +12948,8 @@ msgstr ""
 #: po/advisory_rules.php:207
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
-"Active el caché de hilos configurado «thread_cache_size» a un valor mayor a 0."
+"Active el caché de hilos configurado «thread_cache_size» a un valor mayor a "
+"0."
 
 #: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
@@ -13033,10 +13036,10 @@ msgid ""
 "do not close database handlers properly get killed sooner. Make sure the "
 "code closes database handlers properly."
 msgstr ""
-"Aumente «max_connections» o reduzca «wait_timeout» para que las conexiones que "
-"no liberan los manejadores de base de datos apropiadamente sean eliminadas "
-"más rápido. Asegúrese que su código cierre los manejadores de base de datos "
-"apropiadamente."
+"Aumente «max_connections» o reduzca «wait_timeout» para que las conexiones "
+"que no liberan los manejadores de base de datos apropiadamente sean "
+"eliminadas más rápido. Asegúrese que su código cierre los manejadores de "
+"base de datos apropiadamente."
 
 #: po/advisory_rules.php:228
 #, php-format
@@ -13111,8 +13114,8 @@ msgstr ""
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
-"%s%% de todos los clientes son abandonados. Este valor debería ser menor a 2%"
-"%"
+"%s%% de todos los clientes son abandonados. Este valor debería ser menor a "
+"2%%"
 
 #: po/advisory_rules.php:245
 msgid "Rate of aborted clients"
@@ -13295,6 +13298,10 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr "«concurrent_insert» está definido como 0"
+
+#~ msgid "(or the local Drizzle server's socket is not correctly configured)"
+#~ msgstr ""
+#~ "(o el zócalo del servidor Drizzle local no está configurado correctamente)"
 
 #~ msgid ""
 #~ "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates "

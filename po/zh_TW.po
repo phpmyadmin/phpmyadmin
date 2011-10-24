@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-10-24 09:52-0400\n"
+"POT-Creation-Date: 2011-10-24 17:47+0200\n"
 "PO-Revision-Date: 2011-06-19 09:59+0200\n"
 "Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -155,7 +155,7 @@ msgstr "欄位"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1327
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:84
 #: server_privileges.php:2251 tbl_change.php:297 tbl_change.php:324
-#: tbl_printview.php:137 tbl_printview.php:276 tbl_structure.php:202
+#: tbl_printview.php:137 tbl_printview.php:272 tbl_structure.php:202
 #: tbl_structure.php:765 tbl_tracking.php:258 tbl_tracking.php:305
 msgid "Type"
 msgstr "類型"
@@ -166,7 +166,7 @@ msgstr "類型"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1308
 #: libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_properties.inc.php:102 tbl_change.php:333
-#: tbl_printview.php:139 tbl_structure.php:205 tbl_tracking.php:260
+#: tbl_printview.php:138 tbl_structure.php:205 tbl_tracking.php:260
 #: tbl_tracking.php:311 tbl_zoom_select.php:435
 msgid "Null"
 msgstr "空"
@@ -176,7 +176,7 @@ msgstr "空"
 #: libraries/export/texytext.php:231
 #: libraries/schema/Pdf_Relation_Schema.class.php:1309
 #: libraries/schema/Pdf_Relation_Schema.class.php:1330
-#: libraries/tbl_properties.inc.php:99 tbl_printview.php:140
+#: libraries/tbl_properties.inc.php:99 tbl_printview.php:139
 #: tbl_structure.php:206 tbl_tracking.php:261
 msgid "Default"
 msgstr "預設"
@@ -185,7 +185,7 @@ msgstr "預設"
 #: libraries/export/latex.php:361 libraries/export/odt.php:299
 #: libraries/export/texytext.php:233
 #: libraries/schema/Pdf_Relation_Schema.class.php:1311
-#: libraries/schema/Pdf_Relation_Schema.class.php:1332 tbl_printview.php:144
+#: libraries/schema/Pdf_Relation_Schema.class.php:1332 tbl_printview.php:142
 msgid "Links to"
 msgstr "連結到"
 
@@ -196,7 +196,7 @@ msgstr "連結到"
 #: libraries/export/texytext.php:236
 #: libraries/schema/Pdf_Relation_Schema.class.php:1322
 #: libraries/schema/Pdf_Relation_Schema.class.php:1333
-#: libraries/tbl_properties.inc.php:122 tbl_printview.php:146
+#: libraries/tbl_properties.inc.php:122 tbl_printview.php:144
 msgid "Comments"
 msgstr "註釋"
 
@@ -211,7 +211,7 @@ msgstr "註釋"
 #: server_privileges.php:1473 server_privileges.php:1483
 #: server_privileges.php:1728 server_privileges.php:1739
 #: server_privileges.php:2060 server_privileges.php:2065
-#: server_privileges.php:2367 sql.php:290 sql.php:354 tbl_printview.php:193
+#: server_privileges.php:2367 sql.php:290 sql.php:354 tbl_printview.php:190
 #: tbl_structure.php:349 tbl_tracking.php:321 tbl_tracking.php:326
 msgid "No"
 msgstr "否"
@@ -233,7 +233,7 @@ msgstr "否"
 #: server_privileges.php:1481 server_privileges.php:1725
 #: server_privileges.php:1739 server_privileges.php:2060
 #: server_privileges.php:2063 server_privileges.php:2367 sql.php:353
-#: tbl_printview.php:193 tbl_structure.php:41 tbl_structure.php:349
+#: tbl_printview.php:190 tbl_structure.php:41 tbl_structure.php:349
 #: tbl_tracking.php:319 tbl_tracking.php:324
 msgid "Yes"
 msgstr "是"
@@ -361,7 +361,7 @@ msgstr "表"
 #: db_printview.php:102 libraries/build_html_for_db.lib.php:31
 #: libraries/db_structure.lib.php:42 libraries/header_printview.inc.php:65
 #: libraries/import.lib.php:151 navigation.php:592 navigation.php:612
-#: tbl_printview.php:357 tbl_structure.php:363 tbl_structure.php:469
+#: tbl_printview.php:353 tbl_structure.php:363 tbl_structure.php:469
 #: tbl_structure.php:880
 msgid "Rows"
 msgstr "行數"
@@ -376,21 +376,21 @@ msgstr "使用中"
 
 #: db_printview.php:184 libraries/db_info.inc.php:70
 #: libraries/export/sql.php:742
-#: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:397
+#: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:393
 #: tbl_structure.php:912
 msgid "Creation"
 msgstr "建立時間"
 
 #: db_printview.php:193 libraries/db_info.inc.php:75
 #: libraries/export/sql.php:747
-#: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:407
+#: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:403
 #: tbl_structure.php:920
 msgid "Last update"
 msgstr "最後更新"
 
 #: db_printview.php:202 libraries/db_info.inc.php:80
 #: libraries/export/sql.php:752
-#: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:417
+#: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:413
 #: tbl_structure.php:928
 msgid "Last check"
 msgstr "最後檢查"
@@ -609,8 +609,8 @@ msgstr "追蹤已停用"
 #: db_structure.php:450 libraries/display_tbl.lib.php:2346
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "這個檢視至少需包含這個數目的資料，請參考%sdocumentation%s。"
 
 #: db_structure.php:466 db_structure.php:480 libraries/header.inc.php:161
@@ -956,8 +956,8 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr "您上傳的檔案過大, 請查看此 %s 文件 %s 了解如何解決此限制."
 
 #: import.php:170 import.php:419
@@ -1168,7 +1168,7 @@ msgstr "靜態資料"
 #. l10n: Total number of queries
 #: js/messages.php:71 libraries/build_html_for_db.lib.php:46
 #: libraries/engines/innodb.lib.php:158 server_databases.php:223
-#: server_status.php:1115 server_status.php:1176 tbl_printview.php:314
+#: server_status.php:1115 server_status.php:1176 tbl_printview.php:310
 #: tbl_structure.php:802
 msgid "Total"
 msgstr "總計"
@@ -2513,8 +2513,8 @@ msgstr "歡迎使用 %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "您可能還沒有建立設定檔案。您可以使用 %1$s設定指令%2$s 來建立一個設定檔案"
 
@@ -2670,13 +2670,13 @@ msgstr "資料表"
 #: libraries/config/user_preferences.forms.php:259
 #: libraries/config/user_preferences.forms.php:264
 #: libraries/export/latex.php:201 libraries/export/sql.php:1092
-#: server_privileges.php:612 server_replication.php:314 tbl_printview.php:280
+#: server_privileges.php:612 server_replication.php:314 tbl_printview.php:276
 #: tbl_structure.php:771
 msgid "Data"
 msgstr "資料"
 
 #: libraries/build_html_for_db.lib.php:51 libraries/db_structure.lib.php:55
-#: tbl_printview.php:299 tbl_structure.php:788
+#: tbl_printview.php:295 tbl_structure.php:788
 msgid "Overhead"
 msgstr "多餘"
 
@@ -3108,7 +3108,7 @@ msgid "Not a valid port number"
 msgstr "錯誤的連結埠"
 
 #: libraries/config/FormDisplay.class.php:86
-#: libraries/config/FormDisplay.class.php:535
+#: libraries/config/FormDisplay.class.php:547
 #: libraries/config/validate.lib.php:378 libraries/config/validate.lib.php:465
 msgid "Incorrect value"
 msgstr "輸入的值不正確"
@@ -3119,41 +3119,41 @@ msgstr "輸入的值不正確"
 msgid "Value must be equal or lower than %s"
 msgstr "輸入的值應小於等於 %s"
 
-#: libraries/config/FormDisplay.class.php:499
+#: libraries/config/FormDisplay.class.php:511
 #, php-format
 msgid "Missing data for %s"
 msgstr "在 %s 中丟失資料"
 
-#: libraries/config/FormDisplay.class.php:696
-#: libraries/config/FormDisplay.class.php:700
+#: libraries/config/FormDisplay.class.php:708
+#: libraries/config/FormDisplay.class.php:712
 msgid "unavailable"
 msgstr "不可用"
 
-#: libraries/config/FormDisplay.class.php:697
-#: libraries/config/FormDisplay.class.php:701
+#: libraries/config/FormDisplay.class.php:709
+#: libraries/config/FormDisplay.class.php:713
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "“%s”功能需要 %s 外掛"
 
-#: libraries/config/FormDisplay.class.php:715
+#: libraries/config/FormDisplay.class.php:727
 #, php-format
 msgid "import will not work, missing function (%s)"
 msgstr "缺少函數 (%s)，匯入功能無效"
 
-#: libraries/config/FormDisplay.class.php:719
+#: libraries/config/FormDisplay.class.php:731
 #, php-format
 msgid "export will not work, missing function (%s)"
 msgstr "缺少函數 (%s)，匯出功能無效"
 
-#: libraries/config/FormDisplay.class.php:726
+#: libraries/config/FormDisplay.class.php:738
 msgid "SQL Validator is disabled"
 msgstr "SQL 檢驗器已停用"
 
-#: libraries/config/FormDisplay.class.php:733
+#: libraries/config/FormDisplay.class.php:745
 msgid "SOAP extension not found"
 msgstr "未安裝 SOAP 元件"
 
-#: libraries/config/FormDisplay.class.php:741
+#: libraries/config/FormDisplay.class.php:753
 #, php-format
 msgid "maximum %s"
 msgstr "最大 %s"
@@ -3429,7 +3429,7 @@ msgid "Character set of the file"
 msgstr "檔案字集"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
-#: tbl_gis_visualization.php:181 tbl_printview.php:339 tbl_structure.php:840
+#: tbl_gis_visualization.php:181 tbl_printview.php:335 tbl_structure.php:840
 msgid "Format"
 msgstr "格式"
 
@@ -5302,6 +5302,24 @@ msgstr "缺少 %s 外掛。請檢查 PHP 設定"
 msgid "possible deep recursion attack"
 msgstr ""
 
+#: libraries/database_interface.lib.php:1676
+#, fuzzy
+#| msgid "(or the local MySQL server's socket is not correctly configured)"
+msgid ""
+"The server is not responding (or the local server's socket is not correctly "
+"configured)."
+msgstr "(或者本地 MySQL 伺服器的連線埠沒有正確設定)"
+
+#: libraries/database_interface.lib.php:1678
+#, fuzzy
+#| msgid "The server is not responding"
+msgid "The server is not responding."
+msgstr "伺服器沒有響應"
+
+#: libraries/database_interface.lib.php:1686
+msgid "Details..."
+msgstr "詳細..."
+
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
 msgid "Database seems to be empty!"
@@ -5348,28 +5366,9 @@ msgstr ""
 "可能接近。參見 [a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a]"
 
 #: libraries/dbi/drizzle.dbi.lib.php:114 libraries/dbi/mysql.dbi.lib.php:117
-#: libraries/dbi/mysqli.dbi.lib.php:142
+#: libraries/dbi/mysqli.dbi.lib.php:186
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "使用設定檔案中定義的控制使用者連線失敗"
-
-#: libraries/dbi/drizzle.dbi.lib.php:344 libraries/dbi/mysql.dbi.lib.php:351
-#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:384
-msgid "The server is not responding"
-msgstr "伺服器沒有響應"
-
-#: libraries/dbi/drizzle.dbi.lib.php:344
-#, fuzzy
-#| msgid "(or the local MySQL server's socket is not correctly configured)"
-msgid "(or the local Drizzle server's socket is not correctly configured)"
-msgstr "(或者本地 MySQL 伺服器的連線埠沒有正確設定)"
-
-#: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysqli.dbi.lib.php:384
-msgid "(or the local MySQL server's socket is not correctly configured)"
-msgstr "(或者本地 MySQL 伺服器的連線埠沒有正確設定)"
-
-#: libraries/dbi/mysql.dbi.lib.php:360
-msgid "Details..."
-msgstr "詳細..."
 
 #: libraries/display_change_password.lib.php:29 main.php:93
 #: user_password.php:105 user_password.php:123
@@ -5519,8 +5518,8 @@ msgstr "，@TABLE@ 將變成資料資料表名稱"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "這個值是使用 %1$sstrftime%2$s 來解析的，所以您能用時間格式的字元串。另外，下"
 "列內容也將被轉換：%3$s。其他文字將保持原樣。參見%4$s常見問題 (FAQ)%5$s"
@@ -6229,8 +6228,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr "關於 PBXT 的檔案和更多資訊請參見 %sPrimeBase XT 首頁%s"
 
 #: libraries/engines/pbxt.lib.php:129
@@ -7088,7 +7087,7 @@ msgstr "變數"
 #: libraries/rte/rte_routines.lib.php:1361 libraries/tbl_select.lib.php:87
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769 server_status.php:1465 tbl_change.php:334
-#: tbl_printview.php:333 tbl_structure.php:832 tbl_zoom_select.php:436
+#: tbl_printview.php:329 tbl_structure.php:832 tbl_zoom_select.php:436
 msgid "Value"
 msgstr "值"
 
@@ -7666,14 +7665,13 @@ msgstr "目錄"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1307
 #: libraries/schema/Pdf_Relation_Schema.class.php:1328
-#: libraries/tbl_properties.inc.php:101 tbl_printview.php:138
-#: tbl_structure.php:204
+#: libraries/tbl_properties.inc.php:101 tbl_structure.php:204
 msgid "Attributes"
 msgstr "屬性"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1310
-#: libraries/schema/Pdf_Relation_Schema.class.php:1331 tbl_printview.php:141
-#: tbl_structure.php:207 tbl_tracking.php:262
+#: libraries/schema/Pdf_Relation_Schema.class.php:1331 tbl_structure.php:207
+#: tbl_tracking.php:262
 msgid "Extra"
 msgstr "額外"
 
@@ -7978,7 +7976,7 @@ msgid ""
 msgstr "對於預設值，請只輸入單個值，不要加反斜槓或引號，請用此格式：a"
 
 #: libraries/tbl_properties.inc.php:109 libraries/tbl_properties.inc.php:473
-#: tbl_printview.php:289 tbl_structure.php:153 tbl_structure.php:158
+#: tbl_printview.php:285 tbl_structure.php:153 tbl_structure.php:158
 #: tbl_structure.php:577 tbl_structure.php:779
 msgid "Index"
 msgstr "索引"
@@ -9107,8 +9105,8 @@ msgstr "刪除與使用者同名的資料庫"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "注意：phpMyAdmin 直接由 MySQL 權限表取得使用者權限。如果使用者手動更改表，表"
 "內容將可能與伺服器使用的使用者權限有異。在這種情況下，您應在繼續前%s重新載入"
@@ -9552,7 +9550,7 @@ msgstr "每分鐘"
 msgid "per second"
 msgstr "每秒"
 
-#: server_status.php:964 tbl_printview.php:332 tbl_structure.php:831
+#: server_status.php:964 tbl_printview.php:328 tbl_structure.php:831
 msgid "Statements"
 msgstr "說明"
 
@@ -11276,39 +11274,39 @@ msgstr "檢查引用完整性："
 msgid "Showing tables"
 msgstr "顯示資料表"
 
-#: tbl_printview.php:273 tbl_structure.php:762
+#: tbl_printview.php:269 tbl_structure.php:762
 msgid "Space usage"
 msgstr "已用空間"
 
-#: tbl_printview.php:277 tbl_structure.php:766
+#: tbl_printview.php:273 tbl_structure.php:766
 msgid "Usage"
 msgstr "已用"
 
-#: tbl_printview.php:304 tbl_structure.php:793
+#: tbl_printview.php:300 tbl_structure.php:793
 msgid "Effective"
 msgstr "有效"
 
-#: tbl_printview.php:329 tbl_structure.php:828
+#: tbl_printview.php:325 tbl_structure.php:828
 msgid "Row Statistics"
 msgstr "行統計"
 
-#: tbl_printview.php:343 tbl_structure.php:843
+#: tbl_printview.php:339 tbl_structure.php:843
 msgid "static"
 msgstr "靜態"
 
-#: tbl_printview.php:345 tbl_structure.php:845
+#: tbl_printview.php:341 tbl_structure.php:845
 msgid "dynamic"
 msgstr "動態"
 
-#: tbl_printview.php:367 tbl_structure.php:888
+#: tbl_printview.php:363 tbl_structure.php:888
 msgid "Row length"
 msgstr "行長度"
 
-#: tbl_printview.php:377 tbl_structure.php:896
+#: tbl_printview.php:373 tbl_structure.php:896
 msgid "Row size"
 msgstr "行大小 "
 
-#: tbl_printview.php:387 tbl_structure.php:904
+#: tbl_printview.php:383 tbl_structure.php:904
 msgid "Next autoindex"
 msgstr ""
 
@@ -11994,8 +11992,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -12124,8 +12122,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: po/advisory_rules.php:115
@@ -12806,6 +12804,11 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr ""
 
+#, fuzzy
+#~| msgid "(or the local MySQL server's socket is not correctly configured)"
+#~ msgid "(or the local Drizzle server's socket is not correctly configured)"
+#~ msgstr "(或者本地 MySQL 伺服器的連線埠沒有正確設定)"
+
 #~ msgid ""
 #~ "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates "
 #~ "maximum number for which vertical model is used"
@@ -13055,8 +13058,8 @@ msgstr ""
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
 #~ "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
-#~ "請注意不是所有的結果表都能繪圖。參見<a href=\"./Documentation.html#faq6_29"
-#~ "\" target=\"Documentation\">常見問題 (FAQ) 6.29</a>"
+#~ "請注意不是所有的結果表都能繪圖。參見<a href=\"./Documentation."
+#~ "html#faq6_29\" target=\"Documentation\">常見問題 (FAQ) 6.29</a>"
 
 #~ msgid "Add a New User"
 #~ msgstr "新增新使用者"

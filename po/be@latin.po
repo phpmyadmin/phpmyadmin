@@ -3,16 +3,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-10-24 09:52-0400\n"
+"POT-Creation-Date: 2011-10-24 17:47+0200\n"
 "PO-Revision-Date: 2010-03-30 23:09+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: belarusian_latin <be@latin@li.org>\n"
+"Language: be@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: be@latin\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Pootle 2.0.1\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:320
@@ -161,7 +161,7 @@ msgstr "Nazvy kalonak"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1327
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:84
 #: server_privileges.php:2251 tbl_change.php:297 tbl_change.php:324
-#: tbl_printview.php:137 tbl_printview.php:276 tbl_structure.php:202
+#: tbl_printview.php:137 tbl_printview.php:272 tbl_structure.php:202
 #: tbl_structure.php:765 tbl_tracking.php:258 tbl_tracking.php:305
 msgid "Type"
 msgstr "Typ"
@@ -172,7 +172,7 @@ msgstr "Typ"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1308
 #: libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_properties.inc.php:102 tbl_change.php:333
-#: tbl_printview.php:139 tbl_structure.php:205 tbl_tracking.php:260
+#: tbl_printview.php:138 tbl_structure.php:205 tbl_tracking.php:260
 #: tbl_tracking.php:311 tbl_zoom_select.php:435
 msgid "Null"
 msgstr "Nul"
@@ -182,7 +182,7 @@ msgstr "Nul"
 #: libraries/export/texytext.php:231
 #: libraries/schema/Pdf_Relation_Schema.class.php:1309
 #: libraries/schema/Pdf_Relation_Schema.class.php:1330
-#: libraries/tbl_properties.inc.php:99 tbl_printview.php:140
+#: libraries/tbl_properties.inc.php:99 tbl_printview.php:139
 #: tbl_structure.php:206 tbl_tracking.php:261
 msgid "Default"
 msgstr "Pa zmoŭčańni"
@@ -191,7 +191,7 @@ msgstr "Pa zmoŭčańni"
 #: libraries/export/latex.php:361 libraries/export/odt.php:299
 #: libraries/export/texytext.php:233
 #: libraries/schema/Pdf_Relation_Schema.class.php:1311
-#: libraries/schema/Pdf_Relation_Schema.class.php:1332 tbl_printview.php:144
+#: libraries/schema/Pdf_Relation_Schema.class.php:1332 tbl_printview.php:142
 msgid "Links to"
 msgstr "Źviazanaja z"
 
@@ -202,7 +202,7 @@ msgstr "Źviazanaja z"
 #: libraries/export/texytext.php:236
 #: libraries/schema/Pdf_Relation_Schema.class.php:1322
 #: libraries/schema/Pdf_Relation_Schema.class.php:1333
-#: libraries/tbl_properties.inc.php:122 tbl_printview.php:146
+#: libraries/tbl_properties.inc.php:122 tbl_printview.php:144
 msgid "Comments"
 msgstr "Kamentary"
 
@@ -217,7 +217,7 @@ msgstr "Kamentary"
 #: server_privileges.php:1473 server_privileges.php:1483
 #: server_privileges.php:1728 server_privileges.php:1739
 #: server_privileges.php:2060 server_privileges.php:2065
-#: server_privileges.php:2367 sql.php:290 sql.php:354 tbl_printview.php:193
+#: server_privileges.php:2367 sql.php:290 sql.php:354 tbl_printview.php:190
 #: tbl_structure.php:349 tbl_tracking.php:321 tbl_tracking.php:326
 msgid "No"
 msgstr "Nie"
@@ -239,7 +239,7 @@ msgstr "Nie"
 #: server_privileges.php:1481 server_privileges.php:1725
 #: server_privileges.php:1739 server_privileges.php:2060
 #: server_privileges.php:2063 server_privileges.php:2367 sql.php:353
-#: tbl_printview.php:193 tbl_structure.php:41 tbl_structure.php:349
+#: tbl_printview.php:190 tbl_structure.php:41 tbl_structure.php:349
 #: tbl_tracking.php:319 tbl_tracking.php:324
 msgid "Yes"
 msgstr "Tak"
@@ -378,7 +378,7 @@ msgstr "Tablica"
 #: db_printview.php:102 libraries/build_html_for_db.lib.php:31
 #: libraries/db_structure.lib.php:42 libraries/header_printview.inc.php:65
 #: libraries/import.lib.php:151 navigation.php:592 navigation.php:612
-#: tbl_printview.php:357 tbl_structure.php:363 tbl_structure.php:469
+#: tbl_printview.php:353 tbl_structure.php:363 tbl_structure.php:469
 #: tbl_structure.php:880
 msgid "Rows"
 msgstr "Radki"
@@ -393,21 +393,21 @@ msgstr "vykarystoŭvajecca"
 
 #: db_printview.php:184 libraries/db_info.inc.php:70
 #: libraries/export/sql.php:742
-#: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:397
+#: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:393
 #: tbl_structure.php:912
 msgid "Creation"
 msgstr "Stvoranaja"
 
 #: db_printview.php:193 libraries/db_info.inc.php:75
 #: libraries/export/sql.php:747
-#: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:407
+#: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:403
 #: tbl_structure.php:920
 msgid "Last update"
 msgstr "Apošniaje abnaŭleńnie"
 
 #: db_printview.php:202 libraries/db_info.inc.php:80
 #: libraries/export/sql.php:752
-#: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:417
+#: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:413
 #: tbl_structure.php:928
 msgid "Last check"
 msgstr "Apošniaja pravierka"
@@ -644,11 +644,11 @@ msgstr ""
 #: db_structure.php:450 libraries/display_tbl.lib.php:2346
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Hety prahlad maje tolki takuju kolkaść radkoŭ. Kali łaska, źviarniciesia da %"
-"sdakumentacyi%s."
+"Hety prahlad maje tolki takuju kolkaść radkoŭ. Kali łaska, źviarniciesia da "
+"%sdakumentacyi%s."
 
 #: db_structure.php:466 db_structure.php:480 libraries/header.inc.php:161
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
@@ -998,8 +998,8 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Vy, musić, pasprabavali zahruzić vielmi vialiki fajł. Kali łaska, "
 "źviarniciesia da %sdakumentacyi%s dla vyśviatleńnia sposabaŭ abyjści hetaje "
@@ -1026,8 +1026,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"Vy pasprabavali zahruzić fajł z metadam ścisku, jaki niepadtrymlivajecca (%"
-"s). Jahonaja padtrymka abo nie realizavanaja, abo adklučanaja ŭ vašaj "
+"Vy pasprabavali zahruzić fajł z metadam ścisku, jaki niepadtrymlivajecca "
+"(%s). Jahonaja padtrymka abo nie realizavanaja, abo adklučanaja ŭ vašaj "
 "kanfihuracyi."
 
 #: import.php:349
@@ -1235,7 +1235,7 @@ msgstr ""
 #. l10n: Total number of queries
 #: js/messages.php:71 libraries/build_html_for_db.lib.php:46
 #: libraries/engines/innodb.lib.php:158 server_databases.php:223
-#: server_status.php:1115 server_status.php:1176 tbl_printview.php:314
+#: server_status.php:1115 server_status.php:1176 tbl_printview.php:310
 #: tbl_structure.php:802
 msgid "Total"
 msgstr "Ahułam"
@@ -2684,8 +2684,8 @@ msgstr "Zaprašajem u %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Imavierna, pryčyna hetaha ŭ tym, što nia stvorany kanfihuracyjny fajł. Kab "
 "jaho stvaryć, možna vykarystać %1$snaładačny skrypt%2$s."
@@ -2848,13 +2848,13 @@ msgstr "Tablic"
 #: libraries/config/user_preferences.forms.php:259
 #: libraries/config/user_preferences.forms.php:264
 #: libraries/export/latex.php:201 libraries/export/sql.php:1092
-#: server_privileges.php:612 server_replication.php:314 tbl_printview.php:280
+#: server_privileges.php:612 server_replication.php:314 tbl_printview.php:276
 #: tbl_structure.php:771
 msgid "Data"
 msgstr "Dadzienyja"
 
 #: libraries/build_html_for_db.lib.php:51 libraries/db_structure.lib.php:55
-#: tbl_printview.php:299 tbl_structure.php:788
+#: tbl_printview.php:295 tbl_structure.php:788
 msgid "Overhead"
 msgstr "Vykarystańnie resursaŭ"
 
@@ -3306,7 +3306,7 @@ msgid "Not a valid port number"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:86
-#: libraries/config/FormDisplay.class.php:535
+#: libraries/config/FormDisplay.class.php:547
 #: libraries/config/validate.lib.php:378 libraries/config/validate.lib.php:465
 msgid "Incorrect value"
 msgstr ""
@@ -3317,45 +3317,45 @@ msgstr ""
 msgid "Value must be equal or lower than %s"
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:499
+#: libraries/config/FormDisplay.class.php:511
 #, php-format
 msgid "Missing data for %s"
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:696
-#: libraries/config/FormDisplay.class.php:700
+#: libraries/config/FormDisplay.class.php:708
+#: libraries/config/FormDisplay.class.php:712
 #, fuzzy
 #| msgid "Variable"
 msgid "unavailable"
 msgstr "Źmiennaja"
 
-#: libraries/config/FormDisplay.class.php:697
-#: libraries/config/FormDisplay.class.php:701
+#: libraries/config/FormDisplay.class.php:709
+#: libraries/config/FormDisplay.class.php:713
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:715
+#: libraries/config/FormDisplay.class.php:727
 #, php-format
 msgid "import will not work, missing function (%s)"
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:719
+#: libraries/config/FormDisplay.class.php:731
 #, php-format
 msgid "export will not work, missing function (%s)"
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:726
+#: libraries/config/FormDisplay.class.php:738
 msgid "SQL Validator is disabled"
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:733
+#: libraries/config/FormDisplay.class.php:745
 #, fuzzy
 #| msgid "Link not found"
 msgid "SOAP extension not found"
 msgstr "Suviaź nia znojdzienaja"
 
-#: libraries/config/FormDisplay.class.php:741
+#: libraries/config/FormDisplay.class.php:753
 #, php-format
 msgid "maximum %s"
 msgstr ""
@@ -3631,7 +3631,7 @@ msgid "Character set of the file"
 msgstr ""
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
-#: tbl_gis_visualization.php:181 tbl_printview.php:339 tbl_structure.php:840
+#: tbl_gis_visualization.php:181 tbl_printview.php:335 tbl_structure.php:840
 msgid "Format"
 msgstr "Farmat"
 
@@ -5518,6 +5518,24 @@ msgstr ""
 msgid "possible deep recursion attack"
 msgstr ""
 
+#: libraries/database_interface.lib.php:1676
+#, fuzzy
+#| msgid "(or the local MySQL server's socket is not correctly configured)"
+msgid ""
+"The server is not responding (or the local server's socket is not correctly "
+"configured)."
+msgstr "(abo sokiet lakalnaha servera MySQL nie skanfihuravany pravilna)"
+
+#: libraries/database_interface.lib.php:1678
+#, fuzzy
+#| msgid "The server is not responding"
+msgid "The server is not responding."
+msgstr "Server nie adkazvaje"
+
+#: libraries/database_interface.lib.php:1686
+msgid "Details..."
+msgstr "Padrabiaźniej..."
+
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
 msgid "Database seems to be empty!"
@@ -5563,30 +5581,11 @@ msgid ""
 msgstr "Značeńnie moža być prybliznym. Hł. FAQ 3.11"
 
 #: libraries/dbi/drizzle.dbi.lib.php:114 libraries/dbi/mysql.dbi.lib.php:117
-#: libraries/dbi/mysqli.dbi.lib.php:142
+#: libraries/dbi/mysqli.dbi.lib.php:186
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Nie atrymałasia ŭstalavać złučeńnie dla controluser, vyznačanaje ŭ vašym "
 "kanfihuracyjnym fajle."
-
-#: libraries/dbi/drizzle.dbi.lib.php:344 libraries/dbi/mysql.dbi.lib.php:351
-#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:384
-msgid "The server is not responding"
-msgstr "Server nie adkazvaje"
-
-#: libraries/dbi/drizzle.dbi.lib.php:344
-#, fuzzy
-#| msgid "(or the local MySQL server's socket is not correctly configured)"
-msgid "(or the local Drizzle server's socket is not correctly configured)"
-msgstr "(abo sokiet lakalnaha servera MySQL nie skanfihuravany pravilna)"
-
-#: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysqli.dbi.lib.php:384
-msgid "(or the local MySQL server's socket is not correctly configured)"
-msgstr "(abo sokiet lakalnaha servera MySQL nie skanfihuravany pravilna)"
-
-#: libraries/dbi/mysql.dbi.lib.php:360
-msgid "Details..."
-msgstr "Padrabiaźniej..."
 
 #: libraries/display_change_password.lib.php:29 main.php:93
 #: user_password.php:105 user_password.php:123
@@ -5765,8 +5764,8 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Hetaje značeńnie interpretujecca z vykarystańniem %1$sstrftime%2$s, tamu "
 "možna vykarystoŭvać radki farmatavańnia času. Aproč hetaha, buduć "
@@ -6551,8 +6550,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -7428,7 +7427,7 @@ msgstr "Źmiennaja"
 #: libraries/rte/rte_routines.lib.php:1361 libraries/tbl_select.lib.php:87
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769 server_status.php:1465 tbl_change.php:334
-#: tbl_printview.php:333 tbl_structure.php:832 tbl_zoom_select.php:436
+#: tbl_printview.php:329 tbl_structure.php:832 tbl_zoom_select.php:436
 msgid "Value"
 msgstr "Značeńnie"
 
@@ -8005,14 +8004,13 @@ msgstr "Źmiest"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1307
 #: libraries/schema/Pdf_Relation_Schema.class.php:1328
-#: libraries/tbl_properties.inc.php:101 tbl_printview.php:138
-#: tbl_structure.php:204
+#: libraries/tbl_properties.inc.php:101 tbl_structure.php:204
 msgid "Attributes"
 msgstr "Atrybuty"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1310
-#: libraries/schema/Pdf_Relation_Schema.class.php:1331 tbl_printview.php:141
-#: tbl_structure.php:207 tbl_tracking.php:262
+#: libraries/schema/Pdf_Relation_Schema.class.php:1331 tbl_structure.php:207
+#: tbl_tracking.php:262
 msgid "Extra"
 msgstr "Dadatkova"
 
@@ -8312,8 +8310,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "Niemahčyma prainicyjalizavać pravierku SQL. Kali łaska, praviercie, ci "
-"ŭstalavanyja ŭ vas nieabchodnyja pašyreńni PHP, jak heta apisana ŭ %"
-"sdakumentacyi%s."
+"ŭstalavanyja ŭ vas nieabchodnyja pašyreńni PHP, jak heta apisana ŭ "
+"%sdakumentacyi%s."
 
 #: libraries/tbl_links.inc.php:118 libraries/tbl_links.inc.php:119
 msgid "Table seems to be empty!"
@@ -8351,7 +8349,7 @@ msgstr ""
 "vykarystańnia zvarotnych słešaŭ i dvukośsia, vykarystoŭvajučy farmat: a"
 
 #: libraries/tbl_properties.inc.php:109 libraries/tbl_properties.inc.php:473
-#: tbl_printview.php:289 tbl_structure.php:153 tbl_structure.php:158
+#: tbl_printview.php:285 tbl_structure.php:153 tbl_structure.php:158
 #: tbl_structure.php:577 tbl_structure.php:779
 msgid "Index"
 msgstr "Indeks"
@@ -8531,8 +8529,8 @@ msgstr ""
 "dadadzienyja da mietki času (pa zmoŭčańni — 0). Druhi parametar "
 "vykarystoŭvajcie, kab paznačyć inšy farmat daty/času. Treci parametar "
 "vyznačaje typ daty, jakaja budzie pakazanaja: vašaja lakalnaja data albo "
-"data UTC (vykarystoŭvajcie dla hetaha parametry «local» i «utc» adpaviedna). U "
-"zaležnaści ad hetaha farmat daty maje roznyja značeńni: dla atrymańnia "
+"data UTC (vykarystoŭvajcie dla hetaha parametry «local» i «utc» adpaviedna). "
+"U zaležnaści ad hetaha farmat daty maje roznyja značeńni: dla atrymańnia "
 "parametraŭ lakalnaj daty hladzicie dakumentacyju dla funkcyi PHP strftime(), "
 "a dla hrynvickaha času (parametar «utc») — dakumentacyju funkcyi gmdate()."
 
@@ -9618,8 +9616,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Zaŭvaha: phpMyAdmin atrymlivaje pryvilei karystalnikaŭ naŭprostava z tablic "
 "pryvilejaŭ MySQL. Źmieściva hetych tablic moža adroźnivacca ad pryvilejaŭ, "
@@ -10066,7 +10064,7 @@ msgstr "u chvilinu"
 msgid "per second"
 msgstr "u sekundu"
 
-#: server_status.php:964 tbl_printview.php:332 tbl_structure.php:831
+#: server_status.php:964 tbl_printview.php:328 tbl_structure.php:831
 msgid "Statements"
 msgstr "Vyrazy"
 
@@ -11850,39 +11848,39 @@ msgstr "Pravieryć cełasnaść dadzienych:"
 msgid "Showing tables"
 msgstr "Pakazać tablicy"
 
-#: tbl_printview.php:273 tbl_structure.php:762
+#: tbl_printview.php:269 tbl_structure.php:762
 msgid "Space usage"
 msgstr "Vykarystańnie prastory"
 
-#: tbl_printview.php:277 tbl_structure.php:766
+#: tbl_printview.php:273 tbl_structure.php:766
 msgid "Usage"
 msgstr "Vykarystańnie"
 
-#: tbl_printview.php:304 tbl_structure.php:793
+#: tbl_printview.php:300 tbl_structure.php:793
 msgid "Effective"
 msgstr "Efektyŭnaść"
 
-#: tbl_printview.php:329 tbl_structure.php:828
+#: tbl_printview.php:325 tbl_structure.php:828
 msgid "Row Statistics"
 msgstr "Statystyka radku"
 
-#: tbl_printview.php:343 tbl_structure.php:843
+#: tbl_printview.php:339 tbl_structure.php:843
 msgid "static"
 msgstr ""
 
-#: tbl_printview.php:345 tbl_structure.php:845
+#: tbl_printview.php:341 tbl_structure.php:845
 msgid "dynamic"
 msgstr "dynamičny"
 
-#: tbl_printview.php:367 tbl_structure.php:888
+#: tbl_printview.php:363 tbl_structure.php:888
 msgid "Row length"
 msgstr "Daŭžynia radka"
 
-#: tbl_printview.php:377 tbl_structure.php:896
+#: tbl_printview.php:373 tbl_structure.php:896
 msgid "Row size"
 msgstr "Pamier radka "
 
-#: tbl_printview.php:387 tbl_structure.php:904
+#: tbl_printview.php:383 tbl_structure.php:904
 msgid "Next autoindex"
 msgstr ""
 
@@ -12577,8 +12575,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -12707,8 +12705,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: po/advisory_rules.php:115
@@ -13381,6 +13379,11 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "(or the local MySQL server's socket is not correctly configured)"
+#~ msgid "(or the local Drizzle server's socket is not correctly configured)"
+#~ msgstr "(abo sokiet lakalnaha servera MySQL nie skanfihuravany pravilna)"
 
 #~ msgid "Create table on database %s"
 #~ msgstr "Stvaryć novuju tablicu ŭ BD %s"

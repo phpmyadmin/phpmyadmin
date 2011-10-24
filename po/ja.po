@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-10-24 09:52-0400\n"
+"POT-Creation-Date: 2011-10-24 17:47+0200\n"
 "PO-Revision-Date: 2011-10-19 11:45+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -158,7 +158,7 @@ msgstr "カラム"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1327
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:84
 #: server_privileges.php:2251 tbl_change.php:297 tbl_change.php:324
-#: tbl_printview.php:137 tbl_printview.php:276 tbl_structure.php:202
+#: tbl_printview.php:137 tbl_printview.php:272 tbl_structure.php:202
 #: tbl_structure.php:765 tbl_tracking.php:258 tbl_tracking.php:305
 msgid "Type"
 msgstr "種別"
@@ -169,7 +169,7 @@ msgstr "種別"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1308
 #: libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_properties.inc.php:102 tbl_change.php:333
-#: tbl_printview.php:139 tbl_structure.php:205 tbl_tracking.php:260
+#: tbl_printview.php:138 tbl_structure.php:205 tbl_tracking.php:260
 #: tbl_tracking.php:311 tbl_zoom_select.php:435
 msgid "Null"
 msgstr "NULL"
@@ -179,7 +179,7 @@ msgstr "NULL"
 #: libraries/export/texytext.php:231
 #: libraries/schema/Pdf_Relation_Schema.class.php:1309
 #: libraries/schema/Pdf_Relation_Schema.class.php:1330
-#: libraries/tbl_properties.inc.php:99 tbl_printview.php:140
+#: libraries/tbl_properties.inc.php:99 tbl_printview.php:139
 #: tbl_structure.php:206 tbl_tracking.php:261
 msgid "Default"
 msgstr "デフォルト値"
@@ -188,7 +188,7 @@ msgstr "デフォルト値"
 #: libraries/export/latex.php:361 libraries/export/odt.php:299
 #: libraries/export/texytext.php:233
 #: libraries/schema/Pdf_Relation_Schema.class.php:1311
-#: libraries/schema/Pdf_Relation_Schema.class.php:1332 tbl_printview.php:144
+#: libraries/schema/Pdf_Relation_Schema.class.php:1332 tbl_printview.php:142
 msgid "Links to"
 msgstr "リンク先"
 
@@ -199,7 +199,7 @@ msgstr "リンク先"
 #: libraries/export/texytext.php:236
 #: libraries/schema/Pdf_Relation_Schema.class.php:1322
 #: libraries/schema/Pdf_Relation_Schema.class.php:1333
-#: libraries/tbl_properties.inc.php:122 tbl_printview.php:146
+#: libraries/tbl_properties.inc.php:122 tbl_printview.php:144
 msgid "Comments"
 msgstr "コメント"
 
@@ -214,7 +214,7 @@ msgstr "コメント"
 #: server_privileges.php:1473 server_privileges.php:1483
 #: server_privileges.php:1728 server_privileges.php:1739
 #: server_privileges.php:2060 server_privileges.php:2065
-#: server_privileges.php:2367 sql.php:290 sql.php:354 tbl_printview.php:193
+#: server_privileges.php:2367 sql.php:290 sql.php:354 tbl_printview.php:190
 #: tbl_structure.php:349 tbl_tracking.php:321 tbl_tracking.php:326
 msgid "No"
 msgstr "いいえ"
@@ -236,7 +236,7 @@ msgstr "いいえ"
 #: server_privileges.php:1481 server_privileges.php:1725
 #: server_privileges.php:1739 server_privileges.php:2060
 #: server_privileges.php:2063 server_privileges.php:2367 sql.php:353
-#: tbl_printview.php:193 tbl_structure.php:41 tbl_structure.php:349
+#: tbl_printview.php:190 tbl_structure.php:41 tbl_structure.php:349
 #: tbl_tracking.php:319 tbl_tracking.php:324
 msgid "Yes"
 msgstr "はい"
@@ -366,7 +366,7 @@ msgstr "テーブル"
 #: db_printview.php:102 libraries/build_html_for_db.lib.php:31
 #: libraries/db_structure.lib.php:42 libraries/header_printview.inc.php:65
 #: libraries/import.lib.php:151 navigation.php:592 navigation.php:612
-#: tbl_printview.php:357 tbl_structure.php:363 tbl_structure.php:469
+#: tbl_printview.php:353 tbl_structure.php:363 tbl_structure.php:469
 #: tbl_structure.php:880
 msgid "Rows"
 msgstr "行"
@@ -381,21 +381,21 @@ msgstr "使用中"
 
 #: db_printview.php:184 libraries/db_info.inc.php:70
 #: libraries/export/sql.php:742
-#: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:397
+#: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:393
 #: tbl_structure.php:912
 msgid "Creation"
 msgstr "作成日時"
 
 #: db_printview.php:193 libraries/db_info.inc.php:75
 #: libraries/export/sql.php:747
-#: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:407
+#: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:403
 #: tbl_structure.php:920
 msgid "Last update"
 msgstr "最終更新"
 
 #: db_printview.php:202 libraries/db_info.inc.php:80
 #: libraries/export/sql.php:752
-#: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:417
+#: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:413
 #: tbl_structure.php:928
 msgid "Last check"
 msgstr "最終検査"
@@ -609,8 +609,8 @@ msgstr "SQL コマンドの追跡は非アクティブです。"
 #: db_structure.php:450 libraries/display_tbl.lib.php:2346
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "このビューの最低行数。詳しくは%sドキュメント%sをご覧ください。"
 
 #: db_structure.php:466 db_structure.php:480 libraries/header.inc.php:161
@@ -944,8 +944,8 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "アップロードしようとしたファイルが大きすぎるようです。対策については %sドキュ"
 "メント%s をご覧ください"
@@ -1163,7 +1163,7 @@ msgstr "統計データ"
 #. l10n: Total number of queries
 #: js/messages.php:71 libraries/build_html_for_db.lib.php:46
 #: libraries/engines/innodb.lib.php:158 server_databases.php:223
-#: server_status.php:1115 server_status.php:1176 tbl_printview.php:314
+#: server_status.php:1115 server_status.php:1176 tbl_printview.php:310
 #: tbl_structure.php:802
 msgid "Total"
 msgstr "合計"
@@ -2470,11 +2470,11 @@ msgstr "%s へようこそ"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプト%2"
-"$s を利用して設定ファイルを作成してください"
+"設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプ"
+"ト%2$s を利用して設定ファイルを作成してください"
 
 #: libraries/auth/config.auth.lib.php:109
 msgid ""
@@ -2630,13 +2630,13 @@ msgstr "テーブル"
 #: libraries/config/user_preferences.forms.php:259
 #: libraries/config/user_preferences.forms.php:264
 #: libraries/export/latex.php:201 libraries/export/sql.php:1092
-#: server_privileges.php:612 server_replication.php:314 tbl_printview.php:280
+#: server_privileges.php:612 server_replication.php:314 tbl_printview.php:276
 #: tbl_structure.php:771
 msgid "Data"
 msgstr "データ"
 
 #: libraries/build_html_for_db.lib.php:51 libraries/db_structure.lib.php:55
-#: tbl_printview.php:299 tbl_structure.php:788
+#: tbl_printview.php:295 tbl_structure.php:788
 msgid "Overhead"
 msgstr "オーバーヘッド"
 
@@ -3057,7 +3057,7 @@ msgid "Not a valid port number"
 msgstr "有効なポート番号ではありません"
 
 #: libraries/config/FormDisplay.class.php:86
-#: libraries/config/FormDisplay.class.php:535
+#: libraries/config/FormDisplay.class.php:547
 #: libraries/config/validate.lib.php:378 libraries/config/validate.lib.php:465
 msgid "Incorrect value"
 msgstr "不正な値です"
@@ -3068,41 +3068,41 @@ msgstr "不正な値です"
 msgid "Value must be equal or lower than %s"
 msgstr "値は %s 以下でなければいけません"
 
-#: libraries/config/FormDisplay.class.php:499
+#: libraries/config/FormDisplay.class.php:511
 #, php-format
 msgid "Missing data for %s"
 msgstr "%s ためのデータがありません"
 
-#: libraries/config/FormDisplay.class.php:696
-#: libraries/config/FormDisplay.class.php:700
+#: libraries/config/FormDisplay.class.php:708
+#: libraries/config/FormDisplay.class.php:712
 msgid "unavailable"
 msgstr "使えません"
 
-#: libraries/config/FormDisplay.class.php:697
-#: libraries/config/FormDisplay.class.php:701
+#: libraries/config/FormDisplay.class.php:709
+#: libraries/config/FormDisplay.class.php:713
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" には %s 拡張が必要です"
 
-#: libraries/config/FormDisplay.class.php:715
+#: libraries/config/FormDisplay.class.php:727
 #, php-format
 msgid "import will not work, missing function (%s)"
 msgstr "インポートが行えません。関数 %s がありません。"
 
-#: libraries/config/FormDisplay.class.php:719
+#: libraries/config/FormDisplay.class.php:731
 #, php-format
 msgid "export will not work, missing function (%s)"
 msgstr "エクスポートが行えません。関数 %s がありません。"
 
-#: libraries/config/FormDisplay.class.php:726
+#: libraries/config/FormDisplay.class.php:738
 msgid "SQL Validator is disabled"
 msgstr "SQL 検証は無効です"
 
-#: libraries/config/FormDisplay.class.php:733
+#: libraries/config/FormDisplay.class.php:745
 msgid "SOAP extension not found"
 msgstr "SOAP 拡張が見つかりません"
 
-#: libraries/config/FormDisplay.class.php:741
+#: libraries/config/FormDisplay.class.php:753
 #, php-format
 msgid "maximum %s"
 msgstr "最大 %s"
@@ -3387,7 +3387,7 @@ msgid "Character set of the file"
 msgstr "ファイルの文字セット"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
-#: tbl_gis_visualization.php:181 tbl_printview.php:339 tbl_structure.php:840
+#: tbl_gis_visualization.php:181 tbl_printview.php:335 tbl_structure.php:840
 msgid "Format"
 msgstr "フォーマット"
 
@@ -5335,6 +5335,24 @@ msgstr "%s 拡張がありません。PHP の設定をチェックしてみて�
 msgid "possible deep recursion attack"
 msgstr "深い再帰的な攻撃を受けている可能性があります。"
 
+#: libraries/database_interface.lib.php:1676
+#, fuzzy
+#| msgid "(or the local MySQL server's socket is not correctly configured)"
+msgid ""
+"The server is not responding (or the local server's socket is not correctly "
+"configured)."
+msgstr "(あるいはローカルの MySQL サーバのソケットが正しく設定されていません)"
+
+#: libraries/database_interface.lib.php:1678
+#, fuzzy
+#| msgid "The server is not responding"
+msgid "The server is not responding."
+msgstr "サーバが応答しません"
+
+#: libraries/database_interface.lib.php:1686
+msgid "Details..."
+msgstr "詳細..."
+
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
 msgid "Database seems to be empty!"
@@ -5380,28 +5398,10 @@ msgid ""
 msgstr "正確な数字とは限りません。FAQ 3.11 をご覧ください"
 
 #: libraries/dbi/drizzle.dbi.lib.php:114 libraries/dbi/mysql.dbi.lib.php:117
-#: libraries/dbi/mysqli.dbi.lib.php:142
+#: libraries/dbi/mysqli.dbi.lib.php:186
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "設定ファイルに定義されている管理ユーザ(controluser)での接続に失敗しました"
-
-#: libraries/dbi/drizzle.dbi.lib.php:344 libraries/dbi/mysql.dbi.lib.php:351
-#: libraries/dbi/mysql.dbi.lib.php:353 libraries/dbi/mysqli.dbi.lib.php:384
-msgid "The server is not responding"
-msgstr "サーバが応答しません"
-
-#: libraries/dbi/drizzle.dbi.lib.php:344
-msgid "(or the local Drizzle server's socket is not correctly configured)"
-msgstr ""
-"(あるいはローカルの Drizzle サーバのソケットが正しく設定されていません)"
-
-#: libraries/dbi/mysql.dbi.lib.php:351 libraries/dbi/mysqli.dbi.lib.php:384
-msgid "(or the local MySQL server's socket is not correctly configured)"
-msgstr "(あるいはローカルの MySQL サーバのソケットが正しく設定されていません)"
-
-#: libraries/dbi/mysql.dbi.lib.php:360
-msgid "Details..."
-msgstr "詳細..."
 
 #: libraries/display_change_password.lib.php:29 main.php:93
 #: user_password.php:105 user_password.php:123
@@ -5551,8 +5551,8 @@ msgstr "、@TABLE@ はテーブル名に"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "この値は %1$sstrftime%2$s を使用して解釈されますので、時刻の書式文字列を使用"
 "することができます。また、埋め込み変数変換も行われます（%3$s変換されま"
@@ -6294,8 +6294,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "PBXT に関するドキュメントおよび詳細な情報は、%sPrimeBase XT オフィシャルサイ"
 "ト%sにあります。"
@@ -7148,7 +7148,7 @@ msgstr "変数"
 #: libraries/rte/rte_routines.lib.php:1361 libraries/tbl_select.lib.php:87
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769 server_status.php:1465 tbl_change.php:334
-#: tbl_printview.php:333 tbl_structure.php:832 tbl_zoom_select.php:436
+#: tbl_printview.php:329 tbl_structure.php:832 tbl_zoom_select.php:436
 msgid "Value"
 msgstr "値"
 
@@ -7667,14 +7667,13 @@ msgstr "テーブルの内容"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1307
 #: libraries/schema/Pdf_Relation_Schema.class.php:1328
-#: libraries/tbl_properties.inc.php:101 tbl_printview.php:138
-#: tbl_structure.php:204
+#: libraries/tbl_properties.inc.php:101 tbl_structure.php:204
 msgid "Attributes"
 msgstr "属性"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1310
-#: libraries/schema/Pdf_Relation_Schema.class.php:1331 tbl_printview.php:141
-#: tbl_structure.php:207 tbl_tracking.php:262
+#: libraries/schema/Pdf_Relation_Schema.class.php:1331 tbl_structure.php:207
+#: tbl_tracking.php:262
 msgid "Extra"
 msgstr "その他"
 
@@ -7988,7 +7987,7 @@ msgstr ""
 "ケープや引用符を含めることはできません。例: a"
 
 #: libraries/tbl_properties.inc.php:109 libraries/tbl_properties.inc.php:473
-#: tbl_printview.php:289 tbl_structure.php:153 tbl_structure.php:158
+#: tbl_printview.php:285 tbl_structure.php:153 tbl_structure.php:158
 #: tbl_structure.php:577 tbl_structure.php:779
 msgid "Index"
 msgstr "インデックス"
@@ -9141,8 +9140,8 @@ msgstr "ユーザと同名のデータベースを削除する"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "注意: phpMyAdmin は MySQL の特権テーブルから直接ユーザ特権を取得しますが、手"
 "作業で特権を更新した場合は phpMyAdmin が利用しているテーブルの内容とサーバの"
@@ -9592,7 +9591,7 @@ msgstr "/分"
 msgid "per second"
 msgstr "/秒"
 
-#: server_status.php:964 tbl_printview.php:332 tbl_structure.php:831
+#: server_status.php:964 tbl_printview.php:328 tbl_structure.php:831
 msgid "Statements"
 msgstr "ステートメント"
 
@@ -10923,10 +10922,11 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"それでも、[kbd]config[/kbd] 認証が必要であると思われる場合、追加の保護設定（%"
-"sホスト認証%s設定および%s信頼されたプロキシのリスト%s）を使用してください。し"
-"かしながら、ユーザが数千人もいるような ISP に所属している、含まれている、接続"
-"されている場合には、IP アドレスを基にした保護は信頼性が高いとはいえません。"
+"それでも、[kbd]config[/kbd] 認証が必要であると思われる場合、追加の保護設定"
+"（%sホスト認証%s設定および%s信頼されたプロキシのリスト%s）を使用してくださ"
+"い。しかしながら、ユーザが数千人もいるような ISP に所属している、含まれてい"
+"る、接続されている場合には、IP アドレスを基にした保護は信頼性が高いとはいえま"
+"せん。"
 
 #: setup/lib/index.lib.php:292
 #, php-format
@@ -11355,39 +11355,39 @@ msgstr "参照整合性の確認:"
 msgid "Showing tables"
 msgstr "テーブルを表示する"
 
-#: tbl_printview.php:273 tbl_structure.php:762
+#: tbl_printview.php:269 tbl_structure.php:762
 msgid "Space usage"
 msgstr "ディスク使用量"
 
-#: tbl_printview.php:277 tbl_structure.php:766
+#: tbl_printview.php:273 tbl_structure.php:766
 msgid "Usage"
 msgstr "使用量"
 
-#: tbl_printview.php:304 tbl_structure.php:793
+#: tbl_printview.php:300 tbl_structure.php:793
 msgid "Effective"
 msgstr "有効"
 
-#: tbl_printview.php:329 tbl_structure.php:828
+#: tbl_printview.php:325 tbl_structure.php:828
 msgid "Row Statistics"
 msgstr "行の統計"
 
-#: tbl_printview.php:343 tbl_structure.php:843
+#: tbl_printview.php:339 tbl_structure.php:843
 msgid "static"
 msgstr "静的"
 
-#: tbl_printview.php:345 tbl_structure.php:845
+#: tbl_printview.php:341 tbl_structure.php:845
 msgid "dynamic"
 msgstr "動的"
 
-#: tbl_printview.php:367 tbl_structure.php:888
+#: tbl_printview.php:363 tbl_structure.php:888
 msgid "Row length"
 msgstr "行の長さ"
 
-#: tbl_printview.php:377 tbl_structure.php:896
+#: tbl_printview.php:373 tbl_structure.php:896
 msgid "Row size"
 msgstr "行のサイズ "
 
-#: tbl_printview.php:387 tbl_structure.php:904
+#: tbl_printview.php:383 tbl_structure.php:904
 msgid "Next autoindex"
 msgstr "次の自動付番"
 
@@ -12066,8 +12066,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -12189,8 +12189,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: po/advisory_rules.php:115
@@ -12910,6 +12910,10 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#~ msgid "(or the local Drizzle server's socket is not correctly configured)"
+#~ msgstr ""
+#~ "(あるいはローカルの Drizzle サーバのソケットが正しく設定されていません)"
 
 #~ msgid ""
 #~ "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates "
