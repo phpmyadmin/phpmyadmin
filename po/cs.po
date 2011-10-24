@@ -11720,7 +11720,7 @@ msgstr ""
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
-msgstr ""
+msgstr "Nechte server běžet delší dobu dokud nespustí větší množství dotazů."
 
 #: po/advisory_rules.php:13
 #, php-format
