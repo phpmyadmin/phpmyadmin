@@ -1482,7 +1482,7 @@ function PMA_showNoticeForEnum(selectElement)
 {
     var enum_notice_id = selectElement.attr("id").split("_")[1];
     enum_notice_id += "_" + (parseInt(selectElement.attr("id").split("_")[2]) + 1);
-    var selectedType = selectElement.attr("value");
+    var selectedType = selectElement.val();
     if (selectedType == "ENUM" || selectedType == "SET") {
         $("p[id='enum_notice_" + enum_notice_id + "']").show();
     } else {
