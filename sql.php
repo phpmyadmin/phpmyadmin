@@ -990,19 +990,7 @@ $(document).ready(makeProfilingChart);
 
     // Do print the page if required
     if (isset($printview) && $printview == '1') {
-        ?>
-<script type="text/javascript">
-//<![CDATA[
-// Do print the page
-window.onload = function()
-{
-    if (typeof(window.print) != 'undefined') {
-        window.print();
-    }
-}
-//]]>
-</script>
-        <?php
+        PMA_printButton();
     } // end print case
 
     if ($GLOBALS['is_ajax_request'] != true) {
