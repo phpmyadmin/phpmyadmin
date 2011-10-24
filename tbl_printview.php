@@ -135,10 +135,8 @@ foreach ($the_tables as $key => $table) {
 <tr>
     <th><?php echo __('Column'); ?></th>
     <th><?php echo __('Type'); ?></th>
-    <!--<th><?php echo __('Attributes'); ?></th>-->
     <th><?php echo __('Null'); ?></th>
     <th><?php echo __('Default'); ?></th>
-    <!--<th><?php echo __('Extra'); ?></th>-->
     <?php
     if ($have_rel) {
         echo '<th>' . __('Links to') . '</th>' . "\n";
@@ -189,10 +187,8 @@ foreach ($the_tables as $key => $table) {
     ?>
     </td>
     <td><?php echo $type; ?><bdo dir="ltr"></bdo></td>
-    <!--<td><?php echo $attribute; ?></td>-->
     <td><?php echo (($row['Null'] == '' || $row['Null'] == 'NO') ? __('No') : __('Yes')); ?>&nbsp;</td>
     <td><?php if (isset($row['Default'])) { echo $row['Default']; } ?>&nbsp;</td>
-    <!--<td><?php echo $row['Extra']; ?>&nbsp;</td>-->
     <?php
         if ($have_rel) {
             echo '    <td>';
