@@ -5,7 +5,8 @@
  *
  * Explanation of used terms:
  * o work_path - original field path, eg. Servers/4/verbose
- * o system_path - work_path modified so that it points to the first server, eg. Servers/1/verbose
+ * o system_path - work_path modified so that it points to the first server,
+ *                 eg. Servers/1/verbose
  * o translated_path - work_path modified for HTML field name, a path with
  *                     slashes changed to hyphens, eg. Servers-4-verbose
  *
