@@ -9099,7 +9099,6 @@ msgid "Any"
 msgstr "Jakýkoliv"
 
 #: server_privileges.php:1561
-#, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
 msgstr "Přehled uživatelů"
