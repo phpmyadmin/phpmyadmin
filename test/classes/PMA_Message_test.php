@@ -242,7 +242,7 @@ class PMA_Message_test extends PHPUnit_Extensions_OutputTestCase
             array('[b]test[/b][strong]test[/strong]', '<strong>test</strong><strong>test</strong>'),
             array('[tt]test[/tt][code]test[/code]', '<code>test</code><code>test</code>'),
             array('[kbd]test[/kbd][br][sup]test[/sup]', '<kbd>test</kbd><br /><sup>test</sup>'),
-            array('[a@http://foo.bar/@Documentation]link[/a]', '<a href="./url.php?url=http%3A%2F%2Ffoo.bar%2F" target="Documentation">link</a>'),
+            array('[a@http://foo.bar/@Documentation]link[/a]', '<a href="./url.php?url=http%3A%2F%2Ffoo.bar%2F&amp;lang=en" target="Documentation">link</a>'),
             array('[a@./non-existing@Documentation]link[/a]', '[a@./non-existing@Documentation]link</a>'),
             array('[a@./Documentation.html@Documentation]link[/a]', '<a href="./Documentation.html" target="Documentation">link</a>'),
         );
@@ -255,6 +255,7 @@ class PMA_Message_test extends PHPUnit_Extensions_OutputTestCase
 
     public function testDecodeBB($actual, $expected)
     {
+        $GLOBALS['lang'] = 'en';
         $this->assertEquals($expected, PMA_Message::decodeBB($actual));
     }
 
