@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-08 06:43-0400\n"
-"PO-Revision-Date: 2011-10-24 17:09+0200\n"
+"PO-Revision-Date: 2011-10-24 17:10+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -6740,7 +6740,7 @@ msgstr "Soubor ESRI"
 #: libraries/import/shp.php:280
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr "Při nahrávání souboru ESRI došlo k chybě: \"%s\"."
+msgstr "Při nahrávání souboru ESRI došlo k chybě: „%s“."
 
 #: libraries/import/shp.php:336
 msgid ""
