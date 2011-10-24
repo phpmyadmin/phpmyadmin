@@ -557,27 +557,57 @@ function PMA_DBI_field_flags($result, $i)
     $charsetnr = $f->charset();
     $f = $f->flags();
     $flags = '';
-    if ($f & DRIZZLE_COLUMN_FLAGS_UNIQUE_KEY)     { $flags .= 'unique '; }
-    if ($f & DRIZZLE_COLUMN_FLAGS_NUM)            { $flags .= 'num '; }
-    if ($f & DRIZZLE_COLUMN_FLAGS_PART_KEY)       { $flags .= 'part_key '; }
-    if ($f & DRIZZLE_COLUMN_FLAGS_SET)            { $flags .= 'set '; }
-    if ($f & DRIZZLE_COLUMN_FLAGS_TIMESTAMP)      { $flags .= 'timestamp '; }
-    if ($f & DRIZZLE_COLUMN_FLAGS_AUTO_INCREMENT) { $flags .= 'auto_increment '; }
-    if ($f & DRIZZLE_COLUMN_FLAGS_ENUM)           { $flags .= 'enum '; }
+    if ($f & DRIZZLE_COLUMN_FLAGS_UNIQUE_KEY) {
+        $flags .= 'unique ';
+    }
+    if ($f & DRIZZLE_COLUMN_FLAGS_NUM) {
+        $flags .= 'num ';
+    }
+    if ($f & DRIZZLE_COLUMN_FLAGS_PART_KEY) {
+        $flags .= 'part_key ';
+    }
+    if ($f & DRIZZLE_COLUMN_FLAGS_SET) {
+        $flags .= 'set ';
+    }
+    if ($f & DRIZZLE_COLUMN_FLAGS_TIMESTAMP) {
+        $flags .= 'timestamp ';
+    }
+    if ($f & DRIZZLE_COLUMN_FLAGS_AUTO_INCREMENT) {
+        $flags .= 'auto_increment ';
+    }
+    if ($f & DRIZZLE_COLUMN_FLAGS_ENUM) {
+        $flags .= 'enum ';
+    }
     // See http://dev.mysql.com/doc/refman/6.0/en/c-api-datatypes.html:
     // to determine if a string is binary, we should not use MYSQLI_BINARY_FLAG
     // but instead the charsetnr member of the MYSQL_FIELD
     // structure. Watch out: some types like DATE returns 63 in charsetnr
     // so we have to check also the type.
     // Unfortunately there is no equivalent in the mysql extension.
-    if (($type == DRIZZLE_COLUMN_TYPE_DRIZZLE_BLOB || $type == DRIZZLE_COLUMN_TYPE_DRIZZLE_VARCHAR) && 63 == $charsetnr) { $flags .= 'binary ';}
-    if ($f & DRIZZLE_COLUMN_FLAGS_ZEROFILL)       { $flags .= 'zerofill ';}
-    if ($f & DRIZZLE_COLUMN_FLAGS_UNSIGNED)       { $flags .= 'unsigned ';}
-    if ($f & DRIZZLE_COLUMN_FLAGS_BLOB)           { $flags .= 'blob ';}
-    if ($f & DRIZZLE_COLUMN_FLAGS_MULTIPLE_KEY)   { $flags .= 'multiple_key ';}
-    if ($f & DRIZZLE_COLUMN_FLAGS_UNIQUE_KEY)     { $flags .= 'unique_key ';}
-    if ($f & DRIZZLE_COLUMN_FLAGS_PRI_KEY)        { $flags .= 'primary_key ';}
-    if ($f & DRIZZLE_COLUMN_FLAGS_NOT_NULL)       { $flags .= 'not_null ';}
+    if (($type == DRIZZLE_COLUMN_TYPE_DRIZZLE_BLOB || $type == DRIZZLE_COLUMN_TYPE_DRIZZLE_VARCHAR) && 63 == $charsetnr) {
+        $flags .= 'binary ';
+    }
+    if ($f & DRIZZLE_COLUMN_FLAGS_ZEROFILL) {
+        $flags .= 'zerofill ';
+    }
+    if ($f & DRIZZLE_COLUMN_FLAGS_UNSIGNED) {
+        $flags .= 'unsigned ';
+    }
+    if ($f & DRIZZLE_COLUMN_FLAGS_BLOB) {
+        $flags .= 'blob ';
+    }
+    if ($f & DRIZZLE_COLUMN_FLAGS_MULTIPLE_KEY) {
+        $flags .= 'multiple_key ';
+    }
+    if ($f & DRIZZLE_COLUMN_FLAGS_UNIQUE_KEY) {
+        $flags .= 'unique_key ';
+    }
+    if ($f & DRIZZLE_COLUMN_FLAGS_PRI_KEY) {
+        $flags .= 'primary_key ';
+    }
+    if ($f & DRIZZLE_COLUMN_FLAGS_NOT_NULL) {
+        $flags .= 'not_null ';
+    }
     return trim($flags);
 }
 
