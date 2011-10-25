@@ -11434,10 +11434,9 @@ msgid "Check referential integrity:"
 msgstr "İlgili bütünlük kontrolü:"
 
 #: tbl_printview.php:72
-#, fuzzy
 #| msgid "Show tables"
 msgid "Showing tables"
-msgstr "Tabloları göster"
+msgstr "Tablolar gösteriliyor"
 
 #: tbl_printview.php:269 tbl_structure.php:762
 msgid "Space usage"
