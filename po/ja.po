@@ -11197,10 +11197,9 @@ msgid "No index parts defined!"
 msgstr "インデックス部分が定義されていません!"
 
 #: tbl_indexes.php:169
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create an index"
-msgstr "新しいインデックスを作成する"
+msgstr "インデックスを作成する"
 
 #: tbl_indexes.php:171
 msgid "Modify an index"
