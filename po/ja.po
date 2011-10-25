@@ -11863,10 +11863,9 @@ msgid "log_slow_queries is set to 'OFF'"
 msgstr "log_slow_queries が「OFF」に設定されています。"
 
 #: po/advisory_rules.php:35
-#, fuzzy
 #| msgid "Clear series"
 msgid "Release Series"
-msgstr "系列をクリアする"
+msgstr "バージョン系統"
 
 #: po/advisory_rules.php:36
 msgid "The MySQL server version less then 5.1."
