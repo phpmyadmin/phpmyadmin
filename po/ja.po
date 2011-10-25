@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-25 11:32+0200\n"
+"PO-Revision-Date: 2011-10-25 11:33+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -5336,12 +5336,11 @@ msgid "possible deep recursion attack"
 msgstr "深い再帰的な攻撃を受けている可能性があります。"
 
 #: libraries/database_interface.lib.php:1676
-#, fuzzy
 #| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
-msgstr "(あるいはローカルの MySQL サーバのソケットが正しく設定されていません)"
+msgstr "サーバが応答しません (あるいはローカルサーバのソケットが正しく設定されていません)。"
 
 #: libraries/database_interface.lib.php:1678
 #, fuzzy
