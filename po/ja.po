@@ -11346,10 +11346,9 @@ msgid "Check referential integrity:"
 msgstr "参照整合性の確認:"
 
 #: tbl_printview.php:72
-#, fuzzy
 #| msgid "Show tables"
 msgid "Showing tables"
-msgstr "テーブルを表示する"
+msgstr "テーブルを表示しています"
 
 #: tbl_printview.php:269 tbl_structure.php:762
 msgid "Space usage"
