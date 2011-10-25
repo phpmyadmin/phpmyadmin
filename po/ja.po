@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-25 11:34+0200\n"
+"PO-Revision-Date: 2011-10-25 11:41+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1607,10 +1607,9 @@ msgid "Recommendation"
 msgstr "推奨設定"
 
 #: js/messages.php:200
-#, fuzzy
 #| msgid "Details"
 msgid "Rule details"
-msgstr "詳細"
+msgstr "事象の詳細と判断理由"
 
 #: js/messages.php:201
 msgid "Justification"
