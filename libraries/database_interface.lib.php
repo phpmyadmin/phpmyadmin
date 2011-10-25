@@ -10,13 +10,20 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- *
+ * Force STORE_RESULT method, ignored by classic MySQL.
  */
-// PMA_DBI_try_query()
-define('PMA_DBI_QUERY_STORE',       1);  // Force STORE_RESULT method, ignored by classic MySQL.
-define('PMA_DBI_QUERY_UNBUFFERED',  2);  // Do not read whole query
-// PMA_DBI_get_variable()
+define('PMA_DBI_QUERY_STORE',       1);
+/**
+ * Do not read whole query.
+ */
+define('PMA_DBI_QUERY_UNBUFFERED',  2);
+/**
+ * Get session variable.
+ */
 define('PMA_DBI_GETVAR_SESSION',    1);
+/**
+ * Get global variable.
+ */
 define('PMA_DBI_GETVAR_GLOBAL',     2);
 
 /**
@@ -48,7 +55,11 @@ if (! PMA_DBI_checkDbExtension($GLOBALS['cfg']['Server']['extension'])) {
      * @todo add different messages for alternative extension
      * and complete fail (no alternative extension too)
      */
-    PMA_warnMissingExtension($GLOBALS['cfg']['Server']['extension'], false, PMA_showDocu('faqmysql'));
+    PMA_warnMissingExtension(
+        $GLOBALS['cfg']['Server']['extension'],
+        false,
+        PMA_showDocu('faqmysql')
+        );
 
     if ($GLOBALS['cfg']['Server']['extension'] === 'mysql') {
         $alternativ_extension = 'mysqli';
@@ -58,7 +69,11 @@ if (! PMA_DBI_checkDbExtension($GLOBALS['cfg']['Server']['extension'])) {
 
     if (! PMA_DBI_checkDbExtension($alternativ_extension)) {
         // if alternative fails too ...
-        PMA_warnMissingExtension($GLOBALS['cfg']['Server']['extension'], true, PMA_showDocu('faqmysql'));
+        PMA_warnMissingExtension(
+            $GLOBALS['cfg']['Server']['extension'],
+            true,
+            PMA_showDocu('faqmysql')
+            );
     }
 
     $GLOBALS['cfg']['Server']['extension'] = $alternativ_extension;
@@ -68,7 +83,8 @@ if (! PMA_DBI_checkDbExtension($GLOBALS['cfg']['Server']['extension'])) {
 /**
  * Including The DBI Plugin
  */
-require_once './libraries/dbi/' . $GLOBALS['cfg']['Server']['extension'] . '.dbi.lib.php';
+require_once './libraries/dbi/'
+    . $GLOBALS['cfg']['Server']['extension'] . '.dbi.lib.php';
 
 /**
  * runs a query
