@@ -47,32 +47,38 @@ $item = '<a href="%1$s?%2$s" class="item">'
     .'%4$s: %3$s</a>' . "\n";
 
 echo '<div id="serverinfo">' . "\n";
-printf($item,
-        $GLOBALS['cfg']['DefaultTabServer'],
-        PMA_generate_common_url(),
-        'Server',
-        __('Server'),
-        'ic_s_host');
+printf(
+    $item,
+    $GLOBALS['cfg']['DefaultTabServer'],
+    PMA_generate_common_url(),
+    'Server',
+    __('Server'),
+    'ic_s_host'
+    );
 
 echo $separator;
-printf($item,
-        $GLOBALS['cfg']['DefaultTabDatabase'],
-        '',
-        'Database',
-        __('Database'),
-        'ic_s_db');
+printf(
+    $item,
+    $GLOBALS['cfg']['DefaultTabDatabase'],
+    '',
+    'Database',
+    __('Database'),
+    'ic_s_db'
+    );
 
 echo $separator;
-printf($item,
-        $GLOBALS['cfg']['DefaultTabTable'],
-        '',
-        'Table',
-        (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view']
-            ? __('View')
-            : __('Table')),
-        (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view']
-            ? 'ic_b_views'
-            : 'ic_s_tbl'));
+printf(
+    $item,
+    $GLOBALS['cfg']['DefaultTabTable'],
+    '',
+    'Table',
+    (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view']
+        ? __('View')
+        : __('Table')),
+    (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view']
+        ? 'ic_b_views'
+        : 'ic_s_tbl')
+    );
 
 echo '<span class="table_comment" id="span_table_comment">'
     .'&quot;Table comment&quot</span>' . "\n";
