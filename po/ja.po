@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-25 11:33+0200\n"
+"PO-Revision-Date: 2011-10-25 11:34+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -11792,7 +11792,7 @@ msgstr "クエリの全体量に対して遅いクエリが多く存在します
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
-msgstr ""
+msgstr "{long_query_time} を増やすか、クエリログから遅いクエリを見つけ出し最適化してみてください。"
 
 #: po/advisory_rules.php:18
 #, php-format
