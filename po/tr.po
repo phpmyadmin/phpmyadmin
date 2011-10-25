@@ -5381,10 +5381,9 @@ msgstr ""
 "yapılandırılmadı)."
 
 #: libraries/database_interface.lib.php:1678
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
-msgstr "Sunucu yanıt vermiyor"
+msgstr "Sunucu yanıt vermiyor."
 
 #: libraries/database_interface.lib.php:1686
 msgid "Details..."
