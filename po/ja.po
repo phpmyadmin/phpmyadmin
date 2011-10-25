@@ -7780,7 +7780,6 @@ msgid "Current Server"
 msgstr "カレントサーバ"
 
 #: libraries/server_links.inc.php:60
-#, fuzzy
 #| msgid "User"
 msgid "Users"
 msgstr "ユーザ"
