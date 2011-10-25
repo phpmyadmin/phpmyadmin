@@ -215,18 +215,42 @@ echo sprintf(__('Welcome to %s'),
 </div>
 <code class="sql">
 <span class="syntax">
-<span class="syntax_alpha syntax_alpha_reservedWord">SELECT</span> <span class="syntax_punct">*</span> <br />
-<span class="syntax_alpha syntax_alpha_reservedWord">FROM</span> <span class="syntax_quote syntax_quote_backtick">`test`</span> <span class="syntax_white syntax_white_newline"></span><br />
-<span class="syntax_alpha syntax_alpha_reservedWord">LIMIT</span> <span class="syntax_digit syntax_digit_integer">0</span><span class="syntax_punct syntax_punct_listsep">,</span> <span class="syntax_digit syntax_digit_integer">30</span>;<br />
-<span class="syntax_alpha syntax_alpha_reservedWord">SELECT</span> <span class="syntax_punct">*</span> <br />
-<span class="syntax_alpha syntax_alpha_reservedWord">FROM</span> <span class="syntax_quote syntax_quote_backtick">`test`</span> <span class="syntax_white syntax_white_newline"></span><br />
-<span class="syntax_alpha syntax_alpha_reservedWord">LIMIT</span> <span class="syntax_digit syntax_digit_integer">0</span><span class="syntax_punct syntax_punct_listsep">,</span> <span class="syntax_digit syntax_digit_integer">30</span>;<br />
-<span class="syntax_alpha syntax_alpha_reservedWord">SELECT</span> <span class="syntax_punct">*</span> <br />
-<span class="syntax_alpha syntax_alpha_reservedWord">FROM</span> <span class="syntax_quote syntax_quote_backtick">`test`</span> <span class="syntax_white syntax_white_newline"></span><br />
-<span class="syntax_alpha syntax_alpha_reservedWord">LIMIT</span> <span class="syntax_digit syntax_digit_integer">0</span><span class="syntax_punct syntax_punct_listsep">,</span> <span class="syntax_digit syntax_digit_integer">30</span>;<br />
-<span class="syntax_alpha syntax_alpha_reservedWord">SELECT</span> <span class="syntax_punct">*</span> <br />
-<span class="syntax_alpha syntax_alpha_reservedWord">FROM</span> <span class="syntax_quote syntax_quote_backtick">`test`</span> <span class="syntax_white syntax_white_newline"></span><br />
-<span class="syntax_alpha syntax_alpha_reservedWord">LIMIT</span> <span class="syntax_digit syntax_digit_integer">0</span><span class="syntax_punct syntax_punct_listsep">,</span> <span class="syntax_digit syntax_digit_integer">30</span>;<br />
+<span class="syntax_alpha syntax_alpha_reservedWord">SELECT</span>
+<span class="syntax_punct">*</span> <br />
+<span class="syntax_alpha syntax_alpha_reservedWord">FROM</span>
+<span class="syntax_quote syntax_quote_backtick">`test`</span>
+<span class="syntax_white syntax_white_newline"></span><br />
+<span class="syntax_alpha syntax_alpha_reservedWord">LIMIT</span>
+<span class="syntax_digit syntax_digit_integer">0</span>
+<span class="syntax_punct syntax_punct_listsep">,</span>
+<span class="syntax_digit syntax_digit_integer">30</span>;<br />
+<span class="syntax_alpha syntax_alpha_reservedWord">SELECT</span>
+<span class="syntax_punct">*</span> <br />
+<span class="syntax_alpha syntax_alpha_reservedWord">FROM</span>
+<span class="syntax_quote syntax_quote_backtick">`test`</span>
+<span class="syntax_white syntax_white_newline"></span><br />
+<span class="syntax_alpha syntax_alpha_reservedWord">LIMIT</span>
+<span class="syntax_digit syntax_digit_integer">0</span>
+<span class="syntax_punct syntax_punct_listsep">,</span>
+<span class="syntax_digit syntax_digit_integer">30</span>;<br />
+<span class="syntax_alpha syntax_alpha_reservedWord">SELECT</span>
+<span class="syntax_punct">*</span> <br />
+<span class="syntax_alpha syntax_alpha_reservedWord">FROM</span>
+<span class="syntax_quote syntax_quote_backtick">`test`</span>
+<span class="syntax_white syntax_white_newline"></span><br />
+<span class="syntax_alpha syntax_alpha_reservedWord">LIMIT</span>
+<span class="syntax_digit syntax_digit_integer">0</span>
+<span class="syntax_punct syntax_punct_listsep">,</span>
+<span class="syntax_digit syntax_digit_integer">30</span>;<br />
+<span class="syntax_alpha syntax_alpha_reservedWord">SELECT</span>
+<span class="syntax_punct">*</span> <br />
+<span class="syntax_alpha syntax_alpha_reservedWord">FROM</span>
+<span class="syntax_quote syntax_quote_backtick">`test`</span>
+<span class="syntax_white syntax_white_newline"></span><br />
+<span class="syntax_alpha syntax_alpha_reservedWord">LIMIT</span>
+<span class="syntax_digit syntax_digit_integer">0</span>
+<span class="syntax_punct syntax_punct_listsep">,</span>
+<span class="syntax_digit syntax_digit_integer">30</span>;<br />
 </span>
 </code>
 <div class="tools">
