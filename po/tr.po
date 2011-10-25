@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-25 13:14+0200\n"
+"PO-Revision-Date: 2011-10-25 13:16+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -9174,10 +9174,9 @@ msgid "Any"
 msgstr "Herhangi"
 
 #: server_privileges.php:1561
-#, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
-msgstr "Kullanıcı gözden geçirme"
+msgstr "Kullanıcılara genel bakış"
 
 #: server_privileges.php:1701 server_privileges.php:1895
 #: server_privileges.php:2253
