@@ -5343,10 +5343,9 @@ msgid ""
 msgstr "サーバが応答しません (あるいはローカルサーバのソケットが正しく設定されていません)。"
 
 #: libraries/database_interface.lib.php:1678
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
-msgstr "サーバが応答しません"
+msgstr "サーバが応答しません。"
 
 #: libraries/database_interface.lib.php:1686
 msgid "Details..."
