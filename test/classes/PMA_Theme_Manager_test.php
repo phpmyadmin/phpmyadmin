@@ -3,7 +3,7 @@
 /**
  * tests for PMA_Theme_Manager class
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 /*

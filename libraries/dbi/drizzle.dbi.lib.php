@@ -8,7 +8,7 @@
  * TODO: This file and drizzle-wrappers.lib.php should be devoid of any segault related hacks.
  * TODO: Crashing versions of drizzle module and/or libdrizzle should be blacklisted
  *
- * @package phpMyAdmin-DBI-Drizzle
+ * @package PhpMyAdmin-DBI-Drizzle
  */
 if (! defined('PHPMYADMIN')) {
     exit;

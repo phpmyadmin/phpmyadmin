@@ -2,7 +2,7 @@
 /**
  * Test for PMA_GIS_Factory
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 require_once 'libraries/gis/pma_gis_geometry.php';
 require_once 'libraries/gis/pma_gis_linestring.php';

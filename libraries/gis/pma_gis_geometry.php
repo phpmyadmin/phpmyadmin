@@ -2,7 +2,7 @@
 /**
  * Base class for all GIS data type classes.
  *
- * @package phpMyAdmin-GIS
+ * @package PhpMyAdmin-GIS
  */
 abstract class PMA_GIS_Geometry
 {

@@ -3,7 +3,7 @@
 /**
  * Tests for PMA_ifSetOr() from libraries/core.lib.php
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 /*

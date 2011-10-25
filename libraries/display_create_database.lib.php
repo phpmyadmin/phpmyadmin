@@ -3,7 +3,7 @@
 /**
  * Displays form for creating database (if user has privileges for that)
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

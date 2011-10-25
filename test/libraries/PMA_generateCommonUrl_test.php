@@ -3,7 +3,7 @@
 /**
  * tests for PMA_generate_common_url()
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 /*

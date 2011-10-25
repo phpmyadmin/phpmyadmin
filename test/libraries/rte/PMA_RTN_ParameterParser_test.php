@@ -3,7 +3,7 @@
 /**
  * Test for parsing of Routine parameters
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 /*

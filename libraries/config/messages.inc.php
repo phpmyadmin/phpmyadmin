@@ -7,7 +7,7 @@
  * configuration subsystem, with $strConfig as a prefix, _desc or _name
  * as a suffix, and the directive name in between.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 if (!function_exists('__')) {

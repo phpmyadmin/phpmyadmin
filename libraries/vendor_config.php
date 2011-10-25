@@ -7,7 +7,7 @@
  * For changing this file you should know what you are doing. For this reason
  * options here are not part of normal configuration.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

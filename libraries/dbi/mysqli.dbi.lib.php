@@ -3,7 +3,7 @@
 /**
  * Interface to the improved MySQL extension (MySQLi)
  *
- * @package phpMyAdmin-DBI-MySQLi
+ * @package PhpMyAdmin-DBI-MySQLi
  */
 if (! defined('PHPMYADMIN')) {
     exit;

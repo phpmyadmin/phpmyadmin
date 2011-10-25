@@ -3,7 +3,7 @@
 /**
  * Events management.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

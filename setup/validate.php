@@ -3,7 +3,7 @@
 /**
  * Validation callback.
  *
- * @package phpMyAdmin-setup
+ * @package PhpMyAdmin-setup
  */
 
 /**

@@ -6,7 +6,7 @@
  * Note: please do not fold this script into a general script
  * that would read any file using a GET parameter, it would open a hole
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

@@ -3,7 +3,7 @@
 /**
  * Set of functions used for cleaning up phpMyAdmin tables
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

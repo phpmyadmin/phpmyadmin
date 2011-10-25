@@ -3,7 +3,7 @@
 /**
  * Formset processing library
  *
- * @package phpMyAdmin-setup
+ * @package PhpMyAdmin-setup
  */
 
 /**

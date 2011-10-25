@@ -3,7 +3,7 @@
 /**
  * Test for generating routine editor
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 require_once 'libraries/common.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';

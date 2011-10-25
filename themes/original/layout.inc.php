@@ -4,7 +4,7 @@
  * configures general layout
  * for detailed layout configuration please refer to the css files
  *
- * @package phpMyAdmin-theme
+ * @package PhpMyAdmin-theme
  * @subpackage Original
  */
 

@@ -7,7 +7,7 @@
  * All directives are explained in Documentation.html and on phpMyAdmin
  * wiki <http://wiki.phpmyadmin.net>.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /*

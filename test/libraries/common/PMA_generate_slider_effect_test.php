@@ -3,7 +3,7 @@
 /**
  * Test for PMA_generate_slider_effect from common.lib.php
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  * @version $Id: PMA_generate_slider_effect_test.php
  * @group common.lib-tests
  */

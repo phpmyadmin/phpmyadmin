@@ -14,7 +14,7 @@
  * It's easier to use only uppercase for proper sorting. In case of
  * doubt, use the test case to verify.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

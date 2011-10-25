@@ -4,7 +4,7 @@
  * Database with allowed values for configuration stored in the $cfg array,
  * used by setup script and user preferences to generate forms.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 if (!defined('PHPMYADMIN')) {

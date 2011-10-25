@@ -3,7 +3,7 @@
 /**
  * Routines management.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

@@ -2,7 +2,7 @@
 /**
  * Handles the visualization of GIS POINT objects.
  *
- * @package phpMyAdmin-GIS
+ * @package PhpMyAdmin-GIS
  */
 class PMA_GIS_Point extends PMA_GIS_Geometry
 {

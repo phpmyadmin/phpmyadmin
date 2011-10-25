@@ -13,7 +13,7 @@
  * The SQL Parser code relies heavily on these functions.
  *
  * @todo a .lib filename should not have code in main(), split or rename file
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

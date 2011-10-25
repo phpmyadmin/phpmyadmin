@@ -7,7 +7,7 @@
  * and include sql.php to execute it
  *
  * @todo display search form again if no results from previous search
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

@@ -3,7 +3,7 @@
 /**
  * Javascript escaping functions.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  *
  */
 

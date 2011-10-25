@@ -12,7 +12,7 @@
  *
  * Valdiation functions are assigned in $cfg_db['_validators'] (config.values.php).
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

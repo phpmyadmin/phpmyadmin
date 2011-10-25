@@ -3,7 +3,7 @@
 /**
  * tests for PMA_pow()
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 $match = array();

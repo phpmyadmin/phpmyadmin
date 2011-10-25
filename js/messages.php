@@ -3,7 +3,7 @@
 /**
  * Exporting of translated messages from PHP to Javascript
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 chdir('..');

@@ -3,7 +3,7 @@
 /**
  * Set of functions used with the bookmark feature
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

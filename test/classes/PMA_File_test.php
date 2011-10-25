@@ -4,7 +4,7 @@
 /**
  * tests for PMA_File class
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 /*

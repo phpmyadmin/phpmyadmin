@@ -3,7 +3,7 @@
 /**
  * Common functions for the export functionality for Routines, Triggers and Events.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

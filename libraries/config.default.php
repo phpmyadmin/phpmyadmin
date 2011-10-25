@@ -16,7 +16,7 @@
  *
  * All directives are explained in Documentation.html
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

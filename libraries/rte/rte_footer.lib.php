@@ -3,7 +3,7 @@
 /**
  * Common functions for generating the footer for Routines, Triggers and Events.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

@@ -3,7 +3,7 @@
 /**
  * Functions for displaying user preferences pages
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

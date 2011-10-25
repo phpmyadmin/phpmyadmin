@@ -3,7 +3,7 @@
 /**
  * Simple interface for creating OASIS OpenDocument files.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

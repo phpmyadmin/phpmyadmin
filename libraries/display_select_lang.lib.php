@@ -3,7 +3,7 @@
 /**
  * Code for displaying language selection
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

@@ -3,7 +3,7 @@
 /**
  * tests for PMA_PDF class
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 /*

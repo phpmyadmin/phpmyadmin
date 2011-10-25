@@ -4,7 +4,7 @@
  * A simple rules engine, that parses and executes the rules in advisory_rules.txt. Adjusted to phpMyAdmin
  *
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 class Advisor

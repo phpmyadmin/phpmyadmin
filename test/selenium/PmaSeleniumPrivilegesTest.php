@@ -3,7 +3,7 @@
 /**
  * Selenium TestCase for privilege related tests
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  * @group Selenium
  */
 

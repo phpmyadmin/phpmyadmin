@@ -4,7 +4,7 @@
  * Test for PMA_Config class
  *
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  * @group current
  */
 

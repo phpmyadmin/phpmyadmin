@@ -2,7 +2,7 @@
 /**
  * Tests for PMA_GIS_modifyQuery method
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 require_once 'libraries/sqlparser.lib.php';

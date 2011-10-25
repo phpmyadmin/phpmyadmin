@@ -3,7 +3,7 @@
 /**
  * Test for javascript escaping.
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 /*

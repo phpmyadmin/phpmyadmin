@@ -3,7 +3,7 @@
 /**
  * handle row specifc actions like edit, delete, export
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 

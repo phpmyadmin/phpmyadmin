@@ -3,7 +3,7 @@
 /**
  * Test for PMA_showHint() function from common.lib.php
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  * @version $Id: PMA_showHint_test.php
  */
 

@@ -5,7 +5,7 @@
  * Displays a form for editing ENUM and SET values with more space (as an alternative to doing it in tbl_alter.php)
  * This form is only for users with JavaScript disabled -- users with JavaScript enabled will see a different form
  * defined in tbl_properties.inc.php
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 require_once './libraries/common.inc.php';

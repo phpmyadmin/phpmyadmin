@@ -3,7 +3,7 @@
 /**
  * Test for gettext parsing.
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 //require_once('gettext.php');
 

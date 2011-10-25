@@ -2,7 +2,7 @@
 /**
  * Handles the visualization of GIS MULTIPOLYGON objects.
  *
- * @package phpMyAdmin-GIS
+ * @package PhpMyAdmin-GIS
  */
 class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
 {

@@ -10,7 +10,7 @@
  * o translated_path - work_path modified for HTML field name, a path with
  *                     slashes changed to hyphens, eg. Servers-4-verbose
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

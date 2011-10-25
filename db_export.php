@@ -3,7 +3,7 @@
 /**
  * dumps a database
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

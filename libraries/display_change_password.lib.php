@@ -3,7 +3,7 @@
 /**
  * Displays form for password change
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

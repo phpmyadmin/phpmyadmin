@@ -2,7 +2,7 @@
 /**
  * Abstract parent class for all PMA_GIS_<Geom_type> test classes
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 require_once 'libraries/gis/pma_gis_geometry.php';

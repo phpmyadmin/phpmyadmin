@@ -2,7 +2,7 @@
 /**
  * Menu items
  *
- * @package phpMyAdmin-setup
+ * @package PhpMyAdmin-setup
  */
 
 if (!defined('PHPMYADMIN')) {

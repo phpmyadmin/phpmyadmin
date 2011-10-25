@@ -3,7 +3,7 @@
 /**
  * Functions for cleanup of user input.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

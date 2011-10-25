@@ -3,7 +3,7 @@
 /**
  * User preferences management page
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

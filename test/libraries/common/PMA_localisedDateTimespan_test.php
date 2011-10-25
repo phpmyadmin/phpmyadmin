@@ -3,7 +3,7 @@
 /**
  * Test for generating localised date or timespan expression
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  * @version $Id: PMA_localisedDateTimespan_test.php
  * @group common.lib-tests
  */

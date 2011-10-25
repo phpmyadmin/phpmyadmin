@@ -2,7 +2,7 @@
 /**
  * Server create and edit view
  *
- * @package phpMyAdmin-setup
+ * @package PhpMyAdmin-setup
  */
 
 if (!defined('PHPMYADMIN')) {

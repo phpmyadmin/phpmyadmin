@@ -13,7 +13,7 @@
  *
  * always use $GLOBALS, as this script is also included by functions
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

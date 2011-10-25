@@ -3,7 +3,7 @@
 /**
  * tests for Advisor class
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 /*

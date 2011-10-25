@@ -3,7 +3,7 @@
 /**
  * Test for PMA_display_html_radio from common.lib.php
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  * @version $Id: PMA_display_html_radio_test.php
  * @group common.lib-tests
  */

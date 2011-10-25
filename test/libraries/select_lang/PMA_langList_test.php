@@ -3,7 +3,7 @@
 /**
  * Test for PMA_langList from select_lang.lib.php
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  * @version $Id: PMA_langList_test.php
  * @group select_lang.lib-tests
  */

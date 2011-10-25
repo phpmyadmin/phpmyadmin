@@ -3,7 +3,7 @@
 /**
  * Form templates
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

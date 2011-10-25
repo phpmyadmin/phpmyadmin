@@ -3,7 +3,7 @@
 /**
  * runs all defined tests
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 /**

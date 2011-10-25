@@ -2,7 +2,7 @@
 /**
  * Handles the visualization of GIS MULTIPOINT objects.
  *
- * @package phpMyAdmin-GIS
+ * @package PhpMyAdmin-GIS
  */
 class PMA_GIS_Multipoint extends PMA_GIS_Geometry
 {

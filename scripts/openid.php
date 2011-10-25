@@ -12,7 +12,7 @@
  * User first authenticates using OpenID and based on content of $AUTH_MAP
  * the login information is passed to phpMyAdmin in session data.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  * @subpackage Example
  */
 

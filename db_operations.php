@@ -9,7 +9,7 @@
  *  - adding tables
  *  - viewing PDF schemas
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

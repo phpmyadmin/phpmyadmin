@@ -3,7 +3,7 @@
 /**
  * theme test
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 chdir('..');

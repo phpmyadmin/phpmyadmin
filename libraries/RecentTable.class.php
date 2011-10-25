@@ -2,7 +2,7 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 require_once './libraries/Message.class.php';
@@ -12,7 +12,7 @@ require_once './libraries/Message.class.php';
  *
  * @TODO Change the release version in table pma_recent (#recent in Documentation.html)
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 class PMA_RecentTable
 {

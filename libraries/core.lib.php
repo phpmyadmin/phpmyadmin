@@ -5,7 +5,7 @@
  * This script is distinct from libraries/common.inc.php because this
  * script is called from /test.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

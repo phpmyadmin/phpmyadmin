@@ -3,7 +3,7 @@
 /**
  * phpMyAdmin fatal error display page
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 if (! defined('PHPMYADMIN')) {

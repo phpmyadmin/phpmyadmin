@@ -3,7 +3,7 @@
 /**
  * Displays index edit/creation form and handles it
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

@@ -2,7 +2,7 @@
 /**
  * Handles the visualization of GIS LINESTRING objects.
  *
- * @package phpMyAdmin-GIS
+ * @package PhpMyAdmin-GIS
  */
 class PMA_GIS_Linestring extends PMA_GIS_Geometry
 {

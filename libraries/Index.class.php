@@ -3,13 +3,13 @@
 /**
  * holds the database index class
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**
  * @since phpMyAdmin 3.0.0
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 class PMA_Index
 {
@@ -580,7 +580,7 @@ class PMA_Index
 }
 
 /**
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 class PMA_Index_Column
 {

@@ -3,7 +3,7 @@
 /**
  * Get user's global privileges and some db-specific privileges
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

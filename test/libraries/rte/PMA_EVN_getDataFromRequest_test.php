@@ -3,7 +3,7 @@
 /**
  * Test for fetching event data from HTTP request
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 /*

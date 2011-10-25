@@ -3,7 +3,7 @@
 /**
  * Test for PMA_Message class
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 /*

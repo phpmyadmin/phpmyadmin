@@ -4,7 +4,7 @@
  * displays and handles the form where the user can change his password
  * linked from main.php
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

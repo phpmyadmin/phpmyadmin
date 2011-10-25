@@ -3,7 +3,7 @@
 /**
  * handles creation of the chart
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

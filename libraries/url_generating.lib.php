@@ -3,7 +3,7 @@
 /**
  * URL/hidden inputs generating.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

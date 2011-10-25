@@ -19,7 +19,7 @@
  *
  * Please provide a comment for your function, what it does and what parameters are available.
  *
- * @package phpMyAdmin-Transformation
+ * @package PhpMyAdmin-Transformation
  */
 
 /**

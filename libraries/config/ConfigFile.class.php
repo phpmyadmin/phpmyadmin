@@ -3,7 +3,7 @@
 /**
  * Config file management
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

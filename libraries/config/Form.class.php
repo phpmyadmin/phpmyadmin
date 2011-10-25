@@ -3,7 +3,7 @@
 /**
  * Form handling code.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

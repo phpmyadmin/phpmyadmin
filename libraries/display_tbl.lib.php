@@ -3,7 +3,7 @@
 /**
  * library for displaying table with results from all sort of select queries
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

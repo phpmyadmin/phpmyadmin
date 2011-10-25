@@ -3,13 +3,13 @@
 /**
  * Library for extracting information about the partitions
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 
 /**
  * base Partition Class
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 class PMA_Partition
 {

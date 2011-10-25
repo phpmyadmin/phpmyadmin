@@ -3,7 +3,7 @@
 /**
  * Tests for PMA_pow() function from common.lib.php
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  * @version $Id: PMA_pow_test.php
  * @group common.lib-tests
  */

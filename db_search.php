@@ -5,7 +5,7 @@
  *
  * @todo    make use of UNION when searching multiple tables
  * @todo    display executed query, optional?
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

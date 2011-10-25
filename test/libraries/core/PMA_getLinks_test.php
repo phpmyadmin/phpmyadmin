@@ -3,7 +3,7 @@
 /**
  * Test for PMA_getPHPDocLink, PMA_linkURL, PMA_includeJS  from libraries/core.lib.php
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 /*

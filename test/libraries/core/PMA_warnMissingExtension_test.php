@@ -4,7 +4,7 @@
  * Test for PMA_warnMissingExtension() from libraries/core.lib.php
  * PMA_warnMissingExtension warns or fails on missing extension.
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 /*

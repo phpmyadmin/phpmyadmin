@@ -3,7 +3,7 @@
 /**
  * Set of functions used with the relation and pdf feature
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

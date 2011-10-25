@@ -3,7 +3,7 @@
 /**
  * Test whichCrlf function
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  * @version $Id: PMA_whichCrlf_test.php
  * @group common.lib-tests
  */

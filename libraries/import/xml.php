@@ -4,7 +4,7 @@
  * XML import plugin for phpMyAdmin
  *
  * @todo    Improve efficiency
- * @package phpMyAdmin-Import
+ * @package PhpMyAdmin-Import
  * @subpackage XML
  */
 

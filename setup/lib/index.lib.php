@@ -6,7 +6,7 @@
  * Security checks are the idea of Aung Khant <aungkhant[at]yehg.net>, http://yehg.net/lab
  * Version check taken from the old setup script by Michal Čihař <michal@cihar.com>
  *
- * @package phpMyAdmin-setup
+ * @package PhpMyAdmin-setup
  */
 
 if (!defined('PHPMYADMIN')) {

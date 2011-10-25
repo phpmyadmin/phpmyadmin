@@ -3,7 +3,7 @@
 /**
  * the navigation frame - displays server, db and table selection tree
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

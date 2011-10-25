@@ -3,7 +3,7 @@
 /**
  * holds the PMA_List_Database class
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**
@@ -23,7 +23,7 @@ require_once './libraries/List.class.php';
  * @todo ? support --skip-showdatabases and user has only global rights
  * @access public
  * @since phpMyAdmin 2.9.10
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 /*public*/ class PMA_List_Database extends PMA_List
 {

@@ -6,7 +6,7 @@
  * @todo should be handled by class Table
  * @todo this should be recoded as functions, to avoid messing with global variables
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

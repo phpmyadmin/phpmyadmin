@@ -6,7 +6,7 @@
  *
  * @todo Broken for IPv6
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 

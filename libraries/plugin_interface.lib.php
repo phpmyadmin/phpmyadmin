@@ -3,7 +3,7 @@
 /**
  * Generic plugin interface.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

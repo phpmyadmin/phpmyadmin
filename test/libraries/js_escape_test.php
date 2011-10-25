@@ -3,7 +3,7 @@
 /**
  * tests for JS variable formatting
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 /*

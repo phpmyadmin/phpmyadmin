@@ -3,7 +3,7 @@
 /**
  * display list of server engines and additonal information about them
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

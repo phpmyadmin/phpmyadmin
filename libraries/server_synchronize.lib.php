@@ -3,7 +3,7 @@
 /**
  * Server synchronisation functions.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

@@ -28,7 +28,7 @@
  * - db connection
  * - authentication work
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

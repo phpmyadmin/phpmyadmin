@@ -2,7 +2,7 @@
 /**
  * Theme based generator for SVG gradient.
  *
- * @package phpMyAdmin-theme
+ * @package PhpMyAdmin-theme
  */
 header('Content-Type: image/svg+xml');
 header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');

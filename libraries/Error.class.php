@@ -3,7 +3,7 @@
 /**
  * Holds class PMA_Error
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**
@@ -14,7 +14,7 @@ require_once './libraries/Message.class.php';
 /**
  * a single error
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 class PMA_Error extends PMA_Message
 {

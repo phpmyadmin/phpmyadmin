@@ -3,7 +3,7 @@
 /**
  * Test for PMA_getIcon() from common.lib.php
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  * @version $Id: PMA_getIcon_test.php
  * @group common.lib-tests
  */

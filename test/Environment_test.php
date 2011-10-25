@@ -3,7 +3,7 @@
 /**
  * tests for environment like OS, PHP, modules, ...
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 /**
@@ -12,7 +12,7 @@
 require_once 'config.sample.inc.php';
 
 /**
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 class Environment_test extends PHPUnit_Framework_TestCase
 {

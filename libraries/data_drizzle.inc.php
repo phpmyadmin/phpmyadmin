@@ -2,7 +2,7 @@
 /**
  * Column types and functions supported by MySQL
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 // VARCHAR, TINYINT, TEXT and DATE are listed first, based on estimated popularity

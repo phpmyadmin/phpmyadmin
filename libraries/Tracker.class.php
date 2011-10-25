@@ -2,14 +2,14 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**
  * This class tracks changes on databases, tables and views.
  * For more information please see phpMyAdmin/Documentation.html
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  *
  * @todo use stristr instead of strstr
  */

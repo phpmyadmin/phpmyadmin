@@ -3,7 +3,7 @@
 /**
  * Test for PMA_ajaxResponse from common.lib.php
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  * @version $Id: PMA_ajaxResponse_test.php
  * @group common.lib-tests
  */

@@ -3,7 +3,7 @@
 /**
  * Test for PMA_sendHeaderLocation
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 /*
@@ -24,7 +24,7 @@ require_once 'libraries/select_lang.lib.php';
  *
  * <code>rename_function('headers_sent', 'headers_sent'.str_replace(array('.', ' '),array('', ''),microtime()));</code>
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 class PMA_headerLocation_test extends PHPUnit_Extensions_OutputTestCase

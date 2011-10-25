@@ -3,7 +3,7 @@
 /**
  * Triggers management.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

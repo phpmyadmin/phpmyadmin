@@ -3,7 +3,7 @@
 /**
  * Config file view and save screen
  *
- * @package phpMyAdmin-setup
+ * @package PhpMyAdmin-setup
  */
 
 if (!defined('PHPMYADMIN')) {

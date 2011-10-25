@@ -6,7 +6,7 @@
  * PMA_fatalError() displays the given error message on phpMyAdmin error page in foreign language
  * and ends script execution and closes session
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 /*

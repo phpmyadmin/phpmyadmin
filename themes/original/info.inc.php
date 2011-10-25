@@ -3,7 +3,7 @@
 /**
  * Theme information
  *
- * @package phpMyAdmin-theme
+ * @package PhpMyAdmin-theme
  * @subpackage Original
  */
 

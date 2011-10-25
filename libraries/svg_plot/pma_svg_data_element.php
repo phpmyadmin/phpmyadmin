@@ -2,7 +2,7 @@
 /**
  * Base class for the plot data type classes.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 abstract class PMA_SVG_Data_Element
 {

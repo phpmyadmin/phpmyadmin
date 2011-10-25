@@ -3,7 +3,7 @@
 /**
  * Functions for trigger management.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

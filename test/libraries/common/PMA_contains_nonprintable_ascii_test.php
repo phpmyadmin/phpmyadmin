@@ -3,7 +3,7 @@
 /**
  * Test for PMA_contains_nonprintable_ascii from common.lib
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  * @version $Id: PMA_contains_nonprintable_ascii.php
  * @group common.lib-tests
  */

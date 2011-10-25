@@ -2,7 +2,7 @@
 /**
  * Functions used to generate GIS visualizations.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 

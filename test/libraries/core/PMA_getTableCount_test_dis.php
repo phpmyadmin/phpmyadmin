@@ -4,7 +4,7 @@
  * Test for PMA_getTableCount_test from core.lib.php
  * PMA_getTableCount_test returns count of tables in given db
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 /*

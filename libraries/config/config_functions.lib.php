@@ -3,7 +3,7 @@
 /**
  * Common config manipulation functions
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

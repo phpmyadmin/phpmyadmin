@@ -19,7 +19,7 @@
  * End group blocks with:
  * ':group:end'
  *
- * @package phpMyAdmin-setup
+ * @package PhpMyAdmin-setup
  */
 
 $forms = array();

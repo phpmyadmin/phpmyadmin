@@ -4,7 +4,7 @@
  * "Echo" service to allow force downloading of exported charts (png or svg)
  * and server status monitor settings
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 require_once './libraries/common.inc.php';

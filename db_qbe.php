@@ -3,7 +3,7 @@
 /**
  * query by example the whole database
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

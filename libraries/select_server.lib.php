@@ -3,7 +3,7 @@
 /**
  * Code for displaying server selection
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

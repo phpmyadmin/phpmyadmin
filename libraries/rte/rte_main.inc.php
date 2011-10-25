@@ -3,7 +3,7 @@
 /**
  * Common code for Routines, Triggers and Events.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

@@ -3,7 +3,7 @@
 /**
  * Produce a PDF report (export) from a query
  *
- * @package phpMyAdmin-Export
+ * @package PhpMyAdmin-Export
  * @subpackage PDF
  */
 if (! defined('PHPMYADMIN')) {
@@ -34,7 +34,7 @@ if (isset($plugin_list)) {
 
     /**
      * Adapted from a LGPL script by Philip Clarke
-     * @package phpMyAdmin-Export
+     * @package PhpMyAdmin-Export
      * @subpackage PDF
      */
     class PMA_Export_PDF extends PMA_PDF

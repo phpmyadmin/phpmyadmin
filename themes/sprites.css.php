@@ -3,7 +3,7 @@
 /**
  * This file generates the CSS code for the sprites of a theme
  *
- * @package phpMyAdmin-theme
+ * @package PhpMyAdmin-theme
  */
 
 // unplanned execution path

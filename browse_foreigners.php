@@ -3,7 +3,7 @@
 /**
  * display selection for relational field values
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

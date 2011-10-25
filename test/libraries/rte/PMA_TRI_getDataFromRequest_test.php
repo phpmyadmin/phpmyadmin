@@ -3,7 +3,7 @@
 /**
  * Test for fetching trigger data from HTTP request
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 /*

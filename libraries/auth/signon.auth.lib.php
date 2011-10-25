@@ -3,7 +3,7 @@
 /**
  * Set of functions used to run single signon authentication.
  *
- * @package phpMyAdmin-Auth-Signon
+ * @package PhpMyAdmin-Auth-Signon
  */
 
 

@@ -3,7 +3,7 @@
 /**
  * Simple wrapper just to enable error reporting and include config
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 $GLOBALS['now'] = gmdate('D, d M Y H:i:s') . ' GMT';

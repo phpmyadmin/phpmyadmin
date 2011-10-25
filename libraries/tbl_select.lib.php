@@ -3,7 +3,7 @@
 /**
  * Functions for the table-search page and zoom-search page
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 require_once 'url_generating.lib.php';

@@ -3,7 +3,7 @@
 /**
  * Test for generating routine execution dialog
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 require_once 'libraries/common.lib.php';
 require_once 'libraries/sqlparser.lib.php';

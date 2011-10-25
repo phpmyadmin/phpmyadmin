@@ -3,7 +3,7 @@
 /**
  * Set of functions used to run cookie based authentication.
  *
- * @package phpMyAdmin-Auth-Cookie
+ * @package PhpMyAdmin-Auth-Cookie
  */
 
 if (! defined('PHPMYADMIN')) {

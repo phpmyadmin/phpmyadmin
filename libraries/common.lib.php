@@ -3,7 +3,7 @@
 /**
  * Misc functions used all over the scripts.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

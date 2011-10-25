@@ -27,7 +27,7 @@
  *
  * Also set a username and password if you have a private one
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

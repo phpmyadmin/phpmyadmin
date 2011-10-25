@@ -3,7 +3,7 @@
 /**
  * Test for PMA_buildActionTitles from common.lib
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  * @version $Id: PMA_buildActionTitles_test.php
  * @group common.lib-tests
  */

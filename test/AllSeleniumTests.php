@@ -3,7 +3,7 @@
 /**
  * runs all defined Selenium tests
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 

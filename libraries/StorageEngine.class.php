@@ -3,7 +3,7 @@
 /**
  * Library for extracting information about the available storage engines
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**
@@ -21,7 +21,7 @@ define('PMA_ENGINE_DETAILS_TYPE_BOOLEAN',   3); // 'ON' or 'OFF'
 
 /**
  * base Storage Engine Class
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 class PMA_StorageEngine
 {

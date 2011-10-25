@@ -3,7 +3,7 @@
 /**
  * Configuration handling.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**
@@ -14,7 +14,7 @@ require './libraries/vendor_config.php';
 /**
  * Configuration class
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 class PMA_Config
 {

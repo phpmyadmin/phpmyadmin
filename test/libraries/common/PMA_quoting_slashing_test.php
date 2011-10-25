@@ -3,7 +3,7 @@
 /**
  * Test for quoting, slashing/backslashing
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  * @version $Id: PMA_quoting_slashing_test.php
  * @group common.lib-tests
  */

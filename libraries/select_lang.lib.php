@@ -3,7 +3,7 @@
 /**
  * phpMyAdmin Language Loading File
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

@@ -4,7 +4,7 @@
  * Test for PMA_array_read(), PMA_array_write(), PMA_array_remove(), PMA_array_merge_recursive(),
  * PMA_arrayWalkRecursive() from libraries/core.lib.php
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 /*

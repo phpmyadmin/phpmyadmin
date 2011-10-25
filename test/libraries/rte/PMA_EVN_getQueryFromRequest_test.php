@@ -3,7 +3,7 @@
 /**
  * Test for generating CREATE EVENT query from HTTP request
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 /*

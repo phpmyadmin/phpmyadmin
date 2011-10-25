@@ -3,7 +3,7 @@
 /**
  * main css file from theme Original
  *
- * @package phpMyAdmin-theme
+ * @package PhpMyAdmin-theme
  * @subpackage Original
  */
 

@@ -3,7 +3,7 @@
 /**
  * display the binary logs and the content of the selected
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

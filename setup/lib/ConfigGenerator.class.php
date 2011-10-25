@@ -3,13 +3,13 @@
 /**
  * Config file generator
  *
- * @package phpMyAdmin-setup
+ * @package PhpMyAdmin-setup
  */
 
 /**
  * Config file generation class
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 class ConfigGenerator
 {

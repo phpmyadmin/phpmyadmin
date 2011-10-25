@@ -3,7 +3,7 @@
 /**
  * Test for PMA_showDocu from common.lib.php
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  * @version $Id: PMA_showDocu.php
  * @group common.lib-tests
  */

@@ -3,7 +3,7 @@
 /**
  * Test for PMA_get_real_size()  from libraries/core.lib.php
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 /*

@@ -7,7 +7,7 @@
  * This wrapper is not complete and hides a lot of original functionality, but allows for easy usage
  * of the drizzle PHP extension.
  *
- * @package phpMyAdmin-DBI-Drizzle
+ * @package PhpMyAdmin-DBI-Drizzle
  */
 
 // TODO: drizzle module segfaults while freeing resources, often. This allows at least for some development

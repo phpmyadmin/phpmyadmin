@@ -3,7 +3,7 @@
 /**
  * tests for PMA_List_Database class
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 /*

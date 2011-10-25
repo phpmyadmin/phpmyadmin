@@ -3,7 +3,7 @@
 /**
  * Test for PMA_display_html_checkbox from common.lib.php
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  * @version $Id: PMA_display_html_checkbox_test.php
  * @group common.lib-tests
  */

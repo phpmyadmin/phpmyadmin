@@ -3,7 +3,7 @@
 /**
  * SQL import plugin for phpMyAdmin
  *
- * @package phpMyAdmin-Import
+ * @package PhpMyAdmin-Import
  * @subpackage SQL
  */
 if (! defined('PHPMYADMIN')) {

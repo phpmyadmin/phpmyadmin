@@ -3,7 +3,7 @@
 /**
  * Test for PMA_formatSql from common.lib.php
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  * @version $Id: PMA_formatSql_test.php
  * @group common.lib-tests
  */

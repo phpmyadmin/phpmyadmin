@@ -12,7 +12,7 @@
  *
  * The SQL Parser code relies heavily on these functions.
  *
- * @package phpMyAdmin-String-Native
+ * @package PhpMyAdmin-String-Native
  */
 
 /**

@@ -2,7 +2,7 @@
 /**
  * Test for PMA_GIS_Multilinestring
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 require_once 'PMA_GIS_Geom_test.php';

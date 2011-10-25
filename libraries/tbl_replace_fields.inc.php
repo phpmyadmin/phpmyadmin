@@ -18,7 +18,7 @@
  * note: grab_globals has extracted the fields from _FILES or HTTP_POST_FILES
  *
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

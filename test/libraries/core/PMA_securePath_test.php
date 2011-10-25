@@ -4,7 +4,7 @@
  * Tests for PMA_securePath() from libraries/core.lib.php
  * PMA_securePath changes .. to .
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 require_once 'libraries/core.lib.php';

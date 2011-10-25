@@ -4,7 +4,7 @@
  * Provides the functionality for retreiving images
  * which may be actual images or an icon from a sprite
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 chdir('..');
 

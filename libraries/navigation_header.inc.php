@@ -3,7 +3,7 @@
 /**
  * displays the pma logo, links and db and server selection in left frame
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

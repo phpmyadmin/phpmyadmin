@@ -2,7 +2,7 @@
 /**
  * handles creation of the GIS visualizations.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

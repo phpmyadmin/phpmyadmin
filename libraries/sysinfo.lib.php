@@ -6,7 +6,7 @@
  *
  * This code is based on the OS Classes from the phpsysinfo project (http://phpsysinfo.sourceforge.net/)
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

@@ -4,7 +4,7 @@
  * this file is register_globals safe
  *
  * @todo    move JavaScript out of here into .js files
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

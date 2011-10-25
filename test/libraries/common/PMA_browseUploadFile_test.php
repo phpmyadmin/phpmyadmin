@@ -3,7 +3,7 @@
 /**
  * Test for PMA_browseUploadFile from common.lib
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  * @version $Id: PMA_browseUploadFile_test.php
  * @group common.lib-tests
  */

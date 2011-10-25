@@ -1,7 +1,7 @@
 <?php
 /**
  * Enter description here...
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  *
  */
 
@@ -15,7 +15,7 @@ require_once './libraries/List_Database.class.php';
  *
  *
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 class PMA
 {

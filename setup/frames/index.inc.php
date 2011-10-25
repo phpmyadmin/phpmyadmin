@@ -2,7 +2,7 @@
 /**
  * Overview (main page)
  *
- * @package phpMyAdmin-setup
+ * @package PhpMyAdmin-setup
  */
 
 if (!defined('PHPMYADMIN')) {

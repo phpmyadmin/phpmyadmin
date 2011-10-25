@@ -3,7 +3,7 @@
 /**
  * Test for supporting foreign key
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  * @version $Id: PMA_foreignKeySupported_test.php
  * @group common.lib-tests
  */

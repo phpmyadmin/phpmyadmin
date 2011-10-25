@@ -4,7 +4,7 @@
  * displays status variables with descriptions and some hints an optmizing
  *  + reset status variables
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

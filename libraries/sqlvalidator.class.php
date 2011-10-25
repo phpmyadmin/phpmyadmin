@@ -15,7 +15,7 @@
  *
  * @access   public
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -43,7 +43,7 @@ if (!$GLOBALS['sqlvalidator_error']) {
     // Ok, we have SOAP Support, so let's use it!
 
 /**
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
     class PMA_SQLValidator
     {

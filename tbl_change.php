@@ -5,7 +5,7 @@
  *
  * register_globals_save (mark this file save for disabling register globals)
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

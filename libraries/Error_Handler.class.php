@@ -3,7 +3,7 @@
 /**
  * Holds class PMA_Error_Handler
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**
@@ -14,7 +14,7 @@ require_once './libraries/Error.class.php';
 /**
  * handling errors
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 class PMA_Error_Handler
 {

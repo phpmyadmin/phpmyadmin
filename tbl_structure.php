@@ -3,7 +3,7 @@
 /**
  * Displays table structure infos like fields/columns, indexes, size, rows
  * and allows manipulation of indexes and columns/fields
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

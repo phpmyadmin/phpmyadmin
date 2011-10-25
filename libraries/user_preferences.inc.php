@@ -3,7 +3,7 @@
 /**
  * Common header for user preferences pages
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 if (!defined('PHPMYADMIN')) {
     exit;

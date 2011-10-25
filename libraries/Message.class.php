@@ -3,7 +3,7 @@
 /**
  * Holds class PMA_Message
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**
@@ -54,7 +54,7 @@
  * // strSomeLocaleMessage <sup>1</sup> strSomeMoreLocale<br />
  * // strSomeEvenMoreLocale - some final words
  * </code>
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 class PMA_Message
 {

@@ -3,7 +3,7 @@
 /**
  * Test for generating CREATE TRIGGER query from HTTP request
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 /*

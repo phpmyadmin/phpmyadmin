@@ -2,7 +2,7 @@
 /**
  * Generates the SVG needed for the plot
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 require_once 'pma_svg_data_point.php';

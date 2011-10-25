@@ -3,7 +3,7 @@
 /**
  * Tests for correctness of SQL parser
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 /*

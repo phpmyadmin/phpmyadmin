@@ -4,7 +4,7 @@
  * forms frameset
  *
  *                                              or common.inc.php
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

@@ -3,7 +3,7 @@
 /**
  * Core script for import, this is just the glue around all other stuff
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

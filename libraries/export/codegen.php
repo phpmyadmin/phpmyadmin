@@ -3,7 +3,7 @@
 /**
  * Set of functions used to build NHibernate dumps of tables
  *
- * @package phpMyAdmin-Export
+ * @package PhpMyAdmin-Export
  * @subpackage Codegen
  */
 if (! defined('PHPMYADMIN')) {
@@ -133,7 +133,7 @@ if (isset($plugin_list)) {
 
     /**
      *
-     * @package phpMyAdmin-Export
+     * @package PhpMyAdmin-Export
      * @subpackage Codegen
      */
     class TableProperty

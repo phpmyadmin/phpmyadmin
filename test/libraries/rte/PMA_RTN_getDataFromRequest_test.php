@@ -3,7 +3,7 @@
 /**
  * Test for fetching routine data from HTTP request
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 
 require_once 'libraries/common.lib.php';

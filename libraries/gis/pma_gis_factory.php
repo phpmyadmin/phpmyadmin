@@ -2,7 +2,7 @@
 /**
  * Factory class that handles the creation of geometric objects.
  *
- * @package phpMyAdmin-GIS
+ * @package PhpMyAdmin-GIS
  */
 class PMA_GIS_Factory
 {

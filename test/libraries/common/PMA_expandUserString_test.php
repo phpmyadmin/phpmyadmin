@@ -3,7 +3,7 @@
 /**
  * Test for PMA_expandUserString from common.lib.php
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  * @group common.lib-tests
  */
 

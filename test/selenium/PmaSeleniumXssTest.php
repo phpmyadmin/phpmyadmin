@@ -3,7 +3,7 @@
 /**
  * Selenium TestCase for XSS related tests
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  * @group Selenium
  */
 

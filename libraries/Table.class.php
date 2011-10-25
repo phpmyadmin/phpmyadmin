@@ -2,12 +2,12 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**
  * @todo make use of PMA_Message and PMA_Error
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 class PMA_Table
 {

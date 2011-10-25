@@ -3,7 +3,7 @@
 /**
  * Charset conversion functions.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

@@ -2,7 +2,7 @@
 /**
  * ESRI Shape file import plugin for phpMyAdmin
  *
- * @package phpMyAdmin-Import
+ * @package PhpMyAdmin-Import
  * @subpackage ESRI_Shape
  */
 if (! defined('PHPMYADMIN')) {

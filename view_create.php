@@ -5,7 +5,7 @@
  *
  * @todo js error when view name is empty (strFormEmpty)
  * @todo (also validate if js is disabled, after form submission?)
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**

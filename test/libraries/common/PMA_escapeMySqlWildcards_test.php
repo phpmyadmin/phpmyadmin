@@ -3,7 +3,7 @@
 /**
  * Test for MySQL Wildcards escaping/unescaping
  *
- * @package phpMyAdmin-test
+ * @package PhpMyAdmin-test
  * @version $Id: PMA_escapeMySqlWildcards_test.php
  * @group common.lib-tests
  */

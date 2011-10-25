@@ -5,7 +5,7 @@
  *
  * This includes web server specific code to log some information.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**
