@@ -5397,10 +5397,9 @@ msgstr ""
 "local n'est pas correctement configurée)."
 
 #: libraries/database_interface.lib.php:1678
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
-msgstr "Le serveur ne répond pas"
+msgstr "Le serveur ne répond pas."
 
 #: libraries/database_interface.lib.php:1686
 msgid "Details..."
