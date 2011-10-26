@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 19:15+0200\n"
+"PO-Revision-Date: 2011-10-26 19:16+0200\n"
 "Last-Translator:  <karrikas@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -932,10 +932,9 @@ msgstr "%d puntua"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:296
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add a point"
-msgstr "Gehitu %s zutabe"
+msgstr "Puntua gehitu"
 
 #: gis_data_editor.php:220 js/messages.php:291
 #, fuzzy
