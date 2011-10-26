@@ -1271,7 +1271,7 @@ msgstr "Натоварване на процесора"
 
 #: js/messages.php:101
 msgid "System memory"
-msgstr ""
+msgstr "Системна памет"
 
 #: js/messages.php:102
 msgid "System swap"
