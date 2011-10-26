@@ -1292,10 +1292,9 @@ msgid "Average load"
 msgstr "Средно натоварване"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "Total count"
 msgid "Total memory"
-msgstr "Общ брой"
+msgstr "Общо памет"
 
 #: js/messages.php:108
 msgid "Cached memory"
