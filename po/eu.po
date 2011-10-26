@@ -148,10 +148,9 @@ msgstr "Taularen iruzkinak"
 #: tbl_change.php:318 tbl_chart.php:89 tbl_indexes.php:196
 #: tbl_printview.php:136 tbl_relation.php:395 tbl_tracking.php:257
 #: tbl_tracking.php:308 tbl_zoom_select.php:434
-#, fuzzy
 #| msgid "Column names"
 msgid "Column"
-msgstr "Zutabe izenak"
+msgstr "Zutabea"
 
 #: db_datadict.php:163 db_printview.php:103 libraries/Index.class.php:433
 #: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:250
