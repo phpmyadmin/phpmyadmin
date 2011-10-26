@@ -5447,10 +5447,9 @@ msgstr ""
 "está configurado correctamente)."
 
 #: libraries/database_interface.lib.php:1678
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
-msgstr "El servidor no está respondiendo"
+msgstr "El servidor no está respondiendo."
 
 #: libraries/database_interface.lib.php:1686
 msgid "Details..."
