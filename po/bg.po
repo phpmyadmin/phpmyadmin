@@ -10103,10 +10103,9 @@ msgid "Log statistics"
 msgstr "Статистика на дневника"
 
 #: server_status.php:1698
-#, fuzzy
 #| msgid "Select page"
 msgid "Selected time range:"
-msgstr "Избор на страница"
+msgstr "Изберете времеви интервал:"
 
 #: server_status.php:1703
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
