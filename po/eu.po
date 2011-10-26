@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 19:35+0200\n"
+"PO-Revision-Date: 2011-10-26 19:36+0200\n"
 "Last-Translator:  <karrikas@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -1340,7 +1340,7 @@ msgstr "Memoria librea"
 
 #: js/messages.php:111
 msgid "Used memory"
-msgstr ""
+msgstr "Erabilitako memoria"
 
 #: js/messages.php:113
 #, fuzzy
