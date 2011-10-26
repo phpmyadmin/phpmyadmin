@@ -1225,7 +1225,7 @@ msgstr "Конекции / Процеси"
 #: js/messages.php:86
 #| msgid "Connections since last refresh"
 msgid "Questions since last refresh"
-msgstr "Заявки след последното опресняване"
+msgstr "Запитвания след последното опресняване"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:88
