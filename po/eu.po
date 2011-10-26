@@ -1030,9 +1030,9 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 
 #: import.php:421 sql.php:928
-#, php-format
+#, fuzzy, php-format
 msgid "Bookmark %s created"
-msgstr ""
+msgstr "%s laster-marka sortu da"
 
 #: import.php:427 import.php:433
 #, php-format
