@@ -1072,7 +1072,7 @@ msgstr ""
 #: js/messages.php:27 libraries/server_synchronize.lib.php:1329
 #: libraries/server_synchronize.lib.php:1338
 msgid "Click to select"
-msgstr ""
+msgstr "Egin klik hautatzeko"
 
 #: js/messages.php:28
 msgid "Click to unselect"
