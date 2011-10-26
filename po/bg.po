@@ -7841,10 +7841,9 @@ msgid "Operator"
 msgstr "Оператор"
 
 #: libraries/tbl_select.lib.php:103
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "Търсене"
+msgstr "Търсене в таблица"
 
 #: libraries/tbl_select.lib.php:182 tbl_change.php:993
 #, fuzzy
