@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 20:12+0200\n"
+"PO-Revision-Date: 2011-10-26 20:14+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -26,7 +26,7 @@ msgstr "Показване на всичко"
 #: libraries/schema/User_Schema.class.php:396
 #: libraries/select_lang.lib.php:487
 msgid "Page number:"
-msgstr "Страница номер:"
+msgstr "Страница:"
 
 #: browse_foreigners.php:133
 msgid ""
