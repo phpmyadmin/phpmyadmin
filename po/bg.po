@@ -1313,10 +1313,9 @@ msgid "Used memory"
 msgstr "Използвана памет"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "Общо"
+msgstr ""
 
 #: js/messages.php:114
 msgid "Cached Swap"
