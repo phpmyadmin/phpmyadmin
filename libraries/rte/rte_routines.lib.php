@@ -680,8 +680,17 @@ function PMA_RTN_getParameterRow($routine = array(), $index = null, $class = '')
     $retval .= "            <td><select name='item_param_type[$index]'>";
     $retval .= PMA_getSupportedDatatypes(true, $routine['item_param_type'][$i]) . "\n";
     $retval .= "            </select></td>\n";
-    $retval .= "            <td><input name='item_param_length[$index]' type='text'\n";
-    $retval .= "                       value='{$routine['item_param_length'][$i]}' /></td>\n";
+    $retval .= "            <td>\n";
+    $retval .= "                <input id='item_param_length_$index'\n";
+    $retval .= "                       name='item_param_length[$index]' type='text'\n";
+    $retval .= "                       value='{$routine['item_param_length'][$i]}' />\n";
+    $retval .= "                <div class='enum_hint'>\n";
+    $retval .= "                    <a class='open_enum_editor' target='_blank'\n";
+    $retval .= "                       href='enum_editor.php?" . PMA_generate_common_url() . "&amp;values=" . $routine['item_param_length'][$i] . "&amp;field=" . $routine['item_param_name'][$i] . "'>\n";
+    $retval .= "                        " . PMA_getImage('b_edit', '', array('title'=>__('ENUM/SET editor'))) . "\n";
+    $retval .= "                    </a>\n";
+    $retval .= "                </div>\n";
+    $retval .= "            </td>\n";
     $retval .= "            <td class='hide no_len'>---</td>\n";
     $retval .= "            <td class='routine_param_opts_text'>\n";
     $retval .= PMA_generateCharsetDropdownBox(

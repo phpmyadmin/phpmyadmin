@@ -319,8 +319,13 @@ for ($i = 0; $i < $num_fields; $i++) {
         . ' class="textfield" />'
         . '<p class="enum_notice" id="enum_notice_' . $i . '_' . ($ci - $ci_offset) . '">';
     $content_cells[$i][$ci] .= __('ENUM or SET data too long?')
-        . '<a onclick="return false;" href="enum_editor.php?' . PMA_generate_common_url() . '&amp;values=' . urlencode($length_to_display) . '&amp;field=' .  (isset($row['Field']) ? urlencode($row['Field']) : "") . '" class="open_enum_editor" target="_blank"> '
-        . __('Get more editing space') . '</a></p>';
+        . '<a onclick="return false;" href="enum_editor.php?'
+        . PMA_generate_common_url()
+        . '&amp;values=' . urlencode($length_to_display)
+        . '&amp;field=' .  (isset($row['Field']) ? urlencode($row['Field']) : "")
+        . '" class="open_enum_editor" target="_blank"> '
+        . __('Get more editing space') . '</a>'
+        . '</p>';
     $ci++;
 
     // column default
@@ -710,14 +715,5 @@ if ($action == 'tbl_create.php') {
 </fieldset>
 <div id="properties_message"></div>
 </form>
-
-<div id="enum_editor">
-<a class="close_enum_editor"><?php echo __('Close'); ?></a>
-<h3><?php printf(__('Values for the column "%s"'), isset($row['Field']) ? htmlspecialchars($row['Field']) : ""); ?></h3>
-<p><?php echo __('Enter each value in a separate field.'); ?></p>
-<div id="values"></div>
-<p><a class="add_value"><?php echo __('+ Add a value'); ?></a></p>
-<input type="submit" value="<?php echo __('Go'); ?>" /> <a class="cancel_enum_editor"><?php echo __('Cancel'); ?></a>
-</div>
 
 <div id="popup_background"></div>

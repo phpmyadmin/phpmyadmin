@@ -1628,56 +1628,76 @@ p.enum_notice {
     font-size: 80%;
 }
 
-#enum_editor {
-    display: none;
-    position: fixed;
-    _position: absolute; /* hack for IE */
-    z-index: 101;
-    overflow-y: auto;
-    overflow-x: hidden;
+fieldset.enum_editor_no_js {
+    width: 40em;
+    padding: 1em;
+}
+
+hr.enum_editor_no_js {
+    background-color: #aaa;
+}
+
+#enum_editor p {
+    font-style:italic;
+}
+
+#enum_editor .values, #enum_editor .add, .enum_editor_no_js #values {
+    width: 100%;
+}
+
+#enum_editor .add td {
+    vertical-align: middle;
+    width: 50%;
+    padding: 0 1em;
+}
+
+#enum_editor .values td.drop {
+    width: 2em;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+#enum_editor .values input {
+    margin: 0.1em 0;
+    padding-right: 2.5em;
+    width: 100%;
+}
+
+#enum_editor .values img {
+    width: 2em;
+    vertical-align: middle;
+}
+
+#enum_editor input.add_value {
+    margin: 1em 0;
+}
+
+#enum_editor_output textarea,
+.enum_editor_no_js input {
+    width: 100%;
+    float: right;
+    margin: 1em 0 0 0;
 }
 
 #enum_editor_no_js {
-   margin: auto auto;
-}
-
-#enum_editor, #enum_editor_no_js {
-    background: #D0DCE0;
-    padding: 15px;
-}
-
-#popup_background {
-    display: none;
-    position: fixed;
-    _position: absolute; /* hack for IE6 */
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: #000;
-    z-index: 100;
-    overflow: hidden;
-}
-
-a.close_enum_editor {
-    float: right;
-}
-
-#enum_editor #values, #enum_editor_no_js #values {
-    margin: 15px 0;
     width: 100%;
 }
 
-#enum_editor #values input, #enum_editor_no_js #values input {
-    margin: 5px 0;
-    float: top;
-    width: 100%;
+.enum_editor_no_js input.submit {
+    margin: 1em 0;
 }
 
+/**
+ * ENUM/SET editor integration for the routines editor
+ */
+.enum_hint {
+    position: relative;
 }
 
-#enum_editor_output {
-    margin-top: 50px;
+.enum_hint a {
+    position: absolute;
+    left: 81%;
+    bottom: 0.35em;
 }
 
 /**
