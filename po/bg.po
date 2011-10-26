@@ -2883,10 +2883,9 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s дена, %s часа, %s минути и %s секунди"
 
 #: libraries/common.lib.php:2067
-#, fuzzy
 #| msgid "Routine parameters"
 msgid "Missing parameter:"
-msgstr "Параметри на процедурата"
+msgstr "Липсващ параметър:"
 
 #: libraries/common.lib.php:2415 libraries/common.lib.php:2418
 #: libraries/display_tbl.lib.php:306
