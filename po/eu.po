@@ -486,7 +486,6 @@ msgid "Modify"
 msgstr "Aldatu"
 
 #: db_qbe.php:606
-#, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
 msgstr "Gehitu/ezabatu irizpide-errenkada"
