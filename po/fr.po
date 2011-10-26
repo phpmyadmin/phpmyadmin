@@ -12724,10 +12724,9 @@ msgid "Rate of table open"
 msgstr "Taux d'ouverture de tables"
 
 #: po/advisory_rules.php:181
-#, fuzzy
 #| msgid "The current number of pending writes."
 msgid "The rate of opening tables is high."
-msgstr "Le nombre actuel d'écritures en attente."
+msgstr "Le taux d'ouverture de tables est élevé."
 
 #: po/advisory_rules.php:182
 msgid ""
