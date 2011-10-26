@@ -6426,10 +6426,10 @@ msgid "Go to database"
 msgstr ""
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
-msgstr "Липсващи данни за %s"
+msgstr "Редактиране настройките на %s"
 
 #: libraries/import.lib.php:1127
 msgid "Go to table"
