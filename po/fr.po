@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 16:47+0200\n"
+"PO-Revision-Date: 2011-10-26 16:48+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -11506,10 +11506,9 @@ msgid "Check referential integrity:"
 msgstr "Vérifier l'intégrité référentielle"
 
 #: tbl_printview.php:72
-#, fuzzy
 #| msgid "Show tables"
 msgid "Showing tables"
-msgstr "Afficher les tables"
+msgstr "Affichage des tables"
 
 #: tbl_printview.php:269 tbl_structure.php:762
 msgid "Space usage"
