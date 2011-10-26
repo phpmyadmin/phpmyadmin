@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 19:00+0200\n"
+"PO-Revision-Date: 2011-10-26 19:01+0200\n"
 "Last-Translator:  <karrikas@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -491,10 +491,9 @@ msgid "Add/Delete criteria rows"
 msgstr "Gehitu/ezabatu irizpide-errenkada"
 
 #: db_qbe.php:618
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "Gehitu/ezabatu irizpide-zutabea"
+msgstr "Gehitu/ezabatu errenkadak"
 
 #: db_qbe.php:631 db_qbe.php:656
 msgid "Update Query"
