@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 21:42+0200\n"
+"PO-Revision-Date: 2011-10-26 21:43+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -9972,10 +9972,9 @@ msgid "Refresh rate"
 msgstr "Скорост на опресняване"
 
 #: server_status.php:1572
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Chart columns"
-msgstr "Колони в текство поле"
+msgstr ""
 
 #: server_status.php:1588
 #, fuzzy
