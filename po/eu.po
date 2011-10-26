@@ -1198,8 +1198,9 @@ msgid "Live query chart"
 msgstr "SQL kontsulta"
 
 #: js/messages.php:69
+#, fuzzy
 msgid "Static data"
-msgstr ""
+msgstr "Datu estatikoak"
 
 #. l10n: Total number of queries
 #: js/messages.php:71 libraries/build_html_for_db.lib.php:46
