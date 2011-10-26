@@ -1808,7 +1808,7 @@ msgstr "Всяка точка представлява ред."
 
 #: js/messages.php:267
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "Посочване на точка ще покаже етикета ѝ."
 
 #: js/messages.php:269
 msgid "Use mousewheel to zoom in or out of the plot."
