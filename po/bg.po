@@ -1267,7 +1267,7 @@ msgstr "Използвано от буфера за заявки"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
-msgstr ""
+msgstr "Натоварване на процесора"
 
 #: js/messages.php:101
 msgid "System memory"
