@@ -1354,8 +1354,9 @@ msgid "Cached Swap"
 msgstr "Swap katxea"
 
 #: js/messages.php:115
+#, fuzzy
 msgid "Used Swap"
-msgstr ""
+msgstr "Swap erabilia"
 
 #: js/messages.php:116
 msgid "Free Swap"
