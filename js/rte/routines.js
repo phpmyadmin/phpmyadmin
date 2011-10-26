@@ -192,10 +192,16 @@ RTE.setOptionsForParameter = function ($type, $len, $text, $num) {
     case 'MEDIUMTEXT':
     case 'LONGBLOB':
     case 'LONGTEXT':
+        $text.closest('tr').find('a:first').hide();
         $len.parent().hide();
         $no_len.show();
         break;
     default:
+        if ($type.val() == 'ENUM' || $type.val() == 'SET') {
+            $text.closest('tr').find('a:first').show();
+        } else {
+            $text.closest('tr').find('a:first').hide();
+        }
         $len.parent().show();
         $no_len.hide();
         break;
@@ -272,6 +278,7 @@ $(document).ready(function () {
                     $(this).attr('name', inputname.substr(0, 15) + '[' + index + ']');
                 } else if (inputname.substr(0, 17) === 'item_param_length') {
                     $(this).attr('name', inputname.substr(0, 17) + '[' + index + ']');
+                    $(this).attr('id', 'item_param_length_' + index);
                 } else if (inputname.substr(0, 20) === 'item_param_opts_text') {
                     $(this).attr('name', inputname.substr(0, 20) + '[' + index + ']');
                 } else if (inputname.substr(0, 19) === 'item_param_opts_num') {

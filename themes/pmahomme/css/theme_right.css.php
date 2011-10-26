@@ -2069,6 +2069,19 @@ hr.enum_editor_no_js {
 }
 
 /**
+ * ENUM/SET editor integration for the routines editor
+ */
+.enum_hint {
+    position: relative;
+}
+
+.enum_hint a {
+    position: absolute;
+    left: 81%;
+    bottom: 0.35em;
+}
+
+/**
  * Table structure styles
  */
 .structure_actions_dropdown {
