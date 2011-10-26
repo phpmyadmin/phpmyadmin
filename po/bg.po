@@ -11282,7 +11282,7 @@ msgstr "Проследяване следните изрази за дефини
 
 #: tbl_tracking.php:727
 msgid "Track these data manipulation statements:"
-msgstr ""
+msgstr "Проследяване следните изрази за манипулиране на данни"
 
 #: tbl_tracking.php:735
 msgid "Create version"
