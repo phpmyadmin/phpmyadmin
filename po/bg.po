@@ -11306,7 +11306,7 @@ msgstr "Използване колоната като етикет за вся�
 
 #: tbl_zoom_select.php:296
 msgid "Maximum rows to plot"
-msgstr ""
+msgstr "Максимален брой редове за изчертаване"
 
 #: tbl_zoom_select.php:410
 msgid "Browse/Edit the points"
