@@ -10748,7 +10748,7 @@ msgstr "読み込む"
 
 #: setup/frames/index.inc.php:240
 msgid "phpMyAdmin homepage"
-msgstr "phpMyAdmin のオフィシャルサイト"
+msgstr "phpMyAdmin オフィシャルサイト"
 
 #: setup/frames/index.inc.php:241
 msgid "Donate"
