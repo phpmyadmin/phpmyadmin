@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 19:10+0200\n"
+"PO-Revision-Date: 2011-10-26 19:11+0200\n"
 "Last-Translator:  <karrikas@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -830,9 +830,9 @@ msgid "Database Log"
 msgstr "Datu-basea egunkaria"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:716
-#, php-format
+#, fuzzy, php-format
 msgid "Values for the column \"%s\""
-msgstr ""
+msgstr "\"%s\" zutaberako balioak"
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:717
 msgid "Enter each value in a separate field."
