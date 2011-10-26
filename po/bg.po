@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 20:28+0200\n"
+"PO-Revision-Date: 2011-10-26 20:30+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -1289,7 +1289,7 @@ msgstr "КБ"
 
 #: js/messages.php:106
 msgid "Average load"
-msgstr ""
+msgstr "Средно натоварване"
 
 #: js/messages.php:107
 #, fuzzy
