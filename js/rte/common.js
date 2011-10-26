@@ -211,7 +211,7 @@ $(document).ready(function () {
                  */
                 RTE.$ajaxDialog = $('<div>' + data.message + '</div>').dialog({
                                 width: 700,
-                                height: 555,
+                                minWidth: 500,
                                 buttons: RTE.buttonOptions,
                                 title: data.title,
                                 modal: true,
