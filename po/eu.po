@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 18:55+0200\n"
+"PO-Revision-Date: 2011-10-26 18:59+0200\n"
 "Last-Translator:  <karrikas@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -416,12 +416,12 @@ msgid "Last check"
 msgstr "Azken egiaztapena"
 
 #: db_printview.php:219 db_structure.php:513
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s taula(k)"
-msgstr[1] "%s taula(k)"
+msgstr[0] "%s taula"
+msgstr[1] "%s taulak"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
