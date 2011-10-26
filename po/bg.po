@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 21:07+0200\n"
+"PO-Revision-Date: 2011-10-26 21:08+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -1538,7 +1538,7 @@ msgstr "Прескачане до БД"
 
 #: js/messages.php:170
 msgid "Log analysed, but no data found in this time span."
-msgstr ""
+msgstr "Дневникът е проверен, но няма заявки изпълнени в този времеви интервал."
 
 #. l10n: A collection of available filters
 #: js/messages.php:173
