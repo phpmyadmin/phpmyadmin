@@ -10917,7 +10917,6 @@ msgid "Check referential integrity:"
 msgstr "Проверка на интегритета на връзките:"
 
 #: tbl_printview.php:72
-#, fuzzy
 #| msgid "Show tables"
 msgid "Showing tables"
 msgstr "Показване таблици"
