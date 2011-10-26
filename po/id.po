@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-09-12 09:37+0200\n"
-"Last-Translator:  <uringinteristi@gmail.com>\n"
+"PO-Revision-Date: 2011-10-26 08:18+0200\n"
+"Last-Translator:  <udin.mx@gmail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
@@ -572,10 +572,9 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Kata dipisahkan oleh karakter spasi (\" \")."
 
 #: db_search.php:299
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
-msgstr "Cari dalam tabel:"
+msgstr "Dalam tabel:"
 
 #: db_search.php:329
 msgid "Inside column:"
