@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 19:03+0200\n"
+"PO-Revision-Date: 2011-10-26 19:04+0200\n"
 "Last-Translator:  <karrikas@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -599,7 +599,6 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Hitzak \"zuriune\" karakterrarekin bereiztuta daude (\" \")."
 
 #: db_search.php:299
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
 msgstr "Taul(ar)en barnean:"
