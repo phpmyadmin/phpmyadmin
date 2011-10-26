@@ -11005,7 +11005,7 @@ msgstr "Дължина ред"
 
 #: tbl_printview.php:373 tbl_structure.php:896
 msgid "Row size"
-msgstr "Размер ред "
+msgstr "Размер ред"
 
 #: tbl_printview.php:383 tbl_structure.php:904
 msgid "Next autoindex"
