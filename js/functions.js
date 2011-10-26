@@ -2574,45 +2574,30 @@ function PMA_hideShowDefaultValue($default_type)
 }
 
 /**
- * Closes the ENUM/SET editor and removes the data in it
+ * @var $enum_editor_dialog An object that points to the jQuery
+ *                          dialog of the ENUM/SET editor
  */
-function disable_popup()
-{
-    $("#popup_background").fadeOut("fast");
-    $("#enum_editor").fadeOut("fast");
-    // clear the data from the text boxes
-    $("#enum_editor #values input").remove();
-    $("#enum_editor input[type='hidden']").remove();
-}
-
+var $enum_editor_dialog = null;
 /**
  * Opens the ENUM/SET editor and controls its functions
  */
 $(document).ready(function() {
-    // Needs live() to work also in the Create table dialog
-    $("a[class='open_enum_editor']").live('click', function() {
-        // Center the popup
-        var windowWidth = document.documentElement.clientWidth;
-        var windowHeight = document.documentElement.clientHeight;
-        var popupWidth = windowWidth/2;
-        var popupHeight = windowHeight*0.8;
-        var popupOffsetTop = windowHeight/2 - popupHeight/2;
-        var popupOffsetLeft = windowWidth/2 - popupWidth/2;
-        $("#enum_editor").css({"position":"absolute", "top": popupOffsetTop, "left": popupOffsetLeft, "width": popupWidth, "height": popupHeight});
-
-        // Make it appear
-        $("#popup_background").css({"opacity":"0.7"});
-        $("#popup_background").fadeIn("fast");
-        $("#enum_editor").fadeIn("fast");
-        /**Replacing the column name in the enum editor header*/
-        var column_name = $("#append_fields_form").find("input[id=field_0_1]").attr("value");
-        var h3_text = $("#enum_editor h3").html();
-        $("#enum_editor h3").html(h3_text.split('"')[0]+'"'+column_name+'"');
-
+    $("a.open_enum_editor").live('click', function() {
+        // Get the name of the column that is being edited
+        var colname = $(this).closest('tr').find('input:first').val();
+        // And use it to make up a title for the page
+        if (colname.length < 1) {
+            var title = PMA_messages['enum_newColumnVals'];
+        } else {
+            var title = PMA_messages['enum_columnVals'].replace(
+                /%s/,
+                '"' + decodeURIComponent(colname) + '"'
+            );
+        }
         // Get the values as a string
         var inputstring = $(this)
-            .parent()
-            .prev("input")
+            .closest('td')
+            .find("input")
             .val();
         // Escape html entities
         inputstring = $('<div/>')
@@ -2620,6 +2605,9 @@ $(document).ready(function() {
             .html();
         // Parse the values, escaping quotes and
         // slashes on the fly, into an array
+        //
+        // There is a PHP port of the below parser in enum_editor.php
+        // If you are fixing something here, you need to also update the PHP port.
         var values = [];
         var in_string = false;
         var curr, next, buffer = '';
@@ -2643,57 +2631,138 @@ $(document).ready(function() {
             }
         }
         if (buffer.length > 0) {
+            // The leftovers in the buffer are the last value (if any)
             values.push(buffer);
         }
-        // Add the parsed values to the editor
-        for (var i=0; i<values.length; i++) {
-            $("#enum_editor #values").append(
-                "<input type='text' value='" + values[i] + "' />"
-            );
+        var fields = '';
+        // If there are no values, maybe the user is about to make a
+        // new list so we add a few for him/her to get started with.
+        if (values.length == 0) {
+            values.push('','','','');
         }
-        // So we know which column's data is being edited
-        $("#enum_editor").append("<input type='hidden' value='" + $(this).parent().prev("input").attr("id") + "' />");
+        // Add the parsed values to the editor
+        var drop_icon = PMA_getImage('b_drop.png');
+        for (var i=0; i<values.length; i++) {
+            fields += "<tr><td>"
+                   + "<input type='text' value='" + values[i] + "'/>"
+                   + "</td><td class='drop'>"
+                   + drop_icon
+                   + "</td></tr>";
+        }
+        /**
+         * @var dialog HTML code for the ENUM/SET dialog
+         */
+        var dialog = "<div id='enum_editor'>"
+                   + "<fieldset>"
+                   + "<legend>" + title + "</legend>"
+                   + "<p>" + PMA_getImage('s_notice.png')
+                   + PMA_messages['enum_hint'] + "</p>"
+                   + "<table class='values'>" + fields + "</table>"
+                   + "</fieldset><fieldset class='tblFooters'>"
+                   + "<table class='add'><tr><td>"
+                   + "<div class='slider'></div>"
+                   + "</td><td>"
+                   + "<form><div><input type='submit' class='add_value' value='"
+                   + PMA_messages['enum_addValue'].replace(/%d/, 1)
+                   + "'/></div></form>"
+                   + "</td></tr></table>"
+                   + "<input type='hidden' value='" // So we know which column's data is being edited
+                   + $(this).closest('td').find("input").attr("id")
+                   + "' />"
+                   + "</fieldset>";
+                   + "</div>";
+        /**
+         * @var  Defines functions to be called when the buttons in
+         * the buttonOptions jQuery dialog bar are pressed
+         */
+        var buttonOptions = {};
+        buttonOptions[PMA_messages['strGo']] = function () {
+            // When the submit button is clicked,
+            // put the data back into the original form
+            var value_array = new Array();
+            $(this).find(".values input").each(function(index, elm) {
+                var val = elm.value.replace(/\\/g, '\\\\').replace(/'/g, "''");
+                value_array.push("'" + val + "'");
+            });
+            // get the Length/Values text field where this value belongs
+            var values_id = $(this).find("input[type='hidden']").attr("value");
+            $("input[id='" + values_id + "']").attr("value", value_array.join(","));
+            $(this).dialog("close");
+        };
+        buttonOptions[PMA_messages['strClose']] = function () {
+            $(this).dialog("close");
+        };
+        // Show the dialog
+        var width = parseInt(
+            (parseInt($('html').css('font-size'), 10)/13)*340,
+            10
+        );
+        if (! width) {
+            width = 340;
+        }
+        $enum_editor_dialog = $(dialog).dialog({
+            minWidth: width,
+            modal: true,
+            title: PMA_messages['enum_editor'],
+            buttons: buttonOptions,
+            open: function() {
+                // Focus the "Go" button after opening the dialog
+                $(this).closest('.ui-dialog').find('.ui-dialog-buttonpane button:first').focus();
+            },
+            close: function() {
+                $(this).remove();
+            }
+        });
+        // slider for choosing how many fields to add
+        $enum_editor_dialog.find(".slider").slider({
+               animate: true,
+               range: "min",
+               value: 1,
+               min: 1,
+               max: 9,
+               slide: function( event, ui ) {
+                    $(this).closest('table').find('input[type=submit]').val(
+                        PMA_messages['enum_addValue'].replace(/%d/, ui.value)
+                    );
+               }
+			});
+        // Focus the slider, otherwise it looks nearly transparent
+        $('.ui-slider-handle').addClass('ui-state-focus');
         return false;
     });
 
-    // If the "close" link is clicked, close the enum editor
-    // Needs live() to work also in the Create table dialog
-    $("a[class='close_enum_editor']").live('click', function() {
-        disable_popup();
-    });
-
-    // If the "cancel" link is clicked, close the enum editor
-    // Needs live() to work also in the Create table dialog
-    $("a[class='cancel_enum_editor']").live('click', function() {
-        disable_popup();
-    });
-
     // When "add a new value" is clicked, append an empty text field
-    // Needs live() to work also in the Create table dialog
-    $("a[class='add_value']").live('click', function() {
-        $("#enum_editor #values").append("<input type='text' />");
+    $("input.add_value").live('click', function(e) {
+        e.preventDefault();
+        var num_new_rows = $enum_editor_dialog.find("div.slider").slider('value');
+        while (num_new_rows--) {
+            $enum_editor_dialog.find('.values')
+                .append(
+                    "<tr style='display: none;'><td>"
+                  + "<input type='text' />"
+                  + "</td><td class='drop'>"
+                  + PMA_getImage('b_drop.png')
+                  + "</td></tr>"
+                )
+                .find('tr:last')
+                .show('fast');
+        }
     });
 
-    // When the submit button is clicked, put the data back into the original form
-    // Needs live() to work also in the Create table dialog
-    $("#enum_editor input[type='submit']").live('click', function() {
-        var value_array = new Array();
-        $.each($("#enum_editor #values input"), function(index, input_element) {
-            val = jQuery.trim(input_element.value);
-            if(val != "") {
-                value_array.push("'" + val.replace(/\\/g, '\\\\').replace(/'/g, "''") + "'");
-            }
+    // Removes the specified row from the enum editor
+    $("#enum_editor td.drop").live('click', function() {
+        $(this).closest('tr').hide('fast', function () {
+            $(this).remove();
         });
-        // get the Length/Values text field where this value belongs
-        var values_id = $("#enum_editor input[type='hidden']").attr("value");
-        $("input[id='" + values_id + "']").attr("value", value_array.join(","));
-        disable_popup();
-     });
+    });
+});
 
-    /**
-     * Hides certain table structure actions, replacing them with the word "More". They are displayed
-     * in a dropdown menu when the user hovers over the word "More."
-     */
+/**
+ * Hides certain table structure actions, replacing them
+ * with the word "More". They are displayed in a dropdown
+ * menu when the user hovers over the word "More."
+ */
+$(document).ready(function() {
     displayMoreTableOpts();
 });
 

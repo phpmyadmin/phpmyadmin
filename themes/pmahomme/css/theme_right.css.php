@@ -2008,56 +2008,64 @@ p.enum_notice {
     font-size: 80%;
 }
 
-#enum_editor {
-    display: none;
-    position: fixed;
-    _position: absolute; /* hack for IE */
-    z-index: 101;
-    overflow-y: auto;
-    overflow-x: hidden;
+.enum_editor_no_js fieldset {
+    width: 40em;
 }
 
-#enum_editor_no_js {
-   margin: auto auto;
+hr.enum_editor_no_js {
+    background-color: #aaa;
 }
 
-#enum_editor, #enum_editor_no_js {
-    background: #D0DCE0;
-    padding: 15px;
+#enum_editor p {
+    margin-top: 0;
+    font-style:italic;
 }
 
-#popup_background {
-    display: none;
-    position: fixed;
-    _position: absolute; /* hack for IE6 */
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: #000;
-    z-index: 100;
-    overflow: hidden;
-}
-
-a.close_enum_editor {
-    float: right;
-}
-
-#enum_editor #values, #enum_editor_no_js #values {
-    margin: 15px 0;
+#enum_editor .values, #enum_editor .add, .enum_editor_no_js #values {
     width: 100%;
 }
 
-#enum_editor #values input, #enum_editor_no_js #values input {
+#enum_editor .add td {
+    vertical-align: middle;
+    width: 50%;
+    padding: 0 0 0 1em;
+}
+
+#enum_editor .values td.drop {
+    width: 1.8em;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+#enum_editor .values input {
     margin: 5px 0;
-    float: top;
+    padding-right: 2em;
     width: 100%;
 }
 
+#enum_editor .values img {
+    width: 1.8em;
+    vertical-align: middle;
 }
 
-#enum_editor_output {
-    margin-top: 50px;
+#enum_editor input.add_value {
+    margin: 0 0.4em 0 0;
+}
+
+#enum_editor_output textarea,
+.enum_editor_no_js input {
+    width: 100%;
+    float: right;
+    margin: 1em 0 0 0;
+}
+
+.enum_editor_no_js {
+    width: 40em;
+}
+
+.enum_editor_no_js input.submit {
+    float: left;
+    margin: 1em 0;
 }
 
 /**

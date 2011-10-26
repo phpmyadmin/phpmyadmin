@@ -241,6 +241,13 @@ $js_messages['strDeleting'] = __('Deleting');
 /* For db_routines.js */
 $js_messages['MissingReturn'] = __('The definition of a stored function must contain a RETURN statement!');
 
+/* For ENUM/SET editor*/
+$js_messages['enum_editor'] = __('ENUM/SET editor');
+$js_messages['enum_columnVals'] =__('Values for column %s');
+$js_messages['enum_newColumnVals'] = __('Values for a new column');
+$js_messages['enum_hint'] =__('Enter each value in a separate field');
+$js_messages['enum_addValue'] =__('Add %d value(s)');
+
 /* For import.js */
 $js_messages['strImportCSV'] = __('Note: If the file contains multiple tables, they will be combined into one');
 
