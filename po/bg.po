@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-09-02 09:19+0200\n"
+"PO-Revision-Date: 2011-10-26 20:11+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -821,10 +821,9 @@ msgstr ""
 "Копиране и поставяне на слепените стойности в полето \"Дължина/Стойности\""
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "Стълбове"
+msgstr "Неправилен вид (type)"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
