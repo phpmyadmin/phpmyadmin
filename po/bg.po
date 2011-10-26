@@ -937,10 +937,9 @@ msgid "Polygon"
 msgstr "Многоъгълник"
 
 #: gis_data_editor.php:306 js/messages.php:298
-#, fuzzy
 #| msgid "Add column"
 msgid "Add a polygon"
-msgstr "Добавяне колона"
+msgstr "Добавяне на Многоъгълник"
 
 #: gis_data_editor.php:310
 #, fuzzy
