@@ -8030,7 +8030,7 @@ msgstr "БД сървър"
 
 #: main.php:161
 msgid "Software"
-msgstr ""
+msgstr "Софтуер"
 
 #: main.php:162
 #, fuzzy
