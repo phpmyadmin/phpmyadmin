@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2010-07-21 14:53+0200\n"
-"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"PO-Revision-Date: 2011-10-26 19:00+0200\n"
+"Last-Translator:  <karrikas@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:320
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1673
@@ -84,8 +84,9 @@ msgstr "Joan"
 
 #: browse_foreigners.php:169 browse_foreigners.php:173
 #: libraries/Index.class.php:432 tbl_tracking.php:304
+#, fuzzy
 msgid "Keyname"
-msgstr "Klabearen hitza"
+msgstr "Giltzaren izena"
 
 #: browse_foreigners.php:170 browse_foreigners.php:172
 #: server_collations.php:54 server_collations.php:66 server_engines.php:55
@@ -100,28 +101,33 @@ msgstr "Erabili balio hau"
 
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:385
+#, fuzzy
 msgid "No blob streaming server configured!"
-msgstr ""
+msgstr "Ez dago blob streaming zerbitzaria konfiguraturik!"
 
 #: bs_disp_as_mime_type.php:35
+#, fuzzy
 msgid "Failed to fetch headers"
-msgstr ""
+msgstr "Akatsa goiburuak bilatzerakoan"
 
 #: bs_disp_as_mime_type.php:41
+#, fuzzy
 msgid "Failed to open remote URL"
-msgstr ""
+msgstr "Akatsa kompo esteka zabaltzerakoan"
 
 #: changelog.php:32 license.php:28
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"%s filtxategia ez dago eskuragarri sisteman, joan www.phpmyadmin.net "
+"informazio gehiagorako"
 
 #: db_create.php:60
 #, fuzzy, php-format
 msgid "Database %1$s has been created."
-msgstr "%s datu-basea ezabatua izan da."
+msgstr "%1$s datu-basea sortua izan da."
 
 #: db_datadict.php:49 db_operations.php:364
 msgid "Database comment: "
@@ -142,10 +148,9 @@ msgstr "Taularen iruzkinak"
 #: tbl_change.php:318 tbl_chart.php:89 tbl_indexes.php:196
 #: tbl_printview.php:136 tbl_relation.php:395 tbl_tracking.php:257
 #: tbl_tracking.php:308 tbl_zoom_select.php:434
-#, fuzzy
 #| msgid "Column names"
 msgid "Column"
-msgstr "Zutabe izenak"
+msgstr "Zutabea"
 
 #: db_datadict.php:163 db_printview.php:103 libraries/Index.class.php:433
 #: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:250
@@ -190,7 +195,7 @@ msgstr "Lehenetsia"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1311
 #: libraries/schema/Pdf_Relation_Schema.class.php:1332 tbl_printview.php:142
 msgid "Links to"
-msgstr "Estekak honi:"
+msgstr "Esteka:"
 
 #: db_datadict.php:172 db_printview.php:109
 #: libraries/config/messages.inc.php:92 libraries/config/messages.inc.php:107
@@ -255,33 +260,32 @@ msgid "Select All"
 msgstr "Dena hautatu"
 
 #: db_export.php:42 db_search.php:321 server_export.php:28
+#, fuzzy
 msgid "Unselect All"
 msgstr "Desautatu dena"
 
 #: db_operations.php:41 tbl_create.php:22
 #, fuzzy
 msgid "The database name is empty!"
-msgstr "Taularen izena hutsik dago!"
+msgstr "Datu-basearen izena hutsik dago!"
 
 #: db_operations.php:274
 #, fuzzy, php-format
 msgid "Database %s has been renamed to %s"
-msgstr "%s taula %s-(e)ra berrizendatua izan da"
+msgstr "%s datu-basea %s-(e)ra berrizendatua izan da"
 
 #: db_operations.php:278
 #, fuzzy, php-format
 msgid "Database %s has been copied to %s"
-msgstr "%s taula hona kopiatua izan da: %s."
+msgstr "%s datu-basea hona kopiatua izan da: %s."
 
 #: db_operations.php:406
-#, fuzzy
 msgid "Rename database to"
-msgstr "Taula berrizendatu izen honetara: "
+msgstr "Datu-basea berrizendatu izen honetara"
 
 #: db_operations.php:432
-#, fuzzy
 msgid "Remove database"
-msgstr "Taula berrizendatu izen honetara: "
+msgstr "Datu-basea kendu"
 
 #: db_operations.php:444
 #, php-format
@@ -412,12 +416,12 @@ msgid "Last check"
 msgstr "Azken egiaztapena"
 
 #: db_printview.php:219 db_structure.php:513
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s taula(k)"
-msgstr[1] "%s taula(k)"
+msgstr[0] "%s taula"
+msgstr[1] "%s taulak"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
@@ -427,7 +431,7 @@ msgstr "Gutxienez bistaratzeko Zutabe bat hautatu duzu."
 #, fuzzy, php-format
 #| msgid "Switch to copied table"
 msgid "Switch to %svisual builder%s"
-msgstr "Kopiatutako taulara aldatu"
+msgstr "Aldatu %serakitzaile bisualrera%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:995
@@ -482,7 +486,6 @@ msgid "Modify"
 msgstr "Aldatu"
 
 #: db_qbe.php:606
-#, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
 msgstr "Gehitu/ezabatu irizpide-errenkada"

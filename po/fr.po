@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-14 16:46+0200\n"
+"PO-Revision-Date: 2011-10-26 17:07+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -5388,20 +5388,18 @@ msgid "possible deep recursion attack"
 msgstr "possible attaque récursive"
 
 #: libraries/database_interface.lib.php:1676
-#, fuzzy
 #| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
-"(ou l'interface de connexion vers le serveur MySQL local n'est pas "
-"correctement configurée)"
+"Le serveur ne répond pas (ou l'interface de connexion vers le serveur MySQL "
+"local n'est pas correctement configurée)."
 
 #: libraries/database_interface.lib.php:1678
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
-msgstr "Le serveur ne répond pas"
+msgstr "Le serveur ne répond pas."
 
 #: libraries/database_interface.lib.php:1686
 msgid "Details..."
@@ -7865,10 +7863,9 @@ msgid "Current Server"
 msgstr "Serveur actuel"
 
 #: libraries/server_links.inc.php:60
-#, fuzzy
 #| msgid "User"
 msgid "Users"
-msgstr "Utilisateur"
+msgstr "Utilisateurs"
 
 #: libraries/server_links.inc.php:79 server_synchronize.php:1154
 #: server_synchronize.php:1162
@@ -9228,10 +9225,9 @@ msgid "Any"
 msgstr "N'importe quel"
 
 #: server_privileges.php:1561
-#, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
-msgstr "Vue d'ensemble des utilisateurs"
+msgstr "Survol des utilisateurs"
 
 #: server_privileges.php:1701 server_privileges.php:1895
 #: server_privileges.php:2253
@@ -11510,10 +11506,9 @@ msgid "Check referential integrity:"
 msgstr "Vérifier l'intégrité référentielle"
 
 #: tbl_printview.php:72
-#, fuzzy
 #| msgid "Show tables"
 msgid "Showing tables"
-msgstr "Afficher les tables"
+msgstr "Affichage des tables"
 
 #: tbl_printview.php:269 tbl_structure.php:762
 msgid "Space usage"
@@ -12720,29 +12715,33 @@ msgstr "Veuillez augmenter {key_buffer_size}."
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
+"Index lus depuis la mémoire : %s%%, cette valeur devrait être au-dessus de "
+"95%%"
 
 #: po/advisory_rules.php:180
-#, fuzzy
 #| msgid "Create table"
 msgid "Rate of table open"
-msgstr "Nouvelle table"
+msgstr "Taux d'ouverture de tables"
 
 #: po/advisory_rules.php:181
-#, fuzzy
 #| msgid "The current number of pending writes."
 msgid "The rate of opening tables is high."
-msgstr "Le nombre actuel d'écritures en attente."
+msgstr "Le taux d'ouverture de tables est élevé."
 
 #: po/advisory_rules.php:182
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
+"Ouvrir des tables requiert des accès au disque, ce qui est coûteux. "
+"Augmenter {table_open_cache} pourrait remédier à la situation."
 
 #: po/advisory_rules.php:183
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
+"Taux d'ouverture des tables : %s, cette valeur ne devrait pas dépasser 10 "
+"par heure"
 
 #: po/advisory_rules.php:185
 #, fuzzy

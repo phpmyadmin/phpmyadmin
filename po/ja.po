@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-19 11:45+0200\n"
+"PO-Revision-Date: 2011-10-26 11:45+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1607,10 +1607,9 @@ msgid "Recommendation"
 msgstr "推奨設定"
 
 #: js/messages.php:200
-#, fuzzy
 #| msgid "Details"
 msgid "Rule details"
-msgstr "詳細"
+msgstr "事象の詳細と判断理由"
 
 #: js/messages.php:201
 msgid "Justification"
@@ -1618,7 +1617,7 @@ msgstr "判断理由"
 
 #: js/messages.php:202
 msgid "Used variable / formula"
-msgstr "特定の値に対する変数値の割合"
+msgstr "判断値の算出方法"
 
 #: js/messages.php:203
 msgid "Test"
@@ -5336,18 +5335,16 @@ msgid "possible deep recursion attack"
 msgstr "深い再帰的な攻撃を受けている可能性があります。"
 
 #: libraries/database_interface.lib.php:1676
-#, fuzzy
 #| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
-msgstr "(あるいはローカルの MySQL サーバのソケットが正しく設定されていません)"
+msgstr "サーバが応答しません (あるいはローカルサーバのソケットが正しく設定されていません)。"
 
 #: libraries/database_interface.lib.php:1678
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
-msgstr "サーバが応答しません"
+msgstr "サーバが応答しません。"
 
 #: libraries/database_interface.lib.php:1686
 msgid "Details..."
@@ -7352,10 +7349,9 @@ msgid "Event scheduler status"
 msgstr "イベントスケジュールの状態"
 
 #: libraries/rte/rte_list.lib.php:54
-#, fuzzy
 #| msgid "Return type"
 msgid "Returns"
-msgstr "返り値の種類"
+msgstr "返り値"
 
 #: libraries/rte/rte_list.lib.php:63 libraries/rte/rte_triggers.lib.php:340
 msgid "Event"
@@ -7781,7 +7777,6 @@ msgid "Current Server"
 msgstr "カレントサーバ"
 
 #: libraries/server_links.inc.php:60
-#, fuzzy
 #| msgid "User"
 msgid "Users"
 msgstr "ユーザ"
@@ -8314,7 +8309,7 @@ msgstr "PHP 情報"
 
 #: main.php:222
 msgid "Official Homepage"
-msgstr "phpMyAdmin のオフィシャルサイト"
+msgstr "phpMyAdmin オフィシャルサイト"
 
 #: main.php:223
 msgid "Contribute"
@@ -9112,7 +9107,6 @@ msgid "Any"
 msgstr "すべて"
 
 #: server_privileges.php:1561
-#, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
 msgstr "ユーザ概略"
@@ -10754,7 +10748,7 @@ msgstr "読み込む"
 
 #: setup/frames/index.inc.php:240
 msgid "phpMyAdmin homepage"
-msgstr "phpMyAdmin のオフィシャルサイト"
+msgstr "phpMyAdmin オフィシャルサイト"
 
 #: setup/frames/index.inc.php:241
 msgid "Donate"
@@ -11200,10 +11194,9 @@ msgid "No index parts defined!"
 msgstr "インデックス部分が定義されていません!"
 
 #: tbl_indexes.php:169
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create an index"
-msgstr "新しいインデックスを作成する"
+msgstr "インデックスを作成する"
 
 #: tbl_indexes.php:171
 msgid "Modify an index"
@@ -11350,10 +11343,9 @@ msgid "Check referential integrity:"
 msgstr "参照整合性の確認:"
 
 #: tbl_printview.php:72
-#, fuzzy
 #| msgid "Show tables"
 msgid "Showing tables"
-msgstr "テーブルを表示する"
+msgstr "テーブルを表示しています"
 
 #: tbl_printview.php:269 tbl_structure.php:762
 msgid "Space usage"
@@ -11799,7 +11791,7 @@ msgstr "クエリの全体量に対して遅いクエリが多く存在します
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
-msgstr ""
+msgstr "{long_query_time} を増やすか、クエリログから遅いクエリを見つけ出し最適化してみてください。"
 
 #: po/advisory_rules.php:18
 #, php-format
@@ -11870,10 +11862,9 @@ msgid "log_slow_queries is set to 'OFF'"
 msgstr "log_slow_queries が「OFF」に設定されています。"
 
 #: po/advisory_rules.php:35
-#, fuzzy
 #| msgid "Clear series"
 msgid "Release Series"
-msgstr "系列をクリアする"
+msgstr "バージョン系統"
 
 #: po/advisory_rules.php:36
 msgid "The MySQL server version less then 5.1."
@@ -11917,14 +11908,13 @@ msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgstr "安定版 MySQL 5.5 へのアップグレードを推奨します。"
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
-#, fuzzy
 #| msgid "Description"
 msgid "Distribution"
-msgstr "説明"
+msgstr "ディストリビューション"
 
 #: po/advisory_rules.php:51
 msgid "Version is compiled from source, not a MySQL official binary."
-msgstr ""
+msgstr "ご使用のバージョンはソースからコンパイルされたもので、MySQL オフィッシャルのバイナリではありません。"
 
 #: po/advisory_rules.php:52
 msgid ""
@@ -11932,14 +11922,17 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
+"ユーザが独自にソースからコンパイルしたのでないのであれば、おそらくディストリビューションによるパッケージを使用しているものだと思われます。MySQL "
+"のマニュアルは、MySQL オフィッシャルのバイナリに対しては厳格になっていますが、(RedHat、Debian/Ubuntu などのような) "
+"ディストリビューションのパッケージに対しては多少異なる部分もあります。"
 
 #: po/advisory_rules.php:53
 msgid "'source' found in version_comment"
-msgstr ""
+msgstr "バージョンコメント (version_comment) に 「source」という文字があります。"
 
 #: po/advisory_rules.php:56 po/advisory_rules.php:61
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr ""
+msgstr "MySQL のマニュアルは、MySQL オフィッシャルのバイナリに対してだけ厳格になっています。"
 
 #: po/advisory_rules.php:57
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
@@ -11947,7 +11940,7 @@ msgstr "Percona ドキュメントは http://www.percona.com/docs/wiki/ にあ�
 
 #: po/advisory_rules.php:58
 msgid "'percona' found in version_comment"
-msgstr ""
+msgstr "バージョンコメント (version_comment) に 「percona」という文字があります。"
 
 #: po/advisory_rules.php:62
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
@@ -11956,7 +11949,7 @@ msgstr "Drizzle ドキュメントは http://docs.drizzle.org/ にあります�
 #: po/advisory_rules.php:63
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
-msgstr ""
+msgstr "バージョンの文字列 (%s) が Drizzle のバージョン形態と一致しています。"
 
 #: po/advisory_rules.php:65
 #, fuzzy

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-13 01:34+0200\n"
+"PO-Revision-Date: 2011-10-26 18:08+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -5438,19 +5438,18 @@ msgid "possible deep recursion attack"
 msgstr "posible ataque de recursión extrema"
 
 #: libraries/database_interface.lib.php:1676
-#, fuzzy
 #| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
-"(o el socket del servidor MySQL local no está configurado correctamente)"
+"El servidor no está respondiendo (o el zócalo local al servidor MySQL no "
+"está configurado correctamente)."
 
 #: libraries/database_interface.lib.php:1678
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
-msgstr "El servidor no está respondiendo"
+msgstr "El servidor no está respondiendo."
 
 #: libraries/database_interface.lib.php:1686
 msgid "Details..."
@@ -7926,10 +7925,9 @@ msgid "Current Server"
 msgstr "Servidor actual"
 
 #: libraries/server_links.inc.php:60
-#, fuzzy
 #| msgid "User"
 msgid "Users"
-msgstr "Usuario"
+msgstr "Usuarios"
 
 #: libraries/server_links.inc.php:79 server_synchronize.php:1154
 #: server_synchronize.php:1162
@@ -9294,7 +9292,6 @@ msgid "Any"
 msgstr "cualquiera"
 
 #: server_privileges.php:1561
-#, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
 msgstr "Vista global de usuarios"
@@ -11612,10 +11609,9 @@ msgid "Check referential integrity:"
 msgstr "Comprobar la integridad referencial:"
 
 #: tbl_printview.php:72
-#, fuzzy
 #| msgid "Show tables"
 msgid "Showing tables"
-msgstr "Mostrar las tablas"
+msgstr "Mostrando las tablas"
 
 #: tbl_printview.php:269 tbl_structure.php:762
 msgid "Space usage"
