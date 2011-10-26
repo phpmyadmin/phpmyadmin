@@ -1346,7 +1346,7 @@ msgstr "Erabilitako memoria"
 #, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "Swad osoa"
+msgstr "Swap osoa"
 
 #: js/messages.php:114
 msgid "Cached Swap"
