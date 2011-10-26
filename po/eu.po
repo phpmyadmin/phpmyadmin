@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 19:05+0200\n"
+"PO-Revision-Date: 2011-10-26 19:06+0200\n"
 "Last-Translator:  <karrikas@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -646,7 +646,7 @@ msgstr ""
 #: db_structure.php:466 db_structure.php:480 libraries/header.inc.php:161
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
 msgid "View"
-msgstr ""
+msgstr "Ikusipegia"
 
 #: db_structure.php:520 libraries/db_structure.lib.php:35
 #: libraries/server_links.inc.php:90 server_replication.php:31
