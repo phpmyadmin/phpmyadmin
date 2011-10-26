@@ -12715,6 +12715,8 @@ msgstr "Veuillez augmenter {key_buffer_size}."
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
+"Index lus depuis la mémoire : %s%%, cette valeur devrait être au-dessus de "
+"95%%"
 
 #: po/advisory_rules.php:180
 #, fuzzy
