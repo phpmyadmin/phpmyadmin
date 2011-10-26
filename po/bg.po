@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 20:45+0200\n"
+"PO-Revision-Date: 2011-10-26 20:46+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -11289,10 +11289,11 @@ msgid "Create version"
 msgstr "Създаване на версия"
 
 #: tbl_zoom_select.php:135
-#, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "Изпълняване на \"заявка по шаблон\" (знак за заместване: \"%\")"
+msgstr ""
+"Изпълняване \"заявка по шаблон\" (знак за заместване: \"%\") за две различни "
+"колони"
 
 #: tbl_zoom_select.php:145
 #, fuzzy
