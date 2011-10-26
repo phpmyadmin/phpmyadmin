@@ -85,7 +85,7 @@ msgstr "Joan"
 #: browse_foreigners.php:169 browse_foreigners.php:173
 #: libraries/Index.class.php:432 tbl_tracking.php:304
 msgid "Keyname"
-msgstr "Klabearen hitza"
+msgstr "Giltzaren izena"
 
 #: browse_foreigners.php:170 browse_foreigners.php:172
 #: server_collations.php:54 server_collations.php:66 server_engines.php:55
