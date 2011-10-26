@@ -10067,10 +10067,9 @@ msgid "Commonly monitored"
 msgstr ""
 
 #: server_status.php:1660
-#, fuzzy
 #| msgid "You must provide a valid table name"
 msgid "or type variable name:"
-msgstr "Трябва да дадете име на таблица на тригера"
+msgstr "или въведете променлива:"
 
 #: server_status.php:1664
 msgid "Display as differential value"
