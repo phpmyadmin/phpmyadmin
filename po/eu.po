@@ -260,6 +260,7 @@ msgid "Select All"
 msgstr "Dena hautatu"
 
 #: db_export.php:42 db_search.php:321 server_export.php:28
+#, fuzzy
 msgid "Unselect All"
 msgstr "Desautatu dena"
 
