@@ -8011,10 +8011,9 @@ msgid "General Settings"
 msgstr "Общи настройки"
 
 #: main.php:101
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "Колация на връзката към MySQL"
+msgstr "Колация на връзката към сървъра"
 
 #: main.php:116
 msgid "Appearance Settings"
