@@ -5685,7 +5685,7 @@ msgstr "Заявката отне %01.4f секунди"
 
 #: libraries/display_tbl.lib.php:2575
 msgid "Query results operations"
-msgstr "Операции с резулатата от заявката"
+msgstr "Операции с резултата от заявката"
 
 #: libraries/display_tbl.lib.php:2604
 msgid "Print view (with full texts)"
