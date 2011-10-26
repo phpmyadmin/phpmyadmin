@@ -835,8 +835,9 @@ msgid "Values for the column \"%s\""
 msgstr "\"%s\" zutaberako balioak"
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:717
+#, fuzzy
 msgid "Enter each value in a separate field."
-msgstr ""
+msgstr "Sartu balioak banatutako eremuetan. "
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
