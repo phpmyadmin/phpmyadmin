@@ -11914,7 +11914,7 @@ msgstr "ディストリビューション"
 
 #: po/advisory_rules.php:51
 msgid "Version is compiled from source, not a MySQL official binary."
-msgstr ""
+msgstr "ご使用のバージョンはソースからコンパイルされたもので、MySQL オフィッシャルのバイナリではありません。"
 
 #: po/advisory_rules.php:52
 msgid ""
