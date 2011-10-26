@@ -1319,7 +1319,7 @@ msgstr "KiB"
 
 #: js/messages.php:106
 msgid "Average load"
-msgstr ""
+msgstr "Bataz besteko karga"
 
 #: js/messages.php:107
 #, fuzzy
