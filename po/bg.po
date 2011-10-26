@@ -1499,7 +1499,7 @@ msgstr "Разделени с %s:"
 
 #: js/messages.php:162
 msgid "From slow log"
-msgstr "От дневникът за бавни заявки"
+msgstr "От дневника за бавни заявки"
 
 #: js/messages.php:163
 msgid "From general log"
