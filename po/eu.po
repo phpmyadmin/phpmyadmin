@@ -277,7 +277,7 @@ msgstr "%s datu-basea %s-(e)ra berrizendatua izan da"
 #: db_operations.php:278
 #, fuzzy, php-format
 msgid "Database %s has been copied to %s"
-msgstr "%s taula hona kopiatua izan da: %s."
+msgstr "%s datu-basea hona kopiatua izan da: %s."
 
 #: db_operations.php:406
 #, fuzzy
