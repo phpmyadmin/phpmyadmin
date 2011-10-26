@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 19:09+0200\n"
+"PO-Revision-Date: 2011-10-26 19:10+0200\n"
 "Last-Translator:  <karrikas@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -802,7 +802,7 @@ msgstr "Aktibo"
 
 #: db_tracking.php:121 tbl_tracking.php:592 tbl_tracking.php:650
 msgid "not active"
-msgstr ""
+msgstr "Ez aktibo"
 
 #: db_tracking.php:134
 #, fuzzy
