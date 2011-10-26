@@ -1303,8 +1303,9 @@ msgid "System memory"
 msgstr "Sistemaren memoria"
 
 #: js/messages.php:102
+#, fuzzy
 msgid "System swap"
-msgstr ""
+msgstr "Sistemaren swap-a"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:103 libraries/common.lib.php:1395 server_status.php:1669
