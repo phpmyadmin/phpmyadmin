@@ -2889,7 +2889,6 @@ msgstr "Липсващ параметър:"
 
 #: libraries/common.lib.php:2415 libraries/common.lib.php:2418
 #: libraries/display_tbl.lib.php:306
-#, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
