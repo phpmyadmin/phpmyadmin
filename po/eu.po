@@ -1264,9 +1264,8 @@ msgid "Questions (executed statements by the server)"
 msgstr "Galdera (zerbitzariak exekutatuak)"
 
 #: js/messages.php:90 server_status.php:776
-#, fuzzy
 msgid "Query statistics"
-msgstr "Errenkadaren estatistikak"
+msgstr "Kontsulta estatistikak"
 
 #: js/messages.php:93
 msgid "Local monitor configuration incompatible"
