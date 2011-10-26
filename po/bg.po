@@ -11537,10 +11537,9 @@ msgid "Available memory on this host: %s"
 msgstr "Достъпна памет на този хост: %s"
 
 #: po/advisory_rules.php:70
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache disabled"
-msgstr "Буфер за заявки"
+msgstr "Буфер за заявки изключен"
 
 #: po/advisory_rules.php:71
 #, fuzzy
