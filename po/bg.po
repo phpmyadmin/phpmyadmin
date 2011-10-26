@@ -858,10 +858,9 @@ msgid "Dump has been saved to file %s."
 msgstr "Схемата беше запазена във файл %s."
 
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "Тип експорт"
+msgstr "Невалиден тип експорт"
 
 #: gis_data_editor.php:84
 #, php-format
