@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 21:25+0200\n"
+"PO-Revision-Date: 2011-10-26 21:26+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -1773,10 +1773,9 @@ msgid "Change"
 msgstr "Промяна"
 
 #: js/messages.php:253
-#, fuzzy
 #| msgid "SQL execution"
 msgid "Query execution time"
-msgstr "Изпълняване на SQL"
+msgstr "Време за изпълнение на заявката"
 
 #: js/messages.php:256 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
