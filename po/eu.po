@@ -1155,10 +1155,9 @@ msgstr "Pasahitzek ez dute bat egiten!"
 
 #: js/messages.php:58 server_privileges.php:1769 server_privileges.php:1793
 #: server_privileges.php:2205 server_privileges.php:2404
-#, fuzzy
 #| msgid "Any user"
 msgid "Add user"
-msgstr "Edozein erabiltzaile"
+msgstr "Gehitu erabiltzailea"
 
 #: js/messages.php:59
 #, fuzzy
