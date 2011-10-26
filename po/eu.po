@@ -284,9 +284,8 @@ msgid "Rename database to"
 msgstr "Datu-basea berrizendatu izen honetara"
 
 #: db_operations.php:432
-#, fuzzy
 msgid "Remove database"
-msgstr "Taula berrizendatu izen honetara: "
+msgstr "Datu-basea kendu"
 
 #: db_operations.php:444
 #, php-format
