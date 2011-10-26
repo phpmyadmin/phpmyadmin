@@ -1268,9 +1268,8 @@ msgid "Query statistics"
 msgstr "Kontsulta estatistikak"
 
 #: js/messages.php:93
-#, fuzzy
 msgid "Local monitor configuration incompatible"
-msgstr "Konfiguratutako motor lokal bateraezina"
+msgstr "Konfiguratutako monitore lokal bateraezina"
 
 #: js/messages.php:94
 msgid ""
