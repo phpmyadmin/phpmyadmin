@@ -1488,10 +1488,9 @@ msgstr "Заглавие на диаграмата"
 
 #. l10n: As in differential values
 #: js/messages.php:159
-#, fuzzy
 #| msgid "Difference"
 msgid "Differential"
-msgstr "Различия"
+msgstr ""
 
 #: js/messages.php:160
 #, php-format
