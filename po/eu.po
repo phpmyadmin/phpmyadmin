@@ -1315,7 +1315,7 @@ msgstr "MiB"
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:104 libraries/common.lib.php:1393 server_status.php:1669
 msgid "KiB"
-msgstr "KB"
+msgstr "KiB"
 
 #: js/messages.php:106
 msgid "Average load"
