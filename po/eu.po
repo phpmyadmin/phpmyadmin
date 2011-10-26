@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 18:53+0200\n"
+"PO-Revision-Date: 2011-10-26 18:54+0200\n"
 "Last-Translator:  <karrikas@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -272,7 +272,7 @@ msgstr "Datu-basearen izena hutsik dago!"
 #: db_operations.php:274
 #, fuzzy, php-format
 msgid "Database %s has been renamed to %s"
-msgstr "%s taula %s-(e)ra berrizendatua izan da"
+msgstr "%s datu-basea %s-(e)ra berrizendatua izan da"
 
 #: db_operations.php:278
 #, fuzzy, php-format
