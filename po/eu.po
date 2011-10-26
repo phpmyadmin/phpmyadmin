@@ -1322,10 +1322,9 @@ msgid "Average load"
 msgstr "Bataz besteko karga"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "Total"
 msgid "Total memory"
-msgstr "Gutira"
+msgstr "Memoria guztira"
 
 #: js/messages.php:108
 msgid "Cached memory"
