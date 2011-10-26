@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 16:48+0200\n"
+"PO-Revision-Date: 2011-10-26 16:49+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -12719,10 +12719,9 @@ msgstr ""
 "95%%"
 
 #: po/advisory_rules.php:180
-#, fuzzy
 #| msgid "Create table"
 msgid "Rate of table open"
-msgstr "Nouvelle table"
+msgstr "Taux d'ouverture de tables"
 
 #: po/advisory_rules.php:181
 #, fuzzy
