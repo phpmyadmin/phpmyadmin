@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 20:39+0200\n"
+"PO-Revision-Date: 2011-10-26 20:41+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -10993,7 +10993,7 @@ msgstr "Статистика за редовете"
 
 #: tbl_printview.php:339 tbl_structure.php:843
 msgid "static"
-msgstr ""
+msgstr "статичен"
 
 #: tbl_printview.php:341 tbl_structure.php:845
 msgid "dynamic"
