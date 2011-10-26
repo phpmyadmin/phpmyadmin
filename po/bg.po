@@ -1256,10 +1256,9 @@ msgid "Query cache efficiency"
 msgstr "Ефикасност на буфера за заявки"
 
 #: js/messages.php:97
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
-msgstr "Буфер за заявки"
+msgstr "Използване на буфера за заявки"
 
 #: js/messages.php:98
 #, fuzzy
