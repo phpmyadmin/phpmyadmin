@@ -8176,7 +8176,6 @@ msgid "No databases"
 msgstr "Няма БД"
 
 #: navigation.php:271
-#, fuzzy
 #| msgid "filter tables by name"
 msgid "Filter tables by name"
 msgstr "филтър по таблица"
