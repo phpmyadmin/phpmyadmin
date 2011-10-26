@@ -4853,10 +4853,9 @@ msgid "Whether to show hint or not"
 msgstr ""
 
 #: libraries/config/messages.inc.php:461
-#, fuzzy
 #| msgid "Show indexes"
 msgid "Show hint"
-msgstr "Показване на индексите"
+msgstr "Показване подсказка"
 
 #: libraries/config/messages.inc.php:462
 msgid ""
