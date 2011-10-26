@@ -966,7 +966,7 @@ msgstr "Gehitu barne eraztuna"
 
 #: gis_data_editor.php:266 js/messages.php:292
 msgid "Polygon"
-msgstr ""
+msgstr "Poligono"
 
 #: gis_data_editor.php:306 js/messages.php:298
 #, fuzzy
