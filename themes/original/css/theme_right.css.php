@@ -1658,7 +1658,7 @@ hr.enum_editor_no_js {
 }
 
 #enum_editor .values input {
-    margin: 5px 0;
+    margin: 0.1em 0;
     padding-right: 2.5em;
     width: 100%;
 }
