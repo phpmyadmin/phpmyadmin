@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 20:56+0200\n"
+"PO-Revision-Date: 2011-10-26 20:57+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -1499,7 +1499,7 @@ msgstr "Разделени с %s:"
 
 #: js/messages.php:162
 msgid "From slow log"
-msgstr ""
+msgstr "От дневникът за бавни заявки"
 
 #: js/messages.php:163
 msgid "From general log"
