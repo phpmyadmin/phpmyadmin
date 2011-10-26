@@ -267,7 +267,7 @@ msgstr "Desautatu dena"
 #: db_operations.php:41 tbl_create.php:22
 #, fuzzy
 msgid "The database name is empty!"
-msgstr "Taularen izena hutsik dago!"
+msgstr "Datu-basearen izena hutsik dago!"
 
 #: db_operations.php:274
 #, fuzzy, php-format
