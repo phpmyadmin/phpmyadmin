@@ -11932,7 +11932,7 @@ msgstr "バージョンコメント (version_comment) に 「source」という�
 
 #: po/advisory_rules.php:56 po/advisory_rules.php:61
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr ""
+msgstr "MySQL のマニュアルは、MySQL オフィッシャルのバイナリに対してだけ厳格になっています。"
 
 #: po/advisory_rules.php:57
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
