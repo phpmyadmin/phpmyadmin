@@ -11310,7 +11310,7 @@ msgstr "Максимален брой редове за изчертаване"
 
 #: tbl_zoom_select.php:410
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "Прелистване/Редакция на точки"
 
 #: tbl_zoom_select.php:417
 #, fuzzy
