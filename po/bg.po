@@ -1360,10 +1360,9 @@ msgid "Settings"
 msgstr "Настройки"
 
 #: js/messages.php:127
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "Изтриване БД"
+msgstr "Изтриване диаграма"
 
 #: js/messages.php:128
 msgid "Edit title and labels"
