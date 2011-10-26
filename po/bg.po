@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 21:47+0200\n"
+"PO-Revision-Date: 2011-10-26 21:48+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -10549,10 +10549,9 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Ключът трябва да съдържа букви, цифри [em]и[/em] специални знаци."
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No data"
 msgid "Wrong data"
-msgstr "Няма данни"
+msgstr "Грешни данни"
 
 #: sql.php:103 tbl_change.php:262 tbl_select.php:28 tbl_zoom_select.php:58
 msgid "Browse foreign values"
