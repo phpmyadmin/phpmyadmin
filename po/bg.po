@@ -1567,10 +1567,9 @@ msgid "Sum of grouped rows:"
 msgstr "Броят добавени редове"
 
 #: js/messages.php:179
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "Общо"
+msgstr "Общо:"
 
 #: js/messages.php:181
 #, fuzzy
