@@ -11949,7 +11949,7 @@ msgstr "Drizzle ドキュメントは http://docs.drizzle.org/ にあります�
 #: po/advisory_rules.php:63
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
-msgstr ""
+msgstr "バージョンの文字列 (%s) が Drizzle のバージョン形態と一致しています。"
 
 #: po/advisory_rules.php:65
 #, fuzzy
