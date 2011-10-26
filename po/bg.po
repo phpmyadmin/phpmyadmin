@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 21:17+0200\n"
+"PO-Revision-Date: 2011-10-26 21:18+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -1854,10 +1854,9 @@ msgid "Copy"
 msgstr "Копиране"
 
 #: js/messages.php:301
-#, fuzzy
 #| msgid "Add column"
 msgid "Add columns"
-msgstr "Добавяне колона"
+msgstr "Добавяне колони"
 
 #: js/messages.php:304
 msgid "Select referenced key"
