@@ -1333,7 +1333,7 @@ msgstr "Свободни страници"
 
 #: js/messages.php:118
 msgid "Bytes sent"
-msgstr ""
+msgstr "Байта изпратени"
 
 #: js/messages.php:119
 #| msgid "Received"
