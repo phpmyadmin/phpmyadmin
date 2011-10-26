@@ -1241,7 +1241,7 @@ msgstr "Zerbitzariaren trafikoa (KiBtan)"
 
 #: js/messages.php:82
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "Konexio azken freskatzetik"
 
 #: js/messages.php:83 js/messages.php:121 server_status.php:1224
 msgid "Processes"
