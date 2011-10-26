@@ -1306,7 +1306,7 @@ msgstr "Буферирана памет"
 
 #: js/messages.php:110
 msgid "Free memory"
-msgstr ""
+msgstr "Свободна памет"
 
 #: js/messages.php:111
 msgid "Used memory"
