@@ -8048,10 +8048,9 @@ msgid "User"
 msgstr "Потребител"
 
 #: main.php:169
-#, fuzzy
 #| msgid "Server socket"
 msgid "Server charset"
-msgstr "Сокет на сървъра"
+msgstr "Знаков набор на сървъра"
 
 #: main.php:181
 msgid "Web server"
