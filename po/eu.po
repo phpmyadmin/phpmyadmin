@@ -736,10 +736,9 @@ msgid "Add prefix to table"
 msgstr "Gehitu aurrizkia taulari"
 
 #: db_structure.php:602 libraries/mult_submits.inc.php:251
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
-msgstr "Taularen datuak fitxategiarekin ordezkatu "
+msgstr "Taularen aurrizkia aldatu"
 
 #: db_structure.php:604 libraries/mult_submits.inc.php:251
 #, fuzzy
