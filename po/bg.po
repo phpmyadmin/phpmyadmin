@@ -9231,7 +9231,7 @@ msgstr "Наблюдател"
 
 #: server_status.php:779
 msgid "Advisor"
-msgstr ""
+msgstr "Съветник"
 
 #: server_status.php:789 server_status.php:811
 #| msgid "Refresh rate:"
