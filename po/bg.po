@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 20:19+0200\n"
+"PO-Revision-Date: 2011-10-26 20:20+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -934,7 +934,7 @@ msgstr "Добавяне потребител"
 
 #: gis_data_editor.php:266 js/messages.php:292
 msgid "Polygon"
-msgstr ""
+msgstr "Многоъгълник"
 
 #: gis_data_editor.php:306 js/messages.php:298
 #, fuzzy
