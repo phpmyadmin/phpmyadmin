@@ -1641,10 +1641,9 @@ msgid "Rule details"
 msgstr "Подробности"
 
 #: js/messages.php:201
-#, fuzzy
 #| msgid "Authentication"
 msgid "Justification"
-msgstr "Удостоверяване"
+msgstr ""
 
 #: js/messages.php:202
 msgid "Used variable / formula"
