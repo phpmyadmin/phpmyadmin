@@ -9266,10 +9266,9 @@ msgid "Run analyzer"
 msgstr "Тип на заявката"
 
 #: server_status.php:893
-#, fuzzy
 #| msgid "Functions"
 msgid "Instructions"
-msgstr "Функции"
+msgstr "Инструкции"
 
 #: server_status.php:900
 msgid ""
