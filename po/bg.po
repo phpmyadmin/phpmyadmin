@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 21:45+0200\n"
+"PO-Revision-Date: 2011-10-26 21:46+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -10098,10 +10098,9 @@ msgid "Series in Chart:"
 msgstr ""
 
 #: server_status.php:1697
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Log statistics"
-msgstr "Показване статистика"
+msgstr "Статистика на дневника"
 
 #: server_status.php:1698
 #, fuzzy
