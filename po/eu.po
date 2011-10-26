@@ -541,12 +541,12 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Bilaketaren emaitzak: \"<i>%s</i>\" %s:"
 
 #: db_search.php:226
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s emaitza(k) <i>%s</i> taulan"
-msgstr[1] "%s emaitza(k) <i>%s</i> taulan"
+msgstr[0] "%s emaitza <i>%s</i> taulan"
+msgstr[1] "%s emaitzak <i>%s</i> taulan"
 
 #: db_search.php:233 libraries/common.lib.php:3089
 #: libraries/common.lib.php:3301 libraries/common.lib.php:3302
