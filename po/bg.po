@@ -8548,7 +8548,7 @@ msgstr "Автор"
 
 #: server_plugins.php:116 server_plugins.php:151
 msgid "License"
-msgstr ""
+msgstr "Лиценз"
 
 #: server_plugins.php:182
 #| msgid "Disabled"
