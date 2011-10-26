@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 19:04+0200\n"
+"PO-Revision-Date: 2011-10-26 19:05+0200\n"
 "Last-Translator:  <karrikas@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -619,9 +619,9 @@ msgid "Table %s has been emptied"
 msgstr "%s taula hustu egin da"
 
 #: db_structure.php:327 tbl_operations.php:709
-#, fuzzy, php-format
+#, php-format
 msgid "View %s has been dropped"
-msgstr "%s eremua ezabatu da"
+msgstr "%s Ikuspegia ezabatua izan da"
 
 #: db_structure.php:327 tbl_operations.php:709
 #, php-format
