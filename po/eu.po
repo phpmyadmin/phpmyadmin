@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 19:25+0200\n"
+"PO-Revision-Date: 2011-10-26 19:26+0200\n"
 "Last-Translator:  <karrikas@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -1255,7 +1255,7 @@ msgstr "Konexioak / Prozesuak"
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:86
 msgid "Questions since last refresh"
-msgstr ""
+msgstr "Galdera azken freskatzetik"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:88
