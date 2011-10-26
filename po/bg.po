@@ -11345,10 +11345,9 @@ msgid "Current amount of Questions: %s"
 msgstr "Текущ брой запитвания: %s"
 
 #: po/advisory_rules.php:15
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
-msgstr "Показване на SQL заявките"
+msgstr "Процент на бавните заявки"
 
 #: po/advisory_rules.php:16
 msgid ""
