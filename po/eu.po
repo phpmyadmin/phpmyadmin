@@ -1172,7 +1172,7 @@ msgstr "Hautatutako erabiltzaileak baztertu"
 #: js/messages.php:61 js/messages.php:130 libraries/tbl_properties.inc.php:715
 #: tbl_tracking.php:235 tbl_tracking.php:400
 msgid "Close"
-msgstr ""
+msgstr "Itxi"
 
 #: js/messages.php:64 js/messages.php:250 libraries/Index.class.php:460
 #: libraries/common.lib.php:641 libraries/common.lib.php:1190
