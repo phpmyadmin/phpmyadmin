@@ -9946,10 +9946,9 @@ msgid "The number of threads that are not sleeping."
 msgstr "Броят на нишките, които не са спящи."
 
 #: server_status.php:1540
-#, fuzzy
 #| msgid "Start row"
 msgid "Start Monitor"
-msgstr "Начален ред"
+msgstr "Включване на Наблюдателя"
 
 #: server_status.php:1549
 msgid "Instructions/Setup"
