@@ -660,9 +660,9 @@ msgid "Sum"
 msgstr "Gehiketa"
 
 #: db_structure.php:531 libraries/StorageEngine.class.php:331
-#, php-format
+#, fuzzy, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr ""
+msgstr "%s da MySQL zerbitzarian lehenetsitako biltegiratzeko mota."
 
 #: db_structure.php:560 db_structure.php:577 db_structure.php:578
 #: libraries/display_tbl.lib.php:2488 libraries/display_tbl.lib.php:2493
