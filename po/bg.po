@@ -8551,10 +8551,9 @@ msgid "License"
 msgstr ""
 
 #: server_plugins.php:182
-#, fuzzy
 #| msgid "Disabled"
 msgid "disabled"
-msgstr "Забрано"
+msgstr "изключено"
 
 #: server_privileges.php:32 server_privileges.php:367
 msgid "Includes all privileges except GRANT."
