@@ -1470,10 +1470,9 @@ msgstr ""
 "към администратор."
 
 #: js/messages.php:154
-#, fuzzy
 #| msgid "Manage your settings"
 msgid "Change settings"
-msgstr "Управление мои настройки"
+msgstr "Промяна настройки"
 
 #: js/messages.php:155
 #| msgid "More settings"
