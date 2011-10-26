@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 21:09+0200\n"
+"PO-Revision-Date: 2011-10-26 21:13+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -1595,7 +1595,7 @@ msgstr "Презареждане"
 
 #: js/messages.php:186
 msgid "Affected rows:"
-msgstr ""
+msgstr "Засегнати редове:"
 
 #: js/messages.php:188
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
