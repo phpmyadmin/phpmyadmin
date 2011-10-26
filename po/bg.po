@@ -1613,10 +1613,9 @@ msgid "Import"
 msgstr "Импорт"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
-msgstr "Допълване заявка"
+msgstr "Анализиране заявка"
 
 #: js/messages.php:196
 msgid "Advisor system"
