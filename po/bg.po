@@ -9227,7 +9227,7 @@ msgstr "Всички променливи на състоянието"
 
 #: server_status.php:778
 msgid "Monitor"
-msgstr ""
+msgstr "Наблюдател"
 
 #: server_status.php:779
 msgid "Advisor"
