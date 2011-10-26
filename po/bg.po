@@ -8024,10 +8024,9 @@ msgid "More settings"
 msgstr "Още"
 
 #: main.php:158
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
-msgstr "БД за потребителя"
+msgstr "БД сървър"
 
 #: main.php:161
 msgid "Software"
