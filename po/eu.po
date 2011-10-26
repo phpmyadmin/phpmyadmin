@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 18:50+0200\n"
+"PO-Revision-Date: 2011-10-26 18:51+0200\n"
 "Last-Translator:  <karrikas@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -116,11 +116,13 @@ msgid "Failed to open remote URL"
 msgstr "Akatsa kompo esteka zabaltzerakoan"
 
 #: changelog.php:32 license.php:28
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"%s filtxategia ez dago eskuragarri sisteman, joan www.phpmyadmin.net "
+"informazio gehiagorako"
 
 #: db_create.php:60
 #, fuzzy, php-format
