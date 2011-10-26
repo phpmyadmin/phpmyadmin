@@ -2900,7 +2900,7 @@ msgstr "Начало"
 #| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
-msgstr "Предишен"
+msgstr "Предна"
 
 #: libraries/common.lib.php:2446 libraries/common.lib.php:2449
 #: libraries/display_tbl.lib.php:372 server_binlog.php:170
