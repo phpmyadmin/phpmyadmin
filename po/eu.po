@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 19:11+0200\n"
+"PO-Revision-Date: 2011-10-26 19:12+0200\n"
 "Last-Translator:  <karrikas@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -840,8 +840,9 @@ msgid "Enter each value in a separate field."
 msgstr "Sartu balioak banatutako eremuetan. "
 
 #: enum_editor.php:57
+#, fuzzy
 msgid "+ Restart insertion and add a new value"
-msgstr ""
+msgstr "+ Berriz hasi txertatzen eta gehitu balio berria"
 
 #: enum_editor.php:67 gis_data_editor.php:317
 msgid "Output"
