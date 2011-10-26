@@ -2237,7 +2237,6 @@ msgid "File was not an uploaded file."
 msgstr ""
 
 #: libraries/File.class.php:260 libraries/File.class.php:389
-#, fuzzy
 #| msgid "Unknown error in file upload."
 msgid "Unknown error while uploading."
 msgstr "Неизвестна грешка при качване."
