@@ -11622,10 +11622,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:90
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache fragmentation"
-msgstr "Буфер за заявки"
+msgstr "Фрагментиране на буферът за заявки"
 
 #: po/advisory_rules.php:91
 msgid "The query cache is considerably fragmented."
