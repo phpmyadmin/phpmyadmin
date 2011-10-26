@@ -862,9 +862,8 @@ msgid "Selected export type has to be saved in file!"
 msgstr ""
 
 #: export.php:106
-#, fuzzy
 msgid "Bad parameters!"
-msgstr "Taula berrizendatu izen honetara: "
+msgstr "Parametro okerrak!"
 
 #: export.php:166 export.php:191 export.php:652
 #, php-format
