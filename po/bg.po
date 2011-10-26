@@ -1298,7 +1298,7 @@ msgstr "Общо памет"
 
 #: js/messages.php:108
 msgid "Cached memory"
-msgstr "Буферирана памет"
+msgstr "Памет в буфери"
 
 #: js/messages.php:109
 msgid "Buffered memory"
