@@ -609,7 +609,6 @@ msgid "Inside column:"
 msgstr "Zutabearen barnean:"
 
 #: db_structure.php:67
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
 msgstr "Ez da taularik aurkitu datu-basean."
