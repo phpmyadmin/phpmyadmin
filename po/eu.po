@@ -604,10 +604,9 @@ msgid "Inside tables:"
 msgstr "Taul(ar)en barnean:"
 
 #: db_search.php:329
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside column:"
-msgstr "Taul(ar)en barnean:"
+msgstr "Zutabearen barnean:"
 
 #: db_structure.php:67
 #, fuzzy
