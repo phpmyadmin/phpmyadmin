@@ -11051,10 +11051,9 @@ msgid "Show more actions"
 msgstr "Показване повече действия"
 
 #: tbl_structure.php:606
-#, fuzzy
 #| msgid "Print view"
 msgid "Edit view"
-msgstr "Преглед за печат"
+msgstr "Изглед за редакция"
 
 #: tbl_structure.php:623
 msgid "Relation view"
