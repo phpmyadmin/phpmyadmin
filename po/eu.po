@@ -1296,7 +1296,7 @@ msgstr "Kontsulta katxe erabilia"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
-msgstr ""
+msgstr "Sistema PUZ erabilera"
 
 #: js/messages.php:101
 msgid "System memory"
