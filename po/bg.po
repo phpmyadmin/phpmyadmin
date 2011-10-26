@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 21:31+0200\n"
+"PO-Revision-Date: 2011-10-26 21:32+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -5211,10 +5211,9 @@ msgid ""
 msgstr ""
 
 #: libraries/database_interface.lib.php:1678
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
-msgstr "Няма отговор от сървъра"
+msgstr "Сървърът не отговаря."
 
 #: libraries/database_interface.lib.php:1686
 msgid "Details..."
