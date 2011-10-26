@@ -1336,7 +1336,7 @@ msgstr "Buffer memoria"
 
 #: js/messages.php:110
 msgid "Free memory"
-msgstr ""
+msgstr "Memoria librea"
 
 #: js/messages.php:111
 msgid "Used memory"
