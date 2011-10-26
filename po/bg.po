@@ -11539,7 +11539,7 @@ msgstr "Достъпна памет на този хост: %s"
 #: po/advisory_rules.php:70
 #| msgid "Query cache"
 msgid "Query cache disabled"
-msgstr "Буфер за заявки изключен"
+msgstr "Изключен буфер за заявки"
 
 #: po/advisory_rules.php:71
 #| msgid "The server is not responding"
