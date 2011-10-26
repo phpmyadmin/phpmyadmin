@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 19:13+0200\n"
+"PO-Revision-Date: 2011-10-26 19:14+0200\n"
 "Last-Translator:  <karrikas@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -889,9 +889,8 @@ msgid "Dump has been saved to file %s."
 msgstr "Iraulketa %s fitxategian gorde da."
 
 #: file_echo.php:21
-#, fuzzy
 msgid "Invalid export type"
-msgstr "Esportazio mota"
+msgstr "Esportatze mota baliogabea"
 
 #: gis_data_editor.php:84
 #, php-format
