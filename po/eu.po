@@ -280,9 +280,8 @@ msgid "Database %s has been copied to %s"
 msgstr "%s datu-basea hona kopiatua izan da: %s."
 
 #: db_operations.php:406
-#, fuzzy
 msgid "Rename database to"
-msgstr "Taula berrizendatu izen honetara: "
+msgstr "Datu-basea berrizendatu izen honetara"
 
 #: db_operations.php:432
 #, fuzzy
