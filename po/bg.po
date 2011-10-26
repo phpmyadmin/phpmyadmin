@@ -11761,10 +11761,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:120
-#, fuzzy
 #| msgid "Start row"
 msgid "Sort rows"
-msgstr "Начален ред"
+msgstr "Сортиране на редове"
 
 #: po/advisory_rules.php:121
 msgid "There are lots of rows being sorted."
