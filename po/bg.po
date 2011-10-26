@@ -10225,10 +10225,9 @@ msgid "Target database has been synchronized with source database"
 msgstr "Целевата БД беше синхронизирана с изходната"
 
 #: server_synchronize.php:1046
-#, fuzzy
 #| msgid "Issued queries"
 msgid "Executed queries"
-msgstr "Подадени заявки"
+msgstr "Изпълнени заявки"
 
 #: server_synchronize.php:1202
 msgid "Enter manually"
