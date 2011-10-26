@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 19:38+0200\n"
+"PO-Revision-Date: 2011-10-26 19:39+0200\n"
 "Last-Translator:  <karrikas@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -1300,7 +1300,7 @@ msgstr "Sistema PUZ erabilera"
 
 #: js/messages.php:101
 msgid "System memory"
-msgstr ""
+msgstr "Sistemaren memoria"
 
 #: js/messages.php:102
 msgid "System swap"
