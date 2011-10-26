@@ -9292,7 +9292,6 @@ msgid "Any"
 msgstr "cualquiera"
 
 #: server_privileges.php:1561
-#, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
 msgstr "Vista global de usuarios"
