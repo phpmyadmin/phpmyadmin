@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 20:25+0200\n"
+"PO-Revision-Date: 2011-10-26 20:26+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -1230,7 +1230,7 @@ msgstr "Заявки след последното опресняване"
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:88
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "Запитвания (изпълнени от сървъра заявки)"
 
 #: js/messages.php:90 server_status.php:776
 msgid "Query statistics"
