@@ -1292,7 +1292,7 @@ msgstr "Kontsulta katxe erabilpena"
 #: js/messages.php:98
 #, fuzzy
 msgid "Query cache used"
-msgstr "Kontsulta mota"
+msgstr "Kontsulta katxe erabilia"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
