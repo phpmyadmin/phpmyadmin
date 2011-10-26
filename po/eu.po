@@ -1340,7 +1340,7 @@ msgstr "Memoria librea"
 
 #: js/messages.php:111
 msgid "Used memory"
-msgstr "Erabilitako memoria"
+msgstr "Memoria erabilia"
 
 #: js/messages.php:113
 #, fuzzy
