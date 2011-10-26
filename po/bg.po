@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 21:05+0200\n"
+"PO-Revision-Date: 2011-10-26 21:07+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -1528,7 +1528,7 @@ msgstr ""
 
 #: js/messages.php:167
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr ""
+msgstr "Дневникът е отворен. Заявки изпълнени в този времеви интервал:"
 
 #: js/messages.php:169
 #, fuzzy
