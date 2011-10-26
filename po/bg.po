@@ -1528,7 +1528,7 @@ msgstr ""
 
 #: js/messages.php:167
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr "Дневникът е отворен. Заявки изпълнени в този времеви интервал:"
+msgstr "Заявки изпълнени в този времеви интервал:"
 
 #: js/messages.php:169
 #, fuzzy
