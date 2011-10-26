@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 19:08+0200\n"
+"PO-Revision-Date: 2011-10-26 19:09+0200\n"
 "Last-Translator:  <karrikas@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -768,7 +768,7 @@ msgstr "Datu-basea"
 
 #: db_tracking.php:86
 msgid "Last version"
-msgstr ""
+msgstr "Azken bertsioa"
 
 #: db_tracking.php:87 tbl_tracking.php:636
 #, fuzzy
