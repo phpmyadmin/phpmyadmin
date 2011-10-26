@@ -11260,7 +11260,7 @@ msgstr "Изключване проследяването за %s.%s"
 
 #: tbl_tracking.php:689
 msgid "Deactivate now"
-msgstr "Деактивиране сега"
+msgstr "Изключване сега"
 
 #: tbl_tracking.php:700
 #, php-format
