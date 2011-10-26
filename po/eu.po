@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 19:26+0200\n"
+"PO-Revision-Date: 2011-10-26 19:28+0200\n"
 "Last-Translator:  <karrikas@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -1268,8 +1268,9 @@ msgid "Query statistics"
 msgstr "Kontsulta estatistikak"
 
 #: js/messages.php:93
+#, fuzzy
 msgid "Local monitor configuration incompatible"
-msgstr ""
+msgstr "Konfiguratutako motor lokal bateraezina"
 
 #: js/messages.php:94
 msgid ""
