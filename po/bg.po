@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 20:48+0200\n"
+"PO-Revision-Date: 2011-10-26 20:49+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -11313,10 +11313,9 @@ msgid "Browse/Edit the points"
 msgstr "Прелистване/Редакция точки"
 
 #: tbl_zoom_select.php:417
-#, fuzzy
 #| msgid "PHP extension to use"
 msgid "How to use"
-msgstr "Използвано PHP разширение"
+msgstr "Как да бъде използвано"
 
 #: themes.php:28
 msgid "Get more themes!"
