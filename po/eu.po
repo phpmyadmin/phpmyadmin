@@ -1160,7 +1160,6 @@ msgid "Add user"
 msgstr "Gehitu erabiltzailea"
 
 #: js/messages.php:59
-#, fuzzy
 #| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
 msgstr "Pribilegioak berkargatzen"
