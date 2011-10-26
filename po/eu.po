@@ -1287,7 +1287,7 @@ msgstr "Kontsulta katxe eragikortasuna"
 #: js/messages.php:97
 #, fuzzy
 msgid "Query cache usage"
-msgstr "Kontsulta mota"
+msgstr "Kontsulta katxe erabilpena"
 
 #: js/messages.php:98
 #, fuzzy
