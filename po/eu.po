@@ -1259,8 +1259,9 @@ msgstr "Galdera azken freskatzetik"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:88
+#, fuzzy
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "Galdera (zerbitzariak exekutatuak)"
 
 #: js/messages.php:90 server_status.php:776
 #, fuzzy
