@@ -1310,7 +1310,7 @@ msgstr "Sistemaren swap-a"
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:103 libraries/common.lib.php:1395 server_status.php:1669
 msgid "MiB"
-msgstr "MB"
+msgstr "MiB"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:104 libraries/common.lib.php:1393 server_status.php:1669
