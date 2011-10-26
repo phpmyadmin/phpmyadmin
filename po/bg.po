@@ -1507,7 +1507,7 @@ msgstr "От общия дневник"
 
 #: js/messages.php:164
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "Анализиране и зареждане на дневници. Ще отнеме малко време."
 
 #: js/messages.php:165
 msgid ""
