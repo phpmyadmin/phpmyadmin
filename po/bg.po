@@ -2912,11 +2912,10 @@ msgstr "Следваща"
 
 #: libraries/common.lib.php:2447 libraries/common.lib.php:2450
 #: libraries/display_tbl.lib.php:389
-#, fuzzy
 #| msgid "End"
 msgctxt "Last page"
 msgid "End"
-msgstr "Край"
+msgstr "Последна"
 
 #: libraries/common.lib.php:2517
 #, php-format
