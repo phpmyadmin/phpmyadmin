@@ -1332,7 +1332,7 @@ msgstr ""
 
 #: js/messages.php:109
 msgid "Buffered memory"
-msgstr "Buffer memoria"
+msgstr "Memoria bufferrean"
 
 #: js/messages.php:110
 msgid "Free memory"
