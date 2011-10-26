@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-26 21:36+0200\n"
+"PO-Revision-Date: 2011-10-26 21:37+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -8057,10 +8057,9 @@ msgid "Web server"
 msgstr "Web сървър"
 
 #: main.php:192
-#, fuzzy
 #| msgid "MySQL client version"
 msgid "Database client version"
-msgstr "MySQL клиент"
+msgstr "Версия на БД клиент"
 
 #: main.php:194
 msgid "PHP extension"
