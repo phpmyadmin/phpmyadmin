@@ -17,7 +17,7 @@ msgstr ""
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:320
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1673
 msgid "Show all"
-msgstr "Показване всички"
+msgstr "Показване на всичко"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:42
 #: libraries/common.lib.php:2406
