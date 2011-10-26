@@ -195,7 +195,7 @@ msgstr "Lehenetsia"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1311
 #: libraries/schema/Pdf_Relation_Schema.class.php:1332 tbl_printview.php:142
 msgid "Links to"
-msgstr "Estekak honi:"
+msgstr "Esteka:"
 
 #: db_datadict.php:172 db_printview.php:109
 #: libraries/config/messages.inc.php:92 libraries/config/messages.inc.php:107
