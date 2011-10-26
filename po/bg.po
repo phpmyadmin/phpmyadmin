@@ -1495,7 +1495,7 @@ msgstr "Диференциални"
 #: js/messages.php:160
 #, php-format
 msgid "Divided by %s:"
-msgstr ""
+msgstr "Разделени с %s:"
 
 #: js/messages.php:162
 msgid "From slow log"
