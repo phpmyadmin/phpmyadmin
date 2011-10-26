@@ -9234,10 +9234,9 @@ msgid "Advisor"
 msgstr ""
 
 #: server_status.php:789 server_status.php:811
-#, fuzzy
 #| msgid "Refresh rate:"
 msgid "Refresh rate: "
-msgstr "Скорост на опресняване:"
+msgstr "Скорост на опресняване: "
 
 #: server_status.php:832
 msgid "Containing the word:"
