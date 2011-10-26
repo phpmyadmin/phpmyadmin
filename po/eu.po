@@ -826,9 +826,8 @@ msgid "Track table"
 msgstr "Taula egiaztatu"
 
 #: db_tracking.php:225
-#, fuzzy
 msgid "Database Log"
-msgstr "Datu-basea"
+msgstr "Datu-basea egunkaria"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:716
 #, php-format
