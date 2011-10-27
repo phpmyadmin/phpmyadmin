@@ -1037,7 +1037,7 @@ msgstr "%s laster-marka sortu da"
 #: import.php:427 import.php:433
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr "Inportatzea zuzen burutu da, %s kontsulta exekutatuta_."
+msgstr "Inportatzea zuzen burutu da, %d kontsulta exekutatuta_."
 
 #: import.php:442
 msgid ""
