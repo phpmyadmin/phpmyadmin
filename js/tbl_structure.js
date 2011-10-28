@@ -196,13 +196,21 @@ $(document).ready(function() {
     /**
      *Ajax event handler for index edit
     **/
-    $("#table_index tbody tr td.edit_index.ajax").live('click', function(event){
+    $("#table_index tbody tr td.edit_index.ajax, #indexes .add_index.ajax").live('click', function(event){
         event.preventDefault();
-        var url = $(this).find("a").attr("href");
-        if (url.substring(0, 16) == "tbl_indexes.php?") {
-            url = url.substring(16, url.length );
+        if ($(this).find("a").length == 0) {
+            // Add index
+            var url = $(this).closest('form').serialize();
+            var title = PMA_messages['strAddIndex'];
+        } else {
+            // Edit index
+            var url = $(this).find("a").attr("href");
+            if (url.substring(0, 16) == "tbl_indexes.php?") {
+                url = url.substring(16, url.length );
+            }
+            var title = PMA_messages['strEditIndex'];
         }
-        url = url + "&ajax_request=true";
+        url += "&ajax_request=true";
 
         /*Remove the hidden dialogs if there are*/
         if ($('#edit_index_dialog').length != 0) {
@@ -211,48 +219,36 @@ $(document).ready(function() {
         var $div = $('<div id="edit_index_dialog"></div>');
 
         /**
-         *  @var    button_options  Object that stores the options passed to jQueryUI
-         *                          dialog
+         * @var button_options Object that stores the options
+         *                     passed to jQueryUI dialog
          */
         var button_options = {};
-        // in the following function we need to use $(this)
-        button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove();}
-
-        var button_options_error = {};
-        button_options_error[PMA_messages['strOK']] = function() {$(this).dialog('close').remove();}
+        button_options[PMA_messages['strCancel']] = function() {
+            $(this).dialog('close');
+        }
         var $msgbox = PMA_ajaxShowMessage();
 
-        $.get( "tbl_indexes.php" , url ,  function(data) {
+        $.get("tbl_indexes.php", url, function(data) {
             //in the case of an error, show the error message returned.
-            if (data.success != undefined && data.success == false) {
-                $div
-                .append(data.error)
-                .dialog({
-                    title: PMA_messages['strEdit'],
-                    height: 230,
-                    width: 900,
-                    open: PMA_verifyColumnsProperties,
-                    modal: true,
-                    buttons : button_options_error
-                })// end dialog options
+            if (data.error) {
+                PMA_ajaxShowMessage(data.error);
             } else {
+                PMA_ajaxRemoveMessage($msgbox);
                 $div
                 .append(data)
                 .dialog({
-                    title: PMA_messages['strEdit'],
-                    height: 600,
+                    title: title,
                     width: 900,
                     open: PMA_verifyColumnsProperties,
                     modal: true,
-                    buttons : button_options
-                })
-                //Remove the top menu container from the dialog
-                .find("#topmenucontainer").hide()
-                ; // end dialog options
+                    buttons: button_options,
+                    close: function () {
+                        $(this).remove();
+                    }
+                });
                 checkIndexType();
                 checkIndexName("index_frm");
             }
-            PMA_ajaxRemoveMessage($msgbox);
         }) // end $.get()
     });
 

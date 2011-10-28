@@ -45,6 +45,8 @@ $js_messages['strBLOBRepositoryDisableAreYouSure'] = sprintf(__('Are you sure yo
 /* For indexes */
 $js_messages['strFormEmpty'] = __('Missing value in the form!');
 $js_messages['strNotNumber'] = __('This is not a number!');
+$js_messages['strAddIndex'] = __('Add Index');
+$js_messages['strEditIndex'] = __('Edit Index');
 
 /* Charts */
 /* l10n: Default description for the y-Axis of Charts */
