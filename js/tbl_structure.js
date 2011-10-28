@@ -18,7 +18,6 @@
  *
  */
 $(document).ready(function() {
-
     /**
      * Attach Event Handler for 'Drop Column'
      *
@@ -137,7 +136,20 @@ $(document).ready(function() {
             $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
                 if(data.success == true) {
                     PMA_ajaxShowMessage(data.message);
-                    $rows_to_hide.hide("medium").remove();
+                    var $table_ref = $rows_to_hide.closest('table');
+                    if ($rows_to_hide.length == $table_ref.find('tbody > tr').length) {
+                        // We are about to remove all rows from the table
+                        $table_ref.hide('medium', function() {
+                            $('.no_indexes_defined').show('medium');
+                            $rows_to_hide.remove();
+                        });
+                        $table_ref.siblings('div.notice').hide('medium');
+                    } else {
+                        // We are removing some of the rows only
+                        $rows_to_hide.hide("medium", function () {
+                            $(this).remove();
+                        });
+                    }
                 }
                 else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
