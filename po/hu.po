@@ -898,12 +898,12 @@ msgstr ""
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
 #: gis_data_editor.php:297 js/messages.php:287
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
 #: gis_data_editor.php:299 js/messages.php:288
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
 #: js/messages.php:290
@@ -3648,7 +3648,7 @@ msgstr "SQL kompatibilitási mód"
 
 #: libraries/config/messages.inc.php:120 libraries/export/sql.php:190
 msgid "<code>CREATE TABLE</code> options:"
-msgstr ""
+msgstr "<code>CREATE TABLE</code> beállítások:"
 
 #: libraries/config/messages.inc.php:121
 msgid "Creation/Update/Check dates"
@@ -5810,41 +5810,41 @@ msgid "Importing into the current server"
 msgstr "Nem lehet bejelentkezni a MySQL szerverre"
 
 #: libraries/display_import.lib.php:131
-#, fuzzy, php-format
+#, php-format, php-format
 msgid "Importing into the database \"%s\""
-msgstr "Nincs adatbázis"
+msgstr "Importálás a(z) \"%s\" adatbázisba"
 
 #: libraries/display_import.lib.php:133
-#, fuzzy, php-format
+#, php-format, php-format
 msgid "Importing into the table \"%s\""
-msgstr "Nincs adatbázis"
+msgstr "Importálás a(z) \"%s\" táblába"
 
 #: libraries/display_import.lib.php:139
-#, fuzzy
 #| msgid "File to import"
 msgid "File to Import:"
-msgstr "Importálandó fájl"
+msgstr "Az importálandó fájl:"
 
 #: libraries/display_import.lib.php:156
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
-msgstr ""
+msgstr "A fájl lehet tömörített (%s) vagy tömörítetlen."
 
 #: libraries/display_import.lib.php:158
 msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
 msgstr ""
+"A tömörített fájl nevének <b>.[formátum].[tömörítés]</b> végződésűnek kell "
+"lennie. Például: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:178
 msgid "File uploads are not allowed on this server."
 msgstr "Ezen a szerveren a fájlfeltöltések nem engedélyezettek."
 
 #: libraries/display_import.lib.php:208
-#, fuzzy
 #| msgid "Partial import"
 msgid "Partial Import:"
-msgstr "Részleges importálás"
+msgstr "Részleges importálás:"
 
 #: libraries/display_import.lib.php:214
 #, php-format
@@ -5877,7 +5877,7 @@ msgstr "Az elejétől kihagyandó rekordok (lekérdezések) száma"
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
-msgstr ""
+msgstr "Formátum specifikus beállítások:"
 
 #: libraries/display_select_lang.lib.php:46
 #: libraries/display_select_lang.lib.php:47 setup/frames/index.inc.php:72
@@ -6538,7 +6538,6 @@ msgstr "Sorok vége"
 #: libraries/export/csv.php:28 libraries/export/excel.php:23
 #: libraries/export/htmlword.php:29 libraries/export/latex.php:80
 #: libraries/export/ods.php:24 libraries/export/odt.php:60
-#, fuzzy
 #| msgid "Replace NULL by"
 msgid "Replace NULL with:"
 msgstr "NULL cseréje ezzel:"
@@ -6558,10 +6557,9 @@ msgstr "Excel szerkesztés"
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:70
 #: libraries/export/odt.php:56 libraries/export/sql.php:222
 #: libraries/export/texytext.php:26 libraries/export/xml.php:73
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Data dump options"
-msgstr "Az adatbázisok megjelenítésének beállításai"
+msgstr "Adatkiírási beállítások"
 
 #: libraries/export/htmlword.php:121 libraries/export/odt.php:161
 #: libraries/export/sql.php:1187 libraries/export/texytext.php:109
@@ -6587,10 +6585,9 @@ msgstr "@TABLE@ tábla szerkezete"
 
 #: libraries/export/latex.php:48 libraries/export/odt.php:40
 #: libraries/export/sql.php:142
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Object creation options"
-msgstr "Átalakítás beállításai"
+msgstr "Objektum-létrehozási beállítások"
 
 #: libraries/export/latex.php:52 libraries/export/latex.php:76
 #, fuzzy
@@ -6606,17 +6603,15 @@ msgid "Display foreign key relationships"
 msgstr "Az idegen kulcsok ellenőrzésének letiltása"
 
 #: libraries/export/latex.php:60 libraries/export/odt.php:46
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display comments"
-msgstr "Oszlopmegjegyzések megjelenítése"
+msgstr "Megjegyzések megjelenítése"
 
 #: libraries/export/latex.php:63 libraries/export/odt.php:49
 #: libraries/export/sql.php:63
-#, fuzzy
 #| msgid "Available MIME types"
 msgid "Display MIME types"
-msgstr "Létező MIME-típusok"
+msgstr "MIME-típusok megjelenítése"
 
 #: libraries/export/latex.php:129 libraries/export/sql.php:482
 #: libraries/export/xml.php:131 libraries/header_printview.inc.php:59
@@ -6657,60 +6652,65 @@ msgid "(Generates a report containing the data of a single table)"
 msgstr "(Egyetlen táblázat adatait tartalmazó jelentést generál)"
 
 #: libraries/export/pdf.php:25
-#, fuzzy
 #| msgid "Report title"
 msgid "Report title:"
-msgstr "A jelentés címe"
+msgstr "A jelentés címe:"
 
 #: libraries/export/php_array.php:18
 msgid "PHP array"
-msgstr ""
+msgstr "PHP tömb"
 
 #: libraries/export/sql.php:40
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
+"Megjegyzések megjelenítése <i>(olyan információk, mint az exportálás "
+"időbélyege, a PHP verziója és a szerver verziója)</i>"
 
 #: libraries/export/sql.php:45
-#, fuzzy
 #| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "Egyéni megjegyzés hozzáadása a fejléchez (a \\n töri a sorokat)"
+msgstr "További egyéni megjegyzés hozzáadása a fejléchez (a \\n töri a sorokat):"
 
 #: libraries/export/sql.php:50
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
+"Tartalmazza azokat az időbélyegeket, amikor az adatbázis létrejött, utoljára "
+"frissült és utoljára ellenőrizve lett"
 
 #: libraries/export/sql.php:100
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
+"Adatbázis rendszer vagy régebbi MySQL szerver a kimenet kompatibilitásának "
+"maximalizálása ezzel:"
 
 #: libraries/export/sql.php:114 libraries/export/sql.php:173
 #: libraries/export/sql.php:180
-#, fuzzy, php-format
+#, php-format, php-format
 #| msgid "Statements"
 msgid "Add %s statement"
-msgstr "Utasítások"
+msgstr "%s utasítások hozzáadása"
 
 #: libraries/export/sql.php:152
-#, fuzzy
 #| msgid "Statements"
 msgid "Add statements:"
-msgstr "Utasítások"
+msgstr "Utasítások hozzáadása:"
 
 #: libraries/export/sql.php:211
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
+"Tábla és oszlopnevek idézőjelek közé rakása <i>(Védi az oszlop és tábla "
+"neveket a speciális karakterektől vagy a kulcsszavaktól)</i>"
 
 #: libraries/export/sql.php:231
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr ""
+msgstr "Az <code>INSERT</code> utasítás helyett használjon:"
 
 #: libraries/export/sql.php:238
 msgid "<code>INSERT DELAYED</code> statements"
@@ -6799,10 +6799,9 @@ msgid "Stand-in structure for view"
 msgstr "A nézet helyettes szerkezete"
 
 #: libraries/export/sql.php:1111
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error reading data:"
-msgstr "Engedélyezi az adatok olvasását."
+msgstr "Hiba az adatolvasás közben:"
 
 #: libraries/export/xml.php:19 libraries/import/xml.php:21
 msgid "XML"
@@ -6810,13 +6809,12 @@ msgstr "XML"
 
 #: libraries/export/xml.php:34
 msgid "Object creation options (all are recommended)"
-msgstr ""
+msgstr "Objektum-létrehozási beállítások (mindegyik javasolt)"
 
 #: libraries/export/xml.php:62
-#, fuzzy
 #| msgid "View"
 msgid "Views"
-msgstr "Nézet"
+msgstr "Nézetek"
 
 #: libraries/export/xml.php:78
 #, fuzzy
@@ -7008,7 +7006,6 @@ msgid ""
 msgstr ""
 
 #: libraries/kanji-encoding.lib.php:147
-#, fuzzy
 #| msgid "None"
 msgctxt "None encoding conversion"
 msgid "None"
@@ -7252,12 +7249,10 @@ msgstr "Kilépés"
 #: libraries/navigation_header.inc.php:115
 #: libraries/navigation_header.inc.php:117
 #: libraries/navigation_header.inc.php:119
-#, fuzzy
 msgid "Reload navigation frame"
-msgstr "A navigációs keret testreszabása"
+msgstr "A navigációs keret újratöltése"
 
 #: libraries/plugin_interface.lib.php:309
-#, fuzzy
 #| msgid "This format has no options"
 msgid "This format has no options"
 msgstr "Ennek a formátumnak nincsenek beállításai"
@@ -7494,16 +7489,14 @@ msgstr "Hiba a kérés feldolgozásában"
 
 #: libraries/rte/rte_events.lib.php:371 libraries/rte/rte_routines.lib.php:819
 #: libraries/rte/rte_triggers.lib.php:302
-#, fuzzy
 #| msgid "Details..."
 msgid "Details"
-msgstr "Részletek..."
+msgstr "Részletek"
 
 #: libraries/rte/rte_events.lib.php:374
-#, fuzzy
 #| msgid "Event type"
 msgid "Event name"
-msgstr "Esemény típusa"
+msgstr "Eseménynév"
 
 #: libraries/rte/rte_events.lib.php:395 server_binlog.php:182
 msgid "Event type"
@@ -8354,7 +8347,6 @@ msgid "Get more editing space"
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:346
-#, fuzzy
 #| msgid "None"
 msgctxt "for default"
 msgid "None"
@@ -8606,10 +8598,9 @@ msgstr ""
 "\")."
 
 #: libraries/user_preferences.inc.php:33
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Manage your settings"
-msgstr "Egyéb alapbeállítások"
+msgstr "Beállítások kezelése"
 
 #: libraries/user_preferences.inc.php:50 prefs_manage.php:289
 #, fuzzy
@@ -8664,10 +8655,9 @@ msgid "Appearance Settings"
 msgstr "Egyéb alapbeállítások"
 
 #: main.php:144 prefs_manage.php:272
-#, fuzzy
 #| msgid "Other core settings"
 msgid "More settings"
-msgstr "Egyéb alapbeállítások"
+msgstr "További beállítások"
 
 #: main.php:158
 #, fuzzy
@@ -9093,23 +9083,21 @@ msgstr "Importálás a böngészőből"
 
 #: prefs_manage.php:246
 msgid "Settings will be imported from your browser's local storage."
-msgstr ""
+msgstr "A beállítások a böngészője helyi tárolójából lesznek importálva."
 
 #: prefs_manage.php:252
-#, fuzzy
 #| msgid "Other core settings"
 msgid "You have no saved settings!"
-msgstr "Egyéb alapbeállítások"
+msgstr "Nincsenek elmentett beállításai!"
 
 #: prefs_manage.php:256 prefs_manage.php:310
 msgid "This feature is not supported by your web browser"
-msgstr ""
+msgstr "Az ön web böngészője nem támogatja ezt a szolgáltatást"
 
 #: prefs_manage.php:261
-#, fuzzy
 #| msgid "Server configuration"
 msgid "Merge with current configuration"
-msgstr "Szerverbeállítások"
+msgstr "Egyesítés a jelenlegi beállítással"
 
 #: prefs_manage.php:275
 #, php-format
@@ -9120,19 +9108,21 @@ msgstr ""
 
 #: prefs_manage.php:300
 msgid "Save to browser's storage"
-msgstr ""
+msgstr "Mentés a böngésző tárolójába"
 
 #: prefs_manage.php:304
 msgid "Settings will be saved in your browser's local storage."
-msgstr ""
+msgstr "A beállítások a böngészője helyi tárolójába lesznek mentve."
 
 #: prefs_manage.php:306
 msgid "Existing settings will be overwritten!"
-msgstr ""
+msgstr "A meglévő beállítások felülíródnak!"
 
 #: prefs_manage.php:321
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
+"Alaphelyzetbe állíthatja az összes beállítását és visszaállíthatja azokat az "
+"alapértelmezett értékekre."
 
 #: querywindow.php:69
 msgid "Import files"
@@ -9469,7 +9459,6 @@ msgid "No privileges."
 msgstr "Nincsenek jogok."
 
 #: server_privileges.php:403 server_privileges.php:404
-#, fuzzy
 #| msgid "None"
 msgctxt "None privileges"
 msgid "None"
@@ -9670,7 +9659,6 @@ msgid "Database for user"
 msgstr "Adatbázis a felhasználó számára"
 
 #: server_privileges.php:2215
-#, fuzzy
 #| msgid "None"
 msgctxt "Create none database for user"
 msgid "None"
@@ -11753,10 +11741,9 @@ msgid "Label column"
 msgstr "Szövegterület oszlopai"
 
 #: tbl_gis_visualization.php:138
-#, fuzzy
 #| msgid "- none -"
 msgid "-- None --"
-msgstr "- nincs -"
+msgstr "-- Nincs --"
 
 #: tbl_gis_visualization.php:151
 #, fuzzy
