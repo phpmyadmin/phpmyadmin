@@ -1514,7 +1514,6 @@ function PMA_createTableDialog( $div, url , target)
              $div
              .append(data.error)
              .dialog({
-                 title: PMA_messages['strCreateTable'],
                  height: 230,
                  width: 900,
                  open: PMA_verifyColumnsProperties,
@@ -1528,7 +1527,7 @@ function PMA_createTableDialog( $div, url , target)
              $div
              .append(data)
              .dialog({
-                 title: PMA_messages['strCreateTable'],
+                 dialogClass: 'create-table',
                  resizable: false,
                  draggable: false,
                  modal: true,

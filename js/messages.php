@@ -222,7 +222,6 @@ $js_messages['strReloadDatabase'] = __('Reload Database');
 $js_messages['strCopyingDatabase'] = __('Copying Database');
 $js_messages['strChangingCharset'] = __('Changing Charset');
 $js_messages['strTableMustHaveAtleastOneColumn'] = __('Table must have at least one column');
-$js_messages['strCreateTable'] = __('Create Table');
 $js_messages['strYes'] = __('Yes');
 $js_messages['strNo'] = __('No');
 
