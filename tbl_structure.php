@@ -695,19 +695,20 @@ if (! $tbl_is_view && ! $db_is_information_schema && 'ARCHIVE' !=  $tbl_type) {
      */
     echo PMA_Index::getView($table, $db);
     ?>
-        <form action="./tbl_indexes.php" method="post"
-            onsubmit="return checkFormElementInRange(this, 'added_fields',
-                '<?php echo str_replace('\'', '\\\'', __('Column count has to be larger than zero.')); ?>',
-                1)">
-        <fieldset>
-            <?php
-            echo PMA_generate_common_hidden_inputs($db, $table);
-            echo sprintf(__('Create an index on &nbsp;%s&nbsp;columns'),
-                '<input type="text" size="2" name="added_fields" value="1" />');
-            ?>
-            <input type="submit" name="create_index" value="<?php echo __('Go'); ?>" />
+        <fieldset class="tblFooters" style="text-align: left;">
+            <form action="./tbl_indexes.php" method="post"
+                onsubmit="return checkFormElementInRange(this, 'added_fields',
+                    '<?php echo str_replace('\'', '\\\'', __('Column count has to be larger than zero.')); ?>',
+                    1)">
+
+                <?php
+                echo PMA_generate_common_hidden_inputs($db, $table);
+                echo sprintf(__('Create an index on &nbsp;%s&nbsp;columns'),
+                    '<input type="text" size="2" name="added_fields" value="1" />');
+                ?>
+                <input type="submit" name="create_index" value="<?php echo __('Go'); ?>" />
+            </form>
         </fieldset>
-        </form>
     </div>
 </div>
 <br />
@@ -758,6 +759,8 @@ if ($cfg['ShowStats']) {
     $odd_row = false;
     ?>
 
+    <fieldset>
+    <legend><?php echo __('Information'); ?></legend>
     <a name="showusage"></a>
     <?php if (! $tbl_is_view && ! $db_is_information_schema) { ?>
     <table id="tablespaceusage" class="data">
@@ -935,7 +938,7 @@ if ($cfg['ShowStats']) {
     ?>
     </tbody>
     </table>
-
+    </fieldset>
     <!-- close tablestatistics div -->
     </div>
 
