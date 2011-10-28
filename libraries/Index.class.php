@@ -415,7 +415,7 @@ class PMA_Index
         $indexes = PMA_Index::getFromTable($table, $schema);
 
         if (count($indexes) < 1) {
-            return PMA_Message::error(__('No index defined!'))->getDisplay();
+            return PMA_Message::notice(__('No index defined!'))->getDisplay();
         }
 
         $r = '';
@@ -565,7 +565,7 @@ class PMA_Index
                 // did not find any difference
                 // so it makes no sense to have this two equal indexes
 
-                $message = PMA_Message::error(__('The indexes %1$s and %2$s seem to be equal and one of them could possibly be removed.'));
+                $message = PMA_Message::notice(__('The indexes %1$s and %2$s seem to be equal and one of them could possibly be removed.'));
                 $message->addParam($each_index->getName());
                 $message->addParam($while_index->getName());
                 $output .= $message->getDisplay();
