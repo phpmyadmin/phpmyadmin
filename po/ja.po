@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-10-28 11:18+0200\n"
+"PO-Revision-Date: 2011-10-28 11:55+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -11966,6 +11966,8 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
+"メモリ上限が (このサーバ上において) 3 GiB になってしまいますので、MySQL はメモリを使いこなすことができないでしょう。64 ビット版の "
+"MySQL の導入を検討してみてください。"
 
 #: po/advisory_rules.php:68
 #, php-format
