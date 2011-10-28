@@ -309,33 +309,6 @@ $(document).ready(function() {
         }) // end $.post()
     }) // end insert table button "Go"
 
-    /**Add the show/hide index table option if the index is available*/
-    if ($("#index_div.ajax").find("#table_index").length != 0) {
-        /**
-         *Prepare a div containing a link for toggle the index table
-         */
-        $('<div id="toggletableindexdiv"><a id="toggletableindexlink"></a></div>')
-        .insertAfter('#index_div')
-        /** don't show it until we have index table on-screen */
-        .show();
-
-        /** Changing the displayed text according to the hide/show criteria in table index*/
-
-        $('#toggletableindexlink')
-        .html(PMA_messages['strHideIndexes'])
-        .bind('click', function() {
-             var $link = $(this);
-             $('#index_div').slideToggle();
-             if ($link.text() == PMA_messages['strHideIndexes']) {
-                 $link.text(PMA_messages['strShowIndexes']);
-             } else {
-                 $link.text(PMA_messages['strHideIndexes']);
-             }
-             /** avoid default click action */
-             return false;
-        });
-    } //end show/hide table index
-
     /**
      *Ajax event handler for Add column(s)
     **/
