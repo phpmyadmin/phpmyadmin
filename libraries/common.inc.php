@@ -919,8 +919,15 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // scripts)
         $controllink = false;
         if ($cfg['Server']['controluser'] != '') {
-            $controllink = PMA_DBI_connect($cfg['Server']['controluser'],
-                $cfg['Server']['controlpass'], true);
+            if ($cfg['Server']['controlhost'] != '') {
+                $controllink = PMA_DBI_connect($cfg['Server']['controluser'],
+                    $cfg['Server']['controlpass'], true,
+                    array('host' => $cfg['Server']['controlhost'])
+                );
+            } else {
+                $controllink = PMA_DBI_connect($cfg['Server']['controluser'],
+                    $cfg['Server']['controlpass'], true);
+            }
         }
 
         // Connects to the server (validates user's login)
