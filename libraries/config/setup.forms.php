@@ -64,6 +64,7 @@ $forms['Servers']['Server_config'] = array('Servers' => array(1 => array(
     'CountTables')));
 $forms['Servers']['Server_pmadb'] = array('Servers' => array(1 => array(
     'pmadb' => 'phpmyadmin',
+    'controlhost',
     'controluser',
     'controlpass',
     'verbose_check',
