@@ -152,6 +152,15 @@ $cfg['Servers'][$i]['extension'] = 'mysqli';
 $cfg['Servers'][$i]['compress'] = false;
 
 /**
+ * MySQL control host. This permits to use a host different than the
+ * main host, for the phpMyAdmin configuration storage. If left empty, 
+ * $cfg['Servers'][$i]['host'] is used instead. 
+ *
+ * @global string $cfg['Servers'][$i]['controlhost']
+ */
+$cfg['Servers'][$i]['controlhost'] = '';
+
+/**
  * MySQL control user settings (this user must have read-only
  * access to the "mysql/user" and "mysql/db" tables). The controluser is also
  * used for all relational features (pmadb)
