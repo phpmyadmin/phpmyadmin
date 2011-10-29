@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-10-28 08:55-0400\n"
+"POT-Creation-Date: 2011-10-29 08:29-0400\n"
 "PO-Revision-Date: 2011-09-15 07:49+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -348,7 +348,7 @@ msgid "Edit or export relational schema"
 msgstr "编辑或导出关系大纲"
 
 #: db_printview.php:101 db_tracking.php:85 db_tracking.php:186
-#: libraries/config/messages.inc.php:502 libraries/db_structure.lib.php:32
+#: libraries/config/messages.inc.php:504 libraries/db_structure.lib.php:32
 #: libraries/export/pdf.php:95 libraries/export/xml.php:359
 #: libraries/header.inc.php:161 libraries/rte/rte_list.lib.php:59
 #: libraries/rte/rte_triggers.lib.php:310
@@ -715,7 +715,7 @@ msgstr "数据字典"
 msgid "Tracked tables"
 msgstr "已追踪的表"
 
-#: db_tracking.php:84 libraries/config/messages.inc.php:496
+#: db_tracking.php:84 libraries/config/messages.inc.php:498
 #: libraries/export/htmlword.php:78 libraries/export/latex.php:151
 #: libraries/export/odt.php:109 libraries/export/pdf.php:95
 #: libraries/export/sql.php:602 libraries/export/texytext.php:66
@@ -1146,7 +1146,7 @@ msgstr "关闭"
 #: js/messages.php:64 js/messages.php:256 libraries/Index.class.php:460
 #: libraries/common.lib.php:641 libraries/common.lib.php:1190
 #: libraries/common.lib.php:3312 libraries/common.lib.php:3313
-#: libraries/config/messages.inc.php:476 libraries/display_tbl.lib.php:1380
+#: libraries/config/messages.inc.php:478 libraries/display_tbl.lib.php:1380
 #: libraries/schema/User_Schema.class.php:196 setup/frames/index.inc.php:138
 msgid "Edit"
 msgstr "编辑"
@@ -2601,9 +2601,9 @@ msgstr "已共享"
 msgid "Tables"
 msgstr "数据表"
 
-#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:301
-#: libraries/config/setup.forms.php:337 libraries/config/setup.forms.php:360
-#: libraries/config/setup.forms.php:365
+#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:302
+#: libraries/config/setup.forms.php:338 libraries/config/setup.forms.php:361
+#: libraries/config/setup.forms.php:366
 #: libraries/config/user_preferences.forms.php:200
 #: libraries/config/user_preferences.forms.php:236
 #: libraries/config/user_preferences.forms.php:259
@@ -2679,7 +2679,7 @@ msgstr "无效的服务器索引: %s"
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "无效的主机名 %1$s，请检查配置文件。"
 
-#: libraries/common.inc.php:656 libraries/config/messages.inc.php:500
+#: libraries/common.inc.php:656 libraries/config/messages.inc.php:502
 #: libraries/header.inc.php:134 main.php:160 server_status.php:775
 #: server_synchronize.php:1257
 msgid "Server"
@@ -2689,7 +2689,7 @@ msgstr "服务器"
 msgid "Invalid authentication method set in configuration:"
 msgstr "配置文件中设置的认证方式无效："
 
-#: libraries/common.inc.php:943
+#: libraries/common.inc.php:950
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "您应升级到 %s %s 或更高版本。"
@@ -2751,7 +2751,7 @@ msgstr "MySQL 返回："
 msgid "Failed to connect to SQL validator!"
 msgstr "连接到 SQL 校验器失败！"
 
-#: libraries/common.lib.php:1164 libraries/config/messages.inc.php:477
+#: libraries/common.lib.php:1164 libraries/config/messages.inc.php:479
 msgid "Explain SQL"
 msgstr "解释 SQL"
 
@@ -2763,11 +2763,11 @@ msgstr "略过解释 SQL"
 msgid "Without PHP Code"
 msgstr "无 PHP 代码"
 
-#: libraries/common.lib.php:1206 libraries/config/messages.inc.php:479
+#: libraries/common.lib.php:1206 libraries/config/messages.inc.php:481
 msgid "Create PHP Code"
 msgstr "创建 PHP 代码"
 
-#: libraries/common.lib.php:1226 libraries/config/messages.inc.php:478
+#: libraries/common.lib.php:1226 libraries/config/messages.inc.php:480
 #: server_status.php:786 server_status.php:808 server_status.php:827
 msgid "Refresh"
 msgstr "刷新"
@@ -2776,7 +2776,7 @@ msgstr "刷新"
 msgid "Skip Validate SQL"
 msgstr "略过校验 SQL"
 
-#: libraries/common.lib.php:1239 libraries/config/messages.inc.php:481
+#: libraries/common.lib.php:1239 libraries/config/messages.inc.php:483
 msgid "Validate SQL"
 msgstr "校验 SQL"
 
@@ -2880,8 +2880,8 @@ msgid "Click to toggle"
 msgstr "点击切换"
 
 #: libraries/common.lib.php:3085 libraries/common.lib.php:3092
-#: libraries/common.lib.php:3307 libraries/config/setup.forms.php:292
-#: libraries/config/setup.forms.php:329 libraries/config/setup.forms.php:355
+#: libraries/common.lib.php:3307 libraries/config/setup.forms.php:293
+#: libraries/config/setup.forms.php:330 libraries/config/setup.forms.php:356
 #: libraries/config/user_preferences.forms.php:191
 #: libraries/config/user_preferences.forms.php:228
 #: libraries/config/user_preferences.forms.php:254
@@ -3571,8 +3571,8 @@ msgstr "自定义浏览模式"
 msgid "Customize default options"
 msgstr "自定义默认选项"
 
-#: libraries/config/messages.inc.php:156 libraries/config/setup.forms.php:239
-#: libraries/config/setup.forms.php:312
+#: libraries/config/messages.inc.php:156 libraries/config/setup.forms.php:240
+#: libraries/config/setup.forms.php:313
 #: libraries/config/user_preferences.forms.php:140
 #: libraries/config/user_preferences.forms.php:211 libraries/export/csv.php:19
 #: libraries/import/csv.php:22
@@ -4462,24 +4462,36 @@ msgid "Control user"
 msgstr "控制用户"
 
 #: libraries/config/messages.inc.php:381
+msgid ""
+"An alternate host to hold the configuration storage; leave blank to use the "
+"already defined host"
+msgstr ""
+
+#: libraries/config/messages.inc.php:382
+#, fuzzy
+#| msgid "Control user"
+msgid "Control host"
+msgstr "控制用户"
+
+#: libraries/config/messages.inc.php:383
 msgid "Count tables when showing database list"
 msgstr "显示数据库列表时计算数据表的数量"
 
-#: libraries/config/messages.inc.php:382
+#: libraries/config/messages.inc.php:384
 msgid "Count tables"
 msgstr "统计数据表"
 
-#: libraries/config/messages.inc.php:383
+#: libraries/config/messages.inc.php:385
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
 msgstr "不使用设计功能请留空，推荐: [kbd]pma_designer_coords[/kbd]"
 
-#: libraries/config/messages.inc.php:384
+#: libraries/config/messages.inc.php:386
 msgid "Designer table"
 msgstr "设计表"
 
-#: libraries/config/messages.inc.php:385
+#: libraries/config/messages.inc.php:387
 msgid ""
 "More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
 "tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
@@ -4488,69 +4500,69 @@ msgstr ""
 "统 (外链，英文)[/a] 和 [a@http://bugs.mysql.com/19588]MySQL 缺陷 (Bugs) (外"
 "链，英文)[/a]"
 
-#: libraries/config/messages.inc.php:386
+#: libraries/config/messages.inc.php:388
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "禁止使用 INFORMATION_SCHEMA"
 
-#: libraries/config/messages.inc.php:387
+#: libraries/config/messages.inc.php:389
 msgid "What PHP extension to use; you should use mysqli if supported"
 msgstr "要使用的 PHP 扩展，如果支持，推荐使用 mysqli。"
 
-#: libraries/config/messages.inc.php:388
+#: libraries/config/messages.inc.php:390
 msgid "PHP extension to use"
 msgstr "要使用的 PHP 扩展"
 
-#: libraries/config/messages.inc.php:389
+#: libraries/config/messages.inc.php:391
 msgid "Hide databases matching regular expression (PCRE)"
 msgstr "该正则表达式 (PCRE，Perl 兼容) 所匹配的数据库将被隐藏"
 
-#: libraries/config/messages.inc.php:390
+#: libraries/config/messages.inc.php:392
 msgid "Hide databases"
 msgstr "隐藏数据库"
 
-#: libraries/config/messages.inc.php:391
+#: libraries/config/messages.inc.php:393
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
 msgstr "不使用 SQL 查询历史功能请留空，推荐: [kbd]pma_history[/kbd]"
 
-#: libraries/config/messages.inc.php:392
+#: libraries/config/messages.inc.php:394
 msgid "SQL query history table"
 msgstr "SQL 查询历史表"
 
-#: libraries/config/messages.inc.php:393
+#: libraries/config/messages.inc.php:395
 msgid "Hostname where MySQL server is running"
 msgstr "MySQL 服务器的主机名"
 
-#: libraries/config/messages.inc.php:394
+#: libraries/config/messages.inc.php:396
 msgid "Server hostname"
 msgstr "服务器主机名"
 
-#: libraries/config/messages.inc.php:395
+#: libraries/config/messages.inc.php:397
 msgid "Logout URL"
 msgstr "退出地址"
 
-#: libraries/config/messages.inc.php:396
+#: libraries/config/messages.inc.php:398
 msgid ""
 "This configuration make sure that we only keep N (N = MaxTableUiprefs) "
 "newest record in \"table_uiprefs\" and automatically delete older records"
 msgstr ""
 
-#: libraries/config/messages.inc.php:397
+#: libraries/config/messages.inc.php:399
 #, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of records saved in \"table_uiprefs\" table"
 msgstr "在数据表列表中最多显示的数据表个数"
 
-#: libraries/config/messages.inc.php:398
+#: libraries/config/messages.inc.php:400
 msgid "Try to connect without password"
 msgstr "尝试用空密码连接"
 
-#: libraries/config/messages.inc.php:399
+#: libraries/config/messages.inc.php:401
 msgid "Connect without password"
 msgstr "用空密码连接"
 
-#: libraries/config/messages.inc.php:400
+#: libraries/config/messages.inc.php:402
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -4562,28 +4574,28 @@ msgstr ""
 "\\_db'[/kbd] 而不是 [kbd]'my_db'[/kbd]。通过该选项你可以对数据库列表排序，只"
 "需按顺序输入它们的名称并加上 [kbd]*[/kbd]，剩下的数据库将按字母顺序排在最后。"
 
-#: libraries/config/messages.inc.php:401
+#: libraries/config/messages.inc.php:403
 msgid "Show only listed databases"
 msgstr "仅显示列出的数据库"
 
-#: libraries/config/messages.inc.php:402 libraries/config/messages.inc.php:443
+#: libraries/config/messages.inc.php:404 libraries/config/messages.inc.php:445
 msgid "Leave empty if not using config auth"
 msgstr "如果不使用 config 认证方式，请留空"
 
-#: libraries/config/messages.inc.php:403
+#: libraries/config/messages.inc.php:405
 msgid "Password for config auth"
 msgstr "config 认证方式的密码"
 
-#: libraries/config/messages.inc.php:404
+#: libraries/config/messages.inc.php:406
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr "不使用 PDF 大纲功能请留空，推荐: [kbd]pma_pdf_pages[/kbd]"
 
-#: libraries/config/messages.inc.php:405
+#: libraries/config/messages.inc.php:407
 msgid "PDF schema: pages table"
 msgstr "PDF 大纲: 数据表页"
 
-#: libraries/config/messages.inc.php:406
+#: libraries/config/messages.inc.php:408
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
@@ -4592,29 +4604,29 @@ msgstr ""
 "关系、书签、PDF 功能所用的数据库。参见 [a@http://wiki.phpmyadmin.net/pma/"
 "pmadb]pmadb (外链，英文)[/a]。不使用请留空。推荐:  [kbd]phpmyadmin[/kbd]"
 
-#: libraries/config/messages.inc.php:407
+#: libraries/config/messages.inc.php:409
 msgid "Database name"
 msgstr "数据库名"
 
-#: libraries/config/messages.inc.php:408
+#: libraries/config/messages.inc.php:410
 msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr "MySQL 服务器监听的端口，留空为默认"
 
-#: libraries/config/messages.inc.php:409
+#: libraries/config/messages.inc.php:411
 msgid "Server port"
 msgstr "服务器端口"
 
-#: libraries/config/messages.inc.php:410
+#: libraries/config/messages.inc.php:412
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma_recent[/kbd]"
 msgstr "不需要 \"持久\" 最近使用的表请留空，推荐: [kbd]pma_recent[/kbd]"
 
-#: libraries/config/messages.inc.php:411
+#: libraries/config/messages.inc.php:413
 msgid "Recently used table"
 msgstr "最近使用的表"
 
-#: libraries/config/messages.inc.php:412
+#: libraries/config/messages.inc.php:414
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
@@ -4622,19 +4634,19 @@ msgstr ""
 "不使用[a@http://wiki.phpmyadmin.net/pma/relation]关系链接 (外链，英文)[/a]功"
 "能请留空，推荐: [kbd]pma_relation[/kbd]"
 
-#: libraries/config/messages.inc.php:413
+#: libraries/config/messages.inc.php:415
 msgid "Relation table"
 msgstr "关系表"
 
-#: libraries/config/messages.inc.php:414
+#: libraries/config/messages.inc.php:416
 msgid "SQL command to fetch available databases"
 msgstr "取得所有可用数据库的 SQL 语句"
 
-#: libraries/config/messages.inc.php:415
+#: libraries/config/messages.inc.php:417
 msgid "SHOW DATABASES command"
 msgstr "显示数据库(SHOW DATABASES)命令"
 
-#: libraries/config/messages.inc.php:416
+#: libraries/config/messages.inc.php:418
 msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
@@ -4642,118 +4654,118 @@ msgstr ""
 "参见[a@http://wiki.phpmyadmin.net/pma/auth_types#signon]认证方式 (外链，英文)"
 "[/a]中的例子"
 
-#: libraries/config/messages.inc.php:417
+#: libraries/config/messages.inc.php:419
 msgid "Signon session name"
 msgstr "Signon 会话名"
 
-#: libraries/config/messages.inc.php:418
+#: libraries/config/messages.inc.php:420
 msgid "Signon URL"
 msgstr "登录地址"
 
-#: libraries/config/messages.inc.php:419
+#: libraries/config/messages.inc.php:421
 msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr "MySQL 服务器监听的套接字，留空为默认"
 
-#: libraries/config/messages.inc.php:420
+#: libraries/config/messages.inc.php:422
 msgid "Server socket"
 msgstr "服务器套接字 (socket)"
 
-#: libraries/config/messages.inc.php:421
+#: libraries/config/messages.inc.php:423
 msgid "Enable SSL for connection to MySQL server"
 msgstr "使用 SSL 连接到 MySQL 服务器"
 
-#: libraries/config/messages.inc.php:422
+#: libraries/config/messages.inc.php:424
 msgid "Use SSL"
 msgstr "使用 SSL"
 
-#: libraries/config/messages.inc.php:423
+#: libraries/config/messages.inc.php:425
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr "不使用 PDF 大纲功能请留空，推荐: [kbd]pma_table_coords[/kbd]"
 
-#: libraries/config/messages.inc.php:424
+#: libraries/config/messages.inc.php:426
 msgid "PDF schema: table coordinates"
 msgstr "PDF 大纲: 数据表并发"
 
-#: libraries/config/messages.inc.php:425
+#: libraries/config/messages.inc.php:427
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
 msgstr "描述显示字段的表，不使用请留空，推荐: [kbd]pma_table_info[/kbd]"
 
-#: libraries/config/messages.inc.php:426
+#: libraries/config/messages.inc.php:428
 msgid "Display columns table"
 msgstr "显示字段表"
 
-#: libraries/config/messages.inc.php:427
+#: libraries/config/messages.inc.php:429
 msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
 msgstr "不需要 \"持久\" 表界面设置请留空，推荐: [kbd]pma_table_uiprefs[/kbd]"
 
-#: libraries/config/messages.inc.php:428
+#: libraries/config/messages.inc.php:430
 msgid "UI preferences table"
 msgstr "界面设置表"
 
-#: libraries/config/messages.inc.php:429
+#: libraries/config/messages.inc.php:431
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr "设置当记录数据库创建时，是否在前面加上 DROP DATABASE IF EXISTS 命令。"
 
-#: libraries/config/messages.inc.php:430
+#: libraries/config/messages.inc.php:432
 msgid "Add DROP DATABASE"
 msgstr "添加 DROP DATABASE"
 
-#: libraries/config/messages.inc.php:431
+#: libraries/config/messages.inc.php:433
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr "设置当记录数据表创建时，是否在前面加上 DROP TABLE IF EXISTS 命令。"
 
-#: libraries/config/messages.inc.php:432
+#: libraries/config/messages.inc.php:434
 msgid "Add DROP TABLE"
 msgstr "添加 DROP TABLE"
 
-#: libraries/config/messages.inc.php:433
+#: libraries/config/messages.inc.php:435
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr "设置当记录视图创建时，是否在前面加上 DROP VIEW IF EXISTS 命令。"
 
-#: libraries/config/messages.inc.php:434
+#: libraries/config/messages.inc.php:436
 msgid "Add DROP VIEW"
 msgstr "添加 DROP VIEW"
 
-#: libraries/config/messages.inc.php:435
+#: libraries/config/messages.inc.php:437
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr "定义自动创建新版的命令列表。"
 
-#: libraries/config/messages.inc.php:436
+#: libraries/config/messages.inc.php:438
 msgid "Statements to track"
 msgstr "要追踪的命令"
 
-#: libraries/config/messages.inc.php:437
+#: libraries/config/messages.inc.php:439
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
 msgstr "不使用 SQL 查询追踪功能请留空，推荐: [kbd]pma_tracking[/kbd]"
 
-#: libraries/config/messages.inc.php:438
+#: libraries/config/messages.inc.php:440
 msgid "SQL query tracking table"
 msgstr "SQL 查询追踪表"
 
-#: libraries/config/messages.inc.php:439
+#: libraries/config/messages.inc.php:441
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr "设置追踪系统是否自动为数据表和视图创建版本。"
 
-#: libraries/config/messages.inc.php:440
+#: libraries/config/messages.inc.php:442
 msgid "Automatically create versions"
 msgstr "自动创建版本"
 
-#: libraries/config/messages.inc.php:441
+#: libraries/config/messages.inc.php:443
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
@@ -4763,43 +4775,43 @@ msgid ""
 "pma_userconfig[/kbd]"
 msgstr "不在数据库中保存用户偏好请留空，推荐: [kbd]pma_config[/kbd]"
 
-#: libraries/config/messages.inc.php:442
+#: libraries/config/messages.inc.php:444
 msgid "User preferences storage table"
 msgstr "用户偏好表"
 
-#: libraries/config/messages.inc.php:444
+#: libraries/config/messages.inc.php:446
 msgid "User for config auth"
 msgstr "config 认证方式的用户名"
 
-#: libraries/config/messages.inc.php:445
+#: libraries/config/messages.inc.php:447
 msgid ""
 "Disable if you know that your pma_* tables are up to date. This prevents "
 "compatibility checks and thereby increases performance"
 msgstr "如果你确定 pma_* 数据表都是最新的，可以禁用此项。此功能提供兼容性检查"
 
-#: libraries/config/messages.inc.php:446
+#: libraries/config/messages.inc.php:448
 msgid "Verbose check"
 msgstr "详细检查"
 
-#: libraries/config/messages.inc.php:447
+#: libraries/config/messages.inc.php:449
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr "一个好记的名字。留空将显示主机名。"
 
-#: libraries/config/messages.inc.php:448
+#: libraries/config/messages.inc.php:450
 msgid "Verbose name of this server"
 msgstr "服务器名称"
 
-#: libraries/config/messages.inc.php:449
+#: libraries/config/messages.inc.php:451
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr "设置是否给用户显示一个 &quot;显示所有 (记录)&quot; 的按钮"
 
-#: libraries/config/messages.inc.php:450
+#: libraries/config/messages.inc.php:452
 msgid "Allow to display all the rows"
 msgstr "允许显示所有行"
 
-#: libraries/config/messages.inc.php:451
+#: libraries/config/messages.inc.php:453
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -4808,99 +4820,99 @@ msgstr ""
 "注意：该选项不影响 [kbd]config[/kbd] 认证方式，因为密码是保存在配置文件中，该"
 "选项也不限制直接执行可实现相同功能的命令。"
 
-#: libraries/config/messages.inc.php:452
+#: libraries/config/messages.inc.php:454
 msgid "Show password change form"
 msgstr "显示修改密码"
 
-#: libraries/config/messages.inc.php:453
+#: libraries/config/messages.inc.php:455
 msgid "Show create database form"
 msgstr "显示创建数据库表单"
 
-#: libraries/config/messages.inc.php:454
+#: libraries/config/messages.inc.php:456
 msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table"
 msgstr ""
 
-#: libraries/config/messages.inc.php:455
+#: libraries/config/messages.inc.php:457
 #, fuzzy
 #| msgid "Default display direction"
 msgid "Show display direction"
 msgstr "默认显示模式"
 
-#: libraries/config/messages.inc.php:456
+#: libraries/config/messages.inc.php:458
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr "定义在编辑/插入模式中是否显示字段类型一列"
 
-#: libraries/config/messages.inc.php:457
+#: libraries/config/messages.inc.php:459
 msgid "Show field types"
 msgstr "显示字段类型"
 
-#: libraries/config/messages.inc.php:458
+#: libraries/config/messages.inc.php:460
 msgid "Display the function fields in edit/insert mode"
 msgstr "在编辑/插入模式中显示函数列"
 
-#: libraries/config/messages.inc.php:459
+#: libraries/config/messages.inc.php:461
 msgid "Show function fields"
 msgstr "显示函数列"
 
-#: libraries/config/messages.inc.php:460
+#: libraries/config/messages.inc.php:462
 #, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Whether to show hint or not"
 msgstr "表中每行数据操作链接位置"
 
-#: libraries/config/messages.inc.php:461
+#: libraries/config/messages.inc.php:463
 #, fuzzy
 #| msgid "Show indexes"
 msgid "Show hint"
 msgstr "显示索引"
 
-#: libraries/config/messages.inc.php:462
+#: libraries/config/messages.inc.php:464
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
 "显示 [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] 输出的链接"
 
-#: libraries/config/messages.inc.php:463
+#: libraries/config/messages.inc.php:465
 msgid "Show phpinfo() link"
 msgstr "显示 phpinfo() 链接"
 
-#: libraries/config/messages.inc.php:464
+#: libraries/config/messages.inc.php:466
 msgid "Show detailed MySQL server information"
 msgstr "显示 MySQL 服务器详细信息"
 
-#: libraries/config/messages.inc.php:465
+#: libraries/config/messages.inc.php:467
 msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
 msgstr "定义是否显示 phpMyAdmin 生成的 SQL 查询"
 
-#: libraries/config/messages.inc.php:466
+#: libraries/config/messages.inc.php:468
 msgid "Show SQL queries"
 msgstr "显示 SQL 查询"
 
-#: libraries/config/messages.inc.php:467
+#: libraries/config/messages.inc.php:469
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr "允许显示数据库和数据表的统计信息 (如：空间使用)"
 
-#: libraries/config/messages.inc.php:468
+#: libraries/config/messages.inc.php:470
 msgid "Show statistics"
 msgstr "显示统计"
 
-#: libraries/config/messages.inc.php:469
+#: libraries/config/messages.inc.php:471
 msgid ""
 "If tooltips are enabled and a database comment is set, this will flip the "
 "comment and the real name"
 msgstr ""
 "如果启用了悬停提示且设置了数据库备注，这里将简略显示数据库备注和数据库名"
 
-#: libraries/config/messages.inc.php:470
+#: libraries/config/messages.inc.php:472
 msgid "Display database comment instead of its name"
 msgstr "显示数据库的备注而不显示数据库名"
 
-#: libraries/config/messages.inc.php:471
+#: libraries/config/messages.inc.php:473
 msgid ""
 "When setting this to [kbd]nested[/kbd], the alias of the table name is only "
 "used to split/nest the tables according to the $cfg"
@@ -4911,28 +4923,28 @@ msgstr ""
 "['LeftFrameTableSeparator'] 作分割/层叠用，所有只有目录的名字像别名，数据表自"
 "己的名字并不改变"
 
-#: libraries/config/messages.inc.php:472
+#: libraries/config/messages.inc.php:474
 msgid "Display table comment instead of its name"
 msgstr "显示表备注而不显示表名"
 
-#: libraries/config/messages.inc.php:473
+#: libraries/config/messages.inc.php:475
 msgid "Display table comments in tooltips"
 msgstr "悬停时显示表备注"
 
-#: libraries/config/messages.inc.php:474
+#: libraries/config/messages.inc.php:476
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables"
 msgstr "将已锁定的数据表在数据库中显示为使用中"
 
-#: libraries/config/messages.inc.php:475
+#: libraries/config/messages.inc.php:477
 msgid "Skip locked tables"
 msgstr "跳过锁定的表"
 
-#: libraries/config/messages.inc.php:480
+#: libraries/config/messages.inc.php:482
 msgid "Requires SQL Validator to be enabled"
 msgstr "需要启用 SQL 校验器"
 
-#: libraries/config/messages.inc.php:482
+#: libraries/config/messages.inc.php:484
 #: libraries/display_change_password.lib.php:40
 #: libraries/replication_gui.lib.php:62 libraries/replication_gui.lib.php:63
 #: libraries/replication_gui.lib.php:341 libraries/replication_gui.lib.php:345
@@ -4942,47 +4954,47 @@ msgstr "需要启用 SQL 校验器"
 msgid "Password"
 msgstr "密码"
 
-#: libraries/config/messages.inc.php:483
+#: libraries/config/messages.inc.php:485
 msgid ""
 "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 "installed"
 msgstr "[strong]警告：[/strong]需要安装 PHP SOAP 扩展或 PEAR SOAP"
 
-#: libraries/config/messages.inc.php:484
+#: libraries/config/messages.inc.php:486
 msgid "Enable SQL Validator"
 msgstr "启用 SQL 校验器"
 
-#: libraries/config/messages.inc.php:485
+#: libraries/config/messages.inc.php:487
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
 msgstr ""
 "如果你有自己的用户名，请在这里输入 (默认为 [kbd]anonymous (匿名)[/kbd])"
 
-#: libraries/config/messages.inc.php:486 tbl_tracking.php:445
+#: libraries/config/messages.inc.php:488 tbl_tracking.php:445
 #: tbl_tracking.php:502
 msgid "Username"
 msgstr "用户名"
 
-#: libraries/config/messages.inc.php:487
+#: libraries/config/messages.inc.php:489
 msgid ""
 "Suggest a database name on the &quot;Create Database&quot; form (if "
 "possible) or keep the text field empty"
 msgstr "如果可能，在 &quot;新建数据库&quot; 表单中建议一个名字，或留空"
 
-#: libraries/config/messages.inc.php:488
+#: libraries/config/messages.inc.php:490
 msgid "Suggest new database name"
 msgstr "建议新数据库名"
 
-#: libraries/config/messages.inc.php:489
+#: libraries/config/messages.inc.php:491
 msgid "A warning is displayed on the main page if Suhosin is detected"
 msgstr "若检测到 Suhosin 将在主页显示一个警告"
 
-#: libraries/config/messages.inc.php:490
+#: libraries/config/messages.inc.php:492
 msgid "Suhosin warning"
 msgstr "Suhosin 警告"
 
-#: libraries/config/messages.inc.php:491
+#: libraries/config/messages.inc.php:493
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
@@ -4990,11 +5002,11 @@ msgstr ""
 "编辑模式的文本框大小 (列数)，此值将用于 SQL 查询文本框 (*2) 和查询窗口 "
 "(*1.25)"
 
-#: libraries/config/messages.inc.php:492
+#: libraries/config/messages.inc.php:494
 msgid "Textarea columns"
 msgstr "文本框列"
 
-#: libraries/config/messages.inc.php:493
+#: libraries/config/messages.inc.php:495
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
@@ -5002,31 +5014,31 @@ msgstr ""
 "编辑模式的文本框大小 (行数)，此值将用于 SQL 查询文本框 (*2) 和查询窗口 "
 "(*1.25)"
 
-#: libraries/config/messages.inc.php:494
+#: libraries/config/messages.inc.php:496
 msgid "Textarea rows"
 msgstr "文本框行"
 
-#: libraries/config/messages.inc.php:495
+#: libraries/config/messages.inc.php:497
 msgid "Title of browser window when a database is selected"
 msgstr "选中一个数据库时浏览器窗口的标题"
 
-#: libraries/config/messages.inc.php:497
+#: libraries/config/messages.inc.php:499
 msgid "Title of browser window when nothing is selected"
 msgstr "未选择时浏览器窗口的标题"
 
-#: libraries/config/messages.inc.php:498
+#: libraries/config/messages.inc.php:500
 msgid "Default title"
 msgstr "默认标题"
 
-#: libraries/config/messages.inc.php:499
+#: libraries/config/messages.inc.php:501
 msgid "Title of browser window when a server is selected"
 msgstr "选中一个服务器时浏览器窗口的标题"
 
-#: libraries/config/messages.inc.php:501
+#: libraries/config/messages.inc.php:503
 msgid "Title of browser window when a table is selected"
 msgstr "选中一张数据表时浏览器窗口的标题"
 
-#: libraries/config/messages.inc.php:503
+#: libraries/config/messages.inc.php:505
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -5037,37 +5049,37 @@ msgstr ""
 "信任从代理 1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd] 发来的 "
 "HTTP_X_FORWARDED_FOR 头"
 
-#: libraries/config/messages.inc.php:504
+#: libraries/config/messages.inc.php:506
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "可信代理IP列表"
 
-#: libraries/config/messages.inc.php:505
+#: libraries/config/messages.inc.php:507
 msgid "Directory on server where you can upload files for import"
 msgstr "服务器上用来存放导入文件的文件夹"
 
-#: libraries/config/messages.inc.php:506
+#: libraries/config/messages.inc.php:508
 msgid "Upload directory"
 msgstr "上传文件夹"
 
-#: libraries/config/messages.inc.php:507
+#: libraries/config/messages.inc.php:509
 msgid "Allow for searching inside the entire database"
 msgstr "允许搜索整个数据库"
 
-#: libraries/config/messages.inc.php:508
+#: libraries/config/messages.inc.php:510
 msgid "Use database search"
 msgstr "使用数据库搜索"
 
-#: libraries/config/messages.inc.php:509
+#: libraries/config/messages.inc.php:511
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right"
 msgstr "禁用时，用户不能设置下列选项，右侧的复选框被忽略"
 
-#: libraries/config/messages.inc.php:510
+#: libraries/config/messages.inc.php:512
 msgid "Enable the Developer tab in settings"
 msgstr "启用设置中的开发标签"
 
-#: libraries/config/messages.inc.php:511
+#: libraries/config/messages.inc.php:513
 msgid ""
 "Show affected rows of each statement on multiple-statement queries. See "
 "libraries/import.lib.php for defaults on how many queries a statement may "
@@ -5076,19 +5088,19 @@ msgstr ""
 "在进行多个语句查询时，显示每个语句所影响的行数。默认一次查询可以包含的查询语"
 "句数可以在 libraries/import.lib.php 中找到。"
 
-#: libraries/config/messages.inc.php:512
+#: libraries/config/messages.inc.php:514
 msgid "Verbose multiple statements"
 msgstr "为多个语句输出更多信息"
 
-#: libraries/config/messages.inc.php:513 setup/frames/index.inc.php:242
+#: libraries/config/messages.inc.php:515 setup/frames/index.inc.php:242
 msgid "Check for latest version"
 msgstr "检查更新"
 
-#: libraries/config/messages.inc.php:514
+#: libraries/config/messages.inc.php:516
 msgid "Enables check for latest version on main phpMyAdmin page"
 msgstr "允许在 phpMyAdmin 主页面中检查最新版本"
 
-#: libraries/config/messages.inc.php:515 setup/lib/index.lib.php:121
+#: libraries/config/messages.inc.php:517 setup/lib/index.lib.php:121
 #: setup/lib/index.lib.php:131 setup/lib/index.lib.php:151
 #: setup/lib/index.lib.php:161 setup/lib/index.lib.php:172
 #: setup/lib/index.lib.php:179 setup/lib/index.lib.php:185
@@ -5096,7 +5108,7 @@ msgstr "允许在 phpMyAdmin 主页面中检查最新版本"
 msgid "Version check"
 msgstr "检查更新"
 
-#: libraries/config/messages.inc.php:516
+#: libraries/config/messages.inc.php:518
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
@@ -5104,7 +5116,7 @@ msgstr ""
 "允许在导入和导出时使用 [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP "
 "(外链，英文)[/a] 压缩"
 
-#: libraries/config/messages.inc.php:517
+#: libraries/config/messages.inc.php:519
 msgid "ZIP"
 msgstr "ZIP"
 
@@ -5124,46 +5136,46 @@ msgstr "HTTP 认证"
 msgid "Signon authentication"
 msgstr "Signon 认证"
 
-#: libraries/config/setup.forms.php:247
+#: libraries/config/setup.forms.php:248
 #: libraries/config/user_preferences.forms.php:148 libraries/import/ldi.php:35
 msgid "CSV using LOAD DATA"
 msgstr "CSV 使用 LOAD DATA"
 
-#: libraries/config/setup.forms.php:256 libraries/config/setup.forms.php:349
+#: libraries/config/setup.forms.php:257 libraries/config/setup.forms.php:350
 #: libraries/config/user_preferences.forms.php:156
 #: libraries/config/user_preferences.forms.php:248 libraries/export/ods.php:18
 #: libraries/import/ods.php:22
 msgid "Open Document Spreadsheet"
 msgstr "OpenOffice 表格"
 
-#: libraries/config/setup.forms.php:263
+#: libraries/config/setup.forms.php:264
 #: libraries/config/user_preferences.forms.php:163
 msgid "Quick"
 msgstr "快速"
 
-#: libraries/config/setup.forms.php:267
+#: libraries/config/setup.forms.php:268
 #: libraries/config/user_preferences.forms.php:167
 msgid "Custom"
 msgstr "自定义"
 
-#: libraries/config/setup.forms.php:288
+#: libraries/config/setup.forms.php:289
 #: libraries/config/user_preferences.forms.php:187
 msgid "Database export options"
 msgstr "数据库导出选项"
 
-#: libraries/config/setup.forms.php:321
+#: libraries/config/setup.forms.php:322
 #: libraries/config/user_preferences.forms.php:220
 #: libraries/export/excel.php:18
 msgid "CSV for MS Excel"
 msgstr "MS Excel 的 CSV 格式"
 
-#: libraries/config/setup.forms.php:344
+#: libraries/config/setup.forms.php:345
 #: libraries/config/user_preferences.forms.php:243
 #: libraries/export/htmlword.php:18
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/config/setup.forms.php:353
+#: libraries/config/setup.forms.php:354
 #: libraries/config/user_preferences.forms.php:252 libraries/export/odt.php:22
 msgid "Open Document Text"
 msgstr "OpenOffice 文档"

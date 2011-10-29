@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-10-28 08:55-0400\n"
+"POT-Creation-Date: 2011-10-29 08:29-0400\n"
 "PO-Revision-Date: 2011-10-25 13:16+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
@@ -353,7 +353,7 @@ msgid "Edit or export relational schema"
 msgstr "Bağlantılı şemayı dışa aktar veya düzenle"
 
 #: db_printview.php:101 db_tracking.php:85 db_tracking.php:186
-#: libraries/config/messages.inc.php:502 libraries/db_structure.lib.php:32
+#: libraries/config/messages.inc.php:504 libraries/db_structure.lib.php:32
 #: libraries/export/pdf.php:95 libraries/export/xml.php:359
 #: libraries/header.inc.php:161 libraries/rte/rte_list.lib.php:59
 #: libraries/rte/rte_triggers.lib.php:310
@@ -721,7 +721,7 @@ msgstr "Veri sözlüğü"
 msgid "Tracked tables"
 msgstr "İzlenen tablolar"
 
-#: db_tracking.php:84 libraries/config/messages.inc.php:496
+#: db_tracking.php:84 libraries/config/messages.inc.php:498
 #: libraries/export/htmlword.php:78 libraries/export/latex.php:151
 #: libraries/export/odt.php:109 libraries/export/pdf.php:95
 #: libraries/export/sql.php:602 libraries/export/texytext.php:66
@@ -1156,7 +1156,7 @@ msgstr "Kapat"
 #: js/messages.php:64 js/messages.php:256 libraries/Index.class.php:460
 #: libraries/common.lib.php:641 libraries/common.lib.php:1190
 #: libraries/common.lib.php:3312 libraries/common.lib.php:3313
-#: libraries/config/messages.inc.php:476 libraries/display_tbl.lib.php:1380
+#: libraries/config/messages.inc.php:478 libraries/display_tbl.lib.php:1380
 #: libraries/schema/User_Schema.class.php:196 setup/frames/index.inc.php:138
 msgid "Edit"
 msgstr "Düzenle"
@@ -2648,9 +2648,9 @@ msgstr "paylaşılmış"
 msgid "Tables"
 msgstr "Tablolar"
 
-#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:301
-#: libraries/config/setup.forms.php:337 libraries/config/setup.forms.php:360
-#: libraries/config/setup.forms.php:365
+#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:302
+#: libraries/config/setup.forms.php:338 libraries/config/setup.forms.php:361
+#: libraries/config/setup.forms.php:366
 #: libraries/config/user_preferences.forms.php:200
 #: libraries/config/user_preferences.forms.php:236
 #: libraries/config/user_preferences.forms.php:259
@@ -2732,7 +2732,7 @@ msgstr ""
 "%1$s sunucusu için geçersiz anamakine. Lütfen yapılandırma dosyanızı gözden "
 "geçirin."
 
-#: libraries/common.inc.php:656 libraries/config/messages.inc.php:500
+#: libraries/common.inc.php:656 libraries/config/messages.inc.php:502
 #: libraries/header.inc.php:134 main.php:160 server_status.php:775
 #: server_synchronize.php:1257
 msgid "Server"
@@ -2742,7 +2742,7 @@ msgstr "Sunucu"
 msgid "Invalid authentication method set in configuration:"
 msgstr "Yapılandırma içinde geçersiz kimlik doğrulama yöntemi ayarı:"
 
-#: libraries/common.inc.php:943
+#: libraries/common.inc.php:950
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s %s veya sonrasına yükseltmelisiniz."
@@ -2804,7 +2804,7 @@ msgstr "MySQL çıktısı: "
 msgid "Failed to connect to SQL validator!"
 msgstr "SQL onaylayıcısına bağlanma başarısız oldu!"
 
-#: libraries/common.lib.php:1164 libraries/config/messages.inc.php:477
+#: libraries/common.lib.php:1164 libraries/config/messages.inc.php:479
 msgid "Explain SQL"
 msgstr "SQL'i açıkla"
 
@@ -2816,11 +2816,11 @@ msgstr "SQL Açıklamasını atla"
 msgid "Without PHP Code"
 msgstr "PHP Kodsuz"
 
-#: libraries/common.lib.php:1206 libraries/config/messages.inc.php:479
+#: libraries/common.lib.php:1206 libraries/config/messages.inc.php:481
 msgid "Create PHP Code"
 msgstr "PHP Kodu oluştur"
 
-#: libraries/common.lib.php:1226 libraries/config/messages.inc.php:478
+#: libraries/common.lib.php:1226 libraries/config/messages.inc.php:480
 #: server_status.php:786 server_status.php:808 server_status.php:827
 msgid "Refresh"
 msgstr "Yenile"
@@ -2829,7 +2829,7 @@ msgstr "Yenile"
 msgid "Skip Validate SQL"
 msgstr "SQL Onaylamayı atla"
 
-#: libraries/common.lib.php:1239 libraries/config/messages.inc.php:481
+#: libraries/common.lib.php:1239 libraries/config/messages.inc.php:483
 msgid "Validate SQL"
 msgstr "SQL'i onayla"
 
@@ -2933,8 +2933,8 @@ msgid "Click to toggle"
 msgstr "Değiştirmek için tıklayın"
 
 #: libraries/common.lib.php:3085 libraries/common.lib.php:3092
-#: libraries/common.lib.php:3307 libraries/config/setup.forms.php:292
-#: libraries/config/setup.forms.php:329 libraries/config/setup.forms.php:355
+#: libraries/common.lib.php:3307 libraries/config/setup.forms.php:293
+#: libraries/config/setup.forms.php:330 libraries/config/setup.forms.php:356
 #: libraries/config/user_preferences.forms.php:191
 #: libraries/config/user_preferences.forms.php:228
 #: libraries/config/user_preferences.forms.php:254
@@ -3638,8 +3638,8 @@ msgstr "Gözatma kipini özelleştirir"
 msgid "Customize default options"
 msgstr "Varsayılan seçenekleri özelleştirir"
 
-#: libraries/config/messages.inc.php:156 libraries/config/setup.forms.php:239
-#: libraries/config/setup.forms.php:312
+#: libraries/config/messages.inc.php:156 libraries/config/setup.forms.php:240
+#: libraries/config/setup.forms.php:313
 #: libraries/config/user_preferences.forms.php:140
 #: libraries/config/user_preferences.forms.php:211 libraries/export/csv.php:19
 #: libraries/import/csv.php:22
@@ -4573,14 +4573,26 @@ msgid "Control user"
 msgstr "Denetim kullanıcısı"
 
 #: libraries/config/messages.inc.php:381
+msgid ""
+"An alternate host to hold the configuration storage; leave blank to use the "
+"already defined host"
+msgstr ""
+
+#: libraries/config/messages.inc.php:382
+#, fuzzy
+#| msgid "Control user"
+msgid "Control host"
+msgstr "Denetim kullanıcısı"
+
+#: libraries/config/messages.inc.php:383
 msgid "Count tables when showing database list"
 msgstr "Veritabanı listesini gösterirken tabloları sayar"
 
-#: libraries/config/messages.inc.php:382
+#: libraries/config/messages.inc.php:384
 msgid "Count tables"
 msgstr "Tabloları say"
 
-#: libraries/config/messages.inc.php:383
+#: libraries/config/messages.inc.php:385
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
@@ -4588,11 +4600,11 @@ msgstr ""
 "Tasarımcı desteği istenmiyorsa boş bırakın, varsayılan: [kbd]"
 "pma_designer_coords[/kbd]"
 
-#: libraries/config/messages.inc.php:384
+#: libraries/config/messages.inc.php:386
 msgid "Designer table"
 msgstr "Tasarımcı tablosu"
 
-#: libraries/config/messages.inc.php:385
+#: libraries/config/messages.inc.php:387
 msgid ""
 "More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
 "tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
@@ -4600,29 +4612,29 @@ msgstr ""
 "[a@http://sf.net/support/tracker.php?aid=1849494]PMA hata izleyici[/a] ve "
 "[a@http://bugs.mysql.com/19588]MySQL Hataları[/a] üzerine daha fazla bilgi"
 
-#: libraries/config/messages.inc.php:386
+#: libraries/config/messages.inc.php:388
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "INFORMATION_SCHEMA kullanımı etkisiz"
 
-#: libraries/config/messages.inc.php:387
+#: libraries/config/messages.inc.php:389
 msgid "What PHP extension to use; you should use mysqli if supported"
 msgstr ""
 "Kullanmak için hangi PHP uzantısı; Eğer destekleniyorsa mysqli "
 "kullanmalısınız"
 
-#: libraries/config/messages.inc.php:388
+#: libraries/config/messages.inc.php:390
 msgid "PHP extension to use"
 msgstr "Kullanmak için PHP uzantısı"
 
-#: libraries/config/messages.inc.php:389
+#: libraries/config/messages.inc.php:391
 msgid "Hide databases matching regular expression (PCRE)"
 msgstr "Düzenli anlatıma (PCRE) uyan veritabanlarını gizler"
 
-#: libraries/config/messages.inc.php:390
+#: libraries/config/messages.inc.php:392
 msgid "Hide databases"
 msgstr "Veritabanlarını gizle"
 
-#: libraries/config/messages.inc.php:391
+#: libraries/config/messages.inc.php:393
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
@@ -4630,23 +4642,23 @@ msgstr ""
 "SQL sorgu geçmişi desteği istenmiyorsa boş bırakın, varsayılan: [kbd]"
 "pma_history[/kbd]"
 
-#: libraries/config/messages.inc.php:392
+#: libraries/config/messages.inc.php:394
 msgid "SQL query history table"
 msgstr "SQL sorgu geçmişi tablosu"
 
-#: libraries/config/messages.inc.php:393
+#: libraries/config/messages.inc.php:395
 msgid "Hostname where MySQL server is running"
 msgstr "MySQL sunucusunun çalıştığı anamakine"
 
-#: libraries/config/messages.inc.php:394
+#: libraries/config/messages.inc.php:396
 msgid "Server hostname"
 msgstr "Sunucu anamakine adı"
 
-#: libraries/config/messages.inc.php:395
+#: libraries/config/messages.inc.php:397
 msgid "Logout URL"
 msgstr "Oturum kapatma URL'si"
 
-#: libraries/config/messages.inc.php:396
+#: libraries/config/messages.inc.php:398
 msgid ""
 "This configuration make sure that we only keep N (N = MaxTableUiprefs) "
 "newest record in \"table_uiprefs\" and automatically delete older records"
@@ -4655,19 +4667,19 @@ msgstr ""
 "yeni kayıtları tutuğumuzdan ve otomatik olarak eski kayıtları sildiğimizden "
 "emin olur"
 
-#: libraries/config/messages.inc.php:397
+#: libraries/config/messages.inc.php:399
 msgid "Maximum number of records saved in \"table_uiprefs\" table"
 msgstr "En fazla kayıt sayısı \"table_uiprefs\" tablosuna kaydedildi"
 
-#: libraries/config/messages.inc.php:398
+#: libraries/config/messages.inc.php:400
 msgid "Try to connect without password"
 msgstr "Parolasız bağlanmayı dener"
 
-#: libraries/config/messages.inc.php:399
+#: libraries/config/messages.inc.php:401
 msgid "Connect without password"
 msgstr "Parolasız bağlan"
 
-#: libraries/config/messages.inc.php:400
+#: libraries/config/messages.inc.php:402
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -4682,30 +4694,30 @@ msgstr ""
 "girin ve geri kalanını alfabetik sırada göstermek için sonunda [kbd]*[/kbd] "
 "kullanın."
 
-#: libraries/config/messages.inc.php:401
+#: libraries/config/messages.inc.php:403
 msgid "Show only listed databases"
 msgstr "Sadece listelenmiş veritabanları göster"
 
-#: libraries/config/messages.inc.php:402 libraries/config/messages.inc.php:443
+#: libraries/config/messages.inc.php:404 libraries/config/messages.inc.php:445
 msgid "Leave empty if not using config auth"
 msgstr "Eğer yapılandırma kimlik denetimi kullanılmıyorsa boş bırakın"
 
-#: libraries/config/messages.inc.php:403
+#: libraries/config/messages.inc.php:405
 msgid "Password for config auth"
 msgstr "Yapılandırma kimlik den. için parola"
 
-#: libraries/config/messages.inc.php:404
+#: libraries/config/messages.inc.php:406
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
 "PDF şeması desteği istenmiyorsa boş bırakın, varsayılan: [kbd]pma_pdf_pages[/"
 "kbd]"
 
-#: libraries/config/messages.inc.php:405
+#: libraries/config/messages.inc.php:407
 msgid "PDF schema: pages table"
 msgstr "PDF şeması: sayfalar tablosu"
 
-#: libraries/config/messages.inc.php:406
+#: libraries/config/messages.inc.php:408
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
@@ -4715,21 +4727,21 @@ msgstr ""
 "bilgi için [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]'ye bakın. "
 "Destek istenmiyorsa boş bırakın. Önerilen: [kbd]phpmyadmin[/kbd]"
 
-#: libraries/config/messages.inc.php:407
+#: libraries/config/messages.inc.php:409
 msgid "Database name"
 msgstr "Veritabanı adı"
 
-#: libraries/config/messages.inc.php:408
+#: libraries/config/messages.inc.php:410
 msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
 "MySQL sunucusunun dinlemede olduğu bağlantı noktası, varsayılan ayar için "
 "boş bırakın"
 
-#: libraries/config/messages.inc.php:409
+#: libraries/config/messages.inc.php:411
 msgid "Server port"
 msgstr "Sunucu bağ.noktası"
 
-#: libraries/config/messages.inc.php:410
+#: libraries/config/messages.inc.php:412
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma_recent[/kbd]"
@@ -4737,11 +4749,11 @@ msgstr ""
 "Oturum geçişlerinde \"sürekli\" son kullanılan tablolar olmaması için boş "
 "bırakın, önerilen: [kbd]pma_recent[/kbd]"
 
-#: libraries/config/messages.inc.php:411
+#: libraries/config/messages.inc.php:413
 msgid "Recently used table"
 msgstr "Son kullanılan tablo"
 
-#: libraries/config/messages.inc.php:412
+#: libraries/config/messages.inc.php:414
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
@@ -4749,19 +4761,19 @@ msgstr ""
 "[a@http://wiki.phpmyadmin.net/pma/relation]İlişki bağlantıları[/a] desteği "
 "istenmiyorsa boş bırakın, varsayılan: [kbd]pma_relation[/kbd]"
 
-#: libraries/config/messages.inc.php:413
+#: libraries/config/messages.inc.php:415
 msgid "Relation table"
 msgstr "Bağlantı tablosu"
 
-#: libraries/config/messages.inc.php:414
+#: libraries/config/messages.inc.php:416
 msgid "SQL command to fetch available databases"
 msgstr "Mevcut veritabanları getirmek için SQL komutu"
 
-#: libraries/config/messages.inc.php:415
+#: libraries/config/messages.inc.php:417
 msgid "SHOW DATABASES command"
 msgstr "SHOW DATABASES komutu"
 
-#: libraries/config/messages.inc.php:416
+#: libraries/config/messages.inc.php:418
 msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
@@ -4769,43 +4781,43 @@ msgstr ""
 "Örnek için [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]kimlik "
 "doğrulama türlerine[/a] bakın"
 
-#: libraries/config/messages.inc.php:417
+#: libraries/config/messages.inc.php:419
 msgid "Signon session name"
 msgstr "Oturumu açma oturum adı"
 
-#: libraries/config/messages.inc.php:418
+#: libraries/config/messages.inc.php:420
 msgid "Signon URL"
 msgstr "Oturumu açma URL'si"
 
-#: libraries/config/messages.inc.php:419
+#: libraries/config/messages.inc.php:421
 msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr ""
 "MySQL sunucusunun dinlemede olduğu soket, varsayılan ayar için boş bırakın"
 
-#: libraries/config/messages.inc.php:420
+#: libraries/config/messages.inc.php:422
 msgid "Server socket"
 msgstr "Sunucu soketi"
 
-#: libraries/config/messages.inc.php:421
+#: libraries/config/messages.inc.php:423
 msgid "Enable SSL for connection to MySQL server"
 msgstr "MySQL sunucusuna bağlantı için SSL etkin"
 
-#: libraries/config/messages.inc.php:422
+#: libraries/config/messages.inc.php:424
 msgid "Use SSL"
 msgstr "SSL kullan"
 
-#: libraries/config/messages.inc.php:423
+#: libraries/config/messages.inc.php:425
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
 "PDF şeması desteği istenmiyorsa boş bırakın, varsayılan: [kbd]"
 "pma_table_coords[/kbd]"
 
-#: libraries/config/messages.inc.php:424
+#: libraries/config/messages.inc.php:426
 msgid "PDF schema: table coordinates"
 msgstr "PDF şeması: tablo koordinatları"
 
-#: libraries/config/messages.inc.php:425
+#: libraries/config/messages.inc.php:427
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
@@ -4813,11 +4825,11 @@ msgstr ""
 "Görüntü sütunlarını tanımlayan tablodur, destek istenmiyorsa boş bırakın; "
 "önerilen: [kbd]pma_table_info[/kbd]"
 
-#: libraries/config/messages.inc.php:426
+#: libraries/config/messages.inc.php:428
 msgid "Display columns table"
 msgstr "Görüntü sütunları tablosu"
 
-#: libraries/config/messages.inc.php:427
+#: libraries/config/messages.inc.php:429
 msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
@@ -4825,11 +4837,11 @@ msgstr ""
 "Oturum geçişlerinde \"sürekli\" tabloların KA tercihleri olmaması için boş "
 "bırakın, önerilen: [kbd]pma_table_uiprefs[/kbd]"
 
-#: libraries/config/messages.inc.php:428
+#: libraries/config/messages.inc.php:430
 msgid "UI preferences table"
 msgstr "KA tercihleri tablosu"
 
-#: libraries/config/messages.inc.php:429
+#: libraries/config/messages.inc.php:431
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -4837,11 +4849,11 @@ msgstr ""
 "Veritabanı oluşturulduğunda günlüğe ilk satır olarak DROP DATABASE IF EXISTS "
 "ifadesi eklenecek."
 
-#: libraries/config/messages.inc.php:430
+#: libraries/config/messages.inc.php:432
 msgid "Add DROP DATABASE"
 msgstr "DROP DATABASE ifadesi ekle"
 
-#: libraries/config/messages.inc.php:431
+#: libraries/config/messages.inc.php:433
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
@@ -4849,11 +4861,11 @@ msgstr ""
 "Tablo oluşturulduğunda günlüğe ilk satır olarak DROP TABLE IF EXISTS ifadesi "
 "eklenecek."
 
-#: libraries/config/messages.inc.php:432
+#: libraries/config/messages.inc.php:434
 msgid "Add DROP TABLE"
 msgstr "DROP TABLE ifadesi ekle"
 
-#: libraries/config/messages.inc.php:433
+#: libraries/config/messages.inc.php:435
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
@@ -4861,20 +4873,20 @@ msgstr ""
 "Görünüm oluşturulduğunda günlüğe ilk satır olarak DROP VIEW IF EXISTS "
 "ifadesi eklenecek."
 
-#: libraries/config/messages.inc.php:434
+#: libraries/config/messages.inc.php:436
 msgid "Add DROP VIEW"
 msgstr "DROP VIEW ifadesi ekle"
 
-#: libraries/config/messages.inc.php:435
+#: libraries/config/messages.inc.php:437
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 "Yeni sürümler için otomatik oluşturma kullanan ifade listesini tanımlar."
 
-#: libraries/config/messages.inc.php:436
+#: libraries/config/messages.inc.php:438
 msgid "Statements to track"
 msgstr "İfadelerden izlere"
 
-#: libraries/config/messages.inc.php:437
+#: libraries/config/messages.inc.php:439
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
@@ -4882,11 +4894,11 @@ msgstr ""
 "SQL sorgu izleme desteği istenmiyorsa boş bırakın, önerilen: [kbd]"
 "pma_tracking[/kbd]"
 
-#: libraries/config/messages.inc.php:438
+#: libraries/config/messages.inc.php:440
 msgid "SQL query tracking table"
 msgstr "SQL sorgu izleme tablosu"
 
-#: libraries/config/messages.inc.php:439
+#: libraries/config/messages.inc.php:441
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
@@ -4894,11 +4906,11 @@ msgstr ""
 "İzleme mekanizması tablolar ve görünümler için otomatik olarak sürümler "
 "oluşturur."
 
-#: libraries/config/messages.inc.php:440
+#: libraries/config/messages.inc.php:442
 msgid "Automatically create versions"
 msgstr "Otomatik olarak sürümleri oluştur"
 
-#: libraries/config/messages.inc.php:441
+#: libraries/config/messages.inc.php:443
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
@@ -4906,15 +4918,15 @@ msgstr ""
 "Veritabanında kullanıcı tercihleri depolaması olmaması için boş bırakın, "
 "önerilen: [kbd]pma_userconfig[/kbd]"
 
-#: libraries/config/messages.inc.php:442
+#: libraries/config/messages.inc.php:444
 msgid "User preferences storage table"
 msgstr "Kullanıcı tercihleri depolama tablosu"
 
-#: libraries/config/messages.inc.php:444
+#: libraries/config/messages.inc.php:446
 msgid "User for config auth"
 msgstr "Yapılandırma kimlik den. için kullanıcı"
 
-#: libraries/config/messages.inc.php:445
+#: libraries/config/messages.inc.php:447
 msgid ""
 "Disable if you know that your pma_* tables are up to date. This prevents "
 "compatibility checks and thereby increases performance"
@@ -4922,11 +4934,11 @@ msgstr ""
 "Eğer pma_* tablolarınızın güncel olduğunu biliyorsanız etkisizleştirin. Bu "
 "uyumluluk kontrollerini önler ve dolayısıyla performansı arttırır"
 
-#: libraries/config/messages.inc.php:446
+#: libraries/config/messages.inc.php:448
 msgid "Verbose check"
 msgstr "Fazla bilgi denetimi"
 
-#: libraries/config/messages.inc.php:447
+#: libraries/config/messages.inc.php:449
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
@@ -4934,21 +4946,21 @@ msgstr ""
 "Bu sunucunun kolay kullanım açıklaması. Anamakine adını görüntülemek için "
 "boş bırakın."
 
-#: libraries/config/messages.inc.php:448
+#: libraries/config/messages.inc.php:450
 msgid "Verbose name of this server"
 msgstr "Bu sunucunun fazladan adı"
 
-#: libraries/config/messages.inc.php:449
+#: libraries/config/messages.inc.php:451
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr ""
 "Kullanıcının &quot;tümünü (satırları) göster&quot; düğmesini görüntüleyip "
 "görüntüleyemeyeceğidir"
 
-#: libraries/config/messages.inc.php:450
+#: libraries/config/messages.inc.php:452
 msgid "Allow to display all the rows"
 msgstr "Tüm satırları görüntülemeye izin ver"
 
-#: libraries/config/messages.inc.php:451
+#: libraries/config/messages.inc.php:453
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -4958,15 +4970,15 @@ msgstr ""
 "yapılandırmasını[/kbd] etkilemez çünkü parola yapılandırma dosyasında sıkı "
 "kodlanmıştır; bu, doğrudan aynı komutun yürütme kabiliyetini sınırlandırmaz"
 
-#: libraries/config/messages.inc.php:452
+#: libraries/config/messages.inc.php:454
 msgid "Show password change form"
 msgstr "Parola değiştirme formunu göster"
 
-#: libraries/config/messages.inc.php:453
+#: libraries/config/messages.inc.php:455
 msgid "Show create database form"
 msgstr "Veritabanı oluşturma formu göster"
 
-#: libraries/config/messages.inc.php:454
+#: libraries/config/messages.inc.php:456
 msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table"
@@ -4974,11 +4986,11 @@ msgstr ""
 "Tabloya gözatılırken görüntüleme talimatı seçeneği doldurulsada "
 "doldurulmasada gösterilmesini tanımlar"
 
-#: libraries/config/messages.inc.php:455
+#: libraries/config/messages.inc.php:457
 msgid "Show display direction"
 msgstr "Görüntüleme talimatını göster"
 
-#: libraries/config/messages.inc.php:456
+#: libraries/config/messages.inc.php:458
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
@@ -4986,27 +4998,27 @@ msgstr ""
 "Düzenle/ekle kipinde alanlar doldurulsada doldurulmasada ilk olarak "
 "gösterilmesini tanımlar"
 
-#: libraries/config/messages.inc.php:457
+#: libraries/config/messages.inc.php:459
 msgid "Show field types"
 msgstr "Alan türlerini göster"
 
-#: libraries/config/messages.inc.php:458
+#: libraries/config/messages.inc.php:460
 msgid "Display the function fields in edit/insert mode"
 msgstr "İşlev alanlarını düzenle/ekle kipinde görüntüler"
 
-#: libraries/config/messages.inc.php:459
+#: libraries/config/messages.inc.php:461
 msgid "Show function fields"
 msgstr "İşlev alanlarını göster"
 
-#: libraries/config/messages.inc.php:460
+#: libraries/config/messages.inc.php:462
 msgid "Whether to show hint or not"
 msgstr "İpucu gösterilip gösterilmeyeceği"
 
-#: libraries/config/messages.inc.php:461
+#: libraries/config/messages.inc.php:463
 msgid "Show hint"
 msgstr "İpucu göster"
 
-#: libraries/config/messages.inc.php:462
+#: libraries/config/messages.inc.php:464
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
@@ -5014,35 +5026,35 @@ msgstr ""
 "[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] çıktısı için "
 "bağlantı gösterir"
 
-#: libraries/config/messages.inc.php:463
+#: libraries/config/messages.inc.php:465
 msgid "Show phpinfo() link"
 msgstr "phpinfo() bağlantısını göster"
 
-#: libraries/config/messages.inc.php:464
+#: libraries/config/messages.inc.php:466
 msgid "Show detailed MySQL server information"
 msgstr "Ayrıntılı MySQL sunucu bilgisini göster"
 
-#: libraries/config/messages.inc.php:465
+#: libraries/config/messages.inc.php:467
 msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
 msgstr ""
 "phpMyAdmin tarafından oluşturulan SQL sorgularının görüntülenip "
 "görüntülenmeyeceğini tanımlar"
 
-#: libraries/config/messages.inc.php:466
+#: libraries/config/messages.inc.php:468
 msgid "Show SQL queries"
 msgstr "SQL sorgularını göster"
 
-#: libraries/config/messages.inc.php:467
+#: libraries/config/messages.inc.php:469
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
 "Veritabanı ve tablo istatistiklerini görüntülemek için izin verir (örn. alan "
 "kullanımı)"
 
-#: libraries/config/messages.inc.php:468
+#: libraries/config/messages.inc.php:470
 msgid "Show statistics"
 msgstr "İstatistikleri göster"
 
-#: libraries/config/messages.inc.php:469
+#: libraries/config/messages.inc.php:471
 msgid ""
 "If tooltips are enabled and a database comment is set, this will flip the "
 "comment and the real name"
@@ -5050,11 +5062,11 @@ msgstr ""
 "Eğer araç ipuçları etkinse ve veritabanı yorumu ayarlıysa bu, yorumu ve "
 "gerçek adı çevirecek"
 
-#: libraries/config/messages.inc.php:470
+#: libraries/config/messages.inc.php:472
 msgid "Display database comment instead of its name"
 msgstr "Veritabanının adı yerine yorumunu görüntüle"
 
-#: libraries/config/messages.inc.php:471
+#: libraries/config/messages.inc.php:473
 msgid ""
 "When setting this to [kbd]nested[/kbd], the alias of the table name is only "
 "used to split/nest the tables according to the $cfg"
@@ -5066,30 +5078,30 @@ msgstr ""
 "içe koymak için kulanılır, bu yüzden sadece klasör, kod adı gibi çağrılır, "
 "tablo adının kendi değişmeden kalır"
 
-#: libraries/config/messages.inc.php:472
+#: libraries/config/messages.inc.php:474
 msgid "Display table comment instead of its name"
 msgstr "Tablonun adı yerine yorumunu görüntüle"
 
-#: libraries/config/messages.inc.php:473
+#: libraries/config/messages.inc.php:475
 msgid "Display table comments in tooltips"
 msgstr "Araç ipuçlarında tablo yorumlarını görüntüle"
 
-#: libraries/config/messages.inc.php:474
+#: libraries/config/messages.inc.php:476
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables"
 msgstr ""
 "Kullanılan tabloları işaretleyin ve veritabanlarını kilitli tablolarla "
 "birlikte gösterilmesini mümkün yapın"
 
-#: libraries/config/messages.inc.php:475
+#: libraries/config/messages.inc.php:477
 msgid "Skip locked tables"
 msgstr "Kilitli tabloları atla"
 
-#: libraries/config/messages.inc.php:480
+#: libraries/config/messages.inc.php:482
 msgid "Requires SQL Validator to be enabled"
 msgstr "SQL Onaylayıcının etkinleştirilmesini gerektirir"
 
-#: libraries/config/messages.inc.php:482
+#: libraries/config/messages.inc.php:484
 #: libraries/display_change_password.lib.php:40
 #: libraries/replication_gui.lib.php:62 libraries/replication_gui.lib.php:63
 #: libraries/replication_gui.lib.php:341 libraries/replication_gui.lib.php:345
@@ -5099,7 +5111,7 @@ msgstr "SQL Onaylayıcının etkinleştirilmesini gerektirir"
 msgid "Password"
 msgstr "Parola"
 
-#: libraries/config/messages.inc.php:483
+#: libraries/config/messages.inc.php:485
 msgid ""
 "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 "installed"
@@ -5107,11 +5119,11 @@ msgstr ""
 "[strong]Uyarı:[/strong] PHP SOAP uzantısı ya da PEAR SOAP kurulu olması "
 "gerekir"
 
-#: libraries/config/messages.inc.php:484
+#: libraries/config/messages.inc.php:486
 msgid "Enable SQL Validator"
 msgstr "SQL Onaylayıcı etkin"
 
-#: libraries/config/messages.inc.php:485
+#: libraries/config/messages.inc.php:487
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
@@ -5119,12 +5131,12 @@ msgstr ""
 "Eğer özel kullanıcı adınız varsa, onu burada belirleyin (varsayılanı [kbd]"
 "isimsiz'dir[/kbd])"
 
-#: libraries/config/messages.inc.php:486 tbl_tracking.php:445
+#: libraries/config/messages.inc.php:488 tbl_tracking.php:445
 #: tbl_tracking.php:502
 msgid "Username"
 msgstr "Kullanıcı Adı"
 
-#: libraries/config/messages.inc.php:487
+#: libraries/config/messages.inc.php:489
 msgid ""
 "Suggest a database name on the &quot;Create Database&quot; form (if "
 "possible) or keep the text field empty"
@@ -5132,19 +5144,19 @@ msgstr ""
 "&quot;Veritabanı Oluşturma&quot; formunda veritabanı önerir (eğer mümkünse) "
 "veya metin alanını boş tutar"
 
-#: libraries/config/messages.inc.php:488
+#: libraries/config/messages.inc.php:490
 msgid "Suggest new database name"
 msgstr "Yeni veritabanı adı öner"
 
-#: libraries/config/messages.inc.php:489
+#: libraries/config/messages.inc.php:491
 msgid "A warning is displayed on the main page if Suhosin is detected"
 msgstr "Eğer Suhosin algılanırsa, ana sayfada uyarı gösterilir"
 
-#: libraries/config/messages.inc.php:490
+#: libraries/config/messages.inc.php:492
 msgid "Suhosin warning"
 msgstr "Suhosin uyarısı"
 
-#: libraries/config/messages.inc.php:491
+#: libraries/config/messages.inc.php:493
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
@@ -5152,11 +5164,11 @@ msgstr ""
 "Düzenle kipinde metin alanı boyutu (sütunlar), bu değer SQL sorgu metni "
 "alanları (*2) ve sorgu penceresi (*1.25) için önemi belirtecektir"
 
-#: libraries/config/messages.inc.php:492
+#: libraries/config/messages.inc.php:494
 msgid "Textarea columns"
 msgstr "Metin alanı sütunları"
 
-#: libraries/config/messages.inc.php:493
+#: libraries/config/messages.inc.php:495
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
@@ -5164,31 +5176,31 @@ msgstr ""
 "Düzenle kipinde metin alanı boyutu (satırlar), bu değer SQL sorgu metni "
 "alanları (*2) ve sorgu penceresi (*1.25) için önemi belirtecektir"
 
-#: libraries/config/messages.inc.php:494
+#: libraries/config/messages.inc.php:496
 msgid "Textarea rows"
 msgstr "Metin alanı satırları"
 
-#: libraries/config/messages.inc.php:495
+#: libraries/config/messages.inc.php:497
 msgid "Title of browser window when a database is selected"
 msgstr "Veritabanı seçildiğinde tarayıcı penceresi başlığı"
 
-#: libraries/config/messages.inc.php:497
+#: libraries/config/messages.inc.php:499
 msgid "Title of browser window when nothing is selected"
 msgstr "Hiçbir şey seçilmediğinde tarayıcı penceresi başlığı"
 
-#: libraries/config/messages.inc.php:498
+#: libraries/config/messages.inc.php:500
 msgid "Default title"
 msgstr "Varsayılan başlık"
 
-#: libraries/config/messages.inc.php:499
+#: libraries/config/messages.inc.php:501
 msgid "Title of browser window when a server is selected"
 msgstr "Sunucu seçildiğinde tarayıcı penceresi başlığı"
 
-#: libraries/config/messages.inc.php:501
+#: libraries/config/messages.inc.php:503
 msgid "Title of browser window when a table is selected"
 msgstr "Tablo seçildiğinde tarayıcı penceresi başlığı"
 
-#: libraries/config/messages.inc.php:503
+#: libraries/config/messages.inc.php:505
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -5200,27 +5212,27 @@ msgstr ""
 "Forwarded-For) başlığına güvenmesini belirler:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]"
 
-#: libraries/config/messages.inc.php:504
+#: libraries/config/messages.inc.php:506
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "IP İzin Verme/Reddetme için güvenilir proksi listesi"
 
-#: libraries/config/messages.inc.php:505
+#: libraries/config/messages.inc.php:507
 msgid "Directory on server where you can upload files for import"
 msgstr "İçe aktarmak için dosyaları gönderebileceğiniz sunucu üzerindeki dizin"
 
-#: libraries/config/messages.inc.php:506
+#: libraries/config/messages.inc.php:508
 msgid "Upload directory"
 msgstr "Gönderme dizini"
 
-#: libraries/config/messages.inc.php:507
+#: libraries/config/messages.inc.php:509
 msgid "Allow for searching inside the entire database"
 msgstr "Tüm veritabanı içinde aramaya izin verir"
 
-#: libraries/config/messages.inc.php:508
+#: libraries/config/messages.inc.php:510
 msgid "Use database search"
 msgstr "Veritabanı aramayı kullan"
 
-#: libraries/config/messages.inc.php:509
+#: libraries/config/messages.inc.php:511
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right"
@@ -5228,11 +5240,11 @@ msgstr ""
 "Etkisizleştirildiğinde kullanıcılar sağdaki işaret kutusunu dikkate almadan "
 "herhangi bir seçeneği ayarlayamazlar"
 
-#: libraries/config/messages.inc.php:510
+#: libraries/config/messages.inc.php:512
 msgid "Enable the Developer tab in settings"
 msgstr "Ayarlarda Geliştirici sekmesi etkin"
 
-#: libraries/config/messages.inc.php:511
+#: libraries/config/messages.inc.php:513
 msgid ""
 "Show affected rows of each statement on multiple-statement queries. See "
 "libraries/import.lib.php for defaults on how many queries a statement may "
@@ -5241,19 +5253,19 @@ msgstr ""
 "Çoklu ifade sorgularında etkilenmiş her ifade sırasını gösterir. İfadenin ne "
 "kadar sorgu içerebileceği varsayılanı için libraries/import.lib.php'ye bakın."
 
-#: libraries/config/messages.inc.php:512
+#: libraries/config/messages.inc.php:514
 msgid "Verbose multiple statements"
 msgstr "Çoklu ifadeler için fazla bilgi"
 
-#: libraries/config/messages.inc.php:513 setup/frames/index.inc.php:242
+#: libraries/config/messages.inc.php:515 setup/frames/index.inc.php:242
 msgid "Check for latest version"
 msgstr "Son sürümü kontrol et"
 
-#: libraries/config/messages.inc.php:514
+#: libraries/config/messages.inc.php:516
 msgid "Enables check for latest version on main phpMyAdmin page"
 msgstr "Ana phpMyAdmin sayfasında son sürümü kontrol etmeyi etkinleştir"
 
-#: libraries/config/messages.inc.php:515 setup/lib/index.lib.php:121
+#: libraries/config/messages.inc.php:517 setup/lib/index.lib.php:121
 #: setup/lib/index.lib.php:131 setup/lib/index.lib.php:151
 #: setup/lib/index.lib.php:161 setup/lib/index.lib.php:172
 #: setup/lib/index.lib.php:179 setup/lib/index.lib.php:185
@@ -5261,7 +5273,7 @@ msgstr "Ana phpMyAdmin sayfasında son sürümü kontrol etmeyi etkinleştir"
 msgid "Version check"
 msgstr "Sürüm kontrolü"
 
-#: libraries/config/messages.inc.php:516
+#: libraries/config/messages.inc.php:518
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
@@ -5269,7 +5281,7 @@ msgstr ""
 "İçe ve dışa aktarma işlemleri için [a@http://en.wikipedia.org/wiki/ZIP_"
 "(file_format)]ZIP[/a] sıkıştırma etkin"
 
-#: libraries/config/messages.inc.php:517
+#: libraries/config/messages.inc.php:519
 msgid "ZIP"
 msgstr "ZIP"
 
@@ -5289,46 +5301,46 @@ msgstr "HTTP kimlik doğrulaması"
 msgid "Signon authentication"
 msgstr "Oturumu açma kimlik doğrulaması"
 
-#: libraries/config/setup.forms.php:247
+#: libraries/config/setup.forms.php:248
 #: libraries/config/user_preferences.forms.php:148 libraries/import/ldi.php:35
 msgid "CSV using LOAD DATA"
 msgstr "VERİ YÜKLE kullanarak CSV"
 
-#: libraries/config/setup.forms.php:256 libraries/config/setup.forms.php:349
+#: libraries/config/setup.forms.php:257 libraries/config/setup.forms.php:350
 #: libraries/config/user_preferences.forms.php:156
 #: libraries/config/user_preferences.forms.php:248 libraries/export/ods.php:18
 #: libraries/import/ods.php:22
 msgid "Open Document Spreadsheet"
 msgstr "Açık Kaynaklı Tablolama Belgesi"
 
-#: libraries/config/setup.forms.php:263
+#: libraries/config/setup.forms.php:264
 #: libraries/config/user_preferences.forms.php:163
 msgid "Quick"
 msgstr "Hızlı"
 
-#: libraries/config/setup.forms.php:267
+#: libraries/config/setup.forms.php:268
 #: libraries/config/user_preferences.forms.php:167
 msgid "Custom"
 msgstr "Özel"
 
-#: libraries/config/setup.forms.php:288
+#: libraries/config/setup.forms.php:289
 #: libraries/config/user_preferences.forms.php:187
 msgid "Database export options"
 msgstr "Veritabanı dışa aktarma seçenekleri"
 
-#: libraries/config/setup.forms.php:321
+#: libraries/config/setup.forms.php:322
 #: libraries/config/user_preferences.forms.php:220
 #: libraries/export/excel.php:18
 msgid "CSV for MS Excel"
 msgstr "MS Excel için CSV"
 
-#: libraries/config/setup.forms.php:344
+#: libraries/config/setup.forms.php:345
 #: libraries/config/user_preferences.forms.php:243
 #: libraries/export/htmlword.php:18
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/config/setup.forms.php:353
+#: libraries/config/setup.forms.php:354
 #: libraries/config/user_preferences.forms.php:252 libraries/export/odt.php:22
 msgid "Open Document Text"
 msgstr "Açık Belge Metni"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-10-28 08:55-0400\n"
+"POT-Creation-Date: 2011-10-29 08:29-0400\n"
 "PO-Revision-Date: 2011-09-25 23:05+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
@@ -351,7 +351,7 @@ msgid "Edit or export relational schema"
 msgstr "Editer eller eksporter relations skema"
 
 #: db_printview.php:101 db_tracking.php:85 db_tracking.php:186
-#: libraries/config/messages.inc.php:502 libraries/db_structure.lib.php:32
+#: libraries/config/messages.inc.php:504 libraries/db_structure.lib.php:32
 #: libraries/export/pdf.php:95 libraries/export/xml.php:359
 #: libraries/header.inc.php:161 libraries/rte/rte_list.lib.php:59
 #: libraries/rte/rte_triggers.lib.php:310
@@ -723,7 +723,7 @@ msgstr "Data Dictionary"
 msgid "Tracked tables"
 msgstr "Sporede tabeller"
 
-#: db_tracking.php:84 libraries/config/messages.inc.php:496
+#: db_tracking.php:84 libraries/config/messages.inc.php:498
 #: libraries/export/htmlword.php:78 libraries/export/latex.php:151
 #: libraries/export/odt.php:109 libraries/export/pdf.php:95
 #: libraries/export/sql.php:602 libraries/export/texytext.php:66
@@ -1158,7 +1158,7 @@ msgstr "Luk"
 #: js/messages.php:64 js/messages.php:256 libraries/Index.class.php:460
 #: libraries/common.lib.php:641 libraries/common.lib.php:1190
 #: libraries/common.lib.php:3312 libraries/common.lib.php:3313
-#: libraries/config/messages.inc.php:476 libraries/display_tbl.lib.php:1380
+#: libraries/config/messages.inc.php:478 libraries/display_tbl.lib.php:1380
 #: libraries/schema/User_Schema.class.php:196 setup/frames/index.inc.php:138
 msgid "Edit"
 msgstr "Ret"
@@ -2652,9 +2652,9 @@ msgstr "delt"
 msgid "Tables"
 msgstr "Tabeller"
 
-#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:301
-#: libraries/config/setup.forms.php:337 libraries/config/setup.forms.php:360
-#: libraries/config/setup.forms.php:365
+#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:302
+#: libraries/config/setup.forms.php:338 libraries/config/setup.forms.php:361
+#: libraries/config/setup.forms.php:366
 #: libraries/config/user_preferences.forms.php:200
 #: libraries/config/user_preferences.forms.php:236
 #: libraries/config/user_preferences.forms.php:259
@@ -2735,7 +2735,7 @@ msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Ugyldigt værtsnavn for server %1$s. Gennemgå venligst din konfiguration."
 
-#: libraries/common.inc.php:656 libraries/config/messages.inc.php:500
+#: libraries/common.inc.php:656 libraries/config/messages.inc.php:502
 #: libraries/header.inc.php:134 main.php:160 server_status.php:775
 #: server_synchronize.php:1257
 msgid "Server"
@@ -2745,7 +2745,7 @@ msgstr "Server"
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ugyldig autorisationsmetode sat i konfiguration:"
 
-#: libraries/common.inc.php:943
+#: libraries/common.inc.php:950
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Du burde opdatere til %s %s eller senere."
@@ -2807,7 +2807,7 @@ msgstr "MySQL returnerede: "
 msgid "Failed to connect to SQL validator!"
 msgstr "Kunne ikke oprette forbindelse til SQL validator!"
 
-#: libraries/common.lib.php:1164 libraries/config/messages.inc.php:477
+#: libraries/common.lib.php:1164 libraries/config/messages.inc.php:479
 msgid "Explain SQL"
 msgstr "Forklar SQL"
 
@@ -2819,11 +2819,11 @@ msgstr "Spring over Forklar SQL"
 msgid "Without PHP Code"
 msgstr "Uden PHP-kode"
 
-#: libraries/common.lib.php:1206 libraries/config/messages.inc.php:479
+#: libraries/common.lib.php:1206 libraries/config/messages.inc.php:481
 msgid "Create PHP Code"
 msgstr "Fremstil PHP-kode"
 
-#: libraries/common.lib.php:1226 libraries/config/messages.inc.php:478
+#: libraries/common.lib.php:1226 libraries/config/messages.inc.php:480
 #: server_status.php:786 server_status.php:808 server_status.php:827
 msgid "Refresh"
 msgstr "Opdater"
@@ -2832,7 +2832,7 @@ msgstr "Opdater"
 msgid "Skip Validate SQL"
 msgstr "Spring over Valider SQL"
 
-#: libraries/common.lib.php:1239 libraries/config/messages.inc.php:481
+#: libraries/common.lib.php:1239 libraries/config/messages.inc.php:483
 msgid "Validate SQL"
 msgstr "Valider SQL"
 
@@ -2936,8 +2936,8 @@ msgid "Click to toggle"
 msgstr "Klik for at skifte"
 
 #: libraries/common.lib.php:3085 libraries/common.lib.php:3092
-#: libraries/common.lib.php:3307 libraries/config/setup.forms.php:292
-#: libraries/config/setup.forms.php:329 libraries/config/setup.forms.php:355
+#: libraries/common.lib.php:3307 libraries/config/setup.forms.php:293
+#: libraries/config/setup.forms.php:330 libraries/config/setup.forms.php:356
 #: libraries/config/user_preferences.forms.php:191
 #: libraries/config/user_preferences.forms.php:228
 #: libraries/config/user_preferences.forms.php:254
@@ -3645,8 +3645,8 @@ msgstr "Tilpas for gennemsynstilstand"
 msgid "Customize default options"
 msgstr "Tilpas standardindstillinger"
 
-#: libraries/config/messages.inc.php:156 libraries/config/setup.forms.php:239
-#: libraries/config/setup.forms.php:312
+#: libraries/config/messages.inc.php:156 libraries/config/setup.forms.php:240
+#: libraries/config/setup.forms.php:313
 #: libraries/config/user_preferences.forms.php:140
 #: libraries/config/user_preferences.forms.php:211 libraries/export/csv.php:19
 #: libraries/import/csv.php:22
@@ -4567,14 +4567,26 @@ msgid "Control user"
 msgstr "Kontrolbruger"
 
 #: libraries/config/messages.inc.php:381
+msgid ""
+"An alternate host to hold the configuration storage; leave blank to use the "
+"already defined host"
+msgstr ""
+
+#: libraries/config/messages.inc.php:382
+#, fuzzy
+#| msgid "Control user"
+msgid "Control host"
+msgstr "Kontrolbruger"
+
+#: libraries/config/messages.inc.php:383
 msgid "Count tables when showing database list"
 msgstr "Optæl tabeller, når databaselisten vises"
 
-#: libraries/config/messages.inc.php:382
+#: libraries/config/messages.inc.php:384
 msgid "Count tables"
 msgstr "Optæl tabeller"
 
-#: libraries/config/messages.inc.php:383
+#: libraries/config/messages.inc.php:385
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
@@ -4582,11 +4594,11 @@ msgstr ""
 "Lad være blank for ingen Designer support, forslag: [kbd]pma_designer_coords"
 "[/kbd]"
 
-#: libraries/config/messages.inc.php:384
+#: libraries/config/messages.inc.php:386
 msgid "Designer table"
 msgstr "Designer tabel"
 
-#: libraries/config/messages.inc.php:385
+#: libraries/config/messages.inc.php:387
 msgid ""
 "More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
 "tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
@@ -4594,28 +4606,28 @@ msgstr ""
 "Mere information om [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
 "tracker[/a] og [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 
-#: libraries/config/messages.inc.php:386
+#: libraries/config/messages.inc.php:388
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "Deaktiver brug af INFORMATION_SCHEMA"
 
-#: libraries/config/messages.inc.php:387
+#: libraries/config/messages.inc.php:389
 msgid "What PHP extension to use; you should use mysqli if supported"
 msgstr ""
 "Hvilken PHP-udvidelse der skal bruges; du bør bruge mysqli hvis understøttet"
 
-#: libraries/config/messages.inc.php:388
+#: libraries/config/messages.inc.php:390
 msgid "PHP extension to use"
 msgstr "PHP-udvidelse, der skal bruges"
 
-#: libraries/config/messages.inc.php:389
+#: libraries/config/messages.inc.php:391
 msgid "Hide databases matching regular expression (PCRE)"
 msgstr "Gem databaser som matcher regulært udtryk (PCRE)"
 
-#: libraries/config/messages.inc.php:390
+#: libraries/config/messages.inc.php:392
 msgid "Hide databases"
 msgstr "Skjul databaser"
 
-#: libraries/config/messages.inc.php:391
+#: libraries/config/messages.inc.php:393
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
@@ -4623,23 +4635,23 @@ msgstr ""
 "Lades blank for ingen historik for SQL-forespørgsler, forslag: [kbd]"
 "pma_history[/kbd]"
 
-#: libraries/config/messages.inc.php:392
+#: libraries/config/messages.inc.php:394
 msgid "SQL query history table"
 msgstr "SQL forespørgselsshistoriktabel"
 
-#: libraries/config/messages.inc.php:393
+#: libraries/config/messages.inc.php:395
 msgid "Hostname where MySQL server is running"
 msgstr "Servernavn, hvor MySQL server kører"
 
-#: libraries/config/messages.inc.php:394
+#: libraries/config/messages.inc.php:396
 msgid "Server hostname"
 msgstr "Servernavn"
 
-#: libraries/config/messages.inc.php:395
+#: libraries/config/messages.inc.php:397
 msgid "Logout URL"
 msgstr "Log ud URL"
 
-#: libraries/config/messages.inc.php:396
+#: libraries/config/messages.inc.php:398
 msgid ""
 "This configuration make sure that we only keep N (N = MaxTableUiprefs) "
 "newest record in \"table_uiprefs\" and automatically delete older records"
@@ -4647,19 +4659,19 @@ msgstr ""
 "Denne konfiguration sikrer, at vi kun beholder de N (N = MaxTableUiprefs) "
 "nyeste rækker i \"table_uiprefs\"  og automatisk sletter ældre rækker"
 
-#: libraries/config/messages.inc.php:397
+#: libraries/config/messages.inc.php:399
 msgid "Maximum number of records saved in \"table_uiprefs\" table"
 msgstr "Maksimalt antal rækker gemt i tabellen \"table_uiprefs\""
 
-#: libraries/config/messages.inc.php:398
+#: libraries/config/messages.inc.php:400
 msgid "Try to connect without password"
 msgstr "Prøv at forbinde uden adganskode"
 
-#: libraries/config/messages.inc.php:399
+#: libraries/config/messages.inc.php:401
 msgid "Connect without password"
 msgstr "Forbind uden adgangskode"
 
-#: libraries/config/messages.inc.php:400
+#: libraries/config/messages.inc.php:402
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -4673,30 +4685,30 @@ msgstr ""
 "navnene efter hinanden og brug [kbd]*[/kbd] i slutningen for at vise resten "
 "i alfabetisk orden."
 
-#: libraries/config/messages.inc.php:401
+#: libraries/config/messages.inc.php:403
 msgid "Show only listed databases"
 msgstr "Vis kun listede databaser"
 
-#: libraries/config/messages.inc.php:402 libraries/config/messages.inc.php:443
+#: libraries/config/messages.inc.php:404 libraries/config/messages.inc.php:445
 msgid "Leave empty if not using config auth"
 msgstr "Lades tom hvis du ikke bruger config auth"
 
-#: libraries/config/messages.inc.php:403
+#: libraries/config/messages.inc.php:405
 msgid "Password for config auth"
 msgstr "Adgangskode for config auth"
 
-#: libraries/config/messages.inc.php:404
+#: libraries/config/messages.inc.php:406
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
 "Lades blank for ingen understøttelse af PDF-skematik, forslag: [kbd]"
 "pma_pdf_pages[/kbd]"
 
-#: libraries/config/messages.inc.php:405
+#: libraries/config/messages.inc.php:407
 msgid "PDF schema: pages table"
 msgstr "PDF-skematik: pages tabel"
 
-#: libraries/config/messages.inc.php:406
+#: libraries/config/messages.inc.php:408
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
@@ -4706,19 +4718,19 @@ msgstr ""
 "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for komplet information. Lades blank "
 "ved ingen understøttelse. Forslag: [kbd]phpmyadmin[/kbd]"
 
-#: libraries/config/messages.inc.php:407
+#: libraries/config/messages.inc.php:409
 msgid "Database name"
 msgstr "Databasenavn"
 
-#: libraries/config/messages.inc.php:408
+#: libraries/config/messages.inc.php:410
 msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr "Port hvorpå MySQL server lytter, lades tom for standard"
 
-#: libraries/config/messages.inc.php:409
+#: libraries/config/messages.inc.php:411
 msgid "Server port"
 msgstr "Serverport"
 
-#: libraries/config/messages.inc.php:410
+#: libraries/config/messages.inc.php:412
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma_recent[/kbd]"
@@ -4726,11 +4738,11 @@ msgstr ""
 "Lades blank for ingen \"vedvarende\" senest benyttede tabeller på tværs af "
 "sessioner, forslag: [kbd]pma_recent[/kbd]"
 
-#: libraries/config/messages.inc.php:411
+#: libraries/config/messages.inc.php:413
 msgid "Recently used table"
 msgstr "Senest benyttede tabel"
 
-#: libraries/config/messages.inc.php:412
+#: libraries/config/messages.inc.php:414
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
@@ -4738,19 +4750,19 @@ msgstr ""
 "Lades blank for ingen understøttelse af [a@http://wiki.phpmyadmin.net/pma/"
 "relation]relation-links[/a], forslag: [kbd]pma_relation[/kbd]"
 
-#: libraries/config/messages.inc.php:413
+#: libraries/config/messages.inc.php:415
 msgid "Relation table"
 msgstr "Relationstabel"
 
-#: libraries/config/messages.inc.php:414
+#: libraries/config/messages.inc.php:416
 msgid "SQL command to fetch available databases"
 msgstr "SQL-kommando til at hente tilgængelige databaser"
 
-#: libraries/config/messages.inc.php:415
+#: libraries/config/messages.inc.php:417
 msgid "SHOW DATABASES command"
 msgstr "SHOW DATABASES kommando"
 
-#: libraries/config/messages.inc.php:416
+#: libraries/config/messages.inc.php:418
 msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
@@ -4758,42 +4770,42 @@ msgstr ""
 "Se [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types[/"
 "a] for et eksempel"
 
-#: libraries/config/messages.inc.php:417
+#: libraries/config/messages.inc.php:419
 msgid "Signon session name"
 msgstr "Login sessionsnavn"
 
-#: libraries/config/messages.inc.php:418
+#: libraries/config/messages.inc.php:420
 msgid "Signon URL"
 msgstr "Login URL"
 
-#: libraries/config/messages.inc.php:419
+#: libraries/config/messages.inc.php:421
 msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr "Socket hvorpå MySQL server lytter, lades tom for standard"
 
-#: libraries/config/messages.inc.php:420
+#: libraries/config/messages.inc.php:422
 msgid "Server socket"
 msgstr "Server socket"
 
-#: libraries/config/messages.inc.php:421
+#: libraries/config/messages.inc.php:423
 msgid "Enable SSL for connection to MySQL server"
 msgstr "Brug SSL til forbindelse til MySQL-serveren"
 
-#: libraries/config/messages.inc.php:422
+#: libraries/config/messages.inc.php:424
 msgid "Use SSL"
 msgstr "Brug SSL"
 
-#: libraries/config/messages.inc.php:423
+#: libraries/config/messages.inc.php:425
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
 "Lades blank for ingen understøttelse af PDF-skematik, forslag: [kbd]"
 "pma_table_coords[/kbd]"
 
-#: libraries/config/messages.inc.php:424
+#: libraries/config/messages.inc.php:426
 msgid "PDF schema: table coordinates"
 msgstr "PDF-skematik: tabel coordinates"
 
-#: libraries/config/messages.inc.php:425
+#: libraries/config/messages.inc.php:427
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
@@ -4801,11 +4813,11 @@ msgstr ""
 "Tabel til at beskrive visningskolonnerne, lades blank for ingen "
 "understøttelset; forslag: [kbd]pma_table_info[/kbd]"
 
-#: libraries/config/messages.inc.php:426
+#: libraries/config/messages.inc.php:428
 msgid "Display columns table"
 msgstr "Visningskolonnetabel"
 
-#: libraries/config/messages.inc.php:427
+#: libraries/config/messages.inc.php:429
 msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
@@ -4813,11 +4825,11 @@ msgstr ""
 "Lades blank for ingen \"vedvarende\" tabel UI præferencer på tværs af "
 "sessioner, forslag: [kbd]pma_table_uiprefs[/kbd]"
 
-#: libraries/config/messages.inc.php:428
+#: libraries/config/messages.inc.php:430
 msgid "UI preferences table"
 msgstr "UI præference tabel"
 
-#: libraries/config/messages.inc.php:429
+#: libraries/config/messages.inc.php:431
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -4825,11 +4837,11 @@ msgstr ""
 "Om en DROP DATABASE IF EXISTS kommando skal tilføjes som første linje i "
 "loggen når en database oprettes."
 
-#: libraries/config/messages.inc.php:430
+#: libraries/config/messages.inc.php:432
 msgid "Add DROP DATABASE"
 msgstr "Tilføj DROP DATABASE"
 
-#: libraries/config/messages.inc.php:431
+#: libraries/config/messages.inc.php:433
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
@@ -4837,11 +4849,11 @@ msgstr ""
 "Om en DROP TABLE IF EXISTS kommando skal tilføjes som første linje i loggen "
 "når en tabel oprettes."
 
-#: libraries/config/messages.inc.php:432
+#: libraries/config/messages.inc.php:434
 msgid "Add DROP TABLE"
 msgstr "Tilføj DROP TABLE"
 
-#: libraries/config/messages.inc.php:433
+#: libraries/config/messages.inc.php:435
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
@@ -4849,20 +4861,20 @@ msgstr ""
 "Om en DROP VIEW IF EXISTS kommando skal tilføjes som første linje i loggen "
 "når et view oprettes."
 
-#: libraries/config/messages.inc.php:434
+#: libraries/config/messages.inc.php:436
 msgid "Add DROP VIEW"
 msgstr "Tilføj DROP VIEW"
 
-#: libraries/config/messages.inc.php:435
+#: libraries/config/messages.inc.php:437
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 "Definerer listen af forspørgsler, som auto-creation bruger for nye sessioner."
 
-#: libraries/config/messages.inc.php:436
+#: libraries/config/messages.inc.php:438
 msgid "Statements to track"
 msgstr "Forespørgsler, der skal spores"
 
-#: libraries/config/messages.inc.php:437
+#: libraries/config/messages.inc.php:439
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
@@ -4870,22 +4882,22 @@ msgstr ""
 "Lades blank for ingen understøttelse af SQL-forspørgselssporing, forslag: "
 "[kbd]pma_tracking[/kbd]"
 
-#: libraries/config/messages.inc.php:438
+#: libraries/config/messages.inc.php:440
 msgid "SQL query tracking table"
 msgstr "Sporingstabel for SQL-forespørgsler"
 
-#: libraries/config/messages.inc.php:439
+#: libraries/config/messages.inc.php:441
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
 "Om sporingsmekanismen opretter versioner automatisk for tabeller og views."
 
-#: libraries/config/messages.inc.php:440
+#: libraries/config/messages.inc.php:442
 msgid "Automatically create versions"
 msgstr "Opret versioner automatisk"
 
-#: libraries/config/messages.inc.php:441
+#: libraries/config/messages.inc.php:443
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
@@ -4893,15 +4905,15 @@ msgstr ""
 "Lades blank for ingen bruger preference storage i database, forslag: [kbd]"
 "pma_userconfig[/kbd]"
 
-#: libraries/config/messages.inc.php:442
+#: libraries/config/messages.inc.php:444
 msgid "User preferences storage table"
 msgstr "Bruger preference storage tabel"
 
-#: libraries/config/messages.inc.php:444
+#: libraries/config/messages.inc.php:446
 msgid "User for config auth"
 msgstr "Bruger for config auth"
 
-#: libraries/config/messages.inc.php:445
+#: libraries/config/messages.inc.php:447
 msgid ""
 "Disable if you know that your pma_* tables are up to date. This prevents "
 "compatibility checks and thereby increases performance"
@@ -4909,11 +4921,11 @@ msgstr ""
 "Deaktiver, hvis du ved at dine pma_*tables er opdaterede. Dette forhindrer "
 "kompatibilitetschecks og forbedrer dermed ydelsen"
 
-#: libraries/config/messages.inc.php:446
+#: libraries/config/messages.inc.php:448
 msgid "Verbose check"
 msgstr "Check med ekstra information"
 
-#: libraries/config/messages.inc.php:447
+#: libraries/config/messages.inc.php:449
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
@@ -4921,19 +4933,19 @@ msgstr ""
 "En brugervenlig beskrivelse af serveren. Lad stå tom for at vise "
 "værtstnavnet i stedet."
 
-#: libraries/config/messages.inc.php:448
+#: libraries/config/messages.inc.php:450
 msgid "Verbose name of this server"
 msgstr "Udvidet navn for denne server"
 
-#: libraries/config/messages.inc.php:449
+#: libraries/config/messages.inc.php:451
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr "Om en &quot;vis alle (rækker)&quot;  knap, skal vises for brugeren"
 
-#: libraries/config/messages.inc.php:450
+#: libraries/config/messages.inc.php:452
 msgid "Allow to display all the rows"
 msgstr "Tillad visning af alle rækker"
 
-#: libraries/config/messages.inc.php:451
+#: libraries/config/messages.inc.php:453
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -4944,53 +4956,53 @@ msgstr ""
 "konfigurationsfilen; dette begrænser ikke muligheden for at udføre den samme "
 "kommando direkte"
 
-#: libraries/config/messages.inc.php:452
+#: libraries/config/messages.inc.php:454
 msgid "Show password change form"
 msgstr "Vis formular til ændring af adgangskode"
 
-#: libraries/config/messages.inc.php:453
+#: libraries/config/messages.inc.php:455
 msgid "Show create database form"
 msgstr "Vis formular til databaseoprettelse"
 
-#: libraries/config/messages.inc.php:454
+#: libraries/config/messages.inc.php:456
 msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table"
 msgstr ""
 "Definerer om type display retning indstilling vises, når en tabel gennemses"
 
-#: libraries/config/messages.inc.php:455
+#: libraries/config/messages.inc.php:457
 msgid "Show display direction"
 msgstr "Vis retning for visning"
 
-#: libraries/config/messages.inc.php:456
+#: libraries/config/messages.inc.php:458
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr ""
 "Definerer om typefelter skal startes med at vises i ret/indsæt tilstand"
 
-#: libraries/config/messages.inc.php:457
+#: libraries/config/messages.inc.php:459
 msgid "Show field types"
 msgstr "Vis felttyper"
 
-#: libraries/config/messages.inc.php:458
+#: libraries/config/messages.inc.php:460
 msgid "Display the function fields in edit/insert mode"
 msgstr "Vis funktionsfelterne i rediger/indsæt tilstand"
 
-#: libraries/config/messages.inc.php:459
+#: libraries/config/messages.inc.php:461
 msgid "Show function fields"
 msgstr "Vis funktionsfelter"
 
-#: libraries/config/messages.inc.php:460
+#: libraries/config/messages.inc.php:462
 msgid "Whether to show hint or not"
 msgstr "Om hints skal vises eller ej"
 
-#: libraries/config/messages.inc.php:461
+#: libraries/config/messages.inc.php:463
 msgid "Show hint"
 msgstr "Vis hint"
 
-#: libraries/config/messages.inc.php:462
+#: libraries/config/messages.inc.php:464
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
@@ -4998,31 +5010,31 @@ msgstr ""
 "Viser link til [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 
-#: libraries/config/messages.inc.php:463
+#: libraries/config/messages.inc.php:465
 msgid "Show phpinfo() link"
 msgstr "Vis phpinfo() link"
 
-#: libraries/config/messages.inc.php:464
+#: libraries/config/messages.inc.php:466
 msgid "Show detailed MySQL server information"
 msgstr "Vis detaljeret MySQL serverinformation"
 
-#: libraries/config/messages.inc.php:465
+#: libraries/config/messages.inc.php:467
 msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
 msgstr "Definerer om SQL-forespørgsler genereret af phpMyAdmin skal vises"
 
-#: libraries/config/messages.inc.php:466
+#: libraries/config/messages.inc.php:468
 msgid "Show SQL queries"
 msgstr "Vis SQL-forespørgsler"
 
-#: libraries/config/messages.inc.php:467
+#: libraries/config/messages.inc.php:469
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr "Tillad visning af database og databasestatistikker (eks. diskforbrug)"
 
-#: libraries/config/messages.inc.php:468
+#: libraries/config/messages.inc.php:470
 msgid "Show statistics"
 msgstr "Vis statistik"
 
-#: libraries/config/messages.inc.php:469
+#: libraries/config/messages.inc.php:471
 msgid ""
 "If tooltips are enabled and a database comment is set, this will flip the "
 "comment and the real name"
@@ -5030,11 +5042,11 @@ msgstr ""
 "Hvis tooltips er aktiverede og en databasekommentar er sat, vil dette skifte "
 "mellem kommentaren og det virkelige navn"
 
-#: libraries/config/messages.inc.php:470
+#: libraries/config/messages.inc.php:472
 msgid "Display database comment instead of its name"
 msgstr "Vis databasekommentar i stedet for dens navn"
 
-#: libraries/config/messages.inc.php:471
+#: libraries/config/messages.inc.php:473
 msgid ""
 "When setting this to [kbd]nested[/kbd], the alias of the table name is only "
 "used to split/nest the tables according to the $cfg"
@@ -5046,29 +5058,29 @@ msgstr ""
 "['LeftFrameTableSeparator'], så kun mappen benævnes som aliaset; tabelnavnet "
 "selv forbliver uændret."
 
-#: libraries/config/messages.inc.php:472
+#: libraries/config/messages.inc.php:474
 msgid "Display table comment instead of its name"
 msgstr "Vis tabelkommentar stedet for dens navn"
 
-#: libraries/config/messages.inc.php:473
+#: libraries/config/messages.inc.php:475
 msgid "Display table comments in tooltips"
 msgstr "Vis tabelkommentarer i tooltips"
 
-#: libraries/config/messages.inc.php:474
+#: libraries/config/messages.inc.php:476
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables"
 msgstr ""
 "Marker brugte tabeller og gør det muligt at vise databaser med låste tabeller"
 
-#: libraries/config/messages.inc.php:475
+#: libraries/config/messages.inc.php:477
 msgid "Skip locked tables"
 msgstr "Spring over låste tabeller"
 
-#: libraries/config/messages.inc.php:480
+#: libraries/config/messages.inc.php:482
 msgid "Requires SQL Validator to be enabled"
 msgstr "Kræver SQL Validator bliver aktiveret"
 
-#: libraries/config/messages.inc.php:482
+#: libraries/config/messages.inc.php:484
 #: libraries/display_change_password.lib.php:40
 #: libraries/replication_gui.lib.php:62 libraries/replication_gui.lib.php:63
 #: libraries/replication_gui.lib.php:341 libraries/replication_gui.lib.php:345
@@ -5078,7 +5090,7 @@ msgstr "Kræver SQL Validator bliver aktiveret"
 msgid "Password"
 msgstr "Adgangskode"
 
-#: libraries/config/messages.inc.php:483
+#: libraries/config/messages.inc.php:485
 msgid ""
 "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 "installed"
@@ -5086,11 +5098,11 @@ msgstr ""
 "[strong]Advarsel[/strong] kræver installation af PHP SOAP udvidelsen eller "
 "PEAR SOAP"
 
-#: libraries/config/messages.inc.php:484
+#: libraries/config/messages.inc.php:486
 msgid "Enable SQL Validator"
 msgstr "Aktiver SQL Validator"
 
-#: libraries/config/messages.inc.php:485
+#: libraries/config/messages.inc.php:487
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
@@ -5098,12 +5110,12 @@ msgstr ""
 "Hvis du har dit eger brugernavn, så angiv det her (standard [kbd]anonymous[/"
 "kbd])"
 
-#: libraries/config/messages.inc.php:486 tbl_tracking.php:445
+#: libraries/config/messages.inc.php:488 tbl_tracking.php:445
 #: tbl_tracking.php:502
 msgid "Username"
 msgstr "Brugernavn"
 
-#: libraries/config/messages.inc.php:487
+#: libraries/config/messages.inc.php:489
 msgid ""
 "Suggest a database name on the &quot;Create Database&quot; form (if "
 "possible) or keep the text field empty"
@@ -5111,19 +5123,19 @@ msgstr ""
 "Foreslå et databasenavn på formularen for &quot;Opret database&quot; (hvis "
 "muligt) eller lad feltet være tomt "
 
-#: libraries/config/messages.inc.php:488
+#: libraries/config/messages.inc.php:490
 msgid "Suggest new database name"
 msgstr "Foreslå nyt databasenavn"
 
-#: libraries/config/messages.inc.php:489
+#: libraries/config/messages.inc.php:491
 msgid "A warning is displayed on the main page if Suhosin is detected"
 msgstr "En advarsel vises på hovedsiden, hvis Suhosin er detekteret"
 
-#: libraries/config/messages.inc.php:490
+#: libraries/config/messages.inc.php:492
 msgid "Suhosin warning"
 msgstr "Suhosin advarsel"
 
-#: libraries/config/messages.inc.php:491
+#: libraries/config/messages.inc.php:493
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
@@ -5132,11 +5144,11 @@ msgstr ""
 "fremhævet i SQL forespørgselstekstbokse (*2) og for forespørgselsvinduet "
 "(*1,25)"
 
-#: libraries/config/messages.inc.php:492
+#: libraries/config/messages.inc.php:494
 msgid "Textarea columns"
 msgstr "Tekstboks kolonner"
 
-#: libraries/config/messages.inc.php:493
+#: libraries/config/messages.inc.php:495
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
@@ -5145,31 +5157,31 @@ msgstr ""
 "fremhævet i SQL forespørgselstekstbokse (*2) og for forespørgselsvinduet "
 "(*1,25)"
 
-#: libraries/config/messages.inc.php:494
+#: libraries/config/messages.inc.php:496
 msgid "Textarea rows"
 msgstr "Tekstboks rækker"
 
-#: libraries/config/messages.inc.php:495
+#: libraries/config/messages.inc.php:497
 msgid "Title of browser window when a database is selected"
 msgstr "Titel på browservindue, når en database er valgt"
 
-#: libraries/config/messages.inc.php:497
+#: libraries/config/messages.inc.php:499
 msgid "Title of browser window when nothing is selected"
 msgstr "Titel på browservindue, når ingenting er valgt"
 
-#: libraries/config/messages.inc.php:498
+#: libraries/config/messages.inc.php:500
 msgid "Default title"
 msgstr "Standardtitel"
 
-#: libraries/config/messages.inc.php:499
+#: libraries/config/messages.inc.php:501
 msgid "Title of browser window when a server is selected"
 msgstr "Titel på browservindue, når en server er valgt"
 
-#: libraries/config/messages.inc.php:501
+#: libraries/config/messages.inc.php:503
 msgid "Title of browser window when a table is selected"
 msgstr "Titel på browservindue, når en tabel er valgt"
 
-#: libraries/config/messages.inc.php:503
+#: libraries/config/messages.inc.php:505
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -5181,27 +5193,27 @@ msgstr ""
 "Forwarded-For) header der kommer fra proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]"
 
-#: libraries/config/messages.inc.php:504
+#: libraries/config/messages.inc.php:506
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "Liste af trusted proxies til IP tillad/afvis"
 
-#: libraries/config/messages.inc.php:505
+#: libraries/config/messages.inc.php:507
 msgid "Directory on server where you can upload files for import"
 msgstr "Mappe på server, hvor man kan uploade filer til import"
 
-#: libraries/config/messages.inc.php:506
+#: libraries/config/messages.inc.php:508
 msgid "Upload directory"
 msgstr "Mappe til uploads"
 
-#: libraries/config/messages.inc.php:507
+#: libraries/config/messages.inc.php:509
 msgid "Allow for searching inside the entire database"
 msgstr "Tillad søgning i hele databasen"
 
-#: libraries/config/messages.inc.php:508
+#: libraries/config/messages.inc.php:510
 msgid "Use database search"
 msgstr "Brug databasesøgning"
 
-#: libraries/config/messages.inc.php:509
+#: libraries/config/messages.inc.php:511
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right"
@@ -5209,11 +5221,11 @@ msgstr ""
 "Når deaktiveret kan brugere ikke sætte nogen af indstillingerne nedenfor "
 "uafhængig af checkboksen til højre"
 
-#: libraries/config/messages.inc.php:510
+#: libraries/config/messages.inc.php:512
 msgid "Enable the Developer tab in settings"
 msgstr "Aktiver udviklerfanen i indstillinger"
 
-#: libraries/config/messages.inc.php:511
+#: libraries/config/messages.inc.php:513
 msgid ""
 "Show affected rows of each statement on multiple-statement queries. See "
 "libraries/import.lib.php for defaults on how many queries a statement may "
@@ -5223,19 +5235,19 @@ msgstr ""
 "import.lib.php for standard for hvor mange forespørgsler en sætning må "
 "indeholde."
 
-#: libraries/config/messages.inc.php:512
+#: libraries/config/messages.inc.php:514
 msgid "Verbose multiple statements"
 msgstr "Udvidet info for multiple forespørgsler"
 
-#: libraries/config/messages.inc.php:513 setup/frames/index.inc.php:242
+#: libraries/config/messages.inc.php:515 setup/frames/index.inc.php:242
 msgid "Check for latest version"
 msgstr "Check for den seneste version"
 
-#: libraries/config/messages.inc.php:514
+#: libraries/config/messages.inc.php:516
 msgid "Enables check for latest version on main phpMyAdmin page"
 msgstr "Aktiverer check for den seneste version på hovedsiden for phpMyAdmin"
 
-#: libraries/config/messages.inc.php:515 setup/lib/index.lib.php:121
+#: libraries/config/messages.inc.php:517 setup/lib/index.lib.php:121
 #: setup/lib/index.lib.php:131 setup/lib/index.lib.php:151
 #: setup/lib/index.lib.php:161 setup/lib/index.lib.php:172
 #: setup/lib/index.lib.php:179 setup/lib/index.lib.php:185
@@ -5243,7 +5255,7 @@ msgstr "Aktiverer check for den seneste version på hovedsiden for phpMyAdmin"
 msgid "Version check"
 msgstr "Versionscheck"
 
-#: libraries/config/messages.inc.php:516
+#: libraries/config/messages.inc.php:518
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
@@ -5251,7 +5263,7 @@ msgstr ""
 "Aktiver [a@http://en.wikipedia.org/wiki/ZIP_(fil_format)]ZIP[/a] "
 "komprimering ved import and eksport operationer"
 
-#: libraries/config/messages.inc.php:517
+#: libraries/config/messages.inc.php:519
 msgid "ZIP"
 msgstr "ZIP"
 
@@ -5271,46 +5283,46 @@ msgstr "HTTP autentifikation"
 msgid "Signon authentication"
 msgstr "Login autentifikation"
 
-#: libraries/config/setup.forms.php:247
+#: libraries/config/setup.forms.php:248
 #: libraries/config/user_preferences.forms.php:148 libraries/import/ldi.php:35
 msgid "CSV using LOAD DATA"
 msgstr "CSV vha. LOAD DATA"
 
-#: libraries/config/setup.forms.php:256 libraries/config/setup.forms.php:349
+#: libraries/config/setup.forms.php:257 libraries/config/setup.forms.php:350
 #: libraries/config/user_preferences.forms.php:156
 #: libraries/config/user_preferences.forms.php:248 libraries/export/ods.php:18
 #: libraries/import/ods.php:22
 msgid "Open Document Spreadsheet"
 msgstr "Open Document regneark"
 
-#: libraries/config/setup.forms.php:263
+#: libraries/config/setup.forms.php:264
 #: libraries/config/user_preferences.forms.php:163
 msgid "Quick"
 msgstr "Hurtig"
 
-#: libraries/config/setup.forms.php:267
+#: libraries/config/setup.forms.php:268
 #: libraries/config/user_preferences.forms.php:167
 msgid "Custom"
 msgstr "Brugerdefineret"
 
-#: libraries/config/setup.forms.php:288
+#: libraries/config/setup.forms.php:289
 #: libraries/config/user_preferences.forms.php:187
 msgid "Database export options"
 msgstr "Database eksportindstillinger"
 
-#: libraries/config/setup.forms.php:321
+#: libraries/config/setup.forms.php:322
 #: libraries/config/user_preferences.forms.php:220
 #: libraries/export/excel.php:18
 msgid "CSV for MS Excel"
 msgstr "CSV til MS Excel-data"
 
-#: libraries/config/setup.forms.php:344
+#: libraries/config/setup.forms.php:345
 #: libraries/config/user_preferences.forms.php:243
 #: libraries/export/htmlword.php:18
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/config/setup.forms.php:353
+#: libraries/config/setup.forms.php:354
 #: libraries/config/user_preferences.forms.php:252 libraries/export/odt.php:22
 msgid "Open Document Text"
 msgstr "Open Document tekst"
