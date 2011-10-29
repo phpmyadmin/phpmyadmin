@@ -919,7 +919,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // scripts)
         $controllink = false;
         if ($cfg['Server']['controluser'] != '') {
-            if ($cfg['Server']['controlhost'] != '') {
+            if (! empty($cfg['Server']['controlhost'])) {
                 $controllink = PMA_DBI_connect($cfg['Server']['controluser'],
                     $cfg['Server']['controlpass'], true,
                     array('host' => $cfg['Server']['controlhost'])
