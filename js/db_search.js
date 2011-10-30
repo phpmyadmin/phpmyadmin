@@ -45,7 +45,7 @@ function loadResult(result_path, table_name, link, ajaxEnable)
                 // because under db_search, window.parent.table is not defined yet,
                 // we assign it manually from #table-link
                 window.parent.table = $('#table-link').text().trim();
-                $('#table_results').makegrid();
+                PMA_makegrid($('#table_results')[0], true, true, true, true);
             }).show();
         } else {
             event.preventDefault();
