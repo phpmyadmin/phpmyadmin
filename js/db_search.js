@@ -56,18 +56,20 @@ function deleteResult(result_path , msg , ajaxEnable)
         {
             if(ajaxEnable)
             {
+                var $msg = PMA_ajaxShowMessage(PMA_messages['strDeleting']);
                 /** Load the deleted option to the page*/
-                $('#browse-results').load(result_path + " '"+'#result_query' + "'");
-                $('#sqlqueryform').load(result_path + " '"+'#sqlqueryform' + "'");
-                $('#togglequerybox').html(PMA_messages['strShowQueryBox']);
-
-                /** Refresh the search results after the deletion */
-                document.getElementById('buttonGo'). click();
-                PMA_ajaxShowMessage(PMA_messages['strDeleting']);
-                /** Show the results of the deletion option */
-                $('#browse-results').show();
-                $('#sqlqueryform').hide();
-                $('#togglequerybox').show();
+                $('#browse-results').load(result_path + " '"+'#result_query' + "'", function () { // FIXME: no need for two ajax reqests here
+                    $('#sqlqueryform').load(result_path + " '"+'#sqlqueryform' + "'", function () { // since they both fetch the same page
+                        /** Refresh the search results after the deletion */
+                        document.getElementById('buttonGo').click();
+                        $('#togglequerybox').html(PMA_messages['strHideQueryBox']);
+                        PMA_ajaxRemoveMessage($msg);
+                        /** Show the results of the deletion option */
+                        $('#browse-results').show();
+                        $('#sqlqueryform').show();
+                        $('#togglequerybox').show();
+                    });
+                });
             }
             else
             {

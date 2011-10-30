@@ -59,6 +59,7 @@ phpMyAdmin - ChangeLog
 - bug #3425230 [interface] enum data split at space char (more space to edit)
 - bug #3426840 [interface] ENUM/SET editor can't handle commas in values
 - bug #3427256 [interface] no links to browse/empty views and tables
+- bug #3430377 [interface] Deleted search results remain visible
 
 3.4.7.0 (2011-10-23)
 - bug #3418610 [interface] Links in navigation when $cfg['MainPageIconic'] = false
