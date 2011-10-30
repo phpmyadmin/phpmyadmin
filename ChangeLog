@@ -51,9 +51,10 @@ phpMyAdmin - ChangeLog
 - bug #3356456 [interface] Interface problems for queries having LIMIT clauses
 + [interface] Remove DefaultPropDisplay feature
 - bug #3299486 [prettyprint] Order By in a query containing comment character
-- [interface] Improved ENUM/SET editor
++ [interface] Improved ENUM/SET editor
 + patch #3428376 [pmadb] pmadb on a different MySQL server
 + patch #3410688 [interface] Improving field size for character columns
+- [usability] Removed an unnecessary AJAX request from database search
 
 3.4.8.0 (not yet released)
 - bug #3425230 [interface] enum data split at space char (more space to edit)
