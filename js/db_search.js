@@ -1,10 +1,11 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * @fileoverview    JavaScript functions used on Database Search page
- * @name            Database Search
+ * JavaScript functions used on Database Search page
  *
  * @requires    jQuery
  * @requires    js/functions.js
+ *
+ * @package PhpMyAdmin
  */
 
 /**
@@ -14,12 +15,19 @@
  * Retrieve result of SQL query
  */
 
-/** Loads the database search results */
-function loadResult(result_path , table_name , link , ajaxEnable)
+/**
+ * Loads the database search results
+ *
+ * @param result_path Url of the page to load
+ * @param table_name  Name of table to browse
+ * @param ajaxEnable  Whether to use ajax or not
+ *
+ * @return nothing
+ */
+function loadResult(result_path, table_name, link, ajaxEnable)
 {
     $(document).ready(function() {
-        if(ajaxEnable)
-        {
+        if(ajaxEnable) {
             /**   Hides the results shown by the delete criteria */
             var $msg = PMA_ajaxShowMessage();
             $('#sqlqueryform').hide();
@@ -27,23 +35,30 @@ function loadResult(result_path , table_name , link , ajaxEnable)
             /**  Load the browse results to the page */
             $("#table-info").show();
             $('#table-link').attr({"href" : 'sql.php?'+link }).text(table_name);
-            $('#browse-results').load(result_path + " '"+'#sqlqueryresults' + "'", null, function() {
+            var url = result_path + " #sqlqueryresults";
+            $('#browse-results').load(url, null, function() {
                 PMA_ajaxRemoveMessage($msg);
                 // because under db_search, window.parent.table is not defined yet,
                 // we assign it manually from #table-link
                 window.parent.table = $('#table-link').text().trim();
                 $('#table_results').makegrid();
             }).show();
-        }
-        else
-        {
+        } else {
             event.preventDefault();
         }
     });
 }
 
-/**  Delete the selected search results */
-function deleteResult(result_path , msg , ajaxEnable)
+/**
+ *  Delete the selected search results
+ *
+ * @param result_path Url of the page to load
+ * @param msg         Text for the confirmation dialog
+ * @param ajaxEnable  Whether to use ajax or not
+ *
+ * @return nothing
+ */
+function deleteResult(result_path, msg, ajaxEnable)
 {
     $(document).ready(function() {
         /**  Hides the results shown by the browse criteria */
@@ -52,14 +67,13 @@ function deleteResult(result_path , msg , ajaxEnable)
         $('#sqlqueryform').hide();
         $('#togglequerybox').hide();
         /** Conformation message for deletion */
-        if(confirm(msg))
-        {
-            if(ajaxEnable)
-            {
+        if(confirm(msg)) {
+            if(ajaxEnable) {
                 var $msg = PMA_ajaxShowMessage(PMA_messages['strDeleting'], false);
                 /** Load the deleted option to the page*/
                 $('#sqlqueryform').html('');
-                $('#browse-results').load(result_path + " #result_query, #sqlqueryform", function () {
+                var url = result_path + " #result_query, #sqlqueryform";
+                $('#browse-results').load(url, function () {
                     /** Refresh the search results after the deletion */
                     document.getElementById('buttonGo').click();
                     $('#togglequerybox').html(PMA_messages['strHideQueryBox']);
@@ -69,9 +83,7 @@ function deleteResult(result_path , msg , ajaxEnable)
                     $('#sqlqueryform').show();
                     $('#togglequerybox').show();
                 });
-            }
-            else
-            {
+            } else {
                 event.preventDefault();
             }
        }
@@ -79,17 +91,17 @@ function deleteResult(result_path , msg , ajaxEnable)
 }
 
 $(document).ready(function() {
-
     /**
-     * Set a parameter for all Ajax queries made on this page.  Don't let the
-     * web server serve cached pagesshow
+     * Set a parameter for all Ajax queries made on this page.
+     * Don't let the web server serve cached pages
      */
     $.ajaxSetup({
         cache: 'false'
     });
 
     /** Hide the table link in the initial search result */
-    $("#table-info").prepend(PMA_getImage('s_tbl.png', '', {'id': 'table-image'}).toString()).hide();
+    var icon = PMA_getImage('s_tbl.png', '', {'id': 'table-image'}).toString();
+    $("#table-info").prepend(icon).hide();
 
     /** Hide the browse and deleted results in the new search criteria */
     $('#buttonGo').click(function(){
@@ -99,7 +111,7 @@ $(document).ready(function() {
         $('#togglequerybox').hide();
     });
     /**
-     *Prepare a div containing a link for toggle the search results
+     * Prepare a div containing a link for toggle the search results
      */
     $('<div id="togglesearchresultsdiv"><a id="togglesearchresultlink"></a></div>')
     .insertAfter('#searchresults')
@@ -107,8 +119,10 @@ $(document).ready(function() {
     .hide();
 
     $('<br class="clearfloat" />').insertAfter("#togglesearchresultsdiv").show();
-    /** Changing the displayed text according to the hide/show criteria in search result forms*/
-
+    /**
+     * Changing the displayed text according to
+     * the hide/show criteria in search result forms
+     */
     $('#togglesearchresultlink')
     .html(PMA_messages['strHideSearchResults'])
     .bind('click', function() {
@@ -124,15 +138,17 @@ $(document).ready(function() {
     });
 
     /**
-     * Prepare a div containing a link for toggle the search form, otherwise it's incorrectly displayed
-     * after a couple of clicks
+     * Prepare a div containing a link for toggle the search form,
+     * otherwise it's incorrectly displayed after a couple of clicks
      */
     $('<div id="togglesearchformdiv"><a id="togglesearchformlink"></a></div>')
     .insertAfter('#db_search_form')
-    /** don't show it until we have results on-screen */
-    .hide();
+    .hide(); // don't show it until we have results on-screen
 
-    /** Changing the displayed text according to the hide/show criteria in search form*/
+    /**
+     * Changing the displayed text according to
+     * the hide/show criteria in search form
+     */
     $("#togglequerybox").hide();
     $("#togglequerybox").bind('click', function() {
         var $link = $(this);
@@ -148,7 +164,10 @@ $(document).ready(function() {
 
     /** don't show it until we have results on-screen */
 
-   /** Changing the displayed text according to the hide/show criteria in search criteria form*/
+   /**
+    * Changing the displayed text according to
+    * the hide/show criteria in search criteria form
+    */
    $('#togglesearchformlink')
        .html(PMA_messages['strShowSearchCriteria'])
        .bind('click', function() {
@@ -166,7 +185,6 @@ $(document).ready(function() {
      * Ajax Event handler for retrieving the result of an SQL Query
      * (see $GLOBALS['cfg']['AjaxEnable'])
      *
-     * @uses    PMA_ajaxShowMessage()
      * @see     $GLOBALS['cfg']['AjaxEnable']
      */
     $("#db_search_form.ajax").live('submit', function(event) {
@@ -178,7 +196,8 @@ $(document).ready(function() {
 
         PMA_prepareForAjaxRequest($form);
 
-        $.post($form.attr('action'), $form.serialize() + "&submit_search=" + $("#buttonGo").val(),  function(response) {
+        var url = $form.serialize() + "&submit_search=" + $("#buttonGo").val();
+        $.post($form.attr('action'), url, function(response) {
             if (typeof response == 'string') {
                 // found results
                 $("#searchresults").html(response);
