@@ -916,8 +916,17 @@ foreach ($rows as $row_id => $vrow) {
         elseif (in_array($field['pma_type'], $no_support_types)) {
             // ignore this column to avoid changing it
         } else {
-            // field size should be at least 4 and max 40
-            $fieldsize = min(max($field['len'], 4), 40);
+            if ($field['is_char']) {
+                $fieldsize = $extracted_fieldspec['spec_in_brackets'];
+            } else {
+            /**
+             * This case happens for example for INT or DATE columns; 
+             * in these situations, the value returned in $field['len'] 
+             * seems appropriate.
+             */
+                $fieldsize = $field['len']; 
+            }
+            $fieldsize = min(max($fieldsize, $cfg['MinSizeForInputField']), $cfg['MaxSizeForInputField']);
             echo $backup_field . "\n";
             if ($field['is_char']
                 && ($cfg['CharEditing'] == 'textarea'

@@ -213,6 +213,8 @@ $forms['Main_frame']['Edit'] = array(
     'ShowFunctionFields',
     'ShowFieldTypesInDataEditView',
     'CharEditing',
+    'MinSizeForInputField',
+    'MaxSizeForInputField',
     'CharTextareaCols',
     'CharTextareaRows',
     'TextareaCols',

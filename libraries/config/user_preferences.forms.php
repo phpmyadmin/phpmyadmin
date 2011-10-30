@@ -38,6 +38,8 @@ $forms['Features']['General'] = array(
     'ShowHint');
 $forms['Features']['Text_fields'] = array(
     'CharEditing',
+    'MinSizeForInputField',
+    'MaxSizeForInputField',
     'CharTextareaCols',
     'CharTextareaRows',
     'TextareaCols',

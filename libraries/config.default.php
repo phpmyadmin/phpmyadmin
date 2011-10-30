@@ -1028,6 +1028,20 @@ $cfg['ShowFieldTypesInDataEditView'] = true;
 $cfg['CharEditing'] = 'input';
 
 /**
+ * The minimum size for character input fields 
+ *
+ * @global integer $cfg['MinSizeForInputField']
+ */
+$cfg['MinSizeForInputField'] = 4;
+
+/**
+ * The maximum size for character input fields 
+ *
+ * @global integer $cfg['MinSizeForInputField']
+ */
+$cfg['MaxSizeForInputField'] = 60;
+
+/**
  * How many rows can be inserted at one time
  *
  * @global integer $cfg['InsertRows']
