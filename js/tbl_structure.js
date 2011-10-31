@@ -55,7 +55,7 @@ $(document).ready(function() {
                     $(curr_row).hide("medium").remove();
                 }
                 else {
-                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
+                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
             }) // end $.get()
         }); // end $.PMA_confirm()
@@ -152,14 +152,14 @@ $(document).ready(function() {
                     }
                 }
                 else {
-                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
+                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
             }) // end $.get()
         }) // end $.PMA_confirm()
     }) //end Drop Primary Key/Index
 
     /**
-     *Ajax event handler for muti column change
+     *Ajax event handler for multi column change
     **/
     $("#fieldsForm.ajax .mult_submit[value=change]").live('click', function(event){
         event.preventDefault();
