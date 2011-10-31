@@ -13615,7 +13615,6 @@ msgstr "concurrent_insert jest ustawione na 0"
 #~ msgstr "+ Zacznij wprowadzanie od nowa i dodaj nową wartość"
 
 #, fuzzy
-#~| msgid "Create table"
 #~ msgid "Create Table"
 #~ msgstr "Utwórz tabelę"
 
