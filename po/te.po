@@ -12527,7 +12527,6 @@ msgstr ""
 
 # మొదటి అనువాదము
 #, fuzzy
-#~| msgid "Create a page"
 #~ msgid "Create Table"
 #~ msgstr "పుటని సృష్టించు"
 
