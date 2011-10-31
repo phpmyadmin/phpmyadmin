@@ -2222,7 +2222,7 @@ $(document).ready(function() {
                     }
                     if (data.success == true) {
                         PMA_ajaxShowMessage(data.message);
-                        $("<div id='sqlqueryresults'></div>").insertAfter("#topmenucontainer");
+                        $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
                         $("#sqlqueryresults").html(data.sql_query);
                         $("#result_query .notice").remove();
                         $("#result_query").prepend((data.message));
@@ -2284,7 +2284,7 @@ $(document).ready(function() {
             }
             if (data.success == true) {
                 PMA_ajaxShowMessage(data.message);
-                $("<div id='sqlqueryresults'></div>").insertAfter("#topmenucontainer");
+                $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
                 $("#sqlqueryresults").html(data.sql_query);
                 $("#result_query .notice").remove();
                 $("#result_query").prepend((data.message));
@@ -2320,7 +2320,7 @@ $(document).ready(function() {
                 }
                 if (data.success == true) {
                     PMA_ajaxShowMessage(data.message);
-                    $("<div id='sqlqueryresults'></div>").insertAfter("#topmenucontainer");
+                    $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
                     $("#sqlqueryresults").html(data.sql_query);
                     $("#result_query .notice").remove();
                     $("#result_query").prepend((data.message));
@@ -2361,13 +2361,13 @@ $(document).ready(function() {
                 $temp_div.html(data);
                 var $success = $temp_div.find("#result_query .success");
                 PMA_ajaxShowMessage($success);
-                $("<div id='sqlqueryresults' class='ajax'></div>").insertAfter("#topmenucontainer");
+                $("<div id='sqlqueryresults' class='ajax'></div>").insertAfter("#floating_menubar");
                 $("#sqlqueryresults").html(data);
                 PMA_init_slider();
                 $("#sqlqueryresults").children("fieldset").remove();
             } else if (data.success == true ) {
                 PMA_ajaxShowMessage(data.message);
-                $("<div id='sqlqueryresults' class='ajax'></div>").insertAfter("#topmenucontainer");
+                $("<div id='sqlqueryresults' class='ajax'></div>").insertAfter("#floating_menubar");
                 $("#sqlqueryresults").html(data.sql_query);
             } else {
                 var $temp_div = $("<div id='temp_div'></div>");
@@ -2519,7 +2519,7 @@ $(document).ready(function() {
 
         $.post($(the_form).attr('action'), $(the_form).serialize() + '&change_pw='+ this_value, function(data) {
             if(data.success == true) {
-                $("#topmenucontainer").after(data.sql_query);
+                $("#floating_menubar").after(data.sql_query);
                 $("#change_password_dialog").hide().remove();
                 $("#edit_user_dialog").dialog("close").remove();
                 $('#change_password_anchor.dialog_active').removeClass('dialog_active').addClass('ajax');
@@ -3354,7 +3354,7 @@ function PMA_slidingMessage(msg, $obj)
         // If the second argument was not supplied,
         // we might have to create a new DOM node.
         if ($('#PMA_slidingMessage').length == 0) {
-            $('#topmenucontainer')
+            $('#floating_menubar')
             .after('<span id="PMA_slidingMessage" '
                  + 'style="display: inline-block;"></span>');
         }
@@ -3472,7 +3472,7 @@ $(document).ready(function() {
                 }
                 if (data.success == true) {
                     PMA_ajaxShowMessage(data.message);
-                    $("<div id='sqlqueryresults'></div>").insertAfter("#topmenucontainer");
+                    $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
                     $("#sqlqueryresults").html(data.sql_query);
                 } else {
                     var $temp_div = $("<div id='temp_div'></div>")
@@ -3664,4 +3664,25 @@ function printPage()
 
 $(document).ready(function() {
     $('input#print').click(printPage);
+});
+
+/**
+ * Makes the breadcrumbs and the menu bar float at the top of the viewport
+ */
+$(document).ready(function () {
+    $("<div id='floating_menubar'></div>")
+        .css({
+            'position': 'fixed',
+            'top': 0,
+            'left': 0,
+            'width': '100%',
+            'z-index': 500
+        })
+        .insertBefore($('#serverinfo'))
+        .append($('#serverinfo'))
+        .append($('#topmenucontainer'));
+    $('body').css(
+        'padding-top',
+        $('#floating_menubar').outerHeight(true)
+    );
 });

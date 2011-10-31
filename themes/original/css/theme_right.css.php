@@ -28,7 +28,7 @@ body {
     font-family:        <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
 <?php } ?>
     padding:            0;
-    margin:             0.5em;
+    margin:             0 0.5em 0 0;
     color:              <?php echo $GLOBALS['cfg']['MainColor']; ?>;
     background:         <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
 }
@@ -857,9 +857,16 @@ div#tablestatistics table {
 
 
 /* Heading */
+#topmenucontainer {
+    background: white;
+    padding-right: 1em;
+    width: 100%;
+}
+
 #serverinfo {
+    background: white;
     font-weight:        bold;
-    margin-bottom:      0.5em;
+    padding-bottom: 0.5em;
 }
 
 #serverinfo .item {

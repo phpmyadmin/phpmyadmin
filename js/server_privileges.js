@@ -187,14 +187,14 @@ $(document).ready(function() {
                 if (data.success == true) {
                     $("#add_user_dialog").dialog("close").remove();
                     PMA_ajaxShowMessage(data.message);
-                    $("#topmenucontainer")
+                    $("#floating_menubar")
                      .next('div')
                      .remove()
                      .end()
                      .after(data.sql_query);
 
                     //Remove the empty notice div generated due to a NULL query passed to PMA_showMessage()
-                    var $notice_class = $("#topmenucontainer").next("div").find('.notice');
+                    var $notice_class = $("#floating_menubar").next("div").find('.notice');
                     if ($notice_class.text() == '') {
                         $notice_class.remove();
                     }
@@ -413,12 +413,12 @@ $(document).ready(function() {
                 $("#edit_user_dialog").dialog("close").remove();
 
                 if(data.sql_query) {
-                    $("#topmenucontainer")
+                    $("#floating_menubar")
                     .next('div')
                     .remove()
                     .end()
                     .after(data.sql_query);
-                    var notice_class = $("#topmenucontainer").next("div").find('.notice');
+                    var notice_class = $("#floating_menubar").next("div").find('.notice');
                     if($(notice_class).text() == '') {
                         $(notice_class).remove();
                     }

@@ -262,7 +262,7 @@ $(document).ready(function() {
             }
             if (data.success == true) {
                 PMA_ajaxShowMessage(data.message);
-                $("<div id='sqlqueryresults'></div>").insertAfter("#topmenucontainer");
+                $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
                 $("#sqlqueryresults").html(data.sql_query);
                 $("#result_query .notice").remove();
                 $("#result_query").prepend((data.message));
