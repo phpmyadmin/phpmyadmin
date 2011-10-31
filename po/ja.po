@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-30 05:35-0400\n"
-"PO-Revision-Date: 2011-10-26 11:45+0200\n"
+"PO-Revision-Date: 2011-10-28 11:58+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -12002,10 +12002,9 @@ msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr "バージョンの文字列 (%s) が Drizzle のバージョン形態と一致しています。"
 
 #: po/advisory_rules.php:65
-#, fuzzy
 #| msgid "MySQL charset"
 msgid "MySQL Architecture"
-msgstr "MySQL の文字セット"
+msgstr "MySQL 仕様"
 
 #: po/advisory_rules.php:66
 msgid "MySQL is not compiled as a 64-bit package."
@@ -12017,11 +12016,13 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
+"メモリ上限が (このサーバ上において) 3 GiB になってしまいますので、MySQL はメモリを使いこなすことができないでしょう。64 ビット版の "
+"MySQL の導入を検討してみてください。"
 
 #: po/advisory_rules.php:68
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "このホスト上の利用可能メモリ: %s"
 
 #: po/advisory_rules.php:70
 msgid "Query cache disabled"
