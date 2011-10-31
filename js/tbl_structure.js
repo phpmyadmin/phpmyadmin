@@ -366,10 +366,7 @@ $(document).ready(function() {
                     open: PMA_verifyColumnsProperties,
                     modal: true,
                     buttons : button_options
-                })
-                //Remove the top menu container from the dialog
-                .find("#topmenucontainer").hide()
-                ; // end dialog options
+                }); // end dialog options
 
                 $div = $("#add_columns");
                 /*changed the z-index of the enum editor to allow the edit*/
@@ -435,10 +432,7 @@ function changeColumns(action,url)
                 modal: true,
                 open: PMA_verifyColumnsProperties,
                 buttons : button_options
-            })
-            //Remove the top menu container from the dialog
-            .find("#topmenucontainer").hide()
-            ; // end dialog options
+            }); // end dialog options
             $("#append_fields_form input[name=do_save_data]").addClass("ajax");
             /*changed the z-index of the enum editor to allow the edit*/
             $("#enum_editor").css("z-index", "1100");
