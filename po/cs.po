@@ -5374,12 +5374,12 @@ msgid "possible deep recursion attack"
 msgstr "možný útok rekurzí"
 
 #: libraries/database_interface.lib.php:1764
-#, fuzzy
 #| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
-msgstr "(nebo není správně nastaven lokální socket MySQL serveru)"
+msgstr ""
+"Server neodpovídá (nebo není správně nastaven lokální socket MySQL serveru)."
 
 #: libraries/database_interface.lib.php:1766
 #, fuzzy
