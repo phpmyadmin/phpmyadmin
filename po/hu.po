@@ -2245,7 +2245,7 @@ msgstr "Va"
 #. l10n: Minimal week day name
 #: js/messages.php:445
 msgid "Mo"
-msgstr "H"
+msgstr "Hé"
 
 #. l10n: Minimal week day name
 #: js/messages.php:447
