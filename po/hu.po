@@ -9927,13 +9927,14 @@ msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
 
 #: server_status.php:1064
-#, fuzzy
 #| msgid ""
 #| "This MySQL server works as %s in <b>replication</b> process. For further "
 #| "information about replication status on the server, please visit the <a "
 #| "href=\"#replication\">replication section</a>."
 msgid "For further information about replication status on the server, please visit the <a href=\"#replication\">replication section</a>."
-msgstr "Ez a MySQL-szerver mint %s működik a <b>többszörözéses</b> folyamatban. A szerveren lévő többszörözéses állapotról a <a href=\"#replication\">többszörözés részben</a> kaphat bővebb információt."
+msgstr ""
+"A szerveren lévő többszörözéses állapotról a <a "
+"href=\\\"#replication\\\">többszörözés részben</a> kaphat bővebb információt."
 
 #: server_status.php:1073
 msgid "Replication status"
