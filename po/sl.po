@@ -5402,12 +5402,13 @@ msgid "possible deep recursion attack"
 msgstr "možen napad globoke rekurzije"
 
 #: libraries/database_interface.lib.php:1764
-#, fuzzy
 #| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
-msgstr "(ali pa lokalna vtičnica strežnika MySQL ni pravilno konfigurirana)"
+msgstr ""
+"Strežnik se ne odziva (ali pa lokalna vtičnica strežnika ni pravilno "
+"konfigurirana)."
 
 #: libraries/database_interface.lib.php:1766
 #, fuzzy
