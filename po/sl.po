@@ -1740,10 +1740,10 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Opredelitev shranjene funkcije mora vsebovati izjavo RETURN!"
 
 #: js/messages.php:248
-#, fuzzy, php-format
+#, php-format
 #| msgid "+ Add a value"
 msgid "Add %d value(s)"
-msgstr "+ Dodaj vrednost"
+msgstr "Dodaj %d vrednost(i)"
 
 #: js/messages.php:251
 msgid ""
