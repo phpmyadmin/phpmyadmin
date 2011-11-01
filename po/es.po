@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-01 13:34+0100\n"
-"PO-Revision-Date: 2011-11-01 18:24+0200\n"
+"PO-Revision-Date: 2011-11-01 18:25+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -4657,10 +4657,9 @@ msgstr ""
 "utilizar el ya definido"
 
 #: libraries/config/messages.inc.php:386
-#, fuzzy
 #| msgid "Control user"
 msgid "Control host"
-msgstr "Controlar al usuario"
+msgstr "Anfitrión de control"
 
 #: libraries/config/messages.inc.php:387
 msgid "Count tables when showing database list"
