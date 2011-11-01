@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-30 05:35-0400\n"
-"PO-Revision-Date: 2011-11-01 11:24+0200\n"
+"PO-Revision-Date: 2011-11-01 11:25+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -812,10 +812,9 @@ msgid "Values for column %s"
 msgstr "カラム %s に対しての値"
 
 #: enum_editor.php:34 js/messages.php:247
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
-msgstr "個々の入力欄にそれぞれ値を入力してください。"
+msgstr "個々の入力欄にそれぞれ値を入力してください"
 
 #: enum_editor.php:121
 #, fuzzy
