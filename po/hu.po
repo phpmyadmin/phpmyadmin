@@ -2214,7 +2214,7 @@ msgstr "Hét"
 #. l10n: Short week day name
 #: js/messages.php:431 libraries/common.lib.php:1631
 msgid "Tue"
-msgstr "K"
+msgstr "Ked"
 
 #. l10n: Short week day name
 #: js/messages.php:433 libraries/common.lib.php:1633
