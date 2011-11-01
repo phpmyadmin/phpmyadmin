@@ -981,6 +981,8 @@ msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
+"Válassza a \"GeomFromText\"-et a \"Függvény\" oszlopból és illessze be az alábbi "
+"karakterláncot az \"Érték\" mezőbe"
 
 #: import.php:57
 #, php-format
