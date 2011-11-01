@@ -1,5 +1,3 @@
-# Automatically generated <>, 2010.
-# Michal <michal@cihar.com>, 2010.
 # Michal Čihař <michal@cihar.com>, 2010, 2011.
 #
 msgid ""
