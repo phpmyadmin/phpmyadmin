@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-01 13:34+0100\n"
-"PO-Revision-Date: 2011-11-01 14:39+0200\n"
+"PO-Revision-Date: 2011-11-01 14:40+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1805,7 +1805,7 @@ msgstr "Klikněte na odkaz pro obnovení zvětšení pro návrat do původního 
 
 #: js/messages.php:281
 msgid "Click a data point to view and possibly edit the data row."
-msgstr ""
+msgstr "Klikněte na datavoý bod pro zobrazení a případnou úpravu řádky."
 
 #: js/messages.php:283
 msgid "The plot can be resized by dragging it along the bottom right corner."
