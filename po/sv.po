@@ -3262,6 +3262,8 @@ msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"Anger den maximala storleken för inmatningsfält skapade för CHAR och VARCHAR "
+"kolumner"
 
 #: libraries/config/messages.inc.php:37
 #, fuzzy
