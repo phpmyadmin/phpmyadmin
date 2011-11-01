@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-11-01 14:03+0200\n"
+"PO-Revision-Date: 2011-11-01 14:04+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -6325,7 +6325,10 @@ msgstr "Szálak kijavítása"
 
 #: libraries/engines/myisam.lib.php:42
 msgid "If this value is greater than 1, MyISAM table indexes are created in parallel (each index in its own thread) during the repair by sorting process."
-msgstr "Ha ez az érték nagyobb, mint 1, akkor a MyISAM táblaindexek készítése a tároló folyamat által párhuzamosan (mindegyik index a saját szálában) történik a javítás során "
+msgstr ""
+"Ha ez az érték nagyobb, mint 1, akkor a MyISAM táblaindexek készítése a "
+"tároló folyamat által párhuzamosan (mindegyik index a saját szálában) "
+"történik a javítás során."
 
 #: libraries/engines/myisam.lib.php:46
 msgid "Sort buffer size"
