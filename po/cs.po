@@ -1504,6 +1504,9 @@ msgid ""
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
+"Tento sloupec ukazuje množství stejných dotazů, které jsou seskupeny "
+"dohromady. K seskupení byl však použit jen SQL dotaz, takže další vlastnosti "
+"dotazů, jako například čas jeho spuštění, se mohou lišit."
 
 #: js/messages.php:166
 msgid ""
