@@ -817,10 +817,9 @@ msgid "Enter each value in a separate field"
 msgstr "個々の入力欄にそれぞれ値を入力してください"
 
 #: enum_editor.php:121
-#, fuzzy
 #| msgid "+ Add a value"
 msgid "Add a value"
-msgstr "+ 値を追加する"
+msgstr "値を追加する"
 
 #: enum_editor.php:127 gis_data_editor.php:317
 msgid "Output"
