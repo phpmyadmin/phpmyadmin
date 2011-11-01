@@ -3296,6 +3296,8 @@ msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"Define el tamaño mínimo de los campos de entrada para columnas CHAR y "
+"VARCHAR"
 
 #: libraries/config/messages.inc.php:35
 #, fuzzy
