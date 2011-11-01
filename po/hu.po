@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-11-01 14:14+0200\n"
+"PO-Revision-Date: 2011-11-01 14:15+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -3129,7 +3129,7 @@ msgstr "A <tt>$cfg['PmaAbsoluteUri']</tt> utasítás értékét a konfiguráció
 #: libraries/common.inc.php:640
 #, php-format
 msgid "Invalid server index: %s"
-msgstr "Érvénytelen szerverindex: \"%s\""
+msgstr "Érvénytelen szerverindex: %s"
 
 #: libraries/common.inc.php:647
 #, php-format
