@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-11-01 14:14+0200\n"
+"PO-Revision-Date: 2011-11-01 14:26+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -3129,7 +3129,7 @@ msgstr "A <tt>$cfg['PmaAbsoluteUri']</tt> utasítás értékét a konfiguráció
 #: libraries/common.inc.php:640
 #, php-format
 msgid "Invalid server index: %s"
-msgstr "Érvénytelen szerverindex: \"%s\""
+msgstr "Érvénytelen szerverindex: %s"
 
 #: libraries/common.inc.php:647
 #, php-format
@@ -3304,7 +3304,7 @@ msgstr "EiB"
 #: libraries/common.lib.php:1627
 msgctxt "Short week day name"
 msgid "Sun"
-msgstr "V"
+msgstr "Vas"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
 #: libraries/common.lib.php:1643
@@ -3662,7 +3662,10 @@ msgstr "Bármilyen MySQL-szerverre történő bejelentkezés engedélyezése"
 
 #: libraries/config/messages.inc.php:21
 msgid "Enabling this allows a page located on a different domain to call phpMyAdmin inside a frame, and is a potential [strong]security hole[/strong] allowing cross-frame scripting attacks"
-msgstr "Ezt engedélyezve egy másik domain-on lévő oldal meg tudja hívni a phpMyAdmin-t egy kereten belül, és ez egy potenciális [strong]biztonsági rés[/strong], ami lehetővé teszi a \"cross-frame scripting\" támadásokat"
+msgstr ""
+"Ezt engedélyezve egy másik domain-on lévő oldal meg tudja hívni a "
+"phpMyAdmin-t egy kereten belül, és ez egy potenciális [strong]biztonsági "
+"rés[/strong], ami lehetővé teszi a cross-frame scripting támadásokat"
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
@@ -5014,10 +5017,9 @@ msgid "This configuration make sure that we only keep N (N = MaxTableUiprefs) ne
 msgstr ""
 
 #: libraries/config/messages.inc.php:397
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of records saved in \"table_uiprefs\" table"
-msgstr "A táblalistában megjelenítendő táblák száma"
+msgstr "A \"table_uiprefs\" táblába elmentett maximális rekordok száma"
 
 #: libraries/config/messages.inc.php:398
 msgid "Try to connect without password"
@@ -8644,7 +8646,11 @@ msgstr "Változások listája"
 
 #: main.php:249
 msgid "Your configuration file contains settings (root with no password) that correspond to the default MySQL privileged account. Your MySQL server is running with this default, is open to intrusion, and you really should fix this security hole by setting a password for user 'root'."
-msgstr "A konfigurációs fájl olyan beállításokat (jelszó nélküli root hozzáférés) tartalmaz, melyek megegyeznek az alapértelmezett MySQL jogosult fiókéval. A MySQL szerver most ezzel az alapbeállítással fut, behatolásra nyitott. Javítsa ezt a biztonsági rést."
+msgstr ""
+"A konfigurációs fájl olyan beállításokat tartalmaz (jelszó nélküli root "
+"hozzáférés), amelyek megegyeznek az alapértelmezett MySQL jogosult fiókéval. "
+"A MySQL szerver most ezzel az alapbeállítással fut, behatolásra nyitott, "
+"ezért javítsa ezt a biztonsági rést a 'root' felhasználónak adott jelszóval."
 
 #: main.php:257
 msgid "You have enabled mbstring.func_overload in your PHP configuration. This option is incompatible with phpMyAdmin and might cause some data to be corrupted!"
