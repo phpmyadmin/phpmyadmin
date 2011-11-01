@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-11-01 14:15+0200\n"
+"PO-Revision-Date: 2011-11-01 14:16+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -3662,7 +3662,10 @@ msgstr "Bármilyen MySQL-szerverre történő bejelentkezés engedélyezése"
 
 #: libraries/config/messages.inc.php:21
 msgid "Enabling this allows a page located on a different domain to call phpMyAdmin inside a frame, and is a potential [strong]security hole[/strong] allowing cross-frame scripting attacks"
-msgstr "Ezt engedélyezve egy másik domain-on lévő oldal meg tudja hívni a phpMyAdmin-t egy kereten belül, és ez egy potenciális [strong]biztonsági rés[/strong], ami lehetővé teszi a \"cross-frame scripting\" támadásokat"
+msgstr ""
+"Ezt engedélyezve egy másik domain-on lévő oldal meg tudja hívni a "
+"phpMyAdmin-t egy kereten belül, és ez egy potenciális [strong]biztonsági "
+"rés[/strong], ami lehetővé teszi a cross-frame scripting támadásokat"
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
