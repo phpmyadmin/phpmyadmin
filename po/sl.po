@@ -815,10 +815,10 @@ msgid "Values for a new column"
 msgstr "Vrednosti novega stolpca"
 
 #: enum_editor.php:30 js/messages.php:245
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
-msgstr "Vrednosti za stolpec \"%s\""
+msgstr "Vrednosti stolpca %s"
 
 #: enum_editor.php:34 js/messages.php:247
 #, fuzzy
