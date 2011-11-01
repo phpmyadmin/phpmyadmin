@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-01 13:34+0100\n"
-"PO-Revision-Date: 2011-11-01 14:38+0200\n"
+"PO-Revision-Date: 2011-11-01 14:39+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -7687,7 +7687,7 @@ msgstr "Tato stránka neobsahuje žádné tabulky!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:228
 msgid "SCHEMA ERROR: "
-msgstr "Chyba při vytváření schéma: "
+msgstr "Chyba při vytváření schématu: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:858
 #: libraries/schema/Pdf_Relation_Schema.class.php:1171
