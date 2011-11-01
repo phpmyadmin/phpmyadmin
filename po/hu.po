@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-11-01 14:09+0200\n"
+"PO-Revision-Date: 2011-11-01 14:11+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -277,7 +277,7 @@ msgstr "Alapértelmezett"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1332
 #: tbl_printview.php:142
 msgid "Links to"
-msgstr "Hivatkozások:"
+msgstr "Hivatkozás"
 
 #: db_datadict.php:172
 #: db_printview.php:109
