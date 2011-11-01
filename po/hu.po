@@ -1118,7 +1118,7 @@ msgstr "Minden értéket külön mezőben adjon meg."
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr "+ Kezdődjön a beszúrás elölről és adjon hozzá egy új értéket."
+msgstr "+ Kezdődjön a beszúrás elölről és adjon hozzá egy új értéket"
 
 #: enum_editor.php:67
 #: gis_data_editor.php:317
