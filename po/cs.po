@@ -11822,10 +11822,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:25
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Long query time"
-msgstr "SQL dotazy"
+msgstr "Doba pomalých dotazů"
 
 #: po/advisory_rules.php:26
 msgid ""
