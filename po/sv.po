@@ -1729,10 +1729,10 @@ msgstr ""
 "Definitionen av en sparad funktion måste innehålla en RETURN-programsats!"
 
 #: js/messages.php:248
-#, fuzzy, php-format
+#, php-format
 #| msgid "+ Add a value"
 msgid "Add %d value(s)"
-msgstr "+ Lägg till ett värde"
+msgstr "Lägg till %d värde(n)"
 
 #: js/messages.php:251
 msgid ""
