@@ -2970,7 +2970,7 @@ msgstr "EB"
 #: libraries/common.lib.php:1627
 msgctxt "Short week day name"
 msgid "Sun"
-msgstr "V"
+msgstr "Vas"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
 #: libraries/common.lib.php:1643
