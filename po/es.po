@@ -824,7 +824,7 @@ msgstr "Valores para la columna %s"
 #: enum_editor.php:34 js/messages.php:247
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
-msgstr "Insertar cada valor en un campo separado"
+msgstr "Ingresar cada valor en un campo separado"
 
 #: enum_editor.php:121
 #, fuzzy
