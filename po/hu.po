@@ -2265,7 +2265,7 @@ msgstr "Cs"
 #. l10n: Minimal week day name
 #: js/messages.php:453
 msgid "Fr"
-msgstr "P"
+msgstr "Pé"
 
 #. l10n: Minimal week day name
 #: js/messages.php:455
