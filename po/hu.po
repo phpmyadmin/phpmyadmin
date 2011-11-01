@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-11-01 14:08+0200\n"
+"PO-Revision-Date: 2011-11-01 14:09+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -5690,7 +5690,9 @@ msgstr "Eseményindítók"
 #: libraries/db_structure.lib.php:43
 #: libraries/display_tbl.lib.php:2218
 msgid "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a]"
-msgstr "Becsült érték lehet. Lásd: GYIK 3.11"
+msgstr ""
+"Becsült érték lehet. Lásd [a@./Documentation.html#faq3_11@Documentation]GyIK "
+"3.11[/a]"
 
 #: libraries/dbi/drizzle.dbi.lib.php:114
 #: libraries/dbi/mysql.dbi.lib.php:117
