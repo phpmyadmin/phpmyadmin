@@ -12065,6 +12065,10 @@ msgid ""
 "refman/5.5/en/ha-memcached.html\\\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
+"MySQL のクエリキャッシュをかなり高いトラフィックのデータベースに対して使用しています。MySQL のクエリキャッシュの代わりに <a "
+"href=\\\"http://dev.mysql.com/doc/refman/5.5/en/ha-"
+"memcached.html\\\">memcached</a> "
+"の使用を検討する価値があると思われます。これは、マルチスレーブを使用している場合は、特に推奨されます。"
 
 #: po/advisory_rules.php:78
 #, php-format
