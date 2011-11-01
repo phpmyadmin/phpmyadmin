@@ -3120,7 +3120,7 @@ msgstr ""
 #: libraries/common.inc.php:605
 #, php-format
 msgid "Could not load default configuration from: %1$s"
-msgstr "Nem lehetett betölteni az alapértelmezett konfigurációt innen: \"%1$s\""
+msgstr "Nem lehetett betölteni az alapértelmezett konfigurációt innen: %1$s"
 
 #: libraries/common.inc.php:610
 msgid "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your configuration file!"
