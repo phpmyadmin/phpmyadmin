@@ -12050,10 +12050,9 @@ msgstr ""
 "れています。"
 
 #: po/advisory_rules.php:75
-#, fuzzy
 #| msgid "Query cache used"
 msgid "Query caching method"
-msgstr "使用されているクエリキャッシュ"
+msgstr "クエリのキャッシュ方式"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
