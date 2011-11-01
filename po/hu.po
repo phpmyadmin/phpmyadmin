@@ -2209,7 +2209,7 @@ msgstr "Vas"
 #. l10n: Short week day name
 #: js/messages.php:429 libraries/common.lib.php:1629
 msgid "Mon"
-msgstr "H"
+msgstr "Hét"
 
 #. l10n: Short week day name
 #: js/messages.php:431 libraries/common.lib.php:1631
