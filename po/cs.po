@@ -4572,10 +4572,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:386
-#, fuzzy
 #| msgid "Control user"
 msgid "Control host"
-msgstr "Kontrolní uživatel"
+msgstr "Kontrolní host"
 
 #: libraries/config/messages.inc.php:387
 msgid "Count tables when showing database list"
