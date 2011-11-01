@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-30 05:35-0400\n"
-"PO-Revision-Date: 2011-11-01 13:59+0200\n"
+"PO-Revision-Date: 2011-11-01 14:01+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -369,7 +369,7 @@ msgstr "Tábla"
 #: tbl_printview.php:353 tbl_structure.php:363 tbl_structure.php:469
 #: tbl_structure.php:880
 msgid "Rows"
-msgstr "sorok"
+msgstr "Sorok"
 
 #: db_printview.php:106 libraries/db_structure.lib.php:53 tbl_indexes.php:197
 msgid "Size"
