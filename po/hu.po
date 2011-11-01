@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-11-01 14:11+0200\n"
+"PO-Revision-Date: 2011-11-01 14:13+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -813,7 +813,7 @@ msgstr "Mezőben:"
 
 #: db_structure.php:67
 msgid "No tables found in database"
-msgstr "Nem található tábla az adatbázisban."
+msgstr "Nem található tábla az adatbázisban"
 
 #: db_structure.php:314
 #: tbl_operations.php:692
