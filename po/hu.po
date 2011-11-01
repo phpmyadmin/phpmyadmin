@@ -8646,7 +8646,11 @@ msgstr "Változások listája"
 
 #: main.php:249
 msgid "Your configuration file contains settings (root with no password) that correspond to the default MySQL privileged account. Your MySQL server is running with this default, is open to intrusion, and you really should fix this security hole by setting a password for user 'root'."
-msgstr "A konfigurációs fájl olyan beállításokat (jelszó nélküli root hozzáférés) tartalmaz, melyek megegyeznek az alapértelmezett MySQL jogosult fiókéval. A MySQL szerver most ezzel az alapbeállítással fut, behatolásra nyitott. Javítsa ezt a biztonsági rést."
+msgstr ""
+"A konfigurációs fájl olyan beállításokat tartalmaz (jelszó nélküli root "
+"hozzáférés), amelyek megegyeznek az alapértelmezett MySQL jogosult fiókéval. "
+"A MySQL szerver most ezzel az alapbeállítással fut, behatolásra nyitott, "
+"ezért javítsa ezt a biztonsági rést a 'root' felhasználónak adott jelszóval."
 
 #: main.php:257
 msgid "You have enabled mbstring.func_overload in your PHP configuration. This option is incompatible with phpMyAdmin and might cause some data to be corrupted!"
