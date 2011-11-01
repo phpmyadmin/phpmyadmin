@@ -814,10 +814,9 @@ msgid "Values for column %s"
 msgstr "Värden för kolumn %s"
 
 #: enum_editor.php:34 js/messages.php:247
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
-msgstr "Mata in varje värde i ett eget fält."
+msgstr "Mata in varje värde i separata fält"
 
 #: enum_editor.php:121
 #, fuzzy
