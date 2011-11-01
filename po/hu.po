@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-30 05:35-0400\n"
-"PO-Revision-Date: 2011-11-01 13:36+0200\n"
+"PO-Revision-Date: 2011-11-01 13:41+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -10506,7 +10506,7 @@ msgstr "A naplófájlba történt fizikai írások száma."
 
 #: server_status.php:1341
 msgid "The number of fsync() writes done to the log file."
-msgstr "A naplófájlba történt fsyncs írások száma."
+msgstr "A naplófájlba történt fsync() írások száma."
 
 #: server_status.php:1342
 msgid "The number of pending log file fsyncs."
