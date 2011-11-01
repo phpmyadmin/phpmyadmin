@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-24 17:47+0200\n"
-"PO-Revision-Date: 2011-11-01 14:18+0200\n"
+"PO-Revision-Date: 2011-11-01 14:26+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -3304,7 +3304,7 @@ msgstr "EiB"
 #: libraries/common.lib.php:1627
 msgctxt "Short week day name"
 msgid "Sun"
-msgstr "V"
+msgstr "Vas"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
 #: libraries/common.lib.php:1643
