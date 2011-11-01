@@ -4653,6 +4653,8 @@ msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
 msgstr ""
+"Alternativa para guardar el almacenamiento de configuración; deje vacío para "
+"utilizar el ya definido"
 
 #: libraries/config/messages.inc.php:386
 #, fuzzy
