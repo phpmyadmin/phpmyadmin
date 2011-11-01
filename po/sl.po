@@ -7864,10 +7864,9 @@ msgid "Current Server"
 msgstr "Trenutni strežnik"
 
 #: libraries/server_links.inc.php:60
-#, fuzzy
 #| msgid "User"
 msgid "Users"
-msgstr "Uporabnik"
+msgstr "Uporabniki"
 
 #: libraries/server_links.inc.php:79 server_synchronize.php:1154
 #: server_synchronize.php:1162
