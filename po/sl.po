@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-01 13:34+0100\n"
-"PO-Revision-Date: 2011-11-02 00:47+0200\n"
+"PO-Revision-Date: 2011-11-02 00:48+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -11461,10 +11461,9 @@ msgid "Check referential integrity:"
 msgstr "Preveri referenčno integriteto:"
 
 #: tbl_printview.php:72
-#, fuzzy
 #| msgid "Show tables"
 msgid "Showing tables"
-msgstr "Pokaži tabele"
+msgstr "Prikazovanje tabel"
 
 #: tbl_printview.php:269 tbl_structure.php:762
 msgid "Space usage"
