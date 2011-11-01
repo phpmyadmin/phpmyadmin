@@ -1,7 +1,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.7-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.8-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-06 09:23+0200\n"
 "PO-Revision-Date: 2010-07-21 14:53+0200\n"
@@ -95,23 +95,28 @@ msgstr "Erabili balio hau"
 
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:331
+#, fuzzy
 msgid "No blob streaming server configured!"
-msgstr ""
+msgstr "Ez dago blob streaming zerbitzaria konfiguraturik!"
 
 #: bs_disp_as_mime_type.php:35
+#, fuzzy
 msgid "Failed to fetch headers"
-msgstr ""
+msgstr "Akatsa goiburuak bilatzerakoan"
 
 #: bs_disp_as_mime_type.php:41
+#, fuzzy
 msgid "Failed to open remote URL"
-msgstr ""
+msgstr "Akatsa kompo esteka zabaltzerakoan"
 
 #: changelog.php:32 license.php:28
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"%s filtxategia ez dago eskuragarri sisteman, joan www.phpmyadmin.net "
+"informazio gehiagorako"
 
 #: db_create.php:58
 #, fuzzy, php-format
@@ -638,7 +643,7 @@ msgstr ""
 #: db_structure.php:393 db_structure.php:407 libraries/header.inc.php:137
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:206 test/theme.php:73
 msgid "View"
-msgstr ""
+msgstr "Ikusipegia"
 
 #: db_structure.php:444 libraries/db_structure.lib.php:40
 #: libraries/server_links.inc.php:90 server_replication.php:31
@@ -652,9 +657,9 @@ msgid "Sum"
 msgstr "Gehiketa"
 
 #: db_structure.php:455 libraries/StorageEngine.class.php:351
-#, php-format
+#, fuzzy, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr ""
+msgstr "%s da MySQL zerbitzarian lehenetsitako biltegiratzeko mota."
 
 #: db_structure.php:483 db_structure.php:500 db_structure.php:501
 #: libraries/display_tbl.lib.php:2217 libraries/display_tbl.lib.php:2222
@@ -746,7 +751,7 @@ msgstr "Datu-basea"
 
 #: db_tracking.php:86
 msgid "Last version"
-msgstr ""
+msgstr "Azken bertsioa"
 
 #: db_tracking.php:87 tbl_tracking.php:589
 #, fuzzy
@@ -755,7 +760,7 @@ msgstr "Sortu"
 
 #: db_tracking.php:88 tbl_tracking.php:590
 msgid "Updated"
-msgstr ""
+msgstr "Eguneratua"
 
 #: db_tracking.php:89 libraries/common.lib.php:1354
 #: libraries/server_links.inc.php:50 server_processlist.php:71
@@ -776,11 +781,11 @@ msgstr ""
 
 #: db_tracking.php:119 tbl_tracking.php:543 tbl_tracking.php:601
 msgid "active"
-msgstr ""
+msgstr "Aktibo"
 
 #: db_tracking.php:121 tbl_tracking.php:545 tbl_tracking.php:603
 msgid "not active"
-msgstr ""
+msgstr "Ez aktibo"
 
 #: db_tracking.php:134
 #, fuzzy
@@ -821,12 +826,13 @@ msgid "Enter each value in a separate field."
 msgstr ""
 
 #: enum_editor.php:57
+#, fuzzy
 msgid "+ Restart insertion and add a new value"
-msgstr ""
+msgstr "+ Berriz hasi txertatzen eta gehitu balio berria"
 
 #: enum_editor.php:67
 msgid "Output"
-msgstr ""
+msgstr "Irteera"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
@@ -896,18 +902,19 @@ msgid "The bookmark has been deleted."
 msgstr "Gordetako kontsulta ezabatu da."
 
 #: import.php:400
+#, fuzzy
 msgid "Showing bookmark"
-msgstr ""
+msgstr "Erakutsi laster-markak"
 
 #: import.php:402 sql.php:885
-#, php-format
+#, fuzzy, php-format
 msgid "Bookmark %s created"
-msgstr ""
+msgstr "%s laster-marka sortu da"
 
 #: import.php:408 import.php:414
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr ""
+msgstr "Inportatzea zuzen burutu da, %d kontsulta exekutatuta_."
 
 #: import.php:423
 msgid ""
@@ -944,7 +951,7 @@ msgstr ""
 #: server_synchronize.php:734 server_synchronize.php:762
 #: server_synchronize.php:790 server_synchronize.php:802
 msgid "Click to select"
-msgstr ""
+msgstr "Egin klik hautatzeko"
 
 #: js/messages.php:26
 msgid "Click to unselect"
@@ -978,12 +985,14 @@ msgid "Deleting tracking data"
 msgstr "Datuak txertatu eta ordezkatzea baimentzen du."
 
 #: js/messages.php:36
+#, fuzzy
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "Ezabatu Giltza nagusi/Indizea"
 
 #: js/messages.php:37
+#, fuzzy
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr ""
+msgstr "Eragiketa honek luze jo lezake. Jarraitu nahi?"
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
@@ -1044,7 +1053,7 @@ msgstr "Hautatutako erabiltzaileak baztertu"
 #: js/messages.php:56 libraries/tbl_properties.inc.php:792
 #: tbl_tracking.php:246 tbl_tracking.php:374
 msgid "Close"
-msgstr ""
+msgstr "Itxi"
 
 #: js/messages.php:60 libraries/tbl_properties.inc.php:797 pmd_general.php:388
 #: pmd_general.php:425 pmd_general.php:545 pmd_general.php:593

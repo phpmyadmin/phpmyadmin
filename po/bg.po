@@ -1,7 +1,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.7-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.8-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-06 09:23+0200\n"
 "PO-Revision-Date: 2011-03-22 12:51+0200\n"
@@ -4193,7 +4193,7 @@ msgstr "CSV за MS Excel данни"
 #: libraries/config/user_preferences.forms.php:239
 #: libraries/export/htmlword.php:17
 msgid "Microsoft Word 2000"
-msgstr ""
+msgstr "Microsoft Word 2000"
 
 #: libraries/config/setup.forms.php:346
 #: libraries/config/user_preferences.forms.php:248 libraries/export/odt.php:21
@@ -6820,7 +6820,7 @@ msgstr "Покажи всички"
 
 #: pmd_general.php:141
 msgid "Hide/Show Tables with no relation"
-msgstr ""
+msgstr "Показване/скриване таблици без релации"
 
 #: pmd_general.php:181
 #, fuzzy
@@ -9273,7 +9273,7 @@ msgstr "Заявление"
 
 #: tbl_printview.php:377 tbl_structure.php:834
 msgid "static"
-msgstr ""
+msgstr "статичен"
 
 #: tbl_printview.php:379 tbl_structure.php:836
 msgid "dynamic"
@@ -9511,7 +9511,7 @@ msgstr "Версия"
 #: tbl_tracking.php:640
 #, php-format
 msgid "Deactivate tracking for %s.%s"
-msgstr ""
+msgstr "Изключване проследяването за %s.%s"
 
 #: tbl_tracking.php:642
 msgid "Deactivate now"
@@ -9520,7 +9520,7 @@ msgstr "Деактивиране сега"
 #: tbl_tracking.php:653
 #, php-format
 msgid "Activate tracking for %s.%s"
-msgstr ""
+msgstr "Включване проследяването за %s.%s"
 
 #: tbl_tracking.php:655
 msgid "Activate now"
@@ -9533,11 +9533,11 @@ msgstr "Създаване на версия %s от %s.%s"
 
 #: tbl_tracking.php:672
 msgid "Track these data definition statements:"
-msgstr ""
+msgstr "Проследяване следните изрази за дефиниране на данни"
 
 #: tbl_tracking.php:680
 msgid "Track these data manipulation statements:"
-msgstr ""
+msgstr "Проследяване следните изрази за манипулиране на данни"
 
 #: tbl_tracking.php:688
 #, fuzzy
