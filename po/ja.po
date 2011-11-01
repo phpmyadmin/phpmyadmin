@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-30 05:35-0400\n"
-"PO-Revision-Date: 2011-11-01 11:18+0200\n"
+"PO-Revision-Date: 2011-11-01 11:19+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12056,7 +12056,7 @@ msgstr "クエリのキャッシュ方式"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
-msgstr ""
+msgstr "準最適キャッシュ方式です。"
 
 #: po/advisory_rules.php:77
 msgid ""
