@@ -9580,6 +9580,9 @@ msgid ""
 "calculations and by rule of thumb which may not necessarily apply to your "
 "system."
 msgstr ""
+"Prosím uvědomte si si však, že tento systém poskytuje doporučení na základě "
+"jednoduchých výpočtů a základních pravidel, která nemusí nutně platit pro "
+"váš systém."
 
 #: server_status.php:904
 msgid ""
