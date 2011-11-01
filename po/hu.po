@@ -8241,7 +8241,7 @@ msgstr "Elválasztó"
 
 #: libraries/sql_query_form.lib.php:344
 msgid "Show this query here again"
-msgstr "A fenti lekérdezés megjelenítése itt újra "
+msgstr "A fenti lekérdezés megjelenítése itt újra"
 
 #: libraries/sql_query_form.lib.php:399
 msgid "View only"
