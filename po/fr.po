@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-01 13:34+0100\n"
-"PO-Revision-Date: 2011-11-02 19:11+0200\n"
+"PO-Revision-Date: 2011-11-02 19:12+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -12946,10 +12946,10 @@ msgstr ""
 "fils d'exécution qui sont lents à démarrer"
 
 #: po/advisory_rules.php:223
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "slow_launch_time is set to %s"
-msgstr "long_query_time est réglé à %d seconde(s)."
+msgstr "slow_launch_time est réglé à %d seconde(s)."
 
 #: po/advisory_rules.php:225
 #, fuzzy
