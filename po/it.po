@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-01 13:34+0100\n"
 "PO-Revision-Date: 2011-11-02 20:30+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -1607,7 +1607,7 @@ msgstr "Filtra"
 
 #: js/messages.php:176
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "Filtra query per parola/regexp:"
 
 #: js/messages.php:177
 msgid "Group queries, ignoring variable data in WHERE clauses"
