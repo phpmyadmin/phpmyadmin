@@ -3934,7 +3934,7 @@ msgstr "Metin alanları"
 
 #: libraries/config/messages.inc.php:229
 msgid "Customize text input fields"
-msgstr "Metin giriş alanlarını özelleştirir"
+msgstr "Metin girdi alanlarını özelleştirir"
 
 #: libraries/config/messages.inc.php:230 libraries/export/texytext.php:18
 msgid "Texy! text"
