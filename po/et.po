@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-11-01 13:34+0100\n"
+"POT-Creation-Date: 2011-11-02 15:03-0400\n"
 "PO-Revision-Date: 2010-03-12 09:14+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: estonian <et@li.org>\n"
-"Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: et\n"
 "X-Generator: Translate Toolkit 1.5.3\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:326
@@ -636,8 +636,8 @@ msgstr ""
 #: db_structure.php:450 libraries/display_tbl.lib.php:2346
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
 #: db_structure.php:466 db_structure.php:480 libraries/header.inc.php:161
@@ -1005,8 +1005,8 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Te kindlasti proovisite laadida liiga suurt faili. Palun uuri "
 "dokumentatsiooni %sdocumentation%s selle limiidi seadmiseks."
@@ -2660,8 +2660,8 @@ msgstr "Tere tulemast %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Arvatav põhjus on te pole veel loonud seadete faili. Soovitavalt võid "
 "kasutada %1$ssetup script%2$s et seadistada."
@@ -5789,8 +5789,8 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Seda väärtust on tõlgendatud kasutades %1$sstrftime%2$s, sa võid kasutada "
 "sama aja(time) formaati. Lisaks tulevad ka järgnevad muudatused: %3$s. "
@@ -6534,8 +6534,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -9564,8 +9564,8 @@ msgstr "Kustuta andmebaasid millel on samad nimed nagu kasutajatel."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Märkus: phpMyAdmin võtab kasutajate privileegid otse MySQL privileges "
 "tabelist. Tabeli sisu võib erineda sellest, mida server hetkel kasutab, seda "
@@ -12500,8 +12500,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -12629,8 +12629,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: po/advisory_rules.php:115
@@ -13104,7 +13104,7 @@ msgstr ""
 msgid "Percentage of aborted connections"
 msgstr "maks. parallel ühendusi"
 
-#: po/advisory_rules.php:231
+#: po/advisory_rules.php:231 po/advisory_rules.php:236
 msgid "Too many connections are aborted."
 msgstr ""
 
@@ -13126,10 +13126,6 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "Rate of aborted connections"
 msgstr "maks. parallel ühendusi"
-
-#: po/advisory_rules.php:236
-msgid "Too many connections are aborted"
-msgstr ""
 
 #: po/advisory_rules.php:238
 #, php-format

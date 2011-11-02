@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-11-01 13:34+0100\n"
+"POT-Creation-Date: 2011-11-02 15:03-0400\n"
 "PO-Revision-Date: 2011-09-25 23:05+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
-"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -610,8 +610,8 @@ msgstr "Sporing er ikke aktiv."
 #: db_structure.php:450 libraries/display_tbl.lib.php:2346
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Viewet har som minimum dette antal rækker. Se venligst %sdokumentationen%s."
 
@@ -960,11 +960,11 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
-"Du har sandsynligvis forsøgt at uploade en for stor fil. Se venligst "
-"%sdokumentationen%s for måder hvorpå du kan arbejde dig uden om denne "
+"Du har sandsynligvis forsøgt at uploade en for stor fil. Se venligst %"
+"sdokumentationen%s for måder hvorpå du kan arbejde dig uden om denne "
 "begrænsning."
 
 #: import.php:170 import.php:419
@@ -2497,8 +2497,8 @@ msgstr "Velkommen til %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Sandsynlig årsag til dette er at du ikke har oprettet en konfigurationsfil. "
 "Du kan bruge %1$sopsætningsscriptet%2$s til at oprette en."
@@ -5619,8 +5619,8 @@ msgstr ", @TABLE@ vil blive tabelnavnet"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Denne værdi fortolkes via %1$sstrftime%2$s, så du kan bruge tidsformatterede "
 "strenge. Ydermere vil følgende transformationer foregå: %3$s. Anden tekst "
@@ -6364,8 +6364,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentation og yderliger information om PBXT kan findes på %sPrimeBase XT "
 "hjemmeside%s"
@@ -8475,8 +8475,8 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "phpMyAdmin configuration storage er ikke fuldstændigt konfigureret; nogle "
-"udvidede funktioner er blevet deaktiverede. For at finde ud af hvorfor klik "
-"%sher%s."
+"udvidede funktioner er blevet deaktiverede. For at finde ud af hvorfor klik %"
+"sher%s."
 
 #: main.php:317
 msgid ""
@@ -9212,14 +9212,14 @@ msgstr "Drop databaser der har samme navne som brugernes."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Bemærk: phpMyAdmin henter brugernes privilegier direkte fra MySQLs "
 "privilegietabeller. Indholdet af disse tabeller kan være forskelligt fra "
 "privilegierne serveren i øjeblikket bruger hvis der er lavet manuelle "
-"ændringer i den. Hvis dette er tilfældet, bør du %sgenindlæse privilegierne"
-"%s før du fortsætter."
+"ændringer i den. Hvis dette er tilfældet, bør du %sgenindlæse privilegierne%"
+"s før du fortsætter."
 
 #: server_privileges.php:1854
 msgid "The selected user was not found in the privilege table."
@@ -11021,10 +11021,10 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-" Hvis du føler, at dette er nødvendigt, brug yderligere sikring -  "
-"%sværtsautentifikation%s indstillinger og %sbetroet proxy liste%s. IP-"
-"baseret beskyttelse er næppe pålidelig, hvis din IP-adresse hører til en "
-"udbyder med mange tusinde brugere."
+" Hvis du føler, at dette er nødvendigt, brug yderligere sikring -  %"
+"sværtsautentifikation%s indstillinger og %sbetroet proxy liste%s. IP-baseret "
+"beskyttelse er næppe pålidelig, hvis din IP-adresse hører til en udbyder med "
+"mange tusinde brugere."
 
 #: setup/lib/index.lib.php:292
 #, php-format
@@ -11038,8 +11038,8 @@ msgstr ""
 "Du har sat  [kbd]config[/kbd] autentifikation og inkluderet brugernavn og "
 "adgangskode for auto-login, hvilket er ikke en ønskværdig konfiguration for "
 "produktionssystemer. Enhver som kender eller gætter din phpMyAdmin URL kan "
-"direkte få adgang til dit phpMyAdmin panel for denne server. Sæt "
-"%sautentifikationstype%s til [kbd]cookie[/kbd] eller [kbd]http[/kbd]."
+"direkte få adgang til dit phpMyAdmin panel for denne server. Sæt %"
+"sautentifikationstype%s til [kbd]cookie[/kbd] eller [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:294
 #, php-format
@@ -12174,8 +12174,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "Det aktuelle forhold mellem ledig og total forespørgselsmellemlager er %s%%. "
 "Det bør være over 80%% "
@@ -12328,8 +12328,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "%s%% af alle sorteringer bruger midlertidige tabeller. Denne værdi bør være "
 "mindre end 10%%."
@@ -12870,7 +12870,7 @@ msgstr ""
 msgid "Percentage of aborted connections"
 msgstr "Procentdel af aborterede forbindelser"
 
-#: po/advisory_rules.php:231
+#: po/advisory_rules.php:231 po/advisory_rules.php:236
 msgid "Too many connections are aborted."
 msgstr "For mange forbindelser er aborterede."
 
@@ -12894,10 +12894,6 @@ msgstr "%s%% af alle forbindelser er aborteret. Denne værdi bør være under 1%
 #: po/advisory_rules.php:235
 msgid "Rate of aborted connections"
 msgstr "Frekvens af aborterede forbindelser"
-
-#: po/advisory_rules.php:236
-msgid "Too many connections are aborted"
-msgstr "For mange forbindelser er aborteret."
 
 #: po/advisory_rules.php:238
 #, php-format
@@ -13103,6 +13099,9 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert er sat til 0"
+
+#~ msgid "Too many connections are aborted"
+#~ msgstr "For mange forbindelser er aborteret."
 
 #~ msgid "+ Restart insertion and add a new value"
 #~ msgstr "+ Genstart indsættelse og tilføj ny værdi"
