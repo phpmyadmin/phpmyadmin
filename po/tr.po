@@ -4600,6 +4600,8 @@ msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
 msgstr ""
+"Yapılandırma depolamasını tutmak için alternatif anamakine; zaten "
+"tanımlanmış anamakineyi kullanmak için boş bırakın"
 
 #: libraries/config/messages.inc.php:386
 #, fuzzy
