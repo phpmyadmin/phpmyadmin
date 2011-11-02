@@ -65,7 +65,10 @@ h2 a img{display:inline;}
 
 .data{
 margin: 0 0 12px 0;
+}
 
+#table_results td.data {
+border-right: 1px solid #444444;
 }
 
 h3 {
@@ -372,9 +375,10 @@ table tr.odd th,
 }
 
 /* even items 2,4,6,8,... */
+/* (tested on CRTs and ACLs) */
 table tr.even th,
 .even {
-    background: #f3f3f3;
+    background: #DFDFDF;
 }
 
 /* odd table rows 1,3,5,7,... */
