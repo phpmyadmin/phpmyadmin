@@ -1270,6 +1270,11 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
+"La configurazione della posizione dei grafici salvata nel local storage del "
+"browser non è più compatibile con la nuova versione del dialogo di "
+"monitorizzazione. È molto probabile che le impostazioni correnti non "
+"funzionino. Siete pregati di ripristinare ai valori iniziali queste "
+"impostazioni nel menù <i>Settings</i>."
 
 #: js/messages.php:96
 #, fuzzy
