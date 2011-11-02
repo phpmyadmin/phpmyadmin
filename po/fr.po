@@ -12898,7 +12898,7 @@ msgstr "La cache des fils d'exécution n'est pas optimale."
 
 #: po/advisory_rules.php:212
 msgid "Increase {thread_cache_size}."
-msgstr ""
+msgstr "Augmentez {thread_cache_size}."
 
 #: po/advisory_rules.php:213
 #, php-format
