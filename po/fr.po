@@ -13024,6 +13024,7 @@ msgstr ""
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"Le taux de connexions avortées est de %s, devrait être moins de 1 à l'heure"
 
 #: po/advisory_rules.php:240
 #, fuzzy
