@@ -1732,10 +1732,10 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Depolanan işlevin tanımı RETURN ifadesi içermek zorunda!"
 
 #: js/messages.php:248
-#, fuzzy, php-format
+#, php-format
 #| msgid "+ Add a value"
 msgid "Add %d value(s)"
-msgstr "+ Bir değer ekle"
+msgstr "%d değer ekle"
 
 #: js/messages.php:251
 msgid ""
