@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-01 13:34+0100\n"
-"PO-Revision-Date: 2011-11-02 11:55+0200\n"
+"PO-Revision-Date: 2011-11-02 11:56+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -12837,10 +12837,9 @@ msgid "Immediate table locks %%"
 msgstr "Pourcentage de verrouillage de tables"
 
 #: po/advisory_rules.php:196 po/advisory_rules.php:201
-#, fuzzy
 #| msgid "The number of times that a table lock was acquired immediately."
 msgid "Too many table locks were not granted immediately."
-msgstr "Le nombre de fois qu'un verrou de table a été acquis immédiatement."
+msgstr "Trop de verrous de table n'ont pas été acquis immédiatement."
 
 #: po/advisory_rules.php:197 po/advisory_rules.php:202
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
