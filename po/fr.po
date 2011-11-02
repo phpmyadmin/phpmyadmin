@@ -12990,7 +12990,7 @@ msgstr "Pourcentage de connexions avortées"
 
 #: po/advisory_rules.php:231
 msgid "Too many connections are aborted."
-msgstr ""
+msgstr "Trop de connexions ont avorté."
 
 #: po/advisory_rules.php:232 po/advisory_rules.php:237
 msgid ""
