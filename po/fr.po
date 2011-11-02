@@ -12921,6 +12921,8 @@ msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
 msgstr ""
+"Ceci survient habituellement en cas de surcharge générale du système. "
+"Veuillez surveiller la charge du système."
 
 #: po/advisory_rules.php:218
 #, php-format
