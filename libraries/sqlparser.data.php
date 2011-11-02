@@ -657,6 +657,7 @@ $PMA_SQPdata_reserved_word = array (
     'TO',
     'TRAILING',
     'TRANSACTIONAL',    // 5.1 ?
+    'TRUE',
     'TRUNCATE',
     'TYPE',
     'TYPES',
@@ -684,7 +685,7 @@ $PMA_SQPdata_reserved_word = array (
  *
  * @global integer MySQL reserved words count
  */
-$PMA_SQPdata_reserved_word_cnt = 287;
+$PMA_SQPdata_reserved_word_cnt = 288;
 
 /**
  * words forbidden to be used as column or table name wihtout quotes
