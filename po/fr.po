@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-01 13:34+0100\n"
-"PO-Revision-Date: 2011-11-02 11:58+0200\n"
+"PO-Revision-Date: 2011-11-02 18:57+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -12860,6 +12860,8 @@ msgstr "Taux d'attente de verrrouillage de tables"
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
+"Taux d'attente de verrrouillage de tables : %s, cette valeur devrait être de "
+"moins de 1 à l'heure"
 
 #: po/advisory_rules.php:205
 #, fuzzy
