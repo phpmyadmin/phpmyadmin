@@ -13079,7 +13079,7 @@ msgstr "InnoDB est généralement le meilleur choix de moteur de stockage."
 
 #: po/advisory_rules.php:253
 msgid "have_innodb is set to 'value'"
-msgstr ""
+msgstr "have_innodb est réglé à 'value'"
 
 #: po/advisory_rules.php:255
 #, fuzzy
