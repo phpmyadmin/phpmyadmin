@@ -62,6 +62,7 @@ phpMyAdmin - ChangeLog
 - bug #3427256 [interface] no links to browse/empty views and tables
 - bug #3430377 [interface] Deleted search results remain visible
 - bug #3428627 [import] ODS import ignores memory limits
+- bug #3426836 [interface] Visual column separation
 
 3.4.7.0 (2011-10-23)
 - bug #3418610 [interface] Links in navigation when $cfg['MainPageIconic'] = false

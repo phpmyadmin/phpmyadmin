@@ -57,7 +57,6 @@ h2 {
 h2 img{display:none;}
 h2 a img{display:inline;}
 
-
 .data,
 .data_full_width {
     margin: 0 0 12px 0;
@@ -65,6 +64,10 @@ h2 a img{display:inline;}
 
 .data_full_width {
     width: 100%;
+}
+
+#table_results td.data {
+border-right: 1px solid #444444;
 }
 
 h3 {
@@ -367,9 +370,10 @@ table tr.odd th,
 }
 
 /* even items 2,4,6,8,... */
+/* (tested on CRTs and ACLs) */
 table tr.even th,
 .even {
-    background: #f3f3f3;
+    background: #DFDFDF;
     <?php echo $_SESSION['PMA_Theme']->getCssIEClearFilter(); ?>
 }
 
