@@ -3295,10 +3295,9 @@ msgstr ""
 "CHAR et VARCHAR"
 
 #: libraries/config/messages.inc.php:37
-#, fuzzy
 #| msgid "Maximum size for temporary sort files"
 msgid "Maximum size for input field"
-msgstr "Taille maximum pour les fichiers de tri temporaires"
+msgstr "Taille maximum pour les champs de saisie"
 
 #: libraries/config/messages.inc.php:38
 msgid "Number of columns for CHAR/VARCHAR textareas"
