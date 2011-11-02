@@ -13087,12 +13087,13 @@ msgid "InnoDB log size"
 msgstr "Taille du journal InnoDB"
 
 #: po/advisory_rules.php:256
-#, fuzzy
 #| msgid "The number writes done to the InnoDB buffer pool."
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
-msgstr "Le nombre d'écritures faites dans la réserve InnoDB."
+msgstr ""
+"La taille du journal InnoDB n'est pas appropriée, en tenant compte du pool "
+"de mémoire tampon InnoDB."
 
 #: po/advisory_rules.php:257
 #, php-format
