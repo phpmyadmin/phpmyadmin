@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-01 13:34+0100\n"
-"PO-Revision-Date: 2011-11-02 11:45+0200\n"
+"PO-Revision-Date: 2011-11-02 11:48+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -4627,10 +4627,9 @@ msgstr ""
 "utiliser le serveur déjà défini"
 
 #: libraries/config/messages.inc.php:386
-#, fuzzy
 #| msgid "Control user"
 msgid "Control host"
-msgstr "Utilisateur de contrôle"
+msgstr "Serveur de contrôle"
 
 #: libraries/config/messages.inc.php:387
 msgid "Count tables when showing database list"
