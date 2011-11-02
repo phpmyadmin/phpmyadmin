@@ -4589,10 +4589,13 @@ msgid "Control user"
 msgstr "Krmilni uporabnik"
 
 #: libraries/config/messages.inc.php:385
+#, fuzzy
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
 msgstr ""
+"Nadomestni gostitelj, ki ima shrambo konfiguracije; pustite prazno, če "
+"želite uporabiti že opredeljen gostitelj"
 
 #: libraries/config/messages.inc.php:386
 #, fuzzy
