@@ -12886,10 +12886,10 @@ msgid "The thread cache is set to 0"
 msgstr "La taille de cache des fils d'exécution est de 0"
 
 #: po/advisory_rules.php:210
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is not active."
 msgid "Thread cache hit rate %%"
-msgstr "Le suivi n'est pas activé."
+msgstr "Taux de succès de la cache des fils d'exécution en %%"
 
 #: po/advisory_rules.php:211
 #, fuzzy
