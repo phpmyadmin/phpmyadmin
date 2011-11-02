@@ -383,7 +383,7 @@ rule 'Percentage of aborted connections'
 rule 'Rate of aborted connections'
 	Aborted_connects / Uptime
 	value * 60 * 60 > 1
-	Too many connections are aborted
+	Too many connections are aborted.
 	Connections are usually aborted when they cannot be authorized. <a href="http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-source-of-aborted_connects/">This article</a> might help you track down the source.
 	Aborted connections rate is at %s, this value should be less than 1 per hour | PMA_bytime(value,2)
 
