@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-01 13:34+0100\n"
-"PO-Revision-Date: 2011-11-02 11:15+0200\n"
+"PO-Revision-Date: 2011-11-02 11:17+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -818,10 +818,9 @@ msgid "Enter each value in a separate field"
 msgstr "Her bir değeri ayrı alana girin"
 
 #: enum_editor.php:121
-#, fuzzy
 #| msgid "+ Add a value"
 msgid "Add a value"
-msgstr "+ Bir değer ekle"
+msgstr "Bir değer ekle"
 
 #: enum_editor.php:127 gis_data_editor.php:317
 msgid "Output"
