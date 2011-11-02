@@ -3291,6 +3291,8 @@ msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"Définit la taille maximum des champs de saisie générés pour les colonnes "
+"CHAR et VARCHAR"
 
 #: libraries/config/messages.inc.php:37
 #, fuzzy
