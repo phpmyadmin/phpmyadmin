@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-01 13:34+0100\n"
 "PO-Revision-Date: 2011-11-02 20:22+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -829,7 +829,7 @@ msgstr "Inserisci ogni valore in un campo separato."
 #, fuzzy
 #| msgid "+ Add a value"
 msgid "Add a value"
-msgstr "+ Aggiungi un valore"
+msgstr "Aggiungi un valore"
 
 #: enum_editor.php:127 gis_data_editor.php:317
 msgid "Output"
