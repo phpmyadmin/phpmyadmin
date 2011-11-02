@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-11-02 15:27-0400\n"
+"POT-Creation-Date: 2011-11-02 15:30-0400\n"
 "PO-Revision-Date: 2011-09-25 23:05+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
@@ -13050,8 +13050,9 @@ msgstr ""
 "proper-way.html\\\">dette blogindlæg</a>"
 
 #: po/advisory_rules.php:263
-#, php-format
-msgid "Your absolute InnoD log size is %s MiB"
+#, fuzzy, php-format
+#| msgid "Your absolute InnoD log size is %s MiB"
+msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "Din absolutte InnoDB logstørrelse er %s MiB"
 
 #: po/advisory_rules.php:265
