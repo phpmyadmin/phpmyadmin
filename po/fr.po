@@ -12787,10 +12787,9 @@ msgstr ""
 "par heure"
 
 #: po/advisory_rules.php:185
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of used open files limit"
-msgstr "Format du fichier d'importation"
+msgstr "Pourcentage du nombre de fichiers ouverts"
 
 #: po/advisory_rules.php:186
 msgid ""
