@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-01 13:34+0100\n"
-"PO-Revision-Date: 2011-11-01 12:02+0200\n"
-"Last-Translator: Anonymous Pootle User\n"
+"PO-Revision-Date: 2011-11-02 11:14+0200\n"
+"Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -802,10 +802,9 @@ msgid "ENUM/SET editor"
 msgstr "ENUM/SET düzenleyci"
 
 #: enum_editor.php:28 js/messages.php:246
-#, fuzzy
 #| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
-msgstr "\"%s\" sütunu için değerler"
+msgstr "Yeni bir sütun için değerler"
 
 #: enum_editor.php:30 js/messages.php:245
 #, fuzzy, php-format
