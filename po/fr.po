@@ -12844,6 +12844,8 @@ msgstr "Trop de verrous de table n'ont pas été acquis immédiatement."
 #: po/advisory_rules.php:197 po/advisory_rules.php:202
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
+"Optimisez les requêtes ou passez à InnoDB pour réduire le temps d'attente de "
+"verrous."
 
 #: po/advisory_rules.php:198
 #, php-format
