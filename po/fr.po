@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-01 13:34+0100\n"
-"PO-Revision-Date: 2011-11-02 11:42+0200\n"
+"PO-Revision-Date: 2011-11-02 11:43+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -3278,6 +3278,8 @@ msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"Définit la taille minimum des champs de saisie générés pour les colonnes "
+"CHAR et VARCHAR"
 
 #: libraries/config/messages.inc.php:35
 #, fuzzy
