@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-01 13:34+0100\n"
-"PO-Revision-Date: 2011-11-02 11:54+0200\n"
+"PO-Revision-Date: 2011-11-02 11:55+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -12831,10 +12831,10 @@ msgstr ""
 "l'heure"
 
 #: po/advisory_rules.php:195
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Immediate table locks %%"
-msgstr "Créer une nouvelle table sur la base %s"
+msgstr "Pourcentage de verrous de tables"
 
 #: po/advisory_rules.php:196 po/advisory_rules.php:201
 #, fuzzy
