@@ -13061,6 +13061,8 @@ msgstr "Taux de coupure de clients"
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"Le taux de coupure de clients est de %s, cette valeur devrait être moins de "
+"1 à l'heure"
 
 #: po/advisory_rules.php:250
 msgid "Is InnoDB disabled?"
