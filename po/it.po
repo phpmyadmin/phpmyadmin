@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-01 13:34+0100\n"
 "PO-Revision-Date: 2011-11-02 20:23+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -956,7 +956,7 @@ msgstr "Poligono"
 #, fuzzy
 #| msgid "Add column"
 msgid "Add a polygon"
-msgstr "Aggiungi campo"
+msgstr "Aggiungi un poligono"
 
 #: gis_data_editor.php:310
 #, fuzzy
