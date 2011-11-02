@@ -641,6 +641,7 @@ $PMA_SQPdata_reserved_word = array (
     'TO',
     'TRAILING',
     'TRANSACTIONAL',    // 5.1 ?
+    'TRUE',
     'TRUNCATE',
     'TYPE',
     'TYPES',
