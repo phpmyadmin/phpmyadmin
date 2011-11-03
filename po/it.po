@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-10-16 13:57+0200\n"
-"Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
+"PO-Revision-Date: 2011-11-02 20:32+0200\n"
+"Last-Translator: any anonymous user <>\n"
 "Language-Team: italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.1.6\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:326
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1673
@@ -805,13 +805,13 @@ msgstr "Log database"
 #: enum_editor.php:23 js/messages.php:244
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "Editor di ENUM/SET"
 
 #: enum_editor.php:28 js/messages.php:246
 #, fuzzy
 #| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
-msgstr "Valori per il campo \"%s\""
+msgstr "Valori per un nuovo campo"
 
 #: enum_editor.php:30 js/messages.php:245
 #, fuzzy, php-format
@@ -829,7 +829,7 @@ msgstr "Inserisci ogni valore in un campo separato."
 #, fuzzy
 #| msgid "+ Add a value"
 msgid "Add a value"
-msgstr "+ Aggiungi un valore"
+msgstr "Aggiungi un valore"
 
 #: enum_editor.php:127 gis_data_editor.php:317
 msgid "Output"
@@ -950,25 +950,27 @@ msgstr "Aggiungi un nuovo utente"
 
 #: gis_data_editor.php:266 js/messages.php:298
 msgid "Polygon"
-msgstr ""
+msgstr "Poligono"
 
 #: gis_data_editor.php:306 js/messages.php:304
 #, fuzzy
 #| msgid "Add column"
 msgid "Add a polygon"
-msgstr "Aggiungi campo"
+msgstr "Aggiungi un poligono"
 
 #: gis_data_editor.php:310
 #, fuzzy
 #| msgid "Geometry"
 msgid "Add geometry"
-msgstr "Geometria"
+msgstr "Aggiungi una geometria"
 
 #: gis_data_editor.php:318
 msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
+"Seleziona \"GeomFromText\" nella colonna \"Funzione\" ed incolla la stringa "
+"sottostante nel campo \"Valore\""
 
 #: import.php:57
 #, php-format
@@ -1020,6 +1022,8 @@ msgstr ""
 msgid ""
 "Cannot convert file's character set without character set conversion library"
 msgstr ""
+"Impossibile convertire il set di caratteri del file in assenza di una "
+"libreria di conversione dei caratteri installata"
 
 #: import.php:390 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -1266,24 +1270,29 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
+"La configurazione della posizione dei grafici salvata nel local storage del "
+"browser non è più compatibile con la nuova versione del dialogo di "
+"monitorizzazione. È molto probabile che le impostazioni correnti non "
+"funzionino. Sei pregato di ripristinare queste impostazioni ai valori "
+"iniziali nel menù <i>Settings</i>."
 
 #: js/messages.php:96
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query cache efficiency"
-msgstr "Cache delle query"
+msgstr "Efficienza della cache delle query"
 
 #: js/messages.php:97
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
-msgstr "Cache delle query"
+msgstr "Utilizzo della cache delle query"
 
 #: js/messages.php:98
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
-msgstr "Cache delle query"
+msgstr "Cache delle query utilizzata"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
@@ -1315,7 +1324,7 @@ msgstr "Carico medio"
 #, fuzzy
 #| msgid "System memory"
 msgid "Total memory"
-msgstr "Memoria"
+msgstr "Memoria totale"
 
 #: js/messages.php:108
 #, fuzzy
@@ -1333,19 +1342,19 @@ msgstr "Buffer Pool"
 #, fuzzy
 #| msgid "System memory"
 msgid "Free memory"
-msgstr "Memoria"
+msgstr "Memoria libera"
 
 #: js/messages.php:111
 #, fuzzy
 #| msgid "System memory"
 msgid "Used memory"
-msgstr "Memoria"
+msgstr "Memoria utilizzata"
 
 #: js/messages.php:113
 #, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "Totale"
+msgstr "Swap totale"
 
 #: js/messages.php:114
 msgid "Cached Swap"
@@ -1353,7 +1362,7 @@ msgstr ""
 
 #: js/messages.php:115
 msgid "Used Swap"
-msgstr ""
+msgstr "Swap utilizzata"
 
 #: js/messages.php:116
 #, fuzzy
@@ -1363,13 +1372,13 @@ msgstr "Pagine libere"
 
 #: js/messages.php:118
 msgid "Bytes sent"
-msgstr ""
+msgstr "Byte inviati"
 
 #: js/messages.php:119
 #, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "Ricevuti"
+msgstr "Byte ricevuti"
 
 #: js/messages.php:120 server_status.php:1134
 msgid "Connections"
@@ -1397,7 +1406,7 @@ msgstr "Rimuovi il diagramma"
 #, fuzzy
 #| msgid "Edit labels and series"
 msgid "Edit title and labels"
-msgstr "Modifica le etichette e le serie"
+msgstr "Modifica titoli ed etichette"
 
 #: js/messages.php:129
 msgid "Add chart to grid"
@@ -1554,9 +1563,9 @@ msgid ""
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
-"Questo campo mostra il numero di query identiche. Tuttavia solo il testo SQL "
-"é confrontato, quindi gli altro attributi delle query, come lo 'start time' "
-"potrebbero essere diversi."
+"Questo campo mostra il numero di query identiche raggruppate. Tuttavia il "
+"raggruppamento è fatto in base al testo che costituisce la query SQL, quindi "
+"altri attributi, come lo 'start time', potrebbero essere diversi."
 
 #: js/messages.php:166
 msgid ""
@@ -1598,7 +1607,7 @@ msgstr "Filtra"
 
 #: js/messages.php:176
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "Filtra query per parola/regexp:"
 
 #: js/messages.php:177
 msgid "Group queries, ignoring variable data in WHERE clauses"
@@ -1608,7 +1617,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
-msgstr "Il numero di righe inserite"
+msgstr "Somma delle righe raggruppate:"
 
 #: js/messages.php:179
 msgid "Total:"
@@ -1620,7 +1629,7 @@ msgstr "Caricamento dei log in corso"
 
 #: js/messages.php:182
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "L'aggiornamento del monitor é fallito"
 
 #: js/messages.php:183
 msgid ""
@@ -1637,7 +1646,7 @@ msgstr "Ricarica"
 
 #: js/messages.php:186
 msgid "Affected rows:"
-msgstr ""
+msgstr "Righe coinvolte:"
 
 #: js/messages.php:188
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
