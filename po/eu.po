@@ -942,10 +942,9 @@ msgid "Inner Ring"
 msgstr "Barne eraztuna"
 
 #: gis_data_editor.php:252
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Erabiltzaile berria gehitu"
+msgstr "Lerro kate berria gehitu"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:303
 #, fuzzy
