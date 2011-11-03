@@ -817,7 +817,7 @@ msgstr "Datu-basea egunkaria"
 #: enum_editor.php:23 js/messages.php:244
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "ENUM/SET editorea"
 
 #: enum_editor.php:28 js/messages.php:246
 #, fuzzy
