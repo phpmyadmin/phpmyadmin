@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-11-03 13:54+0200\n"
+"PO-Revision-Date: 2011-11-03 13:56+0200\n"
 "Last-Translator: karrikas <karrikas@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -737,7 +737,7 @@ msgstr "Datu-hiztegia"
 
 #: db_tracking.php:79
 msgid "Tracked tables"
-msgstr ""
+msgstr "Taulak jarraipenarekin"
 
 #: db_tracking.php:84 libraries/config/messages.inc.php:502
 #: libraries/export/htmlword.php:78 libraries/export/latex.php:151
