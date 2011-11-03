@@ -1078,7 +1078,7 @@ msgstr "Datu-base osoa SUNTSITZERA zoaz!"
 
 #: js/messages.php:34
 msgid "You are about to DESTROY a complete table!"
-msgstr ""
+msgstr "Taula oso bat SUNTSITZERA zoaz!"
 
 #: js/messages.php:35
 msgid "You are about to TRUNCATE a complete table!"
