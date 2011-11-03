@@ -833,9 +833,8 @@ msgid "Enter each value in a separate field"
 msgstr "Sartu balioak banatutako eremuetan"
 
 #: enum_editor.php:121
-#, fuzzy
 msgid "Add a value"
-msgstr "Erabiltzaile berria gehitu"
+msgstr "Balio gehitu"
 
 #: enum_editor.php:127 gis_data_editor.php:317
 msgid "Output"
