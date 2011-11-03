@@ -807,9 +807,8 @@ msgid "Untracked tables"
 msgstr "Jarraipen gabeko taulak"
 
 #: db_tracking.php:199 tbl_structure.php:638
-#, fuzzy
 msgid "Track table"
-msgstr "Taula egiaztatu"
+msgstr "Taularen jarraipena egin"
 
 #: db_tracking.php:225
 msgid "Database Log"
