@@ -927,10 +927,9 @@ msgid "Add a point"
 msgstr "Puntua gehitu"
 
 #: gis_data_editor.php:220 js/messages.php:297
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Honetan bukatutako lerroak: "
+msgstr "Lerro kateak"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:301
 #, fuzzy
