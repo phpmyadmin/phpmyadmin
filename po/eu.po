@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-11-03 14:16+0200\n"
+"PO-Revision-Date: 2011-11-03 14:17+0200\n"
 "Last-Translator: karrikas <karrikas@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -589,7 +589,7 @@ msgstr "Hitzak zuriune karakterrarekin berezituta daude (\" \")."
 
 #: db_search.php:300
 msgid "Inside tables:"
-msgstr "Taul(ar)en barnean:"
+msgstr "Taulen barnean:"
 
 #: db_search.php:330
 msgid "Inside column:"
