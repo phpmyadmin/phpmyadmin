@@ -842,7 +842,7 @@ msgstr "Irteera"
 
 #: enum_editor.php:128
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr ""
+msgstr "Kopiatu eta itsatsi batutako balioak \"Luzera/Balioak\" eremuan"
 
 #: export.php:29
 msgid "Bad type!"
