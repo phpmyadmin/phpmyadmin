@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-11-03 14:03+0200\n"
+"PO-Revision-Date: 2011-11-03 14:04+0200\n"
 "Last-Translator: karrikas <karrikas@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -1085,10 +1085,9 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr ""
 
 #: js/messages.php:37
-#, fuzzy
 #| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
-msgstr "Datuak txertatu eta ordezkatzea baimentzen du."
+msgstr "Jarraipen datuak ezabatzen"
 
 #: js/messages.php:38
 #, fuzzy
