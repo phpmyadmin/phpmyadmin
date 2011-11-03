@@ -796,7 +796,7 @@ msgstr "Bertsioak"
 
 #: db_tracking.php:135 tbl_tracking.php:400 tbl_tracking.php:668
 msgid "Tracking report"
-msgstr ""
+msgstr "Jarraipen informea "
 
 #: db_tracking.php:136 tbl_tracking.php:235 tbl_tracking.php:670
 msgid "Structure snapshot"
