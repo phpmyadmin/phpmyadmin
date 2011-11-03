@@ -295,9 +295,8 @@ msgid "Drop the database (DROP)"
 msgstr "Datu-basea ezabatu (DROP)"
 
 #: db_operations.php:478
-#, fuzzy
 msgid "Copy database to"
-msgstr "Datu-baserik ez"
+msgstr "Datu-basea kopiatu "
 
 #: db_operations.php:485 tbl_operations.php:552 tbl_tracking.php:409
 msgid "Structure only"
