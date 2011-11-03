@@ -1101,7 +1101,7 @@ msgstr "Eragiketa honek luze jo lezake. Jarraitu nahi?"
 
 #: js/messages.php:42
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr ""
+msgstr "BLOG biltegi bat DESGAITZERA zoaz!"
 
 #: js/messages.php:43
 #, php-format
