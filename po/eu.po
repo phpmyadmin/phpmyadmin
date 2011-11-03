@@ -978,9 +978,8 @@ msgid ""
 msgstr ""
 
 #: import.php:170 import.php:419
-#, fuzzy
 msgid "Showing bookmark"
-msgstr "Erakutsi laster-markak"
+msgstr "Erakutsi laster-marka"
 
 #: import.php:180 import.php:415
 msgid "The bookmark has been deleted."
