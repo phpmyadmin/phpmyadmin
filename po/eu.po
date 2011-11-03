@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-11-03 13:59+0200\n"
+"PO-Revision-Date: 2011-11-03 14:00+0200\n"
 "Last-Translator: karrikas <karrikas@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -894,7 +894,7 @@ msgstr "Erabili OpenStreetMaps Oinarri geruza moduan"
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:299
 #: libraries/display_tbl.lib.php:685
