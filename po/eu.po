@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-11-03 14:02+0200\n"
+"PO-Revision-Date: 2011-11-03 14:03+0200\n"
 "Last-Translator: karrikas <karrikas@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -1074,7 +1074,7 @@ msgstr "Benetan nahi al duzu "
 
 #: js/messages.php:33 libraries/mult_submits.inc.php:282 sql.php:333
 msgid "You are about to DESTROY a complete database!"
-msgstr ""
+msgstr "Datu-base osoa SUNTSITZERA zoaz!"
 
 #: js/messages.php:34
 msgid "You are about to DESTROY a complete table!"
