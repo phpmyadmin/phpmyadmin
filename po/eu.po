@@ -331,9 +331,8 @@ msgid "Add constraints"
 msgstr "Murrizketak gehitu"
 
 #: db_operations.php:519
-#, fuzzy
 msgid "Switch to copied database"
-msgstr "Kopiatutako taulara aldatu"
+msgstr "Kopiatutako datu-basea hautatu "
 
 #: db_operations.php:542 libraries/Index.class.php:438
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
