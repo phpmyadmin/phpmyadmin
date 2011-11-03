@@ -12933,10 +12933,10 @@ msgstr ""
 "fils d'exécution qui sont lents à démarrer"
 
 #: po/advisory_rules.php:223
-#, php-format
+#, fuzzy, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "slow_launch_time is set to %s"
-msgstr "slow_launch_time est réglé à %d seconde(s)."
+msgstr "slow_launch_time est réglé à %s seconde(s)."
 
 #: po/advisory_rules.php:225
 #| msgid "Persistent connections"
