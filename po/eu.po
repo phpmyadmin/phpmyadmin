@@ -820,9 +820,8 @@ msgid "ENUM/SET editor"
 msgstr "ENUM/SET editorea"
 
 #: enum_editor.php:28 js/messages.php:246
-#, fuzzy
 msgid "Values for a new column"
-msgstr "\"%s\" zutaberako balioak"
+msgstr "Zutabe berrirako balioak"
 
 #: enum_editor.php:30 js/messages.php:245
 #, fuzzy, php-format
