@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-11-04 10:09+0200\n"
+"PO-Revision-Date: 2011-11-04 10:10+0200\n"
 "Last-Translator: stoyan <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -5366,7 +5366,7 @@ msgstr "Потребителско - всички настройки"
 
 #: libraries/display_export.lib.php:132
 msgid "Database(s):"
-msgstr "База(и) данни:"
+msgstr "БД:"
 
 #: libraries/display_export.lib.php:134
 msgid "Table(s):"
