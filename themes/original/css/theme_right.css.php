@@ -867,6 +867,8 @@ div#tablestatistics table {
     background: white;
     font-weight:        bold;
     padding-bottom: 0.5em;
+    width: 10000px;
+    overflow: hidden;
 }
 
 #serverinfo .item {

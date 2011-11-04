@@ -1077,9 +1077,10 @@ div#tablestatistics table {
 #serverinfo {
     border-bottom:1px solid #fff;
     background:#888;
-    padding: 0.3em 1em;
+    padding: 0.3em 0.9em;
     text-shadow:0 1px 0 #000000;
-    width: 100%;
+    width: 10000px;
+    overflow: hidden;
 }
 
 #serverinfo .item {
