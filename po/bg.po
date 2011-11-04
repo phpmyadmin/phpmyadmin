@@ -932,7 +932,7 @@ msgstr "Вътрешен пръстен"
 #, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Добавяне потребител"
+msgstr "Добавяне LineString"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:303
 msgid "Add an inner ring"
