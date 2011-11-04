@@ -10157,7 +10157,7 @@ msgstr "Изтриване колона(и)"
 
 #: server_synchronize.php:445 server_synchronize.php:917
 msgid "Alter column(s)"
-msgstr "Промяна на колона(и)"
+msgstr "Промяна колона(и)"
 
 #: server_synchronize.php:446 server_synchronize.php:918
 msgid "Remove index(s)"
