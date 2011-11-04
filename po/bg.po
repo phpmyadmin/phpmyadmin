@@ -1554,7 +1554,7 @@ msgstr ""
 
 #: js/messages.php:178
 msgid "Sum of grouped rows:"
-msgstr "Брой групирани редове"
+msgstr "Брой групирани редове:"
 
 #: js/messages.php:179
 msgid "Total:"
