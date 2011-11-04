@@ -10149,7 +10149,7 @@ msgstr "Различия в данните"
 
 #: server_synchronize.php:443 server_synchronize.php:915
 msgid "Add column(s)"
-msgstr "Добавяне на колона(и)"
+msgstr "Добавяне колона(и)"
 
 #: server_synchronize.php:444 server_synchronize.php:916
 msgid "Remove column(s)"
