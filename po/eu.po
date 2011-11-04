@@ -124,7 +124,7 @@ msgstr ""
 "informazio gehiagorako"
 
 #: db_create.php:60
-#, fuzzy, php-format
+#, php-format
 msgid "Database %1$s has been created."
 msgstr "%1$s datu-basea sortua izan da."
 
@@ -263,17 +263,16 @@ msgid "Unselect All"
 msgstr "Desautatu dena"
 
 #: db_operations.php:41 tbl_create.php:22
-#, fuzzy
 msgid "The database name is empty!"
 msgstr "Datu-basearen izena hutsik dago!"
 
 #: db_operations.php:274
-#, fuzzy, php-format
+#, php-format
 msgid "Database %s has been renamed to %s"
 msgstr "%s datu-basea %s-(e)ra berrizendatua izan da"
 
 #: db_operations.php:278
-#, fuzzy, php-format
+#, php-format
 msgid "Database %s has been copied to %s"
 msgstr "%s datu-basea hona kopiatua izan da: %s."
 
@@ -345,7 +344,7 @@ msgid "Collation"
 msgstr "Ordenamendua"
 
 #: db_operations.php:555
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
@@ -421,7 +420,7 @@ msgid "You have to choose at least one column to display"
 msgstr "Gutxienez bistaratzeko Zutabe bat hautatu duzu."
 
 #: db_qbe.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "Switch to copied table"
 msgid "Switch to %svisual builder%s"
 msgstr "Aldatu %serakitzaile bisualrera%s"
@@ -545,7 +544,7 @@ msgid "Browse"
 msgstr "Arakatu"
 
 #: db_search.php:239
-#, fuzzy, php-format
+#, php-format
 #| msgid "Dumping data for table"
 msgid "Delete the matches for the %s table?"
 msgstr "%s taulako aukeratuak ezabatu"
@@ -574,7 +573,6 @@ msgid "Search in database"
 msgstr "Datu-basean bilatu"
 
 #: db_search.php:277
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Bilaketa egiteko hitza(k) edo balioa(k) (komodina: \"%\"):"
@@ -639,7 +637,6 @@ msgstr "Ikusipegia"
 #: db_structure.php:520 libraries/db_structure.lib.php:35
 #: libraries/server_links.inc.php:90 server_replication.php:31
 #: server_replication.php:162 server_status.php:588
-#, fuzzy
 msgid "Replication"
 msgstr "Ihardetsi"
 
@@ -648,7 +645,7 @@ msgid "Sum"
 msgstr "Gehiketa"
 
 #: db_structure.php:531 libraries/StorageEngine.class.php:331
-#, fuzzy, php-format
+#, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s da MySQL zerbitzarian lehenetsitako biltegiratzeko mota."
 
@@ -932,12 +929,10 @@ msgid "Linestring"
 msgstr "Lerro kateak"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:301
-#, fuzzy
 msgid "Outer Ring"
 msgstr "Kanpo eraztuna"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:300
-#, fuzzy
 msgid "Inner Ring"
 msgstr "Barne eraztuna"
 
@@ -947,7 +942,6 @@ msgid "Add a linestring"
 msgstr "Lerro kate berria gehitu"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:303
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
 msgstr "Gehitu barne eraztuna"
@@ -1016,7 +1010,7 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 
 #: import.php:421 sql.php:928
-#, fuzzy, php-format
+#, php-format
 msgid "Bookmark %s created"
 msgstr "%s laster-marka sortu da"
 
@@ -1090,12 +1084,10 @@ msgid "Deleting tracking data"
 msgstr "Jarraipen datuak ezabatzen"
 
 #: js/messages.php:38
-#, fuzzy
 msgid "Dropping Primary Key/Index"
 msgstr "Ezabatu Giltza nagusi/Indizea"
 
 #: js/messages.php:39
-#, fuzzy
 msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Eragiketa honek luze jo lezake. Jarraitu nahi?"
 
