@@ -4489,10 +4489,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:386
-#, fuzzy
 #| msgid "Control slave:"
 msgid "Control host"
-msgstr "Контролиране на подчинения:"
+msgstr ""
 
 #: libraries/config/messages.inc.php:387
 msgid "Count tables when showing database list"
