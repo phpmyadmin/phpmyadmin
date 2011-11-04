@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-11-04 12:59+0200\n"
+"PO-Revision-Date: 2011-11-04 13:00+0200\n"
 "Last-Translator: karrikas <karrikas@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -812,7 +812,7 @@ msgstr "Taularen jarraipena egin"
 
 #: db_tracking.php:225
 msgid "Database Log"
-msgstr "Datu-basea egunkaria"
+msgstr "Datu-base egunkaria"
 
 #: enum_editor.php:23 js/messages.php:244
 #: libraries/rte/rte_routines.lib.php:690
