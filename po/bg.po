@@ -11188,7 +11188,7 @@ msgstr "Създаване на версия %s от %s.%s"
 
 #: tbl_tracking.php:719
 msgid "Track these data definition statements:"
-msgstr "Проследяване следните изрази за дефиниране на данни"
+msgstr "Проследяване следните изрази за дефиниране на данни:"
 
 #: tbl_tracking.php:727
 msgid "Track these data manipulation statements:"
