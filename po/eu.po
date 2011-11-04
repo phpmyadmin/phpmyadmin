@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-10-26 19:39+0200\n"
-"Last-Translator:  <karrikas@gmail.com>\n"
+"PO-Revision-Date: 2011-11-03 14:17+0200\n"
+"Last-Translator: karrikas <karrikas@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
+"Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: eu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.1.6\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:326
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1673
@@ -111,9 +111,8 @@ msgid "Failed to fetch headers"
 msgstr "Akatsa goiburuak bilatzerakoan"
 
 #: bs_disp_as_mime_type.php:41
-#, fuzzy
 msgid "Failed to open remote URL"
-msgstr "Akatsa kompo esteka zabaltzerakoan"
+msgstr "Akatsa urruneko URLa zabaltzerakoan"
 
 #: changelog.php:32 license.php:28
 #, fuzzy, php-format
@@ -121,7 +120,7 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"%s filtxategia ez dago eskuragarri sisteman, joan www.phpmyadmin.net "
+"%s fitxategia ez dago eskuragarri sisteman, joan www.phpmyadmin.net "
 "informazio gehiagorako"
 
 #: db_create.php:60
@@ -292,14 +291,12 @@ msgid "Database %s has been dropped."
 msgstr "%s datu-basea ezabatua izan da."
 
 #: db_operations.php:449
-#, fuzzy
 msgid "Drop the database (DROP)"
-msgstr "Datu-baserik ez"
+msgstr "Datu-basea ezabatu (DROP)"
 
 #: db_operations.php:478
-#, fuzzy
 msgid "Copy database to"
-msgstr "Datu-baserik ez"
+msgstr "Datu-basea kopiatu "
 
 #: db_operations.php:485 tbl_operations.php:552 tbl_tracking.php:409
 msgid "Structure only"
@@ -315,7 +312,7 @@ msgstr "Datuak soilik"
 
 #: db_operations.php:495
 msgid "CREATE DATABASE before copying"
-msgstr ""
+msgstr "DATU-BASEA SORTU kopiatu aurretik "
 
 #: db_operations.php:498 libraries/config/messages.inc.php:128
 #: libraries/config/messages.inc.php:129 libraries/config/messages.inc.php:131
@@ -334,9 +331,8 @@ msgid "Add constraints"
 msgstr "Murrizketak gehitu"
 
 #: db_operations.php:519
-#, fuzzy
 msgid "Switch to copied database"
-msgstr "Kopiatutako taulara aldatu"
+msgstr "Kopiatutako datu-basea hautatu "
 
 #: db_operations.php:542 libraries/Index.class.php:438
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
@@ -361,10 +357,9 @@ msgstr ""
 "Zergatia jakiteko egizu klik %shemen%s."
 
 #: db_operations.php:589
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "Erlazio-eskema"
+msgstr "Aldatu edo esportatu erlazio-eskema"
 
 #: db_printview.php:101 db_tracking.php:85 db_tracking.php:186
 #: libraries/config/messages.inc.php:508 libraries/db_structure.lib.php:32
@@ -571,7 +566,7 @@ msgstr "Ezabatu"
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Guztira:</b> emaitza <i>%s</i> "
+msgstr[0] "<b>Guztira:</b> <i>%s</i> emaitza"
 msgstr[1] "<b>Guztira:</b> <i>%s</i> emaitza"
 
 #: db_search.php:274
@@ -590,11 +585,11 @@ msgstr "Aurkitu:"
 
 #: db_search.php:286 db_search.php:287
 msgid "Words are separated by a space character (\" \")."
-msgstr "Hitzak \"zuriune\" karakterrarekin bereiztuta daude (\" \")."
+msgstr "Hitzak zuriune karakterrarekin berezituta daude (\" \")."
 
 #: db_search.php:300
 msgid "Inside tables:"
-msgstr "Taul(ar)en barnean:"
+msgstr "Taulen barnean:"
 
 #: db_search.php:330
 msgid "Inside column:"
@@ -602,7 +597,7 @@ msgstr "Zutabearen barnean:"
 
 #: db_structure.php:67
 msgid "No tables found in database"
-msgstr "Ez da taularik aurkitu datu-basean."
+msgstr "Ez da taularik aurkitu datu-basean"
 
 #: db_structure.php:314 tbl_operations.php:692
 #, php-format
@@ -621,11 +616,11 @@ msgstr "%s taula ezabatu egin da"
 
 #: db_structure.php:337 tbl_create.php:270
 msgid "Tracking is active."
-msgstr ""
+msgstr "Jarraipena aktibatuta dago."
 
 #: db_structure.php:342 tbl_create.php:273
 msgid "Tracking is not active."
-msgstr ""
+msgstr "Jarraipena ez dago aktibatuta."
 
 #: db_structure.php:450 libraries/display_tbl.lib.php:2346
 #, php-format
@@ -633,6 +628,8 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
 "s."
 msgstr ""
+"Ikuspegi honek gutxienez errenkada kopuru hau dauka. Mesedez %sdocumentation"
+"%s erreferentzia egin."
 
 #: db_structure.php:466 db_structure.php:480 libraries/header.inc.php:161
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
@@ -740,7 +737,7 @@ msgstr "Datu-hiztegia"
 
 #: db_tracking.php:79
 msgid "Tracked tables"
-msgstr ""
+msgstr "Taulak jarraipenarekin"
 
 #: db_tracking.php:84 libraries/config/messages.inc.php:502
 #: libraries/export/htmlword.php:78 libraries/export/latex.php:151
@@ -783,7 +780,7 @@ msgstr "Ekintza"
 
 #: db_tracking.php:101 js/messages.php:36
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "Ezabatu taula honetako jarraipen datuak"
 
 #: db_tracking.php:119 tbl_tracking.php:590 tbl_tracking.php:648
 msgid "active"
@@ -799,7 +796,7 @@ msgstr "Bertsioak"
 
 #: db_tracking.php:135 tbl_tracking.php:400 tbl_tracking.php:668
 msgid "Tracking report"
-msgstr ""
+msgstr "Jarraipen informea "
 
 #: db_tracking.php:136 tbl_tracking.php:235 tbl_tracking.php:670
 msgid "Structure snapshot"
@@ -807,12 +804,11 @@ msgstr "Egitura kaptura"
 
 #: db_tracking.php:181
 msgid "Untracked tables"
-msgstr ""
+msgstr "Jarraipen gabeko taulak"
 
 #: db_tracking.php:199 tbl_structure.php:638
-#, fuzzy
 msgid "Track table"
-msgstr "Taula egiaztatu"
+msgstr "Taularen jarraipena egin"
 
 #: db_tracking.php:225
 msgid "Database Log"
@@ -821,27 +817,24 @@ msgstr "Datu-basea egunkaria"
 #: enum_editor.php:23 js/messages.php:244
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "ENUM/SET editorea"
 
 #: enum_editor.php:28 js/messages.php:246
-#, fuzzy
 msgid "Values for a new column"
-msgstr "\"%s\" zutaberako balioak"
+msgstr "Zutabe berrirako balioak"
 
 #: enum_editor.php:30 js/messages.php:245
-#, fuzzy, php-format
+#, php-format
 msgid "Values for column %s"
-msgstr "\"%s\" zutaberako balioak"
+msgstr "%s zutaberako balioak"
 
 #: enum_editor.php:34 js/messages.php:247
-#, fuzzy
 msgid "Enter each value in a separate field"
-msgstr "Sartu balioak banatutako eremuetan. "
+msgstr "Sartu balioak banatutako eremuetan"
 
 #: enum_editor.php:121
-#, fuzzy
 msgid "Add a value"
-msgstr "Erabiltzaile berria gehitu"
+msgstr "Balio gehitu"
 
 #: enum_editor.php:127 gis_data_editor.php:317
 msgid "Output"
@@ -849,7 +842,7 @@ msgstr "Irteera"
 
 #: enum_editor.php:128
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr ""
+msgstr "Kopiatu eta itsatsi batutako balioak \"Luzera/Balioak\" eremuan"
 
 #: export.php:29
 msgid "Bad type!"
@@ -857,7 +850,7 @@ msgstr "Mota okerra!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
-msgstr ""
+msgstr "Aukeratutako esportatze formatuak fitxategian gorde behar da!"
 
 #: export.php:106
 msgid "Bad parameters!"
@@ -901,7 +894,7 @@ msgstr "Erabili OpenStreetMaps Oinarri geruza moduan"
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:299
 #: libraries/display_tbl.lib.php:685
@@ -934,10 +927,9 @@ msgid "Add a point"
 msgstr "Puntua gehitu"
 
 #: gis_data_editor.php:220 js/messages.php:297
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Honetan bukatutako lerroak: "
+msgstr "Lerro kateak"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:301
 #, fuzzy
@@ -950,10 +942,9 @@ msgid "Inner Ring"
 msgstr "Barne eraztuna"
 
 #: gis_data_editor.php:252
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Erabiltzaile berria gehitu"
+msgstr "Lerro kate berria gehitu"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:303
 #, fuzzy
@@ -987,9 +978,8 @@ msgid ""
 msgstr ""
 
 #: import.php:170 import.php:419
-#, fuzzy
 msgid "Showing bookmark"
-msgstr "Erakutsi laster-markak"
+msgstr "Erakutsi laster-marka"
 
 #: import.php:180 import.php:415
 msgid "The bookmark has been deleted."
@@ -1072,7 +1062,7 @@ msgstr "Egin klik hautatzeko"
 
 #: js/messages.php:28
 msgid "Click to unselect"
-msgstr ""
+msgstr "Klik desautatzeko"
 
 #: js/messages.php:29 libraries/import.lib.php:103 sql.php:247
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -1084,21 +1074,20 @@ msgstr "Benetan nahi al duzu "
 
 #: js/messages.php:33 libraries/mult_submits.inc.php:282 sql.php:333
 msgid "You are about to DESTROY a complete database!"
-msgstr ""
+msgstr "Datu-base osoa SUNTSITZERA zoaz!"
 
 #: js/messages.php:34
 msgid "You are about to DESTROY a complete table!"
-msgstr ""
+msgstr "Taula oso bat SUNTSITZERA zoaz!"
 
 #: js/messages.php:35
 msgid "You are about to TRUNCATE a complete table!"
 msgstr ""
 
 #: js/messages.php:37
-#, fuzzy
 #| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
-msgstr "Datuak txertatu eta ordezkatzea baimentzen du."
+msgstr "Jarraipen datuak ezabatzen"
 
 #: js/messages.php:38
 #, fuzzy
@@ -1112,7 +1101,7 @@ msgstr "Eragiketa honek luze jo lezake. Jarraitu nahi?"
 
 #: js/messages.php:42
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr ""
+msgstr "BLOG biltegi bat DESGAITZERA zoaz!"
 
 #: js/messages.php:43
 #, php-format
@@ -1175,10 +1164,9 @@ msgid "Edit"
 msgstr "Editatu"
 
 #: js/messages.php:65 server_status.php:794
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Zerbitzariaren hautaketa"
+msgstr "Zuzeneko trafikoaren grafika"
 
 #: js/messages.php:66 server_status.php:797
 msgid "Live conn./process chart"
