@@ -11370,10 +11370,9 @@ msgid "Slow query logging"
 msgstr "Показване формата за заявки"
 
 #: po/advisory_rules.php:31
-#, fuzzy
 #| msgid "The event scheduler is disabled"
 msgid "The slow query log is disabled."
-msgstr "Диспечер на събитията изключен"
+msgstr ""
 
 #: po/advisory_rules.php:32
 msgid ""
