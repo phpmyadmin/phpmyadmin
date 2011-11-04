@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-11-04 10:19+0200\n"
+"PO-Revision-Date: 2011-11-04 10:42+0200\n"
 "Last-Translator: stoyan <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -820,10 +820,9 @@ msgid "Enter each value in a separate field"
 msgstr "Въвеждайте всяка стойност в отделно поле"
 
 #: enum_editor.php:121
-#, fuzzy
 #| msgid "+ Add a value"
 msgid "Add a value"
-msgstr "+ Нова стойност"
+msgstr "Добавяне стойност"
 
 #: enum_editor.php:127 gis_data_editor.php:317
 msgid "Output"
