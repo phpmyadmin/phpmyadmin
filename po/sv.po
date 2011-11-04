@@ -3,16 +3,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-10-30 05:35-0400\n"
-"PO-Revision-Date: 2011-10-12 23:15+0200\n"
-"Last-Translator:  <stefan@inkopsforum.se>\n"
+"POT-Creation-Date: 2011-11-02 15:30-0400\n"
+"PO-Revision-Date: 2011-11-01 22:40+0200\n"
+"Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.1.6\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:326
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1673
@@ -46,7 +46,7 @@ msgid "Search"
 msgstr "Sök"
 
 #: browse_foreigners.php:154 db_operations.php:372 db_operations.php:412
-#: db_operations.php:522 db_operations.php:549 db_search.php:336
+#: db_operations.php:522 db_operations.php:549 db_search.php:337
 #: db_structure.php:614 enum_editor.php:119 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:207
 #: libraries/Config.class.php:1326 libraries/Theme_Manager.class.php:309
@@ -250,11 +250,11 @@ msgstr "Visa dump (schema) av databasen"
 msgid "No tables found in database."
 msgstr "Inga tabeller funna i databasen."
 
-#: db_export.php:40 db_search.php:318 server_export.php:26
+#: db_export.php:40 db_search.php:319 server_export.php:26
 msgid "Select All"
 msgstr "Välj alla"
 
-#: db_export.php:42 db_search.php:321 server_export.php:28
+#: db_export.php:42 db_search.php:322 server_export.php:28
 msgid "Unselect All"
 msgstr "Avmarkera alla"
 
@@ -492,53 +492,53 @@ msgstr "SQL-fråga i databas <b>%s</b>:"
 msgid "Submit Query"
 msgstr "Skicka fråga"
 
-#: db_search.php:30 libraries/auth/config.auth.lib.php:77
+#: db_search.php:31 libraries/auth/config.auth.lib.php:77
 #: libraries/auth/config.auth.lib.php:96
 #: libraries/auth/cookie.auth.lib.php:566 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:237
 msgid "Access denied"
 msgstr "Åtkomst nekad"
 
-#: db_search.php:42 db_search.php:285
+#: db_search.php:43 db_search.php:286
 msgid "at least one of the words"
 msgstr "minst ett av orden"
 
-#: db_search.php:43 db_search.php:286
+#: db_search.php:44 db_search.php:287
 msgid "all words"
 msgstr "alla ord"
 
-#: db_search.php:44 db_search.php:287
+#: db_search.php:45 db_search.php:288
 msgid "the exact phrase"
 msgstr "den exakta frasen"
 
-#: db_search.php:45 db_search.php:288
+#: db_search.php:46 db_search.php:289
 msgid "as regular expression"
 msgstr "som reguljärt uttryck"
 
-#: db_search.php:208
+#: db_search.php:209
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Sökresultat för \"<i>%s</i>\" %s:"
 
-#: db_search.php:226
+#: db_search.php:227
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s träff i tabell <i>%s</i>"
 msgstr[1] "%s träffar i tabell <i>%s</i>"
 
-#: db_search.php:233 libraries/common.lib.php:3089
+#: db_search.php:234 libraries/common.lib.php:3089
 #: libraries/common.lib.php:3301 libraries/common.lib.php:3302
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:569
 msgid "Browse"
 msgstr "Bläddra"
 
-#: db_search.php:238
+#: db_search.php:239
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "Ta bort matchande för %s tabellen?"
 
-#: db_search.php:238 libraries/display_tbl.lib.php:1416
+#: db_search.php:239 libraries/display_tbl.lib.php:1416
 #: libraries/display_tbl.lib.php:2463
 #: libraries/schema/User_Schema.class.php:197
 #: libraries/schema/User_Schema.class.php:273
@@ -550,34 +550,34 @@ msgstr "Ta bort matchande för %s tabellen?"
 msgid "Delete"
 msgstr "Radera"
 
-#: db_search.php:251
+#: db_search.php:252
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>Totalt:</b> <i>%s</i> träff"
 msgstr[1] "<b>Totalt:</b> <i>%s</i> träffar"
 
-#: db_search.php:273
+#: db_search.php:274
 msgid "Search in database"
 msgstr "Sök i databas"
 
-#: db_search.php:276
+#: db_search.php:277
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Ord eller värden att söka efter (jokertecken: \"%\"):"
 
-#: db_search.php:281
+#: db_search.php:282
 msgid "Find:"
 msgstr "Hitta:"
 
-#: db_search.php:285 db_search.php:286
+#: db_search.php:286 db_search.php:287
 msgid "Words are separated by a space character (\" \")."
 msgstr "Ord skiljs åt av ett mellanslag (\" \")."
 
-#: db_search.php:299
+#: db_search.php:300
 msgid "Inside tables:"
 msgstr "Inuti tabeller:"
 
-#: db_search.php:329
+#: db_search.php:330
 msgid "Inside column:"
 msgstr "Inuti kolumnen:"
 
@@ -800,31 +800,24 @@ msgstr "Databas logg"
 #: enum_editor.php:23 js/messages.php:244
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "ENUM/SET editor"
 
 #: enum_editor.php:28 js/messages.php:246
-#, fuzzy
-#| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
-msgstr "Värden för kolumn \"%s\""
+msgstr "Värden för ny kolumn"
 
 #: enum_editor.php:30 js/messages.php:245
-#, fuzzy, php-format
-#| msgid "Values for the column \"%s\""
+#, php-format
 msgid "Values for column %s"
-msgstr "Värden för kolumn \"%s\""
+msgstr "Värden för kolumn %s"
 
 #: enum_editor.php:34 js/messages.php:247
-#, fuzzy
-#| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
-msgstr "Mata in varje värde i ett eget fält."
+msgstr "Mata in varje värde i separata fält"
 
 #: enum_editor.php:121
-#, fuzzy
-#| msgid "+ Add a value"
 msgid "Add a value"
-msgstr "+ Lägg till ett värde"
+msgstr "Lägg till ett värde"
 
 #: enum_editor.php:127 gis_data_editor.php:317
 msgid "Output"
@@ -1651,7 +1644,7 @@ msgstr "Laddar"
 msgid "Processing Request"
 msgstr "Processa begäran"
 
-#: js/messages.php:213 libraries/import/ods.php:80
+#: js/messages.php:213 libraries/import/ods.php:77
 #: libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
 msgstr "Fel i processbegäran"
@@ -1732,10 +1725,9 @@ msgstr ""
 "Definitionen av en sparad funktion måste innehålla en RETURN-programsats!"
 
 #: js/messages.php:248
-#, fuzzy, php-format
-#| msgid "+ Add a value"
+#, php-format
 msgid "Add %d value(s)"
-msgstr "+ Lägg till ett värde"
+msgstr "Lägg till %d värde(n)"
 
 #: js/messages.php:251
 msgid ""
@@ -3252,24 +3244,24 @@ msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"Definierar minsta storlek för inmatningsfält skapade för CHAR och VARCHAR "
+"kolumner"
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
-#| msgid "Customize text input fields"
 msgid "Minimum size for input field"
-msgstr "Anpassa textfält"
+msgstr "Minsta storlek för inmatningsfält"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"Anger den maximala storleken för inmatningsfält skapade för CHAR och VARCHAR "
+"kolumner"
 
 #: libraries/config/messages.inc.php:37
-#, fuzzy
-#| msgid "Maximum size for temporary sort files"
 msgid "Maximum size for input field"
-msgstr "Maximal storlek för temporära sorteringsfiler"
+msgstr "Maximal storlek för inmatningsfält"
 
 #: libraries/config/messages.inc.php:38
 msgid "Number of columns for CHAR/VARCHAR textareas"
@@ -4581,12 +4573,12 @@ msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
 msgstr ""
+"En alternativt värd för att hålla konfiguratione lagring, lämna tomt för att "
+"använda den aktuella värden"
 
 #: libraries/config/messages.inc.php:386
-#, fuzzy
-#| msgid "Control user"
 msgid "Control host"
-msgstr "Kontrollanvändare"
+msgstr "Kontroll värd"
 
 #: libraries/config/messages.inc.php:387
 msgid "Count tables when showing database list"
@@ -5390,12 +5382,12 @@ msgid "possible deep recursion attack"
 msgstr "möjlig djupgående rekursiv attack"
 
 #: libraries/database_interface.lib.php:1764
-#, fuzzy
-#| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
-msgstr "(eller den lokala MySQL-serverns socket är inte korrekt konfigurerad)"
+msgstr ""
+"Servern svarar inte (eller den lokala serverns socket är inte korrekt "
+"konfigurerad)."
 
 #: libraries/database_interface.lib.php:1766
 #, fuzzy
@@ -6833,7 +6825,7 @@ msgstr "SQL kompatibilitetsläge:"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Använd inte <code>AUTO_INCREMENT</code> för nollvärden"
 
-#: libraries/import/xml.php:74 libraries/import/xml.php:130
+#: libraries/import/xml.php:71 libraries/import/xml.php:127
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -11424,10 +11416,8 @@ msgid "Check referential integrity:"
 msgstr "Kontrollera referensintegritet:"
 
 #: tbl_printview.php:72
-#, fuzzy
-#| msgid "Show tables"
 msgid "Showing tables"
-msgstr "Visa tabeller"
+msgstr "Visar tabeller"
 
 #: tbl_printview.php:269 tbl_structure.php:762
 msgid "Space usage"
@@ -12811,7 +12801,7 @@ msgstr ""
 msgid "Percentage of aborted connections"
 msgstr "Andelen avbrutna anslutningar"
 
-#: po/advisory_rules.php:231
+#: po/advisory_rules.php:231 po/advisory_rules.php:236
 msgid "Too many connections are aborted."
 msgstr "För många anslutningar avbryts."
 
@@ -12835,10 +12825,6 @@ msgstr "%s%% av alla anslutningar avbryts. Detta värde bör vara under 1%%"
 #: po/advisory_rules.php:235
 msgid "Rate of aborted connections"
 msgstr "Andelen avbrutna anslutningar"
-
-#: po/advisory_rules.php:236
-msgid "Too many connections are aborted"
-msgstr "Alltför många anslutningar avbryts."
 
 #: po/advisory_rules.php:238
 #, php-format
@@ -12909,9 +12895,20 @@ msgstr ""
 "InnoDB buffer pool."
 
 #: po/advisory_rules.php:257
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "Especially one a system with a lot of writes to InnoDB tables you should "
+#| "set innodb_log_file_size to 25%% of {innodb_buffer_pool_size}. However "
+#| "the bigger this value, the longer the recovery time will be when database "
+#| "crashes, so this value should not be set much higher than 256 MiB. Please "
+#| "note however that you cannot simply change the value of this variable. "
+#| "You need to shutdown the server, remove the InnoDB log files, set the new "
+#| "value in my.cnf, start the server, then check the error logs if "
+#| "everything went fine. See also <a href=\\\"http://"
+#| "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+#| "innodblogfilesize-proper-way.html\\\">this blog entry</a>"
 msgid ""
-"Especially one a system with a lot of writes to InnoDB tables you should set "
+"Especially on a system with a lot of writes to InnoDB tables you should set "
 "innodb_log_file_size to 25%% of {innodb_buffer_pool_size}. However the "
 "bigger this value, the longer the recovery time will be when database "
 "crashes, so this value should not be set much higher than 256 MiB. Please "
@@ -12950,10 +12947,20 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "Storleken på InnoDB databas är inte tillräckligt stor."
 
 #: po/advisory_rules.php:262
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "It is usually sufficient to set innodb_log_file_size to 25%% of the size "
+#| "of {innodb_buffer_pool_size}. A very innodb_log_file_size slows down the "
+#| "recovery time after a database crash considerably. See also <a href=\\"
+#| "\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+#| "innodb_log_file_size/\\\">this Article</a>. You need to shutdown the "
+#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
+#| "the server, then check the error logs if everything went fine. See also "
+#| "<a href=\\\"http://mysqldatabaseadministration.blogspot.com/2007/01/"
+#| "increase-innodblogfilesize-proper-way.html\\\">this blog entry</a>"
 msgid ""
 "It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
-"{innodb_buffer_pool_size}. A very innodb_log_file_size slows down the "
+"{innodb_buffer_pool_size}. A very big innodb_log_file_size slows down the "
 "recovery time after a database crash considerably. See also <a href=\\"
 "\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
 "innodb_log_file_size/\\\">this Article</a>. You need to shutdown the server, "
@@ -12973,8 +12980,9 @@ msgstr ""
 "proper-way.html\\\">denna blogpost</a>"
 
 #: po/advisory_rules.php:263
-#, php-format
-msgid "Your absolute InnoD log size is %s MiB"
+#, fuzzy, php-format
+#| msgid "Your absolute InnoD log size is %s MiB"
+msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "Din absoluta InnoD loggstorlek är %s Mb"
 
 #: po/advisory_rules.php:265
@@ -13044,6 +13052,9 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert är satt till 0"
+
+#~ msgid "Too many connections are aborted"
+#~ msgstr "Alltför många anslutningar avbryts."
 
 #~ msgid "+ Restart insertion and add a new value"
 #~ msgstr "+ Starta om inmatandet och lägg till ett nytt värde"

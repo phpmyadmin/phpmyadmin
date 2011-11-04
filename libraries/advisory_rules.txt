@@ -383,7 +383,7 @@ rule 'Percentage of aborted connections'
 rule 'Rate of aborted connections'
 	Aborted_connects / Uptime
 	value * 60 * 60 > 1
-	Too many connections are aborted
+	Too many connections are aborted.
 	Connections are usually aborted when they cannot be authorized. <a href="http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-source-of-aborted_connects/">This article</a> might help you track down the source.
 	Aborted connections rate is at %s, this value should be less than 1 per hour | PMA_bytime(value,2)
 
@@ -414,15 +414,15 @@ rule 'InnoDB log size' [innodb_buffer_pool_size > 0]
 	innodb_log_file_size / innodb_buffer_pool_size * 100
 	value < 20
 	The InnoDB log file size is not an appropriate size, in relation to the InnoDB buffer pool.
-	Especially one a system with a lot of writes to InnoDB tables you should set innodb_log_file_size to 25% of {innodb_buffer_pool_size}. However the bigger this value, the longer the recovery time will be when database crashes, so this value should not be set much higher than 256 MiB. Please note however that you cannot simply change the value of this variable. You need to shutdown the server, remove the InnoDB log files, set the new value in my.cnf, start the server, then check the error logs if everything went fine. See also <a href="http://mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html">this blog entry</a>
+	Especially on a system with a lot of writes to InnoDB tables you should set innodb_log_file_size to 25% of {innodb_buffer_pool_size}. However the bigger this value, the longer the recovery time will be when database crashes, so this value should not be set much higher than 256 MiB. Please note however that you cannot simply change the value of this variable. You need to shutdown the server, remove the InnoDB log files, set the new value in my.cnf, start the server, then check the error logs if everything went fine. See also <a href="http://mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html">this blog entry</a>
 	Your InnoDB log size is at %s% in relation to the InnoDB buffer pool size, it should not be below 20% | round(value,1)
 
 rule 'Max InnoDB log size' [innodb_buffer_pool_size > 0 && innodb_log_file_size / innodb_buffer_pool_size * 100 < 30]
 	innodb_log_file_size / (1024 * 1024)
 	value >= 128
 	The InnoDB log file size is inadequately large.
-	It is usually sufficient to set innodb_log_file_size to 25% of the size of {innodb_buffer_pool_size}. A very innodb_log_file_size slows down the recovery time after a database crash considerably. See also <a href="http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-innodb_log_file_size/">this Article</a>. You need to shutdown the server, remove the InnoDB log files, set the new value in my.cnf, start the server, then check the error logs if everything went fine. See also <a href="http://mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html">this blog entry</a>
-	Your absolute InnoD log size is %s MiB | round(value,1)
+	It is usually sufficient to set innodb_log_file_size to 25% of the size of {innodb_buffer_pool_size}. A very big innodb_log_file_size slows down the recovery time after a database crash considerably. See also <a href="http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-innodb_log_file_size/">this Article</a>. You need to shutdown the server, remove the InnoDB log files, set the new value in my.cnf, start the server, then check the error logs if everything went fine. See also <a href="http://mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html">this blog entry</a>
+	Your absolute InnoDB log size is %s MiB | round(value,1)
 
 rule 'InnoDB buffer pool size' [system_memory > 0]
 	innodb_buffer_pool_size / system_memory * 100

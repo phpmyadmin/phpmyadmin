@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-10-30 05:35-0400\n"
+"POT-Creation-Date: 2011-11-02 15:30-0400\n"
 "PO-Revision-Date: 2010-11-26 21:29+0200\n"
 "Last-Translator: <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
@@ -46,7 +46,7 @@ msgid "Search"
 msgstr "Etsi"
 
 #: browse_foreigners.php:154 db_operations.php:372 db_operations.php:412
-#: db_operations.php:522 db_operations.php:549 db_search.php:336
+#: db_operations.php:522 db_operations.php:549 db_search.php:337
 #: db_structure.php:614 enum_editor.php:119 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:207
 #: libraries/Config.class.php:1326 libraries/Theme_Manager.class.php:309
@@ -250,11 +250,11 @@ msgstr "Tee vedos tietokannasta"
 msgid "No tables found in database."
 msgstr "Tietokannassa ei ole tauluja."
 
-#: db_export.php:40 db_search.php:318 server_export.php:26
+#: db_export.php:40 db_search.php:319 server_export.php:26
 msgid "Select All"
 msgstr "Valitse kaikki"
 
-#: db_export.php:42 db_search.php:321 server_export.php:28
+#: db_export.php:42 db_search.php:322 server_export.php:28
 msgid "Unselect All"
 msgstr "Poista valinta kaikista"
 
@@ -494,53 +494,53 @@ msgstr "Suorita SQL-kysely tietokannassa <b>%s</b>:"
 msgid "Submit Query"
 msgstr "Suorita"
 
-#: db_search.php:30 libraries/auth/config.auth.lib.php:77
+#: db_search.php:31 libraries/auth/config.auth.lib.php:77
 #: libraries/auth/config.auth.lib.php:96
 #: libraries/auth/cookie.auth.lib.php:566 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:237
 msgid "Access denied"
 msgstr "Käyttö estetty"
 
-#: db_search.php:42 db_search.php:285
+#: db_search.php:43 db_search.php:286
 msgid "at least one of the words"
 msgstr "vähintään yksi sanoista"
 
-#: db_search.php:43 db_search.php:286
+#: db_search.php:44 db_search.php:287
 msgid "all words"
 msgstr "kaikki sanat"
 
-#: db_search.php:44 db_search.php:287
+#: db_search.php:45 db_search.php:288
 msgid "the exact phrase"
 msgstr "koko lause"
 
-#: db_search.php:45 db_search.php:288
+#: db_search.php:46 db_search.php:289
 msgid "as regular expression"
 msgstr "regexp-haku"
 
-#: db_search.php:208
+#: db_search.php:209
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Tulokset hakusanalla \"<i>%s</i>\" %s:"
 
-#: db_search.php:226
+#: db_search.php:227
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s hakutulosta taulussa <i>%s</i>"
 msgstr[1] "%s hakutulosta taulussa <i>%s</i>"
 
-#: db_search.php:233 libraries/common.lib.php:3089
+#: db_search.php:234 libraries/common.lib.php:3089
 #: libraries/common.lib.php:3301 libraries/common.lib.php:3302
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:569
 msgid "Browse"
 msgstr "Selaa"
 
-#: db_search.php:238
+#: db_search.php:239
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "Poista taulusta %s löytyneet tulokset?"
 
-#: db_search.php:238 libraries/display_tbl.lib.php:1416
+#: db_search.php:239 libraries/display_tbl.lib.php:1416
 #: libraries/display_tbl.lib.php:2463
 #: libraries/schema/User_Schema.class.php:197
 #: libraries/schema/User_Schema.class.php:273
@@ -552,38 +552,38 @@ msgstr "Poista taulusta %s löytyneet tulokset?"
 msgid "Delete"
 msgstr "Poista"
 
-#: db_search.php:251
+#: db_search.php:252
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>Yhteensä:</b> <i>%s</i> hakutulosta"
 msgstr[1] "<b>Yhteensä:</b> <i>%s</i> hakutulosta"
 
-#: db_search.php:273
+#: db_search.php:274
 msgid "Search in database"
 msgstr "Hae tietokannasta"
 
-#: db_search.php:276
+#: db_search.php:277
 #, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Haettavat sanat tai arvot (%-merkkiä voi käyttää jokerimerkkinä):"
 
-#: db_search.php:281
+#: db_search.php:282
 msgid "Find:"
 msgstr "Hae:"
 
-#: db_search.php:285 db_search.php:286
+#: db_search.php:286 db_search.php:287
 msgid "Words are separated by a space character (\" \")."
 msgstr "Sanat erotetaan välilyönnein."
 
-#: db_search.php:299
+#: db_search.php:300
 #, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
 msgstr "Tauluista:"
 
-#: db_search.php:329
+#: db_search.php:330
 msgid "Inside column:"
 msgstr "Sarakkeen sisältä:"
 
@@ -1725,7 +1725,7 @@ msgstr "Lataa"
 msgid "Processing Request"
 msgstr "Pyynnön käsittely"
 
-#: js/messages.php:213 libraries/import/ods.php:80
+#: js/messages.php:213 libraries/import/ods.php:77
 #: libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
 msgstr "Virhe pyynnön käsittelyssä"
@@ -7171,7 +7171,7 @@ msgstr "SQL-yhteensopiva tila"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Älä käytä nolla-arvoissa AUTO_INCREMENT:iä"
 
-#: libraries/import/xml.php:74 libraries/import/xml.php:130
+#: libraries/import/xml.php:71 libraries/import/xml.php:127
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -13493,7 +13493,7 @@ msgstr ""
 msgid "Percentage of aborted connections"
 msgstr "Jatkuvat yhteydet"
 
-#: po/advisory_rules.php:231
+#: po/advisory_rules.php:231 po/advisory_rules.php:236
 msgid "Too many connections are aborted."
 msgstr ""
 
@@ -13515,10 +13515,6 @@ msgstr ""
 #| msgid "Persistent connections"
 msgid "Rate of aborted connections"
 msgstr "Jatkuvat yhteydet"
-
-#: po/advisory_rules.php:236
-msgid "Too many connections are aborted"
-msgstr ""
 
 #: po/advisory_rules.php:238
 #, php-format
@@ -13594,7 +13590,7 @@ msgstr "InnoDB:n puskurivarannon kirjoituspyyntöjen määrä."
 #: po/advisory_rules.php:257
 #, php-format
 msgid ""
-"Especially one a system with a lot of writes to InnoDB tables you should set "
+"Especially on a system with a lot of writes to InnoDB tables you should set "
 "innodb_log_file_size to 25%% of {innodb_buffer_pool_size}. However the "
 "bigger this value, the longer the recovery time will be when database "
 "crashes, so this value should not be set much higher than 256 MiB. Please "
@@ -13625,7 +13621,7 @@ msgstr ""
 #, php-format
 msgid ""
 "It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
-"{innodb_buffer_pool_size}. A very innodb_log_file_size slows down the "
+"{innodb_buffer_pool_size}. A very big innodb_log_file_size slows down the "
 "recovery time after a database crash considerably. See also <a href=\\"
 "\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
 "innodb_log_file_size/\\\">this Article</a>. You need to shutdown the server, "
@@ -13637,7 +13633,7 @@ msgstr ""
 
 #: po/advisory_rules.php:263
 #, php-format
-msgid "Your absolute InnoD log size is %s MiB"
+msgid "Your absolute InnoDB log size is %s MiB"
 msgstr ""
 
 #: po/advisory_rules.php:265

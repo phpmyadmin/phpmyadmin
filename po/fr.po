@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-10-30 05:35-0400\n"
-"PO-Revision-Date: 2011-10-26 17:07+0200\n"
+"POT-Creation-Date: 2011-11-02 15:30-0400\n"
+"PO-Revision-Date: 2011-11-02 21:31+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.1.6\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:326
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1673
@@ -47,7 +47,7 @@ msgid "Search"
 msgstr "Rechercher"
 
 #: browse_foreigners.php:154 db_operations.php:372 db_operations.php:412
-#: db_operations.php:522 db_operations.php:549 db_search.php:336
+#: db_operations.php:522 db_operations.php:549 db_search.php:337
 #: db_structure.php:614 enum_editor.php:119 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:207
 #: libraries/Config.class.php:1326 libraries/Theme_Manager.class.php:309
@@ -251,11 +251,11 @@ msgstr "Voir une exportation (schéma) de la base de données"
 msgid "No tables found in database."
 msgstr "Aucune table n'a été trouvée dans cette base."
 
-#: db_export.php:40 db_search.php:318 server_export.php:26
+#: db_export.php:40 db_search.php:319 server_export.php:26
 msgid "Select All"
 msgstr "Tout sélectionner"
 
-#: db_export.php:42 db_search.php:321 server_export.php:28
+#: db_export.php:42 db_search.php:322 server_export.php:28
 msgid "Unselect All"
 msgstr "Tout désélectionner"
 
@@ -494,53 +494,53 @@ msgstr "Requête SQL sur la base <b>%s</b>: "
 msgid "Submit Query"
 msgstr "Exécuter la requête"
 
-#: db_search.php:30 libraries/auth/config.auth.lib.php:77
+#: db_search.php:31 libraries/auth/config.auth.lib.php:77
 #: libraries/auth/config.auth.lib.php:96
 #: libraries/auth/cookie.auth.lib.php:566 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:237
 msgid "Access denied"
 msgstr "Accès refusé"
 
-#: db_search.php:42 db_search.php:285
+#: db_search.php:43 db_search.php:286
 msgid "at least one of the words"
 msgstr "au moins un mot"
 
-#: db_search.php:43 db_search.php:286
+#: db_search.php:44 db_search.php:287
 msgid "all words"
 msgstr "tous les mots"
 
-#: db_search.php:44 db_search.php:287
+#: db_search.php:45 db_search.php:288
 msgid "the exact phrase"
 msgstr "phrase exacte"
 
-#: db_search.php:45 db_search.php:288
+#: db_search.php:46 db_search.php:289
 msgid "as regular expression"
 msgstr "expression réguliére"
 
-#: db_search.php:208
+#: db_search.php:209
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Résultats de la recherche de «<i>%s</i>» %s :"
 
-#: db_search.php:226
+#: db_search.php:227
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s occurence dans la table <i>%s</i>"
 msgstr[1] "%s occurences dans la table <i>%s</i>"
 
-#: db_search.php:233 libraries/common.lib.php:3089
+#: db_search.php:234 libraries/common.lib.php:3089
 #: libraries/common.lib.php:3301 libraries/common.lib.php:3302
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:569
 msgid "Browse"
 msgstr "Afficher"
 
-#: db_search.php:238
+#: db_search.php:239
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "Supprimer de la table %s les occurences?"
 
-#: db_search.php:238 libraries/display_tbl.lib.php:1416
+#: db_search.php:239 libraries/display_tbl.lib.php:1416
 #: libraries/display_tbl.lib.php:2463
 #: libraries/schema/User_Schema.class.php:197
 #: libraries/schema/User_Schema.class.php:273
@@ -552,34 +552,34 @@ msgstr "Supprimer de la table %s les occurences?"
 msgid "Delete"
 msgstr "Effacer"
 
-#: db_search.php:251
+#: db_search.php:252
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>Total :</b> <i>%s</i> occurence"
 msgstr[1] "<b>Total :</b> <i>%s</i> occurences"
 
-#: db_search.php:273
+#: db_search.php:274
 msgid "Search in database"
 msgstr "Effectuer une nouvelle recherche dans la base de données"
 
-#: db_search.php:276
+#: db_search.php:277
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Mot(s) ou valeur(s) à rechercher (passe-partout: «%») :"
 
-#: db_search.php:281
+#: db_search.php:282
 msgid "Find:"
 msgstr "Type de recherche :"
 
-#: db_search.php:285 db_search.php:286
+#: db_search.php:286 db_search.php:287
 msgid "Words are separated by a space character (\" \")."
 msgstr "Séparer les mots par un espace (« »)."
 
-#: db_search.php:299
+#: db_search.php:300
 msgid "Inside tables:"
 msgstr "Dans les tables :"
 
-#: db_search.php:329
+#: db_search.php:330
 msgid "Inside column:"
 msgstr "Dans la colonne : "
 
@@ -804,13 +804,11 @@ msgstr "Journal de la base de données"
 #: enum_editor.php:23 js/messages.php:244
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "Éditeur ENUM/SET"
 
 #: enum_editor.php:28 js/messages.php:246
-#, fuzzy
-#| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
-msgstr "Valeurs pour la colonne «%s»"
+msgstr "Valeurs pour une nouvelle colonne"
 
 #: enum_editor.php:30 js/messages.php:245
 #, fuzzy, php-format
@@ -825,10 +823,8 @@ msgid "Enter each value in a separate field"
 msgstr "Saisir chaque valeur dans un champ séparé."
 
 #: enum_editor.php:121
-#, fuzzy
-#| msgid "+ Add a value"
 msgid "Add a value"
-msgstr "+ Ajouter une valeur"
+msgstr "Ajouter une valeur"
 
 #: enum_editor.php:127 gis_data_editor.php:317
 msgid "Output"
@@ -1665,7 +1661,7 @@ msgstr "Chargement en cours"
 msgid "Processing Request"
 msgstr "Requête en traitement"
 
-#: js/messages.php:213 libraries/import/ods.php:80
+#: js/messages.php:213 libraries/import/ods.php:77
 #: libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
 msgstr "Erreur dans le traitement de la requête"
@@ -1745,10 +1741,9 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "La définition d'une fonction doit comporter un énoncé RETURN!"
 
 #: js/messages.php:248
-#, fuzzy, php-format
-#| msgid "+ Add a value"
+#, php-format
 msgid "Add %d value(s)"
-msgstr "+ Ajouter une valeur"
+msgstr "Ajouter %d valeur(s)"
 
 #: js/messages.php:251
 msgid ""
@@ -3280,24 +3275,24 @@ msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"Définit la taille minimum des champs de saisie générés pour les colonnes "
+"CHAR et VARCHAR"
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
-#| msgid "Customize text input fields"
 msgid "Minimum size for input field"
-msgstr "Personnaliser les champs de saisie"
+msgstr "Taille minimum des champs de saisie"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"Définit la taille maximum des champs de saisie générés pour les colonnes "
+"CHAR et VARCHAR"
 
 #: libraries/config/messages.inc.php:37
-#, fuzzy
-#| msgid "Maximum size for temporary sort files"
 msgid "Maximum size for input field"
-msgstr "Taille maximum pour les fichiers de tri temporaires"
+msgstr "Taille maximum pour les champs de saisie"
 
 #: libraries/config/messages.inc.php:38
 msgid "Number of columns for CHAR/VARCHAR textareas"
@@ -4623,12 +4618,12 @@ msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
 msgstr ""
+"Un serveur alternatif pour le stockage des configurations; laisser vide pour "
+"utiliser le serveur déjà défini"
 
 #: libraries/config/messages.inc.php:386
-#, fuzzy
-#| msgid "Control user"
 msgid "Control host"
-msgstr "Utilisateur de contrôle"
+msgstr "Serveur de contrôle"
 
 #: libraries/config/messages.inc.php:387
 msgid "Count tables when showing database list"
@@ -6905,7 +6900,7 @@ msgstr "Mode de compatibilité SQL :"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Ne pas utiliser <code>AUTO_INCREMENT</code> pour la valeur zéro"
 
-#: libraries/import/xml.php:74 libraries/import/xml.php:130
+#: libraries/import/xml.php:71 libraries/import/xml.php:127
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -12784,169 +12779,177 @@ msgstr ""
 "par heure"
 
 #: po/advisory_rules.php:185
-#, fuzzy
-#| msgid "Format of imported file"
 msgid "Percentage of used open files limit"
-msgstr "Format du fichier d'importation"
+msgstr "Pourcentage du nombre de fichiers ouverts"
 
 #: po/advisory_rules.php:186
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \\\"Too many open files\\\" error."
-msgstr ""
+msgstr "Le nombre de fichiers ouverts s'approche du maximum."
 
 #: po/advisory_rules.php:187 po/advisory_rules.php:192
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing open_files_limit."
 msgstr ""
+"Veuillez augmenter {open_files_limit}, et vérifier le journal des erreurs "
+"après avoir redémarré."
 
 #: po/advisory_rules.php:188
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
+"Le nombre de fichiers ouvert est à %s%% de la limite. Ce nombre devrait être "
+"sous 85%%"
 
 #: po/advisory_rules.php:190
-#, fuzzy
-#| msgid "Format of imported file"
 msgid "Rate of open files"
-msgstr "Format du fichier d'importation"
+msgstr "Taux d'ouverture de fichiers"
 
 #: po/advisory_rules.php:191
-#, fuzzy
-#| msgid "The number of pending log file fsyncs."
 msgid "The rate of opening files is high."
-msgstr "Le nombre de synchronisations (fsync) du fichier témoin en attente."
+msgstr "Le taux d'ouverture de fichiers est élevé."
 
 #: po/advisory_rules.php:193
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
+"Taux d'ouverture de fichiers : %s, cette valeur devrait être moins de 5 à "
+"l'heure"
 
 #: po/advisory_rules.php:195
-#, fuzzy, php-format
-#| msgid "Create table on database %s"
+#, php-format
 msgid "Immediate table locks %%"
-msgstr "Créer une nouvelle table sur la base %s"
+msgstr "Pourcentage de verrouillage de tables"
 
 #: po/advisory_rules.php:196 po/advisory_rules.php:201
-#, fuzzy
-#| msgid "The number of times that a table lock was acquired immediately."
 msgid "Too many table locks were not granted immediately."
-msgstr "Le nombre de fois qu'un verrou de table a été acquis immédiatement."
+msgstr "Trop de verrous de table n'ont pas été acquis immédiatement."
 
 #: po/advisory_rules.php:197 po/advisory_rules.php:202
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
+"Optimisez les requêtes ou passez à InnoDB pour réduire le temps d'attente de "
+"verrous."
 
 #: po/advisory_rules.php:198
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr ""
+msgstr "Verrous de table immédiats: %s%%, cette valeur devrait dépasser 95%%"
 
 #: po/advisory_rules.php:200
 msgid "Table lock wait rate"
-msgstr ""
+msgstr "Taux d'attente de verrrouillage de tables"
 
 #: po/advisory_rules.php:203
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
+"Taux d'attente de verrrouillage de tables : %s, cette valeur devrait être de "
+"moins de 1 à l'heure"
 
 #: po/advisory_rules.php:205
-#, fuzzy
 #| msgid "Key cache"
 msgid "Thread cache"
-msgstr "Cache des clés"
+msgstr "Cache des fils d'exécution"
 
 #: po/advisory_rules.php:206
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
 msgstr ""
+"La cache des fils d'exécution est désactivée, ce qui cause une surcharge "
+"pour les nouvelles connexions."
 
 #: po/advisory_rules.php:207
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
+"Activez la cache des fils d'exécution en réglant {thread_cache_size} > 0."
 
 #: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
-msgstr ""
+msgstr "La taille de cache des fils d'exécution est de 0"
 
 #: po/advisory_rules.php:210
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is not active."
 msgid "Thread cache hit rate %%"
-msgstr "Le suivi n'est pas activé."
+msgstr "Taux de succès de la cache des fils d'exécution en %%"
 
 #: po/advisory_rules.php:211
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "Thread cache is not efficient."
-msgstr "Le suivi n'est pas activé."
+msgstr "La cache des fils d'exécution n'est pas optimale."
 
 #: po/advisory_rules.php:212
 msgid "Increase {thread_cache_size}."
-msgstr ""
+msgstr "Augmentez {thread_cache_size}."
 
 #: po/advisory_rules.php:213
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
+"Taux de succès de la cache des fils d'exécution : %s%%, cette valeur devrait "
+"se situer au-dessus de 80%%"
 
 #: po/advisory_rules.php:215
 msgid "Threads that are slow to launch"
-msgstr ""
+msgstr "Fils d'exécution qui sont lents à démarrer"
 
 #: po/advisory_rules.php:216
-#, fuzzy
 #| msgid "The number of threads that are not sleeping."
 msgid "There are too many threads that are slow to launch."
-msgstr "Le nombre de fils d'exécution non suspendus."
+msgstr "Il y a trop de fils d'exécution qui sont lents à démarrer."
 
 #: po/advisory_rules.php:217
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
 msgstr ""
+"Ceci survient habituellement en cas de surcharge générale du système. "
+"Veuillez surveiller la charge du système."
 
 #: po/advisory_rules.php:218
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
-msgstr ""
+msgstr "%s fil(s) ont pris plus de %s secondes à démarrer, devrait être 0"
 
 #: po/advisory_rules.php:220
 msgid "Slow launch time"
-msgstr ""
+msgstr "Durée d'un lancement considéré comme lent"
 
 #: po/advisory_rules.php:221
 msgid "Slow_launch_threads is above 2s"
-msgstr ""
+msgstr "Slow_launch_threads dépasse 2s"
 
 #: po/advisory_rules.php:222
 msgid ""
 "Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
 "launch"
 msgstr ""
+"Réglez slow_launch_time à 1s ou 2s pour compter correctement le nombre de "
+"fils d'exécution qui sont lents à démarrer"
 
 #: po/advisory_rules.php:223
 #, fuzzy, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "slow_launch_time is set to %s"
-msgstr "long_query_time est réglé à %d seconde(s)."
+msgstr "slow_launch_time est réglé à %s seconde(s)."
 
 #: po/advisory_rules.php:225
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of used connections"
-msgstr "Connexions persistantes"
+msgstr "Pourcentage des connexions utilisées"
 
 #: po/advisory_rules.php:226
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "max_connections."
 msgstr ""
+"Le nombre maximum de connexions utilisées se rapproche de la valeur de "
+"max_connections."
 
 #: po/advisory_rules.php:227
 msgid ""
@@ -12954,22 +12957,27 @@ msgid ""
 "do not close database handlers properly get killed sooner. Make sure the "
 "code closes database handlers properly."
 msgstr ""
+"Augmentez max_connections, ou diminuez wait_timeout afin que les connexions "
+"qui ne ferment pas leurs bases de données correctement soient terminées plus "
+"rapidement. Assurez-vous que les applications effectuent une fermeture "
+"correctes des bases de données."
 
 #: po/advisory_rules.php:228
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
+"Max_used_connections est à %s%% de max_connections, devrait être sous les 80"
+"%%"
 
 #: po/advisory_rules.php:230
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of aborted connections"
-msgstr "Connexions persistantes"
+msgstr "Pourcentage de connexions avortées"
 
-#: po/advisory_rules.php:231
+#: po/advisory_rules.php:231 po/advisory_rules.php:236
 msgid "Too many connections are aborted."
-msgstr ""
+msgstr "Trop de connexions ont avorté."
 
 #: po/advisory_rules.php:232 po/advisory_rules.php:237
 msgid ""
@@ -12978,37 +12986,37 @@ msgid ""
 "source-of-aborted_connects/\\\">This article</a> might help you track down "
 "the source."
 msgstr ""
+"C'est habituellement un problème d'authentification. <a "
+"href=\\\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
+"source-of-aborted_connects/\\\">Cet article</a> peut vous aider à en trouver "
+"la cause."
 
 #: po/advisory_rules.php:233
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
+"%s%% du total des connexions ont avorté. Cette valeur devrait être sous 1%%"
 
 #: po/advisory_rules.php:235
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Rate of aborted connections"
-msgstr "Connexions persistantes"
-
-#: po/advisory_rules.php:236
-msgid "Too many connections are aborted"
-msgstr ""
+msgstr "Taux de connexions avortées"
 
 #: po/advisory_rules.php:238
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"Le taux de connexions avortées est de %s, devrait être moins de 1 à l'heure"
 
 #: po/advisory_rules.php:240
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of aborted clients"
-msgstr "Format du fichier d'importation"
+msgstr "Pourcentage de coupure de clients"
 
 #: po/advisory_rules.php:241 po/advisory_rules.php:246
 msgid "Too many clients are aborted."
-msgstr ""
+msgstr "Trop de clients ont été coupés."
 
 #: po/advisory_rules.php:242 po/advisory_rules.php:247
 msgid ""
@@ -13016,59 +13024,64 @@ msgid ""
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
+"Les clients sont généralement coupés quand ils ne ferment pas leur connexion "
+"à MySQL correctement. La cause peut être du côté du réseau, ou une "
+"application n'a pas fermé le lien au serveur. Vérifiez le réseau et les "
+"applications."
 
 #: po/advisory_rules.php:243
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
+"%s%% des clients ont été coupés. Cette valeur devrait être sous les  2%%"
 
 #: po/advisory_rules.php:245
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of aborted clients"
-msgstr "Format du fichier d'importation"
+msgstr "Taux de coupure de clients"
 
 #: po/advisory_rules.php:248
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"Le taux de coupure de clients est de %s, cette valeur devrait être moins de "
+"1 à l'heure"
 
 #: po/advisory_rules.php:250
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "InnoDB est-il désactivé?"
 
 #: po/advisory_rules.php:251
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "You do not have InnoDB enabled."
-msgstr "Impossible de sauvegarder l'historique des tables récentes"
+msgstr "InnoDB n'est pas en fonction."
 
 #: po/advisory_rules.php:252
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "InnoDB est généralement le meilleur choix de moteur de stockage."
 
 #: po/advisory_rules.php:253
 msgid "have_innodb is set to 'value'"
-msgstr ""
+msgstr "have_innodb est réglé à 'value'"
 
 #: po/advisory_rules.php:255
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB log size"
-msgstr "Taille de la mémoire-tampon"
+msgstr "Taille du journal InnoDB"
 
 #: po/advisory_rules.php:256
-#, fuzzy
 #| msgid "The number writes done to the InnoDB buffer pool."
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
-msgstr "Le nombre d'écritures faites dans la réserve InnoDB."
+msgstr ""
+"La taille du journal InnoDB n'est pas appropriée, en tenant compte du pool "
+"de mémoire tampon InnoDB."
 
 #: po/advisory_rules.php:257
 #, php-format
 msgid ""
-"Especially one a system with a lot of writes to InnoDB tables you should set "
+"Especially on a system with a lot of writes to InnoDB tables you should set "
 "innodb_log_file_size to 25%% of {innodb_buffer_pool_size}. However the "
 "bigger this value, the longer the recovery time will be when database "
 "crashes, so this value should not be set much higher than 256 MiB. Please "
@@ -13086,20 +13099,22 @@ msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
 msgstr ""
+"La taille de votre journal InnoDB est de %s%% en comparant au pool de "
+"mémoire tampon InnoDB, elle ne devrait pas être sous les 20%%"
 
 #: po/advisory_rules.php:260
 msgid "Max InnoDB log size"
-msgstr ""
+msgstr "Taille maximum du journal InnoDB"
 
 #: po/advisory_rules.php:261
 msgid "The InnoDB log file size is inadequately large."
-msgstr ""
+msgstr "La taille du journal InnoDB est trop grande."
 
 #: po/advisory_rules.php:262
 #, php-format
 msgid ""
 "It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
-"{innodb_buffer_pool_size}. A very innodb_log_file_size slows down the "
+"{innodb_buffer_pool_size}. A very big innodb_log_file_size slows down the "
 "recovery time after a database crash considerably. See also <a href=\\"
 "\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
 "innodb_log_file_size/\\\">this Article</a>. You need to shutdown the server, "
@@ -13111,18 +13126,17 @@ msgstr ""
 
 #: po/advisory_rules.php:263
 #, php-format
-msgid "Your absolute InnoD log size is %s MiB"
+msgid "Your absolute InnoDB log size is %s MiB"
 msgstr ""
 
 #: po/advisory_rules.php:265
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
-msgstr "Taille de la mémoire-tampon"
+msgstr "Taille de la mémoire-tampon InnoDB"
 
 #: po/advisory_rules.php:266
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr ""
+msgstr "Votre mémoire-tampon InnoDB est petite."
 
 #: po/advisory_rules.php:267
 #, php-format

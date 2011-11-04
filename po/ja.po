@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-10-30 05:35-0400\n"
-"PO-Revision-Date: 2011-10-28 11:58+0200\n"
+"POT-Creation-Date: 2011-11-02 15:30-0400\n"
+"PO-Revision-Date: 2011-11-01 11:27+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -46,7 +46,7 @@ msgid "Search"
 msgstr "検索"
 
 #: browse_foreigners.php:154 db_operations.php:372 db_operations.php:412
-#: db_operations.php:522 db_operations.php:549 db_search.php:336
+#: db_operations.php:522 db_operations.php:549 db_search.php:337
 #: db_structure.php:614 enum_editor.php:119 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:207
 #: libraries/Config.class.php:1326 libraries/Theme_Manager.class.php:309
@@ -250,11 +250,11 @@ msgstr "DB のダンプ(スキーマ)表示"
 msgid "No tables found in database."
 msgstr "このデータベースにはテーブルがありません"
 
-#: db_export.php:40 db_search.php:318 server_export.php:26
+#: db_export.php:40 db_search.php:319 server_export.php:26
 msgid "Select All"
 msgstr "全選択"
 
-#: db_export.php:42 db_search.php:321 server_export.php:28
+#: db_export.php:42 db_search.php:322 server_export.php:28
 msgid "Unselect All"
 msgstr "全選択解除"
 
@@ -492,52 +492,52 @@ msgstr "データベース <b>%s</b> のSQL:"
 msgid "Submit Query"
 msgstr "クエリを実行する"
 
-#: db_search.php:30 libraries/auth/config.auth.lib.php:77
+#: db_search.php:31 libraries/auth/config.auth.lib.php:77
 #: libraries/auth/config.auth.lib.php:96
 #: libraries/auth/cookie.auth.lib.php:566 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:237
 msgid "Access denied"
 msgstr "アクセスは拒否されました"
 
-#: db_search.php:42 db_search.php:285
+#: db_search.php:43 db_search.php:286
 msgid "at least one of the words"
 msgstr "いずれかの単語を含む"
 
-#: db_search.php:43 db_search.php:286
+#: db_search.php:44 db_search.php:287
 msgid "all words"
 msgstr "すべての単語を含む"
 
-#: db_search.php:44 db_search.php:287
+#: db_search.php:45 db_search.php:288
 msgid "the exact phrase"
 msgstr "完全一致"
 
-#: db_search.php:45 db_search.php:288
+#: db_search.php:46 db_search.php:289
 msgid "as regular expression"
 msgstr "正規表現"
 
-#: db_search.php:208
+#: db_search.php:209
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "\"<i>%s</i>\" の検索結果 %s:"
 
-#: db_search.php:226
+#: db_search.php:227
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s 件（テーブル <i>%s</i>)"
 
-#: db_search.php:233 libraries/common.lib.php:3089
+#: db_search.php:234 libraries/common.lib.php:3089
 #: libraries/common.lib.php:3301 libraries/common.lib.php:3302
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:569
 msgid "Browse"
 msgstr "表示"
 
-#: db_search.php:238
+#: db_search.php:239
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "テーブル %s に対して条件に一致したものを削除しますか？"
 
-#: db_search.php:238 libraries/display_tbl.lib.php:1416
+#: db_search.php:239 libraries/display_tbl.lib.php:1416
 #: libraries/display_tbl.lib.php:2463
 #: libraries/schema/User_Schema.class.php:197
 #: libraries/schema/User_Schema.class.php:273
@@ -549,33 +549,33 @@ msgstr "テーブル %s に対して条件に一致したものを削除しま�
 msgid "Delete"
 msgstr "削除"
 
-#: db_search.php:251
+#: db_search.php:252
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>合計:</b> <i>%s</i> 件"
 
-#: db_search.php:273
+#: db_search.php:274
 msgid "Search in database"
 msgstr "データベース内検索"
 
-#: db_search.php:276
+#: db_search.php:277
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "検索する単語や値 (ワイルドカード: \"%\"):"
 
-#: db_search.php:281
+#: db_search.php:282
 msgid "Find:"
 msgstr "検索条件:"
 
-#: db_search.php:285 db_search.php:286
+#: db_search.php:286 db_search.php:287
 msgid "Words are separated by a space character (\" \")."
 msgstr "各単語は空白文字(\" \")で区切ってください"
 
-#: db_search.php:299
+#: db_search.php:300
 msgid "Inside tables:"
 msgstr "検索するテーブル:"
 
-#: db_search.php:329
+#: db_search.php:330
 msgid "Inside column:"
 msgstr "検索するカラム:"
 
@@ -798,31 +798,24 @@ msgstr "データベースのログです"
 #: enum_editor.php:23 js/messages.php:244
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "ENUM/SET エディタ"
 
 #: enum_editor.php:28 js/messages.php:246
-#, fuzzy
-#| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
-msgstr "カラム \"%s\" に対しての値"
+msgstr "新しいカラムに対しての値"
 
 #: enum_editor.php:30 js/messages.php:245
-#, fuzzy, php-format
-#| msgid "Values for the column \"%s\""
+#, php-format
 msgid "Values for column %s"
-msgstr "カラム \"%s\" に対しての値"
+msgstr "カラム %s に対しての値"
 
 #: enum_editor.php:34 js/messages.php:247
-#, fuzzy
-#| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
-msgstr "個々の入力欄にそれぞれ値を入力してください。"
+msgstr "個々の入力欄にそれぞれ値を入力してください"
 
 #: enum_editor.php:121
-#, fuzzy
-#| msgid "+ Add a value"
 msgid "Add a value"
-msgstr "+ 値を追加する"
+msgstr "値を追加する"
 
 #: enum_editor.php:127 gis_data_editor.php:317
 msgid "Output"
@@ -1652,7 +1645,7 @@ msgstr "読み込み中"
 msgid "Processing Request"
 msgstr "要求を処理中"
 
-#: js/messages.php:213 libraries/import/ods.php:80
+#: js/messages.php:213 libraries/import/ods.php:77
 #: libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
 msgstr "要求処理中でのエラー"
@@ -1732,10 +1725,9 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "ストアドファンクションの定義には、RETURN 文を含めなければなりません！"
 
 #: js/messages.php:248
-#, fuzzy, php-format
-#| msgid "+ Add a value"
+#, php-format
 msgid "Add %d value(s)"
-msgstr "+ 値を追加する"
+msgstr "値 %d を追加する"
 
 #: js/messages.php:251
 msgid ""
@@ -6821,7 +6813,7 @@ msgstr "SQL 互換モード:"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "値がゼロのものに対して <code>AUTO_INCREMENT</code> を使用しない"
 
-#: libraries/import/xml.php:74 libraries/import/xml.php:130
+#: libraries/import/xml.php:71 libraries/import/xml.php:127
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -12002,7 +11994,6 @@ msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr "バージョンの文字列 (%s) が Drizzle のバージョン形態と一致しています。"
 
 #: po/advisory_rules.php:65
-#| msgid "MySQL charset"
 msgid "MySQL Architecture"
 msgstr "MySQL 仕様"
 
@@ -12016,8 +12007,9 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
-"メモリ上限が (このサーバ上において) 3 GiB になってしまいますので、MySQL はメモリを使いこなすことができないでしょう。64 ビット版の "
-"MySQL の導入を検討してみてください。"
+"メモリ上限が (このサーバ上において) 3 GiB になってしまいますので、MySQL はメ"
+"モリを使いこなすことができないでしょう。64 ビット版の MySQL の導入を検討して"
+"みてください。"
 
 #: po/advisory_rules.php:68
 #, php-format
@@ -12039,6 +12031,10 @@ msgid ""
 "and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
 "memcached, ignore this recommendation."
 msgstr ""
+"クエリキャッシュは、的確に設定されているとパフォーマンスがとても改善されるこ"
+"とが知られています。クエリキャッシュを有効にするには、{query_cache_size} を "
+"2 桁 MiB にして、{query_cache_type} を「ON」に設定してください。<b>注：</"
+"b>memcached を使用している場合は、この事象に関することは無視してください。"
 
 #: po/advisory_rules.php:73
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
@@ -12047,14 +12043,12 @@ msgstr ""
 "れています。"
 
 #: po/advisory_rules.php:75
-#, fuzzy
-#| msgid "Query cache used"
 msgid "Query caching method"
-msgstr "使用されているクエリキャッシュ"
+msgstr "クエリのキャッシュ方式"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
-msgstr ""
+msgstr "準最適キャッシュ方式です。"
 
 #: po/advisory_rules.php:77
 msgid ""
@@ -12063,6 +12057,11 @@ msgid ""
 "refman/5.5/en/ha-memcached.html\\\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
+"MySQL のクエリキャッシュをかなり高いトラフィックのデータベースに対して使用し"
+"ています。MySQL のクエリキャッシュの代わりに <a href=\\\"http://dev.mysql."
+"com/doc/refman/5.5/en/ha-memcached.html\\\">memcached</a> の使用を検討する価"
+"値があると思われます。これは、マルチスレーブを使用している場合は、特に推奨さ"
+"れます。"
 
 #: po/advisory_rules.php:78
 #, php-format
@@ -12743,7 +12742,7 @@ msgstr ""
 msgid "Percentage of aborted connections"
 msgstr "中断された接続の比率"
 
-#: po/advisory_rules.php:231
+#: po/advisory_rules.php:231 po/advisory_rules.php:236
 msgid "Too many connections are aborted."
 msgstr "中断された接続が多いです。"
 
@@ -12769,10 +12768,6 @@ msgstr ""
 #: po/advisory_rules.php:235
 msgid "Rate of aborted connections"
 msgstr "中断された接続の割合"
-
-#: po/advisory_rules.php:236
-msgid "Too many connections are aborted"
-msgstr "中断された接続が多いです。"
 
 #: po/advisory_rules.php:238
 #, php-format
@@ -12854,7 +12849,7 @@ msgstr "InnoDB バッファプールへの書き込み回数"
 #: po/advisory_rules.php:257
 #, php-format
 msgid ""
-"Especially one a system with a lot of writes to InnoDB tables you should set "
+"Especially on a system with a lot of writes to InnoDB tables you should set "
 "innodb_log_file_size to 25%% of {innodb_buffer_pool_size}. However the "
 "bigger this value, the longer the recovery time will be when database "
 "crashes, so this value should not be set much higher than 256 MiB. Please "
@@ -12885,7 +12880,7 @@ msgstr ""
 #, php-format
 msgid ""
 "It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
-"{innodb_buffer_pool_size}. A very innodb_log_file_size slows down the "
+"{innodb_buffer_pool_size}. A very big innodb_log_file_size slows down the "
 "recovery time after a database crash considerably. See also <a href=\\"
 "\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
 "innodb_log_file_size/\\\">this Article</a>. You need to shutdown the server, "
@@ -12897,7 +12892,7 @@ msgstr ""
 
 #: po/advisory_rules.php:263
 #, php-format
-msgid "Your absolute InnoD log size is %s MiB"
+msgid "Your absolute InnoDB log size is %s MiB"
 msgstr ""
 
 #: po/advisory_rules.php:265
@@ -12954,6 +12949,9 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#~ msgid "Too many connections are aborted"
+#~ msgstr "中断された接続が多いです。"
 
 #~ msgid "+ Restart insertion and add a new value"
 #~ msgstr "+ 書き込みをやり直して、新しい値を追加する。"

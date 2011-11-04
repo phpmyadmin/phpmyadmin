@@ -871,6 +871,7 @@ div#tablestatistics table {
 
 #serverinfo .item {
     white-space:        nowrap;
+    float: <?php echo $left; ?>
 }
 
 #span_table_comment {

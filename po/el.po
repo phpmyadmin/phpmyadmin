@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-10-30 05:35-0400\n"
+"POT-Creation-Date: 2011-11-02 15:30-0400\n"
 "PO-Revision-Date: 2011-10-06 21:35+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
@@ -46,7 +46,7 @@ msgid "Search"
 msgstr "Αναζήτηση"
 
 #: browse_foreigners.php:154 db_operations.php:372 db_operations.php:412
-#: db_operations.php:522 db_operations.php:549 db_search.php:336
+#: db_operations.php:522 db_operations.php:549 db_search.php:337
 #: db_structure.php:614 enum_editor.php:119 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:207
 #: libraries/Config.class.php:1326 libraries/Theme_Manager.class.php:309
@@ -250,11 +250,11 @@ msgstr "Εμφάνιση σκαριφήματος (σχήματος) της βά
 msgid "No tables found in database."
 msgstr "Δεν βρέθηκαν πίνακες στη βάση δεδομένων."
 
-#: db_export.php:40 db_search.php:318 server_export.php:26
+#: db_export.php:40 db_search.php:319 server_export.php:26
 msgid "Select All"
 msgstr "Επιλογή όλων"
 
-#: db_export.php:42 db_search.php:321 server_export.php:28
+#: db_export.php:42 db_search.php:322 server_export.php:28
 msgid "Unselect All"
 msgstr "Αποεπιλογή όλων"
 
@@ -493,53 +493,53 @@ msgstr "Εντολή SQL στη βάση δεδομένων <b>%s</b>:"
 msgid "Submit Query"
 msgstr "Υποβολή ερωτήματος"
 
-#: db_search.php:30 libraries/auth/config.auth.lib.php:77
+#: db_search.php:31 libraries/auth/config.auth.lib.php:77
 #: libraries/auth/config.auth.lib.php:96
 #: libraries/auth/cookie.auth.lib.php:566 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:237
 msgid "Access denied"
 msgstr "Άρνηση πρόσβασης"
 
-#: db_search.php:42 db_search.php:285
+#: db_search.php:43 db_search.php:286
 msgid "at least one of the words"
 msgstr "τουλάχιστον έναν από τους όρους"
 
-#: db_search.php:43 db_search.php:286
+#: db_search.php:44 db_search.php:287
 msgid "all words"
 msgstr "όλους τους όρους"
 
-#: db_search.php:44 db_search.php:287
+#: db_search.php:45 db_search.php:288
 msgid "the exact phrase"
 msgstr "την ακριβή φράση"
 
-#: db_search.php:45 db_search.php:288
+#: db_search.php:46 db_search.php:289
 msgid "as regular expression"
 msgstr "ως κανονική έκφραση"
 
-#: db_search.php:208
+#: db_search.php:209
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Αποτελέσματα αναζήτησης για «<i>%s</i>» %s:"
 
-#: db_search.php:226
+#: db_search.php:227
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s απατέλεσμα στον πίνακα <i>%s</i>"
 msgstr[1] "%s αποτελέσματα στον πίνακα <i>%s</i>"
 
-#: db_search.php:233 libraries/common.lib.php:3089
+#: db_search.php:234 libraries/common.lib.php:3089
 #: libraries/common.lib.php:3301 libraries/common.lib.php:3302
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:569
 msgid "Browse"
 msgstr "Περιήγηση"
 
-#: db_search.php:238
+#: db_search.php:239
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "Διαγραφή παρόμοιων αποτελεσμάτων για τον πίνακα %s;"
 
-#: db_search.php:238 libraries/display_tbl.lib.php:1416
+#: db_search.php:239 libraries/display_tbl.lib.php:1416
 #: libraries/display_tbl.lib.php:2463
 #: libraries/schema/User_Schema.class.php:197
 #: libraries/schema/User_Schema.class.php:273
@@ -551,34 +551,34 @@ msgstr "Διαγραφή παρόμοιων αποτελεσμάτων για τ
 msgid "Delete"
 msgstr "Διαγραφή"
 
-#: db_search.php:251
+#: db_search.php:252
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>Σύνολο:</b> <i>%s</i> αποτέλεσμα"
 msgstr[1] "<b>Σύνολο:</b> <i>%s</i> αποτελέσματα"
 
-#: db_search.php:273
+#: db_search.php:274
 msgid "Search in database"
 msgstr "Αναζήτηση στη βάση δεδπμένων"
 
-#: db_search.php:276
+#: db_search.php:277
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Λέξεις ή τιμές για αναζήτηση (μπαλαντέρ: «%»):"
 
-#: db_search.php:281
+#: db_search.php:282
 msgid "Find:"
 msgstr "Έυρεση:"
 
-#: db_search.php:285 db_search.php:286
+#: db_search.php:286 db_search.php:287
 msgid "Words are separated by a space character (\" \")."
 msgstr "Οι λέξεις χωρίζονται από τον χαρακτήρα διαστήματος (« »)."
 
-#: db_search.php:299
+#: db_search.php:300
 msgid "Inside tables:"
 msgstr "Μέσα στους πίνακες:"
 
-#: db_search.php:329
+#: db_search.php:330
 msgid "Inside column:"
 msgstr "Εσωτερικό πεδίο:"
 
@@ -804,7 +804,7 @@ msgstr "Καταγραφή Βάσης Δεδομένων"
 #: enum_editor.php:23 js/messages.php:244
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "Επεξεργαστής ENUM/SET"
 
 #: enum_editor.php:28 js/messages.php:246
 #, fuzzy
@@ -1668,7 +1668,7 @@ msgstr "Φόρτωση"
 msgid "Processing Request"
 msgstr "Προώθηση Αιτήματος"
 
-#: js/messages.php:213 libraries/import/ods.php:80
+#: js/messages.php:213 libraries/import/ods.php:77
 #: libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
 msgstr "Σφάλμα στην Προώθηση του Αιτημάτος"
@@ -6935,7 +6935,7 @@ msgstr "Κατάσταση συμβατότητας SQL:"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Να μην γίνεται <code>AUTO_INCREMENT</code> σε μηδενικές τιμές"
 
-#: libraries/import/xml.php:74 libraries/import/xml.php:130
+#: libraries/import/xml.php:71 libraries/import/xml.php:127
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -12958,7 +12958,7 @@ msgstr ""
 msgid "Percentage of aborted connections"
 msgstr "Επιμένουσες συνδέσεις"
 
-#: po/advisory_rules.php:231
+#: po/advisory_rules.php:231 po/advisory_rules.php:236
 msgid "Too many connections are aborted."
 msgstr ""
 
@@ -12980,10 +12980,6 @@ msgstr ""
 #| msgid "Persistent connections"
 msgid "Rate of aborted connections"
 msgstr "Επιμένουσες συνδέσεις"
-
-#: po/advisory_rules.php:236
-msgid "Too many connections are aborted"
-msgstr ""
 
 #: po/advisory_rules.php:238
 #, php-format
@@ -13059,7 +13055,7 @@ msgstr "Ο αριθμός των εγγραφών που έγιναν στο buf
 #: po/advisory_rules.php:257
 #, php-format
 msgid ""
-"Especially one a system with a lot of writes to InnoDB tables you should set "
+"Especially on a system with a lot of writes to InnoDB tables you should set "
 "innodb_log_file_size to 25%% of {innodb_buffer_pool_size}. However the "
 "bigger this value, the longer the recovery time will be when database "
 "crashes, so this value should not be set much higher than 256 MiB. Please "
@@ -13090,7 +13086,7 @@ msgstr ""
 #, php-format
 msgid ""
 "It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
-"{innodb_buffer_pool_size}. A very innodb_log_file_size slows down the "
+"{innodb_buffer_pool_size}. A very big innodb_log_file_size slows down the "
 "recovery time after a database crash considerably. See also <a href=\\"
 "\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
 "innodb_log_file_size/\\\">this Article</a>. You need to shutdown the server, "
@@ -13102,7 +13098,7 @@ msgstr ""
 
 #: po/advisory_rules.php:263
 #, php-format
-msgid "Your absolute InnoD log size is %s MiB"
+msgid "Your absolute InnoDB log size is %s MiB"
 msgstr ""
 
 #: po/advisory_rules.php:265

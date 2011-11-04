@@ -3,16 +3,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-10-30 05:35-0400\n"
-"PO-Revision-Date: 2011-10-26 22:06+0200\n"
-"Last-Translator:  <stoyanster@gmail.com>\n"
+"POT-Creation-Date: 2011-11-02 15:30-0400\n"
+"PO-Revision-Date: 2011-11-04 10:43+0200\n"
+"Last-Translator: stoyan <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.1.6\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:326
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1673
@@ -46,7 +46,7 @@ msgid "Search"
 msgstr "Търсене"
 
 #: browse_foreigners.php:154 db_operations.php:372 db_operations.php:412
-#: db_operations.php:522 db_operations.php:549 db_search.php:336
+#: db_operations.php:522 db_operations.php:549 db_search.php:337
 #: db_structure.php:614 enum_editor.php:119 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:207
 #: libraries/Config.class.php:1326 libraries/Theme_Manager.class.php:309
@@ -250,11 +250,11 @@ msgstr "Преглед на схема (дъмп) на БД"
 msgid "No tables found in database."
 msgstr "В БД няма таблици."
 
-#: db_export.php:40 db_search.php:318 server_export.php:26
+#: db_export.php:40 db_search.php:319 server_export.php:26
 msgid "Select All"
 msgstr "Маркиране всички"
 
-#: db_export.php:42 db_search.php:321 server_export.php:28
+#: db_export.php:42 db_search.php:322 server_export.php:28
 msgid "Unselect All"
 msgstr "Размаркиране всички"
 
@@ -493,53 +493,53 @@ msgstr "SQL заявка към БД <b>%s</b>:"
 msgid "Submit Query"
 msgstr "Изпълни заявката"
 
-#: db_search.php:30 libraries/auth/config.auth.lib.php:77
+#: db_search.php:31 libraries/auth/config.auth.lib.php:77
 #: libraries/auth/config.auth.lib.php:96
 #: libraries/auth/cookie.auth.lib.php:566 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:237
 msgid "Access denied"
 msgstr "Отказан достъп"
 
-#: db_search.php:42 db_search.php:285
+#: db_search.php:43 db_search.php:286
 msgid "at least one of the words"
 msgstr "поне една от думите"
 
-#: db_search.php:43 db_search.php:286
+#: db_search.php:44 db_search.php:287
 msgid "all words"
 msgstr "всички думи"
 
-#: db_search.php:44 db_search.php:287
+#: db_search.php:45 db_search.php:288
 msgid "the exact phrase"
 msgstr "точната фраза"
 
-#: db_search.php:45 db_search.php:288
+#: db_search.php:46 db_search.php:289
 msgid "as regular expression"
 msgstr "като регулярен израз"
 
-#: db_search.php:208
+#: db_search.php:209
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Резултати от търсенето на \"<i>%s</i>\" %s:"
 
-#: db_search.php:226
+#: db_search.php:227
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s съвпадение в таблица <i>%s</i>"
 msgstr[1] "%s съвпадения в таблица <i>%s</i>"
 
-#: db_search.php:233 libraries/common.lib.php:3089
+#: db_search.php:234 libraries/common.lib.php:3089
 #: libraries/common.lib.php:3301 libraries/common.lib.php:3302
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:569
 msgid "Browse"
 msgstr "Прелистване"
 
-#: db_search.php:238
+#: db_search.php:239
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "Изтриване на съвпаденията от таблицата %s?"
 
-#: db_search.php:238 libraries/display_tbl.lib.php:1416
+#: db_search.php:239 libraries/display_tbl.lib.php:1416
 #: libraries/display_tbl.lib.php:2463
 #: libraries/schema/User_Schema.class.php:197
 #: libraries/schema/User_Schema.class.php:273
@@ -551,34 +551,34 @@ msgstr "Изтриване на съвпаденията от таблицата
 msgid "Delete"
 msgstr "Изтриване"
 
-#: db_search.php:251
+#: db_search.php:252
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>Общо:</b> <i>%s</i> съвпадение"
 msgstr[1] "<b>Общо:</b> <i>%s</i> съвпадения"
 
-#: db_search.php:273
+#: db_search.php:274
 msgid "Search in database"
 msgstr "Търсене в БД"
 
-#: db_search.php:276
+#: db_search.php:277
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Думи или стойности за търсене (знак за заместване: \"%\"):"
 
-#: db_search.php:281
+#: db_search.php:282
 msgid "Find:"
 msgstr "Намери:"
 
-#: db_search.php:285 db_search.php:286
+#: db_search.php:286 db_search.php:287
 msgid "Words are separated by a space character (\" \")."
 msgstr "Думите трябва да се разделят с интервал (\" \")."
 
-#: db_search.php:299
+#: db_search.php:300
 msgid "Inside tables:"
 msgstr "В таблици:"
 
-#: db_search.php:329
+#: db_search.php:330
 msgid "Inside column:"
 msgstr "В колона:"
 
@@ -614,7 +614,7 @@ msgstr "Проследяването е неактивно."
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
 "s."
-msgstr "Този изглед има поне толкова реда. Погледнете %sдокументацията%s"
+msgstr "Този изглед има поне толкова реда. Погледнете %sдокументацията%s."
 
 #: db_structure.php:466 db_structure.php:480 libraries/header.inc.php:161
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
@@ -801,31 +801,28 @@ msgstr "Дневник БД"
 #: enum_editor.php:23 js/messages.php:244
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "ENUM/SET редактор"
 
 #: enum_editor.php:28 js/messages.php:246
-#, fuzzy
 #| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
-msgstr "Стойности за колоната \"%s\""
+msgstr "Стойности за нова колона"
 
 #: enum_editor.php:30 js/messages.php:245
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
-msgstr "Стойности за колоната \"%s\""
+msgstr "Стойности за колоната %s"
 
 #: enum_editor.php:34 js/messages.php:247
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
-msgstr "Въведете всяка стойност в отделно поле."
+msgstr "Въвеждайте всяка стойност в отделно поле"
 
 #: enum_editor.php:121
-#, fuzzy
 #| msgid "+ Add a value"
 msgid "Add a value"
-msgstr "+ Нова стойност"
+msgstr "Добавяне стойност"
 
 #: enum_editor.php:127 gis_data_editor.php:317
 msgid "Output"
@@ -838,7 +835,7 @@ msgstr ""
 
 #: export.php:29
 msgid "Bad type!"
-msgstr "Неправилен тип"
+msgstr "Неправилен тип!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
@@ -919,10 +916,9 @@ msgid "Add a point"
 msgstr "Добавяне на точка"
 
 #: gis_data_editor.php:220 js/messages.php:297
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Редовете завършват с"
+msgstr ""
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:301
 msgid "Outer Ring"
@@ -936,7 +932,7 @@ msgstr "Вътрешен пръстен"
 #, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Добавяне потребител"
+msgstr "Добавяне LineString"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:303
 msgid "Add an inner ring"
@@ -951,10 +947,9 @@ msgid "Add a polygon"
 msgstr "Добавяне многоъгълник"
 
 #: gis_data_editor.php:310
-#, fuzzy
 #| msgid "Geometry"
 msgid "Add geometry"
-msgstr "Геометрия"
+msgstr ""
 
 #: gis_data_editor.php:318
 msgid ""
@@ -1010,7 +1005,7 @@ msgid ""
 "Cannot convert file's character set without character set conversion library"
 msgstr ""
 "Не може да бъде преобразуван знаковият набор на файла без библиотека за "
-"преобразуване на знакови набори."
+"преобразуване на знакови набори"
 
 #: import.php:390 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -1521,7 +1516,7 @@ msgstr ""
 
 #: js/messages.php:167
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr "Заявки изпълнени в този времеви интервал:"
+msgstr "Данните заредени. Заявки изпълнени в този времеви интервал:"
 
 #: js/messages.php:169
 #, fuzzy
@@ -1556,7 +1551,7 @@ msgstr ""
 
 #: js/messages.php:178
 msgid "Sum of grouped rows:"
-msgstr "Брой групирани редове"
+msgstr "Брой групирани редове:"
 
 #: js/messages.php:179
 msgid "Total:"
@@ -1654,7 +1649,7 @@ msgstr "Зареждане"
 msgid "Processing Request"
 msgstr "Обработка на заявката"
 
-#: js/messages.php:213 libraries/import/ods.php:80
+#: js/messages.php:213 libraries/import/ods.php:77
 #: libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
 msgstr "Грешка при обработка на заявката"
@@ -1734,10 +1729,10 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Дефиницията на съхранена процедура трябва да съдържа израз RETURN!"
 
 #: js/messages.php:248
-#, fuzzy, php-format
+#, php-format
 #| msgid "+ Add a value"
 msgid "Add %d value(s)"
-msgstr "+ Нова стойност"
+msgstr "Добавяне %d стойност(и)"
 
 #: js/messages.php:251
 msgid ""
@@ -4491,10 +4486,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:386
-#, fuzzy
 #| msgid "Control slave:"
 msgid "Control host"
-msgstr "Контролиране на подчинения:"
+msgstr ""
 
 #: libraries/config/messages.inc.php:387
 msgid "Count tables when showing database list"
@@ -5165,10 +5159,9 @@ msgid "Could not initialize Drizzle connection library"
 msgstr ""
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
-#, fuzzy
 #| msgid "Could not open file: %s"
 msgid "Could not connect to Drizzle server"
-msgstr "Файлът %s не може да бъде отворен"
+msgstr ""
 
 #: libraries/config/validate.lib.php:223 libraries/config/validate.lib.php:230
 msgid "Could not connect to MySQL server"
@@ -5368,7 +5361,7 @@ msgstr "Потребителско - всички настройки"
 
 #: libraries/display_export.lib.php:132
 msgid "Database(s):"
-msgstr "База(и) данни:"
+msgstr "БД:"
 
 #: libraries/display_export.lib.php:134
 msgid "Table(s):"
@@ -5380,7 +5373,7 @@ msgstr "Редове:"
 
 #: libraries/display_export.lib.php:152
 msgid "Dump some row(s)"
-msgstr "Схема на няколко реда"
+msgstr "Схема на ред(ове)"
 
 #: libraries/display_export.lib.php:154
 msgid "Number of rows:"
@@ -5517,7 +5510,7 @@ msgstr "Файл за импортиране:"
 #: libraries/display_import.lib.php:156
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
-msgstr "Файлът може да е компресиран (%s) или некомпресиран"
+msgstr "Файлът може да е компресиран (%s) или некомпресиран."
 
 #: libraries/display_import.lib.php:158
 msgid ""
@@ -6549,7 +6542,7 @@ msgstr "Режим на съвместимост на SQL:"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Да не се използва <code>AUTO_INCREMENT</code> за нулеви стойности"
 
-#: libraries/import/xml.php:74 libraries/import/xml.php:130
+#: libraries/import/xml.php:71 libraries/import/xml.php:127
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -7293,7 +7286,7 @@ msgstr "Трябва да дадете график на тригера"
 
 #: libraries/rte/rte_triggers.lib.php:415
 msgid "You must provide a valid event for the trigger"
-msgstr "Трябва да дадете събитие на тригера."
+msgstr "Трябва да дадете събитие на тригера"
 
 #: libraries/rte/rte_triggers.lib.php:421
 msgid "You must provide a valid table name"
@@ -7634,7 +7627,7 @@ msgstr "Разделител"
 
 #: libraries/sql_query_form.lib.php:344
 msgid "Show this query here again"
-msgstr "Показване на заявката отново "
+msgstr "Показване на заявката отново"
 
 #: libraries/sql_query_form.lib.php:399
 msgid "View only"
@@ -7817,7 +7810,7 @@ msgstr ""
 #: libraries/tbl_properties.inc.php:574 tbl_structure.php:651
 #, php-format
 msgid "Add %s column(s)"
-msgstr "Нови %s колона(и)"
+msgstr "Добавяне %s колона(и)"
 
 #: libraries/tbl_properties.inc.php:576 tbl_structure.php:645
 msgid "You have to add at least one column."
@@ -8343,7 +8336,7 @@ msgstr "Промените бяха запазени"
 
 #: prefs_forms.php:78
 msgid "Cannot save settings, submitted form contains errors"
-msgstr "Промените не бяха запазени, изпратения формуляр съдържа грешки."
+msgstr "Промените не бяха запазени, изпратеният формуляр съдържа грешки"
 
 #: prefs_manage.php:78
 msgid "Could not import configuration"
@@ -8400,7 +8393,7 @@ msgstr "Запис в хранилището на браузъра"
 
 #: prefs_manage.php:304
 msgid "Settings will be saved in your browser's local storage."
-msgstr "Настройките ще бъдат запазени в хранилището на вашия браузър"
+msgstr "Настройките ще бъдат запазени в хранилището на вашия браузър."
 
 #: prefs_manage.php:306
 msgid "Existing settings will be overwritten!"
@@ -8752,7 +8745,7 @@ msgstr "Специфични за таблицата права"
 #: server_privileges.php:535 server_privileges.php:687
 #: server_privileges.php:1700
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "Забележка: Имената на правата на MySQL са показани на английски "
+msgstr "Забележка: Имената на правата на MySQL са показани на английски"
 
 #: server_privileges.php:612
 msgid "Administration"
@@ -8926,7 +8919,7 @@ msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-" ... изтриване на стария от таблицата с потребители и след това презареждане "
+"... изтриване на стария от таблицата с потребители и след това презареждане "
 "на правата."
 
 #: server_privileges.php:2211
@@ -9318,7 +9311,7 @@ msgstr "Мрежови трафик от включването: %s"
 #: server_status.php:1047
 #, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Този MySQL сървър работи от %s. Включен е на %s."
+msgstr "Този MySQL сървър работи от %1$s. Включен е на %2$s."
 
 #: server_status.php:1057
 msgid ""
@@ -9957,10 +9950,9 @@ msgid "Chart columns"
 msgstr ""
 
 #: server_status.php:1588
-#, fuzzy
 #| msgid "Error management:"
 msgid "Chart arrangement"
-msgstr "Обработка на грешки:"
+msgstr ""
 
 #: server_status.php:1588
 msgid ""
@@ -10151,31 +10143,31 @@ msgstr "Различия в данните"
 
 #: server_synchronize.php:443 server_synchronize.php:915
 msgid "Add column(s)"
-msgstr "Добавяне на колона(и)"
+msgstr "Добавяне колона(и)"
 
 #: server_synchronize.php:444 server_synchronize.php:916
 msgid "Remove column(s)"
-msgstr "Изтриване на колона(и)"
+msgstr "Изтриване колона(и)"
 
 #: server_synchronize.php:445 server_synchronize.php:917
 msgid "Alter column(s)"
-msgstr "Промяна на колона(и)"
+msgstr "Промяна колона(и)"
 
 #: server_synchronize.php:446 server_synchronize.php:918
 msgid "Remove index(s)"
-msgstr "Изтриване на индекс(и)"
+msgstr "Изтриване индекс(и)"
 
 #: server_synchronize.php:447 server_synchronize.php:919
 msgid "Apply index(s)"
-msgstr "Добавяне на индекс(и)"
+msgstr "Добавяне индекс(и)"
 
 #: server_synchronize.php:448 server_synchronize.php:920
 msgid "Update row(s)"
-msgstr "Обновяване на ред(ове)"
+msgstr "Обновяване ред(ове)"
 
 #: server_synchronize.php:449 server_synchronize.php:921
 msgid "Insert row(s)"
-msgstr "Вмъкване на ред(ове)"
+msgstr "Вмъкване ред(ове)"
 
 #: server_synchronize.php:460 server_synchronize.php:933
 msgid "Would you like to delete all the previous rows from target tables?"
@@ -10223,7 +10215,7 @@ msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
 msgstr ""
-"Целевата БД ще бъде напълно синхронизирана с изходната. Изходната БД ще "
+"Целевата БД ще бъде напълно синхронизирана с изходната. Изходната - ще "
 "остане непроменена."
 
 #: server_variables.php:80
@@ -10566,7 +10558,7 @@ msgstr "Таблицата %1$s беше променена"
 
 #: tbl_change.php:699
 msgid "Because of its length,<br /> this column might not be editable"
-msgstr "Поради дължината си,<br /> това поле може да е нередактируемо "
+msgstr "Поради дължината си,<br />това поле може да е нередактируемо"
 
 #: tbl_change.php:818
 msgid "Remove BLOB Repository Reference"
@@ -11191,11 +11183,11 @@ msgstr "Създаване на версия %s от %s.%s"
 
 #: tbl_tracking.php:719
 msgid "Track these data definition statements:"
-msgstr "Проследяване следните изрази за дефиниране на данни"
+msgstr "Проследяване следните изрази за дефиниране на данни:"
 
 #: tbl_tracking.php:727
 msgid "Track these data manipulation statements:"
-msgstr "Проследяване следните изрази за манипулиране на данни"
+msgstr "Проследяване следните изрази за манипулиране на данни:"
 
 #: tbl_tracking.php:735
 msgid "Create version"
@@ -11375,10 +11367,9 @@ msgid "Slow query logging"
 msgstr "Показване формата за заявки"
 
 #: po/advisory_rules.php:31
-#, fuzzy
 #| msgid "The event scheduler is disabled"
 msgid "The slow query log is disabled."
-msgstr "Диспечер на събитията изключен"
+msgstr ""
 
 #: po/advisory_rules.php:32
 msgid ""
@@ -11675,10 +11666,9 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
 
 #: po/advisory_rules.php:110
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
-msgstr "Позволява създаването на временни таблици."
+msgstr ""
 
 #: po/advisory_rules.php:111 po/advisory_rules.php:116
 #, fuzzy
@@ -11700,10 +11690,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:115
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
-msgstr "Позволява създаването на временни таблици."
+msgstr ""
 
 #: po/advisory_rules.php:118
 #, php-format
@@ -11733,10 +11722,9 @@ msgid "Sorted rows average: %s"
 msgstr ""
 
 #: po/advisory_rules.php:125
-#, fuzzy
 #| msgid "There are no routines to display."
 msgid "Rate of joins without indexes"
-msgstr "Няма процедури."
+msgstr ""
 
 #: po/advisory_rules.php:126
 msgid "There are too many joins without indexes."
@@ -11868,11 +11856,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:155
-#, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Temp disk rate"
-msgstr "%s таблица"
+msgstr ""
 
 #: po/advisory_rules.php:157
 msgid ""
@@ -11911,16 +11898,16 @@ msgid "key_buffer_size is 0"
 msgstr "key_buffer_size e 0"
 
 #: po/advisory_rules.php:165
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "Размер на буфера за сортиране"
+msgstr "Максимално използван %% от буфера за ключове на MyISAM"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr "Размер на буфера за сортиране"
+msgstr "MyISAM буфер на ключове (индекси) с нисък %% на използване."
 
 #: po/advisory_rules.php:167 po/advisory_rules.php:172
 msgid ""
@@ -12027,7 +12014,7 @@ msgstr ""
 #, fuzzy, php-format
 #| msgid "Create table on database %s"
 msgid "Immediate table locks %%"
-msgstr "Създаване нова таблица в БД %s"
+msgstr ""
 
 #: po/advisory_rules.php:196 po/advisory_rules.php:201
 msgid "Too many table locks were not granted immediately."
@@ -12072,10 +12059,10 @@ msgid "The thread cache is set to 0"
 msgstr ""
 
 #: po/advisory_rules.php:210
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is not active."
 msgid "Thread cache hit rate %%"
-msgstr "Проследяването е неактивно."
+msgstr ""
 
 #: po/advisory_rules.php:211
 #, fuzzy
@@ -12163,7 +12150,7 @@ msgstr ""
 msgid "Percentage of aborted connections"
 msgstr "максимален брой едновременни връзки"
 
-#: po/advisory_rules.php:231
+#: po/advisory_rules.php:231 po/advisory_rules.php:236
 msgid "Too many connections are aborted."
 msgstr ""
 
@@ -12185,10 +12172,6 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "Rate of aborted connections"
 msgstr "максимален брой едновременни връзки"
-
-#: po/advisory_rules.php:236
-msgid "Too many connections are aborted"
-msgstr ""
 
 #: po/advisory_rules.php:238
 #, php-format
@@ -12234,10 +12217,9 @@ msgid "Is InnoDB disabled?"
 msgstr ""
 
 #: po/advisory_rules.php:251
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "You do not have InnoDB enabled."
-msgstr "Наскоро отваряната таблице не можа да бъде записана"
+msgstr "Няма вграден InnoDB."
 
 #: po/advisory_rules.php:252
 msgid "InnoDB is usually the better choice for table engines."
@@ -12262,7 +12244,7 @@ msgstr ""
 #: po/advisory_rules.php:257
 #, php-format
 msgid ""
-"Especially one a system with a lot of writes to InnoDB tables you should set "
+"Especially on a system with a lot of writes to InnoDB tables you should set "
 "innodb_log_file_size to 25%% of {innodb_buffer_pool_size}. However the "
 "bigger this value, the longer the recovery time will be when database "
 "crashes, so this value should not be set much higher than 256 MiB. Please "
@@ -12293,7 +12275,7 @@ msgstr ""
 #, php-format
 msgid ""
 "It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
-"{innodb_buffer_pool_size}. A very innodb_log_file_size slows down the "
+"{innodb_buffer_pool_size}. A very big innodb_log_file_size slows down the "
 "recovery time after a database crash considerably. See also <a href=\\"
 "\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
 "innodb_log_file_size/\\\">this Article</a>. You need to shutdown the server, "
@@ -12305,7 +12287,7 @@ msgstr ""
 
 #: po/advisory_rules.php:263
 #, php-format
-msgid "Your absolute InnoD log size is %s MiB"
+msgid "Your absolute InnoDB log size is %s MiB"
 msgstr ""
 
 #: po/advisory_rules.php:265

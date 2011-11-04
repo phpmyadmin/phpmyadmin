@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-10-30 05:35-0400\n"
-"PO-Revision-Date: 2011-10-26 18:08+0200\n"
+"POT-Creation-Date: 2011-11-02 15:30-0400\n"
+"PO-Revision-Date: 2011-11-01 18:25+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.1.6\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:326
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1673
@@ -46,7 +46,7 @@ msgid "Search"
 msgstr "Buscar"
 
 #: browse_foreigners.php:154 db_operations.php:372 db_operations.php:412
-#: db_operations.php:522 db_operations.php:549 db_search.php:336
+#: db_operations.php:522 db_operations.php:549 db_search.php:337
 #: db_structure.php:614 enum_editor.php:119 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:207
 #: libraries/Config.class.php:1326 libraries/Theme_Manager.class.php:309
@@ -250,11 +250,11 @@ msgstr "Ver el volcado (esquema) de la base de datos"
 msgid "No tables found in database."
 msgstr "No se han encontrado tablas en la base de datos."
 
-#: db_export.php:40 db_search.php:318 server_export.php:26
+#: db_export.php:40 db_search.php:319 server_export.php:26
 msgid "Select All"
 msgstr "Seleccionar todo"
 
-#: db_export.php:42 db_search.php:321 server_export.php:28
+#: db_export.php:42 db_search.php:322 server_export.php:28
 msgid "Unselect All"
 msgstr "Deseleccionar todo"
 
@@ -495,55 +495,55 @@ msgstr "Consulta a la base de datos <b>%s</b>:"
 msgid "Submit Query"
 msgstr "Ejecutar la consulta"
 
-#: db_search.php:30 libraries/auth/config.auth.lib.php:77
+#: db_search.php:31 libraries/auth/config.auth.lib.php:77
 #: libraries/auth/config.auth.lib.php:96
 #: libraries/auth/cookie.auth.lib.php:566 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:237
 msgid "Access denied"
 msgstr "Acceso denegado"
 
-#: db_search.php:42 db_search.php:285
+#: db_search.php:43 db_search.php:286
 msgid "at least one of the words"
 msgstr "al menos una de estas palabras"
 
-#: db_search.php:43 db_search.php:286
+#: db_search.php:44 db_search.php:287
 msgid "all words"
 msgstr "Todas las palabras"
 
-#: db_search.php:44 db_search.php:287
+#: db_search.php:45 db_search.php:288
 msgid "the exact phrase"
 msgstr "La frase exacta"
 
-#: db_search.php:45 db_search.php:288
+#: db_search.php:46 db_search.php:289
 msgid "as regular expression"
 msgstr "como expresión regular"
 
-#: db_search.php:208
+#: db_search.php:209
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Resultados de la búsqueda para \"<i>%s</i>\" %s:"
 
 # singular: %s resultado en la tabla <i>%s</i>
 # plural: %s resultados en la tabla <i>%s</i>
-#: db_search.php:226
+#: db_search.php:227
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s resultado en la tabla <i>%s</i>"
 msgstr[1] "%s resultados en la tabla <i>%s</i>"
 
-#: db_search.php:233 libraries/common.lib.php:3089
+#: db_search.php:234 libraries/common.lib.php:3089
 #: libraries/common.lib.php:3301 libraries/common.lib.php:3302
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:569
 msgid "Browse"
 msgstr "Examinar"
 
-#: db_search.php:238
+#: db_search.php:239
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "¿Eliminar las coincidencias para la tabla %s?"
 
-#: db_search.php:238 libraries/display_tbl.lib.php:1416
+#: db_search.php:239 libraries/display_tbl.lib.php:1416
 #: libraries/display_tbl.lib.php:2463
 #: libraries/schema/User_Schema.class.php:197
 #: libraries/schema/User_Schema.class.php:273
@@ -555,34 +555,34 @@ msgstr "¿Eliminar las coincidencias para la tabla %s?"
 msgid "Delete"
 msgstr "Borrar"
 
-#: db_search.php:251
+#: db_search.php:252
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>Total:</b> <i>%s</i> resultado"
 msgstr[1] "<b>Total:</b> <i>%s</i> resultados"
 
-#: db_search.php:273
+#: db_search.php:274
 msgid "Search in database"
 msgstr "Buscar en la base de datos"
 
-#: db_search.php:276
+#: db_search.php:277
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Palabras o valores a buscar (comodín: \"%\"):"
 
-#: db_search.php:281
+#: db_search.php:282
 msgid "Find:"
 msgstr "Encontrado:"
 
-#: db_search.php:285 db_search.php:286
+#: db_search.php:286 db_search.php:287
 msgid "Words are separated by a space character (\" \")."
 msgstr "Las palabras están separadas por un espacio (\" \")."
 
-#: db_search.php:299
+#: db_search.php:300
 msgid "Inside tables:"
 msgstr "Dentro de las tablas:"
 
-#: db_search.php:329
+#: db_search.php:330
 msgid "Inside column:"
 msgstr "Dentro de la columna:"
 
@@ -808,31 +808,24 @@ msgstr "Registro de la base de datos"
 #: enum_editor.php:23 js/messages.php:244
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "Editor de ENUM/SET"
 
 #: enum_editor.php:28 js/messages.php:246
-#, fuzzy
-#| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
-msgstr "Valores para la columna \"%s\""
+msgstr "Valores para una nueva columna"
 
 #: enum_editor.php:30 js/messages.php:245
-#, fuzzy, php-format
-#| msgid "Values for the column \"%s\""
+#, php-format
 msgid "Values for column %s"
-msgstr "Valores para la columna \"%s\""
+msgstr "Valores para la columna %s"
 
 #: enum_editor.php:34 js/messages.php:247
-#, fuzzy
-#| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
-msgstr "Insertar cada valor en un campo separado."
+msgstr "Ingresar cada valor en un campo separado"
 
 #: enum_editor.php:121
-#, fuzzy
-#| msgid "+ Add a value"
 msgid "Add a value"
-msgstr "+ Agregar un valor"
+msgstr "Agregar un valor"
 
 #: enum_editor.php:127 gis_data_editor.php:317
 msgid "Output"
@@ -1673,7 +1666,7 @@ msgstr "Cargando"
 msgid "Processing Request"
 msgstr "Procesando Petición"
 
-#: js/messages.php:213 libraries/import/ods.php:80
+#: js/messages.php:213 libraries/import/ods.php:77
 #: libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
 msgstr "Error al Procesar la Petición"
@@ -1754,10 +1747,9 @@ msgstr ""
 "¡La definición de una función almacenada debe contener una sentencia RETURN!"
 
 #: js/messages.php:248
-#, fuzzy, php-format
-#| msgid "+ Add a value"
+#, php-format
 msgid "Add %d value(s)"
-msgstr "+ Agregar un valor"
+msgstr "Agregar %d valor(es)"
 
 #: js/messages.php:251
 msgid ""
@@ -3299,25 +3291,22 @@ msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"Define el tamaño mínimo de los campos de entrada para columnas CHAR y VARCHAR"
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
-#| msgid "Customize text input fields"
 msgid "Minimum size for input field"
-msgstr "Personalizar los campos de entrada de texto"
+msgstr "Tamaño mínimo para campos de entrada"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"Define el tamaño máximo de los campos de entrada para columnas CHAR y VARCHAR"
 
 #: libraries/config/messages.inc.php:37
-#, fuzzy
-#| msgid "Maximum size for temporary sort files"
 msgid "Maximum size for input field"
-msgstr ""
-"Tamaño máximo para los archivos temporales generados durante la organización"
+msgstr "Tamaño máximo para campos de entrada"
 
 #: libraries/config/messages.inc.php:38
 msgid "Number of columns for CHAR/VARCHAR textareas"
@@ -4655,12 +4644,12 @@ msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
 msgstr ""
+"Alternativa para guardar el almacenamiento de configuración; deje vacío para "
+"utilizar el ya definido"
 
 #: libraries/config/messages.inc.php:386
-#, fuzzy
-#| msgid "Control user"
 msgid "Control host"
-msgstr "Controlar al usuario"
+msgstr "Anfitrión de control"
 
 #: libraries/config/messages.inc.php:387
 msgid "Count tables when showing database list"
@@ -6972,7 +6961,7 @@ msgstr "Modalidad SQL compatible:"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "No utilizar <code>AUTO_INCREMENT</code> con el valor 0"
 
-#: libraries/import/xml.php:74 libraries/import/xml.php:130
+#: libraries/import/xml.php:71 libraries/import/xml.php:127
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -13089,7 +13078,7 @@ msgstr ""
 msgid "Percentage of aborted connections"
 msgstr "Porcentaje de conexiones abandonadas"
 
-#: po/advisory_rules.php:231
+#: po/advisory_rules.php:231 po/advisory_rules.php:236
 msgid "Too many connections are aborted."
 msgstr "Demasiadas conexiones son abandonadas."
 
@@ -13115,10 +13104,6 @@ msgstr ""
 #: po/advisory_rules.php:235
 msgid "Rate of aborted connections"
 msgstr "Tasa de conexiones abandonadas"
-
-#: po/advisory_rules.php:236
-msgid "Too many connections are aborted"
-msgstr "Demasiadas conexiones son abandonadas"
 
 #: po/advisory_rules.php:238
 #, php-format
@@ -13194,9 +13179,20 @@ msgstr ""
 "a la reserva de búfers InnoDB."
 
 #: po/advisory_rules.php:257
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "Especially one a system with a lot of writes to InnoDB tables you should "
+#| "set innodb_log_file_size to 25%% of {innodb_buffer_pool_size}. However "
+#| "the bigger this value, the longer the recovery time will be when database "
+#| "crashes, so this value should not be set much higher than 256 MiB. Please "
+#| "note however that you cannot simply change the value of this variable. "
+#| "You need to shutdown the server, remove the InnoDB log files, set the new "
+#| "value in my.cnf, start the server, then check the error logs if "
+#| "everything went fine. See also <a href=\\\"http://"
+#| "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+#| "innodblogfilesize-proper-way.html\\\">this blog entry</a>"
 msgid ""
-"Especially one a system with a lot of writes to InnoDB tables you should set "
+"Especially on a system with a lot of writes to InnoDB tables you should set "
 "innodb_log_file_size to 25%% of {innodb_buffer_pool_size}. However the "
 "bigger this value, the longer the recovery time will be when database "
 "crashes, so this value should not be set much higher than 256 MiB. Please "
@@ -13237,10 +13233,20 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "El tamaño del archivo de registros InnoDB es inadecuadamente grande."
 
 #: po/advisory_rules.php:262
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "It is usually sufficient to set innodb_log_file_size to 25%% of the size "
+#| "of {innodb_buffer_pool_size}. A very innodb_log_file_size slows down the "
+#| "recovery time after a database crash considerably. See also <a href=\\"
+#| "\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+#| "innodb_log_file_size/\\\">this Article</a>. You need to shutdown the "
+#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
+#| "the server, then check the error logs if everything went fine. See also "
+#| "<a href=\\\"http://mysqldatabaseadministration.blogspot.com/2007/01/"
+#| "increase-innodblogfilesize-proper-way.html\\\">this blog entry</a>"
 msgid ""
 "It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
-"{innodb_buffer_pool_size}. A very innodb_log_file_size slows down the "
+"{innodb_buffer_pool_size}. A very big innodb_log_file_size slows down the "
 "recovery time after a database crash considerably. See also <a href=\\"
 "\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
 "innodb_log_file_size/\\\">this Article</a>. You need to shutdown the server, "
@@ -13262,8 +13268,9 @@ msgstr ""
 "proper-way.html\\\">este artículo</a>."
 
 #: po/advisory_rules.php:263
-#, php-format
-msgid "Your absolute InnoD log size is %s MiB"
+#, fuzzy, php-format
+#| msgid "Your absolute InnoD log size is %s MiB"
+msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "El tamaño del archivo de registros InnoDB es %s MiB"
 
 #: po/advisory_rules.php:265
@@ -13335,6 +13342,9 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr "«concurrent_insert» está definido como 0"
+
+#~ msgid "Too many connections are aborted"
+#~ msgstr "Demasiadas conexiones son abandonadas"
 
 #~ msgid "+ Restart insertion and add a new value"
 #~ msgstr "+ Reiniciar inserción e insertar un nuevo valor"

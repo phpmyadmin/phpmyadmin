@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-10-30 05:35-0400\n"
-"PO-Revision-Date: 2011-10-25 13:16+0200\n"
+"POT-Creation-Date: 2011-11-02 15:30-0400\n"
+"PO-Revision-Date: 2011-11-02 17:09+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.1.6\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:326
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1673
@@ -46,7 +46,7 @@ msgid "Search"
 msgstr "Ara"
 
 #: browse_foreigners.php:154 db_operations.php:372 db_operations.php:412
-#: db_operations.php:522 db_operations.php:549 db_search.php:336
+#: db_operations.php:522 db_operations.php:549 db_search.php:337
 #: db_structure.php:614 enum_editor.php:119 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:207
 #: libraries/Config.class.php:1326 libraries/Theme_Manager.class.php:309
@@ -250,11 +250,11 @@ msgstr "Veritabanının dökümünü (şemasını) göster"
 msgid "No tables found in database."
 msgstr "Veritabanında tablo bulunamadı."
 
-#: db_export.php:40 db_search.php:318 server_export.php:26
+#: db_export.php:40 db_search.php:319 server_export.php:26
 msgid "Select All"
 msgstr "Tümünü Seç"
 
-#: db_export.php:42 db_search.php:321 server_export.php:28
+#: db_export.php:42 db_search.php:322 server_export.php:28
 msgid "Unselect All"
 msgstr "Tüm Seçimi Kaldır"
 
@@ -492,52 +492,52 @@ msgstr "<b>%s</b> veritabanındaki SQL sorgusu:"
 msgid "Submit Query"
 msgstr "Sorguyu Gönder"
 
-#: db_search.php:30 libraries/auth/config.auth.lib.php:77
+#: db_search.php:31 libraries/auth/config.auth.lib.php:77
 #: libraries/auth/config.auth.lib.php:96
 #: libraries/auth/cookie.auth.lib.php:566 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:237
 msgid "Access denied"
 msgstr "Erişim engellendi"
 
-#: db_search.php:42 db_search.php:285
+#: db_search.php:43 db_search.php:286
 msgid "at least one of the words"
 msgstr "kelimelerin en azından biri"
 
-#: db_search.php:43 db_search.php:286
+#: db_search.php:44 db_search.php:287
 msgid "all words"
 msgstr "tüm kelimeler"
 
-#: db_search.php:44 db_search.php:287
+#: db_search.php:45 db_search.php:288
 msgid "the exact phrase"
 msgstr "kesin ifade"
 
-#: db_search.php:45 db_search.php:288
+#: db_search.php:46 db_search.php:289
 msgid "as regular expression"
 msgstr "kurallı ifade olarak"
 
-#: db_search.php:208
+#: db_search.php:209
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "\"<i>%s</i>\" %s için arama sonuçları:"
 
-#: db_search.php:226
+#: db_search.php:227
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s benzeşme, <i>%s</i> tablosu içinde"
 
-#: db_search.php:233 libraries/common.lib.php:3089
+#: db_search.php:234 libraries/common.lib.php:3089
 #: libraries/common.lib.php:3301 libraries/common.lib.php:3302
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:569
 msgid "Browse"
 msgstr "Gözat"
 
-#: db_search.php:238
+#: db_search.php:239
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "%s tablosu için benzeşenler silinsin mi?"
 
-#: db_search.php:238 libraries/display_tbl.lib.php:1416
+#: db_search.php:239 libraries/display_tbl.lib.php:1416
 #: libraries/display_tbl.lib.php:2463
 #: libraries/schema/User_Schema.class.php:197
 #: libraries/schema/User_Schema.class.php:273
@@ -549,33 +549,33 @@ msgstr "%s tablosu için benzeşenler silinsin mi?"
 msgid "Delete"
 msgstr "Sil"
 
-#: db_search.php:251
+#: db_search.php:252
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>Toplam:</b> <i>%s</i> benzeşme"
 
-#: db_search.php:273
+#: db_search.php:274
 msgid "Search in database"
 msgstr "Veritabanında ara"
 
-#: db_search.php:276
+#: db_search.php:277
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Aranacak kelimeler veya değerler (joker: \"%\"):"
 
-#: db_search.php:281
+#: db_search.php:282
 msgid "Find:"
 msgstr "Bul:"
 
-#: db_search.php:285 db_search.php:286
+#: db_search.php:286 db_search.php:287
 msgid "Words are separated by a space character (\" \")."
 msgstr "Kelimeler boşlukla ayrılır (\" \")."
 
-#: db_search.php:299
+#: db_search.php:300
 msgid "Inside tables:"
 msgstr "Tablo içindekiler:"
 
-#: db_search.php:329
+#: db_search.php:330
 msgid "Inside column:"
 msgstr "İç sütun:"
 
@@ -799,31 +799,24 @@ msgstr "Veritabanı Günlüğü"
 #: enum_editor.php:23 js/messages.php:244
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "ENUM/SET düzenleyci"
 
 #: enum_editor.php:28 js/messages.php:246
-#, fuzzy
-#| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
-msgstr "\"%s\" sütunu için değerler"
+msgstr "Yeni bir sütun için değerler"
 
 #: enum_editor.php:30 js/messages.php:245
-#, fuzzy, php-format
-#| msgid "Values for the column \"%s\""
+#, php-format
 msgid "Values for column %s"
-msgstr "\"%s\" sütunu için değerler"
+msgstr "%s sütunu için değerler"
 
 #: enum_editor.php:34 js/messages.php:247
-#, fuzzy
-#| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
-msgstr "Her bir değeri ayrı alana girin."
+msgstr "Her bir değeri ayrı alana girin"
 
 #: enum_editor.php:121
-#, fuzzy
-#| msgid "+ Add a value"
 msgid "Add a value"
-msgstr "+ Bir değer ekle"
+msgstr "Bir değer ekle"
 
 #: enum_editor.php:127 gis_data_editor.php:317
 msgid "Output"
@@ -1655,7 +1648,7 @@ msgstr "Yükleniyor"
 msgid "Processing Request"
 msgstr "İstek İşleniyor"
 
-#: js/messages.php:213 libraries/import/ods.php:80
+#: js/messages.php:213 libraries/import/ods.php:77
 #: libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
 msgstr "İstek İşlemede Hata"
@@ -1735,10 +1728,9 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Depolanan işlevin tanımı RETURN ifadesi içermek zorunda!"
 
 #: js/messages.php:248
-#, fuzzy, php-format
-#| msgid "+ Add a value"
+#, php-format
 msgid "Add %d value(s)"
-msgstr "+ Bir değer ekle"
+msgstr "%d değer ekle"
 
 #: js/messages.php:251
 msgid ""
@@ -3260,24 +3252,24 @@ msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"CHAR ve VARCHAR sütunları için oluşturulmuş en az boyut girdi alanlarını "
+"tanımlar"
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
-#| msgid "Customize text input fields"
 msgid "Minimum size for input field"
-msgstr "Metin giriş alanlarını özelleştirir"
+msgstr "Girdi alanı için en az boyut"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"CHAR ve VARCHAR sütunları için oluşturulmuş en fazla boyut girdi alanlarını "
+"tanımlar"
 
 #: libraries/config/messages.inc.php:37
-#, fuzzy
-#| msgid "Maximum size for temporary sort files"
 msgid "Maximum size for input field"
-msgstr "Geçici sıralama dosyaları için en fazla boyut"
+msgstr "Girdi alanı için en fazla boyut"
 
 #: libraries/config/messages.inc.php:38
 msgid "Number of columns for CHAR/VARCHAR textareas"
@@ -3935,7 +3927,7 @@ msgstr "Metin alanları"
 
 #: libraries/config/messages.inc.php:229
 msgid "Customize text input fields"
-msgstr "Metin giriş alanlarını özelleştirir"
+msgstr "Metin girdi alanlarını özelleştirir"
 
 #: libraries/config/messages.inc.php:230 libraries/export/texytext.php:18
 msgid "Texy! text"
@@ -4601,12 +4593,12 @@ msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
 msgstr ""
+"Yapılandırma depolamasını tutmak için alternatif anamakine; zaten "
+"tanımlanmış anamakineyi kullanmak için boş bırakın"
 
 #: libraries/config/messages.inc.php:386
-#, fuzzy
-#| msgid "Control user"
 msgid "Control host"
-msgstr "Denetim kullanıcısı"
+msgstr "Denetim anamakinesi"
 
 #: libraries/config/messages.inc.php:387
 msgid "Count tables when showing database list"
@@ -6542,9 +6534,7 @@ msgstr ""
 
 #: libraries/export/sql.php:45
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr ""
-"İlave özel başlık yorumu (\n"
-" satırları böler):"
+msgstr "İlave özel başlık yorumu (\\n satırları böler):"
 
 #: libraries/export/sql.php:50
 msgid ""
@@ -6812,12 +6802,12 @@ msgstr ""
 #: libraries/import/csv.php:190 libraries/import/csv.php:437
 #, php-format
 msgid "Invalid format of CSV input on line %d."
-msgstr "CSV girişinin %d. satırında geçersiz biçim."
+msgstr "%d. satırında CSV girdisinin geçersiz biçimi."
 
 #: libraries/import/csv.php:325
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
-msgstr "CSV girişinde %d. satırda geçersiz sütun sayısı."
+msgstr "CSV girdisinde %d. satırda geçersiz sütun sayısı."
 
 #: libraries/import/docsql.php:28
 msgid "DocSQL"
@@ -6879,7 +6869,7 @@ msgstr "SQL uyumluluk kipi:"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Sıfır değerleri için <code>AUTO_INCREMENT</code> değeri kullanma"
 
-#: libraries/import/xml.php:74 libraries/import/xml.php:130
+#: libraries/import/xml.php:71 libraries/import/xml.php:127
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -8014,7 +8004,7 @@ msgstr ""
 "aşağıdaki MySQL sunucu hata çıktısı, sorunu teşhis etmenizde ayrıca size "
 "yardımcı olabilir. Eğer hala sorunlarınız varsa ya da komut satırı arabirimi "
 "başarılı olduğunda ayrıştırıcı başarısızsa, lütfen sorunlara neden olan SQL "
-"sorgu girişinizi tek bir sorguya indirgeyin ve aşağıdaki CUT bölümü içindeki "
+"sorgu girdinizi tek bir sorguya indirgeyin ve aşağıdaki CUT bölümü içindeki "
 "veri yığını ile birlikte hata raporunu gönderin:"
 
 #: libraries/sqlparser.lib.php:177
@@ -8254,7 +8244,7 @@ msgid ""
 "(Default 1)."
 msgstr ""
 "SADECE LINUX: Harici bir uygulama çalıştırır ve sütun verisini standart "
-"giriş yoluyla besler. Uygulamanın standart çıktısı döner. Düzgün HTML kodu "
+"girdi yoluyla besler. Uygulamanın standart çıktısı döner. Düzgün HTML kodu "
 "baskısı için varsayılan düzenlidir. Güvenlik nedeniyle libraries/"
 "transformations/text_plain__external.inc.php dosyasını elle düzenlemeli ve "
 "olmasını istediğiniz araçları listelemelisiniz. İlk seçenek kullanmak "
@@ -9823,7 +9813,7 @@ msgid ""
 msgstr ""
 "İfadeler çalıştırılırken sunucu tarafından disk üzerindeki geçici tablo "
 "sayıları otomatik olarak oluşturuldu. Eğer Created_tmp_disk_tables değeri "
-"büyük ise, geçici tabloların disk tabanlı yerine bellek tabanlı olamasına "
+"büyük ise, geçici tabloların disk tabanlı yerine bellek tabanlı olmasına "
 "sebep olmak için tmp_table_size değerini arttırmak isteyebilirsiniz."
 
 #: server_status.php:1297
@@ -12868,7 +12858,7 @@ msgstr ""
 msgid "Percentage of aborted connections"
 msgstr "Durdurulan bağlantıların yüzdesi"
 
-#: po/advisory_rules.php:231
+#: po/advisory_rules.php:231 po/advisory_rules.php:236
 msgid "Too many connections are aborted."
 msgstr "Çok fazla bağlantı durduruldu."
 
@@ -12892,10 +12882,6 @@ msgstr "Tüm bağlantıların %%%s'i durduruldu. Bu değer %%1'in altında olmal
 #: po/advisory_rules.php:235
 msgid "Rate of aborted connections"
 msgstr "Durdurulan bağlantıların oranı"
-
-#: po/advisory_rules.php:236
-msgid "Too many connections are aborted"
-msgstr "Çok fazla bağlantı durduruldu"
 
 #: po/advisory_rules.php:238
 #, php-format
@@ -12966,9 +12952,20 @@ msgstr ""
 "bir boyut değil."
 
 #: po/advisory_rules.php:257
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "Especially one a system with a lot of writes to InnoDB tables you should "
+#| "set innodb_log_file_size to 25%% of {innodb_buffer_pool_size}. However "
+#| "the bigger this value, the longer the recovery time will be when database "
+#| "crashes, so this value should not be set much higher than 256 MiB. Please "
+#| "note however that you cannot simply change the value of this variable. "
+#| "You need to shutdown the server, remove the InnoDB log files, set the new "
+#| "value in my.cnf, start the server, then check the error logs if "
+#| "everything went fine. See also <a href=\\\"http://"
+#| "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+#| "innodblogfilesize-proper-way.html\\\">this blog entry</a>"
 msgid ""
-"Especially one a system with a lot of writes to InnoDB tables you should set "
+"Especially on a system with a lot of writes to InnoDB tables you should set "
 "innodb_log_file_size to 25%% of {innodb_buffer_pool_size}. However the "
 "bigger this value, the longer the recovery time will be when database "
 "crashes, so this value should not be set much higher than 256 MiB. Please "
@@ -13009,10 +13006,20 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "InnoDB günlük dosyası boyutu yetersiz şekilde büyük."
 
 #: po/advisory_rules.php:262
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "It is usually sufficient to set innodb_log_file_size to 25%% of the size "
+#| "of {innodb_buffer_pool_size}. A very innodb_log_file_size slows down the "
+#| "recovery time after a database crash considerably. See also <a href=\\"
+#| "\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+#| "innodb_log_file_size/\\\">this Article</a>. You need to shutdown the "
+#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
+#| "the server, then check the error logs if everything went fine. See also "
+#| "<a href=\\\"http://mysqldatabaseadministration.blogspot.com/2007/01/"
+#| "increase-innodblogfilesize-proper-way.html\\\">this blog entry</a>"
 msgid ""
 "It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
-"{innodb_buffer_pool_size}. A very innodb_log_file_size slows down the "
+"{innodb_buffer_pool_size}. A very big innodb_log_file_size slows down the "
 "recovery time after a database crash considerably. See also <a href=\\"
 "\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
 "innodb_log_file_size/\\\">this Article</a>. You need to shutdown the server, "
@@ -13033,8 +13040,9 @@ msgstr ""
 "proper-way.html\\\">bu blog girişine</a> bakın"
 
 #: po/advisory_rules.php:263
-#, php-format
-msgid "Your absolute InnoD log size is %s MiB"
+#, fuzzy, php-format
+#| msgid "Your absolute InnoD log size is %s MiB"
+msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "Kesin InnoD günlük boyutunuz %s MiB"
 
 #: po/advisory_rules.php:265
@@ -13105,6 +13113,9 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 0'a ayarlı"
+
+#~ msgid "Too many connections are aborted"
+#~ msgstr "Çok fazla bağlantı durduruldu"
 
 #~ msgid "+ Restart insertion and add a new value"
 #~ msgstr "+ Eklemeyi yeniden başlat ve yeni bir değer gir"

@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-10-30 05:35-0400\n"
-"PO-Revision-Date: 2011-10-15 22:29+0200\n"
+"POT-Creation-Date: 2011-11-02 15:30-0400\n"
+"PO-Revision-Date: 2011-11-02 17:59+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Language: sl\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.1.6\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:326
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1673
@@ -46,7 +46,7 @@ msgid "Search"
 msgstr "Iskanje"
 
 #: browse_foreigners.php:154 db_operations.php:372 db_operations.php:412
-#: db_operations.php:522 db_operations.php:549 db_search.php:336
+#: db_operations.php:522 db_operations.php:549 db_search.php:337
 #: db_structure.php:614 enum_editor.php:119 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:207
 #: libraries/Config.class.php:1326 libraries/Theme_Manager.class.php:309
@@ -250,11 +250,11 @@ msgstr "Preglej povzetek stanja zbirke podatkov"
 msgid "No tables found in database."
 msgstr "V zbirki podatkov ni mogoče najti tabel."
 
-#: db_export.php:40 db_search.php:318 server_export.php:26
+#: db_export.php:40 db_search.php:319 server_export.php:26
 msgid "Select All"
 msgstr "Izberi vse"
 
-#: db_export.php:42 db_search.php:321 server_export.php:28
+#: db_export.php:42 db_search.php:322 server_export.php:28
 msgid "Unselect All"
 msgstr "Prekliči izbor vsega"
 
@@ -495,35 +495,35 @@ msgstr "Poizvedba SQL na zbirki podatkov <b>%s</b>:"
 msgid "Submit Query"
 msgstr "Izvedi poizvedbo"
 
-#: db_search.php:30 libraries/auth/config.auth.lib.php:77
+#: db_search.php:31 libraries/auth/config.auth.lib.php:77
 #: libraries/auth/config.auth.lib.php:96
 #: libraries/auth/cookie.auth.lib.php:566 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:237
 msgid "Access denied"
 msgstr "Dostop zavrnjen"
 
-#: db_search.php:42 db_search.php:285
+#: db_search.php:43 db_search.php:286
 msgid "at least one of the words"
 msgstr "katerokoli besedo"
 
-#: db_search.php:43 db_search.php:286
+#: db_search.php:44 db_search.php:287
 msgid "all words"
 msgstr "vse besede"
 
-#: db_search.php:44 db_search.php:287
+#: db_search.php:45 db_search.php:288
 msgid "the exact phrase"
 msgstr "točno določeno frazo"
 
-#: db_search.php:45 db_search.php:288
+#: db_search.php:46 db_search.php:289
 msgid "as regular expression"
 msgstr "kot običajni izraz (regular expression)"
 
-#: db_search.php:208
+#: db_search.php:209
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Rezultati iskanja \"<i>%s</i>\" %s:"
 
-#: db_search.php:226
+#: db_search.php:227
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
@@ -532,18 +532,18 @@ msgstr[1] "%s zadetka v tabeli <i>%s</i>"
 msgstr[2] "%s zadetki v tabeli <i>%s</i>"
 msgstr[3] "%s zadetkov v tabeli <i>%s</i>"
 
-#: db_search.php:233 libraries/common.lib.php:3089
+#: db_search.php:234 libraries/common.lib.php:3089
 #: libraries/common.lib.php:3301 libraries/common.lib.php:3302
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:569
 msgid "Browse"
 msgstr "Prebrskaj"
 
-#: db_search.php:238
+#: db_search.php:239
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "Izbrišem zadetke v tabeli %s?"
 
-#: db_search.php:238 libraries/display_tbl.lib.php:1416
+#: db_search.php:239 libraries/display_tbl.lib.php:1416
 #: libraries/display_tbl.lib.php:2463
 #: libraries/schema/User_Schema.class.php:197
 #: libraries/schema/User_Schema.class.php:273
@@ -555,7 +555,7 @@ msgstr "Izbrišem zadetke v tabeli %s?"
 msgid "Delete"
 msgstr "Izbriši"
 
-#: db_search.php:251
+#: db_search.php:252
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
@@ -564,27 +564,27 @@ msgstr[1] "<b>Skupaj:</b> <i>%s</i> zadetka"
 msgstr[2] "<b>Skupaj:</b> <i>%s</i> zadetki"
 msgstr[3] "<b>Skupaj:</b> <i>%s</i> zadetkov"
 
-#: db_search.php:273
+#: db_search.php:274
 msgid "Search in database"
 msgstr "Išči v zbirki podatkov"
 
-#: db_search.php:276
+#: db_search.php:277
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Išči besede ali vrednosti (nadomestni znak: \"%\"):"
 
-#: db_search.php:281
+#: db_search.php:282
 msgid "Find:"
 msgstr "Najdi:"
 
-#: db_search.php:285 db_search.php:286
+#: db_search.php:286 db_search.php:287
 msgid "Words are separated by a space character (\" \")."
 msgstr "Besede so ločene s presledkom (\" \")."
 
-#: db_search.php:299
+#: db_search.php:300
 msgid "Inside tables:"
 msgstr "Znotraj tabel:"
 
-#: db_search.php:329
+#: db_search.php:330
 msgid "Inside column:"
 msgstr "V stolpcu:"
 
@@ -807,31 +807,24 @@ msgstr "Dnevnik zbirke podatkov"
 #: enum_editor.php:23 js/messages.php:244
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "Urejevalnik ENUM/SET"
 
 #: enum_editor.php:28 js/messages.php:246
-#, fuzzy
-#| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
-msgstr "Vrednosti za stolpec \"%s\""
+msgstr "Vrednosti novega stolpca"
 
 #: enum_editor.php:30 js/messages.php:245
-#, fuzzy, php-format
-#| msgid "Values for the column \"%s\""
+#, php-format
 msgid "Values for column %s"
-msgstr "Vrednosti za stolpec \"%s\""
+msgstr "Vrednosti stolpca %s"
 
 #: enum_editor.php:34 js/messages.php:247
-#, fuzzy
-#| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
-msgstr "Vnesite vsako vrednost v svoje polje."
+msgstr "Vnesite vsako vrednost v svoje polje"
 
 #: enum_editor.php:121
-#, fuzzy
-#| msgid "+ Add a value"
 msgid "Add a value"
-msgstr "+ Dodaj vrednost"
+msgstr "Dodaj vrednost"
 
 #: enum_editor.php:127 gis_data_editor.php:317
 msgid "Output"
@@ -1663,7 +1656,7 @@ msgstr "Nalaganje"
 msgid "Processing Request"
 msgstr "Obdelovanje zahteve"
 
-#: js/messages.php:213 libraries/import/ods.php:80
+#: js/messages.php:213 libraries/import/ods.php:77
 #: libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
 msgstr "Napaka v obdelovanju zahteve"
@@ -1743,10 +1736,9 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Opredelitev shranjene funkcije mora vsebovati izjavo RETURN!"
 
 #: js/messages.php:248
-#, fuzzy, php-format
-#| msgid "+ Add a value"
+#, php-format
 msgid "Add %d value(s)"
-msgstr "+ Dodaj vrednost"
+msgstr "Dodaj %d vrednost(i)"
 
 #: js/messages.php:251
 msgid ""
@@ -3267,24 +3259,23 @@ msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"Določa najmanjšo velikost vnosnih polj, ustvarjenih za stolpce CHAR in "
+"VARCHAR"
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
-#| msgid "Customize text input fields"
 msgid "Minimum size for input field"
-msgstr "Prilagodi polja za vnos besedila"
+msgstr "Najmanjša velikost vnosnega polja"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"Določa največjo velikost vnosnih polj, ustvarjenih za stolpce CHAR in VARCHAR"
 
 #: libraries/config/messages.inc.php:37
-#, fuzzy
-#| msgid "Maximum size for temporary sort files"
 msgid "Maximum size for input field"
-msgstr "Največja velikost začasnih razvrstitvenih datotek"
+msgstr "Največja velikost vnosnega polja"
 
 #: libraries/config/messages.inc.php:38
 msgid "Number of columns for CHAR/VARCHAR textareas"
@@ -4597,16 +4588,17 @@ msgid "Control user"
 msgstr "Krmilni uporabnik"
 
 #: libraries/config/messages.inc.php:385
+#, fuzzy
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
 msgstr ""
+"Nadomestni gostitelj, ki ima shrambo konfiguracije; pustite prazno, če "
+"želite uporabiti že opredeljen gostitelj"
 
 #: libraries/config/messages.inc.php:386
-#, fuzzy
-#| msgid "Control user"
 msgid "Control host"
-msgstr "Krmilni uporabnik"
+msgstr "Krmilni gostitelj"
 
 #: libraries/config/messages.inc.php:387
 msgid "Count tables when showing database list"
@@ -5410,18 +5402,18 @@ msgid "possible deep recursion attack"
 msgstr "možen napad globoke rekurzije"
 
 #: libraries/database_interface.lib.php:1764
-#, fuzzy
-#| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
-msgstr "(ali pa lokalna vtičnica strežnika MySQL ni pravilno konfigurirana)"
+msgstr ""
+"Strežnik se ne odziva (ali pa lokalna vtičnica strežnika ni pravilno "
+"konfigurirana)."
 
 #: libraries/database_interface.lib.php:1766
 #, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
-msgstr "Strežnik se ne odziva"
+msgstr "Strežnik se ne odziva."
 
 #: libraries/database_interface.lib.php:1774
 msgid "Details..."
@@ -6867,7 +6859,7 @@ msgstr "Združljivostni način SQL:"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Ne uporabi <code>AUTO_INCREMENT</code> za ničelne vrednosti"
 
-#: libraries/import/xml.php:74 libraries/import/xml.php:130
+#: libraries/import/xml.php:71 libraries/import/xml.php:127
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -7871,10 +7863,8 @@ msgid "Current Server"
 msgstr "Trenutni strežnik"
 
 #: libraries/server_links.inc.php:60
-#, fuzzy
-#| msgid "User"
 msgid "Users"
-msgstr "Uporabnik"
+msgstr "Uporabniki"
 
 #: libraries/server_links.inc.php:79 server_synchronize.php:1154
 #: server_synchronize.php:1162
@@ -11469,10 +11459,8 @@ msgid "Check referential integrity:"
 msgstr "Preveri referenčno integriteto:"
 
 #: tbl_printview.php:72
-#, fuzzy
-#| msgid "Show tables"
 msgid "Showing tables"
-msgstr "Pokaži tabele"
+msgstr "Prikazovanje tabel"
 
 #: tbl_printview.php:269 tbl_structure.php:762
 msgid "Space usage"
@@ -12877,7 +12865,7 @@ msgstr ""
 msgid "Percentage of aborted connections"
 msgstr "Odstotek prekinjenih povezav"
 
-#: po/advisory_rules.php:231
+#: po/advisory_rules.php:231 po/advisory_rules.php:236
 msgid "Too many connections are aborted."
 msgstr "Prekinjenih je preveč povezav."
 
@@ -12901,10 +12889,6 @@ msgstr "%s %% vseh povezav je prekinjenih. Ta vrednost bi morala biti pod 1 %%"
 #: po/advisory_rules.php:235
 msgid "Rate of aborted connections"
 msgstr "Delež prekinjenih povezav"
-
-#: po/advisory_rules.php:236
-msgid "Too many connections are aborted"
-msgstr "Preveč povezav je prekinjenih"
 
 #: po/advisory_rules.php:238
 #, php-format
@@ -12977,9 +12961,20 @@ msgstr ""
 "primerne velikosti."
 
 #: po/advisory_rules.php:257
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "Especially one a system with a lot of writes to InnoDB tables you should "
+#| "set innodb_log_file_size to 25%% of {innodb_buffer_pool_size}. However "
+#| "the bigger this value, the longer the recovery time will be when database "
+#| "crashes, so this value should not be set much higher than 256 MiB. Please "
+#| "note however that you cannot simply change the value of this variable. "
+#| "You need to shutdown the server, remove the InnoDB log files, set the new "
+#| "value in my.cnf, start the server, then check the error logs if "
+#| "everything went fine. See also <a href=\\\"http://"
+#| "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+#| "innodblogfilesize-proper-way.html\\\">this blog entry</a>"
 msgid ""
-"Especially one a system with a lot of writes to InnoDB tables you should set "
+"Especially on a system with a lot of writes to InnoDB tables you should set "
 "innodb_log_file_size to 25%% of {innodb_buffer_pool_size}. However the "
 "bigger this value, the longer the recovery time will be when database "
 "crashes, so this value should not be set much higher than 256 MiB. Please "
@@ -13019,10 +13014,20 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "Velikost datoteke dnevnika InnoDB je nezadostne velikosti."
 
 #: po/advisory_rules.php:262
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "It is usually sufficient to set innodb_log_file_size to 25%% of the size "
+#| "of {innodb_buffer_pool_size}. A very innodb_log_file_size slows down the "
+#| "recovery time after a database crash considerably. See also <a href=\\"
+#| "\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+#| "innodb_log_file_size/\\\">this Article</a>. You need to shutdown the "
+#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
+#| "the server, then check the error logs if everything went fine. See also "
+#| "<a href=\\\"http://mysqldatabaseadministration.blogspot.com/2007/01/"
+#| "increase-innodblogfilesize-proper-way.html\\\">this blog entry</a>"
 msgid ""
 "It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
-"{innodb_buffer_pool_size}. A very innodb_log_file_size slows down the "
+"{innodb_buffer_pool_size}. A very big innodb_log_file_size slows down the "
 "recovery time after a database crash considerably. See also <a href=\\"
 "\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
 "innodb_log_file_size/\\\">this Article</a>. You need to shutdown the server, "
@@ -13043,8 +13048,9 @@ msgstr ""
 "objavo na blogu</a>"
 
 #: po/advisory_rules.php:263
-#, php-format
-msgid "Your absolute InnoD log size is %s MiB"
+#, fuzzy, php-format
+#| msgid "Your absolute InnoD log size is %s MiB"
+msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "Absolutna velikost vašega dnenika InnoDB je %s MiB"
 
 #: po/advisory_rules.php:265
@@ -13114,6 +13120,9 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavljeno na 0"
+
+#~ msgid "Too many connections are aborted"
+#~ msgstr "Preveč povezav je prekinjenih"
 
 #~ msgid "+ Restart insertion and add a new value"
 #~ msgstr "+ Ponovno začni vstavljanje in dodaj novo vrednost"
