@@ -11725,10 +11725,9 @@ msgid "Sorted rows average: %s"
 msgstr ""
 
 #: po/advisory_rules.php:125
-#, fuzzy
 #| msgid "There are no routines to display."
 msgid "Rate of joins without indexes"
-msgstr "Няма процедури."
+msgstr ""
 
 #: po/advisory_rules.php:126
 msgid "There are too many joins without indexes."
