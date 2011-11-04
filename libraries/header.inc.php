@@ -115,7 +115,7 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
                                                                    : ':' . $GLOBALS['cfg']['Server']['port']
                                                                   )
                            );
-            $separator = "<span class='separator'>»</span>\n";
+            $separator = "<span class='separator item'>&nbsp;»</span>\n";
             $item = '<a href="%1$s?%2$s" class="item">';
 
                 if ($GLOBALS['cfg']['NavigationBarIconic'] !== true) {
@@ -125,7 +125,7 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
 
                 echo '<div id="serverinfo">' . "\n";
                 if ($GLOBALS['cfg']['NavigationBarIconic']) {
-                    echo PMA_getImage('s_host.png') . "\n";
+                    echo PMA_getImage('s_host.png', '', array('class' => 'item')) . "\n";
                 }
                 printf($item,
                         $GLOBALS['cfg']['DefaultTabServer'],
@@ -137,7 +137,7 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
 
                     echo $separator;
                     if ($GLOBALS['cfg']['NavigationBarIconic']) {
-                        echo PMA_getImage('s_db.png') . "\n";
+                        echo PMA_getImage('s_db.png', '', array('class' => 'item')) . "\n";
                     }
                     printf($item,
                             $GLOBALS['cfg']['DefaultTabDatabase'],
@@ -152,7 +152,7 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
                         echo $separator;
                         if ($GLOBALS['cfg']['NavigationBarIconic']) {
                             $icon = isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? 'b_views.png' : 's_tbl.png';
-                            echo PMA_getImage($icon) . "\n";
+                            echo PMA_getImage($icon, '', array('class' => 'item')) . "\n";
                         }
                         printf($item,
                             $GLOBALS['cfg']['DefaultTabTable'],
@@ -201,6 +201,7 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
                     }
                 }
             }
+            echo '<div class="clearfloat"></div>';
             echo '</div>';
         }
         /**

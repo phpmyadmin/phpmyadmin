@@ -1080,6 +1080,7 @@ div#tablestatistics table {
 #serverinfo .item {
     white-space:        nowrap;
     color:#fff;
+    float: <?php echo $left; ?>
 }
 
 #span_table_comment {
