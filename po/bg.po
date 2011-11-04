@@ -12069,10 +12069,10 @@ msgid "The thread cache is set to 0"
 msgstr ""
 
 #: po/advisory_rules.php:210
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is not active."
 msgid "Thread cache hit rate %%"
-msgstr "Проследяването е неактивно."
+msgstr ""
 
 #: po/advisory_rules.php:211
 #, fuzzy
