@@ -10566,7 +10566,7 @@ msgstr "Таблицата %1$s беше променена"
 
 #: tbl_change.php:699
 msgid "Because of its length,<br /> this column might not be editable"
-msgstr "Поради дължината си,<br /> това поле може да е нередактируемо "
+msgstr "Поради дължината си,<br />това поле може да е нередактируемо"
 
 #: tbl_change.php:818
 msgid "Remove BLOB Repository Reference"
