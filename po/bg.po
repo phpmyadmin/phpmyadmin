@@ -8340,7 +8340,7 @@ msgstr "Промените бяха запазени"
 
 #: prefs_forms.php:78
 msgid "Cannot save settings, submitted form contains errors"
-msgstr "Промените не бяха запазени, изпратения формуляр съдържа грешки."
+msgstr "Промените не бяха запазени, изпратеният формуляр съдържа грешки"
 
 #: prefs_manage.php:78
 msgid "Could not import configuration"
