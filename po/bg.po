@@ -10222,7 +10222,7 @@ msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
 msgstr ""
-"Целевата БД ще бъде напълно синхронизирана с изходната. Изходната БД ще "
+"Целевата БД ще бъде напълно синхронизирана с изходната. Изходната - ще "
 "остане непроменена."
 
 #: server_variables.php:80
