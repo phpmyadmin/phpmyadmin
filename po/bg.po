@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-11-04 10:14+0200\n"
+"PO-Revision-Date: 2011-11-04 10:15+0200\n"
 "Last-Translator: stoyan <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -7290,7 +7290,7 @@ msgstr "Трябва да дадете график на тригера"
 
 #: libraries/rte/rte_triggers.lib.php:415
 msgid "You must provide a valid event for the trigger"
-msgstr "Трябва да дадете събитие на тригера."
+msgstr "Трябва да дадете събитие на тригера"
 
 #: libraries/rte/rte_triggers.lib.php:421
 msgid "You must provide a valid table name"
