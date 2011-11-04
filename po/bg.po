@@ -1734,10 +1734,10 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Дефиницията на съхранена процедура трябва да съдържа израз RETURN!"
 
 #: js/messages.php:248
-#, fuzzy, php-format
+#, php-format
 #| msgid "+ Add a value"
 msgid "Add %d value(s)"
-msgstr "+ Нова стойност"
+msgstr "Добавяне %d стойност(и)"
 
 #: js/messages.php:251
 msgid ""
