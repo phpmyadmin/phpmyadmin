@@ -122,8 +122,8 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
                     $item .= '%4$s: ';
                 }
                 $item .= '%3$s</a>' . "\n";
-
-                echo '<div id="serverinfo">' . "\n";
+                echo "<div id='floating_menubar'></div>\n";
+                echo "<div id='serverinfo'>\n";
                 if ($GLOBALS['cfg']['NavigationBarIconic']) {
                     echo PMA_getImage('s_host.png', '', array('class' => 'item')) . "\n";
                 }

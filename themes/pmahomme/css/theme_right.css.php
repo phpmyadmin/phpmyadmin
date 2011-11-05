@@ -30,7 +30,7 @@ body {
     font-family:        <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
 <?php } ?>
     padding:            0;
-    margin:             0.5em;
+    margin:             0 0.5em 0 0;
     color:              #444;
     background:         #fff;
 }
@@ -884,11 +884,18 @@ ul#topmenu ul {
     margin:             0;
     padding:            0;
     position:           absolute;
-    right:              0;
     list-style-type:    none;
     display:            none;
     border:             1px #ddd solid;
     z-index:            2;
+}
+
+ul#topmenu ul.only {
+    left: 0;
+}
+
+ul#topmenu ul.notonly {
+    right: 0;
 }
 
 ul#topmenu li:hover {
@@ -959,7 +966,7 @@ ul#topmenu > li {
 
 /* default tab styles */
 ul#topmenu a, ul#topmenu span {
-    padding:10px;
+    padding: 0.6em;
 }
 
 ul#topmenu ul a {
@@ -1067,14 +1074,20 @@ div#tablestatistics table {
 
 
 /* Heading */
+#topmenucontainer {
+    padding-right: 1em;
+    width: 100%;
+    border-bottom:1px solid #ccc;
+    background-color: #dcdcdc;
+}
+
 #serverinfo {
     border-bottom:1px solid #fff;
-    -moz-border-radius: 4px 4px 0 0;
-    -webkit-border-radius: 4px 4px 0 0;
-    border-radius:4px 4px 0 0;
     background:#888;
-    padding:10px;
+    padding: 0.3em 0.9em;
     text-shadow:0 1px 0 #000000;
+    width: 10000px;
+    overflow: hidden;
 }
 
 #serverinfo .item {

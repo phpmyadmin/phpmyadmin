@@ -55,6 +55,8 @@ phpMyAdmin - ChangeLog
 + patch #3428376 [pmadb] pmadb on a different MySQL server
 + patch #3410688 [interface] Improving field size for character columns
 - [usability] Removed an unnecessary AJAX request from database search
+- bug #3302419 [navi] Tabs break when squeezing page
++ rfe #3406797 [navi] Stick table tools to top of page on scroll
 
 3.4.8.0 (not yet released)
 - bug #3425230 [interface] enum data split at space char (more space to edit)
@@ -64,6 +66,8 @@ phpMyAdmin - ChangeLog
 - bug #3428627 [import] ODS import ignores memory limits
 - bug #3426836 [interface] Visual column separation
 - bug #3428065 [parser] TRUE not recognized by parser
++ patch #3433770 [config] Make location of php-gettext configurable
+- patch #3430291 [import] Handle conflicts in some open_basedir situations
 
 3.4.7.0 (2011-10-23)
 - bug #3418610 [interface] Links in navigation when $cfg['MainPageIconic'] = false
