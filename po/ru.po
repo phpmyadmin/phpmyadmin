@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-11-05 16:45+0200\n"
+"PO-Revision-Date: 2011-11-05 16:46+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -5466,10 +5466,9 @@ msgstr ""
 "Сервер не отвечает (либо локальный сокет сервера MySQL неверно настроен)."
 
 #: libraries/database_interface.lib.php:1766
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
-msgstr "Сервер не отвечает"
+msgstr "Сервер не отвечает."
 
 #: libraries/database_interface.lib.php:1774
 msgid "Details..."
