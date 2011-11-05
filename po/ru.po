@@ -12668,6 +12668,8 @@ msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
+"%s%% из всех временных таблиц были записаны на диск, данное значение должно "
+"быть ниже 25%%"
 
 #: po/advisory_rules.php:155
 #, fuzzy
