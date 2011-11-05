@@ -884,11 +884,18 @@ ul#topmenu ul {
     margin:             0;
     padding:            0;
     position:           absolute;
-    right:              0;
     list-style-type:    none;
     display:            none;
     border:             1px #ddd solid;
     z-index:            2;
+}
+
+ul#topmenu ul.only {
+    left: 0;
+}
+
+ul#topmenu ul.notonly {
+    right: 0;
 }
 
 ul#topmenu li:hover {
