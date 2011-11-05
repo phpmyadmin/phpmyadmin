@@ -373,7 +373,7 @@ $GLOBALS['lang_path'] = './locale/';
 /**
  * Load gettext functions.
  */
-require './libraries/php-gettext/gettext.inc';
+require GETTEXT_INC;
 
 /**
  * @global string  interface language
