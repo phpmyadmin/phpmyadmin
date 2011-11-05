@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-11-05 16:31+0200\n"
+"PO-Revision-Date: 2011-11-05 16:32+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -817,10 +817,10 @@ msgid "Values for a new column"
 msgstr "Значения для новых столбцов"
 
 #: enum_editor.php:30 js/messages.php:245
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
-msgstr "Значения для поля \"%s\""
+msgstr "Значения для столбца %s"
 
 #: enum_editor.php:34 js/messages.php:247
 #, fuzzy
