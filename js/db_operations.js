@@ -56,14 +56,14 @@ $(document).ready(function() {
 
                     window.parent.db = data.newname;
 
-                    $("#topmenucontainer")
+                    $("#floating_menubar")
                     .next('div')
                     .remove()
                     .end()
                     .after(data.sql_query);
 
                     //Remove the empty notice div generated due to a NULL query passed to PMA_showMessage()
-                    var $notice_class = $("#topmenucontainer").next("div").find('.notice');
+                    var $notice_class = $("#floating_menubar").next("div").find('.notice');
                     if ($notice_class.text() == '') {
                         $notice_class.remove();
                     }
@@ -99,7 +99,7 @@ $(document).ready(function() {
             $('.success').fadeOut();
             $('.error').fadeOut();
             if(data.success == true) {
-                $('#topmenucontainer').after(data.message);
+                $('#floating_menubar').after(data.message);
                 if( $("#checkbox_switch").is(":checked")) {
                     window.parent.db = data.newname;
                     window.parent.refreshMain();
@@ -112,7 +112,7 @@ $(document).ready(function() {
                }
             }
             else {
-                $('#topmenucontainer').after(data.error);
+                $('#floating_menubar').after(data.error);
             }
             
             PMA_ajaxRemoveMessage($msgbox);

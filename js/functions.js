@@ -2222,7 +2222,7 @@ $(document).ready(function() {
                     }
                     if (data.success == true) {
                         PMA_ajaxShowMessage(data.message);
-                        $("<div id='sqlqueryresults'></div>").insertAfter("#topmenucontainer");
+                        $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
                         $("#sqlqueryresults").html(data.sql_query);
                         $("#result_query .notice").remove();
                         $("#result_query").prepend((data.message));
@@ -2284,7 +2284,7 @@ $(document).ready(function() {
             }
             if (data.success == true) {
                 PMA_ajaxShowMessage(data.message);
-                $("<div id='sqlqueryresults'></div>").insertAfter("#topmenucontainer");
+                $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
                 $("#sqlqueryresults").html(data.sql_query);
                 $("#result_query .notice").remove();
                 $("#result_query").prepend((data.message));
@@ -2320,7 +2320,7 @@ $(document).ready(function() {
                 }
                 if (data.success == true) {
                     PMA_ajaxShowMessage(data.message);
-                    $("<div id='sqlqueryresults'></div>").insertAfter("#topmenucontainer");
+                    $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
                     $("#sqlqueryresults").html(data.sql_query);
                     $("#result_query .notice").remove();
                     $("#result_query").prepend((data.message));
@@ -2361,13 +2361,13 @@ $(document).ready(function() {
                 $temp_div.html(data);
                 var $success = $temp_div.find("#result_query .success");
                 PMA_ajaxShowMessage($success);
-                $("<div id='sqlqueryresults' class='ajax'></div>").insertAfter("#topmenucontainer");
+                $("<div id='sqlqueryresults' class='ajax'></div>").insertAfter("#floating_menubar");
                 $("#sqlqueryresults").html(data);
                 PMA_init_slider();
                 $("#sqlqueryresults").children("fieldset").remove();
             } else if (data.success == true ) {
                 PMA_ajaxShowMessage(data.message);
-                $("<div id='sqlqueryresults' class='ajax'></div>").insertAfter("#topmenucontainer");
+                $("<div id='sqlqueryresults' class='ajax'></div>").insertAfter("#floating_menubar");
                 $("#sqlqueryresults").html(data.sql_query);
             } else {
                 var $temp_div = $("<div id='temp_div'></div>");
@@ -2519,7 +2519,7 @@ $(document).ready(function() {
 
         $.post($(the_form).attr('action'), $(the_form).serialize() + '&change_pw='+ this_value, function(data) {
             if(data.success == true) {
-                $("#topmenucontainer").after(data.sql_query);
+                $("#floating_menubar").after(data.sql_query);
                 $("#change_password_dialog").hide().remove();
                 $("#edit_user_dialog").dialog("close").remove();
                 $('#change_password_anchor.dialog_active').removeClass('dialog_active').addClass('ajax');
@@ -2889,7 +2889,7 @@ function PMA_convertFootnotesToTooltips($div)
     // JavaScript-disabled browsers) since the tooltip is sufficient
 
     if ($div == undefined || ! $div instanceof jQuery || $div.length == 0) {
-        $div = $("#serverinfo").parent();
+        $div = $("body");
     }
 
     $footnotes = $div.find(".footnotes");
@@ -2932,6 +2932,10 @@ function PMA_convertFootnotesToTooltips($div)
     });
 }
 
+/**
+ * This function handles the resizing of the content frame
+ * and adjusts the top menu according to the new size of the frame
+ */
 function menuResize()
 {
     var cnt = $('#topmenu');
@@ -2944,47 +2948,64 @@ function menuResize()
     var more_shown = li2.length > 0;
     var w = more_shown ? submenu_w : 0;
 
-    // hide menu items
-    var hide_start = 0;
-    for (var i = 0; i < li.length-1; i++) { // li.length-1: skip .submenu element
+    // Calculate the total width used by all the shown tabs
+    var total_len = w;
+    for (var i = 0; i < li.length-1; i++) {
+        total_len += $(li[i]).outerWidth(true);
+    }
+
+    // Now hide menu elements that don't fit into the menubar
+    var i = li.length-1;
+    var hidden = false; // Whether we have hidden any tabs
+    while (total_len >= wmax && --i >= 0) { // Process the tabs backwards
+        hidden = true;
         var el = $(li[i]);
         var el_width = el.outerWidth(true);
         el.data('width', el_width);
-        w += el_width;
-        if (w > wmax) {
-            w -= el_width;
-            if (w + submenu_w < wmax) {
-                hide_start = i;
-            } else {
-                hide_start = i-1;
-                w -= $(li[i-1]).data('width');
-            }
-            break;
+        if (! more_shown) {
+            total_len -= el_width;
+            el.prependTo(submenu_ul);
+            total_len += submenu_w;
+            more_shown = true;
+        } else {
+            total_len -= el_width;
+            el.prependTo(submenu_ul);
         }
     }
 
-    if (hide_start > 0) {
-        for (var i = hide_start; i < li.length-1; i++) {
-            $(li[i])[more_shown ? 'prependTo' : 'appendTo'](submenu_ul);
-        }
-        submenu.addClass('shown');
-    } else if (more_shown) {
-        w -= submenu_w;
-        // nothing hidden, maybe something can be restored
+    // If we didn't hide any tabs, then there might be some space to show some
+    if (! hidden) {
+        // Show menu elements that do fit into the menubar
         for (var i = 0; i < li2.length; i++) {
-            //console.log(li2[i], submenu_w);
-            w += $(li2[i]).data('width');
-            // item fits or (it is the last item and it would fit if More got removed)
-            if (w+submenu_w < wmax || (i == li2.length-1 && w < wmax)) {
+            total_len += $(li2[i]).data('width');
+            // item fits or (it is the last item
+            // and it would fit if More got removed)
+            if (total_len < wmax
+                || (i == li2.length - 1 && total_len - submenu_w < wmax)
+            ) {
                 $(li2[i]).insertBefore(submenu);
-                if (i == li2.length-1) {
-                    submenu.removeClass('shown');
-                }
-                continue;
+            } else {
+                break;
             }
-            break;
         }
     }
+
+    // Show/hide the "More" tab as needed
+    if (submenu_ul.find('li').length > 0) {
+        submenu.addClass('shown');
+    } else {
+        submenu.removeClass('shown');
+    }
+
+    if (li.length == 1) {
+        // If there is only the "More" tab left, then we need
+        // to align the submenu to the left edge of the tab
+        submenu_ul.removeClass().addClass('only');
+    } else {
+        // Otherwise we align the submenu to the right edge of the tab
+        submenu_ul.removeClass().addClass('notonly');
+    }
+
     if (submenu.find('.tabactive').length) {
         submenu.addClass('active').find('> a').removeClass('tab').addClass('tabactive');
     } else {
@@ -3023,8 +3044,8 @@ $(function() {
     topmenu.append(submenu);
 
     // populate submenu and register resize event
-    $(window).resize(menuResize);
     menuResize();
+    $(window).resize(menuResize);
 });
 
 /**
@@ -3354,7 +3375,7 @@ function PMA_slidingMessage(msg, $obj)
         // If the second argument was not supplied,
         // we might have to create a new DOM node.
         if ($('#PMA_slidingMessage').length == 0) {
-            $('#topmenucontainer')
+            $('#floating_menubar')
             .after('<span id="PMA_slidingMessage" '
                  + 'style="display: inline-block;"></span>');
         }
@@ -3472,7 +3493,7 @@ $(document).ready(function() {
                 }
                 if (data.success == true) {
                     PMA_ajaxShowMessage(data.message);
-                    $("<div id='sqlqueryresults'></div>").insertAfter("#topmenucontainer");
+                    $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
                     $("#sqlqueryresults").html(data.sql_query);
                 } else {
                     var $temp_div = $("<div id='temp_div'></div>")
@@ -3664,4 +3685,26 @@ function printPage()
 
 $(document).ready(function() {
     $('input#print').click(printPage);
+});
+
+/**
+ * Makes the breadcrumbs and the menu bar float at the top of the viewport
+ */
+$(document).ready(function () {
+    if ($("#floating_menubar").length) {
+        $("#floating_menubar")
+            .css({
+                'position': 'fixed',
+                'top': 0,
+                'left': 0,
+                'width': '100%',
+                'z-index': 500
+            })
+            .append($('#serverinfo'))
+            .append($('#topmenucontainer'));
+        $('body').css(
+            'padding-top',
+            $('#floating_menubar').outerHeight(true)
+        );
+    }
 });

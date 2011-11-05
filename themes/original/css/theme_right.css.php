@@ -28,7 +28,7 @@ body {
     font-family:        <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
 <?php } ?>
     padding:            0;
-    margin:             0.5em;
+    margin:             0 0.5em 0 0;
     color:              <?php echo $GLOBALS['cfg']['MainColor']; ?>;
     background:         <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
 }
@@ -685,11 +685,18 @@ ul#topmenu ul {
     margin:             0;
     padding:            0;
     position:           absolute;
-    right:              0;
     list-style-type:    none;
     display:            none;
     border:             1px #666 solid;
     z-index:            2;
+}
+
+ul#topmenu ul.only {
+    left: 0;
+}
+
+ul#topmenu ul.notonly {
+    right: 0;
 }
 
 ul#topmenu li:hover ul, ul#topmenu .submenuhover ul {
@@ -857,9 +864,18 @@ div#tablestatistics table {
 
 
 /* Heading */
+#topmenucontainer {
+    background: white;
+    padding-right: 1em;
+    width: 100%;
+}
+
 #serverinfo {
+    background: white;
     font-weight:        bold;
-    margin-bottom:      0.5em;
+    padding-bottom: 0.5em;
+    width: 10000px;
+    overflow: hidden;
 }
 
 #serverinfo .item {

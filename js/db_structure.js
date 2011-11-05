@@ -165,7 +165,7 @@ $(document).ready(function() {
             if(data.success == true) {
                 PMA_ajaxShowMessage(data.message);
                 if (selected_submit_type == "showinsert") {
-                    $(data.sql_query).insertAfter("#topmenucontainer");
+                    $(data.sql_query).insertAfter("#floating_menubar");
                     $("#result_query .notice").remove();
                     $("#result_query").prepend((data.message));
                 }

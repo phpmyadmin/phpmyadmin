@@ -55,6 +55,8 @@ phpMyAdmin - ChangeLog
 + patch #3428376 [pmadb] pmadb on a different MySQL server
 + patch #3410688 [interface] Improving field size for character columns
 - [usability] Removed an unnecessary AJAX request from database search
+- bug #3302419 [navi] Tabs break when squeezing page
++ rfe #3406797 [navi] Stick table tools to top of page on scroll
 
 3.4.8.0 (not yet released)
 - bug #3425230 [interface] enum data split at space char (more space to edit)
