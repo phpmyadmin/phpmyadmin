@@ -259,7 +259,7 @@ if ($import_file != 'none' && !$error) {
         if (is_writable($tmp_subdir)) {
 
 
-            $import_file_new = $tmp_subdir . basename($import_file);
+            $import_file_new = $tmp_subdir . basename($import_file) . uniqid();
             if (move_uploaded_file($import_file, $import_file_new)) {
                 $import_file = $import_file_new;
                 $file_to_unlink = $import_file_new;
