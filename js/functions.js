@@ -2938,52 +2938,51 @@ function PMA_convertFootnotesToTooltips($div)
  */
 function menuResize()
 {
-    var cnt = $('#topmenu');
-    var wmax = cnt.innerWidth() - 5; // 5 px margin for jumping menu in Chrome
-    var submenu = cnt.find('.submenu');
-    var submenu_w = submenu.outerWidth(true);
-    var submenu_ul = submenu.find('ul');
-    var li = cnt.find('> li');
-    var li2 = submenu_ul.find('li');
-    var more_shown = li2.length > 0;
-    var w = more_shown ? submenu_w : 0;
+    var $cnt = $('#topmenu');
+    var wmax = $cnt.innerWidth() - 5; // 5 px margin for jumping menu in Chrome
+    var $submenu = $cnt.find('.submenu');
+    var submenu_w = $submenu.outerWidth(true);
+    var $submenu_ul = $submenu.find('ul');
+    var $li = $cnt.find('> li');
+    var $li2 = $submenu_ul.find('li');
+    var more_shown = $li2.length > 0;
 
     // Calculate the total width used by all the shown tabs
-    var total_len = w;
-    for (var i = 0; i < li.length-1; i++) {
-        total_len += $(li[i]).outerWidth(true);
+    var total_len = more_shown ? submenu_w : 0;
+    for (var i = 0; i < $li.length-1; i++) {
+        total_len += $($li[i]).outerWidth(true);
     }
 
     // Now hide menu elements that don't fit into the menubar
-    var i = li.length-1;
+    var i = $li.length-1;
     var hidden = false; // Whether we have hidden any tabs
     while (total_len >= wmax && --i >= 0) { // Process the tabs backwards
         hidden = true;
-        var el = $(li[i]);
+        var el = $($li[i]);
         var el_width = el.outerWidth(true);
         el.data('width', el_width);
         if (! more_shown) {
             total_len -= el_width;
-            el.prependTo(submenu_ul);
+            el.prependTo($submenu_ul);
             total_len += submenu_w;
             more_shown = true;
         } else {
             total_len -= el_width;
-            el.prependTo(submenu_ul);
+            el.prependTo($submenu_ul);
         }
     }
 
     // If we didn't hide any tabs, then there might be some space to show some
     if (! hidden) {
         // Show menu elements that do fit into the menubar
-        for (var i = 0; i < li2.length; i++) {
-            total_len += $(li2[i]).data('width');
+        for (var i = 0; i < $li2.length; i++) {
+            total_len += $($li2[i]).data('width');
             // item fits or (it is the last item
             // and it would fit if More got removed)
             if (total_len < wmax
-                || (i == li2.length - 1 && total_len - submenu_w < wmax)
+                || (i == $li2.length - 1 && total_len - submenu_w < wmax)
             ) {
-                $(li2[i]).insertBefore(submenu);
+                $($li2[i]).insertBefore($submenu);
             } else {
                 break;
             }
@@ -2991,25 +2990,25 @@ function menuResize()
     }
 
     // Show/hide the "More" tab as needed
-    if (submenu_ul.find('li').length > 0) {
-        submenu.addClass('shown');
+    if ($submenu_ul.find('li').length > 0) {
+        $submenu.addClass('shown');
     } else {
-        submenu.removeClass('shown');
+        $submenu.removeClass('shown');
     }
 
-    if (li.length == 1) {
+    if ($cnt.find('> li').length == 1) {
         // If there is only the "More" tab left, then we need
         // to align the submenu to the left edge of the tab
-        submenu_ul.removeClass().addClass('only');
+        $submenu_ul.removeClass().addClass('only');
     } else {
         // Otherwise we align the submenu to the right edge of the tab
-        submenu_ul.removeClass().addClass('notonly');
+        $submenu_ul.removeClass().addClass('notonly');
     }
 
-    if (submenu.find('.tabactive').length) {
-        submenu.addClass('active').find('> a').removeClass('tab').addClass('tabactive');
+    if ($submenu.find('.tabactive').length) {
+        $submenu.addClass('active').find('> a').removeClass('tab').addClass('tabactive');
     } else {
-        submenu.removeClass('active').find('> a').addClass('tab').removeClass('tabactive');
+        $submenu.removeClass('active').find('> a').addClass('tab').removeClass('tabactive');
     }
 }
 
