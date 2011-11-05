@@ -3691,19 +3691,20 @@ $(document).ready(function() {
  * Makes the breadcrumbs and the menu bar float at the top of the viewport
  */
 $(document).ready(function () {
-    $("<div id='floating_menubar'></div>")
-        .css({
-            'position': 'fixed',
-            'top': 0,
-            'left': 0,
-            'width': '100%',
-            'z-index': 500
-        })
-        .insertBefore($('#serverinfo'))
-        .append($('#serverinfo'))
-        .append($('#topmenucontainer'));
-    $('body').css(
-        'padding-top',
-        $('#floating_menubar').outerHeight(true)
-    );
+    if ($("#floating_menubar").length) {
+        $("#floating_menubar")
+            .css({
+                'position': 'fixed',
+                'top': 0,
+                'left': 0,
+                'width': '100%',
+                'z-index': 500
+            })
+            .append($('#serverinfo'))
+            .append($('#topmenucontainer'));
+        $('body').css(
+            'padding-top',
+            $('#floating_menubar').outerHeight(true)
+        );
+    }
 });
