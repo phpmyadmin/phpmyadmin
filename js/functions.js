@@ -2889,7 +2889,7 @@ function PMA_convertFootnotesToTooltips($div)
     // JavaScript-disabled browsers) since the tooltip is sufficient
 
     if ($div == undefined || ! $div instanceof jQuery || $div.length == 0) {
-        $div = $("#serverinfo").parent();
+        $div = $("body");
     }
 
     $footnotes = $div.find(".footnotes");
