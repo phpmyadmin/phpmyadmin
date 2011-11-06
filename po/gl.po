@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-11-06 21:17+0200\n"
+"PO-Revision-Date: 2011-11-06 21:18+0200\n"
 "Last-Translator: inter981 <inter981@gmail.com>\n"
 "Language-Team: galician <gl@li.org>\n"
 "Language: gl\n"
@@ -13548,7 +13548,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of open files"
-msgstr "Formato do ficheiro importado"
+msgstr "Taxa de apertura de ficheiros"
 
 #: po/advisory_rules.php:191
 #, fuzzy
