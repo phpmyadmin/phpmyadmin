@@ -13654,7 +13654,7 @@ msgstr "Tempo de inicio lento"
 
 #: po/advisory_rules.php:221
 msgid "Slow_launch_threads is above 2s"
-msgstr ""
+msgstr "Slow_launch_threads é superior a 2s"
 
 #: po/advisory_rules.php:222
 msgid ""
