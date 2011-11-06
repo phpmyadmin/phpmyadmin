@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-11-06 20:40+0200\n"
+"PO-Revision-Date: 2011-11-06 20:41+0200\n"
 "Last-Translator: inter981 <inter981@gmail.com>\n"
 "Language-Team: galician <gl@li.org>\n"
 "Language: gl\n"
@@ -13586,7 +13586,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Key cache"
 msgid "Thread cache"
-msgstr "caché da chave"
+msgstr "Caché de fíos"
 
 #: po/advisory_rules.php:206
 msgid ""
