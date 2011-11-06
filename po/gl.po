@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-11-06 20:36+0200\n"
-"Last-Translator: Anonymous Pootle User\n"
+"PO-Revision-Date: 2011-11-06 20:40+0200\n"
+"Last-Translator: inter981 <inter981@gmail.com>\n"
 "Language-Team: galician <gl@li.org>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
@@ -13579,6 +13579,8 @@ msgstr "Taxa de espera para bloqueos de táboas"
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
+"Taxa de espera para bloqueos de táboas: %s, este valor habería ser inferior "
+"a 1 por hora."
 
 #: po/advisory_rules.php:205
 #, fuzzy
