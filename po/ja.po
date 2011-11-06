@@ -3236,7 +3236,7 @@ msgstr "CHAR 系カラムの編集"
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns"
-msgstr ""
+msgstr "CHAR および VARCHAR カラムに対する入力項目の最小サイズを定義します。"
 
 #: libraries/config/messages.inc.php:35
 #| msgid "Customize text input fields"
