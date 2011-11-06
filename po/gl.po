@@ -13505,6 +13505,8 @@ msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
+"Abrir as táboas require E/S no disco, o que é moi costoso. Incrementar "
+"{table_open_cache} podería arranxalo."
 
 #: po/advisory_rules.php:183
 #, php-format
