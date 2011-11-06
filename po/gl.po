@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-11-06 20:57+0200\n"
+"PO-Revision-Date: 2011-11-06 21:05+0200\n"
 "Last-Translator: inter981 <inter981@gmail.com>\n"
 "Language-Team: galician <gl@li.org>\n"
 "Language: gl\n"
@@ -16,8 +16,9 @@ msgstr ""
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:326
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1673
+#, fuzzy
 msgid "Show all"
-msgstr "Ver tódolos rexistros"
+msgstr "Ver tódo"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:42
 #: libraries/common.lib.php:2406
