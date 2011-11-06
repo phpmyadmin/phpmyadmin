@@ -13593,6 +13593,7 @@ msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
 msgstr ""
+"A caché de fíos está desactivada, sobrecargando as novas conexións a MySQL."
 
 #: po/advisory_rules.php:207
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
