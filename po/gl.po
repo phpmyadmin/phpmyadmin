@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-11-06 20:47+0200\n"
+"PO-Revision-Date: 2011-11-06 20:49+0200\n"
 "Last-Translator: inter981 <inter981@gmail.com>\n"
 "Language-Team: galician <gl@li.org>\n"
 "Language: gl\n"
@@ -13646,7 +13646,7 @@ msgstr ""
 #: po/advisory_rules.php:218
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
-msgstr ""
+msgstr "%s fío(s) empregaron máis de %s segundos en iniciarse, debería de ser 0"
 
 #: po/advisory_rules.php:220
 msgid "Slow launch time"
