@@ -1077,7 +1077,7 @@ msgstr "Наистина ли искате да изпълните "
 
 #: js/messages.php:33 libraries/mult_submits.inc.php:282 sql.php:333
 msgid "You are about to DESTROY a complete database!"
-msgstr "Вие ще УНИЩОЖИТЕ цялата БД!"
+msgstr "Вие ще УНИЩОЖИТЕ цяла БД!"
 
 #: js/messages.php:34
 msgid "You are about to DESTROY a complete table!"
