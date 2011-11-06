@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-11-06 20:44+0200\n"
+"PO-Revision-Date: 2011-11-06 20:45+0200\n"
 "Last-Translator: inter981 <inter981@gmail.com>\n"
 "Language-Team: galician <gl@li.org>\n"
 "Language: gl\n"
@@ -13613,7 +13613,7 @@ msgstr "Porcentaxe de caché de fíos %%"
 #, fuzzy
 #| msgid "Tracking is not active."
 msgid "Thread cache is not efficient."
-msgstr "O seguemento non está activado."
+msgstr "A caché de fíos non é eficiente."
 
 #: po/advisory_rules.php:212
 msgid "Increase {thread_cache_size}."
