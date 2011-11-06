@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-11-01 11:27+0200\n"
-"Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
+"PO-Revision-Date: 2011-11-01 12:01+0200\n"
+"Last-Translator: Anonymous Pootle User\n"
 "Language-Team: japanese <jp@li.org>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.1.6\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:326
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1673
@@ -12007,9 +12007,8 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
-"メモリ上限が (このサーバ上において) 3 GiB になってしまいますので、MySQL はメ"
-"モリを使いこなすことができないでしょう。64 ビット版の MySQL の導入を検討して"
-"みてください。"
+"メモリ上限が (このサーバ上において) 3 GiB になってしまいますので、MySQL はメモリを十分活用できないでしょう。64 ビット版の MySQL "
+"の導入を検討してみてください。"
 
 #: po/advisory_rules.php:68
 #, php-format
