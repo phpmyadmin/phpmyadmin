@@ -13607,7 +13607,7 @@ msgstr "A caché de fíos é 0."
 #, fuzzy, php-format
 #| msgid "Tracking is not active."
 msgid "Thread cache hit rate %%"
-msgstr "O seguemento non está activado."
+msgstr "Porcentaxe de caché de fíos %%"
 
 #: po/advisory_rules.php:211
 #, fuzzy
