@@ -13617,7 +13617,7 @@ msgstr "A caché de fíos non é eficiente."
 
 #: po/advisory_rules.php:212
 msgid "Increase {thread_cache_size}."
-msgstr ""
+msgstr "Aumente {thread_cache_size}."
 
 #: po/advisory_rules.php:213
 #, php-format
