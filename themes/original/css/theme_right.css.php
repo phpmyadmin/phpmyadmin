@@ -2195,12 +2195,15 @@ span.CodeMirror-selected {
 <?php echo $_SESSION['PMA_Theme']->getCssCodeMirror(); ?>
 
 .colborder {
-    border-right: solid 1px #FFFFFF;
     cursor: col-resize;
     height: 100%;
     margin-left: -5px;
     position: absolute;
     width: 5px;
+}
+
+.colborder_active {
+    border-right: 2px solid #a44;
 }
 
 .pma_table td {
