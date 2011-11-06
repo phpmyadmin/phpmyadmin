@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-11-06 02:38+0200\n"
+"PO-Revision-Date: 2011-11-06 03:08+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12183,7 +12183,7 @@ msgstr ""
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
-msgstr ""
+msgstr "使用されている環境によりますが、この値を減らすとパフォーマンスがよくなることがあります。"
 
 #: po/advisory_rules.php:103
 #, php-format
