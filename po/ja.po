@@ -12176,6 +12176,8 @@ msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
+"クエリキャッシュサイズが 128 MiB "
+"を超えています。大きなクエリキャッシュは、キャッシュ維持に必要となる重要な処理コストに悪影響を与えることがあります。"
 
 #: po/advisory_rules.php:102
 msgid ""
