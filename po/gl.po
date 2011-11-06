@@ -13476,7 +13476,7 @@ msgstr ""
 #: po/advisory_rules.php:176
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
-msgstr ""
+msgstr "O %% dos índices que empregan o buffer de chaves MyISAM é baixo."
 
 #: po/advisory_rules.php:177
 msgid "You may need to increase {key_buffer_size}."
