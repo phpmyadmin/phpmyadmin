@@ -10799,7 +10799,7 @@ msgstr "新しいサーバの追加"
 
 #: setup/index.php:22
 msgid "Wrong GET file attribute value"
-msgstr ""
+msgstr "GET ファイルのパラメータ値が正しくありません"
 
 #: setup/lib/form_processing.lib.php:43
 msgid "Warning"
