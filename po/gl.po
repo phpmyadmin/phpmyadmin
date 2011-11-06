@@ -13554,7 +13554,7 @@ msgstr "Taxa de apertura de ficheiros"
 #, fuzzy
 #| msgid "The number of pending log file fsyncs."
 msgid "The rate of opening files is high."
-msgstr "Número de fsyncs do ficheiro de rexistro pendentes."
+msgstr "A taxa de apertura de ficheiros é alta."
 
 #: po/advisory_rules.php:193
 #, php-format
