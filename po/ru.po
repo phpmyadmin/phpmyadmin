@@ -12712,7 +12712,7 @@ msgstr "Размер буфера ключей MyISAM"
 
 #: po/advisory_rules.php:161
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
-msgstr ""
+msgstr "Буфер ключей не установлен. Индексы MyISAM не будут кешироваться."
 
 #: po/advisory_rules.php:162
 msgid ""
