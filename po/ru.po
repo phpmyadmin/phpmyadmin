@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-11-06 14:22+0200\n"
+"PO-Revision-Date: 2011-11-06 14:23+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -12787,10 +12787,9 @@ msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr "Чтений индексов из памяти: %s%%, данное значение должно быть выше 95%%"
 
 #: po/advisory_rules.php:180
-#, fuzzy
 #| msgid "Create table"
 msgid "Rate of table open"
-msgstr "Создать таблицу"
+msgstr "Соотношение открытых таблиц"
 
 #: po/advisory_rules.php:181
 #, fuzzy
