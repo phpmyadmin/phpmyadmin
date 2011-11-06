@@ -13566,7 +13566,7 @@ msgstr ""
 #, fuzzy, php-format
 #| msgid "Create table on database %s"
 msgid "Immediate table locks %%"
-msgstr "Crear unha táboa nova na base de datos %s"
+msgstr "Porcentaxe de bloqueos de tabla inmediatos %%"
 
 #: po/advisory_rules.php:196 po/advisory_rules.php:201
 #, fuzzy
