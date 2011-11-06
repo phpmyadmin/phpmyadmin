@@ -13518,7 +13518,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of used open files limit"
-msgstr "Formato do ficheiro importado"
+msgstr "Porcentaxe de uso do límite de ficheiros abertos"
 
 #: po/advisory_rules.php:186
 msgid ""
