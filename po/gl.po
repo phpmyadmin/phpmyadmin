@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-11-06 21:18+0200\n"
+"PO-Revision-Date: 2011-11-06 21:19+0200\n"
 "Last-Translator: inter981 <inter981@gmail.com>\n"
 "Language-Team: galician <gl@li.org>\n"
 "Language: gl\n"
@@ -13560,6 +13560,7 @@ msgstr "A taxa de apertura de ficheiros é alta."
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
+"Taxa de apertura de ficheiros: %s, este valor debería ser menor a 5 por hora"
 
 #: po/advisory_rules.php:195
 #, fuzzy, php-format
