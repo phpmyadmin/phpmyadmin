@@ -18,7 +18,7 @@ msgstr ""
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1673
 #, fuzzy
 msgid "Show all"
-msgstr "Ver tódo"
+msgstr "Ver todo"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:42
 #: libraries/common.lib.php:2406
