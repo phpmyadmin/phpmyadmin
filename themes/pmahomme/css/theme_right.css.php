@@ -67,7 +67,7 @@ h2 a img{display:inline;}
 }
 
 #table_results td.data {
-border-right: 1px solid #444444;
+border-right: 1px solid #BBBBBB;
 }
 
 h3 {
