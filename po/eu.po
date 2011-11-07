@@ -313,7 +313,7 @@ msgstr "Datuak soilik"
 
 #: db_operations.php:493
 msgid "CREATE DATABASE before copying"
-msgstr ""
+msgstr "DATU-BASEA SORTU kopiatu aurretik "
 
 #: db_operations.php:496 libraries/config/messages.inc.php:124
 #: libraries/config/messages.inc.php:125 libraries/config/messages.inc.php:127
@@ -627,11 +627,11 @@ msgstr "%s taula ezabatu egin da"
 
 #: db_structure.php:293 tbl_create.php:295
 msgid "Tracking is active."
-msgstr ""
+msgstr "Jarraipena aktibatuta dago."
 
 #: db_structure.php:295 tbl_create.php:297
 msgid "Tracking is not active."
-msgstr ""
+msgstr "Jarraipena ez dago aktibatuta."
 
 #: db_structure.php:379 libraries/display_tbl.lib.php:2076
 #, php-format
@@ -639,6 +639,8 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr ""
+"Ikuspegi honek gutxienez errenkada kopuru hau dauka. Mesedez %sdocumentation"
+"%s erreferentzia egin."
 
 #: db_structure.php:393 db_structure.php:407 libraries/header.inc.php:137
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:206 test/theme.php:73
@@ -734,7 +736,7 @@ msgstr "Datu-hiztegia"
 
 #: db_tracking.php:79
 msgid "Tracked tables"
-msgstr ""
+msgstr "Taulak jarraipenarekin"
 
 #: db_tracking.php:84 libraries/config/messages.inc.php:482
 #: libraries/export/htmlword.php:89 libraries/export/latex.php:162
@@ -777,7 +779,7 @@ msgstr "Ekintza"
 
 #: db_tracking.php:101 js/messages.php:34
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "Ezabatu taula honetako jarraipen datuak"
 
 #: db_tracking.php:119 tbl_tracking.php:543 tbl_tracking.php:601
 msgid "active"
@@ -794,7 +796,7 @@ msgstr "Eragiketak"
 
 #: db_tracking.php:135 tbl_tracking.php:374 tbl_tracking.php:621
 msgid "Tracking report"
-msgstr ""
+msgstr "Jarraipen informea "
 
 #: db_tracking.php:136 tbl_tracking.php:246 tbl_tracking.php:623
 #, fuzzy
@@ -803,7 +805,7 @@ msgstr "Egitura soilik"
 
 #: db_tracking.php:181
 msgid "Untracked tables"
-msgstr ""
+msgstr "Jarraipen gabeko taulak"
 
 #: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:626
 #: tbl_structure.php:628
@@ -836,11 +838,11 @@ msgstr "Irteera"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr ""
+msgstr "Kopiatu eta itsatsi batutako balioak \"Luzera/Balioak\" eremuan"
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
-msgstr ""
+msgstr "Aukeratutako esportatze formatuak fitxategian gorde behar da!"
 
 #: export.php:164 export.php:189 export.php:670
 #, php-format
@@ -955,7 +957,7 @@ msgstr "Egin klik hautatzeko"
 
 #: js/messages.php:26
 msgid "Click to unselect"
-msgstr ""
+msgstr "Klik desautatzeko"
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:195
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -967,7 +969,7 @@ msgstr "Benetan nahi al duzu "
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:242 sql.php:278
 msgid "You are about to DESTROY a complete database!"
-msgstr ""
+msgstr "Datu-base osoa SUNTSITZERA zoaz!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
@@ -996,7 +998,7 @@ msgstr "Eragiketa honek luze jo lezake. Jarraitu nahi?"
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr ""
+msgstr "BLOG biltegi bat DESGAITZERA zoaz!"
 
 #: js/messages.php:41
 #, php-format
