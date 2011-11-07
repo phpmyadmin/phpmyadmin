@@ -68,7 +68,7 @@ margin: 0 0 12px 0;
 }
 
 #table_results td.data {
-border-right: 1px solid #444444;
+border-right: 1px solid #BBBBBB;
 }
 
 h3 {
