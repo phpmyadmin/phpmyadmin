@@ -14,6 +14,13 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
+ * We need way to disable external XML entities processing.
+ */
+if (!function_exists('libxml_disable_entity_loader')) {
+    return;
+}
+
+/**
  * The possible scopes for $plugin_param are: 'table', 'database', and 'server'
  */
 
@@ -64,9 +71,7 @@ unset($data);
 /**
  * Disable loading of external XML entities.
  */
-if (function_exists('libxml_disable_entity_loader')) {
-    libxml_disable_entity_loader();
-}
+libxml_disable_entity_loader();
 
 /**
  * Load the XML string
