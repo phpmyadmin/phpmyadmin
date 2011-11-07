@@ -73,8 +73,7 @@ unset($buffer);
 
 if ($xml === false) {
     $sheets = array();
-    /* TODO: this message should be improved later, used existing because of string freeze */
-    $message = PMA_Message::error(__('Error in Processing Request'));
+    $message = PMA_Message::error(__('The XML file specified was either malformed or incomplete. Please correct the issue and try again.'));
     $error = true;
 } else {
     $sheets = $xml->children('office', true)->{'body'}->{'spreadsheet'}->children('table', true);
