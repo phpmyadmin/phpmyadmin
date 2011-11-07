@@ -62,6 +62,13 @@ while (! ($finished && $i >= $len) && ! $error && ! $timeout_passed) {
 unset($data);
 
 /**
+ * Disable loading of external XML entities.
+ */
+if (function_exists('libxml_disable_entity_loader')) {
+    libxml_disable_entity_loader();
+}
+
+/**
  * Load the XML string
  *
  * The option LIBXML_COMPACT is specified because it can
