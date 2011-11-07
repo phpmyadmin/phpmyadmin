@@ -80,6 +80,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
          */
         dragStartRsz: function(e, obj) {
             var n = $(g.cRsz).find('div').index(obj);    // get the index of separator (i.e., column index)
+            $(obj).addClass('colborder_active');
             g.colRsz = {
                 x0: e.pageX,
                 n: n,
@@ -195,6 +196,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 g.reposRsz();
                 g.reposDrop();
                 g.colRsz = false;
+                $(g.cRsz).find('div').removeClass('colborder_active');
             } else if (g.colReorder) {
                 // shift columns
                 if (g.colReorder.newn != g.colReorder.n) {
