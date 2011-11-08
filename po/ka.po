@@ -842,10 +842,10 @@ msgid "Values for a new column"
 msgstr ""
 
 #: enum_editor.php:30 js/messages.php:245
-#, fuzzy, php-format
+#, php-format
 #| msgid "Number of fields"
 msgid "Values for column %s"
-msgstr "ველების რაოდენობა"
+msgstr "ველების რაოდენობა სვეტებისათვის %s"
 
 #: enum_editor.php:34 js/messages.php:247
 msgid "Enter each value in a separate field"
