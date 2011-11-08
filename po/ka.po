@@ -8003,7 +8003,6 @@ msgstr ""
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
 msgstr[0] ""
-msgstr[1] ""
 
 #: libraries/rte/rte_routines.lib.php:1225
 #, fuzzy, php-format
@@ -14213,9 +14212,9 @@ msgstr ""
 #~ msgid "None"
 #~ msgstr "არაა"
 
-#~ msgctxt ""
-#~ msgid "None"
-#~ msgstr "არაა"
+msgctxt ""
+msgid "None"
+msgstr "არაა"
 
 #~ msgid "Grant all privileges on wildcard name (username_%)"
 #~ msgstr "Grant all privileges on wildcard name (username\\_%)"
