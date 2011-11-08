@@ -127,7 +127,7 @@ msgstr "მონაცემთა ბაზა '%1$s' წარმატებ
 
 #: db_datadict.php:49 db_operations.php:364
 msgid "Database comment: "
-msgstr "მონაცემთა ბაზის კომენტარი: "
+msgstr "კომენტარი მონაცემთა ბაზაში: "
 
 #: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1279
 #: libraries/tbl_properties.inc.php:662 tbl_operations.php:366
