@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-11-08 23:01+0200\n"
+"PO-Revision-Date: 2011-11-08 23:02+0200\n"
 "Last-Translator: Sulkhani Ninidze <sulxani.ninidze@hotmail.com>\n"
 "Language-Team: georgian <ka@li.org>\n"
 "Language: ka\n"
@@ -751,9 +751,8 @@ msgid "Data Dictionary"
 msgstr "მონაცემების ლექსიკონი"
 
 #: db_tracking.php:79
-#, fuzzy
 msgid "Tracked tables"
-msgstr "დაბლოკილი ცხრილების გამოტოვება"
+msgstr "ნანახი ცხრილები"
 
 #: db_tracking.php:84 libraries/config/messages.inc.php:502
 #: libraries/export/htmlword.php:78 libraries/export/latex.php:151
