@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-11-08 23:09+0200\n"
+"PO-Revision-Date: 2011-11-08 23:10+0200\n"
 "Last-Translator: Sulkhani Ninidze <sulxani.ninidze@hotmail.com>\n"
 "Language-Team: georgian <ka@li.org>\n"
 "Language: ka\n"
@@ -1163,7 +1163,7 @@ msgstr "ჰოსტის სახელის ველი ცარიელ
 
 #: js/messages.php:55
 msgid "The user name is empty!"
-msgstr "მომხმარებლის სახელი ცარიელია!"
+msgstr "მომხმარებლის სახელის ველი ცარიელია!"
 
 #: js/messages.php:56 server_privileges.php:1314 user_password.php:50
 msgid "The password is empty!"
