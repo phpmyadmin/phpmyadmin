@@ -1167,7 +1167,7 @@ msgstr "მომხმარებლის სახელის ველი 
 
 #: js/messages.php:56 server_privileges.php:1314 user_password.php:50
 msgid "The password is empty!"
-msgstr "პაროლი ცარიელია!"
+msgstr "პაროლის ველი ცარიელია!"
 
 #: js/messages.php:57 server_privileges.php:1312 user_password.php:53
 msgid "The passwords aren't the same!"
