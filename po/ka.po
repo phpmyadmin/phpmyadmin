@@ -784,7 +784,7 @@ msgstr ""
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
 #: server_status.php:1231 sql.php:893 tbl_tracking.php:638
 msgid "Status"
-msgstr "მდგომარეობა"
+msgstr "სტატუსი"
 
 #: db_tracking.php:90 libraries/Index.class.php:430
 #: libraries/db_structure.lib.php:39 libraries/rte/rte_list.lib.php:52
