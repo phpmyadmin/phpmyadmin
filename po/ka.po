@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-11-08 22:46+0200\n"
+"PO-Revision-Date: 2011-11-08 22:47+0200\n"
 "Last-Translator: Sulkhani Ninidze <sulxani.ninidze@hotmail.com>\n"
 "Language-Team: georgian <ka@li.org>\n"
 "Language: ka\n"
@@ -12303,10 +12303,9 @@ msgid "Add unique index"
 msgstr ""
 
 #: tbl_structure.php:173 tbl_structure.php:174
-#, fuzzy
 #| msgid "Add new field"
 msgid "Add SPATIAL index"
-msgstr "ახალი ველის დამატება"
+msgstr "სივრცით ინდექსის დამატება"
 
 #: tbl_structure.php:175 tbl_structure.php:176
 msgid "Add FULLTEXT index"
