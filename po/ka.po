@@ -1159,7 +1159,7 @@ msgstr "Log file count"
 
 #: js/messages.php:54
 msgid "The host name is empty!"
-msgstr "ჰოსტის სახელი არაა შეყვანილი!"
+msgstr "ჰოსტის სახელის ველი ცარიელია!"
 
 #: js/messages.php:55
 msgid "The user name is empty!"
