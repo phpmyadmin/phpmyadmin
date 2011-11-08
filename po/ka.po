@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-11-08 22:50+0200\n"
+"PO-Revision-Date: 2011-11-08 22:52+0200\n"
 "Last-Translator: Sulkhani Ninidze <sulxani.ninidze@hotmail.com>\n"
 "Language-Team: georgian <ka@li.org>\n"
 "Language: ka\n"
@@ -123,7 +123,7 @@ msgstr ""
 #: db_create.php:60
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "შეიქმნა მონაცემთა ბაზა %1$s."
+msgstr "მონაცემთა ბაზა '%1$s' წარმატებით შეიქმნა"
 
 #: db_datadict.php:49 db_operations.php:364
 msgid "Database comment: "
