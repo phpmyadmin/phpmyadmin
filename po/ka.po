@@ -1171,7 +1171,7 @@ msgstr "პაროლის ველი ცარიელია!"
 
 #: js/messages.php:57 server_privileges.php:1312 user_password.php:53
 msgid "The passwords aren't the same!"
-msgstr "პაროლები არ ემთხვევა!"
+msgstr "პაროლებში შეუსაბამობაა!"
 
 #: js/messages.php:58 server_privileges.php:1769 server_privileges.php:1793
 #: server_privileges.php:2205 server_privileges.php:2404
