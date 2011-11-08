@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-11-08 23:04+0200\n"
+"PO-Revision-Date: 2011-11-08 23:05+0200\n"
 "Last-Translator: Sulkhani Ninidze <sulxani.ninidze@hotmail.com>\n"
 "Language-Team: georgian <ka@li.org>\n"
 "Language: ka\n"
@@ -819,9 +819,8 @@ msgid "Structure snapshot"
 msgstr "სნეიფშუთის სტრუქტურა"
 
 #: db_tracking.php:181
-#, fuzzy
 msgid "Untracked tables"
-msgstr "დაბლოკილი ცხრილების გამოტოვება"
+msgstr "Untracked tables"
 
 #: db_tracking.php:199 tbl_structure.php:638
 #, fuzzy
