@@ -455,7 +455,7 @@ msgstr "ჩვენება"
 
 #: db_qbe.php:322
 msgid "Criteria"
-msgstr "კრიტერია"
+msgstr "კრიტერიუმი"
 
 #: db_qbe.php:375 db_qbe.php:457 db_qbe.php:549 db_qbe.php:580
 msgid "Ins"
