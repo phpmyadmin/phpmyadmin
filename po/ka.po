@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-11-08 23:08+0200\n"
+"PO-Revision-Date: 2011-11-08 23:09+0200\n"
 "Last-Translator: Sulkhani Ninidze <sulxani.ninidze@hotmail.com>\n"
 "Language-Team: georgian <ka@li.org>\n"
 "Language: ka\n"
@@ -983,10 +983,9 @@ msgid "Add a polygon"
 msgstr "Add a polygon"
 
 #: gis_data_editor.php:310
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add geometry"
-msgstr "ახალი სერვერის დამატება"
+msgstr "გეომეტრიის დამატება"
 
 #: gis_data_editor.php:318
 msgid ""
