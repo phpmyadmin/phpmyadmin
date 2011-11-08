@@ -1205,10 +1205,9 @@ msgid "Edit"
 msgstr "რედაქტირება"
 
 #: js/messages.php:65 server_status.php:794
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "სერვერის არჩევა"
+msgstr "გრაფიკული ტრაფიკის სქემა"
 
 #: js/messages.php:66 server_status.php:797
 msgid "Live conn./process chart"
