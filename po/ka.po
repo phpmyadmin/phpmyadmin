@@ -731,9 +731,8 @@ msgid "Analyze table"
 msgstr "Analyze table"
 
 #: db_structure.php:600
-#, fuzzy
 msgid "Add prefix to table"
-msgstr "მონაცემთა ბაზები არაა"
+msgstr "პრეფიქსის დამატება მაგიდისათვის"
 
 #: db_structure.php:602 libraries/mult_submits.inc.php:251
 #, fuzzy
