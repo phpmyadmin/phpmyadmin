@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-11-08 22:47+0200\n"
+"PO-Revision-Date: 2011-11-08 22:50+0200\n"
 "Last-Translator: Sulkhani Ninidze <sulxani.ninidze@hotmail.com>\n"
 "Language-Team: georgian <ka@li.org>\n"
 "Language: ka\n"
@@ -96,7 +96,7 @@ msgstr "აღწერილობა"
 #: browse_foreigners.php:249 browse_foreigners.php:258
 #: browse_foreigners.php:270 browse_foreigners.php:278
 msgid "Use this value"
-msgstr "გამოიყენე ეს ველი"
+msgstr "გამოიყენეთ ეს ველი"
 
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:385
