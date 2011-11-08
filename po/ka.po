@@ -978,10 +978,9 @@ msgid "Polygon"
 msgstr ""
 
 #: gis_data_editor.php:306 js/messages.php:304
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add a polygon"
-msgstr "%s ველის დამატება"
+msgstr "Add a polygon"
 
 #: gis_data_editor.php:310
 #, fuzzy
