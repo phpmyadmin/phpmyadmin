@@ -3605,9 +3605,8 @@ msgid "Default table tab"
 msgstr "Default table tab"
 
 #: libraries/config/messages.inc.php:56
-#, fuzzy
 msgid "Show binary contents as HEX by default"
-msgstr "ორობითი შიგთავსის ჩვენება"
+msgstr "ორობითის ჩვენება HEX ფორმატში იყოს ნაგულისხმევი"
 
 #: libraries/config/messages.inc.php:57 libraries/display_tbl.lib.php:671
 #, fuzzy
