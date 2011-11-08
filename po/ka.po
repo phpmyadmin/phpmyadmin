@@ -3884,9 +3884,8 @@ msgid "Enclose export in a transaction"
 msgstr "Enclose export in a transaction"
 
 #: libraries/config/messages.inc.php:142
-#, fuzzy
 msgid "Export time in UTC"
-msgstr "Export defaults"
+msgstr "ექსპორტის დრო UT- ში"
 
 #: libraries/config/messages.inc.php:150
 msgid "Force secured connection while using phpMyAdmin"
