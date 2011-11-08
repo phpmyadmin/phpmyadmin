@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-02 15:30-0400\n"
-"PO-Revision-Date: 2011-11-08 22:57+0200\n"
+"PO-Revision-Date: 2011-11-08 23:01+0200\n"
 "Last-Translator: Sulkhani Ninidze <sulxani.ninidze@hotmail.com>\n"
 "Language-Team: georgian <ka@li.org>\n"
 "Language: ka\n"
@@ -601,10 +601,9 @@ msgid "Inside tables:"
 msgstr "ცხრილ(ებ)ში:"
 
 #: db_search.php:330
-#, fuzzy
 #| msgid "Inside field:"
 msgid "Inside column:"
-msgstr "ველში:"
+msgstr "სვეტში:"
 
 #: db_structure.php:67
 #, fuzzy
