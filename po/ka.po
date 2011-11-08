@@ -865,10 +865,9 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr ""
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "მოთხოვნის ტიპი"
+msgstr "არასწორი ტიპი!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
