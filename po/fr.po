@@ -13152,6 +13152,16 @@ msgid ""
 "\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\\\">this article</a>"
 msgstr ""
+"Le pool de mémoire-tampon InnoDB a un grand impact sur la performance "
+"d'InnoDB. Allouez toute la mémoire restante à ce pool. Pour un serveur qui "
+"n'utilise que le moteur InnoDB et n'offre pas d'autres services (comme un "
+"serveur web), vous pouvez régler ce paramètre jusqu'à 80%% de la mémoire "
+"disponible. Si ce n'est pas le cas, vérifiez soigneusement la consommation "
+"mémoire des autres services et des tables non-InnoDB et réglez ce paramètre "
+"en conséquence. Si sa valeur est trop grande, le système utilisera à "
+"utiliser le swap, ce qui réduit la performance. Voir aussi <a "
+"href=\\\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\\\">cet article</a>"
 
 #: po/advisory_rules.php:268
 #, php-format
