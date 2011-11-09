@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-09 17:10+0200\n"
+"PO-Revision-Date: 2011-11-09 22:11+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -12836,10 +12836,10 @@ msgstr ""
 "Соотношение открытых файлов: %s, данное значение должно быть менее 5 в час"
 
 #: po/advisory_rules.php:195
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Immediate table locks %%"
-msgstr "Создать новую таблицу в базе данных %s"
+msgstr "%% незамедлительной блокировки таблиц"
 
 #: po/advisory_rules.php:196 po/advisory_rules.php:201
 #, fuzzy
