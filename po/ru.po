@@ -12825,11 +12825,9 @@ msgid "Rate of open files"
 msgstr "Соотношение открытых файлов"
 
 #: po/advisory_rules.php:191
-#, fuzzy
 #| msgid "The number of pending log file fsyncs."
 msgid "The rate of opening files is high."
-msgstr ""
-"Количество незавершенных попыток синхронизации с помощью операции fsync."
+msgstr "Высокое соотношение открытых файлов."
 
 #: po/advisory_rules.php:193
 #, php-format
