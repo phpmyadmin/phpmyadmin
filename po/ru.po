@@ -12873,10 +12873,9 @@ msgstr ""
 "менее 1 в час"
 
 #: po/advisory_rules.php:205
-#, fuzzy
 #| msgid "Key cache"
 msgid "Thread cache"
-msgstr "Кеш индекса"
+msgstr "Кеш потока"
 
 #: po/advisory_rules.php:206
 msgid ""
