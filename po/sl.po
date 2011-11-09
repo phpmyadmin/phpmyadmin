@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-02 17:59+0200\n"
+"PO-Revision-Date: 2011-11-09 18:30+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.1.6\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:326
@@ -13048,10 +13048,10 @@ msgstr ""
 "objavo na blogu</a>"
 
 #: po/advisory_rules.php:263
-#, fuzzy, php-format
+#, php-format
 #| msgid "Your absolute InnoD log size is %s MiB"
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr "Absolutna velikost vašega dnenika InnoDB je %s MiB"
+msgstr "Absolutna velikost vašega dnevnika InnoDB je %s MiB"
 
 #: po/advisory_rules.php:265
 msgid "InnoDB buffer pool size"
