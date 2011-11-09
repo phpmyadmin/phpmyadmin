@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-09 17:08+0200\n"
+"PO-Revision-Date: 2011-11-09 17:09+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -12820,10 +12820,9 @@ msgstr ""
 "быть ниже 85%%"
 
 #: po/advisory_rules.php:190
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of open files"
-msgstr "Формат импортируемого файла"
+msgstr "Соотношение открытых файлов"
 
 #: po/advisory_rules.php:191
 #, fuzzy
