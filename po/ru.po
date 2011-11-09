@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-09 17:03+0200\n"
+"PO-Revision-Date: 2011-11-09 17:05+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -12808,6 +12808,8 @@ msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing open_files_limit."
 msgstr ""
+"Рассмотрите возможность увеличения значения переменной {open_files_limit}, и "
+"после ее изменения и перезагрузки, проверьте журнал ошибок."
 
 #: po/advisory_rules.php:188
 #, php-format
