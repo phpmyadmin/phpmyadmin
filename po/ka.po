@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-11-02 15:30-0400\n"
+"POT-Creation-Date: 2011-11-09 14:34+0100\n"
 "PO-Revision-Date: 2011-11-08 23:12+0200\n"
 "Last-Translator: Sulkhani Ninidze <sulxani.ninidze@hotmail.com>\n"
 "Language-Team: georgian <ka@li.org>\n"
@@ -144,7 +144,6 @@ msgstr "ცხრილის კომენტარები"
 #: tbl_change.php:318 tbl_chart.php:89 tbl_indexes.php:196
 #: tbl_printview.php:136 tbl_relation.php:395 tbl_tracking.php:257
 #: tbl_tracking.php:308 tbl_zoom_select.php:434
-#| msgid "Column names"
 msgid "Column"
 msgstr "სვეტები"
 
@@ -601,7 +600,6 @@ msgid "Inside tables:"
 msgstr "ცხრილ(ებ)ში:"
 
 #: db_search.php:330
-#| msgid "Inside field:"
 msgid "Inside column:"
 msgstr "სვეტში:"
 
@@ -637,11 +635,11 @@ msgstr ""
 #: db_structure.php:450 libraries/display_tbl.lib.php:2346
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 
 #: db_structure.php:466 db_structure.php:480 libraries/header.inc.php:161
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
@@ -843,7 +841,6 @@ msgstr ""
 
 #: enum_editor.php:30 js/messages.php:245
 #, php-format
-#| msgid "Number of fields"
 msgid "Values for column %s"
 msgstr "ველების რაოდენობა სვეტებისათვის %s"
 
@@ -852,7 +849,6 @@ msgid "Enter each value in a separate field"
 msgstr ""
 
 #: enum_editor.php:121
-#| msgid "Add a new server"
 msgid "Add a value"
 msgstr "ველის დამატება"
 
@@ -865,7 +861,6 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr ""
 
 #: export.php:29
-#| msgid "Bar type"
 msgid "Bad type!"
 msgstr "არასწორი ტიპი!"
 
@@ -874,7 +869,6 @@ msgid "Selected export type has to be saved in file!"
 msgstr "Selected export type has to be saved in file!"
 
 #: export.php:106
-#| msgid "Add new field"
 msgid "Bad parameters!"
 msgstr "შეუსაბამობაა პარამეტრებში!"
 
@@ -945,7 +939,6 @@ msgstr ""
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:302
-#| msgid "Add new field"
 msgid "Add a point"
 msgstr "წერტილის დამატება"
 
@@ -964,12 +957,10 @@ msgid "Inner Ring"
 msgstr ""
 
 #: gis_data_editor.php:252
-#| msgid "Add a new User"
 msgid "Add a linestring"
 msgstr "ველის დამატება"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:303
-#| msgid "Add a new User"
 msgid "Add an inner ring"
 msgstr "შიდა ქსელის დამატება"
 
@@ -978,12 +969,10 @@ msgid "Polygon"
 msgstr ""
 
 #: gis_data_editor.php:306 js/messages.php:304
-#| msgid "Add %s field(s)"
 msgid "Add a polygon"
 msgstr "Add a polygon"
 
 #: gis_data_editor.php:310
-#| msgid "Add a new server"
 msgid "Add geometry"
 msgstr "გეომეტრიის დამატება"
 
@@ -996,11 +985,11 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 
 #: import.php:170 import.php:419
 msgid "Showing bookmark"
@@ -1115,7 +1104,6 @@ msgid "You are about to DESTROY a complete table!"
 msgstr "You are about to DESTROY a complete database!"
 
 #: js/messages.php:35
-#| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to TRUNCATE a complete table!"
 msgstr "თქვენ სრულიად გაანადგურეთ მონაცემთა ბაზა!"
 
@@ -1175,7 +1163,6 @@ msgstr "პაროლებში შეუსაბამობაა!"
 
 #: js/messages.php:58 server_privileges.php:1769 server_privileges.php:1793
 #: server_privileges.php:2205 server_privileges.php:2404
-#| msgid "Any user"
 msgid "Add user"
 msgstr "მომხმარებლის დამატება"
 
@@ -1205,7 +1192,6 @@ msgid "Edit"
 msgstr "რედაქტირება"
 
 #: js/messages.php:65 server_status.php:794
-#| msgid "Server Choice"
 msgid "Live traffic chart"
 msgstr "გრაფიკული ტრაფიკის სქემა"
 
@@ -1214,7 +1200,6 @@ msgid "Live conn./process chart"
 msgstr ""
 
 #: js/messages.php:67 server_status.php:815
-#| msgid "SQL Query box"
 msgid "Live query chart"
 msgstr "Live query chart"
 
@@ -1740,8 +1725,7 @@ msgstr "ჩატვირთვა"
 msgid "Processing Request"
 msgstr "პროცესები"
 
-#: js/messages.php:213 libraries/import/ods.php:77
-#: libraries/rte/rte_export.lib.php:39
+#: js/messages.php:213 libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
 msgstr ""
 
@@ -2682,11 +2666,11 @@ msgstr "მოგესალმებათ %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 
 #: libraries/auth/config.auth.lib.php:109
 msgid ""
@@ -2792,7 +2776,6 @@ msgid "PBMS error"
 msgstr ""
 
 #: libraries/blobstreaming.lib.php:306
-#| msgid "MySQL connection collation"
 msgid "PBMS connection failed:"
 msgstr "PBMS -სთან კავშირი ვერ ხერხდება:"
 
@@ -3344,7 +3327,6 @@ msgid "SQL Validator is disabled"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:745
-#| msgid "PHP extension to use"
 msgid "SOAP extension not found"
 msgstr "SOAP გაფართოება არ იქნა ნაპოვნი"
 
@@ -5163,7 +5145,6 @@ msgstr ""
 "kbd]"
 
 #: libraries/config/messages.inc.php:434
-#| msgid "Defragment table"
 msgid "UI preferences table"
 msgstr "UI პარამეტრების მაგიდა"
 
@@ -5627,7 +5608,6 @@ msgid "Cookie authentication"
 msgstr "Host authentication order"
 
 #: libraries/config/setup.forms.php:48
-#| msgid "Host authentication order"
 msgid "HTTP authentication"
 msgstr "HTTP ავტორიზაცია"
 
@@ -5983,12 +5963,12 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is."
 
 #: libraries/display_export.lib.php:270
 msgid "use this for future exports"
@@ -6763,8 +6743,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -7228,6 +7208,13 @@ msgstr ""
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr ""
 
+#: libraries/import/ods.php:76 libraries/import/xml.php:71
+#: libraries/import/xml.php:127
+msgid ""
+"The XML file specified was either malformed or incomplete. Please correct "
+"the issue and try again."
+msgstr ""
+
 #: libraries/import/shp.php:19
 msgid "ESRI Shape File"
 msgstr ""
@@ -7262,12 +7249,6 @@ msgstr "SQL compatibility mode"
 
 #: libraries/import/sql.php:43
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
-msgstr ""
-
-#: libraries/import/xml.php:71 libraries/import/xml.php:127
-msgid ""
-"The XML file specified was either malformed or incomplete. Please correct "
-"the issue and try again."
 msgstr ""
 
 #: libraries/kanji-encoding.lib.php:147
@@ -9853,13 +9834,13 @@ msgstr "Drop the databases that have the same names as the users."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 
 #: server_privileges.php:1854
 msgid "The selected user was not found in the privilege table."
@@ -10084,7 +10065,6 @@ msgid "Reset slave"
 msgstr ""
 
 #: server_replication.php:326
-#| msgid "Structure only"
 msgid "Start SQL Thread only"
 msgstr "მხოლოდ SQL თემების გაშვება"
 
@@ -10093,7 +10073,6 @@ msgid "Stop SQL Thread only"
 msgstr ""
 
 #: server_replication.php:331
-#| msgid "Structure only"
 msgid "Start IO Thread only"
 msgstr "გაეშვას მხოლოდ IO სტრუქტურა"
 
@@ -11696,9 +11675,9 @@ msgstr ""
 #| "You set the [kbd]config[/kbd] authentication type and included username "
 #| "and password for auto-login, which is not a desirable option for live "
 #| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1"
-#| "$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/"
-#| "kbd]."
+#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id="
+#| "%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http"
+#| "[/kbd]."
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -11960,7 +11939,6 @@ msgid "View dump (schema) of table"
 msgstr "View dump (schema) of table"
 
 #: tbl_gis_visualization.php:112
-#| msgid "Display servers selection"
 msgid "Display GIS Visualization"
 msgstr "ჩვენების GIS ვიზუალიზაცია"
 
@@ -12283,7 +12261,6 @@ msgid "Add unique index"
 msgstr ""
 
 #: tbl_structure.php:173 tbl_structure.php:174
-#| msgid "Add new field"
 msgid "Add SPATIAL index"
 msgstr "სივრცით ინდექსის დამატება"
 
@@ -12911,8 +12888,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -13041,8 +13018,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: po/advisory_rules.php:115
@@ -14212,9 +14189,9 @@ msgstr ""
 #~ msgid "None"
 #~ msgstr "არაა"
 
-msgctxt ""
-msgid "None"
-msgstr "არაა"
+#~ msgctxt ""
+#~ msgid "None"
+#~ msgstr "არაა"
 
 #~ msgid "Grant all privileges on wildcard name (username_%)"
 #~ msgstr "Grant all privileges on wildcard name (username\\_%)"

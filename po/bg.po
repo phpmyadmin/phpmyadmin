@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-11-02 15:30-0400\n"
+"POT-Creation-Date: 2011-11-09 14:34+0100\n"
 "PO-Revision-Date: 2011-11-06 19:30+0200\n"
 "Last-Translator: stoyan <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
@@ -612,8 +612,8 @@ msgstr "Проследяването е неактивно."
 #: db_structure.php:450 libraries/display_tbl.lib.php:2346
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "Този изглед има поне толкова реда. Погледнете %sдокументацията%s."
 
 #: db_structure.php:466 db_structure.php:480 libraries/header.inc.php:161
@@ -804,23 +804,19 @@ msgid "ENUM/SET editor"
 msgstr "ENUM/SET редактор"
 
 #: enum_editor.php:28 js/messages.php:246
-#| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
 msgstr "Стойности за нова колона"
 
 #: enum_editor.php:30 js/messages.php:245
 #, php-format
-#| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
 msgstr "Стойности за колоната %s"
 
 #: enum_editor.php:34 js/messages.php:247
-#| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
 msgstr "Въвеждайте всяка стойност в отделно поле"
 
 #: enum_editor.php:121
-#| msgid "+ Add a value"
 msgid "Add a value"
 msgstr "Добавяне стойност"
 
@@ -916,7 +912,6 @@ msgid "Add a point"
 msgstr "Добавяне на точка"
 
 #: gis_data_editor.php:220 js/messages.php:297
-#| msgid "Lines terminated by"
 msgid "Linestring"
 msgstr ""
 
@@ -947,7 +942,6 @@ msgid "Add a polygon"
 msgstr "Добавяне многоъгълник"
 
 #: gis_data_editor.php:310
-#| msgid "Geometry"
 msgid "Add geometry"
 msgstr ""
 
@@ -960,8 +954,8 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Вероятно сте направили опит да качите твърде голям файл. Моля, обърнете се "
 "към %sдокументацията%s за да намерите начин да избегнете това ограничение."
@@ -1649,8 +1643,7 @@ msgstr "Зареждане"
 msgid "Processing Request"
 msgstr "Обработка на заявката"
 
-#: js/messages.php:213 libraries/import/ods.php:77
-#: libraries/rte/rte_export.lib.php:39
+#: js/messages.php:213 libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
 msgstr "Грешка при обработка на заявката"
 
@@ -1730,7 +1723,6 @@ msgstr "Дефиницията на съхранена процедура тря
 
 #: js/messages.php:248
 #, php-format
-#| msgid "+ Add a value"
 msgid "Add %d value(s)"
 msgstr "Добавяне %d стойност(и)"
 
@@ -2468,8 +2460,8 @@ msgstr "Добре дошли в %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Изглежда не се създали конфигурационен файл. Вероятно ще искате да "
 "използвате %1$sскрипта за настройки%2$s, за да го създадете."
@@ -4486,7 +4478,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:386
-#| msgid "Control slave:"
 msgid "Control host"
 msgstr ""
 
@@ -5159,7 +5150,6 @@ msgid "Could not initialize Drizzle connection library"
 msgstr ""
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
-#| msgid "Could not open file: %s"
 msgid "Could not connect to Drizzle server"
 msgstr ""
 
@@ -5420,8 +5410,8 @@ msgstr ", @TABLE@ ще стане името на таблицата"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:270
@@ -6090,8 +6080,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -6510,6 +6500,13 @@ msgstr ""
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr ""
 
+#: libraries/import/ods.php:76 libraries/import/xml.php:71
+#: libraries/import/xml.php:127
+msgid ""
+"The XML file specified was either malformed or incomplete. Please correct "
+"the issue and try again."
+msgstr ""
+
 #: libraries/import/shp.php:19
 msgid "ESRI Shape File"
 msgstr ""
@@ -6541,12 +6538,6 @@ msgstr "Режим на съвместимост на SQL:"
 #: libraries/import/sql.php:43
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Да не се използва <code>AUTO_INCREMENT</code> за нулеви стойности"
-
-#: libraries/import/xml.php:71 libraries/import/xml.php:127
-msgid ""
-"The XML file specified was either malformed or incomplete. Please correct "
-"the issue and try again."
-msgstr ""
 
 #: libraries/kanji-encoding.lib.php:147
 msgctxt "None encoding conversion"
@@ -7707,8 +7698,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "SQL валидаторът не може да бъде инициализиран. Моля проверете дали са "
-"инсталирани необходимите PHP разширения, както е описано в %sдокументацията%"
-"s."
+"инсталирани необходимите PHP разширения, както е описано в %sдокументацията"
+"%s."
 
 #: libraries/tbl_links.inc.php:118 libraries/tbl_links.inc.php:119
 msgid "Table seems to be empty!"
@@ -8384,8 +8375,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Имате достъп до още настройки, модифицирайки config.inc.php, примерно чрез %"
-"sскрипта за настройки%s."
+"Имате достъп до още настройки, модифицирайки config.inc.php, примерно чрез "
+"%sскрипта за настройки%s."
 
 #: prefs_manage.php:300
 msgid "Save to browser's storage"
@@ -8865,8 +8856,8 @@ msgstr "Изтриване на БД, които имат имена като т
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Забележка: phpMyAdmin взема потребителските права директно от таблицата с "
 "правата на MySQL. Съдържанието на тази таблица може да се различава от "
@@ -9950,7 +9941,6 @@ msgid "Chart columns"
 msgstr ""
 
 #: server_status.php:1588
-#| msgid "Error management:"
 msgid "Chart arrangement"
 msgstr ""
 
@@ -11367,7 +11357,6 @@ msgid "Slow query logging"
 msgstr "Показване формата за заявки"
 
 #: po/advisory_rules.php:31
-#| msgid "The event scheduler is disabled"
 msgid "The slow query log is disabled."
 msgstr ""
 
@@ -11562,8 +11551,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -11666,7 +11655,6 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
 
 #: po/advisory_rules.php:110
-#| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
 msgstr ""
 
@@ -11685,12 +11673,11 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: po/advisory_rules.php:115
-#| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
 msgstr ""
 
@@ -11722,7 +11709,6 @@ msgid "Sorted rows average: %s"
 msgstr ""
 
 #: po/advisory_rules.php:125
-#| msgid "There are no routines to display."
 msgid "Rate of joins without indexes"
 msgstr ""
 
@@ -11856,8 +11842,6 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:155
-#| msgid "%s table"
-#| msgid_plural "%s tables"
 msgid "Temp disk rate"
 msgstr ""
 
@@ -11899,13 +11883,11 @@ msgstr "key_buffer_size e 0"
 
 #: po/advisory_rules.php:165
 #, php-format
-#| msgid "Sort buffer size"
 msgid "Max %% MyISAM key buffer ever used"
 msgstr "Максимално използван %% от буфера за ключове на MyISAM"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, php-format
-#| msgid "Sort buffer size"
 msgid "MyISAM key buffer (index cache) %% used is low."
 msgstr "MyISAM буфер на ключове (индекси) с нисък %% на използване."
 
@@ -12012,7 +11994,6 @@ msgstr ""
 
 #: po/advisory_rules.php:195
 #, php-format
-#| msgid "Create table on database %s"
 msgid "Immediate table locks %%"
 msgstr ""
 
@@ -12060,7 +12041,6 @@ msgstr ""
 
 #: po/advisory_rules.php:210
 #, php-format
-#| msgid "Tracking is not active."
 msgid "Thread cache hit rate %%"
 msgstr ""
 
@@ -12217,7 +12197,6 @@ msgid "Is InnoDB disabled?"
 msgstr ""
 
 #: po/advisory_rules.php:251
-#| msgid "Could not save recent table"
 msgid "You do not have InnoDB enabled."
 msgstr "Няма вграден InnoDB."
 

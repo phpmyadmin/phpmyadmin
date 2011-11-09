@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-11-02 15:30-0400\n"
+"POT-Creation-Date: 2011-11-09 14:34+0100\n"
 "PO-Revision-Date: 2011-10-26 09:15+0200\n"
 "Last-Translator:  <udin.mx@gmail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
+"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: id\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -609,11 +609,11 @@ msgstr "Pelacakan tidak aktif."
 #: db_structure.php:450 libraries/display_tbl.lib.php:2346
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Sebuah view setidaknya mempunyai jumlah kolom berikut. Silahkan lihat %"
-"sdokumentasi%s"
+"Sebuah view setidaknya mempunyai jumlah kolom berikut. Silahkan lihat "
+"%sdokumentasi%s"
 
 #: db_structure.php:466 db_structure.php:480 libraries/header.inc.php:161
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
@@ -974,11 +974,11 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
-"Anda mungkin meng-upload file yang terlalu besar. Silahkan lihat %"
-"sdokumentasi%s untuk mendapatkan solusi tentang batasan ini."
+"Anda mungkin meng-upload file yang terlalu besar. Silahkan lihat "
+"%sdokumentasi%s untuk mendapatkan solusi tentang batasan ini."
 
 #: import.php:170 import.php:419
 msgid "Showing bookmark"
@@ -1703,8 +1703,7 @@ msgstr "Memproses"
 msgid "Processing Request"
 msgstr "Memproses permintaan"
 
-#: js/messages.php:213 libraries/import/ods.php:77
-#: libraries/rte/rte_export.lib.php:39
+#: js/messages.php:213 libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
 msgstr "Error dalam memproses permintaan"
 
@@ -2551,8 +2550,8 @@ msgstr "Selamat Datang di %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Anda mungkin belum membuat file konfigurasi. Anda bisa menggunakan %1$ssetup "
 "script%2$s untuk membuatnya."
@@ -5651,8 +5650,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:270
@@ -6380,8 +6379,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -6846,6 +6845,15 @@ msgstr ""
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr ""
 
+#: libraries/import/ods.php:76 libraries/import/xml.php:71
+#: libraries/import/xml.php:127
+msgid ""
+"The XML file specified was either malformed or incomplete. Please correct "
+"the issue and try again."
+msgstr ""
+"File XML yang ditentukan cacat atau tidak lengkap. Mohon perbaiki dan coba "
+"lagi."
+
 #: libraries/import/shp.php:19
 msgid "ESRI Shape File"
 msgstr ""
@@ -6883,14 +6891,6 @@ msgstr "MySQL&nbsp;4.0 compatible"
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Jangan gunakan AUTO_INCREMENT untuk nilai nol"
-
-#: libraries/import/xml.php:71 libraries/import/xml.php:127
-msgid ""
-"The XML file specified was either malformed or incomplete. Please correct "
-"the issue and try again."
-msgstr ""
-"File XML yang ditentukan cacat atau tidak lengkap. Mohon perbaiki dan coba "
-"lagi."
 
 #: libraries/kanji-encoding.lib.php:147
 #, fuzzy
@@ -9427,8 +9427,8 @@ msgstr "Hapus database yang memiliki nama yang sama dengan pengguna."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Perhatian: phpMyAdmin membaca data tentang pengguna secara langsung dari "
 "tabel profil pengguna MySQL. Isi dari tabel bisa saja berbeda dengan profil "
@@ -12260,8 +12260,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -12386,8 +12386,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: po/advisory_rules.php:115

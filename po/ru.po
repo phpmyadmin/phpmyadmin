@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-11-02 15:30-0400\n"
+"POT-Creation-Date: 2011-11-09 14:34+0100\n"
 "PO-Revision-Date: 2011-11-06 14:23+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
@@ -11,8 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.1.6\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:326
@@ -617,8 +617,8 @@ msgstr "Слежение выключено."
 #: db_structure.php:450 libraries/display_tbl.lib.php:2346
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Данное представление имеет, по меньшей мере, указанное количество строк. "
 "Пожалуйста, обратитесь к %sдокументации%s."
@@ -812,23 +812,19 @@ msgid "ENUM/SET editor"
 msgstr "Редактор ENUM/SET"
 
 #: enum_editor.php:28 js/messages.php:246
-#| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
 msgstr "Значения для новых столбцов"
 
 #: enum_editor.php:30 js/messages.php:245
 #, php-format
-#| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
 msgstr "Значения для столбца %s"
 
 #: enum_editor.php:34 js/messages.php:247
-#| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
 msgstr "Вставьте каждое значение в отдельное поле"
 
 #: enum_editor.php:121
-#| msgid "+ Add a value"
 msgid "Add a value"
 msgstr "Добавить значение"
 
@@ -965,8 +961,8 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Вероятно, размер загружаемого файла слишком велик. Способы обхода данного "
 "ограничения описаны в %sдокументации%s."
@@ -1663,8 +1659,7 @@ msgstr "Загрузка"
 msgid "Processing Request"
 msgstr "Обработка запроса"
 
-#: js/messages.php:213 libraries/import/ods.php:77
-#: libraries/rte/rte_export.lib.php:39
+#: js/messages.php:213 libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
 msgstr "Ошибка при обработке запроса"
 
@@ -1744,7 +1739,6 @@ msgstr "Определение хранимой функции должно со
 
 #: js/messages.php:248
 #, php-format
-#| msgid "+ Add a value"
 msgid "Add %d value(s)"
 msgstr "Добавить %d значение(й)"
 
@@ -2506,8 +2500,8 @@ msgstr "Добро пожаловать в %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Возможная причина - отсутствие файла конфигурации. Для его создания вы "
 "можете воспользоваться %1$sсценарием установки%2$s."
@@ -3276,7 +3270,6 @@ msgstr ""
 "VARCHAR"
 
 #: libraries/config/messages.inc.php:35
-#| msgid "Customize text input fields"
 msgid "Minimum size for input field"
 msgstr "Минимальный размер поля ввода"
 
@@ -3289,7 +3282,6 @@ msgstr ""
 "VARCHAR"
 
 #: libraries/config/messages.inc.php:37
-#| msgid "Maximum size for temporary sort files"
 msgid "Maximum size for input field"
 msgstr "Максимальный размер поля ввода"
 
@@ -4624,7 +4616,6 @@ msgstr ""
 "уже определенного хоста, оставьте пустым"
 
 #: libraries/config/messages.inc.php:386
-#| msgid "Control user"
 msgid "Control host"
 msgstr "Контрольный хост"
 
@@ -5458,7 +5449,6 @@ msgid "possible deep recursion attack"
 msgstr "возможная атака глубокой рекурсии"
 
 #: libraries/database_interface.lib.php:1764
-#| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -5466,7 +5456,6 @@ msgstr ""
 "Сервер не отвечает (либо локальный сокет сервера MySQL неверно настроен)."
 
 #: libraries/database_interface.lib.php:1766
-#| msgid "The server is not responding"
 msgid "The server is not responding."
 msgstr "Сервер не отвечает."
 
@@ -5673,8 +5662,8 @@ msgstr ", @TABLE@ будет замещено именем таблицы"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Значение обрабатывается функцией %1$sstrftime%2$s, благодаря чему возможна "
 "вставка текущей даты и времени. Дополнительно могут быть использованы "
@@ -6426,8 +6415,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "Документацию и дальнейшую информацию по PBXT смотрите на %sдомашней странице "
 "PrimeBase XT%s."
@@ -6880,6 +6869,15 @@ msgstr ""
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Импортировать денежные единицы <i>(напр. $5.00 в 5.00)</i>"
 
+#: libraries/import/ods.php:76 libraries/import/xml.php:71
+#: libraries/import/xml.php:127
+msgid ""
+"The XML file specified was either malformed or incomplete. Please correct "
+"the issue and try again."
+msgstr ""
+"Выбранный XML файл некорректен, либо неполон. Проверьте возможные ошибки и "
+"попробуйте ещё раз."
+
 #: libraries/import/shp.php:19
 msgid "ESRI Shape File"
 msgstr "Файл ESRI"
@@ -6914,14 +6912,6 @@ msgstr "Режим совместимости SQL:"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr ""
 "Не использовать атрибут <code>AUTO_INCREMENT</code> для нулевых значений"
-
-#: libraries/import/xml.php:71 libraries/import/xml.php:127
-msgid ""
-"The XML file specified was either malformed or incomplete. Please correct "
-"the issue and try again."
-msgstr ""
-"Выбранный XML файл некорректен, либо неполон. Проверьте возможные ошибки и "
-"попробуйте ещё раз."
 
 #: libraries/kanji-encoding.lib.php:147
 msgctxt "None encoding conversion"
@@ -7919,7 +7909,6 @@ msgid "Current Server"
 msgstr "Текущий сервер"
 
 #: libraries/server_links.inc.php:60
-#| msgid "User"
 msgid "Users"
 msgstr "Пользователи"
 
@@ -9288,8 +9277,8 @@ msgstr "Удалить базы данных, имена которых совп
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Примечание: phpMyAdmin получает информацию о пользовательских привилегиях "
 "непосредственно из таблиц привилегий MySQL. Содержимое этих таблиц может "
@@ -11135,8 +11124,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"При необходимости используйте дополнительные настройки безопасности - %"
-"sидентификация по хосту%s и %sсписок доверенных прокси серверов%s. Однако, "
+"При необходимости используйте дополнительные настройки безопасности - "
+"%sидентификация по хосту%s и %sсписок доверенных прокси серверов%s. Однако, "
 "защита по IP может быть ненадежной, если ваш IP не является выделенным и "
 "кроме вас принадлежит тысячам пользователей того же Интернет Провайдера."
 
@@ -12300,8 +12289,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "Текущее соотношение свободного кеша запросов по отношению к полному кешу "
 "запросов составляет %s%%. Значение должно быть выше 80%%"
@@ -12457,8 +12446,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "%s%% сортировок вызывает создание временных таблиц, данное значение должно "
 "быть ниже 10%%."
@@ -12658,9 +12647,9 @@ msgstr ""
 "записываться на диск, в независимости от значений данных переменных. Для "
 "исправления данной проблемы, в должны переписать запросы таким образом, "
 "чтобы исключить условия (Внутри временной таблицы: Наличие столбца BLOB или "
-"TEXT, или наличие столбца более чем 512 байт) упомянутые в начале <a href=\\\""
-"http://www.facebook.com/note.php?note_id=10150111255065841&comments\\\">Статьи "
-"группы Pythian</a>"
+"TEXT, или наличие столбца более чем 512 байт) упомянутые в начале <a href=\\"
+"\"http://www.facebook.com/note.php?note_id=10150111255065841&comments\\"
+"\">Статьи группы Pythian</a>"
 
 #: po/advisory_rules.php:153
 #, php-format
@@ -12672,8 +12661,6 @@ msgstr ""
 "быть ниже 25%%"
 
 #: po/advisory_rules.php:155
-#| msgid "%s table"
-#| msgid_plural "%s tables"
 msgid "Temp disk rate"
 msgstr "Соотношение временных таблиц на диске"
 
@@ -12692,9 +12679,9 @@ msgstr ""
 "записываться на диск, в независимости от значений данных переменных. Для "
 "исправления данной проблемы, в должны переписать запросы таким образом, "
 "чтобы исключить условия (Внутри временной таблицы: Наличие столбца BLOB или "
-"TEXT, или наличие столбца более чем 512 байт) упомянутые в <a "
-"href=\\\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-"
-"tables.html\\\">Документации MySQL</a>"
+"TEXT, или наличие столбца более чем 512 байт) упомянутые в <a href=\\"
+"\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables.html\\"
+"\">Документации MySQL</a>"
 
 #: po/advisory_rules.php:158
 #, php-format
@@ -12706,7 +12693,6 @@ msgstr ""
 "быть менее 1 в час"
 
 #: po/advisory_rules.php:160
-#| msgid "Sort buffer size"
 msgid "MyISAM key buffer size"
 msgstr "Размер буфера ключей MyISAM"
 
@@ -12729,13 +12715,11 @@ msgstr "key_buffer_size равен 0"
 
 #: po/advisory_rules.php:165
 #, php-format
-#| msgid "Sort buffer size"
 msgid "Max %% MyISAM key buffer ever used"
 msgstr "Максимальный %% буфера ключей MyISAM, который был использован"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, php-format
-#| msgid "Sort buffer size"
 msgid "MyISAM key buffer (index cache) %% used is low."
 msgstr "Низкий %% использования буфера ключей MyISAM (кеш индекса)."
 
@@ -12757,7 +12741,6 @@ msgstr ""
 "значение должно быть выше 95%%"
 
 #: po/advisory_rules.php:170
-#| msgid "Sort buffer size"
 msgid "Percentage of MyISAM key buffer used"
 msgstr "Процент использованного буфера ключей MyISAM"
 
@@ -12787,7 +12770,6 @@ msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr "Чтений индексов из памяти: %s%%, данное значение должно быть выше 95%%"
 
 #: po/advisory_rules.php:180
-#| msgid "Create table"
 msgid "Rate of table open"
 msgstr "Соотношение открытых таблиц"
 

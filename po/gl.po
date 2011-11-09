@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-11-02 15:30-0400\n"
+"POT-Creation-Date: 2011-11-09 14:34+0100\n"
 "PO-Revision-Date: 2011-11-06 21:20+0200\n"
 "Last-Translator: inter981 <inter981@gmail.com>\n"
 "Language-Team: galician <gl@li.org>\n"
@@ -346,8 +346,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Desactivouse a configuración de almacenamento. Para saber por que prema %"
-"saqu&iacute;%s."
+"Desactivouse a configuración de almacenamento. Para saber por que prema "
+"%saqu&iacute;%s."
 
 #: db_operations.php:589
 msgid "Edit or export relational schema"
@@ -621,11 +621,11 @@ msgstr "O seguemento non está activado."
 #: db_structure.php:450 libraries/display_tbl.lib.php:2346
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Esta vista ten, cando menos, este número de fileiras. Vexa a %sdocumentation%"
-"s."
+"Esta vista ten, cando menos, este número de fileiras. Vexa a %sdocumentation"
+"%s."
 
 #: db_structure.php:466 db_structure.php:480 libraries/header.inc.php:161
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
@@ -988,11 +988,11 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
-"Posibelmente tentou enviar un ficheiro demasiado grande. Consulte a %"
-"sdocumentación%s para averiguar como evitar este límite."
+"Posibelmente tentou enviar un ficheiro demasiado grande. Consulte a "
+"%sdocumentación%s para averiguar como evitar este límite."
 
 #: import.php:170 import.php:419
 msgid "Showing bookmark"
@@ -1734,8 +1734,7 @@ msgstr "Cargar"
 msgid "Processing Request"
 msgstr "Procesos"
 
-#: js/messages.php:213 libraries/import/ods.php:77
-#: libraries/rte/rte_export.lib.php:39
+#: js/messages.php:213 libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
 msgstr ""
 
@@ -2678,8 +2677,8 @@ msgstr "Reciba a benvida a %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Isto débese, posibelmente, a que non se creou un ficheiro de configuración. "
 "Tal vez queira utilizar %1$ssetup script%2$s para crear un."
@@ -6047,8 +6046,8 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Este valor interprétase utilizando %1$sstrftime%2$s, de maneira que pode "
 "utilizar cadeas de formato de hora. Produciranse transformacións en "
@@ -6842,8 +6841,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -7311,6 +7310,15 @@ msgstr "Importar as porcentaxes como decimais correctos (12.00% a .12)"
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Importar as moedas ($5.00 a 5.00)"
 
+#: libraries/import/ods.php:76 libraries/import/xml.php:71
+#: libraries/import/xml.php:127
+msgid ""
+"The XML file specified was either malformed or incomplete. Please correct "
+"the issue and try again."
+msgstr ""
+"O ficheiro XML especificado estaba estragado ou incompleto. Corrixa o "
+"problema e ténteo de novo."
+
 #: libraries/import/shp.php:19
 msgid "ESRI Shape File"
 msgstr ""
@@ -7348,14 +7356,6 @@ msgstr "Modo de compatiblidade SQL"
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Non empregar AUTO_INCREMENT cos valores cero"
-
-#: libraries/import/xml.php:71 libraries/import/xml.php:127
-msgid ""
-"The XML file specified was either malformed or incomplete. Please correct "
-"the issue and try again."
-msgstr ""
-"O ficheiro XML especificado estaba estragado ou incompleto. Corrixa o "
-"problema e ténteo de novo."
 
 #: libraries/kanji-encoding.lib.php:147
 #, fuzzy
@@ -9192,8 +9192,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Servidor a executarse con Suhosin. Consulte os posíbeis problemas na %"
-"sdocumentation%s."
+"Servidor a executarse con Suhosin. Consulte os posíbeis problemas na "
+"%sdocumentation%s."
 
 #: navigation.php:183 server_databases.php:285 server_synchronize.php:1294
 msgid "No databases"
@@ -9946,8 +9946,8 @@ msgstr "Eliminar as bases de datos que teñan os mesmos nomes que os usuarios."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Nota: phpMyAdmin recolle os privilexios dos usuarios directamente das táboas "
 "de privilexios do MySQL. O contido destas táboas pode diferir dos "
@@ -11858,9 +11858,9 @@ msgstr ""
 #| "You set the [kbd]config[/kbd] authentication type and included username "
 #| "and password for auto-login, which is not a desirable option for live "
 #| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1"
-#| "$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/"
-#| "kbd]."
+#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id="
+#| "%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http"
+#| "[/kbd]."
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -13085,8 +13085,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -13214,8 +13214,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: po/advisory_rules.php:115
@@ -13660,7 +13660,8 @@ msgstr ""
 #: po/advisory_rules.php:218
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
-msgstr "%s fío(s) empregaron máis de %s segundos en iniciarse, debería de ser 0"
+msgstr ""
+"%s fío(s) empregaron máis de %s segundos en iniciarse, debería de ser 0"
 
 #: po/advisory_rules.php:220
 msgid "Slow launch time"
@@ -13728,8 +13729,8 @@ msgid ""
 "the source."
 msgstr ""
 "As conexións son canceladas xeralmente cando non poden ser autorizadas. <a "
-"href=\\\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-"source-of-aborted_connects/\\\">Este artigo</a> podría ser de axuda para "
+"href=\\\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-"
+"the-source-of-aborted_connects/\\\">Este artigo</a> podría ser de axuda para "
 "rastrea-lo motivo das mesmas."
 
 #: po/advisory_rules.php:233

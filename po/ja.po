@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-11-02 15:30-0400\n"
+"POT-Creation-Date: 2011-11-09 14:34+0100\n"
 "PO-Revision-Date: 2011-11-06 07:40+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
@@ -609,8 +609,8 @@ msgstr "SQL コマンドの追跡は非アクティブです。"
 #: db_structure.php:450 libraries/display_tbl.lib.php:2346
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "このビューの最低行数。詳しくは%sドキュメント%sをご覧ください。"
 
 #: db_structure.php:466 db_structure.php:480 libraries/header.inc.php:161
@@ -953,8 +953,8 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "アップロードしようとしたファイルが大きすぎるようです。対策については %sドキュ"
 "メント%s をご覧ください"
@@ -1645,8 +1645,7 @@ msgstr "読み込み中"
 msgid "Processing Request"
 msgstr "要求を処理中"
 
-#: js/messages.php:213 libraries/import/ods.php:77
-#: libraries/rte/rte_export.lib.php:39
+#: js/messages.php:213 libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
 msgstr "要求処理中でのエラー"
 
@@ -2477,11 +2476,11 @@ msgstr "%s へようこそ"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプト%2"
-"$s を利用して設定ファイルを作成してください"
+"設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプ"
+"ト%2$s を利用して設定ファイルを作成してください"
 
 #: libraries/auth/config.auth.lib.php:109
 msgid ""
@@ -3239,7 +3238,6 @@ msgid ""
 msgstr "CHAR および VARCHAR カラムに対する入力項目の最小サイズを定義します。"
 
 #: libraries/config/messages.inc.php:35
-#| msgid "Customize text input fields"
 msgid "Minimum size for input field"
 msgstr "入力項目の最小サイズ"
 
@@ -3250,7 +3248,6 @@ msgid ""
 msgstr "CHAR および VARCHAR カラムに対する入力項目の最大サイズを定義します。"
 
 #: libraries/config/messages.inc.php:37
-#| msgid "Maximum size for temporary sort files"
 msgid "Maximum size for input field"
 msgstr "入力項目の最大サイズ"
 
@@ -5590,8 +5587,8 @@ msgstr "、@TABLE@ はテーブル名に"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "この値は %1$sstrftime%2$s を使用して解釈されますので、時刻の書式文字列を使用"
 "することができます。また、埋め込み変数変換も行われます（%3$s変換されま"
@@ -6333,8 +6330,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "PBXT に関するドキュメントおよび詳細な情報は、%sPrimeBase XT オフィシャルサイ"
 "ト%sにあります。"
@@ -6777,6 +6774,15 @@ msgstr "パーセントは適切な小数に変換する<i>（例：12.00% を .
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "金額は単位を取り除く<i>（例：$5.00 を 5.00）</i>"
 
+#: libraries/import/ods.php:76 libraries/import/xml.php:71
+#: libraries/import/xml.php:127
+msgid ""
+"The XML file specified was either malformed or incomplete. Please correct "
+"the issue and try again."
+msgstr ""
+"指定された XML ファイルは、不完全もしくはフォーマットが正しくありません。問題"
+"を修正して再度試してみてください。"
+
 #: libraries/import/shp.php:19
 msgid "ESRI Shape File"
 msgstr "ESRI シェープファイル"
@@ -6810,14 +6816,6 @@ msgstr "SQL 互換モード:"
 #: libraries/import/sql.php:43
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "値がゼロのものに対して <code>AUTO_INCREMENT</code> を使用しない"
-
-#: libraries/import/xml.php:71 libraries/import/xml.php:127
-msgid ""
-"The XML file specified was either malformed or incomplete. Please correct "
-"the issue and try again."
-msgstr ""
-"指定された XML ファイルは、不完全もしくはフォーマットが正しくありません。問題"
-"を修正して再度試してみてください。"
 
 #: libraries/kanji-encoding.lib.php:147
 msgctxt "None encoding conversion"
@@ -9169,8 +9167,8 @@ msgstr "ユーザと同名のデータベースを削除する"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "注意: phpMyAdmin は MySQL の特権テーブルから直接ユーザ特権を取得しますが、手"
 "作業で特権を更新した場合は phpMyAdmin が利用しているテーブルの内容とサーバの"
@@ -10951,10 +10949,11 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"それでも、[kbd]config[/kbd] 認証が必要であると思われる場合、追加の保護設定（%"
-"sホスト認証%s設定および%s信頼されたプロキシのリスト%s）を使用してください。し"
-"かしながら、ユーザが数千人もいるような ISP に所属している、含まれている、接続"
-"されている場合には、IP アドレスを基にした保護は信頼性が高いとはいえません。"
+"それでも、[kbd]config[/kbd] 認証が必要であると思われる場合、追加の保護設定"
+"（%sホスト認証%s設定および%s信頼されたプロキシのリスト%s）を使用してくださ"
+"い。しかしながら、ユーザが数千人もいるような ISP に所属している、含まれてい"
+"る、接続されている場合には、IP アドレスを基にした保護は信頼性が高いとはいえま"
+"せん。"
 
 #: setup/lib/index.lib.php:292
 #, php-format
@@ -12005,8 +12004,9 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
-"メモリ上限が (このサーバ上において) 3 GiB になってしまいますので、MySQL はメモリを十分活用できないでしょう。64 ビット版の MySQL "
-"の導入を検討してみてください。"
+"メモリ上限が (このサーバ上において) 3 GiB になってしまいますので、MySQL はメ"
+"モリを十分活用できないでしょう。64 ビット版の MySQL の導入を検討してみてくだ"
+"さい。"
 
 #: po/advisory_rules.php:68
 #, php-format
@@ -12075,7 +12075,8 @@ msgstr "クエリキャッシュ効率 (%)"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
-msgstr "クエリキャッシュが有効に機能していません。キャッシュのヒット率が低いです。"
+msgstr ""
+"クエリキャッシュが有効に機能していません。キャッシュのヒット率が低いです。"
 
 #: po/advisory_rules.php:82
 msgid "Consider increasing {query_cache_limit}."
@@ -12106,12 +12107,11 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
-#| msgid "Query cache"
 msgid "Query cache fragmentation"
 msgstr "クエリキャッシュの断片化"
 
@@ -12138,9 +12138,9 @@ msgid ""
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
-"キャッシュは現在 %s%% 断片化しています。100%% "
-"の断片化とは、クエリキャッシュが空きと使用済みブロックが交互に現れるパターンになっていることを意味しています。この値は、20%% "
-"未満がいいと言われています。"
+"キャッシュは現在 %s%% 断片化しています。100%% の断片化とは、クエリキャッシュ"
+"が空きと使用済みブロックが交互に現れるパターンになっていることを意味していま"
+"す。この値は、20%% 未満がいいと言われています。"
 
 #: po/advisory_rules.php:95
 msgid "Query cache low memory prunes"
@@ -12176,14 +12176,16 @@ msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
-"クエリキャッシュサイズが 128 MiB "
-"を超えています。大きなクエリキャッシュは、キャッシュ維持に必要となる重要な処理コストに悪影響を与えることがあります。"
+"クエリキャッシュサイズが 128 MiB を超えています。大きなクエリキャッシュは、"
+"キャッシュ維持に必要となる重要な処理コストに悪影響を与えることがあります。"
 
 #: po/advisory_rules.php:102
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
-msgstr "使用されている環境によりますが、この値を減らすとパフォーマンスがよくなることがあります。"
+msgstr ""
+"使用されている環境によりますが、この値を減らすとパフォーマンスがよくなること"
+"があります。"
 
 #: po/advisory_rules.php:103
 #, php-format
@@ -12229,15 +12231,18 @@ msgid ""
 "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending "
 "on your system memory limits"
 msgstr ""
-"ご使用のシステムのメモリ環境に合わせて、sort_buffer_size と read_rnd_buffer_size "
-"のいずれかもしくは両方を増加させることを検討してください。"
+"ご使用のシステムのメモリ環境に合わせて、sort_buffer_size と "
+"read_rnd_buffer_size のいずれかもしくは両方を増加させることを検討してくださ"
+"い。"
 
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
-msgstr "全ソートの内 %s%% が一時テーブルを使用しています。この値は、10%% 未満がいいと言われています。"
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
+msgstr ""
+"全ソートの内 %s%% が一時テーブルを使用しています。この値は、10%% 未満がいいと"
+"言われています。"
 
 #: po/advisory_rules.php:115
 msgid "Rate of sorts that cause temporary tables"
@@ -12953,8 +12958,8 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr ""
 
-msgid "Too many connections are aborted"
-msgstr "中断された接続が多いです。"
+#~ msgid "Too many connections are aborted"
+#~ msgstr "中断された接続が多いです。"
 
 #~ msgid "+ Restart insertion and add a new value"
 #~ msgstr "+ 書き込みをやり直して、新しい値を追加する。"
@@ -13449,9 +13454,9 @@ msgstr "中断された接続が多いです。"
 #~ msgid "None"
 #~ msgstr "なし"
 
-msgctxt ""
-msgid "None"
-msgstr "なし"
+#~ msgctxt ""
+#~ msgid "None"
+#~ msgstr "なし"
 
 #~ msgid "Grant all privileges on wildcard name (username_%)"
 #~ msgstr ""
