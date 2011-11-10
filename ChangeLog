@@ -70,6 +70,10 @@ phpMyAdmin - ChangeLog
 - patch #3430291 [import] Handle conflicts in some open_basedir situations
 - bug #3431427 [display] Dropdown results - setting NULL does not work
 
+3.4.7.1 (not yet released)
+- [security] Fixed possible local file inclusion in XML import
+(CVE-2011-4107).
+
 3.4.7.0 (2011-10-23)
 - bug #3418610 [interface] Links in navigation when $cfg['MainPageIconic'] = false
 - bug #3418849 [interface] Inline edit shows dropdowns even after closing
