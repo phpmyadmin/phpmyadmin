@@ -1761,17 +1761,24 @@ function PMA_DBI_formatError($error_number, $error_message)
     $error = '#' . ((string) $error_number);
 
     if ($error_number == 2002) {
-        $error .= ' - ' . __('The server is not responding (or the local server\'s socket is not correctly configured).');
+        $error .= ' - ' . $error_message;
+        $error .= '<br />' . __('The server is not responding (or the local server\'s socket is not correctly configured).');
     } elseif ($error_number == 2003) {
-        $error .= ' - ' . __('The server is not responding.');
+        $error .= ' - ' . $error_message;
+        $error .= '<br />' . __('The server is not responding.');
     } elseif ($error_number == 1005) {
-        /* InnoDB contraints, see
-         * http://dev.mysql.com/doc/refman/5.0/en/innodb-foreign-key-constraints.html
-         */
-        $error .= ' - ' . $error_message .
-            ' (<a href="server_engines.php' .
-            PMA_generate_common_url(array('engine' => 'InnoDB', 'page' => 'Status')) .
-            '">' . __('Details...') . '</a>)';
+        if (strpos($error_message, 'errno: 13') !== FALSE) {
+            $error .= ' - ' . $error_message;
+            $error .= '<br />' . __('Please check privileges of directory containing database.');
+        } else {
+            /* InnoDB contraints, see
+             * http://dev.mysql.com/doc/refman/5.0/en/innodb-foreign-key-constraints.html
+             */
+            $error .= ' - ' . $error_message .
+                ' (<a href="server_engines.php' .
+                PMA_generate_common_url(array('engine' => 'InnoDB', 'page' => 'Status')) .
+                '">' . __('Details...') . '</a>)';
+        }
     } else {
         $error .= ' - ' . $error_message;
     }
