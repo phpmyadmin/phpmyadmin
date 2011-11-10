@@ -11886,7 +11886,7 @@ msgstr "Verze"
 
 #: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
+msgstr "Verze staší než 5.1.30 (první GA vydání 5.1)."
 
 #: po/advisory_rules.php:42
 msgid ""
