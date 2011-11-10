@@ -11839,10 +11839,9 @@ msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time je nastaven na %d sekund."
 
 #: po/advisory_rules.php:30
-#, fuzzy
 #| msgid "Show query box"
 msgid "Slow query logging"
-msgstr "Zobrazit pole pro dotaz"
+msgstr "Zaznamenávání pomalých dotazů"
 
 #: po/advisory_rules.php:31
 #, fuzzy
