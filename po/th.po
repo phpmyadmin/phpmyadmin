@@ -838,8 +838,9 @@ msgid "Output"
 msgstr "เอาท์พุท"
 
 #: enum_editor.php:128
+#, fuzzy
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr ""
+msgstr "คัดลอกและวางค่า joined ในฟิลด์ \"ความยาว/ค่า\""
 
 #: export.php:29
 #, fuzzy
