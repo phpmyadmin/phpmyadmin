@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-10 15:40+0200\n"
+"PO-Revision-Date: 2011-11-10 15:42+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -12941,7 +12941,7 @@ msgstr "Запуск %s потока(ов) занял более %s секунд
 
 #: po/advisory_rules.php:220
 msgid "Slow launch time"
-msgstr ""
+msgstr "Время медленного запуска"
 
 #: po/advisory_rules.php:221
 msgid "Slow_launch_threads is above 2s"
