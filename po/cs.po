@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-10 12:21+0200\n"
+"PO-Revision-Date: 2011-11-10 12:22+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -11844,10 +11844,9 @@ msgid "Slow query logging"
 msgstr "Zaznamenávání pomalých dotazů"
 
 #: po/advisory_rules.php:31
-#, fuzzy
 #| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
-msgstr "slow_query_log je povolen."
+msgstr "Zaznamenávání pomalých dotazů je vypnuto."
 
 #: po/advisory_rules.php:32
 msgid ""
