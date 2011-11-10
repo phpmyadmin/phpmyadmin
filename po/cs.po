@@ -11865,7 +11865,7 @@ msgstr "Vydání"
 
 #: po/advisory_rules.php:36
 msgid "The MySQL server version less then 5.1."
-msgstr ""
+msgstr "MySQL server je starší než 5.1."
 
 #: po/advisory_rules.php:37
 msgid ""
