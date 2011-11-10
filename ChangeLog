@@ -7,6 +7,10 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 
 3.3.11.0 (not yet released)
 
+3.3.10.5 (2011-11-10)
+- [security] Fixed possible local file inclusion in XML import
+(CVE-2011-4107).
+
 3.3.10.4 (2011-08-24)
 - [security] Missing sanitization on the table, column and index names leads to XSS vulnerabilities, see PMASA-2011-13
 
