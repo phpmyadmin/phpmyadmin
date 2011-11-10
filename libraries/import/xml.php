@@ -13,6 +13,13 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
+ * We need way to disable external XML entities processing.
+ */
+if (!function_exists('libxml_disable_entity_loader')) {
+    return;
+}
+
+/**
  * The possible scopes for $plugin_param are: 'table', 'database', and 'server'
  */
 
@@ -55,6 +62,11 @@ while (! ($finished && $i >= $len) && ! $error && ! $timeout_passed) {
 }
 
 unset($data);
+
+/**
+ * Disable loading of external XML entities.
+ */
+libxml_disable_entity_loader();
 
 /**
  * Load the XML string
@@ -141,19 +153,19 @@ if (isset($namespaces['pma'])) {
      * Get structures for all tables
      */
     $struct = $xml->children($namespaces['pma']);
-    
+
     $create = array();
-    
+
     foreach ($struct as $tier1 => $val1) {
         foreach($val1 as $tier2 => $val2) {
             /* Need to select the correct database for the creation of tables, views, triggers, etc. */
             /**
-             * @todo    Generating a USE here blocks importing of a table 
-             *          into another database. 
+             * @todo    Generating a USE here blocks importing of a table
+             *          into another database.
              */
             $attrs = $val2->attributes();
             $create[] = "USE " . PMA_backquote($attrs["name"]);
-            
+
             foreach ($val2 as $val3) {
                 /**
                  * Remove the extra cosmetic spacing
@@ -163,7 +175,7 @@ if (isset($namespaces['pma'])) {
             }
         }
     }
-    
+
     $struct_present = true;
 }
 
@@ -179,13 +191,13 @@ $data_present = false;
  */
 if (@count($xml->children())) {
     $data_present = true;
-    
+
     /**
      * Process all database content
      */
     foreach ($xml as $k1 => $v1) {
         $tbl_attr = $v1->attributes();
-        
+
         $isInTables = false;
         for ($i = 0; $i < count($tables); ++$i) {
             if (! strcmp($tables[$i][TBL_NAME], (string)$tbl_attr['name'])) {
@@ -193,11 +205,11 @@ if (@count($xml->children())) {
                 break;
             }
         }
-        
+
         if ($isInTables == false) {
             $tables[] = array((string)$tbl_attr['name']);
         }
-        
+
         foreach ($v1 as $k2 => $v2) {
             $row_attr = $v2->attributes();
             if (! array_search((string)$row_attr['name'], $tempRow))
@@ -206,17 +218,17 @@ if (@count($xml->children())) {
             }
             $tempCells[] = (string)$v2;
         }
-        
+
         $rows[] = array((string)$tbl_attr['name'], $tempRow, $tempCells);
-        
+
         $tempRow = array();
         $tempCells = array();
     }
-    
+
     unset($tempRow);
     unset($tempCells);
     unset($xml);
-    
+
     /**
      * Bring accumulated rows into the corresponding table
      */
@@ -227,17 +239,17 @@ if (@count($xml->children())) {
                 if (! isset($tables[$i][COL_NAMES])) {
                     $tables[$i][] = $rows[$j][COL_NAMES];
                 }
-                
+
                 $tables[$i][ROWS][] = $rows[$j][ROWS];
             }
         }
     }
-    
+
     unset($rows);
-    
+
     if (! $struct_present) {
         $analyses = array();
-        
+
         $len = count($tables);
         for ($i = 0; $i < $len; ++$i) {
             $analyses[] = PMA_analyzeTable($tables[$i]);
@@ -289,7 +301,7 @@ if (strlen($db)) {
     if ($db_name === NULL) {
         $db_name = 'XML_DB';
     }
-    
+
     /* Set database collation/charset */
     $options = array(
         'db_collation' => $collation,
