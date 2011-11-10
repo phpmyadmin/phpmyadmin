@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-10 12:19+0200\n"
+"PO-Revision-Date: 2011-11-10 12:20+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -11806,7 +11806,7 @@ msgstr "Četnost pomalých dotazů"
 #: po/advisory_rules.php:21
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
-msgstr ""
+msgstr "Server provádí mnoho pomalých dotazů v porovnání s dobou běhu."
 
 #: po/advisory_rules.php:23
 #, php-format
