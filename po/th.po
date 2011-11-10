@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-10 09:14+0200\n"
+"PO-Revision-Date: 2011-11-10 09:15+0200\n"
 "Last-Translator: jaideejung007 <jaideejung007@gmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -833,8 +833,9 @@ msgid "Add a value"
 msgstr "เพิ่มค่า"
 
 #: enum_editor.php:127 gis_data_editor.php:317
+#, fuzzy
 msgid "Output"
-msgstr ""
+msgstr "เอาท์พุท"
 
 #: enum_editor.php:128
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
