@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-10 09:15+0200\n"
+"PO-Revision-Date: 2011-11-10 09:30+0200\n"
 "Last-Translator: jaideejung007 <jaideejung007@gmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -846,7 +846,7 @@ msgstr "คัดลอกและวางค่า joined ในฟิลด�
 #, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "ชนิดคำค้น"
+msgstr "ประเภทไม่ถูกต้อง!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
