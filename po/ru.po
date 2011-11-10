@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-10 15:33+0200\n"
+"PO-Revision-Date: 2011-11-10 15:34+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -12907,7 +12907,7 @@ msgstr "Кеш потока действует не эффективно."
 
 #: po/advisory_rules.php:212
 msgid "Increase {thread_cache_size}."
-msgstr ""
+msgstr "Увеличьте {thread_cache_size}."
 
 #: po/advisory_rules.php:213
 #, php-format
