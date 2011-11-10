@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-3.4.7.1 (not yet released)
+3.4.7.1 (2011-11-10)
 - [security] Fixed possible local file inclusion in XML import (CVE-2011-4107).
 
 3.4.7.0 (2011-10-23)
