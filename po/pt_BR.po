@@ -12876,10 +12876,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:230
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of aborted connections"
-msgstr "Conexões persistentes"
+msgstr "Porcentagem de conexões abortadas"
 
 #: po/advisory_rules.php:231 po/advisory_rules.php:236
 msgid "Too many connections are aborted."
