@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-11 18:05+0200\n"
+"PO-Revision-Date: 2011-11-11 18:06+0200\n"
 "Last-Translator: eloizio <eloisalgado@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -12851,10 +12851,9 @@ msgid "slow_launch_time is set to %s"
 msgstr "\"long_query_time\" está definida para %d segundo(s)."
 
 #: po/advisory_rules.php:225
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of used connections"
-msgstr "Conexões persistentes"
+msgstr "Porcentagem de conexões em uso"
 
 #: po/advisory_rules.php:226
 msgid ""
