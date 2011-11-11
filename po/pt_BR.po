@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-11 17:48+0200\n"
+"PO-Revision-Date: 2011-11-11 17:52+0200\n"
 "Last-Translator: eloizio <eloisalgado@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -12936,6 +12936,8 @@ msgstr ""
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
+"%s%% de todos os clientes são abortados. Este valor deve ser menor do que 2%"
+"%"
 
 #: po/advisory_rules.php:245
 #| msgid "Format of imported file"
