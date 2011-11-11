@@ -12961,10 +12961,9 @@ msgid "slow_launch_time is set to %s"
 msgstr "slow_launch_time установлен на %s"
 
 #: po/advisory_rules.php:225
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of used connections"
-msgstr "Постоянные соединения"
+msgstr "Процентное соотношение использованных соединений"
 
 #: po/advisory_rules.php:226
 msgid ""
