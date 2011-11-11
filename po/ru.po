@@ -12998,7 +12998,7 @@ msgstr "Процентное соотношение прерванных сое�
 
 #: po/advisory_rules.php:231 po/advisory_rules.php:236
 msgid "Too many connections are aborted."
-msgstr ""
+msgstr "Слишком большое количество соединений было прервано."
 
 #: po/advisory_rules.php:232 po/advisory_rules.php:237
 msgid ""
