@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-11 17:54+0200\n"
+"PO-Revision-Date: 2011-11-11 17:55+0200\n"
 "Last-Translator: eloizio <eloisalgado@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -12883,7 +12883,7 @@ msgstr "Conexões persistentes"
 
 #: po/advisory_rules.php:231 po/advisory_rules.php:236
 msgid "Too many connections are aborted."
-msgstr ""
+msgstr "Muitas conexões são abortadas."
 
 #: po/advisory_rules.php:232 po/advisory_rules.php:237
 msgid ""
