@@ -13086,7 +13086,7 @@ msgstr ""
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "concurrent_insert está com valor 0"
 
 #~ msgid "+ Restart insertion and add a new value"
 #~ msgstr "+ Reiniciar a inserção e adicionar um novo valor"
