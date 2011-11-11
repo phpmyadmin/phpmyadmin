@@ -12874,6 +12874,8 @@ msgstr ""
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
+"Max_used_connections corresponde a %s%% de max_connections, este valor deve "
+"ser abaixo de 80%"
 
 #: po/advisory_rules.php:230
 #| msgid "Persistent connections"
