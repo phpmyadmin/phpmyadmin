@@ -12959,7 +12959,7 @@ msgstr ""
 
 #: po/advisory_rules.php:253
 msgid "have_innodb is set to 'value'"
-msgstr ""
+msgstr "have_innodb é definido como 'value'"
 
 #: po/advisory_rules.php:255
 #| msgid "Buffer pool size"
