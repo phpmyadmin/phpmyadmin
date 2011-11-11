@@ -12897,6 +12897,8 @@ msgstr ""
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
+"%s%% de todas as conexões são abortadas. Este valor deve ser menor do que 1%"
+"%"
 
 #: po/advisory_rules.php:235
 #| msgid "Persistent connections"
