@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-11-09 14:34+0100\n"
+"POT-Creation-Date: 2011-11-11 10:19+0100\n"
 "PO-Revision-Date: 2011-11-10 19:01+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
@@ -11,8 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.1.6\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:326
@@ -4018,7 +4018,7 @@ msgstr "Uporabi ključno besedo LOCAL"
 msgid "Column names in first row"
 msgstr "Imena stolpcev v prvi vrstici"
 
-#: libraries/config/messages.inc.php:257 libraries/import/ods.php:27
+#: libraries/config/messages.inc.php:257 libraries/import/ods.php:34
 msgid "Do not import empty rows"
 msgstr "Ne uvozi praznih vrstic"
 
@@ -5312,7 +5312,7 @@ msgstr "CSV z uporabo LOAD DATA"
 #: libraries/config/setup.forms.php:259 libraries/config/setup.forms.php:352
 #: libraries/config/user_preferences.forms.php:158
 #: libraries/config/user_preferences.forms.php:250 libraries/export/ods.php:18
-#: libraries/import/ods.php:22
+#: libraries/import/ods.php:29
 msgid "Open Document Spreadsheet"
 msgstr "Preglednica Open Document"
 
@@ -5400,7 +5400,7 @@ msgstr "Razširitev %s manjka. Prosimo, preverite vašo konfiguracijo PHP."
 msgid "possible deep recursion attack"
 msgstr "možen napad globoke rekurzije"
 
-#: libraries/database_interface.lib.php:1764
+#: libraries/database_interface.lib.php:1765
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -5408,13 +5408,17 @@ msgstr ""
 "Strežnik se ne odziva (ali pa lokalna vtičnica strežnika ni pravilno "
 "konfigurirana)."
 
-#: libraries/database_interface.lib.php:1766
+#: libraries/database_interface.lib.php:1768
 #, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
 msgstr "Strežnik se ne odziva."
 
-#: libraries/database_interface.lib.php:1774
+#: libraries/database_interface.lib.php:1772
+msgid "Please check privileges of directory containing database."
+msgstr ""
+
+#: libraries/database_interface.lib.php:1780
 msgid "Details..."
 msgstr "Podrobnosti ..."
 
@@ -5824,9 +5828,9 @@ msgstr "Uredi po ključu"
 #: libraries/export/xml.php:27 libraries/export/yaml.php:30
 #: libraries/import.lib.php:1104 libraries/import.lib.php:1125
 #: libraries/import/csv.php:33 libraries/import/docsql.php:35
-#: libraries/import/ldi.php:49 libraries/import/ods.php:32
+#: libraries/import/ldi.php:49 libraries/import/ods.php:39
 #: libraries/import/shp.php:22 libraries/import/sql.php:20
-#: libraries/import/xml.php:25 libraries/rte/rte_routines.lib.php:863
+#: libraries/import/xml.php:32 libraries/rte/rte_routines.lib.php:863
 #: tbl_select.php:175 tbl_structure.php:856
 msgid "Options"
 msgstr "Možnosti"
@@ -6665,7 +6669,7 @@ msgstr "Nadomestna struktura pogleda"
 msgid "Error reading data:"
 msgstr "Napaka med branjem podatkov:"
 
-#: libraries/export/xml.php:19 libraries/import/xml.php:21
+#: libraries/export/xml.php:19 libraries/import/xml.php:28
 msgid "XML"
 msgstr "XML"
 
@@ -6750,7 +6754,7 @@ msgstr "Struktura %s"
 msgid "Go to view"
 msgstr "Pojdi na pogled"
 
-#: libraries/import/csv.php:38 libraries/import/ods.php:26
+#: libraries/import/csv.php:38 libraries/import/ods.php:33
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -6815,17 +6819,17 @@ msgstr "Imena stolpcev"
 msgid "This plugin does not support compressed imports!"
 msgstr "Ta vtičnik ne podpira stisnjenih uvozov!"
 
-#: libraries/import/ods.php:28
+#: libraries/import/ods.php:35
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr ""
 "Uvozi odstotke kot ustrezne decimalne vrednosti <i>(npr. 12.00% v ,12)</i>"
 
-#: libraries/import/ods.php:29
+#: libraries/import/ods.php:36
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Uvozi denarne enote <i>(npr. $5.00 v 5.00)</i>"
 
-#: libraries/import/ods.php:76 libraries/import/xml.php:71
-#: libraries/import/xml.php:127
+#: libraries/import/ods.php:88 libraries/import/xml.php:83
+#: libraries/import/xml.php:139
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -13015,16 +13019,6 @@ msgstr "Velikost datoteke dnevnika InnoDB je nezadostne velikosti."
 
 #: po/advisory_rules.php:262
 #, php-format
-#| msgid ""
-#| "It is usually sufficient to set innodb_log_file_size to 25%% of the size "
-#| "of {innodb_buffer_pool_size}. A very innodb_log_file_size slows down the "
-#| "recovery time after a database crash considerably. See also <a href=\\"
-#| "\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
-#| "innodb_log_file_size/\\\">this Article</a>. You need to shutdown the "
-#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
-#| "the server, then check the error logs if everything went fine. See also "
-#| "<a href=\\\"http://mysqldatabaseadministration.blogspot.com/2007/01/"
-#| "increase-innodblogfilesize-proper-way.html\\\">this blog entry</a>"
 msgid ""
 "It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
 "{innodb_buffer_pool_size}. A very big innodb_log_file_size slows down the "
@@ -13038,18 +13032,17 @@ msgid ""
 msgstr ""
 "Po navadi zadostuje, da nastavite innodb_log_file_size na 25 %% velikosti "
 "{innodb_buffer_pool_size}. Zelo velika innodb_log_file_size občutno poveča "
-"obnovitveni čas po zrušitvi zbirke podatkov. Oglejte si tudi <a "
-"href=\\\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+"obnovitveni čas po zrušitvi zbirke podatkov. Oglejte si tudi <a href=\\"
+"\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
 "innodb_log_file_size/\\\">ta članek</a>. Zaustaviti morate strežnik, "
 "odstraniti dnevniške datoteke InnoDB, nastaviti novo vrednost v my.cnf, "
 "zagnati strežnik in nato preveriti dnevnike napak, če je vse potekalo v "
-"redu. Oglejte si tudi <a "
-"href=\\\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\\\">to objavo na blogu</a>"
+"redu. Oglejte si tudi <a href=\\\"http://mysqldatabaseadministration."
+"blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html\\\">to "
+"objavo na blogu</a>"
 
 #: po/advisory_rules.php:263
 #, php-format
-#| msgid "Your absolute InnoD log size is %s MiB"
 msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "Absolutna velikost vašega dnevnika InnoDB je %s MiB"
 

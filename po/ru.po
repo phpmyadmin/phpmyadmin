@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-11-09 14:34+0100\n"
+"POT-Creation-Date: 2011-11-11 10:19+0100\n"
 "PO-Revision-Date: 2011-11-10 15:43+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
@@ -11,8 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.1.6\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:326
@@ -4034,7 +4034,7 @@ msgstr "Использовать ключевое слово LOCAL"
 msgid "Column names in first row"
 msgstr "Имена таблиц в первой строке"
 
-#: libraries/config/messages.inc.php:257 libraries/import/ods.php:27
+#: libraries/config/messages.inc.php:257 libraries/import/ods.php:34
 msgid "Do not import empty rows"
 msgstr "Пропускать пустые строки"
 
@@ -5352,7 +5352,7 @@ msgstr "CSV, используя LOAD DATA"
 #: libraries/config/setup.forms.php:259 libraries/config/setup.forms.php:352
 #: libraries/config/user_preferences.forms.php:158
 #: libraries/config/user_preferences.forms.php:250 libraries/export/ods.php:18
-#: libraries/import/ods.php:22
+#: libraries/import/ods.php:29
 msgid "Open Document Spreadsheet"
 msgstr "Open Document Spreadsheet"
 
@@ -5448,18 +5448,22 @@ msgstr "Расширение %s не найдено. Пожалуйста, пр�
 msgid "possible deep recursion attack"
 msgstr "возможная атака глубокой рекурсии"
 
-#: libraries/database_interface.lib.php:1764
+#: libraries/database_interface.lib.php:1765
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
 "Сервер не отвечает (либо локальный сокет сервера MySQL неверно настроен)."
 
-#: libraries/database_interface.lib.php:1766
+#: libraries/database_interface.lib.php:1768
 msgid "The server is not responding."
 msgstr "Сервер не отвечает."
 
-#: libraries/database_interface.lib.php:1774
+#: libraries/database_interface.lib.php:1772
+msgid "Please check privileges of directory containing database."
+msgstr ""
+
+#: libraries/database_interface.lib.php:1780
 msgid "Details..."
 msgstr "Детали..."
 
@@ -5866,9 +5870,9 @@ msgstr "Сортировать по индексу"
 #: libraries/export/xml.php:27 libraries/export/yaml.php:30
 #: libraries/import.lib.php:1104 libraries/import.lib.php:1125
 #: libraries/import/csv.php:33 libraries/import/docsql.php:35
-#: libraries/import/ldi.php:49 libraries/import/ods.php:32
+#: libraries/import/ldi.php:49 libraries/import/ods.php:39
 #: libraries/import/shp.php:22 libraries/import/sql.php:20
-#: libraries/import/xml.php:25 libraries/rte/rte_routines.lib.php:863
+#: libraries/import/xml.php:32 libraries/rte/rte_routines.lib.php:863
 #: tbl_select.php:175 tbl_structure.php:856
 msgid "Options"
 msgstr "Параметры"
@@ -6713,7 +6717,7 @@ msgstr "Дублирующая структура для представлен�
 msgid "Error reading data:"
 msgstr "Ошибка считывания данных:"
 
-#: libraries/export/xml.php:19 libraries/import/xml.php:21
+#: libraries/export/xml.php:19 libraries/import/xml.php:28
 msgid "XML"
 msgstr "XML"
 
@@ -6795,7 +6799,7 @@ msgstr "Структура %s"
 msgid "Go to view"
 msgstr "Перейти к представлению (VIEW)"
 
-#: libraries/import/csv.php:38 libraries/import/ods.php:26
+#: libraries/import/csv.php:38 libraries/import/ods.php:33
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -6860,17 +6864,17 @@ msgstr "Названия столбцов"
 msgid "This plugin does not support compressed imports!"
 msgstr "Этот модуль не поддерживает импорт сжатых данных!"
 
-#: libraries/import/ods.php:28
+#: libraries/import/ods.php:35
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr ""
 "Импортировать проценты в виде десятичных значений <i>(напр. 12.00% в .12)</i>"
 
-#: libraries/import/ods.php:29
+#: libraries/import/ods.php:36
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Импортировать денежные единицы <i>(напр. $5.00 в 5.00)</i>"
 
-#: libraries/import/ods.php:76 libraries/import/xml.php:71
-#: libraries/import/xml.php:127
+#: libraries/import/ods.php:88 libraries/import/xml.php:83
+#: libraries/import/xml.php:139
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -12774,7 +12778,6 @@ msgid "Rate of table open"
 msgstr "Соотношение открытых таблиц"
 
 #: po/advisory_rules.php:181
-#| msgid "The current number of pending writes."
 msgid "The rate of opening tables is high."
 msgstr "Высокое соотношение открытых таблиц."
 
@@ -12793,7 +12796,6 @@ msgstr ""
 "Соотношение открытых таблиц: %s, данное значение должно быть менее 10 в час"
 
 #: po/advisory_rules.php:185
-#| msgid "Format of imported file"
 msgid "Percentage of used open files limit"
 msgstr "Процентное соотношение использованного ограничения открытых файлов"
 
@@ -12820,12 +12822,10 @@ msgstr ""
 "быть ниже 85%%"
 
 #: po/advisory_rules.php:190
-#| msgid "Format of imported file"
 msgid "Rate of open files"
 msgstr "Соотношение открытых файлов"
 
 #: po/advisory_rules.php:191
-#| msgid "The number of pending log file fsyncs."
 msgid "The rate of opening files is high."
 msgstr "Высокое соотношение открытых файлов."
 
@@ -12837,12 +12837,10 @@ msgstr ""
 
 #: po/advisory_rules.php:195
 #, php-format
-#| msgid "Create table on database %s"
 msgid "Immediate table locks %%"
 msgstr "%% незамедлительной блокировки таблиц"
 
 #: po/advisory_rules.php:196 po/advisory_rules.php:201
-#| msgid "The number of times that a table lock was acquired immediately."
 msgid "Too many table locks were not granted immediately."
 msgstr ""
 "Слишком большое количество запросов на блокировку таблицы, которые не были "
@@ -12873,7 +12871,6 @@ msgstr ""
 "менее 1 в час"
 
 #: po/advisory_rules.php:205
-#| msgid "Key cache"
 msgid "Thread cache"
 msgstr "Кеш потока"
 
@@ -12896,12 +12893,10 @@ msgstr "Кеш потока установлен в 0"
 
 #: po/advisory_rules.php:210
 #, php-format
-#| msgid "Tracking is not active."
 msgid "Thread cache hit rate %%"
 msgstr "%% соотношение обращений в кеш потока"
 
 #: po/advisory_rules.php:211
-#| msgid "Tracking is not active."
 msgid "Thread cache is not efficient."
 msgstr "Кеш потока действует не эффективно."
 
@@ -12921,7 +12916,6 @@ msgid "Threads that are slow to launch"
 msgstr "Потоки с медленным запуском"
 
 #: po/advisory_rules.php:216
-#| msgid "The number of threads that are not sleeping."
 msgid "There are too many threads that are slow to launch."
 msgstr "Обнаружено большое количество потоков с медленным запуском."
 

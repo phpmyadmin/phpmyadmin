@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-11-09 14:34+0100\n"
+"POT-Creation-Date: 2011-11-11 10:19+0100\n"
 "PO-Revision-Date: 2011-09-15 07:49+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -3942,7 +3942,7 @@ msgstr "使用本地 (LOCAL) 关键词"
 msgid "Column names in first row"
 msgstr "忽略首行 (首行为字段名)"
 
-#: libraries/config/messages.inc.php:257 libraries/import/ods.php:27
+#: libraries/config/messages.inc.php:257 libraries/import/ods.php:34
 msgid "Do not import empty rows"
 msgstr "不导入空行"
 
@@ -5167,7 +5167,7 @@ msgstr "CSV 使用 LOAD DATA"
 #: libraries/config/setup.forms.php:259 libraries/config/setup.forms.php:352
 #: libraries/config/user_preferences.forms.php:158
 #: libraries/config/user_preferences.forms.php:250 libraries/export/ods.php:18
-#: libraries/import/ods.php:22
+#: libraries/import/ods.php:29
 msgid "Open Document Spreadsheet"
 msgstr "OpenOffice 表格"
 
@@ -5257,7 +5257,7 @@ msgstr "缺少 %s 扩展。请检查 PHP 配置。"
 msgid "possible deep recursion attack"
 msgstr ""
 
-#: libraries/database_interface.lib.php:1764
+#: libraries/database_interface.lib.php:1765
 #, fuzzy
 #| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid ""
@@ -5265,13 +5265,17 @@ msgid ""
 "configured)."
 msgstr "(或者本地 MySQL 服务器的套接字没有正确配置)"
 
-#: libraries/database_interface.lib.php:1766
+#: libraries/database_interface.lib.php:1768
 #, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
 msgstr "服务器没有响应"
 
-#: libraries/database_interface.lib.php:1774
+#: libraries/database_interface.lib.php:1772
+msgid "Please check privileges of directory containing database."
+msgstr ""
+
+#: libraries/database_interface.lib.php:1780
 msgid "Details..."
 msgstr "详细..."
 
@@ -5673,9 +5677,9 @@ msgstr "主键排序"
 #: libraries/export/xml.php:27 libraries/export/yaml.php:30
 #: libraries/import.lib.php:1104 libraries/import.lib.php:1125
 #: libraries/import/csv.php:33 libraries/import/docsql.php:35
-#: libraries/import/ldi.php:49 libraries/import/ods.php:32
+#: libraries/import/ldi.php:49 libraries/import/ods.php:39
 #: libraries/import/shp.php:22 libraries/import/sql.php:20
-#: libraries/import/xml.php:25 libraries/rte/rte_routines.lib.php:863
+#: libraries/import/xml.php:32 libraries/rte/rte_routines.lib.php:863
 #: tbl_select.php:175 tbl_structure.php:856
 msgid "Options"
 msgstr "选项"
@@ -6466,7 +6470,7 @@ msgstr "替换视图以便查看"
 msgid "Error reading data:"
 msgstr "读取数据时发生错误:"
 
-#: libraries/export/xml.php:19 libraries/import/xml.php:21
+#: libraries/export/xml.php:19 libraries/import/xml.php:28
 msgid "XML"
 msgstr "XML"
 
@@ -6548,7 +6552,7 @@ msgstr "%s 的结构"
 msgid "Go to view"
 msgstr "转到视图"
 
-#: libraries/import/csv.php:38 libraries/import/ods.php:26
+#: libraries/import/csv.php:38 libraries/import/ods.php:33
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -6610,16 +6614,16 @@ msgstr "字段名"
 msgid "This plugin does not support compressed imports!"
 msgstr "该插件不支持导入文件！"
 
-#: libraries/import/ods.php:28
+#: libraries/import/ods.php:35
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr "导入百分数为小数 <i>(如: 12.00% 将被导入为 .12)</i>"
 
-#: libraries/import/ods.php:29
+#: libraries/import/ods.php:36
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "导入货币 <i>(如: $5.00 将被导入为 5.00)</i>"
 
-#: libraries/import/ods.php:76 libraries/import/xml.php:71
-#: libraries/import/xml.php:127
+#: libraries/import/ods.php:88 libraries/import/xml.php:83
+#: libraries/import/xml.php:139
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."

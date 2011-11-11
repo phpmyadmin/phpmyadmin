@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-11-09 14:34+0100\n"
+"POT-Creation-Date: 2011-11-11 10:19+0100\n"
 "PO-Revision-Date: 2011-10-23 11:06+0200\n"
 "Last-Translator:  <tatuci@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
@@ -4261,7 +4261,7 @@ msgstr "Folosește cuvîntul-cheie LOCAL"
 msgid "Column names in first row"
 msgstr "Pune numele cîmpului în primul rînd"
 
-#: libraries/config/messages.inc.php:257 libraries/import/ods.php:27
+#: libraries/config/messages.inc.php:257 libraries/import/ods.php:34
 msgid "Do not import empty rows"
 msgstr ""
 
@@ -5487,7 +5487,7 @@ msgstr "CSV folosind LOAD DATA"
 #: libraries/config/setup.forms.php:259 libraries/config/setup.forms.php:352
 #: libraries/config/user_preferences.forms.php:158
 #: libraries/config/user_preferences.forms.php:250 libraries/export/ods.php:18
-#: libraries/import/ods.php:22
+#: libraries/import/ods.php:29
 msgid "Open Document Spreadsheet"
 msgstr "Foaie de calcul Open Document"
 
@@ -5579,7 +5579,7 @@ msgstr ""
 msgid "possible deep recursion attack"
 msgstr ""
 
-#: libraries/database_interface.lib.php:1764
+#: libraries/database_interface.lib.php:1765
 #, fuzzy
 #| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid ""
@@ -5587,13 +5587,17 @@ msgid ""
 "configured)."
 msgstr "(sau soclul serverului MySQL local nu este configurat momentan)"
 
-#: libraries/database_interface.lib.php:1766
+#: libraries/database_interface.lib.php:1768
 #, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
 msgstr "Serverul nu răspunde"
 
-#: libraries/database_interface.lib.php:1774
+#: libraries/database_interface.lib.php:1772
+msgid "Please check privileges of directory containing database."
+msgstr ""
+
+#: libraries/database_interface.lib.php:1780
 msgid "Details..."
 msgstr "Detalii..."
 
@@ -6056,9 +6060,9 @@ msgstr "Sortare după cheie"
 #: libraries/export/xml.php:27 libraries/export/yaml.php:30
 #: libraries/import.lib.php:1104 libraries/import.lib.php:1125
 #: libraries/import/csv.php:33 libraries/import/docsql.php:35
-#: libraries/import/ldi.php:49 libraries/import/ods.php:32
+#: libraries/import/ldi.php:49 libraries/import/ods.php:39
 #: libraries/import/shp.php:22 libraries/import/sql.php:20
-#: libraries/import/xml.php:25 libraries/rte/rte_routines.lib.php:863
+#: libraries/import/xml.php:32 libraries/rte/rte_routines.lib.php:863
 #: tbl_select.php:175 tbl_structure.php:856
 msgid "Options"
 msgstr "Opțiuni"
@@ -6907,7 +6911,7 @@ msgstr "Stand-in structure for view"
 msgid "Error reading data:"
 msgstr "Permite citirea datelor."
 
-#: libraries/export/xml.php:19 libraries/import/xml.php:21
+#: libraries/export/xml.php:19 libraries/import/xml.php:28
 msgid "XML"
 msgstr "XML"
 
@@ -6995,7 +6999,7 @@ msgstr "Numai structura"
 msgid "Go to view"
 msgstr ""
 
-#: libraries/import/csv.php:38 libraries/import/ods.php:26
+#: libraries/import/csv.php:38 libraries/import/ods.php:33
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -7056,16 +7060,16 @@ msgstr "Denumirile coloanelor"
 msgid "This plugin does not support compressed imports!"
 msgstr "Modulul opțional nu suportă importuri comprimate!"
 
-#: libraries/import/ods.php:28
+#: libraries/import/ods.php:35
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr ""
 
-#: libraries/import/ods.php:29
+#: libraries/import/ods.php:36
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr ""
 
-#: libraries/import/ods.php:76 libraries/import/xml.php:71
-#: libraries/import/xml.php:127
+#: libraries/import/ods.php:88 libraries/import/xml.php:83
+#: libraries/import/xml.php:139
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."

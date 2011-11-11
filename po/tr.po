@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-11-09 14:34+0100\n"
+"POT-Creation-Date: 2011-11-11 10:19+0100\n"
 "PO-Revision-Date: 2011-11-09 19:30+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
@@ -4013,7 +4013,7 @@ msgstr "YEREL anahtar kelime kullan"
 msgid "Column names in first row"
 msgstr "İlk satır içindeki sütun adları"
 
-#: libraries/config/messages.inc.php:257 libraries/import/ods.php:27
+#: libraries/config/messages.inc.php:257 libraries/import/ods.php:34
 msgid "Do not import empty rows"
 msgstr "Boş satırları içe aktarma"
 
@@ -5324,7 +5324,7 @@ msgstr "VERİ YÜKLE kullanarak CSV"
 #: libraries/config/setup.forms.php:259 libraries/config/setup.forms.php:352
 #: libraries/config/user_preferences.forms.php:158
 #: libraries/config/user_preferences.forms.php:250 libraries/export/ods.php:18
-#: libraries/import/ods.php:22
+#: libraries/import/ods.php:29
 msgid "Open Document Spreadsheet"
 msgstr "Açık Kaynaklı Tablolama Belgesi"
 
@@ -5415,7 +5415,7 @@ msgstr "%s uzantısı eksik. Lütfen PHP yapılandırmanızı kontrol edin."
 msgid "possible deep recursion attack"
 msgstr "olası aşırı özyinelemeli saldırı"
 
-#: libraries/database_interface.lib.php:1764
+#: libraries/database_interface.lib.php:1765
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -5423,11 +5423,15 @@ msgstr ""
 "Sunucu yanıt vermiyor (ya da yerel MySQL sunucusunun soketi doğru olarak "
 "yapılandırılmadı)."
 
-#: libraries/database_interface.lib.php:1766
+#: libraries/database_interface.lib.php:1768
 msgid "The server is not responding."
 msgstr "Sunucu yanıt vermiyor."
 
-#: libraries/database_interface.lib.php:1774
+#: libraries/database_interface.lib.php:1772
+msgid "Please check privileges of directory containing database."
+msgstr ""
+
+#: libraries/database_interface.lib.php:1780
 msgid "Details..."
 msgstr "Ayrıntılar..."
 
@@ -5837,9 +5841,9 @@ msgstr "Anahtara göre sırala"
 #: libraries/export/xml.php:27 libraries/export/yaml.php:30
 #: libraries/import.lib.php:1104 libraries/import.lib.php:1125
 #: libraries/import/csv.php:33 libraries/import/docsql.php:35
-#: libraries/import/ldi.php:49 libraries/import/ods.php:32
+#: libraries/import/ldi.php:49 libraries/import/ods.php:39
 #: libraries/import/shp.php:22 libraries/import/sql.php:20
-#: libraries/import/xml.php:25 libraries/rte/rte_routines.lib.php:863
+#: libraries/import/xml.php:32 libraries/rte/rte_routines.lib.php:863
 #: tbl_select.php:175 tbl_structure.php:856
 msgid "Options"
 msgstr "Seçenekler"
@@ -6677,7 +6681,7 @@ msgstr "Görünüm yapısı durumu"
 msgid "Error reading data:"
 msgstr "Veri okunması hatası:"
 
-#: libraries/export/xml.php:19 libraries/import/xml.php:21
+#: libraries/export/xml.php:19 libraries/import/xml.php:28
 msgid "XML"
 msgstr "XML"
 
@@ -6761,7 +6765,7 @@ msgstr "%s yapısı"
 msgid "Go to view"
 msgstr "Görünüme git"
 
-#: libraries/import/csv.php:38 libraries/import/ods.php:26
+#: libraries/import/csv.php:38 libraries/import/ods.php:33
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -6826,16 +6830,16 @@ msgstr "Sütun adları"
 msgid "This plugin does not support compressed imports!"
 msgstr "Bu eklenti sıkıştırılmış içe aktarım dosyalarını desteklemez!"
 
-#: libraries/import/ods.php:28
+#: libraries/import/ods.php:35
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr "Yüzdeleri doğru ondalık olarak içe aktar <i>(örn. %12.00'ı .12'ye)</i>"
 
-#: libraries/import/ods.php:29
+#: libraries/import/ods.php:36
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Parasalları içe aktar <i>(örn. $5.00'ı 5.00'a)</i>"
 
-#: libraries/import/ods.php:76 libraries/import/xml.php:71
-#: libraries/import/xml.php:127
+#: libraries/import/ods.php:88 libraries/import/xml.php:83
+#: libraries/import/xml.php:139
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -12954,17 +12958,6 @@ msgstr ""
 
 #: po/advisory_rules.php:257
 #, php-format
-#| msgid ""
-#| "Especially one a system with a lot of writes to InnoDB tables you should "
-#| "set innodb_log_file_size to 25%% of {innodb_buffer_pool_size}. However "
-#| "the bigger this value, the longer the recovery time will be when database "
-#| "crashes, so this value should not be set much higher than 256 MiB. Please "
-#| "note however that you cannot simply change the value of this variable. "
-#| "You need to shutdown the server, remove the InnoDB log files, set the new "
-#| "value in my.cnf, start the server, then check the error logs if "
-#| "everything went fine. See also <a href=\\\"http://"
-#| "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-#| "innodblogfilesize-proper-way.html\\\">this blog entry</a>"
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
 "innodb_log_file_size to 25%% of {innodb_buffer_pool_size}. However the "
@@ -12985,9 +12978,9 @@ msgstr ""
 "değişkenin değerini basitçe değiştiremezsiniz. Sunucuyu kapatmanız, InnoDB "
 "günlük dosyalarını kaldırmanız, my.cnf içindeki yeni değeri ayarlamanız, "
 "sunucuyu başlatmanız gerekir, sonrada herşeyin iyi gittiğini anlamak için "
-"hata günlüklerini kontrol etmelisiniz. Aynı zamanda <a "
-"href=\\\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\\\">bu blog girişine</a> bakın"
+"hata günlüklerini kontrol etmelisiniz. Aynı zamanda <a href=\\\"http://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\\\">bu blog girişine</a> bakın"
 
 #: po/advisory_rules.php:258
 #, php-format
@@ -13042,7 +13035,6 @@ msgstr ""
 
 #: po/advisory_rules.php:263
 #, php-format
-#| msgid "Your absolute InnoD log size is %s MiB"
 msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "Kesin InnoDB günlük boyutunuz %s MiB"
 

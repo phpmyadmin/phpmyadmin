@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-11-09 14:34+0100\n"
+"POT-Creation-Date: 2011-11-11 10:19+0100\n"
 "PO-Revision-Date: 2011-11-06 21:20+0200\n"
 "Last-Translator: inter981 <inter981@gmail.com>\n"
 "Language-Team: galician <gl@li.org>\n"
@@ -4314,7 +4314,7 @@ msgstr "Utilice a palabra chave LOCAL"
 msgid "Column names in first row"
 msgstr "Nomes das columnas na primeira fileira"
 
-#: libraries/config/messages.inc.php:257 libraries/import/ods.php:27
+#: libraries/config/messages.inc.php:257 libraries/import/ods.php:34
 msgid "Do not import empty rows"
 msgstr "Non importar as fileiras baleiras"
 
@@ -5698,7 +5698,7 @@ msgstr "CSV utilizando LOAD DATA"
 #: libraries/config/setup.forms.php:259 libraries/config/setup.forms.php:352
 #: libraries/config/user_preferences.forms.php:158
 #: libraries/config/user_preferences.forms.php:250 libraries/export/ods.php:18
-#: libraries/import/ods.php:22
+#: libraries/import/ods.php:29
 msgid "Open Document Spreadsheet"
 msgstr "Folla de cálculo Open Document"
 
@@ -5797,7 +5797,7 @@ msgstr ""
 msgid "possible deep recursion attack"
 msgstr ""
 
-#: libraries/database_interface.lib.php:1764
+#: libraries/database_interface.lib.php:1765
 #, fuzzy
 #| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid ""
@@ -5806,13 +5806,17 @@ msgid ""
 msgstr ""
 "(ou o socket local do servidor de MySQL non se configurou correctamente)"
 
-#: libraries/database_interface.lib.php:1766
+#: libraries/database_interface.lib.php:1768
 #, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
 msgstr "O servidor non está a responder"
 
-#: libraries/database_interface.lib.php:1774
+#: libraries/database_interface.lib.php:1772
+msgid "Please check privileges of directory containing database."
+msgstr ""
+
+#: libraries/database_interface.lib.php:1780
 msgid "Details..."
 msgstr "Detalles..."
 
@@ -6288,9 +6292,9 @@ msgstr "Ordenar pola chave"
 #: libraries/export/xml.php:27 libraries/export/yaml.php:30
 #: libraries/import.lib.php:1104 libraries/import.lib.php:1125
 #: libraries/import/csv.php:33 libraries/import/docsql.php:35
-#: libraries/import/ldi.php:49 libraries/import/ods.php:32
+#: libraries/import/ldi.php:49 libraries/import/ods.php:39
 #: libraries/import/shp.php:22 libraries/import/sql.php:20
-#: libraries/import/xml.php:25 libraries/rte/rte_routines.lib.php:863
+#: libraries/import/xml.php:32 libraries/rte/rte_routines.lib.php:863
 #: tbl_select.php:175 tbl_structure.php:856
 msgid "Options"
 msgstr "Opcións"
@@ -7146,7 +7150,7 @@ msgstr "Estrutura existente para a vista"
 msgid "Error reading data:"
 msgstr "Permite gravar datos."
 
-#: libraries/export/xml.php:19 libraries/import/xml.php:21
+#: libraries/export/xml.php:19 libraries/import/xml.php:28
 msgid "XML"
 msgstr "XML"
 
@@ -7237,7 +7241,7 @@ msgstr "Só a estrutura"
 msgid "Go to view"
 msgstr "Ir á vista"
 
-#: libraries/import/csv.php:38 libraries/import/ods.php:26
+#: libraries/import/csv.php:38 libraries/import/ods.php:33
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -7298,20 +7302,20 @@ msgstr "Nomes das columnas"
 msgid "This plugin does not support compressed imports!"
 msgstr "Este engadido non é capaz de realizar importacións comprimidas!"
 
-#: libraries/import/ods.php:28
+#: libraries/import/ods.php:35
 #, fuzzy
 #| msgid "Import percentages as proper decimals (12.00% to .12)"
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr "Importar as porcentaxes como decimais correctos (12.00% a .12)"
 
-#: libraries/import/ods.php:29
+#: libraries/import/ods.php:36
 #, fuzzy
 #| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Importar as moedas ($5.00 a 5.00)"
 
-#: libraries/import/ods.php:76 libraries/import/xml.php:71
-#: libraries/import/xml.php:127
+#: libraries/import/ods.php:88 libraries/import/xml.php:83
+#: libraries/import/xml.php:139
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
