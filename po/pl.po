@@ -811,10 +811,9 @@ msgid "ENUM/SET editor"
 msgstr "Edytor ENUM/SET"
 
 #: enum_editor.php:28 js/messages.php:246
-#, fuzzy
 #| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
-msgstr "Wartości dla kolumny \"%s\""
+msgstr "Wartości dla nowej kolumny"
 
 #: enum_editor.php:30 js/messages.php:245
 #, fuzzy, php-format
