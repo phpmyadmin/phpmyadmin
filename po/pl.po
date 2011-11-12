@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-13 01:55+0200\n"
+"PO-Revision-Date: 2011-11-13 01:56+0200\n"
 "Last-Translator: blizni <blizni@konto.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1655,7 +1655,7 @@ msgstr "Użyta zmienna / formuła"
 
 #: js/messages.php:203
 msgid "Test"
-msgstr ""
+msgstr "Test"
 
 #: js/messages.php:208 pmd_general.php:382 pmd_general.php:419
 #: pmd_general.php:539 pmd_general.php:587 pmd_general.php:663
