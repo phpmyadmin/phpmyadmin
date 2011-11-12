@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-11 21:51+0200\n"
+"PO-Revision-Date: 2011-11-12 16:59+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -13028,6 +13028,8 @@ msgstr "Соотношение прерванных соединений"
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"Соотношение прерванных соединений %s, данное значение должно быть менее 1 в "
+"час"
 
 #: po/advisory_rules.php:240
 #, fuzzy
