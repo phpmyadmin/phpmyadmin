@@ -58,6 +58,7 @@ phpMyAdmin - ChangeLog
 - bug #3302419 [navi] Tabs break when squeezing page
 + rfe #3406797 [navi] Stick table tools to top of page on scroll
 + rfe #1632106 [interface] Improved error handling
++ patch #3432835 [interface] Add useful intermediate pages to pageselector
 
 3.4.8.0 (not yet released)
 - bug #3425230 [interface] enum data split at space char (more space to edit)
