@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-12 17:10+0200\n"
+"PO-Revision-Date: 2011-11-12 17:11+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -13067,6 +13067,8 @@ msgstr "Соотношение прерванных клиентских сое�
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"Соотношение прерванных клиентских соединений %s, данное значение должно быть "
+"менее 1 в час"
 
 #: po/advisory_rules.php:250
 msgid "Is InnoDB disabled?"
