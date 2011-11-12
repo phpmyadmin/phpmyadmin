@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
 "PO-Revision-Date: 2011-11-13 01:52+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: blizni <blizni@konto.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -10072,10 +10072,9 @@ msgid "Advisor"
 msgstr ""
 
 #: server_status.php:789 server_status.php:811
-#, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate: "
-msgstr "Częstotliwość odświeżania"
+msgstr "Częstotliwość odświeżania: "
 
 #: server_status.php:832
 #, fuzzy
