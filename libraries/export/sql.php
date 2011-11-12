@@ -707,6 +707,7 @@ if (isset($plugin_list)) {
     {
         global $sql_drop_table;
         global $sql_backquotes;
+        global $sql_constraints;
         global $sql_constraints_query; // just the text of the query
         global $sql_drop_foreign_keys;
 
