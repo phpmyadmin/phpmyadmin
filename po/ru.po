@@ -13046,6 +13046,10 @@ msgid ""
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
+"Обычно связь с клиентами прерывается при некорректном закрытии ими "
+"соединения с MySQL. Это может происходить из-за сетевых сбоев или отсутствия "
+"в коде правильного закрытия обработчика базы данных. Проверьте вашу сеть и "
+"программный код."
 
 #: po/advisory_rules.php:243
 #, php-format
