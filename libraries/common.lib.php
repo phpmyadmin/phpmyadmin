@@ -2374,22 +2374,21 @@ function PMA_pageselector($rows, $pageNow = 1, $nbTotalPage = 1,
     around the current page.
 */
 
-        $i=$pageNow;
-        $dist=1;
+        $i = $pageNow;
+        $dist = 1;
         while ($i < $x) {
-            $dist=2*$dist;
-            $i=$pageNow+$dist;
-
+            $dist = 2 * $dist;
+            $i = $pageNow + $dist;
             if ($i > 0 && $i <= $x) {
                 $pages[] = $i;
             }
         }
 
-        $i=$pageNow;
-        $dist=1;
+        $i = $pageNow;
+        $dist = 1;
         while ($i >0) {
-            $dist=2*$dist;
-            $i=$pageNow-$dist;
+            $dist = 2 * $dist;
+            $i = $pageNow - $dist;
             if ($i > 0 && $i <= $x) {
                 $pages[] = $i;
             }
