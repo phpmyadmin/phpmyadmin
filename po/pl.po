@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-13 01:52+0200\n"
+"PO-Revision-Date: 2011-11-13 01:55+0200\n"
 "Last-Translator: blizni <blizni@konto.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -831,7 +831,7 @@ msgstr "Wprowadź każdą wartość do osobnego pola"
 #, fuzzy
 #| msgid "Add a new server"
 msgid "Add a value"
-msgstr "Dodaj nowy serwer"
+msgstr "Dodaj wartość"
 
 #: enum_editor.php:127 gis_data_editor.php:317
 msgid "Output"
