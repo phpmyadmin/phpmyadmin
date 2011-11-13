@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-13 22:01+0200\n"
+"PO-Revision-Date: 2011-11-13 22:03+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -13242,7 +13242,7 @@ msgstr ""
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "concurrent_insert установлен в 0"
 
 #~ msgid "+ Restart insertion and add a new value"
 #~ msgstr "Обновить вставку и добавить новое значение"
