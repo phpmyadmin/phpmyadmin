@@ -3209,6 +3209,7 @@ msgstr "Wiki"
 #: libraries/config/FormDisplay.tpl.php:199
 msgid "This setting is disabled, it will not be applied to your configuration"
 msgstr ""
+"Te ustawienia są nieaktywne. Nie będą miały wpływu na twoją konfigurację"
 
 #: libraries/config/FormDisplay.tpl.php:274
 #, php-format
