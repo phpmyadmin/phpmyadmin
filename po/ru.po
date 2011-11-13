@@ -13141,7 +13141,7 @@ msgstr "Максимальный размер журнала InnoDB"
 
 #: po/advisory_rules.php:261
 msgid "The InnoDB log file size is inadequately large."
-msgstr ""
+msgstr "Размер файла журнала InnoDB неадекватно велик."
 
 #: po/advisory_rules.php:262
 #, php-format
