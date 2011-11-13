@@ -1758,7 +1758,7 @@ msgstr "Definicji funkcji składowanej musi zawierać instrukcję RETURN!"
 #, fuzzy, php-format
 #| msgid "Add a new server"
 msgid "Add %d value(s)"
-msgstr "Dodaj nowy serwer"
+msgstr "Dodaj %d wartości"
 
 #: js/messages.php:251
 msgid ""
