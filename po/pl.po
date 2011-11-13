@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-13 02:09+0200\n"
+"PO-Revision-Date: 2011-11-13 02:10+0200\n"
 "Last-Translator: blizni <blizni@konto.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -2741,10 +2741,9 @@ msgid "numeric key detected"
 msgstr ""
 
 #: libraries/common.inc.php:597
-#, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Failed to read configuration file"
-msgstr "Nie udało się załadować lub zapisać konfiguracji"
+msgstr "Odczytanie pliku konfuguracyjnego nie powiodło się"
 
 #: libraries/common.inc.php:598
 msgid ""
