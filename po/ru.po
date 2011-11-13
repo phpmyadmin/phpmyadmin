@@ -13235,6 +13235,10 @@ msgid ""
 "writers for a given table. See also <a href=\\\"http://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\\\">MySQL Documentation</a>"
 msgstr ""
+"Установка {concurrent_insert} в 1 уменьшает разногласие между чтением и "
+"записью определенной таблицы. Смотрите так же <a "
+"href=\\\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-"
+"inserts.html\\\">Документацию MySQL</a>"
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
