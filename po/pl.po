@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-13 02:13+0200\n"
+"PO-Revision-Date: 2011-11-13 02:14+0200\n"
 "Last-Translator: blizni <blizni@konto.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -2951,11 +2951,10 @@ msgstr "Początek"
 #: libraries/common.lib.php:2416 libraries/common.lib.php:2419
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
-#, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
-msgstr "Poprzednie"
+msgstr "Poprzedni"
 
 #: libraries/common.lib.php:2446 libraries/common.lib.php:2449
 #: libraries/display_tbl.lib.php:372 server_binlog.php:170
