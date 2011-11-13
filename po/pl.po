@@ -2409,10 +2409,9 @@ msgstr[1] "Wstawionych wierszy: %1$d."
 msgstr[2] "Wstawionych wierszy: %1$d."
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Pozwól czytać dane."
+msgstr "Wystąpił błąd podczas tworzenia PDF: "
 
 #: libraries/RecentTable.class.php:107
 #, fuzzy
