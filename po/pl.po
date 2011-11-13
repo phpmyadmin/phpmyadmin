@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-13 02:10+0200\n"
+"PO-Revision-Date: 2011-11-13 02:12+0200\n"
 "Last-Translator: blizni <blizni@konto.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -2847,7 +2847,7 @@ msgstr "MySQL zwrócił komunikat: "
 #, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Failed to connect to SQL validator!"
-msgstr "Nie można połączyć się z serwerem MySQL"
+msgstr "Nie można połączyć się z walidatorem MySQL"
 
 #: libraries/common.lib.php:1164 libraries/config/messages.inc.php:483
 msgid "Explain SQL"
