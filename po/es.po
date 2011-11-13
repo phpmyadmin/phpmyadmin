@@ -13183,7 +13183,7 @@ msgstr ""
 "a la reserva de búfers InnoDB."
 
 #: po/advisory_rules.php:257
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Especially one a system with a lot of writes to InnoDB tables you should "
 #| "set innodb_log_file_size to 25%% of {innodb_buffer_pool_size}. However "
@@ -13207,17 +13207,17 @@ msgid ""
 "com/2007/01/increase-innodblogfilesize-proper-way.html\\\">this blog entry</"
 "a>"
 msgstr ""
-"Especialmente en un sistema con gran cantidad de escrituras a talbas InnoDB, "
+"Especialmente en un sistema con gran cantidad de escrituras a tablas InnoDB, "
 "debería de configurar «innodb_log_file_size» a aproximadamente 25%% de "
-"«innodb_buffer_pool_size». Sin embargo, mientras mayor sea este valor, mayor "
+"{innodb_buffer_pool_size}. Sin embargo, mientras mayor sea este valor, mayor "
 "será el tiempo de recuperación luego de una caída de la base de datos, por "
-"lo que este valor no debería ser mayor a 256 MiB. Note, sin embargo, que no "
+"lo que este valor no debería ser mucho mayor a 256 MiB. Note, además, que no "
 "puede simplemente cambiar el valor de esta variable. Necesitará cerrar el "
 "servidor, eliminar los archivos de registro InnoDB, definir el nuevo valor "
-"en el archivo 'my.cnf' y luego revisar los mensajes de error para asegurarse "
-"que no hubo inconvenientens. Revise también <a href=\\\"http://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\\\">este artículo</a>."
+"en el archivo my.cnf, iniciar el servidor y luego revisar los mensajes de "
+"error para asegurarse que no hubo inconvenientens. Revise también <a "
+"href=\\\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\\\">este artículo</a>."
 
 #: po/advisory_rules.php:258
 #, php-format
