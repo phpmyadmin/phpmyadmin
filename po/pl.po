@@ -1913,7 +1913,7 @@ msgstr "Kliknij, aby posortować"
 
 #: js/messages.php:324
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "Kliknij aby zaznaczyć/odznaczyć"
 
 #: js/messages.php:325
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
