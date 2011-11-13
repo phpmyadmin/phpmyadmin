@@ -3904,10 +3904,9 @@ msgid "Authentication"
 msgstr "Uwierzytelnianie"
 
 #: libraries/config/messages.inc.php:202
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Authentication settings"
-msgstr "Typ uwierzytelniania"
+msgstr "Ustawienia dot. uwierzytelniania"
 
 #: libraries/config/messages.inc.php:203
 msgid "Server configuration"
