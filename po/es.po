@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-13 17:21+0200\n"
+"PO-Revision-Date: 2011-11-13 17:22+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -13272,10 +13272,10 @@ msgstr ""
 "innodblogfilesize-proper-way.html\\\">este artículo</a>."
 
 #: po/advisory_rules.php:263
-#, fuzzy, php-format
+#, php-format
 #| msgid "Your absolute InnoD log size is %s MiB"
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr "El tamaño del archivo de registros InnoDB es %s MiB"
+msgstr "El tamaño absoluto del archivo de registros InnoDB es %s MiB"
 
 #: po/advisory_rules.php:265
 msgid "InnoDB buffer pool size"
