@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-13 02:08+0200\n"
+"PO-Revision-Date: 2011-11-13 02:09+0200\n"
 "Last-Translator: blizni <blizni@konto.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -2521,7 +2521,7 @@ msgstr "Nie znaleziono ścieżki do motywu %s!"
 
 #: libraries/Theme_Manager.class.php:296 themes.php:20 themes.php:27
 msgid "Theme"
-msgstr ""
+msgstr "Motyw"
 
 #: libraries/auth/config.auth.lib.php:71
 msgid "Cannot connect: invalid settings."
