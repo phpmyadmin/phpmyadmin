@@ -5389,10 +5389,9 @@ msgstr ""
 "konfigurerad)."
 
 #: libraries/database_interface.lib.php:1766
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
-msgstr "Servern svarar inte"
+msgstr "Servern svarar inte."
 
 #: libraries/database_interface.lib.php:1774
 msgid "Details..."
