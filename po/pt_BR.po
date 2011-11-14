@@ -4241,6 +4241,9 @@ msgid ""
 "and will be deleted as soon as you close the browser window. This is "
 "recommended for non-trusted environments."
 msgstr ""
+"Defini a duração (em segundos) que um cookie deve ser guardado no navegador. "
+"O valor 0 padrão determina que este existirá somente na sessão atual e será "
+"apagado quando você fechar a janela do navegador."
 
 #: libraries/config/messages.inc.php:301
 msgid "Login cookie store"
