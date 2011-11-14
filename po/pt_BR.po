@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
 "PO-Revision-Date: 2011-11-14 18:03+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: mariemidias <mariemidias@yahoo.com.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -3382,9 +3382,8 @@ msgid "Tab that is displayed when entering a table"
 msgstr "Aba que é exibida quando entrar em uma tabela"
 
 #: libraries/config/messages.inc.php:55
-#, fuzzy
 msgid "Default table tab"
-msgstr "Aba tabela padrão"
+msgstr "Aba de tabela padrão"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show binary contents as HEX by default"
