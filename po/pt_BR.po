@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
 "PO-Revision-Date: 2011-11-14 17:08+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: mariemidias <mariemidias@yahoo.com.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -1544,7 +1544,7 @@ msgstr "Log analizado, nenhum dado encontrado neste intervalo de tempo"
 #, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
-msgstr "Opções de filtragem da tabela de Log"
+msgstr "Opções de filtragem da tabela de registro"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:175
