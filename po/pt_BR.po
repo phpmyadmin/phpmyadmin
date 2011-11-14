@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-14 17:48+0200\n"
+"PO-Revision-Date: 2011-11-14 17:49+0200\n"
 "Last-Translator: mariemidias <mariemidias@yahoo.com.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -2458,6 +2458,9 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
+"Não pode salvar a propriedade UI \"%s\". As mudanças feitas não serão "
+"constantes depois que você recarregar esta página. Favor cheque se a "
+"estrutura da tabela foi alterada."
 
 #: libraries/Theme.class.php:145
 #, php-format
