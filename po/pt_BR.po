@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-14 19:16+0200\n"
+"PO-Revision-Date: 2011-11-14 19:17+0200\n"
 "Last-Translator: mariemidias <mariemidias@yahoo.com.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -827,7 +827,7 @@ msgstr "Digite cada valor em um campo separado"
 #, fuzzy
 #| msgid "+ Add a value"
 msgid "Add a value"
-msgstr "+ Adicionar um valor"
+msgstr "Adicionar um valor"
 
 #: enum_editor.php:127 gis_data_editor.php:317
 msgid "Output"
