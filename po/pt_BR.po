@@ -4300,6 +4300,9 @@ msgid ""
 "contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
 "shown."
 msgstr ""
+"Número de linhas exibidas ao navegar o resultado encontrado. Se o resultado "
+"conter mais linhas, &quot;Anteriores&quot; e &quot;Próximos&quot; links "
+"serão apresentados."
 
 #: libraries/config/messages.inc.php:313
 msgid "Maximum number of rows to display"
