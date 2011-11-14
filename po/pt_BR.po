@@ -4200,6 +4200,8 @@ msgstr "Abas claras"
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
 msgstr ""
+"Número máximo de caracteres apresentados em qualquer coluna não-numérica à "
+"mostra"
 
 #: libraries/config/messages.inc.php:295
 msgid "Limit column characters"
