@@ -4355,7 +4355,7 @@ msgstr "Onde mostra os links da linha da tabela"
 
 #: libraries/config/messages.inc.php:323
 msgid "Use natural order for sorting table and database names"
-msgstr ""
+msgstr "Use ordem natural para ordenar nomes de tabelas e bancos de dados"
 
 #: libraries/config/messages.inc.php:324
 msgid "Natural order"
