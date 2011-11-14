@@ -3999,6 +3999,8 @@ msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
 msgstr ""
+"Se habilitado, phpMyAdmin continua processando consultas com múltiplas "
+"instruções mesmo se uma das consultas falhar."
 
 #: libraries/config/messages.inc.php:238
 msgid "Ignore multiple statement errors"
