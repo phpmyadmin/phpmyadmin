@@ -2291,7 +2291,7 @@ msgstr "Erreur lors du déplacement du fichier téléversé."
 
 #: libraries/File.class.php:516
 msgid "Cannot read (moved) upload file."
-msgstr "Impossible de lire le fichier téléversé."
+msgstr "Impossible de lire le fichier téléversé (déplacé)."
 
 #: libraries/Index.class.php:418 tbl_relation.php:522
 msgid "No index defined!"
