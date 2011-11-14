@@ -1527,7 +1527,7 @@ msgid ""
 "data."
 msgstr ""
 "Uma vez que o agrupamento de consultas INSERT foi selecionado, consultas "
-"INSERT na mesma tabela também são agrupadas junto, desconsiderando os dados "
+"INSERT na mesma tabela também são agrupadas juntas, desconsiderando os dados "
 "inseridos."
 
 #: js/messages.php:167
