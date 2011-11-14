@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-14 18:31+0200\n"
+"PO-Revision-Date: 2011-11-14 18:34+0200\n"
 "Last-Translator: mariemidias <mariemidias@yahoo.com.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -4119,7 +4119,7 @@ msgstr "String que separa bancos de dados em diferentes níveis na árvore"
 #: libraries/config/messages.inc.php:276
 #, fuzzy
 msgid "Database tree separator"
-msgstr "Nome do arquivo do modelo"
+msgstr "Divisor de árvore do banco de dados"
 
 #: libraries/config/messages.inc.php:277
 msgid ""
