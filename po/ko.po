@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-14 17:12+0200\n"
+"PO-Revision-Date: 2011-11-14 17:13+0200\n"
 "Last-Translator: Gihun Ham <progh2@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -923,7 +923,7 @@ msgstr "외륜"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:300
 msgid "Inner Ring"
-msgstr ""
+msgstr "내륜"
 
 #: gis_data_editor.php:252
 #, fuzzy
