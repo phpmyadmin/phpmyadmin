@@ -3376,7 +3376,7 @@ msgstr "Aba que é exibida quando entrar em um servidor"
 #: libraries/config/messages.inc.php:53
 #, fuzzy
 msgid "Default server tab"
-msgstr "Renomear Banco de Dados para"
+msgstr "Aba servidor padrão"
 
 #: libraries/config/messages.inc.php:54
 msgid "Tab that is displayed when entering a table"
