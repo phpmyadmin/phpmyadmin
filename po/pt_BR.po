@@ -4061,7 +4061,7 @@ msgstr "Importa moeda ($5.00 até 5.00)"
 
 #: libraries/config/messages.inc.php:259
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr ""
+msgstr "Importa porcentagem como decimal (12.00% para .12)"
 
 #: libraries/config/messages.inc.php:260
 msgid "Number of queries to skip from start"
