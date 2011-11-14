@@ -1618,7 +1618,7 @@ msgstr "Importar"
 #, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
-msgstr "Atualizar a consulta SQL"
+msgstr "Analisar a consulta"
 
 #: js/messages.php:196
 msgid "Advisor system"
