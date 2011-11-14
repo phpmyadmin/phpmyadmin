@@ -3810,6 +3810,9 @@ msgid ""
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
+"Especifica o texto da barra de título do browser. Remete a "
+"[a@Documentation.html#cfg_TitleTable]documentação[/a] para strings mágicos "
+"que podem ser usados para conseguir valores especiais."
 
 #: libraries/config/messages.inc.php:196
 #: libraries/navigation_header.inc.php:79
