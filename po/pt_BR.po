@@ -4255,7 +4255,7 @@ msgstr "Define quanto tempo (em segundos) um cookie de sessão é válido"
 
 #: libraries/config/messages.inc.php:303
 msgid "Login cookie validity"
-msgstr ""
+msgstr "Validade do cookie de login"
 
 #: libraries/config/messages.inc.php:304
 msgid "Double size of textarea for LONGTEXT columns"
