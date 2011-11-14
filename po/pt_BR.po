@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-14 18:28+0200\n"
+"PO-Revision-Date: 2011-11-14 18:30+0200\n"
 "Last-Translator: mariemidias <mariemidias@yahoo.com.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -4114,7 +4114,7 @@ msgstr "Número mínimo de tabelas para mostrar a caixa de filtro de tabelas"
 
 #: libraries/config/messages.inc.php:275
 msgid "String that separates databases into different tree levels"
-msgstr ""
+msgstr "String que separa bancos de dados em diferentes níveis na árvore"
 
 #: libraries/config/messages.inc.php:276
 #, fuzzy
