@@ -4403,6 +4403,9 @@ msgid ""
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found"
 msgstr ""
+"Desabilita o aviso padrão que é exibido na página de detalhes do banco de "
+"dados Estrutura se alguma das tabelas requeridas da configuração do "
+"phpMyAdmin não for encontrada"
 
 #: libraries/config/messages.inc.php:334
 msgid "Missing phpMyAdmin configuration storage tables"
