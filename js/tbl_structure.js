@@ -200,6 +200,14 @@ $(document).ready(function() {
         event.preventDefault();
         if ($(this).find("a").length == 0) {
             // Add index
+            var valid = checkFormElementInRange(
+                $(this).closest('form')[0],
+                'added_fields',
+                'Column count has to be larger than zero.'
+            );
+            if (! valid) {
+                return;
+            }
             var url = $(this).closest('form').serialize();
             var title = PMA_messages['strAddIndex'];
         } else {
@@ -223,22 +231,58 @@ $(document).ready(function() {
          *                     passed to jQueryUI dialog
          */
         var button_options = {};
+        button_options[PMA_messages['strGo']] = function() {
+            /**
+             *  @var    the_form    object referring to the export form
+             */
+            var $form = $("#index_frm");
+            PMA_prepareForAjaxRequest($form);
+            //User wants to submit the form
+            $.post($form.attr('action'), $form.serialize()+"&do_save_data=1", function(data) {
+                if ($("#sqlqueryresults").length != 0) {
+                    $("#sqlqueryresults").remove();
+                }
+                if (data.success == true) {
+                    PMA_ajaxShowMessage(data.message);
+                    $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
+                    $("#sqlqueryresults").html(data.sql_query);
+                    $("#result_query .notice").remove();
+                    $("#result_query").prepend(data.message);
+
+                    /*Reload the field form*/
+                    $("#table_index").remove();
+                    var $temp_div = $("<div id='temp_div'><div>").append(data.index_table);
+                    $temp_div.find("#table_index").insertAfter("#index_header");
+                    if ($("#edit_index_dialog").length > 0) {
+                        $("#edit_index_dialog").dialog("close");
+                    }
+                } else if (data.error != undefined) {
+                    var $temp_div = $("<div id='temp_div'><div>").append(data.error);
+                    if ($temp_div.find(".error code").length != 0) {
+                        var $error = $temp_div.find(".error code").addClass("error");
+                    } else {
+                        var $error = $temp_div;
+                    }
+                    PMA_ajaxShowMessage($error);
+                }
+            }) // end $.post()
+        }
         button_options[PMA_messages['strCancel']] = function() {
             $(this).dialog('close');
         }
         var $msgbox = PMA_ajaxShowMessage();
-
         $.get("tbl_indexes.php", url, function(data) {
-            //in the case of an error, show the error message returned.
             if (data.error) {
-                PMA_ajaxShowMessage(data.error);
+                //in the case of an error, show the error message returned.
+                PMA_ajaxShowMessage(data.error, false);
             } else {
                 PMA_ajaxRemoveMessage($msgbox);
+                // Show dialog if the request was successful
                 $div
                 .append(data)
                 .dialog({
                     title: title,
-                    width: 900,
+                    width: 450,
                     open: PMA_verifyColumnsProperties,
                     modal: true,
                     buttons: button_options,
@@ -248,74 +292,46 @@ $(document).ready(function() {
                 });
                 checkIndexType();
                 checkIndexName("index_frm");
+                PMA_convertFootnotesToTooltips($div);
+                // Add a slider for selecting how many columns to add to the index
+                $div.find('.slider').slider({
+                   animate: true,
+                   value: 1,
+                   min: 1,
+                   max: 16,
+                   slide: function( event, ui ) {
+                        $(this).closest('fieldset').find('input[type=submit]').val(
+                            PMA_messages['strAddToIndex'].replace(/%d/, ui.value)
+                        );
+                   }
+			    });
+                // Focus the slider, otherwise it looks nearly transparent
+                $('.ui-slider-handle').addClass('ui-state-focus');
             }
         }) // end $.get()
     });
 
     /**
-     *Ajax action for submiting the index form
-    **/
-    $("#index_frm.ajax input[name=do_save_data]").live('click', function(event) {
+     * Handler for adding more columns to an index in the editor
+     */
+    $('#index_frm input[type=submit]').live('click', function(event) {
         event.preventDefault();
-        /**
-         *  @var    the_form    object referring to the export form
-         */
-        var $form = $("#index_frm");
-
-        PMA_prepareForAjaxRequest($form);
-        //User wants to submit the form
-        $.post($form.attr('action'), $form.serialize()+"&do_save_data=Save", function(data) {
-            if ($("#sqlqueryresults").length != 0) {
-                $("#sqlqueryresults").remove();
-            }
-            if (data.success == true) {
-                PMA_ajaxShowMessage(data.message);
-                $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
-                $("#sqlqueryresults").html(data.sql_query);
-                $("#result_query .notice").remove();
-                $("#result_query").prepend((data.message));
-
-                /*Reload the field form*/
-                $("#table_index").remove();
-                var $temp_div = $("<div id='temp_div'><div>").append(data.index_table);
-                $temp_div.find("#table_index").insertAfter("#index_header");
-                if ($("#edit_index_dialog").length > 0) {
-                    $("#edit_index_dialog").dialog("close").remove();
-                }
-
-            } else {
-                if(data.error != undefined) {
-                    var $temp_div = $("<div id='temp_div'><div>").append(data.error);
-                    if ($temp_div.find(".error code").length != 0) {
-                        var $error = $temp_div.find(".error code").addClass("error");
-                    } else {
-                        var $error = $temp_div;
-                    }
-                }
-                PMA_ajaxShowMessage($error);
-            }
-
-        }) // end $.post()
-    }) // end insert table button "do_save_data"
-
-    /**
-     *Ajax action for submiting the index form for add more columns
-    **/
-    $("#index_frm.ajax input[name=add_fields]").live('click', function(event) {
-        event.preventDefault();
-        /**
-         *  @var    the_form    object referring to the export form
-         */
-        var $form = $("#index_frm");
-
-        PMA_prepareForAjaxRequest($form);
-        //User wants to submit the form
-        $.post($form.attr('action'), $form.serialize()+"&add_fields=Go", function(data) {
-            $("#index_columns").remove();
-            var $temp_div = $("<div id='temp_div'><div>").append(data);
-            $temp_div.find("#index_columns").appendTo("#index_edit_fields");
-        }) // end $.post()
-    }) // end insert table button "Go"
+        var rows_to_add = $(this)
+            .closest('fieldset')
+            .find('.slider')
+            .slider('value');
+        while (rows_to_add--) {
+            var $newrow = $('#index_columns')
+                .find('tbody > tr:first')
+                .clone()
+                .appendTo(
+                    $('#index_columns').find('tbody')
+                );
+            $newrow.find(':input').each(function() {
+                $(this).val('');
+            });
+        }
+    });
 
     /**
      *Ajax event handler for Add column(s)

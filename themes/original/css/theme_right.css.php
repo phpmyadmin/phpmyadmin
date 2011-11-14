@@ -1736,6 +1736,48 @@ td.more_opts {
     white-space: nowrap;
 }
 
+/**
+ * Indexes
+ */
+#index_frm .index_info input,
+#index_frm .index_info select {
+    width: 100%;
+    box-sizing:         border-box;
+    -ms-box-sizing:     border-box;
+    -moz-box-sizing:    border-box;
+    -webkit-box-sizing: border-box;
+}
+
+#index_frm .slider {
+    width: 10em;
+    margin: 0.6em;
+    float: <?php echo $left; ?>;
+}
+
+#index_frm .add_fields {
+    float: <?php echo $left; ?>;
+}
+
+#index_frm .add_fields input {
+    margin-<?php echo $left; ?>: 1em;
+}
+
+#index_frm input {
+    margin: 0;
+}
+
+#index_frm td {
+    vertical-align: middle;
+}
+
+table#index_columns {
+    width: 100%;
+}
+
+table#index_columns select {
+    width: 100%;
+}
+
 iframe.IE_hack {
     z-index: 1;
     position: absolute;
