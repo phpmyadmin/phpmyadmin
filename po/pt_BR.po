@@ -1838,7 +1838,7 @@ msgstr ""
 
 #: js/messages.php:285
 msgid "Strings are converted into integer for plotting"
-msgstr ""
+msgstr "Strings serão convertidos em inteiros por envolvimento"
 
 #: js/messages.php:287
 msgid "Select two columns"
