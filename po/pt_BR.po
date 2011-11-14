@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-14 18:02+0200\n"
+"PO-Revision-Date: 2011-11-14 18:03+0200\n"
 "Last-Translator: mariemidias <mariemidias@yahoo.com.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -3384,7 +3384,7 @@ msgstr "Aba que é exibida quando entrar em uma tabela"
 #: libraries/config/messages.inc.php:55
 #, fuzzy
 msgid "Default table tab"
-msgstr "Renomear Banco de Dados para"
+msgstr "Aba tabela padrão"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show binary contents as HEX by default"
