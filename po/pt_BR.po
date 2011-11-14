@@ -4277,7 +4277,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:308
 msgid "Maximum displayed SQL length"
-msgstr ""
+msgstr "Largura máxima do SQL exibido"
 
 #: libraries/config/messages.inc.php:309 libraries/config/messages.inc.php:314
 #: libraries/config/messages.inc.php:341
