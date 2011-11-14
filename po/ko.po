@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
 "PO-Revision-Date: 2011-11-14 17:12+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Gihun Ham <progh2@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -821,7 +821,7 @@ msgstr "각각의 필드에 값을 입력하세요"
 #: enum_editor.php:121
 #, fuzzy
 msgid "Add a value"
-msgstr "새 사용자 추가"
+msgstr "값을 추가"
 
 #: enum_editor.php:127 gis_data_editor.php:317
 msgid "Output"
