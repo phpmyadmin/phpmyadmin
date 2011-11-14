@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-14 17:11+0200\n"
+"PO-Revision-Date: 2011-11-14 17:12+0200\n"
 "Last-Translator: Gihun Ham <progh2@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -804,7 +804,7 @@ msgstr "ENUM / SET 수정"
 #, fuzzy
 #| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
-msgstr "\"%s\" 열의 값"
+msgstr "새로운 열의 값"
 
 #: enum_editor.php:30 js/messages.php:245
 #, fuzzy, php-format
