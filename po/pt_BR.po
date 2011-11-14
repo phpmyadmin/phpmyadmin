@@ -2907,7 +2907,7 @@ msgstr "%s dias, %s horas, %s minutos e %s segundos"
 #: libraries/common.lib.php:2067
 #| msgid "Routines"
 msgid "Missing parameter:"
-msgstr "Parâmetros perdidos"
+msgstr "Parâmetros perdidos:"
 
 #: libraries/common.lib.php:2415 libraries/common.lib.php:2418
 #: libraries/display_tbl.lib.php:306
