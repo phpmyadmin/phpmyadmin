@@ -1494,7 +1494,7 @@ msgstr "Divisé par %s:"
 
 #: js/messages.php:162
 msgid "From slow log"
-msgstr "Depuis le journal des requêtes lentes (slow log)"
+msgstr "Depuis le journal des requêtes lentes"
 
 #: js/messages.php:163
 msgid "From general log"
