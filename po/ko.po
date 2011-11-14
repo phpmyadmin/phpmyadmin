@@ -926,10 +926,9 @@ msgid "Inner Ring"
 msgstr "내륜"
 
 #: gis_data_editor.php:252
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "새 사용자 추가"
+msgstr "선 추가"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:303
 #, fuzzy
