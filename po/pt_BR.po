@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-14 19:03+0200\n"
+"PO-Revision-Date: 2011-11-14 19:04+0200\n"
 "Last-Translator: mariemidias <mariemidias@yahoo.com.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -4251,7 +4251,7 @@ msgstr "Armazena cookie de login"
 
 #: libraries/config/messages.inc.php:302
 msgid "Define how long (in seconds) a login cookie is valid"
-msgstr "Define quanto tempo (em segundos) um cookie de sessão é válido"
+msgstr "Define a duração (em segundos) da validade do cookie de login"
 
 #: libraries/config/messages.inc.php:303
 msgid "Login cookie validity"
