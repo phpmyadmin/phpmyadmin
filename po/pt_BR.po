@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-14 18:36+0200\n"
+"PO-Revision-Date: 2011-11-14 18:37+0200\n"
 "Last-Translator: mariemidias <mariemidias@yahoo.com.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -4138,9 +4138,8 @@ msgid "Disable this if you want to see all databases at once"
 msgstr "Desabilite este se você quer ver todos os bancos de dados imediatamente"
 
 #: libraries/config/messages.inc.php:280
-#, fuzzy
 msgid "Use light version"
-msgstr "Usar versão leve"
+msgstr "Usar versão light"
 
 #: libraries/config/messages.inc.php:281
 msgid "Maximum table tree depth"
