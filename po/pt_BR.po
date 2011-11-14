@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
 "PO-Revision-Date: 2011-11-14 17:20+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: mariemidias <mariemidias@yahoo.com.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -2418,7 +2418,7 @@ msgstr "Esse servidor MySQL não suporta o stored engine %s."
 #, fuzzy
 #| msgid "Show slave status"
 msgid "unknown table status: "
-msgstr "Exibir status dos escravos"
+msgstr "Tabela com status desconhecido"
 
 #: libraries/Table.class.php:1116
 msgid "Invalid database"
