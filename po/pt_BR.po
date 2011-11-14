@@ -4154,7 +4154,7 @@ msgstr "Divisor de árvore na tabela"
 
 #: libraries/config/messages.inc.php:284
 msgid "URL where logo in the navigation frame will point to"
-msgstr ""
+msgstr "URL onde o logo será colocado no frame de navegação"
 
 #: libraries/config/messages.inc.php:285
 msgid "Logo link URL"
