@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-14 18:38+0200\n"
+"PO-Revision-Date: 2011-11-14 18:39+0200\n"
 "Last-Translator: mariemidias <mariemidias@yahoo.com.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -4151,7 +4151,7 @@ msgstr "String que separa tabelas em diferentes níveis na árvore"
 
 #: libraries/config/messages.inc.php:283
 msgid "Table tree separator"
-msgstr ""
+msgstr "Divisor de árvore na tabela"
 
 #: libraries/config/messages.inc.php:284
 msgid "URL where logo in the navigation frame will point to"
