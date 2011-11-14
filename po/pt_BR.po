@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-14 18:26+0200\n"
+"PO-Revision-Date: 2011-11-14 18:27+0200\n"
 "Last-Translator: mariemidias <mariemidias@yahoo.com.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -4072,10 +4072,9 @@ msgid "Partial import: skip queries"
 msgstr "Importação parcial: pula consultas"
 
 #: libraries/config/messages.inc.php:263
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "Adicionar valor AUTO_INCREMENT"
+msgstr "Nâo usar AUTO_INCREMENT para valores zero"
 
 #: libraries/config/messages.inc.php:266
 msgid "Initial state for sliders"
