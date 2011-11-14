@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-14 17:53+0200\n"
+"PO-Revision-Date: 2011-11-14 17:54+0200\n"
 "Last-Translator: mariemidias <mariemidias@yahoo.com.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -2233,7 +2233,7 @@ msgstr "Remova o diretório \"./config\" antes de utilizar o phpMyAdmin!"
 #: libraries/Config.class.php:727
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr ""
+msgstr "Arquivo de configuração existente (%s) não pode ser lido."
 
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
