@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-14 19:05+0200\n"
+"PO-Revision-Date: 2011-11-14 19:06+0200\n"
 "Last-Translator: mariemidias <mariemidias@yahoo.com.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -4263,7 +4263,7 @@ msgstr "Tamanho dobrado da caixa de texto para colunas LONGTEXT"
 
 #: libraries/config/messages.inc.php:305
 msgid "Bigger textarea for LONGTEXT"
-msgstr ""
+msgstr "Maior caixa de texto para LONGTEXT"
 
 #: libraries/config/messages.inc.php:306
 msgid "Use icons on main page"
