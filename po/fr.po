@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-14 22:24+0200\n"
+"PO-Revision-Date: 2011-11-14 22:26+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -1280,7 +1280,7 @@ msgstr "Mémoire système"
 
 #: js/messages.php:102
 msgid "System swap"
-msgstr "Zone d'échange (swap)"
+msgstr "Zone d'échange"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:103 libraries/common.lib.php:1395 server_status.php:1669
