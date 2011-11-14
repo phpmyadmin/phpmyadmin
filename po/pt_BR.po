@@ -1833,7 +1833,7 @@ msgstr ""
 #: js/messages.php:283
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
-"O ponto pode ser redimensionado arrastando-o ao longo do canto inferior "
+"O plano pode ser redimensionado arrastando-o ao longo do canto inferior "
 "direito."
 
 #: js/messages.php:285
