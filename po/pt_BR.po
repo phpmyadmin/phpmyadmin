@@ -4143,7 +4143,7 @@ msgstr "Usar versão light"
 
 #: libraries/config/messages.inc.php:281
 msgid "Maximum table tree depth"
-msgstr ""
+msgstr "Profundidade máxima da árvore da tabela"
 
 #: libraries/config/messages.inc.php:282
 msgid "String that separates tables into different tree levels"
