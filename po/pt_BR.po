@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-14 18:01+0200\n"
+"PO-Revision-Date: 2011-11-14 18:02+0200\n"
 "Last-Translator: mariemidias <mariemidias@yahoo.com.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -3351,7 +3351,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:47
 msgid "Confirm DROP queries"
-msgstr ""
+msgstr "Confirma consultas DROP"
 
 #: libraries/config/messages.inc.php:48
 msgid "Debug SQL"
