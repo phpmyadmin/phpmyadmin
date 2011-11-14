@@ -3309,7 +3309,7 @@ msgstr "Número de colunas para caixas de texto CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:39
 msgid "CHAR textarea columns"
-msgstr "Colunas da área de texto para CHAR"
+msgstr "Colunas da caixa de texto para CHAR"
 
 #: libraries/config/messages.inc.php:40
 msgid "Number of rows for CHAR/VARCHAR textareas"
