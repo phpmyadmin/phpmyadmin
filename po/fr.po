@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-09 23:26+0200\n"
+"PO-Revision-Date: 2011-11-09 23:27+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -811,10 +811,10 @@ msgid "Values for a new column"
 msgstr "Valeurs pour une nouvelle colonne"
 
 #: enum_editor.php:30 js/messages.php:245
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
-msgstr "Valeurs pour la colonne «%s»"
+msgstr "Valeurs pour la colonne %s"
 
 #: enum_editor.php:34 js/messages.php:247
 #| msgid "Enter each value in a separate field."
