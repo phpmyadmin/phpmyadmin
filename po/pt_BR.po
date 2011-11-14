@@ -3935,6 +3935,12 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
+"Se você quiser usar o serviço de validação SQL (SQL Validator), você deve "
+"estar ciente de que [strong]todas as instruções SQL são armazenadas de forma "
+"anônima para fins "
+"estatísticos[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
+"Validator[/a], Copyright 2002 Upright Database Technology. Todos os direitos "
+"reservados.[/em]"
 
 #: libraries/config/messages.inc.php:224
 #, fuzzy
