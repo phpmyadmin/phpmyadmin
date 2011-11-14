@@ -1601,8 +1601,8 @@ msgstr "Linhas afetadas:"
 #, fuzzy
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgstr ""
-"Falha ao tratar o arquivo de configuração, Este não parece ser um código "
-"JSON Válido"
+"Falha ao processar o arquivo de configuração. Não parece ser código JSON "
+"válido"
 
 #: js/messages.php:189
 msgid ""
