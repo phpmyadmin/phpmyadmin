@@ -2905,10 +2905,9 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dias, %s horas, %s minutos e %s segundos"
 
 #: libraries/common.lib.php:2067
-#, fuzzy
 #| msgid "Routines"
 msgid "Missing parameter:"
-msgstr "Rotinas"
+msgstr "Parâmetros perdidos"
 
 #: libraries/common.lib.php:2415 libraries/common.lib.php:2418
 #: libraries/display_tbl.lib.php:306
