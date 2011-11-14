@@ -4227,6 +4227,8 @@ msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode"
 msgstr ""
+"Define se o login anterior deve ser recordado ou não no modo de autenticação "
+"em cookie"
 
 #: libraries/config/messages.inc.php:299
 msgid "Recall user name"
