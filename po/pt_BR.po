@@ -1630,7 +1630,7 @@ msgstr "Possíveis problemas de performance"
 
 #: js/messages.php:198
 msgid "Issue"
-msgstr ""
+msgstr "Questão"
 
 #: js/messages.php:199
 msgid "Recommendation"
