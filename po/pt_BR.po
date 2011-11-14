@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-14 17:58+0200\n"
+"PO-Revision-Date: 2011-11-14 18:00+0200\n"
 "Last-Translator: mariemidias <mariemidias@yahoo.com.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -3317,7 +3317,7 @@ msgstr "Número de linhas para caixas de texto CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:41
 msgid "CHAR textarea rows"
-msgstr ""
+msgstr "Linhas da área de texto para CHAR"
 
 #: libraries/config/messages.inc.php:42
 msgid "Check config file permissions"
