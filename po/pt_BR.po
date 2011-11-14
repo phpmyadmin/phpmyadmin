@@ -4069,7 +4069,7 @@ msgstr "Número de registros (consultas) ignoradas no início"
 
 #: libraries/config/messages.inc.php:261
 msgid "Partial import: skip queries"
-msgstr ""
+msgstr "Importação parcial: pula consultas"
 
 #: libraries/config/messages.inc.php:263
 #, fuzzy
