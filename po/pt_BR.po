@@ -4165,6 +4165,8 @@ msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
 msgstr ""
+"Abre a página lincada na janela principal ([kbd]principal[/kbd]) ou em uma "
+"nova janela ([kbd]nova[/kbd])"
 
 #: libraries/config/messages.inc.php:287
 msgid "Logo link target"
