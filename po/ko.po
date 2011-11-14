@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
 "PO-Revision-Date: 2011-11-14 17:12+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Gihun Ham <progh2@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -919,7 +919,7 @@ msgstr "줄(열) 구분자"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:301
 msgid "Outer Ring"
-msgstr ""
+msgstr "외륜"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:300
 msgid "Inner Ring"
