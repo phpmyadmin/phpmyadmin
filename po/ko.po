@@ -934,7 +934,7 @@ msgstr "선 추가"
 #, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "새 사용자 추가"
+msgstr "내부 링 추가"
 
 #: gis_data_editor.php:266 js/messages.php:298
 #, fuzzy
