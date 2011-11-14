@@ -4135,7 +4135,7 @@ msgstr "Exibe banco de dados em uma árvore"
 
 #: libraries/config/messages.inc.php:279
 msgid "Disable this if you want to see all databases at once"
-msgstr ""
+msgstr "Desabilite este se você quer ver todos os bancos de dados imediatamente"
 
 #: libraries/config/messages.inc.php:280
 #, fuzzy
