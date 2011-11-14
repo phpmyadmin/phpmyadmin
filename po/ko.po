@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-14 17:13+0200\n"
+"PO-Revision-Date: 2011-11-14 17:14+0200\n"
 "Last-Translator: Gihun Ham <progh2@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -946,9 +946,8 @@ msgid "Add a polygon"
 msgstr "폴리곤 추가"
 
 #: gis_data_editor.php:310
-#, fuzzy
 msgid "Add geometry"
-msgstr "새 사용자 추가"
+msgstr "공간 데이터를 추가"
 
 #: gis_data_editor.php:318
 msgid ""
