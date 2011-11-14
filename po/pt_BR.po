@@ -1560,7 +1560,7 @@ msgstr "Filtrar consultas por palavra/expressão regular:"
 
 #: js/messages.php:177
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr "Consultas em grupo, ignorando os dados de variáveis da cláusula WHERE"
+msgstr "Consultas em grupo, ignorando os valores de variáveis da cláusula WHERE"
 
 #: js/messages.php:178
 msgid "Sum of grouped rows:"
