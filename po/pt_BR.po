@@ -4182,7 +4182,7 @@ msgstr "Habilita destaque"
 
 #: libraries/config/messages.inc.php:290
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr ""
+msgstr "Número máximo de tabelas usadas recentemente; defina 0 para desabilitar"
 
 #: libraries/config/messages.inc.php:291
 msgid "Recently used tables"
