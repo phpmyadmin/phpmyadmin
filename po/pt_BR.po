@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-14 17:41+0200\n"
+"PO-Revision-Date: 2011-11-14 17:48+0200\n"
 "Last-Translator: mariemidias <mariemidias@yahoo.com.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -2701,7 +2701,7 @@ msgstr "Possível explorar"
 
 #: libraries/common.inc.php:156
 msgid "numeric key detected"
-msgstr ""
+msgstr "Tecla numérica detectada"
 
 #: libraries/common.inc.php:597
 msgid "Failed to read configuration file"
