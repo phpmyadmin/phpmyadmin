@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-10-05 09:55+0200\n"
-"Last-Translator: Deminoth Runo <deminoth@naver.com>\n"
+"PO-Revision-Date: 2011-11-14 17:09+0200\n"
+"Last-Translator: Gihun Ham <progh2@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.1.6\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:326
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1673
@@ -106,7 +106,7 @@ msgstr "blob streaming 서버 설정이 되지 않았습니다!"
 #, fuzzy
 #| msgid "Failed to write file to disk."
 msgid "Failed to fetch headers"
-msgstr "디스크 쓰기에 실패했습니다."
+msgstr "헤더를 가져오는 데 실패했습니다"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
