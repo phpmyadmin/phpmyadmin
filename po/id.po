@@ -8541,9 +8541,8 @@ msgid "Database client version"
 msgstr "Versi klien basis data: "
 
 #: main.php:194
-#, fuzzy
 msgid "PHP extension"
-msgstr "Versi PHP"
+msgstr "Ekstensi PHP"
 
 #: main.php:201
 msgid "Show PHP information"
