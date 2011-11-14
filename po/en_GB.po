@@ -822,10 +822,9 @@ msgid "Enter each value in a separate field"
 msgstr "Enter each value in a separate field"
 
 #: enum_editor.php:121
-#, fuzzy
 #| msgid "+ Add a value"
 msgid "Add a value"
-msgstr "+ Add a value"
+msgstr "Add a value"
 
 #: enum_editor.php:127 gis_data_editor.php:317
 msgid "Output"
