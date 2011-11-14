@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-14 18:51+0200\n"
+"PO-Revision-Date: 2011-11-14 18:55+0200\n"
 "Last-Translator: mariemidias <mariemidias@yahoo.com.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -4219,9 +4219,8 @@ msgstr ""
 "vários servidores."
 
 #: libraries/config/messages.inc.php:297
-#, fuzzy
 msgid "Delete all cookies on logout"
-msgstr "Remover todos os cookies quando a sessão terminar"
+msgstr "Remover todos os cookies quando sair"
 
 #: libraries/config/messages.inc.php:298
 msgid ""
