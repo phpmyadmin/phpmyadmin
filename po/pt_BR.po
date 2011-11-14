@@ -1802,7 +1802,7 @@ msgstr "Exibir critério de pesquisa"
 #, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
-msgstr "Procurar"
+msgstr "Procura detalhada"
 
 #: js/messages.php:271
 msgid "Each point represents a data row."
