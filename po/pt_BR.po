@@ -3905,7 +3905,7 @@ msgstr "Personaliza frame de navegação"
 
 #: libraries/config/messages.inc.php:214
 msgid "Customize main frame"
-msgstr ""
+msgstr "Personaliza frame principal"
 
 #: libraries/config/messages.inc.php:215 libraries/config/messages.inc.php:220
 #: setup/frames/menu.inc.php:17
