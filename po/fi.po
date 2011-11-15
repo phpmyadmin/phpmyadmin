@@ -716,10 +716,9 @@ msgid "Add prefix to table"
 msgstr "Lisää etuliite tauluun"
 
 #: db_structure.php:602 libraries/mult_submits.inc.php:251
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
-msgstr "Korvaa taulun nykyiset rivit tiedostolla"
+msgstr "Korvaa taulun etuliite"
 
 #: db_structure.php:604 libraries/mult_submits.inc.php:251
 #, fuzzy
