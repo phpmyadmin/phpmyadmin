@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-15 16:53+0200\n"
+"PO-Revision-Date: 2011-11-15 16:54+0200\n"
 "Last-Translator: Macrotus <rokkeri@hotmail.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -915,7 +915,7 @@ msgstr "X"
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
 #: gis_data_editor.php:299 js/messages.php:294
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
 #: js/messages.php:296
