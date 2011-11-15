@@ -1368,7 +1368,7 @@ function PMA_ajaxShowMessage(message, timeout)
     // Create a parent element for the AJAX messages, if necessary
     if ($('#loading_parent').length == 0) {
         $('<div id="loading_parent"></div>')
-        .insertBefore("#serverinfo");
+        .prependTo("body");
     }
     // Update message count to create distinct message elements every time
     ajax_message_count++;
