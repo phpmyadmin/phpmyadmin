@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-15 16:57+0200\n"
+"PO-Revision-Date: 2011-11-15 16:58+0200\n"
 "Last-Translator: Macrotus <rokkeri@hotmail.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -1181,10 +1181,9 @@ msgid "Edit"
 msgstr "Muokkaa"
 
 #: js/messages.php:65 server_status.php:794
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Valitse palvelin"
+msgstr "Liikennetaulu"
 
 #: js/messages.php:66 server_status.php:797
 msgid "Live conn./process chart"
