@@ -957,7 +957,7 @@ msgstr "Lisää uusi käyttäjä"
 
 #: gis_data_editor.php:266 js/messages.php:298
 msgid "Polygon"
-msgstr ""
+msgstr "Polygoni"
 
 #: gis_data_editor.php:306 js/messages.php:304
 #, fuzzy
