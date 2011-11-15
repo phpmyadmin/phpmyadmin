@@ -1292,7 +1292,7 @@ msgstr "Kyselyvälimuistia käytetty"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
-msgstr ""
+msgstr "Järjestelmän prosessorin käyttö"
 
 #: js/messages.php:101
 msgid "System memory"
