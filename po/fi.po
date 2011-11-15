@@ -1506,10 +1506,9 @@ msgstr ""
 "ota yhteyttä tietokantasi järjestelmänvalvojaan."
 
 #: js/messages.php:154
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Change settings"
-msgstr "Muut ydinasetukset"
+msgstr "Muuta asetuksia"
 
 #: js/messages.php:155
 #, fuzzy
