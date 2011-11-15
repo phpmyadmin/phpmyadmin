@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-15 16:52+0200\n"
+"PO-Revision-Date: 2011-11-15 16:53+0200\n"
 "Last-Translator: Macrotus <rokkeri@hotmail.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -843,10 +843,9 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "Kopioi ja liitä yhdistetyt arvot \"Pituus/Arvot\" -kenttään"
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "Kyselyn tyyppi"
+msgstr "Virheellinen tyyppi!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
