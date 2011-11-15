@@ -1314,7 +1314,7 @@ msgstr "kt"
 
 #: js/messages.php:106
 msgid "Average load"
-msgstr ""
+msgstr "Keskimääräinen kuormitus"
 
 #: js/messages.php:107
 #, fuzzy
