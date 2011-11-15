@@ -1332,7 +1332,7 @@ msgstr "Puskuroitu muisti"
 
 #: js/messages.php:110
 msgid "Free memory"
-msgstr ""
+msgstr "Vapaata muistia"
 
 #: js/messages.php:111
 msgid "Used memory"
