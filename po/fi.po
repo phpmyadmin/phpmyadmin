@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-15 17:03+0200\n"
+"PO-Revision-Date: 2011-11-15 17:04+0200\n"
 "Last-Translator: Macrotus <rokkeri@hotmail.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -1235,7 +1235,7 @@ msgstr "Palvelimen kuormitus (KiB:nä)"
 
 #: js/messages.php:82
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "Yhteydenttoa viimeisestä päivityksestä"
 
 #: js/messages.php:83 js/messages.php:121 server_status.php:1224
 msgid "Processes"
