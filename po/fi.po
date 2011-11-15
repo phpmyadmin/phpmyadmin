@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-15 17:09+0200\n"
+"PO-Revision-Date: 2011-11-15 17:13+0200\n"
 "Last-Translator: Macrotus <rokkeri@hotmail.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -1424,7 +1424,7 @@ msgstr ""
 
 #: js/messages.php:136
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "general_log ja slow_query_log ovat käytössä."
 
 #: js/messages.php:137
 msgid "general_log is enabled."
