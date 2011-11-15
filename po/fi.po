@@ -1398,10 +1398,9 @@ msgid "Edit title and labels"
 msgstr ""
 
 #: js/messages.php:129
-#, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "Sovita ruudukkoon"
+msgstr "Lisää taulukko ruudukkoon"
 
 #: js/messages.php:131
 msgid "Please add at least one variable to the series"
