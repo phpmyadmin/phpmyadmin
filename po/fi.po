@@ -852,10 +852,9 @@ msgid "Selected export type has to be saved in file!"
 msgstr "Valittu vientityyppi on tallennettava tiedostoon!"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Bad parameters!"
-msgstr "Käytä indeksiä/indeksejä"
+msgstr "Virheelliset parametrit!"
 
 #: export.php:166 export.php:191 export.php:652
 #, php-format
