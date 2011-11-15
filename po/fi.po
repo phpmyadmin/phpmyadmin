@@ -1495,7 +1495,7 @@ msgstr "Ota %s pois käytöstä"
 #: js/messages.php:152
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "Asta long_query_time arvoon %ds"
 
 #: js/messages.php:153
 msgid ""
