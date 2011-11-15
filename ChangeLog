@@ -13,6 +13,7 @@ phpMyAdmin - ChangeLog
 - patch #3430291 [import] Handle conflicts in some open_basedir situations
 - bug #3431427 [display] Dropdown results - setting NULL does not work
 - patch #3428764 [edit] Inline edit on multi-server configuration
+- patch #3437354 [core] Notice: Array to string conversion in PHP 5.4
 
 3.4.7.1 (2011-11-10)
 - [security] Fixed possible local file inclusion in XML import

@@ -175,7 +175,7 @@ class PMA_Error extends PMA_Message
                 $this->getMessage() .
                 $this->getFile() .
                 $this->getLine() .
-                $this->getBacktrace()
+                serialize($this->getBacktrace())
             );
         }
 
