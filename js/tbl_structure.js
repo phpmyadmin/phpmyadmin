@@ -97,7 +97,7 @@ $(document).ready(function() {
                     }
                 }
                 else {
-                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
+                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
             }) // end $.get()
         }) // end $.PMA_confirm()
@@ -263,7 +263,7 @@ $(document).ready(function() {
                     } else {
                         var $error = $temp_div;
                     }
-                    PMA_ajaxShowMessage($error);
+                    PMA_ajaxShowMessage($error, false);
                 }
             }) // end $.post()
         }
