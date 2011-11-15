@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-13 22:03+0200\n"
+"PO-Revision-Date: 2011-11-13 22:04+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -807,7 +807,6 @@ msgstr "Журнал базы данных"
 
 #: enum_editor.php:23 js/messages.php:244
 #: libraries/rte/rte_routines.lib.php:690
-#, fuzzy
 msgid "ENUM/SET editor"
 msgstr "Редактор ENUM/SET"
 
@@ -9249,7 +9248,6 @@ msgid "Any"
 msgstr "Любой"
 
 #: server_privileges.php:1561
-#, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
 msgstr "Обзор учетных записей"
@@ -11551,7 +11549,6 @@ msgid "Check referential integrity:"
 msgstr "Проверить целостность данных:"
 
 #: tbl_printview.php:72
-#, fuzzy
 #| msgid "Show tables"
 msgid "Showing tables"
 msgstr "Отображение таблиц"
@@ -12701,7 +12698,6 @@ msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr "Буфер ключей не установлен. Индексы MyISAM не будут кешироваться."
 
 #: po/advisory_rules.php:162
-#, fuzzy
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
