@@ -1467,6 +1467,8 @@ msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"Seuraavat asetukset otetaan käyttöön järjestelmänlaajuisesti ja ne "
+"palautetaan oletuksiin palvelimen uudelleenkäynnistyksen yhteydessä:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:146
