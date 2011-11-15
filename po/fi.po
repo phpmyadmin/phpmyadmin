@@ -1326,10 +1326,9 @@ msgid "Cached memory"
 msgstr "Puskuroitua muistia"
 
 #: js/messages.php:109
-#, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "Puskurivaranto"
+msgstr "Puskuroitu muisti"
 
 #: js/messages.php:110
 msgid "Free memory"
