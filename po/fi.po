@@ -1360,7 +1360,7 @@ msgstr "Vapaat sivut"
 
 #: js/messages.php:118
 msgid "Bytes sent"
-msgstr ""
+msgstr "Tavua lähetetty"
 
 #: js/messages.php:119
 #, fuzzy
