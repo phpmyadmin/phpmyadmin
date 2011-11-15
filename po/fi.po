@@ -885,10 +885,10 @@ msgid "Invalid export type"
 msgstr "Virheellinen vientitapa"
 
 #: gis_data_editor.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
-msgstr "Sarakkeen \"%s\" arvot"
+msgstr "Arvo sarakkeelle %s"
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
