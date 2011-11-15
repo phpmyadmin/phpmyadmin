@@ -1323,7 +1323,7 @@ msgstr "Muistia yhteensä"
 
 #: js/messages.php:108
 msgid "Cached memory"
-msgstr ""
+msgstr "Puskuroitua muistia"
 
 #: js/messages.php:109
 #, fuzzy
