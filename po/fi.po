@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-09 14:34+0100\n"
-"PO-Revision-Date: 2011-11-15 17:04+0200\n"
+"PO-Revision-Date: 2011-11-15 17:05+0200\n"
 "Last-Translator: Macrotus <rokkeri@hotmail.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -1281,10 +1281,9 @@ msgid "Query cache efficiency"
 msgstr "Kyselyvälimuisti"
 
 #: js/messages.php:97
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
-msgstr "Kyselyvälimuisti"
+msgstr "Kyselyvälimuistin käyttö"
 
 #: js/messages.php:98
 #, fuzzy
