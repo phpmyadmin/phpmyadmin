@@ -1296,7 +1296,7 @@ msgstr "Järjestelmän prosessorin käyttö"
 
 #: js/messages.php:101
 msgid "System memory"
-msgstr ""
+msgstr "Järjestelmän muisti"
 
 #: js/messages.php:102
 msgid "System swap"
