@@ -825,10 +825,9 @@ msgid "Values for column %s"
 msgstr "Arvot sarakkeelle %s"
 
 #: enum_editor.php:34 js/messages.php:247
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
-msgstr "Syötä arvot omiin kenttiinsä."
+msgstr "Syötä jokainen arvo omaan kenttäänsä"
 
 #: enum_editor.php:121
 #, fuzzy
