@@ -5394,7 +5394,7 @@ msgstr "Servern svarar inte."
 
 #: libraries/database_interface.lib.php:1772
 msgid "Please check privileges of directory containing database."
-msgstr ""
+msgstr "Kontrollera privilegierna för katalogen som innehåller databasen."
 
 #: libraries/database_interface.lib.php:1780
 msgid "Details..."
