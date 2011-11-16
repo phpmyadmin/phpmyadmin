@@ -1020,6 +1020,14 @@ a.error {
 <?php } ?>
 /* end topmenu */
 
+/* zoom search */
+div#dataDisplay input, div#dataDisplay select {
+    margin: 0;
+    margin-<?php echo $right; ?>: 0.5em;
+}
+div#dataDisplay th {
+    line-height: 2em;
+}
 
 /* Calendar */
 table.calendar {

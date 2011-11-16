@@ -248,23 +248,11 @@ $(document).ready(function() {
     /**
      ** Set dialog properties for the data display form
      **/
-    $("#dataDisplay").dialog({
-        autoOpen: false,
-        title: 'Data point content',
-        modal: false, //false otherwise other dialogues like timepicker may not function properly
-        height: $('#dataDisplay').height() + 80,
-        width: $('#dataDisplay').width() + 80
-    });
-
+    var buttonOptions = {};
     /*
-     * Handle submit of zoom_display_form
+     * Handle saving of a row in the editor
      */
-
-    $("#submitForm").click(function(event) {
-
-        //Prevent default submission of form
-        event.preventDefault();
-
+    buttonOptions[PMA_messages['strSave']] = function () {
         //Find changed values by comparing form values with selectedRow Object
         var newValues = new Object();//Stores the values changed from original
         var sqlTypes = new Object();
@@ -461,8 +449,35 @@ $(document).ready(function() {
                     }
             }); //End $.post
         }//End database update
-        $("#dataDisplay").dialog("close");
-    });//End submit handler
+        $("#dataDisplay").dialog('close');
+    };
+    buttonOptions[PMA_messages['strCancel']] = function () {
+        $(this).dialog('close');
+    };
+    $("#dataDisplay").dialog({
+        autoOpen: false,
+        title: 'Data point content',
+        modal: true,
+        buttons: buttonOptions,
+        width: $('#dataDisplay').width() + 24,
+        open: function () {
+            $(this).find('input[type=checkbox]').css('margin', '0.5em');
+        }
+    });
+    /**
+     * Attach Ajax event handlers for input fields
+     * in the dialog. Used to submit the Ajax
+     * request when the ENTER key is pressed.
+     */
+    $("#dataDisplay").find(':input').live('keydown', function (e) {
+        if (e.which === 13) { // 13 is the ENTER key
+            e.preventDefault();
+            if (typeof buttonOptions[PMA_messages['strSave']] === 'function') {
+                buttonOptions[PMA_messages['strSave']].call();
+            }
+        }
+    });
+
 
     /*
      * Generate plot using Highcharts

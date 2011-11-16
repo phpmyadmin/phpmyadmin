@@ -426,9 +426,8 @@ if (isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null' 
     }
     ?>
       </center>
-      <fieldset id='dataDisplay' style="display:none">
-        <fieldset>
-        <table class="data">
+      <div id='dataDisplay' style="display:none">
+        <table>
           <thead>
             <tr>
               <th> <?php echo __('Column'); ?> </th>
@@ -464,12 +463,7 @@ if (isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null' 
     ?>
           </tbody>
         </table>
-        </fieldset>
-        <fieldset class="tblFooters">
-            <input type="submit" id="submitForm" name="edit_point" value="<?php echo __('Submit'); ?>" />
-        </fieldset>
-      </fieldset>
-    </fieldset>
+    </div>
     <input type="hidden" id="queryID" name="sql_query" />
     </form>
     <?php
