@@ -339,7 +339,7 @@ $(document).ready(function() {
     /**
      *Ajax event handler for Add column(s)
     **/
-    $("#addColumns.ajax input[value=Go]").live('click', function(event){
+    $("#addColumns.ajax input[type=submit]").live('click', function(event){
         event.preventDefault();
 
         /*Remove the hidden dialogs if there are*/

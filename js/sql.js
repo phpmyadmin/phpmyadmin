@@ -411,7 +411,7 @@ $(document).ready(function() {
 /**
  * Click action for "Go" button in ajax dialog insertForm -> insertRowTable
  */
-    $("#insertForm .insertRowTable.ajax input[value=Go]").live('click', function(event) {
+    $("#insertForm .insertRowTable.ajax input[type=submit]").live('click', function(event) {
         event.preventDefault();
         /**
          *  @var    the_form    object referring to the insert form
