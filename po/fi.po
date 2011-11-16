@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-11 10:19+0100\n"
-"PO-Revision-Date: 2010-11-26 21:29+0200\n"
-"Last-Translator: <asdfsdf@asdfasdfasdf.com>\n"
+"PO-Revision-Date: 2011-11-15 17:18+0200\n"
+"Last-Translator: Macrotus <rokkeri@hotmail.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.1.6\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:326
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1673
@@ -412,10 +412,10 @@ msgid "You have to choose at least one column to display"
 msgstr "Valitse vähintään yksi sarake"
 
 #: db_qbe.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "visuaalinen luonti"
+msgstr "Vaihda %visuaaliseen muokkaimeen%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:995
@@ -578,10 +578,9 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Sanat erotetaan välilyönnein."
 
 #: db_search.php:300
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
-msgstr "Tauluista:"
+msgstr "Tauluissa:"
 
 #: db_search.php:330
 msgid "Inside column:"
@@ -711,22 +710,19 @@ msgid "Analyze table"
 msgstr "Analysoi taulu"
 
 #: db_structure.php:600
-#, fuzzy
 #| msgid "Go to table"
 msgid "Add prefix to table"
-msgstr "Siirry tauluun"
+msgstr "Lisää etuliite tauluun"
 
 #: db_structure.php:602 libraries/mult_submits.inc.php:251
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
-msgstr "Korvaa taulun nykyiset rivit tiedostolla"
+msgstr "Korvaa taulun etuliite"
 
 #: db_structure.php:604 libraries/mult_submits.inc.php:251
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
-msgstr "Korvaa taulun nykyiset rivit tiedostolla"
+msgstr "Kopioi taulun etuliite"
 
 #: db_structure.php:641 libraries/schema/User_Schema.class.php:423
 msgid "Data Dictionary"
@@ -817,28 +813,25 @@ msgid "ENUM/SET editor"
 msgstr ""
 
 #: enum_editor.php:28 js/messages.php:246
-#, fuzzy
 #| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
-msgstr "Sarakkeen \"%s\" arvot"
+msgstr "Arvot uudelle sarakkeelle"
 
 #: enum_editor.php:30 js/messages.php:245
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
-msgstr "Sarakkeen \"%s\" arvot"
+msgstr "Arvot sarakkeelle %s"
 
 #: enum_editor.php:34 js/messages.php:247
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
-msgstr "Syötä arvot omiin kenttiinsä."
+msgstr "Syötä jokainen arvo omaan kenttäänsä"
 
 #: enum_editor.php:121
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add a value"
-msgstr "Lisää uusi palvelin"
+msgstr "Lisää arvo"
 
 #: enum_editor.php:127 gis_data_editor.php:317
 msgid "Output"
@@ -849,20 +842,18 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "Kopioi ja liitä yhdistetyt arvot \"Pituus/Arvot\" -kenttään"
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "Kyselyn tyyppi"
+msgstr "Virheellinen tyyppi!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
 msgstr "Valittu vientityyppi on tallennettava tiedostoon!"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Bad parameters!"
-msgstr "Käytä indeksiä/indeksejä"
+msgstr "Virheelliset parametrit!"
 
 #: export.php:166 export.php:191 export.php:652
 #, php-format
@@ -888,16 +879,15 @@ msgid "Dump has been saved to file %s."
 msgstr "Vedos tallennettiin tiedostoon %s."
 
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export tables"
 msgid "Invalid export type"
-msgstr "Vie taulut"
+msgstr "Virheellinen vientitapa"
 
 #: gis_data_editor.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
-msgstr "Sarakkeen \"%s\" arvot"
+msgstr "Arvo sarakkeelle %s"
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
@@ -914,36 +904,34 @@ msgstr ""
 
 #: gis_data_editor.php:172 js/messages.php:295
 msgid "Point"
-msgstr ""
+msgstr "Piste"
 
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
 #: gis_data_editor.php:297 js/messages.php:293
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
 #: gis_data_editor.php:299 js/messages.php:294
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
 #: js/messages.php:296
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "Piste %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:302
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add a point"
-msgstr "Käytä indeksiä/indeksejä"
+msgstr "Lisää piste"
 
 #: gis_data_editor.php:220 js/messages.php:297
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Rivien erotinmerkki"
+msgstr "Rivimerkkijono"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:301
 msgid "Outer Ring"
@@ -957,7 +945,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Lisää uusi käyttäjä"
+msgstr "Lisää viivamerkkijono"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:303
 #, fuzzy
@@ -967,13 +955,12 @@ msgstr "Lisää uusi käyttäjä"
 
 #: gis_data_editor.php:266 js/messages.php:298
 msgid "Polygon"
-msgstr ""
+msgstr "Polygoni"
 
 #: gis_data_editor.php:306 js/messages.php:304
-#, fuzzy
 #| msgid "Add column(s)"
 msgid "Add a polygon"
-msgstr "Lisää sarake/sarakkeita"
+msgstr "Lisää polygoni"
 
 #: gis_data_editor.php:310
 #, fuzzy
@@ -1033,7 +1020,7 @@ msgstr ""
 #: import.php:366
 msgid ""
 "Cannot convert file's character set without character set conversion library"
-msgstr ""
+msgstr "Tiedoston merkistöä ei voida muuttaa ilman merkistökirjastoa"
 
 #: import.php:390 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -1145,10 +1132,9 @@ msgstr "Tämä ei ole numero!"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Log file count"
 msgid "Total count"
-msgstr "Lokitiedostojen määrä"
+msgstr "Yhteyismäärä"
 
 #: js/messages.php:54
 msgid "The host name is empty!"
@@ -1193,10 +1179,9 @@ msgid "Edit"
 msgstr "Muokkaa"
 
 #: js/messages.php:65 server_status.php:794
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Valitse palvelin"
+msgstr "Liikennetaulu"
 
 #: js/messages.php:66 server_status.php:797
 msgid "Live conn./process chart"
@@ -1210,7 +1195,7 @@ msgstr "Näytä kyselykenttä"
 
 #: js/messages.php:69
 msgid "Static data"
-msgstr ""
+msgstr "Staattinen data"
 
 #. l10n: Total number of queries
 #: js/messages.php:71 libraries/build_html_for_db.lib.php:46
@@ -1223,50 +1208,48 @@ msgstr "Yhteensä"
 #. l10n: Other, small valued, queries
 #: js/messages.php:73 server_status.php:594 server_status.php:1013
 msgid "Other"
-msgstr ""
+msgstr "Toinen"
 
 #. l10n: Thousands separator
 #: js/messages.php:75 libraries/common.lib.php:1445
 msgid ","
-msgstr " "
+msgstr " ,"
 
 #. l10n: Decimal separator
 #: js/messages.php:77 libraries/common.lib.php:1447
 msgid "."
-msgstr ","
+msgstr "."
 
 #: js/messages.php:79
 msgid "KiB sent since last refresh"
-msgstr ""
+msgstr "KiB lähetetty viimeisen päivityksen jäkeen"
 
 #: js/messages.php:80
 msgid "KiB received since last refresh"
 msgstr ""
 
 #: js/messages.php:81
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
-msgstr "Valitse palvelin"
+msgstr "Palvelimen kuormitus (KiB:nä)"
 
 #: js/messages.php:82
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "Yhteydenttoa viimeisestä päivityksestä"
 
 #: js/messages.php:83 js/messages.php:121 server_status.php:1224
 msgid "Processes"
 msgstr "Prosessit"
 
 #: js/messages.php:84
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "Yhteydet"
+msgstr "Yhteyttä / Prosessi"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:86
 msgid "Questions since last refresh"
-msgstr ""
+msgstr "Kysymyksiä viimeisestä päivityksestä lähtien"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:88
@@ -1298,24 +1281,22 @@ msgid "Query cache efficiency"
 msgstr "Kyselyvälimuisti"
 
 #: js/messages.php:97
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
-msgstr "Kyselyvälimuisti"
+msgstr "Kyselyvälimuistin käyttö"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
-msgstr "Kyselyvälimuisti"
+msgstr "Kyselyvälimuistia käytetty"
 
 #: js/messages.php:100
 msgid "System CPU Usage"
-msgstr ""
+msgstr "Järjestelmän prosessorin käyttö"
 
 #: js/messages.php:101
 msgid "System memory"
-msgstr ""
+msgstr "Järjestelmän muisti"
 
 #: js/messages.php:102
 msgid "System swap"
@@ -1333,31 +1314,29 @@ msgstr "kt"
 
 #: js/messages.php:106
 msgid "Average load"
-msgstr ""
+msgstr "Keskimääräinen kuormitus"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "Log file count"
 msgid "Total memory"
-msgstr "Lokitiedostojen määrä"
+msgstr "Muistia yhteensä"
 
 #: js/messages.php:108
 msgid "Cached memory"
-msgstr ""
+msgstr "Puskuroitua muistia"
 
 #: js/messages.php:109
-#, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "Puskurivaranto"
+msgstr "Puskuroitu muisti"
 
 #: js/messages.php:110
 msgid "Free memory"
-msgstr ""
+msgstr "Vapaata muistia"
 
 #: js/messages.php:111
 msgid "Used memory"
-msgstr ""
+msgstr "Käytetty muisti"
 
 #: js/messages.php:113
 #, fuzzy
@@ -1381,13 +1360,12 @@ msgstr "Vapaat sivut"
 
 #: js/messages.php:118
 msgid "Bytes sent"
-msgstr ""
+msgstr "Tavua lähetetty"
 
 #: js/messages.php:119
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "Vastaanotettu"
+msgstr "Tavua vastaanotettu"
 
 #: js/messages.php:120 server_status.php:1134
 msgid "Connections"
@@ -1420,10 +1398,9 @@ msgid "Edit title and labels"
 msgstr ""
 
 #: js/messages.php:129
-#, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "Sovita ruudukkoon"
+msgstr "Lisää taulukko ruudukkoon"
 
 #: js/messages.php:131
 msgid "Please add at least one variable to the series"
@@ -1447,19 +1424,19 @@ msgstr ""
 
 #: js/messages.php:136
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "general_log ja slow_query_log ovat käytössä."
 
 #: js/messages.php:137
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log on käytössä."
 
 #: js/messages.php:138
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "slow_query_log on käytössä."
 
 #: js/messages.php:139
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "slow_query_log ja general_log ovat poissa käytöstä."
 
 #: js/messages.php:140
 msgid "log_output is not set to TABLE."
@@ -1476,62 +1453,67 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log on käytössä, mutta palvelin kirjaa vain kyselyt, jotka "
+"kestävät yli %d sekuntia. On suositeltavaa asettaa long_query_time 0-2 "
+"sekuntiin riippuen järjestelmästäsi."
 
 #: js/messages.php:143
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time on asetettu %d sekuntiin."
 
 #: js/messages.php:144
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"Seuraavat asetukset otetaan käyttöön järjestelmänlaajuisesti ja ne "
+"palautetaan oletuksiin palvelimen uudelleenkäynnistyksen yhteydessä:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:146
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save as file"
 msgid "Set log_output to %s"
-msgstr "Tallenna tiedostoon"
+msgstr "Aseta log_output arvoon %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:148
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
-msgstr "Päällä"
+msgstr "Ota %s käyttöön"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:150
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disabled"
 msgid "Disable %s"
-msgstr "Pois päältä"
+msgstr "Ota %s pois käytöstä"
 
 #. l10n: %d seconds
 #: js/messages.php:152
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "Asta long_query_time arvoon %ds"
 
 #: js/messages.php:153
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
+"Et voi muuttaa näitä muuttujia. Ole hyvä, ja kirjaudu root-käyttäjällä tai "
+"ota yhteyttä tietokantasi järjestelmänvalvojaan."
 
 #: js/messages.php:154
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Change settings"
-msgstr "Muut ydinasetukset"
+msgstr "Muuta asetuksia"
 
 #: js/messages.php:155
-#, fuzzy
 #| msgid "settings"
 msgid "Current settings"
-msgstr "asetukset"
+msgstr "Nykyiset asetukset"
 
 #: js/messages.php:157 server_status.php:1634
 #, fuzzy

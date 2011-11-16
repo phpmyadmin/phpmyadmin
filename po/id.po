@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-11 10:19+0100\n"
-"PO-Revision-Date: 2011-10-26 09:15+0200\n"
-"Last-Translator:  <udin.mx@gmail.com>\n"
+"PO-Revision-Date: 2011-11-14 17:02+0200\n"
+"Last-Translator: Ivan Lanin <ivan@lanin.org>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.1.6\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:326
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1673
@@ -8540,15 +8540,13 @@ msgid "Web server"
 msgstr "Server web"
 
 #: main.php:192
-#, fuzzy
 #| msgid "Database comment: "
 msgid "Database client version"
-msgstr "Komentar Database: "
+msgstr "Versi klien basis data: "
 
 #: main.php:194
-#, fuzzy
 msgid "PHP extension"
-msgstr "Versi PHP"
+msgstr "Ekstensi PHP"
 
 #: main.php:201
 msgid "Show PHP information"
@@ -8559,10 +8557,9 @@ msgid "Official Homepage"
 msgstr "Homepage resmi phpMyAdmin"
 
 #: main.php:223
-#, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
-msgstr "Atribut"
+msgstr "Berkontribusi"
 
 #: main.php:224
 msgid "Get support"

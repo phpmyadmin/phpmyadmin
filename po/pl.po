@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-11 10:19+0100\n"
-"PO-Revision-Date: 2011-10-24 14:52+0200\n"
-"Last-Translator:  <tauruss85@gmail.com>\n"
+"PO-Revision-Date: 2011-11-13 02:43+0200\n"
+"Last-Translator: blizni <blizni@konto.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.1.6\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:326
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1673
@@ -811,10 +811,9 @@ msgid "ENUM/SET editor"
 msgstr "Edytor ENUM/SET"
 
 #: enum_editor.php:28 js/messages.php:246
-#, fuzzy
 #| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
-msgstr "Wartości dla kolumny \"%s\""
+msgstr "Wartości dla nowej kolumny"
 
 #: enum_editor.php:30 js/messages.php:245
 #, fuzzy, php-format
@@ -832,7 +831,7 @@ msgstr "Wprowadź każdą wartość do osobnego pola"
 #, fuzzy
 #| msgid "Add a new server"
 msgid "Add a value"
-msgstr "Dodaj nowy serwer"
+msgstr "Dodaj wartość"
 
 #: enum_editor.php:127 gis_data_editor.php:317
 msgid "Output"
@@ -1620,7 +1619,7 @@ msgstr "Import"
 #, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
-msgstr "Zmień zapytanie"
+msgstr "Analizuj zapytanie"
 
 #: js/messages.php:196
 msgid "Advisor system"
@@ -1656,7 +1655,7 @@ msgstr "Użyta zmienna / formuła"
 
 #: js/messages.php:203
 msgid "Test"
-msgstr ""
+msgstr "Test"
 
 #: js/messages.php:208 pmd_general.php:382 pmd_general.php:419
 #: pmd_general.php:539 pmd_general.php:587 pmd_general.php:663
@@ -1707,10 +1706,9 @@ msgid "Copying Database"
 msgstr "Kopiowanie bazy danych"
 
 #: js/messages.php:223
-#, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
-msgstr "Kodowanie napisów"
+msgstr "Zmieniam kodowanie znaków"
 
 #: js/messages.php:224
 msgid "Table must have at least one column"
@@ -1760,7 +1758,7 @@ msgstr "Definicji funkcji składowanej musi zawierać instrukcję RETURN!"
 #, fuzzy, php-format
 #| msgid "Add a new server"
 msgid "Add %d value(s)"
-msgstr "Dodaj nowy serwer"
+msgstr "Dodaj %d wartości"
 
 #: js/messages.php:251
 msgid ""
@@ -1895,13 +1893,15 @@ msgstr "Dodaj opcję do kolumny"
 
 #: js/messages.php:320
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "Aby przerwać edycję wciśnij \"escape\""
 
 #: js/messages.php:321
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
+"Nie zapisałeś zmian po edycji. Jesteś pewien że chcesz opuścić stronę nie "
+"zapisując zmian?"
 
 #: js/messages.php:322
 msgid "Drag to reorder"
@@ -1913,7 +1913,7 @@ msgstr "Kliknij, aby posortować"
 
 #: js/messages.php:324
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "Kliknij aby zaznaczyć/odznaczyć"
 
 #: js/messages.php:325
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
@@ -2184,24 +2184,21 @@ msgstr "Nie"
 
 #. l10n: Minimal week day name
 #: js/messages.php:445
-#, fuzzy
 #| msgid "Mon"
 msgid "Mo"
-msgstr "Pon"
+msgstr "Pn"
 
 #. l10n: Minimal week day name
 #: js/messages.php:447
-#, fuzzy
 #| msgid "Tue"
 msgid "Tu"
-msgstr "Wto"
+msgstr "Wt"
 
 #. l10n: Minimal week day name
 #: js/messages.php:449
-#, fuzzy
 #| msgid "Wed"
 msgid "We"
-msgstr "Śro"
+msgstr "Śr"
 
 #. l10n: Minimal week day name
 #: js/messages.php:451
@@ -2212,10 +2209,9 @@ msgstr "Czw"
 
 #. l10n: Minimal week day name
 #: js/messages.php:453
-#, fuzzy
 #| msgid "Fri"
 msgid "Fr"
-msgstr "Pią"
+msgstr "Pt"
 
 #. l10n: Minimal week day name
 #: js/messages.php:455
@@ -2413,10 +2409,9 @@ msgstr[1] "Wstawionych wierszy: %1$d."
 msgstr[2] "Wstawionych wierszy: %1$d."
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Pozwól czytać dane."
+msgstr "Wystąpił błąd podczas tworzenia PDF: "
 
 #: libraries/RecentTable.class.php:107
 #, fuzzy
@@ -2526,7 +2521,7 @@ msgstr "Nie znaleziono ścieżki do motywu %s!"
 
 #: libraries/Theme_Manager.class.php:296 themes.php:20 themes.php:27
 msgid "Theme"
-msgstr ""
+msgstr "Motyw"
 
 #: libraries/auth/config.auth.lib.php:71
 msgid "Cannot connect: invalid settings."
@@ -2746,10 +2741,9 @@ msgid "numeric key detected"
 msgstr ""
 
 #: libraries/common.inc.php:597
-#, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Failed to read configuration file"
-msgstr "Nie udało się załadować lub zapisać konfiguracji"
+msgstr "Odczytanie pliku konfuguracyjnego nie powiodło się"
 
 #: libraries/common.inc.php:598
 msgid ""
@@ -2853,7 +2847,7 @@ msgstr "MySQL zwrócił komunikat: "
 #, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Failed to connect to SQL validator!"
-msgstr "Nie można połączyć się z serwerem MySQL"
+msgstr "Nie udane połączenie z walidatorem MySQL!"
 
 #: libraries/common.lib.php:1164 libraries/config/messages.inc.php:483
 msgid "Explain SQL"
@@ -2942,10 +2936,9 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dni, %s godzin, %s minut i %s sekund"
 
 #: libraries/common.lib.php:2067
-#, fuzzy
 #| msgid "Routines"
 msgid "Missing parameter:"
-msgstr "Procedury i funkcje"
+msgstr "Brakujący parametr:"
 
 #: libraries/common.lib.php:2415 libraries/common.lib.php:2418
 #: libraries/display_tbl.lib.php:306
@@ -2958,20 +2951,18 @@ msgstr "Początek"
 #: libraries/common.lib.php:2416 libraries/common.lib.php:2419
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
-#, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
-msgstr "Poprzednie"
+msgstr "Poprzedni"
 
 #: libraries/common.lib.php:2446 libraries/common.lib.php:2449
 #: libraries/display_tbl.lib.php:372 server_binlog.php:170
 #: server_binlog.php:172
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
-msgstr "Następne"
+msgstr "Następny"
 
 #: libraries/common.lib.php:2447 libraries/common.lib.php:2450
 #: libraries/display_tbl.lib.php:389
@@ -3105,10 +3096,9 @@ msgstr "dane"
 #: libraries/config.values.php:101 libraries/export/htmlword.php:25
 #: libraries/export/latex.php:42 libraries/export/odt.php:34
 #: libraries/export/sql.php:131 libraries/export/texytext.php:24
-#, fuzzy
 #| msgid "Structure and data"
 msgid "structure and data"
-msgstr "Struktura i dane"
+msgstr "struktura i dane"
 
 #: libraries/config.values.php:103
 msgid "Quick - display only the minimal options to configure"
@@ -3199,11 +3189,12 @@ msgstr "export nie zadziała, brak funkcji (%s)"
 
 #: libraries/config/FormDisplay.class.php:738
 msgid "SQL Validator is disabled"
-msgstr ""
+msgstr "Walidator SQL jest wyłączony"
 
 #: libraries/config/FormDisplay.class.php:745
+#, fuzzy
 msgid "SOAP extension not found"
-msgstr "Rozszerzenie SOAP nie jest zainstalowane"
+msgstr "Nie znaleziono rozszerzenia SOAP"
 
 #: libraries/config/FormDisplay.class.php:753
 #, fuzzy, php-format
@@ -3218,6 +3209,7 @@ msgstr "Wiki"
 #: libraries/config/FormDisplay.tpl.php:199
 msgid "This setting is disabled, it will not be applied to your configuration"
 msgstr ""
+"Te ustawienia są nieaktywne. Nie będą miały wpływu na twoją konfigurację"
 
 #: libraries/config/FormDisplay.tpl.php:274
 #, php-format
@@ -3256,7 +3248,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow login to any MySQL server"
-msgstr "Pozwól logować się na dowolny serwera MySQL"
+msgstr "Pozwól logować się na dowolny serwer MySQL"
 
 #: libraries/config/messages.inc.php:21
 msgid ""
@@ -3295,7 +3287,7 @@ msgstr "Oznaczanie rekordów"
 
 #: libraries/config/messages.inc.php:28
 msgid "Highlight row pointed by the mouse cursor"
-msgstr "Podświetla rekord, na który wskazuje kursor myszy"
+msgstr "Podświetla wiersz, na który wskazuje kursor myszy"
 
 #: libraries/config/messages.inc.php:29
 msgid "Highlight pointer"
@@ -3478,10 +3470,9 @@ msgid "Edit in window"
 msgstr "Edytuj następny rekord"
 
 #: libraries/config/messages.inc.php:66
-#, fuzzy
 #| msgid "Display Features"
 msgid "Display errors"
-msgstr "Funkcje wyświetlania"
+msgstr "Wyświetl błędy"
 
 #: libraries/config/messages.inc.php:67
 #, fuzzy
@@ -3534,10 +3525,9 @@ msgstr "Typ kompresji"
 #: libraries/export/excel.php:25 libraries/export/htmlword.php:30
 #: libraries/export/latex.php:72 libraries/export/ods.php:25
 #: libraries/export/odt.php:58 libraries/export/texytext.php:28
-#, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
-msgstr "Umieść nazwy pól w pierwszym rekordzie"
+msgstr "Umieść nazwy kolumn w pierwszym wierszu"
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:243
 #: libraries/config/messages.inc.php:250 libraries/import/csv.php:76
@@ -3707,9 +3697,8 @@ msgid "Enclose export in a transaction"
 msgstr "Obejmij eksport transakcją"
 
 #: libraries/config/messages.inc.php:142
-#, fuzzy
 msgid "Export time in UTC"
-msgstr "Domyślne opcje eksportu"
+msgstr "Czas dokonania exportu (UTC)"
 
 #: libraries/config/messages.inc.php:150
 msgid "Force secured connection while using phpMyAdmin"
@@ -3753,7 +3742,7 @@ msgstr "Personalizuj tryb przeglądania"
 #: libraries/config/messages.inc.php:231
 #, fuzzy
 msgid "Customize default options"
-msgstr "Indywidualizacja opcji eksportu"
+msgstr "Dostosuj ustawienia domyślne"
 
 #: libraries/config/messages.inc.php:160 libraries/config/setup.forms.php:242
 #: libraries/config/setup.forms.php:315
@@ -3910,16 +3899,14 @@ msgid "Basic settings"
 msgstr "Ustawienia podstawowe"
 
 #: libraries/config/messages.inc.php:201
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Authentication"
-msgstr "Typ uwierzytelniania"
+msgstr "Uwierzytelnianie"
 
 #: libraries/config/messages.inc.php:202
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Authentication settings"
-msgstr "Typ uwierzytelniania"
+msgstr "Ustawienia dot. uwierzytelniania"
 
 #: libraries/config/messages.inc.php:203
 msgid "Server configuration"
@@ -4042,10 +4029,9 @@ msgid "Texy! text"
 msgstr "Tekst Texy!"
 
 #: libraries/config/messages.inc.php:232
-#, fuzzy
 #| msgid "Warning"
 msgid "Warnings"
-msgstr "Ostrzeżenie"
+msgstr "Ostrzeżenia"
 
 #: libraries/config/messages.inc.php:233
 msgid "Disable some of the warnings shown by phpMyAdmin"
@@ -4266,9 +4252,8 @@ msgid "Maximum number of recently used tables; set 0 to disable"
 msgstr "Maksymalna liczba tabel pokazywanych na liście tabel"
 
 #: libraries/config/messages.inc.php:291
-#, fuzzy
 msgid "Recently used tables"
-msgstr "tworzyć i usuwać bazy danych"
+msgstr "Aktualnie wykorzystywane tabele"
 
 #: libraries/config/messages.inc.php:292
 msgid "Use less graphically intense tabs"
@@ -10076,10 +10061,9 @@ msgid "Advisor"
 msgstr ""
 
 #: server_status.php:789 server_status.php:811
-#, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate: "
-msgstr "Odśwież"
+msgstr "Częstotliwość odświeżania: "
 
 #: server_status.php:832
 #, fuzzy

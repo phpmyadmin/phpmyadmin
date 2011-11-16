@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-11 10:19+0100\n"
-"PO-Revision-Date: 2011-11-09 23:26+0200\n"
+"PO-Revision-Date: 2011-11-14 22:27+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -565,7 +565,7 @@ msgstr "Effectuer une nouvelle recherche dans la base de données"
 
 #: db_search.php:277
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Mot(s) ou valeur(s) à rechercher (passe-partout: «%») :"
+msgstr "Mots ou valeurs à rechercher (passe-partout: «%») :"
 
 #: db_search.php:282
 msgid "Find:"
@@ -811,10 +811,10 @@ msgid "Values for a new column"
 msgstr "Valeurs pour une nouvelle colonne"
 
 #: enum_editor.php:30 js/messages.php:245
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
-msgstr "Valeurs pour la colonne «%s»"
+msgstr "Valeurs pour la colonne %s"
 
 #: enum_editor.php:34 js/messages.php:247
 msgid "Enter each value in a separate field"
@@ -1279,7 +1279,7 @@ msgstr "Mémoire système"
 
 #: js/messages.php:102
 msgid "System swap"
-msgstr "Zone d'échange (swap)"
+msgstr "Zone d'échange"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:103 libraries/common.lib.php:1395 server_status.php:1669
@@ -1493,7 +1493,7 @@ msgstr "Divisé par %s:"
 
 #: js/messages.php:162
 msgid "From slow log"
-msgstr "Depuis le journal des requêtes lentes (slow log)"
+msgstr "Depuis le journal des requêtes lentes"
 
 #: js/messages.php:163
 msgid "From general log"
@@ -2290,7 +2290,7 @@ msgstr "Erreur lors du déplacement du fichier téléversé."
 
 #: libraries/File.class.php:516
 msgid "Cannot read (moved) upload file."
-msgstr "Impossible de lire le fichier téléversé."
+msgstr "Impossible de lire le fichier téléversé (déplacé)."
 
 #: libraries/Index.class.php:418 tbl_relation.php:522
 msgid "No index defined!"
@@ -3202,7 +3202,7 @@ msgid ""
 msgstr ""
 "Activer ceci permet à une page située dans un domaine différent d'appeler "
 "phpMyAdmin à l'intérieur d'un cadre et représente un trou potentiel de "
-"sécurité pour les attaques de script inter-cadre"
+"[strong]sécurité[/strong] pour les attaques de script inter-cadre"
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
@@ -4987,7 +4987,7 @@ msgstr "Nom à afficher pour ce serveur"
 
 #: libraries/config/messages.inc.php:455
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
-msgstr "Devrait-on afficher un bouton «Tout afficher»"
+msgstr "Devrait-on montrer un bouton «Tout afficher»"
 
 #: libraries/config/messages.inc.php:456
 msgid "Allow to display all the rows"

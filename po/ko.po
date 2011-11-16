@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-11 10:19+0100\n"
-"PO-Revision-Date: 2011-10-05 09:55+0200\n"
-"Last-Translator: Deminoth Runo <deminoth@naver.com>\n"
+"PO-Revision-Date: 2011-11-14 17:14+0200\n"
+"Last-Translator: Gihun Ham <progh2@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.1.6\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:326
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1673
@@ -106,7 +106,7 @@ msgstr "blob streaming 서버 설정이 되지 않았습니다!"
 #, fuzzy
 #| msgid "Failed to write file to disk."
 msgid "Failed to fetch headers"
-msgstr "디스크 쓰기에 실패했습니다."
+msgstr "헤더를 가져오는 데 실패했습니다"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
@@ -117,9 +117,7 @@ msgstr "원격 URL 열기에 실패했습니다"
 msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
-msgstr ""
-"%s 파일이 이 시스템에서 사용 가능하지 않습니다. www.phpmyadmin.net에 방문하"
-"여 정보를 확인하세요."
+msgstr "%s 파일이 이 시스템에서 사용 가능하지 않습니다. www.phpmyadmin.net에 방문하여 정보를 확인하시기 바랍니다."
 
 #: db_create.php:60
 #, php-format
@@ -800,13 +798,13 @@ msgstr "데이터베이스 로그"
 #: enum_editor.php:23 js/messages.php:244
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "ENUM / SET 수정"
 
 #: enum_editor.php:28 js/messages.php:246
 #, fuzzy
 #| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
-msgstr "\"%s\" 열의 값"
+msgstr "새로운 열의 값"
 
 #: enum_editor.php:30 js/messages.php:245
 #, fuzzy, php-format
@@ -823,7 +821,7 @@ msgstr "각각의 필드에 값을 입력하세요"
 #: enum_editor.php:121
 #, fuzzy
 msgid "Add a value"
-msgstr "새 사용자 추가"
+msgstr "값을 추가"
 
 #: enum_editor.php:127 gis_data_editor.php:317
 msgid "Output"
@@ -921,23 +919,22 @@ msgstr "줄(열) 구분자"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:301
 msgid "Outer Ring"
-msgstr ""
+msgstr "외륜"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:300
 msgid "Inner Ring"
-msgstr ""
+msgstr "내륜"
 
 #: gis_data_editor.php:252
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "새 사용자 추가"
+msgstr "선 추가"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:303
 #, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "새 사용자 추가"
+msgstr "내부 링 추가"
 
 #: gis_data_editor.php:266 js/messages.php:298
 #, fuzzy
@@ -949,9 +946,8 @@ msgid "Add a polygon"
 msgstr "폴리곤 추가"
 
 #: gis_data_editor.php:310
-#, fuzzy
 msgid "Add geometry"
-msgstr "새 사용자 추가"
+msgstr "공간 데이터를 추가"
 
 #: gis_data_editor.php:318
 msgid ""
