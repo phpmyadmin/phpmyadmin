@@ -12939,7 +12939,7 @@ msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
 "Max_used_connections corresponde a %s%% de max_connections, este valor deve "
-"ser abaixo de 80%"
+"ser abaixo de 80%%"
 
 #: po/advisory_rules.php:230
 #| msgid "Persistent connections"
@@ -13149,7 +13149,7 @@ msgid ""
 "other services running on the same machine."
 msgstr ""
 "Você está usando atualmente %s%% da memória do seu Buffer Pool InnoDB. Este "
-"aviso é exibido quando estiver atribuindo menos de 60%, entretanto isso pode "
+"aviso é exibido quando estiver atribuindo menos de 60%%, entretanto isso pode "
 "ser perfeitamente adequado para o seu sistema se você não possui tantas "
 "tabelas InnoDB ou outros serviços executando na mesma máquina."
 

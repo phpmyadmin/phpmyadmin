@@ -415,7 +415,7 @@ msgstr "Valitse vähintään yksi sarake"
 #, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "Vaihda %visuaaliseen muokkaimeen%s"
+msgstr "Vaihda %svisuaaliseen muokkaimeen%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:995
