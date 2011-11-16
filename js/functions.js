@@ -2324,7 +2324,7 @@ $(document).ready(function() {
                     $("#sqlqueryresults").html(data.sql_query);
                     $("#result_query .notice").remove();
                     $("#result_query").prepend((data.message));
-                    $("#copyTable").find("select[name='target_db'] option[value="+data.db+"]").attr('selected', 'selected');
+                    $("#copyTable").find("select[name='target_db'] option").filterByValue(data.db).attr('selected', 'selected');
 
                     //Refresh navigation frame when the table is coppied
                     if (window.parent && window.parent.frame_navigation) {
@@ -3543,6 +3543,18 @@ $(document).ready(function() {
             });
         }
     }; //end noSelect
+})(jQuery);
+
+/**
+ * jQuery plugin to correctly filter input fields by value, needed
+ * because some nasty values may break selector syntax
+ */
+(function ($) {
+    $.fn.filterByValue = function (value) {
+        return this.filter(function () {
+            return $(this).val() === value
+        });
+    };
 })(jQuery);
 
 /**
