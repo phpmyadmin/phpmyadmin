@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-11 10:19+0100\n"
-"PO-Revision-Date: 2011-11-09 19:30+0200\n"
+"PO-Revision-Date: 2011-11-10 23:40+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -5429,7 +5429,7 @@ msgstr "Sunucu yanıt vermiyor."
 
 #: libraries/database_interface.lib.php:1772
 msgid "Please check privileges of directory containing database."
-msgstr ""
+msgstr "Lütfen veritabanını içeren dizinin yetkilerini kontrol edin."
 
 #: libraries/database_interface.lib.php:1780
 msgid "Details..."
