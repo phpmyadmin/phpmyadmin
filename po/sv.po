@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-11 10:19+0100\n"
-"PO-Revision-Date: 2011-11-14 00:55+0200\n"
+"PO-Revision-Date: 2011-11-16 21:47+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -7832,10 +7832,9 @@ msgid "Current Server"
 msgstr "Nuvarande Server"
 
 #: libraries/server_links.inc.php:60
-#, fuzzy
 #| msgid "User"
 msgid "Users"
-msgstr "Användare"
+msgstr "Användarna"
 
 #: libraries/server_links.inc.php:79 server_synchronize.php:1154
 #: server_synchronize.php:1162
