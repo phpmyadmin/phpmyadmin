@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-11 10:19+0100\n"
-"PO-Revision-Date: 2011-11-17 07:51+0200\n"
+"PO-Revision-Date: 2011-11-17 07:53+0200\n"
 "Last-Translator: jaideejung007 <jaideejung007@gmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -2462,7 +2462,6 @@ msgstr "ผิดพลาด"
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
 msgstr[0] ""
-msgstr[1] ""
 
 #: libraries/Message.class.php:257
 #, fuzzy, php-format
@@ -7610,7 +7609,6 @@ msgstr ""
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
 msgstr[0] ""
-msgstr[1] ""
 
 #: libraries/rte/rte_routines.lib.php:1225
 #, php-format
