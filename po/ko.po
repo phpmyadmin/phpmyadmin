@@ -3012,7 +3012,7 @@ msgstr ""
 
 #: libraries/common.lib.php:3316 libraries/common.lib.php:3317
 msgid "Execute"
-msgstr ""
+msgstr "실행하기"
 
 #: libraries/common.lib.php:3792
 msgid "Print"
