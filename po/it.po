@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-11 10:19+0100\n"
-"PO-Revision-Date: 2011-11-19 23:10+0200\n"
+"PO-Revision-Date: 2011-11-19 23:11+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -1838,10 +1838,9 @@ msgid "Change"
 msgstr "Modifica"
 
 #: js/messages.php:259
-#, fuzzy
 #| msgid "Maximum execution time"
 msgid "Query execution time"
-msgstr "Massimo tempo di esecuzione"
+msgstr "Tempo di esecuzione della query"
 
 #: js/messages.php:262 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
