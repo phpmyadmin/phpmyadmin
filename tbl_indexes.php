@@ -123,9 +123,10 @@ if (isset($_REQUEST['do_save_data'])) {
 
 // Displays headers (if needed)
 $GLOBALS['js_include'][] = 'indexes.js';
-
 require_once './libraries/tbl_info.inc.php';
-require_once './libraries/tbl_links.inc.php';
+if ($GLOBALS['is_ajax_request'] != true) {
+    require_once './libraries/tbl_links.inc.php';
+}
 
 if (isset($_REQUEST['index']) && is_array($_REQUEST['index'])) {
     // coming already from form
@@ -163,33 +164,42 @@ if (isset($_REQUEST['create_index'])) {
 echo PMA_generate_common_hidden_inputs($form_params);
 ?>
 <fieldset id="index_edit_fields">
+<?php
+if ($GLOBALS['is_ajax_request'] != true) {
+?>
     <legend>
 <?php
-if (isset($_REQUEST['create_index'])) {
-    echo __('Create an index');
-} else {
-    echo __('Modify an index');
-}
+    if (isset($_REQUEST['create_index'])) {
+        echo __('Add index');
+    } else {
+        echo __('Edit index');
+    }
 ?>
     </legend>
 <?php
-PMA_Message::notice(__('("PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!)'))->display();
+}
 ?>
-<div class="formelement">
+<div>
+<table class='index_info'>
+<tr><td>
+<strong>
 <label for="input_index_name"><?php echo __('Index name:'); ?></label>
+</strong>
+<?php echo PMA_showhint(PMA_Message::notice(__('("PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!)'))); ?>
+</td><td>
 <input type="text" name="index[Key_name]" id="input_index_name" size="25"
     value="<?php echo htmlspecialchars($index->getName()); ?>" onfocus="this.select()" />
-</div>
-
-<div class="formelement">
+</td></tr><tr><td>
+<strong>
 <label for="select_index_type"><?php echo __('Index type:'); ?></label>
+</strong>
+<?php echo PMA_showMySQLDocu('SQL-Syntax', 'ALTER_TABLE'); ?>
+</td><td>
 <select name="index[Index_type]" id="select_index_type" >
     <?php echo $index->generateIndexSelector(); ?>
 </select>
-<?php echo PMA_showMySQLDocu('SQL-Syntax', 'ALTER_TABLE'); ?>
+</td></tr></table>
 </div>
-
-<br class="clearfloat" /><br />
 
 <table id="index_columns">
 <thead>
@@ -206,7 +216,7 @@ $spatial_types = array(
 );
 foreach ($index->getColumns() as $column) {
     ?>
-<tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
+<tr class="<?php echo $odd_row ? 'odd' : 'even'; ?> noclick">
     <td><select name="index[columns][names][]">
             <option value="">-- <?php echo __('Ignore'); ?> --</option>
     <?php
@@ -233,7 +243,7 @@ foreach ($index->getColumns() as $column) {
 } // end foreach $edited_index_info['Sequences']
 for ($i = 0; $i < $add_fields; $i++) {
     ?>
-<tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
+<tr class="<?php echo $odd_row ? 'odd' : 'even'; ?> noclick">
     <td><select name="index[columns][names][]">
             <option value="">-- <?php echo __('Ignore'); ?> --</option>
     <?php
@@ -256,21 +266,30 @@ for ($i = 0; $i < $add_fields; $i++) {
 </tbody>
 </table>
 </fieldset>
-
 <fieldset class="tblFooters">
+<?php
+    if ($GLOBALS['is_ajax_request'] != true) {
+?>
     <input type="submit" name="do_save_data" value="<?php echo __('Save'); ?>" />
     <span id="addMoreColumns">
 <?php
 echo __('Or') . ' ';
-echo sprintf(__('Add to index &nbsp;%s&nbsp;column(s)'),
-        '<input type="text" name="added_fields" size="2" value="1"'
-    .' onfocus="this.select()" />') . "\n";
-echo '<input type="submit" name="add_fields" value="' . __('Go') . '"'
-    .' onclick="return checkFormElementInRange(this.form,'
-    ." 'added_fields', '" . PMA_jsFormat(__('Column count has to be larger than zero.')) . "', 1"
-    .')" />' . "\n";
+printf(
+    __('Add to index &nbsp;%s&nbsp;column(s)') . "\n",
+    '<input type="text" name="added_fields" size="2" value="1" />'
+);
+echo '<input type="submit" name="add_fields" value="' . __('Go') . '" />' . "\n";
 ?>
     </span>
+<?php
+    } else {
+        $btn_value = sprintf(__('Add %d column(s) to index'), 1);
+        echo '<div class="slider"></div>';
+        echo '<div class="add_fields">';
+        echo '<input type="submit" value="' . $btn_value . '" />';
+        echo '</div>';
+    }
+?>
 </fieldset>
 </form>
 <?php

@@ -18,7 +18,6 @@
  *
  */
 $(document).ready(function() {
-
     /**
      * Attach Event Handler for 'Drop Column'
      *
@@ -56,7 +55,7 @@ $(document).ready(function() {
                     $(curr_row).hide("medium").remove();
                 }
                 else {
-                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
+                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
             }) // end $.get()
         }); // end $.PMA_confirm()
@@ -98,7 +97,7 @@ $(document).ready(function() {
                     }
                 }
                 else {
-                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
+                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
             }) // end $.get()
         }) // end $.PMA_confirm()
@@ -137,17 +136,30 @@ $(document).ready(function() {
             $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
                 if(data.success == true) {
                     PMA_ajaxShowMessage(data.message);
-                    $rows_to_hide.hide("medium").remove();
+                    var $table_ref = $rows_to_hide.closest('table');
+                    if ($rows_to_hide.length == $table_ref.find('tbody > tr').length) {
+                        // We are about to remove all rows from the table
+                        $table_ref.hide('medium', function() {
+                            $('.no_indexes_defined').show('medium');
+                            $rows_to_hide.remove();
+                        });
+                        $table_ref.siblings('div.notice').hide('medium');
+                    } else {
+                        // We are removing some of the rows only
+                        $rows_to_hide.hide("medium", function () {
+                            $(this).remove();
+                        });
+                    }
                 }
                 else {
-                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
+                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
             }) // end $.get()
         }) // end $.PMA_confirm()
     }) //end Drop Primary Key/Index
 
     /**
-     *Ajax event handler for muti column change
+     *Ajax event handler for multi column change
     **/
     $("#fieldsForm.ajax .mult_submit[value=change]").live('click', function(event){
         event.preventDefault();
@@ -184,13 +196,29 @@ $(document).ready(function() {
     /**
      *Ajax event handler for index edit
     **/
-    $("#table_index tbody tr td.edit_index.ajax").live('click', function(event){
+    $("#table_index tbody tr td.edit_index.ajax, #indexes .add_index.ajax").live('click', function(event){
         event.preventDefault();
-        var url = $(this).find("a").attr("href");
-        if (url.substring(0, 16) == "tbl_indexes.php?") {
-            url = url.substring(16, url.length );
+        if ($(this).find("a").length == 0) {
+            // Add index
+            var valid = checkFormElementInRange(
+                $(this).closest('form')[0],
+                'added_fields',
+                'Column count has to be larger than zero.'
+            );
+            if (! valid) {
+                return;
+            }
+            var url = $(this).closest('form').serialize();
+            var title = PMA_messages['strAddIndex'];
+        } else {
+            // Edit index
+            var url = $(this).find("a").attr("href");
+            if (url.substring(0, 16) == "tbl_indexes.php?") {
+                url = url.substring(16, url.length );
+            }
+            var title = PMA_messages['strEditIndex'];
         }
-        url = url + "&ajax_request=true";
+        url += "&ajax_request=true";
 
         /*Remove the hidden dialogs if there are*/
         if ($('#edit_index_dialog').length != 0) {
@@ -199,142 +227,111 @@ $(document).ready(function() {
         var $div = $('<div id="edit_index_dialog"></div>');
 
         /**
-         *  @var    button_options  Object that stores the options passed to jQueryUI
-         *                          dialog
+         * @var button_options Object that stores the options
+         *                     passed to jQueryUI dialog
          */
         var button_options = {};
-        // in the following function we need to use $(this)
-        button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove();}
-
-        var button_options_error = {};
-        button_options_error[PMA_messages['strOK']] = function() {$(this).dialog('close').remove();}
-        var $msgbox = PMA_ajaxShowMessage();
-
-        $.get( "tbl_indexes.php" , url ,  function(data) {
-            //in the case of an error, show the error message returned.
-            if (data.success != undefined && data.success == false) {
-                $div
-                .append(data.error)
-                .dialog({
-                    title: PMA_messages['strEdit'],
-                    height: 230,
-                    width: 900,
-                    open: PMA_verifyColumnsProperties,
-                    modal: true,
-                    buttons : button_options_error
-                })// end dialog options
-            } else {
-                $div
-                .append(data)
-                .dialog({
-                    title: PMA_messages['strEdit'],
-                    height: 600,
-                    width: 900,
-                    open: PMA_verifyColumnsProperties,
-                    modal: true,
-                    buttons : button_options
-                })
-                //Remove the top menu container from the dialog
-                .find("#topmenucontainer").hide()
-                ; // end dialog options
-                checkIndexType();
-                checkIndexName("index_frm");
-            }
-            PMA_ajaxRemoveMessage($msgbox);
-        }) // end $.get()
-    });
-
-    /**
-     *Ajax action for submiting the index form
-    **/
-    $("#index_frm.ajax input[name=do_save_data]").live('click', function(event) {
-        event.preventDefault();
-        /**
-         *  @var    the_form    object referring to the export form
-         */
-        var $form = $("#index_frm");
-
-        PMA_prepareForAjaxRequest($form);
-        //User wants to submit the form
-        $.post($form.attr('action'), $form.serialize()+"&do_save_data=Save", function(data) {
-            if ($("#sqlqueryresults").length != 0) {
-                $("#sqlqueryresults").remove();
-            }
-            if (data.success == true) {
-                PMA_ajaxShowMessage(data.message);
-                $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
-                $("#sqlqueryresults").html(data.sql_query);
-                $("#result_query .notice").remove();
-                $("#result_query").prepend((data.message));
-
-                /*Reload the field form*/
-                $("#table_index").remove();
-                var $temp_div = $("<div id='temp_div'><div>").append(data.index_table);
-                $temp_div.find("#table_index").insertAfter("#index_header");
-                if ($("#edit_index_dialog").length > 0) {
-                    $("#edit_index_dialog").dialog("close").remove();
+        button_options[PMA_messages['strGo']] = function() {
+            /**
+             *  @var    the_form    object referring to the export form
+             */
+            var $form = $("#index_frm");
+            PMA_prepareForAjaxRequest($form);
+            //User wants to submit the form
+            $.post($form.attr('action'), $form.serialize()+"&do_save_data=1", function(data) {
+                if ($("#sqlqueryresults").length != 0) {
+                    $("#sqlqueryresults").remove();
                 }
+                if (data.success == true) {
+                    PMA_ajaxShowMessage(data.message);
+                    $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
+                    $("#sqlqueryresults").html(data.sql_query);
+                    $("#result_query .notice").remove();
+                    $("#result_query").prepend(data.message);
 
-            } else {
-                if(data.error != undefined) {
+                    /*Reload the field form*/
+                    $("#table_index").remove();
+                    var $temp_div = $("<div id='temp_div'><div>").append(data.index_table);
+                    $temp_div.find("#table_index").insertAfter("#index_header");
+                    if ($("#edit_index_dialog").length > 0) {
+                        $("#edit_index_dialog").dialog("close");
+                    }
+                } else if (data.error != undefined) {
                     var $temp_div = $("<div id='temp_div'><div>").append(data.error);
                     if ($temp_div.find(".error code").length != 0) {
                         var $error = $temp_div.find(".error code").addClass("error");
                     } else {
                         var $error = $temp_div;
                     }
+                    PMA_ajaxShowMessage($error, false);
                 }
-                PMA_ajaxShowMessage($error);
+            }) // end $.post()
+        }
+        button_options[PMA_messages['strCancel']] = function() {
+            $(this).dialog('close');
+        }
+        var $msgbox = PMA_ajaxShowMessage();
+        $.get("tbl_indexes.php", url, function(data) {
+            if (data.error) {
+                //in the case of an error, show the error message returned.
+                PMA_ajaxShowMessage(data.error, false);
+            } else {
+                PMA_ajaxRemoveMessage($msgbox);
+                // Show dialog if the request was successful
+                $div
+                .append(data)
+                .dialog({
+                    title: title,
+                    width: 450,
+                    open: PMA_verifyColumnsProperties,
+                    modal: true,
+                    buttons: button_options,
+                    close: function () {
+                        $(this).remove();
+                    }
+                });
+                checkIndexType();
+                checkIndexName("index_frm");
+                PMA_convertFootnotesToTooltips($div);
+                // Add a slider for selecting how many columns to add to the index
+                $div.find('.slider').slider({
+                   animate: true,
+                   value: 1,
+                   min: 1,
+                   max: 16,
+                   slide: function( event, ui ) {
+                        $(this).closest('fieldset').find('input[type=submit]').val(
+                            PMA_messages['strAddToIndex'].replace(/%d/, ui.value)
+                        );
+                   }
+			    });
+                // Focus the slider, otherwise it looks nearly transparent
+                $('.ui-slider-handle').addClass('ui-state-focus');
             }
-
-        }) // end $.post()
-    }) // end insert table button "do_save_data"
+        }) // end $.get()
+    });
 
     /**
-     *Ajax action for submiting the index form for add more columns
-    **/
-    $("#index_frm.ajax input[name=add_fields]").live('click', function(event) {
+     * Handler for adding more columns to an index in the editor
+     */
+    $('#index_frm input[type=submit]').live('click', function(event) {
         event.preventDefault();
-        /**
-         *  @var    the_form    object referring to the export form
-         */
-        var $form = $("#index_frm");
-
-        PMA_prepareForAjaxRequest($form);
-        //User wants to submit the form
-        $.post($form.attr('action'), $form.serialize()+"&add_fields=Go", function(data) {
-            $("#index_columns").remove();
-            var $temp_div = $("<div id='temp_div'><div>").append(data);
-            $temp_div.find("#index_columns").appendTo("#index_edit_fields");
-        }) // end $.post()
-    }) // end insert table button "Go"
-
-    /**Add the show/hide index table option if the index is available*/
-    if ($("#index_div.ajax").find("#table_index").length != 0) {
-        /**
-         *Prepare a div containing a link for toggle the index table
-         */
-        $('<div id="toggletableindexdiv"><a id="toggletableindexlink"></a></div>')
-        .insertAfter('#index_div')
-        /** don't show it until we have index table on-screen */
-        .show();
-
-        /** Changing the displayed text according to the hide/show criteria in table index*/
-
-        $('#toggletableindexlink')
-        .html(PMA_messages['strHideIndexes'])
-        .bind('click', function() {
-             var $link = $(this);
-             $('#index_div').slideToggle();
-             if ($link.text() == PMA_messages['strHideIndexes']) {
-                 $link.text(PMA_messages['strShowIndexes']);
-             } else {
-                 $link.text(PMA_messages['strHideIndexes']);
-             }
-             /** avoid default click action */
-             return false;
-        });
-    } //end show/hide table index
+        var rows_to_add = $(this)
+            .closest('fieldset')
+            .find('.slider')
+            .slider('value');
+        while (rows_to_add--) {
+            var $newrow = $('#index_columns')
+                .find('tbody > tr:first')
+                .clone()
+                .appendTo(
+                    $('#index_columns').find('tbody')
+                );
+            $newrow.find(':input').each(function() {
+                $(this).val('');
+            });
+        }
+    });
 
     /**
      *Ajax event handler for Add column(s)
@@ -385,10 +382,7 @@ $(document).ready(function() {
                     open: PMA_verifyColumnsProperties,
                     modal: true,
                     buttons : button_options
-                })
-                //Remove the top menu container from the dialog
-                .find("#topmenucontainer").hide()
-                ; // end dialog options
+                }); // end dialog options
 
                 $div = $("#add_columns");
                 /*changed the z-index of the enum editor to allow the edit*/
@@ -454,10 +448,7 @@ function changeColumns(action,url)
                 modal: true,
                 open: PMA_verifyColumnsProperties,
                 buttons : button_options
-            })
-            //Remove the top menu container from the dialog
-            .find("#topmenucontainer").hide()
-            ; // end dialog options
+            }); // end dialog options
             $("#append_fields_form input[name=do_save_data]").addClass("ajax");
             /*changed the z-index of the enum editor to allow the edit*/
             $("#enum_editor").css("z-index", "1100");

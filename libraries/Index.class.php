@@ -414,15 +414,23 @@ class PMA_Index
     {
         $indexes = PMA_Index::getFromTable($table, $schema);
 
-        if (count($indexes) < 1) {
-            return PMA_Message::error(__('No index defined!'))->getDisplay();
-        }
+        $no_indexes_class = count($indexes) > 0 ? ' hide' : '';
+        $no_indexes  = "<div class='no_indexes_defined$no_indexes_class'>";
+        $no_indexes .= PMA_Message::notice(__('No index defined!'))->getDisplay();
+        $no_indexes .= '</div>';
 
-        $r = '';
-
-        $r .= '<h2 id="index_header">' . __('Indexes') . ': ';
+        $r  = '<fieldset>';
+        $r .= '<legend id="index_header">' . __('Indexes');
         $r .= PMA_showMySQLDocu('optimization', 'optimizing-database-structure');
-        $r .= '</h2>';
+        $r .= '</legend>';
+        $r .= $no_indexes;
+        if (count($indexes) < 1) {
+            $r .= '</fieldset>';
+            return $r;
+        }
+        if (! $print_mode) {
+            $r .= PMA_Index::findDuplicates($table, $schema);
+        }
         $r .= '<table id="table_index">';
         $r .= '<thead>';
         $r .= '<tr>';
@@ -512,10 +520,7 @@ class PMA_Index
         } // end while
         $r .= '</tbody>';
         $r .= '</table>';
-
-        if (! $print_mode) {
-            $r .= PMA_Index::findDuplicates($table, $schema);
-        }
+        $r .= '</fieldset>';
 
         return $r;
     }
@@ -565,7 +570,7 @@ class PMA_Index
                 // did not find any difference
                 // so it makes no sense to have this two equal indexes
 
-                $message = PMA_Message::error(__('The indexes %1$s and %2$s seem to be equal and one of them could possibly be removed.'));
+                $message = PMA_Message::notice(__('The indexes %1$s and %2$s seem to be equal and one of them could possibly be removed.'));
                 $message->addParam($each_index->getName());
                 $message->addParam($while_index->getName());
                 $output .= $message->getDisplay();

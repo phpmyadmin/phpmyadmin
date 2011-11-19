@@ -3079,7 +3079,7 @@ function PMA_init_slider()
         }
         $this.addClass('slider_init_done');
 
-        var $wrapper = $('<div>', {'class': 'slide-wrapper'}).css('height', $this.outerHeight(true));
+        var $wrapper = $('<div>', {'class': 'slide-wrapper'});
         $wrapper.toggle($this.is(':visible'));
         $('<a>', {href: '#'+this.id})
             .text(this.title)
