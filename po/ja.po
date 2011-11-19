@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-11 10:19+0100\n"
-"PO-Revision-Date: 2011-11-19 08:06+0200\n"
+"PO-Revision-Date: 2011-11-19 08:19+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12609,7 +12609,7 @@ msgstr "開いているファイルの割合"
 
 #: po/advisory_rules.php:191
 msgid "The rate of opening files is high."
-msgstr "ファイルを開く割合が高いです。"
+msgstr "開いているファイルの割合が高いです。"
 
 #: po/advisory_rules.php:193
 #, php-format
