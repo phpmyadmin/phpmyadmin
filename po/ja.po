@@ -12605,7 +12605,7 @@ msgstr ""
 
 #: po/advisory_rules.php:190
 msgid "Rate of open files"
-msgstr "ファイルを開く割合"
+msgstr "開いているファイルの割合"
 
 #: po/advisory_rules.php:191
 msgid "The rate of opening files is high."
