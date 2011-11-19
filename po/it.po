@@ -1706,7 +1706,7 @@ msgstr "Giustificazione"
 
 #: js/messages.php:202
 msgid "Used variable / formula"
-msgstr ""
+msgstr "Variabile / formula utilizzata"
 
 #: js/messages.php:203
 msgid "Test"
