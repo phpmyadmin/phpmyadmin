@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-11 10:19+0100\n"
-"PO-Revision-Date: 2011-11-19 08:44+0200\n"
+"PO-Revision-Date: 2011-11-19 08:46+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12523,6 +12523,8 @@ msgid ""
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
+"{key_buffer_size} の必要とするサイズが減少しているようです。ご使用のテーブルでインデックスが削除されていないかよく確認してください。ま"
+"た、クエリあるいはインデックスの使用が想定されるものがないか確認してみてください。"
 
 #: po/advisory_rules.php:168
 #, php-format
