@@ -2293,7 +2293,7 @@ msgstr ""
 
 #: libraries/Config.class.php:703
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
-msgstr ""
+msgstr "Rimuovi la cartella \"./config\" prima di utilizzare phpMyAdmin!"
 
 #: libraries/Config.class.php:727
 #, php-format
