@@ -1886,6 +1886,8 @@ msgstr "Fai clic su \"Ripristina zoom\" per tornare allo stato originale."
 #: js/messages.php:281
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
+"Clicca su un punto nel piano per visualizzare ed eventualmente modificare la "
+"riga di dati."
 
 #: js/messages.php:283
 msgid "The plot can be resized by dragging it along the bottom right corner."
