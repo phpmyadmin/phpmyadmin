@@ -1873,7 +1873,7 @@ msgstr ""
 
 #: js/messages.php:275
 msgid "Use mousewheel to zoom in or out of the plot."
-msgstr ""
+msgstr "Utilizza la rotellina del mouse per ingrandire o ridurre il piano."
 
 #: js/messages.php:277
 msgid "Click and drag the mouse to navigate the plot."
