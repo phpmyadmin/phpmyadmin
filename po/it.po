@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-11 10:19+0100\n"
-"PO-Revision-Date: 2011-11-19 23:04+0200\n"
+"PO-Revision-Date: 2011-11-19 23:06+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -1641,10 +1641,9 @@ msgstr ""
 "tua sessione. Prova a ricaricare la pagina reinserendo i tuoi dati di login."
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
-msgstr "Ricarica"
+msgstr "Ricarica la pagina"
 
 #: js/messages.php:186
 msgid "Affected rows:"
