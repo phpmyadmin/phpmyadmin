@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-11 10:19+0100\n"
-"PO-Revision-Date: 2011-11-16 15:08+0700\n"
+"PO-Revision-Date: 2011-11-19 09:54+0700\n"
 "Last-Translator: Ivan Lanin <ivan@lanin.org>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -13,7 +13,8 @@ msgstr ""
 "Language: id\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
-"X-Poedit-Basepath: .\n"
+"X-Poedit-Basepath: ../../..\n"
+"X-Poedit-Language: Indonesian\n"
 
 #: browse_foreigners.php:35
 #: browse_foreigners.php:53
@@ -31,7 +32,7 @@ msgstr "Tampilkan semua"
 #: libraries/schema/User_Schema.class.php:396
 #: libraries/select_lang.lib.php:487
 msgid "Page number:"
-msgstr "Nomor laman:"
+msgstr "Nomor halaman:"
 
 #: browse_foreigners.php:133
 msgid "The target browser window could not be updated. Maybe you have closed the parent window, or your browser's security settings are configured to block cross-window updates."
@@ -158,13 +159,13 @@ msgstr "Gagal mengambil header"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr "Gagal membuka URL"
+msgstr "Gagal membuka URL jauh"
 
 #: changelog.php:32
 #: license.php:28
 #, php-format
 msgid "The %s file is not available on this system, please visit www.phpmyadmin.net for more information."
-msgstr "Berkas %s tidak ditemukan dalam sistem ini, mohon kunjungi www.phpmyadmin.net untuk informasi lebih lanjut."
+msgstr "Berkas %s tidak ditemukan dalam sistem ini, harap kunjungi www.phpmyadmin.net untuk informasi lebih lanjut."
 
 #: db_create.php:60
 #, php-format
@@ -721,7 +722,7 @@ msgstr "paling tidak satu kata"
 #: db_search.php:44
 #: db_search.php:287
 msgid "all words"
-msgstr "seluruh kata"
+msgstr "semua kata"
 
 #: db_search.php:45
 #: db_search.php:288
@@ -842,7 +843,7 @@ msgstr "Pelacakan tidak aktif."
 #: libraries/display_tbl.lib.php:2346
 #, php-format
 msgid "This view has at least this number of rows. Please refer to %sdocumentation%s."
-msgstr "Sebuah view setidaknya mempunyai jumlah kolom berikut. Silahkan lihat %sdokumentasi%s"
+msgstr "Sebuah view setidaknya mempunyai jumlah kolom berikut. Harap lihat %sdokumentasi%s"
 
 #: db_structure.php:466
 #: db_structure.php:480
@@ -869,7 +870,7 @@ msgstr "Jumlah"
 #: libraries/StorageEngine.class.php:331
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr "%s adalah mesin penyimpan utama pada server MySQL ini."
+msgstr "%s adalah mesin penyimpanan utama pada server MySQL ini."
 
 #: db_structure.php:560
 #: db_structure.php:577
@@ -1135,7 +1136,7 @@ msgstr "Keluaran"
 
 #: enum_editor.php:128
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr "keluaran"
+msgstr "Salin dan rekatkan nilai gabungan ke dalam isian \"Panjang/Nilai\""
 
 #: export.php:29
 msgid "Bad type!"
@@ -1275,12 +1276,12 @@ msgstr "Tambahkan geometri"
 
 #: gis_data_editor.php:318
 msgid "Chose \"GeomFromText\" from the \"Function\" column and paste the below string into the \"Value\" field"
-msgstr ""
+msgstr "Pilih \"GeomFromText\" dari kolom \"Fungsi\" dan rekatkan string di bawahnya ke dalam isian \"Value\""
 
 #: import.php:57
 #, php-format
 msgid "You probably tried to upload too large file. Please refer to %sdocumentation%s for ways to workaround this limit."
-msgstr "Anda mungkin mencoba mengunggah berkas yang terlalu besar. Silahkan lihat %sdokumentasi%s untuk mendapatkan solusi tentang batasan ini."
+msgstr "Anda mungkin mencoba mengunggah berkas yang terlalu besar. Harap lihat %sdokumentasi%s untuk mendapatkan solusi tentang batasan ini."
 
 #: import.php:170
 #: import.php:419
@@ -1317,12 +1318,12 @@ msgstr "Tidak ada data untuk diimpor. Kemungkinan karena tidak ada berkas yang d
 
 #: import.php:366
 msgid "Cannot convert file's character set without character set conversion library"
-msgstr ""
+msgstr "Tidak dapat mengubah set karakter berkas tanpa pustaka konversi set karakter"
 
 #: import.php:390
 #: libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
-msgstr "Tidak dapat memuat plugin import, silahkan periksa instalasi Anda!"
+msgstr "Tidak dapat memuat plugin import, harap periksa instalasi Anda!"
 
 #: import.php:421
 #: sql.php:928
@@ -1334,11 +1335,11 @@ msgstr "Markah % s dibuat"
 #: import.php:433
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr "Impor telah berhasil menyelesaikan,%d query dieksekusi."
+msgstr "Impor telah berhasil menyelesaikan,%d kueri dieksekusi."
 
 #: import.php:442
 msgid "Script timeout passed, if you want to finish import, please resubmit same file and import will resume."
-msgstr "Script sudah melewati timeout, jika Anda ingin menyelesaikan proses impor, silakan kirim ulang arsip yang sama dan proses impor akan berlanjut."
+msgstr "Script sudah melewati timeout, jika Anda ingin menyelesaikan proses impor, harap kirim ulang arsip yang sama dan proses impor akan berlanjut."
 
 #: import.php:444
 msgid "However on last run no data has been parsed, this usually means phpMyAdmin won't be able to finish this import unless you increase php time limits."
@@ -1354,7 +1355,7 @@ msgstr "Tidak ada data yang di-parse pada eksekusi terakhir, biasanya ini berart
 #: tbl_row_action.php:126
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
-msgstr "Query SQL Anda berhasil dieksekusi"
+msgstr "Kueri SQL Anda berhasil dieksekusi"
 
 #: import_status.php:29
 #: libraries/common.lib.php:702
@@ -1387,13 +1388,13 @@ msgstr "Perintah \"DROP DATABASE\" dinonaktifkan."
 #: libraries/mult_submits.inc.php:282
 #: sql.php:348
 msgid "Do you really want to "
-msgstr "Apakah anda ingin "
+msgstr "Benarkah Anda ingin untuk "
 
 #: js/messages.php:33
 #: libraries/mult_submits.inc.php:282
 #: sql.php:333
 msgid "You are about to DESTROY a complete database!"
-msgstr "Anda akan MENGHAPUS SELURUH basis data!"
+msgstr "Anda akan MENGHAPUS seluruh basis data!"
 
 #: js/messages.php:34
 msgid "You are about to DESTROY a complete table!"
@@ -1413,7 +1414,7 @@ msgstr "Menghapus Kunci/Indeks Primer"
 
 #: js/messages.php:39
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "Aktifitas ini membutuhkan waktu yang lama. Tetap melanjutkan?"
+msgstr "Operasi ini membutuhkan waktu yang lama. Tetap lanjutkan?"
 
 #: js/messages.php:42
 msgid "You are about to DISABLE a BLOB Repository!"
@@ -1546,15 +1547,15 @@ msgstr ","
 
 #: js/messages.php:79
 msgid "KiB sent since last refresh"
-msgstr "KiB terkirim sejak dibuka terakhir"
+msgstr "KB terkirim sejak dibuka terakhir"
 
 #: js/messages.php:80
 msgid "KiB received since last refresh"
-msgstr "KiB diterima sejak dibuka terakhir"
+msgstr "KB diterima sejak dibuka terakhir"
 
 #: js/messages.php:81
 msgid "Server traffic (in KiB)"
-msgstr "Lalulintas Server (dalam KiB)"
+msgstr "Lalu lintas server (dalam KB)"
 
 #: js/messages.php:82
 msgid "Connections since last refresh"
@@ -1573,12 +1574,12 @@ msgstr "Koneksi / Proses"
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:86
 msgid "Questions since last refresh"
-msgstr "Pertanyaan sejak penyegaran terakhir"
+msgstr "Perintah sejak penyegaran terakhir"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:88
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "Perintah (perintah yang dieksekusi server)"
 
 #: js/messages.php:90
 #: server_status.php:776
@@ -1591,7 +1592,7 @@ msgstr "Konfigurasi monitor lokal tidak kompatibel"
 
 #: js/messages.php:94
 msgid "The chart arrangement configuration in your browsers local storage is not compatible anymore to the newer version of the monitor dialog. It is very likely that your current configuration will not work anymore. Please reset your configuration to default in the <i>Settings</i> menu."
-msgstr ""
+msgstr "Konfigurasi pengaturan bagan dalam penyimpanan lokal peramban Anda tidak lagi kompatibel dengan versi baru dialog monitor. Sangat mungkin konfigurasi Anda saat ini tidak lagi bekerja. Harap reset konfigurasi menjadi bawaan pada menu <i>Pengaturan</i>."
 
 #: js/messages.php:96
 msgid "Query cache efficiency"
@@ -1645,7 +1646,7 @@ msgstr "Memori singgahan"
 
 #: js/messages.php:109
 msgid "Buffered memory"
-msgstr "Memori Tersangga"
+msgstr "Memori tersangga"
 
 #: js/messages.php:110
 msgid "Free memory"
@@ -1673,7 +1674,7 @@ msgstr "Swap Bebas"
 
 #: js/messages.php:118
 msgid "Bytes sent"
-msgstr "Bita terkirim"
+msgstr "Bita dikirim"
 
 #: js/messages.php:119
 msgid "Bytes received"
@@ -1687,12 +1688,12 @@ msgstr "Koneksi"
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:124
 msgid "Questions"
-msgstr "Pertanyaan"
+msgstr "Perintah"
 
 #: js/messages.php:125
 #: server_status.php:1089
 msgid "Traffic"
-msgstr "Lalu-Lintas"
+msgstr "Lalu Lintas"
 
 #: js/messages.php:126
 #: libraries/server_links.inc.php:73
@@ -1714,7 +1715,7 @@ msgstr "Tambahkan bagan pada grid"
 
 #: js/messages.php:131
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "Harap tambahkan paling tidak satu variabel ke dalam seri"
 
 #: js/messages.php:132
 #: libraries/display_export.lib.php:308
@@ -1740,41 +1741,41 @@ msgstr "Jeda pemantauan"
 
 #: js/messages.php:136
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "general_log dan slow_query_log diaktifkan."
 
 #: js/messages.php:137
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log diaktifkan."
 
 #: js/messages.php:138
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "slow_query_log diaktifkan."
 
 #: js/messages.php:139
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "slow_query_log dan general_log dinonaktifkan."
 
 #: js/messages.php:140
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output tidak disetel menjadi TABLE."
 
 #: js/messages.php:141
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output disetel menjadi TABLE."
 
 #: js/messages.php:142
 #, php-format
 msgid "slow_query_log is enabled, but the server logs only queries that take longer than %d seconds. It is advisable to set this long_query_time 0-2 seconds, depending on your system."
-msgstr ""
+msgstr "slow_query_log diaktifkan, tetapi server hanya mencatat kueri yang lebih lama dari %d detil. Disarankan untuk menyetel long_query_time 0-2 detik, tergantung sistem Anda."
 
 #: js/messages.php:143
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time disetel menjadi %d detik."
 
 #: js/messages.php:144
 msgid "Following settings will be applied globally and reset to default on server restart:"
-msgstr ""
+msgstr "Pengaturan berikut akan diterapkan secara global dan direset menjadi bawaan sewaktu server dijalankan ulang:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:146
@@ -1798,11 +1799,11 @@ msgstr "Nonaktifkan %s"
 #: js/messages.php:152
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "Setel long_query_time menjadi %d detik"
 
 #: js/messages.php:153
 msgid "You can't change these variables. Please log in as root or contact your database administrator."
-msgstr ""
+msgstr "Anda tidak dapat mengubah variabel tersebut. Harap masuk sebagai root atau hubungi administrator basis data Anda."
 
 #: js/messages.php:154
 msgid "Change settings"
@@ -1825,23 +1826,23 @@ msgstr "Diferensial"
 #: js/messages.php:160
 #, php-format
 msgid "Divided by %s:"
-msgstr ""
+msgstr "Dibagi dengan %s:"
 
 #: js/messages.php:162
 msgid "From slow log"
-msgstr ""
+msgstr "Dari log lambat"
 
 #: js/messages.php:163
 msgid "From general log"
-msgstr ""
+msgstr "Dari log umum"
 
 #: js/messages.php:164
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "Menganalisis & memuat log. Mungkin perlu waktu."
 
 #: js/messages.php:165
 msgid "This column shows the amount of identical queries that are grouped together. However only the SQL query itself has been used as a grouping criteria, so the other attributes of queries, such as start time, may differ."
-msgstr ""
+msgstr "Kolom ini menunjukkan jumlah kueri identik yang dikelompokkan bersama. Namun, hanya kueri SQL yang digunakan sebagai kriteria pengelompokan. Atribut kueri lain, seperti waktu mulai, dapat berbeda."
 
 #: js/messages.php:166
 msgid "Since grouping of INSERTs queries has been selected, INSERT queries into the same table are also being grouped together, disregarding of the inserted data."
@@ -1899,11 +1900,11 @@ msgstr ""
 
 #: js/messages.php:184
 msgid "Reload page"
-msgstr "Muat ulang laman"
+msgstr "Muat ulang halaman"
 
 #: js/messages.php:186
 msgid "Affected rows:"
-msgstr ""
+msgstr "Baris yang terpengaruh:"
 
 #: js/messages.php:188
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
@@ -1978,12 +1979,12 @@ msgstr "Memproses"
 
 #: js/messages.php:212
 msgid "Processing Request"
-msgstr "Memproses permintaan"
+msgstr "Memproses Permintaan"
 
 #: js/messages.php:213
 #: libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
-msgstr "Error dalam memproses permintaan"
+msgstr "Galat sewaktu Memproses Permintaan"
 
 #: js/messages.php:214
 msgid "Dropping Column"
@@ -2075,11 +2076,11 @@ msgstr "Catatan: Jika berkas mengandung banyak tabel, mereka akan di gabung menj
 
 #: js/messages.php:254
 msgid "Hide query box"
-msgstr "Sembunyikan kotak query"
+msgstr "Sembunyikan kotak kueri"
 
 #: js/messages.php:255
 msgid "Show query box"
-msgstr "Tampilkan kotak query"
+msgstr "Tampilkan kotak kueri"
 
 #: js/messages.php:257
 #: tbl_row_action.php:28
@@ -2163,7 +2164,7 @@ msgstr "Pilih dua kolom"
 
 #: js/messages.php:288
 msgid "Select two different columns"
-msgstr ""
+msgstr "Pilih dua kolom yang berbeda"
 
 #: js/messages.php:291
 #: tbl_change.php:312
@@ -2209,7 +2210,7 @@ msgstr "Tambahkan pilihan untuk kolom"
 
 #: js/messages.php:320
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "Tekan escape untuk membatalkan pengeditan"
 
 #: js/messages.php:321
 msgid "You have edited some data and they have not been saved. Are you sure you want to leave this page before saving the data?"
@@ -2217,7 +2218,7 @@ msgstr ""
 
 #: js/messages.php:322
 msgid "Drag to reorder"
-msgstr ""
+msgstr "Seret untuk mengubah urutan"
 
 #: js/messages.php:323
 msgid "Click to sort"
@@ -2225,7 +2226,7 @@ msgstr "Klik untuk mengurutkan"
 
 #: js/messages.php:324
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "Klik untuk memberi/menghapus tanda"
 
 #: js/messages.php:325
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
@@ -2237,7 +2238,7 @@ msgstr ""
 
 #: js/messages.php:328
 msgid "You can also edit most columns<br />by clicking directly on their content."
-msgstr ""
+msgstr "Anda juga dapat mengedit sebagian besar<br />kolom dengan mengeklik langsung konten."
 
 #: js/messages.php:329
 msgid "Go to link"
@@ -2245,12 +2246,12 @@ msgstr "Tuju ke tautan"
 
 #: js/messages.php:332
 msgid "Generate password"
-msgstr "Menghasilkan kata sandi"
+msgstr "Hasilkan kata sandi"
 
 #: js/messages.php:333
 #: libraries/replication_gui.lib.php:369
 msgid "Generate"
-msgstr "Menghasilkan"
+msgstr "Hasilkan"
 
 #: js/messages.php:334
 msgid "Change Password"
@@ -2575,7 +2576,7 @@ msgstr ""
 #: libraries/File.class.php:260
 #: libraries/File.class.php:389
 msgid "Unknown error while uploading."
-msgstr "Terjadi galat yang tidak dikenal saat mengunggah."
+msgstr "Terjadi galat yang tidak dikenal sewaktu mengunggah."
 
 #: libraries/File.class.php:278
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
@@ -2603,7 +2604,7 @@ msgstr "Pengunggahan berkas dihentikan oleh ekstensi."
 
 #: libraries/File.class.php:296
 msgid "Unknown error in file upload."
-msgstr "Kesalahan yang tidak diketahui dalam pengunggahan berkas."
+msgstr "Galat tidak dikenal sewaktu mengunggah berkas."
 
 #: libraries/File.class.php:496
 msgid "Error moving the uploaded file, see [a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]"
@@ -2611,7 +2612,7 @@ msgstr "Kemungkinan hanya perkiraan saja. Lihat [a@./Documentation.html#faq1_11@
 
 #: libraries/File.class.php:508
 msgid "Error while moving uploaded file."
-msgstr "Terjadi galat saat memindahkan berkas unggahan."
+msgstr "Terjadi galat sewaktu memindahkan berkas unggahan."
 
 #: libraries/File.class.php:516
 msgid "Cannot read (moved) upload file."
@@ -2688,7 +2689,7 @@ msgstr "Basis data"
 #: tbl_relation.php:282
 #: view_operations.php:60
 msgid "Error"
-msgstr "Error"
+msgstr "Galat"
 
 # No difference between singular and plural in this case for Indonesian
 # language.
@@ -2716,7 +2717,7 @@ msgstr[0] "%1$d baris ditambahkan."
 
 #: libraries/PDF.class.php:81
 msgid "Error while creating PDF:"
-msgstr "Terjadi galat saat membuat PDF:"
+msgstr "Terjadi galat sewaktu membuat PDF:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
@@ -2732,7 +2733,7 @@ msgstr "Tidak ada tabel terakhir"
 
 #: libraries/StorageEngine.class.php:198
 msgid "There is no detailed status information available for this storage engine."
-msgstr "Informasi secara rinci tentang keadaan mesin penyimpan ini tidak ditemukan."
+msgstr "Informasi status detail mesin penyimpanan ini tidak tersedia."
 
 #: libraries/StorageEngine.class.php:334
 #, php-format
@@ -2747,7 +2748,7 @@ msgstr "%s didinonaktifkan untuk server MySQL ini."
 #: libraries/StorageEngine.class.php:341
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr "Server MySQL ini tidak mendukung mesin penyimpan %s."
+msgstr "Server MySQL ini tidak mendukung mesin penyimpanan %s."
 
 #: libraries/Table.class.php:329
 msgid "unknown table status: "
@@ -2765,7 +2766,7 @@ msgstr "Nama tabel tidak valid"
 #: libraries/Table.class.php:1143
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
-msgstr "Kesalahan mengganti nama table %1$s ke %2$s"
+msgstr "Galat sewaktu mengganti nama table %1$s menjadi %2$s"
 
 #: libraries/Table.class.php:1230
 #, php-format
@@ -2838,7 +2839,7 @@ msgstr "Anda mungkin belum membuat berkas konfigurasi. Anda bisa menggunakan %1$
 
 #: libraries/auth/config.auth.lib.php:109
 msgid "phpMyAdmin tried to connect to the MySQL server, and the server rejected the connection. You should check the host, username and password in your configuration and make sure that they correspond to the information given by the administrator of the MySQL server."
-msgstr "phpMyAdmin telah berusaha untuk membuka koneksi ke server MySQL tetapi koneksi ditolak oleh server. Silakan periksa kembali nama host, nama pengguna dan kata sandi pada berkas config.inc.php untuk memastikan kecocokannya dengan informasi yang telah diberikan oleh administrator server MySQL."
+msgstr "phpMyAdmin telah berusaha untuk membuka koneksi ke server MySQL tetapi koneksi ditolak oleh server. Harap periksa kembali nama host, nama pengguna dan kata sandi pada berkas config.inc.php untuk memastikan kecocokannya dengan informasi yang telah diberikan oleh administrator server MySQL."
 
 #: libraries/auth/cookie.auth.lib.php:35
 msgid "Failed to use Blowfish from mcrypt!"
@@ -2891,7 +2892,7 @@ msgstr "Masuk tanpa kata sandi tidak diperbolehkan dalam konfigurasi (lihat Allo
 #: libraries/auth/signon.auth.lib.php:239
 #, php-format
 msgid "No activity within %s seconds; please log in again"
-msgstr "Tidak ada aktivitas selama %s detik atau lebih. Silakan masuk kembali"
+msgstr "Tidak ada aktivitas selama %s detik atau lebih. Harap masuk kembali"
 
 #: libraries/auth/cookie.auth.lib.php:578
 #: libraries/auth/cookie.auth.lib.php:580
@@ -2927,7 +2928,7 @@ msgstr "Mengautentikasi..."
 
 #: libraries/blobstreaming.lib.php:272
 msgid "PBMS error"
-msgstr "Kesalahan PBMS"
+msgstr "Galat PBMS"
 
 #: libraries/blobstreaming.lib.php:306
 msgid "PBMS connection failed:"
@@ -3053,7 +3054,7 @@ msgstr "Indeks server tidak sah: %s"
 #: libraries/common.inc.php:647
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgstr "Hostname tidak sah untuk server %1$s. Silakan lihat kembali konfigurasi Anda."
+msgstr "Hostname tidak sah untuk server %1$s. Harap lihat kembali konfigurasi Anda."
 
 #: libraries/common.inc.php:656
 #: libraries/config/messages.inc.php:506
@@ -3152,7 +3153,7 @@ msgstr "Jelaskan SQL"
 
 #: libraries/common.lib.php:1168
 msgid "Skip Explain SQL"
-msgstr "Lewati penjelasan SQL"
+msgstr "Lewati Penjelasan SQL"
 
 #: libraries/common.lib.php:1203
 msgid "Without PHP Code"
@@ -3173,26 +3174,26 @@ msgstr "Segarkan"
 
 #: libraries/common.lib.php:1236
 msgid "Skip Validate SQL"
-msgstr "Melewati pengesahan (validation) SQL"
+msgstr "Lewati Validasi SQL"
 
 #: libraries/common.lib.php:1239
 #: libraries/config/messages.inc.php:487
 msgid "Validate SQL"
-msgstr "Mengesahkan (validate) SQL"
+msgstr "Validasi SQL"
 
 #: libraries/common.lib.php:1298
 msgid "Inline edit of this query"
-msgstr "Edit sisip untuk kueri ini"
+msgstr "Edit langsung kueri ini di tempat"
 
 #: libraries/common.lib.php:1300
 msgctxt "Inline edit query"
 msgid "Inline"
-msgstr "Sisip"
+msgstr "Edit di tempat"
 
 #: libraries/common.lib.php:1366
 #: sql.php:889
 msgid "Profiling"
-msgstr "Profiling"
+msgstr "Profil"
 
 #. l10n: shortcuts for Byte
 #: libraries/common.lib.php:1391
@@ -3229,7 +3230,7 @@ msgstr "Minggu"
 #: libraries/common.lib.php:1643
 #: libraries/transformations/text_plain__dateformat.inc.php:35
 msgid "%B %d, %Y at %I:%M %p"
-msgstr "%d. %B %Y jam %H:%M"
+msgstr "%d %B %Y pada %H.%M"
 
 #: libraries/common.lib.php:1976
 #, php-format
@@ -3433,11 +3434,11 @@ msgstr "Cepat - hanya menampilkan opsi untuk konfigurasi"
 
 #: libraries/config.values.php:104
 msgid "Custom - display all possible options to configure"
-msgstr "Custom - menampilkan semua opsi yang mungkin untuk konfigurasi"
+msgstr "Kustom - menampilkan semua opsi yang mungkin untuk konfigurasi"
 
 #: libraries/config.values.php:105
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr "Custom - seperti di atas, namun tanpa pilihan cepat/custom"
+msgstr "Kustom - seperti di atas, namun tanpa pilihan cepat/kustom"
 
 #: libraries/config.values.php:123
 msgid "complete inserts"
@@ -3575,7 +3576,7 @@ msgstr "Mengaktifkan ini memungkinkan halaman yang terletak pada domain yang ber
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
-msgstr "Ijinkan pembingkaian pihak ketiga"
+msgstr "Izinkan pembingkaian pihak ketiga"
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
@@ -3591,7 +3592,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight selected rows"
-msgstr ""
+msgstr "Sorot baris terpilih"
 
 #: libraries/config/messages.inc.php:27
 msgid "Row marker"
@@ -3615,15 +3616,15 @@ msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:32
 msgid "Defines which type of editing controls should be used for CHAR and VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/kbd] - allows newlines in columns"
-msgstr ""
+msgstr "Menentukan jenis masukan yang dipakai untuk kolom CHAR dan VARCHAR; [kbd]input[/kbd] - mengizinkan pembatasan panjang masukan, [kbd]textarea[/kbd] - mengizinkan baris baru dalam kolom"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
-msgstr ""
+msgstr "Pengeditan kolom CHAR"
 
 #: libraries/config/messages.inc.php:34
 msgid "Defines the minimum size for input fields generated for CHAR and VARCHAR columns"
-msgstr ""
+msgstr "Menentukan besar minimum isian masukan untuk kolom CHAR dan VARCHAR"
 
 #: libraries/config/messages.inc.php:35
 msgid "Minimum size for input field"
@@ -3631,7 +3632,7 @@ msgstr "Besar minimum isian masukan"
 
 #: libraries/config/messages.inc.php:36
 msgid "Defines the maximum size for input fields generated for CHAR and VARCHAR columns"
-msgstr ""
+msgstr "Menentukan besar maksimum isian masukan untuk kolom CHAR dan VARCHAR"
 
 #: libraries/config/messages.inc.php:37
 msgid "Maximum size for input field"
@@ -3639,23 +3640,23 @@ msgstr "Besar maksimum isian masukan"
 
 #: libraries/config/messages.inc.php:38
 msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Jumlah kolom textarea CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:39
 msgid "CHAR textarea columns"
-msgstr ""
+msgstr "Kolom textarea CHAR"
 
 #: libraries/config/messages.inc.php:40
 msgid "Number of rows for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Jumlah baris textarea CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:41
 msgid "CHAR textarea rows"
-msgstr ""
+msgstr "Baris textarea CHAR"
 
 #: libraries/config/messages.inc.php:42
 msgid "Check config file permissions"
-msgstr ""
+msgstr "Periksa izin berkas config"
 
 #: libraries/config/messages.inc.php:43
 msgid "Compress gzip/bzip2 exports on the fly without the need for much memory; if you encounter problems with created gzip/bzip2 files disable this feature"
@@ -3663,7 +3664,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:44
 msgid "Compress on the fly"
-msgstr ""
+msgstr "Pampatkan sambil jalan"
 
 #: libraries/config/messages.inc.php:45
 #: setup/frames/config.inc.php:25
@@ -3677,11 +3678,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:47
 msgid "Confirm DROP queries"
-msgstr ""
+msgstr "Konfirmasi kueri DROP"
 
 #: libraries/config/messages.inc.php:48
 msgid "Debug SQL"
-msgstr ""
+msgstr "Debug SQL"
 
 #: libraries/config/messages.inc.php:49
 msgid "Default display direction"
@@ -3849,7 +3850,7 @@ msgstr "Ganti NULL dengan"
 #: libraries/config/messages.inc.php:80
 #: libraries/config/messages.inc.php:86
 msgid "Remove CRLF characters within columns"
-msgstr ""
+msgstr "Hapus karakter CRLF dalam kolom"
 
 #: libraries/config/messages.inc.php:81
 #: libraries/config/messages.inc.php:247
@@ -3864,7 +3865,7 @@ msgstr "Kolom diakhiri oleh"
 #: libraries/import/csv.php:86
 #: libraries/import/ldi.php:44
 msgid "Lines terminated by"
-msgstr "Garis diputuskan oleh"
+msgstr "Baris diakhiri oleh"
 
 #: libraries/config/messages.inc.php:84
 msgid "Excel edition"
@@ -3984,20 +3985,20 @@ msgstr "Tanpa pemeriksaan kunci asing"
 
 #: libraries/config/messages.inc.php:130
 msgid "Use hexadecimal for BLOB"
-msgstr ""
+msgstr "Gunakan heksadesimal untuk BLOB"
 
 #: libraries/config/messages.inc.php:132
 msgid "Use ignore inserts"
-msgstr "Gunakan perintah INSERT dengan mengabaikan kesalahan"
+msgstr "Gunakan INSERT dengan IGNORE"
 
 #: libraries/config/messages.inc.php:134
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "Sintaks yang digunakan sewaktu menambahkan data"
 
 #: libraries/config/messages.inc.php:135
 #: libraries/export/sql.php:285
 msgid "Maximal length of created query"
-msgstr ""
+msgstr "Panjang maksimum kueri yang dibuat"
 
 #: libraries/config/messages.inc.php:140
 msgid "Export type"
@@ -4014,11 +4015,11 @@ msgstr "Ekspor waktu dalam UTC"
 
 #: libraries/config/messages.inc.php:150
 msgid "Force secured connection while using phpMyAdmin"
-msgstr ""
+msgstr "Paksa koneksi aman sewaktu menggunakan phpMyAdmin"
 
 #: libraries/config/messages.inc.php:151
 msgid "Force SSL connection"
-msgstr ""
+msgstr "Paksa koneksi SSL"
 
 #: libraries/config/messages.inc.php:152
 msgid "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is the referenced data, [kbd]id[/kbd] is the key value"
@@ -4026,7 +4027,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:153
 msgid "Foreign key dropdown order"
-msgstr ""
+msgstr "Urutan tarik turun foreign key"
 
 #: libraries/config/messages.inc.php:154
 msgid "A dropdown will be used if fewer items are present"
@@ -4034,7 +4035,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:155
 msgid "Foreign key limit"
-msgstr ""
+msgstr "Batas foreign key"
 
 #: libraries/config/messages.inc.php:156
 msgid "Browse mode"
@@ -4070,7 +4071,7 @@ msgstr "Pengembang"
 
 #: libraries/config/messages.inc.php:163
 msgid "Settings for phpMyAdmin developers"
-msgstr ""
+msgstr "Pengaturan untuk pengembang phpMyAdmin"
 
 #: libraries/config/messages.inc.php:164
 msgid "Edit mode"
@@ -4116,7 +4117,7 @@ msgstr "Impor / ekspor"
 
 #: libraries/config/messages.inc.php:176
 msgid "Set import and export directories and compression options"
-msgstr ""
+msgstr "Tetapkan opsi direktori dan kompresi impor dan ekspor"
 
 #: libraries/config/messages.inc.php:177
 #: libraries/export/latex.php:27
@@ -4169,11 +4170,11 @@ msgstr "Pengaturan utama lain"
 
 #: libraries/config/messages.inc.php:193
 msgid "Settings that didn't fit enywhere else"
-msgstr ""
+msgstr "Pengaturan yang tidak masuk di mana pun"
 
 #: libraries/config/messages.inc.php:194
 msgid "Page titles"
-msgstr "Judul laman"
+msgstr "Judul halaman"
 
 #: libraries/config/messages.inc.php:195
 msgid "Specify browser's title bar text. Refer to [a@Documentation.html#cfg_TitleTable]documentation[/a] for magic strings that can be used to get special values."
@@ -4220,7 +4221,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:205
 msgid "Enter server connection parameters"
-msgstr ""
+msgstr "Masukkan parameter koneksi server"
 
 #: libraries/config/messages.inc.php:206
 msgid "Configuration storage"
@@ -4232,7 +4233,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:208
 msgid "Changes tracking"
-msgstr ""
+msgstr "Pelacakan perubahan"
 
 #: libraries/config/messages.inc.php:209
 msgid "Tracking of changes made in database. Requires the phpMyAdmin configuration storage."
@@ -4286,7 +4287,7 @@ msgstr "Awal"
 
 #: libraries/config/messages.inc.php:225
 msgid "Customize startup page"
-msgstr "Atur laman awal"
+msgstr "Atur halaman awal"
 
 #: libraries/config/messages.inc.php:226
 msgid "Tabs"
@@ -4294,7 +4295,7 @@ msgstr "Tab"
 
 #: libraries/config/messages.inc.php:227
 msgid "Choose how you want tabs to work"
-msgstr ""
+msgstr "Pilih cara kerja tab yang Anda inginkan"
 
 #: libraries/config/messages.inc.php:228
 msgid "Text fields"
@@ -4335,7 +4336,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:238
 msgid "Ignore multiple statement errors"
-msgstr ""
+msgstr "Abaikan galat perintah jamak"
 
 #: libraries/config/messages.inc.php:239
 msgid "Allow interrupt of import in case script detects it is close to time limit. This might be good way to import large files, however it can break transactions."
@@ -4343,14 +4344,14 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:240
 msgid "Partial import: allow interrupt"
-msgstr ""
+msgstr "Impor parsial: izinkan interupsi"
 
 #: libraries/config/messages.inc.php:245
 #: libraries/config/messages.inc.php:252
 #: libraries/import/csv.php:27
 #: libraries/import/ldi.php:40
 msgid "Do not abort on INSERT error"
-msgstr ""
+msgstr "Jangan gugurkan sewaktu galat INSERT"
 
 #: libraries/config/messages.inc.php:246
 #: libraries/config/messages.inc.php:254
@@ -4365,12 +4366,12 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:249
 msgid "Format of imported file"
-msgstr ""
+msgstr "Format berkas impor"
 
 #: libraries/config/messages.inc.php:253
 #: libraries/import/ldi.php:46
 msgid "Use LOCAL keyword"
-msgstr ""
+msgstr "Gunakan kata kunci LOCAL"
 
 #: libraries/config/messages.inc.php:256
 #: libraries/config/messages.inc.php:264
@@ -4381,23 +4382,23 @@ msgstr "Nama kolom pada baris pertama"
 #: libraries/config/messages.inc.php:257
 #: libraries/import/ods.php:34
 msgid "Do not import empty rows"
-msgstr ""
+msgstr "Jangan impor baris kosong"
 
 #: libraries/config/messages.inc.php:258
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr ""
+msgstr "Impor mata uang ($5.00 menjadi 5.00)"
 
 #: libraries/config/messages.inc.php:259
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr ""
+msgstr "Impor persentase menjadi nilai desimal (12.00% menjadi .12)"
 
 #: libraries/config/messages.inc.php:260
 msgid "Number of queries to skip from start"
-msgstr ""
+msgstr "Jumlah kueri yang dilewati dari awal"
 
 #: libraries/config/messages.inc.php:261
 msgid "Partial import: skip queries"
-msgstr ""
+msgstr "Impor parsial: lewati kueri"
 
 #: libraries/config/messages.inc.php:263
 msgid "Do not use AUTO_INCREMENT for zero values"
@@ -4405,11 +4406,11 @@ msgstr "Jangan gunakan AUTO_INCREMENT untuk nilai nol"
 
 #: libraries/config/messages.inc.php:266
 msgid "Initial state for sliders"
-msgstr ""
+msgstr "Kondisi awal slider"
 
 #: libraries/config/messages.inc.php:267
 msgid "How many rows can be inserted at one time"
-msgstr ""
+msgstr "Jumlah baris yang dapat ditambahkan dalam satu waktu"
 
 #: libraries/config/messages.inc.php:268
 msgid "Number of inserted rows"
@@ -4485,7 +4486,7 @@ msgstr "URL tautan logo"
 
 #: libraries/config/messages.inc.php:286
 msgid "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one ([kbd]new[/kbd])"
-msgstr "Buka laman tertaut di jendela utama ([kbd]main[/kbd]) atau jendela baru ([kbd]new[/kbd])"
+msgstr "Buka halaman tertaut di jendela utama ([kbd]main[/kbd]) atau jendela baru ([kbd]new[/kbd])"
 
 #: libraries/config/messages.inc.php:287
 msgid "Logo link target"
@@ -4545,7 +4546,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:301
 msgid "Login cookie store"
-msgstr "Simpanan kuki masuk"
+msgstr "Penyimpanan kuki masuk"
 
 #: libraries/config/messages.inc.php:302
 msgid "Define how long (in seconds) a login cookie is valid"
@@ -4565,7 +4566,7 @@ msgstr "Textarea lebih besar untuk LONGTEXT"
 
 #: libraries/config/messages.inc.php:306
 msgid "Use icons on main page"
-msgstr "Gunakan ikon pada laman utama"
+msgstr "Gunakan ikon pada halaman utama"
 
 #: libraries/config/messages.inc.php:307
 msgid "Maximum number of characters used when a SQL query is displayed"
@@ -4676,7 +4677,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:334
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr ""
+msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan"
 
 #: libraries/config/messages.inc.php:336
 msgid "Iconic table operations"
@@ -4684,11 +4685,11 @@ msgstr "Operasi tabel dengan ikon"
 
 #: libraries/config/messages.inc.php:337
 msgid "Disallow BLOB and BINARY columns from editing"
-msgstr ""
+msgstr "Nonaktifkan penyuntingan kolom BLOB dan BINARY"
 
 #: libraries/config/messages.inc.php:338
 msgid "Protect binary columns"
-msgstr ""
+msgstr "Lindungi kolom biner"
 
 #: libraries/config/messages.inc.php:339
 msgid "Enable if you want DB-based query history (requires phpMyAdmin configuration storage). If disabled, this utilizes JS-routines to display query history (lost by window close)."
@@ -4696,27 +4697,27 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:340
 msgid "Permanent query history"
-msgstr ""
+msgstr "Riwayat kueri permanen"
 
 #: libraries/config/messages.inc.php:342
 msgid "How many queries are kept in history"
-msgstr ""
+msgstr "Jumlah kueri yang disimpan dalam riwayat"
 
 #: libraries/config/messages.inc.php:343
 msgid "Query history length"
-msgstr ""
+msgstr "Panjang riwayat kueri"
 
 #: libraries/config/messages.inc.php:344
 msgid "Tab displayed when opening a new query window"
-msgstr ""
+msgstr "Tab yang ditampilkan sewaktu membuka jendela kueri baru"
 
 #: libraries/config/messages.inc.php:345
 msgid "Default query window tab"
-msgstr ""
+msgstr "Tab jendela kueri bawaan"
 
 #: libraries/config/messages.inc.php:346
 msgid "Query window height (in pixels)"
-msgstr ""
+msgstr "Tinggi jendela kueri (dalam piksel)"
 
 #: libraries/config/messages.inc.php:347
 msgid "Query window height"
@@ -4736,7 +4737,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:351
 msgid "Recoding engine"
-msgstr ""
+msgstr "Mesin pengode ulang"
 
 #: libraries/config/messages.inc.php:352
 msgid "When browsing tables, the sorting of each table is remembered"
@@ -4752,7 +4753,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:355
 msgid "Repeat headers"
-msgstr "Ulangi kepala"
+msgstr "Ulangi judul"
 
 #: libraries/config/messages.inc.php:356
 msgid "Show help button instead of Documentation text"
@@ -4764,11 +4765,11 @@ msgstr "Tampilkan tombol bantuan"
 
 #: libraries/config/messages.inc.php:359
 msgid "Save all edited cells at once"
-msgstr ""
+msgstr "Simpan semua sel yang disunting sekaligus"
 
 #: libraries/config/messages.inc.php:360
 msgid "Directory where exports can be saved on server"
-msgstr ""
+msgstr "Direktori penyimpanan ekspor di server"
 
 #: libraries/config/messages.inc.php:361
 msgid "Save directory"
@@ -4776,19 +4777,19 @@ msgstr "Direktori penyimpanan"
 
 #: libraries/config/messages.inc.php:362
 msgid "Leave blank if not used"
-msgstr ""
+msgstr "Biarkan kosong jika tidak digunakan"
 
 #: libraries/config/messages.inc.php:363
 msgid "Host authorization order"
-msgstr ""
+msgstr "Urutan otorisasi inang"
 
 #: libraries/config/messages.inc.php:364
 msgid "Leave blank for defaults"
-msgstr ""
+msgstr "Biarkan kosong untuk menggunakan bawaan"
 
 #: libraries/config/messages.inc.php:365
 msgid "Host authorization rules"
-msgstr ""
+msgstr "Aturan otorisasi inang"
 
 #: libraries/config/messages.inc.php:366
 msgid "Allow logins without a password"
@@ -4804,7 +4805,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:369
 msgid "HTTP Realm"
-msgstr ""
+msgstr "HTTP Realm"
 
 #: libraries/config/messages.inc.php:370
 msgid "The path for the config file for [a@http://swekey.com]SweKey hardware authentication[/a] (not located in your document root; suggested: /etc/swekey.conf)"
@@ -4812,16 +4813,16 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:371
 msgid "SweKey config file"
-msgstr ""
+msgstr "Berkas config SweKey"
 
 #: libraries/config/messages.inc.php:372
 msgid "Authentication method to use"
-msgstr ""
+msgstr "Metode autentikasi yang dipakai"
 
 #: libraries/config/messages.inc.php:373
 #: setup/frames/index.inc.php:127
 msgid "Authentication type"
-msgstr ""
+msgstr "Jenis autentikasi"
 
 #: libraries/config/messages.inc.php:374
 msgid "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] support, suggested: [kbd]pma_bookmark[/kbd]"
@@ -4829,7 +4830,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:375
 msgid "Bookmark table"
-msgstr ""
+msgstr "Tabel markah"
 
 #: libraries/config/messages.inc.php:376
 msgid "Leave blank for no column comments/mime types, suggested: [kbd]pma_column_info[/kbd]"
@@ -4837,7 +4838,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:377
 msgid "Column information table"
-msgstr ""
+msgstr "Tabel informasi kolom"
 
 #: libraries/config/messages.inc.php:378
 msgid "Compress connection to MySQL server"
@@ -4845,7 +4846,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:379
 msgid "Compress connection"
-msgstr ""
+msgstr "Pampatkan koneksi"
 
 #: libraries/config/messages.inc.php:380
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
@@ -4857,7 +4858,7 @@ msgstr "Jenis koneksi"
 
 #: libraries/config/messages.inc.php:382
 msgid "Control user password"
-msgstr ""
+msgstr "Sandi pengguna pengendali"
 
 #: libraries/config/messages.inc.php:383
 msgid "A special MySQL user configured with limited permissions, more information available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
@@ -4865,7 +4866,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:384
 msgid "Control user"
-msgstr ""
+msgstr "Pengguna pengendali"
 
 #: libraries/config/messages.inc.php:385
 msgid "An alternate host to hold the configuration storage; leave blank to use the already defined host"
@@ -4877,7 +4878,7 @@ msgstr "Inang pengendali"
 
 #: libraries/config/messages.inc.php:387
 msgid "Count tables when showing database list"
-msgstr ""
+msgstr "Hitung tabel sewaktu menunjukkan daftar basis data"
 
 #: libraries/config/messages.inc.php:388
 msgid "Count tables"
@@ -4897,7 +4898,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:392
 msgid "Disable use of INFORMATION_SCHEMA"
-msgstr ""
+msgstr "Noaktifkan penggunaan INFORMATION_SCHEMA"
 
 #: libraries/config/messages.inc.php:393
 msgid "What PHP extension to use; you should use mysqli if supported"
@@ -4905,7 +4906,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:394
 msgid "PHP extension to use"
-msgstr ""
+msgstr "Ekstensi PHP yang dipakai"
 
 #: libraries/config/messages.inc.php:395
 msgid "Hide databases matching regular expression (PCRE)"
@@ -4925,7 +4926,7 @@ msgstr "Tabel riwayat kueri SQL"
 
 #: libraries/config/messages.inc.php:399
 msgid "Hostname where MySQL server is running"
-msgstr ""
+msgstr "Nama inang yang menjalankan server MySQL"
 
 #: libraries/config/messages.inc.php:400
 msgid "Server hostname"
@@ -4933,7 +4934,7 @@ msgstr "Nama inang server"
 
 #: libraries/config/messages.inc.php:401
 msgid "Logout URL"
-msgstr ""
+msgstr "URL keluar"
 
 #: libraries/config/messages.inc.php:402
 msgid "This configuration make sure that we only keep N (N = MaxTableUiprefs) newest record in \"table_uiprefs\" and automatically delete older records"
@@ -4945,7 +4946,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:404
 msgid "Try to connect without password"
-msgstr ""
+msgstr "Coba koneksi tanpa sandi"
 
 #: libraries/config/messages.inc.php:405
 msgid "Connect without password"
@@ -4966,7 +4967,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:409
 msgid "Password for config auth"
-msgstr ""
+msgstr "Sandi untuk autentikasi config"
 
 #: libraries/config/messages.inc.php:410
 msgid "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
@@ -4974,7 +4975,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:411
 msgid "PDF schema: pages table"
-msgstr ""
+msgstr "Skema PDF: tabel halaman"
 
 #: libraries/config/messages.inc.php:412
 msgid "Database used for relations, bookmarks, and PDF features. See [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for no support. Suggested: [kbd]phpmyadmin[/kbd]"
@@ -5010,11 +5011,11 @@ msgstr "Tabel relasi"
 
 #: libraries/config/messages.inc.php:420
 msgid "SQL command to fetch available databases"
-msgstr ""
+msgstr "Perintah SQL untuk mengambil basis data yang tersedia"
 
 #: libraries/config/messages.inc.php:421
 msgid "SHOW DATABASES command"
-msgstr ""
+msgstr "Perintah SHOW DATABASES"
 
 #: libraries/config/messages.inc.php:422
 msgid "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types[/a] for an example"
@@ -5022,11 +5023,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:423
 msgid "Signon session name"
-msgstr ""
+msgstr "Nama sesi Signon"
 
 #: libraries/config/messages.inc.php:424
 msgid "Signon URL"
-msgstr ""
+msgstr "URL Signon"
 
 #: libraries/config/messages.inc.php:425
 msgid "Socket on which MySQL server is listening, leave empty for default"
@@ -5038,11 +5039,11 @@ msgstr "Socket server"
 
 #: libraries/config/messages.inc.php:427
 msgid "Enable SSL for connection to MySQL server"
-msgstr ""
+msgstr "Aktifkan SSL untuk koneksi ke server MySQL"
 
 #: libraries/config/messages.inc.php:428
 msgid "Use SSL"
-msgstr ""
+msgstr "Gunakan SSL"
 
 #: libraries/config/messages.inc.php:429
 msgid "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
@@ -5050,7 +5051,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:430
 msgid "PDF schema: table coordinates"
-msgstr ""
+msgstr "Skema PDF: koordinat tabel"
 
 #: libraries/config/messages.inc.php:431
 msgid "Table to describe the display columns, leave blank for no support; suggested: [kbd]pma_table_info[/kbd]"
@@ -5106,7 +5107,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:444
 msgid "SQL query tracking table"
-msgstr ""
+msgstr "Tabel pelacakan kueri SQL"
 
 #: libraries/config/messages.inc.php:445
 msgid "Whether the tracking mechanism creates versions for tables and views automatically."
@@ -5118,39 +5119,39 @@ msgstr "Buat versi secara otomatis"
 
 #: libraries/config/messages.inc.php:447
 msgid "Leave blank for no user preferences storage in database, suggested: [kbd]pma_userconfig[/kbd]"
-msgstr ""
+msgstr "Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, saran: [kbd]pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:448
 msgid "User preferences storage table"
-msgstr ""
+msgstr "Tabel penyimpanan preferensi pengguna"
 
 #: libraries/config/messages.inc.php:450
 msgid "User for config auth"
-msgstr ""
+msgstr "Pengguna autentikasi config"
 
 #: libraries/config/messages.inc.php:451
 msgid "Disable if you know that your pma_* tables are up to date. This prevents compatibility checks and thereby increases performance"
-msgstr ""
+msgstr "Nonaktifkan jika yakin semua tabel pma_* Anda terbarui. Hal ini akan mencegah pemeriksaan kompatibilitas dan meningkatkan kinerja"
 
 #: libraries/config/messages.inc.php:452
 msgid "Verbose check"
-msgstr ""
+msgstr "Pemeriksaan terperinci"
 
 #: libraries/config/messages.inc.php:453
 msgid "A user-friendly description of this server. Leave blank to display the hostname instead."
-msgstr ""
+msgstr "Deskripsi server yang lebih jelas. Biarkan kosong untuk menampilkan nama inang saja."
 
 #: libraries/config/messages.inc.php:454
 msgid "Verbose name of this server"
-msgstr ""
+msgstr "Nama deskriptif server"
 
 #: libraries/config/messages.inc.php:455
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
-msgstr ""
+msgstr "Tampilkan tombol &quot;tampilkan semua (baris)&quot; kepada pengguna"
 
 #: libraries/config/messages.inc.php:456
 msgid "Allow to display all the rows"
-msgstr ""
+msgstr "Izinkan tampilan semua baris"
 
 #: libraries/config/messages.inc.php:457
 msgid "Please note that enabling this has no effect with [kbd]config[/kbd] authentication mode because the password is hard coded in the configuration file; this does not limit the ability to execute the same command directly"
@@ -5182,11 +5183,11 @@ msgstr "Tampilkan jenis isian"
 
 #: libraries/config/messages.inc.php:464
 msgid "Display the function fields in edit/insert mode"
-msgstr ""
+msgstr "Menampilkan isian fungsi pada modus edit/tambahkan"
 
 #: libraries/config/messages.inc.php:465
 msgid "Show function fields"
-msgstr ""
+msgstr "Tampilkan isian fungsi"
 
 #: libraries/config/messages.inc.php:466
 msgid "Whether to show hint or not"
@@ -5198,15 +5199,15 @@ msgstr "Tampilkan petunjuk"
 
 #: libraries/config/messages.inc.php:468
 msgid "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] output"
-msgstr ""
+msgstr "Tampilkan tautan untuk melihat hasil [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a]"
 
 #: libraries/config/messages.inc.php:469
 msgid "Show phpinfo() link"
-msgstr ""
+msgstr "Tampilkan tautan phpinfo()"
 
 #: libraries/config/messages.inc.php:470
 msgid "Show detailed MySQL server information"
-msgstr ""
+msgstr "Tampilkan informasi detail server MySQL"
 
 #: libraries/config/messages.inc.php:471
 msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
@@ -5230,7 +5231,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:476
 msgid "Display database comment instead of its name"
-msgstr ""
+msgstr "Tampilkan komentar basis data dan bukan namanya"
 
 #: libraries/config/messages.inc.php:477
 msgid "When setting this to [kbd]nested[/kbd], the alias of the table name is only used to split/nest the tables according to the $cfg['LeftFrameTableSeparator'] directive, so only the folder is called like the alias, the table name itself stays unchanged"
@@ -5238,11 +5239,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:478
 msgid "Display table comment instead of its name"
-msgstr ""
+msgstr "Tampilkan komentar tabel dan bukan namanya"
 
 #: libraries/config/messages.inc.php:479
 msgid "Display table comments in tooltips"
-msgstr ""
+msgstr "Tampilkan komentar tabel pada balon informasi"
 
 #: libraries/config/messages.inc.php:480
 msgid "Mark used tables and make it possible to show databases with locked tables"
@@ -5250,7 +5251,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:481
 msgid "Skip locked tables"
-msgstr ""
+msgstr "Lewati tabel terkunci"
 
 #: libraries/config/messages.inc.php:486
 msgid "Requires SQL Validator to be enabled"
@@ -5277,7 +5278,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:490
 msgid "Enable SQL Validator"
-msgstr ""
+msgstr "Aktifkan Validator SQL"
 
 #: libraries/config/messages.inc.php:491
 msgid "If you have a custom username, specify it here (defaults to [kbd]anonymous[/kbd])"
@@ -5291,19 +5292,19 @@ msgstr "Nama Pengguna"
 
 #: libraries/config/messages.inc.php:493
 msgid "Suggest a database name on the &quot;Create Database&quot; form (if possible) or keep the text field empty"
-msgstr ""
+msgstr "Sarankan suatu nama basis data pada formulir &quot;Buat Basis Data&quot; (jika mungkin) atau biarkan isian teks kosong"
 
 #: libraries/config/messages.inc.php:494
 msgid "Suggest new database name"
-msgstr ""
+msgstr "Sarankan nama basis data baru"
 
 #: libraries/config/messages.inc.php:495
 msgid "A warning is displayed on the main page if Suhosin is detected"
-msgstr ""
+msgstr "Menampilkan peringatan pada halaman utama jika Suhosin terdeteksi"
 
 #: libraries/config/messages.inc.php:496
 msgid "Suhosin warning"
-msgstr ""
+msgstr "Peringatan Suhosin"
 
 #: libraries/config/messages.inc.php:497
 msgid "Textarea size (columns) in edit mode, this value will be emphasized for SQL query textareas (*2) and for query window (*1.25)"
@@ -5319,7 +5320,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:500
 msgid "Textarea rows"
-msgstr ""
+msgstr "Baris textarea"
 
 #: libraries/config/messages.inc.php:501
 msgid "Title of browser window when a database is selected"
@@ -5347,7 +5348,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:510
 msgid "List of trusted proxies for IP allow/deny"
-msgstr ""
+msgstr "Daftar proksi tepercaya untuk allow/deny IP"
 
 #: libraries/config/messages.inc.php:511
 msgid "Directory on server where you can upload files for import"
@@ -5379,7 +5380,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:518
 msgid "Verbose multiple statements"
-msgstr ""
+msgstr "Uraikan perintah jamak"
 
 #: libraries/config/messages.inc.php:519
 #: setup/frames/index.inc.php:242
@@ -5408,7 +5409,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:523
 msgid "ZIP"
-msgstr ""
+msgstr "ZIP"
 
 #: libraries/config/setup.forms.php:41
 msgid "Config authentication"
@@ -5444,12 +5445,12 @@ msgstr "Open Document Spreadsheet"
 #: libraries/config/setup.forms.php:266
 #: libraries/config/user_preferences.forms.php:165
 msgid "Quick"
-msgstr ""
+msgstr "Cepat"
 
 #: libraries/config/setup.forms.php:270
 #: libraries/config/user_preferences.forms.php:169
 msgid "Custom"
-msgstr "Penyesuaian"
+msgstr "Kustom"
 
 #: libraries/config/setup.forms.php:291
 #: libraries/config/user_preferences.forms.php:189
@@ -5490,28 +5491,28 @@ msgstr ""
 
 #: libraries/config/validate.lib.php:254
 msgid "Empty username while using config authentication method"
-msgstr ""
+msgstr "Kosongkan nama pengguna sewaktu menggunakan metode autentikasi config"
 
 #: libraries/config/validate.lib.php:258
 msgid "Empty signon session name while using signon authentication method"
-msgstr ""
+msgstr "Kosongkan nama sesi signon sewaktu menggunakan metode autentikasi signon"
 
 #: libraries/config/validate.lib.php:262
 msgid "Empty signon URL while using signon authentication method"
-msgstr ""
+msgstr "Kosongkan URL signon sewaktu menggunakan metode autentikasi signon"
 
 #: libraries/config/validate.lib.php:295
 msgid "Empty phpMyAdmin control user while using pmadb"
-msgstr ""
+msgstr "Kosongkan pengguna pengendali phpMyAdmin sewaktu menggunakan pmadb"
 
 #: libraries/config/validate.lib.php:299
 msgid "Empty phpMyAdmin control user password while using pmadb"
-msgstr ""
+msgstr "Kosongkan sandi pengguna pengendali phpMyAdmin sewaktu menggunakan pmadb"
 
 #: libraries/config/validate.lib.php:385
 #, php-format
 msgid "Incorrect IP address: %s"
-msgstr ""
+msgstr "Alamat IP tidak tepat: %s"
 
 #. l10n: Please check that translation actually exists.
 #: libraries/core.lib.php:247
@@ -5522,7 +5523,7 @@ msgstr "en"
 #: libraries/core.lib.php:266
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr ""
+msgstr "Ekstensi %s tidak ditemukan. Harap periksa konfigurasi PHP Anda."
 
 #: libraries/core.lib.php:414
 msgid "possible deep recursion attack"
@@ -5538,7 +5539,7 @@ msgstr "Server tidak merespons."
 
 #: libraries/database_interface.lib.php:1772
 msgid "Please check privileges of directory containing database."
-msgstr ""
+msgstr "Harap periksa hak akses direktori basis data."
 
 #: libraries/database_interface.lib.php:1780
 msgid "Details..."
@@ -5672,7 +5673,7 @@ msgstr "Jumlah kolom"
 
 #: libraries/display_export.lib.php:37
 msgid "Could not load export plugins, please check your installation!"
-msgstr "Tidak dapat memuat plugin export, silahkan periksa instalasi Anda!"
+msgstr "Tidak dapat memuat plugin export, harap periksa instalasi Anda!"
 
 #: libraries/display_export.lib.php:82
 msgid "Exporting databases from the current server"
@@ -5749,15 +5750,15 @@ msgstr "Templat nama berkas:"
 
 #: libraries/display_export.lib.php:224
 msgid "@SERVER@ will become the server name"
-msgstr ""
+msgstr "@SERVER@ akan menjadi nama server"
 
 #: libraries/display_export.lib.php:226
 msgid ", @DATABASE@ will become the database name"
-msgstr ""
+msgstr ", @DATABASE@ akan menjadi nama basis data"
 
 #: libraries/display_export.lib.php:228
 msgid ", @TABLE@ will become the table name"
-msgstr ""
+msgstr ", @TABLE@ akan menjadi nama tabel"
 
 #: libraries/display_export.lib.php:232
 #, php-format
@@ -5812,7 +5813,7 @@ msgstr ""
 #: libraries/display_export.lib.php:342
 #: libraries/display_import.lib.php:260
 msgid "Encoding Conversion:"
-msgstr ""
+msgstr "Konversi Pengodean:"
 
 #: libraries/display_import.lib.php:66
 msgid "The file being uploaded is probably larger than the maximum allowed size or this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) browsers."
@@ -6040,7 +6041,7 @@ msgstr "Pencarian dilakukan dalam %01.4f detik"
 
 #: libraries/display_tbl.lib.php:2575
 msgid "Query results operations"
-msgstr ""
+msgstr "Operasi hasil kueri"
 
 #: libraries/display_tbl.lib.php:2604
 msgid "Print view (with full texts)"
@@ -6061,7 +6062,7 @@ msgstr "Buat tampilan"
 
 #: libraries/display_tbl.lib.php:2798
 msgid "Link not found"
-msgstr "Link tidak ditemukan"
+msgstr "Tautan tidak ditemukan"
 
 #: libraries/engines/bdb.lib.php:20
 #: main.php:217
@@ -6070,7 +6071,7 @@ msgstr "Informasi versi"
 
 #: libraries/engines/innodb.lib.php:20
 msgid "Data home directory"
-msgstr "Home direktori data"
+msgstr "Direktori awal data"
 
 #: libraries/engines/innodb.lib.php:21
 msgid "The common part of the directory path for all InnoDB data files."
@@ -6086,28 +6087,28 @@ msgstr "Pembesaran otomatis"
 
 #: libraries/engines/innodb.lib.php:28
 msgid "The increment size for extending the size of an autoextending tablespace when it becomes full."
-msgstr " Ukuran bertahap dari pembesaran ruang tabel otomatis bila ia mempenuh."
+msgstr "Besar peningkatan ukuran ruang tabel yang otomatis ditambahkan sewaktu penuh."
 
 #: libraries/engines/innodb.lib.php:32
 msgid "Buffer pool size"
-msgstr "Ukuran penampungan buffer"
+msgstr "Besar penampungan penyangga"
 
 #: libraries/engines/innodb.lib.php:33
 msgid "The size of the memory buffer InnoDB uses to cache data and indexes of its tables."
-msgstr "Ukuran Memory Buffer yang digunakan oleh InnoDB untuk meng-cache data dan indeks dari tabelnya."
+msgstr "Besar penyangga memori yang digunakan oleh InnoDB untuk menyinggahkan data dan indeks dari tabelnya."
 
 #: libraries/engines/innodb.lib.php:130
 msgid "Buffer Pool"
-msgstr "Penampungan Buffer"
+msgstr "Penampungan Penyangga"
 
 #: libraries/engines/innodb.lib.php:131
 #: server_status.php:638
 msgid "InnoDB Status"
-msgstr "Status dari InnoDB"
+msgstr "Status InnoDB"
 
 #: libraries/engines/innodb.lib.php:153
 msgid "Buffer Pool Usage"
-msgstr "Penggunaan penampungan Buffer"
+msgstr "Penggunaan Penampungan Penyangga"
 
 #: libraries/engines/innodb.lib.php:161
 msgid "pages"
@@ -6127,7 +6128,7 @@ msgstr "Halaman yang berisi data"
 
 #: libraries/engines/innodb.lib.php:188
 msgid "Pages to be flushed"
-msgstr "Halaman yang akan di-flush"
+msgstr "Halaman yang akan dibersihkan"
 
 #: libraries/engines/innodb.lib.php:194
 msgid "Busy pages"
@@ -6139,7 +6140,7 @@ msgstr "Halaman yang dipalang"
 
 #: libraries/engines/innodb.lib.php:214
 msgid "Buffer Pool Activity"
-msgstr "Aktifitas penampungan Buffer"
+msgstr "Aktivitas Penampungan Penyangga"
 
 #: libraries/engines/innodb.lib.php:218
 msgid "Read requests"
@@ -6187,7 +6188,7 @@ msgstr "Ukuran maksimal untuk penyortiran berkas sementara"
 
 #: libraries/engines/myisam.lib.php:32
 msgid "The maximum size of the temporary file MySQL is allowed to use while re-creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA INFILE)."
-msgstr "Ukuran maksimal untuk berkas sementara yang diperbolehkan untuk digunakan oleh MySQL pada saat pembuatan ulang sebuah indeks MyISAM (sewaktu menjalankan REPAIR TABLE, ALTER TABLE, atau LOAD DATA INFILE)."
+msgstr "Ukuran maksimal untuk berkas sementara yang diperbolehkan untuk digunakan oleh MySQL pada sewaktu pembuatan ulang sebuah indeks MyISAM (sewaktu menjalankan REPAIR TABLE, ALTER TABLE, atau LOAD DATA INFILE)."
 
 #: libraries/engines/myisam.lib.php:36
 msgid "Maximum size for temporary files on index creation"
@@ -6211,7 +6212,7 @@ msgstr "Urutkan ukuran Buffer"
 
 #: libraries/engines/myisam.lib.php:47
 msgid "The buffer that is allocated when sorting MyISAM indexes during a REPAIR TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
-msgstr "Buffer yang dialokasikan bila menyortir indeks MyISAM pada saat REPAIR TABLE atau pada saat membuat indeks dengan cara CREATE INDEX atau cara ALTER TABLE."
+msgstr "Buffer yang dialokasikan bila menyortir indeks MyISAM pada saat REPAIR TABLE atau pada sewaktu membuat indeks dengan cara CREATE INDEX atau cara ALTER TABLE."
 
 #: libraries/engines/pbms.lib.php:30
 msgid "Garbage Threshold"
@@ -6265,7 +6266,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:60
 msgid "Metadata Headers"
-msgstr ""
+msgstr "Kepala Metadata"
 
 #: libraries/engines/pbms.lib.php:61
 msgid "A \":\" delimited list of metadata headers to be used to initialize the pbms_metadata_header table when a database is created."
@@ -6287,11 +6288,11 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:99
 msgid "PrimeBase XT Home Page"
-msgstr ""
+msgstr "Situs PrimeBase XT"
 
 #: libraries/engines/pbxt.lib.php:22
 msgid "Index cache size"
-msgstr ""
+msgstr "Besar singgahan indeks"
 
 #: libraries/engines/pbxt.lib.php:23
 msgid "This is the amount of memory allocated to the index cache. Default value is 32MB. The memory allocated here is used only for caching index pages."
@@ -6299,7 +6300,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:27
 msgid "Record cache size"
-msgstr ""
+msgstr "Besar singgahan data"
 
 #: libraries/engines/pbxt.lib.php:28
 msgid "This is the amount of memory allocated to the record cache used to cache table data. The default value is 32MB. This memory is used to cache changes to the handle data (.xtd) and row pointer (.xtr) files."
@@ -6307,7 +6308,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:32
 msgid "Log cache size"
-msgstr ""
+msgstr "Besar singgahan log"
 
 #: libraries/engines/pbxt.lib.php:33
 msgid "The amount of memory allocated to the transaction log cache used to cache on transaction log data. The default is 16MB."
@@ -6315,7 +6316,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:37
 msgid "Log file threshold"
-msgstr ""
+msgstr "Ambang berkas log"
 
 #: libraries/engines/pbxt.lib.php:38
 msgid "The size of a transaction log before rollover, and a new log is created. The default value is 16MB."
@@ -6323,7 +6324,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:42
 msgid "Transaction buffer size"
-msgstr ""
+msgstr "Besar penyangga transaksi"
 
 #: libraries/engines/pbxt.lib.php:43
 msgid "The size of the global transaction log buffer (the engine allocates 2 buffers of this size). The default is 1MB."
@@ -6331,7 +6332,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:47
 msgid "Checkpoint frequency"
-msgstr ""
+msgstr "Frekuensi checkpoint"
 
 #: libraries/engines/pbxt.lib.php:48
 msgid "The amount of data written to the transaction log before a checkpoint is performed. The default value is 24MB."
@@ -6339,7 +6340,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:52
 msgid "Data log threshold"
-msgstr ""
+msgstr "Ambang log data"
 
 #: libraries/engines/pbxt.lib.php:53
 msgid "The maximum size of a data log file. The default value is 64MB. PBXT can create a maximum of 32000 data logs, which are used by all tables. So the value of this variable can be increased to increase the total amount of data that can be stored in the database."
@@ -6347,7 +6348,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:57
 msgid "Garbage threshold"
-msgstr ""
+msgstr "Ambang sampah"
 
 #: libraries/engines/pbxt.lib.php:58
 msgid "The percentage of garbage in a data log file before it is compacted. This is a value between 1 and 99. The default is 50."
@@ -6363,7 +6364,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:67
 msgid "Data file grow size"
-msgstr ""
+msgstr "Besar pertumbuhan berkas data"
 
 #: libraries/engines/pbxt.lib.php:68
 msgid "The grow size of the handle data (.xtd) files."
@@ -6371,7 +6372,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:72
 msgid "Row file grow size"
-msgstr ""
+msgstr "Besar pertumbuhan berkas baris"
 
 #: libraries/engines/pbxt.lib.php:73
 msgid "The grow size of the row pointer (.xtr) files."
@@ -6379,7 +6380,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:77
 msgid "Log file count"
-msgstr ""
+msgstr "Jumlah berkas log"
 
 #: libraries/engines/pbxt.lib.php:78
 msgid "This is the number of transaction log files (pbxt/system/xlog*.xt) the system will maintain. If the number of logs exceeds this value then old logs will be deleted, otherwise they are renamed and given the next highest number."
@@ -6538,11 +6539,11 @@ msgstr "Versi PHP"
 
 #: libraries/export/mediawiki.php:15
 msgid "MediaWiki Table"
-msgstr ""
+msgstr "Tabel MediaWiki"
 
 #: libraries/export/pdf.php:18
 msgid "PDF"
-msgstr ""
+msgstr "PDF"
 
 #: libraries/export/pdf.php:24
 msgid "(Generates a report containing the data of a single table)"
@@ -6565,7 +6566,7 @@ msgid ""
 "Additional custom header comment (\\n"
 " splits lines):"
 msgstr ""
-"Menambahkan komentar kepala kustom (\\n"
+"Menambahkan komentar judul kustom (\\n"
 " memotong baris)"
 
 #: libraries/export/sql.php:50
@@ -6593,23 +6594,23 @@ msgstr ""
 
 #: libraries/export/sql.php:231
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr ""
+msgstr "Alih-alih perintah <code>INSERT</code>, gunakan:"
 
 #: libraries/export/sql.php:238
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr ""
+msgstr "perintah <code>INSERT DELAYED</code>"
 
 #: libraries/export/sql.php:245
 msgid "<code>INSERT IGNORE</code> statements"
-msgstr ""
+msgstr "perintah <code>INSERT IGNORE</code>"
 
 #: libraries/export/sql.php:255
 msgid "Function to use when dumping data:"
-msgstr ""
+msgstr "Fungsi yang digunakan sewaktu dump data:"
 
 #: libraries/export/sql.php:268
 msgid "Syntax to use when inserting data:"
-msgstr ""
+msgstr "Sintaks yang digunakan sewaktu menambah data:"
 
 #: libraries/export/sql.php:274
 msgid "include column names in every <code>INSERT</code> statement <br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>"
@@ -6831,7 +6832,7 @@ msgstr ""
 #: libraries/import/xml.php:83
 #: libraries/import/xml.php:139
 msgid "The XML file specified was either malformed or incomplete. Please correct the issue and try again."
-msgstr "Berkas XML yang ditentukan cacat atau tidak lengkap. Mohon perbaiki dan coba lagi."
+msgstr "Berkas XML yang ditentukan cacat atau tidak lengkap. Harap perbaiki dan coba lagi."
 
 #: libraries/import/shp.php:19
 msgid "ESRI Shape File"
@@ -6879,7 +6880,7 @@ msgstr "Dari"
 
 #: libraries/mult_submits.inc.php:257
 msgid "To"
-msgstr ""
+msgstr "Menjadi"
 
 #: libraries/mult_submits.inc.php:262
 #: libraries/mult_submits.inc.php:276
@@ -7126,7 +7127,7 @@ msgstr "Keluar"
 #: libraries/navigation_header.inc.php:117
 #: libraries/navigation_header.inc.php:119
 msgid "Reload navigation frame"
-msgstr ""
+msgstr "Muat ulang bingkai navigasi"
 
 #: libraries/plugin_interface.lib.php:309
 msgid "This format has no options"
@@ -7165,7 +7166,7 @@ msgstr "Harap pelajari dokumentasi tentang cara memperbarui tabel column_comment
 #: libraries/relation.lib.php:124
 #: libraries/sql_query_form.lib.php:368
 msgid "Bookmarked SQL query"
-msgstr "Ingat pada pencarian SQL "
+msgstr "Kueri SQL yang dimarkahi"
 
 #: libraries/relation.lib.php:128
 #: querywindow.php:74
@@ -7175,19 +7176,19 @@ msgstr "Riwayat SQL"
 
 #: libraries/relation.lib.php:136
 msgid "Persistent recently used tables"
-msgstr ""
+msgstr "Tabel baru digunakan persisten"
 
 #: libraries/relation.lib.php:140
 msgid "Persistent tables' UI preferences"
-msgstr ""
+msgstr "Tabel preferensi UI persisten"
 
 #: libraries/relation.lib.php:148
 msgid "User preferences"
-msgstr ""
+msgstr "Preferensi pengguna"
 
 #: libraries/relation.lib.php:152
 msgid "Quick steps to setup advanced features:"
-msgstr ""
+msgstr "Langkah cepat untuk menyiapkan fitur lanjut:"
 
 #: libraries/relation.lib.php:154
 msgid "Create the needed tables with the <code>script/create_tables.sql</code>."
@@ -7211,12 +7212,12 @@ msgstr "tidak ada deskripsi"
 
 #: libraries/replication_gui.lib.php:54
 msgid "Slave configuration"
-msgstr ""
+msgstr "Konfigurasi slave"
 
 #: libraries/replication_gui.lib.php:54
 #: server_replication.php:353
 msgid "Change or reconfigure master server"
-msgstr ""
+msgstr "Ubah atau konfigurasikan ulang server master"
 
 #: libraries/replication_gui.lib.php:55
 msgid "Make sure, you have unique server-id in your configuration file (my.cnf). If not, please add the following line into [mysqld] section:"
@@ -7236,11 +7237,11 @@ msgstr "Nama pengguna"
 
 #: libraries/replication_gui.lib.php:107
 msgid "Master status"
-msgstr ""
+msgstr "Status master"
 
 #: libraries/replication_gui.lib.php:109
 msgid "Slave status"
-msgstr ""
+msgstr "Status slave"
 
 #: libraries/replication_gui.lib.php:118
 #: libraries/sql_query_form.lib.php:380
@@ -7339,7 +7340,7 @@ msgstr ""
 
 #: libraries/rte/rte_events.lib.php:116
 msgid "Sorry, we failed to restore the dropped event."
-msgstr ""
+msgstr "Maaf, kami gagal memulihkan event yang dihapus."
 
 #: libraries/rte/rte_events.lib.php:117
 #: libraries/rte/rte_routines.lib.php:267
@@ -7373,7 +7374,7 @@ msgstr "Edit event"
 #: libraries/rte/rte_routines.lib.php:1311
 #: libraries/rte/rte_triggers.lib.php:187
 msgid "Error in processing request"
-msgstr "Galat saat memproses permintaan."
+msgstr "Galat sewaktu memproses permintaan."
 
 #: libraries/rte/rte_events.lib.php:371
 #: libraries/rte/rte_routines.lib.php:828
@@ -7398,11 +7399,11 @@ msgstr "Ubah menjadi %s"
 
 #: libraries/rte/rte_events.lib.php:422
 msgid "Execute at"
-msgstr ""
+msgstr "Dieksekusi pada"
 
 #: libraries/rte/rte_events.lib.php:430
 msgid "Execute every"
-msgstr ""
+msgstr "Dieksekusi setiap"
 
 #: libraries/rte/rte_events.lib.php:449
 msgctxt "Start of recurring event"
@@ -7438,23 +7439,23 @@ msgstr ""
 
 #: libraries/rte/rte_events.lib.php:525
 msgid "You must provide an event name"
-msgstr ""
+msgstr "Anda harus memasukkan nama event"
 
 #: libraries/rte/rte_events.lib.php:537
 msgid "You must provide a valid interval value for the event."
-msgstr ""
+msgstr "Anda harus memasukkan nilai interval yang valid untuk event."
 
 #: libraries/rte/rte_events.lib.php:549
 msgid "You must provide a valid execution time for the event."
-msgstr ""
+msgstr "Anda harus memasukkan waktu eksekusi yang valid untuk event."
 
 #: libraries/rte/rte_events.lib.php:553
 msgid "You must provide a valid type for the event."
-msgstr ""
+msgstr "Anda harus memasukkan jenis yang valid untuk event."
 
 #: libraries/rte/rte_events.lib.php:572
 msgid "You must provide an event definition."
-msgstr ""
+msgstr "Anda harus memasukkan definisi event."
 
 #: libraries/rte/rte_footer.lib.php:29
 msgid "New"
@@ -7493,7 +7494,7 @@ msgstr "Jenis routine invalid: \"%s\""
 
 #: libraries/rte/rte_routines.lib.php:266
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr ""
+msgstr "Maaf, kami gagal memulihkan routine yang dihapus."
 
 #: libraries/rte/rte_routines.lib.php:271
 #, php-format
@@ -7507,7 +7508,7 @@ msgstr "Routine %1$s telah dibuat."
 
 #: libraries/rte/rte_routines.lib.php:344
 msgid "Edit routine"
-msgstr ""
+msgstr "Edit routine"
 
 #: libraries/rte/rte_routines.lib.php:831
 msgid "Routine name"
@@ -7515,7 +7516,7 @@ msgstr "Nama routine"
 
 #: libraries/rte/rte_routines.lib.php:854
 msgid "Parameters"
-msgstr ""
+msgstr "Parameter"
 
 #: libraries/rte/rte_routines.lib.php:859
 msgid "Direction"
@@ -7536,7 +7537,7 @@ msgstr "Hapus parameter terakhir"
 
 #: libraries/rte/rte_routines.lib.php:886
 msgid "Return type"
-msgstr ""
+msgstr "Jenis hasil"
 
 #: libraries/rte/rte_routines.lib.php:892
 msgid "Return length/values"
@@ -7560,7 +7561,7 @@ msgstr "Akses data SQL"
 
 #: libraries/rte/rte_routines.lib.php:1010
 msgid "You must provide a routine name"
-msgstr ""
+msgstr "Anda harus memasukkan nama routine"
 
 #: libraries/rte/rte_routines.lib.php:1036
 #, php-format
@@ -7570,19 +7571,19 @@ msgstr ""
 #: libraries/rte/rte_routines.lib.php:1048
 #: libraries/rte/rte_routines.lib.php:1086
 msgid "You must provide length/values for routine parameters of type ENUM, SET, VARCHAR and VARBINARY."
-msgstr ""
+msgstr "Anda harus memasukkan panjang/nilai untuk parameter routine bagi jenis ENUM, SET, VARCHAR, dan VARBINARY."
 
 #: libraries/rte/rte_routines.lib.php:1066
 msgid "You must provide a name and a type for each routine parameter."
-msgstr ""
+msgstr "Anda harus memasukkan nama dan jenis setiap parameter routine."
 
 #: libraries/rte/rte_routines.lib.php:1076
 msgid "You must provide a valid return type for the routine."
-msgstr ""
+msgstr "Anda harus memasukkan jenis hasil yang valid untuk routine."
 
 #: libraries/rte/rte_routines.lib.php:1120
 msgid "You must provide a routine definition."
-msgstr ""
+msgstr "Anda harus memasukkan definisi routine."
 
 #: libraries/rte/rte_routines.lib.php:1209
 #, php-format
@@ -7614,7 +7615,7 @@ msgstr "Fungsi"
 
 #: libraries/rte/rte_triggers.lib.php:89
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr ""
+msgstr "Maaf, kami gagal memulihkan trigger yang dihapus."
 
 #: libraries/rte/rte_triggers.lib.php:94
 #, php-format
@@ -7636,15 +7637,15 @@ msgstr "Nama trigger"
 
 #: libraries/rte/rte_triggers.lib.php:405
 msgid "You must provide a trigger name"
-msgstr ""
+msgstr "Anda harus memasukkan nama trigger"
 
 #: libraries/rte/rte_triggers.lib.php:410
 msgid "You must provide a valid timing for the trigger"
-msgstr ""
+msgstr "Anda harus memasukkan waktu yang valid untuk trigger."
 
 #: libraries/rte/rte_triggers.lib.php:415
 msgid "You must provide a valid event for the trigger"
-msgstr ""
+msgstr "Anda harus memasukkan event yang valid untuk trigger."
 
 #: libraries/rte/rte_triggers.lib.php:421
 msgid "You must provide a valid table name"
@@ -7652,7 +7653,7 @@ msgstr "Anda harus memberikan nama tabel yang valid"
 
 #: libraries/rte/rte_triggers.lib.php:427
 msgid "You must provide a trigger definition."
-msgstr ""
+msgstr "Anda harus memasukkan definisi trigger."
 
 #: libraries/rte/rte_words.lib.php:18
 msgid "Add routine"
@@ -7748,7 +7749,7 @@ msgstr "Tabel %s tidak ditemukan!"
 #: libraries/schema/Visio_Relation_Schema.class.php:270
 #, php-format
 msgid "Please configure the coordinates for table %s"
-msgstr "Silakan konfigurasikan koordinasi bagi tabel %s"
+msgstr "Harap konfigurasikan koordinasi bagi tabel %s"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:823
 #: libraries/schema/Pdf_Relation_Schema.class.php:836
@@ -7756,7 +7757,7 @@ msgstr "Silakan konfigurasikan koordinasi bagi tabel %s"
 #: libraries/schema/Visio_Relation_Schema.class.php:537
 #, php-format
 msgid "Schema of the %s database - Page %s"
-msgstr "Skema basis data %s - Laman %s"
+msgstr "Skema basis data %s - Halaman %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:200
 msgid "This page does not contain any tables!"
@@ -7764,7 +7765,7 @@ msgstr ""
 
 #: libraries/schema/Export_Relation_Schema.class.php:228
 msgid "SCHEMA ERROR: "
-msgstr ""
+msgstr "GALAT SKEMA:"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:858
 #: libraries/schema/Pdf_Relation_Schema.class.php:1171
@@ -7791,11 +7792,11 @@ msgstr "Ekstra"
 
 #: libraries/schema/User_Schema.class.php:116
 msgid "Create a page"
-msgstr "Buat laman"
+msgstr "Buat halaman"
 
 #: libraries/schema/User_Schema.class.php:122
 msgid "Page name"
-msgstr "Nama laman"
+msgstr "Nama halaman"
 
 #: libraries/schema/User_Schema.class.php:126
 msgid "Automatic layout based on"
@@ -7807,15 +7808,15 @@ msgstr "Relasi internal"
 
 #: libraries/schema/User_Schema.class.php:139
 msgid "FOREIGN KEY"
-msgstr ""
+msgstr "FOREIGN KEY"
 
 #: libraries/schema/User_Schema.class.php:173
 msgid "Please choose a page to edit"
-msgstr "Silakan pilih halaman untuk diubah"
+msgstr "Harap pilih halaman untuk diubah"
 
 #: libraries/schema/User_Schema.class.php:178
 msgid "Select page"
-msgstr "Pilih laman"
+msgstr "Pilih halaman"
 
 #: libraries/schema/User_Schema.class.php:244
 msgid "Select Tables"
@@ -7847,7 +7848,7 @@ msgstr "Tampilkan seluruh tabel dengan lebar yang sama?"
 
 #: libraries/schema/User_Schema.class.php:425
 msgid "Only show keys"
-msgstr ""
+msgstr "Hanya tampilkan kunci"
 
 #: libraries/schema/User_Schema.class.php:427
 msgid "Landscape"
@@ -7883,7 +7884,7 @@ msgstr "ltr"
 #: libraries/select_lang.lib.php:505
 #, php-format
 msgid "Unknown language: %1$s."
-msgstr ""
+msgstr "Bahasa tidak dikenal: %1$s."
 
 #: libraries/select_server.lib.php:32
 #: libraries/select_server.lib.php:37
@@ -7921,7 +7922,7 @@ msgstr "Set Karakter"
 #: server_plugins.php:47
 #: server_plugins.php:80
 msgid "Plugins"
-msgstr ""
+msgstr "Plugin"
 
 #: libraries/server_links.inc.php:108
 msgid "Engines"
@@ -7940,7 +7941,7 @@ msgstr "Server saat ini"
 #: libraries/server_synchronize.lib.php:1290
 #: libraries/server_synchronize.lib.php:1298
 msgid "Remote server"
-msgstr ""
+msgstr "Server jauh"
 
 #: libraries/server_synchronize.lib.php:1293
 msgid "Difference"
@@ -7976,12 +7977,12 @@ msgstr "Kolom"
 #: sql.php:968
 #: sql.php:985
 msgid "Bookmark this SQL query"
-msgstr "Simpan pencarian SQL ini"
+msgstr "Markahi kueri SQL ini"
 
 #: libraries/sql_query_form.lib.php:307
 #: sql.php:979
 msgid "Let every user access this bookmark"
-msgstr "Izinkan semua pengguna untuk mengakses simpanan ini"
+msgstr "Izinkan semua pengguna untuk mengakses markah ini"
 
 #: libraries/sql_query_form.lib.php:313
 msgid "Replace existing bookmark of same name"
@@ -8010,11 +8011,11 @@ msgstr "direktori unggahan server web"
 
 #: libraries/sqlparser.lib.php:136
 msgid "There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem"
-msgstr "Rupanya ada Error pada Query SQL. Hasil dari MySQL server error dibawa ini, jika tertampil, akan menolong Anda untuk mengetahui penyebab dari problem tersebut."
+msgstr "Tampaknya ada galat pada kueri SQL Anda. Keluaran galat server MySQL di bawah, jika ada, mungkin dapat membantu Anda mendiagnosis masalah."
 
 #: libraries/sqlparser.lib.php:175
 msgid "There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:"
-msgstr "Mungkin Anda telah temukan sebuah Bug dalam parser SQL. Mohon periksa ulang pencarian SQL dengan teliti dan perhatikan apakah seluruh tanda petik benar dan seimbang. Penyebab kegagalan bisa terjadi bila Anda meng-upload sebuah file binari diluar teks kutipan. Silakan menjalankan ulang pencarian tersebut dengan menggunakan command line interface. Hasil dari MySQL server error, jika tertampil, akan menolong Anda untuk mengetahui penyebab dari masalah ini. Bila masalah ini tetap muncul atau Parser dari kami masih juga gagal meskipun pencarian melalui command line interface berhasil mohon kurangi input pada SQL query sampai pencarian yang menyebabkan masalah ini ditemukan. Mohon kirimkan sebuah Bug Report dengan cara menyisipkan data di bagian bawah ini kepada kami:"
+msgstr "Anda mungkin telah menemukan sebuah pada parser SQL. Harap periksa kueri Anda dengan teliti dan periksa apakah seluruh tanda petik benar dan seimbang. Kegagalan dapat juga terjadi sewaktu Anda mengunggah sebuah berkas dengan biner di luar teks kutipan. Anda dapat mencob kueri Anda dengan menggunakan CLI MySQL. Keluaran galat server MySQL di bawah, jika ada, mungkin dapat membantu Anda untuk mendiagnosis masalah ini. Jika masalah ini tetap muncul atau parser kami gagal meskipun CLI berhasil, harap kurangi masukan kueri SQL Anda sampai kueri tunggal yang menyebabkan masalah, lalu kirimkan laporan bug dengan potongan data pada bagian CUT di bawah ini:"
 
 #: libraries/sqlparser.lib.php:177
 msgid "BEGIN CUT"
@@ -8051,12 +8052,12 @@ msgstr "Punctation String tidak dikenali"
 #: libraries/sqlvalidator.lib.php:67
 #, php-format
 msgid "The SQL validator could not be initialized. Please check if you have installed the necessary PHP extensions as described in the %sdocumentation%s."
-msgstr "Pengesahan SQL tidak dapat disahkan. Mohon periksa kembali ekstension PHP yang diperlukan seperti yang tercatat dalam %sdokumentasi%s."
+msgstr "Validator SQL tidak dapat dijalankan. Harap periksa kembali ekstension PHP yang diperlukan seperti yang tercatat dalam %sdokumentasi%s."
 
 #: libraries/tbl_links.inc.php:118
 #: libraries/tbl_links.inc.php:119
 msgid "Table seems to be empty!"
-msgstr ""
+msgstr "Tampaknya tabel kosong!"
 
 #: libraries/tbl_links.inc.php:127
 #, php-format
@@ -8065,7 +8066,7 @@ msgstr "Pelacakan %s.%s diaktifkan."
 
 #: libraries/tbl_properties.inc.php:98
 msgid "If column type is \"enum\" or \"set\", please enter the values using this format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst those values, precede it with a backslash (for example '\\\\xyz' or 'a\\'b')."
-msgstr "Jika jenis kolom adalah \"enum\" atau \"set\", silakan masukkan nilai dengan format: 'a','b','c'...<br />Jika perlu memasukkan petik balik (\"\\\") atau petik tunggal (\"'\"), awali dengan petik balik (mis. '\\\\xyz' atau 'a\\'b')."
+msgstr "Jika jenis kolom adalah \"enum\" atau \"set\", harap masukkan nilai dengan format: 'a','b','c'...<br />Jika perlu memasukkan petik balik (\"\\\") atau petik tunggal (\"'\"), awali dengan petik balik (mis. '\\\\xyz' atau 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:99
 msgid "For default values, please enter just a single value, without backslash escaping or quotes, using this format: a"
@@ -8084,7 +8085,7 @@ msgstr "Indeks"
 #: libraries/tbl_properties.inc.php:129
 #, php-format
 msgid "For a list of available transformation options and their MIME type transformations, click on %stransformation descriptions%s"
-msgstr "Untuk tampilan daftar tentang pilihan transformasi dan transformasi jenis MIME-nya, silakan klik pada %sDeskripsi Transformasi%s"
+msgstr "Untuk tampilan daftar tentang pilihan transformasi dan transformasi jenis MIME-nya, harap klik pada %sDeskripsi Transformasi%s"
 
 #: libraries/tbl_properties.inc.php:137
 msgid "Transformation options"
@@ -8092,15 +8093,15 @@ msgstr "Pilihan transformasi"
 
 #: libraries/tbl_properties.inc.php:138
 msgid "Please enter the values for transformation options using this format: 'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst those values, precede it with a backslash (for example '\\\\xyz' or 'a\\'b')."
-msgstr "Mohon masukkan nilai untuk pilihan transformasi dengan menggunakan format sbb.: 'a', 100, b,'c'...<br />Bila sebuah Backslash (\"\\\") atau Single Quote (\"'\") diperlukan di antara nilai tersebut, mohon gunakan tanda Backslash (contoh: '\\\\xyz' atau 'a\\'b')."
+msgstr "Harap masukkan nilai untuk pilihan transformasi dengan menggunakan format sbb.: 'a', 100, b,'c'...<br />Bila sebuah Backslash (\"\\\") atau Single Quote (\"'\") diperlukan di antara nilai tersebut, harap gunakan tanda Backslash (contoh: '\\\\xyz' atau 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:321
 msgid "ENUM or SET data too long?"
-msgstr ""
+msgstr "Data ENUM atau SET terlalu panjang?"
 
 #: libraries/tbl_properties.inc.php:327
 msgid "Get more editing space"
-msgstr ""
+msgstr "Dapatkan ruang pengeditan lebih luas"
 
 #: libraries/tbl_properties.inc.php:351
 msgctxt "for default"
@@ -8146,11 +8147,11 @@ msgstr "Anda perlu menambahkan paling tidak satu kolom."
 #: server_engines.php:54
 #: tbl_operations.php:374
 msgid "Storage Engine"
-msgstr "Mesin Penyimpan"
+msgstr "Mesin Penyimpanan"
 
 #: libraries/tbl_properties.inc.php:693
 msgid "PARTITION definition"
-msgstr ""
+msgstr "Definisi PARTITION"
 
 #: libraries/tbl_select.lib.php:86
 #: pmd_general.php:481
@@ -8186,7 +8187,7 @@ msgstr "Tampilkan Thumbnail yang bisa diklik; pilihan: lebar, tinggi dalam pikse
 
 #: libraries/transformations/image_jpeg__link.inc.php:10
 msgid "Displays a link to download this image."
-msgstr "Tampilkan link ke gambar ini (direct blob download, i.e.)."
+msgstr "Tampilkan tautan untuk mengunduh gambar ini."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:10
 msgid "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp column as formatted date. The first option is the offset (in hours) which will be added to the timestamp (Default: 0). Use second option to specify a different date/time format string. Third option determines whether you want to see local date or UTC one (use \"local\" or \"utc\" strings) for that. According to that, date format has different value - for \"local\" see the documentation for PHP's strftime() function and for \"utc\" it is done using gmdate() function."
@@ -8214,7 +8215,7 @@ msgstr ""
 
 #: libraries/transformations/text_plain__sql.inc.php:10
 msgid "Formats text as SQL query with syntax highlighting."
-msgstr "Format teks sebagai query dengan penyorotan sintaks."
+msgstr "Format teks sebagai kueri SQL dengan penyorotan sintaks."
 
 #: libraries/transformations/text_plain__substr.inc.php:10
 msgid "Displays a part of a string. The first option is the number of characters to skip from the beginning of the string (Default 0). The second option is the number of characters to return (Default: until end of string). The third option is the string to append and/or prepend when truncation occurs (Default: \"...\")."
@@ -8244,13 +8245,13 @@ msgstr ""
 
 #: libraries/zip_extension.lib.php:26
 msgid "No files found inside ZIP archive!"
-msgstr ""
+msgstr "Tidak ada berkas ditemukan dalam arsip ZIP!"
 
 #: libraries/zip_extension.lib.php:53
 #: libraries/zip_extension.lib.php:55
 #: libraries/zip_extension.lib.php:70
 msgid "Error in ZIP archive:"
-msgstr "Kesalahan dalam arsip ZIP:"
+msgstr "Galat pada arsip ZIP:"
 
 #: main.php:65
 msgid "General Settings"
@@ -8275,7 +8276,7 @@ msgstr "Server basis data"
 
 #: main.php:161
 msgid "Software"
-msgstr ""
+msgstr "Perangkat lunak"
 
 #: main.php:162
 msgid "Software version"
@@ -8356,12 +8357,12 @@ msgstr "File konfigurasi membutuhkan susunan kata-kata rahasia (blowfish_secret)
 
 #: main.php:296
 msgid "Directory [code]config[/code], which is used by the setup script, still exists in your phpMyAdmin directory. You should remove it once phpMyAdmin has been configured."
-msgstr "Direktori [code]config[/code], yang digunakan oleh script setup, masih ada di direktori phpMyAdmin Anda. Anda harus menghapus nya setelah phpMyAdmin di konfigurasi."
+msgstr "Direktori [code]config[/code], yang digunakan oleh skrip pengaturan, masih ada di direktori phpMyAdmin Anda. Anda harus menghapusnya setelah phpMyAdmin dikonfigurasi."
 
 #: main.php:302
 #, php-format
 msgid "The phpMyAdmin configuration storage is not completely configured, some extended features have been deactivated. To find out why click %shere%s."
-msgstr "Fasilitas penambahan untuk bekerja dengan tabel yang di-link di nonaktifkan. Untuk mengetahui sebabnya silakan klik %sdi sini%s."
+msgstr "Fasilitas penambahan untuk bekerja dengan tabel yang di-link di nonaktifkan. Untuk mengetahui sebabnya harap klik %sdi sini%s."
 
 #: main.php:317
 msgid "Javascript support is missing or disabled in your browser, some phpMyAdmin functionality will be missing. For example navigation frame will not refresh automatically."
@@ -8375,7 +8376,7 @@ msgstr ""
 #: main.php:345
 #, php-format
 msgid "Server running with Suhosin. Please refer to %sdocumentation%s for possible issues."
-msgstr ""
+msgstr "Server berjalan dengan Suhosin. Harap rujuk %sdokumentasi%s untuk kemungkinan masalah."
 
 #: navigation.php:183
 #: server_databases.php:285
@@ -8404,7 +8405,7 @@ msgstr "Tampilkan/Sembunyikan menu kiri."
 
 #: pmd_general.php:68
 msgid "Save position"
-msgstr ""
+msgstr "Simpan posisi"
 
 #: pmd_general.php:74
 #: pmd_general.php:346
@@ -8421,15 +8422,15 @@ msgstr "Bantuan"
 
 #: pmd_general.php:87
 msgid "Angular links"
-msgstr ""
+msgstr "Tautan angular"
 
 #: pmd_general.php:87
 msgid "Direct links"
-msgstr "Link langsung"
+msgstr "Tautan langsung"
 
 #: pmd_general.php:91
 msgid "Snap to grid"
-msgstr ""
+msgstr "Lekatkan kepada kisi"
 
 #: pmd_general.php:95
 msgid "Small/Big All"
@@ -8450,19 +8451,19 @@ msgstr "Bangun Kueri"
 
 #: pmd_general.php:115
 msgid "Move Menu"
-msgstr ""
+msgstr "Pindahkan Menu"
 
 #: pmd_general.php:126
 msgid "Hide/Show all"
-msgstr "Tampilkan/Sembunyikan semua"
+msgstr "Sembunyikan/Tampilkan semua"
 
 #: pmd_general.php:130
 msgid "Hide/Show Tables with no relation"
-msgstr ""
+msgstr "Tampilkan/Sembunyikan Tabel tanpa relasi"
 
 #: pmd_general.php:170
 msgid "Number of tables"
-msgstr ""
+msgstr "Jumlah tabel"
 
 #: pmd_general.php:412
 msgid "Delete relation"
@@ -8508,52 +8509,52 @@ msgstr "Opsi aktif"
 
 #: pmd_pdf.php:30
 msgid "Page has been created"
-msgstr "Laman telah dibuat"
+msgstr "Halaman telah dibuat"
 
 #: pmd_pdf.php:33
 msgid "Page creation failed"
-msgstr ""
+msgstr "Pembuatan halaman gagal"
 
 #: pmd_pdf.php:85
 msgid "Page"
-msgstr "Laman"
+msgstr "Halaman"
 
 #: pmd_pdf.php:95
 msgid "Import from selected page"
-msgstr "Impor dari laman terpilih"
+msgstr "Impor dari halaman terpilih"
 
 #: pmd_pdf.php:96
 msgid "Export to selected page"
-msgstr "Ekspor ke laman terpilih"
+msgstr "Ekspor ke halaman terpilih"
 
 #: pmd_pdf.php:98
 msgid "Create a page and export to it"
-msgstr "Buat laman dan ekspor ke dalamnya"
+msgstr "Buat halaman dan ekspor ke dalamnya"
 
 #: pmd_pdf.php:107
 msgid "New page name: "
-msgstr "Nama laman baru:"
+msgstr "Nama halaman baru:"
 
 #: pmd_pdf.php:110
 msgid "Export/Import to scale"
-msgstr ""
+msgstr "Ekspor/Impor dengan skala"
 
 #: pmd_pdf.php:115
 msgid "recommended"
-msgstr ""
+msgstr "direkomendasikan"
 
 #: pmd_relation_new.php:27
 msgid "Error: relation already exists."
-msgstr "Kesalahan: relasi sudah ada."
+msgstr "Galat: relasi sudah ada."
 
 #: pmd_relation_new.php:59
 #: pmd_relation_new.php:84
 msgid "Error: Relation not added."
-msgstr "Kesalahan: Relasi tidak ditambahkan."
+msgstr "Galat: Relasi tidak ditambahkan."
 
 #: pmd_relation_new.php:60
 msgid "FOREIGN KEY relation added"
-msgstr ""
+msgstr "Relasi FOREIGN KEY ditambahkan"
 
 #: pmd_relation_new.php:82
 msgid "Internal relation added"
@@ -8565,7 +8566,7 @@ msgstr "Relasi dihapus"
 
 #: pmd_save_pos.php:45
 msgid "Error saving coordinates for Designer."
-msgstr "Kesalahan menyimpan koordinat untuk Desainer."
+msgstr "Galat sewaktu menyimpan koordinat untuk Desainer."
 
 #: pmd_save_pos.php:53
 msgid "Modifications have been saved"
@@ -8573,7 +8574,7 @@ msgstr "Modifikasi telah disimpan"
 
 #: prefs_forms.php:78
 msgid "Cannot save settings, submitted form contains errors"
-msgstr ""
+msgstr "Pengaturan tidak dapat disimpan, formulir kiriman mengandung galat"
 
 #: prefs_manage.php:78
 msgid "Could not import configuration"
@@ -8581,7 +8582,7 @@ msgstr "Tidak dapat mengimpor konfigurasi"
 
 #: prefs_manage.php:110
 msgid "Configuration contains incorrect data for some fields."
-msgstr ""
+msgstr "Konfigurasi mengandung data yang tidak tepat pada beberapa isian."
 
 #: prefs_manage.php:126
 msgid "Do you want to import remaining settings?"
@@ -8590,7 +8591,7 @@ msgstr "Apakah Anda ingin mengimpor pengaturan yang lain?"
 #: prefs_manage.php:223
 #: prefs_manage.php:249
 msgid "Saved on: @DATE@"
-msgstr ""
+msgstr "Disimpan pada: @DATE@"
 
 #: prefs_manage.php:237
 msgid "Import from file"
@@ -8598,11 +8599,11 @@ msgstr "Impor dari berkas"
 
 #: prefs_manage.php:243
 msgid "Import from browser's storage"
-msgstr "Impor dari simpanan peramban"
+msgstr "Impor dari penyimpanan peramban"
 
 #: prefs_manage.php:246
 msgid "Settings will be imported from your browser's local storage."
-msgstr "Pengaturan akan diimpor dari simpanan lokal peramban Anda"
+msgstr "Pengaturan akan diimpor dari penyimpanan lokal peramban Anda"
 
 #: prefs_manage.php:252
 msgid "You have no saved settings!"
@@ -8624,11 +8625,11 @@ msgstr "Anda dapat mengatur pengaturan lain dengan mengubah config.inc.php, mis.
 
 #: prefs_manage.php:300
 msgid "Save to browser's storage"
-msgstr "Simpan di simpanan peramban"
+msgstr "Simpan di penyimpanan peramban"
 
 #: prefs_manage.php:304
 msgid "Settings will be saved in your browser's local storage."
-msgstr "Pengaturan akan disimpan di simpanan lokal peramban Anda."
+msgstr "Pengaturan akan disimpan di penyimpanan lokal peramban Anda."
 
 #: prefs_manage.php:306
 msgid "Existing settings will be overwritten!"
@@ -8736,7 +8737,7 @@ msgstr "Perhatian: Pengaktifan statistik basis data dapat mengakibatkan lalu lin
 
 #: server_engines.php:45
 msgid "Storage Engines"
-msgstr "Mesin Penyimpan"
+msgstr "Mesin Penyimpanan"
 
 #: server_export.php:20
 msgid "View dump (schema) of databases"
@@ -8859,7 +8860,7 @@ msgstr "Mengizinkan untuk hapus tabel."
 #: server_privileges.php:275
 #: server_privileges.php:647
 msgid "Allows to set up events for the event scheduler"
-msgstr ""
+msgstr "Mengizinkan penyiapan event untuk penjadwal event"
 
 #: server_privileges.php:45
 #: server_privileges.php:309
@@ -8907,7 +8908,7 @@ msgstr "Membatasi jumlah koneksi baru yang diperbolehkan untuk setiap pengguna d
 #: server_privileges.php:714
 #: server_privileges.php:716
 msgid "Limits the number of queries the user may send to the server per hour."
-msgstr "Membatasi jumlah pencarian (Queries) yang diperbolehkan untuk setiap pengguna dalam batas waktu satu jam."
+msgstr "Membatasi jumlah kueri yang diperbolehkan untuk setiap pengguna dalam batas waktu satu jam."
 
 #: server_privileges.php:53
 #: server_privileges.php:720
@@ -8925,7 +8926,7 @@ msgstr "Membatasi jumlah koneksi simultan yang dapat dibuat pengguna."
 #: server_privileges.php:227
 #: server_privileges.php:657
 msgid "Allows viewing processes of all users"
-msgstr ""
+msgstr "Mengizinkan untuk melihat proses dari semua pengguna"
 
 #: server_privileges.php:56
 #: server_privileges.php:235
@@ -8938,7 +8939,7 @@ msgstr "Tidak ada efek dalam versi MySQL yang digunakan."
 #: server_privileges.php:219
 #: server_privileges.php:658
 msgid "Allows reloading server settings and flushing the server's caches."
-msgstr "Mengizinkan untuk reload stelan dari server dan untuk flush cache dari server."
+msgstr "Mengizinkan untuk memuat ulang pengaturan server dan membersihkan singgahan server."
 
 #: server_privileges.php:58
 #: server_privileges.php:267
@@ -9019,7 +9020,7 @@ msgstr "Hak akses khusus tabel"
 #: server_privileges.php:687
 #: server_privileges.php:1700
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "Catatan: Nama hak akses MySQL dalam bahasa Ingris "
+msgstr "Catatan: Nama hak akses MySQL dalam bahasa Inggris "
 
 #: server_privileges.php:612
 msgid "Administration"
@@ -9235,20 +9236,20 @@ msgstr "Pengguna %s telah ditambahkan."
 
 #: server_replication.php:49
 msgid "Unknown error"
-msgstr ""
+msgstr "Galat tidak dikenal"
 
 #: server_replication.php:56
 #, php-format
 msgid "Unable to connect to master %s."
-msgstr ""
+msgstr "Tidak dapat tersambung ke master %s."
 
 #: server_replication.php:63
 msgid "Unable to read master log position. Possible privilege problem on master."
-msgstr ""
+msgstr "Tidak dapat membaca posisi log master. Mungkin ada masalah hak akses pada master."
 
 #: server_replication.php:69
 msgid "Unable to change master"
-msgstr ""
+msgstr "Tidak dapat mengubah master."
 
 #: server_replication.php:72
 #, php-format
@@ -9257,25 +9258,25 @@ msgstr "Server master berhasil diubah menjadi %s"
 
 #: server_replication.php:180
 msgid "This server is configured as master in a replication process."
-msgstr ""
+msgstr "Server ini dikonfigurasikan sebagai master dalam proses replikasi."
 
 #: server_replication.php:182
 #: server_status.php:613
 msgid "Show master status"
-msgstr ""
+msgstr "Tampilkan status master"
 
 #: server_replication.php:185
 msgid "Show connected slaves"
-msgstr ""
+msgstr "Tampilkan slave yang tersambung"
 
 #: server_replication.php:208
 #, php-format
 msgid "This server is not configured as master in a replication process. Would you like to <a href=\"%s\">configure</a> it?"
-msgstr ""
+msgstr "Server ini tidak dikonfigurasikan sebagai master dalam proses replikasi. Apakah Anda ingin <a href=\"%s\">mengonfigurasikannya</a>?"
 
 #: server_replication.php:215
 msgid "Master configuration"
-msgstr ""
+msgstr "Konfigurasi master"
 
 #: server_replication.php:216
 msgid "This server is not configured as master server in a replication process. You can choose from either replicating all databases and ignoring certain (useful if you want to replicate majority of databases) or you can choose to ignore all databases by default and allow only certain databases to be replicated. Please select the mode:"
@@ -9283,11 +9284,11 @@ msgstr ""
 
 #: server_replication.php:219
 msgid "Replicate all databases; Ignore:"
-msgstr ""
+msgstr "Replikasikan semua basis data; Abaikan:"
 
 #: server_replication.php:220
 msgid "Ignore all databases; Replicate:"
-msgstr ""
+msgstr "Abaikan semua basis data; Replikasikan:"
 
 #: server_replication.php:223
 msgid "Please select databases:"
@@ -9303,27 +9304,27 @@ msgstr ""
 
 #: server_replication.php:291
 msgid "Slave SQL Thread not running!"
-msgstr ""
+msgstr "Thread SQL slave tidak berjalan!"
 
 #: server_replication.php:294
 msgid "Slave IO Thread not running!"
-msgstr ""
+msgstr "Thread IO slave tidak berjalan!"
 
 #: server_replication.php:303
 msgid "Server is configured as slave in a replication process. Would you like to:"
-msgstr ""
+msgstr "Server ini dikonfiguraskan sebagai slave dalam proses replikasi. Apakah Anda ingin:"
 
 #: server_replication.php:306
 msgid "See slave status table"
-msgstr ""
+msgstr "Lihat tabel status slave"
 
 #: server_replication.php:309
 msgid "Synchronize databases with master"
-msgstr ""
+msgstr "Sinkronkan basis data dengan master"
 
 #: server_replication.php:320
 msgid "Control slave:"
-msgstr ""
+msgstr "Kendalikan slave:"
 
 #: server_replication.php:323
 msgid "Full start"
@@ -9335,7 +9336,7 @@ msgstr "Hentikan semua"
 
 #: server_replication.php:324
 msgid "Reset slave"
-msgstr ""
+msgstr "Reset slave"
 
 #: server_replication.php:326
 msgid "Start SQL Thread only"
@@ -9343,7 +9344,7 @@ msgstr "Jalankan hanya Thread SQL"
 
 #: server_replication.php:328
 msgid "Stop SQL Thread only"
-msgstr ""
+msgstr "Hanya hentikan Thread SQL"
 
 #: server_replication.php:331
 msgid "Start IO Thread only"
@@ -9351,32 +9352,32 @@ msgstr "Jalankan hanya Thread IO"
 
 #: server_replication.php:333
 msgid "Stop IO Thread only"
-msgstr ""
+msgstr "Hanya hentikan Thread IO"
 
 #: server_replication.php:338
 msgid "Error management:"
-msgstr ""
+msgstr "Kelola galat:"
 
 #: server_replication.php:340
 msgid "Skipping errors might lead into unsynchronized master and slave!"
-msgstr ""
+msgstr "Pengabaian galat dapat menyebabkan master dan slave tidak tersinkronisasi"
 
 #: server_replication.php:342
 msgid "Skip current error"
-msgstr ""
+msgstr "Lewati galat saat ini"
 
 #: server_replication.php:343
 msgid "Skip next"
-msgstr ""
+msgstr "Lewati berikutnya"
 
 #: server_replication.php:346
 msgid "errors."
-msgstr ""
+msgstr "galat."
 
 #: server_replication.php:361
 #, php-format
 msgid "This server is not configured as slave in a replication process. Would you like to <a href=\"%s\">configure</a> it?"
-msgstr ""
+msgstr "Server ini tidak dikonfigurasikan sebagai slave dalam proses replikasi. Apakah Anda ingin <a href=\"%s\">mengonfigurasikannya</a>?"
 
 #: server_status.php:450
 #, php-format
@@ -9390,7 +9391,7 @@ msgstr "phpMyAdmin gagal menutup Thread %s. Kemungkinan Thread tersebut sudah di
 
 #: server_status.php:580
 msgid "Handler"
-msgstr ""
+msgstr "Handler"
 
 #: server_status.php:581
 msgid "Query cache"
@@ -9398,11 +9399,11 @@ msgstr "Singgahan kueri"
 
 #: server_status.php:582
 msgid "Threads"
-msgstr ""
+msgstr "Thread"
 
 #: server_status.php:584
 msgid "Temporary data"
-msgstr ""
+msgstr "Data temporer"
 
 #: server_status.php:585
 msgid "Delayed inserts"
@@ -9410,15 +9411,15 @@ msgstr "Penambahan tunda"
 
 #: server_status.php:586
 msgid "Key cache"
-msgstr ""
+msgstr "Singgahan kunci"
 
 #: server_status.php:587
 msgid "Joins"
-msgstr ""
+msgstr "Join"
 
 #: server_status.php:589
 msgid "Sorting"
-msgstr ""
+msgstr "Pengurutan"
 
 #: server_status.php:591
 msgid "Transaction coordinator"
@@ -9426,7 +9427,7 @@ msgstr "Koordinator transaksi"
 
 #: server_status.php:603
 msgid "Flush (close) all tables"
-msgstr ""
+msgstr "Bersihkan (tutup) semua tabel"
 
 #: server_status.php:605
 msgid "Show open tables"
@@ -9434,19 +9435,19 @@ msgstr "Tampilkan tabel terbuka"
 
 #: server_status.php:610
 msgid "Show slave hosts"
-msgstr ""
+msgstr "Tampilkan inang slave"
 
 #: server_status.php:616
 msgid "Show slave status"
-msgstr ""
+msgstr "Tampilka status slave"
 
 #: server_status.php:621
 msgid "Flush query cache"
-msgstr ""
+msgstr "Bersihkan singgahan kueri"
 
 #: server_status.php:770
 msgid "Runtime Information"
-msgstr "Informasi Runtime"
+msgstr "Informasi Waktu Eksekusi"
 
 #: server_status.php:777
 msgid "All status variables"
@@ -9513,7 +9514,7 @@ msgstr ""
 #: server_status.php:928
 #, php-format
 msgid "Questions since startup: %s"
-msgstr ""
+msgstr "Perintah sejak awal: %s"
 
 #: server_status.php:934
 #: server_status.php:970
@@ -9539,7 +9540,7 @@ msgstr "Keterangan"
 #. l10n: # = Amount of queries
 #: server_status.php:967
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: server_status.php:1039
 #, php-format
@@ -9553,15 +9554,15 @@ msgstr "Server MySQL ini telah berjalan selama %1$s. Server ini dijalankan pada 
 
 #: server_status.php:1057
 msgid "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</b> process."
-msgstr ""
+msgstr "Server MySQL ini berfungsi sebagai <b>master</b> dan <b>slave</b> dalam proses <b>replication</b>."
 
 #: server_status.php:1059
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
-msgstr ""
+msgstr "Server MySQL ini berfungsi sebagai <b>master</b> dalam proses <b>replication</b>."
 
 #: server_status.php:1061
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
-msgstr ""
+msgstr "Server MySQL ini berfungsi sebagai <b>slave</b> dalam proses <b>replication</b>."
 
 #: server_status.php:1064
 msgid "For further information about replication status on the server, please visit the <a href=\"#replication\">replication section</a>."
@@ -9569,7 +9570,7 @@ msgstr ""
 
 #: server_status.php:1073
 msgid "Replication status"
-msgstr ""
+msgstr "Status replikasi"
 
 #: server_status.php:1089
 msgid "On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect."
@@ -9593,7 +9594,7 @@ msgstr "Gagal"
 
 #: server_status.php:1162
 msgid "Aborted"
-msgstr "Pembatalan"
+msgstr "Pengguguran"
 
 #: server_status.php:1225
 msgid "ID"
@@ -9605,7 +9606,7 @@ msgstr "Perintah"
 
 #: server_status.php:1291
 msgid "The number of connections that were aborted because the client died without closing the connection properly."
-msgstr ""
+msgstr "Jumlah koneksi yang digugurkan karena klien terputus tanpa menutup koneksi dengan baik."
 
 #: server_status.php:1292
 msgid "The number of failed attempts to connect to the MySQL server."
@@ -9613,51 +9614,51 @@ msgstr "Jumlah upaya koneksi ke server MySQL yang gagal."
 
 #: server_status.php:1293
 msgid "The number of transactions that used the temporary binary log cache but that exceeded the value of binlog_cache_size and used a temporary file to store statements from the transaction."
-msgstr ""
+msgstr "Jumlah transaksi yang menggunakan singgahan log biner temporer, namun melebihi nilai binlog_cache_size dan menggunakan berkas temporer untuk menyimpan perintah dari transaksi."
 
 #: server_status.php:1294
 msgid "The number of transactions that used the temporary binary log cache."
-msgstr ""
+msgstr "Jumlah transaksi yang menggunakan singgahan log biner temporer."
 
 #: server_status.php:1295
 msgid "The number of connection attempts (successful or not) to the MySQL server."
-msgstr ""
+msgstr "Jumlah upaya koneksi ke server MySQL (baik berhasil maupun tidak)."
 
 #: server_status.php:1296
 msgid "The number of temporary tables on disk created automatically by the server while executing statements. If Created_tmp_disk_tables is big, you may want to increase the tmp_table_size  value to cause temporary tables to be memory-based instead of disk-based."
-msgstr ""
+msgstr "Jumlah tabel temporer pada diska yang dibuat otomatis oleh server sewaktu mengeksekusi perintah. Kalau Created_tmp_disk_tables besar, Anda mungkin perlu meningkatkan nilai tmp_table_size agar tabel temporer disimpan di memori, alih-alih di diska."
 
 #: server_status.php:1297
 msgid "How many temporary files mysqld has created."
-msgstr ""
+msgstr "Jumlah berkas temporer yang telah dibuat mysqld."
 
 #: server_status.php:1298
 msgid "The number of in-memory temporary tables created automatically by the server while executing statements."
-msgstr ""
+msgstr "Jumlah tabel temporer dalam-memori yang dibuat otomatis oleh server sewaktu mengeksekusi perintah."
 
 #: server_status.php:1299
 msgid "The number of rows written with INSERT DELAYED for which some error occurred (probably duplicate key)."
-msgstr ""
+msgstr "Jumlah baris yang ditulis oleh INSERT DELAYED yang menyebabkan beberapa galat (kemungkinan karena kunci duplikat)."
 
 #: server_status.php:1300
 msgid "The number of INSERT DELAYED handler threads in use. Every different table on which one uses INSERT DELAYED gets its own thread."
-msgstr ""
+msgstr "Jumlah thread handler INSERT DELAYED yang dipakai. Setiap tabel berbeda yang menggunakan INSERT DELAYED mendapat satu thread sendiri."
 
 #: server_status.php:1301
 msgid "The number of INSERT DELAYED rows written."
-msgstr ""
+msgstr "Jumlah baris INSERT DELAYED yang ditulis."
 
 #: server_status.php:1302
 msgid "The number of executed FLUSH statements."
-msgstr ""
+msgstr "Jumlah perintah FLUSH yang dieksekusi."
 
 #: server_status.php:1303
 msgid "The number of internal COMMIT statements."
-msgstr ""
+msgstr "Jumlah perintah COMMIT internal."
 
 #: server_status.php:1304
 msgid "The number of times a row was deleted from a table."
-msgstr ""
+msgstr "Berapa kali suatu baris dihapus dari suatu tabel."
 
 #: server_status.php:1305
 msgid "The MySQL server can ask the NDB Cluster storage engine if it knows about a table with a given name. This is called discovery. Handler_discover indicates the number of time tables have been discovered."
@@ -9665,47 +9666,47 @@ msgstr ""
 
 #: server_status.php:1306
 msgid "The number of times the first entry was read from an index. If this is high, it suggests that the server is doing a lot of full index scans; for example, SELECT col1 FROM foo, assuming that col1 is indexed."
-msgstr ""
+msgstr "Berapa kali entri pertama dibaca dari suatu indeks. Nilai tinggi menunjukkan bahwa server melakukan banyak pemindaian indeks lengkap; sebagai contoh, SELECT col1 FROM foo, dengan asumsi bahwa col1 diindeks."
 
 #: server_status.php:1307
 msgid "The number of requests to read a row based on a key. If this is high, it is a good indication that your queries and tables are properly indexed."
-msgstr ""
+msgstr "Jumlah permintaan membaca suatu baris berdasarkan suatu kunci. Nilai yang tinggi merupakan indikasi bagus bahwa kueri dan tabel Anda diindeks dengan baik."
 
 #: server_status.php:1308
 msgid "The number of requests to read the next row in key order. This is incremented if you are querying an index column with a range constraint or if you are doing an index scan."
-msgstr ""
+msgstr "Jumlah permintaan membaca baris berikut dalam urutan kunci. Nilai ini bertambah jika Anda melakukan kueri terhadap kolom indeks dengan suatu rentang batasan atau jika Anda melakukan pemindaian indeks."
 
 #: server_status.php:1309
 msgid "The number of requests to read the previous row in key order. This read method is mainly used to optimize ORDER BY ... DESC."
-msgstr ""
+msgstr "Jumlah permintaan membaca baris sebelumnya dalam urutan kunci. Metode baca ini terutama digunakan untuk mengoptimalkan ORDER BY ... DESC."
 
 #: server_status.php:1310
 msgid "The number of requests to read a row based on a fixed position. This is high if you are doing a lot of queries that require sorting of the result. You probably have a lot of queries that require MySQL to scan whole tables or you have joins that don't use keys properly."
-msgstr ""
+msgstr "Jumlah permintaan membaca suatu baris berdasarkan posisi tetap. Nilai ini tinggi jika Anda melakukan banyak kueri yang membutuhkan pengurutan hasil. Anda mungkin memiliki banyak kueri yang mengharuskan MySQL memindai seluruh tabel atau Anda memiliki join yang tidak menggunakan kunci dengan baik."
 
 #: server_status.php:1311
 msgid "The number of requests to read the next row in the data file. This is high if you are doing a lot of table scans. Generally this suggests that your tables are not properly indexed or that your queries are not written to take advantage of the indexes you have."
-msgstr ""
+msgstr "Jumlah permintaan membaca baris berikut dalam berkas data. Nilai ini tinggi jika Anda melakukan banyak pemindaian tabel. Hal ini secara umum menunjukkan bahwa tabel Anda tidak diindeks dengan baik atau bahwa kueri Anda tidak ditulis dengan memanfaatkan indeks yang Anda miliki."
 
 #: server_status.php:1312
 msgid "The number of internal ROLLBACK statements."
-msgstr ""
+msgstr "Jumlah perintah ROLLBACK internal."
 
 #: server_status.php:1313
 msgid "The number of requests to update a row in a table."
-msgstr ""
+msgstr "Jumlah permintaan untuk memperbarui baris dalam tabel."
 
 #: server_status.php:1314
 msgid "The number of requests to insert a row in a table."
-msgstr ""
+msgstr "Jumlah permintaan untuk menambah baris dalam tabel."
 
 #: server_status.php:1315
 msgid "The number of pages containing data (dirty or clean)."
-msgstr ""
+msgstr "Jumlah halaman yang mengandung data (kotor atau bersih)."
 
 #: server_status.php:1316
 msgid "The number of pages currently dirty."
-msgstr ""
+msgstr "Jumlah halaman kotor saat ini."
 
 #: server_status.php:1317
 msgid "The number of buffer pool pages that have been requested to be flushed."
@@ -9713,7 +9714,7 @@ msgstr ""
 
 #: server_status.php:1318
 msgid "The number of free pages."
-msgstr ""
+msgstr "Jumlah halaman bebas."
 
 #: server_status.php:1319
 msgid "The number of latched pages in InnoDB buffer pool. These are pages currently being read or written or that can't be flushed or removed for some other reason."
@@ -9757,27 +9758,27 @@ msgstr ""
 
 #: server_status.php:1329
 msgid "The current number of pending fsync() operations."
-msgstr ""
+msgstr "Jumlah operasi fsync() tunda saat ini."
 
 #: server_status.php:1330
 msgid "The current number of pending reads."
-msgstr ""
+msgstr "Jumlah baca tunda saat ini."
 
 #: server_status.php:1331
 msgid "The current number of pending writes."
-msgstr ""
+msgstr "Jumlah tulis tunda saat ini."
 
 #: server_status.php:1332
 msgid "The amount of data read so far, in bytes."
-msgstr ""
+msgstr "Jumlah data yang dibaca sampai saat ini, dalam bita."
 
 #: server_status.php:1333
 msgid "The total number of data reads."
-msgstr ""
+msgstr "Jumlah total baca data."
 
 #: server_status.php:1334
 msgid "The total number of data writes."
-msgstr ""
+msgstr "Jumlah total tulis data."
 
 #: server_status.php:1335
 msgid "The amount of data written so far, in bytes."
@@ -9829,11 +9830,11 @@ msgstr ""
 
 #: server_status.php:1347
 msgid "The number of pages read."
-msgstr ""
+msgstr "Jumlah halaman yang dibaca."
 
 #: server_status.php:1348
 msgid "The number of pages written."
-msgstr ""
+msgstr "Jumlah halaman yang ditulis."
 
 #: server_status.php:1349
 msgid "The number of row locks currently being waited for."
@@ -10049,7 +10050,7 @@ msgstr "Jalankan Pemantauan"
 
 #: server_status.php:1549
 msgid "Instructions/Setup"
-msgstr "Instruksi/Pengaturan"
+msgstr "Petunjuk/Penyiapan"
 
 #: server_status.php:1554
 msgid "Done rearranging/editing charts"
@@ -10109,7 +10110,7 @@ msgstr ""
 
 #: server_status.php:1623
 msgid "Please note:"
-msgstr ""
+msgstr "Harap catat:"
 
 #: server_status.php:1625
 msgid "Enabling the general_log may increase the server load by 5-15%. Also be aware that generating statistics from the logs is a load intensive task, so it is advisable to select only a small time span and to disable the general_log and empty its table once monitoring is not required any more."
@@ -10121,7 +10122,7 @@ msgstr "Bagan bawaan"
 
 #: server_status.php:1641
 msgid "Status variable(s)"
-msgstr ""
+msgstr "Variabel status"
 
 #: server_status.php:1643
 msgid "Select series:"
@@ -10129,7 +10130,7 @@ msgstr "Pilih seri:"
 
 #: server_status.php:1645
 msgid "Commonly monitored"
-msgstr ""
+msgstr "Biasa dipantau"
 
 #: server_status.php:1660
 msgid "or type variable name:"
@@ -10137,15 +10138,15 @@ msgstr "atau masukkan nama variabel:"
 
 #: server_status.php:1664
 msgid "Display as differential value"
-msgstr ""
+msgstr "Tampilkan sebagai nilai diferensial"
 
 #: server_status.php:1666
 msgid "Apply a divisor"
-msgstr ""
+msgstr "Terapkan pemisah"
 
 #: server_status.php:1673
 msgid "Append unit to data values"
-msgstr ""
+msgstr "Sertakan satuan kepada nilai data"
 
 #: server_status.php:1679
 msgid "Add this series"
@@ -10153,7 +10154,7 @@ msgstr "Tambahkan seri ini"
 
 #: server_status.php:1681
 msgid "Clear series"
-msgstr ""
+msgstr "Bersihkan seri"
 
 #: server_status.php:1684
 msgid "Series in Chart:"
@@ -10169,7 +10170,7 @@ msgstr "Rentang waktu pilihan:"
 
 #: server_status.php:1703
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr ""
+msgstr "Hanya sertakan perintah SELECT, INSERT, UPDATE, dan DELETE"
 
 #: server_status.php:1708
 msgid "Remove variable data in INSERT statements for better grouping"
@@ -10294,7 +10295,7 @@ msgstr ""
 
 #: server_synchronize.php:988
 msgid "Target database has been synchronized with source database"
-msgstr ""
+msgstr "Basis data target telah disinkronisasikan dengan basis data sumber"
 
 #: server_synchronize.php:1046
 msgid "Executed queries"
@@ -10319,7 +10320,7 @@ msgstr "Soket"
 
 #: server_synchronize.php:1313
 msgid "Target database will be completely synchronized with source database. Source database will remain unchanged."
-msgstr ""
+msgstr "Basis data target akan disinkronisasikan secara lengkap dengan basis data sumber. Basis data sumber tetap tidak berubah."
 
 #: server_variables.php:80
 msgid "Setting variable failed"
@@ -10349,7 +10350,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:49
 msgid "Cannot load or save configuration"
-msgstr ""
+msgstr "Tidak dapat memuat atau menyimpan konfigurasi"
 
 #: setup/frames/index.inc.php:50
 msgid "Please create web server writable folder [em]config[/em] in phpMyAdmin top level directory as described in [a@Documentation.html#setup_script]documentation[/a]. Otherwise you will be only able to download or display it."
@@ -10366,7 +10367,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:65
 msgid "Insecure connection"
-msgstr ""
+msgstr "Koneksi tidak aman"
 
 #: setup/frames/index.inc.php:93
 msgid "Configuration saved."
@@ -10455,7 +10456,7 @@ msgstr ""
 
 #: setup/lib/form_processing.lib.php:48
 msgid "Ignore errors"
-msgstr ""
+msgstr "Abaikan galat"
 
 #: setup/lib/form_processing.lib.php:50
 msgid "Show form"
@@ -10551,23 +10552,23 @@ msgstr ""
 
 #: setup/lib/index.lib.php:323
 msgid "You should use SSL connections if your web server supports it."
-msgstr ""
+msgstr "Anda sebaiknya menggunakan sambungan SSL jika server web Anda mendukung."
 
 #: setup/lib/index.lib.php:336
 msgid "You should use mysqli for performance reasons."
-msgstr ""
+msgstr "Anda sebaiknya menggunakan mysqli demi alasan kinerja."
 
 #: setup/lib/index.lib.php:367
 msgid "You allow for connecting to the server without a password."
-msgstr ""
+msgstr "Anda mengizinkan sambungan ke server tanpa sandi."
 
 #: setup/lib/index.lib.php:389
 msgid "Key is too short, it should have at least 8 characters."
-msgstr ""
+msgstr "Kunci terlalu pendek dan sebaiknya terdiri dari paling tidak 8 karakter."
 
 #: setup/lib/index.lib.php:396
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr ""
+msgstr "Kunci harus terdiri dari huruf, angka, [em]dan[/em] karakter khusus."
 
 #: setup/validate.php:22
 msgid "Wrong data"
@@ -10583,13 +10584,13 @@ msgstr "Menjelajahi nilai luar"
 #: sql.php:212
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
-msgstr ""
+msgstr "Menggunakan markah \"%s\" sebagai kueri penjelajahan bawaan."
 
 #: sql.php:698
 #: tbl_replace.php:400
 #, php-format
 msgid "Inserted row id: %1$d"
-msgstr ""
+msgstr "Nomor baris baru: %1$d"
 
 #: sql.php:715
 msgid "Showing as PHP code"
@@ -10745,7 +10746,7 @@ msgstr "Tampilkan Dump (Skema) dari tabel"
 
 #: tbl_gis_visualization.php:112
 msgid "Display GIS Visualization"
-msgstr ""
+msgstr "Tampilkan Visualisasi GIS"
 
 #: tbl_gis_visualization.php:128
 msgid "Width"
@@ -10761,7 +10762,7 @@ msgstr "Kolom label"
 
 #: tbl_gis_visualization.php:138
 msgid "-- None --"
-msgstr ""
+msgstr "-- Tidak ada --"
 
 #: tbl_gis_visualization.php:151
 msgid "Spatial column"
@@ -10769,7 +10770,7 @@ msgstr "Kolom spasial"
 
 #: tbl_gis_visualization.php:175
 msgid "Redraw"
-msgstr ""
+msgstr "Gambar ulang"
 
 #: tbl_gis_visualization.php:177
 msgid "Save to file"
@@ -10882,7 +10883,7 @@ msgstr "Defragmentasikan tabel"
 #: tbl_operations.php:666
 #, php-format
 msgid "Table %s has been flushed"
-msgstr "Tabel %s telah dibuang"
+msgstr "Tabel %s telah dibersihkan"
 
 #: tbl_operations.php:672
 msgid "Flush the table (FLUSH)"
@@ -10907,7 +10908,7 @@ msgstr "Pemeliharaan partisi"
 #: tbl_operations.php:746
 #, php-format
 msgid "Partition %s"
-msgstr ""
+msgstr "Partisi %s"
 
 #: tbl_operations.php:749
 msgid "Analyze"
@@ -10919,11 +10920,11 @@ msgstr "Periksa"
 
 #: tbl_operations.php:751
 msgid "Optimize"
-msgstr ""
+msgstr "Optimalkan"
 
 #: tbl_operations.php:752
 msgid "Rebuild"
-msgstr ""
+msgstr "Bangun ulang"
 
 #: tbl_operations.php:753
 msgid "Repair"
@@ -10931,7 +10932,7 @@ msgstr "Perbaiki"
 
 #: tbl_operations.php:765
 msgid "Remove partitioning"
-msgstr ""
+msgstr "Hapus partisi"
 
 #: tbl_operations.php:791
 msgid "Check referential integrity:"
@@ -11151,11 +11152,11 @@ msgstr "Pelacakan untuk %s.%s , versi %s diaktifkan."
 
 #: tbl_tracking.php:199
 msgid "SQL statements executed."
-msgstr ""
+msgstr "Perintah SQL dieksekusi."
 
 #: tbl_tracking.php:205
 msgid "You can execute the dump by creating and using a temporary database. Please ensure that you have the privileges to do so."
-msgstr "Anda dapat mengeksekusi dump dengan membuat dan menggunakan basis data sementara. Mohon pastikan Anda mempunyai hak untuk melakukannya."
+msgstr "Anda dapat mengeksekusi dump dengan membuat dan menggunakan basis data sementara. Harap pastikan Anda mempunyai hak untuk melakukannya."
 
 #: tbl_tracking.php:206
 msgid "Comment out these two lines if you do not need them."
@@ -11296,7 +11297,7 @@ msgstr ""
 
 #: tbl_zoom_select.php:417
 msgid "How to use"
-msgstr ""
+msgstr "Cara pakai"
 
 #: themes.php:28
 msgid "Get more themes!"
@@ -11354,11 +11355,11 @@ msgstr ""
 
 #: po/advisory_rules.php:10
 msgid "Questions below 1,000"
-msgstr "Pertanyaan di bawak 1.000"
+msgstr "Perintah di bawah 1.000"
 
 #: po/advisory_rules.php:11
 msgid "Fewer than 1,000 questions have been run against this server. The recommendations may not be accurate."
-msgstr ""
+msgstr "Kurang dari 1.000 perintah telah dijalankan oleh server ini. Rekomendasi mungkin tidak akurat."
 
 #: po/advisory_rules.php:12
 msgid "Let the server run for a longer time until it has executed a greater amount of queries."
@@ -11367,7 +11368,7 @@ msgstr ""
 #: po/advisory_rules.php:13
 #, php-format
 msgid "Current amount of Questions: %s"
-msgstr "Jumlah Pertanyaan saat ini: %s"
+msgstr "Jumlah Perintah saat ini: %s"
 
 #: po/advisory_rules.php:15
 msgid "Percentage of slow queries"
@@ -12053,12 +12054,12 @@ msgstr ""
 
 #: po/advisory_rules.php:230
 msgid "Percentage of aborted connections"
-msgstr "Persentasi koneksi putus"
+msgstr "Persentasi koneksi yang digugurkan"
 
 #: po/advisory_rules.php:231
 #: po/advisory_rules.php:236
 msgid "Too many connections are aborted."
-msgstr ""
+msgstr "Terlalu banyak koneksi yang digugurkan"
 
 #: po/advisory_rules.php:232
 #: po/advisory_rules.php:237
@@ -12072,26 +12073,26 @@ msgstr ""
 
 #: po/advisory_rules.php:235
 msgid "Rate of aborted connections"
-msgstr "Tingkat pemutusan koneksi"
+msgstr "Tingkat pengguguran koneksi"
 
 #: po/advisory_rules.php:238
 #, php-format
 msgid "Aborted connections rate is at %s, this value should be less than 1 per hour"
-msgstr "Tingkat koneksi yang dibatalkan adalah pada %s, hasil ini seharusnya kurang dari 1 per jam"
+msgstr "Tingkat koneksi yang digugurkan adalah pada %s, hasil ini seharusnya kurang dari 1 per jam"
 
 #: po/advisory_rules.php:240
 msgid "Percentage of aborted clients"
-msgstr "Persentase klien yang dibatalkan"
+msgstr "Persentase klien yang digugurkan"
 
 #: po/advisory_rules.php:241
 #: po/advisory_rules.php:246
 msgid "Too many clients are aborted."
-msgstr "Terlalu banyak klien yang dibatalkan"
+msgstr "Terlalu banyak klien yang digugurkan"
 
 #: po/advisory_rules.php:242
 #: po/advisory_rules.php:247
 msgid "Clients are usually aborted when they did not close their connection to MySQL properly. This can be due to network issues or code not closing a database handler properly. Check your network and code."
-msgstr "Klien-klien biasanya dibatalkan apabila mereka tidak menutup koneksi/sambungan ke MySQL secara tepat. Hal ini bisa disebabkan oleh adanya kesalahan pada jaringan (network) atau penutupan penanganan basis data secara tepat. Periksa jaringan dan kode Anda."
+msgstr "Klien biasanya digugurkan apabila mereka tidak menutup koneksi ke MySQL secara benar. Hal ini bisa disebabkan oleh adanya masalah pada jaringan atau kode tidak menutup handler basis data dengan benar. Periksa jaringan dan kode Anda."
 
 #: po/advisory_rules.php:243
 #, php-format
@@ -12100,7 +12101,7 @@ msgstr ""
 
 #: po/advisory_rules.php:245
 msgid "Rate of aborted clients"
-msgstr "Tingkat pemutusan klien"
+msgstr "Tingkat pengguguran klien"
 
 #: po/advisory_rules.php:248
 #, php-format
@@ -12143,7 +12144,7 @@ msgstr ""
 
 #: po/advisory_rules.php:260
 msgid "Max InnoDB log size"
-msgstr ""
+msgstr "Besar log InnoDB maksimum"
 
 #: po/advisory_rules.php:261
 msgid "The InnoDB log file size is inadequately large."
@@ -12161,7 +12162,7 @@ msgstr ""
 
 #: po/advisory_rules.php:265
 msgid "InnoDB buffer pool size"
-msgstr "Besar tampungan penyangga InnoDB"
+msgstr "Besar penampungan penyangga InnoDB"
 
 #: po/advisory_rules.php:266
 msgid "Your InnoDB buffer pool is fairly small."
