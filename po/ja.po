@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-11 10:19+0100\n"
-"PO-Revision-Date: 2011-11-11 11:23+0200\n"
+"PO-Revision-Date: 2011-11-19 08:06+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -7350,7 +7350,7 @@ msgstr "定義者"
 #: libraries/rte/rte_events.lib.php:518 libraries/rte/rte_routines.lib.php:997
 #: libraries/rte/rte_triggers.lib.php:398
 msgid "The definer must be in the \"username@hostname\" format"
-msgstr ""
+msgstr "定義者の指定は「ユーザ名@ホスト名」の形式でなければなりません。"
 
 #: libraries/rte/rte_events.lib.php:525
 msgid "You must provide an event name"
