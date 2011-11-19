@@ -7345,7 +7345,7 @@ msgstr "完全な INSERT 文を作成する"
 #: libraries/rte/rte_events.lib.php:475 libraries/rte/rte_routines.lib.php:933
 #: libraries/rte/rte_triggers.lib.php:360
 msgid "Definer"
-msgstr "DEFINER"
+msgstr "定義者"
 
 #: libraries/rte/rte_events.lib.php:518 libraries/rte/rte_routines.lib.php:997
 #: libraries/rte/rte_triggers.lib.php:398
