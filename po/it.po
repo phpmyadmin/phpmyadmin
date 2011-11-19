@@ -2047,7 +2047,7 @@ msgstr "Precedente"
 #| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
-msgstr "Successivo"
+msgstr "Prossimo"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:374
