@@ -1865,7 +1865,7 @@ msgstr "Ricerca Zoom"
 
 #: js/messages.php:271
 msgid "Each point represents a data row."
-msgstr ""
+msgstr "Ogni punto rappresenta una riga dei dati."
 
 #: js/messages.php:273
 msgid "Hovering over a point will show its label."
