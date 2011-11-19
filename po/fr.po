@@ -12793,7 +12793,9 @@ msgstr "Pourcentage du nombre de fichiers ouverts"
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \\\"Too many open files\\\" error."
-msgstr "Le nombre de fichiers ouverts s'approche du maximum."
+msgstr ""
+"Le nombre de fichiers ouverts s'approche du maximum. Vous pouvez obtenir "
+"l'erreur \\«Trop de fichiers sont ouverts\\»."
 
 #: po/advisory_rules.php:187 po/advisory_rules.php:192
 msgid ""
