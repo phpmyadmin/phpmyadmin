@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-11 10:19+0100\n"
 "PO-Revision-Date: 2011-11-19 23:00+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -5868,7 +5868,7 @@ msgstr "Importazione nel database \"%s\""
 #: libraries/display_import.lib.php:133
 #, php-format
 msgid "Importing into the table \"%s\""
-msgstr "Importazione nella tabbella \"%s\""
+msgstr "Importazione nella tabella \"%s\""
 
 #: libraries/display_import.lib.php:139
 msgid "File to Import:"
