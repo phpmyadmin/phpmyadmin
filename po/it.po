@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-11 10:19+0100\n"
 "PO-Revision-Date: 2011-11-19 23:00+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -4176,7 +4176,7 @@ msgstr "Visalizza la selezione dei server"
 
 #: libraries/config/messages.inc.php:274
 msgid "Minimum number of tables to display the table filter box"
-msgstr "Numero minimo di tabbelle per visualizzare il riquadro di filtraggio"
+msgstr "Numero minimo di tabelle per visualizzare il riquadro di filtraggio"
 
 #: libraries/config/messages.inc.php:275
 msgid "String that separates databases into different tree levels"
