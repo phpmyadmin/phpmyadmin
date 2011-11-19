@@ -1959,6 +1959,8 @@ msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
+"Hai modificato dei dati e non hai salvato. Sei sicuro di voler navigare via "
+"da questa pagina senza salvare i dati?"
 
 #: js/messages.php:322
 msgid "Drag to reorder"
