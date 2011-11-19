@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-11 10:19+0100\n"
-"PO-Revision-Date: 2011-11-19 08:46+0200\n"
+"PO-Revision-Date: 2011-11-19 09:07+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12529,7 +12529,7 @@ msgstr ""
 #: po/advisory_rules.php:168
 #, php-format
 msgid "max %% MyISAM key buffer ever used: %s, this value should be above 95%%"
-msgstr ""
+msgstr "常用される MyISAM キーバッファの最大比率: この値は、95%% 以上がいいと言われています。"
 
 #: po/advisory_rules.php:170
 msgid "Percentage of MyISAM key buffer used"
