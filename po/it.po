@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-11 10:19+0100\n"
-"PO-Revision-Date: 2011-11-19 23:11+0200\n"
+"PO-Revision-Date: 2011-11-19 23:13+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -1877,7 +1877,7 @@ msgstr "Utilizza la rotellina del mouse per ingrandire o ridurre il piano."
 
 #: js/messages.php:277
 msgid "Click and drag the mouse to navigate the plot."
-msgstr ""
+msgstr "Fai clic e trascina il mouse per navigare il piano."
 
 #: js/messages.php:279
 msgid "Click reset zoom link to come back to original state."
