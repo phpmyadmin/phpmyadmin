@@ -75,6 +75,10 @@ function PMA_fillTooltip(&$tooltip_truename, &$tooltip_aliasname, $table)
         // remove InnoDB comment from end, just the minimal part (*? is non greedy)
         $table['Comment'] = preg_replace('@; InnoDB free:.*?$@', '', $table['Comment']);
     }
+    // views have VIEW as comment so it's not a real comment put by a user
+    if ('VIEW' == $table['Comment']) {
+        $table['Comment'] = '';
+    }
     if (empty($table['Comment'])) {
         $table['Comment'] = $table['Name'];
     } else {
