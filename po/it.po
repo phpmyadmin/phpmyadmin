@@ -1906,7 +1906,7 @@ msgstr "Seleziona due campi"
 
 #: js/messages.php:288
 msgid "Select two different columns"
-msgstr ""
+msgstr "Seleziona due campi diversi"
 
 #: js/messages.php:291 tbl_change.php:312 tbl_indexes.php:211
 #: tbl_indexes.php:238
