@@ -1807,10 +1807,10 @@ msgstr ""
 "RETURN!"
 
 #: js/messages.php:248
-#, fuzzy, php-format
+#, php-format
 #| msgid "+ Add a value"
 msgid "Add %d value(s)"
-msgstr "+ Aggiungi un valore"
+msgstr "Aggiungi %d valore/i"
 
 #: js/messages.php:251
 msgid ""
