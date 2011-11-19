@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-11 10:19+0100\n"
-"PO-Revision-Date: 2011-11-19 23:24+0200\n"
+"PO-Revision-Date: 2011-11-19 23:25+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -12348,10 +12348,9 @@ msgid "Query cache disabled"
 msgstr "Cache delle query"
 
 #: po/advisory_rules.php:71
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "Il server non risponde"
+msgstr "La cache delle query non è abilitata."
 
 #: po/advisory_rules.php:72
 msgid ""
