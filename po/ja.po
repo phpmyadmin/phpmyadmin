@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-11 10:19+0100\n"
-"PO-Revision-Date: 2011-11-19 09:07+0200\n"
+"PO-Revision-Date: 2011-11-19 09:16+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12507,10 +12507,10 @@ msgid "key_buffer_size is 0"
 msgstr "key_buffer_size は 0 です。"
 
 #: po/advisory_rules.php:165
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "ソートバッファのサイズ"
+msgstr "常用される MyISAM キーバッファの最大比率"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, php-format
