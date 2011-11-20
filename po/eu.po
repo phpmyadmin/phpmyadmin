@@ -3,24 +3,24 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-11-11 10:19+0100\n"
+"POT-Creation-Date: 2011-11-20 06:57-0500\n"
 "PO-Revision-Date: 2011-11-04 13:00+0200\n"
 "Last-Translator: karrikas <karrikas@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
-"Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: eu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.1.6\n"
 
-#: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:326
+#: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:329
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1673
 msgid "Show all"
 msgstr "Dena erakutsi"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:42
-#: libraries/common.lib.php:2406
+#: libraries/common.lib.php:2441
 #: libraries/schema/Pdf_Relation_Schema.class.php:1142
 #: libraries/schema/Pdf_Relation_Schema.class.php:1166
 #: libraries/schema/User_Schema.class.php:396
@@ -38,9 +38,9 @@ msgstr ""
 "parent window or your browser is blocking cross-window updates of your "
 "security settings"
 
-#: browse_foreigners.php:151 libraries/common.lib.php:3087
-#: libraries/common.lib.php:3094 libraries/common.lib.php:3303
-#: libraries/common.lib.php:3304 libraries/db_links.inc.php:60
+#: browse_foreigners.php:151 libraries/common.lib.php:3122
+#: libraries/common.lib.php:3129 libraries/common.lib.php:3338
+#: libraries/common.lib.php:3339 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "Bilatu"
@@ -48,10 +48,10 @@ msgstr "Bilatu"
 #: browse_foreigners.php:154 db_operations.php:372 db_operations.php:412
 #: db_operations.php:522 db_operations.php:549 db_search.php:337
 #: db_structure.php:614 enum_editor.php:119 gis_data_editor.php:133
-#: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:207
+#: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:208
 #: libraries/Config.class.php:1326 libraries/Theme_Manager.class.php:309
 #: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1367
-#: libraries/common.lib.php:2379 libraries/core.lib.php:513
+#: libraries/common.lib.php:2414 libraries/core.lib.php:513
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:349 libraries/display_import.lib.php:267
@@ -73,17 +73,17 @@ msgstr "Bilatu"
 #: server_privileges.php:2195 server_privileges.php:2238
 #: server_replication.php:233 server_replication.php:316
 #: server_replication.php:347 server_synchronize.php:1309 tbl_change.php:340
-#: tbl_change.php:1075 tbl_change.php:1112 tbl_indexes.php:268
+#: tbl_change.php:1075 tbl_change.php:1112 tbl_indexes.php:281
 #: tbl_operations.php:284 tbl_operations.php:321 tbl_operations.php:523
 #: tbl_operations.php:585 tbl_operations.php:768 tbl_select.php:235
-#: tbl_structure.php:671 tbl_structure.php:708 tbl_tracking.php:416
+#: tbl_structure.php:671 tbl_structure.php:706 tbl_tracking.php:416
 #: tbl_tracking.php:554 tbl_zoom_select.php:313 view_create.php:181
 #: view_operations.php:99
 msgid "Go"
 msgstr "Joan"
 
 #: browse_foreigners.php:169 browse_foreigners.php:173
-#: libraries/Index.class.php:432 tbl_tracking.php:304
+#: libraries/Index.class.php:440 tbl_tracking.php:304
 #, fuzzy
 msgid "Keyname"
 msgstr "Giltzaren izena"
@@ -138,19 +138,19 @@ msgstr "Datu-basearen iruzkina: "
 msgid "Table comments"
 msgstr "Taularen iruzkinak"
 
-#: db_datadict.php:162 db_qbe.php:196 libraries/Index.class.php:436
+#: db_datadict.php:162 db_qbe.php:196 libraries/Index.class.php:444
 #: libraries/export/htmlword.php:249 libraries/export/latex.php:359
 #: libraries/export/odt.php:286 libraries/export/texytext.php:228
 #: libraries/schema/Pdf_Relation_Schema.class.php:1305
 #: libraries/schema/Pdf_Relation_Schema.class.php:1326
 #: libraries/tbl_properties.inc.php:267 libraries/tbl_select.lib.php:83
-#: tbl_change.php:318 tbl_chart.php:89 tbl_indexes.php:196
+#: tbl_change.php:318 tbl_chart.php:89 tbl_indexes.php:206
 #: tbl_printview.php:136 tbl_relation.php:395 tbl_tracking.php:257
-#: tbl_tracking.php:308 tbl_zoom_select.php:434
+#: tbl_tracking.php:308 tbl_zoom_select.php:433
 msgid "Column"
 msgstr "Zutabea"
 
-#: db_datadict.php:163 db_printview.php:103 libraries/Index.class.php:433
+#: db_datadict.php:163 db_printview.php:103 libraries/Index.class.php:441
 #: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:250
 #: libraries/export/latex.php:359 libraries/export/odt.php:289
 #: libraries/export/texytext.php:229 libraries/rte/rte_list.lib.php:53
@@ -162,18 +162,18 @@ msgstr "Zutabea"
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:84
 #: server_privileges.php:2251 tbl_change.php:297 tbl_change.php:324
 #: tbl_printview.php:137 tbl_printview.php:272 tbl_structure.php:202
-#: tbl_structure.php:765 tbl_tracking.php:258 tbl_tracking.php:305
+#: tbl_structure.php:766 tbl_tracking.php:258 tbl_tracking.php:305
 msgid "Type"
 msgstr "Mota"
 
-#: db_datadict.php:165 libraries/Index.class.php:439
+#: db_datadict.php:165 libraries/Index.class.php:447
 #: libraries/export/htmlword.php:251 libraries/export/latex.php:359
 #: libraries/export/odt.php:292 libraries/export/texytext.php:230
 #: libraries/schema/Pdf_Relation_Schema.class.php:1308
 #: libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_properties.inc.php:102 tbl_change.php:333
 #: tbl_printview.php:138 tbl_structure.php:205 tbl_tracking.php:260
-#: tbl_tracking.php:311 tbl_zoom_select.php:435
+#: tbl_tracking.php:311 tbl_zoom_select.php:434
 msgid "Null"
 msgstr "Nulua"
 
@@ -206,8 +206,8 @@ msgstr "Esteka:"
 msgid "Comments"
 msgstr "Iruzkinak"
 
-#: db_datadict.php:233 js/messages.php:226 libraries/Index.class.php:349
-#: libraries/Index.class.php:376 libraries/Index.class.php:674
+#: db_datadict.php:233 js/messages.php:227 libraries/Index.class.php:349
+#: libraries/Index.class.php:376 libraries/Index.class.php:679
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:299
 #: libraries/export/latex.php:407 libraries/export/odt.php:343
@@ -222,8 +222,8 @@ msgstr "Iruzkinak"
 msgid "No"
 msgstr "Ez"
 
-#: db_datadict.php:233 js/messages.php:225 libraries/Index.class.php:350
-#: libraries/Index.class.php:375 libraries/Index.class.php:674
+#: db_datadict.php:233 js/messages.php:226 libraries/Index.class.php:350
+#: libraries/Index.class.php:375 libraries/Index.class.php:679
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:299
 #: libraries/export/latex.php:407 libraries/export/odt.php:343
@@ -333,12 +333,12 @@ msgstr "Murrizketak gehitu"
 msgid "Switch to copied database"
 msgstr "Kopiatutako datu-basea hautatu "
 
-#: db_operations.php:542 libraries/Index.class.php:438
+#: db_operations.php:542 libraries/Index.class.php:446
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:100
 #: libraries/tbl_properties.inc.php:668 libraries/tbl_select.lib.php:85
 #: server_collations.php:53 server_collations.php:65 tbl_operations.php:382
-#: tbl_structure.php:203 tbl_structure.php:870 tbl_tracking.php:259
+#: tbl_structure.php:203 tbl_structure.php:871 tbl_tracking.php:259
 #: tbl_tracking.php:310
 msgid "Collation"
 msgstr "Ordenamendua"
@@ -371,36 +371,36 @@ msgstr "Taula"
 #: libraries/db_structure.lib.php:42 libraries/header_printview.inc.php:65
 #: libraries/import.lib.php:151 navigation.php:592 navigation.php:612
 #: tbl_printview.php:353 tbl_structure.php:363 tbl_structure.php:469
-#: tbl_structure.php:880
+#: tbl_structure.php:881
 msgid "Rows"
 msgstr "Errenkadak"
 
-#: db_printview.php:106 libraries/db_structure.lib.php:53 tbl_indexes.php:197
+#: db_printview.php:106 libraries/db_structure.lib.php:53 tbl_indexes.php:207
 msgid "Size"
 msgstr "Tamaina"
 
-#: db_printview.php:159 db_structure.php:489 libraries/export/sql.php:790
+#: db_printview.php:159 db_structure.php:489 libraries/export/sql.php:791
 msgid "in use"
 msgstr "lanean"
 
-#: db_printview.php:184 libraries/db_info.inc.php:70
-#: libraries/export/sql.php:742
+#: db_printview.php:184 libraries/db_info.inc.php:74
+#: libraries/export/sql.php:743
 #: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:393
-#: tbl_structure.php:912
+#: tbl_structure.php:913
 msgid "Creation"
 msgstr "Sortzea"
 
-#: db_printview.php:193 libraries/db_info.inc.php:75
-#: libraries/export/sql.php:747
+#: db_printview.php:193 libraries/db_info.inc.php:79
+#: libraries/export/sql.php:748
 #: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:403
-#: tbl_structure.php:920
+#: tbl_structure.php:921
 msgid "Last update"
 msgstr "Azken eguneraketa"
 
-#: db_printview.php:202 libraries/db_info.inc.php:80
-#: libraries/export/sql.php:752
+#: db_printview.php:202 libraries/db_info.inc.php:84
+#: libraries/export/sql.php:753
 #: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:413
-#: tbl_structure.php:928
+#: tbl_structure.php:929
 msgid "Last check"
 msgstr "Azken egiaztapena"
 
@@ -463,7 +463,7 @@ msgid "Del"
 msgstr "Ezabatu"
 
 #: db_qbe.php:392 db_qbe.php:473 db_qbe.php:544 db_qbe.php:575
-#: server_privileges.php:398 tbl_change.php:908 tbl_indexes.php:264
+#: server_privileges.php:398 tbl_change.php:908 tbl_indexes.php:276
 #: tbl_select.php:196
 msgid "Or"
 msgstr "Edo"
@@ -532,8 +532,8 @@ msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s emaitza <i>%s</i> taulan"
 msgstr[1] "%s emaitzak <i>%s</i> taulan"
 
-#: db_search.php:234 libraries/common.lib.php:3089
-#: libraries/common.lib.php:3301 libraries/common.lib.php:3302
+#: db_search.php:234 libraries/common.lib.php:3124
+#: libraries/common.lib.php:3336 libraries/common.lib.php:3337
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:569
 msgid "Browse"
 msgstr "Arakatu"
@@ -616,11 +616,11 @@ msgstr "Jarraipena ez dago aktibatuta."
 #: db_structure.php:450 libraries/display_tbl.lib.php:2346
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Ikuspegi honek gutxienez errenkada kopuru hau dauka. Mesedez %sdocumentation"
-"%s erreferentzia egin."
+"Ikuspegi honek gutxienez errenkada kopuru hau dauka. Mesedez %sdocumentation%"
+"s erreferentzia egin."
 
 #: db_structure.php:466 db_structure.php:480 libraries/header.inc.php:161
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
@@ -666,8 +666,8 @@ msgstr "Desautatu dena"
 msgid "Check tables having overhead"
 msgstr "Arazteko hondakinak egiaztatu"
 
-#: db_structure.php:580 libraries/common.lib.php:3314
-#: libraries/common.lib.php:3315 libraries/config/messages.inc.php:166
+#: db_structure.php:580 libraries/common.lib.php:3349
+#: libraries/common.lib.php:3350 libraries/config/messages.inc.php:166
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:79
 #: libraries/display_tbl.lib.php:2506 libraries/display_tbl.lib.php:2647
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
@@ -681,14 +681,14 @@ msgstr "Esportatu"
 msgid "Print view"
 msgstr "Inprimatzeko ikuspegia"
 
-#: db_structure.php:586 libraries/common.lib.php:3310
-#: libraries/common.lib.php:3311
+#: db_structure.php:586 libraries/common.lib.php:3345
+#: libraries/common.lib.php:3346
 msgid "Empty"
 msgstr "Hutsik"
 
 #: db_structure.php:588 db_tracking.php:104 enum_editor.php:114
-#: libraries/Index.class.php:482 libraries/common.lib.php:3308
-#: libraries/common.lib.php:3309 server_databases.php:270
+#: libraries/Index.class.php:490 libraries/common.lib.php:3343
+#: libraries/common.lib.php:3344 server_databases.php:270
 #: tbl_structure.php:150 tbl_structure.php:151 tbl_structure.php:573
 msgid "Drop"
 msgstr "Ezabatu"
@@ -697,7 +697,7 @@ msgstr "Ezabatu"
 msgid "Check table"
 msgstr "Taula egiaztatu"
 
-#: db_structure.php:593 tbl_operations.php:657 tbl_structure.php:814
+#: db_structure.php:593 tbl_operations.php:657 tbl_structure.php:815
 msgid "Optimize table"
 msgstr "Taula optimizatu"
 
@@ -760,7 +760,7 @@ msgstr "Eguneratua"
 msgid "Status"
 msgstr "Egoera"
 
-#: db_tracking.php:90 libraries/Index.class.php:430
+#: db_tracking.php:90 libraries/Index.class.php:438
 #: libraries/db_structure.lib.php:39 libraries/rte/rte_list.lib.php:52
 #: libraries/rte/rte_list.lib.php:61 libraries/rte/rte_list.lib.php:68
 #: server_databases.php:195 server_privileges.php:1702
@@ -768,7 +768,7 @@ msgstr "Egoera"
 msgid "Action"
 msgstr "Ekintza"
 
-#: db_tracking.php:101 js/messages.php:36
+#: db_tracking.php:101 js/messages.php:34
 msgid "Delete tracking data for this table"
 msgstr "Ezabatu taula honetako jarraipen datuak"
 
@@ -804,21 +804,21 @@ msgstr "Taularen jarraipena egin"
 msgid "Database Log"
 msgstr "Datu-base egunkaria"
 
-#: enum_editor.php:23 js/messages.php:244
+#: enum_editor.php:23 js/messages.php:245
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
 msgstr "ENUM/SET editorea"
 
-#: enum_editor.php:28 js/messages.php:246
+#: enum_editor.php:28 js/messages.php:247
 msgid "Values for a new column"
 msgstr "Zutabe berrirako balioak"
 
-#: enum_editor.php:30 js/messages.php:245
+#: enum_editor.php:30 js/messages.php:246
 #, php-format
 msgid "Values for column %s"
 msgstr "%s zutaberako balioak"
 
-#: enum_editor.php:34 js/messages.php:247
+#: enum_editor.php:34 js/messages.php:248
 msgid "Enter each value in a separate field"
 msgstr "Sartu balioak banatutako eremuetan"
 
@@ -886,45 +886,45 @@ msgstr "Erabili OpenStreetMaps Oinarri geruza moduan"
 msgid "SRID"
 msgstr "SRID"
 
-#: gis_data_editor.php:151 js/messages.php:299
+#: gis_data_editor.php:151 js/messages.php:302
 #: libraries/display_tbl.lib.php:685
 msgid "Geometry"
 msgstr "Geometria"
 
-#: gis_data_editor.php:172 js/messages.php:295
+#: gis_data_editor.php:172 js/messages.php:298
 msgid "Point"
 msgstr "Puntu"
 
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
-#: gis_data_editor.php:297 js/messages.php:293
+#: gis_data_editor.php:297 js/messages.php:296
 msgid "X"
 msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
-#: gis_data_editor.php:299 js/messages.php:294
+#: gis_data_editor.php:299 js/messages.php:297
 msgid "Y"
 msgstr "Y"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
-#: js/messages.php:296
+#: js/messages.php:299
 #, php-format
 msgid "Point %d"
 msgstr "%d puntua"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
-#: js/messages.php:302
+#: js/messages.php:305
 msgid "Add a point"
 msgstr "Puntua gehitu"
 
-#: gis_data_editor.php:220 js/messages.php:297
+#: gis_data_editor.php:220 js/messages.php:300
 msgid "Linestring"
 msgstr "Lerro kateak"
 
-#: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:301
+#: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:304
 msgid "Outer Ring"
 msgstr "Kanpo eraztuna"
 
-#: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:300
+#: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:303
 msgid "Inner Ring"
 msgstr "Barne eraztuna"
 
@@ -932,15 +932,15 @@ msgstr "Barne eraztuna"
 msgid "Add a linestring"
 msgstr "Lerro kate berria gehitu"
 
-#: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:303
+#: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:306
 msgid "Add an inner ring"
 msgstr "Gehitu barne eraztuna"
 
-#: gis_data_editor.php:266 js/messages.php:298
+#: gis_data_editor.php:266 js/messages.php:301
 msgid "Polygon"
 msgstr "Poligono"
 
-#: gis_data_editor.php:306 js/messages.php:304
+#: gis_data_editor.php:306 js/messages.php:307
 msgid "Add a polygon"
 msgstr "Gehitu poligonoa"
 
@@ -957,8 +957,8 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 
 #: import.php:170 import.php:419
@@ -1039,198 +1039,207 @@ msgstr ""
 "phpMyAdmin askoz erabilerraza da <b>frame-ak onartzen duen</b> nabigatzaile "
 "batekin."
 
-#: js/messages.php:27 libraries/server_synchronize.lib.php:1329
-#: libraries/server_synchronize.lib.php:1338
-msgid "Click to select"
-msgstr "Egin klik hautatzeko"
-
-#: js/messages.php:28
-msgid "Click to unselect"
-msgstr "Klik desautatzeko"
-
-#: js/messages.php:29 libraries/import.lib.php:103 sql.php:247
+#: js/messages.php:27 libraries/import.lib.php:103 sql.php:247
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" sententziak ezgaituta daude."
 
-#: js/messages.php:32 libraries/mult_submits.inc.php:282 sql.php:348
+#: js/messages.php:30 libraries/mult_submits.inc.php:282 sql.php:348
 msgid "Do you really want to "
 msgstr "Benetan nahi al duzu "
 
-#: js/messages.php:33 libraries/mult_submits.inc.php:282 sql.php:333
+#: js/messages.php:31 libraries/mult_submits.inc.php:282 sql.php:333
 msgid "You are about to DESTROY a complete database!"
 msgstr "Datu-base osoa SUNTSITZERA zoaz!"
 
-#: js/messages.php:34
+#: js/messages.php:32
 msgid "You are about to DESTROY a complete table!"
 msgstr "Taula oso bat SUNTSITZERA zoaz!"
 
-#: js/messages.php:35
+#: js/messages.php:33
 msgid "You are about to TRUNCATE a complete table!"
 msgstr ""
 
-#: js/messages.php:37
+#: js/messages.php:35
 msgid "Deleting tracking data"
 msgstr "Jarraipen datuak ezabatzen"
 
-#: js/messages.php:38
+#: js/messages.php:36
 msgid "Dropping Primary Key/Index"
 msgstr "Ezabatu Giltza nagusi/Indizea"
 
-#: js/messages.php:39
+#: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Eragiketa honek luze jo lezake. Jarraitu nahi?"
 
-#: js/messages.php:42
+#: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
 msgstr "BLOG biltegi bat DESGAITZERA zoaz!"
 
-#: js/messages.php:43
+#: js/messages.php:41
 #, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
 msgstr ""
 
-#: js/messages.php:46
+#: js/messages.php:44
 msgid "Missing value in the form!"
 msgstr "Balioa bat falta da formularioan!"
 
-#: js/messages.php:47
+#: js/messages.php:45
 msgid "This is not a number!"
 msgstr "Hau ez da zenbaki bat!"
 
+#: js/messages.php:46
+#, fuzzy
+#| msgid "Index"
+msgid "Add Index"
+msgstr "Indizea"
+
+#: js/messages.php:47
+#, fuzzy
+#| msgid "Edit next row"
+msgid "Edit Index"
+msgstr "Editatu hurrengo lerroa"
+
+#: js/messages.php:48 tbl_indexes.php:286
+#, fuzzy, php-format
+#| msgid "Add %s field(s)"
+msgid "Add %d column(s) to index"
+msgstr "Gehitu %s zutabe"
+
 #. l10n: Default description for the y-Axis of Charts
-#: js/messages.php:51
+#: js/messages.php:52
 msgid "Total count"
 msgstr "Gutira"
 
-#: js/messages.php:54
+#: js/messages.php:55
 msgid "The host name is empty!"
 msgstr "Zerbitzariaren izena hutsik dago!"
 
-#: js/messages.php:55
+#: js/messages.php:56
 msgid "The user name is empty!"
 msgstr "Erabiltzailearen izena hutsik dago!"
 
-#: js/messages.php:56 server_privileges.php:1314 user_password.php:50
+#: js/messages.php:57 server_privileges.php:1314 user_password.php:50
 msgid "The password is empty!"
 msgstr "Pasahitza hutsik dago!"
 
-#: js/messages.php:57 server_privileges.php:1312 user_password.php:53
+#: js/messages.php:58 server_privileges.php:1312 user_password.php:53
 msgid "The passwords aren't the same!"
 msgstr "Pasahitzek ez dute bat egiten!"
 
-#: js/messages.php:58 server_privileges.php:1769 server_privileges.php:1793
+#: js/messages.php:59 server_privileges.php:1769 server_privileges.php:1793
 #: server_privileges.php:2205 server_privileges.php:2404
 msgid "Add user"
 msgstr "Gehitu erabiltzailea"
 
-#: js/messages.php:59
+#: js/messages.php:60
 msgid "Reloading Privileges"
 msgstr "Pribilegioak berkargatzen"
 
-#: js/messages.php:60
+#: js/messages.php:61
 msgid "Removing Selected Users"
 msgstr "Hautatutako erabiltzaileak baztertu"
 
-#: js/messages.php:61 js/messages.php:130 tbl_tracking.php:235
+#: js/messages.php:62 js/messages.php:131 tbl_tracking.php:235
 #: tbl_tracking.php:400
 msgid "Close"
 msgstr "Itxi"
 
-#: js/messages.php:64 js/messages.php:256 libraries/Index.class.php:460
+#: js/messages.php:65 js/messages.php:257 libraries/Index.class.php:468
 #: libraries/common.lib.php:641 libraries/common.lib.php:1190
-#: libraries/common.lib.php:3312 libraries/common.lib.php:3313
+#: libraries/common.lib.php:3347 libraries/common.lib.php:3348
 #: libraries/config/messages.inc.php:482 libraries/display_tbl.lib.php:1380
 #: libraries/schema/User_Schema.class.php:196 setup/frames/index.inc.php:138
 msgid "Edit"
 msgstr "Editatu"
 
-#: js/messages.php:65 server_status.php:794
+#: js/messages.php:66 server_status.php:794
 msgid "Live traffic chart"
 msgstr "Zuzeneko trafikoaren grafika"
 
-#: js/messages.php:66 server_status.php:797
+#: js/messages.php:67 server_status.php:797
 msgid "Live conn./process chart"
 msgstr ""
 
-#: js/messages.php:67 server_status.php:815
+#: js/messages.php:68 server_status.php:815
 #, fuzzy
 msgid "Live query chart"
 msgstr "SQL kontsulta"
 
-#: js/messages.php:69
+#: js/messages.php:70
 #, fuzzy
 msgid "Static data"
 msgstr "Datu estatikoak"
 
 #. l10n: Total number of queries
-#: js/messages.php:71 libraries/build_html_for_db.lib.php:46
+#: js/messages.php:72 libraries/build_html_for_db.lib.php:46
 #: libraries/engines/innodb.lib.php:158 server_databases.php:223
 #: server_status.php:1115 server_status.php:1176 tbl_printview.php:310
-#: tbl_structure.php:802
+#: tbl_structure.php:803
 msgid "Total"
 msgstr "Gutira"
 
 #. l10n: Other, small valued, queries
-#: js/messages.php:73 server_status.php:594 server_status.php:1013
+#: js/messages.php:74 server_status.php:594 server_status.php:1013
 msgid "Other"
 msgstr "Beste"
 
 #. l10n: Thousands separator
-#: js/messages.php:75 libraries/common.lib.php:1445
+#: js/messages.php:76 libraries/common.lib.php:1445
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:77 libraries/common.lib.php:1447
+#: js/messages.php:78 libraries/common.lib.php:1447
 msgid "."
 msgstr "."
 
-#: js/messages.php:79
+#: js/messages.php:80
 msgid "KiB sent since last refresh"
 msgstr "KiB bidali azken freskatzetik"
 
-#: js/messages.php:80
+#: js/messages.php:81
 msgid "KiB received since last refresh"
 msgstr "KiB jasoak azken freskatzetik"
 
-#: js/messages.php:81
+#: js/messages.php:82
 #, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
 msgstr "Zerbitzariaren trafikoa (KiBtan)"
 
-#: js/messages.php:82
+#: js/messages.php:83
 msgid "Connections since last refresh"
 msgstr "Konexio azken freskatzetik"
 
-#: js/messages.php:83 js/messages.php:121 server_status.php:1224
+#: js/messages.php:84 js/messages.php:122 server_status.php:1224
 msgid "Processes"
 msgstr "Prozesuak"
 
-#: js/messages.php:84
+#: js/messages.php:85
 msgid "Connections / Processes"
 msgstr "Konexioak / Prozesuak"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: js/messages.php:86
+#: js/messages.php:87
 msgid "Questions since last refresh"
 msgstr "Galdera azken freskatzetik"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: js/messages.php:88
+#: js/messages.php:89
 #, fuzzy
 msgid "Questions (executed statements by the server)"
 msgstr "Galdera (zerbitzariak exekutatuak)"
 
-#: js/messages.php:90 server_status.php:776
+#: js/messages.php:91 server_status.php:776
 msgid "Query statistics"
 msgstr "Kontsulta estatistikak"
 
-#: js/messages.php:93
+#: js/messages.php:94
 msgid "Local monitor configuration incompatible"
 msgstr "Konfiguratutako monitore lokal bateraezina"
 
-#: js/messages.php:94
+#: js/messages.php:95
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -1238,177 +1247,177 @@ msgid ""
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
 
-#: js/messages.php:96
+#: js/messages.php:97
 #, fuzzy
 msgid "Query cache efficiency"
 msgstr "Kontsulta katxe eragikortasuna"
 
-#: js/messages.php:97
+#: js/messages.php:98
 #, fuzzy
 msgid "Query cache usage"
 msgstr "Kontsulta katxe erabilpena"
 
-#: js/messages.php:98
+#: js/messages.php:99
 #, fuzzy
 msgid "Query cache used"
 msgstr "Kontsulta katxe erabilia"
 
-#: js/messages.php:100
+#: js/messages.php:101
 msgid "System CPU Usage"
 msgstr "Sistema PUZ erabilera"
 
-#: js/messages.php:101
+#: js/messages.php:102
 msgid "System memory"
 msgstr "Sistemaren memoria"
 
-#: js/messages.php:102
+#: js/messages.php:103
 #, fuzzy
 msgid "System swap"
 msgstr "Sistemaren swap-a"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:103 libraries/common.lib.php:1395 server_status.php:1669
+#: js/messages.php:104 libraries/common.lib.php:1395 server_status.php:1669
 msgid "MiB"
 msgstr "MiB"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:104 libraries/common.lib.php:1393 server_status.php:1669
+#: js/messages.php:105 libraries/common.lib.php:1393 server_status.php:1669
 msgid "KiB"
 msgstr "KiB"
 
-#: js/messages.php:106
+#: js/messages.php:107
 msgid "Average load"
 msgstr "Bataz besteko karga"
 
-#: js/messages.php:107
+#: js/messages.php:108
 msgid "Total memory"
 msgstr "Memoria guztira"
 
-#: js/messages.php:108
+#: js/messages.php:109
 msgid "Cached memory"
 msgstr "Memoria katxea"
 
-#: js/messages.php:109
+#: js/messages.php:110
 msgid "Buffered memory"
 msgstr "Memoria bufferrean"
 
-#: js/messages.php:110
+#: js/messages.php:111
 msgid "Free memory"
 msgstr "Memoria librea"
 
-#: js/messages.php:111
+#: js/messages.php:112
 msgid "Used memory"
 msgstr "Memoria erabilia"
 
-#: js/messages.php:113
+#: js/messages.php:114
 #, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
 msgstr "Swap osoa"
 
-#: js/messages.php:114
+#: js/messages.php:115
 #, fuzzy
 msgid "Cached Swap"
 msgstr "Swap katxea"
 
-#: js/messages.php:115
+#: js/messages.php:116
 #, fuzzy
 msgid "Used Swap"
 msgstr "Swap erabilia"
 
-#: js/messages.php:116
+#: js/messages.php:117
 msgid "Free Swap"
 msgstr ""
 
-#: js/messages.php:118
+#: js/messages.php:119
 msgid "Bytes sent"
 msgstr ""
 
-#: js/messages.php:119
+#: js/messages.php:120
 #, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
 msgstr "Jasota"
 
-#: js/messages.php:120 server_status.php:1134
+#: js/messages.php:121 server_status.php:1134
 msgid "Connections"
 msgstr "Konexioak"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: js/messages.php:124
+#: js/messages.php:125
 #, fuzzy
 msgid "Questions"
 msgstr "Eragiketak"
 
-#: js/messages.php:125 server_status.php:1089
+#: js/messages.php:126 server_status.php:1089
 msgid "Traffic"
 msgstr "Trafikoa"
 
-#: js/messages.php:126 libraries/server_links.inc.php:73
+#: js/messages.php:127 libraries/server_links.inc.php:73
 #: server_status.php:1544
 #, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
 msgstr "Erlazioen ezaaugarri orokorrak"
 
-#: js/messages.php:127
+#: js/messages.php:128
 #, fuzzy
 msgid "Remove chart"
 msgstr "Taula berrizendatu izen honetara: "
 
-#: js/messages.php:128
+#: js/messages.php:129
 msgid "Edit title and labels"
 msgstr ""
 
-#: js/messages.php:129
+#: js/messages.php:130
 msgid "Add chart to grid"
 msgstr ""
 
-#: js/messages.php:131
+#: js/messages.php:132
 msgid "Please add at least one variable to the series"
 msgstr ""
 
-#: js/messages.php:132 libraries/display_export.lib.php:308
-#: libraries/display_tbl.lib.php:565 libraries/export/sql.php:1092
+#: js/messages.php:133 libraries/display_export.lib.php:308
+#: libraries/display_tbl.lib.php:565 libraries/export/sql.php:1093
 #: libraries/tbl_properties.inc.php:530 pmd_general.php:504
 #: server_privileges.php:2046 server_status.php:1257 server_status.php:1686
 #: tbl_zoom_select.php:151 tbl_zoom_select.php:278
 msgid "None"
 msgstr "Batez"
 
-#: js/messages.php:133
+#: js/messages.php:134
 msgid "Resume monitor"
 msgstr ""
 
-#: js/messages.php:134
+#: js/messages.php:135
 msgid "Pause monitor"
 msgstr ""
 
-#: js/messages.php:136
+#: js/messages.php:137
 msgid "general_log and slow_query_log are enabled."
 msgstr ""
 
-#: js/messages.php:137
+#: js/messages.php:138
 msgid "general_log is enabled."
 msgstr ""
 
-#: js/messages.php:138
+#: js/messages.php:139
 msgid "slow_query_log is enabled."
 msgstr ""
 
-#: js/messages.php:139
+#: js/messages.php:140
 msgid "slow_query_log and general_log are disabled."
 msgstr ""
 
-#: js/messages.php:140
+#: js/messages.php:141
 msgid "log_output is not set to TABLE."
 msgstr ""
 
-#: js/messages.php:141
+#: js/messages.php:142
 msgid "log_output is set to TABLE."
 msgstr ""
 
-#: js/messages.php:142
+#: js/messages.php:143
 #, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
@@ -1416,185 +1425,185 @@ msgid ""
 "depending on your system."
 msgstr ""
 
-#: js/messages.php:143
+#: js/messages.php:144
 #, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr ""
 
-#: js/messages.php:144
+#: js/messages.php:145
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
 
 #. l10n: %s is FILE or TABLE
-#: js/messages.php:146
+#: js/messages.php:147
 #, fuzzy, php-format
 #| msgid "Save as file"
 msgid "Set log_output to %s"
 msgstr "Bidali"
 
 #. l10n: Enable in this context means setting a status variable to ON
-#: js/messages.php:148
+#: js/messages.php:149
 #, fuzzy, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
 msgstr "Gaituta"
 
 #. l10n: Disable in this context means setting a status variable to OFF
-#: js/messages.php:150
+#: js/messages.php:151
 #, fuzzy, php-format
 #| msgid "Disable"
 msgid "Disable %s"
 msgstr "Ezgaituta"
 
 #. l10n: %d seconds
-#: js/messages.php:152
+#: js/messages.php:153
 #, php-format
 msgid "Set long_query_time to %ds"
 msgstr ""
 
-#: js/messages.php:153
+#: js/messages.php:154
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
 
-#: js/messages.php:154
+#: js/messages.php:155
 #, fuzzy
 #| msgid "General relation features"
 msgid "Change settings"
 msgstr "Erlazioen ezaaugarri orokorrak"
 
-#: js/messages.php:155
+#: js/messages.php:156
 #, fuzzy
 #| msgid "General relation features"
 msgid "Current settings"
 msgstr "Erlazioen ezaaugarri orokorrak"
 
-#: js/messages.php:157 server_status.php:1634
+#: js/messages.php:158 server_status.php:1634
 #, fuzzy
 #| msgid "Import files"
 msgid "Chart Title"
 msgstr "Fitxategiak inportatu"
 
 #. l10n: As in differential values
-#: js/messages.php:159
+#: js/messages.php:160
 msgid "Differential"
 msgstr ""
 
-#: js/messages.php:160
+#: js/messages.php:161
 #, php-format
 msgid "Divided by %s:"
 msgstr ""
 
-#: js/messages.php:162
+#: js/messages.php:163
 msgid "From slow log"
 msgstr ""
 
-#: js/messages.php:163
+#: js/messages.php:164
 msgid "From general log"
 msgstr ""
 
-#: js/messages.php:164
+#: js/messages.php:165
 msgid "Analysing & loading logs. This may take a while."
 msgstr ""
 
-#: js/messages.php:165
+#: js/messages.php:166
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
 
-#: js/messages.php:166
+#: js/messages.php:167
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
 
-#: js/messages.php:167
+#: js/messages.php:168
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 
-#: js/messages.php:169
+#: js/messages.php:170
 #, fuzzy
 msgid "Jump to Log table"
 msgstr "Datu-baserik ez"
 
-#: js/messages.php:170
+#: js/messages.php:171
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
 
 #. l10n: A collection of available filters
-#: js/messages.php:173
+#: js/messages.php:174
 #, fuzzy
 #| msgid "Table options"
 msgid "Log table filter options"
 msgstr "Taularen hobespenak"
 
 #. l10n: Filter as in "Start Filtering"
-#: js/messages.php:175
+#: js/messages.php:176
 msgid "Filter"
 msgstr ""
 
-#: js/messages.php:176
+#: js/messages.php:177
 msgid "Filter queries by word/regexp:"
 msgstr ""
 
-#: js/messages.php:177
+#: js/messages.php:178
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 
-#: js/messages.php:178
+#: js/messages.php:179
 #, fuzzy
 #| msgid "Number of rows per page"
 msgid "Sum of grouped rows:"
 msgstr "Errenkada kopurua orriko"
 
-#: js/messages.php:179
+#: js/messages.php:180
 #, fuzzy
 #| msgid "Total"
 msgid "Total:"
 msgstr "Gutira"
 
-#: js/messages.php:181
+#: js/messages.php:182
 #, fuzzy
 msgid "Loading logs"
 msgstr "Lokal"
 
-#: js/messages.php:182
+#: js/messages.php:183
 msgid "Monitor refresh failed"
 msgstr ""
 
-#: js/messages.php:183
+#: js/messages.php:184
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
 
-#: js/messages.php:184
+#: js/messages.php:185
 #, fuzzy
 msgid "Reload page"
 msgstr "Taula berrizendatu izen honetara: "
 
-#: js/messages.php:186
+#: js/messages.php:187
 msgid "Affected rows:"
 msgstr ""
 
-#: js/messages.php:188
+#: js/messages.php:189
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgstr ""
 
-#: js/messages.php:189
+#: js/messages.php:190
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr ""
 
-#: js/messages.php:190 libraries/config/messages.inc.php:172
+#: js/messages.php:191 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
 #: prefs_manage.php:229 server_status.php:1589 setup/frames/menu.inc.php:20
@@ -1602,372 +1611,384 @@ msgstr ""
 msgid "Import"
 msgstr "Esportatu"
 
-#: js/messages.php:192
+#: js/messages.php:193
 #, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
 msgstr "Kontsulta eguneratu"
 
-#: js/messages.php:196
+#: js/messages.php:197
 msgid "Advisor system"
 msgstr ""
 
-#: js/messages.php:197
+#: js/messages.php:198
 msgid "Possible performance issues"
 msgstr ""
 
-#: js/messages.php:198
+#: js/messages.php:199
 msgid "Issue"
 msgstr ""
 
-#: js/messages.php:199
+#: js/messages.php:200
 #, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
 msgstr "Dokumentazioa"
 
-#: js/messages.php:200
+#: js/messages.php:201
 msgid "Rule details"
 msgstr ""
 
-#: js/messages.php:201
+#: js/messages.php:202
 #, fuzzy
 #| msgid "Documentation"
 msgid "Justification"
 msgstr "Dokumentazioa"
 
-#: js/messages.php:202
+#: js/messages.php:203
 msgid "Used variable / formula"
 msgstr ""
 
-#: js/messages.php:203
+#: js/messages.php:204
 msgid "Test"
 msgstr ""
 
-#: js/messages.php:208 pmd_general.php:382 pmd_general.php:419
+#: js/messages.php:209 pmd_general.php:382 pmd_general.php:419
 #: pmd_general.php:539 pmd_general.php:587 pmd_general.php:663
 #: pmd_general.php:717 pmd_general.php:780
 msgid "Cancel"
 msgstr ""
 
-#: js/messages.php:211
+#: js/messages.php:212
 #, fuzzy
 msgid "Loading"
 msgstr "Lokal"
 
-#: js/messages.php:212
+#: js/messages.php:213
 #, fuzzy
 #| msgid "Processes"
 msgid "Processing Request"
 msgstr "Prozesuak"
 
-#: js/messages.php:213 libraries/rte/rte_export.lib.php:39
+#: js/messages.php:214 libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
 msgstr ""
 
-#: js/messages.php:214
+#: js/messages.php:215
 msgid "Dropping Column"
 msgstr ""
 
-#: js/messages.php:215
+#: js/messages.php:216
 msgid "Adding Primary Key"
 msgstr ""
 
-#: js/messages.php:216 libraries/relation.lib.php:80 pmd_general.php:380
+#: js/messages.php:217 libraries/relation.lib.php:80 pmd_general.php:380
 #: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
 #: pmd_general.php:715 pmd_general.php:778
 msgid "OK"
 msgstr "Zuzena"
 
-#: js/messages.php:217
+#: js/messages.php:218
 msgid "Click to dismiss this notification"
 msgstr ""
 
-#: js/messages.php:220
+#: js/messages.php:221
 #, fuzzy
 msgid "Renaming Databases"
 msgstr "Taula berrizendatu izen honetara: "
 
-#: js/messages.php:221
+#: js/messages.php:222
 #, fuzzy
 msgid "Reload Database"
 msgstr "Taula berrizendatu izen honetara: "
 
-#: js/messages.php:222
+#: js/messages.php:223
 #, fuzzy
 msgid "Copying Database"
 msgstr "Datu-baserik ez"
 
-#: js/messages.php:223
+#: js/messages.php:224
 #, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
 msgstr "Karaktere-jokoa"
 
-#: js/messages.php:224
+#: js/messages.php:225
 #, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "Table must have at least one column"
 msgstr "Gutxienez bistaratzeko Zutabe bat hautatu duzu."
 
-#: js/messages.php:229
+#: js/messages.php:230
 #, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
 msgstr "Taulak erabili"
 
-#: js/messages.php:230
+#: js/messages.php:231
 #, fuzzy
 #| msgid "Indexes"
 msgid "Hide indexes"
 msgstr "Indizeak"
 
-#: js/messages.php:231
+#: js/messages.php:232
 #, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
 msgstr "Sareta erakutsi"
 
-#: js/messages.php:234
+#: js/messages.php:235
 #, fuzzy
 #| msgid "Search"
 msgid "Searching"
 msgstr "Bilatu"
 
-#: js/messages.php:235
+#: js/messages.php:236
 #, fuzzy
 msgid "Hide search results"
 msgstr "SQL kontsulta"
 
-#: js/messages.php:236
+#: js/messages.php:237
 #, fuzzy
 msgid "Show search results"
 msgstr "SQL kontsulta"
 
-#: js/messages.php:237
+#: js/messages.php:238
 #, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
 msgstr "Arakatu"
 
-#: js/messages.php:238
+#: js/messages.php:239
 #, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
 msgstr "%s ezabatzen"
 
-#: js/messages.php:241
+#: js/messages.php:242
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
-#: js/messages.php:248
+#: js/messages.php:249
 #, fuzzy, php-format
 msgid "Add %d value(s)"
 msgstr "Erabiltzaile berria gehitu"
 
-#: js/messages.php:251
+#: js/messages.php:252
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr ""
 
-#: js/messages.php:254
+#: js/messages.php:255
 #, fuzzy
 msgid "Hide query box"
 msgstr "SQL kontsulta"
 
-#: js/messages.php:255
+#: js/messages.php:256
 #, fuzzy
 msgid "Show query box"
 msgstr "SQL kontsulta"
 
-#: js/messages.php:257 tbl_row_action.php:28
+#: js/messages.php:258 tbl_row_action.php:28
 msgid "No rows selected"
 msgstr ""
 
-#: js/messages.php:258 libraries/common.lib.php:2704
+#: js/messages.php:259 libraries/common.lib.php:2739
 #: libraries/display_tbl.lib.php:2497 querywindow.php:87 tbl_structure.php:149
 #: tbl_structure.php:572
 msgid "Change"
 msgstr "Aldatu"
 
-#: js/messages.php:259
+#: js/messages.php:260
 msgid "Query execution time"
 msgstr ""
 
-#: js/messages.php:262 libraries/config/FormDisplay.tpl.php:355
+#: js/messages.php:263 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
 #: libraries/tbl_properties.inc.php:714 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:228 tbl_change.php:1027
-#: tbl_gis_visualization.php:193 tbl_indexes.php:261 tbl_relation.php:559
+#: tbl_gis_visualization.php:193 tbl_indexes.php:273 tbl_relation.php:559
 msgid "Save"
 msgstr "Gorde"
 
-#: js/messages.php:265
+#: js/messages.php:266
 #, fuzzy
 msgid "Hide search criteria"
 msgstr "SQL kontsulta"
 
-#: js/messages.php:266
+#: js/messages.php:267
 #, fuzzy
 msgid "Show search criteria"
 msgstr "SQL kontsulta"
 
-#: js/messages.php:269 libraries/tbl_select.lib.php:110
+#: js/messages.php:270 libraries/tbl_select.lib.php:110
 #, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
 msgstr "Bilatu"
 
-#: js/messages.php:271
+#: js/messages.php:272
 msgid "Each point represents a data row."
 msgstr ""
 
-#: js/messages.php:273
+#: js/messages.php:274
 msgid "Hovering over a point will show its label."
 msgstr ""
 
-#: js/messages.php:275
+#: js/messages.php:276
 msgid "Use mousewheel to zoom in or out of the plot."
 msgstr ""
 
-#: js/messages.php:277
+#: js/messages.php:278
 msgid "Click and drag the mouse to navigate the plot."
 msgstr ""
 
-#: js/messages.php:279
+#: js/messages.php:280
 msgid "Click reset zoom link to come back to original state."
 msgstr ""
 
-#: js/messages.php:281
+#: js/messages.php:282
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 
-#: js/messages.php:283
+#: js/messages.php:284
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 
-#: js/messages.php:285
+#: js/messages.php:286
 msgid "Strings are converted into integer for plotting"
 msgstr ""
 
-#: js/messages.php:287
+#: js/messages.php:288
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Select two columns"
 msgstr "Gehitu/ezabatu irizpide-zutabea"
 
-#: js/messages.php:288
+#: js/messages.php:289
 msgid "Select two different columns"
 msgstr ""
 
-#: js/messages.php:291 tbl_change.php:312 tbl_indexes.php:211
-#: tbl_indexes.php:238
+#: js/messages.php:290
+#, fuzzy
+#| msgid "SQL result"
+msgid "Query results"
+msgstr "SQL emaitza"
+
+#: js/messages.php:291
+#, fuzzy
+#| msgid "Table of contents"
+msgid "Data point content"
+msgstr "Edukinen taula"
+
+#: js/messages.php:294 tbl_change.php:312 tbl_indexes.php:221
+#: tbl_indexes.php:248
 msgid "Ignore"
 msgstr "Ezikusi"
 
-#: js/messages.php:292 libraries/display_tbl.lib.php:1381
+#: js/messages.php:295 libraries/display_tbl.lib.php:1381
 msgid "Copy"
 msgstr ""
 
-#: js/messages.php:307
+#: js/messages.php:310
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add columns"
 msgstr "Gehitu %s zutabe"
 
-#: js/messages.php:310
+#: js/messages.php:313
 msgid "Select referenced key"
 msgstr ""
 
-#: js/messages.php:311
+#: js/messages.php:314
 msgid "Select Foreign Key"
 msgstr ""
 
-#: js/messages.php:312
+#: js/messages.php:315
 msgid "Please select the primary key or a unique key"
 msgstr ""
 
-#: js/messages.php:313 pmd_general.php:77 tbl_relation.php:541
+#: js/messages.php:316 pmd_general.php:77 tbl_relation.php:541
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Aukeratu erakutsi beharreko eremua"
 
-#: js/messages.php:314
+#: js/messages.php:317
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them.Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:317
+#: js/messages.php:320
 msgid "Add an option for column "
 msgstr ""
 
-#: js/messages.php:320
+#: js/messages.php:323
 msgid "Press escape to cancel editing"
 msgstr ""
 
-#: js/messages.php:321
+#: js/messages.php:324
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
 
-#: js/messages.php:322
+#: js/messages.php:325
 msgid "Drag to reorder"
 msgstr ""
 
-#: js/messages.php:323
+#: js/messages.php:326
 msgid "Click to sort"
 msgstr ""
 
-#: js/messages.php:324
+#: js/messages.php:327
 msgid "Click to mark/unmark"
 msgstr ""
 
-#: js/messages.php:325
+#: js/messages.php:328
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr ""
 
-#: js/messages.php:327
+#: js/messages.php:330
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: js/messages.php:328
+#: js/messages.php:331
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
 
-#: js/messages.php:329
+#: js/messages.php:332
 msgid "Go to link"
 msgstr ""
 
-#: js/messages.php:332
+#: js/messages.php:335
 #, fuzzy
 #| msgid "Change password"
 msgid "Generate password"
 msgstr "Pasahitza aldatu"
 
-#: js/messages.php:333 libraries/replication_gui.lib.php:369
+#: js/messages.php:336 libraries/replication_gui.lib.php:369
 #, fuzzy
 msgid "Generate"
 msgstr "Egilea:"
 
-#: js/messages.php:334
+#: js/messages.php:337
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Pasahitza aldatu"
 
-#: js/messages.php:337 tbl_structure.php:465
+#: js/messages.php:340 tbl_structure.php:465
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "Astel"
 
-#: js/messages.php:340 setup/lib/index.lib.php:173
+#: js/messages.php:343 setup/lib/index.lib.php:173
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1975,30 +1996,30 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:342
+#: js/messages.php:345
 msgid ", latest stable version:"
 msgstr ""
 
-#: js/messages.php:343
+#: js/messages.php:346
 #, fuzzy
 msgid "up to date"
 msgstr "Datu-baserik ez"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:362
+#: js/messages.php:365
 #, fuzzy
 #| msgid "None"
 msgid "Done"
 msgstr "Batez"
 
-#: js/messages.php:366
+#: js/messages.php:369
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Aurrekoa"
 
-#: js/messages.php:371
+#: js/messages.php:374
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -2006,96 +2027,96 @@ msgid "Next"
 msgstr "Hurrengoa"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:374
+#: js/messages.php:377
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Gutira"
 
-#: js/messages.php:377
+#: js/messages.php:380
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Binarioa "
 
-#: js/messages.php:378
+#: js/messages.php:381
 msgid "February"
 msgstr ""
 
-#: js/messages.php:379
+#: js/messages.php:382
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Mar"
 
-#: js/messages.php:380
+#: js/messages.php:383
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Api"
 
-#: js/messages.php:381
+#: js/messages.php:384
 msgid "May"
 msgstr "Mai"
 
-#: js/messages.php:382
+#: js/messages.php:385
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Eka"
 
-#: js/messages.php:383
+#: js/messages.php:386
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Uzt"
 
-#: js/messages.php:384
+#: js/messages.php:387
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Abu"
 
-#: js/messages.php:385
+#: js/messages.php:388
 msgid "September"
 msgstr ""
 
-#: js/messages.php:386
+#: js/messages.php:389
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Urr"
 
-#: js/messages.php:387
+#: js/messages.php:390
 msgid "November"
 msgstr ""
 
-#: js/messages.php:388
+#: js/messages.php:391
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:392 libraries/common.lib.php:1602
+#: js/messages.php:395 libraries/common.lib.php:1602
 msgid "Jan"
 msgstr "Urt"
 
 #. l10n: Short month name
-#: js/messages.php:394 libraries/common.lib.php:1604
+#: js/messages.php:397 libraries/common.lib.php:1604
 msgid "Feb"
 msgstr "Ots"
 
 #. l10n: Short month name
-#: js/messages.php:396 libraries/common.lib.php:1606
+#: js/messages.php:399 libraries/common.lib.php:1606
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:398 libraries/common.lib.php:1608
+#: js/messages.php:401 libraries/common.lib.php:1608
 msgid "Apr"
 msgstr "Api"
 
 #. l10n: Short month name
-#: js/messages.php:400 libraries/common.lib.php:1610
+#: js/messages.php:403 libraries/common.lib.php:1610
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -2103,78 +2124,78 @@ msgid "May"
 msgstr "Mai"
 
 #. l10n: Short month name
-#: js/messages.php:402 libraries/common.lib.php:1612
+#: js/messages.php:405 libraries/common.lib.php:1612
 msgid "Jun"
 msgstr "Eka"
 
 #. l10n: Short month name
-#: js/messages.php:404 libraries/common.lib.php:1614
+#: js/messages.php:407 libraries/common.lib.php:1614
 msgid "Jul"
 msgstr "Uzt"
 
 #. l10n: Short month name
-#: js/messages.php:406 libraries/common.lib.php:1616
+#: js/messages.php:409 libraries/common.lib.php:1616
 msgid "Aug"
 msgstr "Abu"
 
 #. l10n: Short month name
-#: js/messages.php:408 libraries/common.lib.php:1618
+#: js/messages.php:411 libraries/common.lib.php:1618
 msgid "Sep"
 msgstr "Ira"
 
 #. l10n: Short month name
-#: js/messages.php:410 libraries/common.lib.php:1620
+#: js/messages.php:413 libraries/common.lib.php:1620
 msgid "Oct"
 msgstr "Urr"
 
 #. l10n: Short month name
-#: js/messages.php:412 libraries/common.lib.php:1622
+#: js/messages.php:415 libraries/common.lib.php:1622
 msgid "Nov"
 msgstr "Aza"
 
 #. l10n: Short month name
-#: js/messages.php:414 libraries/common.lib.php:1624
+#: js/messages.php:417 libraries/common.lib.php:1624
 msgid "Dec"
 msgstr "Abe"
 
-#: js/messages.php:417
+#: js/messages.php:420
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Iga"
 
-#: js/messages.php:418
+#: js/messages.php:421
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Astel"
 
-#: js/messages.php:419
+#: js/messages.php:422
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Astea"
 
-#: js/messages.php:420
+#: js/messages.php:423
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:421
+#: js/messages.php:424
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:422
+#: js/messages.php:425
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Osti"
 
-#: js/messages.php:423
+#: js/messages.php:426
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:427
+#: js/messages.php:430
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -2182,105 +2203,105 @@ msgid "Sun"
 msgstr "Iga"
 
 #. l10n: Short week day name
-#: js/messages.php:429 libraries/common.lib.php:1629
+#: js/messages.php:432 libraries/common.lib.php:1629
 msgid "Mon"
 msgstr "Astel"
 
 #. l10n: Short week day name
-#: js/messages.php:431 libraries/common.lib.php:1631
+#: js/messages.php:434 libraries/common.lib.php:1631
 msgid "Tue"
 msgstr "Astea"
 
 #. l10n: Short week day name
-#: js/messages.php:433 libraries/common.lib.php:1633
+#: js/messages.php:436 libraries/common.lib.php:1633
 msgid "Wed"
 msgstr "Astez"
 
 #. l10n: Short week day name
-#: js/messages.php:435 libraries/common.lib.php:1635
+#: js/messages.php:438 libraries/common.lib.php:1635
 msgid "Thu"
 msgstr "Oste"
 
 #. l10n: Short week day name
-#: js/messages.php:437 libraries/common.lib.php:1637
+#: js/messages.php:440 libraries/common.lib.php:1637
 msgid "Fri"
 msgstr "Osti"
 
 #. l10n: Short week day name
-#: js/messages.php:439 libraries/common.lib.php:1639
+#: js/messages.php:442 libraries/common.lib.php:1639
 msgid "Sat"
 msgstr "Lar"
 
 #. l10n: Minimal week day name
-#: js/messages.php:443
+#: js/messages.php:446
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Iga"
 
 #. l10n: Minimal week day name
-#: js/messages.php:445
+#: js/messages.php:448
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Astel"
 
 #. l10n: Minimal week day name
-#: js/messages.php:447
+#: js/messages.php:450
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Astea"
 
 #. l10n: Minimal week day name
-#: js/messages.php:449
+#: js/messages.php:452
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Astez"
 
 #. l10n: Minimal week day name
-#: js/messages.php:451
+#: js/messages.php:454
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Oste"
 
 #. l10n: Minimal week day name
-#: js/messages.php:453
+#: js/messages.php:456
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Osti"
 
 #. l10n: Minimal week day name
-#: js/messages.php:455
+#: js/messages.php:458
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Lar"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:457
+#: js/messages.php:460
 msgid "Wk"
 msgstr ""
 
-#: js/messages.php:464 libraries/rte/rte_list.lib.php:62
+#: js/messages.php:467 libraries/rte/rte_list.lib.php:62
 #: libraries/rte/rte_triggers.lib.php:326 server_status.php:1230 sql.php:894
 msgid "Time"
 msgstr "Denbora"
 
-#: js/messages.php:465
+#: js/messages.php:468
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:466
+#: js/messages.php:469
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "lanean"
 
-#: js/messages.php:467
+#: js/messages.php:470
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -2360,46 +2381,46 @@ msgstr ""
 msgid "Cannot read (moved) upload file."
 msgstr ""
 
-#: libraries/Index.class.php:418 tbl_relation.php:522
+#: libraries/Index.class.php:419 tbl_relation.php:522
 msgid "No index defined!"
 msgstr "Ez dago indizerik definituta!"
 
 #: libraries/Index.class.php:423 libraries/build_html_for_db.lib.php:41
-#: tbl_tracking.php:300
+#: tbl_structure.php:692 tbl_tracking.php:300
 msgid "Indexes"
 msgstr "Indizeak"
 
-#: libraries/Index.class.php:434 libraries/tbl_properties.inc.php:472
+#: libraries/Index.class.php:442 libraries/tbl_properties.inc.php:472
 #: tbl_structure.php:154 tbl_structure.php:159 tbl_structure.php:576
 #: tbl_tracking.php:306
 msgid "Unique"
 msgstr "Bakarra"
 
-#: libraries/Index.class.php:435 tbl_tracking.php:307
+#: libraries/Index.class.php:443 tbl_tracking.php:307
 msgid "Packed"
 msgstr ""
 
-#: libraries/Index.class.php:437 tbl_tracking.php:309
+#: libraries/Index.class.php:445 tbl_tracking.php:309
 msgid "Cardinality"
 msgstr "Kardinalitatea"
 
-#: libraries/Index.class.php:440 libraries/rte/rte_events.lib.php:480
+#: libraries/Index.class.php:448 libraries/rte/rte_events.lib.php:480
 #: libraries/rte/rte_routines.lib.php:957 tbl_tracking.php:263
 #: tbl_tracking.php:312
 #, fuzzy
 msgid "Comment"
 msgstr "Iruzkinak"
 
-#: libraries/Index.class.php:466
+#: libraries/Index.class.php:474
 msgid "The primary key has been dropped"
 msgstr "Lehen mailako gakoa ezabatu da"
 
-#: libraries/Index.class.php:470
+#: libraries/Index.class.php:478
 #, php-format
 msgid "Index %s has been dropped"
 msgstr "%s indizea ezabatu da"
 
-#: libraries/Index.class.php:568
+#: libraries/Index.class.php:573
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
@@ -2565,8 +2586,8 @@ msgstr "Ongietorriak %s(e)ra"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:109
@@ -2720,14 +2741,14 @@ msgstr "Taulak"
 #: libraries/config/user_preferences.forms.php:238
 #: libraries/config/user_preferences.forms.php:261
 #: libraries/config/user_preferences.forms.php:266
-#: libraries/export/latex.php:201 libraries/export/sql.php:1092
+#: libraries/export/latex.php:201 libraries/export/sql.php:1093
 #: server_privileges.php:612 server_replication.php:314 tbl_printview.php:276
-#: tbl_structure.php:771
+#: tbl_structure.php:772
 msgid "Data"
 msgstr "Datuak"
 
 #: libraries/build_html_for_db.lib.php:51 libraries/db_structure.lib.php:55
-#: tbl_printview.php:295 tbl_structure.php:788
+#: tbl_printview.php:295 tbl_structure.php:789
 msgid "Overhead"
 msgstr "Arazteko hondakina"
 
@@ -2955,7 +2976,7 @@ msgstr "%s egun, %s ordu, %s minutu eta %s segundu"
 msgid "Missing parameter:"
 msgstr ""
 
-#: libraries/common.lib.php:2415 libraries/common.lib.php:2418
+#: libraries/common.lib.php:2450 libraries/common.lib.php:2453
 #: libraries/display_tbl.lib.php:306
 #, fuzzy
 #| msgid "Begin"
@@ -2963,7 +2984,7 @@ msgctxt "First page"
 msgid "Begin"
 msgstr "Hasi"
 
-#: libraries/common.lib.php:2416 libraries/common.lib.php:2419
+#: libraries/common.lib.php:2451 libraries/common.lib.php:2454
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
 #, fuzzy
@@ -2972,7 +2993,7 @@ msgctxt "Previous page"
 msgid "Previous"
 msgstr "Aurrekoa"
 
-#: libraries/common.lib.php:2446 libraries/common.lib.php:2449
+#: libraries/common.lib.php:2481 libraries/common.lib.php:2484
 #: libraries/display_tbl.lib.php:372 server_binlog.php:170
 #: server_binlog.php:172
 #, fuzzy
@@ -2981,7 +3002,7 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "Hurrengoa"
 
-#: libraries/common.lib.php:2447 libraries/common.lib.php:2450
+#: libraries/common.lib.php:2482 libraries/common.lib.php:2485
 #: libraries/display_tbl.lib.php:389
 #, fuzzy
 #| msgid "End"
@@ -2989,22 +3010,22 @@ msgctxt "Last page"
 msgid "End"
 msgstr "Amaiera"
 
-#: libraries/common.lib.php:2517
+#: libraries/common.lib.php:2552
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "&quot;%s&quot; datu-basera joan."
 
-#: libraries/common.lib.php:2537
+#: libraries/common.lib.php:2572
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 
-#: libraries/common.lib.php:2711
+#: libraries/common.lib.php:2746
 msgid "Click to toggle"
 msgstr ""
 
-#: libraries/common.lib.php:3085 libraries/common.lib.php:3092
-#: libraries/common.lib.php:3307 libraries/config/setup.forms.php:295
+#: libraries/common.lib.php:3120 libraries/common.lib.php:3127
+#: libraries/common.lib.php:3342 libraries/config/setup.forms.php:295
 #: libraries/config/setup.forms.php:332 libraries/config/setup.forms.php:358
 #: libraries/config/user_preferences.forms.php:193
 #: libraries/config/user_preferences.forms.php:230
@@ -3016,7 +3037,7 @@ msgstr ""
 msgid "Structure"
 msgstr "Egitura"
 
-#: libraries/common.lib.php:3086 libraries/common.lib.php:3093
+#: libraries/common.lib.php:3121 libraries/common.lib.php:3128
 #: libraries/config/messages.inc.php:216 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
@@ -3024,43 +3045,43 @@ msgstr "Egitura"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:3088 libraries/common.lib.php:3305
-#: libraries/common.lib.php:3306 libraries/sql_query_form.lib.php:282
+#: libraries/common.lib.php:3123 libraries/common.lib.php:3340
+#: libraries/common.lib.php:3341 libraries/sql_query_form.lib.php:282
 #: libraries/sql_query_form.lib.php:285 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "Txertatu"
 
-#: libraries/common.lib.php:3095 libraries/db_links.inc.php:85
+#: libraries/common.lib.php:3130 libraries/db_links.inc.php:85
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:114
 #: view_operations.php:87
 msgid "Operations"
 msgstr "Eragiketak"
 
-#: libraries/common.lib.php:3239 libraries/sql_query_form.lib.php:435
+#: libraries/common.lib.php:3274 libraries/sql_query_form.lib.php:435
 #: prefs_manage.php:239
 msgid "Browse your computer:"
 msgstr ""
 
-#: libraries/common.lib.php:3258
+#: libraries/common.lib.php:3293
 #, fuzzy, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Fitxategiak igotzeko web-zerbitzariaren direktorioa"
 
-#: libraries/common.lib.php:3279 libraries/sql_query_form.lib.php:444
+#: libraries/common.lib.php:3314 libraries/sql_query_form.lib.php:444
 #: tbl_change.php:905
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Igoerentzat ezarri duzun direktorioa ez dago eskuragarri"
 
-#: libraries/common.lib.php:3288
+#: libraries/common.lib.php:3323
 msgid "There are no files to upload"
 msgstr ""
 
-#: libraries/common.lib.php:3316 libraries/common.lib.php:3317
+#: libraries/common.lib.php:3351 libraries/common.lib.php:3352
 msgid "Execute"
 msgstr ""
 
-#: libraries/common.lib.php:3792
+#: libraries/common.lib.php:3827
 msgid "Print"
 msgstr "Inprimatu"
 
@@ -3513,7 +3534,7 @@ msgid "Character set of the file"
 msgstr "Fitxategiaren karaktereen kodeketa:"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:90
-#: tbl_gis_visualization.php:181 tbl_printview.php:335 tbl_structure.php:840
+#: tbl_gis_visualization.php:181 tbl_printview.php:335 tbl_structure.php:841
 msgid "Format"
 msgstr "Formatoa"
 
@@ -5456,7 +5477,7 @@ msgstr ""
 msgid "Events"
 msgstr ""
 
-#: libraries/db_links.inc.php:104 libraries/export/sql.php:1031
+#: libraries/db_links.inc.php:104 libraries/export/sql.php:1032
 #: libraries/export/xml.php:57 libraries/rte/rte_words.lib.php:37
 #: libraries/tbl_links.inc.php:103
 msgid "Triggers"
@@ -5643,8 +5664,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:270
@@ -5860,7 +5881,7 @@ msgstr "Gakoaren arabera ordenatu"
 #: libraries/import/ldi.php:49 libraries/import/ods.php:39
 #: libraries/import/shp.php:22 libraries/import/sql.php:20
 #: libraries/import/xml.php:32 libraries/rte/rte_routines.lib.php:863
-#: tbl_select.php:175 tbl_structure.php:856
+#: tbl_select.php:175 tbl_structure.php:857
 #, fuzzy
 msgid "Options"
 msgstr "Eragiketak"
@@ -6354,8 +6375,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -6416,12 +6437,12 @@ msgid "Data dump options"
 msgstr "Datu-basea esportatzeko aukerak"
 
 #: libraries/export/htmlword.php:121 libraries/export/odt.php:161
-#: libraries/export/sql.php:1187 libraries/export/texytext.php:109
+#: libraries/export/sql.php:1188 libraries/export/texytext.php:109
 msgid "Dumping data for table"
 msgstr "Taula honen datuak irauli"
 
 #: libraries/export/htmlword.php:195 libraries/export/odt.php:235
-#: libraries/export/sql.php:1020 libraries/export/texytext.php:177
+#: libraries/export/sql.php:1021 libraries/export/texytext.php:177
 msgid "Table structure for table"
 msgstr "Taularen egitura taula honentzat: "
 
@@ -6624,32 +6645,32 @@ msgstr "Prozesuak"
 msgid "Functions"
 msgstr "Funtzioak"
 
-#: libraries/export/sql.php:854
+#: libraries/export/sql.php:855
 msgid "Constraints for dumped tables"
 msgstr "Iraulitako taulentzako murrizketak"
 
-#: libraries/export/sql.php:863
+#: libraries/export/sql.php:864
 msgid "Constraints for table"
 msgstr "Taularentzako murrizketak"
 
-#: libraries/export/sql.php:962
+#: libraries/export/sql.php:963
 msgid "MIME TYPES FOR TABLE"
 msgstr ""
 
-#: libraries/export/sql.php:974
+#: libraries/export/sql.php:975
 msgid "RELATIONS FOR TABLE"
 msgstr ""
 
-#: libraries/export/sql.php:1043
+#: libraries/export/sql.php:1044
 #, fuzzy
 msgid "Structure for view"
 msgstr "Egitura soilik"
 
-#: libraries/export/sql.php:1052
+#: libraries/export/sql.php:1053
 msgid "Stand-in structure for view"
 msgstr ""
 
-#: libraries/export/sql.php:1111
+#: libraries/export/sql.php:1112
 #, fuzzy
 #| msgid "Allows reading data."
 msgid "Error reading data:"
@@ -6869,7 +6890,7 @@ msgid "To"
 msgstr ""
 
 #: libraries/mult_submits.inc.php:262 libraries/mult_submits.inc.php:276
-#: libraries/sql_query_form.lib.php:395 tbl_zoom_select.php:469
+#: libraries/sql_query_form.lib.php:395
 msgid "Submit"
 msgstr "Bidali"
 
@@ -7222,7 +7243,7 @@ msgstr "Aldagaia"
 #: libraries/rte/rte_routines.lib.php:1370 libraries/tbl_select.lib.php:87
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769 server_status.php:1465 tbl_change.php:334
-#: tbl_printview.php:329 tbl_structure.php:832 tbl_zoom_select.php:436
+#: tbl_printview.php:329 tbl_structure.php:833 tbl_zoom_select.php:435
 msgid "Value"
 msgstr "balioa"
 
@@ -7960,6 +7981,11 @@ msgstr ""
 msgid "Target database"
 msgstr "Datu-basean bilatu"
 
+#: libraries/server_synchronize.lib.php:1329
+#: libraries/server_synchronize.lib.php:1338
+msgid "Click to select"
+msgstr "Egin klik hautatzeko"
+
 #: libraries/sql_query_form.lib.php:189
 #, fuzzy, php-format
 msgid "Run SQL query/queries on server %s"
@@ -8124,7 +8150,7 @@ msgstr ""
 
 #: libraries/tbl_properties.inc.php:109 libraries/tbl_properties.inc.php:478
 #: tbl_printview.php:285 tbl_structure.php:153 tbl_structure.php:158
-#: tbl_structure.php:577 tbl_structure.php:779
+#: tbl_structure.php:577 tbl_structure.php:780
 msgid "Index"
 msgstr "Indizea"
 
@@ -8913,7 +8939,7 @@ msgstr ""
 msgid "Original position"
 msgstr ""
 
-#: server_binlog.php:185
+#: server_binlog.php:185 tbl_structure.php:759
 #, fuzzy
 msgid "Information"
 msgstr "Saioa hasteko informazioa"
@@ -9344,8 +9370,8 @@ msgstr "Erabiltzaileen izen berdina duten datu-baseak ezabatu."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Oharra: phpMyAdmin-ek erabiltzaileen pribilegioak' zuzenean MySQL-ren "
 "pribilegioen taulatik' eskuratzen ditu. Taula hauen edukiak, tartean eskuz "
@@ -9793,7 +9819,7 @@ msgstr "minutuko"
 msgid "per second"
 msgstr "segunduko"
 
-#: server_status.php:964 tbl_printview.php:328 tbl_structure.php:831
+#: server_status.php:964 tbl_printview.php:328 tbl_structure.php:832
 msgid "Statements"
 msgstr "Sententziak"
 
@@ -11276,39 +11302,35 @@ msgstr "Ezinezkoa indizearen izena ¡PRIMARY! berrizendatzea"
 msgid "No index parts defined!"
 msgstr "Ez da indiziaren zatiak definitu!"
 
-#: tbl_indexes.php:169
+#: tbl_indexes.php:173 tbl_structure.php:169 tbl_structure.php:170
+msgid "Add index"
+msgstr ""
+
+#: tbl_indexes.php:175
 #, fuzzy
-#| msgid "Create a new index"
-msgid "Create an index"
-msgstr "Indize berri bat sortu"
+#| msgid "Print view"
+msgid "Edit index"
+msgstr "Inprimatzeko ikuspegia"
 
-#: tbl_indexes.php:171
-msgid "Modify an index"
-msgstr "Indize bat aldatu"
+#: tbl_indexes.php:186
+msgid "Index name:"
+msgstr "Indizearen izena&nbsp;:"
 
-#: tbl_indexes.php:176
+#: tbl_indexes.php:188
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
 msgstr ""
 "(\"PRIMARY\"-k, <b>soilik</b>, lehen mailako gako baten izena izan <b>behar</"
 "b> du!)"
 
-#: tbl_indexes.php:179
-msgid "Index name:"
-msgstr "Indizearen izena&nbsp;:"
-
-#: tbl_indexes.php:185
+#: tbl_indexes.php:194
 msgid "Index type:"
 msgstr "Indize mota&nbsp;:"
 
-#: tbl_indexes.php:265
+#: tbl_indexes.php:278
 #, php-format
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
 msgstr "&nbsp;%s&nbsp; zutabe indizean gehituta"
-
-#: tbl_indexes.php:270 tbl_structure.php:700
-msgid "Column count has to be larger than zero."
-msgstr ""
 
 #: tbl_move_copy.php:44
 msgid "Can't move table to same one!"
@@ -11440,39 +11462,39 @@ msgstr "Erreferentzien integritatea egiaztatu:"
 msgid "Showing tables"
 msgstr "Taulak erakutsi"
 
-#: tbl_printview.php:269 tbl_structure.php:762
+#: tbl_printview.php:269 tbl_structure.php:763
 msgid "Space usage"
 msgstr "Erabilitako lekua"
 
-#: tbl_printview.php:273 tbl_structure.php:766
+#: tbl_printview.php:273 tbl_structure.php:767
 msgid "Usage"
 msgstr "Erabilpena"
 
-#: tbl_printview.php:300 tbl_structure.php:793
+#: tbl_printview.php:300 tbl_structure.php:794
 msgid "Effective"
 msgstr "Eraginkorra"
 
-#: tbl_printview.php:325 tbl_structure.php:828
+#: tbl_printview.php:325 tbl_structure.php:829
 msgid "Row Statistics"
 msgstr "Errenkadaren estatistikak"
 
-#: tbl_printview.php:339 tbl_structure.php:843
+#: tbl_printview.php:339 tbl_structure.php:844
 msgid "static"
 msgstr ""
 
-#: tbl_printview.php:341 tbl_structure.php:845
+#: tbl_printview.php:341 tbl_structure.php:846
 msgid "dynamic"
 msgstr "dinamikoa"
 
-#: tbl_printview.php:363 tbl_structure.php:888
+#: tbl_printview.php:363 tbl_structure.php:889
 msgid "Row length"
 msgstr "Errenkadaren luzera"
 
-#: tbl_printview.php:373 tbl_structure.php:896
+#: tbl_printview.php:373 tbl_structure.php:897
 msgid "Row size"
 msgstr "Errenkadaren tamaina "
 
-#: tbl_printview.php:383 tbl_structure.php:904
+#: tbl_printview.php:383 tbl_structure.php:905
 msgid "Next autoindex"
 msgstr ""
 
@@ -11529,10 +11551,6 @@ msgstr ""
 
 #: tbl_structure.php:167 tbl_structure.php:168
 msgid "Add primary key"
-msgstr ""
-
-#: tbl_structure.php:169 tbl_structure.php:170
-msgid "Add index"
 msgstr ""
 
 #: tbl_structure.php:171 tbl_structure.php:172
@@ -11611,13 +11629,13 @@ msgstr "Taularen hasieran"
 msgid "After %s"
 msgstr "%s(a)ren ondoren"
 
-#: tbl_structure.php:705
+#: tbl_structure.php:702
 #, fuzzy, php-format
 #| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "Indize bat sortu &nbsp;%s&nbsp; zutabetan"
 
-#: tbl_structure.php:859
+#: tbl_structure.php:860
 msgid "partitioned"
 msgstr ""
 
@@ -11841,247 +11859,249 @@ msgstr ""
 msgid "Rename view to"
 msgstr "Taula berrizendatu izen honetara: "
 
-#: po/advisory_rules.php:5
+#: po/advisory_rules.php:9
 msgid "Uptime below one day"
 msgstr ""
 
-#: po/advisory_rules.php:6
+#: po/advisory_rules.php:12
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
 
-#: po/advisory_rules.php:7
+#: po/advisory_rules.php:15
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
 
-#: po/advisory_rules.php:8
+#: po/advisory_rules.php:20
 #, php-format
 msgid "The uptime is only %s"
 msgstr ""
 
-#: po/advisory_rules.php:10
+#: po/advisory_rules.php:24
 #, fuzzy
 msgid "Questions below 1,000"
 msgstr "Eragiketak"
 
-#: po/advisory_rules.php:11
+#: po/advisory_rules.php:27
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
 
-#: po/advisory_rules.php:12
+#: po/advisory_rules.php:30
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
 
-#: po/advisory_rules.php:13
+#: po/advisory_rules.php:35
 #, fuzzy, php-format
 #| msgid "Connections"
 msgid "Current amount of Questions: %s"
 msgstr "Konexioak"
 
-#: po/advisory_rules.php:15
+#: po/advisory_rules.php:39
 #, fuzzy
 msgid "Percentage of slow queries"
 msgstr "Kontsulta osoak erakutsi"
 
-#: po/advisory_rules.php:16
+#: po/advisory_rules.php:42
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr ""
 
-#: po/advisory_rules.php:17 po/advisory_rules.php:22
+#: po/advisory_rules.php:45 po/advisory_rules.php:60
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
 
-#: po/advisory_rules.php:18
+#: po/advisory_rules.php:50
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 
-#: po/advisory_rules.php:20
+#: po/advisory_rules.php:54
 #, fuzzy
 msgid "Slow query rate"
 msgstr "SQL kontsulta"
 
-#: po/advisory_rules.php:21
+#: po/advisory_rules.php:57
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
 
-#: po/advisory_rules.php:23
+#: po/advisory_rules.php:65
 #, php-format
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
 
-#: po/advisory_rules.php:25
+#: po/advisory_rules.php:69
 #, fuzzy
 msgid "Long query time"
 msgstr "SQL kontsulta"
 
-#: po/advisory_rules.php:26
+#: po/advisory_rules.php:72
 msgid ""
 "long_query_time is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
 
-#: po/advisory_rules.php:27
+#: po/advisory_rules.php:75
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
 
-#: po/advisory_rules.php:28
+#: po/advisory_rules.php:80
 #, php-format
 msgid "long_query_time is currently set to %ds."
 msgstr ""
 
-#: po/advisory_rules.php:30
+#: po/advisory_rules.php:84
 #, fuzzy
 msgid "Slow query logging"
 msgstr "SQL kontsulta"
 
-#: po/advisory_rules.php:31
+#: po/advisory_rules.php:87
 msgid "The slow query log is disabled."
 msgstr ""
 
-#: po/advisory_rules.php:32
+#: po/advisory_rules.php:90
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
 
-#: po/advisory_rules.php:33
+#: po/advisory_rules.php:95
 msgid "log_slow_queries is set to 'OFF'"
 msgstr ""
 
-#: po/advisory_rules.php:35
+#: po/advisory_rules.php:99
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Release Series"
 msgstr "Taulak hautatu"
 
-#: po/advisory_rules.php:36
+#: po/advisory_rules.php:102
 msgid "The MySQL server version less then 5.1."
 msgstr ""
 
-#: po/advisory_rules.php:37
+#: po/advisory_rules.php:105
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
 
-#: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
+#: po/advisory_rules.php:110 po/advisory_rules.php:125
+#: po/advisory_rules.php:140
 #, fuzzy, php-format
 msgid "Current version: %s"
 msgstr "Zerbitzariaren bertsioa"
 
-#: po/advisory_rules.php:40 po/advisory_rules.php:45
+#: po/advisory_rules.php:114 po/advisory_rules.php:129
 #, fuzzy
 msgid "Minor Version"
 msgstr "PHP Bertsioa"
 
-#: po/advisory_rules.php:41
+#: po/advisory_rules.php:117
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
 msgstr ""
 
-#: po/advisory_rules.php:42
+#: po/advisory_rules.php:120
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
 
-#: po/advisory_rules.php:46
+#: po/advisory_rules.php:132
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr ""
 
-#: po/advisory_rules.php:47
+#: po/advisory_rules.php:135
 #, fuzzy
 #| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgstr "%s %s bertsiora edo handiago batera eguneratu beharko zenuke."
 
-#: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
+#: po/advisory_rules.php:144 po/advisory_rules.php:159
+#: po/advisory_rules.php:174
 #, fuzzy
 #| msgid "Description"
 msgid "Distribution"
 msgstr "Deskribapena"
 
-#: po/advisory_rules.php:51
+#: po/advisory_rules.php:147
 msgid "Version is compiled from source, not a MySQL official binary."
 msgstr ""
 
-#: po/advisory_rules.php:52
+#: po/advisory_rules.php:150
 msgid ""
 "If you did not compile from source, you may be using a package modified by a "
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
 
-#: po/advisory_rules.php:53
+#: po/advisory_rules.php:155
 msgid "'source' found in version_comment"
 msgstr ""
 
-#: po/advisory_rules.php:56 po/advisory_rules.php:61
+#: po/advisory_rules.php:162 po/advisory_rules.php:177
 msgid "The MySQL manual only is accurate for official MySQL binaries."
 msgstr ""
 
-#: po/advisory_rules.php:57
+#: po/advisory_rules.php:165
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgstr ""
 
-#: po/advisory_rules.php:58
+#: po/advisory_rules.php:170
 msgid "'percona' found in version_comment"
 msgstr ""
 
-#: po/advisory_rules.php:62
+#: po/advisory_rules.php:180
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
 msgstr ""
 
-#: po/advisory_rules.php:63
+#: po/advisory_rules.php:185
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr ""
 
-#: po/advisory_rules.php:65
+#: po/advisory_rules.php:189
 #, fuzzy
 #| msgid "MySQL charset"
 msgid "MySQL Architecture"
 msgstr "MySQL karaktere-multzoa"
 
-#: po/advisory_rules.php:66
+#: po/advisory_rules.php:192
 msgid "MySQL is not compiled as a 64-bit package."
 msgstr ""
 
-#: po/advisory_rules.php:67
+#: po/advisory_rules.php:195
 msgid ""
 "Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
 
-#: po/advisory_rules.php:68
+#: po/advisory_rules.php:200
 #, php-format
 msgid "Available memory on this host: %s"
 msgstr ""
 
-#: po/advisory_rules.php:70
+#: po/advisory_rules.php:204
 #, fuzzy
 msgid "Query cache disabled"
 msgstr "Kontsulta mota"
 
-#: po/advisory_rules.php:71
+#: po/advisory_rules.php:207
 msgid "The query cache is not enabled."
 msgstr ""
 
-#: po/advisory_rules.php:72
+#: po/advisory_rules.php:210
 msgid ""
 "The query cache is known to greatly improve performance if configured "
 "correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value "
@@ -12089,20 +12109,20 @@ msgid ""
 "memcached, ignore this recommendation."
 msgstr ""
 
-#: po/advisory_rules.php:73
+#: po/advisory_rules.php:215
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 
-#: po/advisory_rules.php:75
+#: po/advisory_rules.php:219
 #, fuzzy
 msgid "Query caching method"
 msgstr "Kontsulta mota"
 
-#: po/advisory_rules.php:76
+#: po/advisory_rules.php:222
 msgid "Suboptimal caching method."
 msgstr ""
 
-#: po/advisory_rules.php:77
+#: po/advisory_rules.php:225
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\\\"http://dev.mysql.com/doc/"
@@ -12110,63 +12130,63 @@ msgid ""
 "cache, especially if you have multiple slaves."
 msgstr ""
 
-#: po/advisory_rules.php:78
+#: po/advisory_rules.php:230
 #, php-format
 msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
 
-#: po/advisory_rules.php:80
+#: po/advisory_rules.php:234
 msgid "Query cache efficiency (%)"
 msgstr ""
 
-#: po/advisory_rules.php:81
+#: po/advisory_rules.php:237
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr ""
 
-#: po/advisory_rules.php:82
+#: po/advisory_rules.php:240
 msgid "Consider increasing {query_cache_limit}."
 msgstr ""
 
-#: po/advisory_rules.php:83
+#: po/advisory_rules.php:245
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr ""
 
-#: po/advisory_rules.php:85
+#: po/advisory_rules.php:249
 #, fuzzy
 msgid "Query Cache usage"
 msgstr "Kontsulta mota"
 
-#: po/advisory_rules.php:86
+#: po/advisory_rules.php:252
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
 msgstr ""
 
-#: po/advisory_rules.php:87
+#: po/advisory_rules.php:255
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
 msgstr ""
 
-#: po/advisory_rules.php:88
+#: po/advisory_rules.php:260
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
-#: po/advisory_rules.php:90
+#: po/advisory_rules.php:264
 #, fuzzy
 msgid "Query cache fragmentation"
 msgstr "Kontsulta mota"
 
-#: po/advisory_rules.php:91
+#: po/advisory_rules.php:267
 msgid "The query cache is considerably fragmented."
 msgstr ""
 
-#: po/advisory_rules.php:92
+#: po/advisory_rules.php:270
 msgid ""
 "Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
 "This might be caused by many Query cache low memory prunes due to "
@@ -12178,7 +12198,7 @@ msgid ""
 "qcache_queries_in_cache"
 msgstr ""
 
-#: po/advisory_rules.php:93
+#: po/advisory_rules.php:275
 #, php-format
 msgid ""
 "The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
@@ -12186,63 +12206,63 @@ msgid ""
 "value should be below 20%%."
 msgstr ""
 
-#: po/advisory_rules.php:95
+#: po/advisory_rules.php:279
 msgid "Query cache low memory prunes"
 msgstr ""
 
-#: po/advisory_rules.php:96
+#: po/advisory_rules.php:282
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
 msgstr ""
 
-#: po/advisory_rules.php:97
+#: po/advisory_rules.php:285
 msgid ""
 "You might want to increase {query_cache_size}, however keep in mind that the "
 "overhead of maintaining the cache is likely to increase with its size, so do "
 "this in small increments and monitor the results."
 msgstr ""
 
-#: po/advisory_rules.php:98
+#: po/advisory_rules.php:290
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%)"
 msgstr ""
 
-#: po/advisory_rules.php:100
+#: po/advisory_rules.php:294
 #, fuzzy
 msgid "Query cache max size"
 msgstr "Kontsulta mota"
 
-#: po/advisory_rules.php:101
+#: po/advisory_rules.php:297
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
 
-#: po/advisory_rules.php:102
+#: po/advisory_rules.php:300
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
 msgstr ""
 
-#: po/advisory_rules.php:103
+#: po/advisory_rules.php:305
 #, php-format
 msgid "Current query cache size: %s"
 msgstr ""
 
-#: po/advisory_rules.php:105
+#: po/advisory_rules.php:309
 #, fuzzy
 #| msgid "Query results"
 msgid "Query cache min result size"
 msgstr "SQL emaitza"
 
-#: po/advisory_rules.php:106
+#: po/advisory_rules.php:312
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
 
-#: po/advisory_rules.php:107
+#: po/advisory_rules.php:315
 msgid ""
 "Changing {query_cache_limit} (usually by increasing) may increase "
 "efficiency. This variable determines the maximum size a query result may "
@@ -12254,58 +12274,58 @@ msgid ""
 "might reduce efficiency."
 msgstr ""
 
-#: po/advisory_rules.php:108
+#: po/advisory_rules.php:320
 msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
 
-#: po/advisory_rules.php:110
+#: po/advisory_rules.php:324
 #, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
 msgstr "Aldi baterako taulak sortzea baimentzen du."
 
-#: po/advisory_rules.php:111 po/advisory_rules.php:116
+#: po/advisory_rules.php:327 po/advisory_rules.php:342
 #, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
 msgstr "Aldi baterako taulak sortzea baimentzen du."
 
-#: po/advisory_rules.php:112 po/advisory_rules.php:117
+#: po/advisory_rules.php:330 po/advisory_rules.php:345
 msgid ""
 "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending "
 "on your system memory limits"
 msgstr ""
 
-#: po/advisory_rules.php:113
+#: po/advisory_rules.php:335
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
-#: po/advisory_rules.php:115
+#: po/advisory_rules.php:339
 #, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
 msgstr "Aldi baterako taulak sortzea baimentzen du."
 
-#: po/advisory_rules.php:118
+#: po/advisory_rules.php:350
 #, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
 
-#: po/advisory_rules.php:120
+#: po/advisory_rules.php:354
 #, fuzzy
 #| msgid "Start"
 msgid "Sort rows"
 msgstr "Lar"
 
-#: po/advisory_rules.php:121
+#: po/advisory_rules.php:357
 msgid "There are lots of rows being sorted."
 msgstr ""
 
-#: po/advisory_rules.php:122
+#: po/advisory_rules.php:360
 msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
@@ -12313,39 +12333,39 @@ msgid ""
 "sorting"
 msgstr ""
 
-#: po/advisory_rules.php:123
+#: po/advisory_rules.php:365
 #, php-format
 msgid "Sorted rows average: %s"
 msgstr ""
 
-#: po/advisory_rules.php:125
+#: po/advisory_rules.php:369
 msgid "Rate of joins without indexes"
 msgstr ""
 
-#: po/advisory_rules.php:126
+#: po/advisory_rules.php:372
 msgid "There are too many joins without indexes."
 msgstr ""
 
-#: po/advisory_rules.php:127
+#: po/advisory_rules.php:375
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
 msgstr ""
 
-#: po/advisory_rules.php:128
+#: po/advisory_rules.php:380
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
 
-#: po/advisory_rules.php:130
+#: po/advisory_rules.php:384
 msgid "Rate of reading first index entry"
 msgstr ""
 
-#: po/advisory_rules.php:131
+#: po/advisory_rules.php:387
 msgid "The rate of reading the first index entry is high."
 msgstr ""
 
-#: po/advisory_rules.php:132
+#: po/advisory_rules.php:390
 msgid ""
 "This usually indicates frequent full index scans. Full index scans are "
 "faster than table scans but require lots of CPU cycles in big tables, if "
@@ -12355,62 +12375,62 @@ msgid ""
 "queries."
 msgstr ""
 
-#: po/advisory_rules.php:133
+#: po/advisory_rules.php:395
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
 
-#: po/advisory_rules.php:135
+#: po/advisory_rules.php:399
 msgid "Rate of reading fixed position"
 msgstr ""
 
-#: po/advisory_rules.php:136
+#: po/advisory_rules.php:402
 msgid "The rate of reading data from a fixed position is high."
 msgstr ""
 
-#: po/advisory_rules.php:137
+#: po/advisory_rules.php:405
 msgid ""
 "This indicates that many queries need to sort results and/or do a full table "
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
 
-#: po/advisory_rules.php:138
+#: po/advisory_rules.php:410
 #, php-format
 msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr ""
 
-#: po/advisory_rules.php:140
+#: po/advisory_rules.php:414
 msgid "Rate of reading next table row"
 msgstr ""
 
-#: po/advisory_rules.php:141
+#: po/advisory_rules.php:417
 msgid "The rate of reading the next table row is high."
 msgstr ""
 
-#: po/advisory_rules.php:142
+#: po/advisory_rules.php:420
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
 msgstr ""
 
-#: po/advisory_rules.php:143
+#: po/advisory_rules.php:425
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr ""
 
-#: po/advisory_rules.php:145
+#: po/advisory_rules.php:429
 msgid "tmp_table_size vs. max_heap_table_size"
 msgstr ""
 
-#: po/advisory_rules.php:146
+#: po/advisory_rules.php:432
 msgid "tmp_table_size and max_heap_table_size are not the same."
 msgstr ""
 
-#: po/advisory_rules.php:147
+#: po/advisory_rules.php:435
 msgid ""
 "If you have deliberately changed one of either: The server uses the lower "
 "value of either to determine the maximum size of in-memory tables. So if you "
@@ -12418,22 +12438,22 @@ msgid ""
 "other value as well."
 msgstr ""
 
-#: po/advisory_rules.php:148
+#: po/advisory_rules.php:440
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr ""
 
-#: po/advisory_rules.php:150
+#: po/advisory_rules.php:444
 msgid "Percentage of temp tables on disk"
 msgstr ""
 
-#: po/advisory_rules.php:151 po/advisory_rules.php:156
+#: po/advisory_rules.php:447 po/advisory_rules.php:462
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr ""
 
-#: po/advisory_rules.php:152
+#: po/advisory_rules.php:450
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -12444,20 +12464,20 @@ msgid ""
 "php?note_id=10150111255065841&comments\\\">Article by the Pythian Group</a>"
 msgstr ""
 
-#: po/advisory_rules.php:153
+#: po/advisory_rules.php:455
 #, php-format
 msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
 
-#: po/advisory_rules.php:155
+#: po/advisory_rules.php:459
 #, fuzzy
 #| msgid "%s table(s)"
 msgid "Temp disk rate"
 msgstr "%s taula(k)"
 
-#: po/advisory_rules.php:157
+#: po/advisory_rules.php:465
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -12468,276 +12488,276 @@ msgid ""
 "temporary-tables.html\\\">MySQL Documentation</a>"
 msgstr ""
 
-#: po/advisory_rules.php:158
+#: po/advisory_rules.php:470
 #, php-format
 msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
 msgstr ""
 
-#: po/advisory_rules.php:160
+#: po/advisory_rules.php:474
 msgid "MyISAM key buffer size"
 msgstr ""
 
-#: po/advisory_rules.php:161
+#: po/advisory_rules.php:477
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
 
-#: po/advisory_rules.php:162
+#: po/advisory_rules.php:480
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
 
-#: po/advisory_rules.php:163
+#: po/advisory_rules.php:485
 msgid "key_buffer_size is 0"
 msgstr ""
 
-#: po/advisory_rules.php:165
+#: po/advisory_rules.php:489
 #, php-format
 msgid "Max %% MyISAM key buffer ever used"
 msgstr ""
 
-#: po/advisory_rules.php:166 po/advisory_rules.php:171
+#: po/advisory_rules.php:492 po/advisory_rules.php:507
 #, php-format
 msgid "MyISAM key buffer (index cache) %% used is low."
 msgstr ""
 
-#: po/advisory_rules.php:167 po/advisory_rules.php:172
+#: po/advisory_rules.php:495 po/advisory_rules.php:510
 msgid ""
 "You may need to decrease the size of {key_buffer_size}, re-examine your "
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
 
-#: po/advisory_rules.php:168
+#: po/advisory_rules.php:500
 #, php-format
 msgid "max %% MyISAM key buffer ever used: %s, this value should be above 95%%"
 msgstr ""
 
-#: po/advisory_rules.php:170
+#: po/advisory_rules.php:504
 msgid "Percentage of MyISAM key buffer used"
 msgstr ""
 
-#: po/advisory_rules.php:173
+#: po/advisory_rules.php:515
 #, php-format
 msgid "%% MyISAM key buffer used: %s, this value should be above 95%%"
 msgstr ""
 
-#: po/advisory_rules.php:175
+#: po/advisory_rules.php:519
 msgid "Percentage of index reads from memory"
 msgstr ""
 
-#: po/advisory_rules.php:176
+#: po/advisory_rules.php:522
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgstr ""
 
-#: po/advisory_rules.php:177
+#: po/advisory_rules.php:525
 msgid "You may need to increase {key_buffer_size}."
 msgstr ""
 
-#: po/advisory_rules.php:178
+#: po/advisory_rules.php:530
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
 
-#: po/advisory_rules.php:180
+#: po/advisory_rules.php:534
 #, fuzzy
 msgid "Rate of table open"
 msgstr "Orri berri bat sortu"
 
-#: po/advisory_rules.php:181
+#: po/advisory_rules.php:537
 msgid "The rate of opening tables is high."
 msgstr ""
 
-#: po/advisory_rules.php:182
+#: po/advisory_rules.php:540
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
 
-#: po/advisory_rules.php:183
+#: po/advisory_rules.php:545
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 
-#: po/advisory_rules.php:185
+#: po/advisory_rules.php:549
 #, fuzzy
 msgid "Percentage of used open files limit"
 msgstr "Fitxategiaren karaktereen kodeketa:"
 
-#: po/advisory_rules.php:186
+#: po/advisory_rules.php:552
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \\\"Too many open files\\\" error."
 msgstr ""
 
-#: po/advisory_rules.php:187 po/advisory_rules.php:192
+#: po/advisory_rules.php:555 po/advisory_rules.php:570
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing open_files_limit."
 msgstr ""
 
-#: po/advisory_rules.php:188
+#: po/advisory_rules.php:560
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
 
-#: po/advisory_rules.php:190
+#: po/advisory_rules.php:564
 #, fuzzy
 msgid "Rate of open files"
 msgstr "Fitxategiaren karaktereen kodeketa:"
 
-#: po/advisory_rules.php:191
+#: po/advisory_rules.php:567
 msgid "The rate of opening files is high."
 msgstr ""
 
-#: po/advisory_rules.php:193
+#: po/advisory_rules.php:575
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
 
-#: po/advisory_rules.php:195
+#: po/advisory_rules.php:579
 #, fuzzy, php-format
 #| msgid "Create table on database %s"
 msgid "Immediate table locks %%"
 msgstr "Taula berri bat sortu %s datu-basean"
 
-#: po/advisory_rules.php:196 po/advisory_rules.php:201
+#: po/advisory_rules.php:582 po/advisory_rules.php:597
 msgid "Too many table locks were not granted immediately."
 msgstr ""
 
-#: po/advisory_rules.php:197 po/advisory_rules.php:202
+#: po/advisory_rules.php:585 po/advisory_rules.php:600
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
 
-#: po/advisory_rules.php:198
+#: po/advisory_rules.php:590
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr ""
 
-#: po/advisory_rules.php:200
+#: po/advisory_rules.php:594
 msgid "Table lock wait rate"
 msgstr ""
 
-#: po/advisory_rules.php:203
+#: po/advisory_rules.php:605
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
 
-#: po/advisory_rules.php:205
+#: po/advisory_rules.php:609
 #, fuzzy
 msgid "Thread cache"
 msgstr "Kontsulta mota"
 
-#: po/advisory_rules.php:206
+#: po/advisory_rules.php:612
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
 msgstr ""
 
-#: po/advisory_rules.php:207
+#: po/advisory_rules.php:615
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
 
-#: po/advisory_rules.php:208
+#: po/advisory_rules.php:620
 msgid "The thread cache is set to 0"
 msgstr ""
 
-#: po/advisory_rules.php:210
+#: po/advisory_rules.php:624
 #, fuzzy, php-format
 msgid "Thread cache hit rate %%"
 msgstr "Kontsulta mota"
 
-#: po/advisory_rules.php:211
+#: po/advisory_rules.php:627
 msgid "Thread cache is not efficient."
 msgstr ""
 
-#: po/advisory_rules.php:212
+#: po/advisory_rules.php:630
 msgid "Increase {thread_cache_size}."
 msgstr ""
 
-#: po/advisory_rules.php:213
+#: po/advisory_rules.php:635
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
 
-#: po/advisory_rules.php:215
+#: po/advisory_rules.php:639
 msgid "Threads that are slow to launch"
 msgstr ""
 
-#: po/advisory_rules.php:216
+#: po/advisory_rules.php:642
 msgid "There are too many threads that are slow to launch."
 msgstr ""
 
-#: po/advisory_rules.php:217
+#: po/advisory_rules.php:645
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
 msgstr ""
 
-#: po/advisory_rules.php:218
+#: po/advisory_rules.php:650
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr ""
 
-#: po/advisory_rules.php:220
+#: po/advisory_rules.php:654
 msgid "Slow launch time"
 msgstr ""
 
-#: po/advisory_rules.php:221
+#: po/advisory_rules.php:657
 msgid "Slow_launch_threads is above 2s"
 msgstr ""
 
-#: po/advisory_rules.php:222
+#: po/advisory_rules.php:660
 msgid ""
 "Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
 "launch"
 msgstr ""
 
-#: po/advisory_rules.php:223
+#: po/advisory_rules.php:665
 #, php-format
 msgid "slow_launch_time is set to %s"
 msgstr ""
 
-#: po/advisory_rules.php:225
+#: po/advisory_rules.php:669
 #, fuzzy
 #| msgid "Connections"
 msgid "Percentage of used connections"
 msgstr "Konexioak"
 
-#: po/advisory_rules.php:226
+#: po/advisory_rules.php:672
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "max_connections."
 msgstr ""
 
-#: po/advisory_rules.php:227
+#: po/advisory_rules.php:675
 msgid ""
 "Increase max_connections, or decrease wait_timeout so that connections that "
 "do not close database handlers properly get killed sooner. Make sure the "
 "code closes database handlers properly."
 msgstr ""
 
-#: po/advisory_rules.php:228
+#: po/advisory_rules.php:680
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
 
-#: po/advisory_rules.php:230
+#: po/advisory_rules.php:684
 #, fuzzy
 #| msgid "Connections"
 msgid "Percentage of aborted connections"
 msgstr "Konexioak"
 
-#: po/advisory_rules.php:231 po/advisory_rules.php:236
+#: po/advisory_rules.php:687 po/advisory_rules.php:702
 msgid "Too many connections are aborted."
 msgstr ""
 
-#: po/advisory_rules.php:232 po/advisory_rules.php:237
+#: po/advisory_rules.php:690 po/advisory_rules.php:705
 msgid ""
 "Connections are usually aborted when they cannot be authorized. <a href=\\"
 "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -12745,83 +12765,83 @@ msgid ""
 "the source."
 msgstr ""
 
-#: po/advisory_rules.php:233
+#: po/advisory_rules.php:695
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 
-#: po/advisory_rules.php:235
+#: po/advisory_rules.php:699
 #, fuzzy
 #| msgid "Connections"
 msgid "Rate of aborted connections"
 msgstr "Konexioak"
 
-#: po/advisory_rules.php:238
+#: po/advisory_rules.php:710
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 
-#: po/advisory_rules.php:240
+#: po/advisory_rules.php:714
 #, fuzzy
 #| msgid "Table of contents"
 msgid "Percentage of aborted clients"
 msgstr "Edukinen taula"
 
-#: po/advisory_rules.php:241 po/advisory_rules.php:246
+#: po/advisory_rules.php:717 po/advisory_rules.php:732
 msgid "Too many clients are aborted."
 msgstr ""
 
-#: po/advisory_rules.php:242 po/advisory_rules.php:247
+#: po/advisory_rules.php:720 po/advisory_rules.php:735
 msgid ""
 "Clients are usually aborted when they did not close their connection to "
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
 
-#: po/advisory_rules.php:243
+#: po/advisory_rules.php:725
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 
-#: po/advisory_rules.php:245
+#: po/advisory_rules.php:729
 #, fuzzy
 #| msgid "Table of contents"
 msgid "Rate of aborted clients"
 msgstr "Edukinen taula"
 
-#: po/advisory_rules.php:248
+#: po/advisory_rules.php:740
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 
-#: po/advisory_rules.php:250
+#: po/advisory_rules.php:744
 msgid "Is InnoDB disabled?"
 msgstr ""
 
-#: po/advisory_rules.php:251
+#: po/advisory_rules.php:747
 msgid "You do not have InnoDB enabled."
 msgstr ""
 
-#: po/advisory_rules.php:252
+#: po/advisory_rules.php:750
 msgid "InnoDB is usually the better choice for table engines."
 msgstr ""
 
-#: po/advisory_rules.php:253
+#: po/advisory_rules.php:755
 msgid "have_innodb is set to 'value'"
 msgstr ""
 
-#: po/advisory_rules.php:255
+#: po/advisory_rules.php:759
 msgid "InnoDB log size"
 msgstr ""
 
-#: po/advisory_rules.php:256
+#: po/advisory_rules.php:762
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
 msgstr ""
 
-#: po/advisory_rules.php:257
+#: po/advisory_rules.php:765
 #, php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
@@ -12836,22 +12856,22 @@ msgid ""
 "a>"
 msgstr ""
 
-#: po/advisory_rules.php:258
+#: po/advisory_rules.php:770
 #, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
 msgstr ""
 
-#: po/advisory_rules.php:260
+#: po/advisory_rules.php:774
 msgid "Max InnoDB log size"
 msgstr ""
 
-#: po/advisory_rules.php:261
+#: po/advisory_rules.php:777
 msgid "The InnoDB log file size is inadequately large."
 msgstr ""
 
-#: po/advisory_rules.php:262
+#: po/advisory_rules.php:780
 #, php-format
 msgid ""
 "It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
@@ -12865,20 +12885,20 @@ msgid ""
 "innodblogfilesize-proper-way.html\\\">this blog entry</a>"
 msgstr ""
 
-#: po/advisory_rules.php:263
+#: po/advisory_rules.php:785
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
 msgstr ""
 
-#: po/advisory_rules.php:265
+#: po/advisory_rules.php:789
 msgid "InnoDB buffer pool size"
 msgstr ""
 
-#: po/advisory_rules.php:266
+#: po/advisory_rules.php:792
 msgid "Your InnoDB buffer pool is fairly small."
 msgstr ""
 
-#: po/advisory_rules.php:267
+#: po/advisory_rules.php:795
 #, php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
@@ -12893,7 +12913,7 @@ msgid ""
 "innodb_buffer_pool_size/\\\">this article</a>"
 msgstr ""
 
-#: po/advisory_rules.php:268
+#: po/advisory_rules.php:800
 #, php-format
 msgid ""
 "You are currently using %s%% of your memory for the InnoDB buffer pool. This "
@@ -12902,24 +12922,35 @@ msgid ""
 "other services running on the same machine."
 msgstr ""
 
-#: po/advisory_rules.php:270
+#: po/advisory_rules.php:804
 msgid "MyISAM concurrent inserts"
 msgstr ""
 
-#: po/advisory_rules.php:271
+#: po/advisory_rules.php:807
 msgid "Enable concurrent_insert by setting it to 1"
 msgstr ""
 
-#: po/advisory_rules.php:272
+#: po/advisory_rules.php:810
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\\\"http://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\\\">MySQL Documentation</a>"
 msgstr ""
 
-#: po/advisory_rules.php:273
+#: po/advisory_rules.php:815
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#~ msgid "Click to unselect"
+#~ msgstr "Klik desautatzeko"
+
+#, fuzzy
+#~| msgid "Create a new index"
+#~ msgid "Create an index"
+#~ msgstr "Indize berri bat sortu"
+
+#~ msgid "Modify an index"
+#~ msgstr "Indize bat aldatu"
 
 #, fuzzy
 #~ msgid "+ Restart insertion and add a new value"
