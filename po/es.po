@@ -1850,10 +1850,9 @@ msgid "Select two different columns"
 msgstr "Seleccionar dos columnas distintas"
 
 #: js/messages.php:290
-#, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
-msgstr "Operaciones sobre los resultados de la consulta"
+msgstr "Resultados de la consulta"
 
 #: js/messages.php:291
 #, fuzzy
