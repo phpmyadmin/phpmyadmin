@@ -12542,7 +12542,7 @@ msgstr "MyISAM キーバッファの使用比率: この値は、95%% 以上が�
 
 #: po/advisory_rules.php:175
 msgid "Percentage of index reads from memory"
-msgstr ""
+msgstr "メモリから読み込まれるインデックスの比率"
 
 #: po/advisory_rules.php:176
 #, php-format
