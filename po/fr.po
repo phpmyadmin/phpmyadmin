@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 06:57-0500\n"
-"PO-Revision-Date: 2011-11-14 22:27+0200\n"
+"PO-Revision-Date: 2011-11-19 12:43+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -5467,6 +5467,7 @@ msgstr "Le serveur ne répond pas."
 #: libraries/database_interface.lib.php:1772
 msgid "Please check privileges of directory containing database."
 msgstr ""
+"Veuillez vérifier les privilèges du répertoire contenant la base de données."
 
 #: libraries/database_interface.lib.php:1780
 msgid "Details..."
@@ -9367,14 +9368,14 @@ msgstr "... supprimer l'ancien utilisateur."
 msgid ""
 "... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
-" ... effacer tous les privilèges de l'ancien utilisateur, puis l'effacer."
+"... effacer tous les privilèges de l'ancien utilisateur, puis l'effacer."
 
 #: server_privileges.php:2188
 msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-" ... supprimer l'ancien utilisateur, puis recharger les privilèges au "
+"... supprimer l'ancien utilisateur, puis recharger les privilèges au "
 "serveur."
 
 #: server_privileges.php:2211
@@ -11958,7 +11959,9 @@ msgstr "Le temps de disponibilité est inférieur à un jour"
 
 #: po/advisory_rules.php:12
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr "Les informations de réglage peuvent être inexactes."
+msgstr ""
+"Le système est en marche depuis moins d'un jour, les conseils de performance "
+"peuvent être inexacts."
 
 #: po/advisory_rules.php:15
 msgid ""
@@ -12809,7 +12812,9 @@ msgstr "Pourcentage du nombre de fichiers ouverts"
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \\\"Too many open files\\\" error."
-msgstr "Le nombre de fichiers ouverts s'approche du maximum."
+msgstr ""
+"Le nombre de fichiers ouverts s'approche du maximum. Vous pouvez obtenir "
+"l'erreur \\«Trop de fichiers sont ouverts\\»."
 
 #: po/advisory_rules.php:555 po/advisory_rules.php:570
 msgid ""

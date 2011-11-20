@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 06:57-0500\n"
-"PO-Revision-Date: 2011-11-02 20:32+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"PO-Revision-Date: 2011-11-19 23:25+0200\n"
+"Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -413,10 +413,10 @@ msgid "You have to choose at least one column to display"
 msgstr "Devi scegliere almeno un campo da mostrare"
 
 #: db_qbe.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "creazione query assistita"
+msgstr "Passa a %svisual builder%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:995
@@ -814,16 +814,15 @@ msgid "Values for a new column"
 msgstr "Valori per un nuovo campo"
 
 #: enum_editor.php:30 js/messages.php:246
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
-msgstr "Valori per il campo \"%s\""
+msgstr "Valori per il campo %s"
 
 #: enum_editor.php:34 js/messages.php:248
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
-msgstr "Inserisci ogni valore in un campo separato."
+msgstr "Inserisci ogni valore in un campo separato"
 
 #: enum_editor.php:121
 #, fuzzy
@@ -1339,13 +1338,13 @@ msgstr "Memoria totale"
 #, fuzzy
 #| msgid "System memory"
 msgid "Cached memory"
-msgstr "Memoria"
+msgstr "Memoria cached"
 
 #: js/messages.php:110
 #, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "Buffer Pool"
+msgstr "Memoria Buffer"
 
 #: js/messages.php:111
 #, fuzzy
@@ -1367,7 +1366,7 @@ msgstr "Swap totale"
 
 #: js/messages.php:115
 msgid "Cached Swap"
-msgstr ""
+msgstr "Swap in cache"
 
 #: js/messages.php:116
 msgid "Used Swap"
@@ -1377,7 +1376,7 @@ msgstr "Swap utilizzata"
 #, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "Pagine libere"
+msgstr "Swap libera"
 
 #: js/messages.php:119
 msgid "Bytes sent"
@@ -1620,7 +1619,7 @@ msgstr "Filtra query per parola/regexp:"
 
 #: js/messages.php:178
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
+msgstr "Raggruppa query ignorando dati variabili nelle condizioni del WHERE"
 
 #: js/messages.php:179
 #, fuzzy
@@ -1646,12 +1645,14 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"Richiedendo nuovi dati per i grafici il server ha dato una risposta "
+"invalida. Potrebbe essere accaduto a causa del termine della validità della "
+"tua sessione. Prova a ricaricare la pagina reinserendo i tuoi dati di login."
 
 #: js/messages.php:185
-#, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
-msgstr "Ricarica"
+msgstr "Ricarica la pagina"
 
 #: js/messages.php:187
 msgid "Affected rows:"
@@ -1660,12 +1661,16 @@ msgstr "Righe coinvolte:"
 #: js/messages.php:189
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgstr ""
+"La lettura del file di configurazione é fallita. Non sembra essere codice "
+"JSON valido"
 
 #: js/messages.php:190
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr ""
+"Impossibile creare la tabella dei grafici con la configurazione importata. "
+"Ripristino alle impostazioni predefinite in corso..."
 
 #: js/messages.php:191 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
@@ -1675,10 +1680,9 @@ msgid "Import"
 msgstr "Importa"
 
 #: js/messages.php:193
-#, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
-msgstr "Aggiorna Query"
+msgstr "Analizza la Query"
 
 #: js/messages.php:197
 #, fuzzy
@@ -1688,37 +1692,34 @@ msgstr "Applica un divisore"
 
 #: js/messages.php:198
 msgid "Possible performance issues"
-msgstr ""
+msgstr "Possibili problemi di prestazioni"
 
 #: js/messages.php:199
 msgid "Issue"
-msgstr ""
+msgstr "Problema"
 
 #: js/messages.php:200
-#, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
-msgstr "Documentazione"
+msgstr "Avviso"
 
 #: js/messages.php:201
-#, fuzzy
 #| msgid "Details"
 msgid "Rule details"
-msgstr "Dettagli"
+msgstr "Dettagli della regola"
 
 #: js/messages.php:202
-#, fuzzy
 #| msgid "Authentication"
 msgid "Justification"
-msgstr "Autenticazione"
+msgstr "Giustificazione"
 
 #: js/messages.php:203
 msgid "Used variable / formula"
-msgstr ""
+msgstr "Variabile / formula utilizzata"
 
 #: js/messages.php:204
 msgid "Test"
-msgstr ""
+msgstr "Prova"
 
 #: js/messages.php:209 pmd_general.php:382 pmd_general.php:419
 #: pmd_general.php:539 pmd_general.php:587 pmd_general.php:663
@@ -1754,7 +1755,7 @@ msgstr "OK"
 
 #: js/messages.php:218
 msgid "Click to dismiss this notification"
-msgstr ""
+msgstr "Clicca per chiudere questa notifica"
 
 #: js/messages.php:221
 msgid "Renaming Databases"
@@ -1815,10 +1816,10 @@ msgstr ""
 "RETURN!"
 
 #: js/messages.php:249
-#, fuzzy, php-format
+#, php-format
 #| msgid "+ Add a value"
 msgid "Add %d value(s)"
-msgstr "+ Aggiungi un valore"
+msgstr "Aggiungi %d valore/i"
 
 #: js/messages.php:252
 msgid ""
@@ -1846,10 +1847,9 @@ msgid "Change"
 msgstr "Modifica"
 
 #: js/messages.php:260
-#, fuzzy
 #| msgid "Maximum execution time"
 msgid "Query execution time"
-msgstr "Massimo tempo di esecuzione"
+msgstr "Tempo di esecuzione della query"
 
 #: js/messages.php:263 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
@@ -1868,14 +1868,13 @@ msgid "Show search criteria"
 msgstr "Mostra criteri di ricerca"
 
 #: js/messages.php:270 libraries/tbl_select.lib.php:110
-#, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
-msgstr "Cerca"
+msgstr "Ricerca Zoom"
 
 #: js/messages.php:272
 msgid "Each point represents a data row."
-msgstr ""
+msgstr "Ogni punto rappresenta una riga dei dati."
 
 #: js/messages.php:274
 msgid "Hovering over a point will show its label."
@@ -1883,37 +1882,40 @@ msgstr ""
 
 #: js/messages.php:276
 msgid "Use mousewheel to zoom in or out of the plot."
-msgstr ""
+msgstr "Utilizza la rotellina del mouse per ingrandire o ridurre il piano."
 
 #: js/messages.php:278
 msgid "Click and drag the mouse to navigate the plot."
-msgstr ""
+msgstr "Fai clic e trascina il mouse per navigare il piano."
 
 #: js/messages.php:280
 msgid "Click reset zoom link to come back to original state."
-msgstr ""
+msgstr "Fai clic su \"Ripristina zoom\" per tornare allo stato originale."
 
 #: js/messages.php:282
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
+"Clicca su un punto nel piano per visualizzare ed eventualmente modificare la "
+"riga di dati."
 
 #: js/messages.php:284
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
+"Il piano può essere ridimensionato trascinandolo dall'angolo in basso a "
+"destra."
 
 #: js/messages.php:286
 msgid "Strings are converted into integer for plotting"
 msgstr ""
 
 #: js/messages.php:288
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
-msgstr "Aggiungi/Cancella colonne"
+msgstr "Seleziona due campi"
 
 #: js/messages.php:289
 msgid "Select two different columns"
-msgstr ""
+msgstr "Seleziona due campi diversi"
 
 #: js/messages.php:290
 #, fuzzy
@@ -1937,10 +1939,9 @@ msgid "Copy"
 msgstr "Copia"
 
 #: js/messages.php:310
-#, fuzzy
 #| msgid "Add column"
 msgid "Add columns"
-msgstr "Aggiungi campo"
+msgstr "Aggiungi campi"
 
 #: js/messages.php:313
 msgid "Select referenced key"
@@ -1972,13 +1973,15 @@ msgstr "Aggiungi un'opzione al campo "
 
 #: js/messages.php:323
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "Premi Esc per annullare la modifica"
 
 #: js/messages.php:324
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
+"Hai modificato dei dati e non hai salvato. Sei sicuro di voler navigare via "
+"da questa pagina senza salvare i dati?"
 
 #: js/messages.php:325
 msgid "Drag to reorder"
@@ -2007,12 +2010,13 @@ msgstr ""
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
+"È possibile modificare la maggior parte dei campi<br /> cliccando "
+"direttamente sul loro contenuto."
 
 #: js/messages.php:332
-#, fuzzy
 #| msgid "Go to view"
 msgid "Go to link"
-msgstr "Vai alla visualizzazione"
+msgstr "Vai al link"
 
 #: js/messages.php:335
 msgid "Generate password"
@@ -2061,7 +2065,6 @@ msgid "Prev"
 msgstr "Precedente"
 
 #: js/messages.php:374
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
@@ -2311,7 +2314,7 @@ msgstr ""
 
 #: libraries/Config.class.php:703
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
-msgstr ""
+msgstr "Rimuovi la cartella \"./config\" prima di utilizzare phpMyAdmin!"
 
 #: libraries/Config.class.php:727
 #, php-format
@@ -3464,7 +3467,7 @@ msgstr "Tabulazione da visualizzare dopo l'ingresso nella tabella"
 
 #: libraries/config/messages.inc.php:55
 msgid "Default table tab"
-msgstr "Tabulazione predefinita per le tabbelle"
+msgstr "Tabulazione predefinita per le tabelle"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show binary contents as HEX by default"
@@ -3616,7 +3619,7 @@ msgstr "Modello per nomi dei server"
 
 #: libraries/config/messages.inc.php:89
 msgid "Table name template"
-msgstr "Modello per nomi delle tabbelle"
+msgstr "Modello per nomi delle tabelle"
 
 #: libraries/config/messages.inc.php:93 libraries/config/messages.inc.php:106
 #: libraries/config/messages.inc.php:115 libraries/config/messages.inc.php:139
@@ -4192,7 +4195,7 @@ msgstr "Visalizza la selezione dei server"
 
 #: libraries/config/messages.inc.php:274
 msgid "Minimum number of tables to display the table filter box"
-msgstr "Numero minimo di tabbelle per visualizzare il riquadro di filtraggio"
+msgstr "Numero minimo di tabelle per visualizzare il riquadro di filtraggio"
 
 #: libraries/config/messages.inc.php:275
 msgid "String that separates databases into different tree levels"
@@ -4495,7 +4498,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:334
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr "Mancano le tabbelle di configurazione di phpMyAdmin"
+msgstr "Mancano le tabelle di configurazione di phpMyAdmin"
 
 #: libraries/config/messages.inc.php:336
 msgid "Iconic table operations"
@@ -5579,10 +5582,9 @@ msgid ""
 msgstr "(o il socket del server locale MySQL non è correttamente configurato)"
 
 #: libraries/database_interface.lib.php:1768
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
-msgstr "Il server non risponde"
+msgstr "Il server non risponde."
 
 #: libraries/database_interface.lib.php:1772
 msgid "Please check privileges of directory containing database."
@@ -5884,7 +5886,7 @@ msgstr "Importazione nel database \"%s\""
 #: libraries/display_import.lib.php:133
 #, php-format
 msgid "Importing into the table \"%s\""
-msgstr "Importazione nella tabbella \"%s\""
+msgstr "Importazione nella tabella \"%s\""
 
 #: libraries/display_import.lib.php:139
 msgid "File to Import:"
@@ -7942,7 +7944,7 @@ msgstr "Schema del database %s - Pagina %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:200
 msgid "This page does not contain any tables!"
-msgstr "Questa pagina non contiene alcuna tabbella!"
+msgstr "Questa pagina non contiene alcuna tabella!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:228
 msgid "SCHEMA ERROR: "
@@ -11685,7 +11687,7 @@ msgstr "Svuota la tabella (TRUNCATE)"
 
 #: tbl_operations.php:716
 msgid "Delete the table (DROP)"
-msgstr "Elimina la tabbella (DROP)"
+msgstr "Elimina la tabella (DROP)"
 
 #: tbl_operations.php:738
 msgid "Partition maintenance"
@@ -11998,7 +12000,7 @@ msgstr "Dump SQL"
 
 #: tbl_tracking.php:551
 msgid "This option will replace your table and contained data."
-msgstr "Questa opzione sostituerá la tua tabbella e i dati contenuti."
+msgstr "Questa opzione sostituirà la tua tabella e i dati contenuti."
 
 #: tbl_tracking.php:551
 msgid "SQL execution"
@@ -12366,10 +12368,9 @@ msgid "Query cache disabled"
 msgstr "Cache delle query"
 
 #: po/advisory_rules.php:207
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "Il server non risponde"
+msgstr "La cache delle query non è abilitata."
 
 #: po/advisory_rules.php:210
 msgid ""
@@ -13025,10 +13026,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:665
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "slow_launch_time is set to %s"
-msgstr "long_query_time é impostato a %d secondi."
+msgstr "slow_launch_time é impostato a %s"
 
 #: po/advisory_rules.php:669
 #, fuzzy

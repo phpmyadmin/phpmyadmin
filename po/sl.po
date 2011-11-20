@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 06:57-0500\n"
-"PO-Revision-Date: 2011-11-10 19:01+0200\n"
+"PO-Revision-Date: 2011-11-19 22:18+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -4608,7 +4608,6 @@ msgid "Control user"
 msgstr "Krmilni uporabnik"
 
 #: libraries/config/messages.inc.php:385
-#, fuzzy
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
@@ -5430,14 +5429,13 @@ msgstr ""
 "konfigurirana)."
 
 #: libraries/database_interface.lib.php:1768
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
 msgstr "Strežnik se ne odziva."
 
 #: libraries/database_interface.lib.php:1772
 msgid "Please check privileges of directory containing database."
-msgstr ""
+msgstr "Prosimo, preverite pravice mape, v kateri se nahaja zbirka podatkov."
 
 #: libraries/database_interface.lib.php:1780
 msgid "Details..."
@@ -8530,7 +8528,7 @@ msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
-"Vaša PHP-knjižica MySQL različice %s se razlikuje od vašega strežnika MySQL "
+"Vaša PHP-knjižnica MySQL različice %s se razlikuje od vašega strežnika MySQL "
 "različice %s. To lahko povzroči nepredvidljivo vedenje."
 
 #: main.php:345
@@ -9225,7 +9223,6 @@ msgid "Any"
 msgstr "Kateri koli"
 
 #: server_privileges.php:1561
-#, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
 msgstr "Pregled uporabnikov"

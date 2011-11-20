@@ -5481,7 +5481,7 @@ msgstr "Сервер не отвечает."
 
 #: libraries/database_interface.lib.php:1772
 msgid "Please check privileges of directory containing database."
-msgstr ""
+msgstr "Пожалуйста, проверьте привилегии каталога содержащего базу данных."
 
 #: libraries/database_interface.lib.php:1780
 msgid "Details..."

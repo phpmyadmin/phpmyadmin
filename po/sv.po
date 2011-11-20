@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 06:57-0500\n"
-"PO-Revision-Date: 2011-11-14 00:55+0200\n"
+"PO-Revision-Date: 2011-11-16 21:47+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -5415,7 +5415,7 @@ msgstr "Servern svarar inte."
 
 #: libraries/database_interface.lib.php:1772
 msgid "Please check privileges of directory containing database."
-msgstr ""
+msgstr "Kontrollera privilegierna för katalogen som innehåller databasen."
 
 #: libraries/database_interface.lib.php:1780
 msgid "Details..."
@@ -7853,10 +7853,9 @@ msgid "Current Server"
 msgstr "Nuvarande Server"
 
 #: libraries/server_links.inc.php:60
-#, fuzzy
 #| msgid "User"
 msgid "Users"
-msgstr "Användare"
+msgstr "Användarna"
 
 #: libraries/server_links.inc.php:79 server_synchronize.php:1154
 #: server_synchronize.php:1162

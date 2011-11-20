@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 06:57-0500\n"
-"PO-Revision-Date: 2011-11-09 19:30+0200\n"
+"PO-Revision-Date: 2011-11-17 15:57+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -5450,7 +5450,7 @@ msgstr "Sunucu yanıt vermiyor."
 
 #: libraries/database_interface.lib.php:1772
 msgid "Please check privileges of directory containing database."
-msgstr ""
+msgstr "Lütfen veritabanını içeren dizinin yetkilerini kontrol edin."
 
 #: libraries/database_interface.lib.php:1780
 msgid "Details..."
@@ -13022,17 +13022,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "InnoDB günlük dosyası boyutu yetersiz şekilde büyük."
 
 #: po/advisory_rules.php:780
-#, fuzzy, php-format
-#| msgid ""
-#| "It is usually sufficient to set innodb_log_file_size to 25%% of the size "
-#| "of {innodb_buffer_pool_size}. A very innodb_log_file_size slows down the "
-#| "recovery time after a database crash considerably. See also <a href=\\"
-#| "\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
-#| "innodb_log_file_size/\\\">this Article</a>. You need to shutdown the "
-#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
-#| "the server, then check the error logs if everything went fine. See also "
-#| "<a href=\\\"http://mysqldatabaseadministration.blogspot.com/2007/01/"
-#| "increase-innodblogfilesize-proper-way.html\\\">this blog entry</a>"
+#, php-format
 msgid ""
 "It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
 "{innodb_buffer_pool_size}. A very big innodb_log_file_size slows down the "
@@ -13045,15 +13035,15 @@ msgid ""
 "innodblogfilesize-proper-way.html\\\">this blog entry</a>"
 msgstr ""
 "Genellikle innodb_log_file_size değerini {innodb_buffer_pool_size} boyutunun "
-"%%25'ine ayarlamak yeterlidir. Çok innodb_log_file_size, veritabanı "
-"çökmesinden sonra kurtarma zamanı oldukça yavaşlar. Aynı zamanda <a href=\\"
-"\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+"%%25'ine ayarlamak yeterlidir. Çok büyük innodb_log_file_size, veritabanı "
+"çökmesinden sonra kurtarma zamanını oldukça yavaşlatır. Aynı zamanda <a "
+"href=\\\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
 "innodb_log_file_size/\\\">bu Makaleye</a> bakın. Sunucuyu kapatmanız, InnoDB "
 "günlük dosyalarını kaldırmanız, my.cnf içindeki yeni değeri ayarlamanız, "
 "sunucuyu başlatmanız gerekir, sonrada herşeyin iyi gittiğini anlamak için "
-"hata günlüklerini kontrol etmelisiniz. Aynı zamanda <a href=\\\"http://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\\\">bu blog girişine</a> bakın"
+"hata günlüklerini kontrol etmelisiniz. Aynı zamanda <a "
+"href=\\\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\\\">bu blog girişine</a> bakın"
 
 #: po/advisory_rules.php:785
 #, php-format

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 06:57-0500\n"
-"PO-Revision-Date: 2011-11-11 11:23+0200\n"
+"PO-Revision-Date: 2011-11-20 09:44+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -7366,12 +7366,12 @@ msgstr "完全な INSERT 文を作成する"
 #: libraries/rte/rte_events.lib.php:475 libraries/rte/rte_routines.lib.php:933
 #: libraries/rte/rte_triggers.lib.php:360
 msgid "Definer"
-msgstr "DEFINER"
+msgstr "定義者"
 
 #: libraries/rte/rte_events.lib.php:518 libraries/rte/rte_routines.lib.php:997
 #: libraries/rte/rte_triggers.lib.php:398
 msgid "The definer must be in the \"username@hostname\" format"
-msgstr ""
+msgstr "定義者の指定は「ユーザ名@ホスト名」の形式でなければなりません。"
 
 #: libraries/rte/rte_events.lib.php:525
 msgid "You must provide an event name"
@@ -12523,16 +12523,18 @@ msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
+"お使いの MyISAM インデックスのサイズに合わせた {key_buffer_size} を設定してください。最初の設定としては、64M "
+"からがいいでしょう。"
 
 #: po/advisory_rules.php:485
 msgid "key_buffer_size is 0"
 msgstr "key_buffer_size は 0 です。"
 
 #: po/advisory_rules.php:489
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "ソートバッファのサイズ"
+msgstr "常用される MyISAM キーバッファの最大比率"
 
 #: po/advisory_rules.php:492 po/advisory_rules.php:507
 #, php-format
@@ -12545,38 +12547,40 @@ msgid ""
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
+"{key_buffer_size} の必要とするサイズが減少しているようです。ご使用のテーブルでインデックスが削除されていないかよく確認してください。ま"
+"た、クエリあるいはインデックスの使用が想定されるものがないか確認してみてください。"
 
 #: po/advisory_rules.php:500
 #, php-format
 msgid "max %% MyISAM key buffer ever used: %s, this value should be above 95%%"
-msgstr ""
+msgstr "常用される MyISAM キーバッファの最大比率: この値は、95%% 以上がいいと言われています。"
 
 #: po/advisory_rules.php:504
 msgid "Percentage of MyISAM key buffer used"
-msgstr "MyISAM キーバッファの比率"
+msgstr "MyISAM キーバッファの使用比率"
 
 #: po/advisory_rules.php:515
 #, php-format
 msgid "%% MyISAM key buffer used: %s, this value should be above 95%%"
-msgstr ""
+msgstr "MyISAM キーバッファの使用比率: この値は、95%% 以上がいいと言われています。"
 
 #: po/advisory_rules.php:519
 msgid "Percentage of index reads from memory"
-msgstr ""
+msgstr "メモリから読み込まれるインデックスの比率"
 
 #: po/advisory_rules.php:522
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
-msgstr ""
+msgstr "MyISAM キーバッファを使用するインデックスの比率が低いです。"
 
 #: po/advisory_rules.php:525
 msgid "You may need to increase {key_buffer_size}."
-msgstr ""
+msgstr "{key_buffer_size} を増やす必要があるかもしれません。"
 
 #: po/advisory_rules.php:530
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr ""
+msgstr "メモリから読み込まれるインデックスの比率: この値は、95%% 以上がいいと言われています。"
 
 #: po/advisory_rules.php:534
 msgid "Rate of table open"
@@ -12602,16 +12606,15 @@ msgstr ""
 "す。"
 
 #: po/advisory_rules.php:549
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of used open files limit"
-msgstr "インポートするファイルの形式"
+msgstr "開いているファイルの上限に対する比率"
 
 #: po/advisory_rules.php:552
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \\\"Too many open files\\\" error."
-msgstr ""
+msgstr "開いているファイルの数が最大になりつつあります。エラー「開いているファイルが多すぎます」になるかもしれません。"
 
 #: po/advisory_rules.php:555 po/advisory_rules.php:570
 msgid ""
@@ -12625,21 +12628,20 @@ msgstr ""
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
-msgstr ""
+msgstr "開いているファイルの数は上限に対して %s%% です。この値は、85%% 未満がいいと言われています。"
 
 #: po/advisory_rules.php:564
 msgid "Rate of open files"
-msgstr "ファイルを開く割合"
+msgstr "開いているファイルの割合"
 
 #: po/advisory_rules.php:567
 msgid "The rate of opening files is high."
-msgstr "ファイルを開く割合が高いです。"
+msgstr "開いているファイルの割合が高いです。"
 
 #: po/advisory_rules.php:575
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr ""
-"ファイルを開く割合：%s。この値は、1 時間当たり 5 未満がいいと言われています。"
+msgstr "開いているファイルの割合：%s。この値は、1 時間当たり 5 未満がいいと言われています。"
 
 #: po/advisory_rules.php:579
 #, php-format
@@ -12682,36 +12684,35 @@ msgstr "スレッドキャッシュ"
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
-msgstr ""
+msgstr "スレッドキャッシュが無効になっているため、MySQL への新たな接続に対してのオーバヘッドが大きくなります。"
 
 #: po/advisory_rules.php:615
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
-msgstr ""
+msgstr "{thread_cache_size} に 0 より大きな値を設定して、スレッドキャッシュを有効にしてください。"
 
 #: po/advisory_rules.php:620
 msgid "The thread cache is set to 0"
 msgstr "スレッドキャッシュは 0 に設定されています。"
 
 #: po/advisory_rules.php:624
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is not active."
 msgid "Thread cache hit rate %%"
-msgstr "SQL コマンドの追跡は非アクティブです。"
+msgstr "スレッドキャッシュのヒット率"
 
 #: po/advisory_rules.php:627
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "Thread cache is not efficient."
-msgstr "SQL コマンドの追跡は非アクティブです。"
+msgstr "スレッドキャッシュが効果的に機能していません。"
 
 #: po/advisory_rules.php:630
 msgid "Increase {thread_cache_size}."
-msgstr ""
+msgstr "{thread_cache_size} を増やしてください。"
 
 #: po/advisory_rules.php:635
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr ""
+msgstr "スレッドキャッシュのヒット率: この値は、80%% 以上がいいと言われています。"
 
 #: po/advisory_rules.php:639
 msgid "Threads that are slow to launch"
@@ -12749,10 +12750,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:665
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "slow_launch_time is set to %s"
-msgstr "long_query_time は %d 秒に設定されています。"
+msgstr "slow_launch_time は %s に設定されています。"
 
 #: po/advisory_rules.php:669
 #, fuzzy
@@ -12857,27 +12858,24 @@ msgstr ""
 
 #: po/advisory_rules.php:744
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "InnoDB が無効？"
 
 #: po/advisory_rules.php:747
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "You do not have InnoDB enabled."
-msgstr "最近使用したテーブルが保存できません"
+msgstr "InnoDB を有効にできていません。"
 
 #: po/advisory_rules.php:750
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "一般的に、InnoDB はテーブル用のエンジンとして適切な選択となりえます。"
 
 #: po/advisory_rules.php:755
 msgid "have_innodb is set to 'value'"
-msgstr ""
+msgstr "have_innodb は 'value' に設定されています。"
 
 #: po/advisory_rules.php:759
-#, fuzzy
-#| msgid "Buffer pool size"
 msgid "InnoDB log size"
-msgstr "バッファプールの大きさ"
+msgstr "InnoDB のログサイズ"
 
 #: po/advisory_rules.php:762
 #, fuzzy
@@ -12911,7 +12909,7 @@ msgstr ""
 
 #: po/advisory_rules.php:774
 msgid "Max InnoDB log size"
-msgstr ""
+msgstr "InnoDB の最大ログサイズ"
 
 #: po/advisory_rules.php:777
 msgid "The InnoDB log file size is inadequately large."
@@ -12937,14 +12935,12 @@ msgid "Your absolute InnoDB log size is %s MiB"
 msgstr ""
 
 #: po/advisory_rules.php:789
-#, fuzzy
-#| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
-msgstr "バッファプールの大きさ"
+msgstr "InnoDB のバッファプールの大きさ"
 
 #: po/advisory_rules.php:792
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr ""
+msgstr "ご使用の InnoDB のバッファプールはかなり小さいです。"
 
 #: po/advisory_rules.php:795
 #, php-format
@@ -12989,7 +12985,7 @@ msgstr ""
 
 #: po/advisory_rules.php:815
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "concurrent_insert は 0 に設定されています。"
 
 #~ msgid "Click to unselect"
 #~ msgstr "クリックで選択解除"
