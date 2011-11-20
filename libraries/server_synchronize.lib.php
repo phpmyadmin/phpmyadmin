@@ -144,10 +144,10 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link, &$matching
         	        . PMA_backquote($matching_table[$matching_table_index]) . " WHERE ";
 
                 if (sizeof($is_key) == 1) {
-                    $trg_select_query .= $is_key[0]. "='" . $source_result_set[$j] . "'";
+                    $trg_select_query .= PMA_backquote($is_key[0]). "='" . $source_result_set[$j] . "'";
                 } elseif (sizeof($is_key) > 1){
                     for ($k=0; $k < sizeof($is_key); $k++) {
-                        $trg_select_query .= $is_key[$k] . "='" . $source_result_set[$j][$is_key[$k]] . "'";
+                        $trg_select_query .= PMA_backquote($is_key[$k]) . "='" . $source_result_set[$j][$is_key[$k]] . "'";
                         if ($k < (sizeof($is_key)-1)){
                             $trg_select_query .= " AND ";
                         }
@@ -162,10 +162,10 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link, &$matching
                  	   . PMA_backquote($matching_table[$matching_table_index]) . " WHERE ";
 
                     if (sizeof($is_key) == 1) {
-                        $src_select_query .= $is_key[0] . "='" . $source_result_set[$j] . "'";
+                        $src_select_query .= PMA_backquote($is_key[0]) . "='" . $source_result_set[$j] . "'";
                     } else if(sizeof($is_key) > 1){
                         for ($k=0; $k< sizeof($is_key); $k++) {
-                            $src_select_query .= $is_key[$k] . "='" . $source_result_set[$j][$is_key[$k]] . "'";
+                            $src_select_query .= PMA_backquote($is_key[$k]) . "='" . $source_result_set[$j][$is_key[$k]] . "'";
                             if ($k < (sizeof($is_key) - 1)){
                                 $src_select_query .= " AND ";
                             }
@@ -422,7 +422,7 @@ function PMA_updateTargetTables($table, $update_array, $src_db, $trg_db, $trg_li
 
                      for ($update_field = 0; $update_field < $update_fields_num; $update_field = $update_field+2) {
                          if (isset($update_array[$matching_table_index][$update_row][$update_field]) && isset($update_array[$matching_table_index][$update_row][$update_field+1])) {
-                             $query .= $update_array[$matching_table_index][$update_row][$update_field] . "='" . $update_array[$matching_table_index][$update_row][$update_field+1] . "'";
+                             $query .= PMA_backquote($update_array[$matching_table_index][$update_row][$update_field]) . "='" . $update_array[$matching_table_index][$update_row][$update_field+1] . "'";
                          }
                          if ($update_field < ($update_fields_num - 2)) {
                              $query .= ", ";
@@ -434,7 +434,7 @@ function PMA_updateTargetTables($table, $update_array, $src_db, $trg_db, $trg_li
                         {
                             if (isset($matching_table_keys[$matching_table_index][$key])) {
 
-                                $query .= $matching_table_keys[$matching_table_index][$key] . "='" . $update_array[$matching_table_index][$update_row][$matching_table_keys[$matching_table_index][$key]] . "'";
+                                $query .= PMA_backquote($matching_table_keys[$matching_table_index][$key]) . "='" . $update_array[$matching_table_index][$update_row][$matching_table_keys[$matching_table_index][$key]] . "'";
                             }
                             if ($key < (sizeof($matching_table_keys[$matching_table_index]) - 1)) {
                                  $query .= " AND ";
@@ -508,7 +508,7 @@ function PMA_insertIntoTargetTable($matching_table, $src_db, $trg_db, $src_link,
 
                     for ($field_index = 0; $field_index < sizeof($table_fields[$matching_table_index]); $field_index++)
                     {
-                        $insert_query .=  $table_fields[$matching_table_index][$field_index];
+                        $insert_query .=  PMA_backquote($table_fields[$matching_table_index][$field_index]);
 
                         $is_fk_query = "SELECT * FROM  information_schema.KEY_COLUMN_USAGE WHERE TABLE_SCHEMA = '" . $trg_db ."'
                                          AND TABLE_NAME = '" . $matching_table[$matching_table_index]. "'AND COLUMN_NAME = '" .
@@ -714,7 +714,8 @@ function PMA_deleteFromTargetTable($trg_db, $trg_link, $matching_tables, $table_
         if (isset($target_tables_keys[$table_index])) {
             $delete_query = 'DELETE FROM ' . PMA_backquote($trg_db) . '.' .PMA_backquote($matching_tables[$table_index]) . ' WHERE ';
             for($y = 0; $y < sizeof($target_tables_keys[$table_index]); $y++) {
-                $delete_query .= $target_tables_keys[$table_index][$y] . " = '";
+
+                $delete_query .= PMA_backquote($target_tables_keys[$table_index][$y]) . " = '";
 
                 if (sizeof($target_tables_keys[$table_index]) == 1) {
                     $delete_query .= $delete_array[$table_index][$i] . "'";
@@ -733,7 +734,7 @@ function PMA_deleteFromTargetTable($trg_db, $trg_link, $matching_tables, $table_
 
                 if ($result_size > 0) {
                     for ($b = 0; $b < $result_size; $b++) {
-                        $drop_pk_query = "DELETE FROM " . PMA_backquote($pk_query_result[$b]['TABLE_SCHEMA']) . "." . PMA_backquote($pk_query_result[$b]['TABLE_NAME']) . " WHERE " . $pk_query_result[$b]['COLUMN_NAME'] . " = " . $target_tables_keys[$table_index][$y] . ";";
+                        $drop_pk_query = "DELETE FROM " . PMA_backquote($pk_query_result[$b]['TABLE_SCHEMA']) . "." . PMA_backquote($pk_query_result[$b]['TABLE_NAME']) . " WHERE " . PMA_backquote($pk_query_result[$b]['COLUMN_NAME']) . " = " . $target_tables_keys[$table_index][$y] . ";";
                         PMA_DBI_try_query($drop_pk_query, $trg_link, 0);
                     }
                 }
@@ -851,7 +852,7 @@ function PMA_addColumnsInTargetTable($src_db, $trg_db, $src_link, $trg_link, $ma
     for ($i = 0; $i < sizeof($matching_tables_fields[$table_counter]); $i++) {
         if (isset($add_column_array[$table_counter][$matching_tables_fields[$table_counter][$i]])) {
             $query = "ALTER TABLE " . PMA_backquote($trg_db) . '.' . PMA_backquote($matching_tables[$table_counter]). " ADD COLUMN " .
-            $add_column_array[$table_counter][$matching_tables_fields[$table_counter][$i]] . " " . $source_columns[$table_counter][$matching_tables_fields[$table_counter][$i]]['Type'];
+            PMA_backquote($add_column_array[$table_counter][$matching_tables_fields[$table_counter][$i]]) . " " . $source_columns[$table_counter][$matching_tables_fields[$table_counter][$i]]['Type'];
 
             if($source_columns[$table_counter][$matching_tables_fields[$table_counter][$i]]['Null'] == 'NO') {
                 $query .= ' Not Null ';
@@ -882,7 +883,7 @@ function PMA_addColumnsInTargetTable($src_db, $trg_db, $src_link, $trg_link, $ma
                 }
                 $query .= " , ADD PRIMARY KEY (";
                 for ($t = 0; $t < sizeof($matching_tables_keys[$table_counter]); $t++) {
-                    $query .= $matching_tables_keys[$table_counter][$t];
+                    $query .= PMA_backquote($matching_tables_keys[$table_counter][$t]);
                     if ($t < (sizeof($matching_tables_keys[$table_counter]) - 1)) {
                         $query .= " , " ;
                     }
@@ -913,7 +914,7 @@ function PMA_addColumnsInTargetTable($src_db, $trg_db, $src_link, $trg_link, $ma
                     unset($uncommon_tables[$table_index[0]]);
                 }
                 $fk_query = "ALTER TABLE " . PMA_backquote($trg_db) . '.' . PMA_backquote($matching_tables[$table_counter]) .
-                            "ADD CONSTRAINT FOREIGN KEY " . $add_column_array[$table_counter][$matching_tables_fields[$table_counter][$i]] . "
+                            "ADD CONSTRAINT FOREIGN KEY " . PMA_backquote($add_column_array[$table_counter][$matching_tables_fields[$table_counter][$i]]) . "
                             (" . $add_column_array[$table_counter][$matching_tables_fields[$table_counter][$i]] . ") REFERENCES " . PMA_backquote($trg_db) .
                              '.' . PMA_backquote($is_fk_result[0]['REFERENCED_TABLE_NAME']) . " (" . $is_fk_result[0]['REFERENCED_COLUMN_NAME'] . ");";
 
@@ -1001,7 +1002,7 @@ function PMA_alterTargetTableStructure($trg_db, $trg_link, $matching_tables, &$s
         }
         $pri_query .= "  ADD PRIMARY KEY (";
         for ($z = 0; $z < sizeof($matching_tables_keys[$matching_table_index]); $z++) {
-            $pri_query .= $matching_tables_keys[$matching_table_index][$z];
+            $pri_query .= PMA_backquote($matching_tables_keys[$matching_table_index][$z]);
             if ($z < (sizeof($matching_tables_keys[$matching_table_index]) - 1)) {
                 $pri_query .= " , " ;
             }
@@ -1018,7 +1019,7 @@ function PMA_alterTargetTableStructure($trg_db, $trg_link, $matching_tables, &$s
     for ($t = 0; $t < sizeof($matching_tables_fields[$matching_table_index]); $t++) {
         if ((isset($alter_str_array[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]])) && (sizeof($alter_str_array[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]]) > 0)) {
             $sql_query = 'ALTER TABLE ' . PMA_backquote($trg_db) . '.' . PMA_backquote($matching_tables[$matching_table_index]) . ' MODIFY ' .
-            $matching_tables_fields[$matching_table_index][$t] . ' ' . $source_columns[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]]['Type'];
+            PMA_backquote($matching_tables_fields[$matching_table_index][$t]) . ' ' . $source_columns[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]]['Type'];
             $found = false;
             for ($i = 0; $i < sizeof($criteria); $i++)
             {
@@ -1082,7 +1083,7 @@ function PMA_alterTargetTableStructure($trg_db, $trg_link, $matching_tables, &$s
     for($p = 0; $p < sizeof($matching_tables_keys[$matching_table_index]); $p++) {
         if ((isset($alter_str_array[$matching_table_index][$matching_tables_keys[$matching_table_index][$p]]['Key']))) {
             $check = true;
-            $query .= ' MODIFY ' . $matching_tables_keys[$matching_table_index][$p] . ' '
+            $query .= ' MODIFY ' . PMA_backquote($matching_tables_keys[$matching_table_index][$p]) . ' '
             . $source_columns[$matching_table_index][$matching_tables_fields[$matching_table_index][$p]]['Type'] . ' Not Null ';
             if ($p < (sizeof($matching_tables_keys[$matching_table_index]) - 1)) {
                 $query .= ', ';
@@ -1126,7 +1127,7 @@ function PMA_removeColumnsFromTargetTable($trg_db, $trg_link, $matching_tables, 
             if ($result_size > 0) {
                 for ($b = 0; $b < $result_size; $b++) {
                     $drop_pk_query = "ALTER TABLE " . PMA_backquote($pk_query_result[$b]['TABLE_SCHEMA']) . "." . PMA_backquote($pk_query_result[$b]['TABLE_NAME']) . "
-                                      DROP FOREIGN KEY " . $pk_query_result[$b]['CONSTRAINT_NAME'] . ", DROP COLUMN " . $pk_query_result[$b]['COLUMN_NAME'] . ";";
+                                      DROP FOREIGN KEY " . PMA_backquote($pk_query_result[$b]['CONSTRAINT_NAME']) . ", DROP COLUMN " . PMA_backquote($pk_query_result[$b]['COLUMN_NAME']) . ";";
                     PMA_DBI_try_query($drop_pk_query, $trg_link, 0);
                 }
             }
@@ -1137,9 +1138,9 @@ function PMA_removeColumnsFromTargetTable($trg_db, $trg_link, $matching_tables, 
             $result = PMA_DBI_fetch_result($query, null, null, $trg_link);
 
             if (sizeof($result) > 0) {
-                $drop_query .= " DROP FOREIGN KEY " . $result[0]['CONSTRAINT_NAME'] . ",";
+                $drop_query .= " DROP FOREIGN KEY " . PMA_backquote($result[0]['CONSTRAINT_NAME']) . ",";
             }
-            $drop_query .=  " DROP COLUMN " . $uncommon_columns[$table_counter][$a];
+            $drop_query .=  " DROP COLUMN " . PMA_backquote($uncommon_columns[$table_counter][$a]);
             if ($a < (sizeof($uncommon_columns[$table_counter]) - 1)) {
                 $drop_query .= " , " ;
             }
@@ -1249,7 +1250,7 @@ function PMA_applyIndexesDiff ($trg_db, $trg_link, $matching_tables, $source_ind
                         if ($source_indexes[$table_counter][$b]['Non_unique'] == '0') {
                             $sql .= " UNIQUE ";
                         }
-                        $sql .= " INDEX " . $source_indexes[$table_counter][$b]['Key_name'] . " (" . $add_indexes_array[$table_counter][$a] . " );";
+                        $sql .= " INDEX " . PMA_backquote($source_indexes[$table_counter][$b]['Key_name']) . " (" . $add_indexes_array[$table_counter][$a] . " );";
                         if ($display == true) {
                             echo '<p>' . $sql . '</p>';
                         }
@@ -1294,7 +1295,7 @@ function PMA_applyIndexesDiff ($trg_db, $trg_link, $matching_tables, $source_ind
         $drop_index_query = "ALTER TABLE " . PMA_backquote($trg_db) . "." . PMA_backquote($matching_tables[$table_counter]);
         for ($a = 0; $a < sizeof($target_indexes[$table_counter]); $a++) {
             if (isset($remove_indexes_array[$table_counter][$a])) {
-                $drop_index_query .= " DROP INDEX " . $remove_indexes_array[$table_counter][$a];
+                $drop_index_query .= " DROP INDEX " . PMA_backquote($remove_indexes_array[$table_counter][$a]);
             }
             if ($a < (sizeof($remove_indexes_array[$table_counter]) - 1)) {
                 $drop_index_query .= " , " ;

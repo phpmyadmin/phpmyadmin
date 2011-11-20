@@ -16,6 +16,7 @@ phpMyAdmin - ChangeLog
 - patch #3437354 [core] Notice: Array to string conversion in PHP 5.4
 - [interface] When ShowTooltipAliasTB is true, VIEW is wrongly shown as the
   view name in main panel db Structure page
+- bug #3439292 [core] Fail to synchronize column with name of keyword
 
 3.4.7.1 (2011-11-10)
 - [security] Fixed possible local file inclusion in XML import
