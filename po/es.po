@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-20 19:30+0200\n"
+"PO-Revision-Date: 2011-11-20 19:31+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -1855,10 +1855,9 @@ msgid "Query results"
 msgstr "Resultados de la consulta"
 
 #: js/messages.php:291
-#, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
-msgstr "Tamaño del puntero de datos"
+msgstr "Contenido del punto de datos"
 
 #: js/messages.php:294 tbl_change.php:312 tbl_indexes.php:221
 #: tbl_indexes.php:248
