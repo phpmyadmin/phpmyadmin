@@ -24,8 +24,6 @@ session_write_close();
 // But this one is needed for PMA_escapeJsString()
 require_once './libraries/js_escape.lib.php';
 
-$js_messages['strClickToSelect'] = __('Click to select');
-$js_messages['strClickToUnselect'] = __('Click to unselect');
 $js_messages['strNoDropDatabases'] = $cfg['AllowUserDropDatabase'] ? '' : __('"DROP DATABASE" statements are disabled.');
 
 /* For confirmations */
@@ -289,6 +287,8 @@ $js_messages['strDisplayHelp'] = '<ul><li>'
     . '</li></ul>';
 $js_messages['strInputNull'] = '<strong>' . __('Select two columns') . '</strong>';
 $js_messages['strSameInputs'] = '<strong>' . __('Select two different columns') . '</strong>';
+$js_messages['strQueryResults'] = __('Query results');
+$js_messages['strDataPointContent'] = __('Data point content');
 
 /* For tbl_change.js */
 $js_messages['strIgnore'] = __('Ignore');

@@ -456,7 +456,7 @@ $(document).ready(function() {
     };
     $("#dataDisplay").dialog({
         autoOpen: false,
-        title: 'Data point content',
+        title: PMA_messages['strDataPointContent'],
         modal: true,
         buttons: buttonOptions,
         width: $('#dataDisplay').width() + 24,
@@ -572,7 +572,7 @@ $(document).ready(function() {
                     return this.point.name;
                 }
             },
-            title: { text: 'Query Results' },
+            title: { text: PMA_messages['strQueryResults'] },
             xAxis: {
                 title: { text: $('#tableid_0').val() },
                 events: {

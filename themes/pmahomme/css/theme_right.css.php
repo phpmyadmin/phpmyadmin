@@ -2132,11 +2132,20 @@ td.more_opts {
  */
 #index_frm .index_info input,
 #index_frm .index_info select {
-    width: 100%;
+    width: 14em;
     box-sizing:         border-box;
     -ms-box-sizing:     border-box;
     -moz-box-sizing:    border-box;
     -webkit-box-sizing: border-box;
+}
+
+#index_frm .index_info div {
+    padding: 0.2em 0;
+}
+
+#index_frm .index_info .label {
+    float: left;
+    min-width: 12em;
 }
 
 #index_frm .slider {
