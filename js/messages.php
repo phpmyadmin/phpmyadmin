@@ -289,6 +289,8 @@ $js_messages['strDisplayHelp'] = '<ul><li>'
     . '</li></ul>';
 $js_messages['strInputNull'] = '<strong>' . __('Select two columns') . '</strong>';
 $js_messages['strSameInputs'] = '<strong>' . __('Select two different columns') . '</strong>';
+$js_messages['strQueryResults'] = __('Query results');
+$js_messages['strDataPointContent'] = __('Data point content');
 
 /* For tbl_change.js */
 $js_messages['strIgnore'] = __('Ignore');
