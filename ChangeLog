@@ -17,6 +17,7 @@ phpMyAdmin - ChangeLog
 - [interface] When ShowTooltipAliasTB is true, VIEW is wrongly shown as the
   view name in main panel db Structure page
 - bug #3439292 [core] Fail to synchronize column with name of keyword
+- bug #3425156 [interface] Add column after drop
 
 3.4.7.1 (2011-11-10)
 - [security] Fixed possible local file inclusion in XML import

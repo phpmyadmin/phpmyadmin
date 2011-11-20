@@ -42,6 +42,10 @@ $(document).ready(function() {
          */
         var curr_column_name = $(curr_row).children('th').children('label').text();
         /**
+         * @var $after_field_item    Corresponding entry in the 'After' field.
+         */
+        var $after_field_item = $("select[name='after_field'] option[value='" + curr_column_name + "']");
+        /**
          * @var question    String containing the question to be asked for confirmation
          */
         var question = PMA_messages['strDoYouReally'] + ' :\n ALTER TABLE `' + escapeHtml(curr_table_name) + '` DROP `' + escapeHtml(curr_column_name) + '`';
@@ -53,6 +57,7 @@ $(document).ready(function() {
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
                 if(data.success == true) {
                     PMA_ajaxShowMessage(data.message);
+                    $after_field_item.remove();
                     $(curr_row).hide("medium").remove();
                 }
                 else {
