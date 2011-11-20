@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-11 10:19+0100\n"
-"PO-Revision-Date: 2011-11-20 09:06+0200\n"
+"PO-Revision-Date: 2011-11-20 09:07+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12677,10 +12677,9 @@ msgid "Thread cache hit rate %%"
 msgstr "SQL コマンドの追跡は非アクティブです。"
 
 #: po/advisory_rules.php:211
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "Thread cache is not efficient."
-msgstr "SQL コマンドの追跡は非アクティブです。"
+msgstr "スレッドキャッシュが効果的に機能していません。"
 
 #: po/advisory_rules.php:212
 msgid "Increase {thread_cache_size}."
