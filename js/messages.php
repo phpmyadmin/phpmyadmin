@@ -24,8 +24,6 @@ session_write_close();
 // But this one is needed for PMA_escapeJsString()
 require_once './libraries/js_escape.lib.php';
 
-$js_messages['strClickToSelect'] = __('Click to select');
-$js_messages['strClickToUnselect'] = __('Click to unselect');
 $js_messages['strNoDropDatabases'] = $cfg['AllowUserDropDatabase'] ? '' : __('"DROP DATABASE" statements are disabled.');
 
 /* For confirmations */
