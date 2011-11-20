@@ -12551,7 +12551,7 @@ msgstr ""
 "た、クエリあるいはインデックスの使用が想定されるものがないか確認してみてください。"
 
 #: po/advisory_rules.php:500
-#, php-format
+#, php-format, fuzzy
 msgid "max %% MyISAM key buffer ever used: %s, this value should be above 95%%"
 msgstr "常用される MyISAM キーバッファの最大比率: この値は、95%% 以上がいいと言われています。"
 
@@ -12560,7 +12560,7 @@ msgid "Percentage of MyISAM key buffer used"
 msgstr "MyISAM キーバッファの使用比率"
 
 #: po/advisory_rules.php:515
-#, php-format
+#, php-format, fuzzy
 msgid "%% MyISAM key buffer used: %s, this value should be above 95%%"
 msgstr "MyISAM キーバッファの使用比率: この値は、95%% 以上がいいと言われています。"
 
@@ -12578,7 +12578,7 @@ msgid "You may need to increase {key_buffer_size}."
 msgstr "{key_buffer_size} を増やす必要があるかもしれません。"
 
 #: po/advisory_rules.php:530
-#, php-format
+#, php-format, fuzzy
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr "メモリから読み込まれるインデックスの比率: この値は、95%% 以上がいいと言われています。"
 
@@ -12710,7 +12710,7 @@ msgid "Increase {thread_cache_size}."
 msgstr "{thread_cache_size} を増やしてください。"
 
 #: po/advisory_rules.php:635
-#, php-format
+#, php-format, fuzzy
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr "スレッドキャッシュのヒット率: この値は、80%% 以上がいいと言われています。"
 
