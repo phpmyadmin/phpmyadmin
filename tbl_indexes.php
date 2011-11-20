@@ -179,26 +179,33 @@ if ($GLOBALS['is_ajax_request'] != true) {
 <?php
 }
 ?>
-<div>
-<table class='index_info'>
-<tr><td>
-<strong>
-<label for="input_index_name"><?php echo __('Index name:'); ?></label>
-</strong>
-<?php echo PMA_showhint(PMA_Message::notice(__('("PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!)'))); ?>
-</td><td>
-<input type="text" name="index[Key_name]" id="input_index_name" size="25"
-    value="<?php echo htmlspecialchars($index->getName()); ?>" onfocus="this.select()" />
-</td></tr><tr><td>
-<strong>
-<label for="select_index_type"><?php echo __('Index type:'); ?></label>
-</strong>
-<?php echo PMA_showMySQLDocu('SQL-Syntax', 'ALTER_TABLE'); ?>
-</td><td>
-<select name="index[Index_type]" id="select_index_type" >
-    <?php echo $index->generateIndexSelector(); ?>
-</select>
-</td></tr></table>
+<div class='index_info'>
+    <div>
+        <div class="label">
+            <strong>
+                <label for="input_index_name">
+                    <?php echo __('Index name:'); ?>
+                    <?php echo PMA_showhint(PMA_Message::notice(__('("PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!)'))); ?>
+                </label>
+            </strong>
+        </div>
+        <input type="text" name="index[Key_name]" id="input_index_name" size="25"
+            value="<?php echo htmlspecialchars($index->getName()); ?>" onfocus="this.select()" />
+    </div>
+    <div>
+        <div class="label">
+            <strong>
+                <label for="select_index_type">
+                    <?php echo __('Index type:'); ?>
+                    <?php echo PMA_showMySQLDocu('SQL-Syntax', 'ALTER_TABLE'); ?>
+                </label>
+            </strong>
+        </div>
+        <select name="index[Index_type]" id="select_index_type" >
+            <?php echo $index->generateIndexSelector(); ?>
+        </select>
+    </div>
+    <div class="clearfloat"></div>
 </div>
 
 <table id="index_columns">
