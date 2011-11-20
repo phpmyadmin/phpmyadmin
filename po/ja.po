@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-11 10:19+0100\n"
-"PO-Revision-Date: 2011-11-20 09:37+0200\n"
+"PO-Revision-Date: 2011-11-20 09:38+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12852,7 +12852,7 @@ msgstr "have_innodb は 'value' に設定されています。"
 #: po/advisory_rules.php:255
 #| msgid "Buffer pool size"
 msgid "InnoDB log size"
-msgstr "InnoDB ログサイズ"
+msgstr "InnoDB のログサイズ"
 
 #: po/advisory_rules.php:256
 #, fuzzy
