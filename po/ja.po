@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-11 10:19+0100\n"
-"PO-Revision-Date: 2011-11-19 09:17+0200\n"
+"PO-Revision-Date: 2011-11-20 09:02+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12664,7 +12664,7 @@ msgstr "スレッドキャッシュが無効になっているため、MySQL へ
 
 #: po/advisory_rules.php:207
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
-msgstr ""
+msgstr "{thread_cache_size} に 0 より大きな値を設定して、スレッドキャッシュを有効にしてください。"
 
 #: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
