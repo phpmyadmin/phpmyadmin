@@ -11261,10 +11261,9 @@ msgid "Add index"
 msgstr "インデックスを追加する"
 
 #: tbl_indexes.php:175
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit index"
-msgstr "編集モード"
+msgstr "インデックスを編集する"
 
 #: tbl_indexes.php:186
 msgid "Index name:"
