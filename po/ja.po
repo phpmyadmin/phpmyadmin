@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-21 11:25+0200\n"
+"PO-Revision-Date: 2011-11-21 11:26+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1581,7 +1581,7 @@ msgstr "ページの再読み込み"
 
 #: js/messages.php:187
 msgid "Affected rows:"
-msgstr ""
+msgstr "変更された行:"
 
 #: js/messages.php:189
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
