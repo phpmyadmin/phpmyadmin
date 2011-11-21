@@ -12745,7 +12745,7 @@ msgstr "遅い起動時間"
 
 #: po/advisory_rules.php:221
 msgid "Slow_launch_threads is above 2s"
-msgstr ""
+msgstr "Slow_launch_threads が 2 秒を超えています。"
 
 #: po/advisory_rules.php:222
 msgid ""
