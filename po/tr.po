@@ -1839,10 +1839,9 @@ msgid "Query results"
 msgstr "Sorgu sonuçları"
 
 #: js/messages.php:291
-#, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
-msgstr "Veri imleci boyutu"
+msgstr "Veri imleci içeriği"
 
 #: js/messages.php:294 tbl_change.php:312 tbl_indexes.php:221
 #: tbl_indexes.php:248
