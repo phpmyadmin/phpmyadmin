@@ -82,7 +82,7 @@ function PMA_sprites() {
         'bd_firstpage' => array(
             'position' => '16',
             'width'    => '16',
-            'height'   => '13'
+            'height'   => '16'
         ),
         'bd_ftext' => array(
             'position' => '17',
@@ -102,12 +102,12 @@ function PMA_sprites() {
         'bd_lastpage' => array(
             'position' => '20',
             'width'    => '16',
-            'height'   => '13'
+            'height'   => '16'
         ),
         'bd_nextpage' => array(
             'position' => '21',
-            'width'    => '8',
-            'height'   => '13'
+            'width'    => '16',
+            'height'   => '16'
         ),
         'b_docs' => array(
             'position' => '22',
@@ -121,8 +121,8 @@ function PMA_sprites() {
         ),
         'bd_prevpage' => array(
             'position' => '24',
-            'width'    => '8',
-            'height'   => '13'
+            'width'    => '16',
+            'height'   => '16'
         ),
         'bd_primary' => array(
             'position' => '25',
@@ -136,8 +136,8 @@ function PMA_sprites() {
         ),
         'bd_sbrowse' => array(
             'position' => '27',
-            'width'    => '10',
-            'height'   => '10'
+            'width'    => '16',
+            'height'   => '16'
         ),
         'bd_select' => array(
             'position' => '28',
