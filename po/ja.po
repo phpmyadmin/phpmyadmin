@@ -12558,10 +12558,9 @@ msgid "Percentage of MyISAM key buffer used"
 msgstr "MyISAM キーバッファの使用比率"
 
 #: po/advisory_rules.php:173
-#, fuzzy, php-format
+#, php-format
 msgid "%% MyISAM key buffer used: %s, this value should be above 95%%"
-msgstr ""
-"MyISAM キーバッファの使用比率: この値は、95%% 以上がいいと言われています。"
+msgstr "MyISAM キーバッファの使用比率: %s。この値は、95%% 以上がいいと言われています。"
 
 #: po/advisory_rules.php:175
 msgid "Percentage of index reads from memory"
