@@ -927,10 +927,9 @@ msgid "Add a linestring"
 msgstr "線分を追加する"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:306
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "新しいユーザを追加する"
+msgstr "内輪を追加する"
 
 #: gis_data_editor.php:266 js/messages.php:301
 msgid "Polygon"
