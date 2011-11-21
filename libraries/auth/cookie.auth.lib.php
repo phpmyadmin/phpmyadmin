@@ -549,6 +549,10 @@ function PMA_auth_set_user()
     $cfg['Server']['user']     = $GLOBALS['PHP_AUTH_USER'];
     $cfg['Server']['password'] = $GLOBALS['PHP_AUTH_PW'];
 
+    // Avoid showing the password in phpinfo()'s output
+    unset($GLOBALS['PHP_AUTH_PW']);
+    unset($_SERVER['PHP_AUTH_PW']);
+
     $_SESSION['last_access_time'] = time();
 
     // Name and password cookies need to be refreshed each time

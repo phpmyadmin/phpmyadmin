@@ -207,6 +207,10 @@ function PMA_auth_set_user()
     $cfg['Server']['user']     = $PHP_AUTH_USER;
     $cfg['Server']['password'] = $PHP_AUTH_PW;
 
+    // Avoid showing the password in phpinfo()'s output
+    unset($GLOBALS['PHP_AUTH_PW']);
+    unset($_SERVER['PHP_AUTH_PW']);
+
     return true;
 } // end of the 'PMA_auth_set_user()' function
 
