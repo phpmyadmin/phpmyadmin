@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-21 11:26+0200\n"
+"PO-Revision-Date: 2011-11-21 11:46+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1828,10 +1828,9 @@ msgid "Select two different columns"
 msgstr "異なるカラムを 2 つ選択してください"
 
 #: js/messages.php:290
-#, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
-msgstr "クエリ結果操作"
+msgstr "クエリの結果"
 
 #: js/messages.php:291
 #, fuzzy
