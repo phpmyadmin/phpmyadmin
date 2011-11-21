@@ -1837,10 +1837,9 @@ msgid "Select two different columns"
 msgstr "Izberite dva različna stolpca"
 
 #: js/messages.php:290
-#, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
-msgstr "Dejanja rezultatov poizvedbe"
+msgstr "Rezultati poizvedbe"
 
 #: js/messages.php:291
 #, fuzzy
