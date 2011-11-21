@@ -13007,7 +13007,7 @@ msgstr ""
 "te spremenljivke ne morete preprosto spremeniti. Zaustaviti morate "
 "strežnik, odstraniti dnevniške datoteke InnoDB, nastaviti novo vrednost v "
 "my.cnf, zagnati strežnik in nato preveriti dnevnike napak, če je vse "
-"potekalo v redu Oglejte si tudi <a "
+"potekalo v redu. Oglejte si tudi <a "
 "href=\\\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\\\">to objavo na blogu</a>"
 
