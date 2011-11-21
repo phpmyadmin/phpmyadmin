@@ -12732,7 +12732,7 @@ msgstr "起動が遅いスレッドが沢山あります。"
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
-msgstr ""
+msgstr "一般的に、比較的単純な操作なわりには、システム全体に負荷がかかっている状態です。お使いのシステムの負荷を入念にモニタしてみてください。"
 
 #: po/advisory_rules.php:218
 #, php-format
