@@ -20,6 +20,7 @@ phpMyAdmin - ChangeLog
 - bug #3425156 [interface] Add column after drop
 - [interface] Avoid showing the password in phpinfo()'s output
 - [security] Self-XSS on database names (Synchronize), see PMASA-2011-18
+- [security] Self-XSS on database names (Operations/rename), see PMASA-2011-18
 
 3.4.7.1 (2011-11-10)
 - [security] Fixed possible local file inclusion in XML import
