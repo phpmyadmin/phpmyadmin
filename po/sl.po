@@ -12976,7 +12976,7 @@ msgstr ""
 "primerne velikosti."
 
 #: po/advisory_rules.php:257
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Especially one a system with a lot of writes to InnoDB tables you should "
 #| "set innodb_log_file_size to 25%% of {innodb_buffer_pool_size}. However "
@@ -13004,12 +13004,12 @@ msgstr ""
 "innodb_log_file_size na 25 %% {innodb_buffer_pool_size}. Kakor koli, večja "
 "je ta vrednost, daljši bo čas obnovitve po zrušitvi zbirke podatkov, zato te "
 "vrednosti ne nastavite na več kot 256 MiB. Kljub temu pomnite, da vrednosti "
-"te spremenljivke ne morete preprosto spremeniti. Zaustaviti morate strežnik, "
-"odstraniti dnevniške datoteke InnoDB, nastaviti novo vrednost v my.cnf, "
-"zagnati strežnik in nato preveriti dnevnike napak, če je vse potekalo v "
-"redu. Oglejte si tudi <a href=\\\"http://mysqldatabaseadministration."
-"blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html\\\">to "
-"objavo na blogu</a>"
+"te spremenljivke ne morete preprosto spremeniti. Zaustaviti morate "
+"strežnik, odstraniti dnevniške datoteke InnoDB, nastaviti novo vrednost v "
+"my.cnf, zagnati strežnik in nato preveriti dnevnike napak, če je vse "
+"potekalo v redu Oglejte si tudi <a "
+"href=\\\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\\\">to objavo na blogu</a>"
 
 #: po/advisory_rules.php:258
 #, php-format
