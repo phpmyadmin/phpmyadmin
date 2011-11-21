@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-21 11:13+0200\n"
+"PO-Revision-Date: 2011-11-21 11:15+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12579,11 +12579,9 @@ msgid "You may need to increase {key_buffer_size}."
 msgstr "{key_buffer_size} を増やす必要があるかもしれません。"
 
 #: po/advisory_rules.php:178
-#, fuzzy, php-format
+#, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr ""
-"メモリから読み込まれるインデックスの比率: この値は、95%% 以上がいいと言われて"
-"います。"
+msgstr "メモリから読み込まれるインデックスの比率: %s%%。この値は、95%% 以上がいいと言われています。"
 
 #: po/advisory_rules.php:180
 msgid "Rate of table open"
