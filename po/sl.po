@@ -1842,10 +1842,9 @@ msgid "Query results"
 msgstr "Rezultati poizvedbe"
 
 #: js/messages.php:291
-#, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
-msgstr "Velikost kazalca podatkov"
+msgstr "Vsebina kazalca podatkov"
 
 #: js/messages.php:294 tbl_change.php:312 tbl_indexes.php:221
 #: tbl_indexes.php:248
