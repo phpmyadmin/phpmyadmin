@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-21 12:50+0200\n"
+"PO-Revision-Date: 2011-11-21 12:51+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1834,10 +1834,9 @@ msgid "Select two different columns"
 msgstr "İki farklı sütun seçin"
 
 #: js/messages.php:290
-#, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
-msgstr "Sorgu sonuçları işlemleri"
+msgstr "Sorgu sonuçları"
 
 #: js/messages.php:291
 #, fuzzy
