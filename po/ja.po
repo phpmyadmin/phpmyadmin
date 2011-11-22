@@ -12977,6 +12977,9 @@ msgid ""
 "writers for a given table. See also <a href=\\\"http://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\\\">MySQL Documentation</a>"
 msgstr ""
+"{concurrent_insert} を 1 に設定すると、一つのテーブル内における読み書きの衝突を減らすことができます。<a "
+"href=\\\"http://dev.mysql.com/doc/refman/5.1/ja/concurrent-"
+"inserts.html\\\">MySQL ドキュメント</a>もご覧になってください。"
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
