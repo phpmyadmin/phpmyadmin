@@ -124,7 +124,7 @@ if (!isset($param) || $param[0] == '') {
         ?>
         <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
             <th><?php echo htmlspecialchars($fields_list[$i]); ?></th>
-            <td><?php echo $fields_type[$i]; ?></td>
+            <td><?php echo htmlspecialchars($fields_type[$i]); ?></td>
             <td><?php echo $fields_collation[$i]; ?></td>
             <td><select name="func[]">
         <?php
@@ -190,7 +190,7 @@ if (!isset($param) || $param[0] == '') {
             <?php
         } elseif (strncasecmp($fields_type[$i], 'enum', 4) == 0) {
             // e n u m s
-            $enum_value=explode(', ', str_replace("'", '', substr($fields_type[$i], 5, -1)));
+            $enum_value=explode(', ', str_replace("'", '', substr(htmlspecialchars($fields_type[$i]), 5, -1)));
             $cnt_enum_value = count($enum_value);
             echo '            <select name="fields[' . $i . '][]"'
                 .' multiple="multiple" size="' . min(3, $cnt_enum_value) . '">' . "\n";
