@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-21 12:06+0200\n"
+"PO-Revision-Date: 2011-11-22 12:27+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12969,7 +12969,7 @@ msgstr "MyISAM における同時挿入"
 
 #: po/advisory_rules.php:271
 msgid "Enable concurrent_insert by setting it to 1"
-msgstr ""
+msgstr "concurrent_insert に 1 を設定して、同時挿入を有効にしてください。"
 
 #: po/advisory_rules.php:272
 msgid ""
