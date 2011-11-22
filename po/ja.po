@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-22 12:27+0200\n"
+"PO-Revision-Date: 2011-11-22 12:28+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12936,7 +12936,7 @@ msgstr "InnoDB のバッファプールの大きさ"
 
 #: po/advisory_rules.php:266
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr "ご使用の InnoDB のバッファプールはかなり小さいです。"
+msgstr "ご使用されている InnoDB のバッファプールはかなり小さいです。"
 
 #: po/advisory_rules.php:267
 #, php-format
