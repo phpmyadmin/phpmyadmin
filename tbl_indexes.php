@@ -200,7 +200,7 @@ foreach ($index->getColumns() as $column) {
          || preg_match('/(char|text)/i', $field_type)) {
             echo '<option value="' . htmlspecialchars($field_name) . '"'
                  . (($field_name == $column->getName()) ? ' selected="selected"' : '') . '>'
-                 . htmlspecialchars($field_name) . ' [' . $field_type . ']'
+                 . htmlspecialchars($field_name) . ' [' . htmlspecialchars($field_type) . ']'
                  . '</option>' . "\n";
         }
     } // end foreach $fields
@@ -222,7 +222,7 @@ for ($i = 0; $i < $add_fields; $i++) {
     <?php
     foreach ($fields as $field_name => $field_type) {
         echo '<option value="' . htmlspecialchars($field_name) . '">'
-             . htmlspecialchars($field_name) . ' [' . $field_type . ']'
+             . htmlspecialchars($field_name) . ' [' . htmlspecialchars($field_type) . ']'
              . '</option>' . "\n";
     } // end foreach $fields
     ?>
