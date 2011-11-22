@@ -12126,7 +12126,7 @@ msgstr ""
 msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
 "%%. It should be above 80%%"
-msgstr ""
+msgstr "クエリキャッシュの総量に対するクエリキャッシュの空きメモリの割合は、%s%% です。この値は、80%% 以上がいいと言われています。"
 
 #: po/advisory_rules.php:90
 msgid "Query cache fragmentation"
