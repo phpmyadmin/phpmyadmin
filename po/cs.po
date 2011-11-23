@@ -11981,7 +11981,7 @@ msgstr ""
 #: po/advisory_rules.php:68
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "Dostupná paměť na tomto počítači: %s"
 
 #: po/advisory_rules.php:70
 msgid "Query cache disabled"
