@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-23 11:16+0200\n"
+"PO-Revision-Date: 2011-11-23 11:17+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -10604,7 +10604,7 @@ msgstr "Změnit pole"
 
 #: server_synchronize.php:446 server_synchronize.php:918
 msgid "Remove index(s)"
-msgstr "Odstranit indexy"
+msgstr "Odstranit klíče"
 
 #: server_synchronize.php:447 server_synchronize.php:919
 msgid "Apply index(s)"
