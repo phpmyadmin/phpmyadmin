@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-23 11:38+0200\n"
+"PO-Revision-Date: 2011-11-23 11:39+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -18,7 +18,7 @@ msgstr ""
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:329
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1673
 msgid "Show all"
-msgstr "Zobrazit vše "
+msgstr "Zobrazit vše"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:42
 #: libraries/common.lib.php:2441
