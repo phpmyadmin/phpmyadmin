@@ -2322,7 +2322,7 @@ msgstr "Primární klíč byl odstraněn"
 #: libraries/Index.class.php:478
 #, php-format
 msgid "Index %s has been dropped"
-msgstr "Index %s byl odstraněn"
+msgstr "Klíč %s byl odstraněn"
 
 #: libraries/Index.class.php:573
 #, php-format
