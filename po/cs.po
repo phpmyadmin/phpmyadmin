@@ -7616,7 +7616,7 @@ msgstr "Nemáte dostatečná práva pro vytvoření rutiny"
 #: libraries/rte/rte_words.lib.php:23
 #, php-format
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "V databázi  %2$s není žádná rutina se jménem %1$s"
+msgstr "V databázi %2$s není žádná rutina se jménem %1$s"
 
 #: libraries/rte/rte_words.lib.php:24
 msgid "There are no routines to display."
