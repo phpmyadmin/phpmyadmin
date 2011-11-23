@@ -9849,7 +9849,7 @@ msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
 msgstr ""
-"Počet požadavků na přečtení předchozího řádku z indexu. Používané pro "
+"Počet požadavků na přečtení předchozího řádku z klíče. Používané pro "
 "optimalizaci dotazů ORDER BY ... DESC."
 
 #: server_status.php:1310
