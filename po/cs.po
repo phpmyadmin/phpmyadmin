@@ -1706,7 +1706,7 @@ msgstr "Skrýt klíče"
 
 #: js/messages.php:232
 msgid "Show indexes"
-msgstr "Zobrazit indexy"
+msgstr "Zobrazit klíče"
 
 #: js/messages.php:235
 msgid "Searching"
