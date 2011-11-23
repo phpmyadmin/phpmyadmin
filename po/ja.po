@@ -4939,9 +4939,7 @@ msgstr "冗長なチェック"
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
-msgstr ""
-"このサーバのわかりやすい説明。代わりにホスト名を表示するには、空欄のままにし"
-"ます。"
+msgstr "このサーバのわかりやすい説明。ホスト名をそのまま表示させる場合には、空欄のままにします。"
 
 #: libraries/config/messages.inc.php:454
 msgid "Verbose name of this server"
