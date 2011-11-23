@@ -11874,8 +11874,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:33
+#, fuzzy
 msgid "log_slow_queries is set to 'OFF'"
-msgstr ""
+msgstr "log_slow_queries je vypnuto"
 
 #: po/advisory_rules.php:35
 msgid "Release Series"
