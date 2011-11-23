@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-23 11:24+0200\n"
+"PO-Revision-Date: 2011-11-23 11:25+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -12004,10 +12004,9 @@ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 
 #: po/advisory_rules.php:75
-#, fuzzy
 #| msgid "Query cache used"
 msgid "Query caching method"
-msgstr "Využito vyrovnávací paměti dotazů"
+msgstr "Metoda používaná vyrovnávací pamětí dotazů"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
