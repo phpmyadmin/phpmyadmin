@@ -7420,7 +7420,7 @@ msgid ""
 "handling multi queries. <b>The execution of some stored routines may fail!</"
 "b> Please use the improved 'mysqli' extension to avoid any problems."
 msgstr ""
-"Používáte zastaralé rozšíření  „mysql“, které neumí pracovat se složenými "
+"Používáte zastaralé rozšíření „mysql“, které neumí pracovat se složenými "
 "dotazy.<b>Spouštění některých rutin může selhat!</b> Pokud se chcete těmto "
 "problémům vyhnout, začněte, prosím, používat nové rozšíření „mysqli“."
 
