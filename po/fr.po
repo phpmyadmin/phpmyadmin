@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-19 12:43+0200\n"
+"PO-Revision-Date: 2011-11-23 17:13+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -1114,10 +1114,9 @@ msgid "Add Index"
 msgstr "Ajouter un index"
 
 #: js/messages.php:47
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit Index"
-msgstr "Mode édition"
+msgstr "Modifier un index"
 
 #: js/messages.php:48 tbl_indexes.php:286
 #, fuzzy, php-format
