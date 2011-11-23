@@ -6048,7 +6048,7 @@ msgid ""
 "INFILE)."
 msgstr ""
 "Maximální velikost dočasných souborů, které smí MySQL použít při obnově "
-"indexu (při REPAIR TABLE, ALTER TABLE nebo LOAD DATA INFILE)."
+"klíčů (při REPAIR TABLE, ALTER TABLE nebo LOAD DATA INFILE)."
 
 #: libraries/engines/myisam.lib.php:36
 msgid "Maximum size for temporary files on index creation"
