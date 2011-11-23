@@ -12051,7 +12051,7 @@ msgstr "Využití vyrovnávací paměť dotazů"
 #: po/advisory_rules.php:86
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
-msgstr ""
+msgstr "Je využíváno méně než 80%% vyrovnávací paměti."
 
 #: po/advisory_rules.php:87
 msgid ""
