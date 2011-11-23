@@ -11952,7 +11952,7 @@ msgstr "Dokumentaci Percony naleznete na http://www.percona.com/docs/wiki/"
 
 #: po/advisory_rules.php:58
 msgid "'percona' found in version_comment"
-msgstr ""
+msgstr "V komentáři k verzi bylo nalezeno 'percona'"
 
 #: po/advisory_rules.php:62
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
