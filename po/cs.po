@@ -2293,7 +2293,7 @@ msgstr "Není definován žádný klíč!"
 #: libraries/Index.class.php:423 libraries/build_html_for_db.lib.php:41
 #: tbl_structure.php:692 tbl_tracking.php:300
 msgid "Indexes"
-msgstr "Indexy"
+msgstr "Klíče"
 
 #: libraries/Index.class.php:442 libraries/tbl_properties.inc.php:472
 #: tbl_structure.php:154 tbl_structure.php:159 tbl_structure.php:576
