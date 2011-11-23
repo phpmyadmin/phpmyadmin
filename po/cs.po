@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-23 11:37+0200\n"
+"PO-Revision-Date: 2011-11-23 11:38+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -12426,10 +12426,10 @@ msgid "Max %% MyISAM key buffer ever used"
 msgstr "Nejvyšší využití (%%) vyrovnávací paměti MyISAM pro klíče"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr "Velikost paměti pro řazení"
+msgstr ""
 
 #: po/advisory_rules.php:167 po/advisory_rules.php:172
 msgid ""
