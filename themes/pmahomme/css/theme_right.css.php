@@ -1089,13 +1089,6 @@ div#tablestatistics table {
     background-color: #dcdcdc;
 }
 
-#floating_menubar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%';
-}
-
 #serverinfo {
     border-bottom:1px solid #fff;
     background:#888;
