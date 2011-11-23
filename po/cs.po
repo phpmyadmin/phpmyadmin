@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-23 11:30+0200\n"
+"PO-Revision-Date: 2011-11-23 11:36+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -4144,7 +4144,7 @@ msgstr "Povolit zvýrazňování"
 #: libraries/config/messages.inc.php:290
 msgid "Maximum number of recently used tables; set 0 to disable"
 msgstr ""
-"Nejvyšší počet tabulek v seznamu nedávných  tabulek; nastavte 0 pro vypnutí"
+"Nejvyšší počet tabulek v seznamu nedávných tabulek; nastavte 0 pro vypnutí"
 
 #: libraries/config/messages.inc.php:291
 msgid "Recently used tables"
