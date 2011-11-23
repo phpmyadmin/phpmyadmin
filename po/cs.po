@@ -10608,7 +10608,7 @@ msgstr "Odstranit klíče"
 
 #: server_synchronize.php:447 server_synchronize.php:919
 msgid "Apply index(s)"
-msgstr "Applikovat indexy"
+msgstr "Aplikovat klíče"
 
 #: server_synchronize.php:448 server_synchronize.php:920
 msgid "Update row(s)"
