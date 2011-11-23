@@ -878,6 +878,14 @@ div#tablestatistics table {
     width: 100%;
 }
 
+#floating_menubar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%';
+    z-index: 500;
+}
+
 #serverinfo {
     background: white;
     font-weight:        bold;

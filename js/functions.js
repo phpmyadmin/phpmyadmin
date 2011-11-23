@@ -3704,13 +3704,6 @@ $(document).ready(function() {
 $(document).ready(function () {
     if ($("#floating_menubar").length) {
         $("#floating_menubar")
-            .css({
-                'position': 'fixed',
-                'top': 0,
-                'left': 0,
-                'width': '100%',
-                'z-index': 500
-            })
             .append($('#serverinfo'))
             .append($('#topmenucontainer'));
         $('body').css(
