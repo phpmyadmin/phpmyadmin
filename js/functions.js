@@ -3694,9 +3694,15 @@ $(document).ready(function() {
  * Makes the breadcrumbs and the menu bar float at the top of the viewport
  */
 $(document).ready(function () {
-    if ($("#floating_menubar").length) {
+    if ($("#floating_menubar").length && $('#PMA_print_view').length == 0) {
         $("#floating_menubar")
-            .css('z-index', 500)
+            .css({
+                'position': 'fixed',
+                'top': 0,
+                'left': 0,
+                'width': '100%',
+                'z-index': 500
+            })
             .append($('#serverinfo'))
             .append($('#topmenucontainer'));
         $('body').css(

@@ -36,3 +36,7 @@ th {
     font-weight:       bold;
     background-color:  #e5e5e5;
 }
+
+.hide {
+    display: none;
+}
