@@ -883,7 +883,6 @@ div#tablestatistics table {
     top: 0;
     left: 0;
     width: 100%';
-    z-index: 500;
 }
 
 #serverinfo {
