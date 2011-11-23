@@ -1702,7 +1702,7 @@ msgstr "Vložit tabulku"
 
 #: js/messages.php:231
 msgid "Hide indexes"
-msgstr "Skrýt indexy"
+msgstr "Skrýt klíče"
 
 #: js/messages.php:232
 msgid "Show indexes"
