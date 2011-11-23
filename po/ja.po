@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-22 12:33+0200\n"
+"PO-Revision-Date: 2011-11-23 12:19+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -877,7 +877,7 @@ msgstr "ベースレイヤーに OpenStreetMap を使用する"
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "空間参照識別子"
 
 #: gis_data_editor.php:151 js/messages.php:302
 #: libraries/display_tbl.lib.php:685
