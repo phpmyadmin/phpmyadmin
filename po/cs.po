@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-23 11:27+0200\n"
+"PO-Revision-Date: 2011-11-23 11:28+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -12045,9 +12045,8 @@ msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr "Současná úpěšnost vyrovnávací paměti %s%% je pod 20%%"
 
 #: po/advisory_rules.php:85
-#, fuzzy
 msgid "Query Cache usage"
-msgstr "Vyrovnávací paměť dotazů"
+msgstr "Využití vyrovnávací paměť dotazů"
 
 #: po/advisory_rules.php:86
 #, php-format
