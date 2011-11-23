@@ -11048,7 +11048,7 @@ msgstr "Proběhlo zkontrolování SQL"
 #: sql.php:941
 #, php-format
 msgid "Problems with indexes of table `%s`"
-msgstr "Problémy s indexy v tabulce „%s\""
+msgstr "Problémy s klíči v tabulce „%s\""
 
 #: sql.php:973
 msgid "Label"
