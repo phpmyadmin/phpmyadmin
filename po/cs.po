@@ -11479,7 +11479,7 @@ msgstr "Přidat prostorový klíč"
 
 #: tbl_structure.php:175 tbl_structure.php:176
 msgid "Add FULLTEXT index"
-msgstr "Přidat fulltextový index"
+msgstr "Přidat fulltextový klíč"
 
 #: tbl_structure.php:359
 msgctxt "None for default"
