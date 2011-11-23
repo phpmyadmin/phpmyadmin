@@ -12033,7 +12033,7 @@ msgstr "Úspěšnost vyrovnávací paměti dotazů (%)"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
-msgstr ""
+msgstr "Vyrovnávací paměť dotazů není efektivní, má velmi malou úspěšnost."
 
 #: po/advisory_rules.php:82
 msgid "Consider increasing {query_cache_limit}."
