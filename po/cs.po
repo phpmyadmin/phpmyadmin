@@ -11235,7 +11235,7 @@ msgstr "Nebyla zadána žádná část klíče!"
 
 #: tbl_indexes.php:173 tbl_structure.php:169 tbl_structure.php:170
 msgid "Add index"
-msgstr "Přidat index"
+msgstr "Přidat klíč"
 
 #: tbl_indexes.php:175
 #, fuzzy
