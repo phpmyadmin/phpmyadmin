@@ -2273,15 +2273,7 @@ $(document).ready(function() {
      * Load version information asynchronously.
      */
     if ($('.jsversioncheck').length > 0) {
-        (function() {
-            var s = document.createElement('script');
-            s.type = 'text/javascript';
-            s.async = true;
-            s.src = 'http://www.phpmyadmin.net/home_page/version.js';
-            s.onload = PMA_current_version;
-            var x = document.getElementsByTagName('script')[0];
-            x.parentNode.insertBefore(s, x);
-        })();
+        $.getScript('http://www.phpmyadmin.net/home_page/version.js', PMA_current_version);
     }
 
     /**
