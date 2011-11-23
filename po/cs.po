@@ -12042,7 +12042,7 @@ msgstr "Zvažte zvýšení {query_cache_limit}."
 #: po/advisory_rules.php:83
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr ""
+msgstr "Současná úpěšnost vyrovnávací paměti %s%% je pod 20%%"
 
 #: po/advisory_rules.php:85
 #, fuzzy
