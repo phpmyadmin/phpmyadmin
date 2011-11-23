@@ -7932,7 +7932,7 @@ msgstr "Oddělovač"
 
 #: libraries/sql_query_form.lib.php:344
 msgid "Show this query here again"
-msgstr "Zobrazit zde tento dotaz znovu "
+msgstr "Zobrazit zde tento dotaz znovu"
 
 #: libraries/sql_query_form.lib.php:399
 msgid "View only"
