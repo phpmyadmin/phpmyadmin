@@ -11471,7 +11471,7 @@ msgstr "Přidat primární klíč"
 
 #: tbl_structure.php:171 tbl_structure.php:172
 msgid "Add unique index"
-msgstr "Přidat unikátní index"
+msgstr "Přidat unikátní klíč"
 
 #: tbl_structure.php:173 tbl_structure.php:174
 msgid "Add SPATIAL index"
