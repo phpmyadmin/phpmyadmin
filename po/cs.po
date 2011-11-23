@@ -1105,7 +1105,7 @@ msgstr "Přidat klíč"
 #: js/messages.php:47
 #| msgid "Edit mode"
 msgid "Edit Index"
-msgstr "Upravit index"
+msgstr "Upravit klíč"
 
 #: js/messages.php:48 tbl_indexes.php:286
 #, php-format
