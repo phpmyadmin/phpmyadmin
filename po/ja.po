@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-22 12:31+0200\n"
+"PO-Revision-Date: 2011-11-22 12:33+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -4486,7 +4486,7 @@ msgstr "root ログインの許可"
 
 #: libraries/config/messages.inc.php:368
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr "HTTP 認証を行うときに表示される HTTP 基本認証領域名"
+msgstr "HTTP 認証を行うときに表示される HTTP Basic 認証領域における名称"
 
 #: libraries/config/messages.inc.php:369
 msgid "HTTP Realm"
