@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-23 17:14+0200\n"
+"PO-Revision-Date: 2011-11-23 17:15+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -1843,10 +1843,9 @@ msgid "Select two different columns"
 msgstr "Sélectionnez deux colonnes différentes"
 
 #: js/messages.php:290
-#, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
-msgstr "Opérations sur les résultats de la requête"
+msgstr "Opérations sur les résultats"
 
 #: js/messages.php:291
 #, fuzzy
