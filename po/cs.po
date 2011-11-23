@@ -5398,6 +5398,7 @@ msgstr "Server neodpovídá."
 #: libraries/database_interface.lib.php:1772
 msgid "Please check privileges of directory containing database."
 msgstr ""
+"Prosím zkontrolujte přístupová práva u adresáře obsahujícího tuto databázi."
 
 #: libraries/database_interface.lib.php:1780
 msgid "Details..."
