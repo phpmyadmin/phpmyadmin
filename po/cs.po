@@ -11254,7 +11254,7 @@ msgstr "(„PRIMARY“ <b>musí</b> být jméno <b>pouze</b> primárního klíč
 
 #: tbl_indexes.php:194
 msgid "Index type:"
-msgstr "Typ indexu:"
+msgstr "Typ klíče:"
 
 #: tbl_indexes.php:278
 #, php-format
