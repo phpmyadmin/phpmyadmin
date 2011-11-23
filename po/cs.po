@@ -11245,7 +11245,7 @@ msgstr "Režim úprav"
 
 #: tbl_indexes.php:186
 msgid "Index name:"
-msgstr "Jméno indexu:"
+msgstr "Jméno klíče:"
 
 #: tbl_indexes.php:188
 msgid ""
