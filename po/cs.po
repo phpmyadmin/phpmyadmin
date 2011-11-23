@@ -6052,7 +6052,7 @@ msgstr ""
 
 #: libraries/engines/myisam.lib.php:36
 msgid "Maximum size for temporary files on index creation"
-msgstr "Maximální velikost dočasných souborů při vytváření indexu"
+msgstr "Maximální velikost dočasných souborů při vytváření klíčů"
 
 #: libraries/engines/myisam.lib.php:37
 msgid ""
