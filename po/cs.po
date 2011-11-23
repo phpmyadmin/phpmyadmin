@@ -9070,7 +9070,7 @@ msgstr "Oprávnění pro jednotlivé tabulky"
 #: server_privileges.php:535 server_privileges.php:687
 #: server_privileges.php:1700
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "Poznámka: názvy oprávnění v MySQL jsou uváděny anglicky "
+msgstr "Poznámka: názvy oprávnění MySQL jsou uváděny anglicky"
 
 #: server_privileges.php:612
 msgid "Administration"
