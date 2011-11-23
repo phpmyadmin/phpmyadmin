@@ -3704,6 +3704,7 @@ $(document).ready(function() {
 $(document).ready(function () {
     if ($("#floating_menubar").length) {
         $("#floating_menubar")
+            .css('z-index', 500)
             .append($('#serverinfo'))
             .append($('#topmenucontainer'));
         $('body').css(

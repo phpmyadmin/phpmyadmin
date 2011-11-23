@@ -221,7 +221,9 @@ if ($abort == false) {
      * Displays top menu links
      */
     $active_page = 'tbl_structure.php';
-    include_once './libraries/tbl_links.inc.php';
+    if ($GLOBALS['is_ajax_request'] != true) {
+        include_once './libraries/tbl_links.inc.php';
+    }
     /**
      * Display the form
      */
