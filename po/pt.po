@@ -2803,7 +2803,7 @@ msgstr ""
 #: libraries/common.inc.php:640
 #, php-format
 msgid "Invalid server index: %s"
-msgstr ""
+msgstr "Índice de servidor inválido: \"%s\""
 
 #: libraries/common.inc.php:647
 #, php-format
