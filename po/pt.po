@@ -3098,7 +3098,7 @@ msgstr "Esquerda"
 
 #: libraries/config.values.php:47
 msgid "Right"
-msgstr ""
+msgstr "Direita"
 
 #: libraries/config.values.php:76
 msgid "Open"
