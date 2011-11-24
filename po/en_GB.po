@@ -12814,7 +12814,7 @@ msgstr "slow_launch_time is set to %s"
 #, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of used connections"
-msgstr "Persistent connections"
+msgstr "Percentage of used connections"
 
 #: po/advisory_rules.php:226
 msgid ""
