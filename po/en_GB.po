@@ -12734,8 +12734,9 @@ msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr "Enable the thread cache by setting {thread_cache_size} > 0."
 
 #: po/advisory_rules.php:208
+#, fuzzy
 msgid "The thread cache is set to 0"
-msgstr ""
+msgstr "The thread cache is set to 0"
 
 #: po/advisory_rules.php:210
 #, fuzzy, php-format
