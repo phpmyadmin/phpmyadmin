@@ -12697,7 +12697,7 @@ msgstr "Too many table locks were not granted immediately."
 
 #: po/advisory_rules.php:197 po/advisory_rules.php:202
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
-msgstr ""
+msgstr "Optimise queries and/or use InnoDB to reduce lock wait."
 
 #: po/advisory_rules.php:198
 #, php-format
