@@ -3569,10 +3569,9 @@ msgstr "Compressão"
 #: libraries/export/excel.php:25 libraries/export/htmlword.php:30
 #: libraries/export/latex.php:72 libraries/export/ods.php:25
 #: libraries/export/odt.php:58 libraries/export/texytext.php:28
-#, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
-msgstr "Coloca os nomes dos compos na primeira linha"
+msgstr "Colocar os nomes das colunas na primeira linha"
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:243
 #: libraries/config/messages.inc.php:250 libraries/import/csv.php:76
