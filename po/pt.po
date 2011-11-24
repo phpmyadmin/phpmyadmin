@@ -2903,7 +2903,7 @@ msgstr "Criar código PHP"
 #: libraries/common.lib.php:1226 libraries/config/messages.inc.php:484
 #: server_status.php:786 server_status.php:808 server_status.php:827
 msgid "Refresh"
-msgstr ""
+msgstr "Actualizar"
 
 #: libraries/common.lib.php:1236
 msgid "Skip Validate SQL"
