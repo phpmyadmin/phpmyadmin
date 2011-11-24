@@ -12462,6 +12462,7 @@ msgstr ""
 "memory."
 
 #: po/advisory_rules.php:152
+#, fuzzy
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -12471,6 +12472,13 @@ msgid ""
 "mentioned in the beginning of an <a href=\\\"http://www.facebook.com/note."
 "php?note_id=10150111255065841&comments\\\">Article by the Pythian Group</a>"
 msgstr ""
+"Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
+"some temporary tables are always being written to disk, independent of the "
+"value of these variables. To eliminate these you will have to rewrite your "
+"queries to avoid those conditions (Within a temporary table: Presence of a "
+"BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
+"mentioned in the beginning of an <a href=\\\"http://www.facebook.com/note.php?"
+"note_id=10150111255065841&comments\\\">Article by the Pythian Group</a>"
 
 #: po/advisory_rules.php:153
 #, php-format
