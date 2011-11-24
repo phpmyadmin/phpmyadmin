@@ -12533,8 +12533,9 @@ msgid "MyISAM key buffer size"
 msgstr "MyISAM key buffer size"
 
 #: po/advisory_rules.php:161
+#, fuzzy
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
-msgstr ""
+msgstr "Key buffer is not initialized. No MyISAM indexes will be cached."
 
 #: po/advisory_rules.php:162
 msgid ""
