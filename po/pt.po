@@ -2719,7 +2719,7 @@ msgstr "Não foi possível abrir o ficheiro: %s"
 
 #: libraries/bookmark.lib.php:73
 msgid "shared"
-msgstr ""
+msgstr "compartilhado"
 
 #: libraries/build_html_for_db.lib.php:26
 #: libraries/config/messages.inc.php:185 libraries/export/xml.php:51
