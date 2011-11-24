@@ -1530,6 +1530,9 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
+"Uma vez que o agrupamento de consultas INSERT foi selecionado, consultas "
+"INSERT na mesma tabela também são agrupadas juntas, independentemente dos "
+"dados inseridos."
 
 #: js/messages.php:168
 msgid "Log data loaded. Queries executed in this time span:"
