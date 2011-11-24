@@ -2698,7 +2698,7 @@ msgstr "PBMS falhou a obtenção do Tipo de conteúdo BLOB"
 
 #: libraries/blobstreaming.lib.php:401
 msgid "View image"
-msgstr ""
+msgstr "Ver imagem"
 
 #: libraries/blobstreaming.lib.php:408
 msgid "Play audio"
