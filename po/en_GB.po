@@ -12850,8 +12850,9 @@ msgid "Percentage of aborted connections"
 msgstr "Percentage of aborted connections"
 
 #: po/advisory_rules.php:231 po/advisory_rules.php:236
+#, fuzzy
 msgid "Too many connections are aborted."
-msgstr ""
+msgstr "Too many connections are aborted."
 
 #: po/advisory_rules.php:232 po/advisory_rules.php:237
 msgid ""
