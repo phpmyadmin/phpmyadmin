@@ -3367,9 +3367,8 @@ msgstr ""
 "VARCHAR"
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
 msgid "Minimum size for input field"
-msgstr "Opções de exportação da Base de Dados"
+msgstr "Tamanho mínimo para campo de entrada"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
