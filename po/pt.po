@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 21:38+0200\n"
+"PO-Revision-Date: 2011-11-24 21:39+0200\n"
 "Last-Translator: JoaoTMDias <contacto@joaodias.me>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -2534,7 +2534,7 @@ msgstr "Encontrado caminho inválido para imagens do tema %s!"
 
 #: libraries/Theme.class.php:352
 msgid "No preview available."
-msgstr ""
+msgstr "Nenhuma pré-visualização disponível."
 
 #: libraries/Theme.class.php:355
 msgid "take it"
