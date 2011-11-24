@@ -2272,10 +2272,9 @@ msgid "Minute"
 msgstr "Minuto"
 
 #: js/messages.php:470
-#, fuzzy
 #| msgid "per second"
 msgid "Second"
-msgstr "por segundo"
+msgstr "Segundo"
 
 #: libraries/Advisor.class.php:168
 #, php-format
