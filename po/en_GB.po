@@ -12481,11 +12481,13 @@ msgstr ""
 "note_id=10150111255065841&comments\\\">Article by the Pythian Group</a>"
 
 #: po/advisory_rules.php:153
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
+"%s%% of all temporary tables are being written to disk, this value should be "
+"below 25%%"
 
 #: po/advisory_rules.php:155
 #, fuzzy
