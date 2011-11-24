@@ -3138,7 +3138,7 @@ msgstr "Estrutura e dados"
 
 #: libraries/config.values.php:103
 msgid "Quick - display only the minimal options to configure"
-msgstr ""
+msgstr "Rápida -  mostrar apenas o mínimo de opções para configurar"
 
 #: libraries/config.values.php:104
 msgid "Custom - display all possible options to configure"
