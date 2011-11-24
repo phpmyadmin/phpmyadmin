@@ -2969,8 +2969,9 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dias, %s horas, %s minutos e %s segundos"
 
 #: libraries/common.lib.php:2067
+#, fuzzy
 msgid "Missing parameter:"
-msgstr ""
+msgstr "Parâmetros perdidos:"
 
 #: libraries/common.lib.php:2450 libraries/common.lib.php:2453
 #: libraries/display_tbl.lib.php:306
