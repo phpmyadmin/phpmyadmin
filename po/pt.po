@@ -3102,7 +3102,7 @@ msgstr "Direita"
 
 #: libraries/config.values.php:76
 msgid "Open"
-msgstr ""
+msgstr "Abrir"
 
 #: libraries/config.values.php:77
 #, fuzzy
