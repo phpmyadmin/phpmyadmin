@@ -3162,7 +3162,7 @@ msgstr "Instrucções de inserção múltiplas"
 
 #: libraries/config.values.php:125
 msgid "both of the above"
-msgstr ""
+msgstr "ambos acima"
 
 #: libraries/config.values.php:126
 msgid "neither of the above"
