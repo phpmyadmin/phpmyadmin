@@ -12442,9 +12442,9 @@ msgstr ""
 "other value as well."
 
 #: po/advisory_rules.php:148
-#, php-format
+#, fuzzy, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr ""
+msgstr "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 
 #: po/advisory_rules.php:150
 #, fuzzy
