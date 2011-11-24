@@ -2337,7 +2337,7 @@ msgstr "Falha ao salvar o ficheiro para o disco."
 
 #: libraries/File.class.php:293
 msgid "File upload stopped by extension."
-msgstr ""
+msgstr "Carregamento do ficheiro parado pela extensão."
 
 #: libraries/File.class.php:296
 msgid "Unknown error in file upload."
