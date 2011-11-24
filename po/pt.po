@@ -3379,9 +3379,8 @@ msgstr ""
 "VARCHAR"
 
 #: libraries/config/messages.inc.php:37
-#, fuzzy
 msgid "Maximum size for input field"
-msgstr "Opções de exportação da Base de Dados"
+msgstr "Tamanho máximo para campo de entrada"
 
 #: libraries/config/messages.inc.php:38
 msgid "Number of columns for CHAR/VARCHAR textareas"
