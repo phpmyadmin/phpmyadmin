@@ -32,7 +32,7 @@ $(document).ready(function() {
 
         var $form = $(this);
 
-        var question = 'CREATE DATABASE ' + $('#new_db_name').val() + ' / DROP DATABASE ' + window.parent.db;
+        var question = escapeHtml('CREATE DATABASE ' + $('#new_db_name').val() + ' / DROP DATABASE ' + window.parent.db);
 
         PMA_prepareForAjaxRequest($form);
         /**
