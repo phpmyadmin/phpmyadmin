@@ -1066,13 +1066,10 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         } else {
             // Parse SQL if needed
             $parsed_sql = PMA_SQP_parse($query_base);
-            if (PMA_SQP_isError()) {
-                unset($parsed_sql);
-            }
         }
 
         // Analyze it
-        if (isset($parsed_sql)) {
+        if (isset($parsed_sql) && ! PMA_SQP_isError()) {
             $analyzed_display_query = PMA_SQP_analyze($parsed_sql);
 
             // Same as below (append LIMIT), append the remembered ORDER BY
