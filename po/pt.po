@@ -1760,7 +1760,7 @@ msgstr "Add %d valor(es)"
 #: js/messages.php:252
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
-msgstr ""
+msgstr "Nota: Se o arquivo contém várias tabelas, estas serão combinadas numa"
 
 #: js/messages.php:255
 msgid "Hide query box"
