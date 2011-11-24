@@ -3202,10 +3202,9 @@ msgstr "Dados em falta para %s"
 
 #: libraries/config/FormDisplay.class.php:708
 #: libraries/config/FormDisplay.class.php:712
-#, fuzzy
 #| msgid "Variable"
 msgid "unavailable"
-msgstr "Variável"
+msgstr "indisponível"
 
 #: libraries/config/FormDisplay.class.php:709
 #: libraries/config/FormDisplay.class.php:713
