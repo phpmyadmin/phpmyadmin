@@ -1811,8 +1811,9 @@ msgid "Each point represents a data row."
 msgstr "Cada ponto representa um registo (linha) de dados"
 
 #: js/messages.php:274
+#, fuzzy
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "Colocar o cursor por cima de um ponto irá mostrar a sua etiqueta"
 
 #: js/messages.php:276
 msgid "Use mousewheel to zoom in or out of the plot."
