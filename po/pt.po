@@ -3442,7 +3442,7 @@ msgstr "Direcção de exibição padrão"
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a database"
-msgstr ""
+msgstr "Separador que é exibido quando entrar numa base de dados"
 
 #: libraries/config/messages.inc.php:51
 #, fuzzy
