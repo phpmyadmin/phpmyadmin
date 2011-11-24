@@ -583,8 +583,9 @@ msgid "Inside column:"
 msgstr "Inside column:"
 
 #: db_structure.php:67
+#, fuzzy
 msgid "No tables found in database"
-msgstr "No tables found in database."
+msgstr "No tables found in database"
 
 #: db_structure.php:314 tbl_operations.php:692
 #, php-format
