@@ -12889,7 +12889,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of aborted clients"
-msgstr "Format of imported file"
+msgstr "Percentage of aborted clients"
 
 #: po/advisory_rules.php:241 po/advisory_rules.php:246
 msgid "Too many clients are aborted."
