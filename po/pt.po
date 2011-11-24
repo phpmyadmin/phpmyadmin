@@ -2537,8 +2537,9 @@ msgid "No preview available."
 msgstr "Nenhuma pré-visualização disponível."
 
 #: libraries/Theme.class.php:355
+#, fuzzy
 msgid "take it"
-msgstr ""
+msgstr "tome"
 
 #: libraries/Theme_Manager.class.php:110
 #, php-format
