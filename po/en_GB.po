@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 03:04+0200\n"
+"PO-Revision-Date: 2011-11-24 03:05+0200\n"
 "Last-Translator: dannybeckett <daniel.beckett@gmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -12817,10 +12817,13 @@ msgid "Percentage of used connections"
 msgstr "Percentage of used connections"
 
 #: po/advisory_rules.php:226
+#, fuzzy
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "max_connections."
 msgstr ""
+"The maximum amount of used connections is getting close to the value of "
+"max_connections."
 
 #: po/advisory_rules.php:227
 msgid ""
