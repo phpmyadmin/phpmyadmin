@@ -1824,8 +1824,9 @@ msgid "Click and drag the mouse to navigate the plot."
 msgstr "Clique e arraste com o rato para navegar no mapa"
 
 #: js/messages.php:280
+#, fuzzy
 msgid "Click reset zoom link to come back to original state."
-msgstr ""
+msgstr "Clique no link \"Reset Zoom\" para voltar ao estado original"
 
 #: js/messages.php:282
 msgid "Click a data point to view and possibly edit the data row."
