@@ -3525,7 +3525,7 @@ msgstr "Reunir erros"
 
 #: libraries/config/messages.inc.php:68
 msgid "Show icons for warning, error and information messages"
-msgstr ""
+msgstr "Mostrar ícones para avisos, erros e mensagens de informação"
 
 #: libraries/config/messages.inc.php:69
 msgid "Iconic errors"
