@@ -2523,6 +2523,9 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
+"Não pode salvar a propriedade de interface \"%s\". As mudanças feitas não "
+"serão constantes quando recarregar esta página. Favor verifique se a "
+"estrutura da tabela foi alterada."
 
 #: libraries/Theme.class.php:145
 #, php-format
