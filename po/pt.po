@@ -1467,9 +1467,9 @@ msgstr "Desactivar %s"
 
 #. l10n: %d seconds
 #: js/messages.php:153
-#, fuzzy, php-format
+#, php-format
 msgid "Set long_query_time to %ds"
-msgstr "Define long_query_time como %ds"
+msgstr "Definir \"long_query_time\" para %ds"
 
 #: js/messages.php:154
 msgid ""
