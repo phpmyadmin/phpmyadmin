@@ -12453,10 +12453,13 @@ msgid "Percentage of temp tables on disk"
 msgstr "Percentage of temp tables on disk"
 
 #: po/advisory_rules.php:151 po/advisory_rules.php:156
+#, fuzzy
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr ""
+"Many temporary tables are being written to disk instead of being kept in "
+"memory."
 
 #: po/advisory_rules.php:152
 msgid ""
