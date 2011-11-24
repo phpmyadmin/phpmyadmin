@@ -1954,10 +1954,9 @@ msgid "Go to link"
 msgstr "Ir para a hiperligação"
 
 #: js/messages.php:335
-#, fuzzy
 #| msgid "Change password"
 msgid "Generate password"
-msgstr "Alterar a palavra-passe"
+msgstr "Gerar palavra-passe"
 
 #: js/messages.php:336 libraries/replication_gui.lib.php:369
 #, fuzzy
