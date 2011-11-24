@@ -3491,7 +3491,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:61
 msgid "Display servers as a list"
-msgstr ""
+msgstr "Mostrar servidores como uma lista"
 
 #: libraries/config/messages.inc.php:62
 msgid ""
