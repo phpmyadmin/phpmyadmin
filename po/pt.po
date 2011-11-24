@@ -1934,10 +1934,14 @@ msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr "Clique na seta<br />para alternar a visibilidade da coluna"
 
 #: js/messages.php:330
+#, fuzzy
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
+"Esta tabela não contem uma única coluna. Opções relacionadas aos links "
+"'Editar', 'Marcar', 'Editar', 'Copiar' e 'Apagar' podem não funcionar mais "
+"após esta ser salva"
 
 #: js/messages.php:331
 msgid ""
