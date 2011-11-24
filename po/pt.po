@@ -2777,7 +2777,7 @@ msgstr "Tecla numérica detectada"
 
 #: libraries/common.inc.php:597
 msgid "Failed to read configuration file"
-msgstr ""
+msgstr "Falhou ao ler o arquivo de configuração"
 
 #: libraries/common.inc.php:598
 msgid ""
