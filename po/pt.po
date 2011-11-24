@@ -2646,6 +2646,7 @@ msgstr ""
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
+"Sem actividade há %s segundos ou mais; Por favor, faça o login novamente"
 
 #: libraries/auth/cookie.auth.lib.php:578
 #: libraries/auth/cookie.auth.lib.php:580
