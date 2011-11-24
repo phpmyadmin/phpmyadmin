@@ -12897,11 +12897,15 @@ msgid "Too many clients are aborted."
 msgstr "Too many clients are aborted."
 
 #: po/advisory_rules.php:242 po/advisory_rules.php:247
+#, fuzzy
 msgid ""
 "Clients are usually aborted when they did not close their connection to "
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
+"Clients are usually aborted when they did not close their connection to "
+"MySQL properly. This can be due to network issues or code not closing a "
+"database handler properly. Check your network and code."
 
 #: po/advisory_rules.php:243
 #, php-format
