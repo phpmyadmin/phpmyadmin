@@ -3437,9 +3437,8 @@ msgid "Debug SQL"
 msgstr "Depurar SQL"
 
 #: libraries/config/messages.inc.php:49
-#, fuzzy
 msgid "Default display direction"
-msgstr "Opções de exportação da Base de Dados"
+msgstr "Direcção de exibição padrão"
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a database"
