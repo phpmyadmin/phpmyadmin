@@ -2018,10 +2018,9 @@ msgid "Today"
 msgstr "Hoje"
 
 #: js/messages.php:380
-#, fuzzy
 #| msgid "Binary"
 msgid "January"
-msgstr "Binário "
+msgstr "Janeiro"
 
 #: js/messages.php:381
 msgid "February"
