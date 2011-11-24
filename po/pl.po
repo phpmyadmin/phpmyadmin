@@ -13474,7 +13474,7 @@ msgstr "InnoDB jest często lepsze do silników tabelarycznych."
 
 #: po/advisory_rules.php:253
 msgid "have_innodb is set to 'value'"
-msgstr ""
+msgstr "have_innodb jest ustawione na 'value'"
 
 #: po/advisory_rules.php:255
 #, fuzzy
