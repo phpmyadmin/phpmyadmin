@@ -3454,7 +3454,7 @@ msgstr "Separador que é mostrado quando entrar num servidor"
 
 #: libraries/config/messages.inc.php:53
 msgid "Default server tab"
-msgstr ""
+msgstr "Separador padrão do servidor"
 
 #: libraries/config/messages.inc.php:54
 msgid "Tab that is displayed when entering a table"
