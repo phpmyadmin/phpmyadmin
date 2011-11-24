@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 22:15+0200\n"
+"PO-Revision-Date: 2011-11-24 22:16+0200\n"
 "Last-Translator: JoaoTMDias <contacto@joaodias.me>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -3473,8 +3473,11 @@ msgid "Show binary contents as HEX"
 msgstr "Mostrar conteúdo binário como HEX"
 
 #: libraries/config/messages.inc.php:58
+#, fuzzy
 msgid "Show database listing as a list instead of a drop down"
 msgstr ""
+"Mostrar listagem de bases de dados como uma lista em vez de um menu drop "
+"bown"
 
 #: libraries/config/messages.inc.php:59
 msgid "Display databases as a list"
