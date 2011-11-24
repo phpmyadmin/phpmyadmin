@@ -12677,7 +12677,7 @@ msgstr "Rate of open files"
 #, fuzzy
 #| msgid "The number of pending log file fsyncs."
 msgid "The rate of opening files is high."
-msgstr "The number of pending log file fsyncs."
+msgstr "The rate of opening files is high."
 
 #: po/advisory_rules.php:193
 #, php-format
