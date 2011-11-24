@@ -13000,8 +13000,9 @@ msgid "Max InnoDB log size"
 msgstr "Max InnoDB log size"
 
 #: po/advisory_rules.php:261
+#, fuzzy
 msgid "The InnoDB log file size is inadequately large."
-msgstr ""
+msgstr "The InnoDB log file size is inadequately large."
 
 #: po/advisory_rules.php:262
 #, php-format
