@@ -2487,7 +2487,7 @@ msgstr "Estado da tabela desconhecido:"
 
 #: libraries/Table.class.php:1116
 msgid "Invalid database"
-msgstr ""
+msgstr "Base de Dados inválida"
 
 #: libraries/Table.class.php:1130 tbl_get_field.php:25
 msgid "Invalid table name"
