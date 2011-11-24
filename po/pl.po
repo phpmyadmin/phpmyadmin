@@ -13049,7 +13049,7 @@ msgstr ""
 
 #: po/advisory_rules.php:146
 msgid "tmp_table_size and max_heap_table_size are not the same."
-msgstr ""
+msgstr "tmp_table oraz max_heap_table_size nie są identyczne."
 
 #: po/advisory_rules.php:147
 msgid ""
