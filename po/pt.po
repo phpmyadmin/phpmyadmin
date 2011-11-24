@@ -2809,6 +2809,8 @@ msgstr "Índice de servidor inválido: \"%s\""
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
+"Nome de serivdor inválido para o servidor %1$s. Verifique as suas "
+"configurações."
 
 #: libraries/common.inc.php:656 libraries/config/messages.inc.php:506
 #: libraries/header.inc.php:134 main.php:160 server_status.php:775
