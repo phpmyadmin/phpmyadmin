@@ -13105,8 +13105,9 @@ msgstr ""
 "inserts.html\\\">MySQL Documentation</a>"
 
 #: po/advisory_rules.php:273
+#, fuzzy
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "concurrent_insert is set to 0"
 
 #~ msgid "Click to unselect"
 #~ msgstr "Click to unselect"
