@@ -2474,7 +2474,7 @@ msgstr "%s está disponível neste servidor MySQL."
 #: libraries/StorageEngine.class.php:337
 #, php-format
 msgid "%s has been disabled for this MySQL server."
-msgstr ""
+msgstr "%s está desactivado neste servidor MySQL."
 
 #: libraries/StorageEngine.class.php:341
 #, php-format
