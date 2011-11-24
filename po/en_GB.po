@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 03:03+0200\n"
+"PO-Revision-Date: 2011-11-24 03:04+0200\n"
 "Last-Translator: dannybeckett <daniel.beckett@gmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -12709,9 +12709,9 @@ msgid "Table lock wait rate"
 msgstr "Table lock wait rate"
 
 #: po/advisory_rules.php:203
-#, php-format
+#, fuzzy, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
-msgstr ""
+msgstr "Table lock wait rate: %s, this value should be less than 1 per hour"
 
 #: po/advisory_rules.php:205
 #, fuzzy
