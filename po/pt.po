@@ -1850,7 +1850,7 @@ msgstr "Seleccione duas colunas"
 
 #: js/messages.php:289
 msgid "Select two different columns"
-msgstr ""
+msgstr "Seleccione duas colunas diferentes"
 
 #: js/messages.php:290
 #, fuzzy
