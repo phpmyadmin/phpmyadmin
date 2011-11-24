@@ -2483,7 +2483,7 @@ msgstr "Este servidor MySQL não suporta o stored engine %s."
 
 #: libraries/Table.class.php:329
 msgid "unknown table status: "
-msgstr ""
+msgstr "Estado da tabela desconhecido:"
 
 #: libraries/Table.class.php:1116
 msgid "Invalid database"
