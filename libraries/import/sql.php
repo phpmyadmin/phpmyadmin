@@ -106,7 +106,7 @@ while (!($GLOBALS['finished'] && $i >= $len) && !$error && !$timeout_passed) {
         // free memory
         unset($data);
         // Do not parse string when we're not at the end and don't have ; inside
-        if ((strpos($buffer, $sql_delimiter, $i) === false) && !$GLOBALS['finished'])  {
+        if ((strpos($buffer, $sql_delimiter, $i) === false) && !$GLOBALS['finished']) {
             continue;
         }
     }

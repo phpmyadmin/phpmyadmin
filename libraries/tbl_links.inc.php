@@ -122,8 +122,7 @@ if ($table_info_num_rows == 0 && !$tbl_is_view) {
 echo PMA_generate_html_tabs($tabs, $url_params);
 unset($tabs);
 
-if (PMA_Tracker::isActive() and PMA_Tracker::isTracked($GLOBALS["db"], $GLOBALS["table"]))
-{
+if (PMA_Tracker::isActive() and PMA_Tracker::isTracked($GLOBALS["db"], $GLOBALS["table"])) {
     $msg = PMA_Message::notice('<a href="tbl_tracking.php?'.$url_query.'">'.sprintf(__('Tracking of %s.%s is activated.'), htmlspecialchars($GLOBALS["db"]), htmlspecialchars($GLOBALS["table"])).'</a>');
     $msg->display();
 }

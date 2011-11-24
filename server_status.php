@@ -421,7 +421,7 @@ $GLOBALS['js_include'][] = 'highcharts/highcharts.js';
 /* Files required for chart exporting */
 $GLOBALS['js_include'][] = 'highcharts/exporting.js';
 /* < IE 9 doesn't support canvas natively */
-if(PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
+if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
     $GLOBALS['js_include'][] = 'canvg/flashcanvas.js';
 }
 $GLOBALS['js_include'][] = 'canvg/canvg.js';
@@ -671,7 +671,7 @@ foreach ($server_status as $name => $value) {
     }
 }
 
-if(PMA_DRIZZLE) {
+if (PMA_DRIZZLE) {
     $used_queries = PMA_DBI_fetch_result(
         'SELECT * FROM data_dictionary.global_statements',
         0,
@@ -1073,8 +1073,7 @@ function printServerTraffic()
       <h3><a name="replication"></a><?php echo __('Replication status'); ?></h3>
     <?php
 
-        foreach ($replication_types as $type)
-        {
+        foreach ($replication_types as $type) {
             if (${"server_{$type}_status"}) {
                 PMA_replication_print_status_table($type);
             }

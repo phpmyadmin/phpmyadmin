@@ -208,8 +208,8 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
          * Sets a variable to remember headers have been sent
          */
         $GLOBALS['is_header_sent'] = true;
-} //end if (!$GLOBALS['is_ajax_request'])
-else {
+//end if (!$GLOBALS['is_ajax_request'])
+} else {
     if (empty($GLOBALS['is_header_sent'])) {
         include_once './libraries/header_http.inc.php';
         $GLOBALS['is_header_sent'] = true;

@@ -803,9 +803,8 @@ foreach ($rows as $row_id => $vrow) {
             ?>
                 </select>
             <?php
-        }
         // We don't want binary data destroyed
-        elseif ($field['is_binary'] || $field['is_blob']) {
+        } elseif ($field['is_binary'] || $field['is_blob']) {
             if (($cfg['ProtectBinary'] && $field['is_blob'])
                 || ($cfg['ProtectBinary'] == 'all' && $field['is_binary'])
             ) {
@@ -912,10 +911,9 @@ foreach ($rows as $row_id => $vrow) {
                     echo '        </select>' . "\n";
                 }
             } // end if (web-server upload directory)
-        } // end elseif (binary or blob)
-        elseif (in_array($field['pma_type'], $no_support_types)) {
+        // end elseif (binary or blob)
+        } elseif (! in_array($field['pma_type'], $no_support_types)) {
             // ignore this column to avoid changing it
-        } else {
             if ($field['is_char']) {
                 $fieldsize = $extracted_fieldspec['spec_in_brackets'];
             } else {

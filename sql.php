@@ -777,10 +777,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . str_replace('&amp;', '&', $goto) . '&message=' . urlencode($message));
     } // end else
     exit();
-} // end no rows returned
-
-// At least one row is returned -> displays a table with results
-else {
+// end no rows returned
+} else {
+    // At least one row is returned -> displays a table with results
     //If we are retrieving the full value of a truncated field or the original
     // value of a transformed field, show it here and exit
     if ($GLOBALS['grid_edit'] == true && $GLOBALS['cfg']['AjaxEnable']) {

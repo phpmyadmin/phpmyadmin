@@ -185,7 +185,7 @@ if (isset($_REQUEST['do_save_data'])) {
         $message = PMA_Message::success(__('Table %1$s has been altered successfully'));
         $message->addParam($table);
 
-        if( $GLOBALS['is_ajax_request'] == true) {
+        if ( $GLOBALS['is_ajax_request'] == true) {
             $extra_data['sql_query'] = PMA_showMessage(null, $sql_query);
             PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
         }

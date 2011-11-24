@@ -272,7 +272,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
         } elseif (! in_array($me_funcs[$key], $func_no_param)
                   || ($val != "''" && in_array($me_funcs[$key], $func_optional_param))) {
             $cur_value = $me_funcs[$key] . '(' . $val . ')';
-        }  else {
+        } else {
             $cur_value = $me_funcs[$key] . '()';
         }
 

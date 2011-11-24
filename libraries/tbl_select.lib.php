@@ -152,12 +152,11 @@ function PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fie
         $str .= '</select>' . "\n";
 
     } elseif ($foreignData['foreign_link'] == true) {
-        if(isset($fields[$i]) && is_string($fields[$i])){
+        if (isset($fields[$i]) && is_string($fields[$i])) {
          $str .= '<input type="text" id="fieldID_' . $i .'"name="fields[' . $i . ']" value="' . $fields[$i] . '"';
              'id="field_' . md5($field) . '[' . $i .']"
              class="textfield"/>' ;
-        }
-        else{
+        } else {
          $str .= '<input type="text" id="fieldID_' . $i .'"name="fields[' . $i . ']"';
              'id="field_' . md5($field) . '[' . $i .']"
              class="textfield" />' ;

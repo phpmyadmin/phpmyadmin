@@ -262,8 +262,7 @@ if (!empty($submit_mult) && !empty($what)) {
                 <button type="submit" name="mult_btn" value="<?php echo __('Yes'); ?>" id="buttonYes"><?php echo __('Submit'); ?></button>
         </fieldset>
     <?php
-        }
-        elseif ($what == 'add_prefix_tbl') { ?>
+        } elseif ($what == 'add_prefix_tbl') { ?>
         <fieldset class = "input">
                 <legend><?php echo __('Add table prefix') ?>:</legend>
                 <table>
@@ -276,8 +275,7 @@ if (!empty($submit_mult) && !empty($what)) {
                 <button type="submit" name="mult_btn" value="<?php echo __('Yes'); ?>" id="buttonYes"><?php echo __('Submit'); ?></button>
         </fieldset>
     <?php
-        }
-        else { ?>
+        } else { ?>
     <fieldset class="confirmation">
         <legend><?php echo ($what == 'drop_db' ? __('You are about to DESTROY a complete database!') . '&nbsp;' : '') . __('Do you really want to '); ?>:</legend>
         <tt><?php echo $full_query; ?></tt>
@@ -290,14 +288,10 @@ if (!empty($submit_mult) && !empty($what)) {
     }
     include './libraries/footer.inc.php';
 
-} // end if
-
-
+} elseif ($mult_btn == __('Yes')) {
 /**
  * Executes the query - dropping rows, columns/fields, tables or dbs
  */
-elseif ($mult_btn == __('Yes')) {
-
     if ($query_type == 'drop_db' || $query_type == 'drop_tbl' || $query_type == 'drop_fld') {
         include_once './libraries/relation_cleanup.lib.php';
     }

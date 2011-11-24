@@ -118,13 +118,13 @@ class PMA_Scatter_Plot
     {
         $this->_dataPoints = array();
         if (! is_null($this->_userSpecifiedSettings)) {
-            foreach (array_keys($this->_userSpecifiedSettings) as $key){
-            $this->_settings[$key] = $this->_userSpecifiedSettings[$key];
-         }
+            foreach (array_keys($this->_userSpecifiedSettings) as $key) {
+                $this->_settings[$key] = $this->_userSpecifiedSettings[$key];
+            }
         }
         if ($this->_settings['dataLabel'] == '') {
             $labels = array_keys($this->_data[0]);
-        $this->_settings['dataLabel'] = $labels[0];
+            $this->_settings['dataLabel'] = $labels[0];
         }
     }
 
@@ -213,8 +213,7 @@ class PMA_Scatter_Plot
                 for ($j = 0 ; $j < count($coordinates[$i]) ; $j++) {
                      $coordinates[$i][$j] = $map[$coordinates[$i][$j]];
                 }
-            }
-            else if (is_numeric($coordinates[$i][0])) {
+            } else if (is_numeric($coordinates[$i][0])) {
                 $maxC = max($coordinates[$i]);
                 for ($j = 0 ; $j < count($coordinates[$i]) ; $j++) {
                     if ($i == 0) {

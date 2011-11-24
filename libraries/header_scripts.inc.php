@@ -64,7 +64,7 @@ if (typeof(parent.document) != 'undefined' && typeof(parent.document) != 'unknow
     parent.document.title = '<?php echo (isset($title) ? PMA_sanitize(PMA_escapeJsString(htmlspecialchars($title))) : ''); ?>';
 }
 <?php
-if(count($GLOBALS['js_script']) > 0) {
+if (count($GLOBALS['js_script']) > 0) {
     echo implode("\n", $GLOBALS['js_script'])."\n";
 }
 

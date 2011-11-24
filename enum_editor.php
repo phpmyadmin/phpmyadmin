@@ -93,7 +93,7 @@ require_once './libraries/header_meta_style.inc.php';
                 // Remove a value, given a valid index, from the list
                 // of values, if there was a request to do so.
                 if (isset($_GET['drop']) && is_array($_GET['drop'])) {
-                    foreach ($_GET['drop'] as $index => $value){
+                    foreach ($_GET['drop'] as $index => $value) {
                         if ((int)$index == $index
                             && $index > 0
                             && $index <= count($values)

@@ -85,7 +85,7 @@ if (PMA_DBI_num_rows($table_info_result) > 0) {
     echo '<p>' . __('Page') . ':';
     echo '<select name="pdf_page_number">';
 
-    while($page = PMA_DBI_fetch_assoc($table_info_result)) {
+    while ($page = PMA_DBI_fetch_assoc($table_info_result)) {
         echo '<option value="' . $page['page_nr'] . '">';
         echo htmlspecialchars($page['page_descr']);
         echo '</option>';
