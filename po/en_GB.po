@@ -4583,10 +4583,9 @@ msgstr ""
 "already defined host"
 
 #: libraries/config/messages.inc.php:386
-#, fuzzy
 #| msgid "Control user"
 msgid "Control host"
-msgstr "Control user"
+msgstr "Control host"
 
 #: libraries/config/messages.inc.php:387
 msgid "Count tables when showing database list"
