@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 22:01+0200\n"
+"PO-Revision-Date: 2011-11-24 22:02+0200\n"
 "Last-Translator: JoaoTMDias <contacto@joaodias.me>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -3302,6 +3302,7 @@ msgstr "Permitir framing de terceiros"
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
 msgstr ""
+"Mostrar hiperligação &quot;Apagar Base de Dados&quot; a utilizadores normais"
 
 #: libraries/config/messages.inc.php:24
 msgid ""
