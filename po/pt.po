@@ -3619,9 +3619,8 @@ msgid "Excel edition"
 msgstr "Edição do Excel"
 
 #: libraries/config/messages.inc.php:87
-#, fuzzy
 msgid "Database name template"
-msgstr "Nome do ficheiro modelo"
+msgstr "Modelo de nome da base de dados"
 
 #: libraries/config/messages.inc.php:88
 #, fuzzy
