@@ -7525,8 +7525,9 @@ msgid "You must provide a name and a type for each routine parameter."
 msgstr "You must provide a name and a type for each routine parameter."
 
 #: libraries/rte/rte_routines.lib.php:1076
+#, fuzzy
 msgid "You must provide a valid return type for the routine."
-msgstr "You must provide a valid return type for the routine.."
+msgstr "You must provide a valid return type for the routine."
 
 #: libraries/rte/rte_routines.lib.php:1120
 msgid "You must provide a routine definition."
