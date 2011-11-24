@@ -2459,9 +2459,12 @@ msgid "There are no recent tables"
 msgstr "Não existem tabelas recentes"
 
 #: libraries/StorageEngine.class.php:198
+#, fuzzy
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
+"Não existe nenhuma informação detalhada disponível do estado desta "
+"ferramenta de armazenamento"
 
 #: libraries/StorageEngine.class.php:334
 #, php-format
