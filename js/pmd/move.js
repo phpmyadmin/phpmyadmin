@@ -125,7 +125,7 @@ function MouseDown(e)
         cur_click.style.zIndex = 2;
     }
     if (layer_menu_cur_click) {
-        offsetx = isIE ? event.clientX + document.body.scrollLeft : e.pageX;
+        offsetx = e.pageX;
         dx = offsetx - parseInt(document.getElementById("layer_menu").style.width);
     }
 }
@@ -213,10 +213,6 @@ function Main()
 {
     //alert( document.getElementById('osn_tab').offsetTop);
     //---CROSS
-    if (isIE) {
-        document.getElementById('top_menu').style.position = 'absolute';
-        document.getElementById('layer_menu').style.position = 'absolute';
-    }
 
     document.getElementById("layer_menu").style.top = -1000 + 'px'; //fast scroll
     sm_x += document.getElementById('osn_tab').offsetLeft;
@@ -892,8 +888,6 @@ function General_scroll()
         {
             document.getElementById('top_menu').style.left = document.body.scrollLeft + 'px';
             document.getElementById('top_menu').style.top  = document.body.scrollTop + 'px';
-            document.getElementById('layer_menu').style.left = document.body.scrollLeft + 'px';
-            document.getElementById('layer_menu').style.top  = (document.body.scrollTop + document.getElementById('top_menu').offsetHeight) + 'px';
         }
         ,200
     );
