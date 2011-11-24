@@ -1117,10 +1117,9 @@ msgid "Add Index"
 msgstr "Adicionar Índice"
 
 #: js/messages.php:47
-#, fuzzy
 #| msgid "Edit next row"
 msgid "Edit Index"
-msgstr "Editar próxima coluna"
+msgstr "Editar Índice"
 
 #: js/messages.php:48 tbl_indexes.php:286
 #, fuzzy, php-format
