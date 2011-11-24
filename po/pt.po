@@ -2549,7 +2549,7 @@ msgstr "Tema padrão %s não encontrado!"
 #: libraries/Theme_Manager.class.php:151
 #, php-format
 msgid "Theme %s not found!"
-msgstr ""
+msgstr "Tema %s não encontrado!"
 
 #: libraries/Theme_Manager.class.php:217
 #, php-format
