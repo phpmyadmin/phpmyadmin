@@ -2164,7 +2164,7 @@ msgstr "Sexta"
 
 #: js/messages.php:426
 msgid "Saturday"
-msgstr ""
+msgstr "Sábado"
 
 #. l10n: Short week day name
 #: js/messages.php:430
