@@ -3484,8 +3484,10 @@ msgid "Display databases as a list"
 msgstr "Mostrar bases de dados como uma lista"
 
 #: libraries/config/messages.inc.php:60
+#, fuzzy
 msgid "Show server listing as a list instead of a drop down"
 msgstr ""
+"Mostrar lista de servidores como uma lista ao invés de um menu drop down"
 
 #: libraries/config/messages.inc.php:61
 msgid "Display servers as a list"
