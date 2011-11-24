@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 20:47+0200\n"
+"PO-Revision-Date: 2011-11-24 20:48+0200\n"
 "Last-Translator: fungms <fungms@o2.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -12546,6 +12546,8 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
+"Udział wolnych zapytań %s na godzinę, a powinien być mniejszy niż 1%% na "
+"godzinę."
 
 #: po/advisory_rules.php:25
 #, fuzzy
