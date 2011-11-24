@@ -113,7 +113,7 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params, '', 'topmenu2');
             }
             ?>
             <th><?php echo htmlspecialchars($fields_list[$i]); ?></th>
-            <td><?php echo $fields_type[$i]; ?></td>
+            <td><?php echo htmlspecialchars($fields_type[$i]); ?></td>
             <td><?php echo $fields_collation[$i]; ?></td>
             <td><select name="func[]">
         <?php

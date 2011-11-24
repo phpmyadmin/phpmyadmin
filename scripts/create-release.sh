@@ -282,7 +282,7 @@ Todo now:
 
         ./scripts/upload-release \$USER $version release
  4. add SF news item to phpMyAdmin project
- 5. announce release on freshmeat (http://freshmeat.net/projects/phpmyadmin/)
+ 5. announce release on freecode (http://freecode.com/projects/phpmyadmin/)
  6. send a short mail (with list of major changes) to
         phpmyadmin-devel@lists.sourceforge.net
         phpmyadmin-news@lists.sourceforge.net
