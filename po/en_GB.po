@@ -12855,12 +12855,17 @@ msgid "Too many connections are aborted."
 msgstr "Too many connections are aborted."
 
 #: po/advisory_rules.php:232 po/advisory_rules.php:237
+#, fuzzy
 msgid ""
 "Connections are usually aborted when they cannot be authorized. <a href=\\"
 "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
 "source-of-aborted_connects/\\\">This article</a> might help you track down "
 "the source."
 msgstr ""
+"Connections are usually aborted when they cannot be authorised. <a "
+"href=\\\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
+"source-of-aborted_connects/\\\">This article</a> might help you track down the "
+"source."
 
 #: po/advisory_rules.php:233
 #, php-format
