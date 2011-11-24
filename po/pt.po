@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 21:59+0200\n"
+"PO-Revision-Date: 2011-11-24 22:00+0200\n"
 "Last-Translator: JoaoTMDias <contacto@joaodias.me>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -3281,9 +3281,8 @@ msgstr ""
 "formulário de login para cookie de autenticação "
 
 #: libraries/config/messages.inc.php:20
-#, fuzzy
 msgid "Allow login to any MySQL server"
-msgstr "Não é possível fazer login no servidor MySQL"
+msgstr "Permitir autenticação para qualquer servidor MySQL"
 
 #: libraries/config/messages.inc.php:21
 msgid ""
