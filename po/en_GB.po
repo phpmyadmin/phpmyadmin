@@ -12661,10 +12661,11 @@ msgstr ""
 "restarting after changing open_files_limit."
 
 #: po/advisory_rules.php:188
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
+"The number of opened files is at %s%% of the limit. It should be below 85%%"
 
 #: po/advisory_rules.php:190
 #, fuzzy
