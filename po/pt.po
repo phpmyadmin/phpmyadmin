@@ -2674,7 +2674,7 @@ msgstr "Falha na autenticação de hardware"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:163
 msgid "No valid authentication key plugged"
-msgstr ""
+msgstr "Nenhuma chave de autenticação válida foi conectada"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:196
 msgid "Authenticating..."
