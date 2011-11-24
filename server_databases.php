@@ -247,7 +247,7 @@ if ($databases_count > 0) {
     foreach ($replication_types as $type) {
         if (${"server_{$type}_status"}) {
             echo '    <th></th>' . "\n";
-        {
+        }
     }
 
     if ($is_superuser) {
