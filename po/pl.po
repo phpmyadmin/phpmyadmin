@@ -12559,6 +12559,8 @@ msgid ""
 "long_query_time is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"long_query_time jest ustawiony na ponad 10 sekund, dlatego tylko wolne "
+"zapytania powyżej 10 sekund zostaną wpisane do loga."
 
 #: po/advisory_rules.php:27
 msgid ""
