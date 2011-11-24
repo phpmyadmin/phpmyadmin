@@ -3536,6 +3536,8 @@ msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
 msgstr ""
+"Define o número de segundos que um script é executado ([kbd]0[/kbd] para sem "
+"limite)"
 
 #: libraries/config/messages.inc.php:71
 msgid "Maximum execution time"
