@@ -2280,6 +2280,7 @@ msgstr "Segundo"
 #, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr ""
+"Falha ao formatar linha pela regra, '%s'. O PHP devolveu o seguinte erro: %s"
 
 #: libraries/Config.class.php:703
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
