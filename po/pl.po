@@ -12507,10 +12507,9 @@ msgid "Current amount of Questions: %s"
 msgstr "Niezabezpieczone połączenie"
 
 #: po/advisory_rules.php:15
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
-msgstr "Pokaż zapytania SQL"
+msgstr "Procent wolnych zapytań"
 
 #: po/advisory_rules.php:16
 msgid ""
