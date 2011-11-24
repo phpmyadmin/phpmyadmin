@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 21:34+0200\n"
+"PO-Revision-Date: 2011-11-24 21:36+0200\n"
 "Last-Translator: JoaoTMDias <contacto@joaodias.me>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -2491,7 +2491,7 @@ msgstr "Base de Dados inválida"
 
 #: libraries/Table.class.php:1130 tbl_get_field.php:25
 msgid "Invalid table name"
-msgstr ""
+msgstr "Nome de tabela inválido"
 
 #: libraries/Table.class.php:1143
 #, php-format
