@@ -1828,10 +1828,9 @@ msgid "Query results"
 msgstr "Query results"
 
 #: js/messages.php:291
-#, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
-msgstr "Data pointer size"
+msgstr "Data point content"
 
 #: js/messages.php:294 tbl_change.php:312 tbl_indexes.php:221
 #: tbl_indexes.php:248
