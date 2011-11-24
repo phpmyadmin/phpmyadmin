@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 21:04+0200\n"
+"PO-Revision-Date: 2011-11-24 21:05+0200\n"
 "Last-Translator: fungms <fungms@o2.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -12502,10 +12502,10 @@ msgstr ""
 "zapytań."
 
 #: po/advisory_rules.php:13
-#, fuzzy, php-format
+#, php-format
 #| msgid "Insecure connection"
 msgid "Current amount of Questions: %s"
-msgstr "Niezabezpieczone połączenie"
+msgstr "Ilość Zapytań: %s"
 
 #: po/advisory_rules.php:15
 #| msgid "Show SQL queries"
