@@ -12756,9 +12756,9 @@ msgid "Increase {thread_cache_size}."
 msgstr "Increase {thread_cache_size}."
 
 #: po/advisory_rules.php:213
-#, php-format
+#, fuzzy, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr ""
+msgstr "Thread cache hitrate: %s%%, this value should be above 80%%"
 
 #: po/advisory_rules.php:215
 msgid "Threads that are slow to launch"
