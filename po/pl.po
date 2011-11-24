@@ -12490,6 +12490,8 @@ msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
+"Mniej niż 1,000 pytań były uruchomione wbrew temu serwerowi. Zalecenia mogą "
+"być nieodpowiednie lub nietrafne."
 
 #: po/advisory_rules.php:12
 msgid ""
