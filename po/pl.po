@@ -12451,7 +12451,7 @@ msgstr "Profil został uaktualniony."
 
 #: view_create.php:141
 msgid "VIEW name"
-msgstr "Nazwa widoku"
+msgstr "Nazwa WIDOKU"
 
 #: view_operations.php:91
 msgid "Rename view to"
