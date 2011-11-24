@@ -12538,10 +12538,13 @@ msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr "Key buffer is not initialized. No MyISAM indexes will be cached."
 
 #: po/advisory_rules.php:162
+#, fuzzy
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
+"Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
+"good start."
 
 #: po/advisory_rules.php:163
 msgid "key_buffer_size is 0"
