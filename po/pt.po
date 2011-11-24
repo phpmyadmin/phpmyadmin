@@ -3014,7 +3014,7 @@ msgstr "Saltar para a Base de Dados &quot;%s&quot;."
 #: libraries/common.lib.php:2572
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
-msgstr ""
+msgstr "A funcionalidade %s é afectada por um bug conhecido, veja %s"
 
 #: libraries/common.lib.php:2746
 #, fuzzy
