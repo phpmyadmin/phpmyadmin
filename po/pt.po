@@ -3384,7 +3384,7 @@ msgstr "Tamanho máximo para campo de entrada"
 
 #: libraries/config/messages.inc.php:38
 msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Número de colunas para caixas de texto CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:39
 msgid "CHAR textarea columns"
