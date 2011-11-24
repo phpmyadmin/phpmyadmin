@@ -1808,7 +1808,7 @@ msgstr "Pesquisar"
 
 #: js/messages.php:272
 msgid "Each point represents a data row."
-msgstr ""
+msgstr "Cada ponto representa um registo (linha) de dados"
 
 #: js/messages.php:274
 msgid "Hovering over a point will show its label."
