@@ -2678,7 +2678,7 @@ msgstr "Nenhuma chave de autenticação válida foi conectada"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:196
 msgid "Authenticating..."
-msgstr ""
+msgstr "A Autenticar..."
 
 #: libraries/blobstreaming.lib.php:272
 msgid "PBMS error"
