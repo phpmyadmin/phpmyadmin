@@ -2303,7 +2303,7 @@ msgstr "Tamanho da fonte"
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "O ficheiro não era carregável."
 
 #: libraries/File.class.php:260 libraries/File.class.php:389
 msgid "Unknown error while uploading."
