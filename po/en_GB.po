@@ -12547,8 +12547,9 @@ msgstr ""
 "good start."
 
 #: po/advisory_rules.php:163
+#, fuzzy
 msgid "key_buffer_size is 0"
-msgstr ""
+msgstr "key_buffer_size is 0"
 
 #: po/advisory_rules.php:165
 #, fuzzy, php-format
