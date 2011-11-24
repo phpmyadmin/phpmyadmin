@@ -694,7 +694,7 @@ function PMA_linkURL($url)
         return $url;
     } else {
         if (!function_exists('PMA_generate_common_url')) {
-            require_once('./libraries/url_generating.lib.php');
+            include_once './libraries/url_generating.lib.php';
         }
         $params = array();
         $params['url'] = $url;

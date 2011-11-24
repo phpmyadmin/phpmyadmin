@@ -125,7 +125,7 @@ if (isset($_REQUEST['do_save_data'])) {
 $GLOBALS['js_include'][] = 'indexes.js';
 require_once './libraries/tbl_info.inc.php';
 if ($GLOBALS['is_ajax_request'] != true) {
-    require_once './libraries/tbl_links.inc.php';
+    include_once './libraries/tbl_links.inc.php';
 }
 
 if (isset($_REQUEST['index']) && is_array($_REQUEST['index'])) {
