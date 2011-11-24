@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 20:55+0200\n"
+"PO-Revision-Date: 2011-11-24 20:56+0200\n"
 "Last-Translator: fungms <fungms@o2.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -12393,10 +12393,9 @@ msgstr ""
 "osobnych kolumn"
 
 #: tbl_zoom_select.php:145
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Additional search criteria"
-msgstr "Ukryj okno zapytania SQL"
+msgstr "Dodatkowe kryteria wyszukiwania"
 
 #: tbl_zoom_select.php:276
 msgid "Use this column to label each point"
