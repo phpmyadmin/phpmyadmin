@@ -12751,8 +12751,9 @@ msgid "Thread cache is not efficient."
 msgstr "Thread cache is not efficient."
 
 #: po/advisory_rules.php:212
+#, fuzzy
 msgid "Increase {thread_cache_size}."
-msgstr ""
+msgstr "Increase {thread_cache_size}."
 
 #: po/advisory_rules.php:213
 #, php-format
