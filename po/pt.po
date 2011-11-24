@@ -2151,7 +2151,7 @@ msgstr "Terça"
 
 #: js/messages.php:423
 msgid "Wednesday"
-msgstr ""
+msgstr "Quarta"
 
 #: js/messages.php:424
 msgid "Thursday"
