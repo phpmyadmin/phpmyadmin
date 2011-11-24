@@ -12720,10 +12720,13 @@ msgid "Thread cache"
 msgstr "Thread cache"
 
 #: po/advisory_rules.php:206
+#, fuzzy
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
 msgstr ""
+"Thread cache is disabled, resulting in more overhead from new connections to "
+"MySQL."
 
 #: po/advisory_rules.php:207
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
