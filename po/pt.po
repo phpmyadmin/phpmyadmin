@@ -1738,10 +1738,9 @@ msgid "Show search results"
 msgstr "Mostrar resultados da pesquisa"
 
 #: js/messages.php:238
-#, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
-msgstr "Visualizar"
+msgstr "Navegação"
 
 #: js/messages.php:239
 #, fuzzy
