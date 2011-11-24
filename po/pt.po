@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 21:48+0200\n"
+"PO-Revision-Date: 2011-11-24 21:49+0200\n"
 "Last-Translator: JoaoTMDias <contacto@joaodias.me>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -2882,7 +2882,7 @@ msgstr "Mensagens do MySQL : "
 
 #: libraries/common.lib.php:1123
 msgid "Failed to connect to SQL validator!"
-msgstr ""
+msgstr "Falha ao ligar ao validador SQL!"
 
 #: libraries/common.lib.php:1164 libraries/config/messages.inc.php:483
 msgid "Explain SQL"
