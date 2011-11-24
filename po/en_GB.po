@@ -12688,7 +12688,7 @@ msgstr "Opened files rate: %s, this value should be less than 5 per hour"
 #, fuzzy, php-format
 #| msgid "Create table on database %s"
 msgid "Immediate table locks %%"
-msgstr "Create table on database %s"
+msgstr "Immediate table locks %%"
 
 #: po/advisory_rules.php:196 po/advisory_rules.php:201
 #, fuzzy
