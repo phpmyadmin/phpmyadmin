@@ -2996,7 +2996,7 @@ msgstr "Anterior"
 #| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
-msgstr "Próximo"
+msgstr "Seguinte"
 
 #: libraries/common.lib.php:2482 libraries/common.lib.php:2485
 #: libraries/display_tbl.lib.php:389
