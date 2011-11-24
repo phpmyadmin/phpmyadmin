@@ -2307,7 +2307,7 @@ msgstr "O ficheiro não era carregável."
 
 #: libraries/File.class.php:260 libraries/File.class.php:389
 msgid "Unknown error while uploading."
-msgstr ""
+msgstr "Errro desconhecido no upload do ficheiro."
 
 #: libraries/File.class.php:278
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
