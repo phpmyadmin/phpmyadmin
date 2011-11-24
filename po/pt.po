@@ -2562,7 +2562,7 @@ msgstr "Tema"
 
 #: libraries/auth/config.auth.lib.php:71
 msgid "Cannot connect: invalid settings."
-msgstr ""
+msgstr "Não é possível realizar a ligação: configurações inválidas."
 
 #: libraries/auth/config.auth.lib.php:85
 #: libraries/auth/cookie.auth.lib.php:172 libraries/auth/http.auth.lib.php:64
