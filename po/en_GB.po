@@ -1729,10 +1729,10 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "The definition of a stored function must contain a RETURN statement!"
 
 #: js/messages.php:249
-#, fuzzy, php-format
+#, php-format
 #| msgid "+ Add a value"
 msgid "Add %d value(s)"
-msgstr "+ Add a value"
+msgstr "Add %d value(s)"
 
 #: js/messages.php:252
 msgid ""
