@@ -12523,7 +12523,8 @@ msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
 msgstr ""
-"Temporary tables average: %s, this value should be less than 1 per hour."
+"Rate of temporary tables being written to disk: %s, this value should be "
+"less than 1 per hour"
 
 #: po/advisory_rules.php:160
 #, fuzzy
