@@ -2820,7 +2820,7 @@ msgstr "Servidor"
 
 #: libraries/common.inc.php:835
 msgid "Invalid authentication method set in configuration:"
-msgstr ""
+msgstr "Método de autenticação definido nas configurações inválido:"
 
 #: libraries/common.inc.php:950
 #, php-format
