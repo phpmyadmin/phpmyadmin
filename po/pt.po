@@ -2670,7 +2670,7 @@ msgstr "Arquivo %s não contém qualquer identificação de chave"
 #: libraries/auth/swekey/swekey.auth.lib.php:156
 #: libraries/auth/swekey/swekey.auth.lib.php:177
 msgid "Hardware authentication failed"
-msgstr ""
+msgstr "Falha na autenticação de hardware"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:163
 msgid "No valid authentication key plugged"
