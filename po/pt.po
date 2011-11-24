@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 21:31+0200\n"
+"PO-Revision-Date: 2011-11-24 21:32+0200\n"
 "Last-Translator: JoaoTMDias <contacto@joaodias.me>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -2441,10 +2441,9 @@ msgstr[0] "%1$d linha inserida."
 msgstr[1] "%1$d linha(s) inseridas."
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Permite ler dados."
+msgstr "Erro ao criar o PDF:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
