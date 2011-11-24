@@ -3290,6 +3290,9 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
 msgstr ""
+"Activar esta opção permite que uma página localizada num domínio diferente "
+"chame o phpMyAdmin dentro de uma frame, e poderá ser uma potencial [strong] "
+"falha de segurança [/strong], que permite ataques de script cross-frame"
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
