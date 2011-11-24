@@ -12632,9 +12632,9 @@ msgstr ""
 "{table_open_cache} might avoid this."
 
 #: po/advisory_rules.php:183
-#, php-format
+#, fuzzy, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
-msgstr ""
+msgstr "Opened table rate: %s, this value should be less than 10 per hour"
 
 #: po/advisory_rules.php:185
 #, fuzzy
