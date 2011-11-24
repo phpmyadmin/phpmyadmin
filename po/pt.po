@@ -3407,6 +3407,9 @@ msgid ""
 "Compress gzip/bzip2 exports on the fly without the need for much memory; if "
 "you encounter problems with created gzip/bzip2 files disable this feature"
 msgstr ""
+"Comprime exportações gzip/bzip2 imediatamente sem a necessidade de muita "
+"memória; se encontrar problemas com arquivos gzip/bzip2 criados desactive "
+"este recurso"
 
 #: libraries/config/messages.inc.php:44
 msgid "Compress on the fly"
