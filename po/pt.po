@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 21:55+0200\n"
+"PO-Revision-Date: 2011-11-24 21:56+0200\n"
 "Last-Translator: JoaoTMDias <contacto@joaodias.me>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -3198,7 +3198,7 @@ msgstr "O valor precisa ser igual ou menor que %s"
 #: libraries/config/FormDisplay.class.php:511
 #, php-format
 msgid "Missing data for %s"
-msgstr ""
+msgstr "Dados em falta para %s"
 
 #: libraries/config/FormDisplay.class.php:708
 #: libraries/config/FormDisplay.class.php:712
