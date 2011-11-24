@@ -2496,7 +2496,7 @@ msgstr "Nome de tabela inválido"
 #: libraries/Table.class.php:1143
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
-msgstr ""
+msgstr "Erro ao mudar o nome da tabela %1$s para %2$s"
 
 #: libraries/Table.class.php:1230
 #, php-format
