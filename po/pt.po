@@ -3252,7 +3252,7 @@ msgstr "Definir valor: %s"
 #: libraries/config/FormDisplay.tpl.php:279
 #: libraries/config/messages.inc.php:358
 msgid "Restore default value"
-msgstr ""
+msgstr "Restaurar valor padrão"
 
 #: libraries/config/FormDisplay.tpl.php:295
 msgid "Allow users to customize this value"
