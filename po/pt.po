@@ -1994,9 +1994,8 @@ msgstr "até à data"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:365
-#, fuzzy
 msgid "Done"
-msgstr "Dados"
+msgstr "Concluído"
 
 #: js/messages.php:369
 #, fuzzy
