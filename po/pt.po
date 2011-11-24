@@ -3060,10 +3060,10 @@ msgid "Browse your computer:"
 msgstr "Procurar no seu computador:"
 
 #: libraries/common.lib.php:3293
-#, fuzzy, php-format
+#, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "Directoria no servidor web para fazer upload"
+msgstr "Selecionar a partir da directoria de upload do servidor <b>%s</b>:"
 
 #: libraries/common.lib.php:3314 libraries/sql_query_form.lib.php:444
 #: tbl_change.php:905
