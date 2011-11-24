@@ -11,23 +11,6 @@
  var _change = 0; // variable to track any change in designer layout.
  var _staying = 0; //  variable to check if the user stayed after seeing the confirmation prompt.
 
-//   Below is the function to change the href attributes to '#' while the href script is called using
-//   the onclick event. It fixes the Internet Explorer issue with href.
-
- $(document).ready(function(){
-    $('a').filter(function(){
-        return ( /^javascript\:/i).test($(this).attr('href'));
-    }).each(function(){
-        var hrefscript = $(this).attr('href');
-        hrefscript = hrefscript.substr(11);
-        $(this).data('hrefscript', hrefscript);
-    }).click(function(){
-        var hrefscript = $(this).data('hrefscript');
-        eval (hrefscript);
-        return false;
-    }).attr('href', '#');
-});
-
 // Below is the function to bind onbeforeunload events with the content_frame as well as the top window.
 
  $(document).ready(function(){
