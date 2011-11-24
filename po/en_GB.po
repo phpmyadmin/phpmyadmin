@@ -13044,7 +13044,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Your InnoDB buffer pool is fairly small."
 
 #: po/advisory_rules.php:267
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 "tables. Assign all your remaining memory to this buffer. For database "
@@ -13057,6 +13057,16 @@ msgid ""
 "\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\\\">this article</a>"
 msgstr ""
+"The InnoDB buffer pool has a profound impact on performance for InnoDB "
+"tables. Assign all your remaining memory to this buffer. For database "
+"servers that use solely InnoDB as storage engine and have no other services "
+"(e.g. a web server) running, you may set this as high as 80%% of your "
+"available memory. If that is not the case, you need to carefully assess the "
+"memory consumption of your other services and non-InnoDB-Tables and set this "
+"variable accordingly. If it is set too high, your system will start "
+"swapping, which decreases performance significantly. See also <a "
+"href=\\\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\\\">this article</a>"
 
 #: po/advisory_rules.php:268
 #, php-format
