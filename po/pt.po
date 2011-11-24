@@ -3515,10 +3515,9 @@ msgid "Edit in window"
 msgstr "Editar em janela"
 
 #: libraries/config/messages.inc.php:66
-#, fuzzy
 #| msgid "Display Features"
 msgid "Display errors"
-msgstr "Mostrar Características"
+msgstr "Exibir erros"
 
 #: libraries/config/messages.inc.php:67
 msgid "Gather errors"
