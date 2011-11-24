@@ -2710,7 +2710,7 @@ msgstr "Ver vídeo"
 
 #: libraries/blobstreaming.lib.php:423
 msgid "Download file"
-msgstr ""
+msgstr "Descarregar ficheiro"
 
 #: libraries/blobstreaming.lib.php:494
 #, php-format
