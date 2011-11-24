@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 22:17+0200\n"
+"PO-Revision-Date: 2011-11-24 22:18+0200\n"
 "Last-Translator: JoaoTMDias <contacto@joaodias.me>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -3508,7 +3508,7 @@ msgstr "Desactivar a manutenção de múltiplas tabelas"
 
 #: libraries/config/messages.inc.php:64
 msgid "Edit SQL queries in popup window"
-msgstr ""
+msgstr "Editar as consultas SQL numa janela popup"
 
 #: libraries/config/messages.inc.php:65
 msgid "Edit in window"
