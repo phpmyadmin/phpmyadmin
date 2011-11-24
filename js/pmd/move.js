@@ -930,11 +930,16 @@ function Show_left_menu(id_this) // max/min all tables
 function Top_menu_right(id_this)
 {
     if (id_this.alt == ">") {
-        document.getElementById('top_menu').style.marginLeft = document.getElementById('top_menu').offsetWidth + 'px'; // = 350
+        var top_menu_width = 10;
+        $('#top_menu').children().each(function () {
+            top_menu_width += $(this).outerWidth(true);
+        });
+        var offset = parseInt(document.getElementById('top_menu').offsetWidth - top_menu_width, 10);
+        document.getElementById('top_menu').style.paddingLeft = offset + 'px';
         id_this.alt = "<";
         id_this.src = pmaThemeImage + "pmd/2leftarrow_m.png";
     } else {
-        document.getElementById('top_menu').style.marginLeft = 0;
+        document.getElementById('top_menu').style.paddingLeft = 0;
         id_this.alt = ">";
         id_this.src = pmaThemeImage + "pmd/2rightarrow_m.png";
     }
