@@ -12429,12 +12429,17 @@ msgid "tmp_table_size and max_heap_table_size are not the same."
 msgstr "tmp_table_size and max_heap_table_size are not the same."
 
 #: po/advisory_rules.php:147
+#, fuzzy
 msgid ""
 "If you have deliberately changed one of either: The server uses the lower "
 "value of either to determine the maximum size of in-memory tables. So if you "
 "wish to increase the in-memory table limit you will have to increase the "
 "other value as well."
 msgstr ""
+"If you have deliberately changed one of either: The server uses the lower "
+"value of either to determine the maximum size of in-memory tables. So if you "
+"wish to increase the in-memory table limit you will have to increase the "
+"other value as well."
 
 #: po/advisory_rules.php:148
 #, php-format
