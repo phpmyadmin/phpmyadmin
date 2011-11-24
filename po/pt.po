@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 20:58+0200\n"
+"PO-Revision-Date: 2011-11-24 21:00+0200\n"
 "Last-Translator: JoaoTMDias <contacto@joaodias.me>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -1416,9 +1416,8 @@ msgid "slow_query_log and general_log are disabled."
 msgstr "slow_query_log e general_log estão inativos"
 
 #: js/messages.php:141
-#, fuzzy
 msgid "log_output is not set to TABLE."
-msgstr "log_output não está configurado para TABLE"
+msgstr "log_output não está configurado para a TABELA"
 
 #: js/messages.php:142
 #, fuzzy
