@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 21:12+0200\n"
+"PO-Revision-Date: 2011-11-24 21:13+0200\n"
 "Last-Translator: JoaoTMDias <contacto@joaodias.me>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -1906,7 +1906,7 @@ msgstr "Adicionar uma opção para a coluna"
 
 #: js/messages.php:323
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "Carregue em ESC para cancelar a edição"
 
 #: js/messages.php:324
 msgid ""
