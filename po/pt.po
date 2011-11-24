@@ -2767,8 +2767,9 @@ msgid "Check Privileges"
 msgstr "Verificar Privilégios"
 
 #: libraries/common.inc.php:147
+#, fuzzy
 msgid "possible exploit"
-msgstr ""
+msgstr "possível 'exploit'"
 
 #: libraries/common.inc.php:156
 msgid "numeric key detected"
