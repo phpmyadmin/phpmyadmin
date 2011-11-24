@@ -104,9 +104,11 @@ require_once './libraries/header_scripts.inc.php';
 
         if (opener && opener.document && opener.document.insertForm) {
             var field = 'fields';
+            var field_null = 'fields_null';
 
             <?php if (isset($rownumber)) { ?>
             var element_name = field + '[multi_edit][<?php echo htmlspecialchars($rownumber); ?>][' + fieldmd5 + ']';
+            var null_name = field_null + '[multi_edit][<?php echo htmlspecialchars($rownumber); ?>][' + fieldmd5 + ']';
             <?php } else { ?>
             var element_name = field + '[]';
             <?php } ?>
@@ -120,6 +122,9 @@ require_once './libraries/header_scripts.inc.php';
             if (opener.document.insertForm.elements[element_name]) {
                 // Edit/Insert form
                 opener.document.insertForm.elements[element_name].value = key;
+                if (opener.document.insertForm.elements[null_name]) {
+                    opener.document.insertForm.elements[null_name].checked = false;
+                }
                 self.close();
                 return false;
             } else if (opener.document.insertForm.elements[element_name_alt]) {

@@ -80,6 +80,7 @@ phpMyAdmin - ChangeLog
 - bug #3425156 [interface] Add column after drop
 - [interface] Avoid showing the password in phpinfo()'s output
 - bug #3441572 [GUI] 'newer version of phpMyAdmin' message not shown in IE8
+- bug #3407235 [interface] Entering the key through a lookup window does not reset NULL
 
 3.4.7.1 (2011-11-10)
 - [security] Fixed possible local file inclusion in XML import
