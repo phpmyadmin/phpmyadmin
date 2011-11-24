@@ -12908,9 +12908,9 @@ msgstr ""
 "database handler properly. Check your network and code."
 
 #: po/advisory_rules.php:243
-#, php-format
+#, fuzzy, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
-msgstr ""
+msgstr "%s%% of all clients are aborted. This value should be below 2%%"
 
 #: po/advisory_rules.php:245
 #, fuzzy
