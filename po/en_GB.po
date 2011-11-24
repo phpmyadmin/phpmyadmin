@@ -12837,10 +12837,11 @@ msgstr ""
 "code closes database handlers properly."
 
 #: po/advisory_rules.php:228
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
+"Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 
 #: po/advisory_rules.php:230
 #, fuzzy
