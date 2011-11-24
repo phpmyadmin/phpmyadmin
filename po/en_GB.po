@@ -5403,7 +5403,7 @@ msgstr "The server is not responding."
 
 #: libraries/database_interface.lib.php:1772
 msgid "Please check privileges of directory containing database."
-msgstr ""
+msgstr "Please check privileges of directory containing database."
 
 #: libraries/database_interface.lib.php:1780
 msgid "Details..."
