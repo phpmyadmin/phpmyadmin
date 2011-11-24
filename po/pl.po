@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 20:50+0200\n"
+"PO-Revision-Date: 2011-11-24 20:51+0200\n"
 "Last-Translator: fungms <fungms@o2.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -12280,10 +12280,9 @@ msgid "Version %s snapshot (SQL code)"
 msgstr "Wersja %s migawki (kod SQL)"
 
 #: tbl_tracking.php:373
-#, fuzzy
 #| msgid "Track these data definition statements:"
 msgid "Tracking data definition successfully deleted"
-msgstr "Monitoruj następujące instrukcje definiujące dane:"
+msgstr "Śledzenie definicji danych skasowane z powodzeniem"
 
 #: tbl_tracking.php:375 tbl_tracking.php:392
 #| msgid "Ignore errors"
