@@ -2385,9 +2385,8 @@ msgstr "Quantidade"
 #: libraries/Index.class.php:448 libraries/rte/rte_events.lib.php:480
 #: libraries/rte/rte_routines.lib.php:957 tbl_tracking.php:263
 #: tbl_tracking.php:312
-#, fuzzy
 msgid "Comment"
-msgstr "Comentários"
+msgstr "Comentário"
 
 #: libraries/Index.class.php:474
 msgid "The primary key has been dropped"
