@@ -7837,10 +7837,9 @@ msgid "Current Server"
 msgstr "Current server"
 
 #: libraries/server_links.inc.php:60
-#, fuzzy
 #| msgid "User"
 msgid "Users"
-msgstr "User"
+msgstr "Users"
 
 #: libraries/server_links.inc.php:79 server_synchronize.php:1154
 #: server_synchronize.php:1162
