@@ -3105,10 +3105,9 @@ msgid "Open"
 msgstr "Abrir"
 
 #: libraries/config.values.php:77
-#, fuzzy
 #| msgid "Unclosed quote"
 msgid "Closed"
-msgstr "Aspa não fechada"
+msgstr "Fechado"
 
 #: libraries/config.values.php:78 libraries/config/FormDisplay.tpl.php:199
 #: libraries/relation.lib.php:82 libraries/relation.lib.php:89
