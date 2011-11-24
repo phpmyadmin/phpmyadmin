@@ -6501,10 +6501,9 @@ msgstr ""
 "and server version)</i>"
 
 #: libraries/export/sql.php:45
+#, fuzzy
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr ""
-"Additional custom header comment (\n"
-" splits lines):"
+msgstr "Additional custom header comment (\\n splits lines):"
 
 #: libraries/export/sql.php:50
 msgid ""
