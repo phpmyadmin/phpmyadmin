@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 22:07+0200\n"
+"PO-Revision-Date: 2011-11-24 22:08+0200\n"
 "Last-Translator: JoaoTMDias <contacto@joaodias.me>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -3375,6 +3375,8 @@ msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"Define o tamanho máximo para campos de entrada gerados por colunas CHAR e "
+"VARCHAR"
 
 #: libraries/config/messages.inc.php:37
 #, fuzzy
