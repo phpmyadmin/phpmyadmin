@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 20:38+0200\n"
+"PO-Revision-Date: 2011-11-24 20:39+0200\n"
 "Last-Translator: fungms <fungms@o2.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -13066,7 +13066,7 @@ msgstr ""
 
 #: po/advisory_rules.php:150
 msgid "Percentage of temp tables on disk"
-msgstr ""
+msgstr "Procent tabel tymczasowych na dysku"
 
 #: po/advisory_rules.php:151 po/advisory_rules.php:156
 msgid ""
