@@ -2784,6 +2784,8 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
+"Isto geralmente significa que há um erro de sintaxe, por favor verifique "
+"qualquer erro mostrado abaixo."
 
 #: libraries/common.inc.php:605
 #, php-format
