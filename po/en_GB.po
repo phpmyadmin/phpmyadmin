@@ -12919,9 +12919,9 @@ msgid "Rate of aborted clients"
 msgstr "Rate of aborted clients"
 
 #: po/advisory_rules.php:248
-#, php-format
+#, fuzzy, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
-msgstr ""
+msgstr "Aborted client rate is at %s, this value should be less than 1 per hour"
 
 #: po/advisory_rules.php:250
 msgid "Is InnoDB disabled?"
