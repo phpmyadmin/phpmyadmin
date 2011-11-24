@@ -1335,7 +1335,7 @@ function PMA_syncDisplayHeaderSource($src_db) {
 
     echo '<table id="serverstatusconnections" class="data" width="55%">';
     echo '<tr>';
-    echo '<th>' . __('Source database') . ':  ' . $src_db . '<br />(';
+    echo '<th>' . __('Source database') . ':  ' . htmlspecialchars($src_db) . '<br />(';
     if ('cur' == $_SESSION['src_type']) {
         echo __('Current server');
     } else {
@@ -1358,7 +1358,7 @@ function PMA_syncDisplayHeaderSource($src_db) {
 function PMA_syncDisplayHeaderTargetAndMatchingTables($trg_db, $matching_tables) {
     echo '<table id="serverstatusconnections" class="data" width="43%">';
     echo '<tr>';
-    echo '<th>' . __('Target database') . ':  '. $trg_db . '<br />(';
+    echo '<th>' . __('Target database') . ':  '. htmlspecialchars($trg_db) . '<br />(';
     if ('cur' == $_SESSION['trg_type']) {
         echo __('Current server');
     } else {
