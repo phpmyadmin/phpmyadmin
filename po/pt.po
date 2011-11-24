@@ -2715,7 +2715,7 @@ msgstr "Descarregar ficheiro"
 #: libraries/blobstreaming.lib.php:494
 #, php-format
 msgid "Could not open file: %s"
-msgstr ""
+msgstr "Não foi possível abrir o ficheiro: %s"
 
 #: libraries/bookmark.lib.php:73
 msgid "shared"
