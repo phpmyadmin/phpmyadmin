@@ -2554,7 +2554,7 @@ msgstr "Tema %s não encontrado!"
 #: libraries/Theme_Manager.class.php:217
 #, php-format
 msgid "Theme path not found for theme %s!"
-msgstr ""
+msgstr "Encontrado caminho inválido para o tema %s!"
 
 #: libraries/Theme_Manager.class.php:296 themes.php:20 themes.php:27
 msgid "Theme"
