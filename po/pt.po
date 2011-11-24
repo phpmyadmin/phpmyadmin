@@ -1750,7 +1750,7 @@ msgstr "A apagar %s"
 
 #: js/messages.php:242
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr ""
+msgstr "A definição de uma função armazenada deve conter uma instrução RETURN!"
 
 #: js/messages.php:249
 #, fuzzy, php-format
