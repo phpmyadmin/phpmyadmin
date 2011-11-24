@@ -3237,7 +3237,7 @@ msgstr "máximo %s"
 
 #: libraries/config/FormDisplay.tpl.php:141 main.php:219
 msgid "Wiki"
-msgstr ""
+msgstr "Wiki"
 
 #: libraries/config/FormDisplay.tpl.php:199
 msgid "This setting is disabled, it will not be applied to your configuration"
