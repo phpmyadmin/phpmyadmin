@@ -3210,7 +3210,7 @@ msgstr "indisponível"
 #: libraries/config/FormDisplay.class.php:713
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr ""
+msgstr "\"%s\" requer a extenção %s"
 
 #: libraries/config/FormDisplay.class.php:727
 #, php-format
