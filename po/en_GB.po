@@ -3254,10 +3254,9 @@ msgstr ""
 "columns"
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
 #| msgid "Customize text input fields"
 msgid "Minimum size for input field"
-msgstr "Customise text input fields"
+msgstr "Minimum size for input field"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
