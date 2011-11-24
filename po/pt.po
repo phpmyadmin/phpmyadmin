@@ -2544,7 +2544,7 @@ msgstr "tome"
 #: libraries/Theme_Manager.class.php:110
 #, php-format
 msgid "Default theme %s not found!"
-msgstr ""
+msgstr "Tema padrão %s não encontrado!"
 
 #: libraries/Theme_Manager.class.php:151
 #, php-format
