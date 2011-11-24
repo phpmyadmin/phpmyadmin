@@ -12876,7 +12876,7 @@ msgstr "%s%% of all connections are aborted. This value should be below 1%%"
 #, fuzzy
 #| msgid "Persistent connections"
 msgid "Rate of aborted connections"
-msgstr "Persistent connections"
+msgstr "Rate of aborted connections"
 
 #: po/advisory_rules.php:238
 #, php-format
