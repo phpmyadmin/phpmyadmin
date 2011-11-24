@@ -2329,7 +2329,7 @@ msgstr "O ficheiro foi apenas parcialmente carregado."
 
 #: libraries/File.class.php:287
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Pasta temporária não encontrada."
 
 #: libraries/File.class.php:290
 msgid "Failed to write file to disk."
