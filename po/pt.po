@@ -1927,7 +1927,7 @@ msgstr "Clique para organizar"
 
 #: js/messages.php:327
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "Clique para marcar/desmarcar"
 
 #: js/messages.php:328
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
