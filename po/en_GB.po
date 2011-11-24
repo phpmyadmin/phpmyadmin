@@ -12826,11 +12826,15 @@ msgstr ""
 "max_connections."
 
 #: po/advisory_rules.php:227
+#, fuzzy
 msgid ""
 "Increase max_connections, or decrease wait_timeout so that connections that "
 "do not close database handlers properly get killed sooner. Make sure the "
 "code closes database handlers properly."
 msgstr ""
+"Increase max_connections, or decrease wait_timeout so that connections that "
+"do not close database handlers properly get killed sooner. Make sure the "
+"code closes database handlers properly."
 
 #: po/advisory_rules.php:228
 #, php-format
