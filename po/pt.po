@@ -3512,7 +3512,7 @@ msgstr "Editar as consultas SQL numa janela popup"
 
 #: libraries/config/messages.inc.php:65
 msgid "Edit in window"
-msgstr ""
+msgstr "Editar em janela"
 
 #: libraries/config/messages.inc.php:66
 #, fuzzy
