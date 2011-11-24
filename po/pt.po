@@ -3466,7 +3466,7 @@ msgstr "Separador padrão para a tabela"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show binary contents as HEX by default"
-msgstr ""
+msgstr "Mostrar conteúdo binário como HEX por padrão"
 
 #: libraries/config/messages.inc.php:57 libraries/display_tbl.lib.php:671
 msgid "Show binary contents as HEX"
