@@ -12551,7 +12551,7 @@ msgstr ""
 #, fuzzy, php-format
 #| msgid "Sort buffer size"
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "Sort buffer size"
+msgstr "Max %% MyISAM key buffer ever used"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, fuzzy, php-format
