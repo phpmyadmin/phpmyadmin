@@ -12552,7 +12552,7 @@ msgid "key_buffer_size is 0"
 msgstr "key_buffer_size is 0"
 
 #: po/advisory_rules.php:165
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Max %% MyISAM key buffer ever used"
 msgstr "Max %% MyISAM key buffer ever used"
@@ -12685,7 +12685,7 @@ msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr "Opened files rate: %s, this value should be less than 5 per hour"
 
 #: po/advisory_rules.php:195
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Immediate table locks %%"
 msgstr "Immediate table locks %%"
