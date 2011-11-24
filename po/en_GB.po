@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 03:02+0200\n"
+"PO-Revision-Date: 2011-11-24 03:03+0200\n"
 "Last-Translator: dannybeckett <daniel.beckett@gmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -12652,10 +12652,13 @@ msgstr ""
 "may get a \\\"Too many open files\\\" error."
 
 #: po/advisory_rules.php:187 po/advisory_rules.php:192
+#, fuzzy
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing open_files_limit."
 msgstr ""
+"Consider increasing {open_files_limit}, and check the error log when "
+"restarting after changing open_files_limit."
 
 #: po/advisory_rules.php:188
 #, php-format
