@@ -1872,9 +1872,8 @@ msgid "Copy"
 msgstr "Copiar"
 
 #: js/messages.php:310
-#, fuzzy
 msgid "Add columns"
-msgstr "Adiciona novo campo"
+msgstr "Adicionar colunas"
 
 #: js/messages.php:313
 msgid "Select referenced key"
