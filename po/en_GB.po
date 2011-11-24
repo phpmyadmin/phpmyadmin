@@ -12892,8 +12892,9 @@ msgid "Percentage of aborted clients"
 msgstr "Percentage of aborted clients"
 
 #: po/advisory_rules.php:241 po/advisory_rules.php:246
+#, fuzzy
 msgid "Too many clients are aborted."
-msgstr ""
+msgstr "Too many clients are aborted."
 
 #: po/advisory_rules.php:242 po/advisory_rules.php:247
 msgid ""
