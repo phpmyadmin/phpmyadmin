@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 20:40+0200\n"
+"PO-Revision-Date: 2011-11-24 20:41+0200\n"
 "Last-Translator: fungms <fungms@o2.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -12707,10 +12707,9 @@ msgid "Query cache disabled"
 msgstr "Pamięć podręczna zapytań wyłączona"
 
 #: po/advisory_rules.php:71
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "Serwer nie odpowiada"
+msgstr "Pamięć podręczna zapytań nie została włączona."
 
 #: po/advisory_rules.php:72
 msgid ""
