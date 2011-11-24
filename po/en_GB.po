@@ -12561,7 +12561,7 @@ msgstr "Max %% MyISAM key buffer ever used"
 #, fuzzy, php-format
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr "Sort buffer size"
+msgstr "MyISAM key buffer (index cache) %% used is low."
 
 #: po/advisory_rules.php:167 po/advisory_rules.php:172
 msgid ""
