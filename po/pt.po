@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 21:40+0200\n"
+"PO-Revision-Date: 2011-11-24 21:41+0200\n"
 "Last-Translator: JoaoTMDias <contacto@joaodias.me>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -2638,6 +2638,8 @@ msgstr "O mecanismo de \"Cookies\" tem de estar ligado a partir deste ponto."
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
+"A autenticação sem uma palavra-passe é proibida pela configuração (consulte "
+"'AllowNoPassword')"
 
 #: libraries/auth/cookie.auth.lib.php:568
 #: libraries/auth/signon.auth.lib.php:239
