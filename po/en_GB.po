@@ -12995,8 +12995,9 @@ msgstr ""
 "it should not be below 20%%"
 
 #: po/advisory_rules.php:260
+#, fuzzy
 msgid "Max InnoDB log size"
-msgstr ""
+msgstr "Max InnoDB log size"
 
 #: po/advisory_rules.php:261
 msgid "The InnoDB log file size is inadequately large."
