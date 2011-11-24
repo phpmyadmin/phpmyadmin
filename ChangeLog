@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+3.4.9.0 (not yet released)
+
 3.4.8.0 (not yet released)
 - bug #3425230 [interface] enum data split at space char (more space to edit)
 - bug #3426840 [interface] ENUM/SET editor can't handle commas in values
