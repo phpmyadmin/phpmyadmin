@@ -3470,7 +3470,7 @@ msgstr "Mostrar conteúdo binário como HEX por padrão"
 
 #: libraries/config/messages.inc.php:57 libraries/display_tbl.lib.php:671
 msgid "Show binary contents as HEX"
-msgstr ""
+msgstr "Mostrar conteúdo binário como HEX"
 
 #: libraries/config/messages.inc.php:58
 msgid "Show database listing as a list instead of a drop down"
