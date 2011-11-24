@@ -1112,10 +1112,9 @@ msgid "This is not a number!"
 msgstr "Isto não é um número!"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid "Index"
 msgid "Add Index"
-msgstr "Índice"
+msgstr "Adicionar Índice"
 
 #: js/messages.php:47
 #, fuzzy
