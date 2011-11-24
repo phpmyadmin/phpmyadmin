@@ -12464,6 +12464,8 @@ msgstr "Czas uruchomienia poniżej jednej doby"
 #: po/advisory_rules.php:6
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
+"Czas uruchomienia poniżej 1 doby, dostrajanie wydajności może nie być "
+"właściwe."
 
 #: po/advisory_rules.php:7
 msgid ""
