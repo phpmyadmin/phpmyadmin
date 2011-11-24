@@ -2454,10 +2454,9 @@ msgid "Recent tables"
 msgstr "Tabelas Recentes"
 
 #: libraries/RecentTable.class.php:149
-#, fuzzy
 #| msgid "Tracked tables"
 msgid "There are no recent tables"
-msgstr "Tabelas em tracking"
+msgstr "Não existem tabelas recentes"
 
 #: libraries/StorageEngine.class.php:198
 msgid ""
