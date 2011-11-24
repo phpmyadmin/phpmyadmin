@@ -12530,7 +12530,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer size"
-msgstr "Sort buffer size"
+msgstr "MyISAM key buffer size"
 
 #: po/advisory_rules.php:161
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
