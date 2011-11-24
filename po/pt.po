@@ -3215,7 +3215,7 @@ msgstr "\"%s\" requer a extenção %s"
 #: libraries/config/FormDisplay.class.php:727
 #, php-format
 msgid "import will not work, missing function (%s)"
-msgstr ""
+msgstr "Importação não irá funcionar, função (%s) em falta"
 
 #: libraries/config/FormDisplay.class.php:731
 #, php-format
