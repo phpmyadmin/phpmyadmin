@@ -12986,11 +12986,13 @@ msgstr ""
 "innodblogfilesize-proper-way.html\\\">this blog entry</a>"
 
 #: po/advisory_rules.php:258
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
 msgstr ""
+"Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
+"it should not be below 20%%"
 
 #: po/advisory_rules.php:260
 msgid "Max InnoDB log size"
