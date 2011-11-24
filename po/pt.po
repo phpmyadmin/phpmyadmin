@@ -1989,9 +1989,8 @@ msgid ", latest stable version:"
 msgstr ", última versão estável:"
 
 #: js/messages.php:346
-#, fuzzy
 msgid "up to date"
-msgstr "Sem bases de dados"
+msgstr "até à data"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:365
