@@ -12956,7 +12956,9 @@ msgstr "InnoDB log size"
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
-msgstr "The number writes done to the InnoDB buffer pool."
+msgstr ""
+"The InnoDB log file size is not an appropriate size, in relation to the "
+"InnoDB buffer pool."
 
 #: po/advisory_rules.php:257
 #, php-format
