@@ -3356,7 +3356,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
-msgstr ""
+msgstr "Edição de colunas CHAR"
 
 #: libraries/config/messages.inc.php:34
 msgid ""
