@@ -12761,8 +12761,9 @@ msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr "Thread cache hitrate: %s%%, this value should be above 80%%"
 
 #: po/advisory_rules.php:215
+#, fuzzy
 msgid "Threads that are slow to launch"
-msgstr ""
+msgstr "Threads that are slow to launch"
 
 #: po/advisory_rules.php:216
 #, fuzzy
