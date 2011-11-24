@@ -3233,7 +3233,7 @@ msgstr "Extensão SOAP não encontrada"
 #: libraries/config/FormDisplay.class.php:753
 #, php-format
 msgid "maximum %s"
-msgstr ""
+msgstr "máximo %s"
 
 #: libraries/config/FormDisplay.tpl.php:141 main.php:219
 msgid "Wiki"
