@@ -2505,7 +2505,7 @@ msgstr "Tabela %s renomeada para %s"
 
 #: libraries/Table.class.php:1362
 msgid "Could not save table UI preferences"
-msgstr ""
+msgstr "Não foi possível salvar as preferências de interface da tabela"
 
 #: libraries/Table.class.php:1385
 #, php-format
