@@ -3181,7 +3181,7 @@ msgstr "Não é um número não-negativo"
 #: libraries/config/FormDisplay.class.php:85
 #: libraries/config/validate.lib.php:426
 msgid "Not a valid port number"
-msgstr ""
+msgstr "Número de porta inválido"
 
 #: libraries/config/FormDisplay.class.php:86
 #: libraries/config/FormDisplay.class.php:547
