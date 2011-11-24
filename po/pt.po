@@ -1262,6 +1262,10 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
+"As configurações da tabela de armazenamento local do seu browser já não são "
+"compatíveis com a nova versão do monitor de diálogos. É provável que a sua "
+"configuração actual deixe de funcionar. Por favor, reinicie as suas "
+"configurações no menu <i>Configurações</i>."
 
 #: js/messages.php:97
 msgid "Query cache efficiency"
