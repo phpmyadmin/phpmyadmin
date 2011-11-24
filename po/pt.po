@@ -1853,10 +1853,9 @@ msgid "Select two different columns"
 msgstr "Seleccione duas colunas diferentes"
 
 #: js/messages.php:290
-#, fuzzy
 #| msgid "SQL result"
 msgid "Query results"
-msgstr "Resultado SQL"
+msgstr "Resultado(s) das(s) consulta(s)"
 
 #: js/messages.php:291
 #, fuzzy
