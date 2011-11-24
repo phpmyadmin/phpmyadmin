@@ -2341,7 +2341,7 @@ msgstr "Carregamento do ficheiro parado pela extensão."
 
 #: libraries/File.class.php:296
 msgid "Unknown error in file upload."
-msgstr ""
+msgstr "Erro desconhecido no upload do ficheiro."
 
 #: libraries/File.class.php:496
 msgid ""
