@@ -2357,7 +2357,7 @@ msgstr "Erro ao mover o arquivo enviado."
 
 #: libraries/File.class.php:516
 msgid "Cannot read (moved) upload file."
-msgstr ""
+msgstr "Não pode ler (movido) arquivo carregado."
 
 #: libraries/Index.class.php:419 tbl_relation.php:522
 msgid "No index defined!"
