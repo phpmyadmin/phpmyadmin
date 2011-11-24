@@ -1902,7 +1902,7 @@ msgstr ""
 
 #: js/messages.php:320
 msgid "Add an option for column "
-msgstr ""
+msgstr "Adicionar uma opção para a coluna"
 
 #: js/messages.php:323
 msgid "Press escape to cancel editing"
