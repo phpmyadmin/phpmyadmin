@@ -11269,10 +11269,9 @@ msgid "Add index"
 msgstr "Add index"
 
 #: tbl_indexes.php:175
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit index"
-msgstr "Edit mode"
+msgstr "Edit index"
 
 #: tbl_indexes.php:186
 msgid "Index name:"
