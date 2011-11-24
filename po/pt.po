@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 21:43+0200\n"
+"PO-Revision-Date: 2011-11-24 21:44+0200\n"
 "Last-Translator: JoaoTMDias <contacto@joaodias.me>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -2694,7 +2694,7 @@ msgstr "o PBMS falhou na obtenção de informações BLOB:"
 
 #: libraries/blobstreaming.lib.php:373
 msgid "PBMS get BLOB Content-Type failed"
-msgstr ""
+msgstr "PBMS falhou a obtenção do Tipo de conteúdo BLOB"
 
 #: libraries/blobstreaming.lib.php:401
 msgid "View image"
