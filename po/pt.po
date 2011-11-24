@@ -1921,10 +1921,9 @@ msgid "Drag to reorder"
 msgstr "Arraste para re-ordenar"
 
 #: js/messages.php:326
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to sort"
-msgstr "Clique para seleccionar"
+msgstr "Clique para organizar"
 
 #: js/messages.php:327
 msgid "Click to mark/unmark"
