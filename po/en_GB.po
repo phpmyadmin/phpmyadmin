@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 02:56+0200\n"
+"PO-Revision-Date: 2011-11-24 02:57+0200\n"
 "Last-Translator: dannybeckett <daniel.beckett@gmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -12375,11 +12375,15 @@ msgid "The rate of reading data from a fixed position is high."
 msgstr "The rate of reading data from a fixed position is high."
 
 #: po/advisory_rules.php:137
+#, fuzzy
 msgid ""
 "This indicates that many queries need to sort results and/or do a full table "
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
+"This indicates that many queries need to sort results and/or do a full table "
+"scan, including join queries that do not use indexes. Add indexes where "
+"applicable."
 
 #: po/advisory_rules.php:138
 #, php-format
