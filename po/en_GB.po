@@ -12781,9 +12781,9 @@ msgstr ""
 "simple operations. You might want to monitor your system load carefully."
 
 #: po/advisory_rules.php:218
-#, php-format
+#, fuzzy, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
-msgstr ""
+msgstr "%s thread(s) took longer than %s seconds to start, it should be 0"
 
 #: po/advisory_rules.php:220
 msgid "Slow launch time"
