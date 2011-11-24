@@ -12879,10 +12879,11 @@ msgid "Rate of aborted connections"
 msgstr "Rate of aborted connections"
 
 #: po/advisory_rules.php:238
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"Aborted connections rate is at %s, this value should be less than 1 per hour"
 
 #: po/advisory_rules.php:240
 #, fuzzy
