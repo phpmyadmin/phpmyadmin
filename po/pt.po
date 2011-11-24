@@ -2284,7 +2284,7 @@ msgstr ""
 
 #: libraries/Config.class.php:703
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
-msgstr ""
+msgstr "Apague a pasta \"./config\" antes de utilizar o phpMyAdmin!"
 
 #: libraries/Config.class.php:727
 #, php-format
