@@ -12791,8 +12791,9 @@ msgid "Slow launch time"
 msgstr "Slow launch time"
 
 #: po/advisory_rules.php:221
+#, fuzzy
 msgid "Slow_launch_threads is above 2s"
-msgstr ""
+msgstr "Slow_launch_threads is above 2s"
 
 #: po/advisory_rules.php:222
 msgid ""
