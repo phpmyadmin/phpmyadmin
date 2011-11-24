@@ -3224,7 +3224,7 @@ msgstr "exportação não vai funcionar, função (%s) em falta"
 
 #: libraries/config/FormDisplay.class.php:738
 msgid "SQL Validator is disabled"
-msgstr ""
+msgstr "Validador SQL desactivado"
 
 #: libraries/config/FormDisplay.class.php:745
 #, fuzzy
