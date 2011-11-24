@@ -1420,9 +1420,8 @@ msgid "log_output is not set to TABLE."
 msgstr "log_output não está configurado para a TABELA"
 
 #: js/messages.php:142
-#, fuzzy
 msgid "log_output is set to TABLE."
-msgstr "log_output está configurado para TABLE."
+msgstr "\"log_output\" está definido para a TABELA."
 
 #: js/messages.php:143
 #, php-format
