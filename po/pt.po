@@ -1772,7 +1772,7 @@ msgstr "Mostrar Caixa do query"
 
 #: js/messages.php:258 tbl_row_action.php:28
 msgid "No rows selected"
-msgstr ""
+msgstr "Nenhum registo (linha) seleccionado."
 
 #: js/messages.php:259 libraries/common.lib.php:2739
 #: libraries/display_tbl.lib.php:2497 querywindow.php:87 tbl_structure.php:149
