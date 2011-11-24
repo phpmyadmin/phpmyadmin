@@ -12538,7 +12538,7 @@ msgstr "Udział wolnych zapytań"
 #: po/advisory_rules.php:21
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
-msgstr ""
+msgstr "Jest wiele wolnych zapytań w porównaniu do czasu wstania serwera."
 
 #: po/advisory_rules.php:23
 #, php-format
