@@ -3396,7 +3396,7 @@ msgstr "Número de linhas para caixas de texto CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:41
 msgid "CHAR textarea rows"
-msgstr ""
+msgstr "Linhas da caixa de texto para CHAR"
 
 #: libraries/config/messages.inc.php:42
 msgid "Check config file permissions"
