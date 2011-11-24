@@ -12706,7 +12706,7 @@ msgstr "Immediate table locks: %s%%, this value should be above 95%%"
 
 #: po/advisory_rules.php:200
 msgid "Table lock wait rate"
-msgstr ""
+msgstr "Table lock wait rate"
 
 #: po/advisory_rules.php:203
 #, php-format
