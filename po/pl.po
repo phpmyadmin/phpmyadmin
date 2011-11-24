@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 20:41+0200\n"
+"PO-Revision-Date: 2011-11-24 20:44+0200\n"
 "Last-Translator: fungms <fungms@o2.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -12514,7 +12514,7 @@ msgstr "Procent wolnych zapytań"
 #: po/advisory_rules.php:16
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr ""
+msgstr "Jest wiele wolnych zapytań w porównaniu do ogólnej liczby Zapytań"
 
 #: po/advisory_rules.php:17 po/advisory_rules.php:22
 msgid ""
