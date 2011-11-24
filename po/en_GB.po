@@ -12583,7 +12583,7 @@ msgstr "max %% MyISAM key buffer ever used: %s, this value should be above 95%%"
 #, fuzzy
 #| msgid "Sort buffer size"
 msgid "Percentage of MyISAM key buffer used"
-msgstr "Sort buffer size"
+msgstr "Percentage of MyISAM key buffer used"
 
 #: po/advisory_rules.php:173
 #, php-format
