@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 22:14+0200\n"
+"PO-Revision-Date: 2011-11-24 22:15+0200\n"
 "Last-Translator: JoaoTMDias <contacto@joaodias.me>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -3458,7 +3458,7 @@ msgstr "Separador padrão do servidor"
 
 #: libraries/config/messages.inc.php:54
 msgid "Tab that is displayed when entering a table"
-msgstr ""
+msgstr "Separador que é mostrado quando entrar numa tabela"
 
 #: libraries/config/messages.inc.php:55
 msgid "Default table tab"
