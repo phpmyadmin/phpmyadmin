@@ -12623,10 +12623,13 @@ msgid "The rate of opening tables is high."
 msgstr "The rate of opening tables is high."
 
 #: po/advisory_rules.php:182
+#, fuzzy
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
+"Opening tables requires disk I/O which is costly. Increasing "
+"{table_open_cache} might avoid this."
 
 #: po/advisory_rules.php:183
 #, php-format
