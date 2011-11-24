@@ -3187,7 +3187,7 @@ msgstr "Número de porta inválido"
 #: libraries/config/FormDisplay.class.php:547
 #: libraries/config/validate.lib.php:378 libraries/config/validate.lib.php:465
 msgid "Incorrect value"
-msgstr ""
+msgstr "Valor incorrecto"
 
 #: libraries/config/FormDisplay.class.php:87
 #: libraries/config/validate.lib.php:479
