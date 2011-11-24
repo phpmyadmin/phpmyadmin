@@ -12640,7 +12640,7 @@ msgstr "Opened table rate: %s, this value should be less than 10 per hour"
 #, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of used open files limit"
-msgstr "Format of imported file"
+msgstr "Percentage of used open files limit"
 
 #: po/advisory_rules.php:186
 msgid ""
