@@ -2255,7 +2255,7 @@ msgstr "Sab"
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:460
 msgid "Wk"
-msgstr ""
+msgstr "Sem"
 
 #: js/messages.php:467 libraries/rte/rte_list.lib.php:62
 #: libraries/rte/rte_triggers.lib.php:326 server_status.php:1230 sql.php:894
