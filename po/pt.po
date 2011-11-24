@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 21:56+0200\n"
+"PO-Revision-Date: 2011-11-24 21:57+0200\n"
 "Last-Translator: JoaoTMDias <contacto@joaodias.me>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -3220,7 +3220,7 @@ msgstr "Importação não irá funcionar, função (%s) em falta"
 #: libraries/config/FormDisplay.class.php:731
 #, php-format
 msgid "export will not work, missing function (%s)"
-msgstr ""
+msgstr "exportação não vai funcionar, função (%s) em falta"
 
 #: libraries/config/FormDisplay.class.php:738
 msgid "SQL Validator is disabled"
