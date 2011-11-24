@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 21:58+0200\n"
+"PO-Revision-Date: 2011-11-24 21:59+0200\n"
 "Last-Translator: JoaoTMDias <contacto@joaodias.me>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -3277,6 +3277,8 @@ msgstr "Activar Ajax"
 msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
 msgstr ""
+"Se o utilizador habilitador pode entrar em qualquer servidor MySQL num "
+"formulário de login para cookie de autenticação "
 
 #: libraries/config/messages.inc.php:20
 #, fuzzy
