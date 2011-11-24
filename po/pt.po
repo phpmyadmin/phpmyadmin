@@ -2447,7 +2447,7 @@ msgstr "Erro ao criar o PDF:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
-msgstr ""
+msgstr "Não foi possível salvar a tabela recente"
 
 #: libraries/RecentTable.class.php:142
 #, fuzzy
