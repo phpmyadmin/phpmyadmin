@@ -3094,7 +3094,7 @@ msgstr "Lugar nenhum"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "Esquerda"
 
 #: libraries/config.values.php:47
 msgid "Right"
