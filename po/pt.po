@@ -3462,7 +3462,7 @@ msgstr "Separador que é mostrado quando entrar numa tabela"
 
 #: libraries/config/messages.inc.php:55
 msgid "Default table tab"
-msgstr ""
+msgstr "Separador padrão para a tabela"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show binary contents as HEX by default"
