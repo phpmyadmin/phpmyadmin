@@ -13093,11 +13093,16 @@ msgid "Enable concurrent_insert by setting it to 1"
 msgstr "Enable concurrent_insert by setting it to 1"
 
 #: po/advisory_rules.php:272
+#, fuzzy
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\\\"http://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\\\">MySQL Documentation</a>"
 msgstr ""
+"Setting {concurrent_insert} to 1 reduces contention between readers and "
+"writers for a given table. See also <a "
+"href=\\\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-"
+"inserts.html\\\">MySQL Documentation</a>"
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
