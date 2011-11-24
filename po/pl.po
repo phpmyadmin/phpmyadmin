@@ -12290,10 +12290,9 @@ msgid "Query error"
 msgstr "Błąd zapytania"
 
 #: tbl_tracking.php:390
-#, fuzzy
 #| msgid "Track these data manipulation statements:"
 msgid "Tracking data manipulation successfully deleted"
-msgstr "Monitoruj następujące instrukcje przetwarzania danych:"
+msgstr "Śledzenie manipulacji na danych skasowane z powodzeniem"
 
 #: tbl_tracking.php:402
 msgid "Tracking statements"
