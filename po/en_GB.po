@@ -13085,7 +13085,7 @@ msgstr ""
 #, fuzzy
 #| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
-msgstr "max. concurrent connections"
+msgstr "MyISAM concurrent inserts"
 
 #: po/advisory_rules.php:271
 msgid "Enable concurrent_insert by setting it to 1"
