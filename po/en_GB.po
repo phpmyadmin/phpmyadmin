@@ -12671,7 +12671,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of open files"
-msgstr "Format of imported file"
+msgstr "Rate of open files"
 
 #: po/advisory_rules.php:191
 #, fuzzy
