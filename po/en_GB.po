@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 02:59+0200\n"
+"PO-Revision-Date: 2011-11-24 03:00+0200\n"
 "Last-Translator: dannybeckett <daniel.beckett@gmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -12564,11 +12564,15 @@ msgid "MyISAM key buffer (index cache) %% used is low."
 msgstr "MyISAM key buffer (index cache) %% used is low."
 
 #: po/advisory_rules.php:167 po/advisory_rules.php:172
+#, fuzzy
 msgid ""
 "You may need to decrease the size of {key_buffer_size}, re-examine your "
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
+"You may need to decrease the size of {key_buffer_size}, re-examine your "
+"tables to see if indexes have been removed, or examine queries and "
+"expectations about what indexes are being used."
 
 #: po/advisory_rules.php:168
 #, php-format
