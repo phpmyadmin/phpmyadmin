@@ -1931,7 +1931,7 @@ msgstr "Clique para marcar/desmarcar"
 
 #: js/messages.php:328
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
-msgstr ""
+msgstr "Clique na seta<br />para alternar a visibilidade da coluna"
 
 #: js/messages.php:330
 msgid ""
