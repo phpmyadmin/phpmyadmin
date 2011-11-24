@@ -1844,10 +1844,9 @@ msgid "Strings are converted into integer for plotting"
 msgstr "As 'Strings' serão convertidas em inteiros por mapeamento"
 
 #: js/messages.php:288
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
-msgstr "Adicionar/Remover Colunas"
+msgstr "Seleccione duas colunas"
 
 #: js/messages.php:289
 msgid "Select two different columns"
