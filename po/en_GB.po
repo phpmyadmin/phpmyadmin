@@ -11409,10 +11409,9 @@ msgid "Check referential integrity:"
 msgstr "Check referential integrity:"
 
 #: tbl_printview.php:72
-#, fuzzy
 #| msgid "Show tables"
 msgid "Showing tables"
-msgstr "Show tables"
+msgstr "Showing tables"
 
 #: tbl_printview.php:269 tbl_structure.php:763
 msgid "Space usage"
