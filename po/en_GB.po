@@ -12868,9 +12868,9 @@ msgstr ""
 "source."
 
 #: po/advisory_rules.php:233
-#, php-format
+#, fuzzy, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
-msgstr ""
+msgstr "%s%% of all connections are aborted. This value should be below 1%%"
 
 #: po/advisory_rules.php:235
 #, fuzzy
