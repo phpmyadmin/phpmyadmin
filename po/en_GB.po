@@ -12601,8 +12601,9 @@ msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgstr "The %% of indexes that use the MyISAM key buffer is low."
 
 #: po/advisory_rules.php:177
+#, fuzzy
 msgid "You may need to increase {key_buffer_size}."
-msgstr ""
+msgstr "You may need to increase {key_buffer_size}."
 
 #: po/advisory_rules.php:178
 #, php-format
