@@ -2690,7 +2690,7 @@ msgstr "Falha na ligação PBMS:"
 
 #: libraries/blobstreaming.lib.php:361
 msgid "PBMS get BLOB info failed:"
-msgstr ""
+msgstr "o PBMS falhou na obtenção de informações BLOB:"
 
 #: libraries/blobstreaming.lib.php:373
 msgid "PBMS get BLOB Content-Type failed"
