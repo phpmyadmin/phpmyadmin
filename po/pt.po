@@ -2479,7 +2479,7 @@ msgstr "%s está desactivado neste servidor MySQL."
 #: libraries/StorageEngine.class.php:341
 #, fuzzy, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr "Esse servidor MySQL não suporta o stored engine %s."
+msgstr "Este servidor MySQL não suporta o stored engine %s."
 
 #: libraries/Table.class.php:329
 msgid "unknown table status: "
