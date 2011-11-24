@@ -12748,7 +12748,7 @@ msgstr "Thread cache hit rate %%"
 #, fuzzy
 #| msgid "Tracking is not active."
 msgid "Thread cache is not efficient."
-msgstr "Tracking is not active."
+msgstr "Thread cache is not efficient."
 
 #: po/advisory_rules.php:212
 msgid "Increase {thread_cache_size}."
