@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-24 20:46+0200\n"
+"PO-Revision-Date: 2011-11-24 20:47+0200\n"
 "Last-Translator: fungms <fungms@o2.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -12531,10 +12531,9 @@ msgstr ""
 "Udział wolnych zapytań powinien byc poniżej 5%%, a twoja wartość to %s%%."
 
 #: po/advisory_rules.php:20
-#, fuzzy
 #| msgid "Flush query cache"
 msgid "Slow query rate"
-msgstr "Opróżnij bufor podręczny zapytań"
+msgstr "Udział wolnych zapytań"
 
 #: po/advisory_rules.php:21
 msgid ""
