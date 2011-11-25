@@ -8474,7 +8474,7 @@ msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
-"お使いの PHP MySQL ライブラリのバージョン %s が MySQL サーバのバージョン %s "
+"お使いになっている PHP の MySQL ライブラリのバージョン %s が MySQL サーバのバージョン %s "
 "と異なります。これは予期しない不具合を起こす可能性があります。"
 
 #: main.php:345
