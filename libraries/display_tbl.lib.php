@@ -996,14 +996,16 @@ function PMA_buildValueDisplay($class, $condition_field, $value) {
 /**
  * Prepares the display for a null value
  *
- * @param   string  $class
- * @param   string  $condition_field
+ * @param string $class           class of table cell
+ * @param bool   $condition_field whether to add CSS class condition
+ * @param object $meta            the meta-information about this field
+ * @param string $align           cell allignment
  *
  * @return  string  the td
  */
-function PMA_buildNullDisplay($class, $condition_field) {
+function PMA_buildNullDisplay($class, $condition_field, $meta, $align = '') {
     // the null class is needed for inline editing
-    return '<td align="right"' . ' class="' . $class . ($condition_field ? ' condition' : '') . ' null"><i>NULL</i></td>';
+    return '<td ' . $align . ' class="' . PMA_addClass($class, $condition_field, $meta, '') . ' null"><i>NULL</i></td>';
 }
 
 /**
@@ -1359,7 +1361,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 //       so use the $pointer
 
                 if (!isset($row[$i]) || is_null($row[$i])) {
-                    $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($class, $condition_field);
+                    $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($class, $condition_field, $meta, 'align="right"');
                 } elseif ($row[$i] != '') {
 
                     $nowrap = ' nowrap';
@@ -1382,7 +1384,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
                 if (stristr($field_flags, 'BINARY')) {
                     if (!isset($row[$i]) || is_null($row[$i])) {
-                        $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($class, $condition_field);
+                        $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($class, $condition_field, $meta);
                     } else {
                         // for blobstreaming
                         // if valid BS reference exists
@@ -1398,7 +1400,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 // not binary:
                 } else {
                     if (!isset($row[$i]) || is_null($row[$i])) {
-                        $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($class, $condition_field);
+                        $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($class, $condition_field, $meta);
                     } elseif ($row[$i] != '') {
                         // if a transform function for blob is set, none of these replacements will be made
                         if (PMA_strlen($row[$i]) > $GLOBALS['cfg']['LimitChars'] && $_SESSION['tmp_user_values']['display_text'] == 'P') {
@@ -1426,7 +1428,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             // n o t   n u m e r i c   a n d   n o t   B L O B
             } else {
                 if (!isset($row[$i]) || is_null($row[$i])) {
-                    $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($class, $condition_field);
+                    $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($class, $condition_field, $meta);
                 } elseif ($row[$i] != '') {
                     // support blanks in the key
                     $relation_id = $row[$i];
