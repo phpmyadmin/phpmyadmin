@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-23 12:22+0200\n"
+"PO-Revision-Date: 2011-11-23 12:27+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9510,7 +9510,7 @@ msgstr "結合"
 
 #: server_status.php:589
 msgid "Sorting"
-msgstr "ソート中"
+msgstr "ソート"
 
 #: server_status.php:591
 msgid "Transaction coordinator"
