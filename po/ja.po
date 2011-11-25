@@ -1572,6 +1572,8 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"グラフの新しいデータを要求中に、サーバが無効な応答を返しました。セッションが期限切れであるなら、これは正常な動作です。ページを再読み込みしてください。認"
+"証はやり直す必要があるかもしれません。"
 
 #: js/messages.php:185
 msgid "Reload page"
