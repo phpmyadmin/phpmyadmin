@@ -11609,7 +11609,7 @@ msgstr ""
 #: tbl_tracking.php:246
 #, php-format
 msgid "Version %s snapshot (SQL code)"
-msgstr "バージョン %s のスナップショット（SQL コード）"
+msgstr "世代 %s のスナップショット (SQL コード)"
 
 #: tbl_tracking.php:373
 msgid "Tracking data definition successfully deleted"
