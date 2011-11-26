@@ -4901,7 +4901,7 @@ msgstr "SQL コマンドの追跡機能が、テーブルやビューに対し�
 
 #: libraries/config/messages.inc.php:446
 msgid "Automatically create versions"
-msgstr "バージョンの自動作成"
+msgstr "世代の自動作成"
 
 #: libraries/config/messages.inc.php:447
 #, fuzzy
