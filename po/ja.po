@@ -11699,7 +11699,7 @@ msgstr "すぐにアクティブにする"
 #: tbl_tracking.php:715
 #, php-format
 msgid "Create version %s of %s.%s"
-msgstr "%2$s.%3$s にバージョン %1$s を作成"
+msgstr "%2$s.%3$s に世代 %1$s を作成"
 
 #: tbl_tracking.php:719
 msgid "Track these data definition statements:"
