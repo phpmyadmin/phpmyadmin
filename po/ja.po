@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-26 07:02+0200\n"
+"PO-Revision-Date: 2011-11-26 07:03+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -11571,8 +11571,7 @@ msgstr "テーブル `%s` に対しての追跡レポート"
 #: tbl_tracking.php:173
 #, php-format
 msgid "Version %s is created, tracking for %s.%s is activated."
-msgstr ""
-"バージョン %s を作成しました。%s.%s の SQL コマンド追跡機能はアクティブです。"
+msgstr "世代 %s を作成しました。%s.%s の SQL コマンド追跡機能はアクティブです。"
 
 #: tbl_tracking.php:181
 #, php-format
