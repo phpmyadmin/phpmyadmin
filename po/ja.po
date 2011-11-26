@@ -12430,7 +12430,7 @@ msgstr ""
 #: po/advisory_rules.php:148
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr ""
+msgstr "両者の現在の値は、tmp_table_size が %s、max_heap_table_size が %s です。"
 
 #: po/advisory_rules.php:150
 msgid "Percentage of temp tables on disk"
