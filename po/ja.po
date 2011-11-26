@@ -11711,7 +11711,7 @@ msgstr "追跡するデータ操作コマンド"
 
 #: tbl_tracking.php:735
 msgid "Create version"
-msgstr "バージョンを作成"
+msgstr "世代を作成する"
 
 #: tbl_zoom_select.php:135
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
