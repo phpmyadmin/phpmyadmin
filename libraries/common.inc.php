@@ -69,11 +69,15 @@ if (version_compare(phpversion(), '5.3', 'lt')) {
 }
 
 /**
- * Avoid problems with magic_quotes_runtime
- * (in the future, this setting will be removed but it's not yet
- * known in which PHP version)
+ * This setting was removed in PHP 5.4. But at this point PMA_PHP_INT_VERSION
+ * is not yet defined so we use another way to find out the PHP version.
  */
-@ini_set('magic_quotes_runtime', false);
+if (version_compare(phpversion(), '5.4', 'lt')) {
+    /**
+     * Avoid problems with magic_quotes_runtime
+     */ 
+    @ini_set('magic_quotes_runtime', false);
+}
 
 /**
  * for verification in all procedural scripts under libraries
@@ -253,12 +257,18 @@ if (isset($_POST['usesubform'])) {
 }
 // end check if a subform is submitted
 
-// remove quotes added by php
-if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) {
-    PMA_arrayWalkRecursive($_GET, 'stripslashes', true);
-    PMA_arrayWalkRecursive($_POST, 'stripslashes', true);
-    PMA_arrayWalkRecursive($_COOKIE, 'stripslashes', true);
-    PMA_arrayWalkRecursive($_REQUEST, 'stripslashes', true);
+/**
+ * This setting was removed in PHP 5.4. But at this point PMA_PHP_INT_VERSION
+ * is not yet defined so we use another way to find out the PHP version.
+ */
+if (version_compare(phpversion(), '5.4', 'lt')) {
+    // remove quotes added by PHP
+    if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) {
+        PMA_arrayWalkRecursive($_GET, 'stripslashes', true);
+        PMA_arrayWalkRecursive($_POST, 'stripslashes', true);
+        PMA_arrayWalkRecursive($_COOKIE, 'stripslashes', true);
+        PMA_arrayWalkRecursive($_REQUEST, 'stripslashes', true);
+    }
 }
 
 /**
