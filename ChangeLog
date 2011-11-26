@@ -3,6 +3,7 @@ phpMyAdmin - ChangeLog
 
 3.4.9.0 (not yet released)
 - bug #3442028 [edit] Inline editing enum fields with null shows no dropdown
+- bug #3442004 [interface] DB suggestion not correct for user with underscore
 
 3.4.8.0 (not yet released)
 - bug #3425230 [interface] enum data split at space char (more space to edit)

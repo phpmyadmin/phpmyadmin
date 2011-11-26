@@ -128,8 +128,11 @@ function PMA_analyseShowGrant()
                   && substr(PMA_DBI_getError(), 1, 4) != 1044)
                 ) {
                     if ($GLOBALS['cfg']['SuggestDBName']) {
-                        $GLOBALS['db_to_create'] = preg_replace('/' . $re0 . '_/',     '\\1?',   $show_grants_dbname);
-                        $GLOBALS['db_to_create'] = preg_replace('/' . $re0 . '%/',     '\\1...', $GLOBALS['db_to_create']);
+                        /**
+                         * Do not handle the underscore wildcard 
+                         * (this case must be rare anyway)
+                         */
+                        $GLOBALS['db_to_create'] = preg_replace('/' . $re0 . '%/',     '\\1...', $show_grants_dbname);
                         $GLOBALS['db_to_create'] = preg_replace('/' . $re1 . '(%|_)/', '\\1\\3', $GLOBALS['db_to_create']);
                     }
                     $GLOBALS['is_create_db_priv'] = true;
