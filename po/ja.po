@@ -11676,7 +11676,7 @@ msgstr "上の結果をエクスポートする %s"
 
 #: tbl_tracking.php:603
 msgid "Show versions"
-msgstr "バージョンを表示する"
+msgstr "世代を表示する"
 
 #: tbl_tracking.php:687
 #, php-format
