@@ -12919,7 +12919,7 @@ msgstr "InnoDB の最大ログサイズ"
 
 #: po/advisory_rules.php:261
 msgid "The InnoDB log file size is inadequately large."
-msgstr ""
+msgstr "InnoDB ログファイルの大きさが、十分にありません。"
 
 #: po/advisory_rules.php:262
 #, php-format
