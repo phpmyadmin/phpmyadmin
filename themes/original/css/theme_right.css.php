@@ -1618,7 +1618,7 @@ a.close_gis_editor {
     display: none;
     position: fixed;
     _position: absolute; /* hack for IE */
-    z-index: 101;
+    z-index: 1001;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -1643,6 +1643,19 @@ a.close_gis_editor {
 
 #gis_data_editor input[type="text"] {
     width: 75px;
+}
+
+#popup_background {
+    display: none;
+    position: fixed;
+    _position: absolute; /* hack for IE6 */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #000;
+    z-index: 1000;
+    overflow: hidden;
 }
 
 /**
