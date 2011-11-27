@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-20 15:13+0100\n"
-"PO-Revision-Date: 2011-11-27 03:10+0200\n"
+"PO-Revision-Date: 2011-11-27 03:13+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12947,7 +12947,7 @@ msgstr ""
 #: po/advisory_rules.php:263
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr "使用されている InnoDB のログサイズは、%s MiB です。"
+msgstr "使用されている InnoDB のログサイズの総計は、%s MiB です。"
 
 #: po/advisory_rules.php:265
 msgid "InnoDB buffer pool size"
