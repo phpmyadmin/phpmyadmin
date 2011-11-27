@@ -1559,6 +1559,13 @@ function PMA_createTableDialog( $div, url , target)
                          });
 
                      PMA_verifyColumnsProperties();
+
+                     // move the Cancel button next to the Save button
+                     var $button_pane = $('.ui-dialog-buttonpane');
+                     var $cancel_button = $button_pane.find('.ui-button');
+                     var $save_button  = $('#create_table_form').find("input[name='do_save_data']");
+                     $cancel_button.insertAfter($save_button);
+                     $button_pane.hide();
                  },
                  close: function() {
                      $(window).unbind('resize.dialog-resizer');
