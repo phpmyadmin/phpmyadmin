@@ -2240,11 +2240,12 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
        . '</form>' . "\n";
 } else {
     // check the privileges for a particular database.
-    $user_form = '<form id="usersForm"><table id="dbspecificuserrights" class="data">' . "\n"
-       . '<caption class="tblHeaders">' . "\n"
+    $user_form = '<form id="usersForm"><fieldset>' . "\n"
+       . '<legend>' . "\n"
        . PMA_getIcon('b_usrcheck.png')
        . '    ' . sprintf(__('Users having access to &quot;%s&quot;'), '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url($checkprivs) . '">' .  htmlspecialchars($checkprivs) . '</a>') . "\n"
-       . '</caption>' . "\n"
+       . '</legend>' . "\n"
+       . '<table id="dbspecificuserrights" class="data">' . "\n"
        . '<thead>' . "\n"
        . '    <tr><th>' . __('User') . '</th>' . "\n"
        . '        <th>' . __('Host') . '</th>' . "\n"
@@ -2390,7 +2391,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
            . '    </tr>' . "\n";
     }
     $user_form .= '</tbody>' . "\n"
-       . '</table></form>' . "\n";
+       . '</table></fieldset></form>' . "\n";
 
     if ($GLOBALS['is_ajax_request'] == true) {
         $extra_data['user_form'] = $user_form;
@@ -2399,6 +2400,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
     } else {
         // Offer to create a new user for the current database
         $user_form .= '<fieldset id="fieldset_add_user">' . "\n"
+           . '<legend>' . __('New') . '</legend>' . "\n"
            . '    <a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;adduser=1&amp;dbname=' . htmlspecialchars($checkprivs) .'" val="'.'checkprivs='.htmlspecialchars($checkprivs). '&'.$GLOBALS['url_query'] . '" class="'.$conditional_class.'" name="db_specific">' . "\n"
            . PMA_getIcon('b_usradd.png')
            . '        ' . __('Add user') . '</a>' . "\n"
