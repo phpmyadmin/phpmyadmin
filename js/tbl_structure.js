@@ -51,7 +51,7 @@ $(document).ready(function() {
 
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
 
-            PMA_ajaxShowMessage(PMA_messages['strDroppingColumn']);
+            PMA_ajaxShowMessage(PMA_messages['strDroppingColumn'], false);
 
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
                 if(data.success == true) {
@@ -91,7 +91,7 @@ $(document).ready(function() {
 
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
 
-            PMA_ajaxShowMessage(PMA_messages['strAddingPrimaryKey']);
+            PMA_ajaxShowMessage(PMA_messages['strAddingPrimaryKey'], false);
 
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
                 if(data.success == true) {
@@ -136,7 +136,7 @@ $(document).ready(function() {
 
         $anchor.PMA_confirm(question, $anchor.attr('href'), function(url) {
 
-            PMA_ajaxShowMessage(PMA_messages['strDroppingPrimaryKeyIndex']);
+            PMA_ajaxShowMessage(PMA_messages['strDroppingPrimaryKeyIndex'], false);
 
             $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
                 if(data.success == true) {

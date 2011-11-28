@@ -336,7 +336,7 @@ $(document).ready(function() {
                         $form.find('input:reset').trigger('click');
                     }
                 } else {
-                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : "+data.error, "7000");
+                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
             } else {
                 //happens for example when no change was done while editing

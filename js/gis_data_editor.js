@@ -151,7 +151,7 @@ function loadGISEditor(value, field, type, input_name, token) {
             initGISEditorVisualization();
             prepareJSVersion();
         } else {
-            PMA_ajaxShowMessage(data.error);
+            PMA_ajaxShowMessage(data.error, false);
         }
     }, 'json');
 }
@@ -196,7 +196,7 @@ function insertDataAndClose() {
         if(data.success == true) {
             $("input[name='" + input_name + "']").val(data.result);
         } else {
-            PMA_ajaxShowMessage(data.error);
+            PMA_ajaxShowMessage(data.error, false);
         }
     }, 'json');
     closeGISEditor();
@@ -236,7 +236,7 @@ $(document).ready(function() {
                 eval(data.openLayers);
                 initGISEditorVisualization();
             } else {
-                PMA_ajaxShowMessage(data.error);
+                PMA_ajaxShowMessage(data.error, false);
             }
         }, 'json');
     });
@@ -254,7 +254,7 @@ $(document).ready(function() {
                 initGISEditorVisualization();
                 prepareJSVersion();
             } else {
-                PMA_ajaxShowMessage(data.error);
+                PMA_ajaxShowMessage(data.error, false);
             }
         }, 'json');
     });

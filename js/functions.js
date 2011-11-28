@@ -2034,8 +2034,6 @@ $(document).ready(function() {
      /**
      * Attach event handler to the submit action of the create table minimal form
      * and retrieve the full table form and display it in a dialog
-     *
-     * @uses    PMA_ajaxShowMessage()
      */
     $("#create_table_form_minimal.ajax").live('submit', function(event) {
         event.preventDefault();
@@ -2255,7 +2253,7 @@ $(document).ready(function() {
                     } else {
                         var $temp_div = $("<div id='temp_div'><div>").append(data);
                         var $error = $temp_div.find(".error code").addClass("error");
-                        PMA_ajaxShowMessage($error);
+                        PMA_ajaxShowMessage($error, false);
                     }
                 }) // end $.post()
             } else {
@@ -2299,7 +2297,7 @@ $(document).ready(function() {
                 var $temp_div = $("<div id='temp_div'></div>")
                 $temp_div.html(data.error);
                 var $error = $temp_div.find("code").addClass("error");
-                PMA_ajaxShowMessage($error);
+                PMA_ajaxShowMessage($error, false);
             }
         }) // end $.post()
     });//end of alterTableOrderby ajax submit
@@ -2341,7 +2339,7 @@ $(document).ready(function() {
                     var $temp_div = $("<div id='temp_div'></div>");
                     $temp_div.html(data.error);
                     var $error = $temp_div.find("code").addClass("error");
-                    PMA_ajaxShowMessage($error);
+                    PMA_ajaxShowMessage($error, false);
                 }
             }) // end $.post()
         }
@@ -2380,7 +2378,7 @@ $(document).ready(function() {
                 var $temp_div = $("<div id='temp_div'></div>");
                 $temp_div.html(data.error);
                 var $error = $temp_div.find("code").addClass("error");
-                PMA_ajaxShowMessage($error);
+                PMA_ajaxShowMessage($error, false);
             }
         }) // end $.post()
     });//end of table maintanance ajax click
@@ -2459,7 +2457,7 @@ $(document).ready(function() {
                 }
             }
             else {
-                PMA_ajaxShowMessage(data.error);
+                PMA_ajaxShowMessage(data.error, false);
             }
         }) // end $.post()
     }) // end $().live()
@@ -2533,7 +2531,7 @@ $(document).ready(function() {
                 PMA_ajaxRemoveMessage($msgbox);
             }
             else {
-                PMA_ajaxShowMessage(data.error);
+                PMA_ajaxShowMessage(data.error, false);
             }
         }) // end $.post()
     }) // end handler for Change Password form submission
@@ -3220,7 +3218,7 @@ var toggleButton = function ($obj) {
                 });
                 eval(callback);
             } else {
-                PMA_ajaxShowMessage(data.error);
+                PMA_ajaxShowMessage(data.error, false);
                 $container.removeClass('isActive');
             }
         });
@@ -3497,7 +3495,7 @@ $(document).ready(function() {
                     var $temp_div = $("<div id='temp_div'></div>")
                     $temp_div.html(data.error);
                     var $error = $temp_div.find("code").addClass("error");
-                    PMA_ajaxShowMessage($error);
+                    PMA_ajaxShowMessage($error, false);
                 }
             }) // end $.get()
         }); // end $.PMA_confirm()

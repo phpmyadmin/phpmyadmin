@@ -445,7 +445,7 @@ $(document).ready(function() {
                         $('#sqlqueryresults').html(data.sql_query);
                         $("#sqlqueryresults").trigger('appendAnchor');
                     } else {
-                        PMA_ajaxShowMessage(data.error);
+                        PMA_ajaxShowMessage(data.error, false);
                     }
             }); //End $.post
         }//End database update
