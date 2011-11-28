@@ -5155,10 +5155,9 @@ msgid "Whether to show hint or not"
 msgstr "Se mostrare i suggerimenti o meno"
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 #| msgid "Show indexes"
 msgid "Show hint"
-msgstr "Mostra gli indici"
+msgstr "Mostra suggerimento"
 
 #: libraries/config/messages.inc.php:468
 msgid ""
