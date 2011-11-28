@@ -201,7 +201,7 @@ $(document).ready(function() {
                     if ($('#fieldset_add_user a.ajax').attr('name') == 'db_specific') {
 
                         /*process the fieldset_add_user attribute and get the val of privileges*/
-                        var url = $('#fieldset_add_user a.ajax').attr('val');
+                        var url = $('#fieldset_add_user a.ajax').attr('rel');
 
                         if (url.substring(url.length - 23, url.length) == "&goto=db_operations.php") {
                             url = url.substring(0, url.length - 23);
