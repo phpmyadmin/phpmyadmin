@@ -1127,7 +1127,7 @@ msgstr "Popraw Index"
 #, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %d column(s) to index"
-msgstr "Dodaj %s kolumn(ę) do indeksu"
+msgstr "Dodaj %d kolumn(ę) do indeksu"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:52
