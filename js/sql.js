@@ -429,7 +429,7 @@ $(document).ready(function() {
                 }
 
             } else {
-                PMA_ajaxShowMessage(data.error);
+                PMA_ajaxShowMessage(data.error, false);
                 $("#table_results tbody tr.marked .multi_checkbox " +
                         ", #table_results tbody tr td.marked .multi_checkbox").prop("checked", false);
                 $("#table_results tbody tr.marked .multi_checkbox " +
@@ -488,7 +488,7 @@ $(document).ready(function() {
                     $("#result_query").prepend((data.message));
                 }
             } else {
-                PMA_ajaxShowMessage(data.error);
+                PMA_ajaxShowMessage(data.error, false);
                 $("#table_results tbody tr.marked .multi_checkbox " +
                     ", #table_results tbody tr td.marked .multi_checkbox").prop("checked", false);
                 $("#table_results tbody tr.marked .multi_checkbox " +

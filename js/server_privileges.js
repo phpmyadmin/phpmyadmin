@@ -239,7 +239,7 @@ $(document).ready(function() {
                         appendNewUser(data.new_user_string, data.new_user_initial, data.new_user_initial_string);
                     }
                 } else {
-                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, "7000");
+                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
             })
         };
@@ -287,7 +287,7 @@ $(document).ready(function() {
                 PMA_ajaxRemoveMessage($msgbox);
             }
             else {
-                PMA_ajaxShowMessage(data.error);
+                PMA_ajaxShowMessage(data.error, false);
             }
         }); //end $.get()
 
@@ -332,7 +332,7 @@ $(document).ready(function() {
                 })
             }
             else {
-                PMA_ajaxShowMessage(data.error);
+                PMA_ajaxShowMessage(data.error, false);
             }
         }) // end $.post()
     }) // end Revoke User
@@ -452,7 +452,7 @@ $(document).ready(function() {
                 .removeClass('current_row');
             }
             else {
-                PMA_ajaxShowMessage(data.error);
+                PMA_ajaxShowMessage(data.error, false);
             }
         });
     })

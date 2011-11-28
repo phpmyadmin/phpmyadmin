@@ -73,7 +73,7 @@ $(document).ready(function() {
                     }) //end dialog options
                 }
                 else {
-                    PMA_ajaxShowMessage(data.error);
+                    PMA_ajaxShowMessage(data.error, false);
                 }
             }) // end $.get()
         })
@@ -139,7 +139,7 @@ $(document).ready(function() {
                 PMA_ajaxShowMessage(data.message);
             }
             else {
-                PMA_ajaxShowMessage(data.error);
+                PMA_ajaxShowMessage(data.error, false);
             }
         }) // end $.get()
     }) // end change charset

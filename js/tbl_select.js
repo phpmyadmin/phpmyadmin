@@ -58,11 +58,12 @@ $(document).ready(function() {
 
         // empty previous search results while we are waiting for new results
         $("#sqlqueryresults").empty();
-        var msgbox = PMA_ajaxShowMessage(PMA_messages['strSearching']);
+        var $msgbox = PMA_ajaxShowMessage(PMA_messages['strSearching'], false);
 
         PMA_prepareForAjaxRequest($search_form);
 
         $.post($search_form.attr('action'), $search_form.serialize(), function(response) {
+            PMA_ajaxRemoveMessage($msgbox);
             if (typeof response == 'string') {
                 // found results
                 $("#sqlqueryresults").html(response);
@@ -83,10 +84,6 @@ $(document).ready(function() {
                 // error message (zero rows)
                 $("#sqlqueryresults").html(response['message']);
             }
-            
-            msgbox.clearQueue().fadeOut('medium', function() {
-                $(this).hide();
-            });
         }) // end $.post()
     })
 

@@ -139,7 +139,7 @@ $(document).ready(function() {
             if(data.success == true) {
                 PMA_ajaxShowMessage(data.message);
             } else {
-                PMA_ajaxShowMessage(data.error);
+                PMA_ajaxShowMessage(data.error, false);
             }
             if ($("#insert_table_dialog").length > 0) {
                 $("#insert_table_dialog").dialog("close").remove();
@@ -175,7 +175,7 @@ $(document).ready(function() {
                 }
 
             } else {
-                PMA_ajaxShowMessage(data.error);
+                PMA_ajaxShowMessage(data.error, false);
             }
             if ($("#insert_table_dialog").length > 0) {
                 $("#insert_table_dialog").dialog("close").remove();
@@ -228,7 +228,7 @@ $(document).ready(function() {
                         .replaceWith(span)
                         .removeClass('truncate_table_anchor');
                 } else {
-                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
+                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
             }) // end $.get()
         }) //end $.PMA_confirm()
@@ -274,7 +274,7 @@ $(document).ready(function() {
                         window.parent.frame_navigation.location.reload();
                     }
                 } else {
-                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
+                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
             }); // end $.get()
         }); // end $.PMA_confirm()
@@ -311,7 +311,7 @@ $(document).ready(function() {
                     $(curr_tracking_row).hide("medium").remove();
                 }
                 else {
-                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
+                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
             }) // end $.get()
         }) // end $.PMA_confirm()

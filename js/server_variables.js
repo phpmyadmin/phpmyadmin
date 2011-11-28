@@ -150,7 +150,7 @@ function editVariable(link)
                 if (data.success) {
                     $cell.html(data.variable);
                 } else {
-                    PMA_ajaxShowMessage(data.error);
+                    PMA_ajaxShowMessage(data.error, false);
                     $cell.html($cell.find('span.oldContent').html());
                 }
                 $cell.removeClass('edit');

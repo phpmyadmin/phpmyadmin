@@ -386,7 +386,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         var $temp_div = $(document.createElement('div'));
                         $temp_div.html(data.error);
                         $temp_div.addClass("error");
-                        PMA_ajaxShowMessage($temp_div);
+                        PMA_ajaxShowMessage($temp_div, false);
                     }
                 });
             }
@@ -937,7 +937,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                                 $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
                             }
                             else {
-                                PMA_ajaxShowMessage(data.error);
+                                PMA_ajaxShowMessage(data.error, false);
                             }
                         }); // end $.post()
                         $editArea.show();
@@ -1241,7 +1241,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
                             g.isCellEdited = false;
                         } else {
-                            PMA_ajaxShowMessage(data.error);
+                            PMA_ajaxShowMessage(data.error, false);
                         }
                     }
             }); // end $.ajax()
