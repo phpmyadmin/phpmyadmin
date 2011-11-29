@@ -1068,6 +1068,10 @@ class PMA_Config
     /**
      * Checks if protocol is https
      *
+     * This function checks if the https protocol is used in the PmaAbsoluteUri
+     * configuration setting, as opposed to detectHttps() which checks if the
+     * https protocol is used on the active connection.
+     *
      * @return bool
      */
     public function isHttps()
@@ -1092,6 +1096,8 @@ class PMA_Config
     /**
      * Detects whether https appears to be used.
      *
+     * This function checks if the https protocol is used in the current connection
+     * with the webserver, based on environment variables.
      * Please note that this just detects what we see, so
      * it completely ignores things like reverse proxies.
      *
