@@ -827,7 +827,7 @@ echo __('Runtime Information');
                         <?php echo __('Refresh'); ?>
                     </a>
                 </div>
-                <legend>Filters</legend>
+                <legend><?php echo __('Filters'); ?></legend>
                 <div class="formelement">
                     <label for="filterText"><?php echo __('Containing the word:'); ?></label>
                     <input name="filterText" type="text" id="filterText" style="vertical-align: baseline;" />
@@ -1628,7 +1628,7 @@ function printMonitor()
     <?php } ?>
     </div>
 
-    <div id="addChartDialog" title="Add chart" style="display:none;">
+    <div id="addChartDialog" title="<?php echo __('Add chart'); ?>" style="display:none;">
         <div id="tabGridVariables">
             <p><input type="text" name="chartTitle" value="<?php echo __('Chart Title'); ?>" /></p>
 

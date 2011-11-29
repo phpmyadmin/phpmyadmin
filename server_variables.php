@@ -112,9 +112,9 @@ $serverVars = PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES;', 0, 1);
  */
 ?>
 <fieldset id="tableFilter" style="display:none;">
-<legend>Filters</legend>
+<legend><?php echo __('Filters'); ?></legend>
 <div class="formelement">
-    <label for="filterText">Containing the word:</label>
+    <label for="filterText"><?php echo __('Containing the word:'); ?></label>
     <input name="filterText" type="text" id="filterText" style="vertical-align: baseline;" />
 </div>
 </fieldset>
