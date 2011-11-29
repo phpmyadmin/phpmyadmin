@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-11-20 15:13+0100\n"
+"POT-Creation-Date: 2011-11-29 12:47+0100\n"
 "PO-Revision-Date: 2011-11-23 11:40+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
@@ -21,7 +21,7 @@ msgid "Show all"
 msgstr "Zobrazit vše"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:42
-#: libraries/common.lib.php:2441
+#: libraries/common.lib.php:2438
 #: libraries/schema/Pdf_Relation_Schema.class.php:1142
 #: libraries/schema/Pdf_Relation_Schema.class.php:1166
 #: libraries/schema/User_Schema.class.php:396
@@ -29,7 +29,7 @@ msgstr "Zobrazit vše"
 msgid "Page number:"
 msgstr "Strana číslo:"
 
-#: browse_foreigners.php:133
+#: browse_foreigners.php:138
 msgid ""
 "The target browser window could not be updated. Maybe you have closed the "
 "parent window, or your browser's security settings are configured to block "
@@ -39,20 +39,20 @@ msgstr ""
 "rodičovské okno, nebo prohlížeč blokuje operace mezi okny z důvodu "
 "bezpečnostních nastavení."
 
-#: browse_foreigners.php:151 libraries/common.lib.php:3122
-#: libraries/common.lib.php:3129 libraries/common.lib.php:3338
-#: libraries/common.lib.php:3339 libraries/db_links.inc.php:60
+#: browse_foreigners.php:156 libraries/common.lib.php:3119
+#: libraries/common.lib.php:3126 libraries/common.lib.php:3335
+#: libraries/common.lib.php:3336 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "Vyhledávání"
 
-#: browse_foreigners.php:154 db_operations.php:372 db_operations.php:412
+#: browse_foreigners.php:159 db_operations.php:372 db_operations.php:412
 #: db_operations.php:522 db_operations.php:549 db_search.php:337
 #: db_structure.php:614 enum_editor.php:119 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:208
 #: libraries/Config.class.php:1326 libraries/Theme_Manager.class.php:309
-#: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1367
-#: libraries/common.lib.php:2414 libraries/core.lib.php:513
+#: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1364
+#: libraries/common.lib.php:2411 libraries/core.lib.php:513
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:349 libraries/display_import.lib.php:267
@@ -67,14 +67,14 @@ msgstr "Vyhledávání"
 #: libraries/schema/User_Schema.class.php:487
 #: libraries/select_server.lib.php:93 libraries/sql_query_form.lib.php:348
 #: libraries/sql_query_form.lib.php:410 libraries/sql_query_form.lib.php:463
-#: libraries/tbl_properties.inc.php:575 main.php:107 navigation.php:172
-#: navigation.php:210 pmd_pdf.php:120 prefs_manage.php:263
+#: libraries/tbl_properties.inc.php:575 main.php:107 navigation.php:171
+#: navigation.php:209 pmd_pdf.php:120 prefs_manage.php:263
 #: prefs_manage.php:314 server_binlog.php:109 server_privileges.php:744
 #: server_privileges.php:1784 server_privileges.php:2148
 #: server_privileges.php:2195 server_privileges.php:2238
 #: server_replication.php:233 server_replication.php:316
 #: server_replication.php:347 server_synchronize.php:1309 tbl_change.php:340
-#: tbl_change.php:1075 tbl_change.php:1112 tbl_indexes.php:281
+#: tbl_change.php:1073 tbl_change.php:1110 tbl_indexes.php:288
 #: tbl_operations.php:284 tbl_operations.php:321 tbl_operations.php:523
 #: tbl_operations.php:585 tbl_operations.php:768 tbl_select.php:235
 #: tbl_structure.php:671 tbl_structure.php:706 tbl_tracking.php:416
@@ -83,19 +83,19 @@ msgstr "Vyhledávání"
 msgid "Go"
 msgstr "Proveď"
 
-#: browse_foreigners.php:169 browse_foreigners.php:173
+#: browse_foreigners.php:174 browse_foreigners.php:178
 #: libraries/Index.class.php:440 tbl_tracking.php:304
 msgid "Keyname"
 msgstr "Název klíče"
 
-#: browse_foreigners.php:170 browse_foreigners.php:172
+#: browse_foreigners.php:175 browse_foreigners.php:177
 #: server_collations.php:54 server_collations.php:66 server_engines.php:55
-#: server_plugins.php:147 server_status.php:1466
+#: server_plugins.php:147 server_status.php:1465
 msgid "Description"
 msgstr "Popis"
 
-#: browse_foreigners.php:249 browse_foreigners.php:258
-#: browse_foreigners.php:270 browse_foreigners.php:278
+#: browse_foreigners.php:254 browse_foreigners.php:263
+#: browse_foreigners.php:275 browse_foreigners.php:283
 msgid "Use this value"
 msgstr "Použít tuto hodnotu"
 
@@ -141,7 +141,7 @@ msgstr "Komentář k tabulce"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1305
 #: libraries/schema/Pdf_Relation_Schema.class.php:1326
 #: libraries/tbl_properties.inc.php:267 libraries/tbl_select.lib.php:83
-#: tbl_change.php:318 tbl_chart.php:89 tbl_indexes.php:206
+#: tbl_change.php:318 tbl_chart.php:89 tbl_indexes.php:213
 #: tbl_printview.php:136 tbl_relation.php:395 tbl_tracking.php:257
 #: tbl_tracking.php:308 tbl_zoom_select.php:433
 msgid "Column"
@@ -157,7 +157,7 @@ msgstr "Pole"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1306
 #: libraries/schema/Pdf_Relation_Schema.class.php:1327
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:84
-#: server_privileges.php:2251 tbl_change.php:297 tbl_change.php:324
+#: server_privileges.php:2252 tbl_change.php:297 tbl_change.php:324
 #: tbl_printview.php:137 tbl_printview.php:272 tbl_structure.php:202
 #: tbl_structure.php:766 tbl_tracking.php:258 tbl_tracking.php:305
 msgid "Type"
@@ -208,13 +208,13 @@ msgstr "Komentáře"
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:299
 #: libraries/export/latex.php:407 libraries/export/odt.php:343
-#: libraries/export/texytext.php:278 libraries/mult_submits.inc.php:287
+#: libraries/export/texytext.php:278 libraries/mult_submits.inc.php:285
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:128
 #: server_privileges.php:1473 server_privileges.php:1483
 #: server_privileges.php:1728 server_privileges.php:1739
 #: server_privileges.php:2060 server_privileges.php:2065
-#: server_privileges.php:2367 sql.php:290 sql.php:354 tbl_printview.php:190
+#: server_privileges.php:2368 sql.php:290 sql.php:354 tbl_printview.php:190
 #: tbl_structure.php:349 tbl_tracking.php:321 tbl_tracking.php:326
 msgid "No"
 msgstr "Ne"
@@ -228,14 +228,14 @@ msgstr "Ne"
 #: libraries/mult_submits.inc.php:78 libraries/mult_submits.inc.php:87
 #: libraries/mult_submits.inc.php:92 libraries/mult_submits.inc.php:97
 #: libraries/mult_submits.inc.php:102 libraries/mult_submits.inc.php:262
-#: libraries/mult_submits.inc.php:276 libraries/mult_submits.inc.php:286
-#: libraries/mult_submits.inc.php:299
+#: libraries/mult_submits.inc.php:275 libraries/mult_submits.inc.php:284
+#: libraries/mult_submits.inc.php:291
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:127
 #: server_databases.php:81 server_privileges.php:1471
 #: server_privileges.php:1481 server_privileges.php:1725
 #: server_privileges.php:1739 server_privileges.php:2060
-#: server_privileges.php:2063 server_privileges.php:2367 sql.php:353
+#: server_privileges.php:2063 server_privileges.php:2368 sql.php:353
 #: tbl_printview.php:190 tbl_structure.php:41 tbl_structure.php:349
 #: tbl_tracking.php:319 tbl_tracking.php:324
 msgid "Yes"
@@ -246,7 +246,7 @@ msgid "View dump (schema) of database"
 msgstr "Zobrazit výpis (schéma) databáze"
 
 #: db_export.php:30 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
-#: export.php:354 navigation.php:297
+#: export.php:354 navigation.php:296
 msgid "No tables found in database."
 msgstr "V databázi nebyla nalezena žádná tabulka."
 
@@ -365,13 +365,13 @@ msgstr "Tabulka"
 
 #: db_printview.php:102 libraries/build_html_for_db.lib.php:31
 #: libraries/db_structure.lib.php:42 libraries/header_printview.inc.php:65
-#: libraries/import.lib.php:151 navigation.php:592 navigation.php:612
+#: libraries/import.lib.php:151 navigation.php:591 navigation.php:611
 #: tbl_printview.php:353 tbl_structure.php:363 tbl_structure.php:469
 #: tbl_structure.php:881
 msgid "Rows"
 msgstr "Řádků"
 
-#: db_printview.php:106 libraries/db_structure.lib.php:53 tbl_indexes.php:207
+#: db_printview.php:106 libraries/db_structure.lib.php:53 tbl_indexes.php:214
 msgid "Size"
 msgstr "Velikost"
 
@@ -460,7 +460,7 @@ msgid "Del"
 msgstr "smazat"
 
 #: db_qbe.php:392 db_qbe.php:473 db_qbe.php:544 db_qbe.php:575
-#: server_privileges.php:398 tbl_change.php:908 tbl_indexes.php:276
+#: server_privileges.php:398 tbl_change.php:907 tbl_indexes.php:283
 #: tbl_select.php:196
 msgid "Or"
 msgstr "nebo"
@@ -490,13 +490,13 @@ msgstr "Použít tabulky"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "SQL dotaz na databázi <b>%s</b>:"
 
-#: db_qbe.php:955 libraries/common.lib.php:1214
+#: db_qbe.php:955 libraries/common.lib.php:1211
 msgid "Submit Query"
 msgstr "Provést dotaz"
 
 #: db_search.php:31 libraries/auth/config.auth.lib.php:77
 #: libraries/auth/config.auth.lib.php:96
-#: libraries/auth/cookie.auth.lib.php:566 libraries/auth/http.auth.lib.php:51
+#: libraries/auth/cookie.auth.lib.php:570 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:237
 msgid "Access denied"
 msgstr "Přístup odepřen"
@@ -530,8 +530,8 @@ msgstr[0] "%s odpovídající záznam v tabulce <i>%s</i>"
 msgstr[1] "%s odpovídající záznamy v tabulce <i>%s</i>"
 msgstr[2] "%s odpovídajících záznamů v tabulce <i>%s</i>"
 
-#: db_search.php:234 libraries/common.lib.php:3124
-#: libraries/common.lib.php:3336 libraries/common.lib.php:3337
+#: db_search.php:234 libraries/common.lib.php:3121
+#: libraries/common.lib.php:3333 libraries/common.lib.php:3334
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:569
 msgid "Browse"
 msgstr "Projít"
@@ -541,8 +541,8 @@ msgstr "Projít"
 msgid "Delete the matches for the %s table?"
 msgstr "Odstranit nalezené záznamy z tabulky %s?"
 
-#: db_search.php:239 libraries/display_tbl.lib.php:1416
-#: libraries/display_tbl.lib.php:2463
+#: db_search.php:239 libraries/display_tbl.lib.php:1418
+#: libraries/display_tbl.lib.php:2465
 #: libraries/schema/User_Schema.class.php:197
 #: libraries/schema/User_Schema.class.php:273
 #: libraries/schema/User_Schema.class.php:308
@@ -612,7 +612,7 @@ msgstr "Sledování je zapnuté."
 msgid "Tracking is not active."
 msgstr "Sledování není zapnuté."
 
-#: db_structure.php:450 libraries/display_tbl.lib.php:2346
+#: db_structure.php:450 libraries/display_tbl.lib.php:2348
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -641,21 +641,21 @@ msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s je výchozí úložiště na tomto MySQL serveru."
 
 #: db_structure.php:560 db_structure.php:577 db_structure.php:578
-#: libraries/display_tbl.lib.php:2488 libraries/display_tbl.lib.php:2493
-#: libraries/mult_submits.inc.php:15 server_databases.php:264
-#: server_databases.php:269 server_privileges.php:1756 tbl_structure.php:557
+#: libraries/display_tbl.lib.php:2490 libraries/display_tbl.lib.php:2495
+#: libraries/mult_submits.inc.php:15 server_databases.php:263
+#: server_databases.php:268 server_privileges.php:1756 tbl_structure.php:557
 #: tbl_structure.php:566
 msgid "With selected:"
 msgstr "Zaškrtnuté:"
 
-#: db_structure.php:563 libraries/display_tbl.lib.php:2483
-#: server_databases.php:266 server_privileges.php:682
+#: db_structure.php:563 libraries/display_tbl.lib.php:2485
+#: server_databases.php:265 server_privileges.php:682
 #: server_privileges.php:1759 tbl_structure.php:560
 msgid "Check All"
 msgstr "Zaškrtnout vše"
 
-#: db_structure.php:567 libraries/display_tbl.lib.php:2484
-#: libraries/replication_gui.lib.php:35 server_databases.php:268
+#: db_structure.php:567 libraries/display_tbl.lib.php:2486
+#: libraries/replication_gui.lib.php:35 server_databases.php:267
 #: server_privileges.php:685 server_privileges.php:1763 tbl_structure.php:564
 msgid "Uncheck All"
 msgstr "Odškrtnout vše"
@@ -664,29 +664,29 @@ msgstr "Odškrtnout vše"
 msgid "Check tables having overhead"
 msgstr "Zaškrtnout neoptimální"
 
-#: db_structure.php:580 libraries/common.lib.php:3349
-#: libraries/common.lib.php:3350 libraries/config/messages.inc.php:166
+#: db_structure.php:580 libraries/common.lib.php:3346
+#: libraries/common.lib.php:3347 libraries/config/messages.inc.php:166
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:79
-#: libraries/display_tbl.lib.php:2506 libraries/display_tbl.lib.php:2647
+#: libraries/display_tbl.lib.php:2508 libraries/display_tbl.lib.php:2649
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
-#: prefs_manage.php:286 server_privileges.php:1447 server_status.php:1589
+#: prefs_manage.php:286 server_privileges.php:1447 server_status.php:1588
 #: setup/frames/menu.inc.php:21
 msgid "Export"
 msgstr "Export"
 
 #: db_structure.php:582 db_structure.php:638
-#: libraries/display_tbl.lib.php:2596 tbl_structure.php:612
+#: libraries/display_tbl.lib.php:2598 tbl_structure.php:612
 msgid "Print view"
 msgstr "Náhled pro tisk"
 
-#: db_structure.php:586 libraries/common.lib.php:3345
-#: libraries/common.lib.php:3346
+#: db_structure.php:586 libraries/common.lib.php:3342
+#: libraries/common.lib.php:3343
 msgid "Empty"
 msgstr "Vyprázdnit"
 
 #: db_structure.php:588 db_tracking.php:104 enum_editor.php:114
-#: libraries/Index.class.php:490 libraries/common.lib.php:3343
-#: libraries/common.lib.php:3344 server_databases.php:270
+#: libraries/Index.class.php:490 libraries/common.lib.php:3340
+#: libraries/common.lib.php:3341 server_databases.php:269
 #: tbl_structure.php:150 tbl_structure.php:151 tbl_structure.php:573
 msgid "Drop"
 msgstr "Odstranit"
@@ -734,7 +734,7 @@ msgstr "Sledované tabulky"
 #: libraries/export/xml.php:292 libraries/header.inc.php:146
 #: libraries/header_printview.inc.php:60 server_databases.php:161
 #: server_privileges.php:1830 server_privileges.php:1893
-#: server_privileges.php:2156 server_status.php:1228
+#: server_privileges.php:2156 server_status.php:1227
 #: server_synchronize.php:1277 server_synchronize.php:1281
 #: tbl_tracking.php:633
 msgid "Database"
@@ -754,15 +754,15 @@ msgstr "Aktualizováno"
 
 #: db_tracking.php:89 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
-#: server_status.php:1231 sql.php:893 tbl_tracking.php:638
+#: server_status.php:1230 sql.php:892 tbl_tracking.php:638
 msgid "Status"
 msgstr "Stav"
 
 #: db_tracking.php:90 libraries/Index.class.php:438
 #: libraries/db_structure.lib.php:39 libraries/rte/rte_list.lib.php:52
 #: libraries/rte/rte_list.lib.php:61 libraries/rte/rte_list.lib.php:68
-#: server_databases.php:195 server_privileges.php:1702
-#: server_privileges.php:1897 server_privileges.php:2254 tbl_structure.php:211
+#: server_databases.php:194 server_privileges.php:1702
+#: server_privileges.php:1897 server_privileges.php:2255 tbl_structure.php:211
 msgid "Action"
 msgstr "Operace"
 
@@ -1005,7 +1005,7 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Nepodařilo se nahrát pluginy pro import, zkontrolujte prosím vaší instalaci!"
 
-#: import.php:421 sql.php:928
+#: import.php:421 sql.php:927
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Vytvořen oblíbený dotaz %s"
@@ -1033,7 +1033,7 @@ msgstr ""
 "časové limity v PHP."
 
 #: import.php:472 libraries/Message.class.php:175
-#: libraries/display_tbl.lib.php:2383 libraries/rte/rte_routines.lib.php:1204
+#: libraries/display_tbl.lib.php:2385 libraries/rte/rte_routines.lib.php:1204
 #: libraries/sql_query_form.lib.php:113 tbl_operations.php:229
 #: tbl_relation.php:284 tbl_row_action.php:126 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
@@ -1052,11 +1052,11 @@ msgstr "phpMyAdmin se lépe používá v prohlížeči <b>podporujícím rámce
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Příkaz „DROP DATABASE“ je vypnutý."
 
-#: js/messages.php:30 libraries/mult_submits.inc.php:282 sql.php:348
+#: js/messages.php:30 libraries/mult_submits.inc.php:280 sql.php:348
 msgid "Do you really want to "
 msgstr "Opravdu si přejete vykonat příkaz "
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:282 sql.php:333
+#: js/messages.php:31 libraries/mult_submits.inc.php:280 sql.php:333
 msgid "You are about to DESTROY a complete database!"
 msgstr "Chystáte se ZRUŠIT celou databázi!"
 
@@ -1098,18 +1098,15 @@ msgid "This is not a number!"
 msgstr "Nebylo zadáno číslo!"
 
 #: js/messages.php:46
-#| msgid "Add index"
 msgid "Add Index"
 msgstr "Přidat klíč"
 
 #: js/messages.php:47
-#| msgid "Edit mode"
 msgid "Edit Index"
 msgstr "Upravit klíč"
 
-#: js/messages.php:48 tbl_indexes.php:286
+#: js/messages.php:48 tbl_indexes.php:293
 #, php-format
-#| msgid "Add %s column(s)"
 msgid "Add %d column(s) to index"
 msgstr "Přidat %d polí do klíče"
 
@@ -1135,7 +1132,7 @@ msgid "The passwords aren't the same!"
 msgstr "Hesla nejsou stejná!"
 
 #: js/messages.php:59 server_privileges.php:1769 server_privileges.php:1793
-#: server_privileges.php:2205 server_privileges.php:2404
+#: server_privileges.php:2205 server_privileges.php:2406
 msgid "Add user"
 msgstr "Přidat uživatele"
 
@@ -1153,9 +1150,9 @@ msgid "Close"
 msgstr "Ukončit"
 
 #: js/messages.php:65 js/messages.php:257 libraries/Index.class.php:468
-#: libraries/common.lib.php:641 libraries/common.lib.php:1190
-#: libraries/common.lib.php:3347 libraries/common.lib.php:3348
-#: libraries/config/messages.inc.php:482 libraries/display_tbl.lib.php:1380
+#: libraries/common.lib.php:641 libraries/common.lib.php:1187
+#: libraries/common.lib.php:3344 libraries/common.lib.php:3345
+#: libraries/config/messages.inc.php:482 libraries/display_tbl.lib.php:1382
 #: libraries/schema/User_Schema.class.php:196 setup/frames/index.inc.php:138
 msgid "Edit"
 msgstr "Upravit"
@@ -1178,8 +1175,8 @@ msgstr "Statická data"
 
 #. l10n: Total number of queries
 #: js/messages.php:72 libraries/build_html_for_db.lib.php:46
-#: libraries/engines/innodb.lib.php:158 server_databases.php:223
-#: server_status.php:1115 server_status.php:1176 tbl_printview.php:310
+#: libraries/engines/innodb.lib.php:158 server_databases.php:222
+#: server_status.php:1114 server_status.php:1175 tbl_printview.php:310
 #: tbl_structure.php:803
 msgid "Total"
 msgstr "Celkem"
@@ -1190,12 +1187,12 @@ msgid "Other"
 msgstr "Ostatní"
 
 #. l10n: Thousands separator
-#: js/messages.php:76 libraries/common.lib.php:1445
+#: js/messages.php:76 libraries/common.lib.php:1442
 msgid ","
 msgstr " "
 
 #. l10n: Decimal separator
-#: js/messages.php:78 libraries/common.lib.php:1447
+#: js/messages.php:78 libraries/common.lib.php:1444
 msgid "."
 msgstr "."
 
@@ -1215,7 +1212,7 @@ msgstr "Síťový provoz (v KiB)"
 msgid "Connections since last refresh"
 msgstr "Spojení od posledního obnovaní"
 
-#: js/messages.php:84 js/messages.php:122 server_status.php:1224
+#: js/messages.php:84 js/messages.php:122 server_status.php:1223
 msgid "Processes"
 msgstr "Procesy"
 
@@ -1277,12 +1274,12 @@ msgid "System swap"
 msgstr "Odkládací oblast"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:104 libraries/common.lib.php:1395 server_status.php:1669
+#: js/messages.php:104 libraries/common.lib.php:1392 server_status.php:1668
 msgid "MiB"
 msgstr "MiB"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:105 libraries/common.lib.php:1393 server_status.php:1669
+#: js/messages.php:105 libraries/common.lib.php:1390 server_status.php:1668
 msgid "KiB"
 msgstr "KiB"
 
@@ -1334,7 +1331,7 @@ msgstr "Odesláno bajtů"
 msgid "Bytes received"
 msgstr "Přijato bajtů"
 
-#: js/messages.php:121 server_status.php:1134
+#: js/messages.php:121 server_status.php:1133
 msgid "Connections"
 msgstr "Připojení"
 
@@ -1343,12 +1340,12 @@ msgstr "Připojení"
 msgid "Questions"
 msgstr "Dotazy"
 
-#: js/messages.php:126 server_status.php:1089
+#: js/messages.php:126 server_status.php:1088
 msgid "Traffic"
 msgstr "Provoz"
 
 #: js/messages.php:127 libraries/server_links.inc.php:73
-#: server_status.php:1544
+#: server_status.php:1543
 msgid "Settings"
 msgstr "Nastavení"
 
@@ -1371,7 +1368,7 @@ msgstr "Prosím přidejte do série alespoň jednu hodnotu"
 #: js/messages.php:133 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:565 libraries/export/sql.php:1093
 #: libraries/tbl_properties.inc.php:530 pmd_general.php:504
-#: server_privileges.php:2046 server_status.php:1257 server_status.php:1686
+#: server_privileges.php:2046 server_status.php:1256 server_status.php:1685
 #: tbl_zoom_select.php:151 tbl_zoom_select.php:278
 msgid "None"
 msgstr "Žádná"
@@ -1471,7 +1468,7 @@ msgstr "Změnit nastavení"
 msgid "Current settings"
 msgstr "Aktuální nastavení"
 
-#: js/messages.php:158 server_status.php:1634
+#: js/messages.php:158 server_status.php:1633
 msgid "Chart Title"
 msgstr "Název grafu"
 
@@ -1600,7 +1597,7 @@ msgstr ""
 #: js/messages.php:191 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
-#: prefs_manage.php:229 server_status.php:1589 setup/frames/menu.inc.php:20
+#: prefs_manage.php:229 server_status.php:1588 setup/frames/menu.inc.php:20
 msgid "Import"
 msgstr "Import"
 
@@ -1754,8 +1751,8 @@ msgstr "Zobrazit pole pro dotaz"
 msgid "No rows selected"
 msgstr "Nebyl vybrán žádný řádek"
 
-#: js/messages.php:259 libraries/common.lib.php:2739
-#: libraries/display_tbl.lib.php:2497 querywindow.php:87 tbl_structure.php:149
+#: js/messages.php:259 libraries/common.lib.php:2736
+#: libraries/display_tbl.lib.php:2499 querywindow.php:87 tbl_structure.php:149
 #: tbl_structure.php:572
 msgid "Change"
 msgstr "Změnit"
@@ -1767,8 +1764,8 @@ msgstr "Doba běhu dotazu"
 #: js/messages.php:263 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
 #: libraries/tbl_properties.inc.php:714 setup/frames/config.inc.php:39
-#: setup/frames/index.inc.php:228 tbl_change.php:1027
-#: tbl_gis_visualization.php:193 tbl_indexes.php:273 tbl_relation.php:559
+#: setup/frames/index.inc.php:228 tbl_change.php:1025
+#: tbl_gis_visualization.php:193 tbl_indexes.php:280 tbl_relation.php:559
 msgid "Save"
 msgstr "Uložit"
 
@@ -1825,21 +1822,19 @@ msgid "Select two different columns"
 msgstr "Zvolte dva odlišné sloupce"
 
 #: js/messages.php:290
-#| msgid "Query results operations"
 msgid "Query results"
 msgstr "Výsledky dotazu"
 
 #: js/messages.php:291
-#| msgid "Data pointer size"
 msgid "Data point content"
 msgstr "Obsah datového bodu"
 
-#: js/messages.php:294 tbl_change.php:312 tbl_indexes.php:221
-#: tbl_indexes.php:248
+#: js/messages.php:294 tbl_change.php:312 tbl_indexes.php:228
+#: tbl_indexes.php:255
 msgid "Ignore"
 msgstr "Ignorovat"
 
-#: js/messages.php:295 libraries/display_tbl.lib.php:1381
+#: js/messages.php:295 libraries/display_tbl.lib.php:1383
 msgid "Copy"
 msgstr "Kopírovat"
 
@@ -2023,63 +2018,63 @@ msgid "December"
 msgstr "prosinec"
 
 #. l10n: Short month name
-#: js/messages.php:395 libraries/common.lib.php:1602
+#: js/messages.php:395 libraries/common.lib.php:1599
 msgid "Jan"
 msgstr "led"
 
 #. l10n: Short month name
-#: js/messages.php:397 libraries/common.lib.php:1604
+#: js/messages.php:397 libraries/common.lib.php:1601
 msgid "Feb"
 msgstr "úno"
 
 #. l10n: Short month name
-#: js/messages.php:399 libraries/common.lib.php:1606
+#: js/messages.php:399 libraries/common.lib.php:1603
 msgid "Mar"
 msgstr "bře"
 
 #. l10n: Short month name
-#: js/messages.php:401 libraries/common.lib.php:1608
+#: js/messages.php:401 libraries/common.lib.php:1605
 msgid "Apr"
 msgstr "dub"
 
 #. l10n: Short month name
-#: js/messages.php:403 libraries/common.lib.php:1610
+#: js/messages.php:403 libraries/common.lib.php:1607
 msgctxt "Short month name"
 msgid "May"
 msgstr "kvě"
 
 #. l10n: Short month name
-#: js/messages.php:405 libraries/common.lib.php:1612
+#: js/messages.php:405 libraries/common.lib.php:1609
 msgid "Jun"
 msgstr "čen"
 
 #. l10n: Short month name
-#: js/messages.php:407 libraries/common.lib.php:1614
+#: js/messages.php:407 libraries/common.lib.php:1611
 msgid "Jul"
 msgstr "čec"
 
 #. l10n: Short month name
-#: js/messages.php:409 libraries/common.lib.php:1616
+#: js/messages.php:409 libraries/common.lib.php:1613
 msgid "Aug"
 msgstr "srp"
 
 #. l10n: Short month name
-#: js/messages.php:411 libraries/common.lib.php:1618
+#: js/messages.php:411 libraries/common.lib.php:1615
 msgid "Sep"
 msgstr "zář"
 
 #. l10n: Short month name
-#: js/messages.php:413 libraries/common.lib.php:1620
+#: js/messages.php:413 libraries/common.lib.php:1617
 msgid "Oct"
 msgstr "říj"
 
 #. l10n: Short month name
-#: js/messages.php:415 libraries/common.lib.php:1622
+#: js/messages.php:415 libraries/common.lib.php:1619
 msgid "Nov"
 msgstr "lis"
 
 #. l10n: Short month name
-#: js/messages.php:417 libraries/common.lib.php:1624
+#: js/messages.php:417 libraries/common.lib.php:1621
 msgid "Dec"
 msgstr "pro"
 
@@ -2117,32 +2112,32 @@ msgid "Sun"
 msgstr "Ned"
 
 #. l10n: Short week day name
-#: js/messages.php:432 libraries/common.lib.php:1629
+#: js/messages.php:432 libraries/common.lib.php:1626
 msgid "Mon"
 msgstr "Pon"
 
 #. l10n: Short week day name
-#: js/messages.php:434 libraries/common.lib.php:1631
+#: js/messages.php:434 libraries/common.lib.php:1628
 msgid "Tue"
 msgstr "Úte"
 
 #. l10n: Short week day name
-#: js/messages.php:436 libraries/common.lib.php:1633
+#: js/messages.php:436 libraries/common.lib.php:1630
 msgid "Wed"
 msgstr "Stř"
 
 #. l10n: Short week day name
-#: js/messages.php:438 libraries/common.lib.php:1635
+#: js/messages.php:438 libraries/common.lib.php:1632
 msgid "Thu"
 msgstr "Čtv"
 
 #. l10n: Short week day name
-#: js/messages.php:440 libraries/common.lib.php:1637
+#: js/messages.php:440 libraries/common.lib.php:1634
 msgid "Fri"
 msgstr "Pát"
 
 #. l10n: Short week day name
-#: js/messages.php:442 libraries/common.lib.php:1639
+#: js/messages.php:442 libraries/common.lib.php:1636
 msgid "Sat"
 msgstr "Sob"
 
@@ -2187,7 +2182,7 @@ msgid "Wk"
 msgstr "Týd"
 
 #: js/messages.php:467 libraries/rte/rte_list.lib.php:62
-#: libraries/rte/rte_triggers.lib.php:326 server_status.php:1230 sql.php:894
+#: libraries/rte/rte_triggers.lib.php:326 server_status.php:1229 sql.php:893
 msgid "Time"
 msgstr "Čas"
 
@@ -2341,7 +2336,7 @@ msgstr "Databáze"
 
 #: libraries/Message.class.php:193 libraries/blobstreaming.lib.php:356
 #: libraries/blobstreaming.lib.php:365 libraries/common.lib.php:607
-#: libraries/core.lib.php:210 libraries/import.lib.php:140 tbl_change.php:904
+#: libraries/core.lib.php:210 libraries/import.lib.php:140 tbl_change.php:903
 #: tbl_operations.php:229 tbl_relation.php:282 view_operations.php:60
 msgid "Error"
 msgstr "Chyba"
@@ -2555,13 +2550,13 @@ msgstr "Server"
 msgid "Cookies must be enabled past this point."
 msgstr "Přihlášení vyžaduje povolené cookies."
 
-#: libraries/auth/cookie.auth.lib.php:564
+#: libraries/auth/cookie.auth.lib.php:568
 #: libraries/auth/signon.auth.lib.php:235
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "Přihlášení bez hesla je zakázáno v konfiguraci (viz AllowNoPassword)"
 
-#: libraries/auth/cookie.auth.lib.php:568
+#: libraries/auth/cookie.auth.lib.php:572
 #: libraries/auth/signon.auth.lib.php:239
 #, php-format
 msgid "No activity within %s seconds; please log in again"
@@ -2569,8 +2564,8 @@ msgstr ""
 "Nebyla zaznamenána žádná aktivita po dobu %s sekund, prosím přihlaste se "
 "znovu"
 
-#: libraries/auth/cookie.auth.lib.php:578
-#: libraries/auth/cookie.auth.lib.php:580
+#: libraries/auth/cookie.auth.lib.php:582
+#: libraries/auth/cookie.auth.lib.php:584
 #: libraries/auth/signon.auth.lib.php:243
 msgid "Cannot log in to the MySQL server"
 msgstr "Nepodařilo se přihlášení k MySQL serveru"
@@ -2687,19 +2682,19 @@ msgstr "Zkontrolovat oprávnění pro databázi „%s“."
 msgid "Check Privileges"
 msgstr "Zkontrolovat oprávnění"
 
-#: libraries/common.inc.php:147
+#: libraries/common.inc.php:151
 msgid "possible exploit"
 msgstr "možný pokus o exploit"
 
-#: libraries/common.inc.php:156
+#: libraries/common.inc.php:160
 msgid "numeric key detected"
 msgstr "detekován číselný klíč"
 
-#: libraries/common.inc.php:597
+#: libraries/common.inc.php:607
 msgid "Failed to read configuration file"
 msgstr "Nepodařilo se načíst konfigurační soubor"
 
-#: libraries/common.inc.php:598
+#: libraries/common.inc.php:608
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -2707,12 +2702,12 @@ msgstr ""
 "Obvykle to je způsobenou chybou v tomto souboru, prosím opravte jakékoliv "
 "chyby vypsané níže."
 
-#: libraries/common.inc.php:605
+#: libraries/common.inc.php:615
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Nepodařilo se nahrát výchozí konfiguraci ze souboru: %1$s"
 
-#: libraries/common.inc.php:610
+#: libraries/common.inc.php:620
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -2720,27 +2715,27 @@ msgstr ""
 "Parametr <tt>$cfg['PmaAbsoluteUri']</tt> MUSÍ být nastaven v konfiguračním "
 "souboru!"
 
-#: libraries/common.inc.php:640
+#: libraries/common.inc.php:650
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Chybné číslo serveru: „%s“"
 
-#: libraries/common.inc.php:647
+#: libraries/common.inc.php:657
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Chybné jméno serveru pro server %1$s. Prosím zkontrolujte nastavení."
 
-#: libraries/common.inc.php:656 libraries/config/messages.inc.php:506
+#: libraries/common.inc.php:666 libraries/config/messages.inc.php:506
 #: libraries/header.inc.php:134 main.php:160 server_status.php:775
 #: server_synchronize.php:1257
 msgid "Server"
 msgstr "Server"
 
-#: libraries/common.inc.php:835
+#: libraries/common.inc.php:845
 msgid "Invalid authentication method set in configuration:"
 msgstr "V konfiguraci máte špatnou přihlašovací metodu:"
 
-#: libraries/common.inc.php:950
+#: libraries/common.inc.php:960
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Měli byste aktualizovat %s na verzi %s nebo vyšší."
@@ -2781,7 +2776,7 @@ msgid "Documentation"
 msgstr "Dokumentace"
 
 #: libraries/common.lib.php:619 libraries/header_printview.inc.php:63
-#: server_status.php:577 server_status.php:1233
+#: server_status.php:577 server_status.php:1232
 msgid "SQL query"
 msgstr "SQL-dotaz"
 
@@ -2798,140 +2793,140 @@ msgstr "SQL-dotaz"
 msgid "MySQL said: "
 msgstr "MySQL hlásí: "
 
-#: libraries/common.lib.php:1123
+#: libraries/common.lib.php:1120
 msgid "Failed to connect to SQL validator!"
 msgstr "Nepodařilo se připojit k serveru kontrolujícímu SQL!"
 
-#: libraries/common.lib.php:1164 libraries/config/messages.inc.php:483
+#: libraries/common.lib.php:1161 libraries/config/messages.inc.php:483
 msgid "Explain SQL"
 msgstr "Vysvětlit SQL"
 
-#: libraries/common.lib.php:1168
+#: libraries/common.lib.php:1165
 msgid "Skip Explain SQL"
 msgstr "Bez vysvětlení SQL"
 
-#: libraries/common.lib.php:1203
+#: libraries/common.lib.php:1200
 msgid "Without PHP Code"
 msgstr "Bez PHP kódu"
 
-#: libraries/common.lib.php:1206 libraries/config/messages.inc.php:485
+#: libraries/common.lib.php:1203 libraries/config/messages.inc.php:485
 msgid "Create PHP Code"
 msgstr "Vytvořit PHP kód"
 
-#: libraries/common.lib.php:1226 libraries/config/messages.inc.php:484
+#: libraries/common.lib.php:1223 libraries/config/messages.inc.php:484
 #: server_status.php:786 server_status.php:808 server_status.php:827
 msgid "Refresh"
 msgstr "Obnovit"
 
-#: libraries/common.lib.php:1236
+#: libraries/common.lib.php:1233
 msgid "Skip Validate SQL"
 msgstr "Bez kontroly SQL"
 
-#: libraries/common.lib.php:1239 libraries/config/messages.inc.php:487
+#: libraries/common.lib.php:1236 libraries/config/messages.inc.php:487
 msgid "Validate SQL"
 msgstr "Zkontrolovat SQL"
 
-#: libraries/common.lib.php:1298
+#: libraries/common.lib.php:1295
 msgid "Inline edit of this query"
 msgstr "Upravit tento dotaz na této stránce"
 
-#: libraries/common.lib.php:1300
+#: libraries/common.lib.php:1297
 msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Upravit zde"
 
-#: libraries/common.lib.php:1366 sql.php:889
+#: libraries/common.lib.php:1363 sql.php:888
 msgid "Profiling"
 msgstr "Profilování"
 
 #. l10n: shortcuts for Byte
-#: libraries/common.lib.php:1391
+#: libraries/common.lib.php:1388
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Gigabyte
-#: libraries/common.lib.php:1397
+#: libraries/common.lib.php:1394
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
-#: libraries/common.lib.php:1399
+#: libraries/common.lib.php:1396
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
-#: libraries/common.lib.php:1401
+#: libraries/common.lib.php:1398
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
-#: libraries/common.lib.php:1403
+#: libraries/common.lib.php:1400
 msgid "EiB"
 msgstr "EiB"
 
 #. l10n: Short week day name
-#: libraries/common.lib.php:1627
+#: libraries/common.lib.php:1624
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Ned"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
-#: libraries/common.lib.php:1643
+#: libraries/common.lib.php:1640
 #: libraries/transformations/text_plain__dateformat.inc.php:35
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%a %d. %b %Y, %H:%M"
 
-#: libraries/common.lib.php:1976
+#: libraries/common.lib.php:1973
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dnů, %s hodin, %s minut a %s sekund"
 
-#: libraries/common.lib.php:2067
+#: libraries/common.lib.php:2064
 msgid "Missing parameter:"
 msgstr "Chybějící parametr:"
 
-#: libraries/common.lib.php:2450 libraries/common.lib.php:2453
+#: libraries/common.lib.php:2447 libraries/common.lib.php:2450
 #: libraries/display_tbl.lib.php:306
 msgctxt "First page"
 msgid "Begin"
 msgstr "První"
 
-#: libraries/common.lib.php:2451 libraries/common.lib.php:2454
+#: libraries/common.lib.php:2448 libraries/common.lib.php:2451
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Předchozí"
 
-#: libraries/common.lib.php:2481 libraries/common.lib.php:2484
+#: libraries/common.lib.php:2478 libraries/common.lib.php:2481
 #: libraries/display_tbl.lib.php:372 server_binlog.php:170
 #: server_binlog.php:172
 msgctxt "Next page"
 msgid "Next"
 msgstr "Následující"
 
-#: libraries/common.lib.php:2482 libraries/common.lib.php:2485
+#: libraries/common.lib.php:2479 libraries/common.lib.php:2482
 #: libraries/display_tbl.lib.php:389
 msgctxt "Last page"
 msgid "End"
 msgstr "Poslední"
 
-#: libraries/common.lib.php:2552
+#: libraries/common.lib.php:2549
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "Přejít na databázi „%s“."
 
-#: libraries/common.lib.php:2572
+#: libraries/common.lib.php:2569
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Funkčnost %s je omezena známou chybou, viz %s"
 
-#: libraries/common.lib.php:2746
+#: libraries/common.lib.php:2743
 msgid "Click to toggle"
 msgstr "Klikněte pro přepnutí"
 
-#: libraries/common.lib.php:3120 libraries/common.lib.php:3127
-#: libraries/common.lib.php:3342 libraries/config/setup.forms.php:295
+#: libraries/common.lib.php:3117 libraries/common.lib.php:3124
+#: libraries/common.lib.php:3339 libraries/config/setup.forms.php:295
 #: libraries/config/setup.forms.php:332 libraries/config/setup.forms.php:358
 #: libraries/config/user_preferences.forms.php:193
 #: libraries/config/user_preferences.forms.php:230
@@ -2943,7 +2938,7 @@ msgstr "Klikněte pro přepnutí"
 msgid "Structure"
 msgstr "Struktura"
 
-#: libraries/common.lib.php:3121 libraries/common.lib.php:3128
+#: libraries/common.lib.php:3118 libraries/common.lib.php:3125
 #: libraries/config/messages.inc.php:216 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
@@ -2951,42 +2946,42 @@ msgstr "Struktura"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:3123 libraries/common.lib.php:3340
-#: libraries/common.lib.php:3341 libraries/sql_query_form.lib.php:282
+#: libraries/common.lib.php:3120 libraries/common.lib.php:3337
+#: libraries/common.lib.php:3338 libraries/sql_query_form.lib.php:282
 #: libraries/sql_query_form.lib.php:285 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "Vložit"
 
-#: libraries/common.lib.php:3130 libraries/db_links.inc.php:85
+#: libraries/common.lib.php:3127 libraries/db_links.inc.php:85
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:114
 #: view_operations.php:87
 msgid "Operations"
 msgstr "Úpravy"
 
-#: libraries/common.lib.php:3274 libraries/sql_query_form.lib.php:435
+#: libraries/common.lib.php:3271 libraries/sql_query_form.lib.php:435
 #: prefs_manage.php:239
 msgid "Browse your computer:"
 msgstr "Procházet váš počítač:"
 
-#: libraries/common.lib.php:3293
+#: libraries/common.lib.php:3290
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Zvolte soubor z adresáře pro upload na serveru <b>%s</b>:"
 
-#: libraries/common.lib.php:3314 libraries/sql_query_form.lib.php:444
-#: tbl_change.php:905
+#: libraries/common.lib.php:3311 libraries/sql_query_form.lib.php:444
+#: tbl_change.php:904
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Adresář určený pro upload souborů nemohl být otevřen"
 
-#: libraries/common.lib.php:3323
+#: libraries/common.lib.php:3320
 msgid "There are no files to upload"
 msgstr "Nebyl zvolen žádný soubor pro nahrání"
 
-#: libraries/common.lib.php:3351 libraries/common.lib.php:3352
+#: libraries/common.lib.php:3348 libraries/common.lib.php:3349
 msgid "Execute"
 msgstr "Spustit"
 
-#: libraries/common.lib.php:3827
+#: libraries/common.lib.php:3824
 msgid "Print"
 msgstr "Vytisknout"
 
@@ -3157,7 +3152,7 @@ msgstr "Povolit uživatelům změnit tuto hodnotu"
 
 #: libraries/config/FormDisplay.tpl.php:356
 #: libraries/schema/User_Schema.class.php:508 prefs_manage.php:318
-#: prefs_manage.php:323 tbl_change.php:1076
+#: prefs_manage.php:323 tbl_change.php:1074
 msgid "Reset"
 msgstr "Původní"
 
@@ -5423,7 +5418,7 @@ msgid "Designer"
 msgstr "Návrhář"
 
 #: libraries/db_links.inc.php:92 server_privileges.php:119
-#: server_privileges.php:1894 server_privileges.php:2252
+#: server_privileges.php:1894 server_privileges.php:2253
 msgid "Privileges"
 msgstr "Oprávnění"
 
@@ -5442,7 +5437,7 @@ msgstr "Události"
 msgid "Triggers"
 msgstr "Spouště"
 
-#: libraries/db_structure.lib.php:43 libraries/display_tbl.lib.php:2218
+#: libraries/db_structure.lib.php:43 libraries/display_tbl.lib.php:2220
 msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
@@ -5858,53 +5853,53 @@ msgstr "Text (WKT)"
 msgid "Well Known Binary"
 msgstr "Binární (WKB)"
 
-#: libraries/display_tbl.lib.php:1396 libraries/display_tbl.lib.php:1408
+#: libraries/display_tbl.lib.php:1398 libraries/display_tbl.lib.php:1410
 msgid "The row has been deleted"
 msgstr "Řádek byl smazán"
 
-#: libraries/display_tbl.lib.php:1435 libraries/display_tbl.lib.php:2463
-#: server_status.php:1253
+#: libraries/display_tbl.lib.php:1437 libraries/display_tbl.lib.php:2465
+#: server_status.php:1252
 msgid "Kill"
 msgstr "Ukončit"
 
-#: libraries/display_tbl.lib.php:2322
+#: libraries/display_tbl.lib.php:2324
 msgid "in query"
 msgstr "v dotazu"
 
-#: libraries/display_tbl.lib.php:2354
+#: libraries/display_tbl.lib.php:2356
 msgid "Showing rows"
 msgstr "Zobrazeny záznamy"
 
-#: libraries/display_tbl.lib.php:2364
+#: libraries/display_tbl.lib.php:2366
 msgid "total"
 msgstr "celkem"
 
-#: libraries/display_tbl.lib.php:2372 sql.php:726
+#: libraries/display_tbl.lib.php:2374 sql.php:726
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "dotaz trval %01.4f sekund"
 
-#: libraries/display_tbl.lib.php:2575
+#: libraries/display_tbl.lib.php:2577
 msgid "Query results operations"
 msgstr "Operace s výsledky dotazu"
 
-#: libraries/display_tbl.lib.php:2604
+#: libraries/display_tbl.lib.php:2606
 msgid "Print view (with full texts)"
 msgstr "Náhled pro tisk (s kompletními texty)"
 
-#: libraries/display_tbl.lib.php:2654 tbl_chart.php:86
+#: libraries/display_tbl.lib.php:2656 tbl_chart.php:86
 msgid "Display chart"
 msgstr "Zobrazit graf"
 
-#: libraries/display_tbl.lib.php:2670
+#: libraries/display_tbl.lib.php:2672
 msgid "Visualize GIS data"
 msgstr "Zobrazit data GIS"
 
-#: libraries/display_tbl.lib.php:2691
+#: libraries/display_tbl.lib.php:2693
 msgid "Create view"
 msgstr "Vytvořit pohled"
 
-#: libraries/display_tbl.lib.php:2798
+#: libraries/display_tbl.lib.php:2800
 msgid "Link not found"
 msgstr "Odkaz nenalezen"
 
@@ -6086,8 +6081,7 @@ msgid ""
 "TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
 msgstr ""
 "Paměť, která je alokována při řazení MyISAM klíčů během jejich vytváření "
-"příkazem CREATE INDEX nebo ALTER TABLE nebo opravování příkazem REPAIR "
-"TABLE."
+"příkazem CREATE INDEX nebo ALTER TABLE nebo opravování příkazem REPAIR TABLE."
 
 #: libraries/engines/pbms.lib.php:30
 msgid "Garbage Threshold"
@@ -6449,8 +6443,8 @@ msgstr "Zobrazit MIME typy"
 #: libraries/replication_gui.lib.php:275 libraries/replication_gui.lib.php:278
 #: libraries/replication_gui.lib.php:335 server_privileges.php:812
 #: server_privileges.php:815 server_privileges.php:871
-#: server_privileges.php:1697 server_privileges.php:2250
-#: server_status.php:1227
+#: server_privileges.php:1697 server_privileges.php:2251
+#: server_status.php:1226
 msgid "Host"
 msgstr "Počítač"
 
@@ -6855,20 +6849,20 @@ msgstr "Z"
 msgid "To"
 msgstr "Na"
 
-#: libraries/mult_submits.inc.php:262 libraries/mult_submits.inc.php:276
+#: libraries/mult_submits.inc.php:262 libraries/mult_submits.inc.php:275
 #: libraries/sql_query_form.lib.php:395
 msgid "Submit"
 msgstr "Provést"
 
-#: libraries/mult_submits.inc.php:268
+#: libraries/mult_submits.inc.php:267
 msgid "Add table prefix"
 msgstr "Přidat tabulce předponu"
 
-#: libraries/mult_submits.inc.php:271
+#: libraries/mult_submits.inc.php:270
 msgid "Add prefix"
 msgstr "Přidat předponu"
 
-#: libraries/mult_submits.inc.php:488 tbl_replace.php:344
+#: libraries/mult_submits.inc.php:482 tbl_replace.php:344
 msgid "No change"
 msgstr "Žádná změna"
 
@@ -7202,14 +7196,14 @@ msgid "Slave status"
 msgstr "Stav podřízeného"
 
 #: libraries/replication_gui.lib.php:118 libraries/sql_query_form.lib.php:380
-#: server_status.php:1464 server_variables.php:123
+#: server_status.php:1463 server_variables.php:123
 msgid "Variable"
 msgstr "Proměnná"
 
 #: libraries/replication_gui.lib.php:119
 #: libraries/rte/rte_routines.lib.php:1370 libraries/tbl_select.lib.php:87
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
-#: pmd_general.php:769 server_status.php:1465 tbl_change.php:334
+#: pmd_general.php:769 server_status.php:1464 tbl_change.php:334
 #: tbl_printview.php:329 tbl_structure.php:833 tbl_zoom_select.php:435
 msgid "Value"
 msgstr "Hodnota"
@@ -7390,7 +7384,7 @@ msgstr "Musíte zadat správný typ události."
 msgid "You must provide an event definition."
 msgstr "Musíte zadat definici události."
 
-#: libraries/rte/rte_footer.lib.php:29
+#: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2403
 msgid "New"
 msgstr "Nová"
 
@@ -7864,30 +7858,30 @@ msgstr "Rozšíření"
 msgid "Engines"
 msgstr "Úložiště"
 
-#: libraries/server_synchronize.lib.php:1286 server_synchronize.php:1186
+#: libraries/server_synchronize.lib.php:1301 server_synchronize.php:1186
 msgid "Source database"
 msgstr "Zdrojová databáze"
 
-#: libraries/server_synchronize.lib.php:1288
-#: libraries/server_synchronize.lib.php:1296
+#: libraries/server_synchronize.lib.php:1303
+#: libraries/server_synchronize.lib.php:1311
 msgid "Current server"
 msgstr "Aktuální server"
 
-#: libraries/server_synchronize.lib.php:1290
-#: libraries/server_synchronize.lib.php:1298
+#: libraries/server_synchronize.lib.php:1305
+#: libraries/server_synchronize.lib.php:1313
 msgid "Remote server"
 msgstr "Vzdálený server"
 
-#: libraries/server_synchronize.lib.php:1293
+#: libraries/server_synchronize.lib.php:1308
 msgid "Difference"
 msgstr "Rozdíly"
 
-#: libraries/server_synchronize.lib.php:1294 server_synchronize.php:1188
+#: libraries/server_synchronize.lib.php:1309 server_synchronize.php:1188
 msgid "Target database"
 msgstr "Cílová databáze"
 
-#: libraries/server_synchronize.lib.php:1329
-#: libraries/server_synchronize.lib.php:1338
+#: libraries/server_synchronize.lib.php:1344
+#: libraries/server_synchronize.lib.php:1353
 msgid "Click to select"
 msgstr "Klikněte pro vybrání"
 
@@ -7901,7 +7895,7 @@ msgstr "Spustit SQL dotaz(y) na serveru %s"
 msgid "Run SQL query/queries on database %s"
 msgstr "Spustit SQL dotaz(y) na databázi %s"
 
-#: libraries/sql_query_form.lib.php:260 navigation.php:270
+#: libraries/sql_query_form.lib.php:260 navigation.php:269
 #: setup/frames/index.inc.php:232
 msgid "Clear"
 msgstr "Vyčistit"
@@ -7910,11 +7904,11 @@ msgstr "Vyčistit"
 msgid "Columns"
 msgstr "Pole"
 
-#: libraries/sql_query_form.lib.php:300 sql.php:968 sql.php:985
+#: libraries/sql_query_form.lib.php:300 sql.php:967 sql.php:984
 msgid "Bookmark this SQL query"
 msgstr "Přidat tento SQL dotaz do oblíbených"
 
-#: libraries/sql_query_form.lib.php:307 sql.php:979
+#: libraries/sql_query_form.lib.php:307 sql.php:978
 msgid "Let every user access this bookmark"
 msgstr "Umožnit všem uživatelům používat tuto oblíbenou položku"
 
@@ -7938,7 +7932,7 @@ msgstr "Zobrazit zde tento dotaz znovu"
 msgid "View only"
 msgstr "Zobrazit"
 
-#: libraries/sql_query_form.lib.php:447 tbl_change.php:908
+#: libraries/sql_query_form.lib.php:447 tbl_change.php:907
 msgid "web server upload directory"
 msgstr "soubor z adresáře pro upload"
 
@@ -8017,7 +8011,7 @@ msgstr ""
 msgid "Table seems to be empty!"
 msgstr "Tabulka se zdá být prázdná!"
 
-#: libraries/tbl_links.inc.php:127
+#: libraries/tbl_links.inc.php:126
 #, php-format
 msgid "Tracking of %s.%s is activated."
 msgstr "Sledování pro %s.%s je zapnuté."
@@ -8137,7 +8131,7 @@ msgstr "Operátor"
 msgid "Table Search"
 msgstr "Vyhledávání v tabulce"
 
-#: libraries/tbl_select.lib.php:182 tbl_change.php:1002
+#: libraries/tbl_select.lib.php:181 tbl_change.php:1000
 msgid "Edit/Insert"
 msgstr "Upravit/Vložit"
 
@@ -8339,8 +8333,8 @@ msgid "Protocol version"
 msgstr "Verze protokolu"
 
 #: main.php:165 server_privileges.php:1543 server_privileges.php:1696
-#: server_privileges.php:1820 server_privileges.php:2249
-#: server_status.php:1226
+#: server_privileges.php:1820 server_privileges.php:2250
+#: server_status.php:1225
 msgid "User"
 msgstr "Uživatel"
 
@@ -8484,20 +8478,20 @@ msgstr ""
 "Server používá Suhosin. Prosím podívejte se do %sdokumentace%s pro popis "
 "problémů, které tím mohou být způsobeny."
 
-#: navigation.php:183 server_databases.php:285 server_synchronize.php:1294
+#: navigation.php:182 server_databases.php:284 server_synchronize.php:1294
 msgid "No databases"
 msgstr "Žádné databáze"
 
-#: navigation.php:271
+#: navigation.php:270
 msgid "Filter tables by name"
 msgstr "Filtrovat tabulky podle jména"
 
-#: navigation.php:304 navigation.php:305
+#: navigation.php:303 navigation.php:304
 msgctxt "short form"
 msgid "Create table"
 msgstr "Nová tabulka"
 
-#: navigation.php:310 navigation.php:474
+#: navigation.php:309 navigation.php:473
 msgid "Please select a database"
 msgstr "Prosím vyberte databázi"
 
@@ -8757,13 +8751,13 @@ msgstr "Zvolte binární log pro zobrazení"
 msgid "Files"
 msgstr "Soubory"
 
-#: server_binlog.php:150 server_binlog.php:152 server_status.php:1237
-#: server_status.php:1239
+#: server_binlog.php:150 server_binlog.php:152 server_status.php:1236
+#: server_status.php:1238
 msgid "Truncate Shown Queries"
 msgstr "Zobrazit zkrácené dotazy"
 
-#: server_binlog.php:158 server_binlog.php:160 server_status.php:1237
-#: server_status.php:1239
+#: server_binlog.php:158 server_binlog.php:160 server_status.php:1236
+#: server_status.php:1238
 msgid "Show Full Queries"
 msgstr "Zobrazit celé dotazy"
 
@@ -8800,20 +8794,20 @@ msgstr "%s databáze byla úspěšně zrušena."
 msgid "Databases statistics"
 msgstr "Statistiky databází"
 
-#: server_databases.php:187 server_replication.php:179
+#: server_databases.php:186 server_replication.php:179
 #: server_replication.php:207
 msgid "Master replication"
 msgstr "Replikace nadřízeného"
 
-#: server_databases.php:189 server_replication.php:246
+#: server_databases.php:188 server_replication.php:246
 msgid "Slave replication"
 msgstr "Replikace podřízeného"
 
-#: server_databases.php:276 server_databases.php:277
+#: server_databases.php:275 server_databases.php:276
 msgid "Enable Statistics"
 msgstr "Zobrazit podrobnosti"
 
-#: server_databases.php:279
+#: server_databases.php:278
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -9100,7 +9094,7 @@ msgstr "Přihlašování"
 msgid "Do not change the password"
 msgstr "Neměnit heslo"
 
-#: server_privileges.php:915 server_privileges.php:2388
+#: server_privileges.php:915 server_privileges.php:2389
 msgid "No user found."
 msgstr "Nebyl nalezen žádný uživatel."
 
@@ -9158,7 +9152,7 @@ msgid "Revoke"
 msgstr "Zrušit"
 
 #: server_privileges.php:1466 server_privileges.php:1720
-#: server_privileges.php:2342
+#: server_privileges.php:2343
 msgid "Any"
 msgstr "Jakýkoliv"
 
@@ -9167,7 +9161,7 @@ msgid "Users overview"
 msgstr "Přehled uživatelů"
 
 #: server_privileges.php:1701 server_privileges.php:1895
-#: server_privileges.php:2253
+#: server_privileges.php:2254
 msgid "Grant"
 msgstr "Přidělování"
 
@@ -9273,19 +9267,19 @@ msgstr "Přidělit všechna oprávnění na databázi &quot;%s&quot;"
 msgid "Users having access to &quot;%s&quot;"
 msgstr "Uživatelé mající přístup k „%s“"
 
-#: server_privileges.php:2353
+#: server_privileges.php:2354
 msgid "global"
 msgstr "globální"
 
-#: server_privileges.php:2355
+#: server_privileges.php:2356
 msgid "database-specific"
 msgstr "závislé na databázi"
 
-#: server_privileges.php:2357
+#: server_privileges.php:2358
 msgid "wildcard"
 msgstr "maska"
 
-#: server_privileges.php:2397
+#: server_privileges.php:2398
 msgid "User has been added."
 msgstr "Uživatel byl přidán."
 
@@ -9554,7 +9548,11 @@ msgstr "Poradce"
 msgid "Refresh rate: "
 msgstr "Obnovovací frekvence: "
 
-#: server_status.php:832
+#: server_status.php:830 server_variables.php:115
+msgid "Filters"
+msgstr "Filtry"
+
+#: server_status.php:832 server_variables.php:117
 msgid "Containing the word:"
 msgstr "Obsahující slovo:"
 
@@ -9626,8 +9624,8 @@ msgstr ""
 msgid "Questions since startup: %s"
 msgstr "Dotazů od spuštění: %s"
 
-#: server_status.php:934 server_status.php:970 server_status.php:1090
-#: server_status.php:1135
+#: server_status.php:934 server_status.php:970 server_status.php:1089
+#: server_status.php:1134
 msgid "per hour"
 msgstr "za hodinu"
 
@@ -9688,7 +9686,7 @@ msgstr ""
 msgid "Replication status"
 msgstr "Stav replikace"
 
-#: server_status.php:1089
+#: server_status.php:1088
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
@@ -9696,46 +9694,46 @@ msgstr ""
 "Na hodně zatíženém serveru mohou čítače přetéct, takže statistiky MySQL "
 "serveru mohou být nepřesné."
 
-#: server_status.php:1095
+#: server_status.php:1094
 msgid "Received"
 msgstr "Přijato"
 
-#: server_status.php:1105
+#: server_status.php:1104
 msgid "Sent"
 msgstr "Odesláno"
 
-#: server_status.php:1141
+#: server_status.php:1140
 msgid "max. concurrent connections"
 msgstr "Maximum současných připojení"
 
-#: server_status.php:1148
+#: server_status.php:1147
 msgid "Failed attempts"
 msgstr "Nepovedených pokusů"
 
-#: server_status.php:1162
+#: server_status.php:1161
 msgid "Aborted"
 msgstr "Přerušené"
 
-#: server_status.php:1225
+#: server_status.php:1224
 msgid "ID"
 msgstr "ID"
 
-#: server_status.php:1229
+#: server_status.php:1228
 msgid "Command"
 msgstr "Příkaz"
 
-#: server_status.php:1291
+#: server_status.php:1290
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr ""
 "Počet spojení, která byla ukončena bez korektního ukončení ze strany klienta."
 
-#: server_status.php:1292
+#: server_status.php:1291
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "Počet chybných připojení k MySQL serveru."
 
-#: server_status.php:1293
+#: server_status.php:1292
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -9745,16 +9743,16 @@ msgstr ""
 "binlog_cache_size a musely použít dočasný soubor pro uložení příkazů "
 "transakce."
 
-#: server_status.php:1294
+#: server_status.php:1293
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr "Počet transakcí, které využily dočasný binární log."
 
-#: server_status.php:1295
+#: server_status.php:1294
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr "Celkový počet připojení (i chybných) k MySQL serveru."
 
-#: server_status.php:1296
+#: server_status.php:1295
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -9765,18 +9763,18 @@ msgstr ""
 "Pokud je tato hodnota velká, můžete zvětšit parametr tmp_table_size  a MySQL "
 "bude používat větší dočasné tabulky v paměti."
 
-#: server_status.php:1297
+#: server_status.php:1296
 msgid "How many temporary files mysqld has created."
 msgstr "Počet vytvořených dočasných souborů."
 
-#: server_status.php:1298
+#: server_status.php:1297
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
 msgstr ""
 "Počet dočasných tabulek vytvořených serverem v paměti při provádění dotazů."
 
-#: server_status.php:1299
+#: server_status.php:1298
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -9784,7 +9782,7 @@ msgstr ""
 "Počet řádků provedených pomocí INSERT DELAYED, u kterých se vyskytla chyba "
 "(pravděpodobně duplicitní klíč)."
 
-#: server_status.php:1300
+#: server_status.php:1299
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -9792,23 +9790,23 @@ msgstr ""
 "Počet vláken používaných pro INSERT DELAYED. Každá tabulka na které je "
 "použit INSERT DEKAYED má přiděleno jedno vlákno."
 
-#: server_status.php:1301
+#: server_status.php:1300
 msgid "The number of INSERT DELAYED rows written."
 msgstr "Počet řádků zapsaných pomocí INSERT DELAYED."
 
-#: server_status.php:1302
+#: server_status.php:1301
 msgid "The number of executed FLUSH statements."
 msgstr "Počet provedených příkazů FLUSH."
 
-#: server_status.php:1303
+#: server_status.php:1302
 msgid "The number of internal COMMIT statements."
 msgstr "Počet interních příkazů COMMIT."
 
-#: server_status.php:1304
+#: server_status.php:1303
 msgid "The number of times a row was deleted from a table."
 msgstr "Počet požadavků na smazání řádku."
 
-#: server_status.php:1305
+#: server_status.php:1304
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -9817,17 +9815,17 @@ msgstr ""
 "Počet zjišťování tabulek. Tímto se nazývá dotaz NDB clusteru, jestli ví o "
 "tabulce daného jména."
 
-#: server_status.php:1306
+#: server_status.php:1305
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
 "SELECT col1 FROM foo, assuming that col1 is indexed."
 msgstr ""
 "Počet přečtení první položky klíčů. Příliš vysoká hodnota znamení, že server "
-"provádí mnoho kompletních procházení klíčů. Na příklad SELECT col1 FROM "
-"foo, pokud je col1 v klíči."
+"provádí mnoho kompletních procházení klíčů. Na příklad SELECT col1 FROM foo, "
+"pokud je col1 v klíči."
 
-#: server_status.php:1307
+#: server_status.php:1306
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -9835,7 +9833,7 @@ msgstr ""
 "Počet požadavků na přečtení řádku vycházející z klíče. Vysoká hodnota "
 "znamená, že dotazy správně využívají klíče."
 
-#: server_status.php:1308
+#: server_status.php:1307
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -9845,7 +9843,7 @@ msgstr ""
 "zvětšuje pokud provádíte dotaz na sloupec s klíčem s omezením rozsahu nebo "
 "prohledáváte klíč."
 
-#: server_status.php:1309
+#: server_status.php:1308
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
@@ -9853,7 +9851,7 @@ msgstr ""
 "Počet požadavků na přečtení předchozího řádku z klíče. Používané pro "
 "optimalizaci dotazů ORDER BY ... DESC."
 
-#: server_status.php:1310
+#: server_status.php:1309
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -9865,7 +9863,7 @@ msgstr ""
 "Pravděpodobně používáte mnoho dotazů, které vyžadují prohlížení celé tabulky "
 "nebo používáte spojení tabulek, která nevyužívají klíčů."
 
-#: server_status.php:1311
+#: server_status.php:1310
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -9873,38 +9871,37 @@ msgid ""
 "advantage of the indexes you have."
 msgstr ""
 "Počet požadavků na přečtení dalšího řádku ze souboru. Tato hodnota je vysoká "
-"pokud dotazy procházejí celé tabulky, pravděpodobně tedy nemají vhodné "
-"klíče."
+"pokud dotazy procházejí celé tabulky, pravděpodobně tedy nemají vhodné klíče."
 
-#: server_status.php:1312
+#: server_status.php:1311
 msgid "The number of internal ROLLBACK statements."
 msgstr "Počet interních příkazů ROLLBACK."
 
-#: server_status.php:1313
+#: server_status.php:1312
 msgid "The number of requests to update a row in a table."
 msgstr "Počet požadavků na aktualizaci řádku."
 
-#: server_status.php:1314
+#: server_status.php:1313
 msgid "The number of requests to insert a row in a table."
 msgstr "Počet požadavků na vložení řádku."
 
-#: server_status.php:1315
+#: server_status.php:1314
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "Počet stránek obsahujících data (změněné i nezměněné)."
 
-#: server_status.php:1316
+#: server_status.php:1315
 msgid "The number of pages currently dirty."
 msgstr "Počet změněných stránek."
 
-#: server_status.php:1317
+#: server_status.php:1316
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr "Počet stránek, na které je požadavek na vyprázdnění."
 
-#: server_status.php:1318
+#: server_status.php:1317
 msgid "The number of free pages."
 msgstr "Počet volných stránek."
 
-#: server_status.php:1319
+#: server_status.php:1318
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -9913,7 +9910,7 @@ msgstr ""
 "Počet zamčených stránek, tzn. stránek, které jsou právě zapisovány nebo "
 "čteny nebo nemohou být odstraněny z jakéhokoliv důvodu."
 
-#: server_status.php:1320
+#: server_status.php:1319
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -9925,11 +9922,11 @@ msgstr ""
 "Innodb_buffer_pool_pages_total - Innodb_buffer_pool_pages_free - "
 "Innodb_buffer_pool_pages_data."
 
-#: server_status.php:1321
+#: server_status.php:1320
 msgid "Total size of buffer pool, in pages."
 msgstr "Celková velikost InnoDB bufferů, ve stránkách."
 
-#: server_status.php:1322
+#: server_status.php:1321
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -9937,7 +9934,7 @@ msgstr ""
 "Počet provedených „náhodných“ dopředných čtení. Tato situace nastává pokud "
 "dotaz prochází velkou část tabulky v náhodném pořadí."
 
-#: server_status.php:1323
+#: server_status.php:1322
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
@@ -9945,11 +9942,11 @@ msgstr ""
 "Počet provedených sekvenčních dopředných čtení. Toto nastává pokud InnoDB "
 "musí procházet celou tabulku."
 
-#: server_status.php:1324
+#: server_status.php:1323
 msgid "The number of logical read requests InnoDB has done."
 msgstr "Počet provedených logických čtení."
 
-#: server_status.php:1325
+#: server_status.php:1324
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
@@ -9957,7 +9954,7 @@ msgstr ""
 "Počet logických čtení, které nemohly být uspokojeny z bufferu, ale bylo "
 "nutné přečíst stránku ze souboru."
 
-#: server_status.php:1326
+#: server_status.php:1325
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -9970,55 +9967,55 @@ msgstr ""
 "k dispozici, musí se čekat. Pokud je velikost bufferů nastavena správně, "
 "měla by tato hodnota být malá."
 
-#: server_status.php:1327
+#: server_status.php:1326
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "Počet zápisů provedených do InnoDB bufferu."
 
-#: server_status.php:1328
+#: server_status.php:1327
 msgid "The number of fsync() operations so far."
 msgstr "Počet provedených synchronizací fsync()."
 
-#: server_status.php:1329
+#: server_status.php:1328
 msgid "The current number of pending fsync() operations."
 msgstr "Počet nevyřízených synchronizací fsync()."
 
-#: server_status.php:1330
+#: server_status.php:1329
 msgid "The current number of pending reads."
 msgstr "Počet nevyřízených čtení."
 
-#: server_status.php:1331
+#: server_status.php:1330
 msgid "The current number of pending writes."
 msgstr "Počet nevyřízených zápisů."
 
-#: server_status.php:1332
+#: server_status.php:1331
 msgid "The amount of data read so far, in bytes."
 msgstr "Velikost přečtených dat, v bajtech."
 
-#: server_status.php:1333
+#: server_status.php:1332
 msgid "The total number of data reads."
 msgstr "Počet provedených čtení dat."
 
-#: server_status.php:1334
+#: server_status.php:1333
 msgid "The total number of data writes."
 msgstr "Počet provedených zápisů dat."
 
-#: server_status.php:1335
+#: server_status.php:1334
 msgid "The amount of data written so far, in bytes."
 msgstr "Velikost zapsaných dat, v bajtech."
 
-#: server_status.php:1336
+#: server_status.php:1335
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
 "Počet provedených dvojitých zapsání a počet stránek, které byly takto "
 "zapsány."
 
-#: server_status.php:1337
+#: server_status.php:1336
 msgid "The number of doublewrite operations that have been performed."
 msgstr ""
 "Počet provedených dvojitých zapsání a počet stránek, které byly takto "
 "zapsány."
 
-#: server_status.php:1338
+#: server_status.php:1337
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
@@ -10026,35 +10023,35 @@ msgstr ""
 "Počet čekání kvůli plnému bufferu logu, který musel být vyprázdněn před "
 "pokračováním."
 
-#: server_status.php:1339
+#: server_status.php:1338
 msgid "The number of log write requests."
 msgstr "Počet požadavků na zápis do logovacího souboru."
 
-#: server_status.php:1340
+#: server_status.php:1339
 msgid "The number of physical writes to the log file."
 msgstr "Počet skutečných zápisů do logovacího souboru."
 
-#: server_status.php:1341
+#: server_status.php:1340
 msgid "The number of fsync() writes done to the log file."
 msgstr "Počet synchronizací fsync() provedených na logovacích souborech."
 
-#: server_status.php:1342
+#: server_status.php:1341
 msgid "The number of pending log file fsyncs."
 msgstr "Počet nevyřízených synchronizací logovacích souborů."
 
-#: server_status.php:1343
+#: server_status.php:1342
 msgid "Pending log file writes."
 msgstr "Počet nevyřízených zápisů do logovacích souborů."
 
-#: server_status.php:1344
+#: server_status.php:1343
 msgid "The number of bytes written to the log file."
 msgstr "Počet bajtů zapsaných do logovacího souboru."
 
-#: server_status.php:1345
+#: server_status.php:1344
 msgid "The number of pages created."
 msgstr "Počet vytvořených stránek."
 
-#: server_status.php:1346
+#: server_status.php:1345
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -10062,51 +10059,51 @@ msgstr ""
 "Zakompilovaná velikost stránky InnoDB (výchozí je 16 kB). Mnoho hodnot je "
 "uváděno ve stránkách, pomocí této hodnoty je můžete přepočítat na velikost."
 
-#: server_status.php:1347
+#: server_status.php:1346
 msgid "The number of pages read."
 msgstr "Počet přečtených stránek."
 
-#: server_status.php:1348
+#: server_status.php:1347
 msgid "The number of pages written."
 msgstr "Počet zapsaných stránek."
 
-#: server_status.php:1349
+#: server_status.php:1348
 msgid "The number of row locks currently being waited for."
 msgstr "Počet zámků řádku, na které se v současné době čeká."
 
-#: server_status.php:1350
+#: server_status.php:1349
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr "Průměrný čas potřebný pro získání zámku řádku, v milisekundách."
 
-#: server_status.php:1351
+#: server_status.php:1350
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr "Celkový čas strávený čekáním na zámek řádku, v milisekundách."
 
-#: server_status.php:1352
+#: server_status.php:1351
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr "Maximální čas potřebný pro získání zámku řádku, v milisekundách."
 
-#: server_status.php:1353
+#: server_status.php:1352
 msgid "The number of times a row lock had to be waited for."
 msgstr "Kolikrát se muselo čekat na zámek řádku."
 
-#: server_status.php:1354
+#: server_status.php:1353
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "Počet řádků odstraněných z InnoDB tabulek."
 
-#: server_status.php:1355
+#: server_status.php:1354
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "Počet řádků vložených do InnoDB tabulek."
 
-#: server_status.php:1356
+#: server_status.php:1355
 msgid "The number of rows read from InnoDB tables."
 msgstr "Počet řádků přečtených z InnoDB tabulek."
 
-#: server_status.php:1357
+#: server_status.php:1356
 msgid "The number of rows updated in InnoDB tables."
 msgstr "Počet řádků aktualizovaných v InnoDB tabulkách."
 
-#: server_status.php:1358
+#: server_status.php:1357
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
@@ -10114,7 +10111,7 @@ msgstr ""
 "Počet bloků ve vyrovnávací paměti klíčů, které byly změněny, ale nebyly "
 "zapsány na disk. Dříve se tato hodnota jmenovala Not_flushed_key_blocks."
 
-#: server_status.php:1359
+#: server_status.php:1358
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
@@ -10122,7 +10119,7 @@ msgstr ""
 "Počet nepoužitých bloků ve vyrovnávací paměti klíčů. Pomocí této hodnoty "
 "poznáte jak moc je vyrovnávací paměť využitá."
 
-#: server_status.php:1360
+#: server_status.php:1359
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
@@ -10131,11 +10128,11 @@ msgstr ""
 "Počet použitých bloků ve vyrovnávací paměti klíčů. Tato hodnota určuje "
 "maximum bloků, které kdy byly obsazeny najednou."
 
-#: server_status.php:1361
+#: server_status.php:1360
 msgid "The number of requests to read a key block from the cache."
 msgstr "Počet požadavků na přečtení klíče z vyrovnávací paměti."
 
-#: server_status.php:1362
+#: server_status.php:1361
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -10145,15 +10142,15 @@ msgstr ""
 "pravděpodobně máte malou vyrovnávací paměť (key_buffer_size). Úspěšnost "
 "vyrovnávací paměti můžete spočítat jako Key_reads/Key_read_requests."
 
-#: server_status.php:1363
+#: server_status.php:1362
 msgid "The number of requests to write a key block to the cache."
 msgstr "Počet požadavků na zápis bloku klíče na disk."
 
-#: server_status.php:1364
+#: server_status.php:1363
 msgid "The number of physical writes of a key block to disk."
 msgstr "Počet skutečných zápisů bloku klíče na disk."
 
-#: server_status.php:1365
+#: server_status.php:1364
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -10163,17 +10160,17 @@ msgstr ""
 "dotazů. Užitečné pro porovnání různých dotazů. Výchozí hodnota 0 znamená, že "
 "žádný dotaz ještě nebyl kompilován."
 
-#: server_status.php:1366
+#: server_status.php:1365
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr "Maximální počet současně používaných připojení od spuštění serveru."
 
-#: server_status.php:1367
+#: server_status.php:1366
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr "Počet řádků čekajících na zapsání ve frontě INSERT DELAYED."
 
-#: server_status.php:1368
+#: server_status.php:1367
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
@@ -10181,19 +10178,19 @@ msgstr ""
 "Celkem otevřených tabulek. Pokud je tato hodnota příliš vysoká, "
 "pravděpodobně máte malou vyrovnávací paměť pro tabulky."
 
-#: server_status.php:1369
+#: server_status.php:1368
 msgid "The number of files that are open."
 msgstr "Počet otevřených souborů."
 
-#: server_status.php:1370
+#: server_status.php:1369
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr "Počet otevřených streamů (používané převážně pro logování)."
 
-#: server_status.php:1371
+#: server_status.php:1370
 msgid "The number of tables that are open."
 msgstr "Počet aktuálně otevřených tabulek."
 
-#: server_status.php:1372
+#: server_status.php:1371
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
@@ -10203,19 +10200,19 @@ msgstr ""
 "na problému s fragmentací, která může být vyřešena spuštěním příkazu FLUSH "
 "QUERY CACHE."
 
-#: server_status.php:1373
+#: server_status.php:1372
 msgid "The amount of free memory for query cache."
 msgstr "Velikost volné paměti ve vyrovnávací paměti dotazů."
 
-#: server_status.php:1374
+#: server_status.php:1373
 msgid "The number of cache hits."
 msgstr "Počet zásahů vyrovnávací paměti dotazů."
 
-#: server_status.php:1375
+#: server_status.php:1374
 msgid "The number of queries added to the cache."
 msgstr "Počet dotazů přidaných do vyrovnávací paměti dotazů."
 
-#: server_status.php:1376
+#: server_status.php:1375
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -10227,7 +10224,7 @@ msgstr ""
 "Vyrovnávací paměť používá strategii LRU (nejdéle nepoužité) pro vyřazování "
 "dotazů z vyrovnávací paměti."
 
-#: server_status.php:1377
+#: server_status.php:1376
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -10235,19 +10232,19 @@ msgstr ""
 "Počet necachovaných dotazů (necachovatelných nebo necachovaných kvůli "
 "nastavení query_cache_type)."
 
-#: server_status.php:1378
+#: server_status.php:1377
 msgid "The number of queries registered in the cache."
 msgstr "Počet dotazů ve vyrovnávací paměti dotazů."
 
-#: server_status.php:1379
+#: server_status.php:1378
 msgid "The total number of blocks in the query cache."
 msgstr "Celkový počet bloků ve vyrovnávací paměti dotazů."
 
-#: server_status.php:1380
+#: server_status.php:1379
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "Stav failsafe replikace."
 
-#: server_status.php:1381
+#: server_status.php:1380
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -10255,12 +10252,12 @@ msgstr ""
 "Počet spojení, které nevyužívaly klíče. Pokud tato hodnota není 0, měli "
 "byste zkontrolovat klíče tabulek."
 
-#: server_status.php:1382
+#: server_status.php:1381
 msgid "The number of joins that used a range search on a reference table."
 msgstr ""
 "Počet spojení, které používaly intervalové vyhledávání na referenční tabulce."
 
-#: server_status.php:1383
+#: server_status.php:1382
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -10268,7 +10265,7 @@ msgstr ""
 "Počet spojení bez klíčů, které kontrolovaly použití klíčů po každém řádku. "
 "(Pokud tato hodnota není 0, měli byste zkontrolovat klíče tabulek.)"
 
-#: server_status.php:1384
+#: server_status.php:1383
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -10276,38 +10273,38 @@ msgstr ""
 "Počet spojení, které používaly intervalové vyhledávání na první tabulce. "
 "(Tato hodnota obvykle není kritická i když je vysoká.)"
 
-#: server_status.php:1385
+#: server_status.php:1384
 msgid "The number of joins that did a full scan of the first table."
 msgstr "Počet spojení, které prováděly kompletní procházení první tabulky."
 
-#: server_status.php:1386
+#: server_status.php:1385
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr ""
 "Počet dočasných tabulek v současné době otevřených podřízeným serverem."
 
-#: server_status.php:1387
+#: server_status.php:1386
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
 msgstr "Celkový počet, kolikrát musel podřízený server opakovat transakce."
 
-#: server_status.php:1388
+#: server_status.php:1387
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr "Tato položka je zapnutá, pokud server pracuje jako podřízený."
 
-#: server_status.php:1389
+#: server_status.php:1388
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
 msgstr ""
 "Počet vláken jejichž vytvoření trvalo déle než slow_launch_time sekund."
 
-#: server_status.php:1390
+#: server_status.php:1389
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr "Počet dotazů, které trvaly déle než long_query_time sekund."
 
-#: server_status.php:1391
+#: server_status.php:1390
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -10316,23 +10313,23 @@ msgstr ""
 "Počet průchodů slučování, které musel provést řadicí algoritmus. Při příliš "
 "vysoké hodnotě zvažte zvýšení sort_buffer_size."
 
-#: server_status.php:1392
+#: server_status.php:1391
 msgid "The number of sorts that were done with ranges."
 msgstr "Počet řazení, které byly omezeny rozsahem."
 
-#: server_status.php:1393
+#: server_status.php:1392
 msgid "The number of sorted rows."
 msgstr "Počet řazených řádek."
 
-#: server_status.php:1394
+#: server_status.php:1393
 msgid "The number of sorts that were done by scanning the table."
 msgstr "Počet řazení provedených procházením tabulky."
 
-#: server_status.php:1395
+#: server_status.php:1394
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "Počet okamžitých získání zámku tabulky."
 
-#: server_status.php:1396
+#: server_status.php:1395
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -10343,7 +10340,7 @@ msgstr ""
 "problémy s výkonem, měli byste optimalizovat dotazy a případně rozdělit "
 "tabulky nebo použít replikaci."
 
-#: server_status.php:1397
+#: server_status.php:1396
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -10353,11 +10350,11 @@ msgstr ""
 "spočítána jako Threads_created/Connections. Pokud je tato hodnota červená, "
 "měli byste zvýšit thread_cache_size."
 
-#: server_status.php:1398
+#: server_status.php:1397
 msgid "The number of currently open connections."
 msgstr "Počet aktuálně otevřených připojení."
 
-#: server_status.php:1399
+#: server_status.php:1398
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -10368,43 +10365,43 @@ msgstr ""
 "velká, můžete zvětšit parametr thread_cache_size. (Na platformách, které "
 "mají dobrou implementaci vláken však toto nemá příliš velký vliv.)"
 
-#: server_status.php:1400
+#: server_status.php:1399
 msgid "The number of threads that are not sleeping."
 msgstr "Počet vláken, která nespí."
 
-#: server_status.php:1540
+#: server_status.php:1539
 msgid "Start Monitor"
 msgstr "Spustit monitor"
 
-#: server_status.php:1549
+#: server_status.php:1548
 msgid "Instructions/Setup"
 msgstr "Návod/Nastavení"
 
-#: server_status.php:1554
+#: server_status.php:1553
 msgid "Done rearranging/editing charts"
 msgstr "Ukončit upravování grafů"
 
-#: server_status.php:1561
+#: server_status.php:1560 server_status.php:1631
 msgid "Add chart"
 msgstr "Přidat graf"
 
-#: server_status.php:1563
+#: server_status.php:1562
 msgid "Rearrange/edit charts"
 msgstr "Upravit/Uspořádat grafy"
 
-#: server_status.php:1567
+#: server_status.php:1566
 msgid "Refresh rate"
 msgstr "Obnovovací frekvence"
 
-#: server_status.php:1572
+#: server_status.php:1571
 msgid "Chart columns"
 msgstr "Sloupce grafu"
 
-#: server_status.php:1588
+#: server_status.php:1587
 msgid "Chart arrangement"
 msgstr "Uspořádání grafů"
 
-#: server_status.php:1588
+#: server_status.php:1587
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
@@ -10412,15 +10409,15 @@ msgstr ""
 "Uspořádání grafů je uloženo ve vašem prohlížeči. Pokud máte komplikovanější "
 "nastavení, můžete ho chtít exportovat a zálohovat."
 
-#: server_status.php:1589
+#: server_status.php:1588
 msgid "Reset to default"
 msgstr "Obnovit na výchozí hodnotu"
 
-#: server_status.php:1593
+#: server_status.php:1592
 msgid "Monitor Instructions"
 msgstr "Instrukce monitoru"
 
-#: server_status.php:1594
+#: server_status.php:1593
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -10429,7 +10426,7 @@ msgid ""
 "increases server load by up to 15%"
 msgstr ""
 
-#: server_status.php:1599
+#: server_status.php:1598
 msgid ""
 "Unfortunately your Database server does not support logging to table, which "
 "is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
@@ -10437,11 +10434,11 @@ msgid ""
 "charting features however."
 msgstr ""
 
-#: server_status.php:1612
+#: server_status.php:1611
 msgid "Using the monitor:"
 msgstr "Používání monitoru:"
 
-#: server_status.php:1614
+#: server_status.php:1613
 msgid ""
 "Ok, you are good to go! Once you click 'Start monitor' your browser will "
 "refresh all displayed charts in a regular interval. You may add charts and "
@@ -10449,7 +10446,7 @@ msgid ""
 "icon on each respective chart."
 msgstr ""
 
-#: server_status.php:1616
+#: server_status.php:1615
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -10457,11 +10454,11 @@ msgid ""
 "any occuring SELECT statements to further analyze them."
 msgstr ""
 
-#: server_status.php:1623
+#: server_status.php:1622
 msgid "Please note:"
 msgstr "Poznámka:"
 
-#: server_status.php:1625
+#: server_status.php:1624
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -10469,79 +10466,79 @@ msgid ""
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
 
-#: server_status.php:1637
+#: server_status.php:1636
 msgid "Preset chart"
 msgstr "Předdefinované grafy"
 
-#: server_status.php:1641
+#: server_status.php:1640
 msgid "Status variable(s)"
 msgstr "Stavové proměnné"
 
-#: server_status.php:1643
+#: server_status.php:1642
 msgid "Select series:"
 msgstr "Vyberte série:"
 
-#: server_status.php:1645
+#: server_status.php:1644
 msgid "Commonly monitored"
 msgstr "Obvykle monitorované"
 
-#: server_status.php:1660
+#: server_status.php:1659
 msgid "or type variable name:"
 msgstr "nebo zadejte jméno proměnné:"
 
-#: server_status.php:1664
+#: server_status.php:1663
 msgid "Display as differential value"
 msgstr "Zobrazit jako rozdíl"
 
-#: server_status.php:1666
+#: server_status.php:1665
 msgid "Apply a divisor"
 msgstr "Vynásobit"
 
-#: server_status.php:1673
+#: server_status.php:1672
 msgid "Append unit to data values"
 msgstr "Přidat jednoty"
 
-#: server_status.php:1679
+#: server_status.php:1678
 msgid "Add this series"
 msgstr "Přidat tuto sérii"
 
-#: server_status.php:1681
+#: server_status.php:1680
 msgid "Clear series"
 msgstr "Odstranit série"
 
-#: server_status.php:1684
+#: server_status.php:1683
 msgid "Series in Chart:"
 msgstr "Série v grafu::"
 
-#: server_status.php:1697
+#: server_status.php:1696
 msgid "Log statistics"
 msgstr "Statistiky záznamů"
 
-#: server_status.php:1698
+#: server_status.php:1697
 msgid "Selected time range:"
 msgstr "Zvolený časový rozsah:"
 
-#: server_status.php:1703
+#: server_status.php:1702
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr "Stáhnout jen příkazy SELECT, INSERT, UPDATE a DELETE"
 
-#: server_status.php:1708
+#: server_status.php:1707
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr "Před sloučením odstranit proměnná data v příkazech INSERT"
 
-#: server_status.php:1713
+#: server_status.php:1712
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr "Zvolte ze kterého záznamu chcete vygenerovat statistiku."
 
-#: server_status.php:1715
+#: server_status.php:1714
 msgid "Results are grouped by query text."
 msgstr "Výsledky jsou sloučeny podle textu dotazu."
 
-#: server_status.php:1720
+#: server_status.php:1719
 msgid "Query analyzer"
 msgstr "Analýza dotazu"
 
-#: server_status.php:1760
+#: server_status.php:1759
 #, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
@@ -10549,7 +10546,7 @@ msgstr[0] "%d sekunda"
 msgstr[1] "%d sekundy"
 msgstr[2] "%d sekund"
 
-#: server_status.php:1762
+#: server_status.php:1761
 #, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
@@ -11046,12 +11043,12 @@ msgstr "Zobrazuji SQL dotaz"
 msgid "Validated SQL"
 msgstr "Proběhlo zkontrolování SQL"
 
-#: sql.php:941
+#: sql.php:940
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problémy s klíči v tabulce „%s\""
 
-#: sql.php:973
+#: sql.php:972
 msgid "Label"
 msgstr "Název"
 
@@ -11064,58 +11061,58 @@ msgstr "Tabulka %1$s byla úspěšně změněna"
 msgid "Because of its length,<br /> this column might not be editable"
 msgstr "Toto pole možná nepůjde <br />kvůli délce upravit"
 
-#: tbl_change.php:818
+#: tbl_change.php:817
 msgid "Remove BLOB Repository Reference"
 msgstr "Odstranit odkaz do skladiště BLOBů"
 
-#: tbl_change.php:822
+#: tbl_change.php:821
 msgid "Binary - do not edit"
 msgstr "Binární - neupravujte"
 
-#: tbl_change.php:872
+#: tbl_change.php:871
 msgid "Upload to BLOB repository"
 msgstr "Nahrát do skladiště BLOBů"
 
-#: tbl_change.php:1031
+#: tbl_change.php:1029
 msgid "Insert as new row"
 msgstr "Vložit jako nový řádek"
 
-#: tbl_change.php:1032
+#: tbl_change.php:1030
 msgid "Insert as new row and ignore errors"
 msgstr "Vložit jako nový řádek a ignorovat chyby"
 
-#: tbl_change.php:1033
+#: tbl_change.php:1031
 msgid "Show insert query"
 msgstr "Zobrazit dotaz pro vložení"
 
-#: tbl_change.php:1044
+#: tbl_change.php:1042
 msgid "and then"
 msgstr "a poté"
 
-#: tbl_change.php:1048
+#: tbl_change.php:1046
 msgid "Go back to previous page"
 msgstr "Návrat na předchozí stránku"
 
-#: tbl_change.php:1049
+#: tbl_change.php:1047
 msgid "Insert another new row"
 msgstr "Vložit další řádek"
 
-#: tbl_change.php:1053
+#: tbl_change.php:1051
 msgid "Go back to this page"
 msgstr "Návrat na tuto stránku"
 
-#: tbl_change.php:1061
+#: tbl_change.php:1059
 msgid "Edit next row"
 msgstr "Upravit následující řádek"
 
-#: tbl_change.php:1072
+#: tbl_change.php:1070
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Použijte klávesu TAB pro pohyb mezi hodnotami nebo CTRL+šipky po pohyb všemi "
 "směry"
 
-#: tbl_change.php:1110
+#: tbl_change.php:1108
 #, php-format
 msgid "Continue insertion with %s rows"
 msgstr "Pokračovat ve vkládání s %s řádky"
@@ -11239,11 +11236,10 @@ msgid "Add index"
 msgstr "Přidat klíč"
 
 #: tbl_indexes.php:175
-#| msgid "Edit mode"
 msgid "Edit index"
 msgstr "Upravit klíč"
 
-#: tbl_indexes.php:186
+#: tbl_indexes.php:187
 msgid "Index name:"
 msgstr "Jméno klíče:"
 
@@ -11252,11 +11248,11 @@ msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
 msgstr "(„PRIMARY“ <b>musí</b> být jméno <b>pouze</b> primárního klíče!)"
 
-#: tbl_indexes.php:194
+#: tbl_indexes.php:199
 msgid "Index type:"
 msgstr "Typ klíče:"
 
-#: tbl_indexes.php:278
+#: tbl_indexes.php:285
 #, php-format
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
 msgstr "Přidat %s polí do klíče"
@@ -12004,7 +12000,6 @@ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 
 #: po/advisory_rules.php:75
-#| msgid "Query cache used"
 msgid "Query caching method"
 msgstr "Metoda používaná vyrovnávací pamětí dotazů"
 
@@ -12122,7 +12117,6 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:100
-#| msgid "Query cache"
 msgid "Query cache max size"
 msgstr "Maximální velikost vyrovnávací paměti dotazů"
 
@@ -12376,8 +12370,6 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:155
-#| msgid "%s table"
-#| msgid_plural "%s tables"
 msgid "Temp disk rate"
 msgstr "Četnost dočasného ukládání na disk"
 
@@ -12421,13 +12413,11 @@ msgstr ""
 
 #: po/advisory_rules.php:165
 #, php-format
-#| msgid "Sort buffer size"
 msgid "Max %% MyISAM key buffer ever used"
 msgstr "Nejvyšší využití (%%) vyrovnávací paměti MyISAM pro klíče"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, php-format
-#| msgid "Sort buffer size"
 msgid "MyISAM key buffer (index cache) %% used is low."
 msgstr ""
 
@@ -12538,7 +12528,6 @@ msgstr ""
 
 #: po/advisory_rules.php:195
 #, php-format
-#| msgid "Create table on database %s"
 msgid "Immediate table locks %%"
 msgstr ""
 
@@ -12588,7 +12577,6 @@ msgstr ""
 
 #: po/advisory_rules.php:210
 #, php-format
-#| msgid "Tracking is not active."
 msgid "Thread cache hit rate %%"
 msgstr ""
 
@@ -12644,7 +12632,6 @@ msgstr ""
 
 #: po/advisory_rules.php:223
 #, php-format
-#| msgid "long_query_time is set to %d second(s)."
 msgid "slow_launch_time is set to %s"
 msgstr "slow_launch_time je nastaven na %s"
 
@@ -12925,9 +12912,6 @@ msgstr ""
 
 #~ msgid "Outer Ring:"
 #~ msgstr "Vnější obrys:"
-
-#~ msgid "Filters"
-#~ msgstr "Filtry"
 
 #~ msgid "To select relation, click :"
 #~ msgstr "Pro výběr relace klikněte :"
