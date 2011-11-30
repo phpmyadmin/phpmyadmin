@@ -12723,7 +12723,6 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Maximum number of tables displayed in table list"
 #~ msgid "Maximum number of records saved in \"table_uiprefs\" table"
 #~ msgstr "ایک جدول فہرست میں جداول دکھانے کی زیادہ سے زیادہ تعداد"
 
