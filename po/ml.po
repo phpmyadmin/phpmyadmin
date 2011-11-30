@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-11-29 12:47+0100\n"
+"POT-Creation-Date: 2011-11-30 14:18+0100\n"
 "PO-Revision-Date: 2011-09-27 08:42+0200\n"
 "Last-Translator:  <sadik.khalid@gmail.com>\n"
 "Language-Team: Malayalam <ml@li.org>\n"
@@ -48,7 +48,7 @@ msgstr "തിരയൂ"
 #: db_operations.php:522 db_operations.php:549 db_search.php:337
 #: db_structure.php:614 enum_editor.php:119 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:208
-#: libraries/Config.class.php:1326 libraries/Theme_Manager.class.php:309
+#: libraries/Config.class.php:1332 libraries/Theme_Manager.class.php:309
 #: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1364
 #: libraries/common.lib.php:2411 libraries/core.lib.php:513
 #: libraries/display_change_password.lib.php:72
@@ -2160,7 +2160,7 @@ msgstr ""
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 
-#: libraries/Config.class.php:1297
+#: libraries/Config.class.php:1303
 msgid "Font size"
 msgstr ""
 
@@ -4476,12 +4476,12 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:402
 msgid ""
-"This configuration make sure that we only keep N (N = MaxTableUiprefs) "
-"newest record in \"table_uiprefs\" and automatically delete older records"
+"Limits number of table preferences which are stored in database, the oldest "
+"records are automatically removed"
 msgstr ""
 
 #: libraries/config/messages.inc.php:403
-msgid "Maximum number of records saved in \"table_uiprefs\" table"
+msgid "Maximal number of table preferences to store"
 msgstr ""
 
 #: libraries/config/messages.inc.php:404

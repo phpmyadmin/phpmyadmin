@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-11-29 12:47+0100\n"
+"POT-Creation-Date: 2011-11-30 14:18+0100\n"
 "PO-Revision-Date: 2011-11-01 14:26+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
@@ -49,7 +49,7 @@ msgstr "Keresés"
 #: db_operations.php:522 db_operations.php:549 db_search.php:337
 #: db_structure.php:614 enum_editor.php:119 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:208
-#: libraries/Config.class.php:1326 libraries/Theme_Manager.class.php:309
+#: libraries/Config.class.php:1332 libraries/Theme_Manager.class.php:309
 #: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1364
 #: libraries/common.lib.php:2411 libraries/core.lib.php:513
 #: libraries/display_change_password.lib.php:72
@@ -2247,7 +2247,7 @@ msgstr "A létező beállító fájl (%s) nem olvasható."
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 
-#: libraries/Config.class.php:1297
+#: libraries/Config.class.php:1303
 msgid "Font size"
 msgstr "Betűméret"
 
@@ -4717,13 +4717,15 @@ msgstr "Kijelentkezési URL"
 
 #: libraries/config/messages.inc.php:402
 msgid ""
-"This configuration make sure that we only keep N (N = MaxTableUiprefs) "
-"newest record in \"table_uiprefs\" and automatically delete older records"
+"Limits number of table preferences which are stored in database, the oldest "
+"records are automatically removed"
 msgstr ""
 
 #: libraries/config/messages.inc.php:403
-msgid "Maximum number of records saved in \"table_uiprefs\" table"
-msgstr "A \"table_uiprefs\" táblába elmentett maximális rekordok száma"
+#, fuzzy
+#| msgid "Maximum number of tables displayed in table list"
+msgid "Maximal number of table preferences to store"
+msgstr "A táblalistában megjelenítendő táblák száma"
 
 #: libraries/config/messages.inc.php:404
 msgid "Try to connect without password"
@@ -13089,6 +13091,9 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#~ msgid "Maximum number of records saved in \"table_uiprefs\" table"
+#~ msgstr "A \"table_uiprefs\" táblába elmentett maximális rekordok száma"
 
 #~ msgid "Click to unselect"
 #~ msgstr "Kattintson a kijelölés megszüntetéséhez."
