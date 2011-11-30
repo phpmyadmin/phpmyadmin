@@ -90,8 +90,16 @@ if ($server > 0
                 } else {
                     $conditional_class = null;
                 }
-                PMA_printListItem(__('Change password'), 'li_change_password',
-                    './user_password.php?' . $common_url_query, null, null, 'change_password_anchor', null, $conditional_class);
+                PMA_printListItem(
+                    __('Change password'),
+                    'li_change_password',
+                    './user_password.php?' . $common_url_query,
+                    null,
+                    null,
+                    'change_password_anchor',
+                    null,
+                    $conditional_class
+                );
             }
         } // end if
         echo '    <li id="li_select_mysql_collation">';
@@ -141,8 +149,11 @@ echo '</ul>';
 
 if ($server > 0) {
     echo '<ul>';
-    echo PMA_printListItem(__('More settings'), 'li_user_preferences',
-                    './prefs_manage.php?' . $common_url_query);
+    echo PMA_printListItem(
+        __('More settings'),
+        'li_user_preferences',
+        './prefs_manage.php?' . $common_url_query
+    );
     echo '</ul>';
 }
 
@@ -160,10 +171,14 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
     PMA_printListItem(__('Server') . ': ' . $server_info, 'li_server_info');
     PMA_printListItem(__('Software') . ': ' . PMA_getServerType(), 'li_server_type');
     PMA_printListItem(__('Software version') . ': ' . PMA_MYSQL_STR_VERSION . ' - ' . PMA_MYSQL_VERSION_COMMENT, 'li_server_version');
-    PMA_printListItem(__('Protocol version') . ': ' . PMA_DBI_get_proto_info(),
-        'li_mysql_proto');
-    PMA_printListItem(__('User') . ': ' . htmlspecialchars($mysql_cur_user_and_host),
-        'li_user_info');
+    PMA_printListItem(
+        __('Protocol version') . ': ' . PMA_DBI_get_proto_info(),
+        'li_mysql_proto'
+    );
+    PMA_printListItem(
+        __('User') . ': ' . htmlspecialchars($mysql_cur_user_and_host),
+        'li_user_info'
+    );
 
     echo '    <li id="li_select_mysql_charset">';
     echo '        ' . __('Server charset') . ': '
@@ -186,14 +201,19 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
         if ($server > 0) {
             $client_version_str = PMA_DBI_get_client_info();
             if (preg_match('#\d+\.\d+\.\d+#', $client_version_str)
-                    && in_array($GLOBALS['cfg']['Server']['extension'], array('mysql', 'mysqli'))) {
+                && in_array($GLOBALS['cfg']['Server']['extension'], array('mysql', 'mysqli'))
+            ) {
                 $client_version_str = 'libmysql - ' . $client_version_str;
             }
-            PMA_printListItem(__('Database client version') . ': ' . $client_version_str,
-                'li_mysql_client_version');
-            PMA_printListItem(__('PHP extension') . ': ' . $GLOBALS['cfg']['Server']['extension']. ' '
+            PMA_printListItem(
+                __('Database client version') . ': ' . $client_version_str,
+                'li_mysql_client_version'
+            );
+            PMA_printListItem(
+                __('PHP extension') . ': ' . $GLOBALS['cfg']['Server']['extension']. ' '
                     . PMA_showPHPDocu('book.' . $GLOBALS['cfg']['Server']['extension'] . '.php'),
-                'li_used_php_extension');
+                'li_used_php_extension'
+            );
         }
     }
 
@@ -330,10 +350,20 @@ echo '</noscript>';
 if (function_exists('PMA_DBI_get_client_info') && !PMA_DRIZZLE) {
     $_client_info = PMA_DBI_get_client_info();
     if ($server > 0 && strpos($_client_info, 'mysqlnd') === false && substr(PMA_MYSQL_CLIENT_API, 0, 3) != substr(PMA_MYSQL_INT_VERSION, 0, 3)) {
-        trigger_error(PMA_sanitize(sprintf(__('Your PHP MySQL library version %s differs from your MySQL server version %s. This may cause unpredictable behavior.'),
-                $_client_info,
-                substr(PMA_MYSQL_STR_VERSION, 0, strpos(PMA_MYSQL_STR_VERSION . '-', '-')))),
-            E_USER_NOTICE);
+        trigger_error(
+            PMA_sanitize(
+                sprintf(
+                    __('Your PHP MySQL library version %s differs from your MySQL server version %s. This may cause unpredictable behavior.'),
+                    $_client_info,
+                    substr(
+                        PMA_MYSQL_STR_VERSION,
+                        0,
+                        strpos(PMA_MYSQL_STR_VERSION . '-', '-')
+                    )
+                )
+            ),
+            E_USER_NOTICE
+        );
     }
     unset($_client_info);
 }
@@ -341,9 +371,20 @@ if (function_exists('PMA_DBI_get_client_info') && !PMA_DRIZZLE) {
 /**
  * Warning about Suhosin
  */
-if ($cfg['SuhosinDisableWarning'] == false && @ini_get('suhosin.request.max_value_length')) {
-    trigger_error(PMA_sanitize(sprintf(__('Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.'), '[a@./Documentation.html#faq1_38@_blank]', '[/a]')), E_USER_WARNING);
-    }
+if ($cfg['SuhosinDisableWarning'] == false
+    && @ini_get('suhosin.request.max_value_length')
+) {
+    trigger_error(
+        PMA_sanitize(
+            sprintf(
+                __('Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.'),
+                '[a@./Documentation.html#faq1_38@_blank]',
+                '[/a]'
+            )
+        ),
+        E_USER_WARNING
+    );
+}
 
 /**
  * Warning about mcrypt.

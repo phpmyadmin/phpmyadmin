@@ -27,8 +27,12 @@ if (strlen($db) == 0) {
  */
 if (PMA_DBI_get_columns($db, $table)) {
     // table exists already
-    PMA_mysqlDie(sprintf(__('Table %s already exists!'), htmlspecialchars($table)), '',
-        '', 'db_structure.php?' . PMA_generate_common_url($db));
+    PMA_mysqlDie(
+        sprintf(__('Table %s already exists!'), htmlspecialchars($table)),
+        '',
+        '',
+        'db_structure.php?' . PMA_generate_common_url($db)
+    );
 }
 
 $err_url = 'tbl_create.php?' . PMA_generate_common_url($db, $table);
@@ -47,8 +51,12 @@ if (isset($_REQUEST['submit_num_fields'])) {
  * Selects the database to work with
  */
 if (!PMA_DBI_select_db($db)) {
-    PMA_mysqlDie(sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
-        '', '', 'main.php');
+    PMA_mysqlDie(
+        sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
+        '',
+        '',
+        'main.php'
+    );
 }
 
 /**
@@ -100,7 +108,8 @@ if (isset($_REQUEST['do_save_data'])) {
                 ? $_REQUEST['field_comments'][$i]
                 : '',
             $field_primary,
-            $i);
+            $i
+        );
 
         $query .= ', ';
         $sql_query .= $query;
@@ -206,9 +215,11 @@ if (isset($_REQUEST['do_save_data'])) {
             foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
                 if (isset($_REQUEST['field_name'][$fieldindex])
                  && strlen($_REQUEST['field_name'][$fieldindex])) {
-                    PMA_setMIME($db, $table, $_REQUEST['field_name'][$fieldindex], $mimetype,
-                            $_REQUEST['field_transformation'][$fieldindex],
-                            $_REQUEST['field_transformation_options'][$fieldindex]);
+                    PMA_setMIME(
+                        $db, $table, $_REQUEST['field_name'][$fieldindex], $mimetype,
+                        $_REQUEST['field_transformation'][$fieldindex],
+                        $_REQUEST['field_transformation_options'][$fieldindex]
+                    );
                 }
             }
         }
