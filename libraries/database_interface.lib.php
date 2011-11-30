@@ -1194,7 +1194,7 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
                 PMA_cacheGet('PMA_MYSQL_INT_VERSION', true)
                 );
             define(
-                'PMA_MYSQL_MAJOR_VERSION',\
+                'PMA_MYSQL_MAJOR_VERSION',
                 PMA_cacheGet('PMA_MYSQL_MAJOR_VERSION', true)
                 );
             define(
@@ -1767,7 +1767,7 @@ function PMA_DBI_formatError($error_number, $error_message)
         $error .= ' - ' . $error_message;
         $error .= '<br />' . __('The server is not responding.');
     } elseif ($error_number == 1005) {
-        if (strpos($error_message, 'errno: 13') !== FALSE) {
+        if (strpos($error_message, 'errno: 13') !== false) {
             $error .= ' - ' . $error_message;
             $error .= '<br />' . __('Please check privileges of directory containing database.');
         } else {
