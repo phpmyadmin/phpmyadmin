@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-11-30 14:18+0100\n"
-"PO-Revision-Date: 2011-11-24 03:59+0200\n"
-"Last-Translator: dannybeckett <daniel.beckett@gmail.com>\n"
+"PO-Revision-Date: 2011-11-30 21:51+0200\n"
+"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -4713,10 +4713,9 @@ msgstr ""
 "données, les entrées les plus anciennes sont automatiquement effacées"
 
 #: libraries/config/messages.inc.php:403
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximal number of table preferences to store"
-msgstr "Nombre maximum de tables affichées dans la liste des tables"
+msgstr "Nombre maximum de préférences de tables à conserver"
 
 #: libraries/config/messages.inc.php:404
 msgid "Try to connect without password"
