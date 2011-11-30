@@ -1194,7 +1194,7 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
                 PMA_cacheGet('PMA_MYSQL_INT_VERSION', true)
                 );
             define(
-                'PMA_MYSQL_MAJOR_VERSION',\
+                'PMA_MYSQL_MAJOR_VERSION',
                 PMA_cacheGet('PMA_MYSQL_MAJOR_VERSION', true)
                 );
             define(
