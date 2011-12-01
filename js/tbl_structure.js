@@ -261,6 +261,7 @@ $(document).ready(function() {
                     if ($("#edit_index_dialog").length > 0) {
                         $("#edit_index_dialog").dialog("close");
                     }
+                    $('.no_indexes_defined').hide();
                 } else if (data.error != undefined) {
                     var $temp_div = $("<div id='temp_div'><div>").append(data.error);
                     if ($temp_div.find(".error code").length != 0) {
