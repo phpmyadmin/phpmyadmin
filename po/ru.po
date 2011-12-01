@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-01 15:49+0100\n"
-"PO-Revision-Date: 2011-12-01 22:14+0200\n"
+"PO-Revision-Date: 2011-12-01 22:15+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -9672,9 +9672,8 @@ msgid "Refresh rate: "
 msgstr "Частота обновления:"
 
 #: server_status.php:830 server_variables.php:115
-#, fuzzy
 msgid "Filters"
-msgstr "Фильтр"
+msgstr "Фильтры"
 
 #: server_status.php:832 server_variables.php:117
 msgid "Containing the word:"
