@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-11-30 14:18+0100\n"
+"POT-Creation-Date: 2011-12-01 15:49+0100\n"
 "PO-Revision-Date: 2011-11-28 12:06+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
@@ -66,7 +66,7 @@ msgstr "検索"
 #: libraries/schema/User_Schema.class.php:487
 #: libraries/select_server.lib.php:93 libraries/sql_query_form.lib.php:348
 #: libraries/sql_query_form.lib.php:410 libraries/sql_query_form.lib.php:463
-#: libraries/tbl_properties.inc.php:575 main.php:107 navigation.php:171
+#: libraries/tbl_properties.inc.php:575 main.php:115 navigation.php:171
 #: navigation.php:209 pmd_pdf.php:120 prefs_manage.php:263
 #: prefs_manage.php:314 server_binlog.php:109 server_privileges.php:744
 #: server_privileges.php:1784 server_privileges.php:2148
@@ -76,7 +76,7 @@ msgstr "検索"
 #: tbl_change.php:1073 tbl_change.php:1110 tbl_indexes.php:288
 #: tbl_operations.php:284 tbl_operations.php:321 tbl_operations.php:523
 #: tbl_operations.php:585 tbl_operations.php:768 tbl_select.php:235
-#: tbl_structure.php:671 tbl_structure.php:706 tbl_tracking.php:416
+#: tbl_structure.php:672 tbl_structure.php:707 tbl_tracking.php:416
 #: tbl_tracking.php:554 tbl_zoom_select.php:313 view_create.php:181
 #: view_operations.php:99
 msgid "Go"
@@ -159,7 +159,7 @@ msgstr "カラム"
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:84
 #: server_privileges.php:2252 tbl_change.php:297 tbl_change.php:324
 #: tbl_printview.php:137 tbl_printview.php:272 tbl_structure.php:202
-#: tbl_structure.php:766 tbl_tracking.php:258 tbl_tracking.php:305
+#: tbl_structure.php:767 tbl_tracking.php:258 tbl_tracking.php:305
 msgid "Type"
 msgstr "種別"
 
@@ -334,7 +334,7 @@ msgstr "コピーしたデータベースに切り替える"
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:100
 #: libraries/tbl_properties.inc.php:668 libraries/tbl_select.lib.php:85
 #: server_collations.php:53 server_collations.php:65 tbl_operations.php:382
-#: tbl_structure.php:203 tbl_structure.php:871 tbl_tracking.php:259
+#: tbl_structure.php:203 tbl_structure.php:872 tbl_tracking.php:259
 #: tbl_tracking.php:310
 msgid "Collation"
 msgstr "照合順序"
@@ -367,7 +367,7 @@ msgstr "テーブル"
 #: libraries/db_structure.lib.php:42 libraries/header_printview.inc.php:65
 #: libraries/import.lib.php:151 navigation.php:591 navigation.php:611
 #: tbl_printview.php:353 tbl_structure.php:363 tbl_structure.php:469
-#: tbl_structure.php:881
+#: tbl_structure.php:882
 msgid "Rows"
 msgstr "行"
 
@@ -382,21 +382,21 @@ msgstr "使用中"
 #: db_printview.php:184 libraries/db_info.inc.php:74
 #: libraries/export/sql.php:743
 #: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:393
-#: tbl_structure.php:913
+#: tbl_structure.php:914
 msgid "Creation"
 msgstr "作成日時"
 
 #: db_printview.php:193 libraries/db_info.inc.php:79
 #: libraries/export/sql.php:748
 #: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:403
-#: tbl_structure.php:921
+#: tbl_structure.php:922
 msgid "Last update"
 msgstr "最終更新"
 
 #: db_printview.php:202 libraries/db_info.inc.php:84
 #: libraries/export/sql.php:753
 #: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:413
-#: tbl_structure.php:929
+#: tbl_structure.php:930
 msgid "Last check"
 msgstr "最終検査"
 
@@ -598,11 +598,11 @@ msgstr "ビュー %s を破棄しました"
 msgid "Table %s has been dropped"
 msgstr "テーブル %s を削除しました"
 
-#: db_structure.php:337 tbl_create.php:270
+#: db_structure.php:337 tbl_create.php:281
 msgid "Tracking is active."
 msgstr "SQL コマンドの追跡はアクティブです。"
 
-#: db_structure.php:342 tbl_create.php:273
+#: db_structure.php:342 tbl_create.php:284
 msgid "Tracking is not active."
 msgstr "SQL コマンドの追跡は非アクティブです。"
 
@@ -668,7 +668,7 @@ msgid "Export"
 msgstr "エクスポート"
 
 #: db_structure.php:582 db_structure.php:638
-#: libraries/display_tbl.lib.php:2598 tbl_structure.php:612
+#: libraries/display_tbl.lib.php:2598 tbl_structure.php:613
 msgid "Print view"
 msgstr "印刷用画面"
 
@@ -688,7 +688,7 @@ msgstr "削除"
 msgid "Check table"
 msgstr "テーブルをチェックする"
 
-#: db_structure.php:593 tbl_operations.php:657 tbl_structure.php:815
+#: db_structure.php:593 tbl_operations.php:657 tbl_structure.php:816
 msgid "Optimize table"
 msgstr "テーブルを最適化する"
 
@@ -787,7 +787,7 @@ msgstr "構造のスナップショット"
 msgid "Untracked tables"
 msgstr "SQL コマンドを追跡していないテーブル"
 
-#: db_tracking.php:199 tbl_structure.php:638
+#: db_tracking.php:199 tbl_structure.php:639
 msgid "Track table"
 msgstr "テーブルを追跡する"
 
@@ -1180,7 +1180,7 @@ msgstr "統計データ"
 #: js/messages.php:72 libraries/build_html_for_db.lib.php:46
 #: libraries/engines/innodb.lib.php:158 server_databases.php:222
 #: server_status.php:1114 server_status.php:1175 tbl_printview.php:310
-#: tbl_structure.php:803
+#: tbl_structure.php:804
 msgid "Total"
 msgstr "合計"
 
@@ -2301,7 +2301,7 @@ msgid "No index defined!"
 msgstr "インデックスが定義されていません!"
 
 #: libraries/Index.class.php:423 libraries/build_html_for_db.lib.php:41
-#: tbl_structure.php:692 tbl_tracking.php:300
+#: tbl_structure.php:693 tbl_tracking.php:300
 msgid "Indexes"
 msgstr "インデックス"
 
@@ -2657,12 +2657,12 @@ msgstr "テーブル"
 #: libraries/config/user_preferences.forms.php:266
 #: libraries/export/latex.php:201 libraries/export/sql.php:1093
 #: server_privileges.php:612 server_replication.php:314 tbl_printview.php:276
-#: tbl_structure.php:772
+#: tbl_structure.php:773
 msgid "Data"
 msgstr "データ"
 
 #: libraries/build_html_for_db.lib.php:51 libraries/db_structure.lib.php:55
-#: tbl_printview.php:295 tbl_structure.php:789
+#: tbl_printview.php:295 tbl_structure.php:790
 msgid "Overhead"
 msgstr "オーバーヘッド"
 
@@ -2731,7 +2731,7 @@ msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "サーバ %1$s のホスト名が不正です。設定を確認してください"
 
 #: libraries/common.inc.php:666 libraries/config/messages.inc.php:506
-#: libraries/header.inc.php:134 main.php:160 server_status.php:775
+#: libraries/header.inc.php:134 main.php:171 server_status.php:775
 #: server_synchronize.php:1257
 msgid "Server"
 msgstr "サーバ"
@@ -2776,7 +2776,7 @@ msgstr "en"
 #: libraries/engines/pbxt.lib.php:106 libraries/navigation_header.inc.php:106
 #: libraries/navigation_header.inc.php:107 libraries/relation.lib.php:78
 #: libraries/sql_query_form.lib.php:384 libraries/sql_query_form.lib.php:387
-#: main.php:218 server_variables.php:129
+#: main.php:238 server_variables.php:129
 msgid "Documentation"
 msgstr "ドキュメント"
 
@@ -3133,7 +3133,7 @@ msgstr "SOAP 拡張が見つかりません"
 msgid "maximum %s"
 msgstr "最大 %s"
 
-#: libraries/config/FormDisplay.tpl.php:141 main.php:219
+#: libraries/config/FormDisplay.tpl.php:141 main.php:239
 msgid "Wiki"
 msgstr "Wiki"
 
@@ -3433,7 +3433,7 @@ msgid "Character set of the file"
 msgstr "ファイルの文字セット"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:90
-#: tbl_gis_visualization.php:181 tbl_printview.php:335 tbl_structure.php:841
+#: tbl_gis_visualization.php:181 tbl_printview.php:335 tbl_structure.php:842
 msgid "Format"
 msgstr "フォーマット"
 
@@ -4911,8 +4911,8 @@ msgstr "世代の自動作成"
 #: libraries/config/messages.inc.php:447
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_config[/kbd]"
+#| "ve blank for no user preferences storage in database, suggested: [kbd]"
+#| "_config[/kbd]"
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
@@ -5466,7 +5466,7 @@ msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "設定ファイルに定義されている管理ユーザ(controluser)での接続に失敗しました"
 
-#: libraries/display_change_password.lib.php:29 main.php:93
+#: libraries/display_change_password.lib.php:29 main.php:94
 #: user_password.php:105 user_password.php:123
 msgid "Change password"
 msgstr "パスワードを変更する"
@@ -5822,7 +5822,7 @@ msgstr "キーでソート"
 #: libraries/import/ldi.php:49 libraries/import/ods.php:39
 #: libraries/import/shp.php:22 libraries/import/sql.php:20
 #: libraries/import/xml.php:32 libraries/rte/rte_routines.lib.php:863
-#: tbl_select.php:175 tbl_structure.php:857
+#: tbl_select.php:175 tbl_structure.php:858
 msgid "Options"
 msgstr "オプション"
 
@@ -5918,7 +5918,7 @@ msgstr "ビューを作成する"
 msgid "Link not found"
 msgstr "リンク先が見つかりません"
 
-#: libraries/engines/bdb.lib.php:20 main.php:217
+#: libraries/engines/bdb.lib.php:20 main.php:237
 msgid "Version information"
 msgstr "バージョン情報"
 
@@ -7212,7 +7212,7 @@ msgstr "変数"
 #: libraries/rte/rte_routines.lib.php:1370 libraries/tbl_select.lib.php:87
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769 server_status.php:1464 tbl_change.php:334
-#: tbl_printview.php:329 tbl_structure.php:833 tbl_zoom_select.php:435
+#: tbl_printview.php:329 tbl_structure.php:834 tbl_zoom_select.php:435
 msgid "Value"
 msgstr "値"
 
@@ -8053,7 +8053,7 @@ msgstr ""
 
 #: libraries/tbl_properties.inc.php:109 libraries/tbl_properties.inc.php:478
 #: tbl_printview.php:285 tbl_structure.php:153 tbl_structure.php:158
-#: tbl_structure.php:577 tbl_structure.php:780
+#: tbl_structure.php:577 tbl_structure.php:781
 msgid "Index"
 msgstr "インデックス"
 
@@ -8117,12 +8117,12 @@ msgstr ""
 "この変換機能には説明がありません。<br />%s の動作については作者にご確認くださ"
 "い"
 
-#: libraries/tbl_properties.inc.php:574 tbl_structure.php:651
+#: libraries/tbl_properties.inc.php:574 tbl_structure.php:652
 #, php-format
 msgid "Add %s column(s)"
 msgstr "%s 個のカラムを追加する"
 
-#: libraries/tbl_properties.inc.php:576 tbl_structure.php:645
+#: libraries/tbl_properties.inc.php:576 tbl_structure.php:646
 msgid "You have to add at least one column."
 msgstr "最低ひとつはカラムを追加してください"
 
@@ -8319,77 +8319,77 @@ msgstr "ZIP アーカイブにエラーがあります:"
 msgid "General Settings"
 msgstr "一般設定"
 
-#: main.php:101
+#: main.php:109
 msgid "Server connection collation"
 msgstr "サーバ接続の照合順序"
 
-#: main.php:116
+#: main.php:124
 msgid "Appearance Settings"
 msgstr "外観の設定"
 
-#: main.php:144 prefs_manage.php:272
+#: main.php:153 prefs_manage.php:272
 msgid "More settings"
 msgstr "詳細設定"
 
-#: main.php:158
+#: main.php:169
 msgid "Database server"
 msgstr "データベースサーバ"
 
-#: main.php:161
+#: main.php:172
 msgid "Software"
 msgstr "ソフトウェア"
 
-#: main.php:162
+#: main.php:173
 msgid "Software version"
 msgstr "ソフトウェアバージョン"
 
-#: main.php:163
+#: main.php:175
 msgid "Protocol version"
 msgstr "プロトコルバージョン"
 
-#: main.php:165 server_privileges.php:1543 server_privileges.php:1696
+#: main.php:179 server_privileges.php:1543 server_privileges.php:1696
 #: server_privileges.php:1820 server_privileges.php:2250
 #: server_status.php:1225
 msgid "User"
 msgstr "ユーザ"
 
-#: main.php:169
+#: main.php:184
 msgid "Server charset"
 msgstr "サーバの文字セット"
 
-#: main.php:181
+#: main.php:196
 msgid "Web server"
 msgstr "ウェブサーバ"
 
-#: main.php:192
+#: main.php:209
 msgid "Database client version"
 msgstr "データベースクライアントのバージョン"
 
-#: main.php:194
+#: main.php:213
 msgid "PHP extension"
 msgstr "PHP 拡張"
 
-#: main.php:201
+#: main.php:221
 msgid "Show PHP information"
 msgstr "PHP 情報"
 
-#: main.php:222
+#: main.php:242
 msgid "Official Homepage"
 msgstr "phpMyAdmin オフィシャルサイト"
 
-#: main.php:223
+#: main.php:243
 msgid "Contribute"
 msgstr "貢献するには"
 
-#: main.php:224
+#: main.php:244
 msgid "Get support"
 msgstr "サポート"
 
-#: main.php:225
+#: main.php:245
 msgid "List of changes"
 msgstr "更新履歴"
 
-#: main.php:249
+#: main.php:269
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -8401,7 +8401,7 @@ msgstr ""
 "ト設定で動作しているため不正アクセス可能な状態になっています。このセキュリ"
 "ティホールはかならず閉ざしてください"
 
-#: main.php:257
+#: main.php:277
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -8410,7 +8410,7 @@ msgstr ""
 "PHP の設定で mbstring.func_overload が有効になっています。phpMyAdmin はこのオ"
 "プションに対応していないため、データが破壊されることがあります!"
 
-#: main.php:265
+#: main.php:285
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -8420,7 +8420,7 @@ msgstr ""
 "いるようですが、mbstring 拡張がないと phpMyAdmin は文字列を正しく分割できない"
 "ため予期しない結果になることがあります"
 
-#: main.php:273
+#: main.php:293
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -8432,7 +8432,7 @@ msgstr ""
 "設定されているクッキーの有効期間より短くなっています。このため、phpMyAdmin に"
 "設定されているよりも早くログインの期限が切れます。"
 
-#: main.php:280
+#: main.php:300
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -8441,13 +8441,13 @@ msgstr ""
 "りも短くなっています。このため、phpMyAdmin に設定されているよりも早くログイン"
 "の期限が切れます。"
 
-#: main.php:288
+#: main.php:308
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "設定ファイルが秘密のパスフレーズ (blowfish_secret) を必要とするようになりまし"
 "た"
 
-#: main.php:296
+#: main.php:316
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -8457,7 +8457,7 @@ msgstr ""
 "phpMyAdmin ディレクトリに存在しています。phpMyAdmin を設定し終えたら、それは"
 "削除するべきです。"
 
-#: main.php:302
+#: main.php:322
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -8466,7 +8466,7 @@ msgstr ""
 "phpMyAdmin の設定保存場所が完全に設定されていないため、いくつかの拡張機能が無"
 "効になっています。理由については%sこちら%sをご覧ください。"
 
-#: main.php:317
+#: main.php:337
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
@@ -8476,7 +8476,7 @@ msgstr ""
 "で、phpMyAdmin のいくつかの機能が失われます。例えば、ナビゲーションフレームが"
 "自動的に更新されません。"
 
-#: main.php:333
+#: main.php:356
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -8485,7 +8485,7 @@ msgstr ""
 "お使いになっている PHP の MySQL ライブラリのバージョン %s が MySQL サーバの"
 "バージョン %s と異なります。これは予期しない不具合を起こす可能性があります。"
 
-#: main.php:345
+#: main.php:380
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -8795,7 +8795,7 @@ msgstr "位置"
 msgid "Original position"
 msgstr "元の位置"
 
-#: server_binlog.php:185 tbl_structure.php:759
+#: server_binlog.php:185 tbl_structure.php:760
 msgid "Information"
 msgstr "情報"
 
@@ -9654,7 +9654,7 @@ msgstr "/分"
 msgid "per second"
 msgstr "/秒"
 
-#: server_status.php:964 tbl_printview.php:328 tbl_structure.php:832
+#: server_status.php:964 tbl_printview.php:328 tbl_structure.php:833
 msgid "Statements"
 msgstr "ステートメント"
 
@@ -10595,7 +10595,7 @@ msgstr "元のデータベースに接続できませんでした。"
 msgid "Could not connect to the target"
 msgstr "対象先のデータベースに接続できませんでした。"
 
-#: server_synchronize.php:130 server_synchronize.php:133 tbl_create.php:50
+#: server_synchronize.php:130 server_synchronize.php:133 tbl_create.php:55
 #: tbl_get_field.php:19
 #, php-format
 msgid "'%s' database does not exist."
@@ -11202,12 +11202,12 @@ msgstr "縦軸のラベル："
 msgid "Y Values"
 msgstr "縦軸の値"
 
-#: tbl_create.php:30
+#: tbl_create.php:31
 #, php-format
 msgid "Table %s already exists!"
 msgstr "テーブル %s は既に存在します!"
 
-#: tbl_create.php:216
+#: tbl_create.php:227
 #, php-format
 msgid "Table %1$s has been created."
 msgstr "テーブル %1$s を作成しました。"
@@ -11412,39 +11412,39 @@ msgstr "参照整合性の確認:"
 msgid "Showing tables"
 msgstr "テーブルを表示しています"
 
-#: tbl_printview.php:269 tbl_structure.php:763
+#: tbl_printview.php:269 tbl_structure.php:764
 msgid "Space usage"
 msgstr "ディスク使用量"
 
-#: tbl_printview.php:273 tbl_structure.php:767
+#: tbl_printview.php:273 tbl_structure.php:768
 msgid "Usage"
 msgstr "使用量"
 
-#: tbl_printview.php:300 tbl_structure.php:794
+#: tbl_printview.php:300 tbl_structure.php:795
 msgid "Effective"
 msgstr "有効"
 
-#: tbl_printview.php:325 tbl_structure.php:829
+#: tbl_printview.php:325 tbl_structure.php:830
 msgid "Row Statistics"
 msgstr "行の統計"
 
-#: tbl_printview.php:339 tbl_structure.php:844
+#: tbl_printview.php:339 tbl_structure.php:845
 msgid "static"
 msgstr "静的"
 
-#: tbl_printview.php:341 tbl_structure.php:846
+#: tbl_printview.php:341 tbl_structure.php:847
 msgid "dynamic"
 msgstr "動的"
 
-#: tbl_printview.php:363 tbl_structure.php:889
+#: tbl_printview.php:363 tbl_structure.php:890
 msgid "Row length"
 msgstr "行の長さ"
 
-#: tbl_printview.php:373 tbl_structure.php:897
+#: tbl_printview.php:373 tbl_structure.php:898
 msgid "Row size"
 msgstr "行のサイズ "
 
-#: tbl_printview.php:383 tbl_structure.php:905
+#: tbl_printview.php:383 tbl_structure.php:906
 msgid "Next autoindex"
 msgstr "次の自動付番"
 
@@ -11540,41 +11540,41 @@ msgstr "%s にインデックスを追加しました"
 msgid "Show more actions"
 msgstr "他の操作を表示する"
 
-#: tbl_structure.php:606
+#: tbl_structure.php:607
 msgid "Edit view"
 msgstr "ビューを編集する"
 
-#: tbl_structure.php:623
+#: tbl_structure.php:624
 msgid "Relation view"
 msgstr "リレーションビュー"
 
-#: tbl_structure.php:631
+#: tbl_structure.php:632
 msgid "Propose table structure"
 msgstr "テーブル構造を確認する"
 
-#: tbl_structure.php:649
+#: tbl_structure.php:650
 msgid "Add column"
 msgstr "カラムを追加する"
 
-#: tbl_structure.php:663
+#: tbl_structure.php:664
 msgid "At End of Table"
 msgstr "テーブルの末尾"
 
-#: tbl_structure.php:664
+#: tbl_structure.php:665
 msgid "At Beginning of Table"
 msgstr "テーブルの先頭"
 
-#: tbl_structure.php:665
+#: tbl_structure.php:666
 #, php-format
 msgid "After %s"
 msgstr "指定カラムの後に %s"
 
-#: tbl_structure.php:702
+#: tbl_structure.php:703
 #, php-format
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "%s つのカラムにインデックスを作成する"
 
-#: tbl_structure.php:860
+#: tbl_structure.php:861
 msgid "partitioned"
 msgstr "パーティション有り"
 
@@ -12080,15 +12080,15 @@ msgstr "準最適キャッシュ方式です。"
 #: po/advisory_rules.php:77
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\\\"http://dev.mysql.com/doc/"
-"refman/5.5/en/ha-memcached.html\\\">memcached</a> instead of the MySQL Query "
+"might be worth considering to use <a href=\"http://dev.mysql.com/doc/"
+"refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
 "MySQL のクエリキャッシュをかなり高いトラフィックのデータベースに対して使用し"
-"ています。MySQL のクエリキャッシュの代わりに <a href=\\\"http://dev.mysql."
-"com/doc/refman/5.5/en/ha-memcached.html\\\">memcached</a> の使用を検討する価"
-"値があると思われます。これは、マルチスレーブを使用している場合は、特に推奨さ"
-"れます。"
+"ています。MySQL のクエリキャッシュの代わりに <a href=\"http://dev.mysql.com/"
+"doc/refman/5.5/en/ha-memcached.html\">memcached</a> の使用を検討する価値があ"
+"ると思われます。これは、マルチスレーブを使用している場合は、特に推奨されま"
+"す。"
 
 #: po/advisory_rules.php:78
 #, php-format
@@ -12473,16 +12473,16 @@ msgid ""
 "value of these variables. To eliminate these you will have to rewrite your "
 "queries to avoid those conditions (Within a temporary table: Presence of a "
 "BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
-"mentioned in the beginning of an <a href=\\\"http://www.facebook.com/note."
-"php?note_id=10150111255065841&comments\\\">Article by the Pythian Group</a>"
+"mentioned in the beginning of an <a href=\"http://www.facebook.com/note.php?"
+"note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
 "{max_heap_table_size} と {tmp_table_size} を増加させることで改善されるかもし"
 "れません。しかしながら、これらの変数値に関わりなく、常にディスクに展開される"
 "一時テーブルは存在します。この状況をも改善したいのであれば、BLOB や TEXT のカ"
 "ラムもしくは 512 バイトを超えるカラムを使わないように、クエリを書き直す必要が"
-"あるでしょう。このことは、<a href=\\\"http://www.facebook.com/note.php?"
-"note_id=10150111255065841&comments\\\">The Pythian Group の記事 (英語)</a>に"
-"詳しく記載されています。"
+"あるでしょう。このことは、<a href=\"http://www.facebook.com/note.php?"
+"note_id=10150111255065841&comments\">The Pythian Group の記事 (英語)</a>に詳"
+"しく記載されています。"
 
 #: po/advisory_rules.php:153
 #, php-format
@@ -12504,16 +12504,16 @@ msgid ""
 "value of these variables. To eliminate these you will have to rewrite your "
 "queries to avoid those conditions (Within a temporary table: Presence of a "
 "BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
-"mentioned in the <a href=\\\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
-"temporary-tables.html\\\">MySQL Documentation</a>"
+"mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
+"temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
 "{max_heap_table_size} と {tmp_table_size} を増加させることで改善されるかもし"
 "れません。しかしながら、これらの変数値に関わりなく、常にディスクに展開される"
 "一時テーブルは存在します。この状況をも改善したいのであれば、BLOB や TEXT のカ"
 "ラムもしくは 512 バイトを超えるカラムを使わないように、クエリを書き直す必要が"
-"あるでしょう。このことは、<a href=\\\"http://dev.mysql.com/doc/refman/5.5/en/"
-"internal-temporary-tables.html\\\">MySQL ドキュメント</a>に詳しく記載されてい"
-"ます。"
+"あるでしょう。このことは、<a href=\"http://dev.mysql.com/doc/refman/5.5/en/"
+"internal-temporary-tables.html\">MySQL ドキュメント</a>に詳しく記載されていま"
+"す。"
 
 #: po/advisory_rules.php:158
 #, php-format
@@ -12632,9 +12632,13 @@ msgid "Percentage of used open files limit"
 msgstr "開いているファイルの上限に対する比率"
 
 #: po/advisory_rules.php:186
+#, fuzzy
+#| msgid ""
+#| "The number of open files is approaching the max number of open files.  "
+#| "You may get a \\\"Too many open files\\\" error."
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
-"may get a \\\"Too many open files\\\" error."
+"may get a \"Too many open files\" error."
 msgstr ""
 "開いているファイルの数が最大になりつつあります。エラー「開いているファイルが"
 "多すぎます」になるかもしれません。"
@@ -12830,15 +12834,15 @@ msgstr "中断された接続が多いです。"
 
 #: po/advisory_rules.php:232 po/advisory_rules.php:237
 msgid ""
-"Connections are usually aborted when they cannot be authorized. <a href=\\"
+"Connections are usually aborted when they cannot be authorized. <a href="
 "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-"source-of-aborted_connects/\\\">This article</a> might help you track down "
-"the source."
+"source-of-aborted_connects/\">This article</a> might help you track down the "
+"source."
 msgstr ""
 "接続は中断されたというのは、一般的に、認証できなかった場合のことです。<a "
-"href=\\\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-"
-"the-source-of-aborted_connects/\\\">この記事</a>は、原因を突き止めるのに参考"
-"になるかもしれません。"
+"href=\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
+"source-of-aborted_connects/\">この記事</a>は、原因を突き止めるのに参考になる"
+"かもしれません。"
 
 #: po/advisory_rules.php:233
 #, php-format
@@ -12934,9 +12938,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\\\"http://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\\\">this blog entry</"
-"a>"
+"fine. See also <a href=\"http://mysqldatabaseadministration.blogspot."
+"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "特に、InnoDB のテーブルへの書き込みが多いシステムの場合には、"
 "innodb_log_file_size は {innodb_buffer_pool_size} の 25%% に設定するといいで"
@@ -12945,10 +12948,10 @@ msgstr ""
 "たほうがいいでしょう。なお、この変数は簡単には変更できないので注意してくださ"
 "い。サーバを停止させ、InnoDB ログファイルを削除し、my.cnf に新しい値を設定し"
 "て、そうした後にサーバは起動しなおす必要があります。そして、全ての設定が正し"
-"く設定できているのかを、エラーログで確認しなければなりません。<a href=\\"
+"く設定できているのかを、エラーログで確認しなければなりません。<a href="
 "\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\\\">こちらのブログ記事 (英語)</a>もご覧に"
-"なってください。"
+"innodblogfilesize-proper-way.html\">こちらのブログ記事 (英語)</a>もご覧になっ"
+"てください。"
 
 #: po/advisory_rules.php:258
 #, php-format
@@ -12972,25 +12975,25 @@ msgstr "InnoDB ログファイルの大きさが、十分にありません。"
 msgid ""
 "It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
 "{innodb_buffer_pool_size}. A very big innodb_log_file_size slows down the "
-"recovery time after a database crash considerably. See also <a href=\\"
-"\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\\\">this Article</a>. You need to shutdown the server, "
-"remove the InnoDB log files, set the new value in my.cnf, start the server, "
-"then check the error logs if everything went fine. See also <a href=\\"
-"\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\\\">this blog entry</a>"
+"recovery time after a database crash considerably. See also <a href=\"http://"
+"www.mysqlperformanceblog.com/2006/07/03/choosing-proper-innodb_log_file_size/"
+"\">this Article</a>. You need to shutdown the server, remove the InnoDB log "
+"files, set the new value in my.cnf, start the server, then check the error "
+"logs if everything went fine. See also <a href=\"http://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">this blog entry</a>"
 msgstr ""
 "一般的には、innodb_log_file_size に {innodb_buffer_pool_size} の 25%% の値を"
 "設定すれば十分です。innodb_log_file_size の値が非常に大きい場合、データベース"
-"が多量に破損した後の復帰に時間がかかるようになります。<a href=\\\"http://www."
-"mysqlperformanceblog.com/2006/07/03/choosing-proper-innodb_log_file_size/\\"
-"\">こちらの記事 (英語)</a> も参照してください。なお、この変数を変更するには、"
+"が多量に破損した後の復帰に時間がかかるようになります。<a href=\"http://www."
+"mysqlperformanceblog.com/2006/07/03/choosing-proper-innodb_log_file_size/\">"
+"こちらの記事 (英語)</a> も参照してください。なお、この変数を変更するには、"
 "サーバを停止させ、InnoDB ログファイルを削除し、my.cnf に新しい値を設定してか"
 "ら、サーバを起動し直す必要があります。それから、全ての設定が正しく行えたかを"
 "確認するために、エラーログを確認しなければなりません。設定に関しては、<a "
-"href=\\\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\\\">こちらのブログ記事 (英語)</a> もご覧く"
-"ださい。"
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">こちらのブログ記事 (英語)</a> もご覧くだ"
+"さい。"
 
 #: po/advisory_rules.php:263
 #, php-format
@@ -13015,9 +13018,9 @@ msgid ""
 "available memory. If that is not the case, you need to carefully assess the "
 "memory consumption of your other services and non-InnoDB-Tables and set this "
 "variable accordingly. If it is set too high, your system will start "
-"swapping, which decreases performance significantly. See also <a href=\\"
+"swapping, which decreases performance significantly. See also <a href="
 "\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\\\">this article</a>"
+"innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
 "InnoDB のバッファプールは、InnoDB テーブルのパフォーマンスに対して強い影響力"
 "を持っています。使用されていないメモリを全てこのバッファに割り当ててくださ"
@@ -13027,9 +13030,9 @@ msgstr ""
 "う。そのような状況以外では、使用されている他のサービスや InnoDB ではないテー"
 "ブルの使用メモリ量を慎重に見極めながら、この変数を設定する必要があります。大"
 "きすぎる値を設定されてしまった場合、システムはメモリスワップをするようにな"
-"り、パフォーマンスは著しく低下するようになります。<a href=\\\"http://www."
-"mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/\\\">こ"
-"ちらの記事 (英語)</a> も参考にしてください。"
+"り、パフォーマンスは著しく低下するようになります。<a href=\"http://www."
+"mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/\">こち"
+"らの記事 (英語)</a> も参考にしてください。"
 
 #: po/advisory_rules.php:268
 #, php-format
@@ -13055,12 +13058,12 @@ msgstr "concurrent_insert に 1 を設定して、同時挿入を有効にして
 #: po/advisory_rules.php:272
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
-"writers for a given table. See also <a href=\\\"http://dev.mysql.com/doc/"
-"refman/5.5/en/concurrent-inserts.html\\\">MySQL Documentation</a>"
+"writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
+"refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "{concurrent_insert} を 1 に設定すると、一つのテーブル内における読み書きの衝突"
-"を減らすことができます。<a href=\\\"http://dev.mysql.com/doc/refman/5.1/ja/"
-"concurrent-inserts.html\\\">MySQL ドキュメント</a>もご覧になってください。"
+"を減らすことができます。<a href=\"http://dev.mysql.com/doc/refman/5.1/ja/"
+"concurrent-inserts.html\">MySQL ドキュメント</a>もご覧になってください。"
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
@@ -13131,19 +13134,15 @@ msgstr "concurrent_insert は 0 に設定されています。"
 #~ "するカラムを選択する」というアイコンをクリックしてから適切なカラム名をク"
 #~ "リックください。"
 
-#, fuzzy
 #~ msgid "memcached usage"
 #~ msgstr "ディスク使用量"
 
-#, fuzzy
 #~ msgid "% open files"
 #~ msgstr "開いているテーブルを表示する"
 
-#, fuzzy
 #~ msgid "% connections used"
 #~ msgstr "接続"
 
-#, fuzzy
 #~ msgid "% aborted connections"
 #~ msgstr "圧縮通信を行う"
 
@@ -13162,7 +13161,6 @@ msgstr "concurrent_insert は 0 に設定されています。"
 #~ msgid "Excel 2007 XLSX Workbook"
 #~ msgstr "Excel 2007 XLSX ワークブック"
 
-#, fuzzy
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "ページ"
@@ -13224,7 +13222,6 @@ msgstr "concurrent_insert は 0 に設定されています。"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "%s という名前のトリガが見つかりません"
 
-#, fuzzy
 #~ msgid "rows"
 #~ msgstr "表示"
 

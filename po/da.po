@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-11-30 14:18+0100\n"
+"POT-Creation-Date: 2011-12-01 15:49+0100\n"
 "PO-Revision-Date: 2011-09-25 23:05+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
@@ -66,7 +66,7 @@ msgstr "Søg"
 #: libraries/schema/User_Schema.class.php:487
 #: libraries/select_server.lib.php:93 libraries/sql_query_form.lib.php:348
 #: libraries/sql_query_form.lib.php:410 libraries/sql_query_form.lib.php:463
-#: libraries/tbl_properties.inc.php:575 main.php:107 navigation.php:171
+#: libraries/tbl_properties.inc.php:575 main.php:115 navigation.php:171
 #: navigation.php:209 pmd_pdf.php:120 prefs_manage.php:263
 #: prefs_manage.php:314 server_binlog.php:109 server_privileges.php:744
 #: server_privileges.php:1784 server_privileges.php:2148
@@ -76,7 +76,7 @@ msgstr "Søg"
 #: tbl_change.php:1073 tbl_change.php:1110 tbl_indexes.php:288
 #: tbl_operations.php:284 tbl_operations.php:321 tbl_operations.php:523
 #: tbl_operations.php:585 tbl_operations.php:768 tbl_select.php:235
-#: tbl_structure.php:671 tbl_structure.php:706 tbl_tracking.php:416
+#: tbl_structure.php:672 tbl_structure.php:707 tbl_tracking.php:416
 #: tbl_tracking.php:554 tbl_zoom_select.php:313 view_create.php:181
 #: view_operations.php:99
 msgid "Go"
@@ -158,7 +158,7 @@ msgstr "Kolonnenavn"
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:84
 #: server_privileges.php:2252 tbl_change.php:297 tbl_change.php:324
 #: tbl_printview.php:137 tbl_printview.php:272 tbl_structure.php:202
-#: tbl_structure.php:766 tbl_tracking.php:258 tbl_tracking.php:305
+#: tbl_structure.php:767 tbl_tracking.php:258 tbl_tracking.php:305
 msgid "Type"
 msgstr "Datatype"
 
@@ -333,7 +333,7 @@ msgstr "Skift til den kopierede database"
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:100
 #: libraries/tbl_properties.inc.php:668 libraries/tbl_select.lib.php:85
 #: server_collations.php:53 server_collations.php:65 tbl_operations.php:382
-#: tbl_structure.php:203 tbl_structure.php:871 tbl_tracking.php:259
+#: tbl_structure.php:203 tbl_structure.php:872 tbl_tracking.php:259
 #: tbl_tracking.php:310
 msgid "Collation"
 msgstr "Tegnsæt (sortering)"
@@ -365,7 +365,7 @@ msgstr "Tabel"
 #: libraries/db_structure.lib.php:42 libraries/header_printview.inc.php:65
 #: libraries/import.lib.php:151 navigation.php:591 navigation.php:611
 #: tbl_printview.php:353 tbl_structure.php:363 tbl_structure.php:469
-#: tbl_structure.php:881
+#: tbl_structure.php:882
 msgid "Rows"
 msgstr "Rækker"
 
@@ -380,21 +380,21 @@ msgstr "i brug"
 #: db_printview.php:184 libraries/db_info.inc.php:74
 #: libraries/export/sql.php:743
 #: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:393
-#: tbl_structure.php:913
+#: tbl_structure.php:914
 msgid "Creation"
 msgstr "Oprettelse"
 
 #: db_printview.php:193 libraries/db_info.inc.php:79
 #: libraries/export/sql.php:748
 #: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:403
-#: tbl_structure.php:921
+#: tbl_structure.php:922
 msgid "Last update"
 msgstr "Sidste opdatering"
 
 #: db_printview.php:202 libraries/db_info.inc.php:84
 #: libraries/export/sql.php:753
 #: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:413
-#: tbl_structure.php:929
+#: tbl_structure.php:930
 msgid "Last check"
 msgstr "Sidste check"
 
@@ -599,11 +599,11 @@ msgstr "Visning %s er blevet slettet"
 msgid "Table %s has been dropped"
 msgstr "Tabel %s blev slettet"
 
-#: db_structure.php:337 tbl_create.php:270
+#: db_structure.php:337 tbl_create.php:281
 msgid "Tracking is active."
 msgstr "Sporing er aktiv."
 
-#: db_structure.php:342 tbl_create.php:273
+#: db_structure.php:342 tbl_create.php:284
 msgid "Tracking is not active."
 msgstr "Sporing er ikke aktiv."
 
@@ -670,11 +670,12 @@ msgid "Export"
 msgstr "Eksporter"
 
 #: db_structure.php:582 db_structure.php:638
-#: libraries/display_tbl.lib.php:2598 tbl_structure.php:612
+#: libraries/display_tbl.lib.php:2598 tbl_structure.php:613
 msgid "Print view"
 msgstr "Udskriv"
 
-# By "Empty", if this is an action, it should translate to "Tøm" but if it's a state it should translate to "Tom".
+# By "Empty", if this is an action, it should translate to "Tøm" but if it's a
+# state it should translate to "Tom".
 #: db_structure.php:586 libraries/common.lib.php:3342
 #: libraries/common.lib.php:3343
 msgid "Empty"
@@ -691,7 +692,7 @@ msgstr "Slet"
 msgid "Check table"
 msgstr "Tjek tabel"
 
-#: db_structure.php:593 tbl_operations.php:657 tbl_structure.php:815
+#: db_structure.php:593 tbl_operations.php:657 tbl_structure.php:816
 msgid "Optimize table"
 msgstr "Optimer tabel"
 
@@ -790,7 +791,7 @@ msgstr "Øjebliksbillede af struktur"
 msgid "Untracked tables"
 msgstr "Ikke-sporede tabeller"
 
-#: db_tracking.php:199 tbl_structure.php:638
+#: db_tracking.php:199 tbl_structure.php:639
 msgid "Track table"
 msgstr "Sporingstabel"
 
@@ -1192,7 +1193,7 @@ msgstr "Statiske data"
 #: js/messages.php:72 libraries/build_html_for_db.lib.php:46
 #: libraries/engines/innodb.lib.php:158 server_databases.php:222
 #: server_status.php:1114 server_status.php:1175 tbl_printview.php:310
-#: tbl_structure.php:803
+#: tbl_structure.php:804
 msgid "Total"
 msgstr "Total"
 
@@ -2312,7 +2313,7 @@ msgid "No index defined!"
 msgstr "Intet indeks defineret!"
 
 #: libraries/Index.class.php:423 libraries/build_html_for_db.lib.php:41
-#: tbl_structure.php:692 tbl_tracking.php:300
+#: tbl_structure.php:693 tbl_tracking.php:300
 msgid "Indexes"
 msgstr "Indeks"
 
@@ -2681,12 +2682,12 @@ msgstr "Tabeller"
 #: libraries/config/user_preferences.forms.php:266
 #: libraries/export/latex.php:201 libraries/export/sql.php:1093
 #: server_privileges.php:612 server_replication.php:314 tbl_printview.php:276
-#: tbl_structure.php:772
+#: tbl_structure.php:773
 msgid "Data"
 msgstr "Data"
 
 #: libraries/build_html_for_db.lib.php:51 libraries/db_structure.lib.php:55
-#: tbl_printview.php:295 tbl_structure.php:789
+#: tbl_printview.php:295 tbl_structure.php:790
 msgid "Overhead"
 msgstr "Overhead"
 
@@ -2756,7 +2757,7 @@ msgstr ""
 "Ugyldigt værtsnavn for server %1$s. Gennemgå venligst din konfiguration."
 
 #: libraries/common.inc.php:666 libraries/config/messages.inc.php:506
-#: libraries/header.inc.php:134 main.php:160 server_status.php:775
+#: libraries/header.inc.php:134 main.php:171 server_status.php:775
 #: server_synchronize.php:1257
 msgid "Server"
 msgstr "Server"
@@ -2801,7 +2802,7 @@ msgstr "en"
 #: libraries/engines/pbxt.lib.php:106 libraries/navigation_header.inc.php:106
 #: libraries/navigation_header.inc.php:107 libraries/relation.lib.php:78
 #: libraries/sql_query_form.lib.php:384 libraries/sql_query_form.lib.php:387
-#: main.php:218 server_variables.php:129
+#: main.php:238 server_variables.php:129
 msgid "Documentation"
 msgstr "Dokumentation"
 
@@ -3160,7 +3161,7 @@ msgstr "SOAP-udvidelse ikke fundet"
 msgid "maximum %s"
 msgstr "maksimum %s"
 
-#: libraries/config/FormDisplay.tpl.php:141 main.php:219
+#: libraries/config/FormDisplay.tpl.php:141 main.php:239
 msgid "Wiki"
 msgstr "Wiki"
 
@@ -3469,7 +3470,7 @@ msgid "Character set of the file"
 msgstr "Filens tegnsæt"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:90
-#: tbl_gis_visualization.php:181 tbl_printview.php:335 tbl_structure.php:841
+#: tbl_gis_visualization.php:181 tbl_printview.php:335 tbl_structure.php:842
 msgid "Format"
 msgstr "Format"
 
@@ -5425,7 +5426,7 @@ msgstr "muligt dybt rekursionsangreb"
 
 #: libraries/database_interface.lib.php:1765
 #, fuzzy
-#| msgid "(or the local MySQL server's socket is not correctly configured)"
+#| msgid " the local MySQL server's socket is not correctly configured)"
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -5497,7 +5498,7 @@ msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Forbindelse for kontrolbruger som defineret i din konfiguration slog fejl."
 
-#: libraries/display_change_password.lib.php:29 main.php:93
+#: libraries/display_change_password.lib.php:29 main.php:94
 #: user_password.php:105 user_password.php:123
 msgid "Change password"
 msgstr "Ændre adgangskode"
@@ -5850,7 +5851,7 @@ msgstr "Sorteringsnøgle"
 #: libraries/import/ldi.php:49 libraries/import/ods.php:39
 #: libraries/import/shp.php:22 libraries/import/sql.php:20
 #: libraries/import/xml.php:32 libraries/rte/rte_routines.lib.php:863
-#: tbl_select.php:175 tbl_structure.php:857
+#: tbl_select.php:175 tbl_structure.php:858
 msgid "Options"
 msgstr "Indstillinger"
 
@@ -5946,7 +5947,7 @@ msgstr "Opret view"
 msgid "Link not found"
 msgstr "Link ikke fundet"
 
-#: libraries/engines/bdb.lib.php:20 main.php:217
+#: libraries/engines/bdb.lib.php:20 main.php:237
 msgid "Version information"
 msgstr "Versionsinformation"
 
@@ -7255,7 +7256,7 @@ msgstr "Variabel"
 #: libraries/rte/rte_routines.lib.php:1370 libraries/tbl_select.lib.php:87
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769 server_status.php:1464 tbl_change.php:334
-#: tbl_printview.php:329 tbl_structure.php:833 tbl_zoom_select.php:435
+#: tbl_printview.php:329 tbl_structure.php:834 tbl_zoom_select.php:435
 msgid "Value"
 msgstr "Værdi"
 
@@ -8091,7 +8092,7 @@ msgstr ""
 
 #: libraries/tbl_properties.inc.php:109 libraries/tbl_properties.inc.php:478
 #: tbl_printview.php:285 tbl_structure.php:153 tbl_structure.php:158
-#: tbl_structure.php:577 tbl_structure.php:780
+#: tbl_structure.php:577 tbl_structure.php:781
 msgid "Index"
 msgstr "Indeks"
 
@@ -8156,12 +8157,12 @@ msgstr ""
 "Der er ingen beskrivelse af denne transformation.<br />Spørg venligst "
 "forfatteren, hvad %s gør."
 
-#: libraries/tbl_properties.inc.php:574 tbl_structure.php:651
+#: libraries/tbl_properties.inc.php:574 tbl_structure.php:652
 #, php-format
 msgid "Add %s column(s)"
 msgstr "Tilføj %s kolonne(r)"
 
-#: libraries/tbl_properties.inc.php:576 tbl_structure.php:645
+#: libraries/tbl_properties.inc.php:576 tbl_structure.php:646
 msgid "You have to add at least one column."
 msgstr "Du skal tilføje mindst en kolonne."
 
@@ -8360,77 +8361,77 @@ msgstr "Fejl i ZIP arkiv:"
 msgid "General Settings"
 msgstr "Generelle indstillinger"
 
-#: main.php:101
+#: main.php:109
 msgid "Server connection collation"
 msgstr "Servers forbindelsestegnsæt"
 
-#: main.php:116
+#: main.php:124
 msgid "Appearance Settings"
 msgstr "Indstillinger for udseende"
 
-#: main.php:144 prefs_manage.php:272
+#: main.php:153 prefs_manage.php:272
 msgid "More settings"
 msgstr "Flere indstillinger"
 
-#: main.php:158
+#: main.php:169
 msgid "Database server"
 msgstr "Database server"
 
-#: main.php:161
+#: main.php:172
 msgid "Software"
 msgstr "Programmel"
 
-#: main.php:162
+#: main.php:173
 msgid "Software version"
 msgstr "Programmelversion"
 
-#: main.php:163
+#: main.php:175
 msgid "Protocol version"
 msgstr "Protokolversion"
 
-#: main.php:165 server_privileges.php:1543 server_privileges.php:1696
+#: main.php:179 server_privileges.php:1543 server_privileges.php:1696
 #: server_privileges.php:1820 server_privileges.php:2250
 #: server_status.php:1225
 msgid "User"
 msgstr "Bruger"
 
-#: main.php:169
+#: main.php:184
 msgid "Server charset"
 msgstr "Servers tegnsæt"
 
-#: main.php:181
+#: main.php:196
 msgid "Web server"
 msgstr "Webserver"
 
-#: main.php:192
+#: main.php:209
 msgid "Database client version"
 msgstr "Databaseklientversion"
 
-#: main.php:194
+#: main.php:213
 msgid "PHP extension"
 msgstr "PHP udvidelse"
 
-#: main.php:201
+#: main.php:221
 msgid "Show PHP information"
 msgstr "Vis PHP-information"
 
-#: main.php:222
+#: main.php:242
 msgid "Official Homepage"
 msgstr "Officiel phpMyAdmin hjemmeside "
 
-#: main.php:223
+#: main.php:243
 msgid "Contribute"
 msgstr "Deltag"
 
-#: main.php:224
+#: main.php:244
 msgid "Get support"
 msgstr "Få support"
 
-#: main.php:225
+#: main.php:245
 msgid "List of changes"
 msgstr "Liste over ændringer"
 
-#: main.php:249
+#: main.php:269
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -8442,7 +8443,7 @@ msgstr ""
 "kører med denne standardindstilling, <u>er åben for indtrængen</u>, og du "
 "opfordres stærkt til at gøre noget ved dette sikkerhedshul."
 
-#: main.php:257
+#: main.php:277
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -8452,7 +8453,7 @@ msgstr ""
 "indstilling er ikke kompatibel med phpMyAdmin og kan forårsage ødelæggelse "
 "af nogle data!"
 
-#: main.php:265
+#: main.php:285
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -8462,7 +8463,7 @@ msgstr ""
 "multibyte tegnsæt. Uden mbstring-udvidelsen er phpMyAdmin ude af stand til "
 "at opdele strenge korrekt og dette kan forårsage uventede resultater."
 
-#: main.php:273
+#: main.php:293
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -8474,7 +8475,7 @@ msgstr ""
 "gyldighed konfigureret i phpMyAdmin; på grund af dette vil din login session "
 "udløbe tidligere end konfigureret i phpMyAdmin"
 
-#: main.php:280
+#: main.php:300
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -8483,12 +8484,12 @@ msgstr ""
 "phpMyAdmin. På grund af dette, vil din login udløbe tidligere end "
 "konfigureret i phpMyAdmin."
 
-#: main.php:288
+#: main.php:308
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "Konfigurationsfilen skal nu bruge et hemmeligt kodeord (blowfish_secret)."
 
-#: main.php:296
+#: main.php:316
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -8498,7 +8499,7 @@ msgstr ""
 "i din phpMyAdmin mappe. Du bør slette den, når phpMyAdmin er blevet "
 "konfigureret."
 
-#: main.php:302
+#: main.php:322
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -8508,7 +8509,7 @@ msgstr ""
 "udvidede funktioner er blevet deaktiverede. For at finde ud af hvorfor klik "
 "%sher%s."
 
-#: main.php:317
+#: main.php:337
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
@@ -8518,7 +8519,7 @@ msgstr ""
 "phpMyAdmin funktioner vil savnes. Fx navigationsrammen vil ikke opdateres "
 "automatisk."
 
-#: main.php:333
+#: main.php:356
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -8527,7 +8528,7 @@ msgstr ""
 "Din PHP MySQL-biblioteks version %s afviger fra din MySQL server version %s. "
 "Dette kan forårsage uforudsigelige resultater."
 
-#: main.php:345
+#: main.php:380
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -8830,7 +8831,7 @@ msgstr "Position"
 msgid "Original position"
 msgstr "Original position"
 
-#: server_binlog.php:185 tbl_structure.php:759
+#: server_binlog.php:185 tbl_structure.php:760
 msgid "Information"
 msgstr "Information"
 
@@ -9697,7 +9698,7 @@ msgstr "pr. minut"
 msgid "per second"
 msgstr "pr. sekund"
 
-#: server_status.php:964 tbl_printview.php:328 tbl_structure.php:832
+#: server_status.php:964 tbl_printview.php:328 tbl_structure.php:833
 msgid "Statements"
 msgstr "Forespørgsler"
 
@@ -10666,7 +10667,7 @@ msgstr "Kunne ikke forbinde til kilden"
 msgid "Could not connect to the target"
 msgstr "Kunne ikke forbinde til målet"
 
-#: server_synchronize.php:130 server_synchronize.php:133 tbl_create.php:50
+#: server_synchronize.php:130 server_synchronize.php:133 tbl_create.php:55
 #: tbl_get_field.php:19
 #, php-format
 msgid "'%s' database does not exist."
@@ -11269,12 +11270,12 @@ msgstr "Y-akse betegnelse:"
 msgid "Y Values"
 msgstr "Y-værdier"
 
-#: tbl_create.php:30
+#: tbl_create.php:31
 #, php-format
 msgid "Table %s already exists!"
 msgstr "Table %s already exists!"
 
-#: tbl_create.php:216
+#: tbl_create.php:227
 #, php-format
 msgid "Table %1$s has been created."
 msgstr "Tabel %1$s er blevet oprettet."
@@ -11482,39 +11483,39 @@ msgstr "Check reference-integriteten:"
 msgid "Showing tables"
 msgstr "Vis tabeller"
 
-#: tbl_printview.php:269 tbl_structure.php:763
+#: tbl_printview.php:269 tbl_structure.php:764
 msgid "Space usage"
 msgstr "Pladsforbrug"
 
-#: tbl_printview.php:273 tbl_structure.php:767
+#: tbl_printview.php:273 tbl_structure.php:768
 msgid "Usage"
 msgstr "Benyttelse"
 
-#: tbl_printview.php:300 tbl_structure.php:794
+#: tbl_printview.php:300 tbl_structure.php:795
 msgid "Effective"
 msgstr "Effektiv"
 
-#: tbl_printview.php:325 tbl_structure.php:829
+#: tbl_printview.php:325 tbl_structure.php:830
 msgid "Row Statistics"
 msgstr "Rækkestatistik"
 
-#: tbl_printview.php:339 tbl_structure.php:844
+#: tbl_printview.php:339 tbl_structure.php:845
 msgid "static"
 msgstr "statisk"
 
-#: tbl_printview.php:341 tbl_structure.php:846
+#: tbl_printview.php:341 tbl_structure.php:847
 msgid "dynamic"
 msgstr "dynamisk"
 
-#: tbl_printview.php:363 tbl_structure.php:889
+#: tbl_printview.php:363 tbl_structure.php:890
 msgid "Row length"
 msgstr "Rækkelængde"
 
-#: tbl_printview.php:373 tbl_structure.php:897
+#: tbl_printview.php:373 tbl_structure.php:898
 msgid "Row size"
 msgstr "Rækkestørrelse "
 
-#: tbl_printview.php:383 tbl_structure.php:905
+#: tbl_printview.php:383 tbl_structure.php:906
 msgid "Next autoindex"
 msgstr "Næste autoindeks"
 
@@ -11609,41 +11610,41 @@ msgstr "Der er tilføjet et indeks til %s"
 msgid "Show more actions"
 msgstr "Vis flere operationer"
 
-#: tbl_structure.php:606
+#: tbl_structure.php:607
 msgid "Edit view"
 msgstr "Rediger view"
 
-#: tbl_structure.php:623
+#: tbl_structure.php:624
 msgid "Relation view"
 msgstr "Relation view"
 
-#: tbl_structure.php:631
+#: tbl_structure.php:632
 msgid "Propose table structure"
 msgstr "Foreslå tabelstruktur"
 
-#: tbl_structure.php:649
+#: tbl_structure.php:650
 msgid "Add column"
 msgstr "Tilføj kolonne"
 
-#: tbl_structure.php:663
+#: tbl_structure.php:664
 msgid "At End of Table"
 msgstr "I slutningen af tabel"
 
-#: tbl_structure.php:664
+#: tbl_structure.php:665
 msgid "At Beginning of Table"
 msgstr "I begyndelsen af tabel"
 
-#: tbl_structure.php:665
+#: tbl_structure.php:666
 #, php-format
 msgid "After %s"
 msgstr "Efter %s"
 
-#: tbl_structure.php:702
+#: tbl_structure.php:703
 #, php-format
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "Opret et indeks på &nbsp;%s&nbsp; kolonner"
 
-#: tbl_structure.php:860
+#: tbl_structure.php:861
 msgid "partitioned"
 msgstr "partitioneret"
 
@@ -12145,13 +12146,13 @@ msgstr "Suboptimal metode for mellemlager"
 #: po/advisory_rules.php:77
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\\\"http://dev.mysql.com/doc/"
-"refman/5.5/en/ha-memcached.html\\\">memcached</a> instead of the MySQL Query "
+"might be worth considering to use <a href=\"http://dev.mysql.com/doc/"
+"refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
 "Du bruger MySQL forespørgselsmellemlager med en databe med temmelig høj "
-"trafik. Det bør overvejes at anvende <a href=\\\"http://dev.mysql.com/doc/"
-"refman/5.5/en/ha-memcached.html\\\">memcached</a> i stedet for MySQL "
+"trafik. Det bør overvejes at anvende <a href=\"http://dev.mysql.com/doc/"
+"refman/5.5/en/ha-memcached.html\">memcached</a> i stedet for MySQL "
 "forespørgselsmellemlager, særligt hvis du har flere slaver."
 
 #: po/advisory_rules.php:78
@@ -12385,10 +12386,9 @@ msgstr "Der er mange rækker, der sorteres."
 #: po/advisory_rules.php:122
 #, fuzzy
 #| msgid ""
-#| "While there is nothing wrong with a high amount of row sorting, you might "
-#| "want to make sure that the queries which require a lot of sorting use "
-#| "indexed fields in the ORDER BY clause, as this will result in much faster "
-#| "sorting"
+#| "there is nothing wrong with a high amount of row sorting, you might t to "
+#| "e sure that the queries which require a lot of sorting use exed fields "
+#| "ine ORDER BY clause, as this will result in much faster ting"
 msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
@@ -12415,8 +12415,8 @@ msgstr "Der er for mange joins uden indeks."
 #: po/advisory_rules.php:127
 #, fuzzy
 #| msgid ""
-#| "This means that joins are doing full table scans. Adding indexes for the "
-#| "fields being used in the join conditions will greatly speed up table joins"
+#| "eans that joins are doing full table scans. Adding indexes for the lds ng "
+#| "used in the join conditions will greatly speed up table joins"
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
@@ -12554,16 +12554,16 @@ msgid ""
 "value of these variables. To eliminate these you will have to rewrite your "
 "queries to avoid those conditions (Within a temporary table: Presence of a "
 "BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
-"mentioned in the beginning of an <a href=\\\"http://www.facebook.com/note."
-"php?note_id=10150111255065841&comments\\\">Article by the Pythian Group</a>"
+"mentioned in the beginning of an <a href=\"http://www.facebook.com/note.php?"
+"note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
 "Forøgelse af {max_heap_table_size} og {tmp_table_size} kan hjælpe. Dog "
 "skrives nogle midlertidige tabeller altid til disk uafhængig af disse "
 "variable. For at undgå disse skal man omskrive sine forespørgsler for at "
 "undgå disse betingelser (inden for en midlertidig tabel: Tilstedeværelse af "
 "BLOB eller TEXT felter eller et felt større end 512 bytes) som nævnt i <a "
-"href=\\\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables."
-"html\\\">MySQL Documentation</a>"
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables.html"
+"\">MySQL Documentation</a>"
 
 #: po/advisory_rules.php:153
 #, php-format
@@ -12581,35 +12581,35 @@ msgstr "Frekvens af midlertidig disk"
 #: po/advisory_rules.php:157
 #, fuzzy
 #| msgid ""
-#| "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
-#| "some temporary tables are always being written to disk, independent of "
-#| "the value of these variables. To eliminate these you will have to rewrite "
-#| "your queries to avoid those conditions (Within a temprorary table: "
-#| "Presence of a BLOB or TEXT column or presence of a column bigger than 512 "
-#| "bytes) as mentioned in in the <a href=\\\"http://dev.mysql.com/doc/"
-#| "refman/5.5/en/internal-temporary-tables.html\\\">MySQL Documentation</a>"
+#| "sing {max_heap_table_size} and {tmp_table_size} might help. However e "
+#| "porary tables are always being written to disk, independent of  value of "
+#| "se variables. To eliminate these you will have to rewrite r queries to id "
+#| "those conditions (Within a temprorary table: sence of a BLOB or TEXT umn "
+#| "or presence of a column bigger than 512 es) as mentioned in in the <aef=\\"
+#| "\"http://dev.mysql.com/doc/man/5.5/en/internal-temporary-les.html\\"
+#| "\">MySQL Documentation</a>"
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
 "value of these variables. To eliminate these you will have to rewrite your "
 "queries to avoid those conditions (Within a temporary table: Presence of a "
 "BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
-"mentioned in the <a href=\\\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
-"temporary-tables.html\\\">MySQL Documentation</a>"
+"mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
+"temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
 "Forøgelse af {max_heap_table_size} og {tmp_table_size} kan hjælpe. Dog "
 "skrives nogle midlertidige tabeller altid til disk uafhængig af disse "
 "variable. For at undgå disse skal man omskrive sine forespørgsler for at "
 "undgå disse betingelser (inden for en midlertidig tabel: Tilstedeværelse af "
 "BLOB eller TEXT felter eller et felt større end 512 bytes) som nævnt i <a "
-"href=\\\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables."
-"html\\\">MySQL Documentation</a>"
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables.html"
+"\">MySQL Documentation</a>"
 
 #: po/advisory_rules.php:158
 #, fuzzy, php-format
 #| msgid ""
-#| "Rate of temporay tables being written to disk: %s, this value should be "
-#| "less than 1 per hour"
+#| "f temporay tables being written to disk: %s, this value should be s than "
+#| "er hour"
 msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
@@ -12722,10 +12722,10 @@ msgstr "Procentdel af grænse for brugte åbne filer"
 #: po/advisory_rules.php:186
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
-"may get a \\\"Too many open files\\\" error."
+"may get a \"Too many open files\" error."
 msgstr ""
 "Antallet af åbne filer nærmer sig det maksimale antal åbne filer. Du kan få "
-"en \\\"Too many open files\\\" fejl."
+"en \"Too many open files\" fejl."
 
 #: po/advisory_rules.php:187 po/advisory_rules.php:192
 msgid ""
@@ -12904,15 +12904,15 @@ msgstr "For mange forbindelser er aborterede."
 
 #: po/advisory_rules.php:232 po/advisory_rules.php:237
 msgid ""
-"Connections are usually aborted when they cannot be authorized. <a href=\\"
+"Connections are usually aborted when they cannot be authorized. <a href="
 "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-"source-of-aborted_connects/\\\">This article</a> might help you track down "
-"the source."
+"source-of-aborted_connects/\">This article</a> might help you track down the "
+"source."
 msgstr ""
-"Forbindelser aborteres normalt, når de ikke kan blive autoriseret. <a href=\\"
+"Forbindelser aborteres normalt, når de ikke kan blive autoriseret. <a href="
 "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-"source-of-aborted_connects/\\\">Denne artikel</a> kan måske hjælpe dig med "
-"at finde årsagen."
+"source-of-aborted_connects/\">Denne artikel</a> kan måske hjælpe dig med at "
+"finde årsagen."
 
 #: po/advisory_rules.php:233
 #, php-format
@@ -12996,16 +12996,15 @@ msgstr ""
 #: po/advisory_rules.php:257
 #, fuzzy, php-format
 #| msgid ""
-#| "Especially one a system with a lot of writes to InnoDB tables you should "
-#| "set innodb_log_file_size to 25%% of {innodb_buffer_pool_size}. However "
-#| "the bigger this value, the longer the recovery time will be when database "
-#| "crashes, so this value should not be set much higher than 256 MiB. Please "
-#| "note however that you cannot simply change the value of this variable. "
-#| "You need to shutdown the server, remove the InnoDB log files, set the new "
-#| "value in my.cnf, start the server, then check the error logs if "
-#| "everything went fine. See also <a href=\\\"http://"
-#| "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-#| "innodblogfilesize-proper-way.html\\\">this blog entry</a>"
+#| "ally one a system with a lot of writes to InnoDB tables you should  "
+#| "odb_log_file_size to 25%% of {innodb_buffer_pool_size}. However  bigger s "
+#| "value, the longer the recovery time will be when database shes, so "
+#| "thislue should not be set much higher than 256 MiB. Please e however that "
+#| "younnot simply change the value of this variable.  need to shutdown the "
+#| "ver, remove the InnoDB log files, set the new ue in my.cnf, start the "
+#| "ver, then check the error logs if rything went fine. See also <a f=\\"
+#| "\"http://qldatabaseadministration.blogspot.com/2007/01/increase-"
+#| "logfilesize-proper-way.html\\\">this blog entry</a>"
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
 "innodb_log_file_size to 25%% of {innodb_buffer_pool_size}. However the "
@@ -13014,9 +13013,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\\\"http://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\\\">this blog entry</"
-"a>"
+"fine. See also <a href=\"http://mysqldatabaseadministration.blogspot."
+"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "Særligt på et system med mange skrivninger til InnoDB tabeller bør "
 "innodb_log_file_size sættes til 25%% af{innodb_buffer_pool_size}. Dog jo "
@@ -13024,8 +13022,8 @@ msgstr ""
 "bør værdien ikke være højere end 256 MiB. Bemærk, at man ikke bare kan ændre "
 "denne værdi. Man skal lukke serveren ned, fjerne InnoDB logfiler, sætte den "
 "nye værdi i my.cnf, starte serveren og checke logfiler for fejl. Se også <a "
-"href=\\\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\\\">dette blogindlæg</a>"
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">dette blogindlæg</a>"
 
 #: po/advisory_rules.php:258
 #, php-format
@@ -13047,35 +13045,35 @@ msgstr "InnoDB logfilen er utilstrækkelig stor."
 #: po/advisory_rules.php:262
 #, fuzzy, php-format
 #| msgid ""
-#| "It is usually sufficient to set innodb_log_file_size to 25%% of the size "
-#| "of {innodb_buffer_pool_size}. A very innodb_log_file_size slows down the "
-#| "recovery time after a database crash considerably. See also <a href=\\"
-#| "\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
-#| "innodb_log_file_size/\\\">this Article</a>. You need to shutdown the "
-#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
-#| "the server, then check the error logs if everything went fine. See also "
-#| "<a href=\\\"http://mysqldatabaseadministration.blogspot.com/2007/01/"
-#| "increase-innodblogfilesize-proper-way.html\\\">this blog entry</a>"
+#| "usually sufficient to set innodb_log_file_size to 25%% of the size "
+#| "nodb_buffer_pool_size}. A very innodb_log_file_size slows down the overy "
+#| "e after a database crash considerably. See also <a f=\\tp://www."
+#| "mysqlperformanceblog.com/2006/07/03/choosing-proper-_log_file_size/\\"
+#| "\">this Article</a>. You need to shutdown the ver, ove the InnoDB log "
+#| "files, set the new value in my.cnf, start  server, n check the error logs "
+#| "if everything went fine. See also f=\\\"http://"
+#| "mysqldatabaseadministration.blogspot.com/2007/01/rease-odblogfilesize-"
+#| "proper-way.html\\\">this blog entry</a>"
 msgid ""
 "It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
 "{innodb_buffer_pool_size}. A very big innodb_log_file_size slows down the "
-"recovery time after a database crash considerably. See also <a href=\\"
-"\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\\\">this Article</a>. You need to shutdown the server, "
-"remove the InnoDB log files, set the new value in my.cnf, start the server, "
-"then check the error logs if everything went fine. See also <a href=\\"
-"\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\\\">this blog entry</a>"
+"recovery time after a database crash considerably. See also <a href=\"http://"
+"www.mysqlperformanceblog.com/2006/07/03/choosing-proper-innodb_log_file_size/"
+"\">this Article</a>. You need to shutdown the server, remove the InnoDB log "
+"files, set the new value in my.cnf, start the server, then check the error "
+"logs if everything went fine. See also <a href=\"http://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">this blog entry</a>"
 msgstr ""
 "Det er sædvanligvis tilstrækkeligt at sætte innodb_log_file_size til 25%% af "
 "størrelsen af {innodb_buffer_pool_size}. En meget høj innodb_log_file_size "
 "reducerer genoprettelsestiden betydeligt efter et databasenedbrud. Se også "
-"<a href=\\\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\\\">denne artikel</a>.Man skal lukke serveren ned, "
+"<a href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">denne artikel</a>.Man skal lukke serveren ned, "
 "fjerne InnoDB logfiler, sætte den nye værdi i my.cnf, starte serveren og "
-"checke logfiler for fejl. Se også <a href=\\\"http://"
+"checke logfiler for fejl. Se også <a href=\"http://"
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\\\">dette blogindlæg</a>"
+"proper-way.html\">dette blogindlæg</a>"
 
 #: po/advisory_rules.php:263
 #, fuzzy, php-format
@@ -13101,9 +13099,9 @@ msgid ""
 "available memory. If that is not the case, you need to carefully assess the "
 "memory consumption of your other services and non-InnoDB-Tables and set this "
 "variable accordingly. If it is set too high, your system will start "
-"swapping, which decreases performance significantly. See also <a href=\\"
+"swapping, which decreases performance significantly. See also <a href="
 "\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\\\">this article</a>"
+"innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
 "InnoDB buffer pool har en betydelig indvirkning på ydeevnen af InnoDB "
 "tabeller. Alloker al resterende hukommelse til denne buffer. For database "
@@ -13111,9 +13109,9 @@ msgstr ""
 "(fx webserver), kan man bruge op til 80%% af tilgængelig hukommelse. Hvis "
 "der bruges non-InnoDB tabeller og/eller der kører andet på maskinen, skal "
 "man være varsom med at sætte denne parameter for højt. Det kan ellers give "
-"sig udslag i, at der opstår høj brug af swap-filen. Se også <a href=\\"
-"\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\\\">denne artikel</a>"
+"sig udslag i, at der opstår høj brug af swap-filen. Se også <a href=\"http://"
+"www.mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/"
+"\">denne artikel</a>"
 
 #: po/advisory_rules.php:268
 #, php-format
@@ -13139,12 +13137,12 @@ msgstr "Aktiver concurrent_insert ved at sætte den til 1"
 #: po/advisory_rules.php:272
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
-"writers for a given table. See also <a href=\\\"http://dev.mysql.com/doc/"
-"refman/5.5/en/concurrent-inserts.html\\\">MySQL Documentation</a>"
+"writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
+"refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "Ved at sætte {concurrent_insert} til 1 reducerer man ventetid mellem læsere "
-"og skrivere for en given tabel. Se også <a href=\\\"http://dev.mysql.com/doc/"
-"refman/5.5/en/concurrent-inserts.html\\\">MySQL Documentation</a>"
+"og skrivere for en given tabel. Se også <a href=\"http://dev.mysql.com/doc/"
+"refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
@@ -13228,19 +13226,15 @@ msgstr "concurrent_insert er sat til 0"
 #~ "visningsfelt, klik på \"Vælg kolonne, der skal vises\" ikonet, og klik "
 #~ "derefter på det pågældende kolonnenavn."
 
-#, fuzzy
 #~ msgid "memcached usage"
 #~ msgstr "Pladsforbrug"
 
-#, fuzzy
 #~ msgid "% open files"
 #~ msgstr "Vis åbne tabeller"
 
-#, fuzzy
 #~ msgid "% connections used"
 #~ msgstr "Forbindelser"
 
-#, fuzzy
 #~ msgid "% aborted connections"
 #~ msgstr "Komprimer forbindelse"
 
@@ -13259,7 +13253,6 @@ msgstr "concurrent_insert er sat til 0"
 #~ msgid "Excel 2007 XLSX Workbook"
 #~ msgstr "Excel 2007 XLSX Workbook"
 
-#, fuzzy
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "sider"
@@ -13316,19 +13309,15 @@ msgstr "concurrent_insert er sat til 0"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Værdien i formularen er for lang!"
 
-#, fuzzy
 #~ msgid "Export of event \"%s\""
 #~ msgstr "Eksporter/Importer til skala"
 
-#, fuzzy
 #~ msgid "No trigger with name %s found"
 #~ msgstr "Ingen gyldig billedsti for tema %s fundet!"
 
-#, fuzzy
 #~ msgid "rows"
 #~ msgstr "Vis"
 
-#, fuzzy
 #~ msgid "row(s) starting from row #"
 #~ msgstr "rækker startende fra post #"
 
@@ -13350,7 +13339,6 @@ msgstr "concurrent_insert er sat til 0"
 #~ "anførselstegn eller et semikolon et sted.<br />Hvis du får en blank side, "
 #~ "er alt i orden."
 
-#, fuzzy
 #~ msgid "Dropping Procedure"
 #~ msgstr "Procedurer"
 

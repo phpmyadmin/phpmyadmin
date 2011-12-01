@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-11-30 14:18+0100\n"
+"POT-Creation-Date: 2011-12-01 15:49+0100\n"
 "PO-Revision-Date: 2010-07-22 02:31+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: uzbek_cyrillic <uz@li.org>\n"
@@ -65,7 +65,7 @@ msgstr "Қидириш"
 #: libraries/schema/User_Schema.class.php:487
 #: libraries/select_server.lib.php:93 libraries/sql_query_form.lib.php:348
 #: libraries/sql_query_form.lib.php:410 libraries/sql_query_form.lib.php:463
-#: libraries/tbl_properties.inc.php:575 main.php:107 navigation.php:171
+#: libraries/tbl_properties.inc.php:575 main.php:115 navigation.php:171
 #: navigation.php:209 pmd_pdf.php:120 prefs_manage.php:263
 #: prefs_manage.php:314 server_binlog.php:109 server_privileges.php:744
 #: server_privileges.php:1784 server_privileges.php:2148
@@ -75,7 +75,7 @@ msgstr "Қидириш"
 #: tbl_change.php:1073 tbl_change.php:1110 tbl_indexes.php:288
 #: tbl_operations.php:284 tbl_operations.php:321 tbl_operations.php:523
 #: tbl_operations.php:585 tbl_operations.php:768 tbl_select.php:235
-#: tbl_structure.php:671 tbl_structure.php:706 tbl_tracking.php:416
+#: tbl_structure.php:672 tbl_structure.php:707 tbl_tracking.php:416
 #: tbl_tracking.php:554 tbl_zoom_select.php:313 view_create.php:181
 #: view_operations.php:99
 msgid "Go"
@@ -160,7 +160,7 @@ msgstr "Майдон номлари"
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:84
 #: server_privileges.php:2252 tbl_change.php:297 tbl_change.php:324
 #: tbl_printview.php:137 tbl_printview.php:272 tbl_structure.php:202
-#: tbl_structure.php:766 tbl_tracking.php:258 tbl_tracking.php:305
+#: tbl_structure.php:767 tbl_tracking.php:258 tbl_tracking.php:305
 msgid "Type"
 msgstr "Тур"
 
@@ -339,7 +339,7 @@ msgstr "Нусха олинган маълумотлар базасига ўти
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:100
 #: libraries/tbl_properties.inc.php:668 libraries/tbl_select.lib.php:85
 #: server_collations.php:53 server_collations.php:65 tbl_operations.php:382
-#: tbl_structure.php:203 tbl_structure.php:871 tbl_tracking.php:259
+#: tbl_structure.php:203 tbl_structure.php:872 tbl_tracking.php:259
 #: tbl_tracking.php:310
 msgid "Collation"
 msgstr "Таққослаш"
@@ -347,8 +347,8 @@ msgstr "Таққослаш"
 #: db_operations.php:555
 #, fuzzy, php-format
 #| msgid ""
-#| "The additional features for working with linked tables have been "
-#| "deactivated. To find out why click %shere%s."
+#| " additional features for working with linked tables have been ctivated. "
+#| "To find out why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
@@ -377,7 +377,7 @@ msgstr "Жадвал "
 #: libraries/db_structure.lib.php:42 libraries/header_printview.inc.php:65
 #: libraries/import.lib.php:151 navigation.php:591 navigation.php:611
 #: tbl_printview.php:353 tbl_structure.php:363 tbl_structure.php:469
-#: tbl_structure.php:881
+#: tbl_structure.php:882
 msgid "Rows"
 msgstr "Қаторларсони"
 
@@ -392,21 +392,21 @@ msgstr "ишлатилмоқда"
 #: db_printview.php:184 libraries/db_info.inc.php:74
 #: libraries/export/sql.php:743
 #: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:393
-#: tbl_structure.php:913
+#: tbl_structure.php:914
 msgid "Creation"
 msgstr "Тузиш"
 
 #: db_printview.php:193 libraries/db_info.inc.php:79
 #: libraries/export/sql.php:748
 #: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:403
-#: tbl_structure.php:921
+#: tbl_structure.php:922
 msgid "Last update"
 msgstr "Охирги янгиланиш"
 
 #: db_printview.php:202 libraries/db_info.inc.php:84
 #: libraries/export/sql.php:753
 #: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:413
-#: tbl_structure.php:929
+#: tbl_structure.php:930
 msgid "Last check"
 msgstr "Охирги текширув"
 
@@ -628,11 +628,11 @@ msgstr "\"%s\" намойиши ўчирилди"
 msgid "Table %s has been dropped"
 msgstr "\"%s\" жадвали ўчирилди"
 
-#: db_structure.php:337 tbl_create.php:270
+#: db_structure.php:337 tbl_create.php:281
 msgid "Tracking is active."
 msgstr "Кузатиш фаол."
 
-#: db_structure.php:342 tbl_create.php:273
+#: db_structure.php:342 tbl_create.php:284
 msgid "Tracking is not active."
 msgstr "Кузатиш фаол эмас."
 
@@ -700,7 +700,7 @@ msgid "Export"
 msgstr "Экспорт"
 
 #: db_structure.php:582 db_structure.php:638
-#: libraries/display_tbl.lib.php:2598 tbl_structure.php:612
+#: libraries/display_tbl.lib.php:2598 tbl_structure.php:613
 msgid "Print view"
 msgstr "Чоп этиш версияси"
 
@@ -720,7 +720,7 @@ msgstr "Ўчириш"
 msgid "Check table"
 msgstr "Жадвални текшириш"
 
-#: db_structure.php:593 tbl_operations.php:657 tbl_structure.php:815
+#: db_structure.php:593 tbl_operations.php:657 tbl_structure.php:816
 msgid "Optimize table"
 msgstr "Жадвални оптималлаштириш"
 
@@ -825,7 +825,7 @@ msgstr "Тузилма расми"
 msgid "Untracked tables"
 msgstr "Кузатилмаган жадваллар"
 
-#: db_tracking.php:199 tbl_structure.php:638
+#: db_tracking.php:199 tbl_structure.php:639
 msgid "Track table"
 msgstr "Жадвални кузатиш"
 
@@ -1259,7 +1259,7 @@ msgstr ""
 #: js/messages.php:72 libraries/build_html_for_db.lib.php:46
 #: libraries/engines/innodb.lib.php:158 server_databases.php:222
 #: server_status.php:1114 server_status.php:1175 tbl_printview.php:310
-#: tbl_structure.php:803
+#: tbl_structure.php:804
 msgid "Total"
 msgstr "Жами"
 
@@ -2523,7 +2523,7 @@ msgid "No index defined!"
 msgstr "Индекс белгиланмаган!"
 
 #: libraries/Index.class.php:423 libraries/build_html_for_db.lib.php:41
-#: tbl_structure.php:692 tbl_tracking.php:300
+#: tbl_structure.php:693 tbl_tracking.php:300
 msgid "Indexes"
 msgstr "Индекслар"
 
@@ -2898,12 +2898,12 @@ msgstr "Жадваллар"
 #: libraries/config/user_preferences.forms.php:266
 #: libraries/export/latex.php:201 libraries/export/sql.php:1093
 #: server_privileges.php:612 server_replication.php:314 tbl_printview.php:276
-#: tbl_structure.php:772
+#: tbl_structure.php:773
 msgid "Data"
 msgstr "Маълумотлар"
 
 #: libraries/build_html_for_db.lib.php:51 libraries/db_structure.lib.php:55
-#: tbl_printview.php:295 tbl_structure.php:789
+#: tbl_printview.php:295 tbl_structure.php:790
 msgid "Overhead"
 msgstr "Фрагментланган"
 
@@ -2982,7 +2982,7 @@ msgstr ""
 "файлида белгиланган созлашларни тўғирланг."
 
 #: libraries/common.inc.php:666 libraries/config/messages.inc.php:506
-#: libraries/header.inc.php:134 main.php:160 server_status.php:775
+#: libraries/header.inc.php:134 main.php:171 server_status.php:775
 #: server_synchronize.php:1257
 msgid "Server"
 msgstr "Сервер"
@@ -3028,7 +3028,7 @@ msgstr "en"
 #: libraries/engines/pbxt.lib.php:106 libraries/navigation_header.inc.php:106
 #: libraries/navigation_header.inc.php:107 libraries/relation.lib.php:78
 #: libraries/sql_query_form.lib.php:384 libraries/sql_query_form.lib.php:387
-#: main.php:218 server_variables.php:129
+#: main.php:238 server_variables.php:129
 msgid "Documentation"
 msgstr "Документация"
 
@@ -3417,7 +3417,7 @@ msgstr "Фойдаланиладиган PHP кенгайтмаси"
 msgid "maximum %s"
 msgstr "Максимал жадваллар сони"
 
-#: libraries/config/FormDisplay.tpl.php:141 main.php:219
+#: libraries/config/FormDisplay.tpl.php:141 main.php:239
 msgid "Wiki"
 msgstr "Вики"
 
@@ -3524,9 +3524,9 @@ msgstr "Bzip2"
 #: libraries/config/messages.inc.php:32
 #, fuzzy
 #| msgid ""
-#| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR fields; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
-#| "textarea[/kbd] - allows newlines in fields"
+#| "ines which type of editing controls should be used for CHAR and CHAR "
+#| "fields; [kbd]input[/kbd] - allows limiting of input length, [kbd]tarea[/"
+#| "kbd] - allows newlines in fields"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -3746,7 +3746,7 @@ msgid "Character set of the file"
 msgstr "Файл кодировкаси"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:90
-#: tbl_gis_visualization.php:181 tbl_printview.php:335 tbl_structure.php:841
+#: tbl_gis_visualization.php:181 tbl_printview.php:335 tbl_structure.php:842
 msgid "Format"
 msgstr "Формат"
 
@@ -4179,9 +4179,9 @@ msgstr "Конфигурацион файл"
 #: libraries/config/messages.inc.php:207
 #, fuzzy
 #| msgid ""
-#| "Configure phpMyAdmin database to gain access to additional features, see "
-#| "[a@../Documentation.html#linked-tables]linked-tables infrastructure[/a] "
-#| "in documentation"
+#| "figure phpMyAdmin database to gain access to additional features, see ../"
+#| "Documentation.html#linked-tables]linked-tables infrastructure[/a] "
+#| "documentation"
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
@@ -4705,8 +4705,8 @@ msgstr "GZip буферизация"
 #: libraries/config/messages.inc.php:329
 #, fuzzy
 #| msgid ""
-#| "[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
-#| "DATETIME and TIMESTAMP, ascending order otherwise"
+#| "d]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
+#| "ETIME and TIMESTAMP, ascending order otherwise"
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
@@ -4756,8 +4756,8 @@ msgstr "Бинар (иккилик) майдонларни ҳимоялаш"
 #: libraries/config/messages.inc.php:339
 #, fuzzy
 #| msgid ""
-#| "Enable if you want DB-based query history (requires pmadb). If disabled, "
-#| "this utilizes JS-routines to display query history (lost by window close)."
+#| "ble if you want DB-based query history (requires pmadb). If disabled, s "
+#| "utilizes JS-routines to display query history (lost by window close)."
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -5085,8 +5085,8 @@ msgstr "Паролсиз уланиш"
 #: libraries/config/messages.inc.php:406
 #, fuzzy
 #| msgid ""
-#| "You can use MySQL wildcard characters (% and _), escape them if you want "
-#| "to use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
+#| " can use MySQL wildcard characters (% and _), escape them if you want use "
+#| "their literal instances, i.e. use 'my\\_db' and not 'my_db'"
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -5151,8 +5151,7 @@ msgstr "Сервер порти"
 #: libraries/config/messages.inc.php:416
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
-#| "[/kbd]"
+#| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma_recent[/kbd]"
@@ -5234,8 +5233,8 @@ msgstr "PDF-схема: жадвал координаталари"
 #: libraries/config/messages.inc.php:431
 #, fuzzy
 #| msgid ""
-#| "Table to describe the display fields, leave blank for no support; "
-#| "suggested: [kbd]pma_table_info[/kbd]"
+#| "le to describe the display fields, leave blank for no support; gested: "
+#| "[kbd]pma_table_info[/kbd]"
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
@@ -5252,8 +5251,7 @@ msgstr "Майдонлар жадвалини кўрсатиш"
 #: libraries/config/messages.inc.php:433
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
-#| "[/kbd]"
+#| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
 msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
@@ -5310,8 +5308,7 @@ msgstr "Тавсиф"
 #: libraries/config/messages.inc.php:443
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
-#| "[/kbd]"
+#| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
@@ -5340,8 +5337,7 @@ msgstr "Автоматик тиклаш режими"
 #: libraries/config/messages.inc.php:447
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
-#| "[/kbd]"
+#| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
@@ -5383,7 +5379,7 @@ msgstr "Ушбу сервернинг кенгайтирилган номи"
 #: libraries/config/messages.inc.php:455
 #, fuzzy
 #| msgid ""
-#| "Whether a user should be displayed a &quot;show all (records)&quot; button"
+#| "ther a user should be displayed a &quot;show all (records)&quot; button"
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr "Фойдаланувчига \"барча (ёзувлар)ни кўрсатиш\" тугмаси кўрсатилсинми?"
 
@@ -5923,7 +5919,7 @@ msgstr ""
 "\"config.inc.php\" конфигурацион файлининг \"controluser\" директивасида "
 "кўрсатилган фойдаланувчи ёрдамида уланиб бўлмади."
 
-#: libraries/display_change_password.lib.php:29 main.php:93
+#: libraries/display_change_password.lib.php:29 main.php:94
 #: user_password.php:105 user_password.php:123
 msgid "Change password"
 msgstr "Паролни ўзгартириш"
@@ -6099,9 +6095,9 @@ msgstr ""
 #: libraries/display_export.lib.php:232
 #, fuzzy, php-format
 #| msgid ""
-#| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "formatting strings. Additionally the following transformations will "
-#| "happen: %3$s. Other text will be kept as is."
+#| "s value is interpreted using %1$sstrftime%2$s, so you can use time "
+#| "matting strings. Additionally the following transformations will pen: "
+#| "%3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
 "formatting strings. Additionally the following transformations will happen: "
@@ -6253,9 +6249,9 @@ msgstr ""
 #: libraries/display_import.lib.php:221
 #, fuzzy
 #| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. This might be good way to import large "
-#| "files, however it can break transactions."
+#| "ow the interruption of an import in case the script detects it is se to "
+#| "the PHP timeout limit. This might be good way to import large es, however "
+#| "it can break transactions."
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <i>(This might be good way to import large files, "
@@ -6349,7 +6345,7 @@ msgstr "Индекс бўйича сортировка қилиш"
 #: libraries/import/ldi.php:49 libraries/import/ods.php:39
 #: libraries/import/shp.php:22 libraries/import/sql.php:20
 #: libraries/import/xml.php:32 libraries/rte/rte_routines.lib.php:863
-#: tbl_select.php:175 tbl_structure.php:857
+#: tbl_select.php:175 tbl_structure.php:858
 msgid "Options"
 msgstr "Параметрлар"
 
@@ -6455,7 +6451,7 @@ msgstr "Версиясини тузиш"
 msgid "Link not found"
 msgstr "Алоқа топилмади"
 
-#: libraries/engines/bdb.lib.php:20 main.php:217
+#: libraries/engines/bdb.lib.php:20 main.php:237
 msgid "Version information"
 msgstr "Версия ҳақида маълумот"
 
@@ -6651,8 +6647,8 @@ msgstr "Ахлатланиш остонаси"
 #: libraries/engines/pbms.lib.php:31
 #, fuzzy
 #| msgid ""
-#| "The percentage of garbage in a data log file before it is compacted. This "
-#| "is a value between 1 and 99. The default is 50."
+#| " percentage of garbage in a data log file before it is compacted. This a "
+#| "value between 1 and 99. The default is 50."
 msgid "The percentage of garbage in a repository file before it is compacted."
 msgstr ""
 "Ихчамлаштиришдан олдин маълумотлар журнали файли ахлатланишининг фоиз "
@@ -7799,7 +7795,7 @@ msgstr "Ўзгарувчи"
 #: libraries/rte/rte_routines.lib.php:1370 libraries/tbl_select.lib.php:87
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769 server_status.php:1464 tbl_change.php:334
-#: tbl_printview.php:329 tbl_structure.php:833 tbl_zoom_select.php:435
+#: tbl_printview.php:329 tbl_structure.php:834 tbl_zoom_select.php:435
 msgid "Value"
 msgstr "Қиймати"
 
@@ -8711,10 +8707,10 @@ msgstr "\"%s.%s\" жадвалини кузатиш фаоллаштирилди
 #: libraries/tbl_properties.inc.php:98
 #, fuzzy
 #| msgid ""
-#| "If field type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") "
-#| "or a single quote (\"'\") amongst those values, precede it with a "
-#| "backslash (for example '\\\\xyz' or 'a\\'b')."
+#| "field type is \"enum\" or \"set\", please enter the values using this "
+#| "mat: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") a "
+#| "single quote (\"'\") amongst those values, precede it with a kslash (for "
+#| "example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
@@ -8736,7 +8732,7 @@ msgstr ""
 
 #: libraries/tbl_properties.inc.php:109 libraries/tbl_properties.inc.php:478
 #: tbl_printview.php:285 tbl_structure.php:153 tbl_structure.php:158
-#: tbl_structure.php:577 tbl_structure.php:780
+#: tbl_structure.php:577 tbl_structure.php:781
 msgid "Index"
 msgstr "Индекс"
 
@@ -8803,13 +8799,13 @@ msgstr ""
 "Ҳозирги ватқда тавсиф мавжуд эмас. <br /> Ишлатилаётган \"%s\" ўгиришлар "
 "намойиши функцияларининг иши яқин орада тавсифланади. "
 
-#: libraries/tbl_properties.inc.php:574 tbl_structure.php:651
+#: libraries/tbl_properties.inc.php:574 tbl_structure.php:652
 #, fuzzy, php-format
 #| msgid "Add column(s)"
 msgid "Add %s column(s)"
 msgstr "Устун(лар) қўшиш"
 
-#: libraries/tbl_properties.inc.php:576 tbl_structure.php:645
+#: libraries/tbl_properties.inc.php:576 tbl_structure.php:646
 #, fuzzy
 #| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
@@ -8845,10 +8841,10 @@ msgstr "Қўйиш"
 #: libraries/transformations/application_octetstream__download.inc.php:10
 #, fuzzy
 #| msgid ""
-#| "Displays a link to download the binary data of the field. You can use the "
-#| "first option to specify the filename, or use the second option as the "
-#| "name of a field which contains the filename. If you use the second "
-#| "option, you need to set the first option to the empty string."
+#| "plays a link to download the binary data of the field. You can use the st "
+#| "option to specify the filename, or use the second option as the e of a "
+#| "field which contains the filename. If you use the second ion, you need to "
+#| "set the first option to the empty string."
 msgid ""
 "Displays a link to download the binary data of the column. You can use the "
 "first option to specify the filename, or use the second option as the name "
@@ -8886,14 +8882,14 @@ msgstr "Расмни юклаб олиш учун боғ кўрсатиш"
 #: libraries/transformations/text_plain__dateformat.inc.php:10
 #, fuzzy
 #| msgid ""
-#| "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
-#| "formatted date. The first option is the offset (in hours) which will be "
-#| "added to the timestamp (Default: 0). Use second option to specify a "
-#| "different date/time format string. Third option determines whether you "
-#| "want to see local date or UTC one (use \"local\" or \"utc\" strings) for "
-#| "that. According to that, date format has different value - for \"local\" "
-#| "see the documentation for PHP's strftime() function and for \"utc\" it is "
-#| "done using gmdate() function."
+#| "plays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
+#| "matted date. The first option is the offset (in hours) which will be ed "
+#| "to the timestamp (Default: 0). Use second option to specify a ferent date/"
+#| "time format string. Third option determines whether you t to see local "
+#| "date or UTC one (use \"local\" or \"utc\" strings) for t. According to "
+#| "that, date format has different value - for \"local\"  the documentation "
+#| "for PHP's strftime() function and for \"utc\" it is e using gmdate() "
+#| "function."
 msgid ""
 "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp column as "
 "formatted date. The first option is the offset (in hours) which will be "
@@ -8915,16 +8911,16 @@ msgstr ""
 #: libraries/transformations/text_plain__external.inc.php:10
 #, fuzzy
 #| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the field data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/transformations/"
-#| "text_plain__external.inc.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
+#| "UX ONLY: Launches an external application and feeds it the field data  "
+#| "standard input. Returns the standard output of the application. The ault "
+#| "is Tidy, to pretty-print HTML code. For security reasons, you e to "
+#| "manually edit the file libraries/transformations/t_plain__external.inc."
+#| "php and list the tools you want to make ilable. The first option is then "
+#| "the number of the program you want to  and the second option is the "
+#| "parameters for the program. The third ion, if set to 1, will convert the "
+#| "output using htmlspecialchars() fault 1). The fourth option, if set to 1, "
+#| "will prevent wrapping and ure that the output appears all on one line "
+#| "(Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -8951,8 +8947,8 @@ msgstr ""
 #: libraries/transformations/text_plain__formatted.inc.php:10
 #, fuzzy
 #| msgid ""
-#| "Displays the contents of the field as-is, without running it through "
-#| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
+#| "plays the contents of the field as-is, without running it through "
+#| "lspecialchars(). That is, the field is assumed to contain valid HTML."
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
@@ -8964,9 +8960,9 @@ msgstr ""
 #: libraries/transformations/text_plain__imagelink.inc.php:10
 #, fuzzy
 #| msgid ""
-#| "Displays an image and a link; the field contains the filename. The first "
-#| "option is a URL prefix like \"http://www.example.com/\". The second and "
-#| "third options are the width and the height in pixels."
+#| "plays an image and a link; the field contains the filename. The first ion "
+#| "is a URL prefix like \"http://www.example.com/\". The second and rd "
+#| "options are the width and the height in pixels."
 msgid ""
 "Displays an image and a link; the column contains the filename. The first "
 "option is a URL prefix like \"http://www.example.com/\". The second and "
@@ -8979,9 +8975,9 @@ msgstr ""
 #: libraries/transformations/text_plain__link.inc.php:10
 #, fuzzy
 #| msgid ""
-#| "Displays a link; the field contains the filename. The first option is a "
-#| "URL prefix like \"http://www.example.com/\". The second option is a title "
-#| "for the link."
+#| "plays a link; the field contains the filename. The first option is a  "
+#| "prefix like \"http://www.example.com/\". The second option is a title  "
+#| "the link."
 msgid ""
 "Displays a link; the column contains the filename. The first option is a URL "
 "prefix like \"http://www.example.com/\". The second option is a title for "
@@ -9061,95 +9057,95 @@ msgstr "Ушбу ZIP архивда хатолик:"
 msgid "General Settings"
 msgstr "Алоқаларнинг асосий имкониятлари"
 
-#: main.php:101
+#: main.php:109
 #, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
 msgstr "MySQL билан уланишни чоғиштириш"
 
-#: main.php:116
+#: main.php:124
 #, fuzzy
 #| msgid "Other core settings"
 msgid "Appearance Settings"
 msgstr "Бошқа созланишлар"
 
-#: main.php:144 prefs_manage.php:272
+#: main.php:153 prefs_manage.php:272
 #, fuzzy
 #| msgid "settings"
 msgid "More settings"
 msgstr "танловлар"
 
-#: main.php:158
+#: main.php:169
 #, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
 msgstr "Фойдаланувчи учун маълумотлар базаси"
 
-#: main.php:161
+#: main.php:172
 msgid "Software"
 msgstr ""
 
-#: main.php:162
+#: main.php:173
 #, fuzzy
 #| msgid "Show versions"
 msgid "Software version"
 msgstr "Версияларни кўрсатиш"
 
-#: main.php:163
+#: main.php:175
 msgid "Protocol version"
 msgstr "Протокол версияси"
 
-#: main.php:165 server_privileges.php:1543 server_privileges.php:1696
+#: main.php:179 server_privileges.php:1543 server_privileges.php:1696
 #: server_privileges.php:1820 server_privileges.php:2250
 #: server_status.php:1225
 msgid "User"
 msgstr "Фойдаланувчи"
 
-#: main.php:169
+#: main.php:184
 #, fuzzy
 #| msgid "Server socket"
 msgid "Server charset"
 msgstr "Сервер сокети"
 
-#: main.php:181
+#: main.php:196
 msgid "Web server"
 msgstr "Веб сервер"
 
-#: main.php:192
+#: main.php:209
 #, fuzzy
 #| msgid "Use light version"
 msgid "Database client version"
 msgstr "Енгил версиядан фойдаланиш"
 
-#: main.php:194
+#: main.php:213
 msgid "PHP extension"
 msgstr "PHP кенгайтмаси"
 
-#: main.php:201
+#: main.php:221
 msgid "Show PHP information"
 msgstr "PHP ҳақида маълумотни кўрсатиш"
 
-#: main.php:222
+#: main.php:242
 msgid "Official Homepage"
 msgstr "phpMyAdmin расмий веб-саҳифаси"
 
-#: main.php:223
+#: main.php:243
 #, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
 msgstr "Атрибутлар"
 
-#: main.php:224
+#: main.php:244
 msgid "Get support"
 msgstr ""
 
-#: main.php:225
+#: main.php:245
 #, fuzzy
 #| msgid "No change"
 msgid "List of changes"
 msgstr "Ўзгариш йўқ"
 
-#: main.php:249
+#: main.php:269
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -9161,7 +9157,7 @@ msgstr ""
 "созланган MySQL сервери хавфсизлик жиҳатидан анча заиф ҳисобланади, шунинг "
 "учун \"root\" суперфойдаланувчисига парол ўрнатиш қатъиян тавсия этилади."
 
-#: main.php:257
+#: main.php:277
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -9171,7 +9167,7 @@ msgstr ""
 "func_overload параметри ёқилган. Маълумот йўқолиши олдини олиш учун, ушбу "
 "параметр ўчирилиши керак!"
 
-#: main.php:265
+#: main.php:285
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -9182,7 +9178,7 @@ msgstr ""
 "маълумот йўқолишига олиб келиши мумкин. PHP \"mbstring\" кенгайтмасини "
 "ўрнатиш қатъий тавсия этилади."
 
-#: main.php:273
+#: main.php:293
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -9195,13 +9191,13 @@ msgstr ""
 "давомийлигидан кичикроқ, шунинг учун логин сессиянгиз phpMyAdmin дастурида "
 "конфигурация қилганингиздан тезроқ тугайди."
 
-#: main.php:280
+#: main.php:300
 #, fuzzy
 #| msgid ""
-#| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
-#| "php#ini.session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that "
-#| "cookie validity configured in phpMyAdmin, because of this, your login "
-#| "will expire sooner than configured in phpMyAdmin."
+#| "r PHP parameter [a@http://php.net/manual/en/session.configuration.#ini."
+#| "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that kie "
+#| "validity configured in phpMyAdmin, because of this, your login l expire "
+#| "sooner than configured in phpMyAdmin."
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -9212,13 +9208,13 @@ msgstr ""
 "давомийлигидан кичикроқ, шунинг учун логин сессиянгиз phpMyAdmin дастурида "
 "конфигурация қилганингиздан тезроқ тугайди."
 
-#: main.php:288
+#: main.php:308
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "cookie-аутентификация ишлатилганда, конфигурацион файлдаги $cfg"
 "[\"blowfish_secret\"] директиваси қийматини ўрнатиб парол белгилаш керак."
 
-#: main.php:296
+#: main.php:316
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -9228,11 +9224,11 @@ msgstr ""
 "каталоги ҳалиям мавжуд. phpMyAdmin муваффақиятли ўрнатилгандан кейин, уни "
 "ўчириш тавсия этилади."
 
-#: main.php:302
+#: main.php:322
 #, fuzzy, php-format
 #| msgid ""
-#| "The additional features for working with linked tables have been "
-#| "deactivated. To find out why click %shere%s."
+#| " additional features for working with linked tables have been ctivated. "
+#| "To find out why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
@@ -9240,7 +9236,7 @@ msgstr ""
 "Алоқадор жадваллар билан ишлаш учун қўшимча имкониятлар мавжуд эмас. "
 "Сабабларини аниқлаш учун %sбу ерга%s босинг."
 
-#: main.php:317
+#: main.php:337
 msgid ""
 "Javascript support is missing or disabled in your browser, some phpMyAdmin "
 "functionality will be missing. For example navigation frame will not refresh "
@@ -9250,7 +9246,7 @@ msgstr ""
 "баъзи функциялари ишламайди. Масалан, навигация ойнаси автоматик тарзда "
 "янгиланиб турмайди."
 
-#: main.php:333
+#: main.php:356
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -9259,7 +9255,7 @@ msgstr ""
 "MySQL-клиент версияси (\"%s\") ўрнатилган MySQL-сервер  версияси(\"%s\")дан "
 "фарқ қилмоқда. Бу ҳолат нохуш оқибатларга олиб келиши мумкин."
 
-#: main.php:345
+#: main.php:380
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -9603,7 +9599,7 @@ msgstr "Позиция"
 msgid "Original position"
 msgstr "Асл позиция"
 
-#: server_binlog.php:185 tbl_structure.php:759
+#: server_binlog.php:185 tbl_structure.php:760
 msgid "Information"
 msgstr "Маълумот"
 
@@ -10514,7 +10510,7 @@ msgstr "минутига"
 msgid "per second"
 msgstr "секундига"
 
-#: server_status.php:964 tbl_printview.php:328 tbl_structure.php:832
+#: server_status.php:964 tbl_printview.php:328 tbl_structure.php:833
 msgid "Statements"
 msgstr "Тавсиф"
 
@@ -10557,9 +10553,9 @@ msgstr "Ушбу сервер репликация жараёнида \"бош\"
 #: server_status.php:1064
 #, fuzzy
 #| msgid ""
-#| "This MySQL server works as %s in <b>replication</b> process. For further "
-#| "information about replication status on the server, please visit the <a "
-#| "href=\"#replication\">replication section</a>."
+#| "s MySQL server works as %s in <b>replication</b> process. For further "
+#| "ormation about replication status on the server, please visit the <a f="
+#| "\"#replication\">replication section</a>."
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=\"#replication\">replication section</a>."
@@ -11502,7 +11498,7 @@ msgstr "Манбага уланиб бўлмади"
 msgid "Could not connect to the target"
 msgstr "Нишонга уланиб бўлмади"
 
-#: server_synchronize.php:130 server_synchronize.php:133 tbl_create.php:50
+#: server_synchronize.php:130 server_synchronize.php:133 tbl_create.php:55
 #: tbl_get_field.php:19
 #, php-format
 msgid "'%s' database does not exist."
@@ -11640,10 +11636,9 @@ msgstr "Конфигурацияни юклаб ёки сақлаб бўлмад
 #: setup/frames/index.inc.php:50
 #, fuzzy
 #| msgid ""
-#| "Please create web server writable folder [em]config[/em] in phpMyAdmin "
-#| "top level directory as described in [a@../Documentation.html#setup_script]"
-#| "documentation[/a]. Otherwise you will be only able to download or display "
-#| "it."
+#| "ase create web server writable folder [em]config[/em] in phpMyAdmin  "
+#| "level directory as described in [a@../Documentation.html#setup_script]"
+#| "umentation[/a]. Otherwise you will be only able to download or display "
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
 "level directory as described in [a@Documentation.html#setup_script]"
@@ -11795,8 +11790,8 @@ msgstr "Версия ҳақида тушунарсиз маълумот"
 #: setup/lib/index.lib.php:180
 #, fuzzy, php-format
 #| msgid ""
-#| "You are using subversion version, run [kbd]svn update[/kbd] :-)[br]The "
-#| "latest stable version is %s, released on %s."
+#| " are using subversion version, run [kbd]svn update[/kbd] :-)[br]The est "
+#| "stable version is %s, released on %s."
 msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
@@ -11811,12 +11806,12 @@ msgstr "Янгироқ версия ҳали мавжуд эмас"
 #: setup/lib/index.lib.php:274
 #, fuzzy, php-format
 #| msgid ""
-#| "This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
-#| "disabled as it allows attackers to bruteforce login to any MySQL server. "
-#| "If you feel this is necessary, use [a@?page=form&amp;"
-#| "formset=features#tab_Security]trusted proxies list[/a]. However, IP-based "
-#| "protection may not be reliable if your IP belongs to an ISP where "
-#| "thousands of users, including you, are connected to."
+#| "s [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
+#| "abled as it allows attackers to bruteforce login to any MySQL server. you "
+#| "feel this is necessary, use [a@?page=form&amp;mset=features#tab_Security]"
+#| "trusted proxies list[/a]. However, IP-based tection may not be reliable "
+#| "if your IP belongs to an ISP where usands of users, including you, are "
+#| "connected to."
 msgid ""
 "This %soption%s should be disabled as it allows attackers to bruteforce "
 "login to any MySQL server. If you feel this is necessary, use %strusted "
@@ -11845,9 +11840,9 @@ msgstr ""
 #: setup/lib/index.lib.php:277
 #, fuzzy, php-format
 #| msgid ""
-#| "[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression "
-#| "and decompression[/a] requires functions (%s) which are unavailable on "
-#| "this system."
+#| "?page=form&amp;formset=features#tab_Import_export]Bzip2 compression  "
+#| "decompression[/a] requires functions (%s) which are unavailable on s "
+#| "system."
 msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
@@ -11873,9 +11868,8 @@ msgstr "Агар веб-серверингиз имкон берса, SSL-ула
 #: setup/lib/index.lib.php:282
 #, fuzzy, php-format
 #| msgid ""
-#| "[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and "
-#| "decompression[/a] requires functions (%s) which are unavailable on this "
-#| "system."
+#| "?page=form&amp;formset=features#tab_Import_export]GZip compression and "
+#| "ompression[/a] requires functions (%s) which are unavailable on this tem."
 msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
@@ -11895,9 +11889,9 @@ msgstr ""
 #: setup/lib/index.lib.php:286
 #, fuzzy, php-format
 #| msgid ""
-#| "[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] "
-#| "should be set to 1800 seconds (30 minutes) at most. Values larger than "
-#| "1800 may pose a security risk such as impersonation."
+#| "?page=form&formset=features#tab_Security]Login cookie validity[/a] uld be "
+#| "set to 1800 seconds (30 minutes) at most. Values larger than 0 may pose a "
+#| "security risk such as impersonation."
 msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
@@ -11916,12 +11910,12 @@ msgstr ""
 #: setup/lib/index.lib.php:290
 #, fuzzy, php-format
 #| msgid ""
-#| "If you feel this is necessary, use additional protection settings - [a@?"
-#| "page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host "
-#| "authentication[/a] settings and [a@?page=form&amp;"
-#| "formset=features#tab_Security]trusted proxies list[/a]. However, IP-based "
-#| "protection may not be reliable if your IP belongs to an ISP where "
-#| "thousands of users, including you, are connected to."
+#| "you feel this is necessary, use additional protection settings - [a@?"
+#| "e=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host hentication[/"
+#| "a] settings and [a@?page=form&amp;mset=features#tab_Security]trusted "
+#| "proxies list[/a]. However, IP-based tection may not be reliable if your "
+#| "IP belongs to an ISP where usands of users, including you, are connected "
+#| "to."
 msgid ""
 "If you feel this is necessary, use additional protection settings - %shost "
 "authentication%s settings and %strusted proxies list%s. However, IP-based "
@@ -11938,12 +11932,11 @@ msgstr ""
 #: setup/lib/index.lib.php:292
 #, fuzzy, php-format
 #| msgid ""
-#| "You set the [kbd]config[/kbd] authentication type and included username "
-#| "and password for auto-login, which is not a desirable option for live "
-#| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id="
-#| "%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http"
-#| "[/kbd]."
+#| " set the [kbd]config[/kbd] authentication type and included username  "
+#| "password for auto-login, which is not a desirable option for live ts. "
+#| "Anyone who knows or guesses your phpMyAdmin URL can directly ess your "
+#| "phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=d#tab_Server]"
+#| "authentication type[/a] to [kbd]cookie[/kbd] or [kbd]httpbd]."
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -11963,8 +11956,8 @@ msgstr ""
 #: setup/lib/index.lib.php:294
 #, fuzzy, php-format
 #| msgid ""
-#| "[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] "
-#| "requires functions (%s) which are unavailable on this system."
+#| "?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] "
+#| "uires functions (%s) which are unavailable on this system."
 msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
@@ -11975,8 +11968,8 @@ msgstr ""
 #: setup/lib/index.lib.php:296
 #, fuzzy, php-format
 #| msgid ""
-#| "[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/"
-#| "a] requires functions (%s) which are unavailable on this system."
+#| "?page=form&amp;formset=features#tab_Import_export]Zip decompression[/"
+#| "requires functions (%s) which are unavailable on this system."
 msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
@@ -12192,12 +12185,12 @@ msgstr ""
 msgid "Y Values"
 msgstr "Қиймати"
 
-#: tbl_create.php:30
+#: tbl_create.php:31
 #, php-format
 msgid "Table %s already exists!"
 msgstr "\"%s\" номли жадвал мавжуд!"
 
-#: tbl_create.php:216
+#: tbl_create.php:227
 #, php-format
 msgid "Table %1$s has been created."
 msgstr "%1$s жадвали тузилди."
@@ -12424,39 +12417,39 @@ msgstr "Маълумотлар яхлитлигини текшириш:"
 msgid "Showing tables"
 msgstr "Жадвалларни кўрсатиш"
 
-#: tbl_printview.php:269 tbl_structure.php:763
+#: tbl_printview.php:269 tbl_structure.php:764
 msgid "Space usage"
 msgstr "Фойдаланилаётган жой"
 
-#: tbl_printview.php:273 tbl_structure.php:767
+#: tbl_printview.php:273 tbl_structure.php:768
 msgid "Usage"
 msgstr "Ишлатилиш"
 
-#: tbl_printview.php:300 tbl_structure.php:794
+#: tbl_printview.php:300 tbl_structure.php:795
 msgid "Effective"
 msgstr "Эффективлик"
 
-#: tbl_printview.php:325 tbl_structure.php:829
+#: tbl_printview.php:325 tbl_structure.php:830
 msgid "Row Statistics"
 msgstr "Қаторлар статистикаси"
 
-#: tbl_printview.php:339 tbl_structure.php:844
+#: tbl_printview.php:339 tbl_structure.php:845
 msgid "static"
 msgstr "статик"
 
-#: tbl_printview.php:341 tbl_structure.php:846
+#: tbl_printview.php:341 tbl_structure.php:847
 msgid "dynamic"
 msgstr "динамик"
 
-#: tbl_printview.php:363 tbl_structure.php:889
+#: tbl_printview.php:363 tbl_structure.php:890
 msgid "Row length"
 msgstr "Қатор узунлиги"
 
-#: tbl_printview.php:373 tbl_structure.php:897
+#: tbl_printview.php:373 tbl_structure.php:898
 msgid "Row size"
 msgstr "Қатор ҳажми"
 
-#: tbl_printview.php:383 tbl_structure.php:905
+#: tbl_printview.php:383 tbl_structure.php:906
 msgid "Next autoindex"
 msgstr ""
 
@@ -12566,46 +12559,46 @@ msgstr "\"%s\" учун индекс қўшилди"
 msgid "Show more actions"
 msgstr "Версияларни кўрсатиш"
 
-#: tbl_structure.php:606
+#: tbl_structure.php:607
 #, fuzzy
 #| msgid "Print view"
 msgid "Edit view"
 msgstr "Чоп этиш версияси"
 
-#: tbl_structure.php:623
+#: tbl_structure.php:624
 msgid "Relation view"
 msgstr "Алоқаларни кўриш"
 
-#: tbl_structure.php:631
+#: tbl_structure.php:632
 msgid "Propose table structure"
 msgstr "Жадвал тузилиши таҳлили"
 
-#: tbl_structure.php:649
+#: tbl_structure.php:650
 #, fuzzy
 #| msgid "Add column(s)"
 msgid "Add column"
 msgstr "Устун(лар) қўшиш"
 
-#: tbl_structure.php:663
+#: tbl_structure.php:664
 msgid "At End of Table"
 msgstr "Жадвал охирига"
 
-#: tbl_structure.php:664
+#: tbl_structure.php:665
 msgid "At Beginning of Table"
 msgstr "Жадвал бошига"
 
-#: tbl_structure.php:665
+#: tbl_structure.php:666
 #, php-format
 msgid "After %s"
 msgstr "\"%s\" дан кейин"
 
-#: tbl_structure.php:702
+#: tbl_structure.php:703
 #, fuzzy, php-format
 #| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "\"%s\" майдон учун индекс тузиш"
 
-#: tbl_structure.php:860
+#: tbl_structure.php:861
 msgid "partitioned"
 msgstr "бўлакларга бўлинган"
 
@@ -13113,8 +13106,8 @@ msgstr ""
 #: po/advisory_rules.php:77
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\\\"http://dev.mysql.com/doc/"
-"refman/5.5/en/ha-memcached.html\\\">memcached</a> instead of the MySQL Query "
+"might be worth considering to use <a href=\"http://dev.mysql.com/doc/"
+"refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
 
@@ -13456,8 +13449,8 @@ msgid ""
 "value of these variables. To eliminate these you will have to rewrite your "
 "queries to avoid those conditions (Within a temporary table: Presence of a "
 "BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
-"mentioned in the beginning of an <a href=\\\"http://www.facebook.com/note."
-"php?note_id=10150111255065841&comments\\\">Article by the Pythian Group</a>"
+"mentioned in the beginning of an <a href=\"http://www.facebook.com/note.php?"
+"note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
 
 #: po/advisory_rules.php:153
@@ -13480,8 +13473,8 @@ msgid ""
 "value of these variables. To eliminate these you will have to rewrite your "
 "queries to avoid those conditions (Within a temporary table: Presence of a "
 "BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
-"mentioned in the <a href=\\\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
-"temporary-tables.html\\\">MySQL Documentation</a>"
+"mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
+"temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
 
 #: po/advisory_rules.php:158
@@ -13596,7 +13589,7 @@ msgstr "Импорт қилинаётган файл формати"
 #: po/advisory_rules.php:186
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
-"may get a \\\"Too many open files\\\" error."
+"may get a \"Too many open files\" error."
 msgstr ""
 
 #: po/advisory_rules.php:187 po/advisory_rules.php:192
@@ -13776,10 +13769,10 @@ msgstr ""
 
 #: po/advisory_rules.php:232 po/advisory_rules.php:237
 msgid ""
-"Connections are usually aborted when they cannot be authorized. <a href=\\"
+"Connections are usually aborted when they cannot be authorized. <a href="
 "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-"source-of-aborted_connects/\\\">This article</a> might help you track down "
-"the source."
+"source-of-aborted_connects/\">This article</a> might help you track down the "
+"source."
 msgstr ""
 
 #: po/advisory_rules.php:233
@@ -13874,9 +13867,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\\\"http://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\\\">this blog entry</"
-"a>"
+"fine. See also <a href=\"http://mysqldatabaseadministration.blogspot."
+"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 
 #: po/advisory_rules.php:258
@@ -13899,13 +13891,13 @@ msgstr ""
 msgid ""
 "It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
 "{innodb_buffer_pool_size}. A very big innodb_log_file_size slows down the "
-"recovery time after a database crash considerably. See also <a href=\\"
-"\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\\\">this Article</a>. You need to shutdown the server, "
-"remove the InnoDB log files, set the new value in my.cnf, start the server, "
-"then check the error logs if everything went fine. See also <a href=\\"
-"\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\\\">this blog entry</a>"
+"recovery time after a database crash considerably. See also <a href=\"http://"
+"www.mysqlperformanceblog.com/2006/07/03/choosing-proper-innodb_log_file_size/"
+"\">this Article</a>. You need to shutdown the server, remove the InnoDB log "
+"files, set the new value in my.cnf, start the server, then check the error "
+"logs if everything went fine. See also <a href=\"http://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">this blog entry</a>"
 msgstr ""
 
 #: po/advisory_rules.php:263
@@ -13933,9 +13925,9 @@ msgid ""
 "available memory. If that is not the case, you need to carefully assess the "
 "memory consumption of your other services and non-InnoDB-Tables and set this "
 "variable accordingly. If it is set too high, your system will start "
-"swapping, which decreases performance significantly. See also <a href=\\"
+"swapping, which decreases performance significantly. See also <a href="
 "\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\\\">this article</a>"
+"innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
 
 #: po/advisory_rules.php:268
@@ -13960,22 +13952,20 @@ msgstr ""
 #: po/advisory_rules.php:272
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
-"writers for a given table. See also <a href=\\\"http://dev.mysql.com/doc/"
-"refman/5.5/en/concurrent-inserts.html\\\">MySQL Documentation</a>"
+"writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
+"refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
 
-#, fuzzy
 #~ msgid "Maximum number of records saved in \"table_uiprefs\" table"
 #~ msgstr "Жадваллар рўйхатида кўрсатиладиган жадвалларнинг максимал сони"
 
 #~ msgid "Click to unselect"
 #~ msgstr "Танлашни бекор қилиш учун сичқонча тугмасини босинг"
 
-#, fuzzy
 #~ msgid "Create an index"
 #~ msgstr "Янги индекс тузиш"
 
@@ -13985,18 +13975,15 @@ msgstr ""
 #~ msgid "Column count has to be larger than zero."
 #~ msgstr "Устунлар сони нолдан кўп бўлиши шарт."
 
-#, fuzzy
 #~ msgid "Create Table"
 #~ msgstr "Жадвал тузиш"
 
-#, fuzzy
 #~ msgid "(or the local Drizzle server's socket is not correctly configured)"
 #~ msgstr "(ёки локал MySQL сервернинг сокети нотўғри созланган)"
 
 #~ msgid "Create table on database %s"
 #~ msgstr "\"%s\" маълумотлар базасида янги жадвал тузиш"
 
-#, fuzzy
 #~ msgid "Data Label"
 #~ msgstr "Хатчўп белгиси"
 
@@ -14013,7 +14000,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Алоқани танлаш учун расмда кўрсатилганикаби уланиш нуқтасига босинг:"
 
-#, fuzzy
 #~ msgid ""
 #~ "The display column is shown in pink. To set/unset a column as the display "
 #~ "column, click the \"Choose column to display\" icon, then click on the "
@@ -14023,27 +14009,21 @@ msgstr ""
 #~ "қилиш учун \"Кўрсатиладиган майдонни танлаш\" бўлимидан мос майдонни "
 #~ "танланг."
 
-#, fuzzy
 #~ msgid "memcached usage"
 #~ msgstr "Фойдаланилаётган жой"
 
-#, fuzzy
 #~ msgid "% open files"
 #~ msgstr "Очиқ жадваллар рўйхати"
 
-#, fuzzy
 #~ msgid "% connections used"
 #~ msgstr "Уланишлар"
 
-#, fuzzy
 #~ msgid "% aborted connections"
 #~ msgstr "Уланишни қисиш"
 
-#, fuzzy
 #~ msgid "CPU Usage"
 #~ msgstr "Ишлатилиш"
 
-#, fuzzy
 #~ msgid "Swap Usage"
 #~ msgstr "Ишлатилиш"
 
@@ -14053,12 +14033,10 @@ msgstr ""
 #~ msgid "Excel 2007 XLSX Workbook"
 #~ msgstr "Excel 2007 XLSX иш китоби"
 
-#, fuzzy
 #~ msgctxt "PDF"
 #~ msgid "page"
 #~ msgstr "саҳифалар сони "
 
-#, fuzzy
 #~ msgid "Inline Edit"
 #~ msgstr "Жадвал турлари"
 
@@ -14068,15 +14046,12 @@ msgstr ""
 #~ msgid "Next"
 #~ msgstr "Кейинги"
 
-#, fuzzy
 #~ msgid "Create event"
 #~ msgstr "Версиясини тузиш"
 
-#, fuzzy
 #~ msgid "Create routine"
 #~ msgstr "Боғлиқлик ўрнатиш"
 
-#, fuzzy
 #~ msgid "Create trigger"
 #~ msgstr "Версиясини тузиш"
 
@@ -14093,39 +14068,30 @@ msgstr ""
 #~ msgid "settings"
 #~ msgstr "танловлар"
 
-#, fuzzy
 #~ msgid "Refresh rate:"
 #~ msgstr "Янгилаш"
 
-#, fuzzy
 #~ msgid "Clear monitor config"
 #~ msgstr "\"config\" аутентификация усули фойдаланувчиси"
 
-#, fuzzy
 #~ msgid "Server traffic"
 #~ msgstr "Серверни танланг"
 
-#, fuzzy
 #~ msgid "Value too long in the form!"
 #~ msgstr "Форманинг керакли майдонлари тўлдирилмаган!"
 
-#, fuzzy
 #~ msgid "Export of event \"%s\""
 #~ msgstr "Таркибини экспорт қилиш"
 
-#, fuzzy
 #~ msgid "Export of trigger \"%s\""
 #~ msgstr "Триггерларни экспорт қилиш"
 
-#, fuzzy
 #~ msgid "No trigger with name %s found"
 #~ msgstr "\"%s\" мавзуси расмларига тўғри йўл топилмади!"
 
-#, fuzzy
 #~ msgid "rows"
 #~ msgstr "Кўриб чиқиш"
 
-#, fuzzy
 #~ msgid "row(s) starting from row #"
 #~ msgstr "та қатор қуйидаги қатордан бошлаб "
 
@@ -14148,7 +14114,6 @@ msgstr ""
 #~ "вергул қолдириб кетилган бўлади.<br />Агар бўм-бўш саҳифа кўрсатилса, "
 #~ "демак, ҳаммаси жойида."
 
-#, fuzzy
 #~ msgid "Dropping Procedure"
 #~ msgstr "Муолажалар"
 
