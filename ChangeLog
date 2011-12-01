@@ -60,6 +60,7 @@ phpMyAdmin - ChangeLog
 + rfe #1632106 [interface] Improved error handling
 + patch #3432835 [interface] Add useful intermediate pages to pageselector
 + [interface] Improved index editor
++ View editing via a generated ALTER VIEW
 
 3.4.9.0 (not yet released)
 - bug #3442028 [edit] Inline editing enum fields with null shows no dropdown

@@ -595,6 +595,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
 
 if ($tbl_is_view) {
     $create_view = PMA_DBI_get_definition($db, 'VIEW', $table);
+    $create_view = preg_replace('@^CREATE@', 'ALTER', $create_view);
     echo PMA_linkOrButton(
         'tbl_sql.php' . PMA_generate_common_url(
             $url_params +
