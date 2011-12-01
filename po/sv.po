@@ -4669,6 +4669,8 @@ msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed"
 msgstr ""
+"Begränsar antalet tabell preferenser som lagras i databasen, de äldsta "
+"posterna tas bort automatiskt"
 
 #: libraries/config/messages.inc.php:403
 #, fuzzy
