@@ -12809,14 +12809,15 @@ msgid "Percentage of used open files limit"
 msgstr "Процентное соотношение использованного ограничения открытых файлов"
 
 #: po/advisory_rules.php:186
-#, fuzzy
 #| msgid ""
 #| "The number of open files is approaching the max number of open files.  "
 #| "You may get a \\\"Too many open files\\\" error."
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
-msgstr "Количество открытых файлов приближается к максимальному."
+msgstr ""
+"Количество открытых файлов приближается к максимальному. Возможно появление "
+"ошибки \"Слишком много открытых файлов\"."
 
 #: po/advisory_rules.php:187 po/advisory_rules.php:192
 msgid ""
