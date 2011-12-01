@@ -6,7 +6,7 @@ phpMyAdmin - ChangeLog
 - bug #3442004 [interface] DB suggestion not correct for user with underscore
 - bug #3438420 [core] Magic quotes removed in PHP 5.4
 
-3.4.8.0 (not yet released)
+3.4.8.0 (2011-12-01)
 - bug #3425230 [interface] enum data split at space char (more space to edit)
 - bug #3426840 [interface] ENUM/SET editor can't handle commas in values
 - bug #3427256 [interface] no links to browse/empty views and tables
