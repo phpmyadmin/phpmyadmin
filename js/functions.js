@@ -2131,6 +2131,9 @@ $(document).ready(function() {
 
                             //Sort the table
                             $(tables_table).PMA_sort_table('th');
+                            
+                            // Adjust summary row
+                            PMA_adjustTotals();
                         }
 
                         //Refresh navigation frame as a new table has been added

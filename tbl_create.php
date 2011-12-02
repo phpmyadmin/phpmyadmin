@@ -261,7 +261,7 @@ if (isset($_REQUEST['do_save_data'])) {
                 }
 
                 if (isset($formatted_overhead)) {
-                        $overhead = $formatted_overhead . ' ' . $overhead_unit;
+                        $overhead = '<span>' . $formatted_overhead . '</span> <span class="unit">' . $overhead_unit . '</span>';
                         unset($formatted_overhead);
                     } else {
                         $overhead = '-';
@@ -310,8 +310,8 @@ if (isset($_REQUEST['do_save_data'])) {
             $new_table_string .= '<td> <dfn title="' . PMA_getCollationDescr($tbl_stats['Collation']) . '">'. $tbl_stats['Collation'] .'</dfn></td>' . "\n";
 
             if ($is_show_stats) {
-                $new_table_string .= '<td class="value"> <a href="tbl_structure.php' . PMA_generate_common_url($tbl_url_params) . '#showusage" >' . $formatted_size . ' ' . $unit . '</a> </td>' . "\n" ;
-                $new_table_string .= '<td class="value">' . $overhead . '</td>' . "\n" ;
+                $new_table_string .= '<td class="value tbl_size"> <a href="tbl_structure.php' . PMA_generate_common_url($tbl_url_params) . '#showusage" ><span>' . $formatted_size . '</span> <span class="unit">' . $unit . '</class></a> </td>' . "\n" ;
+                $new_table_string .= '<td class="value tbl_overhead">' . $overhead . '</td>' . "\n" ;
             }
 
             $new_table_string .= '</tr>' . "\n";

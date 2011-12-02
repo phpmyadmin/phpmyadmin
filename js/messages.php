@@ -121,6 +121,16 @@ $js_messages['strBytesReceived'] = __('Bytes received');
 $js_messages['strConnections'] = __('Connections');
 $js_messages['strProcesses'] = __('Processes');
 
+/* summary row */
+$js_messages['strB'] = __('B');
+$js_messages['strKiB'] = __('KiB');
+$js_messages['strMiB'] = __('MiB');
+$js_messages['strGiB'] = __('GiB');
+$js_messages['strTiB'] = __('TiB');
+$js_messages['strPiB'] = __('PiB');
+$js_messages['strEiB'] = __('EiB');
+$js_messages['strTables'] = __('%d table(s)');
+
 /* l10n: Questions is the name of a MySQL Status variable */
 $js_messages['strQuestions'] = __('Questions');
 $js_messages['strTraffic'] = __('Traffic');

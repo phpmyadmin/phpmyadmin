@@ -20,35 +20,90 @@
 
 /**
  * Adjust number of rows and total size in the summary
- * when emptying or dropping a table
- *
- * @param jQuery object     $this_anchor
+ * when truncating, creating, dropping or inserting into a table
  */
-function PMA_adjustTotals($this_anchor)
-{
-    var $parent_tr = $this_anchor.closest('tr');
-    var $rows_td = $parent_tr.find('.tbl_rows');
-    var $size_td = $parent_tr.find('.tbl_size');
-    var num_rows = parseInt($rows_td.text());
-    // set number of rows to 0
-    // (not really needed in case we are dropping the table)
-    $rows_td.text('0');
-    // set size to unknown (not sure how to get the exact
-    // value here, as an empty InnoDB table would have a size)
-    $size_td.text('-');
-
-    // try to compute a new total row number
-    if (! isNaN(num_rows)) {
-        $total_rows_td = $('#tbl_summary_row').find('.tbl_rows');
-        var total_rows = parseInt($total_rows_td.text());
-        if (! isNaN(total_rows)) {
-            $total_rows_td.text(total_rows - num_rows);
+function PMA_adjustTotals() {
+    var byteUnits = new Array(
+        PMA_messages['strB'],
+        PMA_messages['strKiB'],
+        PMA_messages['strMiB'],
+        PMA_messages['strGiB'],
+        PMA_messages['strTiB'],
+        PMA_messages['strPiB'],
+        PMA_messages['strEiB']
+    );
+    /**
+     * @var $allTr jQuery object that references all the rows in the list of tables
+     */
+    var $allTr = $("#tablesForm table.data tbody:first tr");
+    // New summary values for the table
+    var tableSum = $allTr.size();
+    var rowsSum = 0;
+    var sizeSum = 0;
+    var overheadSum = 0;
+    
+    $allTr.each(function () {
+        var $this = $(this);
+        // Get the number of rows for this SQL table
+        var strRows = $this.find('.tbl_rows').text();
+        strRows = strRows.replace(/[,.]/g , '');
+        var intRow = parseInt(strRows, 10);
+        if (! isNaN(intRow)) {
+            rowsSum += intRow;
         }
+        // Extract the size and overhead
+        var valSize         = 0;
+        var valOverhead     = 0;
+        var strSize         = $.trim($this.find('.tbl_size span:not(.unit)').text());
+        var strSizeUnit     = $.trim($this.find('.tbl_size span.unit').text());
+        var strOverhead     = $.trim($this.find('.tbl_overhead span:not(.unit)').text());
+        var strOverheadUnit = $.trim($this.find('.tbl_overhead span.unit').text());
+        // Given a value and a unit, such as 100 and KiB, for the table size
+        // and overhead calculate their numeric values in bytes, such as 102400
+        for (var i = 0; i < byteUnits.length; i++) {
+            if (strSizeUnit == byteUnits[i]) {
+                var tmpVal = parseFloat(strSize);
+                valSize = tmpVal * Math.pow(1024, i);
+                break;
+            }
+        }
+        for (var i = 0; i < byteUnits.length; i++) {
+            if (strOverheadUnit == byteUnits[i]) {
+                var tmpVal = parseFloat(strOverhead);
+                valOverhead = tmpVal * Math.pow(1024, i);
+                break;
+            }
+        }
+        sizeSum += valSize;
+        overheadSum += valOverhead;
+    });
+    // Add some commas for readablility:
+    // 1000000 becomes 1,000,000
+    var strRowSum = rowsSum + "";
+    var regex = /(\d+)(\d{3})/;
+    while (regex.test(strRowSum)) {
+        strRowSum = strRowSum.replace(regex, '$1' + ',' + '$2');
+    }
+    // Calculate the magnitude for the size and overhead values
+    var size_magnitude = 0, overhead_magnitude = 0;
+    while (sizeSum >= 1024) {
+        sizeSum /= 1024;
+        size_magnitude++;
+    }
+    while (overheadSum >= 1024) {
+        overheadSum /= 1024;
+        overhead_magnitude++;
     }
 
-    // prefix total size with "~"
-    var $total_size_td = $('#tbl_summary_row').find('.tbl_size');
-    $total_size_td.text($total_size_td.text().replace(/^/,'~'));
+    sizeSum = Math.round(sizeSum * 10) / 10;
+    overheadSum = Math.round(overheadSum * 10) / 10;
+
+    // Update summary with new data
+    var $summary = $("#tbl_summary_row");
+    $summary.find('.tbl_num').text($.sprintf(PMA_messages['strTables'], tableSum));
+    $summary.find('.tbl_rows').text(strRowSum);
+    $summary.find('.tbl_size').text(sizeSum + " " + byteUnits[size_magnitude]);
+    $summary.find('.tbl_overhead').text(overheadSum + " " + byteUnits[overhead_magnitude]);
 }
 
 $(document).ready(function() {
@@ -146,6 +201,7 @@ $(document).ready(function() {
             }
             /**Update the row count at the tableForm*/
             current_insert_table.closest('tr').find('.value.tbl_rows').html(data.row_count);
+            PMA_adjustTotals();
         }) // end $.post()
     }) // end insert table button "Go"
 
@@ -182,6 +238,7 @@ $(document).ready(function() {
             }
             /**Update the row count at the tableForm*/
             current_insert_table.closest('tr').find('.value.tbl_rows').html(data.row_count);
+            PMA_adjustTotals();
         }) // end $.post()
     });
 
@@ -217,16 +274,19 @@ $(document).ready(function() {
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
                 if (data.success == true) {
                     PMA_ajaxShowMessage(data.message);
+                    // Adjust table statistics
+                    var $tr = $this_anchor.closest('tr');
+                    $tr.find('.tbl_rows').text('0');
+                    $tr.find('.tbl_size, .tbl_overhead').text('-');
                     //Fetch inner span of this anchor
                     //and replace the icon with its disabled version
                     var span = $this_anchor.html().replace(/b_empty/, 'bd_empty');
-                    PMA_adjustTotals($this_anchor);
-
                     //To disable further attempts to truncate the table,
                     //replace the a element with its inner span (modified)
                     $this_anchor
                         .replaceWith(span)
                         .removeClass('truncate_table_anchor');
+                    PMA_adjustTotals();
                 } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
@@ -267,8 +327,8 @@ $(document).ready(function() {
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
                 if (data.success == true) {
                     PMA_ajaxShowMessage(data.message);
-                    PMA_adjustTotals($this_anchor);
                     $curr_row.hide("medium").remove();
+                    PMA_adjustTotals();
 
                     if (window.parent && window.parent.frame_navigation) {
                         window.parent.frame_navigation.location.reload();
