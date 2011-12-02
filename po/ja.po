@@ -9652,7 +9652,7 @@ msgstr "/ 分"
 
 #: server_status.php:943
 msgid "per second"
-msgstr "/秒"
+msgstr "/ 秒"
 
 #: server_status.php:964 tbl_printview.php:328 tbl_structure.php:833
 msgid "Statements"
