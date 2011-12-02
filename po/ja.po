@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-01 15:49+0100\n"
-"PO-Revision-Date: 2011-12-02 11:11+0200\n"
+"PO-Revision-Date: 2011-12-02 11:12+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9644,7 +9644,7 @@ msgstr "起動以後の問い合わせ数：%s"
 #: server_status.php:934 server_status.php:970 server_status.php:1089
 #: server_status.php:1134
 msgid "per hour"
-msgstr "/時"
+msgstr "/ 時"
 
 #: server_status.php:938
 msgid "per minute"
