@@ -41,11 +41,18 @@ function PMA_adjustTotals() {
     var rowsSum = 0;
     var sizeSum = 0;
     var overheadSum = 0;
+    var rowSumApproximated = false;
     
     $allTr.each(function () {
         var $this = $(this);
         // Get the number of rows for this SQL table
         var strRows = $this.find('.tbl_rows').text();
+        // If the value is approximated
+        if (strRows.indexOf('~') == 0) {
+            rowSumApproximated = true;
+            // The approximated value contains a preceding ~ and a following 2 (Eg 100 --> ~1002)
+            strRows = strRows.substring(1, strRows.length - 1);
+        }
         strRows = strRows.replace(/[,.]/g , '');
         var intRow = parseInt(strRows, 10);
         if (! isNaN(intRow)) {
@@ -83,6 +90,10 @@ function PMA_adjustTotals() {
     var regex = /(\d+)(\d{3})/;
     while (regex.test(strRowSum)) {
         strRowSum = strRowSum.replace(regex, '$1' + ',' + '$2');
+    }
+    // If approximated total value add ~ in front
+    if (rowSumApproximated) {
+        strRowSum = "~" + strRowSum;
     }
     // Calculate the magnitude for the size and overhead values
     var size_magnitude = 0, overhead_magnitude = 0;
