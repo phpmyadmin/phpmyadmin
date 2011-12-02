@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-01 15:49+0100\n"
-"PO-Revision-Date: 2011-12-02 11:20+0200\n"
+"PO-Revision-Date: 2011-12-02 11:25+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -11155,10 +11155,9 @@ msgid "Line"
 msgstr "折れ線グラフ"
 
 #: tbl_chart.php:91
-#, fuzzy
 #| msgid "Inline"
 msgid "Spline"
-msgstr "インライン"
+msgstr "曲線グラフ"
 
 #: tbl_chart.php:92
 msgid "Pie"
