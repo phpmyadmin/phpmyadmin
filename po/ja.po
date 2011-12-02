@@ -12093,9 +12093,7 @@ msgstr ""
 msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
-msgstr ""
-"クエリキャッシュが有効で、サーバが毎秒 %d 個のクエリを受信しています。毎秒 "
-"100 個以上のクエリがある場合、このルールが適用されます。"
+msgstr "クエリキャッシュが有効で、サーバが毎秒 %d 個のクエリを受信しています。毎秒 100 個超えるのクエリがある場合、このルールが適用されます。"
 
 #: po/advisory_rules.php:80
 msgid "Query cache efficiency (%)"
