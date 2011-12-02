@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-01 15:49+0100\n"
-"PO-Revision-Date: 2011-12-02 11:15+0200\n"
+"PO-Revision-Date: 2011-12-02 11:16+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -11816,7 +11816,7 @@ msgstr "%s しか稼動していません。"
 
 #: po/advisory_rules.php:10
 msgid "Questions below 1,000"
-msgstr "問い合わせ数が 1000 以下"
+msgstr "問い合わせ数が 1,000 未満"
 
 #: po/advisory_rules.php:11
 msgid ""
