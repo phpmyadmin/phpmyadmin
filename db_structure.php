@@ -14,6 +14,7 @@ $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.16.custom.js';
 $GLOBALS['js_include'][] = 'db_structure.js';
 $GLOBALS['js_include'][] = 'tbl_change.js';
 $GLOBALS['js_include'][] = 'jquery/timepicker.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.sprintf.js';
 
 /**
  * Prepares the tables list if the user where not redirected to this script
@@ -244,8 +245,8 @@ foreach ($tables as $keyname => $each_table) {
     if ($is_show_stats) {
         if (isset($formatted_overhead)) {
             $overhead = '<a href="tbl_structure.php?'
-                . $tbl_url_query . '#showusage">' . $formatted_overhead
-                . ' ' . $overhead_unit . '</a>' . "\n";
+                . $tbl_url_query . '#showusage"><span>' . $formatted_overhead
+                . '</span> <span class="unit">' . $overhead_unit . '</span></a>' . "\n";
             unset($formatted_overhead);
             $overhead_check .=
                 "document.getElementById('checkbox_tbl_" . ($i + 1) . "').checked = true;";
@@ -472,8 +473,8 @@ foreach ($tables as $keyname => $each_table) {
         <?php if ($is_show_stats) { ?>
     <td class="value tbl_size"><a
         href="tbl_structure.php?<?php echo $tbl_url_query; ?>#showusage"
-        ><?php echo $formatted_size . ' ' . $unit; ?></a></td>
-    <td class="value"><?php echo $overhead; ?></td>
+        ><?php echo '<span>' . $formatted_size . '</span> <span class="unit">' . $unit . '</span>'; ?></a></td>
+    <td class="value tbl_overhead"><?php echo $overhead; ?></td>
         <?php } // end if ?>
     <?php } elseif ($table_is_view) { ?>
     <td class="value">-</td>
@@ -502,7 +503,7 @@ if ($is_show_stats) {
 </tbody>
 <tbody id="tbl_summary_row">
 <tr><th></th>
-    <th align="center" nowrap="nowrap">
+    <th align="center" nowrap="nowrap" class="tbl_num">
         <?php
             // for blobstreaming - if the number of tables is 0, set tableReductionCount to 0
             // (we don't want negative numbers here)
@@ -543,7 +544,7 @@ if (!($cfg['PropertiesNumColumns'] > 1)) {
 if ($is_show_stats) {
     ?>
     <th class="value tbl_size"><?php echo $sum_formatted . ' ' . $unit; ?></th>
-    <th class="value"><?php echo $overhead_formatted . ' ' . $overhead_unit; ?></th>
+    <th class="value tbl_overhead"><?php echo $overhead_formatted . ' ' . $overhead_unit; ?></th>
     <?php
 }
 ?>
