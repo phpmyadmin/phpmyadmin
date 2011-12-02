@@ -12845,8 +12845,7 @@ msgid ""
 msgstr ""
 "接続は中断されたというのは、一般的に、認証できなかった場合のことです。<a "
 "href=\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-"source-of-aborted_connects/\">この記事</a>は、原因を突き止めるのに参考になる"
-"かもしれません。"
+"source-of-aborted_connects/\">この記事 (英語)</a> は、原因を突き止めるのに参考になるかもしれません。"
 
 #: po/advisory_rules.php:233
 #, php-format
