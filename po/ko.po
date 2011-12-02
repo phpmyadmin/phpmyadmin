@@ -1,7 +1,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.8-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.9-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-06 09:23+0200\n"
 "PO-Revision-Date: 2010-06-16 18:18+0200\n"
@@ -2162,7 +2162,7 @@ msgstr "업로드 디렉토리에 접근할 수 없습니다"
 
 #: libraries/common.lib.php:2999
 msgid "There are no files to upload"
-msgstr ""
+msgstr "업로드할 파일이 없습니다."
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
 msgid "Both"

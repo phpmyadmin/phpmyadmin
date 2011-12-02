@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.8-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.9-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-06 09:23+0200\n"
 "PO-Revision-Date: 2010-04-16 10:43+0200\n"
@@ -1855,8 +1855,10 @@ msgid "Query execution time comparison (in microseconds)"
 msgstr ""
 
 #: libraries/chart.lib.php:83
+#, fuzzy
+#| msgid "Hide search results"
 msgid "Query results"
-msgstr ""
+msgstr "தேடல் முடிவுகளை மறை"
 
 #: libraries/chart.lib.php:109
 msgid "No data found for the chart."

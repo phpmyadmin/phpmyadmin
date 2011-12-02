@@ -1,7 +1,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.8-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.9-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-06 09:23+0200\n"
 "PO-Revision-Date: 2010-03-12 09:19+0100\n"
@@ -803,12 +803,14 @@ msgid "+ Restart insertion and add a new value"
 msgstr ""
 
 #: enum_editor.php:67
+#, fuzzy
 msgid "Output"
-msgstr ""
+msgstr "เอาท์พุท"
 
 #: enum_editor.php:68
+#, fuzzy
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr ""
+msgstr "คัดลอกและวางค่า joined ในฟิลด์ \"ความยาว/ค่า\""
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"

@@ -1,7 +1,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.8-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.9-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-06 09:23+0200\n"
 "PO-Revision-Date: 2011-03-26 03:23+0200\n"
@@ -1162,7 +1162,7 @@ msgstr "Escolha campo para mostrar"
 
 #: js/messages.php:107
 msgid "Add an option for column "
-msgstr ""
+msgstr "Adicionar uma opção para a coluna"
 
 #: js/messages.php:110
 #, fuzzy
@@ -1193,6 +1193,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
+"Uma nova versão do phpMyAdmin está disponível e deverá proceder à "
+"actualização. A nova versão é %s, e foi lançada em %s."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:120
@@ -1236,7 +1238,7 @@ msgstr " Binário "
 
 #: js/messages.php:148
 msgid "February"
-msgstr ""
+msgstr "Fevereiro"
 
 #: js/messages.php:149
 #, fuzzy
@@ -1274,7 +1276,7 @@ msgstr "Ago"
 
 #: js/messages.php:155
 msgid "September"
-msgstr ""
+msgstr "Setembro"
 
 #: js/messages.php:156
 #, fuzzy
@@ -1284,11 +1286,11 @@ msgstr "Out"
 
 #: js/messages.php:157
 msgid "November"
-msgstr ""
+msgstr "Novembro"
 
 #: js/messages.php:158
 msgid "December"
-msgstr ""
+msgstr "Dezembro"
 
 #. l10n: Short month name
 #: js/messages.php:162 libraries/common.lib.php:1569
@@ -1373,11 +1375,11 @@ msgstr "Ter"
 
 #: js/messages.php:190
 msgid "Wednesday"
-msgstr ""
+msgstr "Quarta"
 
 #: js/messages.php:191
 msgid "Thursday"
-msgstr ""
+msgstr "Quinta"
 
 #: js/messages.php:192
 #, fuzzy
@@ -1387,7 +1389,7 @@ msgstr "Sex"
 
 #: js/messages.php:193
 msgid "Saturday"
-msgstr ""
+msgstr "Sábado"
 
 #. l10n: Short week day name
 #: js/messages.php:197 libraries/common.lib.php:1594
@@ -1476,11 +1478,11 @@ msgstr "Sab"
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:227
 msgid "Wk"
-msgstr ""
+msgstr "Sem"
 
 #: js/messages.php:229
 msgid "Hour"
-msgstr ""
+msgstr "Hora"
 
 #: js/messages.php:230
 #, fuzzy
@@ -1496,43 +1498,49 @@ msgstr "por segundo"
 
 #: libraries/Config.class.php:1190 tbl_chart.php:159
 msgid "Font size"
-msgstr ""
+msgstr "Tamanho da fonte"
 
 #: libraries/File.class.php:310
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
+"O arquivo carregado excede o tamanho definido na directriz "
+"'upload_max_filesize' no ficheiro php.ini."
 
 #: libraries/File.class.php:313
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
+"O ficheiro enviado excede o tamanho definido na directriz 'MAX_FILE_SIZE' "
+"que foi definido no formulário HTML."
 
 #: libraries/File.class.php:316
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "O ficheiro foi apenas parcialmente carregado."
 
 #: libraries/File.class.php:319
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Pasta temporária não encontrada."
 
 #: libraries/File.class.php:322
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "Falha ao salvar o ficheiro para o disco."
 
 #: libraries/File.class.php:325
 msgid "File upload stopped by extension."
-msgstr ""
+msgstr "Carregamento do ficheiro parado pela extensão."
 
 #: libraries/File.class.php:328
 msgid "Unknown error in file upload."
-msgstr ""
+msgstr "Erro desconhecido no upload do ficheiro."
 
 #: libraries/File.class.php:559
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr ""
+"Erro ao mover o arquivo carregado, veja [a@./Documentation."
+"html#faq1_11@Documentation]FAQ 1.11[/a]"
 
 #: libraries/Index.class.php:427 tbl_relation.php:519
 msgid "No index defined!"
@@ -1551,7 +1559,7 @@ msgstr "Único"
 
 #: libraries/Index.class.php:444 tbl_tracking.php:318
 msgid "Packed"
-msgstr ""
+msgstr "Pacote"
 
 #: libraries/Index.class.php:446 tbl_tracking.php:320
 msgid "Cardinality"
@@ -1577,6 +1585,7 @@ msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
 msgstr ""
+"Os Índices %1$s e %2$s parecem ser iguais ou um deles pode ter sido removido."
 
 #: libraries/List_Database.class.php:430 libraries/config/messages.inc.php:175
 #: libraries/server_links.inc.php:42 server_databases.php:100
@@ -1613,37 +1622,40 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/StorageEngine.class.php:194
+#, fuzzy
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
+"Não existe nenhuma informação detalhada disponível do estado desta "
+"ferramenta de armazenamento"
 
 #: libraries/StorageEngine.class.php:354
 #, php-format
 msgid "%s is available on this MySQL server."
-msgstr ""
+msgstr "%s está disponível neste servidor MySQL."
 
 #: libraries/StorageEngine.class.php:357
 #, php-format
 msgid "%s has been disabled for this MySQL server."
-msgstr ""
+msgstr "%s está desactivado neste servidor MySQL."
 
 #: libraries/StorageEngine.class.php:361
-#, php-format
+#, fuzzy, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr ""
+msgstr "Este servidor MySQL não suporta o stored engine %s."
 
 #: libraries/Table.class.php:1017
 msgid "Invalid database"
-msgstr ""
+msgstr "Base de Dados inválida"
 
 #: libraries/Table.class.php:1031 tbl_get_field.php:25
 msgid "Invalid table name"
-msgstr ""
+msgstr "Nome de tabela inválido"
 
 #: libraries/Table.class.php:1046
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
-msgstr ""
+msgstr "Erro ao mudar o nome da tabela %1$s para %2$s"
 
 #: libraries/Table.class.php:1129
 #, php-format
@@ -1653,30 +1665,31 @@ msgstr "Tabela %s renomeada para %s"
 #: libraries/Theme.class.php:160
 #, php-format
 msgid "No valid image path for theme %s found!"
-msgstr ""
+msgstr "Encontrado caminho inválido para imagens do tema %s!"
 
 #: libraries/Theme.class.php:380
 msgid "No preview available."
-msgstr ""
+msgstr "Nenhuma pré-visualização disponível."
 
 #: libraries/Theme.class.php:383
+#, fuzzy
 msgid "take it"
-msgstr ""
+msgstr "tome"
 
 #: libraries/Theme_Manager.class.php:109
 #, php-format
 msgid "Default theme %s not found!"
-msgstr ""
+msgstr "Tema padrão %s não encontrado!"
 
 #: libraries/Theme_Manager.class.php:147
 #, php-format
 msgid "Theme %s not found!"
-msgstr ""
+msgstr "Tema %s não encontrado!"
 
 #: libraries/Theme_Manager.class.php:215
 #, php-format
 msgid "Theme path not found for theme %s!"
-msgstr ""
+msgstr "Encontrado caminho inválido para o tema %s!"
 
 #: libraries/Theme_Manager.class.php:295 test/theme.php:160 themes.php:20
 #: themes.php:40
@@ -1685,7 +1698,7 @@ msgstr ""
 
 #: libraries/auth/config.auth.lib.php:76
 msgid "Cannot connect: invalid settings."
-msgstr ""
+msgstr "Não é possível realizar a ligação: configurações inválidas."
 
 #: libraries/auth/config.auth.lib.php:91
 #: libraries/auth/cookie.auth.lib.php:205 libraries/auth/http.auth.lib.php:64
@@ -1731,6 +1744,7 @@ msgstr "Documentação do phpMyAdmin"
 #: libraries/auth/cookie.auth.lib.php:245
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
+"Pode digitar a hiperligação/endereço de IP e a porta separados por um espaço"
 
 #: libraries/auth/cookie.auth.lib.php:244
 msgid "Server:"
@@ -1757,12 +1771,15 @@ msgstr "O mecanismo de \"Cookies\" tem de estar ligado a partir deste ponto."
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
+"A autenticação sem uma palavra-passe é proibida pela configuração (consulte "
+"'AllowNoPassword')"
 
 #: libraries/auth/cookie.auth.lib.php:648
 #: libraries/auth/signon.auth.lib.php:226
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
+"Sem actividade há %s segundos ou mais; Por favor, faça o login novamente"
 
 #: libraries/auth/cookie.auth.lib.php:658
 #: libraries/auth/cookie.auth.lib.php:660
@@ -1777,32 +1794,32 @@ msgstr "Utilizador ou Palavra-passe errada. Acesso Negado."
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
 msgid "File %s does not contain any key id"
-msgstr ""
+msgstr "Arquivo %s não contém qualquer identificação de chave"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:159
 #: libraries/auth/swekey/swekey.auth.lib.php:182
 msgid "Hardware authentication failed"
-msgstr ""
+msgstr "Falha na autenticação de hardware"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:168
 msgid "No valid authentication key plugged"
-msgstr ""
+msgstr "Nenhuma chave de autenticação válida foi conectada"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:204
 msgid "Authenticating..."
-msgstr ""
+msgstr "A Autenticar..."
 
 #: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
-msgstr ""
+msgstr "Erro PBMS"
 
 #: libraries/blobstreaming.lib.php:267
 msgid "PBMS connection failed:"
-msgstr ""
+msgstr "Falha na ligação PBMS:"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
-msgstr ""
+msgstr "o PBMS falhou na obtenção de informações BLOB:"
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
@@ -1810,28 +1827,28 @@ msgstr ""
 
 #: libraries/blobstreaming.lib.php:347
 msgid "View image"
-msgstr ""
+msgstr "Ver imagem"
 
 #: libraries/blobstreaming.lib.php:351
 msgid "Play audio"
-msgstr ""
+msgstr "Reproduzir áudio"
 
 #: libraries/blobstreaming.lib.php:356
 msgid "View video"
-msgstr ""
+msgstr "Ver vídeo"
 
 #: libraries/blobstreaming.lib.php:360
 msgid "Download file"
-msgstr ""
+msgstr "Descarregar ficheiro"
 
 #: libraries/blobstreaming.lib.php:421
 #, php-format
 msgid "Could not open file: %s"
-msgstr ""
+msgstr "Não foi possível abrir o ficheiro: %s"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
-msgstr ""
+msgstr "compartilhado"
 
 #: libraries/build_html_for_db.lib.php:25
 #: libraries/config/messages.inc.php:181 libraries/export/xml.php:36
@@ -1932,7 +1949,7 @@ msgstr ""
 #: libraries/common.inc.php:585
 #, php-format
 msgid "Could not load default configuration from: %1$s"
-msgstr ""
+msgstr "Não foi possível carregar configuração padrão de: \"%1$s\""
 
 #: libraries/common.inc.php:590
 msgid ""
@@ -1945,12 +1962,14 @@ msgstr ""
 #: libraries/common.inc.php:620
 #, php-format
 msgid "Invalid server index: %s"
-msgstr ""
+msgstr "Índice de servidor inválido: \"%s\""
 
 #: libraries/common.inc.php:627
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
+"Nome de serivdor inválido para o servidor %1$s. Verifique as suas "
+"configurações."
 
 #: libraries/common.inc.php:636 libraries/config/messages.inc.php:486
 #: libraries/header.inc.php:115 main.php:163 server_synchronize.php:1175
@@ -1960,7 +1979,7 @@ msgstr "Servidor"
 
 #: libraries/common.inc.php:819
 msgid "Invalid authentication method set in configuration:"
-msgstr ""
+msgstr "Método de autenticação definido nas configurações inválido:"
 
 #: libraries/common.inc.php:922
 #, php-format
@@ -2013,7 +2032,7 @@ msgstr "Mensagens do MySQL : "
 
 #: libraries/common.lib.php:1098
 msgid "Failed to connect to SQL validator!"
-msgstr ""
+msgstr "Falha ao ligar ao validador SQL!"
 
 #: libraries/common.lib.php:1139 libraries/config/messages.inc.php:463
 msgid "Explain SQL"
@@ -2034,7 +2053,7 @@ msgstr "Criar código PHP"
 #: libraries/common.lib.php:1198 libraries/config/messages.inc.php:464
 #: server_status.php:467
 msgid "Refresh"
-msgstr ""
+msgstr "Actualizar"
 
 #: libraries/common.lib.php:1207
 msgid "Skip Validate SQL"
@@ -2135,7 +2154,7 @@ msgstr "Saltar para a Base de Dados &quot;%s&quot;."
 #: libraries/common.lib.php:2466
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
-msgstr ""
+msgstr "A funcionalidade %s é afectada por um bug conhecido, veja %s"
 
 #: libraries/common.lib.php:2826 libraries/common.lib.php:2833
 #: libraries/common.lib.php:3018 libraries/config/setup.forms.php:285
@@ -2172,7 +2191,7 @@ msgstr "Operações"
 
 #: libraries/common.lib.php:2966
 msgid "Browse your computer:"
-msgstr ""
+msgstr "Procurar no seu computador:"
 
 #: libraries/common.lib.php:2979
 #, fuzzy, php-format
@@ -2187,15 +2206,15 @@ msgstr "Não é possivel alcançar a directoria que configurou para fazer upload
 
 #: libraries/common.lib.php:2999
 msgid "There are no files to upload"
-msgstr ""
+msgstr "Não existem arquivos para fazer upload"
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
 msgid "Both"
-msgstr ""
+msgstr "Ambos"
 
 #: libraries/config.values.php:74
 msgid "Open"
-msgstr ""
+msgstr "Abrir"
 
 #: libraries/config.values.php:74
 #, fuzzy
@@ -2215,7 +2234,7 @@ msgstr "Estrutura"
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
 #: libraries/export/sql.php:79 libraries/export/texytext.php:23
 msgid "data"
-msgstr ""
+msgstr "dados"
 
 #: libraries/config.values.php:97 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
@@ -2227,15 +2246,15 @@ msgstr "Estrutura e dados"
 
 #: libraries/config.values.php:99
 msgid "Quick - display only the minimal options to configure"
-msgstr ""
+msgstr "Rápida -  mostrar apenas o mínimo de opções para configurar"
 
 #: libraries/config.values.php:100
 msgid "Custom - display all possible options to configure"
-msgstr ""
+msgstr "Personalizada - exibir todas as opções possíveis para configurar"
 
 #: libraries/config.values.php:101
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr ""
+msgstr "Personalizada - como acima, mas sem a escolha rápida/personalizada"
 
 #: libraries/config.values.php:119
 #, fuzzy
@@ -2251,43 +2270,43 @@ msgstr "Instrucções de inserção múltiplas"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
-msgstr ""
+msgstr "ambos acima"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
-msgstr ""
+msgstr "nenhuma das acima"
 
 #: libraries/config/FormDisplay.class.php:83
 #: libraries/config/validate.lib.php:422
 msgid "Not a positive number"
-msgstr ""
+msgstr "Número não positivo"
 
 #: libraries/config/FormDisplay.class.php:84
 #: libraries/config/validate.lib.php:435
 msgid "Not a non-negative number"
-msgstr ""
+msgstr "Não é um número não-negativo"
 
 #: libraries/config/FormDisplay.class.php:85
 #: libraries/config/validate.lib.php:409
 msgid "Not a valid port number"
-msgstr ""
+msgstr "Número de porta inválido"
 
 #: libraries/config/FormDisplay.class.php:86
 #: libraries/config/FormDisplay.class.php:574
 #: libraries/config/validate.lib.php:360 libraries/config/validate.lib.php:450
 msgid "Incorrect value"
-msgstr ""
+msgstr "Valor incorrecto"
 
 #: libraries/config/FormDisplay.class.php:87
 #: libraries/config/validate.lib.php:464
 #, php-format
 msgid "Value must be equal or lower than %s"
-msgstr ""
+msgstr "O valor precisa ser igual ou menor que %s"
 
 #: libraries/config/FormDisplay.class.php:538
 #, php-format
 msgid "Missing data for %s"
-msgstr ""
+msgstr "Dados em falta para %s"
 
 #: libraries/config/FormDisplay.class.php:736
 #: libraries/config/FormDisplay.class.php:740
@@ -2300,21 +2319,21 @@ msgstr "Variável"
 #: libraries/config/FormDisplay.class.php:741
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr ""
+msgstr "\"%s\" requer a extenção %s"
 
 #: libraries/config/FormDisplay.class.php:755
 #, php-format
 msgid "import will not work, missing function (%s)"
-msgstr ""
+msgstr "Importação não irá funcionar, função (%s) em falta"
 
 #: libraries/config/FormDisplay.class.php:759
 #, php-format
 msgid "export will not work, missing function (%s)"
-msgstr ""
+msgstr "exportação não vai funcionar, função (%s) em falta"
 
 #: libraries/config/FormDisplay.class.php:766
 msgid "SQL Validator is disabled"
-msgstr ""
+msgstr "Validador SQL desactivado"
 
 #: libraries/config/FormDisplay.class.php:773
 #, fuzzy
@@ -2324,11 +2343,12 @@ msgstr "versão do PHP"
 #: libraries/config/FormDisplay.class.php:781
 #, php-format
 msgid "maximum %s"
-msgstr ""
+msgstr "máximo %s"
 
 #: libraries/config/FormDisplay.tpl.php:173
 msgid "This setting is disabled, it will not be applied to your configuration"
 msgstr ""
+"Esta configuração está desactivada, não será aplicada à sua configuração"
 
 #: libraries/config/FormDisplay.tpl.php:173 libraries/relation.lib.php:89
 #: libraries/relation.lib.php:96 pmd_relation_new.php:68
@@ -2338,16 +2358,16 @@ msgstr "Desactidado"
 #: libraries/config/FormDisplay.tpl.php:248
 #, php-format
 msgid "Set value: %s"
-msgstr ""
+msgstr "Definir valor: %s"
 
 #: libraries/config/FormDisplay.tpl.php:253
 #: libraries/config/messages.inc.php:351
 msgid "Restore default value"
-msgstr ""
+msgstr "Restaurar valor padrão"
 
 #: libraries/config/FormDisplay.tpl.php:269
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "Permitir a todos os utilizadores alterarem este valor"
 
 #: libraries/config/FormDisplay.tpl.php:333
 #: libraries/schema/User_Schema.class.php:470 prefs_manage.php:320
@@ -2357,7 +2377,7 @@ msgstr "Limpa"
 
 #: libraries/config/messages.inc.php:17
 msgid "Improves efficiency of screen refresh"
-msgstr ""
+msgstr "Melhora a eficiência de actualização do ecrã"
 
 #: libraries/config/messages.inc.php:18
 #, fuzzy
@@ -2369,6 +2389,8 @@ msgstr "Activado"
 msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
 msgstr ""
+"Se o utilizador habilitador pode entrar em qualquer servidor MySQL num "
+"formulário de login para cookie de autenticação "
 
 #: libraries/config/messages.inc.php:20
 #, fuzzy
@@ -2381,28 +2403,35 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
 msgstr ""
+"Activar esta opção permite que uma página localizada num domínio diferente "
+"chame o phpMyAdmin dentro de uma frame, e poderá ser uma potencial [strong] "
+"falha de segurança [/strong], que permite ataques de script cross-frame"
 
 #: libraries/config/messages.inc.php:22
+#, fuzzy
 msgid "Allow third party framing"
-msgstr ""
+msgstr "Permitir framing de terceiros"
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
 msgstr ""
+"Mostrar hiperligação &quot;Apagar Base de Dados&quot; a utilizadores normais"
 
 #: libraries/config/messages.inc.php:24
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
+"Frase secreta utilizada para encriptar cookies na autenticação por [kbd]"
+"cookie[/kbd]"
 
 #: libraries/config/messages.inc.php:25
 msgid "Blowfish secret"
-msgstr ""
+msgstr "Segredo Blowfish"
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight selected rows"
-msgstr ""
+msgstr "Destacar linhas selecionadas"
 
 #: libraries/config/messages.inc.php:27
 msgid "Row marker"
@@ -2410,21 +2439,23 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:28
 msgid "Highlight row pointed by the mouse cursor"
-msgstr ""
+msgstr "Destacar a linha apontada pelo cursor do rato"
 
 #: libraries/config/messages.inc.php:29
 msgid "Highlight pointer"
-msgstr ""
+msgstr "Destacar cursor"
 
 #: libraries/config/messages.inc.php:30
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import and export operations"
 msgstr ""
+"Activar compressão [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] para "
+"operações de importar e exportar"
 
 #: libraries/config/messages.inc.php:31
 msgid "Bzip2"
-msgstr ""
+msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
@@ -2432,59 +2463,67 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
+"Define que tipo de controles de edição devem ser utilizados pelas colunas "
+"CHAR e VARCHAR; [kbd]input[/kbd] - permite limitar o tamanho do campo, [kbd]"
+"textarea[/kbd] - permite quebra de linhas em colunas"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
-msgstr ""
+msgstr "Edição de colunas CHAR"
 
 #: libraries/config/messages.inc.php:34
 msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Número de colunas para caixas de texto CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:35
 msgid "CHAR textarea columns"
-msgstr ""
+msgstr "Colunas da caixa de texto para CHAR"
 
 #: libraries/config/messages.inc.php:36
 msgid "Number of rows for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Número de linhas para caixas de texto CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:37
 msgid "CHAR textarea rows"
-msgstr ""
+msgstr "Linhas da caixa de texto para CHAR"
 
 #: libraries/config/messages.inc.php:38
 msgid "Check config file permissions"
-msgstr ""
+msgstr "Verificar permissões do ficheiro de configuração"
 
 #: libraries/config/messages.inc.php:39
 msgid ""
 "Compress gzip/bzip2 exports on the fly without the need for much memory; if "
 "you encounter problems with created gzip/bzip2 files disable this feature"
 msgstr ""
+"Comprime exportações gzip/bzip2 imediatamente sem a necessidade de muita "
+"memória; se encontrar problemas com arquivos gzip/bzip2 criados desactive "
+"este recurso"
 
 #: libraries/config/messages.inc.php:40
 msgid "Compress on the fly"
-msgstr ""
+msgstr "Comprimir na hora"
 
 #: libraries/config/messages.inc.php:41 setup/frames/config.inc.php:25
 #: setup/frames/index.inc.php:153
 msgid "Configuration file"
-msgstr ""
+msgstr "Ficheiro de configuração"
 
 #: libraries/config/messages.inc.php:42
 msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
+"Exibir aviso (&quot;Tem a certeza...&quot;) quando estiver prestes a perder "
+"dados"
 
 #: libraries/config/messages.inc.php:43
 msgid "Confirm DROP queries"
-msgstr ""
+msgstr "Confirma consultas DROP"
 
 #: libraries/config/messages.inc.php:44
 msgid "Debug SQL"
-msgstr ""
+msgstr "Depurar SQL"
 
 #: libraries/config/messages.inc.php:45
 #, fuzzy
@@ -2503,7 +2542,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:48
 msgid "Tab that is displayed when entering a database"
-msgstr ""
+msgstr "Separador que é exibido quando entrar numa base de dados"
 
 #: libraries/config/messages.inc.php:49
 #, fuzzy
@@ -2512,51 +2551,55 @@ msgstr "Renomeia a tabela para "
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a server"
-msgstr ""
+msgstr "Separador que é mostrado quando entrar num servidor"
 
 #: libraries/config/messages.inc.php:51
 msgid "Default server tab"
-msgstr ""
+msgstr "Separador padrão do servidor"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a table"
-msgstr ""
+msgstr "Separador que é mostrado quando entrar numa tabela"
 
 #: libraries/config/messages.inc.php:53
 msgid "Default table tab"
-msgstr ""
+msgstr "Separador padrão para a tabela"
 
 #: libraries/config/messages.inc.php:54
 msgid "Show binary contents as HEX by default"
-msgstr ""
+msgstr "Mostrar conteúdo binário como HEX por padrão"
 
 #: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:598
 msgid "Show binary contents as HEX"
-msgstr ""
+msgstr "Mostrar conteúdo binário como HEX"
 
 #: libraries/config/messages.inc.php:56
+#, fuzzy
 msgid "Show database listing as a list instead of a drop down"
 msgstr ""
+"Mostrar listagem de bases de dados como uma lista em vez de um menu drop bown"
 
 #: libraries/config/messages.inc.php:57
 msgid "Display databases as a list"
-msgstr ""
+msgstr "Mostrar bases de dados como uma lista"
 
 #: libraries/config/messages.inc.php:58
+#, fuzzy
 msgid "Show server listing as a list instead of a drop down"
 msgstr ""
+"Mostrar lista de servidores como uma lista ao invés de um menu drop down"
 
 #: libraries/config/messages.inc.php:59
 msgid "Display servers as a list"
-msgstr ""
+msgstr "Mostrar servidores como uma lista"
 
 #: libraries/config/messages.inc.php:60
 msgid "Edit SQL queries in popup window"
-msgstr ""
+msgstr "Editar as consultas SQL numa janela popup"
 
 #: libraries/config/messages.inc.php:61
 msgid "Edit in window"
-msgstr ""
+msgstr "Editar em janela"
 
 #: libraries/config/messages.inc.php:62
 #, fuzzy
@@ -2566,11 +2609,11 @@ msgstr "Mostrar Características"
 
 #: libraries/config/messages.inc.php:63
 msgid "Gather errors"
-msgstr ""
+msgstr "Reunir erros"
 
 #: libraries/config/messages.inc.php:64
 msgid "Show icons for warning, error and information messages"
-msgstr ""
+msgstr "Mostrar ícones para avisos, erros e mensagens de informação"
 
 #: libraries/config/messages.inc.php:65
 msgid "Iconic errors"
@@ -2581,10 +2624,12 @@ msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
 msgstr ""
+"Define o número de segundos que um script é executado ([kbd]0[/kbd] para sem "
+"limite)"
 
 #: libraries/config/messages.inc.php:67
 msgid "Maximum execution time"
-msgstr ""
+msgstr "Tempo máximo de execução"
 
 #: libraries/config/messages.inc.php:68 prefs_manage.php:299
 msgid "Save as file"
@@ -2643,7 +2688,7 @@ msgstr "Substituir NULL por"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:82
 msgid "Remove CRLF characters within columns"
-msgstr ""
+msgstr "Remover caracteres CRLF nas colunas"
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:243
 #: libraries/config/messages.inc.php:251 libraries/import/csv.php:62
@@ -4879,7 +4924,7 @@ msgstr "Transformação do navegador"
 
 #: libraries/display_tbl.lib.php:1218
 msgid "Copy"
-msgstr ""
+msgstr "Copiar"
 
 #: libraries/display_tbl.lib.php:1233 libraries/display_tbl.lib.php:1245
 msgid "The row has been deleted"
@@ -6860,7 +6905,7 @@ msgstr "Mostra informação do PHP"
 
 #: main.php:215
 msgid "Wiki"
-msgstr ""
+msgstr "Wiki"
 
 #: main.php:218
 msgid "Official Homepage"
@@ -9552,7 +9597,7 @@ msgstr ""
 
 #: tbl_row_action.php:28
 msgid "No rows selected"
-msgstr ""
+msgstr "Nenhum registo (linha) seleccionado."
 
 #: tbl_select.php:109
 msgid "Do a \"query by example\" (wildcard: \"%\")"

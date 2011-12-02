@@ -1,7 +1,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.8-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.9-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-06 09:23+0200\n"
 "PO-Revision-Date: 2011-04-14 17:44+0200\n"
@@ -2436,7 +2436,7 @@ msgstr "Número de colunas para caixas de texto CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:35
 msgid "CHAR textarea columns"
-msgstr ""
+msgstr "Colunas da caixa de texto para CHAR"
 
 #: libraries/config/messages.inc.php:36
 msgid "Number of rows for CHAR/VARCHAR textareas"
@@ -2444,7 +2444,7 @@ msgstr "Número de linhas para caixas de texto CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:37
 msgid "CHAR textarea rows"
-msgstr ""
+msgstr "Linhas da caixa de texto para CHAR"
 
 #: libraries/config/messages.inc.php:38
 msgid "Check config file permissions"
@@ -2461,7 +2461,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:40
 msgid "Compress on the fly"
-msgstr ""
+msgstr "Comprimi na hora"
 
 #: libraries/config/messages.inc.php:41 setup/frames/config.inc.php:25
 #: setup/frames/index.inc.php:153
@@ -2478,7 +2478,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:43
 msgid "Confirm DROP queries"
-msgstr ""
+msgstr "Confirma consultas DROP"
 
 #: libraries/config/messages.inc.php:44
 msgid "Debug SQL"
@@ -2906,7 +2906,7 @@ msgstr "Importar arquivos"
 
 #: libraries/config/messages.inc.php:170
 msgid "Customize default common import options"
-msgstr ""
+msgstr "Personaliza opções padrões comuns de importação"
 
 #: libraries/config/messages.inc.php:171
 msgid "Import / export"
@@ -2931,7 +2931,7 @@ msgstr "Quadro de navegação"
 
 #: libraries/config/messages.inc.php:178
 msgid "Customize appearance of the navigation frame"
-msgstr ""
+msgstr "Personaliza aparência do frame de navegação"
 
 #: libraries/config/messages.inc.php:179 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:98
@@ -2980,6 +2980,9 @@ msgid ""
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
+"Especifica o texto da barra de título do browser. Remete a [a@Documentation."
+"html#cfg_TitleTable]documentação[/a] para strings mágicos que podem ser "
+"usados para conseguir valores especiais."
 
 #: libraries/config/messages.inc.php:192
 #: libraries/navigation_header.inc.php:83
@@ -3002,6 +3005,8 @@ msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
 msgstr ""
+"Favor note que o phpMyAdmin é uma interface de usuário e suas "
+"características não limitam o MySQL"
 
 #: libraries/config/messages.inc.php:196
 msgid "Basic settings"
@@ -3051,13 +3056,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:204
 msgid "Changes tracking"
-msgstr ""
+msgstr "Rastreando mudanças"
 
 #: libraries/config/messages.inc.php:205
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
+"Rastreamento das mudanças feitas no banco de dados. Requerem o armazenamento "
+"da configuração do phpMyAdmin."
 
 #: libraries/config/messages.inc.php:206
 msgid "Customize export options"
@@ -3070,11 +3077,11 @@ msgstr "Opções de exportação do Banco de Dados"
 
 #: libraries/config/messages.inc.php:209
 msgid "Customize navigation frame"
-msgstr ""
+msgstr "Personaliza frame de navegação"
 
 #: libraries/config/messages.inc.php:210
 msgid "Customize main frame"
-msgstr ""
+msgstr "Personaliza frame principal"
 
 #: libraries/config/messages.inc.php:211 libraries/config/messages.inc.php:216
 #: setup/frames/menu.inc.php:17
@@ -3087,7 +3094,7 @@ msgstr "Caixa de consulta SQL"
 
 #: libraries/config/messages.inc.php:214
 msgid "Customize links shown in SQL Query boxes"
-msgstr ""
+msgstr "Personaliza links mostrados nas caixas de consulta SQL"
 
 #: libraries/config/messages.inc.php:217
 #, fuzzy
@@ -3107,6 +3114,11 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
+"Se você quiser usar o serviço de validação SQL (SQL Validator), você deve "
+"estar ciente de que [strong]todas as instruções SQL são armazenadas de forma "
+"anônima para fins estatísticos[/strong].[br][em][a@http://sqlvalidator.mimer."
+"com/]Mimer SQL Validator[/a], Copyright 2002 Upright Database Technology. "
+"Todos os direitos reservados.[/em]"
 
 #: libraries/config/messages.inc.php:220
 #, fuzzy
@@ -3167,10 +3179,12 @@ msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
 msgstr ""
+"Se habilitado, phpMyAdmin continua processando consultas com múltiplas "
+"instruções mesmo se uma das consultas falhar."
 
 #: libraries/config/messages.inc.php:234
 msgid "Ignore multiple statement errors"
-msgstr ""
+msgstr "Ignora erro de instruções múltiplas"
 
 #: libraries/config/messages.inc.php:235
 #, fuzzy
@@ -3190,7 +3204,7 @@ msgstr "Importação parcial: permite Interrupção"
 #: libraries/config/messages.inc.php:241 libraries/config/messages.inc.php:248
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
 msgid "Do not abort on INSERT error"
-msgstr ""
+msgstr "Não aborta em erro de INSERT"
 
 #: libraries/config/messages.inc.php:242 libraries/config/messages.inc.php:250
 #: libraries/import/csv.php:25 libraries/import/ldi.php:38
@@ -3202,6 +3216,8 @@ msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
 msgstr ""
+"Formato padrão; esteja ciente que esta lista depende da localização (banco "
+"de dados, tabela) e somente SQL está sempre disponível."
 
 #: libraries/config/messages.inc.php:245
 msgid "Format of imported file"
@@ -3222,11 +3238,11 @@ msgstr "Não importe linhas vazias"
 
 #: libraries/config/messages.inc.php:254
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr ""
+msgstr "Importa moeda ($5.00 para 5.00)"
 
 #: libraries/config/messages.inc.php:255
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr ""
+msgstr "Importa porcentagem como decimal (12.00% para .12)"
 
 #: libraries/config/messages.inc.php:256
 #, fuzzy
@@ -3236,7 +3252,7 @@ msgstr "Número de registros (consultas) ignoradas no início"
 
 #: libraries/config/messages.inc.php:257
 msgid "Partial import: skip queries"
-msgstr ""
+msgstr "Importação parcial: pula consultas"
 
 #: libraries/config/messages.inc.php:259
 #, fuzzy
@@ -3274,7 +3290,7 @@ msgstr "Exibir servidor escolhido no topo do quadro esquerdo"
 
 #: libraries/config/messages.inc.php:269
 msgid "Display servers selection"
-msgstr ""
+msgstr "Exibe seleção de servidores"
 
 #: libraries/config/messages.inc.php:270
 #, fuzzy
@@ -3284,7 +3300,7 @@ msgstr "O número de tabelas que estão abertas."
 
 #: libraries/config/messages.inc.php:271
 msgid "String that separates databases into different tree levels"
-msgstr ""
+msgstr "String que separa bancos de dados em diferentes níveis na árvore"
 
 #: libraries/config/messages.inc.php:272
 #, fuzzy
@@ -3296,14 +3312,17 @@ msgid ""
 "Only light version; display databases in a tree (determined by the separator "
 "defined below)"
 msgstr ""
+"Somente versão light; exibe banco de dados em uma árvore (determinado pelo "
+"divisor definido abaixo)"
 
 #: libraries/config/messages.inc.php:274
 msgid "Display databases in a tree"
-msgstr ""
+msgstr "Exibe banco de dados em uma árvore"
 
 #: libraries/config/messages.inc.php:275
 msgid "Disable this if you want to see all databases at once"
 msgstr ""
+"Desabilite este se você quer ver todos os bancos de dados imediatamente"
 
 #: libraries/config/messages.inc.php:276
 #, fuzzy
@@ -3312,29 +3331,31 @@ msgstr "Usar versão leve"
 
 #: libraries/config/messages.inc.php:277
 msgid "Maximum table tree depth"
-msgstr ""
+msgstr "Profundidade máxima da árvore da tabela"
 
 #: libraries/config/messages.inc.php:278
 msgid "String that separates tables into different tree levels"
-msgstr ""
+msgstr "String que separa tabelas em diferentes níveis na árvore"
 
 #: libraries/config/messages.inc.php:279
 msgid "Table tree separator"
-msgstr ""
+msgstr "Divisor de árvore na tabela"
 
 #: libraries/config/messages.inc.php:280
 msgid "URL where logo in the navigation frame will point to"
-msgstr ""
+msgstr "URL onde o logo será colocado no frame de navegação"
 
 #: libraries/config/messages.inc.php:281
 msgid "Logo link URL"
-msgstr ""
+msgstr "Link URL do logo"
 
 #: libraries/config/messages.inc.php:282
 msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
 msgstr ""
+"Abre a página lincada na janela principal ([kbd]principal[/kbd]) ou em uma "
+"nova janela ([kbd]nova[/kbd])"
 
 #: libraries/config/messages.inc.php:283
 msgid "Logo link target"
@@ -3342,28 +3363,30 @@ msgstr "Alvo do link da logo"
 
 #: libraries/config/messages.inc.php:284
 msgid "Highlight server under the mouse cursor"
-msgstr ""
+msgstr "Destaca servidor sob o cursor do mouse"
 
 #: libraries/config/messages.inc.php:285
 msgid "Enable highlighting"
-msgstr ""
+msgstr "Habilita destaque"
 
 #: libraries/config/messages.inc.php:286
 msgid "Use less graphically intense tabs"
-msgstr ""
+msgstr "Usar menos abas graficamente intensas"
 
 #: libraries/config/messages.inc.php:287
 msgid "Light tabs"
-msgstr ""
+msgstr "Abas claras"
 
 #: libraries/config/messages.inc.php:288
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
 msgstr ""
+"Número máximo de caracteres apresentados em qualquer coluna não-numérica à "
+"mostra"
 
 #: libraries/config/messages.inc.php:289
 msgid "Limit column characters"
-msgstr ""
+msgstr "Limite de caracteres por coluna"
 
 #: libraries/config/messages.inc.php:290
 msgid ""
@@ -3371,6 +3394,10 @@ msgid ""
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
+"Se VERDADEIRO, logout deleta cookies de todos os servidores; quando definido "
+"para FALSO, logout somente ocorrerá no servidor atual. Definindo-o para "
+"FALSO facilita esquecer de sair de outros servidores quando conectado à "
+"vários servidores."
 
 #: libraries/config/messages.inc.php:291
 #, fuzzy
@@ -3382,10 +3409,12 @@ msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode"
 msgstr ""
+"Define se o login anterior deve ser recordado ou não no modo de autenticação "
+"em cookie"
 
 #: libraries/config/messages.inc.php:293
 msgid "Recall user name"
-msgstr ""
+msgstr "Recordar nome do usuário"
 
 #: libraries/config/messages.inc.php:294
 msgid ""
@@ -3394,10 +3423,13 @@ msgid ""
 "and will be deleted as soon as you close the browser window. This is "
 "recommended for non-trusted environments."
 msgstr ""
+"Defini a duração (em segundos) que um cookie deve ser guardado no navegador. "
+"O valor 0 padrão determina que este existirá somente na sessão atual e será "
+"apagado quando você fechar a janela do navegador."
 
 #: libraries/config/messages.inc.php:295
 msgid "Login cookie store"
-msgstr ""
+msgstr "Armazena cookie de login"
 
 #: libraries/config/messages.inc.php:296
 msgid "Define how long (in seconds) a login cookie is valid"
@@ -3405,15 +3437,15 @@ msgstr "Define quanto tempo (em segundos) um cookie de sessão é válido"
 
 #: libraries/config/messages.inc.php:297
 msgid "Login cookie validity"
-msgstr ""
+msgstr "Validade do cookie de login"
 
 #: libraries/config/messages.inc.php:298
 msgid "Double size of textarea for LONGTEXT columns"
-msgstr ""
+msgstr "Tamanho dobrado da caixa de texto para colunas LONGTEXT"
 
 #: libraries/config/messages.inc.php:299
 msgid "Bigger textarea for LONGTEXT"
-msgstr ""
+msgstr "Maior caixa de texto para LONGTEXT"
 
 #: libraries/config/messages.inc.php:300
 msgid "Use icons on main page"
@@ -3427,12 +3459,12 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:302
 msgid "Maximum displayed SQL length"
-msgstr ""
+msgstr "Largura máxima do SQL exibido"
 
 #: libraries/config/messages.inc.php:303 libraries/config/messages.inc.php:308
 #: libraries/config/messages.inc.php:336
 msgid "Users cannot set a higher value"
-msgstr ""
+msgstr "Usuários não podem definir um valor maior"
 
 #: libraries/config/messages.inc.php:304
 msgid "Maximum number of databases displayed in left frame and database list"
@@ -3451,6 +3483,9 @@ msgid ""
 "contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
 "shown."
 msgstr ""
+"Número de linhas exibidas ao navegar o resultado encontrado. Se o resultado "
+"conter mais linhas, &quot;Anteriores&quot; e &quot;Próximos&quot; links "
+"serão apresentados."
 
 #: libraries/config/messages.inc.php:307
 msgid "Maximum number of rows to display"
@@ -3469,6 +3504,8 @@ msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication"
 msgstr ""
+"Desabilita o aviso padrão que é exibido se mcrypt está ausente para "
+"autenticação por cookie"
 
 #: libraries/config/messages.inc.php:312
 msgid "mcrypt warning"
@@ -3479,6 +3516,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
 msgstr ""
+"O número de bytes permitidos que um script pode alocar, ex. [kbd]32M[/kbd] "
+"([kbd]0[/kbd] para sem limite)"
 
 #: libraries/config/messages.inc.php:314
 msgid "Memory limit"
@@ -3498,7 +3537,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:318
 msgid "Use natural order for sorting table and database names"
-msgstr ""
+msgstr "Use ordem natural para ordenar nomes de tabelas e bancos de dados"
 
 #: libraries/config/messages.inc.php:319
 msgid "Natural order"
@@ -3514,21 +3553,23 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:322
 msgid "use GZip output buffering for increased speed in HTTP transfers"
-msgstr ""
+msgstr "Use o buffer de saída GZip para acelerar as transferências HTTP"
 
 #: libraries/config/messages.inc.php:323
 msgid "GZip output buffering"
-msgstr ""
+msgstr "Buffer de saída GZip"
 
 #: libraries/config/messages.inc.php:324
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
+"[kbd]SMART[/kbd] - i.e. ordem decrescente para colunas do tipo TIME, DATE, "
+"DATETIME e TIMESTAM; caso contrário, ordem ascendente."
 
 #: libraries/config/messages.inc.php:325
 msgid "Default sorting order"
-msgstr ""
+msgstr "Ordem de ordenação padrão"
 
 #: libraries/config/messages.inc.php:326
 msgid "Use persistent connections to MySQL databases"
@@ -3544,10 +3585,13 @@ msgid ""
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found"
 msgstr ""
+"Desabilita o aviso padrão que é exibido na página de detalhes do banco de "
+"dados Estrutura se alguma das tabelas requeridas da configuração do "
+"phpMyAdmin não for encontrada"
 
 #: libraries/config/messages.inc.php:329
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr ""
+msgstr "Tabelas de configuração do phpMyAdmin perdidas"
 
 #: libraries/config/messages.inc.php:331
 msgid "Iconic table operations"
