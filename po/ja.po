@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-01 15:49+0100\n"
-"PO-Revision-Date: 2011-12-02 12:45+0200\n"
+"PO-Revision-Date: 2011-12-03 06:59+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1805,7 +1805,7 @@ msgstr "ドラッグすることでプロットのスクロールが行えます
 
 #: js/messages.php:280
 msgid "Click reset zoom link to come back to original state."
-msgstr ""
+msgstr "「Reset zoom」リンクをクリックすることで元の状態に戻せます。"
 
 #: js/messages.php:282
 msgid "Click a data point to view and possibly edit the data row."
