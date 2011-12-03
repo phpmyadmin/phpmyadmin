@@ -4831,7 +4831,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:434
 msgid "UI preferences table"
-msgstr "ユーザ設定保存テーブル"
+msgstr "ユーザ環境保管テーブル"
 
 #: libraries/config/messages.inc.php:435
 msgid ""
