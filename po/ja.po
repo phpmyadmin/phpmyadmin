@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-01 15:49+0100\n"
-"PO-Revision-Date: 2011-12-03 08:24+0200\n"
+"PO-Revision-Date: 2011-12-03 08:25+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -4653,7 +4653,7 @@ msgstr "ログアウト URL"
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed"
-msgstr ""
+msgstr "データベースに保管されるテーブル環境設定の上限。古いものから自動的に削除されます。"
 
 #: libraries/config/messages.inc.php:403
 #, fuzzy
