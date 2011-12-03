@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-01 15:49+0100\n"
-"PO-Revision-Date: 2011-12-03 08:16+0200\n"
+"PO-Revision-Date: 2011-12-03 08:21+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -4831,7 +4831,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:434
 msgid "UI preferences table"
-msgstr "ユーザ環境保管テーブル"
+msgstr "テーブルに対する環境設定を保管するテーブル"
 
 #: libraries/config/messages.inc.php:435
 msgid ""
