@@ -4351,7 +4351,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:334
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr "phpMyAdmin の設定保存用テーブルが不明"
+msgstr "phpMyAdmin 環境保管領域用のテーブルが不明"
 
 #: libraries/config/messages.inc.php:336
 msgid "Iconic table operations"
