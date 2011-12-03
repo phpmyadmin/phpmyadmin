@@ -8283,9 +8283,7 @@ msgstr "設定を保存しました"
 msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
-msgstr ""
-"環境設定は、現在のセッションでのみ有効です。この設定を永続的に有効にするに"
-"は、%sphpMyAdmin の設定保存場所%sが必要です。"
+msgstr "環境設定は、現在のセッションでのみ有効です。この設定を永続的に有効にするには、%sphpMyAdmin 環境保管領域%sが必要です。"
 
 #: libraries/user_preferences.lib.php:116
 msgid "Could not save configuration"
