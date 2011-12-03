@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-01 15:49+0100\n"
-"PO-Revision-Date: 2011-12-03 08:15+0200\n"
+"PO-Revision-Date: 2011-12-03 08:16+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3828,7 +3828,7 @@ msgstr "サーバの接続パラメータを入力してください"
 
 #: libraries/config/messages.inc.php:206
 msgid "Configuration storage"
-msgstr "設定の保存場所"
+msgstr "環境保管領域"
 
 #: libraries/config/messages.inc.php:207
 msgid ""
