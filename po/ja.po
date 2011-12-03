@@ -4346,8 +4346,8 @@ msgid ""
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found"
 msgstr ""
-"phpMyAdmin の設定保存に必要なテーブルを見つけることができなかった場合、データ"
-"ベースの構造詳細ページに表示されるデフォルトの警告を無効にします。"
+"phpMyAdmin "
+"環境保管領域に必要なテーブルを見つけることができなかった場合、データベースの構造詳細ページに表示されるデフォルトの警告を無効にします。"
 
 #: libraries/config/messages.inc.php:334
 msgid "Missing phpMyAdmin configuration storage tables"
