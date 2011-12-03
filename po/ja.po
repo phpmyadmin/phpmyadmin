@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-01 15:49+0100\n"
-"PO-Revision-Date: 2011-12-03 08:29+0200\n"
+"PO-Revision-Date: 2011-12-03 08:30+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -4569,7 +4569,7 @@ msgstr "phpMyAdmin ユーザ"
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
-msgstr ""
+msgstr "環境保管領域に対しての代替ホスト。空欄で既に定義されているホストを使用します。"
 
 #: libraries/config/messages.inc.php:386
 #, fuzzy
