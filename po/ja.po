@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-01 15:49+0100\n"
-"PO-Revision-Date: 2011-12-03 08:21+0200\n"
+"PO-Revision-Date: 2011-12-03 08:24+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -8269,7 +8269,7 @@ msgstr ""
 
 #: libraries/user_preferences.inc.php:33
 msgid "Manage your settings"
-msgstr "ユーザ設定の管理"
+msgstr "ユーザ環境設定の管理"
 
 #: libraries/user_preferences.inc.php:50 prefs_manage.php:289
 msgid "Configuration has been saved"
