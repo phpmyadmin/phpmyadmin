@@ -1613,7 +1613,7 @@ msgstr "アドバイザ・システム"
 
 #: js/messages.php:198
 msgid "Possible performance issues"
-msgstr "対応したほうがいいかもしれないパフォーマンス事象"
+msgstr "パフォーマンス的に検討が推奨される事象"
 
 #: js/messages.php:199
 msgid "Issue"
