@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-01 15:49+0100\n"
-"PO-Revision-Date: 2011-12-03 07:53+0200\n"
+"PO-Revision-Date: 2011-12-03 08:06+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2431,7 +2431,7 @@ msgstr "テーブル名 %s を %s に変更しました"
 
 #: libraries/Table.class.php:1362
 msgid "Could not save table UI preferences"
-msgstr "テーブルにユーザ設定が保存できません"
+msgstr "テーブルにユーザ環境設定が保存できません"
 
 #: libraries/Table.class.php:1385
 #, php-format
