@@ -2431,7 +2431,7 @@ msgstr "テーブル名 %s を %s に変更しました"
 
 #: libraries/Table.class.php:1362
 msgid "Could not save table UI preferences"
-msgstr "テーブルにユーザ環境設定が保存できません"
+msgstr "テーブルに対する環境設定が保存できません"
 
 #: libraries/Table.class.php:1385
 #, php-format
