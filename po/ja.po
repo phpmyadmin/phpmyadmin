@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-01 15:49+0100\n"
-"PO-Revision-Date: 2011-12-03 08:42+0200\n"
+"PO-Revision-Date: 2011-12-03 08:51+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2448,6 +2448,7 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
+"環境プロパティ「%s」が保存できません。ページ更新の際、変更箇所が維持されることはないでしょう。テーブル構造を変更されたのであれば確認してみてください。"
 
 #: libraries/Theme.class.php:145
 #, php-format
