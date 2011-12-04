@@ -3807,7 +3807,7 @@ msgstr "Ogólne"
 
 #: libraries/config/messages.inc.php:171
 msgid "Set some commonly used options"
-msgstr ""
+msgstr "Zestaw najczęściej używane opcje"
 
 #: libraries/config/messages.inc.php:173
 msgid "Import defaults"
