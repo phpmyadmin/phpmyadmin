@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-04 13:11+0200\n"
+"PO-Revision-Date: 2011-12-04 13:13+0200\n"
 "Last-Translator: lordark666 <lord_dark@wp.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -2799,6 +2799,8 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
+"To zazwyczaj oznacza, że ​​jest błąd składni, sprawdź wszelkie błędy "
+"poniżej."
 
 #: libraries/common.inc.php:615
 #, php-format
