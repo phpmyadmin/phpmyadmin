@@ -85,11 +85,11 @@ url_query = '<?php echo $url_query;?>';
 <fieldset>
     <legend><?php echo __('Display chart'); ?></legend>
     <div style="float:left;">
-        <input type="radio" name="chartType" value="bar"><?php echo __('Bar'); ?>
-        <input type="radio" name="chartType" value="column"><?php echo __('Column'); ?>
-        <input type="radio" name="chartType" value="line" checked><?php echo __('Line'); ?>
-        <input type="radio" name="chartType" value="spline"><?php echo __('Spline'); ?>
-        <input type="radio" name="chartType" value="pie"><?php echo __('Pie'); ?>
+        <input type="radio" name="chartType" value="bar"><?php echo _pgettext('Chart type', 'Bar'); ?>
+        <input type="radio" name="chartType" value="column"><?php echo _pgettext('Chart type', 'Column'); ?>
+        <input type="radio" name="chartType" value="line" checked><?php echo _pgettext('Chart type', 'Line'); ?>
+        <input type="radio" name="chartType" value="spline"><?php echo _pgettext('Chart type', 'Spline'); ?>
+        <input type="radio" name="chartType" value="pie"><?php echo _pgettext('Chart type', 'Pie'); ?>
         <span class="barStacked" style="display:none;">
         <input type="checkbox" name="barStacked" value="1"><?php echo __('Stacked'); ?>
         </span>
