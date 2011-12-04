@@ -1614,7 +1614,6 @@ msgid "Affected rows:"
 msgstr "Ovlivněné záznamy:"
 
 #: js/messages.php:199
-#, fuzzy
 #| msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
@@ -11828,7 +11827,6 @@ msgid "Percentage of slow queries"
 msgstr "Procento pomalých dotazů"
 
 #: po/advisory_rules.php:16
-#, fuzzy
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr ""
@@ -11904,7 +11902,6 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:33
-#, fuzzy
 msgid "log_slow_queries is set to 'OFF'"
 msgstr "log_slow_queries je vypnuto"
 
@@ -11928,7 +11925,6 @@ msgid "Current version: %s"
 msgstr "Aktuální verze: %s"
 
 #: po/advisory_rules.php:40 po/advisory_rules.php:45
-#, fuzzy
 #| msgid "Version"
 msgid "Minor Version"
 msgstr "Verze"
