@@ -10438,7 +10438,7 @@ msgstr ""
 "Monitor phpMyAdmina vám může pomoci s vyladěním nastavení serveru a nalézt "
 "náročné dotazy. Pro porovnávání dotazů budete potřebovat mít nastavený "
 "log_output na 'TABLE' a mít povolené záznam pomalých dotazů nebo všech "
-"dotazů. Zaznamenání všech dotazů ale může zvýšit zatížení serveru až o 15%."
+"dotazů. Zaznamenání všech dotazů ale může zvýšit zatížení serveru až o 15%"
 
 #: server_status.php:1598
 msgid ""
