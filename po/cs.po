@@ -11592,7 +11592,7 @@ msgstr "Sledování pro %s.%s , verze %s je zapnuté."
 
 #: tbl_tracking.php:199
 msgid "SQL statements executed."
-msgstr "provedené SQL příkazy."
+msgstr "SQL příkazy byly provedeny."
 
 #: tbl_tracking.php:205
 msgid ""
