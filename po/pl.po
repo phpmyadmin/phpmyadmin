@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-04 12:28+0200\n"
+"PO-Revision-Date: 2011-12-04 12:46+0200\n"
 "Last-Translator: lordark666 <lord_dark@wp.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -12132,7 +12132,7 @@ msgstr "Wykonaj \"zapytanie przez przykład\" (znak globalny: \"%\")"
 #: tbl_select.php:178
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "Wybór column (co najmniej jedno):"
+msgstr "Wybór kolumn (co najmniej jedno):"
 
 #: tbl_select.php:196
 msgid "Add search conditions (body of the \"where\" clause):"
