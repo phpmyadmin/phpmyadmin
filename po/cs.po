@@ -11148,11 +11148,10 @@ msgid "Line"
 msgstr "Čárový"
 
 #: tbl_chart.php:91
-#, fuzzy
 #| msgid "Spline"
 msgctxt "Chart type"
 msgid "Spline"
-msgstr "Křivka"
+msgstr "Křivkový"
 
 #: tbl_chart.php:92
 #, fuzzy
