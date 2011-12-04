@@ -196,7 +196,7 @@ $js_messages['strReloadPage'] = __('Reload page');
 
 $js_messages['strAffectedRows'] = __('Affected rows:');
 
-$js_messages['strFailedParsingConfig'] = __('Failed parsing config file. It doesn\'t seem to be valid JSON code');
+$js_messages['strFailedParsingConfig'] = __('Failed parsing config file. It doesn\'t seem to be valid JSON code.');
 $js_messages['strFailedBuildingGrid'] = __('Failed building chart grid with imported config. Resetting to default config...');
 $js_messages['strImport'] = __('Import');
 
