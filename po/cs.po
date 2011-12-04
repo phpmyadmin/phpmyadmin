@@ -1367,7 +1367,7 @@ msgstr "EiB"
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "%d table(s)"
-msgstr "%s tabulek"
+msgstr "%d tabulek"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:135
