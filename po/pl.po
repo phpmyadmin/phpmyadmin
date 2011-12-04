@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-04 13:13+0200\n"
+"PO-Revision-Date: 2011-12-04 13:15+0200\n"
 "Last-Translator: lordark666 <lord_dark@wp.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -3065,7 +3065,7 @@ msgstr "Nie podałeś plików do wgrania na serwer"
 
 #: libraries/common.lib.php:3348 libraries/common.lib.php:3349
 msgid "Execute"
-msgstr ""
+msgstr "Wykonaj"
 
 #: libraries/common.lib.php:3824
 msgid "Print"
