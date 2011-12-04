@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-04 12:53+0200\n"
+"PO-Revision-Date: 2011-12-04 12:57+0200\n"
 "Last-Translator: lordark666 <lord_dark@wp.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1960,7 +1960,7 @@ msgstr ""
 
 #: js/messages.php:335
 msgid "Drag to reorder"
-msgstr ""
+msgstr "Przeciągnij, aby uporządkować"
 
 #: js/messages.php:336
 msgid "Click to sort"
