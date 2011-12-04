@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-04 12:18+0200\n"
+"PO-Revision-Date: 2011-12-04 12:33+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -449,7 +449,7 @@ msgstr "Podmínka"
 
 #: db_qbe.php:375 db_qbe.php:457 db_qbe.php:549 db_qbe.php:580
 msgid "Ins"
-msgstr "přidat"
+msgstr "Přidat"
 
 #: db_qbe.php:379 db_qbe.php:461 db_qbe.php:546 db_qbe.php:577
 msgid "And"
@@ -457,13 +457,13 @@ msgstr "a"
 
 #: db_qbe.php:388 db_qbe.php:469 db_qbe.php:551 db_qbe.php:582
 msgid "Del"
-msgstr "smazat"
+msgstr "Smazat"
 
 #: db_qbe.php:392 db_qbe.php:473 db_qbe.php:544 db_qbe.php:575
 #: server_privileges.php:398 tbl_change.php:907 tbl_indexes.php:283
 #: tbl_select.php:196
 msgid "Or"
-msgstr "nebo"
+msgstr "Nebo"
 
 #: db_qbe.php:529
 msgid "Modify"
@@ -4326,7 +4326,8 @@ msgstr "Ikony v navigační liště"
 
 #: libraries/config/messages.inc.php:327
 msgid "use GZip output buffering for increased speed in HTTP transfers"
-msgstr "Použije mezipaměť pro GZip výstup, čímž zvýší rychlost HTTP přenosů"
+msgstr ""
+"Použije vyrovnávací paměť pro GZip výstup, čímž zvýší rychlost HTTP přenosů"
 
 #: libraries/config/messages.inc.php:328
 msgid "GZip output buffering"
@@ -5886,7 +5887,7 @@ msgstr "celkem"
 #: libraries/display_tbl.lib.php:2374 sql.php:726
 #, php-format
 msgid "Query took %01.4f sec"
-msgstr "dotaz trval %01.4f sekund"
+msgstr "Dotaz trval %01.4f sekund"
 
 #: libraries/display_tbl.lib.php:2577
 msgid "Query results operations"
@@ -6670,7 +6671,7 @@ msgstr "Nebyla nalezena žádná data zobrazení GIS."
 
 #: libraries/header_http.inc.php:15 libraries/header_meta_style.inc.php:15
 msgid "GLOBALS overwrite attempt"
-msgstr "pokus o přepsání GLOBALS"
+msgstr "Pokus o přepsání GLOBALS"
 
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:57
 msgid "SQL result"
@@ -7489,7 +7490,7 @@ msgstr "Možnosti návratové hodnoty"
 
 #: libraries/rte/rte_routines.lib.php:929
 msgid "Is deterministic"
-msgstr "je deterministická"
+msgstr "Je deterministická"
 
 #: libraries/rte/rte_routines.lib.php:938
 msgid "Security type"
@@ -9713,7 +9714,7 @@ msgstr "Odesláno"
 
 #: server_status.php:1140
 msgid "max. concurrent connections"
-msgstr "Maximum současných připojení"
+msgstr "maximum současných připojení"
 
 #: server_status.php:1147
 msgid "Failed attempts"
@@ -10781,7 +10782,7 @@ msgstr "Výchozí jazyk"
 
 #: setup/frames/index.inc.php:196
 msgid "let the user choose"
-msgstr "Nechat uživatele, aby si vybral"
+msgstr "nechat uživatele, aby si vybral"
 
 #: setup/frames/index.inc.php:207
 msgid "- none -"
@@ -11475,7 +11476,7 @@ msgstr "Přidat vyhledávací parametry (část dotazu po příkazu „WHERE“)
 
 #: tbl_select.php:203
 msgid "Number of rows per page"
-msgstr "záznamů na stránku"
+msgstr "Záznamů na stránku"
 
 #: tbl_select.php:209
 msgid "Display order:"
@@ -11591,7 +11592,7 @@ msgstr "Sledování pro %s.%s , verze %s je zapnuté."
 
 #: tbl_tracking.php:199
 msgid "SQL statements executed."
-msgstr "provedené SQL příkazy."
+msgstr "SQL příkazy byly provedeny."
 
 #: tbl_tracking.php:205
 msgid ""
@@ -11658,11 +11659,11 @@ msgstr "Příkaz pro úpravu dat"
 
 #: tbl_tracking.php:549
 msgid "SQL dump (file download)"
-msgstr "výpis SQL (stáhnout soubor)"
+msgstr "Výpis SQL (stáhnout soubor)"
 
 #: tbl_tracking.php:550
 msgid "SQL dump"
-msgstr "výpis SQL"
+msgstr "Výpis SQL"
 
 #: tbl_tracking.php:551
 msgid "This option will replace your table and contained data."
