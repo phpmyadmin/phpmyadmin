@@ -7490,7 +7490,7 @@ msgstr "Možnosti návratové hodnoty"
 
 #: libraries/rte/rte_routines.lib.php:929
 msgid "Is deterministic"
-msgstr "je deterministická"
+msgstr "Je deterministická"
 
 #: libraries/rte/rte_routines.lib.php:938
 msgid "Security type"
