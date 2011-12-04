@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-12-04 10:04+0100\n"
+"POT-Creation-Date: 2011-12-04 10:28+0100\n"
 "PO-Revision-Date: 2010-03-12 09:12+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: belarusian_cyrillic <be@li.org>\n"
@@ -11005,10 +11005,9 @@ msgstr ""
 
 #: server_status.php:1613
 msgid ""
-"Ok, you are good to go! Once you click 'Start monitor' your browser will "
-"refresh all displayed charts in a regular interval. You may add charts and "
-"change the refresh rate under 'Settings', or remove any chart using the cog "
-"icon on each respective chart."
+"Your browser will refresh all displayed charts in a regular interval. You "
+"may add charts and change the refresh rate under 'Settings', or remove any "
+"chart using the cog icon on each respective chart."
 msgstr ""
 
 #: server_status.php:1615

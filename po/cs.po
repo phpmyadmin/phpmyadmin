@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-12-04 10:04+0100\n"
+"POT-Creation-Date: 2011-12-04 10:28+0100\n"
 "PO-Revision-Date: 2011-12-04 11:23+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
@@ -1364,8 +1364,6 @@ msgstr "EiB"
 
 #: js/messages.php:132
 #, php-format
-#| msgid "%s table"
-#| msgid_plural "%s tables"
 msgid "%d table(s)"
 msgstr "%d tabulek"
 
@@ -4672,7 +4670,6 @@ msgstr ""
 "Nejstarší záznamy jsou automaticky odstraněny."
 
 #: libraries/config/messages.inc.php:403
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Maximal number of table preferences to store"
 msgstr "Nejvyšší počet uložených nastavení tabulek"
 
@@ -10460,10 +10457,9 @@ msgstr "Používání monitoru:"
 
 #: server_status.php:1613
 msgid ""
-"Ok, you are good to go! Once you click 'Start monitor' your browser will "
-"refresh all displayed charts in a regular interval. You may add charts and "
-"change the refresh rate under 'Settings', or remove any chart using the cog "
-"icon on each respective chart."
+"Your browser will refresh all displayed charts in a regular interval. You "
+"may add charts and change the refresh rate under 'Settings', or remove any "
+"chart using the cog icon on each respective chart."
 msgstr ""
 
 #: server_status.php:1615
@@ -11138,31 +11134,26 @@ msgid "Continue insertion with %s rows"
 msgstr "Pokračovat ve vkládání s %s řádky"
 
 #: tbl_chart.php:88
-#| msgid "Bar"
 msgctxt "Chart type"
 msgid "Bar"
 msgstr "Pruhový"
 
 #: tbl_chart.php:89
-#| msgid "Column"
 msgctxt "Chart type"
 msgid "Column"
 msgstr "Sloupcový"
 
 #: tbl_chart.php:90
-#| msgid "Line"
 msgctxt "Chart type"
 msgid "Line"
 msgstr "Čárový"
 
 #: tbl_chart.php:91
-#| msgid "Spline"
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "Křivkový"
 
 #: tbl_chart.php:92
-#| msgid "Pie"
 msgctxt "Chart type"
 msgid "Pie"
 msgstr "Koláčový"
