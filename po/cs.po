@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-04 12:30+0200\n"
+"PO-Revision-Date: 2011-12-04 12:32+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -5887,7 +5887,7 @@ msgstr "celkem"
 #: libraries/display_tbl.lib.php:2374 sql.php:726
 #, php-format
 msgid "Query took %01.4f sec"
-msgstr "dotaz trval %01.4f sekund"
+msgstr "Dotaz trval %01.4f sekund"
 
 #: libraries/display_tbl.lib.php:2577
 msgid "Query results operations"
