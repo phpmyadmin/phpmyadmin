@@ -3132,7 +3132,7 @@ msgstr "Pełna - wyświetl wszystkie opcje konfiguracyjne"
 
 #: libraries/config.values.php:105
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr ""
+msgstr "Pełna - jak wyżej, ale bez wyboru Szybki/Pełny"
 
 #: libraries/config.values.php:123
 #, fuzzy
