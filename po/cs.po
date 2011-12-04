@@ -10528,7 +10528,7 @@ msgstr "Odstranit série"
 
 #: server_status.php:1683
 msgid "Series in Chart:"
-msgstr "Série v grafu::"
+msgstr "Série v grafu:"
 
 #: server_status.php:1696
 msgid "Log statistics"
