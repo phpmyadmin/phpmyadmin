@@ -11161,7 +11161,7 @@ msgstr "Koláčový"
 
 #: tbl_chart.php:94
 msgid "Stacked"
-msgstr "Skládané"
+msgstr "Složený"
 
 #: tbl_chart.php:97
 msgid "Chart title"
