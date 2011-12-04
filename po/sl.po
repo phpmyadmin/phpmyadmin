@@ -11258,11 +11258,10 @@ msgid "Spline"
 msgstr "Zlepek"
 
 #: tbl_chart.php:92
-#, fuzzy
 #| msgid "Pie"
 msgctxt "Chart type"
 msgid "Pie"
-msgstr "Tortni"
+msgstr "Torta"
 
 #: tbl_chart.php:94
 msgid "Stacked"
