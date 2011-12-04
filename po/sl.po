@@ -11235,7 +11235,7 @@ msgstr "Nadaljuj vstavljanje z %s vrsticami"
 #| msgid "Bar"
 msgctxt "Chart type"
 msgid "Bar"
-msgstr "Stolpec"
+msgstr "Vrstica"
 
 #: tbl_chart.php:89
 #, fuzzy
