@@ -10782,7 +10782,7 @@ msgstr "Výchozí jazyk"
 
 #: setup/frames/index.inc.php:196
 msgid "let the user choose"
-msgstr "Nechat uživatele, aby si vybral"
+msgstr "nechat uživatele, aby si vybral"
 
 #: setup/frames/index.inc.php:207
 msgid "- none -"
