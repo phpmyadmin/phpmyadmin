@@ -11241,7 +11241,7 @@ msgstr "Vrstica"
 #| msgid "Column"
 msgctxt "Chart type"
 msgid "Column"
-msgstr "Stolpec."
+msgstr "Stolpec"
 
 #: tbl_chart.php:90
 #| msgid "Line"
