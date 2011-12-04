@@ -1945,7 +1945,7 @@ msgstr "Marque a coluna para exibir"
 #: js/messages.php:327
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
-"save them.Do you want to continue?"
+"save them. Do you want to continue?"
 msgstr ""
 "Você não salvou as mudanças no layout. Eles serão perdidos se você não salva-"
 "los. Deseja continuar mesmo assim?"

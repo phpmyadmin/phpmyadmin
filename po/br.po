@@ -1918,7 +1918,7 @@ msgstr "Dibab ar bann da ziskouez"
 #: js/messages.php:327
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
-"save them.Do you want to continue?"
+"save them. Do you want to continue?"
 msgstr ""
 "N'eo ket bet enrollet ar c'hemmoù degaset d'an tres ganeoc'h. Kollet e vint "
 "ma n'o enrollit ket. Kenderc'hel memes tra ?"

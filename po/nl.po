@@ -1992,7 +1992,7 @@ msgstr "Kies weer te geven veld"
 #: js/messages.php:327
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
-"save them.Do you want to continue?"
+"save them. Do you want to continue?"
 msgstr ""
 "U hebt de layoutwijzigingen niet opgeslagen. Deze zullen verloren gaan als u "
 "deze niet opslaat. Wilt u doorgaan?"
