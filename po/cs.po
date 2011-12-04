@@ -11947,7 +11947,7 @@ msgstr "Verze starší než 5.5.8 (první GA vydání 5.5)."
 
 #: po/advisory_rules.php:47
 msgid "You should upgrade, to a stable version of MySQL 5.5"
-msgstr "Měli byste aktualizovat na stabilní verzi MySQL 5.5."
+msgstr "Měli byste aktualizovat na stabilní verzi MySQL 5.5"
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
 msgid "Distribution"
