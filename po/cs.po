@@ -9714,7 +9714,7 @@ msgstr "Odesláno"
 
 #: server_status.php:1140
 msgid "max. concurrent connections"
-msgstr "Maximum současných připojení"
+msgstr "maximum současných připojení"
 
 #: server_status.php:1147
 msgid "Failed attempts"
