@@ -1610,7 +1610,7 @@ function printMonitor()
                 echo '<strong>';
                 echo __('Using the monitor:');
                 echo '</strong><p>';
-                echo __('Ok, you are good to go! Once you click \'Start monitor\' your browser will refresh all displayed charts in a regular interval. You may add charts and change the refresh rate under \'Settings\', or remove any chart using the cog icon on each respective chart.');
+                echo __('Your browser will refresh all displayed charts in a regular interval. You may add charts and change the refresh rate under \'Settings\', or remove any chart using the cog icon on each respective chart.');
                 echo '</p><p>';
                 echo __('To display queries from the logs, select the relevant time span on any chart by holding down the left mouse button and panning over the chart. Once confirmed, this will load a table of grouped queries, there you may click on any occuring SELECT statements to further analyze them.');
                 echo '</p>';
