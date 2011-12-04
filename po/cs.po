@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:04+0100\n"
-"PO-Revision-Date: 2011-11-23 11:40+0200\n"
+"PO-Revision-Date: 2011-12-04 11:12+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -4668,6 +4668,8 @@ msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed"
 msgstr ""
+"Omezí počet nastavení prohlížení tabulek, která budou uložena v databázi. "
+"Nejstarší záznamy jsou automaticky odstraněny."
 
 #: libraries/config/messages.inc.php:403
 #, fuzzy
