@@ -4326,7 +4326,8 @@ msgstr "Ikony v navigační liště"
 
 #: libraries/config/messages.inc.php:327
 msgid "use GZip output buffering for increased speed in HTTP transfers"
-msgstr "Použije mezipaměť pro GZip výstup, čímž zvýší rychlost HTTP přenosů"
+msgstr ""
+"Použije vyrovnávací paměť pro GZip výstup, čímž zvýší rychlost HTTP přenosů"
 
 #: libraries/config/messages.inc.php:328
 msgid "GZip output buffering"
