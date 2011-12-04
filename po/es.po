@@ -1638,12 +1638,11 @@ msgid "Affected rows:"
 msgstr "Filas afectadas:"
 
 #: js/messages.php:199
-#, fuzzy
 #| msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 "No se pudo analizar el archivo de configuración. No parece ser código JSON "
-"válido"
+"válido."
 
 #: js/messages.php:200
 msgid ""
