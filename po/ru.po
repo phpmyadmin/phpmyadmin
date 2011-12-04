@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 00:14+0200\n"
+"PO-Revision-Date: 2011-12-05 00:15+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -11335,11 +11335,10 @@ msgid "Bar"
 msgstr "Ряд"
 
 #: tbl_chart.php:89
-#, fuzzy
 #| msgid "Column"
 msgctxt "Chart type"
 msgid "Column"
-msgstr "Поле"
+msgstr "Столбец"
 
 #: tbl_chart.php:90
 #, fuzzy
