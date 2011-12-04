@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-04 12:14+0200\n"
+"PO-Revision-Date: 2011-12-04 12:15+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -3199,7 +3199,7 @@ msgstr "Povolit začlenění do cizího rámu"
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "Zobrazit příkaz &quot;Zrušit databázi&quot; běžným uživatelům"
+msgstr "Zobrazit příkaz „Zrušit databázi“ běžným uživatelům"
 
 #: libraries/config/messages.inc.php:24
 msgid ""
