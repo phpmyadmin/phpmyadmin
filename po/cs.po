@@ -11939,7 +11939,9 @@ msgstr "Verze staší než 5.1.30 (první GA vydání 5.1)."
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
-msgstr "Měli byste aktualizovat, novější verze MySQL 5.1 zlepšují výkon."
+msgstr ""
+"Měli byste aktualizovat, novější verze MySQL 5.1 zlepšují výkon a MySQL 5.5 "
+"ještě více."
 
 #: po/advisory_rules.php:46
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
