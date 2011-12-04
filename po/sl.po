@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-11-30 18:28+0200\n"
+"PO-Revision-Date: 2011-12-04 12:53+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1624,12 +1624,11 @@ msgid "Affected rows:"
 msgstr "Spremenjene vrstice:"
 
 #: js/messages.php:199
-#, fuzzy
 #| msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 "Razčlenjevalne konfiguracijske datoteke je spodletelo. Kot kaže, ni veljavna "
-"koda JSON"
+"koda JSON."
 
 #: js/messages.php:200
 msgid ""
