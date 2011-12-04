@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-04 16:37+0200\n"
+"PO-Revision-Date: 2011-12-04 16:39+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -1112,7 +1112,6 @@ msgid "This is not a number!"
 msgstr "¡Ésto no es un número!"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid "Add index"
 msgid "Add Index"
 msgstr "Agregar índice"
@@ -11423,35 +11422,30 @@ msgid "Continue insertion with %s rows"
 msgstr "Continuar inserción con %s filas"
 
 #: tbl_chart.php:88
-#, fuzzy
 #| msgid "Bar"
 msgctxt "Chart type"
 msgid "Bar"
 msgstr "Barra"
 
 #: tbl_chart.php:89
-#, fuzzy
 #| msgid "Column"
 msgctxt "Chart type"
 msgid "Column"
 msgstr "Columna"
 
 #: tbl_chart.php:90
-#, fuzzy
 #| msgid "Line"
 msgctxt "Chart type"
 msgid "Line"
 msgstr "Línea"
 
 #: tbl_chart.php:91
-#, fuzzy
 #| msgid "Spline"
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "Ranuras"
 
 #: tbl_chart.php:92
-#, fuzzy
 #| msgid "Pie"
 msgctxt "Chart type"
 msgid "Pie"
@@ -12947,7 +12941,6 @@ msgstr "Porcentaje de uso del límite de archivos de abiertos"
 # El mensaje de error llegará de PHP o MySQL por lo que no me parece correcto
 # traducirlo
 #: po/advisory_rules.php:186
-#, fuzzy
 #| msgid ""
 #| "The number of open files is approaching the max number of open files.  "
 #| "You may get a \\\"Too many open files\\\" error."
