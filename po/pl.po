@@ -541,7 +541,7 @@ msgstr "Przeglądaj"
 #: db_search.php:239
 #, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "Usunąć trafienia do tabeli %s?"
+msgstr "Usuń wyniki dla tabeli %s?"
 
 #: db_search.php:239 libraries/display_tbl.lib.php:1418
 #: libraries/display_tbl.lib.php:2465
