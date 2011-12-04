@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-04 12:00+0200\n"
+"PO-Revision-Date: 2011-12-04 12:01+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -11935,7 +11935,7 @@ msgstr "Verze"
 
 #: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr "Verze staší než 5.1.30 (první GA vydání 5.1)."
+msgstr "Verze starší než 5.1.30 (první GA vydání 5.1)."
 
 #: po/advisory_rules.php:42
 msgid ""
