@@ -11130,11 +11130,10 @@ msgid "Continue insertion with %s rows"
 msgstr "Pokračovat ve vkládání s %s řádky"
 
 #: tbl_chart.php:88
-#, fuzzy
 #| msgid "Bar"
 msgctxt "Chart type"
 msgid "Bar"
-msgstr "Sloupec"
+msgstr "Sloupcový"
 
 #: tbl_chart.php:89
 #, fuzzy
