@@ -1871,6 +1871,7 @@ msgstr "Kliknij i przeciągnij myszą, aby poruszać się po wykresie."
 #: js/messages.php:290
 msgid "Click reset zoom link to come back to original state."
 msgstr ""
+"Kliknij w link zresetowania powiększenia by wrócić do pierwotnego stanu."
 
 #: js/messages.php:292
 msgid "Click a data point to view and possibly edit the data row."
