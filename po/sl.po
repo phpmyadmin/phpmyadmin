@@ -11253,7 +11253,7 @@ msgstr "Črta"
 #| msgid "Spline"
 msgctxt "Chart type"
 msgid "Spline"
-msgstr "Zlepek."
+msgstr "Zlepek"
 
 #: tbl_chart.php:92
 #| msgid "Pie"
