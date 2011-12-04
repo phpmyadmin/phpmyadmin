@@ -12968,7 +12968,7 @@ msgstr ""
 #~ msgstr "% použitých připojení"
 
 #~ msgid "% aborted connections"
-#~ msgstr "Komprimovat připojení"
+#~ msgstr "% přerušených připojení"
 
 #~ msgid "CPU Usage"
 #~ msgstr "Využití procesoru"
