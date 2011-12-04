@@ -1669,7 +1669,7 @@ msgstr "Použitá proměnná / vzorec"
 
 #: js/messages.php:214
 msgid "Test"
-msgstr "Test"
+msgstr "Kontrola"
 
 #: js/messages.php:219 pmd_general.php:382 pmd_general.php:419
 #: pmd_general.php:539 pmd_general.php:587 pmd_general.php:663
