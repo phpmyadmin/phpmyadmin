@@ -522,7 +522,7 @@ msgstr "jako wyrażenie regularne"
 #: db_search.php:209
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr "Szukaj w rezultatach dla \"<i>%s</i>\" %s:"
+msgstr "Szukaj rezultatów dla \"<i>%s</i>\" %s:"
 
 #: db_search.php:227
 #, php-format
