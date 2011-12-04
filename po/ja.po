@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-12-01 15:49+0100\n"
+"POT-Creation-Date: 2011-12-04 10:04+0100\n"
 "PO-Revision-Date: 2011-12-03 08:51+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.1.6\n"
 
-#: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:329
+#: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:339
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1673
 msgid "Show all"
 msgstr "すべて表示"
@@ -47,8 +47,8 @@ msgstr "検索"
 
 #: browse_foreigners.php:159 db_operations.php:372 db_operations.php:412
 #: db_operations.php:522 db_operations.php:549 db_search.php:337
-#: db_structure.php:614 enum_editor.php:119 gis_data_editor.php:133
-#: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:208
+#: db_structure.php:615 enum_editor.php:119 gis_data_editor.php:133
+#: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:218
 #: libraries/Config.class.php:1332 libraries/Theme_Manager.class.php:309
 #: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1364
 #: libraries/common.lib.php:2411 libraries/core.lib.php:513
@@ -141,9 +141,9 @@ msgstr "テーブルのコメント"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1305
 #: libraries/schema/Pdf_Relation_Schema.class.php:1326
 #: libraries/tbl_properties.inc.php:267 libraries/tbl_select.lib.php:83
-#: tbl_change.php:318 tbl_chart.php:89 tbl_indexes.php:213
-#: tbl_printview.php:136 tbl_relation.php:395 tbl_tracking.php:257
-#: tbl_tracking.php:308 tbl_zoom_select.php:433
+#: tbl_change.php:318 tbl_indexes.php:213 tbl_printview.php:136
+#: tbl_relation.php:395 tbl_tracking.php:257 tbl_tracking.php:308
+#: tbl_zoom_select.php:433
 msgid "Column"
 msgstr "カラム"
 
@@ -174,7 +174,7 @@ msgstr "種別"
 msgid "Null"
 msgstr "NULL"
 
-#: db_datadict.php:166 db_structure.php:537 libraries/export/htmlword.php:252
+#: db_datadict.php:166 db_structure.php:538 libraries/export/htmlword.php:252
 #: libraries/export/latex.php:359 libraries/export/odt.php:295
 #: libraries/export/texytext.php:231
 #: libraries/schema/Pdf_Relation_Schema.class.php:1309
@@ -203,7 +203,7 @@ msgstr "リンク先"
 msgid "Comments"
 msgstr "コメント"
 
-#: db_datadict.php:233 js/messages.php:227 libraries/Index.class.php:349
+#: db_datadict.php:233 js/messages.php:237 libraries/Index.class.php:349
 #: libraries/Index.class.php:376 libraries/Index.class.php:679
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:299
@@ -219,7 +219,7 @@ msgstr "コメント"
 msgid "No"
 msgstr "いいえ"
 
-#: db_datadict.php:233 js/messages.php:226 libraries/Index.class.php:350
+#: db_datadict.php:233 js/messages.php:236 libraries/Index.class.php:350
 #: libraries/Index.class.php:375 libraries/Index.class.php:679
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:299
@@ -344,7 +344,9 @@ msgstr "照合順序"
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
-msgstr "phpMyAdmin 環境保管領域が無効になっています。理由については%sこちら%sをご覧ください。"
+msgstr ""
+"phpMyAdmin 環境保管領域が無効になっています。理由については%sこちら%sをご覧く"
+"ださい。"
 
 #: db_operations.php:589
 msgid "Edit or export relational schema"
@@ -373,7 +375,7 @@ msgstr "行"
 msgid "Size"
 msgstr "サイズ"
 
-#: db_printview.php:159 db_structure.php:489 libraries/export/sql.php:791
+#: db_printview.php:159 db_structure.php:490 libraries/export/sql.php:791
 msgid "in use"
 msgstr "使用中"
 
@@ -398,7 +400,7 @@ msgstr "最終更新"
 msgid "Last check"
 msgstr "最終検査"
 
-#: db_printview.php:219 db_structure.php:513
+#: db_printview.php:219 db_structure.php:514
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
@@ -577,61 +579,61 @@ msgstr "検索するテーブル:"
 msgid "Inside column:"
 msgstr "検索するカラム:"
 
-#: db_structure.php:67
+#: db_structure.php:68
 msgid "No tables found in database"
 msgstr "このデータベースにはテーブルがありません"
 
-#: db_structure.php:314 tbl_operations.php:692
+#: db_structure.php:315 tbl_operations.php:692
 #, php-format
 msgid "Table %s has been emptied"
 msgstr "テーブル %s を空にしました"
 
-#: db_structure.php:327 tbl_operations.php:709
+#: db_structure.php:328 tbl_operations.php:709
 #, php-format
 msgid "View %s has been dropped"
 msgstr "ビュー %s を破棄しました"
 
-#: db_structure.php:327 tbl_operations.php:709
+#: db_structure.php:328 tbl_operations.php:709
 #, php-format
 msgid "Table %s has been dropped"
 msgstr "テーブル %s を削除しました"
 
-#: db_structure.php:337 tbl_create.php:281
+#: db_structure.php:338 tbl_create.php:281
 msgid "Tracking is active."
 msgstr "SQL コマンドの追跡はアクティブです。"
 
-#: db_structure.php:342 tbl_create.php:284
+#: db_structure.php:343 tbl_create.php:284
 msgid "Tracking is not active."
 msgstr "SQL コマンドの追跡は非アクティブです。"
 
-#: db_structure.php:450 libraries/display_tbl.lib.php:2348
+#: db_structure.php:451 libraries/display_tbl.lib.php:2348
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr "このビューの最低行数。詳しくは%sドキュメント%sをご覧ください。"
 
-#: db_structure.php:466 db_structure.php:480 libraries/header.inc.php:161
+#: db_structure.php:467 db_structure.php:481 libraries/header.inc.php:161
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
 msgid "View"
 msgstr "ビュー"
 
-#: db_structure.php:520 libraries/db_structure.lib.php:35
+#: db_structure.php:521 libraries/db_structure.lib.php:35
 #: libraries/server_links.inc.php:90 server_replication.php:31
 #: server_replication.php:162 server_status.php:588
 msgid "Replication"
 msgstr "レプリケーション"
 
-#: db_structure.php:524
+#: db_structure.php:525
 msgid "Sum"
 msgstr "合計"
 
-#: db_structure.php:531 libraries/StorageEngine.class.php:331
+#: db_structure.php:532 libraries/StorageEngine.class.php:331
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s はこの MySQL サーバのデフォルトストレージエンジンです"
 
-#: db_structure.php:560 db_structure.php:577 db_structure.php:578
+#: db_structure.php:561 db_structure.php:578 db_structure.php:579
 #: libraries/display_tbl.lib.php:2490 libraries/display_tbl.lib.php:2495
 #: libraries/mult_submits.inc.php:15 server_databases.php:263
 #: server_databases.php:268 server_privileges.php:1756 tbl_structure.php:557
@@ -639,23 +641,23 @@ msgstr "%s はこの MySQL サーバのデフォルトストレージエンジ�
 msgid "With selected:"
 msgstr "チェックしたものを:"
 
-#: db_structure.php:563 libraries/display_tbl.lib.php:2485
+#: db_structure.php:564 libraries/display_tbl.lib.php:2485
 #: server_databases.php:265 server_privileges.php:682
 #: server_privileges.php:1759 tbl_structure.php:560
 msgid "Check All"
 msgstr "すべてチェックする"
 
-#: db_structure.php:567 libraries/display_tbl.lib.php:2486
+#: db_structure.php:568 libraries/display_tbl.lib.php:2486
 #: libraries/replication_gui.lib.php:35 server_databases.php:267
 #: server_privileges.php:685 server_privileges.php:1763 tbl_structure.php:564
 msgid "Uncheck All"
 msgstr "すべてのチェックを外す"
 
-#: db_structure.php:572
+#: db_structure.php:573
 msgid "Check tables having overhead"
 msgstr "オーバーヘッドのあるテーブルを確認する"
 
-#: db_structure.php:580 libraries/common.lib.php:3346
+#: db_structure.php:581 libraries/common.lib.php:3346
 #: libraries/common.lib.php:3347 libraries/config/messages.inc.php:166
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:79
 #: libraries/display_tbl.lib.php:2508 libraries/display_tbl.lib.php:2649
@@ -665,52 +667,52 @@ msgstr "オーバーヘッドのあるテーブルを確認する"
 msgid "Export"
 msgstr "エクスポート"
 
-#: db_structure.php:582 db_structure.php:638
+#: db_structure.php:583 db_structure.php:639
 #: libraries/display_tbl.lib.php:2598 tbl_structure.php:613
 msgid "Print view"
 msgstr "印刷用画面"
 
-#: db_structure.php:586 libraries/common.lib.php:3342
+#: db_structure.php:587 libraries/common.lib.php:3342
 #: libraries/common.lib.php:3343
 msgid "Empty"
 msgstr "空にする"
 
-#: db_structure.php:588 db_tracking.php:104 enum_editor.php:114
+#: db_structure.php:589 db_tracking.php:104 enum_editor.php:114
 #: libraries/Index.class.php:490 libraries/common.lib.php:3340
 #: libraries/common.lib.php:3341 server_databases.php:269
 #: tbl_structure.php:150 tbl_structure.php:151 tbl_structure.php:573
 msgid "Drop"
 msgstr "削除"
 
-#: db_structure.php:590 tbl_operations.php:608
+#: db_structure.php:591 tbl_operations.php:608
 msgid "Check table"
 msgstr "テーブルをチェックする"
 
-#: db_structure.php:593 tbl_operations.php:657 tbl_structure.php:816
+#: db_structure.php:594 tbl_operations.php:657 tbl_structure.php:816
 msgid "Optimize table"
 msgstr "テーブルを最適化する"
 
-#: db_structure.php:595 tbl_operations.php:644
+#: db_structure.php:596 tbl_operations.php:644
 msgid "Repair table"
 msgstr "テーブルを修復する"
 
-#: db_structure.php:598 tbl_operations.php:631
+#: db_structure.php:599 tbl_operations.php:631
 msgid "Analyze table"
 msgstr "テーブルを分析する"
 
-#: db_structure.php:600
+#: db_structure.php:601
 msgid "Add prefix to table"
 msgstr "接頭辞をテーブル名に追加する"
 
-#: db_structure.php:602 libraries/mult_submits.inc.php:251
+#: db_structure.php:603 libraries/mult_submits.inc.php:251
 msgid "Replace table prefix"
 msgstr "テーブル名の接頭辞を付け替える"
 
-#: db_structure.php:604 libraries/mult_submits.inc.php:251
+#: db_structure.php:605 libraries/mult_submits.inc.php:251
 msgid "Copy table with prefix"
 msgstr "接頭辞を付け替えてテーブルをコピーする"
 
-#: db_structure.php:641 libraries/schema/User_Schema.class.php:423
+#: db_structure.php:642 libraries/schema/User_Schema.class.php:423
 msgid "Data Dictionary"
 msgstr "データ辞書"
 
@@ -793,21 +795,21 @@ msgstr "テーブルを追跡する"
 msgid "Database Log"
 msgstr "データベースのログです"
 
-#: enum_editor.php:23 js/messages.php:245
+#: enum_editor.php:23 js/messages.php:255
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
 msgstr "ENUM/SET エディタ"
 
-#: enum_editor.php:28 js/messages.php:247
+#: enum_editor.php:28 js/messages.php:257
 msgid "Values for a new column"
 msgstr "新しいカラムに対しての値"
 
-#: enum_editor.php:30 js/messages.php:246
+#: enum_editor.php:30 js/messages.php:256
 #, php-format
 msgid "Values for column %s"
 msgstr "カラム %s に対しての値"
 
-#: enum_editor.php:34 js/messages.php:248
+#: enum_editor.php:34 js/messages.php:258
 msgid "Enter each value in a separate field"
 msgstr "個々の入力欄にそれぞれ値を入力してください"
 
@@ -877,46 +879,46 @@ msgstr "ベースレイヤーに OpenStreetMap を使用する"
 msgid "SRID"
 msgstr "空間参照識別子"
 
-#: gis_data_editor.php:151 js/messages.php:302
+#: gis_data_editor.php:151 js/messages.php:312
 #: libraries/display_tbl.lib.php:685
 msgid "Geometry"
 msgstr "空間データ"
 
-#: gis_data_editor.php:172 js/messages.php:298
+#: gis_data_editor.php:172 js/messages.php:308
 msgid "Point"
 msgstr "座標"
 
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
-#: gis_data_editor.php:297 js/messages.php:296
+#: gis_data_editor.php:297 js/messages.php:306
 msgid "X"
 msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
-#: gis_data_editor.php:299 js/messages.php:297
+#: gis_data_editor.php:299 js/messages.php:307
 msgid "Y"
 msgstr "Y"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
-#: js/messages.php:299
+#: js/messages.php:309
 #, fuzzy, php-format
 #| msgid "Point"
 msgid "Point %d"
 msgstr "座標"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
-#: js/messages.php:305
+#: js/messages.php:315
 msgid "Add a point"
 msgstr "座標を追加する"
 
-#: gis_data_editor.php:220 js/messages.php:300
+#: gis_data_editor.php:220 js/messages.php:310
 msgid "Linestring"
 msgstr "線分"
 
-#: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:304
+#: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:314
 msgid "Outer Ring"
 msgstr "外輪"
 
-#: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:303
+#: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:313
 msgid "Inner Ring"
 msgstr "内輪"
 
@@ -924,15 +926,15 @@ msgstr "内輪"
 msgid "Add a linestring"
 msgstr "線分を追加する"
 
-#: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:306
+#: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:316
 msgid "Add an inner ring"
 msgstr "内輪を追加する"
 
-#: gis_data_editor.php:266 js/messages.php:301
+#: gis_data_editor.php:266 js/messages.php:311
 msgid "Polygon"
 msgstr "ポリゴン"
 
-#: gis_data_editor.php:306 js/messages.php:307
+#: gis_data_editor.php:306 js/messages.php:317
 msgid "Add a polygon"
 msgstr "ポリゴンを追加する"
 
@@ -1145,12 +1147,12 @@ msgstr "特権を再読み込み"
 msgid "Removing Selected Users"
 msgstr "選択したユーザを削除する"
 
-#: js/messages.php:62 js/messages.php:131 tbl_tracking.php:235
+#: js/messages.php:62 js/messages.php:141 tbl_tracking.php:235
 #: tbl_tracking.php:400
 msgid "Close"
 msgstr "閉じる"
 
-#: js/messages.php:65 js/messages.php:257 libraries/Index.class.php:468
+#: js/messages.php:65 js/messages.php:267 libraries/Index.class.php:468
 #: libraries/common.lib.php:641 libraries/common.lib.php:1187
 #: libraries/common.lib.php:3344 libraries/common.lib.php:3345
 #: libraries/config/messages.inc.php:482 libraries/display_tbl.lib.php:1382
@@ -1275,12 +1277,14 @@ msgid "System swap"
 msgstr "システムスワップ"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:104 libraries/common.lib.php:1392 server_status.php:1668
+#: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1392
+#: server_status.php:1668
 msgid "MiB"
 msgstr "MiB"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:105 libraries/common.lib.php:1390 server_status.php:1668
+#: js/messages.php:105 js/messages.php:126 libraries/common.lib.php:1390
+#: server_status.php:1668
 msgid "KiB"
 msgstr "KiB"
 
@@ -1336,37 +1340,69 @@ msgstr "受信"
 msgid "Connections"
 msgstr "接続"
 
+#. l10n: shortcuts for Byte
+#: js/messages.php:125 libraries/common.lib.php:1388
+msgid "B"
+msgstr "バイト"
+
+#. l10n: shortcuts for Gigabyte
+#: js/messages.php:128 libraries/common.lib.php:1394
+msgid "GiB"
+msgstr "GiB"
+
+#. l10n: shortcuts for Terabyte
+#: js/messages.php:129 libraries/common.lib.php:1396
+msgid "TiB"
+msgstr "TiB"
+
+#. l10n: shortcuts for Petabyte
+#: js/messages.php:130 libraries/common.lib.php:1398
+msgid "PiB"
+msgstr "PiB"
+
+#. l10n: shortcuts for Exabyte
+#: js/messages.php:131 libraries/common.lib.php:1400
+msgid "EiB"
+msgstr "EiB"
+
+#: js/messages.php:132
+#, fuzzy, php-format
+#| msgid "%s table"
+#| msgid_plural "%s tables"
+msgid "%d table(s)"
+msgstr "%s テーブル"
+
 #. l10n: Questions is the name of a MySQL Status variable
-#: js/messages.php:125
+#: js/messages.php:135
 msgid "Questions"
 msgstr "問い合わせ"
 
-#: js/messages.php:126 server_status.php:1088
+#: js/messages.php:136 server_status.php:1088
 msgid "Traffic"
 msgstr "トラフィック"
 
-#: js/messages.php:127 libraries/server_links.inc.php:73
+#: js/messages.php:137 libraries/server_links.inc.php:73
 #: server_status.php:1543
 msgid "Settings"
 msgstr "設定"
 
-#: js/messages.php:128
+#: js/messages.php:138
 msgid "Remove chart"
 msgstr "グラフの削除"
 
-#: js/messages.php:129
+#: js/messages.php:139
 msgid "Edit title and labels"
 msgstr "題名・ラベルの編集"
 
-#: js/messages.php:130
+#: js/messages.php:140
 msgid "Add chart to grid"
 msgstr "モニタリンググラフを追加する"
 
-#: js/messages.php:132
+#: js/messages.php:142
 msgid "Please add at least one variable to the series"
 msgstr "少なくとも１つの系列を追加してください"
 
-#: js/messages.php:133 libraries/display_export.lib.php:308
+#: js/messages.php:143 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:565 libraries/export/sql.php:1093
 #: libraries/tbl_properties.inc.php:530 pmd_general.php:504
 #: server_privileges.php:2046 server_status.php:1256 server_status.php:1685
@@ -1374,39 +1410,39 @@ msgstr "少なくとも１つの系列を追加してください"
 msgid "None"
 msgstr "なし"
 
-#: js/messages.php:134
+#: js/messages.php:144
 msgid "Resume monitor"
 msgstr "モニタ再開"
 
-#: js/messages.php:135
+#: js/messages.php:145
 msgid "Pause monitor"
 msgstr "モニタ一時中断"
 
-#: js/messages.php:137
+#: js/messages.php:147
 msgid "general_log and slow_query_log are enabled."
 msgstr "general_log および slow_query_log は有効です。"
 
-#: js/messages.php:138
+#: js/messages.php:148
 msgid "general_log is enabled."
 msgstr "general_log は有効です。"
 
-#: js/messages.php:139
+#: js/messages.php:149
 msgid "slow_query_log is enabled."
 msgstr "slow_query_log は有効です。"
 
-#: js/messages.php:140
+#: js/messages.php:150
 msgid "slow_query_log and general_log are disabled."
 msgstr "slow_query_log および general_log は無効です。"
 
-#: js/messages.php:141
+#: js/messages.php:151
 msgid "log_output is not set to TABLE."
 msgstr "log_output はテーブルに設定されていません。"
 
-#: js/messages.php:142
+#: js/messages.php:152
 msgid "log_output is set to TABLE."
 msgstr "log_output はテーブルに設定されています。"
 
-#: js/messages.php:143
+#: js/messages.php:153
 #, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
@@ -1417,12 +1453,12 @@ msgstr ""
 "をログに記録します。お使いのシステムによっては、long_query_time を 0～2 秒に"
 "設定したほうがいいでしょう。"
 
-#: js/messages.php:144
+#: js/messages.php:154
 #, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr "long_query_time は %d 秒に設定されています。"
 
-#: js/messages.php:145
+#: js/messages.php:155
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
@@ -1431,30 +1467,30 @@ msgstr ""
 "されます。"
 
 #. l10n: %s is FILE or TABLE
-#: js/messages.php:147
+#: js/messages.php:157
 #, php-format
 msgid "Set log_output to %s"
 msgstr "%s に log_output を設定する"
 
 #. l10n: Enable in this context means setting a status variable to ON
-#: js/messages.php:149
+#: js/messages.php:159
 #, php-format
 msgid "Enable %s"
 msgstr "%s を有効にする"
 
 #. l10n: Disable in this context means setting a status variable to OFF
-#: js/messages.php:151
+#: js/messages.php:161
 #, php-format
 msgid "Disable %s"
 msgstr "%s を無効にする"
 
 #. l10n: %d seconds
-#: js/messages.php:153
+#: js/messages.php:163
 #, php-format
 msgid "Set long_query_time to %ds"
 msgstr "long_query_time を %d 秒に設定する"
 
-#: js/messages.php:154
+#: js/messages.php:164
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
@@ -1462,41 +1498,41 @@ msgstr ""
 "これらの変数を変更することはできません。root でログインするか、データベース管"
 "理者に連絡してください。"
 
-#: js/messages.php:155
+#: js/messages.php:165
 msgid "Change settings"
 msgstr "設定の変更"
 
-#: js/messages.php:156
+#: js/messages.php:166
 msgid "Current settings"
 msgstr "現在の設定"
 
-#: js/messages.php:158 server_status.php:1633
+#: js/messages.php:168 server_status.php:1633
 msgid "Chart Title"
 msgstr "グラフの題名"
 
 #. l10n: As in differential values
-#: js/messages.php:160
+#: js/messages.php:170
 msgid "Differential"
 msgstr "差分値"
 
-#: js/messages.php:161
+#: js/messages.php:171
 #, php-format
 msgid "Divided by %s:"
 msgstr ""
 
-#: js/messages.php:163
+#: js/messages.php:173
 msgid "From slow log"
 msgstr ""
 
-#: js/messages.php:164
+#: js/messages.php:174
 msgid "From general log"
 msgstr ""
 
-#: js/messages.php:165
+#: js/messages.php:175
 msgid "Analysing & loading logs. This may take a while."
 msgstr "ログの解析および読み込み中。すこし時間がかかることがあります。"
 
-#: js/messages.php:166
+#: js/messages.php:176
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
@@ -1506,7 +1542,7 @@ msgstr ""
 "クエリをグループの基準として使用しています。そのため、開始時刻いったような属"
 "性は、他クエリでは異なる場合があります。"
 
-#: js/messages.php:167
+#: js/messages.php:177
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
@@ -1516,54 +1552,54 @@ msgstr ""
 "INSERT クエリは挿入されたデータ部は同一のようにみなされて、グループ化が行われ"
 "ます。"
 
-#: js/messages.php:168
+#: js/messages.php:178
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr "ログデータを読み込みました。この期間に行われたクエリは以下の通りです。"
 
-#: js/messages.php:170
+#: js/messages.php:180
 msgid "Jump to Log table"
 msgstr "ログの表に移動する"
 
-#: js/messages.php:171
+#: js/messages.php:181
 msgid "Log analysed, but no data found in this time span."
 msgstr "ログの解析を行いましたが、この期間のデータは見つかりませんでした。"
 
 #. l10n: A collection of available filters
-#: js/messages.php:174
+#: js/messages.php:184
 msgid "Log table filter options"
 msgstr "ログの表のフィルタオプション"
 
 #. l10n: Filter as in "Start Filtering"
-#: js/messages.php:176
+#: js/messages.php:186
 msgid "Filter"
 msgstr "フィルタ"
 
-#: js/messages.php:177
+#: js/messages.php:187
 msgid "Filter queries by word/regexp:"
 msgstr "単語／正規表現でクエリをフィルタ："
 
-#: js/messages.php:178
+#: js/messages.php:188
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 "WHERE 節内のデータ部（文字列や数値など）は同一として扱いクエリをまとめる"
 
-#: js/messages.php:179
+#: js/messages.php:189
 msgid "Sum of grouped rows:"
 msgstr "グループ後の件数："
 
-#: js/messages.php:180
+#: js/messages.php:190
 msgid "Total:"
 msgstr "合計:"
 
-#: js/messages.php:182
+#: js/messages.php:192
 msgid "Loading logs"
 msgstr "ログの読み込み"
 
-#: js/messages.php:183
+#: js/messages.php:193
 msgid "Monitor refresh failed"
 msgstr "モニタの再描画に失敗しました"
 
-#: js/messages.php:184
+#: js/messages.php:194
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
@@ -1573,20 +1609,20 @@ msgstr ""
 "期限切れであるなら、これは正常な動作です。ページを再読み込みしてください。認"
 "証はやり直す必要があるかもしれません。"
 
-#: js/messages.php:185
+#: js/messages.php:195
 msgid "Reload page"
 msgstr "ページの再読み込み"
 
-#: js/messages.php:187
+#: js/messages.php:197
 msgid "Affected rows:"
 msgstr "変更された行:"
 
-#: js/messages.php:189
+#: js/messages.php:199
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgstr ""
 "設定ファイルの構文解析に失敗しました。有効な JSON コードではないようです。"
 
-#: js/messages.php:190
+#: js/messages.php:200
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
@@ -1594,178 +1630,178 @@ msgstr ""
 "インポートした設定でのグラフの配置に失敗しました。設定をデフォルトに戻しま"
 "す..."
 
-#: js/messages.php:191 libraries/config/messages.inc.php:172
+#: js/messages.php:201 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
 #: prefs_manage.php:229 server_status.php:1588 setup/frames/menu.inc.php:20
 msgid "Import"
 msgstr "インポート"
 
-#: js/messages.php:193
+#: js/messages.php:203
 msgid "Analyse Query"
 msgstr "クエリを解析する"
 
-#: js/messages.php:197
+#: js/messages.php:207
 msgid "Advisor system"
 msgstr "アドバイザ・システム"
 
-#: js/messages.php:198
+#: js/messages.php:208
 msgid "Possible performance issues"
 msgstr "パフォーマンス的に検討が推奨される事象"
 
-#: js/messages.php:199
+#: js/messages.php:209
 msgid "Issue"
 msgstr "事象"
 
-#: js/messages.php:200
+#: js/messages.php:210
 msgid "Recommendation"
 msgstr "推奨設定"
 
-#: js/messages.php:201
+#: js/messages.php:211
 msgid "Rule details"
 msgstr "事象の詳細と判断理由"
 
-#: js/messages.php:202
+#: js/messages.php:212
 msgid "Justification"
 msgstr "判断理由"
 
-#: js/messages.php:203
+#: js/messages.php:213
 msgid "Used variable / formula"
 msgstr "判断値の算出方法"
 
-#: js/messages.php:204
+#: js/messages.php:214
 msgid "Test"
 msgstr "判断基準"
 
-#: js/messages.php:209 pmd_general.php:382 pmd_general.php:419
+#: js/messages.php:219 pmd_general.php:382 pmd_general.php:419
 #: pmd_general.php:539 pmd_general.php:587 pmd_general.php:663
 #: pmd_general.php:717 pmd_general.php:780
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: js/messages.php:212
+#: js/messages.php:222
 msgid "Loading"
 msgstr "読み込み中"
 
-#: js/messages.php:213
+#: js/messages.php:223
 msgid "Processing Request"
 msgstr "要求を処理中"
 
-#: js/messages.php:214 libraries/rte/rte_export.lib.php:39
+#: js/messages.php:224 libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
 msgstr "要求処理中でのエラー"
 
-#: js/messages.php:215
+#: js/messages.php:225
 msgid "Dropping Column"
 msgstr "カラムを削除中"
 
-#: js/messages.php:216
+#: js/messages.php:226
 msgid "Adding Primary Key"
 msgstr "主キーの追加中"
 
-#: js/messages.php:217 libraries/relation.lib.php:80 pmd_general.php:380
+#: js/messages.php:227 libraries/relation.lib.php:80 pmd_general.php:380
 #: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
 #: pmd_general.php:715 pmd_general.php:778
 msgid "OK"
 msgstr "OK"
 
-#: js/messages.php:218
+#: js/messages.php:228
 msgid "Click to dismiss this notification"
 msgstr "クリックすると、この通知を破棄します"
 
-#: js/messages.php:221
+#: js/messages.php:231
 msgid "Renaming Databases"
 msgstr "データベースのリネーム中"
 
-#: js/messages.php:222
+#: js/messages.php:232
 msgid "Reload Database"
 msgstr "データベースの再読み込み中"
 
-#: js/messages.php:223
+#: js/messages.php:233
 msgid "Copying Database"
 msgstr "データベースをコピー中"
 
-#: js/messages.php:224
+#: js/messages.php:234
 msgid "Changing Charset"
 msgstr "文字セットの変更中"
 
-#: js/messages.php:225
+#: js/messages.php:235
 msgid "Table must have at least one column"
 msgstr "テーブルには最低 1 つのカラムが必要です"
 
-#: js/messages.php:230
+#: js/messages.php:240
 msgid "Insert Table"
 msgstr "テーブルを挿入する"
 
-#: js/messages.php:231
+#: js/messages.php:241
 msgid "Hide indexes"
 msgstr "インデックスを隠す"
 
-#: js/messages.php:232
+#: js/messages.php:242
 msgid "Show indexes"
 msgstr "インデックスを表示する"
 
-#: js/messages.php:235
+#: js/messages.php:245
 msgid "Searching"
 msgstr "検索中"
 
-#: js/messages.php:236
+#: js/messages.php:246
 msgid "Hide search results"
 msgstr "検索結果を隠す"
 
-#: js/messages.php:237
+#: js/messages.php:247
 msgid "Show search results"
 msgstr "検索結果を表示する"
 
-#: js/messages.php:238
+#: js/messages.php:248
 msgid "Browsing"
 msgstr "表示中"
 
-#: js/messages.php:239
+#: js/messages.php:249
 msgid "Deleting"
 msgstr "削除中"
 
-#: js/messages.php:242
+#: js/messages.php:252
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "ストアドファンクションの定義には、RETURN 文を含めなければなりません！"
 
-#: js/messages.php:249
+#: js/messages.php:259
 #, php-format
 msgid "Add %d value(s)"
 msgstr "値 %d を追加する"
 
-#: js/messages.php:252
+#: js/messages.php:262
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr ""
 "注意：ファイルに複数のテーブルが含まれている場合、それらは１つに統合されま"
 "す。"
 
-#: js/messages.php:255
+#: js/messages.php:265
 msgid "Hide query box"
 msgstr "クエリボックスを隠す"
 
-#: js/messages.php:256
+#: js/messages.php:266
 msgid "Show query box"
 msgstr "クエリボックスを表示"
 
-#: js/messages.php:258 tbl_row_action.php:28
+#: js/messages.php:268 tbl_row_action.php:28
 msgid "No rows selected"
 msgstr "行が選択されていません"
 
-#: js/messages.php:259 libraries/common.lib.php:2736
+#: js/messages.php:269 libraries/common.lib.php:2736
 #: libraries/display_tbl.lib.php:2499 querywindow.php:87 tbl_structure.php:149
 #: tbl_structure.php:572
 msgid "Change"
 msgstr "変更"
 
-#: js/messages.php:260
+#: js/messages.php:270
 #, fuzzy
 #| msgid "Maximum execution time"
 msgid "Query execution time"
 msgstr "最大実行時間"
 
-#: js/messages.php:263 libraries/config/FormDisplay.tpl.php:355
+#: js/messages.php:273 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
 #: libraries/tbl_properties.inc.php:714 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:228 tbl_change.php:1025
@@ -1773,97 +1809,96 @@ msgstr "最大実行時間"
 msgid "Save"
 msgstr "保存する"
 
-#: js/messages.php:266
+#: js/messages.php:276
 msgid "Hide search criteria"
 msgstr "検索条件を隠す"
 
-#: js/messages.php:267
+#: js/messages.php:277
 msgid "Show search criteria"
 msgstr "検索条件を表示する"
 
-#: js/messages.php:270 libraries/tbl_select.lib.php:110
+#: js/messages.php:280 libraries/tbl_select.lib.php:110
 msgid "Zoom Search"
 msgstr "検索プロット"
 
-#: js/messages.php:272
+#: js/messages.php:282
 msgid "Each point represents a data row."
 msgstr "プロット点は、それぞれの行のデータを表します。"
 
-#: js/messages.php:274
+#: js/messages.php:284
 msgid "Hovering over a point will show its label."
 msgstr "プロット点にマウスカーソルを重ねると、そのラベルが表示されます。"
 
-#: js/messages.php:276
+#: js/messages.php:286
 msgid "Use mousewheel to zoom in or out of the plot."
 msgstr "マウスホイールでズームの調整ができます。"
 
-#: js/messages.php:278
+#: js/messages.php:288
 msgid "Click and drag the mouse to navigate the plot."
 msgstr "ドラッグすることでプロットのスクロールが行えます。"
 
-#: js/messages.php:280
+#: js/messages.php:290
 msgid "Click reset zoom link to come back to original state."
 msgstr "「Reset zoom」リンクをクリックすることで元の状態に戻せます。"
 
-#: js/messages.php:282
+#: js/messages.php:292
 msgid "Click a data point to view and possibly edit the data row."
 msgstr "プロット点をクリックすることで、行のデータの閲覧と編集が可能です。"
 
-#: js/messages.php:284
+#: js/messages.php:294
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr "グラフの右下をドラッグすることで、大きさの調整が行えます。"
 
-#: js/messages.php:286
+#: js/messages.php:296
 msgid "Strings are converted into integer for plotting"
 msgstr "文字列データは、数値に変換されてからプロットされます。"
 
-#: js/messages.php:288
+#: js/messages.php:298
 msgid "Select two columns"
 msgstr "カラムを 2 つ選択してください"
 
-#: js/messages.php:289
+#: js/messages.php:299
 msgid "Select two different columns"
 msgstr "異なるカラムを 2 つ選択してください"
 
-#: js/messages.php:290
+#: js/messages.php:300
 msgid "Query results"
 msgstr "クエリの結果"
 
-#: js/messages.php:291
-#| msgid "Data pointer size"
+#: js/messages.php:301
 msgid "Data point content"
 msgstr "データポインタの内容"
 
-#: js/messages.php:294 tbl_change.php:312 tbl_indexes.php:228
+#: js/messages.php:304 tbl_change.php:312 tbl_indexes.php:228
 #: tbl_indexes.php:255
 msgid "Ignore"
 msgstr "無視"
 
-#: js/messages.php:295 libraries/display_tbl.lib.php:1383
+#: js/messages.php:305 libraries/display_tbl.lib.php:1383
 msgid "Copy"
 msgstr "コピー"
 
-#: js/messages.php:310
+#: js/messages.php:320
 msgid "Add columns"
 msgstr "カラムを追加する"
 
-#: js/messages.php:313
+#: js/messages.php:323
 msgid "Select referenced key"
 msgstr "参照されているキーを選択"
 
-#: js/messages.php:314
+#: js/messages.php:324
 msgid "Select Foreign Key"
 msgstr "外部キーを選択してください"
 
-#: js/messages.php:315
+#: js/messages.php:325
 msgid "Please select the primary key or a unique key"
 msgstr "主キーまたはユニークキーを選択してください"
 
-#: js/messages.php:316 pmd_general.php:77 tbl_relation.php:541
+#: js/messages.php:326 pmd_general.php:77 tbl_relation.php:541
 msgid "Choose column to display"
 msgstr "表示するカラムの選択"
 
-#: js/messages.php:317
+#: js/messages.php:327
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them.Do you want to continue?"
@@ -1871,15 +1906,15 @@ msgstr ""
 "レイアウトの変更を保存されていません。保存していない場合、それらは失われま"
 "す。このまま続けてもよろしいですか？"
 
-#: js/messages.php:320
+#: js/messages.php:330
 msgid "Add an option for column "
 msgstr "カラムに対するオプションを追加する"
 
-#: js/messages.php:323
+#: js/messages.php:333
 msgid "Press escape to cancel editing"
 msgstr "ESC キーで編集キャンセル"
 
-#: js/messages.php:324
+#: js/messages.php:334
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -1887,23 +1922,23 @@ msgstr ""
 "いくつかのデータが編集されていますが、それらは保存されていません。データを保"
 "存せずにこのページから移動してもよろしいですか？"
 
-#: js/messages.php:325
+#: js/messages.php:335
 msgid "Drag to reorder"
 msgstr "ドラッグでカラムの入れ替え"
 
-#: js/messages.php:326
+#: js/messages.php:336
 msgid "Click to sort"
 msgstr "クリックでソート"
 
-#: js/messages.php:327
+#: js/messages.php:337
 msgid "Click to mark/unmark"
 msgstr "クリックでカラムを反転/解除"
 
-#: js/messages.php:328
+#: js/messages.php:338
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr "クリックでカラムの表示／非表示<br />ができるドロップダウンを表示"
 
-#: js/messages.php:330
+#: js/messages.php:340
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -1912,299 +1947,299 @@ msgstr ""
 "ボックス、編集、コピー、削除のリンクに関連する機能は、保存後に動作しない場合"
 "があります。"
 
-#: js/messages.php:331
+#: js/messages.php:341
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
 "ほとんどのカラムは、内容を直接クリック<br />することでも、編集することができ"
 "ます。"
 
-#: js/messages.php:332
+#: js/messages.php:342
 #, fuzzy
 #| msgid "Go to view"
 msgid "Go to link"
 msgstr "ビューに移動"
 
-#: js/messages.php:335
+#: js/messages.php:345
 msgid "Generate password"
 msgstr "パスワードを生成する"
 
-#: js/messages.php:336 libraries/replication_gui.lib.php:369
+#: js/messages.php:346 libraries/replication_gui.lib.php:369
 msgid "Generate"
 msgstr "生成する"
 
-#: js/messages.php:337
+#: js/messages.php:347
 msgid "Change Password"
 msgstr "パスワードを変更する"
 
-#: js/messages.php:340 tbl_structure.php:465
+#: js/messages.php:350 tbl_structure.php:465
 msgid "More"
 msgstr "その他"
 
-#: js/messages.php:343 setup/lib/index.lib.php:173
+#: js/messages.php:353 setup/lib/index.lib.php:173
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
-"phpMyAdmin の新しいバージョンが提供されています。アップグレードの検討をお奨めします。最新バージョンは %s で、%s "
-"にリリースされています。"
+"phpMyAdmin の新しいバージョンが提供されています。アップグレードの検討をお奨め"
+"します。最新バージョンは %s で、%s にリリースされています。"
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:345
+#: js/messages.php:355
 msgid ", latest stable version:"
 msgstr ", 最終安定バージョン:"
 
-#: js/messages.php:346
+#: js/messages.php:356
 msgid "up to date"
 msgstr "最新版"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:365
+#: js/messages.php:375
 msgid "Done"
 msgstr "決定"
 
-#: js/messages.php:369
+#: js/messages.php:379
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "前月"
 
-#: js/messages.php:374
+#: js/messages.php:384
 msgctxt "Next month"
 msgid "Next"
 msgstr "翌月"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:377
+#: js/messages.php:387
 msgid "Today"
 msgstr "今日"
 
-#: js/messages.php:380
+#: js/messages.php:390
 msgid "January"
 msgstr "1 月"
 
-#: js/messages.php:381
+#: js/messages.php:391
 msgid "February"
 msgstr "2 月"
 
-#: js/messages.php:382
+#: js/messages.php:392
 msgid "March"
 msgstr "3 月"
 
-#: js/messages.php:383
+#: js/messages.php:393
 msgid "April"
 msgstr "4 月"
 
-#: js/messages.php:384
+#: js/messages.php:394
 msgid "May"
 msgstr "5 月"
 
-#: js/messages.php:385
+#: js/messages.php:395
 msgid "June"
 msgstr "6 月"
 
-#: js/messages.php:386
+#: js/messages.php:396
 msgid "July"
 msgstr "7 月"
 
-#: js/messages.php:387
+#: js/messages.php:397
 msgid "August"
 msgstr "8 月"
 
-#: js/messages.php:388
+#: js/messages.php:398
 msgid "September"
 msgstr "9 月"
 
-#: js/messages.php:389
+#: js/messages.php:399
 msgid "October"
 msgstr "10 月"
 
-#: js/messages.php:390
+#: js/messages.php:400
 msgid "November"
 msgstr "11 月"
 
-#: js/messages.php:391
+#: js/messages.php:401
 msgid "December"
 msgstr "12 月"
 
 #. l10n: Short month name
-#: js/messages.php:395 libraries/common.lib.php:1599
+#: js/messages.php:405 libraries/common.lib.php:1599
 msgid "Jan"
 msgstr "1 月"
 
 #. l10n: Short month name
-#: js/messages.php:397 libraries/common.lib.php:1601
+#: js/messages.php:407 libraries/common.lib.php:1601
 msgid "Feb"
 msgstr "2 月"
 
 #. l10n: Short month name
-#: js/messages.php:399 libraries/common.lib.php:1603
+#: js/messages.php:409 libraries/common.lib.php:1603
 msgid "Mar"
 msgstr "3 月"
 
 #. l10n: Short month name
-#: js/messages.php:401 libraries/common.lib.php:1605
+#: js/messages.php:411 libraries/common.lib.php:1605
 msgid "Apr"
 msgstr "4 月"
 
 #. l10n: Short month name
-#: js/messages.php:403 libraries/common.lib.php:1607
+#: js/messages.php:413 libraries/common.lib.php:1607
 msgctxt "Short month name"
 msgid "May"
 msgstr "5 月"
 
 #. l10n: Short month name
-#: js/messages.php:405 libraries/common.lib.php:1609
+#: js/messages.php:415 libraries/common.lib.php:1609
 msgid "Jun"
 msgstr "6 月"
 
 #. l10n: Short month name
-#: js/messages.php:407 libraries/common.lib.php:1611
+#: js/messages.php:417 libraries/common.lib.php:1611
 msgid "Jul"
 msgstr "7 月"
 
 #. l10n: Short month name
-#: js/messages.php:409 libraries/common.lib.php:1613
+#: js/messages.php:419 libraries/common.lib.php:1613
 msgid "Aug"
 msgstr "8 月"
 
 #. l10n: Short month name
-#: js/messages.php:411 libraries/common.lib.php:1615
+#: js/messages.php:421 libraries/common.lib.php:1615
 msgid "Sep"
 msgstr "9 月"
 
 #. l10n: Short month name
-#: js/messages.php:413 libraries/common.lib.php:1617
+#: js/messages.php:423 libraries/common.lib.php:1617
 msgid "Oct"
 msgstr "10 月"
 
 #. l10n: Short month name
-#: js/messages.php:415 libraries/common.lib.php:1619
+#: js/messages.php:425 libraries/common.lib.php:1619
 msgid "Nov"
 msgstr "11 月"
 
 #. l10n: Short month name
-#: js/messages.php:417 libraries/common.lib.php:1621
+#: js/messages.php:427 libraries/common.lib.php:1621
 msgid "Dec"
 msgstr "12 月"
 
-#: js/messages.php:420
+#: js/messages.php:430
 msgid "Sunday"
 msgstr "日"
 
-#: js/messages.php:421
+#: js/messages.php:431
 msgid "Monday"
 msgstr "月"
 
-#: js/messages.php:422
+#: js/messages.php:432
 msgid "Tuesday"
 msgstr "火"
 
-#: js/messages.php:423
+#: js/messages.php:433
 msgid "Wednesday"
 msgstr "水"
 
-#: js/messages.php:424
+#: js/messages.php:434
 msgid "Thursday"
 msgstr "木"
 
-#: js/messages.php:425
+#: js/messages.php:435
 msgid "Friday"
 msgstr "金"
 
-#: js/messages.php:426
+#: js/messages.php:436
 msgid "Saturday"
 msgstr "土"
 
 #. l10n: Short week day name
-#: js/messages.php:430
+#: js/messages.php:440
 msgid "Sun"
 msgstr "日"
 
 #. l10n: Short week day name
-#: js/messages.php:432 libraries/common.lib.php:1626
+#: js/messages.php:442 libraries/common.lib.php:1626
 msgid "Mon"
 msgstr "月"
 
 #. l10n: Short week day name
-#: js/messages.php:434 libraries/common.lib.php:1628
+#: js/messages.php:444 libraries/common.lib.php:1628
 msgid "Tue"
 msgstr "火"
 
 #. l10n: Short week day name
-#: js/messages.php:436 libraries/common.lib.php:1630
+#: js/messages.php:446 libraries/common.lib.php:1630
 msgid "Wed"
 msgstr "水"
 
 #. l10n: Short week day name
-#: js/messages.php:438 libraries/common.lib.php:1632
+#: js/messages.php:448 libraries/common.lib.php:1632
 msgid "Thu"
 msgstr "木"
 
 #. l10n: Short week day name
-#: js/messages.php:440 libraries/common.lib.php:1634
+#: js/messages.php:450 libraries/common.lib.php:1634
 msgid "Fri"
 msgstr "金"
 
 #. l10n: Short week day name
-#: js/messages.php:442 libraries/common.lib.php:1636
+#: js/messages.php:452 libraries/common.lib.php:1636
 msgid "Sat"
 msgstr "土"
 
 #. l10n: Minimal week day name
-#: js/messages.php:446
+#: js/messages.php:456
 msgid "Su"
 msgstr "日"
 
 #. l10n: Minimal week day name
-#: js/messages.php:448
+#: js/messages.php:458
 msgid "Mo"
 msgstr "月"
 
 #. l10n: Minimal week day name
-#: js/messages.php:450
+#: js/messages.php:460
 msgid "Tu"
 msgstr "火"
 
 #. l10n: Minimal week day name
-#: js/messages.php:452
+#: js/messages.php:462
 msgid "We"
 msgstr "水"
 
 #. l10n: Minimal week day name
-#: js/messages.php:454
+#: js/messages.php:464
 msgid "Th"
 msgstr "木"
 
 #. l10n: Minimal week day name
-#: js/messages.php:456
+#: js/messages.php:466
 msgid "Fr"
 msgstr "金"
 
 #. l10n: Minimal week day name
-#: js/messages.php:458
+#: js/messages.php:468
 msgid "Sa"
 msgstr "土"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:460
+#: js/messages.php:470
 msgid "Wk"
 msgstr "週"
 
-#: js/messages.php:467 libraries/rte/rte_list.lib.php:62
+#: js/messages.php:477 libraries/rte/rte_list.lib.php:62
 #: libraries/rte/rte_triggers.lib.php:326 server_status.php:1229 sql.php:893
 msgid "Time"
 msgstr "時間"
 
-#: js/messages.php:468
+#: js/messages.php:478
 msgid "Hour"
 msgstr "時"
 
-#: js/messages.php:469
+#: js/messages.php:479
 msgid "Minute"
 msgstr "分"
 
-#: js/messages.php:470
+#: js/messages.php:480
 msgid "Second"
 msgstr "秒"
 
@@ -2439,7 +2474,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
-"テーブルに対する環境設定のクリーンアップに失敗しました (参照 $cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
+"テーブルに対する環境設定のクリーンアップに失敗しました (参照 $cfg['Servers']"
+"[$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.class.php:1511
 #, php-format
@@ -2448,7 +2484,8 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
-"環境プロパティ「%s」が保存できません。ページ更新の際、変更箇所が維持されることはないでしょう。テーブル構造を変更されたのであれば確認してみてください。"
+"環境プロパティ「%s」が保存できません。ページ更新の際、変更箇所が維持されるこ"
+"とはないでしょう。テーブル構造を変更されたのであれば確認してみてください。"
 
 #: libraries/Theme.class.php:145
 #, php-format
@@ -2842,31 +2879,6 @@ msgstr "インライン"
 #: libraries/common.lib.php:1363 sql.php:888
 msgid "Profiling"
 msgstr "プロファイリング"
-
-#. l10n: shortcuts for Byte
-#: libraries/common.lib.php:1388
-msgid "B"
-msgstr "バイト"
-
-#. l10n: shortcuts for Gigabyte
-#: libraries/common.lib.php:1394
-msgid "GiB"
-msgstr "GiB"
-
-#. l10n: shortcuts for Terabyte
-#: libraries/common.lib.php:1396
-msgid "TiB"
-msgstr "TiB"
-
-#. l10n: shortcuts for Petabyte
-#: libraries/common.lib.php:1398
-msgid "PiB"
-msgstr "PiB"
-
-#. l10n: shortcuts for Exabyte
-#: libraries/common.lib.php:1400
-msgid "EiB"
-msgstr "EiB"
 
 #. l10n: Short week day name
 #: libraries/common.lib.php:1624
@@ -3838,8 +3850,9 @@ msgid ""
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
-"追加された機能にアクセスするには phpMyAdmin 環境保管領域を設定してください。ドキュメントの[a@Documentation.html"
-"#linked-tables]phpMyAdmin 環境保管領域[/a]参照。"
+"追加された機能にアクセスするには phpMyAdmin 環境保管領域を設定してください。"
+"ドキュメントの[a@Documentation.html#linked-tables]phpMyAdmin 環境保管領域[/a]"
+"参照。"
 
 #: libraries/config/messages.inc.php:208
 msgid "Changes tracking"
@@ -3849,7 +3862,9 @@ msgstr "変更追跡機能"
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
-msgstr "データベースで行われた変更の追跡機能です。これには、phpMyAdmin 環境保管領域が必要です。"
+msgstr ""
+"データベースで行われた変更の追跡機能です。これには、phpMyAdmin 環境保管領域が"
+"必要です。"
 
 #: libraries/config/messages.inc.php:210
 msgid "Customize export options"
@@ -4348,8 +4363,8 @@ msgid ""
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found"
 msgstr ""
-"phpMyAdmin "
-"環境保管領域に必要なテーブルを見つけることができなかった場合、データベースの構造詳細ページに表示されるデフォルトの警告を無効にします。"
+"phpMyAdmin 環境保管領域に必要なテーブルを見つけることができなかった場合、デー"
+"タベースの構造詳細ページに表示されるデフォルトの警告を無効にします。"
 
 #: libraries/config/messages.inc.php:334
 msgid "Missing phpMyAdmin configuration storage tables"
@@ -4374,7 +4389,8 @@ msgid ""
 "(lost by window close)."
 msgstr ""
 "データベースを基準としたクエリの履歴を必要とするなら有効にします (phpMyAdmin "
-"環境保管領域の設定が必要です)。無効にした場合、クエリ履歴の表示に JavaScript を利用します (ウィンドウを閉じると履歴は消えます)。"
+"環境保管領域の設定が必要です)。無効にした場合、クエリ履歴の表示に JavaScript "
+"を利用します (ウィンドウを閉じると履歴は消えます)。"
 
 #: libraries/config/messages.inc.php:340
 msgid "Permanent query history"
@@ -4571,10 +4587,11 @@ msgstr "phpMyAdmin ユーザ"
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
-msgstr "環境保管領域に対しての代替ホスト。空欄で既に定義されているホストを使用します。"
+msgstr ""
+"環境保管領域に対しての代替ホスト。空欄で既に定義されているホストを使用しま"
+"す。"
 
 #: libraries/config/messages.inc.php:386
-#| msgid "Control user"
 msgid "Control host"
 msgstr "環境保管領域ホスト"
 
@@ -4654,10 +4671,11 @@ msgstr "ログアウト URL"
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed"
-msgstr "データベースに保管されるテーブル環境設定の上限。古いものから自動的に削除されます。"
+msgstr ""
+"データベースに保管されるテーブル環境設定の上限。古いものから自動的に削除され"
+"ます。"
 
 #: libraries/config/messages.inc.php:403
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Maximal number of table preferences to store"
 msgstr "保管されるテーブル環境設定の最大数"
 
@@ -4826,8 +4844,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
 msgstr ""
-"テーブルに対する環境設定をセッションを跨いで「永続的に」記憶しない場合は空欄にします。[kbd]pma_table_uiprefs[/kbd] "
-"としておくのがいいでしょう。"
+"テーブルに対する環境設定をセッションを跨いで「永続的に」記憶しない場合は空欄"
+"にします。[kbd]pma_table_uiprefs[/kbd] としておくのがいいでしょう。"
 
 #: libraries/config/messages.inc.php:434
 msgid "UI preferences table"
@@ -4902,13 +4920,12 @@ msgid "Automatically create versions"
 msgstr "世代の自動作成"
 
 #: libraries/config/messages.inc.php:447
-#| msgid ""
-#| "ve blank for no user preferences storage in database, suggested: [kbd]"
-#| "_config[/kbd]"
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
-msgstr "データベースにユーザ環境設定を保存しない場合は空欄にします。[kbd]pma_userconfig[/kbd] としておくのがいいでしょう。"
+msgstr ""
+"データベースにユーザ環境設定を保存しない場合は空欄にします。[kbd]"
+"pma_userconfig[/kbd] としておくのがいいでしょう。"
 
 #: libraries/config/messages.inc.php:448
 msgid "User preferences storage table"
@@ -8280,7 +8297,9 @@ msgstr "設定を保存しました"
 msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
-msgstr "環境設定は、現在のセッションでのみ有効です。この設定を永続的に有効にするには、%sphpMyAdmin 環境保管領域%sが必要です。"
+msgstr ""
+"環境設定は、現在のセッションでのみ有効です。この設定を永続的に有効にするに"
+"は、%sphpMyAdmin 環境保管領域%sが必要です。"
 
 #: libraries/user_preferences.lib.php:116
 msgid "Could not save configuration"
@@ -8291,8 +8310,9 @@ msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
 msgstr ""
-"お使いのブラウザは、このドメインに対しての phpMyAdmin の環境設定を (Web Storage に) "
-"保存しています。現在のセッションにその設定を読み込んでもよろしいですか？"
+"お使いのブラウザは、このドメインに対しての phpMyAdmin の環境設定を (Web "
+"Storage に) 保存しています。現在のセッションにその設定を読み込んでもよろしい"
+"ですか？"
 
 #: libraries/zip_extension.lib.php:26
 msgid "No files found inside ZIP archive!"
@@ -8451,7 +8471,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"phpMyAdmin 環境保管領域が完全に設定されていないため、いくつかの拡張機能が無効になっています。理由については%sこちら%sをご覧ください。"
+"phpMyAdmin 環境保管領域が完全に設定されていないため、いくつかの拡張機能が無効"
+"になっています。理由については%sこちら%sをご覧ください。"
 
 #: main.php:337
 msgid ""
@@ -11134,19 +11155,37 @@ msgid "Continue insertion with %s rows"
 msgstr "%s 行づつ挿入を行う"
 
 #: tbl_chart.php:88
+#, fuzzy
+#| msgid "Bar"
+msgctxt "Chart type"
 msgid "Bar"
 msgstr "棒グラフ"
 
+#: tbl_chart.php:89
+#, fuzzy
+#| msgid "Column"
+msgctxt "Chart type"
+msgid "Column"
+msgstr "カラム"
+
 #: tbl_chart.php:90
+#, fuzzy
+#| msgid "Line"
+msgctxt "Chart type"
 msgid "Line"
 msgstr "折れ線グラフ"
 
 #: tbl_chart.php:91
-#| msgid "Inline"
+#, fuzzy
+#| msgid "Spline"
+msgctxt "Chart type"
 msgid "Spline"
 msgstr "曲線グラフ"
 
 #: tbl_chart.php:92
+#, fuzzy
+#| msgid "Pie"
+msgctxt "Chart type"
 msgid "Pie"
 msgstr "円グラフ"
 
@@ -11808,7 +11847,9 @@ msgstr "問い合わせ数が 1,000 未満"
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
-msgstr "このサーバで実行された問い合わせ数が 1000 未満と、十分といえる量がありません。推奨事項は正確でない場合があります。"
+msgstr ""
+"このサーバで実行された問い合わせ数が 1000 未満と、十分といえる量がありませ"
+"ん。推奨事項は正確でない場合があります。"
 
 #: po/advisory_rules.php:12
 msgid ""
@@ -12080,7 +12121,8 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
-"クエリキャッシュが有効で、サーバが毎秒 %d 個のクエリを受信しています。毎秒 100 個を超えるのクエリがある場合、このルールが適用されます。"
+"クエリキャッシュが有効で、サーバが毎秒 %d 個のクエリを受信しています。毎秒 "
+"100 個を超えるのクエリがある場合、このルールが適用されます。"
 
 #: po/advisory_rules.php:80
 msgid "Query cache efficiency (%)"
@@ -12204,7 +12246,8 @@ msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
-"クエリキャッシュサイズが 128 MiB を超えています。クエリキャッシュが大きいと、キャッシュ維持に必要となるオーバヘッドがかさむようになります。"
+"クエリキャッシュサイズが 128 MiB を超えています。クエリキャッシュが大きいと、"
+"キャッシュ維持に必要となるオーバヘッドがかさむようになります。"
 
 #: po/advisory_rules.php:102
 msgid ""
@@ -12226,7 +12269,8 @@ msgstr "クエリキャッシュの最小結果サイズ"
 #: po/advisory_rules.php:106
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
-msgstr "クエリキャッシュにおける結果セットの上限サイズは、デフォルトの 1 MiB です。"
+msgstr ""
+"クエリキャッシュにおける結果セットの上限サイズは、デフォルトの 1 MiB です。"
 
 #: po/advisory_rules.php:107
 msgid ""
@@ -12239,11 +12283,14 @@ msgid ""
 "(often invalidated due to table updates) increasing {query_cache_limit} "
 "might reduce efficiency."
 msgstr ""
-"{query_cache_limit} を変更し (一般的に増加させ) たほうが、効率がよくなることが多いです。この変数は、クエリキャッシュにされるであ"
-"ろうクエリ結果の上限サイズに直接影響します。(読み込みが多く、書き込みが少しといった) キャッシュに依存しやすく 1 MiB "
-"を超えているクエリの結果が多くあるのであれば、{query_cache_limit} "
-"を増加させることで効率性は増すでしょう。(度々テーブルが更新されることで無効化され) キャッシュにほとんど依存できない 1 MiB "
-"を超えているクエリの結果が多くあるのであれば、{query_cache_limit} を増加させるで効率が悪くかもしれません。"
+"{query_cache_limit} を変更し (一般的に増加させ) たほうが、効率がよくなること"
+"が多いです。この変数は、クエリキャッシュにされるであろうクエリ結果の上限サイ"
+"ズに直接影響します。(読み込みが多く、書き込みが少しといった) キャッシュに依存"
+"しやすく 1 MiB を超えているクエリの結果が多くあるのであれば、"
+"{query_cache_limit} を増加させることで効率性は増すでしょう。(度々テーブルが更"
+"新されることで無効化され) キャッシュにほとんど依存できない 1 MiB を超えている"
+"クエリの結果が多くあるのであれば、{query_cache_limit} を増加させるで効率が悪"
+"くかもしれません。"
 
 #: po/advisory_rules.php:108
 msgid "query_cache_limit is set to 1 MiB"
@@ -12827,7 +12874,8 @@ msgid ""
 msgstr ""
 "接続は中断されたというのは、一般的に、認証できなかった場合のことです。<a "
 "href=\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-"source-of-aborted_connects/\">この記事 (英語)</a> は、原因を突き止めるのに参考になるかもしれません。"
+"source-of-aborted_connects/\">この記事 (英語)</a> は、原因を突き止めるのに参"
+"考になるかもしれません。"
 
 #: po/advisory_rules.php:233
 #, php-format
@@ -12926,14 +12974,16 @@ msgid ""
 "fine. See also <a href=\"http://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"特に、InnoDB のテーブルへの書き込みが多いシステムの場合には、innodb_log_file_size は "
-"{innodb_buffer_pool_size} の 25%% "
-"に設定するといいでしょう。しかしながら、この値が大きくなると、データベースが壊れたときのリカバリに時間がかかるようになります。そのため、この値は 256 "
-"MiB を超えないほうがいいと言われています。なお、この変数は簡単には変更できないので注意してください。サーバを停止させ、InnoDB "
-"ログファイルを削除し、my.cnf に新しい値を設定して、そうした後にサーバは起動し直す必要があります。そして、全ての設定が正しく設定できているのかを、"
-"エラーログで確認しなければなりません。<a "
-"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">こちらのブログ記事 (英語)</a> もご覧になってください。"
+"特に、InnoDB のテーブルへの書き込みが多いシステムの場合には、"
+"innodb_log_file_size は {innodb_buffer_pool_size} の 25%% に設定するといいで"
+"しょう。しかしながら、この値が大きくなると、データベースが壊れたときのリカバ"
+"リに時間がかかるようになります。そのため、この値は 256 MiB を超えないほうがい"
+"いと言われています。なお、この変数は簡単には変更できないので注意してくださ"
+"い。サーバを停止させ、InnoDB ログファイルを削除し、my.cnf に新しい値を設定し"
+"て、そうした後にサーバは起動し直す必要があります。そして、全ての設定が正しく"
+"設定できているのかを、エラーログで確認しなければなりません。<a href=\"http://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">こちらのブログ記事 (英語)</a> もご覧になってください。"
 
 #: po/advisory_rules.php:258
 #, php-format
@@ -12941,8 +12991,9 @@ msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
 msgstr ""
-"ご使用されている InnoDB のログサイズは、関連のある InnoDB バッファプールの大きさに対して %s%% です。この値は、20%% "
-"未満にしないほうがいいと言われています。"
+"ご使用されている InnoDB のログサイズは、関連のある InnoDB バッファプールの大"
+"きさに対して %s%% です。この値は、20%% 未満にしないほうがいいと言われていま"
+"す。"
 
 #: po/advisory_rules.php:260
 msgid "Max InnoDB log size"
