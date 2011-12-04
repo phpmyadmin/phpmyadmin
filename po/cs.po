@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-04 12:05+0200\n"
+"PO-Revision-Date: 2011-12-04 12:18+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -3199,7 +3199,7 @@ msgstr "Povolit začlenění do cizího rámu"
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "Zobrazit příkaz &quot;Zrušit databázi&quot; běžným uživatelům"
+msgstr "Zobrazit příkaz „Zrušit databázi“ běžným uživatelům"
 
 #: libraries/config/messages.inc.php:24
 msgid ""
@@ -3318,8 +3318,8 @@ msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
-"Zda se má zobrazovat varování (&quot;Jste si opravdu jistý...&quot;), když "
-"hrozí ztráta dat"
+"Zda se má zobrazovat varování („Jste si opravdu jistý...“), když hrozí "
+"ztráta dat"
 
 #: libraries/config/messages.inc.php:47
 msgid "Confirm DROP queries"
@@ -4262,8 +4262,7 @@ msgid ""
 "shown."
 msgstr ""
 "Počet řádků, které se zobrazí při procházení množiny výsledků. Pokud je "
-"množina výsledků delší, zobrazí se odkazy &quot;Předchozí&quot; a &quot;"
-"Další&quot;."
+"množina výsledků delší, zobrazí se odkazy „Předchozí“ a „Další“."
 
 #: libraries/config/messages.inc.php:313
 msgid "Maximum number of rows to display"
@@ -4950,7 +4949,7 @@ msgstr "Dlouhé jméno tohoto serveru"
 
 #: libraries/config/messages.inc.php:455
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
-msgstr "Jestli uživateli bude zobrazeno tlačítko &quot;Zobrazit vše&quot;"
+msgstr "Jestli uživateli bude zobrazeno tlačítko „Zobrazit vše“"
 
 #: libraries/config/messages.inc.php:456
 msgid "Allow to display all the rows"
@@ -9270,7 +9269,7 @@ msgstr "Přidělit všechna oprávnění na jméno odpovídající masce (uživa
 #: server_privileges.php:2221
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
-msgstr "Přidělit všechna oprávnění na databázi &quot;%s&quot;"
+msgstr "Přidělit všechna oprávnění na databázi„%s“"
 
 #: server_privileges.php:2246
 #, php-format
@@ -11440,7 +11439,7 @@ msgstr "Velikost řádku"
 
 #: tbl_printview.php:383 tbl_structure.php:906
 msgid "Next autoindex"
-msgstr "Další automatický index"
+msgstr "Další automatický klíč"
 
 #: tbl_relation.php:271
 #, php-format
@@ -12225,10 +12224,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:115
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
-msgstr "Umožňuje vytvářet dočasné tabulky."
+msgstr "Četnost řazení které vynutily dočasné tabulky"
 
 #: po/advisory_rules.php:118
 #, php-format
@@ -12260,10 +12258,9 @@ msgid "Sorted rows average: %s"
 msgstr ""
 
 #: po/advisory_rules.php:125
-#, fuzzy
 #| msgid "There are no routines to display."
 msgid "Rate of joins without indexes"
-msgstr "Nebyly nalezeny žádné rutiny."
+msgstr "Četnost spojení bez klíčů"
 
 #: po/advisory_rules.php:126
 #, fuzzy
@@ -12903,10 +12900,10 @@ msgstr ""
 #~ msgstr "Klikněte pro zrušení výběru"
 
 #~ msgid "Create an index"
-#~ msgstr "Vytvořit index"
+#~ msgstr "Vytvořit klíč"
 
 #~ msgid "Modify an index"
-#~ msgstr "Upravit index"
+#~ msgstr "Upravit klíč"
 
 #~ msgid "Column count has to be larger than zero."
 #~ msgstr "Počet polí musí být větší než nula."
