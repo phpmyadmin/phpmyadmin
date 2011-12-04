@@ -12902,7 +12902,7 @@ msgstr ""
 #~ msgstr "Klikněte pro zrušení výběru"
 
 #~ msgid "Create an index"
-#~ msgstr "Vytvořit index"
+#~ msgstr "Vytvořit klíč"
 
 #~ msgid "Modify an index"
 #~ msgstr "Upravit klíč"
