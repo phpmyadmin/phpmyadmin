@@ -6831,7 +6831,7 @@ msgstr "Prostorové rozšíření MySQL nepodporuje ESRI typ „%s“."
 
 #: libraries/import/shp.php:376
 msgid "The imported file does not contain any data"
-msgstr "Nahraný soubor neobsahuje žádná data!"
+msgstr "Nahraný soubor neobsahuje žádná data"
 
 #: libraries/import/sql.php:33
 msgid "SQL compatibility mode:"
