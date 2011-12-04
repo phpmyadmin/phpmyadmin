@@ -1962,7 +1962,7 @@ msgstr "選擇要顯示的欄位"
 #: js/messages.php:327
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
-"save them.Do you want to continue?"
+"save them. Do you want to continue?"
 msgstr "你尚未儲存修改的資料。請確認是否要捨棄這些資料?"
 
 #: js/messages.php:330

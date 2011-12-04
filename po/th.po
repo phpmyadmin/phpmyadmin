@@ -1988,7 +1988,7 @@ msgstr "เลือกฟิลด์ที่ต้องการแสดง
 #: js/messages.php:327
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
-"save them.Do you want to continue?"
+"save them. Do you want to continue?"
 msgstr ""
 
 #: js/messages.php:330

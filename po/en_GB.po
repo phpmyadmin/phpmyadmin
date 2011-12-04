@@ -1895,10 +1895,10 @@ msgstr "Choose column to display"
 #: js/messages.php:327
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
-"save them.Do you want to continue?"
+"save them. Do you want to continue?"
 msgstr ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
-"save them.Do you want to continue?"
+"save them. Do you want to continue?"
 
 #: js/messages.php:330
 msgid "Add an option for column "

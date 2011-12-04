@@ -1913,7 +1913,7 @@ msgstr "Colonne descriptive"
 #: js/messages.php:327
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
-"save them.Do you want to continue?"
+"save them. Do you want to continue?"
 msgstr ""
 "Vous n'avez pas sauvegardé les changements. Ils seront perdus si vous ne les "
 "sauvegardez pas. Voulez-vous continuer?"

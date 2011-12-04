@@ -1928,7 +1928,7 @@ msgstr "පෙන්වීම සඳහා තීරය ‍තෝරාගන්
 #: js/messages.php:327
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
-"save them.Do you want to continue?"
+"save them. Do you want to continue?"
 msgstr ""
 "සැලැස්මේ සිදුකල වෙනස්කම් සුරැකීම සිදුකර නැත. සුරැකීම සිදු නොකළහොත් ඒවා අහිමි වනු ඇත. ඉදිරියට "
 "යන්න?"

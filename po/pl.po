@@ -1937,7 +1937,7 @@ msgstr "Wybierz kolumny do wyświetlenia"
 #: js/messages.php:327
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
-"save them.Do you want to continue?"
+"save them. Do you want to continue?"
 msgstr ""
 "Nie zapisałeś zmian w układzie. Zostaną one utracone, jeżeli ich nie "
 "zapiszesz. Czy chcesz kontynuować ?"

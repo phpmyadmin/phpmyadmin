@@ -1945,7 +1945,7 @@ msgstr "Anzuzeigende Spalte auswählen"
 #: js/messages.php:327
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
-"save them.Do you want to continue?"
+"save them. Do you want to continue?"
 msgstr ""
 "Sie haben die Änderungen im Layout nicht gespeichert. Sie werden verworfen "
 "wenn Sie diese nicht speichern. Wünschen Sie fortzufahren?"
