@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-04 13:47+0200\n"
+"PO-Revision-Date: 2011-12-04 13:49+0200\n"
 "Last-Translator: lordark666 <lord_dark@wp.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -4716,6 +4716,8 @@ msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
 msgstr ""
+"Alternatywny hosta do przechowywania konfiguracji, pozostaw puste, aby użyć "
+"już zdefiniowanego hosta"
 
 #: libraries/config/messages.inc.php:386
 #, fuzzy
