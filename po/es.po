@@ -10722,7 +10722,6 @@ msgid "Using the monitor:"
 msgstr "Utilizando el monitorizador:"
 
 #: server_status.php:1613
-#, fuzzy
 #| msgid ""
 #| "Ok, you are good to go! Once you click 'Start monitor' your browser will "
 #| "refresh all displayed charts in a regular interval. You may add charts "
@@ -10733,11 +10732,10 @@ msgid ""
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
-"¡Ya está listo! Una vez que pulse en 'Iniciar monitorización' el navegador "
-"actualizará a intervalos regulares todos los gráficos mostrados. Puede "
-"agregar gráficos y cambiar la velocidad de actualización en la sección "
-"'Configuración' o eliminar cualquier gráfico utilizando el icono de rueda "
-"dentada en cada gráfico."
+"El navegador actualizará a intervalos regulares todos los gráficos "
+"mostrados. Puede agregar gráficos y cambiar la velocidad de actualización en "
+"la sección 'Configuración' o eliminar cualquier gráfico utilizando el icono "
+"de rueda dentada en cada gráfico."
 
 #: server_status.php:1615
 msgid ""
