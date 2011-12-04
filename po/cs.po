@@ -11792,7 +11792,7 @@ msgstr "Server běží méně než 1 den, rady nemusí být přesné."
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
-msgstr "Pro přesnější analýzu je doporučeno nechat server běžet delší dobu."
+msgstr "Pro přesnější analýzu je doporučeno nechat server běžet delší dobu"
 
 #: po/advisory_rules.php:8
 #, php-format
