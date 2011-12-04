@@ -11838,7 +11838,7 @@ msgid ""
 "in the slow query log"
 msgstr ""
 "Můžete chtít zvýšit {long_query_time} nebo optimalizovat dotazy které jsou "
-"zapsány v záznamu pomalých dotazů."
+"zapsány v záznamu pomalých dotazů"
 
 #: po/advisory_rules.php:18
 #, php-format
