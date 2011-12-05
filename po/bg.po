@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
 "PO-Revision-Date: 2011-12-05 21:16+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: stoyan <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
@@ -1651,7 +1651,7 @@ msgstr "Възможни проблеми с производителностт�
 
 #: js/messages.php:209
 msgid "Issue"
-msgstr ""
+msgstr "Проблем"
 
 #: js/messages.php:210
 msgid "Recommendation"
