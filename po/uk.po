@@ -1359,7 +1359,7 @@ msgstr "Кешований Swap"
 
 #: js/messages.php:116
 msgid "Used Swap"
-msgstr ""
+msgstr "Використаний Swap"
 
 #: js/messages.php:117
 msgid "Free Swap"
