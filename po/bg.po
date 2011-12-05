@@ -323,7 +323,7 @@ msgstr "Добавяне AUTO_INCREMENT стойност"
 
 #: db_operations.php:506 tbl_operations.php:569
 msgid "Add constraints"
-msgstr "Добавяне на ограничение"
+msgstr "Добавяне на ограничения"
 
 #: db_operations.php:519
 msgid "Switch to copied database"
