@@ -1609,7 +1609,7 @@ msgstr "Перейти до таблиці Log"
 
 #: js/messages.php:181
 msgid "Log analysed, but no data found in this time span."
-msgstr ""
+msgstr "Журнал проаналізований, але даних в цей проміжок часу не знайдено."
 
 #. l10n: A collection of available filters
 #: js/messages.php:184
