@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 21:10+0200\n"
+"PO-Revision-Date: 2011-12-05 21:11+0200\n"
 "Last-Translator: stoyan <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -1583,6 +1583,7 @@ msgstr ""
 #: js/messages.php:188
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
+"Групиране на заявките и игнориране на променливата \"data\" в WHERE клаузите"
 
 #: js/messages.php:189
 msgid "Sum of grouped rows:"
