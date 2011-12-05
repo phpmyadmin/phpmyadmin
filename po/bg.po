@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
 "PO-Revision-Date: 2011-12-05 21:16+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: stoyan <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
@@ -1832,6 +1832,7 @@ msgstr "Посочване на точка ще покаже етикета ѝ."
 #: js/messages.php:286
 msgid "Use mousewheel to zoom in or out of the plot."
 msgstr ""
+"Използвайте колелцето на мишката за да приближавате или отдалечавате екрана"
 
 #: js/messages.php:288
 msgid "Click and drag the mouse to navigate the plot."
