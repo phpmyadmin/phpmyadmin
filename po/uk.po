@@ -1490,6 +1490,9 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log вімкнений, але сервер журналює тільки запити що не довші за %"
+"d секунди. Рекомендовано встановлювати long_query_time 0-2 секунди, в "
+"залежності від Вашої системи"
 
 #: js/messages.php:154
 #, php-format
