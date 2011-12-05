@@ -1548,10 +1548,9 @@ msgid "Change settings"
 msgstr "Змінити налаштування"
 
 #: js/messages.php:166
-#, fuzzy
 #| msgid "General relation features"
 msgid "Current settings"
-msgstr "Загальні можливості"
+msgstr "Поточні налаштування"
 
 #: js/messages.php:168 server_status.php:1633
 #, fuzzy
