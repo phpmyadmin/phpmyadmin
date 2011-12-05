@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
 "PO-Revision-Date: 2011-11-23 17:58+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: stoyan <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
@@ -319,7 +319,7 @@ msgstr "Добавяне на %s"
 #: db_operations.php:502 libraries/config/messages.inc.php:121
 #: tbl_operations.php:318 tbl_operations.php:562
 msgid "Add AUTO_INCREMENT value"
-msgstr "Добавяне на AUTO_INCREMENT"
+msgstr "Добавяне на AUTO_INCREMENT стойност"
 
 #: db_operations.php:506 tbl_operations.php:569
 msgid "Add constraints"
