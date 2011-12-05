@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 15:07+0200\n"
+"PO-Revision-Date: 2011-12-05 15:12+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -1053,6 +1053,9 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
+"На останньому запиті не було розібрано даних, зазвичай це означає що "
+"phpMyAdmin не зможе закінчити цей імпорт якщо Ви на збільшите час виконання "
+"PHP скриптів."
 
 #: import.php:472 libraries/Message.class.php:175
 #: libraries/display_tbl.lib.php:2385 libraries/rte/rte_routines.lib.php:1204
