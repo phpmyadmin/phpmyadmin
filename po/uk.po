@@ -646,7 +646,7 @@ msgstr "Всього"
 #: db_structure.php:532 libraries/StorageEngine.class.php:331
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr ""
+msgstr "%s механізм зберігання за замовчуванням на цьому MySQL сервері."
 
 #: db_structure.php:561 db_structure.php:578 db_structure.php:579
 #: libraries/display_tbl.lib.php:2490 libraries/display_tbl.lib.php:2495
