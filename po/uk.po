@@ -933,10 +933,9 @@ msgid "Add a point"
 msgstr "Додати точку"
 
 #: gis_data_editor.php:220 js/messages.php:310
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Рядки розділено"
+msgstr "Linestring"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:314
 msgid "Outer Ring"
