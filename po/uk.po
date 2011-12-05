@@ -1427,10 +1427,9 @@ msgid "Settings"
 msgstr "Налаштування"
 
 #: js/messages.php:138
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "Видалити базу даних"
+msgstr "Вилучити chart"
 
 #: js/messages.php:139
 msgid "Edit title and labels"
