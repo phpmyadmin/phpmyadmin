@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 19:27+0200\n"
+"PO-Revision-Date: 2011-12-05 19:28+0200\n"
 "Last-Translator: fungms <fungms@o2.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1616,15 +1616,14 @@ msgid "Monitor refresh failed"
 msgstr "Nie udało się odświeżyć monitora"
 
 #: js/messages.php:194
-#, fuzzy
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
-"While requesting new chart data the server returned an invalid response. "
-"This is most likely because your session expired. Reloading the page and "
-"reentering your credentials should help."
+"Podczas pobierania danych nowego wykresu serwer zwrócił błędną odpowiedź. "
+"Zapewne ponieważ twoja sesja wygasła. Odświeżenie strony i uzupełnienie "
+"poświadczeń powinno pomóc."
 
 #: js/messages.php:195
 msgid "Reload page"
