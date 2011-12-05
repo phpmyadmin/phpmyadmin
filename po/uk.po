@@ -973,6 +973,8 @@ msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
+"Оберіть \"ГеометріюЗТексту\" (\"GeomFromText\") із \"Функції\" стовпчика та "
+"вставте після рядка в поле \"Значення\""
 
 #: import.php:57
 #, php-format
