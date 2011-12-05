@@ -1363,7 +1363,7 @@ msgstr "Використаний Swap"
 
 #: js/messages.php:117
 msgid "Free Swap"
-msgstr ""
+msgstr "Вільний Swap"
 
 #: js/messages.php:119
 msgid "Bytes sent"
