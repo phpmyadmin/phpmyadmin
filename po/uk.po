@@ -1292,7 +1292,7 @@ msgstr "Ефективність кешу запитів"
 #: js/messages.php:98
 #| msgid "Space usage"
 msgid "Query cache usage"
-msgstr "Використання кешу запитів."
+msgstr "Використання кешу запитів"
 
 #: js/messages.php:99
 #| msgid "Space usage"
