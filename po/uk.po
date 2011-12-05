@@ -1810,10 +1810,9 @@ msgid "Show search results"
 msgstr "Показати результати пошуку"
 
 #: js/messages.php:248
-#, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
-msgstr "Переглянути"
+msgstr "Перегляд"
 
 #: js/messages.php:249
 #, fuzzy
