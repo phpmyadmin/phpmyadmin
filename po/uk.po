@@ -1461,7 +1461,7 @@ msgstr "Призупинити монітор"
 
 #: js/messages.php:147
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "general_log та slow_query_log вімкнені"
 
 #: js/messages.php:148
 msgid "general_log is enabled."
