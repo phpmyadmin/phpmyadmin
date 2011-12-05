@@ -1761,7 +1761,7 @@ msgstr "OK"
 
 #: js/messages.php:228
 msgid "Click to dismiss this notification"
-msgstr ""
+msgstr "Клікніть для пропуску цьго повідомлення"
 
 #: js/messages.php:231
 msgid "Renaming Databases"
