@@ -1330,10 +1330,9 @@ msgid "Used Swap"
 msgstr ""
 
 #: js/messages.php:117
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "Свободни страници"
+msgstr ""
 
 #: js/messages.php:119
 msgid "Bytes sent"
