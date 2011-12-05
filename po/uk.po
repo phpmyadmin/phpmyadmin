@@ -1404,11 +1404,11 @@ msgid "EiB"
 msgstr "EB"
 
 #: js/messages.php:132
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "%d table(s)"
-msgstr "%s таблиця"
+msgstr "%d таблиця(таблиць)"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:135
