@@ -561,8 +561,8 @@ msgstr "Видалити"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>Всього:</b> <i>%s</i> співпадіння"
-msgstr[1] "<b>Всього:</b> <i>%s</i> співпадінь"
-msgstr[2] "<b>Всього:</b> <i>%s</i> співпадінь"
+msgstr[1] "<b>Всього:</b> <i>%s</i> співпадань"
+msgstr[2] "<b>Всього:</b> <i>%s</i> співпадань"
 
 #: db_search.php:274
 msgid "Search in database"
