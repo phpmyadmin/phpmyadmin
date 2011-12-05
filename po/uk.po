@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 15:25+0200\n"
+"PO-Revision-Date: 2011-12-05 15:27+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -1112,7 +1112,7 @@ msgstr "Ви збираєтесь здійснити ВИМКНЕННЯ BLOB-р�
 #: js/messages.php:41
 #, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
-msgstr ""
+msgstr "Ви впевненні що хочете вимкнути всі BLOB посилання для БД %s?"
 
 #: js/messages.php:44
 msgid "Missing value in the form!"
