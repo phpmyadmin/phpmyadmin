@@ -1636,10 +1636,9 @@ msgid "Sum of grouped rows:"
 msgstr "Число згрупованих рядків:"
 
 #: js/messages.php:190
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "Разом"
+msgstr "Разом:"
 
 #: js/messages.php:192
 #, fuzzy
