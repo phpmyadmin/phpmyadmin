@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 16:41+0200\n"
+"PO-Revision-Date: 2011-12-05 16:43+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -1603,10 +1603,9 @@ msgid "Log data loaded. Queries executed in this time span:"
 msgstr "Журнальні дані завантажені. Запити виконані в це проміжок часу:"
 
 #: js/messages.php:180
-#, fuzzy
 #| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr "Перейти до бази даних"
+msgstr "Перейти до таблиці Log"
 
 #: js/messages.php:181
 msgid "Log analysed, but no data found in this time span."
