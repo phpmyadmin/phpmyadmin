@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 16:03+0200\n"
+"PO-Revision-Date: 2011-12-05 16:04+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -1422,10 +1422,9 @@ msgstr "Трафік"
 
 #: js/messages.php:137 libraries/server_links.inc.php:73
 #: server_status.php:1543
-#, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
-msgstr "Загальні можливості"
+msgstr "Налаштування"
 
 #: js/messages.php:138
 #, fuzzy
