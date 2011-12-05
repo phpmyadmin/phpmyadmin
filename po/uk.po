@@ -1747,7 +1747,7 @@ msgstr "Помилка при обробці запиту"
 
 #: js/messages.php:225
 msgid "Dropping Column"
-msgstr ""
+msgstr "Видалення стовпчика"
 
 #: js/messages.php:226
 msgid "Adding Primary Key"
