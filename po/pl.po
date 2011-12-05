@@ -1968,7 +1968,7 @@ msgstr "Kliknij aby zaznaczyć/odznaczyć"
 
 #: js/messages.php:338
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
-msgstr ""
+msgstr "Kliknij strzałką w-dół<br/> aby przestawić widoczność kolumn"
 
 #: js/messages.php:340
 msgid ""
