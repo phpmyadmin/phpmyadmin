@@ -956,7 +956,7 @@ msgstr "Додати внутрішнє кільце"
 
 #: gis_data_editor.php:266 js/messages.php:311
 msgid "Polygon"
-msgstr ""
+msgstr "Полігон"
 
 #: gis_data_editor.php:306 js/messages.php:317
 #, fuzzy
