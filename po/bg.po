@@ -1647,7 +1647,7 @@ msgstr ""
 
 #: js/messages.php:208
 msgid "Possible performance issues"
-msgstr ""
+msgstr "Възможни проблеми с производителността"
 
 #: js/messages.php:209
 msgid "Issue"
