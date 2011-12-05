@@ -1853,7 +1853,7 @@ msgstr "Każdy punkt reprezentuje wiersz danych."
 
 #: js/messages.php:284
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "Najechanie na punkt pokaże jego etykietę."
 
 #: js/messages.php:286
 msgid "Use mousewheel to zoom in or out of the plot."
