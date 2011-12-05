@@ -637,7 +637,7 @@ msgstr "Вигляд"
 #: libraries/server_links.inc.php:90 server_replication.php:31
 #: server_replication.php:162 server_status.php:588
 msgid "Replication"
-msgstr ""
+msgstr "Реплікація"
 
 #: db_structure.php:525
 msgid "Sum"
