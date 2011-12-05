@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 14:36+0200\n"
+"PO-Revision-Date: 2011-12-05 14:38+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -939,7 +939,7 @@ msgstr "Linestring"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:314
 msgid "Outer Ring"
-msgstr ""
+msgstr "Зовнішнє кільце"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:313
 msgid "Inner Ring"
