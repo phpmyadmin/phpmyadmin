@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 14:39+0200\n"
+"PO-Revision-Date: 2011-12-05 14:40+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -952,7 +952,7 @@ msgstr "Додати linestring"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:316
 msgid "Add an inner ring"
-msgstr ""
+msgstr "Додати внутрішнє кільце"
 
 #: gis_data_editor.php:266 js/messages.php:311
 msgid "Polygon"
