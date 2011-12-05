@@ -482,7 +482,7 @@ msgstr "Допълване заявка"
 
 #: db_qbe.php:639
 msgid "Use Tables"
-msgstr "Използване таблици"
+msgstr "Използване таблиците"
 
 #: db_qbe.php:662
 #, php-format
