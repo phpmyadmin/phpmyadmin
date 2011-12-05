@@ -1338,7 +1338,7 @@ msgstr "Пам'яті кешовано"
 
 #: js/messages.php:110
 msgid "Buffered memory"
-msgstr ""
+msgstr "Пам'яті буферезовано"
 
 #: js/messages.php:111
 msgid "Free memory"
