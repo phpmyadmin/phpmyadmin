@@ -1875,6 +1875,8 @@ msgstr "Kliknij na punkt danych oraz możliwość edytowania wiersza danych."
 #: js/messages.php:294
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
+"Widok może być poszerzany przez przeciąganie wzdłuż dolnego prawego "
+"narożnika."
 
 #: js/messages.php:296
 msgid "Strings are converted into integer for plotting"
