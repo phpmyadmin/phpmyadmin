@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 19:34+0200\n"
+"PO-Revision-Date: 2011-12-05 19:36+0200\n"
 "Last-Translator: fungms <fungms@o2.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1880,7 +1880,7 @@ msgstr ""
 
 #: js/messages.php:296
 msgid "Strings are converted into integer for plotting"
-msgstr ""
+msgstr "Ciągi znaków zamienione na liczby całkowite do wyświetlenia"
 
 #: js/messages.php:298
 msgid "Select two columns"
