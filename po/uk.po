@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 16:26+0200\n"
+"PO-Revision-Date: 2011-12-05 16:28+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -1543,10 +1543,9 @@ msgstr ""
 "Вашим адміністратором БД."
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "General relation features"
 msgid "Change settings"
-msgstr "Загальні можливості"
+msgstr "Змінити налаштування"
 
 #: js/messages.php:166
 #, fuzzy
