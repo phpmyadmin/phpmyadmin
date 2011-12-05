@@ -1837,7 +1837,7 @@ msgstr ""
 
 #: js/messages.php:288
 msgid "Click and drag the mouse to navigate the plot."
-msgstr ""
+msgstr "Кликнете и влачете мишката за да навигирате по екрана"
 
 #: js/messages.php:290
 msgid "Click reset zoom link to come back to original state."
