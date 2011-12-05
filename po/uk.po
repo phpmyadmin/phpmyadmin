@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 14:19+0200\n"
+"PO-Revision-Date: 2011-12-05 14:20+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -820,7 +820,7 @@ msgstr "ENUM/SET редактор"
 
 #: enum_editor.php:28 js/messages.php:257
 msgid "Values for a new column"
-msgstr ""
+msgstr "Значення для нового стовпчика"
 
 #: enum_editor.php:30 js/messages.php:256
 #, fuzzy, php-format
