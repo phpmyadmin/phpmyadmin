@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 19:28+0200\n"
+"PO-Revision-Date: 2011-12-05 19:30+0200\n"
 "Last-Translator: fungms <fungms@o2.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1657,10 +1657,9 @@ msgid "Import"
 msgstr "Import"
 
 #: js/messages.php:203
-#, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
-msgstr "Analizuj zapytanie"
+msgstr "Analizuj Zapytanie"
 
 #: js/messages.php:207
 msgid "Advisor system"
