@@ -5,6 +5,7 @@ phpMyAdmin - ChangeLog
 - bug #3442028 [edit] Inline editing enum fields with null shows no dropdown
 - bug #3442004 [interface] DB suggestion not correct for user with underscore
 - bug #3438420 [core] Magic quotes removed in PHP 5.4
+- bug #3398788 [session] No feedback when result is empty (signon auth_type)
 
 3.4.8.0 (2011-12-01)
 - bug #3425230 [interface] enum data split at space char (more space to edit)
