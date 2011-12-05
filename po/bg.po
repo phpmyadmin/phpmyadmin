@@ -474,7 +474,7 @@ msgstr "Добавяне/изтриване ред по критерий"
 
 #: db_qbe.php:618
 msgid "Add/Delete columns"
-msgstr "Добавияне/изтриване колони"
+msgstr "Добавяне/изтриване колони"
 
 #: db_qbe.php:631 db_qbe.php:656
 msgid "Update Query"
