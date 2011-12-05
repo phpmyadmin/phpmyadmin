@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 15:29+0200\n"
+"PO-Revision-Date: 2011-12-05 15:30+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -1188,10 +1188,9 @@ msgid "Edit"
 msgstr "Редагувати"
 
 #: js/messages.php:66 server_status.php:794
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Вибір сервера"
+msgstr "Графік трафіку в реальному часі"
 
 #: js/messages.php:67 server_status.php:797
 msgid "Live conn./process chart"
