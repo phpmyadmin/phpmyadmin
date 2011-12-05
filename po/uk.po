@@ -1107,7 +1107,7 @@ msgstr "Ця операція може зайняти багато часу.  П
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr ""
+msgstr "Ви збираєтесь здійснити ВИМКНЕННЯ BLOB-репозиторію!"
 
 #: js/messages.php:41
 #, php-format
