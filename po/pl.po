@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
 "PO-Revision-Date: 2011-12-05 19:44+0200\n"
-"Last-Translator: lordark666 <lord_dark@wp.pl>\n"
+"Last-Translator: fungms <fungms@o2.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -2053,7 +2053,7 @@ msgstr "Dzisiaj"
 
 #: js/messages.php:390
 msgid "January"
-msgstr " Styczeń"
+msgstr "Styczeń"
 
 #: js/messages.php:391
 msgid "February"
