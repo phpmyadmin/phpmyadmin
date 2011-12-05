@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 15:51+0200\n"
+"PO-Revision-Date: 2011-12-05 15:52+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -1268,10 +1268,9 @@ msgid "Query statistics"
 msgstr "Статистика запиту"
 
 #: js/messages.php:94
-#, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Local monitor configuration incompatible"
-msgstr "Неможливо прочитати конфігураційний файл."
+msgstr "Несумісна конфігурація локального монітору"
 
 #: js/messages.php:95
 msgid ""
