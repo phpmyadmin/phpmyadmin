@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 14:07+0200\n"
+"PO-Revision-Date: 2011-12-05 14:08+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -720,10 +720,9 @@ msgid "Add prefix to table"
 msgstr "Додати префікс до таблиці"
 
 #: db_structure.php:603 libraries/mult_submits.inc.php:251
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
-msgstr "Замінити дані таблиці даними з файлу"
+msgstr "Замінити префікс таблиці"
 
 #: db_structure.php:605 libraries/mult_submits.inc.php:251
 msgid "Copy table with prefix"
