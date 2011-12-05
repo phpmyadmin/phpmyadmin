@@ -1309,7 +1309,7 @@ msgstr "Пам'ять системи"
 
 #: js/messages.php:103
 msgid "System swap"
-msgstr "swap системи"
+msgstr "SWAP системи"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1392
