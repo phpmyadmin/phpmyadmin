@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 21:06+0200\n"
+"PO-Revision-Date: 2011-12-05 21:10+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -11199,11 +11199,10 @@ msgid "Column"
 msgstr "Kolumn"
 
 #: tbl_chart.php:90
-#, fuzzy
 #| msgid "Line"
 msgctxt "Chart type"
 msgid "Line"
-msgstr "Linje"
+msgstr "Rad"
 
 #: tbl_chart.php:91
 #, fuzzy
