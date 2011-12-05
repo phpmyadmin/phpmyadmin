@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 14:35+0200\n"
+"PO-Revision-Date: 2011-12-05 14:36+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -913,7 +913,7 @@ msgstr "Точка"
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
 #: gis_data_editor.php:297 js/messages.php:306
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
 #: gis_data_editor.php:299 js/messages.php:307
