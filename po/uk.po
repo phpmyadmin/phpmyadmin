@@ -843,7 +843,7 @@ msgstr "Вивід"
 
 #: enum_editor.php:128
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr ""
+msgstr "Скопіювати та вставити об'єднанні значення в \"Довжина/Значення\" поле"
 
 #: export.php:29
 #, fuzzy
