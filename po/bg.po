@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
 "PO-Revision-Date: 2011-12-05 21:07+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: stoyan <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
@@ -323,7 +323,7 @@ msgstr "Добавяне AUTO_INCREMENT стойност"
 
 #: db_operations.php:506 tbl_operations.php:569
 msgid "Add constraints"
-msgstr "Добавяне на ограничения"
+msgstr "Добавяне ограничения"
 
 #: db_operations.php:519
 msgid "Switch to copied database"
