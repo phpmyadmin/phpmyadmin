@@ -10471,7 +10471,6 @@ msgid "Using the monitor:"
 msgstr "モニタの使い方："
 
 #: server_status.php:1613
-#, fuzzy
 #| msgid ""
 #| "Ok, you are good to go! Once you click 'Start monitor' your browser will "
 #| "refresh all displayed charts in a regular interval. You may add charts "
@@ -10482,9 +10481,8 @@ msgid ""
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
-"「モニタ開始」をクリックすると、ブラウザは一定間隔で表示されている全てのグラ"
-"フを更新します。「設定」のところよりグラフを追加や再描画間隔の変更が行え、そ"
-"れぞれのグラフにある歯車のアイコンを通じて削除を行えます。"
+"表示されている全てのグラフは、ブラウザよって一定間隔で更新されます。「設定」のところよりグラフを追加や再描画間隔の変更することができ、それぞれのグラフに"
+"ある歯車のアイコンを通じて削除が行えます。"
 
 #: server_status.php:1615
 msgid ""
