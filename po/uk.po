@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 14:59+0200\n"
+"PO-Revision-Date: 2011-12-05 15:04+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -1027,6 +1027,8 @@ msgstr "Неможливо конвертувати кодування файл�
 #: import.php:390 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
+"Неможливо завантажити імпортовані плагіни, будь ласка перевірте ваше "
+"інсталювання!"
 
 #: import.php:421 sql.php:927
 #, php-format
