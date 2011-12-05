@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 13:21+0200\n"
+"PO-Revision-Date: 2011-12-05 13:23+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -415,10 +415,10 @@ msgid "You have to choose at least one column to display"
 msgstr "Необхідно вибрати принаймі один Стовпчик для показу"
 
 #: db_qbe.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "Візуальний конструктор"
+msgstr "Перемкнутись на %візуальний конструктор%"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:995
