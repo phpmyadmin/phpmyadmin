@@ -1346,7 +1346,7 @@ msgstr "Пам'яті вільно"
 
 #: js/messages.php:112
 msgid "Used memory"
-msgstr ""
+msgstr "Пам'яті використано"
 
 #: js/messages.php:114
 #, fuzzy
