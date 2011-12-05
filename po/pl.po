@@ -1894,7 +1894,7 @@ msgstr "Wybierz dwie różne kolumny"
 #, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
-msgstr "Operacja na wynikach zapytania"
+msgstr "Wyniki zapytania"
 
 #: js/messages.php:301
 #, fuzzy
