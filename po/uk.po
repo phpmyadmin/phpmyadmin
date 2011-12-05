@@ -946,10 +946,9 @@ msgid "Inner Ring"
 msgstr "Внутрішнє кільце"
 
 #: gis_data_editor.php:252
-#, fuzzy
 #| msgid "Add constraints"
 msgid "Add a linestring"
-msgstr "Додати constraints"
+msgstr "Додати linestring"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:316
 msgid "Add an inner ring"
