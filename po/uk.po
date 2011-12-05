@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 14:18+0200\n"
+"PO-Revision-Date: 2011-12-05 14:19+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -807,7 +807,7 @@ msgstr "Невідслідковувані таблиці"
 
 #: db_tracking.php:199 tbl_structure.php:639
 msgid "Track table"
-msgstr ""
+msgstr "Відслідковувати таблицю"
 
 #: db_tracking.php:225
 msgid "Database Log"
