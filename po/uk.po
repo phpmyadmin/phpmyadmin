@@ -1641,10 +1641,9 @@ msgid "Total:"
 msgstr "Разом:"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading logs"
-msgstr "Завантаження"
+msgstr "Журнал завантаження"
 
 #: js/messages.php:193
 msgid "Monitor refresh failed"
