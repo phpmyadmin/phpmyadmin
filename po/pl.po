@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
 "PO-Revision-Date: 2011-12-05 19:37+0200\n"
-"Last-Translator: lordark666 <lord_dark@wp.pl>\n"
+"Last-Translator: fungms <fungms@o2.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -1897,10 +1897,9 @@ msgid "Query results"
 msgstr "Wyniki zapytania"
 
 #: js/messages.php:301
-#, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
-msgstr "Rozmiar wskaźnika danych"
+msgstr "Zawartość punktu danych"
 
 #: js/messages.php:304 tbl_change.php:312 tbl_indexes.php:228
 #: tbl_indexes.php:255
