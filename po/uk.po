@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 14:33+0200\n"
+"PO-Revision-Date: 2011-12-05 14:35+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -904,7 +904,7 @@ msgstr "SRID"
 #: gis_data_editor.php:151 js/messages.php:312
 #: libraries/display_tbl.lib.php:685
 msgid "Geometry"
-msgstr ""
+msgstr "Геометрія"
 
 #: gis_data_editor.php:172 js/messages.php:308
 msgid "Point"
