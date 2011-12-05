@@ -1301,7 +1301,7 @@ msgstr "Використанний кеш запитів"
 
 #: js/messages.php:101
 msgid "System CPU Usage"
-msgstr ""
+msgstr "Використання CPU системою"
 
 #: js/messages.php:102
 msgid "System memory"
