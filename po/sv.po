@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-01 20:00+0200\n"
+"PO-Revision-Date: 2011-12-05 21:05+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1612,12 +1612,10 @@ msgid "Affected rows:"
 msgstr "Påverkade rader:"
 
 #: js/messages.php:199
-#, fuzzy
 #| msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
-"Misslyckades med parsning av config-filen. Det verkar inte vara giltig JSON-"
-"kod"
+"Parsning av config-filen misslyckades.. Det verkar inte vara giltig JSON-kod"
 
 #: js/messages.php:200
 msgid ""
