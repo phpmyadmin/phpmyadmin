@@ -377,7 +377,7 @@ msgstr "Размер"
 
 #: db_printview.php:159 db_structure.php:490 libraries/export/sql.php:791
 msgid "in use"
-msgstr "зает"
+msgstr "ползва се в момента"
 
 #: db_printview.php:184 libraries/db_info.inc.php:74
 #: libraries/export/sql.php:743
