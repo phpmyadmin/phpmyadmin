@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 11:10+0200\n"
+"PO-Revision-Date: 2011-12-05 11:12+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -11159,11 +11159,10 @@ msgid "Continue insertion with %s rows"
 msgstr "%s 行づつ挿入を行う"
 
 #: tbl_chart.php:88
-#, fuzzy
 #| msgid "Bar"
 msgctxt "Chart type"
 msgid "Bar"
-msgstr "棒グラフ"
+msgstr "横棒グラフ"
 
 #: tbl_chart.php:89
 #, fuzzy
