@@ -1477,7 +1477,7 @@ msgstr "general_log та slow_query_log вимкнені"
 
 #: js/messages.php:151
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output не встановлений для таблиці"
 
 #: js/messages.php:152
 msgid "log_output is set to TABLE."
