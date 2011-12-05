@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 16:33+0200\n"
+"PO-Revision-Date: 2011-12-05 16:34+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -1577,7 +1577,7 @@ msgstr "Із загального жкрналу (general log)"
 
 #: js/messages.php:175
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "Аналіз та завантаження журналів. Це може зайняти деякий час."
 
 #: js/messages.php:176
 msgid ""
