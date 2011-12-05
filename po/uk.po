@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 16:28+0200\n"
+"PO-Revision-Date: 2011-12-05 16:29+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -1553,10 +1553,9 @@ msgid "Current settings"
 msgstr "Поточні налаштування"
 
 #: js/messages.php:168 server_status.php:1633
-#, fuzzy
 #| msgid "Import files"
 msgid "Chart Title"
-msgstr "Імпорт файлів"
+msgstr "Заголовок діаграми"
 
 #. l10n: As in differential values
 #: js/messages.php:170
