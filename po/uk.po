@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 13:27+0200\n"
+"PO-Revision-Date: 2011-12-05 13:30+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -523,7 +523,7 @@ msgstr "як регулярний вираз"
 #: db_search.php:209
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr "Результати пошуку \"<i>%s</i>\" %s:"
+msgstr "Результати пошуку для \"<i>%s</i>\" %s:"
 
 #: db_search.php:227
 #, php-format
