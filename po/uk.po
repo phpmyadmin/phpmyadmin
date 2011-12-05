@@ -1367,7 +1367,7 @@ msgstr "Вільний Swap"
 
 #: js/messages.php:119
 msgid "Bytes sent"
-msgstr ""
+msgstr "Байтів надіслано"
 
 #: js/messages.php:120
 #, fuzzy
