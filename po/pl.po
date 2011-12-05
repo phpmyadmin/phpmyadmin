@@ -2053,7 +2053,7 @@ msgstr "Dzisiaj"
 
 #: js/messages.php:390
 msgid "January"
-msgstr "Styczeń"
+msgstr " Styczeń"
 
 #: js/messages.php:391
 msgid "February"
