@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 17:42+0200\n"
+"PO-Revision-Date: 2011-12-05 17:43+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -1751,7 +1751,7 @@ msgstr "Видалення стовпчика"
 
 #: js/messages.php:226
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "Додавання Головного Ключа"
 
 #: js/messages.php:227 libraries/relation.lib.php:80 pmd_general.php:380
 #: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
