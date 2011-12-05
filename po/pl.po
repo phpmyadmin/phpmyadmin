@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 19:40+0200\n"
+"PO-Revision-Date: 2011-12-05 19:43+0200\n"
 "Last-Translator: fungms <fungms@o2.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -2015,7 +2015,7 @@ msgid ""
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
 "Dostępna jest nowa wersja phpMyAdmina, należy rozważyć aktualizację. Nowa "
-"werja to %s, wydana dnia %s."
+"wersja to %s, wydana dnia %s."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:355
