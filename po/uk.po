@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 17:55+0200\n"
+"PO-Revision-Date: 2011-12-05 17:56+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -1891,6 +1891,7 @@ msgstr "При наведенні на точку буде показано її
 #: js/messages.php:286
 msgid "Use mousewheel to zoom in or out of the plot."
 msgstr ""
+"Використовуйте коліщатко миші, щоб збільшити або зменшити масштаб графіка."
 
 #: js/messages.php:288
 msgid "Click and drag the mouse to navigate the plot."
