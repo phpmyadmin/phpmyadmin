@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 16:43+0200\n"
+"PO-Revision-Date: 2011-12-05 16:45+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -1613,10 +1613,9 @@ msgstr "Журнал проаналізований, але даних в цей
 
 #. l10n: A collection of available filters
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Table options"
 msgid "Log table filter options"
-msgstr "Налаштування таблиці"
+msgstr "опції фільтрів таблиці Log"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:186
