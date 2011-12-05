@@ -1715,10 +1715,9 @@ msgid "Rule details"
 msgstr "Деталі правила"
 
 #: js/messages.php:212
-#, fuzzy
 #| msgid "Authentication"
 msgid "Justification"
-msgstr "Аутентифікація"
+msgstr "Правомірність"
 
 #: js/messages.php:213
 msgid "Used variable / formula"
