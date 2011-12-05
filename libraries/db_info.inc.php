@@ -87,7 +87,7 @@ function PMA_fillTooltip(&$tooltip_truename, &$tooltip_aliasname, $table)
     }
 
     if ($GLOBALS['cfg']['ShowTooltipAliasTB']
-     && $GLOBALS['cfg']['ShowTooltipAliasTB'] != 'nested') {
+     && $GLOBALS['cfg']['ShowTooltipAliasTB'] !== 'nested') {
         $tooltip_truename[$table['Name']] = $table['Comment'];
         $tooltip_aliasname[$table['Name']] = $table['Name'];
     } else {
