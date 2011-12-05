@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 14:12+0200\n"
+"PO-Revision-Date: 2011-12-05 14:13+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -779,9 +779,10 @@ msgstr "Дія"
 msgid "Delete tracking data for this table"
 msgstr "Видалити дані спостереження для цієї таблиці"
 
+# активна
 #: db_tracking.php:119 tbl_tracking.php:590 tbl_tracking.php:648
 msgid "active"
-msgstr ""
+msgstr "активний"
 
 #: db_tracking.php:121 tbl_tracking.php:592 tbl_tracking.php:650
 msgid "not active"
