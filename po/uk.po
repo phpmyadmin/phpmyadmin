@@ -816,7 +816,7 @@ msgstr "Журнал бази даних"
 #: enum_editor.php:23 js/messages.php:255
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "ENUM/SET редактор"
 
 #: enum_editor.php:28 js/messages.php:257
 msgid "Values for a new column"
