@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
 "PO-Revision-Date: 2011-12-05 21:07+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: stoyan <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
@@ -414,7 +414,7 @@ msgstr "Изберете поне една колона за показване"
 #: db_qbe.php:186
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr "Към %sвизуален строител%s"
+msgstr "Превключи към %sвизуален строител%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:995
