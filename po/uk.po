@@ -839,7 +839,7 @@ msgstr "Додати значення"
 
 #: enum_editor.php:127 gis_data_editor.php:317
 msgid "Output"
-msgstr ""
+msgstr "Вивід"
 
 #: enum_editor.php:128
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
