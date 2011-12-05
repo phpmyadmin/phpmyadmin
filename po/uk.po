@@ -1666,7 +1666,7 @@ msgstr "Перезавантажити сторінку"
 
 #: js/messages.php:197
 msgid "Affected rows:"
-msgstr ""
+msgstr "Рядки що зазнали змін:"
 
 #: js/messages.php:199
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
