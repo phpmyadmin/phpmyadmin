@@ -1247,7 +1247,7 @@ msgstr "З'єднань на час останнього оновлення"
 
 #: js/messages.php:84 js/messages.php:122 server_status.php:1223
 msgid "Processes"
-msgstr "Процеси"
+msgstr "Процесів"
 
 #: js/messages.php:85
 msgid "Connections / Processes"
