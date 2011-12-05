@@ -4678,7 +4678,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:403
 msgid "Maximal number of table preferences to store"
-msgstr "保管されるテーブル環境設定の最大数"
+msgstr "テーブル環境設定の最大保管数"
 
 #: libraries/config/messages.inc.php:404
 msgid "Try to connect without password"
