@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 15:39+0200\n"
+"PO-Revision-Date: 2011-12-05 15:41+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -1243,7 +1243,7 @@ msgstr "Трафік серверу (в KiB)"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
-msgstr "Зв'язків на час останнього оновлення"
+msgstr "З'єднань на час останнього оновлення"
 
 #: js/messages.php:84 js/messages.php:122 server_status.php:1223
 msgid "Processes"
