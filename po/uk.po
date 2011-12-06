@@ -3160,7 +3160,7 @@ msgstr "обидва попередні"
 
 #: libraries/config.values.php:126
 msgid "neither of the above"
-msgstr ""
+msgstr "жоден з попередніх "
 
 #: libraries/config/FormDisplay.class.php:83
 #: libraries/config/validate.lib.php:438
