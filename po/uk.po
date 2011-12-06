@@ -2787,7 +2787,7 @@ msgstr "Не репліковані"
 
 #: libraries/build_html_for_db.lib.php:137
 msgid "Replicated"
-msgstr ""
+msgstr "Репліковані"
 
 #: libraries/build_html_for_db.lib.php:151
 #, php-format
