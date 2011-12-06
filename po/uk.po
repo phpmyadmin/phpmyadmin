@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-06 16:10+0200\n"
+"PO-Revision-Date: 2011-12-06 16:11+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -2645,7 +2645,7 @@ msgstr "Документація по phpMyAdmin"
 #: libraries/auth/cookie.auth.lib.php:211
 #: libraries/auth/cookie.auth.lib.php:212
 msgid "You can enter hostname/IP address and port separated by space."
-msgstr ""
+msgstr "Ви можете ввести ім'я хоста / IP-адресу та порт через пробіл."
 
 #: libraries/auth/cookie.auth.lib.php:211
 msgid "Server:"
