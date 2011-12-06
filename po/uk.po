@@ -1990,7 +1990,7 @@ msgstr ""
 
 #: js/messages.php:335
 msgid "Drag to reorder"
-msgstr ""
+msgstr "Перетягніть для зміни порядку"
 
 #: js/messages.php:336
 msgid "Click to sort"
