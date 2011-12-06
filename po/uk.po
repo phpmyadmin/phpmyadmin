@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-06 10:37+0200\n"
+"PO-Revision-Date: 2011-12-06 10:39+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -569,10 +569,9 @@ msgid "Search in database"
 msgstr "Шукати в базі даних"
 
 #: db_search.php:277
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Слова чи значення, які потрібно знайти (маска: \"%\"):"
+msgstr "Слова чи значення, які потрібно знайти (шаблон: \"%\"):"
 
 #: db_search.php:282
 msgid "Find:"
