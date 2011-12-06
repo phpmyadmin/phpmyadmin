@@ -3104,7 +3104,7 @@ msgstr "Правий"
 
 #: libraries/config.values.php:76
 msgid "Open"
-msgstr ""
+msgstr "Відкрити"
 
 #: libraries/config.values.php:77
 msgid "Closed"
