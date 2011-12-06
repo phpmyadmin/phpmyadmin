@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-06 14:24+0200\n"
+"PO-Revision-Date: 2011-12-06 16:10+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -2344,10 +2344,9 @@ msgid "File was not an uploaded file."
 msgstr "Файл не був завантаженим файлом."
 
 #: libraries/File.class.php:260 libraries/File.class.php:389
-#, fuzzy
 #| msgid "Unknown error in file upload."
 msgid "Unknown error while uploading."
-msgstr "Невідома помилка при завантаженні файлу."
+msgstr "Невідома помилка при завантаженні."
 
 #: libraries/File.class.php:278
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
