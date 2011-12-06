@@ -3235,6 +3235,7 @@ msgstr "Вікі"
 #: libraries/config/FormDisplay.tpl.php:199
 msgid "This setting is disabled, it will not be applied to your configuration"
 msgstr ""
+"Цей параметр відключений, він не буде застосовуватися до вашої конфігурації"
 
 #: libraries/config/FormDisplay.tpl.php:274
 #, php-format
