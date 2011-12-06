@@ -2677,7 +2677,7 @@ msgstr "Авторизація без паролю заборонена в на�
 #: libraries/auth/signon.auth.lib.php:239
 #, php-format
 msgid "No activity within %s seconds; please log in again"
-msgstr ""
+msgstr "Відсутня діяльність протягом %s секунд; будь ласка, увійдіть знову"
 
 #: libraries/auth/cookie.auth.lib.php:582
 #: libraries/auth/cookie.auth.lib.php:584
