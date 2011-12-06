@@ -3203,7 +3203,7 @@ msgstr "недоступний"
 #: libraries/config/FormDisplay.class.php:713
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr ""
+msgstr "\"%s\" потребує додаток %s"
 
 #: libraries/config/FormDisplay.class.php:727
 #, php-format
