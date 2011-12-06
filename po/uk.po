@@ -1969,6 +1969,8 @@ msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
+"Ви не зберегли зміни в макет. Вони будуть втрачені, якщо ви не збережете їх. "
+"Бажаєте продовжити?"
 
 #: js/messages.php:330
 msgid "Add an option for column "
