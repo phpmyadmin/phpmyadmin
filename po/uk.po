@@ -2317,6 +2317,8 @@ msgstr "Секунда"
 #, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr ""
+"Помилка форматування рядка по '%s' правилу. PHP припинив роботу з наступною "
+"помилкою: %s"
 
 #: libraries/Config.class.php:703
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
