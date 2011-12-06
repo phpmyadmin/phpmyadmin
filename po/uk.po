@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-06 17:29+0200\n"
+"PO-Revision-Date: 2011-12-06 17:30+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -3240,7 +3240,7 @@ msgstr ""
 #: libraries/config/FormDisplay.tpl.php:274
 #, php-format
 msgid "Set value: %s"
-msgstr ""
+msgstr "Встановити значення: %s"
 
 #: libraries/config/FormDisplay.tpl.php:279
 #: libraries/config/messages.inc.php:358
