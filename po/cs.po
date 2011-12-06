@@ -10473,6 +10473,10 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occuring SELECT statements to further analyze them."
 msgstr ""
+"Pro zobrazení dotazů ze záznamu zvolte časové období, které vás zajímá, "
+"podržením levého tlačítka myši a pohybem přes graf. Po potvrzení bude "
+"nahrána tabulka sloučených dotazů, kde můžete zvolit libovolný dotaz k další "
+"analýze."
 
 #: server_status.php:1622
 msgid "Please note:"
