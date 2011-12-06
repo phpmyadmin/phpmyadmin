@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-05 21:10+0200\n"
+"PO-Revision-Date: 2011-12-05 21:11+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -11185,11 +11185,10 @@ msgid "Continue insertion with %s rows"
 msgstr "Fortsätt inmatning med %s rader"
 
 #: tbl_chart.php:88
-#, fuzzy
 #| msgid "Bar"
 msgctxt "Chart type"
 msgid "Bar"
-msgstr "Stapel"
+msgstr "Blockera"
 
 #: tbl_chart.php:89
 #, fuzzy
