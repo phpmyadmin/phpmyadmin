@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-06 14:21+0200\n"
+"PO-Revision-Date: 2011-12-06 14:22+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -2585,7 +2585,7 @@ msgstr "Тема за замовчуванням %s не знайдена!"
 #: libraries/Theme_Manager.class.php:151
 #, php-format
 msgid "Theme %s not found!"
-msgstr ""
+msgstr "Тема %s не знайдена!"
 
 #: libraries/Theme_Manager.class.php:217
 #, php-format
