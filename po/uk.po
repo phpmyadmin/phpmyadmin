@@ -2580,7 +2580,7 @@ msgstr "прийняти його"
 #: libraries/Theme_Manager.class.php:110
 #, php-format
 msgid "Default theme %s not found!"
-msgstr ""
+msgstr "Тема за замовчуванням %s не знайдена!"
 
 #: libraries/Theme_Manager.class.php:151
 #, php-format
