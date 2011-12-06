@@ -1924,10 +1924,9 @@ msgid "Select two different columns"
 msgstr "Виділити дві різні колонки"
 
 #: js/messages.php:300
-#, fuzzy
 #| msgid "SQL result"
 msgid "Query results"
-msgstr "SQL result"
+msgstr "Результати запиту"
 
 #: js/messages.php:301
 #, fuzzy
