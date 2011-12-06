@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-06 14:10+0200\n"
+"PO-Revision-Date: 2011-12-06 14:11+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -2534,7 +2534,7 @@ msgstr "Неправильна назва таблиці"
 #: libraries/Table.class.php:1143
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
-msgstr ""
+msgstr "Помилка зміни назви %1$s на %2$s"
 
 #: libraries/Table.class.php:1230
 #, php-format
