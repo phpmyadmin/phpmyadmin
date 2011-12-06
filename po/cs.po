@@ -12702,7 +12702,7 @@ msgstr ""
 #: po/advisory_rules.php:230
 #| msgid "Persistent connections"
 msgid "Percentage of aborted connections"
-msgstr "Procenta přerušených připojení"
+msgstr "Procenta přerušených spojení"
 
 #: po/advisory_rules.php:231 po/advisory_rules.php:236
 msgid "Too many connections are aborted."
