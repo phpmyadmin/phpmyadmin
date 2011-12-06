@@ -2493,7 +2493,7 @@ msgstr "Неможливо зберегти останню таблицю"
 #: libraries/RecentTable.class.php:142
 #| msgid "Select Tables"
 msgid "Recent tables"
-msgstr "Останні таблиці"
+msgstr "Нещодавні таблиці"
 
 #: libraries/RecentTable.class.php:149
 msgid "There are no recent tables"
