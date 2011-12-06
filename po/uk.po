@@ -2976,7 +2976,7 @@ msgstr "%s днів, %s годин, %s хвилин і %s секунд"
 
 #: libraries/common.lib.php:2064
 msgid "Missing parameter:"
-msgstr ""
+msgstr "Пропущено параметр:"
 
 #: libraries/common.lib.php:2447 libraries/common.lib.php:2450
 #: libraries/display_tbl.lib.php:306
