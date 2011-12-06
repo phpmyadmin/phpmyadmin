@@ -2726,7 +2726,7 @@ msgstr "PBMS get BLOB info не вдалося:"
 
 #: libraries/blobstreaming.lib.php:373
 msgid "PBMS get BLOB Content-Type failed"
-msgstr ""
+msgstr "PBMS get BLOB Content-Type не вдалося:"
 
 #: libraries/blobstreaming.lib.php:401
 msgid "View image"
