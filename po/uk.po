@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-06 14:18+0200\n"
+"PO-Revision-Date: 2011-12-06 14:19+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -2571,7 +2571,7 @@ msgstr "Не знайдено правильного шляху до зобра�
 
 #: libraries/Theme.class.php:352
 msgid "No preview available."
-msgstr ""
+msgstr "Намає доступного перегляду."
 
 #: libraries/Theme.class.php:355
 msgid "take it"
