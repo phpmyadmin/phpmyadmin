@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-06 11:14+0200\n"
+"PO-Revision-Date: 2011-12-06 11:15+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -2065,11 +2065,10 @@ msgid "Done"
 msgstr "Готово"
 
 #: js/messages.php:379
-#, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
-msgstr "Попередні"
+msgstr "Попередня"
 
 #: js/messages.php:384
 #, fuzzy
