@@ -2477,8 +2477,9 @@ msgstr[2] ""
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d рядок додано"
+msgstr[1] "%1$d рядків додано"
+msgstr[2] ""
 
 #: libraries/PDF.class.php:81
 #, fuzzy
