@@ -2840,6 +2840,8 @@ msgstr "Не вірний індекс сервера: %s"
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
+"Не вірна назва хоста для сервера %1$s. Будь ласка перевірте Вашу "
+"конфігурацію."
 
 #: libraries/common.inc.php:666 libraries/config/messages.inc.php:506
 #: libraries/header.inc.php:134 main.php:171 server_status.php:775
