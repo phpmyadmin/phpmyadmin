@@ -2734,7 +2734,7 @@ msgstr "Переглянути картинку"
 
 #: libraries/blobstreaming.lib.php:408
 msgid "Play audio"
-msgstr ""
+msgstr "Програти аудіо"
 
 #: libraries/blobstreaming.lib.php:417
 msgid "View video"
