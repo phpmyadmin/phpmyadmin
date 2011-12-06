@@ -124,7 +124,6 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
         }
         unset($sql_constraints, $sql_drop_foreign_keys, $sql_structure);
 
-
         foreach ($tables_full as $each_table => $tmp) {
             // to be able to rename a db containing views,
             // first all the views are collected and a stand-in is created
@@ -133,11 +132,17 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
                 $views[] = $each_table;
                 // Create stand-in definition to resolve view dependencies
                 $sql_view_standin = PMA_getTableDefStandIn($db, $each_table, "\n");
+                PMA_DBI_select_db($newname);
                 PMA_DBI_query($sql_view_standin);
                 $GLOBALS['sql_query'] .= "\n" . $sql_view_standin . ';';
+            }
+        }
+
+        foreach ($tables_full as $each_table => $tmp) {
+            // skip the views; we have creted stand-in definitions
+            if (PMA_Table::isView($db, $each_table)) {
                 continue;
             }
-
             $back = $sql_query;
             $sql_query = '';
 
