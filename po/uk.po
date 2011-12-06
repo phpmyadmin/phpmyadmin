@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-06 17:26+0200\n"
+"PO-Revision-Date: 2011-12-06 17:27+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -3226,7 +3226,7 @@ msgstr "SOA розширення не знайдено"
 #: libraries/config/FormDisplay.class.php:753
 #, php-format
 msgid "maximum %s"
-msgstr ""
+msgstr "максимум %s"
 
 #: libraries/config/FormDisplay.tpl.php:141 main.php:239
 msgid "Wiki"
