@@ -3092,7 +3092,7 @@ msgstr "Обидва"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "Ніде"
 
 #: libraries/config.values.php:47
 msgid "Left"
