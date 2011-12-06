@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-06 16:49+0200\n"
+"PO-Revision-Date: 2011-12-06 16:59+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -2951,7 +2951,7 @@ msgstr "Рядкове редагування цього запиту"
 #: libraries/common.lib.php:1297
 msgctxt "Inline edit query"
 msgid "Inline"
-msgstr ""
+msgstr "в рядок"
 
 #: libraries/common.lib.php:1363 sql.php:888
 msgid "Profiling"
