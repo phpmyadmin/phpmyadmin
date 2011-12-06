@@ -418,7 +418,7 @@ msgstr "Необхідно вибрати принаймі один Стовпч
 #, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "Перемкнутись на %візуальний конструктор%"
+msgstr "Перемкнутись на %sвізуальний конструктор%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:995
@@ -624,8 +624,8 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr ""
-"Вигляд має щонайменше цю кількість рядків. Будь-ласка звернітся до %"
-"документації%."
+"Вигляд має щонайменше цю кількість рядків. Будь-ласка звернітся до %s"
+"документації%s."
 
 #: db_structure.php:467 db_structure.php:481 libraries/header.inc.php:161
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
@@ -982,7 +982,7 @@ msgid ""
 "%s for ways to workaround this limit."
 msgstr ""
 "Ви напевно намагаєтесь завантажити занадто великий файл. Будь ласка "
-"зверніться до %документації% для знаходження шляхів вирішення цієї проблеми."
+"зверніться до %sдокументації%s для знаходження шляхів вирішення цієї проблеми."
 
 #: import.php:170 import.php:419
 msgid "Showing bookmark"
