@@ -11256,11 +11256,10 @@ msgid "Column"
 msgstr ""
 
 #: tbl_chart.php:90
-#, fuzzy
 #| msgid "Line"
 msgctxt "Chart type"
 msgid "Line"
-msgstr "Satır"
+msgstr ""
 
 #: tbl_chart.php:91
 #, fuzzy
