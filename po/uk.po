@@ -2628,7 +2628,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:35
 msgid "Failed to use Blowfish from mcrypt!"
-msgstr ""
+msgstr "Не вдалося використати Blowfish із Mcrypt!"
 
 #: libraries/auth/cookie.auth.lib.php:197
 msgid "Log in"
