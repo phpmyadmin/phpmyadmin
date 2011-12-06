@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-06 17:27+0200\n"
+"PO-Revision-Date: 2011-12-06 17:29+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -3230,7 +3230,7 @@ msgstr "максимум %s"
 
 #: libraries/config/FormDisplay.tpl.php:141 main.php:239
 msgid "Wiki"
-msgstr ""
+msgstr "Вікі"
 
 #: libraries/config/FormDisplay.tpl.php:199
 msgid "This setting is disabled, it will not be applied to your configuration"
