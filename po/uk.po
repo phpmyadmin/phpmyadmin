@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-06 14:01+0200\n"
+"PO-Revision-Date: 2011-12-06 14:02+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -2482,10 +2482,9 @@ msgstr[1] "%1$d рядків додано"
 msgstr[2] ""
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Дозволити читання даних."
+msgstr "Помилка при створенні PDF:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
