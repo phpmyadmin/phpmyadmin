@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-06 13:55+0200\n"
+"PO-Revision-Date: 2011-12-06 13:56+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -2414,7 +2414,7 @@ msgstr "Унікальне"
 
 #: libraries/Index.class.php:443 tbl_tracking.php:307
 msgid "Packed"
-msgstr ""
+msgstr "Запакований"
 
 #: libraries/Index.class.php:445 tbl_tracking.php:309
 msgid "Cardinality"
