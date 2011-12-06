@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-06 14:05+0200\n"
+"PO-Revision-Date: 2011-12-06 14:06+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -2502,7 +2502,7 @@ msgstr "Нещодавніх таблиць немає."
 #: libraries/StorageEngine.class.php:198
 msgid ""
 "There is no detailed status information available for this storage engine."
-msgstr ""
+msgstr "Для цього механізму зберігання нама дельної інформації про статус."
 
 #: libraries/StorageEngine.class.php:334
 #, php-format
