@@ -2815,6 +2815,8 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
+"Як правило, це означає, що в ньому є синтаксичні помилки, будь ласка, "
+"перевірте будь-які помилки що показано нижче."
 
 #: libraries/common.inc.php:615
 #, php-format
