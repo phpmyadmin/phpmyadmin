@@ -2718,7 +2718,7 @@ msgstr "PBMS помилка"
 
 #: libraries/blobstreaming.lib.php:306
 msgid "PBMS connection failed:"
-msgstr ""
+msgstr "PBMS підключення не вдалося:"
 
 #: libraries/blobstreaming.lib.php:361
 msgid "PBMS get BLOB info failed:"
