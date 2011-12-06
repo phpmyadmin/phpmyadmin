@@ -3245,7 +3245,7 @@ msgstr "Встановити значення: %s"
 #: libraries/config/FormDisplay.tpl.php:279
 #: libraries/config/messages.inc.php:358
 msgid "Restore default value"
-msgstr ""
+msgstr "Відновити значення за замовчуванням"
 
 #: libraries/config/FormDisplay.tpl.php:295
 msgid "Allow users to customize this value"
