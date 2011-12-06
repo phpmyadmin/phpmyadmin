@@ -3096,7 +3096,7 @@ msgstr "Ніде"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "Лівий"
 
 #: libraries/config.values.php:47
 msgid "Right"
