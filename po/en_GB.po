@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-11-24 03:52+0200\n"
+"PO-Revision-Date: 2011-11-24 03:55+0200\n"
 "Last-Translator: dannybeckett <daniel.beckett@gmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -1363,11 +1363,11 @@ msgid "EiB"
 msgstr "EiB"
 
 #: js/messages.php:132
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "%d table(s)"
-msgstr "%s table"
+msgstr "%d table(s)"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:135
