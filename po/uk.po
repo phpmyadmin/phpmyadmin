@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-06 10:36+0200\n"
+"PO-Revision-Date: 2011-12-06 10:37+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -2003,6 +2003,7 @@ msgstr "Клікніть щоб позначити/зняти позначку"
 #: js/messages.php:338
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr ""
+"Клікніть на стрілку випадаючого меню <br />для перемикання видимості стовпця"
 
 #: js/messages.php:340
 msgid ""
