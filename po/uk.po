@@ -3217,7 +3217,7 @@ msgstr "експорт не буде працювати, відсутня фун
 
 #: libraries/config/FormDisplay.class.php:738
 msgid "SQL Validator is disabled"
-msgstr ""
+msgstr "SQL Валідатор вимкнений"
 
 #: libraries/config/FormDisplay.class.php:745
 msgid "SOAP extension not found"
