@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-06 14:23+0200\n"
+"PO-Revision-Date: 2011-12-06 14:24+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -2598,7 +2598,7 @@ msgstr "Тема"
 
 #: libraries/auth/config.auth.lib.php:71
 msgid "Cannot connect: invalid settings."
-msgstr ""
+msgstr "З'єднання неможливе: невірні налаштування."
 
 #: libraries/auth/config.auth.lib.php:85
 #: libraries/auth/cookie.auth.lib.php:172 libraries/auth/http.auth.lib.php:64
