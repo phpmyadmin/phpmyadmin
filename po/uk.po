@@ -3019,7 +3019,7 @@ msgstr "Перейти до бази даних &quot;%s&quot;."
 #: libraries/common.lib.php:2569
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
-msgstr ""
+msgstr "На функціональність %s впливає відома помилка, див. %s"
 
 #: libraries/common.lib.php:2743
 msgid "Click to toggle"
