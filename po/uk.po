@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-06 13:45+0200\n"
+"PO-Revision-Date: 2011-12-06 13:46+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -2332,6 +2332,8 @@ msgstr "Існуючий файл конфігурації (%s) не читаб�
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
+"Невірні права доступу до конфігураційного файлу, він не повинен бути "
+"доступним для всіх!"
 
 #: libraries/Config.class.php:1303
 msgid "Font size"
