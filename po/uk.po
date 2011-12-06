@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-06 17:19+0200\n"
+"PO-Revision-Date: 2011-12-06 17:20+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -3192,7 +3192,7 @@ msgstr "Значення має дорівнювати або бути менш�
 #: libraries/config/FormDisplay.class.php:511
 #, php-format
 msgid "Missing data for %s"
-msgstr ""
+msgstr "Пропущені дані для %s"
 
 #: libraries/config/FormDisplay.class.php:708
 #: libraries/config/FormDisplay.class.php:712
