@@ -1941,7 +1941,7 @@ msgstr "Ігнорувати"
 
 #: js/messages.php:305 libraries/display_tbl.lib.php:1383
 msgid "Copy"
-msgstr ""
+msgstr "Копіювати"
 
 #: js/messages.php:320
 #, fuzzy
