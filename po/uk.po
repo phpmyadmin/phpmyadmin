@@ -2913,7 +2913,7 @@ msgstr "Відповідь MySQL: "
 
 #: libraries/common.lib.php:1120
 msgid "Failed to connect to SQL validator!"
-msgstr ""
+msgstr "Не вдалося пид'єднатися до SQL валідатора!"
 
 #: libraries/common.lib.php:1161 libraries/config/messages.inc.php:483
 msgid "Explain SQL"
