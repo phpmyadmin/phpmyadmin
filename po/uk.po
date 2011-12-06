@@ -1950,7 +1950,7 @@ msgstr "Додати колонки"
 
 #: js/messages.php:323
 msgid "Select referenced key"
-msgstr ""
+msgstr "Обрати ключі посилання"
 
 #: js/messages.php:324
 msgid "Select Foreign Key"
