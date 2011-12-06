@@ -2488,7 +2488,7 @@ msgstr "Помилка при створенні PDF:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
-msgstr ""
+msgstr "Неможливо зберегти останню таблицю"
 
 #: libraries/RecentTable.class.php:142
 #, fuzzy
