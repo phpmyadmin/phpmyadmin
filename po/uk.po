@@ -2463,7 +2463,7 @@ msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
 msgstr[0] "%1$d рядок змінено"
 msgstr[1] "%1$d рядків змінено"
-msgstr[2] ""
+msgstr[2] "%1$d рядків змінено"
 
 #: libraries/Message.class.php:257
 #, php-format
@@ -2471,7 +2471,7 @@ msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] "%1$d рядок видалено"
 msgstr[1] "%1$d рядків видалено"
-msgstr[2] ""
+msgstr[2] "%1$d рядків видалено"
 
 #: libraries/Message.class.php:273
 #, php-format
@@ -2479,7 +2479,7 @@ msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d рядок додано"
 msgstr[1] "%1$d рядків додано"
-msgstr[2] ""
+msgstr[2] "%1$d рядків додано"
 
 #: libraries/PDF.class.php:81
 #| msgid "Allows reading data."
