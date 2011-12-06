@@ -2612,6 +2612,8 @@ msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
 msgstr ""
+"Ви, напевно, не створили файл конфігурації. Для його створення Ви можете "
+"використати %1$ssetup script%2$s."
 
 #: libraries/auth/config.auth.lib.php:109
 msgid ""
