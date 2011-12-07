@@ -47,8 +47,8 @@ if (! PMA_cacheExists('mysql_charsets', true)) {
         }
         //$mysql_collations_available[$row['Collation']] = ! isset($row['Compiled']) || $row['Compiled'] == 'Yes';
         $mysql_collations_available[$row['COLLATION_NAME']] = true;
-        $mysql_charsets_available[$row['CHARACTER_SET_NAME']] =
-            !empty($mysql_charsets_available[$row['CHARACTER_SET_NAME']])
+        $mysql_charsets_available[$row['CHARACTER_SET_NAME']]
+            = !empty($mysql_charsets_available[$row['CHARACTER_SET_NAME']])
             || !empty($mysql_collations_available[$row['COLLATION_NAME']]);
     }
     PMA_DBI_free_result($res);
@@ -118,8 +118,8 @@ function PMA_generateCharsetDropdownBox($type = PMA_CSDROPDOWN_COLLATION,
         if (!$mysql_charsets_available[$current_charset]) {
             continue;
         }
-        $current_cs_descr =
-            empty($mysql_charsets_descriptions[$current_charset])
+        $current_cs_descr
+            = empty($mysql_charsets_descriptions[$current_charset])
             ? $current_charset
             : $mysql_charsets_descriptions[$current_charset];
 

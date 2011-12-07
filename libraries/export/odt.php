@@ -28,38 +28,38 @@ if (isset($plugin_list)) {
         );
 
     /* what to dump (structure/data/both) */
-    $plugin_list['odt']['options'][] =
-        array('type' => 'begin_group', 'text' => __('Dump table') , 'name' => 'general_opts');
-    $plugin_list['odt']['options'][] =
-        array('type' => 'radio', 'name' => 'structure_or_data', 'values' => array('structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')));
+    $plugin_list['odt']['options'][]
+        = array('type' => 'begin_group', 'text' => __('Dump table') , 'name' => 'general_opts');
+    $plugin_list['odt']['options'][]
+        = array('type' => 'radio', 'name' => 'structure_or_data', 'values' => array('structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')));
     $plugin_list['odt']['options'][] = array('type' => 'end_group');
 
     /* Structure options */
     if (!$hide_structure) {
-        $plugin_list['odt']['options'][] =
-            array('type' => 'begin_group', 'name' => 'structure', 'text' => __('Object creation options'), 'force' => 'data');
+        $plugin_list['odt']['options'][]
+            = array('type' => 'begin_group', 'name' => 'structure', 'text' => __('Object creation options'), 'force' => 'data');
         if (!empty($GLOBALS['cfgRelation']['relation'])) {
-            $plugin_list['odt']['options'][] =
-                array('type' => 'bool', 'name' => 'relation', 'text' => __('Display foreign key relationships'));
+            $plugin_list['odt']['options'][]
+                = array('type' => 'bool', 'name' => 'relation', 'text' => __('Display foreign key relationships'));
         }
-        $plugin_list['odt']['options'][] =
-            array('type' => 'bool', 'name' => 'comments', 'text' => __('Display comments'));
+        $plugin_list['odt']['options'][]
+            = array('type' => 'bool', 'name' => 'comments', 'text' => __('Display comments'));
         if (!empty($GLOBALS['cfgRelation']['mimework'])) {
-            $plugin_list['odt']['options'][] =
-                array('type' => 'bool', 'name' => 'mime', 'text' => __('Display MIME types'));
+            $plugin_list['odt']['options'][]
+                = array('type' => 'bool', 'name' => 'mime', 'text' => __('Display MIME types'));
         }
-        $plugin_list['odt']['options'][] =
-            array('type' => 'end_group');
+        $plugin_list['odt']['options'][]
+            = array('type' => 'end_group');
     }
     /* Data */
-    $plugin_list['odt']['options'][] =
-        array('type' => 'begin_group', 'name' => 'data', 'text' => __('Data dump options'), 'force' => 'structure');
-    $plugin_list['odt']['options'][] =
-        array('type' => 'bool', 'name' => 'columns', 'text' => __('Put columns names in the first row'));
-    $plugin_list['odt']['options'][] =
-        array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL with:'));
-    $plugin_list['odt']['options'][] =
-        array('type' => 'end_group');
+    $plugin_list['odt']['options'][]
+        = array('type' => 'begin_group', 'name' => 'data', 'text' => __('Data dump options'), 'force' => 'structure');
+    $plugin_list['odt']['options'][]
+        = array('type' => 'bool', 'name' => 'columns', 'text' => __('Put columns names in the first row'));
+    $plugin_list['odt']['options'][]
+        = array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL with:'));
+    $plugin_list['odt']['options'][]
+        = array('type' => 'end_group');
 } else {
 
     $GLOBALS['odt_buffer'] = '';
@@ -68,15 +68,16 @@ if (isset($plugin_list)) {
     /**
      * Outputs export footer
      *
-     * @return  bool        Whether it suceeded
+     * @return bool Whether it suceeded
      *
-     * @access  public
+     * @access public
      */
-    function PMA_exportFooter() {
+    function PMA_exportFooter()
+    {
         $GLOBALS['odt_buffer'] .= '</office:text>'
             . '</office:body>'
             . '</office:document-content>';
-        if (!PMA_exportOutputHandler(PMA_createOpenDocument('application/vnd.oasis.opendocument.text', $GLOBALS['odt_buffer']))) {
+        if (! PMA_exportOutputHandler(PMA_createOpenDocument('application/vnd.oasis.opendocument.text', $GLOBALS['odt_buffer']))) {
             return false;
         }
         return true;
@@ -85,11 +86,12 @@ if (isset($plugin_list)) {
     /**
      * Outputs export header
      *
-     * @return  bool        Whether it suceeded
+     * @return bool Whether it suceeded
      *
-     * @access  public
+     * @access public
      */
-    function PMA_exportHeader() {
+    function PMA_exportHeader()
+    {
         $GLOBALS['odt_buffer'] .= '<?xml version="1.0" encoding="utf-8"?' . '>'
             . '<office:document-content '. $GLOBALS['OpenDocumentNS'] . 'office:version="1.0">'
             . '<office:body>'
@@ -100,53 +102,62 @@ if (isset($plugin_list)) {
     /**
      * Outputs database header
      *
-     * @param string  $db Database name
-     * @return  bool        Whether it suceeded
+     * @param string $db Database name
      *
-     * @access  public
+     * @return bool Whether it suceeded
+     *
+     * @access public
      */
-    function PMA_exportDBHeader($db) {
-        $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="1" text:style-name="Heading_1" text:is-list-header="true">' . __('Database') . ' ' . htmlspecialchars($db) . '</text:h>';
+    function PMA_exportDBHeader($db)
+    {
+        $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="1" text:style-name="Heading_1" text:is-list-header="true">'
+            . __('Database') . ' ' . htmlspecialchars($db) . '</text:h>';
         return true;
     }
 
     /**
      * Outputs database footer
      *
-     * @param string  $db Database name
-     * @return  bool        Whether it suceeded
+     * @param string $db Database name
      *
-     * @access  public
+     * @return bool Whether it suceeded
+     *
+     * @access public
      */
-    function PMA_exportDBFooter($db) {
+    function PMA_exportDBFooter($db)
+    {
         return true;
     }
 
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string  $db Database name
-     * @return  bool        Whether it suceeded
+     * @param string $db Database name
      *
-     * @access  public
+     * @return bool Whether it suceeded
+     *
+     * @access public
      */
-    function PMA_exportDBCreate($db) {
+    function PMA_exportDBCreate($db)
+    {
         return true;
     }
 
     /**
      * Outputs the content of a table in ODT format
      *
-     * @param string  $db         database name
-     * @param string  $table      table name
-     * @param string  $crlf       the end of line sequence
-     * @param string  $error_url  the url to go back in case of error
-     * @param string  $sql_query  SQL query for obtaining data
-     * @return  bool        Whether it suceeded
+     * @param string $db        database name
+     * @param string $table     table name
+     * @param string $crlf      the end of line sequence
+     * @param string $error_url the url to go back in case of error
+     * @param string $sql_query SQL query for obtaining data
      *
-     * @access  public
+     * @return bool Whether it suceeded
+     *
+     * @access public
      */
-    function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
+    function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
+    {
         global $what;
 
         // Gets the data from the database
@@ -158,7 +169,8 @@ if (isset($plugin_list)) {
             $field_flags[$j] = PMA_DBI_field_flags($result, $j);
         }
 
-        $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">' . __('Dumping data for table') . ' ' . htmlspecialchars($table) . '</text:h>';
+        $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
+            . __('Dumping data for table') . ' ' . htmlspecialchars($table) . '</text:h>';
         $GLOBALS['odt_buffer'] .= '<table:table table:name="' . htmlspecialchars($table) . '_structure">';
         $GLOBALS['odt_buffer'] .= '<table:table-column table:number-columns-repeated="' . $fields_cnt . '"/>';
 
@@ -209,30 +221,32 @@ if (isset($plugin_list)) {
     /**
      * Outputs table's structure
      *
-     * @param string  $db           database name
-     * @param string  $table        table name
-     * @param string  $crlf         the end of line sequence
-     * @param string  $error_url    the url to go back in case of error
-     * @param bool    $do_relation  whether to include relation comments
-     * @param bool    $do_comments  whether to include the pmadb-style column comments
-     *                                as comments in the structure; this is deprecated
-     *                                but the parameter is left here because export.php
-     *                                calls PMA_exportStructure() also for other export
-     *                                types which use this parameter
-     * @param bool    $do_mime      whether to include mime comments
-     * @param bool    $dates        whether to include creation/update/check dates
-     * @param string  $export_mode  'create_table', 'triggers', 'create_view', 'stand_in'
-     * @param string  $export_type  'server', 'database', 'table'
-     * @return  bool      Whether it suceeded
+     * @param string $db          database name
+     * @param string $table       table name
+     * @param string $crlf        the end of line sequence
+     * @param string $error_url   the url to go back in case of error
+     * @param bool   $do_relation whether to include relation comments
+     * @param bool   $do_comments whether to include the pmadb-style column comments
+     *                            as comments in the structure; this is deprecated
+     *                            but the parameter is left here because export.php
+     *                            calls PMA_exportStructure() also for other export
+     *                            types which use this parameter
+     * @param bool   $do_mime     whether to include mime comments
+     * @param bool   $dates       whether to include creation/update/check dates
+     * @param string $export_mode 'create_table', 'triggers', 'create_view', 'stand_in'
+     * @param string $export_type 'server', 'database', 'table'
      *
-     * @access  public
+     * @return bool Whether it suceeded
+     *
+     * @access public
      */
     function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = false, $do_comments = false, $do_mime = false, $dates = false, $export_mode, $export_type)
     {
         global $cfgRelation;
 
         /* Heading */
-        $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">' . __('Table structure for table') . ' ' . htmlspecialchars($table) . '</text:h>';
+        $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
+            . __('Table structure for table') . ' ' . htmlspecialchars($table) . '</text:h>';
 
         /**
          * Get the unique keys in the table

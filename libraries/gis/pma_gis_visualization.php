@@ -254,8 +254,8 @@ class PMA_GIS_Visualization
     {
         $this->init();
         $scale_data = $this->_scaleDataSet($this->_data);
-        $output =
-            'var options = {'
+        $output
+            = 'var options = {'
                 . 'projection: new OpenLayers.Projection("EPSG:900913"),'
                 . 'displayProjection: new OpenLayers.Projection("EPSG:4326"),'
                 . 'units: "m",'

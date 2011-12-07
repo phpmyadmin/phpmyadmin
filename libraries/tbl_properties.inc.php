@@ -340,8 +340,8 @@ for ($i = 0; $i < $num_fields; $i++) {
 
     // old column default
     if ($is_backup) {
-        $_form_params['field_default_orig[' . $i . ']'] =
-            (isset($row['Default']) ? $row['Default'] : '');
+        $_form_params['field_default_orig[' . $i . ']']
+            = (isset($row['Default']) ? $row['Default'] : '');
     }
 
     // here we put 'NONE' as the default value of drop-down; otherwise

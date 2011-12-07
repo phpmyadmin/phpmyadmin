@@ -34,12 +34,12 @@ if (isset($plugin_list)) {
         );
 
     if ($plugin_param !== 'table') {
-        $plugin_list['csv']['options'][] =
-            array('type' => 'bool', 'name' => 'col_names', 'text' => __('The first line of the file contains the table column names <i>(if this is unchecked, the first line will become part of the data)</i>'));
+        $plugin_list['csv']['options'][]
+            = array('type' => 'bool', 'name' => 'col_names', 'text' => __('The first line of the file contains the table column names <i>(if this is unchecked, the first line will become part of the data)</i>'));
     } else {
         $hint = new PMA_Message(__('If the data in each row of the file is not in the same order as in the database, list the corresponding column names here. Column names must be separated by commas and not enclosed in quotations.'));
-        $plugin_list['csv']['options'][] =
-            array('type' => 'text', 'name' => 'columns', 'text' => __('Column names: ') . PMA_showHint($hint));
+        $plugin_list['csv']['options'][]
+            = array('type' => 'text', 'name' => 'columns', 'text' => __('Column names: ') . PMA_showHint($hint));
     }
     $plugin_list['csv']['options'][] = array('type' => 'end_group');
 
@@ -129,7 +129,7 @@ if (!$analyze) {
                 }
             }
             if (!$found) {
-                $message = PMA_Message::error(__('Invalid column (%s) specified! Ensure that columns names are spelled correctly, separated by commas, and not enclosed in quotes.' ));
+                $message = PMA_Message::error(__('Invalid column (%s) specified! Ensure that columns names are spelled correctly, separated by commas, and not enclosed in quotes.'));
                 $message->addParam($val);
                 $error = true;
                 break;
@@ -175,7 +175,8 @@ while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
         unset($data);
         // Do not parse string when we're not at the end and don't have new line inside
         if (($csv_new_line == 'auto' && strpos($buffer, "\r") === false && strpos($buffer, "\n") === false)
-            || ($csv_new_line != 'auto' && strpos($buffer, $csv_new_line) === false)) {
+            || ($csv_new_line != 'auto' && strpos($buffer, $csv_new_line) === false)
+        ) {
             continue;
         }
     }
@@ -269,7 +270,10 @@ while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
                 }
             }
             // Are we at the end?
-            if ($ch == $csv_new_line || ($csv_new_line == 'auto' && ($ch == "\r" || $ch == "\n")) || ($finished && $i == $len - 1)) {
+            if ($ch == $csv_new_line
+                || ($csv_new_line == 'auto' && ($ch == "\r" || $ch == "\n"))
+                || ($finished && $i == $len - 1)
+            ) {
                 $csv_finish = true;
             }
             // Go to next char
@@ -287,7 +291,10 @@ while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
         }
 
         // End of line
-        if ($csv_finish || $ch == $csv_new_line || ($csv_new_line == 'auto' && ($ch == "\r" || $ch == "\n"))) {
+        if ($csv_finish
+            || $ch == $csv_new_line
+            || ($csv_new_line == 'auto' && ($ch == "\r" || $ch == "\n"))
+        ) {
             if ($csv_new_line == 'auto' && $ch == "\r") { // Handle "\r\n"
                 if ($i >= ($len - 2) && !$finished) {
                     break; // We need more data to decide new line
@@ -377,7 +384,9 @@ if ($analyze) {
         $col_names = $col_names[0];
     }
 
-    if ((isset($col_names) && count($col_names) != $max_cols) || !isset($col_names)) {
+    if ((isset($col_names) && count($col_names) != $max_cols)
+        || ! isset($col_names)
+    ) {
         // Fill out column names
         for ($i = 0; $i < $max_cols; ++$i) {
             $col_names[] = 'COL '.($i+1);

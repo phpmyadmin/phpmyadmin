@@ -2722,17 +2722,17 @@ $(document).ready(function() {
         });
         // slider for choosing how many fields to add
         $enum_editor_dialog.find(".slider").slider({
-               animate: true,
-               range: "min",
-               value: 1,
-               min: 1,
-               max: 9,
-               slide: function( event, ui ) {
-                    $(this).closest('table').find('input[type=submit]').val(
-                        PMA_messages['enum_addValue'].replace(/%d/, ui.value)
-                    );
-               }
-			});
+            animate: true,
+            range: "min",
+            value: 1,
+            min: 1,
+            max: 9,
+            slide: function( event, ui ) {
+                $(this).closest('table').find('input[type=submit]').val(
+                    PMA_messages['enum_addValue'].replace(/%d/, ui.value)
+                );
+            }
+        });
         // Focus the slider, otherwise it looks nearly transparent
         $('.ui-slider-handle').addClass('ui-state-focus');
         return false;

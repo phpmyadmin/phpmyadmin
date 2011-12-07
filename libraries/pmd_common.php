@@ -15,8 +15,8 @@ $GLOBALS['PMD']['STYLE']          = 'default';
 
 $cfgRelation = PMA_getRelationsParam();
 
-$GLOBALS['script_display_field'] =
-    '<script type="text/javascript">' . "\n" .
+$GLOBALS['script_display_field']
+    = '<script type="text/javascript">' . "\n" .
     '// <![CDATA[' . "\n" .
     'var display_field = new Array();' . "\n";
 
@@ -129,8 +129,8 @@ function get_script_contr()
     }
 
     $ti = 0;
-    $script_contr =
-        '<script type="text/javascript">' . "\n" .
+    $script_contr
+        = '<script type="text/javascript">' . "\n" .
         '// <![CDATA[' . "\n" .
         'var contr = new Array();' . "\n";
     for ($i = 0, $cnt = count($con["C_NAME"]); $i < $cnt; $i++) {
@@ -199,8 +199,8 @@ function get_all_keys($unique_only = false)
  */
 function get_script_tabs()
 {
-    $script_tabs =
-        '<script type="text/javascript">' . "\n" .
+    $script_tabs
+        = '<script type="text/javascript">' . "\n" .
         '// <![CDATA[' . "\n" .
         'var j_tabs = new Array();' . "\n" .
         'var h_tabs = new Array();' . "\n" ;

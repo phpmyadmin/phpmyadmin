@@ -314,8 +314,8 @@ foreach ($tables_names_only as $each_table) {
 } // end while
 
 echo '            </select>' . "\n";
-$alter_select =
-    '<a href="db_search.php' . PMA_generate_common_url(array_merge($url_params, array('selectall' => 1))) . '#db_search"'
+$alter_select
+    = '<a href="db_search.php' . PMA_generate_common_url(array_merge($url_params, array('selectall' => 1))) . '#db_search"'
     . ' onclick="setSelectOptions(\'db_search\', \'table_select[]\', true); return false;">' . __('Select All') . '</a>'
     . '&nbsp;/&nbsp;'
     . '<a href="db_search.php' . PMA_generate_common_url(array_merge($url_params, array('unselectall' => 1))) . '#db_search"'

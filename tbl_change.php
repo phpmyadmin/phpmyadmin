@@ -376,8 +376,8 @@ foreach ($rows as $row_id => $vrow) {
                 $table_fields[$i]['Default'] = null;
             }
 
-            $table_fields[$i]['len'] =
-                preg_match('@float|double@', $table_fields[$i]['Type']) ? 100 : -1;
+            $table_fields[$i]['len']
+                = preg_match('@float|double@', $table_fields[$i]['Type']) ? 100 : -1;
 
 
             if (isset($comments_map[$table_fields[$i]['Field']])) {
@@ -918,11 +918,11 @@ foreach ($rows as $row_id => $vrow) {
                 $fieldsize = $extracted_fieldspec['spec_in_brackets'];
             } else {
             /**
-             * This case happens for example for INT or DATE columns; 
-             * in these situations, the value returned in $field['len'] 
+             * This case happens for example for INT or DATE columns;
+             * in these situations, the value returned in $field['len']
              * seems appropriate.
              */
-                $fieldsize = $field['len']; 
+                $fieldsize = $field['len'];
             }
             $fieldsize = min(max($fieldsize, $cfg['MinSizeForInputField']), $cfg['MaxSizeForInputField']);
             echo $backup_field . "\n";

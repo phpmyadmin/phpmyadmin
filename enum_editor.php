@@ -36,13 +36,15 @@ require_once './libraries/header_meta_style.inc.php';
             <?php
                 // Get the enum values
                 $values = array();
-                if (isset($_GET['values']) && is_array($_GET['values'])) { // If the values are in an array
+                // If the values are in an array
+                if (isset($_GET['values']) && is_array($_GET['values'])) {
                      // then this page was called from itself via the "Add a value", "Drop" or "Go" buttons
                     $values = $_GET['values'];
                     foreach ($values as $key => $value) {
                         $values[$key] = htmlentities($value);
                     }
-                } else if (isset($_GET['values']) && is_string($_GET['values'])){ // If the values are in a string
+                    // If the values are in a string
+                } elseif (isset($_GET['values']) && is_string($_GET['values'])) {
                     // then this page was called via a link from some external page
                     $values_string = htmlentities($_GET['values']);
                     // There is a JS port of the below parser in functions.js

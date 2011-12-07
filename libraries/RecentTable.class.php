@@ -76,9 +76,9 @@ class PMA_RecentTable
     public function getFromDb()
     {
         // Read from phpMyAdmin database, if recent tables is not in session
-        $sql_query =
-        " SELECT `tables` FROM " . $this->pma_table .
-        " WHERE `username` = '" . $GLOBALS['cfg']['Server']['user'] . "'";
+        $sql_query
+            = " SELECT `tables` FROM " . $this->pma_table .
+            " WHERE `username` = '" . $GLOBALS['cfg']['Server']['user'] . "'";
 
         $row = PMA_DBI_fetch_array(PMA_query_as_controluser($sql_query));
         if (isset($row[0])) {
@@ -91,15 +91,15 @@ class PMA_RecentTable
     /**
      * Save recent tables into phpMyAdmin database.
      *
-     * 
+     *
      * @return true|PMA_Message
      */
     public function saveToDb()
     {
         $username = $GLOBALS['cfg']['Server']['user'];
-        $sql_query =
-        " REPLACE INTO " . $this->pma_table . " (`username`, `tables`)" .
-        " VALUES ('" . $username . "', '" . PMA_sqlAddSlashes(json_encode($this->tables)) . "')";
+        $sql_query
+            = " REPLACE INTO " . $this->pma_table . " (`username`, `tables`)" .
+            " VALUES ('" . $username . "', '" . PMA_sqlAddSlashes(json_encode($this->tables)) . "')";
 
         $success = PMA_DBI_try_query($sql_query, $GLOBALS['controllink']);
 
@@ -163,7 +163,7 @@ class PMA_RecentTable
         $html .= '<select name="selected_recent_table" id="recentTable">';
         $html .= $this->getHtmlSelectOption();
         $html .= '</select>';
-        
+
         return $html;
     }
 

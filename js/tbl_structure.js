@@ -301,16 +301,16 @@ $(document).ready(function() {
                 PMA_convertFootnotesToTooltips($div);
                 // Add a slider for selecting how many columns to add to the index
                 $div.find('.slider').slider({
-                   animate: true,
-                   value: 1,
-                   min: 1,
-                   max: 16,
-                   slide: function( event, ui ) {
+                    animate: true,
+                    value: 1,
+                    min: 1,
+                    max: 16,
+                    slide: function( event, ui ) {
                         $(this).closest('fieldset').find('input[type=submit]').val(
                             PMA_messages['strAddToIndex'].replace(/%d/, ui.value)
                         );
-                   }
-			    });
+                    }
+                });
                 // Focus the slider, otherwise it looks nearly transparent
                 $('.ui-slider-handle').addClass('ui-state-focus');
             }

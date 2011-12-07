@@ -161,12 +161,11 @@ function Swekey_auth_error()
                 }
             } else {
                 $result = __('No valid authentication key plugged');
-                if ($_SESSION['SWEKEY']['CONF_DEBUG'])
-                {
+                if ($_SESSION['SWEKEY']['CONF_DEBUG']) {
                     $result .= "<br>" . htmlspecialchars($swekey_id);
                 }
                 unset($_SESSION['SWEKEY']['CONF_LOADED']); // reload the conf file
-             }
+            }
         }
     } else {
         unset($_SESSION['SWEKEY']);

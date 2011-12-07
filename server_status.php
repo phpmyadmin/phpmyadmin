@@ -486,16 +486,16 @@ cleanDeprecated($server_status);
 if (isset($server_status['Key_blocks_unused'])
         && isset($server_variables['key_cache_block_size'])
         && isset($server_variables['key_buffer_size'])) {
-    $server_status['Key_buffer_fraction_%'] =
-        100
+    $server_status['Key_buffer_fraction_%']
+        = 100
         - $server_status['Key_blocks_unused']
         * $server_variables['key_cache_block_size']
         / $server_variables['key_buffer_size']
         * 100;
 } elseif (isset($server_status['Key_blocks_used'])
         && isset($server_variables['key_buffer_size'])) {
-    $server_status['Key_buffer_fraction_%'] =
-        $server_status['Key_blocks_used']
+    $server_status['Key_buffer_fraction_%']
+        = $server_status['Key_blocks_used']
         * 1024
         / $server_variables['key_buffer_size'];
   }
@@ -518,8 +518,8 @@ if (isset($server_status['Threads_created'])
     && isset($server_status['Connections'])
     && $server_status['Connections'] > 0) {
 
-    $server_status['Threads_cache_hitrate_%'] =
-        100 - $server_status['Threads_created'] / $server_status['Connections'] * 100;
+    $server_status['Threads_cache_hitrate_%']
+        = 100 - $server_status['Threads_created'] / $server_status['Connections'] * 100;
 }
 
 /**
