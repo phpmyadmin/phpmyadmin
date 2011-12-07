@@ -180,6 +180,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
                     PMA_DBI_select_db($newname);
                     foreach ($triggers as $trigger) {
                         PMA_DBI_query($trigger['create']);
+                        $GLOBALS['sql_query'] .= "\n" . $trigger['create'] . ';';
                     }
                     unset($trigger);
                 }
