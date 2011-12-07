@@ -28,38 +28,38 @@ if (isset($plugin_list)) {
         );
 
     /* what to dump (structure/data/both) */
-    $plugin_list['odt']['options'][] =
-        array('type' => 'begin_group', 'text' => __('Dump table') , 'name' => 'general_opts');
-    $plugin_list['odt']['options'][] =
-        array('type' => 'radio', 'name' => 'structure_or_data', 'values' => array('structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')));
+    $plugin_list['odt']['options'][]
+        = array('type' => 'begin_group', 'text' => __('Dump table') , 'name' => 'general_opts');
+    $plugin_list['odt']['options'][]
+        = array('type' => 'radio', 'name' => 'structure_or_data', 'values' => array('structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')));
     $plugin_list['odt']['options'][] = array('type' => 'end_group');
 
     /* Structure options */
     if (!$hide_structure) {
-        $plugin_list['odt']['options'][] =
-            array('type' => 'begin_group', 'name' => 'structure', 'text' => __('Object creation options'), 'force' => 'data');
+        $plugin_list['odt']['options'][]
+            = array('type' => 'begin_group', 'name' => 'structure', 'text' => __('Object creation options'), 'force' => 'data');
         if (!empty($GLOBALS['cfgRelation']['relation'])) {
-            $plugin_list['odt']['options'][] =
-                array('type' => 'bool', 'name' => 'relation', 'text' => __('Display foreign key relationships'));
+            $plugin_list['odt']['options'][]
+                = array('type' => 'bool', 'name' => 'relation', 'text' => __('Display foreign key relationships'));
         }
-        $plugin_list['odt']['options'][] =
-            array('type' => 'bool', 'name' => 'comments', 'text' => __('Display comments'));
+        $plugin_list['odt']['options'][]
+            = array('type' => 'bool', 'name' => 'comments', 'text' => __('Display comments'));
         if (!empty($GLOBALS['cfgRelation']['mimework'])) {
-            $plugin_list['odt']['options'][] =
-                array('type' => 'bool', 'name' => 'mime', 'text' => __('Display MIME types'));
+            $plugin_list['odt']['options'][]
+                = array('type' => 'bool', 'name' => 'mime', 'text' => __('Display MIME types'));
         }
-        $plugin_list['odt']['options'][] =
-            array('type' => 'end_group');
+        $plugin_list['odt']['options'][] 
+            = array('type' => 'end_group');
     }
     /* Data */
-    $plugin_list['odt']['options'][] =
-        array('type' => 'begin_group', 'name' => 'data', 'text' => __('Data dump options'), 'force' => 'structure');
-    $plugin_list['odt']['options'][] =
-        array('type' => 'bool', 'name' => 'columns', 'text' => __('Put columns names in the first row'));
-    $plugin_list['odt']['options'][] =
-        array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL with:'));
-    $plugin_list['odt']['options'][] =
-        array('type' => 'end_group');
+    $plugin_list['odt']['options'][]
+        = array('type' => 'begin_group', 'name' => 'data', 'text' => __('Data dump options'), 'force' => 'structure');
+    $plugin_list['odt']['options'][]
+        = array('type' => 'bool', 'name' => 'columns', 'text' => __('Put columns names in the first row'));
+    $plugin_list['odt']['options'][]
+        = array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL with:'));
+    $plugin_list['odt']['options'][] 
+        = array('type' => 'end_group');
 } else {
 
     $GLOBALS['odt_buffer'] = '';

@@ -496,8 +496,8 @@ foreach ($tables as $keyname => $each_table) {
 // Show Summary
 if ($is_show_stats) {
     list($sum_formatted, $unit) = PMA_formatByteDown($sum_size, 3, 1);
-    list($overhead_formatted, $overhead_unit) =
-        PMA_formatByteDown($overhead_size, 3, 1);
+    list($overhead_formatted, $overhead_unit)
+        = PMA_formatByteDown($overhead_size, 3, 1);
 }
 ?>
 </tbody>

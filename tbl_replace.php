@@ -185,36 +185,36 @@ foreach ($loop_array as $rownumber => $where_clause) {
     $query_values = array();
 
     // Map multi-edit keys to single-level arrays, dependent on how we got the fields
-    $me_fields =
-        isset($_REQUEST['fields']['multi_edit'][$rownumber])
+    $me_fields
+        = isset($_REQUEST['fields']['multi_edit'][$rownumber])
         ? $_REQUEST['fields']['multi_edit'][$rownumber]
         : array();
-    $me_fields_name =
-        isset($_REQUEST['fields_name']['multi_edit'][$rownumber])
+    $me_fields_name
+        = isset($_REQUEST['fields_name']['multi_edit'][$rownumber])
         ? $_REQUEST['fields_name']['multi_edit'][$rownumber]
         : null;
-    $me_fields_prev =
-        isset($_REQUEST['fields_prev']['multi_edit'][$rownumber])
+    $me_fields_prev
+        = isset($_REQUEST['fields_prev']['multi_edit'][$rownumber])
         ? $_REQUEST['fields_prev']['multi_edit'][$rownumber]
         : null;
-    $me_funcs =
-        isset($_REQUEST['funcs']['multi_edit'][$rownumber])
+    $me_funcs
+        = isset($_REQUEST['funcs']['multi_edit'][$rownumber])
         ? $_REQUEST['funcs']['multi_edit'][$rownumber]
         : null;
-    $me_fields_type =
-        isset($_REQUEST['fields_type']['multi_edit'][$rownumber])
+    $me_fields_type
+        = isset($_REQUEST['fields_type']['multi_edit'][$rownumber])
         ? $_REQUEST['fields_type']['multi_edit'][$rownumber]
         : null;
-    $me_fields_null =
-        isset($_REQUEST['fields_null']['multi_edit'][$rownumber])
+    $me_fields_null
+        = isset($_REQUEST['fields_null']['multi_edit'][$rownumber])
         ? $_REQUEST['fields_null']['multi_edit'][$rownumber]
         : null;
-    $me_fields_null_prev =
-        isset($_REQUEST['fields_null_prev']['multi_edit'][$rownumber])
+    $me_fields_null_prev
+        = isset($_REQUEST['fields_null_prev']['multi_edit'][$rownumber])
         ? $_REQUEST['fields_null_prev']['multi_edit'][$rownumber]
         : null;
-    $me_auto_increment =
-        isset($_REQUEST['auto_increment']['multi_edit'][$rownumber])
+    $me_auto_increment
+        = isset($_REQUEST['auto_increment']['multi_edit'][$rownumber])
         ? $_REQUEST['auto_increment']['multi_edit'][$rownumber]
         : null;
 
@@ -405,8 +405,10 @@ foreach ($query as $single_query) {
     } // end if
 
     foreach (PMA_DBI_get_warnings() as $warning) {
-        $warning_messages[] = PMA_Message::sanitize($warning['Level'] . ': #' . $warning['Code']
-            . ' ' . $warning['Message']);
+        $warning_messages[]
+            = PMA_Message::sanitize(
+                $warning['Level'] . ': #' . $warning['Code'] . ' ' . $warning['Message']
+            );
     }
 
     unset($result);

@@ -1391,8 +1391,8 @@ class PMA_Table
         $max_rows = $GLOBALS['cfg']['Server']['MaxTableUiprefs'];
         if ($rows_count > $max_rows) {
             $num_rows_to_delete = $rows_count - $max_rows;
-            $sql_query =
-                ' DELETE FROM ' . $pma_table .
+            $sql_query
+                = ' DELETE FROM ' . $pma_table .
                 ' ORDER BY last_update ASC' .
                 ' LIMIT ' . $num_rows_to_delete;
             $success = PMA_DBI_try_query($sql_query, $GLOBALS['controllink']);

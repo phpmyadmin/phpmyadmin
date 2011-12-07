@@ -958,8 +958,8 @@ class PMA_Config
             if (substr($pma_absolute_uri, 0, 7) != 'http://'
                 && substr($pma_absolute_uri, 0, 8) != 'https://'
             ) {
-                $pma_absolute_uri =
-                    ($is_https ? 'https' : 'http')
+                $pma_absolute_uri
+                    = ($is_https ? 'https' : 'http')
                     . ':' . (substr($pma_absolute_uri, 0, 2) == '//' ? '' : '//')
                     . $pma_absolute_uri;
             }

@@ -942,9 +942,12 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
         $columns[$column_name]['TABLE_SCHEMA'] = $database;
         $columns[$column_name]['TABLE_NAME'] = $table;
         $columns[$column_name]['ORDINAL_POSITION'] = $ordinal_position;
-        $columns[$column_name]['DATA_TYPE'] =
-            substr($columns[$column_name]['COLUMN_TYPE'], 0,
-                strpos($columns[$column_name]['COLUMN_TYPE'], '('));
+        $columns[$column_name]['DATA_TYPE']
+            = substr(
+                $columns[$column_name]['COLUMN_TYPE'],
+                0,
+                strpos($columns[$column_name]['COLUMN_TYPE'], '(')
+            );
         /**
          * @todo guess CHARACTER_MAXIMUM_LENGTH from COLUMN_TYPE
          */
@@ -955,9 +958,12 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
         $columns[$column_name]['CHARACTER_OCTET_LENGTH'] = null;
         $columns[$column_name]['NUMERIC_PRECISION'] = null;
         $columns[$column_name]['NUMERIC_SCALE'] = null;
-        $columns[$column_name]['CHARACTER_SET_NAME'] =
-            substr($columns[$column_name]['COLLATION_NAME'], 0,
-                strpos($columns[$column_name]['COLLATION_NAME'], '_'));
+        $columns[$column_name]['CHARACTER_SET_NAME']
+            = substr(
+                $columns[$column_name]['COLLATION_NAME'],
+                0,
+                strpos($columns[$column_name]['COLLATION_NAME'], '_')
+            );
 
         $ordinal_position++;
     }

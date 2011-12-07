@@ -1277,16 +1277,16 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     // we assume for now that this is also the true name
                     $subresult['select_expr'][$current_select_expr]['table_true_name'] = $chain[$size_chain - 2];
                     $subresult['select_expr'][$current_select_expr]['expr']
-                     = $subresult['select_expr'][$current_select_expr]['table_name']
-                      . '.' . $subresult['select_expr'][$current_select_expr]['expr'];
+                        = $subresult['select_expr'][$current_select_expr]['table_name']
+                        . '.' . $subresult['select_expr'][$current_select_expr]['expr'];
                 } // end if ($size_chain > 1)
 
                 // maybe a db
                 if ($size_chain > 2) {
                     $subresult['select_expr'][$current_select_expr]['db'] = $chain[$size_chain - 3];
                     $subresult['select_expr'][$current_select_expr]['expr']
-                     = $subresult['select_expr'][$current_select_expr]['db']
-                      . '.' . $subresult['select_expr'][$current_select_expr]['expr'];
+                        = $subresult['select_expr'][$current_select_expr]['db']
+                        . '.' . $subresult['select_expr'][$current_select_expr]['expr'];
                 } // end if ($size_chain > 2)
                 unset($chain);
 
@@ -1336,13 +1336,13 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 // we assume for now that this is also the true name
                 $subresult['table_ref'][$current_table_ref]['table_true_name'] = $chain[$size_chain - 1];
                 $subresult['table_ref'][$current_table_ref]['expr']
-                     = $subresult['table_ref'][$current_table_ref]['table_name'];
+                    = $subresult['table_ref'][$current_table_ref]['table_name'];
                 // maybe a db
                 if ($size_chain > 1) {
                     $subresult['table_ref'][$current_table_ref]['db'] = $chain[$size_chain - 2];
                     $subresult['table_ref'][$current_table_ref]['expr']
-                     = $subresult['table_ref'][$current_table_ref]['db']
-                      . '.' . $subresult['table_ref'][$current_table_ref]['expr'];
+                        = $subresult['table_ref'][$current_table_ref]['db']
+                        . '.' . $subresult['table_ref'][$current_table_ref]['expr'];
                 } // end if ($size_chain > 1)
 
                 // add the table alias into the whole expression
@@ -1365,10 +1365,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     $alias = $subresult['table_ref'][$tr]['table_alias'];
                     $truename = $subresult['table_ref'][$tr]['table_true_name'];
                     for ($se=0; $se <= $current_select_expr; $se++) {
-                        if (isset($alias) && strlen($alias) && $subresult['select_expr'][$se]['table_true_name']
-                           == $alias) {
-                            $subresult['select_expr'][$se]['table_true_name']
-                             = $truename;
+                        if (isset($alias)
+                            && strlen($alias)
+                            && $subresult['select_expr'][$se]['table_true_name'] == $alias
+                        ) {
+                            $subresult['select_expr'][$se]['table_true_name'] = $truename;
                         } // end if (found the alias)
                     } // end for (select expressions)
 

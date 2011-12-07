@@ -36,50 +36,50 @@ if (isset($plugin_list)) {
         );
 
     /* what to dump (structure/data/both) */
-    $plugin_list['latex']['options'][] =
-        array('type' => 'begin_group', 'name' => 'dump_what', 'text' => __('Dump table'));
-    $plugin_list['latex']['options'][] =
-        array('type' => 'radio', 'name' => 'structure_or_data', 'values' => array('structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')));
+    $plugin_list['latex']['options'][]
+        = array('type' => 'begin_group', 'name' => 'dump_what', 'text' => __('Dump table'));
+    $plugin_list['latex']['options'][]
+        = array('type' => 'radio', 'name' => 'structure_or_data', 'values' => array('structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')));
     $plugin_list['latex']['options'][] = array('type' => 'end_group');
 
     /* Structure options */
     if (!$hide_structure) {
-        $plugin_list['latex']['options'][] =
-            array('type' => 'begin_group', 'name' => 'structure', 'text' => __('Object creation options'), 'force' => 'data');
-        $plugin_list['latex']['options'][] =
-            array('type' => 'text', 'name' => 'structure_caption', 'text' => __('Table caption'), 'doc' => 'faq6_27');
-        $plugin_list['latex']['options'][] =
-            array('type' => 'text', 'name' => 'structure_continued_caption', 'text' => __('Table caption (continued)'), 'doc' => 'faq6_27');
-        $plugin_list['latex']['options'][] =
-            array('type' => 'text', 'name' => 'structure_label', 'text' => __('Label key'), 'doc' => 'faq6_27');
+        $plugin_list['latex']['options'][]
+            = array('type' => 'begin_group', 'name' => 'structure', 'text' => __('Object creation options'), 'force' => 'data');
+        $plugin_list['latex']['options'][]
+            = array('type' => 'text', 'name' => 'structure_caption', 'text' => __('Table caption'), 'doc' => 'faq6_27');
+        $plugin_list['latex']['options'][]
+            = array('type' => 'text', 'name' => 'structure_continued_caption', 'text' => __('Table caption (continued)'), 'doc' => 'faq6_27');
+        $plugin_list['latex']['options'][]
+            = array('type' => 'text', 'name' => 'structure_label', 'text' => __('Label key'), 'doc' => 'faq6_27');
         if (!empty($GLOBALS['cfgRelation']['relation'])) {
-            $plugin_list['latex']['options'][] =
-                array('type' => 'bool', 'name' => 'relation', 'text' => __('Display foreign key relationships'));
+            $plugin_list['latex']['options'][]
+                = array('type' => 'bool', 'name' => 'relation', 'text' => __('Display foreign key relationships'));
         }
-        $plugin_list['latex']['options'][] =
-            array('type' => 'bool', 'name' => 'comments', 'text' => __('Display comments'));
+        $plugin_list['latex']['options'][]
+            = array('type' => 'bool', 'name' => 'comments', 'text' => __('Display comments'));
         if (!empty($GLOBALS['cfgRelation']['mimework'])) {
-            $plugin_list['latex']['options'][] =
-                array('type' => 'bool', 'name' => 'mime', 'text' => __('Display MIME types'));
+            $plugin_list['latex']['options'][]
+                = array('type' => 'bool', 'name' => 'mime', 'text' => __('Display MIME types'));
         }
-        $plugin_list['latex']['options'][] =
-            array('type' => 'end_group');
+        $plugin_list['latex']['options'][]
+            = array('type' => 'end_group');
     }
     /* Data */
-    $plugin_list['latex']['options'][] =
-        array('type' => 'begin_group', 'name' => 'data', 'text' => __('Data dump options'), 'force' => 'structure');
-    $plugin_list['latex']['options'][] =
-        array('type' => 'bool', 'name' => 'columns', 'text' => __('Put columns names in the first row'));
-    $plugin_list['latex']['options'][] =
-        array('type' => 'text', 'name' => 'data_caption', 'text' => __('Table caption'), 'doc' => 'faq6_27');
-    $plugin_list['latex']['options'][] =
-        array('type' => 'text', 'name' => 'data_continued_caption', 'text' => __('Table caption (continued)'), 'doc' => 'faq6_27');
-    $plugin_list['latex']['options'][] =
-        array('type' => 'text', 'name' => 'data_label', 'text' => __('Label key'), 'doc' => 'faq6_27');
-    $plugin_list['latex']['options'][] =
-        array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL with:'));
-    $plugin_list['latex']['options'][] =
-        array('type' => 'end_group');
+    $plugin_list['latex']['options'][]
+        = array('type' => 'begin_group', 'name' => 'data', 'text' => __('Data dump options'), 'force' => 'structure');
+    $plugin_list['latex']['options'][]
+        = array('type' => 'bool', 'name' => 'columns', 'text' => __('Put columns names in the first row'));
+    $plugin_list['latex']['options'][]
+        = array('type' => 'text', 'name' => 'data_caption', 'text' => __('Table caption'), 'doc' => 'faq6_27');
+    $plugin_list['latex']['options'][]
+        = array('type' => 'text', 'name' => 'data_continued_caption', 'text' => __('Table caption (continued)'), 'doc' => 'faq6_27');
+    $plugin_list['latex']['options'][]
+        = array('type' => 'text', 'name' => 'data_label', 'text' => __('Label key'), 'doc' => 'faq6_27');
+    $plugin_list['latex']['options'][]
+        = array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL with:'));
+    $plugin_list['latex']['options'][]
+        = array('type' => 'end_group');
 } else {
 
     /**

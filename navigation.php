@@ -464,8 +464,8 @@ function PMA_displayDbList($ext_dblist, $offset, $count)
                 } else {
                     $tables = PMA_getTableList($db['name']);
                 }
-                $child_visible =
-                    (bool) (count($GLOBALS['pma']->databases) === 1 || $db_start == $db['name']);
+                $child_visible
+                    = (bool) (count($GLOBALS['pma']->databases) === 1 || $db_start == $db['name']);
                 PMA_displayTableList($tables, $child_visible, '', $db['name']);
             } elseif ($GLOBALS['cfg']['LeftFrameLight']) {
                 // no tables and LeftFrameLight:

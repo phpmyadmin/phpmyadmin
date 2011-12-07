@@ -130,8 +130,8 @@ if ($GLOBALS['is_ajax_request'] != true) {
 
 if (isset($_REQUEST['index']) && is_array($_REQUEST['index'])) {
     // coming already from form
-    $add_fields =
-        count($_REQUEST['index']['columns']['names']) - $index->getColumnCount();
+    $add_fields
+        = count($_REQUEST['index']['columns']['names']) - $index->getColumnCount();
     if (isset($_REQUEST['add_fields'])) {
         $add_fields += $_REQUEST['added_fields'];
     }

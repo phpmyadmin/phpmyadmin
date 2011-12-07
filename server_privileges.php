@@ -1630,8 +1630,8 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
 
             while ($db_rights_row = PMA_DBI_fetch_assoc($db_rights_result)) {
                 $db_rights_row = array_merge($user_defaults, $db_rights_row);
-                $db_rights[$db_rights_row['User']][$db_rights_row['Host']] =
-                    $db_rights_row;
+                $db_rights[$db_rights_row['User']][$db_rights_row['Host']]
+                    = $db_rights_row;
             }
             PMA_DBI_free_result($db_rights_result);
             unset($db_rights_sql, $db_rights_sqls, $db_rights_result, $db_rights_row);
@@ -2260,8 +2260,8 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
     unset($row, $row1, $row2);
 
     // now, we build the table...
-    $list_of_privileges =
-        '`User`, '
+    $list_of_privileges
+        = '`User`, '
         . '`Host`, '
         . '`Select_priv`, '
         . '`Insert_priv`, '
@@ -2281,8 +2281,8 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         . '`Alter_routine_priv`, '
         . '`Execute_priv`';
 
-    $list_of_compared_privileges =
-        '`Select_priv` = \'N\''
+    $list_of_compared_privileges
+        = '`Select_priv` = \'N\''
         . ' AND `Insert_priv` = \'N\''
         . ' AND `Update_priv` = \'N\''
         . ' AND `Delete_priv` = \'N\''
