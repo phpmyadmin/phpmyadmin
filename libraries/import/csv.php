@@ -129,7 +129,7 @@ if (!$analyze) {
                 }
             }
             if (!$found) {
-                $message = PMA_Message::error(__('Invalid column (%s) specified! Ensure that columns names are spelled correctly, separated by commas, and not enclosed in quotes.' ));
+                $message = PMA_Message::error(__('Invalid column (%s) specified! Ensure that columns names are spelled correctly, separated by commas, and not enclosed in quotes.'));
                 $message->addParam($val);
                 $error = true;
                 break;
@@ -175,7 +175,8 @@ while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
         unset($data);
         // Do not parse string when we're not at the end and don't have new line inside
         if (($csv_new_line == 'auto' && strpos($buffer, "\r") === false && strpos($buffer, "\n") === false)
-            || ($csv_new_line != 'auto' && strpos($buffer, $csv_new_line) === false)) {
+            || ($csv_new_line != 'auto' && strpos($buffer, $csv_new_line) === false)
+        ) {
             continue;
         }
     }
@@ -269,7 +270,10 @@ while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
                 }
             }
             // Are we at the end?
-            if ($ch == $csv_new_line || ($csv_new_line == 'auto' && ($ch == "\r" || $ch == "\n")) || ($finished && $i == $len - 1)) {
+            if ($ch == $csv_new_line
+                || ($csv_new_line == 'auto' && ($ch == "\r" || $ch == "\n"))
+                || ($finished && $i == $len - 1)
+            ) {
                 $csv_finish = true;
             }
             // Go to next char
@@ -287,7 +291,10 @@ while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
         }
 
         // End of line
-        if ($csv_finish || $ch == $csv_new_line || ($csv_new_line == 'auto' && ($ch == "\r" || $ch == "\n"))) {
+        if ($csv_finish
+            || $ch == $csv_new_line
+            || ($csv_new_line == 'auto' && ($ch == "\r" || $ch == "\n"))
+        ) {
             if ($csv_new_line == 'auto' && $ch == "\r") { // Handle "\r\n"
                 if ($i >= ($len - 2) && !$finished) {
                     break; // We need more data to decide new line
@@ -377,7 +384,9 @@ if ($analyze) {
         $col_names = $col_names[0];
     }
 
-    if ((isset($col_names) && count($col_names) != $max_cols) || !isset($col_names)) {
+    if ((isset($col_names) && count($col_names) != $max_cols)
+        || ! isset($col_names)
+    ) {
         // Fill out column names
         for ($i = 0; $i < $max_cols; ++$i) {
             $col_names[] = 'COL '.($i+1);
