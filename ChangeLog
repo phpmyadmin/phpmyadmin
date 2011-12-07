@@ -71,6 +71,7 @@ phpMyAdmin - ChangeLog
 - bug #3384035 [display] Problems regarding ShowTooltipAliasTB
 - bug #3306875 [edit] Can't rename a database that contains views
 - bug #3452506 [edit] Unable to move tables with triggers
+- bug #3449659 [navi] Fast filter broken with table tree
 
 3.4.8.0 (2011-12-01)
 - bug #3425230 [interface] enum data split at space char (more space to edit)
