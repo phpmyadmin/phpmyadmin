@@ -187,33 +187,28 @@ function Swekey_HttpGet($url, &$response_code)
     $gSwekeyLastResult = "<not set>";
 
      // use curl if available
-    if (function_exists('curl_init'))
-    {
+    if (function_exists('curl_init')) {
         $sess = curl_init($url);
-        if (substr($url, 0, 8) == "https://")
-        {
+        if (substr($url, 0, 8) == "https://") {
             global $gSwekeyCA;
 
-            if (! empty($gSwekeyCA))
-            {
-                if (file_exists($gSwekeyCA))
-                {
-                    if (! curl_setopt($sess, CURLOPT_CAINFO, $gSwekeyCA))
+            if (! empty($gSwekeyCA)) {
+                if (file_exists($gSwekeyCA)) {
+                    if (! curl_setopt($sess, CURLOPT_CAINFO, $gSwekeyCA)) {
                         error_log("SWEKEY_ERROR:Could not set CA file : ".curl_error($sess));
-                    else
+                    } else {
                         $caFileOk = true;
-                }
-                else
+                    }
+                } else {
                     error_log("SWEKEY_ERROR:Could not find CA file $gSwekeyCA getting $url");
+                }
             }
 
             curl_setopt($sess, CURLOPT_SSL_VERIFYHOST, '2');
             curl_setopt($sess, CURLOPT_SSL_VERIFYPEER, '2');
             curl_setopt($sess, CURLOPT_CONNECTTIMEOUT, '20');
             curl_setopt($sess, CURLOPT_TIMEOUT, '20');
-        }
-        else
-        {
+        } else {
             curl_setopt($sess, CURLOPT_CONNECTTIMEOUT, '3');
             curl_setopt($sess, CURLOPT_TIMEOUT, '5');
         }
@@ -224,18 +219,16 @@ function Swekey_HttpGet($url, &$response_code)
         $curlerr = curl_error($sess);
         curl_close($sess);
 
-        if ($response_code == 200)
-        {
+        if ($response_code == 200) {
             $gSwekeyLastResult = $res;
             return $res;
         }
 
-        if (! empty($response_code))
-        {
+        if (! empty($response_code)) {
             $gSwekeyLastError = $response_code;
             error_log("SWEKEY_ERROR:Error $gSwekeyLastError ($curlerr) getting $url");
             return "";
-       }
+        }
 
         $response_code = 408; // Request Timeout
         $gSwekeyLastError = $response_code;
@@ -244,28 +237,28 @@ function Swekey_HttpGet($url, &$response_code)
     }
 
     // use pecl_http if available
-    if (class_exists('HttpRequest'))
-    {
+    if (class_exists('HttpRequest')) {
         // retry if one of the server is down
-        for ($num=1; $num <= 3; $num++ )
-        {
+        for ($num=1; $num <= 3; $num++ ) {
             $r = new HttpRequest($url);
             $options = array('timeout' => '3');
 
-            if (substr($url, 0, 6) == "https:")
-            {
+            if (substr($url, 0, 6) == "https:") {
                 $sslOptions = array();
                 $sslOptions['verifypeer'] = true;
                 $sslOptions['verifyhost'] = true;
 
                 $capath = __FILE__;
                 $name = strrchr($capath, '/');
-                if (empty($name)) // windows
+                // windows
+                if (empty($name)) {
                     $name = strrchr($capath, '\\');
+                }
                 $capath = substr($capath, 0, strlen($capath) - strlen($name) + 1).'musbe-ca.crt';
 
-                if (! empty($gSwekeyCA))
+                if (! empty($gSwekeyCA)) {
                     $sslOptions['cainfo'] = $gSwekeyCA;
+                }
 
                 $options['ssl'] = $sslOptions;
             }
@@ -304,8 +297,7 @@ function Swekey_HttpGet($url, &$response_code)
        global $http_response_header;
     $res = @file_get_contents($url);
     $response_code = substr($http_response_header[0], 9, 3); //HTTP/1.0
-    if ($response_code == 200)
-    {
+    if ($response_code == 200) {
        $gSwekeyLastResult = $res;
        return $res;
     }
@@ -355,51 +347,47 @@ function Swekey_GetFastHalfRndToken()
     $cachefile = "";
 
     // We check if we have a valid RT is the session
-    if (isset($_SESSION['rnd-token-date']))
-       if (time() - $_SESSION['rnd-token-date'] < 30)
+    if (isset($_SESSION['rnd-token-date'])) {
+        if (time() - $_SESSION['rnd-token-date'] < 30) {
              $res = $_SESSION['rnd-token'];
+        }
+    }
 
     // If not we try to get it from a temp file (PHP >= 5.2.1 only)
-   if (strlen($res) != 32 && $gSwekeyTokenCacheEnabled)
-   {
-        if (function_exists('sys_get_temp_dir'))
-        {
+    if (strlen($res) != 32 && $gSwekeyTokenCacheEnabled) {
+        if (function_exists('sys_get_temp_dir')) {
             $tempdir = sys_get_temp_dir();
             $cachefile = $tempdir."/swekey-rnd-token-".get_current_user();
             $modif = filemtime($cachefile);
-            if ($modif != false)
-                if (time() - $modif < 30)
-                {
+            if ($modif != false) {
+                if (time() - $modif < 30) {
                     $res = @file_get_contents($cachefile);
-                    if (strlen($res) != 32)
-                        $res = "";
-                       else
-                       {
-                            $_SESSION['rnd-token'] = $res;
-                            $_SESSION['rnd-token-date'] = $modif;
-                     }
+                    if (strlen($res) != 32) {
+                         $res = "";
+                    } else {
+                         $_SESSION['rnd-token'] = $res;
+                         $_SESSION['rnd-token-date'] = $modif;
+                    }
                 }
+            }
         }
-   }
+    }
 
-   // If we don't have a valid RT here we have to get it from the server
-   if (strlen($res) != 32)
-   {
+    // If we don't have a valid RT here we have to get it from the server
+    if (strlen($res) != 32) {
         $res = substr(Swekey_GetHalfRndToken(), 0, 32);
         $_SESSION['rnd-token'] = $res;
         $_SESSION['rnd-token-date'] = time();
-        if (! empty($cachefile))
-        {
+        if (! empty($cachefile)) {
             // we unlink the file so no possible tempfile race attack
             unlink($cachefile);
-               $file = fopen($cachefile, "x");
-               if ($file != false)
-               {
-                   @fwrite($file, $res);
+            $file = fopen($cachefile, "x");
+            if ($file != false) {
+                @fwrite($file, $res);
                 @fclose($file);
             }
         }
-   }
+    }
 
    return $res."00000000000000000000000000000000";
 }
