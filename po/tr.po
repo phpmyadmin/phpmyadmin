@@ -11259,7 +11259,7 @@ msgstr "Sütun"
 #| msgid "Line"
 msgctxt "Chart type"
 msgid "Line"
-msgstr ""
+msgstr "Çizgi"
 
 #: tbl_chart.php:91
 #| msgid "Spline"
