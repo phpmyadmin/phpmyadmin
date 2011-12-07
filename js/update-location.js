@@ -32,9 +32,20 @@ function setURLHash(hash)
         }
         if (hash_init_done) {
             window.location.hash = "PMAURL:" + hash;
+            fix_favicon();
         } else {
             hash_to_set = "PMAURL:" + hash;
         }
+    }
+}
+
+// Fix favicon disappearing in Firefox when setting location.hash
+// See bug #3448485
+function fix_favicon() {
+    if (jQuery.browser.mozilla) {
+        // Move the link tags for the favicon to the bottom
+        // of the head element to force a reload of the favicon
+        $('head > link[href=\\.\\/favicon\\.ico]').appendTo('head');
     }
 }
 
@@ -56,6 +67,7 @@ $(document).ready(function(){
     if (hash_to_set != "") {
         window.location.hash = hash_to_set;
         hash_to_set = "";
+        fix_favicon();
     }
     /* Indicate that we're done (and we are not going to change location */
     hash_init_done = 1;
