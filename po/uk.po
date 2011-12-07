@@ -3327,6 +3327,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import and export operations"
 msgstr ""
+"Вімкнути [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] компресію для "
+"операцій імпорту та експорту"
 
 #: libraries/config/messages.inc.php:31
 msgid "Bzip2"
