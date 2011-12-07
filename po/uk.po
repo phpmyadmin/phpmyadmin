@@ -3316,7 +3316,7 @@ msgstr "Маркер рядка"
 
 #: libraries/config/messages.inc.php:28
 msgid "Highlight row pointed by the mouse cursor"
-msgstr ""
+msgstr "Виділяти радок курсором миші"
 
 #: libraries/config/messages.inc.php:29
 msgid "Highlight pointer"
