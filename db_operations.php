@@ -134,7 +134,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
                 $sql_view_standin = PMA_getTableDefStandIn($db, $each_table, "\n");
                 PMA_DBI_select_db($newname);
                 PMA_DBI_query($sql_view_standin);
-                $GLOBALS['sql_query'] .= "\n" . $sql_view_standin . ';';
+                $GLOBALS['sql_query'] .= "\n" . $sql_view_standin;
             }
         }
 
