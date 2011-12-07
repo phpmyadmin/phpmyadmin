@@ -1033,6 +1033,17 @@ class PMA_Table
             return false;
         }
 
+        // If the table is moved to a different database drop its triggers first
+        $triggers = PMA_DBI_get_triggers($this->getDbName(), $this->getName(), '');
+        $handle_triggers = $this->getDbName() != $new_db && $triggers;
+        if ($handle_triggers) {
+            foreach ($triggers as $trigger) {
+                $sql = 'DROP TRIGGER IF EXISTS ' . PMA_backquote($this->getDbName()) . '.'
+                    . PMA_backquote($trigger['name']) . ';';
+                PMA_DBI_query($sql);
+            }
+        }
+
         /*
          * tested also for a view, in MySQL 5.0.92, 5.1.55 and 5.5.13
          */
@@ -1041,6 +1052,13 @@ class PMA_Table
                   TO ' . $new_table->getFullName(true) . ';';
         // I don't think a specific error message for views is necessary
         if (! PMA_DBI_query($GLOBALS['sql_query'])) {
+            // Restore triggers in the old database
+            if ($handle_triggers) {
+                PMA_DBI_select_db($this->getDbName());
+                foreach ($triggers as $trigger) {
+                    PMA_DBI_query($trigger['create']);
+                }
+            }
             $this->errors[] = sprintf(__('Error renaming table %1$s to %2$s'), $this->getFullName(), $new_table->getFullName());
             return false;
         }
