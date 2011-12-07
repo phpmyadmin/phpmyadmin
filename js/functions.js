@@ -3137,8 +3137,9 @@ var toggleButton = function ($obj) {
     var on  = $('.toggleOn', $obj).width();
     var off = $('.toggleOff', $obj).width();
     // Make the "ON" and "OFF" parts of the switch the same size
-    $('.toggleOn > div', $obj).width(Math.max(on, off));
-    $('.toggleOff > div', $obj).width(Math.max(on, off));
+    // + 2 pixels to avoid overflowed
+    $('.toggleOn > div', $obj).width(Math.max(on, off) + 2);
+    $('.toggleOff > div', $obj).width(Math.max(on, off) + 2);
     /**
      *  var  w  Width of the central part of the switch
      */
