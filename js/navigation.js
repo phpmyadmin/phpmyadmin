@@ -152,7 +152,7 @@ function fast_filter(value){
         if (value && $elem.html().toLowerCase().indexOf(lowercase_value) == -1) {
             $elem.parent().hide();
         } else {
-            $elem.parent().show();
+            $elem.parents('li').show();
         }
     });
 }
