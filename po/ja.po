@@ -6717,10 +6717,10 @@ msgid "Go to database"
 msgstr "データベースに移動"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
-msgstr "%s ためのデータがありません"
+msgstr "%s に対する設定の変更を行います"
 
 #: libraries/import.lib.php:1127
 msgid "Go to table"
