@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-08 11:40+0200\n"
+"PO-Revision-Date: 2011-12-08 11:41+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -8452,9 +8452,7 @@ msgstr ""
 
 #: main.php:308
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
-msgstr ""
-"設定ファイルが秘密のパスフレーズ (blowfish_secret) を必要とするようになりまし"
-"た"
+msgstr "設定ファイルに、暗号化 (blowfish_secret) 用のパスフレーズの設定を必要とするようになりました。"
 
 #: main.php:316
 msgid ""
