@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-08 11:39+0200\n"
+"PO-Revision-Date: 2011-12-08 11:40+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2931,7 +2931,7 @@ msgstr "最後"
 #: libraries/common.lib.php:2549
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr "&quot;%s&quot; データベースに移動"
+msgstr "データベース「%s」に移動する"
 
 #: libraries/common.lib.php:2569
 #, php-format
