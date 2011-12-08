@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-08 11:38+0200\n"
+"PO-Revision-Date: 2011-12-08 11:39+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1687,7 +1687,7 @@ msgstr "読み込み中"
 
 #: js/messages.php:223
 msgid "Processing Request"
-msgstr "要求を処理中"
+msgstr "要求を処理しています"
 
 #: js/messages.php:224 libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
