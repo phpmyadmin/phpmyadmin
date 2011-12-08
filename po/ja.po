@@ -6696,7 +6696,7 @@ msgstr "返り値が空でした(行数0)"
 #: libraries/import.lib.php:1100
 msgid ""
 "The following structures have either been created or altered. Here you can:"
-msgstr "下に示す構成が、作成もしくは変更されました。ここで次のことが行えます。"
+msgstr "以下に示す構成が、作成もしくは変更されました。ここで次のことが行えます。"
 
 #: libraries/import.lib.php:1101
 msgid "View a structure's contents by clicking on its name"
