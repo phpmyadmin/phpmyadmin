@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-08 14:18+0200\n"
-"Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
+"PO-Revision-Date: 2011-12-10 09:34+0200\n"
+"Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -1171,7 +1171,7 @@ msgstr "Перезавантаження прав"
 
 #: js/messages.php:61
 msgid "Removing Selected Users"
-msgstr "Видалити відмічених користувачів"
+msgstr "Видалення відмічених користувачів"
 
 #: js/messages.php:62 js/messages.php:141 tbl_tracking.php:235
 #: tbl_tracking.php:400
