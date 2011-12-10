@@ -1564,7 +1564,7 @@ msgstr "Диференціальний"
 #: js/messages.php:171
 #, php-format
 msgid "Divided by %s:"
-msgstr "Розділено через %s:"
+msgstr "Розділено по %s:"
 
 #: js/messages.php:173
 msgid "From slow log"
