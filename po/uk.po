@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-10 10:11+0200\n"
+"PO-Revision-Date: 2011-12-10 10:22+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -1781,7 +1781,7 @@ msgstr "Зміна Кодування"
 
 #: js/messages.php:235
 msgid "Table must have at least one column"
-msgstr "Таблиця повинна мати принаймі один Стовпчик"
+msgstr "Таблиця повинна мати принаймі один стовпчик"
 
 #: js/messages.php:240
 msgid "Insert Table"
