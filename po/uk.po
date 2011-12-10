@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-10 10:22+0200\n"
+"PO-Revision-Date: 2011-12-10 10:30+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -1894,7 +1894,7 @@ msgstr ""
 
 #: js/messages.php:288
 msgid "Click and drag the mouse to navigate the plot."
-msgstr "Перетягніть мишу для навігації по графіку."
+msgstr "Натисніть і перетягніть мишу для навігації по графіку."
 
 #: js/messages.php:290
 msgid "Click reset zoom link to come back to original state."
