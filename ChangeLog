@@ -62,6 +62,7 @@ phpMyAdmin - ChangeLog
 + [interface] Improved index editor
 + View editing via a generated ALTER VIEW
 - bug #3408377 [interface] Deleting table from the DB does not change the table counter
++ rfe #3438266 [designer] Toggle for relation lines
 
 3.4.9.0 (not yet released)
 - bug #3442028 [edit] Inline editing enum fields with null shows no dropdown

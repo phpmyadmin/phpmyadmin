@@ -10,6 +10,7 @@
 
  var _change = 0; // variable to track any change in designer layout.
  var _staying = 0; //  variable to check if the user stayed after seeing the confirmation prompt.
+ var show_relation_lines = true;
 
 // Below is the function to bind onbeforeunload events with the content_frame as well as the top window.
 
@@ -344,6 +345,9 @@ function Line(x1, y1, x2, y2, color_line)
  */
 function Line0(x1, y1, x2, y2, color_line)
 {
+    if (! show_relation_lines) {
+        return;
+    }
     Circle(x1, y1, 3, 3, color_line);
     Rect(x2 - 1, y2 - 2, 4, 4, color_line);
 
@@ -633,6 +637,12 @@ function Small_tab_invert() // invert max/min all tables
     for (key in j_tabs) {
         Small_tab(key, 0);
     }
+    Re_load();
+}
+
+function Relation_lines_invert()
+{
+    show_relation_lines = ! show_relation_lines;
     Re_load();
 }
 

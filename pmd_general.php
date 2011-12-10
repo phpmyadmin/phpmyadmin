@@ -94,11 +94,11 @@ echo $script_tabs . $script_contr . $script_display_field;
             onclick="Small_tab_all(document.getElementById('key_SB_all')); return false" class="M_butt" target="_self"
         ><img id='key_SB_all' title="<?php echo __('Small/Big All'); ?>" alt="v"
                 src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/downarrow1.png"
-        /></a><a href="#" onclick="Small_tab_invert(); return false"
-            class="M_butt" target="_self"
-        ><img title="<?php echo __('Toggle small/big'); ?>" alt="key" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/bottom.png"
-        /></a><img class="M_bord" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/bord.png" alt=""
-        /><a href="#" onclick="PDF_save(); return false"
+        /></a>
+<a href="#" onclick="Small_tab_invert(); return false" class="M_butt" target="_self" ><img title="<?php echo __('Toggle small/big'); ?>" alt="key" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/bottom.png" /></a>
+<a href="#" onclick="Relation_lines_invert(); return false" class="M_butt" target="_self" ><img title="<?php echo __('Toggle relation lines'); ?>" alt="key" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/toggle_lines.png" /></a>
+<img class="M_bord" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/bord.png" alt="" />
+<a href="#" onclick="PDF_save(); return false"
             class="M_butt" target="_self"
         ><img src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/pdf.png" alt="key" width="20" height="20"
                 title="<?php echo __('Import/Export coordinates for PDF schema'); ?>" /></a
