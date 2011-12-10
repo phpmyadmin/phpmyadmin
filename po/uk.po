@@ -1320,7 +1320,7 @@ msgstr "Мб"
 #: js/messages.php:105 js/messages.php:126 libraries/common.lib.php:1390
 #: server_status.php:1668
 msgid "KiB"
-msgstr "кБ"
+msgstr "КБ"
 
 #: js/messages.php:107
 msgid "Average load"
