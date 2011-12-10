@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-10 08:20+0200\n"
+"PO-Revision-Date: 2011-12-10 08:21+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1530,7 +1530,7 @@ msgstr ""
 
 #: js/messages.php:175
 msgid "Analysing & loading logs. This may take a while."
-msgstr "ログの解析および読み込み中。すこし時間がかかることがあります。"
+msgstr "ログの解析および読み込みを行っています。少し時間がかかることがあります。"
 
 #: js/messages.php:176
 msgid ""
