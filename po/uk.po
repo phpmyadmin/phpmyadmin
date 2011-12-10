@@ -1539,7 +1539,7 @@ msgid ""
 "database administrator."
 msgstr ""
 "Ви не можете змінити ці змінні. Будь ласка увійдіть як root або зв'яжіться з "
-"Вашим адміністратором БД."
+"вашим адміністратором БД."
 
 #: js/messages.php:165
 #| msgid "General relation features"
