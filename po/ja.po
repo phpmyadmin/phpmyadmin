@@ -1683,7 +1683,7 @@ msgstr "キャンセル"
 
 #: js/messages.php:222
 msgid "Loading"
-msgstr "読み込み中"
+msgstr "読み込んでいます"
 
 #: js/messages.php:223
 msgid "Processing Request"
