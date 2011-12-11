@@ -387,12 +387,12 @@ $(document).ready(function() {
                         $('#tracked_tables').hide("slow").remove();
                     } else {
                         // There are more rows left after the deletion
-                        $curr_tracking_row.hide("slow", function () {
+                        $curr_tracking_row.hide("slow", function() {
                             $(this).remove();
                             // Maybe some row classes are wrong now. Iterate and correct.
                             var ct = 0;
                             var rowclass = '';
-                            $tracked_table.find('tbody tr').each(function () {
+                            $tracked_table.find('tbody tr').each(function() {
                                 rowclass = (ct % 2 === 0) ? 'odd' : 'even';
                                 $(this).removeClass().addClass(rowclass);
                                 ct++;
@@ -402,23 +402,39 @@ $(document).ready(function() {
 
                     // Make the removed table visible in the list of 'Untracked tables'.
                     $untracked_table = $('table#noversions');
-                    $untracked_table.find('tbody tr').each(function () {
-                        var $row = $(this);
-                        var tmp_tbl_name = $row.find('td:nth-child(1)').text();
-                        if (tmp_tbl_name > table_name) {
-                            var $cloned = $row.clone();
-                            // Change the table name of the cloned row.
-                            $cloned.find('td:first-child').text(table_name);
-                            // Change the link of the cloned row.
-                            var new_url = $cloned
-                                .find('td:nth-child(2) a')
-                                .attr('href')
-                                .replace('table=' + tmp_tbl_name, 'table=' + table_name);
-                            $cloned.find('td:nth-child(2) a').attr('href', new_url);
-                            $cloned.insertBefore($row);
-                            return false;
-                        }
-                    });
+
+                    // This won't work if no untracked tables are there.
+                    if ($untracked_table.length > 0) {
+                        var $rows = $untracked_table.find('tbody tr');
+
+                        $rows.each(function(index) {
+                            var $row = $(this);
+                            var tmp_tbl_name = $row.find('td:first-child').text();
+                            var is_last_iteration = (index == ($rows.length - 1));
+
+                            if (tmp_tbl_name > table_name || is_last_iteration) {
+                                var $cloned = $row.clone();
+
+                                // Change the table name of the cloned row.
+                                $cloned.find('td:first-child').text(table_name);
+
+                                // Change the link of the cloned row.
+                                var new_url = $cloned
+                                    .find('td:nth-child(2) a')
+                                    .attr('href')
+                                    .replace('table=' + tmp_tbl_name, 'table=' + encodeURIComponent(table_name));
+                                $cloned.find('td:nth-child(2) a').attr('href', new_url);
+
+                                // Insert the cloned row in an appropriate location.
+                                if (tmp_tbl_name > table_name) {
+                                    $cloned.insertBefore($row);
+                                    return false;
+                                } else {
+                                    $cloned.insertAfter($row);
+                                }
+                            }
+                        });
+                    }
 
                     // Maybe some row classes are wrong now. Iterate and correct.
                     var ct = 0;
