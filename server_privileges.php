@@ -16,6 +16,8 @@ require_once './libraries/common.inc.php';
 $GLOBALS['js_include'][] = 'server_privileges.js';
 $GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.16.custom.js';
+$GLOBALS['js_include'][] = 'codemirror/lib/codemirror.js';
+$GLOBALS['js_include'][] = 'codemirror/mode/mysql/mysql.js';
 $_add_user_error = false;
 
 require './libraries/server_common.inc.php';
@@ -1540,16 +1542,18 @@ if (isset($viewing_mode) && $viewing_mode == 'db') {
 
 // export user definition
 if (isset($_REQUEST['export'])) {
-    echo '<h2>' . __('User') . ' \'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\'</h2>';
-    echo '<textarea cols="' . $GLOBALS['cfg']['TextareaCols'] . '" rows="' . $GLOBALS['cfg']['TextareaRows'] . '">';
+    $title = __('User') . ' `' . htmlspecialchars($username) . '`@`' . htmlspecialchars($hostname) . '`';
+    $response = '<textarea cols="' . $GLOBALS['cfg']['TextareaCols'] . '" rows="' . $GLOBALS['cfg']['TextareaRows'] . '">';
     $grants = PMA_DBI_fetch_result("SHOW GRANTS FOR '" . PMA_sqlAddSlashes($username) . "'@'" . PMA_sqlAddSlashes($hostname) . "'");
     foreach ($grants as $one_grant) {
-        echo $one_grant . ";\n\n";
+        $response .= $one_grant . ";\n\n";
     }
-    echo '</textarea>';
+    $response .= '</textarea>';
     unset($username, $hostname, $grants, $one_grant);
     if ($GLOBALS['is_ajax_request']) {
-        exit;
+        PMA_ajaxResponse($response, 1, array('title' => $title));
+    } else {
+        echo "<h2>$title</h2>$response";
     }
 }
 

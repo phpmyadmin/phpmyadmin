@@ -467,27 +467,39 @@ $(document).ready(function() {
      * @name        export_user_click
      */
     $(".export_user_anchor.ajax").live('click', function(event) {
-        /** @lends jQuery */
         event.preventDefault();
-
         var $msgbox = PMA_ajaxShowMessage();
-
         /**
          * @var button_options  Object containing options for jQueryUI dialog buttons
          */
         var button_options = {};
-        button_options[PMA_messages['strClose']] = function() {$(this).dialog("close").remove();}
-
+        button_options[PMA_messages['strClose']] = function() {
+            $(this).dialog("close");
+        };
         $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
-            $('<div id="export_dialog"></div>')
-            .prepend(data)
+            var $ajaxDialog = $('<div />')
+            .append(data.message)
             .dialog({
-                width : 500,
-                buttons: button_options
+                title: data.title,
+                width: 500,
+                buttons: button_options,
+                close: function () {
+                    $(this).remove();
+                }
             });
             PMA_ajaxRemoveMessage($msgbox);
-        }) //end $.get
-    }) //end export privileges
+            // Attach syntax highlited editor to export dialog
+            CodeMirror.fromTextArea(
+                $ajaxDialog.find('textarea')[0],
+                {
+                    lineNumbers: true,
+                    matchBrackets: true,
+                    indentUnit: 4,
+                    mode: "text/x-mysql"
+                }
+            );
+        }); //end $.get
+    }); //end export privileges
 
     /**
      * AJAX handler to Paginate the Users Table
