@@ -387,16 +387,9 @@ $(document).ready(function() {
                         $('#tracked_tables').hide("slow").remove();
                     } else {
                         // There are more rows left after the deletion
+                        toggleRowColors($curr_tracking_row.next());
                         $curr_tracking_row.hide("slow", function() {
                             $(this).remove();
-                            // Maybe some row classes are wrong now. Iterate and correct.
-                            var ct = 0;
-                            var rowclass = '';
-                            $tracked_table.find('tbody tr').each(function() {
-                                rowclass = (ct % 2 === 0) ? 'odd' : 'even';
-                                $(this).removeClass().addClass(rowclass);
-                                ct++;
-                            });
                         });
                     }
 
@@ -428,22 +421,15 @@ $(document).ready(function() {
                                 // Insert the cloned row in an appropriate location.
                                 if (tmp_tbl_name > table_name) {
                                     $cloned.insertBefore($row);
+                                    toggleRowColors($row);
                                     return false;
                                 } else {
                                     $cloned.insertAfter($row);
+                                    toggleRowColors($cloned);
                                 }
                             }
                         });
                     }
-
-                    // Maybe some row classes are wrong now. Iterate and correct.
-                    var ct = 0;
-                    var rowclass = '';
-                    $untracked_table.find('tbody tr').each(function () {
-                        rowclass = (ct % 2 === 0) ? 'odd' : 'even';
-                        $(this).removeClass().addClass(rowclass);
-                        ct++;
-                    });
 
                     PMA_ajaxShowMessage(data.message);
                 } else {
