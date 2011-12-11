@@ -76,6 +76,7 @@ $all_tables_result = PMA_query_as_controluser($all_tables_query);
 // If a HEAD version exists
 if (PMA_DBI_num_rows($all_tables_result) > 0) {
 ?>
+    <div id="tracked_tables">
     <h3><?php echo __('Tracked tables');?></h3>
 
     <table id="versions" class="data">
@@ -146,6 +147,7 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
     ?>
     </tbody>
     </table>
+    </div>
 <?php
 }
 

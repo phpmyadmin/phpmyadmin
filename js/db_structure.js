@@ -366,7 +366,7 @@ $(document).ready(function() {
         /**
          * @var curr_tracking_row   Object containing reference to the current tracked table's row
          */
-        var curr_tracking_row = $anchor.parents('tr');
+        var $curr_tracking_row = $anchor.parents('tr');
          /**
          * @var question    String containing the question to be asked for confirmation
          */
@@ -378,15 +378,64 @@ $(document).ready(function() {
 
             $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
                 if(data.success == true) {
+                    var $tracked_table = $curr_tracking_row.parents('table');
+                    var table_name = $curr_tracking_row.find('td:nth-child(2)').text();
+
+                    // Check how many rows will be left after we remove
+                    if ($tracked_table.find('tbody tr').length === 1) {
+                        // We are removing the only row it has
+                        $('#tracked_tables').hide("slow").remove();
+                    } else {
+                        // There are more rows left after the deletion
+                        $curr_tracking_row.hide("slow", function () {
+                            $(this).remove();
+                            // Maybe some row classes are wrong now. Iterate and correct.
+                            var ct = 0;
+                            var rowclass = '';
+                            $tracked_table.find('tbody tr').each(function () {
+                                rowclass = (ct % 2 === 0) ? 'odd' : 'even';
+                                $(this).removeClass().addClass(rowclass);
+                                ct++;
+                            });
+                        });
+                    }
+
+                    // Make the removed table visible in the list of 'Untracked tables'.
+                    $untracked_table = $('table#noversions');
+                    $untracked_table.find('tbody tr').each(function () {
+                        var $row = $(this);
+                        var tmp_tbl_name = $row.find('td:nth-child(1)').text();
+                        if (tmp_tbl_name > table_name) {
+                            var $cloned = $row.clone();
+                            // Change the table name of the cloned row.
+                            $cloned.find('td:first-child').text(table_name);
+                            // Change the link of the cloned row.
+                            var new_url = $cloned
+                                .find('td:nth-child(2) a')
+                                .attr('href')
+                                .replace('table=' + tmp_tbl_name, 'table=' + table_name);
+                            $cloned.find('td:nth-child(2) a').attr('href', new_url);
+                            $cloned.insertBefore($row);
+                            return false;
+                        }
+                    });
+
+                    // Maybe some row classes are wrong now. Iterate and correct.
+                    var ct = 0;
+                    var rowclass = '';
+                    $untracked_table.find('tbody tr').each(function () {
+                        rowclass = (ct % 2 === 0) ? 'odd' : 'even';
+                        $(this).removeClass().addClass(rowclass);
+                        ct++;
+                    });
+
                     PMA_ajaxShowMessage(data.message);
-                    $(curr_tracking_row).hide("medium").remove();
-                }
-                else {
+                } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
-            }) // end $.get()
-        }) // end $.PMA_confirm()
-    }) //end Drop Tracking
+            }); // end $.get()
+        }); // end $.PMA_confirm()
+    }); //end Drop Tracking
 
     //Calculate Real End for InnoDB
     /**
