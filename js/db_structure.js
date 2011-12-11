@@ -338,6 +338,7 @@ $(document).ready(function() {
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
                 if (data.success == true) {
                     PMA_ajaxShowMessage(data.message);
+                    toggleRowColors($curr_row.next());
                     $curr_row.hide("medium").remove();
                     PMA_adjustTotals();
 
