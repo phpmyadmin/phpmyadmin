@@ -3720,3 +3720,19 @@ $(document).ready(function () {
         );
     }
 });
+
+/**
+ * Toggles row colors of a set of 'tr' elements starting from a given element
+ * 
+ * @param $start Starting element
+ */
+function toggleRowColors($start) 
+{  
+    for (var $curr_row = $start; $curr_row.length > 0; $curr_row = $curr_row.next()) {
+        if ($curr_row.hasClass('odd')) {
+            $curr_row.removeClass('odd').addClass('even');
+        } else if ($curr_row.hasClass('even')) {
+            $curr_row.removeClass('even').addClass('odd');
+        }
+    }
+}

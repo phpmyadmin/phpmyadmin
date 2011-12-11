@@ -35,11 +35,11 @@ $(document).ready(function() {
         /**
          * @var curr_row    Object reference to the currently selected row (i.e. field in the table)
          */
-        var curr_row = $(this).parents('tr');
+        var $curr_row = $(this).parents('tr');
         /**
          * @var curr_column_name    String containing name of the field referred to by {@link curr_row}
          */
-        var curr_column_name = $(curr_row).children('th').children('label').text();
+        var curr_column_name = $curr_row.children('th').children('label').text();
         /**
          * @var $after_field_item    Corresponding entry in the 'After' field.
          */
@@ -56,8 +56,9 @@ $(document).ready(function() {
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
                 if(data.success == true) {
                     PMA_ajaxShowMessage(data.message);
+                    toggleRowColors($curr_row.next());
                     $after_field_item.remove();
-                    $(curr_row).hide("medium").remove();
+                    $curr_row.hide("medium").remove();
                 }
                 else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
@@ -151,6 +152,7 @@ $(document).ready(function() {
                         $table_ref.siblings('div.notice').hide('medium');
                     } else {
                         // We are removing some of the rows only
+                        toggleRowColors($rows_to_hide.last().next());
                         $rows_to_hide.hide("medium", function () {
                             $(this).remove();
                         });
