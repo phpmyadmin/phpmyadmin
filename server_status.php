@@ -169,7 +169,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             if (count($statusVars)) {
                 $statusVarValues = PMA_DBI_fetch_result(
                     "SHOW GLOBAL STATUS
-                    WHERE Variable_name='" . implode("' OR Variable_name='", $statusVars) . "'", 0, 1);
+                    WHERE Variable_name='" . implode("' OR Variable_name='", $statusVars) . "'", 0, 1
+                );
             } else {
                 $statusVarValues = array();
             }
@@ -178,7 +179,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             if (count($serverVars)) {
                 $serverVarValues = PMA_DBI_fetch_result(
                     "SHOW GLOBAL VARIABLES
-                    WHERE Variable_name='" . implode("' OR Variable_name='", $serverVars) . "'", 0, 1);
+                    WHERE Variable_name='" . implode("' OR Variable_name='", $serverVars) . "'", 0, 1
+                );
             } else {
                 $serverVarValues = array();
             }
@@ -317,7 +319,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                     }
                     break;
 
-                default: break;
+                default:
+                    break;
                 }
 
                 $return['rows'][] = $row;
@@ -484,8 +487,9 @@ cleanDeprecated($server_status);
  */
 // Key_buffer_fraction
 if (isset($server_status['Key_blocks_unused'])
-        && isset($server_variables['key_cache_block_size'])
-        && isset($server_variables['key_buffer_size'])) {
+    && isset($server_variables['key_cache_block_size'])
+    && isset($server_variables['key_buffer_size'])
+) {
     $server_status['Key_buffer_fraction_%']
         = 100
         - $server_status['Key_blocks_unused']
@@ -498,25 +502,28 @@ if (isset($server_status['Key_blocks_unused'])
         = $server_status['Key_blocks_used']
         * 1024
         / $server_variables['key_buffer_size'];
-  }
+}
 
 // Ratio for key read/write
 if (isset($server_status['Key_writes'])
-        && isset($server_status['Key_write_requests'])
-        && $server_status['Key_write_requests'] > 0) {
+    && isset($server_status['Key_write_requests'])
+    && $server_status['Key_write_requests'] > 0
+) {
     $server_status['Key_write_ratio_%'] = 100 * $server_status['Key_writes'] / $server_status['Key_write_requests'];
 }
 
 if (isset($server_status['Key_reads'])
-        && isset($server_status['Key_read_requests'])
-        && $server_status['Key_read_requests'] > 0) {
+    && isset($server_status['Key_read_requests'])
+    && $server_status['Key_read_requests'] > 0
+) {
     $server_status['Key_read_ratio_%'] = 100 * $server_status['Key_reads'] / $server_status['Key_read_requests'];
 }
 
 // Threads_cache_hitrate
 if (isset($server_status['Threads_created'])
     && isset($server_status['Connections'])
-    && $server_status['Connections'] > 0) {
+    && $server_status['Connections'] > 0
+) {
 
     $server_status['Threads_cache_hitrate_%']
         = 100 - $server_status['Threads_created'] / $server_status['Connections'] * 100;
