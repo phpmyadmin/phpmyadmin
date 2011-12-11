@@ -1339,19 +1339,20 @@ $(function() {
         $('#emptyDialog').html(PMA_messages['strAnalysingLogs'] + 
                                 ' <img class="ajaxIcon" src="' + pmaThemeImage + 
                                 'ajax_clock_small.gif" alt="">');
+        var dlgBtns = {};
+
+        dlgBtns[PMA_messages['strCancelRequest']] = function() {
+            if (logRequest != null) {
+                logRequest.abort();
+            }
+
+            $(this).dialog("close");
+        }
 
         $('#emptyDialog').dialog({
             width: 'auto',
             height: 'auto',
-            buttons: {
-                'Cancel request': function() {
-                    if (logRequest != null) {
-                        logRequest.abort();
-                    }
-
-                    $(this).dialog("close");
-                }
-            }
+            buttons: dlgBtns
         });
 
 
@@ -1731,7 +1732,7 @@ $(function() {
         var db = rowData.db || '';
         
         $('div#queryAnalyzerDialog div.placeHolder').html(
-            'Analyzing... ' + '<img class="ajaxIcon" src="' + 
+            PMA_messages['strAnalyzing'] + ' <img class="ajaxIcon" src="' + 
             pmaThemeImage + 'ajax_clock_small.gif" alt="">');
 
         $.post('server_status.php?' + url_query, {
@@ -1752,7 +1753,7 @@ $(function() {
             $('div#queryAnalyzerDialog div.placeHolder')
                 .html('<table width="100%" border="0"><tr><td class="explain"></td><td class="chart"></td></tr></table>');
             
-            var explain = '<b>Explain output</b> ' + explain_docu;
+            var explain = '<b>' + PMA_messages['strExplainOutput'] + '</b> ' + explain_docu;
             if (data.explain.length > 1) {
                 explain += ' (';
                 for (var i = 0; i < data.explain.length; i++) {
@@ -1792,7 +1793,7 @@ $(function() {
             
             if (data.profiling) {
                 var chartData = [];
-                var numberTable = '<table class="queryNums"><thead><tr><th>Status</th><th>Time</th></tr></thead><tbody>';
+                var numberTable = '<table class="queryNums"><thead><tr><th>' + PMA_messages['strStatus'] + '</th><th>' + PMA_messages['strTime'] + '</th></tr></thead><tbody>';
                 var duration;
 
                 for (var i = 0; i < data.profiling.length; i++) {
@@ -1803,10 +1804,13 @@ $(function() {
 
                     numberTable += '<tr><td>' + data.profiling[i].state + ' </td><td> ' + PMA_prettyProfilingNum(duration, 2) + '</td></tr>';
                 }
-                numberTable += '<tr><td><b>Total time:</b></td><td>' + PMA_prettyProfilingNum(totalTime, 2) + '</td></tr>';
+                numberTable += '<tr><td><b>' + PMA_messages['strTotalTime'] + '</b></td><td>' + PMA_prettyProfilingNum(totalTime, 2) + '</td></tr>';
                 numberTable += '</tbody></table>';
                 
-                $('div#queryAnalyzerDialog div.placeHolder td.chart').append('<b>Profiling results ' + profiling_docu + '</b> (<a href="#showNums">Table</a>, <a href="#showChart">Chart</a>)<br/>' + numberTable + ' <div id="queryProfiling"></div>');
+                $('div#queryAnalyzerDialog div.placeHolder td.chart').append(
+                    '<b>' + PMA_messages['strProfilingResults'] + ' ' + profiling_docu + '</b> ' +
+                    '(<a href="#showNums">' + PMA_messages['strTable'] + '</a>, <a href="#showChart">' + PMA_messages['strChart'] + '</a>)<br/>' +
+                    numberTable + ' <div id="queryProfiling"></div>');
                 
                 $('div#queryAnalyzerDialog div.placeHolder a[href="#showNums"]').click(function() {
                     $('div#queryAnalyzerDialog div#queryProfiling').hide();

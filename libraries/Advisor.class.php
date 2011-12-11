@@ -323,16 +323,16 @@ function PMA_bytime($num, $precision)
 {
     $per = '';
     if ($num >= 1) { // per second
-        $per = "per second";
+        $per = __('per second');
     } elseif ($num*60 >= 1) { // per minute
         $num = $num*60;
-        $per = "per minute";
+        $per = __('per minute');
     } elseif ($num*60*60 >=1 ) { // per hour
         $num = $num*60*60;
-        $per = "per hour";
+        $per = __('per hour');
     } else {
         $num = $num*60*60*24;
-        $per = "per day";
+        $per = __('per day');
     }
 
     $num = round($num, $precision);
