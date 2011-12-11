@@ -366,7 +366,7 @@ $(document).ready(function() {
 
         var token = $(this).parents('form').find('input[name="token"]').val();
         $.get($(this).attr('href'), {'ajax_request':true, 'edit_user_dialog': true, 'token': token}, function(data) {
-            $('<div id="edit_user_dialog"></div>')
+            var $div = $('<div id="edit_user_dialog"></div>')
             .append(data)
             .dialog({
                 width: 900,
@@ -375,6 +375,7 @@ $(document).ready(function() {
             }); //dialog options end
             displayPasswordGenerateButton();
             PMA_ajaxRemoveMessage($msgbox);
+            PMA_convertFootnotesToTooltips($div);
         }) // end $.get()
     })
 
