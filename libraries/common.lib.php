@@ -118,22 +118,29 @@ function PMA_getIcon($icon, $alternate = '', $force_text = false)
  */
 function PMA_getImage($image, $alternate = '', $attributes = array())
 {
+    static $sprites; // cached list of available sprites (if any)
+
     $url       = '';
     $is_sprite = false;
     $alternate = htmlspecialchars($alternate);
 
+    // If it's the first time this function is called
+    if (! isset($sprites)) {
+        // Try to load the list of sprites
+        if (is_readable($_SESSION['PMA_Theme']->getPath() . '/sprites.lib.php')) {
+            include_once $_SESSION['PMA_Theme']->getPath() . '/sprites.lib.php';
+            $sprites = PMA_sprites();
+        } else {
+            // No sprites are available for this theme
+            $sprites = array();
+        }
+    }
     // Check if we have the requested image as a sprite
     //  and set $url accordingly
-    if (is_readable($_SESSION['PMA_Theme']->getPath() . '/sprites.lib.php')) {
-        include_once $_SESSION['PMA_Theme']->getPath() . '/sprites.lib.php';
-        $sprites = PMA_sprites();
-        $class = str_replace(array('.gif','.png'), '', $image);
-        if (array_key_exists($class, $sprites)) {
-            $is_sprite = true;
-            $url = 'themes/dot.gif';
-        } else {
-            $url = $GLOBALS['pmaThemeImage'] . $image;
-        }
+    $class = str_replace(array('.gif','.png'), '', $image);
+    if (array_key_exists($class, $sprites)) {
+        $is_sprite = true;
+        $url = 'themes/dot.gif';
     } else {
         $url = $GLOBALS['pmaThemeImage'] . $image;
     }
