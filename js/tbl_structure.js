@@ -57,6 +57,11 @@ $(document).ready(function() {
                 if(data.success == true) {
                     PMA_ajaxShowMessage(data.message);
                     toggleRowColors($curr_row.next());
+                    // Adjust the row numbers
+                    for (var $row = $curr_row.next(); $row.length > 0; $row = $row.next()) {
+                        var new_val = parseInt($row.find('td:nth-child(2)').text()) - 1;
+                        $row.find('td:nth-child(2)').text(new_val);
+                    }
                     $after_field_item.remove();
                     $curr_row.hide("medium").remove();
                 }
