@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-12 09:11+0200\n"
+"PO-Revision-Date: 2011-12-12 09:12+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -2498,7 +2498,7 @@ msgstr "Нещодавні таблиці"
 
 #: libraries/RecentTable.class.php:149
 msgid "There are no recent tables"
-msgstr "Нещодавніх таблиць немає."
+msgstr "Нещодавніх таблиць немає"
 
 #: libraries/StorageEngine.class.php:198
 msgid ""
