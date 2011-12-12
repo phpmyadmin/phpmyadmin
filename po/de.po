@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-12 05:10+0200\n"
+"PO-Revision-Date: 2011-12-12 05:14+0200\n"
 "Last-Translator: minichip <holger@ronecker.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1134,10 +1134,10 @@ msgid "Edit Index"
 msgstr "Index bearbeiten"
 
 #: js/messages.php:48 tbl_indexes.php:293
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s column(s)"
 msgid "Add %d column(s) to index"
-msgstr "%s Spalte(n) zu Index hinzufügen"
+msgstr "%d Spalte(n) zum Index hinzufügen"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:52
