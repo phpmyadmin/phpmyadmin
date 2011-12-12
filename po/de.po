@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-12 05:19+0200\n"
+"PO-Revision-Date: 2011-12-12 05:23+0200\n"
 "Last-Translator: minichip <holger@ronecker.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -11585,7 +11585,7 @@ msgstr "Indextyp:"
 #: tbl_indexes.php:285
 #, php-format
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
-msgstr "%s&nbsp;Spalten zum Index hinzufügen"
+msgstr "%s&nbsp;Spalte(n) zum Index hinzufügen"
 
 #: tbl_move_copy.php:44
 msgid "Can't move table to same one!"
