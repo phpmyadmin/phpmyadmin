@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-12 05:57+0200\n"
+"PO-Revision-Date: 2011-12-12 05:59+0200\n"
 "Last-Translator: minichip <holger@ronecker.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -4243,8 +4243,9 @@ msgid "Use less graphically intense tabs"
 msgstr "Benutze graphisch weniger anspruchsvolle Tabs"
 
 #: libraries/config/messages.inc.php:293
+#, fuzzy
 msgid "Light tabs"
-msgstr "Light Tabs"
+msgstr "Einfache Tabs"
 
 #: libraries/config/messages.inc.php:294
 msgid ""
