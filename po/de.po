@@ -1616,7 +1616,7 @@ msgstr "Gruppiere die Abfragen und ignoriere Werte in WHERE-Abfragen"
 
 #: js/messages.php:189
 msgid "Sum of grouped rows:"
-msgstr "Anzahl der gruppierten Datensätze"
+msgstr "Anzahl der gruppierten Datensätze:"
 
 #: js/messages.php:190
 msgid "Total:"
