@@ -2552,7 +2552,7 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
-"Помилка очищення таблиичних налаштувань UI (див. "
+"Помилка очищення табличних налаштувань UI (дивись "
 "$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.class.php:1511
