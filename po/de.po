@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-12 05:48+0200\n"
+"PO-Revision-Date: 2011-12-12 05:51+0200\n"
 "Last-Translator: minichip <holger@ronecker.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -783,8 +783,9 @@ msgid "Versions"
 msgstr "Versionen"
 
 #: db_tracking.php:135 tbl_tracking.php:400 tbl_tracking.php:668
+#, fuzzy
 msgid "Tracking report"
-msgstr "Tracking Report"
+msgstr "Verfolgungs-Report"
 
 #: db_tracking.php:136 tbl_tracking.php:235 tbl_tracking.php:670
 msgid "Structure snapshot"
