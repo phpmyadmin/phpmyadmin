@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-12 05:00+0200\n"
+"PO-Revision-Date: 2011-12-12 05:03+0200\n"
 "Last-Translator: minichip <holger@ronecker.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -7841,7 +7841,7 @@ msgstr ""
 #: libraries/rte/rte_words.lib.php:47
 #, php-format
 msgid "No event with name %1$s found in database %2$s"
-msgstr "Es wurde kein Ereignis mit dem Namen %s in Datenbank %s gefunden"
+msgstr "Es wurde kein Ereignis mit dem Namen %1$s in Datenbank %2$s gefunden"
 
 #: libraries/rte/rte_words.lib.php:48
 msgid "There are no events to display."
