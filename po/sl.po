@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-12 14:04+0100\n"
-"PO-Revision-Date: 2011-12-05 00:07+0200\n"
+"PO-Revision-Date: 2011-12-05 00:08+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.1.6\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:349
@@ -1537,10 +1537,9 @@ msgid "Analysing & loading logs. This may take a while."
 msgstr "Analiziranje in nalaganje dnevnikov. To lahko traja nekaj časa."
 
 #: js/messages.php:176
-#, fuzzy
 #| msgid "Read requests"
 msgid "Cancel request"
-msgstr "Zahtev branja"
+msgstr "Prekliči zahtevo"
 
 #: js/messages.php:177
 msgid ""
