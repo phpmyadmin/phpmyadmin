@@ -1915,7 +1915,7 @@ msgstr "Abfrageergebnis"
 #, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
-msgstr "Größe des Datenzeigers"
+msgstr "Datenpunkt Inhalt"
 
 #: js/messages.php:304 tbl_change.php:312 tbl_indexes.php:228
 #: tbl_indexes.php:255
