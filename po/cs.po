@@ -12119,7 +12119,7 @@ msgstr "Rozdrobení vyrovnávací paměti dotazů"
 
 #: po/advisory_rules.php:267
 msgid "The query cache is considerably fragmented."
-msgstr ""
+msgstr "Vyrovnávací paměť dotazů je značně rozdrobena."
 
 #: po/advisory_rules.php:270
 msgid ""
