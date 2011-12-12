@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-12-12 11:23+0100\n"
+"POT-Creation-Date: 2011-12-12 14:04+0100\n"
 "PO-Revision-Date: 2011-10-06 21:35+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
-#: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:339
+#: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:349
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1677
 msgid "Show all"
 msgstr "Εμφάνιση όλων"
@@ -48,7 +48,7 @@ msgstr "Αναζήτηση"
 #: browse_foreigners.php:159 db_operations.php:378 db_operations.php:418
 #: db_operations.php:528 db_operations.php:555 db_search.php:337
 #: db_structure.php:615 enum_editor.php:121 gis_data_editor.php:133
-#: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:218
+#: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:228
 #: libraries/Config.class.php:1332 libraries/Theme_Manager.class.php:309
 #: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1371
 #: libraries/common.lib.php:2418 libraries/core.lib.php:513
@@ -203,7 +203,7 @@ msgstr "Σύνδεση με"
 msgid "Comments"
 msgstr "Σχόλια"
 
-#: db_datadict.php:233 js/messages.php:237 libraries/Index.class.php:349
+#: db_datadict.php:233 js/messages.php:247 libraries/Index.class.php:349
 #: libraries/Index.class.php:376 libraries/Index.class.php:679
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:299
@@ -219,7 +219,7 @@ msgstr "Σχόλια"
 msgid "No"
 msgstr "Όχι"
 
-#: db_datadict.php:233 js/messages.php:236 libraries/Index.class.php:350
+#: db_datadict.php:233 js/messages.php:246 libraries/Index.class.php:350
 #: libraries/Index.class.php:375 libraries/Index.class.php:679
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:299
@@ -751,7 +751,7 @@ msgstr "Δημιουργήθηκε"
 msgid "Updated"
 msgstr "Ενημερώθηκε"
 
-#: db_tracking.php:90 libraries/rte/rte_events.lib.php:380
+#: db_tracking.php:90 js/messages.php:186 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
 #: server_status.php:1237 sql.php:892 tbl_tracking.php:638
 msgid "Status"
@@ -801,24 +801,24 @@ msgstr "Παρακολούθηση πίνακα"
 msgid "Database Log"
 msgstr "Καταγραφή Βάσης Δεδομένων"
 
-#: enum_editor.php:23 js/messages.php:255
+#: enum_editor.php:23 js/messages.php:265
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
 msgstr "Επεξεργαστής ENUM/SET"
 
-#: enum_editor.php:28 js/messages.php:257
+#: enum_editor.php:28 js/messages.php:267
 #, fuzzy
 #| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
 msgstr "Τιμές για τη στήλη «%s»"
 
-#: enum_editor.php:30 js/messages.php:256
+#: enum_editor.php:30 js/messages.php:266
 #, fuzzy, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
 msgstr "Τιμές για τη στήλη «%s»"
 
-#: enum_editor.php:34 js/messages.php:258
+#: enum_editor.php:34 js/messages.php:268
 #, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
@@ -890,45 +890,45 @@ msgstr "Χρήση του OpenStreetMaps ως Βασικό Επίπεδο"
 msgid "SRID"
 msgstr "SRID"
 
-#: gis_data_editor.php:151 js/messages.php:312
+#: gis_data_editor.php:151 js/messages.php:322
 #: libraries/display_tbl.lib.php:685
 msgid "Geometry"
 msgstr "Γεωμετρία"
 
-#: gis_data_editor.php:172 js/messages.php:308
+#: gis_data_editor.php:172 js/messages.php:318
 msgid "Point"
 msgstr "Σημείο"
 
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
-#: gis_data_editor.php:297 js/messages.php:306
+#: gis_data_editor.php:297 js/messages.php:316
 msgid "X"
 msgstr "Χ"
 
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
-#: gis_data_editor.php:299 js/messages.php:307
+#: gis_data_editor.php:299 js/messages.php:317
 msgid "Y"
 msgstr "Υ"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
-#: js/messages.php:309
+#: js/messages.php:319
 #, php-format
 msgid "Point %d"
 msgstr "Σημείο %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
-#: js/messages.php:315
+#: js/messages.php:325
 msgid "Add a point"
 msgstr "Προσθήκη σημείου"
 
-#: gis_data_editor.php:220 js/messages.php:310
+#: gis_data_editor.php:220 js/messages.php:320
 msgid "Linestring"
 msgstr "Κείμενο γραμμής"
 
-#: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:314
+#: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:324
 msgid "Outer Ring"
 msgstr "Εξωτερικός δακτύλιος"
 
-#: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:313
+#: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:323
 msgid "Inner Ring"
 msgstr "Εσωτερικός δακτύλιος"
 
@@ -936,15 +936,15 @@ msgstr "Εσωτερικός δακτύλιος"
 msgid "Add a linestring"
 msgstr "Προσθήκη κειμένου γραμμής"
 
-#: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:316
+#: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:326
 msgid "Add an inner ring"
 msgstr "Προσθήκη εσωτερικού δακτυλίου"
 
-#: gis_data_editor.php:266 js/messages.php:311
+#: gis_data_editor.php:266 js/messages.php:321
 msgid "Polygon"
 msgstr "Πολύγωνο"
 
-#: gis_data_editor.php:306 js/messages.php:317
+#: gis_data_editor.php:306 js/messages.php:327
 msgid "Add a polygon"
 msgstr "Προσθήκη πολυγώνου"
 
@@ -1169,7 +1169,7 @@ msgstr "Διαγραφή των επιλεγμένων χρηστών"
 msgid "Close"
 msgstr "Κλείσιμο"
 
-#: js/messages.php:65 js/messages.php:267 libraries/Index.class.php:468
+#: js/messages.php:65 js/messages.php:277 libraries/Index.class.php:468
 #: libraries/common.lib.php:648 libraries/common.lib.php:1194
 #: libraries/common.lib.php:3351 libraries/common.lib.php:3352
 #: libraries/config/messages.inc.php:482 libraries/display_tbl.lib.php:1382
@@ -1553,6 +1553,12 @@ msgid "Analysing & loading logs. This may take a while."
 msgstr "Ανάλυση & φόρτωση καταγραφών. Αυτό ίσως διαρκέσει λίγο."
 
 #: js/messages.php:176
+#, fuzzy
+#| msgid "Read requests"
+msgid "Cancel request"
+msgstr "Αιτήσεις ανάγνωσεης"
+
+#: js/messages.php:177
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
@@ -1563,7 +1569,7 @@ msgstr ""
 "ομαδοποίησης, έτσι οι άλλες ιδιότητες των ερωτημάτων, όπως ο χρόνος "
 "εκκίνησης, μπορεί να διαφέρουν."
 
-#: js/messages.php:177
+#: js/messages.php:178
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
@@ -1572,57 +1578,99 @@ msgstr ""
 "Αφού επιλέχθηκε η ομαδοποίηση των εντολών INSERT, τα ερωτήματα INSERT εντός "
 "του ίδιου πίνακα επίσης ομαδοποιηούνται ανεξάρτητα από εισαγόμενα δεδομένα."
 
-#: js/messages.php:178
+#: js/messages.php:179
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 "Τα δεδομένα καταγραφής φορτώθηκαν. Τα ερωτήματα που εκτελέστηκαν σε αυτή την "
 "επέκταση χρόνου:"
 
-#: js/messages.php:180
+#: js/messages.php:181
 msgid "Jump to Log table"
 msgstr "Μετάβαση στον πίνακα Καταγραφής"
 
-#: js/messages.php:181
+#: js/messages.php:182
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
 "Η καταγραφή αναλύθηκε αλλά δεν βρέθηκαν δεδομένα σε αυτή την επέκταση χρόνου."
 
-#. l10n: A collection of available filters
 #: js/messages.php:184
+#, fuzzy
+#| msgid "Analyze"
+msgid "Analyzing..."
+msgstr "Ανάλυση"
+
+#: js/messages.php:185
+#, fuzzy
+#| msgid "Explain SQL"
+msgid "Explain output"
+msgstr "Ανάλυση SQL"
+
+#: js/messages.php:187 js/messages.php:487 libraries/rte/rte_list.lib.php:62
+#: libraries/rte/rte_triggers.lib.php:326 server_status.php:1236 sql.php:893
+msgid "Time"
+msgstr "Χρόνος"
+
+#: js/messages.php:188
+#, fuzzy
+#| msgid "Total:"
+msgid "Total time:"
+msgstr "Σύνολο:"
+
+#: js/messages.php:189
+#, fuzzy
+#| msgid "Profiling"
+msgid "Profiling results"
+msgstr "Δημιουργία προφίλ"
+
+#: js/messages.php:190
+#, fuzzy
+#| msgid "Table"
+msgctxt "Display format"
+msgid "Table"
+msgstr "Πίνακας"
+
+#: js/messages.php:191
+#, fuzzy
+#| msgid "Charts"
+msgid "Chart"
+msgstr "Διαγράμματα"
+
+#. l10n: A collection of available filters
+#: js/messages.php:194
 msgid "Log table filter options"
 msgstr "Επιλογές φιλτραρίσματος πίνακα καταγραφής"
 
 #. l10n: Filter as in "Start Filtering"
-#: js/messages.php:186
+#: js/messages.php:196
 msgid "Filter"
 msgstr "Φίλτρο"
 
-#: js/messages.php:187
+#: js/messages.php:197
 msgid "Filter queries by word/regexp:"
 msgstr "Φιλτράρισμα ερωτημάτων ανά λέξη/κανονική έκφραση:"
 
-#: js/messages.php:188
+#: js/messages.php:198
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 "Ομαδοποίηση ερωτημάτων, αγνοώντας τα δεδομένα μεταβλητής στις δηλώσεις WHERE"
 
-#: js/messages.php:189
+#: js/messages.php:199
 msgid "Sum of grouped rows:"
 msgstr "Άθροισμα ομαδοποιημένων γραμμών:"
 
-#: js/messages.php:190
+#: js/messages.php:200
 msgid "Total:"
 msgstr "Σύνολο:"
 
-#: js/messages.php:192
+#: js/messages.php:202
 msgid "Loading logs"
 msgstr "Φόρτωση καταγραφών"
 
-#: js/messages.php:193
+#: js/messages.php:203
 msgid "Monitor refresh failed"
 msgstr "Η ανανέωση της εποπτείας απέτυχε"
 
-#: js/messages.php:194
+#: js/messages.php:204
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
@@ -1633,22 +1681,22 @@ msgstr ""
 "επαναφόρτωση της σελίδας και η επανεισαγωγή των διαπιστευτηρίων σας θα "
 "βοηθήσουν."
 
-#: js/messages.php:195
+#: js/messages.php:205
 msgid "Reload page"
 msgstr "Επαναφόρτωση σελίδας"
 
-#: js/messages.php:197
+#: js/messages.php:207
 msgid "Affected rows:"
 msgstr "Επηρρεαζόμενες εγγραφές"
 
-#: js/messages.php:199
+#: js/messages.php:209
 #, fuzzy
 #| msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 "Αποτυχία ανάλυσης αρχείου config. Δεν φαίνεται να είναι έγκυρος κώδκας JSON"
 
-#: js/messages.php:200
+#: js/messages.php:210
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
@@ -1656,176 +1704,176 @@ msgstr ""
 "Απέτυχε η δημιουργία καννάβου διαγράμματος με την εισαγωγή ρυθμίσεων. "
 "Επαναφορά στην προεπιλεγμένη ρύθμιση..."
 
-#: js/messages.php:201 libraries/config/messages.inc.php:172
+#: js/messages.php:211 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
 #: prefs_manage.php:229 server_status.php:1595 setup/frames/menu.inc.php:20
 msgid "Import"
 msgstr "Εισαγωγή"
 
-#: js/messages.php:203
+#: js/messages.php:213
 msgid "Analyse Query"
 msgstr "Ανάλυση Ερωτήματος"
 
-#: js/messages.php:207
+#: js/messages.php:217
 msgid "Advisor system"
 msgstr "Σύστημα σύμβουλου"
 
-#: js/messages.php:208
+#: js/messages.php:218
 msgid "Possible performance issues"
 msgstr "Πιθανά θέματα απόδοσης"
 
-#: js/messages.php:209
+#: js/messages.php:219
 msgid "Issue"
 msgstr "Θέμα"
 
-#: js/messages.php:210
+#: js/messages.php:220
 msgid "Recommendation"
 msgstr "Πρόταση"
 
-#: js/messages.php:211
+#: js/messages.php:221
 msgid "Rule details"
 msgstr "Λεπτομέρειες ρόλου"
 
-#: js/messages.php:212
+#: js/messages.php:222
 msgid "Justification"
 msgstr "Δικαιολόγηση"
 
-#: js/messages.php:213
+#: js/messages.php:223
 msgid "Used variable / formula"
 msgstr "Χρησιμοποιημένη μεταβλητή / τύπος"
 
-#: js/messages.php:214
+#: js/messages.php:224
 msgid "Test"
 msgstr "Έλεγχος"
 
-#: js/messages.php:219 pmd_general.php:382 pmd_general.php:419
+#: js/messages.php:229 pmd_general.php:382 pmd_general.php:419
 #: pmd_general.php:539 pmd_general.php:587 pmd_general.php:663
 #: pmd_general.php:717 pmd_general.php:780
 msgid "Cancel"
 msgstr "Άκυρο"
 
-#: js/messages.php:222
+#: js/messages.php:232
 msgid "Loading"
 msgstr "Φόρτωση"
 
-#: js/messages.php:223
+#: js/messages.php:233
 msgid "Processing Request"
 msgstr "Προώθηση Αιτήματος"
 
-#: js/messages.php:224 libraries/rte/rte_export.lib.php:39
+#: js/messages.php:234 libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
 msgstr "Σφάλμα στην Προώθηση του Αιτημάτος"
 
-#: js/messages.php:225
+#: js/messages.php:235
 msgid "Dropping Column"
 msgstr "Διαγραφή Στήλης"
 
-#: js/messages.php:226
+#: js/messages.php:236
 msgid "Adding Primary Key"
 msgstr "Προσθήκη Πρωτεύοντος Κλειδιού"
 
-#: js/messages.php:227 libraries/relation.lib.php:80 pmd_general.php:380
+#: js/messages.php:237 libraries/relation.lib.php:80 pmd_general.php:380
 #: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
 #: pmd_general.php:715 pmd_general.php:778
 msgid "OK"
 msgstr "Εντάξει"
 
-#: js/messages.php:228
+#: js/messages.php:238
 msgid "Click to dismiss this notification"
 msgstr "Πατήστε γαι να παραλείψετε αυτή την ειδοποίηση"
 
-#: js/messages.php:231
+#: js/messages.php:241
 msgid "Renaming Databases"
 msgstr "Μετονομασία βάσεων δεδομένων"
 
-#: js/messages.php:232
+#: js/messages.php:242
 msgid "Reload Database"
 msgstr "Επαναφόρτωση βάσεων δεδομένων"
 
-#: js/messages.php:233
+#: js/messages.php:243
 msgid "Copying Database"
 msgstr "Αντιγραφή βάσης δεδομένων"
 
-#: js/messages.php:234
+#: js/messages.php:244
 msgid "Changing Charset"
 msgstr "Αλλαγή Συνόλου χαρακτήρων"
 
-#: js/messages.php:235
+#: js/messages.php:245
 msgid "Table must have at least one column"
 msgstr "Ο πίνακας πρέπει να έχει τουλάχιστον μια στήλη"
 
-#: js/messages.php:240
+#: js/messages.php:250
 msgid "Insert Table"
 msgstr "Εισαγωγή Πίνακα"
 
-#: js/messages.php:241
+#: js/messages.php:251
 msgid "Hide indexes"
 msgstr "Απόκρυψη ευρετηρίων"
 
-#: js/messages.php:242
+#: js/messages.php:252
 msgid "Show indexes"
 msgstr "Εμφάνιση ευρετηρίων"
 
-#: js/messages.php:245
+#: js/messages.php:255
 msgid "Searching"
 msgstr "Αναζήτηση"
 
-#: js/messages.php:246
+#: js/messages.php:256
 msgid "Hide search results"
 msgstr "Απόκρυψη αποτελεσμάτων αναζήτησης"
 
-#: js/messages.php:247
+#: js/messages.php:257
 msgid "Show search results"
 msgstr "Προβολή αποτελεσμάτων αναζήτησης"
 
-#: js/messages.php:248
+#: js/messages.php:258
 msgid "Browsing"
 msgstr "Αναζήτηση"
 
-#: js/messages.php:249
+#: js/messages.php:259
 msgid "Deleting"
 msgstr "Διαγραφή"
 
-#: js/messages.php:252
+#: js/messages.php:262
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 "Ο ορισμός μιας αποθηκευμένης συνάρτησης πρέπει να περιέχει μια δήλωση RETURN!"
 
-#: js/messages.php:259
+#: js/messages.php:269
 #, fuzzy, php-format
 #| msgid "+ Add a value"
 msgid "Add %d value(s)"
 msgstr "+ Προσθήκη μιας τιμής"
 
-#: js/messages.php:262
+#: js/messages.php:272
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr "Σημείωση: Αν το αρχείο περιέχει πολλούς πίνακες, θα ενωθουν σε έναν"
 
-#: js/messages.php:265
+#: js/messages.php:275
 msgid "Hide query box"
 msgstr "Απόκρυψη παραθύρου ερωτήματος"
 
-#: js/messages.php:266
+#: js/messages.php:276
 msgid "Show query box"
 msgstr "Προβολή παραθύρου ερωτήματος"
 
-#: js/messages.php:268 tbl_row_action.php:28
+#: js/messages.php:278 tbl_row_action.php:28
 msgid "No rows selected"
 msgstr "Δεν επιλέχθηκαν γραμμές"
 
-#: js/messages.php:269 libraries/common.lib.php:2743
+#: js/messages.php:279 libraries/common.lib.php:2743
 #: libraries/display_tbl.lib.php:2499 querywindow.php:87 tbl_structure.php:149
 #: tbl_structure.php:572
 msgid "Change"
 msgstr "Αλλαγή"
 
-#: js/messages.php:270
+#: js/messages.php:280
 msgid "Query execution time"
 msgstr "Χρόνος εκτέλεσης ερωτήματος"
 
-#: js/messages.php:273 libraries/config/FormDisplay.tpl.php:355
+#: js/messages.php:283 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
 #: libraries/tbl_properties.inc.php:714 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:228 tbl_change.php:1025
@@ -1833,104 +1881,104 @@ msgstr "Χρόνος εκτέλεσης ερωτήματος"
 msgid "Save"
 msgstr "Αποθήκευση"
 
-#: js/messages.php:276
+#: js/messages.php:286
 msgid "Hide search criteria"
 msgstr "Απόκρυψη κριτηρίων αναζήτησης"
 
-#: js/messages.php:277
+#: js/messages.php:287
 msgid "Show search criteria"
 msgstr "Προβολή κριτηρίων αναζήτησης"
 
-#: js/messages.php:280 libraries/tbl_select.lib.php:110
+#: js/messages.php:290 libraries/tbl_select.lib.php:110
 msgid "Zoom Search"
 msgstr "Εστιασμένη Αναζήτηση"
 
-#: js/messages.php:282
+#: js/messages.php:292
 msgid "Each point represents a data row."
 msgstr "Κάθε σημείο αναπαρειστά μια εγγραφή δεδομένων."
 
-#: js/messages.php:284
+#: js/messages.php:294
 msgid "Hovering over a point will show its label."
 msgstr "Η μετάβαση πάνω από ένα σημείο θα δείξει την ετικέτα του."
 
-#: js/messages.php:286
+#: js/messages.php:296
 msgid "Use mousewheel to zoom in or out of the plot."
 msgstr "Χρησιμοποιείστε τη ροδέλα του ποντικιού για μεγέθυνση και σμίκρυνση."
 
-#: js/messages.php:288
+#: js/messages.php:298
 msgid "Click and drag the mouse to navigate the plot."
 msgstr "Πατήστε και σύρτε το ποντίκι για πλοήγηση."
 
-#: js/messages.php:290
+#: js/messages.php:300
 msgid "Click reset zoom link to come back to original state."
 msgstr ""
 "Πατήστε στην επαναφορά εστίασης για να επιστρέψετε στην αρχική κατάσταση."
 
-#: js/messages.php:292
+#: js/messages.php:302
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 "Πατήστε ένα σημείο δεδομένων για να δείτε και πιθανά να επεξεργαστείτε τη "
 "γραμμή δεδομένων."
 
-#: js/messages.php:294
+#: js/messages.php:304
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 "Ο χώρος εργασίας μπορεί να αλλάξει μέγεθος σύρωντας την κάτω δεξιά γωνία."
 
-#: js/messages.php:296
+#: js/messages.php:306
 msgid "Strings are converted into integer for plotting"
 msgstr "Τα κείμενα μετατρέπονται σε ακεραίους για την εκτύπωση"
 
-#: js/messages.php:298
+#: js/messages.php:308
 msgid "Select two columns"
 msgstr "Επιλογή δύο στηλών"
 
-#: js/messages.php:299
+#: js/messages.php:309
 msgid "Select two different columns"
 msgstr "Επιλογή δύο διαφορετικών στηλών"
 
-#: js/messages.php:300
+#: js/messages.php:310
 #, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
 msgstr "Λειτουργίες αποτελεσμάτων ερωτήματος"
 
-#: js/messages.php:301
+#: js/messages.php:311
 #, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
 msgstr "Μέγεθος δείκτη δεδομένων"
 
-#: js/messages.php:304 tbl_change.php:312 tbl_indexes.php:228
+#: js/messages.php:314 tbl_change.php:312 tbl_indexes.php:228
 #: tbl_indexes.php:255
 msgid "Ignore"
 msgstr "Παράληψη"
 
-#: js/messages.php:305 libraries/display_tbl.lib.php:1383
+#: js/messages.php:315 libraries/display_tbl.lib.php:1383
 msgid "Copy"
 msgstr "Αντιγραφή"
 
-#: js/messages.php:320
+#: js/messages.php:330
 msgid "Add columns"
 msgstr "Προσθήκη στηλών"
 
-#: js/messages.php:323
+#: js/messages.php:333
 msgid "Select referenced key"
 msgstr "Επιλέξτε αναφερθέν κλειδί"
 
-#: js/messages.php:324
+#: js/messages.php:334
 msgid "Select Foreign Key"
 msgstr "Επιλέξτε Μη Διακριτό Κλειδί"
 
-#: js/messages.php:325
+#: js/messages.php:335
 msgid "Please select the primary key or a unique key"
 msgstr "Επιλέξτε το πρωτεύον κλειδί ή ένα μοναδικό κλειδί"
 
-#: js/messages.php:326 pmd_general.php:77 tbl_relation.php:541
+#: js/messages.php:336 pmd_general.php:77 tbl_relation.php:541
 msgid "Choose column to display"
 msgstr "Επιλέξτε στήλη για εμφάνιση"
 
-#: js/messages.php:327
+#: js/messages.php:337
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -1938,15 +1986,15 @@ msgstr ""
 "Δεν αποθηκεύσατε τις αλλαγές στο προϊόν. Θα χαθούν αν δεν τις αποθηκεύσετε. "
 "Θέλετε να συνεχίσετε;"
 
-#: js/messages.php:330
+#: js/messages.php:340
 msgid "Add an option for column "
 msgstr "Προσθήκη επιλογής για τη στήλη "
 
-#: js/messages.php:333
+#: js/messages.php:343
 msgid "Press escape to cancel editing"
 msgstr "Πατήστε το escape για ακύρωση της επεξεργασίας"
 
-#: js/messages.php:334
+#: js/messages.php:344
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -1954,23 +2002,23 @@ msgstr ""
 "Έχετε επεξαργαστεί ορισμένα δεδομένα και δεν έχουν αποθηκευτεί. Θέλετε να "
 "αφήσετε τη σελίδα χωρίς αποθήκευση των δεδομένων;"
 
-#: js/messages.php:335
+#: js/messages.php:345
 msgid "Drag to reorder"
 msgstr "Σύρτε για ανακατανομή"
 
-#: js/messages.php:336
+#: js/messages.php:346
 msgid "Click to sort"
 msgstr "Πατήστε για ταξινόμηση"
 
-#: js/messages.php:337
+#: js/messages.php:347
 msgid "Click to mark/unmark"
 msgstr "Πατήστε για εναλλαγή επισήμανσης"
 
-#: js/messages.php:338
+#: js/messages.php:348
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr "Πατήστε το προς τα κάτω βέλος<br />για εναλλαγή της εμφάνισης στηλών"
 
-#: js/messages.php:340
+#: js/messages.php:350
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -1979,34 +2027,34 @@ msgstr ""
 "την επεξεργασία και επιλογή καννάβου Επεξεργασία, Αντιγραφή και Διαγραφή "
 "ίσως να μη λειτουργούν μετά την αποθήκευση."
 
-#: js/messages.php:341
+#: js/messages.php:351
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
 "Μπορείτε επίσης να επεξεργαστείτε στήλες<br />πατώντας κατευθείαν στα "
 "περιεχόμενά τους."
 
-#: js/messages.php:342
+#: js/messages.php:352
 msgid "Go to link"
 msgstr "Μετάβαση στο σύνδεσμο"
 
-#: js/messages.php:345
+#: js/messages.php:355
 msgid "Generate password"
 msgstr "Δημιουργία κωδικού πρόσβασης"
 
-#: js/messages.php:346 libraries/replication_gui.lib.php:369
+#: js/messages.php:356 libraries/replication_gui.lib.php:369
 msgid "Generate"
 msgstr "Παραγωγή"
 
-#: js/messages.php:347
+#: js/messages.php:357
 msgid "Change Password"
 msgstr "Αλλαγή Κωδικού Πρόσβασης"
 
-#: js/messages.php:350 tbl_structure.php:465
+#: js/messages.php:360 tbl_structure.php:465
 msgid "More"
 msgstr "Περισσότερα"
 
-#: js/messages.php:353 setup/lib/index.lib.php:173
+#: js/messages.php:363 setup/lib/index.lib.php:173
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2016,260 +2064,255 @@ msgstr ""
 "εγκαταστήσετε. Η νεότερη έκδοση είναι η %s και δημοσιεύτηκε την %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:355
+#: js/messages.php:365
 msgid ", latest stable version:"
 msgstr ", τελευταία έκδοση:"
 
-#: js/messages.php:356
+#: js/messages.php:366
 msgid "up to date"
 msgstr "ενημερωμένο"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:375
+#: js/messages.php:385
 msgid "Done"
 msgstr "Ολοκληρώθηκε"
 
-#: js/messages.php:379
+#: js/messages.php:389
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Προηγούμενο"
 
-#: js/messages.php:384
+#: js/messages.php:394
 msgctxt "Next month"
 msgid "Next"
 msgstr "Επόμενο"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:387
+#: js/messages.php:397
 msgid "Today"
 msgstr "Σήμερα"
 
-#: js/messages.php:390
+#: js/messages.php:400
 msgid "January"
 msgstr "Ιανουαρίου"
 
-#: js/messages.php:391
+#: js/messages.php:401
 msgid "February"
 msgstr "Φεβρουαρίου"
 
-#: js/messages.php:392
+#: js/messages.php:402
 msgid "March"
 msgstr "Μαρτίου"
 
-#: js/messages.php:393
+#: js/messages.php:403
 msgid "April"
 msgstr "Απριλίου"
 
-#: js/messages.php:394
+#: js/messages.php:404
 msgid "May"
 msgstr "Μαΐου"
 
-#: js/messages.php:395
+#: js/messages.php:405
 msgid "June"
 msgstr "Ιουνίου"
 
-#: js/messages.php:396
+#: js/messages.php:406
 msgid "July"
 msgstr "Ιουλίου"
 
-#: js/messages.php:397
+#: js/messages.php:407
 msgid "August"
 msgstr "Αυγούστου"
 
-#: js/messages.php:398
+#: js/messages.php:408
 msgid "September"
 msgstr "Σεπτεμβρίου"
 
-#: js/messages.php:399
+#: js/messages.php:409
 msgid "October"
 msgstr "Οκτωβρίου"
 
-#: js/messages.php:400
+#: js/messages.php:410
 msgid "November"
 msgstr "Νοεμβρίου"
 
-#: js/messages.php:401
+#: js/messages.php:411
 msgid "December"
 msgstr "Δεκεμβρίου"
 
 #. l10n: Short month name
-#: js/messages.php:405 libraries/common.lib.php:1606
+#: js/messages.php:415 libraries/common.lib.php:1606
 msgid "Jan"
 msgstr "Ιαν"
 
 #. l10n: Short month name
-#: js/messages.php:407 libraries/common.lib.php:1608
+#: js/messages.php:417 libraries/common.lib.php:1608
 msgid "Feb"
 msgstr "Φεβ"
 
 #. l10n: Short month name
-#: js/messages.php:409 libraries/common.lib.php:1610
+#: js/messages.php:419 libraries/common.lib.php:1610
 msgid "Mar"
 msgstr "Μαρ"
 
 #. l10n: Short month name
-#: js/messages.php:411 libraries/common.lib.php:1612
+#: js/messages.php:421 libraries/common.lib.php:1612
 msgid "Apr"
 msgstr "Απρ"
 
 #. l10n: Short month name
-#: js/messages.php:413 libraries/common.lib.php:1614
+#: js/messages.php:423 libraries/common.lib.php:1614
 msgctxt "Short month name"
 msgid "May"
 msgstr "Μάη"
 
 #. l10n: Short month name
-#: js/messages.php:415 libraries/common.lib.php:1616
+#: js/messages.php:425 libraries/common.lib.php:1616
 msgid "Jun"
 msgstr "Ιουν"
 
 #. l10n: Short month name
-#: js/messages.php:417 libraries/common.lib.php:1618
+#: js/messages.php:427 libraries/common.lib.php:1618
 msgid "Jul"
 msgstr "Ιουλ"
 
 #. l10n: Short month name
-#: js/messages.php:419 libraries/common.lib.php:1620
+#: js/messages.php:429 libraries/common.lib.php:1620
 msgid "Aug"
 msgstr "Αυγ"
 
 #. l10n: Short month name
-#: js/messages.php:421 libraries/common.lib.php:1622
+#: js/messages.php:431 libraries/common.lib.php:1622
 msgid "Sep"
 msgstr "Σεπ"
 
 #. l10n: Short month name
-#: js/messages.php:423 libraries/common.lib.php:1624
+#: js/messages.php:433 libraries/common.lib.php:1624
 msgid "Oct"
 msgstr "Οκτ"
 
 #. l10n: Short month name
-#: js/messages.php:425 libraries/common.lib.php:1626
+#: js/messages.php:435 libraries/common.lib.php:1626
 msgid "Nov"
 msgstr "Νοε"
 
 #. l10n: Short month name
-#: js/messages.php:427 libraries/common.lib.php:1628
+#: js/messages.php:437 libraries/common.lib.php:1628
 msgid "Dec"
 msgstr "Δεκ"
 
-#: js/messages.php:430
+#: js/messages.php:440
 msgid "Sunday"
 msgstr "Κυριακή"
 
-#: js/messages.php:431
+#: js/messages.php:441
 msgid "Monday"
 msgstr "Δευτέρα"
 
-#: js/messages.php:432
+#: js/messages.php:442
 msgid "Tuesday"
 msgstr "Τρίτη"
 
-#: js/messages.php:433
+#: js/messages.php:443
 msgid "Wednesday"
 msgstr "Τετάρτη"
 
-#: js/messages.php:434
+#: js/messages.php:444
 msgid "Thursday"
 msgstr "Πέμπτη"
 
-#: js/messages.php:435
+#: js/messages.php:445
 msgid "Friday"
 msgstr "Παρασκευή"
 
-#: js/messages.php:436
+#: js/messages.php:446
 msgid "Saturday"
 msgstr "Σάββατο"
 
 #. l10n: Short week day name
-#: js/messages.php:440
+#: js/messages.php:450
 msgid "Sun"
 msgstr "Κυρ"
 
 #. l10n: Short week day name
-#: js/messages.php:442 libraries/common.lib.php:1633
+#: js/messages.php:452 libraries/common.lib.php:1633
 msgid "Mon"
 msgstr "Δευ"
 
 #. l10n: Short week day name
-#: js/messages.php:444 libraries/common.lib.php:1635
+#: js/messages.php:454 libraries/common.lib.php:1635
 msgid "Tue"
 msgstr "Τρί"
 
 #. l10n: Short week day name
-#: js/messages.php:446 libraries/common.lib.php:1637
+#: js/messages.php:456 libraries/common.lib.php:1637
 msgid "Wed"
 msgstr "Τετ"
 
 #. l10n: Short week day name
-#: js/messages.php:448 libraries/common.lib.php:1639
+#: js/messages.php:458 libraries/common.lib.php:1639
 msgid "Thu"
 msgstr "Πέμ"
 
 #. l10n: Short week day name
-#: js/messages.php:450 libraries/common.lib.php:1641
+#: js/messages.php:460 libraries/common.lib.php:1641
 msgid "Fri"
 msgstr "Παρ"
 
 #. l10n: Short week day name
-#: js/messages.php:452 libraries/common.lib.php:1643
+#: js/messages.php:462 libraries/common.lib.php:1643
 msgid "Sat"
 msgstr "Σάβ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:456
+#: js/messages.php:466
 msgid "Su"
 msgstr "Κυ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:458
+#: js/messages.php:468
 msgid "Mo"
 msgstr "Δε"
 
 #. l10n: Minimal week day name
-#: js/messages.php:460
+#: js/messages.php:470
 msgid "Tu"
 msgstr "Τρ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:462
+#: js/messages.php:472
 msgid "We"
 msgstr "Τε"
 
 #. l10n: Minimal week day name
-#: js/messages.php:464
+#: js/messages.php:474
 msgid "Th"
 msgstr "Πε"
 
 #. l10n: Minimal week day name
-#: js/messages.php:466
+#: js/messages.php:476
 msgid "Fr"
 msgstr "Πα"
 
 #. l10n: Minimal week day name
-#: js/messages.php:468
+#: js/messages.php:478
 msgid "Sa"
 msgstr "Σα"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:470
+#: js/messages.php:480
 msgid "Wk"
 msgstr "Wiki"
 
-#: js/messages.php:477 libraries/rte/rte_list.lib.php:62
-#: libraries/rte/rte_triggers.lib.php:326 server_status.php:1236 sql.php:893
-msgid "Time"
-msgstr "Χρόνος"
-
-#: js/messages.php:478
+#: js/messages.php:488
 msgid "Hour"
 msgstr "Ώρα"
 
-#: js/messages.php:479
+#: js/messages.php:489
 msgid "Minute"
 msgstr "Λεπτό"
 
-#: js/messages.php:480
+#: js/messages.php:490
 msgid "Second"
 msgstr "Δευτερόλεπτο"
 
@@ -2279,6 +2322,23 @@ msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr ""
 "Αποτυχία διαμόρφωσης κειμένου για τον κανόνα «%s». Η PHP έδωσε το ακόλουθο "
 "σφάλμα: %s"
+
+#: libraries/Advisor.class.php:326 server_status.php:950
+msgid "per second"
+msgstr "ανά δευτερόλεπτο"
+
+#: libraries/Advisor.class.php:329 server_status.php:945
+msgid "per minute"
+msgstr "ανά λεπτό"
+
+#: libraries/Advisor.class.php:332 server_status.php:941 server_status.php:977
+#: server_status.php:1096 server_status.php:1141
+msgid "per hour"
+msgstr "ανά ώρα"
+
+#: libraries/Advisor.class.php:335
+msgid "per day"
+msgstr ""
 
 #: libraries/Config.class.php:703
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
@@ -9824,19 +9884,6 @@ msgstr ""
 #, php-format
 msgid "Questions since startup: %s"
 msgstr "Ερωτήσεις από την εκκίνηση: %s"
-
-#: server_status.php:941 server_status.php:977 server_status.php:1096
-#: server_status.php:1141
-msgid "per hour"
-msgstr "ανά ώρα"
-
-#: server_status.php:945
-msgid "per minute"
-msgstr "ανά λεπτό"
-
-#: server_status.php:950
-msgid "per second"
-msgstr "ανά δευτερόλεπτο"
 
 #: server_status.php:971 tbl_printview.php:328 tbl_structure.php:833
 msgid "Statements"

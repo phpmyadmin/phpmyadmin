@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-12-12 11:23+0100\n"
+"POT-Creation-Date: 2011-12-12 14:04+0100\n"
 "PO-Revision-Date: 2011-11-18 08:35+0200\n"
 "Last-Translator: manyfun <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.1.6\n"
 
-#: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:339
+#: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:349
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1677
 msgid "Show all"
 msgstr "모두 보기"
@@ -47,7 +47,7 @@ msgstr "검색"
 #: browse_foreigners.php:159 db_operations.php:378 db_operations.php:418
 #: db_operations.php:528 db_operations.php:555 db_search.php:337
 #: db_structure.php:615 enum_editor.php:121 gis_data_editor.php:133
-#: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:218
+#: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:228
 #: libraries/Config.class.php:1332 libraries/Theme_Manager.class.php:309
 #: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1371
 #: libraries/common.lib.php:2418 libraries/core.lib.php:513
@@ -204,7 +204,7 @@ msgstr "링크 대상:"
 msgid "Comments"
 msgstr "설명(코멘트)"
 
-#: db_datadict.php:233 js/messages.php:237 libraries/Index.class.php:349
+#: db_datadict.php:233 js/messages.php:247 libraries/Index.class.php:349
 #: libraries/Index.class.php:376 libraries/Index.class.php:679
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:299
@@ -220,7 +220,7 @@ msgstr "설명(코멘트)"
 msgid "No"
 msgstr "아니오 "
 
-#: db_datadict.php:233 js/messages.php:236 libraries/Index.class.php:350
+#: db_datadict.php:233 js/messages.php:246 libraries/Index.class.php:350
 #: libraries/Index.class.php:375 libraries/Index.class.php:679
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:299
@@ -747,7 +747,7 @@ msgstr "생성됨"
 msgid "Updated"
 msgstr "수정됨"
 
-#: db_tracking.php:90 libraries/rte/rte_events.lib.php:380
+#: db_tracking.php:90 js/messages.php:186 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
 #: server_status.php:1237 sql.php:892 tbl_tracking.php:638
 msgid "Status"
@@ -797,24 +797,24 @@ msgstr "테이블 추적"
 msgid "Database Log"
 msgstr "데이터베이스 로그"
 
-#: enum_editor.php:23 js/messages.php:255
+#: enum_editor.php:23 js/messages.php:265
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
 msgstr "ENUM / SET 수정"
 
-#: enum_editor.php:28 js/messages.php:257
+#: enum_editor.php:28 js/messages.php:267
 #, fuzzy
 #| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
 msgstr "새로운 열의 값"
 
-#: enum_editor.php:30 js/messages.php:256
+#: enum_editor.php:30 js/messages.php:266
 #, fuzzy, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
 msgstr "\"%s\" 열의 값"
 
-#: enum_editor.php:34 js/messages.php:258
+#: enum_editor.php:34 js/messages.php:268
 #, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
@@ -885,45 +885,45 @@ msgstr "기본 레이어로 OpenStreetMaps를 사용"
 msgid "SRID"
 msgstr "SRID"
 
-#: gis_data_editor.php:151 js/messages.php:312
+#: gis_data_editor.php:151 js/messages.php:322
 #: libraries/display_tbl.lib.php:685
 msgid "Geometry"
 msgstr "Geometry"
 
-#: gis_data_editor.php:172 js/messages.php:308
+#: gis_data_editor.php:172 js/messages.php:318
 msgid "Point"
 msgstr "포인트"
 
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
-#: gis_data_editor.php:297 js/messages.php:306
+#: gis_data_editor.php:297 js/messages.php:316
 msgid "X"
 msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
-#: gis_data_editor.php:299 js/messages.php:307
+#: gis_data_editor.php:299 js/messages.php:317
 msgid "Y"
 msgstr "Y"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
-#: js/messages.php:309
+#: js/messages.php:319
 #, php-format
 msgid "Point %d"
 msgstr "포인트 %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
-#: js/messages.php:315
+#: js/messages.php:325
 msgid "Add a point"
 msgstr "포인트 추가하기"
 
-#: gis_data_editor.php:220 js/messages.php:310
+#: gis_data_editor.php:220 js/messages.php:320
 msgid "Linestring"
 msgstr "줄(열) 구분자"
 
-#: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:314
+#: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:324
 msgid "Outer Ring"
 msgstr "외륜"
 
-#: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:313
+#: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:323
 msgid "Inner Ring"
 msgstr "내륜"
 
@@ -931,18 +931,18 @@ msgstr "내륜"
 msgid "Add a linestring"
 msgstr "선 추가"
 
-#: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:316
+#: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:326
 #, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
 msgstr "내부 링 추가"
 
-#: gis_data_editor.php:266 js/messages.php:311
+#: gis_data_editor.php:266 js/messages.php:321
 #, fuzzy
 msgid "Polygon"
 msgstr "폴리곤"
 
-#: gis_data_editor.php:306 js/messages.php:317
+#: gis_data_editor.php:306 js/messages.php:327
 msgid "Add a polygon"
 msgstr "폴리곤 추가"
 
@@ -1157,7 +1157,7 @@ msgstr "선택한 사용자를 삭제"
 msgid "Close"
 msgstr "닫기"
 
-#: js/messages.php:65 js/messages.php:267 libraries/Index.class.php:468
+#: js/messages.php:65 js/messages.php:277 libraries/Index.class.php:468
 #: libraries/common.lib.php:648 libraries/common.lib.php:1194
 #: libraries/common.lib.php:3351 libraries/common.lib.php:3352
 #: libraries/config/messages.inc.php:482 libraries/display_tbl.lib.php:1382
@@ -1550,101 +1550,147 @@ msgid "Analysing & loading logs. This may take a while."
 msgstr ""
 
 #: js/messages.php:176
+msgid "Cancel request"
+msgstr ""
+
+#: js/messages.php:177
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
 
-#: js/messages.php:177
+#: js/messages.php:178
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
 
-#: js/messages.php:178
+#: js/messages.php:179
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 
-#: js/messages.php:180
+#: js/messages.php:181
 #, fuzzy
 msgid "Jump to Log table"
 msgstr "데이터베이스가 없습니다"
 
-#: js/messages.php:181
+#: js/messages.php:182
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
 
-#. l10n: A collection of available filters
 #: js/messages.php:184
+#, fuzzy
+#| msgid "Analyze"
+msgid "Analyzing..."
+msgstr "분석"
+
+#: js/messages.php:185
+#, fuzzy
+#| msgid "Explain SQL"
+msgid "Explain output"
+msgstr "SQL 해석"
+
+#: js/messages.php:187 js/messages.php:487 libraries/rte/rte_list.lib.php:62
+#: libraries/rte/rte_triggers.lib.php:326 server_status.php:1236 sql.php:893
+msgid "Time"
+msgstr "시간"
+
+#: js/messages.php:188
+#, fuzzy
+#| msgid "Total"
+msgid "Total time:"
+msgstr "전체 사용량"
+
+#: js/messages.php:189
+#, fuzzy
+#| msgid "Profiling"
+msgid "Profiling results"
+msgstr "프로파일링"
+
+#: js/messages.php:190
+#, fuzzy
+#| msgid "Table"
+msgctxt "Display format"
+msgid "Table"
+msgstr "테이블 "
+
+#: js/messages.php:191
+#, fuzzy
+#| msgid "Import files"
+msgid "Chart"
+msgstr "파일 가져오기"
+
+#. l10n: A collection of available filters
+#: js/messages.php:194
 #, fuzzy
 #| msgid "Table options"
 msgid "Log table filter options"
 msgstr "테이블 옵션"
 
 #. l10n: Filter as in "Start Filtering"
-#: js/messages.php:186
+#: js/messages.php:196
 msgid "Filter"
 msgstr ""
 
-#: js/messages.php:187
+#: js/messages.php:197
 msgid "Filter queries by word/regexp:"
 msgstr ""
 
-#: js/messages.php:188
+#: js/messages.php:198
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 
-#: js/messages.php:189
+#: js/messages.php:199
 #, fuzzy
 #| msgid "Number of columns"
 msgid "Sum of grouped rows:"
 msgstr "컬럼수"
 
-#: js/messages.php:190
+#: js/messages.php:200
 #, fuzzy
 #| msgid "Total"
 msgid "Total:"
 msgstr "전체 사용량"
 
-#: js/messages.php:192
+#: js/messages.php:202
 #, fuzzy
 msgid "Loading logs"
 msgstr "Local"
 
-#: js/messages.php:193
+#: js/messages.php:203
 msgid "Monitor refresh failed"
 msgstr ""
 
-#: js/messages.php:194
+#: js/messages.php:204
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
 
-#: js/messages.php:195
+#: js/messages.php:205
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Reload page"
 msgstr "데이터베이스 이름 변경"
 
-#: js/messages.php:197
+#: js/messages.php:207
 msgid "Affected rows:"
 msgstr ""
 
-#: js/messages.php:199
+#: js/messages.php:209
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 
-#: js/messages.php:200
+#: js/messages.php:210
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr ""
 
-#: js/messages.php:201 libraries/config/messages.inc.php:172
+#: js/messages.php:211 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
 #: prefs_manage.php:229 server_status.php:1595 setup/frames/menu.inc.php:20
@@ -1652,200 +1698,200 @@ msgstr ""
 msgid "Import"
 msgstr "내보내기"
 
-#: js/messages.php:203
+#: js/messages.php:213
 #, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
 msgstr "질의 업데이트"
 
-#: js/messages.php:207
+#: js/messages.php:217
 msgid "Advisor system"
 msgstr ""
 
-#: js/messages.php:208
+#: js/messages.php:218
 msgid "Possible performance issues"
 msgstr ""
 
-#: js/messages.php:209
+#: js/messages.php:219
 msgid "Issue"
 msgstr ""
 
-#: js/messages.php:210
+#: js/messages.php:220
 #, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
 msgstr "문서"
 
-#: js/messages.php:211
+#: js/messages.php:221
 msgid "Rule details"
 msgstr ""
 
-#: js/messages.php:212
+#: js/messages.php:222
 #, fuzzy
 #| msgid "Authenticating..."
 msgid "Justification"
 msgstr "인증중입니다..."
 
-#: js/messages.php:213
+#: js/messages.php:223
 msgid "Used variable / formula"
 msgstr ""
 
-#: js/messages.php:214
+#: js/messages.php:224
 msgid "Test"
 msgstr ""
 
-#: js/messages.php:219 pmd_general.php:382 pmd_general.php:419
+#: js/messages.php:229 pmd_general.php:382 pmd_general.php:419
 #: pmd_general.php:539 pmd_general.php:587 pmd_general.php:663
 #: pmd_general.php:717 pmd_general.php:780
 msgid "Cancel"
 msgstr ""
 
-#: js/messages.php:222
+#: js/messages.php:232
 #, fuzzy
 msgid "Loading"
 msgstr "Local"
 
-#: js/messages.php:223
+#: js/messages.php:233
 #, fuzzy
 #| msgid "Processes"
 msgid "Processing Request"
 msgstr "프로세스 목록"
 
-#: js/messages.php:224 libraries/rte/rte_export.lib.php:39
+#: js/messages.php:234 libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
 msgstr ""
 
-#: js/messages.php:225
+#: js/messages.php:235
 msgid "Dropping Column"
 msgstr ""
 
-#: js/messages.php:226
+#: js/messages.php:236
 msgid "Adding Primary Key"
 msgstr ""
 
-#: js/messages.php:227 libraries/relation.lib.php:80 pmd_general.php:380
+#: js/messages.php:237 libraries/relation.lib.php:80 pmd_general.php:380
 #: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
 #: pmd_general.php:715 pmd_general.php:778
 msgid "OK"
 msgstr ""
 
-#: js/messages.php:228
+#: js/messages.php:238
 msgid "Click to dismiss this notification"
 msgstr ""
 
-#: js/messages.php:231
+#: js/messages.php:241
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
 msgstr "데이터베이스 이름 변경"
 
-#: js/messages.php:232
+#: js/messages.php:242
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Reload Database"
 msgstr "데이터베이스 이름 변경"
 
-#: js/messages.php:233
+#: js/messages.php:243
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
 msgstr "데이터베이스 복사"
 
-#: js/messages.php:234
+#: js/messages.php:244
 msgid "Changing Charset"
 msgstr ""
 
-#: js/messages.php:235
+#: js/messages.php:245
 #, fuzzy
 #| msgid "Table must have at least one column."
 msgid "Table must have at least one column"
 msgstr "테이블은 적어도 1개 이상의 컬럼을 갖고 있어야 합니다."
 
-#: js/messages.php:240
+#: js/messages.php:250
 #, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
 msgstr "사용할 테이블"
 
-#: js/messages.php:241
+#: js/messages.php:251
 #, fuzzy
 #| msgid "Indexes"
 msgid "Hide indexes"
 msgstr "인덱스"
 
-#: js/messages.php:242
+#: js/messages.php:252
 #, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
 msgstr "grid 보기"
 
-#: js/messages.php:245
+#: js/messages.php:255
 #, fuzzy
 #| msgid "Search"
 msgid "Searching"
 msgstr "검색"
 
-#: js/messages.php:246
+#: js/messages.php:256
 #, fuzzy
 msgid "Hide search results"
 msgstr "SQL 질의"
 
-#: js/messages.php:247
+#: js/messages.php:257
 #, fuzzy
 msgid "Show search results"
 msgstr "SQL 질의"
 
-#: js/messages.php:248
+#: js/messages.php:258
 #, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
 msgstr "보기"
 
-#: js/messages.php:249
+#: js/messages.php:259
 #, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
 msgstr "%s 을 삭제합니다"
 
-#: js/messages.php:252
+#: js/messages.php:262
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
-#: js/messages.php:259
+#: js/messages.php:269
 #, fuzzy, php-format
 msgid "Add %d value(s)"
 msgstr "새 사용자 추가"
 
-#: js/messages.php:262
+#: js/messages.php:272
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr ""
 
-#: js/messages.php:265
+#: js/messages.php:275
 #, fuzzy
 msgid "Hide query box"
 msgstr "SQL 질의"
 
-#: js/messages.php:266
+#: js/messages.php:276
 #, fuzzy
 msgid "Show query box"
 msgstr "SQL 질의"
 
-#: js/messages.php:268 tbl_row_action.php:28
+#: js/messages.php:278 tbl_row_action.php:28
 msgid "No rows selected"
 msgstr ""
 
-#: js/messages.php:269 libraries/common.lib.php:2743
+#: js/messages.php:279 libraries/common.lib.php:2743
 #: libraries/display_tbl.lib.php:2499 querywindow.php:87 tbl_structure.php:149
 #: tbl_structure.php:572
 msgid "Change"
 msgstr "변경"
 
-#: js/messages.php:270
+#: js/messages.php:280
 msgid "Query execution time"
 msgstr ""
 
-#: js/messages.php:273 libraries/config/FormDisplay.tpl.php:355
+#: js/messages.php:283 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
 #: libraries/tbl_properties.inc.php:714 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:228 tbl_change.php:1025
@@ -1853,181 +1899,181 @@ msgstr ""
 msgid "Save"
 msgstr "저장"
 
-#: js/messages.php:276
+#: js/messages.php:286
 #, fuzzy
 msgid "Hide search criteria"
 msgstr "SQL 질의"
 
-#: js/messages.php:277
+#: js/messages.php:287
 #, fuzzy
 msgid "Show search criteria"
 msgstr "SQL 질의"
 
-#: js/messages.php:280 libraries/tbl_select.lib.php:110
+#: js/messages.php:290 libraries/tbl_select.lib.php:110
 #, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
 msgstr "검색"
 
-#: js/messages.php:282
+#: js/messages.php:292
 msgid "Each point represents a data row."
 msgstr ""
 
-#: js/messages.php:284
+#: js/messages.php:294
 msgid "Hovering over a point will show its label."
 msgstr ""
 
-#: js/messages.php:286
+#: js/messages.php:296
 msgid "Use mousewheel to zoom in or out of the plot."
 msgstr ""
 
-#: js/messages.php:288
+#: js/messages.php:298
 msgid "Click and drag the mouse to navigate the plot."
 msgstr ""
 
-#: js/messages.php:290
+#: js/messages.php:300
 msgid "Click reset zoom link to come back to original state."
 msgstr ""
 
-#: js/messages.php:292
+#: js/messages.php:302
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 
-#: js/messages.php:294
+#: js/messages.php:304
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 
-#: js/messages.php:296
+#: js/messages.php:306
 msgid "Strings are converted into integer for plotting"
 msgstr ""
 
-#: js/messages.php:298
+#: js/messages.php:308
 #, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
 msgstr "컬럼 추가/삭제"
 
-#: js/messages.php:299
+#: js/messages.php:309
 msgid "Select two different columns"
 msgstr ""
 
-#: js/messages.php:300
+#: js/messages.php:310
 #, fuzzy
 #| msgid "SQL result"
 msgid "Query results"
 msgstr "SQL 결과"
 
-#: js/messages.php:301
+#: js/messages.php:311
 #, fuzzy
 msgid "Data point content"
 msgstr "테이블 설명"
 
-#: js/messages.php:304 tbl_change.php:312 tbl_indexes.php:228
+#: js/messages.php:314 tbl_change.php:312 tbl_indexes.php:228
 #: tbl_indexes.php:255
 msgid "Ignore"
 msgstr "Ignore"
 
-#: js/messages.php:305 libraries/display_tbl.lib.php:1383
+#: js/messages.php:315 libraries/display_tbl.lib.php:1383
 msgid "Copy"
 msgstr ""
 
-#: js/messages.php:320
+#: js/messages.php:330
 #, fuzzy
 msgid "Add columns"
 msgstr "필드 추가하기"
 
-#: js/messages.php:323
+#: js/messages.php:333
 msgid "Select referenced key"
 msgstr ""
 
-#: js/messages.php:324
+#: js/messages.php:334
 msgid "Select Foreign Key"
 msgstr ""
 
-#: js/messages.php:325
+#: js/messages.php:335
 msgid "Please select the primary key or a unique key"
 msgstr ""
 
-#: js/messages.php:326 pmd_general.php:77 tbl_relation.php:541
+#: js/messages.php:336 pmd_general.php:77 tbl_relation.php:541
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "출력할 필드 선택"
 
-#: js/messages.php:327
+#: js/messages.php:337
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:330
+#: js/messages.php:340
 msgid "Add an option for column "
 msgstr ""
 
-#: js/messages.php:333
+#: js/messages.php:343
 msgid "Press escape to cancel editing"
 msgstr ""
 
-#: js/messages.php:334
+#: js/messages.php:344
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
 
-#: js/messages.php:335
+#: js/messages.php:345
 msgid "Drag to reorder"
 msgstr ""
 
-#: js/messages.php:336
+#: js/messages.php:346
 msgid "Click to sort"
 msgstr ""
 
-#: js/messages.php:337
+#: js/messages.php:347
 msgid "Click to mark/unmark"
 msgstr ""
 
-#: js/messages.php:338
+#: js/messages.php:348
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr ""
 
-#: js/messages.php:340
+#: js/messages.php:350
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: js/messages.php:341
+#: js/messages.php:351
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
 
-#: js/messages.php:342
+#: js/messages.php:352
 msgid "Go to link"
 msgstr ""
 
-#: js/messages.php:345
+#: js/messages.php:355
 #, fuzzy
 #| msgid "Change password"
 msgid "Generate password"
 msgstr "암호 변경"
 
-#: js/messages.php:346 libraries/replication_gui.lib.php:369
+#: js/messages.php:356 libraries/replication_gui.lib.php:369
 msgid "Generate"
 msgstr ""
 
-#: js/messages.php:347
+#: js/messages.php:357
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "암호 변경"
 
-#: js/messages.php:350 tbl_structure.php:465
+#: js/messages.php:360 tbl_structure.php:465
 #, fuzzy
 #| msgid "Mo"
 msgid "More"
 msgstr "월"
 
-#: js/messages.php:353 setup/lib/index.lib.php:173
+#: js/messages.php:363 setup/lib/index.lib.php:173
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2035,28 +2081,28 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:355
+#: js/messages.php:365
 msgid ", latest stable version:"
 msgstr ""
 
-#: js/messages.php:356
+#: js/messages.php:366
 #, fuzzy
 msgid "up to date"
 msgstr "데이터베이스가 없습니다"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:375
+#: js/messages.php:385
 msgid "Done"
 msgstr "완료"
 
-#: js/messages.php:379
+#: js/messages.php:389
 #, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "이전"
 
-#: js/messages.php:384
+#: js/messages.php:394
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -2064,149 +2110,149 @@ msgid "Next"
 msgstr "다음"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:387
+#: js/messages.php:397
 msgid "Today"
 msgstr "오늘"
 
-#: js/messages.php:390
+#: js/messages.php:400
 msgid "January"
 msgstr "1월"
 
-#: js/messages.php:391
+#: js/messages.php:401
 msgid "February"
 msgstr "2월"
 
-#: js/messages.php:392
+#: js/messages.php:402
 msgid "March"
 msgstr "3월"
 
-#: js/messages.php:393
+#: js/messages.php:403
 msgid "April"
 msgstr "4월"
 
-#: js/messages.php:394
+#: js/messages.php:404
 msgid "May"
 msgstr "5월"
 
-#: js/messages.php:395
+#: js/messages.php:405
 msgid "June"
 msgstr "6월"
 
-#: js/messages.php:396
+#: js/messages.php:406
 msgid "July"
 msgstr "7월"
 
-#: js/messages.php:397
+#: js/messages.php:407
 msgid "August"
 msgstr "8월"
 
-#: js/messages.php:398
+#: js/messages.php:408
 msgid "September"
 msgstr "9월"
 
-#: js/messages.php:399
+#: js/messages.php:409
 msgid "October"
 msgstr "10월"
 
-#: js/messages.php:400
+#: js/messages.php:410
 msgid "November"
 msgstr "11월"
 
-#: js/messages.php:401
+#: js/messages.php:411
 msgid "December"
 msgstr "12월"
 
 #. l10n: Short month name
-#: js/messages.php:405 libraries/common.lib.php:1606
+#: js/messages.php:415 libraries/common.lib.php:1606
 msgid "Jan"
 msgstr "1월"
 
 #. l10n: Short month name
-#: js/messages.php:407 libraries/common.lib.php:1608
+#: js/messages.php:417 libraries/common.lib.php:1608
 msgid "Feb"
 msgstr "2월"
 
 #. l10n: Short month name
-#: js/messages.php:409 libraries/common.lib.php:1610
+#: js/messages.php:419 libraries/common.lib.php:1610
 msgid "Mar"
 msgstr "3월"
 
 #. l10n: Short month name
-#: js/messages.php:411 libraries/common.lib.php:1612
+#: js/messages.php:421 libraries/common.lib.php:1612
 msgid "Apr"
 msgstr "4월"
 
 #. l10n: Short month name
-#: js/messages.php:413 libraries/common.lib.php:1614
+#: js/messages.php:423 libraries/common.lib.php:1614
 msgctxt "Short month name"
 msgid "May"
 msgstr "5월"
 
 #. l10n: Short month name
-#: js/messages.php:415 libraries/common.lib.php:1616
+#: js/messages.php:425 libraries/common.lib.php:1616
 msgid "Jun"
 msgstr "6월"
 
 #. l10n: Short month name
-#: js/messages.php:417 libraries/common.lib.php:1618
+#: js/messages.php:427 libraries/common.lib.php:1618
 msgid "Jul"
 msgstr "7월"
 
 #. l10n: Short month name
-#: js/messages.php:419 libraries/common.lib.php:1620
+#: js/messages.php:429 libraries/common.lib.php:1620
 msgid "Aug"
 msgstr "8월"
 
 #. l10n: Short month name
-#: js/messages.php:421 libraries/common.lib.php:1622
+#: js/messages.php:431 libraries/common.lib.php:1622
 msgid "Sep"
 msgstr "9월"
 
 #. l10n: Short month name
-#: js/messages.php:423 libraries/common.lib.php:1624
+#: js/messages.php:433 libraries/common.lib.php:1624
 msgid "Oct"
 msgstr "10월"
 
 #. l10n: Short month name
-#: js/messages.php:425 libraries/common.lib.php:1626
+#: js/messages.php:435 libraries/common.lib.php:1626
 msgid "Nov"
 msgstr "11월"
 
 #. l10n: Short month name
-#: js/messages.php:427 libraries/common.lib.php:1628
+#: js/messages.php:437 libraries/common.lib.php:1628
 msgid "Dec"
 msgstr "12월"
 
-#: js/messages.php:430
+#: js/messages.php:440
 msgid "Sunday"
 msgstr "일요일"
 
-#: js/messages.php:431
+#: js/messages.php:441
 msgid "Monday"
 msgstr "월요일"
 
-#: js/messages.php:432
+#: js/messages.php:442
 msgid "Tuesday"
 msgstr "화요일"
 
-#: js/messages.php:433
+#: js/messages.php:443
 msgid "Wednesday"
 msgstr "수요일"
 
-#: js/messages.php:434
+#: js/messages.php:444
 msgid "Thursday"
 msgstr "목요일"
 
-#: js/messages.php:435
+#: js/messages.php:445
 msgid "Friday"
 msgstr "금요일"
 
-#: js/messages.php:436
+#: js/messages.php:446
 msgid "Saturday"
 msgstr "토요일"
 
 #. l10n: Short week day name
-#: js/messages.php:440
+#: js/messages.php:450
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -2214,95 +2260,107 @@ msgid "Sun"
 msgstr "일"
 
 #. l10n: Short week day name
-#: js/messages.php:442 libraries/common.lib.php:1633
+#: js/messages.php:452 libraries/common.lib.php:1633
 msgid "Mon"
 msgstr "월"
 
 #. l10n: Short week day name
-#: js/messages.php:444 libraries/common.lib.php:1635
+#: js/messages.php:454 libraries/common.lib.php:1635
 msgid "Tue"
 msgstr "화"
 
 #. l10n: Short week day name
-#: js/messages.php:446 libraries/common.lib.php:1637
+#: js/messages.php:456 libraries/common.lib.php:1637
 msgid "Wed"
 msgstr "수"
 
 #. l10n: Short week day name
-#: js/messages.php:448 libraries/common.lib.php:1639
+#: js/messages.php:458 libraries/common.lib.php:1639
 msgid "Thu"
 msgstr "목"
 
 #. l10n: Short week day name
-#: js/messages.php:450 libraries/common.lib.php:1641
+#: js/messages.php:460 libraries/common.lib.php:1641
 msgid "Fri"
 msgstr "금"
 
 #. l10n: Short week day name
-#: js/messages.php:452 libraries/common.lib.php:1643
+#: js/messages.php:462 libraries/common.lib.php:1643
 msgid "Sat"
 msgstr "토"
 
 #. l10n: Minimal week day name
-#: js/messages.php:456
+#: js/messages.php:466
 msgid "Su"
 msgstr "일"
 
 #. l10n: Minimal week day name
-#: js/messages.php:458
+#: js/messages.php:468
 msgid "Mo"
 msgstr "월"
 
 #. l10n: Minimal week day name
-#: js/messages.php:460
+#: js/messages.php:470
 msgid "Tu"
 msgstr "화"
 
 #. l10n: Minimal week day name
-#: js/messages.php:462
+#: js/messages.php:472
 msgid "We"
 msgstr "수"
 
 #. l10n: Minimal week day name
-#: js/messages.php:464
+#: js/messages.php:474
 msgid "Th"
 msgstr "목"
 
 #. l10n: Minimal week day name
-#: js/messages.php:466
+#: js/messages.php:476
 msgid "Fr"
 msgstr "금"
 
 #. l10n: Minimal week day name
-#: js/messages.php:468
+#: js/messages.php:478
 msgid "Sa"
 msgstr "토"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:470
+#: js/messages.php:480
 msgid "Wk"
 msgstr "주"
 
-#: js/messages.php:477 libraries/rte/rte_list.lib.php:62
-#: libraries/rte/rte_triggers.lib.php:326 server_status.php:1236 sql.php:893
-msgid "Time"
-msgstr "시간"
-
-#: js/messages.php:478
+#: js/messages.php:488
 msgid "Hour"
 msgstr "시"
 
-#: js/messages.php:479
+#: js/messages.php:489
 msgid "Minute"
 msgstr "분"
 
-#: js/messages.php:480
+#: js/messages.php:490
 msgid "Second"
 msgstr "초"
 
 #: libraries/Advisor.class.php:168
 #, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
+msgstr ""
+
+#: libraries/Advisor.class.php:326 server_status.php:950
+msgid "per second"
+msgstr ""
+
+#: libraries/Advisor.class.php:329 server_status.php:945
+msgid "per minute"
+msgstr ""
+
+#: libraries/Advisor.class.php:332 server_status.php:941 server_status.php:977
+#: server_status.php:1096 server_status.php:1141
+msgid "per hour"
+msgstr ""
+
+#: libraries/Advisor.class.php:335
+msgid "per day"
 msgstr ""
 
 #: libraries/Config.class.php:703
@@ -9639,19 +9697,6 @@ msgstr ""
 #: server_status.php:935
 #, php-format
 msgid "Questions since startup: %s"
-msgstr ""
-
-#: server_status.php:941 server_status.php:977 server_status.php:1096
-#: server_status.php:1141
-msgid "per hour"
-msgstr ""
-
-#: server_status.php:945
-msgid "per minute"
-msgstr ""
-
-#: server_status.php:950
-msgid "per second"
 msgstr ""
 
 #: server_status.php:971 tbl_printview.php:328 tbl_structure.php:833

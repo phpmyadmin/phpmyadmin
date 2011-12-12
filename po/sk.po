@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-12-12 11:23+0100\n"
+"POT-Creation-Date: 2011-12-12 14:04+0100\n"
 "PO-Revision-Date: 2011-07-27 15:32+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pootle 2.0.5\n"
 
-#: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:339
+#: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:349
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1677
 msgid "Show all"
 msgstr "Zobraziť všetko"
@@ -48,7 +48,7 @@ msgstr "Hľadať"
 #: browse_foreigners.php:159 db_operations.php:378 db_operations.php:418
 #: db_operations.php:528 db_operations.php:555 db_search.php:337
 #: db_structure.php:615 enum_editor.php:121 gis_data_editor.php:133
-#: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:218
+#: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:228
 #: libraries/Config.class.php:1332 libraries/Theme_Manager.class.php:309
 #: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1371
 #: libraries/common.lib.php:2418 libraries/core.lib.php:513
@@ -203,7 +203,7 @@ msgstr "Linkovať na"
 msgid "Comments"
 msgstr "Komentáre"
 
-#: db_datadict.php:233 js/messages.php:237 libraries/Index.class.php:349
+#: db_datadict.php:233 js/messages.php:247 libraries/Index.class.php:349
 #: libraries/Index.class.php:376 libraries/Index.class.php:679
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:299
@@ -219,7 +219,7 @@ msgstr "Komentáre"
 msgid "No"
 msgstr "Nie"
 
-#: db_datadict.php:233 js/messages.php:236 libraries/Index.class.php:350
+#: db_datadict.php:233 js/messages.php:246 libraries/Index.class.php:350
 #: libraries/Index.class.php:375 libraries/Index.class.php:679
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:299
@@ -753,7 +753,7 @@ msgstr "Vytvorené"
 msgid "Updated"
 msgstr "Aktualizované"
 
-#: db_tracking.php:90 libraries/rte/rte_events.lib.php:380
+#: db_tracking.php:90 js/messages.php:186 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
 #: server_status.php:1237 sql.php:892 tbl_tracking.php:638
 msgid "Status"
@@ -803,24 +803,24 @@ msgstr "Sledovať tabuľku"
 msgid "Database Log"
 msgstr "Databázový log"
 
-#: enum_editor.php:23 js/messages.php:255
+#: enum_editor.php:23 js/messages.php:265
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
 msgstr ""
 
-#: enum_editor.php:28 js/messages.php:257
+#: enum_editor.php:28 js/messages.php:267
 #, fuzzy
 #| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
 msgstr "Hodnoty pre pole \"%s\""
 
-#: enum_editor.php:30 js/messages.php:256
+#: enum_editor.php:30 js/messages.php:266
 #, fuzzy, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
 msgstr "Hodnoty pre pole \"%s\""
 
-#: enum_editor.php:34 js/messages.php:258
+#: enum_editor.php:34 js/messages.php:268
 #, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
@@ -897,49 +897,49 @@ msgstr ""
 msgid "SRID"
 msgstr ""
 
-#: gis_data_editor.php:151 js/messages.php:312
+#: gis_data_editor.php:151 js/messages.php:322
 #: libraries/display_tbl.lib.php:685
 msgid "Geometry"
 msgstr "Geometria"
 
-#: gis_data_editor.php:172 js/messages.php:308
+#: gis_data_editor.php:172 js/messages.php:318
 msgid "Point"
 msgstr ""
 
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
-#: gis_data_editor.php:297 js/messages.php:306
+#: gis_data_editor.php:297 js/messages.php:316
 msgid "X"
 msgstr ""
 
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
-#: gis_data_editor.php:299 js/messages.php:307
+#: gis_data_editor.php:299 js/messages.php:317
 msgid "Y"
 msgstr ""
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
-#: js/messages.php:309
+#: js/messages.php:319
 #, php-format
 msgid "Point %d"
 msgstr ""
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
-#: js/messages.php:315
+#: js/messages.php:325
 #, fuzzy
 #| msgid "Add index"
 msgid "Add a point"
 msgstr "Pridať index"
 
-#: gis_data_editor.php:220 js/messages.php:310
+#: gis_data_editor.php:220 js/messages.php:320
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
 msgstr "Riadky ukončené"
 
-#: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:314
+#: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:324
 msgid "Outer Ring"
 msgstr ""
 
-#: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:313
+#: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:323
 msgid "Inner Ring"
 msgstr ""
 
@@ -949,17 +949,17 @@ msgstr ""
 msgid "Add a linestring"
 msgstr "Pridať nového používateľa"
 
-#: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:316
+#: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:326
 #, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
 msgstr "Pridať nového používateľa"
 
-#: gis_data_editor.php:266 js/messages.php:311
+#: gis_data_editor.php:266 js/messages.php:321
 msgid "Polygon"
 msgstr ""
 
-#: gis_data_editor.php:306 js/messages.php:317
+#: gis_data_editor.php:306 js/messages.php:327
 #, fuzzy
 #| msgid "Add column"
 msgid "Add a polygon"
@@ -1181,7 +1181,7 @@ msgstr "Odstránenie vybraných používateľov"
 msgid "Close"
 msgstr "Zavrieť"
 
-#: js/messages.php:65 js/messages.php:267 libraries/Index.class.php:468
+#: js/messages.php:65 js/messages.php:277 libraries/Index.class.php:468
 #: libraries/common.lib.php:648 libraries/common.lib.php:1194
 #: libraries/common.lib.php:3351 libraries/common.lib.php:3352
 #: libraries/config/messages.inc.php:482 libraries/display_tbl.lib.php:1382
@@ -1589,281 +1589,329 @@ msgid "Analysing & loading logs. This may take a while."
 msgstr ""
 
 #: js/messages.php:176
+#, fuzzy
+#| msgid "Read requests"
+msgid "Cancel request"
+msgstr "Požiadavkov na čítanie"
+
+#: js/messages.php:177
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
 
-#: js/messages.php:177
+#: js/messages.php:178
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
 
-#: js/messages.php:178
+#: js/messages.php:179
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 
-#: js/messages.php:180
+#: js/messages.php:181
 #, fuzzy
 #| msgid "Jump to database"
 msgid "Jump to Log table"
 msgstr "Prejsť do databázy"
 
-#: js/messages.php:181
+#: js/messages.php:182
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
 
-#. l10n: A collection of available filters
 #: js/messages.php:184
+#, fuzzy
+#| msgid "Analyze"
+msgid "Analyzing..."
+msgstr "Analyzovať"
+
+#: js/messages.php:185
+#, fuzzy
+#| msgid "Explain SQL"
+msgid "Explain output"
+msgstr "Vysvetliť SQL"
+
+#: js/messages.php:187 js/messages.php:487 libraries/rte/rte_list.lib.php:62
+#: libraries/rte/rte_triggers.lib.php:326 server_status.php:1236 sql.php:893
+msgid "Time"
+msgstr "Čas"
+
+#: js/messages.php:188
+#, fuzzy
+#| msgid "Total"
+msgid "Total time:"
+msgstr "Celkom"
+
+#: js/messages.php:189
+#, fuzzy
+#| msgid "Profiling"
+msgid "Profiling results"
+msgstr "Profilovanie"
+
+#: js/messages.php:190
+#, fuzzy
+#| msgid "Table"
+msgctxt "Display format"
+msgid "Table"
+msgstr "Tabuľka"
+
+#: js/messages.php:191
+#, fuzzy
+#| msgid "Charts"
+msgid "Chart"
+msgstr "Grafy"
+
+#. l10n: A collection of available filters
+#: js/messages.php:194
 #, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
 msgstr "Nastavenie zobrazenia tabuliek"
 
 #. l10n: Filter as in "Start Filtering"
-#: js/messages.php:186
+#: js/messages.php:196
 msgid "Filter"
 msgstr "Filter"
 
-#: js/messages.php:187
+#: js/messages.php:197
 msgid "Filter queries by word/regexp:"
 msgstr ""
 
-#: js/messages.php:188
+#: js/messages.php:198
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 
-#: js/messages.php:189
+#: js/messages.php:199
 #, fuzzy
 #| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
 msgstr "Počet vložených riadkov"
 
-#: js/messages.php:190
+#: js/messages.php:200
 #, fuzzy
 #| msgid "Total"
 msgid "Total:"
 msgstr "Celkom"
 
-#: js/messages.php:192
+#: js/messages.php:202
 #, fuzzy
 #| msgid "Loading"
 msgid "Loading logs"
 msgstr "Načítanie"
 
-#: js/messages.php:193
+#: js/messages.php:203
 msgid "Monitor refresh failed"
 msgstr ""
 
-#: js/messages.php:194
+#: js/messages.php:204
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
 
-#: js/messages.php:195
+#: js/messages.php:205
 #, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
 msgstr "Znovu načítať"
 
-#: js/messages.php:197
+#: js/messages.php:207
 msgid "Affected rows:"
 msgstr ""
 
-#: js/messages.php:199
+#: js/messages.php:209
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 
-#: js/messages.php:200
+#: js/messages.php:210
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr ""
 
-#: js/messages.php:201 libraries/config/messages.inc.php:172
+#: js/messages.php:211 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
 #: prefs_manage.php:229 server_status.php:1595 setup/frames/menu.inc.php:20
 msgid "Import"
 msgstr "Import"
 
-#: js/messages.php:203
+#: js/messages.php:213
 #, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
 msgstr "Aktualizovať dopyt"
 
-#: js/messages.php:207
+#: js/messages.php:217
 msgid "Advisor system"
 msgstr ""
 
-#: js/messages.php:208
+#: js/messages.php:218
 msgid "Possible performance issues"
 msgstr ""
 
-#: js/messages.php:209
+#: js/messages.php:219
 msgid "Issue"
 msgstr ""
 
-#: js/messages.php:210
+#: js/messages.php:220
 #, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
 msgstr "Dokumentácia"
 
-#: js/messages.php:211
+#: js/messages.php:221
 #, fuzzy
 #| msgid "Details"
 msgid "Rule details"
 msgstr "Podrobnosti"
 
-#: js/messages.php:212
+#: js/messages.php:222
 #, fuzzy
 #| msgid "Authentication"
 msgid "Justification"
 msgstr "Overenie"
 
-#: js/messages.php:213
+#: js/messages.php:223
 msgid "Used variable / formula"
 msgstr ""
 
-#: js/messages.php:214
+#: js/messages.php:224
 msgid "Test"
 msgstr ""
 
-#: js/messages.php:219 pmd_general.php:382 pmd_general.php:419
+#: js/messages.php:229 pmd_general.php:382 pmd_general.php:419
 #: pmd_general.php:539 pmd_general.php:587 pmd_general.php:663
 #: pmd_general.php:717 pmd_general.php:780
 msgid "Cancel"
 msgstr "Zrušiť"
 
-#: js/messages.php:222
+#: js/messages.php:232
 msgid "Loading"
 msgstr "Načítanie"
 
-#: js/messages.php:223
+#: js/messages.php:233
 msgid "Processing Request"
 msgstr "Prebieha spracovanie požiadavka"
 
-#: js/messages.php:224 libraries/rte/rte_export.lib.php:39
+#: js/messages.php:234 libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
 msgstr "Chyba pri spracovanie požiadavku"
 
-#: js/messages.php:225
+#: js/messages.php:235
 msgid "Dropping Column"
 msgstr "Odstraňujem stĺpce"
 
-#: js/messages.php:226
+#: js/messages.php:236
 msgid "Adding Primary Key"
 msgstr "Pridavam primarny kľúč"
 
-#: js/messages.php:227 libraries/relation.lib.php:80 pmd_general.php:380
+#: js/messages.php:237 libraries/relation.lib.php:80 pmd_general.php:380
 #: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
 #: pmd_general.php:715 pmd_general.php:778
 msgid "OK"
 msgstr "OK"
 
-#: js/messages.php:228
+#: js/messages.php:238
 msgid "Click to dismiss this notification"
 msgstr ""
 
-#: js/messages.php:231
+#: js/messages.php:241
 msgid "Renaming Databases"
 msgstr "Premenovávam databázy"
 
-#: js/messages.php:232
+#: js/messages.php:242
 msgid "Reload Database"
 msgstr "Znovu načítať databázu"
 
-#: js/messages.php:233
+#: js/messages.php:243
 msgid "Copying Database"
 msgstr "Kopírujem databázu"
 
-#: js/messages.php:234
+#: js/messages.php:244
 msgid "Changing Charset"
 msgstr "Mením znakovú sadu"
 
-#: js/messages.php:235
+#: js/messages.php:245
 msgid "Table must have at least one column"
 msgstr "Tabuľka musí obsahovať aspoň jeden stĺpec"
 
-#: js/messages.php:240
+#: js/messages.php:250
 msgid "Insert Table"
 msgstr "Pridať tabuľku"
 
-#: js/messages.php:241
+#: js/messages.php:251
 msgid "Hide indexes"
 msgstr "Skryť indexy"
 
-#: js/messages.php:242
+#: js/messages.php:252
 msgid "Show indexes"
 msgstr "Zobraziť indexy"
 
-#: js/messages.php:245
+#: js/messages.php:255
 msgid "Searching"
 msgstr "Vyhľadávam"
 
-#: js/messages.php:246
+#: js/messages.php:256
 msgid "Hide search results"
 msgstr "Skryť výsledky vyhľadávania"
 
-#: js/messages.php:247
+#: js/messages.php:257
 msgid "Show search results"
 msgstr "Zobraziť výsledky vyhľadávania"
 
-#: js/messages.php:248
+#: js/messages.php:258
 msgid "Browsing"
 msgstr "Prechádzať"
 
-#: js/messages.php:249
+#: js/messages.php:259
 msgid "Deleting"
 msgstr "Odstraňujem"
 
-#: js/messages.php:252
+#: js/messages.php:262
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Definícia uloženej funkcie musí obsahovať príkaz RETURN!"
 
-#: js/messages.php:259
+#: js/messages.php:269
 #, fuzzy, php-format
 msgid "Add %d value(s)"
 msgstr "Pridať nového používateľa"
 
-#: js/messages.php:262
+#: js/messages.php:272
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr ""
 "Poznámka: Ak súbor obsahuje viac tabuliek, tieto budú spojené do jednej"
 
-#: js/messages.php:265
+#: js/messages.php:275
 msgid "Hide query box"
 msgstr "Skryť vyhľadávacie pole"
 
-#: js/messages.php:266
+#: js/messages.php:276
 msgid "Show query box"
 msgstr "Zobrazit vyhľadávacie pole"
 
-#: js/messages.php:268 tbl_row_action.php:28
+#: js/messages.php:278 tbl_row_action.php:28
 msgid "No rows selected"
 msgstr "Nebol vybraný žiadny riadok"
 
-#: js/messages.php:269 libraries/common.lib.php:2743
+#: js/messages.php:279 libraries/common.lib.php:2743
 #: libraries/display_tbl.lib.php:2499 querywindow.php:87 tbl_structure.php:149
 #: tbl_structure.php:572
 msgid "Change"
 msgstr "Zmeniť"
 
-#: js/messages.php:270
+#: js/messages.php:280
 #, fuzzy
 #| msgid "Maximum execution time"
 msgid "Query execution time"
 msgstr "Maximálny čas behu"
 
-#: js/messages.php:273 libraries/config/FormDisplay.tpl.php:355
+#: js/messages.php:283 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
 #: libraries/tbl_properties.inc.php:714 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:228 tbl_change.php:1025
@@ -1871,106 +1919,106 @@ msgstr "Maximálny čas behu"
 msgid "Save"
 msgstr "Uložiť"
 
-#: js/messages.php:276
+#: js/messages.php:286
 msgid "Hide search criteria"
 msgstr "Skryť parametre vyhľadávania"
 
-#: js/messages.php:277
+#: js/messages.php:287
 msgid "Show search criteria"
 msgstr "Zobraziť parametre vyhľadávania"
 
-#: js/messages.php:280 libraries/tbl_select.lib.php:110
+#: js/messages.php:290 libraries/tbl_select.lib.php:110
 #, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
 msgstr "Hľadať"
 
-#: js/messages.php:282
+#: js/messages.php:292
 msgid "Each point represents a data row."
 msgstr ""
 
-#: js/messages.php:284
+#: js/messages.php:294
 msgid "Hovering over a point will show its label."
 msgstr ""
 
-#: js/messages.php:286
+#: js/messages.php:296
 msgid "Use mousewheel to zoom in or out of the plot."
 msgstr ""
 
-#: js/messages.php:288
+#: js/messages.php:298
 msgid "Click and drag the mouse to navigate the plot."
 msgstr ""
 
-#: js/messages.php:290
+#: js/messages.php:300
 msgid "Click reset zoom link to come back to original state."
 msgstr ""
 
-#: js/messages.php:292
+#: js/messages.php:302
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 
-#: js/messages.php:294
+#: js/messages.php:304
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 
-#: js/messages.php:296
+#: js/messages.php:306
 msgid "Strings are converted into integer for plotting"
 msgstr ""
 
-#: js/messages.php:298
+#: js/messages.php:308
 #, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
 msgstr "Pridať/Odobrať stĺpce"
 
-#: js/messages.php:299
+#: js/messages.php:309
 msgid "Select two different columns"
 msgstr ""
 
-#: js/messages.php:300
+#: js/messages.php:310
 #, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
 msgstr "Operácie s výsledkami dopytu"
 
-#: js/messages.php:301
+#: js/messages.php:311
 #, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
 msgstr "Veľkosť smerníka na dáta"
 
-#: js/messages.php:304 tbl_change.php:312 tbl_indexes.php:228
+#: js/messages.php:314 tbl_change.php:312 tbl_indexes.php:228
 #: tbl_indexes.php:255
 msgid "Ignore"
 msgstr "Ignorovať"
 
-#: js/messages.php:305 libraries/display_tbl.lib.php:1383
+#: js/messages.php:315 libraries/display_tbl.lib.php:1383
 msgid "Copy"
 msgstr "Kopírovať"
 
-#: js/messages.php:320
+#: js/messages.php:330
 #, fuzzy
 #| msgid "Add column"
 msgid "Add columns"
 msgstr "Pridať stĺpec"
 
-#: js/messages.php:323
+#: js/messages.php:333
 msgid "Select referenced key"
 msgstr "Zvoliť odkazovaný kľúč"
 
-#: js/messages.php:324
+#: js/messages.php:334
 msgid "Select Foreign Key"
 msgstr "Zvoliť cudzí kľúč"
 
-#: js/messages.php:325
+#: js/messages.php:335
 msgid "Please select the primary key or a unique key"
 msgstr "Zoľte, prosím, primárny alebo unikátny kľúč"
 
-#: js/messages.php:326 pmd_general.php:77 tbl_relation.php:541
+#: js/messages.php:336 pmd_general.php:77 tbl_relation.php:541
 msgid "Choose column to display"
 msgstr "Zvoľte, ktoré polia zobraziť"
 
-#: js/messages.php:327
+#: js/messages.php:337
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -1978,70 +2026,70 @@ msgstr ""
 "Neuložili ste zmeny v schéme. Ak ich neuložíte, tieto zmeny budú stratené. "
 "Chcete pokračovať?"
 
-#: js/messages.php:330
+#: js/messages.php:340
 msgid "Add an option for column "
 msgstr "Pridať voľbu pre stĺpec "
 
-#: js/messages.php:333
+#: js/messages.php:343
 msgid "Press escape to cancel editing"
 msgstr ""
 
-#: js/messages.php:334
+#: js/messages.php:344
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
 
-#: js/messages.php:335
+#: js/messages.php:345
 msgid "Drag to reorder"
 msgstr "Usporiadajte pretiahnutím"
 
-#: js/messages.php:336
+#: js/messages.php:346
 msgid "Click to sort"
 msgstr "Kliknite pre zoradenie"
 
-#: js/messages.php:337
+#: js/messages.php:347
 msgid "Click to mark/unmark"
 msgstr "Kliknite pre označenie/odznačenie"
 
-#: js/messages.php:338
+#: js/messages.php:348
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr "Kliknite na šípku<br />pre zmenu viditeľnosti stĺpca"
 
-#: js/messages.php:340
+#: js/messages.php:350
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: js/messages.php:341
+#: js/messages.php:351
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
 
-#: js/messages.php:342
+#: js/messages.php:352
 #, fuzzy
 #| msgid "Go to view"
 msgid "Go to link"
 msgstr "Prejsť na Prejsť na pohľad"
 
-#: js/messages.php:345
+#: js/messages.php:355
 msgid "Generate password"
 msgstr "Vytvoriť heslo"
 
-#: js/messages.php:346 libraries/replication_gui.lib.php:369
+#: js/messages.php:356 libraries/replication_gui.lib.php:369
 msgid "Generate"
 msgstr "Vytvoriť"
 
-#: js/messages.php:347
+#: js/messages.php:357
 msgid "Change Password"
 msgstr "Zmeniť heslo"
 
-#: js/messages.php:350 tbl_structure.php:465
+#: js/messages.php:360 tbl_structure.php:465
 msgid "More"
 msgstr "Viac"
 
-#: js/messages.php:353 setup/lib/index.lib.php:173
+#: js/messages.php:363 setup/lib/index.lib.php:173
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2051,27 +2099,27 @@ msgstr ""
 "Najnovšia verzia je %s a bola vydaná %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:355
+#: js/messages.php:365
 msgid ", latest stable version:"
 msgstr ", posledná stabilná verzia:"
 
-#: js/messages.php:356
+#: js/messages.php:366
 msgid "up to date"
 msgstr "aktuálne"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:375
+#: js/messages.php:385
 msgid "Done"
 msgstr "Hotovo"
 
-#: js/messages.php:379
+#: js/messages.php:389
 #, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Predchádzajúci"
 
-#: js/messages.php:384
+#: js/messages.php:394
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -2079,149 +2127,149 @@ msgid "Next"
 msgstr "Ďalší"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:387
+#: js/messages.php:397
 msgid "Today"
 msgstr "Dnes"
 
-#: js/messages.php:390
+#: js/messages.php:400
 msgid "January"
 msgstr "Január"
 
-#: js/messages.php:391
+#: js/messages.php:401
 msgid "February"
 msgstr "Február"
 
-#: js/messages.php:392
+#: js/messages.php:402
 msgid "March"
 msgstr "Marec"
 
-#: js/messages.php:393
+#: js/messages.php:403
 msgid "April"
 msgstr "Apríl"
 
-#: js/messages.php:394
+#: js/messages.php:404
 msgid "May"
 msgstr "Máj"
 
-#: js/messages.php:395
+#: js/messages.php:405
 msgid "June"
 msgstr "Jún"
 
-#: js/messages.php:396
+#: js/messages.php:406
 msgid "July"
 msgstr "Júl"
 
-#: js/messages.php:397
+#: js/messages.php:407
 msgid "August"
 msgstr "August"
 
-#: js/messages.php:398
+#: js/messages.php:408
 msgid "September"
 msgstr "September"
 
-#: js/messages.php:399
+#: js/messages.php:409
 msgid "October"
 msgstr "Október"
 
-#: js/messages.php:400
+#: js/messages.php:410
 msgid "November"
 msgstr "November"
 
-#: js/messages.php:401
+#: js/messages.php:411
 msgid "December"
 msgstr "December"
 
 #. l10n: Short month name
-#: js/messages.php:405 libraries/common.lib.php:1606
+#: js/messages.php:415 libraries/common.lib.php:1606
 msgid "Jan"
 msgstr "Jan"
 
 #. l10n: Short month name
-#: js/messages.php:407 libraries/common.lib.php:1608
+#: js/messages.php:417 libraries/common.lib.php:1608
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name
-#: js/messages.php:409 libraries/common.lib.php:1610
+#: js/messages.php:419 libraries/common.lib.php:1610
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:411 libraries/common.lib.php:1612
+#: js/messages.php:421 libraries/common.lib.php:1612
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name
-#: js/messages.php:413 libraries/common.lib.php:1614
+#: js/messages.php:423 libraries/common.lib.php:1614
 msgctxt "Short month name"
 msgid "May"
 msgstr "Máj"
 
 #. l10n: Short month name
-#: js/messages.php:415 libraries/common.lib.php:1616
+#: js/messages.php:425 libraries/common.lib.php:1616
 msgid "Jun"
 msgstr "Jún"
 
 #. l10n: Short month name
-#: js/messages.php:417 libraries/common.lib.php:1618
+#: js/messages.php:427 libraries/common.lib.php:1618
 msgid "Jul"
 msgstr "Júl"
 
 #. l10n: Short month name
-#: js/messages.php:419 libraries/common.lib.php:1620
+#: js/messages.php:429 libraries/common.lib.php:1620
 msgid "Aug"
 msgstr "Aug"
 
 #. l10n: Short month name
-#: js/messages.php:421 libraries/common.lib.php:1622
+#: js/messages.php:431 libraries/common.lib.php:1622
 msgid "Sep"
 msgstr "Sep"
 
 #. l10n: Short month name
-#: js/messages.php:423 libraries/common.lib.php:1624
+#: js/messages.php:433 libraries/common.lib.php:1624
 msgid "Oct"
 msgstr "Okt"
 
 #. l10n: Short month name
-#: js/messages.php:425 libraries/common.lib.php:1626
+#: js/messages.php:435 libraries/common.lib.php:1626
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:427 libraries/common.lib.php:1628
+#: js/messages.php:437 libraries/common.lib.php:1628
 msgid "Dec"
 msgstr "Dec"
 
-#: js/messages.php:430
+#: js/messages.php:440
 msgid "Sunday"
 msgstr "Nedeľa"
 
-#: js/messages.php:431
+#: js/messages.php:441
 msgid "Monday"
 msgstr "Pondelok"
 
-#: js/messages.php:432
+#: js/messages.php:442
 msgid "Tuesday"
 msgstr "Utorok"
 
-#: js/messages.php:433
+#: js/messages.php:443
 msgid "Wednesday"
 msgstr "Streda"
 
-#: js/messages.php:434
+#: js/messages.php:444
 msgid "Thursday"
 msgstr "Štvrtok"
 
-#: js/messages.php:435
+#: js/messages.php:445
 msgid "Friday"
 msgstr "Piatok"
 
-#: js/messages.php:436
+#: js/messages.php:446
 msgid "Saturday"
 msgstr "Sobota"
 
 #. l10n: Short week day name
-#: js/messages.php:440
+#: js/messages.php:450
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -2229,95 +2277,107 @@ msgid "Sun"
 msgstr "Ne"
 
 #. l10n: Short week day name
-#: js/messages.php:442 libraries/common.lib.php:1633
+#: js/messages.php:452 libraries/common.lib.php:1633
 msgid "Mon"
 msgstr "Po"
 
 #. l10n: Short week day name
-#: js/messages.php:444 libraries/common.lib.php:1635
+#: js/messages.php:454 libraries/common.lib.php:1635
 msgid "Tue"
 msgstr "Út"
 
 #. l10n: Short week day name
-#: js/messages.php:446 libraries/common.lib.php:1637
+#: js/messages.php:456 libraries/common.lib.php:1637
 msgid "Wed"
 msgstr "St"
 
 #. l10n: Short week day name
-#: js/messages.php:448 libraries/common.lib.php:1639
+#: js/messages.php:458 libraries/common.lib.php:1639
 msgid "Thu"
 msgstr "Št"
 
 #. l10n: Short week day name
-#: js/messages.php:450 libraries/common.lib.php:1641
+#: js/messages.php:460 libraries/common.lib.php:1641
 msgid "Fri"
 msgstr "Pi"
 
 #. l10n: Short week day name
-#: js/messages.php:452 libraries/common.lib.php:1643
+#: js/messages.php:462 libraries/common.lib.php:1643
 msgid "Sat"
 msgstr "So"
 
 #. l10n: Minimal week day name
-#: js/messages.php:456
+#: js/messages.php:466
 msgid "Su"
 msgstr "Ne"
 
 #. l10n: Minimal week day name
-#: js/messages.php:458
+#: js/messages.php:468
 msgid "Mo"
 msgstr "Po"
 
 #. l10n: Minimal week day name
-#: js/messages.php:460
+#: js/messages.php:470
 msgid "Tu"
 msgstr "Ut"
 
 #. l10n: Minimal week day name
-#: js/messages.php:462
+#: js/messages.php:472
 msgid "We"
 msgstr "St"
 
 #. l10n: Minimal week day name
-#: js/messages.php:464
+#: js/messages.php:474
 msgid "Th"
 msgstr "Št"
 
 #. l10n: Minimal week day name
-#: js/messages.php:466
+#: js/messages.php:476
 msgid "Fr"
 msgstr "Pi"
 
 #. l10n: Minimal week day name
-#: js/messages.php:468
+#: js/messages.php:478
 msgid "Sa"
 msgstr "So"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:470
+#: js/messages.php:480
 msgid "Wk"
 msgstr "týž"
 
-#: js/messages.php:477 libraries/rte/rte_list.lib.php:62
-#: libraries/rte/rte_triggers.lib.php:326 server_status.php:1236 sql.php:893
-msgid "Time"
-msgstr "Čas"
-
-#: js/messages.php:478
+#: js/messages.php:488
 msgid "Hour"
 msgstr "Hodiny"
 
-#: js/messages.php:479
+#: js/messages.php:489
 msgid "Minute"
 msgstr "Minúty"
 
-#: js/messages.php:480
+#: js/messages.php:490
 msgid "Second"
 msgstr "Sekundy"
 
 #: libraries/Advisor.class.php:168
 #, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
+msgstr ""
+
+#: libraries/Advisor.class.php:326 server_status.php:950
+msgid "per second"
+msgstr "za sekundu"
+
+#: libraries/Advisor.class.php:329 server_status.php:945
+msgid "per minute"
+msgstr "za minútu"
+
+#: libraries/Advisor.class.php:332 server_status.php:941 server_status.php:977
+#: server_status.php:1096 server_status.php:1141
+msgid "per hour"
+msgstr "za hodinu"
+
+#: libraries/Advisor.class.php:335
+msgid "per day"
 msgstr ""
 
 #: libraries/Config.class.php:703
@@ -9764,19 +9824,6 @@ msgstr ""
 #| msgid "Customize startup page"
 msgid "Questions since startup: %s"
 msgstr "Prispôsobenie úvodnej stránky"
-
-#: server_status.php:941 server_status.php:977 server_status.php:1096
-#: server_status.php:1141
-msgid "per hour"
-msgstr "za hodinu"
-
-#: server_status.php:945
-msgid "per minute"
-msgstr "za minútu"
-
-#: server_status.php:950
-msgid "per second"
-msgstr "za sekundu"
 
 #: server_status.php:971 tbl_printview.php:328 tbl_structure.php:833
 msgid "Statements"

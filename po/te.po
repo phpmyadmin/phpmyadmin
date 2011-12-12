@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-12-12 11:23+0100\n"
+"POT-Creation-Date: 2011-12-12 14:04+0100\n"
 "PO-Revision-Date: 2011-04-07 17:06+0200\n"
 "Last-Translator: <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
-#: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:339
+#: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:349
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1677
 msgid "Show all"
 msgstr "అన్నీ చూపించు"
@@ -49,7 +49,7 @@ msgstr "శోధించు"
 #: browse_foreigners.php:159 db_operations.php:378 db_operations.php:418
 #: db_operations.php:528 db_operations.php:555 db_search.php:337
 #: db_structure.php:615 enum_editor.php:121 gis_data_editor.php:133
-#: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:218
+#: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:228
 #: libraries/Config.class.php:1332 libraries/Theme_Manager.class.php:309
 #: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1371
 #: libraries/common.lib.php:2418 libraries/core.lib.php:513
@@ -205,7 +205,7 @@ msgstr ""
 msgid "Comments"
 msgstr "వ్యాఖ్యలు"
 
-#: db_datadict.php:233 js/messages.php:237 libraries/Index.class.php:349
+#: db_datadict.php:233 js/messages.php:247 libraries/Index.class.php:349
 #: libraries/Index.class.php:376 libraries/Index.class.php:679
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:299
@@ -221,7 +221,7 @@ msgstr "వ్యాఖ్యలు"
 msgid "No"
 msgstr "కాదు"
 
-#: db_datadict.php:233 js/messages.php:236 libraries/Index.class.php:350
+#: db_datadict.php:233 js/messages.php:246 libraries/Index.class.php:350
 #: libraries/Index.class.php:375 libraries/Index.class.php:679
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:299
@@ -764,7 +764,7 @@ msgstr ""
 msgid "Updated"
 msgstr ""
 
-#: db_tracking.php:90 libraries/rte/rte_events.lib.php:380
+#: db_tracking.php:90 js/messages.php:186 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
 #: server_status.php:1237 sql.php:892 tbl_tracking.php:638
 msgid "Status"
@@ -814,22 +814,22 @@ msgstr ""
 msgid "Database Log"
 msgstr ""
 
-#: enum_editor.php:23 js/messages.php:255
+#: enum_editor.php:23 js/messages.php:265
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
 msgstr ""
 
-#: enum_editor.php:28 js/messages.php:257
+#: enum_editor.php:28 js/messages.php:267
 msgid "Values for a new column"
 msgstr ""
 
-#: enum_editor.php:30 js/messages.php:256
+#: enum_editor.php:30 js/messages.php:266
 #, fuzzy, php-format
 #| msgid "Add/Delete columns"
 msgid "Values for column %s"
 msgstr "నిలువ వరుసల్ని చేర్చు/తొలగించు"
 
-#: enum_editor.php:34 js/messages.php:258
+#: enum_editor.php:34 js/messages.php:268
 msgid "Enter each value in a separate field"
 msgstr ""
 
@@ -905,48 +905,48 @@ msgstr ""
 msgid "SRID"
 msgstr ""
 
-#: gis_data_editor.php:151 js/messages.php:312
+#: gis_data_editor.php:151 js/messages.php:322
 #: libraries/display_tbl.lib.php:685
 msgid "Geometry"
 msgstr ""
 
-#: gis_data_editor.php:172 js/messages.php:308
+#: gis_data_editor.php:172 js/messages.php:318
 msgid "Point"
 msgstr ""
 
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
-#: gis_data_editor.php:297 js/messages.php:306
+#: gis_data_editor.php:297 js/messages.php:316
 msgid "X"
 msgstr ""
 
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
-#: gis_data_editor.php:299 js/messages.php:307
+#: gis_data_editor.php:299 js/messages.php:317
 msgid "Y"
 msgstr ""
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
-#: js/messages.php:309
+#: js/messages.php:319
 #, php-format
 msgid "Point %d"
 msgstr ""
 
 # మొదటి అనువాదము
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
-#: js/messages.php:315
+#: js/messages.php:325
 #, fuzzy
 #| msgid "Add into comments"
 msgid "Add a point"
 msgstr "స్పందనలకు చేర్చు"
 
-#: gis_data_editor.php:220 js/messages.php:310
+#: gis_data_editor.php:220 js/messages.php:320
 msgid "Linestring"
 msgstr ""
 
-#: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:314
+#: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:324
 msgid "Outer Ring"
 msgstr ""
 
-#: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:313
+#: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:323
 msgid "Inner Ring"
 msgstr ""
 
@@ -956,16 +956,16 @@ msgstr ""
 msgid "Add a linestring"
 msgstr "కొత్త వాడుకరిని చేర్చు"
 
-#: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:316
+#: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:326
 msgid "Add an inner ring"
 msgstr ""
 
-#: gis_data_editor.php:266 js/messages.php:311
+#: gis_data_editor.php:266 js/messages.php:321
 msgid "Polygon"
 msgstr ""
 
 # మొదటి అనువాదము
-#: gis_data_editor.php:306 js/messages.php:317
+#: gis_data_editor.php:306 js/messages.php:327
 #, fuzzy
 #| msgid "Add into comments"
 msgid "Add a polygon"
@@ -1180,7 +1180,7 @@ msgstr ""
 msgid "Close"
 msgstr "మూసివేయి"
 
-#: js/messages.php:65 js/messages.php:267 libraries/Index.class.php:468
+#: js/messages.php:65 js/messages.php:277 libraries/Index.class.php:468
 #: libraries/common.lib.php:648 libraries/common.lib.php:1194
 #: libraries/common.lib.php:3351 libraries/common.lib.php:3352
 #: libraries/config/messages.inc.php:482 libraries/display_tbl.lib.php:1382
@@ -1575,71 +1575,120 @@ msgstr ""
 msgid "Analysing & loading logs. This may take a while."
 msgstr ""
 
+# మొదటి అనువాదము
 #: js/messages.php:176
+#, fuzzy
+#| msgid "Write requests"
+msgid "Cancel request"
+msgstr "విన్నపములను వ్రాయుము"
+
+#: js/messages.php:177
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
 
-#: js/messages.php:177
+#: js/messages.php:178
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
 
-#: js/messages.php:178
+#: js/messages.php:179
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 
-#: js/messages.php:180
+#: js/messages.php:181
 msgid "Jump to Log table"
 msgstr ""
 
-#: js/messages.php:181
+#: js/messages.php:182
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
 
-#. l10n: A collection of available filters
+# మొదటి అనువాదము
 #: js/messages.php:184
+#, fuzzy
+#| msgid "Analyze"
+msgid "Analyzing..."
+msgstr "విశదీకరించు"
+
+#: js/messages.php:185
+msgid "Explain output"
+msgstr ""
+
+#: js/messages.php:187 js/messages.php:487 libraries/rte/rte_list.lib.php:62
+#: libraries/rte/rte_triggers.lib.php:326 server_status.php:1236 sql.php:893
+msgid "Time"
+msgstr "సమయం"
+
+#: js/messages.php:188
+#, fuzzy
+#| msgid "Total"
+msgid "Total time:"
+msgstr "మొత్తం"
+
+#: js/messages.php:189
+#, fuzzy
+#| msgid "Show statistics"
+msgid "Profiling results"
+msgstr "గణాంకాలను చూపించు"
+
+#: js/messages.php:190
+#, fuzzy
+#| msgid "Table"
+msgctxt "Display format"
+msgid "Table"
+msgstr "పట్టిక"
+
+# మొదటి అనువాదము
+#: js/messages.php:191
+#, fuzzy
+#| msgid "Charset"
+msgid "Chart"
+msgstr "అక్షరమాల"
+
+#. l10n: A collection of available filters
+#: js/messages.php:194
 #, fuzzy
 #| msgid "Table options"
 msgid "Log table filter options"
 msgstr "పట్టిక ఎంపికలు"
 
 #. l10n: Filter as in "Start Filtering"
-#: js/messages.php:186
+#: js/messages.php:196
 msgid "Filter"
 msgstr ""
 
-#: js/messages.php:187
+#: js/messages.php:197
 msgid "Filter queries by word/regexp:"
 msgstr ""
 
-#: js/messages.php:188
+#: js/messages.php:198
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 
-#: js/messages.php:189
+#: js/messages.php:199
 msgid "Sum of grouped rows:"
 msgstr ""
 
-#: js/messages.php:190
+#: js/messages.php:200
 #, fuzzy
 #| msgid "Total"
 msgid "Total:"
 msgstr "మొత్తం"
 
-#: js/messages.php:192
+#: js/messages.php:202
 msgid "Loading logs"
 msgstr ""
 
-#: js/messages.php:193
+#: js/messages.php:203
 msgid "Monitor refresh failed"
 msgstr ""
 
-#: js/messages.php:194
+#: js/messages.php:204
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
@@ -1647,227 +1696,227 @@ msgid ""
 msgstr ""
 
 # మొదటి అనువాదము
-#: js/messages.php:195
+#: js/messages.php:205
 #, fuzzy
 #| msgid "Database"
 msgid "Reload page"
 msgstr "డేటాబేస్"
 
-#: js/messages.php:197
+#: js/messages.php:207
 msgid "Affected rows:"
 msgstr ""
 
-#: js/messages.php:199
+#: js/messages.php:209
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 
-#: js/messages.php:200
+#: js/messages.php:210
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr ""
 
-#: js/messages.php:201 libraries/config/messages.inc.php:172
+#: js/messages.php:211 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
 #: prefs_manage.php:229 server_status.php:1595 setup/frames/menu.inc.php:20
 msgid "Import"
 msgstr "దిగుమతి"
 
-#: js/messages.php:203
+#: js/messages.php:213
 #, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
 msgstr "క్వెరీ ని మార్చు"
 
-#: js/messages.php:207
+#: js/messages.php:217
 msgid "Advisor system"
 msgstr ""
 
-#: js/messages.php:208
+#: js/messages.php:218
 msgid "Possible performance issues"
 msgstr ""
 
-#: js/messages.php:209
+#: js/messages.php:219
 msgid "Issue"
 msgstr ""
 
-#: js/messages.php:210
+#: js/messages.php:220
 #, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
 msgstr "పత్రావళి"
 
-#: js/messages.php:211
+#: js/messages.php:221
 #, fuzzy
 #| msgid "Details..."
 msgid "Rule details"
 msgstr "వివరాలు..."
 
-#: js/messages.php:212
+#: js/messages.php:222
 #, fuzzy
 #| msgid "Authentication"
 msgid "Justification"
 msgstr "అధీకరణ"
 
-#: js/messages.php:213
+#: js/messages.php:223
 msgid "Used variable / formula"
 msgstr ""
 
-#: js/messages.php:214
+#: js/messages.php:224
 msgid "Test"
 msgstr ""
 
-#: js/messages.php:219 pmd_general.php:382 pmd_general.php:419
+#: js/messages.php:229 pmd_general.php:382 pmd_general.php:419
 #: pmd_general.php:539 pmd_general.php:587 pmd_general.php:663
 #: pmd_general.php:717 pmd_general.php:780
 msgid "Cancel"
 msgstr "రద్దుచేయి"
 
-#: js/messages.php:222
+#: js/messages.php:232
 msgid "Loading"
 msgstr ""
 
-#: js/messages.php:223
+#: js/messages.php:233
 msgid "Processing Request"
 msgstr ""
 
-#: js/messages.php:224 libraries/rte/rte_export.lib.php:39
+#: js/messages.php:234 libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
 msgstr ""
 
-#: js/messages.php:225
+#: js/messages.php:235
 msgid "Dropping Column"
 msgstr ""
 
-#: js/messages.php:226
+#: js/messages.php:236
 msgid "Adding Primary Key"
 msgstr ""
 
-#: js/messages.php:227 libraries/relation.lib.php:80 pmd_general.php:380
+#: js/messages.php:237 libraries/relation.lib.php:80 pmd_general.php:380
 #: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
 #: pmd_general.php:715 pmd_general.php:778
 msgid "OK"
 msgstr "సరే"
 
-#: js/messages.php:228
+#: js/messages.php:238
 msgid "Click to dismiss this notification"
 msgstr ""
 
 # మొదటి అనువాదము
-#: js/messages.php:231
+#: js/messages.php:241
 #, fuzzy
 #| msgid "Database"
 msgid "Renaming Databases"
 msgstr "డేటాబేస్"
 
 # మొదటి అనువాదము
-#: js/messages.php:232
+#: js/messages.php:242
 #, fuzzy
 #| msgid "Database"
 msgid "Reload Database"
 msgstr "డేటాబేస్"
 
 # మొదటి అనువాదము
-#: js/messages.php:233
+#: js/messages.php:243
 #, fuzzy
 #| msgid "Database"
 msgid "Copying Database"
 msgstr "డేటాబేస్"
 
 # మొదటి అనువాదము
-#: js/messages.php:234
+#: js/messages.php:244
 #, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
 msgstr "అక్షరమాల"
 
 # మొదటి అనువాదము
-#: js/messages.php:235
+#: js/messages.php:245
 #, fuzzy
 #| msgid "You have added a new user."
 msgid "Table must have at least one column"
 msgstr "మీరు క్రొత్త వినియోగదారుని చేర్చారు"
 
-#: js/messages.php:240
+#: js/messages.php:250
 #, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
 msgstr "పట్టికల్ని వాడు"
 
-#: js/messages.php:241
+#: js/messages.php:251
 msgid "Hide indexes"
 msgstr ""
 
-#: js/messages.php:242
+#: js/messages.php:252
 msgid "Show indexes"
 msgstr ""
 
 # Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
-#: js/messages.php:245
+#: js/messages.php:255
 #, fuzzy
 #| msgid "Search"
 msgid "Searching"
 msgstr "శోధించు"
 
-#: js/messages.php:246
+#: js/messages.php:256
 msgid "Hide search results"
 msgstr ""
 
-#: js/messages.php:247
+#: js/messages.php:257
 msgid "Show search results"
 msgstr ""
 
-#: js/messages.php:248
+#: js/messages.php:258
 msgid "Browsing"
 msgstr ""
 
-#: js/messages.php:249
+#: js/messages.php:259
 #, fuzzy
 #| msgid "Delete"
 msgid "Deleting"
 msgstr "తొలగించు"
 
-#: js/messages.php:252
+#: js/messages.php:262
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
 # మొదటి అనువాదము
-#: js/messages.php:259
+#: js/messages.php:269
 #, fuzzy, php-format
 #| msgid "Add a new User"
 msgid "Add %d value(s)"
 msgstr "క్రొత్త వినియోగదారుని చేర్చు"
 
-#: js/messages.php:262
+#: js/messages.php:272
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr ""
 
-#: js/messages.php:265
+#: js/messages.php:275
 msgid "Hide query box"
 msgstr ""
 
-#: js/messages.php:266
+#: js/messages.php:276
 msgid "Show query box"
 msgstr ""
 
-#: js/messages.php:268 tbl_row_action.php:28
+#: js/messages.php:278 tbl_row_action.php:28
 msgid "No rows selected"
 msgstr ""
 
 # మొదటి అనువాదము
-#: js/messages.php:269 libraries/common.lib.php:2743
+#: js/messages.php:279 libraries/common.lib.php:2743
 #: libraries/display_tbl.lib.php:2499 querywindow.php:87 tbl_structure.php:149
 #: tbl_structure.php:572
 msgid "Change"
 msgstr "మార్చుము"
 
-#: js/messages.php:270
+#: js/messages.php:280
 msgid "Query execution time"
 msgstr ""
 
-#: js/messages.php:273 libraries/config/FormDisplay.tpl.php:355
+#: js/messages.php:283 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
 #: libraries/tbl_properties.inc.php:714 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:228 tbl_change.php:1025
@@ -1875,175 +1924,175 @@ msgstr ""
 msgid "Save"
 msgstr "భద్రపరచు"
 
-#: js/messages.php:276
+#: js/messages.php:286
 msgid "Hide search criteria"
 msgstr ""
 
-#: js/messages.php:277
+#: js/messages.php:287
 msgid "Show search criteria"
 msgstr ""
 
 # Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
-#: js/messages.php:280 libraries/tbl_select.lib.php:110
+#: js/messages.php:290 libraries/tbl_select.lib.php:110
 #, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
 msgstr "శోధించు"
 
-#: js/messages.php:282
+#: js/messages.php:292
 msgid "Each point represents a data row."
 msgstr ""
 
-#: js/messages.php:284
+#: js/messages.php:294
 msgid "Hovering over a point will show its label."
 msgstr ""
 
-#: js/messages.php:286
+#: js/messages.php:296
 msgid "Use mousewheel to zoom in or out of the plot."
 msgstr ""
 
-#: js/messages.php:288
+#: js/messages.php:298
 msgid "Click and drag the mouse to navigate the plot."
 msgstr ""
 
-#: js/messages.php:290
+#: js/messages.php:300
 msgid "Click reset zoom link to come back to original state."
 msgstr ""
 
-#: js/messages.php:292
+#: js/messages.php:302
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 
-#: js/messages.php:294
+#: js/messages.php:304
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 
-#: js/messages.php:296
+#: js/messages.php:306
 msgid "Strings are converted into integer for plotting"
 msgstr ""
 
-#: js/messages.php:298
+#: js/messages.php:308
 #, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
 msgstr "నిలువ వరుసల్ని చేర్చు/తొలగించు"
 
-#: js/messages.php:299
+#: js/messages.php:309
 msgid "Select two different columns"
 msgstr ""
 
-#: js/messages.php:300
+#: js/messages.php:310
 #, fuzzy
 #| msgid "Show statistics"
 msgid "Query results"
 msgstr "గణాంకాలను చూపించు"
 
-#: js/messages.php:301
+#: js/messages.php:311
 #, fuzzy
 #| msgid "Table of contents"
 msgid "Data point content"
 msgstr "విషయ సూచిక"
 
-#: js/messages.php:304 tbl_change.php:312 tbl_indexes.php:228
+#: js/messages.php:314 tbl_change.php:312 tbl_indexes.php:228
 #: tbl_indexes.php:255
 msgid "Ignore"
 msgstr ""
 
-#: js/messages.php:305 libraries/display_tbl.lib.php:1383
+#: js/messages.php:315 libraries/display_tbl.lib.php:1383
 msgid "Copy"
 msgstr ""
 
 # మొదటి అనువాదము
-#: js/messages.php:320
+#: js/messages.php:330
 #, fuzzy
 #| msgid "Add into comments"
 msgid "Add columns"
 msgstr "స్పందనలకు చేర్చు"
 
-#: js/messages.php:323
+#: js/messages.php:333
 msgid "Select referenced key"
 msgstr ""
 
-#: js/messages.php:324
+#: js/messages.php:334
 msgid "Select Foreign Key"
 msgstr ""
 
-#: js/messages.php:325
+#: js/messages.php:335
 msgid "Please select the primary key or a unique key"
 msgstr ""
 
-#: js/messages.php:326 pmd_general.php:77 tbl_relation.php:541
+#: js/messages.php:336 pmd_general.php:77 tbl_relation.php:541
 msgid "Choose column to display"
 msgstr ""
 
-#: js/messages.php:327
+#: js/messages.php:337
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:330
+#: js/messages.php:340
 msgid "Add an option for column "
 msgstr ""
 
-#: js/messages.php:333
+#: js/messages.php:343
 msgid "Press escape to cancel editing"
 msgstr ""
 
-#: js/messages.php:334
+#: js/messages.php:344
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
 
-#: js/messages.php:335
+#: js/messages.php:345
 msgid "Drag to reorder"
 msgstr ""
 
-#: js/messages.php:336
+#: js/messages.php:346
 msgid "Click to sort"
 msgstr ""
 
-#: js/messages.php:337
+#: js/messages.php:347
 msgid "Click to mark/unmark"
 msgstr ""
 
-#: js/messages.php:338
+#: js/messages.php:348
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr ""
 
-#: js/messages.php:340
+#: js/messages.php:350
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: js/messages.php:341
+#: js/messages.php:351
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
 
-#: js/messages.php:342
+#: js/messages.php:352
 msgid "Go to link"
 msgstr ""
 
-#: js/messages.php:345
+#: js/messages.php:355
 msgid "Generate password"
 msgstr ""
 
-#: js/messages.php:346 libraries/replication_gui.lib.php:369
+#: js/messages.php:356 libraries/replication_gui.lib.php:369
 msgid "Generate"
 msgstr ""
 
-#: js/messages.php:347
+#: js/messages.php:357
 msgid "Change Password"
 msgstr "సంకేతపదాన్ని మార్చు"
 
-#: js/messages.php:350 tbl_structure.php:465
+#: js/messages.php:360 tbl_structure.php:465
 msgid "More"
 msgstr "మరిన్ని"
 
-#: js/messages.php:353 setup/lib/index.lib.php:173
+#: js/messages.php:363 setup/lib/index.lib.php:173
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2051,21 +2100,21 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:355
+#: js/messages.php:365
 msgid ", latest stable version:"
 msgstr ""
 
-#: js/messages.php:356
+#: js/messages.php:366
 msgid "up to date"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:375
+#: js/messages.php:385
 msgid "Done"
 msgstr ""
 
 # మొదటి అనువాదము
-#: js/messages.php:379
+#: js/messages.php:389
 #, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
@@ -2073,7 +2122,7 @@ msgid "Prev"
 msgstr "గత"
 
 # మొదటి అనువాదము
-#: js/messages.php:384
+#: js/messages.php:394
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -2081,149 +2130,149 @@ msgid "Next"
 msgstr "తదుపరి"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:387
+#: js/messages.php:397
 msgid "Today"
 msgstr "ఈరోజు"
 
-#: js/messages.php:390
+#: js/messages.php:400
 msgid "January"
 msgstr "జనవరి"
 
-#: js/messages.php:391
+#: js/messages.php:401
 msgid "February"
 msgstr "ఫిబ్రవరి"
 
-#: js/messages.php:392
+#: js/messages.php:402
 msgid "March"
 msgstr "మార్చి"
 
-#: js/messages.php:393
+#: js/messages.php:403
 msgid "April"
 msgstr "ఏప్రిల్"
 
-#: js/messages.php:394
+#: js/messages.php:404
 msgid "May"
 msgstr "మే"
 
-#: js/messages.php:395
+#: js/messages.php:405
 msgid "June"
 msgstr "జూన్"
 
-#: js/messages.php:396
+#: js/messages.php:406
 msgid "July"
 msgstr "జూలై"
 
-#: js/messages.php:397
+#: js/messages.php:407
 msgid "August"
 msgstr "ఆగస్ట్"
 
-#: js/messages.php:398
+#: js/messages.php:408
 msgid "September"
 msgstr "సెప్టెంబర్"
 
-#: js/messages.php:399
+#: js/messages.php:409
 msgid "October"
 msgstr "అక్టోబర్"
 
-#: js/messages.php:400
+#: js/messages.php:410
 msgid "November"
 msgstr "నవంబర్"
 
-#: js/messages.php:401
+#: js/messages.php:411
 msgid "December"
 msgstr "డిసెంబర్"
 
 #. l10n: Short month name
-#: js/messages.php:405 libraries/common.lib.php:1606
+#: js/messages.php:415 libraries/common.lib.php:1606
 msgid "Jan"
 msgstr "జన"
 
 #. l10n: Short month name
-#: js/messages.php:407 libraries/common.lib.php:1608
+#: js/messages.php:417 libraries/common.lib.php:1608
 msgid "Feb"
 msgstr "ఫిబ్ర"
 
 #. l10n: Short month name
-#: js/messages.php:409 libraries/common.lib.php:1610
+#: js/messages.php:419 libraries/common.lib.php:1610
 msgid "Mar"
 msgstr "మార్చి"
 
 #. l10n: Short month name
-#: js/messages.php:411 libraries/common.lib.php:1612
+#: js/messages.php:421 libraries/common.lib.php:1612
 msgid "Apr"
 msgstr "ఏప్రి"
 
 #. l10n: Short month name
-#: js/messages.php:413 libraries/common.lib.php:1614
+#: js/messages.php:423 libraries/common.lib.php:1614
 msgctxt "Short month name"
 msgid "May"
 msgstr "మే"
 
 #. l10n: Short month name
-#: js/messages.php:415 libraries/common.lib.php:1616
+#: js/messages.php:425 libraries/common.lib.php:1616
 msgid "Jun"
 msgstr "జూన్"
 
 #. l10n: Short month name
-#: js/messages.php:417 libraries/common.lib.php:1618
+#: js/messages.php:427 libraries/common.lib.php:1618
 msgid "Jul"
 msgstr "జూలై"
 
 #. l10n: Short month name
-#: js/messages.php:419 libraries/common.lib.php:1620
+#: js/messages.php:429 libraries/common.lib.php:1620
 msgid "Aug"
 msgstr "ఆగ"
 
 #. l10n: Short month name
-#: js/messages.php:421 libraries/common.lib.php:1622
+#: js/messages.php:431 libraries/common.lib.php:1622
 msgid "Sep"
 msgstr "సెప్టె"
 
 #. l10n: Short month name
-#: js/messages.php:423 libraries/common.lib.php:1624
+#: js/messages.php:433 libraries/common.lib.php:1624
 msgid "Oct"
 msgstr "అక్టో"
 
 #. l10n: Short month name
-#: js/messages.php:425 libraries/common.lib.php:1626
+#: js/messages.php:435 libraries/common.lib.php:1626
 msgid "Nov"
 msgstr "నవం"
 
 #. l10n: Short month name
-#: js/messages.php:427 libraries/common.lib.php:1628
+#: js/messages.php:437 libraries/common.lib.php:1628
 msgid "Dec"
 msgstr "డిసెం"
 
-#: js/messages.php:430
+#: js/messages.php:440
 msgid "Sunday"
 msgstr "ఆదివారం"
 
-#: js/messages.php:431
+#: js/messages.php:441
 msgid "Monday"
 msgstr "సోమవారం"
 
-#: js/messages.php:432
+#: js/messages.php:442
 msgid "Tuesday"
 msgstr "మంగళవారం"
 
-#: js/messages.php:433
+#: js/messages.php:443
 msgid "Wednesday"
 msgstr "బుధవారం"
 
-#: js/messages.php:434
+#: js/messages.php:444
 msgid "Thursday"
 msgstr "గురువారం"
 
-#: js/messages.php:435
+#: js/messages.php:445
 msgid "Friday"
 msgstr "శుక్రవారం"
 
-#: js/messages.php:436
+#: js/messages.php:446
 msgid "Saturday"
 msgstr "శనివారం"
 
 #. l10n: Short week day name
-#: js/messages.php:440
+#: js/messages.php:450
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -2231,96 +2280,108 @@ msgid "Sun"
 msgstr "ఆది"
 
 #. l10n: Short week day name
-#: js/messages.php:442 libraries/common.lib.php:1633
+#: js/messages.php:452 libraries/common.lib.php:1633
 msgid "Mon"
 msgstr "సోమ"
 
 #. l10n: Short week day name
-#: js/messages.php:444 libraries/common.lib.php:1635
+#: js/messages.php:454 libraries/common.lib.php:1635
 msgid "Tue"
 msgstr "మంగళ"
 
 #. l10n: Short week day name
-#: js/messages.php:446 libraries/common.lib.php:1637
+#: js/messages.php:456 libraries/common.lib.php:1637
 msgid "Wed"
 msgstr "బుధ"
 
 #. l10n: Short week day name
-#: js/messages.php:448 libraries/common.lib.php:1639
+#: js/messages.php:458 libraries/common.lib.php:1639
 msgid "Thu"
 msgstr "గురు"
 
 #. l10n: Short week day name
-#: js/messages.php:450 libraries/common.lib.php:1641
+#: js/messages.php:460 libraries/common.lib.php:1641
 msgid "Fri"
 msgstr "శుక్ర"
 
 #. l10n: Short week day name
-#: js/messages.php:452 libraries/common.lib.php:1643
+#: js/messages.php:462 libraries/common.lib.php:1643
 msgid "Sat"
 msgstr "శని"
 
 #. l10n: Minimal week day name
-#: js/messages.php:456
+#: js/messages.php:466
 msgid "Su"
 msgstr "ఆ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:458
+#: js/messages.php:468
 msgid "Mo"
 msgstr "సో"
 
 #. l10n: Minimal week day name
-#: js/messages.php:460
+#: js/messages.php:470
 msgid "Tu"
 msgstr "మం"
 
 #. l10n: Minimal week day name
-#: js/messages.php:462
+#: js/messages.php:472
 msgid "We"
 msgstr "బు"
 
 #. l10n: Minimal week day name
-#: js/messages.php:464
+#: js/messages.php:474
 msgid "Th"
 msgstr "గు"
 
 #. l10n: Minimal week day name
-#: js/messages.php:466
+#: js/messages.php:476
 msgid "Fr"
 msgstr "శు"
 
 #. l10n: Minimal week day name
-#: js/messages.php:468
+#: js/messages.php:478
 msgid "Sa"
 msgstr "శ"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:470
+#: js/messages.php:480
 msgid "Wk"
 msgstr "వారం"
 
-#: js/messages.php:477 libraries/rte/rte_list.lib.php:62
-#: libraries/rte/rte_triggers.lib.php:326 server_status.php:1236 sql.php:893
-msgid "Time"
-msgstr "సమయం"
-
-#: js/messages.php:478
+#: js/messages.php:488
 msgid "Hour"
 msgstr "గంట"
 
 # మొదటి అనువాదము
-#: js/messages.php:479
+#: js/messages.php:489
 msgid "Minute"
 msgstr "నిమిషం"
 
-#: js/messages.php:480
+#: js/messages.php:490
 msgid "Second"
 msgstr "క్షణం"
 
 #: libraries/Advisor.class.php:168
 #, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
+msgstr ""
+
+#: libraries/Advisor.class.php:326 server_status.php:950
+msgid "per second"
+msgstr "క్షణానికి"
+
+#: libraries/Advisor.class.php:329 server_status.php:945
+msgid "per minute"
+msgstr "నిమిషానికి"
+
+#: libraries/Advisor.class.php:332 server_status.php:941 server_status.php:977
+#: server_status.php:1096 server_status.php:1141
+msgid "per hour"
+msgstr "గంటకి"
+
+#: libraries/Advisor.class.php:335
+msgid "per day"
 msgstr ""
 
 #: libraries/Config.class.php:703
@@ -9480,19 +9541,6 @@ msgstr ""
 #, php-format
 msgid "Questions since startup: %s"
 msgstr ""
-
-#: server_status.php:941 server_status.php:977 server_status.php:1096
-#: server_status.php:1141
-msgid "per hour"
-msgstr "గంటకి"
-
-#: server_status.php:945
-msgid "per minute"
-msgstr "నిమిషానికి"
-
-#: server_status.php:950
-msgid "per second"
-msgstr "క్షణానికి"
 
 #: server_status.php:971 tbl_printview.php:328 tbl_structure.php:833
 msgid "Statements"
