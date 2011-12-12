@@ -1137,7 +1137,7 @@ msgstr "Index bearbeiten"
 #, fuzzy, php-format
 #| msgid "Add %s column(s)"
 msgid "Add %d column(s) to index"
-msgstr "%s Spalte(n) einfügen"
+msgstr "%s Spalte(n) zu Index hinzufügen"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:52
