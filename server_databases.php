@@ -12,7 +12,7 @@ require_once './libraries/common.inc.php';
 
 require './libraries/server_common.inc.php';
 if (!PMA_DRIZZLE) {
-    include './libraries/replication.inc.php';
+    include_once './libraries/replication.inc.php';
 } else {
     $replication_types = array();
     $replication_info = null;

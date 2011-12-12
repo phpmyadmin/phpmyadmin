@@ -47,7 +47,7 @@ if (empty($is_info)) {
     include './libraries/db_info.inc.php';
 
     if (!PMA_DRIZZLE) {
-        include './libraries/replication.inc.php';
+        include_once './libraries/replication.inc.php';
     } else {
         $server_slave_status = false;
     }

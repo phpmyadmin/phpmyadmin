@@ -407,7 +407,7 @@ if (PMA_DRIZZLE) {
     $server_master_status = false;
     $server_slave_status = false;
 } else {
-    include './libraries/replication.inc.php';
+    include_once './libraries/replication.inc.php';
     include_once './libraries/replication_gui.lib.php';
 }
 
