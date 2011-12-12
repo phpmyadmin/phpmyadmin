@@ -1603,7 +1603,7 @@ msgstr "Profiliranje rezultatov"
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
-msgstr "tabela"
+msgstr "Tabela"
 
 #: js/messages.php:191
 #| msgid "Charts"
