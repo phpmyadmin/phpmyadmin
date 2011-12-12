@@ -1600,11 +1600,10 @@ msgid "Profiling results"
 msgstr "Profiliranje rezultatov"
 
 #: js/messages.php:190
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
-msgstr "Tabela"
+msgstr "tabela"
 
 #: js/messages.php:191
 #, fuzzy
