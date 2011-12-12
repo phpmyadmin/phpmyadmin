@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-12 05:51+0200\n"
+"PO-Revision-Date: 2011-12-12 05:54+0200\n"
 "Last-Translator: minichip <holger@ronecker.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -2842,7 +2842,7 @@ msgstr "Sie sollten auf %s %s oder neuer aktualisieren."
 #: libraries/common.lib.php:188
 #, php-format
 msgid "Max: %s%s"
-msgstr "Maximale Dateigröße: %s%s"
+msgstr "Maximal: %s%s"
 
 #. l10n: Please check that translation actually exists.
 #: libraries/common.lib.php:443
