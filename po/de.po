@@ -1264,7 +1264,7 @@ msgstr "Abfrage-Statistiken"
 
 #: js/messages.php:94
 msgid "Local monitor configuration incompatible"
-msgstr "Die lokale Bildschirmkonfiguration ist nicht kompatibel."
+msgstr "Die lokale Bildschirmkonfiguration ist nicht kompatibel"
 
 #: js/messages.php:95
 #, fuzzy
