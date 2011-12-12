@@ -12560,7 +12560,7 @@ msgstr ""
 #, fuzzy
 #| msgid "There are no routines to display."
 msgid "Rate of joins without indexes"
-msgstr "Es sind keine Prozeduren zum Anzeigen vorhanden."
+msgstr "Es sind keine Prozeduren zum Anzeigen vorhanden"
 
 #: po/advisory_rules.php:126
 msgid "There are too many joins without indexes."
