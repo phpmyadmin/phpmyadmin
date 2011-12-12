@@ -3887,6 +3887,8 @@ msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
 msgstr ""
+"Будь ласка зверніть увагу що phpMyAdmin - це просто інтерфейс і його "
+"можливості не обмежують MySQL"
 
 #: libraries/config/messages.inc.php:200
 msgid "Basic settings"
