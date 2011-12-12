@@ -11575,8 +11575,8 @@ msgstr "Indexname:"
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
 msgstr ""
-"Der Name des Primärschlüssels (und <b>nur dessen</b>) darf <b>nur</b> "
-"\"PRIMARY\" lauten."
+"(Nur der Name des Primärschlüssels <b>darf</b> und <b>muß</b> \"PRIMARY\" "
+"lauten!)"
 
 #: tbl_indexes.php:199
 msgid "Index type:"
