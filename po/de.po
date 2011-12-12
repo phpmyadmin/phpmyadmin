@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-12 04:51+0200\n"
+"PO-Revision-Date: 2011-12-12 04:52+0200\n"
 "Last-Translator: minichip <holger@ronecker.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -13189,7 +13189,7 @@ msgstr ""
 #, fuzzy
 #| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
-msgstr "max. gleichzeitige Verbindungen"
+msgstr "MyISAM gleichzeitige Einfügeoperationen"
 
 #: po/advisory_rules.php:271
 msgid "Enable concurrent_insert by setting it to 1"
