@@ -185,7 +185,7 @@ $(document).ready(function() {
             //We also need to post the value of the submit button in order to get this to work correctly
             $.post($form.attr('action'), $form.serialize() + "&adduser_submit=" + $(this).find("input[name=adduser_submit]").attr('value'), function(data) {
                 if (data.success == true) {
-                    $("#add_user_dialog").dialog("close").remove();
+                    $("#add_user_dialog").dialog("close");
                     PMA_ajaxShowMessage(data.message);
                     $("#floating_menubar")
                      .next('div')
@@ -243,7 +243,7 @@ $(document).ready(function() {
                 }
             })
         };
-        button_options[PMA_messages['strCancel']] = function() { $(this).dialog("close").remove(); }
+        button_options[PMA_messages['strCancel']] = function() { $(this).dialog("close"); };
 
         $.get($(this).attr("href"), {'ajax_request':true}, function(data) {
             var $div = $('<div id="add_user_dialog"></div>')
@@ -260,7 +260,10 @@ $(document).ready(function() {
                 // also it's interesting to be able to scroll this window
                 height: 600,
                 modal: true,
-                buttons: button_options
+                buttons: button_options,
+                close: function () {
+                    $(this).remove();
+                }
             }); //dialog options end
             displayPasswordGenerateButton();
             PMA_convertFootnotesToTooltips($div);
@@ -363,7 +366,7 @@ $(document).ready(function() {
          * @var button_options  Object containing options for jQueryUI dialog buttons
          */
         var button_options = {};
-        button_options[PMA_messages['strCancel']] = function() {$(this).dialog("close").remove();}
+        button_options[PMA_messages['strCancel']] = function() {$(this).dialog("close");};
 
         var token = $(this).parents('form').find('input[name="token"]').val();
         $.get($(this).attr('href'), {'ajax_request':true, 'edit_user_dialog': true, 'token': token}, function(data) {
@@ -372,7 +375,10 @@ $(document).ready(function() {
             .dialog({
                 width: 900,
                 height: 600,
-                buttons: button_options
+                buttons: button_options,
+                close: function () {
+                    $(this).remove();
+                }
             }); //dialog options end
             displayPasswordGenerateButton();
             PMA_ajaxRemoveMessage($msgbox);
@@ -412,7 +418,7 @@ $(document).ready(function() {
                 PMA_ajaxShowMessage(data.message);
 
                 //Close the jQueryUI dialog
-                $("#edit_user_dialog").dialog("close").remove();
+                $("#edit_user_dialog").dialog("close");
 
                 if(data.sql_query) {
                     $("#floating_menubar")
