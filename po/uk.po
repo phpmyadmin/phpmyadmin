@@ -3851,7 +3851,7 @@ msgstr "Інші параметри ядра"
 
 #: libraries/config/messages.inc.php:193
 msgid "Settings that didn't fit enywhere else"
-msgstr ""
+msgstr "Налаштування які не вписуються більш ніґде"
 
 #: libraries/config/messages.inc.php:194
 msgid "Page titles"
