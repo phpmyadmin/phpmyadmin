@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-12 06:11+0200\n"
+"PO-Revision-Date: 2011-12-12 06:12+0200\n"
 "Last-Translator: minichip <holger@ronecker.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -4862,7 +4862,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:419
 msgid "Relation table"
-msgstr "Relation Table"
+msgstr "Relation Tabelle"
 
 #: libraries/config/messages.inc.php:420
 msgid "SQL command to fetch available databases"
