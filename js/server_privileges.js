@@ -185,6 +185,12 @@ $(document).ready(function() {
             //We also need to post the value of the submit button in order to get this to work correctly
             $.post($form.attr('action'), $form.serialize() + "&adduser_submit=" + $(this).find("input[name=adduser_submit]").attr('value'), function(data) {
                 if (data.success == true) {
+                    // Refresh navigation, if we created a database with the name
+                    // that is the same as the username of the new user
+                    if ($('#add_user_dialog #createdb_1:checked').length && window.parent) {
+                        window.parent.refreshNavigation(true);
+                    }
+
                     $("#add_user_dialog").dialog("close");
                     PMA_ajaxShowMessage(data.message);
                     $("#floating_menubar")
@@ -225,7 +231,7 @@ $(document).ready(function() {
                                      .html(priv_data.user_form)
                                      .insertAfter('#result_query');
                                 } else {
-                                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + priv_data.error, "7000");
+                                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + priv_data.error, false);
                                 }
                             } else {
                                 /*parse the JSON string*/
@@ -315,7 +321,11 @@ $(document).ready(function() {
         $.post($form.attr('action'), $form.serialize() + "&delete=" + $(this).attr('value') + "&ajax_request=true", function(data) {
             if(data.success == true) {
                 PMA_ajaxShowMessage(data.message);
-
+                // Refresh navigation, if we droppped some databases with the name
+                // that is the same as the username of the deleted user
+                if ($('#checkbox_drop_users_db:checked').length && window.parent) {
+                    window.parent.refreshNavigation(true);
+                }
                 //Remove the revoked user from the users list
                 $form.find("input:checkbox:checked").parents("tr").slideUp("medium", function() {
                     var this_user_initial = $(this).find('input:checkbox').val().charAt(0).toUpperCase();
