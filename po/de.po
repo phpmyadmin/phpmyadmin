@@ -3354,7 +3354,7 @@ msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
-"Legt die maximale Größe der Eingabefelder für CHAR und VARCHAR-Spalten fest"
+"Lege die maximale Größe der Eingabefelder für CHAR und VARCHAR-Spalten fest"
 
 #: libraries/config/messages.inc.php:37
 #, fuzzy
