@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-12 14:04+0100\n"
-"PO-Revision-Date: 2011-12-12 15:50+0200\n"
+"PO-Revision-Date: 2011-12-12 15:51+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1580,10 +1580,9 @@ msgid "Analyzing..."
 msgstr "Analiziranje ..."
 
 #: js/messages.php:185
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
-msgstr "Razloži stavek SQL"
+msgstr "Razloži izhod"
 
 #: js/messages.php:187 js/messages.php:487 libraries/rte/rte_list.lib.php:62
 #: libraries/rte/rte_triggers.lib.php:326 server_status.php:1236 sql.php:893
