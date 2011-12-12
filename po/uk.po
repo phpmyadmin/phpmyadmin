@@ -3835,7 +3835,7 @@ msgstr "Параметри відображення таблиць"
 
 #: libraries/config/messages.inc.php:187 setup/frames/menu.inc.php:19
 msgid "Main frame"
-msgstr ""
+msgstr "Головна оболочка"
 
 #: libraries/config/messages.inc.php:188
 msgid "Microsoft Office"
