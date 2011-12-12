@@ -1654,8 +1654,8 @@ msgstr "Betroffene Zeilen: "
 #| msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
-"Das Parsen/Einlesen der Konfigutationsdatei ist fehlgeschlagen. Es scheint "
-"sich nicht um eine gültige JSON-Kodierung zu handeln."
+"Das Einlesen der Konfigutationsdatei ist fehlgeschlagen. Es scheint sich "
+"nicht um eine gültige JSON-Kodierung zu handeln."
 
 #: js/messages.php:200
 msgid ""
