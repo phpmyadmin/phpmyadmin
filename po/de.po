@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-12 05:18+0200\n"
+"PO-Revision-Date: 2011-12-12 05:19+0200\n"
 "Last-Translator: minichip <holger@ronecker.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -5517,10 +5517,9 @@ msgstr ""
 "nicht korrekt konfiguriert)."
 
 #: libraries/database_interface.lib.php:1768
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
-msgstr "Der Server antwortet nicht"
+msgstr "Der Server antwortet nicht."
 
 #: libraries/database_interface.lib.php:1772
 msgid "Please check privileges of directory containing database."
