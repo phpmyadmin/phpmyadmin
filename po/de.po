@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-12 05:16+0200\n"
+"PO-Revision-Date: 2011-12-12 05:17+0200\n"
 "Last-Translator: minichip <holger@ronecker.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -934,7 +934,7 @@ msgstr "Aussenring"
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:313
 #, fuzzy
 msgid "Inner Ring"
-msgstr "Inkreis:"
+msgstr "Inkreis"
 
 #: gis_data_editor.php:252
 #| msgid "Add a new User"
