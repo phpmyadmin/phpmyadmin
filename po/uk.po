@@ -2526,7 +2526,7 @@ msgstr "невідомий статус таблиці: "
 
 #: libraries/Table.class.php:1116
 msgid "Invalid database"
-msgstr "Поламана БД"
+msgstr "Неправильна база даних"
 
 #: libraries/Table.class.php:1130 tbl_get_field.php:25
 msgid "Invalid table name"
