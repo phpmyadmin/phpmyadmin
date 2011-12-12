@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-12 04:39+0200\n"
+"PO-Revision-Date: 2011-12-12 04:42+0200\n"
 "Last-Translator: minichip <holger@ronecker.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -2293,9 +2293,11 @@ msgid "Second"
 msgstr "Sekunde"
 
 #: libraries/Advisor.class.php:168
-#, php-format
+#, fuzzy, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr ""
+"Formatieren des Texts für Regel '%s' fehlgeschlagen. PHP warf folgende "
+"Fehlermeldung: %s"
 
 #: libraries/Config.class.php:703
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
