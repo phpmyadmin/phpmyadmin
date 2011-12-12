@@ -4857,8 +4857,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgstr ""
-"Leer lassenfür keine [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] Unterstützung, Vorschlag: [kbd]pma_relation[/kbd]"
+"Leer lassen für keine [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"link[/a] Unterstützung, Vorschlag: [kbd]pma_relation[/kbd]"
 
 #: libraries/config/messages.inc.php:419
 msgid "Relation table"
