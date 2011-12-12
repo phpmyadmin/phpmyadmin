@@ -2470,9 +2470,9 @@ msgstr[2] "%1$d рядків змінено."
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "%1$d рядок видалено"
-msgstr[1] "%1$d рядків видалено"
-msgstr[2] "%1$d рядків видалено"
+msgstr[0] "%1$d рядок видалено."
+msgstr[1] "%1$d рядків видалено."
+msgstr[2] "%1$d рядків видалено."
 
 #: libraries/Message.class.php:273
 #, php-format
