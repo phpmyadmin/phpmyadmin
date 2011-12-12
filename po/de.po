@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-12 05:32+0200\n"
+"PO-Revision-Date: 2011-12-12 05:33+0200\n"
 "Last-Translator: minichip <holger@ronecker.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -808,7 +808,6 @@ msgid "ENUM/SET editor"
 msgstr "ENUM/SET Editor"
 
 #: enum_editor.php:28 js/messages.php:257
-#, fuzzy
 #| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
 msgstr "Werte für eine neue Spalte"
@@ -956,7 +955,6 @@ msgid "Add a polygon"
 msgstr "Polygon hinzufügen"
 
 #: gis_data_editor.php:310
-#, fuzzy
 #| msgid "Geometry"
 msgid "Add geometry"
 msgstr "Geometrie hinzufügen"
@@ -1122,7 +1120,6 @@ msgid "This is not a number!"
 msgstr "Das ist keine Zahl!"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid "Add index"
 msgid "Add Index"
 msgstr "Index hinzufügen"
@@ -1853,7 +1850,6 @@ msgid "Show search criteria"
 msgstr "Suchkriterien anzeigen"
 
 #: js/messages.php:280 libraries/tbl_select.lib.php:110
-#, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
 msgstr "Suche"
@@ -2964,7 +2960,6 @@ msgstr "Fehlende(r) Parameter:"
 
 #: libraries/common.lib.php:2447 libraries/common.lib.php:2450
 #: libraries/display_tbl.lib.php:306
-#, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
@@ -2973,7 +2968,6 @@ msgstr "Anfang"
 #: libraries/common.lib.php:2448 libraries/common.lib.php:2451
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
-#, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
@@ -2982,7 +2976,6 @@ msgstr "Vorherige"
 #: libraries/common.lib.php:2478 libraries/common.lib.php:2481
 #: libraries/display_tbl.lib.php:372 server_binlog.php:170
 #: server_binlog.php:172
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
@@ -2990,7 +2983,6 @@ msgstr "Nächste"
 
 #: libraries/common.lib.php:2479 libraries/common.lib.php:2482
 #: libraries/display_tbl.lib.php:389
-#, fuzzy
 #| msgid "End"
 msgctxt "Last page"
 msgid "End"
@@ -10695,6 +10687,7 @@ msgid "Monitor Instructions"
 msgstr "Einführung zur Überwachung"
 
 #: server_status.php:1593
+#, fuzzy
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -11572,6 +11565,7 @@ msgid "Index name:"
 msgstr "Indexname:"
 
 #: tbl_indexes.php:188
+#, fuzzy
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
 msgstr ""
@@ -12749,7 +12743,7 @@ msgid "Max %% MyISAM key buffer ever used"
 msgstr "Größe des Sortierungspuffers"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer (index cache) %% used is low."
 msgstr "Größe des Sortierungspuffers"
@@ -12910,7 +12904,7 @@ msgid "The thread cache is set to 0"
 msgstr ""
 
 #: po/advisory_rules.php:210
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is not active."
 msgid "Thread cache hit rate %%"
 msgstr "Tracking ist nicht aktiviert."
