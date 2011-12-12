@@ -824,12 +824,7 @@ msgstr "Werte für die Spalte %s"
 msgid "Enter each value in a separate field"
 msgstr "Jeden Wert in einem eigenen Feld eingeben"
 
-<<<<<<< HEAD
 #: enum_editor.php:123
-#, fuzzy
-=======
-#: enum_editor.php:121
->>>>>>> pootle/master
 #| msgid "+ Add a value"
 msgid "Add a value"
 msgstr "Wert hinzufügen"
@@ -5510,12 +5505,7 @@ msgstr "Die Erweiterung %s fehlt. Bitte die PHP Konfiguration überprüfen."
 msgid "possible deep recursion attack"
 msgstr ""
 
-<<<<<<< HEAD
 #: libraries/database_interface.lib.php:1771
-#, fuzzy
-=======
-#: libraries/database_interface.lib.php:1765
->>>>>>> pootle/master
 #| msgid " the local MySQL server's socket is not correctly configured)"
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
@@ -5524,12 +5514,7 @@ msgstr ""
 "Der Server antwortet nicht (evtl. ist der Socket des lokalen MySQL-Servers "
 "nicht korrekt konfiguriert)."
 
-<<<<<<< HEAD
 #: libraries/database_interface.lib.php:1774
-#, fuzzy
-=======
-#: libraries/database_interface.lib.php:1768
->>>>>>> pootle/master
 #| msgid "The server is not responding"
 msgid "The server is not responding."
 msgstr "Der Server antwortet nicht."
@@ -12522,12 +12507,7 @@ msgstr ""
 msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
 
-<<<<<<< HEAD
 #: po/advisory_rules.php:324
-#, fuzzy
-=======
-#: po/advisory_rules.php:110
->>>>>>> pootle/master
 #| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
 msgstr "Erlaubt das Erstellen temporärer Tabellen"
@@ -12776,13 +12756,8 @@ msgstr "key_buffer_size ist 0"
 msgid "Max %% MyISAM key buffer ever used"
 msgstr "Größe des Sortierungspuffers"
 
-<<<<<<< HEAD
 #: po/advisory_rules.php:492 po/advisory_rules.php:507
-#, fuzzy, php-format
-=======
-#: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, php-format
->>>>>>> pootle/master
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer (index cache) %% used is low."
 msgstr "Größe des Sortierungspuffers"
@@ -12942,13 +12917,8 @@ msgstr ""
 msgid "The thread cache is set to 0"
 msgstr ""
 
-<<<<<<< HEAD
 #: po/advisory_rules.php:624
-#, fuzzy, php-format
-=======
-#: po/advisory_rules.php:210
 #, php-format
->>>>>>> pootle/master
 #| msgid "Tracking is not active."
 msgid "Thread cache hit rate %%"
 msgstr "Tracking ist nicht aktiviert."
@@ -13003,13 +12973,8 @@ msgid ""
 "launch"
 msgstr ""
 
-<<<<<<< HEAD
 #: po/advisory_rules.php:665
-#, fuzzy, php-format
-=======
-#: po/advisory_rules.php:223
 #, php-format
->>>>>>> pootle/master
 #| msgid "long_query_time is set to %d second(s)."
 msgid "slow_launch_time is set to %s"
 msgstr "slow_launch_time ist auf %s eingestellt"
@@ -13112,12 +13077,7 @@ msgstr ""
 msgid "Is InnoDB disabled?"
 msgstr ""
 
-<<<<<<< HEAD
-#: po/advisory_rules.php:747
-#, fuzzy
-=======
 #: po/advisory_rules.php:251
->>>>>>> pootle/master
 #| msgid "Could not save recent table"
 msgid "You do not have InnoDB enabled."
 msgstr "InnoDB ist nicht aktiviert."
