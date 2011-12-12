@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-12 06:04+0200\n"
+"PO-Revision-Date: 2011-12-12 06:07+0200\n"
 "Last-Translator: minichip <holger@ronecker.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -4670,7 +4670,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:384
 msgid "Control user"
-msgstr "Control-user"
+msgstr "pmadb Benutzer"
 
 #: libraries/config/messages.inc.php:385
 msgid ""
