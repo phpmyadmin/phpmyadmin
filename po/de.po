@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-04 10:35+0100\n"
-"PO-Revision-Date: 2011-12-12 04:35+0200\n"
+"PO-Revision-Date: 2011-12-12 04:36+0200\n"
 "Last-Translator: minichip <holger@ronecker.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1868,8 +1868,9 @@ msgid "Hovering over a point will show its label."
 msgstr "Das Überfliegen eines Punktes zeigt seine Bezeichnung."
 
 #: js/messages.php:286
+#, fuzzy
 msgid "Use mousewheel to zoom in or out of the plot."
-msgstr ""
+msgstr "Verwenden Sie das Mausrad um die Grafik zu vergrößern oder verkleinern."
 
 #: js/messages.php:288
 msgid "Click and drag the mouse to navigate the plot."
