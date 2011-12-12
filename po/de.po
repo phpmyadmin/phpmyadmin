@@ -4632,8 +4632,8 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma_column_info[/kbd]"
 msgstr ""
-"Leer lassen für keine Spalten Kommentare/mime types,Vorschlag: [kbd]"
-"pma_column_info[/kbd]"
+"Leer lassen für keine Spalten Kommentare/mime types, Vorschlag: "
+"[kbd]pma_column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:377
 msgid "Column information table"
