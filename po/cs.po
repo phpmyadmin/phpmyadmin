@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-10 07:53-0500\n"
-"PO-Revision-Date: 2011-12-06 11:48+0200\n"
+"PO-Revision-Date: 2011-12-12 11:27+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -12047,6 +12047,8 @@ msgstr ""
 #: po/advisory_rules.php:215
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
+"query_cache_size je nastaveno na 0 nebo query_cache_type je nastaveno na "
+"'OFF'"
 
 #: po/advisory_rules.php:219
 msgid "Query caching method"
