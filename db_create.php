@@ -14,7 +14,7 @@ $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.16.custom.js';
 
 require_once './libraries/mysql_charsets.lib.php';
 if (!PMA_DRIZZLE) {
-    include './libraries/replication.inc.php';
+    include_once './libraries/replication.inc.php';
 }
 require './libraries/build_html_for_db.lib.php';
 
