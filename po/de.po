@@ -4681,7 +4681,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:386
 #| msgid "Control user"
 msgid "Control host"
-msgstr "Control-Host"
+msgstr "pmadb Host"
 
 #: libraries/config/messages.inc.php:387
 msgid "Count tables when showing database list"
