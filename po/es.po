@@ -1547,10 +1547,9 @@ msgid "Analysing & loading logs. This may take a while."
 msgstr "Analizando y cargando registros. Esto puede demorar."
 
 #: js/messages.php:176
-#, fuzzy
 #| msgid "Read requests"
 msgid "Cancel request"
-msgstr "Lea las solicitudes"
+msgstr "Cancelar petición"
 
 #: js/messages.php:177
 msgid ""
