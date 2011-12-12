@@ -246,7 +246,7 @@ $(document).ready(function() {
         button_options[PMA_messages['strCancel']] = function() { $(this).dialog("close").remove(); }
 
         $.get($(this).attr("href"), {'ajax_request':true}, function(data) {
-            $('<div id="add_user_dialog"></div>')
+            var $div = $('<div id="add_user_dialog"></div>')
             .prepend(data)
             .find("#fieldset_add_user_footer").hide() //showing the "Go" and "Create User" buttons together will confuse the user
             .end()
@@ -263,6 +263,7 @@ $(document).ready(function() {
                 buttons: button_options
             }); //dialog options end
             displayPasswordGenerateButton();
+            PMA_convertFootnotesToTooltips($div);
             PMA_ajaxRemoveMessage($msgbox);
         }); // end $.get()
 
