@@ -11370,7 +11370,7 @@ msgstr "Die Tabelle %1$s wurde erfolgreich geändert"
 
 #: tbl_change.php:699
 msgid "Because of its length,<br /> this column might not be editable"
-msgstr "Wegen seiner Länge ist dieses<br />Feld vielleicht nicht editierbar "
+msgstr "Wegen seiner Länge ist dieses<br />Feld vielleicht nicht editierbar"
 
 #: tbl_change.php:817
 msgid "Remove BLOB Repository Reference"
