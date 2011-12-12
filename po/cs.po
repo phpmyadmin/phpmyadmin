@@ -1527,10 +1527,9 @@ msgid "Analysing & loading logs. This may take a while."
 msgstr "Načítám a analyzuji záznamy. To může chvíli trvat."
 
 #: js/messages.php:176
-#, fuzzy
 #| msgid "Read requests"
 msgid "Cancel request"
-msgstr "Požadavků na zápis"
+msgstr "Zrušit požadavek"
 
 #: js/messages.php:177
 msgid ""
