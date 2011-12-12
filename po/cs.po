@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-12 14:04+0100\n"
-"PO-Revision-Date: 2011-12-12 15:07+0200\n"
+"PO-Revision-Date: 2011-12-12 15:08+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1582,10 +1582,9 @@ msgid "Time"
 msgstr "Čas"
 
 #: js/messages.php:188
-#, fuzzy
 #| msgid "Total:"
 msgid "Total time:"
-msgstr "Celkem:"
+msgstr "Celkový čas:"
 
 #: js/messages.php:189
 #, fuzzy
