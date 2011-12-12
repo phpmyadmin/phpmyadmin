@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-10 07:53-0500\n"
-"PO-Revision-Date: 2011-12-12 12:02+0200\n"
+"PO-Revision-Date: 2011-12-12 12:08+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -12187,7 +12187,7 @@ msgstr "Zmenšení vyrovnávací paměti může přinést zvýšení výkonu."
 #: po/advisory_rules.php:305
 #, php-format
 msgid "Current query cache size: %s"
-msgstr ""
+msgstr "Velikost vyrovnávací paměti dotazů: %s"
 
 #: po/advisory_rules.php:309
 #, fuzzy
