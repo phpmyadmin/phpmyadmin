@@ -1894,7 +1894,7 @@ msgstr ""
 
 #: js/messages.php:296
 msgid "Strings are converted into integer for plotting"
-msgstr "Zeichenketten werden für die Zeichnung in Integerwerte umgewandelt."
+msgstr "Zeichenketten werden für die Zeichnung in Integerwerte umgewandelt"
 
 #: js/messages.php:298
 msgid "Select two columns"
