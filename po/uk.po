@@ -3802,7 +3802,7 @@ msgstr "Імпорт / експорт"
 
 #: libraries/config/messages.inc.php:176
 msgid "Set import and export directories and compression options"
-msgstr ""
+msgstr "Встанови теки імпорту та експорту  та параметри стискання"
 
 #: libraries/config/messages.inc.php:177 libraries/export/latex.php:27
 msgid "LaTeX"
