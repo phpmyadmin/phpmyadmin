@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-12 14:04+0100\n"
-"PO-Revision-Date: 2011-12-12 12:50+0200\n"
+"PO-Revision-Date: 2011-12-12 18:32+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1567,10 +1567,9 @@ msgid "Log analysed, but no data found in this time span."
 msgstr "Günlük çözümlendi, ama bu zaman aralığı içinde bulunan veri yok."
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Analyze"
 msgid "Analyzing..."
-msgstr "Çözümle"
+msgstr "Çözümleniyor..."
 
 #: js/messages.php:185
 #, fuzzy
