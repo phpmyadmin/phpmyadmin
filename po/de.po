@@ -4757,7 +4757,7 @@ msgstr "Hostname"
 
 #: libraries/config/messages.inc.php:401
 msgid "Logout URL"
-msgstr "Logout URL"
+msgstr "Abmelde URL"
 
 #: libraries/config/messages.inc.php:402
 msgid ""
