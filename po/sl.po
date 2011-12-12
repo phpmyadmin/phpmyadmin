@@ -8648,10 +8648,9 @@ msgid "Toggle small/big"
 msgstr "Preklopi majhno/veliko"
 
 #: pmd_general.php:99
-#, fuzzy
 #| msgid "To select relation, click :"
 msgid "Toggle relation lines"
-msgstr "Za izbiro relacije kliknite:"
+msgstr "Preklopi relacijske črte"
 
 #: pmd_general.php:104 pmd_pdf.php:76
 msgid "Import/Export coordinates for PDF schema"
