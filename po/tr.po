@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-12 11:23+0100\n"
-"PO-Revision-Date: 2011-12-07 15:06+0200\n"
+"PO-Revision-Date: 2011-12-12 12:48+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -8612,10 +8612,9 @@ msgid "Toggle small/big"
 msgstr "Küçüğü/büyüğü değiştir"
 
 #: pmd_general.php:99
-#, fuzzy
 #| msgid "To select relation, click :"
 msgid "Toggle relation lines"
-msgstr "Bağlantı seçmek için buraya tıklayın :"
+msgstr "İlgili satırları değiştir"
 
 #: pmd_general.php:104 pmd_pdf.php:76
 msgid "Import/Export coordinates for PDF schema"
