@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-12 14:04+0100\n"
-"PO-Revision-Date: 2011-12-05 00:08+0200\n"
+"PO-Revision-Date: 2011-12-12 15:50+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1575,10 +1575,9 @@ msgstr ""
 "Dnevnik je analiziran, vendar v tem časovnem razponu nisem našel podatkov."
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Analyze"
 msgid "Analyzing..."
-msgstr "Analiziraj"
+msgstr "Analiziranje ..."
 
 #: js/messages.php:185
 #, fuzzy
