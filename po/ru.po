@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-10 07:53-0500\n"
-"PO-Revision-Date: 2011-12-05 00:15+0200\n"
+"PO-Revision-Date: 2011-12-09 17:22+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1106,7 +1106,6 @@ msgid "This is not a number!"
 msgstr "Введите число!"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid "Add index"
 msgid "Add Index"
 msgstr "Добавить индекс"
@@ -1628,7 +1627,6 @@ msgid "Affected rows:"
 msgstr "Затронуто строк:"
 
 #: js/messages.php:199
-#, fuzzy
 #| msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr "Ошибка при разборе конфигурационного файла. Не корректный код JSON."
@@ -11338,21 +11336,18 @@ msgid "Column"
 msgstr "Столбец"
 
 #: tbl_chart.php:90
-#, fuzzy
 #| msgid "Line"
 msgctxt "Chart type"
 msgid "Line"
 msgstr "Линия"
 
 #: tbl_chart.php:91
-#, fuzzy
 #| msgid "Spline"
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "Сплайн"
 
 #: tbl_chart.php:92
-#, fuzzy
 #| msgid "Pie"
 msgctxt "Chart type"
 msgid "Pie"

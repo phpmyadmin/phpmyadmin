@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-10 07:53-0500\n"
-"PO-Revision-Date: 2011-12-08 11:45+0200\n"
+"PO-Revision-Date: 2011-12-10 08:21+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1527,7 +1527,7 @@ msgstr ""
 
 #: js/messages.php:175
 msgid "Analysing & loading logs. This may take a while."
-msgstr "ログの解析および読み込み中。すこし時間がかかることがあります。"
+msgstr "ログの解析および読み込みを行っています。少し時間がかかることがあります。"
 
 #: js/messages.php:176
 msgid ""
@@ -1680,7 +1680,7 @@ msgstr "キャンセル"
 
 #: js/messages.php:222
 msgid "Loading"
-msgstr "読み込み中"
+msgstr "読み込んでいます"
 
 #: js/messages.php:223
 msgid "Processing Request"
@@ -1795,10 +1795,9 @@ msgid "Change"
 msgstr "変更"
 
 #: js/messages.php:270
-#, fuzzy
 #| msgid "Maximum execution time"
 msgid "Query execution time"
-msgstr "最大実行時間"
+msgstr "クエリの実行時間"
 
 #: js/messages.php:273 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
@@ -2866,7 +2865,7 @@ msgstr "SQL の検証"
 
 #: libraries/common.lib.php:1295
 msgid "Inline edit of this query"
-msgstr "このクエリをインライン編集する"
+msgstr "このクエリをインラインで編集します"
 
 #: libraries/common.lib.php:1297
 msgctxt "Inline edit query"
@@ -12972,16 +12971,14 @@ msgid ""
 "fine. See also <a href=\"http://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"特に、InnoDB のテーブルへの書き込みが多いシステムの場合には、"
-"innodb_log_file_size は {innodb_buffer_pool_size} の 25%% に設定するといいで"
-"しょう。しかしながら、この値が大きくなると、データベースが壊れたときのリカバ"
-"リに時間がかかるようになります。そのため、この値は 256 MiB を超えないほうがい"
-"いと言われています。なお、この変数は簡単には変更できないので注意してくださ"
-"い。サーバを停止させ、InnoDB ログファイルを削除し、my.cnf に新しい値を設定し"
-"て、そうした後にサーバは起動し直す必要があります。そして、全ての設定が正しく"
-"設定できているのかを、エラーログで確認しなければなりません。<a href=\"http://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">こちらのブログ記事 (英語)</a> もご覧になってください。"
+"特に、InnoDB のテーブルへの書き込みが多いシステムの場合には、innodb_log_file_size は "
+"{innodb_buffer_pool_size} の 25%% "
+"に設定するといいでしょう。しかしながら、この値が大きくなると、データベースが壊れたときの修復に時間がかかるようになります。そのため、この値は 256 "
+"MiB を超えないほうがいいと言われています。なお、この変数は簡単には変更できないので注意してください。サーバを停止させ、InnoDB "
+"ログファイルを削除し、my.cnf に新しい値を設定して、そうした後にサーバは起動し直す必要があります。そして、全ての設定が正しく設定できているのかを、"
+"エラーログで確認しなければなりません。<a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">こちらのブログ記事 (英語)</a> もご覧になってください。"
 
 #: po/advisory_rules.php:770
 #, php-format
@@ -13014,17 +13011,15 @@ msgid ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">this blog entry</a>"
 msgstr ""
-"一般的には、innodb_log_file_size に {innodb_buffer_pool_size} の 25%% の値を"
-"設定すれば十分です。innodb_log_file_size の値が非常に大きい場合、データベース"
-"が多量に破損した後の復帰に時間がかかるようになります。<a href=\"http://www."
-"mysqlperformanceblog.com/2006/07/03/choosing-proper-innodb_log_file_size/\">"
-"こちらの記事 (英語)</a> も参照してください。なお、この変数を変更するには、"
-"サーバを停止させ、InnoDB ログファイルを削除し、my.cnf に新しい値を設定してか"
-"ら、サーバを起動し直す必要があります。それから、全ての設定が正しく行えたかを"
-"確認するために、エラーログを確認しなければなりません。設定に関しては、<a "
+"一般的には、innodb_log_file_size に {innodb_buffer_pool_size} の 25%% "
+"の値を設定すれば十分です。innodb_log_file_size "
+"の値が非常に大きい場合、データベースが多量に破損した後の修復に時間がかかるようになります。<a "
+"href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">こちらの記事 (英語)</a> "
+"も参照してください。なお、この変数を変更するには、サーバを停止させ、InnoDB ログファイルを削除し、my.cnf に新しい値を設定してから、サーバを"
+"起動し直す必要があります。それから、全ての設定が正しく行えたかを確認するために、エラーログを確認しなければなりません。設定に関しては、<a "
 "href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">こちらのブログ記事 (英語)</a> もご覧くだ"
-"さい。"
+"innodblogfilesize-proper-way.html\">こちらのブログ記事 (英語)</a> もご覧ください。"
 
 #: po/advisory_rules.php:785
 #, php-format
