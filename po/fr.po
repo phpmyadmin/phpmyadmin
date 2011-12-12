@@ -1541,10 +1541,9 @@ msgstr ""
 "temps."
 
 #: js/messages.php:176
-#, fuzzy
 #| msgid "Read requests"
 msgid "Cancel request"
-msgstr "Requêtes de lecture"
+msgstr "Annuler la requête"
 
 #: js/messages.php:177
 msgid ""
