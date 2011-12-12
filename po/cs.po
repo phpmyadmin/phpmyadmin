@@ -8,10 +8,10 @@ msgstr ""
 "PO-Revision-Date: 2011-12-06 11:48+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pootle 2.1.6\n"
 
@@ -8545,10 +8545,9 @@ msgid "Toggle small/big"
 msgstr "Přepnout malé/velké"
 
 #: pmd_general.php:99
-#, fuzzy
 #| msgid "To select relation, click :"
 msgid "Toggle relation lines"
-msgstr "Pro výběr relace klikněte :"
+msgstr "Přepnout zobrazení relací"
 
 #: pmd_general.php:104 pmd_pdf.php:76
 msgid "Import/Export coordinates for PDF schema"
