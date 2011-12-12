@@ -3946,7 +3946,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:210
 msgid "Customize export options"
-msgstr ""
+msgstr "Налаштувати опції експорту"
 
 #: libraries/config/messages.inc.php:212
 msgid "Customize import defaults"
