@@ -3794,7 +3794,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:174
 msgid "Customize default common import options"
-msgstr ""
+msgstr "Налаштувати за замовчуванням деяких параметрів імпорту"
 
 #: libraries/config/messages.inc.php:175
 msgid "Import / export"
