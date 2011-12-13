@@ -1592,11 +1592,10 @@ msgid "Profiling results"
 msgstr "Sonuçların profili çıkarılıyor"
 
 #: js/messages.php:190
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
-msgstr "Tablo"
+msgstr ""
 
 #: js/messages.php:191
 #| msgid "Charts"
