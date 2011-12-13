@@ -3899,9 +3899,8 @@ msgid ""
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
-"追加された機能にアクセスするには phpMyAdmin 環境保管領域を設定してください。"
-"ドキュメントの[a@Documentation.html#linked-tables]phpMyAdmin 環境保管領域[/a]"
-"参照。"
+"追加された機能にアクセスするには phpMyAdmin 環境保管領域を設定してください。ドキュメントの [a@Documentation.html"
+"#linked-tables]phpMyAdmin 環境保管領域[/a]参照。"
 
 #: libraries/config/messages.inc.php:208
 msgid "Changes tracking"
