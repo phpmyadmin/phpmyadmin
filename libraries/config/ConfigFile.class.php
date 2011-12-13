@@ -425,7 +425,7 @@ class ConfigFile
             return htmlspecialchars($verbose);
         }
         $host = $this->get("Servers/$id/host");
-        return empty($host) ? 'localhost' : $host;
+        return empty($host) ? 'localhost' : htmlspecialchars($host);
     }
 
     /**
