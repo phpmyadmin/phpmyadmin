@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-12 14:04+0100\n"
-"PO-Revision-Date: 2011-12-13 11:29+0200\n"
+"PO-Revision-Date: 2011-12-13 11:30+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -5082,7 +5082,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:469
 msgid "Show phpinfo() link"
-msgstr "phpinfo() リンクの表示する"
+msgstr "phpinfo() リンクを表示する"
 
 #: libraries/config/messages.inc.php:470
 msgid "Show detailed MySQL server information"
