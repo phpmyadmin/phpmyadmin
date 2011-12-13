@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-12 14:04+0100\n"
-"PO-Revision-Date: 2011-12-13 11:25+0200\n"
+"PO-Revision-Date: 2011-12-13 11:26+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1595,11 +1595,10 @@ msgid "Profiling results"
 msgstr "プロファイリングの結果"
 
 #: js/messages.php:190
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
-msgstr "テーブル"
+msgstr "表"
 
 #: js/messages.php:191
 #, fuzzy
