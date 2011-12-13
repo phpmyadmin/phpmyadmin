@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-12 14:04+0100\n"
-"PO-Revision-Date: 2011-12-10 08:24+0200\n"
+"PO-Revision-Date: 2011-12-13 11:25+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1575,10 +1575,9 @@ msgid "Analyzing..."
 msgstr "分析"
 
 #: js/messages.php:185
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
-msgstr "EXPLAIN で確認"
+msgstr "EXPLAIN の結果"
 
 #: js/messages.php:187 js/messages.php:487 libraries/rte/rte_list.lib.php:62
 #: libraries/rte/rte_triggers.lib.php:326 server_status.php:1236 sql.php:893
