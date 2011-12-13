@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-12 14:04+0100\n"
-"PO-Revision-Date: 2011-12-13 11:26+0200\n"
+"PO-Revision-Date: 2011-12-13 11:27+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1531,10 +1531,9 @@ msgstr ""
 "ログの解析および読み込みを行っています。少し時間がかかることがあります。"
 
 #: js/messages.php:176
-#, fuzzy
 #| msgid "Read requests"
 msgid "Cancel request"
-msgstr "読み込みリクエスト数"
+msgstr "キャンセル"
 
 #: js/messages.php:177
 msgid ""
