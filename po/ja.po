@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-12 14:04+0100\n"
-"PO-Revision-Date: 2011-12-13 11:31+0200\n"
+"PO-Revision-Date: 2011-12-13 11:32+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -7148,7 +7148,7 @@ msgstr "この書式にはオプションはありません"
 
 #: libraries/relation.lib.php:76
 msgid "not OK"
-msgstr "Not OK"
+msgstr "NG"
 
 #: libraries/relation.lib.php:81
 msgid "Enabled"
