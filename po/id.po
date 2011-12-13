@@ -3225,7 +3225,7 @@ msgstr "Reset"
 
 #: libraries/config/messages.inc.php:17
 msgid "Improves efficiency of screen refresh"
-msgstr "Meningkatkan efisiensi  refresh layar"
+msgstr "Meningkatkan efisiensi refresh layar"
 
 #: libraries/config/messages.inc.php:18
 msgid "Enable Ajax"
