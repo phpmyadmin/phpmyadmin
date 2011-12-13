@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-12 14:04+0100\n"
-"PO-Revision-Date: 2011-12-13 20:07+0200\n"
+"PO-Revision-Date: 2011-12-13 20:08+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1614,7 +1614,7 @@ msgstr "Filtrera frågor med ord/regexp:"
 
 #: js/messages.php:198
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr "Gruppfrågor, ignorera variabeldata i WHERE kommandon"
+msgstr "Gruppfrågor, ignorera variabeldata i WHERE klausuler"
 
 #: js/messages.php:199
 msgid "Sum of grouped rows:"
