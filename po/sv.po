@@ -1601,7 +1601,7 @@ msgstr "Diagram"
 #. l10n: A collection of available filters
 #: js/messages.php:194
 msgid "Log table filter options"
-msgstr "Logga filteralternativ"
+msgstr "Logga tabellfilter alternativ"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:196
