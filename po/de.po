@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-12 14:04+0100\n"
-"PO-Revision-Date: 2011-12-14 21:12+0200\n"
+"PO-Revision-Date: 2011-12-14 21:13+0200\n"
 "Last-Translator: Sven Strickroth <email@cs-ware.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1589,10 +1589,9 @@ msgstr ""
 "angegebenen Zeitraum gefunden."
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Analyze"
 msgid "Analyzing..."
-msgstr "Analysieren"
+msgstr "Analysieren..."
 
 #: js/messages.php:185
 #, fuzzy
