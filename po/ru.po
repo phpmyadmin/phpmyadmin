@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-12 14:04+0100\n"
-"PO-Revision-Date: 2011-12-14 19:07+0200\n"
+"PO-Revision-Date: 2011-12-14 19:08+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -1610,10 +1610,9 @@ msgid "Table"
 msgstr "Таблица"
 
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Charset"
 msgid "Chart"
-msgstr "Кодировка"
+msgstr "График"
 
 #. l10n: A collection of available filters
 #: js/messages.php:194
