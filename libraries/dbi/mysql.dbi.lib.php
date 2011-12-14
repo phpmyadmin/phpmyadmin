@@ -175,8 +175,8 @@ function PMA_DBI_try_query($query, $link = null, $options = 0, $cache_affected_r
         $r = mysql_query($query, $link);
     }
 
-    if ($cache_affected_rows) { 
-       $GLOBALS['cached_affected_rows'] = PMA_DBI_affected_rows($link, $get_from_cache = false); 
+    if ($cache_affected_rows) {
+       $GLOBALS['cached_affected_rows'] = PMA_DBI_affected_rows($link, $get_from_cache = false);
     }
 
     if ($GLOBALS['cfg']['DBG']['sql']) {
@@ -406,7 +406,7 @@ function PMA_DBI_insert_id($link = null)
  * @uses    $GLOBALS['userlink']
  * @uses    mysql_affected_rows()
  * @param   object mysql   $link   the mysql object
- * @param   boolean        $get_from_cache 
+ * @param   boolean        $get_from_cache
  * @return  string integer
  */
 function PMA_DBI_affected_rows($link = null, $get_from_cache = true)
