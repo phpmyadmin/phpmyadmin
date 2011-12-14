@@ -436,6 +436,8 @@ function PMA_DBI_get_fields_meta($result)
     for ($i = 0; $i < $num_fields; $i++) {
         $field = mysql_fetch_field($result, $i);
         $field->flags = mysql_field_flags($result, $i);
+        $field->orgtable = mysql_field_table($result, $i);
+        $field->orgname = mysql_field_name($result, $i);
         $fields[] = $field;
     }
     return $fields;
