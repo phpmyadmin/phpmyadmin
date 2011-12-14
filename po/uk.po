@@ -2774,20 +2774,20 @@ msgstr "Режим редагування"
 
 #: libraries/config/messages.inc.php:161
 msgid "Customize edit mode"
-msgstr ""
+msgstr "Налаштувати режим редагування"
 
 #: libraries/config/messages.inc.php:163
 msgid "Export defaults"
-msgstr ""
+msgstr "Експортувати налаштування по замовчуванню"
 
 #: libraries/config/messages.inc.php:164
 msgid "Customize default export options"
-msgstr ""
+msgstr "Налаштувати параметри експорту за замовчуванням"
 
 #: libraries/config/messages.inc.php:165 libraries/config/messages.inc.php:207
 #: setup/frames/menu.inc.php:16
 msgid "Features"
-msgstr ""
+msgstr "Особливості"
 
 #: libraries/config/messages.inc.php:166
 msgid "General"
@@ -2795,7 +2795,7 @@ msgstr "Загальний"
 
 #: libraries/config/messages.inc.php:167
 msgid "Set some commonly used options"
-msgstr ""
+msgstr "Встановити деякі загальновживані властивості"
 
 #: libraries/config/messages.inc.php:168 libraries/db_links.inc.php:83
 #: libraries/server_links.inc.php:73 libraries/tbl_links.inc.php:82
@@ -2805,11 +2805,11 @@ msgstr "Імпорт"
 
 #: libraries/config/messages.inc.php:169
 msgid "Import defaults"
-msgstr ""
+msgstr "Імпортувати властивості по замовчуванню"
 
 #: libraries/config/messages.inc.php:170
 msgid "Customize default common import options"
-msgstr ""
+msgstr "Налаштувати за замовчуванням деяких параметрів імпорту"
 
 #: libraries/config/messages.inc.php:171
 msgid "Import / export"
@@ -2817,7 +2817,7 @@ msgstr "Імпорт / Експорт"
 
 #: libraries/config/messages.inc.php:172
 msgid "Set import and export directories and compression options"
-msgstr ""
+msgstr "Встанови теки імпорту та експорту  та параметри стискання"
 
 #: libraries/config/messages.inc.php:173 libraries/export/latex.php:26
 msgid "LaTeX"
@@ -2825,15 +2825,15 @@ msgstr "LaTeX"
 
 #: libraries/config/messages.inc.php:176
 msgid "Databases display options"
-msgstr ""
+msgstr "Параметри відображення баз даних"
 
 #: libraries/config/messages.inc.php:177 setup/frames/menu.inc.php:18
 msgid "Navigation frame"
-msgstr ""
+msgstr "Оболочка навігації"
 
 #: libraries/config/messages.inc.php:178
 msgid "Customize appearance of the navigation frame"
-msgstr ""
+msgstr "Налаштувати вигляд оболочки навігації"
 
 #: libraries/config/messages.inc.php:179 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:98
@@ -2842,15 +2842,15 @@ msgstr "Сервери"
 
 #: libraries/config/messages.inc.php:180
 msgid "Servers display options"
-msgstr ""
+msgstr "Параметри відображення серверів"
 
 #: libraries/config/messages.inc.php:182
 msgid "Tables display options"
-msgstr ""
+msgstr "Параметри відображення таблиць"
 
 #: libraries/config/messages.inc.php:183 setup/frames/menu.inc.php:19
 msgid "Main frame"
-msgstr ""
+msgstr "Головна оболочка"
 
 #: libraries/config/messages.inc.php:184
 msgid "Microsoft Office"
@@ -2866,7 +2866,7 @@ msgstr "Інші параметри ядра"
 
 #: libraries/config/messages.inc.php:189
 msgid "Settings that didn't fit enywhere else"
-msgstr ""
+msgstr "Налаштування які не вписуються більш ніґде"
 
 #: libraries/config/messages.inc.php:190
 msgid "Page titles"
@@ -2878,6 +2878,9 @@ msgid ""
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
+"Вкажіть рядку заголовка браузера текст. Відповідно до [a@Documentation."
+"html#cfg_TitleTable]documentation[/а] для магічних рядків, які можуть "
+"використовуватися для отримання спеціальних значень."
 
 #: libraries/config/messages.inc.php:192
 #: libraries/navigation_header.inc.php:83
@@ -2888,7 +2891,7 @@ msgstr "Вікно запиту"
 
 #: libraries/config/messages.inc.php:193
 msgid "Customize query window options"
-msgstr ""
+msgstr "Встановіть параметри вікна запиту"
 
 #: libraries/config/messages.inc.php:194
 msgid "Security"
@@ -2899,10 +2902,12 @@ msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
 msgstr ""
+"Будь ласка зверніть увагу, що phpMyAdmin лише інтерфейс і його можливості не "
+"обмежують MySQL"
 
 #: libraries/config/messages.inc.php:196
 msgid "Basic settings"
-msgstr ""
+msgstr "Базові налаштування"
 
 #: libraries/config/messages.inc.php:197
 msgid "Authentication"
@@ -2921,14 +2926,16 @@ msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for"
 msgstr ""
+"Розширена конфігурація сервера, не змінюйте ці параметри, якщо не знаєте для "
+"чого вони потрібні"
 
 #: libraries/config/messages.inc.php:201
 msgid "Enter server connection parameters"
-msgstr ""
+msgstr "Введіть параметри з'єднання сервера"
 
 #: libraries/config/messages.inc.php:202
 msgid "Configuration storage"
-msgstr ""
+msgstr "Конфігурація збереження даних"
 
 #: libraries/config/messages.inc.php:203
 msgid ""
@@ -2936,45 +2943,50 @@ msgid ""
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
+"Налаштуйте у PhpMyAdmin конфігурацію зберігання даних, щоб отримати доступ "
+"до додаткових властивостей, дивись [a@Documentation.html#linked-tables]"
+"PhpMyAdmin конфігурація пам'яті[/а] в документації"
 
 #: libraries/config/messages.inc.php:204
 msgid "Changes tracking"
-msgstr ""
+msgstr "Відстеження змін"
 
 #: libraries/config/messages.inc.php:205
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
+"Відстеження змін, зроблених у базі даних. Вимагає PhpMyAdmin конфігурації "
+"збереження даних."
 
 #: libraries/config/messages.inc.php:206
 msgid "Customize export options"
-msgstr ""
+msgstr "Налаштувати опції експорту"
 
 #: libraries/config/messages.inc.php:208
 msgid "Customize import defaults"
-msgstr ""
+msgstr "Налаштувати імпорт властивостей по замовчуванню"
 
 #: libraries/config/messages.inc.php:209
 msgid "Customize navigation frame"
-msgstr ""
+msgstr "Налаштувати оболонку навігації"
 
 #: libraries/config/messages.inc.php:210
 msgid "Customize main frame"
-msgstr ""
+msgstr "Налаштувати головну оболонку"
 
 #: libraries/config/messages.inc.php:211 libraries/config/messages.inc.php:216
 #: setup/frames/menu.inc.php:17
 msgid "SQL queries"
-msgstr ""
+msgstr "SQL запити"
 
 #: libraries/config/messages.inc.php:213
 msgid "SQL Query box"
-msgstr ""
+msgstr "SQL Query box"
 
 #: libraries/config/messages.inc.php:214
 msgid "Customize links shown in SQL Query boxes"
-msgstr ""
+msgstr "Налаштувати посилання що показуються у SQL Query boxes"
 
 #: libraries/config/messages.inc.php:217
 msgid "SQL queries settings"
@@ -2991,22 +3003,26 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
+"Якщо ви хочете використовувати сервіс SQL Validator, ви повинні знати, що "
+"[strong]всі SQL вирази зберігаються анонімно для статистичних цілей[/strong]."
+"[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], Copyright "
+"2002 Upright Database Technology. Всі права захищені.[/em]"
 
 #: libraries/config/messages.inc.php:220
 msgid "Startup"
-msgstr ""
+msgstr "Початок"
 
 #: libraries/config/messages.inc.php:221
 msgid "Customize startup page"
-msgstr ""
+msgstr "Налаштувати початкову сторінку"
 
 #: libraries/config/messages.inc.php:222
 msgid "Tabs"
-msgstr ""
+msgstr "Вкладки"
 
 #: libraries/config/messages.inc.php:223
 msgid "Choose how you want tabs to work"
-msgstr ""
+msgstr "Виберіть як би ви хотіли щоб вкладки працювали"
 
 #: libraries/config/messages.inc.php:224
 msgid "Text fields"
@@ -3018,21 +3034,23 @@ msgstr "Налаштувати текстові поля вводу"
 
 #: libraries/config/messages.inc.php:226 libraries/export/texytext.php:17
 msgid "Texy! text"
-msgstr ""
+msgstr "Texy! текст"
 
 #: libraries/config/messages.inc.php:228
 msgid "Warnings"
-msgstr ""
+msgstr "Попередження"
 
 #: libraries/config/messages.inc.php:229
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr ""
+msgstr "Відключити деякі попередження що показуються у phpMyAdmin"
 
 #: libraries/config/messages.inc.php:230
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
 msgstr ""
+"Включити [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] стискання для "
+"операцій імпорту та експорту"
 
 #: libraries/config/messages.inc.php:231
 msgid "GZip"
@@ -3047,10 +3065,12 @@ msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
 msgstr ""
+"Якщо включено, PhpMyAdmin продовжує обчислення декількох запитів навіть якщо "
+"один із запитів не вдалий"
 
 #: libraries/config/messages.inc.php:234
 msgid "Ignore multiple statement errors"
-msgstr ""
+msgstr "Ігнорувати помилки декількох виразів"
 
 #: libraries/config/messages.inc.php:235
 msgid ""
