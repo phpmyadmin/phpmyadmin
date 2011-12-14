@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-12 14:04+0100\n"
-"PO-Revision-Date: 2011-12-14 21:16+0200\n"
+"PO-Revision-Date: 2011-12-14 21:17+0200\n"
 "Last-Translator: Sven Strickroth <email@cs-ware.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -5553,6 +5553,8 @@ msgstr "Der Server antwortet nicht."
 #: libraries/database_interface.lib.php:1820
 msgid "Please check privileges of directory containing database."
 msgstr ""
+"Bitte prüfen Sie die Rechte des Verzeichnisses, in dem sich die Datenbank "
+"befindet."
 
 #: libraries/database_interface.lib.php:1828
 msgid "Details..."
