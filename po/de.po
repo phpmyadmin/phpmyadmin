@@ -2018,9 +2018,9 @@ msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
-"Diese Tabelle enthält keine eindeutige Spalte. Merkmale in Bezug auf Gitter "
-"bearbeiten, Kontrollkästchen, Bearbeiten, Kopieren und Löschen von Links "
-"können nach dem Speichern eventuell nicht funktionieren."
+"Diese Tabelle enthält keine eindeutige Spalte. Optionen in Bezug zur Gitter-"
+"Bearbeitungsfunktion, Kontrollkästchen, Bearbeiten, Kopieren und Löschen von "
+"Links können nach dem Speichern eventuell nicht funktionieren."
 
 #: js/messages.php:351
 msgid ""
