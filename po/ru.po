@@ -8701,10 +8701,9 @@ msgid "Toggle small/big"
 msgstr "Обратное отображение"
 
 #: pmd_general.php:99
-#, fuzzy
 #| msgid "To select relation, click :"
 msgid "Toggle relation lines"
-msgstr "Для выбора связи нажмите на точке соединения:"
+msgstr "Переключение линий связи"
 
 #: pmd_general.php:104 pmd_pdf.php:76
 msgid "Import/Export coordinates for PDF schema"
