@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-12-12 14:04+0100\n"
+"POT-Creation-Date: 2011-12-14 18:08+0100\n"
 "PO-Revision-Date: 2011-09-24 21:48+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
@@ -2321,6 +2321,10 @@ msgstr "صلاحيات خاطئة على ملف الإعدادات , لاينب�
 #: libraries/Config.class.php:1303
 msgid "Font size"
 msgstr "حجم الخط"
+
+#: libraries/Error_Handler.class.php:62
+msgid "Too many error messages, some are not displayed."
+msgstr ""
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."

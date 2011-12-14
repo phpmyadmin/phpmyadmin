@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-12-12 14:04+0100\n"
+"POT-Creation-Date: 2011-12-14 18:08+0100\n"
 "PO-Revision-Date: 2011-12-13 20:12+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
@@ -1527,7 +1527,6 @@ msgid "Analysing & loading logs. This may take a while."
 msgstr "Analyserar och laddar loggar. Detta kan ta lite tid."
 
 #: js/messages.php:176
-#| msgid "Read requests"
 msgid "Cancel request"
 msgstr "Avbryt begäran"
 
@@ -1563,12 +1562,10 @@ msgid "Log analysed, but no data found in this time span."
 msgstr "Loggdata laddad. Frågorna exekverade under denna tidsperiod:"
 
 #: js/messages.php:184
-#| msgid "Analyze"
 msgid "Analyzing..."
 msgstr "Analyserar..."
 
 #: js/messages.php:185
-#| msgid "Explain SQL"
 msgid "Explain output"
 msgstr "Förklara utdata"
 
@@ -1578,12 +1575,10 @@ msgid "Time"
 msgstr "Tid"
 
 #: js/messages.php:188
-#| msgid "Total:"
 msgid "Total time:"
 msgstr "Total tid:"
 
 #: js/messages.php:189
-#| msgid "Profiling"
 msgid "Profiling results"
 msgstr "Profilering av resultat"
 
@@ -2310,6 +2305,10 @@ msgstr ""
 #: libraries/Config.class.php:1303
 msgid "Font size"
 msgstr "Teckenstorlek"
+
+#: libraries/Error_Handler.class.php:62
+msgid "Too many error messages, some are not displayed."
+msgstr ""
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."
@@ -8615,7 +8614,6 @@ msgid "Toggle small/big"
 msgstr "Växla liten/stor"
 
 #: pmd_general.php:99
-#| msgid "To select relation, click :"
 msgid "Toggle relation lines"
 msgstr "Växla mellan relaterade linjer"
 

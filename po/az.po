@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-12-12 14:04+0100\n"
+"POT-Creation-Date: 2011-12-14 18:08+0100\n"
 "PO-Revision-Date: 2010-03-12 09:11+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: azerbaijani <az@li.org>\n"
@@ -2476,6 +2476,10 @@ msgstr ""
 
 #: libraries/Config.class.php:1303
 msgid "Font size"
+msgstr ""
+
+#: libraries/Error_Handler.class.php:62
+msgid "Too many error messages, some are not displayed."
 msgstr ""
 
 #: libraries/File.class.php:221

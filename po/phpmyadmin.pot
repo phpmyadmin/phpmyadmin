@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-12-12 14:04+0100\n"
+"POT-Creation-Date: 2011-12-14 18:08+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2242,6 +2242,10 @@ msgstr ""
 
 #: libraries/Config.class.php:1303
 msgid "Font size"
+msgstr ""
+
+#: libraries/Error_Handler.class.php:62
+msgid "Too many error messages, some are not displayed."
 msgstr ""
 
 #: libraries/File.class.php:221

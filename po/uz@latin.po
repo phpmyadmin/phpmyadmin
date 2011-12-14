@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-12-12 14:04+0100\n"
+"POT-Creation-Date: 2011-12-14 18:08+0100\n"
 "PO-Revision-Date: 2010-07-22 02:30+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: uzbek_latin <uz@latin@li.org>\n"
@@ -2557,6 +2557,10 @@ msgstr ""
 #: libraries/Config.class.php:1303
 msgid "Font size"
 msgstr "Shrift o‘lchami"
+
+#: libraries/Error_Handler.class.php:62
+msgid "Too many error messages, some are not displayed."
+msgstr ""
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."

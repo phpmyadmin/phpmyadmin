@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-12-12 14:04+0100\n"
+"POT-Creation-Date: 2011-12-14 18:08+0100\n"
 "PO-Revision-Date: 2011-12-13 11:32+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
@@ -1531,7 +1531,6 @@ msgstr ""
 "ログの解析および読み込みを行っています。少し時間がかかることがあります。"
 
 #: js/messages.php:176
-#| msgid "Read requests"
 msgid "Cancel request"
 msgstr "キャンセル"
 
@@ -1568,12 +1567,10 @@ msgid "Log analysed, but no data found in this time span."
 msgstr "ログの解析を行いましたが、この期間のデータは見つかりませんでした。"
 
 #: js/messages.php:184
-#| msgid "Analyze"
 msgid "Analyzing..."
 msgstr "解析しています..."
 
 #: js/messages.php:185
-#| msgid "Explain SQL"
 msgid "Explain output"
 msgstr "EXPLAIN の結果"
 
@@ -1583,23 +1580,19 @@ msgid "Time"
 msgstr "時間"
 
 #: js/messages.php:188
-#| msgid "Total:"
 msgid "Total time:"
 msgstr "合計時間:"
 
 #: js/messages.php:189
-#| msgid "Profiling"
 msgid "Profiling results"
 msgstr "プロファイリングの結果"
 
 #: js/messages.php:190
-#| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
 msgstr "表"
 
 #: js/messages.php:191
-#| msgid "Charts"
 msgid "Chart"
 msgstr "グラフ"
 
@@ -2318,6 +2311,10 @@ msgstr ""
 #: libraries/Config.class.php:1303
 msgid "Font size"
 msgstr "フォントサイズ"
+
+#: libraries/Error_Handler.class.php:62
+msgid "Too many error messages, some are not displayed."
+msgstr ""
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."
@@ -3899,8 +3896,9 @@ msgid ""
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
-"追加された機能にアクセスするには phpMyAdmin 環境保管領域を設定してください。ドキュメントの [a@Documentation.html"
-"#linked-tables]phpMyAdmin 環境保管領域[/a]参照。"
+"追加された機能にアクセスするには phpMyAdmin 環境保管領域を設定してください。"
+"ドキュメントの [a@Documentation.html#linked-tables]phpMyAdmin 環境保管領域[/"
+"a]参照。"
 
 #: libraries/config/messages.inc.php:208
 msgid "Changes tracking"
@@ -9440,7 +9438,9 @@ msgstr "データベースを選択してください:"
 msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
-msgstr "my.cnf の [mysqld] セクションの最後に以下の行を追加し、その後、MySQL サーバを再起動してください。"
+msgstr ""
+"my.cnf の [mysqld] セクションの最後に以下の行を追加し、その後、MySQL サーバを"
+"再起動してください。"
 
 #: server_replication.php:228
 msgid ""
@@ -9448,8 +9448,9 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master"
 msgstr ""
-"MySQL サーバが再起動したら、「実行」ボタンをクリックしてください。その後、このサーバ<b>が</b>マスタとして設定されていることを知らせるメッセ"
-"ージが表示されます。"
+"MySQL サーバが再起動したら、「実行」ボタンをクリックしてください。その後、こ"
+"のサーバ<b>が</b>マスタとして設定されていることを知らせるメッセージが表示され"
+"ます。"
 
 #: server_replication.php:291
 msgid "Slave SQL Thread not running!"

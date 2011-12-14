@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-12-12 14:04+0100\n"
+"POT-Creation-Date: 2011-12-14 18:08+0100\n"
 "PO-Revision-Date: 2011-12-12 23:28+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
@@ -11,8 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.1.6\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:349
@@ -2339,6 +2339,10 @@ msgstr ""
 msgid "Font size"
 msgstr "Розмір шрифту"
 
+#: libraries/Error_Handler.class.php:62
+msgid "Too many error messages, some are not displayed."
+msgstr ""
+
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."
 msgstr "Файл не був завантаженим файлом."
@@ -3863,9 +3867,9 @@ msgid ""
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
-"Вкажіть рядку заголовка браузера текст. Відповідно до "
-"[a@Documentation.html#cfg_TitleTable]documentation[/а] для магічних рядків, "
-"які можуть використовуватися для отримання спеціальних значень."
+"Вкажіть рядку заголовка браузера текст. Відповідно до [a@Documentation."
+"html#cfg_TitleTable]documentation[/а] для магічних рядків, які можуть "
+"використовуватися для отримання спеціальних значень."
 
 #: libraries/config/messages.inc.php:196
 #: libraries/navigation_header.inc.php:79
@@ -3929,8 +3933,8 @@ msgid ""
 "storage[/a] in documentation"
 msgstr ""
 "Налаштуйте у PhpMyAdmin конфігурацію зберігання даних, щоб отримати доступ "
-"до додаткових властивостей, дивись [a@Documentation.html#linked-"
-"tables]PhpMyAdmin конфігурація пам'яті[/а] в документації"
+"до додаткових властивостей, дивись [a@Documentation.html#linked-tables]"
+"PhpMyAdmin конфігурація пам'яті[/а] в документації"
 
 #: libraries/config/messages.inc.php:208
 msgid "Changes tracking"
@@ -3989,10 +3993,9 @@ msgid ""
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
 "Якщо ви хочете використовувати сервіс SQL Validator, ви повинні знати, що "
-"[strong]всі SQL вирази зберігаються анонімно для статистичних "
-"цілей[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
-"Validator[/a], Copyright 2002 Upright Database Technology. Всі права "
-"захищені.[/em]"
+"[strong]всі SQL вирази зберігаються анонімно для статистичних цілей[/strong]."
+"[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], Copyright "
+"2002 Upright Database Technology. Всі права захищені.[/em]"
 
 #: libraries/config/messages.inc.php:224
 msgid "Startup"

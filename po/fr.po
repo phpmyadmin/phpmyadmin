@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-12-12 14:04+0100\n"
+"POT-Creation-Date: 2011-12-14 18:08+0100\n"
 "PO-Revision-Date: 2011-12-12 19:21+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
@@ -1541,7 +1541,6 @@ msgstr ""
 "temps."
 
 #: js/messages.php:176
-#| msgid "Read requests"
 msgid "Cancel request"
 msgstr "Annuler la requête"
 
@@ -1578,12 +1577,10 @@ msgid "Log analysed, but no data found in this time span."
 msgstr "Journal analysé, mais aucune donnée trouvée pour ce laps de temps."
 
 #: js/messages.php:184
-#| msgid "Analyze"
 msgid "Analyzing..."
 msgstr "Analyse en cours..."
 
 #: js/messages.php:185
-#| msgid "Explain SQL"
 msgid "Explain output"
 msgstr "Expliquer les résultats"
 
@@ -1593,12 +1590,10 @@ msgid "Time"
 msgstr "Moment"
 
 #: js/messages.php:188
-#| msgid "Total:"
 msgid "Total time:"
 msgstr "Temps total :"
 
 #: js/messages.php:189
-#| msgid "Profiling"
 msgid "Profiling results"
 msgstr "Profilage des résultats"
 
@@ -1610,7 +1605,6 @@ msgid "Table"
 msgstr "Table"
 
 #: js/messages.php:191
-#| msgid "Charts"
 msgid "Chart"
 msgstr "Tableau"
 
@@ -2330,6 +2324,10 @@ msgstr ""
 #: libraries/Config.class.php:1303
 msgid "Font size"
 msgstr "Taille du texte"
+
+#: libraries/Error_Handler.class.php:62
+msgid "Too many error messages, some are not displayed."
+msgstr ""
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."
@@ -8706,7 +8704,6 @@ msgid "Toggle small/big"
 msgstr "Bascule agrandir/réduire"
 
 #: pmd_general.php:99
-#| msgid "To select relation, click :"
 msgid "Toggle relation lines"
 msgstr "Basculement des lignes de relations"
 
