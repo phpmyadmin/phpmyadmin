@@ -65,6 +65,8 @@ phpMyAdmin - ChangeLog
 + rfe #3438266 [designer] Toggle for relation lines
 - bug #3442069 [AJAX] database list not updated after adding/deleting a user + database
 
+3.4.10.0 (not yet released)
+
 3.4.9.0 (not yet released)
 - bug #3442028 [edit] Inline editing enum fields with null shows no dropdown
 - bug #3442004 [interface] DB suggestion not correct for user with underscore
