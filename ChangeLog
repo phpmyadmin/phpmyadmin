@@ -76,6 +76,8 @@ phpMyAdmin - ChangeLog
 - bug #3449659 [navi] Fast filter broken with table tree
 - bug #3448485 [GUI] Firefox favicon frameset regression
 - [core] Better compatibility with mysql extension
+- [security] Self-XSS on export options (export server/database/table), see PMASA-2011-20
+- [security] Self-XSS in setup (host parameter), see PMASA-2011-19
 
 3.4.8.0 (2011-12-01)
 - bug #3425230 [interface] enum data split at space char (more space to edit)
