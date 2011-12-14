@@ -435,7 +435,7 @@ function PMA_DBI_get_fields_meta($result)
     $num_fields   = mysql_num_fields($result);
     for ($i = 0; $i < $num_fields; $i++) {
         $field = mysql_fetch_field($result, $i);
-        $field->flags = '';
+        $field->flags = mysql_field_flags($result, $i);
         $fields[] = $field;
     }
     return $fields;
