@@ -5536,7 +5536,7 @@ msgstr "Die Erweiterung %s fehlt. Bitte die PHP Konfiguration überprüfen."
 
 #: libraries/core.lib.php:414
 msgid "possible deep recursion attack"
-msgstr ""
+msgstr "möglicher Deep-Recursion-Angriff"
 
 #: libraries/database_interface.lib.php:1813
 msgid ""
