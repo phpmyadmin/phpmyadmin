@@ -1622,9 +1622,8 @@ msgid "Table"
 msgstr "Tabelle"
 
 #: js/messages.php:191
-#, fuzzy
 msgid "Chart"
-msgstr "Zeichensätze"
+msgstr "Diagramm"
 
 #. l10n: A collection of available filters
 #: js/messages.php:194
