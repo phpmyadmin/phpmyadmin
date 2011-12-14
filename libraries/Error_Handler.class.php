@@ -53,6 +53,15 @@ class PMA_Error_Handler
             } else {
                 // remember only not displayed errors
                 foreach ($this->_errors as $key => $error) {
+                    /**
+                     * We don't want to store all errors here as it would explode user
+                     * session. In case  you want them all set
+                     * $GLOBALS['cfg']['Error_Handler']['gather'] to true
+                     */
+                    if (count($_SESSION['errors']) >= 20) {
+                        $error = new PMA_Error(0, __('Too many error messages, some are not displayed.'), __FILE__, __LINE__);
+                        $_SESSION['errors'][$error->getHash()] = $error;
+                    }
                     if (($error instanceof PMA_Error) && ! $error->isDisplayed()) {
                         $_SESSION['errors'][$key] = $error;
                     }
