@@ -152,7 +152,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
             $tablefixed = '_' . $tablefixed;
         }
     } else {
-        $table = $tablefixed;
+        $tablefixed = $table;
     }
 
     $buffer = '';
