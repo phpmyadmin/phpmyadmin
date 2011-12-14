@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-12 14:04+0100\n"
-"PO-Revision-Date: 2011-12-09 17:22+0200\n"
+"PO-Revision-Date: 2011-12-14 19:05+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -1578,10 +1578,9 @@ msgstr ""
 "Анализ журнала пройден, но данные за выбранный промежуток времени не найдены."
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Analyze"
 msgid "Analyzing..."
-msgstr "Анализ"
+msgstr "Анализ..."
 
 #: js/messages.php:185
 #, fuzzy
