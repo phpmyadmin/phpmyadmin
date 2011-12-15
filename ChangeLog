@@ -66,6 +66,7 @@ phpMyAdmin - ChangeLog
 - bug #3442069 [AJAX] database list not updated after adding/deleting a user + database
 
 3.4.10.0 (not yet released)
+- bug #3460090 [interface] TextareaAutoSelect feature broken
 
 3.4.9.0 (not yet released)
 - bug #3442028 [edit] Inline editing enum fields with null shows no dropdown
