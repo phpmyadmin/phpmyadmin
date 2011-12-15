@@ -1466,7 +1466,7 @@ msgstr ""
 #: js/messages.php:157
 #, php-format
 msgid "Set log_output to %s"
-msgstr "%s に log_output を設定する"
+msgstr "log_output に %s を設定する"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:159
