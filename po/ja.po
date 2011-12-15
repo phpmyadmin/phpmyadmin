@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-12 14:04+0100\n"
-"PO-Revision-Date: 2011-12-15 11:34+0200\n"
+"PO-Revision-Date: 2011-12-15 11:35+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -11913,7 +11913,7 @@ msgstr "スロークエリの割合は 5%% 未満がいいと言われていま�
 
 #: po/advisory_rules.php:20
 msgid "Slow query rate"
-msgstr "遅いクエリの割合"
+msgstr "スロークエリの割合"
 
 #: po/advisory_rules.php:21
 msgid ""
