@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-12 14:04+0100\n"
-"PO-Revision-Date: 2011-12-15 11:30+0200\n"
+"PO-Revision-Date: 2011-12-15 11:31+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1522,7 +1522,7 @@ msgstr "スロークエリログより"
 
 #: js/messages.php:174
 msgid "From general log"
-msgstr ""
+msgstr "一般クエリログより"
 
 #: js/messages.php:175
 msgid "Analysing & loading logs. This may take a while."
