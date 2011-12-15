@@ -11918,7 +11918,7 @@ msgstr "スロークエリの割合"
 #: po/advisory_rules.php:21
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
-msgstr "サーバの稼働時間と比較して遅いクエリの比率が高いです。"
+msgstr "サーバの稼働時間と比較して長時間処理であるスロークエリの比率が高いです。"
 
 #: po/advisory_rules.php:23
 #, php-format
