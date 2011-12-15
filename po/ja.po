@@ -11201,11 +11201,10 @@ msgid "Line"
 msgstr "折れ線グラフ"
 
 #: tbl_chart.php:91
-#, fuzzy
 #| msgid "Spline"
 msgctxt "Chart type"
 msgid "Spline"
-msgstr "曲線グラフ"
+msgstr ""
 
 #: tbl_chart.php:92
 #, fuzzy
