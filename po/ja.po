@@ -1656,11 +1656,9 @@ msgid "Affected rows:"
 msgstr "変更された行:"
 
 #: js/messages.php:209
-#, fuzzy
 #| msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
-"設定ファイルの構文解析に失敗しました。有効な JSON コードではないようです。"
 
 #: js/messages.php:210
 msgid ""
