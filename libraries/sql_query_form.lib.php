@@ -200,7 +200,7 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
 
     // enable auto select text in textarea
     if ($GLOBALS['cfg']['TextareaAutoSelect']) {
-        $auto_sel = ' onfocus="selectContent(this, sql_box_locked, true)"';
+        $auto_sel = ' onclick="selectContent(this, sql_box_locked, true)"';
     } else {
         $auto_sel = '';
     }
