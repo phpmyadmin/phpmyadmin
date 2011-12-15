@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-12 14:04+0100\n"
-"PO-Revision-Date: 2011-12-15 11:38+0200\n"
+"PO-Revision-Date: 2011-12-15 11:40+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -11956,7 +11956,7 @@ msgstr "スロークエリログ"
 
 #: po/advisory_rules.php:31
 msgid "The slow query log is disabled."
-msgstr "スロークエリのログへの記録が無効になっています。"
+msgstr "スロークエリログが無効になっています。"
 
 #: po/advisory_rules.php:32
 msgid ""
