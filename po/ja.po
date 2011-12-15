@@ -12682,7 +12682,6 @@ msgid "Percentage of used open files limit"
 msgstr "開いているファイルの上限に対する比率"
 
 #: po/advisory_rules.php:186
-#, fuzzy
 #| msgid ""
 #| "The number of open files is approaching the max number of open files.  "
 #| "You may get a \\\"Too many open files\\\" error."
@@ -12690,8 +12689,6 @@ msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
 msgstr ""
-"開いているファイルの数が最大になりつつあります。エラー「開いているファイルが"
-"多すぎます」になるかもしれません。"
 
 #: po/advisory_rules.php:187 po/advisory_rules.php:192
 msgid ""
