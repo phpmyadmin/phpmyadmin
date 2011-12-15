@@ -454,7 +454,7 @@ class PMA_Index
         foreach ($indexes as $index) {
             $row_span = ' rowspan="' . $index->getColumnCount() . '" ';
 
-            $r .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">';
+            $r .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
 
             if (! $print_mode) {
                 $this_params = $GLOBALS['url_params'];
@@ -498,7 +498,7 @@ class PMA_Index
 
             foreach ($index->getColumns() as $column) {
                 if ($column->getSeqInIndex() > 1) {
-                    $r .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">';
+                    $r .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
                 }
                 $r .= '<td>' . htmlspecialchars($column->getName());
                 if ($column->getSubPart()) {
