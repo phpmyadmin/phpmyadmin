@@ -2304,7 +2304,7 @@ msgstr "Velikost písma"
 
 #: libraries/Error_Handler.class.php:62
 msgid "Too many error messages, some are not displayed."
-msgstr ""
+msgstr "Příliš mnoho chyb, některé nebudou zobrazeny."
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."
