@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-13 11:32+0200\n"
+"PO-Revision-Date: 2011-12-15 11:46+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1098,7 +1098,6 @@ msgid "This is not a number!"
 msgstr "数値ではありません!"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid "Add index"
 msgid "Add Index"
 msgstr "インデックスを追加する"
@@ -1467,7 +1466,7 @@ msgstr ""
 #: js/messages.php:157
 #, php-format
 msgid "Set log_output to %s"
-msgstr "%s に log_output を設定する"
+msgstr "log_output に %s を設定する"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:159
@@ -1519,11 +1518,11 @@ msgstr ""
 
 #: js/messages.php:173
 msgid "From slow log"
-msgstr ""
+msgstr "スロークエリログより"
 
 #: js/messages.php:174
 msgid "From general log"
-msgstr ""
+msgstr "一般クエリログより"
 
 #: js/messages.php:175
 msgid "Analysing & loading logs. This may take a while."
@@ -1650,11 +1649,9 @@ msgid "Affected rows:"
 msgstr "変更された行:"
 
 #: js/messages.php:209
-#, fuzzy
 #| msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
-msgstr ""
-"設定ファイルの構文解析に失敗しました。有効な JSON コードではないようです。"
+msgstr "設定ファイルの構文解析に失敗しました。有効な JSON コードではないようです。"
 
 #: js/messages.php:210
 msgid ""
@@ -10485,11 +10482,10 @@ msgid ""
 "enabled. Note however, that the general_log produces a lot of data and "
 "increases server load by up to 15%"
 msgstr ""
-"phpMyAdmin モニタは、サーバ構成の最適化を支援し、時間のかかるクエリを追跡する"
-"ことができます。後者の場合には、テーブルに log_output を設定し、"
-"slow_query_log または general_log のいずれかを有効にする必要があります。な"
-"お、general_log は大量のデータを生成し、サーバの負荷を 15% 増加させますので、"
-"注意するようにしてください。"
+"phpMyAdmin モニタは、サーバ構成の最適化を支援し、時間のかかるクエリを追跡することができます。後者を行うには、log_output "
+"(ログの出力先) にテーブルを設定し、slow_query_log (スロークエリログ) または general_log (一般クエリログ) "
+"のいずれかを有効にする必要があります。なお、general_log は大量のデータを生成し、サーバの負荷を 15% "
+"増加させますので、注意するようにしてください。"
 
 #: server_status.php:1605
 msgid ""
@@ -10541,10 +10537,9 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
-"general_log を有効にすると、5～15% サーバの負荷が増加することがあります。ログ"
-"から生成される統計は、負荷が集中する作業であることを認識しておいてください。"
-"ですから、短時間だけモニタするようにし、それ以上必要がないのであれば、"
-"general_log を無効にしてログテーブルを空にしておくのが望ましいです。"
+"general_log (一般クエリログ) を有効にすると、5～15% サーバの負荷が増加することがあります。ログから生成される統計は、負荷が集中する作"
+"業であることを認識しておいてください。このような理由から、一般クエリログは短時間だけモニタするようにし、それ以上必要がないのであれば、general_l"
+"og を無効にして一般クエリログテーブルを空にしておくのが望ましいです。"
 
 #: server_status.php:1643
 msgid "Preset chart"
@@ -11207,14 +11202,12 @@ msgid "Line"
 msgstr "折れ線グラフ"
 
 #: tbl_chart.php:91
-#, fuzzy
 #| msgid "Spline"
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "曲線グラフ"
 
 #: tbl_chart.php:92
-#, fuzzy
 #| msgid "Pie"
 msgctxt "Chart type"
 msgid "Pie"
@@ -11897,43 +11890,39 @@ msgstr "現在の問い合わせ総数: %s"
 
 #: po/advisory_rules.php:15
 msgid "Percentage of slow queries"
-msgstr "遅いクエリの比率"
+msgstr "スロークエリの比率"
 
 #: po/advisory_rules.php:16
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr "クエリの全体量に対して遅いクエリが多く存在します。"
+msgstr "クエリの全体量に対して長時間処理であるスロークエリが多く存在します。"
 
 #: po/advisory_rules.php:17 po/advisory_rules.php:22
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
-msgstr ""
-"{long_query_time} を増やすか、クエリログから遅いクエリを見つけ出し最適化して"
-"みてください。"
+msgstr "{long_query_time} を増やすか、クエリログからスロークエリを見つけ出し最適化してみてください。"
 
 #: po/advisory_rules.php:18
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr "遅いクエリの割合は 5%% 未満が推奨です。現在は %s%% です。"
+msgstr "スロークエリの割合は 5%% 未満がいいと言われています。現在は %s%% です。"
 
 #: po/advisory_rules.php:20
 msgid "Slow query rate"
-msgstr "遅いクエリの割合"
+msgstr "スロークエリの割合"
 
 #: po/advisory_rules.php:21
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
-msgstr "サーバの稼働時間と比較して遅いクエリの比率が高いです。"
+msgstr "サーバの稼働時間と比較して長時間処理であるスロークエリの比率が高いです。"
 
 #: po/advisory_rules.php:23
 #, php-format
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
-msgstr ""
-"現在の遅いクエリの割合は 1 時間当たり %s です。この値は、1 時間当たり 1%% 未"
-"満がいいと言われています。"
+msgstr "現在のスロークエリの割合は 1 時間当たり %s です。この値は、1 時間当たり 1%% 未満がいいと言われています。"
 
 #: po/advisory_rules.php:25
 msgid "Long query time"
@@ -11943,9 +11932,7 @@ msgstr "長いクエリ時間"
 msgid ""
 "long_query_time is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
-msgstr ""
-"long_query_time は 10 秒以上に設定されています。従って、10 秒を超える遅いクエ"
-"リだけがログに記録されます。"
+msgstr "long_query_time は 10 秒以上に設定されています。従って、10 秒を超えるものがスロークエリとしてログに記録されます。"
 
 #: po/advisory_rules.php:27
 msgid ""
@@ -11962,19 +11949,19 @@ msgstr "long_query_time は現在 %d 秒に設定されています。"
 
 #: po/advisory_rules.php:30
 msgid "Slow query logging"
-msgstr "遅いクエリのログへの記録"
+msgstr "スロークエリログ"
 
 #: po/advisory_rules.php:31
 msgid "The slow query log is disabled."
-msgstr "遅いクエリのログへの記録が無効になっています。"
+msgstr "スロークエリログが無効になっています。"
 
 #: po/advisory_rules.php:32
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"{log_slow_queries} を「ON」に設定することで、遅いクエリのログへの記録が有効に"
-"なります。これは、パフォーマンスの悪いクエリの切り分けに役立つでしょう。"
+"{log_slow_queries} "
+"を「ON」に設定することで、スロークエリログが有効になります。これは、パフォーマンスの悪いクエリの切り分けに役立つでしょう。"
 
 #: po/advisory_rules.php:33
 msgid "log_slow_queries is set to 'OFF'"
@@ -12696,16 +12683,13 @@ msgid "Percentage of used open files limit"
 msgstr "開いているファイルの上限に対する比率"
 
 #: po/advisory_rules.php:186
-#, fuzzy
 #| msgid ""
 #| "The number of open files is approaching the max number of open files.  "
 #| "You may get a \\\"Too many open files\\\" error."
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
-msgstr ""
-"開いているファイルの数が最大になりつつあります。エラー「開いているファイルが"
-"多すぎます」になるかもしれません。"
+msgstr "開いているファイルの数が最大になりつつあります。エラー「開いているファイルが多すぎます」になるかもしれません。"
 
 #: po/advisory_rules.php:187 po/advisory_rules.php:192
 msgid ""

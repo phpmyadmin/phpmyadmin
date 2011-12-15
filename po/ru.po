@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-14 19:06+0200\n"
+"PO-Revision-Date: 2011-12-14 19:08+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -1590,16 +1590,14 @@ msgid "Time"
 msgstr "Время"
 
 #: js/messages.php:188
-#, fuzzy
 #| msgid "Total:"
 msgid "Total time:"
-msgstr "Всего:"
+msgstr "Полное время:"
 
 #: js/messages.php:189
-#, fuzzy
 #| msgid "Profiling"
 msgid "Profiling results"
-msgstr "Профилирование"
+msgstr "Профилирование результатов"
 
 #: js/messages.php:190
 #, fuzzy
@@ -1609,10 +1607,9 @@ msgid "Table"
 msgstr "Таблица"
 
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Charset"
 msgid "Chart"
-msgstr "Кодировка"
+msgstr "График"
 
 #. l10n: A collection of available filters
 #: js/messages.php:194
@@ -2308,7 +2305,7 @@ msgstr "в час"
 
 #: libraries/Advisor.class.php:335
 msgid "per day"
-msgstr ""
+msgstr "на день"
 
 #: libraries/Config.class.php:703
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
@@ -8705,10 +8702,9 @@ msgid "Toggle small/big"
 msgstr "Обратное отображение"
 
 #: pmd_general.php:99
-#, fuzzy
 #| msgid "To select relation, click :"
 msgid "Toggle relation lines"
-msgstr "Для выбора связи нажмите на точке соединения:"
+msgstr "Переключение линий связи"
 
 #: pmd_general.php:104 pmd_pdf.php:76
 msgid "Import/Export coordinates for PDF schema"
