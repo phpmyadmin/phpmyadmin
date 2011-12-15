@@ -11210,7 +11210,7 @@ msgstr "曲線グラフ"
 #| msgid "Pie"
 msgctxt "Chart type"
 msgid "Pie"
-msgstr ""
+msgstr "円グラフ"
 
 #: tbl_chart.php:94
 msgid "Stacked"
