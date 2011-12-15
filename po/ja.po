@@ -1518,7 +1518,7 @@ msgstr ""
 
 #: js/messages.php:173
 msgid "From slow log"
-msgstr ""
+msgstr "スロークエリログより"
 
 #: js/messages.php:174
 msgid "From general log"
