@@ -3418,7 +3418,7 @@ msgstr "Підтвердіть DROP запити"
 
 #: libraries/config/messages.inc.php:48
 msgid "Debug SQL"
-msgstr ""
+msgstr "Відлагодити SQL"
 
 #: libraries/config/messages.inc.php:49
 msgid "Default display direction"
