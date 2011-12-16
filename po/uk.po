@@ -3426,7 +3426,7 @@ msgstr "Напрямок відображення по замовчуванню"
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a database"
-msgstr ""
+msgstr "Вкладка що показується коли увійшли у базу даних"
 
 #: libraries/config/messages.inc.php:51
 msgid "Default database tab"
