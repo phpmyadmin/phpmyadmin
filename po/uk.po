@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-17 00:03+0200\n"
+"PO-Revision-Date: 2011-12-17 00:05+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -3656,7 +3656,7 @@ msgstr "Запам'ятати шаблон імені файлу"
 
 #: libraries/config/messages.inc.php:122
 msgid "Enclose table and column names with backquotes"
-msgstr "Візьміть імена таблиці та колонки в зворотні лапки"
+msgstr "Візьміть таблицю та імена колонок у зворотні лапки"
 
 #: libraries/config/messages.inc.php:123 libraries/config/messages.inc.php:262
 #: libraries/display_export.lib.php:348
