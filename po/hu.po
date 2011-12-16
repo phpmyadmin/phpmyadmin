@@ -812,10 +812,10 @@ msgid "Values for a new column"
 msgstr "Az új oszlop értékei"
 
 #: enum_editor.php:30 js/messages.php:266
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
-msgstr "\"%s\" oszlop értékei"
+msgstr "„%s” oszlop értékei"
 
 #: enum_editor.php:34 js/messages.php:268
 #, fuzzy
