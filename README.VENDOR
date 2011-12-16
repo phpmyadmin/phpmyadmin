@@ -30,6 +30,6 @@ js/jquery
 libraries/php-gettext 
     php-gettext library
 libraries/tcpdf 
-    tcpdf library, modified for our needs!
+    tcpdf library, stripped down of not needed files 
 
 # vim: et ts=4 sw=4 sts=4 tw=72 spell spelllang=en_us
