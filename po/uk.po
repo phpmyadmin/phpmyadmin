@@ -3442,7 +3442,7 @@ msgstr "Вкладка сервера по замовчуванню"
 
 #: libraries/config/messages.inc.php:54
 msgid "Tab that is displayed when entering a table"
-msgstr ""
+msgstr "Вкладка що відображається при вході у таблицю"
 
 #: libraries/config/messages.inc.php:55
 msgid "Default table tab"
