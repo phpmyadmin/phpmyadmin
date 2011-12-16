@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-11-01 14:26+0200\n"
+"PO-Revision-Date: 2011-11-15 23:40+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -802,8 +802,9 @@ msgstr "Adatbázis Log"
 
 #: enum_editor.php:23 js/messages.php:265
 #: libraries/rte/rte_routines.lib.php:690
+#, fuzzy
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "ENUM/SET szerkesztő"
 
 #: enum_editor.php:28 js/messages.php:267
 #, fuzzy
