@@ -3458,7 +3458,7 @@ msgstr "Показувати двійковий вміст як HEX"
 
 #: libraries/config/messages.inc.php:58
 msgid "Show database listing as a list instead of a drop down"
-msgstr ""
+msgstr "Показати список бази даних у вигляді списку, а не випадаючого меню"
 
 #: libraries/config/messages.inc.php:59
 msgid "Display databases as a list"
