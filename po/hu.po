@@ -1127,10 +1127,10 @@ msgid "Edit Index"
 msgstr "Index szerkesztése"
 
 #: js/messages.php:48 tbl_indexes.php:293
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s column(s)"
 msgid "Add %d column(s) to index"
-msgstr "%s oszlop hozzáadása"
+msgstr "%d oszlop hozzáadása az indexhez"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:52
