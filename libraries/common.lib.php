@@ -2363,18 +2363,18 @@ function PMA_pageselector($rows, $pageNow = 1, $nbTotalPage = 1,
             }
         }
 
-/* 
+/*
     Add page numbers with "geometrically increasing" distances.
 
     This helps me a lot when navigating through giant tables.
-    
+
     Test case: table with 2.28 million sets, 76190 pages. Page of interest is
-    between 72376 and 76190. 
+    between 72376 and 76190.
     Selecting page 72376.
-    Now, old version enumerated only +/- 10 pages around 72376 and the 
+    Now, old version enumerated only +/- 10 pages around 72376 and the
     percentage increment produced steps of about 3000.
 
-    The following code adds page numbers +/- 2,4,8,16,32,64,128,256 etc. 
+    The following code adds page numbers +/- 2,4,8,16,32,64,128,256 etc.
     around the current page.
 */
 
@@ -2397,7 +2397,7 @@ function PMA_pageselector($rows, $pageNow = 1, $nbTotalPage = 1,
                 $pages[] = $i;
             }
         }
- 
+
         // Since because of ellipsing of the current page some numbers may be double,
         // we unify our array:
         sort($pages);

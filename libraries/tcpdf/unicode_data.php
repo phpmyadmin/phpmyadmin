@@ -1,13 +1,13 @@
 <?php
 //============================================================+
 // File name   : unicode_data.php
-// Version     : 1.0.007
+// Version     : 1.0.009
 // Begin       : 2008-01-01
-// Last Update : 2010-12-16
+// Last Update : 2011-10-01
 // Author      : Nicola Asuni - Tecnick.com S.r.l - Via Della Pace, 11 - 09044 - Quartucciu (CA) - ITALY - www.tecnick.com - info@tecnick.com
 // License     : GNU-LGPL v3 (http://www.gnu.org/copyleft/lesser.html)
 // -------------------------------------------------------------------
-// Copyright (C) 2008-2010  Nicola Asuni - Tecnick.com S.r.l.
+// Copyright (C) 2008-2011  Nicola Asuni - Tecnick.com S.r.l.
 //
 // This file is part of TCPDF software library.
 //
@@ -44,9 +44,9 @@
 
 /**
  * @class TCPDF_UNICODE_DATA
- * This is a PHP class containing Unicde data for TCPDF library
+ * This is a PHP class containing UnicOde data for TCPDF library.
  * @package com.tecnick.tcpdf
- * @version 1.0.007
+ * @version 1.0.009
  * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF_UNICODE_DATA {

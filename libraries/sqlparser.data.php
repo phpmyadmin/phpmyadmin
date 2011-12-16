@@ -367,7 +367,7 @@ $PMA_SQPdata_column_attrib = array (
 /**
  * words that are reserved by MySQL and may not be used as identifiers without quotes
  *
- * @see http://dev.mysql.com/doc/refman/5.1/en/reserved-words.html
+ * @see http://dev.mysql.com/doc/refman/5.5/en/reserved-words.html
  *
  * @global array MySQL reserved words
  */
@@ -451,6 +451,7 @@ $PMA_SQPdata_reserved_word = array (
     'EXISTS',
     'EXPLAIN',
     'EXTENDED',
+    'FALSE',
     'FAST',
     'FIELDS',
     'FILE',
@@ -466,6 +467,7 @@ $PMA_SQPdata_reserved_word = array (
     'FUNCTION',
     'GEMINI',
     'GEMINI_SPIN_RETRIES',
+    'GENERAL',
     'GLOBAL',
     'GRANT',
     'GRANTS',
@@ -480,6 +482,7 @@ $PMA_SQPdata_reserved_word = array (
     'IDENTIFIED',
     'IF',
     'IGNORE',
+    'IGNORE_SERVER_IDS',
     'IN',
     'INDEX',
     'INDEXES',
@@ -512,6 +515,7 @@ $PMA_SQPdata_reserved_word = array (
     'LOW_PRIORITY',
     'MARIA',                // 5.1 ?
     'MASTER_CONNECT_RETRY',
+    'MASTER_HEARTBEAT_PERIOD',
     'MASTER_HOST',
     'MASTER_LOG_FILE',
     'MASTER_LOG_POS',
@@ -519,6 +523,7 @@ $PMA_SQPdata_reserved_word = array (
     'MASTER_PORT',
     'MASTER_USER',
     'MATCH',
+    'MAXVALUE',
     'MAX_CONNECTIONS_PER_HOUR',
     'MAX_QUERIES_PER_HOUR',
     'MAX_ROWS',
@@ -581,6 +586,7 @@ $PMA_SQPdata_reserved_word = array (
     'REPLACE',
     'REPLICATION',
     'RESET',
+    'RESIGNAL',
     'RESTORE',
     'RESTRICT',
     'RETURN',
@@ -601,7 +607,9 @@ $PMA_SQPdata_reserved_word = array (
     'SHARE',
     'SHOW',
     'SHUTDOWN',
+    'SIGNAL',
     'SLAVE',
+    'SLOW',
     'SONAME',
     'SOUNDS',                   // string-functions.html
     'SQL',

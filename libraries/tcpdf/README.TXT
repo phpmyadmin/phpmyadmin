@@ -8,8 +8,8 @@ http://sourceforge.net/donate/index.php?group_id=128076
 ------------------------------------------------------------
 
 Name: TCPDF
-Version: 5.9.108
-Release date: 2011-08-09
+Version: 5.9.141
+Release date: 2011-12-14
 Author:	Nicola Asuni
 
 Copyright (c) 2002-2011:
@@ -31,12 +31,12 @@ Main Features:
     * no external libraries are required for the basic functions;
     * all standard page formats, custom page formats, custom margins and units of measure;
     * UTF-8 Unicode and Right-To-Left languages;
-    * TrueTypeUnicode, OpenTypeUnicode, TrueType, OpenType, Type1 and CID-0 fonts;
+    * TrueTypeUnicode, OpenTypeUnicode v1, TrueType, OpenType v1, Type1 and CID-0 fonts;
     * font subsetting;
     * methods to publish some XHTML + CSS code, Javascript and Forms;
     * images, graphic (geometric figures) and transformation methods;
     * supports JPEG, PNG and SVG images natively, all images supported by GD (GD, GD2, GD2PART, GIF, JPEG, PNG, BMP, XBM, XPM) and all images supported via ImagMagick (http:  www.imagemagick.org/www/formats.html)
-    * 1D and 2D barcodes: CODE 39, ANSI MH10.8M-1983, USD-3, 3 of 9, CODE 93, USS-93, Standard 2 of 5, Interleaved 2 of 5, CODE 128 A/B/C, 2 and 5 Digits UPC-Based Extention, EAN 8, EAN 13, UPC-A, UPC-E, MSI, POSTNET, PLANET, RMS4CC (Royal Mail 4-state Customer Code), CBC (Customer Bar Code), KIX (Klant index - Customer index), Intelligent Mail Barcode, Onecode, USPS-B-3200, CODABAR, CODE 11, PHARMACODE, PHARMACODE TWO-TRACKS, QR-Code, PDF417;
+    * 1D and 2D barcodes: CODE 39, ANSI MH10.8M-1983, USD-3, 3 of 9, CODE 93, USS-93, Standard 2 of 5, Interleaved 2 of 5, CODE 128 A/B/C, 2 and 5 Digits UPC-Based Extention, EAN 8, EAN 13, UPC-A, UPC-E, MSI, POSTNET, PLANET, RMS4CC (Royal Mail 4-state Customer Code), CBC (Customer Bar Code), KIX (Klant index - Customer index), Intelligent Mail Barcode, Onecode, USPS-B-3200, CODABAR, CODE 11, PHARMACODE, PHARMACODE TWO-TRACKS, Datamatrix, QR-Code, PDF417;
     * JPEG and PNG ICC profiles, Grayscale, RGB, CMYK, Spot Colors and Transparencies;
     * automatic page header and footer management;
     * document encryption up to 256 bit and digital signature certifications;
@@ -54,6 +54,7 @@ Main Features:
     * page compression (requires php-zlib extension);
     * XOBject Templates;
 	* Layers and object visibility.
+	* PDF/A-1b support.
 
 Installation (full instructions on http:  www.tcpdf.org):
 	1. copy the folder on your Web server
@@ -61,8 +62,7 @@ Installation (full instructions on http:  www.tcpdf.org):
 	3. call the examples/example_001.php page with your browser to see an example
 
 Source Code Documentation:
-	doc/index.html
-	http://www.tcpdf.org/doc/
+	http://www.tcpdf.org
 
 For Additional Documentation:
 	http://www.tcpdf.org

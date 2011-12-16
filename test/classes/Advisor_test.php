@@ -20,6 +20,7 @@ class Advisor_test extends PHPUnit_Framework_TestCase
     {
         $_SESSION[' PMA_token '] = 'token';
         $GLOBALS['lang'] = 'en';
+        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
     }
 
     /**
