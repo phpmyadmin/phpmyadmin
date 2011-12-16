@@ -1612,10 +1612,9 @@ msgid "Time"
 msgstr "Idő"
 
 #: js/messages.php:188
-#, fuzzy
 #| msgid "Total:"
 msgid "Total time:"
-msgstr "Összesen:"
+msgstr "Teljes idő:"
 
 #: js/messages.php:189
 #, fuzzy
