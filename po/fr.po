@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-12 19:21+0200\n"
+"PO-Revision-Date: 2011-12-16 19:10+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -2328,6 +2328,7 @@ msgstr "Taille du texte"
 #: libraries/Error_Handler.class.php:62
 msgid "Too many error messages, some are not displayed."
 msgstr ""
+"Les messages d'erreur sont trop nombreux, certains ne sont pas affichés."
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."
