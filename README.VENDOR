@@ -25,9 +25,7 @@ one we ship.
 Currently known list of external libraries:
 
 js/jquery 
-    jQuery js framework
-js/colorpicker 
-    jQuery based color picker
+    jQuery js framework and various jQuery based libraries.
 
 libraries/php-gettext 
     php-gettext library
