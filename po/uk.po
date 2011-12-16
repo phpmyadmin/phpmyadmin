@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-16 23:35+0200\n"
+"PO-Revision-Date: 2011-12-16 23:36+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -3454,7 +3454,7 @@ msgstr "Показувати двійковий вміст як HEX по зам�
 
 #: libraries/config/messages.inc.php:57 libraries/display_tbl.lib.php:671
 msgid "Show binary contents as HEX"
-msgstr ""
+msgstr "Показувати двійковий вміст як HEX"
 
 #: libraries/config/messages.inc.php:58
 msgid "Show database listing as a list instead of a drop down"
