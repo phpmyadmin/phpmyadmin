@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-16 23:45+0200\n"
+"PO-Revision-Date: 2011-12-16 23:46+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -3491,7 +3491,7 @@ msgstr "Редагувати SQL запити у виринаючому вікн
 
 #: libraries/config/messages.inc.php:65
 msgid "Edit in window"
-msgstr ""
+msgstr "Редагувати у вікні"
 
 #: libraries/config/messages.inc.php:66
 msgid "Display errors"
