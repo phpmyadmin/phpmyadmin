@@ -1493,6 +1493,8 @@ msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"A következő beállítások globálisan lesznek alkalmazva és visszaállnak az "
+"alapértelmezettre a kiszolgáló újraindításakor:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:157
