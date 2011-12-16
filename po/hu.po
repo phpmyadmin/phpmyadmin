@@ -1636,7 +1636,7 @@ msgstr "Diagram"
 #. l10n: A collection of available filters
 #: js/messages.php:194
 msgid "Log table filter options"
-msgstr "Naplótábla szűrő beállításai"
+msgstr "Naplótábla szűrőbeállításai"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:196
