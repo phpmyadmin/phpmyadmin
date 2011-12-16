@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-13 20:12+0200\n"
+"PO-Revision-Date: 2011-12-16 20:41+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -2308,7 +2308,7 @@ msgstr "Teckenstorlek"
 
 #: libraries/Error_Handler.class.php:62
 msgid "Too many error messages, some are not displayed."
-msgstr ""
+msgstr "För många felmeddelanden, en del kommer inte visas."
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."
