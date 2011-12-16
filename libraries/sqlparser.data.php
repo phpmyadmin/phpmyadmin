@@ -451,6 +451,7 @@ $PMA_SQPdata_reserved_word = array (
     'EXISTS',
     'EXPLAIN',
     'EXTENDED',
+    'FALSE',
     'FAST',
     'FIELDS',
     'FILE',
