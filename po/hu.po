@@ -823,10 +823,9 @@ msgid "Enter each value in a separate field"
 msgstr "Minden értéket külön mezőben adjon meg"
 
 #: enum_editor.php:123
-#, fuzzy
 #| msgid "+ Add a value"
 msgid "Add a value"
-msgstr "+ Érték hozzáadása"
+msgstr "Érték hozzáadása"
 
 #: enum_editor.php:129 gis_data_editor.php:317
 msgid "Output"
