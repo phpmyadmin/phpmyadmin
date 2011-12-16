@@ -1361,7 +1361,7 @@ msgstr "Szabad lapozófájl"
 
 #: js/messages.php:119
 msgid "Bytes sent"
-msgstr ""
+msgstr "Bájt elküldve"
 
 #: js/messages.php:120
 msgid "Bytes received"
