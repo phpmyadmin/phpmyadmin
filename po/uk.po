@@ -3630,7 +3630,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:136 libraries/export/odt.php:324
 #: libraries/tbl_properties.inc.php:135
 msgid "MIME type"
-msgstr "MIME-type"
+msgstr "MIME type"
 
 #: libraries/config/messages.inc.php:102 libraries/config/messages.inc.php:114
 #: libraries/config/messages.inc.php:138 tbl_relation.php:392
