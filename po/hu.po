@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-16 23:58+0200\n"
+"PO-Revision-Date: 2011-12-16 23:59+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -5744,7 +5744,7 @@ msgid ", @TABLE@ will become the table name"
 msgstr ", @TABLE@ lesz a tábla neve"
 
 #: libraries/display_export.lib.php:232
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "alue is interpreted using %1$sstrftime%2$s, so you can use time matting "
 #| "ings. Additionally the following transformations will pen: %3$s. Other t "
@@ -5754,9 +5754,10 @@ msgid ""
 "formatting strings. Additionally the following transformations will happen: "
 "%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
-"Ennek az értéknek az értelmezése az %1$sstrftime%2$s használatával történik, "
-"vagyis időformázó karakterláncokat használhat. A következő átalakításokra "
-"kerül továbbá sor: %3$s. Más szöveg eredeti állapotában kerül megtartásra."
+"Ennek az értéknek az értelmezése a(z) %1$sstrftime%2$s használatával "
+"történik, vagyis időformázó karakterláncokat használhat. Továbbá a következő "
+"átalakításokra kerül sor: %3$s. Más szöveg eredeti állapotában kerül "
+"megtartásra. Tekintse meg a %4$sFAQ%5$s oldalt a részletekért."
 
 #: libraries/display_export.lib.php:270
 msgid "use this for future exports"
