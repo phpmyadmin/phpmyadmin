@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-16 23:29+0200\n"
+"PO-Revision-Date: 2011-12-16 23:30+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -3430,7 +3430,7 @@ msgstr "Вкладка що показується коли увійшли у б
 
 #: libraries/config/messages.inc.php:51
 msgid "Default database tab"
-msgstr ""
+msgstr "Вкладка бази даних по замовчуванню"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a server"
