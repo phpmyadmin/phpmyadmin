@@ -1579,10 +1579,9 @@ msgid "Log analysed, but no data found in this time span."
 msgstr "Журнал проаналізований, але даних в цей проміжок часу не знайдено."
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Authenticating..."
 msgid "Analyzing..."
-msgstr "Авторизуємося..."
+msgstr "Аналізується..."
 
 #: js/messages.php:185
 #, fuzzy
