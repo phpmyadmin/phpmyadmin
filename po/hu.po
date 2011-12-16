@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-16 23:59+0200\n"
+"PO-Revision-Date: 2011-12-17 00:02+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -7848,10 +7848,10 @@ msgid "You do not have the necessary privileges to create an event"
 msgstr "Önnek nincs meg a szükséges jogosultsága esemény létrehozásához"
 
 #: libraries/rte/rte_words.lib.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No event with name %1$s found in database %2$s"
-msgstr "Nem található tábla az adatbázisban."
+msgstr "Nem található %1$s nevű esemény a(z) %2$s adatbázisban"
 
 #: libraries/rte/rte_words.lib.php:48
 msgid "There are no events to display."
