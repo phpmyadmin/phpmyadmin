@@ -367,7 +367,7 @@ $PMA_SQPdata_column_attrib = array (
 /**
  * words that are reserved by MySQL and may not be used as identifiers without quotes
  *
- * @see http://dev.mysql.com/doc/refman/5.1/en/reserved-words.html
+ * @see http://dev.mysql.com/doc/refman/5.5/en/reserved-words.html
  *
  * @global array MySQL reserved words
  */
