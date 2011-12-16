@@ -256,7 +256,7 @@ class PMA_Message_test extends PHPUnit_Extensions_OutputTestCase
             ),
             array(
                 '[a@http://foo.bar/@Documentation]link[/a]',
-                '<a href="./url.php?url=http%3A%2F%2Ffoo.bar%2F&amp;lang=en" target="Documentation">link</a>'
+                '<a href="./url.php?url=http%3A%2F%2Ffoo.bar%2F&amp;lang=en&amp;token=token" target="Documentation">link</a>'
             ),
             array(
                 '[a@./non-existing@Documentation]link[/a]',
@@ -277,6 +277,7 @@ class PMA_Message_test extends PHPUnit_Extensions_OutputTestCase
     public function testDecodeBB($actual, $expected)
     {
         $GLOBALS['lang'] = 'en';
+        $_SESSION[' PMA_token '] = 'token';
         $this->assertEquals($expected, PMA_Message::decodeBB($actual));
     }
 
