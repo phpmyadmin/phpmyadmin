@@ -3665,7 +3665,7 @@ msgstr "Режим сумісності SQL"
 
 #: libraries/config/messages.inc.php:124 libraries/export/sql.php:190
 msgid "<code>CREATE TABLE</code> options:"
-msgstr ""
+msgstr "<code>CREATE TABLE</code> опції:"
 
 #: libraries/config/messages.inc.php:125
 msgid "Creation/Update/Check dates"
