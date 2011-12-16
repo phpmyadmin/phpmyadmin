@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-15 11:46+0200\n"
+"PO-Revision-Date: 2011-12-16 11:44+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -10558,10 +10558,9 @@ msgid "Commonly monitored"
 msgstr "一般的なモニタ対象"
 
 #: server_status.php:1666
-#, fuzzy
 #| msgid "You must provide a valid table name"
 msgid "or type variable name:"
-msgstr "有効なテーブル名を指定してください"
+msgstr "もしくは対象変数名:"
 
 #: server_status.php:1670
 msgid "Display as differential value"
