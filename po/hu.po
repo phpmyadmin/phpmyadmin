@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-16 23:56+0200\n"
+"PO-Revision-Date: 2011-12-16 23:58+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -911,7 +911,7 @@ msgstr "Y"
 #: js/messages.php:319
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "%d. pont"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:325
