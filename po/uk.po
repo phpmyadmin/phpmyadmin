@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-16 23:53+0200\n"
+"PO-Revision-Date: 2011-12-16 23:54+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -3553,7 +3553,7 @@ msgstr "Помістити імена колонок в перший рядок"
 #: libraries/config/messages.inc.php:250 libraries/import/csv.php:76
 #: libraries/import/ldi.php:42
 msgid "Columns enclosed by"
-msgstr "Колонки взято в"
+msgstr "Колонки захищено"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:244
 #: libraries/config/messages.inc.php:251 libraries/import/csv.php:81
