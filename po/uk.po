@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-16 23:54+0200\n"
+"PO-Revision-Date: 2011-12-16 23:55+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -3559,7 +3559,7 @@ msgstr "Колонки захищено"
 #: libraries/config/messages.inc.php:251 libraries/import/csv.php:81
 #: libraries/import/ldi.php:43
 msgid "Columns escaped by"
-msgstr "Колонки екрануються в"
+msgstr "Колонки екрануються у"
 
 #: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:85
 #: libraries/config/messages.inc.php:92 libraries/config/messages.inc.php:101
