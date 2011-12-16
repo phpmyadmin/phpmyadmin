@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-13 11:32+0200\n"
+"PO-Revision-Date: 2011-12-16 12:28+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -12163,7 +12163,7 @@ msgid ""
 msgstr ""
 "Bellek kapasiteniz 3 GiB'in üstünde (Sunucu localhost üzerinde "
 "varsayılıyor), bu yüzden MySQL, belleğinizin tümüne erişemeyebilir. MySQL'in "
-"64-bit sürümünü kurmayı düşünmek isteyebilirsiniz."
+"64-bit sürümünü kurmayı düşünebilirsiniz."
 
 #: po/advisory_rules.php:68
 #, php-format
