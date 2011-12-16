@@ -3598,7 +3598,7 @@ msgstr "Шаблон імені сервера"
 
 #: libraries/config/messages.inc.php:89
 msgid "Table name template"
-msgstr ""
+msgstr "Шаблон імені таблиці"
 
 #: libraries/config/messages.inc.php:93 libraries/config/messages.inc.php:106
 #: libraries/config/messages.inc.php:115 libraries/config/messages.inc.php:139
