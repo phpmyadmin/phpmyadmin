@@ -67,6 +67,7 @@ phpMyAdmin - ChangeLog
 
 3.4.10.0 (not yet released)
 - bug #3460090 [interface] TextareaAutoSelect feature broken
+- patch #3375984 [export] PHP Array export might generate invalid php code
 
 3.4.9.0 (not yet released)
 - bug #3442028 [edit] Inline editing enum fields with null shows no dropdown
