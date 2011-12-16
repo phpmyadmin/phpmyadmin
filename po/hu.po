@@ -939,10 +939,9 @@ msgid "Add a linestring"
 msgstr "Új felhasználó hozzáadása"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:326
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Új felhasználó hozzáadása"
+msgstr "Belső gyűrű hozzáadása"
 
 #: gis_data_editor.php:266 js/messages.php:321
 msgid "Polygon"
