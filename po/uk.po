@@ -3681,7 +3681,7 @@ msgstr "Відключити перевірки зовнішніх ключів"
 
 #: libraries/config/messages.inc.php:130
 msgid "Use hexadecimal for BLOB"
-msgstr ""
+msgstr "Використовувати шістнадцядковий для BLOB"
 
 #: libraries/config/messages.inc.php:132
 msgid "Use ignore inserts"
