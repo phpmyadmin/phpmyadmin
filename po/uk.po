@@ -3402,7 +3402,7 @@ msgstr "Стиснути на льоту"
 #: libraries/config/messages.inc.php:45 setup/frames/config.inc.php:25
 #: setup/frames/index.inc.php:166
 msgid "Configuration file"
-msgstr ""
+msgstr "Конфігураційний файл"
 
 #: libraries/config/messages.inc.php:46
 msgid ""
