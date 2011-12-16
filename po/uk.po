@@ -3499,7 +3499,7 @@ msgstr "Показати помилки"
 
 #: libraries/config/messages.inc.php:67
 msgid "Gather errors"
-msgstr ""
+msgstr "Збирати помилки"
 
 #: libraries/config/messages.inc.php:68
 msgid "Show icons for warning, error and information messages"
