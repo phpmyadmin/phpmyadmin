@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-16 23:04+0200\n"
+"PO-Revision-Date: 2011-12-16 23:13+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -3352,10 +3352,9 @@ msgstr ""
 "CHAR та VARCHAR"
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
 #| msgid "Customize text input fields"
 msgid "Minimum size for input field"
-msgstr "Налаштувати текстові поля вводу"
+msgstr "Мінімальний розмір для поля вводу"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
