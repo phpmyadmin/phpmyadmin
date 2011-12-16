@@ -53,7 +53,7 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
     function testFormatSQLfmTypeHtml_1(){
         global $cfg;
         $cfg['SQP']['fmtType'] = 'html';
-        $cfg['MySQLManualType'] = 'viewable';
+        $cfg['MySQLManualType'] = 'none';
 
         $sql = array (
           'raw' => 'SELECT 1;',
@@ -87,7 +87,7 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
     function testFormatSQLfmTypeHtml_2(){
         global $cfg;
         $cfg['SQP']['fmtType'] = 'html';
-        $cfg['MySQLManualType'] = 'viewable';
+        $cfg['MySQLManualType'] = 'none';
 
         $unparsed = "SELECT * from `tTable`;";
         $sql = array (
@@ -134,7 +134,7 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
     function testFormatSQLfmTypeHtml_3(){
         global $cfg;
         $cfg['SQP']['fmtType'] = 'html';
-        $cfg['MySQLManualType'] = 'viewable';
+        $cfg['MySQLManualType'] = 'none';
 
         $unparsed = 'SELECT * FROM `tTable_A` A INNER JOIN `tTable_B` B ON B.ID = A.ID;';
         $sql = array (
@@ -269,7 +269,7 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
     function testFormatSQLfmTypeText_1(){
         global $cfg;
         $cfg['SQP']['fmtType'] = 'text';
-        $cfg['MySQLManualType'] = 'viewable';
+        $cfg['MySQLManualType'] = 'none';
 
         $sql = array (
           'raw' => 'SELECT 1;',
@@ -303,7 +303,7 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
     function testFormatSQLfmTypeText_2(){
         global $cfg;
         $cfg['SQP']['fmtType'] = 'text';
-        $cfg['MySQLManualType'] = 'viewable';
+        $cfg['MySQLManualType'] = 'none';
 
         $unparsed = "SELECT * from `tTable`;";
         $sql = array (
@@ -350,7 +350,7 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
     function testFormatSQLfmTypeText_3(){
         global $cfg;
         $cfg['SQP']['fmtType'] = 'text';
-        $cfg['MySQLManualType'] = 'viewable';
+        $cfg['MySQLManualType'] = 'none';
 
         $unparsed = 'SELECT * FROM `tTable_A` A INNER JOIN `tTable_B` B ON B.ID = A.ID;';
         $sql = array (
@@ -484,7 +484,7 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
     function testFormatSQLfmTypeNone_1(){
         global $cfg;
         $cfg['SQP']['fmtType'] = 'none';
-        $cfg['MySQLManualType'] = 'viewable';
+        $cfg['MySQLManualType'] = 'none';
 
         $sql = array (
           'raw' => 'SELECT 1;',
@@ -521,7 +521,7 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
     function testFormatSQLfmTypeNone_2(){
         global $cfg;
         $cfg['SQP']['fmtType'] = 'none';
-        $cfg['MySQLManualType'] = 'viewable';
+        $cfg['MySQLManualType'] = 'none';
 
         $unparsed = "SELECT * from `tTable`;";
         $sql = array (
@@ -571,7 +571,7 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
     function testFormatSQLfmTypeNone_3(){
         global $cfg;
         $cfg['SQP']['fmtType'] = 'none';
-        $cfg['MySQLManualType'] = 'viewable';
+        $cfg['MySQLManualType'] = 'none';
 
         $unparsed = 'SELECT * FROM `tTable_A` A INNER JOIN `tTable_B` B ON B.ID = A.ID;';
         $sql = array (
@@ -708,7 +708,7 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
     function testFormatSQLWithoutType(){
         global $cfg;
         $cfg['SQP']['fmtType'] = '';
-        $cfg['MySQLManualType'] = 'viewable';
+        $cfg['MySQLManualType'] = 'none';
         $sql = array (
           'raw' => 'SELECT 1;',
           0 =>
