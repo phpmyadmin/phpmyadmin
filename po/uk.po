@@ -7616,10 +7616,9 @@ msgid "event"
 msgstr "подія"
 
 #: libraries/rte/rte_words.lib.php:46
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create an event"
-msgstr "Ви для цього маєте недостатньо прав!"
+msgstr "У вас немає необхідних прав щоб створити подію"
 
 #: libraries/rte/rte_words.lib.php:47
 #, php-format
