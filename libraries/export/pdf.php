@@ -225,6 +225,7 @@ if (isset($plugin_list)) {
 
             // loop through results header and set initial col widths/ titles/ alignment
             // if a col title is less than the starting col width, reduce that column size
+            $colFits = array();
             for ($i = 0; $i < $this->numFields; $i++) {
                 $stringWidth = $this->getstringwidth($this->fields[$i]->name) + 6 ;
                 // save the real title's width
