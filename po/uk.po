@@ -7390,7 +7390,7 @@ msgstr "Назва порядку"
 
 #: libraries/rte/rte_routines.lib.php:854
 msgid "Parameters"
-msgstr ""
+msgstr "Параметри"
 
 #: libraries/rte/rte_routines.lib.php:859
 #, fuzzy
