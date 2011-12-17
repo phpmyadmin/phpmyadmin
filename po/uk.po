@@ -7399,7 +7399,7 @@ msgstr "Напрямок"
 
 #: libraries/rte/rte_routines.lib.php:862 libraries/tbl_properties.inc.php:98
 msgid "Length/Values"
-msgstr "Довжини/Значення*"
+msgstr "Довжина/Значення"
 
 #: libraries/rte/rte_routines.lib.php:877
 msgid "Add parameter"
