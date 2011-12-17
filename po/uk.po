@@ -4507,6 +4507,7 @@ msgstr "Запам'ятати сортування таблиці"
 #: libraries/config/messages.inc.php:354
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr ""
+"Повторіть заголовки кожних X комірок, [kbd]0[/kbd] відключає цю властивість"
 
 #: libraries/config/messages.inc.php:355
 msgid "Repeat headers"
