@@ -7837,7 +7837,7 @@ msgstr ""
 #: libraries/server_synchronize.lib.php:1303
 #: libraries/server_synchronize.lib.php:1311
 msgid "Current server"
-msgstr ""
+msgstr "Поточний сервер"
 
 #: libraries/server_synchronize.lib.php:1305
 #: libraries/server_synchronize.lib.php:1313
