@@ -7496,7 +7496,7 @@ msgstr "Функція"
 
 #: libraries/rte/rte_triggers.lib.php:89
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr ""
+msgstr "Вибачте, нам не вдалось відновити видалений тригер."
 
 #: libraries/rte/rte_triggers.lib.php:94
 #, fuzzy, php-format
