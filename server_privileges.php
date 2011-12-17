@@ -2351,7 +2351,8 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                 $user_form .= ' rowspan="' . count($current_privileges) . '"';
             }
             $user_form .= '>' . htmlspecialchars($current_host) . '</td>' . "\n";
-            foreach ($current_privileges as $current) {
+            for ($i = 0; $i < count($current_privileges); $i++) {
+                $current = $current_privileges[$i];
                 $user_form .= '        <td>' . "\n"
                    . '            ';
                 if (! isset($current['Db']) || $current['Db'] == '*') {
@@ -2381,6 +2382,9 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                 );
                 $user_form .= '</td>' . "\n"
                    . '    </tr>' . "\n";
+                if (($i + 1) < count($current_privileges)) {
+                    $user_form .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">' . "\n";
+                }
             }
             if (empty($row) && empty($row1) && empty($row2)) {
                 break;
