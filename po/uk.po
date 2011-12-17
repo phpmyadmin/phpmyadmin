@@ -7712,7 +7712,7 @@ msgstr "FOREIGN KEY"
 
 #: libraries/schema/User_Schema.class.php:173
 msgid "Please choose a page to edit"
-msgstr "Прошу вибрати сторінку для редагування"
+msgstr "Будь ласка виберіть сторінку для редагування"
 
 #: libraries/schema/User_Schema.class.php:178
 #, fuzzy
