@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-18 00:12+0200\n"
+"PO-Revision-Date: 2011-12-18 00:13+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -7628,7 +7628,7 @@ msgstr "У базі даних %2$s немає події з назвою %1$s"
 
 #: libraries/rte/rte_words.lib.php:48
 msgid "There are no events to display."
-msgstr ""
+msgstr "Немає подій."
 
 #: libraries/schema/Dia_Relation_Schema.class.php:230
 #: libraries/schema/Eps_Relation_Schema.class.php:420
