@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-17 23:58+0200\n"
+"PO-Revision-Date: 2011-12-17 23:59+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -7499,10 +7499,10 @@ msgid "Sorry, we failed to restore the dropped trigger."
 msgstr "Вибачте, нам не вдалось відновити видалений тригер."
 
 #: libraries/rte/rte_triggers.lib.php:94
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Trigger %1$s has been modified."
-msgstr "Таблицю %s було знищено"
+msgstr "Тригер %1$s було змінено."
 
 #: libraries/rte/rte_triggers.lib.php:106
 #, fuzzy, php-format
