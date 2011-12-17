@@ -4543,7 +4543,7 @@ msgstr "Порядок авторизації хоста"
 
 #: libraries/config/messages.inc.php:364
 msgid "Leave blank for defaults"
-msgstr ""
+msgstr "Залишити пустим для налаштувань по замовчуванню"
 
 #: libraries/config/messages.inc.php:365
 msgid "Host authorization rules"
