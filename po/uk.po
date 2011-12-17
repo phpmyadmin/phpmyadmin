@@ -7805,7 +7805,7 @@ msgstr "Користувачі"
 #: libraries/server_links.inc.php:79 server_synchronize.php:1154
 #: server_synchronize.php:1162
 msgid "Synchronize"
-msgstr ""
+msgstr "Синхронізувати"
 
 #: libraries/server_links.inc.php:84 server_binlog.php:77
 #: server_status.php:590
