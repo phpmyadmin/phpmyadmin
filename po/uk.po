@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-17 10:51+0200\n"
+"PO-Revision-Date: 2011-12-17 10:52+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -4159,7 +4159,7 @@ msgstr "Показати вибір сервера у верхній части�
 
 #: libraries/config/messages.inc.php:273
 msgid "Display servers selection"
-msgstr ""
+msgstr "Показати вибір серверів"
 
 #: libraries/config/messages.inc.php:274
 msgid "Minimum number of tables to display the table filter box"
