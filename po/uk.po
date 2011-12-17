@@ -3749,7 +3749,7 @@ msgstr "Налаштувати режим перегляду"
 #: libraries/config/messages.inc.php:191 libraries/config/messages.inc.php:219
 #: libraries/config/messages.inc.php:231
 msgid "Customize default options"
-msgstr ""
+msgstr "Налаштувати опції по замовчуванню"
 
 #: libraries/config/messages.inc.php:160 libraries/config/setup.forms.php:242
 #: libraries/config/setup.forms.php:315
