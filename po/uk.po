@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-18 00:21+0200\n"
+"PO-Revision-Date: 2011-12-18 00:22+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -7793,10 +7793,9 @@ msgid "Unknown language: %1$s."
 msgstr "Невідома мова: %1$s."
 
 #: libraries/select_server.lib.php:32 libraries/select_server.lib.php:37
-#, fuzzy
 #| msgid "Server"
 msgid "Current Server"
-msgstr "Сервер"
+msgstr "Поточний Сервер"
 
 #: libraries/server_links.inc.php:60
 #, fuzzy
