@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-18 00:27+0200\n"
+"PO-Revision-Date: 2011-12-18 00:28+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -7887,7 +7887,7 @@ msgstr "Надати всім користувачам доступ до ціє�
 
 #: libraries/sql_query_form.lib.php:313
 msgid "Replace existing bookmark of same name"
-msgstr ""
+msgstr "Замінити існуючу закладку з таким же ім'ям"
 
 #: libraries/sql_query_form.lib.php:329
 msgid "Do not overwrite this query from outside the window"
