@@ -7724,10 +7724,9 @@ msgid "Select Tables"
 msgstr "Вибрати Таблиці"
 
 #: libraries/schema/User_Schema.class.php:382
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Display relational schema"
-msgstr "Схема зв'язків"
+msgstr "Відобразити схему зв'язків"
 
 #: libraries/schema/User_Schema.class.php:392
 msgid "Select Export Relational Type"
