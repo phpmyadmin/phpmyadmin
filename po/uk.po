@@ -7899,7 +7899,7 @@ msgstr "Розділювач"
 
 #: libraries/sql_query_form.lib.php:344
 msgid "Show this query here again"
-msgstr "Показати даний запит знову "
+msgstr "Показати даний запит тут знову"
 
 #: libraries/sql_query_form.lib.php:399
 msgid "View only"
