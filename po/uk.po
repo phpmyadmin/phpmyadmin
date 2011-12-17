@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-18 00:00+0200\n"
+"PO-Revision-Date: 2011-12-18 00:01+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -7511,10 +7511,9 @@ msgid "Trigger %1$s has been created."
 msgstr "Тригер %1$s було створено."
 
 #: libraries/rte/rte_triggers.lib.php:161
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Edit trigger"
-msgstr "Додати нового користувача"
+msgstr "Редагувати тригер"
 
 #: libraries/rte/rte_triggers.lib.php:305
 #, fuzzy
