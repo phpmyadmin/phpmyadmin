@@ -7384,10 +7384,9 @@ msgid "Edit routine"
 msgstr "Редагувати порядок"
 
 #: libraries/rte/rte_routines.lib.php:831
-#, fuzzy
 #| msgid "Column names"
 msgid "Routine name"
-msgstr "Назви колонок"
+msgstr "Назва порядку"
 
 #: libraries/rte/rte_routines.lib.php:854
 msgid "Parameters"
