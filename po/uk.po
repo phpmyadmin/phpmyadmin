@@ -7660,7 +7660,7 @@ msgstr "Схема бази даних %s - Сторінка %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:200
 msgid "This page does not contain any tables!"
-msgstr ""
+msgstr "Ця сторінка не містить жодної таблиці!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:228
 msgid "SCHEMA ERROR: "
