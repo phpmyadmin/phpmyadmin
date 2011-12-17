@@ -7552,10 +7552,9 @@ msgid "Export of routine %s"
 msgstr "Експортувати порядок %s"
 
 #: libraries/rte/rte_words.lib.php:21
-#, fuzzy
 #| msgid "Add into comments"
 msgid "routine"
-msgstr "Додати коментар"
+msgstr "порядок"
 
 #: libraries/rte/rte_words.lib.php:22
 #, fuzzy
