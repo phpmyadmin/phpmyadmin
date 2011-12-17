@@ -7883,7 +7883,7 @@ msgstr "Закладка на даний SQL запит"
 
 #: libraries/sql_query_form.lib.php:307 sql.php:978
 msgid "Let every user access this bookmark"
-msgstr ""
+msgstr "Надати всім користувачам доступ до цієї закладки"
 
 #: libraries/sql_query_form.lib.php:313
 msgid "Replace existing bookmark of same name"
