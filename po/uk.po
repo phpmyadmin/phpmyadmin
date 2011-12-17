@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-17 10:30+0200\n"
+"PO-Revision-Date: 2011-12-17 10:31+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -3738,7 +3738,7 @@ msgstr "Обмеження зовнішнього ключа"
 
 #: libraries/config/messages.inc.php:156
 msgid "Browse mode"
-msgstr ""
+msgstr "Режим перегляду"
 
 #: libraries/config/messages.inc.php:157
 msgid "Customize browse mode"
