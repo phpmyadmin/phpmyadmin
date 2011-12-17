@@ -4488,6 +4488,7 @@ msgstr "Ширина вікна запиту"
 #: libraries/config/messages.inc.php:350
 msgid "Select which functions will be used for character set conversion"
 msgstr ""
+"Виберіть які функції будуть використані для перетворення набору символів"
 
 #: libraries/config/messages.inc.php:351
 msgid "Recoding engine"
