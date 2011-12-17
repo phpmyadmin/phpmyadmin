@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-18 00:06+0200\n"
+"PO-Revision-Date: 2011-12-18 00:08+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -7569,7 +7569,7 @@ msgstr "У базі даних %2$s немає порядку з назвою %1
 
 #: libraries/rte/rte_words.lib.php:24
 msgid "There are no routines to display."
-msgstr ""
+msgstr "Немає порядків для відображення."
 
 #: libraries/rte/rte_words.lib.php:30
 #, fuzzy
