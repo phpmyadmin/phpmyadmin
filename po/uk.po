@@ -3742,7 +3742,7 @@ msgstr "Режим перегляду"
 
 #: libraries/config/messages.inc.php:157
 msgid "Customize browse mode"
-msgstr ""
+msgstr "Налаштувати режим перегляду"
 
 #: libraries/config/messages.inc.php:159 libraries/config/messages.inc.php:161
 #: libraries/config/messages.inc.php:178 libraries/config/messages.inc.php:189
