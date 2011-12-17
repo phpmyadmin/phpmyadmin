@@ -7758,7 +7758,7 @@ msgstr "Альбомний"
 
 #: libraries/schema/User_Schema.class.php:428
 msgid "Portrait"
-msgstr "Portrait"
+msgstr "Звичайний"
 
 #: libraries/schema/User_Schema.class.php:430
 #, fuzzy
