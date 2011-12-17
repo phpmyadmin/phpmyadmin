@@ -87,12 +87,12 @@ if (isset($plugin_list)) {
                 foreach ($this->tablewidths as $width) {
                     $fullwidth += $width;
                 }
-                $this->SetY(($this->tMargin) - ($this->FontSizePt / $this->k) * 3);
+                $this->SetY(($this->tMargin) - ($this->FontSizePt / $this->k) * 5);
                 $this->cellFontSize = $this->FontSizePt ;
                 $this->SetFont(PMA_PDF_FONT, '', ($this->titleFontSize ? $this->titleFontSize : $this->FontSizePt));
                 $this->Cell(0, $this->FontSizePt, $this->titleText, 0, 1, 'C');
                 $this->SetFont(PMA_PDF_FONT, '', $this->cellFontSize);
-                $this->SetY(($this->tMargin) - ($this->FontSizePt / $this->k) * 1.5);
+                $this->SetY(($this->tMargin) - ($this->FontSizePt / $this->k) * 2.5);
                 $this->Cell(
                     0, $this->FontSizePt,
                     __('Database') . ': ' . $this->currentDb . ',  ' . __('Table') . ': ' . $this->currentTable,
@@ -335,6 +335,7 @@ if (isset($plugin_list)) {
             $this->results = PMA_DBI_query($query, null, PMA_DBI_QUERY_UNBUFFERED);
             $this->setY($this->tMargin);
             $this->AddPage();
+            $this->SetFont(PMA_PDF_FONT, '', 9);
             $this->morepagestable($this->FontSizePt);
             PMA_DBI_free_result($this->results);
 
@@ -377,9 +378,9 @@ if (isset($plugin_list)) {
 
         $pdf->Open();
 
-        $attr=array('titleFontSize' => 18, 'titleText' => $pdf_report_title);
+        $attr = array('titleFontSize' => 18, 'titleText' => $pdf_report_title);
         $pdf->setAttributes($attr);
-        $pdf->setTopMargin(45);
+        $pdf->setTopMargin(30);
 
         return true;
     }
