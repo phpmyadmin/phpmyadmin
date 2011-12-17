@@ -4539,7 +4539,7 @@ msgstr "Залишити пустим якщо не використовуєть
 
 #: libraries/config/messages.inc.php:363
 msgid "Host authorization order"
-msgstr ""
+msgstr "Порядок авторизації хоста"
 
 #: libraries/config/messages.inc.php:364
 msgid "Leave blank for defaults"
