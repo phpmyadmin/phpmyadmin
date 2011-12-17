@@ -7412,7 +7412,7 @@ msgstr "Видалити останній параметр"
 
 #: libraries/rte/rte_routines.lib.php:886
 msgid "Return type"
-msgstr ""
+msgstr "Тип повернення"
 
 #: libraries/rte/rte_routines.lib.php:892
 #, fuzzy
