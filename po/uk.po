@@ -7275,7 +7275,7 @@ msgstr "Виконати кожні"
 #: libraries/rte/rte_events.lib.php:449
 msgctxt "Start of recurring event"
 msgid "Start"
-msgstr ""
+msgstr "Старт"
 
 #: libraries/rte/rte_events.lib.php:457
 #, fuzzy
