@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-16 20:15+0200\n"
+"PO-Revision-Date: 2011-12-16 20:16+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -4570,7 +4570,8 @@ msgstr "Root oturumu açmaya izin ver"
 #: libraries/config/messages.inc.php:368
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgstr ""
-"HTTP Kimlik Denetimi yaparken görüntülemek için Temel Kimlik Denetim alan adı"
+"HTTP Kimlik Doğrulaması yaparken görüntülemek için Basit Kimlik Doğrulaması "
+"alan adı"
 
 #: libraries/config/messages.inc.php:369
 msgid "HTTP Realm"
