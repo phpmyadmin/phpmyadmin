@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-18 00:25+0200\n"
+"PO-Revision-Date: 2011-12-18 00:26+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -7865,7 +7865,7 @@ msgstr "Запустіть SQL запит/запити на сервері %s"
 #: libraries/sql_query_form.lib.php:206 libraries/sql_query_form.lib.php:228
 #, php-format
 msgid "Run SQL query/queries on database %s"
-msgstr "Виконати SQL запит(и) до БД %s"
+msgstr "Виконати SQL запит/запити у базі даних %s"
 
 #: libraries/sql_query_form.lib.php:260 navigation.php:269
 #: setup/frames/index.inc.php:232
