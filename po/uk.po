@@ -3765,7 +3765,7 @@ msgstr "Розробник"
 
 #: libraries/config/messages.inc.php:163
 msgid "Settings for phpMyAdmin developers"
-msgstr "Параметри для розробників phpMyAdmin"
+msgstr "Налаштування для розробників phpMyAdmin"
 
 #: libraries/config/messages.inc.php:164
 msgid "Edit mode"
