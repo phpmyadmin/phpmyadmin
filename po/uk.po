@@ -7582,10 +7582,9 @@ msgid "Export of trigger %s"
 msgstr "Експортувати тригер %s"
 
 #: libraries/rte/rte_words.lib.php:33
-#, fuzzy
 #| msgid "Add a new User"
 msgid "trigger"
-msgstr "Додати нового користувача"
+msgstr "тригер"
 
 #: libraries/rte/rte_words.lib.php:34
 #, fuzzy
