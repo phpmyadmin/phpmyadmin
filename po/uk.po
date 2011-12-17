@@ -7715,10 +7715,9 @@ msgid "Please choose a page to edit"
 msgstr "Будь ласка виберіть сторінку для редагування"
 
 #: libraries/schema/User_Schema.class.php:178
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select page"
-msgstr "Вибрати таблиці"
+msgstr "Вибрати сторінку"
 
 #: libraries/schema/User_Schema.class.php:244
 msgid "Select Tables"
