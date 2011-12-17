@@ -4094,7 +4094,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:249
 msgid "Format of imported file"
-msgstr ""
+msgstr "Формат імпортованих файлів"
 
 #: libraries/config/messages.inc.php:253 libraries/import/ldi.php:46
 msgid "Use LOCAL keyword"
