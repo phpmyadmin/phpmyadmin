@@ -7482,7 +7482,7 @@ msgstr ""
 #: libraries/rte/rte_routines.lib.php:1299
 #: libraries/rte/rte_routines.lib.php:1305
 msgid "Execute routine"
-msgstr ""
+msgstr "Виконати порядок"
 
 #: libraries/rte/rte_routines.lib.php:1358
 #: libraries/rte/rte_routines.lib.php:1361
