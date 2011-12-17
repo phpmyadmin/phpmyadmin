@@ -42,12 +42,13 @@ if (isset($plugin_list)) {
         var $tablewidths;
         var $headerset;
 
-        function checkPageBreak($h=0, $y='', $addpage=true) {
+        function checkPageBreak($h = 0, $y = '', $addpage = true)
+        {
             if ($this->empty_string($y)) {
                 $y = $this->y;
             }
             $current_page = $this->page;
-            if ((($y + $h) > $this->PageBreakTrigger) AND (!$this->InFooter) AND ($this->AcceptPageBreak())) {
+            if ((($y + $h) > $this->PageBreakTrigger) AND (! $this->InFooter) AND ($this->AcceptPageBreak())) {
                 if ($addpage) {
                     //Automatic page break
                     $x = $this->x;
@@ -81,18 +82,22 @@ if (isset($plugin_list)) {
         {
             global $maxY;
             // Check if header for this page already exists
-            if (!isset($this->headerset[$this->page])) {
+            if (! isset($this->headerset[$this->page])) {
                 $fullwidth = 0;
                 foreach ($this->tablewidths as $width) {
                     $fullwidth += $width;
                 }
-                $this->SetY(($this->tMargin) - ($this->FontSizePt/$this->k)*3);
+                $this->SetY(($this->tMargin) - ($this->FontSizePt / $this->k) * 3);
                 $this->cellFontSize = $this->FontSizePt ;
                 $this->SetFont(PMA_PDF_FONT, '', ($this->titleFontSize ? $this->titleFontSize : $this->FontSizePt));
                 $this->Cell(0, $this->FontSizePt, $this->titleText, 0, 1, 'C');
                 $this->SetFont(PMA_PDF_FONT, '', $this->cellFontSize);
-                $this->SetY(($this->tMargin) - ($this->FontSizePt/$this->k)*1.5);
-                $this->Cell(0, $this->FontSizePt, __('Database') .': ' .$this->currentDb .',  ' .__('Table') .': ' .$this->currentTable, 0, 1, 'L');
+                $this->SetY(($this->tMargin) - ($this->FontSizePt / $this->k) * 1.5);
+                $this->Cell(
+                    0, $this->FontSizePt,
+                    __('Database') . ': ' . $this->currentDb . ',  ' . __('Table') . ': ' . $this->currentTable,
+                    0, 1, 'L'
+                );
                 $l = ($this->lMargin);
                 foreach ($this->colTitles as $col => $txt) {
                     $this->SetXY($l, ($this->tMargin));
@@ -283,13 +288,14 @@ if (isset($plugin_list)) {
                 foreach ($colFits as $key => $val) {
                     $stringWidth = $this->getstringwidth($row[$key]) + 6 ;
                     if ($adjustingMode && ($stringWidth > $this->sColWidth)) {
-                    // any column whose data's width is bigger than the start width is now discarded
+                        // any column whose data's width is bigger than
+                        // the start width is now discarded
                         unset($colFits[$key]);
                     } else {
-                    // if data's width is bigger than the current column width,
-                    // enlarge the column (but avoid enlarging it if the
-                    // data's width is very big)
-                            if ($stringWidth > $val && $stringWidth < ($this->sColWidth * 3)) {
+                        // if data's width is bigger than the current column width,
+                        // enlarge the column (but avoid enlarging it if the
+                        // data's width is very big)
+                        if ($stringWidth > $val && $stringWidth < ($this->sColWidth * 3)) {
                             $colFits[$key] = $stringWidth ;
                         }
                     }
@@ -381,10 +387,11 @@ if (isset($plugin_list)) {
     /**
      * Outputs database header
      *
-     * @param string  $db Database name
-     * @return  bool        Whether it suceeded
+     * @param string $db Database name
      *
-     * @access  public
+     * @return bool Whether it suceeded
+     *
+     * @access public
      */
     function PMA_exportDBHeader($db)
     {
@@ -394,10 +401,11 @@ if (isset($plugin_list)) {
     /**
      * Outputs database footer
      *
-     * @param string  $db Database name
-     * @return  bool        Whether it suceeded
+     * @param string $db Database name
      *
-     * @access  public
+     * @return bool Whether it suceeded
+     *
+     * @access public
      */
     function PMA_exportDBFooter($db)
     {
@@ -407,10 +415,11 @@ if (isset($plugin_list)) {
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string  $db Database name
-     * @return  bool        Whether it suceeded
+     * @param string $db Database name
      *
-     * @access  public
+     * @return bool Whether it suceeded
+     *
+     * @access public
      */
     function PMA_exportDBCreate($db)
     {
@@ -420,14 +429,15 @@ if (isset($plugin_list)) {
     /**
      * Outputs the content of a table in PDF format
      *
-     * @param string  $db         database name
-     * @param string  $table      table name
-     * @param string  $crlf       the end of line sequence
-     * @param string  $error_url  the url to go back in case of error
-     * @param string  $sql_query  SQL query for obtaining data
-     * @return  bool        Whether it suceeded
+     * @param string $db        database name
+     * @param string $table     table name
+     * @param string $crlf      the end of line sequence
+     * @param string $error_url the url to go back in case of error
+     * @param string $sql_query SQL query for obtaining data
      *
-     * @access  public
+     * @return bool Whether it suceeded
+     *
+     * @access public
      */
     function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     {
