@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-17 10:55+0200\n"
+"PO-Revision-Date: 2011-12-17 10:56+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -4171,7 +4171,7 @@ msgstr "Стрічка яка розділяє бази даних на різн
 
 #: libraries/config/messages.inc.php:276
 msgid "Database tree separator"
-msgstr ""
+msgstr "Розділювач дерева баз даних"
 
 #: libraries/config/messages.inc.php:277
 msgid ""
