@@ -4147,7 +4147,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:270
 msgid "Show logo in left frame"
-msgstr ""
+msgstr "Показати логотип у лівій оболонці"
 
 #: libraries/config/messages.inc.php:271
 msgid "Display logo"
