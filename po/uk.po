@@ -7647,7 +7647,7 @@ msgstr "Таблиця %s не існує!"
 #: libraries/schema/Visio_Relation_Schema.class.php:270
 #, php-format
 msgid "Please configure the coordinates for table %s"
-msgstr "Прошу сконфіґурувати координати таблиці %s"
+msgstr "Прошу сконфігурувати координати для таблиці %s"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:823
 #: libraries/schema/Pdf_Relation_Schema.class.php:836
