@@ -7692,10 +7692,9 @@ msgid "Create a page"
 msgstr "Створити сторінку"
 
 #: libraries/schema/User_Schema.class.php:122
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
-msgstr "Номер сторінки:"
+msgstr "Назва сторінки"
 
 #: libraries/schema/User_Schema.class.php:126
 #, fuzzy
