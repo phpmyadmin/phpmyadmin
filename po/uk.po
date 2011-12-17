@@ -7579,7 +7579,7 @@ msgstr "Додати тригер"
 #: libraries/rte/rte_words.lib.php:32
 #, php-format
 msgid "Export of trigger %s"
-msgstr ""
+msgstr "Експортувати тригер %s"
 
 #: libraries/rte/rte_words.lib.php:33
 #, fuzzy
