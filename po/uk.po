@@ -4578,7 +4578,7 @@ msgstr "SweKey файл конфігурації"
 
 #: libraries/config/messages.inc.php:372
 msgid "Authentication method to use"
-msgstr ""
+msgstr "Використовувати метод аутентифікації"
 
 #: libraries/config/messages.inc.php:373 setup/frames/index.inc.php:127
 msgid "Authentication type"
