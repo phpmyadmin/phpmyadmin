@@ -7891,7 +7891,7 @@ msgstr "Замінити існуючу закладку з таким же ім
 
 #: libraries/sql_query_form.lib.php:329
 msgid "Do not overwrite this query from outside the window"
-msgstr "Не перекривати цей запит в інших вікнах"
+msgstr "Не перезаписувати цей запит з зовнішніх вікон"
 
 #: libraries/sql_query_form.lib.php:336
 msgid "Delimiter"
