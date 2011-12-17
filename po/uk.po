@@ -7440,7 +7440,7 @@ msgstr "доступ SQL даних"
 
 #: libraries/rte/rte_routines.lib.php:1010
 msgid "You must provide a routine name"
-msgstr ""
+msgstr "Ви повинні вказати назву порядку"
 
 #: libraries/rte/rte_routines.lib.php:1036
 #, php-format
