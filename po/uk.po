@@ -7704,7 +7704,7 @@ msgstr "Автоматичний layout"
 
 #: libraries/schema/User_Schema.class.php:129
 msgid "Internal relations"
-msgstr ""
+msgstr "Інтернаціональні зв'язки"
 
 #: libraries/schema/User_Schema.class.php:139
 msgid "FOREIGN KEY"
