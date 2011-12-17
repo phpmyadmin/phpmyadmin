@@ -7635,10 +7635,10 @@ msgstr "Немає подій."
 #: libraries/schema/Pdf_Relation_Schema.class.php:393
 #: libraries/schema/Svg_Relation_Schema.class.php:387
 #: libraries/schema/Visio_Relation_Schema.class.php:219
-#, fuzzy, php-format
+#, php-format
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
-msgstr "Таблиці \"%s\" не існує!"
+msgstr "Таблиця %s не існує!"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:265
 #: libraries/schema/Eps_Relation_Schema.class.php:469
