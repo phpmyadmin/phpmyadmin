@@ -7810,7 +7810,7 @@ msgstr "Синхронізувати"
 #: libraries/server_links.inc.php:84 server_binlog.php:77
 #: server_status.php:590
 msgid "Binary log"
-msgstr ""
+msgstr "Бінарний журнал"
 
 #: libraries/server_links.inc.php:95 server_engines.php:121
 #: server_engines.php:125 server_status.php:643
