@@ -7335,7 +7335,7 @@ msgstr "Відключити"
 
 #: libraries/rte/rte_footer.lib.php:96
 msgid "ON"
-msgstr ""
+msgstr "Включити"
 
 #: libraries/rte/rte_footer.lib.php:108
 msgid "Event scheduler status"
