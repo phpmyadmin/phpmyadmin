@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-17 10:35+0200\n"
+"PO-Revision-Date: 2011-12-17 10:39+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -3987,7 +3987,7 @@ msgstr "Налаштування SQL запитів"
 
 #: libraries/config/messages.inc.php:222
 msgid "SQL Validator"
-msgstr "SQL валідатор"
+msgstr "SQL Валідатор"
 
 #: libraries/config/messages.inc.php:223
 msgid ""
