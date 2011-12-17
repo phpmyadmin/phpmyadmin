@@ -7522,7 +7522,7 @@ msgstr "Назва тригера"
 
 #: libraries/rte/rte_triggers.lib.php:405
 msgid "You must provide a trigger name"
-msgstr ""
+msgstr "Ви маєте вказати назву тригера"
 
 #: libraries/rte/rte_triggers.lib.php:410
 msgid "You must provide a valid timing for the trigger"
