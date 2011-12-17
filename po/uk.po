@@ -7361,7 +7361,7 @@ msgstr ""
 #: libraries/rte/rte_routines.lib.php:1005
 #, php-format
 msgid "Invalid routine type: \"%s\""
-msgstr ""
+msgstr "Неправильний тип порядку: \"%s\""
 
 #: libraries/rte/rte_routines.lib.php:266
 msgid "Sorry, we failed to restore the dropped routine."
