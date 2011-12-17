@@ -3719,6 +3719,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
+"Порядок сортування елементів у випадаючому списку зовнішніх ключів; "
+"[kbd]вміст[/kbd] - пов'язані дані, [kbd]id[/kbd] - ключі"
 
 #: libraries/config/messages.inc.php:153
 msgid "Foreign key dropdown order"
