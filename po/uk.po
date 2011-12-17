@@ -7542,10 +7542,9 @@ msgid "You must provide a trigger definition."
 msgstr "Ви маєте вказати визначення тригеру."
 
 #: libraries/rte/rte_words.lib.php:18
-#, fuzzy
 #| msgid "Add into comments"
 msgid "Add routine"
-msgstr "Додати коментар"
+msgstr "Додати порядок"
 
 #: libraries/rte/rte_words.lib.php:20
 #, php-format
