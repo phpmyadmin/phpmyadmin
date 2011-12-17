@@ -75,7 +75,7 @@ function PMA_RTE_getList($type, $items)
     $retval .= "        <!-- TABLE DATA -->\n";
     $ct = 0;
     foreach ($items as $item) {
-        $rowclass = ($ct % 2 == 0) ? 'even' : 'odd';
+        $rowclass = ($ct % 2 == 0) ? 'odd' : 'even';
         if ($GLOBALS['is_ajax_request']) {
             $rowclass .= ' ajaxInsert hide';
         }
