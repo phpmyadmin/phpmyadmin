@@ -248,31 +248,6 @@ function confirmLink(theLink, theSqlQuery)
     return is_confirmed;
 } // end of the 'confirmLink()' function
 
-
-/**
- * Displays a confirmation box before doing some action
- *
- * @param   object   the message to display
- *
- * @return  boolean  whether to run the query or not
- *
- * @todo used only by libraries/display_tbl.lib.php. figure out how it is used
- *       and replace with a jQuery equivalent
- */
-function confirmAction(theMessage)
-{
-    // TODO: Confirmation is not required in the configuration file
-    // or browser is Opera (crappy js implementation)
-    if (typeof(window.opera) != 'undefined') {
-        return true;
-    }
-
-    var is_confirmed = confirm(theMessage);
-
-    return is_confirmed;
-} // end of the 'confirmAction()' function
-
-
 /**
  * Displays an error message if a "DROP DATABASE" statement is submitted
  * while it isn't allowed, else confirms a "DROP/DELETE/ALTER" query before
@@ -545,72 +520,6 @@ function checkTableEditForm(theForm, fieldsCnt)
 
     return true;
 } // enf of the 'checkTableEditForm()' function
-
-
-/**
- * Ensures the choice between 'transmit', 'zipped', 'gzipped' and 'bzipped'
- * checkboxes is consistant
- *
- * @param   object   the form
- * @param   string   a code for the action that causes this function to be run
- *
- * @return  boolean  always true
- */
-function checkTransmitDump(theForm, theAction)
-{
-    var formElts = theForm.elements;
-
-    // 'zipped' option has been checked
-    if (theAction == 'zip' && formElts['zip'].checked) {
-        if (!formElts['asfile'].checked) {
-            theForm.elements['asfile'].checked = true;
-        }
-        if (typeof(formElts['gzip']) != 'undefined' && formElts['gzip'].checked) {
-            theForm.elements['gzip'].checked = false;
-        }
-        if (typeof(formElts['bzip']) != 'undefined' && formElts['bzip'].checked) {
-            theForm.elements['bzip'].checked = false;
-        }
-    }
-    // 'gzipped' option has been checked
-    else if (theAction == 'gzip' && formElts['gzip'].checked) {
-        if (!formElts['asfile'].checked) {
-            theForm.elements['asfile'].checked = true;
-        }
-        if (typeof(formElts['zip']) != 'undefined' && formElts['zip'].checked) {
-            theForm.elements['zip'].checked = false;
-        }
-        if (typeof(formElts['bzip']) != 'undefined' && formElts['bzip'].checked) {
-            theForm.elements['bzip'].checked = false;
-        }
-    }
-    // 'bzipped' option has been checked
-    else if (theAction == 'bzip' && formElts['bzip'].checked) {
-        if (!formElts['asfile'].checked) {
-            theForm.elements['asfile'].checked = true;
-        }
-        if (typeof(formElts['zip']) != 'undefined' && formElts['zip'].checked) {
-            theForm.elements['zip'].checked = false;
-        }
-        if (typeof(formElts['gzip']) != 'undefined' && formElts['gzip'].checked) {
-            theForm.elements['gzip'].checked = false;
-        }
-    }
-    // 'transmit' option has been unchecked
-    else if (theAction == 'transmit' && !formElts['asfile'].checked) {
-        if (typeof(formElts['zip']) != 'undefined' && formElts['zip'].checked) {
-            theForm.elements['zip'].checked = false;
-        }
-        if ((typeof(formElts['gzip']) != 'undefined' && formElts['gzip'].checked)) {
-            theForm.elements['gzip'].checked = false;
-        }
-        if ((typeof(formElts['bzip']) != 'undefined' && formElts['bzip'].checked)) {
-            theForm.elements['bzip'].checked = false;
-        }
-    }
-
-    return true;
-} // end of the 'checkTransmitDump()' function
 
 $(document).ready(function() {
     /**
