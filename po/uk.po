@@ -7539,7 +7539,7 @@ msgstr "Ви маєте вказати валідну назву таблиці"
 
 #: libraries/rte/rte_triggers.lib.php:427
 msgid "You must provide a trigger definition."
-msgstr ""
+msgstr "Ви маєте вказати визначення тригеру."
 
 #: libraries/rte/rte_words.lib.php:18
 #, fuzzy
