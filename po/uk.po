@@ -4188,7 +4188,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:280
 msgid "Use light version"
-msgstr ""
+msgstr "Використовувати полегшену версію"
 
 #: libraries/config/messages.inc.php:281
 msgid "Maximum table tree depth"
