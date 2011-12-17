@@ -7374,10 +7374,10 @@ msgid "Routine %1$s has been modified."
 msgstr "Порядок %1$s було змінено."
 
 #: libraries/rte/rte_routines.lib.php:284
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been created."
 msgid "Routine %1$s has been created."
-msgstr "Базу даних %1$s створено."
+msgstr "Порядок %1$s створено."
 
 #: libraries/rte/rte_routines.lib.php:344
 msgid "Edit routine"
