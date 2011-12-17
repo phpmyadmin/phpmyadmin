@@ -7850,7 +7850,7 @@ msgstr "Відмінність"
 
 #: libraries/server_synchronize.lib.php:1309 server_synchronize.php:1188
 msgid "Target database"
-msgstr ""
+msgstr "Цільова база даних"
 
 #: libraries/server_synchronize.lib.php:1344
 #: libraries/server_synchronize.lib.php:1353
