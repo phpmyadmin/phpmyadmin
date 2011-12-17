@@ -7516,10 +7516,9 @@ msgid "Edit trigger"
 msgstr "Редагувати тригер"
 
 #: libraries/rte/rte_triggers.lib.php:305
-#, fuzzy
 #| msgid "User name"
 msgid "Trigger name"
-msgstr "Ім'я користувача"
+msgstr "Назва тригера"
 
 #: libraries/rte/rte_triggers.lib.php:405
 msgid "You must provide a trigger name"
