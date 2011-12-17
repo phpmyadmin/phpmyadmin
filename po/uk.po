@@ -7257,10 +7257,10 @@ msgid "Event type"
 msgstr "Тип події"
 
 #: libraries/rte/rte_events.lib.php:416 libraries/rte/rte_routines.lib.php:849
-#, fuzzy, php-format
+#, php-format
 #| msgid "Change"
 msgid "Change to %s"
-msgstr "Змінити"
+msgstr "Змінити на %s"
 
 #: libraries/rte/rte_events.lib.php:422
 #, fuzzy
