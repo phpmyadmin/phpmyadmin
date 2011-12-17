@@ -4155,7 +4155,7 @@ msgstr "Показати логотип"
 
 #: libraries/config/messages.inc.php:272
 msgid "Display server choice at the top of the left frame"
-msgstr ""
+msgstr "Показати вибір сервера у верхній частині лівого фрейма"
 
 #: libraries/config/messages.inc.php:273
 msgid "Display servers selection"
