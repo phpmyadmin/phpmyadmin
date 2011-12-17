@@ -185,7 +185,7 @@ $(document).ready(function () {
                                  */
                                 var rowclass = '';
                                 $('table.data').find('tr').has('td').each(function () {
-                                    rowclass = (ct % 2 === 0) ? 'even' : 'odd';
+                                    rowclass = (ct % 2 === 0) ? 'odd' : 'even';
                                     $(this).removeClass().addClass(rowclass);
                                     ct++;
                                 });
@@ -359,7 +359,7 @@ $(document).ready(function () {
                              */
                             var rowclass = '';
                             $table.find('tr').has('td').each(function () {
-                                rowclass = (ct % 2 === 0) ? 'even' : 'odd';
+                                rowclass = (ct % 2 === 0) ? 'odd' : 'even';
                                 $(this).removeClass().addClass(rowclass);
                                 ct++;
                             });
