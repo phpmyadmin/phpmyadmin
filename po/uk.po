@@ -7609,7 +7609,7 @@ msgstr "Додати подію"
 #: libraries/rte/rte_words.lib.php:44
 #, php-format
 msgid "Export of event %s"
-msgstr ""
+msgstr "Експортувати подію %s"
 
 #: libraries/rte/rte_words.lib.php:45
 msgid "event"
