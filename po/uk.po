@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-17 23:36+0200\n"
+"PO-Revision-Date: 2011-12-17 23:37+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -7191,7 +7191,7 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:366
 msgid "Generate Password"
-msgstr ""
+msgstr "Згенерувати пароль"
 
 #: libraries/rte/rte_events.lib.php:102 libraries/rte/rte_events.lib.php:107
 #: libraries/rte/rte_events.lib.php:130 libraries/rte/rte_routines.lib.php:252
