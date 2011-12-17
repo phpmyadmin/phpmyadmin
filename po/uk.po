@@ -7721,7 +7721,7 @@ msgstr "Вибрати сторінку"
 
 #: libraries/schema/User_Schema.class.php:244
 msgid "Select Tables"
-msgstr "Вибрати таблиці"
+msgstr "Вибрати Таблиці"
 
 #: libraries/schema/User_Schema.class.php:382
 #, fuzzy
