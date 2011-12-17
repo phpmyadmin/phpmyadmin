@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-17 10:47+0200\n"
+"PO-Revision-Date: 2011-12-17 10:48+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -4139,7 +4139,7 @@ msgstr "Як багато рядків може бути вставлено за
 
 #: libraries/config/messages.inc.php:268
 msgid "Number of inserted rows"
-msgstr ""
+msgstr "Кількість вставлених рядків"
 
 #: libraries/config/messages.inc.php:269
 msgid "Target for quick access icon"
