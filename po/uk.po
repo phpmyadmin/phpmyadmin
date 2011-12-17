@@ -7245,7 +7245,7 @@ msgstr "Помилка при обробці запиту"
 #: libraries/rte/rte_events.lib.php:371 libraries/rte/rte_routines.lib.php:828
 #: libraries/rte/rte_triggers.lib.php:302
 msgid "Details"
-msgstr ""
+msgstr "Деталі"
 
 #: libraries/rte/rte_events.lib.php:374
 #, fuzzy
