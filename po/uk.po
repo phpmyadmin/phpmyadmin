@@ -7798,10 +7798,9 @@ msgid "Current Server"
 msgstr "Поточний Сервер"
 
 #: libraries/server_links.inc.php:60
-#, fuzzy
 #| msgid "User"
 msgid "Users"
-msgstr "Користувач"
+msgstr "Користувачі"
 
 #: libraries/server_links.inc.php:79 server_synchronize.php:1154
 #: server_synchronize.php:1162
