@@ -4103,7 +4103,7 @@ msgstr "Використовуйте ключове слово LOCAL"
 #: libraries/config/messages.inc.php:256 libraries/config/messages.inc.php:264
 #: libraries/config/messages.inc.php:265
 msgid "Column names in first row"
-msgstr "Імена колонок і першому рядку"
+msgstr "Імена колонок у першому рядку"
 
 #: libraries/config/messages.inc.php:257 libraries/import/ods.php:34
 msgid "Do not import empty rows"
