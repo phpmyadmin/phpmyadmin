@@ -7599,7 +7599,7 @@ msgstr "У базі даних %2$s немає тригера з назвою %1
 
 #: libraries/rte/rte_words.lib.php:36
 msgid "There are no triggers to display."
-msgstr ""
+msgstr "Немає тригерів."
 
 #: libraries/rte/rte_words.lib.php:42
 #, fuzzy
