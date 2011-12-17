@@ -3704,7 +3704,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:142
 msgid "Export time in UTC"
-msgstr ""
+msgstr "Експорт часу у UTC"
 
 #: libraries/config/messages.inc.php:150
 msgid "Force secured connection while using phpMyAdmin"
