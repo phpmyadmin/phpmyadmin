@@ -7622,10 +7622,10 @@ msgid "You do not have the necessary privileges to create an event"
 msgstr "Ви для цього маєте недостатньо прав!"
 
 #: libraries/rte/rte_words.lib.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No event with name %1$s found in database %2$s"
-msgstr "В БД не виявлено таблиць."
+msgstr "У базі даних %2$s немає події з назвою %1$s"
 
 #: libraries/rte/rte_words.lib.php:48
 msgid "There are no events to display."
