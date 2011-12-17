@@ -7434,8 +7434,9 @@ msgid "Security type"
 msgstr "Тип безпеки"
 
 #: libraries/rte/rte_routines.lib.php:945
+#, fuzzy
 msgid "SQL data access"
-msgstr ""
+msgstr "доступ SQL даних"
 
 #: libraries/rte/rte_routines.lib.php:1010
 msgid "You must provide a routine name"
