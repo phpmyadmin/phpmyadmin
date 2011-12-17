@@ -248,31 +248,6 @@ function confirmLink(theLink, theSqlQuery)
     return is_confirmed;
 } // end of the 'confirmLink()' function
 
-
-/**
- * Displays a confirmation box before doing some action
- *
- * @param   object   the message to display
- *
- * @return  boolean  whether to run the query or not
- *
- * @todo used only by libraries/display_tbl.lib.php. figure out how it is used
- *       and replace with a jQuery equivalent
- */
-function confirmAction(theMessage)
-{
-    // TODO: Confirmation is not required in the configuration file
-    // or browser is Opera (crappy js implementation)
-    if (typeof(window.opera) != 'undefined') {
-        return true;
-    }
-
-    var is_confirmed = confirm(theMessage);
-
-    return is_confirmed;
-} // end of the 'confirmAction()' function
-
-
 /**
  * Displays an error message if a "DROP DATABASE" statement is submitted
  * while it isn't allowed, else confirms a "DROP/DELETE/ALTER" query before
