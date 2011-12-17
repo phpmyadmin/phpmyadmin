@@ -7873,10 +7873,9 @@ msgid "Clear"
 msgstr "Очистити"
 
 #: libraries/sql_query_form.lib.php:265
-#, fuzzy
 #| msgid "Column names"
 msgid "Columns"
-msgstr "Назви колонок"
+msgstr "Колонки"
 
 #: libraries/sql_query_form.lib.php:300 sql.php:967 sql.php:984
 msgid "Bookmark this SQL query"
