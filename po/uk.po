@@ -7846,7 +7846,7 @@ msgstr "Віддалений сервер"
 
 #: libraries/server_synchronize.lib.php:1308
 msgid "Difference"
-msgstr ""
+msgstr "Відмінність"
 
 #: libraries/server_synchronize.lib.php:1309 server_synchronize.php:1188
 msgid "Target database"
