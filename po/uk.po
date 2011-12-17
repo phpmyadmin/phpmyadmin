@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-17 10:32+0200\n"
+"PO-Revision-Date: 2011-12-17 10:34+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -3802,7 +3802,7 @@ msgstr "Імпортувати властивості по замовчуван�
 
 #: libraries/config/messages.inc.php:174
 msgid "Customize default common import options"
-msgstr "Налаштувати за замовчуванням деяких параметрів імпорту"
+msgstr "Налаштувати за замовчуванням загальні параметри імпорту"
 
 #: libraries/config/messages.inc.php:175
 msgid "Import / export"
