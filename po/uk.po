@@ -7572,10 +7572,9 @@ msgid "There are no routines to display."
 msgstr "Немає порядків для відображення."
 
 #: libraries/rte/rte_words.lib.php:30
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add trigger"
-msgstr "Додати нового користувача"
+msgstr "Додати тригер"
 
 #: libraries/rte/rte_words.lib.php:32
 #, php-format
