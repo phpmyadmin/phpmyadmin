@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-18 00:26+0200\n"
+"PO-Revision-Date: 2011-12-18 00:27+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -7879,7 +7879,7 @@ msgstr "Колонки"
 
 #: libraries/sql_query_form.lib.php:300 sql.php:967 sql.php:984
 msgid "Bookmark this SQL query"
-msgstr "Закладка на даний SQL-запит"
+msgstr "Закладка на даний SQL запит"
 
 #: libraries/sql_query_form.lib.php:307 sql.php:978
 msgid "Let every user access this bookmark"
