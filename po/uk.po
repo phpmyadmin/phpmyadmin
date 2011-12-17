@@ -7860,7 +7860,7 @@ msgstr "Нажміть щоб вибрати"
 #: libraries/sql_query_form.lib.php:189
 #, php-format
 msgid "Run SQL query/queries on server %s"
-msgstr ""
+msgstr "Запустіть SQL запит/запити на сервері %s"
 
 #: libraries/sql_query_form.lib.php:206 libraries/sql_query_form.lib.php:228
 #, php-format
