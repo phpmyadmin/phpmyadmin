@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-17 10:44+0200\n"
+"PO-Revision-Date: 2011-12-17 10:45+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -4123,7 +4123,7 @@ msgstr "Число запитів що будуть пропущені від п
 
 #: libraries/config/messages.inc.php:261
 msgid "Partial import: skip queries"
-msgstr ""
+msgstr "Частковий імпорт: пропустити запити"
 
 #: libraries/config/messages.inc.php:263
 msgid "Do not use AUTO_INCREMENT for zero values"
