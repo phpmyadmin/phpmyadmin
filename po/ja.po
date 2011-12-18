@@ -5054,7 +5054,7 @@ msgstr "編集／挿入モードで関数項目を表示します。"
 
 #: libraries/config/messages.inc.php:465
 msgid "Show function fields"
-msgstr "関数フィールドの表示"
+msgstr "関数項目の表示"
 
 #: libraries/config/messages.inc.php:466
 msgid "Whether to show hint or not"
