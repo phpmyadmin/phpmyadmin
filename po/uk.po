@@ -4196,7 +4196,7 @@ msgstr "Використовувати полегшену версію"
 
 #: libraries/config/messages.inc.php:281
 msgid "Maximum table tree depth"
-msgstr ""
+msgstr "Максимальна глибина дерева таблиці"
 
 #: libraries/config/messages.inc.php:282
 msgid "String that separates tables into different tree levels"
