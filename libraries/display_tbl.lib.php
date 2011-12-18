@@ -552,12 +552,12 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                     $desc_sort = '`' . implode('` DESC, `', array_keys($index->getColumns())) . '` DESC';
                     $used_index = $used_index || $local_order == $asc_sort || $local_order == $desc_sort;
                     echo '<option value="'
-                        . htmlspecialchars($unsorted_sql_query  . ' ORDER BY ' . $asc_sort)
+                        . htmlspecialchars($unsorted_sql_query  . "\n" . ' ORDER BY ' . $asc_sort)
                         . '"' . ($local_order == $asc_sort ? ' selected="selected"' : '')
                         . '>' . htmlspecialchars($index->getName()) . ' ('
                         . __('Ascending') . ')</option>';
                     echo '<option value="'
-                        . htmlspecialchars($unsorted_sql_query . ' ORDER BY ' . $desc_sort)
+                        . htmlspecialchars($unsorted_sql_query . "\n" . ' ORDER BY ' . $desc_sort)
                         . '"' . ($local_order == $desc_sort ? ' selected="selected"' : '')
                         . '>' . htmlspecialchars($index->getName()) . ' ('
                         . __('Descending') . ')</option>';
