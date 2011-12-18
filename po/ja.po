@@ -3978,7 +3978,7 @@ msgstr "テキスト入力項目"
 
 #: libraries/config/messages.inc.php:229
 msgid "Customize text input fields"
-msgstr "テキスト入力フィールドの詳細設定"
+msgstr "テキスト入力項目の詳細設定"
 
 #: libraries/config/messages.inc.php:230 libraries/export/texytext.php:18
 msgid "Texy! text"
