@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-18 04:35+0200\n"
+"PO-Revision-Date: 2011-12-18 04:36+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -11212,7 +11212,7 @@ msgstr "グラフの題名"
 
 #: tbl_chart.php:103
 msgid "X-Axis:"
-msgstr "横軸："
+msgstr "X 軸:"
 
 #: tbl_chart.php:117
 msgid "Series:"
