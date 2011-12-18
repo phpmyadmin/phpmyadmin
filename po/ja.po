@@ -10880,7 +10880,7 @@ msgstr "送信された内容にエラーが含まれています。"
 
 #: setup/lib/form_processing.lib.php:45
 msgid "Try to revert erroneous fields to their default values"
-msgstr "間違っているフィールドをデフォルト値に戻してみてください。"
+msgstr "間違っている入力項目をデフォルト値に戻してみてください。"
 
 #: setup/lib/form_processing.lib.php:48
 msgid "Ignore errors"
