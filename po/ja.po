@@ -11219,10 +11219,9 @@ msgid "Series:"
 msgstr "系列："
 
 #: tbl_chart.php:119
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "The remaining columns"
-msgstr "textarea の 1 行の文字数"
+msgstr "系列にするカラム"
 
 #: tbl_chart.php:132
 msgid "X-Axis label:"
