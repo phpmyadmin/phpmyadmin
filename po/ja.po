@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-18 04:32+0200\n"
+"PO-Revision-Date: 2011-12-18 04:33+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -7286,7 +7286,7 @@ msgstr "すべてのユーザ"
 #: server_privileges.php:867 server_privileges.php:891
 #: server_privileges.php:2109 server_privileges.php:2139
 msgid "Use text field"
-msgstr "テキストフィールドの値を利用する"
+msgstr "テキスト入力項目の値を利用する"
 
 #: libraries/replication_gui.lib.php:308 server_privileges.php:847
 msgid "Any host"
