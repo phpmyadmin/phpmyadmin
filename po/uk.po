@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-18 23:10+0200\n"
+"PO-Revision-Date: 2011-12-18 23:12+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -4307,7 +4307,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:301
 msgid "Login cookie store"
-msgstr "Зберігати куки входу"
+msgstr "Зберігати куки авторизації"
 
 #: libraries/config/messages.inc.php:302
 msgid "Define how long (in seconds) a login cookie is valid"
