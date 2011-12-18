@@ -551,13 +551,20 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                     $asc_sort = '`' . implode('` ASC, `', array_keys($index->getColumns())) . '` ASC';
                     $desc_sort = '`' . implode('` DESC, `', array_keys($index->getColumns())) . '` DESC';
                     $used_index = $used_index || $local_order == $asc_sort || $local_order == $desc_sort;
+                    if (preg_match('@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE))@is', $unsorted_sql_query, $my_reg)) {
+                        $unsorted_sql_query_first_part = $my_reg[1];
+                        $unsorted_sql_query_second_part = $my_reg[2];
+                    } else {
+                        $unsorted_sql_query_first_part = $unsorted_sql_query;
+                        $unsorted_sql_query_second_part = '';
+                    }
                     echo '<option value="'
-                        . htmlspecialchars($unsorted_sql_query  . "\n" . ' ORDER BY ' . $asc_sort)
+                        . htmlspecialchars($unsorted_sql_query_first_part  . "\n" . ' ORDER BY ' . $asc_sort . $unsorted_sql_query_second_part)
                         . '"' . ($local_order == $asc_sort ? ' selected="selected"' : '')
                         . '>' . htmlspecialchars($index->getName()) . ' ('
                         . __('Ascending') . ')</option>';
                     echo '<option value="'
-                        . htmlspecialchars($unsorted_sql_query . "\n" . ' ORDER BY ' . $desc_sort)
+                        . htmlspecialchars($unsorted_sql_query_first_part . "\n" . ' ORDER BY ' . $desc_sort . $unsorted_sql_query_second_part)
                         . '"' . ($local_order == $desc_sort ? ' selected="selected"' : '')
                         . '>' . htmlspecialchars($index->getName()) . ' ('
                         . __('Descending') . ')</option>';
