@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-18 12:09+0200\n"
+"PO-Revision-Date: 2011-12-18 12:10+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -4262,7 +4262,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:295
 msgid "Limit column characters"
-msgstr ""
+msgstr "Обмеження символів у стовбці"
 
 #: libraries/config/messages.inc.php:296
 msgid ""
