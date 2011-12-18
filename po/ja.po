@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-18 04:30+0200\n"
+"PO-Revision-Date: 2011-12-18 04:32+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -5046,7 +5046,7 @@ msgstr "編集／挿入モードで種別項目を表示するかどうか定義
 
 #: libraries/config/messages.inc.php:463
 msgid "Show field types"
-msgstr "種別フィールドの表示"
+msgstr "種別項目の表示"
 
 #: libraries/config/messages.inc.php:464
 msgid "Display the function fields in edit/insert mode"
