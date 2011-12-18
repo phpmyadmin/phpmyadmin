@@ -85,22 +85,29 @@ url_query = '<?php echo $url_query;?>';
 <fieldset>
     <legend><?php echo __('Display chart'); ?></legend>
     <div style="float:left;">
-        <input type="radio" name="chartType" value="bar"><?php echo _pgettext('Chart type', 'Bar'); ?>
-        <input type="radio" name="chartType" value="column"><?php echo _pgettext('Chart type', 'Column'); ?>
-        <input type="radio" name="chartType" value="line" checked><?php echo _pgettext('Chart type', 'Line'); ?>
-        <input type="radio" name="chartType" value="spline"><?php echo _pgettext('Chart type', 'Spline'); ?>
-        <input type="radio" name="chartType" value="pie"><?php echo _pgettext('Chart type', 'Pie'); ?>
+        <input type="radio" name="chartType" value="bar" id="radio_bar" />
+        <label for ="radio_bar"><?php echo _pgettext('Chart type', 'Bar'); ?></label>
+        <input type="radio" name="chartType" value="column" id="radio_column" />
+        <label for ="radio_column"><?php echo _pgettext('Chart type', 'Column'); ?></label>
+        <input type="radio" name="chartType" value="line" id="radio_line" checked="checked" />
+        <label for ="radio_line"><?php echo _pgettext('Chart type', 'Line'); ?></label>
+        <input type="radio" name="chartType" value="spline" id="radio_spline" />
+        <label for ="radio_spline"><?php echo _pgettext('Chart type', 'Spline'); ?></label>
+        <input type="radio" name="chartType" value="pie" id="radio_pie" />
+        <label for ="radio_pie"><?php echo _pgettext('Chart type', 'Pie'); ?></label>
         <span class="barStacked" style="display:none;">
-        <input type="checkbox" name="barStacked" value="1"><?php echo __('Stacked'); ?>
+        <input type="checkbox" name="barStacked" value="1" id="checkbox_barStacked" />
+        <label for ="checkbox_barStacked"><?php echo __('Stacked'); ?></label>
         </span>
         <br>
         <input type="text" name="chartTitle" value="<?php echo __('Chart title'); ?>">
         <?php
         $keys = array_keys($data[0]);
         $yaxis = -1;
-        if (count($keys) > 1) {
-            echo '<br>';
-            echo __('X-Axis:'); ?> <select name="chartXAxis">
+        if (count($keys) > 1) { ?>
+            <br />
+            <label for="select_chartXAxis"><?php echo __('X-Axis:'); ?></label>
+            <select name="chartXAxis" id="select_chartXAxis">
             <?php
             
             foreach ($keys as $idx => $key) {
@@ -114,8 +121,8 @@ url_query = '<?php echo $url_query;?>';
             
             ?>
         </select><br />
-        <?php echo __('Series:'); ?>
-        <select name="chartSeries">
+        <label for="select_chartSeries"><?php echo __('Series:'); ?></label>
+        <select name="chartSeries" id="select_chartSeries">
             <option value="columns"><?php echo __('The remaining columns'); ?></option>
             <?php
             foreach ($keys as $idx => $key) {
@@ -129,9 +136,11 @@ url_query = '<?php echo $url_query;?>';
         
     </div>
     <div style="float:left; padding-left:40px;">
-        <?php echo __('X-Axis label:'); ?> <input style="margin-top:0;" type="text" name="xaxis_label" 
-            value="<?php echo ($yaxis == -1) ? __('X Values') : htmlspecialchars($keys[$yaxis]); ?>"><br />
-        <?php echo __('Y-Axis label:'); ?> <input type="text" name="yaxis_label" value="<?php echo __('Y Values'); ?>">
+        <label for="xaxis_label"><?php echo __('X-Axis label:'); ?></label>
+        <input style="margin-top:0;" type="text" name="xaxis_label" id="xaxis_label"
+            value="<?php echo ($yaxis == -1) ? __('X Values') : htmlspecialchars($keys[$yaxis]); ?>" /><br />
+        <label for="yaxis_label"><?php echo __('Y-Axis label:'); ?></label>
+        <input type="text" name="yaxis_label" id="yaxis_label" value="<?php echo __('Y Values'); ?>" />
     </div>
     <p style="clear:both;">&nbsp;</p>
     <div id="resizer" style="width:600px; height:400px;">
