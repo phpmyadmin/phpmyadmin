@@ -12677,7 +12677,7 @@ msgstr "have_innodb встановлений у 'value'"
 
 #: po/advisory_rules.php:255
 msgid "InnoDB log size"
-msgstr "розмір журналу InnoDB"
+msgstr "Розмір журналу InnoDB"
 
 #: po/advisory_rules.php:256
 msgid ""
