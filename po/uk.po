@@ -4232,7 +4232,7 @@ msgstr "Підсвітити сервер під курсором миші"
 
 #: libraries/config/messages.inc.php:289
 msgid "Enable highlighting"
-msgstr ""
+msgstr "Включити підсвічування"
 
 #: libraries/config/messages.inc.php:290
 msgid "Maximum number of recently used tables; set 0 to disable"
