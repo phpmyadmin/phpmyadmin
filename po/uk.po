@@ -4311,7 +4311,7 @@ msgstr "Зберігати куки авторизації"
 
 #: libraries/config/messages.inc.php:302
 msgid "Define how long (in seconds) a login cookie is valid"
-msgstr "Визначте як довго (в секундах) дійсні куки входу"
+msgstr "Визначте як довго (в секундах) дійсні куки авторизації"
 
 #: libraries/config/messages.inc.php:303
 msgid "Login cookie validity"
