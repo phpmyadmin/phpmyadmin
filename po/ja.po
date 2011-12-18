@@ -11237,7 +11237,7 @@ msgstr "Y 軸のラベル:"
 
 #: tbl_chart.php:134
 msgid "Y Values"
-msgstr "縦軸の値"
+msgstr "Y 軸の値"
 
 #: tbl_create.php:31
 #, php-format
