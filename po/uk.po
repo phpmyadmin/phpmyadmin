@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-18 23:14+0200\n"
+"PO-Revision-Date: 2011-12-18 23:24+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -4349,6 +4349,7 @@ msgstr "Користувач не може встановити більше з�
 #: libraries/config/messages.inc.php:310
 msgid "Maximum number of databases displayed in left frame and database list"
 msgstr ""
+"Максимальне число баз даних відображене у лівому блоці і список баз даних"
 
 #: libraries/config/messages.inc.php:311
 msgid "Maximum databases"
