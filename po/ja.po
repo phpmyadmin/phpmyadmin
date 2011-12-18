@@ -11229,7 +11229,7 @@ msgstr "X 軸のラベル:"
 
 #: tbl_chart.php:133
 msgid "X Values"
-msgstr "横軸の値"
+msgstr "X 軸の値"
 
 #: tbl_chart.php:134
 msgid "Y-Axis label:"
