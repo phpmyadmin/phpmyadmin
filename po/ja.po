@@ -5050,7 +5050,7 @@ msgstr "種別項目の表示"
 
 #: libraries/config/messages.inc.php:464
 msgid "Display the function fields in edit/insert mode"
-msgstr "編集/挿入モードで関数フィールドを表示します。"
+msgstr "編集／挿入モードで関数項目を表示します。"
 
 #: libraries/config/messages.inc.php:465
 msgid "Show function fields"
