@@ -7308,9 +7308,7 @@ msgstr "ホストテーブルを使う"
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
-msgstr ""
-"ホストテーブルが使用されている場合、このフィールドは無視され、代わりに使用さ"
-"れているホストテーブルに格納されている値を設定します。"
+msgstr "ホストテーブルが使用されている場合、この項目は無視され、代わりに使用されているホストテーブルに格納されている値を設定します。"
 
 #: libraries/replication_gui.lib.php:366
 msgid "Generate Password"
