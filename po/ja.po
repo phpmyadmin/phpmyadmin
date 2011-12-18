@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-16 11:44+0200\n"
+"PO-Revision-Date: 2011-12-16 11:45+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -823,9 +823,7 @@ msgstr "成形結果"
 
 #: enum_editor.php:130
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr ""
-"結合された値（成形結果）を「長さ/値」フィールドにコピー＆ペーストしてくださ"
-"い。"
+msgstr "結合された値 (成形結果) を「長さ／値」項目にコピー＆ペーストしてください。"
 
 #: export.php:29
 msgid "Bad type!"
