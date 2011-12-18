@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-18 11:56+0200\n"
+"PO-Revision-Date: 2011-12-18 11:57+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -4200,7 +4200,7 @@ msgstr "Максимальна глибина дерева таблиці"
 
 #: libraries/config/messages.inc.php:282
 msgid "String that separates tables into different tree levels"
-msgstr ""
+msgstr "Стрічки що розділяють таблиці на різні рівні дерева"
 
 #: libraries/config/messages.inc.php:283
 msgid "Table tree separator"
