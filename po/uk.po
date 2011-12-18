@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-18 11:58+0200\n"
+"PO-Revision-Date: 2011-12-18 11:59+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -4208,7 +4208,7 @@ msgstr "Розділювач дерева таблиці"
 
 #: libraries/config/messages.inc.php:284
 msgid "URL where logo in the navigation frame will point to"
-msgstr ""
+msgstr "URL куди веде лотип у панелі навгації"
 
 #: libraries/config/messages.inc.php:285
 msgid "Logo link URL"
