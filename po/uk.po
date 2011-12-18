@@ -4204,7 +4204,7 @@ msgstr "Стрічка що розділяє таблиці на різні рі
 
 #: libraries/config/messages.inc.php:283
 msgid "Table tree separator"
-msgstr ""
+msgstr "Розділювач дерева таблиці"
 
 #: libraries/config/messages.inc.php:284
 msgid "URL where logo in the navigation frame will point to"
