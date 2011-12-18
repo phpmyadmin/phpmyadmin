@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-14 18:08+0100\n"
-"PO-Revision-Date: 2011-12-18 12:03+0200\n"
+"PO-Revision-Date: 2011-12-18 12:04+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -4237,6 +4237,8 @@ msgstr "Включити підсвічування"
 #: libraries/config/messages.inc.php:290
 msgid "Maximum number of recently used tables; set 0 to disable"
 msgstr ""
+"Максимальне число таблиць, що були недавно використані; поставте 0 для "
+"відключення"
 
 #: libraries/config/messages.inc.php:291
 #, fuzzy
