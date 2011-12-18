@@ -11318,8 +11318,8 @@ msgstr "インデックス名:"
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
 msgstr ""
-"(主キーはかならず \"PRIMARY\" という名前でなければなりません。また主キー以外"
-"に \"PRIMARY\" という名前を使ってはなりません!)"
+"(<b>主キーは必ず</b> \"PRIMARY\" という名前でなければなりません。また<b>主キー以外に</b> \"PRIMARY\" "
+"という名前を<b>使ってはなりません</b>！)"
 
 #: tbl_indexes.php:199
 msgid "Index type:"
