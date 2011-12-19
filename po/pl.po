@@ -25,7 +25,7 @@ msgstr " … usuń starego z tabel użytkowników."
 
 msgid ""
 " ... revoke all active privileges from the old one and delete it afterwards."
-msgstr " … odbierz wszystkie aktywne uprawnienia staremu, a następnie go usuń. "
+msgstr " … odbierz wszystkie aktywne uprawnienia staremu, a następnie go usuń."
 
 msgid " Because of its length,<br /> this column might not be editable "
 msgstr ""
