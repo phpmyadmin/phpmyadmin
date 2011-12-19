@@ -8627,7 +8627,7 @@ msgstr "Внутрішній зв'язок доданий"
 
 #: pmd_relation_upd.php:58
 msgid "Relation deleted"
-msgstr ""
+msgstr "Зв'язок видалений"
 
 #: pmd_save_pos.php:45
 msgid "Error saving coordinates for Designer."
