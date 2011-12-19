@@ -13127,13 +13127,13 @@ msgstr ""
 "InnoDB arabellek havuzu InnoDB tabloları için performansta derin etki yapar. "
 "Tüm kalan belleğinizi bu arabelleğe atayın. Veritabanı sunucuları için "
 "depolama motoru olarak sadece InnoDB kullanın ve başka çalışan hizmetler "
-"(örng. web sunucusu) olmasın, bunu kullanılabilir belleğin %%80'nine kadar "
+"(örn. web sunucusu) olmasın, bunu kullanılabilir belleğin %%80'nine kadar "
 "ayarlayabilirsiniz. Eğer durum bu değilse, diğer hizmetlerinizin ve InnoDB-"
 "Tabloları olmayanların bellek tüketimini dikkatlice değerlendirmeniz ve "
 "dolayısıyla bu değişkeni ayarlamanız gerekir. Eğer çok yükseğe ayarlanırsa, "
 "sisteminiz önemli derecede performansı düşüren değiş tokuşa başlayacaktır. "
-"Aynı zamanda <a href=\"http://www.mysqlperformanceblog.com/2007/11/03/"
-"choosing-innodb_buffer_pool_size/\">bu makaleye</a> bakın"
+"Aynı zamanda <a href=\"http://www.mysqlperformanceblog.com/2007/11/03"
+"/choosing-innodb_buffer_pool_size/\">bu makaleye</a> bakın"
 
 #: po/advisory_rules.php:268
 #, php-format
