@@ -8583,10 +8583,9 @@ msgid "Page"
 msgstr "Сторінка"
 
 #: pmd_pdf.php:95
-#, fuzzy
 #| msgid "Import files"
 msgid "Import from selected page"
-msgstr "Імпорт файлів"
+msgstr "Імпорт з вибраної сторінки"
 
 #: pmd_pdf.php:96
 msgid "Export to selected page"
