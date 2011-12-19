@@ -17,7 +17,7 @@ require_once 'libraries/core.lib.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/Config.class.php';
 
-class PMA_fatalError_test extends PHPUnit_Extensions_OutputTestCase
+class PMA_fatalError_test extends PHPUnit_Framework_TestCase
 {
     public function testFatalErrorMessage()
     {

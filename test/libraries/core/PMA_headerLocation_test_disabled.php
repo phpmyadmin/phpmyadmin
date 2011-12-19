@@ -27,7 +27,7 @@ require_once 'libraries/select_lang.lib.php';
  * @package PhpMyAdmin-test
  */
 
-class PMA_headerLocation_test extends PHPUnit_Extensions_OutputTestCase
+class PMA_headerLocation_test extends PHPUnit_Framework_TestCase
 {
 
     protected $oldIISvalue;

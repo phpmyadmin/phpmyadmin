@@ -20,7 +20,7 @@ if (!defined('PMA_VERSION')) {
 /**
  * Test for PMA_expandUserString function.
  */
-class PMA_expandUserString_test extends PHPUnit_Extensions_OutputTestCase
+class PMA_expandUserString_test extends PHPUnit_Framework_TestCase
 {
 
     /**

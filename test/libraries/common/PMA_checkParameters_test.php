@@ -14,7 +14,7 @@
 require_once 'libraries/common.lib.php';
 require_once 'libraries/Theme.class.php';
 
-class PMA_checkParameters_test extends PHPUnit_Extensions_OutputTestCase
+class PMA_checkParameters_test extends PHPUnit_Framework_TestCase
 {
     function setup()
     {
