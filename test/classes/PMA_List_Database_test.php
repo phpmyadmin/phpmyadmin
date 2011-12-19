@@ -28,7 +28,7 @@ class PMA_List_Database_test extends PHPUnit_Framework_TestCase
     public function testSingle()
     {
         $arr = new PMA_List_Database;
-        $this->assertEquals(true, $arr->getSingleItem());
+        $this->assertEquals('single_db', $arr->getSingleItem());
     }
 
     public function testExists()
