@@ -1518,7 +1518,7 @@ msgstr "%s letiltása"
 #: js/messages.php:163
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr "A long_query_time beállítása ehhez: %s"
+msgstr "A long_query_time beállítása ehhez: %ds"
 
 #: js/messages.php:164
 msgid ""
