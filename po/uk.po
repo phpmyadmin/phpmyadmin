@@ -8575,7 +8575,7 @@ msgstr "Сторінка була створена"
 
 #: pmd_pdf.php:33
 msgid "Page creation failed"
-msgstr ""
+msgstr "Створення сторінки обламалось"
 
 #: pmd_pdf.php:85
 #, fuzzy
