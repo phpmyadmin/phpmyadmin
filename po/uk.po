@@ -8469,7 +8469,7 @@ msgstr "Створити зв'язок"
 
 #: pmd_general.php:80
 msgid "Reload"
-msgstr ""
+msgstr "Перезавантажити"
 
 #: pmd_general.php:83
 msgid "Help"
