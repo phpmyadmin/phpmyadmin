@@ -8490,7 +8490,7 @@ msgstr "Прив'язати до сітки"
 
 #: pmd_general.php:95
 msgid "Small/Big All"
-msgstr ""
+msgstr "Маленькі/Великі всі"
 
 #: pmd_general.php:98
 msgid "Toggle small/big"
