@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-12-14 18:08+0100\n"
+"POT-Creation-Date: 2011-12-19 14:44+0100\n"
 "PO-Revision-Date: 2011-12-17 00:02+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
@@ -55,7 +55,7 @@ msgstr "Keresés"
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:349 libraries/display_import.lib.php:267
-#: libraries/display_tbl.lib.php:567 libraries/display_tbl.lib.php:697
+#: libraries/display_tbl.lib.php:574 libraries/display_tbl.lib.php:704
 #: libraries/replication_gui.lib.php:76 libraries/replication_gui.lib.php:375
 #: libraries/rte/rte_events.lib.php:493 libraries/rte/rte_routines.lib.php:970
 #: libraries/rte/rte_routines.lib.php:1448
@@ -214,7 +214,7 @@ msgstr "Megjegyzések"
 #: server_privileges.php:1475 server_privileges.php:1485
 #: server_privileges.php:1732 server_privileges.php:1743
 #: server_privileges.php:2064 server_privileges.php:2069
-#: server_privileges.php:2372 sql.php:290 sql.php:354 tbl_printview.php:190
+#: server_privileges.php:2373 sql.php:290 sql.php:354 tbl_printview.php:190
 #: tbl_structure.php:349 tbl_tracking.php:321 tbl_tracking.php:326
 msgid "No"
 msgstr "Nem"
@@ -235,7 +235,7 @@ msgstr "Nem"
 #: server_databases.php:81 server_privileges.php:1473
 #: server_privileges.php:1483 server_privileges.php:1729
 #: server_privileges.php:1743 server_privileges.php:2064
-#: server_privileges.php:2067 server_privileges.php:2372 sql.php:353
+#: server_privileges.php:2067 server_privileges.php:2373 sql.php:353
 #: tbl_printview.php:190 tbl_structure.php:41 tbl_structure.php:349
 #: tbl_tracking.php:319 tbl_tracking.php:324
 msgid "Yes"
@@ -354,7 +354,7 @@ msgstr "Kapcsolati séma szerkesztése, exportálása"
 
 #: db_printview.php:101 db_tracking.php:86 db_tracking.php:188
 #: libraries/config/messages.inc.php:508 libraries/db_structure.lib.php:32
-#: libraries/export/pdf.php:95 libraries/export/xml.php:359
+#: libraries/export/pdf.php:98 libraries/export/xml.php:359
 #: libraries/header.inc.php:161 libraries/rte/rte_list.lib.php:59
 #: libraries/rte/rte_triggers.lib.php:310
 #: libraries/schema/User_Schema.class.php:272 server_privileges.php:1839
@@ -417,21 +417,21 @@ msgid "Switch to %svisual builder%s"
 msgstr "Átváltás a %svizuális tervezőre%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
-#: libraries/display_tbl.lib.php:995
+#: libraries/display_tbl.lib.php:1002
 msgid "Sort"
 msgstr "Rendezés"
 
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:97
-#: libraries/db_structure.lib.php:106 libraries/display_tbl.lib.php:558
-#: libraries/display_tbl.lib.php:951 libraries/display_tbl.lib.php:954
+#: libraries/db_structure.lib.php:106 libraries/display_tbl.lib.php:565
+#: libraries/display_tbl.lib.php:958 libraries/display_tbl.lib.php:961
 #: server_databases.php:162 server_databases.php:179 tbl_operations.php:279
 #: tbl_select.php:222
 msgid "Ascending"
 msgstr "Növekvő"
 
 #: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:98
-#: libraries/db_structure.lib.php:107 libraries/display_tbl.lib.php:563
-#: libraries/display_tbl.lib.php:950 libraries/display_tbl.lib.php:955
+#: libraries/db_structure.lib.php:107 libraries/display_tbl.lib.php:570
+#: libraries/display_tbl.lib.php:957 libraries/display_tbl.lib.php:962
 #: server_databases.php:162 server_databases.php:179 tbl_operations.php:280
 #: tbl_select.php:223
 msgid "Descending"
@@ -539,8 +539,8 @@ msgstr "Tartalom"
 msgid "Delete the matches for the %s table?"
 msgstr "Törli a találatokat a %s táblában?"
 
-#: db_search.php:239 libraries/display_tbl.lib.php:1418
-#: libraries/display_tbl.lib.php:2465
+#: db_search.php:239 libraries/display_tbl.lib.php:1425
+#: libraries/display_tbl.lib.php:2472
 #: libraries/schema/User_Schema.class.php:197
 #: libraries/schema/User_Schema.class.php:273
 #: libraries/schema/User_Schema.class.php:308
@@ -609,7 +609,7 @@ msgstr "Nyomkövetés aktív."
 msgid "Tracking is not active."
 msgstr "Nyomkövetés inaktív."
 
-#: db_structure.php:451 libraries/display_tbl.lib.php:2348
+#: db_structure.php:451 libraries/display_tbl.lib.php:2355
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -639,20 +639,20 @@ msgid "%s is the default storage engine on this MySQL server."
 msgstr "Ezen a MySQL szerveren a(z) %s az alapértelmezett tárolómotor."
 
 #: db_structure.php:561 db_structure.php:578 db_structure.php:579
-#: libraries/display_tbl.lib.php:2490 libraries/display_tbl.lib.php:2495
+#: libraries/display_tbl.lib.php:2497 libraries/display_tbl.lib.php:2502
 #: libraries/mult_submits.inc.php:15 server_databases.php:263
 #: server_databases.php:268 server_privileges.php:1760 tbl_structure.php:557
 #: tbl_structure.php:566
 msgid "With selected:"
 msgstr "A kijelöltekkel végzendő művelet:"
 
-#: db_structure.php:564 libraries/display_tbl.lib.php:2485
+#: db_structure.php:564 libraries/display_tbl.lib.php:2492
 #: server_databases.php:265 server_privileges.php:684
 #: server_privileges.php:1763 tbl_structure.php:560
 msgid "Check All"
 msgstr "Mind kijelölése"
 
-#: db_structure.php:568 libraries/display_tbl.lib.php:2486
+#: db_structure.php:568 libraries/display_tbl.lib.php:2493
 #: libraries/replication_gui.lib.php:35 server_databases.php:267
 #: server_privileges.php:687 server_privileges.php:1767 tbl_structure.php:564
 msgid "Uncheck All"
@@ -665,7 +665,7 @@ msgstr "A felülírott táblák kijelölése"
 #: db_structure.php:581 libraries/common.lib.php:3353
 #: libraries/common.lib.php:3354 libraries/config/messages.inc.php:166
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:79
-#: libraries/display_tbl.lib.php:2508 libraries/display_tbl.lib.php:2649
+#: libraries/display_tbl.lib.php:2515 libraries/display_tbl.lib.php:2656
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
 #: prefs_manage.php:286 server_privileges.php:1449 server_status.php:1595
 #: setup/frames/menu.inc.php:21
@@ -673,7 +673,7 @@ msgid "Export"
 msgstr "Exportálás"
 
 #: db_structure.php:583 db_structure.php:639
-#: libraries/display_tbl.lib.php:2598 tbl_structure.php:613
+#: libraries/display_tbl.lib.php:2605 tbl_structure.php:613
 msgid "Print view"
 msgstr "Nyomtatási nézet"
 
@@ -727,7 +727,7 @@ msgstr "Nyomon követett táblák"
 
 #: db_tracking.php:85 libraries/config/messages.inc.php:502
 #: libraries/export/htmlword.php:78 libraries/export/latex.php:156
-#: libraries/export/odt.php:114 libraries/export/pdf.php:95
+#: libraries/export/odt.php:114 libraries/export/pdf.php:98
 #: libraries/export/sql.php:602 libraries/export/texytext.php:66
 #: libraries/export/xml.php:292 libraries/header.inc.php:146
 #: libraries/header_printview.inc.php:60 server_databases.php:161
@@ -807,23 +807,19 @@ msgid "ENUM/SET editor"
 msgstr "ENUM/SET szerkesztő"
 
 #: enum_editor.php:28 js/messages.php:267
-#| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
 msgstr "Az új oszlop értékei"
 
 #: enum_editor.php:30 js/messages.php:266
 #, php-format
-#| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
 msgstr "„%s” oszlop értékei"
 
 #: enum_editor.php:34 js/messages.php:268
-#| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
 msgstr "Minden értéket külön mezőben adjon meg"
 
 #: enum_editor.php:123
-#| msgid "+ Add a value"
 msgid "Add a value"
 msgstr "Érték hozzáadása"
 
@@ -889,7 +885,7 @@ msgid "SRID"
 msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:322
-#: libraries/display_tbl.lib.php:685
+#: libraries/display_tbl.lib.php:692
 msgid "Geometry"
 msgstr "Geometria"
 
@@ -939,7 +935,6 @@ msgid "Add a linestring"
 msgstr "Új felhasználó hozzáadása"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:326
-#| msgid "Add a new User"
 msgid "Add an inner ring"
 msgstr "Belső gyűrű hozzáadása"
 
@@ -948,12 +943,10 @@ msgid "Polygon"
 msgstr "Sokszög"
 
 #: gis_data_editor.php:306 js/messages.php:327
-#| msgid "Add column"
 msgid "Add a polygon"
 msgstr "Sokszög hozzáadása"
 
 #: gis_data_editor.php:310
-#| msgid "Add a new server"
 msgid "Add geometry"
 msgstr "Geometria hozzáadása"
 
@@ -1050,7 +1043,7 @@ msgstr ""
 "növeli meg a PHP időkorlátozását."
 
 #: import.php:472 libraries/Message.class.php:175
-#: libraries/display_tbl.lib.php:2385 libraries/rte/rte_routines.lib.php:1204
+#: libraries/display_tbl.lib.php:2392 libraries/rte/rte_routines.lib.php:1204
 #: libraries/sql_query_form.lib.php:113 tbl_operations.php:229
 #: tbl_relation.php:284 tbl_row_action.php:126 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
@@ -1121,13 +1114,11 @@ msgid "Add Index"
 msgstr "Index hozzáadása"
 
 #: js/messages.php:47
-#| msgid "Edit mode"
 msgid "Edit Index"
 msgstr "Index szerkesztése"
 
 #: js/messages.php:48 tbl_indexes.php:293
 #, php-format
-#| msgid "Add %s column(s)"
 msgid "Add %d column(s) to index"
 msgstr "%d oszlop hozzáadása az indexhez"
 
@@ -1155,7 +1146,7 @@ msgid "The passwords aren't the same!"
 msgstr "Nem egyeznek a jelszavak!"
 
 #: js/messages.php:59 server_privileges.php:1773 server_privileges.php:1797
-#: server_privileges.php:2209 server_privileges.php:2410
+#: server_privileges.php:2209 server_privileges.php:2414
 msgid "Add user"
 msgstr "Felhasználó hozzáadása"
 
@@ -1175,7 +1166,7 @@ msgstr "Bezárás"
 #: js/messages.php:65 js/messages.php:277 libraries/Index.class.php:468
 #: libraries/common.lib.php:648 libraries/common.lib.php:1194
 #: libraries/common.lib.php:3351 libraries/common.lib.php:3352
-#: libraries/config/messages.inc.php:482 libraries/display_tbl.lib.php:1382
+#: libraries/config/messages.inc.php:482 libraries/display_tbl.lib.php:1389
 #: libraries/schema/User_Schema.class.php:196 setup/frames/index.inc.php:138
 msgid "Edit"
 msgstr "Módosítás"
@@ -1282,7 +1273,6 @@ msgid "Query cache efficiency"
 msgstr "Lekérdezési gyorsítótár"
 
 #: js/messages.php:98
-#| msgid "Query cache"
 msgid "Query cache usage"
 msgstr "Lekérdezési gyorsítótár használat"
 
@@ -1341,7 +1331,6 @@ msgid "Used memory"
 msgstr "Használt memória"
 
 #: js/messages.php:114
-#| msgid "Total"
 msgid "Total Swap"
 msgstr "Teljes lapozófájl"
 
@@ -1354,7 +1343,6 @@ msgid "Used Swap"
 msgstr "Használt lapozófájl"
 
 #: js/messages.php:117
-#| msgid "Free pages"
 msgid "Free Swap"
 msgstr "Szabad lapozófájl"
 
@@ -1397,8 +1385,6 @@ msgstr "EiB"
 
 #: js/messages.php:132
 #, php-format
-#| msgid "%s table"
-#| msgid_plural "%s tables"
 msgid "%d table(s)"
 msgstr "%d tábla"
 
@@ -1435,7 +1421,7 @@ msgid "Please add at least one variable to the series"
 msgstr ""
 
 #: js/messages.php:143 libraries/display_export.lib.php:308
-#: libraries/display_tbl.lib.php:565 libraries/export/sql.php:1093
+#: libraries/display_tbl.lib.php:572 libraries/export/sql.php:1093
 #: libraries/tbl_properties.inc.php:530 pmd_general.php:504
 #: server_privileges.php:2050 server_status.php:1263 server_status.php:1692
 #: tbl_zoom_select.php:151 tbl_zoom_select.php:278
@@ -1498,7 +1484,6 @@ msgstr ""
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:157
 #, php-format
-#| msgid "Save output to a file"
 msgid "Set log_output to %s"
 msgstr "A log_output beállítása ehhez: %s"
 
@@ -1596,12 +1581,10 @@ msgid "Log analysed, but no data found in this time span."
 msgstr ""
 
 #: js/messages.php:184
-#| msgid "Analyze"
 msgid "Analyzing..."
 msgstr "Elemzés…"
 
 #: js/messages.php:185
-#| msgid "Explain SQL"
 msgid "Explain output"
 msgstr "A kimenet magyarázata"
 
@@ -1611,7 +1594,6 @@ msgid "Time"
 msgstr "Idő"
 
 #: js/messages.php:188
-#| msgid "Total:"
 msgid "Total time:"
 msgstr "Teljes idő:"
 
@@ -1851,7 +1833,7 @@ msgid "No rows selected"
 msgstr "Nem jelölte ki a sort"
 
 #: js/messages.php:279 libraries/common.lib.php:2743
-#: libraries/display_tbl.lib.php:2499 querywindow.php:87 tbl_structure.php:149
+#: libraries/display_tbl.lib.php:2506 querywindow.php:87 tbl_structure.php:149
 #: tbl_structure.php:572
 msgid "Change"
 msgstr "Módosítás"
@@ -1939,7 +1921,7 @@ msgstr "Adatmutató mérete"
 msgid "Ignore"
 msgstr "Kihagyás"
 
-#: js/messages.php:315 libraries/display_tbl.lib.php:1383
+#: js/messages.php:315 libraries/display_tbl.lib.php:1390
 msgid "Copy"
 msgstr "Másolás"
 
@@ -3455,7 +3437,7 @@ msgstr "Alapértelmezett tábla fül"
 msgid "Show binary contents as HEX by default"
 msgstr "Bináris tartalom megjelenítése HEX-ként, mint alapértelmezett"
 
-#: libraries/config/messages.inc.php:57 libraries/display_tbl.lib.php:671
+#: libraries/config/messages.inc.php:57 libraries/display_tbl.lib.php:678
 msgid "Show binary contents as HEX"
 msgstr "Bináris tartalom megjelenítése HEX-ként"
 
@@ -5584,7 +5566,7 @@ msgstr "Események"
 msgid "Triggers"
 msgstr "Eseményindítók"
 
-#: libraries/db_structure.lib.php:43 libraries/display_tbl.lib.php:2220
+#: libraries/db_structure.lib.php:43 libraries/display_tbl.lib.php:2227
 msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
@@ -5745,10 +5727,6 @@ msgstr ", @TABLE@ lesz a tábla neve"
 
 #: libraries/display_export.lib.php:232
 #, php-format
-#| msgid ""
-#| "alue is interpreted using %1$sstrftime%2$s, so you can use time matting "
-#| "ings. Additionally the following transformations will pen: %3$s. Other t "
-#| "will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
 "formatting strings. Additionally the following transformations will happen: "
@@ -5946,7 +5924,7 @@ msgstr ""
 msgid "Sort by key"
 msgstr "Kulcs szerinti rendezés"
 
-#: libraries/display_tbl.lib.php:619 libraries/export/codegen.php:41
+#: libraries/display_tbl.lib.php:626 libraries/export/codegen.php:41
 #: libraries/export/csv.php:34 libraries/export/excel.php:37
 #: libraries/export/htmlword.php:33 libraries/export/json.php:29
 #: libraries/export/latex.php:35 libraries/export/mediawiki.php:23
@@ -5963,97 +5941,97 @@ msgstr "Kulcs szerinti rendezés"
 msgid "Options"
 msgstr "Beállítások"
 
-#: libraries/display_tbl.lib.php:624 libraries/display_tbl.lib.php:642
+#: libraries/display_tbl.lib.php:631 libraries/display_tbl.lib.php:649
 msgid "Partial texts"
 msgstr "Részleges szövegek"
 
-#: libraries/display_tbl.lib.php:625 libraries/display_tbl.lib.php:646
+#: libraries/display_tbl.lib.php:632 libraries/display_tbl.lib.php:653
 msgid "Full texts"
 msgstr "Teljes szövegek"
 
-#: libraries/display_tbl.lib.php:659
+#: libraries/display_tbl.lib.php:666
 msgid "Relational key"
 msgstr "Relációs kulcs"
 
-#: libraries/display_tbl.lib.php:660
+#: libraries/display_tbl.lib.php:667
 #, fuzzy
 #| msgid "Relational display field"
 msgid "Relational display column"
 msgstr "Relációs megjelenítési mező"
 
-#: libraries/display_tbl.lib.php:667
+#: libraries/display_tbl.lib.php:674
 msgid "Show binary contents"
 msgstr "Bináris tartalom megjelenítése"
 
-#: libraries/display_tbl.lib.php:669
+#: libraries/display_tbl.lib.php:676
 msgid "Show BLOB contents"
 msgstr "BLOB-tartalom megjelenítése"
 
-#: libraries/display_tbl.lib.php:679 pmd_general.php:147 tbl_change.php:324
+#: libraries/display_tbl.lib.php:686 pmd_general.php:147 tbl_change.php:324
 #: tbl_change.php:330
 msgid "Hide"
 msgstr "Elrejtés"
 
-#: libraries/display_tbl.lib.php:679 libraries/relation.lib.php:116
+#: libraries/display_tbl.lib.php:686 libraries/relation.lib.php:116
 #: libraries/tbl_properties.inc.php:136 transformation_overview.php:46
 msgid "Browser transformation"
 msgstr "Böngésző átalakítása"
 
-#: libraries/display_tbl.lib.php:686
+#: libraries/display_tbl.lib.php:693
 msgid "Well Known Text"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:687
+#: libraries/display_tbl.lib.php:694
 msgid "Well Known Binary"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:1398 libraries/display_tbl.lib.php:1410
+#: libraries/display_tbl.lib.php:1405 libraries/display_tbl.lib.php:1417
 msgid "The row has been deleted"
 msgstr "A sor törlése megtörtént"
 
-#: libraries/display_tbl.lib.php:1437 libraries/display_tbl.lib.php:2465
+#: libraries/display_tbl.lib.php:1444 libraries/display_tbl.lib.php:2472
 #: server_status.php:1259
 msgid "Kill"
 msgstr "Leállít"
 
-#: libraries/display_tbl.lib.php:2324
+#: libraries/display_tbl.lib.php:2331
 msgid "in query"
 msgstr "lekérdezésben"
 
-#: libraries/display_tbl.lib.php:2356
+#: libraries/display_tbl.lib.php:2363
 msgid "Showing rows"
 msgstr "Megjelenített sorok:"
 
-#: libraries/display_tbl.lib.php:2366
+#: libraries/display_tbl.lib.php:2373
 msgid "total"
 msgstr "összesen"
 
-#: libraries/display_tbl.lib.php:2374 sql.php:726
+#: libraries/display_tbl.lib.php:2381 sql.php:726
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "a lekérdezés %01.4f másodpercig tartott"
 
-#: libraries/display_tbl.lib.php:2577
+#: libraries/display_tbl.lib.php:2584
 msgid "Query results operations"
 msgstr "Műveletek a lekérdezési eredménnyel"
 
-#: libraries/display_tbl.lib.php:2606
+#: libraries/display_tbl.lib.php:2613
 msgid "Print view (with full texts)"
 msgstr "Nyomtatási nézet (teljes szöveggel)"
 
-#: libraries/display_tbl.lib.php:2656 tbl_chart.php:86
+#: libraries/display_tbl.lib.php:2663 tbl_chart.php:86
 msgid "Display chart"
 msgstr "Diagram megjelenítése"
 
-#: libraries/display_tbl.lib.php:2672
+#: libraries/display_tbl.lib.php:2679
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:2693
+#: libraries/display_tbl.lib.php:2700
 msgid "Create view"
 msgstr "Nézet létrehozása"
 
-#: libraries/display_tbl.lib.php:2800
+#: libraries/display_tbl.lib.php:2807
 msgid "Link not found"
 msgstr "Nem található a hivatkozás"
 
@@ -7546,7 +7524,7 @@ msgstr ""
 msgid "You must provide an event definition."
 msgstr ""
 
-#: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2407
+#: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2411
 msgid "New"
 msgstr "Új"
 
@@ -7849,7 +7827,6 @@ msgstr "Önnek nincs meg a szükséges jogosultsága esemény létrehozásához"
 
 #: libraries/rte/rte_words.lib.php:47
 #, php-format
-#| msgid "No tables found in database"
 msgid "No event with name %1$s found in database %2$s"
 msgstr "Nem található %1$s nevű esemény a(z) %2$s adatbázisban"
 
@@ -9342,7 +9319,7 @@ msgstr "Bejelentkezési adatok"
 msgid "Do not change the password"
 msgstr "Nincs jelszó megváltoztatás"
 
-#: server_privileges.php:917 server_privileges.php:2393
+#: server_privileges.php:917 server_privileges.php:2397
 msgid "No user found."
 msgstr "Nem található felhasználó."
 
@@ -9516,19 +9493,19 @@ msgstr "Az összes jog engedélyezése a(z) &quot;%s&quot; adatbázison"
 msgid "Users having access to &quot;%s&quot;"
 msgstr "A(z) &quot;%s&quot; adatbázishoz hozzáférhető felhasználók"
 
-#: server_privileges.php:2358
+#: server_privileges.php:2359
 msgid "global"
 msgstr "globális"
 
-#: server_privileges.php:2360
+#: server_privileges.php:2361
 msgid "database-specific"
 msgstr "adatbázis-specifikus"
 
-#: server_privileges.php:2362
+#: server_privileges.php:2363
 msgid "wildcard"
 msgstr "karakterhelyettesítő"
 
-#: server_privileges.php:2402
+#: server_privileges.php:2406
 msgid "User has been added."
 msgstr "A felhasználó hozzáadása kész."
 
@@ -11384,76 +11361,76 @@ msgstr ""
 msgid "Continue insertion with %s rows"
 msgstr "Beszúrás folytatása a(z) %s sorokkal"
 
-#: tbl_chart.php:88
+#: tbl_chart.php:89
 #, fuzzy
 #| msgid "Bar"
 msgctxt "Chart type"
 msgid "Bar"
 msgstr "Sáv"
 
-#: tbl_chart.php:89
+#: tbl_chart.php:91
 #, fuzzy
 #| msgid "Column"
 msgctxt "Chart type"
 msgid "Column"
 msgstr "Oszlop"
 
-#: tbl_chart.php:90
+#: tbl_chart.php:93
 #, fuzzy
 #| msgid "Line"
 msgctxt "Chart type"
 msgid "Line"
 msgstr "Vonal"
 
-#: tbl_chart.php:91
+#: tbl_chart.php:95
 #, fuzzy
 #| msgid "Inline"
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "Belső"
 
-#: tbl_chart.php:92
+#: tbl_chart.php:97
 #, fuzzy
 #| msgid "Pie"
 msgctxt "Chart type"
 msgid "Pie"
 msgstr "Torta"
 
-#: tbl_chart.php:94
+#: tbl_chart.php:100
 msgid "Stacked"
 msgstr "Halmozott"
 
-#: tbl_chart.php:97
+#: tbl_chart.php:103
 msgid "Chart title"
 msgstr "Diagramcím"
 
-#: tbl_chart.php:103
+#: tbl_chart.php:109
 msgid "X-Axis:"
 msgstr "X tengely:"
 
-#: tbl_chart.php:117
+#: tbl_chart.php:124
 #, fuzzy
 #| msgid "SQL queries"
 msgid "Series:"
 msgstr "SQL-lekérdezések"
 
-#: tbl_chart.php:119
+#: tbl_chart.php:126
 msgid "The remaining columns"
 msgstr "A hátralévő oszlopok"
 
-#: tbl_chart.php:132
+#: tbl_chart.php:139
 msgid "X-Axis label:"
 msgstr "X tengely címkéje:"
 
-#: tbl_chart.php:133
+#: tbl_chart.php:141
 msgid "X Values"
 msgstr "X értékek"
 
-#: tbl_chart.php:134
+#: tbl_chart.php:142
 msgid "Y-Axis label:"
 msgstr "Y tengely címkéje:"
 
-#: tbl_chart.php:134
+#: tbl_chart.php:143
 msgid "Y Values"
 msgstr "Y érték"
 
@@ -12326,8 +12303,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:80
-msgid "Query cache efficiency (%)"
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Query cache"
+msgid "Query cache efficiency (%%)"
+msgstr "Lekérdezési gyorsítótár"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -12414,9 +12393,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:98
+#, php-format
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
-"value is, the better (This rules firing limit: 0.1%)"
+"value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
 
 #: po/advisory_rules.php:100

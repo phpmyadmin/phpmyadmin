@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-12-14 18:08+0100\n"
+"POT-Creation-Date: 2011-12-19 14:44+0100\n"
 "PO-Revision-Date: 2011-11-18 08:35+0200\n"
 "Last-Translator: manyfun <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
@@ -54,7 +54,7 @@ msgstr "검색"
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:349 libraries/display_import.lib.php:267
-#: libraries/display_tbl.lib.php:567 libraries/display_tbl.lib.php:697
+#: libraries/display_tbl.lib.php:574 libraries/display_tbl.lib.php:704
 #: libraries/replication_gui.lib.php:76 libraries/replication_gui.lib.php:375
 #: libraries/rte/rte_events.lib.php:493 libraries/rte/rte_routines.lib.php:970
 #: libraries/rte/rte_routines.lib.php:1448
@@ -215,7 +215,7 @@ msgstr "설명(코멘트)"
 #: server_privileges.php:1475 server_privileges.php:1485
 #: server_privileges.php:1732 server_privileges.php:1743
 #: server_privileges.php:2064 server_privileges.php:2069
-#: server_privileges.php:2372 sql.php:290 sql.php:354 tbl_printview.php:190
+#: server_privileges.php:2373 sql.php:290 sql.php:354 tbl_printview.php:190
 #: tbl_structure.php:349 tbl_tracking.php:321 tbl_tracking.php:326
 msgid "No"
 msgstr "아니오 "
@@ -236,7 +236,7 @@ msgstr "아니오 "
 #: server_databases.php:81 server_privileges.php:1473
 #: server_privileges.php:1483 server_privileges.php:1729
 #: server_privileges.php:1743 server_privileges.php:2064
-#: server_privileges.php:2067 server_privileges.php:2372 sql.php:353
+#: server_privileges.php:2067 server_privileges.php:2373 sql.php:353
 #: tbl_printview.php:190 tbl_structure.php:41 tbl_structure.php:349
 #: tbl_tracking.php:319 tbl_tracking.php:324
 msgid "Yes"
@@ -355,7 +355,7 @@ msgstr "관계 스키마를 수정 또는 내보내기"
 
 #: db_printview.php:101 db_tracking.php:86 db_tracking.php:188
 #: libraries/config/messages.inc.php:508 libraries/db_structure.lib.php:32
-#: libraries/export/pdf.php:95 libraries/export/xml.php:359
+#: libraries/export/pdf.php:98 libraries/export/xml.php:359
 #: libraries/header.inc.php:161 libraries/rte/rte_list.lib.php:59
 #: libraries/rte/rte_triggers.lib.php:310
 #: libraries/schema/User_Schema.class.php:272 server_privileges.php:1839
@@ -417,21 +417,21 @@ msgid "Switch to %svisual builder%s"
 msgstr "%s비주얼 쿼리 빌더%s로 전환"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
-#: libraries/display_tbl.lib.php:995
+#: libraries/display_tbl.lib.php:1002
 msgid "Sort"
 msgstr "정렬"
 
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:97
-#: libraries/db_structure.lib.php:106 libraries/display_tbl.lib.php:558
-#: libraries/display_tbl.lib.php:951 libraries/display_tbl.lib.php:954
+#: libraries/db_structure.lib.php:106 libraries/display_tbl.lib.php:565
+#: libraries/display_tbl.lib.php:958 libraries/display_tbl.lib.php:961
 #: server_databases.php:162 server_databases.php:179 tbl_operations.php:279
 #: tbl_select.php:222
 msgid "Ascending"
 msgstr "오름차순"
 
 #: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:98
-#: libraries/db_structure.lib.php:107 libraries/display_tbl.lib.php:563
-#: libraries/display_tbl.lib.php:950 libraries/display_tbl.lib.php:955
+#: libraries/db_structure.lib.php:107 libraries/display_tbl.lib.php:570
+#: libraries/display_tbl.lib.php:957 libraries/display_tbl.lib.php:962
 #: server_databases.php:162 server_databases.php:179 tbl_operations.php:280
 #: tbl_select.php:223
 msgid "Descending"
@@ -538,8 +538,8 @@ msgstr "보기"
 msgid "Delete the matches for the %s table?"
 msgstr "테이블 %s에 대하여 일치하는 것들을 삭제 하겠습니까?"
 
-#: db_search.php:239 libraries/display_tbl.lib.php:1418
-#: libraries/display_tbl.lib.php:2465
+#: db_search.php:239 libraries/display_tbl.lib.php:1425
+#: libraries/display_tbl.lib.php:2472
 #: libraries/schema/User_Schema.class.php:197
 #: libraries/schema/User_Schema.class.php:273
 #: libraries/schema/User_Schema.class.php:308
@@ -607,7 +607,7 @@ msgstr "트래킹이 활성화되었습니다."
 msgid "Tracking is not active."
 msgstr "트래킹이 활성화되어 있지 않습니다."
 
-#: db_structure.php:451 libraries/display_tbl.lib.php:2348
+#: db_structure.php:451 libraries/display_tbl.lib.php:2355
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -636,20 +636,20 @@ msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s는 이 MySQL 서버의 기본 스토리지 엔진입니다."
 
 #: db_structure.php:561 db_structure.php:578 db_structure.php:579
-#: libraries/display_tbl.lib.php:2490 libraries/display_tbl.lib.php:2495
+#: libraries/display_tbl.lib.php:2497 libraries/display_tbl.lib.php:2502
 #: libraries/mult_submits.inc.php:15 server_databases.php:263
 #: server_databases.php:268 server_privileges.php:1760 tbl_structure.php:557
 #: tbl_structure.php:566
 msgid "With selected:"
 msgstr "선택한 것을:"
 
-#: db_structure.php:564 libraries/display_tbl.lib.php:2485
+#: db_structure.php:564 libraries/display_tbl.lib.php:2492
 #: server_databases.php:265 server_privileges.php:684
 #: server_privileges.php:1763 tbl_structure.php:560
 msgid "Check All"
 msgstr "모두 체크"
 
-#: db_structure.php:568 libraries/display_tbl.lib.php:2486
+#: db_structure.php:568 libraries/display_tbl.lib.php:2493
 #: libraries/replication_gui.lib.php:35 server_databases.php:267
 #: server_privileges.php:687 server_privileges.php:1767 tbl_structure.php:564
 msgid "Uncheck All"
@@ -662,7 +662,7 @@ msgstr "오버헤드를 가진 테이블들을 체크"
 #: db_structure.php:581 libraries/common.lib.php:3353
 #: libraries/common.lib.php:3354 libraries/config/messages.inc.php:166
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:79
-#: libraries/display_tbl.lib.php:2508 libraries/display_tbl.lib.php:2649
+#: libraries/display_tbl.lib.php:2515 libraries/display_tbl.lib.php:2656
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
 #: prefs_manage.php:286 server_privileges.php:1449 server_status.php:1595
 #: setup/frames/menu.inc.php:21
@@ -670,7 +670,7 @@ msgid "Export"
 msgstr "내보내기"
 
 #: db_structure.php:583 db_structure.php:639
-#: libraries/display_tbl.lib.php:2598 tbl_structure.php:613
+#: libraries/display_tbl.lib.php:2605 tbl_structure.php:613
 msgid "Print view"
 msgstr "인쇄용 보기"
 
@@ -724,7 +724,7 @@ msgstr "추적된 테이블"
 
 #: db_tracking.php:85 libraries/config/messages.inc.php:502
 #: libraries/export/htmlword.php:78 libraries/export/latex.php:156
-#: libraries/export/odt.php:114 libraries/export/pdf.php:95
+#: libraries/export/odt.php:114 libraries/export/pdf.php:98
 #: libraries/export/sql.php:602 libraries/export/texytext.php:66
 #: libraries/export/xml.php:292 libraries/header.inc.php:146
 #: libraries/header_printview.inc.php:60 server_databases.php:161
@@ -886,7 +886,7 @@ msgid "SRID"
 msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:322
-#: libraries/display_tbl.lib.php:685
+#: libraries/display_tbl.lib.php:692
 msgid "Geometry"
 msgstr "Geometry"
 
@@ -1036,7 +1036,7 @@ msgstr ""
 "는 이 가져오기를 마칠 수 없음을 뜻합니다."
 
 #: import.php:472 libraries/Message.class.php:175
-#: libraries/display_tbl.lib.php:2385 libraries/rte/rte_routines.lib.php:1204
+#: libraries/display_tbl.lib.php:2392 libraries/rte/rte_routines.lib.php:1204
 #: libraries/sql_query_form.lib.php:113 tbl_operations.php:229
 #: tbl_relation.php:284 tbl_row_action.php:126 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
@@ -1140,7 +1140,7 @@ msgid "The passwords aren't the same!"
 msgstr "암호가 동일하지 않습니다!"
 
 #: js/messages.php:59 server_privileges.php:1773 server_privileges.php:1797
-#: server_privileges.php:2209 server_privileges.php:2410
+#: server_privileges.php:2209 server_privileges.php:2414
 msgid "Add user"
 msgstr "사용자 추가"
 
@@ -1160,7 +1160,7 @@ msgstr "닫기"
 #: js/messages.php:65 js/messages.php:277 libraries/Index.class.php:468
 #: libraries/common.lib.php:648 libraries/common.lib.php:1194
 #: libraries/common.lib.php:3351 libraries/common.lib.php:3352
-#: libraries/config/messages.inc.php:482 libraries/display_tbl.lib.php:1382
+#: libraries/config/messages.inc.php:482 libraries/display_tbl.lib.php:1389
 #: libraries/schema/User_Schema.class.php:196 setup/frames/index.inc.php:138
 msgid "Edit"
 msgstr "수정"
@@ -1418,7 +1418,7 @@ msgid "Please add at least one variable to the series"
 msgstr ""
 
 #: js/messages.php:143 libraries/display_export.lib.php:308
-#: libraries/display_tbl.lib.php:565 libraries/export/sql.php:1093
+#: libraries/display_tbl.lib.php:572 libraries/export/sql.php:1093
 #: libraries/tbl_properties.inc.php:530 pmd_general.php:504
 #: server_privileges.php:2050 server_status.php:1263 server_status.php:1692
 #: tbl_zoom_select.php:151 tbl_zoom_select.php:278
@@ -1882,7 +1882,7 @@ msgid "No rows selected"
 msgstr ""
 
 #: js/messages.php:279 libraries/common.lib.php:2743
-#: libraries/display_tbl.lib.php:2499 querywindow.php:87 tbl_structure.php:149
+#: libraries/display_tbl.lib.php:2506 querywindow.php:87 tbl_structure.php:149
 #: tbl_structure.php:572
 msgid "Change"
 msgstr "변경"
@@ -1973,7 +1973,7 @@ msgstr "테이블 설명"
 msgid "Ignore"
 msgstr "Ignore"
 
-#: js/messages.php:315 libraries/display_tbl.lib.php:1383
+#: js/messages.php:315 libraries/display_tbl.lib.php:1390
 msgid "Copy"
 msgstr ""
 
@@ -3475,7 +3475,7 @@ msgstr ""
 msgid "Show binary contents as HEX by default"
 msgstr ""
 
-#: libraries/config/messages.inc.php:57 libraries/display_tbl.lib.php:671
+#: libraries/config/messages.inc.php:57 libraries/display_tbl.lib.php:678
 msgid "Show binary contents as HEX"
 msgstr ""
 
@@ -5513,7 +5513,7 @@ msgstr ""
 msgid "Triggers"
 msgstr ""
 
-#: libraries/db_structure.lib.php:43 libraries/display_tbl.lib.php:2220
+#: libraries/db_structure.lib.php:43 libraries/display_tbl.lib.php:2227
 msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
@@ -5897,7 +5897,7 @@ msgstr ""
 msgid "Sort by key"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:619 libraries/export/codegen.php:41
+#: libraries/display_tbl.lib.php:626 libraries/export/codegen.php:41
 #: libraries/export/csv.php:34 libraries/export/excel.php:37
 #: libraries/export/htmlword.php:33 libraries/export/json.php:29
 #: libraries/export/latex.php:35 libraries/export/mediawiki.php:23
@@ -5915,102 +5915,102 @@ msgstr ""
 msgid "Options"
 msgstr "테이블 작업"
 
-#: libraries/display_tbl.lib.php:624 libraries/display_tbl.lib.php:642
+#: libraries/display_tbl.lib.php:631 libraries/display_tbl.lib.php:649
 #, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Partial Texts"
 
-#: libraries/display_tbl.lib.php:625 libraries/display_tbl.lib.php:646
+#: libraries/display_tbl.lib.php:632 libraries/display_tbl.lib.php:653
 #, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Full Texts"
 
-#: libraries/display_tbl.lib.php:659
+#: libraries/display_tbl.lib.php:666
 msgid "Relational key"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:660
+#: libraries/display_tbl.lib.php:667
 msgid "Relational display column"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:667
+#: libraries/display_tbl.lib.php:674
 msgid "Show binary contents"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:669
+#: libraries/display_tbl.lib.php:676
 msgid "Show BLOB contents"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:679 pmd_general.php:147 tbl_change.php:324
+#: libraries/display_tbl.lib.php:686 pmd_general.php:147 tbl_change.php:324
 #: tbl_change.php:330
 msgid "Hide"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:679 libraries/relation.lib.php:116
+#: libraries/display_tbl.lib.php:686 libraries/relation.lib.php:116
 #: libraries/tbl_properties.inc.php:136 transformation_overview.php:46
 msgid "Browser transformation"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:686
+#: libraries/display_tbl.lib.php:693
 msgid "Well Known Text"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:687
+#: libraries/display_tbl.lib.php:694
 msgid "Well Known Binary"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:1398 libraries/display_tbl.lib.php:1410
+#: libraries/display_tbl.lib.php:1405 libraries/display_tbl.lib.php:1417
 msgid "The row has been deleted"
 msgstr "선택한 줄(레코드)을 삭제 하였습니다."
 
-#: libraries/display_tbl.lib.php:1437 libraries/display_tbl.lib.php:2465
+#: libraries/display_tbl.lib.php:1444 libraries/display_tbl.lib.php:2472
 #: server_status.php:1259
 msgid "Kill"
 msgstr "Kill"
 
-#: libraries/display_tbl.lib.php:2324
+#: libraries/display_tbl.lib.php:2331
 msgid "in query"
 msgstr "질의(in query)"
 
-#: libraries/display_tbl.lib.php:2356
+#: libraries/display_tbl.lib.php:2363
 msgid "Showing rows"
 msgstr "행(레코드) 보기"
 
-#: libraries/display_tbl.lib.php:2366
+#: libraries/display_tbl.lib.php:2373
 msgid "total"
 msgstr "합계"
 
-#: libraries/display_tbl.lib.php:2374 sql.php:726
+#: libraries/display_tbl.lib.php:2381 sql.php:726
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "질의 실행시간 %01.4f 초"
 
-#: libraries/display_tbl.lib.php:2577
+#: libraries/display_tbl.lib.php:2584
 msgid "Query results operations"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:2606
+#: libraries/display_tbl.lib.php:2613
 msgid "Print view (with full texts)"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:2656 tbl_chart.php:86
+#: libraries/display_tbl.lib.php:2663 tbl_chart.php:86
 #, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display chart"
 msgstr "열(칼럼) 설명(코멘트) 출력하기"
 
-#: libraries/display_tbl.lib.php:2672
+#: libraries/display_tbl.lib.php:2679
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:2693
+#: libraries/display_tbl.lib.php:2700
 #, fuzzy
 msgid "Create view"
 msgstr "서버 버전"
 
-#: libraries/display_tbl.lib.php:2800
+#: libraries/display_tbl.lib.php:2807
 msgid "Link not found"
 msgstr ""
 
@@ -7445,7 +7445,7 @@ msgstr ""
 msgid "You must provide an event definition."
 msgstr ""
 
-#: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2407
+#: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2411
 msgid "New"
 msgstr ""
 
@@ -9178,7 +9178,7 @@ msgstr "로그인 정보"
 msgid "Do not change the password"
 msgstr "암호를 변경하지 않음"
 
-#: server_privileges.php:917 server_privileges.php:2393
+#: server_privileges.php:917 server_privileges.php:2397
 #, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
@@ -9355,19 +9355,19 @@ msgstr "데이터베이스 &quot;%s&quot; 에 대한 사용권한 검사."
 msgid "Users having access to &quot;%s&quot;"
 msgstr "&quot;%s&quot; 에 접근할 수 있는 사용자들"
 
-#: server_privileges.php:2358
+#: server_privileges.php:2359
 msgid "global"
 msgstr ""
 
-#: server_privileges.php:2360
+#: server_privileges.php:2361
 msgid "database-specific"
 msgstr ""
 
-#: server_privileges.php:2362
+#: server_privileges.php:2363
 msgid "wildcard"
 msgstr ""
 
-#: server_privileges.php:2402
+#: server_privileges.php:2406
 #, fuzzy
 #| msgid "View %s has been dropped"
 msgid "User has been added."
@@ -11041,28 +11041,28 @@ msgstr "탭 키를 이용해 이동하거나 CTRL+화살표로 이동할 수 있
 msgid "Continue insertion with %s rows"
 msgstr ""
 
-#: tbl_chart.php:88
+#: tbl_chart.php:89
 #, fuzzy
 #| msgid "Mar"
 msgctxt "Chart type"
 msgid "Bar"
 msgstr "3월"
 
-#: tbl_chart.php:89
+#: tbl_chart.php:91
 #, fuzzy
 #| msgid "Column"
 msgctxt "Chart type"
 msgid "Column"
 msgstr "컬럼명"
 
-#: tbl_chart.php:90
+#: tbl_chart.php:93
 #, fuzzy
 #| msgid "Line"
 msgctxt "Chart type"
 msgid "Line"
 msgstr "줄"
 
-#: tbl_chart.php:91
+#: tbl_chart.php:95
 #, fuzzy
 #| msgctxt "Inline edit query"
 #| msgid "Inline"
@@ -11070,53 +11070,53 @@ msgctxt "Chart type"
 msgid "Spline"
 msgstr "인라인"
 
-#: tbl_chart.php:92
+#: tbl_chart.php:97
 #, fuzzy
 #| msgid "PiB"
 msgctxt "Chart type"
 msgid "Pie"
 msgstr "PB"
 
-#: tbl_chart.php:94
+#: tbl_chart.php:100
 msgid "Stacked"
 msgstr ""
 
-#: tbl_chart.php:97
+#: tbl_chart.php:103
 #, fuzzy
 #| msgid "Import files"
 msgid "Chart title"
 msgstr "파일 가져오기"
 
-#: tbl_chart.php:103
+#: tbl_chart.php:109
 msgid "X-Axis:"
 msgstr ""
 
-#: tbl_chart.php:117
+#: tbl_chart.php:124
 #, fuzzy
 msgid "Series:"
 msgstr "SQL 질의"
 
-#: tbl_chart.php:119
+#: tbl_chart.php:126
 #, fuzzy
 #| msgid "Add/Delete columns"
 msgid "The remaining columns"
 msgstr "컬럼 추가/삭제"
 
-#: tbl_chart.php:132
+#: tbl_chart.php:139
 msgid "X-Axis label:"
 msgstr ""
 
-#: tbl_chart.php:133
+#: tbl_chart.php:141
 #, fuzzy
 #| msgid "Value"
 msgid "X Values"
 msgstr "값"
 
-#: tbl_chart.php:134
+#: tbl_chart.php:142
 msgid "Y-Axis label:"
 msgstr ""
 
-#: tbl_chart.php:134
+#: tbl_chart.php:143
 #, fuzzy
 #| msgid "Value"
 msgid "Y Values"
@@ -12015,8 +12015,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:80
-msgid "Query cache efficiency (%)"
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Query cache efficiency"
+msgid "Query cache efficiency (%%)"
+msgstr "질의 캐시 효율"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -12101,9 +12103,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:98
+#, php-format
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
-"value is, the better (This rules firing limit: 0.1%)"
+"value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
 
 #: po/advisory_rules.php:100

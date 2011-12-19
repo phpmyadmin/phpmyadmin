@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-12-14 18:08+0100\n"
+"POT-Creation-Date: 2011-12-19 14:44+0100\n"
 "PO-Revision-Date: 2011-09-25 23:05+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
@@ -55,7 +55,7 @@ msgstr "Søg"
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:349 libraries/display_import.lib.php:267
-#: libraries/display_tbl.lib.php:567 libraries/display_tbl.lib.php:697
+#: libraries/display_tbl.lib.php:574 libraries/display_tbl.lib.php:704
 #: libraries/replication_gui.lib.php:76 libraries/replication_gui.lib.php:375
 #: libraries/rte/rte_events.lib.php:493 libraries/rte/rte_routines.lib.php:970
 #: libraries/rte/rte_routines.lib.php:1448
@@ -213,7 +213,7 @@ msgstr "Kommentarer"
 #: server_privileges.php:1475 server_privileges.php:1485
 #: server_privileges.php:1732 server_privileges.php:1743
 #: server_privileges.php:2064 server_privileges.php:2069
-#: server_privileges.php:2372 sql.php:290 sql.php:354 tbl_printview.php:190
+#: server_privileges.php:2373 sql.php:290 sql.php:354 tbl_printview.php:190
 #: tbl_structure.php:349 tbl_tracking.php:321 tbl_tracking.php:326
 msgid "No"
 msgstr "Nej"
@@ -234,7 +234,7 @@ msgstr "Nej"
 #: server_databases.php:81 server_privileges.php:1473
 #: server_privileges.php:1483 server_privileges.php:1729
 #: server_privileges.php:1743 server_privileges.php:2064
-#: server_privileges.php:2067 server_privileges.php:2372 sql.php:353
+#: server_privileges.php:2067 server_privileges.php:2373 sql.php:353
 #: tbl_printview.php:190 tbl_structure.php:41 tbl_structure.php:349
 #: tbl_tracking.php:319 tbl_tracking.php:324
 msgid "Yes"
@@ -352,7 +352,7 @@ msgstr "Editer eller eksporter relations skema"
 
 #: db_printview.php:101 db_tracking.php:86 db_tracking.php:188
 #: libraries/config/messages.inc.php:508 libraries/db_structure.lib.php:32
-#: libraries/export/pdf.php:95 libraries/export/xml.php:359
+#: libraries/export/pdf.php:98 libraries/export/xml.php:359
 #: libraries/header.inc.php:161 libraries/rte/rte_list.lib.php:59
 #: libraries/rte/rte_triggers.lib.php:310
 #: libraries/schema/User_Schema.class.php:272 server_privileges.php:1839
@@ -415,21 +415,21 @@ msgid "Switch to %svisual builder%s"
 msgstr "Skift til %svisuel konstruktør%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
-#: libraries/display_tbl.lib.php:995
+#: libraries/display_tbl.lib.php:1002
 msgid "Sort"
 msgstr "Sorter"
 
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:97
-#: libraries/db_structure.lib.php:106 libraries/display_tbl.lib.php:558
-#: libraries/display_tbl.lib.php:951 libraries/display_tbl.lib.php:954
+#: libraries/db_structure.lib.php:106 libraries/display_tbl.lib.php:565
+#: libraries/display_tbl.lib.php:958 libraries/display_tbl.lib.php:961
 #: server_databases.php:162 server_databases.php:179 tbl_operations.php:279
 #: tbl_select.php:222
 msgid "Ascending"
 msgstr "Stigende"
 
 #: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:98
-#: libraries/db_structure.lib.php:107 libraries/display_tbl.lib.php:563
-#: libraries/display_tbl.lib.php:950 libraries/display_tbl.lib.php:955
+#: libraries/db_structure.lib.php:107 libraries/display_tbl.lib.php:570
+#: libraries/display_tbl.lib.php:957 libraries/display_tbl.lib.php:962
 #: server_databases.php:162 server_databases.php:179 tbl_operations.php:280
 #: tbl_select.php:223
 msgid "Descending"
@@ -537,8 +537,8 @@ msgstr "Vis"
 msgid "Delete the matches for the %s table?"
 msgstr "Slet sammenfald for %s tabellen?"
 
-#: db_search.php:239 libraries/display_tbl.lib.php:1418
-#: libraries/display_tbl.lib.php:2465
+#: db_search.php:239 libraries/display_tbl.lib.php:1425
+#: libraries/display_tbl.lib.php:2472
 #: libraries/schema/User_Schema.class.php:197
 #: libraries/schema/User_Schema.class.php:273
 #: libraries/schema/User_Schema.class.php:308
@@ -607,7 +607,7 @@ msgstr "Sporing er aktiv."
 msgid "Tracking is not active."
 msgstr "Sporing er ikke aktiv."
 
-#: db_structure.php:451 libraries/display_tbl.lib.php:2348
+#: db_structure.php:451 libraries/display_tbl.lib.php:2355
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -636,20 +636,20 @@ msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s er standard datalageret på denne MySQL-server."
 
 #: db_structure.php:561 db_structure.php:578 db_structure.php:579
-#: libraries/display_tbl.lib.php:2490 libraries/display_tbl.lib.php:2495
+#: libraries/display_tbl.lib.php:2497 libraries/display_tbl.lib.php:2502
 #: libraries/mult_submits.inc.php:15 server_databases.php:263
 #: server_databases.php:268 server_privileges.php:1760 tbl_structure.php:557
 #: tbl_structure.php:566
 msgid "With selected:"
 msgstr "Med det markerede:"
 
-#: db_structure.php:564 libraries/display_tbl.lib.php:2485
+#: db_structure.php:564 libraries/display_tbl.lib.php:2492
 #: server_databases.php:265 server_privileges.php:684
 #: server_privileges.php:1763 tbl_structure.php:560
 msgid "Check All"
 msgstr "Vælg alle"
 
-#: db_structure.php:568 libraries/display_tbl.lib.php:2486
+#: db_structure.php:568 libraries/display_tbl.lib.php:2493
 #: libraries/replication_gui.lib.php:35 server_databases.php:267
 #: server_privileges.php:687 server_privileges.php:1767 tbl_structure.php:564
 msgid "Uncheck All"
@@ -662,7 +662,7 @@ msgstr "Check tabeller der har overhead"
 #: db_structure.php:581 libraries/common.lib.php:3353
 #: libraries/common.lib.php:3354 libraries/config/messages.inc.php:166
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:79
-#: libraries/display_tbl.lib.php:2508 libraries/display_tbl.lib.php:2649
+#: libraries/display_tbl.lib.php:2515 libraries/display_tbl.lib.php:2656
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
 #: prefs_manage.php:286 server_privileges.php:1449 server_status.php:1595
 #: setup/frames/menu.inc.php:21
@@ -670,7 +670,7 @@ msgid "Export"
 msgstr "Eksporter"
 
 #: db_structure.php:583 db_structure.php:639
-#: libraries/display_tbl.lib.php:2598 tbl_structure.php:613
+#: libraries/display_tbl.lib.php:2605 tbl_structure.php:613
 msgid "Print view"
 msgstr "Udskriv"
 
@@ -726,7 +726,7 @@ msgstr "Sporede tabeller"
 
 #: db_tracking.php:85 libraries/config/messages.inc.php:502
 #: libraries/export/htmlword.php:78 libraries/export/latex.php:156
-#: libraries/export/odt.php:114 libraries/export/pdf.php:95
+#: libraries/export/odt.php:114 libraries/export/pdf.php:98
 #: libraries/export/sql.php:602 libraries/export/texytext.php:66
 #: libraries/export/xml.php:292 libraries/header.inc.php:146
 #: libraries/header_printview.inc.php:60 server_databases.php:161
@@ -889,7 +889,7 @@ msgid "SRID"
 msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:322
-#: libraries/display_tbl.lib.php:685
+#: libraries/display_tbl.lib.php:692
 msgid "Geometry"
 msgstr "Geometri"
 
@@ -1042,7 +1042,7 @@ msgstr ""
 "mindre du forøger PHP-tidsbegrænsningerne."
 
 #: import.php:472 libraries/Message.class.php:175
-#: libraries/display_tbl.lib.php:2385 libraries/rte/rte_routines.lib.php:1204
+#: libraries/display_tbl.lib.php:2392 libraries/rte/rte_routines.lib.php:1204
 #: libraries/sql_query_form.lib.php:113 tbl_operations.php:229
 #: tbl_relation.php:284 tbl_row_action.php:126 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
@@ -1148,7 +1148,7 @@ msgid "The passwords aren't the same!"
 msgstr "De to adgangskoder er ikke ens!"
 
 #: js/messages.php:59 server_privileges.php:1773 server_privileges.php:1797
-#: server_privileges.php:2209 server_privileges.php:2410
+#: server_privileges.php:2209 server_privileges.php:2414
 msgid "Add user"
 msgstr "Opret bruger"
 
@@ -1168,7 +1168,7 @@ msgstr "Luk"
 #: js/messages.php:65 js/messages.php:277 libraries/Index.class.php:468
 #: libraries/common.lib.php:648 libraries/common.lib.php:1194
 #: libraries/common.lib.php:3351 libraries/common.lib.php:3352
-#: libraries/config/messages.inc.php:482 libraries/display_tbl.lib.php:1382
+#: libraries/config/messages.inc.php:482 libraries/display_tbl.lib.php:1389
 #: libraries/schema/User_Schema.class.php:196 setup/frames/index.inc.php:138
 msgid "Edit"
 msgstr "Ret"
@@ -1417,7 +1417,7 @@ msgid "Please add at least one variable to the series"
 msgstr "Tilføj mindst en variabel til serien"
 
 #: js/messages.php:143 libraries/display_export.lib.php:308
-#: libraries/display_tbl.lib.php:565 libraries/export/sql.php:1093
+#: libraries/display_tbl.lib.php:572 libraries/export/sql.php:1093
 #: libraries/tbl_properties.inc.php:530 pmd_general.php:504
 #: server_privileges.php:2050 server_status.php:1263 server_status.php:1692
 #: tbl_zoom_select.php:151 tbl_zoom_select.php:278
@@ -1857,7 +1857,7 @@ msgid "No rows selected"
 msgstr "Ingen rækker valgt"
 
 #: js/messages.php:279 libraries/common.lib.php:2743
-#: libraries/display_tbl.lib.php:2499 querywindow.php:87 tbl_structure.php:149
+#: libraries/display_tbl.lib.php:2506 querywindow.php:87 tbl_structure.php:149
 #: tbl_structure.php:572
 msgid "Change"
 msgstr "Ret"
@@ -1946,7 +1946,7 @@ msgstr "Data pointer-størrelse"
 msgid "Ignore"
 msgstr "Ignorer"
 
-#: js/messages.php:315 libraries/display_tbl.lib.php:1383
+#: js/messages.php:315 libraries/display_tbl.lib.php:1390
 msgid "Copy"
 msgstr "Kopi"
 
@@ -3468,7 +3468,7 @@ msgstr "Standard tabel-fane"
 msgid "Show binary contents as HEX by default"
 msgstr "Som standard vises binært indhold som HEX"
 
-#: libraries/config/messages.inc.php:57 libraries/display_tbl.lib.php:671
+#: libraries/config/messages.inc.php:57 libraries/display_tbl.lib.php:678
 msgid "Show binary contents as HEX"
 msgstr "Vis binært indhold som HEX"
 
@@ -5559,7 +5559,7 @@ msgstr "Hændelser"
 msgid "Triggers"
 msgstr "Triggers"
 
-#: libraries/db_structure.lib.php:43 libraries/display_tbl.lib.php:2220
+#: libraries/db_structure.lib.php:43 libraries/display_tbl.lib.php:2227
 msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
@@ -5913,7 +5913,7 @@ msgstr "Overskrifter for hver %s rows"
 msgid "Sort by key"
 msgstr "Sorteringsnøgle"
 
-#: libraries/display_tbl.lib.php:619 libraries/export/codegen.php:41
+#: libraries/display_tbl.lib.php:626 libraries/export/codegen.php:41
 #: libraries/export/csv.php:34 libraries/export/excel.php:37
 #: libraries/export/htmlword.php:33 libraries/export/json.php:29
 #: libraries/export/latex.php:35 libraries/export/mediawiki.php:23
@@ -5930,95 +5930,95 @@ msgstr "Sorteringsnøgle"
 msgid "Options"
 msgstr "Indstillinger"
 
-#: libraries/display_tbl.lib.php:624 libraries/display_tbl.lib.php:642
+#: libraries/display_tbl.lib.php:631 libraries/display_tbl.lib.php:649
 msgid "Partial texts"
 msgstr "Delvise tekster"
 
-#: libraries/display_tbl.lib.php:625 libraries/display_tbl.lib.php:646
+#: libraries/display_tbl.lib.php:632 libraries/display_tbl.lib.php:653
 msgid "Full texts"
 msgstr "Komplette tekster"
 
-#: libraries/display_tbl.lib.php:659
+#: libraries/display_tbl.lib.php:666
 msgid "Relational key"
 msgstr "Relationel nøgle"
 
-#: libraries/display_tbl.lib.php:660
+#: libraries/display_tbl.lib.php:667
 msgid "Relational display column"
 msgstr "Relationel visningskolonne"
 
-#: libraries/display_tbl.lib.php:667
+#: libraries/display_tbl.lib.php:674
 msgid "Show binary contents"
 msgstr "Vis binært indhold"
 
-#: libraries/display_tbl.lib.php:669
+#: libraries/display_tbl.lib.php:676
 msgid "Show BLOB contents"
 msgstr "Vis indhold af BLOB"
 
-#: libraries/display_tbl.lib.php:679 pmd_general.php:147 tbl_change.php:324
+#: libraries/display_tbl.lib.php:686 pmd_general.php:147 tbl_change.php:324
 #: tbl_change.php:330
 msgid "Hide"
 msgstr "Skjul"
 
-#: libraries/display_tbl.lib.php:679 libraries/relation.lib.php:116
+#: libraries/display_tbl.lib.php:686 libraries/relation.lib.php:116
 #: libraries/tbl_properties.inc.php:136 transformation_overview.php:46
 msgid "Browser transformation"
 msgstr "Browser transformation"
 
-#: libraries/display_tbl.lib.php:686
+#: libraries/display_tbl.lib.php:693
 msgid "Well Known Text"
 msgstr "Velkendt tekst"
 
-#: libraries/display_tbl.lib.php:687
+#: libraries/display_tbl.lib.php:694
 msgid "Well Known Binary"
 msgstr "Velkendt binær"
 
-#: libraries/display_tbl.lib.php:1398 libraries/display_tbl.lib.php:1410
+#: libraries/display_tbl.lib.php:1405 libraries/display_tbl.lib.php:1417
 msgid "The row has been deleted"
 msgstr "Rækken er slettet"
 
-#: libraries/display_tbl.lib.php:1437 libraries/display_tbl.lib.php:2465
+#: libraries/display_tbl.lib.php:1444 libraries/display_tbl.lib.php:2472
 #: server_status.php:1259
 msgid "Kill"
 msgstr "Dræb (Kill)"
 
-#: libraries/display_tbl.lib.php:2324
+#: libraries/display_tbl.lib.php:2331
 msgid "in query"
 msgstr "i forespørgsel"
 
-#: libraries/display_tbl.lib.php:2356
+#: libraries/display_tbl.lib.php:2363
 msgid "Showing rows"
 msgstr "Viser poster"
 
-#: libraries/display_tbl.lib.php:2366
+#: libraries/display_tbl.lib.php:2373
 msgid "total"
 msgstr "total"
 
-#: libraries/display_tbl.lib.php:2374 sql.php:726
+#: libraries/display_tbl.lib.php:2381 sql.php:726
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "forepørgsel tog %01.4f sek"
 
-#: libraries/display_tbl.lib.php:2577
+#: libraries/display_tbl.lib.php:2584
 msgid "Query results operations"
 msgstr "Forespørgselsresultat operationer"
 
-#: libraries/display_tbl.lib.php:2606
+#: libraries/display_tbl.lib.php:2613
 msgid "Print view (with full texts)"
 msgstr "Udskriv (med fulde tekster)"
 
-#: libraries/display_tbl.lib.php:2656 tbl_chart.php:86
+#: libraries/display_tbl.lib.php:2663 tbl_chart.php:86
 msgid "Display chart"
 msgstr "Vis diagram"
 
-#: libraries/display_tbl.lib.php:2672
+#: libraries/display_tbl.lib.php:2679
 msgid "Visualize GIS data"
 msgstr "Visualiser GIS data"
 
-#: libraries/display_tbl.lib.php:2693
+#: libraries/display_tbl.lib.php:2700
 msgid "Create view"
 msgstr "Opret view"
 
-#: libraries/display_tbl.lib.php:2800
+#: libraries/display_tbl.lib.php:2807
 msgid "Link not found"
 msgstr "Link ikke fundet"
 
@@ -7509,7 +7509,7 @@ msgstr "Du skal angive en gyldig type for hændelsen."
 msgid "You must provide an event definition."
 msgstr "Du skal angive en hændelsesdefinition."
 
-#: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2407
+#: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2411
 msgid "New"
 msgstr "Ny"
 
@@ -9232,7 +9232,7 @@ msgstr "Login-information"
 msgid "Do not change the password"
 msgstr "Adgangskoden må ikke ændres"
 
-#: server_privileges.php:917 server_privileges.php:2393
+#: server_privileges.php:917 server_privileges.php:2397
 msgid "No user found."
 msgstr "Ingen bruger fundet."
 
@@ -9412,19 +9412,19 @@ msgstr "Tildel alle privilegier på database &quot;%s&quot;"
 msgid "Users having access to &quot;%s&quot;"
 msgstr "Brugere med adgang til &quot;%s&quot;"
 
-#: server_privileges.php:2358
+#: server_privileges.php:2359
 msgid "global"
 msgstr "global"
 
-#: server_privileges.php:2360
+#: server_privileges.php:2361
 msgid "database-specific"
 msgstr "database-specifik"
 
-#: server_privileges.php:2362
+#: server_privileges.php:2363
 msgid "wildcard"
 msgstr "jokertegn"
 
-#: server_privileges.php:2402
+#: server_privileges.php:2406
 msgid "User has been added."
 msgstr "Bruger er blevet tilføjet."
 
@@ -11291,74 +11291,74 @@ msgstr ""
 msgid "Continue insertion with %s rows"
 msgstr "Fortsæt indsættelse med %s rækker"
 
-#: tbl_chart.php:88
+#: tbl_chart.php:89
 #, fuzzy
 #| msgid "Bar"
 msgctxt "Chart type"
 msgid "Bar"
 msgstr "Søjle"
 
-#: tbl_chart.php:89
+#: tbl_chart.php:91
 #, fuzzy
 #| msgid "Column"
 msgctxt "Chart type"
 msgid "Column"
 msgstr "Kolonnenavn"
 
-#: tbl_chart.php:90
+#: tbl_chart.php:93
 #, fuzzy
 #| msgid "Line"
 msgctxt "Chart type"
 msgid "Line"
 msgstr "Linje"
 
-#: tbl_chart.php:91
+#: tbl_chart.php:95
 #, fuzzy
 #| msgid "Spline"
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "Spline"
 
-#: tbl_chart.php:92
+#: tbl_chart.php:97
 #, fuzzy
 #| msgid "Pie"
 msgctxt "Chart type"
 msgid "Pie"
 msgstr "Lagkage"
 
-#: tbl_chart.php:94
+#: tbl_chart.php:100
 msgid "Stacked"
 msgstr "Stak"
 
-#: tbl_chart.php:97
+#: tbl_chart.php:103
 msgid "Chart title"
 msgstr "Diagramtitel"
 
-#: tbl_chart.php:103
+#: tbl_chart.php:109
 msgid "X-Axis:"
 msgstr "X-akse:"
 
-#: tbl_chart.php:117
+#: tbl_chart.php:124
 msgid "Series:"
 msgstr "Serie:"
 
-#: tbl_chart.php:119
+#: tbl_chart.php:126
 msgid "The remaining columns"
 msgstr "De resterende kolonner"
 
-#: tbl_chart.php:132
+#: tbl_chart.php:139
 msgid "X-Axis label:"
 msgstr "X-akse betegnelse:"
 
-#: tbl_chart.php:133
+#: tbl_chart.php:141
 msgid "X Values"
 msgstr "X værdier"
 
-#: tbl_chart.php:134
+#: tbl_chart.php:142
 msgid "Y-Axis label:"
 msgstr "Y-akse betegnelse:"
 
-#: tbl_chart.php:134
+#: tbl_chart.php:143
 msgid "Y Values"
 msgstr "Y-værdier"
 
@@ -12258,7 +12258,9 @@ msgstr ""
 "sekund."
 
 #: po/advisory_rules.php:80
-msgid "Query cache efficiency (%)"
+#, fuzzy, php-format
+#| msgid "Query cache efficiency (%)"
+msgid "Query cache efficiency (%%)"
 msgstr "Effektivitet (%) af forespørgselsmellemlager "
 
 #: po/advisory_rules.php:81
@@ -12363,9 +12365,13 @@ msgstr ""
 "og check resultatet."
 
 #: po/advisory_rules.php:98
+#, fuzzy, php-format
+#| msgid ""
+#| "The ratio of removed queries to inserted queries is %s%%. The lower this "
+#| "value is, the better (This rules firing limit: 0.1%)"
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
-"value is, the better (This rules firing limit: 0.1%)"
+"value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
 "Andelen af fjernede forespørgsler til indsatte forespørgsler er %s%%. Jo "
 "mindre denne værdi er des bedre. (Denne regel aktiveres ved 0,1%)"
