@@ -8494,7 +8494,7 @@ msgstr "Маленькі/Великі Всі"
 
 #: pmd_general.php:98
 msgid "Toggle small/big"
-msgstr ""
+msgstr "Переключити маленькі/великі"
 
 #: pmd_general.php:99
 #, fuzzy
