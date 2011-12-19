@@ -36,6 +36,7 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
     {
         unset($GLOBALS['server']);
         unset($GLOBALS['lang']);
+        unset($GLOBALS['collation_connection']);
         $this->assertEquals('<a href="./url.php?url=http%3A%2F%2Fwww.phpmyadmin.net%2F&amp;token=token" target="target">link</a>',
             PMA_sanitize('[a@http://www.phpmyadmin.net/@target]link[/a]'));
     }
