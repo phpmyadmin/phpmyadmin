@@ -167,15 +167,6 @@ function includePan(currentChart) {
 }
 
 $(document).ready(function() {
-
-   /**
-    ** Set a parameter for all Ajax queries made on this page.  Don't let the
-    ** web server serve cached pages
-    **/
-    $.ajaxSetup({
-        cache: 'false'
-    });
-
     var cursorMode = ($("input[name='mode']:checked").val() == 'edit') ? 'crosshair' : 'pointer';
     var currentChart = null;
     var currentData = null;

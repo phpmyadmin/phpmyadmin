@@ -139,17 +139,6 @@ function appendNewUser(new_user_string, new_user_initial, new_user_initial_strin
  */
 
 $(document).ready(function() {
-    /** @lends jQuery */
-
-    /**
-     * Set a parameter for all Ajax queries made on this page.  Some queries
-     * are affected by cache settings on the server side, and hence, show stale
-     * data.  Don't let the web server serve cached pages
-     */
-    $.ajaxSetup({
-        cache: 'false'
-    });
-
     /**
      * AJAX event handler for 'Add a New User'
      *

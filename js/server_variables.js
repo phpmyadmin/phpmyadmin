@@ -8,10 +8,6 @@ $(function() {
     saveLink = '<a href="#" class="saveLink">' + PMA_getImage('b_save.png') + ' ' + PMA_messages['strSave'] + '</a> ';
     cancelLink = '<a href="#" class="cancelLink">' + PMA_getImage('b_close.png') + ' ' + PMA_messages['strCancel'] + '</a> ';
 
-    $.ajaxSetup({
-        cache:false
-    });
-
     /* Variable editing */
     if (is_superuser) {
         $('table.data tbody tr td:nth-child(2)').hover(
