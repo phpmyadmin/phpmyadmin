@@ -8615,7 +8615,7 @@ msgstr "Помилка: зв'язок вже існує."
 
 #: pmd_relation_new.php:59 pmd_relation_new.php:84
 msgid "Error: Relation not added."
-msgstr ""
+msgstr "Помилка: Зв'язок не доданий."
 
 #: pmd_relation_new.php:60
 msgid "FOREIGN KEY relation added"
