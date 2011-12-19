@@ -8525,7 +8525,7 @@ msgstr "Сховати/Показати Таблиці які не мають з
 
 #: pmd_general.php:170
 msgid "Number of tables"
-msgstr ""
+msgstr "Число таблиць"
 
 #: pmd_general.php:412
 msgid "Delete relation"
