@@ -8486,7 +8486,7 @@ msgstr "Пряме посилання"
 
 #: pmd_general.php:91
 msgid "Snap to grid"
-msgstr ""
+msgstr "Прив'язати до сітки"
 
 #: pmd_general.php:95
 msgid "Small/Big All"
