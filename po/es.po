@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-15 17:27+0200\n"
+"PO-Revision-Date: 2011-12-19 16:42+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -12418,10 +12418,10 @@ msgstr ""
 "segundo. Esta regla se dispara si hay más de 100 consultas por segundo."
 
 #: po/advisory_rules.php:80
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query cache efficiency (%)"
 msgid "Query cache efficiency (%%)"
-msgstr "Eficiencia del caché de consultas (%)"
+msgstr "Eficiencia del caché de consultas (%%)"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
