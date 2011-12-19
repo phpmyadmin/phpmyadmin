@@ -8473,7 +8473,7 @@ msgstr "Перезавантажити"
 
 #: pmd_general.php:83
 msgid "Help"
-msgstr ""
+msgstr "Допомога"
 
 #: pmd_general.php:87
 msgid "Angular links"
