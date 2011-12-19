@@ -8603,7 +8603,7 @@ msgstr "Нова назва сторінки: "
 
 #: pmd_pdf.php:110
 msgid "Export/Import to scale"
-msgstr ""
+msgstr "Експорт/Імпорт у масштабі"
 
 #: pmd_pdf.php:115
 msgid "recommended"
