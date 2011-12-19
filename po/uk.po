@@ -8550,10 +8550,9 @@ msgid "subquery"
 msgstr "підзапит"
 
 #: pmd_general.php:474 pmd_general.php:570
-#, fuzzy
 #| msgid "Rename table to"
 msgid "Rename to"
-msgstr "Перейменувати таблицю в"
+msgstr "Перейменувати у"
 
 #: pmd_general.php:476 pmd_general.php:575
 #, fuzzy
