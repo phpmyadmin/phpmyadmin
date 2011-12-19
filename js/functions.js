@@ -1,6 +1,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * general function, usally for data manipulation pages
+ * general function, usually for data manipulation pages
  *
  */
 
@@ -42,6 +42,19 @@ function getWindowSize(wnd) {
         height: vp.innerHeight || (vp.documentElement !== undefined ? vp.documentElement.clientHeight : false) || $(vp).height()
     };
 }
+
+/**
+ * Make sure that ajax requests will not be cached
+ * by appending a random variable to their parameters
+ */
+$.ajaxPrefilter(function (options, originalOptions, jqXHR) {
+    var nocache = new Date().getTime() + "" + Math.floor(Math.random() * 1000000);
+    if (typeof options.data == "string") {
+        options.data += "&_nocache=" + nocache;
+    } else if (typeof options.data == "object") {
+        options.data = $.extend(originalOptions.data, {'_nocache':nocache});
+    }
+});
 
 /**
  * Add a hidden field to the form to indicate that this will be an

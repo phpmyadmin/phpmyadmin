@@ -13,15 +13,6 @@
  * Table Search
  */
 $(document).ready(function() {
-
-    /**
-     * Set a parameter for all Ajax queries made on this page.  Don't let the
-     * web server serve cached pages
-     */
-    $.ajaxSetup({
-        cache: 'false'
-    });
-
     /**
      * Prepare a div containing a link, otherwise it's incorrectly displayed 
      * after a couple of clicks

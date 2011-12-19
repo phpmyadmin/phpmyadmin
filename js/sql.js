@@ -72,15 +72,6 @@ function getFieldName($this_field)
  * @memberOf    jQuery
  */
 $(document).ready(function() {
-
-    /**
-     * Set a parameter for all Ajax queries made on this page.  Don't let the
-     * web server serve cached pages
-     */
-    $.ajaxSetup({
-        cache: 'false'
-    });
-
     /* Hides the bookmarkoptions checkboxes when the bookmark label is empty */
     $('input#bkm_label').keyup(function() {
         $('input#id_bkm_all_users, input#id_bkm_replace')

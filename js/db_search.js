@@ -95,14 +95,6 @@ function deleteResult(result_path, msg, ajaxEnable)
 }
 
 $(document).ready(function() {
-    /**
-     * Set a parameter for all Ajax queries made on this page.
-     * Don't let the web server serve cached pages
-     */
-    $.ajaxSetup({
-        cache: 'false'
-    });
-
     /** Hide the table link in the initial search result */
     var icon = PMA_getImage('s_tbl.png', '', {'id': 'table-image'}).toString();
     $("#table-info").prepend(icon).hide();
