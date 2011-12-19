@@ -8517,7 +8517,7 @@ msgstr "Посунути меню"
 
 #: pmd_general.php:126
 msgid "Hide/Show all"
-msgstr ""
+msgstr "Сховати/Показати все"
 
 #: pmd_general.php:130
 msgid "Hide/Show Tables with no relation"
