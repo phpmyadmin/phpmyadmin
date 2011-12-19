@@ -8592,10 +8592,9 @@ msgid "Export to selected page"
 msgstr "Експорт у вибрану сторінку"
 
 #: pmd_pdf.php:98
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create a page and export to it"
-msgstr "Створити новий індекс"
+msgstr "Створити нову сторінку та експортувати в неї"
 
 #: pmd_pdf.php:107
 #, fuzzy
