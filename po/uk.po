@@ -8539,10 +8539,9 @@ msgstr "Перегляд залежностей"
 
 #: pmd_general.php:464 pmd_general.php:523 pmd_general.php:646
 #: pmd_general.php:763
-#, fuzzy
 #| msgid "Export"
 msgid "Except"
-msgstr "Експорт"
+msgstr "За винятком"
 
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769
