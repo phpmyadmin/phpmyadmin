@@ -1,7 +1,7 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.9-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.10-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-06 09:23+0200\n"
 "PO-Revision-Date: 2011-02-24 16:21+0200\n"
@@ -1784,7 +1784,7 @@ msgstr "Błąd połączenia z PBMS"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
-msgstr ""
+msgstr "Błąd połączenia z PBMS"
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
@@ -2366,10 +2366,13 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
 msgstr ""
+"Włączenie umożliwia stronie zlokalizowanej na innej domenie, połączyć się z "
+"wewnątrznymi ramkami phpMyAdmin, i jest potencjalną [strong] luką "
+"bezpieczeństwa [/strong] pozwalającą na ataki skryptem na ramki"
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
-msgstr ""
+msgstr "Upoważniać kadrowanie strony"
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
@@ -2421,6 +2424,9 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
+"Określa jaki rodzaj pól edycyjnych powinna zostać użyta do kolumn typu CHAR "
+"i VARCHAR; [kbd]input[/ kbd] - umożliwia ograniczenie długości wejściowych, "
+"[kbd]textarea[/ kbd] - pozwala nowej linii w kolumnach"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
@@ -2478,7 +2484,7 @@ msgstr "Potwierdzanie zapytań DROP"
 
 #: libraries/config/messages.inc.php:44
 msgid "Debug SQL"
-msgstr ""
+msgstr "Debug SQL"
 
 #: libraries/config/messages.inc.php:45
 #, fuzzy
@@ -2490,6 +2496,8 @@ msgid ""
 "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates "
 "maximum number for which vertical model is used"
 msgstr ""
+"[kbd]poziomej[/kbd], [kbd]pionowej[/kbd] lub numer, który wskazuje "
+"maksymalną liczbę, dla których stosowany jest model pionowy"
 
 #: libraries/config/messages.inc.php:47
 msgid "Display direction for altering/creating columns"
@@ -3031,6 +3039,9 @@ msgid ""
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
+"Konfiguracja pamięcimagazywnowania konfiguracji phpMyAdmin, aby uzyskać "
+"dostęp do dodatkowych opcji, patrz [a@Documentation.html # związane Stoły] "
+"przechowywanie konfiguracji phpMyAdmin [/ a] w dokumentacji"
 
 #: libraries/config/messages.inc.php:204
 msgid "Changes tracking"
@@ -3092,6 +3103,11 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
+"Jeśli chcesz skorzystać z usługi Weryfikcji SQL, należy pamiętać, że "
+"wszystkie [strong]instrukcje SQL są przechowywane anonimowo do celów "
+"statystycznych[/strong]. [br][em][a@http://sqlvalidator.mimer.com/]Usługę "
+"Mimer SQL Validator[/a], Prawo autorskie 2002 Upright Database Technology. "
+"Wszelkie prawa zastrzeżone.[/em]"
 
 #: libraries/config/messages.inc.php:220
 msgid "Startup"
@@ -3507,7 +3523,7 @@ msgstr "Pokaż logo w lewej ramce"
 
 #: libraries/config/messages.inc.php:317
 msgid "Show table row links on right side"
-msgstr ""
+msgstr "Pokaż linki do wiersza tabeli po prawej stronie"
 
 #: libraries/config/messages.inc.php:318
 msgid "Use natural order for sorting table and database names"
@@ -3541,6 +3557,8 @@ msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
+"[kbd]SMART[/kbd] - tj. malejącej dla kolumny, wpisz DATE, DATETIME i "
+"TIMESTAMP, a rosnącej inaczej"
 
 #: libraries/config/messages.inc.php:325
 msgid "Default sorting order"
@@ -3574,7 +3592,7 @@ msgstr "Wygląd interfejsu do operacji na tabeli"
 
 #: libraries/config/messages.inc.php:332
 msgid "Disallow BLOB and BINARY columns from editing"
-msgstr ""
+msgstr "Nie zezwalaj na BLOB i BINARNE kolumny z edycji"
 
 #: libraries/config/messages.inc.php:333
 msgid "Protect binary columns"
@@ -3586,6 +3604,9 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
+"Włącz jeśli chcesz DB oparte na historii zapytań (phpMyAdmin wymaga "
+"przechowywania konfiguracji). Jeśli jest wyłączona, to korzysta z JS-"
+"procedury, aby wyświetlić historię zapytań (utracone przez zamknięte okna)."
 
 #: libraries/config/messages.inc.php:335
 msgid "Permanent query history"
@@ -3634,6 +3655,7 @@ msgstr "Mechanizm konwersji kodowania napisów"
 #: libraries/config/messages.inc.php:347
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr ""
+"Powtarzanie nagłówków każdej komórki X, [kbd]0[/kbd] wyłącza tę funkcję"
 
 #: libraries/config/messages.inc.php:348
 #, fuzzy
@@ -3689,7 +3711,7 @@ msgstr "Nazwa \"Auth Realm\" wyświetlana przy autoryzacji HTTP Basic"
 
 #: libraries/config/messages.inc.php:361
 msgid "HTTP Realm"
-msgstr ""
+msgstr "HTTP Realm"
 
 #: libraries/config/messages.inc.php:362
 msgid ""
@@ -3990,6 +4012,8 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
 msgstr ""
+"Tabela do opisu wyświetlania kolumn, pozostaw puste bez wsparcia; "
+"zasugerował: [kbd]pma_table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:418
 #, fuzzy
@@ -4002,6 +4026,8 @@ msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
+"Czy sprawoadanie DROP DATABASE IF EXISTS zostanie dodany jako pierwsza linia "
+"w dzienniku podczas tworzenia bazy danych."
 
 #: libraries/config/messages.inc.php:420
 msgid "Add DROP DATABASE"
@@ -4012,6 +4038,8 @@ msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
+"Czy sprawoadanie DROP TABLE IF EXISTS zostanie dodany jako pierwsza linia w "
+"dzienniku podczas tworzenia tabeli."
 
 #: libraries/config/messages.inc.php:422
 msgid "Add DROP TABLE"
@@ -4022,6 +4050,8 @@ msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
+"Czy sprawozdanie DROP VIEW IF EXISTS zostanie dodany jako pierwsza linia w "
+"dzienniku podczas tworzenia widoku."
 
 #: libraries/config/messages.inc.php:424
 msgid "Add DROP VIEW"
@@ -4043,6 +4073,8 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
 msgstr ""
+"Puste pole oznacza brak wsparcia śledzenia zapytań SQL, zaproponował: [kbd]"
+"pma_tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:428
 msgid "SQL query tracking table"
@@ -4108,6 +4140,8 @@ msgstr "Szczegółowa nazwa serwera"
 #: libraries/config/messages.inc.php:439
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr ""
+"Czy użytkownik powinien mieć wyświetlony przycisk \"pokaż wszystkie "
+"(wiersze)\";"
 
 #: libraries/config/messages.inc.php:440
 msgid "Allow to display all the rows"
@@ -4137,6 +4171,8 @@ msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr ""
+"Określa czy typ pola powinny być początkowo wyświetlany w trybie edycji/"
+"wstawiania"
 
 #: libraries/config/messages.inc.php:445
 #, fuzzy
@@ -4295,6 +4331,8 @@ msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
+"Rozmiar pola tekstowego (kolumny) w trybie edycji, wartość ta będzie "
+"eksponowana zapytaniem SQL pola tekstowego (*2) i okna kwerendy (*1,25)"
 
 #: libraries/config/messages.inc.php:478
 #, fuzzy
@@ -4332,7 +4370,7 @@ msgstr "Tytuł okna, jeśli wybrany jest serwer"
 
 #: libraries/config/messages.inc.php:487
 msgid "Title of browser window when a table is selected"
-msgstr ""
+msgstr "Tytuł okna przeglądarki, gdy tabela jest zaznaczona"
 
 #: libraries/config/messages.inc.php:489
 msgid ""
@@ -4685,7 +4723,7 @@ msgstr "Rodzaj eksportu"
 
 #: libraries/display_export.lib.php:106
 msgid "Quick - display only the minimal options"
-msgstr ""
+msgstr "Szybko - wyświetlane są tylko minimalne opcje"
 
 #: libraries/display_export.lib.php:122
 #, fuzzy
@@ -4841,6 +4879,8 @@ msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
 msgstr ""
+"Przewiń do wypełnienia w opcji dla wybranego formatu i ignorowanie opcji dla "
+"innych formatów."
 
 #: libraries/display_export.lib.php:340 libraries/display_import.lib.php:260
 #, fuzzy
@@ -5305,10 +5345,12 @@ msgid ""
 "The port for the PBMS stream-based communications. Setting this value to 0 "
 "will disable HTTP communication with the daemon."
 msgstr ""
+"Port dla komunikacji strumienia bazy PBMS. Ustawienie wartości 0 spowoduje "
+"wyłączenie komunikacji HTTP z demonem."
 
 #: libraries/engines/pbms.lib.php:40
 msgid "Repository Threshold"
-msgstr ""
+msgstr "Próg repozytorium"
 
 #: libraries/engines/pbms.lib.php:41
 msgid ""
@@ -5316,16 +5358,22 @@ msgid ""
 "indicate the unit of the value. A value in bytes is assumed when no unit is "
 "specified."
 msgstr ""
+"Maksymalny rozmiar pliku repozytorium BLOB. Możesz użyć Kb, MB lub GB "
+"wskazać jednostkę wartości.Wartość w bajtach zakłada się, gdy żadna "
+"jednostka jest określona."
 
 #: libraries/engines/pbms.lib.php:45
 msgid "Temp Blob Timeout"
-msgstr ""
+msgstr "Temp Blob Timeout"
 
 #: libraries/engines/pbms.lib.php:46
 msgid ""
 "The timeout, in seconds, for temporary BLOBs. Uploaded BLOB data is removed "
 "after this time, unless they are referenced by a record in the database."
 msgstr ""
+"Limit czasu w sekundach, do tymczasowego BLOB. Przesłane dane BLOB są "
+"usuwane po upływie tego czasu, chyba że odwołują się do wiersza w bazie "
+"danych."
 
 #: libraries/engines/pbms.lib.php:50
 #, fuzzy
@@ -5339,6 +5387,9 @@ msgid ""
 "indicate the unit of the value. A value in bytes is assumed when no unit is "
 "specified."
 msgstr ""
+"Maksymalny rozmiar pliku tymczasowego dziennika BLOB. Możesz użyć Kb, MB lub "
+"GB wskazać jednostkę wartości. Wartość w bajtach Zakłada się, gdy żadna "
+"jednostka jest określona."
 
 #: libraries/engines/pbms.lib.php:55
 msgid "Max Keep Alive"
@@ -5349,6 +5400,8 @@ msgid ""
 "The timeout for inactive connection with the keep-alive flag set. After this "
 "time the connection will be closed. The time-out is in milliseconds (1/1000)."
 msgstr ""
+"Limit czasu dla nieaktywnych połączeń z usawioną flagą żywy. Po tym czasie "
+"połączenie zostanie zamknięte. Czasu jest w milisekundach (1/1000)."
 
 #: libraries/engines/pbms.lib.php:60
 msgid "Metadata Headers"
@@ -5359,6 +5412,8 @@ msgid ""
 "A \":\" delimited list of metadata headers to be used to initialize the "
 "pbms_metadata_header table when a database is created."
 msgstr ""
+"\":\" rozdzielanie list rozdzielonymi nagłówkami metadanych będą używane do "
+"zainicjowania tabeli pbms_metadata_header, gdy baza danych jest tworzona."
 
 #: libraries/engines/pbms.lib.php:94
 #, php-format
@@ -5366,6 +5421,8 @@ msgid ""
 "Documentation and further information about PBMS can be found on %sThe "
 "PrimeBase Media Streaming home page%s."
 msgstr ""
+"Dokumentacja i dodatkowe informacje o PBMS można znaleźć na %sStronie "
+"domowej The PrimeBase Media Streaming%s."
 
 #: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
 #, fuzzy
@@ -5375,7 +5432,7 @@ msgstr "Relacje"
 
 #: libraries/engines/pbms.lib.php:98
 msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
-msgstr ""
+msgstr "PrimeBase Media Streaming Blog wg Barry Leslie"
 
 #: libraries/engines/pbms.lib.php:99
 msgid "PrimeBase XT Home Page"
@@ -5537,14 +5594,16 @@ msgid ""
 "Documentation and further information about PBXT can be found on the "
 "%sPrimeBase XT Home Page%s."
 msgstr ""
+"Dokumentacja i dodatkowe informacje o PBXT można znaleźć na %sStronie "
+"domowej PrimeBase XT%s."
 
 #: libraries/engines/pbxt.lib.php:129
 msgid "The PrimeBase XT Blog by Paul McCullagh"
-msgstr ""
+msgstr "PrimeBase XT Blog wg Paul McCullagh"
 
 #: libraries/engines/pbxt.lib.php:130
 msgid "The PrimeBase Media Streaming (PBMS) home page"
-msgstr ""
+msgstr "Strona domowa The PrimeBase Media Streaming (PBMS)"
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
 #, fuzzy
@@ -5580,7 +5639,7 @@ msgstr "Zamiana NULL na"
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
 msgid "Remove carriage return/line feed characters within columns"
-msgstr ""
+msgstr "Usuń znaki nowej lini z kolumn"
 
 #: libraries/export/excel.php:32
 #, fuzzy
@@ -5703,6 +5762,8 @@ msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
+"Wyświetl komentarze <i>(zawiera informacje takie jak znacznik czasowy "
+"eksportu, wersję PHP, wersję serwera)</i>"
 
 #: libraries/export/sql.php:35
 #, fuzzy
@@ -5715,11 +5776,15 @@ msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
+"Dołącz znacznik czasu, gdy bazy danych zostały stworzone, ostatnio "
+"aktualizowane i ostatnio sprawdzane"
 
 #: libraries/export/sql.php:65
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
+"System bazy danych lub starszego serwera MySQL w celu maksymalizacji "
+"zgodności produkcji z:"
 
 #: libraries/export/sql.php:72 libraries/export/sql.php:105
 #: libraries/export/sql.php:107
@@ -5779,30 +5844,41 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
+"wstawić wiele wierszy w każdym <code>INSERT</code>oświadczeniu<br />&nbsp; "
+"&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
+"(7,8,9)</code>"
 
 #: libraries/export/sql.php:156
 msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
+"obu powyższych<br /> Przykład:<code>INSERT INTO tbl_name (col_A,col_B) "
+"VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/export/sql.php:157
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
+"żadne z powyższych<br />Przykład: <code>INSERT INTO tbl_name VALUES (1,2,3)</"
+"code>"
 
 #: libraries/export/sql.php:167
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
+"Zrzuć binarne kolumny w postaci szesnastkowej <i>(np. \"abc\" zmienia się na "
+"0x616263)</i>"
 
 #: libraries/export/sql.php:171
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
+"Zrzuć znacznik czasu kolumn w UTC <i>(włączenie znacznik czasu kolumn bedzie "
+"zrzucone i przełądowane między serwerami w różnych strefach czasowych)</i>"
 
 #: libraries/export/sql.php:209 libraries/export/xml.php:34
 msgid "Procedures"
@@ -5926,6 +6002,9 @@ msgid ""
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
+"Jeśli dane w każdym wierszu pliku nie są w takiej samej kolejności jak w "
+"bazie danych, lista odpowiednich nazw kolumn tutaj. Nazwy kolumn muszą być "
+"oddzielone przecinkami, a nie zamknięte cudzysłowami."
 
 #: libraries/import/csv.php:41
 #, fuzzy
@@ -5945,6 +6024,8 @@ msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
+"Nieprawidłowa kolumna (% s) określona! Upewnij się, że nazwy kolumn są "
+"napisane poprawnie, oddzielone przecinkami, a nie w cudzysłowie."
 
 #: libraries/import/csv.php:189 libraries/import/csv.php:436
 #, php-format
@@ -5982,7 +6063,7 @@ msgstr ""
 
 #: libraries/import/ods.php:29
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr ""
+msgstr "Importuj waluty <i>(np. $5.00 do 5.00)</ i>"
 
 #: libraries/import/sql.php:32
 #, fuzzy
@@ -6012,7 +6093,7 @@ msgstr "Brak"
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:148
 msgid "Convert to Kana"
-msgstr ""
+msgstr "Konwersja do Kana"
 
 #: libraries/mult_submits.inc.php:419 tbl_replace.php:331
 msgid "No change"
@@ -6295,6 +6376,8 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
+"Włącz zaawansowane funkcje w pliku konfiguracyjnym (<code>config.inc.php</"
+"code>), na przykład zaczynając od <code>config.sample.inc.php</code>."
 
 #: libraries/relation.lib.php:156
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
@@ -6511,7 +6594,7 @@ msgstr "Schemat relacyjny"
 
 #: libraries/schema/User_Schema.class.php:356
 msgid "Select Export Relational Type"
-msgstr ""
+msgstr "Wybierz typ eksportu relacyjnych"
 
 #: libraries/schema/User_Schema.class.php:377
 msgid "Show grid"
@@ -6746,7 +6829,7 @@ msgstr "SUROWE DANE DOTĄD"
 
 #: libraries/sqlparser.lib.php:364
 msgid "Automatically appended backtick to the end of query!"
-msgstr ""
+msgstr "Automatically appended backtick to the end of query!"
 
 #: libraries/sqlparser.lib.php:367
 msgid "Unclosed quote"
@@ -7291,6 +7374,9 @@ msgid ""
 "functionality will be missing. For example navigation frame will not refresh "
 "automatically."
 msgstr ""
+"Obsługa Javascript jest brakująca lub wyłączona w przeglądarce, niektórych "
+"funkcji phpMyAdmin będzie brakować. Np. ramki nawigacyjne nie bedą "
+"odświeżane automatycznie."
 
 #: main.php:331
 #, php-format
@@ -7468,6 +7554,9 @@ msgid ""
 "column, click the \"Choose column to display\" icon, then click on the "
 "appropriate column name."
 msgstr ""
+"Wyświetlania kolumna jest pokazywana w kolorze różowym. Aby ustawić/zmienić "
+"kolumny jak wyświetlanie kolumn, kliknij \"Wybierz kolumny do wyświetlenia"
+"\", a następnie kliknij odpowiednią nazwę kolumny."
 
 #: pmd_pdf.php:34
 #, fuzzy
@@ -7604,6 +7693,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
+"Możesz ustawić więcej ustawień poprzez modyfikację config.inc.php, przez "
+"użycie %sSkrypt instalacyjny%s."
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
@@ -9102,10 +9193,14 @@ msgstr ""
 #: server_status.php:488
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
+"Ten serwer MySQL jest ustawiony jako <b>master</b> i <b>slave</b> w procesie "
+"<b>replikacji</b>."
 
 #: server_status.php:490
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
+"Ten serwer MySQL jest pracuje jako <b>główny</b> i <b>podrzędny</b> w "
+"procesie <b>replikacji</b>."
 
 #: server_status.php:493
 msgid ""
@@ -9191,7 +9286,7 @@ msgstr "Okno zapytania SQL"
 
 #: server_status.php:728
 msgid "Note: Generating the query chart can take a long time."
-msgstr ""
+msgstr "Uwaga: Generowanie zapytań wykresu może zająć dużo czasu."
 
 #: server_status.php:873
 msgid "Replication status"
@@ -9286,7 +9381,7 @@ msgstr "Wykonane zostały następujące zapytania:"
 
 #: server_synchronize.php:1131
 msgid "Enter manually"
-msgstr ""
+msgstr "Wprowadź ręcznie"
 
 #: server_synchronize.php:1139
 #, fuzzy
@@ -9568,6 +9663,9 @@ msgid ""
 "invalidation if %ssession.gc_maxlifetime%s is lower than its value "
 "(currently %d)."
 msgstr ""
+"%sWażności ciasteczko logowania%s większa niż 1440 sekund może spowodować "
+"losowe unieważnienie sesji, jeśli %ssession.gc_maxlifetime%s jest niższa niż "
+"jego wartość (obecnie %d)."
 
 #: setup/lib/index.lib.php:262
 #, fuzzy, php-format
@@ -9589,6 +9687,9 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
+"W przypadku korzystania z uwierzytelniania cookie i przechowywać "
+"%sciasteczek logowania%s nie jest 0, %sWażności plików cookie%s logowania "
+"muszą być ustawione na wartość mniejsza lub równa jej."
 
 #: setup/lib/index.lib.php:266
 #, fuzzy, php-format
@@ -9695,7 +9796,7 @@ msgstr "Przeglądaj zewnętrzne wartości"
 #: sql.php:163
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
-msgstr ""
+msgstr "Korzystanie z zakładki \"%s\" jako domyślne przeglądanie zapytania."
 
 #: sql.php:601 tbl_replace.php:387
 #, php-format
@@ -9758,7 +9859,7 @@ msgstr "Dodaj jako nowy rekord"
 
 #: tbl_change.php:1059
 msgid "Insert as new row and ignore errors"
-msgstr ""
+msgstr "Wstaw jko nowy wiersz i ignoruj błędy"
 
 #: tbl_change.php:1060
 #, fuzzy
@@ -9816,11 +9917,11 @@ msgstr "Być może w przybliżeniu. Zobacz FAQ 3.11"
 
 #: tbl_chart.php:90
 msgid "Width"
-msgstr ""
+msgstr "Szerokość"
 
 #: tbl_chart.php:94
 msgid "Height"
-msgstr ""
+msgstr "Wysokość"
 
 #: tbl_chart.php:98
 msgid "Title"
@@ -9836,11 +9937,11 @@ msgstr ""
 
 #: tbl_chart.php:112
 msgid "Area margins"
-msgstr ""
+msgstr "Obszar marginesów"
 
 #: tbl_chart.php:122
 msgid "Legend margins"
-msgstr ""
+msgstr "Marginesy legendy"
 
 #: tbl_chart.php:134
 #, fuzzy
@@ -9854,7 +9955,7 @@ msgstr ""
 
 #: tbl_chart.php:136
 msgid "Radar"
-msgstr ""
+msgstr "Radar"
 
 #: tbl_chart.php:138
 #, fuzzy
@@ -9876,32 +9977,38 @@ msgstr "Spakowany"
 
 #: tbl_chart.php:147
 msgid "Multi"
-msgstr ""
+msgstr "Multi"
 
 #: tbl_chart.php:152
 msgid "Continuous image"
-msgstr ""
+msgstr "Ciągłym obrazem"
 
 #: tbl_chart.php:155
 msgid ""
 "For compatibility reasons the chart image is segmented by default, select "
 "this to draw the whole chart in one image."
 msgstr ""
+"Ze względu na kompatybilność obraz wykresu jest podzielony domyślne, wybierz "
+"ten, aby narysować cały wykres w jednym obrazie."
 
 #: tbl_chart.php:166
 msgid ""
 "When drawing a radar chart all values are normalized to a range [0..10]."
 msgstr ""
+"Podczas rysowania wykresu radarowego wszystkie wartości są znormalizowane do "
+"zakresu [0..10]."
 
 #: tbl_chart.php:173
 msgid ""
 "Note that not every result table can be put to the chart. See <a href=\"./"
 "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
 msgstr ""
+"Pamiętaj, że nie każde wyniki tabeli można umieścić na wykresie. Zobacz <a "
+"href=\"./Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
 
 #: tbl_chart.php:181
 msgid "Redraw"
-msgstr ""
+msgstr "Przerysuj"
 
 #: tbl_create.php:56
 #, php-format
@@ -10037,7 +10144,7 @@ msgstr "Zrzut danych tabeli"
 
 #: tbl_operations.php:688
 msgid "Empty the table (TRUNCATE)"
-msgstr ""
+msgstr "Pusta tabela (TRUNCATE)"
 
 #: tbl_operations.php:708
 #, fuzzy
@@ -10143,7 +10250,7 @@ msgstr ""
 
 #: tbl_relation.php:403
 msgid "Foreign key constraint"
-msgstr ""
+msgstr "Ograniczenie klucza obcego"
 
 #: tbl_row_action.php:28
 msgid "No rows selected"
@@ -10177,7 +10284,7 @@ msgstr "Przeglądaj różne wartości"
 
 #: tbl_structure.php:166 tbl_structure.php:167
 msgid "Add primary key"
-msgstr ""
+msgstr "Dodaj klucz główny"
 
 #: tbl_structure.php:168 tbl_structure.php:169
 #, fuzzy
@@ -10187,11 +10294,11 @@ msgstr "Dołącz indeks(y)"
 
 #: tbl_structure.php:170 tbl_structure.php:171
 msgid "Add unique index"
-msgstr ""
+msgstr "Dodaj indeks unikatowy"
 
 #: tbl_structure.php:172 tbl_structure.php:173
 msgid "Add FULLTEXT index"
-msgstr ""
+msgstr "Dodaj FULLTEXT indeksu"
 
 #: tbl_structure.php:389
 #, fuzzy
