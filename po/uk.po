@@ -8623,7 +8623,7 @@ msgstr "FOREIGN KEY зв'язок доданий"
 
 #: pmd_relation_new.php:82
 msgid "Internal relation added"
-msgstr ""
+msgstr "Внутрішній зв'язок доданий"
 
 #: pmd_relation_upd.php:58
 msgid "Relation deleted"
