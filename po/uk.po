@@ -8461,7 +8461,7 @@ msgstr ""
 
 #: pmd_general.php:68
 msgid "Save position"
-msgstr ""
+msgstr "Зберегти позицію"
 
 #: pmd_general.php:74 pmd_general.php:346
 msgid "Create relation"
