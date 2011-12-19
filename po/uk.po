@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-20 00:06+0200\n"
+"PO-Revision-Date: 2011-12-20 00:07+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -8476,8 +8476,9 @@ msgid "Help"
 msgstr "Допомога"
 
 #: pmd_general.php:87
+#, fuzzy
 msgid "Angular links"
-msgstr ""
+msgstr "Кутове посилання"
 
 #: pmd_general.php:87
 msgid "Direct links"
