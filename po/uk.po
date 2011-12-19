@@ -8497,10 +8497,9 @@ msgid "Toggle small/big"
 msgstr "Переключити маленькі/великі"
 
 #: pmd_general.php:99
-#, fuzzy
 #| msgid "Traditional Chinese"
 msgid "Toggle relation lines"
-msgstr "Китайське Традиційне"
+msgstr "Змінити лінії зв'язків"
 
 #: pmd_general.php:104 pmd_pdf.php:76
 msgid "Import/Export coordinates for PDF schema"
