@@ -12225,10 +12225,10 @@ msgstr ""
 "saniyede 100'den fazla sorgu varsa bu kural işe yaramaz."
 
 #: po/advisory_rules.php:80
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query cache efficiency (%)"
 msgid "Query cache efficiency (%%)"
-msgstr "Sorgu önbelleği verimi (%)"
+msgstr "Sorgu önbelleği verimi (%%)"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
