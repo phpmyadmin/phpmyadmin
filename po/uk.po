@@ -8565,10 +8565,9 @@ msgid "Aggregate"
 msgstr "Загальний"
 
 #: pmd_general.php:804
-#, fuzzy
 #| msgid "Table options"
 msgid "Active options"
-msgstr "Налаштування таблиці"
+msgstr "Активовані опції"
 
 #: pmd_pdf.php:30
 msgid "Page has been created"
