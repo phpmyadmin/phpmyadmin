@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-15 20:37+0200\n"
+"PO-Revision-Date: 2011-12-19 17:40+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -12319,7 +12319,7 @@ msgstr ""
 "velikostjo, zato to storite v majhnih korakih in spremljajte rezultate."
 
 #: po/advisory_rules.php:98
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The ratio of removed queries to inserted queries is %s%%. The lower this "
 #| "value is, the better (This rules firing limit: 0.1%)"
@@ -12327,8 +12327,8 @@ msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
-"Razmerje med odstranjenimi poizvedbami in vstavljenimi poizvedbami je %s %%. "
-"Nižja je vrednost, boljše je. (Meja sprožitve tega pravila: 0,1 %.)"
+"Razmerje med odstranjenimi in vstavljenimi poizvedbami je %s %%. Nižja je "
+"vrednost, boljše je. (Meja sprožitve tega pravila: 0,1 %%.)"
 
 #: po/advisory_rules.php:100
 msgid "Query cache max size"
