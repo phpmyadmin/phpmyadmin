@@ -8870,7 +8870,7 @@ msgstr "Дозволяє створення збережених процеду�
 
 #: server_privileges.php:39 server_privileges.php:629
 msgid "Allows creating new tables."
-msgstr "Дозволити створювати нові таблиці."
+msgstr "Дозволяє створювати нові таблиці."
 
 #: server_privileges.php:40 server_privileges.php:257
 #: server_privileges.php:633
