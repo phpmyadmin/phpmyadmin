@@ -8688,6 +8688,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
+"Ви можете встановити більше налаштувань змінюючи файл config.inc.php, "
+"наприклад використовуючи %sSetup script%s."
 
 #: prefs_manage.php:300
 msgid "Save to browser's storage"
