@@ -8755,7 +8755,7 @@ msgstr "Позиція"
 
 #: server_binlog.php:184
 msgid "Original position"
-msgstr ""
+msgstr "Початкова позиція"
 
 #: server_binlog.php:185 tbl_structure.php:760
 msgid "Information"
