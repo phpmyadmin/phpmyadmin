@@ -8821,7 +8821,7 @@ msgstr "Плагін"
 
 #: server_plugins.php:112 server_plugins.php:146
 msgid "Module"
-msgstr ""
+msgstr "Модуль"
 
 #: server_plugins.php:113 server_plugins.php:148
 msgid "Library"
