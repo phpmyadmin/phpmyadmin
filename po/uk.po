@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-21 00:23+0200\n"
+"PO-Revision-Date: 2011-12-21 00:24+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -9160,7 +9160,7 @@ msgstr "Grant"
 
 #: server_privileges.php:1778
 msgid "Remove selected users"
-msgstr "Усунути відмічених користувачів"
+msgstr "Видалити вибраних користувачів"
 
 #: server_privileges.php:1781
 msgid "Revoke all active privileges from the users and delete them afterwards."
