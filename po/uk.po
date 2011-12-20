@@ -8785,7 +8785,7 @@ msgstr "Головна реплікація"
 
 #: server_databases.php:188 server_replication.php:246
 msgid "Slave replication"
-msgstr ""
+msgstr "Похідна реплікація"
 
 #: server_databases.php:275 server_databases.php:276
 msgid "Enable Statistics"
