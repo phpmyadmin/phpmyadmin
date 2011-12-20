@@ -8664,7 +8664,7 @@ msgstr "Імпорт з файлу"
 
 #: prefs_manage.php:243
 msgid "Import from browser's storage"
-msgstr ""
+msgstr "Імпортувати з браузера"
 
 #: prefs_manage.php:246
 msgid "Settings will be imported from your browser's local storage."
