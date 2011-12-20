@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-20 23:46+0200\n"
+"PO-Revision-Date: 2011-12-20 23:47+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -8781,7 +8781,7 @@ msgstr "Статистика баз даних"
 #: server_databases.php:186 server_replication.php:179
 #: server_replication.php:207
 msgid "Master replication"
-msgstr ""
+msgstr "Головна реплікація"
 
 #: server_databases.php:188 server_replication.php:246
 msgid "Slave replication"
