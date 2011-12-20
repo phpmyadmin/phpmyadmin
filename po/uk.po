@@ -8697,7 +8697,7 @@ msgstr "Зберегти у браузері"
 
 #: prefs_manage.php:304
 msgid "Settings will be saved in your browser's local storage."
-msgstr ""
+msgstr "Налаштування будуть збережені у вашому браузері."
 
 #: prefs_manage.php:306
 msgid "Existing settings will be overwritten!"
