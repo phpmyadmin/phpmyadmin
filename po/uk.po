@@ -8725,7 +8725,7 @@ msgstr "Таблицю <b>%s</b> не знайдено або не визнач�
 #: schema_export.php:39
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "File doesn't exist"
-msgstr "Файл не існує!"
+msgstr "Файл не існує"
 
 #: server_binlog.php:87
 msgid "Select binary log to view"
