@@ -8643,7 +8643,7 @@ msgstr "Неможливо зберегти налаштування, відпр
 
 #: prefs_manage.php:78
 msgid "Could not import configuration"
-msgstr "Неможу імпортувати конфігурацію"
+msgstr "Не вдається імпортувати конфігурацію"
 
 #: prefs_manage.php:110
 msgid "Configuration contains incorrect data for some fields."
