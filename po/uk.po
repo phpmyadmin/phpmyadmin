@@ -9120,7 +9120,7 @@ msgstr "Видалення %s"
 
 #: server_privileges.php:1365
 msgid "No users selected for deleting!"
-msgstr ""
+msgstr "Не вибрано користувачів для видалення!"
 
 #: server_privileges.php:1368
 msgid "Reloading the privileges"
