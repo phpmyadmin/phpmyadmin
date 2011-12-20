@@ -8706,6 +8706,8 @@ msgstr "Існуючі налаштування будуть перезапис�
 #: prefs_manage.php:321
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
+"Ви можете скинути всі ваші налаштування і відновити їх до значень по "
+"замовчуванню."
 
 #: querywindow.php:69
 msgid "Import files"
