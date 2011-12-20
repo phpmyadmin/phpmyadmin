@@ -8840,10 +8840,9 @@ msgid "License"
 msgstr "Ліцензія"
 
 #: server_plugins.php:182
-#, fuzzy
 #| msgid "Disabled"
 msgid "disabled"
-msgstr "заблоковано"
+msgstr "відключено"
 
 #: server_privileges.php:34 server_privileges.php:369
 msgid "Includes all privileges except GRANT."
