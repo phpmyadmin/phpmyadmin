@@ -8881,6 +8881,8 @@ msgstr "Дозволяє створювати тимчасові таблиці.
 #: server_privileges.php:669
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
+"Дозволяє створення, видалення та перейменування облікових записів "
+"користувачів."
 
 #: server_privileges.php:42 server_privileges.php:273
 #: server_privileges.php:286 server_privileges.php:641
