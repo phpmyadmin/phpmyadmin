@@ -8751,7 +8751,7 @@ msgstr "Назва журналу"
 
 #: server_binlog.php:181
 msgid "Position"
-msgstr ""
+msgstr "Позиція"
 
 #: server_binlog.php:184
 msgid "Original position"
