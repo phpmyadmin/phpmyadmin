@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-20 23:58+0200\n"
+"PO-Revision-Date: 2011-12-20 23:59+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -8898,7 +8898,7 @@ msgstr "Дозволяє видалення даних."
 #: server_privileges.php:44 server_privileges.php:217
 #: server_privileges.php:632
 msgid "Allows dropping databases and tables."
-msgstr "Дозволити знищувати бази даних та таблиці."
+msgstr "Дозволяє видалення баз даних та таблиць."
 
 #: server_privileges.php:45 server_privileges.php:632
 msgid "Allows dropping tables."
