@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-20 23:50+0200\n"
+"PO-Revision-Date: 2011-12-20 23:51+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -8817,7 +8817,7 @@ msgstr "Початок"
 
 #: server_plugins.php:111
 msgid "Plugin"
-msgstr ""
+msgstr "Плагін"
 
 #: server_plugins.php:112 server_plugins.php:146
 msgid "Module"
