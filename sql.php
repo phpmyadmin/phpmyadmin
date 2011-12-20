@@ -673,7 +673,8 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     if (isset($dropped_column) && strlen($db) && strlen($table) && ! empty($dropped_column)) {
         include_once './libraries/relation_cleanup.lib.php';
         PMA_relationsCleanupColumn($db, $table, $dropped_column);
-
+        // to refresh the list of indexes (Ajax mode)
+        $extra_data['indexes_list'] = PMA_Index::getView($table, $db);
     } // end if column was dropped
 } // end else "didn't ask to see php code"
 

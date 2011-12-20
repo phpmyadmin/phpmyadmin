@@ -64,7 +64,8 @@ phpMyAdmin - ChangeLog
 - bug #3408377 [interface] Deleting table from the DB does not change the table counter
 + rfe #3438266 [designer] Toggle for relation lines
 - bug #3442069 [AJAX] database list not updated after adding/deleting a user + database
-- but #3461750 [edit] Sort by key generates wrong sql with limit clause
+- bug #3461750 [edit] Sort by key generates wrong sql with limit clause
+- bug #3340842 [structure] Error dropping index of non-existing column
 
 3.4.10.0 (not yet released)
 - bug #3460090 [interface] TextareaAutoSelect feature broken

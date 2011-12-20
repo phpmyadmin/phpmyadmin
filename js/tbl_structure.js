@@ -64,6 +64,8 @@ $(document).ready(function() {
                     }
                     $after_field_item.remove();
                     $curr_row.hide("medium").remove();
+                    // refresh the list of indexes (comes from sql.php)
+                    $('#indexes').html(data.indexes_list);
                 }
                 else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
