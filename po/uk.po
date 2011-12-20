@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-21 00:12+0200\n"
+"PO-Revision-Date: 2011-12-21 00:14+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -9053,7 +9053,7 @@ msgstr "Права, які стосуються таблиці"
 #: server_privileges.php:537 server_privileges.php:689
 #: server_privileges.php:1704
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "Зауваження: привілеї MySQL задаються по-англійськи "
+msgstr "Примітка: назви прав MySQL задаються по-англійськи"
 
 #: server_privileges.php:614
 msgid "Administration"
