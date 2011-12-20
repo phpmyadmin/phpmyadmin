@@ -8676,7 +8676,7 @@ msgstr "У вас немає збережених налаштувань!"
 
 #: prefs_manage.php:256 prefs_manage.php:310
 msgid "This feature is not supported by your web browser"
-msgstr ""
+msgstr "Ця властивість не підтримується вашим веб-браузером"
 
 #: prefs_manage.php:261
 msgid "Merge with current configuration"
