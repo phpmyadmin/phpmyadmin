@@ -8809,7 +8809,7 @@ msgstr "Переглянути дамп (схему) баз даних"
 
 #: server_plugins.php:81
 msgid "Modules"
-msgstr ""
+msgstr "Модулі"
 
 #: server_plugins.php:102
 msgid "Begin"
