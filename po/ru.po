@@ -12429,7 +12429,7 @@ msgstr ""
 "изменяйте значение небольшими шагами одновременно наблюдая за результатом."
 
 #: po/advisory_rules.php:98
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The ratio of removed queries to inserted queries is %s%%. The lower this "
 #| "value is, the better (This rules firing limit: 0.1%)"
@@ -12438,7 +12438,7 @@ msgid ""
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
 "Соотношение удаленных запросов к добавленным запросам составляет %s%%. Чем "
-"ниже данное значение, тем лучше (порог срабатывания правила: 0.1%)"
+"ниже данное значение, тем лучше (порог срабатывания правила: 0.1%%)"
 
 #: po/advisory_rules.php:100
 msgid "Query cache max size"
