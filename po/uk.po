@@ -8907,7 +8907,7 @@ msgstr "Дозволяє знищувати таблиці."
 #: server_privileges.php:46 server_privileges.php:277
 #: server_privileges.php:649
 msgid "Allows to set up events for the event scheduler"
-msgstr "Дозволяє встановлювати події у розклад подій"
+msgstr "Дозволяє встановлювати події у планувальник подій"
 
 #: server_privileges.php:47 server_privileges.php:311
 #: server_privileges.php:637
