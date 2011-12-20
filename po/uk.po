@@ -8846,7 +8846,7 @@ msgstr "відключено"
 
 #: server_privileges.php:34 server_privileges.php:369
 msgid "Includes all privileges except GRANT."
-msgstr "Дозволити всі права за винятком GRANT."
+msgstr "Містить всі права за винятком GRANT."
 
 #: server_privileges.php:35 server_privileges.php:245
 #: server_privileges.php:630
