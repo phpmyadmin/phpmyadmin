@@ -8902,7 +8902,7 @@ msgstr "Дозволяє видалення баз даних та таблиц�
 
 #: server_privileges.php:45 server_privileges.php:632
 msgid "Allows dropping tables."
-msgstr "Дозволити знищувати таблиці."
+msgstr "Дозволяє знищувати таблиці."
 
 #: server_privileges.php:46 server_privileges.php:277
 #: server_privileges.php:649
