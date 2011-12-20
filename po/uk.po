@@ -8829,7 +8829,7 @@ msgstr "Бібліотека"
 
 #: server_plugins.php:114 server_plugins.php:149 tbl_tracking.php:635
 msgid "Version"
-msgstr ""
+msgstr "Версія"
 
 #: server_plugins.php:115 server_plugins.php:150
 msgid "Author"
