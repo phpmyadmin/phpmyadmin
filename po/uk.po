@@ -8875,7 +8875,7 @@ msgstr "Дозволяє створювати нові таблиці."
 #: server_privileges.php:40 server_privileges.php:257
 #: server_privileges.php:633
 msgid "Allows creating temporary tables."
-msgstr "Дозволити створювати тимчасові таблиці."
+msgstr "Дозволяє створювати тимчасові таблиці."
 
 #: server_privileges.php:41 server_privileges.php:307
 #: server_privileges.php:669
