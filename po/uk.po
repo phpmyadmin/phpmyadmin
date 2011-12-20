@@ -9106,7 +9106,7 @@ msgstr "Ви оновили права для %s."
 #: server_privileges.php:1295
 #, php-format
 msgid "You have revoked the privileges for %s"
-msgstr "Ви змінили привілеї для %s"
+msgstr "Ви відмінили права для %s"
 
 #: server_privileges.php:1331
 #, php-format
