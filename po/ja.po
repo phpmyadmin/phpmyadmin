@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-18 04:39+0200\n"
+"PO-Revision-Date: 2011-12-21 12:04+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12253,16 +12253,14 @@ msgstr ""
 "少しずつ増やして、結果をモニタするようにしてみてください。"
 
 #: po/advisory_rules.php:98
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The ratio of removed queries to inserted queries is %s%%. The lower this "
 #| "value is, the better (This rules firing limit: 0.1%)"
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
-msgstr ""
-"追加クエリに対する削除クエリの割合は、%s%% です。この値は低いほど良いです。"
-"(ここでは 0.1% を超えたらで判断しています。)"
+msgstr "追加クエリに対する削除クエリの割合は、%s%% です。この値は低いほど良いです (ここでは 0.1%% を超えたらで判断しています)。"
 
 #: po/advisory_rules.php:100
 msgid "Query cache max size"
