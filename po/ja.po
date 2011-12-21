@@ -12146,10 +12146,10 @@ msgstr ""
 "100 個を超えるのクエリがある場合、このルールが適用されます。"
 
 #: po/advisory_rules.php:80
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query cache efficiency (%)"
 msgid "Query cache efficiency (%%)"
-msgstr "クエリキャッシュ効率 (%)"
+msgstr "クエリキャッシュ効率 (%%)"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
