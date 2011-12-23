@@ -8547,10 +8547,9 @@ msgid "Web server"
 msgstr "เว็บเซิร์ฟเวอร์"
 
 #: main.php:209
-#, fuzzy
 #| msgid "Database comment: "
 msgid "Database client version"
-msgstr "หมายเหตุของฐานข้อมูล: "
+msgstr "รุ่นไคลเอนต์ฐานข้อมูล"
 
 #: main.php:213
 #, fuzzy
