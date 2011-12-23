@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-23 05:04+0200\n"
+"PO-Revision-Date: 2011-12-23 05:06+0200\n"
 "Last-Translator: jaideejung007 <jaideejung007@gmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -8386,7 +8386,7 @@ msgstr ""
 
 #: libraries/transformations/image_jpeg__link.inc.php:10
 msgid "Displays a link to download this image."
-msgstr "แสดงลิงก์ไปยังรูป (ดาวน์โหลดข้อมูลไบนารีโดยตรง/blob)."
+msgstr "แสดงการเชื่อมโยงเพื่อดาวน์โหลดรูปภาพนี้"
 
 #: libraries/transformations/text_plain__dateformat.inc.php:10
 msgid ""
