@@ -6799,7 +6799,7 @@ msgstr ""
 
 #: main.php:119
 msgid "Appearance Settings"
-msgstr ""
+msgstr "ตั้งค่าลักษณะที่ปรากฏ"
 
 #: main.php:147 prefs_manage.php:274
 #, fuzzy
@@ -6809,7 +6809,7 @@ msgstr "ความสามารถด้านรีเลชันทั่
 
 #: main.php:165
 msgid "Protocol version"
-msgstr ""
+msgstr "รุ่นของโพรโทคอล"
 
 #: main.php:167 server_privileges.php:1452 server_privileges.php:1606
 #: server_privileges.php:1730 server_privileges.php:2149
@@ -6823,7 +6823,7 @@ msgstr "ชุดตัวอักษร (charset) ของ MySQL"
 
 #: main.php:183
 msgid "Web server"
-msgstr ""
+msgstr "เว็บเซิร์ฟเวอร์"
 
 #: main.php:189
 msgid "MySQL client version"
@@ -6879,6 +6879,8 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
+"คุณได้เปิดใช้งาน mbstring.func_overload ในการกำหนดค่าของ PHP ตัวเลือกนี้ไม่เข้ากันกับ "
+"phpMyAdmin และอาจทำให้ข้อมูลบางอย่างจะเสียหายได้"
 
 #: main.php:261
 msgid ""
@@ -6886,6 +6888,8 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
+"ไม่พบส่วนขยาย mbstring ของ PHP และดูเหมือนคุณต้องใช้ชุดอักขระโดยไม่มีส่วนขยาย mbstring "
+"ของ phpMyAdmin ซึ่งไม่สามารถแยกอักขระได้อย่างถูกต้อง และอาจทำให้ผลลัพธ์ที่ไม่คาดคิดได้"
 
 #: main.php:269
 msgid ""

@@ -6883,7 +6883,7 @@ msgstr ""
 
 #: pmd_general.php:78
 msgid "Save position"
-msgstr ""
+msgstr "Зберегти позицію"
 
 #: pmd_general.php:81 server_synchronize.php:424 server_synchronize.php:867
 msgid "Create table"
@@ -6891,39 +6891,40 @@ msgstr ""
 
 #: pmd_general.php:84 pmd_general.php:352
 msgid "Create relation"
-msgstr ""
+msgstr "Створити зв'язок"
 
 #: pmd_general.php:90
 msgid "Reload"
-msgstr ""
+msgstr "Перезавантажити"
 
 #: pmd_general.php:93
 msgid "Help"
-msgstr ""
+msgstr "Допомога"
 
 #: pmd_general.php:97
+#, fuzzy
 msgid "Angular links"
-msgstr ""
+msgstr "Кутове посилання"
 
 #: pmd_general.php:97
 msgid "Direct links"
-msgstr ""
+msgstr "Пряме посилання"
 
 #: pmd_general.php:101
 msgid "Snap to grid"
-msgstr ""
+msgstr "Прив'язати до сітки"
 
 #: pmd_general.php:105
 msgid "Small/Big All"
-msgstr ""
+msgstr "Маленькі/Великі Всі"
 
 #: pmd_general.php:109
 msgid "Toggle small/big"
-msgstr ""
+msgstr "Переключити маленькі/великі"
 
 #: pmd_general.php:114 pmd_pdf.php:80
 msgid "Import/Export coordinates for PDF schema"
-msgstr ""
+msgstr "Імпортувати/Експортувати координати для PDF схеми"
 
 #: pmd_general.php:120
 #, fuzzy
@@ -6933,23 +6934,23 @@ msgstr "Виконати запит"
 
 #: pmd_general.php:125
 msgid "Move Menu"
-msgstr ""
+msgstr "Посунути меню"
 
 #: pmd_general.php:137
 msgid "Hide/Show all"
-msgstr ""
+msgstr "Сховати/Показати все"
 
 #: pmd_general.php:141
 msgid "Hide/Show Tables with no relation"
-msgstr ""
+msgstr "Сховати/Показати Таблиці які не мають зв'язків"
 
 #: pmd_general.php:181
 msgid "Number of tables"
-msgstr ""
+msgstr "Число таблиць"
 
 #: pmd_general.php:418
 msgid "Delete relation"
-msgstr ""
+msgstr "Видалити зв'язок"
 
 #: pmd_general.php:460 pmd_general.php:519
 #, fuzzy
@@ -7014,11 +7015,11 @@ msgstr ""
 
 #: pmd_pdf.php:34
 msgid "Page has been created"
-msgstr ""
+msgstr "Сторінка була створена"
 
 #: pmd_pdf.php:37
 msgid "Page creation failed"
-msgstr ""
+msgstr "Створення сторінки обламалось"
 
 #: pmd_pdf.php:89
 #, fuzzy
@@ -7034,7 +7035,7 @@ msgstr "Імпорт файлів"
 
 #: pmd_pdf.php:100
 msgid "Export to selected page"
-msgstr ""
+msgstr "Експорт у вибрану сторінку"
 
 #: pmd_pdf.php:102
 #, fuzzy
@@ -7050,35 +7051,35 @@ msgstr "Ім'я користувача"
 
 #: pmd_pdf.php:114
 msgid "Export/Import to scale"
-msgstr ""
+msgstr "Експорт/Імпорт у масштабі"
 
 #: pmd_pdf.php:119
 msgid "recommended"
-msgstr ""
+msgstr "рекомендовано"
 
 #: pmd_relation_new.php:29
 msgid "Error: relation already exists."
-msgstr ""
+msgstr "Помилка: зв'язок вже існує."
 
 #: pmd_relation_new.php:61 pmd_relation_new.php:86
 msgid "Error: Relation not added."
-msgstr ""
+msgstr "Помилка: Зв'язок не доданий."
 
 #: pmd_relation_new.php:62
 msgid "FOREIGN KEY relation added"
-msgstr ""
+msgstr "FOREIGN KEY зв'язок доданий"
 
 #: pmd_relation_new.php:84
 msgid "Internal relation added"
-msgstr ""
+msgstr "Внутрішній зв'язок доданий"
 
 #: pmd_relation_upd.php:55
 msgid "Relation deleted"
-msgstr ""
+msgstr "Зв'язок видалений"
 
 #: pmd_save_pos.php:44
 msgid "Error saving coordinates for Designer."
-msgstr ""
+msgstr "Помилка збереження координат Дизайнера."
 
 #: pmd_save_pos.php:52
 msgid "Modifications have been saved"
@@ -7086,23 +7087,23 @@ msgstr "Модифікації було збережено"
 
 #: prefs_forms.php:78
 msgid "Cannot save settings, submitted form contains errors"
-msgstr ""
+msgstr "Неможливо зберегти налаштування, відправлена форма містить помилки"
 
 #: prefs_manage.php:80
 msgid "Could not import configuration"
-msgstr ""
+msgstr "Не вдається імпортувати конфігурацію"
 
 #: prefs_manage.php:112
 msgid "Configuration contains incorrect data for some fields."
-msgstr ""
+msgstr "Конфігурація містить некоректні дані для деяких полів."
 
 #: prefs_manage.php:128
 msgid "Do you want to import remaining settings?"
-msgstr ""
+msgstr "Ви хочете імпортувати параметри які залишились?"
 
 #: prefs_manage.php:225 prefs_manage.php:251
 msgid "Saved on: @DATE@"
-msgstr ""
+msgstr "Збережено у: @DATE@"
 
 #: prefs_manage.php:239
 #, fuzzy
@@ -7112,23 +7113,23 @@ msgstr "Імпорт файлів"
 
 #: prefs_manage.php:245
 msgid "Import from browser's storage"
-msgstr ""
+msgstr "Імпортувати з браузера"
 
 #: prefs_manage.php:248
 msgid "Settings will be imported from your browser's local storage."
-msgstr ""
+msgstr "Налаштування будуть імпортовані з локальних даних браузера."
 
 #: prefs_manage.php:254
 msgid "You have no saved settings!"
-msgstr ""
+msgstr "У вас немає збережених налаштувань!"
 
 #: prefs_manage.php:258 prefs_manage.php:312
 msgid "This feature is not supported by your web browser"
-msgstr ""
+msgstr "Ця властивість не підтримується вашим веб-браузером"
 
 #: prefs_manage.php:263
 msgid "Merge with current configuration"
-msgstr ""
+msgstr "Злити з поточною конфігурацією"
 
 #: prefs_manage.php:277
 #, php-format
@@ -7136,22 +7137,26 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
+"Ви можете встановити більше налаштувань змінюючи файл config.inc.php, "
+"наприклад використовуючи %sSetup script%s."
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
-msgstr ""
+msgstr "Зберегти у браузері"
 
 #: prefs_manage.php:306
 msgid "Settings will be saved in your browser's local storage."
-msgstr ""
+msgstr "Налаштування будуть збережені у вашому браузері."
 
 #: prefs_manage.php:308
 msgid "Existing settings will be overwritten!"
-msgstr ""
+msgstr "Існуючі налаштування будуть перезаписані!"
 
 #: prefs_manage.php:323
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
+"Ви можете скинути всі ваші налаштування і відновити їх до значень по "
+"замовчуванню."
 
 #: querywindow.php:93
 msgid "Import files"
@@ -7174,11 +7179,11 @@ msgstr "Таблиці \"%s\" не існує!"
 
 #: server_binlog.php:106
 msgid "Select binary log to view"
-msgstr ""
+msgstr "Вибрати двійковий журнал для перегляду"
 
 #: server_binlog.php:122 server_status.php:387
 msgid "Files"
-msgstr ""
+msgstr "Файли"
 
 #: server_binlog.php:169 server_binlog.php:171 server_processlist.php:58
 #: server_processlist.php:60
@@ -7192,11 +7197,11 @@ msgstr "Показати повні запити"
 
 #: server_binlog.php:199
 msgid "Log name"
-msgstr ""
+msgstr "Назва журналу"
 
 #: server_binlog.php:200
 msgid "Position"
-msgstr ""
+msgstr "Позиція"
 
 #: server_binlog.php:201
 msgid "Event type"
@@ -7204,11 +7209,11 @@ msgstr "Тип події"
 
 #: server_binlog.php:203
 msgid "Original position"
-msgstr ""
+msgstr "Початкова позиція"
 
 #: server_binlog.php:204
 msgid "Information"
-msgstr ""
+msgstr "Інформація"
 
 #: server_collations.php:39
 msgid "Character Sets and Collations"
@@ -7230,11 +7235,11 @@ msgstr "Статистика баз даних"
 #: server_databases.php:183 server_replication.php:180
 #: server_replication.php:208
 msgid "Master replication"
-msgstr ""
+msgstr "Головна реплікація"
 
 #: server_databases.php:185 server_replication.php:247
 msgid "Slave replication"
-msgstr ""
+msgstr "Похідна реплікація"
 
 #: server_databases.php:268 server_databases.php:269
 msgid "Enable Statistics"
@@ -7268,7 +7273,7 @@ msgstr "Дозволити змінювати структуру наявних 
 #: server_privileges.php:34 server_privileges.php:218
 #: server_privileges.php:535
 msgid "Allows altering and dropping stored routines."
-msgstr ""
+msgstr "Дозволяє зміну та видалення збережених процедур."
 
 #: server_privileges.php:35 server_privileges.php:194
 #: server_privileges.php:528
@@ -7278,7 +7283,7 @@ msgstr "Дозволити створювати нові бази даних т�
 #: server_privileges.php:36 server_privileges.php:217
 #: server_privileges.php:534
 msgid "Allows creating stored routines."
-msgstr ""
+msgstr "Дозволяє створення збережених процедур."
 
 #: server_privileges.php:37 server_privileges.php:528
 msgid "Allows creating new tables."
@@ -7293,6 +7298,8 @@ msgstr "Дозволити створювати тимчасові таблиц�
 #: server_privileges.php:568
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
+"Дозволяє створення, видалення та перейменування облікових записів "
+"користувачів."
 
 #: server_privileges.php:40 server_privileges.php:209
 #: server_privileges.php:213 server_privileges.php:540
@@ -7317,12 +7324,12 @@ msgstr "Дозволити знищувати таблиці."
 #: server_privileges.php:44 server_privileges.php:210
 #: server_privileges.php:548
 msgid "Allows to set up events for the event scheduler"
-msgstr ""
+msgstr "Дозволяє встановлювати події у планувальник подій"
 
 #: server_privileges.php:45 server_privileges.php:220
 #: server_privileges.php:536
 msgid "Allows executing stored routines."
-msgstr ""
+msgstr "Дозволяє виконання збережених процедур."
 
 #: server_privileges.php:46 server_privileges.php:199
 #: server_privileges.php:523
@@ -7376,12 +7383,12 @@ msgstr ""
 #: server_privileges.php:54 server_privileges.php:634
 #: server_privileges.php:636
 msgid "Limits the number of simultaneous connections the user may have."
-msgstr ""
+msgstr "Обмежити кількість одночасних підключень, які користувач може мати."
 
 #: server_privileges.php:55 server_privileges.php:198
 #: server_privileges.php:558
 msgid "Allows viewing processes of all users"
-msgstr ""
+msgstr "Дозволяє перегляд процесів усіх користувачів"
 
 #: server_privileges.php:56 server_privileges.php:200
 #: server_privileges.php:460 server_privileges.php:564
@@ -7416,7 +7423,7 @@ msgstr "Надати доступ до повного списку баз дан
 #: server_privileges.php:62 server_privileges.php:214
 #: server_privileges.php:216 server_privileges.php:533
 msgid "Allows performing SHOW CREATE VIEW queries."
-msgstr ""
+msgstr "Дозволяє виконувати SHOW CREATE VIEW запити."
 
 #: server_privileges.php:63 server_privileges.php:197
 #: server_privileges.php:560
@@ -7437,7 +7444,7 @@ msgstr ""
 #: server_privileges.php:65 server_privileges.php:211
 #: server_privileges.php:549
 msgid "Allows creating and dropping triggers"
-msgstr ""
+msgstr "Дозволяє створення та видалення тригерів"
 
 #: server_privileges.php:66 server_privileges.php:192
 #: server_privileges.php:457 server_privileges.php:519
@@ -7530,7 +7537,7 @@ msgstr "Усунути %s"
 
 #: server_privileges.php:1270
 msgid "No users selected for deleting!"
-msgstr ""
+msgstr "Не вибрано користувачів для видалення!"
 
 #: server_privileges.php:1273
 msgid "Reloading the privileges"
@@ -9609,7 +9616,7 @@ msgstr ""
 
 #: tbl_tracking.php:588
 msgid "Version"
-msgstr ""
+msgstr "Версія"
 
 #: tbl_tracking.php:640
 #, php-format
