@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-23 05:03+0200\n"
+"PO-Revision-Date: 2011-12-23 05:04+0200\n"
 "Last-Translator: jaideejung007 <jaideejung007@gmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -13015,11 +13015,16 @@ msgid "Enable concurrent_insert by setting it to 1"
 msgstr "เปิดใช้งานการ concurrent_insert โดยการตั้งค่าเป็น 1"
 
 #: po/advisory_rules.php:272
+#, fuzzy
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
+"การตั้งค่า {concurrent_insert} เป็น 1 "
+"เพื่อลดการใช้งานระหว่างผู้อ่านและผู้เขียนสำหรับตารางที่กำหนด ดูเพิ่มเติม<a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">เอกสาร "
+"MySQL</a>"
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
