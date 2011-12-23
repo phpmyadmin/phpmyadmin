@@ -8509,10 +8509,9 @@ msgid "Appearance Settings"
 msgstr "ตั้งค่าลักษณะที่ปรากฏ"
 
 #: main.php:153 prefs_manage.php:272
-#, fuzzy
 #| msgid "General relation features"
 msgid "More settings"
-msgstr "ความสามารถด้านรีเลชันทั่วไป"
+msgstr "ตั้งค่าเพิ่มเติม"
 
 #: main.php:169
 #, fuzzy
