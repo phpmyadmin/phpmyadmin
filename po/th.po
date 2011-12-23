@@ -8544,7 +8544,7 @@ msgstr "ชุดอักขระเซิร์ฟเวอร์"
 
 #: main.php:196
 msgid "Web server"
-msgstr ""
+msgstr "เว็บเซิร์ฟเวอร์"
 
 #: main.php:209
 #, fuzzy
