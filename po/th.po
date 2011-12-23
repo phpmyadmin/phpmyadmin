@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-23 05:06+0200\n"
+"PO-Revision-Date: 2011-12-23 05:08+0200\n"
 "Last-Translator: jaideejung007 <jaideejung007@gmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -8496,10 +8496,9 @@ msgid "Error in ZIP archive:"
 msgstr ""
 
 #: main.php:65
-#, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
-msgstr "ความสามารถด้านรีเลชันทั่วไป"
+msgstr "ตั้งค่าทั่วไป"
 
 #: main.php:109
 msgid "Server connection collation"
