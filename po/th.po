@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-23 05:13+0200\n"
+"PO-Revision-Date: 2011-12-23 05:14+0200\n"
 "Last-Translator: jaideejung007 <jaideejung007@gmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -8552,9 +8552,8 @@ msgid "Database client version"
 msgstr "รุ่นไคลเอนต์ฐานข้อมูล"
 
 #: main.php:213
-#, fuzzy
 msgid "PHP extension"
-msgstr "รุ่นของ PHP"
+msgstr "ส่วนขยาย PHP"
 
 #: main.php:221
 msgid "Show PHP information"
