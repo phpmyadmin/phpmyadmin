@@ -8577,7 +8577,7 @@ msgstr ""
 #, fuzzy
 #| msgid "No change"
 msgid "List of changes"
-msgstr "ไม่มีการเปลี่ยนแปลง"
+msgstr "รายการเปลี่ยนแปลง"
 
 #: main.php:269
 msgid ""
