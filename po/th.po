@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-23 04:01+0200\n"
+"PO-Revision-Date: 2011-12-23 04:39+0200\n"
 "Last-Translator: jaideejung007 <jaideejung007@gmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -12963,6 +12963,9 @@ msgstr "ขนาดบัฟเฟอร์ของ InnoDB"
 msgid "Your InnoDB buffer pool is fairly small."
 msgstr "ขนาดบัฟเฟอร์  InnoDB ของคุณมีขนาดเล็ก"
 
+# buffer pool แปลเป็น บัฟเฟอร์
+# non-InnoDB-Tables ใช้คำทับศัพท์
+# 
 #: po/advisory_rules.php:267
 #, php-format
 msgid ""
@@ -12977,6 +12980,18 @@ msgid ""
 "\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
+"บัฟเฟอร์ของ InnoDB มีผลกระทบอย่างยิ่งในการปฏิบัติงานสำหรับตารางของ InnoDB "
+"การกำหนดหน่วยความจำทั้งหมดที่เหลืออยู่ของคุณไปยังบัฟเฟอร์นี้ "
+"สำหรับเซิร์ฟเวอร์ฐานข้อมูลที่ใช้ InnoDB แต่เพียงผู้เดียวนั้น "
+"จะเป็นเครื่องมือในการเก็บรักษาและการให้บริการอื่นๆ (เช่น เว็บเซิร์ฟเวอร์) "
+"คุณอาจตั้งค่านี้ได้สูงถึง 80%% ของหน่วยความจำของคุณใช้ได้ "
+"หากกรณีที่คุณระวังในการประเมินการใช้หน่วยความจำของการบริการอื่นๆ "
+"ของคุณอยู่นั้น พร้อมทั้งนี้ non-InnoDB-Tables "
+"และการตั้งค่าตัวแปรนี้จะเป็นไปตามลำดับขั้น "
+"ถ้าตั้งค่าสูงเกินไประบบของคุณจะเริ่มต้นการแลกเปลี่ยนทรัพยากร "
+"ซึ่งจะช่วยลดประสิทธิภาพการทำงานอย่างมีนัยสำคัญได้ดียิ่งขึ้น ดูได้ที่<a "
+"href=\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\">บทความนี้</a>"
 
 #: po/advisory_rules.php:268
 #, php-format
