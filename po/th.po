@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-23 05:09+0200\n"
+"PO-Revision-Date: 2011-12-23 05:10+0200\n"
 "Last-Translator: jaideejung007 <jaideejung007@gmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -8506,7 +8506,7 @@ msgstr "เปรียบเทียบการเชื่อมต่อเ
 
 #: main.php:124
 msgid "Appearance Settings"
-msgstr ""
+msgstr "ตั้งค่าลักษณะที่ปรากฏ"
 
 #: main.php:153 prefs_manage.php:272
 #, fuzzy
