@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-23 05:12+0200\n"
+"PO-Revision-Date: 2011-12-23 05:13+0200\n"
 "Last-Translator: jaideejung007 <jaideejung007@gmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -8539,9 +8539,8 @@ msgid "User"
 msgstr "ผู้ใช้"
 
 #: main.php:184
-#, fuzzy
 msgid "Server charset"
-msgstr "ตัวเลือกเซิร์ฟเวอร์"
+msgstr "ชุดอักขระเซิร์ฟเวอร์"
 
 #: main.php:196
 msgid "Web server"
