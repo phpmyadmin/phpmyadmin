@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-23 05:11+0200\n"
+"PO-Revision-Date: 2011-12-23 05:12+0200\n"
 "Last-Translator: jaideejung007 <jaideejung007@gmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -8530,7 +8530,7 @@ msgstr "รุ่นของเซิร์ฟเวอร์"
 
 #: main.php:175
 msgid "Protocol version"
-msgstr ""
+msgstr "รุ่นของโพรโทคอล"
 
 #: main.php:179 server_privileges.php:1545 server_privileges.php:1700
 #: server_privileges.php:1824 server_privileges.php:2254
