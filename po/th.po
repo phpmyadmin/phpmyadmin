@@ -12885,7 +12885,7 @@ msgstr ""
 
 #: po/advisory_rules.php:255
 msgid "InnoDB log size"
-msgstr ""
+msgstr "ขนาดไฟล์บันทึกของ InnoDB"
 
 #: po/advisory_rules.php:256
 msgid ""
