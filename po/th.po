@@ -8514,10 +8514,9 @@ msgid "More settings"
 msgstr "ตั้งค่าเพิ่มเติม"
 
 #: main.php:169
-#, fuzzy
 #| msgid "Databases"
 msgid "Database server"
-msgstr "ฐานข้อมูล"
+msgstr "เซิร์ฟเวอร์ฐานข้อมูล"
 
 #: main.php:172
 msgid "Software"
