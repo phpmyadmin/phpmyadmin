@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-23 05:08+0200\n"
+"PO-Revision-Date: 2011-12-23 05:09+0200\n"
 "Last-Translator: jaideejung007 <jaideejung007@gmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -8502,7 +8502,7 @@ msgstr "ตั้งค่าทั่วไป"
 
 #: main.php:109
 msgid "Server connection collation"
-msgstr ""
+msgstr "เปรียบเทียบการเชื่อมต่อเซิร์ฟเวอร์"
 
 #: main.php:124
 msgid "Appearance Settings"
