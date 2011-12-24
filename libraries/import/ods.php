@@ -118,25 +118,31 @@ foreach ($sheets as $sheet) {
                 $cell_attrs = $cell->attributes('office', true);
 
                 if (count($text) != 0) {
-                    if (! $col_names_in_first_row) {
-                        if ($_REQUEST['ods_recognize_percentages'] && !strcmp('percentage', $cell_attrs['value-type'])) {
-                            $tempRow[] = (double)$cell_attrs['value'];
-                        } elseif ($_REQUEST['ods_recognize_currency'] && !strcmp('currency', $cell_attrs['value-type'])) {
-                            $tempRow[] = (double)$cell_attrs['value'];
-                        } else {
-                            $tempRow[] = (string)$text;
-                        }
-                    } else {
-                        if ($_REQUEST['ods_recognize_percentages'] && !strcmp('percentage', $cell_attrs['value-type'])) {
-                            $col_names[] = (double)$cell_attrs['value'];
-                        } else if ($_REQUEST['ods_recognize_currency'] && !strcmp('currency', $cell_attrs['value-type'])) {
-                            $col_names[] = (double)$cell_attrs['value'];
-                        } else {
-                            $col_names[] = (string)$text;
-                        }
-                    }
+                    $attr = $cell->attributes('table', true);
+                    $num_repeat = (int) $attr['number-columns-repeated'];
+                    $num_iterations = $num_repeat ? $num_repeat : 1;
 
-                    ++$col_count;
+                    for ($k = 0; $k < $num_iterations; $k++) {
+                        if (! $col_names_in_first_row) {
+                            if ($_REQUEST['ods_recognize_percentages'] && !strcmp('percentage', $cell_attrs['value-type'])) {
+                                $tempRow[] = (double)$cell_attrs['value'];
+                            } elseif ($_REQUEST['ods_recognize_currency'] && !strcmp('currency', $cell_attrs['value-type'])) {
+                                $tempRow[] = (double)$cell_attrs['value'];
+                            } else {
+                                $tempRow[] = (string)$text;
+                            }
+                        } else {
+                            if ($_REQUEST['ods_recognize_percentages'] && !strcmp('percentage', $cell_attrs['value-type'])) {
+                                $col_names[] = (double)$cell_attrs['value'];
+                            } else if ($_REQUEST['ods_recognize_currency'] && !strcmp('currency', $cell_attrs['value-type'])) {
+                                $col_names[] = (double)$cell_attrs['value'];
+                            } else {
+                                $col_names[] = (string)$text;
+                            }
+                        }
+
+                        ++$col_count;
+                    }
                 } else {
                     /* Number of blank columns repeated */
                     if ($col_count < count($row->children('table', true)) - 1) {
