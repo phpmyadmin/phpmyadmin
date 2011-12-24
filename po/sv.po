@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-24 10:37+0200\n"
+"PO-Revision-Date: 2011-12-24 10:39+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -12269,7 +12269,7 @@ msgstr ""
 "detta i små steg och övervaka resultatet."
 
 #: po/advisory_rules.php:98
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The ratio of removed queries to inserted queries is %s%%. The lower this "
 #| "value is, the better (This rules firing limit: 0.1%)"
@@ -12278,7 +12278,7 @@ msgid ""
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
 "Förhållandet mellan borttagna frågor och inlaggda frågor är %s%%. Ju lägre "
-"värdet är, desto bättre (Denna regel aktiveras vid: 0,1%)"
+"värdet är, desto bättre (Denna regel aktiveras vid: 0,1%%)"
 
 #: po/advisory_rules.php:100
 msgid "Query cache max size"
