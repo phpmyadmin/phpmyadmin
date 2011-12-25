@@ -1547,7 +1547,7 @@ msgstr "Vypnúť %s"
 #: js/messages.php:163
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "Nastaviť long_query_time na %ds"
 
 #: js/messages.php:164
 msgid ""
