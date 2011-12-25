@@ -12576,7 +12576,7 @@ msgstr ""
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Temp disk rate"
-msgstr "%s tabuľka"
+msgstr "Frekvencia dočasného ukladania na disk"
 
 #: po/advisory_rules.php:157
 msgid ""
