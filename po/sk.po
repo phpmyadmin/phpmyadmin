@@ -1538,10 +1538,10 @@ msgstr "Zapnúť %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:161
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disable"
 msgid "Disable %s"
-msgstr "Vypnuté"
+msgstr "Vypnúť %s"
 
 #. l10n: %d seconds
 #: js/messages.php:163
