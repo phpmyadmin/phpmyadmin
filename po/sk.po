@@ -9399,7 +9399,7 @@ msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-" ... zmazať pôvodného používateľa z tabuliek používateľov a potom "
+"... zmazať pôvodného používateľa z tabuliek používateľov a potom "
 "znovunačítať oprávnenia."
 
 #: server_privileges.php:2215
