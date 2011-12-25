@@ -1583,11 +1583,10 @@ msgid "Profiling results"
 msgstr "Profilering av resultat"
 
 #: js/messages.php:190
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
-msgstr "Tabell"
+msgstr "Tabell "
 
 #: js/messages.php:191
 msgid "Chart"
