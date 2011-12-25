@@ -1593,7 +1593,7 @@ msgstr "Z všeobecného logu"
 
 #: js/messages.php:175
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "Načítavam a analyzujem záznamy. Môže to chvíľu trvať."
 
 #: js/messages.php:176
 #, fuzzy
