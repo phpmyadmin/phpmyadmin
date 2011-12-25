@@ -3025,9 +3025,8 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dní, %s hodín, %s minút a %s sekúnd"
 
 #: libraries/common.lib.php:2071
-#, fuzzy
 msgid "Missing parameter:"
-msgstr "Odstrániť index/indexy"
+msgstr "Chýbajúci parameter:"
 
 #: libraries/common.lib.php:2454 libraries/common.lib.php:2457
 #: libraries/display_tbl.lib.php:306
