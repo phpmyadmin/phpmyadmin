@@ -416,7 +416,7 @@ msgstr "Zvolte prosím aspoň jeden stĺpec, ktorý chcete zobraziť"
 #, fuzzy, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "vizuálneho návrhára"
+msgstr "Prepnúť do vizuálneho návrhára"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:1002
