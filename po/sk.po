@@ -11197,7 +11197,7 @@ msgstr "Tabuľka %1$s bola úspešné upravená"
 
 #: tbl_change.php:699
 msgid "Because of its length,<br /> this column might not be editable"
-msgstr "Kvôli dĺžke poľa,<br /> toto pole sa nemusí dať upraviť "
+msgstr "Kvôli dĺžke poľa,<br /> toto pole sa nemusí dať upraviť"
 
 #: tbl_change.php:817
 msgid "Remove BLOB Repository Reference"
