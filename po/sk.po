@@ -1740,10 +1740,9 @@ msgid "Import"
 msgstr "Import"
 
 #: js/messages.php:213
-#, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
-msgstr "Aktualizovať dopyt"
+msgstr "Analyzovať dopyt"
 
 #: js/messages.php:217
 msgid "Advisor system"
