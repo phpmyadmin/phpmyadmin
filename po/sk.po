@@ -1024,7 +1024,7 @@ msgstr ""
 #: import.php:366
 msgid ""
 "Cannot convert file's character set without character set conversion library"
-msgstr ""
+msgstr "Bez potrebnej knižnice nemožno previesť znakovú sadu súboru"
 
 #: import.php:390 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
