@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
 "PO-Revision-Date: 2011-12-25 11:19+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -815,10 +815,10 @@ msgid "Values for a new column"
 msgstr "Hodnoty pre nové pole \"%s\""
 
 #: enum_editor.php:30 js/messages.php:266
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
-msgstr "Hodnoty pre pole \"%s\""
+msgstr "Hodnoty pre pole %s"
 
 #: enum_editor.php:34 js/messages.php:268
 #, fuzzy
