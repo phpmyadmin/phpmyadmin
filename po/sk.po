@@ -1704,7 +1704,7 @@ msgstr "Načítavam záznamy"
 
 #: js/messages.php:203
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "Obnovenie monitora zlyhalo"
 
 #: js/messages.php:204
 msgid ""
