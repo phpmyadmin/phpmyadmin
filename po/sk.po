@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-25 22:11+0200\n"
+"PO-Revision-Date: 2011-12-25 22:16+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -10789,7 +10789,7 @@ msgstr "Odstrániť index(y)"
 
 #: server_synchronize.php:447 server_synchronize.php:919
 msgid "Apply index(s)"
-msgstr "Aplikovať indexy"
+msgstr "Aplikovať index(y)"
 
 #: server_synchronize.php:448 server_synchronize.php:920
 msgid "Update row(s)"
