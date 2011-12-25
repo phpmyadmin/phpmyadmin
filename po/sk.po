@@ -1581,7 +1581,7 @@ msgstr "Rozdiely"
 #: js/messages.php:171
 #, php-format
 msgid "Divided by %s:"
-msgstr ""
+msgstr "Delené %s:"
 
 #: js/messages.php:173
 msgid "From slow log"
