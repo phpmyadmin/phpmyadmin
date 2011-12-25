@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
 "PO-Revision-Date: 2011-12-25 11:00+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -145,7 +145,7 @@ msgstr "Komentár k tabuľke"
 #: tbl_relation.php:395 tbl_tracking.php:257 tbl_tracking.php:308
 #: tbl_zoom_select.php:433
 msgid "Column"
-msgstr "Stĺpce"
+msgstr "Stĺpec"
 
 #: db_datadict.php:163 db_printview.php:103 libraries/Index.class.php:441
 #: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:250
