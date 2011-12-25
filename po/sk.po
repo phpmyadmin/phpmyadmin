@@ -9700,10 +9700,9 @@ msgid "Advisor"
 msgstr ""
 
 #: server_status.php:796 server_status.php:818
-#, fuzzy
 #| msgid "Refresh rate:"
 msgid "Refresh rate: "
-msgstr "Obnovovacia frekvencia:"
+msgstr "Obnovovacia frekvencia: "
 
 #: server_status.php:837 server_variables.php:115
 #, fuzzy
