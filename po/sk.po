@@ -1901,10 +1901,9 @@ msgid "Change"
 msgstr "Zmeniť"
 
 #: js/messages.php:280
-#, fuzzy
 #| msgid "Maximum execution time"
 msgid "Query execution time"
-msgstr "Maximálny čas behu"
+msgstr "Čas behu dopytu"
 
 #: js/messages.php:283 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
