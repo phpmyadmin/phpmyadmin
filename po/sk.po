@@ -13131,7 +13131,7 @@ msgstr ""
 #~ msgstr "% použitých spojení"
 
 #~ msgid "% aborted connections"
-#~ msgstr "Komprimovať pripojenie"
+#~ msgstr "% prerušených spojení"
 
 #~ msgid "CPU Usage"
 #~ msgstr "Využitie"
