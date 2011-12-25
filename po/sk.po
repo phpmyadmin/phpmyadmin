@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
 "PO-Revision-Date: 2011-12-25 11:18+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -1448,7 +1448,7 @@ msgstr "Odstrániť graf"
 #, fuzzy
 #| msgid "Edit labels and series"
 msgid "Edit title and labels"
-msgstr "Upraviť popisy a série"
+msgstr "Upraviť názov a popisy"
 
 #: js/messages.php:140
 msgid "Add chart to grid"
