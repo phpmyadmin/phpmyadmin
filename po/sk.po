@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
 "PO-Revision-Date: 2011-12-25 11:07+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -952,7 +952,7 @@ msgstr "Pridať linku"
 #, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Pridať nového používateľa"
+msgstr "Pridať vnútorný obrys"
 
 #: gis_data_editor.php:266 js/messages.php:321
 msgid "Polygon"
