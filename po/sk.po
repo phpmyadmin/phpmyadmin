@@ -1637,10 +1637,9 @@ msgid "Analyzing..."
 msgstr "Analyzujem..."
 
 #: js/messages.php:185
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
-msgstr "Vysvetliť SQL"
+msgstr "Vysvetliť výstup"
 
 #: js/messages.php:187 js/messages.php:487 libraries/rte/rte_list.lib.php:62
 #: libraries/rte/rte_triggers.lib.php:326 server_status.php:1236 sql.php:893
