@@ -1968,10 +1968,9 @@ msgid "Select two different columns"
 msgstr "Zvoľte dva rôzne stĺpce"
 
 #: js/messages.php:310
-#, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
-msgstr "Operácie s výsledkami dopytu"
+msgstr "Výsledky dopytu"
 
 #: js/messages.php:311
 #, fuzzy
