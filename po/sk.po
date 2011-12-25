@@ -1750,7 +1750,7 @@ msgstr "Poradca"
 
 #: js/messages.php:218
 msgid "Possible performance issues"
-msgstr ""
+msgstr "Možné problémy s výkonom"
 
 #: js/messages.php:219
 msgid "Issue"
