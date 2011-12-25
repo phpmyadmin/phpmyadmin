@@ -1762,10 +1762,9 @@ msgid "Recommendation"
 msgstr "Odporúčanie"
 
 #: js/messages.php:221
-#, fuzzy
 #| msgid "Details"
 msgid "Rule details"
-msgstr "Podrobnosti"
+msgstr "Podrobnosti o pravidle"
 
 #: js/messages.php:222
 #, fuzzy
