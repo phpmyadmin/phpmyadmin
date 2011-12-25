@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-25 12:05+0200\n"
+"PO-Revision-Date: 2011-12-25 12:06+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -1596,10 +1596,9 @@ msgid "Analysing & loading logs. This may take a while."
 msgstr "Načítavam a analyzujem záznamy. Môže to chvíľu trvať."
 
 #: js/messages.php:176
-#, fuzzy
 #| msgid "Read requests"
 msgid "Cancel request"
-msgstr "Požiadavkov na čítanie"
+msgstr "Zrušiť požiadavku"
 
 #: js/messages.php:177
 msgid ""
