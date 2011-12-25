@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-25 12:44+0200\n"
+"PO-Revision-Date: 2011-12-25 12:45+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -809,7 +809,6 @@ msgid "ENUM/SET editor"
 msgstr "Upraviť ENUM/SET"
 
 #: enum_editor.php:28 js/messages.php:267
-#, fuzzy
 #| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
 msgstr "Hodnoty pre nové pole \"%s\""
@@ -821,13 +820,11 @@ msgid "Values for column %s"
 msgstr "Hodnoty pre pole %s"
 
 #: enum_editor.php:34 js/messages.php:268
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
 msgstr "Zadajte každú hodnotu do samostatného poľa."
 
 #: enum_editor.php:123
-#, fuzzy
 msgid "Add a value"
 msgstr "Pridať hodnotu"
 
@@ -849,7 +846,6 @@ msgid "Selected export type has to be saved in file!"
 msgstr "Vybraný typ exportu musí byť uložený do súboru!"
 
 #: export.php:106
-#, fuzzy
 msgid "Bad parameters!"
 msgstr "Chybné parametre!"
 
@@ -877,13 +873,12 @@ msgid "Dump has been saved to file %s."
 msgstr "Výpis bol uložený do súboru %s."
 
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
 msgstr "Chybný typ exportu"
 
 #: gis_data_editor.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
 msgstr "Hodnota pre pole \"%s\""
@@ -923,13 +918,11 @@ msgstr "Bod %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:325
-#, fuzzy
 #| msgid "Add index"
 msgid "Add a point"
 msgstr "Pridať bod"
 
 #: gis_data_editor.php:220 js/messages.php:320
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
 msgstr "Linka"
@@ -943,13 +936,11 @@ msgid "Inner Ring"
 msgstr "Vnútorný obrys"
 
 #: gis_data_editor.php:252
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
 msgstr "Pridať linku"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:326
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
 msgstr "Pridať vnútorný obrys"
@@ -959,13 +950,11 @@ msgid "Polygon"
 msgstr "Polygón"
 
 #: gis_data_editor.php:306 js/messages.php:327
-#, fuzzy
 #| msgid "Add column"
 msgid "Add a polygon"
 msgstr "Pridať polygón"
 
 #: gis_data_editor.php:310
-#, fuzzy
 #| msgid "Geometry"
 msgid "Add geometry"
 msgstr "Pridať geometriu"
@@ -1126,7 +1115,6 @@ msgid "This is not a number!"
 msgstr "Toto nie je číslo!"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid "Add index"
 msgid "Add Index"
 msgstr "Pridať index"
@@ -1254,7 +1242,6 @@ msgstr "Spojenia/Procesy"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
-#, fuzzy
 #| msgid "Connections since last refresh"
 msgid "Questions since last refresh"
 msgstr "Dotazov od posledného obnovenia"
@@ -1269,7 +1256,6 @@ msgid "Query statistics"
 msgstr "Štatistika dopytov"
 
 #: js/messages.php:94
-#, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Local monitor configuration incompatible"
 msgstr "Vaše nastavenie monitoru nie je kompatibilné"
@@ -1286,19 +1272,16 @@ msgstr ""
 "východzie nastavenie v ponuke <i>Nastavenia</i>."
 
 #: js/messages.php:97
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache efficiency"
 msgstr "Úspešnosť vyrovnávacej pamäte príkazov"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
 msgstr "Využitie vyrovnávacej pamäte príkazov"
 
 #: js/messages.php:99
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
 msgstr "Využitá vyrovnávacia pamäť príkazov"
@@ -1332,37 +1315,31 @@ msgid "Average load"
 msgstr "Priemerné vyťaženie"
 
 #: js/messages.php:108
-#, fuzzy
 #| msgid "System memory"
 msgid "Total memory"
 msgstr "Celková pamäť"
 
 #: js/messages.php:109
-#, fuzzy
 #| msgid "System memory"
 msgid "Cached memory"
 msgstr "Vyrovnávacia pamäť"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
 msgstr "Vyrovnávacia pamäť"
 
 #: js/messages.php:111
-#, fuzzy
 #| msgid "System memory"
 msgid "Free memory"
 msgstr "Voľná pamäť"
 
 #: js/messages.php:112
-#, fuzzy
 #| msgid "System memory"
 msgid "Used memory"
 msgstr "Využitá pamäť"
 
 #: js/messages.php:114
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
 msgstr "Swap celkom"
@@ -1376,7 +1353,6 @@ msgid "Used Swap"
 msgstr "Využitý swap"
 
 #: js/messages.php:117
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
 msgstr "Voľný swap"
@@ -1420,7 +1396,7 @@ msgid "EiB"
 msgstr "EiB"
 
 #: js/messages.php:132
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "%d table(s)"
@@ -1445,7 +1421,6 @@ msgid "Remove chart"
 msgstr "Odstrániť graf"
 
 #: js/messages.php:139
-#, fuzzy
 #| msgid "Edit labels and series"
 msgid "Edit title and labels"
 msgstr "Upraviť názov a popisy"
@@ -1568,7 +1543,6 @@ msgid "Current settings"
 msgstr "Aktuálne nastavenia"
 
 #: js/messages.php:168 server_status.php:1640
-#, fuzzy
 #| msgid "Chart title"
 msgid "Chart Title"
 msgstr "Názov grafu"
@@ -1657,7 +1631,6 @@ msgid "Profiling results"
 msgstr "Výsledky profilovania"
 
 #: js/messages.php:190
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
@@ -2101,14 +2074,12 @@ msgid "Done"
 msgstr "Hotovo"
 
 #: js/messages.php:389
-#, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Predchádzajúci"
 
 #: js/messages.php:394
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
@@ -2395,7 +2366,6 @@ msgid "File was not an uploaded file."
 msgstr ""
 
 #: libraries/File.class.php:260 libraries/File.class.php:389
-#, fuzzy
 #| msgid "Unknown error in file upload."
 msgid "Unknown error while uploading."
 msgstr "Neznáma chyba pri nahrávaní súboru."
@@ -2535,7 +2505,6 @@ msgstr[1] "Boli vložené %1$d riadky."
 msgstr[2] "Bolo vložených %1$d riadkov."
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
 msgstr "Chyba pri vytváraní PDF:"
@@ -3030,7 +2999,6 @@ msgstr "Chýbajúci parameter:"
 
 #: libraries/common.lib.php:2454 libraries/common.lib.php:2457
 #: libraries/display_tbl.lib.php:306
-#, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
@@ -3039,7 +3007,6 @@ msgstr "Začiatok"
 #: libraries/common.lib.php:2455 libraries/common.lib.php:2458
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
-#, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
@@ -3048,7 +3015,6 @@ msgstr "Predchádzajúci"
 #: libraries/common.lib.php:2485 libraries/common.lib.php:2488
 #: libraries/display_tbl.lib.php:372 server_binlog.php:170
 #: server_binlog.php:172
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
@@ -3056,7 +3022,6 @@ msgstr "Ďalší"
 
 #: libraries/common.lib.php:2486 libraries/common.lib.php:2489
 #: libraries/display_tbl.lib.php:389
-#, fuzzy
 #| msgid "End"
 msgctxt "Last page"
 msgid "End"
