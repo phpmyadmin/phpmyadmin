@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
 "PO-Revision-Date: 2011-12-25 11:01+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -291,7 +291,7 @@ msgstr "Odstrániť databázu (DROP)"
 
 #: db_operations.php:484
 msgid "Copy database to"
-msgstr "Skopírovať databázu na"
+msgstr "Skopírovať databázu"
 
 #: db_operations.php:491 tbl_operations.php:552 tbl_tracking.php:409
 msgid "Structure only"
