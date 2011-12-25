@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-25 21:32+0200\n"
+"PO-Revision-Date: 2011-12-25 21:33+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -4859,7 +4859,6 @@ msgid "Server port"
 msgstr "Port servera"
 
 #: libraries/config/messages.inc.php:416
-#, fuzzy
 #| msgid ""
 #| "ve blank for no user preferences storage in database, suggested: [kbd]"
 #| "_config[/kbd]"
@@ -4867,8 +4866,8 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma_recent[/kbd]"
 msgstr ""
-"Nechajte prázdne pre vypnutie možnosti ukladania užívateľských nastavení v "
-"databáze. Odporúčaná hodnota: [kbd]pma_config[/kbd]"
+"Nechajte prázdne pre vypnutie možnosti \"trvalého\" ukladania nedívnych "
+"tabuliek. Odporúčaná hodnota: [kbd]pma_recent[/kbd]"
 
 #: libraries/config/messages.inc.php:417
 msgid "Recently used table"
