@@ -1928,7 +1928,7 @@ msgstr ""
 
 #: js/messages.php:292
 msgid "Each point represents a data row."
-msgstr ""
+msgstr "Každý bod reprezentuje riadok dát."
 
 #: js/messages.php:294
 msgid "Hovering over a point will show its label."
