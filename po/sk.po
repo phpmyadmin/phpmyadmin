@@ -851,7 +851,7 @@ msgstr "Vybraný typ exportu musí byť uložený do súboru!"
 #: export.php:106
 #, fuzzy
 msgid "Bad parameters!"
-msgstr "Odstrániť index/indexy"
+msgstr "Chybné parametre!"
 
 #: export.php:166 export.php:191 export.php:652
 #, php-format
