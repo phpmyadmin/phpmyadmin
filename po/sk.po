@@ -1813,7 +1813,7 @@ msgstr "OK"
 
 #: js/messages.php:238
 msgid "Click to dismiss this notification"
-msgstr ""
+msgstr "Kliknutím zatvoríte túto správu"
 
 #: js/messages.php:241
 msgid "Renaming Databases"
