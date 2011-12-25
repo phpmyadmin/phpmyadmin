@@ -10689,10 +10689,9 @@ msgid "Log statistics"
 msgstr "Zobraziť štatistiky"
 
 #: server_status.php:1704
-#, fuzzy
 #| msgid "Select page"
 msgid "Selected time range:"
-msgstr "Zvoliť stránku"
+msgstr "Zvolený časový rozsah:"
 
 #: server_status.php:1709
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
