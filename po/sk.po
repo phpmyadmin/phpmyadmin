@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
 "PO-Revision-Date: 2011-12-25 11:14+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -1281,6 +1281,9 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
+"Usporiadanie grafov uložené vo vašem prehliadači nie je kompatibilné s touto "
+"verziou monitora a pravdepodobne nebude fungovať správne. Prosím, obnovte "
+"východzie nastavenie v ponuke <i>Nastavenia</i>."
 
 #: js/messages.php:97
 #, fuzzy
