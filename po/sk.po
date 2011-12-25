@@ -1973,10 +1973,9 @@ msgid "Query results"
 msgstr "Výsledky dopytu"
 
 #: js/messages.php:311
-#, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
-msgstr "Veľkosť smerníka na dáta"
+msgstr "Obsah datového bodu"
 
 #: js/messages.php:314 tbl_change.php:312 tbl_indexes.php:228
 #: tbl_indexes.php:255
