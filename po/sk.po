@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
 "PO-Revision-Date: 2011-12-25 11:10+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -1024,7 +1024,7 @@ msgstr ""
 #: import.php:366
 msgid ""
 "Cannot convert file's character set without character set conversion library"
-msgstr "Bez potrebnej knižnice nemožno previesť znakovú sadu súboru"
+msgstr "Bez potrebnej knižnice nemožno previesť konverziu znakovej  sady"
 
 #: import.php:390 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
