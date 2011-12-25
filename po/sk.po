@@ -1693,10 +1693,9 @@ msgid "Sum of grouped rows:"
 msgstr "Počet zlúčených riadkov:"
 
 #: js/messages.php:200
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "Celkom"
+msgstr "Celkom:"
 
 #: js/messages.php:202
 #, fuzzy
