@@ -1389,7 +1389,7 @@ msgstr "Odoslaných bajtov"
 #, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "Prijaté"
+msgstr "Prijaté bajtov"
 
 #: js/messages.php:121 server_status.php:1140
 msgid "Connections"
