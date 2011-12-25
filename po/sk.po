@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-25 11:26+0200\n"
+"PO-Revision-Date: 2011-12-25 11:27+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -1554,6 +1554,8 @@ msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
+"Nemôžete zmeniť tieto premenné. Prihláste sa prosím ako root alebo "
+"kontaktujte vášho správcu databázy."
 
 #: js/messages.php:165
 #, fuzzy
