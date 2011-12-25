@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-25 12:30+0200\n"
+"PO-Revision-Date: 2011-12-25 12:31+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -1872,9 +1872,9 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Definícia uloženej funkcie musí obsahovať príkaz RETURN!"
 
 #: js/messages.php:269
-#, fuzzy, php-format
+#, php-format
 msgid "Add %d value(s)"
-msgstr "Pridať nového používateľa"
+msgstr "Pridať %d hodnôt"
 
 #: js/messages.php:272
 msgid ""
