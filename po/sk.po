@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
 "PO-Revision-Date: 2011-12-25 11:06+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -919,7 +919,7 @@ msgstr "Y"
 #: js/messages.php:319
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "Bod %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:325
