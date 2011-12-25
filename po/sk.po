@@ -13370,7 +13370,7 @@ msgstr ""
 #~ msgstr "Pridať hodnotu AUTO_INCREMENT"
 
 #~ msgid "Dump %s row(s) starting at row # %s"
-#~ msgstr "Zobraziť %s riadkov od riadku %s."
+#~ msgstr "Zobraziť %s riadkov od riadku # %s."
 
 #~ msgid "remember template"
 #~ msgstr "zapamätať si vzor"
