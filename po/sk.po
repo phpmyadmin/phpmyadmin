@@ -2365,7 +2365,7 @@ msgstr "za hodinu"
 
 #: libraries/Advisor.class.php:335
 msgid "per day"
-msgstr ""
+msgstr "za deň"
 
 #: libraries/Config.class.php:703
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
