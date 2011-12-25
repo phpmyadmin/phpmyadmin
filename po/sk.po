@@ -1959,10 +1959,9 @@ msgid "Strings are converted into integer for plotting"
 msgstr ""
 
 #: js/messages.php:308
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
-msgstr "Pridať/Odobrať stĺpce"
+msgstr "Zvoľte dva stĺpce"
 
 #: js/messages.php:309
 msgid "Select two different columns"
