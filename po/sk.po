@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-28 00:04+0200\n"
+"PO-Revision-Date: 2011-12-28 00:12+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -3318,6 +3318,7 @@ msgstr ""
 "cookie[/kbd]"
 
 #: libraries/config/messages.inc.php:25
+#, fuzzy
 msgid "Blowfish secret"
 msgstr "Blowfish secret"
 
@@ -4613,6 +4614,7 @@ msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgstr "Názov pre zobrazenie pri použití HTTP autorizácie"
 
 #: libraries/config/messages.inc.php:369
+#, fuzzy
 msgid "HTTP Realm"
 msgstr "HTTP Realm"
 
@@ -5990,6 +5992,7 @@ msgid "Well Known Text"
 msgstr "Text (Well Known Text)"
 
 #: libraries/display_tbl.lib.php:694
+#, fuzzy
 msgid "Well Known Binary"
 msgstr "Well Known Binary"
 
