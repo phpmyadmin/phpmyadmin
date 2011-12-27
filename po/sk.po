@@ -1267,9 +1267,9 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
-"Usporiadanie grafov uložené vo vašem prehliadači nie je kompatibilné s touto "
-"verziou monitora a pravdepodobne nebude fungovať správne. Prosím, obnovte "
-"východzie nastavenie v ponuke <i>Nastavenia</i>."
+"Usporiadanie grafov uložené vo vašem prehliadači už nie je kompatibilné s "
+"touto verziou monitora a pravdepodobne nebude fungovať správne. Prosím, "
+"obnovte východzie nastavenie v ponuke <i>Nastavenia</i>."
 
 #: js/messages.php:97
 #| msgid "Query cache"
