@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-28 00:01+0200\n"
+"PO-Revision-Date: 2011-12-28 00:02+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -4137,7 +4137,7 @@ msgstr "Import mien (5.00 namiesto $5.00)"
 
 #: libraries/config/messages.inc.php:259
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr "Importovať percentá ako desatinné čísla (0.12 namiesto 12.00%)"
+msgstr "Importovať percentá ako desatinné čísla (0,12 namiesto 12,00%)"
 
 #: libraries/config/messages.inc.php:260
 msgid "Number of queries to skip from start"
