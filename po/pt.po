@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-27 22:21+0200\n"
+"PO-Revision-Date: 2011-12-27 22:23+0200\n"
 "Last-Translator: NunoCruz <ncruzdesign@gmail.com>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -1818,10 +1818,9 @@ msgid "Browsing"
 msgstr "Navegação"
 
 #: js/messages.php:259
-#, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
-msgstr "A apagar %s"
+msgstr "A Eliminar"
 
 #: js/messages.php:262
 msgid "The definition of a stored function must contain a RETURN statement!"
