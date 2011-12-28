@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
 "PO-Revision-Date: 2011-12-28 11:42+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: jsgrrc <jsgrrc@gmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
@@ -2077,7 +2077,7 @@ msgstr "அக்டோபர்"
 
 #: js/messages.php:410
 msgid "November"
-msgstr "கார்த்திகை"
+msgstr "நவம்பர்"
 
 #: js/messages.php:411
 msgid "December"
