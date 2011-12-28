@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
 "PO-Revision-Date: 2011-12-28 15:53+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -1598,11 +1598,10 @@ msgid "Profiling results"
 msgstr "Profilage des résultats"
 
 #: js/messages.php:190
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
-msgstr "192.168.0.192Table"
+msgstr "Table"
 
 #: js/messages.php:191
 msgid "Chart"
