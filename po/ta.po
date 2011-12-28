@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-28 11:43+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"PO-Revision-Date: 2011-12-28 11:44+0200\n"
+"Last-Translator: jsgrrc <jsgrrc@gmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
@@ -2037,7 +2037,7 @@ msgstr "ஜனவரி"
 
 #: js/messages.php:401
 msgid "February"
-msgstr "மாசி"
+msgstr "பெப்ரவரி"
 
 #: js/messages.php:402
 msgid "March"
