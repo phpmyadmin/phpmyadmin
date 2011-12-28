@@ -12314,10 +12314,10 @@ msgstr ""
 "seconde. Cette règle intervient s'il y a plus de 100 requêtes par seconde."
 
 #: po/advisory_rules.php:80
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query cache efficiency (%)"
 msgid "Query cache efficiency (%%)"
-msgstr "Efficacité de la cache de requêtes (%)"
+msgstr "Efficacité de la cache de requêtes (%%)"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
