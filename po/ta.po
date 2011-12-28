@@ -2033,7 +2033,7 @@ msgstr "இன்று"
 
 #: js/messages.php:400
 msgid "January"
-msgstr "தை"
+msgstr "ஜனவரி"
 
 #: js/messages.php:401
 msgid "February"
