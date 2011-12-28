@@ -494,6 +494,7 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
 
         if (!$is_group
          && !isset($analyzed_sql[0]['queryflags']['union'])
+         && !isset($analyzed_sql[0]['queryflags']['distinct'])
          && !isset($analyzed_sql[0]['table_ref'][1]['table_name'])
          && (empty($analyzed_sql[0]['where_clause'])
            || $analyzed_sql[0]['where_clause'] == '1 ')
