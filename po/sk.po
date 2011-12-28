@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-25 22:21+0200\n"
+"PO-Revision-Date: 2011-12-28 00:12+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -1062,7 +1062,7 @@ msgstr "Späť"
 
 #: index.php:164
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
-msgstr "phpMyAdmin funguje lepšie s prehliadačmi podporujúcimi <b>rámy</b>."
+msgstr "phpMyAdmin funguje lepšie s prehliadačmi <b>podporujúcimi rámy</b>."
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:247
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -1238,7 +1238,7 @@ msgstr "Procesy"
 
 #: js/messages.php:85
 msgid "Connections / Processes"
-msgstr "Spojenia/Procesy"
+msgstr "Spojenia / Procesy"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
@@ -1267,9 +1267,9 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
-"Usporiadanie grafov uložené vo vašem prehliadači nie je kompatibilné s touto "
-"verziou monitora a pravdepodobne nebude fungovať správne. Prosím, obnovte "
-"východzie nastavenie v ponuke <i>Nastavenia</i>."
+"Usporiadanie grafov uložené vo vašem prehliadači už nie je kompatibilné s "
+"touto verziou monitora a pravdepodobne nebude fungovať správne. Prosím, "
+"obnovte východzie nastavenie v ponuke <i>Nastavenia</i>."
 
 #: js/messages.php:97
 #| msgid "Query cache"
@@ -3318,6 +3318,7 @@ msgstr ""
 "cookie[/kbd]"
 
 #: libraries/config/messages.inc.php:25
+#, fuzzy
 msgid "Blowfish secret"
 msgstr "Blowfish secret"
 
@@ -4137,7 +4138,7 @@ msgstr "Import mien (5.00 namiesto $5.00)"
 
 #: libraries/config/messages.inc.php:259
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr "Importovať percentá ako desatinné čísla (0.12 namiesto 12.00%)"
+msgstr "Importovať percentá ako desatinné čísla (0,12 namiesto 12,00%)"
 
 #: libraries/config/messages.inc.php:260
 msgid "Number of queries to skip from start"
@@ -4613,6 +4614,7 @@ msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgstr "Názov pre zobrazenie pri použití HTTP autorizácie"
 
 #: libraries/config/messages.inc.php:369
+#, fuzzy
 msgid "HTTP Realm"
 msgstr "HTTP Realm"
 
@@ -5990,6 +5992,7 @@ msgid "Well Known Text"
 msgstr "Text (Well Known Text)"
 
 #: libraries/display_tbl.lib.php:694
+#, fuzzy
 msgid "Well Known Binary"
 msgstr "Well Known Binary"
 
@@ -7198,7 +7201,7 @@ msgid ""
 "Please see the documentation on how to update your column_comments table"
 msgstr ""
 "Prosím prečítajte si dokumentáciu ako aktualizovať tabuľku s informáciami o "
-"stĺpcoch (Column_comments Table)"
+"stĺpcoch (column_comments tabuľka)"
 
 #: libraries/relation.lib.php:124 libraries/sql_query_form.lib.php:368
 msgid "Bookmarked SQL query"

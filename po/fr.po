@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-16 19:10+0200\n"
+"PO-Revision-Date: 2011-12-28 15:53+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -1598,7 +1598,6 @@ msgid "Profiling results"
 msgstr "Profilage des résultats"
 
 #: js/messages.php:190
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
@@ -12315,10 +12314,10 @@ msgstr ""
 "seconde. Cette règle intervient s'il y a plus de 100 requêtes par seconde."
 
 #: po/advisory_rules.php:80
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query cache efficiency (%)"
 msgid "Query cache efficiency (%%)"
-msgstr "Efficacité de la cache de requêtes (%)"
+msgstr "Efficacité de la cache de requêtes (%%)"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
