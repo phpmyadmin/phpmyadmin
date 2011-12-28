@@ -1602,7 +1602,7 @@ msgstr "Profilage des résultats"
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
-msgstr "Table"
+msgstr "192.168.0.192Table"
 
 #: js/messages.php:191
 msgid "Chart"
