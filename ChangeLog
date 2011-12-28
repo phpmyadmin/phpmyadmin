@@ -71,6 +71,7 @@ phpMyAdmin - ChangeLog
 - bug #3460090 [interface] TextareaAutoSelect feature broken
 - patch #3375984 [export] PHP Array export might generate invalid php code
 - bug #3049209 [import] Import from ODS ignores cell that is the same as cell before
+- bug #3463933 [display] SELECT DISTINCT displays wrong total records found
 
 3.4.9.0 (2011-12-21)
 - bug #3442028 [edit] Inline editing enum fields with null shows no dropdown
