@@ -301,6 +301,8 @@ function PMA_langDetails($lang)
         return array('te|telugu', 'te', 'తెలుగు');
     case 'th':
         return array('th|thai', 'th', '&#3616;&#3634;&#3625;&#3634;&#3652;&#3607;&#3618;');
+    case 'tk':
+        return array('tk|turkmen', 'tk', 'türkmençe');
     case 'tr':
         return array('tr|turkish', 'tr', 'T&uuml;rk&ccedil;e');
     case 'tt':
