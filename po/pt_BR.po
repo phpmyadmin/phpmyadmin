@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-29 18:11+0200\n"
+"PO-Revision-Date: 2011-12-29 18:12+0200\n"
 "Last-Translator: WillBa <widelan10@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -1598,7 +1598,7 @@ msgstr "Log analizado, nenhum dado encontrado neste intervalo de tempo"
 #, fuzzy
 #| msgid "Analyze"
 msgid "Analyzing..."
-msgstr "Analizar"
+msgstr "Analizando..."
 
 #: js/messages.php:185
 #, fuzzy
