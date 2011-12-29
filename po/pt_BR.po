@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
 "PO-Revision-Date: 2011-12-29 18:11+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: WillBa <widelan10@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -1384,7 +1384,7 @@ msgstr "EB"
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "%d table(s)"
-msgstr "%s tabela"
+msgstr "%d tabela(s)"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:135
