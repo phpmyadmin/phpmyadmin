@@ -4725,10 +4725,9 @@ msgstr ""
 "records are automatically removed"
 
 #: libraries/config/messages.inc.php:403
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximal number of table preferences to store"
-msgstr "Maximum number of tables displayed in table list"
+msgstr "Maximal number of table preferences to store"
 
 #: libraries/config/messages.inc.php:404
 msgid "Try to connect without password"
