@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-12-29 18:15+0200\n"
+"PO-Revision-Date: 2011-12-29 18:17+0200\n"
 "Last-Translator: WillBa <widelan10@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -806,7 +806,6 @@ msgid "ENUM/SET editor"
 msgstr "Editor ENUM/SET"
 
 #: enum_editor.php:28 js/messages.php:267
-#, fuzzy
 #| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
 msgstr "Valores para uma nova coluna"
@@ -822,7 +821,6 @@ msgid "Enter each value in a separate field"
 msgstr "Insira cada valor em um campo separado"
 
 #: enum_editor.php:123
-#, fuzzy
 #| msgid "+ Add a value"
 msgid "Add a value"
 msgstr "Adicionar um valor"
@@ -1109,19 +1107,17 @@ msgid "This is not a number!"
 msgstr "Isto não é um número!"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid "Add index"
 msgid "Add Index"
 msgstr "Adicionar índice"
 
 #: js/messages.php:47
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit Index"
 msgstr "Editar índice"
 
 #: js/messages.php:48 tbl_indexes.php:293
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %d column(s) to index"
 msgstr "Adicionar %d coluna(s) ao índice"
@@ -1380,7 +1376,7 @@ msgid "EiB"
 msgstr "EB"
 
 #: js/messages.php:132
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "%d table(s)"
@@ -1611,7 +1607,6 @@ msgid "Time"
 msgstr "Tempo"
 
 #: js/messages.php:188
-#, fuzzy
 #| msgid "Total:"
 msgid "Total time:"
 msgstr "Tempo total:"
@@ -1623,7 +1618,6 @@ msgid "Profiling results"
 msgstr "Perfil"
 
 #: js/messages.php:190
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
