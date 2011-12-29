@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
-"PO-Revision-Date: 2011-11-15 17:18+0200\n"
+"PO-Revision-Date: 2011-11-15 17:19+0200\n"
 "Last-Translator: Macrotus <rokkeri@hotmail.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -1782,7 +1782,7 @@ msgstr "Pääavaimen lisäys"
 #: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
 #: pmd_general.php:715 pmd_general.php:778
 msgid "OK"
-msgstr "Kunnossa"
+msgstr "OK"
 
 #: js/messages.php:238
 msgid "Click to dismiss this notification"
