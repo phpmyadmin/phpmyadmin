@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
 "PO-Revision-Date: 2011-12-29 18:10+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: WillBa <widelan10@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -1124,7 +1124,7 @@ msgstr "Editar índice"
 #, fuzzy, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %d column(s) to index"
-msgstr "Adicionar %s campo(s)"
+msgstr "Adicionar %d coluna(s) ao índice"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:52
