@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
 "PO-Revision-Date: 2011-12-29 18:11+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: WillBa <widelan10@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -1557,10 +1557,9 @@ msgid "Analysing & loading logs. This may take a while."
 msgstr "Analisando e carregando logs. Isso pode demorar."
 
 #: js/messages.php:176
-#, fuzzy
 #| msgid "Read requests"
 msgid "Cancel request"
-msgstr "Leitura requisitada"
+msgstr "Cancelar solicitação"
 
 #: js/messages.php:177
 msgid ""
