@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
 "PO-Revision-Date: 2011-12-29 18:09+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: WillBa <widelan10@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -817,10 +817,9 @@ msgid "Values for column %s"
 msgstr "Valores para coluna %s"
 
 #: enum_editor.php:34 js/messages.php:268
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
-msgstr "Digite cada valor em um campo separado"
+msgstr "Insira cada valor em um campo separado"
 
 #: enum_editor.php:123
 #, fuzzy
