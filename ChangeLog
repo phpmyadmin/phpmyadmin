@@ -6,6 +6,7 @@ phpMyAdmin - ChangeLog
 - patch #3375984 [export] PHP Array export might generate invalid php code
 - bug #3049209 [import] Import from ODS ignores cell that is the same as cell before
 - bug #3463933 [display] SELECT DISTINCT displays wrong total records found
+- patch #3458944 [operations] copy table data missing SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO'
 
 3.4.9.0 (2011-12-21)
 - bug #3442028 [edit] Inline editing enum fields with null shows no dropdown

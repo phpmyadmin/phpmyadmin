@@ -775,6 +775,10 @@ class PMA_Table
 
         // Copy the data unless this is a VIEW
         if (($what == 'data' || $what == 'dataonly') && ! PMA_Table::_isView($target_db,$target_table)) {
+            $sql_set_mode = "SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO'";
+            PMA_DBI_query($sql_set_mode);
+            $GLOBALS['sql_query'] .= "\n\n" . $sql_set_mode . ';';
+
             $sql_insert_data =
                 'INSERT INTO ' . $target . ' SELECT * FROM ' . $source;
             PMA_DBI_query($sql_insert_data);
