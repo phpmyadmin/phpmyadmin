@@ -68,7 +68,7 @@ if (isset($plugin_list)) {
     /**
      * Outputs export footer
      *
-     * @return bool Whether it suceeded
+     * @return bool Whether it succeeded
      *
      * @access public
      */
@@ -86,7 +86,7 @@ if (isset($plugin_list)) {
     /**
      * Outputs export header
      *
-     * @return bool Whether it suceeded
+     * @return bool Whether it succeeded
      *
      * @access public
      */
@@ -104,7 +104,7 @@ if (isset($plugin_list)) {
      *
      * @param string $db Database name
      *
-     * @return bool Whether it suceeded
+     * @return bool Whether it succeeded
      *
      * @access public
      */
@@ -120,7 +120,7 @@ if (isset($plugin_list)) {
      *
      * @param string $db Database name
      *
-     * @return bool Whether it suceeded
+     * @return bool Whether it succeeded
      *
      * @access public
      */
@@ -134,7 +134,7 @@ if (isset($plugin_list)) {
      *
      * @param string $db Database name
      *
-     * @return bool Whether it suceeded
+     * @return bool Whether it succeeded
      *
      * @access public
      */
@@ -152,7 +152,7 @@ if (isset($plugin_list)) {
      * @param string $error_url the url to go back in case of error
      * @param string $sql_query SQL query for obtaining data
      *
-     * @return bool Whether it suceeded
+     * @return bool Whether it succeeded
      *
      * @access public
      */
@@ -236,7 +236,7 @@ if (isset($plugin_list)) {
      * @param string $export_mode 'create_table', 'triggers', 'create_view', 'stand_in'
      * @param string $export_type 'server', 'database', 'table'
      *
-     * @return bool Whether it suceeded
+     * @return bool Whether it succeeded
      *
      * @access public
      */
