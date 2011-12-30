@@ -130,7 +130,7 @@ $time_start = time();
  * $dump_buffer, otherwise it prints thems out.
  *
  * @param string  $line  the insert statement
- * @return  bool    Whether output suceeded
+ * @return  bool    Whether output succeeded
  */
 function PMA_exportOutputHandler($line)
 {

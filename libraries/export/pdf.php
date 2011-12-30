@@ -348,7 +348,7 @@ if (isset($plugin_list)) {
     /**
      * Finalize the pdf.
      *
-     * @return  bool        Whether it suceeded
+     * @return  bool        Whether it succeeded
      *
      * @access  public
      */
@@ -367,7 +367,7 @@ if (isset($plugin_list)) {
     /**
      * Initialize the pdf to export data.
      *
-     * @return  bool        Whether it suceeded
+     * @return  bool        Whether it succeeded
      *
      * @access  public
      */
@@ -390,7 +390,7 @@ if (isset($plugin_list)) {
      *
      * @param string $db Database name
      *
-     * @return bool Whether it suceeded
+     * @return bool Whether it succeeded
      *
      * @access public
      */
@@ -404,7 +404,7 @@ if (isset($plugin_list)) {
      *
      * @param string $db Database name
      *
-     * @return bool Whether it suceeded
+     * @return bool Whether it succeeded
      *
      * @access public
      */
@@ -418,7 +418,7 @@ if (isset($plugin_list)) {
      *
      * @param string $db Database name
      *
-     * @return bool Whether it suceeded
+     * @return bool Whether it succeeded
      *
      * @access public
      */
@@ -436,7 +436,7 @@ if (isset($plugin_list)) {
      * @param string $error_url the url to go back in case of error
      * @param string $sql_query SQL query for obtaining data
      *
-     * @return bool Whether it suceeded
+     * @return bool Whether it succeeded
      *
      * @access public
      */

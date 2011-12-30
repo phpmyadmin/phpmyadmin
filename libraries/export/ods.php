@@ -36,7 +36,7 @@ if (isset($plugin_list)) {
     /**
      * Outputs export footer
      *
-     * @return  bool        Whether it suceeded
+     * @return  bool        Whether it succeeded
      *
      * @access  public
      */
@@ -53,7 +53,7 @@ if (isset($plugin_list)) {
     /**
      * Outputs export header
      *
-     * @return  bool        Whether it suceeded
+     * @return  bool        Whether it succeeded
      *
      * @access  public
      */
@@ -103,7 +103,7 @@ if (isset($plugin_list)) {
      * Outputs database header
      *
      * @param string  $db Database name
-     * @return  bool        Whether it suceeded
+     * @return  bool        Whether it succeeded
      *
      * @access  public
      */
@@ -115,7 +115,7 @@ if (isset($plugin_list)) {
      * Outputs database footer
      *
      * @param string  $db Database name
-     * @return  bool        Whether it suceeded
+     * @return  bool        Whether it succeeded
      *
      * @access  public
      */
@@ -127,7 +127,7 @@ if (isset($plugin_list)) {
      * Outputs CREATE DATABASE statement
      *
      * @param string  $db Database name
-     * @return  bool        Whether it suceeded
+     * @return  bool        Whether it succeeded
      *
      * @access  public
      */
@@ -143,7 +143,7 @@ if (isset($plugin_list)) {
      * @param string  $crlf       the end of line sequence
      * @param string  $error_url  the url to go back in case of error
      * @param string  $sql_query  SQL query for obtaining data
-     * @return  bool        Whether it suceeded
+     * @return  bool        Whether it succeeded
      *
      * @access  public
      */
