@@ -16,12 +16,12 @@ RTE.postDialogShow = function (data) {
     // Cache the template for a parameter table row
     RTE.param_template = data.param_template;
     // Make adjustments in the dialog to make it AJAX compatible
-    $('.routine_param_remove').show();
+    $('td.routine_param_remove').show();
     $('input[name=routine_removeparameter]').remove();
     $('input[name=routine_addparameter]').css('width', '100%');
     // Enable/disable the 'options' dropdowns for parameters as necessary
-    $('.routine_params_table').last().find('th[colspan=2]').attr('colspan', '1');
-    $('.routine_params_table').last().find('tr').has('td').each(function () {
+    $('table.routine_params_table').last().find('th[colspan=2]').attr('colspan', '1');
+    $('table.routine_params_table').last().find('tr').has('td').each(function () {
         RTE.setOptionsForParameter(
             $(this).find('select[name^=item_param_type]'),
             $(this).find('input[name^=item_param_length]'),
@@ -32,10 +32,10 @@ RTE.postDialogShow = function (data) {
     // Enable/disable the 'options' dropdowns for
     // function return value as necessary
     RTE.setOptionsForParameter(
-        $('.rte_table').last().find('select[name=item_returntype]'),
-        $('.rte_table').last().find('input[name=item_returnlength]'),
-        $('.rte_table').last().find('select[name=item_returnopts_text]'),
-        $('.rte_table').last().find('select[name=item_returnopts_num]')
+        $('table.rte_table').last().find('select[name=item_returntype]'),
+        $('table.rte_table').last().find('input[name=item_returnlength]'),
+        $('table.rte_table').last().find('select[name=item_returnopts_text]'),
+        $('table.rte_table').last().find('select[name=item_returnopts_num]')
     );
 }; // end RTE.postDialogShow()
 
@@ -52,7 +52,7 @@ RTE.validateCustom = function () {
      *                    the field that is being processed
      */
     var inputname = '';
-    $('.routine_params_table').last().find('tr').each(function () {
+    $('table.routine_params_table').last().find('tr').each(function () {
         // Every parameter of a routine must have
         // a non-empty direction, name and type
         if (isSuccess) {
@@ -76,7 +76,7 @@ RTE.validateCustom = function () {
         alert(PMA_messages['strFormEmpty']);
         return false;
     }
-    $('.routine_params_table').last().find('tr').each(function () {
+    $('table.routine_params_table').last().find('tr').each(function () {
         // SET, ENUM, VARCHAR and VARBINARY fields must have length/values
         var $inputtyp = $(this).find('select[name^=item_param_type]');
         var $inputlen = $(this).find('input[name^=item_param_length]');
@@ -107,7 +107,7 @@ RTE.validateCustom = function () {
     }
     if ($('select[name=item_type]').find(':selected').val() === 'FUNCTION') {
         // A function must contain a RETURN statement in its definition
-        if ($('.rte_table').find('textarea[name=item_definition]').val().toUpperCase().indexOf('RETURN') < 0) {
+        if ($('table.rte_table').find('textarea[name=item_definition]').val().toUpperCase().indexOf('RETURN') < 0) {
             RTE.syntaxHiglighter.focus();
             alert(PMA_messages['MissingReturn']);
             return false;
@@ -232,15 +232,15 @@ $(document).ready(function () {
         // Append the new row to the parameters table
         $routine_params_table.append(new_param_row);
         // Make sure that the row is correctly shown according to the type of routine
-        if ($('.rte_table').find('select[name=item_type]').val() === 'FUNCTION') {
-            $('.routine_return_row').show();
-            $('.routine_direction_cell').hide();
+        if ($('table.rte_table').find('select[name=item_type]').val() === 'FUNCTION') {
+            $('tr.routine_return_row').show();
+            $('td.routine_direction_cell').hide();
         }
         /**
          * @var    $newrow    jQuery object containing the reference to the newly
          *                    inserted row in the routine parameters table.
          */
-        var $newrow = $('.routine_params_table').last().find('tr').has('td').last();
+        var $newrow = $('table.routine_params_table').last().find('tr').has('td').last();
         // Enable/disable the 'options' dropdowns for parameters as necessary
         RTE.setOptionsForParameter(
             $newrow.find('select[name^=item_param_type]'),
@@ -253,7 +253,7 @@ $(document).ready(function () {
     /**
      * Attach Ajax event handlers for the "Remove parameter from routine" functionality.
      */
-    $('.routine_param_remove_anchor').live('click', function (event) {
+    $('a.routine_param_remove_anchor').live('click', function (event) {
         event.preventDefault();
         $(this).parent().parent().remove();
         // After removing a parameter, the indices of the name attributes in
@@ -263,7 +263,7 @@ $(document).ready(function () {
          *                  fields in the routine parameters table.
          */
         var index = 0;
-        $('.routine_params_table').last().find('tr').has('td').each(function () {
+        $('table.routine_params_table').last().find('tr').has('td').each(function () {
             $(this).find(':input').each(function () {
                 /**
                  * @var    inputname    The value of the name attribute of
@@ -295,7 +295,7 @@ $(document).ready(function () {
      * fields are shown in the editor when changing the routine type
      */
     $('select[name=item_type]').live('change', function () {
-        $('.routine_return_row, .routine_direction_cell').toggle();
+        $('tr.routine_return_row, td.routine_direction_cell').toggle();
     }); // end $.live()
 
     /**
@@ -325,17 +325,17 @@ $(document).ready(function () {
      */
     $('select[name=item_returntype]').live('change', function () {
         RTE.setOptionsForParameter(
-            $('.rte_table').find('select[name=item_returntype]'),
-            $('.rte_table').find('input[name=item_returnlength]'),
-            $('.rte_table').find('select[name=item_returnopts_text]'),
-            $('.rte_table').find('select[name=item_returnopts_num]')
+            $('table.rte_table').find('select[name=item_returntype]'),
+            $('table.rte_table').find('input[name=item_returnlength]'),
+            $('table.rte_table').find('select[name=item_returnopts_text]'),
+            $('table.rte_table').find('select[name=item_returnopts_num]')
         );
     }); // end $.live()
 
     /**
      * Attach Ajax event handlers for the Execute routine functionality.
      */
-    $('.ajax_exec_anchor').live('click', function (event) {
+    $('a.ajax_exec_anchor').live('click', function (event) {
         event.preventDefault();
         /**
          * @var    $msg    jQuery object containing the reference to
@@ -355,7 +355,7 @@ $(document).ready(function () {
                         /**
                          * @var    data    Form data to be sent in the AJAX request.
                          */
-                        var data = $('.rte_form').last().serialize();
+                        var data = $('form.rte_form').last().serialize();
                         $msg = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
                         $.post('db_routines.php', data, function (data) {
                             if (data.success === true) {
@@ -387,7 +387,7 @@ $(document).ready(function () {
                     /**
                      * Attach the datepickers to the relevant form fields
                      */
-                    $ajaxDialog.find('.datefield, .datetimefield').each(function () {
+                    $ajaxDialog.find('input.datefield, input.datetimefield').each(function () {
                         PMA_addDatepicker($(this).css('width', '95%'));
                     });
                 } else {
