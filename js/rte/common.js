@@ -34,13 +34,13 @@ var RTE = {
         var $elm = null;
         // Common validation. At the very least the name
         // and the definition must be provided for an item
-        $elm = $('.rte_table').last().find('input[name=item_name]');
+        $elm = $('table.rte_table').last().find('input[name=item_name]');
         if ($elm.val() === '') {
             $elm.focus();
             alert(PMA_messages['strFormEmpty']);
             return false;
         }
-        $elm = $('.rte_table').find('textarea[name=item_definition]');
+        $elm = $('table.rte_table').find('textarea[name=item_definition]');
         if ($elm.val() === '') {
             this.syntaxHiglighter.focus();
             alert(PMA_messages['strFormEmpty']);
@@ -78,7 +78,7 @@ $(document).ready(function () {
     /**
      * Attach Ajax event handlers for the Add/Edit functionality.
      */
-    $('.ajax_add_anchor, .ajax_edit_anchor').live('click', function (event) {
+    $('a.ajax_add_anchor, a.ajax_edit_anchor').live('click', function (event) {
         event.preventDefault();
         /**
          * @var    $edit_row    jQuery object containing the reference to
@@ -112,9 +112,9 @@ $(document).ready(function () {
                         /**
                          * @var    data    Form data to be sent in the AJAX request.
                          */
-                        var data = $('.rte_form').last().serialize();
+                        var data = $('form.rte_form').last().serialize();
                         $msg = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
-                        $.post($('.rte_form').last().attr('action'), data, function (data) {
+                        $.post($('form.rte_form').last().attr('action'), data, function (data) {
                             if (data.success === true) {
                                 // Item created successfully
                                 PMA_ajaxRemoveMessage($msg);
@@ -220,7 +220,7 @@ $(document).ready(function () {
                                 }
                         });
                 RTE.$ajaxDialog.find('input[name=item_name]').focus();
-                RTE.$ajaxDialog.find('.datefield, .datetimefield').each(function () {
+                RTE.$ajaxDialog.find('input.datefield, input.datetimefield').each(function () {
                     PMA_addDatepicker($(this).css('width', '95%'));
                 });
                 /**
@@ -255,7 +255,7 @@ $(document).ready(function () {
      * and the routine execution dialog used to submit the Ajax
      * request when the ENTER key is pressed.
      */
-    $('.rte_table').find('input[name^=item], input[name^=params]').live('keydown', function (e) {
+    $('table.rte_table').find('input[name^=item], input[name^=params]').live('keydown', function (e) {
         if (e.which === 13) { // 13 is the ENTER key
             e.preventDefault();
             if (typeof RTE.buttonOptions[PMA_messages['strGo']] === 'function') {
@@ -267,7 +267,7 @@ $(document).ready(function () {
     /**
      * Attach Ajax event handlers for Export of Routines, Triggers and Events.
      */
-    $('.ajax_export_anchor').live('click', function (event) {
+    $('a.ajax_export_anchor').live('click', function (event) {
         event.preventDefault();
         var $msg = PMA_ajaxShowMessage();
         // Fire the ajax request straight away
@@ -309,7 +309,7 @@ $(document).ready(function () {
     /**
      * Attach Ajax event handlers for Drop functionality of Routines, Triggers and Events.
      */
-    $('.ajax_drop_anchor').live('click', function (event) {
+    $('a.ajax_drop_anchor').live('click', function (event) {
         event.preventDefault();
         /**
          * @var $curr_row    Object containing reference to the current row
@@ -318,7 +318,7 @@ $(document).ready(function () {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = $('<div></div>').text($curr_row.children('td').children('.drop_sql').html());
+        var question = $('<div/>').text($curr_row.children('td').children('.drop_sql').html());
         // We ask for confirmation first here, before submitting the ajax request
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
             /**

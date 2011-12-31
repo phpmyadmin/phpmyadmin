@@ -38,6 +38,6 @@ RTE.validateCustom = function () {
  */
 $(document).ready(function () {
     $('select[name=item_type]').live('change', function () {
-        $('.recurring_event_row, .onetime_event_row').toggle();
+        $('tr.recurring_event_row, tr.onetime_event_row').toggle();
     }); // end $.live()
 }); // end of $(document).ready()
