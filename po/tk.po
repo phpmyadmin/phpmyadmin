@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
 "PO-Revision-Date: 2012-01-01 16:52+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tk\n"
 "MIME-Version: 1.0\n"
@@ -30,7 +30,7 @@ msgstr "Hemmesini görkez"
 #: libraries/schema/User_Schema.class.php:396
 #: libraries/select_lang.lib.php:487
 msgid "Page number:"
-msgstr "Sahypa belgisi"
+msgstr "Sahypa belgisi:"
 
 #: browse_foreigners.php:138
 msgid ""
