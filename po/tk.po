@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-12-19 14:44+0100\n"
+"POT-Creation-Date: 2012-01-01 16:00+0100\n"
 "PO-Revision-Date: 2012-01-01 16:53+0200\n"
 "Last-Translator: any anonymous user <>\n"
 "Language-Team: Turkmen <tk@li.org>\n"
@@ -28,7 +28,7 @@ msgstr "Hemmesini görkez"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1142
 #: libraries/schema/Pdf_Relation_Schema.class.php:1166
 #: libraries/schema/User_Schema.class.php:396
-#: libraries/select_lang.lib.php:487
+#: libraries/select_lang.lib.php:489
 msgid "Page number:"
 msgstr "Sahypa belgisi:"
 
@@ -116,7 +116,7 @@ msgid "Failed to open remote URL"
 msgstr "Daşlykdaky URL-y açyp bolmady"
 
 #: changelog.php:32 license.php:28
-#, possible-php-format
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
@@ -125,7 +125,7 @@ msgstr ""
 "sahypa seretmegiňizi haýyş edýäris"
 
 #: db_create.php:60
-#, possible-php-format
+#, php-format
 msgid "Database %1$s has been created."
 msgstr "%1$s maglumatlar ulgamy döredildi"
 
@@ -267,12 +267,12 @@ msgid "The database name is empty!"
 msgstr ""
 
 #: db_operations.php:280
-#, possible-php-format
+#, php-format
 msgid "Database %s has been renamed to %s"
 msgstr ""
 
 #: db_operations.php:284
-#, possible-php-format
+#, php-format
 msgid "Database %s has been copied to %s"
 msgstr ""
 
@@ -285,7 +285,7 @@ msgid "Remove database"
 msgstr ""
 
 #: db_operations.php:450
-#, possible-php-format
+#, php-format
 msgid "Database %s has been dropped."
 msgstr ""
 
@@ -316,7 +316,7 @@ msgstr ""
 #: db_operations.php:504 libraries/config/messages.inc.php:128
 #: libraries/config/messages.inc.php:129 libraries/config/messages.inc.php:131
 #: libraries/config/messages.inc.php:137 tbl_operations.php:560
-#, possible-php-format
+#, php-format
 msgid "Add %s"
 msgstr ""
 
@@ -344,7 +344,7 @@ msgid "Collation"
 msgstr ""
 
 #: db_operations.php:561
-#, possible-php-format
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
@@ -403,7 +403,7 @@ msgid "Last check"
 msgstr ""
 
 #: db_printview.php:219 db_structure.php:514
-#, possible-php-format
+#, php-format
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] ""
@@ -414,7 +414,7 @@ msgid "You have to choose at least one column to display"
 msgstr ""
 
 #: db_qbe.php:186
-#, possible-php-format
+#, php-format
 msgid "Switch to %svisual builder%s"
 msgstr ""
 
@@ -487,7 +487,7 @@ msgid "Use Tables"
 msgstr ""
 
 #: db_qbe.php:662
-#, possible-php-format
+#, php-format
 msgid "SQL query on database <b>%s</b>:"
 msgstr ""
 
@@ -519,12 +519,12 @@ msgid "as regular expression"
 msgstr ""
 
 #: db_search.php:209
-#, possible-php-format
+#, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr ""
 
 #: db_search.php:227
-#, possible-php-format
+#, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] ""
@@ -537,7 +537,7 @@ msgid "Browse"
 msgstr ""
 
 #: db_search.php:239
-#, possible-php-format
+#, php-format
 msgid "Delete the matches for the %s table?"
 msgstr ""
 
@@ -554,7 +554,7 @@ msgid "Delete"
 msgstr ""
 
 #: db_search.php:252
-#, possible-php-format
+#, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] ""
@@ -589,17 +589,17 @@ msgid "No tables found in database"
 msgstr ""
 
 #: db_structure.php:315 tbl_operations.php:692
-#, possible-php-format
+#, php-format
 msgid "Table %s has been emptied"
 msgstr ""
 
 #: db_structure.php:328 tbl_operations.php:709
-#, possible-php-format
+#, php-format
 msgid "View %s has been dropped"
 msgstr ""
 
 #: db_structure.php:328 tbl_operations.php:709
-#, possible-php-format
+#, php-format
 msgid "Table %s has been dropped"
 msgstr ""
 
@@ -612,7 +612,7 @@ msgid "Tracking is not active."
 msgstr ""
 
 #: db_structure.php:451 libraries/display_tbl.lib.php:2355
-#, possible-php-format
+#, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
@@ -634,7 +634,7 @@ msgid "Sum"
 msgstr ""
 
 #: db_structure.php:532 libraries/StorageEngine.class.php:338
-#, possible-php-format
+#, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr ""
 
@@ -752,7 +752,7 @@ msgstr ""
 
 #: db_tracking.php:90 js/messages.php:186 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
-#: server_status.php:1237 sql.php:892 tbl_tracking.php:638
+#: server_status.php:1237 sql.php:894 tbl_tracking.php:638
 msgid "Status"
 msgstr ""
 
@@ -810,7 +810,7 @@ msgid "Values for a new column"
 msgstr ""
 
 #: enum_editor.php:30 js/messages.php:266
-#, possible-php-format
+#, php-format
 msgid "Values for column %s"
 msgstr ""
 
@@ -843,23 +843,23 @@ msgid "Bad parameters!"
 msgstr ""
 
 #: export.php:166 export.php:191 export.php:652
-#, possible-php-format
+#, php-format
 msgid "Insufficient space to save the file %s."
 msgstr ""
 
 #: export.php:307
-#, possible-php-format
+#, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
 
 #: export.php:311 export.php:315
-#, possible-php-format
+#, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr ""
 
 #: export.php:654
-#, possible-php-format
+#, php-format
 msgid "Dump has been saved to file %s."
 msgstr ""
 
@@ -868,7 +868,7 @@ msgid "Invalid export type"
 msgstr ""
 
 #: gis_data_editor.php:84
-#, possible-php-format
+#, php-format
 msgid "Value for the column \"%s\""
 msgstr ""
 
@@ -901,7 +901,7 @@ msgstr ""
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
 #: js/messages.php:319
-#, possible-php-format
+#, php-format
 msgid "Point %d"
 msgstr ""
 
@@ -949,7 +949,7 @@ msgid ""
 msgstr ""
 
 #: import.php:57
-#, possible-php-format
+#, php-format
 msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
 "%s for ways to workaround this limit."
@@ -971,7 +971,7 @@ msgstr ""
 #: import.php:299 import.php:308 import.php:327 import.php:336
 #: libraries/File.class.php:610 libraries/File.class.php:618
 #: libraries/File.class.php:634 libraries/File.class.php:642
-#, possible-php-format
+#, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
@@ -993,13 +993,13 @@ msgstr ""
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 
-#: import.php:421 sql.php:927
-#, possible-php-format
+#: import.php:421 sql.php:929
+#, php-format
 msgid "Bookmark %s created"
 msgstr ""
 
 #: import.php:427 import.php:433
-#, possible-php-format
+#, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr ""
 
@@ -1068,7 +1068,7 @@ msgid "You are about to DISABLE a BLOB Repository!"
 msgstr ""
 
 #: js/messages.php:41
-#, possible-php-format
+#, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
 msgstr ""
 
@@ -1089,7 +1089,7 @@ msgid "Edit Index"
 msgstr ""
 
 #: js/messages.php:48 tbl_indexes.php:293
-#, possible-php-format
+#, php-format
 msgid "Add %d column(s) to index"
 msgstr ""
 
@@ -1343,7 +1343,7 @@ msgid "EiB"
 msgstr ""
 
 #: js/messages.php:132
-#, possible-php-format
+#, php-format
 msgid "%d table(s)"
 msgstr ""
 
@@ -1418,7 +1418,7 @@ msgid "log_output is set to TABLE."
 msgstr ""
 
 #: js/messages.php:153
-#, possible-php-format
+#, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
@@ -1426,7 +1426,7 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:154
-#, possible-php-format
+#, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr ""
 
@@ -1438,25 +1438,25 @@ msgstr ""
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:157
-#, possible-php-format
+#, php-format
 msgid "Set log_output to %s"
 msgstr ""
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:159
-#, possible-php-format
+#, php-format
 msgid "Enable %s"
 msgstr ""
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:161
-#, possible-php-format
+#, php-format
 msgid "Disable %s"
 msgstr ""
 
 #. l10n: %d seconds
 #: js/messages.php:163
-#, possible-php-format
+#, php-format
 msgid "Set long_query_time to %ds"
 msgstr ""
 
@@ -1484,7 +1484,7 @@ msgid "Differential"
 msgstr ""
 
 #: js/messages.php:171
-#, possible-php-format
+#, php-format
 msgid "Divided by %s:"
 msgstr ""
 
@@ -1539,7 +1539,7 @@ msgid "Explain output"
 msgstr ""
 
 #: js/messages.php:187 js/messages.php:487 libraries/rte/rte_list.lib.php:62
-#: libraries/rte/rte_triggers.lib.php:326 server_status.php:1236 sql.php:893
+#: libraries/rte/rte_triggers.lib.php:326 server_status.php:1236 sql.php:895
 msgid "Time"
 msgstr ""
 
@@ -1755,7 +1755,7 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
 #: js/messages.php:269
-#, possible-php-format
+#, php-format
 msgid "Add %d value(s)"
 msgstr ""
 
@@ -1951,7 +1951,7 @@ msgid "More"
 msgstr ""
 
 #: js/messages.php:363 setup/lib/index.lib.php:173
-#, possible-php-format
+#, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
@@ -2211,7 +2211,7 @@ msgid "Second"
 msgstr ""
 
 #: libraries/Advisor.class.php:168
-#, possible-php-format
+#, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr ""
 
@@ -2237,7 +2237,7 @@ msgid "Remove \"./config\" directory before using phpMyAdmin!"
 msgstr ""
 
 #: libraries/Config.class.php:727
-#, possible-php-format
+#, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr ""
 
@@ -2339,12 +2339,12 @@ msgid "The primary key has been dropped"
 msgstr ""
 
 #: libraries/Index.class.php:478
-#, possible-php-format
+#, php-format
 msgid "Index %s has been dropped"
 msgstr ""
 
 #: libraries/Index.class.php:573
-#, possible-php-format
+#, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
@@ -2364,21 +2364,21 @@ msgid "Error"
 msgstr ""
 
 #: libraries/Message.class.php:241
-#, possible-php-format
+#, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
 msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/Message.class.php:257
-#, possible-php-format
+#, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/Message.class.php:273
-#, possible-php-format
+#, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] ""
@@ -2406,17 +2406,17 @@ msgid ""
 msgstr ""
 
 #: libraries/StorageEngine.class.php:341
-#, possible-php-format
+#, php-format
 msgid "%s is available on this MySQL server."
 msgstr ""
 
 #: libraries/StorageEngine.class.php:344
-#, possible-php-format
+#, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr ""
 
 #: libraries/StorageEngine.class.php:348
-#, possible-php-format
+#, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr ""
 
@@ -2424,37 +2424,37 @@ msgstr ""
 msgid "unknown table status: "
 msgstr ""
 
-#: libraries/Table.class.php:1116
+#: libraries/Table.class.php:1120
 msgid "Invalid database"
 msgstr ""
 
-#: libraries/Table.class.php:1130 tbl_get_field.php:25
+#: libraries/Table.class.php:1134 tbl_get_field.php:25
 msgid "Invalid table name"
 msgstr ""
 
-#: libraries/Table.class.php:1161
-#, possible-php-format
+#: libraries/Table.class.php:1165
+#, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr ""
 
-#: libraries/Table.class.php:1248
-#, possible-php-format
+#: libraries/Table.class.php:1252
+#, php-format
 msgid "Table %s has been renamed to %s"
 msgstr ""
 
-#: libraries/Table.class.php:1380
+#: libraries/Table.class.php:1384
 msgid "Could not save table UI preferences"
 msgstr ""
 
-#: libraries/Table.class.php:1403
-#, possible-php-format
+#: libraries/Table.class.php:1407
+#, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: libraries/Table.class.php:1529
-#, possible-php-format
+#: libraries/Table.class.php:1533
+#, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
 "after you refresh this page. Please check if the table structure has been "
@@ -2462,7 +2462,7 @@ msgid ""
 msgstr ""
 
 #: libraries/Theme.class.php:145
-#, possible-php-format
+#, php-format
 msgid "No valid image path for theme %s found!"
 msgstr ""
 
@@ -2475,17 +2475,17 @@ msgid "take it"
 msgstr ""
 
 #: libraries/Theme_Manager.class.php:110
-#, possible-php-format
+#, php-format
 msgid "Default theme %s not found!"
 msgstr ""
 
 #: libraries/Theme_Manager.class.php:151
-#, possible-php-format
+#, php-format
 msgid "Theme %s not found!"
 msgstr ""
 
 #: libraries/Theme_Manager.class.php:217
-#, possible-php-format
+#, php-format
 msgid "Theme path not found for theme %s!"
 msgstr ""
 
@@ -2499,12 +2499,12 @@ msgstr ""
 
 #: libraries/auth/config.auth.lib.php:85
 #: libraries/auth/cookie.auth.lib.php:172 libraries/auth/http.auth.lib.php:64
-#, possible-php-format
+#, php-format
 msgid "Welcome to %s"
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:100
-#, possible-php-format
+#, php-format
 msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
@@ -2567,7 +2567,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:572
 #: libraries/auth/signon.auth.lib.php:239
-#, possible-php-format
+#, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
 
@@ -2586,7 +2586,7 @@ msgid "Can not find signon authentication script:"
 msgstr ""
 
 #: libraries/auth/swekey/swekey.auth.lib.php:116
-#, possible-php-format
+#, php-format
 msgid "File %s does not contain any key id"
 msgstr ""
 
@@ -2636,7 +2636,7 @@ msgid "Download file"
 msgstr ""
 
 #: libraries/blobstreaming.lib.php:494
-#, possible-php-format
+#, php-format
 msgid "Could not open file: %s"
 msgstr ""
 
@@ -2681,7 +2681,7 @@ msgid "Replicated"
 msgstr ""
 
 #: libraries/build_html_for_db.lib.php:151
-#, possible-php-format
+#, php-format
 msgid "Check privileges for database &quot;%s&quot;."
 msgstr ""
 
@@ -2708,7 +2708,7 @@ msgid ""
 msgstr ""
 
 #: libraries/common.inc.php:615
-#, possible-php-format
+#, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr ""
 
@@ -2719,12 +2719,12 @@ msgid ""
 msgstr ""
 
 #: libraries/common.inc.php:650
-#, possible-php-format
+#, php-format
 msgid "Invalid server index: %s"
 msgstr ""
 
 #: libraries/common.inc.php:657
-#, possible-php-format
+#, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 
@@ -2739,12 +2739,12 @@ msgid "Invalid authentication method set in configuration:"
 msgstr ""
 
 #: libraries/common.inc.php:960
-#, possible-php-format
+#, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr ""
 
 #: libraries/common.lib.php:195
-#, possible-php-format
+#, php-format
 msgid "Max: %s%s"
 msgstr ""
 
@@ -2838,7 +2838,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr ""
 
-#: libraries/common.lib.php:1370 sql.php:888
+#: libraries/common.lib.php:1370 sql.php:890
 msgid "Profiling"
 msgstr ""
 
@@ -2855,7 +2855,7 @@ msgid "%B %d, %Y at %I:%M %p"
 msgstr ""
 
 #: libraries/common.lib.php:1980
-#, possible-php-format
+#, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr ""
 
@@ -2890,12 +2890,12 @@ msgid "End"
 msgstr ""
 
 #: libraries/common.lib.php:2556
-#, possible-php-format
+#, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr ""
 
 #: libraries/common.lib.php:2576
-#, possible-php-format
+#, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 
@@ -2942,7 +2942,7 @@ msgid "Browse your computer:"
 msgstr ""
 
 #: libraries/common.lib.php:3297
-#, possible-php-format
+#, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr ""
 
@@ -3063,12 +3063,12 @@ msgstr ""
 
 #: libraries/config/FormDisplay.class.php:87
 #: libraries/config/validate.lib.php:479
-#, possible-php-format
+#, php-format
 msgid "Value must be equal or lower than %s"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:511
-#, possible-php-format
+#, php-format
 msgid "Missing data for %s"
 msgstr ""
 
@@ -3079,17 +3079,17 @@ msgstr ""
 
 #: libraries/config/FormDisplay.class.php:709
 #: libraries/config/FormDisplay.class.php:713
-#, possible-php-format
+#, php-format
 msgid "\"%s\" requires %s extension"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:727
-#, possible-php-format
+#, php-format
 msgid "import will not work, missing function (%s)"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:731
-#, possible-php-format
+#, php-format
 msgid "export will not work, missing function (%s)"
 msgstr ""
 
@@ -3102,7 +3102,7 @@ msgid "SOAP extension not found"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:753
-#, possible-php-format
+#, php-format
 msgid "maximum %s"
 msgstr ""
 
@@ -3115,7 +3115,7 @@ msgid "This setting is disabled, it will not be applied to your configuration"
 msgstr ""
 
 #: libraries/config/FormDisplay.tpl.php:274
-#, possible-php-format
+#, php-format
 msgid "Set value: %s"
 msgstr ""
 
@@ -5169,7 +5169,7 @@ msgid "Empty phpMyAdmin control user password while using pmadb"
 msgstr ""
 
 #: libraries/config/validate.lib.php:385
-#, possible-php-format
+#, php-format
 msgid "Incorrect IP address: %s"
 msgstr ""
 
@@ -5180,7 +5180,7 @@ msgid "en"
 msgstr ""
 
 #: libraries/core.lib.php:266
-#, possible-php-format
+#, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
 
@@ -5319,12 +5319,12 @@ msgid "Exporting databases from the current server"
 msgstr ""
 
 #: libraries/display_export.lib.php:84
-#, possible-php-format
+#, php-format
 msgid "Exporting tables from \"%s\" database"
 msgstr ""
 
 #: libraries/display_export.lib.php:86
-#, possible-php-format
+#, php-format
 msgid "Exporting rows from \"%s\" table"
 msgstr ""
 
@@ -5373,7 +5373,7 @@ msgid "Output:"
 msgstr ""
 
 #: libraries/display_export.lib.php:183 libraries/display_export.lib.php:209
-#, possible-php-format
+#, php-format
 msgid "Save on server in the directory <b>%s</b>"
 msgstr ""
 
@@ -5398,7 +5398,7 @@ msgid ", @TABLE@ will become the table name"
 msgstr ""
 
 #: libraries/display_export.lib.php:232
-#, possible-php-format
+#, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
 "formatting strings. Additionally the following transformations will happen: "
@@ -5475,12 +5475,12 @@ msgid "Importing into the current server"
 msgstr ""
 
 #: libraries/display_import.lib.php:131
-#, possible-php-format
+#, php-format
 msgid "Importing into the database \"%s\""
 msgstr ""
 
 #: libraries/display_import.lib.php:133
-#, possible-php-format
+#, php-format
 msgid "Importing into the table \"%s\""
 msgstr ""
 
@@ -5489,7 +5489,7 @@ msgid "File to Import:"
 msgstr ""
 
 #: libraries/display_import.lib.php:156
-#, possible-php-format
+#, php-format
 msgid "File may be compressed (%s) or uncompressed."
 msgstr ""
 
@@ -5508,7 +5508,7 @@ msgid "Partial Import:"
 msgstr ""
 
 #: libraries/display_import.lib.php:214
-#, possible-php-format
+#, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
@@ -5542,7 +5542,7 @@ msgid "Restore column order"
 msgstr ""
 
 #: libraries/display_tbl.lib.php:422
-#, possible-php-format
+#, php-format
 msgid "%d is not valid row number."
 msgstr ""
 
@@ -5571,7 +5571,7 @@ msgid "vertical"
 msgstr ""
 
 #: libraries/display_tbl.lib.php:444
-#, possible-php-format
+#, php-format
 msgid "Headers every %s rows"
 msgstr ""
 
@@ -5659,8 +5659,8 @@ msgstr ""
 msgid "total"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:2381 sql.php:726
-#, possible-php-format
+#: libraries/display_tbl.lib.php:2381 sql.php:728
+#, php-format
 msgid "Query took %01.4f sec"
 msgstr ""
 
@@ -5926,7 +5926,7 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/pbms.lib.php:94
-#, possible-php-format
+#, php-format
 msgid ""
 "Documentation and further information about PBMS can be found on %sThe "
 "PrimeBase Media Streaming home page%s."
@@ -6067,7 +6067,7 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:125
-#, possible-php-format
+#, php-format
 msgid ""
 "Documentation and further information about PBXT can be found on the "
 "%sPrimeBase XT Home Page%s."
@@ -6231,7 +6231,7 @@ msgstr ""
 
 #: libraries/export/sql.php:114 libraries/export/sql.php:173
 #: libraries/export/sql.php:180
-#, possible-php-format
+#, php-format
 msgid "Add %s statement"
 msgstr ""
 
@@ -6377,7 +6377,7 @@ msgid "Generated by"
 msgstr ""
 
 #: libraries/import.lib.php:157 libraries/rte/rte_routines.lib.php:1248
-#: sql.php:722 tbl_change.php:188 tbl_get_field.php:34
+#: sql.php:724 tbl_change.php:188 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 
@@ -6404,7 +6404,7 @@ msgid "Go to database"
 msgstr ""
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
-#, possible-php-format
+#, php-format
 msgid "Edit settings for %s"
 msgstr ""
 
@@ -6413,7 +6413,7 @@ msgid "Go to table"
 msgstr ""
 
 #: libraries/import.lib.php:1130
-#, possible-php-format
+#, php-format
 msgid "Structure of %s"
 msgstr ""
 
@@ -6440,24 +6440,24 @@ msgstr ""
 
 #: libraries/import/csv.php:62 libraries/import/csv.php:75
 #: libraries/import/csv.php:80 libraries/import/csv.php:85
-#, possible-php-format
+#, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr ""
 
 #: libraries/import/csv.php:132
-#, possible-php-format
+#, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
 
 #: libraries/import/csv.php:191 libraries/import/csv.php:446
-#, possible-php-format
+#, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr ""
 
 #: libraries/import/csv.php:332
-#, possible-php-format
+#, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr ""
 
@@ -6499,7 +6499,7 @@ msgid "ESRI Shape File"
 msgstr ""
 
 #: libraries/import/shp.php:280
-#, possible-php-format
+#, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr ""
 
@@ -6510,7 +6510,7 @@ msgid ""
 msgstr ""
 
 #: libraries/import/shp.php:338
-#, possible-php-format
+#, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
@@ -6952,7 +6952,7 @@ msgstr ""
 #: libraries/rte/rte_routines.lib.php:1253
 #: libraries/rte/rte_triggers.lib.php:75 libraries/rte/rte_triggers.lib.php:80
 #: libraries/rte/rte_triggers.lib.php:103
-#, possible-php-format
+#, php-format
 msgid "The following query has failed: \"%s\""
 msgstr ""
 
@@ -6966,12 +6966,12 @@ msgid "The backed up query was:"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:121
-#, possible-php-format
+#, php-format
 msgid "Event %1$s has been modified."
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:133
-#, possible-php-format
+#, php-format
 msgid "Event %1$s has been created."
 msgstr ""
 
@@ -7005,7 +7005,7 @@ msgid "Event type"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:416 libraries/rte/rte_routines.lib.php:849
-#, possible-php-format
+#, php-format
 msgid "Change to %s"
 msgstr ""
 
@@ -7099,7 +7099,7 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:245
 #: libraries/rte/rte_routines.lib.php:1005
-#, possible-php-format
+#, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr ""
 
@@ -7108,12 +7108,12 @@ msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:271
-#, possible-php-format
+#, php-format
 msgid "Routine %1$s has been modified."
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:284
-#, possible-php-format
+#, php-format
 msgid "Routine %1$s has been created."
 msgstr ""
 
@@ -7174,7 +7174,7 @@ msgid "You must provide a routine name"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1036
-#, possible-php-format
+#, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr ""
 
@@ -7198,14 +7198,14 @@ msgid "You must provide a routine definition."
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1209
-#, possible-php-format
+#, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
 msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/rte/rte_routines.lib.php:1225
-#, possible-php-format
+#, php-format
 msgid "Execution results of routine %s"
 msgstr ""
 
@@ -7229,12 +7229,12 @@ msgid "Sorry, we failed to restore the dropped trigger."
 msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:94
-#, possible-php-format
+#, php-format
 msgid "Trigger %1$s has been modified."
 msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:106
-#, possible-php-format
+#, php-format
 msgid "Trigger %1$s has been created."
 msgstr ""
 
@@ -7271,7 +7271,7 @@ msgid "Add routine"
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:20
-#, possible-php-format
+#, php-format
 msgid "Export of routine %s"
 msgstr ""
 
@@ -7284,7 +7284,7 @@ msgid "You do not have the necessary privileges to create a routine"
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:23
-#, possible-php-format
+#, php-format
 msgid "No routine with name %1$s found in database %2$s"
 msgstr ""
 
@@ -7297,7 +7297,7 @@ msgid "Add trigger"
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:32
-#, possible-php-format
+#, php-format
 msgid "Export of trigger %s"
 msgstr ""
 
@@ -7310,7 +7310,7 @@ msgid "You do not have the necessary privileges to create a trigger"
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:35
-#, possible-php-format
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s"
 msgstr ""
 
@@ -7323,7 +7323,7 @@ msgid "Add event"
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:44
-#, possible-php-format
+#, php-format
 msgid "Export of event %s"
 msgstr ""
 
@@ -7336,7 +7336,7 @@ msgid "You do not have the necessary privileges to create an event"
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:47
-#, possible-php-format
+#, php-format
 msgid "No event with name %1$s found in database %2$s"
 msgstr ""
 
@@ -7349,7 +7349,7 @@ msgstr ""
 #: libraries/schema/Pdf_Relation_Schema.class.php:393
 #: libraries/schema/Svg_Relation_Schema.class.php:387
 #: libraries/schema/Visio_Relation_Schema.class.php:219
-#, possible-php-format
+#, php-format
 msgid "The %s table doesn't exist!"
 msgstr ""
 
@@ -7358,7 +7358,7 @@ msgstr ""
 #: libraries/schema/Pdf_Relation_Schema.class.php:433
 #: libraries/schema/Svg_Relation_Schema.class.php:438
 #: libraries/schema/Visio_Relation_Schema.class.php:270
-#, possible-php-format
+#, php-format
 msgid "Please configure the coordinates for table %s"
 msgstr ""
 
@@ -7366,7 +7366,7 @@ msgstr ""
 #: libraries/schema/Pdf_Relation_Schema.class.php:836
 #: libraries/schema/Svg_Relation_Schema.class.php:803
 #: libraries/schema/Visio_Relation_Schema.class.php:537
-#, possible-php-format
+#, php-format
 msgid "Schema of the %s database - Page %s"
 msgstr ""
 
@@ -7486,13 +7486,13 @@ msgid "Toggle scratchboard"
 msgstr ""
 
 #. l10n: Text direction, use either ltr or rtl
-#: libraries/select_lang.lib.php:476
+#: libraries/select_lang.lib.php:478
 msgid "ltr"
 msgstr ""
 
-#: libraries/select_lang.lib.php:493 libraries/select_lang.lib.php:499
-#: libraries/select_lang.lib.php:505
-#, possible-php-format
+#: libraries/select_lang.lib.php:495 libraries/select_lang.lib.php:501
+#: libraries/select_lang.lib.php:507
+#, php-format
 msgid "Unknown language: %1$s."
 msgstr ""
 
@@ -7560,12 +7560,12 @@ msgid "Click to select"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:189
-#, possible-php-format
+#, php-format
 msgid "Run SQL query/queries on server %s"
 msgstr ""
 
 #: libraries/sql_query_form.lib.php:206 libraries/sql_query_form.lib.php:228
-#, possible-php-format
+#, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr ""
 
@@ -7578,11 +7578,11 @@ msgstr ""
 msgid "Columns"
 msgstr ""
 
-#: libraries/sql_query_form.lib.php:300 sql.php:967 sql.php:984
+#: libraries/sql_query_form.lib.php:300 sql.php:969 sql.php:986
 msgid "Bookmark this SQL query"
 msgstr ""
 
-#: libraries/sql_query_form.lib.php:307 sql.php:978
+#: libraries/sql_query_form.lib.php:307 sql.php:980
 msgid "Let every user access this bookmark"
 msgstr ""
 
@@ -7662,7 +7662,7 @@ msgid "Unknown Punctuation String"
 msgstr ""
 
 #: libraries/sqlvalidator.lib.php:67
-#, possible-php-format
+#, php-format
 msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
@@ -7673,7 +7673,7 @@ msgid "Table seems to be empty!"
 msgstr ""
 
 #: libraries/tbl_links.inc.php:126
-#, possible-php-format
+#, php-format
 msgid "Tracking of %s.%s is activated."
 msgstr ""
 
@@ -7698,7 +7698,7 @@ msgid "Index"
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:129
-#, possible-php-format
+#, php-format
 msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
@@ -7744,14 +7744,14 @@ msgid "Fulltext"
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:535 transformation_overview.php:57
-#, possible-php-format
+#, php-format
 msgid ""
 "No description is available for this transformation.<br />Please ask the "
 "author what %s does."
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:574 tbl_structure.php:652
-#, possible-php-format
+#, php-format
 msgid "Add %s column(s)"
 msgstr ""
 
@@ -7881,7 +7881,7 @@ msgid "Configuration has been saved"
 msgstr ""
 
 #: libraries/user_preferences.inc.php:71
-#, possible-php-format
+#, php-format
 msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
@@ -8028,7 +8028,7 @@ msgid ""
 msgstr ""
 
 #: main.php:322
-#, possible-php-format
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
@@ -8042,14 +8042,14 @@ msgid ""
 msgstr ""
 
 #: main.php:356
-#, possible-php-format
+#, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
 
 #: main.php:380
-#, possible-php-format
+#, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
@@ -8283,7 +8283,7 @@ msgid "Merge with current configuration"
 msgstr ""
 
 #: prefs_manage.php:275
-#, possible-php-format
+#, php-format
 msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
@@ -8314,7 +8314,7 @@ msgid "All"
 msgstr ""
 
 #: schema_edit.php:38 schema_edit.php:44 schema_edit.php:50 schema_edit.php:55
-#, possible-php-format
+#, php-format
 msgid "<b>%s</b> table not found or not set in %s"
 msgstr ""
 
@@ -8365,7 +8365,7 @@ msgid "No databases selected."
 msgstr ""
 
 #: server_databases.php:80
-#, possible-php-format
+#, php-format
 msgid "%s databases have been dropped successfully."
 msgstr ""
 
@@ -8666,7 +8666,7 @@ msgid "No user found."
 msgstr ""
 
 #: server_privileges.php:961
-#, possible-php-format
+#, php-format
 msgid "The user %s already exists!"
 msgstr ""
 
@@ -8675,22 +8675,22 @@ msgid "You have added a new user."
 msgstr ""
 
 #: server_privileges.php:1273
-#, possible-php-format
+#, php-format
 msgid "You have updated the privileges for %s."
 msgstr ""
 
 #: server_privileges.php:1295
-#, possible-php-format
+#, php-format
 msgid "You have revoked the privileges for %s"
 msgstr ""
 
 #: server_privileges.php:1331
-#, possible-php-format
+#, php-format
 msgid "The password for %s was changed successfully."
 msgstr ""
 
 #: server_privileges.php:1351
-#, possible-php-format
+#, php-format
 msgid "Deleting %s"
 msgstr ""
 
@@ -8746,7 +8746,7 @@ msgid "Drop the databases that have the same names as the users."
 msgstr ""
 
 #: server_privileges.php:1805
-#, possible-php-format
+#, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -8819,12 +8819,12 @@ msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr ""
 
 #: server_privileges.php:2225
-#, possible-php-format
+#, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr ""
 
 #: server_privileges.php:2250
-#, possible-php-format
+#, php-format
 msgid "Users having access to &quot;%s&quot;"
 msgstr ""
 
@@ -8849,7 +8849,7 @@ msgid "Unknown error"
 msgstr ""
 
 #: server_replication.php:56
-#, possible-php-format
+#, php-format
 msgid "Unable to connect to master %s."
 msgstr ""
 
@@ -8863,7 +8863,7 @@ msgid "Unable to change master"
 msgstr ""
 
 #: server_replication.php:72
-#, possible-php-format
+#, php-format
 msgid "Master server changed successfully to %s"
 msgstr ""
 
@@ -8880,7 +8880,7 @@ msgid "Show connected slaves"
 msgstr ""
 
 #: server_replication.php:208
-#, possible-php-format
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
@@ -8998,19 +8998,19 @@ msgid "errors."
 msgstr ""
 
 #: server_replication.php:361
-#, possible-php-format
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
 
 #: server_status.php:453
-#, possible-php-format
+#, php-format
 msgid "Thread %s was successfully killed."
 msgstr ""
 
 #: server_status.php:455
-#, possible-php-format
+#, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr ""
@@ -9152,7 +9152,7 @@ msgstr ""
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:935
-#, possible-php-format
+#, php-format
 msgid "Questions since startup: %s"
 msgstr ""
 
@@ -9166,12 +9166,12 @@ msgid "#"
 msgstr ""
 
 #: server_status.php:1046
-#, possible-php-format
+#, php-format
 msgid "Network traffic since startup: %s"
 msgstr ""
 
 #: server_status.php:1054
-#, possible-php-format
+#, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
 msgstr ""
 
@@ -9950,14 +9950,14 @@ msgid "Query analyzer"
 msgstr ""
 
 #: server_status.php:1766
-#, possible-php-format
+#, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] ""
 msgstr[1] ""
 
 #: server_status.php:1768
-#, possible-php-format
+#, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] ""
@@ -9973,7 +9973,7 @@ msgstr ""
 
 #: server_synchronize.php:130 server_synchronize.php:133 tbl_create.php:55
 #: tbl_get_field.php:19
-#, possible-php-format
+#, php-format
 msgid "'%s' database does not exist."
 msgstr ""
 
@@ -10058,7 +10058,7 @@ msgid "Current connection"
 msgstr ""
 
 #: server_synchronize.php:1250
-#, possible-php-format
+#, php-format
 msgid "Configuration: %s"
 msgstr ""
 
@@ -10114,7 +10114,7 @@ msgid ""
 msgstr ""
 
 #: setup/frames/index.inc.php:61
-#, possible-php-format
+#, php-format
 msgid ""
 "If your server is also configured to accept HTTPS requests follow [a@%s]this "
 "link[/a] to use a secure connection."
@@ -10238,7 +10238,7 @@ msgid "Unparsable version string"
 msgstr ""
 
 #: setup/lib/index.lib.php:180
-#, possible-php-format
+#, php-format
 msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
@@ -10249,7 +10249,7 @@ msgid "No newer stable version is available"
 msgstr ""
 
 #: setup/lib/index.lib.php:274
-#, possible-php-format
+#, php-format
 msgid ""
 "This %soption%s should be disabled as it allows attackers to bruteforce "
 "login to any MySQL server. If you feel this is necessary, use %strusted "
@@ -10265,7 +10265,7 @@ msgid ""
 msgstr ""
 
 #: setup/lib/index.lib.php:277
-#, possible-php-format
+#, php-format
 msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
@@ -10278,19 +10278,19 @@ msgid ""
 msgstr ""
 
 #: setup/lib/index.lib.php:280
-#, possible-php-format
+#, php-format
 msgid "This %soption%s should be enabled if your web server supports it."
 msgstr ""
 
 #: setup/lib/index.lib.php:282
-#, possible-php-format
+#, php-format
 msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
 
 #: setup/lib/index.lib.php:284
-#, possible-php-format
+#, php-format
 msgid ""
 "%sLogin cookie validity%s greater than 1440 seconds may cause random session "
 "invalidation if %ssession.gc_maxlifetime%s is lower than its value "
@@ -10298,21 +10298,21 @@ msgid ""
 msgstr ""
 
 #: setup/lib/index.lib.php:286
-#, possible-php-format
+#, php-format
 msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
 
 #: setup/lib/index.lib.php:288
-#, possible-php-format
+#, php-format
 msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
 
 #: setup/lib/index.lib.php:290
-#, possible-php-format
+#, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - %shost "
 "authentication%s settings and %strusted proxies list%s. However, IP-based "
@@ -10321,7 +10321,7 @@ msgid ""
 msgstr ""
 
 #: setup/lib/index.lib.php:292
-#, possible-php-format
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -10331,14 +10331,14 @@ msgid ""
 msgstr ""
 
 #: setup/lib/index.lib.php:294
-#, possible-php-format
+#, php-format
 msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
 
 #: setup/lib/index.lib.php:296
-#, possible-php-format
+#, php-format
 msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
@@ -10373,38 +10373,38 @@ msgid "Browse foreign values"
 msgstr ""
 
 #: sql.php:212
-#, possible-php-format
+#, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: sql.php:698 tbl_replace.php:400
-#, possible-php-format
+#: sql.php:700 tbl_replace.php:400
+#, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
 
-#: sql.php:715
+#: sql.php:717
 msgid "Showing as PHP code"
 msgstr ""
 
-#: sql.php:718 tbl_replace.php:374
+#: sql.php:720 tbl_replace.php:374
 msgid "Showing SQL query"
 msgstr ""
 
-#: sql.php:720
+#: sql.php:722
 msgid "Validated SQL"
 msgstr ""
 
-#: sql.php:940
-#, possible-php-format
+#: sql.php:942
+#, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""
 
-#: sql.php:972
+#: sql.php:974
 msgid "Label"
 msgstr ""
 
 #: tbl_addfield.php:185 tbl_alter.php:99 tbl_indexes.php:98
-#, possible-php-format
+#, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr ""
 
@@ -10462,7 +10462,7 @@ msgid ""
 msgstr ""
 
 #: tbl_change.php:1108
-#, possible-php-format
+#, php-format
 msgid "Continue insertion with %s rows"
 msgstr ""
 
@@ -10528,12 +10528,12 @@ msgid "Y Values"
 msgstr ""
 
 #: tbl_create.php:31
-#, possible-php-format
+#, php-format
 msgid "Table %s already exists!"
 msgstr ""
 
 #: tbl_create.php:227
-#, possible-php-format
+#, php-format
 msgid "Table %1$s has been created."
 msgstr ""
 
@@ -10611,7 +10611,7 @@ msgid "Index type:"
 msgstr ""
 
 #: tbl_indexes.php:285
-#, possible-php-format
+#, php-format
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
 msgstr ""
 
@@ -10624,12 +10624,12 @@ msgid "Can't copy table to same one!"
 msgstr ""
 
 #: tbl_move_copy.php:54
-#, possible-php-format
+#, php-format
 msgid "Table %s has been moved to %s."
 msgstr ""
 
 #: tbl_move_copy.php:56
-#, possible-php-format
+#, php-format
 msgid "Table %s has been copied to %s."
 msgstr ""
 
@@ -10674,7 +10674,7 @@ msgid "Defragment table"
 msgstr ""
 
 #: tbl_operations.php:666
-#, possible-php-format
+#, php-format
 msgid "Table %s has been flushed"
 msgstr ""
 
@@ -10699,7 +10699,7 @@ msgid "Partition maintenance"
 msgstr ""
 
 #: tbl_operations.php:746
-#, possible-php-format
+#, php-format
 msgid "Partition %s"
 msgstr ""
 
@@ -10772,7 +10772,7 @@ msgid "Next autoindex"
 msgstr ""
 
 #: tbl_relation.php:271
-#, possible-php-format
+#, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 
@@ -10840,19 +10840,19 @@ msgid "None"
 msgstr ""
 
 #: tbl_structure.php:372
-#, possible-php-format
+#, php-format
 msgid "Column %s has been dropped"
 msgstr ""
 
 #: tbl_structure.php:383 tbl_structure.php:477
-#, possible-php-format
+#, php-format
 msgid "A primary key has been added on %s"
 msgstr ""
 
 #: tbl_structure.php:398 tbl_structure.php:413 tbl_structure.php:433
 #: tbl_structure.php:448 tbl_structure.php:490 tbl_structure.php:503
 #: tbl_structure.php:517 tbl_structure.php:530
-#, possible-php-format
+#, php-format
 msgid "An index has been added on %s"
 msgstr ""
 
@@ -10885,12 +10885,12 @@ msgid "At Beginning of Table"
 msgstr ""
 
 #: tbl_structure.php:666
-#, possible-php-format
+#, php-format
 msgid "After %s"
 msgstr ""
 
 #: tbl_structure.php:703
-#, possible-php-format
+#, php-format
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr ""
 
@@ -10899,22 +10899,22 @@ msgid "partitioned"
 msgstr ""
 
 #: tbl_tracking.php:109
-#, possible-php-format
+#, php-format
 msgid "Tracking report for table `%s`"
 msgstr ""
 
 #: tbl_tracking.php:173
-#, possible-php-format
+#, php-format
 msgid "Version %s is created, tracking for %s.%s is activated."
 msgstr ""
 
 #: tbl_tracking.php:181
-#, possible-php-format
+#, php-format
 msgid "Tracking for %s.%s , version %s is deactivated."
 msgstr ""
 
 #: tbl_tracking.php:189
-#, possible-php-format
+#, php-format
 msgid "Tracking for %s.%s , version %s is activated."
 msgstr ""
 
@@ -10937,7 +10937,7 @@ msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr ""
 
 #: tbl_tracking.php:246
-#, possible-php-format
+#, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr ""
 
@@ -10958,7 +10958,7 @@ msgid "Tracking statements"
 msgstr ""
 
 #: tbl_tracking.php:418 tbl_tracking.php:546
-#, possible-php-format
+#, php-format
 msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr ""
 
@@ -10999,7 +10999,7 @@ msgid "SQL execution"
 msgstr ""
 
 #: tbl_tracking.php:563
-#, possible-php-format
+#, php-format
 msgid "Export as %s"
 msgstr ""
 
@@ -11008,7 +11008,7 @@ msgid "Show versions"
 msgstr ""
 
 #: tbl_tracking.php:687
-#, possible-php-format
+#, php-format
 msgid "Deactivate tracking for %s.%s"
 msgstr ""
 
@@ -11017,7 +11017,7 @@ msgid "Deactivate now"
 msgstr ""
 
 #: tbl_tracking.php:700
-#, possible-php-format
+#, php-format
 msgid "Activate tracking for %s.%s"
 msgstr ""
 
@@ -11026,7 +11026,7 @@ msgid "Activate now"
 msgstr ""
 
 #: tbl_tracking.php:715
-#, possible-php-format
+#, php-format
 msgid "Create version %s of %s.%s"
 msgstr ""
 
@@ -11119,7 +11119,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:8
-#, possible-php-format
+#, php-format
 msgid "The uptime is only %s"
 msgstr ""
 
@@ -11140,7 +11140,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:13
-#, possible-php-format
+#, php-format
 msgid "Current amount of Questions: %s"
 msgstr ""
 
@@ -11160,7 +11160,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:18
-#, possible-php-format
+#, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 
@@ -11174,7 +11174,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:23
-#, possible-php-format
+#, php-format
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
@@ -11197,7 +11197,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:28
-#, possible-php-format
+#, php-format
 msgid "long_query_time is currently set to %ds."
 msgstr ""
 
@@ -11234,7 +11234,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
-#, possible-php-format
+#, php-format
 msgid "Current version: %s"
 msgstr ""
 
@@ -11296,7 +11296,7 @@ msgid "Drizzle documentation is at http://docs.drizzle.org/"
 msgstr ""
 
 #: po/advisory_rules.php:63
-#, possible-php-format
+#, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr ""
 
@@ -11316,7 +11316,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:68
-#, possible-php-format
+#, php-format
 msgid "Available memory on this host: %s"
 msgstr ""
 
@@ -11357,14 +11357,14 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:78
-#, possible-php-format
+#, php-format
 msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
 
 #: po/advisory_rules.php:80
-#, possible-php-format
+#, php-format
 msgid "Query cache efficiency (%%)"
 msgstr ""
 
@@ -11377,7 +11377,7 @@ msgid "Consider increasing {query_cache_limit}."
 msgstr ""
 
 #: po/advisory_rules.php:83
-#, possible-php-format
+#, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr ""
 
@@ -11386,7 +11386,7 @@ msgid "Query Cache usage"
 msgstr ""
 
 #: po/advisory_rules.php:86
-#, possible-php-format
+#, php-format
 msgid "Less than 80%% of the query cache is being utilized."
 msgstr ""
 
@@ -11397,7 +11397,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:88
-#, possible-php-format
+#, php-format
 msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
 "%%. It should be above 80%%"
@@ -11424,7 +11424,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:93
-#, possible-php-format
+#, php-format
 msgid ""
 "The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
 "that the query cache is an alternating pattern of free and used blocks. This "
@@ -11449,7 +11449,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:98
-#, possible-php-format
+#, php-format
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
@@ -11472,7 +11472,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:103
-#, possible-php-format
+#, php-format
 msgid "Current query cache size: %s"
 msgstr ""
 
@@ -11516,7 +11516,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:113
-#, possible-php-format
+#, php-format
 msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
@@ -11527,7 +11527,7 @@ msgid "Rate of sorts that cause temporary tables"
 msgstr ""
 
 #: po/advisory_rules.php:118
-#, possible-php-format
+#, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
@@ -11549,7 +11549,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:123
-#, possible-php-format
+#, php-format
 msgid "Sorted rows average: %s"
 msgstr ""
 
@@ -11568,7 +11568,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:128
-#, possible-php-format
+#, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
 
@@ -11591,7 +11591,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:133
-#, possible-php-format
+#, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
 
@@ -11611,7 +11611,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:138
-#, possible-php-format
+#, php-format
 msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
@@ -11632,7 +11632,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:143
-#, possible-php-format
+#, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr ""
@@ -11654,7 +11654,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:148
-#, possible-php-format
+#, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr ""
 
@@ -11680,7 +11680,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:153
-#, possible-php-format
+#, php-format
 msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
@@ -11702,7 +11702,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:158
-#, possible-php-format
+#, php-format
 msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
@@ -11727,12 +11727,12 @@ msgid "key_buffer_size is 0"
 msgstr ""
 
 #: po/advisory_rules.php:165
-#, possible-php-format
+#, php-format
 msgid "Max %% MyISAM key buffer ever used"
 msgstr ""
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
-#, possible-php-format
+#, php-format
 msgid "MyISAM key buffer (index cache) %% used is low."
 msgstr ""
 
@@ -11744,7 +11744,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:168
-#, possible-php-format
+#, php-format
 msgid "max %% MyISAM key buffer ever used: %s, this value should be above 95%%"
 msgstr ""
 
@@ -11753,7 +11753,7 @@ msgid "Percentage of MyISAM key buffer used"
 msgstr ""
 
 #: po/advisory_rules.php:173
-#, possible-php-format
+#, php-format
 msgid "%% MyISAM key buffer used: %s, this value should be above 95%%"
 msgstr ""
 
@@ -11762,7 +11762,7 @@ msgid "Percentage of index reads from memory"
 msgstr ""
 
 #: po/advisory_rules.php:176
-#, possible-php-format
+#, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgstr ""
 
@@ -11771,7 +11771,7 @@ msgid "You may need to increase {key_buffer_size}."
 msgstr ""
 
 #: po/advisory_rules.php:178
-#, possible-php-format
+#, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
 
@@ -11790,7 +11790,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:183
-#, possible-php-format
+#, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 
@@ -11811,7 +11811,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:188
-#, possible-php-format
+#, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
@@ -11825,12 +11825,12 @@ msgid "The rate of opening files is high."
 msgstr ""
 
 #: po/advisory_rules.php:193
-#, possible-php-format
+#, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:195
-#, possible-php-format
+#, php-format
 msgid "Immediate table locks %%"
 msgstr ""
 
@@ -11843,7 +11843,7 @@ msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
 
 #: po/advisory_rules.php:198
-#, possible-php-format
+#, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr ""
 
@@ -11852,7 +11852,7 @@ msgid "Table lock wait rate"
 msgstr ""
 
 #: po/advisory_rules.php:203
-#, possible-php-format
+#, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
 
@@ -11875,7 +11875,7 @@ msgid "The thread cache is set to 0"
 msgstr ""
 
 #: po/advisory_rules.php:210
-#, possible-php-format
+#, php-format
 msgid "Thread cache hit rate %%"
 msgstr ""
 
@@ -11888,7 +11888,7 @@ msgid "Increase {thread_cache_size}."
 msgstr ""
 
 #: po/advisory_rules.php:213
-#, possible-php-format
+#, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
 
@@ -11907,7 +11907,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:218
-#, possible-php-format
+#, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr ""
 
@@ -11926,7 +11926,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:223
-#, possible-php-format
+#, php-format
 msgid "slow_launch_time is set to %s"
 msgstr ""
 
@@ -11948,7 +11948,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:228
-#, possible-php-format
+#, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
@@ -11970,7 +11970,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:233
-#, possible-php-format
+#, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 
@@ -11979,7 +11979,7 @@ msgid "Rate of aborted connections"
 msgstr ""
 
 #: po/advisory_rules.php:238
-#, possible-php-format
+#, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
@@ -12000,7 +12000,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:243
-#, possible-php-format
+#, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 
@@ -12009,7 +12009,7 @@ msgid "Rate of aborted clients"
 msgstr ""
 
 #: po/advisory_rules.php:248
-#, possible-php-format
+#, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 
@@ -12040,7 +12040,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:257
-#, possible-php-format
+#, php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
 "innodb_log_file_size to 25%% of {innodb_buffer_pool_size}. However the "
@@ -12054,7 +12054,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:258
-#, possible-php-format
+#, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
@@ -12069,7 +12069,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr ""
 
 #: po/advisory_rules.php:262
-#, possible-php-format
+#, php-format
 msgid ""
 "It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
 "{innodb_buffer_pool_size}. A very big innodb_log_file_size slows down the "
@@ -12083,7 +12083,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:263
-#, possible-php-format
+#, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
 msgstr ""
 
@@ -12096,7 +12096,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr ""
 
 #: po/advisory_rules.php:267
-#, possible-php-format
+#, php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 "tables. Assign all your remaining memory to this buffer. For database "
@@ -12111,7 +12111,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:268
-#, possible-php-format
+#, php-format
 msgid ""
 "You are currently using %s%% of your memory for the InnoDB buffer pool. This "
 "rule fires if you are assigning less than 60%%, however this might be "

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-12-19 14:44+0100\n"
+"POT-Creation-Date: 2012-01-01 16:00+0100\n"
 "PO-Revision-Date: 2011-12-28 00:12+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
@@ -24,7 +24,7 @@ msgstr "Zobraziť všetko"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1142
 #: libraries/schema/Pdf_Relation_Schema.class.php:1166
 #: libraries/schema/User_Schema.class.php:396
-#: libraries/select_lang.lib.php:487
+#: libraries/select_lang.lib.php:489
 msgid "Page number:"
 msgstr "Číslo stránky:"
 
@@ -414,7 +414,6 @@ msgstr "Zvolte prosím aspoň jeden stĺpec, ktorý chcete zobraziť"
 
 #: db_qbe.php:186
 #, php-format
-#| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
 msgstr "Prepnúť do %svizuálneho návrhára%s"
 
@@ -755,7 +754,7 @@ msgstr "Aktualizované"
 
 #: db_tracking.php:90 js/messages.php:186 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
-#: server_status.php:1237 sql.php:892 tbl_tracking.php:638
+#: server_status.php:1237 sql.php:894 tbl_tracking.php:638
 msgid "Status"
 msgstr "Stav"
 
@@ -809,18 +808,15 @@ msgid "ENUM/SET editor"
 msgstr "Upraviť ENUM/SET"
 
 #: enum_editor.php:28 js/messages.php:267
-#| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
 msgstr "Hodnoty pre nový stĺpec"
 
 #: enum_editor.php:30 js/messages.php:266
 #, php-format
-#| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
 msgstr "Hodnoty pre pole %s"
 
 #: enum_editor.php:34 js/messages.php:268
-#| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
 msgstr "Zadajte každú hodnotu do samostatného poľa"
 
@@ -837,7 +833,6 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "Skopírujte spojené hodnoty do poľa \"Dĺžka/Hodnoty\""
 
 #: export.php:29
-#| msgid "Bar type"
 msgid "Bad type!"
 msgstr "Nesprávny typ!"
 
@@ -873,13 +868,11 @@ msgid "Dump has been saved to file %s."
 msgstr "Výpis bol uložený do súboru %s."
 
 #: file_echo.php:21
-#| msgid "Export type"
 msgid "Invalid export type"
 msgstr "Chybný typ exportu"
 
 #: gis_data_editor.php:84
 #, php-format
-#| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
 msgstr "Hodnota pre pole \"%s\""
 
@@ -918,12 +911,10 @@ msgstr "Bod %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:325
-#| msgid "Add index"
 msgid "Add a point"
 msgstr "Pridať bod"
 
 #: gis_data_editor.php:220 js/messages.php:320
-#| msgid "Lines terminated by"
 msgid "Linestring"
 msgstr "Linka"
 
@@ -936,12 +927,10 @@ msgid "Inner Ring"
 msgstr "Vnútorný obrys"
 
 #: gis_data_editor.php:252
-#| msgid "Add a new User"
 msgid "Add a linestring"
 msgstr "Pridať linku"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:326
-#| msgid "Add a new User"
 msgid "Add an inner ring"
 msgstr "Pridať vnútorný obrys"
 
@@ -950,12 +939,10 @@ msgid "Polygon"
 msgstr "Polygón"
 
 #: gis_data_editor.php:306 js/messages.php:327
-#| msgid "Add column"
 msgid "Add a polygon"
 msgstr "Pridať polygón"
 
 #: gis_data_editor.php:310
-#| msgid "Geometry"
 msgid "Add geometry"
 msgstr "Pridať geometriu"
 
@@ -1021,7 +1008,7 @@ msgstr ""
 "Nebolo možné načítať importovacie pluginy, skontrolujte prosím vašu "
 "inštaláciu!"
 
-#: import.php:421 sql.php:927
+#: import.php:421 sql.php:929
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Príkaz %s bol zaradený medzi obľúbené"
@@ -1115,18 +1102,15 @@ msgid "This is not a number!"
 msgstr "Toto nie je číslo!"
 
 #: js/messages.php:46
-#| msgid "Add index"
 msgid "Add Index"
 msgstr "Pridať index"
 
 #: js/messages.php:47
-#| msgid "Edit mode"
 msgid "Edit Index"
 msgstr "Upraviť index"
 
 #: js/messages.php:48 tbl_indexes.php:293
 #, php-format
-#| msgid "Add %s column(s)"
 msgid "Add %d column(s) to index"
 msgstr "Pridať %d polí do indexu"
 
@@ -1242,7 +1226,6 @@ msgstr "Spojenia / Procesy"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
-#| msgid "Connections since last refresh"
 msgid "Questions since last refresh"
 msgstr "Dotazov od posledného obnovenia"
 
@@ -1256,7 +1239,6 @@ msgid "Query statistics"
 msgstr "Štatistika dopytov"
 
 #: js/messages.php:94
-#| msgid "Failed to read configuration file"
 msgid "Local monitor configuration incompatible"
 msgstr "Vaše nastavenie monitoru nie je kompatibilné"
 
@@ -1272,17 +1254,14 @@ msgstr ""
 "obnovte východzie nastavenie v ponuke <i>Nastavenia</i>."
 
 #: js/messages.php:97
-#| msgid "Query cache"
 msgid "Query cache efficiency"
 msgstr "Úspešnosť vyrovnávacej pamäte príkazov"
 
 #: js/messages.php:98
-#| msgid "Query cache"
 msgid "Query cache usage"
 msgstr "Využitie vyrovnávacej pamäte príkazov"
 
 #: js/messages.php:99
-#| msgid "Query cache"
 msgid "Query cache used"
 msgstr "Využitá vyrovnávacia pamäť príkazov"
 
@@ -1315,32 +1294,26 @@ msgid "Average load"
 msgstr "Priemerné vyťaženie"
 
 #: js/messages.php:108
-#| msgid "System memory"
 msgid "Total memory"
 msgstr "Celková pamäť"
 
 #: js/messages.php:109
-#| msgid "System memory"
 msgid "Cached memory"
 msgstr "Vyrovnávacia pamäť"
 
 #: js/messages.php:110
-#| msgid "Buffer Pool"
 msgid "Buffered memory"
 msgstr "Vyrovnávacia pamäť"
 
 #: js/messages.php:111
-#| msgid "System memory"
 msgid "Free memory"
 msgstr "Voľná pamäť"
 
 #: js/messages.php:112
-#| msgid "System memory"
 msgid "Used memory"
 msgstr "Využitá pamäť"
 
 #: js/messages.php:114
-#| msgid "Total"
 msgid "Total Swap"
 msgstr "Swap celkom"
 
@@ -1353,7 +1326,6 @@ msgid "Used Swap"
 msgstr "Využitý swap"
 
 #: js/messages.php:117
-#| msgid "Free pages"
 msgid "Free Swap"
 msgstr "Voľný swap"
 
@@ -1362,7 +1334,6 @@ msgid "Bytes sent"
 msgstr "Odoslaných bajtov"
 
 #: js/messages.php:120
-#| msgid "Received"
 msgid "Bytes received"
 msgstr "Prijatých bajtov"
 
@@ -1397,8 +1368,6 @@ msgstr "EiB"
 
 #: js/messages.php:132
 #, php-format
-#| msgid "%s table"
-#| msgid_plural "%s tables"
 msgid "%d table(s)"
 msgstr "%d tabuliek"
 
@@ -1421,7 +1390,6 @@ msgid "Remove chart"
 msgstr "Odstrániť graf"
 
 #: js/messages.php:139
-#| msgid "Edit labels and series"
 msgid "Edit title and labels"
 msgstr "Upraviť názov a popisy"
 
@@ -1500,21 +1468,18 @@ msgstr ""
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:157
 #, php-format
-#| msgid "Save output to a file"
 msgid "Set log_output to %s"
 msgstr "Nastaviť log_output do %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:159
 #, php-format
-#| msgid "Enabled"
 msgid "Enable %s"
 msgstr "Zapnúť %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:161
 #, php-format
-#| msgid "Disable"
 msgid "Disable %s"
 msgstr "Vypnúť %s"
 
@@ -1533,17 +1498,14 @@ msgstr ""
 "kontaktujte vášho správcu databázy."
 
 #: js/messages.php:165
-#| msgid "Manage your settings"
 msgid "Change settings"
 msgstr "Zmeniť nastavenia"
 
 #: js/messages.php:166
-#| msgid "More settings"
 msgid "Current settings"
 msgstr "Aktuálne nastavenia"
 
 #: js/messages.php:168 server_status.php:1640
-#| msgid "Chart title"
 msgid "Chart Title"
 msgstr "Názov grafu"
 
@@ -1570,7 +1532,6 @@ msgid "Analysing & loading logs. This may take a while."
 msgstr "Načítavam a analyzujem záznamy. Môže to chvíľu trvať."
 
 #: js/messages.php:176
-#| msgid "Read requests"
 msgid "Cancel request"
 msgstr "Zrušiť požiadavku"
 
@@ -1595,7 +1556,6 @@ msgstr ""
 "dopyty:"
 
 #: js/messages.php:181
-#| msgid "Jump to database"
 msgid "Jump to Log table"
 msgstr "Prejsť na tabuľku so záznamami"
 
@@ -1606,44 +1566,37 @@ msgstr ""
 "žiadne údaje."
 
 #: js/messages.php:184
-#| msgid "Analyze"
 msgid "Analyzing..."
 msgstr "Analyzujem..."
 
 #: js/messages.php:185
-#| msgid "Explain SQL"
 msgid "Explain output"
 msgstr "Vysvetliť výstup"
 
 #: js/messages.php:187 js/messages.php:487 libraries/rte/rte_list.lib.php:62
-#: libraries/rte/rte_triggers.lib.php:326 server_status.php:1236 sql.php:893
+#: libraries/rte/rte_triggers.lib.php:326 server_status.php:1236 sql.php:895
 msgid "Time"
 msgstr "Čas"
 
 #: js/messages.php:188
-#| msgid "Total"
 msgid "Total time:"
 msgstr "Celkový čas:"
 
 #: js/messages.php:189
-#| msgid "Profiling"
 msgid "Profiling results"
 msgstr "Výsledky profilovania"
 
 #: js/messages.php:190
-#| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
 msgstr "Tabuľka"
 
 #: js/messages.php:191
-#| msgid "Charts"
 msgid "Chart"
 msgstr "Graf"
 
 #. l10n: A collection of available filters
 #: js/messages.php:194
-#| msgid "Tables display options"
 msgid "Log table filter options"
 msgstr "Nastavenie filtrovania logovacích tabuliek"
 
@@ -1661,17 +1614,14 @@ msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr "Zlučovať dopyty, ignorovať premenné dáta vo WHERE výraze"
 
 #: js/messages.php:199
-#| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
 msgstr "Počet zlúčených riadkov:"
 
 #: js/messages.php:200
-#| msgid "Total"
 msgid "Total:"
 msgstr "Celkom:"
 
 #: js/messages.php:202
-#| msgid "Loading"
 msgid "Loading logs"
 msgstr "Načítavam záznamy"
 
@@ -1687,7 +1637,6 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:205
-#| msgid "Reload"
 msgid "Reload page"
 msgstr "Znovu načítať stránku"
 
@@ -1713,7 +1662,6 @@ msgid "Import"
 msgstr "Import"
 
 #: js/messages.php:213
-#| msgid "Update Query"
 msgid "Analyse Query"
 msgstr "Analyzovať dopyt"
 
@@ -1730,17 +1678,14 @@ msgid "Issue"
 msgstr "Problém"
 
 #: js/messages.php:220
-#| msgid "Documentation"
 msgid "Recommendation"
 msgstr "Odporúčanie"
 
 #: js/messages.php:221
-#| msgid "Details"
 msgid "Rule details"
 msgstr "Podrobnosti o pravidle"
 
 #: js/messages.php:222
-#| msgid "Authentication"
 msgid "Justification"
 msgstr "Zdôvodnenie"
 
@@ -1874,7 +1819,6 @@ msgid "Change"
 msgstr "Zmeniť"
 
 #: js/messages.php:280
-#| msgid "Maximum execution time"
 msgid "Query execution time"
 msgstr "Čas behu dopytu"
 
@@ -1895,7 +1839,6 @@ msgid "Show search criteria"
 msgstr "Zobraziť parametre vyhľadávania"
 
 #: js/messages.php:290 libraries/tbl_select.lib.php:110
-#| msgid "Search"
 msgid "Zoom Search"
 msgstr ""
 
@@ -1932,7 +1875,6 @@ msgid "Strings are converted into integer for plotting"
 msgstr ""
 
 #: js/messages.php:308
-#| msgid "Add/Delete columns"
 msgid "Select two columns"
 msgstr "Zvoľte dva stĺpce"
 
@@ -1941,12 +1883,10 @@ msgid "Select two different columns"
 msgstr "Zvoľte dva rôzne stĺpce"
 
 #: js/messages.php:310
-#| msgid "Query results operations"
 msgid "Query results"
 msgstr "Výsledky dopytu"
 
 #: js/messages.php:311
-#| msgid "Data pointer size"
 msgid "Data point content"
 msgstr "Obsah datového bodu"
 
@@ -1960,7 +1900,6 @@ msgid "Copy"
 msgstr "Kopírovať"
 
 #: js/messages.php:330
-#| msgid "Add column"
 msgid "Add columns"
 msgstr "Pridať stĺpce"
 
@@ -2030,7 +1969,6 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:352
-#| msgid "Go to view"
 msgid "Go to link"
 msgstr "Prejsť na odkaz"
 
@@ -2074,13 +2012,11 @@ msgid "Done"
 msgstr "Hotovo"
 
 #: js/messages.php:389
-#| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Predchádzajúci"
 
 #: js/messages.php:394
-#| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
 msgstr "Ďalší"
@@ -2229,8 +2165,6 @@ msgstr "Sobota"
 
 #. l10n: Short week day name
 #: js/messages.php:450
-#| msgctxt "Short week day name"
-#| msgid "Sun"
 msgid "Sun"
 msgstr "Ned"
 
@@ -2366,7 +2300,6 @@ msgid "File was not an uploaded file."
 msgstr ""
 
 #: libraries/File.class.php:260 libraries/File.class.php:389
-#| msgid "Unknown error in file upload."
 msgid "Unknown error while uploading."
 msgstr "Neznáma chyba pri nahrávaní súboru."
 
@@ -2505,7 +2438,6 @@ msgstr[1] "Boli vložené %1$d riadky."
 msgstr[2] "Bolo vložených %1$d riadkov."
 
 #: libraries/PDF.class.php:81
-#| msgid "Allows reading data."
 msgid "Error while creating PDF:"
 msgstr "Chyba pri vytváraní PDF:"
 
@@ -2543,40 +2475,39 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Tento MySQL server nepodporuje úložný systém %s."
 
 #: libraries/Table.class.php:329
-#| msgid "Show slave status"
 msgid "unknown table status: "
 msgstr "neznámy stav tabuľky: "
 
-#: libraries/Table.class.php:1116
+#: libraries/Table.class.php:1120
 msgid "Invalid database"
 msgstr "Chybná databáza"
 
-#: libraries/Table.class.php:1130 tbl_get_field.php:25
+#: libraries/Table.class.php:1134 tbl_get_field.php:25
 msgid "Invalid table name"
 msgstr "Chybné meno tabuľky"
 
-#: libraries/Table.class.php:1161
+#: libraries/Table.class.php:1165
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "Chyba pri premenovaní tabuľky %1$s na %2$s"
 
-#: libraries/Table.class.php:1248
+#: libraries/Table.class.php:1252
 #, php-format
 msgid "Table %s has been renamed to %s"
 msgstr "Tabuľka %s bola premenovaná na %s"
 
-#: libraries/Table.class.php:1380
+#: libraries/Table.class.php:1384
 msgid "Could not save table UI preferences"
 msgstr "Nepodarilo sa uložiť nastavenia tabuľky"
 
-#: libraries/Table.class.php:1403
+#: libraries/Table.class.php:1407
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: libraries/Table.class.php:1529
+#: libraries/Table.class.php:1533
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -2745,7 +2676,6 @@ msgid "PBMS get BLOB info failed:"
 msgstr "Získavanie informácii o BLOBe z PBMS zlyhalo:"
 
 #: libraries/blobstreaming.lib.php:373
-#| msgid "get BLOB Content-Type failed"
 msgid "PBMS get BLOB Content-Type failed"
 msgstr "Získavanie Content-Type BLOBu z PBMS zlyhalo"
 
@@ -2972,7 +2902,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Upraviť tu"
 
-#: libraries/common.lib.php:1370 sql.php:888
+#: libraries/common.lib.php:1370 sql.php:890
 msgid "Profiling"
 msgstr "Profilovanie"
 
@@ -2999,7 +2929,6 @@ msgstr "Chýbajúci parameter:"
 
 #: libraries/common.lib.php:2454 libraries/common.lib.php:2457
 #: libraries/display_tbl.lib.php:306
-#| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
 msgstr "Začiatok"
@@ -3007,7 +2936,6 @@ msgstr "Začiatok"
 #: libraries/common.lib.php:2455 libraries/common.lib.php:2458
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
-#| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Predchádzajúci"
@@ -3015,14 +2943,12 @@ msgstr "Predchádzajúci"
 #: libraries/common.lib.php:2485 libraries/common.lib.php:2488
 #: libraries/display_tbl.lib.php:372 server_binlog.php:170
 #: server_binlog.php:172
-#| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
 msgstr "Ďalší"
 
 #: libraries/common.lib.php:2486 libraries/common.lib.php:2489
 #: libraries/display_tbl.lib.php:389
-#| msgid "End"
 msgctxt "Last page"
 msgid "End"
 msgstr "Koniec"
@@ -4861,9 +4787,6 @@ msgid "Server port"
 msgstr "Port servera"
 
 #: libraries/config/messages.inc.php:416
-#| msgid ""
-#| "ve blank for no user preferences storage in database, suggested: [kbd]"
-#| "_config[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma_recent[/kbd]"
@@ -5519,7 +5442,6 @@ msgid "possible deep recursion attack"
 msgstr ""
 
 #: libraries/database_interface.lib.php:1813
-#| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -5528,7 +5450,6 @@ msgstr ""
 "nastavený)."
 
 #: libraries/database_interface.lib.php:1816
-#| msgid "The server is not responding"
 msgid "The server is not responding."
 msgstr "Server neodpovedá."
 
@@ -6017,7 +5938,7 @@ msgstr "Zobrazené riadky"
 msgid "total"
 msgstr "celkovo"
 
-#: libraries/display_tbl.lib.php:2381 sql.php:726
+#: libraries/display_tbl.lib.php:2381 sql.php:728
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Dopyt zabral %01.4f s"
@@ -6721,7 +6642,6 @@ msgid "Stand-in structure for view"
 msgstr ""
 
 #: libraries/export/sql.php:1112
-#| msgid "Allows reading data."
 msgid "Error reading data:"
 msgstr "Chyba pri čítaní dát:"
 
@@ -6765,7 +6685,7 @@ msgid "Generated by"
 msgstr "Vygenerované"
 
 #: libraries/import.lib.php:157 libraries/rte/rte_routines.lib.php:1248
-#: sql.php:722 tbl_change.php:188 tbl_get_field.php:34
+#: sql.php:724 tbl_change.php:188 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL vrátil prázdny výsledok (tj. nulový počet riadkov)."
 
@@ -7959,12 +7879,12 @@ msgid "Toggle scratchboard"
 msgstr "zobraziť grafický návrh"
 
 #. l10n: Text direction, use either ltr or rtl
-#: libraries/select_lang.lib.php:476
+#: libraries/select_lang.lib.php:478
 msgid "ltr"
 msgstr "ltr"
 
-#: libraries/select_lang.lib.php:493 libraries/select_lang.lib.php:499
-#: libraries/select_lang.lib.php:505
+#: libraries/select_lang.lib.php:495 libraries/select_lang.lib.php:501
+#: libraries/select_lang.lib.php:507
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "Neznámy jazyk: %1$s."
@@ -8053,11 +7973,11 @@ msgstr "Vyčistiť"
 msgid "Columns"
 msgstr "Stĺpce"
 
-#: libraries/sql_query_form.lib.php:300 sql.php:967 sql.php:984
+#: libraries/sql_query_form.lib.php:300 sql.php:969 sql.php:986
 msgid "Bookmark this SQL query"
 msgstr "Pridať tento SQL dopyt do obľúbených"
 
-#: libraries/sql_query_form.lib.php:307 sql.php:978
+#: libraries/sql_query_form.lib.php:307 sql.php:980
 msgid "Let every user access this bookmark"
 msgstr "Dovoliť používať túto položku všetkým používateľom"
 
@@ -9699,7 +9619,6 @@ msgid "Advisor"
 msgstr ""
 
 #: server_status.php:796 server_status.php:818
-#| msgid "Refresh rate:"
 msgid "Refresh rate: "
 msgstr "Obnovovacia frekvencia: "
 
@@ -9794,7 +9713,6 @@ msgstr ""
 
 #: server_status.php:1054
 #, php-format
-#| msgid "This MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
 msgstr "Tento server beží %1s. Bol spustený %2s."
 
@@ -10644,7 +10562,6 @@ msgid "Status variable(s)"
 msgstr ""
 
 #: server_status.php:1649
-#| msgid "Select Tables"
 msgid "Select series:"
 msgstr "Vybrať série:"
 
@@ -10692,7 +10609,6 @@ msgid "Log statistics"
 msgstr "Zobraziť štatistiky"
 
 #: server_status.php:1704
-#| msgid "Select page"
 msgid "Selected time range:"
 msgstr "Zvolený časový rozsah:"
 
@@ -10720,7 +10636,6 @@ msgstr "Typ dopytu"
 
 #: server_status.php:1766
 #, php-format
-#| msgid "Second"
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d sekunda"
@@ -10729,7 +10644,6 @@ msgstr[2] "%d sekúnd"
 
 #: server_status.php:1768
 #, php-format
-#| msgid "Minute"
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d minúta"
@@ -11161,29 +11075,29 @@ msgstr "Prejsť hodnoty cudzích kľúčov"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: sql.php:698 tbl_replace.php:400
+#: sql.php:700 tbl_replace.php:400
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
 
-#: sql.php:715
+#: sql.php:717
 msgid "Showing as PHP code"
 msgstr "Zobrazujem ako PHP kód"
 
-#: sql.php:718 tbl_replace.php:374
+#: sql.php:720 tbl_replace.php:374
 msgid "Showing SQL query"
 msgstr "Zobrazujem SQL dotaz"
 
-#: sql.php:720
+#: sql.php:722
 msgid "Validated SQL"
 msgstr "Skontrolované SQL"
 
-#: sql.php:940
+#: sql.php:942
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problémy s indexami v tabuľke `%s`"
 
-#: sql.php:972
+#: sql.php:974
 msgid "Label"
 msgstr "Názov"
 
@@ -11952,7 +11866,6 @@ msgid "The uptime is only %s"
 msgstr ""
 
 #: po/advisory_rules.php:10
-#| msgid "Questions"
 msgid "Questions below 1,000"
 msgstr "Menej než 1000 dopytov"
 
@@ -12102,7 +12015,6 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr ""
 
 #: po/advisory_rules.php:47
-#| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgstr "Mali by ste aktualizovať na stabilnú verziu MySQL 5.5"
 

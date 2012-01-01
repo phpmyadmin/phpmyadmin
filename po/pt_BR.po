@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-12-19 14:44+0100\n"
+"POT-Creation-Date: 2012-01-01 16:00+0100\n"
 "PO-Revision-Date: 2011-12-29 18:17+0200\n"
 "Last-Translator: WillBa <widelan10@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
@@ -24,7 +24,7 @@ msgstr "Mostrar tudo"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1142
 #: libraries/schema/Pdf_Relation_Schema.class.php:1166
 #: libraries/schema/User_Schema.class.php:396
-#: libraries/select_lang.lib.php:487
+#: libraries/select_lang.lib.php:489
 msgid "Page number:"
 msgstr "Página número:"
 
@@ -752,7 +752,7 @@ msgstr "Atualizado"
 
 #: db_tracking.php:90 js/messages.php:186 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
-#: server_status.php:1237 sql.php:892 tbl_tracking.php:638
+#: server_status.php:1237 sql.php:894 tbl_tracking.php:638
 msgid "Status"
 msgstr "Status"
 
@@ -806,7 +806,6 @@ msgid "ENUM/SET editor"
 msgstr "Editor ENUM/SET"
 
 #: enum_editor.php:28 js/messages.php:267
-#| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
 msgstr "Valores para uma nova coluna"
 
@@ -816,12 +815,10 @@ msgid "Values for column %s"
 msgstr "Valores para coluna %s"
 
 #: enum_editor.php:34 js/messages.php:268
-#| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
 msgstr "Insira cada valor em um campo separado"
 
 #: enum_editor.php:123
-#| msgid "+ Add a value"
 msgid "Add a value"
 msgstr "Adicionar um valor"
 
@@ -1011,7 +1008,7 @@ msgstr ""
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Não foi possível carregar os plugins, verifique sua instalação!"
 
-#: import.php:421 sql.php:927
+#: import.php:421 sql.php:929
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Marcador %s criado"
@@ -1107,18 +1104,15 @@ msgid "This is not a number!"
 msgstr "Isto não é um número!"
 
 #: js/messages.php:46
-#| msgid "Add index"
 msgid "Add Index"
 msgstr "Adicionar índice"
 
 #: js/messages.php:47
-#| msgid "Edit mode"
 msgid "Edit Index"
 msgstr "Editar índice"
 
 #: js/messages.php:48 tbl_indexes.php:293
 #, php-format
-#| msgid "Add %s field(s)"
 msgid "Add %d column(s) to index"
 msgstr "Adicionar %d coluna(s) ao índice"
 
@@ -1377,8 +1371,6 @@ msgstr "EB"
 
 #: js/messages.php:132
 #, php-format
-#| msgid "%s table"
-#| msgid_plural "%s tables"
 msgid "%d table(s)"
 msgstr "%d tabela(s)"
 
@@ -1553,7 +1545,6 @@ msgid "Analysing & loading logs. This may take a while."
 msgstr "Analisando e carregando logs. Isso pode demorar."
 
 #: js/messages.php:176
-#| msgid "Read requests"
 msgid "Cancel request"
 msgstr "Cancelar solicitação"
 
@@ -1591,7 +1582,6 @@ msgid "Log analysed, but no data found in this time span."
 msgstr "Log analizado, nenhum dado encontrado neste intervalo de tempo"
 
 #: js/messages.php:184
-#| msgid "Analyze"
 msgid "Analyzing..."
 msgstr "Analisando..."
 
@@ -1602,12 +1592,11 @@ msgid "Explain output"
 msgstr "Explicar SQL"
 
 #: js/messages.php:187 js/messages.php:487 libraries/rte/rte_list.lib.php:62
-#: libraries/rte/rte_triggers.lib.php:326 server_status.php:1236 sql.php:893
+#: libraries/rte/rte_triggers.lib.php:326 server_status.php:1236 sql.php:895
 msgid "Time"
 msgstr "Tempo"
 
 #: js/messages.php:188
-#| msgid "Total:"
 msgid "Total time:"
 msgstr "Tempo total:"
 
@@ -1618,7 +1607,6 @@ msgid "Profiling results"
 msgstr "Perfil"
 
 #: js/messages.php:190
-#| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
 msgstr "Tabela"
@@ -2411,8 +2399,8 @@ msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr ""
-"Erro ao mover o arquivo carregado, veja "
-"[a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]"
+"Erro ao mover o arquivo carregado, veja [a@./Documentation."
+"html#faq1_11@Documentation]FAQ 1.11[/a]"
 
 #: libraries/File.class.php:508
 msgid "Error while moving uploaded file."
@@ -2547,29 +2535,29 @@ msgstr "Esse servidor MySQL não suporta o stored engine %s."
 msgid "unknown table status: "
 msgstr "Tabela com status desconhecido"
 
-#: libraries/Table.class.php:1116
+#: libraries/Table.class.php:1120
 msgid "Invalid database"
 msgstr "Banco de Dados inválido"
 
-#: libraries/Table.class.php:1130 tbl_get_field.php:25
+#: libraries/Table.class.php:1134 tbl_get_field.php:25
 msgid "Invalid table name"
 msgstr "Nome de tabela inválida"
 
-#: libraries/Table.class.php:1161
+#: libraries/Table.class.php:1165
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "Erro ao renomear tabela %1$s para %2$s"
 
-#: libraries/Table.class.php:1248
+#: libraries/Table.class.php:1252
 #, php-format
 msgid "Table %s has been renamed to %s"
 msgstr "Tabela %s renomeada para %s"
 
-#: libraries/Table.class.php:1380
+#: libraries/Table.class.php:1384
 msgid "Could not save table UI preferences"
 msgstr "Não foi possível salvar as preferências visuais da tabela"
 
-#: libraries/Table.class.php:1403
+#: libraries/Table.class.php:1407
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -2578,7 +2566,7 @@ msgstr ""
 "Falha ao limpar as preferências da tabela UI (veja $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1529
+#: libraries/Table.class.php:1533
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -2979,7 +2967,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "na linha"
 
-#: libraries/common.lib.php:1370 sql.php:888
+#: libraries/common.lib.php:1370 sql.php:890
 msgid "Profiling"
 msgstr "Perfil"
 
@@ -5985,7 +5973,7 @@ msgstr "Mostrando registros "
 msgid "total"
 msgstr "total"
 
-#: libraries/display_tbl.lib.php:2381 sql.php:726
+#: libraries/display_tbl.lib.php:2381 sql.php:728
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Consulta levou %01.4f segundos"
@@ -6757,7 +6745,7 @@ msgid "Generated by"
 msgstr "Gerado por"
 
 #: libraries/import.lib.php:157 libraries/rte/rte_routines.lib.php:1248
-#: sql.php:722 tbl_change.php:188 tbl_get_field.php:34
+#: sql.php:724 tbl_change.php:188 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL retornou um conjunto vazio (ex. zero registros)."
 
@@ -7975,12 +7963,12 @@ msgid "Toggle scratchboard"
 msgstr "mudar o estado do Scratchboard"
 
 #. l10n: Text direction, use either ltr or rtl
-#: libraries/select_lang.lib.php:476
+#: libraries/select_lang.lib.php:478
 msgid "ltr"
 msgstr "ltr"
 
-#: libraries/select_lang.lib.php:493 libraries/select_lang.lib.php:499
-#: libraries/select_lang.lib.php:505
+#: libraries/select_lang.lib.php:495 libraries/select_lang.lib.php:501
+#: libraries/select_lang.lib.php:507
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "Linguagem desconhecida: %1$s."
@@ -8075,11 +8063,11 @@ msgstr "Limpar"
 msgid "Columns"
 msgstr "Nome das colunas"
 
-#: libraries/sql_query_form.lib.php:300 sql.php:967 sql.php:984
+#: libraries/sql_query_form.lib.php:300 sql.php:969 sql.php:986
 msgid "Bookmark this SQL query"
 msgstr "Gravar essa consulta SQL"
 
-#: libraries/sql_query_form.lib.php:307 sql.php:978
+#: libraries/sql_query_form.lib.php:307 sql.php:980
 msgid "Let every user access this bookmark"
 msgstr "Deixar qualquer usuário acessar esse marcador"
 
@@ -11290,29 +11278,29 @@ msgstr "Visualizar valores estrangeiros"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Usando marcador \"%s\" como padrão."
 
-#: sql.php:698 tbl_replace.php:400
+#: sql.php:700 tbl_replace.php:400
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Id da linha inserida: %1$d"
 
-#: sql.php:715
+#: sql.php:717
 msgid "Showing as PHP code"
 msgstr "Exibindo como código PHP"
 
-#: sql.php:718 tbl_replace.php:374
+#: sql.php:720 tbl_replace.php:374
 msgid "Showing SQL query"
 msgstr "Exibindo consulta SQL"
 
-#: sql.php:720
+#: sql.php:722
 msgid "Validated SQL"
 msgstr "SQL validado"
 
-#: sql.php:940
+#: sql.php:942
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemas com o índice da tabela `%s`"
 
-#: sql.php:972
+#: sql.php:974
 msgid "Label"
 msgstr "Nome"
 
