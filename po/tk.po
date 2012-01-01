@@ -38,6 +38,9 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
+"Nyşan edilen brauzer äpişgesi täzelenilmedi. Belki siz hossar äpişgesini "
+"ýapdyňyz, ýada siziň brauzeriňiziň hopsuzlyk sazlamalary äpişgeler-arasy "
+"täzelemäni saklaýandyr."
 
 #: browse_foreigners.php:156 libraries/common.lib.php:3126
 #: libraries/common.lib.php:3133 libraries/common.lib.php:3342
