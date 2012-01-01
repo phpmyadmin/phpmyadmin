@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
 "PO-Revision-Date: 2012-01-01 16:53+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tk\n"
 "MIME-Version: 1.0\n"
@@ -127,7 +127,7 @@ msgstr ""
 #: db_create.php:60
 #, possible-php-format
 msgid "Database %1$s has been created."
-msgstr ""
+msgstr "%1$s maglumatlar ulgamy döredildi"
 
 #: db_datadict.php:49 db_operations.php:370
 msgid "Database comment: "
