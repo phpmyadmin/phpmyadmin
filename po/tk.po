@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-12-19 14:44+0100\n"
 "PO-Revision-Date: 2012-01-01 16:52+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tk\n"
 "MIME-Version: 1.0\n"
@@ -100,7 +100,7 @@ msgstr "Düşündiriş"
 #: browse_foreigners.php:255 browse_foreigners.php:264
 #: browse_foreigners.php:276 browse_foreigners.php:284
 msgid "Use this value"
-msgstr ""
+msgstr "Şu bahany ulan"
 
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:385
