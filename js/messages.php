@@ -478,6 +478,12 @@ PMA_printJsValue("$.datepicker.regional['']['dayNamesMin']",
         __('Sa')));
 /* l10n: Column header for week of the year in calendar */
 PMA_printJsValue("$.datepicker.regional['']['weekHeader']", __('Wk'));
+
+/* l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month". */
+PMA_printJsValue("$.datepicker.regional['']['showMonthAfterYear']", (__('calendar-month-year') == 'calendar-year-month'));
+/* l10n: Year suffix for calendar, "none" is empty. */
+$year_suffix = _pgettext('Year suffix', 'none');
+PMA_printJsValue("$.datepicker.regional['']['yearSuffix']", ($year_suffix == 'none' ? '' : $year_suffix));
 ?>
 $.extend($.datepicker._defaults, $.datepicker.regional['']);
 } /* if ($.datepicker) */
