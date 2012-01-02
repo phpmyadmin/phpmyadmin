@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-01-01 16:00+0100\n"
+"POT-Creation-Date: 2012-01-02 07:46-0500\n"
 "PO-Revision-Date: 2011-10-13 17:20+0200\n"
 "Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: br\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: br\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -616,11 +616,11 @@ msgstr "N'eo ket oberiant an heuliañ."
 #: db_structure.php:451 libraries/display_tbl.lib.php:2355
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Da nebeutañ emañ an niver a linennoù-mañ er Gweled-mañ. Sellit ouzh an "
-"%steulioù titouriñ%s."
+"Da nebeutañ emañ an niver a linennoù-mañ er Gweled-mañ. Sellit ouzh an %"
+"steulioù titouriñ%s."
 
 #: db_structure.php:467 db_structure.php:481 libraries/header.inc.php:161
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
@@ -966,11 +966,11 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
-"Evit doare hoc'h eus klasket enrollañ ur restr re vras. Sellit ouzh an "
-"%steulioù titouriñ%s evit gwelet penaos c'hoari an dro d'ar vevenn-se."
+"Evit doare hoc'h eus klasket enrollañ ur restr re vras. Sellit ouzh an %"
+"steulioù titouriñ%s evit gwelet penaos c'hoari an dro d'ar vevenn-se."
 
 #: import.php:170 import.php:419
 msgid "Showing bookmark"
@@ -1592,7 +1592,7 @@ msgstr "O tilesa..."
 msgid "Explain output"
 msgstr "Displegañ SQL"
 
-#: js/messages.php:187 js/messages.php:487 libraries/rte/rte_list.lib.php:62
+#: js/messages.php:187 js/messages.php:493 libraries/rte/rte_list.lib.php:62
 #: libraries/rte/rte_triggers.lib.php:326 server_status.php:1236 sql.php:895
 msgid "Time"
 msgstr ""
@@ -2289,15 +2289,28 @@ msgstr "Sa"
 msgid "Wk"
 msgstr "Sizh."
 
-#: js/messages.php:488
+#. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
+#: js/messages.php:483
+msgid "calendar-month-year"
+msgstr ""
+
+#. l10n: Year suffix for calendar, "none" is empty.
+#: js/messages.php:485
+#, fuzzy
+#| msgid "None"
+msgctxt "Year suffix"
+msgid "none"
+msgstr "Hini"
+
+#: js/messages.php:494
 msgid "Hour"
 msgstr "Eur"
 
-#: js/messages.php:489
+#: js/messages.php:495
 msgid "Minute"
 msgstr "Munut"
 
-#: js/messages.php:490
+#: js/messages.php:496
 msgid "Second"
 msgstr "Eilenn"
 
@@ -2607,11 +2620,11 @@ msgstr "Degemer mat e %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
-"Evit doare n'hoc'h eus krouet a restr kefluniañ. Gallout a rit implijout ar "
-"%1$sskript kefluniañ%2$s da sevel unan."
+"Evit doare n'hoc'h eus krouet a restr kefluniañ. Gallout a rit implijout ar %"
+"1$sskript kefluniañ%2$s da sevel unan."
 
 #: libraries/auth/config.auth.lib.php:109
 msgid ""
@@ -5586,8 +5599,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:270
@@ -6256,8 +6269,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -8993,8 +9006,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 
 #: server_privileges.php:1858
@@ -11713,8 +11726,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -11832,8 +11845,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: po/advisory_rules.php:115

@@ -8,11 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-01-01 16:00+0100\n"
+"POT-Creation-Date: 2012-01-02 07:46-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -609,8 +608,8 @@ msgstr ""
 #: db_structure.php:451 libraries/display_tbl.lib.php:2355
 #, possible-php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
 #: db_structure.php:467 db_structure.php:481 libraries/header.inc.php:161
@@ -946,8 +945,8 @@ msgstr ""
 #: import.php:57
 #, possible-php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 
 #: import.php:170 import.php:419
@@ -1533,7 +1532,7 @@ msgstr ""
 msgid "Explain output"
 msgstr ""
 
-#: js/messages.php:187 js/messages.php:487 libraries/rte/rte_list.lib.php:62
+#: js/messages.php:187 js/messages.php:493 libraries/rte/rte_list.lib.php:62
 #: libraries/rte/rte_triggers.lib.php:326 server_status.php:1236 sql.php:895
 msgid "Time"
 msgstr ""
@@ -2193,15 +2192,26 @@ msgstr ""
 msgid "Wk"
 msgstr ""
 
-#: js/messages.php:488
+#. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
+#: js/messages.php:483
+msgid "calendar-month-year"
+msgstr ""
+
+#. l10n: Year suffix for calendar, "none" is empty.
+#: js/messages.php:485
+msgctxt "Year suffix"
+msgid "none"
+msgstr ""
+
+#: js/messages.php:494
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:489
+#: js/messages.php:495
 msgid "Minute"
 msgstr ""
 
-#: js/messages.php:490
+#: js/messages.php:496
 msgid "Second"
 msgstr ""
 
@@ -2501,8 +2511,8 @@ msgstr ""
 #: libraries/auth/config.auth.lib.php:100
 #, possible-php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:109
@@ -5396,8 +5406,8 @@ msgstr ""
 #, possible-php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:270
@@ -6064,8 +6074,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, possible-php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -8745,8 +8755,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 
 #: server_privileges.php:1858
@@ -11394,8 +11404,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, possible-php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -11513,8 +11523,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, possible-php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: po/advisory_rules.php:115
