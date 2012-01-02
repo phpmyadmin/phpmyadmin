@@ -184,7 +184,7 @@ if ($abort == false) {
     // could be executed to replace the info given by SHOW FULL COLUMNS FROM.
     /**
      * @todo put this code into a require()
-     * or maybe make it part of PMA_DBI_get_fields();
+     * or maybe make it part of PMA_DBI_get_columns();
      */
 
     // We also need this to correctly learn if a TIMESTAMP is NOT NULL, since
