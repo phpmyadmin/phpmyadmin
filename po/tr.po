@@ -2262,7 +2262,7 @@ msgstr "Hs"
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: js/messages.php:483
 msgid "calendar-month-year"
-msgstr "takvim-ay-yıl"
+msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:485
