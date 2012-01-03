@@ -10524,7 +10524,6 @@ msgid "Using the monitor:"
 msgstr "Using the monitor:"
 
 #: server_status.php:1620
-#, fuzzy
 #| msgid ""
 #| "Ok, you are good to go! Once you click 'Start monitor' your browser will "
 #| "refresh all displayed charts in a regular interval. You may add charts "
@@ -10535,10 +10534,9 @@ msgid ""
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
-"Ok, you are good to go! Once you click 'Start monitor' your browser will "
-"refresh all displayed charts in a regular interval. You may add charts and "
-"change the refresh rate under 'Settings', or remove any chart using the cog "
-"icon on each respective chart."
+"Your browser will refresh all displayed charts in a regular interval. You "
+"may add charts and change the refresh rate under 'Settings', or remove any "
+"chart using the cog icon on each respective chart."
 
 #: server_status.php:1622
 msgid ""
