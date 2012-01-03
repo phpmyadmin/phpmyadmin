@@ -12902,10 +12902,9 @@ msgid "Your absolute InnoDB log size is %s MiB"
 msgstr ""
 
 #: po/advisory_rules.php:265
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
-msgstr "Velikost vyrovnávací paměti"
+msgstr "Velikost vyrovnávací paměti InnoDB"
 
 #: po/advisory_rules.php:266
 msgid "Your InnoDB buffer pool is fairly small."
