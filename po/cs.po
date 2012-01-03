@@ -12795,7 +12795,7 @@ msgstr "Procento přerušených klientů"
 
 #: po/advisory_rules.php:241 po/advisory_rules.php:246
 msgid "Too many clients are aborted."
-msgstr ""
+msgstr "Příliš mnoho přerušených klientů."
 
 #: po/advisory_rules.php:242 po/advisory_rules.php:247
 msgid ""
