@@ -2426,7 +2426,7 @@ $cfg['MaxExactCount'] = 20000;
  *
  * @global integer $cfg['MaxExactCountViews']
  */
-$cfg['MaxExactCountViews'] = 0;
+$cfg['MaxExactCountViews'] = 100000;
 
 /**
  * Sort table and database in natural order
