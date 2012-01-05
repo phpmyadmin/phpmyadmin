@@ -278,8 +278,23 @@ if (isset($_REQUEST['snapshot'])) {
             ?>
             <td><?php echo htmlspecialchars($field['Type']);?></td>
             <td><?php echo htmlspecialchars($field['Collation']);?></td>
-            <td><?php echo htmlspecialchars($field['Null']);?></td>
-            <td><?php echo htmlspecialchars($field['Default']);?></td>
+            <td><?php echo (($field['Null'] == 'YES') ? __('Yes') : __('No')); ?></td>
+            <td><?php
+            if (isset($field['Default'])) {
+                $extracted_fieldspec = PMA_extractFieldSpec($field['Type']);
+                if ($extracted_fieldspec['type'] == 'bit') {
+                    // here, $field['Default'] contains something like b'010'
+                    echo PMA_convert_bit_default_value($field['Default']);
+                } else {
+                    echo htmlspecialchars($field['Default']);
+                }
+            } else {
+                if ($field['Null'] == 'YES') {
+                    echo '<i>NULL</i>';
+                } else {
+                    echo '<i>' . _pgettext('None for default', 'None') . '</i>';
+                }
+            } ?></td>
             <td><?php echo htmlspecialchars($field['Extra']);?></td>
             <td><?php echo htmlspecialchars($field['Comment']);?></td>
         </tr>
