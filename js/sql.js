@@ -217,6 +217,7 @@ $(document).ready(function() {
                 // if zero rows are returned from the query execution
                 if ($zero_row_results.length > 0) {
                     $('#sqlquery').val($zero_row_results.val());
+                    setQuery($('#sqlquery').val());
                 } else {
                     $sqlqueryresults
                      .show()
