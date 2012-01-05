@@ -282,7 +282,7 @@ rule 'Max % MyISAM key buffer ever used' [!PMA_DRIZZLE && key_buffer_size > 0]
 	value < 95
 	MyISAM key buffer (index cache) % used is low.
 	You may need to decrease the size of {key_buffer_size}, re-examine your tables to see if indexes have been removed, or examine queries and expectations about what indexes are being used.
-	max % MyISAM key buffer ever used: %s, this value should be above 95% | round(value,1)
+	max % MyISAM key buffer ever used: %s%, this value should be above 95% | round(value,1)
 
 # Don't fire if above rule fired - we don't need the same advice twice
 rule 'Percentage of MyISAM key buffer used' [!PMA_DRIZZLE && key_buffer_size > 0 && !fired('max % MyISAM key buffer ever used')]
@@ -290,7 +290,7 @@ rule 'Percentage of MyISAM key buffer used' [!PMA_DRIZZLE && key_buffer_size > 0
 	value < 95
 	MyISAM key buffer (index cache) % used is low.
 	You may need to decrease the size of {key_buffer_size}, re-examine your tables to see if indexes have been removed, or examine queries and expectations about what indexes are being used.
-	% MyISAM key buffer used: %s, this value should be above 95% | round(value,1)
+	% MyISAM key buffer used: %s%, this value should be above 95% | round(value,1)
 
 rule 'Percentage of index reads from memory' [!PMA_DRIZZLE && Key_read_requests > 0]
 	100 - (Key_reads / Key_read_requests * 100)
