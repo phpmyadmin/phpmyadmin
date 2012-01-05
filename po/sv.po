@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-02 07:46-0500\n"
-"PO-Revision-Date: 2011-12-25 02:04+0200\n"
+"PO-Revision-Date: 2012-01-05 16:11+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -2257,11 +2257,10 @@ msgstr "kalender-månad-år"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:485
-#, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
-msgstr "Inget"
+msgstr "Ingen"
 
 #: js/messages.php:494
 msgid "Hour"
