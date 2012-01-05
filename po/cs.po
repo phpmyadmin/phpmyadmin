@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-01-02 07:46-0500\n"
+"POT-Creation-Date: 2012-01-05 16:37+0100\n"
 "PO-Revision-Date: 2012-01-03 12:53+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
@@ -77,14 +77,14 @@ msgstr "Vyhledávání"
 #: tbl_change.php:1073 tbl_change.php:1110 tbl_indexes.php:288
 #: tbl_operations.php:284 tbl_operations.php:321 tbl_operations.php:523
 #: tbl_operations.php:585 tbl_operations.php:768 tbl_select.php:235
-#: tbl_structure.php:672 tbl_structure.php:707 tbl_tracking.php:416
-#: tbl_tracking.php:554 tbl_zoom_select.php:313 view_create.php:181
+#: tbl_structure.php:672 tbl_structure.php:707 tbl_tracking.php:431
+#: tbl_tracking.php:569 tbl_zoom_select.php:313 view_create.php:181
 #: view_operations.php:99
 msgid "Go"
 msgstr "Proveď"
 
 #: browse_foreigners.php:174 browse_foreigners.php:178
-#: libraries/Index.class.php:440 tbl_tracking.php:304
+#: libraries/Index.class.php:440 tbl_tracking.php:319
 msgid "Keyname"
 msgstr "Název klíče"
 
@@ -142,7 +142,7 @@ msgstr "Komentář k tabulce"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1326
 #: libraries/tbl_properties.inc.php:267 libraries/tbl_select.lib.php:83
 #: tbl_change.php:318 tbl_indexes.php:213 tbl_printview.php:136
-#: tbl_relation.php:395 tbl_tracking.php:257 tbl_tracking.php:308
+#: tbl_relation.php:395 tbl_tracking.php:257 tbl_tracking.php:323
 #: tbl_zoom_select.php:433
 msgid "Column"
 msgstr "Pole"
@@ -159,7 +159,7 @@ msgstr "Pole"
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:84
 #: server_privileges.php:2256 tbl_change.php:297 tbl_change.php:324
 #: tbl_printview.php:137 tbl_printview.php:272 tbl_structure.php:202
-#: tbl_structure.php:767 tbl_tracking.php:258 tbl_tracking.php:305
+#: tbl_structure.php:767 tbl_tracking.php:258 tbl_tracking.php:320
 msgid "Type"
 msgstr "Typ"
 
@@ -170,7 +170,7 @@ msgstr "Typ"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_properties.inc.php:102 tbl_change.php:333
 #: tbl_printview.php:138 tbl_structure.php:205 tbl_tracking.php:260
-#: tbl_tracking.php:311 tbl_zoom_select.php:434
+#: tbl_tracking.php:326 tbl_zoom_select.php:434
 msgid "Null"
 msgstr "Nulový"
 
@@ -214,8 +214,9 @@ msgstr "Komentáře"
 #: server_privileges.php:1475 server_privileges.php:1485
 #: server_privileges.php:1732 server_privileges.php:1743
 #: server_privileges.php:2064 server_privileges.php:2069
-#: server_privileges.php:2373 sql.php:290 sql.php:354 tbl_printview.php:190
-#: tbl_structure.php:349 tbl_tracking.php:321 tbl_tracking.php:326
+#: server_privileges.php:2373 sql.php:292 sql.php:356 tbl_printview.php:190
+#: tbl_structure.php:349 tbl_tracking.php:281 tbl_tracking.php:336
+#: tbl_tracking.php:341
 msgid "No"
 msgstr "Ne"
 
@@ -235,9 +236,9 @@ msgstr "Ne"
 #: server_databases.php:81 server_privileges.php:1473
 #: server_privileges.php:1483 server_privileges.php:1729
 #: server_privileges.php:1743 server_privileges.php:2064
-#: server_privileges.php:2067 server_privileges.php:2373 sql.php:353
+#: server_privileges.php:2067 server_privileges.php:2373 sql.php:355
 #: tbl_printview.php:190 tbl_structure.php:41 tbl_structure.php:349
-#: tbl_tracking.php:319 tbl_tracking.php:324
+#: tbl_tracking.php:281 tbl_tracking.php:334 tbl_tracking.php:339
 msgid "Yes"
 msgstr "Ano"
 
@@ -293,15 +294,15 @@ msgstr "Odstranit databázi (DROP)"
 msgid "Copy database to"
 msgstr "Zkopírovat databázi na"
 
-#: db_operations.php:491 tbl_operations.php:552 tbl_tracking.php:409
+#: db_operations.php:491 tbl_operations.php:552 tbl_tracking.php:424
 msgid "Structure only"
 msgstr "Pouze strukturu"
 
-#: db_operations.php:492 tbl_operations.php:553 tbl_tracking.php:411
+#: db_operations.php:492 tbl_operations.php:553 tbl_tracking.php:426
 msgid "Structure and data"
 msgstr "Strukturu a data"
 
-#: db_operations.php:493 tbl_operations.php:554 tbl_tracking.php:410
+#: db_operations.php:493 tbl_operations.php:554 tbl_tracking.php:425
 msgid "Data only"
 msgstr "Jen data"
 
@@ -335,7 +336,7 @@ msgstr "Přepnout na zkopírovanou databázi"
 #: libraries/tbl_properties.inc.php:668 libraries/tbl_select.lib.php:85
 #: server_collations.php:53 server_collations.php:65 tbl_operations.php:382
 #: tbl_structure.php:203 tbl_structure.php:872 tbl_tracking.php:259
-#: tbl_tracking.php:310
+#: tbl_tracking.php:325
 msgid "Collation"
 msgstr "Porovnávání"
 
@@ -359,7 +360,7 @@ msgstr "Upravit nebo exportovat relační schéma"
 #: libraries/rte/rte_triggers.lib.php:310
 #: libraries/schema/User_Schema.class.php:272 server_privileges.php:1839
 #: server_privileges.php:1897 server_privileges.php:2166
-#: server_synchronize.php:436 server_synchronize.php:908 tbl_tracking.php:634
+#: server_synchronize.php:436 server_synchronize.php:908 tbl_tracking.php:649
 msgid "Table"
 msgstr "Tabulka"
 
@@ -439,7 +440,7 @@ msgid "Descending"
 msgstr "Sestupně"
 
 #: db_qbe.php:286 db_tracking.php:92 libraries/display_tbl.lib.php:426
-#: tbl_change.php:287 tbl_tracking.php:639
+#: tbl_change.php:287 tbl_tracking.php:654
 msgid "Show"
 msgstr "Zobrazit"
 
@@ -549,7 +550,7 @@ msgstr "Odstranit nalezené záznamy z tabulky %s?"
 #: libraries/schema/User_Schema.class.php:338
 #: libraries/sql_query_form.lib.php:403 pmd_general.php:417
 #: setup/frames/index.inc.php:139 setup/frames/index.inc.php:230
-#: tbl_tracking.php:426 tbl_tracking.php:447 tbl_tracking.php:504
+#: tbl_tracking.php:441 tbl_tracking.php:462 tbl_tracking.php:519
 msgid "Delete"
 msgstr "Odstranit"
 
@@ -615,8 +616,8 @@ msgstr "Sledování není zapnuté."
 #: db_structure.php:451 libraries/display_tbl.lib.php:2355
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Tento pohled má alespoň tolik řádek. Podrobnosti naleznete v %sdokumentaci%s."
 
@@ -736,7 +737,7 @@ msgstr "Sledované tabulky"
 #: server_privileges.php:1834 server_privileges.php:1897
 #: server_privileges.php:2160 server_status.php:1234
 #: server_synchronize.php:1277 server_synchronize.php:1281
-#: tbl_tracking.php:633
+#: tbl_tracking.php:648
 msgid "Database"
 msgstr "Databáze"
 
@@ -744,17 +745,17 @@ msgstr "Databáze"
 msgid "Last version"
 msgstr "Poslední verze"
 
-#: db_tracking.php:88 tbl_tracking.php:636
+#: db_tracking.php:88 tbl_tracking.php:651
 msgid "Created"
 msgstr "Vytvořeno"
 
-#: db_tracking.php:89 tbl_tracking.php:637
+#: db_tracking.php:89 tbl_tracking.php:652
 msgid "Updated"
 msgstr "Aktualizováno"
 
 #: db_tracking.php:90 js/messages.php:186 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
-#: server_status.php:1237 sql.php:894 tbl_tracking.php:638
+#: server_status.php:1237 sql.php:896 tbl_tracking.php:653
 msgid "Status"
 msgstr "Stav"
 
@@ -770,11 +771,11 @@ msgstr "Operace"
 msgid "Delete tracking data for this table"
 msgstr "Odstranit všechny informace o sledování této tabulky"
 
-#: db_tracking.php:120 tbl_tracking.php:590 tbl_tracking.php:648
+#: db_tracking.php:120 tbl_tracking.php:605 tbl_tracking.php:663
 msgid "active"
 msgstr "zapnuté"
 
-#: db_tracking.php:122 tbl_tracking.php:592 tbl_tracking.php:650
+#: db_tracking.php:122 tbl_tracking.php:607 tbl_tracking.php:665
 msgid "not active"
 msgstr "není zapnuté"
 
@@ -782,11 +783,11 @@ msgstr "není zapnuté"
 msgid "Versions"
 msgstr "Verze"
 
-#: db_tracking.php:136 tbl_tracking.php:400 tbl_tracking.php:668
+#: db_tracking.php:136 tbl_tracking.php:415 tbl_tracking.php:683
 msgid "Tracking report"
 msgstr "Informace o sledování"
 
-#: db_tracking.php:137 tbl_tracking.php:235 tbl_tracking.php:670
+#: db_tracking.php:137 tbl_tracking.php:235 tbl_tracking.php:685
 msgid "Structure snapshot"
 msgstr "Snímek struktury"
 
@@ -955,8 +956,8 @@ msgstr "Z funkcí zvolte „GeomFromText“ a vložte níže uvedený text jako 
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Pravděpodobně jste se pokusili nahrát příliš velký soubor. Přečtěte si "
 "prosím %sdokumentaci%s, jak toto omezení obejít."
@@ -1005,7 +1006,7 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Nepodařilo se nahrát pluginy pro import, zkontrolujte prosím vaší instalaci!"
 
-#: import.php:421 sql.php:929
+#: import.php:421 sql.php:931
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Vytvořen oblíbený dotaz %s"
@@ -1048,15 +1049,15 @@ msgstr "Zpět"
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr "phpMyAdmin se lépe používá v prohlížeči <b>podporujícím rámce</b>."
 
-#: js/messages.php:27 libraries/import.lib.php:103 sql.php:247
+#: js/messages.php:27 libraries/import.lib.php:103 sql.php:249
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Příkaz „DROP DATABASE“ je vypnutý."
 
-#: js/messages.php:30 libraries/mult_submits.inc.php:280 sql.php:348
+#: js/messages.php:30 libraries/mult_submits.inc.php:280 sql.php:350
 msgid "Do you really want to "
 msgstr "Opravdu si přejete vykonat příkaz "
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:280 sql.php:333
+#: js/messages.php:31 libraries/mult_submits.inc.php:280 sql.php:335
 msgid "You are about to DESTROY a complete database!"
 msgstr "Chystáte se ZRUŠIT celou databázi!"
 
@@ -1145,7 +1146,7 @@ msgid "Removing Selected Users"
 msgstr "Odstraňuji vybrané uživatele"
 
 #: js/messages.php:62 js/messages.php:141 tbl_tracking.php:235
-#: tbl_tracking.php:400
+#: tbl_tracking.php:415
 msgid "Close"
 msgstr "Ukončit"
 
@@ -1574,7 +1575,7 @@ msgid "Explain output"
 msgstr "Vysvětlení dotazu"
 
 #: js/messages.php:187 js/messages.php:493 libraries/rte/rte_list.lib.php:62
-#: libraries/rte/rte_triggers.lib.php:326 server_status.php:1236 sql.php:895
+#: libraries/rte/rte_triggers.lib.php:326 server_status.php:1236 sql.php:897
 msgid "Time"
 msgstr "Čas"
 
@@ -2254,7 +2255,6 @@ msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:485
-#| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "none"
@@ -2380,27 +2380,27 @@ msgid "No index defined!"
 msgstr "Není definován žádný klíč!"
 
 #: libraries/Index.class.php:423 libraries/build_html_for_db.lib.php:41
-#: tbl_structure.php:693 tbl_tracking.php:300
+#: tbl_structure.php:693 tbl_tracking.php:315
 msgid "Indexes"
 msgstr "Klíče"
 
 #: libraries/Index.class.php:442 libraries/tbl_properties.inc.php:472
 #: tbl_structure.php:154 tbl_structure.php:159 tbl_structure.php:576
-#: tbl_tracking.php:306
+#: tbl_tracking.php:321
 msgid "Unique"
 msgstr "Unikátní"
 
-#: libraries/Index.class.php:443 tbl_tracking.php:307
+#: libraries/Index.class.php:443 tbl_tracking.php:322
 msgid "Packed"
 msgstr "Zabaleno"
 
-#: libraries/Index.class.php:445 tbl_tracking.php:309
+#: libraries/Index.class.php:445 tbl_tracking.php:324
 msgid "Cardinality"
 msgstr "Mohutnost"
 
 #: libraries/Index.class.php:448 libraries/rte/rte_events.lib.php:480
 #: libraries/rte/rte_routines.lib.php:957 tbl_tracking.php:263
-#: tbl_tracking.php:312
+#: tbl_tracking.php:327
 msgid "Comment"
 msgstr "Komentář"
 
@@ -2585,8 +2585,8 @@ msgstr "Vítejte v %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Pravděpodobná příčina je, že nemáte vytvořený konfigurační soubor. Pro jeho "
 "vytvoření by se vám mohl hodit %1$snastavovací skript%2$s."
@@ -2929,7 +2929,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Upravit zde"
 
-#: libraries/common.lib.php:1370 sql.php:890
+#: libraries/common.lib.php:1370 sql.php:892
 msgid "Profiling"
 msgstr "Profilování"
 
@@ -5181,8 +5181,8 @@ msgstr ""
 "Pokud máte vlastní užvatelské jméno, zadejte ho zde (jinak se použije [kbd]"
 "anonymous[/kbd])"
 
-#: libraries/config/messages.inc.php:492 tbl_tracking.php:445
-#: tbl_tracking.php:502
+#: libraries/config/messages.inc.php:492 tbl_tracking.php:460
+#: tbl_tracking.php:517
 msgid "Username"
 msgstr "Uživatel"
 
@@ -5669,8 +5669,8 @@ msgstr ", @TABLE@ bude nahrazen jménem tabulky"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Tato hodnota je interpretována pomocí %1$sstrftime%2$s, takže můžete použít "
 "libovolné řetězce pro formátování data a času. Dále budou provedena "
@@ -5945,7 +5945,7 @@ msgstr "Zobrazeny záznamy"
 msgid "total"
 msgstr "celkem"
 
-#: libraries/display_tbl.lib.php:2381 sql.php:728
+#: libraries/display_tbl.lib.php:2381 sql.php:730
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Dotaz trval %01.4f sekund"
@@ -6413,8 +6413,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentace a další informace o PBXT můžete nalézt na %sstránkách PrimeBase "
 "XT%s."
@@ -6743,7 +6743,7 @@ msgid "Generated by"
 msgstr "Vygeneroval"
 
 #: libraries/import.lib.php:157 libraries/rte/rte_routines.lib.php:1248
-#: sql.php:724 tbl_change.php:188 tbl_get_field.php:34
+#: sql.php:726 tbl_change.php:188 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL vrátil prázdný výsledek (tj. nulový počet řádků)."
 
@@ -7975,11 +7975,11 @@ msgstr "Vyčistit"
 msgid "Columns"
 msgstr "Pole"
 
-#: libraries/sql_query_form.lib.php:300 sql.php:969 sql.php:986
+#: libraries/sql_query_form.lib.php:300 sql.php:971 sql.php:988
 msgid "Bookmark this SQL query"
 msgstr "Přidat tento SQL dotaz do oblíbených"
 
-#: libraries/sql_query_form.lib.php:307 sql.php:980
+#: libraries/sql_query_form.lib.php:307 sql.php:982
 msgid "Let every user access this bookmark"
 msgstr "Umožnit všem uživatelům používat tuto oblíbenou položku"
 
@@ -8119,8 +8119,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na %"
-"spopisy transformací%s"
+"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na "
+"%spopisy transformací%s"
 
 #: libraries/tbl_properties.inc.php:137
 msgid "Transformation options"
@@ -8171,8 +8171,8 @@ msgid ""
 "No description is available for this transformation.<br />Please ask the "
 "author what %s does."
 msgstr ""
-"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co %"
-"s dělá."
+"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co "
+"%s dělá."
 
 #: libraries/tbl_properties.inc.php:574 tbl_structure.php:652
 #, php-format
@@ -8782,8 +8782,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Více věcí můžete nastavit úpravou config.inc.php, např. použitím %"
-"sNastavovacího skriptu%s."
+"Více věcí můžete nastavit úpravou config.inc.php, např. použitím "
+"%sNastavovacího skriptu%s."
 
 #: prefs_manage.php:300
 msgid "Save to browser's storage"
@@ -8918,7 +8918,7 @@ msgstr "Modul"
 msgid "Library"
 msgstr "Knihovna"
 
-#: server_plugins.php:114 server_plugins.php:149 tbl_tracking.php:635
+#: server_plugins.php:114 server_plugins.php:149 tbl_tracking.php:650
 msgid "Version"
 msgstr "Verze"
 
@@ -9258,8 +9258,8 @@ msgstr "Odstranit databáze se stejnými jmény jako uživatelé."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Poznámka: phpMyAdmin získává oprávnění přímo z tabulek MySQL. Obsah těchto "
 "tabulek se může lišit od oprávnění, která server právě používá, pokud byly "
@@ -11023,8 +11023,8 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Při použití přihlašování přes cookies a při %sUkládádání přihlašovaci cookie%"
-"s vyšší než 0 musí být %sPlatnost přihlašovací cookie%s nastavena na vyšší "
+"Při použití přihlašování přes cookies a při %sUkládádání přihlašovaci cookie"
+"%s vyšší než 0 musí být %sPlatnost přihlašovací cookie%s nastavena na vyšší "
 "hodnotu než je tato."
 
 #: setup/lib/index.lib.php:290
@@ -11035,8 +11035,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Pokud to považujete za nutné, použijte další možnosti zabezpečení - %"
-"somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
+"Pokud to považujete za nutné, použijte další možnosti zabezpečení - "
+"%somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
 "založené na IP adresách nemusí být spolehlivé, pokud je vaše IP adresa "
 "dynamicky přidělována poskytovatelem spolu s mnoha dalšími uživateli."
 
@@ -11097,38 +11097,38 @@ msgstr ""
 msgid "Wrong data"
 msgstr "Chybná data"
 
-#: sql.php:103 tbl_change.php:262 tbl_select.php:28 tbl_zoom_select.php:58
+#: sql.php:105 tbl_change.php:262 tbl_select.php:28 tbl_zoom_select.php:58
 msgid "Browse foreign values"
 msgstr "Projít hodnoty cizích klíčů"
 
-#: sql.php:212
+#: sql.php:214
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Pro procházení databáze je použit oblíbený dotaz „%s\"."
 
-#: sql.php:700 tbl_replace.php:400
+#: sql.php:702 tbl_replace.php:400
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID vloženého řádku: %1$d"
 
-#: sql.php:717
+#: sql.php:719
 msgid "Showing as PHP code"
 msgstr "Zobrazuji jako PHP kód"
 
-#: sql.php:720 tbl_replace.php:374
+#: sql.php:722 tbl_replace.php:374
 msgid "Showing SQL query"
 msgstr "Zobrazuji SQL dotaz"
 
-#: sql.php:722
+#: sql.php:724
 msgid "Validated SQL"
 msgstr "Proběhlo zkontrolování SQL"
 
-#: sql.php:942
+#: sql.php:944
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problémy s klíči v tabulce „%s\""
 
-#: sql.php:974
+#: sql.php:976
 msgid "Label"
 msgstr "Název"
 
@@ -11566,7 +11566,7 @@ msgstr "Přidat prostorový klíč"
 msgid "Add FULLTEXT index"
 msgstr "Přidat fulltextový klíč"
 
-#: tbl_structure.php:359
+#: tbl_structure.php:359 tbl_tracking.php:295
 msgctxt "None for default"
 msgid "None"
 msgstr "Žádná"
@@ -11676,104 +11676,104 @@ msgstr ""
 msgid "Version %s snapshot (SQL code)"
 msgstr "Snímek verze %s (SQL kód)"
 
-#: tbl_tracking.php:373
+#: tbl_tracking.php:388
 msgid "Tracking data definition successfully deleted"
 msgstr "Uložené příkazy pro změnu struktury byly úspěšně smazány"
 
-#: tbl_tracking.php:375 tbl_tracking.php:392
+#: tbl_tracking.php:390 tbl_tracking.php:407
 msgid "Query error"
 msgstr "Chyba dotazu"
 
-#: tbl_tracking.php:390
+#: tbl_tracking.php:405
 msgid "Tracking data manipulation successfully deleted"
 msgstr "Uložené příkazy pro změnu dat byly úspěšně smazány"
 
-#: tbl_tracking.php:402
+#: tbl_tracking.php:417
 msgid "Tracking statements"
 msgstr "Sledování příkazů"
 
-#: tbl_tracking.php:418 tbl_tracking.php:546
+#: tbl_tracking.php:433 tbl_tracking.php:561
 #, php-format
 msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr "Zobrazit %s s datem od %s do %s od uživatele %s %s"
 
-#: tbl_tracking.php:423
+#: tbl_tracking.php:438
 msgid "Delete tracking data row from report"
 msgstr "Odstranit tyto informace o sledování této tabulky"
 
-#: tbl_tracking.php:434
+#: tbl_tracking.php:449
 msgid "No data"
 msgstr "Nejsou k dispozici žádná data"
 
-#: tbl_tracking.php:444 tbl_tracking.php:501
+#: tbl_tracking.php:459 tbl_tracking.php:516
 msgid "Date"
 msgstr "Datum"
 
-#: tbl_tracking.php:446
+#: tbl_tracking.php:461
 msgid "Data definition statement"
 msgstr "Příkaz pro definici dat"
 
-#: tbl_tracking.php:503
+#: tbl_tracking.php:518
 msgid "Data manipulation statement"
 msgstr "Příkaz pro úpravu dat"
 
-#: tbl_tracking.php:549
+#: tbl_tracking.php:564
 msgid "SQL dump (file download)"
 msgstr "Výpis SQL (stáhnout soubor)"
 
-#: tbl_tracking.php:550
+#: tbl_tracking.php:565
 msgid "SQL dump"
 msgstr "Výpis SQL"
 
-#: tbl_tracking.php:551
+#: tbl_tracking.php:566
 msgid "This option will replace your table and contained data."
 msgstr "Tato volba nahradí vaší tabulku a data, která obsahuje."
 
-#: tbl_tracking.php:551
+#: tbl_tracking.php:566
 msgid "SQL execution"
 msgstr "Provedení SQL"
 
-#: tbl_tracking.php:563
+#: tbl_tracking.php:578
 #, php-format
 msgid "Export as %s"
 msgstr "Exportovat jako %s"
 
-#: tbl_tracking.php:603
+#: tbl_tracking.php:618
 msgid "Show versions"
 msgstr "Zobrazit verze"
 
-#: tbl_tracking.php:687
+#: tbl_tracking.php:702
 #, php-format
 msgid "Deactivate tracking for %s.%s"
 msgstr "Vypnout sledování pro %s.%s"
 
-#: tbl_tracking.php:689
+#: tbl_tracking.php:704
 msgid "Deactivate now"
 msgstr "Vypnout teď"
 
-#: tbl_tracking.php:700
+#: tbl_tracking.php:715
 #, php-format
 msgid "Activate tracking for %s.%s"
 msgstr "Zapnuté sledování pro %s.%s"
 
-#: tbl_tracking.php:702
+#: tbl_tracking.php:717
 msgid "Activate now"
 msgstr "Zapnout teď"
 
-#: tbl_tracking.php:715
+#: tbl_tracking.php:730
 #, php-format
 msgid "Create version %s of %s.%s"
 msgstr "Vytvořit verzi %s z %s.%s"
 
-#: tbl_tracking.php:719
+#: tbl_tracking.php:734
 msgid "Track these data definition statements:"
 msgstr "Sledovat tyto příkazy pro definici dat:"
 
-#: tbl_tracking.php:727
+#: tbl_tracking.php:742
 msgid "Track these data manipulation statements:"
 msgstr "Sledovat tyto příkazy pro úpravu dat:"
 
-#: tbl_tracking.php:735
+#: tbl_tracking.php:750
 msgid "Create version"
 msgstr "Vytvořit verzi"
 
@@ -11921,8 +11921,8 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
-"Četnost pomalých dotazů na tomto serveru je %s za hodinu, měla by být pod 1%"
-"%."
+"Četnost pomalých dotazů na tomto serveru je %s za hodinu, měla by být pod "
+"1%%."
 
 #: po/advisory_rules.php:25
 msgid "Long query time"
@@ -12163,8 +12163,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -12290,8 +12290,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: po/advisory_rules.php:115
@@ -12526,9 +12526,11 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:168
-#, php-format
-msgid "max %% MyISAM key buffer ever used: %s, this value should be above 95%%"
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Max %% MyISAM key buffer ever used"
+msgid ""
+"max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
+msgstr "Nejvyšší využití (%%) vyrovnávací paměti MyISAM pro klíče"
 
 #: po/advisory_rules.php:170
 #, fuzzy
@@ -12538,7 +12540,7 @@ msgstr "Velikost paměti pro řazení"
 
 #: po/advisory_rules.php:173
 #, php-format
-msgid "%% MyISAM key buffer used: %s, this value should be above 95%%"
+msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
 
 #: po/advisory_rules.php:175
@@ -12789,7 +12791,6 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:240
-#| msgid "Format of imported file"
 msgid "Percentage of aborted clients"
 msgstr "Procento přerušených klientů"
 
@@ -12839,7 +12840,6 @@ msgid "have_innodb is set to 'value'"
 msgstr "have_innodb je nastaveno na 'value'"
 
 #: po/advisory_rules.php:255
-#| msgid "Buffer pool size"
 msgid "InnoDB log size"
 msgstr "Velikost záznamu InnoDB"
 
@@ -12900,7 +12900,6 @@ msgid "Your absolute InnoDB log size is %s MiB"
 msgstr ""
 
 #: po/advisory_rules.php:265
-#| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
 msgstr "Velikost vyrovnávací paměti InnoDB"
 
@@ -12933,7 +12932,6 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:270
-#| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
 msgstr "Současné vkládání do MyISAM"
 

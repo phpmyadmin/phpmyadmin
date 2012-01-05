@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-01-02 07:46-0500\n"
+"POT-Creation-Date: 2012-01-05 16:37+0100\n"
 "PO-Revision-Date: 2011-12-19 09:41+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: polish <pl@li.org>\n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pl\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.1.6\n"
@@ -76,14 +76,14 @@ msgstr "Szukaj"
 #: tbl_change.php:1073 tbl_change.php:1110 tbl_indexes.php:288
 #: tbl_operations.php:284 tbl_operations.php:321 tbl_operations.php:523
 #: tbl_operations.php:585 tbl_operations.php:768 tbl_select.php:235
-#: tbl_structure.php:672 tbl_structure.php:707 tbl_tracking.php:416
-#: tbl_tracking.php:554 tbl_zoom_select.php:313 view_create.php:181
+#: tbl_structure.php:672 tbl_structure.php:707 tbl_tracking.php:431
+#: tbl_tracking.php:569 tbl_zoom_select.php:313 view_create.php:181
 #: view_operations.php:99
 msgid "Go"
 msgstr "Wykonaj"
 
 #: browse_foreigners.php:174 browse_foreigners.php:178
-#: libraries/Index.class.php:440 tbl_tracking.php:304
+#: libraries/Index.class.php:440 tbl_tracking.php:319
 msgid "Keyname"
 msgstr "Nazwa klucza"
 
@@ -142,7 +142,7 @@ msgstr "Komentarze tabeli"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1326
 #: libraries/tbl_properties.inc.php:267 libraries/tbl_select.lib.php:83
 #: tbl_change.php:318 tbl_indexes.php:213 tbl_printview.php:136
-#: tbl_relation.php:395 tbl_tracking.php:257 tbl_tracking.php:308
+#: tbl_relation.php:395 tbl_tracking.php:257 tbl_tracking.php:323
 #: tbl_zoom_select.php:433
 msgid "Column"
 msgstr "Kolumna"
@@ -159,7 +159,7 @@ msgstr "Kolumna"
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:84
 #: server_privileges.php:2256 tbl_change.php:297 tbl_change.php:324
 #: tbl_printview.php:137 tbl_printview.php:272 tbl_structure.php:202
-#: tbl_structure.php:767 tbl_tracking.php:258 tbl_tracking.php:305
+#: tbl_structure.php:767 tbl_tracking.php:258 tbl_tracking.php:320
 msgid "Type"
 msgstr "Typ"
 
@@ -170,7 +170,7 @@ msgstr "Typ"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_properties.inc.php:102 tbl_change.php:333
 #: tbl_printview.php:138 tbl_structure.php:205 tbl_tracking.php:260
-#: tbl_tracking.php:311 tbl_zoom_select.php:434
+#: tbl_tracking.php:326 tbl_zoom_select.php:434
 msgid "Null"
 msgstr "Null"
 
@@ -214,8 +214,9 @@ msgstr "Komentarze"
 #: server_privileges.php:1475 server_privileges.php:1485
 #: server_privileges.php:1732 server_privileges.php:1743
 #: server_privileges.php:2064 server_privileges.php:2069
-#: server_privileges.php:2373 sql.php:290 sql.php:354 tbl_printview.php:190
-#: tbl_structure.php:349 tbl_tracking.php:321 tbl_tracking.php:326
+#: server_privileges.php:2373 sql.php:292 sql.php:356 tbl_printview.php:190
+#: tbl_structure.php:349 tbl_tracking.php:281 tbl_tracking.php:336
+#: tbl_tracking.php:341
 msgid "No"
 msgstr "Nie"
 
@@ -235,9 +236,9 @@ msgstr "Nie"
 #: server_databases.php:81 server_privileges.php:1473
 #: server_privileges.php:1483 server_privileges.php:1729
 #: server_privileges.php:1743 server_privileges.php:2064
-#: server_privileges.php:2067 server_privileges.php:2373 sql.php:353
+#: server_privileges.php:2067 server_privileges.php:2373 sql.php:355
 #: tbl_printview.php:190 tbl_structure.php:41 tbl_structure.php:349
-#: tbl_tracking.php:319 tbl_tracking.php:324
+#: tbl_tracking.php:281 tbl_tracking.php:334 tbl_tracking.php:339
 msgid "Yes"
 msgstr "Tak"
 
@@ -293,15 +294,15 @@ msgstr "Usuń bazę danych (DROP)"
 msgid "Copy database to"
 msgstr "Kopiuj bazę danych do"
 
-#: db_operations.php:491 tbl_operations.php:552 tbl_tracking.php:409
+#: db_operations.php:491 tbl_operations.php:552 tbl_tracking.php:424
 msgid "Structure only"
 msgstr "Tylko struktura"
 
-#: db_operations.php:492 tbl_operations.php:553 tbl_tracking.php:411
+#: db_operations.php:492 tbl_operations.php:553 tbl_tracking.php:426
 msgid "Structure and data"
 msgstr "Struktura i dane"
 
-#: db_operations.php:493 tbl_operations.php:554 tbl_tracking.php:410
+#: db_operations.php:493 tbl_operations.php:554 tbl_tracking.php:425
 msgid "Data only"
 msgstr "Tylko dane"
 
@@ -335,7 +336,7 @@ msgstr "Przełącz na przekopiowaną bazę danych"
 #: libraries/tbl_properties.inc.php:668 libraries/tbl_select.lib.php:85
 #: server_collations.php:53 server_collations.php:65 tbl_operations.php:382
 #: tbl_structure.php:203 tbl_structure.php:872 tbl_tracking.php:259
-#: tbl_tracking.php:310
+#: tbl_tracking.php:325
 msgid "Collation"
 msgstr "Metoda porównywania znaków"
 
@@ -359,7 +360,7 @@ msgstr "Edytuj lub eksportuj schemat relacji"
 #: libraries/rte/rte_triggers.lib.php:310
 #: libraries/schema/User_Schema.class.php:272 server_privileges.php:1839
 #: server_privileges.php:1897 server_privileges.php:2166
-#: server_synchronize.php:436 server_synchronize.php:908 tbl_tracking.php:634
+#: server_synchronize.php:436 server_synchronize.php:908 tbl_tracking.php:649
 msgid "Table"
 msgstr "Tabela"
 
@@ -440,7 +441,7 @@ msgid "Descending"
 msgstr "Malejąco"
 
 #: db_qbe.php:286 db_tracking.php:92 libraries/display_tbl.lib.php:426
-#: tbl_change.php:287 tbl_tracking.php:639
+#: tbl_change.php:287 tbl_tracking.php:654
 msgid "Show"
 msgstr "Pokaż"
 
@@ -550,7 +551,7 @@ msgstr "Usuń wszystkie trafienia dla tabeli %s?"
 #: libraries/schema/User_Schema.class.php:338
 #: libraries/sql_query_form.lib.php:403 pmd_general.php:417
 #: setup/frames/index.inc.php:139 setup/frames/index.inc.php:230
-#: tbl_tracking.php:426 tbl_tracking.php:447 tbl_tracking.php:504
+#: tbl_tracking.php:441 tbl_tracking.php:462 tbl_tracking.php:519
 msgid "Delete"
 msgstr "Usuń"
 
@@ -620,11 +621,11 @@ msgstr "Śledzenie nie jest aktywne."
 #: db_structure.php:451 libraries/display_tbl.lib.php:2355
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Pogląd ten ma co najmniej tą liczbę wierszy. Proszę odnieść się do %"
-"sdokumentacji%s."
+"Pogląd ten ma co najmniej tą liczbę wierszy. Proszę odnieść się do "
+"%sdokumentacji%s."
 
 #: db_structure.php:467 db_structure.php:481 libraries/header.inc.php:161
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
@@ -748,7 +749,7 @@ msgstr "Śledzenie tabel"
 #: server_privileges.php:1834 server_privileges.php:1897
 #: server_privileges.php:2160 server_status.php:1234
 #: server_synchronize.php:1277 server_synchronize.php:1281
-#: tbl_tracking.php:633
+#: tbl_tracking.php:648
 msgid "Database"
 msgstr "Baza danych"
 
@@ -756,17 +757,17 @@ msgstr "Baza danych"
 msgid "Last version"
 msgstr "Ostatnia wersja"
 
-#: db_tracking.php:88 tbl_tracking.php:636
+#: db_tracking.php:88 tbl_tracking.php:651
 msgid "Created"
 msgstr "Utworzone"
 
-#: db_tracking.php:89 tbl_tracking.php:637
+#: db_tracking.php:89 tbl_tracking.php:652
 msgid "Updated"
 msgstr "Aktualizacja"
 
 #: db_tracking.php:90 js/messages.php:186 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
-#: server_status.php:1237 sql.php:894 tbl_tracking.php:638
+#: server_status.php:1237 sql.php:896 tbl_tracking.php:653
 msgid "Status"
 msgstr "Status"
 
@@ -782,11 +783,11 @@ msgstr "Działanie"
 msgid "Delete tracking data for this table"
 msgstr "Usuń dane monitorujące tę tabelę"
 
-#: db_tracking.php:120 tbl_tracking.php:590 tbl_tracking.php:648
+#: db_tracking.php:120 tbl_tracking.php:605 tbl_tracking.php:663
 msgid "active"
 msgstr "aktywny"
 
-#: db_tracking.php:122 tbl_tracking.php:592 tbl_tracking.php:650
+#: db_tracking.php:122 tbl_tracking.php:607 tbl_tracking.php:665
 msgid "not active"
 msgstr "nie aktywne"
 
@@ -794,11 +795,11 @@ msgstr "nie aktywne"
 msgid "Versions"
 msgstr "Wersje"
 
-#: db_tracking.php:136 tbl_tracking.php:400 tbl_tracking.php:668
+#: db_tracking.php:136 tbl_tracking.php:415 tbl_tracking.php:683
 msgid "Tracking report"
 msgstr "Raport śledzenia"
 
-#: db_tracking.php:137 tbl_tracking.php:235 tbl_tracking.php:670
+#: db_tracking.php:137 tbl_tracking.php:235 tbl_tracking.php:685
 msgid "Structure snapshot"
 msgstr "Migawka struktury"
 
@@ -989,11 +990,11 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
-"Prawdopodobnie próbowałeś przesyłać zbyt duży plik. Zapoznaj się %"
-"sdokumentacją%s dla sposobów na obejście tego ograniczenia."
+"Prawdopodobnie próbowałeś przesyłać zbyt duży plik. Zapoznaj się "
+"%sdokumentacją%s dla sposobów na obejście tego ograniczenia."
 
 #: import.php:170 import.php:419
 msgid "Showing bookmark"
@@ -1038,7 +1039,7 @@ msgstr ""
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Nie udało się załadować modułów importu, proszę sprawdzić instalację!"
 
-#: import.php:421 sql.php:929
+#: import.php:421 sql.php:931
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Zakładka %s utworzona"
@@ -1083,15 +1084,15 @@ msgstr ""
 "phpMyAdmin jest bardziej przyjazny w przeglądarkach <b>obsługujących ramki</"
 "b>"
 
-#: js/messages.php:27 libraries/import.lib.php:103 sql.php:247
+#: js/messages.php:27 libraries/import.lib.php:103 sql.php:249
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Polecenie \"DROP DATABASE\" jest zablokowane."
 
-#: js/messages.php:30 libraries/mult_submits.inc.php:280 sql.php:348
+#: js/messages.php:30 libraries/mult_submits.inc.php:280 sql.php:350
 msgid "Do you really want to "
 msgstr "Czy na pewno wykonać "
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:280 sql.php:333
+#: js/messages.php:31 libraries/mult_submits.inc.php:280 sql.php:335
 msgid "You are about to DESTROY a complete database!"
 msgstr "Masz zamiar ZNISZCZYĆ całą bazę danych!"
 
@@ -1193,7 +1194,7 @@ msgid "Removing Selected Users"
 msgstr "Usuń zaznaczonych użytkowników"
 
 #: js/messages.php:62 js/messages.php:141 tbl_tracking.php:235
-#: tbl_tracking.php:400
+#: tbl_tracking.php:415
 msgid "Close"
 msgstr "Zamknij"
 
@@ -1650,7 +1651,7 @@ msgid "Explain output"
 msgstr "Wyjaśnij SQL"
 
 #: js/messages.php:187 js/messages.php:493 libraries/rte/rte_list.lib.php:62
-#: libraries/rte/rte_triggers.lib.php:326 server_status.php:1236 sql.php:895
+#: libraries/rte/rte_triggers.lib.php:326 server_status.php:1236 sql.php:897
 msgid "Time"
 msgstr "Czas"
 
@@ -2502,27 +2503,27 @@ msgid "No index defined!"
 msgstr "Brak zdefiniowanego indeksu!"
 
 #: libraries/Index.class.php:423 libraries/build_html_for_db.lib.php:41
-#: tbl_structure.php:693 tbl_tracking.php:300
+#: tbl_structure.php:693 tbl_tracking.php:315
 msgid "Indexes"
 msgstr "Indeksy"
 
 #: libraries/Index.class.php:442 libraries/tbl_properties.inc.php:472
 #: tbl_structure.php:154 tbl_structure.php:159 tbl_structure.php:576
-#: tbl_tracking.php:306
+#: tbl_tracking.php:321
 msgid "Unique"
 msgstr "Jednoznaczny"
 
-#: libraries/Index.class.php:443 tbl_tracking.php:307
+#: libraries/Index.class.php:443 tbl_tracking.php:322
 msgid "Packed"
 msgstr "Spakowany"
 
-#: libraries/Index.class.php:445 tbl_tracking.php:309
+#: libraries/Index.class.php:445 tbl_tracking.php:324
 msgid "Cardinality"
 msgstr "Moc"
 
 #: libraries/Index.class.php:448 libraries/rte/rte_events.lib.php:480
 #: libraries/rte/rte_routines.lib.php:957 tbl_tracking.php:263
-#: tbl_tracking.php:312
+#: tbl_tracking.php:327
 msgid "Comment"
 msgstr "Komentarz"
 
@@ -2712,8 +2713,8 @@ msgstr "Witamy w %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Prawdopodobnie powodem jest brak utworzonego pliku konfiguracyjnego. Możesz "
 "użyć %1$s skryptu instalacyjnego %2$s, aby utworzyć jedną."
@@ -3062,7 +3063,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Mechanizmy"
 
-#: libraries/common.lib.php:1370 sql.php:890
+#: libraries/common.lib.php:1370 sql.php:892
 msgid "Profiling"
 msgstr "Profilowanie"
 
@@ -5205,8 +5206,8 @@ msgstr "Szczegółowa nazwa serwera"
 #: libraries/config/messages.inc.php:455
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr ""
-"Czy użytkownik powinien mieć wyświetlony przycisk \"pokaż wszystkie (wiersze)"
-"\";"
+"Czy użytkownik powinien mieć wyświetlony przycisk \"pokaż wszystkie "
+"(wiersze)\";"
 
 #: libraries/config/messages.inc.php:456
 msgid "Allow to display all the rows"
@@ -5387,8 +5388,8 @@ msgstr ""
 "Jeśli masz swoją nazwa użytkownika, ustaw ją tutaj (domyślnie [kbd]anonymous"
 "[/kbd])"
 
-#: libraries/config/messages.inc.php:492 tbl_tracking.php:445
-#: tbl_tracking.php:502
+#: libraries/config/messages.inc.php:492 tbl_tracking.php:460
+#: tbl_tracking.php:517
 msgid "Username"
 msgstr "Użytkownik"
 
@@ -5892,13 +5893,13 @@ msgstr ", @TABLE@ zostanie zastąpione nazwą wybranej tabeli"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Wartość ta jest interpretowana za pomocą %1$sstrftime%2$s, dzięki czemu "
 "można używać wartości czsu formatowania. Dodatkowo po transformacji stanie "
-"się: %3$s. Inne teksty będą przechowywane tak jak są. Zobacz szczegóły w %4"
-"$sFAQ%5$s."
+"się: %3$s. Inne teksty będą przechowywane tak jak są. Zobacz szczegóły w "
+"%4$sFAQ%5$s."
 
 #: libraries/display_export.lib.php:270
 msgid "use this for future exports"
@@ -6176,7 +6177,7 @@ msgstr "Pokaż wiersze "
 msgid "total"
 msgstr "wszystkich"
 
-#: libraries/display_tbl.lib.php:2381 sql.php:728
+#: libraries/display_tbl.lib.php:2381 sql.php:730
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Wykonanie zapytania trwało %01.4f sekund(y)"
@@ -6648,8 +6649,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentacja i dodatkowe informacje o PBXT można znaleźć na %sStronie "
 "domowej PrimeBase XT%s."
@@ -6989,7 +6990,7 @@ msgid "Generated by"
 msgstr "Wygenerowany przez"
 
 #: libraries/import.lib.php:157 libraries/rte/rte_routines.lib.php:1248
-#: sql.php:724 tbl_change.php:188 tbl_get_field.php:34
+#: sql.php:726 tbl_change.php:188 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL zwrócił pusty wynik (zero wierszy)."
 
@@ -8310,11 +8311,11 @@ msgstr "Wyczyść"
 msgid "Columns"
 msgstr "Kolumny"
 
-#: libraries/sql_query_form.lib.php:300 sql.php:969 sql.php:986
+#: libraries/sql_query_form.lib.php:300 sql.php:971 sql.php:988
 msgid "Bookmark this SQL query"
 msgstr "Pamiętaj zapytanie SQL"
 
-#: libraries/sql_query_form.lib.php:307 sql.php:980
+#: libraries/sql_query_form.lib.php:307 sql.php:982
 msgid "Let every user access this bookmark"
 msgstr "Niech każdy użytkownik ma dostęp do tej zakładki"
 
@@ -8415,8 +8416,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "Analizator składni SQL nie mógł zostać zainicjowany. Sprawdź, czy "
-"zainstalowane są niezbędne rozszerzenia PHP, tak jak zostało to opisane w %"
-"sdokumentacji%s."
+"zainstalowane są niezbędne rozszerzenia PHP, tak jak zostało to opisane w "
+"%sdokumentacji%s."
 
 #: libraries/tbl_links.inc.php:118 libraries/tbl_links.inc.php:119
 msgid "Table seems to be empty!"
@@ -8460,8 +8461,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Aby uzyskać listę dostępnych opcji transformacji i ich typów MIME, kliknij %"
-"sopisy transformacji%s"
+"Aby uzyskać listę dostępnych opcji transformacji i ich typów MIME, kliknij "
+"%sopisy transformacji%s"
 
 #: libraries/tbl_properties.inc.php:137
 msgid "Transformation options"
@@ -8894,8 +8895,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Serwer działa pod ochroną Suhosina. Możliwe problemy opisuje %sdokumentacja%"
-"s."
+"Serwer działa pod ochroną Suhosina. Możliwe problemy opisuje %sdokumentacja"
+"%s."
 
 #: navigation.php:182 server_databases.php:284 server_synchronize.php:1294
 msgid "No databases"
@@ -9271,7 +9272,7 @@ msgstr ""
 msgid "Library"
 msgstr ""
 
-#: server_plugins.php:114 server_plugins.php:149 tbl_tracking.php:635
+#: server_plugins.php:114 server_plugins.php:149 tbl_tracking.php:650
 msgid "Version"
 msgstr "Wersja"
 
@@ -9619,8 +9620,8 @@ msgstr "Usuń bazy danych o takich samych nazwach jak użytkownicy."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Uwaga: phpMyAdmin pobiera uprawnienia użytkowników wprost z tabeli uprawnień "
 "MySQL-a. Zawartość tej tabeli, jeśli zostały w niej dokonane ręczne zmiany, "
@@ -11442,8 +11443,8 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"W przypadku korzystania z uwierzytelniania cookie i przechowywać %"
-"sciasteczek logowania%s nie jest 0, %sWażności plików cookie%s logowania "
+"W przypadku korzystania z uwierzytelniania cookie i przechowywać "
+"%sciasteczek logowania%s nie jest 0, %sWażności plików cookie%s logowania "
 "muszą być ustawione na wartość mniejsza lub równa jej."
 
 #: setup/lib/index.lib.php:290
@@ -11518,38 +11519,38 @@ msgstr "Klucz powinien zawierać litery, cyfry [em]i[/em] znaki specjalne."
 msgid "Wrong data"
 msgstr ""
 
-#: sql.php:103 tbl_change.php:262 tbl_select.php:28 tbl_zoom_select.php:58
+#: sql.php:105 tbl_change.php:262 tbl_select.php:28 tbl_zoom_select.php:58
 msgid "Browse foreign values"
 msgstr "Przeglądaj zewnętrzne wartości"
 
-#: sql.php:212
+#: sql.php:214
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Korzystanie z zakładki \"%s\" jako domyślne przeglądanie zapytania."
 
-#: sql.php:700 tbl_replace.php:400
+#: sql.php:702 tbl_replace.php:400
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Id wstawionego wiersza: %1$d"
 
-#: sql.php:717
+#: sql.php:719
 msgid "Showing as PHP code"
 msgstr "Pokaż jako kod PHP"
 
-#: sql.php:720 tbl_replace.php:374
+#: sql.php:722 tbl_replace.php:374
 msgid "Showing SQL query"
 msgstr "Wyświetl zapytanie SQL"
 
-#: sql.php:722
+#: sql.php:724
 msgid "Validated SQL"
 msgstr "Weryfikacje SQL"
 
-#: sql.php:942
+#: sql.php:944
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemy z indeksami tabeli `%s`"
 
-#: sql.php:974
+#: sql.php:976
 msgid "Label"
 msgstr "Nazwa"
 
@@ -12037,7 +12038,7 @@ msgstr "Dodaj indeks"
 msgid "Add FULLTEXT index"
 msgstr "Dodaj FULLTEXT indeksu"
 
-#: tbl_structure.php:359
+#: tbl_structure.php:359 tbl_tracking.php:295
 msgctxt "None for default"
 msgid "None"
 msgstr "Brak "
@@ -12149,114 +12150,114 @@ msgstr ""
 msgid "Version %s snapshot (SQL code)"
 msgstr "Wersja %s migawki (kod SQL)"
 
-#: tbl_tracking.php:373
+#: tbl_tracking.php:388
 #, fuzzy
 #| msgid "Track these data definition statements:"
 msgid "Tracking data definition successfully deleted"
 msgstr "Śledź te instrukcje definicji danych:"
 
-#: tbl_tracking.php:375 tbl_tracking.php:392
+#: tbl_tracking.php:390 tbl_tracking.php:407
 #, fuzzy
 #| msgid "Gather errors"
 msgid "Query error"
 msgstr "Zbierz błędy"
 
-#: tbl_tracking.php:390
+#: tbl_tracking.php:405
 #, fuzzy
 #| msgid "Track these data manipulation statements:"
 msgid "Tracking data manipulation successfully deleted"
 msgstr "Śledź te instrukcje manipulowania danymi:"
 
-#: tbl_tracking.php:402
+#: tbl_tracking.php:417
 msgid "Tracking statements"
 msgstr "Śledzenie instrukcji"
 
-#: tbl_tracking.php:418 tbl_tracking.php:546
+#: tbl_tracking.php:433 tbl_tracking.php:561
 #, php-format
 msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr "Pokaż %s w okresie od %s do %s użytkownika %s %s"
 
-#: tbl_tracking.php:423
+#: tbl_tracking.php:438
 #, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data row from report"
 msgstr "Usuń dane monitorujące tę tabelę"
 
-#: tbl_tracking.php:434
+#: tbl_tracking.php:449
 #, fuzzy
 #| msgid "No databases"
 msgid "No data"
 msgstr "Brak baz danych"
 
-#: tbl_tracking.php:444 tbl_tracking.php:501
+#: tbl_tracking.php:459 tbl_tracking.php:516
 msgid "Date"
 msgstr "Data"
 
-#: tbl_tracking.php:446
+#: tbl_tracking.php:461
 msgid "Data definition statement"
 msgstr "Instrukcja definiowania danych"
 
-#: tbl_tracking.php:503
+#: tbl_tracking.php:518
 msgid "Data manipulation statement"
 msgstr "Instrukcja przetwarzania danych"
 
-#: tbl_tracking.php:549
+#: tbl_tracking.php:564
 msgid "SQL dump (file download)"
 msgstr "Zrzut SQL (plik do pobrania)"
 
-#: tbl_tracking.php:550
+#: tbl_tracking.php:565
 msgid "SQL dump"
 msgstr "Zrzut SQL"
 
-#: tbl_tracking.php:551
+#: tbl_tracking.php:566
 msgid "This option will replace your table and contained data."
 msgstr "Ta opcja zamienia twoją tabelę i zawarte w niej dane."
 
-#: tbl_tracking.php:551
+#: tbl_tracking.php:566
 msgid "SQL execution"
 msgstr "Wykonanie SQL"
 
-#: tbl_tracking.php:563
+#: tbl_tracking.php:578
 #, php-format
 msgid "Export as %s"
 msgstr "Eksportuj jako %s"
 
-#: tbl_tracking.php:603
+#: tbl_tracking.php:618
 msgid "Show versions"
 msgstr "Pokaż wersje"
 
-#: tbl_tracking.php:687
+#: tbl_tracking.php:702
 #, php-format
 msgid "Deactivate tracking for %s.%s"
 msgstr "Dezaktywuj monitorowanie %s.%s"
 
-#: tbl_tracking.php:689
+#: tbl_tracking.php:704
 msgid "Deactivate now"
 msgstr "Dezaktywuj teraz"
 
-#: tbl_tracking.php:700
+#: tbl_tracking.php:715
 #, php-format
 msgid "Activate tracking for %s.%s"
 msgstr "Aktywuj monitorowanie %s.%s"
 
-#: tbl_tracking.php:702
+#: tbl_tracking.php:717
 msgid "Activate now"
 msgstr "Aktywuj teraz"
 
-#: tbl_tracking.php:715
+#: tbl_tracking.php:730
 #, php-format
 msgid "Create version %s of %s.%s"
 msgstr "Utwórz wersję %s dla %s.%s"
 
-#: tbl_tracking.php:719
+#: tbl_tracking.php:734
 msgid "Track these data definition statements:"
 msgstr "Śledź te instrukcje definicji danych:"
 
-#: tbl_tracking.php:727
+#: tbl_tracking.php:742
 msgid "Track these data manipulation statements:"
 msgstr "Śledź te instrukcje manipulowania danymi:"
 
-#: tbl_tracking.php:735
+#: tbl_tracking.php:750
 msgid "Create version"
 msgstr "Utwórz wersję"
 
@@ -12649,8 +12650,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -12778,8 +12779,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: po/advisory_rules.php:115
@@ -13009,7 +13010,8 @@ msgstr ""
 
 #: po/advisory_rules.php:168
 #, php-format
-msgid "max %% MyISAM key buffer ever used: %s, this value should be above 95%%"
+msgid ""
+"max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
 msgstr ""
 
 #: po/advisory_rules.php:170
@@ -13018,7 +13020,7 @@ msgstr ""
 
 #: po/advisory_rules.php:173
 #, php-format
-msgid "%% MyISAM key buffer used: %s, this value should be above 95%%"
+msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
 
 #: po/advisory_rules.php:175
