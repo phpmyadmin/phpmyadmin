@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-02 07:46-0500\n"
-"PO-Revision-Date: 2011-12-24 10:39+0200\n"
+"PO-Revision-Date: 2012-01-05 16:11+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.1.6\n"
 
@@ -2253,15 +2253,14 @@ msgstr "Vecka"
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: js/messages.php:483
 msgid "calendar-month-year"
-msgstr ""
+msgstr "kalender-månad-år"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:485
-#, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
-msgstr "Inget"
+msgstr "Ingen"
 
 #: js/messages.php:494
 msgid "Hour"
