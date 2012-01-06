@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-05 16:37+0100\n"
-"PO-Revision-Date: 2012-01-03 04:25+0200\n"
+"PO-Revision-Date: 2012-01-06 11:42+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12647,12 +12647,10 @@ msgid "Percentage of MyISAM key buffer used"
 msgstr "MyISAM キーバッファの使用比率"
 
 #: po/advisory_rules.php:173
-#, fuzzy, php-format
+#, php-format
 #| msgid "%% MyISAM key buffer used: %s, this value should be above 95%%"
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
-msgstr ""
-"MyISAM キーバッファの使用比率: %s。この値は、95%% 以上がいいと言われていま"
-"す。"
+msgstr "MyISAM キーバッファの使用比率: %s%%。この値は、95%% 以上がいいと言われています。"
 
 #: po/advisory_rules.php:175
 msgid "Percentage of index reads from memory"
