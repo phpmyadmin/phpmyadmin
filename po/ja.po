@@ -12617,7 +12617,7 @@ msgstr "key_buffer_size は 0 です。"
 #: po/advisory_rules.php:165
 #, php-format
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "常用される MyISAM キーバッファの最大比率"
+msgstr "使われていた MyISAM キーバッファの最大比率"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, php-format
