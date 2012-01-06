@@ -12916,14 +12916,14 @@ msgstr ""
 "expectativas de uso de los índices."
 
 #: po/advisory_rules.php:168
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "max %% MyISAM key buffer ever used: %s, this value should be above 95%%"
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
 msgstr ""
-"Maxímo porcentaje de búfer de claves MyISAM utilizado en algún momento: %s, "
-"este valor debería ser mayor a 95%%"
+"Maxímo %% de búfer de claves MyISAM utilizado en algún momento: %s%%, este "
+"valor debería ser mayor a 95%%"
 
 #: po/advisory_rules.php:170
 msgid "Percentage of MyISAM key buffer used"
