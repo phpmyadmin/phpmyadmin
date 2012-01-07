@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-05 16:37+0100\n"
-"PO-Revision-Date: 2012-01-07 11:21+0200\n"
+"PO-Revision-Date: 2012-01-07 11:22+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6389,7 +6389,7 @@ msgstr "行ファイルの増分"
 
 #: libraries/engines/pbxt.lib.php:73
 msgid "The grow size of the row pointer (.xtr) files."
-msgstr "列ポインタファイル(.xtr)の増分。"
+msgstr "行ポインタファイル (.xtr) の増分。"
 
 #: libraries/engines/pbxt.lib.php:77
 msgid "Log file count"
