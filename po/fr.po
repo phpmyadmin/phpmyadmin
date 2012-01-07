@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-05 16:37+0100\n"
-"PO-Revision-Date: 2012-01-02 18:29+0200\n"
+"PO-Revision-Date: 2012-01-07 15:53+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -12808,13 +12808,13 @@ msgstr ""
 "sont utilisés."
 
 #: po/advisory_rules.php:168
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "max %% MyISAM key buffer ever used: %s, this value should be above 95%%"
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
 msgstr ""
-"Le %% maximum de mémoire tampon pour les clés MyISAM utilisé est de %s, "
+"Le %% maximum de mémoire tampon pour les clés MyISAM utilisé est de %s%%, "
 "cette valeur devrait dépasser 95%%."
 
 #: po/advisory_rules.php:170
