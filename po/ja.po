@@ -11378,7 +11378,7 @@ msgstr "テーブルオプション"
 
 #: tbl_operations.php:359
 msgid "Rename table to"
-msgstr "リネーム後のテーブル名"
+msgstr "変更後のテーブル名称"
 
 #: tbl_operations.php:535
 msgid "Copy table to (database<b>.</b>table):"
