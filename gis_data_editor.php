@@ -51,7 +51,7 @@ $wkt = $gis_obj->generateWkt($gis_data, 0);
 $wkt_with_zero = $gis_obj->generateWkt($gis_data, 0, '0');
 $result = "'" . $wkt . "'," . $srid;
 
-// Gererate PNG or SVG based visualization
+// Generate PNG or SVG based visualization
 $format = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER <= 8) ? 'png' : 'svg';
 $visualizationSettings = array('width' => 450, 'height' => 300, 'spatialColumn' => 'wkt');
 $data = array(array('wkt' => $wkt_with_zero, 'srid' => $srid));
