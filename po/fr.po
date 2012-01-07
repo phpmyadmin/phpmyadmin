@@ -12432,7 +12432,7 @@ msgstr ""
 "cette augmentation petit à petit et surveillez les résultats."
 
 #: po/advisory_rules.php:98
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The ratio of removed queries to inserted queries is %s%%. The lower this "
 #| "value is, the better (This rules firing limit: 0.1%)"
@@ -12440,8 +12440,9 @@ msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
-"Le ratio des requêtes enlevées par rapport aux requêtes ajoutées est de %s"
-"%%. Plus faible est cette valeur, mieux c'est."
+"Le ratio des requêtes enlevées par rapport aux requêtes ajoutées est de %s%%"
+". Il est souhaitable que cette valeur soit faible (Limite pour cette règle: "
+"0.1%%)"
 
 #: po/advisory_rules.php:100
 msgid "Query cache max size"
