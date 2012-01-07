@@ -266,7 +266,7 @@ msgstr "データベース名が空です!"
 #: db_operations.php:280
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr "データベース %s を %s にリネームしました"
+msgstr "データベース %s の名称を %s に変更しました"
 
 #: db_operations.php:284
 #, php-format
