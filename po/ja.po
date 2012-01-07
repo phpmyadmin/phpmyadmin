@@ -8651,7 +8651,7 @@ msgstr "サブクエリ"
 
 #: pmd_general.php:474 pmd_general.php:570
 msgid "Rename to"
-msgstr "リネーム後の名前"
+msgstr "変更後の名称"
 
 #: pmd_general.php:476 pmd_general.php:575
 msgid "New name"
