@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-05 16:37+0100\n"
-"PO-Revision-Date: 2012-01-07 11:18+0200\n"
+"PO-Revision-Date: 2012-01-07 11:19+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -4463,7 +4463,7 @@ msgstr "クエリウィンドウのデフォルトタブ"
 
 #: libraries/config/messages.inc.php:346
 msgid "Query window height (in pixels)"
-msgstr "クエリウィンドウの高さ（ピクセルで指定）"
+msgstr "クエリウィンドウの高さ (ピクセル数)"
 
 #: libraries/config/messages.inc.php:347
 msgid "Query window height"
