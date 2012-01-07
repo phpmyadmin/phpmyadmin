@@ -4471,7 +4471,7 @@ msgstr "クエリウィンドウの高さ"
 
 #: libraries/config/messages.inc.php:348
 msgid "Query window width (in pixels)"
-msgstr "クエリウィンドウの幅（ピクセルで指定）"
+msgstr "クエリウィンドウの幅 (ピクセル数)"
 
 #: libraries/config/messages.inc.php:349
 msgid "Query window width"
