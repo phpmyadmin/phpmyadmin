@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-05 16:37+0100\n"
-"PO-Revision-Date: 2012-01-07 11:22+0200\n"
+"PO-Revision-Date: 2012-01-07 11:23+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6735,7 +6735,7 @@ msgstr "生成環境"
 #: libraries/import.lib.php:157 libraries/rte/rte_routines.lib.php:1248
 #: sql.php:726 tbl_change.php:188 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "返り値が空でした(行数0)"
+msgstr "返り値が空でした (行数 0)"
 
 #: libraries/import.lib.php:1100
 msgid ""
