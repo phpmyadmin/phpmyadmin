@@ -224,7 +224,7 @@ $(document).ready(function() {
                      .html(data)
                      .trigger('makegrid');
                     $('#togglequerybox').show();
-                    if( $('#sqlqueryform input[name="retain_query_editor"]').is(':checked') != true ) {
+                    if( $('#sqlqueryform input[name="retain_query_box"]').is(':checked') != true ) {
                         if ($("#togglequerybox").siblings(":visible").length > 0) {
                             $("#togglequerybox").trigger('click');
                         }

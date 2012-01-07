@@ -643,7 +643,7 @@ $cfg['ShowSQL'] = true;
  *
  * @global boolean $cfg['RetainQueryEditor']
  */
-$cfg['RetainQueryEditor'] = false;
+$cfg['RetainQueryBox'] = false;
 
 /**
  * show a 'Drop database' link to normal users
