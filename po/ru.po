@@ -12819,13 +12819,13 @@ msgstr ""
 "используемые ими индексы."
 
 #: po/advisory_rules.php:168
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "max %% MyISAM key buffer ever used: %s, this value should be above 95%%"
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
 msgstr ""
-"Максимальный %% буфера ключей MyISAM, который был использован: %s, данное "
+"Максимальный %% буфера ключей MyISAM, который был использован: %s%%, данное "
 "значение должно быть выше 95%%"
 
 #: po/advisory_rules.php:170
