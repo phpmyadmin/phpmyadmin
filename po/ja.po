@@ -1615,7 +1615,7 @@ msgstr ""
 
 #: js/messages.php:199
 msgid "Sum of grouped rows:"
-msgstr "グループ後の件数："
+msgstr "グループ後の行数:"
 
 #: js/messages.php:200
 msgid "Total:"
