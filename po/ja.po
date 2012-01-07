@@ -6282,9 +6282,8 @@ msgid ""
 "table data. The default value is 32MB. This memory is used to cache changes "
 "to the handle data (.xtd) and row pointer (.xtr) files."
 msgstr ""
-"テーブルデータをキャッシュするのに使うレコードキャッシュに割り当てるメモリ"
-"量。デフォルト値は 32MB です。このメモリはハンドルデータファイル(.xtd)や列ポ"
-"インタファイル(.xtr)の変更をキャッシュするのに利用されます。"
+"テーブルデータをキャッシュするのに使うレコードキャッシュに割り当てるメモリ量。デフォルト値は 32MB です。このメモリはハンドルデータファイル "
+"(.xtd) や行ポインタファイル (.xtr) の変更をキャッシュするのに利用されます。"
 
 #: libraries/engines/pbxt.lib.php:32
 msgid "Log cache size"
