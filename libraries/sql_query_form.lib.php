@@ -347,7 +347,7 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
     if (! $is_querywindow) {
         echo '<input type="checkbox" name="retain_query_box" value="1" '
             . 'id="retain_query_box" tabindex="133" '
-            . (empty($cfg['RetainQueryBox']) ? '' : ' checked="checked"')
+            . ($GLOBALS['cfg']['RetainQueryBox'] === false ? '' : ' checked="checked"')
             . ' />'
             . '<label for="retain_query_box">' . __('Retain query box')
             . '</label>';

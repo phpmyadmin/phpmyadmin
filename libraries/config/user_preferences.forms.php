@@ -69,7 +69,8 @@ $forms['Sql_queries']['Sql_queries'] = array(
     'EditInWindow',
     //'QueryWindowWidth', // overridden in theme
     //'QueryWindowHeight',
-    'QueryWindowDefTab');
+    'QueryWindowDefTab',
+    'RetainQueryBox');
 $forms['Sql_queries']['Sql_box'] = array(
     'SQLQuery/Edit',
     'SQLQuery/Explain',
