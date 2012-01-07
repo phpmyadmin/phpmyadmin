@@ -6381,7 +6381,7 @@ msgstr "データファイルの増分"
 
 #: libraries/engines/pbxt.lib.php:68
 msgid "The grow size of the handle data (.xtd) files."
-msgstr "ハンドルデータファイル(.xtd)の増分。"
+msgstr "ハンドルデータファイル (.xtd) の増分。"
 
 #: libraries/engines/pbxt.lib.php:72
 msgid "Row file grow size"
