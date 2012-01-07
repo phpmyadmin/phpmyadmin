@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-05 16:37+0100\n"
-"PO-Revision-Date: 2012-01-07 11:15+0200\n"
+"PO-Revision-Date: 2012-01-07 11:16+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2333,9 +2333,7 @@ msgstr "アップロード中に予期しないエラーが発生しました。
 
 #: libraries/File.class.php:278
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr ""
-"アップロードしたファイルは php.ini に指定されている upload_max_filesize ディ"
-"レクティブの値を超えています。"
+msgstr "アップロードしたファイルは php.ini に指定されている設定項目 upload_max_filesize の値を超えています。"
 
 #: libraries/File.class.php:281
 msgid ""
