@@ -67,6 +67,7 @@ phpMyAdmin - ChangeLog
 - bug #3461750 [edit] Sort by key generates wrong sql with limit clause
 - bug #3340842 [structure] Error dropping index of non-existing column
 - bug #3093145 [display] Page through rows returned from a view
++ patch #3303195 [interface] Checkbox to have SQL input remain
 
 3.4.10.0 (not yet released)
 - bug #3460090 [interface] TextareaAutoSelect feature broken

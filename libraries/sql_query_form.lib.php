@@ -344,6 +344,13 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         .'<label for="checkbox_show_query">' . __('Show this query here again')
         .'</label>' . "\n";
 
+    echo '<input type="checkbox" name="retain_query_editor" value="1" '
+        . 'id="retain_query_editor" tabindex="133" '
+        . (empty( $cfg['RetainQueryEditor'] ) ? '' : ' checked="checked"')
+        . ' />'
+        . '<label for="retain_query_editor">' . __('Retain query editor')
+        . '</label>';
+
     echo '</div>' . "\n";
     echo '<input type="submit" id="button_submit_query" name="SQL" tabindex="200" value="' . __('Go') . '" />'
         ."\n";

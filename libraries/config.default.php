@@ -639,6 +639,13 @@ $cfg['SkipLockedTables'] = false;
 $cfg['ShowSQL'] = true;
 
 /**
+ * retain SQL input on Ajax execute
+ *
+ * @global boolean $cfg['RetainQueryEditor']
+ */
+$cfg['RetainQueryEditor'] = false;
+
+/**
  * show a 'Drop database' link to normal users
  *
  * @global boolean $cfg['AllowUserDropDatabase']

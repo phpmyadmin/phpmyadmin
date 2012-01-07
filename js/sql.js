@@ -224,8 +224,10 @@ $(document).ready(function() {
                      .html(data)
                      .trigger('makegrid');
                     $('#togglequerybox').show();
-                    if ($("#togglequerybox").siblings(":visible").length > 0) {
-                        $("#togglequerybox").trigger('click');
+                    if( $('#sqlqueryform input[name="retain_query_editor"]').is(':checked') != true ) {
+                        if ($("#togglequerybox").siblings(":visible").length > 0) {
+                            $("#togglequerybox").trigger('click');
+                        }
                     }
                     PMA_init_slider();
                 }
