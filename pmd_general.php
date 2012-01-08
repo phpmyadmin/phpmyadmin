@@ -104,7 +104,7 @@ echo $script_tabs . $script_contr . $script_display_field;
                 title="<?php echo __('Import/Export coordinates for PDF schema'); ?>" /></a
          >
         <?php if (isset($_REQUEST['query'])) {
-            echo '<a href="#" onClick="build_query(\'SQL Query on Database\', 0)" onmousedown="return false;"
+            echo '<a href="#" onclick="build_query(\'SQL Query on Database\', 0)" onmousedown="return false;"
             class="M_butt" target="_self">';
             echo '<img src="'. $GLOBALS['pmaThemeImage'] . 'pmd/query_builder.png" alt="key" width="20" height="20" title="';
             echo __('Build Query');
@@ -808,7 +808,7 @@ if (! empty($_REQUEST['query'])) {
     echo '<form method="post" action="db_qbe.php" >';
     echo '<textarea cols="80" name="sql_query" id="textSqlquery" rows="15"></textarea><div id="tblfooter">';
     echo '  <input type="submit" name="submit_sql" class="btn">';
-    echo '  <input type="button" name="cancel" value="Cancel" onClick="closebox()" class="btn">';
+    echo '  <input type="button" name="cancel" value="Cancel" onclick="closebox()" class="btn">';
     echo PMA_generate_common_hidden_inputs($GLOBALS['db']);
     echo '</div></p>';
     echo '</form></div>';

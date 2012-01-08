@@ -414,7 +414,7 @@ if (isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null' 
     if (isset($zoom_submit) && ! empty($data)) {
         ?>
         <div id='resizer' style="width:600px;height:400px">
-          <center><a href="#" onClick="displayHelp();"><?php echo __('How to use'); ?></a></center>
+          <center><a href="#" onclick="displayHelp();"><?php echo __('How to use'); ?></a></center>
           <div id="querydata" style="display:none">
         <?php
         echo json_encode($data);

@@ -231,7 +231,7 @@ function Swekey_login($input_name, $input_go)
             var input_username = document.getElementById("<?php echo $input_name; ?>");
             var input_go = document.getElementById("<?php echo $input_go; ?>");
             var swekey_status = document.createElement('img');
-            swekey_status.setAttribute('onClick', 'open_swekey_site()');
+            swekey_status.setAttribute('onclick', 'open_swekey_site()');
             swekey_status.setAttribute('style', 'width:8px; height:16px; border:0px; vspace:0px; hspace:0px; frameborder:no');
             if (user == null)
             {
