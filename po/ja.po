@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-05 16:37+0100\n"
-"PO-Revision-Date: 2012-01-08 03:38+0200\n"
+"PO-Revision-Date: 2012-01-08 03:56+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -275,7 +275,7 @@ msgstr "データベース %s を %s にコピーしました"
 
 #: db_operations.php:412
 msgid "Rename database to"
-msgstr "新しいデータベース名"
+msgstr "データベース名の変更"
 
 #: db_operations.php:438
 msgid "Remove database"
