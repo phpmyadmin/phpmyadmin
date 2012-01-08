@@ -152,27 +152,18 @@ function PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fie
 
     } elseif ($foreignData['foreign_link'] == true) {
         if (isset($fields[$i]) && is_string($fields[$i])) {
-         $str .= '<input type="text" id="fieldID_' . $i .'"name="fields[' . $i . ']" value="' . $fields[$i] . '"';
-             'id="field_' . md5($field) . '[' . $i .']"
-             class="textfield"/>' ;
+            $str .= '<input type="text" id="fieldID_' . $i . '" name="fields[' . $i . ']" value="' . $fields[$i] . '" id="field_' . md5($field) . '[' . $i .']" class="textfield" />' ;
         } else {
-         $str .= '<input type="text" id="fieldID_' . $i .'"name="fields[' . $i . ']"';
-             'id="field_' . md5($field) . '[' . $i .']"
-             class="textfield" />' ;
+            $str .= '<input type="text" id="fieldID_' . $i . '" name="fields[' . $i . ']" id="field_' . md5($field) . '[' . $i .']" class="textfield" />' ;
         }
- ?>
-    <?php $str .= '<script type="text/javascript">';
-        // <![CDATA[
-    $str .=  <<<EOT
+        $str .=  <<<EOT
 <a target="_blank" onclick="window.open(this.href, 'foreigners', 'width=640,height=240,scrollbars=yes'); return false" href="browse_foreigners.php?
 EOT;
-    $str .= '' . PMA_generate_common_url($db, $table) .  '&amp;field=' . urlencode($field) . '&amp;fieldkey=' . $i . '"';
-    if ($in_zoom_search_edit) {
-        $str .= ' class="browse_foreign"';
-    }
-    $str .= '>' . str_replace("'", "\'", $titles['Browse']) . '</a>';
-        // ]]
-        $str .= '</script>';
+        $str .= '' . PMA_generate_common_url($db, $table) .  '&amp;field=' . urlencode($field) . '&amp;fieldkey=' . $i . '"';
+        if ($in_zoom_search_edit) {
+            $str .= ' class="browse_foreign"';
+        }
+        $str .= '>' . str_replace("'", "\'", $titles['Browse']) . '</a>';
 
     } elseif (in_array($tbl_fields_type[$i], PMA_getGISDatatypes())) {
         // g e o m e t r y
