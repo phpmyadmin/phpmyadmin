@@ -6517,7 +6517,7 @@ msgstr "ホスト"
 #: libraries/export/latex.php:137 libraries/export/sql.php:487
 #: libraries/export/xml.php:136 libraries/header_printview.inc.php:61
 msgid "Generation Time"
-msgstr "生成時間"
+msgstr "生成日時"
 
 #: libraries/export/latex.php:138 libraries/export/sql.php:489
 #: libraries/export/xml.php:137
