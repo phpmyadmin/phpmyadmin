@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-05 16:37+0100\n"
-"PO-Revision-Date: 2012-01-07 11:26+0200\n"
+"PO-Revision-Date: 2012-01-08 03:30+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6461,7 +6461,7 @@ msgstr "データのダンプオプション"
 #: libraries/export/htmlword.php:121 libraries/export/odt.php:173
 #: libraries/export/sql.php:1188 libraries/export/texytext.php:109
 msgid "Dumping data for table"
-msgstr "テーブルのデータをダンプしています"
+msgstr "テーブルのデータのダンプ"
 
 #: libraries/export/htmlword.php:195 libraries/export/odt.php:249
 #: libraries/export/sql.php:1021 libraries/export/texytext.php:177
