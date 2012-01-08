@@ -167,7 +167,11 @@ function PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fie
     $str .=  <<<EOT
 <a target="_blank" onclick="window.open(this.href, 'foreigners', 'width=640,height=240,scrollbars=yes'); return false" href="browse_foreigners.php?
 EOT;
-        $str .= '' . PMA_generate_common_url($db, $table) .  '&amp;field=' . urlencode($field) . '&amp;fieldkey=' . $i . '">' . str_replace("'", "\'", $titles['Browse']) . '</a>';
+    $str .= '' . PMA_generate_common_url($db, $table) .  '&amp;field=' . urlencode($field) . '&amp;fieldkey=' . $i . '"';
+    if ($in_edit) {
+        $str .= ' class="browse_foreign"';
+    }
+    $str .= '>' . str_replace("'", "\'", $titles['Browse']) . '</a>';
         // ]]
         $str .= '</script>';
 

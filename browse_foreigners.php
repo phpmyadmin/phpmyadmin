@@ -95,9 +95,13 @@ require_once './libraries/header_scripts.inc.php';
         var $inline = window.opener.jQuery('.browse_foreign_clicked');
         if ($inline.length != 0) {
             $inline.removeClass('browse_foreign_clicked')
+                // for grid editing,
                 // puts new value in the previous element which is
                 // a span with class curr_value
-                .prev().text(key);
+                .prev('.curr_value').text(key);
+            // for zoom-search editing, puts new value in the previous
+            // element which is an input field
+            $inline.prev('input[type=text]').val(key);
             self.close();
             return false;
         }
