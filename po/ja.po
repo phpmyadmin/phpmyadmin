@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-05 16:37+0100\n"
-"PO-Revision-Date: 2012-01-08 03:56+0200\n"
+"PO-Revision-Date: 2012-01-08 04:00+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1741,7 +1741,7 @@ msgstr "クリックすると、この通知を破棄します"
 
 #: js/messages.php:241
 msgid "Renaming Databases"
-msgstr "データベースのリネーム中"
+msgstr "データベースの名称を変更しています"
 
 #: js/messages.php:242
 msgid "Reload Database"
