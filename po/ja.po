@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-05 16:37+0100\n"
-"PO-Revision-Date: 2012-01-08 04:00+0200\n"
+"PO-Revision-Date: 2012-01-08 04:29+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -8972,7 +8972,7 @@ msgstr "一時テーブルの作成を許可する"
 #: server_privileges.php:41 server_privileges.php:307
 #: server_privileges.php:669
 msgid "Allows creating, dropping and renaming user accounts."
-msgstr "ユーザアカウントの作成・削除・リネームを許可する"
+msgstr "ユーザアカウントの作成・削除・名前の変更を許可する"
 
 #: server_privileges.php:42 server_privileges.php:273
 #: server_privileges.php:286 server_privileges.php:641
