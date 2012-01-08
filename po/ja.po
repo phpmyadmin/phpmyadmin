@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-05 16:37+0100\n"
-"PO-Revision-Date: 2012-01-08 04:30+0200\n"
+"PO-Revision-Date: 2012-01-08 04:33+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -4540,7 +4540,7 @@ msgstr "ホスト認証のルール"
 
 #: libraries/config/messages.inc.php:366
 msgid "Allow logins without a password"
-msgstr "パスワードなしログインの許可"
+msgstr "パスワード無しログインの許可"
 
 #: libraries/config/messages.inc.php:367
 msgid "Allow root login"
