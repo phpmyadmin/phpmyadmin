@@ -601,6 +601,7 @@ function PMA_displayTableList($tables, $visible = false,
             } else {
                 echo PMA_getImage('b_browse.png', htmlspecialchars($link_title), $attr);
             }
+            echo '</a>';
 
             // link for the table name itself
             $href = $GLOBALS['cfg']['DefaultTabTable'] . '?'
