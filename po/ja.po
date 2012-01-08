@@ -5527,7 +5527,7 @@ msgstr "パスワードを変更する"
 #: libraries/display_change_password.lib.php:34
 #: libraries/replication_gui.lib.php:351 server_privileges.php:890
 msgid "No Password"
-msgstr "パスワードなし"
+msgstr "パスワード無し"
 
 #: libraries/display_change_password.lib.php:45
 #: libraries/replication_gui.lib.php:359 libraries/replication_gui.lib.php:362
