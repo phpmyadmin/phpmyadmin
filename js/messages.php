@@ -168,7 +168,8 @@ $js_messages['strCurrentSettings'] = __('Current settings');
 $js_messages['strChartTitle'] = __('Chart Title');
 /* l10n: As in differential values */
 $js_messages['strDifferential'] = __('Differential');
-$js_messages['strDividedBy'] = __('Divided by %s:');
+$js_messages['strDividedBy'] = __('Divided by %s');
+$js_messages['strUnit'] = __('Unit');
 
 $js_messages['strFromSlowLog'] = __('From slow log');
 $js_messages['strFromGeneralLog'] = __('From general log');

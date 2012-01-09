@@ -809,6 +809,7 @@ $(function() {
 
         var str = serie.display == 'differential' ? ', ' + PMA_messages['strDifferential'] : '';
         str += serie.valueDivisor ? (', ' + $.sprintf(PMA_messages['strDividedBy'], serie.valueDivisor)) : '';
+        str += serie.unit ? (', ' + PMA_messages['strUnit'] + ': ' + serie.unit) : '';
 
         $('#seriesPreview').append('- ' + serie.name + str + '<br>');
 
