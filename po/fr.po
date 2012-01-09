@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-07 07:40-0500\n"
-"PO-Revision-Date: 2012-01-02 18:29+0200\n"
+"PO-Revision-Date: 2012-01-07 15:54+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -12442,7 +12442,7 @@ msgstr ""
 "cette augmentation petit à petit et surveillez les résultats."
 
 #: po/advisory_rules.php:98
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The ratio of removed queries to inserted queries is %s%%. The lower this "
 #| "value is, the better (This rules firing limit: 0.1%)"
@@ -12450,8 +12450,9 @@ msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
-"Le ratio des requêtes enlevées par rapport aux requêtes ajoutées est de %s%"
-"%. Plus faible est cette valeur, mieux c'est."
+"Le ratio des requêtes enlevées par rapport aux requêtes ajoutées est de %s%%"
+". Il est souhaitable que cette valeur soit faible (Limite pour cette règle: "
+"0.1%%)"
 
 #: po/advisory_rules.php:100
 msgid "Query cache max size"
@@ -12817,13 +12818,13 @@ msgstr ""
 "sont utilisés."
 
 #: po/advisory_rules.php:168
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "max %% MyISAM key buffer ever used: %s, this value should be above 95%%"
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
 msgstr ""
-"Le %% maximum de mémoire tampon pour les clés MyISAM utilisé est de %s, "
+"Le %% maximum de mémoire tampon pour les clés MyISAM utilisé est de %s%%, "
 "cette valeur devrait dépasser 95%%."
 
 #: po/advisory_rules.php:170
@@ -12831,11 +12832,11 @@ msgid "Percentage of MyISAM key buffer used"
 msgstr "Pourcentage de la mémoire tampon des clés MyISAM utilisée"
 
 #: po/advisory_rules.php:173
-#, fuzzy, php-format
+#, php-format
 #| msgid "%% MyISAM key buffer used: %s, this value should be above 95%%"
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
-"%% de mémoire tampon pour les clés MyISAM utilisée : %s, cette valeur "
+"%% de mémoire tampon pour les clés MyISAM utilisée : %s%%, cette valeur "
 "devrait être au-dessus de 95%%"
 
 #: po/advisory_rules.php:175

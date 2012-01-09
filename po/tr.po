@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-07 07:40-0500\n"
-"PO-Revision-Date: 2012-01-03 17:09+0200\n"
+"PO-Revision-Date: 2012-01-06 12:43+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -4423,7 +4423,7 @@ msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
-"[kbd]SMART[/kbd] - örn. TIME, DATE, DATETIME ve TIMESTAMP türü sütunları "
+"[kbd]SMART[/kbd] - yani TIME, DATE, DATETIME ve TIMESTAMP türü sütunları "
 "için büyükten küçüğe sıralama, aksi halde küçükten büyüğe sıralama"
 
 #: libraries/config/messages.inc.php:330
@@ -4784,8 +4784,8 @@ msgid ""
 "alphabetical order."
 msgstr ""
 "MySQL joker karakterleri (% ve _) kullanabilirsiniz, eğer bunların aslına "
-"uygun örneklerini kullanmak istiyorsanız bundan kaçının, örn. [kbd]'my"
-"\\_db'[/kbd] kullanın ve [kbd]'my_db'[/kbd] kullanmayın. Bu seçeneği "
+"uygun örneklerini kullanmak istiyorsanız bundan kaçının, yani "
+"[kbd]'my\\_db'[/kbd] kullanın ve [kbd]'my_db'[/kbd] kullanmayın. Bu seçeneği "
 "kullanarak veritabanı listesini sıralayabilirsiniz, sadece adlarını sıralı "
 "girin ve geri kalanını alfabetik sırada göstermek için sonunda [kbd]*[/kbd] "
 "kullanın."
@@ -6813,7 +6813,7 @@ msgstr "Üreten:"
 #: libraries/import.lib.php:157 libraries/rte/rte_routines.lib.php:1248
 #: sql.php:726 tbl_change.php:188 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL boş bir sonuç kümesi döndürdü (örn. sıfır satır)."
+msgstr "MySQL boş bir sonuç kümesi döndürdü (yani sıfır satır)."
 
 #: libraries/import.lib.php:1100
 msgid ""
@@ -12718,25 +12718,25 @@ msgstr ""
 "kullanılan indekslerle ilgili beklentileri ve sorguları gözden geçirin."
 
 #: po/advisory_rules.php:168
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "max %% MyISAM key buffer ever used: %s, this value should be above 95%%"
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
 msgstr ""
-"Şimdiye kadar kullanılan en fazla %% MyISAM anahtar arabelleği: %s, bu değer "
-"%%95'in üzerinde olmalıdır"
+"şimdiye kadar kullanılan en fazla %% MyISAM anahtar arabelleği: %%%s, bu "
+"değer %%95'in üzerinde olmalıdır"
 
 #: po/advisory_rules.php:170
 msgid "Percentage of MyISAM key buffer used"
 msgstr "Kullanılan MyISAM anahtar arabellek yüzdesi"
 
 #: po/advisory_rules.php:173
-#, fuzzy, php-format
+#, php-format
 #| msgid "%% MyISAM key buffer used: %s, this value should be above 95%%"
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
-"Kullanılan %% MyISAM anahtar arabelleği: %s, bu değer %%95'in üzerinde "
+"kullanılan %% MyISAM anahtar arabelleği: %%%s, bu değer %%95'in üzerinde "
 "olmalıdır"
 
 #: po/advisory_rules.php:175

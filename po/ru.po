@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-07 07:40-0500\n"
-"PO-Revision-Date: 2011-12-20 21:09+0200\n"
+"PO-Revision-Date: 2012-01-07 18:09+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -2272,15 +2272,14 @@ msgstr "Нед."
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: js/messages.php:483
 msgid "calendar-month-year"
-msgstr ""
+msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:485
-#, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
-msgstr "Нет"
+msgstr "none"
 
 #: js/messages.php:494
 msgid "Hour"
@@ -12831,13 +12830,13 @@ msgstr ""
 "используемые ими индексы."
 
 #: po/advisory_rules.php:168
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "max %% MyISAM key buffer ever used: %s, this value should be above 95%%"
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
 msgstr ""
-"Максимальный %% буфера ключей MyISAM, который был использован: %s, данное "
+"Максимальный %% буфера ключей MyISAM, который был использован: %s%%, данное "
 "значение должно быть выше 95%%"
 
 #: po/advisory_rules.php:170
@@ -12845,11 +12844,11 @@ msgid "Percentage of MyISAM key buffer used"
 msgstr "Процент использованного буфера ключей MyISAM"
 
 #: po/advisory_rules.php:173
-#, fuzzy, php-format
+#, php-format
 #| msgid "%% MyISAM key buffer used: %s, this value should be above 95%%"
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
-"%% использованного буфера ключей MyISAM: %s, данное значение должно быть "
+"%% использованного буфера ключей MyISAM: %s%%, данное значение должно быть "
 "выше 95%%"
 
 #: po/advisory_rules.php:175

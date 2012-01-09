@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-07 07:40-0500\n"
-"PO-Revision-Date: 2012-01-03 04:24+0200\n"
+"PO-Revision-Date: 2012-01-08 04:38+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -266,7 +266,7 @@ msgstr "データベース名が空です!"
 #: db_operations.php:280
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr "データベース %s を %s にリネームしました"
+msgstr "データベース %s の名称を %s に変更しました"
 
 #: db_operations.php:284
 #, php-format
@@ -275,7 +275,7 @@ msgstr "データベース %s を %s にコピーしました"
 
 #: db_operations.php:412
 msgid "Rename database to"
-msgstr "新しいデータベース名"
+msgstr "データベース名の変更"
 
 #: db_operations.php:438
 msgid "Remove database"
@@ -1615,7 +1615,7 @@ msgstr ""
 
 #: js/messages.php:199
 msgid "Sum of grouped rows:"
-msgstr "グループ後の件数："
+msgstr "グループ後の行数:"
 
 #: js/messages.php:200
 msgid "Total:"
@@ -1741,7 +1741,7 @@ msgstr "クリックすると、この通知を破棄します"
 
 #: js/messages.php:241
 msgid "Renaming Databases"
-msgstr "データベースのリネーム中"
+msgstr "データベースの名称を変更しています"
 
 #: js/messages.php:242
 msgid "Reload Database"
@@ -2321,7 +2321,7 @@ msgstr "フォントサイズ"
 
 #: libraries/Error_Handler.class.php:62
 msgid "Too many error messages, some are not displayed."
-msgstr ""
+msgstr "エラーメッセージが多すぎます。いくつかは表示されません。"
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."
@@ -2333,17 +2333,13 @@ msgstr "アップロード中に予期しないエラーが発生しました。
 
 #: libraries/File.class.php:278
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr ""
-"アップロードしたファイルは php.ini に指定されている upload_max_filesize ディ"
-"レクティブの値を超えています。"
+msgstr "アップロードしたファイルは php.ini に指定されている設定項目 upload_max_filesize の値を超えています。"
 
 #: libraries/File.class.php:281
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
-msgstr ""
-"アップロードしたファイルは HTML フォームに指定されている MAX_FILE_SIZE ディレ"
-"クティブの値を超えています。"
+msgstr "アップロードしたファイルは HTML フォームに指定されている設定項目 MAX_FILE_SIZE の値を超えています。"
 
 #: libraries/File.class.php:284
 msgid "The uploaded file was only partially uploaded."
@@ -2515,7 +2511,7 @@ msgstr "テーブル名を %1$s から %2$s に変更するときにエラーが
 #: libraries/Table.class.php:1252
 #, php-format
 msgid "Table %s has been renamed to %s"
-msgstr "テーブル名 %s を %s に変更しました"
+msgstr "テーブル %s の名称を %s に変更しました"
 
 #: libraries/Table.class.php:1384
 msgid "Could not save table UI preferences"
@@ -2648,8 +2644,7 @@ msgstr "クッキーを有効にしてください"
 #: libraries/auth/signon.auth.lib.php:235
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
-msgstr ""
-"パスワードなしログインは設定 (AllowNoPassword) によって禁止されています。"
+msgstr "パスワード無しログインは設定 (AllowNoPassword 参照) によって禁止されています。"
 
 #: libraries/auth/cookie.auth.lib.php:572
 #: libraries/auth/signon.auth.lib.php:239
@@ -4274,7 +4269,7 @@ msgstr "ログインクッキーの保存期間"
 
 #: libraries/config/messages.inc.php:302
 msgid "Define how long (in seconds) a login cookie is valid"
-msgstr "ログインクッキーの有効期間（秒）を定義します。"
+msgstr "ログインクッキーの有効期間 (秒数) を定義します。"
 
 #: libraries/config/messages.inc.php:303
 msgid "Login cookie validity"
@@ -4467,7 +4462,7 @@ msgstr "クエリウィンドウのデフォルトタブ"
 
 #: libraries/config/messages.inc.php:346
 msgid "Query window height (in pixels)"
-msgstr "クエリウィンドウの高さ（ピクセルで指定）"
+msgstr "クエリウィンドウの高さ (ピクセル数)"
 
 #: libraries/config/messages.inc.php:347
 msgid "Query window height"
@@ -4475,7 +4470,7 @@ msgstr "クエリウィンドウの高さ"
 
 #: libraries/config/messages.inc.php:348
 msgid "Query window width (in pixels)"
-msgstr "クエリウィンドウの幅（ピクセルで指定）"
+msgstr "クエリウィンドウの幅 (ピクセル数)"
 
 #: libraries/config/messages.inc.php:349
 msgid "Query window width"
@@ -4545,7 +4540,7 @@ msgstr "ホスト認証のルール"
 
 #: libraries/config/messages.inc.php:366
 msgid "Allow logins without a password"
-msgstr "パスワードなしログインの許可"
+msgstr "パスワード無しログインの許可"
 
 #: libraries/config/messages.inc.php:367
 msgid "Allow root login"
@@ -4748,13 +4743,11 @@ msgid ""
 "their names in order and use [kbd]*[/kbd] at the end to show the rest in "
 "alphabetical order."
 msgstr ""
-"MySQL のワイルドカード文字（% および _）を使用することができますが、それらを"
-"リテラルインスタンス（実際の文字）として使いたい場合は、それらをエスケープし"
-"ます。すなわち、[kbd]'my_db'[/kbd] ではなく [kbd]'my\\_db'[/kbd] と記述しま"
-"す。また、このオプションを使うことでデータベースの表示順を望むようにソートす"
-"ることができます。望む順番に名前を入力していき、最後に [kbd]'*'[/kbd] とだけ"
-"入力しておきます。[kbd]'*'[/kbd] は残ったものをアルファベット順に並べて表示す"
-"る働きをします。"
+"MySQL のワイルドカード文字 (% および _) "
+"を使用することができますが、それらを実際の文字として使いたい場合はエスケープします。すなわち、[kbd]'my_db'[/kbd] ではなく "
+"[kbd]'my\\_db'[/kbd] "
+"と記述します。また、このオプションを使うことでデータベースの表示順を望むようにソートすることができます。望む順番に名前を入力していき、最後に "
+"[kbd]'*'[/kbd] とだけ入力しておきます。[kbd]'*'[/kbd] は残ったものをアルファベット順に並べて表示する働きをします。"
 
 #: libraries/config/messages.inc.php:407
 msgid "Show only listed databases"
@@ -5545,7 +5538,7 @@ msgstr "パスワードを変更する"
 #: libraries/display_change_password.lib.php:34
 #: libraries/replication_gui.lib.php:351 server_privileges.php:890
 msgid "No Password"
-msgstr "パスワードなし"
+msgstr "パスワード無し"
 
 #: libraries/display_change_password.lib.php:45
 #: libraries/replication_gui.lib.php:359 libraries/replication_gui.lib.php:362
@@ -6215,9 +6208,8 @@ msgid ""
 "The timeout, in seconds, for temporary BLOBs. Uploaded BLOB data is removed "
 "after this time, unless they are referenced by a record in the database."
 msgstr ""
-"一時的な BLOB の有効期間（秒）。アップロードされた BLOB データはこの時間を経"
-"過した後に削除されますが、データベース内のレコードで参照されている場合はこの"
-"限りではありません。"
+"一時的な BLOB の有効期間 (秒数)。アップロードされた BLOB "
+"データはこの時間を経過した後に削除されますが、データベース内のレコードで参照されている場合はこの限りではありません。"
 
 #: libraries/engines/pbms.lib.php:50
 msgid "Temp Log Threshold"
@@ -6300,9 +6292,8 @@ msgid ""
 "table data. The default value is 32MB. This memory is used to cache changes "
 "to the handle data (.xtd) and row pointer (.xtr) files."
 msgstr ""
-"テーブルデータをキャッシュするのに使うレコードキャッシュに割り当てるメモリ"
-"量。デフォルト値は 32MB です。このメモリはハンドルデータファイル(.xtd)や列ポ"
-"インタファイル(.xtr)の変更をキャッシュするのに利用されます。"
+"テーブルデータをキャッシュするのに使うレコードキャッシュに割り当てるメモリ量。デフォルト値は 32MB です。このメモリはハンドルデータファイル "
+"(.xtd) や行ポインタファイル (.xtr) の変更をキャッシュするのに利用されます。"
 
 #: libraries/engines/pbxt.lib.php:32
 msgid "Log cache size"
@@ -6400,15 +6391,15 @@ msgstr "データファイルの増分"
 
 #: libraries/engines/pbxt.lib.php:68
 msgid "The grow size of the handle data (.xtd) files."
-msgstr "ハンドルデータファイル(.xtd)の増分。"
+msgstr "ハンドルデータファイル (.xtd) の増分。"
 
 #: libraries/engines/pbxt.lib.php:72
 msgid "Row file grow size"
-msgstr "列ファイルの増分"
+msgstr "行ファイルの増分"
 
 #: libraries/engines/pbxt.lib.php:73
 msgid "The grow size of the row pointer (.xtr) files."
-msgstr "列ポインタファイル(.xtr)の増分。"
+msgstr "行ポインタファイル (.xtr) の増分。"
 
 #: libraries/engines/pbxt.lib.php:77
 msgid "Log file count"
@@ -6421,9 +6412,8 @@ msgid ""
 "will be deleted, otherwise they are renamed and given the next highest "
 "number."
 msgstr ""
-"システムが保存するトランザクションログファイル (pbxt/system/xlog*.xt) の数。"
-"ログの数がそれ以上になると古いログが削除されるか、リネームされて最大値の1つ前"
-"の番号がつけられます。"
+"システムが保存するトランザクションログファイル (pbxt/system/xlog*.xt) "
+"の数。ログの数がそれ以上になると古いログが削除されます。それができない場合は、ログファイル名の変更が行われ、最大番号の 1 つ次の番号が付けられます。"
 
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
@@ -6481,7 +6471,7 @@ msgstr "データのダンプオプション"
 #: libraries/export/htmlword.php:121 libraries/export/odt.php:173
 #: libraries/export/sql.php:1188 libraries/export/texytext.php:109
 msgid "Dumping data for table"
-msgstr "テーブルのデータをダンプしています"
+msgstr "テーブルのデータのダンプ"
 
 #: libraries/export/htmlword.php:195 libraries/export/odt.php:249
 #: libraries/export/sql.php:1021 libraries/export/texytext.php:177
@@ -6537,7 +6527,7 @@ msgstr "ホスト"
 #: libraries/export/latex.php:137 libraries/export/sql.php:487
 #: libraries/export/xml.php:136 libraries/header_printview.inc.php:61
 msgid "Generation Time"
-msgstr "生成時間"
+msgstr "生成日時"
 
 #: libraries/export/latex.php:138 libraries/export/sql.php:489
 #: libraries/export/xml.php:137
@@ -6696,11 +6686,11 @@ msgstr "テーブルの制約"
 
 #: libraries/export/sql.php:963
 msgid "MIME TYPES FOR TABLE"
-msgstr "MIME TYPES FOR TABLE"
+msgstr "テーブルに含まれている MIME タイプ"
 
 #: libraries/export/sql.php:975
 msgid "RELATIONS FOR TABLE"
-msgstr "RELATIONS FOR TABLE"
+msgstr "テーブルのリレーション"
 
 #: libraries/export/sql.php:1044
 msgid "Structure for view"
@@ -6754,7 +6744,7 @@ msgstr "生成環境"
 #: libraries/import.lib.php:157 libraries/rte/rte_routines.lib.php:1248
 #: sql.php:726 tbl_change.php:188 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "返り値が空でした(行数0)"
+msgstr "返り値が空でした (行数 0)"
 
 #: libraries/import.lib.php:1100
 msgid ""
@@ -8263,13 +8253,11 @@ msgid ""
 "documentation for PHP's strftime() function and for \"utc\" it is done using "
 "gmdate() function."
 msgstr ""
-"TIME、TIMESTAMP、DATETIME、あるいはUnixタイムスタンプの値が入っているフィール"
-"ドを書式にあわせて表示します。1 つ目のオプションはタイムスタンプに加算する時"
-"差です(デフォルト: 0)。2 つ目のオプションには日時の書式文字列を指定します。3 "
-"つ目のオプションはローカルの日時とみなすか UTC とみなすかです (\"local\"ない"
-"し\"utc\"という文字列を指定してください)。この値によって日時の表記が変わりま"
-"す。\"local\" の場合は PHP の strftime() 関数の説明をご覧ください。\"utc\" の"
-"場合は gmdate() を利用します"
+"TIME、TIMESTAMP、DATETIME、あるいは Unix タイムスタンプの値が入っている項目を書式に合わせて表示します。1 "
+"つ目のオプションはタイムスタンプに加算する時差です (デフォルト: 0)。2 つ目のオプションには日時の書式文字列を指定します。3 "
+"つ目のオプションはローカルの日時とみなすか UTC (協定世界時) とみなすかです (\"local\" ないし \"utc\" "
+"という文字列を指定してください)。この値によって日時の表記が変わります。\"local\" の場合は PHP の strftime() "
+"関数の説明をご覧ください。\"utc\" の場合は gmdate() を利用します。"
 
 #: libraries/transformations/text_plain__external.inc.php:10
 msgid ""
@@ -8467,10 +8455,8 @@ msgid ""
 "running with this default, is open to intrusion, and you really should fix "
 "this security hole by setting a password for user 'root'."
 msgstr ""
-"お使いの設定ファイルに MySQL のデフォルト特権アカウントに相当する設定 (root "
-"ユーザでパスワードなし) が含まれています。お使いの MySQL サーバはこのデフォル"
-"ト設定で動作しているため不正アクセス可能な状態になっています。このセキュリ"
-"ティホールはかならず閉ざしてください"
+"お使いの設定ファイルに MySQL のデフォルト特権アカウントに相当する設定 (root ユーザでパスワード無し) が含まれています。お使いの "
+"MySQL サーバはこのデフォルト設定で動作しているため不正アクセス可能な状態になっています。このセキュリティホールは必ず閉ざしてください。"
 
 #: main.php:277
 msgid ""
@@ -8672,7 +8658,7 @@ msgstr "サブクエリ"
 
 #: pmd_general.php:474 pmd_general.php:570
 msgid "Rename to"
-msgstr "リネーム後の名前"
+msgstr "変更後の名称"
 
 #: pmd_general.php:476 pmd_general.php:575
 msgid "New name"
@@ -8994,7 +8980,7 @@ msgstr "一時テーブルの作成を許可する"
 #: server_privileges.php:41 server_privileges.php:307
 #: server_privileges.php:669
 msgid "Allows creating, dropping and renaming user accounts."
-msgstr "ユーザアカウントの作成・削除・リネームを許可する"
+msgstr "ユーザアカウントの作成・削除・名前の変更を許可する"
 
 #: server_privileges.php:42 server_privileges.php:273
 #: server_privileges.php:286 server_privileges.php:641
@@ -11093,7 +11079,7 @@ msgstr "パフォーマンス上の理由から mysqli の使用する必要が�
 
 #: setup/lib/index.lib.php:367
 msgid "You allow for connecting to the server without a password."
-msgstr "パスワードなしでサーバへの接続が許されています。"
+msgstr "パスワード無しでサーバへの接続が許されています。"
 
 #: setup/lib/index.lib.php:389
 msgid "Key is too short, it should have at least 8 characters."
@@ -11398,7 +11384,7 @@ msgstr "テーブルオプション"
 
 #: tbl_operations.php:359
 msgid "Rename table to"
-msgstr "リネーム後のテーブル名"
+msgstr "変更後のテーブル名称"
 
 #: tbl_operations.php:535
 msgid "Copy table to (database<b>.</b>table):"
@@ -11855,7 +11841,7 @@ msgstr "ビューの名前"
 
 #: view_operations.php:91
 msgid "Rename view to"
-msgstr "リネーム後のビューの名前"
+msgstr "変更後のビュー名称"
 
 #: po/advisory_rules.php:5
 msgid "Uptime below one day"
@@ -12627,7 +12613,7 @@ msgstr "key_buffer_size は 0 です。"
 #: po/advisory_rules.php:165
 #, php-format
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "常用される MyISAM キーバッファの最大比率"
+msgstr "使われていた MyISAM キーバッファの最大比率"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, php-format
@@ -12645,26 +12631,22 @@ msgstr ""
 "インデックスの使用が想定されるものがないか確認してみてください。"
 
 #: po/advisory_rules.php:168
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "max %% MyISAM key buffer ever used: %s, this value should be above 95%%"
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
-msgstr ""
-"常用される MyISAM キーバッファの最大比率: %s。この値は、95%% 以上がいいと言わ"
-"れています。"
+msgstr "使われていた MyISAM キーバッファの最大比率: %s%%。この値は、95%% 以上がいいと言われています。"
 
 #: po/advisory_rules.php:170
 msgid "Percentage of MyISAM key buffer used"
 msgstr "MyISAM キーバッファの使用比率"
 
 #: po/advisory_rules.php:173
-#, fuzzy, php-format
+#, php-format
 #| msgid "%% MyISAM key buffer used: %s, this value should be above 95%%"
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
-msgstr ""
-"MyISAM キーバッファの使用比率: %s。この値は、95%% 以上がいいと言われていま"
-"す。"
+msgstr "MyISAM キーバッファの使用比率: %s%%。この値は、95%% 以上がいいと言われています。"
 
 #: po/advisory_rules.php:175
 msgid "Percentage of index reads from memory"
