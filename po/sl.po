@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-07 07:40-0500\n"
-"PO-Revision-Date: 2012-01-09 17:18+0200\n"
+"PO-Revision-Date: 2012-01-09 17:21+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -12727,11 +12727,11 @@ msgid "Percentage of MyISAM key buffer used"
 msgstr "Odstotek uporabljenega medpomnilnika ključev MyISAM"
 
 #: po/advisory_rules.php:173
-#, fuzzy, php-format
+#, php-format
 #| msgid "%% MyISAM key buffer used: %s, this value should be above 95%%"
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
-"%% uporabljenega medpomnilnika ključev MyISAM: %s; ta vrednost bi morala "
+"%% uporabljenega medpomnilnika ključev MyISAM: %s %%; ta vrednost bi morala "
 "biti nad 95 %%"
 
 #: po/advisory_rules.php:175
