@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-07 07:40-0500\n"
-"PO-Revision-Date: 2012-01-08 04:38+0200\n"
+"PO-Revision-Date: 2012-01-10 12:18+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -5097,7 +5097,7 @@ msgstr "SQL クエリの表示"
 #: libraries/config/messages.inc.php:473
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
-msgstr ""
+msgstr "送信後もクエリボックスを画面上に残しておくかどうかを定義します。"
 
 #: libraries/config/messages.inc.php:474 libraries/sql_query_form.lib.php:352
 #| msgid "Hide query box"
