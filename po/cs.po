@@ -12219,12 +12219,13 @@ msgid "Query cache low memory prunes"
 msgstr ""
 
 #: po/advisory_rules.php:96
-#, fuzzy
 #| msgid "The amount of free memory for query cache."
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
-msgstr "Velikost volné paměti ve vyrovnávací paměti dotazů."
+msgstr ""
+"Dotazy jsou odstraňovány z vyrovnávací paměti dotazů kvůli její malé "
+"velikosti."
 
 #: po/advisory_rules.php:97
 msgid ""
