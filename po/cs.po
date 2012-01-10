@@ -12350,10 +12350,9 @@ msgid "Rate of joins without indexes"
 msgstr "Četnost spojení bez klíčů"
 
 #: po/advisory_rules.php:126
-#, fuzzy
 #| msgid "There are no routines to display."
 msgid "There are too many joins without indexes."
-msgstr "Nebyly nalezeny žádné rutiny."
+msgstr "Probíhá příliš mnoho spojení tabulek bez využití klíčů."
 
 #: po/advisory_rules.php:127
 msgid ""
