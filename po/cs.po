@@ -12106,6 +12106,10 @@ msgid ""
 "and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
 "memcached, ignore this recommendation."
 msgstr ""
+"O vyrovnávací paměť dotazů je známo, že při správném nastavení výrazně "
+"zvyšuje výkon. Zapněte ji nastavením {query_cache_size} na dvoucifernou "
+"hodnotu v MiB a nastavením {query_cache_type} na 'ON'. <b>Poznámka:</b> Toto "
+"doporučení můžete ignorovat pokud používáte memcached."
 
 #: po/advisory_rules.php:73
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
