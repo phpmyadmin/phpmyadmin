@@ -1101,10 +1101,9 @@ msgid "Add Index"
 msgstr "添加索引"
 
 #: js/messages.php:47
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit Index"
-msgstr "编辑模式"
+msgstr "编辑索引"
 
 #: js/messages.php:48 tbl_indexes.php:293
 #, fuzzy, php-format
