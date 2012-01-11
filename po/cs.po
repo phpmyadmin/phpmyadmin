@@ -12430,10 +12430,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:140
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Rate of reading next table row"
-msgstr "Kde zobrazit odkazy s akcemi při procházení"
+msgstr "Četnost čtení dalšího řádku tabulky"
 
 #: po/advisory_rules.php:141
 #| msgid "Where to show the table row links"
