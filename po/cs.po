@@ -12566,7 +12566,7 @@ msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
 msgstr ""
 "Nejvyšší využití (%%) vyrovnávací paměti MyISAM pro klíče je %s%%, tato "
-"hodnota by měla být nad 95%%"
+"hodnota by měla být nad 95%%."
 
 #: po/advisory_rules.php:170
 #, fuzzy
