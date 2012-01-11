@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-11 16:35+0200\n"
+"PO-Revision-Date: 2012-01-11 16:36+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -12356,6 +12356,9 @@ msgid ""
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting"
 msgstr ""
+"Na řazení není nic špatného, ale ujistěte se, že dotazy, které hojně "
+"využívají řazení používají klíče ve frázi ORDER BY, protože toto zajistí "
+"rychlejší řazení."
 
 #: po/advisory_rules.php:123
 #, php-format
