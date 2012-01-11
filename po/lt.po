@@ -1738,10 +1738,9 @@ msgid "Recommendation"
 msgstr "Rekomendacija"
 
 #: js/messages.php:222
-#, fuzzy
 #| msgid "Details"
 msgid "Rule details"
-msgstr "Detalės"
+msgstr "Taisyklės detalės"
 
 #: js/messages.php:223
 #, fuzzy
