@@ -1138,7 +1138,7 @@ msgstr "Redaguoti indeksą"
 #, php-format
 #| msgid "Add %s column(s)"
 msgid "Add %d column(s) to index"
-msgstr "Pridėti %s stulpelį(-ius) į indeksą"
+msgstr "Pridėti %d stulpelį(-ius) į indeksą"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:52
@@ -1399,7 +1399,7 @@ msgstr "EiB"
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "%d table(s)"
-msgstr "%s lentelė(-ės)"
+msgstr "%d lentelė(-ės)"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:135
