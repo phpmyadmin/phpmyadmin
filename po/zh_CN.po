@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-07 07:40-0500\n"
-"PO-Revision-Date: 2012-01-11 08:10+0200\n"
+"PO-Revision-Date: 2012-01-11 08:11+0200\n"
 "Last-Translator: Vian Zhao <brovian@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -1673,10 +1673,9 @@ msgid "Analyse Query"
 msgstr "查询分析"
 
 #: js/messages.php:217
-#, fuzzy
 #| msgid "Advisor"
 msgid "Advisor system"
-msgstr "建议"
+msgstr "顾问系统"
 
 #: js/messages.php:218
 msgid "Possible performance issues"
