@@ -2524,10 +2524,9 @@ msgstr[1] "Įterptos %1$d eilutės."
 msgstr[2] "Įterpta %1$d eilučių."
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Error reading data:"
 msgid "Error while creating PDF:"
-msgstr "Klaida skaitant duomenis:"
+msgstr "Klaida sudarinėjant PDF:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
