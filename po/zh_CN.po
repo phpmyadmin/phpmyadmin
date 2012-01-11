@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-07 07:40-0500\n"
-"PO-Revision-Date: 2012-01-11 05:44+0200\n"
+"PO-Revision-Date: 2012-01-11 05:45+0200\n"
 "Last-Translator: Vian Zhao <brovian@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -1879,7 +1879,7 @@ msgstr "点击并使用鼠标拖拽来操纵图表"
 
 #: js/messages.php:300
 msgid "Click reset zoom link to come back to original state."
-msgstr ""
+msgstr "点击重置缩放连接以回到初始状态"
 
 #: js/messages.php:302
 msgid "Click a data point to view and possibly edit the data row."
