@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-01-07 07:40-0500\n"
+"POT-Creation-Date: 2012-01-11 13:40+0100\n"
 "PO-Revision-Date: 2012-01-11 08:26+0200\n"
 "Last-Translator: Vian Zhao <brovian@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.1.6\n"
 
-#: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:349
+#: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1677
 msgid "Show all"
 msgstr "全部显示"
@@ -28,7 +28,7 @@ msgstr "全部显示"
 msgid "Page number:"
 msgstr "页码："
 
-#: browse_foreigners.php:138
+#: browse_foreigners.php:142
 msgid ""
 "The target browser window could not be updated. Maybe you have closed the "
 "parent window, or your browser's security settings are configured to block "
@@ -37,17 +37,17 @@ msgstr ""
 "无法更新目标浏览窗口。可能你已经关闭了父窗口或您浏览器的安全设置阻止了跨窗口"
 "更新。"
 
-#: browse_foreigners.php:156 libraries/common.lib.php:3126
+#: browse_foreigners.php:160 libraries/common.lib.php:3126
 #: libraries/common.lib.php:3133 libraries/common.lib.php:3342
 #: libraries/common.lib.php:3343 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "搜索"
 
-#: browse_foreigners.php:159 db_operations.php:378 db_operations.php:418
+#: browse_foreigners.php:163 db_operations.php:378 db_operations.php:418
 #: db_operations.php:528 db_operations.php:555 db_search.php:337
 #: db_structure.php:615 enum_editor.php:121 gis_data_editor.php:133
-#: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:228
+#: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:229
 #: libraries/Config.class.php:1332 libraries/Theme_Manager.class.php:309
 #: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1371
 #: libraries/common.lib.php:2418 libraries/core.lib.php:513
@@ -81,19 +81,19 @@ msgstr "搜索"
 msgid "Go"
 msgstr "执行"
 
-#: browse_foreigners.php:174 browse_foreigners.php:178
+#: browse_foreigners.php:178 browse_foreigners.php:182
 #: libraries/Index.class.php:440 tbl_tracking.php:319
 msgid "Keyname"
 msgstr "键名"
 
-#: browse_foreigners.php:175 browse_foreigners.php:177
+#: browse_foreigners.php:179 browse_foreigners.php:181
 #: server_collations.php:54 server_collations.php:66 server_engines.php:55
 #: server_plugins.php:147 server_status.php:1472
 msgid "Description"
 msgstr "说明"
 
-#: browse_foreigners.php:255 browse_foreigners.php:264
-#: browse_foreigners.php:276 browse_foreigners.php:284
+#: browse_foreigners.php:259 browse_foreigners.php:268
+#: browse_foreigners.php:280 browse_foreigners.php:288
 msgid "Use this value"
 msgstr "使用此值"
 
@@ -200,7 +200,7 @@ msgstr "链接到"
 msgid "Comments"
 msgstr "注释"
 
-#: db_datadict.php:233 js/messages.php:247 libraries/Index.class.php:349
+#: db_datadict.php:233 js/messages.php:248 libraries/Index.class.php:349
 #: libraries/Index.class.php:376 libraries/Index.class.php:679
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:299
@@ -217,7 +217,7 @@ msgstr "注释"
 msgid "No"
 msgstr "否"
 
-#: db_datadict.php:233 js/messages.php:246 libraries/Index.class.php:350
+#: db_datadict.php:233 js/messages.php:247 libraries/Index.class.php:350
 #: libraries/Index.class.php:375 libraries/Index.class.php:679
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:299
@@ -361,7 +361,7 @@ msgstr "表"
 
 #: db_printview.php:102 libraries/build_html_for_db.lib.php:31
 #: libraries/db_structure.lib.php:42 libraries/header_printview.inc.php:65
-#: libraries/import.lib.php:151 navigation.php:591 navigation.php:611
+#: libraries/import.lib.php:151 navigation.php:591 navigation.php:612
 #: tbl_printview.php:353 tbl_structure.php:363 tbl_structure.php:469
 #: tbl_structure.php:882
 msgid "Rows"
@@ -605,8 +605,8 @@ msgstr "追踪已禁用。"
 #: db_structure.php:451 libraries/display_tbl.lib.php:2355
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "该视图最少包含的行数，参见%s文档%s。"
 
 #: db_structure.php:467 db_structure.php:481 libraries/header.inc.php:161
@@ -741,7 +741,7 @@ msgstr "创建"
 msgid "Updated"
 msgstr "更新"
 
-#: db_tracking.php:90 js/messages.php:186 libraries/rte/rte_events.lib.php:380
+#: db_tracking.php:90 js/messages.php:187 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
 #: server_status.php:1237 sql.php:896 tbl_tracking.php:653
 msgid "Status"
@@ -791,23 +791,22 @@ msgstr "追踪表"
 msgid "Database Log"
 msgstr "数据库日志"
 
-#: enum_editor.php:23 js/messages.php:265
+#: enum_editor.php:23 js/messages.php:266
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
 msgstr "ENUM/SET 编辑器"
 
-#: enum_editor.php:28 js/messages.php:267
-#| msgid "Values for the column \"%s\""
+#: enum_editor.php:28 js/messages.php:268
 msgid "Values for a new column"
 msgstr "新字段的值"
 
-#: enum_editor.php:30 js/messages.php:266
+#: enum_editor.php:30 js/messages.php:267
 #, fuzzy, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
 msgstr "字段“%s”的值"
 
-#: enum_editor.php:34 js/messages.php:268
+#: enum_editor.php:34 js/messages.php:269
 #, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
@@ -879,48 +878,47 @@ msgstr "以 OpenStreetMaps 为背景"
 msgid "SRID"
 msgstr ""
 
-#: gis_data_editor.php:151 js/messages.php:322
+#: gis_data_editor.php:151 js/messages.php:323
 #: libraries/display_tbl.lib.php:692
 msgid "Geometry"
 msgstr ""
 
-#: gis_data_editor.php:172 js/messages.php:318
+#: gis_data_editor.php:172 js/messages.php:319
 msgid "Point"
 msgstr "点"
 
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
-#: gis_data_editor.php:297 js/messages.php:316
+#: gis_data_editor.php:297 js/messages.php:317
 msgid "X"
 msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
-#: gis_data_editor.php:299 js/messages.php:317
+#: gis_data_editor.php:299 js/messages.php:318
 msgid "Y"
 msgstr "Y"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
-#: js/messages.php:319
+#: js/messages.php:320
 #, php-format
 msgid "Point %d"
 msgstr "点 %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
-#: js/messages.php:325
-#| msgid "Add routine"
+#: js/messages.php:326
 msgid "Add a point"
 msgstr "添加点"
 
-#: gis_data_editor.php:220 js/messages.php:320
+#: gis_data_editor.php:220 js/messages.php:321
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
 msgstr "换行符"
 
-#: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:324
+#: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:325
 msgid "Outer Ring"
 msgstr "外环"
 
-#: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:323
+#: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:324
 msgid "Inner Ring"
 msgstr "内环"
 
@@ -930,18 +928,17 @@ msgstr "内环"
 msgid "Add a linestring"
 msgstr "添加新用户"
 
-#: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:326
+#: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:327
 #, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
 msgstr "添加新用户"
 
-#: gis_data_editor.php:266 js/messages.php:321
+#: gis_data_editor.php:266 js/messages.php:322
 msgid "Polygon"
 msgstr "多边形"
 
-#: gis_data_editor.php:306 js/messages.php:327
-#| msgid "Add column"
+#: gis_data_editor.php:306 js/messages.php:328
 msgid "Add a polygon"
 msgstr "添加多边形"
 
@@ -960,8 +957,8 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr "您可能正在上传很大的文件，请参考%s文档%s来寻找解决方法。"
 
 #: import.php:170 import.php:419
@@ -1101,13 +1098,11 @@ msgid "Add Index"
 msgstr "添加索引"
 
 #: js/messages.php:47
-#| msgid "Edit mode"
 msgid "Edit Index"
 msgstr "编辑索引"
 
 #: js/messages.php:48 tbl_indexes.php:293
 #, php-format
-#| msgid "Add %s column(s)"
 msgid "Add %d column(s) to index"
 msgstr "添加 %d 个字段至索引"
 
@@ -1150,7 +1145,7 @@ msgstr "正在删除选中的用户"
 msgid "Close"
 msgstr "关闭"
 
-#: js/messages.php:65 js/messages.php:277 libraries/Index.class.php:468
+#: js/messages.php:65 js/messages.php:278 libraries/Index.class.php:468
 #: libraries/common.lib.php:648 libraries/common.lib.php:1194
 #: libraries/common.lib.php:3351 libraries/common.lib.php:3352
 #: libraries/config/messages.inc.php:484 libraries/display_tbl.lib.php:1389
@@ -1362,8 +1357,6 @@ msgstr "EB"
 
 #: js/messages.php:132
 #, php-format
-#| msgid "%s table"
-#| msgid_plural "%s tables"
 msgid "%d table(s)"
 msgstr "%d 张表"
 
@@ -1508,130 +1501,132 @@ msgid "Differential"
 msgstr "差异"
 
 #: js/messages.php:171
-#, php-format
-msgid "Divided by %s:"
+#, fuzzy, php-format
+#| msgid "Divided by %s:"
+msgid "Divided by %s"
 msgstr "除以 %s:"
 
-#: js/messages.php:173
+#: js/messages.php:172
+msgid "Unit"
+msgstr ""
+
+#: js/messages.php:174
 msgid "From slow log"
 msgstr "从慢查询日志"
 
-#: js/messages.php:174
+#: js/messages.php:175
 msgid "From general log"
 msgstr "从通用日志"
 
-#: js/messages.php:175
+#: js/messages.php:176
 msgid "Analysing & loading logs. This may take a while."
 msgstr "正在加载并分析日志。请稍候。"
 
-#: js/messages.php:176
-#| msgid "Read requests"
+#: js/messages.php:177
 msgid "Cancel request"
 msgstr "取消请求"
 
-#: js/messages.php:177
+#: js/messages.php:178
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
 
-#: js/messages.php:178
+#: js/messages.php:179
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr "因选择了分组 INSERT 查询，相同表的 INSERT 查询将被分为一组，忽略数据。"
 
-#: js/messages.php:179
+#: js/messages.php:180
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr "日志数据已加载。查询执行时间为："
 
-#: js/messages.php:181
+#: js/messages.php:182
 msgid "Jump to Log table"
 msgstr "转到日志表"
 
-#: js/messages.php:182
+#: js/messages.php:183
 msgid "Log analysed, but no data found in this time span."
 msgstr "日志已分析，时间段内没有数据。"
 
-#: js/messages.php:184
+#: js/messages.php:185
 #, fuzzy
 #| msgid "Analyze"
 msgid "Analyzing..."
 msgstr "分析"
 
-#: js/messages.php:185
+#: js/messages.php:186
 #, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
 msgstr "解释 SQL"
 
-#: js/messages.php:187 js/messages.php:493 libraries/rte/rte_list.lib.php:62
+#: js/messages.php:188 js/messages.php:494 libraries/rte/rte_list.lib.php:62
 #: libraries/rte/rte_triggers.lib.php:326 server_status.php:1236 sql.php:897
 msgid "Time"
 msgstr "时间"
 
-#: js/messages.php:188
-#| msgid "Total:"
+#: js/messages.php:189
 msgid "Total time:"
 msgstr "总时间:"
 
-#: js/messages.php:189
+#: js/messages.php:190
 #, fuzzy
 #| msgid "Profiling"
 msgid "Profiling results"
 msgstr "概要"
 
-#: js/messages.php:190
+#: js/messages.php:191
 #, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
 msgstr "表"
 
-#: js/messages.php:191
+#: js/messages.php:192
 #, fuzzy
 #| msgid "Charts"
 msgid "Chart"
 msgstr "图表"
 
 #. l10n: A collection of available filters
-#: js/messages.php:194
-#| msgid "Tables display options"
+#: js/messages.php:195
 msgid "Log table filter options"
 msgstr "日志表过滤选项"
 
 #. l10n: Filter as in "Start Filtering"
-#: js/messages.php:196
+#: js/messages.php:197
 msgid "Filter"
 msgstr "快速搜索"
 
-#: js/messages.php:197
+#: js/messages.php:198
 msgid "Filter queries by word/regexp:"
 msgstr "根据内容/正则表达式搜索:"
 
-#: js/messages.php:198
+#: js/messages.php:199
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr "忽略 WHERE 语句中的变量值对查询分组"
 
-#: js/messages.php:199
+#: js/messages.php:200
 msgid "Sum of grouped rows:"
 msgstr "分组后的行数:"
 
-#: js/messages.php:200
+#: js/messages.php:201
 msgid "Total:"
 msgstr "总数:"
 
-#: js/messages.php:202
+#: js/messages.php:203
 msgid "Loading logs"
 msgstr "正在加载日志"
 
-#: js/messages.php:203
+#: js/messages.php:204
 msgid "Monitor refresh failed"
 msgstr "监控刷新失败"
 
-#: js/messages.php:204
+#: js/messages.php:205
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
@@ -1640,202 +1635,197 @@ msgstr ""
 "请求新图表数据时服务器返回了无效数据。这可能是因为会话过期。请尝试重新加载页"
 "面。"
 
-#: js/messages.php:205
+#: js/messages.php:206
 msgid "Reload page"
 msgstr "重新载入页面"
 
-#: js/messages.php:207
+#: js/messages.php:208
 msgid "Affected rows:"
 msgstr "影响的行数: "
 
-#: js/messages.php:209
+#: js/messages.php:210
 #, fuzzy
 #| msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr "解析配置文件失败。它看上去不像有效的 JSON 代码"
 
-#: js/messages.php:210
+#: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr "导入配置失败。正在重设为默认设置..."
 
-#: js/messages.php:211 libraries/config/messages.inc.php:172
+#: js/messages.php:212 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
 #: prefs_manage.php:229 server_status.php:1595 setup/frames/menu.inc.php:20
 msgid "Import"
 msgstr "导入"
 
-#: js/messages.php:213
-#| msgid "Update Query"
+#: js/messages.php:214
 msgid "Analyse Query"
 msgstr "查询分析"
 
-#: js/messages.php:217
-#| msgid "Advisor"
+#: js/messages.php:218
 msgid "Advisor system"
 msgstr "顾问系统"
 
-#: js/messages.php:218
+#: js/messages.php:219
 msgid "Possible performance issues"
 msgstr "可能存在的性能问题"
 
-#: js/messages.php:219
+#: js/messages.php:220
 msgid "Issue"
 msgstr ""
 
-#: js/messages.php:220
-#| msgid "Documentation"
+#: js/messages.php:221
 msgid "Recommendation"
 msgstr "建议"
 
-#: js/messages.php:221
-#| msgid "Details"
+#: js/messages.php:222
 msgid "Rule details"
 msgstr "规则详细"
 
-#: js/messages.php:222
+#: js/messages.php:223
 #, fuzzy
 #| msgid "Authentication"
 msgid "Justification"
 msgstr "认证"
 
-#: js/messages.php:223
+#: js/messages.php:224
 msgid "Used variable / formula"
 msgstr "已使用的 变量/公式"
 
-#: js/messages.php:224
+#: js/messages.php:225
 msgid "Test"
 msgstr "测试"
 
-#: js/messages.php:229 pmd_general.php:382 pmd_general.php:419
+#: js/messages.php:230 pmd_general.php:382 pmd_general.php:419
 #: pmd_general.php:539 pmd_general.php:587 pmd_general.php:663
 #: pmd_general.php:717 pmd_general.php:780
 msgid "Cancel"
 msgstr "取消"
 
-#: js/messages.php:232
+#: js/messages.php:233
 msgid "Loading"
 msgstr "正在加载"
 
-#: js/messages.php:233
+#: js/messages.php:234
 msgid "Processing Request"
 msgstr "正在处理请求"
 
-#: js/messages.php:234 libraries/rte/rte_export.lib.php:39
+#: js/messages.php:235 libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
 msgstr "处理请求时发生错误"
 
-#: js/messages.php:235
+#: js/messages.php:236
 msgid "Dropping Column"
 msgstr "正在删除字段"
 
-#: js/messages.php:236
+#: js/messages.php:237
 msgid "Adding Primary Key"
 msgstr "正在添加主键"
 
-#: js/messages.php:237 libraries/relation.lib.php:80 pmd_general.php:380
+#: js/messages.php:238 libraries/relation.lib.php:80 pmd_general.php:380
 #: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
 #: pmd_general.php:715 pmd_general.php:778
 msgid "OK"
 msgstr "确定"
 
-#: js/messages.php:238
+#: js/messages.php:239
 msgid "Click to dismiss this notification"
 msgstr "点击解除这条通知"
 
-#: js/messages.php:241
+#: js/messages.php:242
 msgid "Renaming Databases"
 msgstr "正在重命名数据库"
 
-#: js/messages.php:242
+#: js/messages.php:243
 msgid "Reload Database"
 msgstr "重新载入数据库"
 
-#: js/messages.php:243
+#: js/messages.php:244
 msgid "Copying Database"
 msgstr "正在复制数据库"
 
-#: js/messages.php:244
+#: js/messages.php:245
 msgid "Changing Charset"
 msgstr "正在修改字符集"
 
-#: js/messages.php:245
+#: js/messages.php:246
 msgid "Table must have at least one column"
 msgstr "数据表至少要有一个字段。"
 
-#: js/messages.php:250
-#| msgid "Use Tables"
+#: js/messages.php:251
 msgid "Insert Table"
 msgstr "插入表格"
 
-#: js/messages.php:251
+#: js/messages.php:252
 msgid "Hide indexes"
 msgstr "隐藏索引"
 
-#: js/messages.php:252
+#: js/messages.php:253
 msgid "Show indexes"
 msgstr "显示索引"
 
-#: js/messages.php:255
+#: js/messages.php:256
 msgid "Searching"
 msgstr "正在搜索"
 
-#: js/messages.php:256
+#: js/messages.php:257
 msgid "Hide search results"
 msgstr "隐藏搜索结果"
 
-#: js/messages.php:257
+#: js/messages.php:258
 msgid "Show search results"
 msgstr "显示搜索结果"
 
-#: js/messages.php:258
+#: js/messages.php:259
 msgid "Browsing"
 msgstr "正在浏览"
 
-#: js/messages.php:259
+#: js/messages.php:260
 msgid "Deleting"
 msgstr "正在删除"
 
-#: js/messages.php:262
+#: js/messages.php:263
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "函数定义中必须包含 RETURN 语句！"
 
-#: js/messages.php:269
+#: js/messages.php:270
 #, fuzzy, php-format
 #| msgid "+ Add a value"
 msgid "Add %d value(s)"
 msgstr "+ 添加"
 
-#: js/messages.php:272
+#: js/messages.php:273
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr "注意：如果文件包含多个表，它们会被合并成一个"
 
-#: js/messages.php:275
+#: js/messages.php:276
 msgid "Hide query box"
 msgstr "隐藏查询框"
 
-#: js/messages.php:276
+#: js/messages.php:277
 msgid "Show query box"
 msgstr "显示查询框"
 
-#: js/messages.php:278 tbl_row_action.php:28
+#: js/messages.php:279 tbl_row_action.php:28
 msgid "No rows selected"
 msgstr "没有选中任何行"
 
-#: js/messages.php:279 libraries/common.lib.php:2743
+#: js/messages.php:280 libraries/common.lib.php:2743
 #: libraries/display_tbl.lib.php:2506 querywindow.php:87 tbl_structure.php:149
 #: tbl_structure.php:572
 msgid "Change"
 msgstr "修改"
 
-#: js/messages.php:280
+#: js/messages.php:281
 msgid "Query execution time"
 msgstr "查询执行时间"
 
-#: js/messages.php:283 libraries/config/FormDisplay.tpl.php:355
+#: js/messages.php:284 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
 #: libraries/tbl_properties.inc.php:714 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:228 tbl_change.php:1025
@@ -1843,170 +1833,167 @@ msgstr "查询执行时间"
 msgid "Save"
 msgstr "保存"
 
-#: js/messages.php:286
+#: js/messages.php:287
 msgid "Hide search criteria"
 msgstr "隐藏搜索条件"
 
-#: js/messages.php:287
+#: js/messages.php:288
 msgid "Show search criteria"
 msgstr "显示搜索条件"
 
-#: js/messages.php:290 libraries/tbl_select.lib.php:110
+#: js/messages.php:291 libraries/tbl_select.lib.php:110
 #, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
 msgstr "搜索"
 
-#: js/messages.php:292
+#: js/messages.php:293
 msgid "Each point represents a data row."
 msgstr "每个点代表一个数据行。"
 
-#: js/messages.php:294
+#: js/messages.php:295
 msgid "Hovering over a point will show its label."
 msgstr "悬浮至一个点上会显示它的标签"
 
-#: js/messages.php:296
+#: js/messages.php:297
 msgid "Use mousewheel to zoom in or out of the plot."
 msgstr "使用鼠标滚轮放大或缩小此图"
 
-#: js/messages.php:298
+#: js/messages.php:299
 msgid "Click and drag the mouse to navigate the plot."
 msgstr "点击并使用鼠标拖拽来操纵图表"
 
-#: js/messages.php:300
+#: js/messages.php:301
 msgid "Click reset zoom link to come back to original state."
 msgstr "点击重置缩放连接以回到初始状态"
 
-#: js/messages.php:302
+#: js/messages.php:303
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 
-#: js/messages.php:304
+#: js/messages.php:305
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr "拖拽右下角以改变图表大小"
 
-#: js/messages.php:306
+#: js/messages.php:307
 msgid "Strings are converted into integer for plotting"
 msgstr "为了绘图，字符串被转换成了整数"
 
-#: js/messages.php:308
-#| msgid "Add/Delete columns"
+#: js/messages.php:309
 msgid "Select two columns"
 msgstr "选择两列"
 
-#: js/messages.php:309
+#: js/messages.php:310
 msgid "Select two different columns"
 msgstr "选择两个不同的列"
 
-#: js/messages.php:310
-#| msgid "Query results operations"
+#: js/messages.php:311
 msgid "Query results"
 msgstr "查询结果"
 
-#: js/messages.php:311
+#: js/messages.php:312
 #, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
 msgstr "数据指针大小"
 
-#: js/messages.php:314 tbl_change.php:312 tbl_indexes.php:228
+#: js/messages.php:315 tbl_change.php:312 tbl_indexes.php:228
 #: tbl_indexes.php:255
 msgid "Ignore"
 msgstr "忽略"
 
-#: js/messages.php:315 libraries/display_tbl.lib.php:1390
+#: js/messages.php:316 libraries/display_tbl.lib.php:1390
 msgid "Copy"
 msgstr "复制"
 
-#: js/messages.php:330
+#: js/messages.php:331
 msgid "Add columns"
 msgstr "添加字段"
 
-#: js/messages.php:333
+#: js/messages.php:334
 msgid "Select referenced key"
 msgstr "选择外键"
 
-#: js/messages.php:334
+#: js/messages.php:335
 msgid "Select Foreign Key"
 msgstr "选择外键"
 
-#: js/messages.php:335
+#: js/messages.php:336
 msgid "Please select the primary key or a unique key"
 msgstr "请选择主键或唯一键"
 
-#: js/messages.php:336 pmd_general.php:77 tbl_relation.php:541
+#: js/messages.php:337 pmd_general.php:77 tbl_relation.php:541
 msgid "Choose column to display"
 msgstr "选择要显示的字段"
 
-#: js/messages.php:337
+#: js/messages.php:338
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr "尚未保存当前布局。如果继续将会丢失本次的修改。是否继续？"
 
-#: js/messages.php:340
+#: js/messages.php:341
 msgid "Add an option for column "
 msgstr "给字段添加选项 "
 
-#: js/messages.php:343
+#: js/messages.php:344
 msgid "Press escape to cancel editing"
 msgstr "按 Esc 键取消编辑"
 
-#: js/messages.php:344
+#: js/messages.php:345
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr "已有数据被修改但尚未保存。你真的要不保存修改就离开本页吗？"
 
-#: js/messages.php:345
+#: js/messages.php:346
 msgid "Drag to reorder"
 msgstr "拖拽以调整顺序"
 
-#: js/messages.php:346
+#: js/messages.php:347
 msgid "Click to sort"
 msgstr "点击以排序"
 
-#: js/messages.php:347
+#: js/messages.php:348
 msgid "Click to mark/unmark"
 msgstr "点击以标记/取消标记"
 
-#: js/messages.php:348
+#: js/messages.php:349
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr "点击下箭头以设置显示的字段"
 
-#: js/messages.php:350
+#: js/messages.php:351
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: js/messages.php:351
+#: js/messages.php:352
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr "你可以通过直接点击它们的内容以编辑绝大部分列"
 
-#: js/messages.php:352
-#| msgid "Go to view"
+#: js/messages.php:353
 msgid "Go to link"
 msgstr "转到链接"
 
-#: js/messages.php:355
+#: js/messages.php:356
 msgid "Generate password"
 msgstr "生成密码"
 
-#: js/messages.php:356 libraries/replication_gui.lib.php:369
+#: js/messages.php:357 libraries/replication_gui.lib.php:369
 msgid "Generate"
 msgstr "生成"
 
-#: js/messages.php:357
+#: js/messages.php:358
 msgid "Change Password"
 msgstr "修改密码"
 
-#: js/messages.php:360 tbl_structure.php:465
+#: js/messages.php:361 tbl_structure.php:465
 msgid "More"
 msgstr "更多"
 
-#: js/messages.php:363 setup/lib/index.lib.php:173
+#: js/messages.php:364 setup/lib/index.lib.php:173
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2014,268 +2001,268 @@ msgid ""
 msgstr "有新的 phpMyAdmin 可用，请考虑升级。最新的版本是 %s，于 %s 发布。"
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:365
+#: js/messages.php:366
 msgid ", latest stable version:"
 msgstr "，最新稳定版本: "
 
-#: js/messages.php:366
+#: js/messages.php:367
 msgid "up to date"
 msgstr "已更新"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:385
+#: js/messages.php:386
 msgid "Done"
 msgstr "完成"
 
-#: js/messages.php:389
+#: js/messages.php:390
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "上个月"
 
-#: js/messages.php:394
+#: js/messages.php:395
 msgctxt "Next month"
 msgid "Next"
 msgstr "下个月"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:397
+#: js/messages.php:398
 msgid "Today"
 msgstr "今天"
 
-#: js/messages.php:400
+#: js/messages.php:401
 msgid "January"
 msgstr "一月"
 
-#: js/messages.php:401
+#: js/messages.php:402
 msgid "February"
 msgstr "二月"
 
-#: js/messages.php:402
+#: js/messages.php:403
 msgid "March"
 msgstr "三月"
 
-#: js/messages.php:403
+#: js/messages.php:404
 msgid "April"
 msgstr "四月"
 
-#: js/messages.php:404
+#: js/messages.php:405
 msgid "May"
 msgstr "五月"
 
-#: js/messages.php:405
+#: js/messages.php:406
 msgid "June"
 msgstr "六月"
 
-#: js/messages.php:406
+#: js/messages.php:407
 msgid "July"
 msgstr "七月"
 
-#: js/messages.php:407
+#: js/messages.php:408
 msgid "August"
 msgstr "八月"
 
-#: js/messages.php:408
+#: js/messages.php:409
 msgid "September"
 msgstr "九月"
 
-#: js/messages.php:409
+#: js/messages.php:410
 msgid "October"
 msgstr "十月"
 
-#: js/messages.php:410
+#: js/messages.php:411
 msgid "November"
 msgstr "十一月"
 
-#: js/messages.php:411
+#: js/messages.php:412
 msgid "December"
 msgstr "十二月"
 
 #. l10n: Short month name
-#: js/messages.php:415 libraries/common.lib.php:1606
+#: js/messages.php:416 libraries/common.lib.php:1606
 msgid "Jan"
 msgstr "一月"
 
 #. l10n: Short month name
-#: js/messages.php:417 libraries/common.lib.php:1608
+#: js/messages.php:418 libraries/common.lib.php:1608
 msgid "Feb"
 msgstr "二月"
 
 #. l10n: Short month name
-#: js/messages.php:419 libraries/common.lib.php:1610
+#: js/messages.php:420 libraries/common.lib.php:1610
 msgid "Mar"
 msgstr "三月"
 
 #. l10n: Short month name
-#: js/messages.php:421 libraries/common.lib.php:1612
+#: js/messages.php:422 libraries/common.lib.php:1612
 msgid "Apr"
 msgstr "四月"
 
 #. l10n: Short month name
-#: js/messages.php:423 libraries/common.lib.php:1614
+#: js/messages.php:424 libraries/common.lib.php:1614
 msgctxt "Short month name"
 msgid "May"
 msgstr "五月"
 
 #. l10n: Short month name
-#: js/messages.php:425 libraries/common.lib.php:1616
+#: js/messages.php:426 libraries/common.lib.php:1616
 msgid "Jun"
 msgstr "六月"
 
 #. l10n: Short month name
-#: js/messages.php:427 libraries/common.lib.php:1618
+#: js/messages.php:428 libraries/common.lib.php:1618
 msgid "Jul"
 msgstr "七月"
 
 #. l10n: Short month name
-#: js/messages.php:429 libraries/common.lib.php:1620
+#: js/messages.php:430 libraries/common.lib.php:1620
 msgid "Aug"
 msgstr "八月"
 
 #. l10n: Short month name
-#: js/messages.php:431 libraries/common.lib.php:1622
+#: js/messages.php:432 libraries/common.lib.php:1622
 msgid "Sep"
 msgstr "九月"
 
 #. l10n: Short month name
-#: js/messages.php:433 libraries/common.lib.php:1624
+#: js/messages.php:434 libraries/common.lib.php:1624
 msgid "Oct"
 msgstr "十月"
 
 #. l10n: Short month name
-#: js/messages.php:435 libraries/common.lib.php:1626
+#: js/messages.php:436 libraries/common.lib.php:1626
 msgid "Nov"
 msgstr "十一月"
 
 #. l10n: Short month name
-#: js/messages.php:437 libraries/common.lib.php:1628
+#: js/messages.php:438 libraries/common.lib.php:1628
 msgid "Dec"
 msgstr "十二月"
 
-#: js/messages.php:440
+#: js/messages.php:441
 msgid "Sunday"
 msgstr "星期日"
 
-#: js/messages.php:441
+#: js/messages.php:442
 msgid "Monday"
 msgstr "星期一"
 
-#: js/messages.php:442
+#: js/messages.php:443
 msgid "Tuesday"
 msgstr "星期二"
 
-#: js/messages.php:443
+#: js/messages.php:444
 msgid "Wednesday"
 msgstr "星期三"
 
-#: js/messages.php:444
+#: js/messages.php:445
 msgid "Thursday"
 msgstr "星期四"
 
-#: js/messages.php:445
+#: js/messages.php:446
 msgid "Friday"
 msgstr "星期五"
 
-#: js/messages.php:446
+#: js/messages.php:447
 msgid "Saturday"
 msgstr "星期六"
 
 #. l10n: Short week day name
-#: js/messages.php:450
+#: js/messages.php:451
 msgid "Sun"
 msgstr "周日"
 
 #. l10n: Short week day name
-#: js/messages.php:452 libraries/common.lib.php:1633
+#: js/messages.php:453 libraries/common.lib.php:1633
 msgid "Mon"
 msgstr "周一"
 
 #. l10n: Short week day name
-#: js/messages.php:454 libraries/common.lib.php:1635
+#: js/messages.php:455 libraries/common.lib.php:1635
 msgid "Tue"
 msgstr "周二"
 
 #. l10n: Short week day name
-#: js/messages.php:456 libraries/common.lib.php:1637
+#: js/messages.php:457 libraries/common.lib.php:1637
 msgid "Wed"
 msgstr "周三"
 
 #. l10n: Short week day name
-#: js/messages.php:458 libraries/common.lib.php:1639
+#: js/messages.php:459 libraries/common.lib.php:1639
 msgid "Thu"
 msgstr "周四"
 
 #. l10n: Short week day name
-#: js/messages.php:460 libraries/common.lib.php:1641
+#: js/messages.php:461 libraries/common.lib.php:1641
 msgid "Fri"
 msgstr "周五"
 
 #. l10n: Short week day name
-#: js/messages.php:462 libraries/common.lib.php:1643
+#: js/messages.php:463 libraries/common.lib.php:1643
 msgid "Sat"
 msgstr "周六"
 
 #. l10n: Minimal week day name
-#: js/messages.php:466
+#: js/messages.php:467
 msgid "Su"
 msgstr "日"
 
 #. l10n: Minimal week day name
-#: js/messages.php:468
+#: js/messages.php:469
 msgid "Mo"
 msgstr "一"
 
 #. l10n: Minimal week day name
-#: js/messages.php:470
+#: js/messages.php:471
 msgid "Tu"
 msgstr "二"
 
 #. l10n: Minimal week day name
-#: js/messages.php:472
+#: js/messages.php:473
 msgid "We"
 msgstr "三"
 
 #. l10n: Minimal week day name
-#: js/messages.php:474
+#: js/messages.php:475
 msgid "Th"
 msgstr "四"
 
 #. l10n: Minimal week day name
-#: js/messages.php:476
+#: js/messages.php:477
 msgid "Fr"
 msgstr "五"
 
 #. l10n: Minimal week day name
-#: js/messages.php:478
+#: js/messages.php:479
 msgid "Sa"
 msgstr "六"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:480
+#: js/messages.php:481
 msgid "Wk"
 msgstr "周"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
-#: js/messages.php:483
+#: js/messages.php:484
 msgid "calendar-month-year"
 msgstr "日历-月-年"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:485
+#: js/messages.php:486
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "无"
 
-#: js/messages.php:494
+#: js/messages.php:495
 msgid "Hour"
 msgstr "时"
 
-#: js/messages.php:495
+#: js/messages.php:496
 msgid "Minute"
 msgstr "分"
 
-#: js/messages.php:496
+#: js/messages.php:497
 msgid "Second"
 msgstr "秒"
 
@@ -2519,7 +2506,8 @@ msgstr "无法保存表界面设置"
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
-msgstr "清除表用户界面设置失败（查看$cfg['Servers'][$i]['MaxTableUiprefs'] %s）"
+msgstr ""
+"清除表用户界面设置失败（查看$cfg['Servers'][$i]['MaxTableUiprefs'] %s）"
 
 #: libraries/Table.class.php:1533
 #, php-format
@@ -2574,8 +2562,8 @@ msgstr "欢迎使用 %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "你可能还没有创建配置文件。你可以使用 %1$s设置脚本%2$s 来创建一个配置文件。"
 
@@ -3297,7 +3285,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:35
-#| msgid "Customize text input fields"
 msgid "Minimum size for input field"
 msgstr "输入框最小大小"
 
@@ -3308,7 +3295,6 @@ msgid ""
 msgstr "为CHAR和VARCHAR列声明输入区域最大大小"
 
 #: libraries/config/messages.inc.php:37
-#| msgid "Maximum size for temporary sort files"
 msgid "Maximum size for input field"
 msgstr "输入区域最大大小"
 
@@ -4161,7 +4147,6 @@ msgid "Enable highlighting"
 msgstr "启用高亮"
 
 #: libraries/config/messages.inc.php:290
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable"
 msgstr "最近使用的表数的最大值；设为0则关闭"
 
@@ -4584,7 +4569,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:386
-#| msgid "Control user"
 msgid "Control host"
 msgstr "控制主机"
 
@@ -4974,7 +4958,6 @@ msgid "Show function fields"
 msgstr "显示函数列"
 
 #: libraries/config/messages.inc.php:466
-#| msgid "Where to show the table row links"
 msgid "Whether to show hint or not"
 msgstr "是否显示提示"
 
@@ -5360,7 +5343,6 @@ msgid "possible deep recursion attack"
 msgstr "可能的深度递归攻击"
 
 #: libraries/database_interface.lib.php:1813
-#| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -5576,8 +5558,8 @@ msgstr "，@TABLE@ 将变成数据表名"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "这个值是使用 %1$sstrftime%2$s 来解析的，所以你能用时间格式的字符串。另外，下"
 "列内容也将被转换：%3$s。其他文本将保持原样。参见%4$s常见问题 (FAQ)%5$s。"
@@ -5715,7 +5697,6 @@ msgid "Language"
 msgstr "Language"
 
 #: libraries/display_tbl.lib.php:405
-#| msgid "Save directory"
 msgid "Save edited data"
 msgstr "保存已编辑的数据"
 
@@ -5729,17 +5710,14 @@ msgid "%d is not valid row number."
 msgstr "%d 不是有效行数。"
 
 #: libraries/display_tbl.lib.php:427
-#| msgid "Textarea rows"
 msgid "Start row"
 msgstr "起始行"
 
 #: libraries/display_tbl.lib.php:429
-#| msgid "Number of rows:"
 msgid "Number of rows"
 msgstr "行数"
 
 #: libraries/display_tbl.lib.php:434
-#| msgid "More"
 msgid "Mode"
 msgstr "模式"
 
@@ -6282,8 +6260,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr "关于 PBXT 的文档和更多信息请参见 %sPrimeBase XT 主页%s。"
 
 #: libraries/engines/pbxt.lib.php:129
@@ -8043,7 +8021,7 @@ msgstr "运算符"
 msgid "Table Search"
 msgstr "搜索"
 
-#: libraries/tbl_select.lib.php:181 tbl_change.php:1000
+#: libraries/tbl_select.lib.php:175 tbl_change.php:1000
 #, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
@@ -9082,12 +9060,12 @@ msgstr "删除与用户同名的数据库。"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "注意：phpMyAdmin 直接由 MySQL 权限表取得用户权限。如果用户手动更改表，表内容"
-"将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权限%"
-"s。"
+"将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权"
+"限%s。"
 
 #: server_privileges.php:1858
 msgid "The selected user was not found in the privilege table."
@@ -10319,8 +10297,8 @@ msgstr ""
 #: server_status.php:1631
 #, fuzzy
 #| msgid ""
-#| "Please note:</b> Enabling the general_log may increase the server load 5-"
-#| "15%. Also be aware that generating statistics from the logs is a d "
+#| "Please note:</b> Enabling the general_log may increase the server load "
+#| "5-15%. Also be aware that generating statistics from the logs is a d "
 #| "intensive task, so it is advisable to select only a small time span  to "
 #| "disable the general_log and empty its table once monitoring is not uired "
 #| "any more."
@@ -11935,8 +11913,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -12066,8 +12044,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: po/advisory_rules.php:115
@@ -12083,7 +12061,6 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:120
-#| msgid "Textarea rows"
 msgid "Sort rows"
 msgstr "行排序"
 
@@ -12105,12 +12082,10 @@ msgid "Sorted rows average: %s"
 msgstr ""
 
 #: po/advisory_rules.php:125
-#| msgid "There are no routines to display."
 msgid "Rate of joins without indexes"
 msgstr "无索引联合的比率"
 
 #: po/advisory_rules.php:126
-#| msgid "There are no routines to display."
 msgid "There are too many joins without indexes."
 msgstr "有太多的联合查询未使用索引"
 
@@ -12393,12 +12368,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:190
-#| msgid "Format of imported file"
 msgid "Rate of open files"
 msgstr "打开文件的比率"
 
 #: po/advisory_rules.php:191
-#| msgid "The number of pending log file fsyncs."
 msgid "The rate of opening files is high."
 msgstr "当前打开文件数比率很高"
 
@@ -12409,7 +12382,6 @@ msgstr "已打开文件的比率：%s,这个值应该低于5每小时"
 
 #: po/advisory_rules.php:195
 #, php-format
-#| msgid "Create table on database %s"
 msgid "Immediate table locks %%"
 msgstr "立即锁表 %%"
 
@@ -12617,7 +12589,6 @@ msgid "Is InnoDB disabled?"
 msgstr "InnoDB是否不可用？"
 
 #: po/advisory_rules.php:251
-#| msgid "Could not save recent table"
 msgid "You do not have InnoDB enabled."
 msgstr "您没有启用InnoDB"
 
@@ -12630,12 +12601,10 @@ msgid "have_innodb is set to 'value'"
 msgstr "have_innodb被设置为'value'"
 
 #: po/advisory_rules.php:255
-#| msgid "Buffer pool size"
 msgid "InnoDB log size"
 msgstr "InnoDB的日志大小"
 
 #: po/advisory_rules.php:256
-#| msgid "The number writes done to the InnoDB buffer pool."
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
@@ -12690,7 +12659,6 @@ msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "你的InnoDB日志文件的绝对大小为%s MB"
 
 #: po/advisory_rules.php:265
-#| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
 msgstr "InnoDB缓冲池大小"
 
@@ -13013,8 +12981,8 @@ msgstr "concurrent_insert(并发插入)被设置为0"
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
 #~ "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
-#~ "请注意不是所有的结果表都能绘图。参见<a href=\"./Documentation.html#faq6_29"
-#~ "\" target=\"Documentation\">常见问题 (FAQ) 6.29</a>"
+#~ "请注意不是所有的结果表都能绘图。参见<a href=\"./Documentation."
+#~ "html#faq6_29\" target=\"Documentation\">常见问题 (FAQ) 6.29</a>"
 
 #~ msgid "Add a New User"
 #~ msgstr "添加新用户"

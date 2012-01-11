@@ -3,18 +3,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-01-07 07:40-0500\n"
+"POT-Creation-Date: 2012-01-11 13:40+0100\n"
 "PO-Revision-Date: 2011-12-29 18:17+0200\n"
 "Last-Translator: WillBa <widelan10@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.1.6\n"
 
-#: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:349
+#: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:358 server_privileges.php:1677
 msgid "Show all"
 msgstr "Mostrar tudo"
@@ -28,7 +28,7 @@ msgstr "Mostrar tudo"
 msgid "Page number:"
 msgstr "Página número:"
 
-#: browse_foreigners.php:138
+#: browse_foreigners.php:142
 msgid ""
 "The target browser window could not be updated. Maybe you have closed the "
 "parent window, or your browser's security settings are configured to block "
@@ -38,17 +38,17 @@ msgstr ""
 "fechado a janela principal ou as opções de segurança do seu navegador estão "
 "configuradas para bloquear a comunicação entre janelas."
 
-#: browse_foreigners.php:156 libraries/common.lib.php:3126
+#: browse_foreigners.php:160 libraries/common.lib.php:3126
 #: libraries/common.lib.php:3133 libraries/common.lib.php:3342
 #: libraries/common.lib.php:3343 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "Procurar"
 
-#: browse_foreigners.php:159 db_operations.php:378 db_operations.php:418
+#: browse_foreigners.php:163 db_operations.php:378 db_operations.php:418
 #: db_operations.php:528 db_operations.php:555 db_search.php:337
 #: db_structure.php:615 enum_editor.php:121 gis_data_editor.php:133
-#: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:228
+#: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:229
 #: libraries/Config.class.php:1332 libraries/Theme_Manager.class.php:309
 #: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1371
 #: libraries/common.lib.php:2418 libraries/core.lib.php:513
@@ -82,19 +82,19 @@ msgstr "Procurar"
 msgid "Go"
 msgstr "Executar"
 
-#: browse_foreigners.php:174 browse_foreigners.php:178
+#: browse_foreigners.php:178 browse_foreigners.php:182
 #: libraries/Index.class.php:440 tbl_tracking.php:319
 msgid "Keyname"
 msgstr "Nome chave"
 
-#: browse_foreigners.php:175 browse_foreigners.php:177
+#: browse_foreigners.php:179 browse_foreigners.php:181
 #: server_collations.php:54 server_collations.php:66 server_engines.php:55
 #: server_plugins.php:147 server_status.php:1472
 msgid "Description"
 msgstr "Descrição"
 
-#: browse_foreigners.php:255 browse_foreigners.php:264
-#: browse_foreigners.php:276 browse_foreigners.php:284
+#: browse_foreigners.php:259 browse_foreigners.php:268
+#: browse_foreigners.php:280 browse_foreigners.php:288
 msgid "Use this value"
 msgstr "Usar este valor"
 
@@ -203,7 +203,7 @@ msgstr "Links para"
 msgid "Comments"
 msgstr "Comentários"
 
-#: db_datadict.php:233 js/messages.php:247 libraries/Index.class.php:349
+#: db_datadict.php:233 js/messages.php:248 libraries/Index.class.php:349
 #: libraries/Index.class.php:376 libraries/Index.class.php:679
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:299
@@ -220,7 +220,7 @@ msgstr "Comentários"
 msgid "No"
 msgstr "Não"
 
-#: db_datadict.php:233 js/messages.php:246 libraries/Index.class.php:350
+#: db_datadict.php:233 js/messages.php:247 libraries/Index.class.php:350
 #: libraries/Index.class.php:375 libraries/Index.class.php:679
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:299
@@ -366,7 +366,7 @@ msgstr "Tabela"
 
 #: db_printview.php:102 libraries/build_html_for_db.lib.php:31
 #: libraries/db_structure.lib.php:42 libraries/header_printview.inc.php:65
-#: libraries/import.lib.php:151 navigation.php:591 navigation.php:611
+#: libraries/import.lib.php:151 navigation.php:591 navigation.php:612
 #: tbl_printview.php:353 tbl_structure.php:363 tbl_structure.php:469
 #: tbl_structure.php:882
 msgid "Rows"
@@ -613,11 +613,11 @@ msgstr "Rastreamento não está ativo."
 #: db_structure.php:451 libraries/display_tbl.lib.php:2355
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Esta visão tem pelo menos esse número de linhas. Por favor, consulte a %"
-"sdocumentação%s."
+"Esta visão tem pelo menos esse número de linhas. Por favor, consulte a "
+"%sdocumentação%s."
 
 #: db_structure.php:467 db_structure.php:481 libraries/header.inc.php:161
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
@@ -751,7 +751,7 @@ msgstr "Criado"
 msgid "Updated"
 msgstr "Atualizado"
 
-#: db_tracking.php:90 js/messages.php:186 libraries/rte/rte_events.lib.php:380
+#: db_tracking.php:90 js/messages.php:187 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
 #: server_status.php:1237 sql.php:896 tbl_tracking.php:653
 msgid "Status"
@@ -801,21 +801,21 @@ msgstr "Monitorar tabela"
 msgid "Database Log"
 msgstr "Registro de log do Banco de Dados"
 
-#: enum_editor.php:23 js/messages.php:265
+#: enum_editor.php:23 js/messages.php:266
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
 msgstr "Editor ENUM/SET"
 
-#: enum_editor.php:28 js/messages.php:267
+#: enum_editor.php:28 js/messages.php:268
 msgid "Values for a new column"
 msgstr "Valores para uma nova coluna"
 
-#: enum_editor.php:30 js/messages.php:266
+#: enum_editor.php:30 js/messages.php:267
 #, php-format
 msgid "Values for column %s"
 msgstr "Valores para coluna %s"
 
-#: enum_editor.php:34 js/messages.php:268
+#: enum_editor.php:34 js/messages.php:269
 msgid "Enter each value in a separate field"
 msgstr "Insira cada valor em um campo separado"
 
@@ -883,45 +883,45 @@ msgstr "Use OpenStreetMaps como base"
 msgid "SRID"
 msgstr "SRID"
 
-#: gis_data_editor.php:151 js/messages.php:322
+#: gis_data_editor.php:151 js/messages.php:323
 #: libraries/display_tbl.lib.php:692
 msgid "Geometry"
 msgstr "Geometria"
 
-#: gis_data_editor.php:172 js/messages.php:318
+#: gis_data_editor.php:172 js/messages.php:319
 msgid "Point"
 msgstr "Ponto"
 
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
-#: gis_data_editor.php:297 js/messages.php:316
+#: gis_data_editor.php:297 js/messages.php:317
 msgid "X"
 msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
-#: gis_data_editor.php:299 js/messages.php:317
+#: gis_data_editor.php:299 js/messages.php:318
 msgid "Y"
 msgstr "Y"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
-#: js/messages.php:319
+#: js/messages.php:320
 #, php-format
 msgid "Point %d"
 msgstr "Ponto %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
-#: js/messages.php:325
+#: js/messages.php:326
 msgid "Add a point"
 msgstr "Adicione um ponto"
 
-#: gis_data_editor.php:220 js/messages.php:320
+#: gis_data_editor.php:220 js/messages.php:321
 msgid "Linestring"
 msgstr "Linha"
 
-#: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:324
+#: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:325
 msgid "Outer Ring"
 msgstr "Anel Externo"
 
-#: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:323
+#: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:324
 msgid "Inner Ring"
 msgstr "Anel interno"
 
@@ -929,15 +929,15 @@ msgstr "Anel interno"
 msgid "Add a linestring"
 msgstr "Adicionar uma linha"
 
-#: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:326
+#: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:327
 msgid "Add an inner ring"
 msgstr "Adicionar um anel interno"
 
-#: gis_data_editor.php:266 js/messages.php:321
+#: gis_data_editor.php:266 js/messages.php:322
 msgid "Polygon"
 msgstr "Polígono"
 
-#: gis_data_editor.php:306 js/messages.php:327
+#: gis_data_editor.php:306 js/messages.php:328
 msgid "Add a polygon"
 msgstr "Adicionar polígono"
 
@@ -956,8 +956,8 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Você provavelmente tentou carregar um arquivo muito grande. Veja referências "
 "na %sdocumentation%s para burlar esses limites."
@@ -1156,7 +1156,7 @@ msgstr "Remover os usuários selecionados"
 msgid "Close"
 msgstr "Fechar"
 
-#: js/messages.php:65 js/messages.php:277 libraries/Index.class.php:468
+#: js/messages.php:65 js/messages.php:278 libraries/Index.class.php:468
 #: libraries/common.lib.php:648 libraries/common.lib.php:1194
 #: libraries/common.lib.php:3351 libraries/common.lib.php:3352
 #: libraries/config/messages.inc.php:484 libraries/display_tbl.lib.php:1389
@@ -1529,27 +1529,32 @@ msgid "Differential"
 msgstr "Diferencial"
 
 #: js/messages.php:171
-#, php-format
-msgid "Divided by %s:"
+#, fuzzy, php-format
+#| msgid "Divided by %s:"
+msgid "Divided by %s"
 msgstr "Dividido por %s:"
 
-#: js/messages.php:173
+#: js/messages.php:172
+msgid "Unit"
+msgstr ""
+
+#: js/messages.php:174
 msgid "From slow log"
 msgstr "Do log lento"
 
-#: js/messages.php:174
+#: js/messages.php:175
 msgid "From general log"
 msgstr "Do relatório geral"
 
-#: js/messages.php:175
+#: js/messages.php:176
 msgid "Analysing & loading logs. This may take a while."
 msgstr "Analisando e carregando logs. Isso pode demorar."
 
-#: js/messages.php:176
+#: js/messages.php:177
 msgid "Cancel request"
 msgstr "Cancelar solicitação"
 
-#: js/messages.php:177
+#: js/messages.php:178
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
@@ -1560,7 +1565,7 @@ msgstr ""
 "de agrupamento, por isso os outros atributos de consultas, tais como horário "
 "de início, podem ser diferentes."
 
-#: js/messages.php:178
+#: js/messages.php:179
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
@@ -1570,91 +1575,91 @@ msgstr ""
 "INSERT na mesma tabela também são agrupadas juntas, desconsiderando os dados "
 "inseridos."
 
-#: js/messages.php:179
+#: js/messages.php:180
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr "Log de dados carregado, Busca efetuada neste período de tempo:"
 
-#: js/messages.php:181
+#: js/messages.php:182
 msgid "Jump to Log table"
 msgstr "Ir para a tabela de Log"
 
-#: js/messages.php:182
+#: js/messages.php:183
 msgid "Log analysed, but no data found in this time span."
 msgstr "Log analizado, nenhum dado encontrado neste intervalo de tempo"
 
-#: js/messages.php:184
+#: js/messages.php:185
 msgid "Analyzing..."
 msgstr "Analisando..."
 
-#: js/messages.php:185
+#: js/messages.php:186
 #, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
 msgstr "Explicar SQL"
 
-#: js/messages.php:187 js/messages.php:493 libraries/rte/rte_list.lib.php:62
+#: js/messages.php:188 js/messages.php:494 libraries/rte/rte_list.lib.php:62
 #: libraries/rte/rte_triggers.lib.php:326 server_status.php:1236 sql.php:897
 msgid "Time"
 msgstr "Tempo"
 
-#: js/messages.php:188
+#: js/messages.php:189
 msgid "Total time:"
 msgstr "Tempo total:"
 
-#: js/messages.php:189
+#: js/messages.php:190
 #, fuzzy
 #| msgid "Profiling"
 msgid "Profiling results"
 msgstr "Perfil"
 
-#: js/messages.php:190
+#: js/messages.php:191
 msgctxt "Display format"
 msgid "Table"
 msgstr "Tabela"
 
-#: js/messages.php:191
+#: js/messages.php:192
 #, fuzzy
 msgid "Chart"
 msgstr "Conjuntos de caracteres"
 
 #. l10n: A collection of available filters
-#: js/messages.php:194
+#: js/messages.php:195
 #, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
 msgstr "Opções de filtragem da tabela de registro"
 
 #. l10n: Filter as in "Start Filtering"
-#: js/messages.php:196
+#: js/messages.php:197
 msgid "Filter"
 msgstr "Filtro"
 
-#: js/messages.php:197
+#: js/messages.php:198
 msgid "Filter queries by word/regexp:"
 msgstr "Filtrar consultas por palavra/expressão regular:"
 
-#: js/messages.php:198
+#: js/messages.php:199
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 "Consultas em grupo, ignorando os valores de variáveis da cláusula WHERE"
 
-#: js/messages.php:199
+#: js/messages.php:200
 msgid "Sum of grouped rows:"
 msgstr "Número de linhas agrupadas:"
 
-#: js/messages.php:200
+#: js/messages.php:201
 msgid "Total:"
 msgstr "Total:"
 
-#: js/messages.php:202
+#: js/messages.php:203
 msgid "Loading logs"
 msgstr "Carregando relatorios"
 
-#: js/messages.php:203
+#: js/messages.php:204
 msgid "Monitor refresh failed"
 msgstr "Atualização do monitor falhou."
 
-#: js/messages.php:204
+#: js/messages.php:205
 #, fuzzy
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
@@ -1665,22 +1670,22 @@ msgstr ""
 "Provavelmente foi porque a sua sessão expirou. Atualizando a página e "
 "reinserindo as suas credenciais deve ajudar."
 
-#: js/messages.php:205
+#: js/messages.php:206
 msgid "Reload page"
 msgstr "Recarregar página"
 
-#: js/messages.php:207
+#: js/messages.php:208
 msgid "Affected rows:"
 msgstr "Linhas afetadas:"
 
-#: js/messages.php:209
+#: js/messages.php:210
 #, fuzzy
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 "Falha ao processar o arquivo de configuração. Não parece ser código JSON "
 "válido"
 
-#: js/messages.php:210
+#: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
@@ -1688,182 +1693,182 @@ msgstr ""
 "Falha ao construir a grade do gráfico com a configuração importada. "
 "Restaurando a configuração padrão "
 
-#: js/messages.php:211 libraries/config/messages.inc.php:172
+#: js/messages.php:212 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
 #: prefs_manage.php:229 server_status.php:1595 setup/frames/menu.inc.php:20
 msgid "Import"
 msgstr "Importar"
 
-#: js/messages.php:213
+#: js/messages.php:214
 #, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
 msgstr "Analisar a consulta"
 
-#: js/messages.php:217
+#: js/messages.php:218
 msgid "Advisor system"
 msgstr ""
 
-#: js/messages.php:218
+#: js/messages.php:219
 msgid "Possible performance issues"
 msgstr "Possíveis problemas de performance"
 
-#: js/messages.php:219
+#: js/messages.php:220
 msgid "Issue"
 msgstr "Questão"
 
-#: js/messages.php:220
+#: js/messages.php:221
 msgid "Recommendation"
 msgstr "Recomendações"
 
-#: js/messages.php:221
+#: js/messages.php:222
 #, fuzzy
 #| msgid "Details"
 msgid "Rule details"
 msgstr "Detalhes da regra"
 
-#: js/messages.php:222
+#: js/messages.php:223
 #, fuzzy
 #| msgid "Authentication"
 msgid "Justification"
 msgstr "Razão"
 
-#: js/messages.php:223
+#: js/messages.php:224
 msgid "Used variable / formula"
 msgstr "Variável / formula utilizada"
 
-#: js/messages.php:224
+#: js/messages.php:225
 msgid "Test"
 msgstr "Teste"
 
-#: js/messages.php:229 pmd_general.php:382 pmd_general.php:419
+#: js/messages.php:230 pmd_general.php:382 pmd_general.php:419
 #: pmd_general.php:539 pmd_general.php:587 pmd_general.php:663
 #: pmd_general.php:717 pmd_general.php:780
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: js/messages.php:232
+#: js/messages.php:233
 msgid "Loading"
 msgstr "Carregando"
 
-#: js/messages.php:233
+#: js/messages.php:234
 msgid "Processing Request"
 msgstr "Processando a requisição"
 
-#: js/messages.php:234 libraries/rte/rte_export.lib.php:39
+#: js/messages.php:235 libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
 msgstr "Erro no processamento da requisição"
 
-#: js/messages.php:235
+#: js/messages.php:236
 msgid "Dropping Column"
 msgstr "Excluindo coluna"
 
-#: js/messages.php:236
+#: js/messages.php:237
 msgid "Adding Primary Key"
 msgstr "Adicionar chave primária"
 
-#: js/messages.php:237 libraries/relation.lib.php:80 pmd_general.php:380
+#: js/messages.php:238 libraries/relation.lib.php:80 pmd_general.php:380
 #: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
 #: pmd_general.php:715 pmd_general.php:778
 msgid "OK"
 msgstr "OK"
 
-#: js/messages.php:238
+#: js/messages.php:239
 msgid "Click to dismiss this notification"
 msgstr "Clique para fechar esta notificação"
 
-#: js/messages.php:241
+#: js/messages.php:242
 msgid "Renaming Databases"
 msgstr "Renomeando o Banco de Dados"
 
-#: js/messages.php:242
+#: js/messages.php:243
 msgid "Reload Database"
 msgstr "Recarregar o Banco de Dados"
 
-#: js/messages.php:243
+#: js/messages.php:244
 msgid "Copying Database"
 msgstr "Copiar Banco de Dados"
 
-#: js/messages.php:244
+#: js/messages.php:245
 msgid "Changing Charset"
 msgstr "Modificando charset"
 
-#: js/messages.php:245
+#: js/messages.php:246
 msgid "Table must have at least one column"
 msgstr "A tabela deve ter pelo menos uma coluna"
 
-#: js/messages.php:250
+#: js/messages.php:251
 msgid "Insert Table"
 msgstr "Inserir tabela"
 
-#: js/messages.php:251
+#: js/messages.php:252
 msgid "Hide indexes"
 msgstr "Ocultar índices"
 
-#: js/messages.php:252
+#: js/messages.php:253
 msgid "Show indexes"
 msgstr "Mostrar índices"
 
-#: js/messages.php:255
+#: js/messages.php:256
 msgid "Searching"
 msgstr "Buscando"
 
-#: js/messages.php:256
+#: js/messages.php:257
 msgid "Hide search results"
 msgstr "Ocultar resultados da pesquisa"
 
-#: js/messages.php:257
+#: js/messages.php:258
 msgid "Show search results"
 msgstr "Mostrar resultados da pesquisa"
 
-#: js/messages.php:258
+#: js/messages.php:259
 msgid "Browsing"
 msgstr "Navegação"
 
-#: js/messages.php:259
+#: js/messages.php:260
 msgid "Deleting"
 msgstr "Apagando %s"
 
-#: js/messages.php:262
+#: js/messages.php:263
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 "A definição de uma função armazenada deve conter uma instrução de RETURN!"
 
-#: js/messages.php:269
+#: js/messages.php:270
 #, fuzzy, php-format
 #| msgid "+ Add a value"
 msgid "Add %d value(s)"
 msgstr "Adicionar %d valor(es)"
 
-#: js/messages.php:272
+#: js/messages.php:273
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr "Nota: Se o arquivo contém várias tabelas, elas serão combinadas em uma"
 
-#: js/messages.php:275
+#: js/messages.php:276
 msgid "Hide query box"
 msgstr "Ocultar caixa de consulta"
 
-#: js/messages.php:276
+#: js/messages.php:277
 msgid "Show query box"
 msgstr "Mostrar caixa de consulta"
 
-#: js/messages.php:278 tbl_row_action.php:28
+#: js/messages.php:279 tbl_row_action.php:28
 msgid "No rows selected"
 msgstr "Nenhum registro selecionado"
 
-#: js/messages.php:279 libraries/common.lib.php:2743
+#: js/messages.php:280 libraries/common.lib.php:2743
 #: libraries/display_tbl.lib.php:2506 querywindow.php:87 tbl_structure.php:149
 #: tbl_structure.php:572
 msgid "Change"
 msgstr "Alterar"
 
-#: js/messages.php:280
+#: js/messages.php:281
 msgid "Query execution time"
 msgstr "Tempo de execução da busca"
 
-#: js/messages.php:283 libraries/config/FormDisplay.tpl.php:355
+#: js/messages.php:284 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
 #: libraries/tbl_properties.inc.php:714 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:228 tbl_change.php:1025
@@ -1871,105 +1876,105 @@ msgstr "Tempo de execução da busca"
 msgid "Save"
 msgstr "Salvar"
 
-#: js/messages.php:286
+#: js/messages.php:287
 msgid "Hide search criteria"
 msgstr "Ocultar critério de pesquisa"
 
-#: js/messages.php:287
+#: js/messages.php:288
 msgid "Show search criteria"
 msgstr "Exibir critério de pesquisa"
 
-#: js/messages.php:290 libraries/tbl_select.lib.php:110
+#: js/messages.php:291 libraries/tbl_select.lib.php:110
 #, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
 msgstr "Procura detalhada"
 
-#: js/messages.php:292
+#: js/messages.php:293
 msgid "Each point represents a data row."
 msgstr "Cada ponto representa uma linha de dados"
 
-#: js/messages.php:294
+#: js/messages.php:295
 msgid "Hovering over a point will show its label."
 msgstr ""
 
-#: js/messages.php:296
+#: js/messages.php:297
 msgid "Use mousewheel to zoom in or out of the plot."
 msgstr "Use a roda do mouse para ampliação ou redução do plano"
 
-#: js/messages.php:298
+#: js/messages.php:299
 msgid "Click and drag the mouse to navigate the plot."
 msgstr "Clique e arraste com o mouse para navegar no mapa"
 
-#: js/messages.php:300
+#: js/messages.php:301
 msgid "Click reset zoom link to come back to original state."
 msgstr "Clique no link resetar zoom para voltar ao estado original"
 
-#: js/messages.php:302
+#: js/messages.php:303
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 "Clique em um ponto de dados para ver e possivelmente editar a linha de dados."
 
-#: js/messages.php:304
+#: js/messages.php:305
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 "O plano pode ser redimensionado arrastando-o ao longo do canto inferior "
 "direito."
 
-#: js/messages.php:306
+#: js/messages.php:307
 msgid "Strings are converted into integer for plotting"
 msgstr "Strings serão convertidos em inteiros por planejamento"
 
-#: js/messages.php:308
+#: js/messages.php:309
 msgid "Select two columns"
 msgstr "Selecione duas colunas"
 
-#: js/messages.php:309
+#: js/messages.php:310
 msgid "Select two different columns"
 msgstr "Selecione duas colunas diferentes"
 
-#: js/messages.php:310
+#: js/messages.php:311
 #, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
 msgstr "Operações resultantes das consultas"
 
-#: js/messages.php:311
+#: js/messages.php:312
 #, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
 msgstr "Tamanho do ponteiro de dados"
 
-#: js/messages.php:314 tbl_change.php:312 tbl_indexes.php:228
+#: js/messages.php:315 tbl_change.php:312 tbl_indexes.php:228
 #: tbl_indexes.php:255
 msgid "Ignore"
 msgstr "Ignorar"
 
-#: js/messages.php:315 libraries/display_tbl.lib.php:1390
+#: js/messages.php:316 libraries/display_tbl.lib.php:1390
 msgid "Copy"
 msgstr "Copiar"
 
-#: js/messages.php:330
+#: js/messages.php:331
 msgid "Add columns"
 msgstr "Adicionar colunas"
 
-#: js/messages.php:333
+#: js/messages.php:334
 msgid "Select referenced key"
 msgstr "Seleciona chave referenciada"
 
-#: js/messages.php:334
+#: js/messages.php:335
 msgid "Select Foreign Key"
 msgstr "Selecionar Chave Estrangeira"
 
-#: js/messages.php:335
+#: js/messages.php:336
 msgid "Please select the primary key or a unique key"
 msgstr "Por favor, selecione uma chave primária ou uma chave única"
 
-#: js/messages.php:336 pmd_general.php:77 tbl_relation.php:541
+#: js/messages.php:337 pmd_general.php:77 tbl_relation.php:541
 msgid "Choose column to display"
 msgstr "Marque a coluna para exibir"
 
-#: js/messages.php:337
+#: js/messages.php:338
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -1977,15 +1982,15 @@ msgstr ""
 "Você não salvou as mudanças no layout. Eles serão perdidos se você não salva-"
 "los. Deseja continuar mesmo assim?"
 
-#: js/messages.php:340
+#: js/messages.php:341
 msgid "Add an option for column "
 msgstr "Adicionar uma opção para a coluna"
 
-#: js/messages.php:343
+#: js/messages.php:344
 msgid "Press escape to cancel editing"
 msgstr "Pressione esc para cancelar a edição"
 
-#: js/messages.php:344
+#: js/messages.php:345
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -1993,23 +1998,23 @@ msgstr ""
 "Você editou alguns dados e estes não foram salvos. Você tem certeza que quer "
 "sair desta pagina antes de salvar os dados?"
 
-#: js/messages.php:345
+#: js/messages.php:346
 msgid "Drag to reorder"
 msgstr "Arraste para reordenar"
 
-#: js/messages.php:346
+#: js/messages.php:347
 msgid "Click to sort"
 msgstr "Clique para organizar"
 
-#: js/messages.php:347
+#: js/messages.php:348
 msgid "Click to mark/unmark"
 msgstr "Clique para marcar/desmarcar"
 
-#: js/messages.php:348
+#: js/messages.php:349
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr "Clique na seta<br />para alternar a visibilidade da coluna"
 
-#: js/messages.php:350
+#: js/messages.php:351
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -2018,34 +2023,34 @@ msgstr ""
 "Editar, Marcar, Editar, Copiar e Apagar podem não funcionar mais após ser "
 "salva"
 
-#: js/messages.php:351
+#: js/messages.php:352
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
 "Você também pode editar algumas colunas<br/>clicando diretamente em seu "
 "conteúdo"
 
-#: js/messages.php:352
+#: js/messages.php:353
 msgid "Go to link"
 msgstr "Ir para o link"
 
-#: js/messages.php:355
+#: js/messages.php:356
 msgid "Generate password"
 msgstr "Gerar senha"
 
-#: js/messages.php:356 libraries/replication_gui.lib.php:369
+#: js/messages.php:357 libraries/replication_gui.lib.php:369
 msgid "Generate"
 msgstr "Gerar"
 
-#: js/messages.php:357
+#: js/messages.php:358
 msgid "Change Password"
 msgstr "Alterar senha"
 
-#: js/messages.php:360 tbl_structure.php:465
+#: js/messages.php:361 tbl_structure.php:465
 msgid "More"
 msgstr "Mais"
 
-#: js/messages.php:363 setup/lib/index.lib.php:173
+#: js/messages.php:364 setup/lib/index.lib.php:173
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2055,268 +2060,268 @@ msgstr ""
 "atualização. A nova versão é %s, lançada em %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:365
+#: js/messages.php:366
 msgid ", latest stable version:"
 msgstr ". última versão estável:"
 
-#: js/messages.php:366
+#: js/messages.php:367
 msgid "up to date"
 msgstr "até à data"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:385
+#: js/messages.php:386
 msgid "Done"
 msgstr "Concluído"
 
-#: js/messages.php:389
+#: js/messages.php:390
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Anterior"
 
-#: js/messages.php:394
+#: js/messages.php:395
 msgctxt "Next month"
 msgid "Next"
 msgstr "Próximo"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:397
+#: js/messages.php:398
 msgid "Today"
 msgstr "Hoje"
 
-#: js/messages.php:400
+#: js/messages.php:401
 msgid "January"
 msgstr "Janeiro"
 
-#: js/messages.php:401
+#: js/messages.php:402
 msgid "February"
 msgstr "Fevereiro"
 
-#: js/messages.php:402
+#: js/messages.php:403
 msgid "March"
 msgstr "Março"
 
-#: js/messages.php:403
+#: js/messages.php:404
 msgid "April"
 msgstr "Abril"
 
-#: js/messages.php:404
+#: js/messages.php:405
 msgid "May"
 msgstr "Maio"
 
-#: js/messages.php:405
+#: js/messages.php:406
 msgid "June"
 msgstr "Junho"
 
-#: js/messages.php:406
+#: js/messages.php:407
 msgid "July"
 msgstr "Julho"
 
-#: js/messages.php:407
+#: js/messages.php:408
 msgid "August"
 msgstr "Agosto"
 
-#: js/messages.php:408
+#: js/messages.php:409
 msgid "September"
 msgstr "Setembro"
 
-#: js/messages.php:409
+#: js/messages.php:410
 msgid "October"
 msgstr "Outubro"
 
-#: js/messages.php:410
+#: js/messages.php:411
 msgid "November"
 msgstr "Novembro"
 
-#: js/messages.php:411
+#: js/messages.php:412
 msgid "December"
 msgstr "Dezembro"
 
 #. l10n: Short month name
-#: js/messages.php:415 libraries/common.lib.php:1606
+#: js/messages.php:416 libraries/common.lib.php:1606
 msgid "Jan"
 msgstr "Jan"
 
 #. l10n: Short month name
-#: js/messages.php:417 libraries/common.lib.php:1608
+#: js/messages.php:418 libraries/common.lib.php:1608
 msgid "Feb"
 msgstr "Fev"
 
 #. l10n: Short month name
-#: js/messages.php:419 libraries/common.lib.php:1610
+#: js/messages.php:420 libraries/common.lib.php:1610
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:421 libraries/common.lib.php:1612
+#: js/messages.php:422 libraries/common.lib.php:1612
 msgid "Apr"
 msgstr "Abr"
 
 #. l10n: Short month name
-#: js/messages.php:423 libraries/common.lib.php:1614
+#: js/messages.php:424 libraries/common.lib.php:1614
 msgctxt "Short month name"
 msgid "May"
 msgstr "Mai"
 
 #. l10n: Short month name
-#: js/messages.php:425 libraries/common.lib.php:1616
+#: js/messages.php:426 libraries/common.lib.php:1616
 msgid "Jun"
 msgstr "Jun"
 
 #. l10n: Short month name
-#: js/messages.php:427 libraries/common.lib.php:1618
+#: js/messages.php:428 libraries/common.lib.php:1618
 msgid "Jul"
 msgstr "Jul"
 
 #. l10n: Short month name
-#: js/messages.php:429 libraries/common.lib.php:1620
+#: js/messages.php:430 libraries/common.lib.php:1620
 msgid "Aug"
 msgstr "Ago"
 
 #. l10n: Short month name
-#: js/messages.php:431 libraries/common.lib.php:1622
+#: js/messages.php:432 libraries/common.lib.php:1622
 msgid "Sep"
 msgstr "Set"
 
 #. l10n: Short month name
-#: js/messages.php:433 libraries/common.lib.php:1624
+#: js/messages.php:434 libraries/common.lib.php:1624
 msgid "Oct"
 msgstr "Out"
 
 #. l10n: Short month name
-#: js/messages.php:435 libraries/common.lib.php:1626
+#: js/messages.php:436 libraries/common.lib.php:1626
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:437 libraries/common.lib.php:1628
+#: js/messages.php:438 libraries/common.lib.php:1628
 msgid "Dec"
 msgstr "Dez"
 
-#: js/messages.php:440
+#: js/messages.php:441
 msgid "Sunday"
 msgstr "Domingo"
 
-#: js/messages.php:441
+#: js/messages.php:442
 msgid "Monday"
 msgstr "Segunda"
 
-#: js/messages.php:442
+#: js/messages.php:443
 msgid "Tuesday"
 msgstr "Terça"
 
-#: js/messages.php:443
+#: js/messages.php:444
 msgid "Wednesday"
 msgstr "Quarta"
 
-#: js/messages.php:444
+#: js/messages.php:445
 msgid "Thursday"
 msgstr "Quinta"
 
-#: js/messages.php:445
+#: js/messages.php:446
 msgid "Friday"
 msgstr "Sexta"
 
-#: js/messages.php:446
+#: js/messages.php:447
 msgid "Saturday"
 msgstr "Sábado"
 
 #. l10n: Short week day name
-#: js/messages.php:450
+#: js/messages.php:451
 msgid "Sun"
 msgstr "Dom"
 
 #. l10n: Short week day name
-#: js/messages.php:452 libraries/common.lib.php:1633
+#: js/messages.php:453 libraries/common.lib.php:1633
 msgid "Mon"
 msgstr "Seg"
 
 #. l10n: Short week day name
-#: js/messages.php:454 libraries/common.lib.php:1635
+#: js/messages.php:455 libraries/common.lib.php:1635
 msgid "Tue"
 msgstr "Ter"
 
 #. l10n: Short week day name
-#: js/messages.php:456 libraries/common.lib.php:1637
+#: js/messages.php:457 libraries/common.lib.php:1637
 msgid "Wed"
 msgstr "Qua"
 
 #. l10n: Short week day name
-#: js/messages.php:458 libraries/common.lib.php:1639
+#: js/messages.php:459 libraries/common.lib.php:1639
 msgid "Thu"
 msgstr "Qui"
 
 #. l10n: Short week day name
-#: js/messages.php:460 libraries/common.lib.php:1641
+#: js/messages.php:461 libraries/common.lib.php:1641
 msgid "Fri"
 msgstr "Sex"
 
 #. l10n: Short week day name
-#: js/messages.php:462 libraries/common.lib.php:1643
+#: js/messages.php:463 libraries/common.lib.php:1643
 msgid "Sat"
 msgstr "Sab"
 
 #. l10n: Minimal week day name
-#: js/messages.php:466
+#: js/messages.php:467
 msgid "Su"
 msgstr "Dom"
 
 #. l10n: Minimal week day name
-#: js/messages.php:468
+#: js/messages.php:469
 msgid "Mo"
 msgstr "Seg"
 
 #. l10n: Minimal week day name
-#: js/messages.php:470
+#: js/messages.php:471
 msgid "Tu"
 msgstr "Ter"
 
 #. l10n: Minimal week day name
-#: js/messages.php:472
+#: js/messages.php:473
 msgid "We"
 msgstr "Qua"
 
 #. l10n: Minimal week day name
-#: js/messages.php:474
+#: js/messages.php:475
 msgid "Th"
 msgstr "Qui"
 
 #. l10n: Minimal week day name
-#: js/messages.php:476
+#: js/messages.php:477
 msgid "Fr"
 msgstr "Sex"
 
 #. l10n: Minimal week day name
-#: js/messages.php:478
+#: js/messages.php:479
 msgid "Sa"
 msgstr "Sab"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:480
+#: js/messages.php:481
 msgid "Wk"
 msgstr "Sem"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
-#: js/messages.php:483
+#: js/messages.php:484
 msgid "calendar-month-year"
 msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:485
+#: js/messages.php:486
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "Nenhum"
 
-#: js/messages.php:494
+#: js/messages.php:495
 msgid "Hour"
 msgstr "Hora"
 
-#: js/messages.php:495
+#: js/messages.php:496
 msgid "Minute"
 msgstr "Minuto"
 
-#: js/messages.php:496
+#: js/messages.php:497
 msgid "Second"
 msgstr "Segundo"
 
@@ -2636,8 +2641,8 @@ msgstr "Bem vindo ao %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "A provável razão para isso é que você não criou o arquivo de configuração. "
 "Você deve usar o %1$ssetup script%2$s para criar um."
@@ -5703,8 +5708,8 @@ msgstr ", @TABLE@ se tornará o nome da tabela"
 #| "will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Esse valor é interpretado usando %1$sstrftime%2$s, então você pode usar as "
 "strings de formatação de tempo. Adicionalmente a seguinte transformação "
@@ -6435,8 +6440,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -8329,7 +8334,7 @@ msgstr "Operador"
 msgid "Table Search"
 msgstr "Procurar"
 
-#: libraries/tbl_select.lib.php:181 tbl_change.php:1000
+#: libraries/tbl_select.lib.php:175 tbl_change.php:1000
 #, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
@@ -9455,8 +9460,8 @@ msgstr "Eliminar o Banco de Dados que possui o mesmo nome dos usuários."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Nota: O phpMyAdmin recebe os privilégios dos usuário diretamente da tabela "
 "de privilégios do MySQL. O conteúdo destas tabelas pode divergir dos "
@@ -12441,8 +12446,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -12572,8 +12577,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: po/advisory_rules.php:115
