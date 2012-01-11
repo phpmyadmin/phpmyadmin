@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-11 16:30+0200\n"
+"PO-Revision-Date: 2012-01-11 16:31+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -1289,10 +1289,9 @@ msgid "Query cache usage"
 msgstr "Užklausų pagreitinimo (kešo) naudojamumas"
 
 #: js/messages.php:99
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
-msgstr "Užklausų saugykla"
+msgstr "Užklausų pagreitinimas (kešas) naudojamas"
 
 #: js/messages.php:101
 msgid "System CPU Usage"
