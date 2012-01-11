@@ -2285,9 +2285,9 @@ msgid "Second"
 msgstr "秒"
 
 #: libraries/Advisor.class.php:168
-#, php-format
+#, fuzzy, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
-msgstr ""
+msgstr "格式化字符串失败'%s'.PHP给出了如下错误：%s"
 
 #: libraries/Advisor.class.php:326 server_status.php:950
 msgid "per second"
