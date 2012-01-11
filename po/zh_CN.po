@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-07 07:40-0500\n"
-"PO-Revision-Date: 2012-01-11 04:51+0200\n"
+"PO-Revision-Date: 2012-01-11 04:52+0200\n"
 "Last-Translator: vian <brovian@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -12655,7 +12655,7 @@ msgstr "对于表引擎来说，InnoDB是一个更好的选择"
 
 #: po/advisory_rules.php:253
 msgid "have_innodb is set to 'value'"
-msgstr ""
+msgstr "have_innodb被设置为'value'"
 
 #: po/advisory_rules.php:255
 #| msgid "Buffer pool size"
