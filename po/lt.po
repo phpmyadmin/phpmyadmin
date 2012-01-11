@@ -1754,7 +1754,7 @@ msgstr "Naudojamas kintamasis / formulė"
 
 #: js/messages.php:225
 msgid "Test"
-msgstr ""
+msgstr "Išbandyti"
 
 #: js/messages.php:230 pmd_general.php:382 pmd_general.php:419
 #: pmd_general.php:539 pmd_general.php:587 pmd_general.php:663
