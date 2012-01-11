@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-11 16:34+0200\n"
+"PO-Revision-Date: 2012-01-11 16:35+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -12433,10 +12433,9 @@ msgid "Rate of reading next table row"
 msgstr "Kde zobrazit odkazy s akcemi při procházení"
 
 #: po/advisory_rules.php:141
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "The rate of reading the next table row is high."
-msgstr "Kde zobrazit odkazy s akcemi při procházení"
+msgstr "Četnost čtení dalšího řádku tabulky je příliš vysoká."
 
 #: po/advisory_rules.php:142
 msgid ""
