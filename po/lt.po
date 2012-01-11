@@ -1851,10 +1851,10 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Apibrėžimas „stored“ funkcijos turi turėti RETURN teiginį."
 
 #: js/messages.php:270
-#, fuzzy, php-format
+#, php-format
 #| msgid "+ Add a value"
 msgid "Add %d value(s)"
-msgstr "+ Pridėti reikšmę"
+msgstr "Pridėti %d reikšmę(-es)"
 
 #: js/messages.php:273
 msgid ""
