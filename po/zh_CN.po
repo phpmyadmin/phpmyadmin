@@ -1109,7 +1109,7 @@ msgstr "编辑索引"
 #, php-format
 #| msgid "Add %s column(s)"
 msgid "Add %d column(s) to index"
-msgstr "添加 %s 个字段至索引"
+msgstr "添加 %d 个字段至索引"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:52
