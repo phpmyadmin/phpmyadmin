@@ -12437,7 +12437,7 @@ msgstr "Četnost čtení dalšího řádku tabulky"
 #: po/advisory_rules.php:141
 #| msgid "Where to show the table row links"
 msgid "The rate of reading the next table row is high."
-msgstr "Četnost čtení dalšího řádku tabulky je příliš vysoká."
+msgstr "Ke čtení dalšího řádku tabulky dochází příliš často."
 
 #: po/advisory_rules.php:142
 msgid ""
