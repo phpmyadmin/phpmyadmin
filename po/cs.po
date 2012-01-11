@@ -12241,6 +12241,9 @@ msgid ""
 "overhead of maintaining the cache is likely to increase with its size, so do "
 "this in small increments and monitor the results."
 msgstr ""
+"Bylo by vhodné zvětšit {query_cache_size}. Mějte ale na paměti, že s větší "
+"vyrovnávací pamětí roste i její režie, a proto je lepší zvětšovat ji "
+"postupně a sledovat chování serveru."
 
 #: po/advisory_rules.php:98
 #, php-format
