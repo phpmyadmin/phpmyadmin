@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-09 12:41+0200\n"
+"PO-Revision-Date: 2012-01-11 16:11+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1521,7 +1521,7 @@ msgstr "%s tarafından bölen"
 
 #: js/messages.php:172
 msgid "Unit"
-msgstr ""
+msgstr "Birim"
 
 #: js/messages.php:174
 msgid "From slow log"
