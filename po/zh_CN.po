@@ -4466,7 +4466,7 @@ msgstr "显示帮助按钮"
 
 #: libraries/config/messages.inc.php:359
 msgid "Save all edited cells at once"
-msgstr ""
+msgstr "立刻存储所有已编辑的单元格"
 
 #: libraries/config/messages.inc.php:360
 msgid "Directory where exports can be saved on server"
