@@ -1900,7 +1900,7 @@ msgstr "选择两列"
 
 #: js/messages.php:309
 msgid "Select two different columns"
-msgstr ""
+msgstr "选择两个不同的列"
 
 #: js/messages.php:310
 #, fuzzy
