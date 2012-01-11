@@ -1875,7 +1875,7 @@ msgstr "使用鼠标滚轮放大或缩小此图"
 
 #: js/messages.php:298
 msgid "Click and drag the mouse to navigate the plot."
-msgstr ""
+msgstr "点击并使用鼠标拖拽来操纵图表"
 
 #: js/messages.php:300
 msgid "Click reset zoom link to come back to original state."
