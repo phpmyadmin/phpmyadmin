@@ -1750,7 +1750,7 @@ msgstr "Atpažinimas"
 
 #: js/messages.php:224
 msgid "Used variable / formula"
-msgstr "Naudojamas kintamasis / forumulė"
+msgstr "Naudojamas kintamasis / formulė"
 
 #: js/messages.php:225
 msgid "Test"
