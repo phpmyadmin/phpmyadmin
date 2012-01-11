@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-07 07:40-0500\n"
-"PO-Revision-Date: 2012-01-11 05:52+0200\n"
+"PO-Revision-Date: 2012-01-11 05:53+0200\n"
 "Last-Translator: Vian Zhao <brovian@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -2317,7 +2317,7 @@ msgstr "已存在的配置文件(%s)是不可读的。"
 
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
-msgstr ""
+msgstr "配置文件权限错误，无法写入！"
 
 #: libraries/Config.class.php:1303
 msgid "Font size"
