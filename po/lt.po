@@ -1279,10 +1279,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:97
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache efficiency"
-msgstr "Užklausų saugykla"
+msgstr "Užklausų pagreitinimo (kešo) efektyvumas"
 
 #: js/messages.php:98
 #, fuzzy
