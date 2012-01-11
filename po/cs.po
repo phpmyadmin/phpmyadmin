@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-11 15:40+0200\n"
+"PO-Revision-Date: 2012-01-11 16:23+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -12147,6 +12147,8 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
+"Je zapnuta vyrovnávací paměť dotazů a server přijal %d dotazů za sekundu. "
+"Toto pravidlo je aktivní při více než 100 dotazech za sekundu."
 
 #: po/advisory_rules.php:80
 #, php-format
