@@ -12727,7 +12727,7 @@ msgstr "InnoDB缓冲池大小"
 
 #: po/advisory_rules.php:266
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr ""
+msgstr "你的InnoDB缓冲池相当小"
 
 #: po/advisory_rules.php:267
 #, php-format
