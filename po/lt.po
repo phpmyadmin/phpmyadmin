@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-11 16:44+0200\n"
+"PO-Revision-Date: 2012-01-11 16:45+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -1936,7 +1936,7 @@ msgstr ""
 
 #: js/messages.php:307
 msgid "Strings are converted into integer for plotting"
-msgstr ""
+msgstr "Simboliai yra perkonvertuojami į skaičių diagramai"
 
 #: js/messages.php:309
 #, fuzzy
