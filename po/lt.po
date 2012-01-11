@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-11 16:48+0200\n"
+"PO-Revision-Date: 2012-01-11 16:49+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2036,10 +2036,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:353
-#, fuzzy
 #| msgid "Go to view"
 msgid "Go to link"
-msgstr "Eiti į rodinį (view)"
+msgstr "Eiti pagal nuorodą"
 
 #: js/messages.php:356
 msgid "Generate password"
