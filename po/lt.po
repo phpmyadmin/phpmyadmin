@@ -851,10 +851,9 @@ msgid "Selected export type has to be saved in file!"
 msgstr "Pasirinktas eksportavimo tipas gali būti saugomas tik faile!"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Bad parameters!"
-msgstr "Pridėti parametrą"
+msgstr "Blogi parametrai!"
 
 #: export.php:166 export.php:191 export.php:652
 #, php-format
