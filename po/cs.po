@@ -12136,6 +12136,10 @@ msgid ""
 "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
+"Používáte vyrovnávací paměť dotazů MySQL na poměrně zatížené databázi. Mohlo "
+"by být výhodnější použít <a href=\"http://dev.mysql.com/doc/refman/5.5/en"
+"/ha-memcached.html\">memcached</a>, obzvlášť pokud máte více podřízených "
+"serverů."
 
 #: po/advisory_rules.php:78
 #, php-format
