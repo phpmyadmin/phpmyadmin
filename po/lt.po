@@ -4588,7 +4588,7 @@ msgstr "Rodyti pagalbos mygtuką"
 
 #: libraries/config/messages.inc.php:359
 msgid "Save all edited cells at once"
-msgstr ""
+msgstr "Per vieną kartą išsaugoti redaguotus laukelius"
 
 #: libraries/config/messages.inc.php:360
 msgid "Directory where exports can be saved on server"
