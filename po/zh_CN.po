@@ -1859,7 +1859,7 @@ msgstr "搜索"
 
 #: js/messages.php:292
 msgid "Each point represents a data row."
-msgstr ""
+msgstr "每个点代表一个数据行。"
 
 #: js/messages.php:294
 msgid "Hovering over a point will show its label."
