@@ -12134,10 +12134,9 @@ msgid "Rate of joins without indexes"
 msgstr "无索引联合的比率"
 
 #: po/advisory_rules.php:126
-#, fuzzy
 #| msgid "There are no routines to display."
 msgid "There are too many joins without indexes."
-msgstr "没有程序。"
+msgstr "有太多的联合查询未使用索引"
 
 #: po/advisory_rules.php:127
 msgid ""
