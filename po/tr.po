@@ -1514,10 +1514,10 @@ msgid "Differential"
 msgstr "Ayırdedici"
 
 #: js/messages.php:171
-#, fuzzy, php-format
+#, php-format
 #| msgid "Divided by %s:"
 msgid "Divided by %s"
-msgstr "Böleni %s:"
+msgstr "%s tarafından bölen"
 
 #: js/messages.php:172
 msgid "Unit"
