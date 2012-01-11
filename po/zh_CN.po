@@ -938,7 +938,7 @@ msgstr "添加新用户"
 
 #: gis_data_editor.php:266 js/messages.php:321
 msgid "Polygon"
-msgstr ""
+msgstr "多边形"
 
 #: gis_data_editor.php:306 js/messages.php:327
 #, fuzzy
