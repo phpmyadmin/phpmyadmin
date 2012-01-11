@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-11 16:36+0200\n"
+"PO-Revision-Date: 2012-01-11 16:41+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -12386,11 +12386,11 @@ msgstr ""
 
 #: po/advisory_rules.php:130
 msgid "Rate of reading first index entry"
-msgstr ""
+msgstr "Četnost čtení prvního záznamu klíče"
 
 #: po/advisory_rules.php:131
 msgid "The rate of reading the first index entry is high."
-msgstr ""
+msgstr "Ke čtení prvního záznamu klíče dochází příliš často."
 
 #: po/advisory_rules.php:132
 msgid ""
@@ -12409,11 +12409,11 @@ msgstr ""
 
 #: po/advisory_rules.php:135
 msgid "Rate of reading fixed position"
-msgstr ""
+msgstr "Četnost čtení na pevné pozici"
 
 #: po/advisory_rules.php:136
 msgid "The rate of reading data from a fixed position is high."
-msgstr ""
+msgstr "Ke čtení dat z pevné pozice dochází příliš často."
 
 #: po/advisory_rules.php:137
 msgid ""
@@ -12430,15 +12430,14 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:140
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Rate of reading next table row"
-msgstr "Kde zobrazit odkazy s akcemi při procházení"
+msgstr "Četnost čtení dalšího řádku tabulky"
 
 #: po/advisory_rules.php:141
 #| msgid "Where to show the table row links"
 msgid "The rate of reading the next table row is high."
-msgstr "Četnost čtení dalšího řádku tabulky je příliš vysoká."
+msgstr "Ke čtení dalšího řádku tabulky dochází příliš často."
 
 #: po/advisory_rules.php:142
 msgid ""
@@ -12454,7 +12453,7 @@ msgstr ""
 
 #: po/advisory_rules.php:145
 msgid "tmp_table_size vs. max_heap_table_size"
-msgstr ""
+msgstr "tmp_table_size a max_heap_table_size"
 
 #: po/advisory_rules.php:146
 msgid "tmp_table_size and max_heap_table_size are not the same."
