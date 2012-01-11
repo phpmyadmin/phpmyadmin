@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-11 16:27+0200\n"
+"PO-Revision-Date: 2012-01-11 16:28+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -12285,6 +12285,8 @@ msgstr "Minimální velikost výsledku dotazu pro uložení do vyrovnávací pam
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
+"Maximální velikost výsledku uloženého do vyrovnávací paměti je výchozích 1 "
+"MiB."
 
 #: po/advisory_rules.php:107
 msgid ""
