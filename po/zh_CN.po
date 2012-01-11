@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-07 07:40-0500\n"
-"PO-Revision-Date: 2012-01-11 04:42+0200\n"
+"PO-Revision-Date: 2012-01-11 04:43+0200\n"
 "Last-Translator: vian <brovian@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -12721,10 +12721,9 @@ msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "你的InnoDB日志文件的绝对大小为%s MB"
 
 #: po/advisory_rules.php:265
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
-msgstr "缓冲池大小"
+msgstr "InnoDB缓冲池大小"
 
 #: po/advisory_rules.php:266
 msgid "Your InnoDB buffer pool is fairly small."
