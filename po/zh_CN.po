@@ -3302,10 +3302,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
 #| msgid "Customize text input fields"
 msgid "Minimum size for input field"
-msgstr "自定义文本输入框"
+msgstr "输入框最小大小"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
