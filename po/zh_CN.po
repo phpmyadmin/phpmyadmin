@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-07 07:40-0500\n"
-"PO-Revision-Date: 2012-01-11 05:02+0200\n"
+"PO-Revision-Date: 2012-01-11 05:04+0200\n"
 "Last-Translator: vian <brovian@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -12419,10 +12419,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:190
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of open files"
-msgstr "导入文件的格式"
+msgstr "打开文件的比率"
 
 #: po/advisory_rules.php:191
 #, fuzzy
