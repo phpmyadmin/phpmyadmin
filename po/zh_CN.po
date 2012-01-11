@@ -12431,7 +12431,7 @@ msgstr "当前打开文件数比率很高"
 #: po/advisory_rules.php:193
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr ""
+msgstr "已打开文件的比率：%s,这个值应该低于5每小时"
 
 #: po/advisory_rules.php:195
 #, fuzzy, php-format
