@@ -1615,10 +1615,9 @@ msgid "Time"
 msgstr "Laikas"
 
 #: js/messages.php:189
-#, fuzzy
 #| msgid "Total:"
 msgid "Total time:"
-msgstr "Iš viso:"
+msgstr "Iš viso užtruko:"
 
 #: js/messages.php:190
 #, fuzzy
