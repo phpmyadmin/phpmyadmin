@@ -1679,7 +1679,7 @@ msgstr "顾问系统"
 
 #: js/messages.php:218
 msgid "Possible performance issues"
-msgstr ""
+msgstr "可能存在的性能问题"
 
 #: js/messages.php:219
 msgid "Issue"
