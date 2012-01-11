@@ -5715,10 +5715,9 @@ msgid "Language"
 msgstr "Language"
 
 #: libraries/display_tbl.lib.php:405
-#, fuzzy
 #| msgid "Save directory"
 msgid "Save edited data"
-msgstr "保存文件夹"
+msgstr "保存已编辑的数据"
 
 #: libraries/display_tbl.lib.php:411
 msgid "Restore column order"
