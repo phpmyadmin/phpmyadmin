@@ -1545,7 +1545,7 @@ msgstr "因选择了分组 INSERT 查询，相同表的 INSERT 查询将被分�
 
 #: js/messages.php:179
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr ""
+msgstr "日志数据已加载。查询执行时间为："
 
 #: js/messages.php:181
 msgid "Jump to Log table"
