@@ -2342,6 +2342,8 @@ msgstr "Sekundės"
 #, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr ""
+"Nepavyko suformuoti eilutės taisyklei „%s“. PHP išspjovė štai tokią klaidą: "
+"%s"
 
 #: libraries/Advisor.class.php:326 server_status.php:950
 msgid "per second"
