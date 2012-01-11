@@ -5106,7 +5106,7 @@ msgstr "Zobrazit SQL dotazy"
 #: libraries/config/messages.inc.php:473
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
-msgstr "Určuje zda má pole pro zadání dotazu zůstat zobrazeno i po odeslání."
+msgstr "Určuje zda má pole pro zadání dotazu zůstat zobrazeno i po odeslání"
 
 #: libraries/config/messages.inc.php:474 libraries/sql_query_form.lib.php:352
 msgid "Retain query box"
