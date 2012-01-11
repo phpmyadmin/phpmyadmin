@@ -1945,7 +1945,7 @@ msgstr "Pasirinkite du stulpelius"
 
 #: js/messages.php:310
 msgid "Select two different columns"
-msgstr ""
+msgstr "Pasirinkite du skirtingus stulpelius"
 
 #: js/messages.php:311
 #, fuzzy
