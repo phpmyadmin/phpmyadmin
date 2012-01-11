@@ -12651,7 +12651,7 @@ msgstr "您没有启用InnoDB"
 
 #: po/advisory_rules.php:252
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "对于表引擎来说，InnoDB是一个更好的选择"
 
 #: po/advisory_rules.php:253
 msgid "have_innodb is set to 'value'"
