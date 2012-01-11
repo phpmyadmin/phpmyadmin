@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-11 16:31+0200\n"
+"PO-Revision-Date: 2012-01-11 16:33+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -1552,7 +1552,7 @@ msgstr "Padalintas į %s:"
 
 #: js/messages.php:172
 msgid "Unit"
-msgstr ""
+msgstr "Vienetas"
 
 #: js/messages.php:174
 msgid "From slow log"
