@@ -1525,10 +1525,9 @@ msgid "Analysing & loading logs. This may take a while."
 msgstr "正在加载并分析日志。请稍候。"
 
 #: js/messages.php:176
-#, fuzzy
 #| msgid "Read requests"
 msgid "Cancel request"
-msgstr "读请求"
+msgstr "取消请求"
 
 #: js/messages.php:177
 msgid ""
