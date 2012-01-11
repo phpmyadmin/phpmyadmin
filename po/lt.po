@@ -4432,7 +4432,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:322
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "Kur parodyti lentelės eilučių nuorodas"
 
 #: libraries/config/messages.inc.php:323
 msgid "Use natural order for sorting table and database names"
