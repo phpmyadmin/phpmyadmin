@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-07 07:40-0500\n"
-"PO-Revision-Date: 2012-01-11 08:14+0200\n"
+"PO-Revision-Date: 2012-01-11 08:19+0200\n"
 "Last-Translator: Vian Zhao <brovian@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -4161,10 +4161,9 @@ msgid "Enable highlighting"
 msgstr "启用高亮"
 
 #: libraries/config/messages.inc.php:290
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr "在数据表列表中最多显示的数据表个数"
+msgstr "最近使用的表数的最大值；设为0则关闭"
 
 #: libraries/config/messages.inc.php:291
 msgid "Recently used tables"
