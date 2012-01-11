@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-11 16:51+0200\n"
+"PO-Revision-Date: 2012-01-11 16:52+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -2382,7 +2382,7 @@ msgstr "Šrifto dydis"
 
 #: libraries/Error_Handler.class.php:62
 msgid "Too many error messages, some are not displayed."
-msgstr ""
+msgstr "Per daug klaidų žinučių, dėl to kai kurių neparodėme."
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."
