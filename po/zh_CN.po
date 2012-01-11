@@ -5739,10 +5739,9 @@ msgid "Number of rows"
 msgstr "行数"
 
 #: libraries/display_tbl.lib.php:434
-#, fuzzy
 #| msgid "More"
 msgid "Mode"
-msgstr "更多"
+msgstr "模式"
 
 #: libraries/display_tbl.lib.php:436
 msgid "horizontal"
