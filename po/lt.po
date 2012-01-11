@@ -2369,7 +2369,7 @@ msgstr "Pašalinkite „./config“ katalogą prieš naudojant phpMyAdmin!"
 #: libraries/Config.class.php:727
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr ""
+msgstr "Esamo konfigūracinio failo (%s) neina nuskaityti."
 
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
