@@ -1999,7 +1999,7 @@ msgstr "Pridėti parinktį stulpeliui/skilčiai"
 
 #: js/messages.php:344
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "Paspausti escape (klavišas Esc), kad išeiti iš redagavimo"
 
 #: js/messages.php:345
 msgid ""
