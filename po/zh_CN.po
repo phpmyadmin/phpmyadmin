@@ -2313,7 +2313,7 @@ msgstr "使用phpMyAdmin前请删除\"./config\"目录!"
 #: libraries/Config.class.php:727
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr ""
+msgstr "已存在的配置文件(%s)是不可读的。"
 
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
