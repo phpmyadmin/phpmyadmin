@@ -1903,10 +1903,9 @@ msgid "Select two different columns"
 msgstr "选择两个不同的列"
 
 #: js/messages.php:310
-#, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
-msgstr "查询结果选项"
+msgstr "查询结果"
 
 #: js/messages.php:311
 #, fuzzy
