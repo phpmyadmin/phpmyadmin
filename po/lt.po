@@ -2374,6 +2374,7 @@ msgstr "Esamo konfigūracinio failo (%s) neina nuskaityti."
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
+"Blogos teisės konfigūracinio failo, neturėtų būti įrašymo galimybė visiems!"
 
 #: libraries/Config.class.php:1303
 msgid "Font size"
