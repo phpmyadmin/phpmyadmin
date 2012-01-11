@@ -922,7 +922,7 @@ msgstr "外环"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:323
 msgid "Inner Ring"
-msgstr ""
+msgstr "内环"
 
 #: gis_data_editor.php:252
 #, fuzzy
