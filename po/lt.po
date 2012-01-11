@@ -1023,6 +1023,8 @@ msgstr ""
 msgid ""
 "Cannot convert file's character set without character set conversion library"
 msgstr ""
+"Negalima perkonvertuoti failo ženklų rinkinio be ženklų rinkinio "
+"konvertavimo bibliotekos"
 
 #: import.php:390 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
