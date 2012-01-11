@@ -1746,7 +1746,7 @@ msgstr "确定"
 
 #: js/messages.php:238
 msgid "Click to dismiss this notification"
-msgstr ""
+msgstr "点击解除这条通知"
 
 #: js/messages.php:241
 msgid "Renaming Databases"
