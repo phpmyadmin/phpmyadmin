@@ -2325,7 +2325,7 @@ msgstr "字号"
 
 #: libraries/Error_Handler.class.php:62
 msgid "Too many error messages, some are not displayed."
-msgstr ""
+msgstr "错误信息太多，部分未显示。"
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."
