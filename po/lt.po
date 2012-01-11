@@ -924,10 +924,9 @@ msgstr "Taškas %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:326
-#, fuzzy
 #| msgid "Add constraints"
 msgid "Add a point"
-msgstr "Pridėti apribojimą"
+msgstr "Pridėti tašką"
 
 #: gis_data_editor.php:220 js/messages.php:321
 #, fuzzy
