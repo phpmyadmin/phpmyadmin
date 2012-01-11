@@ -12940,7 +12940,7 @@ msgstr "Velikost vyrovnávací paměti InnoDB"
 
 #: po/advisory_rules.php:266
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr "Nastavená vyrovnávací paměť InnoDB je poměrně malá"
+msgstr "Nastavená vyrovnávací paměť InnoDB je poměrně malá."
 
 #: po/advisory_rules.php:267
 #, php-format
