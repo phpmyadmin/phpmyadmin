@@ -12561,11 +12561,13 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:168
-#, fuzzy, php-format
+#, php-format
 #| msgid "Max %% MyISAM key buffer ever used"
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
-msgstr "Nejvyšší využití (%%) vyrovnávací paměti MyISAM pro klíče"
+msgstr ""
+"Nejvyšší využití (%%) vyrovnávací paměti MyISAM pro klíče, tato hodnota by "
+"měla být nad 95%%"
 
 #: po/advisory_rules.php:170
 #, fuzzy
