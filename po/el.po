@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-12 08:55+0200\n"
+"PO-Revision-Date: 2012-01-12 08:56+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -4740,10 +4740,9 @@ msgstr ""
 "για χρήση του ήδη ορισμένου"
 
 #: libraries/config/messages.inc.php:386
-#, fuzzy
 #| msgid "Control user"
 msgid "Control host"
-msgstr "Έλεγχος χρήστη"
+msgstr "Έλεγχος φιλοξηνητή"
 
 #: libraries/config/messages.inc.php:387
 msgid "Count tables when showing database list"
