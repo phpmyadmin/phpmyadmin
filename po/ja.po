@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-10 12:19+0200\n"
+"PO-Revision-Date: 2012-01-12 12:02+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1517,7 +1517,7 @@ msgstr "除数 %s"
 
 #: js/messages.php:172
 msgid "Unit"
-msgstr ""
+msgstr "単位"
 
 #: js/messages.php:174
 msgid "From slow log"
