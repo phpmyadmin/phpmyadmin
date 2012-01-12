@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-12 08:40+0200\n"
+"PO-Revision-Date: 2012-01-12 08:41+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -819,10 +819,9 @@ msgid "Values for column %s"
 msgstr "Τιμές για τη στήλη %s"
 
 #: enum_editor.php:34 js/messages.php:269
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
-msgstr "Εισαγωγή κάθε τιμής σε διαφορετικό πεδίο."
+msgstr "Εισαγωγή κάθε τιμής σε διαφορετικό πεδίο"
 
 #: enum_editor.php:123
 #, fuzzy
