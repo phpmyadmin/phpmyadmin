@@ -1584,10 +1584,9 @@ msgstr ""
 "Log dianalisis, tetapi tidak ada data ditemukan dalam rentang waktu ini."
 
 #: js/messages.php:185
-#, fuzzy
 #| msgid "Analyze"
 msgid "Analyzing..."
-msgstr "Analisis"
+msgstr "Menganalisis..."
 
 #: js/messages.php:186
 #, fuzzy
