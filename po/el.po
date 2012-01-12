@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-12 08:41+0200\n"
+"PO-Revision-Date: 2012-01-12 08:42+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -1117,10 +1117,9 @@ msgid "Add Index"
 msgstr "Προσθήκη ευρετηρίου"
 
 #: js/messages.php:47
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit Index"
-msgstr "Κατάσταση επεξεργασίας"
+msgstr "Επεξεργασία ευρετηρίου"
 
 #: js/messages.php:48 tbl_indexes.php:293
 #, fuzzy, php-format
