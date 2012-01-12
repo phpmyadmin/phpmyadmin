@@ -824,10 +824,9 @@ msgid "Enter each value in a separate field"
 msgstr "Εισαγωγή κάθε τιμής σε διαφορετικό πεδίο"
 
 #: enum_editor.php:123
-#, fuzzy
 #| msgid "+ Add a value"
 msgid "Add a value"
-msgstr "+ Προσθήκη μιας τιμής"
+msgstr "Προσθήκη μιας τιμής"
 
 #: enum_editor.php:129 gis_data_editor.php:317
 msgid "Output"
