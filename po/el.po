@@ -2300,7 +2300,7 @@ msgstr "Wiki"
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: js/messages.php:484
 msgid "calendar-month-year"
-msgstr ""
+msgstr "ημερολόγιο-μήνας-έτος"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:486
