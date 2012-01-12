@@ -1528,7 +1528,7 @@ msgstr "Diferensial"
 #, php-format
 #| msgid "Divided by %s:"
 msgid "Divided by %s"
-msgstr "Dibagi oleh %s:"
+msgstr "Dibagi oleh %s"
 
 #: js/messages.php:172
 msgid "Unit"
