@@ -1615,10 +1615,9 @@ msgid "Total time:"
 msgstr "Συνολικός χρόνος:"
 
 #: js/messages.php:190
-#, fuzzy
 #| msgid "Profiling"
 msgid "Profiling results"
-msgstr "Δημιουργία προφίλ"
+msgstr "Αποτελέμσατα προφίλ"
 
 #: js/messages.php:191
 #, fuzzy
