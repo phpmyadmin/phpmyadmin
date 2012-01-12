@@ -1568,6 +1568,8 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
+"Sejak pengelompokan query INSERT telah dipilih, INSERT query ke dalam tabel "
+"yang sama juga sedang dikelompokkan bersama, mengabaikan data dimasukkan."
 
 #: js/messages.php:180
 msgid "Log data loaded. Queries executed in this time span:"
