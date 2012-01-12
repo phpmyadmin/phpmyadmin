@@ -1540,7 +1540,7 @@ msgstr "Διαίρεση με %s"
 
 #: js/messages.php:172
 msgid "Unit"
-msgstr ""
+msgstr "Μονάδα"
 
 #: js/messages.php:174
 msgid "From slow log"
