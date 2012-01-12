@@ -1938,10 +1938,9 @@ msgid "Query results"
 msgstr "Ααποτελέσματα ερωτήματος"
 
 #: js/messages.php:312
-#, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
-msgstr "Μέγεθος δείκτη δεδομένων"
+msgstr "Περιεχόμενο δείκτη δεδομένων"
 
 #: js/messages.php:315 tbl_change.php:312 tbl_indexes.php:228
 #: tbl_indexes.php:255
