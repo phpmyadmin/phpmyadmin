@@ -1686,11 +1686,10 @@ msgid "Affected rows:"
 msgstr "Επηρρεαζόμενες εγγραφές"
 
 #: js/messages.php:210
-#, fuzzy
 #| msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
-"Αποτυχία ανάλυσης αρχείου config. Δεν φαίνεται να είναι έγκυρος κώδκας JSON"
+"Αποτυχία ανάλυσης αρχείου config. Δεν φαίνεται να είναι έγκυρος κώδκας JSON."
 
 #: js/messages.php:211
 msgid ""
