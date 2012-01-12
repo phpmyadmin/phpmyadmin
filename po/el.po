@@ -5599,7 +5599,7 @@ msgstr "Ο διακομιστής δεν αποκρίνεται."
 
 #: libraries/database_interface.lib.php:1820
 msgid "Please check privileges of directory containing database."
-msgstr ""
+msgstr "Ελέξτε τα δικαιώματα του φακέλου που περιέχει τη βάση δεδομένων."
 
 #: libraries/database_interface.lib.php:1828
 msgid "Details..."
