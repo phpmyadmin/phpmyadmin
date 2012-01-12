@@ -2366,7 +2366,7 @@ msgstr "Μέγεθος γραμματοσειράς"
 
 #: libraries/Error_Handler.class.php:62
 msgid "Too many error messages, some are not displayed."
-msgstr ""
+msgstr "Πολλά μηνύματα σφάλματος, ορισμένα δεν εμφανίζονται."
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."
