@@ -1513,7 +1513,7 @@ msgstr "差分値"
 #: js/messages.php:171
 #, php-format
 msgid "Divided by %s"
-msgstr ""
+msgstr "除数 %s"
 
 #: js/messages.php:172
 msgid "Unit"
