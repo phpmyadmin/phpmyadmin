@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
 "PO-Revision-Date: 2012-01-12 07:35+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: udienz <udienz@ubuntu.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
@@ -1582,6 +1582,7 @@ msgstr "Langsung ke tabel Log"
 #: js/messages.php:183
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
+"Log dianalisis, tetapi tidak ada data ditemukan dalam rentang waktu ini."
 
 #: js/messages.php:185
 #, fuzzy
