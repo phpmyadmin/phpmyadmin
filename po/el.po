@@ -1836,10 +1836,10 @@ msgstr ""
 "Ο ορισμός μιας αποθηκευμένης συνάρτησης πρέπει να περιέχει μια δήλωση RETURN!"
 
 #: js/messages.php:270
-#, fuzzy, php-format
+#, php-format
 #| msgid "+ Add a value"
 msgid "Add %d value(s)"
-msgstr "+ Προσθήκη μιας τιμής"
+msgstr "Προσθήκη %d τιμής(ών)"
 
 #: js/messages.php:273
 msgid ""
