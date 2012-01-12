@@ -1610,10 +1610,9 @@ msgid "Time"
 msgstr "Χρόνος"
 
 #: js/messages.php:189
-#, fuzzy
 #| msgid "Total:"
 msgid "Total time:"
-msgstr "Σύνολο:"
+msgstr "Συνολικός χρόνος:"
 
 #: js/messages.php:190
 #, fuzzy
