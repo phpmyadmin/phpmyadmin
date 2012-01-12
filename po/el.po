@@ -4823,6 +4823,8 @@ msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed"
 msgstr ""
+"Περιορίζει τον αριθμό των προτιμήσεων πινάκων που αποθηκεύονται στη βάση "
+"δεδομένων, οι παλαιές εγγραφές απομακρύνονται αυτόματα"
 
 #: libraries/config/messages.inc.php:403
 #, fuzzy
