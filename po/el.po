@@ -1122,10 +1122,10 @@ msgid "Edit Index"
 msgstr "Επεξεργασία ευρετηρίου"
 
 #: js/messages.php:48 tbl_indexes.php:293
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s column(s)"
 msgid "Add %d column(s) to index"
-msgstr "Προσθήκη %s στήλης(ών)"
+msgstr "Προσθήκη %d στήλης(ών) στο ευρετήριο"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:52
