@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-09 12:04+0200\n"
-"Last-Translator: Simon R. Purba <simonr.purba@gmail.com>\n"
+"PO-Revision-Date: 2012-01-12 07:33+0200\n"
+"Last-Translator: udienz <udienz@ubuntu.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
@@ -1239,7 +1239,7 @@ msgstr "Perintah sejak penyegaran terakhir"
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:89
 msgid "Questions (executed statements by the server)"
-msgstr "Perintah (perintah yang dieksekusi server)"
+msgstr "Pertanyaan2 (statement2 yang dieksekusi server)"
 
 #: js/messages.php:91 server_status.php:783
 msgid "Query statistics"
