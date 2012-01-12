@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-12 07:40+0200\n"
+"PO-Revision-Date: 2012-01-12 07:41+0200\n"
 "Last-Translator: udienz <udienz@ubuntu.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1638,7 +1638,7 @@ msgstr "Saring query berdasarkan kata/regexp:"
 
 #: js/messages.php:199
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
+msgstr "Pengelompokan queri, abakan variabel data dalan klausa WHERE"
 
 #: js/messages.php:200
 msgid "Sum of grouped rows:"
