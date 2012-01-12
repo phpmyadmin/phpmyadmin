@@ -1600,10 +1600,9 @@ msgid "Analyzing..."
 msgstr "Ανάλυση..."
 
 #: js/messages.php:186
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
-msgstr "Ανάλυση SQL"
+msgstr "Επεξήγηση προϊόντος"
 
 #: js/messages.php:188 js/messages.php:494 libraries/rte/rte_list.lib.php:62
 #: libraries/rte/rte_triggers.lib.php:326 server_status.php:1236 sql.php:897
