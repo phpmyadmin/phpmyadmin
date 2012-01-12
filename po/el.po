@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-12 08:56+0200\n"
+"PO-Revision-Date: 2012-01-12 08:57+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -4827,10 +4827,9 @@ msgstr ""
 "δεδομένων, οι παλαιές εγγραφές απομακρύνονται αυτόματα"
 
 #: libraries/config/messages.inc.php:403
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximal number of table preferences to store"
-msgstr "Μέγιστος αριθμός πινάκες που θα προβάλονται σε λίστα πινάκων"
+msgstr "Μέγιστος αριθμός προτιμήσεων πινάκων για αποθήκευση"
 
 #: libraries/config/messages.inc.php:404
 msgid "Try to connect without password"
