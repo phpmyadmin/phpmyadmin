@@ -3383,7 +3383,7 @@ msgstr "Επεξεργασία στηλών CHAR"
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns"
-msgstr ""
+msgstr "Ορίζεται το ελάχιστο μέγεθος για τις στήλες CHAR και VARCHAR"
 
 #: libraries/config/messages.inc.php:35
 #, fuzzy
