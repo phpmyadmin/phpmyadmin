@@ -1525,10 +1525,10 @@ msgid "Differential"
 msgstr "Diferensial"
 
 #: js/messages.php:171
-#, fuzzy, php-format
+#, php-format
 #| msgid "Divided by %s:"
 msgid "Divided by %s"
-msgstr "Dibagi dengan %s:"
+msgstr "Dibagi oleh %s:"
 
 #: js/messages.php:172
 msgid "Unit"
