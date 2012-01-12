@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-12 07:38+0200\n"
+"PO-Revision-Date: 2012-01-12 07:39+0200\n"
 "Last-Translator: udienz <udienz@ubuntu.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1547,10 +1547,9 @@ msgid "Analysing & loading logs. This may take a while."
 msgstr "Menganalisis & memuat log. Mungkin perlu waktu."
 
 #: js/messages.php:177
-#, fuzzy
 #| msgid "Read requests"
 msgid "Cancel request"
-msgstr "Permintaan pembacaan"
+msgstr "Permintaan pembatalan"
 
 #: js/messages.php:178
 msgid ""
