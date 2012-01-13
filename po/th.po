@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2011-12-23 05:19+0200\n"
+"PO-Revision-Date: 2011-12-23 05:22+0200\n"
 "Last-Translator: jaideejung007 <jaideejung007@gmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -536,7 +536,7 @@ msgstr "เปิดดู"
 #, fuzzy, php-format
 #| msgid "Dumping data for table"
 msgid "Delete the matches for the %s table?"
-msgstr "dump ตาราง"
+msgstr "ลบตรงกับที่ตาราง %s  หรือไม่?"
 
 #: db_search.php:239 libraries/display_tbl.lib.php:1425
 #: libraries/display_tbl.lib.php:2472
