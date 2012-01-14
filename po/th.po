@@ -11788,7 +11788,7 @@ msgstr "วันที่"
 
 #: tbl_tracking.php:461
 msgid "Data definition statement"
-msgstr "ข้อมูล"
+msgstr ""
 
 #: tbl_tracking.php:518
 msgid "Data manipulation statement"
