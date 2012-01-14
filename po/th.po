@@ -7838,9 +7838,8 @@ msgid "Export of trigger %s"
 msgstr "นำออก Trigger %s"
 
 #: libraries/rte/rte_words.lib.php:33
-#, fuzzy
 msgid "trigger"
-msgstr "เพิ่มผู้ใช้ใหม่"
+msgstr "Trigger"
 
 #: libraries/rte/rte_words.lib.php:34
 #, fuzzy
