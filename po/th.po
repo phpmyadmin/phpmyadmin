@@ -10757,7 +10757,7 @@ msgstr "ดัชนี"
 
 #: server_synchronize.php:448 server_synchronize.php:920
 msgid "Update row(s)"
-msgstr ""
+msgstr "แถว"
 
 #: server_synchronize.php:449 server_synchronize.php:921
 msgid "Insert row(s)"
