@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-14 15:56+0200\n"
+"PO-Revision-Date: 2012-01-14 15:57+0200\n"
 "Last-Translator: kanitchet <kanichet@hotmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -10936,9 +10936,8 @@ msgid "Edit server"
 msgstr ""
 
 #: setup/frames/servers.inc.php:37
-#, fuzzy
 msgid "Add a new server"
-msgstr "เพิ่มผู้ใช้ใหม่"
+msgstr "เพิ่มเครื่องแม่ใหม่"
 
 #: setup/index.php:22
 msgid "Wrong GET file attribute value"
