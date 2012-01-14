@@ -10946,7 +10946,7 @@ msgstr ""
 
 #: setup/lib/form_processing.lib.php:43
 msgid "Warning"
-msgstr ""
+msgstr "คำเตือน"
 
 #: setup/lib/form_processing.lib.php:44
 msgid "Submitted form contains errors"
