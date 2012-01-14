@@ -10769,7 +10769,7 @@ msgstr ""
 
 #: server_synchronize.php:465 server_synchronize.php:938
 msgid "Apply Selected Changes"
-msgstr ""
+msgstr "ใช้การเปลี่ยนแปลงที่เลือก"
 
 #: server_synchronize.php:469 server_synchronize.php:941
 msgid "Synchronize Databases"
