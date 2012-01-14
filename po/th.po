@@ -10918,9 +10918,8 @@ msgid "Display"
 msgstr ""
 
 #: setup/frames/index.inc.php:229
-#, fuzzy
 msgid "Load"
-msgstr "โลคอล"
+msgstr "โหลด"
 
 #: setup/frames/index.inc.php:240
 #, fuzzy
