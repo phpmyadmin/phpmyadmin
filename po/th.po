@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-14 15:57+0200\n"
+"PO-Revision-Date: 2012-01-14 15:58+0200\n"
 "Last-Translator: kanitchet <kanichet@hotmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -10915,7 +10915,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:225
 msgid "Display"
-msgstr ""
+msgstr "แสดง"
 
 #: setup/frames/index.inc.php:229
 msgid "Load"
