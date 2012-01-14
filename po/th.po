@@ -10929,7 +10929,7 @@ msgstr "เอกสารการใช้ phpMyAdmin"
 
 #: setup/frames/index.inc.php:241
 msgid "Donate"
-msgstr ""
+msgstr "บริจาค"
 
 #: setup/frames/servers.inc.php:28
 msgid "Edit server"
