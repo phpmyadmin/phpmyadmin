@@ -11777,10 +11777,9 @@ msgid "Delete tracking data row from report"
 msgstr "ลบการติดตามตารางนี้"
 
 #: tbl_tracking.php:449
-#, fuzzy
 #| msgid "No databases"
 msgid "No data"
-msgstr "ไม่มีฐานข้อมูล"
+msgstr "ไม่มีข้อมูล"
 
 #: tbl_tracking.php:459 tbl_tracking.php:516
 msgid "Date"
