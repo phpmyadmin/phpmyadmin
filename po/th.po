@@ -7835,7 +7835,7 @@ msgstr "เพิ่ม Trigger"
 #: libraries/rte/rte_words.lib.php:32
 #, php-format
 msgid "Export of trigger %s"
-msgstr ""
+msgstr "นำออก Trigger %s"
 
 #: libraries/rte/rte_words.lib.php:33
 #, fuzzy
