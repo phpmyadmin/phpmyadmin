@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2011-12-23 05:22+0200\n"
+"PO-Revision-Date: 2012-01-13 05:20+0200\n"
 "Last-Translator: jaideejung007 <jaideejung007@gmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -11783,9 +11783,8 @@ msgid "No data"
 msgstr "ไม่มีฐานข้อมูล"
 
 #: tbl_tracking.php:459 tbl_tracking.php:516
-#, fuzzy
 msgid "Date"
-msgstr "ข้อมูล"
+msgstr "วันที่"
 
 #: tbl_tracking.php:461
 msgid "Data definition statement"
