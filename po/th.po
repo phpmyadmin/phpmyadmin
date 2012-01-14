@@ -10773,7 +10773,7 @@ msgstr "ใช้การเปลี่ยนแปลงที่เลือ
 
 #: server_synchronize.php:469 server_synchronize.php:941
 msgid "Synchronize Databases"
-msgstr ""
+msgstr "ทำให้ฐานข้อมูลเท่ากัน"
 
 #: server_synchronize.php:483
 msgid "Selected target tables have been synchronized with source tables."
