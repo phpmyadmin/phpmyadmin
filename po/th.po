@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-13 05:20+0200\n"
-"Last-Translator: jaideejung007 <jaideejung007@gmail.com>\n"
+"PO-Revision-Date: 2012-01-14 15:54+0200\n"
+"Last-Translator: kanitchet <kanichet@hotmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
@@ -11788,7 +11788,7 @@ msgstr "วันที่"
 
 #: tbl_tracking.php:461
 msgid "Data definition statement"
-msgstr ""
+msgstr "ข้อมูล"
 
 #: tbl_tracking.php:518
 msgid "Data manipulation statement"
