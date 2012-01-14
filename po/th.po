@@ -11507,9 +11507,8 @@ msgid "Rebuild"
 msgstr ""
 
 #: tbl_operations.php:753
-#, fuzzy
 msgid "Repair"
-msgstr "ซ่อมแซมตาราง"
+msgstr "ซ่อมแซม"
 
 #: tbl_operations.php:765
 msgid "Remove partitioning"
