@@ -10922,9 +10922,8 @@ msgid "Load"
 msgstr "โหลด"
 
 #: setup/frames/index.inc.php:240
-#, fuzzy
 msgid "phpMyAdmin homepage"
-msgstr "เอกสารการใช้ phpMyAdmin"
+msgstr "หน้าเว็บ phpMyAdmin"
 
 #: setup/frames/index.inc.php:241
 msgid "Donate"
