@@ -11492,7 +11492,7 @@ msgstr ""
 
 #: tbl_operations.php:749
 msgid "Analyze"
-msgstr ""
+msgstr "วิเคราะห์"
 
 #: tbl_operations.php:750
 #, fuzzy
