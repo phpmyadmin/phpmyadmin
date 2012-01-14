@@ -10935,7 +10935,7 @@ msgstr "แก้ไข เครื่องแม่ข่าย"
 
 #: setup/frames/servers.inc.php:37
 msgid "Add a new server"
-msgstr "เพิ่มเครื่องแม่ใหม่"
+msgstr "เพิ่ม เครื่องแม่ข่าย"
 
 #: setup/index.php:22
 msgid "Wrong GET file attribute value"
