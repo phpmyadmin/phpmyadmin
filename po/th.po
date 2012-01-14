@@ -7886,10 +7886,9 @@ msgid "No event with name %1$s found in database %2$s"
 msgstr "ไม่พบตารางใด ๆ ในฐานข้อมูล"
 
 #: libraries/rte/rte_words.lib.php:48
-#, fuzzy
 #| msgid "Tracked tables"
 msgid "There are no events to display."
-msgstr "ตารางที่ถูกติดตาม"
+msgstr "ไม่มีเหตุการณ์ใดๆ"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:230
 #: libraries/schema/Eps_Relation_Schema.class.php:420
