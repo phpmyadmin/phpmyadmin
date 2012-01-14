@@ -10931,7 +10931,7 @@ msgstr "บริจาค"
 
 #: setup/frames/servers.inc.php:28
 msgid "Edit server"
-msgstr ""
+msgstr "แก้ไข เครื่องแม่ข่าย"
 
 #: setup/frames/servers.inc.php:37
 msgid "Add a new server"
