@@ -9025,9 +9025,8 @@ msgid "Original position"
 msgstr "ตำแหน่งเริ่มแรก"
 
 #: server_binlog.php:185 tbl_structure.php:760
-#, fuzzy
 msgid "Information"
-msgstr "ข้อมูลล็อกอิน"
+msgstr "ข้อมูล"
 
 #: server_collations.php:39
 msgid "Character Sets and Collations"
