@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-14 15:54+0200\n"
+"PO-Revision-Date: 2012-01-14 15:55+0200\n"
 "Last-Translator: kanitchet <kanichet@hotmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -11473,7 +11473,7 @@ msgstr "dump ตาราง"
 
 #: tbl_operations.php:696
 msgid "Empty the table (TRUNCATE)"
-msgstr ""
+msgstr "ลบข้อมูลตาราง (TRUNCATE)"
 
 #: tbl_operations.php:716
 #, fuzzy
