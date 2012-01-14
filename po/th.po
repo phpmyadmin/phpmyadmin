@@ -7864,10 +7864,10 @@ msgid "Add event"
 msgstr "เพิ่มผู้ใช้ใหม่"
 
 #: libraries/rte/rte_words.lib.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "No rows selected"
 msgid "Export of event %s"
-msgstr "ยังไม่ได้เลือกแถว"
+msgstr ""
 
 #: libraries/rte/rte_words.lib.php:45
 #, fuzzy
