@@ -11495,9 +11495,8 @@ msgid "Analyze"
 msgstr "วิเคราะห์"
 
 #: tbl_operations.php:750
-#, fuzzy
 msgid "Check"
-msgstr "เช็ค"
+msgstr "ตรวจสอบ"
 
 #: tbl_operations.php:751
 msgid "Optimize"
