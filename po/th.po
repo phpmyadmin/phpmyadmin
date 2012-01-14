@@ -9512,9 +9512,9 @@ msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr ""
 
 #: server_privileges.php:2225
-#, fuzzy, php-format
+#, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
-msgstr "ตรวจสอบสิทธิสำหรับฐานข้อมูล &quot;%s&quot;."
+msgstr "มอบสิทธิทั้งหมดสำหรับฐานข้อมูล &quot;%s&quot;."
 
 #: server_privileges.php:2250
 #, php-format
