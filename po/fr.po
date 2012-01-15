@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-07 15:54+0200\n"
+"PO-Revision-Date: 2012-01-15 14:18+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -1530,7 +1530,7 @@ msgstr "Divisé par %s"
 
 #: js/messages.php:172
 msgid "Unit"
-msgstr ""
+msgstr "Unité"
 
 #: js/messages.php:174
 msgid "From slow log"
