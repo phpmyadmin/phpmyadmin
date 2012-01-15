@@ -13214,6 +13214,10 @@ msgid ""
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
+"Le connessioni dei client sono solitamente terminate quando questi non "
+"terminano correttamente le loro connessioni a MySQL. Questo potrebbe essere "
+"causato da problemi di rete o da codice che non termina correttamente le "
+"connessioni. Controllare rete e codice."
 
 #: po/advisory_rules.php:243
 #, php-format
