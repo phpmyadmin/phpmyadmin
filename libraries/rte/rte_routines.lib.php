@@ -1196,6 +1196,7 @@ function PMA_RTN_handleExecute()
                 if (substr($query, 0, 6) == 'SELECT') {
                     $result = $resource;
                 } else if (substr($query, 0, 4) == 'CALL') {
+                    $result = $resource ? $resource : $result;
                     $affected = PMA_DBI_affected_rows() - PMA_DBI_num_rows($resource);
                 }
             }
