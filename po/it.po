@@ -280,7 +280,7 @@ msgstr "Rinomina il database come"
 
 #: db_operations.php:438
 msgid "Remove database"
-msgstr "Rimuovi il database"
+msgstr "Elimina il database"
 
 #: db_operations.php:450
 #, php-format
