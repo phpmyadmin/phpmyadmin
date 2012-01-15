@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
 "PO-Revision-Date: 2012-01-15 19:29+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -12934,7 +12934,7 @@ msgstr "Ordina la dimensione del buffer"
 #, fuzzy
 #| msgid "Sort buffer size"
 msgid "Percentage of MyISAM key buffer used"
-msgstr "Ordina la dimensione del buffer"
+msgstr "Percentuale di utilizzo del buffer delle chiavi MyISAM"
 
 #: po/advisory_rules.php:173
 #, php-format
