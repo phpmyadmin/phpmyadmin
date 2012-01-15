@@ -13235,6 +13235,8 @@ msgstr "Frequenza di connessioni client terminate"
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"La frequenza di interruzione di connessioni di clienti è al %s, questo "
+"valore dovrebbe essere inferiore ad 1 per ora."
 
 #: po/advisory_rules.php:250
 msgid "Is InnoDB disabled?"
