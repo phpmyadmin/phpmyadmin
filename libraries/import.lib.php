@@ -1103,7 +1103,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
     $message .= '<li>' . __('Edit structure by following the "Structure" link') . '</li>';
     $message .= sprintf('<br /><li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">' . __('Options') . '</a>)</li>',
                         $db_url,
-                        __('Go to database') . ': ' . htmlspecialchars(PMA_backquote($db_name)),
+                        sprintf(__('Go to database: %s'), htmlspecialchars(PMA_backquote($db_name))),
                         htmlspecialchars($db_name),
                         $db_ops_url,
                         sprintf(__('Edit settings for %s'), htmlspecialchars(PMA_backquote($db_name))));
@@ -1124,7 +1124,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
         if (! PMA_Table::isView($db_name, $tables[$i][TBL_NAME])) {
             $message .= sprintf('<li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">' . __('Structure') . '</a>) (<a href="%s" title="%s">' . __('Options') . '</a>)</li>',
                                 $tbl_url,
-                                __('Go to table') . ': ' . htmlspecialchars(PMA_backquote($tables[$i][TBL_NAME])),
+                                sprintf(__('Go to table: %s'), htmlspecialchars(PMA_backquote($tables[$i][TBL_NAME]))),
                                 htmlspecialchars($tables[$i][TBL_NAME]),
                                 $tbl_struct_url,
                                 sprintf(__('Structure of %s'), htmlspecialchars(PMA_backquote($tables[$i][TBL_NAME]))),
@@ -1133,7 +1133,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
         } else {
             $message .= sprintf('<li><a href="%s" title="%s">%s</a></li>',
                                 $tbl_url,
-                                __('Go to view') . ': ' . htmlspecialchars(PMA_backquote($tables[$i][TBL_NAME])),
+                                sprintf(__('Go to view: %s'), htmlspecialchars(PMA_backquote($tables[$i][TBL_NAME]))),
                                 htmlspecialchars($tables[$i][TBL_NAME]));
         }
     }
