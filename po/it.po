@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
 "PO-Revision-Date: 2012-01-15 19:28+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -12908,7 +12908,8 @@ msgstr "Massima %% di utilizzo del key buffer MyISAM"
 #, fuzzy, php-format
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr "Ordina la dimensione del buffer"
+msgstr ""
+"Bassa percentuale utilizzo buffer delle chiavi MyISAM (cache degli indici)."
 
 #: po/advisory_rules.php:167 po/advisory_rules.php:172
 msgid ""
