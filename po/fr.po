@@ -5167,6 +5167,7 @@ msgstr "Afficher les requêtes SQL"
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
 msgstr ""
+"Détermine si la boîte de requêtes devrait rester afficher après exécution"
 
 #: libraries/config/messages.inc.php:474 libraries/sql_query_form.lib.php:352
 #, fuzzy
