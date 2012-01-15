@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-01-11 13:40+0100\n"
+"POT-Creation-Date: 2012-01-15 06:23-0500\n"
 "PO-Revision-Date: 2012-01-11 17:04+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
-"Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: lt\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
 "100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.1.6\n"
@@ -617,11 +617,11 @@ msgstr "Sekimas yra neaktyvus."
 #: db_structure.php:451 libraries/display_tbl.lib.php:2355
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Šis rodinys turi mažiausiai tiek eilučių. Daugiau informacijos "
-"%sdokumentacijoje%s."
+"Šis rodinys turi mažiausiai tiek eilučių. Daugiau informacijos %"
+"sdokumentacijoje%s."
 
 #: db_structure.php:467 db_structure.php:481 libraries/header.inc.php:161
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
@@ -811,7 +811,6 @@ msgid "ENUM/SET editor"
 msgstr ""
 
 #: enum_editor.php:28 js/messages.php:268
-#| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
 msgstr "Reikšmės naujajam stulpeliui"
 
@@ -842,7 +841,6 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr ""
 
 #: export.php:29
-#| msgid "Bar type"
 msgid "Bad type!"
 msgstr "Blogas tipas!"
 
@@ -851,7 +849,6 @@ msgid "Selected export type has to be saved in file!"
 msgstr "Pasirinktas eksportavimo tipas gali būti saugomas tik faile!"
 
 #: export.php:106
-#| msgid "Add parameter"
 msgid "Bad parameters!"
 msgstr "Blogi parametrai!"
 
@@ -879,13 +876,11 @@ msgid "Dump has been saved to file %s."
 msgstr "Atvaizdis įrašytas faile %s."
 
 #: file_echo.php:21
-#| msgid "Export type"
 msgid "Invalid export type"
 msgstr "Neteisingas eksportavimo tipas"
 
 #: gis_data_editor.php:84
 #, php-format
-#| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
 msgstr "Reikšmė „%s“ stulpeliui"
 
@@ -924,7 +919,6 @@ msgstr "Taškas %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:326
-#| msgid "Add constraints"
 msgid "Add a point"
 msgstr "Pridėti tašką"
 
@@ -979,11 +973,11 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
-"Jūs tikriausiai bandėte įkelti per didelį failą. Prašome perskaityti "
-"%sdokumentaciją%s būdams kaip apeiti šį apribojimą."
+"Jūs tikriausiai bandėte įkelti per didelį failą. Prašome perskaityti %"
+"sdokumentaciją%s būdams kaip apeiti šį apribojimą."
 
 #: import.php:170 import.php:419
 msgid "Showing bookmark"
@@ -1130,13 +1124,11 @@ msgid "Add Index"
 msgstr "Pridėti indeksą"
 
 #: js/messages.php:47
-#| msgid "Edit mode"
 msgid "Edit Index"
 msgstr "Redaguoti indeksą"
 
 #: js/messages.php:48 tbl_indexes.php:293
 #, php-format
-#| msgid "Add %s column(s)"
 msgid "Add %d column(s) to index"
 msgstr "Pridėti %d stulpelį(-ius) į indeksą"
 
@@ -1279,17 +1271,14 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:97
-#| msgid "Query cache"
 msgid "Query cache efficiency"
 msgstr "Užklausų pagreitinimo (kešo) efektyvumas"
 
 #: js/messages.php:98
-#| msgid "Query cache"
 msgid "Query cache usage"
 msgstr "Užklausų pagreitinimo (kešo) naudojamumas"
 
 #: js/messages.php:99
-#| msgid "Query cache"
 msgid "Query cache used"
 msgstr "Užklausų pagreitinimas (kešas) naudojamas"
 
@@ -1396,14 +1385,11 @@ msgstr "EiB"
 
 #: js/messages.php:132
 #, php-format
-#| msgid "%s table"
-#| msgid_plural "%s tables"
 msgid "%d table(s)"
 msgstr "%d lentelė(-ės)"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:135
-#| msgid "Versions"
 msgid "Questions"
 msgstr ""
 
@@ -1567,7 +1553,6 @@ msgid "Analysing & loading logs. This may take a while."
 msgstr ""
 
 #: js/messages.php:177
-#| msgid "Read requests"
 msgid "Cancel request"
 msgstr "Atsisakyti užklausos"
 
@@ -1615,7 +1600,6 @@ msgid "Time"
 msgstr "Laikas"
 
 #: js/messages.php:189
-#| msgid "Total:"
 msgid "Total time:"
 msgstr "Iš viso užtruko:"
 
@@ -1733,12 +1717,10 @@ msgid "Issue"
 msgstr "Bėda"
 
 #: js/messages.php:221
-#| msgid "Documentation"
 msgid "Recommendation"
 msgstr "Rekomendacija"
 
 #: js/messages.php:222
-#| msgid "Details"
 msgid "Rule details"
 msgstr "Taisyklės detalės"
 
@@ -1852,7 +1834,6 @@ msgstr "Apibrėžimas „stored“ funkcijos turi turėti RETURN teiginį."
 
 #: js/messages.php:270
 #, php-format
-#| msgid "+ Add a value"
 msgid "Add %d value(s)"
 msgstr "Pridėti %d reikšmę(-es)"
 
@@ -1939,7 +1920,6 @@ msgid "Strings are converted into integer for plotting"
 msgstr "Simboliai yra perkonvertuojami į skaičių diagramai"
 
 #: js/messages.php:309
-#| msgid "Add/Delete columns"
 msgid "Select two columns"
 msgstr "Pasirinkite du stulpelius"
 
@@ -1948,7 +1928,6 @@ msgid "Select two different columns"
 msgstr "Pasirinkite du skirtingus stulpelius"
 
 #: js/messages.php:311
-#| msgid "Query results operations"
 msgid "Query results"
 msgstr "Užklausos rezultatai"
 
@@ -2012,7 +1991,6 @@ msgid "Drag to reorder"
 msgstr "Vilkite, kad pertvarkytumėte"
 
 #: js/messages.php:347
-#| msgid "Click to select"
 msgid "Click to sort"
 msgstr "Spustelėkite, kad surūšiuoti"
 
@@ -2036,7 +2014,6 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:353
-#| msgid "Go to view"
 msgid "Go to link"
 msgstr "Eiti pagal nuorodą"
 
@@ -2342,8 +2319,8 @@ msgstr "Sekundės"
 #, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr ""
-"Nepavyko suformuoti eilutės taisyklei „%s“. PHP išspjovė štai tokią klaidą: "
-"%s"
+"Nepavyko suformuoti eilutės taisyklei „%s“. PHP išspjovė štai tokią klaidą: %"
+"s"
 
 #: libraries/Advisor.class.php:326 server_status.php:950
 msgid "per second"
@@ -2524,7 +2501,6 @@ msgstr[1] "Įterptos %1$d eilutės."
 msgstr[2] "Įterpta %1$d eilučių."
 
 #: libraries/PDF.class.php:81
-#| msgid "Error reading data:"
 msgid "Error while creating PDF:"
 msgstr "Klaida sudarinėjant PDF:"
 
@@ -2646,8 +2622,8 @@ msgstr "Jūs naudojate %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Jūs dar turbūt nesukūrėte nustatymų failo. Galite pasinaudoti %1$snustatymų "
 "skriptu%2$s, kad sukurtumėte failą."
@@ -3394,7 +3370,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:35
-#| msgid "Customize text input fields"
 msgid "Minimum size for input field"
 msgstr "Mažiausias dydis įvedimo laukelio"
 
@@ -3405,7 +3380,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:37
-#| msgid "Maximum size for temporary sort files"
 msgid "Maximum size for input field"
 msgstr "Didžiausias dydis įvedimo laukeliui"
 
@@ -4794,7 +4768,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:403
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Maximal number of table preferences to store"
 msgstr "Didžiausias skaičius išsaugomų lentelės nustatymų"
 
@@ -4939,8 +4912,8 @@ msgstr "Naudoti SSL"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
-"Palikite tuščią, kad nebūtų PDF schemos palaikymo, siūlome: "
-"[kbd]pma_table_coords[/kbd]"
+"Palikite tuščią, kad nebūtų PDF schemos palaikymo, siūlome: [kbd]"
+"pma_table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:430
 msgid "PDF schema: table coordinates"
@@ -4963,8 +4936,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
 msgstr ""
-"Jei tuščias nebus „įkyrių“ UI nustatymų tarp seansų, siūlome: "
-"[kbd]pma_table_uiprefs[/kbd]"
+"Jei tuščias nebus „įkyrių“ UI nustatymų tarp seansų, siūlome: [kbd]"
+"pma_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:434
 msgid "UI preferences table"
@@ -5723,8 +5696,8 @@ msgstr ", @TABLE@ taps lentelės pavadinimu"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Ši reikšmė interpretuojama naudojant %1$sstrftime%2$s, taigi Jūs galite "
 "keisti laiko formatavimą. Taip pat pakeičiamos šios eilutės: %3$s. Kitas "
@@ -5957,14 +5930,10 @@ msgstr "Rodyti dvejetainį turinį"
 msgid "Show BLOB contents"
 msgstr "Rodyti BLOB turinį"
 
-#: libraries/display_tbl.lib.php:686 pmd_general.php:147 tbl_change.php:324
-#: tbl_change.php:330
-msgid "Hide"
-msgstr "Paslėpti"
-
-#: libraries/display_tbl.lib.php:686 libraries/relation.lib.php:116
-#: libraries/tbl_properties.inc.php:136 transformation_overview.php:46
-msgid "Browser transformation"
+#: libraries/display_tbl.lib.php:686
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Hide browser transformation"
 msgstr "Naršyklės transformacija"
 
 #: libraries/display_tbl.lib.php:693
@@ -6420,8 +6389,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -6776,7 +6745,9 @@ msgid "Edit structure by following the \"Structure\" link"
 msgstr "Keisti jo struktūrą spauskite „Struktūra“ nuorodą"
 
 #: libraries/import.lib.php:1106
-msgid "Go to database"
+#, fuzzy, php-format
+#| msgid "Go to database"
+msgid "Go to database: %s"
 msgstr "Eiti į duomenų bazę"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
@@ -6785,7 +6756,9 @@ msgid "Edit settings for %s"
 msgstr "Keisti nustatymus %s"
 
 #: libraries/import.lib.php:1127
-msgid "Go to table"
+#, fuzzy, php-format
+#| msgid "Go to table"
+msgid "Go to table: %s"
 msgstr "Eiti į lentelę"
 
 #: libraries/import.lib.php:1130
@@ -6794,7 +6767,9 @@ msgid "Structure of %s"
 msgstr "Struktūra %s"
 
 #: libraries/import.lib.php:1136
-msgid "Go to view"
+#, fuzzy, php-format
+#| msgid "Go to view"
+msgid "Go to view: %s"
 msgstr "Eiti į rodinį (view)"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:33
@@ -7183,6 +7158,11 @@ msgstr "PDF failo generavimas"
 #: libraries/relation.lib.php:114
 msgid "Displaying Column Comments"
 msgstr "Išvesti stulpelių komentarus"
+
+#: libraries/relation.lib.php:116 libraries/tbl_properties.inc.php:136
+#: transformation_overview.php:46
+msgid "Browser transformation"
+msgstr "Naršyklės transformacija"
 
 #: libraries/relation.lib.php:119
 msgid ""
@@ -8676,6 +8656,10 @@ msgstr "Paslėpti/rodyti visus"
 msgid "Hide/Show Tables with no relation"
 msgstr "Slėpti/rodyti lenteles be sąryšių"
 
+#: pmd_general.php:147 tbl_change.php:324 tbl_change.php:330
+msgid "Hide"
+msgstr "Paslėpti"
+
 #: pmd_general.php:170
 msgid "Number of tables"
 msgstr "Lentelių skaičius"
@@ -9313,8 +9297,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Pastaba: phpMyAdmin gauna vartotojų teises tiesiai iš MySQL privilegijų "
 "lentelės. Šiose lentelėse nurodytos teisės gali skirtis nuo nustatymų "
@@ -12134,8 +12118,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -12263,8 +12247,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: po/advisory_rules.php:115

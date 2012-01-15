@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-01-11 13:40+0100\n"
+"POT-Creation-Date: 2012-01-15 06:23-0500\n"
 "PO-Revision-Date: 2012-01-11 19:06+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.1.6\n"
 
@@ -617,11 +617,11 @@ msgstr "El seguimiento no está activo."
 #: db_structure.php:451 libraries/display_tbl.lib.php:2355
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Esta vista tiene al menos este número de filas. Por favor refiérase a la "
-"%sdocumentation%s."
+"Esta vista tiene al menos este número de filas. Por favor refiérase a la %"
+"sdocumentation%s."
 
 #: db_structure.php:467 db_structure.php:481 libraries/header.inc.php:161
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
@@ -963,8 +963,8 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Usted probablemente intentó cargar un archivo demasiado grande. Por favor, "
 "refiérase a %sla documentation%s para hallar modos de superar esta "
@@ -1532,7 +1532,6 @@ msgstr "Diferencial"
 
 #: js/messages.php:171
 #, php-format
-#| msgid "Divided by %s:"
 msgid "Divided by %s"
 msgstr "Dividido por %s"
 
@@ -2623,8 +2622,8 @@ msgstr "Bienvenido a %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "La razón más probable es que usted no haya creado un archivo de "
 "configuración. Utilice el %1$sscript de configuración%2$s para crear uno."
@@ -5795,8 +5794,8 @@ msgstr ", @TABLE@ se convertirá en el nombre de la tabla"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Este valor es interpretado usando %1$sstrftime%2$s por lo que se pueden usar "
 "cadenas para formatear el tiempo. Además sucederán las siguientes "
@@ -6036,14 +6035,10 @@ msgstr "Mostrar contenido binario"
 msgid "Show BLOB contents"
 msgstr "Mostrar contenido BLOB"
 
-#: libraries/display_tbl.lib.php:686 pmd_general.php:147 tbl_change.php:324
-#: tbl_change.php:330
-msgid "Hide"
-msgstr "Ocultar"
-
-#: libraries/display_tbl.lib.php:686 libraries/relation.lib.php:116
-#: libraries/tbl_properties.inc.php:136 transformation_overview.php:46
-msgid "Browser transformation"
+#: libraries/display_tbl.lib.php:686
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Hide browser transformation"
 msgstr "Transformación del navegador"
 
 #: libraries/display_tbl.lib.php:693
@@ -6564,8 +6559,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "Se puede encontrar documentación y más información sobre PBXT en la %spágina "
 "inicial de PrimeBase XT%s."
@@ -6926,7 +6921,9 @@ msgid "Edit structure by following the \"Structure\" link"
 msgstr "Edite la estructura siguiendo el enlace \"Estructura\""
 
 #: libraries/import.lib.php:1106
-msgid "Go to database"
+#, fuzzy, php-format
+#| msgid "Go to database"
+msgid "Go to database: %s"
 msgstr "Ir a la base de datos"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
@@ -6935,7 +6932,9 @@ msgid "Edit settings for %s"
 msgstr "Editar configuración de %s"
 
 #: libraries/import.lib.php:1127
-msgid "Go to table"
+#, fuzzy, php-format
+#| msgid "Go to table"
+msgid "Go to table: %s"
 msgstr "Ir a la tabla"
 
 #: libraries/import.lib.php:1130
@@ -6944,7 +6943,9 @@ msgid "Structure of %s"
 msgstr "Estructura de %s"
 
 #: libraries/import.lib.php:1136
-msgid "Go to view"
+#, fuzzy, php-format
+#| msgid "Go to view"
+msgid "Go to view: %s"
 msgstr "Ir a la vista"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:33
@@ -7342,6 +7343,11 @@ msgstr "Creación de los PDF"
 #: libraries/relation.lib.php:114
 msgid "Displaying Column Comments"
 msgstr "Mostrando los comentarios de la columna"
+
+#: libraries/relation.lib.php:116 libraries/tbl_properties.inc.php:136
+#: transformation_overview.php:46
+msgid "Browser transformation"
+msgstr "Transformación del navegador"
 
 #: libraries/relation.lib.php:119
 msgid ""
@@ -8707,8 +8713,8 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "El almacenamiento de configuración phpMyAdmin no está completamente "
-"configurado, algunas funcionalidades extendidas fueron deshabilitadas. "
-"%sPulsa aquí para averiguar por qué%s."
+"configurado, algunas funcionalidades extendidas fueron deshabilitadas. %"
+"sPulsa aquí para averiguar por qué%s."
 
 #: main.php:337
 msgid ""
@@ -8818,6 +8824,10 @@ msgstr "Ocultar/mostrar todo"
 #: pmd_general.php:130
 msgid "Hide/Show Tables with no relation"
 msgstr "Ocultar/mostrar Tablas que no tengan relación"
+
+#: pmd_general.php:147 tbl_change.php:324 tbl_change.php:330
+msgid "Hide"
+msgstr "Ocultar"
 
 #: pmd_general.php:170
 msgid "Number of tables"
@@ -9465,8 +9475,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Nota: phpMyAdmin obtiene los privilegios de los usuarios 'directamente de "
 "las tablas de privilegios MySQL'. El contenido de estas tablas puede diferir "
@@ -10762,9 +10772,8 @@ msgstr ""
 "El Monitorizador de phpMyAdmin puede asistir en la optimización de la "
 "configuración del servidor y rastrear consultas que toman mucho tiempo. Para "
 "esto último necesitará que «log_output» esté definido como 'TABLE' y tener "
-"activado «slow_query_log» o «general_log». Note, sin embargo, que "
-"«general_log» produce mucha información y aumenta la carga en el servidor "
-"hasta en un 15%"
+"activado «slow_query_log» o «general_log». Note, sin embargo, que «general_log» "
+"produce mucha información y aumenta la carga en el servidor hasta en un 15%"
 
 #: server_status.php:1605
 msgid ""
@@ -12191,8 +12200,8 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
-"Podría aumentar «{long_query_time}» u optimizar las consultas que aparecen "
-"en el registro de consultas lentas."
+"Podría aumentar «{long_query_time}» u optimizar las consultas que aparecen en "
+"el registro de consultas lentas."
 
 #: po/advisory_rules.php:18
 #, php-format
@@ -12259,8 +12268,8 @@ msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"Active el registro de consultas lenta configurando «log_slow_queries» a "
-"'ON'. Esto ayudará a analizar consultas con mala performance."
+"Active el registro de consultas lenta configurando «log_slow_queries» a 'ON'. "
+"Esto ayudará a analizar consultas con mala performance."
 
 #: po/advisory_rules.php:33
 msgid "log_slow_queries is set to 'OFF'"
@@ -12403,8 +12412,8 @@ msgid ""
 msgstr ""
 "Se sabe que el caché de consultas puede mejorar la performance enormemente "
 "si está correctamente configurado. Actívelo definiendo «query_cache_size» a "
-"un valor en MiB de 2 dígitos y definiendo «query_cache_type» a 'ON'. "
-"<b>Notar que: </b> si está utilizando memcached ignore esta recomendación."
+"un valor en MiB de 2 dígitos y definiendo «query_cache_type» a 'ON'. <b>Notar "
+"que: </b> si está utilizando memcached ignore esta recomendación."
 
 #: po/advisory_rules.php:73
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
@@ -12481,8 +12490,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "La tasa actual de memoria libre del caché de consultas respecto del tamaño "
 "total es %s%%. Debería ser mayor al 80%%"
@@ -12640,8 +12649,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "%s%% de todas las ordenaciones causan tablas temporales, este valor debería "
 "de ser menor a 10%%."
@@ -12704,8 +12713,8 @@ msgstr ""
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
-"Promedio de uniones («JOIN») de tablas: %s, este promedio debería ser menor "
-"a 1 por hora"
+"Promedio de uniones («JOIN») de tablas: %s, este promedio debería ser menor a "
+"1 por hora"
 
 #: po/advisory_rules.php:130
 msgid "Rate of reading first index entry"
@@ -12813,8 +12822,7 @@ msgstr ""
 #: po/advisory_rules.php:148
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr ""
-"Los valores actuales son «tmp_table_size»: %s, «max_heap_table_size»: %s"
+msgstr "Los valores actuales son «tmp_table_size»: %s, «max_heap_table_size»: %s"
 
 #: po/advisory_rules.php:150
 msgid "Percentage of temp tables on disk"
@@ -12838,14 +12846,13 @@ msgid ""
 "mentioned in the beginning of an <a href=\"http://www.facebook.com/note.php?"
 "note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
-"Aumentar «max_heap_table_size» y «tmp_table_size» podría ayudar. Sin "
-"embargo, algunas tablas temporales son siempre escritas a disco "
-"independientemente del valor de estas variables. Para eliminarlas deberá re-"
-"escribir las consultas para evitar estas condiciones (en una tabla temporal: "
-"la presencia de una columna «BLOB» o «TEXT», o la presencia de una columna "
-"mayor a 512 bytes) como se menciona al comienzo del <a href=\"http://www."
-"facebook.com/note.php?note_id=10150111255065841&comments\">artículo de "
-"Pythian Group</a>"
+"Aumentar «max_heap_table_size» y «tmp_table_size» podría ayudar. Sin embargo, "
+"algunas tablas temporales son siempre escritas a disco independientemente "
+"del valor de estas variables. Para eliminarlas deberá re-escribir las "
+"consultas para evitar estas condiciones (en una tabla temporal: la presencia "
+"de una columna «BLOB» o «TEXT», o la presencia de una columna mayor a 512 "
+"bytes) como se menciona al comienzo del <a href=\"http://www.facebook.com/"
+"note.php?note_id=10150111255065841&comments\">artículo de Pythian Group</a>"
 
 #: po/advisory_rules.php:153
 #, php-format
@@ -12870,8 +12877,8 @@ msgid ""
 "mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
-"Aumentar «max_heap_table_size» y «tmp_table_size» podría ayudar. Sin "
-"embargo, algunas tablas temporales son siempre a disco permanentemente "
+"Aumentar «max_heap_table_size» y «tmp_table_size» podría ayudar. Sin embargo, "
+"algunas tablas temporales son siempre a disco permanentemente "
 "independientemente del valor de estas variables. Para eliminarlas deberá re-"
 "escribir las consultas para evitar estas condiciones (en una tabla temporal: "
 "la presencia de una columna «BLOB» o «TEXT» o la presencia de una columna "
@@ -12902,8 +12909,8 @@ msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
-"Defina «key_buffer_size» dependiendo del tamaño de los índices MyISAM. 64M "
-"es un buen comienzo."
+"Defina «key_buffer_size» dependiendo del tamaño de los índices MyISAM. 64M es "
+"un buen comienzo."
 
 #: po/advisory_rules.php:163
 msgid "key_buffer_size is 0"
@@ -13080,8 +13087,7 @@ msgstr ""
 #: po/advisory_rules.php:207
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
-"Active el caché de hilos configurado «thread_cache_size» a un valor mayor a "
-"0."
+"Active el caché de hilos configurado «thread_cache_size» a un valor mayor a 0."
 
 #: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
@@ -13168,10 +13174,10 @@ msgid ""
 "do not close database handlers properly get killed sooner. Make sure the "
 "code closes database handlers properly."
 msgstr ""
-"Aumente «max_connections» o reduzca «wait_timeout» para que las conexiones "
-"que no liberan los manejadores de base de datos apropiadamente sean "
-"eliminadas más rápido. Asegúrese que su código cierre los manejadores de "
-"base de datos apropiadamente."
+"Aumente «max_connections» o reduzca «wait_timeout» para que las conexiones que "
+"no liberan los manejadores de base de datos apropiadamente sean eliminadas "
+"más rápido. Asegúrese que su código cierre los manejadores de base de datos "
+"apropiadamente."
 
 #: po/advisory_rules.php:228
 #, php-format
@@ -13242,8 +13248,8 @@ msgstr ""
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
-"%s%% de todos los clientes son abandonados. Este valor debería ser menor a "
-"2%%"
+"%s%% de todos los clientes son abandonados. Este valor debería ser menor a 2%"
+"%"
 
 #: po/advisory_rules.php:245
 msgid "Rate of aborted clients"

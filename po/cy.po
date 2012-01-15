@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-01-11 13:40+0100\n"
+"POT-Creation-Date: 2012-01-15 06:23-0500\n"
 "PO-Revision-Date: 2011-05-19 21:21+0200\n"
 "Last-Translator: <ardavies@tiscali.co.uk>\n"
 "Language-Team: Welsh <cy@li.org>\n"
-"Language: cy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: cy\n"
 "Plural-Forms: nplurals=2; plural=(n==2) ? 1 : 0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -622,8 +622,8 @@ msgstr "Nid yw tracio'n weithredol"
 #: db_structure.php:451 libraries/display_tbl.lib.php:2355
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Mae gan yr olwg hon o leiaf y nifer hwn o resi. Gweler y %sdogfennaeth%s."
 
@@ -983,8 +983,8 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Yn ôl pob tebyg, mae'r ffeil i rhy fawr i'w lanlwytho. Gweler y %sdogfennaeth"
 "%s am ffyrdd i weithio o gwmpas y cyfyngiad hwn."
@@ -2741,11 +2741,11 @@ msgstr "Croeso i %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
-"Rydych chi heb greu ffeil ffurfwedd yn ôl pob tebyg. Gallwch ddefnyddio'r "
-"%1$sgript gosod%2$s  er mwyn ei chreu."
+"Rydych chi heb greu ffeil ffurfwedd yn ôl pob tebyg. Gallwch ddefnyddio'r %1"
+"$sgript gosod%2$s  er mwyn ei chreu."
 
 #: libraries/auth/config.auth.lib.php:109
 msgid ""
@@ -5818,8 +5818,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:270
@@ -6071,14 +6071,10 @@ msgstr "Dangos cynnwys deuaidd"
 msgid "Show BLOB contents"
 msgstr "Dangos cynnwys BLOB"
 
-#: libraries/display_tbl.lib.php:686 pmd_general.php:147 tbl_change.php:324
-#: tbl_change.php:330
-msgid "Hide"
-msgstr "Cuddio"
-
-#: libraries/display_tbl.lib.php:686 libraries/relation.lib.php:116
-#: libraries/tbl_properties.inc.php:136 transformation_overview.php:46
-msgid "Browser transformation"
+#: libraries/display_tbl.lib.php:686
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Hide browser transformation"
 msgstr "Trawsffurfiad porwr"
 
 #: libraries/display_tbl.lib.php:693
@@ -6530,8 +6526,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -6889,8 +6885,10 @@ msgid "Edit structure by following the \"Structure\" link"
 msgstr ""
 
 #: libraries/import.lib.php:1106
-msgid "Go to database"
-msgstr ""
+#, fuzzy, php-format
+#| msgid "No databases"
+msgid "Go to database: %s"
+msgstr "Dim cronfeydd data"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
 #, fuzzy, php-format
@@ -6899,8 +6897,10 @@ msgid "Edit settings for %s"
 msgstr "Data ar goll ar gyfer %s"
 
 #: libraries/import.lib.php:1127
-msgid "Go to table"
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Count tables"
+msgid "Go to table: %s"
+msgstr "Cyfrifwch y tablau"
 
 #: libraries/import.lib.php:1130
 #, fuzzy, php-format
@@ -6909,7 +6909,8 @@ msgid "Structure of %s"
 msgstr "Strwythur yn unig"
 
 #: libraries/import.lib.php:1136
-msgid "Go to view"
+#, php-format
+msgid "Go to view: %s"
 msgstr ""
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:33
@@ -7297,6 +7298,11 @@ msgstr ""
 #: libraries/relation.lib.php:114
 msgid "Displaying Column Comments"
 msgstr ""
+
+#: libraries/relation.lib.php:116 libraries/tbl_properties.inc.php:136
+#: transformation_overview.php:46
+msgid "Browser transformation"
+msgstr "Trawsffurfiad porwr"
 
 #: libraries/relation.lib.php:119
 msgid ""
@@ -8750,6 +8756,10 @@ msgstr "Cuddio/Dangos pob"
 msgid "Hide/Show Tables with no relation"
 msgstr "Cuddio/Dangos Tablau heb berthynas"
 
+#: pmd_general.php:147 tbl_change.php:324 tbl_change.php:330
+msgid "Hide"
+msgstr "Cuddio"
+
 #: pmd_general.php:170
 msgid "Number of tables"
 msgstr "Nifer y tablau"
@@ -9392,8 +9402,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 
 #: server_privileges.php:1858
@@ -12178,8 +12188,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -12301,8 +12311,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: po/advisory_rules.php:115

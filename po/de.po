@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-01-11 13:40+0100\n"
+"POT-Creation-Date: 2012-01-15 06:23-0500\n"
 "PO-Revision-Date: 2011-12-17 15:45+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: german <de@li.org>\n"
-"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.1.6\n"
 
@@ -346,8 +346,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Der phpMyAdmin Konfigurations-Speicher wurde deaktiviert. Klicken Sie %shier"
-"%s um herauszufinden warum."
+"Der phpMyAdmin Konfigurations-Speicher wurde deaktiviert. Klicken Sie %shier%"
+"s um herauszufinden warum."
 
 #: db_operations.php:595
 msgid "Edit or export relational schema"
@@ -613,8 +613,8 @@ msgstr "Tracking ist nicht aktiviert."
 #: db_structure.php:451 libraries/display_tbl.lib.php:2355
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Dieser Ansicht hat mindestens diese Anzahl von Datensätzen. Bitte lesen Sie "
 "die %sDokumentation%s."
@@ -966,11 +966,11 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
-"Möglicherweise wurde eine zu große Datei hochgeladen. Bitte lesen Sie die "
-"%sDokumentation%s zur Lösung diese Problems."
+"Möglicherweise wurde eine zu große Datei hochgeladen. Bitte lesen Sie die %"
+"sDokumentation%s zur Lösung diese Problems."
 
 #: import.php:170 import.php:419
 msgid "Showing bookmark"
@@ -2640,8 +2640,8 @@ msgstr "Willkommen bei %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Eine mögliche Ursache wäre, dass Sie noch keine Konfigurationsdatei angelegt "
 "haben. Verwenden Sie in diesem Fall doch das %1$sSetup-Skript%2$s, um eine "
@@ -5790,8 +5790,8 @@ msgstr ", @TABLE@ wird durch den Tabellennamen ersetzt"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Dieser Wert wird mit %1$sstrftime%2$s geparst. Sie können also Platzhalter "
 "für Datum und Uhrzeit verwenden. Darüber hinaus werden folgende Umformungen "
@@ -6029,15 +6029,10 @@ msgstr "Binäre Inhalte anzeigen"
 msgid "Show BLOB contents"
 msgstr "BLOB Inhalte anzeigen"
 
-# Hide heist im deutschen in der EDV ausblenden
-#: libraries/display_tbl.lib.php:686 pmd_general.php:147 tbl_change.php:324
-#: tbl_change.php:330
-msgid "Hide"
-msgstr "Verstecken"
-
-#: libraries/display_tbl.lib.php:686 libraries/relation.lib.php:116
-#: libraries/tbl_properties.inc.php:136 transformation_overview.php:46
-msgid "Browser transformation"
+#: libraries/display_tbl.lib.php:686
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Hide browser transformation"
 msgstr "Darstellungsumwandlung"
 
 #: libraries/display_tbl.lib.php:693
@@ -6547,8 +6542,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentation und weitere Informationen über PBXT sind auf der %sPrimeBase "
 "XT-Website%s verfügbar."
@@ -6910,7 +6905,9 @@ msgstr ""
 "Zum Ändern der Struktur auf den entsprechenden \"Struktur\"-Link klicken"
 
 #: libraries/import.lib.php:1106
-msgid "Go to database"
+#, fuzzy, php-format
+#| msgid "Go to database"
+msgid "Go to database: %s"
 msgstr "Gehe zur Datenbank"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
@@ -6919,7 +6916,9 @@ msgid "Edit settings for %s"
 msgstr "Einstellung für %s bearbeiten"
 
 #: libraries/import.lib.php:1127
-msgid "Go to table"
+#, fuzzy, php-format
+#| msgid "Go to table"
+msgid "Go to table: %s"
 msgstr "Gehe zur Tabelle"
 
 #: libraries/import.lib.php:1130
@@ -6928,7 +6927,9 @@ msgid "Structure of %s"
 msgstr "Struktur von %s"
 
 #: libraries/import.lib.php:1136
-msgid "Go to view"
+#, fuzzy, php-format
+#| msgid "Go to view"
+msgid "Go to view: %s"
 msgstr "Gehe zum View"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:33
@@ -7323,6 +7324,11 @@ msgstr "Erzeugen von PDFs"
 #: libraries/relation.lib.php:114
 msgid "Displaying Column Comments"
 msgstr "Darstellung von Spaltenkommentaren"
+
+#: libraries/relation.lib.php:116 libraries/tbl_properties.inc.php:136
+#: transformation_overview.php:46
+msgid "Browser transformation"
+msgstr "Darstellungsumwandlung"
 
 #: libraries/relation.lib.php:119
 msgid ""
@@ -8820,6 +8826,11 @@ msgstr "Alles ein-/ausblenden"
 msgid "Hide/Show Tables with no relation"
 msgstr "Tabellen ohne Verknüpfung aus-/einblenden"
 
+# Hide heist im deutschen in der EDV ausblenden
+#: pmd_general.php:147 tbl_change.php:324 tbl_change.php:330
+msgid "Hide"
+msgstr "Verstecken"
+
 #: pmd_general.php:170
 msgid "Number of tables"
 msgstr "Anzahl Tabellen"
@@ -9462,8 +9473,8 @@ msgstr "Die gleichnamigen Datenbanken löschen."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Hinweis: phpMyAdmin liest die Benutzerprofile direkt aus den entsprechenden "
 "MySQL-Tabellen aus. Der Inhalt dieser Tabellen kann sich von den "
@@ -11325,8 +11336,8 @@ msgstr ""
 "Sie haben die [kbd]config[/kbd] Authentifizierung gewählt und einen "
 "Benutzernamen und Passwort für Auto-Login eingegeben, was für Server im "
 "Internet nicht wünschenswert ist. Jeder, der Ihre phpMyAdmin-URL kennt oder "
-"errät, kann direkt auf Ihre phpMyAdmin-Oberfläche zugreifen. Setzen Sie den "
-"%sAuthentifizierungstyp%s auf [kbd]cookie[/kbd] oder [kbd]http[/kbd]."
+"errät, kann direkt auf Ihre phpMyAdmin-Oberfläche zugreifen. Setzen Sie den %"
+"sAuthentifizierungstyp%s auf [kbd]cookie[/kbd] oder [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:294
 #, php-format
@@ -12444,8 +12455,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -12569,8 +12580,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: po/advisory_rules.php:115
@@ -13394,8 +13405,8 @@ msgstr ""
 #~ "directory %s."
 #~ msgstr ""
 #~ "Die Unterstützung für Oberflächendesigns ist deaktiviert. Bitte "
-#~ "überprüfen Sie Ihre Konfiguration und / oder Ihre Designs im Verzeichnis "
-#~ "%s."
+#~ "überprüfen Sie Ihre Konfiguration und / oder Ihre Designs im Verzeichnis %"
+#~ "s."
 
 #~ msgid "The following queries have been executed:"
 #~ msgstr "Die folgenden Abfragen wurden ausgeführt:"

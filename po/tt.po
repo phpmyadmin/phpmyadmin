@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-01-11 13:40+0100\n"
+"POT-Creation-Date: 2012-01-15 06:23-0500\n"
 "PO-Revision-Date: 2010-07-22 02:25+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: tatarish <tt@li.org>\n"
-"Language: tt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: tt\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -635,8 +635,8 @@ msgstr ""
 #: db_structure.php:451 libraries/display_tbl.lib.php:2355
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
 #: db_structure.php:467 db_structure.php:481 libraries/header.inc.php:161
@@ -1006,8 +1006,8 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 
 #: import.php:170 import.php:419
@@ -2779,8 +2779,8 @@ msgstr "%s siña İsäñme di"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:109
@@ -5884,8 +5884,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:270
@@ -6143,14 +6143,10 @@ msgstr ""
 msgid "Show BLOB contents"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:686 pmd_general.php:147 tbl_change.php:324
-#: tbl_change.php:330
-msgid "Hide"
-msgstr ""
-
-#: libraries/display_tbl.lib.php:686 libraries/relation.lib.php:116
-#: libraries/tbl_properties.inc.php:136 transformation_overview.php:46
-msgid "Browser transformation"
+#: libraries/display_tbl.lib.php:686
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Hide browser transformation"
 msgstr "Browser transformation"
 
 #: libraries/display_tbl.lib.php:693
@@ -6615,8 +6611,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -6985,8 +6981,8 @@ msgid "Edit structure by following the \"Structure\" link"
 msgstr ""
 
 #: libraries/import.lib.php:1106
-#, fuzzy
-msgid "Go to database"
+#, fuzzy, php-format
+msgid "Go to database: %s"
 msgstr "Biremleklär yuq"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
@@ -6995,8 +6991,8 @@ msgid "Edit settings for %s"
 msgstr ""
 
 #: libraries/import.lib.php:1127
-#, fuzzy
-msgid "Go to table"
+#, fuzzy, php-format
+msgid "Go to table: %s"
 msgstr "Biremleklär yuq"
 
 #: libraries/import.lib.php:1130
@@ -7006,8 +7002,10 @@ msgid "Structure of %s"
 msgstr "Tözeleşen genä"
 
 #: libraries/import.lib.php:1136
-msgid "Go to view"
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Export views"
+msgid "Go to view: %s"
+msgstr "Çığaru ısulı"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:33
 msgid ""
@@ -7397,6 +7395,11 @@ msgstr "PDF yaratu"
 #: libraries/relation.lib.php:114
 msgid "Displaying Column Comments"
 msgstr "Buy Açıqlamasın Kürsätäse"
+
+#: libraries/relation.lib.php:116 libraries/tbl_properties.inc.php:136
+#: transformation_overview.php:46
+msgid "Browser transformation"
+msgstr "Browser transformation"
 
 #: libraries/relation.lib.php:119
 msgid ""
@@ -8360,8 +8363,8 @@ msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
-"SQL-tikşerüçe köylänmägän. Bu kiräk bulğan php-yöklämäne köyläw turında "
-"%squllanmada%s uqıp bula."
+"SQL-tikşerüçe köylänmägän. Bu kiräk bulğan php-yöklämäne köyläw turında %"
+"squllanmada%s uqıp bula."
 
 #: libraries/tbl_links.inc.php:118 libraries/tbl_links.inc.php:119
 msgid "Table seems to be empty!"
@@ -8961,6 +8964,10 @@ msgstr "Barısın kürsät"
 
 #: pmd_general.php:130
 msgid "Hide/Show Tables with no relation"
+msgstr ""
+
+#: pmd_general.php:147 tbl_change.php:324 tbl_change.php:330
+msgid "Hide"
 msgstr ""
 
 #: pmd_general.php:170
@@ -9629,8 +9636,8 @@ msgstr "Bu qullanuçılar kebek atalğan biremleklärne beteräse."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Beläse: MySQL-serverneñ eçke tüşämä eçennän alınğan xoquqlar bu. Server "
 "qullana torğan xoquqlar qul aşa üzgärtelgän bulsa, bu tüşämä eçtälege "
@@ -12459,8 +12466,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -12588,8 +12595,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: po/advisory_rules.php:115
@@ -13490,9 +13497,6 @@ msgstr ""
 
 #~ msgid "Add into comments"
 #~ msgstr "Açıqlama eçenä östise"
-
-#~ msgid "Export views"
-#~ msgstr "Çığaru ısulı"
 
 #~ msgid "Actions"
 #~ msgstr "Eş"

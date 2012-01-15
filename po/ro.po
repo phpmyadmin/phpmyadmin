@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-01-11 13:40+0100\n"
+"POT-Creation-Date: 2012-01-15 06:23-0500\n"
 "PO-Revision-Date: 2011-10-23 11:06+0200\n"
 "Last-Translator: <tatuci@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
-"Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ro\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2);;\n"
 "X-Generator: Pootle 2.0.5\n"
@@ -639,8 +639,8 @@ msgstr "Monitorizarea nu este activată"
 #: db_structure.php:451 libraries/display_tbl.lib.php:2355
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Această vedere are minim acest număr de rânduri. Vedeți %sdocumentation%s."
 
@@ -1012,11 +1012,11 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
-"Probabil ați încercat să încărcați un fișier prea mare. Faceți referire la "
-"%sdocumentație%s pentru căi de ocolire a acestei limite."
+"Probabil ați încercat să încărcați un fișier prea mare. Faceți referire la %"
+"sdocumentație%s pentru căi de ocolire a acestei limite."
 
 #: import.php:170 import.php:419
 msgid "Showing bookmark"
@@ -2812,8 +2812,8 @@ msgstr "Bine ați venit la %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Motivul probabil pentru aceasta este că nu ați creat un fișier de "
 "configurare. Puteți folosi %1$s vrăjitorul de setări %2$s pentru a crea un "
@@ -5944,16 +5944,16 @@ msgstr ""
 #, fuzzy, php-format
 #| msgid ""
 #| "s value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "matting strings. Additionally the following transformations will pen: "
-#| "%3$s. Other text will be kept as is."
+#| "matting strings. Additionally the following transformations will pen: %3"
+#| "$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is."
 
 #: libraries/display_export.lib.php:270
 msgid "use this for future exports"
@@ -6217,14 +6217,10 @@ msgstr ""
 msgid "Show BLOB contents"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:686 pmd_general.php:147 tbl_change.php:324
-#: tbl_change.php:330
-msgid "Hide"
-msgstr "Ascunde"
-
-#: libraries/display_tbl.lib.php:686 libraries/relation.lib.php:116
-#: libraries/tbl_properties.inc.php:136 transformation_overview.php:46
-msgid "Browser transformation"
+#: libraries/display_tbl.lib.php:686
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Hide browser transformation"
 msgstr "Transformare navigator"
 
 #: libraries/display_tbl.lib.php:693
@@ -6728,8 +6724,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -7095,8 +7091,8 @@ msgid "Edit structure by following the \"Structure\" link"
 msgstr ""
 
 #: libraries/import.lib.php:1106
-#, fuzzy
-msgid "Go to database"
+#, fuzzy, php-format
+msgid "Go to database: %s"
 msgstr "Nu sînt baze de date"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
@@ -7105,8 +7101,8 @@ msgid "Edit settings for %s"
 msgstr ""
 
 #: libraries/import.lib.php:1127
-#, fuzzy
-msgid "Go to table"
+#, fuzzy, php-format
+msgid "Go to table: %s"
 msgstr "Nu sînt baze de date"
 
 #: libraries/import.lib.php:1130
@@ -7116,8 +7112,10 @@ msgid "Structure of %s"
 msgstr "Numai structura"
 
 #: libraries/import.lib.php:1136
-msgid "Go to view"
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Export views"
+msgid "Go to view: %s"
+msgstr "Modul de export"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:33
 msgid ""
@@ -7510,6 +7508,11 @@ msgstr "Creare PDF"
 #: libraries/relation.lib.php:114
 msgid "Displaying Column Comments"
 msgstr "Arată comentariile coloanei"
+
+#: libraries/relation.lib.php:116 libraries/tbl_properties.inc.php:136
+#: transformation_overview.php:46
+msgid "Browser transformation"
+msgstr "Transformare navigator"
 
 #: libraries/relation.lib.php:119
 msgid ""
@@ -9126,6 +9129,10 @@ msgstr "Arată/ascunde toate"
 msgid "Hide/Show Tables with no relation"
 msgstr "Arată/ascunde tabele fără realție"
 
+#: pmd_general.php:147 tbl_change.php:324 tbl_change.php:330
+msgid "Hide"
+msgstr "Ascunde"
+
 #: pmd_general.php:170
 msgid "Number of tables"
 msgstr "Număr de tabele"
@@ -9800,8 +9807,8 @@ msgstr "Aruncă baza de date care are același nume ca utilizatorul."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Notă: phpMyAdmin folosește privilegiile utilizatorilor direct din tabelul de "
 "privilegii din MySQL. Conținutul acestui tabel poate diferi de cel original. "
@@ -12744,8 +12751,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -12875,8 +12882,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: po/advisory_rules.php:115
@@ -13826,9 +13833,6 @@ msgstr ""
 
 #~ msgid "Add into comments"
 #~ msgstr "Adăugare la comentarii"
-
-#~ msgid "Export views"
-#~ msgstr "Modul de export"
 
 #~ msgid "Invalid column (%s) specified!"
 #~ msgstr "Coloană nevalidă (%s) specificată!"

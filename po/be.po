@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-01-11 13:40+0100\n"
+"POT-Creation-Date: 2012-01-15 06:23-0500\n"
 "PO-Revision-Date: 2010-03-12 09:12+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: belarusian_cyrillic <be@li.org>\n"
-"Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: be\n"
 "X-Generator: Translate Toolkit 1.5.3\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
@@ -639,11 +639,11 @@ msgstr ""
 #: db_structure.php:451 libraries/display_tbl.lib.php:2355
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Гэты прагляд мае толькі такую колькасьць радкоў. Калі ласка, зьвярніцеся да "
-"%sдакумэнтацыі%s."
+"Гэты прагляд мае толькі такую колькасьць радкоў. Калі ласка, зьвярніцеся да %"
+"sдакумэнтацыі%s."
 
 #: db_structure.php:467 db_structure.php:481 libraries/header.inc.php:161
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
@@ -1012,8 +1012,8 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Вы, мусіць, паспрабавалі загрузіць вельмі вялікі файл. Калі ласка, "
 "зьвярніцеся да %sдакумэнтацыі%s для высьвятленьня спосабаў абыйсьці гэтае "
@@ -1040,8 +1040,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"Вы паспрабавалі загрузіць файл з мэтадам сьціску, які непадтрымліваецца "
-"(%s). Ягоная падтрымка або не рэалізаваная, або адключаная ў вашай "
+"Вы паспрабавалі загрузіць файл з мэтадам сьціску, які непадтрымліваецца (%"
+"s). Ягоная падтрымка або не рэалізаваная, або адключаная ў вашай "
 "канфігурацыі."
 
 #: import.php:349
@@ -2817,8 +2817,8 @@ msgstr "Запрашаем у %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Імаверна, прычына гэтага ў тым, што ня створаны канфігурацыйны файл. Каб яго "
 "стварыць, можна выкарыстаць %1$sналадачны скрыпт%2$s."
@@ -5948,12 +5948,12 @@ msgstr ""
 #, fuzzy, php-format
 #| msgid ""
 #| "s value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "matting strings. Additionally the following transformations will pen: "
-#| "%3$s. Other text will be kept as is."
+#| "matting strings. Additionally the following transformations will pen: %3"
+#| "$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Гэтае значэньне інтэрпрэтуецца з выкарыстаньнем %1$sstrftime%2$s, таму можна "
 "выкарыстоўваць радкі фарматаваньня часу. Апроч гэтага, будуць праведзеныя "
@@ -6222,14 +6222,10 @@ msgstr ""
 msgid "Show BLOB contents"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:686 pmd_general.php:147 tbl_change.php:324
-#: tbl_change.php:330
-msgid "Hide"
-msgstr "Схаваць"
-
-#: libraries/display_tbl.lib.php:686 libraries/relation.lib.php:116
-#: libraries/tbl_properties.inc.php:136 transformation_overview.php:46
-msgid "Browser transformation"
+#: libraries/display_tbl.lib.php:686
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Hide browser transformation"
 msgstr "Пераўтварэньне MIME-тыпу браўзэрам"
 
 #: libraries/display_tbl.lib.php:693
@@ -6736,8 +6732,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -7106,8 +7102,8 @@ msgid "Edit structure by following the \"Structure\" link"
 msgstr ""
 
 #: libraries/import.lib.php:1106
-#, fuzzy
-msgid "Go to database"
+#, fuzzy, php-format
+msgid "Go to database: %s"
 msgstr "Базы дадзеных адсутнічаюць"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
@@ -7116,8 +7112,8 @@ msgid "Edit settings for %s"
 msgstr ""
 
 #: libraries/import.lib.php:1127
-#, fuzzy
-msgid "Go to table"
+#, fuzzy, php-format
+msgid "Go to table: %s"
 msgstr "Базы дадзеных адсутнічаюць"
 
 #: libraries/import.lib.php:1130
@@ -7127,8 +7123,10 @@ msgid "Structure of %s"
 msgstr "Толькі структуру"
 
 #: libraries/import.lib.php:1136
-msgid "Go to view"
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Export views"
+msgid "Go to view: %s"
+msgstr "Тып экспарту"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:33
 msgid ""
@@ -7522,6 +7520,11 @@ msgstr "Стварэньне PDF-файлаў"
 #: libraries/relation.lib.php:114
 msgid "Displaying Column Comments"
 msgstr "Паказваць камэнтары калёнак"
+
+#: libraries/relation.lib.php:116 libraries/tbl_properties.inc.php:136
+#: transformation_overview.php:46
+msgid "Browser transformation"
+msgstr "Пераўтварэньне MIME-тыпу браўзэрам"
 
 #: libraries/relation.lib.php:119
 msgid ""
@@ -9140,6 +9143,10 @@ msgstr "Схаваць/паказаць усе табліцы"
 msgid "Hide/Show Tables with no relation"
 msgstr "Схаваць/паказаць табліцы бяз сувязяў"
 
+#: pmd_general.php:147 tbl_change.php:324 tbl_change.php:330
+msgid "Hide"
+msgstr "Схаваць"
+
 #: pmd_general.php:170
 msgid "Number of tables"
 msgstr "Колькасьць табліц"
@@ -9809,8 +9816,8 @@ msgstr "Выдаліць базы дадзеных, якія маюць такі
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Заўвага: phpMyAdmin атрымлівае прывілеі карыстальнікаў наўпростава з табліц "
 "прывілеяў MySQL. Зьмесьціва гэтых табліц можа адрозьнівацца ад прывілеяў, "
@@ -12773,8 +12780,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -12903,8 +12910,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: po/advisory_rules.php:115
@@ -13854,9 +13861,6 @@ msgstr ""
 
 #~ msgid "Add into comments"
 #~ msgstr "Дадаць у камэнтары"
-
-#~ msgid "Export views"
-#~ msgstr "Тып экспарту"
 
 #~ msgid "Invalid column (%s) specified!"
 #~ msgstr "Вызначаная некарэктная калёнка (%s)!"

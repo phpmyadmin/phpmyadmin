@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-01-11 13:40+0100\n"
+"POT-Creation-Date: 2012-01-15 06:23-0500\n"
 "PO-Revision-Date: 2012-01-11 08:26+0200\n"
 "Last-Translator: Vian Zhao <brovian@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
-"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.1.6\n"
 
@@ -605,8 +605,8 @@ msgstr "追踪已禁用。"
 #: db_structure.php:451 libraries/display_tbl.lib.php:2355
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr "该视图最少包含的行数，参见%s文档%s。"
 
 #: db_structure.php:467 db_structure.php:481 libraries/header.inc.php:161
@@ -957,8 +957,8 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr "您可能正在上传很大的文件，请参考%s文档%s来寻找解决方法。"
 
 #: import.php:170 import.php:419
@@ -2562,8 +2562,8 @@ msgstr "欢迎使用 %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "你可能还没有创建配置文件。你可以使用 %1$s设置脚本%2$s 来创建一个配置文件。"
 
@@ -5558,8 +5558,8 @@ msgstr "，@TABLE@ 将变成数据表名"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "这个值是使用 %1$sstrftime%2$s 来解析的，所以你能用时间格式的字符串。另外，下"
 "列内容也将被转换：%3$s。其他文本将保持原样。参见%4$s常见问题 (FAQ)%5$s。"
@@ -5783,14 +5783,10 @@ msgstr "显示二进制内容"
 msgid "Show BLOB contents"
 msgstr "显示 BLOB 内容"
 
-#: libraries/display_tbl.lib.php:686 pmd_general.php:147 tbl_change.php:324
-#: tbl_change.php:330
-msgid "Hide"
-msgstr "隐藏"
-
-#: libraries/display_tbl.lib.php:686 libraries/relation.lib.php:116
-#: libraries/tbl_properties.inc.php:136 transformation_overview.php:46
-msgid "Browser transformation"
+#: libraries/display_tbl.lib.php:686
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Hide browser transformation"
 msgstr "浏览器转换"
 
 #: libraries/display_tbl.lib.php:693
@@ -6260,8 +6256,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr "关于 PBXT 的文档和更多信息请参见 %sPrimeBase XT 主页%s。"
 
 #: libraries/engines/pbxt.lib.php:129
@@ -6606,7 +6602,9 @@ msgid "Edit structure by following the \"Structure\" link"
 msgstr "请通过点击 \"结构\" 链接来编辑结构"
 
 #: libraries/import.lib.php:1106
-msgid "Go to database"
+#, fuzzy, php-format
+#| msgid "Go to database"
+msgid "Go to database: %s"
 msgstr "转到数据库"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
@@ -6615,7 +6613,9 @@ msgid "Edit settings for %s"
 msgstr "编辑 %s 的设置"
 
 #: libraries/import.lib.php:1127
-msgid "Go to table"
+#, fuzzy, php-format
+#| msgid "Go to table"
+msgid "Go to table: %s"
 msgstr "转到数据表"
 
 #: libraries/import.lib.php:1130
@@ -6624,7 +6624,9 @@ msgid "Structure of %s"
 msgstr "%s 的结构"
 
 #: libraries/import.lib.php:1136
-msgid "Go to view"
+#, fuzzy, php-format
+#| msgid "Go to view"
+msgid "Go to view: %s"
 msgstr "转到视图"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:33
@@ -7010,6 +7012,11 @@ msgstr "创建 PDF"
 #: libraries/relation.lib.php:114
 msgid "Displaying Column Comments"
 msgstr "显示字段注释"
+
+#: libraries/relation.lib.php:116 libraries/tbl_properties.inc.php:136
+#: transformation_overview.php:46
+msgid "Browser transformation"
+msgstr "浏览器转换"
 
 #: libraries/relation.lib.php:119
 msgid ""
@@ -8438,6 +8445,10 @@ msgstr "全部隐藏/显示"
 msgid "Hide/Show Tables with no relation"
 msgstr "隐藏/显示没有关联的表"
 
+#: pmd_general.php:147 tbl_change.php:324 tbl_change.php:330
+msgid "Hide"
+msgstr "隐藏"
+
 #: pmd_general.php:170
 msgid "Number of tables"
 msgstr "数据表数量"
@@ -9060,12 +9071,12 @@ msgstr "删除与用户同名的数据库。"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "注意：phpMyAdmin 直接由 MySQL 权限表取得用户权限。如果用户手动更改表，表内容"
-"将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权"
-"限%s。"
+"将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权限%"
+"s。"
 
 #: server_privileges.php:1858
 msgid "The selected user was not found in the privilege table."
@@ -10297,8 +10308,8 @@ msgstr ""
 #: server_status.php:1631
 #, fuzzy
 #| msgid ""
-#| "Please note:</b> Enabling the general_log may increase the server load "
-#| "5-15%. Also be aware that generating statistics from the logs is a d "
+#| "Please note:</b> Enabling the general_log may increase the server load 5-"
+#| "15%. Also be aware that generating statistics from the logs is a d "
 #| "intensive task, so it is advisable to select only a small time span  to "
 #| "disable the general_log and empty its table once monitoring is not uired "
 #| "any more."
@@ -11913,8 +11924,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -12044,8 +12055,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: po/advisory_rules.php:115
@@ -12981,8 +12992,8 @@ msgstr "concurrent_insert(并发插入)被设置为0"
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
 #~ "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
-#~ "请注意不是所有的结果表都能绘图。参见<a href=\"./Documentation."
-#~ "html#faq6_29\" target=\"Documentation\">常见问题 (FAQ) 6.29</a>"
+#~ "请注意不是所有的结果表都能绘图。参见<a href=\"./Documentation.html#faq6_29"
+#~ "\" target=\"Documentation\">常见问题 (FAQ) 6.29</a>"
 
 #~ msgid "Add a New User"
 #~ msgstr "添加新用户"

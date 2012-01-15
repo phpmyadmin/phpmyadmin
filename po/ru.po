@@ -3,16 +3,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-01-11 13:40+0100\n"
+"POT-Creation-Date: 2012-01-15 06:23-0500\n"
 "PO-Revision-Date: 2012-01-10 21:31+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
-"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.1.6\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
@@ -618,8 +618,8 @@ msgstr "Слежение выключено."
 #: db_structure.php:451 libraries/display_tbl.lib.php:2355
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Данное представление имеет, по меньшей мере, указанное количество строк. "
 "Пожалуйста, обратитесь к %sдокументации%s."
@@ -961,8 +961,8 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Вероятно, размер загружаемого файла слишком велик. Способы обхода данного "
 "ограничения описаны в %sдокументации%s."
@@ -2614,8 +2614,8 @@ msgstr "Добро пожаловать в %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Возможная причина - отсутствие файла конфигурации. Для его создания вы "
 "можете воспользоваться %1$sсценарием установки%2$s."
@@ -5764,8 +5764,8 @@ msgstr ", @TABLE@ будет замещено именем таблицы"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Значение обрабатывается функцией %1$sstrftime%2$s, благодаря чему возможна "
 "вставка текущей даты и времени. Дополнительно могут быть использованы "
@@ -5999,14 +5999,10 @@ msgstr "Показать бинарные данные"
 msgid "Show BLOB contents"
 msgstr "Показать BLOB содержимое"
 
-#: libraries/display_tbl.lib.php:686 pmd_general.php:147 tbl_change.php:324
-#: tbl_change.php:330
-msgid "Hide"
-msgstr "Скрыть"
-
-#: libraries/display_tbl.lib.php:686 libraries/relation.lib.php:116
-#: libraries/tbl_properties.inc.php:136 transformation_overview.php:46
-msgid "Browser transformation"
+#: libraries/display_tbl.lib.php:686
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Hide browser transformation"
 msgstr "Преобразование"
 
 #: libraries/display_tbl.lib.php:693
@@ -6517,8 +6513,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "Документацию и дальнейшую информацию по PBXT смотрите на %sдомашней странице "
 "PrimeBase XT%s."
@@ -6876,7 +6872,9 @@ msgid "Edit structure by following the \"Structure\" link"
 msgstr "Отредактировать структуру перейдя по ссылке \"Структура\""
 
 #: libraries/import.lib.php:1106
-msgid "Go to database"
+#, fuzzy, php-format
+#| msgid "Go to database"
+msgid "Go to database: %s"
 msgstr "Перейти к базе данных"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
@@ -6885,7 +6883,9 @@ msgid "Edit settings for %s"
 msgstr "Отредактировать настройки для %s"
 
 #: libraries/import.lib.php:1127
-msgid "Go to table"
+#, fuzzy, php-format
+#| msgid "Go to table"
+msgid "Go to table: %s"
 msgstr "Перейти к таблице"
 
 #: libraries/import.lib.php:1130
@@ -6894,7 +6894,9 @@ msgid "Structure of %s"
 msgstr "Структура %s"
 
 #: libraries/import.lib.php:1136
-msgid "Go to view"
+#, fuzzy, php-format
+#| msgid "Go to view"
+msgid "Go to view: %s"
 msgstr "Перейти к представлению (VIEW)"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:33
@@ -7287,6 +7289,11 @@ msgstr "Создание PDF-схемы"
 #: libraries/relation.lib.php:114
 msgid "Displaying Column Comments"
 msgstr "Отображать комментарии столбцов"
+
+#: libraries/relation.lib.php:116 libraries/tbl_properties.inc.php:136
+#: transformation_overview.php:46
+msgid "Browser transformation"
+msgstr "Преобразование"
 
 #: libraries/relation.lib.php:119
 msgid ""
@@ -8751,6 +8758,10 @@ msgstr "Скрыть/отобразить все таблицы"
 msgid "Hide/Show Tables with no relation"
 msgstr "Скрыть/отобразить таблицы не имеющие связей"
 
+#: pmd_general.php:147 tbl_change.php:324 tbl_change.php:330
+msgid "Hide"
+msgstr "Скрыть"
+
 #: pmd_general.php:170
 msgid "Number of tables"
 msgstr "Количество таблиц"
@@ -9386,8 +9397,8 @@ msgstr "Удалить базы данных, имена которых совп
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Примечание: phpMyAdmin получает информацию о пользовательских привилегиях "
 "непосредственно из таблиц привилегий MySQL. Содержимое этих таблиц может "
@@ -11223,8 +11234,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"При необходимости используйте дополнительные настройки безопасности - "
-"%sидентификация по хосту%s и %sсписок доверенных прокси серверов%s. Однако, "
+"При необходимости используйте дополнительные настройки безопасности - %"
+"sидентификация по хосту%s и %sсписок доверенных прокси серверов%s. Однако, "
 "защита по IP может быть ненадежной, если ваш IP не является выделенным и "
 "кроме вас принадлежит тысячам пользователей того же Интернет Провайдера."
 
@@ -12388,8 +12399,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "Текущее соотношение свободного кеша запросов по отношению к полному кешу "
 "запросов составляет %s%%. Значение должно быть выше 80%%"
@@ -12546,8 +12557,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "%s%% сортировок вызывает создание временных таблиц, данное значение должно "
 "быть ниже 10%%."

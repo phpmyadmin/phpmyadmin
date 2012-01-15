@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-01-11 13:40+0100\n"
+"POT-Creation-Date: 2012-01-15 06:23-0500\n"
 "PO-Revision-Date: 2011-12-19 09:41+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: polish <pl@li.org>\n"
-"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pl\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.1.6\n"
@@ -621,11 +621,11 @@ msgstr "Śledzenie nie jest aktywne."
 #: db_structure.php:451 libraries/display_tbl.lib.php:2355
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Pogląd ten ma co najmniej tą liczbę wierszy. Proszę odnieść się do "
-"%sdokumentacji%s."
+"Pogląd ten ma co najmniej tą liczbę wierszy. Proszę odnieść się do %"
+"sdokumentacji%s."
 
 #: db_structure.php:467 db_structure.php:481 libraries/header.inc.php:161
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
@@ -990,11 +990,11 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
-"Prawdopodobnie próbowałeś przesyłać zbyt duży plik. Zapoznaj się "
-"%sdokumentacją%s dla sposobów na obejście tego ograniczenia."
+"Prawdopodobnie próbowałeś przesyłać zbyt duży plik. Zapoznaj się %"
+"sdokumentacją%s dla sposobów na obejście tego ograniczenia."
 
 #: import.php:170 import.php:419
 msgid "Showing bookmark"
@@ -2717,8 +2717,8 @@ msgstr "Witamy w %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Prawdopodobnie powodem jest brak utworzonego pliku konfiguracyjnego. Możesz "
 "użyć %1$s skryptu instalacyjnego %2$s, aby utworzyć jedną."
@@ -5210,8 +5210,8 @@ msgstr "Szczegółowa nazwa serwera"
 #: libraries/config/messages.inc.php:455
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr ""
-"Czy użytkownik powinien mieć wyświetlony przycisk \"pokaż wszystkie "
-"(wiersze)\";"
+"Czy użytkownik powinien mieć wyświetlony przycisk \"pokaż wszystkie (wiersze)"
+"\";"
 
 #: libraries/config/messages.inc.php:456
 msgid "Allow to display all the rows"
@@ -5908,13 +5908,13 @@ msgstr ", @TABLE@ zostanie zastąpione nazwą wybranej tabeli"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Wartość ta jest interpretowana za pomocą %1$sstrftime%2$s, dzięki czemu "
 "można używać wartości czsu formatowania. Dodatkowo po transformacji stanie "
-"się: %3$s. Inne teksty będą przechowywane tak jak są. Zobacz szczegóły w "
-"%4$sFAQ%5$s."
+"się: %3$s. Inne teksty będą przechowywane tak jak są. Zobacz szczegóły w %4"
+"$sFAQ%5$s."
 
 #: libraries/display_export.lib.php:270
 msgid "use this for future exports"
@@ -6153,14 +6153,10 @@ msgstr "Pokaż binarne treści"
 msgid "Show BLOB contents"
 msgstr "Pokaż zawartość BLOB"
 
-#: libraries/display_tbl.lib.php:686 pmd_general.php:147 tbl_change.php:324
-#: tbl_change.php:330
-msgid "Hide"
-msgstr "Ukryj"
-
-#: libraries/display_tbl.lib.php:686 libraries/relation.lib.php:116
-#: libraries/tbl_properties.inc.php:136 transformation_overview.php:46
-msgid "Browser transformation"
+#: libraries/display_tbl.lib.php:686
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Hide browser transformation"
 msgstr "Sposób prezentacji danych"
 
 #: libraries/display_tbl.lib.php:693
@@ -6664,8 +6660,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentacja i dodatkowe informacje o PBXT można znaleźć na %sStronie "
 "domowej PrimeBase XT%s."
@@ -7033,7 +7029,9 @@ msgid "Edit structure by following the \"Structure\" link"
 msgstr "Edytuj strukturę po kliknięciu odnośnika \"Struktura\""
 
 #: libraries/import.lib.php:1106
-msgid "Go to database"
+#, fuzzy, php-format
+#| msgid "Go to database"
+msgid "Go to database: %s"
 msgstr "Przejdź do bazy danych"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
@@ -7043,7 +7041,9 @@ msgid "Edit settings for %s"
 msgstr "Brakuje danych dla %s"
 
 #: libraries/import.lib.php:1127
-msgid "Go to table"
+#, fuzzy, php-format
+#| msgid "Go to table"
+msgid "Go to table: %s"
 msgstr "Przejdź do tabeli"
 
 #: libraries/import.lib.php:1130
@@ -7053,7 +7053,9 @@ msgid "Structure of %s"
 msgstr "Tylko struktura"
 
 #: libraries/import.lib.php:1136
-msgid "Go to view"
+#, fuzzy, php-format
+#| msgid "Go to view"
+msgid "Go to view: %s"
 msgstr "Przejdź do widoku"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:33
@@ -7447,6 +7449,11 @@ msgstr "Tworzenie PDF-ów"
 #: libraries/relation.lib.php:114
 msgid "Displaying Column Comments"
 msgstr "Wyświetl komentarze dla kolumn"
+
+#: libraries/relation.lib.php:116 libraries/tbl_properties.inc.php:136
+#: transformation_overview.php:46
+msgid "Browser transformation"
+msgstr "Sposób prezentacji danych"
 
 #: libraries/relation.lib.php:119
 msgid ""
@@ -8431,8 +8438,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "Analizator składni SQL nie mógł zostać zainicjowany. Sprawdź, czy "
-"zainstalowane są niezbędne rozszerzenia PHP, tak jak zostało to opisane w "
-"%sdokumentacji%s."
+"zainstalowane są niezbędne rozszerzenia PHP, tak jak zostało to opisane w %"
+"sdokumentacji%s."
 
 #: libraries/tbl_links.inc.php:118 libraries/tbl_links.inc.php:119
 msgid "Table seems to be empty!"
@@ -8476,8 +8483,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Aby uzyskać listę dostępnych opcji transformacji i ich typów MIME, kliknij "
-"%sopisy transformacji%s"
+"Aby uzyskać listę dostępnych opcji transformacji i ich typów MIME, kliknij %"
+"sopisy transformacji%s"
 
 #: libraries/tbl_properties.inc.php:137
 msgid "Transformation options"
@@ -8910,8 +8917,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Serwer działa pod ochroną Suhosina. Możliwe problemy opisuje %sdokumentacja"
-"%s."
+"Serwer działa pod ochroną Suhosina. Możliwe problemy opisuje %sdokumentacja%"
+"s."
 
 #: navigation.php:182 server_databases.php:284 server_synchronize.php:1294
 msgid "No databases"
@@ -8997,6 +9004,10 @@ msgstr "Ukryj/pokaż wszystko"
 #: pmd_general.php:130
 msgid "Hide/Show Tables with no relation"
 msgstr "Ukryj/pokaż tabele bez relacji"
+
+#: pmd_general.php:147 tbl_change.php:324 tbl_change.php:330
+msgid "Hide"
+msgstr "Ukryj"
 
 #: pmd_general.php:170
 msgid "Number of tables"
@@ -9635,8 +9646,8 @@ msgstr "Usuń bazy danych o takich samych nazwach jak użytkownicy."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Uwaga: phpMyAdmin pobiera uprawnienia użytkowników wprost z tabeli uprawnień "
 "MySQL-a. Zawartość tej tabeli, jeśli zostały w niej dokonane ręczne zmiany, "
@@ -11458,8 +11469,8 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"W przypadku korzystania z uwierzytelniania cookie i przechowywać "
-"%sciasteczek logowania%s nie jest 0, %sWażności plików cookie%s logowania "
+"W przypadku korzystania z uwierzytelniania cookie i przechowywać %"
+"sciasteczek logowania%s nie jest 0, %sWażności plików cookie%s logowania "
 "muszą być ustawione na wartość mniejsza lub równa jej."
 
 #: setup/lib/index.lib.php:290
@@ -12665,8 +12676,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -12794,8 +12805,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: po/advisory_rules.php:115

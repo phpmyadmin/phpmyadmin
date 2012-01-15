@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-01-11 13:40+0100\n"
+"POT-Creation-Date: 2012-01-15 06:23-0500\n"
 "PO-Revision-Date: 2010-05-19 03:54+0200\n"
 "Last-Translator: <ahmad_usa2007@yahoo.com>\n"
 "Language-Team: persian <fa@li.org>\n"
-"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fa\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -617,8 +617,8 @@ msgstr "پیگردی فعال نمی باشد."
 #: db_structure.php:451 libraries/display_tbl.lib.php:2355
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "در این نما حداقل این تعداد از سطرها موجود می باشد. لطفاً به %sنوشتار%s مراجعه "
 "نمایید."
@@ -981,8 +981,8 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 
 #: import.php:170 import.php:419
@@ -2717,8 +2717,8 @@ msgstr "به %s خوش‌آمديد"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:109
@@ -5750,8 +5750,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:270
@@ -5993,15 +5993,10 @@ msgstr ""
 msgid "Show BLOB contents"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:686 pmd_general.php:147 tbl_change.php:324
-#: tbl_change.php:330
-msgid "Hide"
-msgstr ""
-
-#: libraries/display_tbl.lib.php:686 libraries/relation.lib.php:116
-#: libraries/tbl_properties.inc.php:136 transformation_overview.php:46
-msgid "Browser transformation"
-msgstr ""
+#: libraries/display_tbl.lib.php:686
+#, fuzzy
+msgid "Hide browser transformation"
+msgstr "اطلاعات ورود"
 
 #: libraries/display_tbl.lib.php:693
 msgid "Well Known Text"
@@ -6449,8 +6444,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -6804,8 +6799,8 @@ msgid "Edit structure by following the \"Structure\" link"
 msgstr ""
 
 #: libraries/import.lib.php:1106
-#, fuzzy
-msgid "Go to database"
+#, fuzzy, php-format
+msgid "Go to database: %s"
 msgstr "No databases"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
@@ -6814,8 +6809,9 @@ msgid "Edit settings for %s"
 msgstr ""
 
 #: libraries/import.lib.php:1127
-msgid "Go to table"
-msgstr ""
+#, fuzzy, php-format
+msgid "Go to table: %s"
+msgstr "No databases"
 
 #: libraries/import.lib.php:1130
 #, fuzzy, php-format
@@ -6824,7 +6820,8 @@ msgid "Structure of %s"
 msgstr "فقط ساختار"
 
 #: libraries/import.lib.php:1136
-msgid "Go to view"
+#, php-format
+msgid "Go to view: %s"
 msgstr ""
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:33
@@ -7213,6 +7210,11 @@ msgstr "ساخت PDFs"
 #: libraries/relation.lib.php:114
 msgid "Displaying Column Comments"
 msgstr "نمايش توضيحات ستون"
+
+#: libraries/relation.lib.php:116 libraries/tbl_properties.inc.php:136
+#: transformation_overview.php:46
+msgid "Browser transformation"
+msgstr ""
 
 #: libraries/relation.lib.php:119
 msgid ""
@@ -8164,9 +8166,9 @@ msgid ""
 msgstr ""
 "اگر نوع ستون \"enum\" يا \"set\" مي‌باشد ، لطفا براي ورود مقادير از اين قالب "
 "استفاده نماييد : 'a','b','c'...<br /> اگر احتياج داشتيد كه از علامت مميز "
-"برعكس(بك‌اسلش) (\" \\ \") يا نقل‌قول تكي (\" ' \") در آن مقادير استفاده "
-"نماييد ، قبل از آنها علامت (\" \\ \") را بگذاريد<br /> (براي مثال'\\\\xyz' "
-"يا 'a\\'b')"
+"برعكس(بك‌اسلش) (\" \\ \") يا نقل‌قول تكي (\" ' \") در آن مقادير استفاده نماييد "
+"، قبل از آنها علامت (\" \\ \") را بگذاريد<br /> (براي مثال'\\\\xyz' يا 'a"
+"\\'b')"
 
 #: libraries/tbl_properties.inc.php:99
 msgid ""
@@ -8201,9 +8203,9 @@ msgid ""
 msgstr ""
 "اگر نوع ستون \"enum\" يا \"set\" مي‌باشد ، لطفا براي ورود مقادير از اين قالب "
 "استفاده نماييد : 'a','b','c'...<br /> اگر احتياج داشتيد كه از علامت مميز "
-"برعكس(بك‌اسلش) (\" \\ \") يا نقل‌قول تكي (\" ' \") در آن مقادير استفاده "
-"نماييد ، قبل از آنها علامت (\" \\ \") را بگذاريد<br /> (براي مثال'\\\\xyz' "
-"يا 'a\\'b')"
+"برعكس(بك‌اسلش) (\" \\ \") يا نقل‌قول تكي (\" ' \") در آن مقادير استفاده نماييد "
+"، قبل از آنها علامت (\" \\ \") را بگذاريد<br /> (براي مثال'\\\\xyz' يا 'a"
+"\\'b')"
 
 #: libraries/tbl_properties.inc.php:321
 msgid "ENUM or SET data too long?"
@@ -8499,8 +8501,8 @@ msgid ""
 "this security hole by setting a password for user 'root'."
 msgstr ""
 "پرونده پيكربندي شما حاوي تنظيماتي است (كاربر root بدون اسم رمز) كه مرتبط با "
-"حساب پيش‌فرض MySQL مي‌باشد. اجراي MySQL با اين پيش‌فرض باعث ورود غيرمجاز "
-"مي‌شود ، و شما بايد اين حفره امنيتي را ذرست كنيد."
+"حساب پيش‌فرض MySQL مي‌باشد. اجراي MySQL با اين پيش‌فرض باعث ورود غيرمجاز مي‌شود "
+"، و شما بايد اين حفره امنيتي را ذرست كنيد."
 
 #: main.php:277
 msgid ""
@@ -8659,6 +8661,10 @@ msgstr "نمايش همه"
 
 #: pmd_general.php:130
 msgid "Hide/Show Tables with no relation"
+msgstr ""
+
+#: pmd_general.php:147 tbl_change.php:324 tbl_change.php:330
+msgid "Hide"
 msgstr ""
 
 #: pmd_general.php:170
@@ -9307,8 +9313,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 
 #: server_privileges.php:1858
@@ -12081,8 +12087,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -12202,8 +12208,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: po/advisory_rules.php:115

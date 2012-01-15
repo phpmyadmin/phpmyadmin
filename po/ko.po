@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-01-11 13:40+0100\n"
+"POT-Creation-Date: 2012-01-15 06:23-0500\n"
 "PO-Revision-Date: 2011-11-18 08:35+0200\n"
 "Last-Translator: manyfun <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
-"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.1.6\n"
 
@@ -611,8 +611,8 @@ msgstr "트래킹이 활성화되어 있지 않습니다."
 #: db_structure.php:451 libraries/display_tbl.lib.php:2355
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "이 뷰는 최소 이 숫자 이상의 열을 가지고 있습니다. %s문서%s를 참조해 주십시오."
 
@@ -960,8 +960,8 @@ msgstr ""
 #: import.php:57
 #, fuzzy, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "너무 큰 파일을 업로드하려고 시도했습니다. 제한치를 우회하는 방법은 %s문서%s"
 "를 참조하여 주십시오."
@@ -2660,8 +2660,8 @@ msgstr "%s에 오셨습니다"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "설정 파일을 생성하지 않은 것 같습니다. %1$ssetup script%2$s 를 사용해 설정 파"
 "일을 생성할 수 있습니다."
@@ -5721,8 +5721,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:270
@@ -5971,15 +5971,11 @@ msgstr ""
 msgid "Show BLOB contents"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:686 pmd_general.php:147 tbl_change.php:324
-#: tbl_change.php:330
-msgid "Hide"
-msgstr ""
-
-#: libraries/display_tbl.lib.php:686 libraries/relation.lib.php:116
-#: libraries/tbl_properties.inc.php:136 transformation_overview.php:46
-msgid "Browser transformation"
-msgstr ""
+#: libraries/display_tbl.lib.php:686
+#, fuzzy
+#| msgid "Version information"
+msgid "Hide browser transformation"
+msgstr "버전 정보"
 
 #: libraries/display_tbl.lib.php:693
 msgid "Well Known Text"
@@ -6427,8 +6423,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -6782,8 +6778,8 @@ msgid "Edit structure by following the \"Structure\" link"
 msgstr ""
 
 #: libraries/import.lib.php:1106
-#, fuzzy
-msgid "Go to database"
+#, fuzzy, php-format
+msgid "Go to database: %s"
 msgstr "데이터베이스가 없습니다"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
@@ -6792,8 +6788,9 @@ msgid "Edit settings for %s"
 msgstr ""
 
 #: libraries/import.lib.php:1127
-msgid "Go to table"
-msgstr ""
+#, fuzzy, php-format
+msgid "Go to table: %s"
+msgstr "데이터베이스가 없습니다"
 
 #: libraries/import.lib.php:1130
 #, fuzzy, php-format
@@ -6802,7 +6799,8 @@ msgid "Structure of %s"
 msgstr "구조만"
 
 #: libraries/import.lib.php:1136
-msgid "Go to view"
+#, php-format
+msgid "Go to view: %s"
 msgstr ""
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:33
@@ -7190,6 +7188,11 @@ msgstr ""
 #: libraries/relation.lib.php:114
 msgid "Displaying Column Comments"
 msgstr "열(칼럼) 설명(코멘트) 출력하기"
+
+#: libraries/relation.lib.php:116 libraries/tbl_properties.inc.php:136
+#: transformation_overview.php:46
+msgid "Browser transformation"
+msgstr ""
 
 #: libraries/relation.lib.php:119
 msgid ""
@@ -8530,8 +8533,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"링크 테이블을 처리하는 추가 기능이 비활성화되어 있습니다. 원인을 확인하려면 "
-"%s여기를 클릭%s하십시오."
+"링크 테이블을 처리하는 추가 기능이 비활성화되어 있습니다. 원인을 확인하려면 %"
+"s여기를 클릭%s하십시오."
 
 #: main.php:337
 msgid ""
@@ -8639,6 +8642,10 @@ msgstr "모두 보기"
 
 #: pmd_general.php:130
 msgid "Hide/Show Tables with no relation"
+msgstr ""
+
+#: pmd_general.php:147 tbl_change.php:324 tbl_change.php:330
+msgid "Hide"
 msgstr ""
 
 #: pmd_general.php:170
@@ -9300,8 +9307,8 @@ msgstr "사용자명과 같은 이름의 데이터베이스를 삭제"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 
 #: server_privileges.php:1858
@@ -12080,8 +12087,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -12207,8 +12214,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: po/advisory_rules.php:115

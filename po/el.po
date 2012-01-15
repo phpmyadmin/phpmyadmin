@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-01-11 13:40+0100\n"
+"POT-Creation-Date: 2012-01-15 06:23-0500\n"
 "PO-Revision-Date: 2012-01-12 09:01+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
-"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.1.6\n"
 
@@ -613,11 +613,11 @@ msgstr "Η παρακολούθηση δεν είναι ενεργοποιημέ
 #: db_structure.php:451 libraries/display_tbl.lib.php:2355
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Αυτή η προβολή έχει τουλάχιστον αυτό τον αριθμό γραμμών. Λεπτομέρειες στην "
-"%sτεκμηρίωση%s."
+"Αυτή η προβολή έχει τουλάχιστον αυτό τον αριθμό γραμμών. Λεπτομέρειες στην %"
+"sτεκμηρίωση%s."
 
 #: db_structure.php:467 db_structure.php:481 libraries/header.inc.php:161
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
@@ -808,23 +808,19 @@ msgid "ENUM/SET editor"
 msgstr "Επεξεργαστής ENUM/SET"
 
 #: enum_editor.php:28 js/messages.php:268
-#| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
 msgstr "Τιμές για νέα στήλη"
 
 #: enum_editor.php:30 js/messages.php:267
 #, php-format
-#| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
 msgstr "Τιμές για τη στήλη %s"
 
 #: enum_editor.php:34 js/messages.php:269
-#| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
 msgstr "Εισαγωγή κάθε τιμής σε διαφορετικό πεδίο"
 
 #: enum_editor.php:123
-#| msgid "+ Add a value"
 msgid "Add a value"
 msgstr "Προσθήκη μιας τιμής"
 
@@ -961,11 +957,11 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
-"Πιθανόν προσπαθείτε να αποστείλετε πολύ μεγάλο αρχείο. Λεπτομέρειες στην "
-"%sτεκμηρίωση%s για τρόπους αντιμετώπισης αυτού του περιορισμού."
+"Πιθανόν προσπαθείτε να αποστείλετε πολύ μεγάλο αρχείο. Λεπτομέρειες στην %"
+"sτεκμηρίωση%s για τρόπους αντιμετώπισης αυτού του περιορισμού."
 
 #: import.php:170 import.php:419
 msgid "Showing bookmark"
@@ -1117,13 +1113,11 @@ msgid "Add Index"
 msgstr "Προσθήκη ευρετηρίου"
 
 #: js/messages.php:47
-#| msgid "Edit mode"
 msgid "Edit Index"
 msgstr "Επεξεργασία ευρετηρίου"
 
 #: js/messages.php:48 tbl_indexes.php:293
 #, php-format
-#| msgid "Add %s column(s)"
 msgid "Add %d column(s) to index"
 msgstr "Προσθήκη %d στήλης(ών) στο ευρετήριο"
 
@@ -1382,8 +1376,6 @@ msgstr "EB"
 
 #: js/messages.php:132
 #, php-format
-#| msgid "%s table"
-#| msgid_plural "%s tables"
 msgid "%d table(s)"
 msgstr "%d πίνακας(ες)"
 
@@ -1534,7 +1526,6 @@ msgstr "Διαφορικός"
 
 #: js/messages.php:171
 #, php-format
-#| msgid "Divided by %s:"
 msgid "Divided by %s"
 msgstr "Διαίρεση με %s"
 
@@ -1555,7 +1546,6 @@ msgid "Analysing & loading logs. This may take a while."
 msgstr "Ανάλυση & φόρτωση καταγραφών. Αυτό ίσως διαρκέσει λίγο."
 
 #: js/messages.php:177
-#| msgid "Read requests"
 msgid "Cancel request"
 msgstr "Ακύρωση αιτήματος"
 
@@ -1595,12 +1585,10 @@ msgstr ""
 "Η καταγραφή αναλύθηκε αλλά δεν βρέθηκαν δεδομένα σε αυτή την επέκταση χρόνου."
 
 #: js/messages.php:185
-#| msgid "Analyze"
 msgid "Analyzing..."
 msgstr "Ανάλυση..."
 
 #: js/messages.php:186
-#| msgid "Explain SQL"
 msgid "Explain output"
 msgstr "Επεξήγηση προϊόντος"
 
@@ -1610,12 +1598,10 @@ msgid "Time"
 msgstr "Χρόνος"
 
 #: js/messages.php:189
-#| msgid "Total:"
 msgid "Total time:"
 msgstr "Συνολικός χρόνος:"
 
 #: js/messages.php:190
-#| msgid "Profiling"
 msgid "Profiling results"
 msgstr "Αποτελέμσατα προφίλ"
 
@@ -1627,7 +1613,6 @@ msgid "Table"
 msgstr "Πίνακας"
 
 #: js/messages.php:192
-#| msgid "Charts"
 msgid "Chart"
 msgstr "Διάγραμμα"
 
@@ -1686,7 +1671,6 @@ msgid "Affected rows:"
 msgstr "Επηρρεαζόμενες εγγραφές"
 
 #: js/messages.php:210
-#| msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 "Αποτυχία ανάλυσης αρχείου config. Δεν φαίνεται να είναι έγκυρος κώδκας JSON."
@@ -1837,7 +1821,6 @@ msgstr ""
 
 #: js/messages.php:270
 #, php-format
-#| msgid "+ Add a value"
 msgid "Add %d value(s)"
 msgstr "Προσθήκη %d τιμής(ών)"
 
@@ -1933,12 +1916,10 @@ msgid "Select two different columns"
 msgstr "Επιλογή δύο διαφορετικών στηλών"
 
 #: js/messages.php:311
-#| msgid "Query results operations"
 msgid "Query results"
 msgstr "Ααποτελέσματα ερωτήματος"
 
 #: js/messages.php:312
-#| msgid "Data pointer size"
 msgid "Data point content"
 msgstr "Περιεχόμενο δείκτη δεδομένων"
 
@@ -2304,7 +2285,6 @@ msgstr "ημερολόγιο-μήνας-έτος"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:486
-#| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "κανένα"
@@ -2636,8 +2616,8 @@ msgstr "Καλωσήρθατε στο %s"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Πιθανή αιτία για αυτό είναι η μη δημιουργία αρχείου προσαρμογής. Ίσως θέλετε "
 "να χρησιμοποιήσετε τον %1$sκώδικα εγκατάστασηςt%2$s για να δημιουργήσετε ένα."
@@ -3386,7 +3366,6 @@ msgid ""
 msgstr "Ορίζεται το ελάχιστο μέγεθος για τις στήλες CHAR και VARCHAR"
 
 #: libraries/config/messages.inc.php:35
-#| msgid "Customize text input fields"
 msgid "Minimum size for input field"
 msgstr "Ελάχιστο μέγεθος για πεδίο εισαγωγής"
 
@@ -3399,7 +3378,6 @@ msgstr ""
 "VARCHAR"
 
 #: libraries/config/messages.inc.php:37
-#| msgid "Maximum size for temporary sort files"
 msgid "Maximum size for input field"
 msgstr "Μέγιστο μέγεθος για πεδίο εισαγωγής"
 
@@ -4740,7 +4718,6 @@ msgstr ""
 "για χρήση του ήδη ορισμένου"
 
 #: libraries/config/messages.inc.php:386
-#| msgid "Control user"
 msgid "Control host"
 msgstr "Έλεγχος φιλοξηνητή"
 
@@ -4827,7 +4804,6 @@ msgstr ""
 "δεδομένων, οι παλαιές εγγραφές απομακρύνονται αυτόματα"
 
 #: libraries/config/messages.inc.php:403
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Maximal number of table preferences to store"
 msgstr "Μέγιστος αριθμός προτιμήσεων πινάκων για αποθήκευση"
 
@@ -5210,10 +5186,10 @@ msgstr "Εμφάνιση ερωτημάτων SQL"
 #, fuzzy
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
-msgstr "Ορίζεται αν το ερώτημα πρέπει να παραμείνει στην οθόνη μετά την υποβολή"
+msgstr ""
+"Ορίζεται αν το ερώτημα πρέπει να παραμείνει στην οθόνη μετά την υποβολή"
 
 #: libraries/config/messages.inc.php:474 libraries/sql_query_form.lib.php:352
-#| msgid "Hide query box"
 msgid "Retain query box"
 msgstr "Διατήρηση παραθύρου ερωτήματος"
 
@@ -5593,7 +5569,6 @@ msgstr ""
 "σωστά)."
 
 #: libraries/database_interface.lib.php:1816
-#| msgid "The server is not responding"
 msgid "The server is not responding."
 msgstr "Ο διακομιστής δεν αποκρίνεται."
 
@@ -5803,8 +5778,8 @@ msgstr ", το @TABLE@ θα γίνει το όνομα του πίνακα"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Αυτή η τιμή μετατρέπεται με χρήση της συνάρτησης %1$sstrftime%2$s, έτσι "
 "μπορείτε να χρησιμοποιήσετε φράσεις μορφής χρόνου. Επιπρόσθετα, θα γίνουν "
@@ -6041,14 +6016,10 @@ msgstr "Εμφάνιση δυαδικών περιεχομένων"
 msgid "Show BLOB contents"
 msgstr "Εμφάνιση περιεχομένων BLOB"
 
-#: libraries/display_tbl.lib.php:686 pmd_general.php:147 tbl_change.php:324
-#: tbl_change.php:330
-msgid "Hide"
-msgstr "Απόκρυψη"
-
-#: libraries/display_tbl.lib.php:686 libraries/relation.lib.php:116
-#: libraries/tbl_properties.inc.php:136 transformation_overview.php:46
-msgid "Browser transformation"
+#: libraries/display_tbl.lib.php:686
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Hide browser transformation"
 msgstr "Μετατροπή περιηγητή"
 
 #: libraries/display_tbl.lib.php:693
@@ -6392,8 +6363,8 @@ msgid ""
 "Documentation and further information about PBMS can be found on %sThe "
 "PrimeBase Media Streaming home page%s."
 msgstr ""
-"Τεκμηρίωση και περισσότερες πληροφορίες για το PBMS μπορεί να βρεθεί στην "
-"%sΙστοσελίδα του PrimeBase Media Streaming%s."
+"Τεκμηρίωση και περισσότερες πληροφορίες για το PBMS μπορεί να βρεθεί στην %"
+"sΙστοσελίδα του PrimeBase Media Streaming%s."
 
 #: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
 msgid "Related Links"
@@ -6562,11 +6533,11 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
-"Τεκμηρίωση και περισσότερες πληροφορίες για το PBXT μπορούν να βρεθούν στην "
-"%sΙστοσελίδα του PrimeBase XT%s."
+"Τεκμηρίωση και περισσότερες πληροφορίες για το PBXT μπορούν να βρεθούν στην %"
+"sΙστοσελίδα του PrimeBase XT%s."
 
 #: libraries/engines/pbxt.lib.php:129
 msgid "The PrimeBase XT Blog by Paul McCullagh"
@@ -6925,7 +6896,9 @@ msgid "Edit structure by following the \"Structure\" link"
 msgstr "Επεξεργαστείτε τη δομή πατώντας τον σύνδεσμο «Δομή»"
 
 #: libraries/import.lib.php:1106
-msgid "Go to database"
+#, fuzzy, php-format
+#| msgid "Go to database"
+msgid "Go to database: %s"
 msgstr "Μετάβαση στη βάση δεδομένων"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
@@ -6934,7 +6907,9 @@ msgid "Edit settings for %s"
 msgstr "Επεξεργασία ρυθμίσεων για %s"
 
 #: libraries/import.lib.php:1127
-msgid "Go to table"
+#, fuzzy, php-format
+#| msgid "Go to table"
+msgid "Go to table: %s"
 msgstr "Μετάβαση στον πίνακα"
 
 #: libraries/import.lib.php:1130
@@ -6943,7 +6918,9 @@ msgid "Structure of %s"
 msgstr "Δομή του %s"
 
 #: libraries/import.lib.php:1136
-msgid "Go to view"
+#, fuzzy, php-format
+#| msgid "Go to view"
+msgid "Go to view: %s"
 msgstr "Μετάβαση στην προβολή"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:33
@@ -7334,6 +7311,11 @@ msgstr "Δημιουργία αρχείων PDF"
 #: libraries/relation.lib.php:114
 msgid "Displaying Column Comments"
 msgstr "Εμφάνιση σχολίων πεδίων"
+
+#: libraries/relation.lib.php:116 libraries/tbl_properties.inc.php:136
+#: transformation_overview.php:46
+msgid "Browser transformation"
+msgstr "Μετατροπή περιηγητή"
 
 #: libraries/relation.lib.php:119
 msgid ""
@@ -8428,8 +8410,8 @@ msgstr ""
 "επιλογή για να ορίσετε μια μορφή ημερομηνίας-ώρας. Η τρίτη επιλογή ορίζει αν "
 "θέλετε να δείτε την τοπική ή την παγκόσμια ώρα (χρήση «local» ή «utc» "
 "αντίστοιχα). Σύμφωνα με αυτό, η μορφή της ημερομηνίας έχει διαφορετική τιμή "
-"- για το «local» δείτε την τεκμηρίωση για τη συνάρτηση strftime() της PHP "
-"και για το «utc» γίνεται χρησιμοποιώντας τη συνάρτηση gmdate()."
+"- για το «local» δείτε την τεκμηρίωση για τη συνάρτηση strftime() της PHP και "
+"για το «utc» γίνεται χρησιμοποιώντας τη συνάρτηση gmdate()."
 
 #: libraries/transformations/text_plain__external.inc.php:10
 msgid ""
@@ -8701,8 +8683,8 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "Η αποθήκευση ρυθμίσεων του phpMyAdmin δεν έχει ρυθμιστεί πλήρως. Μερικά "
-"εκτεταμένα χαρακτηριστικά έχουν απενεργοποιηθεί. Για να δείτε γιατί πατήστε "
-"%sεδώ%s."
+"εκτεταμένα χαρακτηριστικά έχουν απενεργοποιηθεί. Για να δείτε γιατί πατήστε %"
+"sεδώ%s."
 
 #: main.php:337
 msgid ""
@@ -8814,6 +8796,10 @@ msgstr "Απόκρυψη/Προβολή όλων"
 #: pmd_general.php:130
 msgid "Hide/Show Tables with no relation"
 msgstr "Απόκρυψη/Εμφάνιση Πινάκων χωρίς συσχέτιση"
+
+#: pmd_general.php:147 tbl_change.php:324 tbl_change.php:330
+msgid "Hide"
+msgstr "Απόκρυψη"
 
 #: pmd_general.php:170
 msgid "Number of tables"
@@ -9457,8 +9443,8 @@ msgstr "Διαγραφή βάσεων δεδομένων που έχουν ίδ�
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Σημείωση: Το phpMyAdmin διαβάζει τα δικαιώματα των χρηστών κατευθείαν από "
 "τους πίνακες δικαιωμάτων της MySQL. Το περιεχόμενο αυτών των πινάκων μπορεί "
@@ -11307,8 +11293,8 @@ msgid ""
 "(currently %d)."
 msgstr ""
 "Αν η %sεγκυρότητα Σύνδεσης cookie%s είναι μεγαλύτερη από 1440 δευτερόλεπτα "
-"μπορεί να προκαλέσει τυχαία ακύρωση συνεδρίας αν το %ssession.gc_maxlifetime"
-"%s είναι μικρότερο από την τιμή της (τρέχουσα: %d)."
+"μπορεί να προκαλέσει τυχαία ακύρωση συνεδρίας αν το %ssession.gc_maxlifetime%"
+"s είναι μικρότερο από την τιμή της (τρέχουσα: %d)."
 
 #: setup/lib/index.lib.php:286
 #, php-format
@@ -12484,8 +12470,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -12613,8 +12599,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: po/advisory_rules.php:115
