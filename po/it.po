@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
 "PO-Revision-Date: 2012-01-15 19:19+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -570,7 +570,7 @@ msgstr "Parole o valori da cercare (carattere jolly: \"%\"):"
 
 #: db_search.php:282
 msgid "Find:"
-msgstr "Trova:"
+msgstr "Cerca:"
 
 #: db_search.php:286 db_search.php:287
 msgid "Words are separated by a space character (\" \")."
