@@ -13240,7 +13240,7 @@ msgstr ""
 
 #: po/advisory_rules.php:250
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "InnoDB è disabilitato?"
 
 #: po/advisory_rules.php:251
 #, fuzzy
