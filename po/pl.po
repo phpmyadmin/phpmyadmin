@@ -266,7 +266,7 @@ msgstr "Nazwa bazy danych jest pusta!"
 #: db_operations.php:280
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr "Baza danych %s ma nazwę zmienioną na %s"
+msgstr "Nazwę bazy danych %s zmieniono na %s"
 
 #: db_operations.php:284
 #, php-format
