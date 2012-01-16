@@ -1318,7 +1318,7 @@ msgstr "Użyta pamięć podręczna zapytań"
 
 #: js/messages.php:101
 msgid "System CPU Usage"
-msgstr ""
+msgstr "Użycie systemu CPU"
 
 #: js/messages.php:102
 msgid "System memory"
