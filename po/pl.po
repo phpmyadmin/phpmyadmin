@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-16 12:37+0200\n"
+"PO-Revision-Date: 2012-01-16 12:38+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1307,10 +1307,9 @@ msgid "Query cache efficiency"
 msgstr "Wydajność pamięci podręcznej zapytań"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
-msgstr "Pamięć podręczna zapytań"
+msgstr "Użycie pamięci podręcznej zapytań"
 
 #: js/messages.php:99
 #, fuzzy
