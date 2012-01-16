@@ -1419,7 +1419,7 @@ msgstr "PiB"
 #. l10n: shortcuts for Exabyte
 #: js/messages.php:131 libraries/common.lib.php:1407
 msgid "EiB"
-msgstr "EB"
+msgstr "EiB"
 
 #: js/messages.php:132
 #, fuzzy, php-format
