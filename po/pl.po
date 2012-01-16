@@ -1259,7 +1259,7 @@ msgstr "Ruch na serwerze (w KiB)"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "Połączenia od chwili ostatniego odświeźenia"
 
 #: js/messages.php:84 js/messages.php:122 server_status.php:1230
 msgid "Processes"
