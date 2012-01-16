@@ -465,7 +465,7 @@ msgstr "Usuń"
 #: server_privileges.php:400 tbl_change.php:907 tbl_indexes.php:283
 #: tbl_select.php:196
 msgid "Or"
-msgstr "lub"
+msgstr "Lub"
 
 #: db_qbe.php:529
 msgid "Modify"
