@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-14 18:35+0200\n"
+"PO-Revision-Date: 2012-01-14 18:36+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1207,7 +1207,7 @@ msgstr "Edytuj"
 
 #: js/messages.php:66 server_status.php:801
 msgid "Live traffic chart"
-msgstr ""
+msgstr "Wykres ruchu w czasie rzeczywistym"
 
 #: js/messages.php:67 server_status.php:804
 msgid "Live conn./process chart"
