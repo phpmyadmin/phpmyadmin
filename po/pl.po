@@ -1458,7 +1458,7 @@ msgstr "Dodaj wykres do siatki"
 
 #: js/messages.php:142
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "Proszę dodać przynajmniej jedną zmienną do serii"
 
 #: js/messages.php:143 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:572 libraries/export/sql.php:1093
