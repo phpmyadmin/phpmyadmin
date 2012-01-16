@@ -1363,7 +1363,7 @@ msgstr "Pamięć wolna"
 
 #: js/messages.php:112
 msgid "Used memory"
-msgstr ""
+msgstr "Pamięć użyta"
 
 #: js/messages.php:114
 #, fuzzy
