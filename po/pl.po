@@ -1376,7 +1376,7 @@ msgstr "Podręczna przestrzeń wymiany"
 
 #: js/messages.php:116
 msgid "Used Swap"
-msgstr ""
+msgstr "Użyta przestrzeń wymiany"
 
 #: js/messages.php:117
 #, fuzzy
