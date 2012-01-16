@@ -946,7 +946,7 @@ msgstr "Dodaj punkt"
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Linie zakończone przez"
+msgstr "Linestring"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:325
 msgid "Outer Ring"
