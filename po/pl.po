@@ -1414,7 +1414,7 @@ msgstr "TiB"
 #. l10n: shortcuts for Petabyte
 #: js/messages.php:130 libraries/common.lib.php:1405
 msgid "PiB"
-msgstr "PB"
+msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
 #: js/messages.php:131 libraries/common.lib.php:1407
