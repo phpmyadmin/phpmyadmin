@@ -1372,7 +1372,7 @@ msgstr "Przestrzeń wymiany ogółem"
 
 #: js/messages.php:115
 msgid "Cached Swap"
-msgstr ""
+msgstr "Podręczna przestrzeń wymiany"
 
 #: js/messages.php:116
 msgid "Used Swap"
