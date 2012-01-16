@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-16 12:22+0200\n"
+"PO-Revision-Date: 2012-01-16 12:23+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1214,10 +1214,9 @@ msgid "Live conn./process chart"
 msgstr "Wykres połącz. w czasie rzeczywist./Wykres procesów"
 
 #: js/messages.php:68 server_status.php:822
-#, fuzzy
 #| msgid "Show query chart"
 msgid "Live query chart"
-msgstr "Pokaż zapytanie wykresu"
+msgstr "Wykres zapytań w czasie rzeczywistym"
 
 #: js/messages.php:70
 msgid "Static data"
