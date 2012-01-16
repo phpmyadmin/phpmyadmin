@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-15 06:23-0500\n"
-"PO-Revision-Date: 2011-12-23 05:22+0200\n"
-"Last-Translator: jaideejung007 <jaideejung007@gmail.com>\n"
+"PO-Revision-Date: 2012-01-14 16:04+0200\n"
+"Last-Translator: kanitchet <kanichet@hotmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7831,31 +7831,28 @@ msgid "There are no routines to display."
 msgstr "ตารางที่ถูกติดตาม"
 
 #: libraries/rte/rte_words.lib.php:30
-#, fuzzy
 msgid "Add trigger"
-msgstr "เพิ่มผู้ใช้ใหม่"
+msgstr "เพิ่ม Trigger"
 
 #: libraries/rte/rte_words.lib.php:32
 #, php-format
 msgid "Export of trigger %s"
-msgstr ""
+msgstr "นำออก Trigger %s"
 
 #: libraries/rte/rte_words.lib.php:33
-#, fuzzy
 msgid "trigger"
-msgstr "เพิ่มผู้ใช้ใหม่"
+msgstr "Trigger"
 
 #: libraries/rte/rte_words.lib.php:34
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a trigger"
-msgstr "คุณไม่มีสิทธิที่จะเข้ามาตรงนี้!"
+msgstr "คุณไม่มีสิทธิที่สร้าง Trigger!"
 
 #: libraries/rte/rte_words.lib.php:35
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database."
 msgid "No trigger with name %1$s found in database %2$s"
-msgstr "ไม่พบตารางใด ๆ ในฐานข้อมูล"
+msgstr "ไม่พบ Trigger %1$s ในฐานข้อมูล %2$s"
 
 #: libraries/rte/rte_words.lib.php:36
 #, fuzzy
@@ -7869,15 +7866,14 @@ msgid "Add event"
 msgstr "เพิ่มผู้ใช้ใหม่"
 
 #: libraries/rte/rte_words.lib.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "No rows selected"
 msgid "Export of event %s"
-msgstr "ยังไม่ได้เลือกแถว"
+msgstr ""
 
 #: libraries/rte/rte_words.lib.php:45
-#, fuzzy
 msgid "event"
-msgstr "ถูกส่ง"
+msgstr "เหตุการณ์"
 
 #: libraries/rte/rte_words.lib.php:46
 #, fuzzy
@@ -7892,10 +7888,9 @@ msgid "No event with name %1$s found in database %2$s"
 msgstr "ไม่พบตารางใด ๆ ในฐานข้อมูล"
 
 #: libraries/rte/rte_words.lib.php:48
-#, fuzzy
 #| msgid "Tracked tables"
 msgid "There are no events to display."
-msgstr "ตารางที่ถูกติดตาม"
+msgstr "ไม่มีเหตุการณ์ใดๆ"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:230
 #: libraries/schema/Eps_Relation_Schema.class.php:420
@@ -9024,16 +9019,15 @@ msgstr ""
 
 #: server_binlog.php:181
 msgid "Position"
-msgstr ""
+msgstr "ตำแหน่ง"
 
 #: server_binlog.php:184
 msgid "Original position"
-msgstr ""
+msgstr "ตำแหน่งเริ่มแรก"
 
 #: server_binlog.php:185 tbl_structure.php:760
-#, fuzzy
 msgid "Information"
-msgstr "ข้อมูลล็อกอิน"
+msgstr "ข้อมูล"
 
 #: server_collations.php:39
 msgid "Character Sets and Collations"
@@ -9518,9 +9512,9 @@ msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr ""
 
 #: server_privileges.php:2225
-#, fuzzy, php-format
+#, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
-msgstr "ตรวจสอบสิทธิสำหรับฐานข้อมูล &quot;%s&quot;."
+msgstr "มอบสิทธิทั้งหมดสำหรับฐานข้อมูล &quot;%s&quot;."
 
 #: server_privileges.php:2250
 #, php-format
@@ -10759,15 +10753,15 @@ msgstr ""
 
 #: server_synchronize.php:447 server_synchronize.php:919
 msgid "Apply index(s)"
-msgstr ""
+msgstr "ดัชนี"
 
 #: server_synchronize.php:448 server_synchronize.php:920
 msgid "Update row(s)"
-msgstr ""
+msgstr "อัพเดทแถว"
 
 #: server_synchronize.php:449 server_synchronize.php:921
 msgid "Insert row(s)"
-msgstr ""
+msgstr "เพิ่มแถว"
 
 #: server_synchronize.php:460 server_synchronize.php:933
 msgid "Would you like to delete all the previous rows from target tables?"
@@ -10775,11 +10769,11 @@ msgstr ""
 
 #: server_synchronize.php:465 server_synchronize.php:938
 msgid "Apply Selected Changes"
-msgstr ""
+msgstr "ใช้การเปลี่ยนแปลงที่เลือก"
 
 #: server_synchronize.php:469 server_synchronize.php:941
 msgid "Synchronize Databases"
-msgstr ""
+msgstr "ทำให้ฐานข้อมูลเท่ากัน"
 
 #: server_synchronize.php:483
 msgid "Selected target tables have been synchronized with source tables."
@@ -10921,30 +10915,27 @@ msgstr ""
 
 #: setup/frames/index.inc.php:225
 msgid "Display"
-msgstr ""
+msgstr "แสดง"
 
 #: setup/frames/index.inc.php:229
-#, fuzzy
 msgid "Load"
-msgstr "โลคอล"
+msgstr "โหลด"
 
 #: setup/frames/index.inc.php:240
-#, fuzzy
 msgid "phpMyAdmin homepage"
-msgstr "เอกสารการใช้ phpMyAdmin"
+msgstr "หน้าเว็บ phpMyAdmin"
 
 #: setup/frames/index.inc.php:241
 msgid "Donate"
-msgstr ""
+msgstr "บริจาค"
 
 #: setup/frames/servers.inc.php:28
 msgid "Edit server"
-msgstr ""
+msgstr "แก้ไข เครื่องแม่ข่าย"
 
 #: setup/frames/servers.inc.php:37
-#, fuzzy
 msgid "Add a new server"
-msgstr "เพิ่มผู้ใช้ใหม่"
+msgstr "เพิ่ม เครื่องแม่ข่าย"
 
 #: setup/index.php:22
 msgid "Wrong GET file attribute value"
@@ -10952,7 +10943,7 @@ msgstr ""
 
 #: setup/lib/form_processing.lib.php:43
 msgid "Warning"
-msgstr ""
+msgstr "คำเตือน"
 
 #: setup/lib/form_processing.lib.php:44
 msgid "Submitted form contains errors"
@@ -11349,10 +11340,9 @@ msgid "Redraw"
 msgstr ""
 
 #: tbl_gis_visualization.php:177
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save to file"
-msgstr "ส่งมาเป็นไฟล์"
+msgstr "บันทึกลงเป็นไฟล์"
 
 #: tbl_gis_visualization.php:178
 #, fuzzy
@@ -11479,7 +11469,7 @@ msgstr "dump ตาราง"
 
 #: tbl_operations.php:696
 msgid "Empty the table (TRUNCATE)"
-msgstr ""
+msgstr "ลบข้อมูลตาราง (TRUNCATE)"
 
 #: tbl_operations.php:716
 #, fuzzy
@@ -11498,12 +11488,11 @@ msgstr ""
 
 #: tbl_operations.php:749
 msgid "Analyze"
-msgstr ""
+msgstr "วิเคราะห์"
 
 #: tbl_operations.php:750
-#, fuzzy
 msgid "Check"
-msgstr "เช็ค"
+msgstr "ตรวจสอบ"
 
 #: tbl_operations.php:751
 msgid "Optimize"
@@ -11514,9 +11503,8 @@ msgid "Rebuild"
 msgstr ""
 
 #: tbl_operations.php:753
-#, fuzzy
 msgid "Repair"
-msgstr "ซ่อมแซมตาราง"
+msgstr "ซ่อมแซม"
 
 #: tbl_operations.php:765
 msgid "Remove partitioning"
@@ -11783,15 +11771,13 @@ msgid "Delete tracking data row from report"
 msgstr "ลบการติดตามตารางนี้"
 
 #: tbl_tracking.php:449
-#, fuzzy
 #| msgid "No databases"
 msgid "No data"
-msgstr "ไม่มีฐานข้อมูล"
+msgstr "ไม่มีข้อมูล"
 
 #: tbl_tracking.php:459 tbl_tracking.php:516
-#, fuzzy
 msgid "Date"
-msgstr "ข้อมูล"
+msgstr "วันที่"
 
 #: tbl_tracking.php:461
 msgid "Data definition statement"

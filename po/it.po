@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-15 06:23-0500\n"
-"PO-Revision-Date: 2011-11-28 16:26+0200\n"
-"Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
+"PO-Revision-Date: 2012-01-15 19:35+0200\n"
+"Last-Translator: any anonymous user <>\n"
 "Language-Team: italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -280,7 +280,7 @@ msgstr "Rinomina il database come"
 
 #: db_operations.php:438
 msgid "Remove database"
-msgstr "Rimuovi il database"
+msgstr "Elimina il database"
 
 #: db_operations.php:450
 #, php-format
@@ -570,7 +570,7 @@ msgstr "Parole o valori da cercare (carattere jolly: \"%\"):"
 
 #: db_search.php:282
 msgid "Find:"
-msgstr "Trova:"
+msgstr "Cerca:"
 
 #: db_search.php:286 db_search.php:287
 msgid "Words are separated by a space character (\" \")."
@@ -1011,9 +1011,9 @@ msgid ""
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
 "Non sono stati ricevuti dati da importare. O non è stato indicato alcun nome "
-"file, oppure è stato superata la dimensione massima consentita per il file, "
-"impostata nella configurazione di PHP. Vedi [a@./Documentation."
-"html#faq1_16@Documentation]FAQ 1.16[/a]."
+"file, oppure è stato superata la dimensione massima consentita nella "
+"configurazione di PHP per l'upload di un file. Vedi "
+"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 
 #: import.php:366
 msgid ""
@@ -12728,13 +12728,16 @@ msgstr "Non ci sono routine da visualizzare."
 #, fuzzy
 #| msgid "There are no routines to display."
 msgid "There are too many joins without indexes."
-msgstr "Non ci sono routine da visualizzare."
+msgstr "Troppe join prive di indici."
 
 #: po/advisory_rules.php:127
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
 msgstr ""
+"Significa che alcune join sono elaborate per mezzo di full table scan. "
+"Aggiungendo indici alle colonne utilizzate nelle condizioni di join si "
+"otterranno notevoli riduzioni dei tempi di esecuzione"
 
 #: po/advisory_rules.php:128
 #, php-format
@@ -12910,13 +12913,15 @@ msgstr ""
 #, fuzzy, php-format
 #| msgid "Sort buffer size"
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "Ordina la dimensione del buffer"
+msgstr "Massima %% di utilizzo del key buffer MyISAM"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr "Ordina la dimensione del buffer"
+msgstr ""
+"Bassa percentuale di utilizzo del buffer delle chiavi MyISAM (cache degli "
+"indici)."
 
 #: po/advisory_rules.php:167 po/advisory_rules.php:172
 msgid ""
@@ -12924,6 +12929,10 @@ msgid ""
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
+"Potrebbe essere necessario diminuire la dimensione di {key_buffer_size}, "
+"ricontrollare le tabelle per verificare se gli indici sono stati rimossi, "
+"oppure esaminare le query e controllare che siano utilizzati gli indici che "
+"ci si aspetta."
 
 #: po/advisory_rules.php:168
 #, fuzzy, php-format
@@ -12936,7 +12945,7 @@ msgstr "Ordina la dimensione del buffer"
 #, fuzzy
 #| msgid "Sort buffer size"
 msgid "Percentage of MyISAM key buffer used"
-msgstr "Ordina la dimensione del buffer"
+msgstr "Percentuale di utilizzo del buffer delle chiavi MyISAM"
 
 #: po/advisory_rules.php:173
 #, php-format
@@ -12945,7 +12954,7 @@ msgstr ""
 
 #: po/advisory_rules.php:175
 msgid "Percentage of index reads from memory"
-msgstr ""
+msgstr "Percentuale di letture degli indici dalla memoria"
 
 #: po/advisory_rules.php:176
 #, php-format
@@ -12954,12 +12963,14 @@ msgstr ""
 
 #: po/advisory_rules.php:177
 msgid "You may need to increase {key_buffer_size}."
-msgstr ""
+msgstr "Potrebbe essere necessario aumentare {key_buffer_size}."
 
 #: po/advisory_rules.php:178
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
+"Letture degli indici dalla memoria: %s%%, questo valore dovrebbe essere "
+"superiore al 95%%"
 
 #: po/advisory_rules.php:180
 #, fuzzy
@@ -13073,32 +13084,34 @@ msgstr ""
 
 #: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
-msgstr ""
+msgstr "La cache dei thread è impostata a 0"
 
 #: po/advisory_rules.php:210
 #, fuzzy, php-format
 #| msgid "Tracking is not active."
 msgid "Thread cache hit rate %%"
-msgstr "Il tracking non è attivo."
+msgstr "Percentuale hit nella cache dei thread"
 
 #: po/advisory_rules.php:211
 #, fuzzy
 #| msgid "Tracking is not active."
 msgid "Thread cache is not efficient."
-msgstr "Il tracking non è attivo."
+msgstr "La cache dei thread non è efficiente."
 
 #: po/advisory_rules.php:212
 msgid "Increase {thread_cache_size}."
-msgstr ""
+msgstr "Aumenta {thread_cache_size}."
 
 #: po/advisory_rules.php:213
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
+"Frequenza hit nella cache dei thread: %s%%, questo valore dovrebbe essere "
+"superiore all'80%%"
 
 #: po/advisory_rules.php:215
 msgid "Threads that are slow to launch"
-msgstr ""
+msgstr "Thread che sono lenti da avviarsi"
 
 #: po/advisory_rules.php:216
 #, fuzzy
@@ -13212,46 +13225,53 @@ msgid ""
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
+"Le connessioni dei client sono solitamente terminate quando questi non "
+"terminano correttamente le loro connessioni a MySQL. Questo potrebbe essere "
+"causato da problemi di rete o da codice che non termina correttamente le "
+"connessioni. Controllare rete e codice."
 
 #: po/advisory_rules.php:243
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
+"Il server termina il %s%% delle connessioni dei client. Questo valore "
+"dovrebbe essere inferiore al 2%%"
 
 #: po/advisory_rules.php:245
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of aborted clients"
-msgstr "Formato del file importato"
+msgstr "Frequenza di connessioni client terminate"
 
 #: po/advisory_rules.php:248
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"La frequenza di interruzione di connessioni di clienti è %s, questo valore "
+"dovrebbe essere inferiore ad 1 per ora."
 
 #: po/advisory_rules.php:250
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "InnoDB è disabilitato?"
 
 #: po/advisory_rules.php:251
 #, fuzzy
 #| msgid "Could not save recent table"
 msgid "You do not have InnoDB enabled."
-msgstr "Impossibile salvare la tabella recente"
+msgstr "InnoDB non è abilitato."
 
 #: po/advisory_rules.php:252
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "InnoDB è solitamente la miglior scelta tra i motori di archiviazione."
 
 #: po/advisory_rules.php:253
 msgid "have_innodb is set to 'value'"
-msgstr ""
+msgstr "have_innodb ha il valore 'value'"
 
 #: po/advisory_rules.php:255
 #, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB log size"
-msgstr "Dimensione del buffer per pool"
+msgstr "Dimensione log InnoDB"
 
 #: po/advisory_rules.php:256
 #, fuzzy
@@ -13259,7 +13279,9 @@ msgstr "Dimensione del buffer per pool"
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
-msgstr "Il numero di scritture effettuate nel buffer pool InnoDB."
+msgstr ""
+"La dimensione del file di log InnoDB non è appropriata, in relazione alla "
+"dimensione del buffer pool InnoDB."
 
 #: po/advisory_rules.php:257
 #, php-format
@@ -13274,6 +13296,17 @@ msgid ""
 "fine. See also <a href=\"http://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
+"Si dovrebbe impostare innodb_log_file_size al 25%% di "
+"{innodb_buffer_pool_size}, soprattutto in sistemi che processano numerose "
+"scritture in tabelle InnoDB. Tuttavia più questo valore è alto maggiore sarà "
+"il tempo necessario per recuperare i database in seguito a crash, quindi "
+"sarebbe opportuno non andare molto oltre 256 MiB. È necessario tener conto "
+"che non è possibile una veloce modifica di questo parametro. Occorre fermare "
+"il server, rimuovere i file log InnoDB, impostare il nuovo valore in "
+"my.cnf, avviare il server, quindi assicurarsi dell'assenza di errori nei "
+"log. Vedi anche <a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">questo articolo di blog</a>."
 
 #: po/advisory_rules.php:258
 #, php-format
@@ -13284,11 +13317,11 @@ msgstr ""
 
 #: po/advisory_rules.php:260
 msgid "Max InnoDB log size"
-msgstr ""
+msgstr "Dimensione massima log InnoDB"
 
 #: po/advisory_rules.php:261
 msgid "The InnoDB log file size is inadequately large."
-msgstr ""
+msgstr "La dimensione del file di log InnoDB è eccessivamente grande."
 
 #: po/advisory_rules.php:262
 #, php-format
@@ -13303,6 +13336,17 @@ msgid ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">this blog entry</a>"
 msgstr ""
+"Solitamente è sufficiente impostare innodb_log_file_size al 25%% di "
+"{innodb_buffer_pool_size}. Un innodb_log_file_size molto grande rallenta "
+"considerevolmente il tempo di ripristino in seguito ad un crash del "
+"database. Vedere anche <a "
+"href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">questo articolo</a>. È necessario fermare il server, "
+"rimuovere i file log InnoDB, impostare il nuovo valore in my.cnf, avviare il "
+"server, quindi controllare nei log degli errori se tutto è andato "
+"correttamente. Consultare anche  <a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">questo articolo di blog</a>."
 
 #: po/advisory_rules.php:263
 #, php-format

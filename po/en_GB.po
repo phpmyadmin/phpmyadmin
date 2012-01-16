@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-15 06:23-0500\n"
-"PO-Revision-Date: 2012-01-03 20:53+0200\n"
+"PO-Revision-Date: 2012-01-15 14:21+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1512,14 +1512,14 @@ msgid "Differential"
 msgstr "Differential"
 
 #: js/messages.php:171
-#, fuzzy, php-format
+#, php-format
 #| msgid "Divided by %s:"
 msgid "Divided by %s"
-msgstr "Divided by %s:"
+msgstr "Divided by %s"
 
 #: js/messages.php:172
 msgid "Unit"
-msgstr ""
+msgstr "Unit"
 
 #: js/messages.php:174
 msgid "From slow log"
@@ -5108,12 +5108,12 @@ msgstr "Show SQL queries"
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
 msgstr ""
+"Defines whether the query box should stay on-screen after its submission"
 
 #: libraries/config/messages.inc.php:474 libraries/sql_query_form.lib.php:352
-#, fuzzy
 #| msgid "Hide query box"
 msgid "Retain query box"
-msgstr "Hide query box"
+msgstr "Retain query box"
 
 #: libraries/config/messages.inc.php:475
 msgid "Allow to display database and table statistics (eg. space usage)"

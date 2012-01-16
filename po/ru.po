@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-15 06:23-0500\n"
-"PO-Revision-Date: 2012-01-10 21:31+0200\n"
+"PO-Revision-Date: 2012-01-14 14:53+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1522,14 +1522,14 @@ msgid "Differential"
 msgstr "Различия"
 
 #: js/messages.php:171
-#, fuzzy, php-format
+#, php-format
 #| msgid "Divided by %s:"
 msgid "Divided by %s"
-msgstr "Разделено на %s:"
+msgstr "Разделено на %s"
 
 #: js/messages.php:172
 msgid "Unit"
-msgstr ""
+msgstr "Единица"
 
 #: js/messages.php:174
 msgid "From slow log"

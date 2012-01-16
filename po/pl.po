@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-15 06:23-0500\n"
-"PO-Revision-Date: 2011-12-19 09:41+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-01-16 12:51+0200\n"
+"Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1180,10 +1180,9 @@ msgstr "Hasła nie są identyczne!"
 
 #: js/messages.php:59 server_privileges.php:1773 server_privileges.php:1797
 #: server_privileges.php:2209 server_privileges.php:2414
-#, fuzzy
 #| msgid "Any user"
 msgid "Add user"
-msgstr "Dowolny użytkownik"
+msgstr "Dodaj użytkownika"
 
 #: js/messages.php:60
 msgid "Reloading Privileges"
@@ -1191,7 +1190,7 @@ msgstr "Przeładowanie uprawnień"
 
 #: js/messages.php:61
 msgid "Removing Selected Users"
-msgstr "Usuń zaznaczonych użytkowników"
+msgstr "Usuwanie zaznaczonych użytkowników"
 
 #: js/messages.php:62 js/messages.php:141 tbl_tracking.php:235
 #: tbl_tracking.php:415
@@ -1208,21 +1207,20 @@ msgstr "Edytuj"
 
 #: js/messages.php:66 server_status.php:801
 msgid "Live traffic chart"
-msgstr ""
+msgstr "Wykres ruchu w czasie rzeczywistym"
 
 #: js/messages.php:67 server_status.php:804
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "Wykres połącz. w czasie rzeczywist./Wykres procesów"
 
 #: js/messages.php:68 server_status.php:822
-#, fuzzy
 #| msgid "Show query chart"
 msgid "Live query chart"
-msgstr "Pokaż zapytanie wykresu"
+msgstr "Wykres zapytań w czasie rzeczywistym"
 
 #: js/messages.php:70
 msgid "Static data"
-msgstr ""
+msgstr "Dane statyczne"
 
 #. l10n: Total number of queries
 #: js/messages.php:72 libraries/build_html_for_db.lib.php:46
@@ -1230,12 +1228,12 @@ msgstr ""
 #: server_status.php:1121 server_status.php:1182 tbl_printview.php:310
 #: tbl_structure.php:804
 msgid "Total"
-msgstr "Ilość"
+msgstr "Ogółem"
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:74 server_status.php:601 server_status.php:1020
 msgid "Other"
-msgstr ""
+msgstr "Inne"
 
 #. l10n: Thousands separator
 #: js/messages.php:76 libraries/common.lib.php:1449
@@ -1249,49 +1247,47 @@ msgstr "."
 
 #: js/messages.php:80
 msgid "KiB sent since last refresh"
-msgstr ""
+msgstr "Przesłane KiB od chwili ostatniego odświeźenia"
 
 #: js/messages.php:81
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "Otrzymane KiB od czasu ostatniego odświeżenia"
 
 #: js/messages.php:82
 msgid "Server traffic (in KiB)"
-msgstr ""
+msgstr "Ruch na serwerze (w KiB)"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "Połączenia od chwili ostatniego odświeźenia"
 
 #: js/messages.php:84 js/messages.php:122 server_status.php:1230
 msgid "Processes"
 msgstr "Procesy"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "Połączenia"
+msgstr "Połączenia / Procesy"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
 msgid "Questions since last refresh"
-msgstr ""
+msgstr "Pytania od chwili ostatniego odświeżenia"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:89
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "Pytania (zdania wykonane przez serwer)"
 
 #: js/messages.php:91 server_status.php:783
 msgid "Query statistics"
 msgstr "Statystyki zapytań"
 
 #: js/messages.php:94
-#, fuzzy
 #| msgid "Could not import configuration"
 msgid "Local monitor configuration incompatible"
-msgstr "Nie można zaimportować konfiguracji"
+msgstr "Konfiguracja monitora lokalnego jest niekompatybilna"
 
 #: js/messages.php:95
 msgid ""
@@ -1300,104 +1296,101 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
+"Ustawienia konfiguracji wykresu w lokalnym magazynie przegladarki nie są już "
+"kompatybilne z nowszą wersją okna dialogowego monitora. Jest bardzo "
+"prawdopodobne, że bieżąca konfiguracja już nie będzie działać. Proszę "
+"zresetować konfigurację do domyślnej w menu <i>Ustawienia</i>."
 
 #: js/messages.php:97
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache efficiency"
-msgstr "Pamięć podręczna zapytań"
+msgstr "Wydajność pamięci podręcznej zapytań"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
-msgstr "Pamięć podręczna zapytań"
+msgstr "Użycie pamięci podręcznej zapytań"
 
 #: js/messages.php:99
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
-msgstr "Pamięć podręczna zapytań"
+msgstr "Użyta pamięć podręczna zapytań"
 
 #: js/messages.php:101
 msgid "System CPU Usage"
-msgstr ""
+msgstr "Użycie systemu CPU"
 
 #: js/messages.php:102
 msgid "System memory"
-msgstr ""
+msgstr "Pamięć systemowa"
 
 #: js/messages.php:103
 msgid "System swap"
-msgstr ""
+msgstr "Systemowa przestrzeń wymiany"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1399
 #: server_status.php:1675
 msgid "MiB"
-msgstr "MB"
+msgstr "MiB"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:105 js/messages.php:126 libraries/common.lib.php:1397
 #: server_status.php:1675
 msgid "KiB"
-msgstr "KB"
+msgstr "KiB"
 
 #: js/messages.php:107
 msgid "Average load"
-msgstr ""
+msgstr "Wczytanie przeciętne"
 
 #: js/messages.php:108
 msgid "Total memory"
-msgstr ""
+msgstr "Pamięć ogółem"
 
 #: js/messages.php:109
 msgid "Cached memory"
-msgstr ""
+msgstr "Pamięć podręczna"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "Rezerwy buforowe"
+msgstr "Pamięć buforowana"
 
 #: js/messages.php:111
 msgid "Free memory"
-msgstr ""
+msgstr "Pamięć wolna"
 
 #: js/messages.php:112
 msgid "Used memory"
-msgstr ""
+msgstr "Pamięć użyta"
 
 #: js/messages.php:114
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "Ilość"
+msgstr "Przestrzeń wymiany ogółem"
 
 #: js/messages.php:115
 msgid "Cached Swap"
-msgstr ""
+msgstr "Podręczna przestrzeń wymiany"
 
 #: js/messages.php:116
 msgid "Used Swap"
-msgstr ""
+msgstr "Użyta przestrzeń wymiany"
 
 #: js/messages.php:117
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "Strony puste"
+msgstr "Wolna przestrzeń wymiany"
 
 #: js/messages.php:119
 msgid "Bytes sent"
-msgstr ""
+msgstr "Bajty przesłane"
 
 #: js/messages.php:120
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "Otrzymane"
+msgstr "Bajty otrzymane"
 
 #: js/messages.php:121 server_status.php:1140
 msgid "Connections"
@@ -1406,40 +1399,39 @@ msgstr "Połączenia"
 #. l10n: shortcuts for Byte
 #: js/messages.php:125 libraries/common.lib.php:1395
 msgid "B"
-msgstr "bajtów"
+msgstr "B"
 
 #. l10n: shortcuts for Gigabyte
 #: js/messages.php:128 libraries/common.lib.php:1401
 msgid "GiB"
-msgstr "GB"
+msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
 #: js/messages.php:129 libraries/common.lib.php:1403
 msgid "TiB"
-msgstr "TB"
+msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
 #: js/messages.php:130 libraries/common.lib.php:1405
 msgid "PiB"
-msgstr "PB"
+msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
 #: js/messages.php:131 libraries/common.lib.php:1407
 msgid "EiB"
-msgstr "EB"
+msgstr "EiB"
 
 #: js/messages.php:132
-#, fuzzy, php-format
+#, php-format
 #| msgid "Inside table(s):"
 msgid "%d table(s)"
-msgstr "Wewnątrz tabel(i):"
+msgstr "%d tabeli(l)"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:135
-#, fuzzy
 #| msgid "Suggestions:"
 msgid "Questions"
-msgstr "Propozycje:"
+msgstr "Pytania"
 
 #: js/messages.php:136 server_status.php:1095
 msgid "Traffic"
@@ -1451,24 +1443,22 @@ msgid "Settings"
 msgstr "Ustawienia"
 
 #: js/messages.php:138
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "Usuń bazę danych"
+msgstr "Usuń wykres"
 
 #: js/messages.php:139
 msgid "Edit title and labels"
-msgstr ""
+msgstr "Edytuj tytuł i etykiety"
 
 #: js/messages.php:140
-#, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "Przyciągaj do siatki"
+msgstr "Dodaj wykres do siatki"
 
 #: js/messages.php:142
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "Proszę dodać przynajmniej jedną zmienną do serii"
 
 #: js/messages.php:143 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:572 libraries/export/sql.php:1093
@@ -1480,35 +1470,35 @@ msgstr "Brak"
 
 #: js/messages.php:144
 msgid "Resume monitor"
-msgstr ""
+msgstr "Wyłącz monitor"
 
 #: js/messages.php:145
 msgid "Pause monitor"
-msgstr ""
+msgstr "Wstrzymaj monitor"
 
 #: js/messages.php:147
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "general_log i slow_query_log są włączone."
 
 #: js/messages.php:148
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log jest włączony."
 
 #: js/messages.php:149
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "slow_query_log jest włączony."
 
 #: js/messages.php:150
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "slow_query_log i general_log są włączone."
 
 #: js/messages.php:151
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output nie jest ustawiony do TABLE."
 
 #: js/messages.php:152
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output jest ustawiony do TABLE."
 
 #: js/messages.php:153
 #, php-format

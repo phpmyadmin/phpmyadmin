@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-15 06:23-0500\n"
-"PO-Revision-Date: 2012-01-07 15:54+0200\n"
+"PO-Revision-Date: 2012-01-15 14:19+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1523,14 +1523,14 @@ msgid "Differential"
 msgstr "Différentiel"
 
 #: js/messages.php:171
-#, fuzzy, php-format
+#, php-format
 #| msgid "Divided by %s:"
 msgid "Divided by %s"
-msgstr "Divisé par %s:"
+msgstr "Divisé par %s"
 
 #: js/messages.php:172
 msgid "Unit"
-msgstr ""
+msgstr "Unité"
 
 #: js/messages.php:174
 msgid "From slow log"
@@ -5167,12 +5167,12 @@ msgstr "Afficher les requêtes SQL"
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
 msgstr ""
+"Détermine si la boîte de requêtes devrait rester afficher après exécution"
 
 #: libraries/config/messages.inc.php:474 libraries/sql_query_form.lib.php:352
-#, fuzzy
 #| msgid "Hide query box"
 msgid "Retain query box"
-msgstr "Cacher zone SQL"
+msgstr "Conserver la boîte de requêtes"
 
 #: libraries/config/messages.inc.php:475
 msgid "Allow to display database and table statistics (eg. space usage)"
