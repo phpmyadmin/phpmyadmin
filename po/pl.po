@@ -828,10 +828,9 @@ msgid "Values for column %s"
 msgstr "Wartości dla kolumny \"%s\""
 
 #: enum_editor.php:34 js/messages.php:269
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
-msgstr "Wprowadź wartości w osobnych polach"
+msgstr "Wprowadź każdą wartość do osobnego pola"
 
 #: enum_editor.php:123
 #, fuzzy
