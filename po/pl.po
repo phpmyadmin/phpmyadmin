@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-15 06:23-0500\n"
-"PO-Revision-Date: 2012-01-16 21:22+0200\n"
+"PO-Revision-Date: 2012-01-16 21:24+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -249,7 +249,7 @@ msgstr "Zobacz zrzut (schemat) bazy danych"
 #: db_export.php:30 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
 #: export.php:354 navigation.php:296
 msgid "No tables found in database."
-msgstr "Nie znaleziono tabeli w bazie danych."
+msgstr "Nie znaleziono żadnych tabel w bazie danych."
 
 #: db_export.php:40 db_search.php:319 server_export.php:26
 msgid "Select All"
