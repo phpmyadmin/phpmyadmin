@@ -1359,7 +1359,7 @@ msgstr "Pamięć buforowana"
 
 #: js/messages.php:111
 msgid "Free memory"
-msgstr ""
+msgstr "Pamięć wolna"
 
 #: js/messages.php:112
 msgid "Used memory"
