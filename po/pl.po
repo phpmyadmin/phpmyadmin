@@ -1494,7 +1494,7 @@ msgstr "slow_query_log i general_log są włączone."
 
 #: js/messages.php:151
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output nie jest ustawiony do TABLE."
 
 #: js/messages.php:152
 msgid "log_output is set to TABLE."
