@@ -1350,7 +1350,7 @@ msgstr "Pamięć ogółem"
 
 #: js/messages.php:109
 msgid "Cached memory"
-msgstr ""
+msgstr "Pamięć podręczna"
 
 #: js/messages.php:110
 #, fuzzy
