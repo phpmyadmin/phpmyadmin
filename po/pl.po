@@ -977,7 +977,7 @@ msgstr "Dodaj wielokąt"
 
 #: gis_data_editor.php:310
 msgid "Add geometry"
-msgstr ""
+msgstr "Dodaj geometrię"
 
 #: gis_data_editor.php:318
 msgid ""
