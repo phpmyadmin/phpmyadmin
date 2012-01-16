@@ -980,13 +980,12 @@ msgid "Add geometry"
 msgstr "Dodaj geometrię"
 
 #: gis_data_editor.php:318
-#, fuzzy
 msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
-"Chose \"GeomFromText\" from the \"Function\" column and paste the below string "
-"into the \"Value\" field"
+"Wybierz \"GeomFromText\" z kolumny \"Function\" i wklej poniższy ciąg do pola "
+"\"Value\""
 
 #: import.php:57
 #, php-format
