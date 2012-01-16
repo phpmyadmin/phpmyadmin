@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-15 06:23-0500\n"
-"PO-Revision-Date: 2012-01-16 20:24+0200\n"
+"PO-Revision-Date: 2012-01-16 20:25+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1251,7 +1251,7 @@ msgstr "KiB przesłane od czasu ostatniego odświeźenia"
 
 #: js/messages.php:81
 msgid "KiB received since last refresh"
-msgstr "Otrzymane KiB od czasu ostatniego odświeżenia"
+msgstr "KiB otrzymane od czasu ostatniego odświeżenia"
 
 #: js/messages.php:82
 msgid "Server traffic (in KiB)"
