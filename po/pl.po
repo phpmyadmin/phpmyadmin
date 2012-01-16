@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-15 06:23-0500\n"
-"PO-Revision-Date: 2012-01-16 21:30+0200\n"
+"PO-Revision-Date: 2012-01-16 21:31+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -385,7 +385,7 @@ msgstr "w użyciu"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:393
 #: tbl_structure.php:914
 msgid "Creation"
-msgstr "Utworzenie"
+msgstr "Tworzenie"
 
 #: db_printview.php:193 libraries/db_info.inc.php:79
 #: libraries/export/sql.php:748
