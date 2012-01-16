@@ -1342,7 +1342,7 @@ msgstr "KiB"
 
 #: js/messages.php:107
 msgid "Average load"
-msgstr ""
+msgstr "Wczytanie przeciętne"
 
 #: js/messages.php:108
 msgid "Total memory"
