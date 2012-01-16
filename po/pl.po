@@ -688,7 +688,7 @@ msgstr "Podgląd wydruku"
 #: db_structure.php:587 libraries/common.lib.php:3349
 #: libraries/common.lib.php:3350
 msgid "Empty"
-msgstr "Wyczyść"
+msgstr "Opróżnij"
 
 #: db_structure.php:589 db_tracking.php:105 enum_editor.php:116
 #: libraries/Index.class.php:490 libraries/common.lib.php:3347
