@@ -509,7 +509,7 @@ msgstr "co najmniej jedno ze słów"
 
 #: db_search.php:44 db_search.php:287
 msgid "all words"
-msgstr "wszystkie słowa"
+msgstr "wszystkie wyrazy"
 
 #: db_search.php:45 db_search.php:288
 msgid "the exact phrase"
