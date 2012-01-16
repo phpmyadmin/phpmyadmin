@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-15 06:23-0500\n"
 "PO-Revision-Date: 2012-01-16 21:53+0200\n"
-"Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
+"Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -805,7 +805,7 @@ msgstr "Niemonitorowane tabele"
 
 #: db_tracking.php:201 tbl_structure.php:639
 msgid "Track table"
-msgstr "Śledź tabele"
+msgstr "Monitoruj tabelę"
 
 #: db_tracking.php:227
 msgid "Database Log"
