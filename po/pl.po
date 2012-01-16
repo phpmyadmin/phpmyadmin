@@ -1385,7 +1385,7 @@ msgstr "Wolna przestrzeń wymiany"
 
 #: js/messages.php:119
 msgid "Bytes sent"
-msgstr ""
+msgstr "Bajty przesłane"
 
 #: js/messages.php:120
 #, fuzzy
