@@ -1346,7 +1346,7 @@ msgstr "Wczytanie przeciętne"
 
 #: js/messages.php:108
 msgid "Total memory"
-msgstr ""
+msgstr "Pamięć ogółem"
 
 #: js/messages.php:109
 msgid "Cached memory"
