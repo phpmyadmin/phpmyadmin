@@ -8,10 +8,10 @@ msgstr ""
 "PO-Revision-Date: 2012-01-11 16:42+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pootle 2.1.6\n"
 
@@ -5923,7 +5923,7 @@ msgstr "Zobrazit obsah BLOBu"
 #, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
-msgstr "Transformace při prohlížení"
+msgstr "Skrýt transformace při prohlížení"
 
 #: libraries/display_tbl.lib.php:693
 msgid "Well Known Text"
