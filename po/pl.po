@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-16 12:30+0200\n"
+"PO-Revision-Date: 2012-01-16 12:31+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1285,10 +1285,9 @@ msgid "Query statistics"
 msgstr "Statystyki zapytań"
 
 #: js/messages.php:94
-#, fuzzy
 #| msgid "Could not import configuration"
 msgid "Local monitor configuration incompatible"
-msgstr "Nie można zaimportować konfiguracji"
+msgstr "Konfiguracja monitora lokalnego jest niekompatybilna"
 
 #: js/messages.php:95
 msgid ""
