@@ -1498,7 +1498,7 @@ msgstr "log_output nie jest ustawiony do TABLE."
 
 #: js/messages.php:152
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output jest ustawiony do TABLE."
 
 #: js/messages.php:153
 #, php-format
