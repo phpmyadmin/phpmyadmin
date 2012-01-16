@@ -414,10 +414,10 @@ msgid "You have to choose at least one column to display"
 msgstr "Musisz wybrać co najmniej jedną kolumnę do wyświetlenia"
 
 #: db_qbe.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "graficzny kreator"
+msgstr "Przełącz do %svisual builder%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:1002
