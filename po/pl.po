@@ -1422,10 +1422,10 @@ msgid "EiB"
 msgstr "EiB"
 
 #: js/messages.php:132
-#, fuzzy, php-format
+#, php-format
 #| msgid "Inside table(s):"
 msgid "%d table(s)"
-msgstr "Wewnątrz tabel(i):"
+msgstr "%d tabeli(l)"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:135
