@@ -1332,7 +1332,7 @@ msgstr "Systemowa przestrzeń wymiany"
 #: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1399
 #: server_status.php:1675
 msgid "MiB"
-msgstr "MB"
+msgstr "MiB"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:105 js/messages.php:126 libraries/common.lib.php:1397
