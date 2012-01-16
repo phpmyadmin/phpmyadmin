@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-15 06:23-0500\n"
-"PO-Revision-Date: 2012-01-16 21:52+0200\n"
+"PO-Revision-Date: 2012-01-16 21:53+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -793,7 +793,7 @@ msgstr "Wersje"
 
 #: db_tracking.php:136 tbl_tracking.php:415 tbl_tracking.php:683
 msgid "Tracking report"
-msgstr "Raport śledzenia"
+msgstr "Raport monitorowania"
 
 #: db_tracking.php:137 tbl_tracking.php:235 tbl_tracking.php:685
 msgid "Structure snapshot"
