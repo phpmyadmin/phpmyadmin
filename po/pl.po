@@ -861,7 +861,7 @@ msgstr "Parametry niepoprawne!"
 #: export.php:166 export.php:191 export.php:652
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr "Brak miejsca na zapis pliku %s."
+msgstr "Za mało miejsca na zapis pliku %s."
 
 #: export.php:307
 #, php-format
