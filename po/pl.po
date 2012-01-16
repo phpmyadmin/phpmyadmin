@@ -1238,7 +1238,7 @@ msgstr "Inne"
 #. l10n: Thousands separator
 #: js/messages.php:76 libraries/common.lib.php:1449
 msgid ","
-msgstr ","
+msgstr " "
 
 #. l10n: Decimal separator
 #: js/messages.php:78 libraries/common.lib.php:1451
