@@ -8245,7 +8245,7 @@ msgstr ""
 #: server_status.php:516 server_status.php:561 server_status.php:626
 #: server_status.php:687
 msgid "per hour"
-msgstr ""
+msgstr "ஒரு மணி நேரத்திற்கு "
 
 #: server_status.php:521
 msgid "Received"
@@ -8280,11 +8280,11 @@ msgstr ""
 
 #: server_status.php:627
 msgid "per minute"
-msgstr ""
+msgstr "ஒரு நிமிடத்திற்கு "
 
 #: server_status.php:628
 msgid "per second"
-msgstr ""
+msgstr "ஒரு வினாடிக்கு"
 
 #: server_status.php:686
 msgid "Query type"

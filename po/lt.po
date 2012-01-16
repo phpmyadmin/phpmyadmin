@@ -3430,6 +3430,8 @@ msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
+"[kbd]SMART[/kbd] - t.y. mažėjantis rikiavimas stulpeliams kurių tipai TIME, "
+"DATE, DATETIME ir TIMESTAMP, didėjantis kitu atveju"
 
 #: libraries/config/messages.inc.php:325
 msgid "Default sorting order"
@@ -3852,6 +3854,8 @@ msgstr "Naudoti SSL"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
+"Palikite tuščią, kad nebūtų PDF schemos palaikymo, siūlome: [kbd]"
+"pma_table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:416
 msgid "PDF schema: table coordinates"
