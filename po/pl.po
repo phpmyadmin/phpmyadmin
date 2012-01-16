@@ -1452,10 +1452,9 @@ msgid "Edit title and labels"
 msgstr "Edytuj tytuł i etykiety"
 
 #: js/messages.php:140
-#, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "Przyciągaj do siatki"
+msgstr "Dodaj wykres do siatki"
 
 #: js/messages.php:142
 msgid "Please add at least one variable to the series"
