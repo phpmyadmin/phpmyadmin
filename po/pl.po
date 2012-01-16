@@ -1322,7 +1322,7 @@ msgstr "Użycie systemu CPU"
 
 #: js/messages.php:102
 msgid "System memory"
-msgstr ""
+msgstr "Pamięć systemowa"
 
 #: js/messages.php:103
 msgid "System swap"
