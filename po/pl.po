@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-15 06:23-0500\n"
-"PO-Revision-Date: 2012-01-16 20:39+0200\n"
+"PO-Revision-Date: 2012-01-16 20:47+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -127,7 +127,7 @@ msgstr "Baza danych %1$s została utworzona."
 
 #: db_datadict.php:49 db_operations.php:370
 msgid "Database comment: "
-msgstr "Komentarz bazy danych: "
+msgstr "Komentarz bazy danych:"
 
 #: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1279
 #: libraries/tbl_properties.inc.php:662 tbl_operations.php:366
