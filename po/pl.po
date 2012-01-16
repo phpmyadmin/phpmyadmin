@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-16 12:39+0200\n"
+"PO-Revision-Date: 2012-01-16 12:40+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1326,7 +1326,7 @@ msgstr "Pamięć systemowa"
 
 #: js/messages.php:103
 msgid "System swap"
-msgstr ""
+msgstr "Systemowa przestrzeń wymiany"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1399
