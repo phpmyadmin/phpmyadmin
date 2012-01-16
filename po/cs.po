@@ -12222,6 +12222,14 @@ msgid ""
 "using this formula: (query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 msgstr ""
+"Velké rozdrobení paměti pravděpodobně (ještě) zvýší Qcache_lowmem_prunes. "
+"Toto může být způsobeno příliš častým vyprazdňováním paměti kvůli její malé "
+"velikosti ({query_cache_size}). Rychlým, ale dočasným řešením tohoto "
+"problému může být vyprázdnění vyrovnávací paměti (to ale může způsobit její "
+"dočasné znepřístupnění). Pečlivým nastavením {query_cache_min_res_unit} na "
+"nižší hodnotu může také pomoci. Například jejím nastavením na průměrnou "
+"velikost vašich dotazů pomocí tohoto vzorce: (query_cache_size - "
+"qcache_free_memory) / qcache_queries_in_cache"
 
 #: po/advisory_rules.php:93
 #, php-format
