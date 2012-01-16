@@ -528,9 +528,9 @@ msgstr "Wyniki wyszukań dla \"<i>%s</i>\" %s:"
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s trafień wewnątrz tabeli <i>%s</i>"
-msgstr[1] "%s trafienia wewnątrz tabeli <i>%s</i>"
-msgstr[2] "%s trafień wewnątrz tabeli <i>%s</i>"
+msgstr[0] "%s dopasowań wewnątrz tabeli <i>%s</i>"
+msgstr[1] "%s dopasowań wewnątrz tabeli <i>%s</i>"
+msgstr[2] "%s dopasowań wewnątrz tabeli <i>%s</i>"
 
 #: db_search.php:234 libraries/common.lib.php:3128
 #: libraries/common.lib.php:3340 libraries/common.lib.php:3341
