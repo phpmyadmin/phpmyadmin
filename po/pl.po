@@ -734,7 +734,7 @@ msgstr "Słownik danych"
 
 #: db_tracking.php:80
 msgid "Tracked tables"
-msgstr "Śledzenie tabel"
+msgstr "Monitorowane tabele"
 
 #: db_tracking.php:85 libraries/config/messages.inc.php:504
 #: libraries/export/htmlword.php:78 libraries/export/latex.php:156
