@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-11 13:40+0100\n"
-"PO-Revision-Date: 2012-01-16 12:43+0200\n"
+"PO-Revision-Date: 2012-01-16 12:44+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1379,10 +1379,9 @@ msgid "Used Swap"
 msgstr "Użyta przestrzeń wymiany"
 
 #: js/messages.php:117
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "Strony puste"
+msgstr "Wolna przestrzeń wymiany"
 
 #: js/messages.php:119
 msgid "Bytes sent"
