@@ -11941,7 +11941,7 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
-"You might want to increase {long_query_time} or optimize the queries listed "
+"You might want to increase {long_query_time} or optimise the queries listed "
 "in the slow query log"
 
 #: po/advisory_rules.php:18
