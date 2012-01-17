@@ -6779,10 +6779,10 @@ msgid "Edit structure by following the \"Structure\" link"
 msgstr "Edit structure by following the \"Structure\" link"
 
 #: libraries/import.lib.php:1106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to database"
 msgid "Go to database: %s"
-msgstr "Go to database"
+msgstr "Go to database: %s"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
 #, php-format
