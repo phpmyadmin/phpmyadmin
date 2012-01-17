@@ -12284,7 +12284,7 @@ msgstr ""
 "this in small increments and monitor the results."
 
 #: po/advisory_rules.php:98
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The ratio of removed queries to inserted queries is %s%%. The lower this "
 #| "value is, the better (This rules firing limit: 0.1%)"
@@ -12293,7 +12293,7 @@ msgid ""
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
-"value is, the better (This rules firing limit: 0.1%)"
+"value is, the better (This rules firing limit: 0.1%%)"
 
 #: po/advisory_rules.php:100
 msgid "Query cache max size"
