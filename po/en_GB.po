@@ -12178,10 +12178,10 @@ msgstr ""
 "This rule fires if there is more than 100 queries per second."
 
 #: po/advisory_rules.php:80
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query cache efficiency (%)"
 msgid "Query cache efficiency (%%)"
-msgstr "Query cache efficiency (%)"
+msgstr "Query cache efficiency (%%)"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
