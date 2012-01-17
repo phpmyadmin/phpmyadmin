@@ -6790,10 +6790,10 @@ msgid "Edit settings for %s"
 msgstr "Edit settings for %s"
 
 #: libraries/import.lib.php:1127
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to table"
 msgid "Go to table: %s"
-msgstr "Go to table"
+msgstr "Go to table: %s"
 
 #: libraries/import.lib.php:1130
 #, php-format
