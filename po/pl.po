@@ -1109,7 +1109,7 @@ msgstr "Usuwanie klucza podstawowego/indeksu"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "Ta operacja może długo trwać. Mimo to wykonać?"
+msgstr "Ta operacja może długo potrwać. Czy mimo to kontynuować?"
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
