@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-15 06:23-0500\n"
-"PO-Revision-Date: 2012-01-18 19:20+0200\n"
+"PO-Revision-Date: 2012-01-18 19:22+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1101,7 +1101,7 @@ msgstr "Masz zamiar WYCIĄĆ całą bazę danych!"
 
 #: js/messages.php:35
 msgid "Deleting tracking data"
-msgstr "Usuwanie danych nt. śledzenia"
+msgstr "Usuwanie danych śledzących"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
