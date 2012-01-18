@@ -1029,7 +1029,7 @@ msgstr "Nie można przekonwertować zestawu znaków pliku bez biblioteki konwers
 
 #: import.php:390 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
-msgstr "Nie udało się załadować modułów importu, proszę sprawdzić instalację!"
+msgstr "Nie udało się wczytać modułów importu. Proszę sprawdzić instalację!"
 
 #: import.php:421 sql.php:931
 #, php-format
