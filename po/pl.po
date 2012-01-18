@@ -1078,7 +1078,7 @@ msgstr ""
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:249
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "Polecenia \"DROP DATABASE\" jest zablokowane."
+msgstr "Polecenia \"DROP DATABASE\" są wyłaczone."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:280 sql.php:350
 msgid "Do you really want to "
