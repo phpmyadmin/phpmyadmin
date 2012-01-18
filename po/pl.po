@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-15 06:23-0500\n"
-"PO-Revision-Date: 2012-01-18 19:28+0200\n"
+"PO-Revision-Date: 2012-01-18 19:29+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1267,7 +1267,7 @@ msgstr "Zapytania od czasu ostatniego odświeżenia"
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:89
 msgid "Questions (executed statements by the server)"
-msgstr "Zapytania (zdania wykonane przez serwer)"
+msgstr "Zapytania (instrukcje wykonane przez serwer)"
 
 #: js/messages.php:91 server_status.php:783
 msgid "Query statistics"
