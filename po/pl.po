@@ -1147,10 +1147,9 @@ msgstr "Add %d kolumny do indeksu"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Log file count"
 msgid "Total count"
-msgstr "Liczba plików dziennika"
+msgstr "Liczba ogółem"
 
 #: js/messages.php:55
 msgid "The host name is empty!"
