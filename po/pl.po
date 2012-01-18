@@ -838,7 +838,7 @@ msgstr "Dodaj wartość"
 
 #: enum_editor.php:129 gis_data_editor.php:317
 msgid "Output"
-msgstr "Wynik wyjściowy"
+msgstr "Wyjście"
 
 #: enum_editor.php:130
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
