@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-15 06:23-0500\n"
-"PO-Revision-Date: 2012-01-16 22:08+0200\n"
+"PO-Revision-Date: 2012-01-18 18:39+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -338,7 +338,7 @@ msgstr "Przełącz do przekopiowanej bazy danych"
 #: tbl_structure.php:203 tbl_structure.php:872 tbl_tracking.php:259
 #: tbl_tracking.php:325
 msgid "Collation"
-msgstr "Porównywanie"
+msgstr "Metoda porównywania napisów"
 
 #: db_operations.php:561
 #, php-format
