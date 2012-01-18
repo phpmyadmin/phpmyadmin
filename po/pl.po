@@ -1122,7 +1122,7 @@ msgstr "Czy na pewno wyłączyć wszystkie odwołania do BLOB z bazy danych %s?"
 
 #: js/messages.php:44
 msgid "Missing value in the form!"
-msgstr "Brakująca wartość w formularzu!"
+msgstr "W formularzu brakuje wartości!"
 
 #: js/messages.php:45
 msgid "This is not a number!"
