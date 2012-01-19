@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-15 06:23-0500\n"
-"PO-Revision-Date: 2012-01-19 17:01+0200\n"
+"PO-Revision-Date: 2012-01-19 17:02+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1559,10 +1559,9 @@ msgid "Current settings"
 msgstr "Ustawienia bieżące"
 
 #: js/messages.php:168 server_status.php:1640
-#, fuzzy
 #| msgid "Title"
 msgid "Chart Title"
-msgstr "Tytuł"
+msgstr "Tytuł wykresu"
 
 #. l10n: As in differential values
 #: js/messages.php:170
