@@ -705,7 +705,7 @@ msgstr "วิเคราะห์ตาราง"
 
 #: db_structure.php:601
 msgid "Add prefix to table"
-msgstr ""
+msgstr "เพิ่มคำนำไปยังตาราง"
 
 #: db_structure.php:603 libraries/mult_submits.inc.php:251
 #, fuzzy
