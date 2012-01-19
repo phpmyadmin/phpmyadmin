@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-15 06:23-0500\n"
-"PO-Revision-Date: 2012-01-19 17:20+0200\n"
+"PO-Revision-Date: 2012-01-19 17:22+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -13439,8 +13439,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:273
+#, fuzzy
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "concurrent_insert jest ustawiony na 0"
 
 #~ msgctxt "$strShowStatusReset"
 #~ msgid "Reset"
