@@ -1565,10 +1565,9 @@ msgstr "Tytuł wykresu"
 
 #. l10n: As in differential values
 #: js/messages.php:170
-#, fuzzy
 #| msgid "Difference"
 msgid "Differential"
-msgstr "Różnica"
+msgstr "Zróżnicowany"
 
 #: js/messages.php:171
 #, php-format
