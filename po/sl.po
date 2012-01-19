@@ -6841,10 +6841,10 @@ msgid "Structure of %s"
 msgstr "Struktura %s"
 
 #: libraries/import.lib.php:1136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to view"
 msgid "Go to view: %s"
-msgstr "Pojdi na pogled"
+msgstr "Pojdi na pogled: %s"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:33
 msgid ""
