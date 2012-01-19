@@ -1604,7 +1604,6 @@ msgid "Profiling results"
 msgstr "Профилирование результатов"
 
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
