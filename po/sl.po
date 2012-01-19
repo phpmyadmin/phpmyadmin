@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-15 06:23-0500\n"
-"PO-Revision-Date: 2012-01-19 21:27+0200\n"
+"PO-Revision-Date: 2012-01-19 21:28+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -6830,10 +6830,10 @@ msgid "Edit settings for %s"
 msgstr "Uredi nastavitve za %s"
 
 #: libraries/import.lib.php:1127
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to table"
 msgid "Go to table: %s"
-msgstr "Pojdi v tabelo"
+msgstr "Pojdi na tabelo: %s"
 
 #: libraries/import.lib.php:1130
 #, php-format
