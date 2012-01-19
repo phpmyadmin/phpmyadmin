@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-15 06:23-0500\n"
-"PO-Revision-Date: 2012-01-19 15:42+0200\n"
+"PO-Revision-Date: 2012-01-19 15:55+0200\n"
 "Last-Translator: LovEZaCluB <admin@lzc-cyberpg.net>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -832,9 +832,8 @@ msgid "Add a value"
 msgstr "เพิ่มค่า"
 
 #: enum_editor.php:129 gis_data_editor.php:317
-#, fuzzy
 msgid "Output"
-msgstr "เอาท์พุท"
+msgstr "ส่งออก"
 
 #: enum_editor.php:130
 #, fuzzy
