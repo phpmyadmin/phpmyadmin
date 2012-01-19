@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-15 06:23-0500\n"
 "PO-Revision-Date: 2012-01-19 17:56+0200\n"
-"Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
+"Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -4711,7 +4711,7 @@ msgstr "Pozwól na logowanie się roota"
 
 #: libraries/config/messages.inc.php:368
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr "Nazwa \"Auth Realm\" wyświetlana przy autoryzacji HTTP Basic"
+msgstr "Nazwa Auth Realm wyświetlana podczas uwierzytelnienia HTTP Basic"
 
 #: libraries/config/messages.inc.php:369
 msgid "HTTP Realm"
