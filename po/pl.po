@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-15 06:23-0500\n"
-"PO-Revision-Date: 2012-01-19 17:13+0200\n"
+"PO-Revision-Date: 2012-01-19 17:14+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1620,10 +1620,9 @@ msgid "Log data loaded. Queries executed in this time span:"
 msgstr "Wczytano dane dziennika. Zapytania wykonane w tym odcinku czasu:"
 
 #: js/messages.php:182
-#, fuzzy
 #| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr "Przejdź do bazy danych"
+msgstr "Przejdź do Dziennika tabeli"
 
 #: js/messages.php:183
 msgid "Log analysed, but no data found in this time span."
