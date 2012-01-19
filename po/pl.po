@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-15 06:23-0500\n"
-"PO-Revision-Date: 2012-01-19 16:58+0200\n"
+"PO-Revision-Date: 2012-01-19 16:59+0200\n"
 "Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1529,10 +1529,10 @@ msgstr "Włączone %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:161
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disabled"
 msgid "Disable %s"
-msgstr "Wyłączone"
+msgstr "Wyłączone %s"
 
 #. l10n: %d seconds
 #: js/messages.php:163
