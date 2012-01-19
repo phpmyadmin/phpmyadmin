@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-15 06:23-0500\n"
 "PO-Revision-Date: 2012-01-19 17:59+0200\n"
-"Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
+"Last-Translator: Stanisław Krukowski <stankruk@neostrada.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -5986,7 +5986,7 @@ msgstr "Import do tabeli \"%s\""
 
 #: libraries/display_import.lib.php:139
 msgid "File to Import:"
-msgstr "Import z pliku:"
+msgstr "Plik do importu:"
 
 #: libraries/display_import.lib.php:156
 #, php-format
