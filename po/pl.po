@@ -6007,7 +6007,7 @@ msgstr "Serwer nie pozwala na przesyłanie plików."
 
 #: libraries/display_import.lib.php:208
 msgid "Partial Import:"
-msgstr "Częściowy Import:"
+msgstr "Częściowy import:"
 
 #: libraries/display_import.lib.php:214
 #, php-format
