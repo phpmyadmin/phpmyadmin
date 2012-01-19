@@ -1538,7 +1538,7 @@ msgstr "Wyłączone %s"
 #: js/messages.php:163
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "Ustaw long_query_time do %ds"
 
 #: js/messages.php:164
 msgid ""
