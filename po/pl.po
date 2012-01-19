@@ -3410,7 +3410,7 @@ msgstr "Sekret Blowfish"
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight selected rows"
-msgstr "Podświetl zaznaczone wiersze"
+msgstr "Podświetl zaznaczone rekordy"
 
 #: libraries/config/messages.inc.php:27
 msgid "Row marker"
