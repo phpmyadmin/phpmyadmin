@@ -1588,7 +1588,7 @@ msgstr "Z dziennika ogólnego"
 
 #: js/messages.php:176
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "Analiza & wczytywanie dzienników. To może trochę potrwać ..."
 
 #: js/messages.php:177
 #, fuzzy
