@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-15 06:23-0500\n"
-"PO-Revision-Date: 2012-01-14 16:04+0200\n"
-"Last-Translator: kanitchet <kanichet@hotmail.com>\n"
+"PO-Revision-Date: 2012-01-19 15:40+0200\n"
+"Last-Translator: LovEZaCluB <admin@lzc-cyberpg.net>\n"
 "Language-Team: thai <th@li.org>\n"
+"Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: th\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.1.6\n"
 
@@ -519,12 +519,11 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "ผลการค้นหา \"<i>%s</i>\" %s:"
 
 #: db_search.php:227
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "พบ %s ผลลัพธ์ที่ตรงในตาราง <i>%s</i>"
-msgstr[1] "พบ %s ผลลัพธ์ที่ตรงในตาราง <i>%s</i>"
 
 #: db_search.php:234 libraries/common.lib.php:3128
 #: libraries/common.lib.php:3340 libraries/common.lib.php:3341
