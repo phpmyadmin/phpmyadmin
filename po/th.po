@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-15 06:23-0500\n"
-"PO-Revision-Date: 2012-01-19 15:40+0200\n"
+"PO-Revision-Date: 2012-01-19 15:42+0200\n"
 "Last-Translator: LovEZaCluB <admin@lzc-cyberpg.net>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -582,10 +582,9 @@ msgid "Inside column:"
 msgstr "ในคอลัมน์:"
 
 #: db_structure.php:68
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
-msgstr "ไม่พบตารางใด ๆ ในฐานข้อมูล"
+msgstr "ไม่พบตารางใดๆ ในฐานข้อมูล"
 
 #: db_structure.php:315 tbl_operations.php:692
 #, php-format
