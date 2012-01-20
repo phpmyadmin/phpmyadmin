@@ -5112,7 +5112,7 @@ msgstr "送信後もクエリボックスを画面上に残しておくかどう
 
 #: libraries/config/messages.inc.php:474 libraries/sql_query_form.lib.php:352
 msgid "Retain query box"
-msgstr "クエリボックスの保持"
+msgstr "クエリボックスを保持する"
 
 #: libraries/config/messages.inc.php:475
 msgid "Allow to display database and table statistics (eg. space usage)"
