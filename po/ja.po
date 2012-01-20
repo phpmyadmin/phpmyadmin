@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-15 06:23-0500\n"
-"PO-Revision-Date: 2012-01-20 11:24+0200\n"
+"PO-Revision-Date: 2012-01-20 11:25+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -5934,7 +5934,7 @@ msgstr "空間データをテキストで表示"
 
 #: libraries/display_tbl.lib.php:694
 msgid "Well Known Binary"
-msgstr "バイナリ形式"
+msgstr "空間データをバイナリで表示"
 
 #: libraries/display_tbl.lib.php:1405 libraries/display_tbl.lib.php:1417
 msgid "The row has been deleted"
