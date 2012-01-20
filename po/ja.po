@@ -5930,7 +5930,7 @@ msgstr "ブラウザ変換機能を隠す"
 
 #: libraries/display_tbl.lib.php:693
 msgid "Well Known Text"
-msgstr "テキスト形式"
+msgstr "空間データをテキストで表示"
 
 #: libraries/display_tbl.lib.php:694
 msgid "Well Known Binary"
