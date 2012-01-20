@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-15 06:23-0500\n"
-"PO-Revision-Date: 2012-01-19 15:55+0200\n"
+"PO-Revision-Date: 2012-01-20 06:43+0200\n"
 "Last-Translator: LovEZaCluB <admin@lzc-cyberpg.net>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -236,6 +236,7 @@ msgstr "ไม่"
 #: server_privileges.php:2067 server_privileges.php:2373 sql.php:355
 #: tbl_printview.php:190 tbl_structure.php:41 tbl_structure.php:349
 #: tbl_tracking.php:281 tbl_tracking.php:334 tbl_tracking.php:339
+#, fuzzy
 msgid "Yes"
 msgstr "ใช่"
 
@@ -464,7 +465,6 @@ msgid "Modify"
 msgstr "แก้ไข"
 
 #: db_qbe.php:606
-#, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
 msgstr "เพิ่ม/ลบ แถว"
@@ -560,7 +560,6 @@ msgid "Search in database"
 msgstr "ค้นหาในฐานข้อมูล"
 
 #: db_search.php:277
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "คำ หรือ ค่าที่ต้องการค้นหา (wildcard: \"%\"):"
@@ -708,7 +707,6 @@ msgid "Add prefix to table"
 msgstr "เพิ่มคำนำไปยังตาราง"
 
 #: db_structure.php:603 libraries/mult_submits.inc.php:251
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
 msgstr "เขียนทับด้วยข้อมูลจากไฟล์"
@@ -745,7 +743,6 @@ msgid "Last version"
 msgstr "เวอร์ชั่นล่าสุด"
 
 #: db_tracking.php:88 tbl_tracking.php:651
-#, fuzzy
 msgid "Created"
 msgstr "สร้าง"
 
@@ -815,7 +812,7 @@ msgid "Values for a new column"
 msgstr "ค่าสำหรับคอลัมน์ใหม่"
 
 #: enum_editor.php:30 js/messages.php:267
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
 msgstr "ค่าสำหรับคอลัมน์ \"%s\""
@@ -827,7 +824,6 @@ msgid "Enter each value in a separate field"
 msgstr "ป้อนค่าในช่องต่างๆ"
 
 #: enum_editor.php:123
-#, fuzzy
 msgid "Add a value"
 msgstr "เพิ่มค่า"
 
