@@ -306,3 +306,7 @@ div#left_tableList ul ul {
     width: 85%;
     padding: 0.1em;
 }
+
+#fast_filter.gray {
+    color: gray;
+}
