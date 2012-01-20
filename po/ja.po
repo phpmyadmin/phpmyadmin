@@ -315,7 +315,7 @@ msgstr "コピーの前に CREATE DATABASE する"
 #: libraries/config/messages.inc.php:137 tbl_operations.php:560
 #, php-format
 msgid "Add %s"
-msgstr "%s を追加"
+msgstr "%s を追加する"
 
 #: db_operations.php:508 libraries/config/messages.inc.php:121
 #: tbl_operations.php:318 tbl_operations.php:562
