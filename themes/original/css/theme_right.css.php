@@ -2191,7 +2191,7 @@ fieldset .disabled-field td {
 }
 
 .CodeMirror {
-  line-height: 1em;
+  font-size: 140%;
   font-family: monospace;
   background: white;
   border: 1px solid black;
