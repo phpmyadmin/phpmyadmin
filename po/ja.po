@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-15 06:23-0500\n"
-"PO-Revision-Date: 2012-01-12 12:02+0200\n"
+"PO-Revision-Date: 2012-01-20 11:23+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6774,10 +6774,10 @@ msgid "Edit structure by following the \"Structure\" link"
 msgstr "名前の後ろにある「構造」のリンクより構造の編集が行えます。"
 
 #: libraries/import.lib.php:1106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to database"
 msgid "Go to database: %s"
-msgstr "データベースに移動"
+msgstr "データベース %s に移動"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
 #, php-format
