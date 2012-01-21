@@ -170,10 +170,9 @@ function fast_filter(value)
  */
 function clear_fast_filter()
 {
-    var elm = $('#NavFilter input');
-    elm.val('');
+    var $elm = $('#fast_filter');
+    $elm.val('');
     fast_filter('');
-    elm.focus();
 }
 
 /**
@@ -197,14 +196,30 @@ function PMA_reloadRecentTable()
 $(document).ready(function(){
     /* Display filter */
     $('#NavFilter').css('display', 'inline');
-    $('input[id="fast_filter"]').focus(function() {
-        if($(this).attr("value") === "filter tables by name") {
-            clear_fast_filter();
+    var txt = $('#fast_filter').val();
+
+    $('#fast_filter.gray').live('focus', function() {
+        $(this).removeClass('gray');
+        clear_fast_filter();
+    });
+
+    $('#fast_filter:not(.gray)').live('focusout', function() {
+        var $input = $(this);
+        if ($input.val() == '') {
+            $input
+                .addClass('gray')
+                .val(txt);
         }
     });
-    $('#clear_fast_filter').click(clear_fast_filter);
-    $('#fast_filter').focus(function (evt) {evt.target.select();});
-    $('#fast_filter').keyup(function (evt) {fast_filter(evt.target.value);});
+
+    $('#clear_fast_filter').click(function() {
+        clear_fast_filter();
+        $('#fast_filter').focus();
+    });
+
+    $('#fast_filter').keyup(function(evt) {
+        fast_filter($(this).val());
+    });
 
     /* Jump to recent table */
     $('#recentTable').change(function() {

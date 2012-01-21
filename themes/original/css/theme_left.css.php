@@ -248,3 +248,7 @@ div#left_tableList ul ul {
     margin: 0;
     border: 0;
 }
+
+#fast_filter.gray {
+    color: gray;
+}
