@@ -223,6 +223,15 @@ foreach ($loop_array as $rownumber => $where_clause) {
     if ($is_insert && $using_key && isset($me_fields_type) && is_array($me_fields_type) && isset($where_clause)) {
         $prot_row = PMA_DBI_fetch_single_row('SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $where_clause . ';');
     }
+    
+    // When a select field is nullified, it's not present in $_REQUEST
+    // so initialize it; this way, the foreach($me_fields) will process it
+    foreach ($me_fields_name as $key => $val) {
+        if (! isset($me_fields[$key])) {
+            $me_fields[$key] = '';
+        }
+    }
+
     foreach ($me_fields as $key => $val) {
 
         // Note: $key is an md5 of the fieldname. The actual fieldname is available in $me_fields_name[$key]
