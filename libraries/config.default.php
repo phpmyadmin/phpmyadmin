@@ -1458,7 +1458,7 @@ $cfg['Export']['csv_enclosed'] = '"';
  *
  * @global string $cfg['Export']['csv_escaped']
  */
-$cfg['Export']['csv_escaped'] = '\\';
+$cfg['Export']['csv_escaped'] = '"';
 
 /**
  *
