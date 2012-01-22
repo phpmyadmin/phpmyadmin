@@ -69,6 +69,7 @@ phpMyAdmin - ChangeLog
 - bug #3093145 [display] Page through rows returned from a view
 + patch #3303195 [interface] Checkbox to have SQL input remain
 - patch #3472899 [export] Fixed CSV escape for the export
+- patch #3475424 [import] Fixed CSV escape for the import
 
 3.4.10.0 (not yet released)
 - bug #3460090 [interface] TextareaAutoSelect feature broken

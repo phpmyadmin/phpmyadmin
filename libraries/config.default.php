@@ -1955,7 +1955,7 @@ $cfg['Import']['csv_enclosed'] = '"';
  *
  * @global string $cfg['Import']['csv_escaped']
  */
-$cfg['Import']['csv_escaped'] = '\\';
+$cfg['Import']['csv_escaped'] = '"';
 
 /**
  *

@@ -223,7 +223,7 @@ while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
             }
             $fail = false;
             $value = '';
-            while (($need_end && $ch != $csv_enclosed)
+            while (($need_end && ($ch != $csv_enclosed || $csv_enclosed == $csv_escaped))
              || (!$need_end && !($ch == $csv_terminated
                || $ch == $csv_new_line || ($csv_new_line == 'auto'
                 && ($ch == "\r" || $ch == "\n"))))) {
@@ -234,6 +234,11 @@ while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
                     }
                     $i++;
                     $ch = $buffer[$i];
+                    if ($csv_enclosed == $csv_escaped && ($ch == $csv_terminated
+                     || $ch == $csv_new_line || ($csv_new_line == 'auto'
+                      && ($ch == "\r" || $ch == "\n")))) {
+                        break;
+                    }
                 }
                 $value .= $ch;
                 if ($i == $len - 1) {
