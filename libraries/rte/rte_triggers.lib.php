@@ -323,7 +323,7 @@ function PMA_TRI_getEditorForm($mode, $item)
     $retval .= "    </td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
-    $retval .= "    <td>" . __('Time') . "</td>\n";
+    $retval .= "    <td>" . _pgettext('Trigger action time', 'Time') . "</td>\n";
     $retval .= "    <td><select name='item_timing'>\n";
     foreach ($action_timings as $key => $value) {
         $selected = "";
