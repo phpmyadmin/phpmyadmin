@@ -79,6 +79,8 @@ if (false !== $possibly_uploaded_val) {
         if (! empty($_REQUEST['fields']['multi_edit'][$rownumber][$key])) {
             $val = implode(',', $_REQUEST['fields']['multi_edit'][$rownumber][$key]);
             $val = "'" . PMA_sqlAddslashes($val) . "'";
+        } else {
+             $val = "''";
         }
     } elseif ($type == 'protected') {
         // here we are in protected mode (asked in the config)
