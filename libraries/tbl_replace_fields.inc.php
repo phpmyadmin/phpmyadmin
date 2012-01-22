@@ -59,17 +59,19 @@ if (false !== $possibly_uploaded_val) {
     }
 
     // $key contains the md5() of the fieldname
-    if (0 === strlen($val) && $type != 'protected') {
+    if ($type != 'protected' && $type != 'set' && 0 === strlen($val)) {
         // best way to avoid problems in strict mode (works also in non-strict mode)
         if (isset($me_auto_increment)  && isset($me_auto_increment[$key])) {
             $val = 'NULL';
         } else {
             $val = "''";
-        } 
+        }
     } elseif ($type == 'set') {
         if (! empty($_REQUEST['fields']['multi_edit'][$rownumber][$key])) {
             $val = implode(',', $_REQUEST['fields']['multi_edit'][$rownumber][$key]);
             $val = "'" . PMA_sqlAddSlashes($val) . "'";
+        } else {
+             $val = "''";
         }
     } elseif ($type == 'protected') {
         // here we are in protected mode (asked in the config)
