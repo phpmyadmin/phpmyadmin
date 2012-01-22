@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-22 04:34-0500\n"
-"PO-Revision-Date: 2012-01-12 12:02+0200\n"
+"PO-Revision-Date: 2012-01-20 11:27+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.1.6\n"
 
@@ -315,7 +315,7 @@ msgstr "コピーの前に CREATE DATABASE する"
 #: libraries/config/messages.inc.php:137 tbl_operations.php:560
 #, php-format
 msgid "Add %s"
-msgstr "%s を追加"
+msgstr "%s を追加する"
 
 #: db_operations.php:508 libraries/config/messages.inc.php:121
 #: tbl_operations.php:318 tbl_operations.php:562
@@ -5112,7 +5112,7 @@ msgstr "送信後もクエリボックスを画面上に残しておくかどう
 
 #: libraries/config/messages.inc.php:474 libraries/sql_query_form.lib.php:352
 msgid "Retain query box"
-msgstr "クエリボックスの保持"
+msgstr "クエリボックスを保持する"
 
 #: libraries/config/messages.inc.php:475
 msgid "Allow to display database and table statistics (eg. space usage)"
@@ -5924,18 +5924,17 @@ msgid "Show BLOB contents"
 msgstr "BLOB の内容を表示する"
 
 #: libraries/display_tbl.lib.php:686
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
-msgstr "ブラウザ変換機能"
+msgstr "ブラウザ変換機能を隠す"
 
 #: libraries/display_tbl.lib.php:693
 msgid "Well Known Text"
-msgstr "テキスト形式"
+msgstr "空間データをテキストで表示"
 
 #: libraries/display_tbl.lib.php:694
 msgid "Well Known Binary"
-msgstr "バイナリ形式"
+msgstr "空間データをバイナリで表示"
 
 #: libraries/display_tbl.lib.php:1405 libraries/display_tbl.lib.php:1417
 msgid "The row has been deleted"
@@ -6775,10 +6774,10 @@ msgid "Edit structure by following the \"Structure\" link"
 msgstr "名前の後ろにある「構造」のリンクより構造の編集が行えます。"
 
 #: libraries/import.lib.php:1106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to database"
 msgid "Go to database: %s"
-msgstr "データベースに移動"
+msgstr "データベース %s に移動"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
 #, php-format
@@ -6786,10 +6785,10 @@ msgid "Edit settings for %s"
 msgstr "%s に対する設定の変更を行います"
 
 #: libraries/import.lib.php:1127
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to table"
 msgid "Go to table: %s"
-msgstr "テーブルに移動"
+msgstr "テーブル %s に移動"
 
 #: libraries/import.lib.php:1130
 #, php-format
@@ -6797,10 +6796,10 @@ msgid "Structure of %s"
 msgstr "%s の構造"
 
 #: libraries/import.lib.php:1136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to view"
 msgid "Go to view: %s"
-msgstr "ビューに移動"
+msgstr "ビュー %s に移動"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:33
 msgid ""
@@ -7459,16 +7458,14 @@ msgid "You must provide an event name"
 msgstr "イベント名は必須です"
 
 #: libraries/rte/rte_events.lib.php:537
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid interval value for the event."
-msgstr "ルーチンの各パラメータに対して、名前と種別は必須です"
+msgstr "有効な実行間隔を指定してください。"
 
 #: libraries/rte/rte_events.lib.php:549
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide a valid execution time for the event."
-msgstr "ルーチンの定義は必須です"
+msgstr "有効な実行日時を指定してください。"
 
 #: libraries/rte/rte_events.lib.php:553
 msgid "You must provide a valid type for the event."
