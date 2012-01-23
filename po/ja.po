@@ -10948,7 +10948,7 @@ msgstr ""
 
 #: setup/lib/index.lib.php:152
 msgid "Got invalid version string from server"
-msgstr "サーバから取得した無効なバージョン文字列"
+msgstr "サーバから取得したバージョン文字列は無効なものです。"
 
 #: setup/lib/index.lib.php:162
 msgid "Unparsable version string"
