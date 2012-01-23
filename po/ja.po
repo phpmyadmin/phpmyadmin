@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-22 04:34-0500\n"
-"PO-Revision-Date: 2012-01-23 15:50+0200\n"
+"PO-Revision-Date: 2012-01-23 15:51+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -10952,7 +10952,7 @@ msgstr "サーバから取得したバージョン文字列は無効なもので
 
 #: setup/lib/index.lib.php:162
 msgid "Unparsable version string"
-msgstr "解析できないバージョン文字列"
+msgstr "解析できないバージョン文字列です。"
 
 #: setup/lib/index.lib.php:180
 #, php-format
