@@ -136,6 +136,31 @@ $(document).ready(function() {
         $form.find("select[name=id_bookmark]").attr("value","");
         // let normal event propagation happen
     });
+  
+    /**
+     * Event handler for hitting enter on sqlqueryform bookmark_variable
+     * (the Variable textfield in Bookmarked SQL query section)
+     *
+     * @memberOf    jQuery
+     */
+    $("input[name=bookmark_variable]").bind("keypress", function(event) {
+        // force the 'Enter Key' to implicitly click the #button_submit_bookmark
+        var keycode = (event.keyCode ? event.keyCode : (event.which ? event.which : event.charCode));
+        if (keycode == 13) { // keycode for enter key
+            // When you press enter in the sqlqueryform, which
+            // has 2 submit buttons, the default is to run the
+            // #button_submit_query, because of the tabindex 
+            // attribute. 
+            // This submits #button_submit_bookmark instead,
+            // because when you are in the Bookmarked SQL query
+            // section and hit enter, you expect it to do the
+            // same action as the Go button in that section.
+            $("#button_submit_bookmark").click();
+           return false;
+        } else  {
+           return true;
+        }
+    });
 
     /**
      * Ajax Event handler for 'SQL Query Submit'
