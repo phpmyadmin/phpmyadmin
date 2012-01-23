@@ -2625,8 +2625,7 @@ msgstr "phpMyAdmin のドキュメント"
 #: libraries/auth/cookie.auth.lib.php:211
 #: libraries/auth/cookie.auth.lib.php:212
 msgid "You can enter hostname/IP address and port separated by space."
-msgstr ""
-"「ホスト名/IPアドレス」と「ポート」を空白で区切って入力することができます。"
+msgstr "「ホスト名／IP アドレス」と「ポート」を空白で区切って入力することができます。"
 
 #: libraries/auth/cookie.auth.lib.php:211
 msgid "Server:"
