@@ -12626,10 +12626,9 @@ msgid "Rate of table open"
 msgstr "Četnost otevírání tabulek"
 
 #: po/advisory_rules.php:181
-#, fuzzy
 #| msgid "The current number of pending writes."
 msgid "The rate of opening tables is high."
-msgstr "Počet nevyřízených zápisů."
+msgstr "Tabulky jsou otevírány příliš často."
 
 #: po/advisory_rules.php:182
 msgid ""
