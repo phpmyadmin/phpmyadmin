@@ -12548,7 +12548,7 @@ msgstr ""
 #: po/advisory_rules.php:160
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer size"
-msgstr "Velikost vyrovnávací paměti MyISAM"
+msgstr "Velikost vyrovnávací paměti klíčů MyISAM"
 
 #: po/advisory_rules.php:161
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
