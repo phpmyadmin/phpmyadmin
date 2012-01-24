@@ -12621,10 +12621,9 @@ msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
 
 #: po/advisory_rules.php:180
-#, fuzzy
 #| msgid "Create table"
 msgid "Rate of table open"
-msgstr "Vytvořit tabulku"
+msgstr "Četnost otevírání tabulek"
 
 #: po/advisory_rules.php:181
 #, fuzzy
