@@ -12770,7 +12770,7 @@ msgstr ""
 #: po/advisory_rules.php:218
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
-msgstr ""
+msgstr "%s vláknům trvalo spuštění déle než %s sekund, mělo by to trvat 0"
 
 #: po/advisory_rules.php:220
 msgid "Slow launch time"
