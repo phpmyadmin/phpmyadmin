@@ -71,6 +71,8 @@ phpMyAdmin - ChangeLog
 - patch #3472899 [export] Fixed CSV escape for the export
 - patch #3475424 [import] Fixed CSV escape for the import
 
+3.4.11.0 (not yet released)
+
 3.4.10.0 (not yet released)
 - bug #3460090 [interface] TextareaAutoSelect feature broken
 - patch #3375984 [export] PHP Array export might generate invalid php code
