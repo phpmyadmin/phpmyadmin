@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-22 04:34-0500\n"
-"PO-Revision-Date: 2012-01-24 21:05+0200\n"
+"PO-Revision-Date: 2012-01-24 21:06+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -12774,7 +12774,7 @@ msgstr "%s vláknům trvalo spuštění déle než %s sekund, mělo by to trvat 
 
 #: po/advisory_rules.php:220
 msgid "Slow launch time"
-msgstr ""
+msgstr "Dlouhá doba spuštění"
 
 #: po/advisory_rules.php:221
 msgid "Slow_launch_threads is above 2s"
