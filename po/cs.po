@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-22 04:34-0500\n"
-"PO-Revision-Date: 2012-01-24 21:03+0200\n"
+"PO-Revision-Date: 2012-01-24 21:04+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -12593,10 +12593,9 @@ msgstr ""
 "hodnota by měla být nad 95%%."
 
 #: po/advisory_rules.php:170
-#, fuzzy
 #| msgid "Sort buffer size"
 msgid "Percentage of MyISAM key buffer used"
-msgstr "Velikost paměti pro řazení"
+msgstr "Procento využití vyrovnávací paměti MyISAM pro klíče"
 
 #: po/advisory_rules.php:173
 #, php-format
