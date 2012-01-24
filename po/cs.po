@@ -7658,11 +7658,10 @@ msgid "Trigger name"
 msgstr "Název spouště"
 
 #: libraries/rte/rte_triggers.lib.php:326
-#, fuzzy
 #| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
-msgstr "Čas"
+msgstr "Spouštění"
 
 #: libraries/rte/rte_triggers.lib.php:405
 msgid "You must provide a trigger name"
