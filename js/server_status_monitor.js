@@ -658,7 +658,7 @@ $(function() {
                     str += '</div>';
 
                     if (is_superuser) {
-                        str += '<p></p><b>Change settings</b>';
+                        str += '<p></p><b>' + PMA_messages['strChangeSettings'] + '</b>';
                         str += '<div class="smallIndent">';
                         str += PMA_messages['strSettingsAppliedGlobal'] + '<br/>';
 
