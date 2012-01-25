@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.5.0-beta1-dev\n"
+"Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-01-22 04:34-0500\n"
+"POT-Creation-Date: 2012-01-25 17:45+0100\n"
 "PO-Revision-Date: 2012-01-23 15:53+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
@@ -584,6 +584,11 @@ msgstr "検索するカラム:"
 msgid "No tables found in database"
 msgstr "このデータベースにはテーブルがありません"
 
+#: db_structure.php:228 libraries/mysql_charsets.lib.php:409
+#: libraries/mysql_charsets.lib.php:416
+msgid "unknown"
+msgstr "不明"
+
 #: db_structure.php:315 tbl_operations.php:692
 #, php-format
 msgid "Table %s has been emptied"
@@ -610,8 +615,8 @@ msgstr "SQL コマンドの追跡は非アクティブです。"
 #: db_structure.php:451 libraries/display_tbl.lib.php:2355
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "このビューの最低行数。詳しくは%sドキュメント%sをご覧ください。"
 
 #: db_structure.php:467 db_structure.php:481 libraries/header.inc.php:161
@@ -952,8 +957,8 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "アップロードしようとしたファイルが大きすぎるようです。対策については %sドキュ"
 "メント%s をご覧ください"
@@ -1709,7 +1714,7 @@ msgstr "判断基準"
 
 #: js/messages.php:230 pmd_general.php:382 pmd_general.php:419
 #: pmd_general.php:539 pmd_general.php:587 pmd_general.php:663
-#: pmd_general.php:717 pmd_general.php:780
+#: pmd_general.php:717 pmd_general.php:780 pmd_general.php:811
 msgid "Cancel"
 msgstr "キャンセル"
 
@@ -2589,11 +2594,11 @@ msgstr "%s へようこそ"
 #: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプト%2"
-"$s を利用して設定ファイルを作成してください"
+"設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプ"
+"ト%2$s を利用して設定ファイルを作成してください"
 
 #: libraries/auth/config.auth.lib.php:109
 msgid ""
@@ -2625,7 +2630,8 @@ msgstr "phpMyAdmin のドキュメント"
 #: libraries/auth/cookie.auth.lib.php:211
 #: libraries/auth/cookie.auth.lib.php:212
 msgid "You can enter hostname/IP address and port separated by space."
-msgstr "「ホスト名／IP アドレス」と「ポート」を空白で区切って入力することができます。"
+msgstr ""
+"「ホスト名／IP アドレス」と「ポート」を空白で区切って入力することができます。"
 
 #: libraries/auth/cookie.auth.lib.php:211
 msgid "Server:"
@@ -5276,9 +5282,10 @@ msgid ""
 "For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]"
 msgstr ""
-"入力プロキシは「[kbd]IP アドレス: 信頼された HTTP ヘッダ[/kbd]」と記述します。以下の例は、phpMyAdmin は IP アドレス "
-"1.2.3.4 のプロキシから HTTP_X_FORWARDED_FOR (X-Forwarded-For) "
-"ヘッダを信頼するように指定することになります。[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
+"入力プロキシは「[kbd]IP アドレス: 信頼された HTTP ヘッダ[/kbd]」と記述しま"
+"す。以下の例は、phpMyAdmin は IP アドレス 1.2.3.4 のプロキシから "
+"HTTP_X_FORWARDED_FOR (X-Forwarded-For) ヘッダを信頼するように指定することにな"
+"ります。[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
 
 #: libraries/config/messages.inc.php:512
 msgid "List of trusted proxies for IP allow/deny"
@@ -5685,8 +5692,8 @@ msgstr "、@TABLE@ はテーブル名に"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "この値は %1$sstrftime%2$s を使用して解釈されますので、時刻の書式文字列を使用"
 "することができます。また、埋め込み変数変換も行われます（%3$s変換されま"
@@ -5922,7 +5929,6 @@ msgid "Show BLOB contents"
 msgstr "BLOB の内容を表示する"
 
 #: libraries/display_tbl.lib.php:686
-#| msgid "Browser transformation"
 msgid "Hide browser transformation"
 msgstr "ブラウザ変換機能を隠す"
 
@@ -6423,8 +6429,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "PBXT に関するドキュメントおよび詳細な情報は、%sPrimeBase XT オフィシャルサイ"
 "ト%sにあります。"
@@ -6773,7 +6779,6 @@ msgstr "名前の後ろにある「構造」のリンクより構造の編集が
 
 #: libraries/import.lib.php:1106
 #, php-format
-#| msgid "Go to database"
 msgid "Go to database: %s"
 msgstr "データベース %s に移動"
 
@@ -6784,7 +6789,6 @@ msgstr "%s に対する設定の変更を行います"
 
 #: libraries/import.lib.php:1127
 #, php-format
-#| msgid "Go to table"
 msgid "Go to table: %s"
 msgstr "テーブル %s に移動"
 
@@ -6795,7 +6799,6 @@ msgstr "%s の構造"
 
 #: libraries/import.lib.php:1136
 #, php-format
-#| msgid "Go to view"
 msgid "Go to view: %s"
 msgstr "ビュー %s に移動"
 
@@ -7137,10 +7140,6 @@ msgstr "ギリシア語"
 msgid "Czech-Slovak"
 msgstr "チェコのスロバキア語"
 
-#: libraries/mysql_charsets.lib.php:409 libraries/mysql_charsets.lib.php:416
-msgid "unknown"
-msgstr "不明"
-
 #: libraries/navigation_header.inc.php:57
 #: libraries/navigation_header.inc.php:59
 #: libraries/navigation_header.inc.php:60
@@ -7456,12 +7455,10 @@ msgid "You must provide an event name"
 msgstr "イベント名は必須です"
 
 #: libraries/rte/rte_events.lib.php:537
-#| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid interval value for the event."
 msgstr "有効な実行間隔を指定してください。"
 
 #: libraries/rte/rte_events.lib.php:549
-#| msgid "You must provide a routine definition."
 msgid "You must provide a valid execution time for the event."
 msgstr "有効な実行日時を指定してください。"
 
@@ -7659,7 +7656,6 @@ msgid "Trigger name"
 msgstr "トリガ名"
 
 #: libraries/rte/rte_triggers.lib.php:326
-#| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
 msgstr "実行時機"
@@ -7669,7 +7665,6 @@ msgid "You must provide a trigger name"
 msgstr "トリガ名は必須です"
 
 #: libraries/rte/rte_triggers.lib.php:410
-#| msgid "You must provide a routine name"
 msgid "You must provide a valid timing for the trigger"
 msgstr "有効な実行時機を指定してください。"
 
@@ -9287,8 +9282,8 @@ msgstr "ユーザと同名のデータベースを削除する"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "注意: phpMyAdmin は MySQL の特権テーブルから直接ユーザ特権を取得しますが、手"
 "作業で特権を更新した場合は phpMyAdmin が利用しているテーブルの内容とサーバの"
@@ -10958,8 +10953,8 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
-"Git 版を使用されていますので、[kbd]git pull[/kbd] で更新を行ってください。(^^)[br]最新の安定バージョンは %s で、%s "
-"にリリースされています。"
+"Git 版を使用されていますので、[kbd]git pull[/kbd] で更新を行ってください。"
+"(^^)[br]最新の安定バージョンは %s で、%s にリリースされています。"
 
 #: setup/lib/index.lib.php:186
 msgid "No newer stable version is available"
@@ -11060,10 +11055,11 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"それでも、[kbd]config[/kbd] 認証が必要であると思われる場合、追加の保護設定（%"
-"sホスト認証%s設定および%s信頼されたプロキシのリスト%s）を使用してください。し"
-"かしながら、ユーザが数千人もいるような ISP に所属している、含まれている、接続"
-"されている場合には、IP アドレスを基にした保護は信頼性が高いとはいえません。"
+"それでも、[kbd]config[/kbd] 認証が必要であると思われる場合、追加の保護設定"
+"（%sホスト認証%s設定および%s信頼されたプロキシのリスト%s）を使用してくださ"
+"い。しかしながら、ユーザが数千人もいるような ISP に所属している、含まれてい"
+"る、接続されている場合には、IP アドレスを基にした保護は信頼性が高いとはいえま"
+"せん。"
 
 #: setup/lib/index.lib.php:292
 #, php-format
@@ -12217,8 +12213,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "クエリキャッシュの総量に対するクエリキャッシュの空きメモリの割合は、%s%% で"
 "す。この値は、80%% 以上がいいと言われています。"
@@ -12372,8 +12368,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "全ソートの内 %s%% が一時テーブルを使用しています。この値は、10%% 未満がいいと"
 "言われています。"
@@ -12907,8 +12903,8 @@ msgstr ""
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
-"Max_used_connections は max_connections の %s%% になっています。この値は、80%"
-"% 未満がいいと言われています。"
+"Max_used_connections は max_connections の %s%% になっています。この値は、"
+"80%% 未満がいいと言われています。"
 
 #: po/advisory_rules.php:230
 msgid "Percentage of aborted connections"
@@ -13128,10 +13124,10 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
-"現在、メモリの %s%% が InnoDB バッファプールに使われています。割り当てが 60%"
-"% 未満の時にこの事象が表示されるようになりますが、多くの InnoDB テーブルを使"
-"用していない、もしくは同マシン上で他のサービスを稼動させていないのであれば、"
-"ご使用のシステムではこの設定で十分かもしれません。"
+"現在、メモリの %s%% が InnoDB バッファプールに使われています。割り当てが "
+"60%% 未満の時にこの事象が表示されるようになりますが、多くの InnoDB テーブルを"
+"使用していない、もしくは同マシン上で他のサービスを稼動させていないのであれ"
+"ば、ご使用のシステムではこの設定で十分かもしれません。"
 
 #: po/advisory_rules.php:270
 msgid "MyISAM concurrent inserts"

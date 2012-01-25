@@ -225,7 +225,7 @@ foreach ($tables as $keyname => $each_table) {
     default :
         // Unknown table type.
         if ($is_show_stats) {
-            $formatted_size =  'unknown';
+            $formatted_size =  __('unknown');
             $unit          =  '';
         }
     } // end switch

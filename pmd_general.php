@@ -808,7 +808,7 @@ if (! empty($_REQUEST['query'])) {
     echo '<form method="post" action="db_qbe.php" >';
     echo '<textarea cols="80" name="sql_query" id="textSqlquery" rows="15"></textarea><div id="tblfooter">';
     echo '  <input type="submit" name="submit_sql" class="btn">';
-    echo '  <input type="button" name="cancel" value="Cancel" onclick="closebox()" class="btn">';
+    echo '  <input type="button" name="cancel" value="' . __('Cancel') . '" onclick="closebox()" class="btn">';
     echo PMA_generate_common_hidden_inputs($GLOBALS['db']);
     echo '</div></p>';
     echo '</form></div>';
