@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-26 12:00+0200\n"
+"PO-Revision-Date: 2012-01-26 12:01+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -244,7 +244,7 @@ msgstr "はい"
 
 #: db_export.php:26
 msgid "View dump (schema) of database"
-msgstr "DB のダンプ (スキーマ) 表示"
+msgstr "データベースのダンプ (スキーマ) 表示"
 
 #: db_export.php:30 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
 #: export.php:354 navigation.php:296
