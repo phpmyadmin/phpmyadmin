@@ -163,7 +163,7 @@ foreach ($table_list as $key => $value) {
         foreach ($value as $temp_table) {
             // If $temp_table is a table with the value for 'Name' is set,
             // rather than a propery of the table group.
-            if (array_key_exists('Name', $temp_table)) {
+            if (is_array($temp_table) && array_key_exists('Name', $temp_table)) {
                 if (PMA_Tracker::getVersion($GLOBALS['db'], $temp_table['Name']) == -1) {
                     $my_tables[] = $temp_table['Name'];
                 }
