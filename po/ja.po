@@ -6721,7 +6721,7 @@ msgstr "XML"
 
 #: libraries/export/xml.php:34
 msgid "Object creation options (all are recommended)"
-msgstr "生成オプション（全て推奨）"
+msgstr "生成オプション (すべて推奨)"
 
 #: libraries/export/xml.php:62
 msgid "Views"
