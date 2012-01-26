@@ -525,7 +525,7 @@ msgstr "\"<i>%s</i>\" の検索結果 %s:"
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s 件（テーブル <i>%s</i>)"
+msgstr[0] "%s 件 (テーブル <i>%s</i>)"
 
 #: db_search.php:234 libraries/common.lib.php:3128
 #: libraries/common.lib.php:3340 libraries/common.lib.php:3341
