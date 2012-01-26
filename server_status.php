@@ -61,7 +61,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 $queries = PMA_DBI_fetch_result(
                     "SHOW GLOBAL STATUS
                     WHERE (Variable_name LIKE 'Com_%' OR Variable_name = 'Questions')
-                        AND Value > 0", 0, 1);
+                        AND Value > 0", 0, 1
+                );
             }
             cleanDeprecated($queries);
             // admin commands are not queries
@@ -83,7 +84,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $traffic = PMA_DBI_fetch_result(
                 "SHOW GLOBAL STATUS
                 WHERE Variable_name = 'Bytes_received'
-                    OR Variable_name = 'Bytes_sent'", 0, 1);
+                    OR Variable_name = 'Bytes_sent'", 0, 1
+            );
 
             $ret = array(
                 'x'          => microtime(true) * 1000,
@@ -943,12 +945,12 @@ function printQueryStatistics()
         echo '<br />';
 
         echo '&oslash; ' . __('per minute') . ': ';
-        echo PMA_formatNumber( $total_queries * 60 / $server_status['Uptime'], 0);
+        echo PMA_formatNumber($total_queries * 60 / $server_status['Uptime'], 0);
         echo '<br />';
 
         if ($total_queries / $server_status['Uptime'] >= 1) {
             echo '&oslash; ' . __('per second') . ': ';
-            echo PMA_formatNumber( $total_queries / $server_status['Uptime'], 0);
+            echo PMA_formatNumber($total_queries / $server_status['Uptime'], 0);
         }
         ?>
         </span>
@@ -1038,22 +1040,25 @@ function printServerTraffic()
      * starttime calculation
      */
     $start_time = PMA_DBI_fetch_value(
-        'SELECT UNIX_TIMESTAMP() - ' . $server_status['Uptime']);
+        'SELECT UNIX_TIMESTAMP() - ' . $server_status['Uptime']
+    );
 
     ?>
     <h3><?php
     echo sprintf(
         __('Network traffic since startup: %s'),
-        implode(' ', PMA_formatByteDown( $server_status['Bytes_received'] + $server_status['Bytes_sent'], 3, 1))
-        );
+        implode(' ', PMA_formatByteDown($server_status['Bytes_received'] + $server_status['Bytes_sent'], 3, 1))
+    );
     ?>
     </h3>
 
     <p>
     <?php
-    echo sprintf(__('This MySQL server has been running for %1$s. It started up on %2$s.'),
+    echo sprintf(
+        __('This MySQL server has been running for %1$s. It started up on %2$s.'),
         PMA_timespanFormat($server_status['Uptime']),
-        PMA_localisedDate($start_time)) . "\n";
+        PMA_localisedDate($start_time)
+    ) . "\n";
     ?>
     </p>
 
