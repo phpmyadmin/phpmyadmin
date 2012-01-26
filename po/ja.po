@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-26 11:56+0200\n"
+"PO-Revision-Date: 2012-01-26 11:57+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -4624,7 +4624,7 @@ msgstr "圧縮通信を行う"
 
 #: libraries/config/messages.inc.php:380
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
-msgstr "サーバへの接続方法。確信がなければ [kbd]tcp[/kbd] のままにします。"
+msgstr "サーバへの接続方法。確信がなければ [kbd]tcp[/kbd] のままにしてください。"
 
 #: libraries/config/messages.inc.php:381
 msgid "Connection type"
