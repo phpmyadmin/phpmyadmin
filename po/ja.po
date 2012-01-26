@@ -6096,7 +6096,7 @@ msgstr "読み込みミス (%)"
 
 #: libraries/engines/innodb.lib.php:250
 msgid "Write waits in %"
-msgstr "書き込み待ち(％)"
+msgstr "書き込み待ち (%)"
 
 #: libraries/engines/myisam.lib.php:22
 msgid "Data pointer size"
