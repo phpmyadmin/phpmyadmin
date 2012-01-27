@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-27 17:09+0200\n"
+"PO-Revision-Date: 2012-01-27 17:14+0200\n"
 "Last-Translator: V4g_Br4Ck3r <vag_bracker@hotmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -5878,10 +5878,9 @@ msgid "Save edited data"
 msgstr "Diretório raiz de dados"
 
 #: libraries/display_tbl.lib.php:411
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Restore column order"
-msgstr "Adicionar/Remover colunas"
+msgstr "Restaurar ordem da coluna"
 
 #: libraries/display_tbl.lib.php:422
 #, php-format
