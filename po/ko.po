@@ -1765,7 +1765,7 @@ msgstr ""
 #: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
 #: pmd_general.php:715 pmd_general.php:778
 msgid "OK"
-msgstr ""
+msgstr "확인"
 
 #: js/messages.php:239
 msgid "Click to dismiss this notification"
