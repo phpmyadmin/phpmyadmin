@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-27 08:17+0200\n"
+"PO-Revision-Date: 2012-01-27 08:18+0200\n"
 "Last-Translator: manyfun <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -3737,7 +3737,7 @@ msgstr "강제적인 보안 연결로 phpMyAdmin을 사용하기"
 
 #: libraries/config/messages.inc.php:151
 msgid "Force SSL connection"
-msgstr ""
+msgstr "강제적인 SSL 연결"
 
 #: libraries/config/messages.inc.php:152
 msgid ""
