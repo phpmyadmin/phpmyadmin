@@ -1830,10 +1830,9 @@ msgid "Browsing"
 msgstr "보기"
 
 #: js/messages.php:260
-#, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
-msgstr "%s 을 삭제합니다"
+msgstr "삭제중"
 
 #: js/messages.php:263
 msgid "The definition of a stored function must contain a RETURN statement!"
