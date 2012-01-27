@@ -3595,7 +3595,7 @@ msgstr "열 구분자"
 #: libraries/config/messages.inc.php:82 libraries/config/messages.inc.php:242
 #: libraries/import/csv.php:86 libraries/import/ldi.php:44
 msgid "Lines terminated by"
-msgstr "줄(열) 구분자"
+msgstr "줄 구분자"
 
 #: libraries/config/messages.inc.php:84
 msgid "Excel edition"
