@@ -1505,7 +1505,7 @@ msgstr ""
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
-msgstr ""
+msgstr "변수들을 변경할 수 없습니다. root로 로그인하거나 데이터베이스 관리자에게 문의하십시오."
 
 #: js/messages.php:165
 #, fuzzy
