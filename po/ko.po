@@ -1899,7 +1899,7 @@ msgstr ""
 
 #: js/messages.php:295
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "포인트에 마우스를 올리면 라벨이 표시됩니다."
 
 #: js/messages.php:297
 msgid "Use mousewheel to zoom in or out of the plot."
