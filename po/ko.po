@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-27 06:21+0200\n"
+"PO-Revision-Date: 2012-01-27 06:22+0200\n"
 "Last-Translator: manyfun <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -970,7 +970,7 @@ msgstr "너무 큰 파일을 업로드하려고 시도했습니다. 제한을 �
 
 #: import.php:170 import.php:419
 msgid "Showing bookmark"
-msgstr ""
+msgstr "북마크 보이기"
 
 #: import.php:180 import.php:415
 msgid "The bookmark has been deleted."
