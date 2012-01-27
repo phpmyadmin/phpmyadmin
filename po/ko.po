@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-27 07:18+0200\n"
+"PO-Revision-Date: 2012-01-27 07:20+0200\n"
 "Last-Translator: manyfun <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -1902,8 +1902,9 @@ msgid "Hovering over a point will show its label."
 msgstr "포인트에 마우스를 올리면 라벨이 표시됩니다."
 
 #: js/messages.php:297
+#, fuzzy
 msgid "Use mousewheel to zoom in or out of the plot."
-msgstr ""
+msgstr "마으스휠로 확대/축소할 수 있습니다."
 
 #: js/messages.php:299
 msgid "Click and drag the mouse to navigate the plot."
