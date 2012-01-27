@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-27 08:06+0200\n"
+"PO-Revision-Date: 2012-01-27 08:08+0200\n"
 "Last-Translator: manyfun <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -3678,7 +3678,7 @@ msgstr "테이블과 열 이름을 백쿼트(`)로 감싸기"
 #: libraries/config/messages.inc.php:123 libraries/config/messages.inc.php:262
 #: libraries/display_export.lib.php:348
 msgid "SQL compatibility mode"
-msgstr ""
+msgstr "SQL 호환 모드"
 
 #: libraries/config/messages.inc.php:124 libraries/export/sql.php:190
 msgid "<code>CREATE TABLE</code> options:"
