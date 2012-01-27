@@ -12398,6 +12398,8 @@ msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
 msgstr ""
+"To znamená, že spojení tabulek musí často procházet celou tabulku. Přidáním "
+"klíčů na sloupce použité při slučování můžete tuto operaci značně urychlit."
 
 #: po/advisory_rules.php:128
 #, php-format
