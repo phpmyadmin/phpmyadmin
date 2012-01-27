@@ -1880,9 +1880,8 @@ msgid "Save"
 msgstr "저장"
 
 #: js/messages.php:287
-#, fuzzy
 msgid "Hide search criteria"
-msgstr "SQL 질의"
+msgstr "검색 조건 숨기기"
 
 #: js/messages.php:288
 #, fuzzy
