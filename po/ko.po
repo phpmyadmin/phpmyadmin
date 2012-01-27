@@ -1788,7 +1788,7 @@ msgstr "데이터베이스를 복사중입니다."
 
 #: js/messages.php:245
 msgid "Changing Charset"
-msgstr ""
+msgstr "언어를 변경하고 있습니다."
 
 #: js/messages.php:246
 #, fuzzy
