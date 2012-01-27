@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-27 07:26+0200\n"
+"PO-Revision-Date: 2012-01-27 07:27+0200\n"
 "Last-Translator: manyfun <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -5342,10 +5342,9 @@ msgid "Cookie authentication"
 msgstr "인증중입니다..."
 
 #: libraries/config/setup.forms.php:48
-#, fuzzy
 #| msgid "Authenticating..."
 msgid "HTTP authentication"
-msgstr "인증중입니다..."
+msgstr "HTTP 인증"
 
 #: libraries/config/setup.forms.php:51
 #, fuzzy
