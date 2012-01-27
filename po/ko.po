@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-27 06:26+0200\n"
+"PO-Revision-Date: 2012-01-27 06:31+0200\n"
 "Last-Translator: manyfun <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -1394,10 +1394,9 @@ msgstr "소통량"
 
 #: js/messages.php:137 libraries/server_links.inc.php:73
 #: server_status.php:1550
-#, fuzzy
 #| msgid "Deleting %s"
 msgid "Settings"
-msgstr "%s 을 삭제합니다"
+msgstr "설정"
 
 #: js/messages.php:138
 #, fuzzy
