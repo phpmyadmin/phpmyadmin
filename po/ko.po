@@ -1472,7 +1472,7 @@ msgstr ""
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
-msgstr ""
+msgstr "다음 설정은 서버 전체에 적용됩니다. 서버 재기동시 기본 설정으로 초기화됩니다."
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:157
