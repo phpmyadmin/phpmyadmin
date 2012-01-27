@@ -3583,7 +3583,7 @@ msgstr "NULL 치환"
 
 #: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:86
 msgid "Remove CRLF characters within columns"
-msgstr ""
+msgstr "열 내의 CRLF 문자를 제거하기"
 
 #: libraries/config/messages.inc.php:81 libraries/config/messages.inc.php:247
 #: libraries/config/messages.inc.php:255 libraries/import/csv.php:63
