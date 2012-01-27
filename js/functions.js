@@ -3434,7 +3434,13 @@ $(document).ready(function() {
 $(document).ready(function() {
     var elm = $('#sqlquery');
     if (elm.length > 0 && typeof CodeMirror != 'undefined') {
-        codemirror_editor = CodeMirror.fromTextArea(elm[0], {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql", lineWrapping: true});
+        codemirror_editor = CodeMirror.fromTextArea(elm[0], {
+            lineNumbers: true,
+            matchBrackets: true,
+            indentUnit: 4,
+            mode: "text/x-mysql",
+            lineWrapping: true
+        });
     }
 });
 
