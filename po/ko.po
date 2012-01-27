@@ -1772,10 +1772,9 @@ msgid "Click to dismiss this notification"
 msgstr ""
 
 #: js/messages.php:242
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
-msgstr "데이터베이스 이름 변경"
+msgstr "데이터베이스 이름을 변경중입니다."
 
 #: js/messages.php:243
 #, fuzzy
