@@ -1884,9 +1884,8 @@ msgid "Hide search criteria"
 msgstr "검색 조건 숨기기"
 
 #: js/messages.php:288
-#, fuzzy
 msgid "Show search criteria"
-msgstr "SQL 질의"
+msgstr "검색 조건 보이기"
 
 #: js/messages.php:291 libraries/tbl_select.lib.php:110
 #, fuzzy
