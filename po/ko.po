@@ -5735,10 +5735,9 @@ msgid "Format:"
 msgstr "Format"
 
 #: libraries/display_export.lib.php:333
-#, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Format-specific options:"
-msgstr "열(칼럼)에 관한 권한"
+msgstr "형식 특정 옵션 : "
 
 #: libraries/display_export.lib.php:334
 msgid ""
