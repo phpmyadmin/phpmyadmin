@@ -370,7 +370,7 @@ msgstr "테이블 "
 #: tbl_printview.php:353 tbl_structure.php:363 tbl_structure.php:469
 #: tbl_structure.php:882
 msgid "Rows"
-msgstr "행(레코드)"
+msgstr "행"
 
 #: db_printview.php:106 libraries/db_structure.lib.php:53 tbl_indexes.php:214
 msgid "Size"
