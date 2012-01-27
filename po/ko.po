@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-27 07:30+0200\n"
+"PO-Revision-Date: 2012-01-27 07:32+0200\n"
 "Last-Translator: manyfun <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -201,7 +201,7 @@ msgstr "링크 대상:"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1333
 #: libraries/tbl_properties.inc.php:122 tbl_printview.php:144
 msgid "Comments"
-msgstr "설명(코멘트)"
+msgstr "설명"
 
 #: db_datadict.php:233 js/messages.php:248 libraries/Index.class.php:349
 #: libraries/Index.class.php:376 libraries/Index.class.php:679
