@@ -1820,9 +1820,8 @@ msgid "Hide search results"
 msgstr "검색 결과 숨기기"
 
 #: js/messages.php:258
-#, fuzzy
 msgid "Show search results"
-msgstr "SQL 질의"
+msgstr "검색 결과 보이기"
 
 #: js/messages.php:259
 #, fuzzy
