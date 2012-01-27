@@ -806,7 +806,7 @@ msgstr "Sledovat tabulku"
 
 #: db_tracking.php:227
 msgid "Database Log"
-msgstr "Historie databáze"
+msgstr "Záznam databáze"
 
 #: enum_editor.php:23 js/messages.php:266
 #: libraries/rte/rte_routines.lib.php:690
