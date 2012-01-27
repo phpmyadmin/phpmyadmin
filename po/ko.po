@@ -1513,10 +1513,9 @@ msgid "Change settings"
 msgstr "설정 변경"
 
 #: js/messages.php:166
-#, fuzzy
 #| msgid "Connections"
 msgid "Current settings"
-msgstr "연결 수"
+msgstr "현재 설정"
 
 #: js/messages.php:168 server_status.php:1640
 #, fuzzy
