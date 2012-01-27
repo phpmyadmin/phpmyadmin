@@ -1711,7 +1711,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
-msgstr "문서"
+msgstr "추천"
 
 #: js/messages.php:222
 msgid "Rule details"
