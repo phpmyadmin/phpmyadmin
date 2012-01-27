@@ -3674,7 +3674,7 @@ msgstr "파일명 템플릿을 저장하기"
 #, fuzzy
 #| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
-msgstr "테이블, 필드명에 백쿼터(`) 사용"
+msgstr "테이블과 열 이름을 백쿼터(`)로 감싸기"
 
 #: libraries/config/messages.inc.php:123 libraries/config/messages.inc.php:262
 #: libraries/display_export.lib.php:348
