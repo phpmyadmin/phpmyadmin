@@ -1755,7 +1755,7 @@ msgstr "요청 처리중 에러가 발생했습니다."
 
 #: js/messages.php:236
 msgid "Dropping Column"
-msgstr ""
+msgstr "열을 삭제하고 있습니다."
 
 #: js/messages.php:237
 msgid "Adding Primary Key"
