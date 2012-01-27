@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-27 08:00+0200\n"
+"PO-Revision-Date: 2012-01-27 08:01+0200\n"
 "Last-Translator: manyfun <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -3597,7 +3597,7 @@ msgstr "줄 구분자"
 
 #: libraries/config/messages.inc.php:84
 msgid "Excel edition"
-msgstr "Excel 편집"
+msgstr "Excel 버전"
 
 #: libraries/config/messages.inc.php:87
 msgid "Database name template"
