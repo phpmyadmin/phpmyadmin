@@ -2427,7 +2427,7 @@ msgstr ""
 
 #: libraries/File.class.php:516
 msgid "Cannot read (moved) upload file."
-msgstr ""
+msgstr "업로드 파일을 읽을 수 없습니다."
 
 #: libraries/Index.class.php:419 tbl_relation.php:522
 msgid "No index defined!"
