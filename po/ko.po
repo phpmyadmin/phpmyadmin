@@ -3723,8 +3723,9 @@ msgid "Export type"
 msgstr "내보내기 형식"
 
 #: libraries/config/messages.inc.php:141 libraries/export/sql.php:73
+#, fuzzy
 msgid "Enclose export in a transaction"
-msgstr ""
+msgstr "트랜잭션으로 내보내기 감싸기"
 
 #: libraries/config/messages.inc.php:142
 msgid "Export time in UTC"
