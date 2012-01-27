@@ -1801,10 +1801,9 @@ msgid "Insert Table"
 msgstr "테이블 삽입"
 
 #: js/messages.php:252
-#, fuzzy
 #| msgid "Indexes"
 msgid "Hide indexes"
-msgstr "인덱스"
+msgstr "인덱스 숨기기"
 
 #: js/messages.php:253
 #, fuzzy
