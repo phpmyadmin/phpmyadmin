@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
 "PO-Revision-Date: 2012-01-27 06:45+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: manyfun <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -1508,10 +1508,9 @@ msgid ""
 msgstr "변수들을 변경할 수 없습니다. root로 로그인하거나 데이터베이스 관리자에게 문의하십시오."
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "Change"
 msgid "Change settings"
-msgstr "변경"
+msgstr "설정 변경"
 
 #: js/messages.php:166
 #, fuzzy
