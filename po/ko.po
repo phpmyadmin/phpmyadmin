@@ -5899,9 +5899,8 @@ msgstr ""
 #: libraries/import/shp.php:22 libraries/import/sql.php:20
 #: libraries/import/xml.php:32 libraries/rte/rte_routines.lib.php:863
 #: tbl_select.php:175 tbl_structure.php:858
-#, fuzzy
 msgid "Options"
-msgstr "테이블 작업"
+msgstr "옵션"
 
 #: libraries/display_tbl.lib.php:631 libraries/display_tbl.lib.php:649
 #, fuzzy
