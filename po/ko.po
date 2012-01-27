@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-27 07:12+0200\n"
+"PO-Revision-Date: 2012-01-27 07:13+0200\n"
 "Last-Translator: manyfun <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -1791,10 +1791,9 @@ msgid "Changing Charset"
 msgstr "언어를 변경하고 있습니다."
 
 #: js/messages.php:246
-#, fuzzy
 #| msgid "Table must have at least one column."
 msgid "Table must have at least one column"
-msgstr "테이블은 적어도 1개 이상의 컬럼을 갖고 있어야 합니다."
+msgstr "테이블은 적어도 1개 이상의 컬럼이 있어야 합니다."
 
 #: js/messages.php:251
 #, fuzzy
