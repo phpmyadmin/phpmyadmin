@@ -1422,7 +1422,7 @@ msgstr "없음"
 
 #: js/messages.php:144
 msgid "Resume monitor"
-msgstr ""
+msgstr "모니터링 재개"
 
 #: js/messages.php:145
 msgid "Pause monitor"
