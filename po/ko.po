@@ -1782,10 +1782,9 @@ msgid "Reload Database"
 msgstr "데이터베이스를 다시 불러오고 있습니다."
 
 #: js/messages.php:244
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
-msgstr "데이터베이스 복사"
+msgstr "데이터베이스를 복사중입니다."
 
 #: js/messages.php:245
 msgid "Changing Charset"
