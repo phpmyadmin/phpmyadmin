@@ -1806,10 +1806,9 @@ msgid "Hide indexes"
 msgstr "인덱스 숨기기"
 
 #: js/messages.php:253
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "grid 보기"
+msgstr "인덱스 보이기"
 
 #: js/messages.php:256
 #, fuzzy
