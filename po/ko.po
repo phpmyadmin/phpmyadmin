@@ -1688,7 +1688,7 @@ msgstr ""
 #: prefs_manage.php:229 server_status.php:1595 setup/frames/menu.inc.php:20
 #, fuzzy
 msgid "Import"
-msgstr "내보내기"
+msgstr "가져오기"
 
 #: js/messages.php:214
 #| msgid "Update Query"
