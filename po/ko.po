@@ -3599,7 +3599,7 @@ msgstr "줄 구분자"
 
 #: libraries/config/messages.inc.php:84
 msgid "Excel edition"
-msgstr ""
+msgstr "Excel 편집"
 
 #: libraries/config/messages.inc.php:87
 #, fuzzy
