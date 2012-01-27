@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-27 07:40+0200\n"
+"PO-Revision-Date: 2012-01-27 07:41+0200\n"
 "Last-Translator: manyfun <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -5855,10 +5855,9 @@ msgid "Start row"
 msgstr "토"
 
 #: libraries/display_tbl.lib.php:429
-#, fuzzy
 #| msgid "Number of columns"
 msgid "Number of rows"
-msgstr "컬럼수"
+msgstr "열 갯수"
 
 #: libraries/display_tbl.lib.php:434
 #, fuzzy
