@@ -12775,6 +12775,8 @@ msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
 msgstr ""
+"K tomuto obvykle dochází v případě přetížení systému, protože se jedná o "
+"velmi jednoduchou operaci. Je vhodné podrobně sledovat zatížení systému."
 
 #: po/advisory_rules.php:218
 #, php-format
