@@ -6373,9 +6373,8 @@ msgid ""
 "The percentage of garbage in a data log file before it is compacted. This is "
 "a value between 1 and 99. The default is 50."
 msgstr ""
-"Procentuální podíl odpadu (garbage) v souboru datového logu předtím, než je "
-"soubor stlačen. Tato hodnota se může pohybovat mezi 1 a 99. Výchozí hodnota "
-"je 50."
+"Procentuální podíl odpadu v souboru datového logu předtím, než je soubor "
+"zhuštěn. Tato hodnota se může pohybovat mezi 1 a 99. Výchozí hodnota je 50."
 
 #: libraries/engines/pbxt.lib.php:62
 msgid "Log buffer size"
