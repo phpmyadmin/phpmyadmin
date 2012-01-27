@@ -12903,7 +12903,7 @@ msgstr "Máte zakázané InnoDB."
 
 #: po/advisory_rules.php:252
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "InnoDB je obvykle nejlepší volba úložiště tabulky."
 
 #: po/advisory_rules.php:253
 msgid "have_innodb is set to 'value'"
