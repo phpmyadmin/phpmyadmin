@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-27 07:39+0200\n"
+"PO-Revision-Date: 2012-01-27 07:40+0200\n"
 "Last-Translator: manyfun <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -5614,10 +5614,9 @@ msgid "Custom - display all possible options"
 msgstr ""
 
 #: libraries/display_export.lib.php:132
-#, fuzzy
 #| msgid "Databases"
 msgid "Database(s):"
-msgstr "데이터베이스 "
+msgstr "데이터베이스 :"
 
 #: libraries/display_export.lib.php:134
 #, fuzzy
