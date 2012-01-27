@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-27 07:32+0200\n"
+"PO-Revision-Date: 2012-01-27 07:33+0200\n"
 "Last-Translator: manyfun <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -409,7 +409,7 @@ msgstr[0] "%s개 테이블 "
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
-msgstr "출력하려면 적어도 1개 이상의 열(칼럼)을 선택해야 합니다."
+msgstr "출력하려면 적어도 1개 이상의 열을 선택해야 합니다."
 
 #: db_qbe.php:186
 #, php-format
