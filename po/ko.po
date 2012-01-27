@@ -3686,8 +3686,9 @@ msgid "<code>CREATE TABLE</code> options:"
 msgstr "<code>CREATE TABLE</code> 옵션 :"
 
 #: libraries/config/messages.inc.php:125
+#, fuzzy
 msgid "Creation/Update/Check dates"
-msgstr ""
+msgstr "생성/업데이트/체크 날짜"
 
 #: libraries/config/messages.inc.php:126
 #, fuzzy
