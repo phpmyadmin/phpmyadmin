@@ -1449,7 +1449,7 @@ msgstr ""
 
 #: js/messages.php:151
 msgid "log_output is not set to TABLE."
-msgstr "테이블의 로그 출력이 설정되지 않았습니다."
+msgstr "테이블에 대한 로그 출력이 설정되지 않았습니다."
 
 #: js/messages.php:152
 msgid "log_output is set to TABLE."
