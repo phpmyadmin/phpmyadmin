@@ -5619,10 +5619,9 @@ msgid "Database(s):"
 msgstr "데이터베이스 :"
 
 #: libraries/display_export.lib.php:134
-#, fuzzy
 #| msgid "Tables"
 msgid "Table(s):"
-msgstr "테이블 수"
+msgstr "테이블 : "
 
 #: libraries/display_export.lib.php:144
 #, fuzzy
