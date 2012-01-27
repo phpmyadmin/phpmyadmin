@@ -1043,7 +1043,7 @@ msgstr ""
 #: libraries/sql_query_form.lib.php:113 tbl_operations.php:229
 #: tbl_relation.php:284 tbl_row_action.php:126 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
-msgstr "SQL 질의가 바르게 실행되었습니다."
+msgstr "질의가 바르게 실행되었습니다."
 
 #: import_status.php:29 libraries/common.lib.php:709
 #: libraries/schema/Export_Relation_Schema.class.php:237 user_password.php:109
