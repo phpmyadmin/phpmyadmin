@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-27 08:04+0200\n"
+"PO-Revision-Date: 2012-01-27 08:05+0200\n"
 "Last-Translator: manyfun <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -3653,10 +3653,9 @@ msgid "Relations"
 msgstr "관계"
 
 #: libraries/config/messages.inc.php:107
-#, fuzzy
 #| msgid "Export"
 msgid "Export method"
-msgstr "내보내기"
+msgstr "내보내기 방법"
 
 #: libraries/config/messages.inc.php:116 libraries/config/messages.inc.php:118
 msgid "Save on server"
