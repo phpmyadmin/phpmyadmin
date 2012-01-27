@@ -5849,10 +5849,9 @@ msgid "%d is not valid row number."
 msgstr ""
 
 #: libraries/display_tbl.lib.php:427
-#, fuzzy
 #| msgid "Start"
 msgid "Start row"
-msgstr "토"
+msgstr "시작 행"
 
 #: libraries/display_tbl.lib.php:429
 #| msgid "Number of columns"
