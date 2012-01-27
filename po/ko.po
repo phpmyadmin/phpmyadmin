@@ -3604,9 +3604,8 @@ msgid "Database name template"
 msgstr "데이터베이스명 템플릿"
 
 #: libraries/config/messages.inc.php:88
-#, fuzzy
 msgid "Server name template"
-msgstr "파일명 템플릿"
+msgstr "서버명 템플릿"
 
 #: libraries/config/messages.inc.php:89
 #, fuzzy
