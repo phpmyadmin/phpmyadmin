@@ -1118,7 +1118,7 @@ msgstr "인덱스 수정"
 #: js/messages.php:48 tbl_indexes.php:293
 #, fuzzy, php-format
 msgid "Add %d column(s) to index"
-msgstr "필드 추가하기"
+msgstr "인덱스에 %d 열 추가"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:52
