@@ -2565,7 +2565,7 @@ msgstr ""
 #: libraries/Table.class.php:1252
 #, php-format
 msgid "Table %s has been renamed to %s"
-msgstr "테이블 %s을(를) %s(으)로 변경하였습니다."
+msgstr "테이블 %s을(를) %s(으)로 이름을 변경하였습니다."
 
 #: libraries/Table.class.php:1384
 msgid "Could not save table UI preferences"
