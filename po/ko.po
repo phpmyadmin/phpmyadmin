@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-27 07:16+0200\n"
+"PO-Revision-Date: 2012-01-27 07:17+0200\n"
 "Last-Translator: manyfun <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -1850,9 +1850,8 @@ msgid ""
 msgstr "참고: 파일에 여러 테이블이 포함되어 있다면, 하나로 결합됩니다."
 
 #: js/messages.php:276
-#, fuzzy
 msgid "Hide query box"
-msgstr "SQL 질의"
+msgstr "질의 상자 숨기기"
 
 #: js/messages.php:277
 #, fuzzy
