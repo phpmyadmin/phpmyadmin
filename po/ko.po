@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-27 06:53+0200\n"
+"PO-Revision-Date: 2012-01-27 06:54+0200\n"
 "Last-Translator: manyfun <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -1616,10 +1616,9 @@ msgid "Table"
 msgstr "테이블 "
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Import files"
 msgid "Chart"
-msgstr "파일 가져오기"
+msgstr "차트"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
