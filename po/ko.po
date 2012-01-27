@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-27 08:13+0200\n"
+"PO-Revision-Date: 2012-01-27 08:14+0200\n"
 "Last-Translator: manyfun <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -3710,8 +3710,9 @@ msgid "Use ignore inserts"
 msgstr "무시 삽입 사용"
 
 #: libraries/config/messages.inc.php:134
+#, fuzzy
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "데이터 삽입시 사용 구문"
 
 #: libraries/config/messages.inc.php:135 libraries/export/sql.php:285
 msgid "Maximal length of created query"
