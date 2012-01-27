@@ -3701,7 +3701,7 @@ msgstr "외래 키(foreign key) 체크 사용 안함"
 
 #: libraries/config/messages.inc.php:130
 msgid "Use hexadecimal for BLOB"
-msgstr ""
+msgstr "BLOB을 헥사 숫자로 사용"
 
 #: libraries/config/messages.inc.php:132
 #, fuzzy
