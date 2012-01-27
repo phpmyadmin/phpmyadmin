@@ -1608,7 +1608,7 @@ msgstr "Graf"
 #. l10n: A collection of available filters
 #: js/messages.php:195
 msgid "Log table filter options"
-msgstr "Nastavení filtrování logovacích tabulek"
+msgstr "Nastavení filtrování záznamových tabulek"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:197
