@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-27 07:55+0200\n"
+"PO-Revision-Date: 2012-01-27 07:56+0200\n"
 "Last-Translator: manyfun <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -3588,10 +3588,9 @@ msgstr "열 내의 CRLF 문자를 제거하기"
 #: libraries/config/messages.inc.php:81 libraries/config/messages.inc.php:247
 #: libraries/config/messages.inc.php:255 libraries/import/csv.php:63
 #: libraries/import/ldi.php:41
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns terminated by"
-msgstr "줄(열) 구분자"
+msgstr "열 구분자"
 
 #: libraries/config/messages.inc.php:82 libraries/config/messages.inc.php:242
 #: libraries/import/csv.php:86 libraries/import/ldi.php:44
