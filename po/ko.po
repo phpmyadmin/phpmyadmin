@@ -1948,7 +1948,7 @@ msgstr "테이블 설명"
 #: js/messages.php:315 tbl_change.php:312 tbl_indexes.php:228
 #: tbl_indexes.php:255
 msgid "Ignore"
-msgstr "Ignore"
+msgstr "무시"
 
 #: js/messages.php:316 libraries/display_tbl.lib.php:1390
 msgid "Copy"
