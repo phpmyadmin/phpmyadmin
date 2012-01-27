@@ -1796,10 +1796,9 @@ msgid "Table must have at least one column"
 msgstr "테이블은 적어도 1개 이상의 컬럼이 있어야 합니다."
 
 #: js/messages.php:251
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
-msgstr "사용할 테이블"
+msgstr "테이블 삽입"
 
 #: js/messages.php:252
 #, fuzzy
