@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-27 07:17+0200\n"
+"PO-Revision-Date: 2012-01-27 07:18+0200\n"
 "Last-Translator: manyfun <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -1859,7 +1859,7 @@ msgstr "질의 상자 보이기"
 
 #: js/messages.php:279 tbl_row_action.php:28
 msgid "No rows selected"
-msgstr ""
+msgstr "선택된 행이 없습니다."
 
 #: js/messages.php:280 libraries/common.lib.php:2743
 #: libraries/display_tbl.lib.php:2506 querywindow.php:87 tbl_structure.php:149
