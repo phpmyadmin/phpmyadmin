@@ -1745,10 +1745,9 @@ msgid "Loading"
 msgstr "불러오고 있습니다."
 
 #: js/messages.php:234
-#, fuzzy
 #| msgid "Processes"
 msgid "Processing Request"
-msgstr "프로세스 목록"
+msgstr "요청을 처리중입니다."
 
 #: js/messages.php:235 libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
