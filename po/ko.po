@@ -1738,7 +1738,7 @@ msgstr "테스트"
 #: pmd_general.php:539 pmd_general.php:587 pmd_general.php:663
 #: pmd_general.php:717 pmd_general.php:780 pmd_general.php:811
 msgid "Cancel"
-msgstr ""
+msgstr "취소"
 
 #: js/messages.php:233
 #, fuzzy
