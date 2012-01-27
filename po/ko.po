@@ -3579,7 +3579,7 @@ msgstr "열 특수문자 처리"
 #: libraries/config/messages.inc.php:144 libraries/config/messages.inc.php:147
 #: libraries/config/messages.inc.php:149 libraries/export/texytext.php:27
 msgid "Replace NULL by"
-msgstr ""
+msgstr "NULL 치환"
 
 #: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:86
 msgid "Remove CRLF characters within columns"
