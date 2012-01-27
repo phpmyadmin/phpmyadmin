@@ -1869,7 +1869,7 @@ msgstr "변경"
 
 #: js/messages.php:281
 msgid "Query execution time"
-msgstr ""
+msgstr "질의 실행 시간"
 
 #: js/messages.php:284 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
