@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-27 08:12+0200\n"
+"PO-Revision-Date: 2012-01-27 08:13+0200\n"
 "Last-Translator: manyfun <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -3707,7 +3707,7 @@ msgstr "BLOB을 헥사 숫자로 사용"
 #, fuzzy
 #| msgid "Extended inserts"
 msgid "Use ignore inserts"
-msgstr "확장된 inserts"
+msgstr "무시 삽입 사용"
 
 #: libraries/config/messages.inc.php:134
 msgid "Syntax to use when inserting data"
