@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-24 21:07+0200\n"
+"PO-Revision-Date: 2012-01-27 14:58+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -12398,11 +12398,15 @@ msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
 msgstr ""
+"To znamená, že spojení tabulek musí často procházet celou tabulku. Přidáním "
+"klíčů na sloupce použité při slučování můžete tuto operaci značně urychlit."
 
 #: po/advisory_rules.php:128
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
+"Průměrně sloučeno tabulek: %s, tato hodnota by měla být menší než 1 za "
+"hodinu"
 
 #: po/advisory_rules.php:130
 msgid "Rate of reading first index entry"
@@ -12426,6 +12430,8 @@ msgstr ""
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
+"Průměrně procházeno klíčů: %s, tato hodnota by měla být menší než 1 za "
+"hodinu"
 
 #: po/advisory_rules.php:135
 msgid "Rate of reading fixed position"
@@ -12448,6 +12454,8 @@ msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr ""
+"Četnost čtení na pevné pozici: %s, tato hodnota by měla být menší než 1 za "
+"hodinu"
 
 #: po/advisory_rules.php:140
 msgid "Rate of reading next table row"
@@ -12468,6 +12476,8 @@ msgstr ""
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr ""
+"Četnost čtení dalšího řádku tabulky: %s, tato hodnota by měla být menší než "
+"1 za hodinu"
 
 #: po/advisory_rules.php:145
 msgid "tmp_table_size vs. max_heap_table_size"
@@ -12541,6 +12551,8 @@ msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
 msgstr ""
+"Četnost dočasného ukládání na disk: %s, tato hodnota by měla být menší než 1 "
+"za hodinu"
 
 #: po/advisory_rules.php:160
 msgid "MyISAM key buffer size"
@@ -12633,6 +12645,8 @@ msgstr ""
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
+"Četnost otevírání tabulek: %s, tato hodnota by měla být menší než 10 za "
+"hodinu"
 
 #: po/advisory_rules.php:185
 #, fuzzy
@@ -12659,10 +12673,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:190
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of open files"
-msgstr "Formát importovaného souboru"
+msgstr "Četnost otevírání souborů"
 
 #: po/advisory_rules.php:191
 #, fuzzy
@@ -12674,6 +12687,8 @@ msgstr "Počet nevyřízených synchronizací logovacích souborů."
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
+"Četnost otevírání souborů: %s, tato hodnota by měla být menší než 5 za "
+"hodinu"
 
 #: po/advisory_rules.php:195
 #, php-format
@@ -12697,12 +12712,14 @@ msgstr ""
 
 #: po/advisory_rules.php:200
 msgid "Table lock wait rate"
-msgstr ""
+msgstr "Četnost čekání na zámek tabulky"
 
 #: po/advisory_rules.php:203
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
+"Četnost čekání na zámek tabulky: %s, tato hodnota by měla být menší než 1 za "
+"hodinu"
 
 #: po/advisory_rules.php:205
 #, fuzzy
@@ -12746,19 +12763,20 @@ msgstr ""
 
 #: po/advisory_rules.php:215
 msgid "Threads that are slow to launch"
-msgstr ""
+msgstr "Vlákna se spouštějí příliš dlouho"
 
 #: po/advisory_rules.php:216
-#, fuzzy
 #| msgid "The number of threads that are not sleeping."
 msgid "There are too many threads that are slow to launch."
-msgstr "Počet vláken, která nespí."
+msgstr "Je příliš mnoho vláken, která se spouštějí dlouho."
 
 #: po/advisory_rules.php:217
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
 msgstr ""
+"K tomuto obvykle dochází v případě přetížení systému, protože se jedná o "
+"velmi jednoduchou operaci. Je vhodné podrobně sledovat zatížení systému."
 
 #: po/advisory_rules.php:218
 #, php-format
@@ -12839,6 +12857,8 @@ msgstr "Trvalé připojení"
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"Četnost přerušených spojení je %s, tato hodnota by měla být menší než 1 za "
+"hodinu"
 
 #: po/advisory_rules.php:240
 msgid "Percentage of aborted clients"
@@ -12870,10 +12890,12 @@ msgstr "Formát importovaného souboru"
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"Četnost přerušených klientů: %s, tato hodnota by měla být menší než 1 za "
+"hodinu"
 
 #: po/advisory_rules.php:250
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "InnoDB je vypnuto?"
 
 #: po/advisory_rules.php:251
 msgid "You do not have InnoDB enabled."
@@ -12881,7 +12903,7 @@ msgstr "Máte zakázané InnoDB."
 
 #: po/advisory_rules.php:252
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "InnoDB je obvykle nejlepší volba úložiště tabulky."
 
 #: po/advisory_rules.php:253
 msgid "have_innodb is set to 'value'"

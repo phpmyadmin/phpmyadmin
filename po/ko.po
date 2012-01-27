@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
 "PO-Revision-Date: 2012-01-27 08:18+0200\n"
-"Last-Translator: manyfun <manyfun7@gmail.com>\n"
+"Last-Translator: minsung kang <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -806,25 +806,22 @@ msgid "ENUM/SET editor"
 msgstr "ENUM/SET 수정"
 
 #: enum_editor.php:28 js/messages.php:268
-#, fuzzy
 #| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
 msgstr "새로운 열의 값"
 
 #: enum_editor.php:30 js/messages.php:267
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
 msgstr "\"%s\" 열의 값"
 
 #: enum_editor.php:34 js/messages.php:269
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
 msgstr "각각의 필드에 값을 입력하세요"
 
 #: enum_editor.php:123
-#, fuzzy
 msgid "Add a value"
 msgstr "값을 추가"
 
@@ -941,7 +938,6 @@ msgid "Add an inner ring"
 msgstr "내부 링 추가"
 
 #: gis_data_editor.php:266 js/messages.php:322
-#, fuzzy
 msgid "Polygon"
 msgstr "폴리곤"
 
@@ -1103,7 +1099,6 @@ msgid "This is not a number!"
 msgstr "은 숫자가 아닙니다!"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid "Add index"
 msgid "Add Index"
 msgstr "인덱스 추가"
@@ -1114,7 +1109,7 @@ msgid "Edit Index"
 msgstr "인덱스 수정"
 
 #: js/messages.php:48 tbl_indexes.php:293
-#, fuzzy, php-format
+#, php-format
 msgid "Add %d column(s) to index"
 msgstr "인덱스에 %d 열 추가"
 
@@ -1249,7 +1244,6 @@ msgid "Local monitor configuration incompatible"
 msgstr "호환되지 않는 로컬 모니터 설정입니다."
 
 #: js/messages.php:95
-#, fuzzy
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -1373,7 +1367,7 @@ msgid "EiB"
 msgstr "EB"
 
 #: js/messages.php:132
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "%d table(s)"
@@ -1480,7 +1474,7 @@ msgstr "로그 출력을 %s로 설정"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:159
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
 msgstr "%s 사용가능"
@@ -1515,7 +1509,6 @@ msgid "Current settings"
 msgstr "현재 설정"
 
 #: js/messages.php:168 server_status.php:1640
-#, fuzzy
 #| msgid "Import files"
 msgid "Chart Title"
 msgstr "차트 제목"
@@ -1606,7 +1599,6 @@ msgid "Profiling results"
 msgstr "프로파일링"
 
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
@@ -1686,7 +1678,6 @@ msgstr ""
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
 #: prefs_manage.php:229 server_status.php:1595 setup/frames/menu.inc.php:20
-#, fuzzy
 msgid "Import"
 msgstr "가져오기"
 
@@ -1708,7 +1699,6 @@ msgid "Issue"
 msgstr ""
 
 #: js/messages.php:221
-#, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
 msgstr "추천"
@@ -1836,12 +1826,11 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "저장 함수의 정의는 RETURN문을 포함해야 합니다!"
 
 #: js/messages.php:270
-#, fuzzy, php-format
+#, php-format
 msgid "Add %d value(s)"
 msgstr "%d 값 추가"
 
 #: js/messages.php:273
-#, fuzzy
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr "참고: 파일에 여러 테이블이 포함되어 있다면, 하나로 결합됩니다."
@@ -1891,6 +1880,7 @@ msgid "Zoom Search"
 msgstr "검색"
 
 #: js/messages.php:293
+#, fuzzy
 msgid "Each point represents a data row."
 msgstr "각 포인트는 데이터 행을 나타냅니다."
 
@@ -3608,7 +3598,6 @@ msgid "Server name template"
 msgstr "서버명 템플릿"
 
 #: libraries/config/messages.inc.php:89
-#, fuzzy
 msgid "Table name template"
 msgstr "파일명 템플릿"
 
@@ -4506,7 +4495,6 @@ msgid "Query window height"
 msgstr "질의 창"
 
 #: libraries/config/messages.inc.php:348
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width (in pixels)"
 msgstr "질의 창"
