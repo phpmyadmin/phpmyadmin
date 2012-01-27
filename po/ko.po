@@ -1405,7 +1405,7 @@ msgstr "차트 삭제"
 
 #: js/messages.php:139
 msgid "Edit title and labels"
-msgstr ""
+msgstr "타이틀과 레이블 편집"
 
 #: js/messages.php:140
 msgid "Add chart to grid"
