@@ -1582,10 +1582,9 @@ msgid "Log analysed, but no data found in this time span."
 msgstr "로그가 분석되었습니다. 하지만 해당 기간내에는 자료가 없습니다."
 
 #: js/messages.php:185
-#, fuzzy
 #| msgid "Analyze"
 msgid "Analyzing..."
-msgstr "분석"
+msgstr "분석중..."
 
 #: js/messages.php:186
 #, fuzzy
