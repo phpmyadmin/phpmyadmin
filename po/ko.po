@@ -3533,9 +3533,8 @@ msgid "Save as file"
 msgstr "파일로 저장"
 
 #: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:241
-#, fuzzy
 msgid "Character set of the file"
-msgstr "파일 문자셋:"
+msgstr "파일 문자셋"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:90
 #: tbl_gis_visualization.php:181 tbl_printview.php:335 tbl_structure.php:842
