@@ -12673,10 +12673,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:190
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of open files"
-msgstr "Formát importovaného souboru"
+msgstr "Četnost otevírání souborů"
 
 #: po/advisory_rules.php:191
 #, fuzzy
