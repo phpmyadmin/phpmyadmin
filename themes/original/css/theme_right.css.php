@@ -2198,12 +2198,16 @@ fieldset .disabled-field td {
 }
 
 .CodeMirror-scroll {
-  height:             <?php echo ceil($GLOBALS['cfg']['TextareaRows'] * 1.2); ?>em;
   overflow: auto;
+  height:             <?php echo ceil($GLOBALS['cfg']['TextareaRows'] * 1.2); ?>em;
+  /* This is needed to prevent an IE[67] bug where the scrolled content
+     is visible outside of the scrolling box. */
+  position: relative;
 }
 
 .CodeMirror-gutter {
   position: absolute; left: 0; top: 0;
+  z-index: 10;
   background-color: #f7f7f7;
   border-right: 1px solid #eee;
   min-width: 2em;
@@ -2213,6 +2217,7 @@ fieldset .disabled-field td {
   color: #aaa;
   text-align: right;
   padding: .4em .2em .4em .4em;
+  white-space: pre !important;
 }
 .CodeMirror-lines {
   padding: .4em;
@@ -2227,6 +2232,16 @@ fieldset .disabled-field td {
   font-family: inherit;
   font-size: inherit;
   padding: 0; margin: 0;
+  white-space: pre;
+  word-wrap: normal;
+}
+
+.CodeMirror-wrap pre {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+.CodeMirror-wrap .CodeMirror-scroll {
+  overflow-x: hidden;
 }
 
 .CodeMirror textarea {

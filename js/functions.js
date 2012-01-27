@@ -2053,7 +2053,7 @@ $(document).ready(function() {
 
                             //Sort the table
                             $(tables_table).PMA_sort_table('th');
-                            
+
                             // Adjust summary row
                             PMA_adjustTotals();
                         }
@@ -3434,7 +3434,13 @@ $(document).ready(function() {
 $(document).ready(function() {
     var elm = $('#sqlquery');
     if (elm.length > 0 && typeof CodeMirror != 'undefined') {
-        codemirror_editor = CodeMirror.fromTextArea(elm[0], {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql"});
+        codemirror_editor = CodeMirror.fromTextArea(elm[0], {
+            lineNumbers: true,
+            matchBrackets: true,
+            indentUnit: 4,
+            mode: "text/x-mysql",
+            lineWrapping: true
+        });
     }
 });
 
@@ -3645,11 +3651,11 @@ $(document).ready(function () {
 
 /**
  * Toggles row colors of a set of 'tr' elements starting from a given element
- * 
+ *
  * @param $start Starting element
  */
-function toggleRowColors($start) 
-{  
+function toggleRowColors($start)
+{
     for (var $curr_row = $start; $curr_row.length > 0; $curr_row = $curr_row.next()) {
         if ($curr_row.hasClass('odd')) {
             $curr_row.removeClass('odd').addClass('even');
