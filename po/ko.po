@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-27 07:13+0200\n"
+"PO-Revision-Date: 2012-01-27 07:14+0200\n"
 "Last-Translator: manyfun <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -1811,10 +1811,9 @@ msgid "Show indexes"
 msgstr "인덱스 보이기"
 
 #: js/messages.php:256
-#, fuzzy
 #| msgid "Search"
 msgid "Searching"
-msgstr "검색"
+msgstr "검색중"
 
 #: js/messages.php:257
 #, fuzzy
