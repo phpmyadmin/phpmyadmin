@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-27 07:28+0200\n"
+"PO-Revision-Date: 2012-01-27 07:30+0200\n"
 "Last-Translator: manyfun <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -11039,7 +11039,7 @@ msgstr "다음 행 수정"
 #: tbl_change.php:1070
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
-msgstr "탭 키를 이용해 이동하거나 CTRL+화살표로 이동할 수 있다"
+msgstr "탭 키나 CTRL+화살표로 값 항목을 이동할 수 있습니다."
 
 #: tbl_change.php:1108
 #, php-format
