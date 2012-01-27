@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-27 07:34+0200\n"
+"PO-Revision-Date: 2012-01-27 07:38+0200\n"
 "Last-Translator: manyfun <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -5115,9 +5115,8 @@ msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:476
-#, fuzzy
 msgid "Show statistics"
-msgstr "행(레코드) 통계"
+msgstr "통계보기"
 
 #: libraries/config/messages.inc.php:477
 msgid ""
