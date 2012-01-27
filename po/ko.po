@@ -1622,10 +1622,9 @@ msgstr "차트"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
-#, fuzzy
 #| msgid "Table options"
 msgid "Log table filter options"
-msgstr "테이블 옵션"
+msgstr "로그 테이블의 필터 옵션"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:197
