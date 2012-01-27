@@ -8101,9 +8101,7 @@ msgstr ""
 msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
-msgstr ""
-"SQL 검사기가 초기화되지 않았습니다. %s문서%s에서 설명한 php 확장모듈을 설치했"
-"는지 확인해보십시오."
+msgstr "질의 검사기가 초기화되지 않았습니다. %s문서%s에서 설명한 필수 PHP 확장모듈을 설치했는지 확인해 보십시오."
 
 #: libraries/tbl_links.inc.php:118 libraries/tbl_links.inc.php:119
 msgid "Table seems to be empty!"
