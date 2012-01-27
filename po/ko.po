@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-27 08:15+0200\n"
+"PO-Revision-Date: 2012-01-27 08:16+0200\n"
 "Last-Translator: manyfun <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -3729,7 +3729,7 @@ msgstr "트랜잭션으로 내보내기 감싸기"
 
 #: libraries/config/messages.inc.php:142
 msgid "Export time in UTC"
-msgstr ""
+msgstr "세계 표준시(UTC)로 시간 내보내기"
 
 #: libraries/config/messages.inc.php:150
 msgid "Force secured connection while using phpMyAdmin"
