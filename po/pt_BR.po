@@ -5891,7 +5891,7 @@ msgstr "%d não é um número de linha válido."
 #: libraries/display_tbl.lib.php:427
 #, fuzzy
 msgid "Start row"
-msgstr "Status"
+msgstr "Iniciar linha"
 
 #: libraries/display_tbl.lib.php:429
 #, fuzzy
