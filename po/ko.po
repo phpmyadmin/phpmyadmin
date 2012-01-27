@@ -1936,10 +1936,9 @@ msgid "Select two different columns"
 msgstr "두 개의다른 열 선택"
 
 #: js/messages.php:311
-#, fuzzy
 #| msgid "SQL result"
 msgid "Query results"
-msgstr "SQL 결과"
+msgstr "질의 결과"
 
 #: js/messages.php:312
 #, fuzzy
