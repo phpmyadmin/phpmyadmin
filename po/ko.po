@@ -1952,7 +1952,7 @@ msgstr "무시"
 
 #: js/messages.php:316 libraries/display_tbl.lib.php:1390
 msgid "Copy"
-msgstr ""
+msgstr "복사"
 
 #: js/messages.php:331
 #, fuzzy
