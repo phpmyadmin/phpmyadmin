@@ -1844,9 +1844,10 @@ msgid "Add %d value(s)"
 msgstr "%d 값 추가"
 
 #: js/messages.php:273
+#, fuzzy
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
-msgstr ""
+msgstr "참고: 파일에 여러 테이블이 포함되어 있다면, 하나로 결합됩니다."
 
 #: js/messages.php:276
 #, fuzzy
