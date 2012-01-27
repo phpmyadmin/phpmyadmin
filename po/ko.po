@@ -1409,7 +1409,7 @@ msgstr "타이틀과 레이블 편집"
 
 #: js/messages.php:140
 msgid "Add chart to grid"
-msgstr ""
+msgstr "차트에 그리드 추가"
 
 #: js/messages.php:142
 msgid "Please add at least one variable to the series"
