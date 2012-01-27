@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
 "PO-Revision-Date: 2012-01-27 06:46+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: manyfun <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -1547,7 +1547,7 @@ msgstr ""
 
 #: js/messages.php:176
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "로그를 읽고 분석합니다. 이 작업은 시간이 걸릴 수 있습니다."
 
 #: js/messages.php:177
 msgid "Cancel request"
