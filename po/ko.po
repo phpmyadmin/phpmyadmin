@@ -3659,7 +3659,7 @@ msgstr "내보내기 방법"
 
 #: libraries/config/messages.inc.php:116 libraries/config/messages.inc.php:118
 msgid "Save on server"
-msgstr ""
+msgstr "서버에 저장"
 
 #: libraries/config/messages.inc.php:117 libraries/config/messages.inc.php:119
 #: libraries/display_export.lib.php:190 libraries/display_export.lib.php:216
