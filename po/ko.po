@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-27 07:59+0200\n"
+"PO-Revision-Date: 2012-01-27 08:00+0200\n"
 "Last-Translator: manyfun <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -3600,9 +3600,8 @@ msgid "Excel edition"
 msgstr "Excel 편집"
 
 #: libraries/config/messages.inc.php:87
-#, fuzzy
 msgid "Database name template"
-msgstr "파일명 템플릿"
+msgstr "데이터베이스명 템플릿"
 
 #: libraries/config/messages.inc.php:88
 #, fuzzy
