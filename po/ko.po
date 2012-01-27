@@ -3664,7 +3664,7 @@ msgstr "서버에 저장"
 #: libraries/config/messages.inc.php:117 libraries/config/messages.inc.php:119
 #: libraries/display_export.lib.php:190 libraries/display_export.lib.php:216
 msgid "Overwrite existing file(s)"
-msgstr ""
+msgstr "기존 파일 덮어쓰기"
 
 #: libraries/config/messages.inc.php:120
 #, fuzzy
