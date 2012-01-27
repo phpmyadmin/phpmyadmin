@@ -1371,7 +1371,7 @@ msgstr "EB"
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "%d table(s)"
-msgstr "%s개 테이블 "
+msgstr "%d개 테이블 "
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:135
