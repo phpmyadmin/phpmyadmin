@@ -1854,9 +1854,8 @@ msgid "Hide query box"
 msgstr "질의 상자 숨기기"
 
 #: js/messages.php:277
-#, fuzzy
 msgid "Show query box"
-msgstr "SQL 질의"
+msgstr "질의 상자 보이기"
 
 #: js/messages.php:279 tbl_row_action.php:28
 msgid "No rows selected"
