@@ -435,7 +435,7 @@ msgstr "오름차순"
 #: server_databases.php:162 server_databases.php:179 tbl_operations.php:280
 #: tbl_select.php:223
 msgid "Descending"
-msgstr "내림차순(역순)"
+msgstr "내림차순"
 
 #: db_qbe.php:286 db_tracking.php:92 libraries/display_tbl.lib.php:426
 #: tbl_change.php:287 tbl_tracking.php:654
