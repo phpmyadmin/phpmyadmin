@@ -12718,6 +12718,8 @@ msgstr "Četnost čekání na zámek tabulky"
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
+"Četnost čekání na zámek tabulky: %s, tato hodnota by měla být menší než 1 za "
+"hodinu"
 
 #: po/advisory_rules.php:205
 #, fuzzy
