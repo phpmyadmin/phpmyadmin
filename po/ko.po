@@ -1904,7 +1904,7 @@ msgstr "포인트에 마우스를 올리면 라벨이 표시됩니다."
 #: js/messages.php:297
 #, fuzzy
 msgid "Use mousewheel to zoom in or out of the plot."
-msgstr "마으스휠로 확대/축소할 수 있습니다."
+msgstr "마우스 휠로 확대/축소할 수 있습니다."
 
 #: js/messages.php:299
 msgid "Click and drag the mouse to navigate the plot."
