@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-27 14:58+0200\n"
+"PO-Revision-Date: 2012-01-27 15:08+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -806,7 +806,7 @@ msgstr "Sledovat tabulku"
 
 #: db_tracking.php:227
 msgid "Database Log"
-msgstr "Historie databáze"
+msgstr "Záznam databáze"
 
 #: enum_editor.php:23 js/messages.php:266
 #: libraries/rte/rte_routines.lib.php:690
@@ -1495,7 +1495,7 @@ msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
-"Nemůžete změnit uvedené proměnné. Prosím přihlašte se jako root nebo "
+"Nemůžete změnit uvedené proměnné. Prosím přihlaste se jako root nebo "
 "kontaktujte vašeho správce databáze."
 
 #: js/messages.php:165
@@ -1526,11 +1526,11 @@ msgstr "Jednotka"
 
 #: js/messages.php:174
 msgid "From slow log"
-msgstr "Ze zánamu pomalých dotazů"
+msgstr "Ze záznamu pomalých dotazů"
 
 #: js/messages.php:175
 msgid "From general log"
-msgstr "Z obecného zánamu dotazů"
+msgstr "Z obecného záznamu dotazů"
 
 #: js/messages.php:176
 msgid "Analysing & loading logs. This may take a while."
@@ -1608,7 +1608,7 @@ msgstr "Graf"
 #. l10n: A collection of available filters
 #: js/messages.php:195
 msgid "Log table filter options"
-msgstr "Nastavení filtrování logovacích tabulek"
+msgstr "Nastavení filtrování záznamových tabulek"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:197
@@ -4597,9 +4597,9 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma_bookmark[/kbd]"
 msgstr ""
-"Nechte prázdné pro žádnou podporu Leave blank for no [a@http://wiki."
-"phpmyadmin.net/pma/bookmark]záložek[/a], výchozí nastavení: [kbd]"
-"pma_bookmarks[/kbd]"
+"Nechte prázdné pro vypnutí podpory "
+"[a@http://wiki.phpmyadmin.net/pma/bookmark]záložek[/a], doporučené "
+"nastavení: [kbd]pma_bookmarks[/kbd]"
 
 #: libraries/config/messages.inc.php:375
 msgid "Bookmark table"
@@ -6168,13 +6168,13 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:30
 msgid "Garbage Threshold"
-msgstr "Práh velikosti odpadu (garbage)"
+msgstr "Hranice odpadu"
 
 #: libraries/engines/pbms.lib.php:31
 msgid "The percentage of garbage in a repository file before it is compacted."
 msgstr ""
-"Procentuální podíl odpadu (garbage) v souboru datového logu předtím, než je "
-"soubor stlačen."
+"Procentuální podíl odpadu v souboru datového logu předtím, než je soubor "
+"zhuštěn."
 
 #: libraries/engines/pbms.lib.php:35 libraries/replication_gui.lib.php:70
 #: server_synchronize.php:1261
@@ -6191,7 +6191,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:40
 msgid "Repository Threshold"
-msgstr "Práh velikosti skladiště"
+msgstr "Hranice skladiště"
 
 #: libraries/engines/pbms.lib.php:41
 msgid ""
@@ -6216,7 +6216,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:50
 msgid "Temp Log Threshold"
-msgstr "Práh velikosti dočasného logového souboru"
+msgstr "Hranice dočasného záznanového souboru"
 
 #: libraries/engines/pbms.lib.php:51
 msgid ""
@@ -6314,7 +6314,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:37
 msgid "Log file threshold"
-msgstr "Prahová hodnota logového souboru"
+msgstr "Hranice záznamového souboru"
 
 #: libraries/engines/pbxt.lib.php:38
 msgid ""
@@ -6350,7 +6350,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:52
 msgid "Data log threshold"
-msgstr "Nejvyšší velikost datového logu"
+msgstr "Hranice datového záznamu"
 
 #: libraries/engines/pbxt.lib.php:53
 msgid ""
@@ -6366,16 +6366,15 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:57
 msgid "Garbage threshold"
-msgstr "Největší velikost odpadu (garbage)"
+msgstr "Hranice odpadu"
 
 #: libraries/engines/pbxt.lib.php:58
 msgid ""
 "The percentage of garbage in a data log file before it is compacted. This is "
 "a value between 1 and 99. The default is 50."
 msgstr ""
-"Procentuální podíl odpadu (garbage) v souboru datového logu předtím, než je "
-"soubor stlačen. Tato hodnota se může pohybovat mezi 1 a 99. Výchozí hodnota "
-"je 50."
+"Procentuální podíl odpadu v souboru datového logu předtím, než je soubor "
+"zhuštěn. Tato hodnota se může pohybovat mezi 1 a 99. Výchozí hodnota je 50."
 
 #: libraries/engines/pbxt.lib.php:62
 msgid "Log buffer size"
@@ -7196,7 +7195,7 @@ msgid ""
 "Please see the documentation on how to update your column_comments table"
 msgstr ""
 "Podívejte se prosím do dokumentace, jak aktualizovat tabulku s informacemi "
-"o polích (tabulka column_comments)"
+"o polích v tabulce column_comments"
 
 #: libraries/relation.lib.php:124 libraries/sql_query_form.lib.php:376
 msgid "Bookmarked SQL query"
@@ -12378,7 +12377,7 @@ msgid ""
 msgstr ""
 "Na řazení není nic špatného, ale ujistěte se, že dotazy, které hojně "
 "využívají řazení používají klíče ve frázi ORDER BY, protože toto zajistí "
-"rychlejší řazení."
+"rychlejší řazení"
 
 #: po/advisory_rules.php:123
 #, php-format
@@ -12399,7 +12398,7 @@ msgid ""
 "columns being used in the join conditions will greatly speed up table joins"
 msgstr ""
 "To znamená, že spojení tabulek musí často procházet celou tabulku. Přidáním "
-"klíčů na sloupce použité při slučování můžete tuto operaci značně urychlit."
+"klíčů na sloupce použité při slučování můžete tuto operaci značně urychlit"
 
 #: po/advisory_rules.php:128
 #, php-format
