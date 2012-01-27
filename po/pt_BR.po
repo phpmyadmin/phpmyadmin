@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-27 17:03+0200\n"
+"PO-Revision-Date: 2012-01-27 17:04+0200\n"
 "Last-Translator: V4g_Br4Ck3r <vag_bracker@hotmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -5797,6 +5797,8 @@ msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr ""
+"Por favor, tenha paciência, o arquivo esta sendo enviado. Detalhes sobre o "
+"upload não estão disponíveis."
 
 #: libraries/display_import.lib.php:129
 #, fuzzy
