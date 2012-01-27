@@ -1615,7 +1615,7 @@ msgstr "Tempo total:"
 #, fuzzy
 #| msgid "Profiling"
 msgid "Profiling results"
-msgstr "Perfil"
+msgstr "Resultado do Perfil"
 
 #: js/messages.php:191
 msgctxt "Display format"
