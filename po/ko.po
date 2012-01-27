@@ -3633,7 +3633,7 @@ msgstr "테이블 설명"
 
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:104
 msgid "Continued table caption"
-msgstr ""
+msgstr "테이블 설명(Continued)"
 
 #: libraries/config/messages.inc.php:99 libraries/config/messages.inc.php:105
 #: libraries/export/latex.php:54 libraries/export/latex.php:78
