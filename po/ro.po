@@ -1737,9 +1737,8 @@ msgstr "Opțiuni de afișare a tabelelor"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:197
-#, fuzzy
 msgid "Filter"
-msgstr "Fișiere"
+msgstr "Filtrare"
 
 #: js/messages.php:198
 msgid "Filter queries by word/regexp:"
