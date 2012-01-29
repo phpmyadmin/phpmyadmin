@@ -2680,9 +2680,8 @@ msgid "Could not save recent table"
 msgstr "Nu s-a putut salva tabelul recent"
 
 #: libraries/RecentTable.class.php:142
-#, fuzzy
 msgid "Recent tables"
-msgstr "Nu există tabele"
+msgstr "Tabele recente"
 
 #: libraries/RecentTable.class.php:149
 #, fuzzy
