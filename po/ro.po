@@ -2363,7 +2363,7 @@ msgstr "Vineri"
 
 #: js/messages.php:447
 msgid "Saturday"
-msgstr ""
+msgstr "Sâmbătă"
 
 #. l10n: Short week day name
 #: js/messages.php:451
