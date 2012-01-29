@@ -3713,7 +3713,7 @@ msgstr "Dezactivează mentenanța multi tabel"
 
 #: libraries/config/messages.inc.php:64
 msgid "Edit SQL queries in popup window"
-msgstr ""
+msgstr "Editează interogări SQL într-o fereastră popup"
 
 #: libraries/config/messages.inc.php:65
 #, fuzzy
