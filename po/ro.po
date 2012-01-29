@@ -3542,6 +3542,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import and export operations"
 msgstr ""
+"Permite compresia [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] pentru "
+"operațiile de import și export"
 
 #: libraries/config/messages.inc.php:31
 msgid "Bzip2"
