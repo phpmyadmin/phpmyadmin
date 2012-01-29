@@ -2009,7 +2009,7 @@ msgstr "Caută"
 
 #: js/messages.php:293
 msgid "Each point represents a data row."
-msgstr ""
+msgstr "Fiecare punct reprezintă un rând de date."
 
 #: js/messages.php:295
 msgid "Hovering over a point will show its label."
