@@ -3297,7 +3297,7 @@ msgstr "Ambele"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "Nicăieri"
 
 #: libraries/config.values.php:47
 msgid "Left"
