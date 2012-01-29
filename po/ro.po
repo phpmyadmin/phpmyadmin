@@ -3598,7 +3598,7 @@ msgstr "coloane textarea CHAR"
 
 #: libraries/config/messages.inc.php:40
 msgid "Number of rows for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Număr de rânduri pentru textarea-urile CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:41
 msgid "CHAR textarea rows"
