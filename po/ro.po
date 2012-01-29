@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-29 15:31+0200\n"
+"PO-Revision-Date: 2012-01-29 15:32+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -3428,7 +3428,7 @@ msgstr "importul nu va funcționa, lipsește o funcție (%s)"
 #: libraries/config/FormDisplay.class.php:731
 #, php-format
 msgid "export will not work, missing function (%s)"
-msgstr ""
+msgstr "exportarea nu va funcționa, lipsește o funcție (%s)"
 
 #: libraries/config/FormDisplay.class.php:738
 msgid "SQL Validator is disabled"
