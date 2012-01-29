@@ -3401,7 +3401,7 @@ msgstr "Valoare incorectă"
 #: libraries/config/validate.lib.php:479
 #, php-format
 msgid "Value must be equal or lower than %s"
-msgstr ""
+msgstr "Valoarea trebuie să fie egală sau mai mică cu %s"
 
 #: libraries/config/FormDisplay.class.php:511
 #, php-format
