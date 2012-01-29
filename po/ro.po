@@ -3844,7 +3844,7 @@ msgstr "Șablon nume tabel"
 #, fuzzy
 #| msgid "%s table(s)"
 msgid "Dump table"
-msgstr "%s tabele"
+msgstr "Dump tabel"
 
 #: libraries/config/messages.inc.php:94 libraries/export/latex.php:32
 msgid "Include table caption"
