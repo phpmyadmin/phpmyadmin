@@ -2643,13 +2643,13 @@ msgid "Error"
 msgstr "Eroare"
 
 #: libraries/Message.class.php:241
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) affected."
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "%1$d rînd(uri) afectat(e)."
-msgstr[1] "%1$d rînd(uri) afectat(e)."
-msgstr[2] "%1$d rînd(uri) afectat(e)."
+msgstr[0] "%1$d rânduri afectate."
+msgstr[1] "%1$d rând afectat."
+msgstr[2] "%1$d rânduri afectate."
 
 #: libraries/Message.class.php:257
 #, fuzzy, php-format
