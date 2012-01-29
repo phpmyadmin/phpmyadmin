@@ -3309,7 +3309,7 @@ msgstr "Dreapta"
 
 #: libraries/config.values.php:76
 msgid "Open"
-msgstr ""
+msgstr "Deschis"
 
 #: libraries/config.values.php:77
 #, fuzzy
