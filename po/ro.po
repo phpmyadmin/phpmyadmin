@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-29 14:35+0200\n"
+"PO-Revision-Date: 2012-01-29 14:36+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -1960,6 +1960,8 @@ msgstr "Adaugă %d valori"
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr ""
+"Notă: Dacă fișierul conține mai multe tabele, acestea vor fi combinate într-"
+"unul singur"
 
 #: js/messages.php:276
 #, fuzzy
