@@ -2350,7 +2350,7 @@ msgstr "Marți"
 
 #: js/messages.php:444
 msgid "Wednesday"
-msgstr ""
+msgstr "Miercuri"
 
 #: js/messages.php:445
 msgid "Thursday"
