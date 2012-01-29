@@ -2107,7 +2107,7 @@ msgstr "Adăugați o opțiune pentru coloană"
 
 #: js/messages.php:344
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "Apăsați escape pentru a anula editarea"
 
 #: js/messages.php:345
 msgid ""
