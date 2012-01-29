@@ -2670,10 +2670,9 @@ msgstr[1] "%1$d rând inserat."
 msgstr[2] "%1$d rânduri inserate."
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Permite citirea datelor."
+msgstr "Eroare la creare PDF:"
 
 #: libraries/RecentTable.class.php:107
 #, fuzzy
