@@ -2970,9 +2970,8 @@ msgid "Overhead"
 msgstr "Asupra"
 
 #: libraries/build_html_for_db.lib.php:94
-#, fuzzy
 msgid "Jump to database"
-msgstr "Nu sînt baze de date"
+msgstr "Sari la baza de date"
 
 #: libraries/build_html_for_db.lib.php:131
 msgid "Not replicated"
