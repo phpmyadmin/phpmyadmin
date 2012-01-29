@@ -2172,10 +2172,9 @@ msgid "Change Password"
 msgstr "Schimbare parolă"
 
 #: js/messages.php:361 tbl_structure.php:465
-#, fuzzy
 #| msgid "Mon"
 msgid "More"
-msgstr "Lun"
+msgstr "Mai mult"
 
 #: js/messages.php:364 setup/lib/index.lib.php:173
 #, php-format
