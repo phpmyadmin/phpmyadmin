@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-29 22:36+0200\n"
+"PO-Revision-Date: 2012-01-29 22:37+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -3809,10 +3809,9 @@ msgstr "Șterge caracterele terminatoare de linie CRLF din cadrul coloanelor"
 #: libraries/config/messages.inc.php:81 libraries/config/messages.inc.php:247
 #: libraries/config/messages.inc.php:255 libraries/import/csv.php:63
 #: libraries/import/ldi.php:41
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns terminated by"
-msgstr "Linii terminate de"
+msgstr "Coloane terminate de"
 
 #: libraries/config/messages.inc.php:82 libraries/config/messages.inc.php:242
 #: libraries/import/csv.php:86 libraries/import/ldi.php:44
