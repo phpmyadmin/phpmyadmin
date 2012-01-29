@@ -3410,10 +3410,9 @@ msgstr "Date lipsă pentru %s"
 
 #: libraries/config/FormDisplay.class.php:708
 #: libraries/config/FormDisplay.class.php:712
-#, fuzzy
 #| msgid "Variable"
 msgid "unavailable"
-msgstr "Variabil"
+msgstr "indisponibil"
 
 #: libraries/config/FormDisplay.class.php:709
 #: libraries/config/FormDisplay.class.php:713
