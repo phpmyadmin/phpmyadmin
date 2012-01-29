@@ -5,9 +5,7 @@
   TCPDF is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License as
   published by the Free Software Foundation, either version 3 of the
-  License, or (at your option) any later version. Additionally, 
-  YOU CAN'T REMOVE ANY TCPDF COPYRIGHT NOTICE OR LINK FROM THE 
-  GENERATED PDF DOCUMENTS.
+  License, or (at your option) any later version.
 
 **********************************************************************
 **********************************************************************
