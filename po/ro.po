@@ -3731,7 +3731,7 @@ msgstr "Strânge erorile"
 
 #: libraries/config/messages.inc.php:68
 msgid "Show icons for warning, error and information messages"
-msgstr ""
+msgstr "Afișează iconițe pentru mesajele de avertisment, eroare sau informare"
 
 #: libraries/config/messages.inc.php:69
 msgid "Iconic errors"
