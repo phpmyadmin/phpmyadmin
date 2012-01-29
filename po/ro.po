@@ -2447,10 +2447,9 @@ msgstr "Sâ"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:481
-#, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
-msgstr "Wiki"
+msgstr "Săpt"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: js/messages.php:484
