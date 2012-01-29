@@ -3631,6 +3631,8 @@ msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
+"Dacă un avertisment (&quot; Sunteți sigur...&quot;) ar trebui afișat când "
+"sunteți pe cale sa pierdeți datele"
 
 #: libraries/config/messages.inc.php:47
 msgid "Confirm DROP queries"
