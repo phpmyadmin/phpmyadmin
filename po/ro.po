@@ -2469,10 +2469,9 @@ msgid "Hour"
 msgstr "Oră"
 
 #: js/messages.php:496
-#, fuzzy
 #| msgid "in use"
 msgid "Minute"
-msgstr "în folosință"
+msgstr "Minut"
 
 #: js/messages.php:497
 #, fuzzy
