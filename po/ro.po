@@ -1948,7 +1948,7 @@ msgstr "Ștergere"
 
 #: js/messages.php:263
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr ""
+msgstr "Definiția unei funcții stocate trebuie să conțină o declarație RETURN!"
 
 #: js/messages.php:270
 #, fuzzy, php-format
