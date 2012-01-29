@@ -20,6 +20,10 @@ $GLOBALS['js_include'][] = 'tbl_change.js';
 // the next one needed because sql.php may do a "goto" to tbl_structure.php
 $GLOBALS['js_include'][] = 'tbl_structure.js';
 $GLOBALS['js_include'][] = 'gis_data_editor.js';
+$GLOBALS['js_include'][] = 'codemirror/lib/codemirror.js';
+$GLOBALS['js_include'][] = 'codemirror/mode/mysql/mysql.js';
+
+
 
 if (isset($_SESSION['profiling'])) {
     $GLOBALS['js_include'][] = 'highcharts/highcharts.js';
