@@ -3680,7 +3680,7 @@ msgstr "Afișează conținutul binar ca HEX implicit"
 
 #: libraries/config/messages.inc.php:57 libraries/display_tbl.lib.php:678
 msgid "Show binary contents as HEX"
-msgstr ""
+msgstr "Afișează conținutul binar ca HEX "
 
 #: libraries/config/messages.inc.php:58
 msgid "Show database listing as a list instead of a drop down"
