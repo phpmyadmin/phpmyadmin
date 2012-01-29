@@ -3721,10 +3721,9 @@ msgid "Edit in window"
 msgstr "Editează în fereastră"
 
 #: libraries/config/messages.inc.php:66
-#, fuzzy
 #| msgid "Display Features"
 msgid "Display errors"
-msgstr "Arată facilitățile"
+msgstr "Afișează erorile"
 
 #: libraries/config/messages.inc.php:67
 msgid "Gather errors"
