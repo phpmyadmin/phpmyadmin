@@ -3643,10 +3643,9 @@ msgid "Debug SQL"
 msgstr "Depanare SQL"
 
 #: libraries/config/messages.inc.php:49
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Default display direction"
-msgstr "Opțiuni de afișare a bazelor de date"
+msgstr "Direcția de afișare implicită"
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a database"
