@@ -3804,7 +3804,7 @@ msgstr "Înlocuire NULL cu"
 
 #: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:86
 msgid "Remove CRLF characters within columns"
-msgstr ""
+msgstr "Șterge caracterele terminatoare de linie CRLF din cadrul coloanelor"
 
 #: libraries/config/messages.inc.php:81 libraries/config/messages.inc.php:247
 #: libraries/config/messages.inc.php:255 libraries/import/csv.php:63
