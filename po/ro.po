@@ -1832,10 +1832,9 @@ msgid "Rule details"
 msgstr "Detalii..."
 
 #: js/messages.php:223
-#, fuzzy
 #| msgid "Customization"
 msgid "Justification"
-msgstr "Personalizare"
+msgstr "Justificare"
 
 #: js/messages.php:224
 msgid "Used variable / formula"
