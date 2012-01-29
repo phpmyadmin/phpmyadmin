@@ -1887,10 +1887,9 @@ msgid "Renaming Databases"
 msgstr "Redenumire baze de date"
 
 #: js/messages.php:243
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Reload Database"
-msgstr "Redenumire bază de date în"
+msgstr "Reîncărcare bază de date"
 
 #: js/messages.php:244
 #, fuzzy
