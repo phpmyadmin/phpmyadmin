@@ -2905,7 +2905,7 @@ msgstr "Se autentifică..."
 
 #: libraries/blobstreaming.lib.php:272
 msgid "PBMS error"
-msgstr ""
+msgstr "Eroare PBMS"
 
 #: libraries/blobstreaming.lib.php:306
 #, fuzzy
