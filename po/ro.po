@@ -3280,7 +3280,7 @@ msgstr "Directorul stabilit pentru încărcare nu poate fi găsit"
 
 #: libraries/common.lib.php:3327
 msgid "There are no files to upload"
-msgstr ""
+msgstr "Nu sunt fișiere pentru încărcare"
 
 #: libraries/common.lib.php:3355 libraries/common.lib.php:3356
 msgid "Execute"
