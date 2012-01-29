@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-29 14:59+0200\n"
+"PO-Revision-Date: 2012-01-29 15:00+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -2192,9 +2192,8 @@ msgid ", latest stable version:"
 msgstr ", ultima versiune stabilă:"
 
 #: js/messages.php:367
-#, fuzzy
 msgid "up to date"
-msgstr "Nu sînt baze de date"
+msgstr "la ultima versiune"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:386
