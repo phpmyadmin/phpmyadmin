@@ -2578,7 +2578,7 @@ msgstr ""
 
 #: libraries/File.class.php:508
 msgid "Error while moving uploaded file."
-msgstr ""
+msgstr "Eroare la mutarea fișierului încărcat."
 
 #: libraries/File.class.php:516
 msgid "Cannot read (moved) upload file."
