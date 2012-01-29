@@ -2526,8 +2526,9 @@ msgid "Too many error messages, some are not displayed."
 msgstr "Prea multe mesaje de eroare, unele nu sunt afișate."
 
 #: libraries/File.class.php:221
+#, fuzzy
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "Fișierul nu a fost un fișier uploadat."
 
 #: libraries/File.class.php:260 libraries/File.class.php:389
 #, fuzzy
