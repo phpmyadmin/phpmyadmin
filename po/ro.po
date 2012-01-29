@@ -3440,9 +3440,9 @@ msgid "SOAP extension not found"
 msgstr "Extensia SOAP nu a fost găsită"
 
 #: libraries/config/FormDisplay.class.php:753
-#, fuzzy, php-format
+#, php-format
 msgid "maximum %s"
-msgstr "Ascunde baze de date"
+msgstr "maxim %s"
 
 #: libraries/config/FormDisplay.tpl.php:141 main.php:239
 msgid "Wiki"
