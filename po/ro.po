@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-29 15:10+0200\n"
+"PO-Revision-Date: 2012-01-29 15:11+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -2661,13 +2661,13 @@ msgstr[1] "%1$d rînd șters."
 msgstr[2] "%1$d rînduri șterse."
 
 #: libraries/Message.class.php:273
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$d row(s) inserted."
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "%1$d rînd(uri) inserat(e)."
-msgstr[1] "%1$d rînd(uri) inserat(e)."
-msgstr[2] "%1$d rînd(uri) inserat(e)."
+msgstr[0] "%1$d rânduri inserate."
+msgstr[1] "%1$d rând inserat."
+msgstr[2] "%1$d rânduri inserate."
 
 #: libraries/PDF.class.php:81
 #, fuzzy
