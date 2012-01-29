@@ -3654,7 +3654,7 @@ msgstr "Tab-ul care este afișat când se intră într-o bază de date"
 #: libraries/config/messages.inc.php:51
 #, fuzzy
 msgid "Default database tab"
-msgstr "Redenumire bază de date în"
+msgstr "Tab-ul implicit al bazei de date"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a server"
