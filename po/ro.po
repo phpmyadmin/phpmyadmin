@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-29 13:24+0200\n"
+"PO-Revision-Date: 2012-01-29 13:26+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -1155,7 +1155,9 @@ msgstr "Sunteți pe cale sa DEZACTIVAȚI un repository BLOB!"
 #: js/messages.php:41
 #, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
-msgstr "Are you sure you want to disable all BLOB references for database %s?"
+msgstr ""
+"Sunteți sigur că doriți sa dezactivați toate referințele BLOB pentru baza de "
+"date %s?"
 
 #: js/messages.php:44
 msgid "Missing value in the form!"
