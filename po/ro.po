@@ -2128,7 +2128,7 @@ msgstr "Click pentru a sorta"
 
 #: js/messages.php:348
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "Click pentru a selecta/deselecta"
 
 #: js/messages.php:349
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
