@@ -1429,10 +1429,9 @@ msgid "Bytes sent"
 msgstr "Octeți trimiși"
 
 #: js/messages.php:120
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "Recepționat"
+msgstr "Octeți primiți"
 
 #: js/messages.php:121 server_status.php:1140
 msgid "Connections"
