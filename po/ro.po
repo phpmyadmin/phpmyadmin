@@ -3301,7 +3301,7 @@ msgstr "Nicăieri"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "Stânga"
 
 #: libraries/config.values.php:47
 msgid "Right"
