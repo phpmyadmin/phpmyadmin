@@ -1645,7 +1645,7 @@ msgstr ""
 
 #: js/messages.php:176
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "Se analizează și încarcă jurnalele. Poate dura."
 
 #: js/messages.php:177
 #, fuzzy
