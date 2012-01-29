@@ -3466,7 +3466,7 @@ msgstr "Restaurează valoarea implicită"
 
 #: libraries/config/FormDisplay.tpl.php:295
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "Permite utilizatorilor să customizeze această valoare"
 
 #: libraries/config/FormDisplay.tpl.php:356
 #: libraries/schema/User_Schema.class.php:508 prefs_manage.php:318
