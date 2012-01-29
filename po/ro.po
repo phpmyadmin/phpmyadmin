@@ -3606,7 +3606,7 @@ msgstr "rânduri textarea CHAR"
 
 #: libraries/config/messages.inc.php:42
 msgid "Check config file permissions"
-msgstr ""
+msgstr "Verifică permisiunile fișierului de configurare"
 
 #: libraries/config/messages.inc.php:43
 msgid ""
