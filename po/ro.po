@@ -2187,10 +2187,9 @@ msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:366
-#, fuzzy
 #| msgid "Last version"
 msgid ", latest stable version:"
-msgstr "Ultima versiune"
+msgstr ", ultima versiune stabilă:"
 
 #: js/messages.php:367
 #, fuzzy
