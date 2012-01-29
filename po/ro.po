@@ -3665,8 +3665,9 @@ msgid "Default server tab"
 msgstr "Tab-ul implicit al server-ului"
 
 #: libraries/config/messages.inc.php:54
+#, fuzzy
 msgid "Tab that is displayed when entering a table"
-msgstr ""
+msgstr "Tab-ul care este afișat când se intră intr-un tabel"
 
 #: libraries/config/messages.inc.php:55
 #, fuzzy
