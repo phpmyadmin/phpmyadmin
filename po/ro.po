@@ -1611,10 +1611,9 @@ msgid "Change settings"
 msgstr "Modificați setările"
 
 #: js/messages.php:166
-#, fuzzy
 #| msgid "General relation features"
 msgid "Current settings"
-msgstr "Facilități generale"
+msgstr "Setările curente"
 
 #: js/messages.php:168 server_status.php:1640
 #, fuzzy
