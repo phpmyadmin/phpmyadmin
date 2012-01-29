@@ -3833,9 +3833,8 @@ msgid "Server name template"
 msgstr "Șablon nume server"
 
 #: libraries/config/messages.inc.php:89
-#, fuzzy
 msgid "Table name template"
-msgstr "Șablon nume fișier"
+msgstr "Șablon nume tabel"
 
 #: libraries/config/messages.inc.php:93 libraries/config/messages.inc.php:106
 #: libraries/config/messages.inc.php:115 libraries/config/messages.inc.php:139
