@@ -1426,7 +1426,7 @@ msgstr "Pagini libere"
 
 #: js/messages.php:119
 msgid "Bytes sent"
-msgstr ""
+msgstr "Octeți trimiși"
 
 #: js/messages.php:120
 #, fuzzy
