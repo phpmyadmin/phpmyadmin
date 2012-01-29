@@ -2710,10 +2710,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Acest server MySQL nu susține motorul de stocare %s."
 
 #: libraries/Table.class.php:329
-#, fuzzy
 #| msgid "Show slave status"
 msgid "unknown table status: "
-msgstr "Afișează stare sclav"
+msgstr "status tabel necunoscut:"
 
 #: libraries/Table.class.php:1120
 msgid "Invalid database"
