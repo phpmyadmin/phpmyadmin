@@ -3580,6 +3580,8 @@ msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"Definește dimensiunea maximă pentru câmpurile de intrare generate pentru "
+"coloanele CHAR și VARCHAR"
 
 #: libraries/config/messages.inc.php:37
 #, fuzzy
