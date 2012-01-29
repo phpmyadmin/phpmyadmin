@@ -1923,10 +1923,9 @@ msgid "Show indexes"
 msgstr "Arată index-uri"
 
 #: js/messages.php:256
-#, fuzzy
 #| msgid "Search"
 msgid "Searching"
-msgstr "Caută"
+msgstr "Se caută"
 
 #: js/messages.php:257
 msgid "Hide search results"
