@@ -1908,10 +1908,9 @@ msgid "Table must have at least one column"
 msgstr "Tabelul trebuie să conțină cel puțin un cîmp."
 
 #: js/messages.php:251
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
-msgstr "Utilizare tabele"
+msgstr "Inserează Tabel"
 
 #: js/messages.php:252
 #, fuzzy
