@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-29 15:08+0200\n"
+"PO-Revision-Date: 2012-01-29 15:09+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -2582,7 +2582,7 @@ msgstr "Eroare la mutarea fișierului încărcat."
 
 #: libraries/File.class.php:516
 msgid "Cannot read (moved) upload file."
-msgstr ""
+msgstr "Nu se poate citi fișierul încărcat (și mutat)."
 
 #: libraries/Index.class.php:419 tbl_relation.php:522
 msgid "No index defined!"
