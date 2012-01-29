@@ -1308,7 +1308,7 @@ msgstr "Conexiuni / Procese"
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
 msgid "Questions since last refresh"
-msgstr ""
+msgstr "Întrebări de la ultima reîmprospătare"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:89
