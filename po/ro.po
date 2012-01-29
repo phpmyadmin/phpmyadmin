@@ -3718,7 +3718,7 @@ msgstr "Editează interogări SQL într-o fereastră popup"
 #: libraries/config/messages.inc.php:65
 #| msgid "Edit next row"
 msgid "Edit in window"
-msgstr "Editați în fereastră"
+msgstr "Editează în fereastră"
 
 #: libraries/config/messages.inc.php:66
 #, fuzzy
