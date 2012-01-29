@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-29 15:05+0200\n"
+"PO-Revision-Date: 2012-01-29 15:06+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -2514,6 +2514,8 @@ msgstr "Fișierul de configurare existent (%s) nu poate fi citit."
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
+"Permisiuni greșite asupra fișierului de configurare, acesta nu ar trebui să "
+"aibă permisiuni de scriere pentru oricine. "
 
 #: libraries/Config.class.php:1303
 msgid "Font size"
