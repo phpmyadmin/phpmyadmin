@@ -1861,7 +1861,7 @@ msgstr "Se procesează cererea"
 
 #: js/messages.php:235 libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "Eroare în procesarea cererii"
 
 #: js/messages.php:236
 msgid "Dropping Column"
