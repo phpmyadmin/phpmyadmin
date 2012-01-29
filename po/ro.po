@@ -2072,10 +2072,9 @@ msgid "Copy"
 msgstr "Copiază"
 
 #: js/messages.php:331
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add columns"
-msgstr "Adaugă %s cîmp(uri)"
+msgstr "Adaugă coloane"
 
 #: js/messages.php:334
 msgid "Select referenced key"
