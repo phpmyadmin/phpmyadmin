@@ -3395,7 +3395,7 @@ msgstr "Nu este un număr valid de port"
 #: libraries/config/FormDisplay.class.php:547
 #: libraries/config/validate.lib.php:378 libraries/config/validate.lib.php:465
 msgid "Incorrect value"
-msgstr ""
+msgstr "Valoare incorectă"
 
 #: libraries/config/FormDisplay.class.php:87
 #: libraries/config/validate.lib.php:479
