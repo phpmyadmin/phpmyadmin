@@ -3584,10 +3584,9 @@ msgstr ""
 "coloanele CHAR și VARCHAR"
 
 #: libraries/config/messages.inc.php:37
-#, fuzzy
 #| msgid "Maximum size for temporary sort files"
 msgid "Maximum size for input field"
-msgstr "Mărimea maximă pentru fișierele de sortare temporare"
+msgstr "Dimensiunea maximă a câmpului de intrare"
 
 #: libraries/config/messages.inc.php:38
 msgid "Number of columns for CHAR/VARCHAR textareas"
