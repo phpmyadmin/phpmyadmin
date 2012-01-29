@@ -1865,7 +1865,7 @@ msgstr "Eroare în procesarea cererii"
 
 #: js/messages.php:236
 msgid "Dropping Column"
-msgstr ""
+msgstr "Șterge Coloană"
 
 #: js/messages.php:237
 msgid "Adding Primary Key"
