@@ -1782,7 +1782,7 @@ msgstr "Reîncarcă"
 
 #: js/messages.php:208
 msgid "Affected rows:"
-msgstr ""
+msgstr "Rânduri afectate:"
 
 #: js/messages.php:210
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
