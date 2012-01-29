@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-29 14:23+0200\n"
+"PO-Revision-Date: 2012-01-29 14:24+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -1746,7 +1746,7 @@ msgstr "Filtrează interogări dupa cuvânt / expresie regulată:"
 
 #: js/messages.php:199
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr "Grupează interogări, ignorând datele variabile din clauza WHERE"
+msgstr "Grupează interogări, ignorând datele din variabilele din clauza WHERE"
 
 #: js/messages.php:200
 #, fuzzy
