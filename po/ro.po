@@ -1742,7 +1742,7 @@ msgstr "Filtrare"
 
 #: js/messages.php:198
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "Filtrează interogări dupa cuvânt / expresie regulată:"
 
 #: js/messages.php:199
 msgid "Group queries, ignoring variable data in WHERE clauses"
