@@ -1968,9 +1968,8 @@ msgid "Hide query box"
 msgstr "Ascunde casuță interogare"
 
 #: js/messages.php:277
-#, fuzzy
 msgid "Show query box"
-msgstr "Comanda SQL"
+msgstr "Afișează casuță interogare"
 
 #: js/messages.php:279 tbl_row_action.php:28
 msgid "No rows selected"
