@@ -1929,9 +1929,8 @@ msgid "Searching"
 msgstr "Caută"
 
 #: js/messages.php:257
-#, fuzzy
 msgid "Hide search results"
-msgstr "Comanda SQL"
+msgstr "Ascunde rezultatele căutării"
 
 #: js/messages.php:258
 #, fuzzy
