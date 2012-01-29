@@ -3379,7 +3379,7 @@ msgstr "niciuna din cele de mai sus"
 #: libraries/config/FormDisplay.class.php:83
 #: libraries/config/validate.lib.php:438
 msgid "Not a positive number"
-msgstr ""
+msgstr "Nu este un număr pozitiv"
 
 #: libraries/config/FormDisplay.class.php:84
 #: libraries/config/validate.lib.php:450
