@@ -3432,7 +3432,7 @@ msgstr "exportarea nu va funcționa, lipsește o funcție (%s)"
 
 #: libraries/config/FormDisplay.class.php:738
 msgid "SQL Validator is disabled"
-msgstr ""
+msgstr "Validatorul SQL este dezactivat"
 
 #: libraries/config/FormDisplay.class.php:745
 #, fuzzy
