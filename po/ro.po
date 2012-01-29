@@ -3423,7 +3423,7 @@ msgstr "\"%s\" are nevoie de extensia %s"
 #: libraries/config/FormDisplay.class.php:727
 #, php-format
 msgid "import will not work, missing function (%s)"
-msgstr "importul nu va funcționa, lipsește o funcție (%s)"
+msgstr "importarea nu va funcționa, lipsește o funcție (%s)"
 
 #: libraries/config/FormDisplay.class.php:731
 #, php-format
