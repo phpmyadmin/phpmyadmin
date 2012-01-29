@@ -8,16 +8,16 @@ http://sourceforge.net/donate/index.php?group_id=128076
 ------------------------------------------------------------
 
 Name: TCPDF
-Version: 5.9.141
-Release date: 2011-12-14
+Version: 5.9.145
+Release date: 2012-01-28
 Author:	Nicola Asuni
 
-Copyright (c) 2002-2011:
+Copyright (c) 2002-2012:
 	Nicola Asuni
-	Tecnick.com s.r.l.
-	Via Della Pace, 11
-	09044 Quartucciu (CA)
-	ITALY
+	Tecnick.com LTD
+	Manor Coach House, Church Hill
+	Aldershot, Hants, GU12 4RQ
+	UK
 	www.tecnick.com
 
 URLs:
@@ -64,18 +64,16 @@ Installation (full instructions on http:  www.tcpdf.org):
 Source Code Documentation:
 	http://www.tcpdf.org
 
-For Additional Documentation:
+Additional Documentation:
 	http://www.tcpdf.org
 
 License
-	Copyright (C) 2002-2011  Nicola Asuni - Tecnick.com S.r.l.
+	Copyright (C) 2002-2012  Nicola Asuni - Tecnick.com LTD
 
 	TCPDF is free software: you can redistribute it and/or modify it
 	under the terms of the GNU Lesser General Public License as
 	published by the Free Software Foundation, either version 3 of the
-	License, or (at your option) any later version. Additionally,
-	YOU CAN'T REMOVE ANY TCPDF COPYRIGHT NOTICE OR LINK FROM THE
-	GENERATED PDF DOCUMENTS.
+	License, or (at your option) any later version.
 
 	TCPDF is distributed in the hope that it will be useful, but
 	WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -88,4 +86,12 @@ License
 
 	See LICENSE.TXT file for more information.
 
+Third party fonts
+	This library includes third party font files released with different licenses.
+	These fonts are not required by TCPDF but have been included as you convenience.
+	The original TTF font files have been renamed for compatibility with TCPDF and compressed using the gzcompress PHP function that uses the ZLIB data format (.z files).
+	To get the original distribution archives please check the information on fonts subfolders:
+	 - DejaVu fonts 2.33 (Bitstream) - Copyright, License and other info: fonts/dejavu-fonts-ttf-2.33
+	 - GNU FreeFont (GNU-GPLv3) - Copyright, License and other info: fonts/freefont-20100919
+	
 ============================================================
