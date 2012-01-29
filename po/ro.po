@@ -2042,10 +2042,9 @@ msgid "Strings are converted into integer for plotting"
 msgstr ""
 
 #: js/messages.php:309
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Select two columns"
-msgstr "Adaugă/șterge coloane"
+msgstr "Selectează două coloane"
 
 #: js/messages.php:310
 msgid "Select two different columns"
