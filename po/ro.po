@@ -3703,6 +3703,8 @@ msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
 msgstr ""
+"Dezactivează operațiile în masă de mentenanță a tabelelor, precum "
+"optimizarea sau repararea tabelelor selectate dintr-o bază de date."
 
 #: libraries/config/messages.inc.php:63
 #, fuzzy
