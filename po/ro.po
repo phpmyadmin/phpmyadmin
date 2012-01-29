@@ -2069,7 +2069,7 @@ msgstr "Ignoră"
 
 #: js/messages.php:316 libraries/display_tbl.lib.php:1390
 msgid "Copy"
-msgstr ""
+msgstr "Copiază"
 
 #: js/messages.php:331
 #, fuzzy
