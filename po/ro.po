@@ -2914,7 +2914,7 @@ msgstr "Conexiunea PBMS a eșuat:"
 
 #: libraries/blobstreaming.lib.php:361
 msgid "PBMS get BLOB info failed:"
-msgstr ""
+msgstr "Operația PBMS de obținere informații BLOB a eșuat"
 
 #: libraries/blobstreaming.lib.php:373
 msgid "PBMS get BLOB Content-Type failed"
