@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-29 13:26+0200\n"
+"PO-Revision-Date: 2012-01-29 13:27+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -1168,10 +1168,9 @@ msgid "This is not a number!"
 msgstr "Acesta nu este un număr!"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid "Index"
 msgid "Add Index"
-msgstr "Index"
+msgstr "Adaugă Index"
 
 #: js/messages.php:47
 #, fuzzy
