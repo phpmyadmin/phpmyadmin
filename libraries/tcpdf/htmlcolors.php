@@ -4,10 +4,10 @@
 // Version     : 1.0.008
 // Begin       : 2002-04-09
 // Last Update : 2010-12-16
-// Author      : Nicola Asuni - Tecnick.com S.r.l - Via Della Pace, 11 - 09044 - Quartucciu (CA) - ITALY - www.tecnick.com - info@tecnick.com
+// Author      : Nicola Asuni - Tecnick.com LTD - Manor Coach House, Church Hill, Aldershot, Hants, GU12 4RQ, UK - www.tecnick.com - info@tecnick.com
 // License     : GNU-LGPL v3 (http://www.gnu.org/copyleft/lesser.html)
 // -------------------------------------------------------------------
-// Copyright (C) 2002-2010  Nicola Asuni - Tecnick.com S.r.l.
+// Copyright (C) 2002-2012  Nicola Asuni - Tecnick.com LTD
 //
 // This file is part of TCPDF software library.
 //
