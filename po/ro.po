@@ -2089,10 +2089,9 @@ msgid "Please select the primary key or a unique key"
 msgstr "Vă rugăm să alegeți cheia primară sau o cheie unică"
 
 #: js/messages.php:337 pmd_general.php:77 tbl_relation.php:541
-#, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
-msgstr "Selectează un cîmp"
+msgstr "Selectează coloana pentru afișare"
 
 #: js/messages.php:338
 msgid ""
