@@ -1882,10 +1882,9 @@ msgid "Click to dismiss this notification"
 msgstr "Click pentru a înlătura această notificare"
 
 #: js/messages.php:242
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
-msgstr "Redenumire bază de date în"
+msgstr "Redenumire baze de date"
 
 #: js/messages.php:243
 #, fuzzy
