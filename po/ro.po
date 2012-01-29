@@ -3418,7 +3418,7 @@ msgstr "indisponibil"
 #: libraries/config/FormDisplay.class.php:713
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr ""
+msgstr "\"%s\" are nevoie de extensia %s"
 
 #: libraries/config/FormDisplay.class.php:727
 #, php-format
