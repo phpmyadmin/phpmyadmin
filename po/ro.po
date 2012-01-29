@@ -3752,7 +3752,7 @@ msgstr "Timpul maxim de execuție"
 
 #: libraries/config/messages.inc.php:72 prefs_manage.php:297
 msgid "Save as file"
-msgstr "Trimite"
+msgstr "Salvează ca fișier"
 
 #: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:241
 msgid "Character set of the file"
