@@ -1658,6 +1658,10 @@ msgid ""
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
+"Această coloana afișează numărul de interogări identice grupate împreună. "
+"Totuși, doar interogarea SQL a fost folosită ca și criteriu de grupare, așa "
+"că celelalte atribute ale interogărilor, cum ar fi timpul de pornire, pot fi "
+"diferite."
 
 #: js/messages.php:179
 msgid ""
