@@ -2454,7 +2454,7 @@ msgstr "Săpt"
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: js/messages.php:484
 msgid "calendar-month-year"
-msgstr ""
+msgstr "calendar-lună-an"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:486
