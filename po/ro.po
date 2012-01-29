@@ -2509,7 +2509,7 @@ msgstr "Stergeți directorul \"./config\" înainte de a folosi phpMyAdmin!"
 #: libraries/Config.class.php:727
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr ""
+msgstr "Fișierul de configurare existent (%s) nu poate fi citit."
 
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
