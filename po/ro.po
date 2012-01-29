@@ -1983,7 +1983,7 @@ msgstr "Schimbare"
 
 #: js/messages.php:281
 msgid "Query execution time"
-msgstr ""
+msgstr "Durata de execuție a interogării"
 
 #: js/messages.php:284 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
