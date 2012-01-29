@@ -1553,6 +1553,9 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log este activat, dar server-ul înregistrează în jurnal doar "
+"interogările ce durează mai mult decat %d secunde. Este recomandat să setați "
+"long_query_time 0-2 secunde, în funcție de sistemul dumneavoastră."
 
 #: js/messages.php:154
 #, php-format
