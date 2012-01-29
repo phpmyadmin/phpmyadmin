@@ -3688,7 +3688,7 @@ msgstr "Afișează listarea bazei de date ca o listă, în loc de un drop down"
 
 #: libraries/config/messages.inc.php:59
 msgid "Display databases as a list"
-msgstr ""
+msgstr "Afișează bazele de date ca o listă"
 
 #: libraries/config/messages.inc.php:60
 msgid "Show server listing as a list instead of a drop down"
