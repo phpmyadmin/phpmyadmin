@@ -2114,6 +2114,8 @@ msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
+"Ați editat unele date și acestea nu au fost salvate. Sigur vreți să părăsiți "
+"această pagină fără să salvați datele?"
 
 #: js/messages.php:346
 msgid "Drag to reorder"
