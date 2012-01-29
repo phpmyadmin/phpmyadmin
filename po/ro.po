@@ -2122,10 +2122,9 @@ msgid "Drag to reorder"
 msgstr "Drag and drop pentru reordonare"
 
 #: js/messages.php:347
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to sort"
-msgstr "Click pentru a selecta"
+msgstr "Click pentru a sorta"
 
 #: js/messages.php:348
 msgid "Click to mark/unmark"
