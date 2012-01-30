@@ -4173,7 +4173,7 @@ msgstr "Tipul autentificării"
 
 #: libraries/config/messages.inc.php:203
 msgid "Server configuration"
-msgstr ""
+msgstr "Configurarea server-ului"
 
 #: libraries/config/messages.inc.php:204
 msgid ""
