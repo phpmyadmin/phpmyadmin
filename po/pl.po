@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-30 22:10+0200\n"
+"PO-Revision-Date: 2012-01-30 22:11+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -2596,6 +2596,9 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
+"Nie można zapisać \"%s\" własności UI. Wprowadzone zmiany nie będą trwałe po "
+"odświeżeniu strony. Proszę sprawdzić, czy struktura tabeli została "
+"zmieniona."
 
 #: libraries/Theme.class.php:145
 #, php-format
