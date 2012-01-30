@@ -3125,7 +3125,7 @@ msgstr "Brak plików do wysłania"
 
 #: libraries/common.lib.php:3355 libraries/common.lib.php:3356
 msgid "Execute"
-msgstr ""
+msgstr "Wykonaj"
 
 #: libraries/common.lib.php:3831
 msgid "Print"
