@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-30 22:47+0200\n"
+"PO-Revision-Date: 2012-01-30 22:53+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -5195,7 +5195,7 @@ msgstr "Pokaż pola z funkcjami"
 
 #: libraries/config/messages.inc.php:466
 msgid "Whether to show hint or not"
-msgstr ""
+msgstr "Czy pokazywać podpowiedzi lub nie"
 
 #: libraries/config/messages.inc.php:467
 #, fuzzy
