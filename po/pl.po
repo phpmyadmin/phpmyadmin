@@ -3399,6 +3399,8 @@ msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"Określa minimalny rozmiar pola do wprowadzania danych generowany dla kolumn "
+"CHAR i VARCHAR"
 
 #: libraries/config/messages.inc.php:35
 #| msgid "Customize text input fields"
