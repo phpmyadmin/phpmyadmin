@@ -4071,9 +4071,8 @@ msgid "Databases display options"
 msgstr "Opțiuni de afișare a bazelor de date"
 
 #: libraries/config/messages.inc.php:181 setup/frames/menu.inc.php:18
-#, fuzzy
 msgid "Navigation frame"
-msgstr "Fereastră de navigare"
+msgstr "Cadru de navigare"
 
 #: libraries/config/messages.inc.php:182
 msgid "Customize appearance of the navigation frame"
