@@ -2729,10 +2729,9 @@ msgid "Wrong username/password. Access denied."
 msgstr "Błędny login/hasło. Odmowa dostępu."
 
 #: libraries/auth/signon.auth.lib.php:88
-#, fuzzy
 #| msgid "Signon authentication"
 msgid "Can not find signon authentication script:"
-msgstr "Zarejestruj się na uwierzytelnianie"
+msgstr "Nie możesz znaleźć skrypt uwierzytelniania signon:"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:116
 #, php-format
