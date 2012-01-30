@@ -1255,7 +1255,7 @@ msgstr "Verzonden KiB sinds laatste verversing"
 
 #: js/messages.php:81
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "Onvangen Kib sinds laatste verversing"
 
 #: js/messages.php:82
 #, fuzzy
