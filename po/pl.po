@@ -2845,7 +2845,7 @@ msgstr "można wykorzystać"
 
 #: libraries/common.inc.php:160
 msgid "numeric key detected"
-msgstr ""
+msgstr "wykryty klawisz numeryczny"
 
 #: libraries/common.inc.php:607
 #, fuzzy
