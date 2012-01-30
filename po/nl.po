@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2011-11-24 03:16+0200\n"
+"PO-Revision-Date: 2011-11-24 04:01+0200\n"
 "Last-Translator: dannybeckett <daniel.beckett@gmail.com>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -415,7 +415,7 @@ msgstr "Er moet ten minste 1 weer te geven kolom worden gekozen"
 #, fuzzy, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "visuele query opbouwer"
+msgstr "Overschakelen op %svisual builder%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:1002
