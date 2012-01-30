@@ -6156,6 +6156,8 @@ msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
+"Wielkość przyrostu rozszerzenia wielkości tabel autoextending, gdy staje się "
+"pełny."
 
 #: libraries/engines/innodb.lib.php:32
 msgid "Buffer pool size"
