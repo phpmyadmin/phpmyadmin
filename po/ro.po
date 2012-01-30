@@ -4303,7 +4303,7 @@ msgstr "Texy! text"
 
 #: libraries/config/messages.inc.php:232
 msgid "Warnings"
-msgstr ""
+msgstr "Avertismente"
 
 #: libraries/config/messages.inc.php:233
 msgid "Disable some of the warnings shown by phpMyAdmin"
