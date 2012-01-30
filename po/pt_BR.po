@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-27 15:50+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"PO-Revision-Date: 2012-01-27 17:14+0200\n"
+"Last-Translator: V4g_Br4Ck3r <vag_bracker@hotmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -1833,7 +1833,7 @@ msgstr "Navegação"
 
 #: js/messages.php:260
 msgid "Deleting"
-msgstr "Apagando %s"
+msgstr "Apagando"
 
 #: js/messages.php:263
 msgid "The definition of a stored function must contain a RETURN statement!"
@@ -1893,7 +1893,7 @@ msgstr "Exibir critério de pesquisa"
 #, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
-msgstr "Procura detalhada"
+msgstr "Pesquisa detalhada"
 
 #: js/messages.php:293
 msgid "Each point represents a data row."
@@ -1901,7 +1901,7 @@ msgstr "Cada ponto representa uma linha de dados"
 
 #: js/messages.php:295
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "Mover o mouse sobre um ponto mostrará seu rótulo."
 
 #: js/messages.php:297
 msgid "Use mousewheel to zoom in or out of the plot."
@@ -1942,7 +1942,7 @@ msgstr "Selecione duas colunas diferentes"
 #, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
-msgstr "Operações resultantes das consultas"
+msgstr "Resultado(s) das(s) consulta(s)"
 
 #: js/messages.php:312
 #, fuzzy
@@ -2308,7 +2308,7 @@ msgstr "Sem"
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: js/messages.php:484
 msgid "calendar-month-year"
-msgstr ""
+msgstr "calendário-mês-ano"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:486
@@ -5659,7 +5659,7 @@ msgstr "Registros:"
 
 #: libraries/display_export.lib.php:152
 msgid "Dump some row(s)"
-msgstr ""
+msgstr "Dumpar alguma(s) linha(s)"
 
 #: libraries/display_export.lib.php:154
 msgid "Number of rows:"
@@ -5671,7 +5671,7 @@ msgstr "Começar na linha:"
 
 #: libraries/display_export.lib.php:168
 msgid "Dump all rows"
-msgstr ""
+msgstr "Dumpar todas as linhas"
 
 #: libraries/display_export.lib.php:176 libraries/display_export.lib.php:197
 msgid "Output:"
@@ -5722,7 +5722,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:270
 msgid "use this for future exports"
-msgstr ""
+msgstr "use este para futuras exportações"
 
 #: libraries/display_export.lib.php:276 libraries/display_import.lib.php:188
 #: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:468
@@ -5784,6 +5784,9 @@ msgid ""
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
 "browsers."
 msgstr ""
+"O arquivo a ser carregado é provavelmente maior do que o tamanho máximo "
+"permitido, ou este é um bug conhecido em alguns browsers (Safari, Google "
+"Chrome, Arora etc.)."
 
 #: libraries/display_import.lib.php:76
 msgid "The file is being processed, please be patient."
@@ -5794,6 +5797,8 @@ msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr ""
+"Por favor, tenha paciência, o arquivo esta sendo enviado. Detalhes sobre o "
+"upload não estão disponíveis."
 
 #: libraries/display_import.lib.php:129
 #, fuzzy
@@ -5860,7 +5865,7 @@ msgstr "Número de registros para pular, iniciando da primeira linha:"
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
-msgstr ""
+msgstr "Opções específicas do formato:"
 
 #: libraries/display_select_lang.lib.php:46
 #: libraries/display_select_lang.lib.php:47 setup/frames/index.inc.php:72
@@ -5873,10 +5878,9 @@ msgid "Save edited data"
 msgstr "Diretório raiz de dados"
 
 #: libraries/display_tbl.lib.php:411
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Restore column order"
-msgstr "Adicionar/Remover colunas"
+msgstr "Restaurar ordem da coluna"
 
 #: libraries/display_tbl.lib.php:422
 #, php-format
@@ -5886,19 +5890,19 @@ msgstr "%d não é um número de linha válido."
 #: libraries/display_tbl.lib.php:427
 #, fuzzy
 msgid "Start row"
-msgstr "Status"
+msgstr "Iniciar linha"
 
 #: libraries/display_tbl.lib.php:429
 #, fuzzy
 #| msgid "Number of fields"
 msgid "Number of rows"
-msgstr "Número de arquivos"
+msgstr "Número de linhas"
 
 #: libraries/display_tbl.lib.php:434
 #, fuzzy
 #| msgid "More"
 msgid "Mode"
-msgstr "Mais"
+msgstr "Modo"
 
 #: libraries/display_tbl.lib.php:436
 msgid "horizontal"

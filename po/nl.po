@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2011-11-24 03:16+0200\n"
-"Last-Translator: dannybeckett <daniel.beckett@gmail.com>\n"
+"PO-Revision-Date: 2012-01-30 14:03+0200\n"
+"Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -412,10 +412,10 @@ msgid "You have to choose at least one column to display"
 msgstr "Er moet ten minste 1 weer te geven kolom worden gekozen"
 
 #: db_qbe.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "visuele query opbouwer"
+msgstr "Overschakelen op %svisuele builder%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:1002
@@ -812,7 +812,7 @@ msgstr "Database-log"
 #: enum_editor.php:23 js/messages.php:266
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "ENUM/SET editor"
 
 #: enum_editor.php:28 js/messages.php:268
 msgid "Values for a new column"
@@ -828,13 +828,13 @@ msgstr "Waarden voor kolom \"%s\""
 #, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
-msgstr "Plaats elke waarde in een log veld."
+msgstr "Plaats elke waarde in een afzonderlijk veld."
 
 #: enum_editor.php:123
 #, fuzzy
 #| msgid "+ Add a new value"
 msgid "Add a value"
-msgstr "+ Een nieuwe waarde toevoegen"
+msgstr "Nieuwe waarde toevoegen"
 
 #: enum_editor.php:129 gis_data_editor.php:317
 msgid "Output"
@@ -849,7 +849,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "Balktype"
+msgstr "Verkeerd type!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
@@ -860,7 +860,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Add prefix"
 msgid "Bad parameters!"
-msgstr "Voeg voorvoegsel toe"
+msgstr "Verkeerde parameters!"
 
 #: export.php:166 export.php:191 export.php:652
 #, php-format
@@ -889,53 +889,53 @@ msgstr "Dump is bewaard als %s."
 #, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "Export type"
+msgstr "Ongeldig export type"
 
 #: gis_data_editor.php:84
 #, fuzzy, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
-msgstr "Waarden voor kolom \"%s\""
+msgstr "Kolomwaarde \"%s\""
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "Gebruik OpenStreetMaps als basis layer"
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:323
 #: libraries/display_tbl.lib.php:692
 msgid "Geometry"
-msgstr ""
+msgstr "Geometrie"
 
 #: gis_data_editor.php:172 js/messages.php:319
 msgid "Point"
-msgstr ""
+msgstr "Punt"
 
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
 #: gis_data_editor.php:297 js/messages.php:317
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
 #: gis_data_editor.php:299 js/messages.php:318
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
 #: js/messages.php:320
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "Punt %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:326
 #, fuzzy
 #| msgid "Add index"
 msgid "Add a point"
-msgstr "Voeg index toe"
+msgstr "Voeg een punt toe"
 
 #: gis_data_editor.php:220 js/messages.php:321
 #, fuzzy
@@ -945,11 +945,11 @@ msgstr "Regels beëindigd door"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:325
 msgid "Outer Ring"
-msgstr ""
+msgstr "Buitenste Ring"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:324
 msgid "Inner Ring"
-msgstr ""
+msgstr "Binnenste Ring"
 
 #: gis_data_editor.php:252
 #, fuzzy
@@ -961,29 +961,31 @@ msgstr "Voeg een nieuwe gebruiker toe"
 #, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Voeg een nieuwe gebruiker toe"
+msgstr "Voeg een binnenste ring toe"
 
 #: gis_data_editor.php:266 js/messages.php:322
 msgid "Polygon"
-msgstr ""
+msgstr "Polygoon"
 
 #: gis_data_editor.php:306 js/messages.php:328
 #, fuzzy
 #| msgid "Add column"
 msgid "Add a polygon"
-msgstr "Voeg kolom toe"
+msgstr "Voeg een polygoon toe"
 
 #: gis_data_editor.php:310
 #, fuzzy
 #| msgid "Add a new server"
 msgid "Add geometry"
-msgstr "Een server toevoegen"
+msgstr "Geometrie toevoegen"
 
 #: gis_data_editor.php:318
 msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
+"Kies \"GeomFormText\" uit de \"Function\" kolom en plaats de onderstaande string "
+"in het \"Waarde\" veld"
 
 #: import.php:57
 #, php-format
@@ -1034,6 +1036,8 @@ msgstr ""
 msgid ""
 "Cannot convert file's character set without character set conversion library"
 msgstr ""
+"Kan de karakterset van het bestand niet omzetten zonder de 'character set "
+"conversion' bibliotheek"
 
 #: import.php:390 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -1147,13 +1151,13 @@ msgstr "Voeg index toe"
 #, fuzzy
 #| msgid "Edit mode"
 msgid "Edit Index"
-msgstr "Wijzig-mode"
+msgstr "Wijzig Index"
 
 #: js/messages.php:48 tbl_indexes.php:293
 #, fuzzy, php-format
 #| msgid "Add %s column(s)"
 msgid "Add %d column(s) to index"
-msgstr "Voeg %s kolom(men) toe"
+msgstr "Voeg %d kolom(men) toe"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:52
@@ -1206,11 +1210,11 @@ msgstr "Wijzig"
 #, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Serverkeuze"
+msgstr "Live traffic grafiek"
 
 #: js/messages.php:67 server_status.php:804
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "Live conn./process grafiek"
 
 #: js/messages.php:68 server_status.php:822
 #, fuzzy
@@ -1247,21 +1251,21 @@ msgstr ","
 
 #: js/messages.php:80
 msgid "KiB sent since last refresh"
-msgstr ""
+msgstr "Verzonden KiB sinds laatste verversing"
 
 #: js/messages.php:81
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "Onvangen KiB sinds laatste verversing"
 
 #: js/messages.php:82
 #, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
-msgstr "Serverkeuze"
+msgstr "Server traffic (in KiB)"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "Verbindingen sinds laatste verversing"
 
 #: js/messages.php:84 js/messages.php:122 server_status.php:1230
 msgid "Processes"
@@ -1271,12 +1275,12 @@ msgstr "Processen"
 #, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "Connecties"
+msgstr "Connecties / Processen"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
 msgid "Questions since last refresh"
-msgstr ""
+msgstr "Vragen sinds laatste verversing"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:89
@@ -12748,7 +12752,9 @@ msgstr ""
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
-msgstr "De hoeveelheid vrij geheugen voor het query cache."
+msgstr ""
+"Gecachte queries zijn verwijderd vanwege de beperkte hoeveelheid vrij "
+"geheugen voor de query cache."
 
 #: po/advisory_rules.php:97
 msgid ""
@@ -12812,7 +12818,7 @@ msgstr ""
 
 #: po/advisory_rules.php:108
 msgid "query_cache_limit is set to 1 MiB"
-msgstr ""
+msgstr "query_cache_limit is 1 Mib"
 
 #: po/advisory_rules.php:110
 #, fuzzy
