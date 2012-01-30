@@ -3976,7 +3976,7 @@ msgstr "Un dropdown va fi folosit dacă sunt prezente mai puține elemente"
 
 #: libraries/config/messages.inc.php:155
 msgid "Foreign key limit"
-msgstr ""
+msgstr "Limita de chei străine"
 
 #: libraries/config/messages.inc.php:156
 msgid "Browse mode"
