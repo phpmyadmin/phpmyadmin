@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-30 22:02+0200\n"
+"PO-Revision-Date: 2012-01-30 22:03+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -2428,7 +2428,7 @@ msgstr "Błąd podczas przenoszenia plików na serwerze."
 
 #: libraries/File.class.php:516
 msgid "Cannot read (moved) upload file."
-msgstr ""
+msgstr "Nie można odczytać (przeniesiony) przesłanego pliku."
 
 #: libraries/Index.class.php:419 tbl_relation.php:522
 msgid "No index defined!"
