@@ -4295,10 +4295,9 @@ msgid "Enable highlighting"
 msgstr "Włącz podświetlanie"
 
 #: libraries/config/messages.inc.php:290
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr "Maksymalna liczba tabel pokazywanych na liście tabel"
+msgstr "Maksymalna ilość ostatnio używanych tabel, ustaw 0 aby wyłączyć"
 
 #: libraries/config/messages.inc.php:291
 #, fuzzy
