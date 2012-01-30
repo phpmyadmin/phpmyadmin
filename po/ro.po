@@ -4180,6 +4180,8 @@ msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for"
 msgstr ""
+"Configurarea avansată a serverului, nu schimbați aceste opţiuni decât dacă "
+"ştiţi pentru ce sunt acestea"
 
 #: libraries/config/messages.inc.php:205
 msgid "Enter server connection parameters"
