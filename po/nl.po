@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
 "PO-Revision-Date: 2012-01-30 14:02+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -1280,7 +1280,7 @@ msgstr "Connecties / Processen"
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
 msgid "Questions since last refresh"
-msgstr ""
+msgstr "Vragen sinds laatste verversing"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:89
