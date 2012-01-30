@@ -1834,7 +1834,7 @@ msgstr "Usuwanie"
 
 #: js/messages.php:263
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr ""
+msgstr "Definicja przechowywania funkcji musi zawierać deklaracje RETURN!"
 
 #: js/messages.php:270
 #, fuzzy, php-format
