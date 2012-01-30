@@ -2554,10 +2554,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Ten serwer MySQL nie obsługuje mechanizmu składowania %s."
 
 #: libraries/Table.class.php:329
-#, fuzzy
 #| msgid "Show slave status"
 msgid "unknown table status: "
-msgstr "Status serwera podrzędnego"
+msgstr "nieznany status tabeli:"
 
 #: libraries/Table.class.php:1120
 msgid "Invalid database"
