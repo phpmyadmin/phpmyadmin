@@ -4328,6 +4328,8 @@ msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
 msgstr ""
+"Dacă opţiunea este activată, phpMyAdmin continuă calcularea interogărilor cu "
+"mai multe declaraţii, chiar dacă una dintre interogări nu a reuşit"
 
 #: libraries/config/messages.inc.php:238
 msgid "Ignore multiple statement errors"
