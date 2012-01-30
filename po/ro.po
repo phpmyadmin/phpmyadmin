@@ -4008,8 +4008,9 @@ msgid "Developer"
 msgstr "Dezvoltator"
 
 #: libraries/config/messages.inc.php:163
+#, fuzzy
 msgid "Settings for phpMyAdmin developers"
-msgstr ""
+msgstr "Setările pentru dezvoltatorii phpMyAdmin"
 
 #: libraries/config/messages.inc.php:164
 msgid "Edit mode"
