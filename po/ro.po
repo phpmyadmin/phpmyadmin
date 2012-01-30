@@ -4272,7 +4272,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:224
 #, fuzzy
 msgid "Startup"
-msgstr "Startup"
+msgstr "Pornire"
 
 #: libraries/config/messages.inc.php:225
 msgid "Customize startup page"
