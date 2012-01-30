@@ -1893,7 +1893,7 @@ msgstr "Powiększ szukanie"
 
 #: js/messages.php:293
 msgid "Each point represents a data row."
-msgstr ""
+msgstr "Każdy punkt reprezentuje wiersz danych."
 
 #: js/messages.php:295
 msgid "Hovering over a point will show its label."
