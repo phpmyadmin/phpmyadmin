@@ -1722,7 +1722,7 @@ msgstr "Rekomendacja"
 
 #: js/messages.php:222
 msgid "Rule details"
-msgstr ""
+msgstr "Szczegóły reguły"
 
 #: js/messages.php:223
 #| msgid "Authentication"
