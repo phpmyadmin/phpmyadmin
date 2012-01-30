@@ -885,9 +885,8 @@ msgid "Value for the column \"%s\""
 msgstr "Wartość dla kolumny \"%s\""
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
-#, fuzzy
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr "Użyj OpenStreetMaps jako Warstwy Podstawowej"
+msgstr "Użyj OpenStreetMaps jako Podstawowej Warstwy"
 
 #: gis_data_editor.php:134
 #, fuzzy
