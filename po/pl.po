@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-30 21:57+0200\n"
+"PO-Revision-Date: 2012-01-30 22:01+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -2370,7 +2370,7 @@ msgstr "Rozmiar czcionki"
 
 #: libraries/Error_Handler.class.php:62
 msgid "Too many error messages, some are not displayed."
-msgstr ""
+msgstr "Zbyt wiele komunikatów o błędach, niektóre nie są wyświetlane."
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."
