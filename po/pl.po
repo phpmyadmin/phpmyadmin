@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-30 21:03+0200\n"
+"PO-Revision-Date: 2012-01-30 21:06+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1887,10 +1887,9 @@ msgid "Show search criteria"
 msgstr "Pokaż kryteria wyszukiwania"
 
 #: js/messages.php:291 libraries/tbl_select.lib.php:110
-#, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
-msgstr "Szukaj"
+msgstr "Powiększ szukanie"
 
 #: js/messages.php:293
 msgid "Each point represents a data row."
