@@ -1828,10 +1828,9 @@ msgid "Browsing"
 msgstr "Przeglądanie"
 
 #: js/messages.php:260
-#, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
-msgstr "Usuwanie %s"
+msgstr "Usuwanie"
 
 #: js/messages.php:263
 msgid "The definition of a stored function must contain a RETURN statement!"
