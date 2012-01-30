@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-30 21:06+0200\n"
+"PO-Revision-Date: 2012-01-30 21:09+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1999,10 +1999,9 @@ msgid "Drag to reorder"
 msgstr ""
 
 #: js/messages.php:347
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to sort"
-msgstr "Kliknij, aby zaznaczyć"
+msgstr "Kliknij, aby posortować"
 
 #: js/messages.php:348
 msgid "Click to mark/unmark"
