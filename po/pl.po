@@ -2374,7 +2374,7 @@ msgstr ""
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "Plik nie został przesłanym plikiem."
 
 #: libraries/File.class.php:260 libraries/File.class.php:389
 #, fuzzy
