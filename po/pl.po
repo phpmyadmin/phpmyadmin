@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-30 22:14+0200\n"
+"PO-Revision-Date: 2012-01-30 22:15+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -2848,10 +2848,9 @@ msgid "numeric key detected"
 msgstr "wykryty klawisz numeryczny"
 
 #: libraries/common.inc.php:607
-#, fuzzy
 #| msgid "Configuration file"
 msgid "Failed to read configuration file"
-msgstr "Plik konfiguracyjny"
+msgstr "Nie można odczytać pliku konfiguracyjnego"
 
 #: libraries/common.inc.php:608
 msgid ""
