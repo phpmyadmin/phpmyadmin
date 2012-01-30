@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-31 00:07+0200\n"
+"PO-Revision-Date: 2012-01-31 00:08+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -4060,6 +4060,7 @@ msgstr "Importă / exportă"
 #: libraries/config/messages.inc.php:176
 msgid "Set import and export directories and compression options"
 msgstr ""
+"Setează directoarele de importare și exportare și opțiunile de compresie"
 
 #: libraries/config/messages.inc.php:177 libraries/export/latex.php:27
 msgid "LaTeX"
