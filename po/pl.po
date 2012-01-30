@@ -6079,7 +6079,7 @@ msgstr "Znany tekst"
 
 #: libraries/display_tbl.lib.php:694
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Znane binarne"
 
 #: libraries/display_tbl.lib.php:1405 libraries/display_tbl.lib.php:1417
 msgid "The row has been deleted"
