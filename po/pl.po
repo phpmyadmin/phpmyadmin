@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-30 20:58+0200\n"
+"PO-Revision-Date: 2012-01-30 21:00+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1837,10 +1837,10 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Definicja przechowywania funkcji musi zawierać deklaracje RETURN!"
 
 #: js/messages.php:270
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s column(s)"
 msgid "Add %d value(s)"
-msgstr "Dodaj %s kolumnę(y)"
+msgstr "Dodaj %d wartość(i)"
 
 #: js/messages.php:273
 msgid ""
