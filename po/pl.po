@@ -1909,7 +1909,7 @@ msgstr "Kliknij i przeciągnij myszą, aby poruszać się po powierzchni."
 
 #: js/messages.php:301
 msgid "Click reset zoom link to come back to original state."
-msgstr ""
+msgstr "liknij link by zresetować powiększenie i wrócić do pierwotnego stanu."
 
 #: js/messages.php:303
 msgid "Click a data point to view and possibly edit the data row."
