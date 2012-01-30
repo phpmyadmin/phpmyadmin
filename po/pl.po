@@ -6021,7 +6021,7 @@ msgstr "pionowo"
 #: libraries/display_tbl.lib.php:444
 #, php-format
 msgid "Headers every %s rows"
-msgstr ""
+msgstr "Nagłówki co %s wierszy"
 
 #: libraries/display_tbl.lib.php:547
 msgid "Sort by key"
