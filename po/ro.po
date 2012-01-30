@@ -4284,7 +4284,7 @@ msgstr "Taburi"
 
 #: libraries/config/messages.inc.php:227
 msgid "Choose how you want tabs to work"
-msgstr "Alegeți cum doriți să funcționeze filele"
+msgstr "Alegeți cum doriți să funcționeze tab-urile"
 
 #: libraries/config/messages.inc.php:228
 #, fuzzy
