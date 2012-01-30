@@ -281,6 +281,32 @@ $(document).ready(function() {
             );
     });
 
+
+    /**
+     * Reset the auto_increment column to 0 when selecting any of the
+     * insert options in submit_type-dropdown. Only perform the reset 
+     * when we are in edit-mode, and not in insert-mode(no previous value
+     * available).
+     */
+    $('select[name="submit_type"]').bind('change', function (e) {
+        var auto_increment_column = $('.insertRowTable').find('input[name^="auto_increment"]').attr('name');
+        var prev_value_field = $('.insertRowTable').find('input[name="'+auto_increment_column.replace('auto_increment', 'fields_prev')+'"]');
+        var value_field = $('.insertRowTable').find('input[name="'+auto_increment_column.replace('auto_increment', 'fields')+'"]');
+
+        if( auto_increment_column ) {
+            var previous_value = $(prev_value_field).val();
+            if( previous_value!==undefined ) {
+                if( $(this).val()=='insert' || $(this).val()=='insertignore' || $(this).val()=='showinsert' ) {
+                    $(value_field).val(0);
+                }else{
+                    $(value_field).val(previous_value);
+                }
+            }
+        }
+
+    });
+
+
     /**
      * Submission of data to be inserted or updated
      *
