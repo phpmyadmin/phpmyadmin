@@ -1181,7 +1181,7 @@ msgstr "Editează Index"
 #, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %d column(s) to index"
-msgstr "Adaugă %s coloană(e)"
+msgstr "Adaugă %d coloană(e)"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:52
