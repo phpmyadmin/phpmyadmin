@@ -1261,7 +1261,7 @@ msgstr "Onvangen KiB sinds laatste verversing"
 #, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
-msgstr "Serverkeuze"
+msgstr "Server traffic (in KiB)"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
