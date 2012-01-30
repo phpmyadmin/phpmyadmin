@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-30 22:15+0200\n"
+"PO-Revision-Date: 2012-01-30 22:16+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -2990,11 +2990,10 @@ msgid "Inline edit of this query"
 msgstr "Szybka edycja tego zapytania"
 
 #: libraries/common.lib.php:1304
-#, fuzzy
 #| msgid "Inline"
 msgctxt "Inline edit query"
 msgid "Inline"
-msgstr "Mechanizmy"
+msgstr "W ilini"
 
 #: libraries/common.lib.php:1370 sql.php:892
 msgid "Profiling"
