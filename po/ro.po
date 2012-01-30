@@ -4051,7 +4051,7 @@ msgstr "Importă valorile implicite"
 
 #: libraries/config/messages.inc.php:174
 msgid "Customize default common import options"
-msgstr "Particularizează opțiunile obișnuite implicite de import "
+msgstr "Particularizează opțiunile obișnuite implicite de importare"
 
 #: libraries/config/messages.inc.php:175
 msgid "Import / export"
