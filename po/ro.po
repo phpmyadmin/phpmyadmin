@@ -4119,7 +4119,7 @@ msgstr "Setări care nu s-au potrivit altundeva"
 #, fuzzy
 #| msgid "Page number:"
 msgid "Page titles"
-msgstr "Numărul paginii:"
+msgstr "Titluri pagini"
 
 #: libraries/config/messages.inc.php:195
 msgid ""
