@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-30 23:21+0200\n"
+"PO-Revision-Date: 2012-01-30 23:23+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -5977,10 +5977,9 @@ msgid "Language"
 msgstr "Język"
 
 #: libraries/display_tbl.lib.php:405
-#, fuzzy
 #| msgid "Save directory"
 msgid "Save edited data"
-msgstr "Katalog do zapisu"
+msgstr "Zapisz edytowane dane"
 
 #: libraries/display_tbl.lib.php:411
 #, fuzzy
