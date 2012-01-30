@@ -4234,9 +4234,8 @@ msgstr "Personalizează cadrul principal"
 
 #: libraries/config/messages.inc.php:215 libraries/config/messages.inc.php:220
 #: setup/frames/menu.inc.php:17
-#, fuzzy
 msgid "SQL queries"
-msgstr "Comanda SQL"
+msgstr "Interogări SQL"
 
 #: libraries/config/messages.inc.php:217
 #, fuzzy
