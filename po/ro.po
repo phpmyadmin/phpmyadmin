@@ -4188,8 +4188,9 @@ msgid "Enter server connection parameters"
 msgstr "Introduceţi parametrii de conexiune la server"
 
 #: libraries/config/messages.inc.php:206
+#, fuzzy
 msgid "Configuration storage"
-msgstr ""
+msgstr "Depozitarea configurației"
 
 #: libraries/config/messages.inc.php:207
 msgid ""
