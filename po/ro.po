@@ -4378,10 +4378,9 @@ msgstr "Folosește cuvîntul-cheie LOCAL"
 
 #: libraries/config/messages.inc.php:256 libraries/config/messages.inc.php:264
 #: libraries/config/messages.inc.php:265
-#, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Column names in first row"
-msgstr "Pune numele cîmpului în primul rînd"
+msgstr "Pune numele coloanelor în primul rând"
 
 #: libraries/config/messages.inc.php:257 libraries/import/ods.php:34
 msgid "Do not import empty rows"
