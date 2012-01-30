@@ -4280,7 +4280,7 @@ msgstr "Personalizează pagina de pornire"
 
 #: libraries/config/messages.inc.php:226
 msgid "Tabs"
-msgstr "Taburi"
+msgstr "Tab-uri"
 
 #: libraries/config/messages.inc.php:227
 msgid "Choose how you want tabs to work"
