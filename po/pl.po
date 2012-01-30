@@ -6004,7 +6004,7 @@ msgstr "Liczba wierszy:"
 
 #: libraries/display_tbl.lib.php:434
 msgid "Mode"
-msgstr ""
+msgstr "Tryb"
 
 #: libraries/display_tbl.lib.php:436
 msgid "horizontal"
