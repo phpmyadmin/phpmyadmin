@@ -2857,6 +2857,8 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
+"To zazwyczaj oznacza, że ​​jest błąd składni w tym, sprawdź wszelkie błędy "
+"poniżej."
 
 #: libraries/common.inc.php:615
 #, php-format
