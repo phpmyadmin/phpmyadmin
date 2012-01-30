@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-30 22:44+0200\n"
+"PO-Revision-Date: 2012-01-30 22:45+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -4910,7 +4910,6 @@ msgid "Server port"
 msgstr "Port serwera"
 
 #: libraries/config/messages.inc.php:416
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no column comments/mime types, suggested: [kbd]"
 #| "pma_column_info[/kbd]"
@@ -4918,8 +4917,8 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma_recent[/kbd]"
 msgstr ""
-"Pozostaw puste, aby nie obsługiwać komentarzy i typów mime. Sugerowana "
-"nazwa: [kbd]pma_column_info[/kbd]"
+"Pozostaw puste, by nie obsługiwać komentarzy i typów mime. Sugerowana nazwa: "
+"[kbd]pma_column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:417
 #| msgid "Recall user name"
