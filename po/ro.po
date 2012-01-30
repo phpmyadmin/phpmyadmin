@@ -4046,9 +4046,8 @@ msgid "Set some commonly used options"
 msgstr "Setaţi unele opţiuni utilizate în mod obişnuit"
 
 #: libraries/config/messages.inc.php:173
-#, fuzzy
 msgid "Import defaults"
-msgstr "Import fișiere"
+msgstr "Importă valorile implicite"
 
 #: libraries/config/messages.inc.php:174
 msgid "Customize default common import options"
