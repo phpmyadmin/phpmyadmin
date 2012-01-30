@@ -290,15 +290,15 @@ $(document).ready(function() {
      */
     $('select[name="submit_type"]').bind('change', function (e) {
         var auto_increment_column = $('.insertRowTable').find('input[name^="auto_increment"]').attr('name');
-        var prev_value_field = $('.insertRowTable').find('input[name="'+auto_increment_column.replace('auto_increment', 'fields_prev')+'"]');
-        var value_field = $('.insertRowTable').find('input[name="'+auto_increment_column.replace('auto_increment', 'fields')+'"]');
+        var prev_value_field = $('.insertRowTable').find('input[name="' + auto_increment_column.replace('auto_increment', 'fields_prev') + '"]');
+        var value_field = $('.insertRowTable').find('input[name="' + auto_increment_column.replace('auto_increment', 'fields') + '"]');
 
-        if( auto_increment_column ) {
+        if (auto_increment_column) {
             var previous_value = $(prev_value_field).val();
-            if( previous_value!==undefined ) {
-                if( $(this).val()=='insert' || $(this).val()=='insertignore' || $(this).val()=='showinsert' ) {
+            if (previous_value !== undefined) {
+                if ($(this).val() == 'insert' || $(this).val() == 'insertignore' || $(this).val() == 'showinsert' ) {
                     $(value_field).val(0);
-                }else{
+                } else {
                     $(value_field).val(previous_value);
                 }
             }
