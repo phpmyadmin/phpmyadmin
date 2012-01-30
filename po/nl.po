@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
 "PO-Revision-Date: 2012-01-30 13:49+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Herman van Rink <rink@initfour.nl>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -1157,7 +1157,7 @@ msgstr "Wijzig Index"
 #, fuzzy, php-format
 #| msgid "Add %s column(s)"
 msgid "Add %d column(s) to index"
-msgstr "Voeg %s kolom(men) toe"
+msgstr "Voeg %d kolom(men) toe"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:52
