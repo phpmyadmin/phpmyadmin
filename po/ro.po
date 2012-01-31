@@ -4609,6 +4609,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
 msgstr ""
+"Numărul de bytes pe care un script are voie sa îl aloce, ex: [kbd]32M[/kbd] "
+"([kbd]0[/kbd] pentru nicio limită)"
 
 #: libraries/config/messages.inc.php:320
 #, fuzzy
