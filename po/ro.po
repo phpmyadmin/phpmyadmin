@@ -5120,6 +5120,9 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgstr ""
+"Lăsați necompletat dacă nu doriți suport "
+"[a@http://wiki.phpmyadmin.net/pma/relation]relation-links[/a], sugestie: "
+"[kbd]pma_relation[/kbd]"
 
 #: libraries/config/messages.inc.php:419
 #, fuzzy
