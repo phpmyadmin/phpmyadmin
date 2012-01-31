@@ -5073,8 +5073,9 @@ msgstr ""
 "[kbd]pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:411
+#, fuzzy
 msgid "PDF schema: pages table"
-msgstr ""
+msgstr "PDF schema: tabela de pagini"
 
 #: libraries/config/messages.inc.php:412
 msgid ""
