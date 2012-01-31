@@ -4726,9 +4726,10 @@ msgstr "Câte interogări sunt ținute în istorie"
 msgid "Query history length"
 msgstr "Lungimea istoriei de interogări"
 
+# Fila afișată la deschiderea unei noi ferestre de interogare
 #: libraries/config/messages.inc.php:344
 msgid "Tab displayed when opening a new query window"
-msgstr ""
+msgstr "Tab-ul afișat la deschiderea unei noi ferestre de interogare"
 
 #: libraries/config/messages.inc.php:345
 msgid "Default query window tab"
