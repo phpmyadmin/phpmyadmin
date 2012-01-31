@@ -4621,8 +4621,9 @@ msgid "These are Edit, Copy and Delete links"
 msgstr "Acestea sunt link-urile de Editare, Copiere și Ștergere"
 
 #: libraries/config/messages.inc.php:322
+#, fuzzy
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "Unde să fie afișate link-urile din rândurile tabelelor"
 
 #: libraries/config/messages.inc.php:323
 msgid "Use natural order for sorting table and database names"
