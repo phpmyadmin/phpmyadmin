@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-01-31 15:23+0200\n"
+"PO-Revision-Date: 2012-01-31 15:24+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -4827,7 +4827,7 @@ msgstr "Reguli de autorizare a host-urilor"
 
 #: libraries/config/messages.inc.php:366
 msgid "Allow logins without a password"
-msgstr ""
+msgstr "Permite logările fără parolă"
 
 #: libraries/config/messages.inc.php:367
 msgid "Allow root login"
