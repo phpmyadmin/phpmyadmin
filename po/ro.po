@@ -5443,6 +5443,8 @@ msgstr "Reține căsuța de interogare"
 #: libraries/config/messages.inc.php:475
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
+"Permite afișarea statisticilor pentru baze de date și tabeluri (utilizarea "
+"spaţiului de exemplu)"
 
 #: libraries/config/messages.inc.php:476
 #, fuzzy
