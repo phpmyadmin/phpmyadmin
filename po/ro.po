@@ -5046,6 +5046,11 @@ msgid ""
 "their names in order and use [kbd]*[/kbd] at the end to show the rest in "
 "alphabetical order."
 msgstr ""
+"Puteți folosi caracterele wildcard MySQL (% și _), faceți escape dacă doriți "
+"să folosiți instanțele lor literale, adică folosiți [kbd]'my\\_db'[/kbd] și "
+"nu [kbd]'my_db'[/kbd]. Folosind această opțiune, puteți sorta lista bazelor "
+"de date, doar introduceți numele lor în ordine și folosiți [kbd]*[/kbd] la "
+"sfârșit pentru a afișa restul în ordine alfabetică."
 
 #: libraries/config/messages.inc.php:407
 msgid "Show only listed databases"
