@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-01-31 15:00+0200\n"
+"PO-Revision-Date: 2012-01-31 15:01+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -4628,6 +4628,8 @@ msgstr "Unde să fie afișate link-urile din rândurile tabelelor"
 #: libraries/config/messages.inc.php:323
 msgid "Use natural order for sorting table and database names"
 msgstr ""
+"Folosește ordinea naturală pentru sortarea numelor tabelelor și bazelor de "
+"date"
 
 #: libraries/config/messages.inc.php:324
 #, fuzzy
