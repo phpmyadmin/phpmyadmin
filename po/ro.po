@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-01-31 15:15+0200\n"
+"PO-Revision-Date: 2012-01-31 15:16+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -4738,7 +4738,7 @@ msgstr "Tab-ul implicit al interogării în fereastră"
 
 #: libraries/config/messages.inc.php:346
 msgid "Query window height (in pixels)"
-msgstr ""
+msgstr "Înălțimea(în pixeli) a ferestrei de interogări"
 
 #: libraries/config/messages.inc.php:347
 #, fuzzy
