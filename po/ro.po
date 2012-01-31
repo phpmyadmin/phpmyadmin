@@ -4809,7 +4809,7 @@ msgstr "Directorul de salvări"
 
 #: libraries/config/messages.inc.php:362
 msgid "Leave blank if not used"
-msgstr ""
+msgstr "Lăsați gol dacă nu este folosit"
 
 #: libraries/config/messages.inc.php:363
 #, fuzzy
