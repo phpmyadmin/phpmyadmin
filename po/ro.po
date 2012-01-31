@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-01-31 15:14+0200\n"
+"PO-Revision-Date: 2012-01-31 15:15+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -4724,7 +4724,7 @@ msgstr "Câte interogări sunt ținute în istorie"
 
 #: libraries/config/messages.inc.php:343
 msgid "Query history length"
-msgstr ""
+msgstr "Lungimea istoriei de interogări"
 
 #: libraries/config/messages.inc.php:344
 msgid "Tab displayed when opening a new query window"
