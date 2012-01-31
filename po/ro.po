@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-01-31 15:22+0200\n"
+"PO-Revision-Date: 2012-01-31 15:23+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -4811,10 +4811,10 @@ msgstr "Directorul de salvări"
 msgid "Leave blank if not used"
 msgstr "Lăsați gol dacă nu este folosit"
 
+# Ordinea de autorizare a gazdelor
 #: libraries/config/messages.inc.php:363
-#, fuzzy
 msgid "Host authorization order"
-msgstr "Tipul autentificării"
+msgstr "Ordinea de autorizare a host-urilor"
 
 #: libraries/config/messages.inc.php:364
 msgid "Leave blank for defaults"
