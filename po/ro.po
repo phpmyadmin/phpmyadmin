@@ -4496,7 +4496,7 @@ msgstr "Separator arbore tabele"
 
 #: libraries/config/messages.inc.php:284
 msgid "URL where logo in the navigation frame will point to"
-msgstr ""
+msgstr "URL-ul către care va indica logo-ul din cadrul de navigare"
 
 #: libraries/config/messages.inc.php:285
 msgid "Logo link URL"
