@@ -5133,9 +5133,10 @@ msgstr "Tabel relațional"
 msgid "SQL command to fetch available databases"
 msgstr "Comanda SQL pentru a obține bazele de date disponibile"
 
+# comanda ARATĂ BAZELE DE DATE
 #: libraries/config/messages.inc.php:421
 msgid "SHOW DATABASES command"
-msgstr ""
+msgstr "comanda SHOW DATABASES"
 
 #: libraries/config/messages.inc.php:422
 msgid ""
