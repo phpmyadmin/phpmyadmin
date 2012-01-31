@@ -4928,11 +4928,14 @@ msgstr ""
 msgid "Control user"
 msgstr "Control user"
 
+# O altă gazdă care să deţină stocarea configurației; lăsați necompletat pentru a utiliza gazda deja definită
 #: libraries/config/messages.inc.php:385
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
 msgstr ""
+"Un alt host care să deţină stocarea configurației; lăsați necompletat pentru "
+"a utiliza host-ul deja definit"
 
 #: libraries/config/messages.inc.php:386
 #, fuzzy
