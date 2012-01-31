@@ -4444,10 +4444,9 @@ msgid "Display servers selection"
 msgstr "Afișează colecția de servere"
 
 #: libraries/config/messages.inc.php:274
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "Minimum number of tables to display the table filter box"
-msgstr "Numărul de tabele ce sînt deschise."
+msgstr "Numărul minim de tabele pentru a afişa caseta cu filtrul de tabele"
 
 #: libraries/config/messages.inc.php:275
 msgid "String that separates databases into different tree levels"
