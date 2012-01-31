@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-01-31 15:57+0200\n"
+"PO-Revision-Date: 2012-01-31 16:00+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -5111,10 +5111,9 @@ msgstr ""
 "folosite peste sesiuni, sugestie: [kbd]pma_recent[/kbd]"
 
 #: libraries/config/messages.inc.php:417
-#, fuzzy
 #| msgid "Analyze table"
 msgid "Recently used table"
-msgstr "Analizare tabel"
+msgstr "Tabel folosit recent"
 
 #: libraries/config/messages.inc.php:418
 msgid ""
