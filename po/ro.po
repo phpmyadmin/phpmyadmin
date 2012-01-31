@@ -4978,6 +4978,8 @@ msgstr "Dezactivează folosirea INFORMATION_SCHEMA"
 #: libraries/config/messages.inc.php:393
 msgid "What PHP extension to use; you should use mysqli if supported"
 msgstr ""
+"Ce extensii PHP să fie folosite; ar trebui să folosiți mysqli dacă este "
+"suportat "
 
 #: libraries/config/messages.inc.php:394
 msgid "PHP extension to use"
