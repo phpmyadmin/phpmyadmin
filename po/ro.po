@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-31 11:39+0200\n"
+"PO-Revision-Date: 2012-01-31 11:40+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -4431,7 +4431,7 @@ msgstr "Afișează logo în cadrul din stânga"
 
 #: libraries/config/messages.inc.php:271
 msgid "Display logo"
-msgstr ""
+msgstr "Afișează logo"
 
 #: libraries/config/messages.inc.php:272
 msgid "Display server choice at the top of the left frame"
