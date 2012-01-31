@@ -4427,7 +4427,7 @@ msgstr "Ținta iconiței de acces rapid"
 
 #: libraries/config/messages.inc.php:270
 msgid "Show logo in left frame"
-msgstr ""
+msgstr "Afișează logo în cadrul din stânga"
 
 #: libraries/config/messages.inc.php:271
 msgid "Display logo"
