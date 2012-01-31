@@ -5191,6 +5191,8 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
 msgstr ""
+"Tabelul care descrie coloanele de afișare, lăsați necompletat dacă nu doriți "
+"suport; sugestie: [kbd]pma_table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:432
 #, fuzzy
