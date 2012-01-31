@@ -4960,9 +4960,8 @@ msgstr ""
 "[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:390
-#, fuzzy
 msgid "Designer table"
-msgstr "Defragmentare tabel"
+msgstr "Tabelul designeri"
 
 #: libraries/config/messages.inc.php:391
 msgid ""
