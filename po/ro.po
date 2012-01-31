@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-01-31 16:21+0200\n"
+"PO-Revision-Date: 2012-01-31 16:22+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -5298,7 +5298,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:448
 msgid "User preferences storage table"
-msgstr ""
+msgstr "Tabelul de stocare a preferințelor utilizatorului"
 
 #: libraries/config/messages.inc.php:450
 msgid "User for config auth"
