@@ -5023,6 +5023,8 @@ msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed"
 msgstr ""
+"Limitează numărul de preferințe ale tabelelor ce sunt stocate în baza de "
+"date, cele mai vechi fiind automat înlăturate"
 
 #: libraries/config/messages.inc.php:403
 msgid "Maximal number of table preferences to store"
