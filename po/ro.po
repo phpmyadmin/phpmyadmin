@@ -5253,6 +5253,8 @@ msgstr "Adaugă DROP VIEW"
 #: libraries/config/messages.inc.php:441
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
+"Definește lista de declarații pe care auto-crearea le folosește la "
+"versiunile noi."
 
 #: libraries/config/messages.inc.php:442
 #, fuzzy
