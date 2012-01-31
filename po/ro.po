@@ -5358,10 +5358,13 @@ msgid "Show create database form"
 msgstr "Arată formularul de creare bază de date"
 
 #: libraries/config/messages.inc.php:460
+#, fuzzy
 msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table"
 msgstr ""
+"Stabilește dacă opțiunea de afișare a direcției este afișată sau nu la "
+"vizualizarea unui tabel"
 
 #: libraries/config/messages.inc.php:461
 #, fuzzy
