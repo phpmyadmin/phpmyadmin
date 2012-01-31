@@ -4597,6 +4597,8 @@ msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication"
 msgstr ""
+"Dezactivează avertismentul implicit care este afișat dacă mcrypt lipsește "
+"pentru autentificarea prin cookie-uri"
 
 #: libraries/config/messages.inc.php:318
 msgid "mcrypt warning"
