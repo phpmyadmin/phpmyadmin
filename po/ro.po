@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-01-31 14:27+0200\n"
+"PO-Revision-Date: 2012-01-31 14:29+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -4549,7 +4549,7 @@ msgstr "Folosește iconițe pe prima pagină"
 
 #: libraries/config/messages.inc.php:307
 msgid "Maximum number of characters used when a SQL query is displayed"
-msgstr ""
+msgstr "Numărul maxim de caractere folosite când se afișează o interogare SQL"
 
 #: libraries/config/messages.inc.php:308
 msgid "Maximum displayed SQL length"
