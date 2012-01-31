@@ -5083,6 +5083,10 @@ msgid ""
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgstr ""
+"Bază de date folosită pentru relații, bookmarks și proprietăți PDF. Vedeți "
+"[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] pentru informații "
+"complete. Lăsați necompletat dacă nu doriți suport. Sugestie: "
+"[kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:413
 #, fuzzy
