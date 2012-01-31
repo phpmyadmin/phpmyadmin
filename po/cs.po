@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-01-27 15:08+0200\n"
+"PO-Revision-Date: 2012-01-31 12:15+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -11096,10 +11096,9 @@ msgstr ""
 "systému."
 
 #: setup/lib/index.lib.php:323
-#, fuzzy
 #| msgid "You should use SSL connections if your web server supports it."
 msgid "You should use SSL connections if your database server supports it."
-msgstr "Pokud to váš webserver podporuje, měli byste použít SSL připojení."
+msgstr "Měli byste použít SSL připojení, pokud to váš databázový podporuje."
 
 #: setup/lib/index.lib.php:336
 msgid "You should use mysqli for performance reasons."
@@ -12468,6 +12467,8 @@ msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
 msgstr ""
+"Příliš mnoho dotazů musí procházet celé tabulky. Tomuto můžete předejít "
+"přidáním klíčů."
 
 #: po/advisory_rules.php:143
 #, php-format
