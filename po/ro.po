@@ -4415,7 +4415,7 @@ msgstr "Starea inițială pentru slidere"
 
 #: libraries/config/messages.inc.php:267
 msgid "How many rows can be inserted at one time"
-msgstr ""
+msgstr "Câte rânduri pot fi inserate deodată"
 
 #: libraries/config/messages.inc.php:268
 #, fuzzy
