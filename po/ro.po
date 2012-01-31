@@ -4746,10 +4746,9 @@ msgid "Query window height"
 msgstr "Înălțimea ferestrei de interogări"
 
 #: libraries/config/messages.inc.php:348
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width (in pixels)"
-msgstr "Fereastra de comandă"
+msgstr "Lățimea (în pixeli) a ferestrei de interogări"
 
 #: libraries/config/messages.inc.php:349
 #, fuzzy
