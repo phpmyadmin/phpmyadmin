@@ -4850,6 +4850,9 @@ msgid ""
 "authentication[/a] (not located in your document root; suggested: /etc/"
 "swekey.conf)"
 msgstr ""
+"Calea către fișierul de configurare pentru "
+"[a@http://swekey.com]autentificarea hardware SweKey [/a] (ce nu se află în "
+"rădăcină; sugestie: /etc/swekey.conf)"
 
 #: libraries/config/messages.inc.php:371
 msgid "SweKey config file"
