@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-01-31 16:26+0200\n"
+"PO-Revision-Date: 2012-01-31 16:28+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -5325,9 +5325,10 @@ msgstr ""
 "O descriere user-friendly a acestui server. Lăsaţi necompletat pentru a "
 "afişa numele de gazdă în loc."
 
+# Numele "pe larg" al acestui server
 #: libraries/config/messages.inc.php:454
 msgid "Verbose name of this server"
-msgstr ""
+msgstr "Numele \"verbose\" al acestui server"
 
 #: libraries/config/messages.inc.php:455
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
