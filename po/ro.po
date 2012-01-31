@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-01-31 15:55+0200\n"
+"PO-Revision-Date: 2012-01-31 15:57+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -5107,6 +5107,8 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma_recent[/kbd]"
 msgstr ""
+"Lăsați necompletat dacă nu doriți tabele - în mod \"persistent\" - recent "
+"folosite peste sesiuni, sugestie: [kbd]pma_recent[/kbd]"
 
 #: libraries/config/messages.inc.php:417
 #, fuzzy
