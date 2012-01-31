@@ -320,7 +320,7 @@ function perform_config_checks()
                 'notice',
                 "Servers/$i/ssl",
                 $title,
-                __('You should use SSL connections if your web server supports it.'));
+                __('You should use SSL connections if your MySQL server supports it.'));
         }
 
         //
