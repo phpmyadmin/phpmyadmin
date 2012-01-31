@@ -4836,6 +4836,8 @@ msgstr "Permite autentificarea ca „root”"
 #: libraries/config/messages.inc.php:368
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgstr ""
+"Numele HTTP Basic Auth Realm ce va fi afișat când se face autentificarea "
+"HTTP"
 
 #: libraries/config/messages.inc.php:369
 msgid "HTTP Realm"
