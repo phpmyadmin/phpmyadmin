@@ -4751,10 +4751,9 @@ msgid "Query window width (in pixels)"
 msgstr "Lățimea (în pixeli) a ferestrei de interogări"
 
 #: libraries/config/messages.inc.php:349
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width"
-msgstr "Fereastra de comandă"
+msgstr "Lățimea ferestrei de interogări"
 
 #: libraries/config/messages.inc.php:350
 msgid "Select which functions will be used for character set conversion"
