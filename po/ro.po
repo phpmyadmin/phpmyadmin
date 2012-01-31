@@ -5266,6 +5266,8 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
 msgstr ""
+"Lăsați necompletat dacă nu doriți suport pentru urmărirea interogărilor SQL, "
+"sugestie: [kbd]pma_tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:444
 msgid "SQL query tracking table"
