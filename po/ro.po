@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-29 22:42+0200\n"
+"PO-Revision-Date: 2012-01-31 00:40+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -3930,7 +3930,7 @@ msgstr "Utilizați ignorare inserări"
 
 #: libraries/config/messages.inc.php:134
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "Sintaxa ce va fi folosită la inserarea datelor"
 
 #: libraries/config/messages.inc.php:135 libraries/export/sql.php:285
 msgid "Maximal length of created query"
@@ -3952,30 +3952,31 @@ msgstr "Modul de export"
 
 #: libraries/config/messages.inc.php:150
 msgid "Force secured connection while using phpMyAdmin"
-msgstr ""
+msgstr "Forțează conexiune securizată în timpul folosirii phpMyAdmin"
 
 #: libraries/config/messages.inc.php:151
-#, fuzzy
 msgid "Force SSL connection"
-msgstr "Comprimă conexiunea"
+msgstr "Forțează conexiunea SSL"
 
 #: libraries/config/messages.inc.php:152
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
+"Ordinea de sortare pentru elementele dintr-un dropdown pentru chei străine; "
+"[kbd]conținut[/kbd] sunt datele referite, [kbd]id[/kbd] este valoarea cheii"
 
 #: libraries/config/messages.inc.php:153
 msgid "Foreign key dropdown order"
-msgstr ""
+msgstr "Ordinea din dropdown-ul pentru chei străine"
 
 #: libraries/config/messages.inc.php:154
 msgid "A dropdown will be used if fewer items are present"
-msgstr ""
+msgstr "Un dropdown va fi folosit dacă sunt prezente mai puține elemente"
 
 #: libraries/config/messages.inc.php:155
 msgid "Foreign key limit"
-msgstr ""
+msgstr "Limita de chei străine"
 
 #: libraries/config/messages.inc.php:156
 msgid "Browse mode"
@@ -4002,12 +4003,14 @@ msgid "CSV"
 msgstr "CSV"
 
 #: libraries/config/messages.inc.php:162
+#, fuzzy
 msgid "Developer"
-msgstr ""
+msgstr "Dezvoltator"
 
 #: libraries/config/messages.inc.php:163
+#, fuzzy
 msgid "Settings for phpMyAdmin developers"
-msgstr ""
+msgstr "Setările pentru dezvoltatorii phpMyAdmin"
 
 #: libraries/config/messages.inc.php:164
 msgid "Edit mode"
@@ -4040,24 +4043,24 @@ msgstr "Generează"
 
 #: libraries/config/messages.inc.php:171
 msgid "Set some commonly used options"
-msgstr ""
+msgstr "Setaţi unele opţiuni utilizate în mod obişnuit"
 
 #: libraries/config/messages.inc.php:173
-#, fuzzy
 msgid "Import defaults"
-msgstr "Import fișiere"
+msgstr "Importă valorile implicite"
 
 #: libraries/config/messages.inc.php:174
 msgid "Customize default common import options"
-msgstr ""
+msgstr "Particularizează opțiunile obișnuite implicite de importare"
 
 #: libraries/config/messages.inc.php:175
 msgid "Import / export"
-msgstr "Import / export"
+msgstr "Importă / exportă"
 
 #: libraries/config/messages.inc.php:176
 msgid "Set import and export directories and compression options"
 msgstr ""
+"Setează directoarele de importare și exportare și opțiunile de compresie"
 
 #: libraries/config/messages.inc.php:177 libraries/export/latex.php:27
 msgid "LaTeX"
@@ -4069,7 +4072,7 @@ msgstr "Opțiuni de afișare a bazelor de date"
 
 #: libraries/config/messages.inc.php:181 setup/frames/menu.inc.php:18
 msgid "Navigation frame"
-msgstr ""
+msgstr "Cadru de navigare"
 
 #: libraries/config/messages.inc.php:182
 msgid "Customize appearance of the navigation frame"
@@ -4094,8 +4097,9 @@ msgid "Main frame"
 msgstr "Cadrul principal"
 
 #: libraries/config/messages.inc.php:188
+#, fuzzy
 msgid "Microsoft Office"
-msgstr ""
+msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:190
 #, fuzzy
@@ -4105,17 +4109,17 @@ msgstr "Text Open Document"
 
 #: libraries/config/messages.inc.php:192
 msgid "Other core settings"
-msgstr ""
+msgstr "Alte setări de bază"
 
 #: libraries/config/messages.inc.php:193
 msgid "Settings that didn't fit enywhere else"
-msgstr ""
+msgstr "Setări care nu s-au potrivit altundeva"
 
 #: libraries/config/messages.inc.php:194
 #, fuzzy
 #| msgid "Page number:"
 msgid "Page titles"
-msgstr "Numărul paginii:"
+msgstr "Titluri pagini"
 
 #: libraries/config/messages.inc.php:195
 msgid ""
@@ -4123,6 +4127,9 @@ msgid ""
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
+"Specificaţi textul din bara de titlu a browser-ului. Consultaţi "
+"[a@Documentation.html # cfg_TitleTable] documentaţia [/ a] pentru siruri de "
+"caractere magice care pot fi utilizate pentru a obţine valori speciale."
 
 #: libraries/config/messages.inc.php:196
 #: libraries/navigation_header.inc.php:79
@@ -4138,17 +4145,19 @@ msgstr "Opțiuni de exportare a bazei de date"
 
 #: libraries/config/messages.inc.php:198
 msgid "Security"
-msgstr ""
+msgstr "Securitate"
 
 #: libraries/config/messages.inc.php:199
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
 msgstr ""
+"Vă rugăm să reţineţi faptul că phpMyAdmin este doar o interfaţă de "
+"utilizator şi caracteristicile sale nu limitează MySQL"
 
 #: libraries/config/messages.inc.php:200
 msgid "Basic settings"
-msgstr ""
+msgstr "Setări de bază"
 
 #: libraries/config/messages.inc.php:201
 #, fuzzy
@@ -4164,21 +4173,24 @@ msgstr "Tipul autentificării"
 
 #: libraries/config/messages.inc.php:203
 msgid "Server configuration"
-msgstr ""
+msgstr "Configurarea serverului"
 
 #: libraries/config/messages.inc.php:204
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for"
 msgstr ""
+"Configurarea avansată a serverului, nu schimbați aceste opţiuni decât dacă "
+"ştiţi pentru ce sunt acestea"
 
 #: libraries/config/messages.inc.php:205
 msgid "Enter server connection parameters"
-msgstr ""
+msgstr "Introduceţi parametrii de conexiune la server"
 
 #: libraries/config/messages.inc.php:206
+#, fuzzy
 msgid "Configuration storage"
-msgstr ""
+msgstr "Depozitarea configurației"
 
 #: libraries/config/messages.inc.php:207
 msgid ""
@@ -4186,16 +4198,22 @@ msgid ""
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
+"Configurați depozitarea configurației phpMyAdmin pentru a avea acces la "
+"caracteristici suplimentare, a se vedea [a@Documentation.html#linked-"
+"tables]depozitarea configurației phpMyAdmin[/ a] în documentaţie"
 
 #: libraries/config/messages.inc.php:208
+#, fuzzy
 msgid "Changes tracking"
-msgstr ""
+msgstr "Modifică urmărirea"
 
 #: libraries/config/messages.inc.php:209
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
+"Urmărirea modificărilor făcute în baza de date. Necesită depozitarea "
+"configurației phpMyAdmin."
 
 #: libraries/config/messages.inc.php:210
 #, fuzzy
@@ -4203,14 +4221,12 @@ msgid "Customize export options"
 msgstr "Opțiuni de exportare a bazei de date"
 
 #: libraries/config/messages.inc.php:212
-#, fuzzy
 msgid "Customize import defaults"
-msgstr "Opțiuni de exportare a bazei de date"
+msgstr "Personalizează valorile implicite pentru importare"
 
 #: libraries/config/messages.inc.php:213
-#, fuzzy
 msgid "Customize navigation frame"
-msgstr "Personalizează cadrul principal"
+msgstr "Personalizează cadrul de navigare"
 
 #: libraries/config/messages.inc.php:214
 msgid "Customize main frame"
@@ -4218,29 +4234,27 @@ msgstr "Personalizează cadrul principal"
 
 #: libraries/config/messages.inc.php:215 libraries/config/messages.inc.php:220
 #: setup/frames/menu.inc.php:17
-#, fuzzy
 msgid "SQL queries"
-msgstr "Comanda SQL"
+msgstr "Interogări SQL"
 
 #: libraries/config/messages.inc.php:217
 #, fuzzy
 msgid "SQL Query box"
-msgstr "Comanda SQL"
+msgstr "Cutie interogare SQL"
 
 #: libraries/config/messages.inc.php:218
+#, fuzzy
 msgid "Customize links shown in SQL Query boxes"
-msgstr ""
+msgstr "Personalizează link-urile afișate în cutiile de interogare SQL"
 
 #: libraries/config/messages.inc.php:221
-#, fuzzy
 msgid "SQL queries settings"
-msgstr "Comanda SQL"
+msgstr "Setări pentru interogările SQL"
 
 #: libraries/config/messages.inc.php:222
-#, fuzzy
 #| msgid "SQL history"
 msgid "SQL Validator"
-msgstr "Istoric SQL"
+msgstr "Validator SQL"
 
 #: libraries/config/messages.inc.php:223
 msgid ""
@@ -4249,23 +4263,28 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
+"Dacă doriţi să utilizaţi serviciul de Validare SQL, ar trebui să fie "
+"conştienţi de faptul că [strong] toate declaraţiile SQL sunt stocate anonim "
+"cu scopuri statistice [/strong]. [br] [em] "
+"[a@http://sqlvalidator.mimer.com/] Mimer SQL Validator [/ a], Copyright 2002 "
+"Upright Database Technology. Toate drepturile rezervate [/em]."
 
 #: libraries/config/messages.inc.php:224
 #, fuzzy
 msgid "Startup"
-msgstr "Stare"
+msgstr "Pornire"
 
 #: libraries/config/messages.inc.php:225
 msgid "Customize startup page"
-msgstr ""
+msgstr "Personalizează pagina de pornire"
 
 #: libraries/config/messages.inc.php:226
 msgid "Tabs"
-msgstr "File"
+msgstr "Tab-uri"
 
 #: libraries/config/messages.inc.php:227
 msgid "Choose how you want tabs to work"
-msgstr "Alegeți cum doriți să funcționeze filele"
+msgstr "Alegeți cum doriți să funcționeze tab-urile"
 
 #: libraries/config/messages.inc.php:228
 #, fuzzy
@@ -4284,11 +4303,11 @@ msgstr "Texy! text"
 
 #: libraries/config/messages.inc.php:232
 msgid "Warnings"
-msgstr ""
+msgstr "Avertismente"
 
 #: libraries/config/messages.inc.php:233
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr ""
+msgstr "Dezactivează unele dintre avertismentele afişate de phpMyAdmin"
 
 #: libraries/config/messages.inc.php:234
 msgid ""
@@ -4302,17 +4321,19 @@ msgstr "GZip"
 
 #: libraries/config/messages.inc.php:236
 msgid "Extra parameters for iconv"
-msgstr ""
+msgstr "Parametrii suplimentari pentru iconv"
 
 #: libraries/config/messages.inc.php:237
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
 msgstr ""
+"Dacă opţiunea este activată, phpMyAdmin continuă calcularea interogărilor cu "
+"mai multe declaraţii, chiar dacă una dintre interogări nu a reuşit"
 
 #: libraries/config/messages.inc.php:238
 msgid "Ignore multiple statement errors"
-msgstr ""
+msgstr "Ignoră erorile pentru declarațiile multiple"
 
 #: libraries/config/messages.inc.php:239
 #, fuzzy
@@ -4327,12 +4348,12 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:240
 msgid "Partial import: allow interrupt"
-msgstr ""
+msgstr "Import parțial: permite întreruperi"
 
 #: libraries/config/messages.inc.php:245 libraries/config/messages.inc.php:252
 #: libraries/import/csv.php:27 libraries/import/ldi.php:40
 msgid "Do not abort on INSERT error"
-msgstr ""
+msgstr "Nu abandona la întâmpinarea unei erori INSERT"
 
 #: libraries/config/messages.inc.php:246 libraries/config/messages.inc.php:254
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
@@ -4344,6 +4365,8 @@ msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
 msgstr ""
+"Formatul implicit; fiți conştienţi de faptul că această listă depinde de "
+"locaţie (bază de date, tabel) şi numai SQL este întotdeauna disponibil"
 
 #: libraries/config/messages.inc.php:249
 msgid "Format of imported file"
@@ -4355,14 +4378,13 @@ msgstr "Folosește cuvîntul-cheie LOCAL"
 
 #: libraries/config/messages.inc.php:256 libraries/config/messages.inc.php:264
 #: libraries/config/messages.inc.php:265
-#, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Column names in first row"
-msgstr "Pune numele cîmpului în primul rînd"
+msgstr "Pune numele coloanelor în primul rând"
 
 #: libraries/config/messages.inc.php:257 libraries/import/ods.php:34
 msgid "Do not import empty rows"
-msgstr ""
+msgstr "Nu importa rânduri goale"
 
 #: libraries/config/messages.inc.php:258
 msgid "Import currencies ($5.00 to 5.00)"
