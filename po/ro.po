@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-01-31 15:03+0200\n"
+"PO-Revision-Date: 2012-01-31 15:04+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -4641,8 +4641,9 @@ msgid "Use only icons, only text or both"
 msgstr "Folosește doar iconițe. doar text sau ambele"
 
 #: libraries/config/messages.inc.php:326
+#, fuzzy
 msgid "Iconic navigation bar"
-msgstr ""
+msgstr "bară de navigare cu iconițe"
 
 #: libraries/config/messages.inc.php:327
 msgid "use GZip output buffering for increased speed in HTTP transfers"
