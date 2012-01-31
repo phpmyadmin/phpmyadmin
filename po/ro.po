@@ -5384,7 +5384,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show field types"
-msgstr "Afișează tabele deschise"
+msgstr "Afișează tipurile câmpurilor"
 
 #: libraries/config/messages.inc.php:464
 msgid "Display the function fields in edit/insert mode"
