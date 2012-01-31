@@ -5469,6 +5469,10 @@ msgid ""
 "['LeftFrameTableSeparator'] directive, so only the folder is called like the "
 "alias, the table name itself stays unchanged"
 msgstr ""
+"Când setați [kbd]nested[/kbd], alias-ul numelui tabelului este folosit doar "
+"pentru a împărți/grupa tabelele conform directivei "
+"$cfg['LeftFrameTableSeparator'], astfel încât doar numele folder-ului va fi "
+"ca alias-ul, numele tabelului rămânând neschimbat"
 
 #: libraries/config/messages.inc.php:480
 msgid "Display table comment instead of its name"
