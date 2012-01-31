@@ -4738,7 +4738,7 @@ msgstr "Tab-ul implicit al interogării în fereastră"
 
 #: libraries/config/messages.inc.php:346
 msgid "Query window height (in pixels)"
-msgstr "Înălțimea(în pixeli) a ferestrei de interogări"
+msgstr "Înălțimea (în pixeli) a ferestrei de interogări"
 
 #: libraries/config/messages.inc.php:347
 #| msgid "Query window"
