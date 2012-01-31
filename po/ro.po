@@ -5127,7 +5127,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:419
 #, fuzzy
 msgid "Relation table"
-msgstr "Reparare tabel"
+msgstr "Tabel relațional"
 
 #: libraries/config/messages.inc.php:420
 msgid "SQL command to fetch available databases"
