@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-01-31 12:01+0200\n"
+"PO-Revision-Date: 2012-01-31 12:10+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -4445,28 +4445,31 @@ msgstr "Ținta link-ului din logo"
 
 #: libraries/config/messages.inc.php:288
 msgid "Highlight server under the mouse cursor"
-msgstr ""
+msgstr "Evidenţiaţi server-ul deasupra căruia se află cursorul mouse-ului"
 
+# Activați evidențierea
 #: libraries/config/messages.inc.php:289
 msgid "Enable highlighting"
-msgstr ""
+msgstr "Activați highlighting-ul"
 
 #: libraries/config/messages.inc.php:290
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr ""
+msgstr "Numărul maxim de tabele recent folosite; setați 0 pentru dezactivare"
 
 #: libraries/config/messages.inc.php:291
-#, fuzzy
 msgid "Recently used tables"
-msgstr "Tabele fără monitorizare"
+msgstr "Tabele recent folosite"
 
+# Folosiți file mai puțin intense grafic
 #: libraries/config/messages.inc.php:292
 msgid "Use less graphically intense tabs"
-msgstr ""
+msgstr "Folosiți tab-uri mai puțin intense grafic"
 
+# File ușoare
 #: libraries/config/messages.inc.php:293
+#, fuzzy
 msgid "Light tabs"
-msgstr ""
+msgstr "Tab-uri ușoare"
 
 #: libraries/config/messages.inc.php:294
 msgid ""
