@@ -5344,6 +5344,10 @@ msgid ""
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly"
 msgstr ""
+"Vă rugăm să reţineţi faptul această permisiune nu are niciun efect în modul "
+"de autentificare  [kbd]config[/kbd], deoarece parola hardcodată în fişierul "
+"de configurare; nu se limitează capacitatea de a executa aceeaşi comandă "
+"direct"
 
 #: libraries/config/messages.inc.php:458
 msgid "Show password change form"
