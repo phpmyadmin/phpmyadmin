@@ -4732,8 +4732,9 @@ msgid "Tab displayed when opening a new query window"
 msgstr "Tab-ul afișat la deschiderea unei noi ferestre de interogare"
 
 #: libraries/config/messages.inc.php:345
+#, fuzzy
 msgid "Default query window tab"
-msgstr ""
+msgstr "Tab-ul implicit al interogării în fereastră"
 
 #: libraries/config/messages.inc.php:346
 msgid "Query window height (in pixels)"
