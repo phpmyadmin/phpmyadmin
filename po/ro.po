@@ -4673,7 +4673,7 @@ msgstr "Folosește conexiuni persistente la baze de date MySQL"
 
 #: libraries/config/messages.inc.php:332
 msgid "Persistent connections"
-msgstr ""
+msgstr "Conexiuni persistente"
 
 #: libraries/config/messages.inc.php:333
 msgid ""
