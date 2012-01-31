@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-01-31 15:29+0200\n"
+"PO-Revision-Date: 2012-01-31 15:30+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -4909,9 +4909,10 @@ msgstr ""
 msgid "Connection type"
 msgstr "Tipul conexiunii"
 
+# Parola pentru utilizatorul de control
 #: libraries/config/messages.inc.php:382
 msgid "Control user password"
-msgstr ""
+msgstr "Parola pentru control user"
 
 #: libraries/config/messages.inc.php:383
 msgid ""
