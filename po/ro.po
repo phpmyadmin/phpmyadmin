@@ -4436,6 +4436,8 @@ msgstr "Afișează logo"
 #: libraries/config/messages.inc.php:272
 msgid "Display server choice at the top of the left frame"
 msgstr ""
+"Afișează meniul de alegere a server-ului în partea de sus a cadrului din "
+"stânga"
 
 #: libraries/config/messages.inc.php:273
 msgid "Display servers selection"
