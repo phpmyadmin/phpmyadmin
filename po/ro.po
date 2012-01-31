@@ -5396,7 +5396,7 @@ msgstr "Afișează câmpurile de funcții"
 
 #: libraries/config/messages.inc.php:466
 msgid "Whether to show hint or not"
-msgstr ""
+msgstr "Dacă să se afișeze indiciul sau nu"
 
 #: libraries/config/messages.inc.php:467
 #, fuzzy
