@@ -4638,7 +4638,7 @@ msgstr "Ordine naturală"
 
 #: libraries/config/messages.inc.php:325 libraries/config/messages.inc.php:335
 msgid "Use only icons, only text or both"
-msgstr ""
+msgstr "Folosește doar iconițe. doar text sau ambele"
 
 #: libraries/config/messages.inc.php:326
 msgid "Iconic navigation bar"
