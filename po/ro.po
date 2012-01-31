@@ -4537,7 +4537,7 @@ msgstr "Validitatea cookie-ului de login"
 
 #: libraries/config/messages.inc.php:304
 msgid "Double size of textarea for LONGTEXT columns"
-msgstr ""
+msgstr "Mărime dublă a textarea-ului pentru coloanele LONGTEXT"
 
 #: libraries/config/messages.inc.php:305
 msgid "Bigger textarea for LONGTEXT"
