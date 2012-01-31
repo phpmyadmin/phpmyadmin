@@ -4576,6 +4576,9 @@ msgid ""
 "contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
 "shown."
 msgstr ""
+"Numărul de rânduri afișate la vizualizarea unui set de rezultate. Dacă setul "
+"de rezultate conține mai multe rânduri, link-urile de &quot;Anterior&quot; "
+"și &quot;Următor&quot; vor fi afișate."
 
 #: libraries/config/messages.inc.php:313
 msgid "Maximum number of rows to display"
