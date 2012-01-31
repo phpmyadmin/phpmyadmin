@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-01-31 16:14+0200\n"
+"PO-Revision-Date: 2012-01-31 16:19+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -5269,9 +5269,10 @@ msgstr ""
 "Lăsați necompletat dacă nu doriți suport pentru urmărirea interogărilor SQL, "
 "sugestie: [kbd]pma_tracking[/kbd]"
 
+# Tabelul de urmărire interogări SQL
 #: libraries/config/messages.inc.php:444
 msgid "SQL query tracking table"
-msgstr ""
+msgstr "Tabelul de tracking interogări SQL"
 
 #: libraries/config/messages.inc.php:445
 msgid ""
