@@ -4537,9 +4537,11 @@ msgstr "Tabele recent folosite"
 msgid "Use less graphically intense tabs"
 msgstr "Folosiți tab-uri mai puțin intense grafic"
 
+# File ușoare
 #: libraries/config/messages.inc.php:293
+#, fuzzy
 msgid "Light tabs"
-msgstr ""
+msgstr "Tab-uri ușoare"
 
 #: libraries/config/messages.inc.php:294
 msgid ""
