@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-01-31 15:35+0200\n"
+"PO-Revision-Date: 2012-01-31 15:36+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -4987,7 +4987,7 @@ msgstr "Extensia PHP de utilizat"
 
 #: libraries/config/messages.inc.php:395
 msgid "Hide databases matching regular expression (PCRE)"
-msgstr ""
+msgstr "Ascunde bazele de date care respectă expresia regulată (PCRE)"
 
 #: libraries/config/messages.inc.php:396
 msgid "Hide databases"
