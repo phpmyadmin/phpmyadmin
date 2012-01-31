@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-01-31 16:07+0200\n"
+"PO-Revision-Date: 2012-01-31 16:09+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -5210,10 +5210,9 @@ msgstr ""
 "[kbd]pma_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:434
-#, fuzzy
 #| msgid "Defragment table"
 msgid "UI preferences table"
-msgstr "Defragmentare tabel"
+msgstr "Preferințele Interfeței cu Utilizatorul ale tabelului"
 
 #: libraries/config/messages.inc.php:435
 msgid ""
