@@ -4558,7 +4558,7 @@ msgstr "Lungimea maximă de afișare SQL"
 #: libraries/config/messages.inc.php:309 libraries/config/messages.inc.php:314
 #: libraries/config/messages.inc.php:341
 msgid "Users cannot set a higher value"
-msgstr ""
+msgstr "Utilizatorii nu pot seta o valoare mai mare"
 
 #: libraries/config/messages.inc.php:310
 msgid "Maximum number of databases displayed in left frame and database list"
