@@ -4818,7 +4818,7 @@ msgstr "Ordinea de autorizare a host-urilor"
 
 #: libraries/config/messages.inc.php:364
 msgid "Leave blank for defaults"
-msgstr ""
+msgstr "Lăsați gol pentru valorile implicite"
 
 #: libraries/config/messages.inc.php:365
 #, fuzzy
