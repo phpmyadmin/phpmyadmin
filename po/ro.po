@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-01-31 15:54+0200\n"
+"PO-Revision-Date: 2012-01-31 15:55+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -5065,10 +5065,11 @@ msgid "Password for config auth"
 msgstr "Parola pentru „config auth”"
 
 #: libraries/config/messages.inc.php:410
+#, fuzzy
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
-"Lăsați necompletat dacă nu doriți suport PDF, sugesti: "
+"Lăsați necompletat dacă nu doriți suport PDF schema, sugesti: "
 "[kbd]pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:411
