@@ -4676,11 +4676,15 @@ msgid "Persistent connections"
 msgstr "Conexiuni persistente"
 
 #: libraries/config/messages.inc.php:333
+#, fuzzy
 msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found"
 msgstr ""
+"Dezactivează avertismentul implicit care este afişat pe pagina cu detalii de "
+"structură ale bazei de date, dacă oricare dintre tabelele necesare pentru "
+"stocarea configurării phpMyAdmin nu a putut fi găsită"
 
 #: libraries/config/messages.inc.php:334
 msgid "Missing phpMyAdmin configuration storage tables"
