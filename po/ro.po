@@ -4945,7 +4945,7 @@ msgstr "Control host"
 
 #: libraries/config/messages.inc.php:387
 msgid "Count tables when showing database list"
-msgstr ""
+msgstr "Numără tabelele când afișezi lista cu bazele de date"
 
 #: libraries/config/messages.inc.php:388
 #, fuzzy
