@@ -4532,9 +4532,10 @@ msgstr "Numărul maxim de tabele recent folosite; setați 0 pentru dezactivare"
 msgid "Recently used tables"
 msgstr "Tabele recent folosite"
 
+# Folosiți file mai puțin intense grafic
 #: libraries/config/messages.inc.php:292
 msgid "Use less graphically intense tabs"
-msgstr ""
+msgstr "Folosiți tab-uri mai puțin intense grafic"
 
 #: libraries/config/messages.inc.php:293
 msgid "Light tabs"
