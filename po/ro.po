@@ -4648,6 +4648,7 @@ msgstr "bară de navigare cu iconițe"
 #: libraries/config/messages.inc.php:327
 msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgstr ""
+"folosește GZip output buffering pentru viteză mărită în transferurile HTTP"
 
 #: libraries/config/messages.inc.php:328
 msgid "GZip output buffering"
