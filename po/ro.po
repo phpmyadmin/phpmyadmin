@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-31 11:37+0200\n"
+"PO-Revision-Date: 2012-01-31 11:38+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -4418,9 +4418,8 @@ msgid "How many rows can be inserted at one time"
 msgstr "Câte rânduri pot fi inserate deodată"
 
 #: libraries/config/messages.inc.php:268
-#, fuzzy
 msgid "Number of inserted rows"
-msgstr "Numărul de rînduri sortate."
+msgstr "Numărul de rânduri inserate"
 
 #: libraries/config/messages.inc.php:269
 msgid "Target for quick access icon"
