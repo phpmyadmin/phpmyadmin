@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-01-31 16:43+0200\n"
+"PO-Revision-Date: 2012-01-31 16:45+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -5392,7 +5392,7 @@ msgstr "Afișează câmpurile de funcții în modul de editare/inserare"
 
 #: libraries/config/messages.inc.php:465
 msgid "Show function fields"
-msgstr ""
+msgstr "Afișează câmpurile de funcții"
 
 #: libraries/config/messages.inc.php:466
 msgid "Whether to show hint or not"
