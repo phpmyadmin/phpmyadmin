@@ -5016,7 +5016,7 @@ msgstr "Numele de gazdă al serverului"
 
 #: libraries/config/messages.inc.php:401
 msgid "Logout URL"
-msgstr ""
+msgstr "URL-ul pentru delogare"
 
 #: libraries/config/messages.inc.php:402
 msgid ""
