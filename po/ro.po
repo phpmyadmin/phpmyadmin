@@ -4618,7 +4618,7 @@ msgstr "Limita de memorie"
 
 #: libraries/config/messages.inc.php:321
 msgid "These are Edit, Copy and Delete links"
-msgstr ""
+msgstr "Acestea sunt link-urile de Editare, Copiere și Ștergere"
 
 #: libraries/config/messages.inc.php:322
 msgid "Where to show the table row links"
