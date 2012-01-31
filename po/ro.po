@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-01-31 15:25+0200\n"
+"PO-Revision-Date: 2012-01-31 15:26+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -4856,7 +4856,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:371
 msgid "SweKey config file"
-msgstr ""
+msgstr "Fișierul de configurare SweKey"
 
 #: libraries/config/messages.inc.php:372
 msgid "Authentication method to use"
