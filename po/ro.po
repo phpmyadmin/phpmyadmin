@@ -4801,7 +4801,7 @@ msgstr "Salvează toate câmpurile editate simultan"
 
 #: libraries/config/messages.inc.php:360
 msgid "Directory where exports can be saved on server"
-msgstr ""
+msgstr "Directoarele unde export-urile pot fi salvate pe server"
 
 #: libraries/config/messages.inc.php:361
 #, fuzzy
