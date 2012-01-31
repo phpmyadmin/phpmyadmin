@@ -4956,6 +4956,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
 msgstr ""
+"Lăsați necompletat dacă nu doriți suport pentru Designeri, sugestie: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:390
 #, fuzzy
