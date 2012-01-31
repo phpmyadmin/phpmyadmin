@@ -4820,10 +4820,10 @@ msgstr "Ordinea de autorizare a host-urilor"
 msgid "Leave blank for defaults"
 msgstr "Lăsați gol pentru valorile implicite"
 
+# Reguli de autorizare a gazdelor
 #: libraries/config/messages.inc.php:365
-#, fuzzy
 msgid "Host authorization rules"
-msgstr "Hardware authentication failed"
+msgstr "Reguli de autorizare a host-urilor"
 
 #: libraries/config/messages.inc.php:366
 msgid "Allow logins without a password"
