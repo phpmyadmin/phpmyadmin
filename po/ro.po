@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-31 11:50+0200\n"
+"PO-Revision-Date: 2012-01-31 11:51+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -4469,7 +4469,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:278
 msgid "Display databases in a tree"
-msgstr ""
+msgstr "Afișează bazele de date într-un arbore"
 
 #: libraries/config/messages.inc.php:279
 msgid "Disable this if you want to see all databases at once"
