@@ -4483,7 +4483,7 @@ msgstr "Folosiți versiunea light"
 
 #: libraries/config/messages.inc.php:281
 msgid "Maximum table tree depth"
-msgstr ""
+msgstr "Adâncimea maximă a arborelui de tabele"
 
 #: libraries/config/messages.inc.php:282
 msgid "String that separates tables into different tree levels"
