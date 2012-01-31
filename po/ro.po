@@ -4709,6 +4709,10 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
+"Activează dacă dorești istoria interogărilor bazate pe baza de date (are "
+"nevoie de stocarea configurărilor phpMyAdmin). Dacă este dezactivat, se "
+"folosesc funcții JS pentru afișarea istoriei interogprilor ( pierdute la "
+"închiderea ferestrei )."
 
 #: libraries/config/messages.inc.php:340
 msgid "Permanent query history"
