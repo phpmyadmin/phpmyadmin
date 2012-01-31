@@ -4902,6 +4902,8 @@ msgstr "Comprimă conexiunea"
 #: libraries/config/messages.inc.php:380
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgstr ""
+"Cum se realizează conexiunea la server, lăsați [kbd]tcp[/kbd] dacă nu "
+"sunteți sigur"
 
 #: libraries/config/messages.inc.php:381
 msgid "Connection type"
