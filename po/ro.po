@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-01-31 14:38+0200\n"
+"PO-Revision-Date: 2012-01-31 14:51+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -4589,9 +4589,8 @@ msgid "Maximum number of tables displayed in table list"
 msgstr "Numărul maxim de tabele afișate în lista de tabele"
 
 #: libraries/config/messages.inc.php:316
-#, fuzzy
 msgid "Maximum tables"
-msgstr "Ascunde baze de date"
+msgstr "Numărul maxim de tabele"
 
 #: libraries/config/messages.inc.php:317
 msgid ""
