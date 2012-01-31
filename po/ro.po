@@ -5408,6 +5408,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
+"Afișează link-ul către output-ul "
+"[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a]"
 
 #: libraries/config/messages.inc.php:469
 msgid "Show phpinfo() link"
