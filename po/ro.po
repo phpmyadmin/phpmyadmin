@@ -5003,7 +5003,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:398
 msgid "SQL query history table"
-msgstr ""
+msgstr "Tabelă istoric interogări SQL"
 
 #: libraries/config/messages.inc.php:399
 msgid "Hostname where MySQL server is running"
