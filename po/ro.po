@@ -5152,8 +5152,9 @@ msgid "Signon session name"
 msgstr "Numele sesiunii signon"
 
 #: libraries/config/messages.inc.php:424
+#, fuzzy
 msgid "Signon URL"
-msgstr ""
+msgstr "ULR-ul signon"
 
 #: libraries/config/messages.inc.php:425
 #, fuzzy
