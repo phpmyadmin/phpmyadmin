@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-25 17:45+0100\n"
-"PO-Revision-Date: 2012-01-31 00:40+0200\n"
+"PO-Revision-Date: 2012-01-31 12:01+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -4392,120 +4392,128 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:259
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr ""
+msgstr "Importă procentele ca zecimale (12.00% ca .12)"
 
 #: libraries/config/messages.inc.php:260
-#, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start"
-msgstr "Number of records(queries) to skip from start"
+msgstr "Numărul de interogări peste care să sari de la început"
 
 #: libraries/config/messages.inc.php:261
 msgid "Partial import: skip queries"
-msgstr ""
+msgstr "Import parțial: sari peste interogări"
 
 #: libraries/config/messages.inc.php:263
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "Adaugă valoare pentru AUTO_INCREMENT"
+msgstr "Nu folosi AUTO_INCREMENT pentru valorile de zero"
 
 #: libraries/config/messages.inc.php:266
+#, fuzzy
 msgid "Initial state for sliders"
-msgstr ""
+msgstr "Starea inițială pentru slidere"
 
 #: libraries/config/messages.inc.php:267
 msgid "How many rows can be inserted at one time"
-msgstr ""
+msgstr "Câte rânduri pot fi inserate deodată"
 
 #: libraries/config/messages.inc.php:268
-#, fuzzy
 msgid "Number of inserted rows"
-msgstr "Numărul de rînduri sortate."
+msgstr "Numărul de rânduri inserate"
 
 #: libraries/config/messages.inc.php:269
 msgid "Target for quick access icon"
-msgstr ""
+msgstr "Ținta iconiței de acces rapid"
 
 #: libraries/config/messages.inc.php:270
 msgid "Show logo in left frame"
-msgstr ""
+msgstr "Afișează logo în cadrul din stânga"
 
 #: libraries/config/messages.inc.php:271
 msgid "Display logo"
-msgstr ""
+msgstr "Afișează logo"
 
 #: libraries/config/messages.inc.php:272
 msgid "Display server choice at the top of the left frame"
 msgstr ""
+"Afișează meniul de alegere a server-ului în partea de sus a cadrului din "
+"stânga"
 
 #: libraries/config/messages.inc.php:273
 msgid "Display servers selection"
-msgstr ""
+msgstr "Afișează colecția de servere"
 
 #: libraries/config/messages.inc.php:274
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "Minimum number of tables to display the table filter box"
-msgstr "Numărul de tabele ce sînt deschise."
+msgstr "Numărul minim de tabele pentru a afişa caseta cu filtrul de tabele"
 
 #: libraries/config/messages.inc.php:275
+#, fuzzy
 msgid "String that separates databases into different tree levels"
 msgstr ""
+"Șir de caractere care separă bazele de date în diferite niveluri ale "
+"arborelui"
 
 #: libraries/config/messages.inc.php:276
-#, fuzzy
 msgid "Database tree separator"
-msgstr "Șablon nume fișier"
+msgstr "Separator arbore baze de date"
 
 #: libraries/config/messages.inc.php:277
 msgid ""
 "Only light version; display databases in a tree (determined by the separator "
 "defined below)"
 msgstr ""
+"Doar versiunea light; afișează bazele de date într-un arbore (determinat de "
+"separatorul definit mai jos)"
 
 #: libraries/config/messages.inc.php:278
 msgid "Display databases in a tree"
-msgstr ""
+msgstr "Afișează bazele de date într-un arbore"
 
 #: libraries/config/messages.inc.php:279
 msgid "Disable this if you want to see all databases at once"
 msgstr ""
+"Dezactivați această opțiune dacă doriți să vizualizați toate bazele de date "
+"simultan"
 
 #: libraries/config/messages.inc.php:280
-#, fuzzy
 msgid "Use light version"
-msgstr "Versiunea clientului MySQL"
+msgstr "Folosiți versiunea light"
 
 #: libraries/config/messages.inc.php:281
 msgid "Maximum table tree depth"
-msgstr ""
+msgstr "Adâncimea maximă a arborelui de tabele"
 
 #: libraries/config/messages.inc.php:282
 msgid "String that separates tables into different tree levels"
 msgstr ""
+"Șir de caractere care separă tabelele în diferite niveluri ale arborelui"
 
 #: libraries/config/messages.inc.php:283
 msgid "Table tree separator"
-msgstr ""
+msgstr "Separator arbore tabele"
 
 #: libraries/config/messages.inc.php:284
 msgid "URL where logo in the navigation frame will point to"
-msgstr ""
+msgstr "URL-ul către care va indica logo-ul din cadrul de navigare"
 
 #: libraries/config/messages.inc.php:285
 msgid "Logo link URL"
-msgstr ""
+msgstr "URL-ul către care indică link-ul logo-ului"
 
 #: libraries/config/messages.inc.php:286
+#, fuzzy
 msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
 msgstr ""
+"Deschide pagina link-ată în fereastra principală ([kbd]main[/kbd]) sau "
+"într-o fereastră nouă ([kbd]new[/kbd])"
 
 #: libraries/config/messages.inc.php:287
 msgid "Logo link target"
-msgstr ""
+msgstr "Ținta link-ului din logo"
 
 #: libraries/config/messages.inc.php:288
 msgid "Highlight server under the mouse cursor"
