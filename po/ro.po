@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-01-31 15:07+0200\n"
+"PO-Revision-Date: 2012-01-31 15:09+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -4688,7 +4688,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:334
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr ""
+msgstr "Tabele de stocare a configurării phpMyAdmin absente"
 
 #: libraries/config/messages.inc.php:336
 msgid "Iconic table operations"
