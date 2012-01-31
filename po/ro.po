@@ -4779,6 +4779,8 @@ msgstr "Reține sortarea tabelei"
 #: libraries/config/messages.inc.php:354
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr ""
+"Repetă header-ul la fiecare X celule, [kbd]0[/kbd] dezactivează această "
+"opțiune"
 
 #: libraries/config/messages.inc.php:355
 #, fuzzy
