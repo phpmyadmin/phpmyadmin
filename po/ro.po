@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-01-31 15:04+0200\n"
+"PO-Revision-Date: 2012-01-31 15:05+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -4651,8 +4651,9 @@ msgstr ""
 "folosește GZip output buffering pentru viteză mărită în transferurile HTTP"
 
 #: libraries/config/messages.inc.php:328
+#, fuzzy
 msgid "GZip output buffering"
-msgstr ""
+msgstr "GZip output buffering"
 
 #: libraries/config/messages.inc.php:329
 msgid ""
