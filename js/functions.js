@@ -1164,10 +1164,11 @@ $(document).ready(function(){
         codemirror_editor.refresh();
 
         $(".btnSave").click(function(){
-            if( codemirror_editor!==undefined )
+            if (codemirror_editor !== undefined) {
                 var sql_query = codemirror_editor.getValue();
-            else
+            } else {
                 var sql_query = $(this).prev().val();
+            }
             var $fake_form = $('<form>', {action: 'import.php', method: 'post'})
                     .append($form.find("input[name=server], input[name=db], input[name=table], input[name=token]").clone())
                     .append($('<input>', {type: 'hidden', name: 'show_query', value: 1}))
