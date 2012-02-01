@@ -48,4 +48,3 @@ class PMA_Theme_Manager_test extends PHPUnit_Framework_TestCase
 
 }
 ?>
-
