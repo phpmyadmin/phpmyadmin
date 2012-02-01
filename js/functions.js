@@ -1150,8 +1150,25 @@ $(document).ready(function(){
         new_content    += "<input type=\"button\" class=\"btnSave\" value=\"" + PMA_messages['strGo'] + "\">\n";
         new_content    += "<input type=\"button\" class=\"btnDiscard\" value=\"" + PMA_messages['strCancel'] + "\">\n";
         $inner_sql.replaceWith(new_content);
+
+        // These settings are duplicated from the .ready()function in functions.js
+        var height = $('#sql_query_edit').css('height');
+        codemirror_editor = CodeMirror.fromTextArea($('textarea[name="sql_query_edit"]')[0], {
+            lineNumbers: true,
+            matchBrackets: true,
+            indentUnit: 4,
+            mode: "text/x-mysql",
+            lineWrapping: true
+        });
+        codemirror_editor.getScrollerElement().style.height = height;
+        codemirror_editor.refresh();
+
         $(".btnSave").click(function(){
-            var sql_query = $(this).prev().val();
+            if (codemirror_editor !== undefined) {
+                var sql_query = codemirror_editor.getValue();
+            } else {
+                var sql_query = $(this).prev().val();
+            }
             var $fake_form = $('<form>', {action: 'import.php', method: 'post'})
                     .append($form.find("input[name=server], input[name=db], input[name=table], input[name=token]").clone())
                     .append($('<input>', {type: 'hidden', name: 'show_query', value: 1}))
