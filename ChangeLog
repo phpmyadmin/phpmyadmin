@@ -70,6 +70,7 @@ phpMyAdmin - ChangeLog
 + patch #3303195 [interface] Checkbox to have SQL input remain
 - patch #3472899 [export] Fixed CSV escape for the export
 - patch #3475424 [import] Fixed CSV escape for the import
+- bug #3482734 [interface] No warning on syntax error in search form 
 
 3.4.11.0 (not yet released)
 
