@@ -73,7 +73,13 @@ $(document).ready(function() {
                  PMA_init_slider();
             } else {
                 // error message (zero rows)
-                $("#sqlqueryresults").html(response['message']);
+                if (response.message != undefined) {
+                    $("#sqlqueryresults").html(response['message']);
+                }
+                // other error (syntax error?)
+                if (response.error != undefined) {
+                    $("#sqlqueryresults").html(response['error']);
+                }
             }
         }) // end $.post()
     })
