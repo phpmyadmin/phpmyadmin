@@ -12444,6 +12444,9 @@ msgid ""
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
+"K tomuto dochází, pokud příliš mnoho dotazů, včetně slučovacích dotazů, musí "
+"řadit výsledky nebo procházet celou tabulku. Přidáním vhodných klíčů můžete "
+"tyto čtení omezit."
 
 #: po/advisory_rules.php:138
 #, php-format
