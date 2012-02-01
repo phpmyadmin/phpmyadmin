@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-01-31 12:15+0200\n"
+"PO-Revision-Date: 2012-01-31 23:33+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -12444,6 +12444,9 @@ msgid ""
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
+"K tomuto dochází, pokud příliš mnoho dotazů, včetně slučovacích dotazů, musí "
+"řadit výsledky nebo procházet celou tabulku. Přidáním vhodných klíčů můžete "
+"tyto čtení omezit."
 
 #: po/advisory_rules.php:138
 #, php-format
@@ -12493,6 +12496,9 @@ msgid ""
 "wish to increase the in-memory table limit you will have to increase the "
 "other value as well."
 msgstr ""
+"Pokud jste změnili jednu z těchto hodnot: Server používá určí maximální "
+"velikost tabulek v paměti podle nižší hodnoty z těchto proměnných. Pokud "
+"chcete tuto velikost zvýšit, musíte zvýšit obě dvě."
 
 #: po/advisory_rules.php:148
 #, php-format
@@ -12528,6 +12534,8 @@ msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
+"%s%% všech dočasných tabulek je zapisováno na disk, tato hodnota by měla být "
+"pod 25%%"
 
 #: po/advisory_rules.php:155
 msgid "Temp disk rate"
