@@ -12626,6 +12626,8 @@ msgstr "Procento čtení klíčů z paměti"
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgstr ""
+"Procento klíčů, které používají vyrovnávací paměť klíčů MyISAM, je příliš "
+"nízké."
 
 #: po/advisory_rules.php:177
 msgid "You may need to increase {key_buffer_size}."
