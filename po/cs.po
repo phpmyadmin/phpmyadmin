@@ -12620,7 +12620,7 @@ msgstr ""
 
 #: po/advisory_rules.php:175
 msgid "Percentage of index reads from memory"
-msgstr ""
+msgstr "Procento čtení klíčů z paměti"
 
 #: po/advisory_rules.php:176
 #, php-format
