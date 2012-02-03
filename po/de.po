@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2011-12-17 15:45+0200\n"
-"Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
+"PO-Revision-Date: 2012-02-02 14:27+0200\n"
+"Last-Translator: cybot <pma@sebastianmendel.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -849,7 +849,7 @@ msgstr "Der gewählte Export-Typ kann nur als Datei exportiert werden!"
 
 #: export.php:106
 msgid "Bad parameters!"
-msgstr "Ungültiger Parameter!"
+msgstr "Ungültige Parameter!"
 
 #: export.php:166 export.php:191 export.php:652
 #, php-format
@@ -874,11 +874,11 @@ msgstr "Der Webserver hat keine Schreibrechte um die Datei %s zu speichern."
 #: export.php:654
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr "Dump wurde in Datei %s gespeichert."
+msgstr "Auflistung wurde in Datei %s gespeichert."
 
 #: file_echo.php:21
 msgid "Invalid export type"
-msgstr "Ungültiger Exporttyp"
+msgstr "Ungültiger Typ für Export."
 
 #: gis_data_editor.php:84
 #, php-format
@@ -887,7 +887,7 @@ msgstr "Wert für die Spalte \"%s\""
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr "Verwende OpenStreetMaps als Basis-Layer"
+msgstr "Verwende OpenStreetMaps als Basis-Satz"
 
 #: gis_data_editor.php:134
 msgid "SRID"

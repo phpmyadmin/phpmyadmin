@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-01-31 23:33+0200\n"
+"PO-Revision-Date: 2012-02-02 15:07+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -12615,15 +12615,19 @@ msgstr "Procento využití vyrovnávací paměti MyISAM pro klíče"
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
+"Využití vyrovnávací paměti klíčů MyISAM: %s%%, tato hodnota by měla být nad "
+"95%%"
 
 #: po/advisory_rules.php:175
 msgid "Percentage of index reads from memory"
-msgstr ""
+msgstr "Procento čtení klíčů z paměti"
 
 #: po/advisory_rules.php:176
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgstr ""
+"Procento klíčů, které používají vyrovnávací paměť klíčů MyISAM, je příliš "
+"nízké."
 
 #: po/advisory_rules.php:177
 msgid "You may need to increase {key_buffer_size}."
@@ -12632,7 +12636,7 @@ msgstr "Mohlo by být potřeba zvýšit {key_buffer_size}."
 #: po/advisory_rules.php:178
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr ""
+msgstr "Čtení klíčů z paměti: %s%%, tato hodnota by měla být pod 95%%"
 
 #: po/advisory_rules.php:180
 msgid "Rate of table open"

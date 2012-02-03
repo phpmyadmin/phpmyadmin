@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-01-26 12:03+0200\n"
+"PO-Revision-Date: 2012-02-01 12:01+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3276,8 +3276,7 @@ msgstr "一般ユーザに「データベースを削除する」リンクを表
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
-msgstr ""
-"[kbd]cookie[/kbd] 認証においてクッキーの暗号化に使用される秘密のパスフレーズ"
+msgstr "[kbd]cookie[/kbd] 認証においてクッキーの暗号化に使用される非公開パスフレーズ"
 
 #: libraries/config/messages.inc.php:25
 msgid "Blowfish secret"
@@ -8518,9 +8517,7 @@ msgstr ""
 
 #: main.php:308
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
-msgstr ""
-"設定ファイルに、暗号化 (blowfish_secret) 用のパスフレーズの設定を必要とするよ"
-"うになりました。"
+msgstr "設定ファイルに、暗号化 (blowfish_secret) 用の非公開パスフレーズの設定を必要とするようになりました。"
 
 #: main.php:316
 msgid ""
@@ -10980,9 +10977,8 @@ msgid ""
 "so a key was automatically generated for you. It is used to encrypt cookies; "
 "you don't need to remember it."
 msgstr ""
-"blowfish 暗号のパスフレーズなしで cookie 認証が有効にされましたので、パスフ"
-"レーズを自動的に生成しました。パスフレーズはクッキーを暗号化するために使用さ"
-"れますが、管理者がそれを覚えておく必要はありません。"
+"blowfish 暗号のパスフレーズなしで cookie 認証が有効にされましたので、パスフレーズを自動的に生成しました。パスフレーズはクッキーを暗号化"
+"するために内部で使用されるもので、外部に知られないようにしておく必要はありますが、管理者がそれを覚えておく必要はありません。"
 
 #: setup/lib/index.lib.php:277
 #, php-format
@@ -11091,10 +11087,9 @@ msgid ""
 msgstr "%sZip 解凍%sには関数 (%s) が必要ですが、このシステムで使用できません。"
 
 #: setup/lib/index.lib.php:323
-#, fuzzy
 #| msgid "You should use SSL connections if your web server supports it."
 msgid "You should use SSL connections if your database server supports it."
-msgstr "ウェブサーバがサポートしているならば、SSL 接続を使用するべきです。"
+msgstr "データベースサーバがサポートしているならば、SSL 接続を使用するべきです。"
 
 #: setup/lib/index.lib.php:336
 msgid "You should use mysqli for performance reasons."

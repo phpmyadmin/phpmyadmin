@@ -11,8 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.1.6\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
@@ -11178,10 +11178,9 @@ msgstr ""
 "%sRazširjanje Zip%s zahteva funkcije (%s), ki na tem sistemu niso na voljo."
 
 #: setup/lib/index.lib.php:323
-#, fuzzy
 #| msgid "You should use SSL connections if your web server supports it."
 msgid "You should use SSL connections if your database server supports it."
-msgstr "Uporabite povezave SSL, če jih vaš spletni strežnik podpira."
+msgstr "Uporabite povezave SSL, če jih vaš strežnik zbirke podatkov podpira."
 
 #: setup/lib/index.lib.php:336
 msgid "You should use mysqli for performance reasons."
