@@ -11365,10 +11365,10 @@ msgstr ""
 "este sistema."
 
 #: setup/lib/index.lib.php:323
-#, fuzzy
 #| msgid "You should use SSL connections if your web server supports it."
 msgid "You should use SSL connections if your database server supports it."
-msgstr "Debe utilizar conexiones SSL si su servidor web lo soporta."
+msgstr ""
+"Debe utilizar conexiones SSL si su servidor de base de datos lo soporta."
 
 #: setup/lib/index.lib.php:336
 msgid "You should use mysqli for performance reasons."
