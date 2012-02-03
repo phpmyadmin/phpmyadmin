@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-03 14:59+0200\n"
+"PO-Revision-Date: 2012-02-03 15:00+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -5369,7 +5369,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:520
 msgid "Verbose multiple statements"
-msgstr "Çoklu ifadeler için fazla bilgi"
+msgstr "Ayrıntılı çoklu ifadeler"
 
 #: libraries/config/messages.inc.php:521 setup/frames/index.inc.php:243
 msgid "Check for latest version"
