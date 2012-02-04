@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-04 05:54+0200\n"
+"PO-Revision-Date: 2012-02-04 05:58+0200\n"
 "Last-Translator: minichip <holger@ronecker.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -12802,6 +12802,8 @@ msgstr "Größe des MyISAM Schlüssel-Cache"
 #: po/advisory_rules.php:161
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
+"Schlüssel-Cache nicht initialisiert. Es werden keine MyISAM Indizes "
+"gecached."
 
 #: po/advisory_rules.php:162
 msgid ""
