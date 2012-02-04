@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-03 17:12+0100\n"
+"PO-Revision-Date: 2012-02-04 10:37+0100\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -12860,10 +12860,9 @@ msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 
 #: po/advisory_rules.php:235
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Rate of aborted connections"
-msgstr "Trvalé připojení"
+msgstr "Četnost přerušených spojení"
 
 #: po/advisory_rules.php:238
 #, php-format
@@ -12891,13 +12890,12 @@ msgstr ""
 #: po/advisory_rules.php:243
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
-msgstr ""
+msgstr "%s%% všech klientů bylo přerušeno. Tato hodnota by měla být pod 2%%"
 
 #: po/advisory_rules.php:245
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of aborted clients"
-msgstr "Formát importovaného souboru"
+msgstr "Četnost přerušení klientů"
 
 #: po/advisory_rules.php:248
 #, php-format
@@ -12954,6 +12952,8 @@ msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
 msgstr ""
+"Poměr velikosti záznamu a rezervy vyrovnávací paměti InnoDB je %s%%, ale "
+"neměla by být pod 20%%"
 
 #: po/advisory_rules.php:260
 msgid "Max InnoDB log size"
@@ -12980,7 +12980,7 @@ msgstr ""
 #: po/advisory_rules.php:263
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr ""
+msgstr "Velikost záznamu InnoDB je %s MiB"
 
 #: po/advisory_rules.php:265
 msgid "InnoDB buffer pool size"
