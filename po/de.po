@@ -1536,10 +1536,10 @@ msgid "Differential"
 msgstr "Unterschied"
 
 #: js/messages.php:171
-#, fuzzy, php-format
+#, php-format
 #| msgid "Divided by %s:"
 msgid "Divided by %s"
-msgstr "Geteilt durch %s:"
+msgstr "Geteilt durch %s"
 
 #: js/messages.php:172
 msgid "Unit"
