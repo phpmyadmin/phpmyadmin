@@ -1858,7 +1858,7 @@ msgstr "Arama kriterini göster"
 
 #: js/messages.php:291 libraries/tbl_select.lib.php:110
 msgid "Zoom Search"
-msgstr "Yakınlaştırma Arama"
+msgstr "Odaklı Arama"
 
 #: js/messages.php:293
 msgid "Each point represents a data row."
