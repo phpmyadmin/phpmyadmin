@@ -8811,7 +8811,7 @@ msgstr "Wechseln klein/groß"
 #, fuzzy
 #| msgid "To select relation, click :"
 msgid "Toggle relation lines"
-msgstr "Um eine Relation auszuwählen, klicken Sie :"
+msgstr "Beziehungen anzeigen an/aus"
 
 #: pmd_general.php:104 pmd_pdf.php:76
 msgid "Import/Export coordinates for PDF schema"
