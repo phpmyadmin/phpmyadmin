@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-02 14:27+0200\n"
-"Last-Translator: cybot <pma@sebastianmendel.de>\n"
+"PO-Revision-Date: 2012-02-04 06:10+0200\n"
+"Last-Translator: minichip <holger@ronecker.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -789,9 +789,8 @@ msgid "Versions"
 msgstr "Versionen"
 
 #: db_tracking.php:136 tbl_tracking.php:415 tbl_tracking.php:683
-#, fuzzy
 msgid "Tracking report"
-msgstr "Verfolgungs-Report"
+msgstr "Verfolgungs-Bericht"
 
 #: db_tracking.php:137 tbl_tracking.php:235 tbl_tracking.php:685
 msgid "Structure snapshot"
@@ -878,7 +877,7 @@ msgstr "Auflistung wurde in Datei %s gespeichert."
 
 #: file_echo.php:21
 msgid "Invalid export type"
-msgstr "Ungültiger Typ für Export."
+msgstr "Ungültiger Typ für Export"
 
 #: gis_data_editor.php:84
 #, php-format
@@ -927,14 +926,15 @@ msgstr "Punkt hinzufügen"
 msgid "Linestring"
 msgstr "LineString"
 
+# Ankreis ist richtig http://de.wikipedia.org/wiki/Ankreis
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:325
-#, fuzzy
 msgid "Outer Ring"
 msgstr "Ankreis"
 
 # Ist hiermit der Inkreis gemeint? http://de.wikipedia.org/wiki/Inkreis
+# 
+# Ja
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:324
-#, fuzzy
 msgid "Inner Ring"
 msgstr "Inkreis"
 
@@ -943,7 +943,6 @@ msgid "Add a linestring"
 msgstr "LineString hinzufügen"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:327
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
 msgstr "Inkreis hinzufügen"
@@ -1105,7 +1104,7 @@ msgstr ""
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr "Sie sind dabei ein BLOB-Repository zu deaktivieren!"
+msgstr "Sie sind dabei ein BLOB-Repository zu DEAKTIVIEREN!"
 
 #: js/messages.php:41
 #, php-format
@@ -1537,10 +1536,10 @@ msgid "Differential"
 msgstr "Unterschied"
 
 #: js/messages.php:171
-#, fuzzy, php-format
+#, php-format
 #| msgid "Divided by %s:"
 msgid "Divided by %s"
-msgstr "Geteilt durch %s:"
+msgstr "Geteilt durch %s"
 
 #: js/messages.php:172
 msgid "Unit"
@@ -2871,7 +2870,7 @@ msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"Das <tt>$cfg['PmaAbsoluteUri']</tt>-Verzeichnis MUSS in Ihrer "
+"Das <tt>$cfg['PmaAbsoluteUri']</tt> Verzeichnis MUSS in Ihrer "
 "Konfigurationsdatei angegeben werden!"
 
 #: libraries/common.inc.php:650
@@ -5760,7 +5759,7 @@ msgstr "Anfangsdatensatz:"
 
 #: libraries/display_export.lib.php:168
 msgid "Dump all rows"
-msgstr "Alle Datensätze ausgeben"
+msgstr "Alle Datensätze exportieren"
 
 #: libraries/display_export.lib.php:176 libraries/display_export.lib.php:197
 msgid "Output:"
@@ -6910,10 +6909,10 @@ msgstr ""
 "Zum Ändern der Struktur auf den entsprechenden \"Struktur\"-Link klicken"
 
 #: libraries/import.lib.php:1106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to database"
 msgid "Go to database: %s"
-msgstr "Gehe zur Datenbank"
+msgstr "Gehe zur Datenbank: %s"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
 #, php-format
@@ -6921,10 +6920,10 @@ msgid "Edit settings for %s"
 msgstr "Einstellung für %s bearbeiten"
 
 #: libraries/import.lib.php:1127
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to table"
 msgid "Go to table: %s"
-msgstr "Gehe zur Tabelle"
+msgstr "Gehe zur Tabelle: %s"
 
 #: libraries/import.lib.php:1130
 #, php-format
@@ -6932,10 +6931,10 @@ msgid "Structure of %s"
 msgstr "Struktur von %s"
 
 #: libraries/import.lib.php:1136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to view"
 msgid "Go to view: %s"
-msgstr "Gehe zum View"
+msgstr "Gehe zur Ansicht: %s"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:33
 msgid ""
@@ -8809,10 +8808,9 @@ msgid "Toggle small/big"
 msgstr "Wechseln klein/groß"
 
 #: pmd_general.php:99
-#, fuzzy
 #| msgid "To select relation, click :"
 msgid "Toggle relation lines"
-msgstr "Um eine Relation auszuwählen, klicken Sie :"
+msgstr "Beziehungen anzeigen an/aus"
 
 #: pmd_general.php:104 pmd_pdf.php:76
 msgid "Import/Export coordinates for PDF schema"
@@ -10767,7 +10765,6 @@ msgid "Monitor Instructions"
 msgstr "Einführung zur Überwachung"
 
 #: server_status.php:1605
-#, fuzzy
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -11640,7 +11637,6 @@ msgid "Index name:"
 msgstr "Indexname:"
 
 #: tbl_indexes.php:188
-#, fuzzy
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
 msgstr ""
@@ -12429,10 +12425,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:80
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query cache efficiency (%)"
 msgid "Query cache efficiency (%%)"
-msgstr "Anfragen-Zwischenspeicher Effizienz (%)"
+msgstr "Anfragen-Zwischenspeicher Effizienz (%%)"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -12767,13 +12763,14 @@ msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
+"%s%% aller temporären Tabellen werden auf die Festplatte geschrieben, dieser "
+"Wert sollte unter 25%% liegen"
 
 #: po/advisory_rules.php:155
-#, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Temp disk rate"
-msgstr "%s Tabelle"
+msgstr "Temp Disk Rate"
 
 #: po/advisory_rules.php:157
 msgid ""
@@ -12794,35 +12791,38 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:160
-#, fuzzy
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer size"
-msgstr "Größe des Sortierungspuffers"
+msgstr "Größe des MyISAM Schlüssel-Cache"
 
 #: po/advisory_rules.php:161
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
+"Schlüssel-Cache nicht initialisiert. Es werden keine MyISAM Indizes "
+"gecached."
 
 #: po/advisory_rules.php:162
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
+"Setze {key_buffer_size} auf einen Wert, abhängig von Deinen MyISAM Indizes. "
+"64M ist ein guter Anfang."
 
 #: po/advisory_rules.php:163
 msgid "key_buffer_size is 0"
 msgstr "key_buffer_size ist 0"
 
 #: po/advisory_rules.php:165
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "Größe des Sortierungspuffers"
+msgstr "Max %% des MyISAM Schlüssel-Cache jemals benutzt"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, php-format
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr "Größe des Sortierungspuffers"
+msgstr "MyISAM Schlüssel-Cache (Indize Cache) %% benutz ist niedrig."
 
 #: po/advisory_rules.php:167 po/advisory_rules.php:172
 msgid ""
@@ -12832,11 +12832,13 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:168
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
-msgstr "Größe des Sortierungspuffers"
+msgstr ""
+"maximal wurden %% des MyISAM Sortierungspuffers benutzt: %s%%, dieser Wert "
+"sollte über 95%% liegen"
 
 #: po/advisory_rules.php:170
 #, fuzzy
@@ -12932,10 +12934,10 @@ msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:195
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Immediate table locks %%"
-msgstr "Neue Tabelle in Datenbank %s erstellen"
+msgstr ""
 
 #: po/advisory_rules.php:196 po/advisory_rules.php:201
 #, fuzzy
@@ -12984,7 +12986,7 @@ msgstr ""
 #: po/advisory_rules.php:210
 #, php-format
 msgid "Thread cache hit rate %%"
-msgstr "Tracking ist nicht aktiviert."
+msgstr ""
 
 #: po/advisory_rules.php:211
 #, fuzzy
