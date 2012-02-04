@@ -12990,7 +12990,7 @@ msgstr ""
 #: po/advisory_rules.php:210
 #, php-format
 msgid "Thread cache hit rate %%"
-msgstr "Tracking ist nicht aktiviert."
+msgstr ""
 
 #: po/advisory_rules.php:211
 #, fuzzy
