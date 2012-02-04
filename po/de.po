@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-04 06:05+0200\n"
+"PO-Revision-Date: 2012-02-04 06:09+0200\n"
 "Last-Translator: minichip <holger@ronecker.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -5759,7 +5759,7 @@ msgstr "Anfangsdatensatz:"
 
 #: libraries/display_export.lib.php:168
 msgid "Dump all rows"
-msgstr "Alle Datensätze ausgeben"
+msgstr "Alle Datensätze exportieren"
 
 #: libraries/display_export.lib.php:176 libraries/display_export.lib.php:197
 msgid "Output:"
