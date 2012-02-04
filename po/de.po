@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-04 06:09+0200\n"
+"PO-Revision-Date: 2012-02-04 06:10+0200\n"
 "Last-Translator: minichip <holger@ronecker.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -926,14 +926,15 @@ msgstr "Punkt hinzufügen"
 msgid "Linestring"
 msgstr "LineString"
 
+# Ankreis ist richtig http://de.wikipedia.org/wiki/Ankreis
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:325
-#, fuzzy
 msgid "Outer Ring"
 msgstr "Ankreis"
 
 # Ist hiermit der Inkreis gemeint? http://de.wikipedia.org/wiki/Inkreis
+# 
+# Ja
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:324
-#, fuzzy
 msgid "Inner Ring"
 msgstr "Inkreis"
 
@@ -942,7 +943,6 @@ msgid "Add a linestring"
 msgstr "LineString hinzufügen"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:327
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
 msgstr "Inkreis hinzufügen"
@@ -8808,7 +8808,6 @@ msgid "Toggle small/big"
 msgstr "Wechseln klein/groß"
 
 #: pmd_general.php:99
-#, fuzzy
 #| msgid "To select relation, click :"
 msgid "Toggle relation lines"
 msgstr "Beziehungen anzeigen an/aus"
@@ -10766,7 +10765,6 @@ msgid "Monitor Instructions"
 msgstr "Einführung zur Überwachung"
 
 #: server_status.php:1605
-#, fuzzy
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -11639,7 +11637,6 @@ msgid "Index name:"
 msgstr "Indexname:"
 
 #: tbl_indexes.php:188
-#, fuzzy
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
 msgstr ""
