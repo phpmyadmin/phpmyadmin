@@ -1104,7 +1104,7 @@ msgstr ""
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr "Sie sind dabei ein BLOB-Repository zu deaktivieren!"
+msgstr "Sie sind dabei ein BLOB-Repository zu DEAKTIVIEREN!"
 
 #: js/messages.php:41
 #, php-format
