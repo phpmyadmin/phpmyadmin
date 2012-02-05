@@ -12362,7 +12362,7 @@ msgstr "MySQL instrukcji tylko jest dokładna dla oficjalnych binarnych MySQL."
 
 #: po/advisory_rules.php:57
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
-msgstr "Dokumentacja Percona jest na http://www.percona.com/docs/wiki"
+msgstr "Dokumentacja Percona jest na www.percona.com/docs/wiki"
 
 #: po/advisory_rules.php:58
 msgid "'percona' found in version_comment"
