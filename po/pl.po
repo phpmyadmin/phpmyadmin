@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-06 20:30+0200\n"
+"PO-Revision-Date: 2012-02-06 20:33+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -7981,7 +7981,7 @@ msgstr "Nazwa strony"
 
 #: libraries/schema/User_Schema.class.php:126
 msgid "Automatic layout based on"
-msgstr "Automatic layout based on"
+msgstr "Automatyczny układ oparty na"
 
 #: libraries/schema/User_Schema.class.php:129
 msgid "Internal relations"
