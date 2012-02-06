@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-06 12:06+0200\n"
+"PO-Revision-Date: 2012-02-06 12:07+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -9418,10 +9418,9 @@ msgid "Any"
 msgstr "Οποιοδήποτε"
 
 #: server_privileges.php:1565
-#, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
-msgstr "Περίληψη χρηστών"
+msgstr "Επισκόπηση χρηστών"
 
 #: server_privileges.php:1705 server_privileges.php:1899
 #: server_privileges.php:2258
