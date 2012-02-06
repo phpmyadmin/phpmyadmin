@@ -10770,7 +10770,6 @@ msgid "Using the monitor:"
 msgstr "Χρήση της εποπτείας"
 
 #: server_status.php:1625
-#, fuzzy
 #| msgid ""
 #| "Ok, you are good to go! Once you click 'Start monitor' your browser will "
 #| "refresh all displayed charts in a regular interval. You may add charts "
@@ -10781,11 +10780,10 @@ msgid ""
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
-"Εντάξει, μπορείς να πηγαίνετε! Μόλις πατήσετε το «Έναρξη εποπτείας» ο "
-"φυλλομετρητής σας θα ανανεώσει όλα τα προβαλλόμενα διαγράμματα σε τακτό "
-"χρονικό διάστημα. Μπορείτε να προσθέσετε διαγράμματα και να αλλάξετε το "
-"ρυθμό ανανέωσης από τις «Ρυθμίσεις» ή να απομακρύνετε οποιοδήποτε διάγραμμα "
-"πατώντας το γρανάζι σε κάθε διάγραμμα."
+"Ο φυλλομετρητής σας θα ανανεώσει όλα τα εμφανιζόμενα διαγράμματα ανά "
+"ορισμένο διάστημα. Μπορείτε να προσθέσετε διαγράμματα και να αλλάξετε το "
+"ρυθμό ανανέωσης στη «Ρυθμίσεις», ή να απομακρύνεται οποιοδήποτε διάγραμμα "
+"χρηισιμποιώντας το εικονίδιο διαγραφής στο αντίστοιχο διάγραμμα."
 
 #: server_status.php:1627
 msgid ""
