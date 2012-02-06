@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-05 21:44+0100\n"
+"PO-Revision-Date: 2012-02-06 09:58+0100\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -12857,6 +12857,9 @@ msgid ""
 "source-of-aborted_connects/\">This article</a> might help you track down the "
 "source."
 msgstr ""
+"Připojení jsou obvykle přerušena pokud nemůže být autorizováno. <a href="
+"\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
+"source-of-aborted_connects/\">Tento článek</a> vám může pomoc najít příčinu."
 
 #: po/advisory_rules.php:233
 #, php-format
@@ -12890,6 +12893,9 @@ msgid ""
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
+"Klienti jsou obvykle přerušeni pokud korektně neukončí připojení k serveru. "
+"Toto může být způsobeno problémy na síti nebo chybným kódem klienta, který "
+"spojení neukončí. Prosím zkontrolujte obě tyto možnosti."
 
 #: po/advisory_rules.php:243
 #, php-format
@@ -12929,12 +12935,12 @@ msgid "InnoDB log size"
 msgstr "Velikost záznamu InnoDB"
 
 #: po/advisory_rules.php:256
-#, fuzzy
 #| msgid "The number writes done to the InnoDB buffer pool."
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
-msgstr "Počet zápisů provedených do InnoDB bufferu."
+msgstr ""
+"Velikost záznamu InnoDB neodpovídá velikosti vyrovnávací paměti InnoDB."
 
 #: po/advisory_rules.php:257
 #, php-format
@@ -13017,6 +13023,10 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
+"V současné době používáte %s%% vaší paměti pro vyrovnávací paměť InnoDB. "
+"Tato kontrola je aktivní pokud je to méně než 60%%, ale vaše nastavení může "
+"být přesto správné, pokud nemáte mnoho InnoDB tabulek nebo na tomto počítači "
+"běží i další služby."
 
 #: po/advisory_rules.php:270
 msgid "MyISAM concurrent inserts"
@@ -13032,6 +13042,9 @@ msgid ""
 "writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
+"Nastavením {concurrent_insert} na 1 omezíte blokování mezi čtením a zápisem "
+"pro jednotlivé tabulky. Podrobněji je toto popsáno v <a href=\"http://dev."
+"mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">dokumentaci MySQL</a>."
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
