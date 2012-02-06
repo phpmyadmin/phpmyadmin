@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-06 10:39+0100\n"
+"PO-Revision-Date: 2012-02-06 11:08+0100\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -12432,6 +12432,11 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
+"Toto obvykle znamená, že dochází k častému procházení celých klíčů. Toto je "
+"sice rychlejší než procházení celých tabulek, ale přesto se jedná o poměrně "
+"náročnou operaci. Pokud jsou některé z velkých tabulek často měněny dotazy "
+"UPDATE nebo DELETE, spuštěním „OPTIMIZE TABLE“ můžete situaci vylepšit. "
+"Kromě toho je možné se procházení klíčů vyhnout jen přepsáním dotazů."
 
 #: po/advisory_rules.php:133
 #, php-format
@@ -12536,6 +12541,12 @@ msgid ""
 "mentioned in the beginning of an <a href=\"http://www.facebook.com/note.php?"
 "note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
+"Může pomoci zvětšení {max_heap_table_size} a {tmp_table_size}. Některé "
+"dočasné tabulky jsou však zapisovány na disk bez ohledu na tato nastavení. "
+"Jich se můžete zbavit jen přepsáním dotazů a obejitím těchto podmínek "
+"(přítomnost polí BLOB, TEXT nebo jiných větších než 512 bajtů). Podrobněji "
+"je tato problematika popsána na začátku <a href=\"http://www.facebook.com/"
+"note.php?note_id=10150111255065841&comments\">článku od Pythian Group</a>."
 
 #: po/advisory_rules.php:153
 #, php-format
