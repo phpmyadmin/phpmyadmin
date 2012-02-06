@@ -7738,7 +7738,7 @@ msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
 msgstr[0] "%d wiersz dotyczy ostatniego sprawozdania wewnątrz procedury"
 msgstr[1] "%d wierszy dotyczy ostatniego sprawozdania wewnątrz procedury"
-msgstr[2] ""
+msgstr[2] "%d wierszy dotyczy ostatniego sprawozdania wewnątrz procedury"
 
 #: libraries/rte/rte_routines.lib.php:1226
 #, php-format
@@ -10888,7 +10888,7 @@ msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d minut"
 msgstr[1] "%d minuty"
-msgstr[2] "na minutę"
+msgstr[2] "%d minuty"
 
 #: server_synchronize.php:99
 msgid "Could not connect to the source"
@@ -11210,7 +11210,7 @@ msgid ""
 "proxies list%s. However, IP-based protection may not be reliable if your IP "
 "belongs to an ISP where thousands of users, including you, are connected to."
 msgstr ""
-"Ta %opcion%s powinna być wyłączona, ponieważ umożliwia atakującemu na "
+"Ta %sopcion%s powinna być wyłączona, ponieważ umożliwia atakującemu na "
 "zalogowanie bruteforce do dowolnego serwera MySQL. Jeśli uważasz, że jest to "
 "konieczne, należy użyć %strusted proxies list%s. Jednak ochrona oparta na "
 "protokole IP mogą nie być wiarygodne, jeśli Twój adres IP należy do ISP, w "
