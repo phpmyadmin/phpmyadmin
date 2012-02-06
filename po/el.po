@@ -6899,10 +6899,10 @@ msgid "Edit structure by following the \"Structure\" link"
 msgstr "Επεξεργαστείτε τη δομή πατώντας τον σύνδεσμο «Δομή»"
 
 #: libraries/import.lib.php:1106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to database"
 msgid "Go to database: %s"
-msgstr "Μετάβαση στη βάση δεδομένων"
+msgstr "Μετάβαση στη βάση δεδομένων: %s"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
 #, php-format
