@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-06 20:33+0200\n"
+"PO-Revision-Date: 2012-02-06 20:36+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -8236,7 +8236,7 @@ msgstr "SUROWE DANE DOTĄD"
 
 #: libraries/sqlparser.lib.php:382
 msgid "Automatically appended backtick to the end of query!"
-msgstr "Automatically appended backtick to the end of query!"
+msgstr "Automatycznie dołączany lewy apostrof do końca zapytania!"
 
 #: libraries/sqlparser.lib.php:385
 msgid "Unclosed quote"
