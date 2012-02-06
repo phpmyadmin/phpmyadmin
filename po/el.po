@@ -8053,10 +8053,9 @@ msgid "Current Server"
 msgstr "Τρέχων διακομιστής"
 
 #: libraries/server_links.inc.php:60
-#, fuzzy
 #| msgid "User"
 msgid "Users"
-msgstr "Χρήστης"
+msgstr "Χρήστες"
 
 #: libraries/server_links.inc.php:79 server_synchronize.php:1154
 #: server_synchronize.php:1162
