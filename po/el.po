@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-02 14:30+0200\n"
+"PO-Revision-Date: 2012-02-06 12:05+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -6717,7 +6717,6 @@ msgid "Add statements:"
 msgstr "Προσθήκη δηλώσεων:"
 
 #: libraries/export/sql.php:211
-#, fuzzy
 #| msgid ""
 #| "e table and field names with backquotes <i>(Protects field and le names "
 #| "med with special characters or keywords)</i>"
@@ -6725,8 +6724,8 @@ msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
-"Εσωκλείνει ονόματα πίνακα και πεδίων με ανάποδα εισαγωγικά <i>(Προστατεύει "
-"τα ονόματα πεδίων και πινάκων που δημιουργήθηκαν με ειδικούς χαρακτήρες ή "
+"Εσωκλείει ονόματα πίνακα και πεδίων με ανάποδα εισαγωγικά <i>(Προστατεύει τα "
+"ονόματα πεδίων και πινάκων που δημιουργήθηκαν με ειδικούς χαρακτήρες ή "
 "λέξεις-κλειδιά)</i>"
 
 #: libraries/export/sql.php:231
