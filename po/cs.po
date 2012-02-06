@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-06 09:58+0100\n"
+"PO-Revision-Date: 2012-02-06 11:37+0100\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -12319,6 +12319,14 @@ msgid ""
 "(often invalidated due to table updates) increasing {query_cache_limit} "
 "might reduce efficiency."
 msgstr ""
+"Změněním {query_cache_limit} (obvykle zvýšením) můžete zvýšit efektivitu. "
+"Tato proměnná určuje maximální velikost výsledku dotazu, který bude uložen "
+"ve vyrovnávací paměti. Pokud máte mnoho výsledků dotazů nad 1 MiB, které "
+"jsou vhodné ke cachování (jsou často čteny a minimálně zapisovány), tak "
+"zvýšením {query_cache_limit} zvýšíte úspěšnost vyrovnávací paměti. Na druhou "
+"stranu, pokud dotazy nad 1 MiB nejsou vhodné ke cachování (například se daná "
+"tabulka příliš často mění), zvýšením {query_cache_limit} pravděpodobně "
+"úspěšnost snížíte."
 
 #: po/advisory_rules.php:108
 msgid "query_cache_limit is set to 1 MiB"
@@ -12424,6 +12432,11 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
+"Toto obvykle znamená, že dochází k častému procházení celých klíčů. Toto je "
+"sice rychlejší než procházení celých tabulek, ale přesto se jedná o poměrně "
+"náročnou operaci. Pokud jsou některé z velkých tabulek často měněny dotazy "
+"UPDATE nebo DELETE, spuštěním „OPTIMIZE TABLE“ můžete situaci vylepšit. "
+"Kromě toho je možné se procházení klíčů vyhnout jen přepsáním dotazů."
 
 #: po/advisory_rules.php:133
 #, php-format
@@ -12528,6 +12541,12 @@ msgid ""
 "mentioned in the beginning of an <a href=\"http://www.facebook.com/note.php?"
 "note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
+"Může pomoci zvětšení {max_heap_table_size} a {tmp_table_size}. Některé "
+"dočasné tabulky jsou však zapisovány na disk bez ohledu na tato nastavení. "
+"Jich se můžete zbavit jen přepsáním dotazů a obejitím těchto podmínek "
+"(přítomnost polí BLOB, TEXT nebo jiných větších než 512 bajtů). Podrobněji "
+"je tato problematika popsána na začátku <a href=\"http://www.facebook.com/"
+"note.php?note_id=10150111255065841&comments\">článku od Pythian Group</a>."
 
 #: po/advisory_rules.php:153
 #, php-format
@@ -12552,6 +12571,12 @@ msgid ""
 "mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
+"Může pomoci zvětšení {max_heap_table_size} a {tmp_table_size}. Některé "
+"dočasné tabulky jsou však zapisovány na disk bez ohledu na tato nastavení. "
+"Jich se můžete zbavit jen přepsáním dotazů a obejitím těchto podmínek "
+"(přítomnost polí BLOB, TEXT nebo jiných větších než 512 bajtů). Více se "
+"můžete dozvědět v <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
+"temporary-tables.html\">dokumentaci MySQL</a>."
 
 #: po/advisory_rules.php:158
 #, php-format
@@ -12599,6 +12624,9 @@ msgid ""
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
+"Můžete potřebovat snížit velikost {key_buffer_size}, projít tabulky, jestli "
+"nebyly odstraněny nějaké klíče, případně prozkoumat jestli dotazy klíče "
+"správně využívají."
 
 #: po/advisory_rules.php:168
 #, php-format
@@ -12835,6 +12863,9 @@ msgid ""
 "do not close database handlers properly get killed sooner. Make sure the "
 "code closes database handlers properly."
 msgstr ""
+"Zvyšte max_connections, nebo snižte wait_timeout tak, aby byla rychleji "
+"uzavřena připojení, která nebyla správně ukončena. Ujistěte se, že klienti "
+"správně ukončují připojení k databázi."
 
 #: po/advisory_rules.php:228
 #, php-format
@@ -12955,6 +12986,16 @@ msgid ""
 "fine. See also <a href=\"http://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
+"Obzvláště na systémech s hodně zápisy do InnoDB je vhodne nastavit "
+"innodb_log_file_size na 25%% {innodb_buffer_pool_size}. Na druhou stranu čím "
+"větší je hodnota, tím déle bude trvat obnova databáze v případě problému, "
+"takže není vhodné mít tuto hodnotu nastaveno na více než 256 MiB. Prosím "
+"uvědomte si, že tato hodnota nemůže být přímo změněna. Musí být ukončen "
+"server, odstraněny záznamy Inno DB a až poté změněna hodnota v my.cnf a "
+"znovu spuštěn server. Poté zkontrolujte chybové záznamy MySQL, jestli "
+"všechno proběhlo v pořádku. Více viz <a href=\"http://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">zápisek v blogu</a>."
 
 #: po/advisory_rules.php:258
 #, php-format
@@ -12986,6 +13027,17 @@ msgid ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">this blog entry</a>"
 msgstr ""
+"Obvykle je dostačující mít nastavené innodb_log_file_size na 25%% velikosti "
+"{innodb_buffer_pool_size}. Příliš velká innodb_log_file_size zpomaluje "
+"obnovení databáze v případě jejího pádu nebo problémů s hardware. Více "
+"informací naleznete v <a href=\"http://www.mysqlperformanceblog."
+"com/2006/07/03/choosing-proper-innodb_log_file_size/\">tomto článku</a>. "
+"Prosím uvědomte si, že tato hodnota nemůže být přímo změněna. Musí být "
+"ukončen server, odstraněny záznamy Inno DB a až poté změněna hodnota v my."
+"cnf a znovu spuštěn server. Poté zkontrolujte chybové záznamy MySQL, jestli "
+"všechno proběhlo v pořádku. Více viz <a href=\"http://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">zápisek v blogu</a>."
 
 #: po/advisory_rules.php:263
 #, php-format
@@ -13014,6 +13066,15 @@ msgid ""
 "\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
+"Velikost vyrovnávací paměti InnoDB má výrazný efekt na výkon InnoDB tabulek. "
+"Přiřaďte jí proto zbývající volnou paměť. Pro servery, které používají "
+"výhradně InnoDB a neposkytují žádné další služby (např. webserver), ji "
+"můžete nastavit až na 80%% velikosti paměti. Pokud to není váš případ, "
+"pečlivě zvažte spotřebu paměti ostatními službami a podle toho nastavte tuto "
+"hodnotu. Pokud ji nastavíte příliš velkou, váš systém začne využívat "
+"odkládací paměť, což výrazně zhorší jeho celkový výkon. Více informací "
+"naleznete v <a href=\"http://www.mysqlperformanceblog.com/2007/11/03/"
+"choosing-innodb_buffer_pool_size/\">tomto článku</a>."
 
 #: po/advisory_rules.php:268
 #, php-format
