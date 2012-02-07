@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-02 14:30+0200\n"
+"PO-Revision-Date: 2012-02-06 12:18+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -6717,7 +6717,6 @@ msgid "Add statements:"
 msgstr "Προσθήκη δηλώσεων:"
 
 #: libraries/export/sql.php:211
-#, fuzzy
 #| msgid ""
 #| "e table and field names with backquotes <i>(Protects field and le names "
 #| "med with special characters or keywords)</i>"
@@ -6725,8 +6724,8 @@ msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
-"Εσωκλείνει ονόματα πίνακα και πεδίων με ανάποδα εισαγωγικά <i>(Προστατεύει "
-"τα ονόματα πεδίων και πινάκων που δημιουργήθηκαν με ειδικούς χαρακτήρες ή "
+"Εσωκλείει ονόματα πίνακα και πεδίων με ανάποδα εισαγωγικά <i>(Προστατεύει τα "
+"ονόματα πεδίων και πινάκων που δημιουργήθηκαν με ειδικούς χαρακτήρες ή "
 "λέξεις-κλειδιά)</i>"
 
 #: libraries/export/sql.php:231
@@ -6900,10 +6899,10 @@ msgid "Edit structure by following the \"Structure\" link"
 msgstr "Επεξεργαστείτε τη δομή πατώντας τον σύνδεσμο «Δομή»"
 
 #: libraries/import.lib.php:1106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to database"
 msgid "Go to database: %s"
-msgstr "Μετάβαση στη βάση δεδομένων"
+msgstr "Μετάβαση στη βάση δεδομένων: %s"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
 #, php-format
@@ -6911,10 +6910,10 @@ msgid "Edit settings for %s"
 msgstr "Επεξεργασία ρυθμίσεων για %s"
 
 #: libraries/import.lib.php:1127
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to table"
 msgid "Go to table: %s"
-msgstr "Μετάβαση στον πίνακα"
+msgstr "Μετάβαση στον πίνακα: %s"
 
 #: libraries/import.lib.php:1130
 #, php-format
@@ -6922,10 +6921,10 @@ msgid "Structure of %s"
 msgstr "Δομή του %s"
 
 #: libraries/import.lib.php:1136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to view"
 msgid "Go to view: %s"
-msgstr "Μετάβαση στην προβολή"
+msgstr "Μετάβαση στην προβολή: %s"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:33
 msgid ""
@@ -8054,10 +8053,9 @@ msgid "Current Server"
 msgstr "Τρέχων διακομιστής"
 
 #: libraries/server_links.inc.php:60
-#, fuzzy
 #| msgid "User"
 msgid "Users"
-msgstr "Χρήστης"
+msgstr "Χρήστες"
 
 #: libraries/server_links.inc.php:79 server_synchronize.php:1154
 #: server_synchronize.php:1162
@@ -8779,10 +8777,9 @@ msgid "Toggle small/big"
 msgstr "Εναλλαγή μικρά/μεγάλα"
 
 #: pmd_general.php:99
-#, fuzzy
 #| msgid "To select relation, click :"
 msgid "Toggle relation lines"
-msgstr "Για να επιλέξετε συσχέτιση, πατήστε :"
+msgstr "Εναλλαγή γραμμών συσχέτισης"
 
 #: pmd_general.php:104 pmd_pdf.php:76
 msgid "Import/Export coordinates for PDF schema"
@@ -9421,10 +9418,9 @@ msgid "Any"
 msgstr "Οποιοδήποτε"
 
 #: server_privileges.php:1565
-#, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
-msgstr "Περίληψη χρηστών"
+msgstr "Επισκόπηση χρηστών"
 
 #: server_privileges.php:1705 server_privileges.php:1899
 #: server_privileges.php:2258
@@ -10774,7 +10770,6 @@ msgid "Using the monitor:"
 msgstr "Χρήση της εποπτείας"
 
 #: server_status.php:1625
-#, fuzzy
 #| msgid ""
 #| "Ok, you are good to go! Once you click 'Start monitor' your browser will "
 #| "refresh all displayed charts in a regular interval. You may add charts "
@@ -10785,11 +10780,10 @@ msgid ""
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
-"Εντάξει, μπορείς να πηγαίνετε! Μόλις πατήσετε το «Έναρξη εποπτείας» ο "
-"φυλλομετρητής σας θα ανανεώσει όλα τα προβαλλόμενα διαγράμματα σε τακτό "
-"χρονικό διάστημα. Μπορείτε να προσθέσετε διαγράμματα και να αλλάξετε το "
-"ρυθμό ανανέωσης από τις «Ρυθμίσεις» ή να απομακρύνετε οποιοδήποτε διάγραμμα "
-"πατώντας το γρανάζι σε κάθε διάγραμμα."
+"Ο φυλλομετρητής σας θα ανανεώσει όλα τα εμφανιζόμενα διαγράμματα ανά "
+"ορισμένο διάστημα. Μπορείτε να προσθέσετε διαγράμματα και να αλλάξετε το "
+"ρυθμό ανανέωσης στη «Ρυθμίσεις», ή να απομακρύνεται οποιοδήποτε διάγραμμα "
+"χρηισιμποιώντας το εικονίδιο διαγραφής στο αντίστοιχο διάγραμμα."
 
 #: server_status.php:1627
 msgid ""
@@ -10809,7 +10803,6 @@ msgid "Please note:"
 msgstr "Σημειώστε"
 
 #: server_status.php:1636
-#, fuzzy
 #| msgid ""
 #| "ase note:</b>\n"
 #| "  Enabling the general_log may increase the server load by 5-15%. o be "
@@ -10824,15 +10817,12 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
-"<b>Σημειώστε:</b>\n"
-"        Η ενεργοποίηση του general_log μπορεί να αυξήσει τη χρήση των πόρων "
-"του συστήματος κατά 5-15%. Επίσης, λάβετε υπόψη ότι η δημιουργία στατιστικών "
-"από τις καταγραφές είναι μια\n"
-"        εργασία που απαιτεί έντονη χρήση πόρων, για αυτό σας προτείνεται να "
-"χρησιμοποιήσετε μικρό χρονικό όριο και να απενεργοποιήσετε το general_log "
-"και να αδειάσετε τον πίνακά του μόλις η εποπτεία δεν είναι πλέον "
-"απαραίτητη:\n"
-"        "
+"Η ενεργοποίηση του general_log μπορεί να αυξήσει τη φόρτωση του διακομιστή "
+"κατά 10-15%. Επίσης, έχετε υπόψη ότι η δημιουργία στατιστικών από τις "
+"καταγραφές είναι μια εργασία με υψηλές απαιτήσεις σε πόρους, για αυτό σας "
+"προτείνουμε να επιλέξετε μόνο ένα μικρό χρονικό διάστημα και να "
+"απενεργοποίησετε το general_log και να αδειάσετε τον πίνακά του μόλις δεν "
+"είναι απαραίτητη η εποπτεία."
 
 #: server_status.php:1648
 msgid "Preset chart"
@@ -11503,11 +11493,10 @@ msgid "Continue insertion with %s rows"
 msgstr "Συνέχιση εισαγωγής με %s εγγραφές"
 
 #: tbl_chart.php:89
-#, fuzzy
 #| msgid "Bar"
 msgctxt "Chart type"
 msgid "Bar"
-msgstr "Στήλη"
+msgstr "Μπάρα"
 
 #: tbl_chart.php:91
 #, fuzzy
@@ -11640,10 +11629,9 @@ msgid "Add index"
 msgstr "Προσθήκη ευρετηρίου"
 
 #: tbl_indexes.php:175
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit index"
-msgstr "Κατάσταση επεξεργασίας"
+msgstr "Εεπεξεργασία ευρετηρίου"
 
 #: tbl_indexes.php:187
 msgid "Index name:"

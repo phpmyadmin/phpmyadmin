@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-05 23:11+0200\n"
+"PO-Revision-Date: 2012-02-06 22:28+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -1293,13 +1293,13 @@ msgstr "Systemowa przestrzeń wymiany"
 #: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1399
 #: server_status.php:1680
 msgid "MiB"
-msgstr "MiB"
+msgstr "MB"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:105 js/messages.php:126 libraries/common.lib.php:1397
 #: server_status.php:1680
 msgid "KiB"
-msgstr "KiB"
+msgstr "KB"
 
 #: js/messages.php:107
 msgid "Average load"
@@ -1361,22 +1361,22 @@ msgstr "B"
 #. l10n: shortcuts for Gigabyte
 #: js/messages.php:128 libraries/common.lib.php:1401
 msgid "GiB"
-msgstr "GiB"
+msgstr "GB"
 
 #. l10n: shortcuts for Terabyte
 #: js/messages.php:129 libraries/common.lib.php:1403
 msgid "TiB"
-msgstr "TiB"
+msgstr "TB"
 
 #. l10n: shortcuts for Petabyte
 #: js/messages.php:130 libraries/common.lib.php:1405
 msgid "PiB"
-msgstr "PiB"
+msgstr "PB"
 
 #. l10n: shortcuts for Exabyte
 #: js/messages.php:131 libraries/common.lib.php:1407
 msgid "EiB"
-msgstr "EiB"
+msgstr "EB"
 
 #: js/messages.php:132
 #, php-format
@@ -1726,7 +1726,7 @@ msgstr "Użyj zmiennej/wzoru"
 
 #: js/messages.php:225
 msgid "Test"
-msgstr "Test"
+msgstr "Testuj"
 
 #: js/messages.php:230 pmd_general.php:382 pmd_general.php:419
 #: pmd_general.php:539 pmd_general.php:587 pmd_general.php:663
@@ -7981,7 +7981,7 @@ msgstr "Nazwa strony"
 
 #: libraries/schema/User_Schema.class.php:126
 msgid "Automatic layout based on"
-msgstr "Automatic layout based on"
+msgstr "Automatyczny układ oparty na"
 
 #: libraries/schema/User_Schema.class.php:129
 msgid "Internal relations"
@@ -8236,7 +8236,7 @@ msgstr "SUROWE DANE DOTĄD"
 
 #: libraries/sqlparser.lib.php:382
 msgid "Automatically appended backtick to the end of query!"
-msgstr "Automatically appended backtick to the end of query!"
+msgstr "Automatycznie dołączany lewy apostrof do końca zapytania!"
 
 #: libraries/sqlparser.lib.php:385
 msgid "Unclosed quote"
