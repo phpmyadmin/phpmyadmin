@@ -1124,11 +1124,14 @@ class PMA_Config
             // Scheme
             if (PMA_getenv('HTTP_SCHEME')) {
                 $url['scheme'] = PMA_getenv('HTTP_SCHEME');
+            } elseif (PMA_getenv('HTTPS') && strtolower(PMA_getenv('HTTPS')) == 'on') {
+                $url['scheme'] = 'https';
+            } elseif (PMA_getenv('HTTP_X_FORWARDED_PROTO')) {
+                $url['scheme'] = strtolower(PMA_getenv('HTTP_X_FORWARDED_PROTO'));
+            } elseif (PMA_getenv('HTTP_FRONT_END_HTTPS') && strtolower(PMA_getenv('HTTP_FRONT_END_HTTPS')) == 'on') {
+                $url['scheme'] = 'https';
             } else {
-                $url['scheme'] =
-                    PMA_getenv('HTTPS') && strtolower(PMA_getenv('HTTPS')) != 'off'
-                        ? 'https'
-                        : 'http';
+                $url['scheme'] = 'http';
             }
         }
 
