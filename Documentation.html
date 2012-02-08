@@ -1658,7 +1658,10 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
 
     <dt id="cfg_ShowAll">$cfg['ShowAll'] boolean</dt>
     <dd>Defines whether a user should be displayed a
-        &quot;show all (rows)&quot; button in browse mode or not.</dd>
+        &quot;Show all&quot; button in browse mode or not in all cases.
+        By default it is shown only on small tables (less than 5 &times;
+        <a href="#cfg_MaxRows">$cfg['MaxRows']</a> rows) to avoid performance
+        issues while getting too many rows.</dd>
 
     <dt id="cfg_MaxRows">$cfg['MaxRows'] integer</dt>
     <dd>Number of rows displayed when browsing a result set and no LIMIT
