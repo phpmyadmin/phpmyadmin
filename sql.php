@@ -448,7 +448,7 @@ if ($GLOBALS['cfg']['RememberSorting']
 }
 
 // Do append a "LIMIT" clause?
-if ((! $cfg['ShowAll'] || $_SESSION['tmp_user_values']['max_rows'] != 'all')
+if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
     && ! ($is_count || $is_export || $is_func || $is_analyse)
     && isset($analyzed_sql[0]['queryflags']['select_from'])
     && ! isset($analyzed_sql[0]['queryflags']['offset'])

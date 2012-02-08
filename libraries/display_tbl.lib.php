@@ -346,7 +346,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
     } //_if1
 
     // Display the "Show all" button if allowed
-    if ($GLOBALS['cfg']['ShowAll'] && ($num_rows < $unlim_num_rows)) {
+    if (($num_rows < $unlim_num_rows) && ($GLOBALS['cfg']['ShowAll'] || ($GLOBALS['cfg']['MaxRows'] * 5 >= $unlim_num_rows))) {
         echo "\n";
         ?>
     <td>
