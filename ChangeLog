@@ -74,6 +74,7 @@ phpMyAdmin - ChangeLog
 - patch #3472899 [export] Fixed CSV escape for the export
 - patch #3475424 [import] Fixed CSV escape for the import
 - bug #3482734 [interface] No warning on syntax error in search form 
+- bug #3423717 [core] Improved detection of SSL connection
 
 3.4.11.0 (not yet released)
 
