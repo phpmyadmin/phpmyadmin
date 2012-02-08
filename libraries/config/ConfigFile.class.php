@@ -116,7 +116,7 @@ class ConfigFile
 
     /**
      * Returns PMA_Config without user preferences applied
-     * 
+     *
      * @return PMA_Config
      */
     public function getOrgConfigObj()
@@ -422,10 +422,10 @@ class ConfigFile
         }
         $verbose = $this->get("Servers/$id/verbose");
         if (!empty($verbose)) {
-            return htmlspecialchars($verbose);
+            return $verbose;
         }
         $host = $this->get("Servers/$id/host");
-        return empty($host) ? 'localhost' : htmlspecialchars($host);
+        return empty($host) ? 'localhost' : $host;
     }
 
     /**

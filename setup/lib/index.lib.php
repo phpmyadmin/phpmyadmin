@@ -279,6 +279,7 @@ function perform_config_checks()
         if ($server_name == 'localhost') {
             $server_name .=  " [$i]";
         }
+        $server_name = htmlspecialchars($server_name);
 
         if ($cookie_auth_server && $blowfish_secret === null) {
             $blowfish_secret = uniqid('', true);
