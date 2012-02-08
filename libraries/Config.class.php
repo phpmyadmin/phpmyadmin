@@ -846,13 +846,10 @@ class PMA_Config
             // dig deeper
             if (empty($url['scheme'])) {
                 // Scheme
-                if (PMA_getenv('HTTP_SCHEME')) {
-                    $url['scheme'] = PMA_getenv('HTTP_SCHEME');
+                if ($is_https) {
+                    $url['scheme'] = 'https';
                 } else {
-                    $url['scheme'] = PMA_getenv('HTTPS')
-                        && strtolower(PMA_getenv('HTTPS')) != 'off'
-                            ? 'https'
-                            : 'http';
+                    $url['scheme'] = 'http';
                 }
 
                 // Host and port
