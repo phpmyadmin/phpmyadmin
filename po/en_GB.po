@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-01-19 11:20+0100\n"
+"PO-Revision-Date: 2012-02-08 14:33+0100\n"
 "Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -7656,7 +7656,6 @@ msgid "Trigger name"
 msgstr "Trigger name"
 
 #: libraries/rte/rte_triggers.lib.php:326
-#, fuzzy
 #| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
@@ -11103,10 +11102,9 @@ msgstr ""
 "system."
 
 #: setup/lib/index.lib.php:323
-#, fuzzy
 #| msgid "You should use SSL connections if your web server supports it."
 msgid "You should use SSL connections if your database server supports it."
-msgstr "You should use SSL connections if your web server supports it."
+msgstr "You should use SSL connections if your database server supports it."
 
 #: setup/lib/index.lib.php:336
 msgid "You should use mysqli for performance reasons."
