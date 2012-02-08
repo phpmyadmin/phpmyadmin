@@ -308,6 +308,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
 
     } // end move back
 
+    $nbTotalPage = 1;
     //page redirection
     // (unless we are showing all records)
     if ('all' != $_SESSION['tmp_user_values']['max_rows']) { //if1
