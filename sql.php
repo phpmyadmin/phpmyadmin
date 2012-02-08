@@ -721,6 +721,10 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
             parse_str($_REQUEST['transform_fields_list'], $edited_values);
 
             foreach($mime_map as $transformation) {
+                /* Ignore not set transformation (only MIME type set) */
+                if (empty($transformation['transformation'])) {
+                    continue;
+                }
                 $include_file = PMA_securePath($transformation['transformation']);
                 $column_name = $transformation['column_name'];
                 $column_data = $edited_values[$column_name];
