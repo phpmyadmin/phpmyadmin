@@ -3,6 +3,7 @@ phpMyAdmin - ChangeLog
 
 3.6.0.0 (not yet released)
 + Patch #3481047 for rfe #3480477 Insert as new row enhancement
++ Patch #3480999 Activate codemirror in the query window
 
 3.5.0.0 (not yet released)
 + rfe #2021981 [interface] Add support for mass prefix change.

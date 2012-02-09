@@ -365,7 +365,14 @@ function confirmDisableRepository(theDB)
  */
 function checkSqlQuery(theForm)
 {
+
+    // First check if codemirror is active.
+    if (typeof(CodeMirror)!='undefined') {
+        theForm.elements['sql_query'].value = CodeMirror.getValue();
+    }
+
     var sqlQuery = theForm.elements['sql_query'];
+
     var isEmpty  = 1;
 
     var space_re = new RegExp('\\s+');

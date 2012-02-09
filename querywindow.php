@@ -119,6 +119,8 @@ $sql_query = '';
  */
 $js_include[] = 'common.js';
 $js_include[] = 'querywindow.js';
+$js_include[] = 'codemirror/lib/codemirror.js';
+$js_include[] = 'codemirror/mode/mysql/mysql.js';
 
 if (PMA_isValid($_REQUEST['auto_commit'], 'identical', 'true')) {
     $js_events[] = array(
