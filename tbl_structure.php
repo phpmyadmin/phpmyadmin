@@ -439,7 +439,7 @@ foreach ($fields as $row) {
         ?>
     </td>
     <?php
-        if (! empty($tbl_type) && ($tbl_type == 'MYISAM' || $tbl_type == 'ARIA' || $tbl_type == 'MARIA')
+        if (! empty($tbl_type) && ($tbl_type == 'MYISAM' || $tbl_type == 'ARIA' || $tbl_type == 'MARIA' || ($tbl_type == 'INNODB' && PMA_MYSQL_INT_VERSION >= 50604))
             // FULLTEXT is possible on TEXT, CHAR and VARCHAR
             && (strpos(' ' . $type, 'text') || strpos(' ' . $type, 'char'))) {
             echo "\n";
