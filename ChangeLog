@@ -75,6 +75,7 @@ phpMyAdmin - ChangeLog
 - patch #3475424 [import] Fixed CSV escape for the import
 - bug #3482734 [interface] No warning on syntax error in search form 
 - bug #3423717 [core] Improved detection of SSL connection
++ FULLTEXT support for InnoDB, starting with MySQL 5.6.4
 
 3.4.11.0 (not yet released)
 
