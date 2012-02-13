@@ -312,7 +312,7 @@ rm -rf config                      # remove not needed directory
         authentication mode.</li>
     <li>You should deny access to the <tt>./libraries</tt> and
         <tt>./setup/lib</tt> subfolders in your webserver configuration. For
-        Apache you can use supplied .htaccess file in that folder, for other
+        Apache you can use supplied <a href="#glossary"><i>.htaccess</i></a> file in that folder, for other
         webservers, you should configure this yourself.  Such configuration
         prevents from possible path exposure and cross side scripting
         vulnerabilities that might happen to be found in that code.</li>
@@ -480,7 +480,7 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
         1.35</a>.</li>
     <li>See also <a href="#faq4_4">
         <abbr title="Frequently Asked Questions">FAQ</abbr> 4.4</a> about not
-        using the <i>.htaccess</i> mechanism along with
+        using the <a href="#glossary"><i>.htaccess</i></a> mechanism along with
         '<abbr title="HyperText Transfer Protocol">HTTP</abbr>' authentication
         mode.</li>
 </ul>
@@ -538,7 +538,7 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
     <li>Unlike cookie and http, does not require a user to log in when first
         loading the phpMyAdmin site. This is by design but could allow any
         user to access your installation. Use of some restriction method is
-        suggested, perhaps a <a href="#glossary">.htaccess</a> file with the
+        suggested, perhaps a <a href="#glossary"><i>.htaccess</i></a> file with the
         HTTP-AUTH directive or disallowing incoming HTTP requests at
         one&#8217;s router or firewall will suffice (both of which
         are beyond the scope of this manual but easily searchable with Google).</li>
@@ -3061,7 +3061,7 @@ the order of the server paragraph in <tt>config.inc.php</tt>.
     <code>Options FollowSymLinks</code> and <code>AllowOverride
     FileInfo</code> enabled for directory where phpMyAdmin is installed and
     you need mod_rewrite to be enabled. Then you just need to create following
-    <code>.htaccess</code> file in root folder of phpMyAdmin installation
+    <a href="#glossary"><i>.htaccess</i></a> file in root folder of phpMyAdmin installation
     (don't forget to change directory name inside of it):</p>
 
 <pre>
@@ -3613,7 +3613,7 @@ have either the <a href="http://pecl.php.net/package/APC">APC</a> extension
     This depends on your system.<br />
     If you're running a server which cannot be accessed by other people, it's
     sufficient to use the directory protection bundled with your webserver
-    (with Apache you can use <i>.htaccess</i> files, for example).<br />
+    (with Apache you can use <a href="#glossary"><i>.htaccess</i></a> files, for example).<br />
     If other people have telnet access to your server, you should use
     phpMyAdmin's <abbr title="HyperText Transfer Protocol">HTTP</abbr> or cookie authentication features.
     <br /><br />
@@ -3657,7 +3657,7 @@ have either the <a href="http://pecl.php.net/package/APC">APC</a> extension
         are wrong.</li>
     <li>The username/password you specify in the login dialog are invalid.</li>
     <li>You have already setup a security mechanism for the
-        phpMyAdmin-directory, eg. a .htaccess file. This would interfere with
+        phpMyAdmin-directory, eg. a <a href="#glossary"><i>.htaccess</i></a> file. This would interfere with
         phpMyAdmin's authentication, so remove it.</li>
 </ul>
 
@@ -3673,7 +3673,7 @@ have either the <a href="http://pecl.php.net/package/APC">APC</a> extension
 <h4 id="faq4_6">
     <a href="#faq4_6">4.6 How can I use the Host-based authentication additions?</a></h4>
 
-<p> If you have existing rules from an old .htaccess file, you can take them
+<p> If you have existing rules from an old <a href="#glossary"><i>.htaccess</i></a> file, you can take them
     and add a username between the <tt>'deny'</tt>/<tt>'allow'</tt> and
     <tt>'from'</tt> strings. Using the username wildcard of <tt>'%'</tt> would
     be a major benefit here if your installation is suited to using it. Then
