@@ -559,7 +559,7 @@ $cfg['Servers'][$i]['auth_swekey_config'] = '/etc/swekey.conf';
 You then have to create the <tt>swekey.conf</tt> file that will associate
 each user with their Swekey Id. It is important to place this file outside
 of your web server's document root (in the example, it is located in <tt>/etc</tt>). A self documented sample file is provided 
-in the <tt>contrib</tt> directory. Feel free to use it with your own 
+in the <tt>examples</tt> directory. Feel free to use it with your own 
 users' information.<br /><br />
 If you want to purchase a Swekey please visit
 <a href="http://phpmyadmin.net/auth_key">http://phpmyadmin.net/auth_key</a>
@@ -770,9 +770,9 @@ since this link provides funding for phpMyAdmin.
                 session data or using supplied PHP script. This is useful for implementing single signon
                 from another application.
                 
-                Sample way how to seed session is in signon example: <code>scripts/signon.php</code>. 
-                There is also alternative example using OpenID - <code>scripts/openid.php</code> and 
-                example for scripts based solution - <code>scripts/signon-script.php</code>.
+                Sample way how to seed session is in signon example: <code>examples/signon.php</code>. 
+                There is also alternative example using OpenID - <code>examples/openid.php</code> and 
+                example for scripts based solution - <code>examples/signon-script.php</code>.
                 
                 You need to
                 configure <a href="#cfg_Servers_SignonSession"
@@ -1347,7 +1347,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     signon. The script needs to provide function
     <code>get_login_credentials</code> which returns list of username and
     password, accepting single parameter of existing username (can be empty).
-    See <code>scripts/signon-script.php</code> for an example.
+    See <code>examples/signon-script.php</code> for an example.
     </dd>
     <dt><span id="cfg_Servers_SignonSession">$cfg['Servers'][$i]['SignonSession']</span> string</dt>
     <dd>Name of session which will be used for signon authentication method.
