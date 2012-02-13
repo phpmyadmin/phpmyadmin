@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-01-15 19:35+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"PO-Revision-Date: 2012-02-13 00:03+0200\n"
+"Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -1418,11 +1418,11 @@ msgid "EiB"
 msgstr "EiB"
 
 #: js/messages.php:132
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "%d table(s)"
-msgstr "%s tabella"
+msgstr "%d tabella/e"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:135
@@ -7005,10 +7005,10 @@ msgid "Edit structure by following the \"Structure\" link"
 msgstr "Modifica la sua struttura seguendo il link \"Struttura\""
 
 #: libraries/import.lib.php:1106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to database"
 msgid "Go to database: %s"
-msgstr "Vai al database"
+msgstr "Vai al database: %s"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
 #, fuzzy, php-format
@@ -7017,10 +7017,10 @@ msgid "Edit settings for %s"
 msgstr "Dati mancanti per %s"
 
 #: libraries/import.lib.php:1127
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to table"
 msgid "Go to table: %s"
-msgstr "Vai alla tabella"
+msgstr "Vai alla tabella: %s"
 
 #: libraries/import.lib.php:1130
 #, php-format
@@ -7028,10 +7028,10 @@ msgid "Structure of %s"
 msgstr "Struttura di %s"
 
 #: libraries/import.lib.php:1136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to view"
 msgid "Go to view: %s"
-msgstr "Vai alla visualizzazione"
+msgstr "Vai alla visualizzazione: %s"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:33
 msgid ""
@@ -12521,10 +12521,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:80
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query cache"
 msgid "Query cache efficiency (%%)"
-msgstr "Efficienza della cache delle query"
+msgstr "Efficienza della cache delle query (%%)"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
