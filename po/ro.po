@@ -6034,7 +6034,7 @@ msgstr "Șablon nume fișier"
 
 #: libraries/display_export.lib.php:224
 msgid "@SERVER@ will become the server name"
-msgstr ""
+msgstr "@SERVER@ va deveni numele server-ului"
 
 #: libraries/display_export.lib.php:226
 msgid ", @DATABASE@ will become the database name"
