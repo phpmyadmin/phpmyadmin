@@ -153,8 +153,8 @@ $cfg['Servers'][$i]['compress'] = false;
 
 /**
  * MySQL control host. This permits to use a host different than the
- * main host, for the phpMyAdmin configuration storage. If left empty, 
- * $cfg['Servers'][$i]['host'] is used instead. 
+ * main host, for the phpMyAdmin configuration storage. If left empty,
+ * $cfg['Servers'][$i]['host'] is used instead.
  *
  * @global string $cfg['Servers'][$i]['controlhost']
  */
@@ -274,7 +274,7 @@ $cfg['Servers'][$i]['verbose'] = '';
 
 /**
  * Database used for Relation, Bookmark and PDF Features
- * (see scripts/create_tables.sql)
+ * (see examples/create_tables.sql)
  *   - leave blank for no support
  *     SUGGESTED: 'phpmyadmin'
  *
@@ -1035,14 +1035,14 @@ $cfg['ShowFieldTypesInDataEditView'] = true;
 $cfg['CharEditing'] = 'input';
 
 /**
- * The minimum size for character input fields 
+ * The minimum size for character input fields
  *
  * @global integer $cfg['MinSizeForInputField']
  */
 $cfg['MinSizeForInputField'] = 4;
 
 /**
- * The maximum size for character input fields 
+ * The maximum size for character input fields
  *
  * @global integer $cfg['MinSizeForInputField']
  */
@@ -2677,7 +2677,7 @@ $cfg['CheckConfigurationPermissions'] = true;
  * Limit for length of URL in links. When length would be above this limit, it
  * is replaced by form with button.
  * This is required as some web servers (IIS) have problems with long URLs.
- * The recommended limit is 2000 
+ * The recommended limit is 2000
  * (see http://www.boutell.com/newfaq/misc/urllength.html) but we put
  * 1000 to accommodate Suhosin, see bug #3358750.
  */

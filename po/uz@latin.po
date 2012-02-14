@@ -7863,9 +7863,9 @@ msgstr "Mufassal tanlovlarni tеz sozlash uchun qadamlars:"
 
 #: libraries/relation.lib.php:154
 msgid ""
-"Create the needed tables with the <code>script/create_tables.sql</code>."
+"Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgstr ""
-"Kеrakli jadvallarni <code>script/create_tables.sql</code> kod yordamida "
+"Kеrakli jadvallarni <code>examples/create_tables.sql</code> kod yordamida "
 "tuzish."
 
 #: libraries/relation.lib.php:155

@@ -7349,9 +7349,9 @@ msgstr "Γρήγορα βήματα για εγκατάσταση χαρακτη
 
 #: libraries/relation.lib.php:154
 msgid ""
-"Create the needed tables with the <code>script/create_tables.sql</code>."
+"Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgstr ""
-"Δημιουργία των απαραίτητων πινάκων με το αρχείο <code>script/create_tables."
+"Δημιουργία των απαραίτητων πινάκων με το αρχείο <code>examples/create_tables."
 "sql</code>."
 
 #: libraries/relation.lib.php:155

@@ -7210,8 +7210,8 @@ msgstr "快速設定進階功能:"
 
 #: libraries/relation.lib.php:154
 msgid ""
-"Create the needed tables with the <code>script/create_tables.sql</code>."
-msgstr "透過 <code>script/create_tables.sql</code> 建立必需的資料表"
+"Create the needed tables with the <code>examples/create_tables.sql</code>."
+msgstr "透過 <code>examples/create_tables.sql</code> 建立必需的資料表"
 
 #: libraries/relation.lib.php:155
 msgid "Create a pma user and give access to these tables."

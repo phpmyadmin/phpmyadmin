@@ -7285,8 +7285,8 @@ msgstr "Gelişmiş özellikleri ayarlamak için hızlı adımlar:"
 
 #: libraries/relation.lib.php:154
 msgid ""
-"Create the needed tables with the <code>script/create_tables.sql</code>."
-msgstr "Gerekli tabloları <code>script/create_tables.sql</code> ile oluşturun."
+"Create the needed tables with the <code>examples/create_tables.sql</code>."
+msgstr "Gerekli tabloları <code>examples/create_tables.sql</code> ile oluşturun."
 
 #: libraries/relation.lib.php:155
 msgid "Create a pma user and give access to these tables."
