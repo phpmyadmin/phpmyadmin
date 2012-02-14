@@ -5999,10 +5999,9 @@ msgid "Dump some row(s)"
 msgstr "Șterge câteva rânduri"
 
 #: libraries/display_export.lib.php:154
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of rows:"
-msgstr "Număr de cîmpuri"
+msgstr "Număr de rânduri:"
 
 #: libraries/display_export.lib.php:157
 msgid "Row to begin at:"
