@@ -110,13 +110,6 @@ LC_ALL=C w3m -dump Documentation.html > Documentation.txt
 
 # Check for gettext support
 if [ -d po ] ; then
-    GETTEXT=1
-else
-    GETTEXT=0
-fi
-
-# Generate mo files
-if [ $GETTEXT -eq 1 ] ; then
     echo "* Generating mo files"
     ./scripts/generate-mo
     if [ -f ./scripts/remove-incomplete-mo ] ; then
