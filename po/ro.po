@@ -5724,7 +5724,7 @@ msgstr "Foaie de calcul Open Document"
 #: libraries/config/setup.forms.php:267
 #: libraries/config/user_preferences.forms.php:166
 msgid "Quick"
-msgstr ""
+msgstr "Rapid"
 
 #: libraries/config/setup.forms.php:271
 #: libraries/config/user_preferences.forms.php:170
