@@ -3,7 +3,7 @@ phpMyAdmin - ChangeLog
 
 3.4.11.0 (not yet released)
 
-3.4.10.0 (not yet released)
+3.4.10.0 (2012-02-14)
 - bug #3460090 [interface] TextareaAutoSelect feature broken
 - patch #3375984 [export] PHP Array export might generate invalid php code
 - bug #3049209 [import] Import from ODS ignores cell that is the same as cell before
