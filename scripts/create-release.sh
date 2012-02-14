@@ -154,7 +154,7 @@ for kit in $KITS ; do
     # Cleanup translations
     cd phpMyAdmin-$version-$kit
     scripts/lang-cleanup.sh $kit
-    rm -f scripts
+    rm -rf scripts
     cd ..
 
     # Remove tar file possibly left from previous run
