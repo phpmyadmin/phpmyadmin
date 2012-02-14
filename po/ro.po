@@ -5589,7 +5589,7 @@ msgstr "Titlul ferestrei browser-ului când o bază de date este selectată"
 
 #: libraries/config/messages.inc.php:505
 msgid "Title of browser window when nothing is selected"
-msgstr ""
+msgstr "TItlul ferestrei browser-ului când nu este selectat nimic"
 
 #: libraries/config/messages.inc.php:506
 #, fuzzy
