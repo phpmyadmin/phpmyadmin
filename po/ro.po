@@ -5597,7 +5597,7 @@ msgstr "Titlu implicit"
 
 #: libraries/config/messages.inc.php:507
 msgid "Title of browser window when a server is selected"
-msgstr ""
+msgstr "Titlul ferestrei browser-ului când este selectat un server"
 
 #: libraries/config/messages.inc.php:509
 msgid "Title of browser window when a table is selected"
