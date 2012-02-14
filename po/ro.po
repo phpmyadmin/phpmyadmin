@@ -6038,7 +6038,7 @@ msgstr "@SERVER@ va deveni numele server-ului"
 
 #: libraries/display_export.lib.php:226
 msgid ", @DATABASE@ will become the database name"
-msgstr ""
+msgstr ", @DATABASE@ va deveni numele bazei de date"
 
 #: libraries/display_export.lib.php:228
 msgid ", @TABLE@ will become the table name"
