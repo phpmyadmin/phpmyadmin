@@ -11,6 +11,8 @@
 /*
  * Include to test.
  */
+require_once 'libraries/core.lib.php';
+require_once 'libraries/vendor_config.php';
 require_once 'libraries/select_lang.lib.php';
 
 class PMA_langList_test extends PHPUnit_Framework_TestCase
