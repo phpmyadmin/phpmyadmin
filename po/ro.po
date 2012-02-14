@@ -5990,10 +5990,9 @@ msgid "Table(s):"
 msgstr "Tabelă(e)"
 
 #: libraries/display_export.lib.php:144
-#, fuzzy
 #| msgid "Rows"
 msgid "Rows:"
-msgstr "Linie"
+msgstr "Rânduri:"
 
 #: libraries/display_export.lib.php:152
 msgid "Dump some row(s)"
