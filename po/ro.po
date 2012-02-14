@@ -5976,9 +5976,8 @@ msgid "Quick - display only the minimal options"
 msgstr "Rapid - afișează doar opțiunile minimale"
 
 #: libraries/display_export.lib.php:124
-#, fuzzy
 msgid "Custom - display all possible options"
-msgstr "Opțiuni de exportare a bazei de date"
+msgstr "Custom - afișează toate opțiunile posibile"
 
 #: libraries/display_export.lib.php:132
 #, fuzzy
