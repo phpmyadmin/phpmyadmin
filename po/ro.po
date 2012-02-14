@@ -5585,7 +5585,7 @@ msgstr "Rânduri textarea"
 
 #: libraries/config/messages.inc.php:503
 msgid "Title of browser window when a database is selected"
-msgstr ""
+msgstr "Titlul ferestrei browser-ului când o bază de date este selectată"
 
 #: libraries/config/messages.inc.php:505
 msgid "Title of browser window when nothing is selected"
