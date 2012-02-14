@@ -5670,6 +5670,7 @@ msgstr "Verificați pentru ultima versiune"
 #: libraries/config/messages.inc.php:522
 msgid "Enables check for latest version on main phpMyAdmin page"
 msgstr ""
+"Activați verificarea pentru ultima versiune pe pagina principală phpMyAdmin"
 
 #: libraries/config/messages.inc.php:523 setup/lib/index.lib.php:121
 #: setup/lib/index.lib.php:131 setup/lib/index.lib.php:151
