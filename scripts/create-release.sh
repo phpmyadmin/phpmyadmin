@@ -19,7 +19,7 @@ then
   echo "Usages:"
   echo "  create-release.sh <version> <from_branch> [--tag]"
   echo ""
-  echo "If --tag is specified, relase tag is automatically created"
+  echo "If --tag is specified, release tag is automatically created"
   echo ""
   echo "Examples:"
   echo "  create-release.sh 2.9.0-rc1 QA_2_9"
