@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-14 14:07+0200\n"
+"PO-Revision-Date: 2012-02-14 14:08+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -5973,7 +5973,7 @@ msgstr "Modul de export"
 
 #: libraries/display_export.lib.php:108
 msgid "Quick - display only the minimal options"
-msgstr ""
+msgstr "Rapid - afișează doar opțiunile minimale"
 
 #: libraries/display_export.lib.php:124
 #, fuzzy
