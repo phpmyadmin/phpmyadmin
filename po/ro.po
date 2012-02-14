@@ -6016,10 +6016,10 @@ msgid "Output:"
 msgstr "Rezultat:"
 
 #: libraries/display_export.lib.php:183 libraries/display_export.lib.php:209
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <b>%s</b>"
-msgstr "Salveaza pe server în directorul %s"
+msgstr "Salveaza pe server în directorul <b>%s</b>"
 
 #: libraries/display_export.lib.php:201
 #, fuzzy
