@@ -5547,8 +5547,9 @@ msgid "Suggest new database name"
 msgstr "Sugerați un nume nou pentru baza de date"
 
 #: libraries/config/messages.inc.php:497
+#, fuzzy
 msgid "A warning is displayed on the main page if Suhosin is detected"
-msgstr ""
+msgstr "Un avertisment este afișat pe prima pagina dacă Suhosin este descoperit"
 
 #: libraries/config/messages.inc.php:498
 msgid "Suhosin warning"
