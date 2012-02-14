@@ -6009,7 +6009,7 @@ msgstr "Rândul de la care se începe:"
 
 #: libraries/display_export.lib.php:168
 msgid "Dump all rows"
-msgstr ""
+msgstr "Șterge toate rândurile"
 
 #: libraries/display_export.lib.php:176 libraries/display_export.lib.php:197
 msgid "Output:"
