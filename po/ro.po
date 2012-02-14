@@ -5960,10 +5960,10 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "Se exportă tabelele din baza de date \"%s\""
 
 #: libraries/display_export.lib.php:86
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting rows from \"%s\" table"
-msgstr "Creează tabel nou în baza de date %s"
+msgstr "Se exportă rândurile din tabela \"%s\""
 
 #: libraries/display_export.lib.php:92
 #, fuzzy
