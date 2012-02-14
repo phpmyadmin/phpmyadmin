@@ -5985,10 +5985,9 @@ msgid "Database(s):"
 msgstr "Bază(e) de date"
 
 #: libraries/display_export.lib.php:134
-#, fuzzy
 #| msgid "Tables"
 msgid "Table(s):"
-msgstr "Tabele"
+msgstr "Tabelă(e)"
 
 #: libraries/display_export.lib.php:144
 #, fuzzy
