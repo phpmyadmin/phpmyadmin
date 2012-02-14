@@ -6005,7 +6005,7 @@ msgstr "Număr de rânduri:"
 
 #: libraries/display_export.lib.php:157
 msgid "Row to begin at:"
-msgstr ""
+msgstr "Rândul de la care se începe:"
 
 #: libraries/display_export.lib.php:168
 msgid "Dump all rows"
