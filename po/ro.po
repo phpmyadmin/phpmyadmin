@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-14 13:49+0200\n"
+"PO-Revision-Date: 2012-02-14 13:58+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -5773,7 +5773,7 @@ msgstr "Nume de utilizator gol la folosirea autentificării de tipul config"
 
 #: libraries/config/validate.lib.php:258
 msgid "Empty signon session name while using signon authentication method"
-msgstr ""
+msgstr "Nume de sesiune signon gol la folosirea autentificării de tipul signon"
 
 #: libraries/config/validate.lib.php:262
 msgid "Empty signon URL while using signon authentication method"
