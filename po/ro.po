@@ -5781,7 +5781,7 @@ msgstr "URL signon gol la folosirea autentificării de tip signon"
 
 #: libraries/config/validate.lib.php:295
 msgid "Empty phpMyAdmin control user while using pmadb"
-msgstr ""
+msgstr "Control user phpMyAdmin gol la folosirea pmadb"
 
 #: libraries/config/validate.lib.php:299
 msgid "Empty phpMyAdmin control user password while using pmadb"
