@@ -5801,7 +5801,7 @@ msgstr "ro"
 #: libraries/core.lib.php:266
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr ""
+msgstr "Extensia %s lipsește. Vă rugăm să vă verificați configurația PHP."
 
 #: libraries/core.lib.php:414
 msgid "possible deep recursion attack"
