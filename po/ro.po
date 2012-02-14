@@ -5769,7 +5769,7 @@ msgstr "Conexiunea la server-ul MySQL a eșuat"
 
 #: libraries/config/validate.lib.php:254
 msgid "Empty username while using config authentication method"
-msgstr ""
+msgstr "Nume de utilizator gol la folosirea autentificării de tipul config"
 
 #: libraries/config/validate.lib.php:258
 msgid "Empty signon session name while using signon authentication method"
