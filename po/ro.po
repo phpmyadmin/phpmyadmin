@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-14 12:52+0200\n"
+"PO-Revision-Date: 2012-02-14 12:53+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -5552,8 +5552,9 @@ msgid "A warning is displayed on the main page if Suhosin is detected"
 msgstr "Un avertisment este afișat pe prima pagina dacă Suhosin este descoperit"
 
 #: libraries/config/messages.inc.php:498
+#, fuzzy
 msgid "Suhosin warning"
-msgstr ""
+msgstr "Avertizare Suhosin"
 
 #: libraries/config/messages.inc.php:499
 msgid ""
