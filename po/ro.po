@@ -5610,6 +5610,10 @@ msgid ""
 "For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]"
 msgstr ""
+"Proxy-uri de intrare ca [kbd] IP: header HTTP de încredere [/kbd]. Următorul "
+"exemplu specifică faptul că phpMyAdmin ar trebui să încredere într-un antet "
+"HTTP_X_FORWARDED_FOR (X-Forwarded-For) provenind de la proxy 1.2.3.4: "
+"[br][kbd] 1.2.3.4: HTTP_X_FORWARDED_FOR [/kbd]"
 
 #: libraries/config/messages.inc.php:512
 msgid "List of trusted proxies for IP allow/deny"
