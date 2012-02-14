@@ -5575,6 +5575,9 @@ msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
+"Mărimea textarea-ului (în rânduri) în modul de editare, această valoare va "
+"fi marită pentru textarea-urile de interogări SQL (*2) și pentru ferestrele "
+"de interogări (*1.25)"
 
 #: libraries/config/messages.inc.php:502
 msgid "Textarea rows"
