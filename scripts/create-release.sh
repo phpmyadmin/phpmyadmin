@@ -132,6 +132,9 @@ echo "* Removing unneeded files"
 # if someone runs /test/wui.php and there are test failures
 rm -rf test
 
+# Testsuite setup
+rm -f build.xml phpunit.xml.dist
+
 # Remove git metadata
 rm -rf .git
 find . -name .gitignore -print0 | xargs -0 -r rm -f
