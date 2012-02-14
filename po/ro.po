@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-14 14:05+0200\n"
+"PO-Revision-Date: 2012-02-14 14:06+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -5949,10 +5949,9 @@ msgstr ""
 "instalarea!"
 
 #: libraries/display_export.lib.php:82
-#, fuzzy
 #| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases from the current server"
-msgstr "Permite blocarea tabelelor din firul curent de execuție."
+msgstr "Se exportă bazele de date de pe server-ul curent"
 
 #: libraries/display_export.lib.php:84
 #, fuzzy, php-format
