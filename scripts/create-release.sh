@@ -36,7 +36,7 @@ ensure_local_branch() {
 }
 
 # Marks current head of given branch as head of other branch
-# Used for STABLE/TESTING tracking
+# Used for STABLE tracking
 mark_as_release() {
     branch=$1
     rel_branch=$2
@@ -240,18 +240,11 @@ if [ $# -gt 0 ] ; then
                 echo "* Tagging release as $tagname"
                 git tag -a -m "Released $version" $tagname $branch
                 if echo $version | grep -q '^2\.11\.' ; then
-                    echo '* 2.11 branch, no STABLE/TESTING update'
+                    echo '* 2.11 branch, no STABLE update'
                 elif echo $version | grep -q '^3\.3\.' ; then
-                    echo '* 3.3 branch, no STABLE/TESTING update'
+                    echo '* 3.3 branch, no STABLE update'
                 else
-                    if echo $version | grep '[a-z_-]' ; then
-                        mark_as_release $branch TESTING
-                    else
-                        # We update both branches here
-                        # As it does not make sense to have older testing than stable
-                        mark_as_release $branch TESTING
-                        mark_as_release $branch STABLE
-                    fi
+                    mark_as_release $branch STABLE
                     git checkout master
                 fi
                 echo "   Dont forget to push tags using: git push --tags"
@@ -274,7 +267,7 @@ Todo now:
 1. If not already done, tag the repository with the new revision number
    for a plain release or a release candidate:
     version 2.7.0 gets two tags: RELEASE_2_7_0 and STABLE
-    version 2.7.1-rc1 gets RELEASE_2_7_1RC1 and TESTING
+    version 2.7.1-rc1 gets RELEASE_2_7_1RC1
 
  2. prepare a release/phpMyAdmin-$version-notes.html explaining in short the goal of
     this release and paste into it the ChangeLog for this release
