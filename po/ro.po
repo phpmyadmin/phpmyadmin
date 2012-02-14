@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-14 14:11+0200\n"
+"PO-Revision-Date: 2012-02-14 14:12+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -6022,10 +6022,9 @@ msgid "Save on server in the directory <b>%s</b>"
 msgstr "Salveaza pe server în directorul <b>%s</b>"
 
 #: libraries/display_export.lib.php:201
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
-msgstr "Trimite"
+msgstr "Salvează rezultatul într-un fișier"
 
 #: libraries/display_export.lib.php:222
 #, fuzzy
