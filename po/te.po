@@ -7119,7 +7119,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:154
 msgid ""
-"Create the needed tables with the <code>script/create_tables.sql</code>."
+"Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgstr ""
 
 #: libraries/relation.lib.php:155

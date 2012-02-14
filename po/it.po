@@ -7457,8 +7457,8 @@ msgstr "Passi veloci per l'installazione delle funzionalità avanzate:"
 
 #: libraries/relation.lib.php:154
 msgid ""
-"Create the needed tables with the <code>script/create_tables.sql</code>."
-msgstr "Crea le tabelle necessarie <code>script/create_tables.sql</code>."
+"Create the needed tables with the <code>examples/create_tables.sql</code>."
+msgstr "Crea le tabelle necessarie <code>examples/create_tables.sql</code>."
 
 #: libraries/relation.lib.php:155
 msgid "Create a pma user and give access to these tables."

@@ -151,7 +151,7 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
 
     echo '<p>' . __('Quick steps to setup advanced features:') . '</p>';
     echo '<ul>';
-    echo '<li>' . __('Create the needed tables with the <code>script/create_tables.sql</code>.') . ' ' . PMA_showDocu('linked-tables') . '</li>';
+    echo '<li>' . __('Create the needed tables with the <code>examples/create_tables.sql</code>.') . ' ' . PMA_showDocu('linked-tables') . '</li>';
     echo '<li>' . __('Create a pma user and give access to these tables.') . ' ' . PMA_showDocu('pmausr') . '</li>';
     echo '<li>' . __('Enable advanced features in configuration file (<code>config.inc.php</code>), for example by starting from <code>config.sample.inc.php</code>.') . ' ' . PMA_showDocu('quick_install') . '</li>';
     echo '<li>' . __('Re-login to phpMyAdmin to load the updated configuration file.') . '</li>';

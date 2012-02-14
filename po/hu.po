@@ -7307,9 +7307,9 @@ msgstr "Gyors lépések a haladó funkciók beállításához:"
 
 #: libraries/relation.lib.php:154
 msgid ""
-"Create the needed tables with the <code>script/create_tables.sql</code>."
+"Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgstr ""
-"Hozza létre a kívánt táblákat a <code>script/create_tables.sql</code> "
+"Hozza létre a kívánt táblákat a <code>examples/create_tables.sql</code> "
 "használatával."
 
 #: libraries/relation.lib.php:155

@@ -7320,9 +7320,9 @@ msgstr "Шаги необходимые для установки дополни
 
 #: libraries/relation.lib.php:154
 msgid ""
-"Create the needed tables with the <code>script/create_tables.sql</code>."
+"Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgstr ""
-"Создайте необходимые таблицы с помощью скрипта <code>script/create_tables."
+"Создайте необходимые таблицы с помощью скрипта <code>examples/create_tables."
 "sql</code>."
 
 #: libraries/relation.lib.php:155
