@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-14 14:00+0200\n"
+"PO-Revision-Date: 2012-02-14 14:01+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -5790,7 +5790,7 @@ msgstr "Parolă control user phpMyAdmin goală la folosirea pmadb"
 #: libraries/config/validate.lib.php:385
 #, php-format
 msgid "Incorrect IP address: %s"
-msgstr ""
+msgstr "Adresă IP incorectă: %s"
 
 #. l10n: Please check that translation actually exists.
 #: libraries/core.lib.php:247
