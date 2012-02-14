@@ -5706,9 +5706,8 @@ msgid "HTTP authentication"
 msgstr "Autentificare HTTP"
 
 #: libraries/config/setup.forms.php:51
-#, fuzzy
 msgid "Signon authentication"
-msgstr "Tipul autentificării"
+msgstr "Autentificare Signon"
 
 #: libraries/config/setup.forms.php:251
 #: libraries/config/user_preferences.forms.php:151 libraries/import/ldi.php:35
