@@ -367,8 +367,8 @@ function checkSqlQuery(theForm)
 {
 
     // First check if codemirror is active.
-    if (typeof(CodeMirror)!='undefined') {
-        theForm.elements['sql_query'].value = CodeMirror.getValue();
+    if (codemirror_editor) {
+        theForm.elements['sql_query'].value = codemirror_editor.getValue();
     }
 
     var sqlQuery = theForm.elements['sql_query'];
