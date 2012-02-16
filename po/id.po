@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-16 19:34+0200\n"
+"PO-Revision-Date: 2012-02-16 19:36+0200\n"
 "Last-Translator: haze_skw <julungpujut@ymail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -2337,6 +2337,7 @@ msgstr "File configuration yang ada (%s) tidak dapat di baca."
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
+"Perizinan yang salah pada file konfigurasi, sehingga tidak dapat ditulis!"
 
 #: libraries/Config.class.php:1303
 msgid "Font size"
