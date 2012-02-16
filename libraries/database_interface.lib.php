@@ -1847,6 +1847,7 @@ function PMA_DBI_formatError($error_number, $error_message)
 function PMA_is_system_schema($schema_name, $test_for_mysql_schema = false)
 {
     return strtolower($schema_name) == 'information_schema'
+            || strtolower($schema_name) == 'performance_schema'
             || (PMA_DRIZZLE && strtolower($schema_name) == 'data_dictionary')
             || ($test_for_mysql_schema && !PMA_DRIZZLE && $schema_name == 'mysql');
 }
