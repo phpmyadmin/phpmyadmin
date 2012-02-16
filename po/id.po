@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-16 19:30+0200\n"
+"PO-Revision-Date: 2012-02-16 19:31+0200\n"
 "Last-Translator: haze_skw <julungpujut@ymail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -2306,6 +2306,7 @@ msgstr "Detik"
 #, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr ""
+"Gagal format string untuk aturan '%s'. PHP melemparkan kesalahan berikut:% s"
 
 #: libraries/Advisor.class.php:326 server_status.php:952
 msgid "per second"
