@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-16 19:17+0200\n"
+"PO-Revision-Date: 2012-02-16 19:18+0200\n"
 "Last-Translator: haze_skw <julungpujut@ymail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1903,7 +1903,7 @@ msgstr ""
 
 #: js/messages.php:307
 msgid "Strings are converted into integer for plotting"
-msgstr ""
+msgstr "string dikonversi menjadi integer untuk perencanaan"
 
 #: js/messages.php:309
 msgid "Select two columns"
