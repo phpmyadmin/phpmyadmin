@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-16 19:46+0200\n"
+"PO-Revision-Date: 2012-02-16 19:47+0200\n"
 "Last-Translator: haze_skw <julungpujut@ymail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -2700,7 +2700,7 @@ msgstr "Nama pengguna/kata sandi salah. Akses ditolak."
 
 #: libraries/auth/signon.auth.lib.php:88
 msgid "Can not find signon authentication script:"
-msgstr ""
+msgstr "Tidak dapat menemukan script otentikasi signon:"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:116
 #, php-format
