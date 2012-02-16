@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-01-12 07:41+0200\n"
-"Last-Translator: Mahyuddin Susanto <udienz@ubuntu.com>\n"
+"PO-Revision-Date: 2012-02-16 18:33+0200\n"
+"Last-Translator: haze_skw <julungpujut@ymail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
@@ -1114,10 +1114,9 @@ msgid "Add Index"
 msgstr "Tambah indek"
 
 #: js/messages.php:47
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit Index"
-msgstr "Modus pengubahan"
+msgstr "Mengedit Indeks"
 
 #: js/messages.php:48 tbl_indexes.php:293
 #, php-format
