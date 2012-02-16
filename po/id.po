@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-16 19:09+0200\n"
+"PO-Revision-Date: 2012-02-16 19:12+0200\n"
 "Last-Translator: haze_skw <julungpujut@ymail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1885,7 +1885,7 @@ msgstr "Gunakan roda tetikus untuk memperbesar atau keluar dari plot."
 
 #: js/messages.php:299
 msgid "Click and drag the mouse to navigate the plot."
-msgstr ""
+msgstr "Klik dan tarik tetikus untuk mengarah ke plot."
 
 #: js/messages.php:301
 msgid "Click reset zoom link to come back to original state."
