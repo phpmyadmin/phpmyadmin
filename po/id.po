@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-16 19:08+0200\n"
+"PO-Revision-Date: 2012-02-16 19:09+0200\n"
 "Last-Translator: haze_skw <julungpujut@ymail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1881,7 +1881,7 @@ msgstr "Melayang di atas titik akan menunjukkan labelnya."
 
 #: js/messages.php:297
 msgid "Use mousewheel to zoom in or out of the plot."
-msgstr ""
+msgstr "Gunakan roda tetikus untuk memperbesar atau keluar dari plot."
 
 #: js/messages.php:299
 msgid "Click and drag the mouse to navigate the plot."
