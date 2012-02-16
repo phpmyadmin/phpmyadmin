@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-16 19:40+0200\n"
+"PO-Revision-Date: 2012-02-16 19:41+0200\n"
 "Last-Translator: haze_skw <julungpujut@ymail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -2401,7 +2401,7 @@ msgstr "Terjadi galat sewaktu memindahkan berkas unggahan."
 
 #: libraries/File.class.php:516
 msgid "Cannot read (moved) upload file."
-msgstr ""
+msgstr "Tidak bisa membaca (memindah) file unggah."
 
 #: libraries/Index.class.php:419 tbl_relation.php:522
 msgid "No index defined!"
