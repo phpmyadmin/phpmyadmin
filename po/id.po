@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-16 18:47+0200\n"
+"PO-Revision-Date: 2012-02-16 18:48+0200\n"
 "Last-Translator: haze_skw <julungpujut@ymail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1672,7 +1672,7 @@ msgstr "Baris yang terpengaruh:"
 
 #: js/messages.php:210
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
-msgstr ""
+msgstr "Gagal mengurai berkas config.Ini mungkin kesalahan kode JSON."
 
 #: js/messages.php:211
 msgid ""
