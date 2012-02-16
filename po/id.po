@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-16 18:52+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"PO-Revision-Date: 2012-02-16 18:54+0200\n"
+"Last-Translator: haze_skw <julungpujut@ymail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
@@ -1815,7 +1815,7 @@ msgstr "Menghapus %s"
 
 #: js/messages.php:263
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr ""
+msgstr "Definisi fungsi disimpan harus mengandung pernyataan RETURN!"
 
 #: js/messages.php:270
 #, php-format
