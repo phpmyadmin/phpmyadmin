@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-16 19:13+0200\n"
+"PO-Revision-Date: 2012-02-16 19:15+0200\n"
 "Last-Translator: haze_skw <julungpujut@ymail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1893,7 +1893,7 @@ msgstr "Klik link Zoom reset untuk kembali ke keadaan semula."
 
 #: js/messages.php:303
 msgid "Click a data point to view and possibly edit the data row."
-msgstr ""
+msgstr "Klik titik data untuk melihat dan mungkin mengedit baris data."
 
 #: js/messages.php:305
 msgid "The plot can be resized by dragging it along the bottom right corner."
