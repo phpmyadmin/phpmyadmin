@@ -2824,6 +2824,8 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
+"Hal ini biasanya berarti ada kesalahan sintaks di dalamnya, silahkan cek "
+"kesalahan di bawah ini."
 
 #: libraries/common.inc.php:615
 #, php-format
