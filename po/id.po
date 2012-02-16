@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-16 19:44+0200\n"
+"PO-Revision-Date: 2012-02-16 19:45+0200\n"
 "Last-Translator: haze_skw <julungpujut@ymail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -2565,6 +2565,9 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
+"Tidak bisa menyimpan UI properti \"% s\". Perubahan yang dibuat tidak akan "
+"terus-menerus setelah Anda me-refresh halaman ini. Silakan periksa jika "
+"struktur tabel telah berubah."
 
 #: libraries/Theme.class.php:145
 #, php-format
