@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-01-27 08:18+0200\n"
+"PO-Revision-Date: 2012-02-17 10:54+0200\n"
 "Last-Translator: minsung kang <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -1451,7 +1451,7 @@ msgstr ""
 #: js/messages.php:154
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time이 %d초로 설정되였습니다."
 
 #: js/messages.php:155
 msgid ""
@@ -1482,7 +1482,7 @@ msgstr "%s 사용안함"
 #: js/messages.php:163
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "long_query_time을 %d초로 설정합니다."
 
 #: js/messages.php:164
 msgid ""
@@ -1507,7 +1507,7 @@ msgstr "차트 제목"
 #. l10n: As in differential values
 #: js/messages.php:170
 msgid "Differential"
-msgstr ""
+msgstr "차이"
 
 #: js/messages.php:171
 #, php-format
@@ -1516,15 +1516,15 @@ msgstr "%s로 구분"
 
 #: js/messages.php:172
 msgid "Unit"
-msgstr ""
+msgstr "단위"
 
 #: js/messages.php:174
 msgid "From slow log"
-msgstr ""
+msgstr "느린 로그로부터"
 
 #: js/messages.php:175
 msgid "From general log"
-msgstr ""
+msgstr "일반 로그로부터"
 
 #: js/messages.php:176
 msgid "Analysing & loading logs. This may take a while."
@@ -1552,7 +1552,7 @@ msgstr ""
 
 #: js/messages.php:180
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr ""
+msgstr "로그자료가 적재되였습니다. 그동안 질의가 실행되였습니다."
 
 #: js/messages.php:182
 msgid "Jump to Log table"
@@ -1627,11 +1627,11 @@ msgstr "전체 사용량"
 #: js/messages.php:203
 #, fuzzy
 msgid "Loading logs"
-msgstr "Local"
+msgstr "로그를 불러오고 있습니다."
 
 #: js/messages.php:204
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "모니터링 리프리쉬가 실패하였습니다."
 
 #: js/messages.php:205
 msgid ""
@@ -1671,11 +1671,11 @@ msgstr "질의 분석"
 
 #: js/messages.php:218
 msgid "Advisor system"
-msgstr ""
+msgstr "조언 시스템"
 
 #: js/messages.php:219
 msgid "Possible performance issues"
-msgstr ""
+msgstr "가능한 성능 문제"
 
 #: js/messages.php:220
 msgid "Issue"
@@ -1727,7 +1727,7 @@ msgstr "열을 삭제하고 있습니다."
 
 #: js/messages.php:237
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "기본 키를 추가하고 있습니다."
 
 #: js/messages.php:238 libraries/relation.lib.php:80 pmd_general.php:380
 #: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
@@ -1737,7 +1737,7 @@ msgstr "확인"
 
 #: js/messages.php:239
 msgid "Click to dismiss this notification"
-msgstr ""
+msgstr "클릭하면 이 알림을 받지 않습니다."
 
 #: js/messages.php:242
 msgid "Renaming Databases"
@@ -1849,7 +1849,7 @@ msgstr "검색 조건 보이기"
 #, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
-msgstr "검색"
+msgstr "추가 검색"
 
 #: js/messages.php:293
 #, fuzzy
