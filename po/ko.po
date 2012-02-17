@@ -1552,7 +1552,7 @@ msgstr ""
 
 #: js/messages.php:180
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr ""
+msgstr "로그자료가 적재되였습니다. 그동안 질의가 실행되였습니다."
 
 #: js/messages.php:182
 msgid "Jump to Log table"
