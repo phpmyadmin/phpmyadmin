@@ -1475,7 +1475,7 @@ msgstr "Monitor pauzeren"
 
 #: js/messages.php:147
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "general_log en slow_query_log zijn ingeschakeld."
 
 #: js/messages.php:148
 msgid "general_log is enabled."
