@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
 "PO-Revision-Date: 2012-02-17 10:52+0200\n"
-"Last-Translator: minsung kang <manyfun7@gmail.com>\n"
+"Last-Translator: riumi <auddlk@qq.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -1675,7 +1675,7 @@ msgstr "조언 시스템"
 
 #: js/messages.php:219
 msgid "Possible performance issues"
-msgstr ""
+msgstr "가능한 성능 문제"
 
 #: js/messages.php:220
 msgid "Issue"
