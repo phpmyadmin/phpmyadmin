@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
 "PO-Revision-Date: 2012-02-17 10:50+0200\n"
-"Last-Translator: minsung kang <manyfun7@gmail.com>\n"
+"Last-Translator: riumi <auddlk@qq.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -1631,7 +1631,7 @@ msgstr "로그를 불러오고 있습니다."
 
 #: js/messages.php:204
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "모니터링 리프리쉬가 실패하였습니다."
 
 #: js/messages.php:205
 msgid ""
