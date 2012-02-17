@@ -1487,7 +1487,7 @@ msgstr "slow_query_log is ingeschakeld."
 
 #: js/messages.php:150
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "slow_query_log en general_log zijn uitgeschakeld."
 
 #: js/messages.php:151
 msgid "log_output is not set to TABLE."
