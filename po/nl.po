@@ -1346,7 +1346,7 @@ msgstr "Totaal geheugen"
 
 #: js/messages.php:109
 msgid "Cached memory"
-msgstr ""
+msgstr "Gecached geheugen"
 
 #: js/messages.php:110
 #, fuzzy
