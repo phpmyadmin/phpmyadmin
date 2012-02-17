@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-17 10:46+0200\n"
+"PO-Revision-Date: 2012-02-17 10:47+0200\n"
 "Last-Translator: riumi <auddlk@qq.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -1524,7 +1524,7 @@ msgstr "느린 로그로부터"
 
 #: js/messages.php:175
 msgid "From general log"
-msgstr ""
+msgstr "일반 로그로부터"
 
 #: js/messages.php:176
 msgid "Analysing & loading logs. This may take a while."
