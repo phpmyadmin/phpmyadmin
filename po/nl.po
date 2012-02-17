@@ -1337,7 +1337,7 @@ msgstr "KB"
 
 #: js/messages.php:107
 msgid "Average load"
-msgstr ""
+msgstr "Gemiddelde systeembelasting"
 
 #: js/messages.php:108
 #, fuzzy
