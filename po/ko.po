@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
 "PO-Revision-Date: 2012-02-17 10:52+0200\n"
-"Last-Translator: minsung kang <manyfun7@gmail.com>\n"
+"Last-Translator: riumi <auddlk@qq.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -1727,7 +1727,7 @@ msgstr "열을 삭제하고 있습니다."
 
 #: js/messages.php:237
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "기본 키를 추가하고 있습니다."
 
 #: js/messages.php:238 libraries/relation.lib.php:80 pmd_general.php:380
 #: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
