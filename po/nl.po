@@ -1504,6 +1504,9 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log is ingeschakeld, maar de server logt enkel queries die langer "
+"duren dan %d seconden. Het is aangeraden om long_query_time in te stellen "
+"op 0-2 seconden, afhankelijk van uw systeem."
 
 #: js/messages.php:154
 #, php-format
