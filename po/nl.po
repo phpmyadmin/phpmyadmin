@@ -1446,7 +1446,7 @@ msgstr "Verwijder grafiek"
 
 #: js/messages.php:139
 msgid "Edit title and labels"
-msgstr ""
+msgstr "Titel en labels aanpassen"
 
 #: js/messages.php:140
 #, fuzzy
