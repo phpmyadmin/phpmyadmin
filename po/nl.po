@@ -1467,7 +1467,7 @@ msgstr "Geen"
 
 #: js/messages.php:144
 msgid "Resume monitor"
-msgstr ""
+msgstr "Monitor heropstarten"
 
 #: js/messages.php:145
 msgid "Pause monitor"
