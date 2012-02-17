@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-17 17:57+0200\n"
+"PO-Revision-Date: 2012-02-17 17:59+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -1284,10 +1284,9 @@ msgid "Query statistics"
 msgstr "Toon statistieken"
 
 #: js/messages.php:94
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Local monitor configuration incompatible"
-msgstr "Opslaan van het configuratiebestand is niet mogelijk"
+msgstr "Configuratie van lokale monitoring is niet geldig"
 
 #: js/messages.php:95
 msgid ""
