@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-17 18:12+0200\n"
+"PO-Revision-Date: 2012-02-17 18:13+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -1483,7 +1483,7 @@ msgstr "general_log is ingeschakeld."
 
 #: js/messages.php:149
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "slow_query_log is ingeschakeld."
 
 #: js/messages.php:150
 msgid "slow_query_log and general_log are disabled."
