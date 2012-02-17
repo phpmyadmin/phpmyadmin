@@ -1562,10 +1562,9 @@ msgid "Change settings"
 msgstr "Instellingen wijzigen"
 
 #: js/messages.php:166
-#, fuzzy
 #| msgid "More settings"
 msgid "Current settings"
-msgstr "Overige instellingen"
+msgstr "Huidige instellingen"
 
 #: js/messages.php:168 server_status.php:1645
 #, fuzzy
