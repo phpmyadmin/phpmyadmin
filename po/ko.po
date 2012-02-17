@@ -1451,7 +1451,7 @@ msgstr ""
 #: js/messages.php:154
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time이 %d초로 설정되였습니다."
 
 #: js/messages.php:155
 msgid ""
