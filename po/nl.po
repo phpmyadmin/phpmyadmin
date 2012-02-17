@@ -1272,7 +1272,7 @@ msgstr "Connecties / Processen"
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
 msgid "Questions since last refresh"
-msgstr "Vragen sinds laatste verversing"
+msgstr "Questions sinds laatste verversing"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:89
