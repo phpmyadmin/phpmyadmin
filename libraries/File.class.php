@@ -70,11 +70,6 @@ class PMA_File
     var $_charset = null;
 
     /**
-     * @staticvar string most recent BLOB repository reference
-    */
-    static $_recent_bs_reference = null;
-
-    /**
      * constructor
      *
      * @access  public
@@ -238,32 +233,6 @@ class PMA_File
         }
         $file = PMA_File::fetchUploadedFromTblChangeRequestMultiple($_FILES['fields_upload'], $rownumber, $key);
 
-        // for blobstreaming
-        $is_bs_upload = false;
-
-        // check if this field requires a repository upload
-        if (isset($_REQUEST['upload_blob_repo']['multi_edit'][$rownumber][$key])) {
-            $is_bs_upload = ($_REQUEST['upload_blob_repo']['multi_edit'][$rownumber][$key] == "on") ? true : false;
-        }
-        // if request is an upload to the BLOB repository
-        if ($is_bs_upload) {
-            $bs_db = $_REQUEST['db'];
-            $bs_table = $_REQUEST['table'];
-            $tmp_filename = $file['tmp_name'];
-            $tmp_file_type = $file['type'];
-
-            if (! $tmp_file_type) {
-                $tmp_file_type = null;
-            }
-
-            if (! $bs_db || ! $bs_table) {
-                $this->_error_message = __('Unknown error while uploading.');
-                return false;
-            }
-            $blob_url =  PMA_BS_UpLoadFile($bs_db, $bs_table, $tmp_file_type, $tmp_filename);
-            PMA_File::setRecentBLOBReference($blob_url);
-         }   // end if ($is_bs_upload)
-
         // check for file upload errors
         switch ($file['error']) {
             // we do not use the PHP constants here cause not all constants
@@ -351,48 +320,6 @@ class PMA_File
         if (! empty($_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key])
          && is_string($_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key])) {
             // ... whether with multiple rows ...
-            // for blobstreaming
-            $is_bs_upload = false;
-
-            // check if this field requires a repository upload
-            if (isset($_REQUEST['upload_blob_repo']['multi_edit'][$rownumber][$key])) {
-                $is_bs_upload = ($_REQUEST['upload_blob_repo']['multi_edit'][$rownumber][$key] == "on") ? true : false;
-            }
-
-            // is a request to upload file to BLOB repository using uploadDir mechanism
-            if ($is_bs_upload) {
-                $bs_db = $_REQUEST['db'];
-                $bs_table = $_REQUEST['table'];
-                $tmp_filename = $GLOBALS['cfg']['UploadDir'] . '/' . $_REQUEST['fields_uploadlocal_' . $key]['multi_edit'][$rownumber];
-
-                // check if fileinfo library exists
-                if ($PMA_Config->get('FILEINFO_EXISTS')) {
-                // attempt to init fileinfo
-                    $finfo = finfo_open(FILEINFO_MIME);
-
-                    // fileinfo exists
-                    if ($finfo) {
-                        // pass in filename to fileinfo and close fileinfo handle after
-                        $tmp_file_type = finfo_file($finfo, $tmp_filename);
-                        finfo_close($finfo);
-                    }
-                } else {
-                    // no fileinfo library exists, use file command
-                    $tmp_file_type = exec("file -bi " . escapeshellarg($tmp_filename));
-                }
-
-                if (! $tmp_file_type) {
-                    $tmp_file_type = null;
-                }
-
-                if (! $bs_db || !$bs_table) {
-                    $this->_error_message = __('Unknown error while uploading.');
-                    return false;
-                }
-                $blob_url = PMA_BS_UpLoadFile($bs_db, $bs_table, $tmp_file_type, $tmp_filename);
-                PMA_File::setRecentBLOBReference($blob_url);
-            }   // end if ($is_bs_upload)
-
             return $this->setLocalSelectedFile($_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key]);
         } else {
             return false;
@@ -797,31 +724,6 @@ class PMA_File
             return ($this->getOffset() >= $this->getContentLength());
         }
 
-    }
-
-    /**
-     * sets reference to most recent BLOB repository reference
-     *
-     * @access  public
-     * @param string - BLOB repository reference
-    */
-    static function setRecentBLOBReference($ref)
-    {
-        PMA_File::$_recent_bs_reference = $ref;
-    }
-
-    /**
-     * retrieves reference to most recent BLOB repository reference
-     *
-     * @access  public
-     * @return  string - most recent BLOB repository reference
-    */
-    static function getRecentBLOBReference()
-    {
-        $ref = PMA_File::$_recent_bs_reference;
-        PMA_File::$_recent_bs_reference = null;
-
-        return $ref;
     }
 }
 ?>

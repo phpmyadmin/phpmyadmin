@@ -81,9 +81,6 @@ vim: expandtab ts=4 sw=4 sts=4 tw=78
                 </li>
                 <li>To support upload progress bars, see <a href="#faq2_9">
                     <abbr title="Frequently Asked Questions">FAQ</abbr> 2.9</a>.</li>
-                <li>To support BLOB streaming, see PHP and MySQL requirements
-                in <a href="#faq6_25">
-                    <abbr title="Frequently Asked Questions">FAQ</abbr> 6.25</a>.</li>
                 <li>To support XML and Open Document Spreadsheet importing,
                 you need PHP 5.2.17 or newer and the 
                 <a href="http://www.php.net/libxml"><tt>libxml</tt></a> extension.</li>
@@ -4337,25 +4334,7 @@ INSERT INTO REL_towns VALUES ('M', 'Montr&eacute;al');
     ones is done whenever you enter Structure page for this table.</p>
 
 <h4 id="faq6_25">
-    <a href="#faq6_25">6.25 How does BLOB streaming work in phpMyAdmin?</a></h4>
-
-<p> For general information about BLOB streaming on MySQL, visit <a href="http://blobstreaming.org">blobstreaming.org</a>. You need the following components:</p>
-<ul>
-    <li>PBMS BLOB Streaming Daemon for MySQL (0.5.15 or later)</li>
-    <li>Streaming enabled PBXT Storage engine for MySQL (1.0.11-6 or
-    later)</li>
-    <li>PBMS Client Library for MySQL (0.5.15 or later)</li>
-    <li>PBMS PHP Extension for MySQL (0.1.1 or later)</li>
-</ul>
-
-<p>Here are details about configuration and operation:</p>
-
-<ol>
-    <li>In <tt>config.inc.php</tt> your host should be defined with a FQDN (fully qualified domain name) instead of &quot;localhost&quot;.</li>
-    <li>Ensure that your target table is under the <tt>PBXT</tt> storage engine and has a <tt>LONGBLOB</tt> column (which must be nullable if you want to remove the BLOB reference from it).</li>
-    <li>When you insert or update a row in this table, put a checkmark on the &quot;Upload to BLOB repository&quot; optional choice; otherwise, the upload will be done directly in your LONGBLOB column instead of the repository.</li>
-    <li>Finally when you browse your table, you'll see in your column a link to stream your data, for example &quot;View image&quot;. A header containing the correct MIME-type will be sent to your browser; this MIME-type was stored at upload time.</li> 
-</ol>    
+    <a href="#faq6_25">6.25 (withdrawn).</a></h4>
 
 <h4 id="faq6_26">
     <a href="#faq6_26">6.26 How can I select a range of rows?</a></h4>
@@ -4920,7 +4899,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/">htt
 
 <li>Raj Kissu Rajandran (Google Summer of Code 2008)
 <ul>
-  <li>BLOBstreaming support</li>
+  <li>BLOBstreaming support (withdrawn in release 4.0)</li>
 </ul></li>
 
 <li>Piotr Przybylski (Google Summer of Code 2008, 2010 and 2011)
@@ -4974,7 +4953,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/">htt
 
 <li>Barrie Leslie
 <ul>
-  <li>BLOBstreaming support with PBMS PHP extension</li>
+  <li>BLOBstreaming support with PBMS PHP extension (withdrawn in release 4.0)</li>
 </ul></li>
 
 <li>Ankit Gupta (Google Summer of Code 2010)

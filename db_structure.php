@@ -125,14 +125,7 @@ $hidden_fields = array();
 $odd_row       = true;
 $sum_row_count_pre = '';
 
-$tableReductionCount = 0;   // the amount to reduce the table count by
-
 foreach ($tables as $keyname => $each_table) {
-    if (PMA_BS_IsHiddenTable($keyname)) {
-        $tableReductionCount++;
-        continue;
-    }
-
     // Get valid statistics whatever is the table type
 
     $table_is_view = false;
@@ -505,14 +498,9 @@ if ($is_show_stats) {
 <tr><th></th>
     <th align="center" nowrap="nowrap" class="tbl_num">
         <?php
-            // for blobstreaming - if the number of tables is 0, set tableReductionCount to 0
-            // (we don't want negative numbers here)
-            if ($num_tables == 0) {
-                $tableReductionCount = 0;
-            }
             echo sprintf(
-                _ngettext('%s table', '%s tables', $num_tables - $tableReductionCount),
-                PMA_formatNumber($num_tables - $tableReductionCount, 0)
+                _ngettext('%s table', '%s tables', $num_tables),
+                PMA_formatNumber($num_tables, 0)
             );
         ?>
     </th>

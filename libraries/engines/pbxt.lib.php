@@ -127,7 +127,6 @@ class PMA_StorageEngine_pbxt extends PMA_StorageEngine
         . '<h3>' . __('Related Links') . '</h3>' . "\n"
         . '<ul>' . "\n"
         . '<li><a href="' . PMA_linkURL('http://pbxt.blogspot.com/') . '" target="_blank">' . __('The PrimeBase XT Blog by Paul McCullagh') . '</a></li>' . "\n"
-        . '<li><a href="' . PMA_linkURL('http://www.blobstreaming.org/') . '" target="_blank">' . __('The PrimeBase Media Streaming (PBMS) home page') . '</a></li>' . "\n"
         . '</ul>' . "\n";
 
         return $output;
