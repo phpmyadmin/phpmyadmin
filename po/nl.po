@@ -1479,7 +1479,7 @@ msgstr "general_log en slow_query_log zijn ingeschakeld."
 
 #: js/messages.php:148
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log is ingeschakeld."
 
 #: js/messages.php:149
 msgid "slow_query_log is enabled."
