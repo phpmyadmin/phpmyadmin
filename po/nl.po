@@ -1440,10 +1440,9 @@ msgid "Settings"
 msgstr "Instellingen"
 
 #: js/messages.php:138
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "Verwijder database"
+msgstr "Verwijder grafiek"
 
 #: js/messages.php:139
 msgid "Edit title and labels"
