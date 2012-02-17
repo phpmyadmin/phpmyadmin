@@ -1449,10 +1449,9 @@ msgid "Edit title and labels"
 msgstr "Titel en labels aanpassen"
 
 #: js/messages.php:140
-#, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "Kleef aan raster"
+msgstr "Grafiek toevoegen aan raster"
 
 #: js/messages.php:142
 msgid "Please add at least one variable to the series"
