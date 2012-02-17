@@ -816,10 +816,10 @@ msgid "Values for a new column"
 msgstr "Waarden voor een neiuwe kolom"
 
 #: enum_editor.php:30 js/messages.php:267
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
-msgstr "Waarden voor kolom \"%s\""
+msgstr "Waarden voor kolom %s"
 
 #: enum_editor.php:34 js/messages.php:269
 #, fuzzy
