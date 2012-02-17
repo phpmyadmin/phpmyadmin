@@ -1516,7 +1516,7 @@ msgstr "%s로 구분"
 
 #: js/messages.php:172
 msgid "Unit"
-msgstr ""
+msgstr "단위"
 
 #: js/messages.php:174
 msgid "From slow log"
