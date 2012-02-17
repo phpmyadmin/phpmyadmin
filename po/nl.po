@@ -1321,7 +1321,7 @@ msgstr "Systeem geheugen"
 
 #: js/messages.php:103
 msgid "System swap"
-msgstr "Systeem swap"
+msgstr "Systeem wisselbestand"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1399
