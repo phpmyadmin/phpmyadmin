@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-17 10:44+0200\n"
+"PO-Revision-Date: 2012-02-17 10:45+0200\n"
 "Last-Translator: riumi <auddlk@qq.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -1507,7 +1507,7 @@ msgstr "차트 제목"
 #. l10n: As in differential values
 #: js/messages.php:170
 msgid "Differential"
-msgstr ""
+msgstr "차이"
 
 #: js/messages.php:171
 #, php-format
