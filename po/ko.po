@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-01-27 08:18+0200\n"
-"Last-Translator: minsung kang <manyfun7@gmail.com>\n"
+"PO-Revision-Date: 2012-02-17 10:44+0200\n"
+"Last-Translator: riumi <auddlk@qq.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -1482,7 +1482,7 @@ msgstr "%s 사용안함"
 #: js/messages.php:163
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "long_query_time을 %d초로 설정합니다."
 
 #: js/messages.php:164
 msgid ""
