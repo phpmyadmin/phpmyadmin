@@ -830,7 +830,7 @@ msgstr "Plaats elke waarde in een afzonderlijk veld"
 #, fuzzy
 #| msgid "+ Add a new value"
 msgid "Add a value"
-msgstr "Nieuwe waarde toevoegen"
+msgstr "Een nieuwe waarde toevoegen"
 
 #: enum_editor.php:129 gis_data_editor.php:317
 msgid "Output"
