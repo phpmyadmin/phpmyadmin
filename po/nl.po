@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-17 18:11+0200\n"
+"PO-Revision-Date: 2012-02-17 18:12+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -1471,7 +1471,7 @@ msgstr "Monitor heropstarten"
 
 #: js/messages.php:145
 msgid "Pause monitor"
-msgstr ""
+msgstr "Monitor pauzeren"
 
 #: js/messages.php:147
 msgid "general_log and slow_query_log are enabled."
