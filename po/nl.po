@@ -1372,7 +1372,7 @@ msgstr "Gecached wisselbestand"
 
 #: js/messages.php:116
 msgid "Used Swap"
-msgstr ""
+msgstr "Wisselbestand in gebruik"
 
 #: js/messages.php:117
 #, fuzzy
