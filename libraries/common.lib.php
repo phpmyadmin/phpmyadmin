@@ -828,6 +828,7 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count =
 
         if ($GLOBALS['cfg']['ShowTooltipAliasTB']
             && $GLOBALS['cfg']['ShowTooltipAliasTB'] !== 'nested'
+            && $table['Comment'] // do not switch if the comment is empty
         ) {
             // switch tooltip and name
             $table['disp_name'] = $table['Comment'];
