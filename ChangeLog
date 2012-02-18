@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 3.4.11.0 (not yet released)
+- bug #3486970 [import] Exception on XML import
 
 3.4.10.0 (2012-02-14)
 - bug #3460090 [interface] TextareaAutoSelect feature broken

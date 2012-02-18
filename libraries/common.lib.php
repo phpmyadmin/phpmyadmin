@@ -3020,4 +3020,21 @@ function PMA_buildActionTitles() {
     $titles['Edit']       = PMA_getIcon('b_edit.png', __('Edit'), true);
     return $titles;
 }
+
+/**
+ * Determines whether a variable is serializable.
+ *
+ * @param object $var object which needs to be checked for serializability
+ *
+ * @return whether the object is serializable.
+ */
+function PMA_isSerializable($var)
+{
+    try {
+        serialize($var);
+        return true;
+    } catch(Exception $e) {
+        return false;
+    }
+}
 ?>
