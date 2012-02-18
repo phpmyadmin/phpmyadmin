@@ -1,6 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
+3.4.10.1 (2012-02-18)
+- [security] XSS in replication setup, see PMASA-2012-1
+
 3.4.10.0 (2012-02-14)
 - bug #3460090 [interface] TextareaAutoSelect feature broken
 - patch #3375984 [export] PHP Array export might generate invalid php code
