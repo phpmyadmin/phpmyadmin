@@ -485,11 +485,7 @@ if (! PMA_isValid($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['
         /* Cookie preferences */
         'pma_lang', 'pma_collation_connection',
         /* Possible login form */
-        'pma_servername', 'pma_username', 'pma_password',
-        /* for playing blobstreamable media */
-        'media_type', 'custom_type', 'bs_reference',
-        /* for changing BLOB repository file MIME type */
-        'bs_db', 'bs_table', 'bs_ref', 'bs_new_mime_type',
+        'pma_servername', 'pma_username', 'pma_password'
     );
     /**
      * Require cleanup functions
@@ -1006,13 +1002,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // the checkbox was unchecked
         unset($_SESSION['profiling']);
     }
-
-    // library file for blobstreaming
-    include_once './libraries/blobstreaming.lib.php';
-
-    // checks for blobstreaming plugins and databases that support
-    // blobstreaming (by having the necessary tables for blobstreaming)
-    checkBLOBStreamingPlugins();
 
 } // end if !defined('PMA_MINIMUM_COMMON')
 

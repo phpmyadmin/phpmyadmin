@@ -1581,13 +1581,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                     if (! isset($row[$i]) || is_null($row[$i])) {
                         $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($class, $condition_field, $meta);
                     } else {
-                        // for blobstreaming
-                        // if valid BS reference exists
-                        if (PMA_BS_IsPBMSReference($row[$i], $db)) {
-                            $blobtext = PMA_BS_CreateReferenceLink($row[$i], $db);
-                        } else {
-                            $blobtext = PMA_handle_non_printable_contents('BLOB', (isset($row[$i]) ? $row[$i] : ''), $transform_function, $transform_options, $default_function, $meta, $_url_params);
-                        }
+                        $blobtext = PMA_handle_non_printable_contents('BLOB', (isset($row[$i]) ? $row[$i] : ''), $transform_function, $transform_options, $default_function, $meta, $_url_params);
 
                         $vertical_display['data'][$row_no][$i]     =  PMA_buildValueDisplay($class, $condition_field, $blobtext);
                         unset($blobtext);

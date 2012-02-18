@@ -808,24 +808,12 @@ foreach ($rows as $row_id => $vrow) {
             if (($cfg['ProtectBinary'] && $field['is_blob'])
                 || ($cfg['ProtectBinary'] == 'all' && $field['is_binary'])
             ) {
-                echo "\n";
-                    // for blobstreaming
-                if (PMA_BS_IsTablePBMSEnabled($db, $table, $tbl_type)
-                    && PMA_BS_IsPBMSReference($data, $db)
-                ) {
-                    echo '<input type="hidden" name="remove_blob_ref_' . $field['Field_md5'] . $vkey . '" value="' . $data . '" />';
-                    echo '<input type="checkbox" name="remove_blob_repo_' . $field['Field_md5'] . $vkey . '" /> ' . __('Remove BLOB Repository Reference') . "<br />";
-                    echo PMA_BS_CreateReferenceLink($data, $db);
-                    echo "<br />";
-                } else {
-                    echo __('Binary - do not edit');
-                    if (isset($data)) {
-                        $data_size = PMA_formatByteDown(strlen(stripslashes($data)), 3, 1);
-                        echo ' ('. $data_size [0] . ' ' . $data_size[1] . ')';
-                        unset($data_size);
-                    }
-                    echo "\n";
-                }   // end if (PMA_BS_IsTablePBMSEnabled($db, $table, $tbl_type) && PMA_BS_IsPBMSReference($data, $db))
+                echo __('Binary - do not edit');
+                if (isset($data)) {
+                    $data_size = PMA_formatByteDown(strlen(stripslashes($data)), 3, 1);
+                    echo ' ('. $data_size [0] . ' ' . $data_size[1] . ')';
+                    unset($data_size);
+                }
                 ?>
                 <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>" value="protected" />
                 <input type="hidden" name="fields<?php echo $field_name_appendix; ?>" value="" />
@@ -863,14 +851,6 @@ foreach ($rows as $row_id => $vrow) {
             // (displayed whatever value the ProtectBinary has)
 
             if ($is_upload && $field['is_blob']) {
-                // check if field type is of longblob and  if the table is PBMS enabled.
-                if (($field['pma_type'] == "longblob")
-                    && PMA_BS_IsTablePBMSEnabled($db, $table, $tbl_type)
-                ) {
-                    echo '<br />';
-                    echo '<input type="checkbox" name="upload_blob_repo' . $vkey . '[' . $field['Field_md5'] . ']" /> ' .  __('Upload to BLOB repository');
-                }
-
                 echo '<br />';
                 echo '<input type="file" name="fields_upload' . $vkey . '[' . $field['Field_md5'] . ']" class="textfield" id="field_' . $idindex . '_3" size="10" ' . $unnullify_trigger . '/>&nbsp;';
 

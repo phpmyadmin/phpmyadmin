@@ -78,20 +78,6 @@ if (empty($_REQUEST['engine'])
         $odd_row = !$odd_row;
     }
 
-    $PMA_Config = $GLOBALS['PMA_Config'];
-    if ($PMA_Config->get('BLOBSTREAMING_PLUGINS_EXIST')) {
-        // Special case for PBMS daemon which is not listed as an engine
-        echo '<tr class="'
-            . ($odd_row ? 'odd' : 'even')
-            .  '">' . "\n"
-            . '    <td><a href="./server_engines.php'
-            . PMA_generate_common_url(array('engine' => "PBMS")) . '">' . "\n"
-            . '            '  . "PBMS\n"
-            . '        </a></td>' . "\n"
-            . '    <td>' . htmlspecialchars("PrimeBase MediaStream (PBMS) daemon") . '</td>' . "\n"
-            . '</tr>' . "\n";
-    }
-
    unset($odd_row, $engine, $details);
     echo '</tbody>' . "\n"
        . '</table>' . "\n";
