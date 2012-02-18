@@ -1064,13 +1064,13 @@ function PMA_DBI_get_columns_sql($database, $table, $column = null, $full = fals
             FROM data_dictionary.columns
             WHERE table_schema = '" . PMA_sqlAddSlashes($database) . "'
                 AND table_name = '" . PMA_sqlAddSlashes($table) . "'
-                " . ($column ? "
+                " . (($column != null) ? "
                 AND column_name = '" . PMA_sqlAddSlashes($column) . "'" : '');
         // ORDER BY ordinal_position
     } else {
         $sql = 'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS
             FROM ' . PMA_backquote($database) . '.' . PMA_backquote($table)
-            . ($column ? "LIKE '" . PMA_sqlAddSlashes($column, true) . "'" : '');
+            . (($column != null) ? "LIKE '" . PMA_sqlAddSlashes($column, true) . "'" : '');
     }
     return $sql;
 }
@@ -1124,7 +1124,7 @@ function PMA_DBI_get_columns($database, $table, $column = null, $full = false, $
         }
     }
 
-    return $column ? array_shift($fields) : $fields;
+    return ($column != null) ? array_shift($fields) : $fields;
 }
 
 /**
