@@ -186,7 +186,7 @@ $data_present = false;
 /**
  * Only attempt to analyze/collect data if there is data present
  */
-if (@count($xml->children())) {
+if ($xml && @$xml->count()) {
     $data_present = true;
 
     /**
